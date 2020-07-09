@@ -11,11 +11,12 @@ ms.author: anumamah
 ms.reviewer: nibaccam
 ms.date: 02/10/2020
 ms.custom: tracking-python
-ms.openlocfilehash: cf1732b88867074fe1f672e193ce404a4ef83e54
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 595440dc727f3faf1fa475266825a671f00d9153
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86023486"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86143610"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-predict-taxi-fares"></a>Samouczek: Używanie automatycznego uczenia maszynowego do przewidywania opłat za taksówkę
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -847,10 +848,7 @@ Parametr `test_size` określa procent danych przydzielanych do testowania. `rand
 ```python
 from sklearn.model_selection import train_test_split
 
-y_df = final_df.pop("totalAmount")
-x_df = final_df
-
-x_train, x_test, y_train, y_test = train_test_split(x_df, y_df, test_size=0.2, random_state=223)
+x_train, x_test = train_test_split(final_df, test_size=0.2, random_state=223)
 ```
 
 Celem tego etapu jest uzyskanie punktów danych do przetestowania ukończono modelu, które nie były używane do jego wytrenowania. Pozwoli to zmierzyć rzeczywistą dokładność.
@@ -898,8 +896,8 @@ from azureml.train.automl import AutoMLConfig
 
 automl_config = AutoMLConfig(task='regression',
                              debug_log='automated_ml_errors.log',
-                             X=x_train.values,
-                             y=y_train.values.flatten(),
+                             training_data=x_train,
+                             label_column_name="totalAmount",
                              **automl_settings)
 ```
 

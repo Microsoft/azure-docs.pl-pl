@@ -1,5 +1,5 @@
 ---
-title: 'Samouczek: Tworzenie modelu uczenia maszynowego przy użyciu języka R'
+title: 'Samouczek: używanie języka R do tworzenia modelu uczenia maszynowego (wersja zapoznawcza)'
 titleSuffix: Azure Machine Learning
 description: W tym samouczku użyjesz Azure Machine Learning R SDK, aby utworzyć model regresji logistycznej, który przewiduje prawdopodobieństwo wystąpienia krytycznego poziomu się w przypadku awarii samochodu.
 services: machine-learning
@@ -10,12 +10,12 @@ ms.reviewer: sgilley
 author: revodavid
 ms.author: davidsmi
 ms.date: 02/07/2020
-ms.openlocfilehash: d95c0fc9baf1e53e6643660726c72660719908ba
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.openlocfilehash: cb4afac3b1e73a95fa3fe703fc5bd9d3f621f23a
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85483384"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134691"
 ---
 # <a name="tutorial-use-r-to-create-a-machine-learning-model-preview"></a>Samouczek: używanie języka R do tworzenia modelu uczenia maszynowego (wersja zapoznawcza)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -384,7 +384,7 @@ Możesz również uzyskać punkt końcowy HTTP usługi sieci Web, który akceptu
 aci_service$scoring_uri
 ```
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Usuń zasoby, gdy nie będą już potrzebne. Nie usuwaj zasobów, których planujesz nadal używać. 
 

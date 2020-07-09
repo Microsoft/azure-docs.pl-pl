@@ -1,19 +1,19 @@
 ---
 title: 'Samouczek: skalowanie aplikacji w chmurze Azure wiosennej | Microsoft Docs'
-description: W tym samouczku dowiesz się, jak skalować aplikację przy użyciu chmury Azure wiosennej w Azure Portal
+description: Dowiedz się, jak skalować aplikację przy użyciu chmury Azure wiosny w Azure Portal
 ms.service: spring-cloud
 ms.topic: tutorial
 ms.author: brendm
 author: bmitchell287
 ms.date: 10/06/2019
-ms.openlocfilehash: 93cefd0c71e2d51187e68c6f5f02777d158e95a4
-ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
+ms.openlocfilehash: ca889e48510ec20b4823c6ec5e4e0149d5aaaa62
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84792068"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86141874"
 ---
-# <a name="scale-an-application-in-azure-spring-cloud"></a>Skalowanie aplikacji w chmurze Azure wiosennej
+# <a name="tutorial-scale-an-application-in-azure-spring-cloud"></a>Samouczek: skalowanie aplikacji w chmurze Azure wiosennej
 
 W tym samouczku przedstawiono sposób skalowania dowolnej aplikacji mikrousług przy użyciu pulpitu nawigacyjnego chmury Azure wiosny w Azure Portal.
 
@@ -23,10 +23,10 @@ Po zakończeniu dowiesz się, jak wprowadzać szybkie zmiany ręcznie do każdej
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Do ukończenia tego samouczka niezbędne są następujące elementy:
+Aby wykonać te procedury, potrzebne są:
 
 * Subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
-* Wdrożone wystąpienie usługi w chmurze Azure wiosną.  Skorzystaj z naszego [przewodnika Szybki Start dotyczącego wdrażania aplikacji za pomocą interfejsu wiersza polecenia platformy Azure,](spring-cloud-quickstart-launch-app-cli.md) aby rozpocząć pracę.
+* Wdrożone wystąpienie usługi w chmurze Azure wiosną.  Aby rozpocząć pracę, postępuj zgodnie z [przewodnikiem Szybki Start dotyczącym wdrażania aplikacji za pomocą interfejsu wiersza polecenia platformy Azure](spring-cloud-quickstart-launch-app-cli.md) .
 * Co najmniej jedna aplikacja została już utworzona w wystąpieniu usługi.
 
 ## <a name="navigate-to-the-scale-page-in-the-azure-portal"></a>Przejdź do strony skalowanie w Azure Portal
@@ -64,7 +64,7 @@ Jeśli korzystasz z warstwy Podstawowa i ograniczono jeden lub więcej z tych [l
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku przedstawiono sposób ręcznego skalowania aplikacji w chmurze sieci platformy Azure. Aby dowiedzieć się, jak monitorować aplikację, przejdź do następnego samouczka.
+W tym samouczku przedstawiono sposób ręcznego skalowania aplikacji w chmurze Azure wiosennej. Aby dowiedzieć się, jak monitorować aplikację przez skonfigurowanie alertów, przejdź do następnego samouczka.
 
 > [!div class="nextstepaction"]
-> [Dowiedz się, jak monitorować aplikację](spring-cloud-tutorial-distributed-tracing.md)
+> [Dowiedz się, jak skonfigurować alerty](spring-cloud-tutorial-alerts-action-groups.md)

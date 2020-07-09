@@ -6,11 +6,12 @@ ms.service: notification-hubs
 ms.topic: tutorial
 ms.date: 06/11/2020
 ms.author: alstrakh
-ms.openlocfilehash: 30cf22d99a675d4525d972aeb889cec30a2e9b94
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 007be386b7b64fd3461fa508d35a4ef9be377c1f
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86060505"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170915"
 ---
 # <a name="tutorial-send-push-notifications-to-react-native-apps-using-azure-notification-hubs-via-a-backend-service"></a>Samouczek: wysyłanie powiadomień wypychanych w celu reagowania na aplikacje natywne przy użyciu usługi Azure Notification Hubs za pośrednictwem usług zaplecza  
 
@@ -19,7 +20,8 @@ ms.locfileid: "86060505"
 > [!div class="op_single_selector"]
 >
 > * [Xamarin.Forms](notification-hubs-backend-service-xamarin-forms.md)
-> * [Zareaguj na natywny](notification-hubs-backend-service-react-native.md)
+> * [Flutter](notification-hubs-backend-service-flutter.md)
+> * [React Native](notification-hubs-backend-service-react-native.md)
 
 W tym samouczku użyjesz [usługi Azure Notification Hubs](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-push-notification-overview) , aby wypchnąć powiadomienia wypychane do aplikacji [natywnej reagującej](https://reactnative.dev/) na system **Android** i **iOS**.  
 
@@ -61,9 +63,9 @@ Możesz wykonać kroki opisane w tym przykładzie pierwszej zasady bez wcześnie
 
 * [Portal dla deweloperów firmy Apple](https://developer.apple.com)
 * [ASP.NET Core](https://docs.microsoft.com/aspnet/core/introduction-to-aspnet-core?view=aspnetcore-3.1)
+* [Azure Notification Hubs](notification-hubs-push-notification-overview.md)
 * [Konsola usługi Google Firebase](https://console.firebase.google.com/u/0/)
-* [Microsoft Azure](https://portal.azure.com) i [wysyłać powiadomienia wypychane do aplikacji systemu iOS przy użyciu usługi Azure Notification Hubs](ios-sdk-get-started.md).
-* [React Native](https://reactnative.dev/docs/getting-started).
+* [React Native](https://reactnative.dev/docs/getting-started)
 
 Podane kroki dotyczą [Visual Studio dla komputerów Mac](https://visualstudio.microsoft.com/vs/mac/) i [Visual Studio Code](https://code.visualstudio.com/download) ale można je wykonać przy użyciu [programu Visual Studio 2019](https://visualstudio.microsoft.com/vs).
 

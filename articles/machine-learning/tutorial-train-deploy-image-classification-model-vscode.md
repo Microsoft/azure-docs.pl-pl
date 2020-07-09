@@ -8,20 +8,20 @@ ms.subservice: core
 ms.topic: tutorial
 author: luisquintanilla
 ms.author: luquinta
-ms.date: 04/13/2020
+ms.date: 07/08/2020
 ms.custom: contperfq4
-ms.openlocfilehash: 05857641df22e03362eeee1590fef62fa3a45530
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 1d7b712e27ad73516606564ea125298cb3dea314
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82857717"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86143305"
 ---
 # <a name="train-and-deploy-an-image-classification-tensorflow-model-using-the-azure-machine-learning-visual-studio-code-extension"></a>Uczenie i wdrażanie modelu TensorFlow klasyfikacji obrazów przy użyciu rozszerzenia Visual Studio Code Azure Machine Learning
 
 Dowiedz się, jak nauczyć i wdrożyć model klasyfikacji obrazów, aby rozpoznawać numery ręczne przy użyciu TensorFlow i rozszerzenia Visual Studio Code Azure Machine Learning.
 
-W tym samouczku nauczysz się wykonywać następujące zadania:
+W tym samouczku zapoznasz się z następującymi zadaniami:
 
 > [!div class="checklist"]
 > * Zrozumienie kodu
@@ -91,7 +91,7 @@ Aby utworzyć obiekt docelowy obliczeń:
 1. Na pasku działania Visual Studio Code wybierz ikonę **platformy Azure** . Zostanie wyświetlony widok Azure Machine Learning. 
 1. Rozwiń węzeł subskrypcji. 
 1. Rozwiń węzeł **TeamWorkspace** . 
-1. W obszarze roboczym kliknij prawym przyciskiem myszy węzeł **obliczeniowy** , a następnie wybierz pozycję **Utwórz obliczenia**. 
+1. W węźle obszar roboczy kliknij prawym przyciskiem myszy węzeł **Klastry obliczeniowe** i wybierz polecenie **Utwórz obliczenia**. 
 
     > [!div class="mx-imgBorder"]
     > ![Tworzenie obiektu docelowego obliczeń](./media/tutorial-train-deploy-image-classification-model-vscode/create-compute.png)
@@ -115,17 +115,8 @@ Aby utworzyć obiekt docelowy obliczeń:
                 "scaleSettings": {
                     "maxNodeCount": 4,
                     "minNodeCount": 0,
-                    "nodeIdleTimeBeforeScaleDown": 120
-                },
-                "userAccountCredentials": {
-                    "adminUserName": "",
-                    "adminUserPassword": "",
-                    "adminUserSshPublicKey": ""
-                },
-                "subnetName": "",
-                "vnetName": "",
-                "vnetResourceGroupName": "",
-                "remoteLoginPortPublicAccess": ""
+                    "nodeIdleTimeBeforeScaleDown": "PT120S"
+                }
             }
         }
     }
@@ -138,7 +129,7 @@ Aby utworzyć obiekt docelowy obliczeń:
     Azure ML: Save and Continue
     ```
 
-Po kilku minutach nowy obiekt docelowy obliczeń zostanie wyświetlony w węźle *obliczenia* obszaru roboczego.
+Po kilku minutach nowy obiekt docelowy obliczeń zostanie wyświetlony w węźle *Klastry obliczeniowe* obszaru roboczego.
 
 ## <a name="create-a-run-configuration"></a>Utwórz konfigurację uruchamiania
 
@@ -148,7 +139,7 @@ Aby utworzyć konfigurację uruchamiania:
 
 1. Na pasku działania Visual Studio Code wybierz ikonę **platformy Azure** . Zostanie wyświetlony widok Azure Machine Learning. 
 1. Rozwiń węzeł subskrypcji. 
-1. Rozwiń węzeł **TeamWorkspace > COMPUTE** . 
+1. Rozwiń węzeł **Klastry obliczeniowe TeamWorkspace >** . 
 1. W węźle obliczenia kliknij prawym przyciskiem myszy węzeł obliczeniowy **TeamWkspc-com** i wybierz polecenie **Utwórz konfigurację przebiegu**.
 
     > [!div class="mx-imgBorder"]
@@ -214,6 +205,7 @@ Aby utworzyć konfigurację uruchamiania:
     Azure ML: Save and Continue
     ```
 
+1. Ten przykład nie używa zestawu danych zarejestrowanego w Azure Machine Learning. Zamiast tego jest ładowany podczas uruchamiania *Train.py* . Po wyświetleniu monitu o utworzenie odwołania do danych dla przebiegu szkoleniowego wprowadź "n" w wierszu polecenia i naciśnij klawisz **Enter**.
 1. Naciśnij klawisz **Enter** , aby przeglądać plik skryptu, który ma zostać uruchomiony w ramach obliczeń. W takim przypadku skrypt do uczenia modelu jest `train.py` plikiem znajdującym się w `vscode-tools-for-ai/mnist-vscode-docs-sample` katalogu.
 
     Plik o nazwie `MNIST-rc.runconfig` występuje w vs Code z zawartością podobną do poniższej:
@@ -221,6 +213,7 @@ Aby utworzyć konfigurację uruchamiania:
     ```json
     {
         "script": "train.py",
+        "arguments": [],
         "framework": "Python",
         "communicator": "None",
         "target": "TeamWkspc-com",
@@ -283,7 +276,7 @@ Aby utworzyć konfigurację uruchamiania:
     Azure ML: Save and Continue
     ```
 
-Konfiguracja `MNIST-rc` przebiegu jest dodawana do węzła obliczeniowego *TeamWkspc-com* , `MNIST-env` a konfiguracja środowiska jest dodawana w węźle *środowiska* .
+`MNIST-rc`Konfiguracja przebiegu jest dodawana do węzła obliczeniowego *TeamWkspc-com* , a `MNIST-env` Konfiguracja środowiska jest dodawana w węźle *środowiska* .
 
 ## <a name="train-the-model"></a>Uczenie modelu
 

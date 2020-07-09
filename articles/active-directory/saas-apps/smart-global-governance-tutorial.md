@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 05/04/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5c3b2f5332f3dc94f10a7822068b165db13b3d33
-ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
+ms.openlocfilehash: 91200ba4561aa6b715149d91beee8ac9d0375657
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84456780"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170466"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-smart-global-governance"></a>Samouczek Azure Active Directory: integracja logowania jednokrotnego (SSO) z usługą Smart Global ładu
 
@@ -85,26 +85,20 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne w usłudze Azu
 
     a. W polu **Identyfikator** wprowadź jeden z następujących adresów URL:
 
-    | | |
-    |-|-|
-    | `https://eu-fr-south.console.smartglobalprivacy.com/platform/authentication-saml2/metadata`|
-    | `https://eu-fr-south.console.smartglobalprivacy.com/dpo/authentication-saml2/metadata`|
+    - `https://eu-fr-south.console.smartglobalprivacy.com/platform/authentication-saml2/metadata`
+    - `https://eu-fr-south.console.smartglobalprivacy.com/dpo/authentication-saml2/metadata`
 
     b. W polu **adres URL odpowiedzi** wprowadź jeden z następujących adresów URL:
 
-    | | |
-    |-|-|
-    | `https://eu-fr-south.console.smartglobalprivacy.com/platform/authentication-saml2/acs`|
-    | `https://eu-fr-south.console.smartglobalprivacy.com/dpo/authentication-saml2/acs`|
+    - `https://eu-fr-south.console.smartglobalprivacy.com/platform/authentication-saml2/acs`
+    - `https://eu-fr-south.console.smartglobalprivacy.com/dpo/authentication-saml2/acs`
 
 1. Jeśli chcesz skonfigurować aplikację w trybie inicjowania programu SP, wybierz opcję **Ustaw dodatkowe adresy URL** i wykonaj następujące czynności.
 
    - W polu **adres URL logowania** wprowadź jeden z następujących adresów URL:
 
-    | | |
-    |-|-|
-    | `https://eu-fr-south.console.smartglobalprivacy.com/dpo`|
-    | `https://eu-fr-south.console.smartglobalprivacy.com/platform`|
+    - `https://eu-fr-south.console.smartglobalprivacy.com/dpo`
+    - `https://eu-fr-south.console.smartglobalprivacy.com/platform`
 
 1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu protokołu SAML** w sekcji **certyfikat podpisywania SAML** wybierz link **pobierania** dla **certyfikatu (RAW)** , aby pobrać certyfikat i zapisać go na komputerze:
 
@@ -124,7 +118,7 @@ W tej sekcji utworzysz użytkownika testowego o nazwie B. Simon w Azure Portal.
    1. W polu **Nazwa** wprowadź wartość **B. Simon**.  
    1. W polu **Nazwa użytkownika** wprowadź \<username> @ \<companydomain> . \<extension> . Na przykład `B.Simon@contoso.com`.
    1. Wybierz pozycję **Pokaż hasło**, a następnie Zapisz wartość wyświetlaną w polu **hasło** .
-   1. Wybierz przycisk **Utwórz**.
+   1. Wybierz pozycję **Utwórz**.
 
 ### <a name="grant-access-to-the-test-user"></a>Udzielanie dostępu użytkownikowi testowemu
 

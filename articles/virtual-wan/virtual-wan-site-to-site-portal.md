@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 06/29/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my local site to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
-ms.openlocfilehash: 13949bef7b26058c577a3ab85b4fb2e736bba8f5
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 6c6620a83be2eade3b449553824116a4bea7e4d8
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85563008"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86144110"
 ---
 # <a name="tutorial-create-a-site-to-site-connection-using-azure-virtual-wan"></a>Samouczek: tworzenie połączenia lokacja-lokacja przy użyciu usługi Azure Virtual WAN
 
@@ -47,7 +47,7 @@ Przed rozpoczęciem konfiguracji sprawdź, czy są spełnione następujące kryt
 
 * Uzyskaj zakres adresów IP w regionie koncentratora. Centrum jest siecią wirtualną, która jest tworzona i używana przez wirtualną sieć WAN. Zakres adresów określony dla centrum nie może pokrywać się z żadną z istniejących sieci wirtualnych, z którymi się łączysz. Nie może również pokrywać się z zakresami adresów, z którymi łączysz się lokalnie. Jeśli nie znasz zakresów adresów IP znajdujących się w konfiguracji sieci lokalnej, koordynuj się z osobą, która może podać te szczegóły.
 
-* Jeśli nie masz subskrypcji platformy Azure, Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="create-a-virtual-wan"></a><a name="openvwan"></a>Tworzenie wirtualnej sieci WAN
 
@@ -57,7 +57,7 @@ Przejdź w przeglądarce do witryny Azure Portal i zaloguj się przy użyciu kon
 2. Z wyników wybierz pozycję **wirtualna sieć WAN** . Na stronie wirtualna sieć WAN kliknij przycisk **Utwórz** , aby otworzyć stronę tworzenie sieci WAN.
 3. Na stronie **Tworzenie sieci WAN** na karcie **podstawowe** wypełnij następujące pola:
 
-   ![Virtual WAN](./media/virtual-wan-site-to-site-portal/vwan.png)
+   ![Wirtualna sieć WAN](./media/virtual-wan-site-to-site-portal/vwan.png)
 
    * **Subskrypcja** — wybierz subskrypcję, która ma być używana.
    * **Grupa zasobów** — Utwórz nową lub Użyj istniejącej.
@@ -262,7 +262,7 @@ Na stronie **edytowanie VPN Gateway** można wyświetlić następujące ustawien
 * VPN Gateway publiczny adres IP (przypisany przez platformę Azure)
 * VPN Gateway prywatny adres IP (przypisany przez platformę Azure)
 * VPN Gateway domyślny adres IP protokołu BGP (przypisany przez platformę Azure)
-* Opcja konfiguracji dla niestandardowego adresu IP protokołu BGP: to pole jest zarezerwowane dla funkcji APIPA (automatyczne prywatne adresy IP). Platforma Azure obsługuje adres IP BGP w zakresach 169.254.21. * i 169.254.22. *
+* Opcja konfiguracji dla niestandardowego adresu IP protokołu BGP: to pole jest zarezerwowane dla funkcji APIPA (automatyczne prywatne adresy IP). Platforma Azure obsługuje adres IP BGP w zakresach 169.254.21. * i 169.254.22. *. Platforma Azure akceptuje połączenia BGP w tych zakresach, ale nawiąże połączenie z domyślnym adresem IP protokołu BGP.
 
    :::image type="content" source="media/virtual-wan-site-to-site-portal/view-configuration-2.png" alt-text="Wyświetl konfigurację" lightbox="media/virtual-wan-site-to-site-portal/view-configuration-2-expand.png":::
 

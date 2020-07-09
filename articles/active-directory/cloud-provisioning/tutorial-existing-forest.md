@@ -11,18 +11,18 @@ ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2612c765140d838ddf441894d7fd068b7d66ccfc
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: d369395cc06902f31bdf17b427ecbb9f71f42001
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85360643"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86146828"
 ---
 # <a name="integrate-an-existing-forest-and-a-new-forest-with-a-single-azure-ad-tenant"></a>Integrowanie istniejącego i nowego lasu z jedną dzierżawą usługi Azure AD
 
 Ten samouczek przeprowadzi Cię przez proces dodawania aprowizacji w chmurze do istniejącego hybrydowego środowiska tożsamości. 
 
-![Utwórz](media/tutorial-existing-forest/existing-forest-new-forest.png)
+![Tworzenie](media/tutorial-existing-forest/existing-forest-new-forest.png)
 
 Możesz użyć środowiska utworzonego w tym samouczku do testowania lub w celu uzyskania bardziej znajomości sposobu działania tożsamości hybrydowej. 
 
@@ -80,7 +80,7 @@ Weryfikacja agenta odbywa się w Azure Portal i na serwerze lokalnym, na którym
 ### <a name="azure-portal-agent-verification"></a>Weryfikacja agenta Azure Portal
 Aby sprawdzić, czy Agent jest widziany przez platformę Azure, wykonaj następujące kroki:
 
-1. Zaloguj się do Portalu Azure.
+1. Zaloguj się do witryny Azure Portal.
 2. Po lewej stronie wybierz pozycję **Azure Active Directory**, kliknij pozycję **Azure AD Connect** i w centrum wybierz pozycję **Zarządzaj Provisioning (wersja zapoznawcza)**.</br>
 ![Azure Portal](media/how-to-install/install6.png)</br>
 
@@ -104,14 +104,14 @@ Aby sprawdzić, czy agent działa, wykonaj następujące kroki:
 1.  Zaloguj się do portalu usługi Azure AD.
 2.  Kliknij **Azure Active Directory**
 3.  Kliknij **Azure AD Connect**
-4.  Wybierz pozycję **Zarządzaj aprowizacjim (wersja zapoznawcza)**
-![](media/how-to-configure/manage1.png)
-5.  Kliknij pozycję **Nowa konfiguracja** .
-![](media/tutorial-single-forest/configure1.png)
+4.  Wybierz zrzut ekranu **zarządzania aprowizacji (wersja zapoznawcza)** z 
+ ![ linkiem "Zarządzaj Provisioning (wersja zapoznawcza)".](media/how-to-configure/manage1.png)
+5.  Kliknij pozycję Nowy zrzut ekranu **konfiguracji** 
+ ![ ekranu usługi Azure AD Provisioning (wersja zapoznawcza) z wyróżnionym linkiem "Nowa konfiguracja".](media/tutorial-single-forest/configure1.png)
 7.  Na ekranie Konfiguracja wprowadź **wiadomość e-mail z powiadomieniem**, Przenieś selektor, aby go **włączyć** , a następnie kliknij przycisk **Zapisz**.
-![](media/tutorial-single-forest/configure2.png)
+![Zrzut ekranu przedstawiający ekran Konfigurowanie i wypełnianie wiadomości e-mail z powiadomieniem.](media/tutorial-single-forest/configure2.png)
 1.  Stan konfiguracji powinien być teraz w **dobrej kondycji**.
-![](media/how-to-configure/manage4.png)
+![Zrzut ekranu przedstawiający ekran aprowizacji (wersja zapoznawcza) usługi Azure AD ze stanem kondycji.](media/how-to-configure/manage4.png)
 
 ## <a name="verify-users-are-created-and-synchronization-is-occurring"></a>Weryfikowanie utworzenia użytkowników i przeprowadzania synchronizacji
 Teraz sprawdź, czy użytkownicy, którzy mieli dostęp do naszego katalogu lokalnego, zostali zsynchronizowani i teraz istnieją w naszej dzierżawie usługi Azure AD.  Ukończenie tego procesu może potrwać kilka godzin.  Aby potwierdzić, że użytkownicy zostali zsynchronizowani, wykonaj następujące czynności.

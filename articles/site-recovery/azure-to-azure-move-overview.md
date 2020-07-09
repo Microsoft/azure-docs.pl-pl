@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 3f715af835df6783ae5d59dd073a042a553fba4d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 0c7efc94bcde18e7b6ff43726602fa87641f3e76
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75498049"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86130621"
 ---
 # <a name="moving-azure-vms-to-another-azure-region"></a>Przeniesienie maszyn wirtualnych platformy Azure do innego regionu platformy Azure
 
@@ -51,11 +51,11 @@ W tej sekcji opisano najpopularniejsze architektury wdrażania aplikacji wielowa
 
      ![Wdrożenie maszyny wirtualnej z jednym wystąpieniem w warstwach](media/move-vm-overview/regular-deployment.png)
 
-* **Maszyny wirtualne w poszczególnych warstwach wdrożone w różnych zestawach dostępności**: Każda maszyna wirtualna w warstwie jest konfigurowana w zestawie dostępności. [Zestawy dostępności](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets) zapewniają rozproszenie maszyn wirtualnych wdrożonych na platformie Azure pomiędzy wieloma izolowanymi węzłami sprzętowymi w klastrze. Pozwala to zagwarantować, że w przypadku awarii sprzętu lub oprogramowania na platformie Azure będzie to miało wpływ tylko na podzestaw maszyn wirtualnych, a całe rozwiązanie pozostanie dostępne i działa.
+* **Maszyny wirtualne w poszczególnych warstwach wdrożone w różnych zestawach dostępności**: Każda maszyna wirtualna w warstwie jest konfigurowana w zestawie dostępności. [Zestawy dostępności](../virtual-machines/windows/tutorial-availability-sets.md) zapewniają rozproszenie maszyn wirtualnych wdrożonych na platformie Azure pomiędzy wieloma izolowanymi węzłami sprzętowymi w klastrze. Pozwala to zagwarantować, że w przypadku awarii sprzętu lub oprogramowania na platformie Azure będzie to miało wpływ tylko na podzestaw maszyn wirtualnych, a całe rozwiązanie pozostanie dostępne i działa.
 
      ![Wdrożenie maszyn wirtualnych w zestawach dostępności](media/move-vm-overview/avset.png)
 
-* **Maszyny wirtualne w poszczególnych warstwach wdrożone w strefy dostępności**: Każda maszyna wirtualna w warstwie jest konfigurowana między [strefy dostępności](https://docs.microsoft.com/azure/availability-zones/az-overview). Strefa dostępności w regionie świadczenia usługi Azure jest kombinacją domeny błędów i domeny aktualizacji. Jeśli na przykład utworzysz trzy lub więcej maszyn wirtualnych w trzech strefach w regionie świadczenia usługi Azure, maszyny wirtualne będą rozproszone w trzech domenach błędów i trzech domenach aktualizacji. Platforma Azure rozpoznaje to rozproszenie w domenach aktualizacji, aby upewnić się, że maszyny wirtualne w różnych strefach nie są aktualizowane w tym samym czasie.
+* **Maszyny wirtualne w poszczególnych warstwach wdrożone w strefy dostępności**: Każda maszyna wirtualna w warstwie jest konfigurowana między [strefy dostępności](../availability-zones/az-overview.md). Strefa dostępności w regionie świadczenia usługi Azure jest kombinacją domeny błędów i domeny aktualizacji. Jeśli na przykład utworzysz trzy lub więcej maszyn wirtualnych w trzech strefach w regionie świadczenia usługi Azure, maszyny wirtualne będą rozproszone w trzech domenach błędów i trzech domenach aktualizacji. Platforma Azure rozpoznaje to rozproszenie w domenach aktualizacji, aby upewnić się, że maszyny wirtualne w różnych strefach nie są aktualizowane w tym samym czasie.
 
      ![Wdrożenie strefy dostępności](media/move-vm-overview/zone.png)
 

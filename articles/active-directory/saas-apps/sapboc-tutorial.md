@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 07/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1fd01c86086c7491d22f655fcba5da237286412f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: dbe6aed8ae0403f6ab4a7f9e0ba8b9a2c5d61617
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "68347800"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86168562"
 ---
 # <a name="tutorial-integrate-sap-analytics-cloud-with-azure-active-directory"></a>Samouczek: integracja chmury SAP Analytics z usługą Azure Active Directory
 
@@ -85,17 +85,13 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
     a. W polu tekstowym **Adres URL logowania** wpisz adres URL, używając następującego wzorca: 
 
-    | |
-    |-|-|
-    | `https://<sub-domain>.sapanalytics.cloud/` |
-    | `https://<sub-domain>.sapbusinessobjects.cloud/` |
+    - `https://<sub-domain>.sapanalytics.cloud/`
+    - `https://<sub-domain>.sapbusinessobjects.cloud/`
 
     b. W polu tekstowym **Identyfikator (identyfikator jednostki)** wpisz adres URL, używając następującego wzorca: 
-    
-    | |
-    |-|-|
-    | `<sub-domain>.sapbusinessobjects.cloud` |
-    | `<sub-domain>.sapanalytics.cloud` |
+
+    - `<sub-domain>.sapbusinessobjects.cloud`
+    - `<sub-domain>.sapanalytics.cloud`
 
     > [!NOTE] 
     > Wartości tych adresów URL są tylko na potrzeby demonstracyjne. Zaktualizuj wartości rzeczywistym adresem URL logowania i adresem URL identyfikatora. Aby uzyskać adres URL logowania, skontaktuj się z [zespołem pomocy technicznej usługi SAP Analytics Cloud Client](https://help.sap.com/viewer/product/SAP_BusinessObjects_Cloud/release/). Możesz uzyskać adres URL identyfikatora, pobierając metadane chmury SAP Analytics z konsoli administracyjnej. Jest to wyjaśnione w dalszej części tego samouczka.
@@ -112,7 +108,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
 1. W innym oknie przeglądarki sieci Web Zaloguj się do firmowej witryny usługi SAP Analytics w chmurze jako administrator.
 
-2. Wybierz pozycję **menu** > **System** > **Administracja**systemu.
+2. Wybierz pozycję **menu**  >  **System**  >  **Administracja**systemu.
     
     ![Wybierz pozycję Menu (Menu), wybierz pozycję System (System), a następnie wybierz pozycję Administration (Administracja)](./media/sapboc-tutorial/config1.png)
 
@@ -152,9 +148,9 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
 1. Wybierz pozycję **nowy użytkownik** w górnej części ekranu.
 1. We właściwościach **użytkownika** wykonaj następujące kroki:
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
-   1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension. Na przykład `B.Simon@contoso.com`.
+   1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
-   1. Kliknij przycisk **Utwórz**.
+   1. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -182,7 +178,7 @@ Aby aprowizować konto użytkownika:
 
 1. Zaloguj się do firmowej witryny usługi SAP Analytics w chmurze jako administrator.
 
-2. Wybierz **menu** > **Security** > **Użytkownicy**zabezpieczeń.
+2. Wybierz **menu**  >  **Security**  >  **Użytkownicy**zabezpieczeń.
 
     ![Dodawanie pracownika](./media/sapboc-tutorial/user1.png)
 
@@ -204,9 +200,9 @@ Aby aprowizować konto użytkownika:
 
     f. Na stronie **Select Roles** (Wybieranie ról) wybierz odpowiednią rolę użytkownika, a następnie wybierz pozycję **OK**.
 
-      ![Wybór roli](./media/sapboc-tutorial/user3.png)
+      ![Wybierz rolę](./media/sapboc-tutorial/user3.png)
 
-    g. Wybierz ikonę **zapisywania**.
+    przykład Wybierz ikonę **zapisywania**.
 
 ### <a name="test-sso"></a>Testuj Logowanie jednokrotne 
 
@@ -220,5 +216,5 @@ Po kliknięciu kafelka usługi SAP Analytics w panelu dostępu należy automatyc
 
 - [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/24/2019
 ms.author: jeedes
-ms.openlocfilehash: de7cf57d177902efdbb44524703481e8c65c75c5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 33548df0b8eb73d28dfe6348f057266cca4c0290
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "72991470"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86168545"
 ---
 # <a name="tutorial-integrate-ringcentral-with-azure-active-directory"></a>Samouczek: integracja RingCentral z usługą Azure Active Directory
 
@@ -92,17 +92,13 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
     a. W polu tekstowym **Identyfikator** wpisz adres URL:
 
-    | |
-    |--|
-    |  `https://sso.ringcentral.com` |
-    | `https://ssoeuro.ringcentral.com` |
+    - `https://sso.ringcentral.com`
+    - `https://ssoeuro.ringcentral.com`
 
     b. W polu tekstowym **Adres URL odpowiedzi** wpisz adres URL:
 
-    | |
-    |--|
-    | `https://sso.ringcentral.com/sp/ACS.saml2` |
-    | `https://ssoeuro.ringcentral.com/sp/ACS.saml2` |
+    - `https://sso.ringcentral.com/sp/ACS.saml2`
+    - `https://ssoeuro.ringcentral.com/sp/ACS.saml2`
 
 1. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą protokołu SAML** w sekcji **Certyfikat podpisywania SAML** kliknij przycisk kopiowania, aby skopiować **adres URL metadanych federacji aplikacji** i zapisać go na komputerze.
 
@@ -116,9 +112,9 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie Britta Sim
 1. Wybierz pozycję **nowy użytkownik** w górnej części ekranu.
 1. We właściwościach **użytkownika** wykonaj następujące kroki:
    1. W polu **Nazwa** wprowadź wartość `Britta Simon`.  
-   1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension. Na przykład `BrittaSimon@contoso.com`.
+   1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `BrittaSimon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
-   1. Kliknij przycisk **Utwórz**.
+   1. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -152,19 +148,19 @@ W tej sekcji włączysz usługę Britta Simon do korzystania z logowania jednokr
 
 1. W górnej części kliknij pozycję **Narzędzia**.
 
-    ![image](./media/ringcentral-tutorial/ringcentral1.png)
+    ![image (obraz)](./media/ringcentral-tutorial/ringcentral1.png)
 
 1. Przejdź do **logowania jednokrotnego**.
 
-    ![image](./media/ringcentral-tutorial/ringcentral2.png)
+    ![image (obraz)](./media/ringcentral-tutorial/ringcentral2.png)
 
 1. Na stronie **Logowanie** jednokrotne w obszarze **Konfiguracja logowania jednokrotnego** z **kroku 1** kliknij przycisk **Edytuj** i wykonaj następujące czynności:
 
-    ![image](./media/ringcentral-tutorial/ringcentral3.png)
+    ![image (obraz)](./media/ringcentral-tutorial/ringcentral3.png)
 
 1. Na stronie **Konfigurowanie logowania jednokrotnego** wykonaj następujące czynności:
 
-    ![image](./media/ringcentral-tutorial/ringcentral4.png)
+    ![image (obraz)](./media/ringcentral-tutorial/ringcentral4.png)
 
     a. Kliknij przycisk **Przeglądaj** , aby przekazać plik metadanych pobrany z Azure Portal.
 
@@ -172,21 +168,21 @@ W tej sekcji włączysz usługę Britta Simon do korzystania z logowania jednokr
 
     c. W sekcji **Mapowanie atrybutów** wybierz pozycję **Mapuj atrybut poczty e-mail na** jako`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`
 
-    d. Kliknij przycisk **Zapisz**.
+    d. Kliknij pozycję **Zapisz**.
 
     e. W **kroku 2** kliknij **pozycję Pobierz** , aby pobrać **plik metadanych dostawcy usług** i przekazać go w sekcji **Podstawowa konfiguracja języka SAML** , aby automatycznie wypełnić wartości **identyfikatorów** i **adresów URL odpowiedzi** w Azure Portal.
 
-    ![image](./media/ringcentral-tutorial/ringcentral6.png) 
+    ![image (obraz)](./media/ringcentral-tutorial/ringcentral6.png) 
 
     f. Na tej samej stronie przejdź do sekcji **Włączanie logowania jednokrotnego** i wykonaj następujące czynności:
 
-    ![image](./media/ringcentral-tutorial/ringcentral5.png)
+    ![image (obraz)](./media/ringcentral-tutorial/ringcentral5.png)
 
     * Wybierz pozycję **Włącz usługę SSO**.
 
     * Wybierz opcję **zezwól użytkownikom na logowanie się przy użyciu poświadczeń logowania jednokrotnego lub RingCentral**.
 
-    * Kliknij przycisk **Zapisz**.
+    * Kliknij pozycję **Zapisz**.
 
 ### <a name="create-ringcentral-test-user"></a>Utwórz użytkownika testowego RingCentral
 
@@ -202,6 +198,6 @@ Po wybraniu kafelka RingCentral w panelu dostępu należy automatycznie zalogowa
 
 - [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Wypróbuj RingCentral z usługą Azure AD](https://aad.portal.azure.com/)

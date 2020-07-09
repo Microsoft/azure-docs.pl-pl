@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 12/24/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 71d2fe97a4af07f48038ffd88de648247b56bb80
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 9c535b6610b569c4d3649f3d97428b2c97d0db91
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73160035"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86168188"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-citrix-sharefile"></a>Samouczek: integracja Azure Active Directory z usługą Citrix ShareFile
 
@@ -33,7 +33,7 @@ Integracja aplikacji Citrix ShareFile z usługą Azure AD oferuje następujące 
 * Możesz zarządzać swoimi kontami w jednej centralnej lokalizacji — witrynie Azure Portal.
 
 Jeśli chcesz dowiedzieć się więcej na temat integracji aplikacji SaaS z usługą Azure AD, zobacz [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpłatne konto](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -110,22 +110,17 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD w aplikacji Citrix Sha
 
     b. W polu tekstowym **Identyfikator (identyfikator jednostki)** wpisz adres URL, korzystając z następującego wzorca:
 
-    | |
-    |---|
-    | `https://<tenant-name>.sharefile.com`|
-    | `https://<tenant-name>.sharefile.com/saml/info`|
-    | `https://<tenant-name>.sharefile1.com/saml/info`|
-    | `https://<tenant-name>.sharefile1.eu/saml/info`|
-    | `https://<tenant-name>.sharefile.eu/saml/info`|
-    | |
-    
+    - `https://<tenant-name>.sharefile.com`
+    - `https://<tenant-name>.sharefile.com/saml/info`
+    - `https://<tenant-name>.sharefile1.com/saml/info`
+    - `https://<tenant-name>.sharefile1.eu/saml/info`
+    - `https://<tenant-name>.sharefile.eu/saml/info`
+
     c. W polu tekstowym **Adres URL odpowiedzi** wpisz adres URL, korzystając z następującego wzorca: 
     
-    | |
-    |---|
-    | `https://<tenant-name>.sharefile.com/saml/acs`|
-    | `https://<tenant-name>.sharefile.eu/saml/<URL path>`|
-    | `https://<tenant-name>.sharefile.com/saml/<URL path>`|
+    - `https://<tenant-name>.sharefile.com/saml/acs`
+    - `https://<tenant-name>.sharefile.eu/saml/<URL path>`
+    - `https://<tenant-name>.sharefile.com/saml/<URL path>`
 
     > [!NOTE]
     > Te wartości nie są prawdziwe. Zastąp je rzeczywistymi wartościami adresu URL logowania, identyfikatora i adresu URL odpowiedzi. Skontaktuj się z [zespołem pomocy technicznej klienta Citrix ShareFile](https://www.citrix.co.in/products/citrix-content-collaboration/support.html), aby uzyskać te wartości. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
@@ -156,7 +151,7 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD w aplikacji Citrix Sha
 
 4. Na stronie dialogowej **Single Sign-On / SAML 2.0 Configuration** (Logowanie jednokrotne / Konfiguracja SAML 2.0) w obszarze **Basic Settings** (Ustawienia podstawowe) wykonaj następujące kroki:
    
-    ![Rejestracja jednokrotna](./media/sharefile-tutorial/ic773628.png "Rejestracja jednokrotna")
+    ![Rejestracja jednokrotna](./media/sharefile-tutorial/ic773628.png "Logowanie jednokrotne")
    
     a. Kliknij pozycję **Enable SAML** (Włącz protokół SAML).
     
@@ -188,12 +183,12 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     a. W polu **Nazwa** wprowadź **BrittaSimon**.
   
-    b. W polu **Nazwa użytkownika** wpisz **brittasimon\@yourcompanydomain. Extension**  
+    b. W polu **Nazwa użytkownika** wpisz **brittasimon \@ yourcompanydomain. Extension**  
     Na przykład: BrittaSimon@contoso.com
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
-    d. Kliknij przycisk **Utwórz**.
+    d. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -237,7 +232,7 @@ Aby umożliwić użytkownikom usługi Azure AD logowanie się do aplikacji Citri
    
     ![Informacje podstawowe](./media/sharefile-tutorial/IC799951.png "Informacje podstawowe")
    
-    a. W polu tekstowym **adres e-mail** wpisz adres E-mail Britta Simon jako **brittasimon\@contoso.com**.
+    a. W polu tekstowym **adres e-mail** wpisz adres E-mail Britta Simon jako **brittasimon \@ contoso.com**.
    
     b. W polu tekstowym **First Name** (Imię) wpisz **imię** użytkownika jako **Britta**.
    
@@ -260,5 +255,5 @@ Po kliknięciu kafelka Citrix ShareFile w panelu dostępu powinno nastąpić aut
 
 - [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

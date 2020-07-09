@@ -1,22 +1,15 @@
 ---
 title: Azure PowerShell — Subskrybuj subskrypcję platformy Azure
 description: Ten artykuł zawiera przykładowy skrypt Azure PowerShell, który pokazuje, jak subskrybować zdarzenia Event Grid dla subskrypcji platformy Azure.
-services: event-grid
-documentationcenter: na
-author: spelluru
-ms.service: event-grid
 ms.devlang: powershell
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/23/2020
-ms.author: spelluru
-ms.openlocfilehash: 4a6539966ff2e907c4f6f942dd0c238ee35b6836
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 07/08/2020
+ms.openlocfilehash: 7540c8eb181e064c5df5372a4bc9b27ebe16bf56
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76721459"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171248"
 ---
 # <a name="subscribe-to-events-for-an-azure-subscription-with-powershell"></a>Subskrybowanie zdarzeń dla subskrypcji platformy Azure przy użyciu programu PowerShell
 

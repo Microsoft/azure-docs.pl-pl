@@ -8,19 +8,19 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: dc37cb6fa05a2be56de7bf5536d7274190257d85
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 463bd290c304d9436316c9e08778f37ce8bd0b55
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78303923"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135437"
 ---
 # <a name="move-azure-vms-to-another-azure-region"></a>Przenoszenie maszyn wirtualnych platformy Azure do innego regionu platformy Azure
 
 Można przenieść maszyny wirtualne infrastruktury jako usługi (IaaS) platformy Azure z jednego regionu do drugiego w celu poprawy niezawodności, dostępności, zarządzania lub ładu. W tym samouczku pokazano, jak przenieść maszyny wirtualne do innego regionu przy użyciu Azure Site Recovery. Omawiane tematy:
 
 > [!div class="checklist"]
-> * Weryfikowanie wymagań wstępnych
+> * Weryfikacja wymagań wstępnych
 > * Przygotowywanie źródłowych maszyn wirtualnych
 > * Przygotowywanie regionu docelowego
 > * Kopiowanie danych do regionu docelowego
@@ -35,7 +35,7 @@ Można przenieść maszyny wirtualne infrastruktury jako usługi (IaaS) platform
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 - Upewnij się, że masz maszyny wirtualne platformy Azure w źródłowym regionie platformy Azure, *z*którego chcesz przejść.
-- Sprawdź, czy wybór kombinacji regionów źródłowych i regionu [docelowego jest obsługiwany](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix#region-support), i uważnie wybierz region docelowy.
+- Sprawdź, czy wybór kombinacji regionów źródłowych i regionu [docelowego jest obsługiwany](./azure-to-azure-support-matrix.md#region-support), i uważnie wybierz region docelowy.
 - Przeanalizuj informacje o [składnikach i architekturze scenariusza](azure-to-azure-architecture.md).
 - Zapoznaj się z [ograniczeniami i wymaganiami dotyczącymi pomocy technicznej](azure-to-azure-support-matrix.md).
 - Sprawdź uprawnienia konta. Jeśli właśnie utworzono bezpłatne konto platformy *Azure, jesteś* administratorem subskrypcji. Jeśli nie jesteś administratorem, skontaktuj się z administratorem, aby uzyskać wymagane uprawnienia:
@@ -66,25 +66,25 @@ Można przenieść maszyny wirtualne infrastruktury jako usługi (IaaS) platform
 
    Azure Site Recovery automatycznie wykrywa i tworzy sieć wirtualną i konto magazynu po włączeniu replikacji dla źródłowej maszyny wirtualnej. Możesz również wstępnie utworzyć te zasoby i przypisać je do maszyny wirtualnej w ramach kroku włączania replikacji. Ale należy ręcznie utworzyć wszystkie inne zasoby w regionie docelowym. Zapoznaj się z poniższymi dokumentami, aby utworzyć najczęściej używane zasoby sieciowe na podstawie konfiguracji źródłowej maszyny wirtualnej:
 
-   - [Grupy zabezpieczeń sieci](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group)
-   - [Moduły równoważenia obciążenia](https://docs.microsoft.com/azure/load-balancer)
+   - [Grupy zabezpieczeń sieci](../virtual-network/manage-network-security-group.md)
+   - [Moduły równoważenia obciążenia](../load-balancer/index.yml)
    - [Publiczny adres IP](../virtual-network/virtual-network-public-ip-address.md)
     
-   Wszystkie inne składniki sieci można znaleźć w dokumentacji dotyczącej [sieci platformy Azure](https://docs.microsoft.com/azure/?pivot=products&panel=network). 
+   Wszystkie inne składniki sieci można znaleźć w dokumentacji dotyczącej [sieci platformy Azure](../index.yml?pivot=products&panel=network). 
 
-4. Aby przetestować konfigurację przed wykonaniem przeniesienia, ręcznie [Utwórz sieć nieprodukcyjną](https://docs.microsoft.com/azure/virtual-network/quick-create-portal) w regionie docelowym. Testowanie instalacji powoduje utworzenie minimalnych zakłóceń w środowisku produkcyjnym i zalecamy ich użycie.
+4. Aby przetestować konfigurację przed wykonaniem przeniesienia, ręcznie [Utwórz sieć nieprodukcyjną](../virtual-network/quick-create-portal.md) w regionie docelowym. Testowanie instalacji powoduje utworzenie minimalnych zakłóceń w środowisku produkcyjnym i zalecamy ich użycie.
     
 ## <a name="copy-data-to-the-target-region"></a>Kopiowanie danych do regionu docelowego
 Poniższe kroki używają Azure Site Recovery do kopiowania danych do regionu docelowego.
 
 ### <a name="create-the-vault-in-any-region-except-the-source"></a>Tworzenie magazynu w dowolnym regionie, z wyjątkiem źródła
 
-1. Zaloguj się do Recovery Services [Azure Portal](https://portal.azure.com) > **Recovery Services**.
-2. Wybierz pozycję **Utwórz zasób** > **Narzędzia** > do zarządzania zasobami**i Site Recovery**.
+1. Zaloguj się do Recovery Services [Azure Portal](https://portal.azure.com)  >  **Recovery Services**.
+2. Wybierz pozycję **Utwórz zasób**  >  **Narzędzia do zarządzania**zasobami  >  **i Site Recovery**.
 3. W polu **Nazwa**Określ przyjazną nazwę **ContosoVMVault**. Jeśli masz więcej niż jedną subskrypcję, wybierz jedną z nich.
 4. Utwórz grupę zasobów **ContosoRG**.
 5. Określ region platformy Azure. Aby sprawdzić Obsługiwane regiony, zobacz [szczegóły cennika Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/).
-6. W przypadku magazynów Recovery Services wybierz pozycję **Przegląd** > **ConsotoVMVault** > **+ replikacja**.
+6. W przypadku magazynów Recovery Services wybierz pozycję **Przegląd**  >  **ConsotoVMVault**  >  **+ replikacja**.
 7. W obszarze **Źródło**wybierz pozycję **Azure**.
 8. W polu **lokalizacja źródłowa**wybierz źródłowy region platformy Azure, w którym są obecnie uruchomione maszyny wirtualne.
 9. Wybierz model wdrażania Azure Resource Manager. Następnie wybierz **subskrypcję źródłową** i **źródłową grupę zasobów**.
@@ -96,7 +96,7 @@ Site Recovery pobiera listę maszyn wirtualnych skojarzonych z subskrypcją i gr
 
 1. Wybierz maszynę wirtualną, którą chcesz przenieść, a następnie wybierz pozycję **OK**.
 2. W obszarze **Ustawienia**wybierz pozycję **odzyskiwanie po awarii**.
-3. W > **obszarze Skonfiguruj region docelowy** **odzyskiwania po awarii**Wybierz docelowy region, do którego jest wykonywana replikacja.
+3. W obszarze Skonfiguruj region docelowy **odzyskiwania po awarii**  >  **Target region**Wybierz docelowy region, do którego jest wykonywana replikacja.
 4. Wybierz, aby użyć domyślnych zasobów docelowych lub tych, które zostały wcześniej utworzone.
 5. Wybierz pozycję **Włącz replikację** , aby uruchomić zadanie.
 
@@ -107,7 +107,7 @@ Site Recovery pobiera listę maszyn wirtualnych skojarzonych z subskrypcją i gr
 ## <a name="test-the-configuration"></a>Testowanie konfiguracji
 
 
-1. Przejdź do magazynu. W obszarze **Ustawienia** > **zreplikowane elementy**wybierz maszynę wirtualną, która ma zostać przeniesiona do regionu docelowego. Następnie wybierz pozycję **test pracy w trybie failover**.
+1. Przejdź do magazynu. W obszarze **Ustawienia**  >  **zreplikowane elementy**wybierz maszynę wirtualną, która ma zostać przeniesiona do regionu docelowego. Następnie wybierz pozycję **test pracy w trybie failover**.
 2. W obszarze **test pracy w trybie failover**wybierz punkt odzyskiwania do użycia w trybie failover:
 
    - **Najnowszy przetworzony**: wprowadza maszynę wirtualną w tryb failover do najnowszego punktu odzyskiwania przetworzonego przez usługę Site Recovery. Wyświetlana jest sygnatura czasowa. Brak czasu poświęcanego na przetwarzanie danych, dlatego ta opcja zapewnia niski cel czasu odzyskiwania (RTO).
@@ -119,13 +119,13 @@ Site Recovery pobiera listę maszyn wirtualnych skojarzonych z subskrypcją i gr
    > [!IMPORTANT]
    > Zalecamy używanie oddzielnej sieci maszyn wirtualnych platformy Azure do testowania pracy w trybie failover, a nie sieci produkcyjnej w regionie docelowym.
 
-4. Aby rozpocząć testowanie przenoszenia, wybierz **przycisk OK**. Aby śledzić postęp, wybierz maszynę wirtualną, aby otworzyć jej **właściwości.** Lub wybierz zadanie **test pracy w trybie failover** w magazynie. Następnie wybierz kolejno pozycje **Ustawienia** > **zadania** > **Site Recovery zadania**.
+4. Aby rozpocząć testowanie przenoszenia, wybierz **przycisk OK**. Aby śledzić postęp, wybierz maszynę wirtualną, aby otworzyć jej **właściwości.** Lub wybierz zadanie **test pracy w trybie failover** w magazynie. Następnie wybierz kolejno pozycje **Ustawienia**  >  **zadania**  >  **Site Recovery zadania**.
 5. Po zakończeniu trybu failover w obszarze Azure Portal > **Maszyny wirtualne** będzie widoczna replika maszyny wirtualnej platformy Azure. Upewnij się, że maszyna wirtualna jest uruchomiona, ma właściwy rozmiar i została połączona z odpowiednią siecią.
 6. Aby usunąć maszynę wirtualną utworzoną do testowania, wybierz pozycję **Oczyść test pracy w trybie failover** dla zreplikowanego elementu. W obszarze **notatki**Zarejestruj i Zapisz wszelkie obserwacje związane z testem.
 
 ## <a name="perform-the-move-and-confirm"></a>Wykonaj przeniesienie i Potwierdź
 
-1. Przejdź do magazynu w obszarze **Ustawienia** > **zreplikowane elementy**, wybierz maszynę wirtualną, a następnie wybierz pozycję **tryb failover**.
+1. Przejdź do magazynu w obszarze **Ustawienia**  >  **zreplikowane elementy**, wybierz maszynę wirtualną, a następnie wybierz **pozycję Tryb failover**.
 1. W obszarze **tryb failover**wybierz pozycję **najnowsze**. 
 2. Wybierz pozycję **Zamknij maszynę przed rozpoczęciem pracy w trybie failover**. Site Recovery próbuje zamknąć źródłową maszynę wirtualną przed wyzwoleniem trybu failover. Jednak tryb failover kontynuuje działanie nawet w przypadku niepowodzenia wyłączenia. Postęp pracy w trybie failover można wykonać na stronie **zadań** .
 3. Po zakończeniu zadania Sprawdź, czy maszyna wirtualna jest wyświetlana w docelowym regionie platformy Azure zgodnie z oczekiwaniami.
@@ -149,4 +149,3 @@ W tym samouczku przedstawiono sposób przenoszenia maszyn wirtualnych platformy 
 
 > [!div class="nextstepaction"]
 > [Konfigurowanie odzyskiwania po awarii po migracji](azure-to-azure-quickstart.md)
-

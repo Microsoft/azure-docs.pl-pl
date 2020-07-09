@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: tutorial
 ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: b978190776aee3c89d3beadde76d20c4327b012f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: ccf83bacedb667e52e9865b6d451641faa0ac414
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80388920"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86131178"
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>Migrowanie maszyn lokalnych do platformy Azure
 
@@ -51,7 +51,7 @@ Urządzenia eksportowane przez sterowniki parawirtualne nie są obsługiwane.
 
 Wybierz, co chcesz replikować, i miejsce, do którego chcesz przeprowadzać replikację.
 1. Kliknij pozycję **Magazyny usługi Recovery Services** > magazyn.
-2. W menu zasób kliknij **Site Recovery** > **Przygotuj** > **cel ochrony**infrastruktury.
+2. W menu zasób kliknij **Site Recovery**  >  **Przygotuj**  >  **cel ochrony**infrastruktury.
 3. W obszarze **Cel ochrony** wybierz elementy do migracji.
     - **VMware**: wybierz kolejno pozycje **Na platformę Azure** > **Tak, przy użyciu funkcji VMWare vSphere Hypervisor**.
     - **Komputer fizyczny**: wybierz kolejno pozycje **Na platformę Azure** > **Niezwirtualizowane/inne**.
@@ -70,7 +70,7 @@ Funkcja Hyper-V | Konfigurowanie [środowiska źródłowego](hyper-v-azure-tutor
 
 Wybierz i zweryfikuj zasoby docelowe.
 
-1. Kliknij pozycję **Przygotuj** > **miejsce docelowe**infrastruktury i wybierz subskrypcję platformy Azure, której chcesz użyć.
+1. Kliknij pozycję **Przygotuj**  >  **miejsce docelowe**infrastruktury i wybierz subskrypcję platformy Azure, której chcesz użyć.
 2. Określ model wdrażania usługi Resource Manager.
 3. Site Recovery sprawdza zasoby platformy Azure.
     - Jeśli migrujesz maszyny wirtualne VMware lub serwery fizyczne, Site Recovery sprawdza, czy masz sieć platformy Azure, w której będą znajdować się maszyny wirtualne platformy Azure po utworzeniu po przejściu do trybu failover.
@@ -103,8 +103,8 @@ Uruchom [testowanie trybu failover](tutorial-dr-drill-azure.md), aby upewnić si
 
 Uruchom tryb failover dla maszyn, które chcesz migrować.
 
-1. W obszarze **Ustawienia** > **zreplikowane elementy** kliknij maszynę > **tryb failover**.
-2. W obszarze **tryb failover** wybierz **punkt odzyskiwania** , do którego ma zostać przełączona praca awaryjna. Wybierz najnowszy punkt odzyskiwania.
+1. W obszarze **Ustawienia**  >  **zreplikowane elementy** kliknij maszynę > **tryb failover**.
+2. W obszarze **Tryb failover** wybierz **Punkt odzyskiwania**, którego chcesz użyć do przełączenia do trybu failover. Wybierz najnowszy punkt odzyskiwania.
 3. Ustawienie klucza szyfrowania nie ma znaczenia w przypadku tego scenariusza.
 4. Wybierz pozycję **Zamknij maszynę przed rozpoczęciem pracy w trybie failover**. Usługa Site Recovery spróbuje zamknąć maszyny wirtualne przed przejściem do trybu failover. Przełączanie do trybu failover będzie kontynuowane, nawet jeśli zamknięcie nie powiedzie się. Postęp pracy w trybie failover można wykonać na stronie **zadań** .
 5. Sprawdź, czy maszyna wirtualna Azure jest wyświetlana na platformie Azure zgodnie z oczekiwaniami.
@@ -132,21 +132,21 @@ Niektóre czynności można zautomatyzować w ramach procesu migracji przy użyc
 
 - Po zakończeniu migracji wykonaj wszystkie potrzebne czynności konfiguracyjne, takie jak aktualizacja parametrów połączenia bazy danych i serwera sieci Web. 
 - Wykonaj dla zmigrowanej aplikacji uruchomionej na platformie Azure testy końcowe aplikacji i akceptacji migracji.
-- [Agent maszyny wirtualnej platformy Azure](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) umożliwia zarządzanie interakcją maszyny wirtualnej z usługą Azure Fabric Controller. Jest to wymagane w przypadku niektórych usług platformy Azure, takich jak Azure Backup, Site Recovery i Azure Security.
+- [Agent maszyny wirtualnej platformy Azure](../virtual-machines/extensions/agent-windows.md) umożliwia zarządzanie interakcją maszyny wirtualnej z usługą Azure Fabric Controller. Jest to wymagane w przypadku niektórych usług platformy Azure, takich jak Azure Backup, Site Recovery i Azure Security.
     - Podczas migrowania maszyn VMware i serwerów fizycznych razem z usługą mobilności na maszynach z systemem Windows jest instalowany dostępny agent maszyny wirtualnej platformy Azure. Na maszynach wirtualnych z systemem Linux zaleca się zainstalowanie agenta po włączeniu trybu failover.
     - W przypadku migrowania maszyn wirtualnych platformy Azure do regionu pomocniczego przed migracją należy zainicjować agenta maszyny wirtualnej platformy Azure na maszynie wirtualnej.
     - Jeśli migrujesz maszyny wirtualne funkcji Hyper-V do platformy Azure, Zainstaluj agenta maszyny wirtualnej platformy Azure na maszynie wirtualnej platformy Azure po migracji.
 - Usuń ręcznie z maszyny wirtualnej wszelkie programy typu dostawca/agent usługi Site Recovery. W przypadku migrowania maszyn wirtualnych VMware lub serwerów fizycznych odinstaluj usługę mobilności z maszyny wirtualnej.
 - Aby zwiększyć elastyczność:
-    - Zapewnij bezpieczeństwo danych – utwórz kopie zapasowe maszyn wirtualnych platformy Azure przy użyciu usługi Azure Backup. [Dowiedz się więcej]( https://docs.microsoft.com/azure/backup/quick-backup-vm-portal).
+    - Zapewnij bezpieczeństwo danych – utwórz kopie zapasowe maszyn wirtualnych platformy Azure przy użyciu usługi Azure Backup. [Dowiedz się więcej](../backup/quick-backup-vm-portal.md).
     - Zadbaj, aby pakiety robocze były uruchomione i stale dostępne, replikując maszyny wirtualne platformy Azure do regionu pomocniczego za pomocą usługi Site Recovery. [Dowiedz się więcej](azure-to-azure-quickstart.md).
 - Aby zwiększyć bezpieczeństwo:
-    - Zablokuj i ogranicz dostęp do ruchu przychodzącego za pomocą funkcji [administrowania na czas]( https://docs.microsoft.com/azure/security-center/security-center-just-in-time) usługi Azure Security Center.
-    - Ogranicz ruch sieciowy do punktów końcowych zarządzania za pomocą [sieciowych grup zabezpieczeń](https://docs.microsoft.com/azure/virtual-network/security-overview).
-    - Wdróż usługę [Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption-overview), aby ułatwić zabezpieczenie dysków i zabezpieczyć dane przed kradzieżą lub nieautoryzowanym dostępem.
+    - Zablokuj i ogranicz dostęp do ruchu przychodzącego za pomocą funkcji [administrowania na czas](../security-center/security-center-just-in-time.md) usługi Azure Security Center.
+    - Ogranicz ruch sieciowy do punktów końcowych zarządzania za pomocą [sieciowych grup zabezpieczeń](../virtual-network/security-overview.md).
+    - Wdróż usługę [Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md), aby ułatwić zabezpieczenie dysków i zabezpieczyć dane przed kradzieżą lub nieautoryzowanym dostępem.
     - Przeczytaj więcej na temat [zabezpieczania zasobów IaaS]( https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/ ) i skorzystaj z usługi [Azure Security Center](https://azure.microsoft.com/services/security-center/ ).
 - Na potrzeby monitorowania i zarządzania:
-    - Rozważ wdrożenie usługi [Azure Cost Management](https://docs.microsoft.com/azure/cost-management/overview), aby monitorować użycie zasobu i wydatki.
+    - Rozważ wdrożenie usługi [Azure Cost Management](../cost-management-billing/cloudyn/overview.md), aby monitorować użycie zasobu i wydatki.
 
 ### <a name="post-migration-steps-on-premises"></a>Czynności wykonywane lokalnie po migracji
 

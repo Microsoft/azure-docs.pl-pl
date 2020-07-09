@@ -1,22 +1,15 @@
 ---
 title: Azure PowerShell — subskrybowanie do konta usługi BLOB Storage
 description: Ten artykuł zawiera przykładowy skrypt Azure PowerShell, który pokazuje, jak subskrybować zdarzenia Event Grid dla konta Blob Storage.
-services: event-grid
-documentationcenter: na
-author: spelluru
-ms.service: event-grid
 ms.devlang: powershell
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/23/2020
-ms.author: spelluru
-ms.openlocfilehash: a8a0982ca118663cbf0f7e4d72412ce8feda3c4b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 07/08/2020
+ms.openlocfilehash: 6e1d7fa349134400c26e03815983067d921f388c
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76721442"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171231"
 ---
 # <a name="subscribe-to-events-for-a-blob-storage-account-with-powershell"></a>Subskrybowanie do zdarzeń dla konta usługi Blob Storage przy użyciu programu PowerShell
 

@@ -1,17 +1,17 @@
 ---
-title: Samouczek — używanie IntelliJ do wdrażania aplikacji w chmurze platformy Azure
+title: 'Samouczek: używanie IntelliJ do wdrażania aplikacji w chmurze platformy Azure'
 description: Użyj IntelliJ, aby wdrażać aplikacje w chmurze Azure wiosennej.
 author: MikeDodaro
 ms.author: brendm
 ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 03/26/2020
-ms.openlocfilehash: 8e473a5692c3fa2be3b0f2d823d2a36ba768d661
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: ec78b62f15851c41a3b9759f32d9c35c189f72c4
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81731372"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86142031"
 ---
 # <a name="use-intellij-to-deploy-azure-spring-cloud-applications"></a>Wdrażanie aplikacji Azure Spring Cloud za pomocą środowiska IntelliJ
 Wtyczka IntelliJ dla chmury wiosennej platformy Azure obsługuje wdrażanie aplikacji ze POMYSŁu IntelliJ.  
@@ -53,7 +53,7 @@ Poniższe procedury służą do wdrażania aplikacji Hello world przy użyciu PO
 ## <a name="deploy-to-azure-spring-cloud"></a>Wdrażanie w chmurze Azure wiosennej
 Aby wdrożyć platformę Azure, musisz zalogować się przy użyciu konta platformy Azure i wybrać subskrypcję.  Aby uzyskać szczegółowe informacje dotyczące logowania, zobacz [Instalowanie i logowanie](https://docs.microsoft.com/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in).
 
-1. Kliknij prawym przyciskiem myszy projekt w Eksploratorze projektów IntelliJ, a następnie wybierz pozycję **Azure** -> **Deploy w chmurze Azure wiosennej**.
+1. Kliknij prawym przyciskiem myszy projekt w Eksploratorze projektów IntelliJ, a następnie wybierz pozycję **Azure**  ->  **Deploy w chmurze Azure wiosennej**.
 
     ![Wdrażanie na platformie Azure 1](media/spring-cloud-intellij-howto/deploy-to-azure-1.png)
 
