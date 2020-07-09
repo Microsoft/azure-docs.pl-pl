@@ -1,18 +1,18 @@
 ---
 title: Często zadawane pytania dotyczące przechodzenia z portal Cloud Partner do Centrum partnerskiego — Microsoft Commercial Marketplace
 description: Odpowiedzi na często zadawane pytania dotyczące przechodzenia ofert z portal Cloud Partner do Centrum partnerskiego.
-author: anbene
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 06/29/2020
+author: anbene
 ms.author: mingshen
-ms.openlocfilehash: 349306a8bcdffda8511436540acde92129ff8662
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.date: 06/29/2020
+ms.openlocfilehash: 2192b3757281bf6796fbf93f83cab6e71deb29f6
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85964944"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86120558"
 ---
 # <a name="frequently-asked-questions-about-transitioning-from-the-cloud-partner-portal-to-partner-center"></a>Często zadawane pytania dotyczące przechodzenia z portal Cloud Partner do Centrum partnerskiego
 

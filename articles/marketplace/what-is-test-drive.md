@@ -1,18 +1,18 @@
 ---
 title: Co to jest wersja testowa? Komercyjne oprogramowanie Microsoft Marketplace
 description: Wyjaśnienie funkcji dysku testowego Marketplace
-author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
+author: keferna
+ms.author: keferna
 ms.date: 06/19/2020
-ms.author: dsindona
-ms.openlocfilehash: ea04556c13d6e56178519dbcbe805447d0dbfc0f
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 95ca527d8f7912e2c455f94036fe61828b220257
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85964910"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86121473"
 ---
 # <a name="what-is-a-test-drive"></a>Co to jest wersja testowa?
 

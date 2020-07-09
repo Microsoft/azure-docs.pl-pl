@@ -6,14 +6,14 @@ services: data-lake-analytics
 author: matt1883
 ms.author: mahi
 ms.reviewer: jasonwhowell
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/30/2018
-ms.openlocfilehash: 9fbc94259d6fdfb6758204efd6e6f0a346dc58da
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 758bf7a41218bcb8f34761db6cbbd541b97b6a86
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "60813375"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86120878"
 ---
 # <a name="configure-user-access-to-job-information-to-job-information-in-azure-data-lake-analytics"></a>Konfigurowanie dostępu użytkownika do informacji o zadaniu w Azure Data Lake Analytics 
 

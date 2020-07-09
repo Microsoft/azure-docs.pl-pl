@@ -1,18 +1,18 @@
 ---
 title: Tworzenie oferty modułu Azure IoT Edge przy użyciu Centrum partnerskiego w portalu Azure Marketplace
 description: Dowiedz się, jak utworzyć, skonfigurować i opublikować ofertę modułu IoT Edge w portalu Azure Marketplace przy użyciu Centrum partnerskiego
-author: anbene
-ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: anbene
+ms.author: mingshen
 ms.date: 06/17/2020
-ms.openlocfilehash: 8accb29907bde53baf7f175dd1d36a9a2e1fe66b
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: f97692b604408437bc2ee457bb04ad9b855c7290
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85984691"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119297"
 ---
 # <a name="create-configure-and-publish-an-iot-edge-module-offer-in-azure-marketplace"></a>Tworzenie, Konfigurowanie i publikowanie oferty modułu IoT Edge w portalu Azure Marketplace
 

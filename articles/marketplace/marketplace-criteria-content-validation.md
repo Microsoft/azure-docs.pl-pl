@@ -1,18 +1,18 @@
 ---
 title: Oferta w witrynie Azure Marketplace i wymagania dotyczące aukcji usług
 description: W tym artykule wyjaśniono wymagania i wskazówki dotyczące wyświetlania nowych ofert i usług w witrynie Azure Marketplace.
-author: anbene
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: keferna
+ms.author: keferna
 ms.date: 06/22/2020
-ms.author: dsindona
-ms.openlocfilehash: 6c95f510ce83f924a58b0844285f4142131db3eb
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 2b0954941ba6b6b7ce3697889305dc5bbd299590
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027141"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119382"
 ---
 # <a name="azure-marketplace-listing-guidelines"></a>Wskazówki dotyczące wyświetlania w portalu Azure Marketplace
 
@@ -28,7 +28,7 @@ Dodatkowe wymagania i listy kontrolne są dostępne dla konkretnych typów list,
 
 ## <a name="listing-requirements-for-all-offers"></a>Lista wymagań dla wszystkich ofert
 
-|  | Element list | Wymagania podstawowe | Optymalne wymagania |
+| Liczba | Element list | Wymagania podstawowe | Optymalne wymagania |
 |:--- |:--- |:--- |:--- |
 | 1 | Miejsce docelowe potencjalnego klienta | Ma skonfigurowaną lokalizację docelową potencjalnego klienta.| Wykaz jednego z partnerów komercyjnych (OCP) zawiera informacje o docelowym programie CRM dla lidera, które są również wyświetlane na karcie rozwiązanie partnerskie. | 
 | 2 | Tytuł oferty | Krótki opis oferty rozwiązania. Dopasowuje promocję rozwiązania w trybie online w witrynie sieci Web partnera. | Zawiera słowa wyszukiwania klucza. |
@@ -47,15 +47,15 @@ Dodatkowe wymagania i listy kontrolne są dostępne dla konkretnych typów list,
 
 ## <a name="trial-offer-requirements"></a>Wymagania dotyczące oferty wersji próbnej
 
-|  | Element list | Wymagania podstawowe | Optymalne wymagania | 
+| Liczba | Element list | Wymagania podstawowe | Optymalne wymagania | 
 |:--- |:--- |:--- |:--- |
-|  | Stan listy (wywołanie do akcji) | Link musi prowadzić do korzystania z *wersji próbnej* klienta. | Dostępne są również inne wywołania akcji (na przykład *Kup teraz*). | 
+| 1 | Stan listy (wywołanie do akcji) | Link musi prowadzić do korzystania z *wersji próbnej* klienta. | Dostępne są również inne wywołania akcji (na przykład *Kup teraz*). | 
 
 ---
 
 ## <a name="saas-application-requirements"></a>Wymagania dotyczące aplikacji SaaS
 
-|  | Element list | Wymagania podstawowe | Optymalne wymagania | 
+| Liczba | Element list | Wymagania podstawowe | Optymalne wymagania | 
 |:--- |:--- |:--- |:--- |
 | 1 | Tytuł oferty |<ul><li>Musi zawierać tylko małe litery, znaki alfanumeryczne, łączniki i podkreślenia. Nie można zmodyfikować tytułu po jego opublikowaniu.</li><li>Opisuje ofertę rozwiązania.</li><li>Dopasowuje promocję rozwiązania w trybie online w witrynie sieci Web partnera. | Zawiera słowa wyszukiwania klucza. |
 | 2 | Informacje techniczne: Konfiguracja |<ul><li>W przypadku aplikacji oprogramowanie jako usługa (SaaS) wybierz, czy chcesz tylko wyświetlać listę aplikacji, czy zezwolić klientom na kupowanie aplikacji za pomocą platformy Azure.</li><li>Zaznacz tekst, który ma być dostępny na przycisku pozyskiwania oferty: *bezpłatna*, *bezpłatna wersja próbna*lub *skontaktuj się z*nami.</li><li>W oknie podręcznym wybierz tylko jeden odpowiedni produkt, jeśli aplikacja korzysta z technologii: Cortana Intelligence, Power BI szablony rozwiązań lub aplikacje zaawansowane. |  |
@@ -73,7 +73,7 @@ Dodatkowe wymagania i listy kontrolne są dostępne dla konkretnych typów list,
 
 ## <a name="container-offer-requirements"></a>Wymagania dotyczące oferty kontenera
 
-|  | Element list | Wymagania podstawowe | Optymalne wymagania | 
+| Liczba | Element list | Wymagania podstawowe | Optymalne wymagania | 
 |:--- |:--- |:--- |:--- |
 |1 |Ustawienia oferty | <ul><li>Identyfikator oferty: maks. 50 znaków.</li><li>IDENTYFIKATOR wydawcy: wybierz go z listy rozwijanej.</li><li>Nazwa: maks. 50 znaków. | Odzwierciedla styl tytułu, który jest już dostępny w opisie. Unikaj używania długich tytułów. | 
 | 2 | Jednostki SKU | Partner wybiera nowe jednostki SKU.| Tytuł odzwierciedla styl tytułu, który jest już dostępny w opisie. Unikaj używania długich tytułów.  |
@@ -84,7 +84,7 @@ Dodatkowe wymagania i listy kontrolne są dostępne dla konkretnych typów list,
 
 ## <a name="consulting-offer-requirements"></a>Wymagania dotyczące oferty
 
-|  | Element list | Wymagania podstawowe | Optymalne wymagania |
+| Liczba | Element list | Wymagania podstawowe | Optymalne wymagania |
 |:--- |:--- |:--- |:--- |
 | 1 | Tytuł oferty  |  Należy jasno wyświetlić typ usługi i czas trwania w formacie *Nazwa: typ czasu trwania* (na przykład "Oferta oferty: 1-tygodniowe potwierdzenie koncepcji").  | <ul><li>Nie powtarza się nazwy wydawcy.</li><li>Tytuł odzwierciedla styl tytułu, który jest już dostępny w opisie. Unikaj używania długich tytułów. | 
 | 2 | Opis oferty  |<ul><li>Upewnij się, że odpowiednie użycie [nazw produktów firmy Microsoft](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/en-us.aspx).</li><li>Oferty oznaczone jako *Cena: Szacowana* musi mieć uwagi na górze lub u dołu, aby wyjaśnić zmienność (podróż do klienta, liczbę migrowanych serwerów itp.).</li><li>Każdy typ oferty ma wymagania dotyczące opisu w następujący sposób: <ul><li>Niektóre z nich muszą zawierać co najmniej cztery punktory i informacje o tematach, które mają być objęte pomocą.</li><li>Wszystkie warsztaty wymagają planu.</li><li>Wszystkie agendy muszą być podzielone na dzień lub przez tydzień, w zależności od czasu trwania warsztatu.</li><li>Oceny, ZK, warsztaty nieszkoleniowe i wdrożenia wymagają elementów dostarczanych.</li><li>Warsztaty szkoleniowe nie potrzebują elementów dostarczanych, ale potrzebują bardziej szczegółowego planu z tematami, które zostaną omówione.</li></ul></ul> | <ul><li>Każda oferta ma plan i elementy dostarczane.</li><li>Oferta obejmuje akapit z kontekstem dotyczącym firmy dostarczającej usługę w górnej części.</li><li>Oferta zawiera akapit o wartości samej usługi jako górną sekcję. |

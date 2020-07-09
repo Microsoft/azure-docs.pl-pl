@@ -6,14 +6,14 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 06/29/2020
+ms.date: 07/07/2020
 ms.author: cherylmc
-ms.openlocfilehash: f9f05eb73c2fa12c9625c8e26d1c86431bcb8f6a
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: e9891e3ac12de3f8735407c603ff59b61f4eb05d
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 07/08/2020
-ms.locfileid: "86087065"
+ms.locfileid: "86118974"
 ---
 # <a name="how-to-configure-virtual-hub-routing"></a>Jak skonfigurować rozsyłanie na koncentratorze wirtualnym
 
@@ -22,7 +22,9 @@ Koncentrator wirtualny może zawierać wiele bram, takich jak Brama sieci VPN ty
 Aby uzyskać więcej informacji, zobacz [Informacje o routingu koncentratora wirtualnego](about-virtual-hub-routing.md).
 
 > [!NOTE]
-> Niektóre z tych funkcji mogą być nadal wdrażane i oczekiwane w tygodniu od trzeciej.
+> Niektóre z tych funkcji mogą być nadal wycofywane. Jeśli wdrożenie nie zakończyło się jeszcze w Twoim regionie, wykonaj kroki opisane w tych wersjach artykułów w międzyczasie:
+>* [Azure Portal artykuł](virtual-wan-route-table-nva-portal.md)
+>* [Artykuł programu PowerShell](virtual-wan-route-table-nva.md)
 >
 
 ## <a name="create-a-route-table"></a><a name="create-table"></a>Tworzenie tabeli tras

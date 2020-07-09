@@ -7,12 +7,12 @@ author: musa-57
 ms.manager: abhemraj
 ms.author: hamusa
 ms.date: 01/02/2020
-ms.openlocfilehash: e5e55e3bfa5d30c74041b834483bc78875e7ce05
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 61afc3ec0f37f5d8b1030818d21b7daabb7fce40
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85611377"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86121677"
 ---
 # <a name="troubleshoot-assessmentdependency-visualization"></a>Rozwiązywanie problemów z wizualizacją zależności/oceny
 
@@ -36,10 +36,10 @@ Wymaga subskrypcji Microsoft Visual Studio | Na komputerze jest uruchomiony syst
 Nie znaleziono maszyny wirtualnej wymaganej wydajności magazynu | Wydajność magazynu (operacje wejścia/wyjścia na sekundę [IOPS] i przepływność) wymagane dla maszyny przekraczają obsługę maszyny wirtualnej platformy Azure. Przed migracją Zmniejsz wymagania dotyczące magazynu maszyny.
 Nie znaleziono maszyny wirtualnej dla wymaganej wydajności sieci | Wydajność sieci (WE/wychodzącej) wymagana przez maszynę przekracza obsługę maszyny wirtualnej platformy Azure. Zmniejsz wymagania dotyczące sieci dla maszyny.
 Nie znaleziono maszyny wirtualnej w określonej lokalizacji | Użyj innej lokalizacji docelowej przed migracją.
-Co najmniej jeden niewłaściwy dysk | Co najmniej jeden dysk dołączony do maszyny wirtualnej nie spełnia wymagań platformy Azure. Z<br/><br/> Azure Migrate: Ocena serwera obecnie nie obsługuje dysków SSD w warstwie Ultra i ocenia dyski w oparciu o limity dysków dla dysków zarządzanych w warstwie Premium (32 TB).<br/><br/> Dla każdego dysku podłączonego do maszyny wirtualnej upewnij się, że rozmiar dysku to < 64 TB (obsługiwane przez dyski SSD w warstwie Ultra).<br/><br/> Jeśli tak nie jest, zmniejsz rozmiar dysku przed przeprowadzeniem migracji na platformę Azure lub Użyj wielu dysków [na platformie Azure, aby uzyskać](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#disk-striping) wyższe limity magazynu. Należy upewnić się, że wydajność (IOPS i przepustowość) wymagana przez poszczególne dyski są obsługiwane przez [maszyny wirtualne zarządzane](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#storage-limits)przez platformę Azure.
+Co najmniej jeden niewłaściwy dysk | Co najmniej jeden dysk dołączony do maszyny wirtualnej nie spełnia wymagań platformy Azure. Z<br/><br/> Azure Migrate: Ocena serwera obecnie nie obsługuje dysków SSD w warstwie Ultra i ocenia dyski w oparciu o limity dysków dla dysków zarządzanych w warstwie Premium (32 TB).<br/><br/> Dla każdego dysku podłączonego do maszyny wirtualnej upewnij się, że rozmiar dysku to < 64 TB (obsługiwane przez dyski SSD w warstwie Ultra).<br/><br/> Jeśli tak nie jest, zmniejsz rozmiar dysku przed przeprowadzeniem migracji na platformę Azure lub Użyj wielu dysków [na platformie Azure, aby uzyskać](../virtual-machines/windows/premium-storage-performance.md#disk-striping) wyższe limity magazynu. Należy upewnić się, że wydajność (IOPS i przepustowość) wymagana przez poszczególne dyski są obsługiwane przez [maszyny wirtualne zarządzane](../azure-resource-manager/management/azure-subscription-service-limits.md#storage-limits)przez platformę Azure.
 Co najmniej jedna nieodpowiednia karta sieciowa. | Przed migracją Usuń nieużywane karty sieciowe z maszyny.
 Liczba dysków przekracza limit | Usuń nieużywane dyski z maszyny przed migracją.
-Rozmiar dysku przekracza limit | Azure Migrate: Ocena serwera obecnie nie obsługuje dysków SSD w warstwie Ultra i ocenia dyski w oparciu o limity dysku Premium (32 TB).<br/><br/> Platforma Azure obsługuje jednak dyski o rozmiarze do 64 TB (obsługiwane przez dyski SSD w warstwie Ultra). Zmniejsz liczbę dysków do mniej niż 64 TB przed migracją lub Użyj wielu [dysków na platformie Azure, aby uzyskać](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#disk-striping) wyższe limity magazynu.
+Rozmiar dysku przekracza limit | Azure Migrate: Ocena serwera obecnie nie obsługuje dysków SSD w warstwie Ultra i ocenia dyski w oparciu o limity dysku Premium (32 TB).<br/><br/> Platforma Azure obsługuje jednak dyski o rozmiarze do 64 TB (obsługiwane przez dyski SSD w warstwie Ultra). Zmniejsz liczbę dysków do mniej niż 64 TB przed migracją lub Użyj wielu [dysków na platformie Azure, aby uzyskać](../virtual-machines/windows/premium-storage-performance.md#disk-striping) wyższe limity magazynu.
 Dysk niedostępny w określonej lokalizacji | Przed przeprowadzeniem migracji upewnij się, że dysk znajduje się w lokalizacji docelowej.
 Dysk niedostępny dla określonej nadmiarowości | Dysk powinien używać typu magazynu nadmiarowości zdefiniowanego w ustawieniach oceny (domyślnie LRS).
 Nie można określić przydatności dysku z powodu błędu wewnętrznego | Spróbuj utworzyć nową ocenę dla grupy.
@@ -52,7 +52,7 @@ Protokół internetowy gotowości warunkowej | Dotyczy wyłącznie ocen systemu 
 
 ## <a name="suggested-migration-tool-in-import-based-avs-assessment-marked-as-unknown"></a>Sugerowane narzędzie do migracji w ramach oceny automatycznej synchronizacji opartej na imporcie oznaczono jako nieznane
 
-W przypadku maszyn zaimportowanych za pośrednictwem pliku CSV domyślne narzędzie do migracji w ramach programu i oceny automatycznej synchronizacji jest nieznane. Mimo że w przypadku maszyn VMware zaleca się korzystanie z rozwiązania hybrydowego chmury VMWare (HCX). [Dowiedz się więcej](https://docs.microsoft.com/azure/azure-vmware/hybrid-cloud-extension-installation).
+W przypadku maszyn zaimportowanych za pośrednictwem pliku CSV domyślne narzędzie do migracji w ramach programu i oceny automatycznej synchronizacji jest nieznane. Mimo że w przypadku maszyn VMware zaleca się korzystanie z rozwiązania hybrydowego chmury VMWare (HCX). [Dowiedz się więcej](../azure-vmware/hybrid-cloud-extension-installation.md).
 
 ## <a name="linux-vms-are-conditionally-ready-in-an-azure-vm-assessment"></a>Maszyny wirtualne z systemem Linux są gotowe do oceny maszyn wirtualnych platformy Azure
 
@@ -64,7 +64,7 @@ W przypadku maszyn wirtualnych VMware i funkcji Hyper-V Ocena serwera oznacza ma
 - Możesz określić, czy system operacyjny Linux uruchomiony na lokalnej maszynie wirtualnej jest zatwierdzony na platformie Azure, przeglądając [Pomoc techniczną platformy Azure](https://aka.ms/migrate/selfhost/azureendorseddistros)w systemie Linux.
 -  Po zweryfikowaniu poświadczonej dystrybucji można zignorować to ostrzeżenie.
 
-Tę lukę można rozwiązać przez włączenie [odnajdowania aplikacji](https://docs.microsoft.com/azure/migrate/how-to-discover-applications) na maszynach wirtualnych VMware. Ocena serwera używa systemu operacyjnego wykrytego na maszynie wirtualnej przy użyciu podanych poświadczeń gościa. Te dane systemu operacyjnego identyfikują odpowiednie informacje o systemie operacyjnym w przypadku maszyn wirtualnych z systemami Windows i Linux.
+Tę lukę można rozwiązać przez włączenie [odnajdowania aplikacji](./how-to-discover-applications.md) na maszynach wirtualnych VMware. Ocena serwera używa systemu operacyjnego wykrytego na maszynie wirtualnej przy użyciu podanych poświadczeń gościa. Te dane systemu operacyjnego identyfikują odpowiednie informacje o systemie operacyjnym w przypadku maszyn wirtualnych z systemami Windows i Linux.
 
 
 ## <a name="azure-skus-bigger-than-on-premises-in-an-azure-vm-assessment"></a>Jednostki SKU platformy Azure większe niż lokalne w ramach oceny maszyny wirtualnej platformy Azure
@@ -101,7 +101,7 @@ Raporty oceny serwera "PercentageOfCoresUtilizedMissing" lub "PercentageOfMemory
 - Taka sytuacja może wystąpić, jeśli maszyny wirtualne są wyłączone w czasie trwania oceny. Urządzenie nie może zbierać danych wydajności dla maszyny wirtualnej, gdy jest ona wyłączona.
 - Jeśli brakuje tylko liczników pamięci i próbujesz ocenić maszyny wirtualne funkcji Hyper-V, sprawdź, czy na tych maszynach wirtualnych jest włączona pamięć dynamiczna. Istnieje znany problem dotyczący tylko maszyn wirtualnych funkcji Hyper-V, w których urządzenie Azure Migrate nie może zbierać danych użycia pamięci dla maszyn wirtualnych, dla których nie włączono pamięci dynamicznej.
 - Jeśli brakuje któregokolwiek z liczników wydajności, Azure Migrate oceny serwera powróci do przyznanych rdzeni i pamięci, a następnie zaleca rozmiar maszyny wirtualnej.
-- Jeśli brakuje wszystkich liczników wydajności, upewnij się, że zostały spełnione wymagania dotyczące dostępu do portów dla oceny. Dowiedz się więcej o wymaganiach dostępu do portów dla oprogramowania [VMware](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#port-access), [funkcji Hyper-V](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-hyper-v#port-access) i oceny serwera [fizycznego](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-physical#port-access) .
+- Jeśli brakuje wszystkich liczników wydajności, upewnij się, że zostały spełnione wymagania dotyczące dostępu do portów dla oceny. Dowiedz się więcej o wymaganiach dostępu do portów dla oprogramowania [VMware](./migrate-support-matrix-vmware.md#port-access-requirements), [funkcji Hyper-V](./migrate-support-matrix-hyper-v.md#port-access) i oceny serwera [fizycznego](./migrate-support-matrix-physical.md#port-access) .
 
 ## <a name="is-the-operating-system-license-included-in-an-azure-vm-assessment"></a>Czy licencja systemu operacyjnego jest uwzględniona w ocenie maszyny wirtualnej platformy Azure?
 
@@ -120,11 +120,11 @@ Taka sytuacja może wystąpić, jeśli na serwerze fizycznym jest włączona Wir
 
 ## <a name="recommended-azure-vm-sku-for-my-physical-server-is-oversized"></a>Zalecana jednostka SKU maszyny wirtualnej platformy Azure dla mojego serwera fizycznego jest zbyt duży
 
-Taka sytuacja może wystąpić, jeśli na serwerze fizycznym jest włączona Wirtualizacja funkcji Hyper-V. Na tych serwerach Azure Migrate obecnie są odnajdywane fizyczne i wirtualne karty sieciowe. Tym samym, nie. wykryte karty sieciowe są większe niż rzeczywiste. W miarę jak Ocena serwera wybiera maszynę wirtualną platformy Azure, która może obsługiwać wymaganą liczbę kart sieciowych, może to spowodować, że maszyna wirtualna jest powiększona. [Dowiedz się więcej](https://docs.microsoft.com/azure/migrate/concepts-assessment-calculation#calculating-sizing) o wpływie nie. kart sieciowych w przypadku zmiany rozmiarów. Jest to przerwy w działaniu produktu, które zostaną rozkierowane do przodu.
+Taka sytuacja może wystąpić, jeśli na serwerze fizycznym jest włączona Wirtualizacja funkcji Hyper-V. Na tych serwerach Azure Migrate obecnie są odnajdywane fizyczne i wirtualne karty sieciowe. Tym samym, nie. wykryte karty sieciowe są większe niż rzeczywiste. W miarę jak Ocena serwera wybiera maszynę wirtualną platformy Azure, która może obsługiwać wymaganą liczbę kart sieciowych, może to spowodować, że maszyna wirtualna jest powiększona. [Dowiedz się więcej](./concepts-assessment-calculation.md#calculating-sizing) o wpływie nie. kart sieciowych w przypadku zmiany rozmiarów. Jest to przerwy w działaniu produktu, które zostaną rozkierowane do przodu.
 
 ## <a name="readiness-category-not-ready-for-my-physical-server"></a>Kategoria gotowości "niegotowa" dla mojego serwera fizycznego
 
-Kategoria gotowość może zostać niepoprawnie oznaczona jako "niegotowa" w przypadku serwera fizycznego z włączoną wirtualizacją funkcji Hyper-V. Na tych serwerach z powodu przerwy w działaniu produktu Azure Migrate obecnie są odnajdywane zarówno karty fizyczne, jak i wirtualne. Tym samym, nie. wykryte karty sieciowe są większe niż rzeczywiste. W przypadku ocen zarówno lokalnych, jak i opartych na wydajności Ocena serwera wybiera maszynę wirtualną platformy Azure, która może obsługiwać wymaganą liczbę kart sieciowych. Jeśli liczba wykrytych kart sieciowych jest większa niż 32, wartość maksymalna to. Kart sieciowych obsługiwanych na maszynach wirtualnych platformy Azure, maszyna zostanie oznaczona jako "niegotowa".  [Dowiedz się więcej](https://docs.microsoft.com/azure/migrate/concepts-assessment-calculation#calculating-sizing) o wpływie nie. Kart sieciowych na wymiarze.
+Kategoria gotowość może zostać niepoprawnie oznaczona jako "niegotowa" w przypadku serwera fizycznego z włączoną wirtualizacją funkcji Hyper-V. Na tych serwerach z powodu przerwy w działaniu produktu Azure Migrate obecnie są odnajdywane zarówno karty fizyczne, jak i wirtualne. Tym samym, nie. wykryte karty sieciowe są większe niż rzeczywiste. W przypadku ocen zarówno lokalnych, jak i opartych na wydajności Ocena serwera wybiera maszynę wirtualną platformy Azure, która może obsługiwać wymaganą liczbę kart sieciowych. Jeśli liczba wykrytych kart sieciowych jest większa niż 32, wartość maksymalna to. Kart sieciowych obsługiwanych na maszynach wirtualnych platformy Azure, maszyna zostanie oznaczona jako "niegotowa".  [Dowiedz się więcej](./concepts-assessment-calculation.md#calculating-sizing) o wpływie nie. Kart sieciowych na wymiarze.
 
 
 ## <a name="number-of-discovered-nics-higher-than-actual-for-physical-servers"></a>Liczba odnalezionych kart sieciowych wyższych niż rzeczywista dla serwerów fizycznych
@@ -154,18 +154,18 @@ W przypadku maszyn wirtualnych z systemem Linux upewnij się, że polecenia inst
 
 ## <a name="supported-operating-systems"></a>Obsługiwane systemy operacyjne
 
-- **Agent MMS**: Zapoznaj się z obsługiwanymi systemami operacyjnymi [Windows](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-windows-operating-systems)i [Linux](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-linux-operating-systems) .
+- **Agent MMS**: Zapoznaj się z obsługiwanymi systemami operacyjnymi [Windows](../azure-monitor/platform/log-analytics-agent.md#supported-windows-operating-systems)i [Linux](../azure-monitor/platform/log-analytics-agent.md#supported-linux-operating-systems) .
 - **Agent zależności**: obsługiwane systemy operacyjne [Windows i Linux](../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems) .
 
 ## <a name="visualize-dependencies-for--hour"></a>Wizualizuj zależności dla > godziny
 
 Dzięki analizie zależności bez wykorzystania agentów można wizualizować zależności lub eksportować je na mapie przez okres do 30 dni.
 
-Analiza zależności oparta na agentach, chociaż Azure Migrate pozwala na powrót do określonej daty w ostatnim miesiącu, maksymalny czas trwania wizualizacji zależności wynosi godzinę. Można na przykład użyć funkcji czas trwania w mapie zależności, aby wyświetlić zależności dla wczoraj, ale można je wyświetlić tylko dla jednego okresu. Można jednak użyć dzienników Azure Monitor, aby [wykonać zapytanie o dane zależności](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies) przez dłuższy czas.
+Analiza zależności oparta na agentach, chociaż Azure Migrate pozwala na powrót do określonej daty w ostatnim miesiącu, maksymalny czas trwania wizualizacji zależności wynosi godzinę. Można na przykład użyć funkcji czas trwania w mapie zależności, aby wyświetlić zależności dla wczoraj, ale można je wyświetlić tylko dla jednego okresu. Można jednak użyć dzienników Azure Monitor, aby [wykonać zapytanie o dane zależności](./how-to-create-group-machine-dependencies.md) przez dłuższy czas.
 
 ## <a name="visualized-dependencies-for--10-machines"></a>Wizualne zależności dla maszyn > 10
 
-W Azure Migrate oceny serwera, z analizą zależności opartą na agentach, można [wizualizować zależności dla grup](https://docs.microsoft.com/azure/migrate/how-to-create-group-dependencies) z maksymalnie 10 maszynami wirtualnymi. W przypadku większych grup zalecamy dzielenie maszyn wirtualnych na mniejsze grupy w celu wizualizacji zależności.
+W Azure Migrate oceny serwera, z analizą zależności opartą na agentach, można [wizualizować zależności dla grup](./how-to-create-a-group.md#refine-a-group-with-dependency-mapping) z maksymalnie 10 maszynami wirtualnymi. W przypadku większych grup zalecamy dzielenie maszyn wirtualnych na mniejsze grupy w celu wizualizacji zależności.
 
 
 ## <a name="machines-show-install-agent"></a>Na maszynach zostanie wyświetlona wartość "Zainstaluj agenta"

@@ -3,11 +3,12 @@ title: Nieprawidłowe błędy szablonu
 description: Opisuje sposób rozwiązywania nieprawidłowych błędów szablonów podczas wdrażania szablonów Azure Resource Manager.
 ms.topic: troubleshooting
 ms.date: 05/22/2020
-ms.openlocfilehash: 2902a6d82c32192bb241697825a31d759d5c7b75
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a3589f42f707240272a411a985adefd5e6c5539c
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84324066"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86118889"
 ---
 # <a name="resolve-errors-for-invalid-template"></a>Usuwanie błędów związanych z nieprawidłowym szablonem
 
@@ -47,7 +48,7 @@ Ten błąd jest łatwy do przeprowadzenia, ponieważ wyrażenia szablonu mogą b
 
 Jeśli nie podano pasującej składni, szablon tworzy wartość różną od zamierzonej.
 
-Po otrzymaniu tego typu błędu należy uważnie przejrzeć składnię wyrażenia. Rozważ użycie edytora JSON, takiego jak [Visual Studio](create-visual-studio-deployment-project.md) lub [Visual Studio Code](use-vs-code-to-create-template.md), który może ostrzec o błędach składni.
+Po otrzymaniu tego typu błędu należy uważnie przejrzeć składnię wyrażenia. Rozważ użycie edytora JSON, takiego jak [Visual Studio](create-visual-studio-deployment-project.md) lub [Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md), który może ostrzec o błędach składni.
 
 <a id="incorrect-segment-lengths"></a>
 

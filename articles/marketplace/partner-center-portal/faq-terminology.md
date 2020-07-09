@@ -1,17 +1,16 @@
 ---
 title: Komercyjne często zadawane pytania dotyczące analizy portalu Marketplace & terminologia — centrum partnerskie
 description: Uzyskaj odpowiedzi na często zadawane pytania dotyczące komercyjnej analizy portalu Marketplace w centrum partnerskim. Ten artykuł zawiera słownik danych dla terminologii dotyczącej analizy.
-author: dsindona
-ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.openlocfilehash: eb91e498fa757c5cec7bd466c60aaf7e8758304c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ece7fa64c64d4c2f771be61984485cf9b1c4abaf
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83744569"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86121745"
 ---
 # <a name="commercial-marketplace-analytics-terminology-and-common-questions"></a>Terminologia komercyjna dotycząca analizy Marketplace i często zadawane pytania
 

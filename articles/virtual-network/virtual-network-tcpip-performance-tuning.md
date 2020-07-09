@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 04/02/2019
 ms.author: rimayber
 ms.reviewer: dgoddard, stegag, steveesp, minale, btalb, prachank
-ms.openlocfilehash: bb23484903ac3ce129c6e7a7a27e0765c227fb1d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dc77f3267813bd049274f44e43c4d64b0eb3801e
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "68297783"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86120283"
 ---
 # <a name="tcpip-performance-tuning-for-azure-vms"></a>Dostrajanie wydajności protokołu TCP/IP dla maszyn wirtualnych platformy Azure
 
@@ -136,7 +136,7 @@ W tej tabeli przedstawiono prostą odległość między dwiema lokalizacjami. W 
 
 `minimum RTT = 2 * (Distance in kilometers / Speed of propagation)`
 
-Aby uzyskać szybkość propagacji, można użyć 200. Jest to odległość w metrach, która to lekki ruch w 1 milisekundie.
+Aby uzyskać szybkość propagacji, można użyć 200. Jest to odległość (w kilometrach), która świeci się w 1 milisekundach.
 
 Na przykład przyjrzyjmy się nowemu Jorku do sieci San Francisco. Odległość liniowa to 4 148 km. Dołączenie tej wartości do równania zapewnia następujące korzyści:
 

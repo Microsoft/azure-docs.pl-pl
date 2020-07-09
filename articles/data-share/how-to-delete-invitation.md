@@ -4,14 +4,14 @@ description: Dowiedz się, jak usunąć zaproszenie do adresata udziału danych 
 author: joannapea
 ms.author: joanpo
 ms.service: data-share
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/10/2019
-ms.openlocfilehash: 97068ce652881818527557dd63a186b5d63a9363
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 040e1c02913291c31865a0b2e1e03e28040b8d40
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73490496"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86120215"
 ---
 # <a name="how-to-delete-an-invitation-to-a-recipient-in-azure-data-share"></a>Jak usunąć zaproszenie do adresata w udziale danych platformy Azure
 

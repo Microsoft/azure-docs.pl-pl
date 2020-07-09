@@ -1,18 +1,18 @@
 ---
 title: Microsoft Commercial Marketplace — często zadawane pytania
 description: Uzyskaj odpowiedzi na często zadawane pytania dotyczące platformy Azure Marketplace i Microsoft AppSource.
-author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: keferna
+ms.author: keferna
 ms.date: 05/08/2020
-ms.author: dsindona
-ms.openlocfilehash: 985a8ac83d48de11ac134bc9a942c766e4ff5d32
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: ad4e80c98097955703e4a6fb3c64e93a338f2720
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85963601"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86121167"
 ---
 # <a name="common-questions-about-microsoft-commercial-marketplace"></a>Często zadawane pytania dotyczące komercyjnej witryny Microsoft Marketplace
 

@@ -1,18 +1,18 @@
 ---
 title: Zaktualizuj istniejącą ofertę komercyjnej witryny Marketplace
 description: Jak wprowadzać aktualizacje do istniejącej komercyjnej oferty portalu Marketplace, w tym edytowania, usuwania wersji roboczej, anulowania żądania opublikowania, zaniechania sprzedaży oferty lub planu oraz zsynchronizowania odbiorców prywatnych.
-author: dsindona
-ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: keferna
+ms.author: keferna
 ms.date: 01/16/2020
-ms.openlocfilehash: eca054d2db5eca1948d1085e105e91af19fc132e
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 62170df567f552699304710902a1f83b84728af2
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86057963"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86120708"
 ---
 # <a name="update-an-existing-offer-in-the-commercial-marketplace"></a>Aktualizowanie istniejącej oferty w witrynie Marketplace dla zastosowań komercyjnych
 

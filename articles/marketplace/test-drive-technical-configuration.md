@@ -1,18 +1,16 @@
 ---
 title: Testuj konfigurację techniczną, Microsoft Commercial Marketplace
 description: Dowiedz się więcej na temat dysków testowych. Dyski testowe umożliwiają nowym klientom testowanie oferty przed zatwierdzeniem do zakupu.
-author: dsindona
-ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 08/13/2019
-ms.openlocfilehash: 4750c167ff236b535aaa1ed1dc3c2aa3918e6dad
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 9c4bd4fb5fc6a25027c2f01466a0d5afc1694b03
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85964961"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86121490"
 ---
 # <a name="test-drive-technical-configuration"></a>Wersja testowa konfiguracji technicznej
 

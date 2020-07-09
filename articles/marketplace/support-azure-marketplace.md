@@ -1,17 +1,18 @@
 ---
 title: Microsoft Commercial Marketplace support — Azure Marketplace
 description: Informacje o pomocy technicznej i linki dla portalu Azure Marketplace i AppSource w centrum partnerskim
-author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: keferna
+ms.author: keferna
 ms.date: 04/14/2020
-ms.author: dsindona
-ms.openlocfilehash: 8615a853ea218c0598f33d87d39c9ead15709cc0
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 1e4539dcec1f3f57f7fcc0ca0b8d8c266dc1bc99
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85955458"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86121507"
 ---
 # <a name="support-for-microsoft-commercial-marketplace"></a>Pomoc techniczna dla portalu komercyjnego firmy Microsoft
 

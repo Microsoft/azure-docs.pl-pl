@@ -7,26 +7,28 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: edoyle
 ms.date: 04/24/2020
-ms.openlocfilehash: 2db3dffbbf0f6d98fe6da7a0cec5400f7f2c03da
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: 1cb6dc56a5d4fa975f68c1dea08920a7c7db3904
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83722460"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119501"
 ---
-# <a name="quickstart-create-a-service-fabric-cluster-using-resource-manager-template"></a>Szybki Start: Tworzenie klastra Service Fabric przy użyciu szablonu Menedżer zasobów
+# <a name="quickstart-create-a-service-fabric-cluster-using-arm-template"></a>Szybki Start: Tworzenie klastra Service Fabric przy użyciu szablonu ARM
 
-Usługa Azure Service Fabric to platforma systemów rozproszonych ułatwiająca pakowanie i wdrażanie skalowalnych i niezawodnych mikrousług i kontenerów oraz zarządzanie nimi. *Klaster* Service Fabric to połączony z siecią zestaw maszyn wirtualnych, w których są wdrażane i zarządzane mikrousługi.
+Usługa Azure Service Fabric to platforma systemów rozproszonych ułatwiająca pakowanie i wdrażanie skalowalnych i niezawodnych mikrousług i kontenerów oraz zarządzanie nimi. *Klaster* Service Fabric to połączony z siecią zestaw maszyn wirtualnych, w których są wdrażane i zarządzane mikrousługi. W tym artykule opisano sposób wdrażania klastra testowego Service Fabric na platformie Azure przy użyciu szablonu Azure Resource Manager (szablon ARM).
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-W tym artykule opisano sposób wdrażania klastra testowego Service Fabric na platformie Azure przy użyciu Menedżer zasobów. Ten klaster systemu Windows z pięcioma węzłami jest zabezpieczony za pomocą certyfikatu z podpisem własnym i w ten sposób przeznaczony tylko do celów informacyjnych (a nie obciążeń produkcyjnych).
+Ten klaster systemu Windows z pięcioma węzłami jest zabezpieczony za pomocą certyfikatu z podpisem własnym i w ten sposób przeznaczony tylko do celów informacyjnych (a nie obciążeń produkcyjnych). Użyjemy Azure PowerShell, aby wdrożyć szablon. Oprócz Azure PowerShell można również użyć Azure Portal, interfejsu wiersza polecenia platformy Azure i API REST. Aby poznać inne metody wdrażania, zobacz [wdrażanie szablonów](../azure-resource-manager/templates/deploy-portal.md).
 
-Użyjemy Azure PowerShell, aby wdrożyć szablon. Oprócz Azure PowerShell można również użyć Azure Portal, interfejsu wiersza polecenia platformy Azure i API REST. Aby poznać inne metody wdrażania, zobacz [wdrażanie szablonów](../azure-resource-manager/templates/deploy-portal.md).
+Jeśli Twoje środowisko spełnia wymagania wstępne i masz doświadczenie w korzystaniu z szablonów usługi ARM, wybierz przycisk **Wdróż na platformie Azure** . Szablon zostanie otwarty w Azure Portal.
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
+[![Wdrażanie na platformie Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fservice-fabric-secure-cluster-5-node-1-nodetype%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
+
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
 
 ### <a name="install-service-fabric-sdk-and-powershell-modules"></a>Zainstaluj Service Fabric zestaw SDK i moduły programu PowerShell
 
@@ -40,7 +42,7 @@ Aby ukończyć ten przewodnik Szybki Start, musisz wykonać następujące czynno
 
 Klonuj lub Pobierz repozytorium [szablonów szybkiego startu Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates) . Alternatywnie Skopiuj lokalnie następujące pliki, z których będziemy korzystać z folderu *Service-Fabric-Secure-Cluster-5-Node-1-NodeType* :
 
-* [New-ServiceFabricClusterCertificate. ps1](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/service-fabric-secure-cluster-5-node-1-nodetype/New-ServiceFabricClusterCertificate.ps1)
+* [New-ServiceFabricClusterCertificate.ps1](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/service-fabric-secure-cluster-5-node-1-nodetype/New-ServiceFabricClusterCertificate.ps1)
 * [azuredeploy.JSON](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/service-fabric-secure-cluster-5-node-1-nodetype/azuredeploy.json)
 * [azuredeploy.parameters.JSON](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/service-fabric-secure-cluster-5-node-1-nodetype/azuredeploy.parameters.json)
 
@@ -87,11 +89,9 @@ $certUrlValue = "<Certificate URL>"
 $certThumbprint = "<Certificate Thumbprint>"
 ```
 
-## <a name="create-a-service-fabric-cluster"></a>Tworzenie klastra usługi Service Fabric
+## <a name="review-the-template"></a>Przegląd szablonu
 
-### <a name="review-the-template"></a>Zapoznaj się z szablonem
-
-Szablon używany w tym przewodniku szybki start pochodzi z [szablonów szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/service-fabric-secure-cluster-5-node-1-nodetype/). Szablon tego artykułu jest zbyt długi, aby można go było wyświetlić w tym miejscu. Aby wyświetlić szablon, zobacz plik [azuredeploy. JSON](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/service-fabric-secure-cluster-5-node-1-nodetype/azuredeploy.json) .
+Szablon używany w tym przewodniku szybki start pochodzi z [szablonów szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/service-fabric-secure-cluster-5-node-1-nodetype/). Szablon tego artykułu jest zbyt długi, aby można go było wyświetlić w tym miejscu. Aby wyświetlić szablon, zobacz [azuredeploy.js](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/service-fabric-secure-cluster-5-node-1-nodetype/azuredeploy.json) pliku.
 
 W szablonie zdefiniowano wiele zasobów platformy Azure:
 
@@ -106,14 +106,14 @@ Aby znaleźć więcej szablonów związanych z usługą Azure Service Fabric, zo
 
 ### <a name="customize-the-parameters-file"></a>Dostosuj plik parametrów
 
-Otwórz plik *azuredeploy. Parameters. JSON* i edytuj wartości parametrów, tak aby:
+Otwórz *azuredeploy.parameters.jsna* i edytuj wartości parametrów, tak aby:
 
 * wartość **ClusterName** pasuje do wartości podanej dla *CertDNSName* podczas tworzenia certyfikatu klastra
 * **adminUserName** jest wartością inną niż domyślny token *Gen-Unique*
 * **adminPassword** jest wartością inną niż domyślny token ogólnego *hasła*
 * **certificateThumbprint**, **sourceVaultResourceId**i **certificateUrlValue** są pustym ciągiem ( `""` )
 
-Na przykład:
+Przykład:
 
 ```json
 {
@@ -144,7 +144,7 @@ Na przykład:
 
 ## <a name="deploy-the-template"></a>Wdrożenie szablonu
 
-Przechowuj ścieżki Menedżer zasobów szablonów i plików parametrów w zmiennych, a następnie wdróż szablon.
+Zapisz ścieżki szablonu ARM i plików parametrów w zmiennych, a następnie wdróż szablon.
 
 ```powershell
 $templateFilePath = "<full path to azuredeploy.json>"

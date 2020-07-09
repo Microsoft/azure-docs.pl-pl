@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 06/25/2020
 ms.author: mahain
-ms.openlocfilehash: 200a6ba333d283b6a82f1eb228a0fc586b5b1fab
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a4d2e810144e7c3d36545cb1e965aec40980c1d2
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85568612"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86118821"
 ---
 # <a name="avs-assessments-in-azure-migrate-server-assessment"></a>Ocena automatycznej synchronizacji w Azure Migrate: Ocena serwera
 
@@ -29,7 +29,7 @@ Oceny tworzone za pomocą oceny serwera to migawka danych w danym momencie. Istn
 **Typ oceny** | **Szczegóły**
 --- | --- 
 **Maszyna wirtualna platformy Azure** | Ocenianie migracji serwerów lokalnych do usługi Azure Virtual Machines. <br/><br/> Możesz ocenić lokalne [maszyny wirtualne VMware](how-to-set-up-appliance-vmware.md), [maszyny wirtualne funkcji Hyper-V](how-to-set-up-appliance-hyper-v.md)i [serwery fizyczne](how-to-set-up-appliance-physical.md) do migracji na platformę Azure przy użyciu tego typu oceny. [Dowiedz się więcej](concepts-assessment-calculation.md)
-**Rozwiązanie Azure VMware (AVS)** | Ocenianie migracji serwerów lokalnych do [rozwiązania Azure VMware (Automatyczna synchronizacja)](https://docs.microsoft.com/azure/azure-vmware/introduction). <br/><br/> Za pomocą tego typu oceny można ocenić lokalne [maszyny wirtualne VMware](how-to-set-up-appliance-vmware.md) na potrzeby migracji do rozwiązania Azure VMware (Automatyczna synchronizacja). [Dowiedz się więcej](concepts-azure-vmware-solution-assessment-calculation.md)
+**Rozwiązanie Azure VMware (AVS)** | Ocenianie migracji serwerów lokalnych do [rozwiązania Azure VMware (Automatyczna synchronizacja)](../azure-vmware/introduction.md). <br/><br/> Za pomocą tego typu oceny można ocenić lokalne [maszyny wirtualne VMware](how-to-set-up-appliance-vmware.md) na potrzeby migracji do rozwiązania Azure VMware (Automatyczna synchronizacja). [Dowiedz się więcej](concepts-azure-vmware-solution-assessment-calculation.md)
 
 Ocena rozwiązań VMware na platformie Azure (Automatyczna synchronizacja) w ramach oceny serwera oferuje dwie opcje kryteriów ustalania rozmiarów:
 
@@ -121,7 +121,7 @@ Tutaj nowości zamieszczono w ocenie automatycznej synchronizacji w ocenie serwe
 | **Lokalizacja docelowa** | Określa lokalizację chmury prywatnej automatycznej synchronizacji, do której chcesz przeprowadzić migrację.<br/><br/> Ocena automatycznej synchronizacji w ocenie serwera obsługuje obecnie następujące regiony docelowe: Wschodnie stany USA, Europa Zachodnia, zachodnie stany USA. 
 | **Typ magazynu** | Określa aparat magazynu, który ma być używany w ramach automatycznej synchronizacji.<br/><br/> Oceny wersji zaautomatycznej obsługują tylko sieci vSAN jako domyślny typ magazynu. 
 **Wystąpienia zarezerwowane (RIs)** | Ta właściwość pomaga określić zarezerwowane wystąpienia w automatycznej synchronizacji. Usługi RIs nie są obecnie obsługiwane w przypadku węzłów automatycznej synchronizacji. 
-**Typ węzła** | Określa [Typ węzła automatycznej synchronizacji](https://docs.microsoft.com/azure/azure-vmware/concepts-private-clouds-clusters) , używany do mapowania lokalnych maszyn wirtualnych. Domyślny typ węzła to AV36. <br/><br/> Azure Migrate będzie wymagała wymaganej liczby węzłów do migracji maszyn wirtualnych do automatycznej synchronizacji. 
+**Typ węzła** | Określa [Typ węzła automatycznej synchronizacji](../azure-vmware/concepts-private-clouds-clusters.md) , używany do mapowania lokalnych maszyn wirtualnych. Domyślny typ węzła to AV36. <br/><br/> Azure Migrate będzie wymagała wymaganej liczby węzłów do migracji maszyn wirtualnych do automatycznej synchronizacji. 
 **Ustawienie FTT, poziom RAID** | Określa, że ma to zastosowanie do niedopuszczalnych połączeń i kombinacji RAID. Wybrana opcja FTT z wymaganiami dotyczącymi lokalnego dysku maszyny wirtualnej określi łączny magazyn sieci vSAN wymagany w ramach automatycznej synchronizacji. 
 **Kryterium ustalania wielkości** | Ustawia kryteria do użycia dla maszyn wirtualnych o *odpowiednim rozmiarze* na potrzeby automatycznej synchronizacji. Możesz wybrać opcję ustalania rozmiarów na *podstawie wydajności* lub *jako lokalne* , bez uwzględniania historii wydajności. 
 **Historia wydajności** | Określa czas, jaki należy wziąć pod uwagę podczas oceniania danych wydajności maszyn. Ta właściwość ma zastosowanie tylko wtedy, gdy kryterium ustalania wielkości jest *oparte na wydajności*. 
@@ -249,14 +249,14 @@ Po zakończeniu ustalania rozmiarów Azure Migrate oblicza łączny koszt urucha
 - Agreguje koszt we wszystkich węzłach, aby obliczyć łączny koszt miesięczny.
 - Koszty są wyświetlane w walucie określonej w ustawieniach oceny.
 
-Zgodnie z cennikiem rozwiązania Azure VMware (Automatyczna synchronizacja) na węzeł łączny koszt nie ma kosztu obliczeniowego i dystrybucji kosztów magazynu. [Więcej informacji](https://docs.microsoft.com/azure/azure-vmware/introduction)
+Zgodnie z cennikiem rozwiązania Azure VMware (Automatyczna synchronizacja) na węzeł łączny koszt nie ma kosztu obliczeniowego i dystrybucji kosztów magazynu. [Więcej informacji](../azure-vmware/introduction.md)
 
 Pamiętaj, że jako wersja zapoznawcza rozwiązanie Azure VMware (Automatyczna synchronizacja), ceny węzłów w ocenie są cenami wersji zapoznawczej. Aby uzyskać wskazówki, należy skontaktować się z lokalnym zespołem usługi MSFT GBB.
 
 ## <a name="migration-tool-guidance"></a>Wskazówki dotyczące narzędzia do migracji
 
 W raporcie dotyczącym gotowości platformy Azure do oceny rozwiązań VMware (Automatyczna synchronizacja) można zobaczyć następujące sugerowane narzędzia: 
-- **VMware HCX lub Enterprise**: w przypadku maszyn VMware, rozwiązanie hybrydowe w chmurze VMware (HCX) to sugerowane narzędzie do migracji, które umożliwia migrowanie lokalnego obciążenia do chmury prywatnej platformy Azure VMware (Automatyczna synchronizacja). [Dowiedz się więcej](https://docs.microsoft.com/azure/azure-vmware/hybrid-cloud-extension-installation).
+- **VMware HCX lub Enterprise**: w przypadku maszyn VMware, rozwiązanie hybrydowe w chmurze VMware (HCX) to sugerowane narzędzie do migracji, które umożliwia migrowanie lokalnego obciążenia do chmury prywatnej platformy Azure VMware (Automatyczna synchronizacja). [Dowiedz się więcej](../azure-vmware/hybrid-cloud-extension-installation.md).
 - **Nieznane**: w przypadku maszyn zaimportowanych za pośrednictwem pliku CSV, domyślne narzędzie migracji jest nieznane. Mimo że w przypadku maszyn VMware zaleca się użycie rozwiązania hybrydowego chmury VMWare (HCX).
 
 ## <a name="next-steps"></a>Następne kroki

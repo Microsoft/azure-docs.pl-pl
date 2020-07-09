@@ -1,17 +1,16 @@
 ---
 title: Zapoznaj się z opiniami dotyczącymi ofert Azure Apps — Microsoft Commercial Marketplace
 description: Jak obsłużyć opinie dotyczące oferty aplikacji platformy Azure w zespole Microsoft Azure Marketplaceego przeglądu. Możesz uzyskać dostęp do opinii w usłudze Azure DevOps przy użyciu poświadczeń Centrum partnerskiego.
-author: dsindona
-ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/11/2019
-ms.openlocfilehash: c9e441512177d731c5ad47b66b454e5722483507
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e8d90f5238ea312602d2142d25b9ae226aa34c84
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83659854"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119025"
 ---
 # <a name="handling-review-feedback-for-azure-application-offers"></a>Obsługa opinii na temat przeglądu ofert aplikacji platformy Azure
 

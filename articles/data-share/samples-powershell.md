@@ -6,20 +6,19 @@ author: joannapea
 ms.author: joanpo
 ms.topic: conceptual
 ms.date: 07/06/2019
-ms.openlocfilehash: c2593c4c03f48624b8b9e3b9d72a3558f5f581be
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cd7604e33a9f98d9104eecabb20369fe2fcee8a7
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73499297"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119637"
 ---
 # <a name="azure-powershell-samples-for-azure-data-share"></a>Przykłady Azure PowerShell dla udziału danych platformy Azure
 
 Poniższa tabela zawiera linki do przykładowych skryptów Azure PowerShell dla udziału danych platformy Azure.
 
-| |  |
+|Przykłady dla programu PowerShell|Opis|
 |---|---|
-|**Przykłady dla programu PowerShell**||
 |[Utwórz nowe konto udziału danych](scripts/powershell/create-new-share-account-powershell.md)| Ten skrypt programu PowerShell tworzy nowe konto udostępniania danych. |
 |[Tworzenie nowego udziału danych](scripts/powershell/create-new-share-powershell.md)| Ten skrypt programu PowerShell tworzy nowy udział danych. |
 |[Dodawanie zestawów danych do udziału](scripts/powershell/add-datasets-powershell.md)| Ten skrypt programu PowerShell dodaje zestaw danych obiektów BLOB do istniejącego konta udziału danych. |

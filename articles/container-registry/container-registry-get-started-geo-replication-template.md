@@ -1,5 +1,5 @@
 ---
-title: Szybki Start — tworzenie rejestru z replikacją geograficzną — Menedżer zasobów szablonu
+title: Szybki Start — tworzenie rejestru z replikacją geograficzną — Azure Resource Manager szablonu
 description: Informacje o sposobie tworzenia rejestru kontenerów platformy Azure z replikacją geograficzną przy użyciu szablonu Azure Resource Manager.
 services: azure-resource-manager
 author: dlepow
@@ -8,28 +8,28 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: danlep
 ms.date: 05/26/2020
-ms.openlocfilehash: c94cd3b4b455691e85e7525007fcdf7a056a2b28
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 3ed160780e15cc36648f7e2ad77e726901ee86c3
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84558080"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119858"
 ---
-# <a name="quickstart-create-a-geo-replicated-container-registry-by-using-a-resource-manager-template"></a>Szybki Start: tworzenie rejestru kontenerów z replikacją geograficzną przy użyciu szablonu Menedżer zasobów
+# <a name="quickstart-create-a-geo-replicated-container-registry-by-using-an-arm-template"></a>Szybki Start: tworzenie rejestru kontenerów z replikacją geograficzną przy użyciu szablonu ARM
 
-W tym przewodniku szybki start pokazano, jak utworzyć wystąpienie Azure Container Registry przy użyciu szablonu Azure Resource Manager. Szablon konfiguruje rejestr z [replikacją geograficzną](container-registry-geo-replication.md) , który automatycznie synchronizuje zawartość rejestru w więcej niż jednym regionie świadczenia usługi Azure. Replikacja geograficzna umożliwia dostęp do sieci w pobliżu obrazów ze wdrożeń regionalnych, zapewniając jednocześnie pojedyncze środowisko zarządzania. Jest to funkcja warstwy usługi rejestr w [warstwie Premium](container-registry-skus.md) . 
+W tym przewodniku szybki start pokazano, jak utworzyć wystąpienie Azure Container Registry przy użyciu szablonu Azure Resource Manager (szablon ARM). Szablon konfiguruje rejestr z [replikacją geograficzną](container-registry-geo-replication.md) , który automatycznie synchronizuje zawartość rejestru w więcej niż jednym regionie świadczenia usługi Azure. Replikacja geograficzna umożliwia dostęp do sieci w pobliżu obrazów ze wdrożeń regionalnych, zapewniając jednocześnie pojedyncze środowisko zarządzania. Jest to funkcja warstwy usługi rejestr w [warstwie Premium](container-registry-skus.md) .
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
+Jeśli Twoje środowisko spełnia wymagania wstępne i masz doświadczenie w korzystaniu z szablonów usługi ARM, wybierz przycisk **Wdróż na platformie Azure** . Szablon zostanie otwarty w Azure Portal.
+
+[![Wdrażanie na platformie Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-container-registry-geo-replication%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Brak.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
 
-## <a name="create-a-geo-replicated-registry"></a>Tworzenie rejestru z replikacją geograficzną
-
-### <a name="review-the-template"></a>Przegląd szablonu
+## <a name="review-the-template"></a>Przegląd szablonu
 
 Szablon używany w tym przewodniku szybki start pochodzi z [szablonów szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/101-container-registry-geo-replication/). Szablon konfiguruje rejestr i dodatkową replikę regionalną.
 
@@ -42,7 +42,7 @@ Następujące zasoby są zdefiniowane w szablonie:
 
 Więcej przykładów szablonów Azure Container Registry można znaleźć w [galerii szablonów szybkiego startu](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Containerregistry&pageNumber=1&sort=Popular).
 
-### <a name="deploy-the-template"></a>Wdrożenie szablonu
+## <a name="deploy-the-template"></a>Wdrożenie szablonu
 
  1. Wybierz poniższy obraz, aby zalogować się na platformie Azure i otworzyć szablon.
 
@@ -80,13 +80,13 @@ Użyj Azure Portal lub narzędzia, takiego jak interfejs wiersza polecenia platf
 
     :::image type="content" source="media/container-registry-get-started-geo-replication-template/registry-replications.png" alt-text="Replikacje rejestru":::
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Gdy nie są już potrzebne, Usuń grupę zasobów, rejestr i replikę rejestru. W tym celu przejdź do Azure Portal, wybierz grupę zasobów zawierającą rejestr, a następnie wybierz pozycję **Usuń grupę zasobów**.
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym przewodniku szybki start utworzono Azure Container Registry z szablonem Menedżer zasobów i skonfigurowano replikę rejestru w innej lokalizacji. Przejdź do samouczków usługi Azure Container Registry, aby dowiedzieć się więcej o tej usłudze.
+W tym przewodniku szybki start utworzono Azure Container Registry z szablonem ARM i skonfigurowano replikę rejestru w innej lokalizacji. Przejdź do samouczków usługi Azure Container Registry, aby dowiedzieć się więcej o tej usłudze.
 
 > [!div class="nextstepaction"]
 > [Samouczki dotyczące usługi Azure Container Registry](container-registry-tutorial-prepare-registry.md)
@@ -94,4 +94,4 @@ W tym przewodniku szybki start utworzono Azure Container Registry z szablonem Me
 Aby zapoznać się z samouczkiem krok po kroku, który przeprowadzi Cię przez proces tworzenia szablonu, zobacz:
 
 > [!div class="nextstepaction"]
-> [Samouczek: Tworzenie i wdrażanie pierwszego szablonu Azure Resource Manager](../azure-resource-manager/templates/template-tutorial-create-first-template.md)
+> [Samouczek: Tworzenie i wdrażanie pierwszego szablonu ARM](../azure-resource-manager/templates/template-tutorial-create-first-template.md)

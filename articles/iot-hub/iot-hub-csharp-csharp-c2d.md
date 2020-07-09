@@ -7,16 +7,17 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: csharp
 ms.topic: conceptual
-ms.date: 04/03/2019
+ms.date: 07/07/2020
 ms.author: robinsh
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 41c29e55f04f9edf06ba375ad4539e5fb3f82c18
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 13665e8738ef1fb5dd6e0e0ff24e1bd196c7d9a7
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81733416"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86120322"
 ---
 # <a name="send-messages-from-the-cloud-to-your-device-with-iot-hub-net"></a>Wysyłanie komunikatów z chmury do urządzenia przy użyciu IoT Hub (.NET)
 
@@ -58,7 +59,7 @@ Na końcu tego samouczka uruchamiasz dwie aplikacje konsolowe programu .NET.
 
 W tej sekcji zmodyfikuj aplikację urządzenia utworzoną w obszarze Wysyłanie danych [telemetrycznych z urządzenia do usługi IoT Hub](quickstart-send-telemetry-dotnet.md) , aby odbierać komunikaty z chmury do urządzenia z Centrum IoT Hub.
 
-1. W programie Visual Studio w projekcie **SimulatedDevice** Dodaj następującą metodę do klasy **program** .
+1. W programie Visual Studio w projekcie **SimulatedDevice** Dodaj następującą metodę do klasy **SimulatedDevice** .
 
    ```csharp
     private static async void ReceiveC2dAsync()
@@ -103,7 +104,7 @@ W tym artykule opisano tworzenie usługi zaplecza do wysyłania komunikatów z c
 
 ## <a name="send-a-cloud-to-device-message"></a>Wysyłanie komunikatu z chmury do urządzenia
 
-Teraz napiszesz aplikację konsolową .NET, która wysyła komunikaty z chmury do urządzenia do aplikacji urządzenia.
+W tej sekcji utworzysz aplikację konsolową .NET, która wysyła komunikaty z chmury do urządzenia do aplikacji symulowanego urządzenia.
 
 1. W bieżącym rozwiązaniu programu Visual Studio wybierz pozycję **plik**  >  **Nowy**  >  **projekt**. W obszarze **Utwórz nowy projekt**wybierz pozycję **aplikacja konsoli (.NET Framework)**, a następnie wybierz przycisk **dalej**.
 
@@ -111,7 +112,7 @@ Teraz napiszesz aplikację konsolową .NET, która wysyła komunikaty z chmury d
 
    ![Konfigurowanie nowego projektu w programie Visual Studio](./media/iot-hub-csharp-csharp-c2d/sendcloudtodevice-project-configure.png)
 
-1. W Eksplorator rozwiązań kliknij prawym przyciskiem myszy nowe rozwiązanie, a następnie wybierz polecenie **Zarządzaj pakietami NuGet**.
+1. W Eksplorator rozwiązań kliknij prawym przyciskiem myszy nowy projekt, a następnie wybierz polecenie **Zarządzaj pakietami NuGet**.
 
 1. W obszarze **Zarządzaj pakietami NuGet**wybierz pozycję **Przeglądaj**, a następnie wyszukaj i wybierz pozycję **Microsoft. Azure. Devices**. Wybierz pozycję **Zainstaluj**.
 
@@ -123,25 +124,24 @@ Teraz napiszesz aplikację konsolową .NET, która wysyła komunikaty z chmury d
    using Microsoft.Azure.Devices;
    ```
 
-1. Dodaj następujące pola do klasy **Program**: Zastąp wartość symbolu zastępczego parametrami połączenia usługi IoT Hub skopiowanymi wcześniej w polu [Pobierz parametry połączenia usługi IoT Hub](#get-the-iot-hub-connection-string).
+1. Dodaj następujące pola do klasy **Program**: Zastąp `{iot hub connection string}` wartość symbolu zastępczego parametrami połączenia usługi IoT Hub zanotowanymi wcześniej w temacie [pobieranie parametrów połączenia usługi IoT Hub](#get-the-iot-hub-connection-string). Zastąp `{device id}` wartość symbolu zastępczego identyfikatorem urządzenia dodanego w polu [Wyślij telemetrię z urządzenia do](quickstart-send-telemetry-dotnet.md) przewodnika Szybki Start dotyczącego usługi IoT Hub.
 
    ``` csharp
    static ServiceClient serviceClient;
    static string connectionString = "{iot hub connection string}";
+   static string targetDevice = "{device id}";
    ```
 
-1. Dodaj następującą metodę do klasy **Program**. Ustaw nazwę urządzenia na wartość używaną podczas definiowania urządzenia w usłudze [wysyłanie danych telemetrycznych z urządzenia do centrum IoT Hub](quickstart-send-telemetry-dotnet.md).
+1. Dodaj następującą metodę do klasy **program** , aby wysłać komunikat do urządzenia.
 
    ``` csharp
    private async static Task SendCloudToDeviceMessageAsync()
    {
         var commandMessage = new
          Message(Encoding.ASCII.GetBytes("Cloud to device message."));
-        await serviceClient.SendAsync("myFirstDevice", commandMessage);
+        await serviceClient.SendAsync(targetDevice, commandMessage);
    }
    ```
-
-   Ta metoda wysyła do urządzenia nowy komunikat z chmury do urządzenia z IDENTYFIKATORem, `myFirstDevice` . Ten parametr należy zmienić tylko wtedy, gdy został zmodyfikowany z poziomu używanego w [wysyłanie danych telemetrycznych z urządzenia do centrum IoT Hub](quickstart-send-telemetry-dotnet.md).
 
 1. Na koniec Dodaj następujące wiersze do metody **Main** .
 
@@ -157,9 +157,9 @@ Teraz napiszesz aplikację konsolową .NET, która wysyła komunikaty z chmury d
 
 1. W Eksploratorze rozwiązań kliknij rozwiązanie prawym przyciskiem myszy, a następnie wybierz pozycję **Ustaw projekty startowe**.
 
-1. W **polu**  >  **projekt startowy**właściwości wspólne wybierz opcję **wiele projektów startowych**, a następnie wybierz akcję **Rozpocznij** dla **ReadDeviceToCloudMessages**, **SimulatedDevice**i **SendCloudToDevice**. Wybierz przycisk **OK**, aby zapisać zmiany.
+1. W polu **Common Properties**  >  **projekt startowy**właściwości wspólne wybierz opcję **wiele projektów startowych**, a następnie wybierz akcję **Rozpocznij** dla **SimulatedDevice** i **SendCloudToDevice**. Wybierz przycisk **OK**, aby zapisać zmiany.
 
-1. Naciśnij klawisz **F5**. Należy uruchomić wszystkie trzy aplikacje. Wybierz **SendCloudToDevice** systemu Windows, a następnie naciśnij klawisz **Enter**. Powinien zostać wyświetlony komunikat, który jest odbierany przez aplikację urządzenia.
+1. Naciśnij klawisz **F5**. Należy uruchomić obie aplikacje. Wybierz okno **SendCloudToDevice** , a następnie naciśnij klawisz **Enter**. Powinien zostać wyświetlony komunikat, który jest odbierany przez aplikację urządzenia.
 
    ![Komunikat z informacją o odebraniu aplikacji](./media/iot-hub-csharp-csharp-c2d/sendc2d1.png)
 
@@ -206,7 +206,7 @@ W tej sekcji zmodyfikujesz aplikację **SendCloudToDevice** , aby żądać opini
    commandMessage.Ack = DeliveryAcknowledgement.Full;
    ```
 
-1. Uruchom aplikacje, naciskając klawisz **F5**. Powinny być widoczne wszystkie trzy aplikacje. Wybierz **SendCloudToDevice** systemu Windows, a następnie naciśnij klawisz **Enter**. Powinien pojawić się komunikat z informacją, że odebrana przez aplikację urządzenia, a po upływie kilku sekund komunikat o opinii jest odbierany przez aplikację **SendCloudToDevice** .
+1. Uruchom aplikacje, naciskając klawisz **F5**. Powinny pojawić się oba uruchomienia aplikacji. Wybierz okno **SendCloudToDevice** , a następnie naciśnij klawisz **Enter**. Powinien pojawić się komunikat z informacją, że odebrana przez aplikację urządzenia, a po upływie kilku sekund komunikat o opinii jest odbierany przez aplikację **SendCloudToDevice** .
 
    ![Komunikat z informacją o odebraniu aplikacji](./media/iot-hub-csharp-csharp-c2d/sendc2d2.png)
 
