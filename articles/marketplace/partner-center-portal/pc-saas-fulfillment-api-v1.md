@@ -1,17 +1,16 @@
 ---
 title: Interfejsy API realizacji SaaS v1 | Portal Azure Marketplace
 description: Wyjaśnia, jak utworzyć i zarządzać ofertą SaaS w portalu Azure Marketplace przy użyciu skojarzonych interfejsów API realizacji w wersji 1.
-author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 ms.date: 05/04/2020
-ms.author: dsindona
-ms.openlocfilehash: 01ee0d6a0870cd4f212fc9d50dfe83e55c539af3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3f25537953fd33c875aea23592d4526d6f07828d
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84711123"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86118379"
 ---
 # <a name="saas-fulfillment-apis-version-1-deprecated"></a>Interfejsy API realizacji SaaS w wersji 1 (przestarzałe)
 

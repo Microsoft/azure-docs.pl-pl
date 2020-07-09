@@ -3,12 +3,12 @@ title: Struktura i składnia szablonu
 description: Opisuje strukturę i właściwości szablonów Azure Resource Manager przy użyciu deklaracyjnej składni JSON.
 ms.topic: conceptual
 ms.date: 06/22/2020
-ms.openlocfilehash: 4fdf386aa3b17f46589183706b2a91637acacdb7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ae2c5a5fe1440c3adbae475cd4c7652a3b01c285
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85208828"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86116543"
 ---
 # <a name="understand-the-structure-and-syntax-of-arm-templates"></a>Zrozumienie struktury i składni szablonów ARM
 
@@ -35,7 +35,7 @@ W najprostszym strukturze szablon zawiera następujące elementy:
 
 | Nazwa elementu | Wymagane | Opis |
 |:--- |:--- |:--- |
-| $schema |Tak |Lokalizacja pliku schematu JSON opisującego wersję języka szablonu. Używany numer wersji zależy od zakresu wdrożenia i edytora JSON.<br><br>Jeśli używasz [vs Code z rozszerzeniem narzędzi Azure Resource Manager](use-vs-code-to-create-template.md), użyj najnowszej wersji dla wdrożeń grup zasobów:<br>`https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#`<br><br>Inne edytory (w tym Visual Studio) mogą nie być w stanie przetworzyć tego schematu. Dla tych edytorów należy użyć:<br>`https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#`<br><br>W przypadku wdrożeń subskrypcji Użyj:<br>`https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#`<br><br>W przypadku wdrożeń grup zarządzania Użyj:<br>`https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#`<br><br>W przypadku wdrożeń dzierżawców Użyj:<br>`https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#` |
+| $schema |Tak |Lokalizacja pliku schematu JSON opisującego wersję języka szablonu. Używany numer wersji zależy od zakresu wdrożenia i edytora JSON.<br><br>Jeśli używasz [vs Code z rozszerzeniem narzędzi Azure Resource Manager](quickstart-create-templates-use-visual-studio-code.md), użyj najnowszej wersji dla wdrożeń grup zasobów:<br>`https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#`<br><br>Inne edytory (w tym Visual Studio) mogą nie być w stanie przetworzyć tego schematu. Dla tych edytorów należy użyć:<br>`https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#`<br><br>W przypadku wdrożeń subskrypcji Użyj:<br>`https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#`<br><br>W przypadku wdrożeń grup zarządzania Użyj:<br>`https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#`<br><br>W przypadku wdrożeń dzierżawców Użyj:<br>`https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#` |
 | Contentversion — |Tak |Wersja szablonu (na przykład 1.0.0.0). Możesz podać dowolną wartość dla tego elementu. Użyj tej wartości, aby udokumentować znaczące zmiany w szablonie. W przypadku wdrażania zasobów przy użyciu szablonu Ta wartość może być używana do upewnienia się, że odpowiedni szablon jest używany. |
 | apiProfile |Nie | Wersja interfejsu API, która służy jako kolekcja wersji interfejsu API dla typów zasobów. Użyj tej wartości, aby uniknąć konieczności określania wersji interfejsu API dla każdego zasobu w szablonie. W przypadku określenia wersji profilu interfejsu API i nieokreślenia wersji interfejsu API dla typu zasobu Menedżer zasobów używa wersji interfejsu API dla tego typu zasobu, który jest zdefiniowany w profilu.<br><br>Właściwość profil interfejsu API jest szczególnie przydatna w przypadku wdrażania szablonu w różnych środowiskach, takich jak Azure Stack i globalny platformę Azure. Użyj wersji profilu interfejsu API, aby upewnić się, że szablon automatycznie używa wersji, które są obsługiwane w obu środowiskach. Listę bieżących wersji profilu interfejsu API i wersje interfejsu API zasobów zdefiniowane w profilu znajdują się w temacie [profil interfejsu API](https://github.com/Azure/azure-rest-api-specs/tree/master/profile).<br><br>Aby uzyskać więcej informacji, zobacz [śledzenie wersji przy użyciu profilów interfejsu API](templates-cloud-consistency.md#track-versions-using-api-profiles). |
 | [wejściowe](#parameters) |Nie |Wartości, które są dostarczane, gdy wdrożenie jest wykonywane w celu dostosowania wdrożenia zasobów. |
@@ -307,7 +307,7 @@ W przypadku komentarzy wbudowanych można użyć którejkolwiek `//` z tych opcj
   ],
 ```
 
-W Visual Studio Code [rozszerzenie narzędzi Azure Resource Manager](use-vs-code-to-create-template.md#install-resource-manager-tools-extension) może automatycznie wykryć szablon Menedżer zasobów i odpowiednio zmienić tryb języka. Jeśli widzisz **szablon Azure Resource Manager** w prawym dolnym rogu vs Code, możesz użyć komentarzy wbudowanych. Komentarze w tekście nie są już oznaczone jako nieprawidłowe.
+W Visual Studio Code [rozszerzenie narzędzi Azure Resource Manager](quickstart-create-templates-use-visual-studio-code.md) może automatycznie wykryć szablon Menedżer zasobów i odpowiednio zmienić tryb języka. Jeśli widzisz **szablon Azure Resource Manager** w prawym dolnym rogu vs Code, możesz użyć komentarzy wbudowanych. Komentarze w tekście nie są już oznaczone jako nieprawidłowe.
 
 ![Tryb szablonu Azure Resource Manager Visual Studio Code](./media/template-syntax/resource-manager-template-editor-mode.png)
 

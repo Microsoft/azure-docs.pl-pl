@@ -1,17 +1,14 @@
 ---
 title: Dołącz do Azure Event Grid partnera
 description: Dołącz jako typ tematu partnera Azure Event Grid. Poznaj model zasobów i przepływ publikowania tematów dotyczących partnerów.
-services: event-grid
-author: femila
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 05/18/2020
-ms.author: femila
-ms.openlocfilehash: 47576feb7f3e4f2794aa06d52b4f5504c633ce96
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/07/2020
+ms.openlocfilehash: 8003e3e6a28b0e6a05d553be01c171029e244d74
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84560329"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86116118"
 ---
 # <a name="onboard-as-an-azure-event-grid-partner"></a>Dołącz do Azure Event Grid partnera
 

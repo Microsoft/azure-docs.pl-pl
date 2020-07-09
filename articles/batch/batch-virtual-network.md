@@ -4,12 +4,12 @@ description: Jak utworzyć pulę usługi Batch w sieci wirtualnej platformy Azur
 ms.topic: how-to
 ms.date: 06/26/2020
 ms.custom: seodec18
-ms.openlocfilehash: 3ff8995217521199436e0924acc691dab7c4baef
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 22344b5466b0388921a481b1adf41495d66dbfe0
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85506614"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86115415"
 ---
 # <a name="create-an-azure-batch-pool-in-a-virtual-network"></a>Tworzenie puli Azure Batch w sieci wirtualnej
 
@@ -62,7 +62,7 @@ Po dodaniu UDR należy zdefiniować trasę dla każdego powiązanego prefiksu ad
 ![Trasa zdefiniowana przez użytkownika](./media/batch-virtual-network/user-defined-route.png)
 
 > [!WARNING]
-> Adresy IP usługi Batch mogą ulec zmianie z upływem czasu. Aby zapobiec awariom ze względu na zmianę adresu IP, należy utworzyć proces automatycznego odświeżania adresów IP usługi Batch i zachować ich aktualność w tabeli tras. Alternatywnie można [utworzyć pulę z określonymi adresami IP, które kontrolujesz](create-pool-public-ip.md).
+> Adresy IP usługi Batch mogą ulec zmianie z upływem czasu. Aby zapobiec awariom ze względu na zmianę adresu IP, należy utworzyć proces automatycznego odświeżania adresów IP usługi Batch i zachować ich aktualność w tabeli tras.
 
 ## <a name="next-steps"></a>Następne kroki
 

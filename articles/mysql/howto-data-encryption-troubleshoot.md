@@ -4,13 +4,14 @@ description: Dowiedz się, jak rozwiązywać problemy z szyfrowaniem danych w Az
 author: kummanish
 ms.author: manishku
 ms.service: mysql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/13/2020
-ms.openlocfilehash: 42956d115590fd322d2851fd546c505a76a851fa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8fba55dcca46b313c7b9a847412615215ad57c72
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79297044"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86118583"
 ---
 # <a name="troubleshoot-data-encryption-in-azure-database-for-mysql"></a>Rozwiązywanie problemów z szyfrowaniem danych w Azure Database for MySQL
 

@@ -3,11 +3,12 @@ title: Analiza zależności w ocenie serwera Azure Migrate
 description: Opisuje sposób używania analizy zależności do oceny przy użyciu Azure Migrate oceny serwera.
 ms.topic: conceptual
 ms.date: 06/14/2020
-ms.openlocfilehash: ff563668666207f35fa2ea796d6c909a59df245f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 386a8cefce722c4bff09e2a7fe6d25957630ff61
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84771346"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86118804"
 ---
 # <a name="dependency-analysis"></a>Analiza zależności
 
@@ -74,7 +75,7 @@ Różnice między wizualizacją bez agenta i wizualizacją opartą na agentach z
 --- | --- | ---
 **Pomoc techniczna** | Tylko w wersji zapoznawczej dla maszyn wirtualnych VMware. [Przejrzyj](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless) obsługiwane systemy operacyjne. | Ogólnie dostępna.
 **Odczynnik** | Na maszynach, które mają być analizowane, nie są wymagane żadne agenci. | Agenci zobowiązani na poszczególnych maszynach lokalnych, które mają zostać poddane analizie.
-**Log Analytics** | Niewymagane. | Azure Migrate używa rozwiązania [Service map](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-service-map) w [dziennikach Azure monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) na potrzeby analizy zależności. 
+**Log Analytics** | Niewymagane. | Azure Migrate używa rozwiązania [Service map](../azure-monitor/insights/service-map.md) w [dziennikach Azure monitor](../azure-monitor/log-query/log-query-overview.md) na potrzeby analizy zależności. 
 **Proces** | Przechwytuje dane połączenia TCP. Po odnajdywaniu dane są zbierane w odstępach pięciu minut. | Service Map agenci zainstalowani na komputerze zbierają dane dotyczące procesów TCP oraz połączeń przychodzących/wychodzących dla każdego procesu.
 **Dane** | Nazwa serwera źródłowego, proces, nazwa aplikacji.<br/><br/> Nazwa serwera maszyny docelowej, proces, nazwa aplikacji i port. | Nazwa serwera źródłowego, proces, nazwa aplikacji.<br/><br/> Nazwa serwera maszyny docelowej, proces, nazwa aplikacji i port.<br/><br/> Liczba połączeń, opóźnień i informacji o przesyłaniu danych jest zbieranych i dostępnych dla zapytań Log Analytics. 
 **Dopasowywa** | Mapę zależności pojedynczego serwera można wyświetlać w czasie trwania z przedziału od godziny do 30 dni. | Mapa zależności pojedynczego serwera.<br/><br/> Mapa zależności grupy serwerów.<br/><br/>  Mapę można wyświetlać tylko w ciągu godziny.<br/><br/> Dodawanie i usuwanie serwerów w grupie z widoku mapy.
@@ -87,5 +88,3 @@ Eksportowanie danych | Dane z ostatnich 30 dni można pobrać w formacie CSV. | 
 - [Konfigurowanie](how-to-create-group-machine-dependencies.md) wizualizacji zależności opartej na agentach.
 - [Wypróbuj](how-to-create-group-machine-dependencies-agentless.md) wizualizację zależności bez agenta dla maszyn wirtualnych VMware.
 - Przejrzyj [typowe pytania](common-questions-discovery-assessment.md#what-is-dependency-visualization) dotyczące wizualizacji zależności.
-
-

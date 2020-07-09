@@ -2,18 +2,18 @@
 title: Przewodnik publikowania dla ofert maszyn wirtualnych w portalu Azure Marketplace
 description: W tym artykule opisano wymagania dotyczące publikowania maszyny wirtualnej i bezpłatnej wersji próbnej oprogramowania do wdrożenia z portalu Azure Marketplace.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: iqshahmicrosoft
+ms.author: iqshah
 ms.date: 04/15/2020
-ms.author: dsindona
-ms.openlocfilehash: e0f0f0fdb75961f3ea9ed90e1684ff5ecd2a792d
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 2d615e81891d68327b3225138495262d4eab9aa3
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85961544"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86116730"
 ---
 # <a name="publishing-guide-for-virtual-machine-offers"></a>Przewodnik publikowania dla ofert maszyn wirtualnych
 

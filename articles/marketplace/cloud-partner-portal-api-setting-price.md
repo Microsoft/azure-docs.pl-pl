@@ -1,18 +1,16 @@
 ---
 title: Cennik ofert dla maszyn wirtualnych — Azure Marketplace
 description: W tym artykule opisano trzy metody określania cen ofert maszyn wirtualnych.
-author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/08/2020
-ms.author: dsindona
-ms.openlocfilehash: 2dc69299e69546da25e7e46cfc38b1f5741096fe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b3d38c59d4c79e908aeef857164603a2a5160e05
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85516387"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86115506"
 ---
 <a name="pricing-for-virtual-machine-offers"></a>Cennik ofert maszyn wirtualnych
 ==================================

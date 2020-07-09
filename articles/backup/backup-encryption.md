@@ -3,12 +3,12 @@ title: Szyfrowanie w Azure Backup
 description: Dowiedz się więcej na temat sposobu, w jaki funkcje szyfrowania w Azure Backup ułatwiają ochronę danych kopii zapasowych i zaspokajanie potrzeb firmy.
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: 0a3f4db4d248d2534cfebd617be0f3ccc9647f15
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ca570cfdc6e78e712715ba075168f4b06c55e4af
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84807735"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86116560"
 ---
 # <a name="encryption-in-azure-backup"></a>Szyfrowanie w Azure Backup
 
@@ -32,6 +32,13 @@ Podczas tworzenia kopii zapasowej Virtual Machines platformy Azure można teraz 
 ## <a name="backup-of-managed-disk-vms-encrypted-using-customer-managed-keys"></a>Kopia zapasowa maszyn wirtualnych z dyskami zarządzanymi szyfrowanymi przy użyciu kluczy zarządzanych przez klienta
 
 Azure Backup umożliwia również tworzenie kopii zapasowych maszyn wirtualnych platformy Azure, które używają klucza do [szyfrowania usługi Storage](https://docs.microsoft.com/azure/storage/common/storage-service-encryption). Klucz używany do szyfrowania dysków jest przechowywany w Azure Key Vault i zarządzane przez Ciebie. Szyfrowanie usługi Storage (SSE) przy użyciu kluczy zarządzanych przez klienta różni się od Azure Disk Encryption, ponieważ w programie ADE są używane funkcje BitLocker (dla systemu Windows) i DM-Crypt (w systemie Linux) w celu przeprowadzenia szyfrowania w trybie gościnnym, funkcja SSE szyfruje dane w usłudze Storage, umożliwiając korzystanie z dowolnego systemu operacyjnego lub obrazów dla maszyn wirtualnych. Aby uzyskać więcej informacji, zobacz [szyfrowanie dysków zarządzanych przy użyciu kluczy zarządzanych przez klienta](https://docs.microsoft.com/azure/virtual-machines/windows/disk-encryption#customer-managed-keys) .
+
+## <a name="infrastructure-level-encryption-for-backup-data"></a>Szyfrowanie na poziomie infrastruktury dla danych kopii zapasowej
+
+Oprócz szyfrowania danych w magazynie Recovery Services przy użyciu kluczy zarządzanych przez klienta można również wybrać dodatkową warstwę szyfrowania skonfigurowaną w infrastrukturze magazynu. To szyfrowanie infrastruktury jest zarządzane przez platformę i wraz z szyfrowaniem w stanie spoczynku przy użyciu kluczy zarządzanych przez klienta, dzięki czemu możliwe jest szyfrowanie dwóch warstw danych kopii zapasowej. Należy zauważyć, że szyfrowanie infrastruktury można skonfigurować tylko wtedy, gdy użytkownik najpierw zdecyduje się użyć własnych kluczy do szyfrowania w stanie spoczynku. Szyfrowanie infrastruktury używa kluczy zarządzanych przez platformę do szyfrowania danych.
+
+>[!NOTE]
+>Szyfrowanie infrastruktury jest obecnie w ograniczonej wersji zapoznawczej i jest dostępne tylko w regionach Wschodnie stany USA, Stany USA West2 i regiony Południowo-środkowe USA. Jeśli chcesz użyć funkcji w dowolnym z tych regionów, Wypełnij [ten formularz](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0H3_nezt2RNkpBCUTbWEapUN0VHNEpJS0ZUWklUNVdJSTEzR0hIOVRMVC4u) i Wyślij wiadomość e-mail na adres [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com) .
 
 ## <a name="backup-of-vms-encrypted-using-ade"></a>Tworzenie kopii zapasowych maszyn wirtualnych zaszyfrowanych przy użyciu systemu ADE
 

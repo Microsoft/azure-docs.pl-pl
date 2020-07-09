@@ -1,18 +1,18 @@
 ---
 title: Oferty dotyczące najlepszych rozwiązań — Microsoft Commercial Marketplace
 description: Dowiedz się więcej na temat najlepszych rozwiązań dotyczących Microsoft AppSource i ofert w portalu Azure Marketplace.
-author: anbene
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: keferna
+ms.author: keferna
 ms.date: 07/06/2020
-ms.author: dsindona
-ms.openlocfilehash: 60f9630b58250bdae4c382e61697f7abd53e036d
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 8adffcc6c7ae4af2e33587f75c83430473180203
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027073"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86118396"
 ---
 # <a name="offer-listing-best-practices"></a>Najlepsze rozwiązania dotyczące ofert
 
@@ -31,7 +31,7 @@ Tabele w tej sekcji zawierają sugestie dotyczące tworzenia i angażowania ofer
 
 Kategorie i branże dla innego sklepu będą miały zastosowanie do różnych typów ofert.
 
-|  | **Kategorie <br> według sklepu** |  | **Branże <br> dla AppSource** |
+| Musisz | Kategorie <br>według witryny sklepu | Kategorie <br>według witryny sklepu | Branże <br> dla AppSource |
 | :------------------- |:----------------:|:------:|:-------------:|
 | **Typ oferty**   |  **Azure Marketplace**  | **AppSource**  |
 | Aplikacja platformy Azure | X | |
@@ -144,7 +144,7 @@ Wybierz kategorie i podkategorie, które najlepiej dopasowują się do oferty i 
 
 Zapoznaj się z [przewodnikiem według typu oferty,](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-overview) Aby uzyskać szczegółowe informacje dotyczące sposobu, w jaki funkcje Transact mogą mieć wpływ na sposób wyświetlania i kupowania oferty przez klientów w portalu Marketplace. W przypadku ofert SaaS oferta oferty oraz wybór kategorii będą określać lokalizację, w której zostanie opublikowana oferta:
 
-| Oferta SaaS    |     |          |           |    |    |     | Odpowiednie witryny sklepu |              |
+| Oferta SaaS    | Oferta SaaS   | Oferta SaaS  | Oferta SaaS   | Oferta SaaS   | Oferta SaaS   | Oferta SaaS    | Odpowiednie witryny sklepu | Odpowiednie witryny sklepu |
 |:-------------:|:---:|:--------:|:---------:|:--:|:--:|:---:|:---------------------:|:-------------:|
 | Naliczanie opłat | Dodatki Microsoft 365 | Skontaktuj się z nami | Transact (co najmniej 1 plan) | Plan tylko prywatny | Plan tylko publiczny | Publiczne plany prywatne & | AppSource | Azure Marketplace |
 |  | X |  |  |  |  |  | X |  |

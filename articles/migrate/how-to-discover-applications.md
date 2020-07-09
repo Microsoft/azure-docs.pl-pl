@@ -3,11 +3,12 @@ title: Odnajdywanie aplikacji, ról i funkcji na serwerach lokalnych przy użyci
 description: Informacje na temat odnajdywania aplikacji, ról i funkcji na serwerach lokalnych przy użyciu narzędzia do oceny Azure Migrate Server.
 ms.topic: article
 ms.date: 06/10/2020
-ms.openlocfilehash: ae00e390bb49f3a54f7f7ce7d6491cf7ee882491
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 535c8ae8c2d6e5d9d175e663a58d47dc76aa0529
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84770513"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86118651"
 ---
 # <a name="discover-machine-apps-roles-and-features"></a>Odkryj aplikacje maszynowe, role i funkcje
 
@@ -79,4 +80,4 @@ Spis aplikacji jest eksportowany i pobierany w formacie programu Excel. Arkusz *
 ## <a name="next-steps"></a>Następne kroki
 
 - [Utwórz ocenę](how-to-create-assessment.md) dla odnalezionych serwerów.
-- Ocenianie SQL Server baz danych przy użyciu [Azure Migrate: Ocena bazy danych](https://docs.microsoft.com/sql/dma/dma-assess-sql-data-estate-to-sqldb?view=sql-server-2017).
+- Ocenianie SQL Server baz danych przy użyciu [Azure Migrate: Ocena bazy danych](/sql/dma/dma-assess-sql-data-estate-to-sqldb?view=sql-server-2017).

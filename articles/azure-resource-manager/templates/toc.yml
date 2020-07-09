@@ -222,12 +222,6 @@
         - name: Używanie kontroli kondycji w usłudze Deployment Manager
           displayName: adm
           href: deployment-manager-tutorial-health-check.md
-- name: Samples
-  items:
-    - name: Szablony przewodników Szybki start platformy Azure
-      href: 'https://azure.microsoft.com/resources/templates/'
-    - name: Przykłady szablonów
-      href: template-samples.md
 - name: Pojęcia
   items:
     - name: Najlepsze rozwiązania dotyczące szablonów
@@ -299,16 +293,6 @@
             - name: Dane wyjściowe
               displayName: 'iteration,copy'
               href: copy-outputs.md
-    - name: Używanie narzędzi do tworzenia
-      items:
-        - name: VS Code
-          href: use-vs-code-to-create-template.md
-        - name: Visual Studio
-          href: create-visual-studio-deployment-project.md
-        - name: Aktualizowanie skryptu wdrożenia programu VS do modułu Az
-          href: update-visual-studio-deployment-script.md
-        - name: IntelliJ IDEA
-          href: create-templates-use-intellij.md
     - name: Odnajdywanie właściwości szablonów
       items:
         - name: Eksportowanie szablonu
@@ -344,6 +328,8 @@
           href: rollback-on-error.md
         - name: Zabezpieczanie szablonu przy użyciu tokenu SAS
           href: secure-template-with-sas-token.md
+        - name: Wyświetlanie historii wdrażania
+          href: deployment-history.md
     - name: Wdrożenia w zakresie
       items:
         - name: Subskrypcja
@@ -367,8 +353,14 @@
           href: add-template-to-azure-pipelines.md
         - name: Wdrażanie — GitHub Actions
           href: deploy-github-actions.md
-    - name: Wyświetlanie historii wdrażania
-      href: deployment-history.md
+    - name: Używanie narzędzi do tworzenia
+      items:
+        - name: Visual Studio
+          href: create-visual-studio-deployment-project.md
+        - name: Aktualizowanie skryptu wdrożenia programu VS do modułu Az
+          href: update-visual-studio-deployment-script.md
+        - name: IntelliJ IDEA
+          href: create-templates-use-intellij.md
     - name: Rozwiązywanie problemów z wdrożeniami
       items:
         - name: Usuwanie błędów związanych z wdrażaniem
@@ -441,6 +433,8 @@
       href: /python/api/overview/azure/resources?view=azure-python
 - name: Zasoby
   items:
+    - name: Szablony przewodników Szybki start platformy Azure
+      href: 'https://azure.microsoft.com/resources/templates/'
     - name: Harmonogram działania dla platformy Azure
       href: 'https://azure.microsoft.com/roadmap/?category=monitoring-management'
     - name: Kalkulator cen

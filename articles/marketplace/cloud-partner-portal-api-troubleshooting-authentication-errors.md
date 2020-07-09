@@ -1,18 +1,16 @@
 ---
 title: Rozwiązywanie typowych błędów uwierzytelniania | Portal Azure Marketplace
 description: Zapewnia pomoc dotyczącą typowych błędów uwierzytelniania podczas korzystania z portal Cloud Partner interfejsów API.
-author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/08/2020
-ms.author: dsindona
-ms.openlocfilehash: 7684e097118fce4dcd471257ec0d9d476ce342be
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 8c9bd6dbe54f797090c5f7405ad709db954f8fb9
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85964927"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86115472"
 ---
 # <a name="troubleshooting-common-authentication-errors"></a>Rozwiązywanie typowych błędów uwierzytelniania
 

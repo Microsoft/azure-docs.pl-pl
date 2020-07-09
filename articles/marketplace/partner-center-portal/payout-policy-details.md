@@ -1,18 +1,18 @@
 ---
 title: Szczegóły zasad wypłaty — Azure Marketplace
 description: Szczegóły dotyczące zasad wypłaty, w tym harmonogramów i odniesień.
-author: mingshen
-ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: mingshen
+ms.author: mingshen
 ms.date: 04/24/2020
-ms.openlocfilehash: cb939d223d0aa91b6da62d3045ccad919f1bd277
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f26e006998b0818ba84fa23ee1941a1033ef205b
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84887925"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86118294"
 ---
 # <a name="payout-policy-details"></a>Szczegóły zasad wypłat
 
@@ -40,7 +40,7 @@ Począwszy od 1 maja 2020, aktualizujemy zasady naszych ofert związanych z prod
 > [!NOTE]
 > Zapoznaj się z artykułem [dotyczącym niepłatności klienta](#process-for-customer-non-payment) w przypadku akcji podejmowanych w przypadku niepowodzenia płacenia przez klienta, ale wystawiłeś już wypłatę.
 
-| Wydarzenie  | Data  | Widoczność partnerów: Raport wypłaty Centrum partnerskiego  |  Widoczność partnerów: Analiza Centrum partnerskiego\* |
+| Zdarzenie  | Data  | Widoczność partnerów: Raport wypłaty Centrum partnerskiego  |  Widoczność partnerów: Analiza Centrum partnerskiego\* |
 | --- | --- | --- | --- |
 | Transakcja lub miesiąc użycia | 8/1/2020 – 8/31/2020 | Nie dotyczy | **Raport użycia**: pokazywane nowe użycie (odświeżone co cztery godziny)<br>**Raport z kolejnością**: brak |
 | Zakończenie okresu (miesiąc) | 8/31/2020 | Nie dotyczy | **Raport użycia**: pokazywane zużycie końcowe miesiąca<br>**Raport z kolejnością**: brak |
@@ -57,7 +57,7 @@ Począwszy od 1 maja 2020, aktualizujemy zasady naszych ofert związanych z prod
 
 Wszystkie zakupy z kartą kredytową lub fakturą miesięczną mają 30-dniowy okres przechowywania, aby upewnić się, że środki zostały wyczyszczone i nie obciążeń zwrotnych ani nie ma podejrzenia oszustwa.
 
-| Wydarzenie  | Data  | Widoczność partnerów: Raport wypłaty Centrum partnerskiego  |  Widoczność partnerów: Analiza Centrum partnerskiego\*  |
+| Zdarzenie  | Data  | Widoczność partnerów: Raport wypłaty Centrum partnerskiego  |  Widoczność partnerów: Analiza Centrum partnerskiego\*  |
 | --- | --- | --- | --- |
 | Transakcja lub miesiąc użycia | 8/1/2019 - 8/31/2019 | Nie dotyczy | **Raport użycia**: pokazywane nowe użycie (odświeżone co cztery godziny)<br>**Raport z kolejnością**: brak |
 | Zakończenie okresu (miesiąc) | 8/31/2019 | Nie dotyczy | **Raport użycia**: pokazywane zużycie końcowe miesiąca<br>**Raport z kolejnością**: brak |
@@ -74,7 +74,7 @@ Wszystkie zakupy z kartą kredytową lub fakturą miesięczną mają 30-dniowy o
 
 Wszystkie zakupy występujące przed tą datą są przetwarzane i płatne zgodnie z poniższym harmonogramem po zebraniu przez firmę Microsoft płatności od klientów i przetworzeniu opłaty za witrynę Marketplace.
 
-| Wydarzenie  | Data  | Widoczność partnerów: Raport wypłaty Centrum partnerskiego  |  Widoczność partnerów: Analiza Centrum partnerskiego\*  |
+| Zdarzenie  | Data  | Widoczność partnerów: Raport wypłaty Centrum partnerskiego  |  Widoczność partnerów: Analiza Centrum partnerskiego\*  |
 | --- | --- | --- | --- |
 | Transakcja lub miesiąc użycia | 8/1/2019 – 8/31/2019 | Nie dotyczy | **Raport użycia**: pokazywane nowe użycie (odświeżone co cztery godziny)<br>**Raport z kolejnością**: brak |
 | Zakończenie okresu (miesiąc) | 8/31/2019 | Nie dotyczy | **Raport użycia**: pokazywane zużycie końcowe miesiąca<br>**Raport z kolejnością**: brak |
@@ -97,7 +97,7 @@ Firma Microsoft zwróci wszelkie płatne opłaty za korzystanie z jednej z nast�
 
 Poniżej przedstawiono przykładowy harmonogram:
 
-| Wydarzenie | Przybliżona data | Widoczność partnerów |
+| Zdarzenie | Przybliżona data | Widoczność partnerów |
 | --- | --- | --- |
 | Przykładowa data wypłaty | 10/15/2020 | Sekcja oznaczone jako **wysłane** w historii transakcji i w sekcji płatności na pulpicie nawigacyjnym wypłaty |
 | <font color="red">Jeśli klient nie płacisz firmie Microsoft</font> | 12/2/2020 – 12/5/2020 | Bez zmian, taka sama jak powyżej |

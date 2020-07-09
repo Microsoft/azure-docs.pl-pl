@@ -1,17 +1,14 @@
 ---
 title: Tematy Azure Event Grid partnera
 description: Wysyłaj zdarzenia z partnerów Event Grid SaaS i PaaS bezpośrednio do usług platformy Azure z Azure Event Grid.
-services: event-grid
-author: femila
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 05/18/2020
-ms.author: femila
-ms.openlocfilehash: 5327efea8af734c723ba76d1a00b72c08f5c88b9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/07/2020
+ms.openlocfilehash: 97829f262a00e2353624b2a3fa9df210518ad3a0
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84560271"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86115999"
 ---
 # <a name="partner-topics-in-azure-event-grid-preview"></a>Tematy dotyczące partnerów w Azure Event Grid (wersja zapoznawcza)
 Korzystając z tematów partnerskich, można połączyć źródła zdarzeń innych firm bezpośrednio z Azure Event Grid. Ta Integracja umożliwia subskrybowanie zdarzeń od partnerów w taki sam sposób, w jaki subskrybujesz zdarzenia z usług platformy Azure. 

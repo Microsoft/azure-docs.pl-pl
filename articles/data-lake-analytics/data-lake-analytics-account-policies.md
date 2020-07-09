@@ -7,14 +7,14 @@ author: guyhay
 ms.author: guyhay
 ms.reviewer: jasonwhowell
 ms.assetid: 0a6102d1-7554-4df2-b487-4dae9a7287b6
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/30/2018
-ms.openlocfilehash: 4689714073047e383a53a04bd0069a8a27afdf9d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c36b298593bf8834824f81672d754f9864a253f2
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "72966439"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86117597"
 ---
 # <a name="manage-azure-data-lake-analytics-using-account-policies"></a>Zarządzanie Azure Data Lake Analytics przy użyciu zasad konta
 

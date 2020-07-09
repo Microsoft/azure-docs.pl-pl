@@ -4,14 +4,14 @@ description: Dowiedz się, jak zweryfikować szyfrowanie szyfrowania danych Azur
 author: kummanish
 ms.author: manishku
 ms.service: postgresql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/28/2020
-ms.openlocfilehash: 4672a92ceba5dc52c717f76a705d0fa508ab41fd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: be725c574c54dfc298a900d3c043559d484d1bc7
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82515471"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86117852"
 ---
 # <a name="validating-data-encryption-for-azure-database-for-postgresql"></a>Weryfikowanie szyfrowania danych dla Azure Database for PostgreSQL
 

@@ -1,17 +1,16 @@
 ---
 title: Wymagania wstępne dotyczące interfejsu API — Azure Marketplace
 description: Wymagania wstępne dotyczące korzystania z portal Cloud Partner interfejsów API.
-author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/08/2020
-ms.author: dsindona
-ms.openlocfilehash: c435e171c7e3cabea4007c7b78cf60727bf55efd
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: c932db1b86cecae4d90b0d6acffc4a0cde49e369
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85958233"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86115744"
 ---
 <a name="api-prerequisites"></a>Wymagania wstępne dotyczące interfejsu API
 ================
