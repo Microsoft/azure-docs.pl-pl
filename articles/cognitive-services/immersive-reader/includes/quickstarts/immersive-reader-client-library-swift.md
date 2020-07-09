@@ -1,7 +1,7 @@
 ---
 title: Biblioteka klienta SWIFT czytnika immersyjny — Szybki Start
 titleSuffix: Azure Cognitive Services
-description: W tym przewodniku szybki start utworzysz aplikację internetową od podstaw i dodasz funkcję interfejsu API czytnika immersyjny.
+description: W tym przewodniku szybki start utworzysz aplikację dla systemu iOS od podstaw i dodasz funkcję interfejsu API czytnika immersyjny.
 services: cognitive-services
 author: pasta
 manager: nitinme
@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/20/2020
 ms.author: pasta
-ms.openlocfilehash: 191d802064d477babd8aa1f782ad15876b821d11
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 3d0a8444312f37b1f59817d50bdc50d3aff22164
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84268749"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86038368"
 ---
 [Czytnik immersyjny](https://www.onenote.com/learningtools) jest specjalnie zaprojektowanym narzędziem, które implementuje sprawdzone techniki w celu zwiększenia czytelności.
 
@@ -527,7 +527,7 @@ public func launchImmersiveReader(navController: UINavigationController, token: 
 }
 ```
 
-Dodaj plik do folderu *resources* o nazwie *iFrameMessaging. js* i Dodaj następujący kod.
+Dodaj plik do folderu *resources* o nazwie *iFrameMessaging.js* i Dodaj następujący kod.
 
 ```javascript
 window.addEventListener("message", function(message) {
@@ -573,4 +573,4 @@ Po kliknięciu przycisku **czytnika immersyjny** zobaczysz czytnik immersyjny ur
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Poznaj [Kompendium zestawu SDK czytnika immersyjny](../../reference.md)
+* Poznaj [zestaw SDK czytnika immersyjny](https://github.com/microsoft/immersive-reader-sdk) i [Kompendium zestawu SDK czytnika immersyjny](../../reference.md)

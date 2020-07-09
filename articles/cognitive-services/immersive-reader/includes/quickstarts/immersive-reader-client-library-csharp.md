@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/20/2020
 ms.author: pasta
-ms.openlocfilehash: 2b6f4bb707d6c5c07dd6a1205ce7be542a220f17
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: a5bd7b3e6262fa21865f04a6b65d1a75faafefa4
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84268735"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86038355"
 ---
 [Czytnik immersyjny](https://www.onenote.com/learningtools) jest specjalnie zaprojektowanym narzędziem, które implementuje sprawdzone techniki w celu zwiększenia czytelności.
 
@@ -41,7 +41,7 @@ Utwórz nowy projekt w programie Visual Studio przy użyciu szablonu aplikacji s
 
 ### <a name="configure-authentication-values"></a>Konfigurowanie wartości uwierzytelniania
 
-Kliknij prawym przyciskiem myszy projekt w _Eksplorator rozwiązań_ i wybierz polecenie **Zarządzaj kluczami tajnymi użytkownika**. Spowoduje to otwarcie pliku o nazwie Secret _. JSON_. Ten plik nie jest sprawdzany w kontroli źródła. Dowiedz się więcej [tutaj](https://docs.microsoft.com/aspnet/core/security/app-secrets?view=aspnetcore-3.1&tabs=windows). Zastąp zawartość pliku Secret _. JSON_ następującym parametrem, dostarczając wartości podanych podczas tworzenia zasobu czytnika immersyjny.
+Kliknij prawym przyciskiem myszy projekt w _Eksplorator rozwiązań_ i wybierz polecenie **Zarządzaj kluczami tajnymi użytkownika**. Spowoduje to otwarcie pliku o nazwie _secrets.jsna_. Ten plik nie jest sprawdzany w kontroli źródła. Dowiedz się więcej [tutaj](https://docs.microsoft.com/aspnet/core/security/app-secrets?view=aspnetcore-3.1&tabs=windows). Zastąp zawartość _secrets.js_ przy użyciu poniższego, podając wartości podanych podczas tworzenia zasobu czytnika immersyjny.
 
 ```json
 {
@@ -70,7 +70,7 @@ Otwórz _Controllers\HomeController.cs_i Dodaj następujący kod po instrukcjach
 using Microsoft.IdentityModel.Clients.ActiveDirectory;
 ```
 
-Teraz skonfigurujemy kontroler do uzyskiwania wartości usługi Azure AD z pliku Secret _. JSON_. W górnej części klasy _HomeController_ , ```public class HomeController : Controller {``` Dodaj następujący kod.
+Teraz skonfigurujemy kontroler do uzyskiwania wartości usługi Azure AD z _secrets.js_. W górnej części klasy _HomeController_ , ```public class HomeController : Controller {``` Dodaj następujący kod.
 
 ```csharp
 private readonly string TenantId;     // Azure subscription TenantId
@@ -305,7 +305,8 @@ Po kliknięciu przycisku "czytnik immersyjny" zobaczysz czytnik immersyjny uruch
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Zobacz [Przewodnik Szybki Start środowiska Node. js](../../quickstart-nodejs.md) , aby zobaczyć, co jeszcze można zrobić z biblioteką kliencką czytnika immersyjny przy użyciu środowiska Node. js
+* Wyświetl [Node.js przewodnika Szybki Start](../../tutorial-nodejs.md) , aby zobaczyć, co jeszcze można zrobić z biblioteką klienta czytnika immersyjny przy użyciu Node.js
+* Obejrzyj [Samouczek systemu Android](../../tutorial-android.md) , aby zobaczyć, co jeszcze można zrobić z zestawem SDK "immersyjny" przy użyciu języka Java lub Kotlin dla systemu Android
+* Wyświetl [Samouczek systemu iOS](../../tutorial-ios.md) , aby zobaczyć, co jeszcze można zrobić z zestawem SDK "immersyjny" przy użyciu SWIFT dla systemu iOS
 * Obejrzyj [samouczek języka Python](../../tutorial-python.md) , aby zobaczyć, co jeszcze można zrobić z biblioteką klienta czytnika immersyjny przy użyciu języka Python
-* Wyświetl [Samouczek systemu iOS](../../tutorial-ios-picture-immersive-reader.md) , aby zobaczyć, co jeszcze można zrobić z biblioteką klienta czytnika immersyjny przy użyciu SWIFT
 * Poznaj [zestaw SDK czytnika immersyjny](https://github.com/microsoft/immersive-reader-sdk) i [Kompendium zestawu SDK czytnika immersyjny](../../reference.md)

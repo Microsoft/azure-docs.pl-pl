@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: 7295bb2e87373a80c6b105ab7284a43e6f0804da
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 280fea29b79db58d0974aaba961db9c7a7df3dad
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84020776"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045794"
 ---
 # <a name="sql-authentication"></a>Uwierzytelnianie SQL
 
@@ -45,7 +45,7 @@ Konta administratorów **serwera** i **usługi Azure AD** mają następującą c
 - Są jedynymi kontami, które mogą automatycznie łączyć się z dowolnymi SQL Database na serwerze. (Aby połączyć się z bazą danych użytkownika, inne konta muszą być właścicielem bazy danych lub mieć konto użytkownika w bazie danych użytkownika).
 - Te konta korzystają z baz danych użytkowników jako użytkownik `dbo` i mają wszystkie uprawnienia w bazach danych użytkowników. (Właściciel bazy danych użytkownika również korzysta z bazy danych jako użytkownik `dbo`).
 - Nie należy wprowadzać `master` bazy danych jako `dbo` użytkownik i mieć ograniczone uprawnienia w obszarze głównym.
-- **Nie** są członkami standardowej SQL Server `sysadmin` stałej roli serwera, która nie jest dostępna w usłudze SQL Database.  
+- **Nie** są członkami standardowej SQL Server `sysadmin` stałej roli serwera, która nie jest dostępna w SQL Database.  
 - Może tworzyć, zmieniać i usuwać bazy danych, nazwy logowania, użytkowników z wzorców i reguły zapory adresów IP na poziomie serwera.
 - Może dodawać i usuwać członków do `dbmanager` ról i `loginmanager` .
 - Może wyświetlać `sys.sql_logins` tabelę systemową.
