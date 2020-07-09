@@ -8,11 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: 843d5da26d6791cea880e5dfb654fe27b74f5d9f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a622179d1e83b41e906a9d276377f5c9474264b9
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73936041"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86129955"
 ---
 # <a name="plan-capacity-for-hyper-v-vm-disaster-recovery"></a>Planowanie pojemności na potrzeby odzyskiwania po awarii maszyny wirtualnej funkcji Hyper-V 
 
@@ -38,7 +39,7 @@ Narzędzie można uruchomić w dwóch trybach:
 ## <a name="before-you-start"></a>Przed rozpoczęciem
 
 * Zbierz informacje o środowisku, w tym maszyny wirtualne, dyski na maszynę wirtualną, magazyn na dysk.
-* Zidentyfikuj częstotliwość dziennej zmiany (zmian) dla replikowanych danych. Pobierz [Narzędzie do planowania pojemności funkcji Hyper-V](https://www.microsoft.com/download/details.aspx?id=39057) , aby uzyskać współczynnik zmian. [Dowiedz się więcej](site-recovery-capacity-planning-for-hyper-v-replication.md) na temat tego narzędzia. Zalecamy uruchomienie tego narzędzia w tygodniu, aby przechwycić średnią.
+* Zidentyfikuj częstotliwość dziennej zmiany (zmian) dla replikowanych danych. Pobierz [Narzędzie do planowania pojemności funkcji Hyper-V](https://www.microsoft.com/download/details.aspx?id=39057) , aby uzyskać współczynnik zmian. [Dowiedz się więcej](./hyper-v-deployment-planner-overview.md) na temat tego narzędzia. Zalecamy uruchomienie tego narzędzia w tygodniu, aby przechwycić średnią.
 
 
 ## <a name="run-the-quick-planner"></a>Uruchamianie szybkiego planisty
@@ -46,13 +47,13 @@ Narzędzie można uruchomić w dwóch trybach:
 
 2. W polu listy **Wybierz typ planisty** wybierz pozycję **Quick Planner**.
 
-   ![Rozpoczęcie pracy](./media/site-recovery-capacity-planner/getting-started.png)
+   ![Wprowadzenie](./media/site-recovery-capacity-planner/getting-started.png)
 
 3. W arkuszu **planista wydajności** wprowadź wymagane informacje. Wypełnij wszystkie pola wyróżnione czerwonymi na poniższym zrzucie ekranu:
 
    a. W obszarze **Wybierz swój scenariusz**wybierz pozycję **Hyper-V do platformy Azure** lub **oprogramowanie VMware/Physical na platformie Azure**.
 
-   b. W polu **Średni dzienny współczynnik zmian danych (%)** wprowadź informacje zbierane przy użyciu [narzędzia planowania pojemności funkcji Hyper-V](site-recovery-capacity-planning-for-hyper-v-replication.md) lub [planista wdrażania Site Recovery](./site-recovery-deployment-planner.md).
+   b. W polu **Średni dzienny współczynnik zmian danych (%)** wprowadź informacje zbierane przy użyciu [narzędzia planowania pojemności funkcji Hyper-V](./hyper-v-deployment-planner-overview.md) lub [planista wdrażania Site Recovery](./site-recovery-deployment-planner.md).
 
    c. Ustawienie **kompresji** nie jest używane w przypadku replikowania maszyn wirtualnych funkcji Hyper-V do platformy Azure. W przypadku kompresji Użyj urządzenia innej firmy, takiego jak Riverbed.
 
@@ -146,4 +147,4 @@ Po wprowadzeniu wszystkich informacji wybierz pozycję **Prześlij dane do narz�
    ![Planista wydajności](./media/site-recovery-capacity-planner/capacity-planner.png)
 
 ## <a name="next-steps"></a>Następne kroki
-[Dowiedz się, jak uruchomić](site-recovery-capacity-planning-for-hyper-v-replication.md) narzędzie planowania pojemności.
+[Dowiedz się, jak uruchomić](./hyper-v-deployment-planner-overview.md) narzędzie planowania pojemności.

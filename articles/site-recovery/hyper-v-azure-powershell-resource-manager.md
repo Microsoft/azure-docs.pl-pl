@@ -6,11 +6,12 @@ manager: rochakm
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: sutalasi
-ms.openlocfilehash: 6499c986bef965848303ee9833fd59f5e3f0889c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a4140a0b22f7ca8164d50cf60fe57c861f826eb4
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84710239"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86132505"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-hyper-v-vms-using-powershell-and-azure-resource-manager"></a>Konfigurowanie odzyskiwania po awarii na platformie Azure dla maszyn wirtualnych funkcji Hyper-V przy użyciu programu PowerShell i Azure Resource Manager
 
@@ -24,7 +25,7 @@ W tym artykule opisano sposób korzystania z programu Windows PowerShell wraz z 
 
 Azure PowerShell udostępnia polecenia cmdlet do zarządzania platformą Azure przy użyciu programu Windows PowerShell. Site Recovery polecenia cmdlet programu PowerShell, dostępne w Azure PowerShell dla Azure Resource Manager, pomagają chronić i odzyskiwać serwery na platformie Azure.
 
-Nie musisz być ekspertem programu PowerShell, aby korzystać z tego artykułu, ale musisz zrozumieć podstawowe pojęcia, takie jak moduły, polecenia cmdlet i sesje. Aby uzyskać więcej informacji, zobacz [dokumentację programu PowerShell](/powershell) i [Korzystanie z Azure PowerShell z Azure Resource Manager](../powershell-azure-resource-manager.md).
+Nie musisz być ekspertem programu PowerShell, aby korzystać z tego artykułu, ale musisz zrozumieć podstawowe pojęcia, takie jak moduły, polecenia cmdlet i sesje. Aby uzyskać więcej informacji, zobacz [dokumentację programu PowerShell](/powershell) i [Korzystanie z Azure PowerShell z Azure Resource Manager](../azure-resource-manager/management/manage-resources-powershell.md).
 
 > [!NOTE]
 > Partnerzy firmy Microsoft w programie w programie Cloud Solution Provider (CSP) mogą konfigurować i zarządzać ochroną serwerów klientów do odpowiednich subskrypcji programu CSP (subskrypcje dzierżawców).

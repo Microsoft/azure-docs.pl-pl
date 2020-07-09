@@ -3,11 +3,12 @@ title: Często zadawane pytania dotyczące odzyskiwania po awarii funkcji Hyper-
 description: W tym artykule podsumowano typowe pytania dotyczące konfigurowania odzyskiwania po awarii dla lokalnych maszyn wirtualnych funkcji Hyper-V na platformie Azure przy użyciu witryny Azure Site Recovery.
 ms.date: 11/12/2019
 ms.topic: conceptual
-ms.openlocfilehash: b175e7157364f0471192dd713db8767e074dd483
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b3d806908ce2274d07e6b508c8cc269b553e684f
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84195259"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86132657"
 ---
 # <a name="common-questions---hyper-v-to-azure-disaster-recovery"></a>Często zadawane pytania — odzyskiwanie po awarii z funkcji Hyper-V do platformy Azure
 
@@ -31,17 +32,17 @@ Zwykle zostanie wyświetlony wzrost kosztu transakcji ponoszonych na konta magaz
 
 Wymagania serwera hosta funkcji Hyper-V zależą od scenariusza wdrożenia. Zapoznaj się z wymaganiami wstępnymi funkcji Hyper-V:
 
-* [Replicating Hyper-V VMs (without VMM) to Azure (Replikacja maszyn wirtualnych funkcji Hyper-V [bez programu VMM] do platformy Azure)](site-recovery-hyper-v-site-to-azure.md)
-* [Replicating Hyper-V VMs (with VMM) to Azure (Replikacja maszyn wirtualnych funkcji Hyper-V [z programem VMM] do platformy Azure)](site-recovery-vmm-to-azure.md)
-* [Replicating Hyper-V VMs to a secondary datacenter (Replikacja maszyn wirtualnych funkcji Hyper-V do dodatkowego centrum danych)](site-recovery-vmm-to-vmm.md)
-* W przypadku replikowania do dodatkowego centrum danych Przeczytaj informacje o [obsługiwanych systemach operacyjnych gościa dla maszyn wirtualnych funkcji Hyper-V](https://technet.microsoft.com/library/mt126277.aspx).
-* Jeśli przeprowadzasz replikację do platformy Azure, Site Recovery obsługuje wszystkie systemy operacyjne gościa [obsługiwane przez platformę Azure](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx).
+* [Replicating Hyper-V VMs (without VMM) to Azure (Replikacja maszyn wirtualnych funkcji Hyper-V [bez programu VMM] do platformy Azure)](./hyper-v-azure-tutorial.md)
+* [Replicating Hyper-V VMs (with VMM) to Azure (Replikacja maszyn wirtualnych funkcji Hyper-V [z programem VMM] do platformy Azure)](./hyper-v-vmm-disaster-recovery.md)
+* [Replicating Hyper-V VMs to a secondary datacenter (Replikacja maszyn wirtualnych funkcji Hyper-V do dodatkowego centrum danych)](./hyper-v-vmm-disaster-recovery.md)
+* W przypadku replikowania do dodatkowego centrum danych Przeczytaj informacje o [obsługiwanych systemach operacyjnych gościa dla maszyn wirtualnych funkcji Hyper-V](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/mt126277(v=ws.11)).
+* Jeśli przeprowadzasz replikację do platformy Azure, Site Recovery obsługuje wszystkie systemy operacyjne gościa [obsługiwane przez platformę Azure](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc794868(v=ws.10)).
 
 ### <a name="can-i-protect-vms-when-hyper-v-is-running-on-a-client-operating-system"></a>Czy mogę chronić maszyny wirtualne, gdy funkcja Hyper-V jest uruchomiona w systemie operacyjnym klienta?
-Nie. Maszyny wirtualne muszą znajdować się na serwerze hosta funkcji Hyper-V, który jest uruchomiony na serwerze z obsługiwanym systemem Windows. Jeśli potrzebujesz ochrony komputera klienckiego, możesz go replikować jako maszynę fizyczną do [platformy Azure](site-recovery-vmware-to-azure.md) lub [dodatkowego centrum](site-recovery-vmware-to-vmware.md)danych.
+Nie. Maszyny wirtualne muszą znajdować się na serwerze hosta funkcji Hyper-V, który jest uruchomiony na serwerze z obsługiwanym systemem Windows. Jeśli potrzebujesz ochrony komputera klienckiego, możesz go replikować jako maszynę fizyczną do [platformy Azure](./vmware-azure-tutorial.md) lub [dodatkowego centrum](./vmware-physical-secondary-disaster-recovery.md)danych.
 
 ### <a name="do-hyper-v-hosts-need-to-be-in-vmm-clouds"></a>Czy hosty funkcji Hyper-V muszą znajdować się w chmurach programu VMM?
-Jeśli chcesz przeprowadzić replikację do dodatkowego centrum danych, maszyny wirtualne funkcji Hyper-V muszą znajdować się na serwerach hostów funkcji Hyper-V znajdujących się w chmurze programu VMM. Jeśli chcesz przeprowadzić replikację do platformy Azure, możesz replikować maszyny wirtualne z chmurami programu VMM lub bez nich. [Przeczytaj więcej](tutorial-hyper-v-to-azure.md) na temat replikacji funkcji Hyper-V na platformie Azure.
+Jeśli chcesz przeprowadzić replikację do dodatkowego centrum danych, maszyny wirtualne funkcji Hyper-V muszą znajdować się na serwerach hostów funkcji Hyper-V znajdujących się w chmurze programu VMM. Jeśli chcesz przeprowadzić replikację do platformy Azure, możesz replikować maszyny wirtualne z chmurami programu VMM lub bez nich. [Przeczytaj więcej](./hyper-v-azure-tutorial.md) na temat replikacji funkcji Hyper-V na platformie Azure.
 
 
 ### <a name="can-i-replicate-hyper-v-generation-2-virtual-machines-to-azure"></a>Czy można replikować maszyny wirtualne funkcji Hyper-V drugiej generacji do platformy Azure?
@@ -70,7 +71,7 @@ Site Recovery to ISO 27001:2013, 27018, HIPAA, DPA certyfikowany i jest w trakci
 Tak. Po utworzeniu magazynu w regionie firma Microsoft gwarantuje, że wszystkie metadane używane przez Site Recovery pozostają w granicach geograficznych tego regionu.
 
 ### <a name="does-site-recovery-encrypt-replication"></a>Czy usługa Site Recovery szyfruje replikację?
-Tak, obsługiwane są zarówno szyfrowanie podczas przesyłania, jak i [szyfrowanie na platformie Azure](https://docs.microsoft.com/azure/storage/storage-service-encryption) .
+Tak, obsługiwane są zarówno szyfrowanie podczas przesyłania, jak i [szyfrowanie na platformie Azure](../storage/common/storage-service-encryption.md) .
 
 
 ## <a name="deployment"></a>Wdrożenie

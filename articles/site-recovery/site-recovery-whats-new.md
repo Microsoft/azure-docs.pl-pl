@@ -3,11 +3,12 @@ title: Co nowego w Azure Site Recovery
 description: Zawiera podsumowanie nowych funkcji i najnowszych aktualizacji usługi Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 06/01/2020
-ms.openlocfilehash: e0015aa9de51e3cb43473a079d09698fcbeef9a0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f774dbd3172199e82509301f520eac4e25deb15b
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84259222"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86131075"
 ---
 # <a name="whats-new-in-site-recovery"></a>Co nowego w usłudze Site Recovery
 
@@ -21,6 +22,7 @@ W przypadku składników Site Recovery obsługiwane są wersje N-4, gdzie N to n
 
 **Aktualizacja** |  **Ujednolicona konfiguracja** | **Komórki jajowe serwera konfiguracji** | **Agent usługi mobilności** | **Dostawca Site Recovery** | **Agent Recovery Services**
 --- | --- | --- | --- | --- | ---
+[Pakiet zbiorczy 47](https://support.microsoft.com/help/4570609/) | 9.34.5634.1 | 5.1.6100.0 | 9.34.5634.1 | 5.1.6100.0 | 2.0.9183.0
 [Pakiet zbiorczy 46](https://support.microsoft.com/help/4564347/) | 9.33.5598.1 | 5.1.5900.0 | 9.33.5598.1 | 5.1.5900.0 | 2.0.9175.0
 [Pakiet zbiorczy 45](https://support.microsoft.com/help/4550047/) | 9.32.5487.1 | 5.1.5400.0 | 9.32.5487.1 | 5.1.5400.0 | 2.0.9165.0
 [Pakiet zbiorczy 43](https://support.microsoft.com/help/4537047/) | 9.31.5449.1 | 5.1.5300.0 | 9.31.5449.1 | 5.1.5300.0 | 2.0.9165.0
@@ -31,6 +33,17 @@ W przypadku składników Site Recovery obsługiwane są wersje N-4, gdzie N to n
 
 > [!NOTE]
 > Pakiet zbiorczy aktualizacji 44 nie jest wyświetlany w tabeli, ponieważ nie zawiera on aktualizacji dostawców Site Recovery i agentów.
+
+## <a name="updates-june-2020"></a>Aktualizacje (Czerwiec 2020)
+
+### <a name="update-rollup-47"></a>Pakiet zbiorczy aktualizacji 47
+
+[Pakiet zbiorczy aktualizacji 47](https://support.microsoft.com/help/4570609/update-rollup-47-for-azure-site-recovery) udostępnia następujące aktualizacje:
+
+**Aktualizacja** | **Szczegóły**
+--- | ---
+**Dostawcy i agenci** | Aktualizacje Site Recovery agentów i dostawców zgodnie z opisem w zestawie zbiorczym.
+**Rozwiązywanie poprawek/ulepszeń** | Szereg poprawek i ulepszeń, które opisano szczegółowo w pakiecie zbiorczym.
 
 ## <a name="updates-june-2020"></a>Aktualizacje (Czerwiec 2020)
 
@@ -345,8 +358,8 @@ Funkcje dodane w tym miesiącu zostały podsumowane w tabeli.
 **Funkcja** | **Szczegóły**
 --- | ---
 **Mapowanie sieci** | W przypadku odzyskiwania po awarii maszyny wirtualnej platformy Azure można teraz używać dowolnej dostępnej sieci docelowej po włączeniu replikacji.
-**Dysk SSD w warstwie Standardowa** | Teraz można skonfigurować odzyskiwanie po awarii dla maszyn wirtualnych platformy Azure przy użyciu [dysków SSD w warstwie Standardowa](https://docs.microsoft.com/azure/virtual-machines/windows/disks-standard-ssd).
-**Bezpośrednie miejsca do magazynowania** | Odzyskiwanie po awarii można skonfigurować dla aplikacji działających w usłudze Azure VM Apps przy użyciu [bezpośrednie miejsca do magazynowania](https://docs.microsoft.com/windows-server/storage/storage-spaces/storage-spaces-direct-overview) w celu zapewnienia wysokiej dostępności.  Używanie Bezpośrednie miejsca do magazynowania (S2D) wraz z Site Recovery zapewnia kompleksową ochronę obciążeń maszyn wirtualnych platformy Azure. Funkcja S2D umożliwia hostowanie klastra gościa na platformie Azure. Jest to szczególnie przydatne w przypadku, gdy maszyna wirtualna obsługuje aplikację krytyczną, taką jak warstwa SAP ASCS, SQL Server lub serwer plików skalowalny w poziomie.
+**Dysk SSD w warstwie Standardowa** | Teraz można skonfigurować odzyskiwanie po awarii dla maszyn wirtualnych platformy Azure przy użyciu [dysków SSD w warstwie Standardowa](../virtual-machines/windows/disks-types.md#standard-ssd).
+**Bezpośrednie miejsca do magazynowania** | Odzyskiwanie po awarii można skonfigurować dla aplikacji działających w usłudze Azure VM Apps przy użyciu [bezpośrednie miejsca do magazynowania](/windows-server/storage/storage-spaces/storage-spaces-direct-overview) w celu zapewnienia wysokiej dostępności.  Używanie Bezpośrednie miejsca do magazynowania (S2D) wraz z Site Recovery zapewnia kompleksową ochronę obciążeń maszyn wirtualnych platformy Azure. Funkcja S2D umożliwia hostowanie klastra gościa na platformie Azure. Jest to szczególnie przydatne w przypadku, gdy maszyna wirtualna obsługuje aplikację krytyczną, taką jak warstwa SAP ASCS, SQL Server lub serwer plików skalowalny w poziomie.
 
 
 ### <a name="vmwarephysical-server-disaster-recovery"></a>Odzyskiwanie po awarii oprogramowania VMware/serwera fizycznego
@@ -364,7 +377,7 @@ Funkcje dodane w tym miesiącu zostały podsumowane w tabeli.
 
 ### <a name="accelerated-networking-azure-vms"></a>Przyspieszona sieć (maszyny wirtualne platformy Azure)
 
-Przyspieszona sieć umożliwia wirtualizację we/wy z jednym elementem głównym (SR-IOV) do maszyny wirtualnej, co zwiększa wydajność sieci. Po włączeniu replikacji dla maszyny wirtualnej platformy Azure Site Recovery wykrywa, czy jest włączona szybsza sieć. Jeśli tak jest, po przejściu w tryb failover Site Recovery automatycznie skonfigurować przyspieszone sieci na maszynie wirtualnej platformy Azure dla repliki docelowej dla [systemów Windows](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-powershell#enable-accelerated-networking-on-existing-vms) i [Linux](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli#enable-accelerated-networking-on-existing-vms).
+Przyspieszona sieć umożliwia wirtualizację we/wy z jednym elementem głównym (SR-IOV) do maszyny wirtualnej, co zwiększa wydajność sieci. Po włączeniu replikacji dla maszyny wirtualnej platformy Azure Site Recovery wykrywa, czy jest włączona szybsza sieć. Jeśli tak jest, po przejściu w tryb failover Site Recovery automatycznie skonfigurować przyspieszone sieci na maszynie wirtualnej platformy Azure dla repliki docelowej dla [systemów Windows](../virtual-network/create-vm-accelerated-networking-powershell.md#enable-accelerated-networking-on-existing-vms) i [Linux](../virtual-network/create-vm-accelerated-networking-cli.md#enable-accelerated-networking-on-existing-vms).
 
 [Dowiedz się więcej](azure-vm-disaster-recovery-with-accelerated-networking.md).
 
@@ -426,7 +439,7 @@ Funkcje dodane w tym miesiącu zostały podsumowane w tabeli.
 **Obsługa systemu Linux** | Dodano pomoc techniczną dla Oracle Linux 6,8, Oracle Linux 6,9 i Oracle Linux 7,0 z jądrem zgodnym z systemem Red Hat oraz dla jądra w wersji 5 dla przedsiębiorstw (UEK).
 **System plików BRTFS systemu Linux** | Obsługiwane przez maszyny wirtualne platformy Azure.
 **Maszyny wirtualne platformy Azure w strefach dostępności** | Replikację można włączyć w innym regionie dla maszyn wirtualnych platformy Azure wdrożonych w strefach dostępności. Teraz można włączyć replikację dla maszyny wirtualnej platformy Azure i ustawić docelowy tryb failover na jedno wystąpienie maszyny wirtualnej, maszynę wirtualną w zestawie dostępności lub maszynę wirtualną w strefie dostępności. To ustawienie nie ma wpływu na replikację. [Przeczytaj](https://azure.microsoft.com/blog/disaster-recovery-of-zone-pinned-azure-virtual-machines-to-another-region/) ogłoszenie.
-**Magazyn z obsługą zapory (Portal/program PowerShell)** | Dodano obsługę [kont magazynu obsługujących zaporę](https://docs.microsoft.com/azure/storage/common/storage-network-security).<br/><br/> Maszyny wirtualne platformy Azure z dyskami niezarządzanymi można replikować na konta magazynu z obsługą zapory w innym regionie świadczenia usługi Azure na potrzeby odzyskiwania po awarii.<br/><br/> Kont magazynu z obsługą zapory można używać jako docelowych kont magazynu dla dysków niezarządzanych.<br/><br/> Obsługiwane w portalu i przy użyciu programu PowerShell.
+**Magazyn z obsługą zapory (Portal/program PowerShell)** | Dodano obsługę [kont magazynu obsługujących zaporę](../storage/common/storage-network-security.md).<br/><br/> Maszyny wirtualne platformy Azure z dyskami niezarządzanymi można replikować na konta magazynu z obsługą zapory w innym regionie świadczenia usługi Azure na potrzeby odzyskiwania po awarii.<br/><br/> Kont magazynu z obsługą zapory można używać jako docelowych kont magazynu dla dysków niezarządzanych.<br/><br/> Obsługiwane w portalu i przy użyciu programu PowerShell.
 
 ## <a name="updates-december-2018"></a>Aktualizacje (Grudzień 2018)
 
@@ -467,7 +480,7 @@ Funkcje dodane w tym miesiącu zostały podsumowane w tabeli.
 **Obsługa regionów** | Dodano Site Recovery wsparcia dla Australii środkowej 1 i Australii środkowej 2.
 **Obsługa szyfrowania dysków** | Dodano obsługę odzyskiwania po awarii maszyn wirtualnych platformy Azure zaszyfrowanych przy użyciu Azure Disk Encryption (ADE) za pomocą aplikacji usługi Azure AD. [Dowiedz się więcej](azure-to-azure-how-to-enable-replication-ade-vms.md).
 **Wykluczanie dysku** | Niezainicjowane dyski są teraz automatycznie wykluczane podczas replikacji maszyny wirtualnej platformy Azure.
-**Magazyn z obsługą zapory (PowerShell)** | Dodano obsługę [kont magazynu obsługujących zaporę](https://docs.microsoft.com/azure/storage/common/storage-network-security).<br/><br/> Maszyny wirtualne platformy Azure z dyskami niezarządzanymi można replikować na konta magazynu z obsługą zapory w innym regionie świadczenia usługi Azure na potrzeby odzyskiwania po awarii.<br/><br/> Kont magazynu z obsługą zapory można używać jako docelowych kont magazynu dla dysków niezarządzanych.<br/><br/> Obsługiwane tylko przy użyciu programu PowerShell.
+**Magazyn z obsługą zapory (PowerShell)** | Dodano obsługę [kont magazynu obsługujących zaporę](../storage/common/storage-network-security.md).<br/><br/> Maszyny wirtualne platformy Azure z dyskami niezarządzanymi można replikować na konta magazynu z obsługą zapory w innym regionie świadczenia usługi Azure na potrzeby odzyskiwania po awarii.<br/><br/> Kont magazynu z obsługą zapory można używać jako docelowych kont magazynu dla dysków niezarządzanych.<br/><br/> Obsługiwane tylko przy użyciu programu PowerShell.
 
 
 ### <a name="update-rollup-29"></a>Pakiet zbiorczy aktualizacji 29
@@ -505,7 +518,7 @@ Funkcje dodane w tym miesiącu zostały podsumowane w tabeli.
 
 **Funkcja** | **Szczegóły**
 --- | ---
-**Obsługa systemu Linux** | Dodano obsługę do RedHat Enterprise Linux 6,10, CentOS 6,10.<br/><br/> Maszyny wirtualne oparte na systemie Linux, które używają stylu partycji tabeli partycji GUID (GPT) w trybie zgodności ze starszymi wersjami systemu BIOS, są teraz obsługiwane. Aby uzyskać więcej informacji, przejrzyj [często zadawane pytania dotyczące maszyn wirtualnych platformy Azure](https://docs.microsoft.com/azure/virtual-machines/linux/faq-for-disks) .
+**Obsługa systemu Linux** | Dodano obsługę do RedHat Enterprise Linux 6,10, CentOS 6,10.<br/><br/> Maszyny wirtualne oparte na systemie Linux, które używają stylu partycji tabeli partycji GUID (GPT) w trybie zgodności ze starszymi wersjami systemu BIOS, są teraz obsługiwane. Aby uzyskać więcej informacji, przejrzyj [często zadawane pytania dotyczące maszyn wirtualnych platformy Azure](../virtual-machines/linux/faq-for-disks.md) .
 **Odzyskiwanie po awarii dla maszyn wirtualnych po migracji** | Obsługa włączenia odzyskiwania po awarii do regionu pomocniczego dla lokalnej maszyny wirtualnej VMware migrowanej do platformy Azure bez konieczności odinstalowywania usługi mobilności na maszynie wirtualnej przed włączeniem replikacji.
 **Windows Server 2008** | Obsługa migracji maszyn z systemem Windows Server 2008 R2/2008 64-bit i 32-bit.<br/><br/> Tylko migracja (replikacja i tryb failover). Powrót po awarii nie jest obsługiwany.
 

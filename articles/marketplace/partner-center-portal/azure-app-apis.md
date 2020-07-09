@@ -1,18 +1,16 @@
 ---
 title: Interfejs API przekazywania Centrum partnerskiego do dołączania aplikacji platformy Azure w portalu komercyjnym firmy Microsoft
 description: Zapoznaj się z wymaganiami wstępnymi dotyczącymi korzystania z interfejsu API przekazywania Centrum partnerskiego dla aplikacji platformy Azure w komercyjnej witrynie Marketplace w witrynie Microsoft Partner Center.
-author: dsindona
-ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/10/2019
-ms.openlocfilehash: 3d86329313c1b6af1e4723dc64c982f9c81ea86b
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: c8343f0954f02423fc48347911f10cf5b9ddee96
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85964978"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86122000"
 ---
 # <a name="partner-center-submission-api-to-onboard-azure-apps-in-partner-center"></a>Interfejs API przekazywania Centrum partnerskiego do dołączania aplikacji platformy Azure w centrum partnerskim
 

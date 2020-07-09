@@ -7,11 +7,12 @@ ms.service: site-recovery
 ms.topic: troubleshooting
 ms.date: 09/09/2019
 ms.author: raynew
-ms.openlocfilehash: 7657d614645bb00235db2701773bc15fa260b70d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7679148e195bd67ab5da58636552a684c25c31b0
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83835805"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86131991"
 ---
 # <a name="troubleshoot-the-process-server"></a>Rozwiązywanie problemów z serwerem przetwarzania
 
@@ -95,7 +96,7 @@ Jeśli nie ma pulsu z serwera przetwarzania (kod błędu 806), wykonaj następuj
 
 ## <a name="step-4-verify-time-sync-on-source-machine"></a>Krok 4. Weryfikowanie synchronizacji czasu na maszynie źródłowej
 
-Upewnij się, że data/godzina systemowa replikowanej maszyny jest zsynchronizowana. [Dowiedz się więcej](https://docs.microsoft.com/windows-server/networking/windows-time-service/accurate-time)
+Upewnij się, że data/godzina systemowa replikowanej maszyny jest zsynchronizowana. [Dowiedz się więcej](/windows-server/networking/windows-time-service/accurate-time)
 
 ## <a name="step-5-check-anti-virus-software-on-source-machine"></a>Krok 5. sprawdzenie oprogramowania antywirusowego na maszynie źródłowej
 
@@ -104,7 +105,7 @@ Upewnij się, że żadne oprogramowanie antywirusowe na replikowanej maszynie ni
 ## <a name="step-6-check-connectivity-from-source-machine"></a>Krok 6. Sprawdzanie łączności z poziomu maszyny źródłowej
 
 
-1. Jeśli zachodzi taka potrzeba, zainstaluj [klienta programu Telnet](https://technet.microsoft.com/library/cc771275(v=WS.10).aspx) na maszynie źródłowej. Nie używaj polecenia ping.
+1. Jeśli zachodzi taka potrzeba, zainstaluj [klienta programu Telnet](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc771275(v=ws.10)) na maszynie źródłowej. Nie używaj polecenia ping.
 2. Na maszynie źródłowej Wyślij polecenie ping do serwera przetwarzania w porcie HTTPS za pomocą programu Telnet. Domyślnie 9443 jest portem HTTPS dla ruchu związanego z replikacją.
 
     `telnet <process server IP address> <port>`
@@ -245,7 +246,7 @@ Zwiększ przepustowość między serwerem przetwarzania i platformą Azure, a na
 
 ## <a name="next-steps"></a>Następne kroki
 
-Jeśli potrzebujesz więcej pomocy, Opublikuj swoje pytanie na [stronie pytania&](https://docs.microsoft.com/answers/topics/azure-site-recovery.html)pytań i odpowiedzi dla Azure Site Recovery. 
+Jeśli potrzebujesz więcej pomocy, Opublikuj swoje pytanie na [stronie pytania&](/answers/topics/azure-site-recovery.html)pytań i odpowiedzi dla Azure Site Recovery. 
 
 [green]: ./media/vmware-physical-azure-troubleshoot-process-server/green.png
 [yellow]: ./media/vmware-physical-azure-troubleshoot-process-server/yellow.png

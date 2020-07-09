@@ -8,11 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/06/2019
 ms.author: mayg
-ms.openlocfilehash: 9ab4db53086046ff831fe91d003599841aa8148c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 281743268364b0e9d39c7bea28afc17d753db2f6
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83829787"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86130154"
 ---
 # <a name="install-a-linux-master-target-server-for-failback"></a>Instalowanie głównego serwera docelowego z systemem Linux na potrzeby powrotu po awarii
 Po przełączeniu maszyn wirtualnych w tryb failover na platformę Azure można wrócić do trybu failover maszyn wirtualnych w lokacji lokalnej. Aby powrócić po awarii, należy ponownie włączyć ochronę maszyny wirtualnej z platformy Azure do lokacji lokalnej. W przypadku tego procesu wymagany jest lokalny główny serwer docelowy do odbierania ruchu. 
@@ -26,7 +27,7 @@ Jeśli chroniona maszyna wirtualna jest maszyną wirtualną z systemem Windows, 
 ## <a name="overview"></a>Omówienie
 Ten artykuł zawiera instrukcje dotyczące instalowania głównego elementu docelowego systemu Linux.
 
-Zamieszczaj komentarze lub pytania na końcu tego artykułu lub na [stronie pytań firmy Microsoft na&pytania dotyczące usługi Azure Recovery Services](https://docs.microsoft.com/answers/topics/azure-site-recovery.html).
+Zamieszczaj komentarze lub pytania na końcu tego artykułu lub na [stronie pytań firmy Microsoft na&pytania dotyczące usługi Azure Recovery Services](/answers/topics/azure-site-recovery.html).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -36,6 +37,9 @@ Zamieszczaj komentarze lub pytania na końcu tego artykułu lub na [stronie pyta
 * Główny element docelowy powinien znajdować się w sieci, która może komunikować się z serwerem przetwarzania i serwerem konfiguracji.
 * Wersja głównego elementu docelowego musi być równa lub wcześniejsza niż wersja serwera przetwarzania i serwera konfiguracji. Na przykład jeśli wersja serwera konfiguracji to 9,4, wersja głównego celu może być 9,4 lub 9,3, ale nie 9,5.
 * Główny element docelowy może być tylko maszyną wirtualną VMware, a nie serwerem fizycznym.
+
+> [!NOTE]
+> Upewnij się, że nie włączasz vMotion magazynu na żadnym składniku zarządzania, takim jak główny element docelowy. Jeśli główny element docelowy zostanie przesunięty po pomyślnym ponownej ochronie, dyski maszyny wirtualnej (VMDK) nie mogą zostać odłączone. W takim przypadku powrót po awarii kończy się niepowodzeniem.
 
 ## <a name="sizing-guidelines-for-creating-master-target-server"></a>Wskazówki dotyczące ustalania wielkości na potrzeby tworzenia głównego serwera docelowego
 
@@ -273,16 +277,22 @@ Wykonaj następujące kroki, aby utworzyć dysk przechowywania:
 > [!NOTE]
 > Przed zainstalowaniem głównego serwera docelowego Sprawdź, czy plik **/etc/hosts** na maszynie wirtualnej zawiera wpisy, które mapują lokalną nazwę hosta na adresy IP skojarzone ze wszystkimi kartami sieciowymi.
 
-1. Skopiuj hasło z **witryny C:\ProgramData\Microsoft Azure Site Recovery\private\connection.Passphrase** na serwerze konfiguracji. Następnie zapisz go jako **passphrase.txt** w tym samym katalogu lokalnym, uruchamiając następujące polecenie:
+1. Uruchom następujące polecenie, aby zainstalować główny serwer docelowy.
+
+    ```
+    ./install -q -d /usr/local/ASR -r MT -v VmWare
+    ```
+
+2. Skopiuj hasło z **witryny C:\ProgramData\Microsoft Azure Site Recovery\private\connection.Passphrase** na serwerze konfiguracji. Następnie zapisz go jako **passphrase.txt** w tym samym katalogu lokalnym, uruchamiając następujące polecenie:
 
     `echo <passphrase> >passphrase.txt`
 
     Przykład: 
 
-       `echo itUx70I47uxDuUVY >passphrase.txt`
+    `echo itUx70I47uxDuUVY >passphrase.txt`
     
 
-2. Zanotuj adres IP serwera konfiguracji. Uruchom następujące polecenie, aby zainstalować główny serwer docelowy i zarejestrować serwer na serwerze konfiguracji.
+3. Zanotuj adres IP serwera konfiguracji. Uruchom następujące polecenie, aby zarejestrować serwer na serwerze konfiguracji.
 
     ```
     /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <ConfigurationServer IP Address> -P passphrase.txt
@@ -313,16 +323,10 @@ Po zakończeniu instalacji zarejestruj serwer konfiguracji przy użyciu wiersza 
 
 1. Zanotuj adres IP serwera konfiguracji. Będzie ona potrzebna w następnym kroku.
 
-2. Uruchom następujące polecenie, aby zainstalować główny serwer docelowy i zarejestrować serwer na serwerze konfiguracji.
+2. Uruchom następujące polecenie, aby zarejestrować serwer na serwerze konfiguracji.
 
     ```
-    ./install -q -d /usr/local/ASR -r MT -v VmWare
-    /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <ConfigurationServer IP Address> -P passphrase.txt
-    ```
-    Przykład: 
-
-    ```
-    /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i 104.40.75.37 -P passphrase.txt
+    /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh
     ```
 
      Poczekaj na zakończenie działania skryptu. Jeśli główny element docelowy został pomyślnie zarejestrowany, główny element docelowy zostanie wyświetlony na stronie **infrastruktura Site Recovery** w portalu.
@@ -347,9 +351,13 @@ Zobaczysz, że w polu **wersja** nadano numer wersji głównego elementu docelow
 
 * Główny element docelowy nie powinien mieć żadnych migawek na maszynie wirtualnej. Jeśli istnieją migawki, powrót po awarii kończy się niepowodzeniem.
 
-* Ze względu na niestandardową konfigurację karty sieciowej interfejs sieciowy jest wyłączony podczas uruchamiania, a główny agent docelowy nie może zostać zainicjowany. Upewnij się, że następujące właściwości zostały prawidłowo ustawione. Sprawdź te właściwości w/etc/sysconfig/Network-scripts/ifcfg-ETH * pliku karty Ethernet.
-    * BOOTPROTO = DHCP
-    * Onboot = tak
+* Ze względu na niestandardową konfigurację karty sieciowej interfejs sieciowy jest wyłączony podczas uruchamiania, a główny agent docelowy nie może zostać zainicjowany. Upewnij się, że następujące właściwości zostały prawidłowo ustawione. Sprawdź te właściwości w/etc/network/interfaces. pliku karty Ethernet
+    * eth0
+    * iface eth0 inet DHCP <br>
+
+    Uruchom ponownie usługę sieciową przy użyciu następującego polecenia: <br>
+
+`sudo systemctl restart networking`
 
 
 ## <a name="next-steps"></a>Następne kroki

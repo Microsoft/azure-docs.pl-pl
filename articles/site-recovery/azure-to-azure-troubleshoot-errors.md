@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/07/2020
 ms.author: rochakm
-ms.openlocfilehash: bbb2ddaa1fb84590f9dec1c84ac4bc87a8e03022
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 91aaedba13dfd9c0a3ea06b3460beaa8ead20233
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82738120"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86130461"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-errors"></a>Rozwiązywanie problemów z replikacją maszyny wirtualnej z platformy Azure do platformy Azure
 
@@ -36,7 +36,7 @@ Replication couldn't be enabled for the virtual machine <VmName>.
 
 ### <a name="fix-the-problem"></a>Rozwiązywanie problemu
 
-Skontaktuj się z [pomocą techniczną dotyczącą rozliczeń platformy Azure](/azure/azure-portal/supportability/resource-manager-core-quotas-request) , aby umożliwić subskrypcji Tworzenie maszyn wirtualnych o wymaganych rozmiarach w lokalizacji docelowej. Następnie ponów próbę wykonania operacji zakończonej niepowodzeniem.
+Skontaktuj się z [pomocą techniczną dotyczącą rozliczeń platformy Azure](../azure-portal/supportability/resource-manager-core-quotas-request.md) , aby umożliwić subskrypcji Tworzenie maszyn wirtualnych o wymaganych rozmiarach w lokalizacji docelowej. Następnie ponów próbę wykonania operacji zakończonej niepowodzeniem.
 
 Jeśli lokalizacja docelowa ma ograniczenie pojemności, wyłącz replikację do tej lokalizacji. Następnie należy włączyć replikację do innej lokalizacji, w której subskrypcja ma wystarczający przydział do tworzenia maszyn wirtualnych o wymaganych rozmiarach.
 
@@ -202,7 +202,7 @@ Nie można nawiązać połączenia z uwierzytelnianiem pakietu Office 365 i punk
 #### <a name="fix-the-problem"></a>Rozwiązywanie problemu
 
 Azure Site Recovery wymagany dostęp do zakresów adresów IP pakietu Office 365 na potrzeby uwierzytelniania.
-Jeśli używasz zasad grupy zabezpieczeń sieci (sieciowej grupy zabezpieczeń) platformy Azure/serwera proxy zapory do kontrolowania łączności sieciowej wychodzącej na maszynie wirtualnej, upewnij się, że Azure Active Directory używasz [(AAD) tag usługi](/azure/virtual-network/security-overview#service-tags) opartej na sieciowej grupy zabezpieczeń reguły, aby umożliwić dostęp do usługi AAD. Nie obsługujemy już reguł sieciowej grupy zabezpieczeń opartych na adresach IP.
+Jeśli używasz zasad grupy zabezpieczeń sieci (sieciowej grupy zabezpieczeń) platformy Azure/serwera proxy zapory do kontrolowania łączności sieciowej wychodzącej na maszynie wirtualnej, upewnij się, że Azure Active Directory używasz [(AAD) tag usługi](../virtual-network/security-overview.md#service-tags) opartej na sieciowej grupy zabezpieczeń reguły, aby umożliwić dostęp do usługi AAD. Nie obsługujemy już reguł sieciowej grupy zabezpieczeń opartych na adresach IP.
 
 ### <a name="issue-3-site-recovery-configuration-failed-151197"></a>Problem 3: Konfiguracja Site Recovery nie powiodła się (151197)
 
@@ -260,8 +260,8 @@ Azure data disk <DiskName> <DiskURI> with logical unit number <LUN> <LUNValue> w
 
 Upewnij się, że dyski danych są zainicjowane, a następnie spróbuj ponownie wykonać operację.
 
-- **System Windows**: [Dołącz i zainicjuj nowy dysk](/azure/virtual-machines/windows/attach-managed-disk-portal).
-- **Linux**: [zainicjuj nowy dysk danych w systemie Linux](/azure/virtual-machines/linux/add-disk).
+- **System Windows**: [Dołącz i zainicjuj nowy dysk](../virtual-machines/windows/attach-managed-disk-portal.md).
+- **Linux**: [zainicjuj nowy dysk danych w systemie Linux](../virtual-machines/linux/add-disk.md).
 
 Jeśli problem będzie się powtarzać, skontaktuj się z pomocą techniczną.
 
@@ -475,7 +475,7 @@ Poniższe przykłady są wierszami z plików GRUB, w których pojawiają się na
 
 Zastąp nazwy poszczególnych urządzeń odpowiednimi identyfikatorami UUID:
 
-1. Znajdź identyfikator UUID urządzenia, wykonując polecenie `blkid <device name>` . Na przykład:
+1. Znajdź identyfikator UUID urządzenia, wykonując polecenie `blkid <device name>` . Przykład:
 
    ```shell
    blkid /dev/sda1

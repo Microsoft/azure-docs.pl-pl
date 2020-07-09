@@ -4,12 +4,12 @@ description: Dowiedz się więcej o usłudze Azure Migrate.
 ms.topic: overview
 ms.date: 04/15/2020
 ms.custom: mvc
-ms.openlocfilehash: 41fcf1c4a9a59ad0cea89c8b44374cef6444558e
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 72f2dfb3e5e05466892d838af4e1c84c855b94a9
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85564120"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86122085"
 ---
 # <a name="about-azure-migrate"></a>Informacje o usłudze Azure Migrate
 
@@ -34,11 +34,11 @@ Centrum Azure Migrate obejmuje następujące narzędzia:
 --- | --- | ---
 **Azure Migrate: Ocena serwera** | Ocenianie serwerów. | Wykrywaj i oceniaj lokalne maszyny wirtualne programu VMware, maszyny wirtualne funkcji Hyper-V i serwery fizyczne do migracji na platformę Azure.
 **Azure Migrate: Migracja serwera** | Migrowanie serwerów. | Migruj maszyny wirtualne VMware, maszyny wirtualne funkcji Hyper-V, serwery fizyczne, inne maszyny wirtualne i maszyny wirtualne w chmurze publicznej na platformę Azure.
-**Data Migration Assistant** | Oceń SQL Server bazy danych na potrzeby migracji do Azure SQL Database, wystąpienia zarządzanego usługi Azure SQL lub maszyn wirtualnych platformy Azure z systemem SQL Server. | Data Migration Assistant ułatwia identyfikowanie potencjalnych problemów z blokowaniem migracji. Identyfikuje Nieobsługiwane funkcje, nowe funkcje, które mogą korzystać z migracji, oraz właściwą ścieżkę do migracji bazy danych. [Dowiedz się więcej](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017).
-**Azure Database Migration Service** | Migrowanie lokalnych baz danych do maszyn wirtualnych platformy Azure z uruchomioną SQL Server, Azure SQL Database lub wystąpieniami zarządzanymi SQL. | [Dowiedz się więcej](https://docs.microsoft.com/azure/dms/dms-overview) o Database Migration Service.
+**Data Migration Assistant** | Oceń SQL Server bazy danych na potrzeby migracji do Azure SQL Database, wystąpienia zarządzanego usługi Azure SQL lub maszyn wirtualnych platformy Azure z systemem SQL Server. | Data Migration Assistant ułatwia identyfikowanie potencjalnych problemów z blokowaniem migracji. Identyfikuje Nieobsługiwane funkcje, nowe funkcje, które mogą korzystać z migracji, oraz właściwą ścieżkę do migracji bazy danych. [Dowiedz się więcej](/sql/dma/dma-overview?view=sql-server-2017).
+**Azure Database Migration Service** | Migrowanie lokalnych baz danych do maszyn wirtualnych platformy Azure z uruchomioną SQL Server, Azure SQL Database lub wystąpieniami zarządzanymi SQL. | [Dowiedz się więcej](../dms/dms-overview.md) o Database Migration Service.
 **Movere** | Ocenianie serwerów. | [Dowiedz się więcej](#movere) o obszarze przenoszenia.
 **Asystent migracji aplikacji sieci Web** | Oceniaj lokalne aplikacje sieci Web i Migruj je na platformę Azure. |  Użyj Asystent migracji Azure App Service do oceny lokalnych witryn sieci Web na potrzeby migracji do Azure App Service.<br/><br/> Użyj Asystent migracji do migrowania aplikacji sieci Web platformy .NET i PHP na platformę Azure. [Dowiedz się więcej](https://appmigration.microsoft.com/) na temat Asystent migracji Azure App Service.
-**Azure Data Box** | Migrowanie danych w trybie offline. | Użyj Azure Data Box produktów, aby przenieść duże ilości danych w trybie offline na platformę Azure. [Dowiedz się więcej](https://docs.microsoft.com/azure/databox/).
+**Azure Data Box** | Migrowanie danych w trybie offline. | Użyj Azure Data Box produktów, aby przenieść duże ilości danych w trybie offline na platformę Azure. [Dowiedz się więcej](../databox/index.yml).
 
 > [!NOTE]
 > Jeśli jesteś w Azure Government, zewnętrzne narzędzia zintegrowane i oferty niezależnych dostawców oprogramowania nie mogą wysyłać danych do Azure Migrate projektów. Narzędzi można używać niezależnie od siebie.

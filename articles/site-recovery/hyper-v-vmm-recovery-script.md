@@ -7,17 +7,18 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: 14c2a9a2ad818cc358535a91f9a6813ec7b91a6f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fb690dfb90c0f7b8216368cb6b26a9af7d895d18
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83826285"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86130128"
 ---
 # <a name="add-a-vmm-script-to-a-recovery-plan"></a>Dodawanie skryptu programu VMM do planu odzyskiwania
 
 W tym artykule opisano sposób tworzenia skryptu System Center Virtual Machine Manager (VMM) i dodawania go do planu odzyskiwania w programie [Azure Site Recovery](site-recovery-overview.md).
 
-Zamieszczaj wszelkie komentarze lub pytania w dolnej części tego artykułu lub na [stronie pytania firmy Microsoft dotyczącej&na platformie Azure Recovery Services](https://docs.microsoft.com/answers/topics/azure-site-recovery.html).
+Zamieszczaj wszelkie komentarze lub pytania w dolnej części tego artykułu lub na [stronie pytania firmy Microsoft dotyczącej&na platformie Azure Recovery Services](/answers/topics/azure-site-recovery.html).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -37,7 +38,7 @@ W planach odzyskiwania można używać skryptów programu PowerShell. Aby można
 
     `Import-Module -Name virtualmachinemanager`
 
-    Aby uzyskać więcej informacji, zobacz [wprowadzenie do programu Windows PowerShell i programu VMM](https://technet.microsoft.com/library/hh875013.aspx).
+    Aby uzyskać więcej informacji, zobacz [wprowadzenie do programu Windows PowerShell i programu VMM](/previous-versions/system-center/system-center-2012-R2/hh875013(v=sc.12)).
 * Upewnij się, że w wdrożeniu programu VMM istnieje co najmniej jeden serwer biblioteki. Domyślnie ścieżka udziału biblioteki serwera programu VMM znajduje się lokalnie na serwerze programu VMM. Nazwa folderu to MSCVMMLibrary.
 
   Jeśli ścieżka udziału biblioteki jest zdalna (lub jeśli jest lokalna, ale nie została udostępniona przez MSCVMMLibrary), skonfiguruj udział w następujący sposób, używając \\ libserver2. contoso. com\share\ jako przykładu:
@@ -50,7 +51,7 @@ W planach odzyskiwania można używać skryptów programu PowerShell. Aby można
 
      a. Otwórz **64-bitową konsolę programu Windows PowerShell** jako administrator.
      
-     b. Wprowadź **obejście Set-executionpolicy**. Aby uzyskać więcej informacji, zobacz [Korzystanie z polecenia cmdlet Set-executionpolicy](https://technet.microsoft.com/library/ee176961.aspx).
+     b. Wprowadź **obejście Set-executionpolicy**. Aby uzyskać więcej informacji, zobacz [Korzystanie z polecenia cmdlet Set-executionpolicy](/previous-versions/windows/it-pro/windows-powershell-1.0/ee176961(v=technet.10)).
 
      > [!IMPORTANT]
      > Ustaw **obejście Set-executionpolicy** tylko w konsoli programu PowerShell 64-bitowej. Jeśli ustawisz ją na 32-bitową konsolę programu PowerShell, skrypty nie są uruchamiane.

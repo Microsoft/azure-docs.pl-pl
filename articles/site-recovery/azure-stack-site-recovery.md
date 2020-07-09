@@ -3,12 +3,12 @@ title: Replikowanie Azure Stack maszyn wirtualnych na platformę Azure przy uży
 description: Dowiedz się, jak skonfigurować odzyskiwanie po awarii na platformie Azure dla maszyn wirtualnych Azure Stack przy użyciu usługi Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 08/05/2019
-ms.openlocfilehash: ab35463ca8c3b29e6b4ae8abc781a7081091b214
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 873b9c5efc2a89d3cda1bfe14a7518e6786a6870
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80478515"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86131608"
 ---
 # <a name="replicate-azure-stack-vms-to-azure"></a>Replikowanie maszyn wirtualnych usługi Azure Stack na platformie Azure
 
@@ -262,7 +262,7 @@ Przed uruchomieniem testowego przejścia w tryb failover Sprawdź właściwości
 2. Okienko **Zreplikowany element** zawiera podsumowanie informacji na temat maszyny wirtualnej, jej kondycję oraz najnowsze dostępne punkty odzyskiwania. Kliknij przycisk **Właściwości**, aby wyświetlić więcej szczegółów.
 3. W obszarze **obliczenia i sieć**zmodyfikuj ustawienia zgodnie z wymaganiami.
 
-    - Możesz zmodyfikować nazwę maszyny wirtualnej platformy Azure, grupę zasobów, rozmiar docelowy, [zestaw dostępności](/azure/virtual-machines/windows/tutorial-availability-sets)i ustawienia dysku zarządzanego.
+    - Możesz zmodyfikować nazwę maszyny wirtualnej platformy Azure, grupę zasobów, rozmiar docelowy, [zestaw dostępności](../virtual-machines/windows/tutorial-availability-sets.md)i ustawienia dysku zarządzanego.
     - Możesz również wyświetlać i modyfikować ustawienia sieci. Obejmują one sieć/podsieć, do której jest dołączona maszyna wirtualna platformy Azure po przejściu w tryb failover, oraz adres IP, który zostanie przypisany do maszyny wirtualnej.
 1. W obszarze **dyski**Przejrzyj informacje o systemie operacyjnym i dyskach z danymi na maszynie wirtualnej.
 

@@ -3,15 +3,16 @@ title: Dodawanie narzędzi do oceny w Azure Migrate
 description: Dowiedz się, jak dodać narzędzia do oceny w Azure Migrate.
 ms.topic: how-to
 ms.date: 04/26/2020
-ms.openlocfilehash: 10e8b66575893bc8e63aa94392c872acc04407c4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5151135a57b7c2780485d85299ead5df83ea851e
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84195630"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86122119"
 ---
 # <a name="add-assessment-tools"></a>Dodawanie narzędzi oceny
 
-W tym artykule opisano sposób dodawania narzędzi do oceny w [Azure Migrate](migrate-overview.md). 
+W tym artykule opisano sposób dodawania narzędzi do oceny w [Azure Migrate](./migrate-services-overview.md). 
 
 - Jeśli chcesz dodać narzędzie do oceny i nie masz jeszcze projektu Azure Migrate, postępuj zgodnie z tym [artykułem](how-to-add-tool-first-time.md).
 - Po dodaniu narzędzia niezależnego dostawcy oprogramowania lub przeniesieniu do oceny [postępuj zgodnie z](prepare-isv-movere.md)instrukcjami, aby przygotować się do pracy z narzędziem.

@@ -6,11 +6,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: 589dda80d68fba73a729da4b6e59270cc09c18cb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6759b2c0f679a865d0bdcf8ea8cd39f258a9cf25
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73954390"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86132121"
 ---
 # <a name="about-disaster-recovery-of-vmware-vms-to-azure"></a>Informacje na temat odzyskiwania po awarii maszyn wirtualnych VMware na platformie Azure
 
@@ -20,7 +21,7 @@ Ten artykuł zawiera omówienie odzyskiwania po awarii dla lokalnych maszyn wirt
 
 Strategia ciągłości działania i odzyskiwania po awarii (BCDR) pomaga zapewnić, że Twoja firma działa. Podczas planowanych przestojów i nieoczekiwanych awarii BCDR zapewnia bezpieczeństwo i dostępność danych oraz gwarantuje, że aplikacje będą działać. Oprócz funkcji BCDR platformy, takich jak parowanie regionalne i magazyn o wysokiej dostępności, platforma Azure udostępnia Recovery Services jako integralną część rozwiązania BCDR. Usługi odzyskiwania obejmują: 
 
-- [Azure Backup](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup) tworzyć kopie zapasowe danych lokalnych i maszyn wirtualnych platformy Azure. Można utworzyć kopię zapasową plików i folderów, określonych obciążeń lub całej maszyny wirtualnej. 
+- [Azure Backup](../backup/backup-overview.md) tworzyć kopie zapasowe danych lokalnych i maszyn wirtualnych platformy Azure. Można utworzyć kopię zapasową plików i folderów, określonych obciążeń lub całej maszyny wirtualnej. 
 - [Azure Site Recovery](site-recovery-overview.md) zapewnia odporność i odzyskiwanie po awarii dla aplikacji i obciążeń uruchomionych na maszynach lokalnych lub maszynach wirtualnych Azure IaaS. Site Recovery organizuje replikację i obsługuje pracę w trybie failover na platformie Azure, gdy wystąpi awaria. Obsługuje ona również odzyskiwanie z platformy Azure do lokacji głównej. 
 
 ## <a name="how-does-site-recovery-do-disaster-recovery"></a>Jak Site Recovery przeprowadzić odzyskiwanie po awarii?

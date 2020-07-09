@@ -12,11 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/08/2018
 ms.author: genli
-ms.openlocfilehash: 54ba87b681a055bb46b81ca81d2bcdd103491f27
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8c3e76f1a7edffefc8773dfa548773ec0932fae6
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77921457"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86129860"
 ---
 # <a name="windows-shows-critical-service-failed-on-blue-screen-when-booting-an-azure-vm"></a>System Windows wyświetla "KRYTYCZNa usługa nie powiodła się" na niebieskim ekranie podczas uruchamiania maszyny wirtualnej platformy Azure
 W tym artykule opisano błąd "niepowodzenie usługi KRYTYCZNEj", która może wystąpić w przypadku uruchamiania maszyny wirtualnej z systemem Windows w Microsoft Azure. Zawiera kroki rozwiązywania problemów, aby pomóc w rozwiązaniu problemów. 
@@ -83,11 +84,15 @@ Aby włączyć dzienniki zrzutów i konsolę seryjną, uruchom następujący skr
 
 1. Na maszynie wirtualnej odzyskiwania Uruchom następujące polecenie w wierszu polecenia z podwyższonym poziomem uprawnień. To polecenie ustawia dysk systemu operacyjnego, który ma zostać uruchomiony w trybie awaryjnym podczas następnego rozruchu:
 
-        bcdedit /store <OS DISK you attached>:\boot\bcd /set {default} safeboot minimal
+    ```console
+    bcdedit /store <OS DISK you attached>:\boot\bcd /set {default} safeboot minimal
+    ```
 
     Na przykład jeśli dołączony dysk systemu operacyjnego to dysk F, uruchom następujące polecenie:
 
-        bcdedit /store F: boot\bcd /set {default} safeboot minimal
+    ```console
+    bcdedit /store F: boot\bcd /set {default} safeboot minimal
+    ```
 
 2. [Odłącz dysk systemu operacyjnego, a następnie ponownie Dołącz dysk systemu operacyjnego do maszyny wirtualnej, której to dotyczy](troubleshoot-recovery-disks-portal-windows.md). Maszyna wirtualna zostanie przeuruchamiana w trybie awaryjnym. Jeśli problem będzie nadal występować, przejdź do opcjonalnego kroku.
 3. Otwórz pole **Uruchom** i uruchom **weryfikatorer** , aby uruchomić narzędzie Menedżer weryfikatora sterowników.
@@ -97,7 +102,10 @@ Aby włączyć dzienniki zrzutów i konsolę seryjną, uruchom następujący skr
 
 7. Usuń ustawienia bezpiecznego rozruchu:
 
-        bcdedit /store <OS DISK LETTER>:\boot\bcd /deletevalue {default} safeboot
+    ```console
+    bcdedit /store <OS DISK LETTER>:\boot\bcd /deletevalue {default} safeboot
+    ```
+
 8.  Uruchom ponownie maszynę wirtualną. 
 
 ### <a name="optional-analyze-the-dump-logs-in-dump-crash-mode"></a>Opcjonalnie: Analizuj dzienniki zrzutów w trybie awaryjnego zrzutu

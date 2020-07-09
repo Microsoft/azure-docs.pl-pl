@@ -7,11 +7,12 @@ manager: rochakm
 ms.topic: article
 ms.date: 1/10/2020
 ms.author: sutalasi
-ms.openlocfilehash: deef7bfdbc28d744cb81da59d3ffc13a1abee54d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d7a2d21dcd8c9474bdf068d7940e497333f35115
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77048616"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86130214"
 ---
 # <a name="set-up-disaster-recovery-of-hyper-v-vms-to-a-secondary-site-by-using-powershell-resource-manager"></a>Konfigurowanie odzyskiwania po awarii maszyn wirtualnych funkcji Hyper-V w lokacji dodatkowej przy użyciu programu PowerShell (Menedżer zasobów)
 
@@ -22,9 +23,9 @@ W tym artykule przedstawiono sposób automatyzacji czynności związanych z repl
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 - Zapoznaj się ze [składnikami i architekturą scenariusza](hyper-v-vmm-architecture.md).
-- Zapoznaj się z [wymaganiami dotyczącymi obsługi](site-recovery-support-matrix-to-sec-site.md) wszystkich składników.
-- Upewnij się, że serwery Virtual Machine Manager i hosty funkcji Hyper-V są zgodne z wymaganiami dotyczącymi [obsługi](site-recovery-support-matrix-to-sec-site.md).
-- Sprawdź, czy maszyny wirtualne, które chcesz replikować, są zgodne z [obsługą zreplikowanej maszyny](site-recovery-support-matrix-to-sec-site.md).
+- Zapoznaj się z [wymaganiami dotyczącymi obsługi](./vmware-physical-secondary-support-matrix.md) wszystkich składników.
+- Upewnij się, że serwery Virtual Machine Manager i hosty funkcji Hyper-V są zgodne z wymaganiami dotyczącymi [obsługi](./vmware-physical-secondary-support-matrix.md).
+- Sprawdź, czy maszyny wirtualne, które chcesz replikować, są zgodne z [obsługą zreplikowanej maszyny](./vmware-physical-secondary-support-matrix.md).
 
 ## <a name="prepare-for-network-mapping"></a>Przygotowanie do mapowania sieci
 
@@ -36,10 +37,10 @@ W tym artykule przedstawiono sposób automatyzacji czynności związanych z repl
 
 Przygotuj Virtual Machine Manager w następujący sposób:
 
-- Upewnij się, że w źródłowym i docelowym serwerze Virtual Machine Manager znajdują się [Virtual Machine Manager sieci logicznych](https://docs.microsoft.com/system-center/vmm/network-logical) :
+- Upewnij się, że w źródłowym i docelowym serwerze Virtual Machine Manager znajdują się [Virtual Machine Manager sieci logicznych](/system-center/vmm/network-logical) :
   - Sieć logiczna na serwerze źródłowym powinna być skojarzona z chmurą źródłową, w której znajdują się hosty funkcji Hyper-V.
   - Sieć logiczna na serwerze docelowym powinna być skojarzona z chmurą docelową.
-- Upewnij się, że masz [sieci VMNetwork](https://docs.microsoft.com/system-center/vmm/network-virtual) na źródłowym i docelowym serwerze Virtual Machine Manager. Sieci maszyn wirtualnych powinny być połączone z siecią logiczną w każdej lokalizacji.
+- Upewnij się, że masz [sieci VMNetwork](/system-center/vmm/network-virtual) na źródłowym i docelowym serwerze Virtual Machine Manager. Sieci maszyn wirtualnych powinny być połączone z siecią logiczną w każdej lokalizacji.
 - Połącz maszyny wirtualne na źródłowych hostach funkcji Hyper-V ze źródłową siecią maszyny wirtualnej.
 
 ## <a name="prepare-for-powershell"></a>Przygotowanie do programu PowerShell

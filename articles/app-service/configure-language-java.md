@@ -9,11 +9,12 @@ ms.date: 04/12/2019
 ms.author: jafreebe
 ms.reviewer: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 1e42096e7ab950e5d8046ec6140c01b24643cb87
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aa6e3edf2c02cad34cbe9b1f9ac82517823caa8e
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82891466"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86130558"
 ---
 # <a name="configure-a-windows-java-app-for-azure-app-service"></a>Konfigurowanie aplikacji Java systemu Windows dla Azure App Service
 
@@ -321,7 +322,7 @@ Obsługiwane zestawy JDK są automatycznie poprawiane co kwartał w styczniu, kw
 
 ### <a name="security-updates"></a>Aktualizacje zabezpieczeń
 
-Poprawki i poprawki dla głównych luk w zabezpieczeniach zostaną wydane, gdy tylko staną się dostępne w systemach Azul. Usterka "główna" jest definiowana przez podstawowy wynik 9,0 lub wyższy w [systemie oceny typowych luk w zabezpieczeniach NIST, wersja 2](https://nvd.nist.gov/cvss.cfm).
+Poprawki i poprawki dla głównych luk w zabezpieczeniach zostaną wydane, gdy tylko staną się dostępne w systemach Azul. Usterka "główna" jest definiowana przez podstawowy wynik 9,0 lub wyższy w [systemie oceny typowych luk w zabezpieczeniach NIST, wersja 2](https://nvd.nist.gov/vuln-metrics/cvss).
 
 Tomcat 8,0 osiągnął [koniec cyklu życia (EOL) od 30 września 2018](https://tomcat.apache.org/tomcat-80-eol.html). Chociaż środowisko uruchomieniowe nadal jest avialable na Azure App Service, platforma Azure nie będzie stosować aktualizacji zabezpieczeń do tomcat 8,0. Jeśli to możliwe, dokonaj migracji aplikacji do tomcat 8,5 lub 9,0. W Azure App Service są dostępne zarówno Tomcat 8,5, jak i 9,0. Aby uzyskać więcej informacji, zobacz [oficjalną witrynę Tomcat](https://tomcat.apache.org/whichversion.html) . 
 

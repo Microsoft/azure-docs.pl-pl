@@ -9,11 +9,12 @@ ms.subservice: disks
 ms.date: 10/10/2019
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: c2b49a7e7e14bfbefcca64133ff23fdfabe53e7b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4284e94f8d8d0effd160c5048f54fcbede417e38
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83198420"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86129759"
 ---
 # <a name="encrypt-virtual-machine-scale-sets-with-azure-resource-manager"></a>Szyfruj zestawy skalowania maszyn wirtualnych za pomocą Azure Resource Manager
 
@@ -37,9 +38,9 @@ Najpierw wybierz szablon, który odpowiada Twojemu scenariuszowi.
 
 Następnie wykonaj poniższe czynności:
 
-     1. Click **Deploy to Azure**.
-     2. Fill in the required fields then agree to the terms and conditions.
-     3. Click **Purchase** to deploy the template.
+1. Kliknij pozycję **Wdrażanie na platformie Azure**.
+2. Wypełnij pola wymagane, a następnie zaakceptuj warunki i postanowienia.
+3. Kliknij przycisk **Kup** , aby wdrożyć szablon.
 
 ## <a name="next-steps"></a>Następne kroki
 
