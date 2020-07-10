@@ -5,12 +5,12 @@ ms.assetid: 501722c3-f2f7-4224-a220-6d59da08a320
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 578e1580bdaafb1b309a7af44353602cc31cb5a5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5560d24601b8aef0d8a4058cc2c04e27e9c86362
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85207011"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170415"
 ---
 # <a name="monitor-azure-functions"></a>Monitorowanie usługi Azure Functions
 
@@ -139,10 +139,10 @@ Rejestrator Azure Functions obejmuje również *poziom dziennika* z każdym dzie
 |------------|---|
 |Ślad       | 0 |
 |Debugowanie       | 1 |
-|Informacje | 2 |
+|Informacyjny | 2 |
 |Ostrzeżenie     | 3 |
 |Błąd       | 4 |
-|Krytyczne    | 5 |
+|Krytyczny    | 5 |
 |Brak        | 6 |
 
 Poziom dziennika `None` został wyjaśniony w następnej sekcji. 
@@ -233,7 +233,7 @@ Aby pominąć wszystkie dzienniki dla kategorii, można użyć poziomu dziennika
 
 ## <a name="configure-the-aggregator"></a>Konfigurowanie agregatora
 
-Jak wskazano w poprzedniej sekcji, środowisko uruchomieniowe agreguje dane dotyczące wykonywania funkcji w danym okresie czasu. Domyślny okres to 30 sekund lub 1 000 uruchomienia, w zależności od tego, co nastąpi wcześniej. To ustawienie można skonfigurować w [host.js] pliku.  Przykład:
+Jak wskazano w poprzedniej sekcji, środowisko uruchomieniowe agreguje dane dotyczące wykonywania funkcji w danym okresie czasu. Domyślny okres to 30 sekund lub 1 000 uruchomienia, w zależności od tego, co nastąpi wcześniej. To ustawienie można skonfigurować w [host.js] pliku.  Oto przykład:
 
 ```json
 {
@@ -246,7 +246,7 @@ Jak wskazano w poprzedniej sekcji, środowisko uruchomieniowe agreguje dane doty
 
 ## <a name="configure-sampling"></a>Konfiguruj próbkowanie
 
-Application Insights zawiera funkcję [próbkowania](../azure-monitor/app/sampling.md) , która umożliwia ochronę przed generowaniem zbyt dużej ilości danych telemetrycznych w przypadku zakończonych wykonań w czasie szczytowego ładowania. Gdy częstotliwość wykonywania przychodzących przekracza określony próg, Application Insights zaczyna losowo ignorować niektóre wykonania przychodzące. Domyślne ustawienie maksymalnej liczby wykonań na sekundę to 20 (pięć w wersji 1. x). Można skonfigurować próbkowanie w [host.jsna](https://docs.microsoft.com/azure/azure-functions/functions-host-json#applicationinsights).  Przykład:
+Application Insights zawiera funkcję [próbkowania](../azure-monitor/app/sampling.md) , która umożliwia ochronę przed generowaniem zbyt dużej ilości danych telemetrycznych w przypadku zakończonych wykonań w czasie szczytowego ładowania. Gdy częstotliwość wykonywania przychodzących przekracza określony próg, Application Insights zaczyna losowo ignorować niektóre wykonania przychodzące. Domyślne ustawienie maksymalnej liczby wykonań na sekundę to 20 (pięć w wersji 1. x). Można skonfigurować próbkowanie w [host.jsna](https://docs.microsoft.com/azure/azure-functions/functions-host-json#applicationinsights).  Oto przykład:
 
 ### <a name="version-2x-and-later"></a>Wersja 2. x i nowsze
 
@@ -688,27 +688,41 @@ Get-AzSubscription -SubscriptionName "<subscription name>" | Select-AzSubscripti
 Get-AzWebSiteLog -Name <FUNCTION_APP_NAME> -Tail
 ```
 
-## <a name="scale-controller-logs"></a>Dzienniki kontrolera skalowania
+## <a name="scale-controller-logs-preview"></a>Dzienniki kontrolera skalowania (wersja zapoznawcza)
 
-[Kontroler Azure Functions skalowania](./functions-scale.md#runtime-scaling) monitoruje wystąpienia hosta funkcji, które uruchamiają aplikację, i podejmuje decyzje dotyczące sytuacji, w których należy dodać lub usunąć wystąpienia hosta funkcji. Jeśli musisz zrozumieć decyzje podejmowane przez kontroler skalowania w aplikacji, możesz skonfigurować go do emisji dzienników do Application Insights lub Blob Storage.
+Ta funkcja jest dostępna w wersji zapoznawczej. 
 
-> [!WARNING]
-> Ta funkcja jest dostępna w wersji zapoznawczej. Nie zaleca się pozostawienia tej funkcji w nieskończoność, a zamiast tego należy ją włączyć, gdy będą potrzebne zebrane informacje, a następnie je wyłączać.
+[Kontroler Azure Functions skalowania](./functions-scale.md#runtime-scaling) monitoruje wystąpienia Azure Functions hosta, na którym działa aplikacja. Ten kontroler podejmuje decyzje dotyczące sytuacji, w których należy dodawać lub usuwać wystąpienia na podstawie bieżącej wydajności. Kontroler skalowania może wysyłać dzienniki do Application Insights lub do magazynu obiektów blob, aby lepiej zrozumieć decyzje podejmowane przez kontroler skalowania dla aplikacji funkcji.
 
-Aby włączyć tę funkcję, Dodaj nowe ustawienie aplikacji o nazwie `SCALE_CONTROLLER_LOGGING_ENABLED` . Wartość tego ustawienia musi być w formacie `{Destination}:{Verbosity}` , gdzie:
-* `{Destination}`określa miejsce docelowe dzienników do wysłania i musi być albo `AppInsights` `Blob` .
-* `{Verbosity}`Określa żądany poziom rejestrowania i musi być jednym z `None` , `Warning` lub `Verbose` .
+Aby włączyć tę funkcję, Dodaj nowe ustawienie aplikacji o nazwie `SCALE_CONTROLLER_LOGGING_ENABLED` . Wartość tego ustawienia musi być w formacie `<DESTINATION>:<VERBOSITY>` , w oparciu o następujące:
 
-Na przykład aby rejestrować pełne informacje z kontrolera skalowania do Application Insights, użyj wartości `AppInsights:Verbose` .
+[!INCLUDE [functions-scale-controller-logging](../../includes/functions-scale-controller-logging.md)]
 
-> [!NOTE]
-> W przypadku włączenia `AppInsights` typu miejsca docelowego musisz upewnić się, że [Application Insights dla aplikacji funkcji](#enable-application-insights-integration).
+Na przykład następujące polecenie interfejsu wiersza polecenia platformy Azure włącza pełne rejestrowanie w kontrolerze skalowania do Application Insights:
 
-Jeśli ustawisz miejsce docelowe na `Blob` , dzienniki zostaną utworzone w kontenerze obiektów BLOB o nazwie w `azure-functions-scale-controller` ramach konta magazynu ustawionego w `AzureWebJobsStorage` ustawieniu aplikacji.
+```azurecli-interactive
+az functionapp config appsettings set --name <FUNCTION_APP_NAME> \
+--resource-group <RESOURCE_GROUP_NAME> \
+--settings SCALE_CONTROLLER_LOGGING_ENABLED=AppInsights:Verbose
+```
 
-W przypadku ustawienia szczegółowości do programu `Verbose` kontroler skali będzie rejestrował powód dla każdej zmiany liczby procesów roboczych, a także informacje o wyzwalaczach, które uczestniczą w decyzjach kontrolera skali. Na przykład dzienniki będą zawierać ostrzeżenia wyzwalacza i skróty używane przez wyzwalacze przed uruchomieniem kontrolera skali i po nim.
+W tym przykładzie Zastąp `<FUNCTION_APP_NAME>` `<RESOURCE_GROUP_NAME>` wartości i nazwą aplikacji funkcji i nazwą grupy zasobów odpowiednio. 
 
-Aby wyłączyć rejestrowanie kontrolera skalowania, ustaw wartość `{Verbosity}` `None` Ustawienia na lub Usuń `SCALE_CONTROLLER_LOGGING_ENABLED` aplikację.
+Następujące polecenie interfejsu wiersza polecenia platformy Azure wyłącza rejestrowanie przez ustawienie szczegółowości `None` :
+
+```azurecli-interactive
+az functionapp config appsettings set --name <FUNCTION_APP_NAME> \
+--resource-group <RESOURCE_GROUP_NAME> \
+--settings SCALE_CONTROLLER_LOGGING_ENABLED=AppInsights:None
+```
+
+Możesz również wyłączyć rejestrowanie, usuwając `SCALE_CONTROLLER_LOGGING_ENABLED` ustawienie za pomocą następującego polecenia interfejsu wiersza poleceń platformy Azure:
+
+```azurecli-interactive
+az functionapp config appsettings delete --name <FUNCTION_APP_NAME> \
+--resource-group <RESOURCE_GROUP_NAME> \
+--setting-names SCALE_CONTROLLER_LOGGING_ENABLED
+```
 
 ## <a name="disable-built-in-logging"></a>Wyłącz wbudowane rejestrowanie
 
@@ -718,7 +732,7 @@ Aby wyłączyć wbudowane rejestrowanie, Usuń `AzureWebJobsDashboard` ustawieni
 
 ## <a name="next-steps"></a>Następne kroki
 
-Więcej informacji zawierają następujące zasoby:
+Więcej informacji można znaleźć w następujących zasobach:
 
 * [Application Insights](/azure/application-insights/)
 * [Rejestrowanie ASP.NET Core](/aspnet/core/fundamentals/logging/)

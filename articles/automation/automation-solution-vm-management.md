@@ -5,17 +5,18 @@ services: automation
 ms.subservice: process-automation
 ms.date: 06/04/2020
 ms.topic: conceptual
-ms.openlocfilehash: 3b4358651b811ba5c1e7644333a1e9f5a8da2990
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dbfb50b40b4705cae55ba6e4f1ef950b586b5fb5
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84424078"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185878"
 ---
 # <a name="startstop-vms-during-off-hours-overview"></a>Przegląd Start/Stop VMs during off-hours
 
 Funkcja Start/Stop VMs during off-hours uruchamiania lub zatrzymywania włączonych maszyn wirtualnych platformy Azure. Uruchamia lub kończy maszyny w harmonogramach zdefiniowanych przez użytkownika, udostępnia szczegółowe informacje za pośrednictwem dzienników Azure Monitor i wysyła opcjonalne wiadomości e-mail przy użyciu [grup akcji](../azure-monitor/platform/action-groups.md). Tę funkcję można włączyć na Azure Resource Manager i klasycznych maszynach wirtualnych w większości scenariuszy. 
 
-Ta funkcja używa polecenia cmdlet [Start-AzVm](https://docs.microsoft.com/powershell/module/az.compute/start-azvm) do uruchamiania maszyn wirtualnych. Do zatrzymywania maszyn wirtualnych jest wykorzystywany [komunikat STOP-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm) .
+Ta funkcja używa polecenia cmdlet [Start-AzVm](/powershell/module/az.compute/start-azvm) do uruchamiania maszyn wirtualnych. Do zatrzymywania maszyn wirtualnych jest wykorzystywany [komunikat STOP-AzVM](/powershell/module/az.compute/stop-azvm) .
 
 > [!NOTE]
 > Mimo że elementy Runbook zostały zaktualizowane do korzystania z nowych poleceń cmdlet platformy Azure AZ module, używają aliasu prefiksu AzureRM.
@@ -36,7 +37,7 @@ Poniżej przedstawiono ograniczenia związane z bieżącą funkcją:
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Funkcja elementów Runbook dla maszyn wirtualnych uruchamiania/zatrzymywania w trakcie godzin pracy działa z [kontem Uruchom jako platformy Azure](automation-create-runas-account.md). Konto Uruchom jako jest preferowaną metodą uwierzytelniania, ponieważ używa uwierzytelniania certyfikatu zamiast hasła, które może wygasnąć lub zmienić.
+Funkcja elementów Runbook dla maszyn wirtualnych uruchamiania/zatrzymywania w trakcie godzin pracy działa z [kontem Uruchom jako platformy Azure](./manage-runas-account.md). Konto Uruchom jako jest preferowaną metodą uwierzytelniania, ponieważ używa uwierzytelniania certyfikatu zamiast hasła, które może wygasnąć lub zmienić.
 
 Zalecamy używanie oddzielnego konta usługi Automation do pracy z maszynami wirtualnymi z włączoną funkcją Start/Stop VMs during off-hours. Wersje modułów platformy Azure są często uaktualniane i ich parametry mogą ulec zmianie. Funkcja nie została uaktualniona na tym samym erze i może nie współpracować z nowszymi wersjami poleceń cmdlet, których używa. Zalecane jest przetestowanie aktualizacji modułu na koncie automatyzacji testów przed zaimportowaniem ich do kont automatyzacji produkcji.
 
@@ -121,7 +122,7 @@ Wszystkie nadrzędne elementy Runbook zawierają `WhatIf` parametr. Po ustawieni
 Poniższa tabela zawiera listę zmiennych utworzonych na koncie usługi Automation. Modyfikuj tylko zmienne poprzedzone prefiksem `External` . Modyfikowanie zmiennych poprzedzonych prefiksem `Internal` powoduje niepożądane skutki.
 
 > [!NOTE]
-> Ograniczenia dotyczące nazwy maszyny wirtualnej i grupy zasobów są znacznie wynikiem zmiennej wielkości. Zobacz [zmienne zasoby w Azure Automation](https://docs.microsoft.com/azure/automation/shared-resources/variables).
+> Ograniczenia dotyczące nazwy maszyny wirtualnej i grupy zasobów są znacznie wynikiem zmiennej wielkości. Zobacz [zmienne zasoby w Azure Automation](./shared-resources/variables.md).
 
 |Zmienna | Opis|
 |---------|------------|
@@ -176,7 +177,7 @@ Jeśli masz więcej niż 20 maszyn wirtualnych na usługę w chmurze, poniżej p
 
 W przeciwnym razie, jeśli zadanie automatyzacji dla tej funkcji działa dłużej niż trzy godziny, jest tymczasowo zwolnione lub zatrzymane według ograniczonego limitu [udostępniania](automation-runbook-execution.md#fair-share) .
 
-Subskrypcje dostawcy CSP platformy Azure obsługują tylko model Azure Resource Manager. Usługi inne niż Azure Resource Manager nie są dostępne w programie. Po uruchomieniu funkcji Start/Stop VMs during off-hours mogą wystąpić błędy, ponieważ zawiera polecenia cmdlet służące do zarządzania klasycznymi zasobami. Aby dowiedzieć się więcej na temat dostawcy usług kryptograficznych, zobacz [dostępne usługi w subskrypcjach programu CSP](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-available-services). W przypadku korzystania z subskrypcji dostawcy CSP należy ustawić dla zmiennej [External_EnableClassicVMs](#variables) wartość false po wdrożeniu.
+Subskrypcje dostawcy CSP platformy Azure obsługują tylko model Azure Resource Manager. Usługi inne niż Azure Resource Manager nie są dostępne w programie. Po uruchomieniu funkcji Start/Stop VMs during off-hours mogą wystąpić błędy, ponieważ zawiera polecenia cmdlet służące do zarządzania klasycznymi zasobami. Aby dowiedzieć się więcej na temat dostawcy usług kryptograficznych, zobacz [dostępne usługi w subskrypcjach programu CSP](/azure/cloud-solution-provider/overview/azure-csp-available-services). W przypadku korzystania z subskrypcji dostawcy CSP należy ustawić dla zmiennej [External_EnableClassicVMs](#variables) wartość false po wdrożeniu.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 

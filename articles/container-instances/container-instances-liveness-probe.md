@@ -2,12 +2,13 @@
 title: Konfigurowanie sondy na żywo w wystąpieniu kontenera
 description: Dowiedz się, jak skonfigurować sondy na żywo w celu ponownego uruchomienia kontenerów w złej kondycji w Azure Container Instances
 ms.topic: article
-ms.date: 01/30/2020
-ms.openlocfilehash: 11c6c9d39067c536bf4325f74eb24b2ab64ef515
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/02/2020
+ms.openlocfilehash: befe9693be1413abf455d915814c53aab20db53c
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76934164"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169701"
 ---
 # <a name="configure-liveness-probes"></a>Konfigurowanie sond żywotności
 
@@ -25,7 +26,7 @@ Azure Container Instances obsługuje również [sondy gotowości](container-inst
 Utwórz `liveness-probe.yaml` plik z następującym fragmentem kodu. Ten plik definiuje grupę kontenerów, która składa się z kontenera NGNIX, który ostatecznie stał się w złej kondycji.
 
 ```yaml
-apiVersion: 2018-10-01
+apiVersion: 2019-12-01
 location: eastus
 name: livenesstest
 properties:
