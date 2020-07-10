@@ -4,12 +4,12 @@ description: Funkcja pakietów aplikacji programu Azure Batch umożliwia łatwe 
 ms.topic: how-to
 ms.date: 04/26/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cebb7bf001d16e1024ed466268758f0b1bc92c6c
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 328b08acbc6d13dd03956bb501b4d4a51310c9c0
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85955034"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86147216"
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>Wdrażanie aplikacji w węzłach obliczeniowych za pomocą pakietów aplikacji wsadowych
 
@@ -57,7 +57,7 @@ Możesz określić pakiety aplikacji na poziomach puli i zadania. Możesz okreś
 ### <a name="benefits-of-application-packages"></a>Zalety pakietów aplikacji
 Pakiety aplikacji mogą uprościć kod w rozwiązaniu do obsługi partii i obniżyć obciążenie wymagane do zarządzania aplikacjami uruchomionymi przez zadania.
 
-W przypadku pakietów aplikacji zadanie uruchamiania puli nie musi określać długiej listy poszczególnych plików zasobów do zainstalowania w węzłach. Nie trzeba ręcznie zarządzać wieloma wersjami plików aplikacji w usłudze Azure Storage ani w węzłach. Nie musisz martwić się o generowanie [adresów URL SAS](../storage/common/storage-dotnet-shared-access-signature-part-1.md) , aby zapewnić dostęp do plików na koncie magazynu. Usługa Batch działa w tle w usłudze Azure Storage do przechowywania pakietów aplikacji i wdrażania ich w węzłach obliczeniowych.
+W przypadku pakietów aplikacji zadanie uruchamiania puli nie musi określać długiej listy poszczególnych plików zasobów do zainstalowania w węzłach. Nie trzeba ręcznie zarządzać wieloma wersjami plików aplikacji w usłudze Azure Storage ani w węzłach. Nie musisz martwić się o generowanie [adresów URL SAS](../storage/common/storage-sas-overview.md) , aby zapewnić dostęp do plików na koncie magazynu. Usługa Batch działa w tle w usłudze Azure Storage do przechowywania pakietów aplikacji i wdrażania ich w węzłach obliczeniowych.
 
 > [!NOTE] 
 > Całkowity rozmiar zadania podrzędnego uruchamiania musi wynosić 32 768 znaków, w tym pliki zasobów lub zmienne środowiskowe, lub być mniejszy. Jeśli zadanie uruchomieniowe przekroczy ten limit, za pomocą pakietów aplikacji jest kolejną opcją. Możesz również utworzyć spakowane Archiwum zawierające pliki zasobów, przekazać je jako obiekt BLOB do usługi Azure Storage, a następnie rozpakować ją z wiersza polecenia zadania uruchamiania. 
@@ -248,7 +248,7 @@ Windows:
 AZ_BATCH_APP_PACKAGE_APPLICATIONID#version
 ```
 
-W węzłach systemu Linux format jest nieco inny. Kropki (.), łączniki (-) i znaki liczbowe (#) są spłaszczone do podkreślenia w zmiennej środowiskowej. Należy również pamiętać, że sprawa identyfikatora aplikacji jest zachowywana. Przykład:
+W węzłach systemu Linux format jest nieco inny. Kropki (.), łączniki (-) i znaki liczbowe (#) są spłaszczone do podkreślenia w zmiennej środowiskowej. Należy również pamiętać, że sprawa identyfikatora aplikacji jest zachowywana. Na przykład:
 
 ```
 Linux:

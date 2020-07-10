@@ -16,12 +16,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f196c21869f4a2f12e28bc4d6c42b8c945ddde71
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 30c6be98eeca4433798ad8ed2bacb9338331b112
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85603676"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170449"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Co nowego w Azure Active Directory?
 
@@ -259,10 +259,9 @@ Wprowadzono nową właściwość riskEventsTypes_v2 (String) do interfejsu API s
 **Możliwość produktu:** Ochrona tożsamości & zabezpieczenia
  
 
-Wprowadzamy następujące zmiany w powiadomieniach e-mail usługi MFA dla serwera usługi MFA w chmurze i usługi MFA:
+Wprowadzamy następujące zmiany w powiadomieniach e-mail usługi MFA dla usługi MFA:
 
-Powiadomienia E-mail będą wysyłane z następującego adresu: azure-noreply@microsoft.com .
-Aktualizujemy zawartość wiadomości e-mail z alertami o oszustwie, aby lepiej wskazać wymagane kroki w celu odblokowania użycia.
+Powiadomienia E-mail będą wysyłane z następującego adresu: azure-noreply@microsoft.com i msonlineservicesteam@microsoftonline.com . Aktualizujemy zawartość wiadomości e-mail z alertami o oszustwie, aby lepiej wskazać wymagane kroki w celu odblokowania użycia.
 
 ---
 
