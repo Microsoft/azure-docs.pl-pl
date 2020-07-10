@@ -1,18 +1,14 @@
 ---
 title: Tematy dotyczące monitorowania i subskrypcje zdarzeń — Azure Event Grid IoT Edge | Microsoft Docs
 description: Monitorowanie tematów i subskrypcji zdarzeń
-author: femila
-ms.author: femila
-ms.reviewer: spelluru
-ms.date: 01/09/2020
+ms.date: 07/08/2020
 ms.topic: article
-ms.service: event-grid
-services: event-grid
-ms.openlocfilehash: d4fbc5232722bfb08bde9be51d44e8e8d7514570
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d230be4f74abd61ad7b7f0fdb3facb32ee63da73
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84554353"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171537"
 ---
 # <a name="monitor-topics-and-event-subscriptions"></a>Monitorowanie tematów i subskrypcji zdarzeń
 
@@ -47,7 +43,7 @@ Oba tematy i subskrypcje zdarzeń emitują metryki, aby uzyskać wgląd w inform
 
 ### <a name="topic-metrics"></a>Metryki tematu
 
-| Metric | Opis |
+| Metryka | Opis |
 | ------ | ----------- |
 | EventsReceived | Liczba zdarzeń opublikowanych w temacie
 | UnmatchedEvents | Liczba zdarzeń opublikowanych w temacie, które nie pasują do subskrypcji zdarzeń i zostały usunięte
@@ -59,7 +55,7 @@ Oba tematy i subskrypcje zdarzeń emitują metryki, aby uzyskać wgląd w inform
 
 ### <a name="event-subscription-metrics"></a>Metryki subskrypcji zdarzeń
 
-| Metric | Opis |
+| Metryka | Opis |
 | ------ | ----------- |
 | DeliverySuccessCounts | Liczba zdarzeń pomyślnie dostarczonych do skonfigurowanego punktu końcowego
 | DeliveryFailureCounts | Liczba zdarzeń, które nie zostały dostarczone do skonfigurowanego punktu końcowego

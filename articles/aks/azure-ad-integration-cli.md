@@ -2,14 +2,16 @@
 title: Integrowanie usługi Azure Active Directory z usługą Azure Kubernetes Service
 description: Dowiedz się, jak Azure Active Directory utworzyć klaster usługi Azure Kubernetes Service (AKS) przy użyciu interfejsu wiersza polecenia platformy Azure
 services: container-service
+author: TomGeske
 ms.topic: article
-ms.date: 04/16/2019
-ms.openlocfilehash: 85441b53b22b4d33ee2ff967d777cc3267e171da
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 07/08/2020
+ms.author: thomasge
+ms.openlocfilehash: 0465c54df2095cff7647e974765e61fa9b9ff3e1
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86106105"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169463"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service-using-the-azure-cli"></a>Integrowanie Azure Active Directory z usługą Azure Kubernetes przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -19,9 +21,9 @@ W tym artykule pokazano, jak utworzyć wymagane składniki usługi Azure AD, a n
 
 Aby zapoznać się z kompletnym przykładowym skryptem używanym w tym artykule, zobacz [przykłady interfejsu wiersza polecenia platformy Azure — integracja AKS z usługą Azure AD][complete-script].
 
-Obowiązują następujące ograniczenia:
+## <a name="the-following-limitations-apply"></a>Obowiązują następujące ograniczenia:
 
-- Usługę Azure AD można włączyć tylko podczas tworzenia nowego klastra z włączoną funkcją RBAC. Nie można włączyć usługi Azure AD w istniejącym klastrze AKS.
+- Usługę Azure AD można włączyć tylko w przypadku klastra z włączoną funkcją RBAC.
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 
@@ -241,7 +243,7 @@ error: You must be logged in to the server (Unauthorized)
 * Użytkownik nie jest członkiem więcej niż 200 grup.
 * Wpis tajny zdefiniowany w rejestracji aplikacji dla serwera jest zgodny z wartością skonfigurowaną przy użyciu`--aad-server-app-secret`
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Aby zapoznać się z kompletnym skryptem zawierającym polecenia przedstawione w tym artykule, zobacz [skrypt integracji usługi Azure AD w repozytorium przykładów AKS][complete-script].
 

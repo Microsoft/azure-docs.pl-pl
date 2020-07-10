@@ -5,18 +5,16 @@ author: HiteshMadan
 manager: rajarv
 ms.author: himad
 ms.reviewer: spelluru
-ms.date: 10/06/2019
+ms.date: 07/08/2020
 ms.topic: article
-ms.service: event-grid
-services: event-grid
-ms.openlocfilehash: 5c23b9ef280a4a4e3458d279ecf060d2e3d50295
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f39d22fe58d4375b3b68bacd237c1b200328c4b1
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "72992147"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171333"
 ---
-# <a name="module-twin-json-schema"></a>Schemat JSON
+# <a name="module-twin-json-schema-azure-event-grid"></a>Schemat JSON (Azure Event Grid) w module
 
 Event Grid na IoT Edge integruje się z ekosystemem IoT Edge i obsługuje tworzenie tematów i subskrypcji za pośrednictwem sznurka modułowego. Raport przedstawia także bieżący stan wszystkich tematów i subskrypcji zdarzeń do raportowanych właściwości na sznurze modułu.
 

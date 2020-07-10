@@ -8,12 +8,12 @@ ms.service: web-application-firewall
 ms.date: 11/14/2019
 ms.author: victorh
 ms.topic: overview
-ms.openlocfilehash: 0631bc0e3e83564b2d77d4f67b418780d933215e
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: d7eaff980b50cc463efc09e49febd4a947a7543c
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85212908"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86142855"
 ---
 # <a name="azure-web-application-firewall-on-azure-application-gateway"></a>Zapora aplikacji sieci Web platformy Azure na platformie Azure Application Gateway
 
@@ -24,7 +24,7 @@ WAF na Application Gateway opiera się na [podstawowym zestawie reguł (KSR)](ht
 Wszystkie funkcje WAF wymienione poniżej istnieją w zasadach WAF. Można utworzyć wiele zasad i można je skojarzyć z Application Gateway, do poszczególnych odbiorników lub regułami routingu opartymi na ścieżce na Application Gateway. W ten sposób można mieć osobne zasady dla każdej witryny za Application Gateway w razie potrzeby. Aby uzyskać więcej informacji na temat zasad WAFymi, zobacz [Tworzenie zasad WAF](create-waf-policy-ag.md).
 
    > [!NOTE]
-   > Zasady WAF dla poszczególnych witryn i identyfikatorów URI są dostępne w publicznej wersji zapoznawczej. Oznacza to, że ta funkcja podlega dodatkowym warunkom użytkowania firmy Microsoft. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+   > Zasady WAF dla identyfikatorów URI są dostępne w publicznej wersji zapoznawczej. Oznacza to, że ta funkcja podlega dodatkowym warunkom użytkowania firmy Microsoft. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ![Application Gateway diagram WAF](../media/ag-overview/waf1.png)
 
@@ -125,7 +125,7 @@ W trybie oceniania anomalii ruch pasujący do dowolnej reguły nie jest natychmi
 
 |Ważność  |Wartość  |
 |---------|---------|
-|Krytyczne     |5|
+|Krytyczny     |5|
 |Error        |4|
 |Ostrzeżenie      |3|
 |Wzory       |2|
@@ -151,7 +151,7 @@ Dzienniki Application Gateway są zintegrowane z [Azure monitor](../../azure-mon
 
 ![Okno przeglądu Security Center](../media/ag-overview/figure1.png)
 
-#### <a name="azure-sentinel"></a>Usługa Azure Sentinel
+#### <a name="azure-sentinel"></a>Azure Sentinel
 
 Microsoft Azure wskaźnikiem wydajności jest skalowalne i natywne rozwiązanie do zarządzania zdarzeniami zabezpieczeń (SIEM) i o (Security Orchestration). Platforma Azure — wskaźnik przedstawia inteligentne rozwiązania w zakresie zabezpieczeń i analizy zagrożeń w całym przedsiębiorstwie, zapewniając jedno rozwiązanie do wykrywania alertów, widoczności zagrożeń, aktywnego polowania i reagowania na zagrożenia.
 
@@ -206,7 +206,7 @@ Application Gateway WAF udostępnia szczegółowe raporty dotyczące każdego wy
 
 Modele cen są różne dla WAF_v1 i WAF_v2 jednostek SKU. Aby dowiedzieć się więcej, zobacz stronę z [cennikiem Application Gateway](https://azure.microsoft.com/pricing/details/application-gateway/) . 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - Rozpocznij od [utworzenia zasad WAFymi](create-waf-policy-ag.md)
 - Dowiedz się więcej o [regułach zarządzanych przez WAF](application-gateway-crs-rulegroups-rules.md)

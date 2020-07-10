@@ -1,18 +1,14 @@
 ---
 title: Architektury sterowane zdarzeniami na brzegu — Azure Event Grid na IoT Edge
 description: Użyj Azure Event Grid jako modułu na IoT Edge na potrzeby przesyłania dalej zdarzeń między modułami, urządzeniami brzegowymi i chmurą.
-services: event-grid
-author: femila
-ms.service: event-grid
 ms.topic: overview
-ms.date: 10/22/2019
-ms.author: femila
-ms.openlocfilehash: d569a4be6c9747dea4280d17ed2f888c3bed9936
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.date: 07/08/2020
+ms.openlocfilehash: 82a68f6ab32d8ad18c3af506c810b01d12cf794d
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84561683"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171520"
 ---
 # <a name="what-is-azure-event-grid-on-azure-iot-edge"></a>Co to jest Azure Event Grid na Azure IoT Edge?
 Event Grid na IoT Edge zapewnia możliwości i elastyczność Azure Event Grid do krawędzi. Twórz tematy, Publikuj zdarzenia i Subskrybuj wiele miejsc docelowych, niezależnie od tego, czy są one modułami na tym samym urządzeniu, innymi urządzeniami brzegowymi lub usługami w chmurze.
@@ -75,14 +71,14 @@ Istnieje pięć koncepcji w Azure Event Grid, które umożliwiają rozpoczęcie 
 * **Subskrypcje zdarzeń** — punkt końcowy lub wbudowany mechanizm do kierowania zdarzeń, czasami do więcej niż jednego programu obsługi. Subskrypcje są również używane przez procedury obsługi w celu inteligentnego filtrowania zdarzeń przychodzących.
 * **Programy obsługi zdarzeń** — aplikacja lub usługa, która reaguje na zdarzenie.
 
-## <a name="cost"></a>Koszty
+## <a name="cost"></a>Koszt
 
 Event Grid on IoT Edge jest bezpłatny w publicznej wersji zapoznawczej.
 
-## <a name="issues"></a>Issues (Problemy)
+## <a name="issues"></a>Problemy
 Zgłoś wszelkie problemy związane z używaniem Event Grid w IoT Edge [https://github.com/Azure/event-grid-iot-edge/issues](https://github.com/Azure/event-grid-iot-edge/issues) .
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * [Publikuj, Subskrybuj zdarzenia lokalnie](pub-sub-events-webhook-local.md)
 * [Publikowanie, subskrybowanie zdarzeń w chmurze](pub-sub-events-webhook-cloud.md)

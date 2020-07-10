@@ -5,15 +5,14 @@ author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
 ms.reviewer: spelluru
-ms.date: 10/29/2019
+ms.date: 07/08/2020
 ms.topic: article
-ms.service: event-grid
-services: event-grid
-ms.openlocfilehash: 7184fb5c45ce41de2bd63b55fb67cbd9ba6361e3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bfe150a45c70bc5bed18f8e929c9567905cd38f5
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76844721"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171605"
 ---
 # <a name="tutorial-forward-events-to-event-grid-cloud"></a>Samouczek: Przekazywanie zdarzeń do Event Grid chmury
 
@@ -104,7 +103,7 @@ Jeśli na przykład został utworzony temat o nazwie `testegcloudtopic` w region
    >[!NOTE]
    > **EndpointUrl** określa, że adres URL tematu Event Grid w chmurze. **SasKey** odwołuje się do klucza tematu Event Grid w chmurze. Wartość w **temaciename** zostanie użyta do sygnatury wszystkich zdarzeń wychodzących do Event Grid. Może to być przydatne podczas ogłaszania w temacie domeny Event Grid. Aby uzyskać więcej informacji na temat domeny Event Grid, zobacz [domeny zdarzeń](../event-domains.md)
 
-    Na przykład
+    Przykład:
   
     ```json
         {

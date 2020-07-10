@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: aahi
-ms.openlocfilehash: c14376cc80373371ec5fcb8f22a00584a6b2f714
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: fa518900b05ba552cb066fbf55e4dbeaa6c681e2
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84710171"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86183209"
 ---
 # <a name="configure-your-bing-custom-search-experience"></a>Skonfiguruj środowisko wyszukiwanie niestandardowe Bing
 
@@ -27,7 +27,7 @@ Podczas definiowania wycinków sieci Web należy użyć następujących element�
 
 | Nazwa wycinka | Opis                                                                                                                                                                                                                                                                                                |
 |------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Domain     | Wycinek domeny obejmuje całą zawartość znajdującą się w domenie internetowej. Na przykład `www.microsoft.com`. Pominięcie `www.` powoduje, że Bing również przeszukać domeny podrzędne domeny. Na przykład, jeśli określisz `microsoft.com` , Bing zwróci również wyniki z `support.microsoft.com` lub `technet.microsoft.com` . |
+| Obszar     | Wycinek domeny obejmuje całą zawartość znajdującą się w domenie internetowej. Na przykład `www.microsoft.com`. Pominięcie `www.` powoduje, że Bing również przeszukać domeny podrzędne domeny. Na przykład, jeśli określisz `microsoft.com` , Bing zwróci również wyniki z `support.microsoft.com` lub `technet.microsoft.com` . |
 | Podstrony    | Wycinek podstrony obejmuje całą zawartość znajdującą się na podstronie i ścieżkach poniżej. W ścieżce można określić maksymalnie dwa podstrony. Na przykład: `www.microsoft.com/en-us/windows/`                                                                                                                       |
 | Stron    | Wycinek strony sieci Web może zawierać tylko Tę stronę sieci Web w wyszukiwaniu niestandardowym. Opcjonalnie można określić, czy mają być dołączane podstrony.                                                                                                                                                                                  |
 
@@ -92,8 +92,8 @@ Możesz przetestować wystąpienie wyszukiwania, korzystając z okienka podgląd
 
 Portal umożliwia dostosowanie kolejności wyszukiwania zawartości z określonych domen, podstron i stron sieci Web. Po wysłaniu zapytania wyszukiwania w okienku podglądu każdy wynik wyszukiwania zawiera listę dostosowań, które można dla niej wprowadzić:  
 
-|            |                                                                                                                                                                      |
-|------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Korekty | Opis |
+|------------|-------------|
 | Zablokowanie      | Przenosi domenę, podstronę lub stronę sieci Web na listę zablokowanych. W wynikach wyszukiwania nie będzie można wykluczać zawartości z wybranej witryny Bing.                    |
 | Wzmocnienia      | Zwiększa zawartość z domeny lub podstrony tak, aby była wyższa w wynikach wyszukiwania.                                                                                        |
 | Obniż poziom     | Obniża zawartość z domeny lub podstrony poniżej wyników wyszukiwania. Wybierz, czy chcesz obniżyć zawartość z domeny lub podstrony, do której należy strona sieci Web. |

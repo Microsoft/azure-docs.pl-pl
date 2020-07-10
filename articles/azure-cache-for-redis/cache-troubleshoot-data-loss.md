@@ -6,11 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 10/17/2019
-ms.openlocfilehash: ef7824640dcd2b9dbae1d27f385e5334ba9875ff
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ba0430461df5ce1a2d615b819dbe5e8a36ae52b7
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83699223"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86184535"
 ---
 # <a name="troubleshoot-data-loss-in-azure-cache-for-redis"></a>Rozwiązywanie problemów z utratą danych w usłudze Azure Cache for Redis
 
@@ -22,7 +23,7 @@ W tym artykule omówiono sposób diagnozowania rzeczywistych lub postrzeganych s
 
 ## <a name="partial-loss-of-keys"></a>Częściowa utrata kluczy
 
-Usługa Azure cache for Redis nie usuwa losowo kluczy po ich zapisaniu w pamięci. Jednak usuwa klucze w odpowiedzi na zasady wygasania lub wykluczania oraz do jawnych poleceń usuwania kluczy. Klucze, które zostały zapisana w węźle głównym w Premium lub standardowej pamięci podręcznej platformy Azure dla wystąpienia Redis, również mogą nie być dostępne od razu. Dane są replikowane z serwera głównego do repliki w sposób asynchroniczny i nieblokowany.
+Usługa Azure cache for Redis nie usuwa losowo kluczy po ich zapisaniu w pamięci. Jednak usuwa klucze w odpowiedzi na zasady wygasania lub wykluczania oraz do jawnych poleceń usuwania kluczy. Klucze, które zostały zapisana w węźle podstawowym w Premium lub standardowej pamięci podręcznej platformy Azure dla wystąpienia Redis, również mogą nie być dostępne od razu. Dane są replikowane z elementu podstawowego do repliki w sposób asynchroniczny i nieblokowany.
 
 Jeśli okaże się, że klucze zniknęły z pamięci podręcznej, należy sprawdzić następujące możliwe przyczyny:
 
@@ -79,7 +80,7 @@ cmdstat_hdel:calls=1,usec=47,usec_per_call=47.00
 
 ### <a name="async-replication"></a>Replikacja asynchroniczna
 
-Wszystkie wystąpienia usługi Azure cache for Redis w warstwie Standardowa lub Premium są skonfigurowane z węzłem głównym i co najmniej jedną repliką. Dane są kopiowane z serwera głównego do repliki asynchronicznie przy użyciu procesu w tle. W witrynie sieci Web [Redis.IO](https://redis.io/topics/replication) opisano, jak działa replikacja danych Redis. W przypadku scenariuszy, w których klienci zapisują Redis często, częściowe utrata danych może wystąpić, ponieważ ta replikacja nie ma gwarancji natychmiastowej. Jeśli na przykład serwer główny ulegnie awarii *po* zapisaniu przez klienta klucza do niego, ale *zanim* proces w tle będzie miał szansę na wysłanie tego klucza do repliki, klucz zostanie utracony, gdy replika przejmuje jako nowy wzorzec.
+Wszystkie wystąpienia usługi Azure cache for Redis w warstwie Standardowa lub Premium są skonfigurowane z węzłem podstawowym i co najmniej jedną repliką. Dane są kopiowane z podstawowego do repliki asynchronicznie przy użyciu procesu w tle. W witrynie sieci Web [Redis.IO](https://redis.io/topics/replication) opisano, jak działa replikacja danych Redis. W przypadku scenariuszy, w których klienci zapisują Redis często, częściowe utrata danych może wystąpić, ponieważ ta replikacja nie ma gwarancji natychmiastowej. Na przykład jeśli podstawowy przejdzie w dół *po* zapisaniu przez klienta klucza do niego, ale *zanim* proces w tle ma szansę na wysłanie tego klucza do repliki, klucz zostanie utracony, gdy replika będzie przebiegać jako nowy podstawowy.
 
 ## <a name="major-or-complete-loss-of-keys"></a>Główna lub pełna utrata kluczy
 
@@ -111,7 +112,7 @@ Usługa Azure cache for Redis domyślnie używa bazy danych **DB0** . Jeśli prz
 
 Redis to magazyn danych w pamięci. Dane są przechowywane na maszynach fizycznych lub wirtualnych, które obsługują pamięć podręczną Redis. Wystąpienie usługi Azure cache for Redis w warstwie Podstawowa działa tylko na jednej maszynie wirtualnej. Jeśli ta maszyna wirtualna nie działa, wszystkie dane przechowywane w pamięci podręcznej zostaną utracone. 
 
-Pamięć podręczna w warstwach Standardowa i Premium zapewnia znacznie wyższą odporność na utratę danych przy użyciu dwóch maszyn wirtualnych w zreplikowanej konfiguracji. Gdy węzeł główny w takiej pamięci podręcznej nie ulegnie awarii, węzeł repliki przejmuje dane automatycznie. Te maszyny wirtualne znajdują się w oddzielnych domenach dla błędów i aktualizacji, aby zminimalizować prawdopodobieństwo, że oba staną się niedostępne jednocześnie. W przypadku wystąpienia poważnej awarii centrum danych maszyny wirtualne mogą jednak nadal przechodzić do siebie. W tych rzadkich przypadkach Twoje dane zostaną utracone.
+Pamięć podręczna w warstwach Standardowa i Premium zapewnia znacznie wyższą odporność na utratę danych przy użyciu dwóch maszyn wirtualnych w zreplikowanej konfiguracji. W przypadku awarii węzła podstawowego w takiej pamięci podręcznej węzeł repliki przejmuje dane automatycznie. Te maszyny wirtualne znajdują się w oddzielnych domenach dla błędów i aktualizacji, aby zminimalizować prawdopodobieństwo, że oba staną się niedostępne jednocześnie. W przypadku wystąpienia poważnej awarii centrum danych maszyny wirtualne mogą jednak nadal przechodzić do siebie. W tych rzadkich przypadkach Twoje dane zostaną utracone.
 
 Rozważ użycie [trwałości danych Redis](https://redis.io/topics/persistence) i [replikacji geograficznej](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-how-to-geo-replication) , aby zwiększyć ochronę danych przed awarią infrastruktury.
 

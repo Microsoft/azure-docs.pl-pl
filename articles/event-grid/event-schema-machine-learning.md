@@ -3,12 +3,12 @@ title: Azure Machine Learning jako źródło Event Grid
 description: Opisuje właściwości, które są dostępne dla zdarzeń Obszar roboczy usługi Machine Learning z Azure Event Grid
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 11d8c38ee041ac9278e08166c4c060cdad87655f
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: b5a39539a6f39c78251a3cc7788b8e5ee4babbf9
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86102501"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86181526"
 ---
 # <a name="azure-machine-learning-as-an-event-grid-source"></a>Azure Machine Learning jako źródło Event Grid
 
@@ -26,7 +26,7 @@ Azure Machine Learning emituje następujące typy zdarzeń:
 | Microsoft. MachineLearningServices. ModelDeployed | Uruchamiany, gdy modele zostały pomyślnie wdrożone w punkcie końcowym. |
 | Microsoft. MachineLearningServices. RunCompleted | Uruchamiany, gdy przebieg został pomyślnie ukończony. |
 | Microsoft. MachineLearningServices. DatasetDriftDetected | Uruchamiany, gdy monitor dryfowania zestawu danych wykryje dryf. |
-| Microsoft. MachineLearningServices. RunStatusChanged | Uruchamiany, gdy stan uruchomienia zmieni się na "Niepowodzenie". |
+| Microsoft. MachineLearningServices. RunStatusChanged | Uruchamiany, gdy zmieni się stan uruchomienia. |
 
 ### <a name="the-contents-of-an-event-response"></a>Zawartość odpowiedzi na zdarzenie
 

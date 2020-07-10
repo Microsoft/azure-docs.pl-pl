@@ -11,16 +11,16 @@ ms.workload: identity
 ms.date: 10/29/2019
 ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 044c55e64c6532bf08d31b2c052e4ee9f5069ff1
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: f93a25854bc8b93e9bd75ea71037f6363d143914
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85956104"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86145722"
 ---
 # <a name="quickstart-add-an-application-to-your-azure-active-directory-azure-ad-tenant"></a>Szybki Start: Dodawanie aplikacji do dzierżawy usługi Azure Active Directory (Azure AD)
 
-Usługa Azure Active Directory (Azure AD) udostępnia galerię, która zawiera tysiące wstępnie zintegrowanych aplikacji. Wiele aplikacji używanych przez organizację prawdopodobnie znajduje się już w galerii. Ten przewodnik Szybki Start używa Azure Portal, aby dodać aplikację galerii do dzierżawy usługi Azure AD. Ten przewodnik Szybki Start koncentruje się na dodawaniu aplikacji, która jest już częścią galerii. Aplikacje, które nie znajdują się w galerii, można także zintegrować z usługą Azure AD, ale nie zostały omówione w tym przewodniku Szybki Start. 
+Usługa Azure Active Directory (Azure AD) udostępnia galerię, która zawiera tysiące wstępnie zintegrowanych aplikacji. Wiele aplikacji używanych przez organizację prawdopodobnie znajduje się już w galerii.
 
 Po dodaniu aplikacji do dzierżawy usługi Azure AD, można:
 
@@ -41,7 +41,7 @@ Aby dodać aplikację do dzierżawy usługi Azure AD, potrzebne są:
 
 ## <a name="add-an-app-to-your-azure-ad-tenant"></a>Dodawanie aplikacji do dzierżawy usługi Azure AD
 
-Aby dodać aplikację z galerii do dzierżawy usługi Azure AD:
+Aby dodać aplikację do dzierżawy usługi Azure AD:
 
 1. W [Azure Portal](https://portal.azure.com)w lewym panelu nawigacyjnym wybierz pozycję **Azure Active Directory**.
 2. W okienku **Azure Active Directory** wybierz pozycję **aplikacje dla przedsiębiorstw**. Zostanie otwarte okienko **wszystkie aplikacje** z losową próbką aplikacji w dzierżawie usługi Azure AD.
@@ -50,8 +50,10 @@ Aby dodać aplikację z galerii do dzierżawy usługi Azure AD:
 4. Przejdź do nowego środowiska w wersji zapoznawczej galerii: na transparencie w górnej części **strony Dodawanie aplikacji**wybierz link, który znajduje się w **tym miejscu, aby wypróbować nową i udoskonaloną galerię aplikacji**.
 5. Zostanie otwarte okienko **Przeglądaj Galerię usługi Azure AD (wersja zapoznawcza)** , w którym są wyświetlane kafelki dla platform chmurowych, aplikacji lokalnych i polecanych aplikacji. Aplikacje wymienione w sekcji **Polecane aplikacje** mają ikony wskazujące, czy obsługują one funkcję federacyjnego logowania jednokrotnego (SSO) i aprowizacji.
     ![Wyszukaj aplikację według nazwy lub kategorii](media/add-application-portal/browse-gallery.png)
-6. Możesz przeglądać galerię aplikacji, którą chcesz dodać, lub wyszukać aplikację, wprowadzając jej nazwę w polu wyszukiwania. Następnie wybierz aplikację z wyników. W formularzu można edytować nazwę aplikacji w celu dopasowania jej do potrzeb organizacji. W tym przykładzie zmieniono nazwę na **GitHub-test**.
+6. Możesz przeglądać galerię aplikacji, którą chcesz dodać, lub wyszukać aplikację, wprowadzając jej nazwę w polu wyszukiwania. Następnie wybierz aplikację z wyników. W formularzu można edytować nazwę aplikacji w celu dopasowania jej do potrzeb organizacji. W tym przykładzie wybrano witrynę GitHub i zmieniono nazwę na **GitHub-test**.
     ![Pokazuje, jak dodać aplikację z galerii](media/add-application-portal/create-application.png)
+    >[!TIP]
+    >Jeśli szukana aplikacja nie znajduje się w galerii, możesz kliknąć link **Utwórz własną aplikację**. Firma Microsoft pracowała już z wieloma deweloperami aplikacji w celu wstępnego skonfigurowania ich do pracy z usługą Azure AD. Są to aplikacje, które są wyświetlane w galerii. Jeśli jednak aplikacja, którą chcesz dodać, nie znajduje się na liście, możesz utworzyć nową, ogólną, niestandardową aplikację, a następnie skonfigurować ją samodzielnie lub przy użyciu wskazówek utworzonych przez dewelopera.
 7. Wybierz pozycję **Utwórz**. Zostanie wyświetlona strona wprowadzenia z opcjami konfigurowania aplikacji w organizacji.
 
 Ukończono dodawanie aplikacji. W następnym przewodniku szybki start pokazano, jak zmienić logo i edytować inne właściwości aplikacji.

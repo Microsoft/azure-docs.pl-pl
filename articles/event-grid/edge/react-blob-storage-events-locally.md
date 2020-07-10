@@ -5,15 +5,14 @@ author: arduppal
 manager: brymat
 ms.author: arduppal
 ms.reviewer: spelluru
-ms.date: 12/13/2019
+ms.date: 07/08/2020
 ms.topic: article
-ms.service: event-grid
-services: event-grid
-ms.openlocfilehash: 3360b92a1b71adcbf0364a16c197aecdab5700db
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9389e0aff04baa18cb216f2a7ab6da42eb7031f2
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77086607"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171435"
 ---
 # <a name="tutorial-react-to-blob-storage-events-on-iot-edge-preview"></a>Samouczek: reagowanie na zdarzenia Blob Storage w IoT Edge (wersja zapoznawcza)
 W tym artykule opisano sposób wdrażania Blob Storage platformy Azure w module IoT, który mógłby pełnić rolę Event Grid wydawcy do wysyłania zdarzeń dotyczących tworzenia obiektów blob i usuwania obiektów BLOB do Event Grid.  
@@ -38,7 +37,7 @@ Istnieje kilka sposobów wdrażania modułów na urządzeniu IoT Edge i wszystki
 
 ### <a name="select-your-iot-edge-device"></a>Wybierz urządzenie IoT Edge
 
-1. Zaloguj się do [Azure Portal](https://portal.azure.com)
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 1. Przejdź do IoT Hub.
 1. Wybierz pozycję **IoT Edge** z menu w sekcji **Automatyczne zarządzanie urządzeniami** . 
 1. Kliknij identyfikator urządzenia docelowego z listy urządzeń
@@ -76,7 +75,7 @@ Manifest wdrożenia to dokument JSON, który opisuje moduły do wdrożenia, spos
         }
     ```    
 
- 1. Kliknij przycisk **Zapisz**
+ 1. Kliknij pozycję **Zapisz**
  1. Przejdź do następnej sekcji, aby dodać moduł subskrybenta Azure Event Grid przed ich wdrożeniem.
 
     >[!IMPORTANT]
@@ -96,7 +95,7 @@ W tej sekcji przedstawiono sposób wdrażania innego modułu IoT, który będzie
    * **Nazwa**: subskrybent
    * **Identyfikator URI obrazu**:`mcr.microsoft.com/azure-event-grid/iotedge-samplesubscriber:latest`
    * **Opcje tworzenia kontenera**: brak
-1. Kliknij przycisk **Zapisz**
+1. Kliknij pozycję **Zapisz**
 1. Przejdź do następnej sekcji, aby dodać moduł Blob Storage platformy Azure
 
 ## <a name="deploy-azure-blob-storage-module"></a>Wdróż moduł Blob Storage platformy Azure
@@ -147,7 +146,7 @@ W tej sekcji pokazano, jak wdrożyć moduł Blob Storage platformy Azure, który
      - W przypadku kontenerów **systemu Linux woluminy my-Volume:/blobroot**
      - W przypadku kontenerów systemu Windows**mój wolumin: C:/BlobRoot**
 
-5. Kliknij przycisk **Zapisz**
+5. Kliknij pozycję **Zapisz**
 6. Kliknij przycisk **dalej** , aby przejść do sekcji trasy
 
     > [!NOTE]

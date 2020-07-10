@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-ms.date: 2/10/2020
-ms.openlocfilehash: 39329eb9ea2c396f8b5f04287f3e933bb6242f85
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.date: 07/09/2020
+ms.openlocfilehash: a4624d16f29834e8948a7bbc7ef882041727a823
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85983001"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171877"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Używanie grup z obsługą trybu failover w celu zapewnienia przezroczystej i skoordynowanej pracy w trybie failover wielu baz danych
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -239,7 +239,7 @@ Ze względu na to, że każde wystąpienie jest izolowane w własnej sieci wirtu
 
 ### <a name="creating-a-failover-group-between-managed-instances-in-different-subscriptions"></a>Tworzenie grupy trybu failover między wystąpieniami zarządzanymi w różnych subskrypcjach
 
-Można utworzyć grupę trybu failover między wystąpieniami zarządzanymi SQL w dwóch różnych subskrypcjach. W przypadku korzystania z interfejsu API programu PowerShell możesz to zrobić, określając `PartnerSubscriptionId` parametr dla pomocniczego wystąpienia zarządzanego SQL. W przypadku korzystania z interfejsu API REST każdy identyfikator wystąpienia zawarty w `properties.managedInstancePairs` parametrze może mieć swój własny identyfikatora subskrypcji.
+Można utworzyć grupę trybu failover między wystąpieniami zarządzanymi SQL w dwóch różnych subskrypcjach, o ile subskrypcje są skojarzone z tą samą [dzierżawą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis#terminology). Korzystając z interfejsu API programu PowerShell, można to zrobić, określając `PartnerSubscriptionId` parametr pomocniczego wystąpienia zarządzanego SQL. W przypadku korzystania z interfejsu API REST każdy identyfikator wystąpienia zawarty w `properties.managedInstancePairs` parametrze może mieć swój własny identyfikatora subskrypcji.
   
 > [!IMPORTANT]
 > Azure Portal nie obsługuje tworzenia grup trybu failover w różnych subskrypcjach. Ponadto w przypadku istniejących grup trybu failover w różnych subskrypcjach i/lub grupach zasobów nie można zainicjować trybu failover ręcznie za pośrednictwem portalu z podstawowego wystąpienia zarządzanego SQL. Zamiast tego zainicjuj go z wystąpienia geograficznego.

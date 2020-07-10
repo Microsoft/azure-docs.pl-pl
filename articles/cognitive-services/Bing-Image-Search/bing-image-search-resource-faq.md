@@ -10,12 +10,12 @@ ms.subservice: bing-image-search
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: 3114c19ecff1a8ae70012592592078302d4a6222
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.openlocfilehash: 2d919640431ce014d34372812d9c07bb84d750b2
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85800027"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86184059"
 ---
 # <a name="frequently-asked-questions-faq-about-the-bing-image-search-api"></a>Często zadawane pytania dotyczące interfejs API wyszukiwania obrazów Bing
 
@@ -25,7 +25,7 @@ Znajdź odpowiedzi na często zadawane pytania dotyczące pojęć, kodu i scenar
 
 Poniższe nagłówki mogą wystąpić w odpowiedziach z interfejs API wyszukiwania obrazów Bing.
 
-| `Attribute`         | `Description` |
+| Atrybut           | Opis   |
 | ------------------- | ------------- |
 | `X-MSEdge-ClientID` |Unikatowy identyfikator, który jest przypisany do użytkownika usługi Bing |
 | `BingAPIs-Market`   |Rynek używany do realizacji żądania |
@@ -66,6 +66,6 @@ Takie podejście umożliwia również ochronę klucza interfejsu API przed ekspo
 
 Czy masz pytanie dotyczące brakującej funkcji lub funkcji? Rozważ zażądanie lub odgłosowanie na ten temat w naszej [witrynie sieci Web głosu użytkownika](https://cognitive.uservoice.com/forums/555907-bing-search).
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
  [Stack Overflow: Cognitive Services](https://stackoverflow.com/questions/tagged/bing-api)

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/09/2019
 ms.author: sagonzal
 ms.custom: aaddev, scenarios:getting-started, languages:Java
-ms.openlocfilehash: ed105ce6bd1d7d8980799049649b8d5b95dcb761
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e13d5f3421f3c0d4f3e14da29581ca585e7f9438
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81536118"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86145865"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-java-web-app"></a>Szybki Start: Dodawanie logowania do aplikacji sieci Web w języku Java przez firmę Microsoft
 
@@ -56,7 +56,7 @@ Do uruchomienia tego przykładu potrzebne są:
 >    - Wybierz pozycję **Zarejestruj**.
 > 1. Na stronie **Przegląd** Znajdź wartość **Identyfikator aplikacji (klienta)** i **Identyfikator katalogu (dzierżawcy)** aplikacji. Skopiuj te wartości później.
 > 1. Wybierz **uwierzytelnianie** z menu, a następnie Dodaj następujące informacje:
->    - Dodaj konfigurację platformy **sieci Web** .  Dodaj te `https://localhost:8080/msal4jsample/secure/aad` i `https://localhost:8080/msal4jsample/graph/me` jako **identyfikatory URI przekierowania**.
+>    - Dodaj konfigurację platformy **sieci Web** .  Dodaj te `https://localhost:8443/msal4jsample/secure/aad` i `https://localhost:8443/msal4jsample/graph/me` jako **identyfikatory URI przekierowania**.
 >    - Wybierz pozycję **Zapisz**.
 > 1. Wybierz pozycję **certyfikaty & wpisy tajne** z menu i w sekcji wpisy **tajne klienta** kliknij **nowy klucz tajny klienta**:
 >
@@ -70,7 +70,7 @@ Do uruchomienia tego przykładu potrzebne są:
 >
 > Aby uzyskać przykładowy kod dla tego przewodnika Szybki Start, należy wykonać następujące czynności:
 >
-> 1. Dodaj adresy URL odpowiedzi `https://localhost:8080/msal4jsample/secure/aad` jako `https://localhost:8080/msal4jsample/graph/me`i.
+> 1. Dodaj adresy URL odpowiedzi jako `https://localhost:8443/msal4jsample/secure/aad` i`https://localhost:8443/msal4jsample/graph/me`
 > 1. Utwórz klucz tajny klienta.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Wprowadź zmiany automatycznie]()
@@ -115,8 +115,8 @@ Do uruchomienia tego przykładu potrzebne są:
 >    aad.clientId=Enter_the_Application_Id_here
 >    aad.authority=https://login.microsoftonline.com/Enter_the_Tenant_Info_Here/
 >    aad.secretKey=Enter_the_Client_Secret_Here
->    aad.redirectUriSignin=https://localhost:8080/msal4jsample/secure/aad
->    aad.redirectUriGraph=https://localhost:8080/msal4jsample/graph/me
+>    aad.redirectUriSignin=https://localhost:8443/msal4jsample/secure/aad
+>    aad.redirectUriGraph=https://localhost:8443/msal4jsample/graph/me
 >    aad.msGraphEndpointHost="https://graph.microsoft.com/"
 >    ```
 > Gdzie:
@@ -149,11 +149,11 @@ Uruchom ją bezpośrednio z poziomu środowiska IDE przy użyciu osadzonego serw
 
 ##### <a name="running-from-ide"></a>Uruchamianie z IDE
 
-Jeśli aplikacja sieci Web jest uruchamiana z poziomu środowiska IDE, kliknij pozycję Uruchom, a następnie przejdź do strony głównej projektu. W tym przykładzie adres URL standardowej strony głównej to https://localhost:8080.
+Jeśli aplikacja sieci Web jest uruchamiana z poziomu środowiska IDE, kliknij pozycję Uruchom, a następnie przejdź do strony głównej projektu. W tym przykładzie adres URL standardowej strony głównej tohttps://localhost:8443
 
 1. Na stronie frontonu wybierz przycisk **Zaloguj** , aby przekierować do Azure Active Directory i monitować użytkownika o ich poświadczenia.
 
-1. Po uwierzytelnieniu użytkownik zostanie przekierowany do *https://localhost:8080/msal4jsample/secure/aad*. Są one teraz zalogowane, a na stronie zostaną wyświetlone informacje o zalogowanym koncie. Przykładowy interfejs użytkownika ma następujące przyciski:
+1. Po uwierzytelnieniu użytkownik zostanie przekierowany do *https://localhost:8443/msal4jsample/secure/aad* . Są one teraz zalogowane, a na stronie zostaną wyświetlone informacje o zalogowanym koncie. Przykładowy interfejs użytkownika ma następujące przyciski:
     - *Wyloguj*: podpisuje bieżącego użytkownika poza aplikacją i przekierowuje je do strony głównej.
     - *Pokaż informacje o użytkowniku*: uzyskuje token dla Microsoft Graph i wywołuje Microsoft Graph z żądaniem zawierającym token, który zwraca podstawowe informacje o zalogowanym użytkowniku.
 
@@ -161,17 +161,8 @@ Jeśli aplikacja sieci Web jest uruchamiana z poziomu środowiska IDE, kliknij p
 
 Jeśli chcesz wdrożyć próbkę sieci Web w Tomcat, musisz wprowadzić kilka zmian w kodzie źródłowym.
 
-1. Otwórz plik MS-Identity-Java-webapp/pliku pom. XML
-    - W `<name>msal-web-sample</name>` obszarze Dodaj`<packaging>war</packaging>`
-    - Dodaj zależność:
-
-         ```xml
-         <dependency>
-          <groupId>org.springframework.boot</groupId>
-          <artifactId>spring-boot-starter-tomcat</artifactId>
-          <scope>provided</scope>
-         </dependency>
-         ```
+1. Otwórz MS-Identity-Java-webapp/pom.xml
+    - W obszarze `<name>msal-web-sample</name>` Dodaj`<packaging>war</packaging>`
 
 2. Otwórz MS-Identity-Java-webapp/src/Main/Java/com. Microsoft. Azure. msalwebsample/MsalWebSampleApplication
 
@@ -199,13 +190,26 @@ Jeśli chcesz wdrożyć próbkę sieci Web w Tomcat, musisz wprowadzić kilka zm
     }
    ```
 
-3. Otwórz wiersz polecenia, przejdź do folderu głównego projektu i uruchom polecenie`mvn package`
+3.   Domyślnym portem HTTP Tomcat jest 8080, chociaż jest wymagany połączenie HTTPS przez port 8443. Aby skonfigurować to:
+        - Przejdź do tomcat/conf/server.xml
+        - Wyszukaj `<connector>` znacznik i Zastąp istniejący łącznik:
+        ```
+        <Connector
+                   protocol="org.apache.coyote.http11.Http11NioProtocol"
+                   port="8443" maxThreads="200"
+                   scheme="https" secure="true" SSLEnabled="true"
+                   keystoreFile="C:/Path/To/Keystore/File/keystore.p12" keystorePass="KeystorePassword"
+                   clientAuth="false" sslProtocol="TLS"/>
+        ``` 
+       
+4. Otwórz wiersz polecenia, przejdź do folderu głównego tego przykładu (w którym znajduje się plik pom.xml), a następnie uruchom polecenie, `mvn package` Aby skompilować projekt
     - Spowoduje to wygenerowanie `msal-web-sample-0.1.0.war` pliku w katalogu/targets.
-    - Zmień nazwę tego pliku na`ROOT.war`
+    - Zmień nazwę tego pliku na`msal4jsample.war`
     - Wdróż ten plik War przy użyciu Tomcat lub dowolnego innego rozwiązania kontenera J2EE.
-        - Aby wdrożyć w kontenerze Tomcat, skopiuj plik War do folderu webapps w instalacji programu Tomcat, a następnie uruchom serwer Tomcat.
+        - Aby wdrożyć program, skopiuj plik msal4jsample. War do `/webapps/` katalogu w instalacji programu Tomcat, a następnie uruchom serwer Tomcat.
 
-Ta WAR zostanie automatycznie hostowana w https://localhost:8080/.
+5. Po wdrożeniu przejdź do https://localhost:8443/msal4jsample programu w przeglądarce
+
 
 > [!IMPORTANT]
 > Aplikacja w tym przewodniku Szybki start używa klucza tajnego klienta do identyfikowania się jako klienta poufnego. Ponieważ klucz tajny klienta jest dodawany jako zwykły tekst do plików projektu, ze względów bezpieczeństwa zaleca się użycie certyfikatu zamiast klucza tajnego klienta przed uwzględnieniem aplikacji jako aplikacji produkcyjnej. Aby uzyskać więcej informacji na temat korzystania z certyfikatu, zobacz [poświadczenia certyfikatu na potrzeby uwierzytelniania aplikacji](https://docs.microsoft.com/azure/active-directory/develop/active-directory-certificate-credentials).
@@ -219,9 +223,9 @@ Ta WAR zostanie automatycznie hostowana w https://localhost:8080/.
 
 MSAL for Java (MSAL4J) to biblioteka języka Java służąca do logowania użytkowników i żądania tokenów używanych w celu uzyskania dostępu do interfejsu API chronionego przez platformę tożsamości firmy Microsoft.
 
-Dodaj MSAL4J do aplikacji za pomocą Maven lub Gradle, aby zarządzać zależnościami, wprowadzając następujące zmiany w pliku pliku pom. XML (Maven) lub Build. Gradle (Gradle) aplikacji.
+Dodaj MSAL4J do aplikacji za pomocą Maven lub Gradle, aby zarządzać zależnościami, wprowadzając następujące zmiany w pliku pom.xml (Maven) lub kompilacji. Gradle (Gradle) aplikacji.
 
-W pliku pom. XML:
+W pom.xml:
 
 ```XML
 <dependency>

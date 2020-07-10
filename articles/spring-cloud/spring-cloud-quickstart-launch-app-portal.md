@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 02/15/2020
 ms.author: brendm
-ms.openlocfilehash: 0637716b5f9970ff8c6d550f138fb7d21a26b81a
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 118e1e49393a797a065f1e9968a83a6d4464868e
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134469"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171044"
 ---
 # <a name="quickstart-launch-an-existing-azure-spring-cloud-application-using-the-azure-portal"></a>Szybki Start: uruchamianie istniejącej aplikacji w chmurze platformy Azure przy użyciu Azure Portal
 
@@ -132,11 +132,7 @@ Wdrożenie usługi wymaga około 5 minut.  Po jego wdrożeniu zostanie wyświetl
     az configure --defaults spring-cloud=<service instance name>
     ```
 
-5. Utwórz `gateway` aplikację i Wdróż plik JAR.  Poniższe kroki wymagają rozszerzenia chmury wiosennej. Jeśli nie został on zainstalowany z wymaganiami wstępnymi, uruchom następujące polecenie:
-
-    ```azurecli
-    az extension add --name spring-cloud
-    ```
+5. Utwórz `gateway` aplikację i Wdróż plik JAR.
 
     Utwórz aplikację przy użyciu rozszerzenia chmury Wiosnowej:
 
@@ -176,7 +172,7 @@ Wdrożenie usługi wymaga około 5 minut.  Po jego wdrożeniu zostanie wyświetl
 > [!div class="nextstepaction"]
 > [Wystąpił problem](https://www.research.net/r/javae2e?tutorial=asc-portal-quickstart&step=public-endpoint)
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 W tym przewodniku Szybki start zawarto informacje na temat wykonywania następujących czynności:
 

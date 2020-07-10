@@ -5,15 +5,14 @@ author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
 ms.reviewer: spelluru
-ms.date: 10/03/2019
+ms.date: 07/08/2020
 ms.topic: article
-ms.service: event-grid
-services: event-grid
-ms.openlocfilehash: 841b5092775353bbe3340dbbd55610026f998a15
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 632227579fd021a0d2ce1d0b1bb0b8a8288c5f47
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76846475"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171673"
 ---
 # <a name="event-grid-configuration"></a>Konfiguracja Event Grid
 
@@ -85,4 +84,4 @@ Aby dowiedzieć się więcej na temat używania metryk z Event Grid na IoT Edge,
 
 | Nazwa właściwości | Opis |
 | ---------------- | ------------ |
-| `metrics__reporterType` | Typ programu Reporter dla metryk Enpoint. Wartość domyślna to `none` i wyłącza metryki. Ustawienie umożliwiające `prometheus` włączenie metryk w formacie specyfikacji Prometheus.
+| `metrics__reporterType` | Typ programu Reporter dla punktu końcowego metryki. Wartość domyślna to `none` i wyłącza metryki. Ustawienie umożliwiające `prometheus` włączenie metryk w formacie specyfikacji Prometheus.

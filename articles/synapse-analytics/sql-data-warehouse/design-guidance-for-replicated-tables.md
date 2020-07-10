@@ -11,12 +11,12 @@ ms.date: 03/19/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 8328750849f5466c8754499694a41615776ff3da
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 036cb15cf16b5f90dc17ccdce378a073a398d403
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85201705"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86181339"
 ---
 # <a name="design-guidance-for-using-replicated-tables-in-synapse-sql-pool"></a>Wskazówki dotyczące projektowania na potrzeby używania zreplikowanych tabel w puli SQL Synapse
 
@@ -149,9 +149,9 @@ Podczas ładowania danych do zreplikowanych tabel, spróbuj zminimalizować komp
 
 Na przykład ten wzorzec ładowania ładuje dane z czterech źródeł i wywołuje cztery ponowne kompilacje.
 
-        Load from source 1.
+- Załaduj ze źródła 1.
 - Wybierz wyzwalacz instrukcji Kompiluj ponownie 1.
-        Załaduj ze źródła 2.
+- Załaduj ze źródła 2.
 - Wybierz wyzwalacz instrukcji Kompiluj ponownie 2.
 - Załaduj ze źródła 3.
 - SELECT Statement wyzwala kompilację ponownie 3.

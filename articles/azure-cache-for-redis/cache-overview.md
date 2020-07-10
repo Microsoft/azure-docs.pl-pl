@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: overview
 ms.date: 05/12/2020
-ms.openlocfilehash: 09a7a28716e437bab71c7386bd332712a4d192dd
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 75c6f8ec8410ff90b3da4fb6a50c9ef8ba7d1618
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83196370"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86184623"
 ---
 # <a name="azure-cache-for-redis"></a>Azure Cache for Redis
 
@@ -39,8 +39,8 @@ Usługa Azure Cache for Redis jest dostępna w następujących warstwach:
 
 | Warstwa | Opis |
 |---|---|
-Podstawowy | Pamięć podręczna z jednym węzłem. Ta warstwa obsługuje wiele rozmiarów pamięci (250 MB – 53 GB) i idealnie nadaje się do tworzenia i testowania i niekrytycznych obciążeń. Warstwa Podstawowa nie ma umowy dotyczącej poziomu usług (SLA) |
-| Standardowa | Replikowana pamięć podręczna w dwóch węzłach: podstawowa/pomocnicza, konfiguracja zarządzana przez platformę Azure z umową SLA o wysokiej dostępności (99,9%) |
+Podstawowa | Pamięć podręczna z jednym węzłem. Ta warstwa obsługuje wiele rozmiarów pamięci (250 MB – 53 GB) i idealnie nadaje się do tworzenia i testowania i niekrytycznych obciążeń. Warstwa Podstawowa nie ma umowy dotyczącej poziomu usług (SLA) |
+| Standardowa | Replikowana pamięć podręczna z dwoma węzłami, podstawowym/repliką konfiguracji zarządzaną przez platformę Azure z umową SLA o wysokiej dostępności (99,9%) |
 | Premium | Warstwa Premium jest warstwą gotową dla przedsiębiorstw. Pamięci podręczne w warstwie Premium obsługują więcej funkcji i mają większą przepływność przy niższych opóźnieniach. Pamięci podręczne w warstwie Premium są wdrażane na mocniejszym sprzęcie, zapewniając większą wydajność w porównaniu do warstw Podstawowa i Standardowa. Ta zaleta oznacza, że przepływność dla pamięci podręcznej o takim samym rozmiarze będzie wyższa w porównaniu do warstwy Standardowa. |
 
 > [!TIP]
@@ -53,20 +53,20 @@ Pamięć podręczną można skalować do wyższej warstwy po jej utworzeniu. Ska
 
 Strona [Azure Cache for Redis — cennik](https://azure.microsoft.com/pricing/details/cache/) zawiera szczegółowe porównanie wszystkich warstw. W poniższej tabeli opisano niektóre funkcje obsługiwane przez warstwy:
 
-| Opis funkcji | Premium | Standardowa | Podstawowy |
+| Opis funkcji | Premium | Standardowa | Podstawowa |
 | ------------------- | :-----: | :------: | :---: |
 | [Umowa dotycząca poziomu usług (SLA)](https://azure.microsoft.com/support/legal/sla/cache/v1_0/) |✔|✔|-|
 | [Trwałość danych Redis](cache-how-to-premium-persistence.md) |✔|-|-|
 | [Klaster Redis](cache-how-to-premium-clustering.md) |✔|-|-|
 | [Zabezpieczanie za pomocą reguł zapory](cache-configure.md#firewall) |✔|✔|✔|
-| Szyfrowanie podczas transferu |✔|✔|✔|
+| Szyfrowanie danych przesyłanych |✔|✔|✔|
 | [Większe bezpieczeństwo i izolacja z użyciem sieci wirtualnej](cache-how-to-premium-vnet.md) |✔|-|-|
 | [Import/Export](cache-how-to-import-export-data.md) |✔|-|-|
 | [Zaplanowane aktualizacje](cache-administration.md#schedule-updates) |✔|✔|✔|
 | [Replikacja geograficzna](cache-how-to-geo-replication.md) |✔|-|-|
 | [Ponowne uruchamianie](cache-administration.md#reboot) |✔|✔|✔|
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * [Szybki start z aplikacją internetową platformy ASP.NET](cache-web-app-howto.md) Tworzenie prostej aplikacji internetowej platformy ASP.NET, która korzysta z usługi Azure Cache for Redis.
 * [Szybki start z platformą .NET](cache-dotnet-how-to-use-azure-redis-cache.md) Tworzenie aplikacji platformy .NET, która korzysta z usługi Azure Cache for Redis.
