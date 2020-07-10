@@ -1,5 +1,5 @@
 ---
-title: 'Samouczek: uczenie & Wdrażanie modeli: VS Code'
+title: 'Samouczek: uczenie & Wdrażanie modeli: VS Code (wersja zapoznawcza)'
 titleSuffix: Azure Machine Learning
 description: Dowiedz się, jak nauczyć i wdrożyć model klasyfikacji obrazów przy użyciu TensorFlow i rozszerzenia Visual Studio Code Azure Machine Learning
 services: machine-learning
@@ -8,16 +8,16 @@ ms.subservice: core
 ms.topic: tutorial
 author: luisquintanilla
 ms.author: luquinta
-ms.date: 07/08/2020
+ms.date: 07/09/2020
 ms.custom: contperfq4
-ms.openlocfilehash: 1d7b712e27ad73516606564ea125298cb3dea314
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 7d209b3434eae20b4c9a7b328f5c15032315b178
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86143305"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86203560"
 ---
-# <a name="train-and-deploy-an-image-classification-tensorflow-model-using-the-azure-machine-learning-visual-studio-code-extension"></a>Uczenie i wdrażanie modelu TensorFlow klasyfikacji obrazów przy użyciu rozszerzenia Visual Studio Code Azure Machine Learning
+# <a name="train-and-deploy-an-image-classification-tensorflow-model-using-the-azure-machine-learning-visual-studio-code-extension-preview"></a>Uczenie i wdrażanie modelu TensorFlow klasyfikacji obrazów przy użyciu rozszerzenia Visual Studio Code Azure Machine Learning (wersja zapoznawcza)
 
 Dowiedz się, jak nauczyć i wdrożyć model klasyfikacji obrazów, aby rozpoznawać numery ręczne przy użyciu TensorFlow i rozszerzenia Visual Studio Code Azure Machine Learning.
 
@@ -278,7 +278,7 @@ Aby utworzyć konfigurację uruchamiania:
 
 `MNIST-rc`Konfiguracja przebiegu jest dodawana do węzła obliczeniowego *TeamWkspc-com* , a `MNIST-env` Konfiguracja środowiska jest dodawana w węźle *środowiska* .
 
-## <a name="train-the-model"></a>Uczenie modelu
+## <a name="train-the-model"></a>Szkolenie modelu
 
 W trakcie procesu szkolenia model TensorFlow jest tworzony przez przetwarzanie danych szkoleniowych i wzorców uczenia osadzonych w nim dla każdej z odpowiednich cyfr, które są klasyfikowane. 
 

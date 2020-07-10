@@ -8,18 +8,18 @@ ms.workload: infrastructure
 ms.date: 03/01/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 03d27e1e72eaa5f5dee8cfa9062a56c6dd45007a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 712ff713a4aa7c014b14323cea7c0d6be1c9f53c
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82100026"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86202230"
 ---
 # <a name="azure-virtual-machine-powershell-samples"></a>Przykłady programu PowerShell dla maszyny wirtualnej platformy Azure
 
 Poniższa tabela zawiera linki do przykładów skryptów programu PowerShell, które umożliwiają tworzenie maszyn wirtualnych z systemem Windows i zarządzanie nimi.
 
-| | |
+| Skrypt | Opis |
 |---|---|
 |**Tworzenie maszyn wirtualnych**||
 | [Szybkie tworzenie maszyny wirtualnej](./../scripts/virtual-machines-windows-powershell-sample-create-vm-quick.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | Tworzy grupę zasobów, maszynę wirtualną i wszystkie powiązane zasoby z minimalnymi komunikatami.|
@@ -38,9 +38,9 @@ Poniższa tabela zawiera linki do przykładów skryptów programu PowerShell, kt
 | [Eksportowanie wirtualnego dysku twardego dysku zarządzanego na konto magazynu](../scripts/virtual-machines-windows-powershell-sample-copy-managed-disks-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | Eksportuje podstawowy dysk VHD dysku zarządzanego do konta magazynu w innym regionie. |
 | [Tworzenie migawki z dysku VHD](../scripts/virtual-machines-windows-powershell-sample-create-snapshot-from-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | Tworzy migawkę z dysku VHD, a następnie używa tej migawki do szybkiego tworzenia wielu identycznych dysków zarządzanych.  |
 | [Kopiowanie migawki do tej samej lub innej subskrypcji](../scripts/virtual-machines-windows-powershell-sample-copy-snapshot-to-same-or-different-subscription.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | Kopiuje migawkę do tej samej lub innej subskrypcji, która znajduje się w tym samym regionie co migawka nadrzędna. |
-|**Bezpieczne maszyn wirtualnych**||
+|**Bezpieczne maszyny wirtualne**||
 | [Szyfrowanie maszyny wirtualnej i jej dysków danych](./../scripts/virtual-machines-windows-powershell-sample-encrypt-vm.md?toc=%2fpowershell%2fazure%2ftoc.json) | Tworzy magazyn kluczy platformy Azure, klucz szyfrowania i nazwę główną usługi, a następnie szyfruje maszynę wirtualną. |
 |**Monitorowanie maszyn wirtualnych**||
 | [Monitorowanie maszyny wirtualnej za pomocą Azure Monitor](./../scripts/virtual-machines-windows-powershell-sample-create-vm-oms.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | Tworzy maszynę wirtualną, instaluje agenta usługi Azure Log Analytics i rejestruje maszynę wirtualną w obszarze roboczym Log Analytics.  |
-| [Zbieranie szczegółowych informacji o wszystkich maszynach wirtualnych w ramach subskrypcji przy użyciu programu PowerShell](../scripts/virtual-machines-powershell-sample-collect-vm-details.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | Tworzy wolumin CSV, który zawiera nazwę maszyny wirtualnej, nazwę grupy zasobów, region, Virtual Network, podsieć, prywatny adres IP, typ systemu operacyjnego i publiczny adres IP maszyn wirtualnych w podanej subskrypcji.
+| [Zbieranie szczegółów dotyczących wszystkich maszyn wirtualnych w ramach subskrypcji przy użyciu programu PowerShell](../scripts/virtual-machines-powershell-sample-collect-vm-details.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | Tworzy wolumin CSV, który zawiera nazwę maszyny wirtualnej, nazwę grupy zasobów, region, Virtual Network, podsieć, prywatny adres IP, typ systemu operacyjnego i publiczny adres IP maszyn wirtualnych w podanej subskrypcji.
 | | |

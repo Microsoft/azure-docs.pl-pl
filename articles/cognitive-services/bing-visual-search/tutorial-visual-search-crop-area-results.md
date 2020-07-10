@@ -10,12 +10,12 @@ ms.subservice: bing-visual-search
 ms.topic: tutorial
 ms.date: 03/31/2019
 ms.author: aahi
-ms.openlocfilehash: 4778a4089c7374c1ac6a9312064dcfb1e0325b63
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 3c331faad3c49b91defc9f081352eda80c701b4a
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80478498"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86205387"
 ---
 # <a name="tutorial-crop-an-image-with-the-bing-visual-search-sdk-for-c"></a>Samouczek: Kadrowanie obrazu za pomocą zestawu SDK wyszukiwanie wizualne Bing dla języka C #
 
@@ -49,7 +49,7 @@ Ta aplikacja przycina obszar tego obrazu zespołu kierownictwa firmy Microsoft. 
 
 ![Zespół liderów wyższego szczebla firmy Microsoft](./media/MS_SrLeaders.jpg)
 
-Obraz jest przycięty przez utworzenie `ImageInfo` obiektu z obszaru kadrowania i załadowanie `ImageInfo` obiektu do elementu. `VisualSearchRequest` `ImageInfo` Obiekt zawiera również adres URL obrazu:
+Obraz jest przycięty przez utworzenie `ImageInfo` obiektu z obszaru kadrowania i załadowanie `ImageInfo` obiektu do elementu `VisualSearchRequest` . `ImageInfo`Obiekt zawiera również adres URL obrazu:
 
 ```csharp
 CropArea CropArea = new CropArea(top: (float)0.01, bottom: (float)0.30, left: (float)0.01, right: (float)0.20);
@@ -61,7 +61,7 @@ VisualSearchRequest visualSearchRequest = new VisualSearchRequest(imageInfo: ima
 
 ## <a name="search-for-images-similar-to-the-crop-area"></a>Wyszukaj obrazy podobne do obszaru kadrowania
 
-Zmienna `VisualSearchRequest` zawiera informacje o obszarze przycinania obrazu i jego adresie URL. `VisualSearchMethodAsync()` Metoda pobiera wyniki:
+Zmienna `VisualSearchRequest` zawiera informacje o obszarze przycinania obrazu i jego adresie URL. `VisualSearchMethodAsync()`Metoda pobiera wyniki:
 
 ```csharp
 Console.WriteLine("\r\nSending visual search request with knowledgeRequest that contains URL and crop area");
@@ -71,7 +71,7 @@ var visualSearchResults = client.Images.VisualSearchMethodAsync(knowledgeRequest
 
 ## <a name="get-the-url-data-from-imagemoduleaction"></a>Pobierz dane adresu URL z`ImageModuleAction`
 
-Wyniki wyszukiwanie wizualne Bing są `ImageTag` obiektami. Każdy tag zawiera listę obiektów `ImageAction`. Każdy `ImageAction` z nich `Data` zawiera pole, które jest listą wartości, które są zależne od typu akcji.
+Wyniki wyszukiwanie wizualne Bing są `ImageTag` obiektami. Każdy tag zawiera listę obiektów `ImageAction`. Każdy `ImageAction` z nich zawiera `Data` pole, które jest listą wartości, które są zależne od typu akcji.
 
 Różne typy można wydrukować przy użyciu następującego kodu:
 
@@ -81,22 +81,22 @@ Console.WriteLine("\r\n" + "ActionType: " + i.ActionType + " -> WebSearchUrl: " 
 
 Kompletna aplikacja zwraca:
 
-|ActionType  |Adres URL  | |
-|---------|---------|---------|
+|ActionType  |Adres URL  |
+|---------|---------|
 |PagesIncluding WebSearchURL     |         |
 |MoreSizes WebSearchURL     |         |  
 |VisualSearch WebSearchURL    |         |
 |ImageById WebSearchURL     |         |  
 |RelatedSearches WebSearchURL     |         |
-|WebSearchUrl jednostki — >     | https\://www.Bing.com/CR?IG=E40D0E1A13404994ACB073504BC937A4&CID = 03DCF882D7386A442137F49BD6596BEF&RD = 1&h = BvvDoRtmZ35Xc_UZE4lZx6_eg7FHgcCkigU1D98NHQo&v = 1&r = https %3 a %2 f %2 f www. Bing. com% 2fsearch% 3Fq% 3DSatya% 2bNadella&p = DevEx, 5380.1        |
-|TopicResults — > WebSearchUrl    |  https\://www.Bing.com/CR?IG=E40D0E1A13404994ACB073504BC937A4&CID = 03DCF882D7386A442137F49BD6596BEF&RD = 1&h = 3QGtxPb3W9LemuHRxAlW4CW7XN4sPkUYCUynxAqI9zQ&v = 1&r = https %3 a %2 f %2 f www. Bing. com% 2fdiscover% 2fnadella% 2bsatya&p = DevEx, 5382.1        |
-|ImageResults — > WebSearchUrl    |  https\://www.Bing.com/CR?IG=E40D0E1A13404994ACB073504BC937A4&CID = 03DCF882D7386A442137F49BD6596BEF&RD = 1&h = l-WNHO89Kkw69AmIGe2MhlUp6MxR6YsJszgOuM5sVLs&v = 1&r = https %3 %2 f %2 f www. Bing. com% 2fimages% 2fsearch% 3Fq% 3DSatya% 2bNadella&p = DevEx, 5384.1        |
+|WebSearchUrl jednostki — >     | https \: //www.bing.com/cr?IG=E40D0E1A13404994ACB073504BC937A4&CID = 03DCF882D7386A442137F49BD6596BEF&RD = 1&h = BvvDoRtmZ35Xc_UZE4lZx6_eg7FHgcCkigU1D98NHQo&v = 1&r = https %3 a %2 f %2 f www. Bing. com% 2fsearch% 3fq% 3dSatya% 2bNadella&p = DevEx, 5380.1        |
+|TopicResults — > WebSearchUrl    |  https \: //www.bing.com/cr?IG=E40D0E1A13404994ACB073504BC937A4&CID = 03DCF882D7386A442137F49BD6596BEF&RD = 1&h = 3QGtxPb3W9LemuHRxAlW4CW7XN4sPkUYCUynxAqI9zQ&v = 1&r = https %3 a %2 f %2 f www. Bing. com% 2fdiscover% 2fnadella% 2bsatya&p = DevEx, 5382.1        |
+|ImageResults — > WebSearchUrl    |  https \: //www.bing.com/cr?IG=E40D0E1A13404994ACB073504BC937A4&CID = 03DCF882D7386A442137F49BD6596BEF&RD = 1&h = l-WNHO89Kkw69AmIGe2MhlUp6MxR6YsJszgOuM5sVLs&v = 1&r = https %3 %2 f %2 f www. Bing. com% 2fimages% 2fsearch% 3fq% 3dSatya% 2bNadella&p = DevEx, 5384.1        |
 
-Jak pokazano powyżej, obiekt `Entity` ActionType zawiera zapytanie wyszukiwania Bing, które zwraca informacje dotyczące rozpoznawalnej osoby, miejsca lub rzeczy. Typy `TopicResults` i `ImageResults` zawierają zapytania dotyczące powiązanych obrazów. Adresy URL na liście to linki do wyników wyszukiwania Bing.
+Jak pokazano powyżej, `Entity` obiekt ActionType zawiera zapytanie wyszukiwania Bing, które zwraca informacje dotyczące rozpoznawalnej osoby, miejsca lub rzeczy. Typy `TopicResults` i `ImageResults` zawierają zapytania dotyczące powiązanych obrazów. Adresy URL na liście to linki do wyników wyszukiwania Bing.
 
-## <a name="get-urls-for-pagesincluding-actiontype-images"></a>Pobierz adresy URL `PagesIncluding` `ActionType` dla obrazów
+## <a name="get-urls-for-pagesincluding-actiontype-images"></a>Pobierz adresy URL dla `PagesIncluding` `ActionType` obrazów
 
-Uzyskanie rzeczywistych adresów URL obrazów wymaga rzutowania, które odczytuje typ akcji `ActionType` jako `ImageModuleAction` zawierający element `Data` z listą wartości. Każda wartość to adres URL obrazu. Poniższy rzutuje typ `PagesIncluding` akcji na `ImageModuleAction` i odczytuje wartości:
+Uzyskanie rzeczywistych adresów URL obrazów wymaga rzutowania, które odczytuje typ akcji `ActionType` jako `ImageModuleAction` zawierający element `Data` z listą wartości. Każda wartość to adres URL obrazu. Poniższy rzutuje `PagesIncluding` Typ akcji na `ImageModuleAction` i odczytuje wartości:
 
 ```csharp
     if (i.ActionType == "PagesIncluding")

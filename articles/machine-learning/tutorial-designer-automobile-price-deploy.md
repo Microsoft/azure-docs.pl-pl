@@ -1,5 +1,5 @@
 ---
-title: 'Samouczek: Wdrażanie modeli ML przy użyciu narzędzia Projektant'
+title: 'Samouczek: Wdrażanie modeli ML przy użyciu narzędzia Projektant (wersja zapoznawcza)'
 titleSuffix: Azure Machine Learning
 description: W tym samouczku przedstawiono sposób tworzenia rozwiązania do analizy predykcyjnej w programie Azure Machine Learning Designer (wersja zapoznawcza). Uczenie, ocenę i wdrożenie modelu uczenia maszynowego przy użyciu modułów przeciągania i upuszczania.
 author: peterclu
@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 06/28/2020
 ms.custom: designer
-ms.openlocfilehash: e10e5050912788732128a8b765716c22fe9e576e
-ms.sourcegitcommit: 581aaca8956b1717b7bc1c1d7710c782c22e6320
+ms.openlocfilehash: 1d0cd074f6e4ad836bc5102f3f6edc61b75215e4
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/29/2020
-ms.locfileid: "85517476"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86199969"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-designer-preview"></a>Samouczek: Wdrażanie modelu uczenia maszynowego za pomocą narzędzia Projektant (wersja zapoznawcza)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -79,7 +79,7 @@ W wyświetlonym oknie dialogowym możesz wybrać dowolny z istniejących klastr�
     
 1. Wybierz region znajdujący się w pobliżu, który jest dostępny dla **regionu**.
 
-1. Wybierz przycisk **Utwórz**.
+1. Wybierz pozycję **Utwórz**.
 
     > [!NOTE]
     > Utworzenie nowej usługi AKS trwa około 15 minut. Stan aprowizacji można sprawdzić na stronie **klastry wnioskowania** .
@@ -117,7 +117,7 @@ Po zakończeniu wdrażania można testować punkt końcowy w czasie rzeczywistym
 
     ![Zrzut ekranu przedstawiający sposób testowania punktu końcowego w czasie rzeczywistym z etykietą z oceną dla wyróżnionej ceny](./media/tutorial-designer-automobile-price-deploy/test-endpoint.png)
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 [!INCLUDE [aml-ui-cleanup](../../includes/aml-ui-cleanup.md)]
 

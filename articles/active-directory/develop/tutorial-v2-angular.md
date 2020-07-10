@@ -3,7 +3,7 @@ title: Samouczek aplikacji jednostronicowej ze skośnością — Azure
 titleSuffix: Microsoft identity platform
 description: Dowiedz się, w jaki sposób aplikacje SPA mogą wywołać interfejs API, który wymaga tokenów dostępu z punktu końcowego platformy tożsamości firmy Microsoft.
 services: active-directory
-author: hahamil
+author: hamiltonha
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 03/05/2020
 ms.author: hahamil
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 6d869243f7f125ef7a795d6049d0b4f70fc51361
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: 7cd2d5d8728e2a0539d5f106ab39c563e6e7c382
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84322774"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86231696"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-an-angular-single-page-application"></a>Samouczek: Logowanie użytkowników i wywoływanie interfejsu API Microsoft Graph ze kątowej aplikacji jednostronicowej
 
@@ -35,7 +35,7 @@ W tym samouczku przedstawiono sposób, w jaki aplikacja jednostronicowa (SPA) mo
 
 ### <a name="more-information"></a>Więcej informacji
 
-Przykładowa aplikacja utworzona w tym samouczku umożliwia pojedynczemu SPAu Wysyłanie zapytań do interfejsu API Microsoft Graph lub interfejsu API sieci Web, który akceptuje tokeny z punktu końcowego platformy tożsamości firmy Microsoft. MSAL dla biblioteki kątowej to otoka podstawowej biblioteki MSAL. js. Umożliwia aplikacjom skośnym (6 +) uwierzytelnianie użytkowników w przedsiębiorstwach za pomocą Microsoft Azure Active Directory, konto Microsoft użytkowników i użytkowników tożsamości społecznościowych (takich jak Facebook, Google i LinkedIn). Biblioteka umożliwia również aplikacjom uzyskiwanie dostępu do usług w chmurze firmy Microsoft lub Microsoft Graph.
+Przykładowa aplikacja utworzona w tym samouczku umożliwia pojedynczemu SPAu Wysyłanie zapytań do interfejsu API Microsoft Graph lub interfejsu API sieci Web, który akceptuje tokeny z punktu końcowego platformy tożsamości firmy Microsoft. MSAL dla biblioteki kątowej jest otoką podstawowej biblioteki MSAL.js. Umożliwia aplikacjom skośnym (6 +) uwierzytelnianie użytkowników w przedsiębiorstwach za pomocą Microsoft Azure Active Directory, konto Microsoft użytkowników i użytkowników tożsamości społecznościowych (takich jak Facebook, Google i LinkedIn). Biblioteka umożliwia również aplikacjom uzyskiwanie dostępu do usług w chmurze firmy Microsoft lub Microsoft Graph.
 
 W tym scenariuszu po zalogowaniu się użytkownika token dostępu zostanie zaproszony i dodany do żądań HTTP za pośrednictwem nagłówka autoryzacji. Pozyskiwanie i odnawianie tokenów jest obsługiwane przez MSAL.
 
@@ -45,15 +45,15 @@ W tym samouczku jest stosowana następująca Biblioteka:
 
 |Biblioteka|Opis|
 |---|---|
-|[msal. js](https://github.com/AzureAD/microsoft-authentication-library-for-js)|Biblioteka uwierzytelniania firmy Microsoft dla otoki języka JavaScript|
+|[msal.js](https://github.com/AzureAD/microsoft-authentication-library-for-js)|Biblioteka uwierzytelniania firmy Microsoft dla otoki języka JavaScript|
 
-Kod źródłowy biblioteki MSAL. js można znaleźć w repozytorium [AzureAD/Microsoft-Authentication-Library-js](https://github.com/AzureAD/microsoft-authentication-library-for-js) w serwisie GitHub.
+Kod źródłowy biblioteki MSAL.js można znaleźć w repozytorium [AzureAD/Microsoft-Authentication-Library-js](https://github.com/AzureAD/microsoft-authentication-library-for-js) w witrynie GitHub.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Aby uruchomić ten samouczek, potrzebne są:
 
-* Lokalny serwer sieci Web, na przykład [Node. js](https://nodejs.org/en/download/). Instrukcje zawarte w tym samouczku są oparte na platformie Node. js.
+* Lokalny serwer sieci Web, taki jak [Node.js](https://nodejs.org/en/download/). Instrukcje zawarte w tym samouczku są oparte na Node.js.
 * Zintegrowane środowisko programistyczne (IDE), takie jak [Visual Studio Code](https://code.visualstudio.com/download), do edytowania plików projektu.
 
 ## <a name="create-your-project"></a>Tworzenie projektu
@@ -138,7 +138,7 @@ Zarejestruj wartość **identyfikatora URI przekierowania** jako **http://localh
 3. Dodaj następujące instrukcje importu na początku `src/app/app.component.ts` :
 
     ```javascript
-    import { MsalService } from '@azure/msal-angular';
+    import { MsalService, BroadcastService } from '@azure/msal-angular';
     import { Component, OnInit } from '@angular/core';
     ```
 ## <a name="sign-in-a-user"></a>Zaloguj użytkownika
@@ -148,6 +148,8 @@ Dodaj następujący kod, aby `AppComponent` zalogować użytkownika:
 ```javascript
 export class AppComponent implements OnInit {
     constructor(private broadcastService: BroadcastService, private authService: MsalService) { }
+    
+    ngOnInit() { }
 
     login() {
         const isIE = window.navigator.userAgent.indexOf('MSIE ') > -1 || window.navigator.userAgent.indexOf('Trident/') > -1;

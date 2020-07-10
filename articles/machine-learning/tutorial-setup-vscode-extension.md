@@ -1,5 +1,5 @@
 ---
-title: 'Samouczek: Konfigurowanie rozszerzenia Visual Studio Code'
+title: 'Samouczek: Konfigurowanie rozszerzenia Visual Studio Code (wersja zapoznawcza)'
 titleSuffix: Azure Machine Learning
 description: Dowiedz się, jak skonfigurować rozszerzenie Azure Machine Learning Visual Studio Code.
 services: machine-learning
@@ -8,15 +8,15 @@ ms.subservice: core
 ms.topic: tutorial
 author: luisquintanilla
 ms.author: luquinta
-ms.date: 07/08/2020
-ms.openlocfilehash: 9d85e59e003cffdbe6fe6abe7bb053ae4c574b78
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.date: 07/09/2020
+ms.openlocfilehash: 48fb2ce3672634af202500ccb256e7730933fff8
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86143440"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86199762"
 ---
-# <a name="set-up-azure-machine-learning-visual-studio-code-extension"></a>Konfigurowanie rozszerzenia Visual Studio Code Azure Machine Learning
+# <a name="set-up-azure-machine-learning-visual-studio-code-extension-preview"></a>Konfigurowanie rozszerzenia Visual Studio Code Azure Machine Learning (wersja zapoznawcza)
 
 Dowiedz się, jak instalować i uruchamiać skrypty przy użyciu rozszerzenia Azure Machine Learning Visual Studio Code.
 

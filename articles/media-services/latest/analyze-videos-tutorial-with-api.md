@@ -10,15 +10,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
-ms.date: 03/26/2020
+ms.date: 07/09/2020
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: b7864d89cc14a1473fd43e94bfe74c368bcb391d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 2ab87990981f08164bb47cef9eaa1876514f1ad6
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80349480"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86202837"
 ---
 # <a name="tutorial-analyze-videos-with-media-services-v3"></a>Samouczek: analizowanie filmów wideo z Media Services v3
 
@@ -33,8 +33,8 @@ Ten samouczek przedstawia sposób wykonania następujących czynności:
 > * Pobierz przykładową aplikację opisaną w temacie.
 > * Bada kod, który analizuje określony film wideo.
 > * Uruchom aplikację.
-> * Zbadaj dane wyjściowe.
-> * Oczyszczenie zasobów.
+> * Sprawdź dane wyjściowe.
+> * Wyczyść zasoby.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -44,7 +44,7 @@ Ważną kwestią jest przestrzeganie wszystkich obowiązujących przepisów doty
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Jeśli nie masz zainstalowanego programu Visual Studio, Pobierz [program Visual Studio Community 2017](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15).
+- Jeśli nie masz zainstalowanego programu Visual Studio, Pobierz [program Visual Studio Community 2019](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15).
 - [Utwórz konto Media Services](create-account-cli-how-to.md).<br/>Koniecznie zapamiętaj wartości, które zostały użyte jako nazwa grupy zasobów i nazwa konta usługi Media Services.
 - Postępuj zgodnie z instrukcjami zawartymi w temacie [Access Azure Media Services API with the Azure CLI](access-api-cli-how-to.md) (Uzyskiwanie dostępu do interfejsu API usług Azure Media Services za pomocą interfejsu wiersza polecenia platformy Azure) i zapisz poświadczenia. Musisz użyć ich do uzyskania dostępu do interfejsu API.
 
@@ -58,7 +58,7 @@ Sklonuj repozytorium GitHub zawierające przykład dla platformy .NET na swoją 
 
 Przykład znajduje się w folderze [AnalyzeVideos](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/tree/master/AMSV3Tutorials/AnalyzeVideos).
 
-Otwórz plik [appSettings. JSON](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/AnalyzeVideos/appsettings.json) w pobranym projekcie. Zastąp wartości poświadczeniami uzyskanymi w celu [uzyskania dostępu do interfejsów API](access-api-cli-how-to.md).
+Otwórz [appsettings.js](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/AnalyzeVideos/appsettings.json) w pobranym projekcie. Zastąp wartości poświadczeniami uzyskanymi w celu [uzyskania dostępu do interfejsów API](access-api-cli-how-to.md).
 
 ## <a name="examine-the-code-that-analyzes-the-specified-video"></a>Badanie kodu do analizy wybranego wideo
 
@@ -108,9 +108,9 @@ Następująca funkcja wykonuje następujące czynności:
 
 Podczas kodowania lub przetwarzania zawartości w Media Services jest to typowy wzorzec służący do konfigurowania ustawień kodowania jako przepisu. Następnie przesyła się **zadanie** w celu zastosowania tego przepisu do wideo. Przesyłając nowe zadania dla każdego nowego filmu wideo, stosujesz ten przepis do wszystkich filmów wideo w bibliotece. Przepis w Media Services jest nazywany **przekształceniem**. Aby uzyskać więcej informacji, zobacz [transformacje i zadania](transform-concept.md). Przykład opisany w tym samouczku umożliwia zdefiniowanie przepisu, który analizuje określone wideo.
 
-#### <a name="transform"></a>Przekształcanie
+#### <a name="transform"></a>Przekształcenie
 
-Podczas tworzenia nowego wystąpienia obiektu [Transform](https://docs.microsoft.com/rest/api/media/transforms) należy określić, jakie dane wyjściowe ma ono tworzyć. **TransformOutput** jest wymaganym parametrem. Każdy obiekt **TransformOutput** zawiera element **Preset**. Element **Preset** zawiera szczegółowe instrukcje operacji przetwarzania wideo i/lub dźwięku używanych do wygenerowania docelowego obiektu **TransformOutput**. W tym przykładzie używane jest ustawienie wstępne **VideoAnalyzerPreset** i język ("en-us") jest przenoszona do jego konstruktora (`new VideoAnalyzerPreset("en-US")`). To ustawienie wstępne umożliwia przeprowadzenie wielu analiz dźwięku i wideo tworzących plik wideo. Istnieje możliwość użycia ustawienia wstępnego **AudioAnalyzerPreset**, jeśli jest potrzebne przeprowadzenie wielu analiz dźwięku w pliku wideo.
+Podczas tworzenia nowego wystąpienia obiektu [Transform](https://docs.microsoft.com/rest/api/media/transforms) należy określić, jakie dane wyjściowe ma ono tworzyć. **TransformOutput** jest wymaganym parametrem. Każdy obiekt **TransformOutput** zawiera element **Preset**. Element **Preset** zawiera szczegółowe instrukcje operacji przetwarzania wideo i/lub dźwięku używanych do wygenerowania docelowego obiektu **TransformOutput**. W tym przykładzie używane jest ustawienie wstępne **VideoAnalyzerPreset** i język ("en-us") jest przenoszona do jego konstruktora ( `new VideoAnalyzerPreset("en-US")` ). To ustawienie wstępne umożliwia przeprowadzenie wielu analiz dźwięku i wideo tworzących plik wideo. Istnieje możliwość użycia ustawienia wstępnego **AudioAnalyzerPreset**, jeśli jest potrzebne przeprowadzenie wielu analiz dźwięku w pliku wideo.
 
 Podczas tworzenia **przekształcenia**Sprawdź pierwsze, jeśli już istnieje przy użyciu metody **Get** , jak pokazano w poniższym kodzie. W przypadku usługi Media Services 3 metody **Get** wywołane dla obiektów zwracają **wartość null**, jeśli obiekt nie istnieje (sprawdzana jest nazwa bez uwzględniania wielkości liter).
 
@@ -148,7 +148,7 @@ Poniższa funkcja pobiera wyniki z wyjściowego [elementu zawartości](https://d
 
 ### <a name="clean-up-resource-in-your-media-services-account"></a>Czyszczenie zasobów na koncie usługi Media Services
 
-Ogólnie rzecz biorąc, należy wyczyścić wszystko z wyjątkiem obiektów, które są planowane do ponownego użycia (zazwyczaj spowoduje to ponowne użycie przekształceń i trwałe StreamingLocators). Jeśli chcesz, aby Twoje konto było czyste po eksperymentie, Usuń zasoby, których nie planujesz ponownie używać. Na przykład poniższy kod usuwa zadania:
+Ogólnie rzecz biorąc, należy wyczyścić wszystko z wyjątkiem obiektów, które są planowane do ponownego użycia (zazwyczaj spowoduje to ponowne użycie przekształceń i trwałe StreamingLocators). Jeśli chcesz, aby Twoje konto było czyste po eksperymentie, Usuń zasoby, których nie planujesz ponownie używać. Na przykład poniższy kod usuwa zasób zadania i wyjściowego:
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/AnalyzeVideos/Program.cs#CleanUp)]
 
@@ -162,7 +162,7 @@ Po uruchomieniu programu zadanie tworzy miniatury dla każdej twarzy wykrytej w 
 
 Plik wyjściowy analizy wideo ma nazwę insights.json. Ten plik zawiera wyniki analiz wideo. Opis elementów znajdujących się w pliku json zawiera artykuł [Inteligentna analiza multimediów](intelligence-concept.md).
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli nie są już potrzebne żadne zasoby w grupie zasobów, w tym konto usługi Media Services i konta magazynu utworzone w ramach tego samouczka, usuń grupę zasobów utworzoną wcześniej.
 

@@ -10,21 +10,21 @@ ms.subservice: bing-entity-search
 ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
-ms.openlocfilehash: a376c5d223121774b6c707b3bdc8edce42649e42
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.openlocfilehash: 53731540c4a2861c77c02b1a4b25b60fd0e23872
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85800061"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86184144"
 ---
 # <a name="tutorial-single-page-web-app"></a>Samouczek: jednostronicowa aplikacja internetowa
 
 Interfejs API wyszukiwania jednostek Bing umożliwia wyszukiwanie w Internecie informacji o *jednostkach* i *miejscach.* W danym zapytaniu można zażądać dowolnego z tych dwóch rodzajów wyników lub obu. Poniżej znajdują się definicje miejsc i jednostek.
 
-|||
+| Wynik | Opis |
 |-|-|
 |Jednostki|Znane osoby, miejsca i rzeczy, które można znaleźć po nazwie.|
-|Miejsca|Restauracje, hotele i inne lokalne firmy, które można znaleźć po nazwie *lub* typie (włoskie restauracje).|
+|Składa|Restauracje, hotele i inne lokalne firmy, które można znaleźć po nazwie *lub* typie (włoskie restauracje).|
 
 W tym samouczku utworzymy jednostronicową aplikację internetową, która wyświetla wyniki wyszukiwania bezpośrednio na stronie przy użyciu interfejsu API wyszukiwania jednostek Bing. Aplikacja zawiera składniki HTML, CSS i JavaScript.
 
@@ -141,7 +141,7 @@ Tag HTML `<body>` zawiera atrybut `onload`, który wywołuje funkcje `getSearchS
 
 Ten formularz HTML zawiera następujące kontrolki:
 
-| | |
+| Kontrola | Opis |
 |-|-|
 |`where`|Menu rozwijane umożliwiające wybranie rynku (lokalizacji i języka) używanego na potrzeby wyszukiwania.|
 |`query`|Pole tekstowe do wprowadzania terminów wyszukiwania.|
@@ -411,7 +411,7 @@ I na koniec. Kolekcja `sidebar` odnosi się do pomocniczych wyników wyszukiwani
 
 Każdy element w kolekcji `rankingResponse` odnosi się do rzeczywistych elementów wyników wyszukiwania na różny, ale równoważny sposób.
 
-| | |
+| Element | Opis |
 |-|-|
 |`id`|Element `id` wygląda jak adres URL, ale nie powinien być używany dla linków. Typ elementu `id` w wyniku klasyfikacji odpowiada wartości `id` elementu wyników wyszukiwania w kolekcji odpowiedzi *lub* całej kolekcji odpowiedzi (na przykład `Entities`).
 |`answerType`<br>`resultIndex`|Element `answerType` odnosi się do kolekcji odpowiedzi najwyższego poziomu, która zawiera wynik (na przykład `Entities`). Element `resultIndex` odnosi się do indeksu wyniku w tej kolekcji. Jeśli element `resultIndex` zostanie pominięty, klasyfikacja wyników odwołuje się do całej kolekcji.
@@ -452,7 +452,7 @@ searchItemRenderers = {
 
 Funkcja renderująca może akceptować następujące parametry:
 
-| | |
+| Parametr | Opis |
 |-|-|
 |`item`|Obiekt JavaScript, który zawiera właściwości elementu, takie jak adres URL i opis.|
 |`index`|Indeks elementu wyniku w ramach jego kolekcji.|

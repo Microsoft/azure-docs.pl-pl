@@ -1,5 +1,5 @@
 ---
-title: 'Samouczek: prognozowanie cen samochodu przy użyciu narzędzia Projektant'
+title: 'Samouczek: prognozowanie cen samochodów za pomocą projektanta (wersja zapoznawcza)'
 titleSuffix: Azure Machine Learning
 description: Dowiedz się, jak uczenie, ocenę i wdrożenie modelu uczenia maszynowego przy użyciu interfejsu typu "przeciągnij i upuść". Ten samouczek jest częścią jednej z serii dwóch części na przewidywania cen samochodów, przy użyciu regresji liniowej.
 author: peterclu
@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 06/28/2020
 ms.custom: designer
-ms.openlocfilehash: 7068c1e795e7a607776c48d1b026562a1be6b25d
-ms.sourcegitcommit: 581aaca8956b1717b7bc1c1d7710c782c22e6320
+ms.openlocfilehash: 2922b5d3aa6cee0f1222c041a0e9728936754c21
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/29/2020
-ms.locfileid: "85517639"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86200041"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-designer-preview"></a>Samouczek: przewidywanie ceny za samochód przy użyciu projektanta (wersja zapoznawcza)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -173,7 +173,7 @@ Zestaw danych nadal ma brakujące wartości po usunięciu kolumny **znormalizowa
 
 1. W wyświetlonym oknie **kolumny do oczyszczenia** rozwiń menu rozwijane obok pozycji **Dołącz**. Zaznacz, **wszystkie kolumny**
 
-1. Wybierz pozycję **Zapisz**.
+1. Wybierz pozycję **Zapisz**
 
 1. W okienku Szczegóły modułu z prawej strony kanwy wybierz pozycję **Usuń cały wiersz** w obszarze **Tryb czyszczenia**.
 
@@ -210,7 +210,7 @@ Dzielenie danych to typowe zadanie w usłudze Machine Learning. Dane zostaną po
 
 1. W okienku Szczegóły modułu z prawej strony kanwy wybierz pole **komentarz** i wprowadź *Podziel zestaw danych na zestaw szkoleniowy (0,7) i zestaw testów (0,3)*.
 
-### <a name="train-the-model"></a>Uczenie modelu
+### <a name="train-the-model"></a>Szkolenie modelu
 
 Nauczenie modelu przez nadanie mu zestawu danych, który zawiera cenę. Algorytm tworzy model, który objaśnia relacje między funkcjami a ceną zaprezentowaną przez dane szkoleniowe.
 
@@ -315,7 +315,7 @@ Następujące statystyki są wyświetlane dla modelu:
 
 W przypadku wszystkich powyższych statystyk mniejsze wartości oznaczają lepszą jakość modelu. Mniejsza wartość wskazuje, że przewidywania są bliżej rzeczywistych wartości. Dla współczynnika wyznaczania wartość bliższej wartości to 1 (1,0), tym lepsze przewidywania.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Pomiń tę sekcję, jeśli chcesz kontynuować w części 2 samouczka [Wdrażanie modeli](tutorial-designer-automobile-price-deploy.md).
 

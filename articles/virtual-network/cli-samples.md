@@ -15,18 +15,18 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 07/15/2019
 ms.author: kumud
-ms.openlocfilehash: 7193a186359de2e19f1e1c56a7c2ee3ac2695e1d
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 03041f7c0172312828487d934ab540972dc5e2c9
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84707569"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232104"
 ---
 # <a name="azure-cli-samples-for-virtual-network"></a>Przykłady interfejsu wiersza polecenia platformy Azure dla sieci wirtualnej
 
 Poniższa tabela zawiera linki do skryptów bash utworzonych za pomocą poleceń interfejsu wiersza polecenia platformy Azure:
 
-| | |
+| Skrypt | Opis |
 |----|----|
 | [Tworzenie sieci wirtualnej dla aplikacji wielowarstwowych](./scripts/virtual-network-cli-sample-multi-tier-application.md) | Tworzy sieć wirtualną z podsieciami frontonu i zaplecza. Ruch do podsieci frontonu jest ograniczony do protokołów HTTP i SSH, a ruch do podsieci zaplecza jest ograniczony do portu 3306 środowiska MySQL. |
 | [Komunikacja równorzędna dwóch sieci wirtualnych](./scripts/virtual-network-cli-sample-peer-two-virtual-networks.md) | Tworzy i łączy dwie sieci wirtualne w tym samym regionie. |

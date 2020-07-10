@@ -6,12 +6,12 @@ ms.subservice: process-automation
 ms.date: 04/19/2020
 ms.topic: tutorial
 ms.custom: has-adal-ref, tracking-python
-ms.openlocfilehash: 1203feaf6b400e91e6ab5381df0af245db0a2973
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 9c587ad9b791d953dce66df2337cf0e7dca52324
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84559558"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185368"
 ---
 # <a name="tutorial-create-a-python-runbook"></a>Samouczek: Tworzenie elementu Runbook w języku Python
 
@@ -31,7 +31,7 @@ Ten samouczek przeprowadzi Cię przez proces tworzenia [elementu Runbook](../aut
 Do wykonania kroków tego samouczka niezbędne są następujące elementy:
 
 - Subskrypcja platformy Azure. Jeśli nie masz subskrypcji, możesz [aktywować korzyści dla subskrybentów MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) lub utworzyć [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- [Konto usługi Automation](../automation-offering-get-started.md) do przechowywania elementu Runbook i uwierzytelniania w zasobach platformy Azure. To konto musi mieć uprawnienia do uruchamiania i zatrzymywania maszyny wirtualnej.
+- [Konto usługi Automation](../index.yml) do przechowywania elementu Runbook i uwierzytelniania w zasobach platformy Azure. To konto musi mieć uprawnienia do uruchamiania i zatrzymywania maszyny wirtualnej.
 - Maszyna wirtualna platformy Azure. Będziesz uruchamiać i zatrzymywać tę maszynę, dlatego należy użyć maszyny innej niż produkcyjna.
 
 ## <a name="create-a-new-runbook"></a>Utwórz nowy element Runbook
@@ -161,7 +161,7 @@ W tym celu skrypt musi uwierzytelniać się przy użyciu poświadczeń z konta u
 
 ## <a name="add-code-to-create-python-compute-client-and-start-the-vm"></a>Dodaj kod, aby utworzyć klienta obliczeniowego języka Python i uruchomić maszynę wirtualną
 
-Aby współpracować z maszynami wirtualnymi platformy Azure, Utwórz wystąpienie [klienta obliczeniowego platformy Azure dla języka Python](https://docs.microsoft.com/python/api/azure-mgmt-compute/azure.mgmt.compute.computemanagementclient).
+Aby współpracować z maszynami wirtualnymi platformy Azure, Utwórz wystąpienie [klienta obliczeniowego platformy Azure dla języka Python](/python/api/azure-mgmt-compute/azure.mgmt.compute.computemanagementclient).
 
 Użyj klienta obliczeniowego, aby uruchomić maszynę wirtualną. Dodaj następujący kod do elementu Runbook:
 

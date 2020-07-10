@@ -8,20 +8,20 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: sample
-ms.date: 01/14/2020
+ms.date: 07/09/2020
 ms.author: iainfou
-ms.openlocfilehash: d826a40073d243193f87d90ab80333b491a203b2
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: 9a9518eb4c8635275b9cbf0467f3091eca10f647
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84734219"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223010"
 ---
 # <a name="create-an-azure-active-directory-domain-services-managed-domain-using-an-azure-resource-manager-template"></a>Tworzenie Azure Active Directory Domain Services domeny zarządzanej przy użyciu szablonu Azure Resource Manager
 
 Azure Active Directory Domain Services (AD DS platformy Azure) oferuje zarządzane usługi domenowe, takie jak przyłączanie do domeny, zasady grupy, protokół LDAP, uwierzytelnianie Kerberos/NTLM, które jest w pełni zgodne z systemem Windows Server Active Directory. Te usługi domenowe są używane bez konieczności samodzielnego wdrażania kontrolerów domeny i zarządzania nimi. Platforma Azure AD DS integruje się z istniejącą dzierżawą usługi Azure AD. Ta Integracja umożliwia użytkownikom logowanie się przy użyciu poświadczeń firmowych, a także umożliwia korzystanie z istniejących grup i kont użytkowników w celu zabezpieczenia dostępu do zasobów.
 
-W tym artykule przedstawiono sposób włączania usługi Azure AD DS przy użyciu szablonu Azure Resource Manager. Obsługa zasobów jest tworzona przy użyciu Azure PowerShell.
+W tym artykule przedstawiono sposób tworzenia domeny zarządzanej przy użyciu szablonu Azure Resource Manager. Obsługa zasobów jest tworzona przy użyciu Azure PowerShell.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -51,7 +51,7 @@ Podczas tworzenia domeny zarządzanej AD DS platformy Azure należy określić n
 >
 > Może być konieczne utworzenie dodatkowych rekordów DNS dla innych usług w środowisku lub warunkowych usług przesyłania dalej DNS między istniejącymi spacjami nazw DNS w danym środowisku. Jeśli na przykład uruchomisz serwer sieci Web, który hostuje lokację przy użyciu nazwy głównej DNS, mogą wystąpić konflikty nazw, które wymagają dodatkowych wpisów DNS.
 >
-> W tych samouczkach i artykułach z przewodnikiem jest używana jako krótki przykład domeny niestandardowej *aaddscontoso.com* . We wszystkich poleceniach należy określić własną nazwę domeny.
+> W tym przykładzie oraz z artykułami z artykułu, niestandardowa domena *aaddscontoso.com* jest używana jako krótki przykład. We wszystkich poleceniach należy określić własną nazwę domeny.
 
 Obowiązują również następujące ograniczenia nazw DNS:
 
@@ -88,7 +88,7 @@ New-AzureADGroup -DisplayName "AAD DC Administrators" `
 
 Po utworzeniu grupy *administratorów kontrolera domeny usługi AAD* Dodaj użytkownika do grupy przy użyciu polecenia cmdlet [Add-AzureADGroupMember][Add-AzureADGroupMember] . Najpierw uzyskasz identyfikator obiektu grupy *administratorów kontrolera domeny usługi AAD* za pomocą polecenia cmdlet [Get-AzureADGroup][Get-AzureADGroup] , a następnie identyfikator obiektu żądanego użytkownika przy użyciu polecenia cmdlet [Get-AzureADUser][Get-AzureADUser] .
 
-W poniższym przykładzie identyfikator obiektu użytkownika dla konta z nazwą UPN `admin@aaddscontoso.onmicrosoft.com` . Zastąp to konto użytkownika nazwą UPN użytkownika, który chcesz dodać do grupy *administratorów kontrolera domeny usługi AAD* :
+W poniższym przykładzie identyfikator obiektu użytkownika dla konta z nazwą UPN `admin@contoso.onmicrosoft.com` . Zastąp to konto użytkownika nazwą UPN użytkownika, który chcesz dodać do grupy *administratorów kontrolera domeny usługi AAD* :
 
 ```powershell
 # First, retrieve the object ID of the newly created 'AAD DC Administrators' group.
@@ -98,7 +98,7 @@ $GroupObjectId = Get-AzureADGroup `
 
 # Now, retrieve the object ID of the user you'd like to add to the group.
 $UserObjectId = Get-AzureADUser `
-  -Filter "UserPrincipalName eq 'admin@aaddscontoso.onmicrosoft.com'" | `
+  -Filter "UserPrincipalName eq 'admin@contoso.onmicrosoft.com'" | `
   Select-Object ObjectId
 
 # Add the user to the 'AAD DC Administrators' group.
@@ -124,9 +124,9 @@ W ramach definicji zasobu Menedżer zasobów wymagane są następujące parametr
 | Parametr               | Wartość |
 |-------------------------|---------|
 | domainName              | Nazwa domeny DNS dla domeny zarządzanej, biorąc pod uwagę poprzednie kwestie dotyczące prefiksów nazw i konfliktów. |
-| filteredSync            | Usługa Azure AD DS pozwala synchronizować *wszystkich* użytkowników i grupy dostępne w usłudze Azure AD albo synchronizację z *zakresem* tylko określonych grup. W przypadku wybrania opcji synchronizowanie wszystkich użytkowników i grup nie można później przeprowadzić synchronizacji z zakresem.<br /> Aby uzyskać więcej informacji na temat synchronizacji z zakresem, zobacz [Azure AD Domain Services synchronizacji w zakresie][scoped-sync].|
-| notificationSettings    | W przypadku wygenerowania alertów w domenie zarządzanej powiadomienia e-mail mogą być wysyłane. <br />*Administratorzy globalni* dzierżawy platformy Azure i członkowie grupy *Administratorzy usługi AAD* mogą *włączyć* te powiadomienia.<br /> W razie potrzeby można dodać kolejnych adresatów dla powiadomień, gdy istnieją alerty wymagające uwagi.|
-| domainConfigurationType | Domyślnie domena zarządzana jest tworzona jako Las *użytkownika* . Ten typ lasu służy do synchronizowania wszystkich obiektów z usługi Azure AD, w tym wszystkich kont użytkowników utworzonych w środowisku lokalnym AD DS. Nie musisz określać wartości *atrybutem domainconfiguration* , aby utworzyć Las użytkownika.<br /> Las *zasobów* synchronizuje tylko użytkowników i grupy utworzone bezpośrednio w usłudze Azure AD. Lasy zasobów są obecnie w wersji zapoznawczej. Ustaw wartość *ResourceTrusting* , aby utworzyć Las zasobów.<br />Aby uzyskać więcej informacji o lasach *zasobów* , w tym o tym, dlaczego można korzystać z jednej z nich i jak utworzyć relacje zaufania lasów z lokalnymi domenami AD DS, zobacz [Omówienie lasów zasobów platformy Azure AD DS][resource-forests].|
+| filteredSync            | Usługa Azure AD DS pozwala synchronizować *wszystkich* użytkowników i grupy dostępne w usłudze Azure AD albo synchronizację z *zakresem* tylko określonych grup.<br /><br /> Aby uzyskać więcej informacji na temat synchronizacji z zakresem, zobacz [Azure AD Domain Services synchronizacji w zakresie][scoped-sync].|
+| notificationSettings    | W przypadku wygenerowania alertów w domenie zarządzanej powiadomienia e-mail mogą być wysyłane. <br /><br />*Administratorzy globalni* dzierżawy platformy Azure i członkowie grupy *Administratorzy usługi AAD* mogą *włączyć* te powiadomienia.<br /><br /> W razie potrzeby można dodać kolejnych adresatów dla powiadomień, gdy istnieją alerty wymagające uwagi.|
+| domainConfigurationType | Domyślnie domena zarządzana jest tworzona jako Las *użytkownika* . Ten typ lasu służy do synchronizowania wszystkich obiektów z usługi Azure AD, w tym wszystkich kont użytkowników utworzonych w środowisku lokalnym AD DS. Nie musisz określać wartości *atrybutem domainconfiguration* , aby utworzyć Las użytkownika.<br /><br /> Las *zasobów* synchronizuje tylko użytkowników i grupy utworzone bezpośrednio w usłudze Azure AD. Lasy zasobów są obecnie w wersji zapoznawczej. Ustaw wartość *ResourceTrusting* , aby utworzyć Las zasobów.<br /><br />Aby uzyskać więcej informacji o lasach *zasobów* , w tym o tym, dlaczego można korzystać z jednej z nich i jak utworzyć relacje zaufania lasów z lokalnymi domenami AD DS, zobacz [Omówienie lasów zasobów platformy Azure AD DS][resource-forests].|
 
 Następująca skrócona Definicja parametrów pokazuje, jak te wartości są zadeklarowane. Las użytkownika o nazwie *aaddscontoso.com* jest tworzony dla wszystkich użytkowników z usługi Azure AD zsynchronizowanych z domeną zarządzaną:
 
@@ -331,7 +331,7 @@ Gdy Azure Portal pokazuje, że domena zarządzana zakończyła Inicjowanie obsł
 
 * Zaktualizuj ustawienia DNS dla sieci wirtualnej, aby maszyny wirtualne mogły znaleźć domenę zarządzaną do przyłączania do domeny lub uwierzytelniania.
     * Aby skonfigurować serwer DNS, wybierz domenę zarządzaną w portalu. W oknie **Przegląd** zostanie wyświetlony monit o automatyczne skonfigurowanie tych ustawień DNS.
-* [Włącz synchronizację haseł w Azure AD Domain Services](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds) , aby użytkownicy końcowi mogli logować się do domeny zarządzanej przy użyciu swoich poświadczeń firmowych.
+* [Włącz synchronizację haseł w usłudze Azure AD DS](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds) , aby użytkownicy końcowi mogli logować się do domeny zarządzanej przy użyciu swoich poświadczeń firmowych.
 
 ## <a name="next-steps"></a>Następne kroki
 

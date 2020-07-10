@@ -11,14 +11,14 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 03/22/2019
+ms.date: 07/09/2020
 ms.author: juliako
-ms.openlocfilehash: 4e40d26e392219fb751328bc54855d87e80bae19
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 3c75c5074e8c75a7b2d5b7f141d5104c5cb59726
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80345993"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207574"
 ---
 # <a name="tutorial-upload-encode-and-stream-videos-with-media-services-v3"></a>Samouczek: przekazywanie, kodowanie i przesyłanie strumieniowe filmów wideo z Media Services v3
 
@@ -36,13 +36,13 @@ Ten samouczek przedstawia sposób wykonania następujących czynności:
 > * Przejrzyj kod, który przekazuje, koduje i przesyła strumieniowo.
 > * Uruchom aplikację.
 > * Przetestuj adres URL przesyłania strumieniowego.
-> * Oczyszczenie zasobów.
+> * Wyczyść zasoby.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Jeśli nie masz zainstalowanego programu Visual Studio, możesz uzyskać [program Visual Studio Community 2017](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15).
+- Jeśli nie masz zainstalowanego programu Visual Studio, możesz uzyskać [program Visual Studio Community 2019](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15).
 - [Utwórz konto Media Services](create-account-cli-how-to.md).<br/>Koniecznie zapamiętaj wartości, które zostały użyte jako nazwa grupy zasobów i nazwa konta usługi Media Services.
 - Postępuj zgodnie z instrukcjami zawartymi w temacie [Access Azure Media Services API with the Azure CLI](access-api-cli-how-to.md) (Uzyskiwanie dostępu do interfejsu API usług Azure Media Services za pomocą interfejsu wiersza polecenia platformy Azure) i zapisz poświadczenia. Musisz użyć ich do uzyskania dostępu do interfejsu API.
 
@@ -56,7 +56,7 @@ Sklonuj repozytorium GitHub, które ma przykład platformy .NET przesyłania str
 
 Przykład znajduje się w folderze [UploadEncodeAndStreamFiles](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/tree/master/AMSV3Tutorials/UploadEncodeAndStreamFiles).
 
-Otwórz plik [appSettings. JSON](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/appsettings.json) w pobranym projekcie. Zastąp wartości przy użyciu poświadczeń uzyskanych w sekcji z opisem [uzyskiwania dostępu do interfejsów API](access-api-cli-how-to.md).
+Otwórz [appsettings.js](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/appsettings.json) w pobranym projekcie. Zastąp wartości przy użyciu poświadczeń uzyskanych w sekcji z opisem [uzyskiwania dostępu do interfejsów API](access-api-cli-how-to.md).
 
 ## <a name="examine-the-code-that-uploads-encodes-and-streams"></a>Sprawdzanie kodu operacji przekazywania, kodowania i odtwarzania strumieniowego
 
@@ -104,7 +104,7 @@ Wyjściowy element [zawartości](https://docs.microsoft.com/rest/api/media/asset
 
 Podczas kodowania lub przetwarzania zawartości w Media Services jest to typowy wzorzec służący do konfigurowania ustawień kodowania jako przepisu. Następnie przesyła się **zadanie** w celu zastosowania tego przepisu do wideo. Przesyłając nowe zadania dla każdego nowego filmu wideo, stosujesz ten przepis do wszystkich filmów wideo w bibliotece. Przepis w Media Services jest nazywany **przekształceniem**. Aby uzyskać więcej informacji, zobacz [Przekształcenia i zadania](transform-concept.md). Przykład opisany w tym samouczku definiuje przepis, który umożliwia kodowanie wideo w celu jego przesyłania strumieniowego do różnych urządzeń z systemami iOS i Android.
 
-#### <a name="transform"></a>Przekształcanie
+#### <a name="transform"></a>Przekształcenie
 
 Podczas tworzenia nowego wystąpienia obiektu [Transform](https://docs.microsoft.com/rest/api/media/transforms) należy określić, jakie dane wyjściowe ma ono tworzyć. Wymagany parametr to obiekt **TransformOutput**, jak pokazano w poniższym kodzie. Każdy obiekt **TransformOutput** zawiera element **Preset**. Element **Preset** zawiera szczegółowe instrukcje operacji przetwarzania wideo i/lub dźwięku używanych do wygenerowania wymaganego obiektu **TransformOutput**. Przykład opisany w tym artykule używa wbudowanego elementu Preset o nazwie **AdaptiveStreaming**. Element Preset umożliwia kodowanie wejściowego wideo do automatycznie generowanej drabiny szybkości transmisji bitów (zestawu par „szybkość transmisji bitów-rozdzielczość”) na podstawie rozdzielczości wejściowej i szybkości transmisji bitów oraz tworzenie plików MP4 zgodnych ze standardem ISO, które zawierają wideo w formacie H.264 i dźwięk w formacie AAC, dla każdej pary „szybkość transmisji bitów-rozdzielczość”. Aby dowiedzieć się więcej na temat elementu Preset, zobacz informacje o [automatycznie generowanej drabinie szybkości transmisji bitów](autogen-bitrate-ladder.md).
 
@@ -164,7 +164,7 @@ Teraz, po utworzeniu [lokalizatora przesyłania strumieniowego](https://docs.mic
 
 ### <a name="clean-up-resources-in-your-media-services-account"></a>Oczyszczanie zasobów na koncie usługi Media Services
 
-Ogólnie rzecz biorąc, należy wyczyścić wszystko z wyjątkiem obiektów, które są planowane do ponownego użycia (zazwyczaj spowoduje to ponowne użycie przekształceń i StreamingLocators itp.). Jeśli chcesz, aby Twoje konto było czyste po eksperymentie, Usuń zasoby, których nie planujesz ponownie używać. Na przykład poniższy kod usuwa zadania:
+Ogólnie rzecz biorąc, należy wyczyścić wszystko z wyjątkiem obiektów, które są planowane do ponownego użycia (zazwyczaj spowoduje to ponowne użycie przekształceń i StreamingLocators itp.). Jeśli chcesz, aby Twoje konto było czyste po eksperymentie, Usuń zasoby, których nie planujesz ponownie używać. Na przykład poniższy kod usuwa zadanie, utworzone zasoby i zasady klucza zawartości:
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#CleanUp)]
 
@@ -184,13 +184,13 @@ W tym artykule strumień jest testowany za pomocą odtwarzacza Azure Media Playe
 > [!NOTE]
 > Jeśli odtwarzacz jest hostowany w witrynie korzystającej z protokołu HTTPS, zmień adres URL tak, aby zawierał ciąg „https”.
 
-1. Otwórz przeglądarkę internetową i przejdź do [https://aka.ms/azuremediaplayer/](https://aka.ms/azuremediaplayer/).
+1. Otwórz przeglądarkę internetową i przejdź do [https://aka.ms/azuremediaplayer/](https://aka.ms/azuremediaplayer/) .
 2. W polu **adres URL** , wklej jeden z wartości adresu URL przesyłania strumieniowego uzyskanych podczas uruchamiania aplikacji.
 3. Wybierz pozycję **Aktualizuj odtwarzacz**.
 
 Azure Media Player może służyć do testowania, ale nie powinien być używany w środowisku produkcyjnym.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli nie są już potrzebne żadne zasoby w grupie zasobów, w tym konto usługi Media Services i konta magazynu utworzone w ramach tego samouczka, usuń grupę zasobów utworzoną wcześniej.
 

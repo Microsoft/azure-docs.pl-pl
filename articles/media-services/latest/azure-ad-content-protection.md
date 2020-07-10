@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 07/1/2020
 ms.author: inhenkel
-ms.openlocfilehash: 92b3489113aff9d48940131c80df00aedcf45325
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 2dbd75748d30a67c22ac729a8a2130a2d43aef9b
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 07/09/2020
-ms.locfileid: "86172813"
+ms.locfileid: "86205164"
 ---
 # <a name="tutorial-end-to-end-content-protection-using-azure-ad"></a>Samouczek: Kompleksowa ochrona zawartości przy użyciu usługi Azure AD
 
@@ -120,18 +120,17 @@ Aplikacja odtwarzacz SPA wykonuje następujące czynności:
 * Odszyfrowywanie, dekodowanie i wyświetlanie.
 * Microsoft Graph wywołań interfejsu API w celu rozwiązywania problemów. <!--See more details in the subsection Shortest path: testing my protected asset in my subscription with your hosted player app and underlying tenant. -->
 
-<!--
-The screen for sign-in, token acquisition, token renewal, and token display:
+Ekran logowania, pozyskiwania tokenów, odnawiania tokenów i wyświetlania tokenów:
 
- ![Screen for sign in, token acquisition, token renewal, and token display](media/aad-ams-content-protection/token-acquisition2.png)
+ ![Ekran logowania, pozyskiwania tokenów, odnawiania tokenów i wyświetlania tokenów](media/aad-ams-content-protection/token-acquisition.png)
 
-The screen for parsing JWT tokens (access_token or id_token):
+Ekran służący do analizowania tokenów JWT (access_token lub id_token):
 
-![screen for parsing JWT tokens](media/aad-ams-content-protection/parsing-jwt-tokens2.png)
+![ekran służący do analizowania tokenów JWT](media/aad-ams-content-protection/parsing-jwt-tokens.png)
 
-The screen for testing protected content with different combinations of DRM/AES vs Streaming Protocols vs Container Format:
+Ekran służący do testowania zawartości chronionej przy użyciu różnych kombinacji protokołów DRM/AES vs streaming i format kontenera:
 
-![screen for parsing JWT tokens](media/aad-ams-content-protection/testing-protected-content2.png)
+![ekran służący do analizowania tokenów JWT](media/aad-ams-content-protection/testing-protected-content.png)
 -->
 
 <!-- You can see a hosted version of the sample at [https://aka.ms/ott](https://aka.ms/ott)-->
@@ -342,7 +341,7 @@ if (tokenClaims != null && tokenClaims.Length > 0)
 
 Deklaracja *grup* jest członkiem [ograniczonego zestawu roszczeń](https://docs.microsoft.com/azure/active-directory/develop/active-directory-claims-mapping#claim-sets) w usłudze Azure AD.
 
-#### <a name="test"></a>Testowanie
+#### <a name="test"></a>Test
 
 1. Zaloguj się przy użyciu konta *premium_user* . Powinno być możliwe odtwarzanie chronionej zawartości.
 1. Zaloguj się przy użyciu konta *basic_user* . Powinien zostać wyświetlony komunikat o błędzie informujący, że wideo jest zaszyfrowane, ale nie ma klucza do odszyfrowania. Jeśli wyświetlasz zdarzenia, błędy i pliki do pobrania przy użyciu listy rozwijanej u dołu nakładki diagnostyki odtwarzacza, komunikat o błędzie powinien wskazywać niepowodzenie pozyskiwania licencji ze względu na brakującą wartość żądania dla grup w tokenie JWT wystawionym przez punkt końcowy tokenu usługi Azure AD.

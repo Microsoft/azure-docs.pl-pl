@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: faad1f812fc5c2cde6847a5208ee4b385f28ab3e
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: 9c07db575827254de833fc0b2390be823ebc4e57
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85391931"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206564"
 ---
 # <a name="build-out-an-end-to-end-solution"></a>Tworzenie kompleksowego rozwiązania
 
@@ -120,7 +120,7 @@ W *aplikacja funkcji (Windows) — Utwórz nowe* okno, wypełnij pola w następu
 
 :::image type="content" source="media/tutorial-end-to-end/publish-azure-function-4.png" alt-text="Publikowanie funkcji platformy Azure w programie Visual Studio: aplikacja funkcji (Windows) — Tworzenie nowego":::
 
-Następnie wybierz pozycję **Utwórz**.
+Następnie wybierz przycisk **Utwórz**.
 
 Powinno to spowodować powrót do strony *wystąpienia funkcji* , gdzie Nowa aplikacja funkcji jest teraz widoczna poniżej grupy zasobów. *Koniec*trafień.
 
@@ -205,8 +205,9 @@ Spowoduje to wyświetlenie strony *Tworzenie subskrypcji zdarzeń* .
 
 :::image type="content" source="media/tutorial-end-to-end/event-subscription-2.png" alt-text="Azure Portal: Utwórz subskrypcję zdarzeń":::
 
-Wypełnij pola w następujący sposób:
+Wypełnij pola w następujący sposób (pola wypełnione domyślnie nie są wymienione):
 * *szczegóły*  >  subskrypcji zdarzeń **Nazwa**: nadaj nazwę subskrypcji zdarzenia.
+* *Szczegóły tematu*  >  **Nazwa tematu systemu**: Podaj nazwę dla tematu systemowego. 
 * *typy zdarzeń*  >  **Filtruj do typów zdarzeń**: wybierz pozycję *Telemetria urządzenia* z opcji menu.
 * *szczegóły*  >  punktu końcowego **Typ punktu końcowego**: wybierz pozycję *Funkcja platformy Azure* z opcji menu.
 * *szczegóły*  >  punktu końcowego **Punkt końcowy**: naciśnij link *Wybierz punkt końcowy* . Spowoduje to otwarcie okna *Wybieranie funkcji platformy Azure* : :::image type="content" source="media/tutorial-end-to-end/event-subscription-3.png" alt-text="Azure Portal subskrypcji zdarzeń: wybierz funkcję platformy Azure" border="false":::
@@ -361,11 +362,9 @@ W [Azure Portal](https://portal.azure.com/)przejdź do tematu usługi Event Grid
 
 :::image type="content" source="media/tutorial-end-to-end/event-subscription-1b.png" alt-text="Azure Portal: Event Grid subskrypcji zdarzeń":::
 
-Kroki tworzenia tej subskrypcji zdarzeń są podobne do zasubskrybowania pierwszej funkcji platformy Azure w celu IoT Hub wcześniejszej części tego samouczka. Różnica polega na tym, że nie trzeba określać danych *telemetrycznych urządzenia* jako typu zdarzenia do nasłuchiwania i nawiązać połączenie z inną funkcją platformy Azure.
+Kroki tworzenia tej subskrypcji zdarzeń są podobne do zasubskrybowania pierwszej funkcji platformy Azure w celu IoT Hub wcześniejszej części tego samouczka. Tym razem nie musisz określać danych *telemetrycznych urządzenia* jako typu zdarzenia do nasłuchiwania i nawiązać połączenie z inną funkcją platformy Azure.
 
-Poniżej przedstawiono następujące kroki subskrypcji:
-
-Na stronie *Tworzenie subskrypcji zdarzeń* Wypełnij pola w następujący sposób:
+Na stronie *Tworzenie subskrypcji zdarzeń* Wypełnij pola w następujący sposób (pola wypełnione domyślnie nie są wymienione):
 * *szczegóły*  >  subskrypcji zdarzeń **Nazwa**: nadaj nazwę subskrypcji zdarzenia.
 * *szczegóły*  >  punktu końcowego **Typ punktu końcowego**: wybierz pozycję *Funkcja platformy Azure* z opcji menu.
 * *szczegóły*  >  punktu końcowego **Punkt końcowy**: naciśnij link *Wybierz punkt końcowy* . Spowoduje to otwarcie okna *Wybierz funkcję platformy Azure* :
@@ -408,7 +407,7 @@ Oto przegląd scenariusza, który został utworzony w tym samouczku.
 
 :::image type="content" source="media/tutorial-end-to-end/building-scenario.png" alt-text="Ilustracja przedstawiająca pełny scenariusz tworzenia. Przedstawia dane przepływające z urządzenia do IoT Hub za pośrednictwem funkcji platformy Azure (strzałka B) do wystąpienia usługi Azure Digital bliźniaczych reprezentacji (sekcja A), a następnie za pośrednictwem Event Grid do innej funkcji platformy Azure do przetworzenia (strzałka C)":::
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli zasoby utworzone w tym samouczku nie są już potrzebne, wykonaj następujące kroki, aby je usunąć. 
 

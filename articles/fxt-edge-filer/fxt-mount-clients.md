@@ -6,12 +6,12 @@ ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 06/20/2019
 ms.author: rohogue
-ms.openlocfilehash: 43223db298e4ad170ea6d0687a342b3aee35500e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: ea963b143cedf36137d9c36bc57d323353da6786
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80130766"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86231356"
 ---
 # <a name="tutorial-mount-the-cluster"></a>Samouczek: Instalowanie klastra
 
@@ -93,14 +93,14 @@ Aby zapewnić bezproblemowe Instalowanie klienta, należy przekazać te ustawien
 
 ``mount -o hard,nointr,proto=tcp,mountproto=tcp,retry=30 ${VSERVER_IP_ADDRESS}:/${NAMESPACE_PATH} ${LOCAL_FILESYSTEM_MOUNT_POINT}``
 
-| Wymagane ustawienia | |
+| Wymagane ustawienia | Opis |
 --- | ---
 ``hard`` | Instalacje miękkie do klastra usługi Azure FXT Edge są skojarzone z niepowodzeńmi aplikacji i możliwymi utratą danych.
 ``proto=netid`` | Ta opcja obsługuje odpowiednią obsługę błędów sieci NFS.
 ``mountproto=netid`` | Ta opcja obsługuje odpowiednią obsługę błędów sieci dla operacji instalacji.
 ``retry=n`` | Ustaw ``retry=30`` , aby uniknąć błędów instalacji przejściowej. (W instalacjach na pierwszym planie zalecana jest inna wartość).
 
-| Ustawienia preferowane  | |
+| Ustawienia preferowane  | Opis |
 --- | ---
 ``nointr``            | Jeśli klienci korzystają ze starszych jądra systemu operacyjnego (przed 2008 kwietnia), które obsługują tę opcję, użyj go. Opcja "intr" jest domyślna.
 

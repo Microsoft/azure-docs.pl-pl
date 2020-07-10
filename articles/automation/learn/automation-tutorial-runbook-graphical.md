@@ -6,18 +6,18 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/19/2020
 ms.topic: tutorial
-ms.openlocfilehash: 3cd5db3736d5eda88e7cad7bda1966efb2b00977
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 53031efa831f788fe0fe58146496b427f4cfb4db
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744740"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185538"
 ---
 # <a name="tutorial-create-a-graphical-runbook"></a>Samouczek: Tworzenie graficznego elementu Runbook
 
 Ten samouczek przeprowadzi Cię przez proces tworzenia [graficznego elementu Runbook](../automation-runbook-types.md#graphical-runbooks) w usłudze Azure Automation. Możesz tworzyć i edytować graficzne i graficzne elementy Runbook przepływu pracy programu PowerShell przy użyciu edytora graficznego w Azure Portal. 
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Tworzenie prostego graficznego elementu Runbook
@@ -30,7 +30,7 @@ Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 Do wykonania kroków tego samouczka niezbędne są następujące elementy:
 
 * Subskrypcja platformy Azure. Jeśli nie masz subskrypcji, możesz [aktywować korzyści dla subskrybentów MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) lub utworzyć [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* [Konto usługi Automation](../automation-offering-get-started.md) do przechowywania elementu Runbook i uwierzytelniania w zasobach platformy Azure. To konto musi mieć uprawnienia do uruchamiania i zatrzymywania maszyny wirtualnej.
+* [Konto usługi Automation](../index.yml) do przechowywania elementu Runbook i uwierzytelniania w zasobach platformy Azure. To konto musi mieć uprawnienia do uruchamiania i zatrzymywania maszyny wirtualnej.
 * Maszyna wirtualna platformy Azure. Ponieważ zatrzymujesz i uruchamiasz tę maszynę, nie powinna ona być produkcyjną maszyną wirtualną.
 
 ## <a name="step-1---create-runbook"></a>Krok 1. Tworzenie elementu runbook
@@ -146,7 +146,7 @@ Element Runbook został przetestowany i opublikowany, ale dotąd nie jest to prz
 
 ## <a name="step-6---add-authentication"></a>Krok 6. Dodawanie uwierzytelniania
 
-Teraz, gdy masz zmienną do przechowywania identyfikatora subskrypcji, możesz skonfigurować element Runbook do uwierzytelniania przy użyciu poświadczeń Uruchom jako dla subskrypcji. W tym celu Dodaj jako element zawartości połączenie Uruchom jako platformy Azure. Należy również dodać polecenie cmdlet [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/Connect-AzAccount?view=azps-3.5.0) i polecenie cmdlet [Set-AzContext](https://docs.microsoft.com/powershell/module/az.accounts/Set-AzContext?view=azps-3.5.0) do kanwy.
+Teraz, gdy masz zmienną do przechowywania identyfikatora subskrypcji, możesz skonfigurować element Runbook do uwierzytelniania przy użyciu poświadczeń Uruchom jako dla subskrypcji. W tym celu Dodaj jako element zawartości połączenie Uruchom jako platformy Azure. Należy również dodać polecenie cmdlet [Connect-AzAccount](/powershell/module/az.accounts/Connect-AzAccount?view=azps-3.5.0) i polecenie cmdlet [Set-AzContext](/powershell/module/az.accounts/Set-AzContext?view=azps-3.5.0) do kanwy.
 
 >[!NOTE]
 >Dla elementów Runbook programu PowerShell `Add-AzAccount` i `Add-AzureRMAccount` są to aliasy dla `Connect-AzAccount` . Należy zauważyć, że te aliasy nie są dostępne dla graficznych elementów Runbook. Graficzny element Runbook może korzystać tylko z `Connect-AzAccount` siebie.
@@ -213,7 +213,7 @@ Teraz, gdy masz zmienną do przechowywania identyfikatora subskrypcji, możesz s
 
 ## <a name="step-7---add-activity-to-start-a-virtual-machine"></a>Krok 7. Dodawanie działania w celu uruchomienia maszyny wirtualnej
 
-Teraz musisz dodać działanie, `Start-AzVM` Aby uruchomić maszynę wirtualną. Możesz wybrać dowolną maszynę wirtualną w ramach subskrypcji platformy Azure, a teraz zakodowana jej nazwę w poleceniu cmdlet [Start-AzVM](https://docs.microsoft.com/powershell/module/az.compute/start-azvm?view=azps-3.5.0) .
+Teraz musisz dodać działanie, `Start-AzVM` Aby uruchomić maszynę wirtualną. Możesz wybrać dowolną maszynę wirtualną w ramach subskrypcji platformy Azure, a teraz zakodowana jej nazwę w poleceniu cmdlet [Start-AzVM](/powershell/module/az.compute/start-azvm?view=azps-3.5.0) .
 
 1. W kontrolce Biblioteka wpisz `Start-Az` w polu wyszukiwania.
 
@@ -270,7 +270,7 @@ Element Runbook aktualnie uruchamia maszynę wirtualną w grupie zasobów okreś
 
 ## <a name="step-9---create-a-conditional-link"></a>Krok 9. Tworzenie połączenia warunkowego
 
-Teraz można zmodyfikować element Runbook, aby próbował uruchomić maszynę wirtualną, jeśli nie została jeszcze uruchomiona. W tym celu dodaj polecenie cmdlet [Get-AzVM](https://docs.microsoft.com/powershell/module/Az.Compute/Get-AzVM?view=azps-3.5.0) , które pobiera stan wystąpienia maszyny wirtualnej. Następnie można dodać moduł kodu przepływu pracy programu PowerShell o nazwie `Get Status` z fragmentem kodu programu PowerShell, aby określić, czy stan maszyny wirtualnej jest uruchomiony lub zatrzymany. Łącze warunkowe z `Get Status` modułu działa tylko `Start-AzVM` wtedy, gdy bieżący stan uruchomienia jest zatrzymany. Po zakończeniu tej procedury element Runbook używa `Write-Output` polecenia cmdlet do wyprowadzania komunikatu, aby poinformować użytkownika o tym, czy maszyna wirtualna została pomyślnie uruchomiona.
+Teraz można zmodyfikować element Runbook, aby próbował uruchomić maszynę wirtualną, jeśli nie została jeszcze uruchomiona. W tym celu dodaj polecenie cmdlet [Get-AzVM](/powershell/module/Az.Compute/Get-AzVM?view=azps-3.5.0) , które pobiera stan wystąpienia maszyny wirtualnej. Następnie można dodać moduł kodu przepływu pracy programu PowerShell o nazwie `Get Status` z fragmentem kodu programu PowerShell, aby określić, czy stan maszyny wirtualnej jest uruchomiony lub zatrzymany. Łącze warunkowe z `Get Status` modułu działa tylko `Start-AzVM` wtedy, gdy bieżący stan uruchomienia jest zatrzymany. Po zakończeniu tej procedury element Runbook używa `Write-Output` polecenia cmdlet do wyprowadzania komunikatu, aby poinformować użytkownika o tym, czy maszyna wirtualna została pomyślnie uruchomiona.
 
 1. Otwórz **MyFirstRunbook-graficznej** w edytorze graficznym.
 
@@ -354,5 +354,4 @@ Teraz można zmodyfikować element Runbook, aby próbował uruchomić maszynę w
 * Aby dowiedzieć się więcej o tworzeniu graficznym, zobacz [Tworzenie graficznego elementu Runbook w Azure Automation](../automation-graphical-authoring-intro.md).
 * Aby rozpocząć pracę z elementami Runbook programu PowerShell, zobacz [Tworzenie elementu Runbook programu PowerShell](automation-tutorial-runbook-textual-powershell.md).
 * Aby rozpocząć pracę z elementami Runbook przepływu pracy programu PowerShell, zobacz temat [Tworzenie elementu Runbook przepływu pracy programu PowerShell](automation-tutorial-runbook-textual.md).
-* Aby uzyskać informacje dotyczące poleceń cmdlet programu PowerShell, zobacz [AZ. Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
-).
+* Aby uzyskać informacje dotyczące poleceń cmdlet programu PowerShell, zobacz [AZ. Automation](/powershell/module/az.automation/?view=azps-3.7.0#automation).

@@ -1,5 +1,5 @@
 ---
-title: Przykładowe potoki projektanta & zestawy danych
+title: Przykładowe potoki & zestawy danych dla projektanta (wersja zapoznawcza)
 titleSuffix: Azure Machine Learning
 description: Użyj przykładów w programie Azure Machine Learning Designer, aby przeskakuje i uruchamiać potoki uczenia maszynowego.
 services: machine-learning
@@ -10,20 +10,20 @@ author: peterclu
 ms.author: peterlu
 ms.date: 03/29/2020
 ms.custom: designer
-ms.openlocfilehash: e40c49cdcaae6fa84a72c645f5fea4bac99ee03f
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: d2ed9a605b19287c2ea693187c445dc8a4b3b932
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83654551"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206328"
 ---
-# <a name="example-pipelines--datasets-for-azure-machine-learning-designer"></a>Przykładowe potoki & zestawy danych dla projektanta Azure Machine Learning
+# <a name="example-pipelines--datasets-for-azure-machine-learning-designer-preview"></a>Przykładowe potoki & zestawy danych dla programu Azure Machine Learning Designer (wersja zapoznawcza)
 
 Skorzystaj z wbudowanych przykładów w programie Azure Machine Learning Designer, aby szybko rozpocząć tworzenie własnych potoków uczenia maszynowego. [Repozytorium usługi GitHub](https://github.com/Azure/MachineLearningDesigner) Azure Machine Learning Designer zawiera szczegółową dokumentację ułatwiającą zrozumienie niektórych typowych scenariuszy uczenia maszynowego.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, Utwórz [bezpłatne konto](https://aka.ms/AMLFree).
+* Subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://aka.ms/AMLFree).
 * Azure Machine Learning obszar roboczy z jednostką SKU przedsiębiorstwa.
 
 ## <a name="use-sample-pipelines"></a>Użyj potoków przykładowych
@@ -111,7 +111,7 @@ Przykładowe zestawy danych są dostępne w kategorii **przykłady zestawów dan
 |Dane cen samochodów (RAW)|Informacje na temat samochodów i modeli, w tym Cena, funkcje, takie jak liczba cylindrów i MPG, oraz Ocena ryzyka dla ubezpieczenia.<br/> Ocena ryzyka jest początkowo skojarzona z funkcją autoprice. Następnie jest dostosowywany do rzeczywistego ryzyka w procesie znanym jako symbol aktuarialny. Wartość + 3 wskazuje, że jest to ryzykowne i wartość-3, która prawdopodobnie jest bezpieczna.<br/>**Użycie**: </b> przewidywanie oceny ryzyka według funkcji przy użyciu regresji lub klasyfikacji wieloczynnikowa.<br/>**Powiązane badania**: </b> Schlimmer, J.C. (1987). [Machine Learning — repozytorium](https://archive.ics.uci.edu/ml). Irvine, CA: University of Kalifornii, szkolna informacja i nauka komputera. |
 | Udostępnione etykiety programu CRM pragnienie |Etykiety z wyzwania KDD 2009 ([orange_small_train_appetency. labels](http://www.sigkdd.org/site/2009/files/orange_small_train_appetency.labels)) z przewidywania relacji klientów.|
 |Udostępnione etykiety zmian CRM|Etykiety z wyzwania KDD 2009 ([orange_small_train_churn. labels](http://www.sigkdd.org/site/2009/files/orange_small_train_churn.labels)) z przewidywania relacji klientów.|
-|Udostępniony zestaw danych programu CRM | Te dane pochodzą z wyzwania KDD 2009 ([orange_small_train. Data. zip](http://www.sigkdd.org/site/2009/files/orange_small_train.data.zip)). <br/>Zestaw danych zawiera klientów 50 000 z niemieckiej firmy telekomunikacyjnej pomarańczowa. Każdy klient ma 230 funkcje anonimowe, 190, które są liczbowe i 40 są kategorii. Funkcje są bardzo rozrzedzone. |
+|Udostępniony zestaw danych programu CRM | Te dane pochodzą z wyzwania KDD 2009 ([orange_small_train.data.zip](http://www.sigkdd.org/site/2009/files/orange_small_train.data.zip)). <br/>Zestaw danych zawiera klientów 50 000 z niemieckiej firmy telekomunikacyjnej pomarańczowa. Każdy klient ma 230 funkcje anonimowe, 190, które są liczbowe i 40 są kategorii. Funkcje są bardzo rozrzedzone. |
 |Udostępnione etykiety CRM do sprzedawania|Etykiety z wyzwania KDD 2009 ([orange_large_train_upselling. labels](http://www.sigkdd.org/site/2009/files/orange_large_train_upselling.labels) )|
 |Dane dotyczące opóźnień lotów|Dane o wydajności w czasie lotu pasażera wykonywane z TranStats zbierania danych z działu transportu USA ([w czasie](https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time)).<br/>Ten zestaw danych obejmuje czas od kwietnia do 2013 października. Przed przekazaniem do projektanta zestaw danych został przetworzony w następujący sposób: <br/>-Zestaw danych został przefiltrowany w celu pokrycia najgorętszym portów lotniczych o 70 <br/>-Anulowane loty zostały oznaczone jako opóźnione o więcej niż 15 minut <br/>-Przekierowane loty zostały odfiltrowane <br/>-Wybrano następujące kolumny: Year, month, DayofMonth, DayOfWeek, Carrier, OriginAirportID, DestAirportID, CRSDepTime, DepDelay, DepDel15, CRSArrTime, ArrDelay, ArrDel15, anulowane|
 |Zestaw danych|Element dataset Statlog (niemieckiej karty kredytowej) ([Statlog + niemiecki + Credit + Data](https://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data))) przy użyciu pliku niemieckiego. Data.<br/>Zestaw danych klasyfikuje osoby, opisane przez zestaw atrybutów, jako niskie lub wysokie ryzyko kredytowe. Każdy przykład reprezentuje osobę. Istnieje 20 funkcji, zarówno liczbowych, jak i kategorii oraz etykieta binarna (wartość ryzyka kredytowego). Wpisy o wysokim ryzyku kredytowym mają etykietę = 2, niski poziom ryzyka kredytowego ma etykietę = 1. Koszt niewłaściwego klasyfikowania przykładu niskiego ryzyka o wartości 1 oznacza, że kosztem nieznaczącego klasyfikowania przykładu wysokiego ryzyka jest 5.|

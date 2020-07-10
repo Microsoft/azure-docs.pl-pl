@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: ae6ddac61ecbcef41704f71ed5188fc547a996a3
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: f98df33b3efc697e349ddeae31439dd2fb701d91
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81616594"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86202020"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-cli"></a>Jak używać usuwania nietrwałego w usłudze Key Vault z interfejsem wiersza polecenia
 
@@ -35,7 +35,7 @@ Operacje Key Vault są zarządzane oddzielnie za pośrednictwem uprawnień kontr
 
 | Operacja | Opis | Uprawnienie użytkownika |
 |:--|:--|:--|
-|List|Wyświetla listę usuniętych magazynów kluczy.|Microsoft./Magazyn kluczy/deletedVaults/odczyt|
+|Lista|Wyświetla listę usuniętych magazynów kluczy.|Microsoft./Magazyn kluczy/deletedVaults/odczyt|
 |Recover|Przywraca usunięty Magazyn kluczy.|Microsoft./magazyny kluczy/magazynu/zapis|
 |Purge|Trwale usuwa usunięty Magazyn kluczy i całą jego zawartość.|Microsoft./Magazyn kluczy/lokalizacji/deletedVaults/przeczyszczanie/akcja|
 
@@ -207,7 +207,7 @@ Ta sama wartość dotyczy magazynu kluczy. W celu trwałego usunięcia nietrwał
 
 ### <a name="purging-a-key-vault"></a>Przeczyszczanie magazynu kluczy
 
-Po przeczyszczeniu magazynu kluczy jego cała zawartość jest trwale usuwana, w tym kluczy, wpisów tajnych i certyfikatów. Aby przeczyścić Magazyn kluczy usunięty z nietrwałego `az keyvault purge` , użyj polecenia. Lokalizację usuniętych magazynów kluczy subskrypcji można znaleźć za pomocą polecenia `az keyvault list-deleted`.
+Po przeczyszczeniu magazynu kluczy jego cała zawartość jest trwale usuwana, w tym kluczy, wpisów tajnych i certyfikatów. Aby przeczyścić Magazyn kluczy usunięty z nietrwałego, użyj `az keyvault purge` polecenia. Lokalizację usuniętych magazynów kluczy subskrypcji można znaleźć za pomocą polecenia `az keyvault list-deleted` .
 
 ```azurecli
 az keyvault purge --location westus --name ContosoVault
@@ -229,7 +229,7 @@ Wyświetlanie listy usuniętych obiektów magazynu kluczy również pokazuje, ki
 
 Po włączeniu ochrony przed przeczyszczeniem nie można czyścić magazynu ani obiektu w stanie usuniętym, dopóki nie zostanie przekroczony okres przechowywania 90 dni. Taki magazyn lub obiekt nadal można odzyskać. Ta funkcja zapewnia dodatkową gwarancję, że magazyn lub obiekt nigdy nie można trwale usunąć, dopóki nie upłynie okres przechowywania.
 
-Ochronę przeczyszczania można włączyć tylko wtedy, gdy jest również włączona funkcja usuwania nietrwałego. 
+Ochronę przeczyszczania można włączyć tylko wtedy, gdy jest również włączona funkcja usuwania nietrwałego. Wyłączenie ochrony przed czyszczeniem nie jest obsługiwane.
 
 Aby włączyć ochronę usuwania nietrwałego i przeczyszczania podczas tworzenia magazynu, użyj polecenia [AZ Create webmagazynion](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-create) :
 

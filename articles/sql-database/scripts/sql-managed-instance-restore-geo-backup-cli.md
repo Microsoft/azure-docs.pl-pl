@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 07/03/2019
-ms.openlocfilehash: c6ae8d79ee40729f47a906561d6c8ae586765f5d
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 5468cfc733b037f6287e8536c8c85994f0840161
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84019847"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86231258"
 ---
 # <a name="use-cli-to-restore-a-managed-instance-database-to-another-geo-region"></a>Używanie interfejsu wiersza polecenia do przywracania bazy danych wystąpienia zarządzanego w innym regionie geograficznym
 
@@ -56,7 +56,7 @@ az sql midb restore -g $resource --mi $instance -n $managedDatabase --dest-name 
 
 W tym skrypcie użyto następujących poleceń. Każde polecenie w tabeli stanowi link do dokumentacji polecenia.
 
-| | |
+| Skrypt | Opis |
 |---|---|
 | [AZ SQL MidB](/cli/azure/sql/midb) | Zarządzane polecenia bazy danych wystąpienia. |
 

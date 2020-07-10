@@ -15,11 +15,12 @@ ms.topic: tutorial
 ms.date: 01/03/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 17d0c91d31f7746c53d62af87670c40e9902554c
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 9ea2c20a7720cc80b36ff88595aa6ca5c57f6b9a
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86026835"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232393"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-akamai"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą Akamai
 
@@ -60,13 +61,13 @@ Akamai EAA jest skonfigurowany jako pojedyncza aplikacja w usłudze Azure AD. Ad
 
 **Specjaliści**:
 
-• Trzeba tylko skonfigurować dostawcy tożsamości raz
+* Należy tylko skonfigurować dostawcy tożsamości raz
 
 **Wady**:
 
-• Użytkownicy kończący dwa portale aplikacji
+* Użytkownicy kończący dwa portale aplikacji
 
-• Pokryciu pojedynczego wspólnego urzędu certyfikacji dla wszystkich aplikacji.
+* Pojedyncze typowe pokrycie zasad urzędu certyfikacji dla wszystkich aplikacji.
 
 ![Scenariusz integracji 1](./media/header-akamai-tutorial/scenario1.png)
 
@@ -76,13 +77,14 @@ Aplikacja Akamai EAA jest skonfigurowana indywidualnie w portalu usługi Azure A
 
 **Specjaliści**:
 
-• Możesz definiować poszczególne zasady urzędu certyfikacji
+* Można definiować poszczególne zasady urzędu certyfikacji
 
-• Wszystkie aplikacje są reprezentowane w panelu usługi O365 Gofr i myApps.microsoft.com.
+* Wszystkie aplikacje są reprezentowane w panelu 0365 Gofr i myApps.microsoft.com.
+
 
 **Wady**:
 
-• Musisz skonfigurować wiele dostawcy tożsamości.
+* Należy skonfigurować wiele dostawcy tożsamości.
 
 ![Scenariusz integracji 2](./media/header-akamai-tutorial/scenario2.png)
 
@@ -99,11 +101,11 @@ W tym samouczku skonfigurujesz i testujesz Logowanie jednokrotne usługi Azure A
 
 - Usługa Akamai obsługuje dostawcy tożsamości zainicjowane przez logowanie jednokrotne
 
-#### <a name="important"></a>Ważne
+#### <a name="important"></a>Ważny
 
 Wszystkie wymienione poniżej ustawienia są takie same dla **scenariusza integracji 1** i **scenariusza 2**. W **scenariuszu integracji 2** trzeba skonfigurować indywidualne dostawcy tożsamości w Akamai EAA i Właściwość adresu URL musi zostać zmodyfikowana, aby WSKAZYWAŁA adres URL aplikacji.
 
-![Ważne](./media/header-akamai-tutorial/important.png)
+![Ważny](./media/header-akamai-tutorial/important.png)
 
 ## <a name="adding-akamai-from-the-gallery"></a>Dodawanie Akamai z galerii
 
@@ -279,7 +281,7 @@ Uwierzytelnianie na podstawie nagłówka Akamai
 
     ![Konfigurowanie Akamai](./media/header-akamai-tutorial/configure08.png)
 
-#### <a name="authentication"></a>Authentication
+#### <a name="authentication"></a>Uwierzytelnianie
 
 1. Wybierz kartę **uwierzytelnianie** .
 
@@ -343,7 +345,7 @@ Kliknij przycisk Zapisz i przejdź do uwierzytelniania.
 
     ![Konfigurowanie Akamai](./media/header-akamai-tutorial/configure19.png)
 
-#### <a name="authentication"></a>Authentication
+#### <a name="authentication"></a>Uwierzytelnianie
 
 Kliknij przycisk **Zapisz i przejdź do usługi**.
 
@@ -405,7 +407,7 @@ Kliknij przycisk **Zapisz i przejdź do pozycji Ustawienia zaawansowane**.
 
     e. Określ lokalizację łącznika i wybierz łącznik.
 
-#### <a name="authentication"></a>Authentication
+#### <a name="authentication"></a>Uwierzytelnianie
 
 Kliknij przycisk **Zapisz i przejdź do usług**.
 
@@ -449,7 +451,7 @@ Kliknij pozycję Zapisz i przejdź do wdrożenia
 
 ### <a name="kerberos-authentication"></a>Uwierzytelnianie Kerberos
 
-W poniższym przykładzie opublikujemy wewnętrzny serwer sieci Web [http://frp-app1.superdemo.live](http://frp-app1.superdemo.live/) i włączysz logowanie jednokrotne za pomocą KCD
+W poniższym przykładzie opublikujemy wewnętrzny serwer sieci Web <code>http://frp-app1.superdemo.live</code> i włączysz logowanie jednokrotne za pomocą KCD
 
 #### <a name="general-tab"></a>Karta Ogólne
 
@@ -593,7 +595,7 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 Po kliknięciu kafelka Akamai w panelu dostępu należy automatycznie zalogować się do Akamai, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 

@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/19/2020
 ms.topic: tutorial
-ms.openlocfilehash: 80c84693f466ea30c4a65a8960472a55e98d1efe
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: dd9aee01edf45f89feb6a6010c8d958511bc3904
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83714461"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185402"
 ---
 # <a name="tutorial-create-a-powershell-workflow-runbook"></a>Samouczek: Tworzenie elementu Runbook przepływu pracy programu PowerShell
 
@@ -27,7 +27,7 @@ Ten samouczek przeprowadzi Cię przez proces tworzenia [elementu Runbook przepł
 Do ukończenia tego samouczka niezbędne są następujące elementy:
 
 * Subskrypcja platformy Azure. Jeśli nie masz subskrypcji, możesz [aktywować korzyści dla subskrybentów MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) lub utworzyć [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* [Konto usługi Automation](../automation-offering-get-started.md) do przechowywania elementu Runbook i uwierzytelniania w zasobach platformy Azure. To konto musi mieć uprawnienia do uruchamiania i zatrzymywania maszyny wirtualnej.
+* [Konto usługi Automation](../index.yml) do przechowywania elementu Runbook i uwierzytelniania w zasobach platformy Azure. To konto musi mieć uprawnienia do uruchamiania i zatrzymywania maszyny wirtualnej.
 * Maszyna wirtualna platformy Azure. Ponieważ zatrzymujesz i uruchamiasz tę maszynę, nie powinna ona być produkcyjną maszyną wirtualną.
 
 ## <a name="step-1---create-new-runbook"></a>Krok 1. Tworzenie nowego elementu Runbook
@@ -131,7 +131,7 @@ Utworzony element Runbook nadal działa w trybie roboczym. Należy opublikować 
 
 ## <a name="step-5---add-authentication-to-manage-azure-resources"></a>Krok 5. Dodawanie uwierzytelniania w celu zarządzania zasobami platformy Azure
 
-Element runbook został przetestowany i opublikowany, ale jak do tej pory nie wykonuje on żadnych użytecznych czynności. Powinien zarządzać zasobami platformy Azure. Nie można tego zrobić, chyba że zostanie on uwierzytelniony przy użyciu poświadczeń dla subskrypcji. Uwierzytelnianie używa polecenia cmdlet [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-3.7.0) .
+Element runbook został przetestowany i opublikowany, ale jak do tej pory nie wykonuje on żadnych użytecznych czynności. Powinien zarządzać zasobami platformy Azure. Nie można tego zrobić, chyba że zostanie on uwierzytelniony przy użyciu poświadczeń dla subskrypcji. Uwierzytelnianie używa polecenia cmdlet [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount?view=azps-3.7.0) .
 
 >[!NOTE]
 >Dla elementów Runbook programu PowerShell `Add-AzAccount` i `Add-AzureRMAccount` są to aliasy dla `Connect-AzAccount` . Możesz użyć tych poleceń cmdlet lub [zaktualizować moduły](../automation-update-azure-modules.md) na koncie usługi Automation do najnowszych wersji. Może być konieczne zaktualizowanie modułów, nawet jeśli utworzono nowe konto usługi Automation.
@@ -165,8 +165,7 @@ Element runbook został przetestowany i opublikowany, ale jak do tej pory nie wy
 
 Teraz, gdy element Runbook jest uwierzytelniany w ramach subskrypcji platformy Azure, możesz zarządzać zasobami. Dodajmy polecenie, aby uruchomić maszynę wirtualną. Możesz wybrać dowolną maszynę wirtualną w ramach subskrypcji platformy Azure, a teraz zakodowana tę nazwę w elemencie Runbook. Jeśli zarządzasz zasobami w wielu subskrypcjach, musisz użyć `AzContext` parametru z poleceniem cmdlet [Get-AzContext](/powershell/module/az.accounts/get-azcontext) .
 
-1. Podaj nazwę i nazwę grupy zasobów maszyny wirtualnej do uruchomienia, wprowadzając wywołanie polecenia cmdlet [Start-AzVM](https://docs.microsoft.com/powershell/module/Az.Compute/Start-AzVM?view=azps-3.5.0
-) , jak pokazano poniżej. 
+1. Podaj nazwę i nazwę grupy zasobów maszyny wirtualnej do uruchomienia, wprowadzając wywołanie polecenia cmdlet [Start-AzVM](/powershell/module/Az.Compute/Start-AzVM?view=azps-3.5.0) , jak pokazano poniżej. 
 
    ```powershell-interactive
    workflow MyFirstRunbook-Workflow
@@ -227,9 +226,9 @@ Element Runbook aktualnie uruchamia maszynę wirtualną, która została stałe 
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Dokumentacja programu PowerShell](https://docs.microsoft.com/powershell/scripting/overview)
-* [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation)
-* [Tworzenie graficznego elementu Runbook](automation-tutorial-runbook-graphical.md)
-* [Tworzenie elementu runbook programu PowerShell](automation-tutorial-runbook-textual-powershell.md)
-* [Azure Automation typy elementów Runbook](../automation-runbook-types.md)
-* [Natywna obsługa skryptów programu PowerShell w programie Azure Automation](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/)
+* Aby uzyskać więcej informacji na temat programu PowerShell, w tym modułów dokumentacji i uczenia dotyczącej języka, zapoznaj się z dokumentacją programu [PowerShell](/powershell/scripting/overview).
+* Aby uzyskać informacje dotyczące poleceń cmdlet programu PowerShell, zobacz [AZ. Automation](/powershell/module/az.automation/?view=azps-3.7.0#automation).
+* Aby rozpocząć pracę z graficznymi elementami Runbook, zobacz [Tworzenie graficznego elementu Runbook](automation-tutorial-runbook-graphical.md).
+* Aby rozpocząć pracę z elementami Runbook programu PowerShell, zobacz [Tworzenie elementu Runbook programu PowerShell](automation-tutorial-runbook-textual-powershell.md).
+* Aby dowiedzieć się więcej o typach elementów Runbook i ich zaletach i ograniczeniach, zobacz [Azure Automation typów elementów Runbook](../automation-runbook-types.md).
+* Aby uzyskać więcej informacji na temat funkcji obsługi skryptów programu PowerShell, zobacz [natywną obsługę skryptów programu PowerShell w Azure Automation](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/).

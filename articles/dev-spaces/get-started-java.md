@@ -8,12 +8,12 @@ ms.topic: tutorial
 description: W tym samouczku pokazano, jak używać Azure Dev Spaces i Visual Studio Code do debugowania i szybkiej iteracji aplikacji Java w usłudze Azure Kubernetes Service
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, Containers, Helm, Service siatk, Service siatk Routing, polecenia kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: c71471d1a89188a065bafef2c5b6372aeff35851
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 5616e92d64854d145c30aa3fd32bf61d65ca4221
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80240538"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224319"
 ---
 # <a name="create-a-kubernetes-dev-space-visual-studio-code-and-java-with-azure-dev-spaces"></a>Utwórz Kubernetese miejsce deweloperskie: Visual Studio Code i Java z Azure Dev Spaces
 
@@ -26,7 +26,7 @@ Niniejszy przewodnik zawiera informacje na temat wykonywania następujących czy
 > [!Note]
 > Jeśli w dowolnym momencie **masz zablokowany dostęp** do programu, zobacz sekcję [Rozwiązywanie problemów](troubleshooting.md) .
 
-## <a name="install-the-azure-cli"></a>Zainstaluj interfejs wiersza polecenia platformy Azure
+## <a name="install-the-azure-cli"></a>Instalowanie interfejsu wiersza polecenia platformy Azure
 Usługa Azure Dev Spaces wymaga minimalnej konfiguracji komputera lokalnego. Większość ustawień obszaru deweloperskiego jest przechowywana w chmurze i udostępniana innym użytkownikom. Zacznij od pobrania i uruchomienia [interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ### <a name="sign-in-to-azure-cli"></a>Logowanie do interfejsu wiersza polecenia platformy Azure
@@ -93,7 +93,7 @@ Aby debugować aplikacje w języku Java za pomocą usługi Azure Dev Spaces, pob
 W tej sekcji utworzysz aplikację internetową w języku Java i uruchomisz ją w kontenerze w środowisku Kubernetes.
 
 ### <a name="create-a-java-web-app"></a>Tworzenie aplikacji internetowej w języku Java
-Pobierz kod z usługi GitHub, przechodząc [https://github.com/Azure/dev-spaces](https://github.com/Azure/dev-spaces) do lokalizacji i wybierając opcję **Klonuj lub Pobierz** , aby pobrać repozytorium GitHub do środowiska lokalnego. Kod używany w tym przewodniku znajduje się w lokalizacji `samples/java/getting-started/webfrontend`.
+Pobierz kod z usługi GitHub, przechodząc do [https://github.com/Azure/dev-spaces](https://github.com/Azure/dev-spaces) lokalizacji i wybierając opcję **Klonuj lub Pobierz** , aby pobrać repozytorium GitHub do środowiska lokalnego. Kod używany w tym przewodniku znajduje się w lokalizacji `samples/java/getting-started/webfrontend`.
 
 ## <a name="preparing-code-for-docker-and-kubernetes-development"></a>Przygotowywanie kodu do opracowywania na platformie Docker i Kubernetes
 W tej chwili masz podstawową aplikację internetową, która działa lokalnie. Teraz konteneryzujesz ją, tworząc zasoby, które definiują kontener aplikacji i sposób jego wdrażania na platformie Kubernetes. To zadanie łatwo wykonać za pomocą usługi Azure Dev Spaces: 
@@ -143,7 +143,7 @@ Service 'webfrontend' port 'http' is available at http://webfrontend.1234567890a
 Service 'webfrontend' port 80 (TCP) is available at 'http://localhost:<port>'
 ```
 
-Określ publiczny adres URL usługi w danych wyjściowych `up` polecenia. Zostanie ona zakończona `.azds.io`. W powyższym przykładzie publiczny adres URL to `http://webfrontend.1234567890abcdef1234.eus.azds.io/`.
+Określ publiczny adres URL usługi w danych wyjściowych `up` polecenia. Zostanie ona zakończona `.azds.io` . W powyższym przykładzie publiczny adres URL to `http://webfrontend.1234567890abcdef1234.eus.azds.io/` .
 
 Aby wyświetlić swoją aplikację internetową, Otwórz publiczny adres URL w przeglądarce. Ponadto informacja `stdout` i `stderr` wyjście są przesyłane strumieniowo do okna terminalu *śledzenia azds* podczas korzystania z aplikacji sieci Web. Zobaczysz również informacje o śledzeniu żądań HTTP, które przechodzą przez system. Ułatwia to śledzenie złożonych wywołań wielousługowych podczas opracowywania. Instrumentacja dodana przez funkcję Spaces dev udostępnia śledzenie tego żądania.
 
@@ -154,7 +154,7 @@ Aby wyświetlić swoją aplikację internetową, Otwórz publiczny adres URL w p
 Usługa Azure Dev Spaces umożliwia nie tylko uruchamianie kodu w środowisku Kubernetes — pozwala też szybko i wielokrotnie wyświetlać efekt zmian wprowadzonych w kodzie w środowisku Kubernetes w chmurze.
 
 1. W oknie terminalu naciśnij klawisze `Ctrl+C`, aby zatrzymać polecenie `azds up`.
-1. Otwórz `src/main/java/com/ms/sample/webfrontend/Application.java`i edytuj wiadomość z powitaniem w [wierszu 19](https://github.com/Azure/dev-spaces/blob/master/samples/java/getting-started/webfrontend/src/main/java/com/ms/sample/webfrontend/Application.java#L19):
+1. Otwórz `src/main/java/com/ms/sample/webfrontend/Application.java` i edytuj wiadomość z powitaniem w [wierszu 19](https://github.com/Azure/dev-spaces/blob/master/samples/java/getting-started/webfrontend/src/main/java/com/ms/sample/webfrontend/Application.java#L19):
 
     ```java
     return "Hello from webfrontend in Azure!";
@@ -171,7 +171,7 @@ Oprócz tego dostępna jest jeszcze *szybsza metoda* opracowywania kodu. Omówim
 
 W tej sekcji użyjesz programu VS Code do bezpośredniego debugowania naszego kontenera uruchomionego na platformie Azure. Ponadto dowiesz się, jak uzyskać szybszą pętlę edycji, uruchamiania i testowania.
 
-![](media/common/edit-refresh-see.png)
+![Diagram przedstawiający edytowanie kodu, odśwież kontener, zobacz temat Aktualizowanie cyklu.](media/common/edit-refresh-see.png)
 
 > [!Note]
 > **Jeśli utkniesz** w dowolnym momencie, zobacz sekcję [Rozwiązywanie problemów](troubleshooting.md) lub prześlij komentarz na tej stronie.
@@ -183,16 +183,16 @@ Otwórz okno **Paleta poleceń** (za pomocą menu **Widok | Paleta poleceń**) i
 
 Spowoduje to dodanie konfiguracji debugowania dla usługi Azure Dev Spaces w obszarze folderu `.vscode`. Nie należy mylić tego polecenia z poleceniem `azds prep`, które umożliwia skonfigurowanie projektu na potrzeby wdrożenia.
 
-![](media/common/command-palette.png)
+![Zrzut ekranu przedstawiający opcję Azure Dev Spaces na palecie poleceń VS Code](media/common/command-palette.png)
 
 ### <a name="select-the-azds-debug-configuration"></a>Wybieranie konfiguracji debugowania w rozwiązaniu AZDS
 1. Aby otworzyć widok debugowania, kliknij ikonę debugowania na **pasku działań** w bocznej części programu VS Code.
 1. Wybierz pozycję **Launch Java Program (AZDS)** (Uruchom program Java — AZDS) jako aktywną konfigurację debugowania.
 
-![](media/get-started-java/debug-configuration.png)
+![Zrzut ekranu przedstawiający funkcję debugowania VS Code z opcją uruchamiania programu Java podaną na czerwono.](media/get-started-java/debug-configuration.png)
 
 > [!Note]
-> Jeśli na palecie poleceń nie widać żadnych poleceń usługi Azure Dev Spaces, upewnij się, że masz zainstalowane rozszerzenie VS Code dla usługi Azure Dev Spaces. Upewnij się, że obszar roboczy otwarty w VS Code jest folderem zawierającym `azds.yaml`.
+> Jeśli na palecie poleceń nie widać żadnych poleceń usługi Azure Dev Spaces, upewnij się, że masz zainstalowane rozszerzenie VS Code dla usługi Azure Dev Spaces. Upewnij się, że obszar roboczy otwarty w VS Code jest folderem zawierającym `azds.yaml` .
 
 ### <a name="debug-the-container-in-kubernetes"></a>Debugowanie kontenera w środowisku Kubernetes
 Po naciśnięciu klawisza **F5** możesz debugować kod w środowisku Kubernetes.
@@ -202,7 +202,7 @@ Podobnie jak w przypadku polecenia `up` kod jest synchronizowany z obszarem dewe
 > [!Tip]
 > VS Code pasek stanu zmieni kolor na pomarańczowy, co oznacza, że debuger jest dołączony. Zostanie również wyświetlony adres URL, który można kliknąć, aby otworzyć aplikację.
 
-![](media/common/vscode-status-bar-url.png)
+![Zrzut ekranu przedstawiający pasek stanu VS Code po jego ustawieniu.](media/common/vscode-status-bar-url.png)
 
 Ustaw punkt przerwania w pliku kodu po stronie serwera, na przykład w obrębie funkcji `greeting()` w pliku źródłowym `src/main/java/com/ms/sample/webfrontend/Application.java`. Odświeżenie strony w przeglądarce powoduje aktywowanie punktu przerwania.
 
@@ -220,7 +220,7 @@ public String greeting()
 
 Zapisz plik, a następnie w **okienku Akcje debugowania**kliknij przycisk **Uruchom ponownie** .
 
-![](media/common/debug-action-refresh.png)
+![Zrzut ekranu okienka Akcje debugowania VS Code z opcją ponownego uruchomienia podaną na czerwono.](media/common/debug-action-refresh.png)
 
 Zamiast ponownego kompilowania i wdrażania nowego obrazu kontenera przy każdej zmianie kodu, co często zajmuje dużo czasu, usługa Azure Dev Spaces przyrostowo ponownie kompiluje kod w istniejącym kontenerze, co przyspiesza działanie pętli edytowania/debugowania.
 

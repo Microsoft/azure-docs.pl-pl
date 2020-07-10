@@ -17,12 +17,12 @@ ms.date: 03/22/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 03/22/2019
-ms.openlocfilehash: 914ccc2ac74048abb2a66b61aa65b771f8141d5e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a8a939f0d0c3575adec147c1942ddbbef334cb65
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "71212062"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86220154"
 ---
 # <a name="tutorial-send-notifications-to-specific-users-by-using-azure-notification-hubs"></a>Samouczek: wysyłanie powiadomień do konkretnych użytkowników przy użyciu usługi Azure Notification Hubs
 
@@ -66,7 +66,7 @@ W tej sekcji aktualizujesz kod w projekcie utworzonym na potrzeby samouczka [Sam
 5. Na liście wyników kliknij pozycję **System.Net.Http**, a następnie kliknij opcję **Zainstaluj**. Ukończ instalację.
 6. W polu **Wyszukaj** w menedżerze pakietów NuGet wpisz ciąg **Json.net**. Zainstaluj pakiet **Newtonsoft.json**, a następnie zamknij okno menedżera pakietów NuGet.
 7. W Eksploratorze rozwiązań kliknij projekt **WindowsApp** i kliknij dwukrotnie plik **MainPage.xaml**, aby otworzyć go w edytorze programu Visual Studio.
-8. W kodzie `MainPage.xaml` XML Zastąp `<Grid>` sekcję następującym kodem: ten kod dodaje pole tekstowe username i Password, z którym użytkownik jest uwierzytelniany. Ponadto kod dodaje pola tekstowe dla komunikatu powiadomienia oraz tagu nazwy użytkownika, który ma otrzymać powiadomienie:
+8. W `MainPage.xaml` kodzie XML Zastąp `<Grid>` sekcję następującym kodem: ten kod dodaje pole tekstowe username i Password, z którym użytkownik jest uwierzytelniany. Ponadto kod dodaje pola tekstowe dla komunikatu powiadomienia oraz tagu nazwy użytkownika, który ma otrzymać powiadomienie:
 
     ```xml
     <Grid>
@@ -331,11 +331,11 @@ W tej sekcji aktualizujesz kod w projekcie utworzonym na potrzeby samouczka [Sam
 2. Wprowadź **nazwę użytkownika** i **hasło**, jak pokazano na poniższym zrzucie ekranu. Powinny różnić się od nazwy użytkownika i hasła, które zostały wprowadzone w systemie Windows Phone.
 3. Kliknij przycisk **Log in and register** (Zaloguj i zarejestruj się) i upewnij się, że okno dialogowe wyświetla potwierdzenie zalogowania. Ponadto ten kod włącza przycisk **Send Push** (Wyślij powiadomienie push).
 
-    ![][14]
+    ![Zrzut ekranu przedstawiający aplikację Notification Hubs, w której wypełniono pole Nazwa użytkownika i hasło.][14]
 5. Następnie w polu **Recipient Username Tag** (Tag nazwy użytkownika odbiorcy) wprowadź zarejestrowaną nazwę użytkownika. Wprowadź komunikat powiadomienia i kliknij opcję **Send Push** (Wyślij powiadomienie push).
 6. Komunikat powiadomienia otrzymają tylko te urządzenia, które zarejestrowały się przy użyciu pasującego tagu nazwy użytkownika.
 
-    ![][15]
+    ![Zrzut ekranu aplikacji Notification Hubs wyświetlającej komunikat, który został wypchnięte.][15]
 
 ## <a name="next-steps"></a>Następne kroki
 

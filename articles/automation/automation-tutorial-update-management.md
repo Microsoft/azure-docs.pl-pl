@@ -6,12 +6,12 @@ ms.subservice: update-management
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.custom: mvc
-ms.openlocfilehash: 79cffa7aedd0fc04dd4a747ef28bc67cacf37905
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a701a5a9fd77bd801bb535fe1f26bfa17c97757b
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84204892"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185793"
 ---
 # <a name="manage-updates-and-patches-for-your-azure-vms"></a>Zarządzanie aktualizacjami i poprawkami dla maszyn wirtualnych platformy Azure
 
@@ -206,7 +206,7 @@ Po zakończeniu wdrażania aktualizacji zostanie wyświetlony alert, który zost
 ## <a name="next-steps"></a>Następne kroki
 
 * Aby uzyskać informacje na temat konfiguracji zakresu, zobacz [ograniczanie Update Management zakresu wdrożenia](automation-scope-configurations-update-management.md).
-* Jeśli musisz przeszukać dzienniki przechowywane w obszarze roboczym Log Analytics, zobacz [Wyszukiwanie w dzienniku w](../log-analytics/log-analytics-log-searches.md)dziennikach Azure monitor.
+* Jeśli musisz przeszukać dzienniki przechowywane w obszarze roboczym Log Analytics, zobacz [Wyszukiwanie w dzienniku w](../azure-monitor/log-query/log-query-overview.md)dziennikach Azure monitor.
 * Jeśli zakończono wdrożenia, zobacz [Odłącz obszar roboczy z konta usługi Automation dla Update Management](automation-unlink-workspace-update-management.md).
 * Aby usunąć maszyny wirtualne z Update Management, zobacz [usuwanie maszyn wirtualnych z Update Management](automation-remove-vms-from-update-management.md).
 * Aby rozwiązać ogólne błędy Update Management, zobacz [Rozwiązywanie problemów z Update Management](troubleshoot/update-management.md).

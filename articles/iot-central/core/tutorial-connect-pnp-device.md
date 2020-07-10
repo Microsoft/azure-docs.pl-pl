@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: 42098d54725cc12691839b63c508efbecf042aa0
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 6727a2c45187e0e6bb583bb65e176024067d81e2
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80064420"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86219995"
 ---
 # <a name="tutorial-use-a-device-capability-model-to-create-an-iot-plug-and-play-preview-device-and-connect-it-to-your-iot-central-application"></a>Samouczek: Używanie modelu możliwości urządzenia do tworzenia urządzenia Plug and Play IoT (wersja zapoznawcza) i nawiązywania połączenia z aplikacją IoT Central
 
@@ -37,9 +37,9 @@ Aby ukończyć ten samouczek, należy zainstalować następujące oprogramowanie
 * [Narzędzia kompilacji dla programu Visual Studio](https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=BuildTools&rel=16) z **narzędziami kompilacji C++** i obciążeniami **składników Menedżera pakietów NuGet** . Lub jeśli masz już [program Visual Studio (Community, Professional lub Enterprise)](https://visualstudio.microsoft.com/downloads/) 2019, 2017 lub 2015 z zainstalowanymi takimi samymi obciążeniami.
 * Usługi [git](https://git-scm.com/download/).
 * [CMAKE](https://cmake.org/download/) — po zainstalowaniu **CMAKE**wybierz opcję **Dodaj CMAKE do ścieżki systemowej**.
-* [Visual Studio Code](https://code.visualstudio.com/).
+* [Program Visual Studio Code](https://code.visualstudio.com/)
 * [Node.js](https://nodejs.org/)
-* `dps-keygen` Narzędzie:
+* `dps-keygen`Narzędzie:
 
     ```cmd/sh
     npm i -g dps-keygen
@@ -86,7 +86,9 @@ Aby podłączyć urządzenie do aplikacji IoT Central, wymagany jest klucz urzą
 
 1. Przejdź do strony **Administracja** i wybierz pozycję **połączenie z urządzeniem**.
 
-1. Zanotuj **zakres identyfikatorów** i **klucz podstawowy** , który widzisz po wybraniu opcji **Wyświetl klucze**. Te wartości są używane w dalszej części tego samouczka.
+1. Zanotuj **zakres identyfikatorów**. Ta wartość jest używana w dalszej części tego samouczka.
+
+1. Wybierz grupę rejestracji **sygnatury dostępu współdzielonego — IoT-Devices** . Zanotuj **klucz podstawowy**. Ta wartość jest używana w dalszej części tego samouczka.
 
     ![Połączenie z urządzeniem](./media/tutorial-connect-pnp-device/device-connection.png)
 
@@ -98,7 +100,7 @@ Aby podłączyć urządzenie do aplikacji IoT Central, wymagany jest klucz urzą
 
     Zanotuj wygenerowany _klucz urządzenia_, Użyj tej wartości w kolejnym kroku w tym samouczku.
 
-## <a name="download-your-model"></a>Pobierz model
+## <a name="download-your-model"></a>Pobieranie modelu
 
 W tym samouczku użyjesz publicznej DCM dla urządzenia zestawu deweloperskiego IoT DevKit. Do uruchomienia kodu nie jest potrzebne rzeczywiste urządzenie DevKit. w tym samouczku skompilujesz kod do uruchomienia w systemie Windows.
 
@@ -106,7 +108,7 @@ W tym samouczku użyjesz publicznej DCM dla urządzenia zestawu deweloperskiego 
 
 1. **Naciśnij klawisze Ctrl + Shift + P** , aby otworzyć paletę poleceń, wprowadź **Plug and Play IoT**i wybierz pozycję **Otwórz repozytorium modeli**. Wybierz pozycję **repozytorium publiczne**. VS Code przedstawia listę DCMs w repozytorium modelu publicznego.
 
-1. Wybierz **zestawu deweloperskiego IoT DevKit** DCM z identyfikatorem `urn:mxchip:mxchip_iot_devkit:1`. Następnie wybierz pozycję **Pobierz**. Masz teraz kopię DCM w `central_app` folderze.
+1. Wybierz **zestawu deweloperskiego IoT DevKit** DCM z identyfikatorem `urn:mxchip:mxchip_iot_devkit:1` . Następnie wybierz pozycję **Pobierz**. Masz teraz kopię DCM w `central_app` folderze.
 
 ![Repozytorium modelu i DCM](./media/tutorial-connect-pnp-device/public-repository.png)
 
@@ -134,7 +136,7 @@ Teraz masz **zestawu deweloperskiego IoT DevKit** i skojarzone z nią interfejsy
 
 1. Wybierz pozycję **Via Vcpkg** , aby dodać zestaw SDK.
 
-1. VS Code otwiera nowe okno z wygenerowanymi plikami zastępczymi kodu urządzenia `devkit_device` w folderze.
+1. VS Code otwiera nowe okno z wygenerowanymi plikami zastępczymi kodu urządzenia w `devkit_device` folderze.
 
 ![Wygenerowany kod urządzenia](./media/tutorial-connect-pnp-device/generated-code.png)
 

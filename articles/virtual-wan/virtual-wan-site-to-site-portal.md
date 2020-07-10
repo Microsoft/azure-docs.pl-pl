@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 06/29/2020
+ms.date: 07/09/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my local site to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
-ms.openlocfilehash: 6c6620a83be2eade3b449553824116a4bea7e4d8
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 219551f2bba229fb627092548fe5c5f5ff8798b9
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86144110"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86220614"
 ---
 # <a name="tutorial-create-a-site-to-site-connection-using-azure-virtual-wan"></a>Samouczek: tworzenie połączenia lokacja-lokacja przy użyciu usługi Azure Virtual WAN
 
@@ -87,17 +87,7 @@ W tym kroku połączysz swoją lokację sieci VPN z centrum.
 
 ## <a name="connect-the-vnet-to-the-hub"></a><a name="vnet"></a>Łączenie sieci wirtualnej z centrum
 
-W tym kroku utworzysz połączenie między centrum i siecią wirtualną. Powtórz te czynności dla każdej sieci wirtualnej, z którą chcesz się połączyć.
-
-1. Na stronie sieci wirtualnej WAN kliknij pozycję **Połączenia sieci wirtualnych**.
-2. Na stronie połączenia sieci wirtualnej kliknij polecenie **+ Dodaj połączenie**.
-3. Na stronie **Dodaj połączenie** wypełnij następujące pola:
-
-    * **Nazwa połączenia** — nazwij połączenie.
-    * **Koncentratory** — wybierz koncentrator, z którym chcesz skojarzyć to połączenie.
-    * **Subskrypcja** — sprawdź, czy wybrano właściwą subskrypcję.
-    * **Sieć wirtualna** — wybierz sieć wirtualną, którą chcesz połączyć z tym koncentratorem. Sieć wirtualna nie może mieć istniejącej bramy sieci wirtualnej.
-4. Kliknij przycisk **OK** , aby utworzyć połączenie sieci wirtualnej.
+[!INCLUDE [Connect](../../includes/virtual-wan-connect-vnet-hub-include.md)]
 
 ## <a name="download-vpn-configuration"></a><a name="device"></a>Pobieranie konfiguracji sieci VPN
 

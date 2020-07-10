@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: tutorial
 ms.date: 12/19/2019
 ms.author: aahi
-ms.openlocfilehash: 067a0383c90ce42120269ff40f910805dacfd11a
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 4bf2f12ef79f8551291316b5446121f2735d9347
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86143868"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206580"
 ---
 # <a name="tutorial-integrate-power-bi-with-the-text-analytics-cognitive-service"></a>Samouczek: Integracja usługi Power BI z usługą Cognitive Service analizy tekstu
 
@@ -91,7 +91,7 @@ Możesz również rozważyć odfiltrowanie pustych wiadomości, używając filtr
 
 [Interfejs API fraz kluczowych](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/56f30ceeeda5650db055a3c6) usługi analizy tekstu może przetworzyć nawet tysiąc dokumentów tekstowych w ramach jednego żądania HTTP. Usługa Power BI preferuje obsługę pojedynczych rekordów po kolei, dlatego w tym samouczku każde Twoje wywołanie interfejsu API będzie zawierać tylko jeden dokument. Dla każdego przetwarzanego dokumentu interfejs API fraz kluczowych wymaga poniższych pól.
 
-| | |
+| Pole | Opis |
 | - | - |
 | `id`  | Unikatowy identyfikator dla tego dokumentu w żądaniu. Odpowiedź również zawiera to pole. Dzięki temu podczas przetwarzania więcej niż jednego dokumentu można łatwo skojarzyć wyodrębnione frazy kluczowe z dokumentem, z którego pochodzą. Ponieważ w tym samouczku przetwarzasz tylko jeden dokument w każdym żądaniu, możesz trwale zakodować wartość `id`, aby była taka sama dla każdego żądania.|
 | `text`  | Tekst do przetworzenia. Wartość tego pola pochodzi z kolumny `Merged` zawierającej wiersz tematu połączony z tekstem komentarza, która została utworzona w [poprzedniej sekcji](#PreparingData). Interfejs API fraz kluczowych wymaga, aby te dane nie były dłuższe niż około 5120 znaków.|

@@ -4,14 +4,15 @@ ms.author: joshuapa
 ms.service: azure-notebooks
 ms.topic: include
 ms.date: 07/01/2020
-ms.openlocfilehash: c866ebac9701f31dbdafab87cdda6fc26edcf88c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5011a5d265c61cf26520f6c012037a67a8afacae
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85830313"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86181503"
 ---
 > [!IMPORTANT]
-> 29 września, Azure Notebooks publiczna witryna zapoznawcza zostanie wycofana i zastąpiona przez usługi zintegrowane z programu Visual Studio, Azure i GitHub.
+> 9 października 2020 witryna publicznej wersji zapoznawczej Azure Notebooks zostanie wycofana i zastąpiona przez usługi zintegrowane z programu Visual Studio, Azure i GitHub.
 > [Dowiedz się więcej](https://aka.ms/aznb-notebooks-at-msft/) na temat Twoich opcji i naszych innych notesów firmy Microsoft.
 >
 > Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone.

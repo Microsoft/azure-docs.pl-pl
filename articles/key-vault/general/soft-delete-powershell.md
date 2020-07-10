@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 452dd99ae58858b661892e3f962fce8086d4503c
-ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
+ms.openlocfilehash: 022e6eb517987207755d31fdb1820e35197d8dc6
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85444662"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86202118"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-powershell"></a>Jak używać usuwania nietrwałego w usłudze Key Vault z programem PowerShell
 
@@ -43,7 +43,7 @@ Operacje Key Vault są zarządzane oddzielnie za pośrednictwem uprawnień kontr
 | Operacja | Opis | Uprawnienie użytkownika |
 |:--|:--|:--|
 |Lista|Wyświetla listę usuniętych magazynów kluczy.|Microsoft./Magazyn kluczy/deletedVaults/odczyt|
-|Odzyskiwanie|Przywraca usunięty Magazyn kluczy.|Microsoft./magazyny kluczy/magazynu/zapis|
+|Recover|Przywraca usunięty Magazyn kluczy.|Microsoft./magazyny kluczy/magazynu/zapis|
 |Purge|Trwale usuwa usunięty Magazyn kluczy i całą jego zawartość.|Microsoft./Magazyn kluczy/lokalizacji/deletedVaults/przeczyszczanie/akcja|
 
 Aby uzyskać więcej informacji na temat uprawnień i kontroli dostępu, zobacz temat [Zabezpieczanie magazynu kluczy](secure-your-key-vault.md).
@@ -267,7 +267,7 @@ Wyświetlanie listy usuniętych obiektów magazynu kluczy również pokazuje, ki
 
 Po włączeniu ochrony przed przeczyszczeniem nie można czyścić magazynu ani obiektu w stanie usuniętym, dopóki nie upłynie okres przechowywania. Taki magazyn lub obiekt nadal można odzyskać. Ta funkcja zapewnia dodatkową gwarancję, że magazyn lub obiekt nigdy nie można trwale usunąć, dopóki nie upłynie okres przechowywania. Domyślny okres przechowywania to 90 dni, ale podczas tworzenia magazynu kluczy można ustawić interwał zasad przechowywania na wartość z przedziału od 7 do 90 dni. Zasady przechowywania ochrony przed przeczyszczeniem używają tego samego interwału. Po ustawieniu nie można zmienić interwału zasad przechowywania.
 
-Ochronę przeczyszczania można włączyć tylko wtedy, gdy jest również włączona funkcja usuwania nietrwałego. Wyłączenie ochrony przed czyszczeniem nie jest obecnie obsługiwane. 
+Ochronę przeczyszczania można włączyć tylko wtedy, gdy jest również włączona funkcja usuwania nietrwałego. Wyłączenie ochrony przed czyszczeniem nie jest obsługiwane. 
 
 Aby włączyć ochronę przed usuwaniem i przeczyszczaniem podczas tworzenia magazynu, użyj polecenia cmdlet [New-AzKeyVault](/powershell/module/az.keyvault/new-azkeyvault?view=azps-1.5.0) :
 

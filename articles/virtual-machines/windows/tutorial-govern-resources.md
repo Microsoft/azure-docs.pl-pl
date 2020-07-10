@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/05/2018
 ms.author: tomfitz
 ms.custom: mvc
-ms.openlocfilehash: b4ce4cd53f9dda3d0f96e892128d543e59c83b26
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: fce613da352e55bae64db2912af23a07f4bf954f
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82100366"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86200688"
 ---
 # <a name="tutorial-learn-about-windows-virtual-machine-management-with-azure-powershell"></a>Samouczek: informacje o zarządzaniu maszynami wirtualnymi systemu Windows za pomocą Azure PowerShell
 
@@ -23,7 +23,7 @@ ms.locfileid: "82100366"
 
 Usługa Azure Cloud Shell to bezpłatna interaktywna powłoka, której możesz używać do wykonywania kroków opisanych w tym artykule. Udostępnia ona wstępnie zainstalowane i najczęściej używane narzędzia platformy Azure, które są skonfigurowane do użycia na koncie. 
 
-Aby otworzyć usługę Cloud Shell, wybierz pozycję **Wypróbuj** w prawym górnym rogu bloku kodu. Cloud Shell można również uruchomić na osobnej karcie przeglądarki, przechodząc do [https://shell.azure.com/powershell](https://shell.azure.com/powershell). Wybierz przycisk **Kopiuj**, aby skopiować bloki kodu, wklej je do usługi Cloud Shell, a następnie naciśnij klawisz Enter, aby je uruchomić.
+Aby otworzyć usługę Cloud Shell, wybierz pozycję **Wypróbuj** w prawym górnym rogu bloku kodu. Cloud Shell można również uruchomić na osobnej karcie przeglądarki, przechodząc do [https://shell.azure.com/powershell](https://shell.azure.com/powershell) . Wybierz przycisk **Kopiuj**, aby skopiować bloki kodu, wklej je do usługi Cloud Shell, a następnie naciśnij klawisz Enter, aby je uruchomić.
 
 ## <a name="understand-scope"></a>Objaśnienie zakresu
 
@@ -63,7 +63,7 @@ New-AzRoleAssignment -ObjectId $adgroup.id `
   -RoleDefinitionName "Virtual Machine Contributor"
 ```
 
-Jeśli zostanie wyświetlony komunikat o błędzie informujący, że **identyfikator> GUID podmiotu zabezpieczeń \<nie istnieje w katalogu**, Nowa grupa nie jest propagowana w ramach Azure Active Directory. Spróbuj ponownie uruchomić polecenie.
+Jeśli zostanie zgłoszony błąd wskazujący, że **jednostka\<guid> nie istnieje w katalogu**, oznacza to, że nowa grupa nie została rozpropagowana w usłudze Azure Active Directory. Spróbuj ponownie uruchomić polecenie.
 
 Zazwyczaj należy powtórzyć ten proces dla roli *Współautor sieci* i *Współautor konta magazynu*, aby upewnić się, że użytkownicy mogą zarządzać wdrożonymi zasobami. W tym artykule można pominąć te kroki.
 
@@ -197,7 +197,7 @@ Get-AzResource -Tag @{ Environment="Test"} | Where-Object {$_.ResourceType -eq "
 
 [!INCLUDE [Resource Manager governance tags billing](../../../includes/resource-manager-governance-tags-billing.md)]
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Zablokowanej sieciowej grupy zabezpieczeń nie można usunąć, dopóki blokada nie zostanie zdjęta. Aby zdjąć blokadę, użyj polecenia [Remove-AzResourceLock](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcelock):
 
@@ -217,6 +217,10 @@ Gdy grupa zasobów, maszyna wirtualna i wszystkie pokrewne zasoby nie będą ju�
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name myResourceGroup
 ```
+
+## <a name="manage-costs"></a>Zarządzanie kosztami
+
+[!INCLUDE [cost-management-horizontal](../../../includes/cost-management-horizontal.md)]
 
 ## <a name="next-steps"></a>Następne kroki
 

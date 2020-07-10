@@ -7,12 +7,12 @@ keywords: zmiany, śledzenie, śledzenie zmian, spis, Automatyzacja
 ms.date: 12/05/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 211b34b4424fa5bc9b82dc1cc2a2da574ffc5d96
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 63fe36a51b69648039c3a16be4267fc0c72e8a58
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83743685"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185810"
 ---
 # <a name="troubleshoot-changes-on-an-azure-vm"></a>Rozwiązywanie problemów dotyczących zmian na maszynie wirtualnej platformy Azure
 
@@ -35,7 +35,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 Do ukończenia tego samouczka niezbędne są następujące elementy:
 
 * Subskrypcja platformy Azure. Jeśli nie masz subskrypcji, możesz [aktywować korzyści dla subskrybentów MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) lub utworzyć [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* [Konto usługi Automation](automation-offering-get-started.md) do przechowywania obserwatora i elementów Runbook akcji oraz zadania obserwatora.
+* [Konto usługi Automation](./index.yml) do przechowywania obserwatora i elementów Runbook akcji oraz zadania obserwatora.
 * [Maszyna wirtualna](../virtual-machines/windows/quick-create-portal.md) , która ma zostać włączona dla tej funkcji.
 
 ## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
@@ -54,7 +54,7 @@ Najpierw należy włączyć Change Tracking i spis dla tego samouczka. Jeśli fu
 
     ![Włącz zmianę](./media/automation-tutorial-troubleshoot-changes/enableinventory.png)
 
-3. Wybierz obszar roboczy [log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fautomation%2ftoc.json) . Ten obszar roboczy zbiera dane, które są generowane przez funkcje takie jak Change Tracking i spis. Obszar roboczy zawiera pojedynczą lokalizację do przeglądania i analizowania danych z wielu źródeł.
+3. Wybierz obszar roboczy [log Analytics](../azure-monitor/log-query/log-query-overview.md) . Ten obszar roboczy zbiera dane, które są generowane przez funkcje takie jak Change Tracking i spis. Obszar roboczy zawiera pojedynczą lokalizację do przeglądania i analizowania danych z wielu źródeł.
 
     [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -238,4 +238,4 @@ W niniejszym samouczku zawarto informacje na temat wykonywania następujących c
 Przejdź do omówienia funkcji Change Tracking i spisu, aby dowiedzieć się więcej na jej temat.
 
 > [!div class="nextstepaction"]
-> [Przegląd Change Tracking i spisu](automation-change-tracking.md)
+> [Przegląd Change Tracking i spisu](./change-tracking.md)

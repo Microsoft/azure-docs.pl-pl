@@ -1,16 +1,16 @@
 ---
 title: Interfejsy i modele niestandardowe
 description: Dodawanie kontrolerów widoków i pozyskiwanie modeli niestandardowych, które mają być renderowane przez zdalne renderowanie na platformie Azure
-author: michael-house
-ms.author: v-mihous
+author: florianborn71
+ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
-ms.openlocfilehash: a3a4892400daa229f5f91d3cc22a9be80cf868c6
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: b08670c51b56f01ad1193d2729ecc77821242a19
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85569661"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86200755"
 ---
 # <a name="tutorial-interfaces-and-custom-models"></a>Samouczek: interfejsy i modele niestandardowe
 

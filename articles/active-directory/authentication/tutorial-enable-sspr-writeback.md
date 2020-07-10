@@ -11,12 +11,12 @@ author: iainfoulds
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 353bc49ad6a64ff00a8a3ab8594fd76e02ca7913
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: a25fe090c88d2540bdf63cd6479d25b879090a38
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85551745"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86202544"
 ---
 # <a name="tutorial-enable-azure-active-directory-self-service-password-reset-writeback-to-an-on-premises-environment"></a>Samouczek: Azure Active Directory Włączanie funkcji zapisywania zwrotnego do samoobsługowego resetowania haseł w środowisku lokalnym
 
@@ -43,7 +43,7 @@ Do ukończenia tego samouczka potrzebne są następujące zasoby i uprawnienia:
     * W razie potrzeby [Wykonaj poprzedni samouczek, aby włączyć usługę Azure AD SSPR](tutorial-enable-sspr.md).
 * Istniejące lokalne środowisko AD DS skonfigurowane z bieżącą wersją Azure AD Connect.
     * W razie konieczności Skonfiguruj Azure AD Connect przy użyciu ustawień [ekspresowych](../hybrid/how-to-connect-install-express.md) lub [niestandardowych](../hybrid/how-to-connect-install-custom.md) .
-    * Aby można było używać funkcji zapisywania zwrotnego haseł, kontrolery domeny muszą być systemu Windows Server 2008 R2 lub nowszego.
+    * Aby można było używać funkcji zapisywania zwrotnego haseł, kontrolery domeny muszą być w systemie Windows Server 2012 lub nowszym.
 
 ## <a name="configure-account-permissions-for-azure-ad-connect"></a>Konfigurowanie uprawnień konta dla Azure AD Connect
 
@@ -124,11 +124,11 @@ Aby włączyć funkcję zapisywania zwrotnego haseł w SSPR, wykonaj następują
 
 1. Gdy wszystko będzie gotowe, wybierz pozycję **Zapisz**.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli nie chcesz już używać funkcji zapisywania zwrotnego SSPR skonfigurowanej w ramach tego samouczka, wykonaj następujące czynności:
 
-1. Zaloguj się do [portalu Azure](https://portal.azure.com).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 1. Wyszukaj i wybierz pozycję **Azure Active Directory**, wybierz pozycję **Resetowanie hasła**, a następnie wybierz pozycję **integracja lokalna**.
 1. Ustawić opcję **zapisu haseł wstecz do katalogu lokalnego?** do *nie*.
 1. Ustaw opcję **Zezwalaj użytkownikom na odblokowywanie kont bez resetowania ich hasła?** do *nie*.

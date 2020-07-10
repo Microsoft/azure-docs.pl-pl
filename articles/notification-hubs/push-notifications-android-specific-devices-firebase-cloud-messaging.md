@@ -17,12 +17,12 @@ ms.date: 04/30/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 04/30/2019
-ms.openlocfilehash: b7ee3afc2e8b9958a868c8c117262d2017c9b600
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 273827e68a81e87dcff15760f0b400b2d5ce8723
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80126878"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86220868"
 ---
 # <a name="tutorial-send-notifications-to-specific-devices-using-notification-hubs-and-google-firebase-cloud-messaging"></a>Samouczek: wysyłanie powiadomień do określonych urządzeń przy użyciu usług Notification Hubs i Google Firebase Cloud Messaging
 
@@ -117,7 +117,7 @@ Pierwszym krokiem jest dodanie elementów interfejsu użytkownika do istniejące
 
     Układ graficzny pliku `main_activity.xml` powinien wyglądać mniej więcej tak:
 
-    ![][A1]
+    ![Zrzut ekranu przedstawiający emulator przedstawiający, jak będzie wyglądać główny układ graficzny X M L.][A1]
 3. Utwórz klasę `Notifications` w tym samym pakiecie co klasa `MainActivity`.
 
     ```java
@@ -204,12 +204,12 @@ Pierwszym krokiem jest dodanie elementów interfejsu użytkownika do istniejące
     ```
 
     Ta klasa używa magazynu lokalnego do przechowywania kategorii wiadomości, które mają być odbierane na tym urządzeniu. Zawiera również metody rejestracji w tych kategoriach.
-4. W `MainActivity` klasie Dodaj pole dla `Notifications`:
+4. W `MainActivity` klasie Dodaj pole dla `Notifications` :
 
     ```java
     private Notifications notifications;
     ```
-5. Następnie zaktualizuj `onCreate` metodę, jak pokazano w poniższym kodzie. Rejestrujesz się w Notification Hubs w metodzie **subscribeToCategories** klasy **Notifications** . 
+5. Następnie zaktualizuj metodę, `onCreate` jak pokazano w poniższym kodzie. Rejestrujesz się w Notification Hubs w metodzie **subscribeToCategories** klasy **Notifications** . 
 
     ```java
     @Override

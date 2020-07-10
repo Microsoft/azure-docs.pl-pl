@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a1f06b0b5aa59328d2fe39d501cfdf3ad7524427
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a24ec98e9d5978a6f896715b25bd6b08d4a0262d
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75431469"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232189"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-f5"></a>Samouczek: Azure Active Directory Integracja z logowaniem jednokrotnym (SSO) przy użyciu klawisza F5
 
@@ -42,11 +42,11 @@ Aby rozpocząć, potrzebne są następujące elementy:
 * Subskrypcja z włączonym logowaniem jednokrotnym (SSO).
 
 * Wdrożenie wspólnego rozwiązania wymaga następującej licencji:
-    * F5 BIG-IP® najlepszym pakietem (lub)
+    * Najlepszy pakiet F5 BIG-IP &reg; (lub)
 
-    * F5 BIG-IP — licencja autonomiczna Menedżera zasad (APM)™
+    * F5 BIG — licencja autonomiczna Menedżera zasad dostępu IP &trade; (APM)
 
-    * F5 BIG-IP Access Manager — licencja dodatku™ (APM) na istniejącym® lokalnym™ Traffic Managerm Big-IP F5 (LTM).
+    * Licencja dodatku F5 BIG-IP Access Manager &trade; (APM) na istniejącym Traffic Manager lokalnym Big-IP F5 &reg; &trade; (LTM).
 
     * Oprócz powyższej licencji system F5 może również mieć licencję na:
 
@@ -177,9 +177,9 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
 1. Wybierz pozycję **nowy użytkownik** w górnej części ekranu.
 1. We właściwościach **użytkownika** wykonaj następujące kroki:
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
-   1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension. Na przykład `B.Simon@contoso.com`.
+   1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
-   1. Kliknij przycisk **Utwórz**.
+   1. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -223,7 +223,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 1. Ponadto wymagany jest **certyfikat SSL dla nazwy hosta aplikacji. Przejdź do systemu > zarządzanie certyfikatami > zarządzania certyfikatami, > listy certyfikatów SSL**. Wybierz pozycję **Importuj** z prawej strony. **Typ importu** to **PKCS 12 (IIS)**. Określ **nazwę klucza** (zostanie przywoływana później w konfiguracji) i określ plik PFX. Określ **hasło** dla pliku PFX. Kliknij pozycję **Importuj**.
 
     >[!NOTE]
-    >W przykładzie Nasza nazwa aplikacji jest `Kerbapp.superdemo.live`używana jako certyfikat wieloznaczny nasz KeyName to`WildCard-SuperDemo.live`
+    >W przykładzie Nasza nazwa aplikacji jest `Kerbapp.superdemo.live` używana jako certyfikat wieloznaczny nasz KeyName to`WildCard-SuperDemo.live`
 
     ![Konfiguracja F5 (Kerberos)](./media/kerbf5-tutorial/configure02.png) 
  
@@ -248,7 +248,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
     ![Konfiguracja F5 (Kerberos)](./media/kerbf5-tutorial/configure07.png)  
 
-1. W obszarze **wybierz pulę**określ pozycję **Utwórz nową** (Alternatywnie wybierz już istniejącą pulę). Zezwól na ustawienie wartości domyślnej. W obszarze serwery puli wpisz adres IP w obszarze **adres IP/nazwa węzła**. Określ **port**. Kliknij przycisk **zapisz & dalej**.
+1. W obszarze **wybierz pulę**określ pozycję **Utwórz nową** (Alternatywnie wybierz już istniejącą pulę). Zezwól na ustawienie wartości domyślnej.    W obszarze serwery puli wpisz adres IP w obszarze **adres IP/nazwa węzła**. Określ **port**. Kliknij przycisk **zapisz & dalej**.
  
     ![Konfiguracja F5 (Kerberos)](./media/kerbf5-tutorial/configure08.png)
 
@@ -282,23 +282,23 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 Serwer Active Directory AAA można skonfigurować w Menedżerze zasad dostępu (APM), aby określić kontrolery domeny i poświadczenia dla usługi APM, które będą używane do uwierzytelniania użytkowników.
 
-1.  Na karcie Główny kliknij pozycję **zasady dostępu > serwery AAA > Active Directory**. Zostanie otwarty ekran listy serwerów Active Directory.
+1.    Na karcie Główny kliknij pozycję **zasady dostępu > serwery AAA > Active Directory**. Zostanie otwarty ekran listy serwerów Active Directory.
 
-2.  Kliknij przycisk **Utwórz**. Zostanie otwarty ekran nowe właściwości serwera.
+2.    Kliknij pozycję **Utwórz**. Zostanie otwarty ekran nowe właściwości serwera.
 
-3.  W polu **Nazwa** wpisz unikatową nazwę serwera uwierzytelniania.
+3.    W polu **Nazwa** wpisz unikatową nazwę serwera uwierzytelniania.
 
-4.  W polu **nazwa domeny** wpisz nazwę domeny systemu Windows.
+4.    W polu **nazwa domeny** wpisz nazwę domeny systemu Windows.
 
-5.  Dla ustawienia **połączenie z serwerem** wybierz jedną z następujących opcji:
+5.    Dla ustawienia **połączenie z serwerem** wybierz jedną z następujących opcji:
 
     * Wybierz pozycję **Użyj puli** , aby skonfigurować wysoką dostępność serwera AAA.
 
     * Wybierz pozycję **Direct** , aby skonfigurować serwer AAA dla funkcjonalności autonomicznej.
 
-6.  W przypadku wybrania **bezpośrednie**wpisz nazwę w polu **kontroler domeny** .
+6.    W przypadku wybrania **bezpośrednie**wpisz nazwę w polu **kontroler domeny** .
 
-7.  Jeśli wybrano opcję Użyj **puli**, skonfiguruj pulę:
+7.    Jeśli wybrano opcję Użyj **puli**, skonfiguruj pulę:
 
     * Wpisz nazwę w polu **Nazwa puli kontrolera domeny** .
 
@@ -306,21 +306,21 @@ Serwer Active Directory AAA można skonfigurować w Menedżerze zasad dostępu (
 
     * Aby monitorować kondycję serwera AAA, można wybrać monitor kondycji: w tym przypadku jest odpowiedni tylko monitor **gateway_icmp** . można wybrać ją z listy **Monitor puli serwerów** .
 
-8.  W polu **nazwa administratora** wpisz nazwę z uwzględnieniem wielkości liter dla administratora, który ma Active Directory uprawnienia administracyjne. System APM używa informacji w polach **nazwa administratora** i **hasło administratora** dla kwerendy AD. Jeśli Active Directory jest skonfigurowany dla zapytań anonimowych, nie trzeba podawać nazwy administratora. W przeciwnym razie system APM potrzebuje konta z wystarczającymi uprawnieniami do powiązania z serwerem Active Directory, pobierania informacji o grupie użytkowników i pobierania Active Directory zasad haseł w celu obsługi funkcji związanych z hasłami. (System APM musi pobrać zasady haseł, na przykład w przypadku wybrania opcji Monituj użytkownika o zmianę hasła przed wygaśnięciem w akcji kwerendy AD). Jeśli nie podasz informacji o koncie administratora w tej konfiguracji, system APM używa konta użytkownika do pobierania informacji. Ta wartość działa, jeśli konto użytkownika ma wystarczające uprawnienia.
+8.    W polu **nazwa administratora** wpisz nazwę z uwzględnieniem wielkości liter dla administratora, który ma Active Directory uprawnienia administracyjne. System APM używa informacji w polach **nazwa administratora** i **hasło administratora** dla kwerendy AD. Jeśli Active Directory jest skonfigurowany dla zapytań anonimowych, nie trzeba podawać nazwy administratora. W przeciwnym razie system APM potrzebuje konta z wystarczającymi uprawnieniami do powiązania z serwerem Active Directory, pobierania informacji o grupie użytkowników i pobierania Active Directory zasad haseł w celu obsługi funkcji związanych z hasłami. (System APM musi pobrać zasady haseł, na przykład w przypadku wybrania opcji Monituj użytkownika o zmianę hasła przed wygaśnięciem w akcji kwerendy AD). Jeśli nie podasz informacji o koncie administratora w tej konfiguracji, system APM używa konta użytkownika do pobierania informacji. Ta wartość działa, jeśli konto użytkownika ma wystarczające uprawnienia.
 
-9.  W polu **hasło administratora** wpisz hasło administratora skojarzone z nazwą domeny.
+9.    W polu **hasło administratora** wpisz hasło administratora skojarzone z nazwą domeny.
 
-10. W polu **Weryfikuj hasło administratora** wpisz ponownie hasło administratora skojarzone z ustawieniem **nazwa domeny** .
+10.    W polu **Weryfikuj hasło administratora** wpisz ponownie hasło administratora skojarzone z ustawieniem **nazwa domeny** .
 
-11. W polu **okres istnienia pamięci podręcznej grupy** wpisz liczbę dni. Domyślny okres istnienia to 30 dni.
+11.    W polu **okres istnienia pamięci podręcznej grupy** wpisz liczbę dni. Domyślny okres istnienia to 30 dni.
 
-12. W polu **okres istnienia pamięci podręcznej obiektu zabezpieczeń hasła** wpisz liczbę dni. Domyślny okres istnienia to 30 dni.
+12.    W polu **okres istnienia pamięci podręcznej obiektu zabezpieczeń hasła** wpisz liczbę dni. Domyślny okres istnienia to 30 dni.
 
-13. Z listy **typ szyfrowania wstępnego uwierzytelniania Kerberos** wybierz typ szyfrowania. Wartość domyślna to **none**. W przypadku określenia typu szyfrowania system BIG-IP zawiera dane wstępnego uwierzytelniania Kerberos w ramach pierwszego żądania usługi uwierzytelniania (zgodnie z żądaniem).
+13.    Z listy **typ szyfrowania wstępnego uwierzytelniania Kerberos** wybierz typ szyfrowania. Wartość domyślna to **none**. W przypadku określenia typu szyfrowania system BIG-IP zawiera dane wstępnego uwierzytelniania Kerberos w ramach pierwszego żądania usługi uwierzytelniania (zgodnie z żądaniem).
 
-14. W polu **limit czasu** wpisz przedział czasu (w sekundach) dla serwera AAA. (To ustawienie jest opcjonalne).
+14.    W polu **limit czasu** wpisz przedział czasu (w sekundach) dla serwera AAA. (To ustawienie jest opcjonalne).
 
-15. Kliknij przycisk **Zakończono**. Nowy serwer zostanie wyświetlony na liście. Spowoduje to dodanie nowego serwera Active Directory do listy serwerów Active Directory.
+15.    Kliknij przycisk **Zakończono**. Nowy serwer zostanie wyświetlony na liście. Spowoduje to dodanie nowego serwera Active Directory do listy serwerów Active Directory.
 
     ![Konfiguracja F5 (Kerberos)](./media/kerbf5-tutorial/configure17.png)
 
@@ -347,7 +347,7 @@ Serwer Active Directory AAA można skonfigurować w Menedżerze zasad dostępu (
 1. Aby skonfigurować protokół SAML SP, przejdź do opcji **dostęp > federacyjnego > dostawcy usługi SAML > lokalnych usług Sp** , a następnie kliknij przycisk **Utwórz**. Uzupełnij poniższe informacje i kliknij przycisk **OK**.
 
     * Nazwa typu: KerbApp200SAML
-    * Identyfikator jednostki *:https://kerbapp200.superdemo.live
+    * Identyfikator jednostki *:https://kerb-app.com.cutestat.com
     * Ustawienia nazw SP
     * Schemat: https
     * Host: kerbapp200. predemonstracyjny. Live
@@ -370,7 +370,7 @@ Serwer Active Directory AAA można skonfigurować w Menedżerze zasad dostępu (
     >[!Note]
     > Konieczne będzie utworzenie i określenie konta delegowania protokołu Kerberos. Odwołaj się do KCD sekcji (zobacz dodatek dla odwołań do zmiennych)
 
-    * **Źródło nazwy użytkownika**: Session. SAML. Last. ATTR. Name. http\/:/schemas.xmlsoap.org/ws/2005/05/identity/claims/givenName
+    * **Źródło nazwy użytkownika**: Session. SAML. Last. ATTR. Name. http: \/ /schemas.xmlSOAP.org/ws/2005/05/identity/claims/givenName
 
     * **Źródło obszaru użytkownika**: Session. Logon. Last. domain
 
@@ -461,7 +461,7 @@ Serwer Active Directory AAA można skonfigurować w Menedżerze zasad dostępu (
 
     * Nazwa konta sam: **Big-ipuser**
 
-    * New-ADUser-Name "konto delegowania APM"- host/big-ipuser.superdemo.live@superdemo.live userPrincipalName-sAMAccountName "Big-ipuser"-PasswordNeverExpires $true-Enabled $true-AccountPassword (read-host-assecurestring "Password! 1234")
+    * New-ADUser-Name "konto delegowania APM"-UserPrincipalName host/big-ipuser.superdemo.live@superdemo.live -sAMAccountName "Big-ipuser"-PasswordNeverExpires $true-Enabled $true-AccountPassword (read-host-assecurestring "Password! 1234")
 
 * **Krok 2:** Ustawianie nazwy SPN (na koncie delegowania APM)
 
@@ -491,7 +491,7 @@ Po kliknięciu kafelka F5 w panelu dostępu należy automatycznie zalogować si�
 
 - [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Wypróbuj usługę Azure AD](https://aad.portal.azure.com/)
 

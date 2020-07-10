@@ -17,12 +17,12 @@ ms.date: 09/11/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 09/11/2019
-ms.openlocfilehash: c2d3789082130cbbc42021a0706249dd3966b9ef
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 16191dfd33d5211fbd082bc1f7e458a238bb2138
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75531126"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224234"
 ---
 # <a name="tutorial-send-push-notifications-to-specific-android-apps-using-azure-notification-hubs"></a>Samouczek: wysyłanie powiadomień wypychanych do określonych aplikacji systemu Android przy użyciu usługi Azure Notification Hubs
 
@@ -151,7 +151,7 @@ Następnym krokiem jest zaktualizowanie aplikacji systemu Android utworzonej w [
 
     Twój układ graficzny pliku `main_activity.xml` powinien wyglądać teraz podobnie do poniższego:
 
-    ![][A1]
+    ![Zrzut ekranu przedstawiający emulator przedstawiający, jak będzie wyglądać główny układ graficzny X M L.][A1]
 3. Utwórz nową klasę o nazwie `RegisterClient` w tym samym pakiecie, w którym znajduje się klasa `MainActivity`. Użyj poniższego kodu dla nowego pliku klasy.
 
     ```java
@@ -412,7 +412,7 @@ Następnym krokiem jest zaktualizowanie aplikacji systemu Android utworzonej w [
     }
     ```
 
-    Program obsługi przycisku **logowania** generuje podstawowy token uwierzytelniania przy użyciu nazwy użytkownika i hasła wejściowego (reprezentuje dowolny token używany przez schemat uwierzytelniania), a następnie używa `RegisterClient` do wywoływania zaplecza do rejestracji. `login`
+    `login`Program obsługi przycisku **logowania** generuje podstawowy token uwierzytelniania przy użyciu nazwy użytkownika i hasła wejściowego (reprezentuje dowolny token używany przez schemat uwierzytelniania), a następnie używa `RegisterClient` do wywoływania zaplecza do rejestracji.
 
     Metoda `sendPush` wywołuje zaplecze, aby wyzwolić bezpieczne powiadomienie do użytkownika w oparciu o tag użytkownika. Docelowa usługa powiadomień platformy dla metody `sendPush` zależy od przekazanego ciągu `pns`.
 
@@ -472,7 +472,7 @@ Następnym krokiem jest zaktualizowanie aplikacji systemu Android utworzonej w [
     ```java
     useLibrary 'org.apache.http.legacy'
     ```
-13. Jeśli aplikacja jest ukierunkowana na poziom interfejsu API 28 (Android 9,0) lub nowszego, Dołącz następującą deklarację `<application>` w `AndroidManifest.xml`obrębie elementu.
+13. Jeśli aplikacja jest ukierunkowana na poziom interfejsu API 28 (Android 9,0) lub nowszego, Dołącz następującą deklarację w obrębie `<application>` elementu `AndroidManifest.xml` .
 
     ```xml
     <uses-library
@@ -487,7 +487,7 @@ Następnym krokiem jest zaktualizowanie aplikacji systemu Android utworzonej w [
 2. W aplikacji systemu Android wprowadź nazwę użytkownika i hasło. Oba muszą być taką samą wartością ciągu i nie mogą zawierać spacji ani znaków specjalnych.
 3. W aplikacji systemu Android kliknij przycisk **Zaloguj**. Poczekaj na wyskakujący komunikat informujący o zarejestrowaniu **i zarejestrowaniu**. Spowoduje to włączenie przycisku **Send Notification** (Wyślij powiadomienie).
 
-    ![][A2]
+    ![Zrzut ekranu emulatora pokazujący, jak wygląda aplikacja powiadamiania użytkowników o Notification Hubs po zalogowaniu się.][A2]
 4. Kliknij przyciski przełączania, aby włączyć wszystkie platformy, na których uruchomiono aplikację i zarejestrowano użytkownika.
 5. Wprowadź nazwę użytkownika, który odbierze powiadomienie. Ten użytkownik musi być zarejestrowany na potrzeby otrzymywania powiadomień na urządzeniach docelowych.
 6. Wpisz wiadomość dla użytkownika, która zostanie odebrana w formie powiadomienia push.

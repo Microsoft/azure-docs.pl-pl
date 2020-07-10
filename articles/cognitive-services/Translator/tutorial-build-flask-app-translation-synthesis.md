@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 05/26/2020
 ms.author: swmachan
 ms.custom: tracking-python
-ms.openlocfilehash: 6621967584ee79dd514b6d9d4a9d0e2d240e7905
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: b70ac801765461401a7bfa1d2f251fb41176dccb
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84608115"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232767"
 ---
 # <a name="tutorial-build-a-flask-app-with-azure-cognitive-services"></a>Samouczek: Tworzenie aplikacji do kolby za pomocą usługi Azure Cognitive Services
 
@@ -36,7 +36,7 @@ Oto, co obejmuje ten samouczek:
 > [!TIP]
 > Jeśli chcesz pominąć i wyświetlić cały kod jednocześnie, cały przykład wraz z instrukcjami dotyczącymi kompilacji jest dostępny w witrynie [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Flask-App-Tutorial).
 
-## <a name="what-is-flask"></a>Co to jest Kolba?
+## <a name="what-is-flask"></a>Co to jest platforma Flask?
 
 Kolba jest mikroplatformą do tworzenia aplikacji sieci Web. Oznacza to, że Kolba zawiera narzędzia, biblioteki i technologie umożliwiające tworzenie aplikacji sieci Web. Ta aplikacja sieci Web może być witrynami sieci Web, blogami, witrynami typu wiki lub w formie komercyjnej witryny internetowej.
 
@@ -152,7 +152,7 @@ Następnie musimy zainstalować kolbę. Kolba obsługuje routing dla naszej apli
    export FLASK_APP=app.py
    ```
 
-   **System Windows**:
+   **Windows**:
    ```
    set FLASK_APP=app.py
    ```
@@ -183,7 +183,7 @@ Ten kod gwarantuje, że gdy użytkownik nawiguje do `http://your-web-app.com/abo
 
 Chociaż te przykłady ilustrują sposób renderowania stron HTML dla użytkownika, trasy mogą być również używane do wywoływania interfejsów API po naciśnięciu przycisku lub podjęcia dowolnej liczby akcji bez konieczności nawigowania po stronie głównej. Ta akcja zostanie wyświetlona podczas tworzenia tras do translacji, tonacji i syntezy mowy.
 
-### <a name="get-started"></a>Rozpoczęcie pracy
+### <a name="get-started"></a>Wprowadzenie
 
 1. Otwórz projekt w środowisku IDE, a następnie utwórz plik o nazwie `app.py` w katalogu głównym katalogu roboczego. Następnie skopiuj ten kod do `app.py` i Zapisz:
 
@@ -778,7 +778,7 @@ Teraz, gdy masz funkcję konwersji zamiany tekstu na mowę i trasy w aplikacji w
        <option value="(zh-CN, Kangkang, Apollo)">Chinese (Mainland) | Male | Kangkang, Apollo</option>
        <option value="(zh-HK, Tracy, Apollo)">Chinese (Hong Kong)| Female | Tracy, Apollo</option>
        <option value="(zh-HK, Danny, Apollo)">Chinese (Hong Kong) | Male | Danny, Apollo</option>
-       <option value="(zh-TW, Yating, Apollo)">Chinese (Taiwan)| Female | Yaiting, Apollo</option>
+       <option value="(zh-TW, Yating, Apollo)">Chinese (Taiwan)| Female | Yating, Apollo</option>
        <option value="(zh-TW, Zhiwei, Apollo)">Chinese (Taiwan) | Male | Zhiwei, Apollo</option>
        <option value="(hr-HR, Matej)">Croatian | Male | Matej</option>
        <option value="(en-US, AriaRUS)">English (US) | Female | AriaRUS</option>
@@ -798,7 +798,7 @@ Teraz, gdy masz funkcję konwersji zamiany tekstu na mowę i trasy w aplikacji w
        <option value="(it-IT, Cosimo, Apollo)">Italian | Male | Cosimo, Apollo</option>
        <option value="(ja-JP, Ichiro, Apollo)">Japanese | Male | Ichiro</option>
        <option value="(ja-JP, HarukaRUS)">Japanese | Female | HarukaRUS</option>
-       <option value="(ko-KR, HeamiRUS)">Korean | Female | Haemi</option>
+       <option value="(ko-KR, HeamiRUS)">Korean | Female | Heami</option>
        <option value="(pt-BR, HeloisaRUS)">Portuguese (Brazil) | Female | HeloisaRUS</option>
        <option value="(pt-BR, Daniel, Apollo)">Portuguese (Brazil) | Male | Daniel, Apollo</option>
        <option value="(pt-PT, HeliaRUS)">Portuguese (Portugal) | Female | HeliaRUS</option>

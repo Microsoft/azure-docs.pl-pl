@@ -4,11 +4,12 @@ description: Dowiedz się, jak przygotować maszyny lokalne do migracji za pomoc
 ms.topic: tutorial
 ms.date: 06/08/2020
 ms.custom: MVC
-ms.openlocfilehash: e6840b75d58bf19f742f94caad74e10aebe24666
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: aec2e95b65be2e3c69b2d29111fa1cfdbd66674e
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86044162"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223622"
 ---
 # <a name="prepare-on-premises-machines-for-migration-to-azure"></a>Przygotowywanie maszyn lokalnych do migracji na platformę Azure
 
@@ -121,7 +122,7 @@ W przypadku innych wersji Przygotuj maszyny zgodnie z podsumowaniem w tabeli.
 --- | --- | ---
 **Zainstaluj usługi integracji funkcji Hyper-V w systemie Linux** | Ponownie skompiluj obraz inicjowania systemu Linux, aby zawierał niezbędne sterowniki funkcji Hyper-V. Ponowne skompilowanie obrazu init gwarantuje, że maszyna wirtualna zostanie przeprowadzony na platformie Azure. | Większość nowych wersji dystrybucji systemu Linux jest domyślnie uwzględnionych w tym systemie.<br/><br/> Jeśli nie jest uwzględniony, zainstaluj ją ręcznie dla wszystkich wersji z wyjątkiem tych, które zostały wywołane powyżej.
 **Włącz rejestrowanie w konsoli szeregowej platformy Azure** | Włączenie rejestrowania konsoli ułatwia rozwiązywanie problemów. Nie ma potrzeby ponownego uruchamiania maszyny wirtualnej. Maszyna wirtualna platformy Azure zostanie uruchomiona przy użyciu obrazu dysku. Rozruch obrazu dysku jest równoznaczny z ponownym uruchomieniem nowej maszyny wirtualnej.<br/><br/> Postępuj zgodnie z [tymi instrukcjami](../virtual-machines/troubleshooting/serial-console-linux.md) , aby włączyć.
-**Zaktualizuj plik mapy urządzeń** | Zaktualizuj plik mapy urządzeń za pomocą skojarzeń nazw urządzeń z systemem, aby korzystać z trwałych identyfikatorów urządzeń. | Instaluj ręcznie dla wszystkich wersji z wyjątkiem tych, które zostały wywołane powyżej.
+**Zaktualizuj plik mapy urządzeń** | Zaktualizuj plik mapy urządzeń za pomocą skojarzeń nazw urządzeń z systemem, aby korzystać z trwałych identyfikatorów urządzeń. | Instaluj ręcznie dla wszystkich wersji z wyjątkiem tych, które zostały wywołane powyżej. (Dotyczy tylko w scenariuszu VMware opartym na agentach)
 **Aktualizowanie wpisów fstab** |  Aktualizowanie wpisów w celu używania identyfikatorów woluminów trwałych.    | Aktualizuj ręcznie dla wszystkich wersji z wyjątkiem tych, które zostały wywołane powyżej.
 **Usuń regułę udev** | Usuń wszystkie reguły udev, które rezerwują nazwy interfejsów na podstawie adresu MAC itp. | Usuń ręcznie dla wszystkich wersji z wyjątkiem tych, które zostały wywołane powyżej.
 **Aktualizowanie interfejsów sieciowych** | Aktualizowanie interfejsów sieciowych do odbierania adresów IP na podstawie protokołu DHCP. NST | Aktualizuj ręcznie dla wszystkich wersji z wyjątkiem tych, które zostały wywołane powyżej.

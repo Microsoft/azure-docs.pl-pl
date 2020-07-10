@@ -10,16 +10,16 @@ ms.subservice: bing-visual-search
 ms.topic: tutorial
 ms.date: 03/31/2020
 ms.author: aahi
-ms.openlocfilehash: ad24a8a194a11c3fd5f7f77ea8c52197d5438edc
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: a867560edfb66527c09e349328246a8fc24dbbd3
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80477918"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207248"
 ---
 # <a name="tutorial-find-similar-images-from-previous-searches-using-an-image-insights-token"></a>Samouczek: Znajdowanie podobnych obrazów z poprzednich wyszukiwań przy użyciu tokenu usługi Image Insights
 
-Biblioteka klienta wyszukiwanie wizualne umożliwia znalezienie obrazów w trybie online z poprzednich wyszukiwań, które zwracają `ImageInsightsToken`. Ta aplikacja pobiera `ImageInsightsToken` i używa tokenu podczas kolejnego wyszukiwania. Następnie wysyła `ImageInsightsToken` do usługi Bing i zwraca wyniki, które zawierają adresy URL wyszukiwanie Bing i adresy URL podobnych obrazów, które znajdują się w trybie online.
+Biblioteka klienta wyszukiwanie wizualne umożliwia znalezienie obrazów w trybie online z poprzednich wyszukiwań, które zwracają `ImageInsightsToken` . Ta aplikacja pobiera `ImageInsightsToken` i używa tokenu podczas kolejnego wyszukiwania. Następnie wysyła do usługi `ImageInsightsToken` Bing i zwraca wyniki, które zawierają adresy url wyszukiwanie Bing i adresy URL podobnych obrazów, które znajdują się w trybie online.
 
 Pełny kod źródłowy dla tego samouczka można znaleźć w dodatkowej obsłudze błędów i adnotacjach w serwisie [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/Tutorials/Bing-Visual-Search/BingVisualSearchInsightsTokens.cs).
 
@@ -38,7 +38,7 @@ Pełny kod źródłowy dla tego samouczka można znaleźć w dodatkowej obsłudz
 
 ## <a name="get-the-imageinsightstoken-from-the-bing-image-search-client-library"></a>Pobierz ImageInsightsToken z biblioteki klienta wyszukiwanie obrazów Bing
 
-Ta aplikacja korzysta z `ImageInsightsToken` uzyskanych za pośrednictwem [biblioteki klienta wyszukiwanie obrazów Bing](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/image-search-sdk-quickstart). W nowej aplikacji konsolowej C# Utwórz klienta, aby wywołać interfejs API za pomocą `ImageSearchClient()`polecenia. Następnie użyj `SearchAsync()` zapytania:
+Ta aplikacja korzysta z `ImageInsightsToken` uzyskanych za pośrednictwem [biblioteki klienta wyszukiwanie obrazów Bing](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/image-search-sdk-quickstart). W nowej aplikacji konsolowej C# Utwórz klienta, aby wywołać interfejs API za pomocą polecenia `ImageSearchClient()` . Następnie użyj `SearchAsync()` zapytania:
 
 ```csharp
 var client = new ImageSearchClient(new Microsoft.Azure.CognitiveServices.Search.ImageSearch.ApiKeyServiceClientCredentials(subKey));
@@ -46,7 +46,7 @@ var imageResults = client.Images.SearchAsync(query: "canadian rockies").Result;
 Console.WriteLine("Search images for query \"canadian rockies\"");
 ```
 
-Zapisz pierwszy wynik wyszukiwania przy użyciu `imageResults.Value.First()`, a następnie Zapisz obraz `ImageInsightsToken`.
+Zapisz pierwszy wynik wyszukiwania przy użyciu `imageResults.Value.First()` , a następnie Zapisz obraz `ImageInsightsToken` .
 
 ```csharp
 String insightTok = "None";
@@ -66,7 +66,7 @@ Ta `ImageInsightsToken` wartość jest wysyłana do Wyszukiwanie wizualne Bing w
 
 ## <a name="add-the-imageinsightstoken-to-a-visual-search-request"></a>Dodawanie ImageInsightsToken do żądania wyszukiwanie wizualne
 
-`ImageInsightsToken` Określ żądanie Wyszukiwanie wizualne przez utworzenie `ImageInfo` obiektu na podstawie `ImageInsightsToken` odpowiedzi z Wyszukiwanie wizualne Bing.
+Określ `ImageInsightsToken` żądanie Wyszukiwanie wizualne przez utworzenie `ImageInfo` obiektu na podstawie `ImageInsightsToken` odpowiedzi z Wyszukiwanie wizualne Bing.
 
 ```csharp
 ImageInfo ImageInfo = new ImageInfo(imageInsightsToken: insightsTok);
@@ -74,7 +74,7 @@ ImageInfo ImageInfo = new ImageInfo(imageInsightsToken: insightsTok);
 
 ## <a name="use-bing-visual-search-to-find-images-from-an-imageinsightstoken"></a>Użyj wyszukiwanie wizualne Bing, aby znaleźć obrazy z ImageInsightsToken
 
-`VisualSearchRequest` Obiekt zawiera informacje o obrazie, `ImageInfo` który ma zostać przeszukany. Metoda `VisualSearchMethodAsync()` pobiera wyniki. Nie musisz podawać danych binarnych obrazu, ponieważ obraz jest reprezentowany przez token.
+`VisualSearchRequest`Obiekt zawiera informacje o obrazie, `ImageInfo` który ma zostać przeszukany. Metoda `VisualSearchMethodAsync()` pobiera wyniki. Nie musisz podawać danych binarnych obrazu, ponieważ obraz jest reprezentowany przez token.
 
 ```csharp
 VisualSearchRequest VisualSearchRequest = new VisualSearchRequest(ImageInfo);
@@ -85,7 +85,7 @@ var visualSearchResults = client.Images.VisualSearchMethodAsync(knowledgeRequest
 
 ## <a name="iterate-through-the-visual-search-results"></a>Wykonaj iterację w wyniku wyszukiwanie wizualne
 
-Wyniki wyszukiwania wizualnego to obiekty `ImageTag`. Każdy tag zawiera listę obiektów `ImageAction`. Każdy `ImageAction` z nich `Data` zawiera pole, które jest listą wartości, które są zależne od typu akcji. Można wykonać iterację `ImageTag` obiektów w `visualSearchResults.Tags`, na przykład, i pobrać `ImageAction` tag w nim. Poniższy przykład drukuje szczegóły `PagesIncluding` akcji:
+Wyniki wyszukiwania wizualnego to obiekty `ImageTag`. Każdy tag zawiera listę obiektów `ImageAction`. Każdy `ImageAction` z nich zawiera `Data` pole, które jest listą wartości, które są zależne od typu akcji. Można wykonać iterację `ImageTag` obiektów w `visualSearchResults.Tags` , na przykład, i pobrać `ImageAction` tag w nim. Poniższy przykład drukuje szczegóły `PagesIncluding` akcji:
 
 ```csharp
 if (visualSearchResults.Tags.Count > 0)
@@ -111,7 +111,7 @@ if (visualSearchResults.Tags.Count > 0)
 
 ### <a name="pagesincluding-actiontypes"></a>PagesIncluding ActionTypes
 
-Pobieranie rzeczywistych adresów URL obrazów z typów akcji wymaga rzutowania, który odczytuje `ActionType` jako `ImageModuleAction`, który zawiera `Data` element z listą wartości. Każda wartość to adres URL obrazu.  Poniższy rzutuje typ `PagesIncluding` akcji na `ImageModuleAction` i odczytuje wartości:
+Pobieranie rzeczywistych adresów URL obrazów z typów akcji wymaga rzutowania, który odczytuje `ActionType` jako `ImageModuleAction` , który zawiera `Data` element z listą wartości. Każda wartość to adres URL obrazu.  Poniższy rzutuje `PagesIncluding` Typ akcji na `ImageModuleAction` i odczytuje wartości:
 
 ```csharp
     if (i.ActionType == "PagesIncluding")
@@ -129,17 +129,17 @@ Aby uzyskać więcej informacji o tych typach danych, zobacz [Images - Visual Se
 
 Kompletna aplikacja zwraca następujące adresy URL:
 
-|ActionType  |Adres URL  | |
-|---------|---------|---------|
+|ActionType  |Adres URL  |
+|---------|---------|
 |MoreSizes — > WebSearchUrl     |         |
 |VisualSearch — > WebSearchUrl     |         |
 |ImageById — > WebSearchUrl    |         |
 |RelatedSearches > WebSearchUrl:    |         |
 |DocumentLevelSuggestions > WebSearchUrl:     |         |
-|TopicResults — > WebSearchUrl    | https:\//www.Bing.com/CR?IG=3E32CC6CA5934FBBA14ABC3B2E4651F9&CID = 1BA795A21EAF6A63175699B71FC36B7C&RD = 1&h = BcQifmzdKFyyBusjLxxgO42kzq1Geh7RucVVqvH-900&v = 1&r = https %3 a %2 f %2 f www. Bing. com% 2fdiscover% 2fcanadian% 2brocky&p = DevEx, 5823.1       |
-|ImageResults — > WebSearchUrl    |  https:\//www.Bing.com/CR?IG=3E32CC6CA5934FBBA14ABC3B2E4651F9&CID = 1BA795A21EAF6A63175699B71FC36B7C&RD = 1&h = PV9GzMFOI0AHZp2gKeWJ8DcveSDRE3fP2jHDKMpJSU8&v = 1&r = https %3 a %2 f %2 f www. Bing. com% 2fimages% 2fsearch% 3fq% 3doutdoor&p = DevEx, 5831.1       |
+|TopicResults — > WebSearchUrl    | https: \/ /www.bing.com/cr?IG=3E32CC6CA5934FBBA14ABC3B2E4651F9&CID = 1BA795A21EAF6A63175699B71FC36B7C&RD = 1&h = BcQifmzdKFyyBusjLxxgO42kzq1Geh7RucVVqvH-900&v = 1&r = https %3 a %2 f %2 f www. Bing. com% 2fdiscover% 2fcanadian% 2brocky&p = DevEx, 5823.1       |
+|ImageResults — > WebSearchUrl    |  https: \/ /www.bing.com/cr?IG=3E32CC6CA5934FBBA14ABC3B2E4651F9&CID = 1BA795A21EAF6A63175699B71FC36B7C&RD = 1&h = PV9GzMFOI0AHZp2gKeWJ8DcveSDRE3fP2jHDKMpJSU8&v = 1&r = https %3 a %2 f %2 f www. Bing. com% 2fimages% 2fsearch% 3fq% 3doutdoor&p = DevEx, 5831.1       |
 
-Jak pokazano powyżej, typy `TopicResults` i `ImageResults` zawierają zapytania dotyczące pokrewnych obrazów. Adresy URL łączą się z wynikami wyszukiwania Bing.
+Jak pokazano powyżej, `TopicResults` typy i `ImageResults` zawierają zapytania dotyczące pokrewnych obrazów. Adresy URL łączą się z wynikami wyszukiwania Bing.
 
 ## <a name="next-steps"></a>Następne kroki
 
