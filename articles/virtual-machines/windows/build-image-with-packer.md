@@ -8,12 +8,12 @@ ms.topic: article
 ms.workload: infrastructure
 ms.date: 02/22/2019
 ms.author: cynthn
-ms.openlocfilehash: ec6fcfbc171b7227c79741c00adbc16be4c7ce87
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 194610845d9625139ff826711fc361bd9670a426
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85445529"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86202648"
 ---
 # <a name="how-to-use-packer-to-create-windows-virtual-machine-images-in-azure"></a>Jak używać programu pakujący do tworzenia obrazów maszyn wirtualnych z systemem Windows na platformie Azure
 Każda maszyna wirtualna na platformie Azure jest tworzona na podstawie obrazu, który definiuje dystrybucję systemu Windows i wersję systemu operacyjnego. Obrazy mogą zawierać wstępnie zainstalowane aplikacje i konfiguracje. Portal Azure Marketplace udostępnia wiele obrazów od początku i innych firm dla najpopularniejszych środowisk systemów operacyjnych i aplikacji. można też tworzyć własne niestandardowe obrazy dostosowane do Twoich potrzeb. W tym artykule szczegółowo opisano, jak używać pakietu narzędzi open source [Pack](https://www.packer.io/) do definiowania i tworzenia obrazów niestandardowych na platformie Azure.
@@ -111,6 +111,9 @@ Utwórz plik o nazwie *windows.jsna* i wklej następującą zawartość. Wprowad
     "type": "powershell",
     "inline": [
       "Add-WindowsFeature Web-Server",
+      "while ((Get-Service RdAgent).Status -ne 'Running') { Start-Sleep -s 5 }",
+      "while ((Get-Service WindowsAzureTelemetryService).Status -ne 'Running') { Start-Sleep -s 5 }",
+      "while ((Get-Service WindowsAzureGuestAgent).Status -ne 'Running') { Start-Sleep -s 5 }",
       "& $env:SystemRoot\\System32\\Sysprep\\Sysprep.exe /oobe /generalize /quiet /quit",
       "while($true) { $imageState = Get-ItemProperty HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Setup\\State | Select ImageState; if($imageState.ImageState -ne 'IMAGE_STATE_GENERALIZE_RESEAL_TO_OOBE') { Write-Output $imageState.ImageState; Start-Sleep -s 10  } else { break } }"
     ]
@@ -119,6 +122,8 @@ Utwórz plik o nazwie *windows.jsna* i wklej następującą zawartość. Wprowad
 ```
 
 Ten szablon tworzy maszynę wirtualną z systemem Windows Server 2016, instaluje usługi IIS, a następnie uogólniuje maszynę wirtualną przy użyciu programu Sysprep. W instalacji usług IIS pokazano, jak można użyć programu PowerShell do uruchamiania dodatkowych poleceń. Końcowy obraz programu Packer zawiera również wymaganą instalację i konfigurację oprogramowania.
+
+Agent gościa systemu Windows uczestniczy w procesie Sysprep. Aby można było sysprep'ed maszynę wirtualną, Agent musi być w pełni zainstalowany. Aby mieć pewność, że ta wartość jest prawdziwa, przed wykonaniem sysprep.exe należy uruchomić wszystkie usługi agenta. Poprzedni fragment kodu JSON przedstawia jeden ze sposobów wykonania tej czynności w aprowizacji programu PowerShell. Ten fragment kodu jest wymagany tylko wtedy, gdy maszyna wirtualna jest skonfigurowana do zainstalowania agenta, co jest ustawieniem domyślnym.
 
 
 ## <a name="build-packer-image"></a>Obraz pakietu Build Pack

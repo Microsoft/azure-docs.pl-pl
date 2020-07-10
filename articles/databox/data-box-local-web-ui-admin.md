@@ -5,14 +5,15 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: pod
-ms.topic: how-to
-ms.date: 06/03/2019
+ms.topic: article
+ms.date: 07/10/2020
 ms.author: alkohli
-ms.openlocfilehash: 4e16f57d7a8ee10ef870ac102c5458cea4946304
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 34b1ce42850fcefcc2b0d146e7f33d720fd8062d
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84608251"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86202526"
 ---
 # <a name="use-the-local-web-ui-to-administer-your-data-box-and-data-box-heavy"></a>Użyj lokalnego interfejsu użytkownika sieci Web do administrowania urządzenie Data Box i Data Box Heavy
 
@@ -27,6 +28,8 @@ W tym artykule zawarto następujące samouczki:
 - Pobieranie zestawienia komponentów lub plików manifestu
 - Wyświetlanie dostępnej pojemności urządzenia
 - Pomijanie weryfikacji sumy kontrolnej
+
+[!INCLUDE [Data Box feature is in preview](../../includes/data-box-feature-is-preview-info.md)]
 
 ## <a name="generate-support-package"></a>Generowanie pakietu dla pomocy technicznej
 
@@ -79,9 +82,9 @@ Aby ponownie uruchomić urządzenie Data Box, wykonaj następujące czynności.
 
 ## <a name="download-bom-or-manifest-files"></a>Pobieranie zestawienia komponentów lub plików manifestu
 
-BOM lub pliki manifestu zawierają listę plików, które są kopiowane do urządzenie Data Box lub Data Box Heavy. Te pliki są generowane podczas przygotowywania urządzenia do wysłania.
+BOM lub pliki manifestu zawierają listę plików, które są kopiowane do urządzenie Data Box lub Data Box Heavy. Te pliki są generowane dla zamówienia importu podczas przygotowywania urządzenia do wysłania.
 
-Przed rozpoczęciem upewnij się, że urządzenie zostało wykonane **przygotowanie do wysłania** kroku. Wykonaj następujące kroki, aby pobrać zestawienie komponentów lub pliki manifestu:
+Przed rozpoczęciem upewnij się, że urządzenie zostało wykonane **przygotowanie do wysłania** kroku. Wykonaj następujące kroki, aby pobrać pliki BOM lub manifestów dla zamówienia importu:
 
 1. Przejdź do lokalnego interfejsu użytkownika sieci Web dla Twojego urządzenia. Zobaczysz, że urządzenie zakończyło przygotowywanie do wysłania. Po zakończeniu przygotowywania urządzenia stan urządzenia ma wartość **Gotowe do wysyłki**.
 
@@ -167,6 +170,8 @@ Aby wyświetlić dostępną i używaną pojemność urządzenia, można użyć j
 
 Suma kontrolna jest generowana domyślnie dla danych podczas przygotowywania do wysłania. W niektórych rzadkich przypadkach, w zależności od typu danych (małe rozmiary plików), wydajność może zostać zmniejszona. W takich przypadkach można pominąć generowanie sumy kontrolnej.
 
+Obliczenia sum kontrolnych podczas przygotowywania do wysłania są wykonywane tylko w przypadku zamówień importu, a nie dla zamówień eksportu. 
+
 Zdecydowanie zaleca się, aby nie wyłączać sumy kontrolnej, chyba że jej generowanie ma znaczny wpływ na wydajność.
 
 1. W prawym górnym rogu lokalnego interfejsu użytkownika sieci Web urządzenia przejdź do pozycji **Ustawienia**.
@@ -174,9 +179,10 @@ Zdecydowanie zaleca się, aby nie wyłączać sumy kontrolnej, chyba że jej gen
     ![Wyłączanie sumy kontrolnej](media/data-box-local-web-ui-admin/disable-checksum.png)
 
 2. **Wyłącz** weryfikację sumy kontrolnej.
-3. Kliknij przycisk **Zastosuj**.
+3. Kliknij pozycję **Zastosuj**.
 
-## <a name="next-steps"></a>Następne kroki
+> [!NOTE]
+> Opcja obliczenia pominięcia sum kontrolnych jest dostępna tylko wtedy, gdy Azure Data Box jest odblokowany. Nie zobaczysz tej opcji, gdy urządzenie jest zablokowane.
 
 - Dowiedz się, jak [zarządzać urządzenie Data Box i Data Box Heavy za pośrednictwem Azure Portal](data-box-portal-admin.md).
 

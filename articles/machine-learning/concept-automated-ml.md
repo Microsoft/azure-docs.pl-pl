@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 author: cartacioS
 ms.author: sacartac
 ms.date: 04/22/2020
-ms.openlocfilehash: f12f080f2b1b7379b622fe4d7c5e0b35e358d0ef
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 5f4b48dfbef7362a0b49e53a17b080e127701c94
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86041731"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86199878"
 ---
 # <a name="what-is-automated-machine-learning-automl"></a>Co to jest automatyczne Uczenie maszynowe (AutoML)?
 
@@ -105,7 +105,7 @@ Dowiedz się, jak używać [zdalnego obiektu docelowego obliczeń](how-to-auto-t
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2Xc9t]
 
 
-## <a name="feature-engineering"></a>Inżynieria funkcji
+## <a name="feature-engineering"></a>Inżynieria cech
 
 Inżynieria funkcji to proces polegający na użyciu znajomości domeny danych w celu utworzenia funkcji, które pomagają algorytmom ML uczyć się. W Azure Machine Learning są stosowane techniki skalowania i normalizacji w celu ułatwienia inżynierii funkcji. Wspólnie te techniki i inżynieria funkcji są określane jako cechowania.
 
@@ -174,7 +174,7 @@ Należy wziąć pod uwagę te zalety i wady, gdy wybierzesz opcję używania lok
 
  Więcej funkcji jest dostępnych w przypadku korzystania ze zdalnych obliczeń, jak pokazano w poniższej tabeli. Niektóre z tych funkcji są dostępne tylko w obszarze roboczym przedsiębiorstwa.
 
-| Cecha                                                    | Remote | Lokalny | KONIECZN <br>Obszar roboczy przedsiębiorstwa |
+| Obiekt feature                                                    | Remote | Lokalny | KONIECZN <br>Obszar roboczy przedsiębiorstwa |
 |------------------------------------------------------------|--------|-------|-------------------------------|
 | Przesyłanie strumieniowe danych (obsługa dużej ilości danych, do 100 GB)          | ✓      |       | ✓                             |
 | DNN BERT tekstu cechowania i szkolenia             | ✓      |       | ✓                             |
@@ -220,21 +220,21 @@ Poniższe ustawienia umożliwiają skonfigurowanie zautomatyzowanego eksperyment
 
 | |Zestaw SDK języka Python|Środowisko sieci Web programu Studio|
 ----|:----:|:----:
-Dzielenie danych na zestawy uczenia/walidacji| ✓|✓
-Obsługuje zadania ML: klasyfikacje, regresje i prognozowanie| ✓| ✓
-Optymalizuje na podstawie metryki podstawowej| ✓| ✓
-Obsługuje obliczenia AML jako element docelowy obliczeń | ✓|✓
-Konfigurowanie horyzontu prognoz, Target spowolnienia & przedziału|✓|✓
-Ustawianie kryteriów zakończenia |✓|✓ 
-Ustaw współbieżne iteracje| ✓|✓
-Upuszczanie kolumn| ✓|✓
-Algorytmy blokowania|✓|✓
-Krzyżowe sprawdzanie poprawności |✓|✓
-Obsługuje szkolenia dotyczące klastrów Azure Databricks| ✓|
-Przeglądanie nazw projektowanych funkcji|✓|
-Podsumowanie cechowania| ✓|
-Cechowania dla świąt|✓|
-Poziomy szczegółowości pliku dziennika| ✓|
+|**Dzielenie danych na zestawy uczenia/walidacji**| ✓|✓
+|**Obsługuje zadania ML: klasyfikacje, regresje i prognozowanie**| ✓| ✓
+|**Optymalizuje na podstawie metryki podstawowej**| ✓| ✓
+|**Obsługuje obliczenia AML jako element docelowy obliczeń** | ✓|✓
+|**Konfigurowanie horyzontu prognoz, Target spowolnienia & przedziału**|✓|✓
+|**Ustawianie kryteriów zakończenia** |✓|✓ 
+|**Ustaw współbieżne iteracje**| ✓|✓
+|**Upuszczanie kolumn**| ✓|✓
+|**Algorytmy blokowania**|✓|✓
+|**Krzyżowe sprawdzanie poprawności** |✓|✓
+|**Obsługuje szkolenia dotyczące klastrów Azure Databricks**| ✓|
+|**Przeglądanie nazw projektowanych funkcji**|✓|
+|**Podsumowanie cechowania**| ✓|
+|**Cechowania dla świąt**|✓|
+|**Poziomy szczegółowości pliku dziennika**| ✓|
 
 ### <a name="model-settings"></a>Ustawienia modelu
 
@@ -242,11 +242,11 @@ Te ustawienia mogą być stosowane do najlepszego modelu w wyniku zautomatyzowan
 
 | |Zestaw SDK języka Python|Środowisko sieci Web programu Studio|
 |----|:----:|:----:|
-|Najlepsza Rejestracja modelu, wdrażanie, wyjaśnienie| ✓|✓|
-|Włącz głosujący zestawy kompletów & stosują modele| ✓|✓|
-|Pokaż najlepszy model na podstawie metryki innej niż podstawowa|✓||
-|Włącz/Wyłącz zgodność modelu ONNX|✓||
-|Testowanie modelu | ✓| |
+|**Najlepsza Rejestracja modelu, wdrażanie, wyjaśnienie**| ✓|✓|
+|**Włącz głosujący zestawy kompletów & stosują modele**| ✓|✓|
+|**Pokaż najlepszy model na podstawie metryki innej niż podstawowa**|✓||
+|**Włącz/Wyłącz zgodność modelu ONNX**|✓||
+|**Testowanie modelu** | ✓| |
 
 ### <a name="run-control-settings"></a>Uruchom ustawienia kontrolki
 
@@ -254,10 +254,10 @@ Te ustawienia umożliwiają przeglądanie i kontrolowanie przebiegów eksperymen
 
 | |Zestaw SDK języka Python|Środowisko sieci Web programu Studio|
 |----|:----:|:----:|
-|Uruchom tabelę podsumowania| ✓|✓|
-|Anulowanie przebiegów & podrzędnych przebiegów| ✓|✓|
-|Pobierz guardrails| ✓|✓|
-|Wstrzymywanie przebiegów & wznawiania| ✓| |
+|**Uruchom tabelę podsumowania**| ✓|✓|
+|**Anulowanie przebiegów & podrzędnych przebiegów**| ✓|✓|
+|**Pobierz guardrails**| ✓|✓|
+|**Wstrzymywanie przebiegów & wznawiania**| ✓| |
 
 <a name="use-with-onnx"></a>
 
@@ -279,7 +279,7 @@ Samouczki to kompleksowe przykładowe scenariusze AutoML.
 
  + **W przypadku środowiska z niską lub brakiem kodu**zapoznaj się z [samouczkiem: Tworzenie zautomatyzowanych modeli klasyfikacji ml przy użyciu programu Azure Machine Learning Studio](tutorial-first-experiment-automated-ml.md).
 
-Jak artykuły zawierają dodatkowe informacje o oferowanych funkcjach AutoML. Na przykład 
+Jak artykuły zawierają dodatkowe informacje o oferowanych funkcjach AutoML. Przykład: 
 
 + Konfigurowanie ustawień automatycznych eksperymentów szkoleniowych
     + W programie Azure Machine Learning Studio [wykonaj te kroki](how-to-use-automated-ml-for-ml-models.md). 

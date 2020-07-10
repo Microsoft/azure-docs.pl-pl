@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: how-to
 ms.date: 05/20/2020
 ms.custom: seodec18, tracking-python
-ms.openlocfilehash: 519d9f25276ea54fbfd49970ba3c288245ce9653
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 528696daf4bddd1f448266243b511e600351606a
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85833693"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86202604"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Konfigurowanie eksperymentów zautomatyzowanego uczenia maszynowego w języku Python
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -129,7 +129,7 @@ Użyj, `validation_size` Aby określić procentowy zestaw danych szkoleniowych, 
 
 ### <a name="custom-validation-dataset"></a>Niestandardowy zestaw danych walidacji
 
-Użyj niestandardowego zestawu danych walidacji, jeśli podział losowy nie jest akceptowalny, zazwyczaj dane szeregów czasowych lub niezrównoważone dane. Możesz określić własny zestaw danych walidacji. Model zostanie oceniony względem określonego zestawu danych sprawdzania poprawności zamiast losowego zestawu danych.
+Użyj niestandardowego zestawu danych walidacji, jeśli podział losowy nie jest akceptowalny, zazwyczaj dane szeregów czasowych lub niezrównoważone dane. Możesz określić własny zestaw danych walidacji. Model zostanie oceniony względem określonego zestawu danych sprawdzania poprawności zamiast losowego zestawu danych. Dowiedz się więcej na temat [konfigurowania niestandardowego zestawu walidacji przy użyciu zestawu SDK](how-to-configure-cross-validation-data-splits.md#provide-validation-data).
 
 ## <a name="compute-to-run-experiment"></a>Obliczenia w celu uruchomienia eksperymentu
 
@@ -433,7 +433,7 @@ Użyj tych 2 interfejsów API w pierwszym kroku dopasowanego modelu, aby poznać
    |Przekształcenia|Lista transformacji zastosowanych do funkcji wejściowych do generowania przetworzonych funkcji.|
 ### <a name="scalingnormalization-and-algorithm-with-hyperparameter-values"></a>Skalowanie/Normalizacja i algorytm za pomocą wartości parametrów:
 
-Aby zrozumieć wartości skalowania/normalizacji oraz algorytm/parametry dla potoku, użyj fitted_model. kroki. [Dowiedz się więcej o skalowaniu/normalizacji](). Oto przykładowe dane wyjściowe:
+Aby zrozumieć wartości skalowania/normalizacji oraz algorytm/parametry dla potoku, użyj fitted_model. kroki. [Dowiedz się więcej o skalowaniu/normalizacji](how-to-configure-auto-features.md). Oto przykładowe dane wyjściowe:
 
 ```
 [('RobustScaler', RobustScaler(copy=True, quantile_range=[10, 90], with_centering=True, with_scaling=True)), ('LogisticRegression', LogisticRegression(C=0.18420699693267145, class_weight='balanced', dual=False, fit_intercept=True, intercept_scaling=1, max_iter=100, multi_class='multinomial', n_jobs=1, penalty='l2', random_state=None, solver='newton-cg', tol=0.0001, verbose=0, warm_start=False))

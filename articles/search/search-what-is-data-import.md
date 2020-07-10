@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 9a4b6bc8ae20789c1420e68f91cee34ac5b3a3ed
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 86982aa418433ecef6a81252363091714185fe22
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85554263"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86202295"
 ---
 # <a name="data-import-overview---azure-cognitive-search"></a>Omówienie importowania danych — Wyszukiwanie poznawcze platformy Azure
 
@@ -67,7 +67,9 @@ W przypadku funkcji POST i GET należy podać *nazwę usługi*, *nazwę indeksu*
 
 W przypadku żądania GET parametry zapytania są określane w *ciągu zapytania* na końcu adresu URL. Format adresu URL został przedstawiony poniżej:
 
-    https://[service name].search.windows.net/indexes/[index name]/docs?[query string]&api-version=2020-06-30
+```http
+    https://[service name].search.windows.net/indexes/[index name]/docs?[query string]&api-version=2019-05-06
+```
 
 Format wpisu POST jest taki sam, ale z `api-version` parametrami ciągu zapytania.
 
@@ -75,8 +77,8 @@ Format wpisu POST jest taki sam, ale z `api-version` parametrami ciągu zapytani
 
 Model polegający na ściąganiu obejmuje przeszukiwanie obsługiwanego źródła danych i automatyczne przekazywanie danych do indeksu. Na platformie Azure Wyszukiwanie poznawcze ta funkcja jest wdrażana za pomocą *indeksatorów*, obecnie dostępnych dla następujących platform:
 
-+ [BLOB Storage](search-howto-indexing-azure-blob-storage.md)
-+ [Magazyn tabel](search-howto-indexing-azure-tables.md)
++ [Blob Storage](search-howto-indexing-azure-blob-storage.md)
++ [Table Storage](search-howto-indexing-azure-tables.md)
 + [Azure Cosmos DB](search-howto-index-cosmosdb.md)
 + [Azure SQL Database, wystąpienie zarządzane SQL i SQL Server na maszynach wirtualnych platformy Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 

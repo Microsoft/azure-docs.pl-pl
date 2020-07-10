@@ -1,5 +1,5 @@
 ---
-title: 'Interaktywny debugowanie: VS Code & wystąpienia obliczeniowe ML'
+title: 'Interaktywny debugowanie: VS Code & wystąpienia obliczeniowe ML (wersja zapoznawcza)'
 titleSuffix: Azure Machine Learning
 description: Skonfiguruj VS Code zdalnie, aby interaktywnie debugować kod przy użyciu Azure Machine Learning.
 services: machine-learning
@@ -8,14 +8,15 @@ ms.subservice: core
 ms.topic: how-to
 ms.author: jmartens
 author: j-martens
-ms.date: 12/09/2019
-ms.openlocfilehash: 19d4b6e7994450eacacab51e9a01cbf58eab803a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/09/2020
+ms.openlocfilehash: 46aefa62ab00c0b3bc2b90467a9fafd61439a10e
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84433139"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86203456"
 ---
-# <a name="debug-interactively-on-an-azure-machine-learning-compute-instance-with-vs-code-remote"></a>Interaktywna debugowanie w wystąpieniu obliczeniowym Azure Machine Learning przy użyciu VS Code zdalnego
+# <a name="debug-interactively-on-an-azure-machine-learning-compute-instance-with-vs-code-remote-preview"></a>Interaktywna debugowanie w wystąpieniu Azure Machine Learning wystąpienia obliczeniowego za pomocą VS Code zdalnego (wersja zapoznawcza)
 
 W tym artykule dowiesz się, jak skonfigurować Visual Studio Code zdalne dla wystąpienia obliczeniowego Azure Machine Learning, dzięki czemu możesz **interaktywnie debugować kod** z vs Code. 
 
@@ -46,7 +47,7 @@ Na platformach Windows należy [zainstalować klienta SSH zgodnego z OpenSSH](ht
    vi ~/.ssh/id_azmlcitest_rsa  
    ```
 
-   **System Windows**: 
+   **Windows**: 
    ```
    notepad C:\Users\<username>\.ssh\id_azmlcitest_rsa 
    ```
@@ -90,7 +91,7 @@ Poniżej przedstawiono niektóre szczegóły dotyczące pól:
 |Host|Używaj dowolnych skrótów dla wystąpienia obliczeniowego |
 |HostName|Jest to adres IP wystąpienia obliczeniowego |
 |Port|Jest to port wyświetlany w oknie dialogowym SSH powyżej |
-|Użytkownik|Musi to być `azureuser` |
+|User|Musi to być `azureuser` |
 |IdentityFile|Powinien wskazywać plik, w którym zapisano klucz prywatny |
 
 Teraz powinno być możliwe użycie protokołu SSH w wystąpieniu obliczeniowym przy użyciu składni użytej powyżej `ssh azmlci1` . 

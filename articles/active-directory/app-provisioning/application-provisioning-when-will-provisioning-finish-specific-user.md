@@ -11,11 +11,12 @@ ms.topic: how-to
 ms.date: 09/03/2019
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 03af572c94500e046265a5e9affa4f1742fae544
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a8f712604ae854a1870fe96112db3ae0f2ed60a8
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84782028"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86203004"
 ---
 # <a name="check-the-status-of-user-provisioning"></a>Sprawdź stan aprowizacji użytkowników
 
@@ -76,12 +77,11 @@ Poniższa tabela zawiera podsumowanie czasów synchronizacji typowych scenariusz
 | Synchronizuj wszystkich użytkowników w usłudze Azure AD|  < 1 000  | < 30 minut | < 30 minut |
 | Synchronizuj wszystkich użytkowników w usłudze Azure AD | 1 000 – 10 000  | 43 – 86 minut | < 30 minut |
 
-
 W przypadku **tylko przypisanego użytkownika i grup dla synchronizacji**konfiguracji można użyć następujących formuł, aby określić przybliżoną minimalną i maksymalną oczekiwany czas **cykli początkowej** :
 
-    Minimum minutes =  0.01 x [Number of assigned users, groups, and group members]
-    Maximum minutes = 0.08 x [Number of assigned users, groups, and group members] 
-    
+- Minimum minut = 0,01 x [liczba przypisanych użytkowników, grup i członków grupy]
+- Maksymalna liczba minut = 0,08 x [liczba przypisanych użytkowników, grup i członków grupy]
+
 Podsumowanie czynników wpływających na czas trwania **cyklu początkowego**:
 
 - Łączna liczba użytkowników i grup w zakresie aprowizacji.

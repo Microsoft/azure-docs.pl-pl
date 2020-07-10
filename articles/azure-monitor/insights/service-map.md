@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/24/2019
-ms.openlocfilehash: 217b15b4004b1f06ef63414adc25890d4d87b027
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 637db3a0749b5a0738b0ccc5136d26e435a03c7b
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85557581"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86203123"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Korzystanie z rozwiązania Service Map na platformie Azure
 
@@ -457,43 +457,43 @@ Rekordy z typem *ServiceMapProcess_CL* mają dane spisu dla procesów połączon
 
 ### <a name="list-all-known-machines"></a>Wyświetl listę wszystkich znanych maszyn
 
-ServiceMapComputer_CL | Podsumuj arg_max (TimeGenerated, *) według ResourceId
+`ServiceMapComputer_CL | summarize arg_max(TimeGenerated, *) by ResourceId`
 
 ### <a name="list-the-physical-memory-capacity-of-all-managed-computers"></a>Wyświetl listę pojemności pamięci fizycznej wszystkich zarządzanych komputerów.
 
-ServiceMapComputer_CL | Podsumuj arg_max (TimeGenerated, *) według ResourceId | PhysicalMemory_d projektu, ComputerName_s
+`ServiceMapComputer_CL | summarize arg_max(TimeGenerated, *) by ResourceId | project PhysicalMemory_d, ComputerName_s`
 
 ### <a name="list-computer-name-dns-ip-and-os"></a>Wyświetl listę nazw komputerów, DNS, IP i systemu operacyjnego.
 
-ServiceMapComputer_CL | Podsumuj arg_max (TimeGenerated, *) według ResourceId | ComputerName_s projektu, OperatingSystemFullName_s, DnsNames_s Ipv4Addresses_s
+`ServiceMapComputer_CL | summarize arg_max(TimeGenerated, *) by ResourceId | project ComputerName_s, OperatingSystemFullName_s, DnsNames_s, Ipv4Addresses_s`
 
 ### <a name="find-all-processes-with-sql-in-the-command-line"></a>Znajdź wszystkie procesy z "SQL" w wierszu polecenia
 
-ServiceMapProcess_CL | gdzie CommandLine_s contains_cs "SQL" | Podsumuj arg_max (TimeGenerated, *) według ResourceId
+`ServiceMapProcess_CL | where CommandLine_s contains_cs "sql" | summarize arg_max(TimeGenerated, *) by ResourceId`
 
 ### <a name="find-a-machine-most-recent-record-by-resource-name"></a>Znajdź maszynę (najnowszy rekord) według nazwy zasobu
 
-Wyszukaj w (ServiceMapComputer_CL) "m-4b9c93f9-bc37-46df-b43c-899ba829e07b" | Podsumuj arg_max (TimeGenerated, *) według ResourceId
+`search in (ServiceMapComputer_CL) "m-4b9c93f9-bc37-46df-b43c-899ba829e07b" | summarize arg_max(TimeGenerated, *) by ResourceId`
 
 ### <a name="find-a-machine-most-recent-record-by-ip-address"></a>Znajdź komputer (najnowszy rekord) według adresu IP
 
-Wyszukaj w (ServiceMapComputer_CL) "10.229.243.232" | Podsumuj arg_max (TimeGenerated, *) według ResourceId
+`search in (ServiceMapComputer_CL) "10.229.243.232" | summarize arg_max(TimeGenerated, *) by ResourceId`
 
 ### <a name="list-all-known-processes-on-a-specified-machine"></a>Wyświetl listę wszystkich znanych procesów na określonym komputerze
 
-ServiceMapProcess_CL | gdzie MachineResourceName_s = = "m-559dbcd8-3130-454d-8d1d-f624e57961bc" | Podsumuj arg_max (TimeGenerated, *) według ResourceId
+`ServiceMapProcess_CL | where MachineResourceName_s == "m-559dbcd8-3130-454d-8d1d-f624e57961bc" | summarize arg_max(TimeGenerated, *) by ResourceId`
 
 ### <a name="list-all-computers-running-sql"></a>Wyświetl listę wszystkich komputerów z uruchomionym programem SQL
 
-ServiceMapComputer_CL | gdzie ResourceName_s ((search in (ServiceMapProcess_CL) " \* SQL \* " | DISTINCT MachineResourceName_s)) | DISTINCT ComputerName_s
+`ServiceMapComputer_CL | where ResourceName_s in ((search in (ServiceMapProcess_CL) "\*sql\*" | distinct MachineResourceName_s)) | distinct ComputerName_s`
 
 ### <a name="list-all-unique-product-versions-of-curl-in-my-datacenter"></a>Wyświetl listę wszystkich unikatowych wersji programu zwinięcie w moim centrum danych
 
-ServiceMapProcess_CL | gdzie ExecutableName_s = = "zwinięcie" | różne ProductVersion_s
+`ServiceMapProcess_CL | where ExecutableName_s == "curl" | distinct ProductVersion_s`
 
 ### <a name="create-a-computer-group-of-all-computers-running-centos"></a>Utwórz grupę komputerów z systemem CentOS
 
-ServiceMapComputer_CL | gdzie OperatingSystemFullName_s contains_cs "CentOS" | różne ComputerName_s
+`ServiceMapComputer_CL | where OperatingSystemFullName_s contains_cs "CentOS" | distinct ComputerName_s`
 
 ### <a name="summarize-the-outbound-connections-from-a-group-of-machines"></a>Podsumuj połączenia wychodzące z grupy maszyn
 

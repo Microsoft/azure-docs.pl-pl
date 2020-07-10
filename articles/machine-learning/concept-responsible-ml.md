@@ -1,5 +1,5 @@
 ---
-title: Machine Learning odpowiedzialny (ML)
+title: Machine Learning odpowiedzialny (ML) wersja zapoznawcza
 titleSuffix: Azure Machine Learning
 description: Dowiedz się, co to jest właściwa ML i jak używać jej w Azure Machine Learning
 services: machine-learning
@@ -8,14 +8,15 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: luquinta
 author: luisquintanilla
-ms.date: 05/08/2020
-ms.openlocfilehash: 09bb7710df19482e9625c1834d2646f70368fc1d
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.date: 07/09/2020
+ms.openlocfilehash: 4f14d4a9207b3bd0ba242973443b8e756527fd70
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85920354"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86201946"
 ---
-# <a name="responsible-machine-learning-ml"></a>Machine Learning odpowiedzialny (ML)
+# <a name="responsible-machine-learning-ml-preview"></a>Machine Learning odpowiedzialny (ML) wersja zapoznawcza
 
 W tym artykule dowiesz się, co odpowiada dana ML i jak można je wdrożyć w ćwiczeniu z Azure Machine Learning.
 
@@ -80,7 +81,7 @@ Niektóre informacje o modelu, które można chcieć udokumentować w ramach ark
 
 Zapoznaj się z poniższym przykładem, aby dowiedzieć się, jak zaimplementować [Arkusz danych dla modeli przy](https://github.com/microsoft/MLOps/blob/master/pytorch_with_datasheet/model_with_datasheet.ipynb)użyciu zestawu SDK Azure Machine Learning.
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - Użyj szyfrowania homomorphic, aby [wdrożyć zaszyfrowaną usługę sieci Web inferencing](how-to-homomorphic-encryption-seal.md).
 - Dowiedz się więcej o zestawie wskazówek [dotyczących informacji dotyczących](https://www.partnershiponai.org/about-ml/) systemu uczenia maszynowego.

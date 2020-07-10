@@ -8,11 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 11/27/2019
-ms.openlocfilehash: 90d7da9c8ddd8c9c595f2209dcc34e2f595acfd2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 71c1306d1516d8af3fb16c0ba353ab8144de2562
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78196930"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86202581"
 ---
 # <a name="configure-apache-hive-policies-in-hdinsight-with-enterprise-security-package"></a>Konfigurowanie zasad technologii Apache Hive w usłudze HDInsight przy użyciu pakietu Enterprise Security
 
@@ -55,7 +56,7 @@ W tej sekcji utworzysz dwie zasady Ranger na potrzeby uzyskiwania dostępu do hi
     |---|---|
     |Policy Name (Nazwa zasad)|Read-hivesampletable-All|
     |Baza danych programu Hive|default|
-    |tabela|hivesampletable|
+    |table|hivesampletable|
     |Kolumna Hive|*|
     |Select User (Wybierz użytkownika)|Użytkownik hiveuser1|
     |Uprawnienia|Wybierz|
@@ -73,7 +74,7 @@ W tej sekcji utworzysz dwie zasady Ranger na potrzeby uzyskiwania dostępu do hi
     |---|---|
     |Policy Name (Nazwa zasad)|Read-hivesampletable-devicemake|
     |Baza danych programu Hive|default|
-    |tabela|hivesampletable|
+    |table|hivesampletable|
     |Kolumna Hive|ClientID, devicemake|
     |Select User (Wybierz użytkownika)|hiveuser2|
     |Uprawnienia|Wybierz|
@@ -87,7 +88,7 @@ Instrukcje można znaleźć w sekcji [Create Hive ODBC data source](../hadoop/ap
  | Data Source Name (Nazwa źródła danych) | Nadaj nazwę źródła danych. |
  | Host | Wprowadź CLUSTERNAME.azurehdinsight.net. np. myHDICluster.azurehdinsight.net. |
  | Port | Użyj portu **443**. (Ten port został zmieniony z 563 na 443). |
- | baza danych | Użyj wartości **Default** (Domyślna). |
+ | Baza danych | Użyj wartości **Default** (Domyślna). |
  | Hive Server Type (Typ serwera Hive) | Wybierz wartość **Hive Server 2**. |
  | Mechanism (Mechanizm) | Wybierz wartość **Azure HDInsight Service** (Usługa Azure HDInsight). |
  | HTTP Path (Ścieżka HTTP) | Pozostaw to pole puste. |
@@ -120,7 +121,9 @@ W ostatniej sekcji zostały skonfigurowane dwie zasady.  Użytkownik hiveuser1 m
 
 1. Wybierz kartę **Definicja** . Tekst polecenia:
 
-       SELECT * FROM "HIVE"."default"."hivesampletable"
+    ```sql
+    SELECT * FROM "HIVE"."default"."hivesampletable"`
+    ```
 
    Zgodnie ze zdefiniowanymi zasadami platformy Ranger użytkownik hiveuser1 ma uprawnienia select (wybór) we wszystkich kolumnach.  To zapytanie działa z poświadczeniami hiveuser1's, ale to zapytanie nie działa z poświadczeniami użytkownika hiveuser2.
 
@@ -135,15 +138,21 @@ Aby przetestować drugie zasady (Read-hivesampletable-devicemake), utworzone w o
 1. Dodaj nowy arkusz w programie Excel.
 2. Wykonaj kroki ostatniej procedury, aby zaimportować dane.  Jedyną zmianą jest użycie poświadczeń użytkownika hiveuser2 zamiast hiveuser1's. To nie powiedzie się, ponieważ tylko hiveuser2 ma uprawnienia do wyświetlania dwóch kolumn. Wystąpi następujący błąd:
 
-        [Microsoft][HiveODBC] (35) Error from Hive: error code: '40000' error message: 'Error while compiling statement: FAILED: HiveAccessControlException Permission denied: user [hiveuser2] does not have [SELECT] privilege on [default/hivesampletable/clientid,country ...]'.
-        
+    ```output
+    [Microsoft][HiveODBC] (35) Error from Hive: error code: '40000' error message: 'Error while compiling statement: FAILED: HiveAccessControlException Permission denied: user [hiveuser2] does not have [SELECT] privilege on [default/hivesampletable/clientid,country ...]'.
+    ```
+
 3. Wykonaj kroki tej samej procedury, aby zaimportować dane. Tym razem użyj poświadczeń użytkownika hiveuser2 i zmień instrukcję select z:
 
-        SELECT * FROM "HIVE"."default"."hivesampletable"
+    ```sql
+    SELECT * FROM "HIVE"."default"."hivesampletable"
+    ```
 
     na:
 
-        SELECT clientid, devicemake FROM "HIVE"."default"."hivesampletable"
+    ```sql
+    SELECT clientid, devicemake FROM "HIVE"."default"."hivesampletable"
+    ```
 
     Gdy wszystko będzie gotowe, zobaczysz dwie kolumny importowanych danych.
 

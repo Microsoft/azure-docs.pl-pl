@@ -3,19 +3,19 @@ title: Monitorowanie &zbieranie plików dziennika potoku
 titleSuffix: Azure Machine Learning
 description: Dodaj rejestrowanie do potoków szkoleń i wsadowych oceniania, a następnie Wyświetl zarejestrowane wyniki w Application Insights.
 services: machine-learning
-author: sanpil
-ms.author: sanpil
+author: NilsPohlmann
+ms.author: nilsp
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.date: 01/16/2020
 ms.custom: seodec18, tracking-python
-ms.openlocfilehash: a87ceb5a216b05f3fae6d570bbfed1c4a622c911
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 6a4a32db18b881b702aacf7bb669ffa14f9d103e
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86055719"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86201240"
 ---
 # <a name="collect-machine-learning-pipeline-log-files-in-application-insights-for-alerts-and-debugging"></a>Zbierz pliki dziennika potoku uczenia maszynowego w Application Insights na potrzeby alertów i debugowania
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -34,7 +34,7 @@ Umieszczenie dzienników w miejscu spowoduje udostępnienie historii wyjątków 
   ```
 * Utwórz [wystąpienie Application Insights](../azure-monitor/app/opencensus-python.md) (ten dokument zawiera również informacje dotyczące uzyskiwania parametrów połączenia dla zasobu)
 
-## <a name="getting-started"></a>Getting Started
+## <a name="getting-started"></a>Wprowadzenie
 
 Ta sekcja zawiera wprowadzenie do korzystania z programu OpenCensus z potoku Azure Machine Learning. Aby uzyskać szczegółowy samouczek, zobacz [OpenCensus Azure monitor exports](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-azure)
 

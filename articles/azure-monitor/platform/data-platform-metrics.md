@@ -9,11 +9,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: 23e4d104697b5b688330c6ab3a93beebf62f3c6a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 839347ce0a04cc1ca1bf16c68e0ccc36fcf0f7fc
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83799968"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86200803"
 ---
 # <a name="metrics-in-azure-monitor"></a>Metryki w usłudze Azure Monitor
 
@@ -28,15 +29,15 @@ Metryki to wartości liczbowe, które opisują pewien aspekt systemu w określon
 ## <a name="what-can-you-do-with-azure-monitor-metrics"></a>Co możesz zrobić z metrykami Azure Monitor?
 W poniższej tabeli wymieniono różne sposoby używania danych metryk w Azure Monitor.
 
-|  |  |
+|  | Opis |
 |:---|:---|
-| Analiza | Użyj [Eksploratora metryk](metrics-charts.md) do analizowania zebranych metryk na wykresie i porównywania metryk z różnych zasobów. |
-| Wizualizacja | Przypinanie wykresu z Eksploratora metryk do [pulpitu nawigacyjnego platformy Azure](../learn/tutorial-app-dashboards.md).<br>Utwórz [skoroszyt](../platform/workbooks-overview.md) , aby połączyć się z wieloma zestawami danych w raporcie interaktywnym. Eksportuj wyniki zapytania do [Grafana](grafana-plugin.md) , aby wykorzystać jego pulpit nawigacyjny i połączyć się z innymi źródłami danych. |
-| Alerty | Skonfiguruj [regułę alertu metryki](alerts-metric.md) , która wysyła powiadomienie lub wykonuje [automatyczne działanie](action-groups.md) , gdy wartość metryki przekroczy próg. |
-| Automatyzacja |  Użyj funkcji [automatycznego skalowania](autoscale-overview.md) , aby zwiększyć lub zmniejszyć zasoby na podstawie wartości metryki przekraczającej próg. |
-| Eksportowanie | [Kierowanie metryk do dzienników](resource-logs-collect-storage.md) w celu analizowania danych w Azure monitor metryki wraz z danymi w dziennikach Azure monitor i przechowywanie wartości metryk przez dłużej niż 93 dni.<br>Metryki strumienia do [centrum zdarzeń](stream-monitoring-data-event-hubs.md) w celu kierowania ich do systemów zewnętrznych. |
-| Odczytać | Uzyskiwanie dostępu do wartości metryk z wiersza polecenia przy użyciu [poleceń cmdlet programu PowerShell](https://docs.microsoft.com/powershell/module/az.applicationinsights)<br>Dostęp do wartości metryk z aplikacji niestandardowej przy użyciu [interfejsu API REST](rest-api-walkthrough.md).<br>Uzyskaj dostęp do wartości metryk z wiersza polecenia przy użyciu [interfejsu CLI](/cli/azure/monitor/metrics). |
-| Archiwum | [Archiwizuj](..//learn/tutorial-archive-data.md) historię wydajności lub kondycji zasobu w celu zapewnienia zgodności, inspekcji lub raportowania w trybie offline. |
+| **Analiza** | Użyj [Eksploratora metryk](metrics-charts.md) do analizowania zebranych metryk na wykresie i porównywania metryk z różnych zasobów. |
+| **Wizualizacja** | Przypinanie wykresu z Eksploratora metryk do [pulpitu nawigacyjnego platformy Azure](../learn/tutorial-app-dashboards.md).<br>Utwórz [skoroszyt](../platform/workbooks-overview.md) , aby połączyć się z wieloma zestawami danych w raporcie interaktywnym. Eksportuj wyniki zapytania do [Grafana](grafana-plugin.md) , aby wykorzystać jego pulpit nawigacyjny i połączyć się z innymi źródłami danych. |
+| **Alert** | Skonfiguruj [regułę alertu metryki](alerts-metric.md) , która wysyła powiadomienie lub wykonuje [automatyczne działanie](action-groups.md) , gdy wartość metryki przekroczy próg. |
+| **Automatyzacja** |  Użyj funkcji [automatycznego skalowania](autoscale-overview.md) , aby zwiększyć lub zmniejszyć zasoby na podstawie wartości metryki przekraczającej próg. |
+| **Eksportowanie** | [Kierowanie metryk do dzienników](resource-logs-collect-storage.md) w celu analizowania danych w Azure monitor metryki wraz z danymi w dziennikach Azure monitor i przechowywanie wartości metryk przez dłużej niż 93 dni.<br>Metryki strumienia do [centrum zdarzeń](stream-monitoring-data-event-hubs.md) w celu kierowania ich do systemów zewnętrznych. |
+| **Odczytać** | Uzyskiwanie dostępu do wartości metryk z wiersza polecenia przy użyciu [poleceń cmdlet programu PowerShell](https://docs.microsoft.com/powershell/module/az.applicationinsights)<br>Dostęp do wartości metryk z aplikacji niestandardowej przy użyciu [interfejsu API REST](rest-api-walkthrough.md).<br>Uzyskaj dostęp do wartości metryk z wiersza polecenia przy użyciu [interfejsu CLI](/cli/azure/monitor/metrics). |
+| **Archive** | [Archiwizuj](..//learn/tutorial-archive-data.md) historię wydajności lub kondycji zasobu w celu zapewnienia zgodności, inspekcji lub raportowania w trybie offline. |
 
 ## <a name="how-is-data-in-azure-monitor-metrics-structured"></a>Jak są zorganizowane dane w Azure Monitor metryki?
 Dane zbierane przez metryki Azure Monitor są przechowywane w bazie danych szeregów czasowych, która jest zoptymalizowana pod kątem analizowania danych z sygnaturami czasowymi. Każdy zestaw wartości metryk jest szeregiem czasowym o następujących właściwościach:

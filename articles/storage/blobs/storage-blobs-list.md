@@ -8,16 +8,16 @@ ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: ff7eac9e004a06925fbfa657278e6ec848a7d600
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: b5ce74e680d79cfee006cb8cade6c22bff3c055f
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85851270"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86202967"
 ---
 # <a name="list-blobs-with-net"></a>Wyświetlanie listy obiektów BLOB przy użyciu platformy .NET
 
-Podczas wyświetlania listy obiektów blob z kodu można określić szereg opcji zarządzania wynikami zwracanymi z usługi Azure Storage. Możesz określić liczbę wyników do zwrócenia w każdym zestawie wyników, a następnie pobrać kolejne zestawy. Można określić prefiks do zwrócenia obiektów blob, których nazwy zaczynają się od znaku lub ciągu. I można wyświetlić listę obiektów BLOB w strukturze płaskiej listy lub hierarchicznie. Hierarchiczna lista zwraca obiekty blob, tak jakby były zorganizowane w folderach. 
+Podczas wyświetlania listy obiektów blob z kodu można określić szereg opcji zarządzania wynikami zwracanymi z usługi Azure Storage. Możesz określić liczbę wyników do zwrócenia w każdym zestawie wyników, a następnie pobrać kolejne zestawy. Można określić prefiks do zwrócenia obiektów blob, których nazwy zaczynają się od znaku lub ciągu. I można wyświetlić listę obiektów BLOB w strukturze płaskiej listy lub hierarchicznie. Hierarchiczna lista zwraca obiekty blob, tak jakby były zorganizowane w folderach.
 
 W tym artykule przedstawiono sposób wyświetlania listy obiektów BLOB przy użyciu [biblioteki klienta usługi Azure Storage dla platformy .NET](/dotnet/api/overview/azure/storage?view=azure-dotnet).  
 

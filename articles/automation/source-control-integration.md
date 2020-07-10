@@ -5,11 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 12/10/2019
 ms.topic: conceptual
-ms.openlocfilehash: 3cc75fb34f0a828eccfed3951e84a1c463d4cfb7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 37df5ae8e88bf7832fbbeae37555d60943fca446
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83828886"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187306"
 ---
 # <a name="use-source-control-integration"></a>Korzystanie z integracji kontroli źródła
 
@@ -72,8 +73,7 @@ Użyj tej procedury, aby skonfigurować kontrolę źródła przy użyciu Azure P
 
 ### <a name="configure-source-control-in-powershell"></a>Konfigurowanie kontroli źródła w programie PowerShell
 
-Za pomocą programu PowerShell można także skonfigurować kontrolę źródła w Azure Automation. Aby użyć poleceń cmdlet programu PowerShell dla tej operacji, potrzebny jest osobisty token dostępu. Użyj polecenia cmdlet [New-AzAutomationSourceControl](https://docs.microsoft.com/powershell/module/az.automation/new-azautomationsourcecontrol?view=azps-3.5.0
-) , aby utworzyć połączenie kontroli źródła. To polecenie cmdlet wymaga bezpiecznego ciągu dla elementu "Binding". Aby dowiedzieć się, jak utworzyć bezpieczny ciąg, zobacz [ConvertTo-SecureString](/powershell/module/microsoft.powershell.security/convertto-securestring?view=powershell-6).
+Za pomocą programu PowerShell można także skonfigurować kontrolę źródła w Azure Automation. Aby użyć poleceń cmdlet programu PowerShell dla tej operacji, potrzebny jest osobisty token dostępu. Użyj polecenia cmdlet [New-AzAutomationSourceControl](/powershell/module/az.automation/new-azautomationsourcecontrol?view=azps-3.5.0) , aby utworzyć połączenie kontroli źródła. To polecenie cmdlet wymaga bezpiecznego ciągu dla elementu "Binding". Aby dowiedzieć się, jak utworzyć bezpieczny ciąg, zobacz [ConvertTo-SecureString](/powershell/module/microsoft.powershell.security/convertto-securestring?view=powershell-6).
 
 Poniższe podsekcje ilustrują Tworzenie połączenia kontroli źródła dla usługi GitHub, Azure Repos (Git) i Azure Repos (TFVC). 
 
@@ -122,7 +122,7 @@ W poniższej tabeli zdefiniowano wymagania dotyczące minimalnych wartości, kt�
 
 ##### <a name="minimum-pat-permissions-for-azure-repos"></a>Minimalne uprawnienia dla Azure Repos
 
-Poniższa lista zawiera definicje minimalnych uprawnień, które są wymagane do Azure Repos. Aby uzyskać więcej informacji na temat tworzenia elementu w Azure Repos, zobacz temat [uwierzytelnianie dostępu przy użyciu osobistego tokenu dostępu](https://docs.microsoft.com/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=azure-devops&tabs=preview-page).
+Poniższa lista zawiera definicje minimalnych uprawnień, które są wymagane do Azure Repos. Aby uzyskać więcej informacji na temat tworzenia elementu w Azure Repos, zobacz temat [uwierzytelnianie dostępu przy użyciu osobistego tokenu dostępu](/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=azure-devops&tabs=preview-page).
 
 | Zakres  |  Typ dostępu  |
 |---------| ----------|
@@ -195,14 +195,14 @@ Aby rozłączyć się z repozytorium kontroli źródła:
 
 ## <a name="handle-encoding-issues"></a>Obsługa problemów z kodowaniem
 
-Jeśli wiele osób edytuje elementy Runbook w repozytorium kontroli źródła przy użyciu różnych edytorów, mogą wystąpić problemy z kodowaniem. Aby dowiedzieć się więcej o tej sytuacji, zobacz [typowe przyczyny problemów z kodowaniem](https://docs.microsoft.com/powershell/scripting/components/vscode/understanding-file-encoding?view=powershell-7#common-causes-of-encoding-issues).
+Jeśli wiele osób edytuje elementy Runbook w repozytorium kontroli źródła przy użyciu różnych edytorów, mogą wystąpić problemy z kodowaniem. Aby dowiedzieć się więcej o tej sytuacji, zobacz [typowe przyczyny problemów z kodowaniem](/powershell/scripting/components/vscode/understanding-file-encoding?view=powershell-7#common-causes-of-encoding-issues).
 
 ## <a name="update-the-pat"></a>Aktualizowanie
 
 Obecnie nie można użyć Azure Portal, aby zaktualizować wartość w kontroli źródła. Po wygaśnięciu lub odwołaniu danych o stanie kontroli źródła można aktualizować przy użyciu nowego tokenu dostępu w jeden z następujących sposobów:
 
-* Użyj [interfejsu API REST](https://docs.microsoft.com/rest/api/automation/sourcecontrol/update).
-* Użyj polecenia cmdlet [Update-AzAutomationSourceControl](https://docs.microsoft.com//powershell/module/az.automation/update-azautomationsourcecontrol) .
+* Użyj [interfejsu API REST](/rest/api/automation/sourcecontrol/update).
+* Użyj polecenia cmdlet [Update-AzAutomationSourceControl](//powershell/module/az.automation/update-azautomationsourcecontrol) .
 
 ## <a name="next-steps"></a>Następne kroki
 

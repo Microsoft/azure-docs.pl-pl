@@ -1,7 +1,7 @@
 ---
-title: Uczenie i wdrażanie modelu nauki wzmacniania.
+title: Uczenie i wdrażanie modelu nauki wzmacniania (wersja zapoznawcza).
 titleSuffix: Azure Machine Learning
-description: Dowiedz się, w jaki sposób używać Azure Machine Learning wzmacniania (RL) do uczenia agenta RL do odtwarzania Pong.
+description: Dowiedz się, jak używać uczenia Azure Machine Learning (wersja zapoznawcza) w celu uczenia agenta RL w celu odtworzenia Pong.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,11 +10,12 @@ ms.author: peterlu
 author: peterclu
 ms.date: 05/05/2020
 ms.custom: tracking-python
-ms.openlocfilehash: f8559733de9b7acfb23e2846e4d92ce6db5e2df0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b918369f68c3b0047213c24f1d4666fd0593cf30
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84556939"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86203289"
 ---
 # <a name="reinforcement-learning-preview-with-azure-machine-learning"></a>Uczenie wzmacniające (wersja zapoznawcza) dzięki Azure Machine Learning
 

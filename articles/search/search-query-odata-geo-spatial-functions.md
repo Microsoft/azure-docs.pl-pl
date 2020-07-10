@@ -19,11 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 902996c1813931638012c78f81bd65c400bee7a1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 09e492ae950003f97ed86355257c97777cd71c1a
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74113164"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86202001"
 ---
 # <a name="odata-geo-spatial-functions-in-azure-cognitive-search---geodistance-and-geointersects"></a>Funkcje geoprzestrzenne OData w systemie Azure Wyszukiwanie poznawcze — `geo.distance` i`geo.intersects`
 
@@ -104,21 +105,29 @@ Podobnie jak wszystkie inne pola niebędące kolekcjami w usłudze Azure Wyszuki
 
 Znajdź wszystkie hotele w promieniu 10 kilometrów danego punktu odwołania (lokalizacja jest polem typu `Edm.GeographyPoint` ):
 
+```odata-filter-expr
     geo.distance(location, geography'POINT(-122.131577 47.678581)') le 10
+```
 
 Znajdź wszystkie hotele w obrębie danego okienka ekranu opisane jako wielokąt (lokalizacja jest polem typu `Edm.GeographyPoint` ). Należy zauważyć, że Wielokąt jest zamknięty (pierwszy i ostatni zestaw punktów musi być taki sam), a [punkty muszą być wymienione w porządku w lewo](https://docs.microsoft.com/rest/api/searchservice/supported-data-types#Anchor_1).
 
+```odata-filter-expr
     geo.intersects(location, geography'POLYGON((-122.031577 47.578581, -122.031577 47.678581, -122.131577 47.678581, -122.031577 47.578581))')
+```
 
 ### <a name="order-by-examples"></a>Order — przykłady
 
 Sortuj Hotele Malejąco według `rating` , a następnie rosnąco według odległości od danego współrzędnych:
 
+```odata-filter-expr
     rating desc,geo.distance(location, geography'POINT(-122.131577 47.678581)') asc
+```
 
 Sortuj Hotele w kolejności malejącej według `search.score` i `rating` , a następnie w kolejności rosnącej według odległości od podanych współrzędnych, tak aby między dwiema hoteli z identycznymi klasyfikacjami była wyświetlana pierwsza z nich:
 
+```odata-filter-expr
     search.score() desc,rating desc,geo.distance(location, geography'POINT(-122.131577 47.678581)') asc
+```
 
 ## <a name="next-steps"></a>Następne kroki  
 

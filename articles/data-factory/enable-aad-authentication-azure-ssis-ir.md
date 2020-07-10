@@ -10,16 +10,17 @@ author: swinarko
 ms.author: sawinark
 manager: mflasko
 ms.custom: seo-lt-2019
-ms.date: 5/14/2019
-ms.openlocfilehash: eb167f121027272330399f8345c90602d93ecbaf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/09/2020
+ms.openlocfilehash: fd9433c2482c4ddd907f7e30c0028dc2a15faed2
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84113856"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187680"
 ---
 # <a name="enable-azure-active-directory-authentication-for-azure-ssis-integration-runtime"></a>Enable Azure Active Directory authentication for Azure-SSIS Integration Runtime (Włączanie uwierzytelniania usługi Azure Active Directory dla środowiska Azure-SSIS Integration Runtime)
 
-[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 W tym artykule pokazano, jak włączyć uwierzytelnianie Azure Active Directory (Azure AD) przy użyciu tożsamości zarządzanej dla Azure Data Factory (ADF) i użyć jej zamiast konwencjonalnych metod uwierzytelniania (takich jak uwierzytelnianie SQL), aby:
 
@@ -200,7 +201,7 @@ Aby zainicjować obsługę administracyjną Azure-SSIS IR przy użyciu programu 
 
 1.  Zainstaluj moduł [Azure PowerShell](https://github.com/Azure/azure-powershell/releases/tag/v5.5.0-March2018)   .
 
-2.  W skrypcie nie ustawiaj `CatalogAdminCredential` parametru. Przykład:
+2.  W skrypcie nie ustawiaj `CatalogAdminCredential` parametru. Na przykład:
 
     ```powershell
     Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `

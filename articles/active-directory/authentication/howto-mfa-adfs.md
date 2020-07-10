@@ -11,11 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e5949fdce9d591a9c02c5c6c4fb2f1dde94c45d2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9dac17c8592530c06dd761914e7f556b35c3674b
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80654020"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86202997"
 ---
 # <a name="securing-cloud-resources-with-azure-multi-factor-authentication-and-ad-fs"></a>Zabezpieczanie zasobów w chmurze przy użyciu usługi Azure Multi-Factor Authentication i usług AD FS
 
@@ -72,11 +73,14 @@ W pierwszej kolejności należy skonfigurować oświadczenia usług AD FS. Utwó
 11. W polu Nazwa reguły oświadczenia wprowadź tekst *Nie wylogowuj użytkowników*.
 12. W polu Reguła niestandardowa wprowadź kod:
 
+```ad-fs-claim-rule
         c:[Type == "http://schemas.microsoft.com/2014/03/psso"]
             => issue(claim = c);
-    ![Utwórz niestandardową, aby uniemożliwić Logowanie użytkowników](./media/howto-mfa-adfs/trustedip5.png)
+    ![Create custom claim to keep users signed in](./media/howto-mfa-adfs/trustedip5.png)
+```
+
 13. Kliknij przycisk **Zakończ**.
-14. Kliknij przycisk **Zastosuj**.
+14. Kliknij pozycję **Zastosuj**.
 15. Kliknij przycisk **OK**.
 16. Zamknij przystawkę zarządzania usługami AD FS.
 

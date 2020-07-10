@@ -7,11 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 05/08/2019
 ms.author: cynthn
-ms.openlocfilehash: 3c6a5e011a536cc9c34565d4f72a9bee6c6a5254
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cda729779c333064c91152e8427ce1a05227396e
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78945165"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86201975"
 ---
 # <a name="frequently-asked-question-about-linux-virtual-machines"></a>Często zadawane pytania dotyczące Linux Virtual Machines
 W tym artykule opisano niektóre często zadawane pytania dotyczące maszyn wirtualnych z systemem Linux utworzonych na platformie Azure przy użyciu modelu wdrażania Menedżer zasobów. Aby uzyskać informacje na temat wersji systemu Windows w tym temacie, zobacz [często zadawane pytania dotyczące Windows Virtual Machines](../windows/faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
@@ -55,24 +56,48 @@ Nazwy użytkowników powinny mieć długość 1-32 znaków.
 
 Następujące nazwy użytkowników są niedozwolone:
 
-| | | | |
-|-----------------|-----------|--------------------|----------|
-| `administrator` | `admin`   | `user`             | `user1`  |
-| `test`          | `user2`   | `test1`            | `user3`  |
-| `admin1`        | `1`       | `123`              | `a`      |
-| `actuser`       | `adm`     | `admin2`           | `aspnet` |
-| `backup`        | `console` | `david`            | `guest`  |
-| `john`          | `owner`   | `root`             | `server` |
-| `sql`           | `support` | `support_388945a0` | `sys`    |
-| `test2`         | `test3`   | `user4`            | `user5`  |
-| `video`         |
+- `1`
+- `123`
+- `a`
+- `actuser`
+- `adm`
+- `admin`
+- `admin1`
+- `admin2`
+-`administrator`
+- `aspnet`
+- `backup`
+- `console`
+- `david`
+- `guest`
+- `john`
+- `owner`
+- `root`
+- `server`
+- `sql`
+- `support_388945a0`
+- `support`
+- `sys`
+- `test`
+- `test1`
+- `test2`
+- `test3`
+- `user`
+- `user1`
+- `user2`
+- `user3`
+- `user4`
+- `user5`
+- `video`
+
 
 ## <a name="what-are-the-password-requirements-when-creating-a-vm"></a>Jakie są wymagania dotyczące hasła podczas tworzenia maszyny wirtualnej?
 
 Istnieją różne wymagania dotyczące długości hasła, w zależności od używanego narzędzia:
  - Portal — od 12-72 znaków
  - PowerShell — od 8-123 znaków
- - Interfejs wiersza polecenia — między 12-123
+ - Interfejs wiersza polecenia — od 12-123 znaków
+ - Szablony Azure Resource Manager (ARM) — znaki o długości 12-72 i znaki kontrolne są niedozwolone
  
 
 Hasła muszą również spełniać 3 z następujących wymagań dotyczących złożoności:

@@ -8,12 +8,12 @@ ms.author: normesta
 ms.reviewer: dineshm
 ms.date: 05/14/2020
 ms.subservice: blobs
-ms.openlocfilehash: e2dcc070baa94ecf1ea27100fd49d4cde1dac637
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ccad51d18a5e76f68633103af64e9ba6cc3f19c0
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85833350"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86203385"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Hostowanie statycznej witryny internetowej w usłudze Azure Storage
 
@@ -76,13 +76,15 @@ Możesz zmodyfikować poziom dostępu publicznego kontenera **$Web** , ale nie m
 
 Poniższy zrzut ekranu przedstawia ustawienia poziomu dostępu publicznego w Azure Portal:
 
-![Zrzut ekranu przedstawiający sposób ustawiania poziomu dostępu publicznego w portalu](./media/storage-manage-access-to-resources/storage-manage-access-to-resources-0.png)
+![Zrzut ekranu przedstawiający sposób ustawiania poziomu dostępu publicznego w portalu](./media/anonymous-read-access-configure/configure-public-access-container.png)
 
 Gdy nie ma to wpływu na podstawowy punkt końcowy statycznej witryny internetowej, zmiana poziomu dostępu publicznego ma wpływ na podstawowy punkt końcowy usługi BLOB.
 
 Na przykład w przypadku zmiany publicznego poziomu dostępu kontenera **$Web** z **prywatnego (brak dostępu anonimowego)** do **obiektu BLOB (Anonimowy dostęp do odczytu tylko dla obiektów BLOB)**, poziom publicznego dostępu do podstawowego statycznego punktu końcowego witryny sieci Web `https://contosoblobaccount.z22.web.core.windows.net/index.html` nie jest zmieniany.
 
 Jednak publiczny dostęp do podstawowego punktu końcowego usługi BLOB Service `https://contosoblobaccount.blob.core.windows.net/$web/index.html` zmieni się z prywatnego na publiczny. Teraz użytkownicy mogą otwierać ten plik za pomocą jednego z tych dwóch punktów końcowych.
+
+Wyłączenie dostępu publicznego na koncie magazynu nie ma wpływu na statyczne witryny sieci Web hostowane na tym koncie magazynu. Aby uzyskać więcej informacji, zobacz [Konfigurowanie anonimowego publicznego dostępu do odczytu dla kontenerów i obiektów BLOB](anonymous-read-access-configure.md).
 
 ## <a name="mapping-a-custom-domain-to-a-static-website-url"></a>Mapowanie domeny niestandardowej na adres URL statycznej witryny internetowej
 

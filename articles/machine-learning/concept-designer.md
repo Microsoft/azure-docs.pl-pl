@@ -1,5 +1,5 @@
 ---
-title: Tworzenie modeli ML przy użyciu narzędzia Projektant
+title: Tworzenie modeli ML przy użyciu projektanta (wersja zapoznawcza)
 titleSuffix: Azure Machine Learning
 description: Poznaj warunki, koncepcje i przepływ pracy, które tworzą projektanta dla Azure Machine Learning.
 services: machine-learning
@@ -10,12 +10,12 @@ ms.author: peterlu
 author: peterclu
 ms.date: 06/28/2020
 ms.custom: designer
-ms.openlocfilehash: 184db0280629e07314f9589338a33cdf442e63cb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a2074b1ecd37fd18a9a0ac9091f05e734765e40b
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85517382"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86199982"
 ---
 # <a name="what-is-azure-machine-learning-designer-preview"></a>Co to jest projektant usługi Azure Machine Learning (wersja zapoznawcza)? 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -26,7 +26,7 @@ Projektant Azure Machine Learning umożliwia wizualne łączenie [zestawów dany
 
 Projektant używa [obszaru roboczego](concept-workspace.md) Azure Machine Learning do organizowania zasobów udostępnionych, takich jak:
 
-+ [Pipelines](#pipeline)
++ [Potoki](#pipeline)
 + [Zestawy danych](#datasets)
 + [Zasoby obliczeniowe](#compute)
 + [Zarejestrowane modele](concept-azure-machine-learning-architecture.md#models)
@@ -90,7 +90,7 @@ Aby uzyskać pomoc dotyczącą przechodzenia przez bibliotekę dostępnych algor
 
 Użyj zasobów obliczeniowych z obszaru roboczego, aby uruchomić potok i hostować wdrożone modele jako punkty końcowe w czasie rzeczywistym lub punkty końcowe potoku (na potrzeby wnioskowania wsadowego). Obsługiwane elementy docelowe obliczeń są następujące:
 
-| Docelowy zasób obliczeniowy | Szkolenia | Wdrożenie |
+| Docelowy zasób obliczeniowy | Trenowanie | Wdrażanie |
 | ---- |:----:|:----:|
 | Azure Machine Learning obliczeń | ✓ | |
 | Wystąpienie obliczeniowe Azure Machine Learning | ✓ | |
@@ -106,7 +106,7 @@ Punkty końcowe w czasie rzeczywistym muszą zostać wdrożone w klastrze usług
 
 Aby dowiedzieć się, jak wdrożyć model, zobacz [Samouczek: Wdrażanie modelu uczenia maszynowego za pomocą projektanta](tutorial-designer-automobile-price-deploy.md).
 
-## <a name="publish"></a>Publikowanie
+## <a name="publish"></a>Opublikuj
 
 Możesz również opublikować potok w **punkcie końcowym potoku**. Podobnie jak w przypadku punktu końcowego w czasie rzeczywistym, punkt końcowy potoku umożliwia przesyłanie nowych uruchomień potoków z aplikacji zewnętrznych przy użyciu wywołań REST. Nie można jednak wysyłać ani odbierać danych w czasie rzeczywistym za pomocą punktu końcowego potoku.
 
@@ -126,7 +126,7 @@ W wyniku tych aktualizacji niektóre koncepcje i terminy dla interfejsu wizualiz
 | Koncepcja projektanta | Wcześniej w interfejsie wizualizacji |
 | ---- |:----:|
 | Wersja robocza potoku | Experiment |
-| Punkt końcowy w czasie rzeczywistym | Usługa sieci Web |
+| Punkt końcowy w czasie rzeczywistym | Usługa internetowa |
 
 ### <a name="migrating-to-the-designer"></a>Migrowanie do projektanta
 

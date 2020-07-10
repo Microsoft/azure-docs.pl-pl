@@ -10,12 +10,12 @@ ms.subservice: bing-spell-check
 ms.topic: overview
 ms.date: 12/19/2019
 ms.author: aahi
-ms.openlocfilehash: 5586704e098fc568c714e779c2eed44aa3d1df9c
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 205d7991551ca48c3ea2e61baef53f5d06bdcbd2
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75383003"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86200497"
 ---
 # <a name="what-is-the-bing-spell-check-api"></a>Czym jest interfejs API sprawdzania pisowni Bing?
 
@@ -23,8 +23,7 @@ Interfejs API sprawdzania pisowni Bing umożliwia kontekstowe sprawdzanie pisown
 
 ## <a name="features"></a>Funkcje
 
-
-|  |  |
+| Cecha | Opis |
 |---------|---------|
 |Wiele trybów sprawdzania pisowni     | Wiele trybów sprawdzania pisowni zapewnia poprawki skupiające się na gramatyce i/lub pisowni. |
 |Rozpoznawanie żargonu i języka potocznego     | Rozpoznawanie wyrażeń potocznych i nieformalnych użytych w tekście.         |
@@ -39,10 +38,10 @@ Interfejs API sprawdzania pisowni Bing można łatwo wywołać z dowolnego języ
 2. Wyślij żądanie do interfejsu API wyszukiwania w Internecie Bing.
 3. Analizowanie odpowiedzi w formacie JSON
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Najpierw wypróbuj [interaktywną demonstrację](https://azure.microsoft.com/services/cognitive-services/spell-check/) interfejsu API sprawdzania pisowni Bing, aby przekonać się, jak szybko możesz sprawdzać różne teksty.
 
-Gdy wszystko jest gotowe do wywołania interfejsu API, utwórz [konto interfejsu API usług Cognitive Services](../../cognitive-services/cognitive-services-apis-create-account.md). Jeśli nie masz subskrypcji platformy Azure, możesz [utworzyć konto](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) bezpłatnie.
+Gdy wszystko jest gotowe do wywołania interfejsu API, utwórz [konto interfejsu API usług Cognitive Services](../../cognitive-services/cognitive-services-apis-create-account.md). Jeśli nie masz subskrypcji platformy Azure, możesz [utworzyć konto](https://azure.microsoft.com/free/cognitive-services/) bezpłatnie.
 
 Możesz również odwiedzić [stronę centrum interfejsu API wyszukiwanie Bing](../bing-web-search/search-the-web.md) , aby poznać inne dostępne interfejsy API.

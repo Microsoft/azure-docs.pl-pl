@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 11/20/2019
-ms.openlocfilehash: 5af8f2ed1a910e559393796102f0853c4f3f1fd8
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 8bb5f69bc43a6af27aa71d4cf1fe054d693cc085
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86082050"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86201218"
 ---
 # <a name="use-a-java-udf-with-apache-hive-in-hdinsight"></a>Używanie formatu UDF języka Java z Apache Hive w usłudze HDInsight
 
@@ -234,26 +234,30 @@ W poniższych poleceniach Zastąp `sshuser` wartość rzeczywistą nazwą użytk
 
     To zapytanie wybiera stan z tabeli, konwertuje ciąg na małe litery, a następnie wyświetla je wraz z niezmodyfikowaną nazwą. Dane wyjściowe wyglądają podobnie do następującego tekstu:
 
-        +---------------+---------------+--+
-        |  exampleudf   |     state     |
-        +---------------+---------------+--+
-        | california    | California    |
-        | pennsylvania  | Pennsylvania  |
-        | pennsylvania  | Pennsylvania  |
-        | pennsylvania  | Pennsylvania  |
-        | colorado      | Colorado      |
-        | colorado      | Colorado      |
-        | colorado      | Colorado      |
-        | utah          | Utah          |
-        | utah          | Utah          |
-        | colorado      | Colorado      |
-        +---------------+---------------+--+
+    ```output
+    +---------------+---------------+--+
+    |  exampleudf   |     state     |
+    +---------------+---------------+--+
+    | california    | California    |
+    | pennsylvania  | Pennsylvania  |
+    | pennsylvania  | Pennsylvania  |
+    | pennsylvania  | Pennsylvania  |
+    | colorado      | Colorado      |
+    | colorado      | Colorado      |
+    | colorado      | Colorado      |
+    | utah          | Utah          |
+    | utah          | Utah          |
+    | colorado      | Colorado      |
+    +---------------+---------------+--+
+    ```
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 
 Podczas uruchamiania zadania programu Hive może wystąpić błąd podobny do następującego:
 
-    Caused by: org.apache.hadoop.hive.ql.metadata.HiveException: [Error 20001]: An error occurred while reading or writing to your custom script. It may have crashed with an error.
+```output
+Caused by: org.apache.hadoop.hive.ql.metadata.HiveException: [Error 20001]: An error occurred while reading or writing to your custom script. It may have crashed with an error.
+```
 
 Przyczyną tego problemu może być zakończenie wierszy w pliku języka Python. Wiele edytorów systemu Windows domyślnie używa CRLF jako końca wiersza, ale aplikacje systemu Linux zazwyczaj oczekują LF.
 

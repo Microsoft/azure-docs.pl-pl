@@ -12,13 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/21/2019
+ms.date: 07/09/2020
 ms.author: juliako
-ms.openlocfilehash: 126700e6290650221a9cb9711b22472301409fca
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1e5f1e38461b7f229f9eb7559aeb6203563fceb6
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74974176"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86200208"
 ---
 # <a name="tutorial-encrypt-video-with-aes-128-and-use-the-key-delivery-service"></a>Samouczek: szyfrowanie wideo przy użyciu algorytmu AES-128 i korzystanie z usługi dostarczania kluczy
 
@@ -46,7 +47,7 @@ Ten samouczek przedstawia sposób wykonania następujących czynności:
 > * Skonfiguruj lokalizator przesyłania strumieniowego, aby szyfrować wideo przy użyciu algorytmu AES (ClearKey).
 > * Pobierz token testowy.
 > * Utwórz adres URL przesyłania strumieniowego.
-> * Oczyszczenie zasobów.
+> * Wyczyść zasoby.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -148,7 +149,7 @@ Teraz, gdy [lokalizator przesyłania strumieniowego](https://docs.microsoft.com/
 
 ## <a name="clean-up-resources-in-your-media-services-account"></a>Oczyszczanie zasobów na koncie usługi Media Services
 
-Ogólnie rzecz biorąc, należy wyczyścić wszystko z wyjątkiem obiektów, które są planowane do ponownego użycia (zwykle spowoduje to ponowne użycie przekształceń, lokalizatorów przesyłania strumieniowego itp.). Jeśli chcesz, aby Twoje konto było czyste po eksperymentie, Usuń zasoby, których nie planujesz ponownie używać. Na przykład poniższy kod usuwa zadania:
+Ogólnie rzecz biorąc, należy wyczyścić wszystko z wyjątkiem obiektów, które są planowane do ponownego użycia (zwykle spowoduje to ponowne użycie przekształceń, lokalizatorów przesyłania strumieniowego itp.). Jeśli chcesz, aby Twoje konto było czyste po eksperymentie, Usuń zasoby, których nie planujesz ponownie używać. Na przykład poniższy kod usuwa zadanie, utworzone zasoby i zasady klucza zawartości:
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithAES/Program.cs#CleanUp)]
 

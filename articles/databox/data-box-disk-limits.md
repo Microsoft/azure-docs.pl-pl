@@ -8,11 +8,12 @@ ms.subservice: disk
 ms.topic: article
 ms.date: 11/05/2019
 ms.author: alkohli
-ms.openlocfilehash: 71df5aa22eb93df6c98eb15f97ab017457946b80
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cb2654c2854692d120cf6dea7fa8fb901e14688e
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85099065"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86203521"
 ---
 # <a name="azure-data-box-disk-limits"></a>Limity Azure Data Box Disk
 
@@ -59,11 +60,11 @@ Najnowsze informacje na temat limitów usługi Azure Storage i najlepszych rozwi
 
 ## <a name="azure-storage-account-size-limits"></a>Limity rozmiaru konta usługi Azure Storage
 
-Poniżej przedstawiono limity rozmiaru danych kopiowanych na konto magazynu. Upewnij się, że przekazane dane są zgodne z tymi limitami. Aby uzyskać najbardziej aktualne informacje dotyczące tych limitów, przejdź do pozycji [elementy docelowe skalowania magazynu obiektów blob platformy Azure](https://docs.microsoft.com/azure/storage/blobs/scalability-targets#scale-targets-for-blob-storage) i [elementy docelowe skalowania Azure Files](https://docs.microsoft.com/azure/storage/common/scalability-targets-standard-account#scale-targets-for-standard-storage-accounts).
+Poniżej przedstawiono limity rozmiaru danych, które można skopiować na konto magazynu. Upewnij się, że przekazane dane są zgodne z tymi limitami. 
 
-| Rozmiar danych kopiowanych na konto usługi Azure Storage                      | Limit domyślny          |
-|---------------------------------------------------------------------|------------------------|
-| Blokowy obiekt BLOB i stronicowe obiekty blob                                            | 500 TB na konto magazynu. <br> Obejmuje to dane ze wszystkich źródeł, w tym Data Box Disk.|
+| Typ danych             | Limit domyślny          |
+|--------------------------|------------------------|
+| blokowy obiekt BLOB, stronicowy obiekt BLOB    | Aby uzyskać aktualne informacje dotyczące tych limitów, zobacz [cele skalowania magazynu obiektów blob platformy Azure](https://docs.microsoft.com/azure/storage/blobs/scalability-targets#scale-targets-for-blob-storage), [elementy docelowe skalowania w warstwie Standardowa platformy Azure](https://docs.microsoft.com/azure/storage/common/scalability-targets-standard-account#scale-targets-for-standard-storage-accounts)oraz [miejsce docelowe skalowania Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-scale-targets#file-share-and-file-scale-targets). <br /><br /> Limity obejmują dane ze wszystkich źródeł, w tym Data Box Disk.|
 
 
 ## <a name="azure-object-size-limits"></a>Limity rozmiaru obiektów platformy Azure

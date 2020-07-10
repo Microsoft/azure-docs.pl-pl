@@ -10,12 +10,12 @@ ms.subservice: bing-local-business
 ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: rosh
-ms.openlocfilehash: 56b94d66eb0929d2fd0ca74a1a631d229330adfa
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: f469196f96b97903f69e29d1a38900369653e02f
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "69906393"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86200503"
 ---
 # <a name="search-categories-for-the-bing-local-business-search-api"></a>Kategorie wyszukiwania dla interfejsu API wyszukiwania lokalnego usługi Bing
 
@@ -24,7 +24,7 @@ Interfejs API wyszukiwania lokalnego usługi Bing pozwala wyszukiwać lokalne je
 
 ## <a name="toplevel-categories"></a>Kategorie TopLevel 
 
-Poniższe typy definiują główne kategorie wyszukiwania.  Za pomocą listy rozdzielanej przecinkami przypisanej do `localCategories` parametru można określić więcej niż jedną kategorię.  
+Poniższe typy definiują główne kategorie wyszukiwania.  Za pomocą listy rozdzielanej przecinkami przypisanej do parametru można określić więcej niż jedną kategorię `localCategories` .  
 - EatDrink 
 - SeeDo 
 - Sklepu 
@@ -34,51 +34,19 @@ Poniższe typy definiują główne kategorie wyszukiwania.  Za pomocą listy roz
 - Budowy 
 
 ## <a name="sub-categories"></a>Podkategorie
-Podkategorie są przesyłane w taki sam sposób `localCategories`jak w przypadku. Podkategorie są bardziej szczegółowymi kategoriami. Są one podwładnymi w sensie, że jeśli określisz kategorię C i jedną z jej podkategorii S w tej samej liście rozdzielanej przecinkami, otrzymasz te same wyniki, co w przypadku, gdy określono tylko znak C.
+Podkategorie są przesyłane w taki sam sposób jak w przypadku `localCategories` . Podkategorie są bardziej szczegółowymi kategoriami. Są one podwładnymi w sensie, że jeśli określisz kategorię C i jedną z jej podkategorii S w tej samej liście rozdzielanej przecinkami, otrzymasz te same wyniki, co w przypadku, gdy określono tylko znak C.
 
-### <a name="eat-drink"></a>Napój Eat 
-|  |  |  |  |
-| - | - | - | - |
-| BreweriesAndBrewPubs | CocktailLounges | AfricanRestaurants |
-| AmericanRestaurants | Bagels | BarbecueRestaurants |
-| Taverns | SportsBars | Barach |
-| BarsGrillsAndPubs | BuffetRestaurants| BelgianRestaurants | 
-| BritishRestaurants | CafeRestaurants | CaribbeanRestaurants |
-| ChineseRestaurants | CoffeeAndTea | Delicatessens | 
-| DeliveryService | Diners | DiscountStores | 
-| Donuts | FastFood | FrenchRestaurants | 
-| FrozenYogurt | GermanRestaurants | Supermarkets | 
-| GreekRestaurants | Artykuły spożywcze | HawaiianRestaurants | 
-| HungarianRestaurants | IceCreamAndFrozenDesserts | IndianRestaurants | 
-| ItalianRestaurants | JapaneseRestaurants | Soki | 
-| KoreanRestaurants | LiquorStores | MexicanRestaurants |
-| MiddleEasternRestaurants | Pizza | PolishRestaurants | 
-| PortugueseRestaurants | Pretzels | Restauracje | 
-| RussianAndUkrainianRestaurants | Sandwiches | SeafoodRestaurants | 
-| SpanishRestaurants | SteakHouseRestaurants | SushiRestaurants | 
-| Wnioskiem | ThaiRestaurants | TurkishRestaurants | 
-| VegetarianAndVeganRestaurants | VietnameseRestaurants|  |
- 
-### <a name="see-do"></a>Zobacz zrobić 
-|  |  |  |
-| -- | -- | -- |
-| AmusementParks | Attractions | Carnivals |
-| Casinos | LandmarksAndHistoricalSites | MiniatureGolfCourses |
-| MovieTheaters | Muzea | Parki |
-| SightseeingTours | TouristInformation | Ogrod |
- 
-### <a name="shop"></a>Sklepu 
-|  |  |  |
-| -- | -- | -- |
-| AntiqueStores | Bookstores | CDAndRecordStores |
-| ChildrensClothingStores | CigarAndTobaccoShops | ComicBookStores |
-| DepartmentStores | DiscountStores | FleaMarketsAndBazaars |
-| FurnitureStores | HomeImprovementStores | JewelryAndWatchesStores |
-| KitchenwareStores | LiquorStores | MallsAndShoppingCenters |
-| MensClothingStores | MusicStores | OutletStores |
-| PetShops | PetSupplyStores | SchoolAndOfficeSupplyStores |
-| ShoeStores | SportingGoodsStores | ToyAndGameStores |
-| VitaminAndSupplementStores | WomensClothingStores |  |
+### <a name="eat-drink"></a>Napój Eat
+
+> BreweriesAndBrewPubs, CocktailLounges, AfricanRestaurants, AmericanRestaurants, Bagels, BarbecueRestaurants, Taverns, SportsBars, bar, BarsGrillsAndPubs, BuffetRestaurants | BelgianRestaurants, BritishRestaurants, CafeRestaurants, CaribbeanRestaurants, ChineseRestaurants, CoffeeAndTea, Delicatessens, DeliveryService, Diners, DiscountStores, Donuts, FastFood, FrenchRestaurants, FrozenYogurt, GermanRestaurants, Supermarkets, GreekRestaurants, spożywczy, HawaiianRestaurants, HungarianRestaurants, IceCreamAndFrozenDesserts, IndianRestaurants, ItalianRestaurants, JapaneseRestaurants, KoreanRestaurants, LiquorStores, MexicanRestaurants, MiddleEasternRestaurants, Pizza, PolishRestaurants, PortugueseRestaurants, pretzels, RussianAndUkrainianRestaurants, Sandwiches, SeafoodRestaurants, SpanishRestaurants, SteakHouseRestaurants
+
+### <a name="see-do"></a>Zobacz zrobić
+
+> AmusementParks, attractions, Carnivals, Casinos, LandmarksAndHistoricalSites, MiniatureGolfCourses, MovieTheaters, muzea, Parke, SightseeingTours, TouristInformation, ogrody
+
+### <a name="shop"></a>Sklepu
+
+> AntiqueStores, Bookstores, CDAndRecordStores, ChildrensClothingStores, CigarAndTobaccoShops, ComicBookStores, DepartmentStores, DiscountStores, FleaMarketsAndBazaars, FurnitureStores, HomeImprovementStores, JewelryAndWatchesStores, KitchenwareStores, LiquorStores, MallsAndShoppingCenters, MensClothingStores, MusicStores, OutletStores, PetShops, PetSupplyStores, SchoolAndOfficeSupplyStores, ShoeStores, SportingGoodsStores, ToyAndGameStores, VitaminAndSupplementStores, WomensClothingStores
 
 
 ## <a name="examples-of-local-categories-search"></a>Przykłady lokalnych kategorii wyszukiwania

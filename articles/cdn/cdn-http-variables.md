@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: allensu
-ms.openlocfilehash: f9768d4d20380e8e0c4ca6f7c71fddd68bb93d5c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6e601e3e06965faf8ec0fd238c54115570150b61
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84340678"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86203564"
 ---
 # <a name="http-variables-for-azure-cdn-rules-engine"></a>Zmienne HTTP dla aparatu reguł Azure CDN
 Zmienne HTTP zapewniają metodę, za pomocą której można pobrać metadane żądań i odpowiedzi HTTP. Można następnie użyć tych metadanych do dynamicznego zmiany żądania lub odpowiedzi. Użycie zmiennych HTTP jest ograniczone do następujących funkcji aparatu zasad:
@@ -186,7 +187,7 @@ W tym przykładowym scenariuszu zmienna *REQUEST_URI* jest ustawiona na:
 
 W poniższej tabeli przedstawiono sposób działania tej składni.
 
-| Przykładowa składnia | Wyniki | |
+| Przykładowa składnia | Wyniki | Opis |
 | ------------- | ------- | --- |
 | % {request_uri #/800001}/customerorigin | /customerorigin/myorigin/Marketing/product.html? language = EN-US | Ponieważ zmienna zaczyna się od wzorca, została zastąpiona. |
 | % {request_uri% HTML} htm | /800001/myorigin/Marketing/product.html? language = EN-US | Ponieważ zmienna nie kończy się wzorcem, nie wprowadzono zmian.|

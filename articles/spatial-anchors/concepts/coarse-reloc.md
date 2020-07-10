@@ -8,11 +8,12 @@ ms.author: bobuc
 ms.date: 09/18/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 4c1604eaad1ebdedf6a360a647fe5b9f95c829c6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4ed1a7cacc6c40cb12976c8703164d46e0dc0458
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76844398"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86202387"
 ---
 # <a name="coarse-relocalization"></a>Zgrubna ponowna lokalizacja
 
@@ -119,13 +120,11 @@ cloudSpatialAnchorSession.LocationProvider(sensorProvider);
 
 Następnie należy zdecydować, które czujniki mają być używane w przypadku niedużej lokalizacji. Ta decyzja jest specyficzna dla opracowywanej aplikacji, ale zalecenia w poniższej tabeli powinny zapewnić dobry punkt początkowy:
 
-
-|             | Brak drzwi | Na zewnątrz |
-|-------------|---------|----------|
-| GPS         | Wyłączone | Włączone |
-| Sieć Wi-Fi        | Włączone | On (opcjonalnie) |
-| Sygnały nawigacyjne dotyczące beli | On (opcjonalnie z zastrzeżeniami, zobacz poniżej) | Wyłączone |
-
+|                 | Brak drzwi | Na zewnątrz |
+|-----------------|---------|----------|
+| **GPS**         | Wyłączone | Włączone |
+| **Karta**        | Włączone | On (opcjonalnie) |
+| **Sygnały nawigacyjne dotyczące beli** | On (opcjonalnie z zastrzeżeniami, zobacz poniżej) | Wyłączone |
 
 ### <a name="enabling-gps"></a>Włączanie GPS
 
@@ -657,12 +656,11 @@ W poniższej tabeli szacuje oczekiwany obszar wyszukiwania dla każdego typu czu
 
 Poniższa tabela zawiera podsumowanie danych czujników zbieranych na każdej z obsługiwanych platform wraz z wszelkimi zastrzeżeniami specyficznymi dla platformy:
 
-
-|             | HoloLens | Android | iOS |
-|-------------|----------|---------|-----|
-| GPS         | Nie dotyczy | Obsługiwane za poorednictwem interfejsów API [lokalizacji][3] (GPS i Network) | Obsługiwane za poorednictwem interfejsów API [CLLocationManager][4] |
-| Sieć Wi-Fi        | Obsługiwane z szybkością około jednego skanowania co 3 sekundy | Obsługiwane. Począwszy od poziomu interfejsu API 28, skanowania w sieci Wi-Fi są ograniczone do 4 wywołań co 2 minuty. W przypadku systemu Android 10 ograniczenie przepustowości można wyłączyć w menu Ustawienia dewelopera. Aby uzyskać więcej informacji, zobacz [dokumentację systemu Android][5]. | N/A — brak publicznego interfejsu API |
-| Sygnały nawigacyjne dotyczące beli | Ograniczone do [Eddystone][1] i [iBeacon][2] | Ograniczone do [Eddystone][1] i [iBeacon][2] | Ograniczone do [Eddystone][1] i [iBeacon][2] |
+|                 | HoloLens | Android | iOS |
+|-----------------|----------|---------|-----|
+| **GPS**         | Nie dotyczy | Obsługiwane za poorednictwem interfejsów API [lokalizacji][3] (GPS i Network) | Obsługiwane za poorednictwem interfejsów API [CLLocationManager][4] |
+| **Karta**        | Obsługiwane z szybkością około jednego skanowania co 3 sekundy | Obsługiwane. Począwszy od poziomu interfejsu API 28, skanowania w sieci Wi-Fi są ograniczone do 4 wywołań co 2 minuty. W przypadku systemu Android 10 ograniczenie przepustowości można wyłączyć w menu Ustawienia dewelopera. Aby uzyskać więcej informacji, zobacz [dokumentację systemu Android][5]. | N/A — brak publicznego interfejsu API |
+| **Sygnały nawigacyjne dotyczące beli** | Ograniczone do [Eddystone][1] i [iBeacon][2] | Ograniczone do [Eddystone][1] i [iBeacon][2] | Ograniczone do [Eddystone][1] i [iBeacon][2] |
 
 ## <a name="next-steps"></a>Następne kroki
 
@@ -672,7 +670,7 @@ Użyj bardzo dużej lokalizacji w aplikacji.
 > [Unity](../how-tos/set-up-coarse-reloc-unity.md)
 
 > [!div class="nextstepaction"]
-> [Objective-C](../how-tos/set-up-coarse-reloc-objc.md)
+> [Obiektowy C](../how-tos/set-up-coarse-reloc-objc.md)
 
 > [!div class="nextstepaction"]
 > [Swift](../how-tos/set-up-coarse-reloc-swift.md)

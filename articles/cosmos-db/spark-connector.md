@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/21/2019
 ms.author: ramkris
-ms.openlocfilehash: f576da01a7d80559419376f1629c0765074065da
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ef2691f63d7bb8c468d065b82c9726e8f7740c20
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85262229"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86203157"
 ---
 # <a name="accelerate-big-data-analytics-by-using-the-apache-spark-to-azure-cosmos-db-connector"></a>Przyspieszenie analizy danych Big Data przy użyciu Apache Spark do Azure Cosmos DB łącznika
 
@@ -221,7 +221,7 @@ Więcej fragmentów kodu i kompleksowych przykładów, zobacz [Jupyter](https://
 
 Możesz skompilować łącznik ze źródła w usłudze GitHub lub pobrać Uber Jars z Maven w poniższych linkach.
 
-| platforma Spark | Scala | Najnowsza wersja |
+| Spark | Scala | Najnowsza wersja |
 |---|---|---|
 | 2.4.0 | 2,11 | [Azure-cosmosdb — spark_lkg_version](https://aka.ms/CosmosDB_OLTP_Spark_2.4_LKG)
 | 2.3.0 | 2,11 | [Azure-cosmosdb-spark_2.3.0 _ 2.11 _ 1.3.3](https://search.maven.org/artifact/com.microsoft.azure/azure-cosmosdb-spark_2.3.0_2.11/1.3.3/jar)
@@ -233,7 +233,7 @@ Możesz skompilować łącznik ze źródła w usłudze GitHub lub pobrać Uber J
 Utwórz bibliotekę przy użyciu obszaru roboczego datakostki, postępując zgodnie ze wskazówkami w przewodniku Azure Databricks > [użyć łącznika Azure Cosmos DB Spark](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/cosmosdb-connector.html)
 
 > [!NOTE]
-> Pamiętaj, że strona **Korzystanie z łącznika platformy Spark Azure Cosmos DB** nie jest obecnie aktualna. Zamiast pobierania sześciu oddzielnych Jars do sześciu różnych bibliotek można pobrać plik JAR Uber z Maven na i zainstalować go na https://search.maven.org/artifact/com.microsoft.azure/azure-cosmosdb-spark_2.4.0_2.11/1.4.0/jar) słoiku/bibliotece.
+> Strona **Korzystanie z łącznika platformy Spark Azure Cosmos DB** jest obecnie nieaktualna. Zamiast pobierania sześciu oddzielnych Jars do sześciu różnych bibliotek, można pobrać Uber jar z Maven na [platformie Azure-cosmosdb-spark_lkg_version](https://aka.ms/CosmosDB_OLTP_Spark_2.4_LKG) i zainstalować ten plik JAR/Library.
 > 
 
 ### <a name="using-spark-cli"></a>Korzystanie z platformy Spark — CLI

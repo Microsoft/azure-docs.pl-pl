@@ -10,11 +10,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 02/05/2020
 ms.author: kenwith
-ms.openlocfilehash: 47f0502226e4227c6b94920da6f040004beb41f1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 42dcbf693b6ec685849b1523480506e9c8f5b54b
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84781671"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86202884"
 ---
 # <a name="how-to-write-expressions-for-attribute-mappings-in-azure-ad"></a>Instrukcje: Pisanie wyrażeń dla mapowań atrybutów w usłudze Azure AD
 
@@ -699,11 +700,13 @@ Na podstawie imienia i nazwiska użytkownika należy wygenerować wartość atry
 
 **Wyrażenia** <br>
 
+```ad-attr-mapping-expr
     SelectUniqueValue( 
         Join("@", NormalizeDiacritics(StripSpaces(Join(".",  [PreferredFirstName], [PreferredLastName]))), "contoso.com"), 
         Join("@", NormalizeDiacritics(StripSpaces(Join(".",  Mid([PreferredFirstName], 1, 1), [PreferredLastName]))), "contoso.com"),
         Join("@", NormalizeDiacritics(StripSpaces(Join(".",  Mid([PreferredFirstName], 1, 2), [PreferredLastName]))), "contoso.com")
     )
+```
 
 **Przykładowe dane wejściowe/wyjściowe:**
 

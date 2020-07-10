@@ -4,12 +4,12 @@ description: Dowiedz się, jak za pomocą usługi Azure Import/Export korzystać
 ms.reviewer: saurse
 ms.topic: conceptual
 ms.date: 05/17/2018
-ms.openlocfilehash: 5611b5a6fc9ba8bbff11e35449caf0dd9d33fa21
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e5761f56106989084f12b80620ffc417b781965d
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85373306"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187833"
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Przepływ pracy kopii zapasowej offline w Azure Backup
 
@@ -136,7 +136,7 @@ Narzędzie *AzureOfflineBackupDiskPrep* przygotowuje dyski SATA, które są wysy
     | Parametr | Opis |
     | --- | --- |
     | s: &lt; *ścieżka lokalizacji tymczasowej*&gt; |To obowiązkowe dane wejściowe są używane w celu zapewnienia ścieżki do lokalizacji tymczasowej wprowadzonej w przepływie pracy w sekcji "Inicjowanie kopii zapasowej w trybie offline". |
-    | p: &lt; *ścieżka do PublishSettingsFile*&gt; |To opcjonalne dane wejściowe są używane w celu zapewnienia ścieżki do pliku ustawień publikowania platformy Azure wprowadzonego w przepływie pracy w sekcji "Inicjowanie kopii zapasowej w trybie offline". |
+    | p: &lt; *ścieżka do PublishSettingsFile*&gt; |To opcjonalne dane wejściowe są używane w celu zapewnienia ścieżki do pliku ustawień publikowania platformy Azure.  |
 
     Po uruchomieniu polecenia Narzędzie żąda wyboru zadania importowania platformy Azure odpowiadającego dyskom, które muszą zostać przygotowane. Jeśli tylko jedno zadanie importu jest skojarzone z podaną lokalizacją przemieszczania, zobaczysz stronę podobną do tej.
 

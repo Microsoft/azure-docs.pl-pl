@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 06/18/2020
-ms.openlocfilehash: 9072f057059c66d0030c31e649fda6b6ebe3db9d
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.openlocfilehash: 2efe05ebb26030720a1af90c4a4de8d48ea37106
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85117815"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86201487"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-a-net-framework-application"></a>Szybki Start: korzystanie z usługi Azure cache for Redis z aplikacją .NET Framework
 
@@ -45,7 +45,7 @@ Zastąp element `<cache-name>` nazwą hosta pamięci podręcznej.
 Zastąp element `<access-key>` kluczem podstawowym pamięci podręcznej.
 
 
-## <a name="create-a-console-app"></a>tworzenie aplikacji konsoli
+## <a name="create-a-console-app"></a>Tworzenie aplikacji konsolowej
 
 W programie Visual Studio kliknij pozycję **plik**  >  **Nowy**  >  **projekt**.
 
@@ -90,7 +90,7 @@ using StackExchange.Redis;
 using System.Configuration;
 ```
 
-Połączenie z usługą Azure Cache for Redis jest zarządzane przez klasę `ConnectionMultiplexer`. Ta klasa powinien być udostępniana i używana ponownie w aplikacji klienta. Nie należy tworzyć nowego połączenia dla każdej operacji. 
+Połączenie z usługą Azure Cache for Redis jest zarządzane przez klasę `ConnectionMultiplexer`. Ta klasa powinna być udostępniana i wielokrotnie używana w aplikacji klienta. Nie należy tworzyć nowego połączenia dla każdej operacji. 
 
 Nigdy nie należy przechowywać poświadczeń w kodzie źródłowym. Aby przykład był prosty, używam tylko pliku konfiguracji zewnętrznych wpisów tajnych. Lepszym rozwiązaniem byłoby użycie [usługi Azure Key Vault z certyfikatami](https://docs.microsoft.com/rest/api/keyvault/certificate-scenarios).
 
@@ -251,7 +251,7 @@ Zaloguj się do witryny [Azure Portal](https://portal.azure.com) i kliknij pozyc
 
 W polu tekstowym **Filtruj według nazwy...** wpisz nazwę grupy zasobów. Instrukcje w tym artykule używają grupy zasobów o nazwie *TestResources*. Dla grupy zasobów na liście wyników kliknij pozycję **...**, a następnie kliknij pozycję **Usuń grupę zasobów**.
 
-![Usuń](./media/cache-dotnet-how-to-use-azure-redis-cache/cache-delete-resource-group.png)
+![Usuwanie](./media/cache-dotnet-how-to-use-azure-redis-cache/cache-delete-resource-group.png)
 
 Zobaczysz prośbę o potwierdzenie usunięcia grupy zasobów. Wpisz nazwę grupy zasobów w celu potwierdzenia, a następnie kliknij pozycję **Usuń**.
 
@@ -261,11 +261,14 @@ Po krótkim czasie grupa zasobów i wszystkie zawarte w niej zasoby zostaną usu
 
 <a name="next-steps"></a>
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 W tym przewodniku Szybki start przedstawiono sposób użycia usługi Azure Cache for Redis z poziomu aplikacji platformy .NET. Przejdź do kolejnego Szybkiego startu, w którym wyjaśniono, jak używać usługi Microsoft Azure Cache for Redis z poziomu aplikacji internetowej ASP.NET.
 
 > [!div class="nextstepaction"]
 > [Tworzenie na platformie ASP.NET aplikacji internetowej, która korzysta z usługi Microsoft Azure Cache for Redis.](./cache-web-app-howto.md)
 
+Chcesz zoptymalizować i zapisać wydatki na chmurę?
 
+> [!div class="nextstepaction"]
+> [Rozpocznij analizowanie kosztów za pomocą Cost Management](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
