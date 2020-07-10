@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/23/2020
-ms.openlocfilehash: 6490292ef898e00c7677c829be41f3b06c638164
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: cc04a891bb32ede6c7bb72a339b728642cf343ed
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86076610"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207816"
 ---
 # <a name="use-apache-ambari-hive-view-with-apache-hadoop-in-hdinsight"></a>Korzystanie z widoku programu Hive narzędzia Apache Ambari z usługą Apache Hadoop w usłudze HDInsight
 
@@ -75,8 +75,10 @@ Klaster usługi Hadoop w usłudze HDInsight. Zobacz Rozpoczynanie [pracy z usłu
 
 1. Po zakończeniu zapytania na karcie **wyniki** zostaną wyświetlone wyniki operacji. Następujący tekst jest wynikiem zapytania:
 
-        loglevel       count
-        [ERROR]        3
+    ```output
+    loglevel       count
+    [ERROR]        3
+    ```
 
     Karta **Dziennik** służy do wyświetlania informacji rejestrowania utworzonych przez zadanie.
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 783b479dd3e5f429516799d7d3ea82f363cac2ec
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 896e69bad9cd75b57ef2bf93048c332ef4d974c0
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85847451"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207705"
 ---
 # <a name="how-to-use-perfinsights"></a>Korzystanie z narzędzia PerfInsights
 
@@ -101,9 +101,8 @@ Po uruchomieniu zaawansowanej analizy wydajności Wybierz pozycję ślady do uru
 
 Zbierane są informacje o konfiguracji maszyn wirtualnych systemu Windows, dysków lub pul magazynu, licznikach wydajności, dziennikach i różnych śledzenia. Jest to zależne od scenariusza wydajności, z którego korzystasz. Szczegóły zawiera poniższa tabela:
 
-|Zbierane dane                              |  |  | Scenariusze wydajności |  |  | |
-|----------------------------------|----------------------------|------------------------------------|--------------------------|--------------------------------|----------------------|----------------------|
-|                               | Analiza szybkiej wydajności | Testów porównawczych | Analiza wydajności | Analiza Azure Files | Zaawansowana analiza wydajności |
+| Zbierane dane | Analiza szybkiej wydajności | Testów porównawczych | Analiza wydajności | Analiza Azure Files | Zaawansowana analiza wydajności |
+|----------------------------------|----------------------------|------------------------------------|--------------------------|--------------------------------|----------------------|
 | Informacje z dzienników zdarzeń       | Tak                        | Tak                                | Tak                      | Tak                  | Tak                  |
 | Informacje o systemie                | Tak                        | Tak                                | Tak                      | Tak                  | Tak                  |
 | Mapa woluminów                        | Tak                        | Tak                                | Tak                      | Tak                  | Tak                  |

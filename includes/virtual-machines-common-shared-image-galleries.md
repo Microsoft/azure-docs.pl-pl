@@ -1,18 +1,18 @@
 ---
-title: dołączanie pliku
-description: dołączanie pliku
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 author: axayjo
 ms.service: virtual-machines
 ms.topic: include
 ms.date: 04/16/2020
 ms.author: akjosh
 ms.custom: include file
-ms.openlocfilehash: 5af9deef7b6c3e2ea688f9e8ad5cc498f79c784e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1ca9d41134bf33a9e007da4b5a56652ccdbd4e22
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84317419"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86218118"
 ---
 Udostępniona Galeria obrazów to usługa, która ułatwia tworzenie struktury i organizacji na całym zarządzanym obrazie. Udostępnione Galerie obrazów zapewniają następujące:
 
@@ -84,20 +84,7 @@ Wyspecjalizowane maszyny wirtualne nie przechodzący przez proces usuwania konkr
 
 Regiony źródłowe są wymienione w poniższej tabeli. Wszystkie regiony publiczne mogą być regionami docelowymi, ale w celu replikowania do Australii Środkowej i Australii środkowej 2 trzeba mieć subskrypcję listy dozwolonych. Aby zażądać listy dozwolonych, przejdź do:https://azure.microsoft.com/global-infrastructure/australia/contact/
 
-
-| Regiony źródłowe        |                   |                    |                    |
-| --------------------- | ----------------- | ------------------ | ------------------ |
-| Australia Środkowa     | Chiny Wschodnie        | Indie Południowe        | Europa Zachodnia        |
-| Australia Środkowa 2   | Chiny Wschodnie 2      | Azja Południowo-Wschodnia     | Południowe Zjednoczone Królestwo           |
-| Australia Wschodnia        | Chiny Północne       | Japonia Wschodnia         | Zachodnie Zjednoczone Królestwo            |
-| Australia Południowo-Wschodnia   | Chiny Północne 2     | Japonia Zachodnia         | US DoD (region środkowy)     |
-| Brazylia Południowa          | Azja Wschodnia         | Korea Środkowa      | US DoD (region wschodni)        |
-| Kanada Środkowa        | Wschodnie stany USA           | Korea Południowa        | US Gov Arizona     |
-| Kanada Wschodnia           | Wschodnie stany USA 2         | Północno-środkowe stany USA   | US Gov Teksas       |
-| Indie Środkowe         | Wschodnie stany USA 2 — EUAP    | Europa Północna       | US Gov Wirginia    |
-| Środkowe stany USA            | Francja Środkowa    | Południowo-środkowe stany USA   | Indie Zachodnie         |
-| Środkowe stany USA — EUAP       | Francja Południowa      | Zachodnio-środkowe stany USA    | Zachodnie stany USA            |
-|                       |                   |                    | Zachodnie stany USA 2          |
+> Australia Środkowa, Chiny Wschodnie, Indie Południowe, Europa Zachodnia, Australia Środkowa 2, Chiny Wschodnie 2, Azja Południowo-Wschodnia, Południowe Zjednoczone Królestwo, Australia Wschodnia, Chiny Północne, Japonia Wschodnia, Zachodnie Zjednoczone Królestwo, Australia Południowo-Południowa, Chiny Północne 2, Japonia Zachodnia, US DoD (region środkowy), Brazylia Północna, Azja Wschodnia, Korea środkowa, US dod (region wschodni), Kanada środkowa, Wschodnie stany USA, Korea Południowa, US gov Arizona , US Gov Teksas, Indie Środkowe, Wschodnie stany USA 2 — EUAP, Europa Północna, US Gov Wirginia, środkowe stany USA, Francja środkowa, Południowo-środkowe stany USA, Indie Zachodnie, środkowe stany USA — EUAP, Francja Południowa, zachodnie stany USA, zachodnie stany USA, zachodnie stany USA 2 |
 
 
 
@@ -139,13 +126,13 @@ Regiony, w których jest replikowana wersja udostępnionego obrazu, mogą zosta�
 
 ![Ilustracja przedstawiająca sposób replikowania obrazów](./media/shared-image-galleries/replication.png)
 
-## <a name="access"></a>Access
+## <a name="access"></a>Dostęp
 
 Jako Galeria obrazów udostępnionych, definicja obrazu i wersja obrazu są wszystkie zasoby, które można udostępniać przy użyciu wbudowanych kontrolek kontroli RBAC platformy Azure. Za pomocą RBAC można udostępniać te zasoby innym użytkownikom, podmiotom usługi i grupom. Możesz nawet udostępnić dostęp osobom spoza dzierżawy, w ramach której zostały utworzone. Gdy użytkownik ma dostęp do udostępnionej wersji obrazu, może wdrożyć maszynę wirtualną lub zestaw skalowania maszyn wirtualnych.  Oto macierz udostępniania, która pomaga zrozumieć, do czego użytkownik uzyskuje dostęp:
 
 | Udostępnione użytkownikowi     | Galeria obrazów udostępnionych | Definicja obrazu | Wersja obrazu |
 |----------------------|----------------------|--------------|----------------------|
-| Galeria obrazów udostępnionych | Tak                  | Tak          | Tak                  |
+| Galeria obrazów udostępnionych | Yes                  | Tak          | Tak                  |
 | Definicja obrazu     | Nie                   | Yes          | Tak                  |
 
 Zalecamy udostępnianie na poziomie galerii w celu uzyskania najlepszego środowiska. Nie zaleca się udostępniania poszczególnych wersji obrazu. Aby uzyskać więcej informacji na temat RBAC, zobacz [Zarządzanie dostępem do zasobów platformy Azure przy użyciu RBAC](../articles/role-based-access-control/role-assignments-portal.md).
@@ -218,7 +205,7 @@ Możesz utworzyć zasób udostępnionej galerii obrazów przy użyciu szablonów
 
 Aby wyświetlić listę wszystkich udostępnionych zasobów galerii obrazów między subskrypcjami, do których masz dostęp na Azure Portal, wykonaj następujące czynności:
 
-1. Otwórz [witrynę Azure Portal](https://portal.azure.com).
+1. Otwórz witrynę [Azure Portal](https://portal.azure.com).
 1. Przewiń w dół stronę i wybierz pozycję **wszystkie zasoby**.
 1. Wybierz wszystkie subskrypcje, w ramach których chcesz wyświetlić listę wszystkich zasobów.
 1. Wyszukaj zasoby typu **Shared Image Gallery**.

@@ -1,6 +1,6 @@
 ---
-title: dołączanie pliku
-description: dołączanie pliku
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: virtual-machines
 author: roygara
 ms.service: virtual-machines
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/08/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 2c8c0430e8a1f54daa99d3fd986bae0c3eaf7f61
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e10d1d5aa5b45c0ea0e31df4d5d847f8541838b9
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84017612"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86218212"
 ---
 ## <a name="application-performance-indicators"></a>Wskaźniki wydajności aplikacji
 
@@ -77,7 +77,7 @@ Następnie Zmierz maksymalne wymagania dotyczące wydajności aplikacji przez ca
 | Średnie opóźnienie | | | |
 | Maksymalnie z Procesor CPU | | | |
 | Średni procesor CPU | | | |
-| Maksymalnie z Memory (Pamięć) | | | |
+| Maksymalnie z Pamięć | | | |
 | Średnia pamięć | | | |
 | Głębokość kolejki | | | |
 
@@ -119,10 +119,10 @@ W poniższej tabeli zestawiono czynniki wydajności i kroki niezbędne do optyma
 
 Aby uzyskać więcej informacji o rozmiarach maszyn wirtualnych oraz o liczbie operacji we/wy, przepływności i opóźnieniu dla każdego typu maszyny wirtualnej, zobacz [rozmiary maszyn wirtualnych](../articles/virtual-machines/linux/sizes.md) z systemem Linux lub [rozmiary maszyn wirtualnych z systemem Windows](../articles/virtual-machines/windows/sizes.md).
 
-| &nbsp; | **Liczba operacji we/wy na sekundę** | **Przepływność** | **Opóźnienie** |
+| | **Liczba operacji we/wy na sekundę** | **Przepływność** | **Opóźnienie** |
 | --- | --- | --- | --- |
 | **Przykładowy scenariusz** |Aplikacja OLTP przedsiębiorstwa wymagająca bardzo dużej liczby transakcji na sekundę. |Przetwarzanie dużych ilości danych przez aplikację do magazynowania danych przedsiębiorstwa. |Aplikacje niemal w czasie rzeczywistym wymagające natychmiastowych odpowiedzi na żądania użytkowników, takie jak gry online. |
-| Czynniki wydajności | &nbsp; | &nbsp; | &nbsp; |
+| **Czynniki wydajności** | &nbsp; | &nbsp; | &nbsp; |
 | **Rozmiar we/wy** |Mniejszy rozmiar we/wy daje większe liczby IOPS. |Większy rozmiar we/wy w celu uzyskania większej przepływności. | &nbsp;|
 | **Rozmiar maszyny wirtualnej** |Użyj rozmiaru maszyny wirtualnej, który oferuje operacje we/wy większe niż wymagania aplikacji. |Użyj rozmiaru maszyny wirtualnej z limitem przepływności większym niż wymaganie aplikacji. |Użyj rozmiaru maszyny wirtualnej, który oferuje limity skalowania większe niż wymagania aplikacji. |
 | **Rozmiar dysku** |Użyj rozmiaru dysku, który oferuje operacje we/wy większe niż wymagania aplikacji. |Użyj rozmiaru dysku z limitem przepływności większym niż wymaganie aplikacji. |Użyj rozmiaru dysku, który oferuje limity skalowania większe niż wymagania aplikacji. |
@@ -142,7 +142,7 @@ Rozmiar we/wy to jeden z ważniejszych czynników. Rozmiar we/wy to rozmiar żą
 
 Niektóre aplikacje umożliwiają zmianę rozmiaru operacji we/wy, podczas gdy niektóre aplikacje nie są. Na przykład SQL Server określa optymalny rozmiar we/wy i nie zapewnia użytkownikom żadnych pokrętłów, aby je zmienić. Z drugiej strony firma Oracle udostępnia parametr o nazwie [ \_ DataBlock \_ size](https://docs.oracle.com/cd/B19306_01/server.102/b14211/iodesign.htm#i28815) , za pomocą którego można skonfigurować rozmiar żądania we/wy bazy danych.
 
-Jeśli używasz aplikacji, która nie pozwala na zmianę rozmiaru we/wy, Skorzystaj z wytycznych w tym artykule, aby zoptymalizować wskaźnik KPI wydajności, który jest najbardziej odpowiedni dla aplikacji. Na przykład
+Jeśli używasz aplikacji, która nie pozwala na zmianę rozmiaru we/wy, Skorzystaj z wytycznych w tym artykule, aby zoptymalizować wskaźnik KPI wydajności, który jest najbardziej odpowiedni dla aplikacji. Przykład:
 
 * Aplikacja OLTP generuje miliony małych i losowych żądań we/wy. Aby obsłużyć te typy żądań we/wy, należy zaprojektować infrastrukturę aplikacji w celu uzyskania większych liczb IOPS.  
 * Aplikacja do magazynowania danych generuje duże i sekwencyjne żądania we/wy. Aby obsługiwać te typy żądań we/wy, należy zaprojektować infrastrukturę aplikacji w celu uzyskania większej przepustowości lub przepływności.
@@ -174,7 +174,7 @@ Po rozpoczęciu projektowania aplikacji należy wybrać maszynę wirtualną do h
 
 Maszyny wirtualne o wysokiej skali są dostępne w różnych rozmiarach przy użyciu innej liczby rdzeni procesora CPU, pamięci, systemu operacyjnego i tymczasowego rozmiaru dysku. Każdy rozmiar maszyny wirtualnej ma również maksymalną liczbę dysków z danymi, które można dołączyć do maszyny wirtualnej. W związku z tym wybrany rozmiar maszyny wirtualnej będzie miał wpływ na to, jak dużo pamięci masowej i pojemności magazynu są dostępne dla aplikacji. Ma to również wpływ na koszt obliczeń i magazynu. Na przykład poniżej przedstawiono specyfikacje największego rozmiaru maszyny wirtualnej w serii DS i serii GS:
 
-| Rozmiar maszyny wirtualnej | Rdzenie procesora CPU | Memory (Pamięć) | Rozmiary dysków maszyny wirtualnej | Maksymalnie z dyski danych | Rozmiar pamięci podręcznej | Liczba operacji we/wy na sekundę | Limity operacji we/wy pamięci podręcznej przepustowości |
+| Rozmiar maszyny wirtualnej | Rdzenie procesora CPU | Pamięć | Rozmiary dysków maszyny wirtualnej | Maksymalnie z dyski danych | Rozmiar pamięci podręcznej | Liczba operacji we/wy na sekundę | Limity operacji we/wy pamięci podręcznej przepustowości |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standardowa_DS14 |16 |112 GB |SYSTEM OPERACYJNY = 1023 GB <br> Lokalny dysk SSD = 224 GB |32 |576 GB |LICZBA OPERACJI WE/WY 50 000 <br> 512 MB na sekundę |4 000 operacji we/wy i 33 MB na sekundę |
 | Standardowa_GS5 |32 |448 GB |SYSTEM OPERACYJNY = 1023 GB <br> Lokalny dysk SSD = 896 GB |64 |4224 GB |LICZBA OPERACJI WE/WY 80 000 <br> 2 000 MB na sekundę |5 000 operacji we/wy i 50 MB na sekundę |
@@ -195,7 +195,7 @@ Jeśli jednak ta sama aplikacja jest hostowana na Premium Storage, potrzebny bę
 
 W poniższej tabeli zestawiono podział kosztów tego scenariusza dla standardów i Premium Storage.
 
-| &nbsp; | **Standardowa (Standard)** | **Premium** |
+| &nbsp; | **Standardowa** | **Tytułu** |
 | --- | --- | --- |
 | **Koszt maszyny wirtualnej miesięcznie** |$1 570,58 (standardowa \_ D14) |$1 003,66 (standardowa \_ DS13) |
 | **Koszt dysków miesięcznie** |$1 638,40 (32 x 1 TB dysków) |$544,34 (4 x P30 dysków) |
@@ -246,7 +246,7 @@ Ważne jest włączenie pamięci podręcznej w odpowiednim zestawie dysków. Okr
 | **Typ dysku** | **Domyślne ustawienie pamięci podręcznej** |
 | --- | --- |
 | Dysk systemu operacyjnego |Odczyt/zapis |
-| Dysk z danymi |ReadOnly |
+| Dysk danych |ReadOnly |
 
 Poniżej przedstawiono zalecane ustawienia pamięci podręcznej dysków dla dysków z danymi,
 

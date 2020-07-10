@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/13/2020
-ms.openlocfilehash: a1d411662fd7afe57c714b97ab67b9d490acd40d
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 407db727f521ea7731f0cbdbdd05c4338c9f452e
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86076372"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207730"
 ---
 # <a name="run-mapreduce-jobs-with-apache-hadoop-on-hdinsight-using-rest"></a>Uruchamianie zadań MapReduce za pomocą Apache Hadoop w usłudze HDInsight przy użyciu usługi REST
 
@@ -61,7 +61,7 @@ Dostępne opcje:
 
     Otrzymasz odpowiedź podobną do następującej:
 
-    ```output
+    ```json
     {"version":"v1","status":"ok"}
     ```
 
@@ -83,9 +83,7 @@ Dostępne opcje:
      * **Klasa**: Klasa, która zawiera logikę MapReduce
      * **ARG**: argumenty, które mają zostać przekazane do zadania MapReduce. W takim przypadku wejściowy plik tekstowy i katalog, które są używane na potrzeby danych wyjściowych
 
-    To polecenie powinno zwrócić identyfikator zadania, którego można użyć do sprawdzenia stanu zadania:
-
-       job_1415651640909_0026
+    To polecenie powinno zwrócić identyfikator zadania, którego można użyć do sprawdzenia stanu zadania: `job_1415651640909_0026` .
 
 1. Aby sprawdzić stan zadania, użyj następującego polecenia. Zastąp wartość wartością `JOBID` **rzeczywistą** zwróconą w poprzednim kroku. W razie konieczności Popraw lokalizację **JQ** .
 
@@ -116,7 +114,7 @@ Dostępne opcje:
 
     Otrzymasz odpowiedź podobną do następującej:
 
-    ```output
+    ```json
     {"version":"v1","status":"ok"}
     ```
 
@@ -146,9 +144,7 @@ Dostępne opcje:
     * **Klasa**: Klasa, która zawiera logikę MapReduce
     * **ARG**: argumenty, które mają zostać przekazane do zadania MapReduce. W takim przypadku wejściowy plik tekstowy i katalog, które są używane na potrzeby danych wyjściowych
 
-   To polecenie powinno zwrócić identyfikator zadania, którego można użyć do sprawdzenia stanu zadania:
-
-       job_1415651640909_0026
+   To polecenie powinno zwrócić identyfikator zadania, którego można użyć do sprawdzenia stanu zadania: `job_1415651640909_0026` .
 
 1. Aby sprawdzić stan zadania, użyj następującego polecenia:
 

@@ -4,12 +4,12 @@ ms.service: databox
 ms.topic: include
 ms.date: 03/04/2019
 ms.author: alkohli
-ms.openlocfilehash: 94c132421f1e113b667341b094acad8047e5f465
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3312d1ec7c2535e103cf8959599c0d4c3014f520
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82561754"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86218185"
 ---
 1. [Nawiąż połączenie z interfejsem programu PowerShell](#connect-to-the-powershell-interface).
 2. `Get-HcsApplianceInfo`Aby uzyskać informacje dotyczące urządzenia, użyj programu.
@@ -44,15 +44,15 @@ ms.locfileid: "82561754"
     ```
 
     Poniżej przedstawiono tabelę podsumowującą niektóre ważne informacje o urządzeniu:
-    
-    | Parametr                             | Opis                                                                                                                                                  |   |
-    |--------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|---|
-    | FriendlyName                   | Przyjazna nazwa urządzenia skonfigurowana za pomocą lokalnego interfejsu użytkownika sieci Web podczas wdrażania urządzenia. Domyślną przyjazną nazwą jest numer seryjny urządzenia.  |   |
-    | SerialNumber                   | Numer seryjny urządzenia jest unikatowym numerem przypisanym w fabryce.                                                                             |   |
-    | Model                          | Model dla urządzenia Azure Stack Edge lub Data Box Gateway. Model jest fizyczny dla Azure Stack Edge i wirtualny dla Data Box Gateway.                   |   |
-    | FriendlySoftwareVersion        | Przyjazny ciąg, który odpowiada wersji oprogramowania urządzenia. W przypadku systemu z systemem w wersji zapoznawczej przyjazna wersja oprogramowania byłaby Data Box Edge 1902. |   |
-    | HcsVersion                     | Wersja oprogramowania magazynu HCS uruchomiona na urządzeniu. Na przykład magazynu HCS wersja oprogramowania odpowiadająca Data Box Edge 1902 to 1.4.771.324.            |   |
-    | LocalCapacityInMb              | Całkowita pojemność lokalnego urządzenia w megabitach.                                                                                                        |   |
-    | IsRegistered                   | Ta wartość wskazuje, czy urządzenie jest aktywowane z usługą.                                                                                         |   |
+
+    | Parametr | Opis |
+    |-----------|-------------|
+    | FriendlyName                   | Przyjazna nazwa urządzenia skonfigurowana za pomocą lokalnego interfejsu użytkownika sieci Web podczas wdrażania urządzenia. Domyślną przyjazną nazwą jest numer seryjny urządzenia.  |
+    | SerialNumber                   | Numer seryjny urządzenia jest unikatowym numerem przypisanym w fabryce.                                                                             |
+    | Model                          | Model dla urządzenia Azure Stack Edge lub Data Box Gateway. Model jest fizyczny dla Azure Stack Edge i wirtualny dla Data Box Gateway.                   |
+    | FriendlySoftwareVersion        | Przyjazny ciąg, który odpowiada wersji oprogramowania urządzenia. W przypadku systemu z systemem w wersji zapoznawczej przyjazna wersja oprogramowania byłaby Data Box Edge 1902. |
+    | HcsVersion                     | Wersja oprogramowania magazynu HCS uruchomiona na urządzeniu. Na przykład magazynu HCS wersja oprogramowania odpowiadająca Data Box Edge 1902 to 1.4.771.324.            |
+    | LocalCapacityInMb              | Całkowita pojemność lokalnego urządzenia w megabitach.                                                                                                        |
+    | IsRegistered                   | Ta wartość wskazuje, czy urządzenie jest aktywowane z usługą.                                                                                         |
 
 

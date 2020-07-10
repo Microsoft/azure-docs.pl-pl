@@ -4,12 +4,12 @@ ms.service: app-service-web
 ms.topic: include
 ms.date: 06/08/2020
 ms.author: ccompy
-ms.openlocfilehash: ee81b391587b994bd79e9f0950d041de70153b5c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 926a1867a77b543057fa1de170cdb64ccfefe7cb
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84488798"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86218326"
 ---
 Użycie integracji regionalnej sieci wirtualnej umożliwia aplikacji dostęp do:
 
@@ -28,12 +28,12 @@ W przypadku korzystania z integracji sieci wirtualnej z usługą sieci wirtualny
 
 Domyślnie aplikacja kieruje tylko ruch RFC1918 do sieci wirtualnej. Jeśli chcesz skierować cały ruch wychodzący do sieci wirtualnej, Zastosuj ustawienie aplikacji WEBSITE_VNET_ROUTE_ALL do aplikacji. Aby skonfigurować ustawienie aplikacji:
 
-1. Przejdź do interfejsu użytkownika **konfiguracji** w portalu aplikacji. Wybierz pozycję **nowe ustawienie aplikacji**.
+1. Przejdź do interfejsu użytkownika **konfiguracji** w portalu aplikacji. Wybierz pozycję **Nowe ustawienie aplikacji**.
 1. Wprowadź **WEBSITE_VNET_ROUTE_ALL** w polu **Nazwa** , a następnie wprowadź **1** w polu **wartość** .
 
    ![Podaj ustawienie aplikacji][4]
 
-1. Kliknij przycisk **OK**.
+1. Wybierz przycisk **OK**.
 1. Wybierz pozycję **Zapisz**.
 
 Jeśli cały ruch wychodzący jest kierowany do sieci wirtualnej, podlega sieciowych grup zabezpieczeń i UDR, które są stosowane do podsieci integracji. W przypadku kierowania całego ruchu wychodzącego do sieci wirtualnej adresy wychodzące nadal są adresami wychodzącymi wymienionymi we właściwościach aplikacji, chyba że zostaną podane trasy do wysyłania ruchu w innym miejscu.
@@ -41,7 +41,7 @@ Jeśli cały ruch wychodzący jest kierowany do sieci wirtualnej, podlega siecio
 Istnieją pewne ograniczenia dotyczące używania integracji sieci wirtualnej z usługą sieci wirtualnych w tym samym regionie:
 
 * Nie można uzyskać dostępu do zasobów w ramach globalnych połączeń komunikacji równorzędnej.
-* Funkcja jest dostępna tylko z nowszych Azure App Service jednostek skalowania, które obsługują plany App Service PremiumV2.
+* Funkcja jest dostępna tylko z nowszych Azure App Service jednostek skalowania, które obsługują plany App Service PremiumV2. Należy zauważyć, że nie *oznacza to, że aplikacja musi działać w warstwie cenowej PremiumV2*, ale musi być uruchomiona w planie App Service, w którym dostępna jest opcja PremiumV2 (która oznacza, że jest to nowsza jednostka skalowania, w której ta funkcja integracji sieci wirtualnej jest również dostępna).
 * Podsieć integracji może być używana tylko przez jeden plan App Service.
 * Funkcja nie może być używana przez aplikacje planu izolowanego, które znajdują się w App Service Environment.
 * Ta funkcja wymaga nieużywanej podsieci, która jest/27 z co najmniej 32 adresów w sieci wirtualnej Azure Resource Manager.

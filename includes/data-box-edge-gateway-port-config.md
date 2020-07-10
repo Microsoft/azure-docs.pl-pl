@@ -4,15 +4,15 @@ ms.service: databox
 ms.topic: include
 ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 98f9e0377e560fa0bba2fd470ff01431b2ed21d9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 71460af42b4da97a578ae5a3e23a714577e71867
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "67183671"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86218306"
 ---
-| Numer portu.| Do lub do zewnątrz | Zakres portów| Wymagane|   Uwagi |   |
-|--------|-----|-----|-----------|----------|-----------|
+| Numer portu.| Do lub do zewnątrz | Zakres portów| Wymagane|   Uwagi |
+|--------|-----|-----|-----------|----------|
 | TCP 80 (HTTP)|Out|Sieć WAN |Nie|Port wychodzący jest używany na potrzeby dostępu do Internetu w celu pobierania aktualizacji. <br>Wychodzący serwer proxy sieci Web jest konfigurowany przez użytkownika. |
 | TCP 443 (HTTPS)|Out|Sieć WAN|Tak|Port wychodzący służy do uzyskiwania dostępu do danych w chmurze.<br>Wychodzący serwer proxy sieci Web jest konfigurowany przez użytkownika.|
 | UDP 123 (NTP)|Out|Sieć WAN|W niektórych przypadkach<br>Zobacz uwagi|Ten port jest wymagany tylko wtedy, gdy jest używany internetowy serwer NTP.  |   
