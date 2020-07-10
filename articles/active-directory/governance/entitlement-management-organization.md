@@ -16,11 +16,12 @@ ms.date: 06/18/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d8928e7293f184e8eb366df6a29e50cbea6a7c93
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 272dd95b97c65ecc52dd73909f1ed87d5e5ae3ca
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85078205"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170500"
 ---
 # <a name="add-a-connected-organization-in-azure-ad-entitlement-management"></a>Dodawanie połączonej organizacji w zarządzaniu prawami usługi Azure AD
 
@@ -53,7 +54,7 @@ Aby zapoznać się z pokazem, jak dodać podłączoną organizację, Obejrzyj na
 
 Aby dodać zewnętrzny katalog lub domenę usługi Azure AD jako podłączoną organizację, postępuj zgodnie z instrukcjami w tej sekcji.
 
-**Rola wymagana wstępnie**: *administrator globalny*, *administrator użytkownika*lub *zapraszający Gości*
+**Rola wymagana wstępnie**: *administrator globalny* lub *administrator użytkownika*
 
 1. W Azure Portal wybierz pozycję **Azure Active Directory**, a następnie wybierz pozycję **Zarządzanie tożsamościami**.
 

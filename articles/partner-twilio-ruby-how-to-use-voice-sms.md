@@ -12,12 +12,12 @@ ms.devlang: ruby
 ms.topic: article
 ms.date: 11/25/2014
 ms.author: gwallace
-ms.openlocfilehash: 4822e6feb29f5a17c653a60937b895ec584e0ee4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 19372b30a5e56738230216777897c08b07a0a86a
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "69637198"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170704"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-in-ruby"></a>Jak używać funkcji Twilio do obsługi głosu i SMS w języku Ruby
 W tym przewodniku pokazano, jak wykonywać typowe zadania programistyczne za pomocą usługi interfejsu API Twilio na platformie Azure. Omówione scenariusze obejmują wykonywanie połączeń telefonicznych i wysyłanie wiadomości SMS. Aby uzyskać więcej informacji na temat Twilio i używania programów Voice i SMS w aplikacjach, zobacz sekcję [następne kroki](#NextSteps) .
@@ -38,10 +38,12 @@ TwiML to zestaw instrukcji opartych na języku XML, które informują Twilio o s
 
 Na przykład następujące TwiML spowodują przekonwertowanie tekstu **Hello World** na mowę.
 
-    <?xml version="1.0" encoding="UTF-8" ?>
-    <Response>
-       <Say>Hello World</Say>
-    </Response>
+```xml
+<?xml version="1.0" encoding="UTF-8" ?>
+<Response>
+    <Say>Hello World</Say>
+</Response>
+```
 
 Wszystkie dokumenty TwiML mają `<Response>` jako element główny. W tym miejscu możesz zdefiniować zachowanie aplikacji przy użyciu zleceń Twilio.
 
@@ -82,28 +84,36 @@ W poniższych przykładach będziemy używać [Sinatra][sinatra], a bardzo prost
 
 Użyj protokołu SSH do nowej maszyny wirtualnej i Utwórz katalog dla nowej aplikacji. W tym katalogu Utwórz plik o nazwie Gemfile i skopiuj do niego następujący kod:
 
-    source 'https://rubygems.org'
-    gem 'sinatra'
-    gem 'thin'
+```bash
+source 'https://rubygems.org'
+gem 'sinatra'
+gem 'thin'
+```
 
 W wierszu polecenia Uruchom polecenie `bundle install` . Spowoduje to zainstalowanie powyższych zależności. Następnie utwórz plik o nazwie `web.rb` . Będzie to miejsce, w którym znajduje się kod aplikacji sieci Web. Wklej do niego następujący kod:
 
-    require 'sinatra'
+```ruby
+require 'sinatra'
 
-    get '/' do
-        "Hello Monkey!"
-    end
+get '/' do
+    "Hello Monkey!"
+end
+```
 
 W tym momencie powinno być możliwe uruchomienie polecenia `ruby web.rb -p 5000` . Spowoduje to pomniejszenie poziomu serwera sieci Web na porcie 5000. Aby móc przejść do tej aplikacji w przeglądarce, należy odwiedzić adres URL skonfigurowany dla maszyny wirtualnej platformy Azure. Gdy będziesz mieć dostęp do aplikacji sieci Web w przeglądarce, możesz rozpocząć tworzenie aplikacji Twilio.
 
 ## <a name="configure-your-application-to-use-twilio"></a><a id="configure_app"></a>Konfigurowanie aplikacji do korzystania z Twilio
 Aplikację sieci Web można skonfigurować tak, aby korzystała z biblioteki Twilio przez aktualizację `Gemfile` w celu uwzględnienia tego wiersza:
 
-    gem 'twilio-ruby'
+```bash
+gem 'twilio-ruby'
+```
 
 W wierszu polecenia Uruchom polecenie `bundle install` . Teraz otwarty `web.rb` i obejmujący ten wiersz u góry:
 
-    require 'twilio-ruby'
+```ruby
+require 'twilio-ruby'
+```
 
 Teraz wszystko jest ustawione do korzystania z biblioteki pomocnika Twilio dla języka Ruby w aplikacji sieci Web.
 
@@ -112,33 +122,35 @@ Poniżej pokazano, jak wykonać połączenie wychodzące. Kluczowe koncepcje obe
 
 Dodaj tę funkcję do `web.md` :
 
-    # Set your account ID and authentication token.
-    sid = "your_twilio_account_sid";
-    token = "your_twilio_authentication_token";
+```ruby
+# Set your account ID and authentication token.
+sid = "your_twilio_account_sid";
+token = "your_twilio_authentication_token";
 
-    # The number of the phone initiating the call.
-    # This should either be a Twilio number or a number that you've verified
-    from = "NNNNNNNNNNN";
+# The number of the phone initiating the call.
+# This should either be a Twilio number or a number that you've verified
+from = "NNNNNNNNNNN";
 
-    # The number of the phone receiving call.
-    to = "NNNNNNNNNNN";
+# The number of the phone receiving call.
+to = "NNNNNNNNNNN";
 
-    # Use the Twilio-provided site for the TwiML response.
-    url = "http://yourdomain.cloudapp.net/voice_url";
+# Use the Twilio-provided site for the TwiML response.
+url = "http://yourdomain.cloudapp.net/voice_url";
 
-    get '/make_call' do
-      # Create the call client.
-      client = Twilio::REST::Client.new(sid, token);
+get '/make_call' do
+    # Create the call client.
+    client = Twilio::REST::Client.new(sid, token);
 
-      # Make the call
-      client.account.calls.create(to: to, from: from, url: url)
-    end
+    # Make the call
+    client.account.calls.create(to: to, from: from, url: url)
+end
 
-    post '/voice_url' do
-      "<Response>
-         <Say>Hello Monkey!</Say>
-       </Response>"
-    end
+post '/voice_url' do
+    "<Response>
+        <Say>Hello Monkey!</Say>
+    </Response>"
+end
+```
 
 W przypadku otwierania `http://yourdomain.cloudapp.net/make_call` w przeglądarce, która wywoła wywołanie interfejsu API Twilio w celu nawiązać połączenia telefonicznego. Pierwsze dwa parametry w `client.account.calls.create` są dość oczywistym objaśnieniem: numer wywołania jest `from` i numer telefonu `to` . 
 
@@ -151,11 +163,13 @@ Najpierw Zaloguj się do [pulpitu nawigacyjnego Twilio][twilio_account]. Kliknij
 
 Chcemy przetwarzać przychodzące wiadomości SMS, więc zaktualizujmy adres URL do `http://yourdomain.cloudapp.net/sms_url` . Przejdź dalej i kliknij pozycję Zapisz zmiany w dolnej części strony. Teraz, Wróć do `web.rb` programu, aby obsłużyć tę aplikację:
 
-    post '/sms_url' do
-      "<Response>
-         <Message>Hey, thanks for the ping! Twilio and Azure rock!</Message>
-       </Response>"
-    end
+```ruby
+post '/sms_url' do
+    "<Response>
+        <Message>Hey, thanks for the ping! Twilio and Azure rock!</Message>
+    </Response>"
+end
+```
 
 Po wprowadzeniu zmiany upewnij się, że ponownie uruchomiono aplikację sieci Web. Teraz wykorzystaj swój telefon i Wyślij wiadomość SMS na numer Twilio. Należy natychmiast uzyskać odpowiedź SMS "Hej, Dziękujemy za polecenie ping! Twilio i Azure Rock! ".
 

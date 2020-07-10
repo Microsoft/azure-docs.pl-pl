@@ -5,11 +5,12 @@ services: automation
 ms.topic: conceptual
 ms.date: 05/10/2018
 ms.custom: mvc
-ms.openlocfilehash: 2728964d5bbf83b42251068ffbdea223ff6bd85e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 92149289c6c422179ddb3562274020acf779f10b
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84171093"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186286"
 ---
 # <a name="enable-change-tracking-and-inventory-from-a-runbook"></a>Włączanie śledzenia zmian i spisu z poziomu elementu runbook
 
@@ -21,7 +22,7 @@ W tym artykule opisano, jak można użyć elementu Runbook do włączenia funkcj
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * Subskrypcja platformy Azure. Jeśli nie masz subskrypcji, możesz [aktywować korzyści dla subskrybentów MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) lub utworzyć [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* [Konto usługi Automation](automation-offering-get-started.md) do zarządzania maszynami.
+* [Konto usługi Automation](./index.yml) do zarządzania maszynami.
 * [Maszyna wirtualna](../virtual-machines/windows/quick-create-portal.md).
 
 ## <a name="enable-change-tracking-and-inventory"></a>Włączanie rozwiązania Change Tracking and Inventory 
@@ -50,7 +51,7 @@ Przy włączonej Change Tracking i spisie możesz dodać maszynę wirtualną pla
 
 ## <a name="install-and-update-modules"></a>Instalowanie i aktualizowanie modułów
 
-Wymagane jest zaktualizowanie do najnowszych modułów platformy Azure i zaimportowanie modułu [AZ. OperationalInsights](https://docs.microsoft.com/powershell/module/az.operationalinsights/?view=azps-3.7.0) w celu pomyślnego włączenia Change Tracking i spisu dla maszyny wirtualnej.
+Wymagane jest zaktualizowanie do najnowszych modułów platformy Azure i zaimportowanie modułu [AZ. OperationalInsights](/powershell/module/az.operationalinsights/?view=azps-3.7.0) w celu pomyślnego włączenia Change Tracking i spisu dla maszyny wirtualnej.
 
 1. Na koncie usługi Automation wybierz pozycję **moduły** w obszarze **zasoby udostępnione**. 
 2. Wybierz pozycję **Aktualizuj moduły platformy Azure**, aby zaktualizować moduły platformy Azure do najnowszej wersji. 

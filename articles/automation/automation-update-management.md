@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 06/23/2020
 ms.topic: conceptual
-ms.openlocfilehash: 86116e4aa76b376331e25719d128fc733c3257ae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 127a83bbe29a5e102a82cf169919a44f52532228
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85316397"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185691"
 ---
 # <a name="update-management-overview"></a>Omówienie rozwiązania Update Management
 
@@ -57,15 +57,15 @@ W przypadku maszyny z systemem Linux skanowanie zgodności jest wykonywane co go
 Update Management raportuje, jak to jest aktualność maszyny, na podstawie źródła, z którym jest skonfigurowana synchronizacja. Jeśli komputer z systemem Windows jest skonfigurowany do raportowania do programu WSUS, w zależności od tego, kiedy program WSUS został ostatnio zsynchronizowany z Microsoft Update, wyniki mogą się różnić od tego, co Microsoft Update. Takie zachowanie jest takie samo dla maszyn z systemem Linux, które są skonfigurowane do raportowania do lokalnego repozytorium, a nie do repozytorium publicznego.
 
 > [!NOTE]
-> Aby poprawnie zgłosić usługę, Update Management wymaga włączenia określonych adresów URL i portów. Aby dowiedzieć się więcej na temat tych wymagań, zobacz [Konfiguracja sieci](https://docs.microsoft.com/azure/automation/automation-hybrid-runbook-worker#network-planning).
+> Aby poprawnie zgłosić usługę, Update Management wymaga włączenia określonych adresów URL i portów. Aby dowiedzieć się więcej na temat tych wymagań, zobacz [Konfiguracja sieci](./automation-hybrid-runbook-worker.md#network-planning).
 
 Aktualizacje oprogramowania można wdrożyć i zainstalować na komputerach, które wymagają aktualizacji przez utworzenie zaplanowanego wdrożenia. Aktualizacje sklasyfikowane jako opcjonalne nie są uwzględnione w zakresie wdrożenia dla maszyn z systemem Windows. Zakres wdrożenia obejmuje tylko wymagane aktualizacje.
 
-Zaplanowane wdrożenie definiuje, które maszyny docelowe otrzymują odpowiednie aktualizacje. Robi to przez jawne określenie pewnych maszyn lub wybranie [grupy komputerów](https://docs.microsoft.com/azure/azure-monitor/platform/computer-groups) , która jest oparta na przeszukiwaniu dzienników określonego zestawu maszyn (lub w [zapytaniu platformy Azure](automation-update-management-query-logs.md) , które dynamicznie wybiera maszyny wirtualne platformy Azure na podstawie określonych kryteriów). Te grupy różnią się od [konfiguracji zakresu](https://docs.microsoft.com/azure/azure-monitor/insights/solution-targeting), która jest używana do sterowania kierowaniem maszyn, które odbierają konfigurację w celu włączenia Update Management. Zapobiega to wykonywaniu i raportowaniu zgodności aktualizacji oraz instalowaniu zatwierdzonych wymaganych aktualizacji.
+Zaplanowane wdrożenie definiuje, które maszyny docelowe otrzymują odpowiednie aktualizacje. Robi to przez jawne określenie pewnych maszyn lub wybranie [grupy komputerów](../azure-monitor/platform/computer-groups.md) , która jest oparta na przeszukiwaniu dzienników określonego zestawu maszyn (lub w [zapytaniu platformy Azure](automation-update-management-query-logs.md) , które dynamicznie wybiera maszyny wirtualne platformy Azure na podstawie określonych kryteriów). Te grupy różnią się od [konfiguracji zakresu](../azure-monitor/insights/solution-targeting.md), która jest używana do sterowania kierowaniem maszyn, które odbierają konfigurację w celu włączenia Update Management. Zapobiega to wykonywaniu i raportowaniu zgodności aktualizacji oraz instalowaniu zatwierdzonych wymaganych aktualizacji.
 
 Podczas definiowania wdrożenia należy również określić harmonogram zatwierdzania i ustawiania przedziału czasu, w którym można zainstalować aktualizacje. Ten okres jest nazywany oknem obsługi. 20-minutowy zakres okna obsługi jest zarezerwowany dla ponownych uruchomień, przy założeniu, że jest to wymagane i wybrano odpowiednią opcję ponownego uruchomienia. Jeśli stosowanie poprawek trwa dłużej niż oczekiwano, a w oknie obsługi jest mniej niż 20 minut, ponowne uruchomienie nie zostanie przeprowadzone.
 
-Aktualizacje są instalowane przez elementy runbook w usłudze Azure Automation. Nie można wyświetlić tych elementów Runbook i nie wymagają one żadnej konfiguracji. Po utworzeniu wdrożenia aktualizacji tworzy harmonogram, który uruchamia główny element Runbook aktualizacji w określonym czasie dla dołączonych maszyn. Główny element Runbook uruchamia podrzędny element Runbook na każdym agencie, aby zainstalować wymagane aktualizacje.
+Aktualizacje są instalowane za pomocą elementów runbook w usłudze Azure Automation. Nie można wyświetlić tych elementów Runbook i nie wymagają one żadnej konfiguracji. Po utworzeniu wdrożenia aktualizacji tworzy harmonogram, który uruchamia główny element Runbook aktualizacji w określonym czasie dla dołączonych maszyn. Główny element Runbook uruchamia podrzędny element Runbook na każdym agencie, aby zainstalować wymagane aktualizacje.
 
 Zgodnie z datą i godziną określoną we wdrożeniu aktualizacji maszyny docelowe wykonują wdrożenie równolegle. Przed rozpoczęciem instalacji zostanie uruchomione skanowanie w celu sprawdzenia, czy aktualizacje są nadal wymagane. W przypadku komputerów klienckich programu WSUS, jeśli aktualizacje nie są zatwierdzone w programie WSUS, wdrożenie aktualizacji nie powiedzie się.
 
@@ -78,7 +78,7 @@ Posiadanie maszyny zarejestrowanej dla Update Management w więcej niż jednym L
 W poniższej tabeli wymieniono systemy operacyjne obsługiwane w przypadku ocen aktualizacji i poprawek. Stosowanie poprawek wymaga hybrydowego procesu roboczego elementu Runbook. Aby uzyskać więcej informacji na temat wymagań hybrydowych procesów roboczych elementu Runbook, zobacz [wdrażanie hybrydowego procesu roboczego elementu Runbook systemu Windows](automation-windows-hrw-install.md) i [wdrażanie hybrydowego procesu roboczego elementu Runbook programu Linux](automation-linux-hrw-install.md).
 
 > [!NOTE]
-> Ocena aktualizacji maszyn z systemem Linux jest obsługiwana tylko w niektórych regionach, jak wymieniono w [tabeli mapowania](https://docs.microsoft.com/azure/automation/how-to/region-mappings#supported-mappings)obszaru roboczego konta usługi Automation i log Analytics. 
+> Ocena aktualizacji maszyn z systemem Linux jest obsługiwana tylko w niektórych regionach, jak wymieniono w [tabeli mapowania](./how-to/region-mappings.md#supported-mappings)obszaru roboczego konta usługi Automation i log Analytics. 
 
 |System operacyjny  |Uwagi  |
 |---------|---------|
@@ -98,7 +98,7 @@ W poniższej tabeli wymieniono nieobsługiwane systemy operacyjne:
 
 |System operacyjny  |Uwagi  |
 |---------|---------|
-|Klient systemu Windows     | Systemy operacyjne klienta (takie jak Windows 7 i Windows 10) nie są obsługiwane.<br> W przypadku usługi Azure Windows Virtual Desktop (WVD) zalecana metoda<br> Aby zarządzać aktualizacjami, należy [Windows Update dla programu Business](https://docs.microsoft.com/windows/deployment/update/waas-manage-updates-wufb) for Windows 10 Client Patch Management. |
+|Klient systemu Windows     | Systemy operacyjne klienta (takie jak Windows 7 i Windows 10) nie są obsługiwane.<br> W przypadku usługi Azure Windows Virtual Desktop (WVD) zalecana metoda<br> Aby zarządzać aktualizacjami, należy [Windows Update dla programu Business](/windows/deployment/update/waas-manage-updates-wufb) for Windows 10 Client Patch Management. |
 |Windows Server Nano Server 2016     | Nieobsługiwane.       |
 |Węzły usługi Azure Kubernetes | Nieobsługiwane. Użyj procesu poprawek opisanego w temacie [stosowanie aktualizacji zabezpieczeń i jądra do węzłów systemu Linux w usłudze Azure Kubernetes Service (AKS)](../aks/node-updates-kured.md)|
 
@@ -108,21 +108,21 @@ Poniższe informacje opisują wymagania klienta specyficzne dla systemu operacyj
 
 #### <a name="windows"></a>Windows
 
-Agenci systemu Windows muszą być skonfigurowani do komunikowania się z serwerem WSUS lub muszą mieć dostęp do Microsoft Update. Aby uzyskać informacje na temat sposobu instalowania agenta Log Analytics dla systemu Windows, zobacz [łączenie komputerów z systemem Windows w Azure monitor](../log-analytics/log-analytics-windows-agent.md).
+Agenci systemu Windows muszą być skonfigurowani do komunikowania się z serwerem WSUS lub muszą mieć dostęp do Microsoft Update. Aby uzyskać informacje na temat sposobu instalowania agenta Log Analytics dla systemu Windows, zobacz [łączenie komputerów z systemem Windows w Azure monitor](../azure-monitor/platform/agent-windows.md).
 
 Możesz użyć Update Management z usługą Microsoft Endpoint Configuration Manager. Aby dowiedzieć się więcej na temat scenariuszy integracji, zobacz [integrowanie Update Management z Configuration Manager punktu końcowego systemu Windows](updatemgmt-mecmintegration.md). [Agent log Analytics dla systemu Windows](../azure-monitor/platform/agent-windows.md) jest wymagany dla serwerów z systemem Windows zarządzanych przez lokacje w środowisku Configuration Manager. 
 
 Domyślnie maszyny wirtualne z systemem Windows wdrożone z portalu Azure Marketplace są ustawione tak, aby otrzymywać aktualizacje automatyczne z usługi Windows Update. Takie zachowanie nie zmienia się po dodaniu maszyn wirtualnych z systemem Windows do obszaru roboczego. Jeśli aktualizacje nie są aktywnie zarządzane przy użyciu Update Management, mają zastosowanie domyślne zachowanie (aby automatycznie zastosować aktualizacje).
 
 > [!NOTE]
-> Zasady grupy można modyfikować, aby można było wykonać ponowny rozruch maszyny tylko przez użytkownika, a nie przez system. Maszyny zarządzane mogą zostać zablokowane, jeśli Update Management nie ma uprawnień do ponownego uruchomienia maszyny bez ręcznej interakcji z użytkownikiem. Aby uzyskać więcej informacji, zobacz [Configure zasady grupy Settings for Automatic Updates](https://docs.microsoft.com/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates).
+> Zasady grupy można modyfikować, aby można było wykonać ponowny rozruch maszyny tylko przez użytkownika, a nie przez system. Maszyny zarządzane mogą zostać zablokowane, jeśli Update Management nie ma uprawnień do ponownego uruchomienia maszyny bez ręcznej interakcji z użytkownikiem. Aby uzyskać więcej informacji, zobacz [Configure zasady grupy Settings for Automatic Updates](/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates).
 
 #### <a name="linux"></a>Linux
 
 W przypadku systemu Linux maszyna wymaga dostępu do repozytorium aktualizacji — prywatne lub publiczne. Do współdziałania z Update Managementami wymagany jest protokół TLS 1,1 lub TLS 1,2. Update Management nie obsługuje agenta Log Analytics dla systemu Linux, który został skonfigurowany do raportowania do więcej niż jednego obszaru roboczego Log Analytics. Na komputerze musi być zainstalowany język Python 2. x.
 
 > [!NOTE]
-> Ocena aktualizacji maszyn z systemem Linux jest obsługiwana tylko w określonych regionach. Zobacz [tabelę mapowania](https://docs.microsoft.com/azure/automation/how-to/region-mappings#supported-mappings)obszaru roboczego konta usługi Automation i log Analytics. 
+> Ocena aktualizacji maszyn z systemem Linux jest obsługiwana tylko w określonych regionach. Zobacz [tabelę mapowania](./how-to/region-mappings.md#supported-mappings)obszaru roboczego konta usługi Automation i log Analytics. 
 
 Aby uzyskać informacje na temat sposobu instalowania agenta Log Analytics dla systemu Linux i pobierania najnowszej wersji, zobacz [log Analytics Agent dla systemu Linux](../azure-monitor/platform/agent-linux.md). 
 
@@ -158,7 +158,7 @@ Jeśli grupa zarządzania Operations Manager jest [połączona z obszarem robocz
 Aby uzyskać więcej informacji o aktualizacjach pakietów administracyjnych, zobacz [Connect Operations Manager to Azure monitor Logs](../azure-monitor/platform/om-agents.md).
 
 > [!NOTE]
-> Aby uzyskać Update Management w pełni zarządzać maszynami przy użyciu agenta Log Analytics, należy zaktualizować agenta Log Analytics dla systemu Windows lub agenta Log Analytics w systemie Linux. Aby dowiedzieć się, jak zaktualizować agenta, zobacz [jak uaktualnić agenta Operations Manager](https://docs.microsoft.com/system-center/scom/deploy-upgrade-agents). W środowiskach, w których jest używana Operations Manager, musi być uruchomiony program System Center Operations Manager 2012 R2 UR 14 lub nowszy.
+> Aby uzyskać Update Management w pełni zarządzać maszynami przy użyciu agenta Log Analytics, należy zaktualizować agenta Log Analytics dla systemu Windows lub agenta Log Analytics w systemie Linux. Aby dowiedzieć się, jak zaktualizować agenta, zobacz [jak uaktualnić agenta Operations Manager](/system-center/scom/deploy-upgrade-agents). W środowiskach, w których jest używana Operations Manager, musi być uruchomiony program System Center Operations Manager 2012 R2 UR 14 lub nowszy.
 
 ## <a name="data-collection"></a>Zbieranie danych
 
@@ -248,7 +248,7 @@ Klienci, którzy zainwestowali w program Microsoft Endpoint Configuration Manage
 
 ## <a name="third-party-updates-on-windows"></a>Aktualizacje innych firm w systemie Windows
 
-Update Management opiera się na lokalnie skonfigurowanym repozytorium aktualizacji, aby zaktualizować obsługiwane systemy Windows, WSUS lub Windows Update. Narzędzia, takie jak [System Center Updates Publisher](https://docs.microsoft.com/configmgr/sum/tools/updates-publisher) , umożliwiają importowanie i publikowanie aktualizacji niestandardowych za pomocą programu WSUS. Ten scenariusz umożliwia Update Management aktualizowania maszyn, które używają Configuration Manager jako repozytorium aktualizacji z oprogramowaniem innych firm. Aby dowiedzieć się, jak skonfigurować program Updates Publisher, zobacz [Install Updates Publisher](https://docs.microsoft.com/configmgr/sum/tools/install-updates-publisher).
+Update Management opiera się na lokalnie skonfigurowanym repozytorium aktualizacji, aby zaktualizować obsługiwane systemy Windows, WSUS lub Windows Update. Narzędzia, takie jak [System Center Updates Publisher](/configmgr/sum/tools/updates-publisher) , umożliwiają importowanie i publikowanie aktualizacji niestandardowych za pomocą programu WSUS. Ten scenariusz umożliwia Update Management aktualizowania maszyn, które używają Configuration Manager jako repozytorium aktualizacji z oprogramowaniem innych firm. Aby dowiedzieć się, jak skonfigurować program Updates Publisher, zobacz [Install Updates Publisher](/configmgr/sum/tools/install-updates-publisher).
 
 ## <a name="enable-update-management"></a>Włączanie rozwiązania Update Management
 

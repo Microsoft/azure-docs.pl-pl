@@ -5,12 +5,12 @@ ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 7155a3fa9481ef5f2da62d85d4a932ad5e8e8ab1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b73b8418b202563ca7c4a73181b1b1b404db6ee2
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81382521"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170398"
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Automatyzowanie wdrażania zasobów dla aplikacji funkcji w Azure Functions
 
@@ -26,12 +26,12 @@ Aby zapoznać się z przykładowymi szablonami, zobacz:
 
 Wdrożenie Azure Functions zwykle składa się z następujących zasobów:
 
-| Zasób                                                                           | Wymaganie | Informacje o składni i właściwościach                                                         |   |
-|------------------------------------------------------------------------------------|-------------|-----------------------------------------------------------------------------------------|---|
-| Aplikacja funkcji                                                                     | Wymagane    | [Microsoft. Web/witryny](/azure/templates/microsoft.web/sites)                             |   |
-| Konto [usługi Azure Storage](../storage/index.yml)                                   | Wymagane    | [Microsoft. Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |   |
-| Składnik [Application Insights](../azure-monitor/app/app-insights-overview.md) | Opcjonalne    | [Microsoft. Insights/składniki](/azure/templates/microsoft.insights/components)         |   |
-| [Plan hostingu](./functions-scale.md)                                             | Opcjonalne<sup>1</sup>    | [Microsoft. Web/dopuszczalna](/azure/templates/microsoft.web/serverfarms)                 |   |
+| Zasób                                                                           | Wymaganie | Informacje o składni i właściwościach                                                         |
+|------------------------------------------------------------------------------------|-------------|-----------------------------------------------------------------------------------------|
+| Aplikacja funkcji                                                                     | Wymagane    | [Microsoft. Web/witryny](/azure/templates/microsoft.web/sites)                             |
+| Konto [usługi Azure Storage](../storage/index.yml)                                   | Wymagane    | [Microsoft. Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |
+| Składnik [Application Insights](../azure-monitor/app/app-insights-overview.md) | Opcjonalne    | [Microsoft. Insights/składniki](/azure/templates/microsoft.insights/components)         |
+| [Plan hostingu](./functions-scale.md)                                             | Opcjonalne<sup>1</sup>    | [Microsoft. Web/dopuszczalna](/azure/templates/microsoft.web/serverfarms)                 |
 
 <sup>1</sup> Plan hostingu jest wymagany tylko wtedy, gdy użytkownik zdecyduje się na uruchomienie aplikacji funkcji w [planie Premium](./functions-premium-plan.md) lub w [planie App Service](../app-service/overview-hosting-plans.md).
 
@@ -649,7 +649,7 @@ Aby wdrożyć szablon, można użyć dowolnego z poniższych sposobów:
 
 * [Program PowerShell](../azure-resource-manager/templates/deploy-powershell.md)
 * [Interfejs wiersza polecenia platformy Azure](../azure-resource-manager/templates/deploy-cli.md)
-* [Azure Portal](../azure-resource-manager/templates/deploy-portal.md)
+* [Witryna Azure Portal](../azure-resource-manager/templates/deploy-portal.md)
 * [Interfejs API REST](../azure-resource-manager/templates/deploy-rest.md)
 
 ### <a name="deploy-to-azure-button"></a>Przycisk Wdróż na platformie Azure

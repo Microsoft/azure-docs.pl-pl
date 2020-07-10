@@ -7,12 +7,12 @@ keywords: dsc, konfiguracja, automatyzacja
 ms.date: 11/06/2018
 ms.topic: quickstart
 ms.custom: mvc
-ms.openlocfilehash: 28e8f921fa7620d1fec7dec1788ed769026624d7
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: e7fec2bee61844ac294e5463bd5bc88ec3fb5e98
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83836723"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186082"
 ---
 # <a name="configure-a-vm-with-desired-state-configuration"></a>Konfigurowanie maszyny wirtualnej z konfiguracją żądanego stanu
 
@@ -23,7 +23,7 @@ Włączając konfigurację stanu Azure Automation, można zarządzać konfigurac
 Aby ukończyć ten przewodnik Szybki Start, musisz spełnić następujące warunki:
 
 * Subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, [Utwórz bezpłatne konto](https://azure.microsoft.com/free/).
-* Konto usługi Azure Automation. Aby uzyskać instrukcje dotyczące tworzenia konta Uruchom jako usługi Azure Automation, zobacz [Konto Uruchom jako platformy Azure](automation-sec-configure-azure-runas-account.md).
+* Konto usługi Azure Automation. Aby uzyskać instrukcje dotyczące tworzenia konta Uruchom jako usługi Azure Automation, zobacz [Konto Uruchom jako platformy Azure](./manage-runas-account.md).
 * Azure Resource Manager maszyny wirtualnej (nie klasycznej) z systemem Red Hat Enterprise Linux, CentOS lub Oracle Linux. Aby uzyskać instrukcje dotyczące tworzenia maszyny wirtualnej, zobacz [Create your first Linux virtual machine in the Azure portal](../virtual-machines/linux/quick-create-portal.md) (Tworzenie pierwszej maszyny wirtualnej systemu Linux w witrynie Azure Portal)
 
 ## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
@@ -31,7 +31,7 @@ Zaloguj się do platformy Azure pod adresem https://portal.azure.com .
 
 ## <a name="enable-a-virtual-machine"></a>Włącz maszynę wirtualną
 
-Istnieje wiele różnych metod włączania funkcji konfiguracji stanu komputera. Ten przewodnik Szybki Start zawiera informacje na temat włączania funkcji dla maszyny wirtualnej przy użyciu konta usługi Automation. Aby dowiedzieć się więcej na temat różnych metod umożliwiających konfigurację stanu maszyn, należy przeczytać temat [Włączanie maszyn do zarządzania przez Azure Automation konfigurację stanu](https://docs.microsoft.com/azure/automation/automation-dsc-onboarding).
+Istnieje wiele różnych metod włączania funkcji konfiguracji stanu komputera. Ten przewodnik Szybki Start zawiera informacje na temat włączania funkcji dla maszyny wirtualnej przy użyciu konta usługi Automation. Aby dowiedzieć się więcej na temat różnych metod umożliwiających konfigurację stanu maszyn, należy przeczytać temat [Włączanie maszyn do zarządzania przez Azure Automation konfigurację stanu](./automation-dsc-onboarding.md).
 
 1. W okienku po lewej stronie witryny Azure Portal wybierz pozycję **Konta automatyzacji**. Jeśli nie jest widoczny w okienku po lewej stronie, kliknij pozycję **wszystkie usługi** i Wyszukaj w wyświetlonym widoku.
 1. Na liście wybierz konto automatyzacji.
@@ -39,7 +39,7 @@ Istnieje wiele różnych metod włączania funkcji konfiguracji stanu komputera.
 2. Kliknij pozycję **Dodaj**, aby otworzyć stronę wybierania maszyny wirtualnej.
 3. Znajdź maszynę wirtualną, dla której ma zostać włączona Konfiguracja DSC. Aby znaleźć określoną maszynę wirtualną, możesz użyć opcji pola wyszukiwania i filtra.
 4. Kliknij maszynę wirtualną, a następnie kliknij pozycję **Połącz** .
-5. Wybierz ustawienia DSC odpowiednie dla maszyny wirtualnej. Jeśli konfiguracja została już przygotowana, możesz ją określić jako `Node Configuration Name` . Możesz ustawić [tryb konfiguracji](https://docs.microsoft.com/powershell/scripting/dsc/managing-nodes/metaConfig), aby sterować zachowaniem konfiguracji maszyny.
+5. Wybierz ustawienia DSC odpowiednie dla maszyny wirtualnej. Jeśli konfiguracja została już przygotowana, możesz ją określić jako `Node Configuration Name` . Możesz ustawić [tryb konfiguracji](/powershell/scripting/dsc/managing-nodes/metaConfig), aby sterować zachowaniem konfiguracji maszyny.
 6. Kliknij przycisk **OK**. Gdy rozszerzenie DSC jest wdrożone na maszynie wirtualnej, stan jest wyświetlany jako `Connecting` .
 
 ![Włączanie maszyny wirtualnej platformy Azure dla DSC](./media/automation-quickstart-dsc-configuration/dsc-onboard-azure-vm.png)
@@ -57,9 +57,9 @@ Moduły zawierają zasoby DSC i wiele z nich można znaleźć w [Galeria program
 
 ## <a name="import-the-configuration"></a>Importowanie konfiguracji
 
-Ta opcja szybkiego startu używa konfiguracji DSC, która konfiguruje programy Apache HTTP Server, MySQL i PHP na maszynie. Zobacz [konfiguracje DSC](https://docs.microsoft.com/powershell/scripting/dsc/configurations/configurations).
+Ta opcja szybkiego startu używa konfiguracji DSC, która konfiguruje programy Apache HTTP Server, MySQL i PHP na maszynie. Zobacz [konfiguracje DSC](/powershell/scripting/dsc/configurations/configurations).
 
-W edytorze tekstów wpisz następujące polecenie i Zapisz je lokalnie jako **AMPServer. ps1**.
+W edytorze tekstów wpisz następujące polecenie i Zapisz je lokalnie jako **AMPServer.ps1**.
 
 ```powershell-interactive
 configuration LAMPServer {
@@ -126,7 +126,7 @@ Stan wszystkich węzłów zarządzanych przez konfigurację stanu można wyświe
 
 ![Stan węzła DSC](./media/automation-quickstart-dsc-configuration/dsc-node-status.png)
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 W tym przewodniku szybki start włączono maszynę wirtualną z systemem Linux na potrzeby konfiguracji stanu, utworzono konfigurację dla stosu LAMP i wdrożono konfigurację na maszynie wirtualnej. Aby dowiedzieć się, jak można użyć konfiguracji stanu Azure Automation do włączenia ciągłego wdrażania, przejdź do artykułu:
 

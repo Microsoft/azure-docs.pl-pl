@@ -9,11 +9,12 @@ ms.author: magoedte
 ms.date: 08/01/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d388162738930030ba311a04a0dce1db15590c79
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c51ef23e27cd63d3706c104d1e39a14bf61c258e
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83836842"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186354"
 ---
 # <a name="edit-textual-runbooks-in-azure-automation"></a>Edytowanie tekstowych elementów Runbook w Azure Automation
 
@@ -56,7 +57,7 @@ Ten artykuł zawiera szczegółowe instrukcje dotyczące wykonywania różnych f
 1. W kontrolce kanwy edytora tekstu Umieść kursor w miejscu, w którym chcesz umieścić kod dla podrzędnego elementu Runbook.
 2. Rozwiń węzeł **zasobów** w kontrolce Biblioteka.
 3. Rozwiń węzeł żądanego typu elementu zawartości.
-4. Kliknij prawym przyciskiem myszy nazwę zasobu, aby wstawić, a następnie wybierz pozycję **Dodaj do kanwy**. W przypadku [zasobów zmiennych](automation-variables.md), wybierz opcję **"Pobierz zmienną" do kanwy** lub **Dodaj "Ustaw zmienną" do kanwy**, w zależności od tego, czy chcesz uzyskać lub ustawić zmienną.
+4. Kliknij prawym przyciskiem myszy nazwę zasobu, aby wstawić, a następnie wybierz pozycję **Dodaj do kanwy**. W przypadku [zasobów zmiennych](./shared-resources/variables.md), wybierz opcję **"Pobierz zmienną" do kanwy** lub **Dodaj "Ustaw zmienną" do kanwy**, w zależności od tego, czy chcesz uzyskać lub ustawić zmienną.
 5. Należy zauważyć, że kod dla elementu zawartości jest wstawiany do elementu Runbook.
 
 ## <a name="edit-an-azure-automation-runbook-using-windows-powershell"></a>Edytowanie elementu Runbook Azure Automation przy użyciu programu Windows PowerShell
@@ -95,9 +96,9 @@ Publish-AzAutomationRunbook -Name $runbookName -AutomationAccountName $automatio
 * [Zarządzaj elementami Runbook w Azure Automation](manage-runbooks.md).
 * [Uczenie przepływu pracy programu PowerShell](automation-powershell-workflow.md).
 * [Tworzenie graficzne w Azure Automation](automation-graphical-authoring-intro.md).
-* [Certyfikaty](automation-certificates.md).
+* [Certyfikaty](./shared-resources/certificates.md).
 * [Połączenia](automation-connections.md).
-* [Poświadczenia](automation-credentials.md).
-* [Harmonogramy](automation-schedules.md).
-* [Zmienne](automation-variables.md).
-* [Dokumentacja poleceń cmdlet programu PowerShell](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation).
+* [Poświadczenia](./shared-resources/credentials.md).
+* [Harmonogramy](./shared-resources/schedules.md).
+* [Zmienne](./shared-resources/variables.md).
+* [Dokumentacja poleceń cmdlet programu PowerShell](/powershell/module/az.automation/?view=azps-3.7.0#automation).

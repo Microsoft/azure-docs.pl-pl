@@ -4,11 +4,12 @@ description: Informacje na temat tworzenia funkcji w języku Python
 ms.topic: article
 ms.date: 12/13/2019
 ms.custom: tracking-python
-ms.openlocfilehash: 26da89628360783e4507c83c3aeaddfc2b0510b7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3d3e313d464a8da8b62d5c22b5983c6458f42b5d
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84730751"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170381"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Przewodnik dewelopera w języku Python Azure Functions
 
@@ -427,17 +428,15 @@ Gdy wszystko będzie gotowe do opublikowania, upewnij się, że wszystkie dostę
 
 Pliki projektu i foldery, które są wykluczone z publikowania, łącznie z folderem środowiska wirtualnego, są wymienione w pliku. funcignore.
 
-Istnieją trzy akcje kompilacji, które są obsługiwane w przypadku publikowania projektu w języku Python na platformie Azure:
+Istnieją trzy akcje kompilacji, które są obsługiwane w przypadku publikowania projektu w języku Python na platformie Azure: kompilacja zdalna, lokalna kompilacja i kompilacje korzystające z zależności niestandardowych.
 
-+ Kompilacja zdalna: zależności są uzyskiwane zdalnie na podstawie zawartości pliku requirements.txt. [Zdalna kompilacja](functions-deployment-technologies.md#remote-build) jest zalecaną metodą kompilacji. Opcja zdalna jest również opcją domyślna kompilacja narzędzi platformy Azure.
-+ Lokalna kompilacja: zależności są uzyskiwane lokalnie na podstawie zawartości pliku requirements.txt.
-+ Zależności niestandardowe: projekt używa pakietów, które nie są publicznie dostępne dla naszych narzędzi. (Wymaga platformy Docker).
-
-Aby skompilować zależności i publikować przy użyciu systemu ciągłego dostarczania, [użyj Azure Pipelines](functions-how-to-azure-devops.md).
+Możesz również użyć Azure Pipelines do kompilowania zależności i publikowania przy użyciu ciągłego dostarczania (CD). Aby dowiedzieć się więcej, zobacz [dostarczanie ciągłe przy użyciu usługi Azure DevOps](functions-how-to-azure-devops.md).
 
 ### <a name="remote-build"></a>Kompilacja zdalna
 
-Domyślnie Azure Functions Core Tools żąda kompilacji zdalnej, gdy do publikowania projektu języka Python na platformie Azure jest używane następujące polecenie [Func Azure functionapp Publish](functions-run-local.md#publish) .
+W przypadku korzystania z kompilacji zdalnej zależności przywrócone na serwerze i natywnych zależnościach są zgodne ze środowiskiem produkcyjnym. Powoduje to przekazanie mniejszego pakietu wdrożeniowego. Użyj kompilacji zdalnej podczas tworzenia aplikacji w języku Python w systemie Windows. Jeśli projekt ma zależności niestandardowe, można [użyć zdalnej kompilacji z dodatkowym adresem URL indeksu](#remote-build-with-extra-index-url). 
+ 
+Zależności są uzyskiwane zdalnie na podstawie zawartości pliku requirements.txt. [Zdalna kompilacja](functions-deployment-technologies.md#remote-build) jest zalecaną metodą kompilacji. Domyślnie Azure Functions Core Tools żąda kompilacji zdalnej, gdy do publikowania projektu języka Python na platformie Azure jest używane następujące polecenie [Func Azure functionapp Publish](functions-run-local.md#publish) .
 
 ```bash
 func azure functionapp publish <APP_NAME>
@@ -449,7 +448,7 @@ Pamiętaj, aby zamienić na `<APP_NAME>` nazwę aplikacji funkcji na platformie 
 
 ### <a name="local-build"></a>Lokalna kompilacja
 
-Można zapobiec wykonywaniu zdalnej kompilacji przy użyciu następującego polecenia [Func usługi Azure functionapp Publish](functions-run-local.md#publish) do publikowania z lokalną kompilacją.
+Zależności są uzyskiwane lokalnie na podstawie zawartości pliku requirements.txt. Można zapobiec wykonywaniu zdalnej kompilacji przy użyciu następującego polecenia [Func usługi Azure functionapp Publish](functions-run-local.md#publish) do publikowania z lokalną kompilacją.
 
 ```command
 func azure functionapp publish <APP_NAME> --build local
@@ -457,9 +456,21 @@ func azure functionapp publish <APP_NAME> --build local
 
 Pamiętaj, aby zamienić na `<APP_NAME>` nazwę aplikacji funkcji na platformie Azure.
 
-Przy użyciu `--build local` opcji zależności projektu są odczytywane z pliku requirements.txt, a pakiety zależne są pobierane i instalowane lokalnie. Pliki i zależności projektu są wdrażane z komputera lokalnego na platformie Azure. Powoduje to przekazanie większego pakietu wdrożeniowego do platformy Azure. Jeśli z jakiegoś powodu nie można uzyskać zależności w pliku requirements.txt za pomocą podstawowych narzędzi, należy użyć opcji zależności niestandardowe do opublikowania.
+Przy użyciu `--build local` opcji zależności projektu są odczytywane z pliku requirements.txt, a pakiety zależne są pobierane i instalowane lokalnie. Pliki i zależności projektu są wdrażane z komputera lokalnego na platformie Azure. Powoduje to przekazanie większego pakietu wdrożeniowego do platformy Azure. Jeśli z jakiegoś powodu nie można uzyskać zależności w pliku requirements.txt za pomocą podstawowych narzędzi, należy użyć opcji zależności niestandardowe do opublikowania. 
+
+Nie zalecamy używania kompilacji lokalnych podczas tworzenia lokalnie w systemie Windows.
 
 ### <a name="custom-dependencies"></a>Zależności niestandardowe
+
+Jeśli projekt nie został znaleziony w [indeksie pakietu języka Python](https://pypi.org/), istnieją dwa sposoby kompilowania projektu. Metoda kompilacji zależy od sposobu kompilowania projektu.
+
+#### <a name="remote-build-with-extra-index-url"></a>Zdalna kompilacja z dodatkowym adresem URL indeksu
+
+Jeśli pakiety są dostępne z dostępnego niestandardowego indeksu pakietu, użyj kompilacji zdalnej. Przed opublikowaniem upewnij się, że [utworzono ustawienie aplikacji](functions-how-to-use-azure-function-app-settings.md#settings) o nazwie `PIP_EXTRA_INDEX_URL` . Wartość tego ustawienia jest adresem URL niestandardowego indeksu pakietu. Użycie tego ustawienia instruuje zdalną kompilację do uruchomienia `pip install` przy użyciu `--extra-index-url` opcji. Aby dowiedzieć się więcej, zobacz [dokumentację dotyczącą instalacji narzędzia Python PIP](https://pip.pypa.io/en/stable/reference/pip_install/#requirements-file-format). 
+
+Możesz również użyć poświadczeń uwierzytelniania podstawowego z dodatkowymi adresami URL indeksu pakietu. Aby dowiedzieć się więcej, zobacz [podstawowe poświadczenia uwierzytelniania](https://pip.pypa.io/en/stable/user_guide/#basic-authentication-credentials) w dokumentacji języka Python.
+
+#### <a name="install-local-packages"></a>Instalowanie pakietów lokalnych
 
 Jeśli projekt używa pakietów, które nie są publicznie dostępne dla naszych narzędzi, możesz udostępnić je aplikacji, umieszczając je w \_ \_ \_ \_ katalogu App/. python_packages. Przed opublikowaniem Uruchom następujące polecenie, aby zainstalować zależności lokalnie:
 
@@ -467,7 +478,7 @@ Jeśli projekt używa pakietów, które nie są publicznie dostępne dla naszych
 pip install  --target="<PROJECT_DIR>/.python_packages/lib/site-packages"  -r requirements.txt
 ```
 
-W przypadku korzystania z zależności niestandardowych należy użyć `--no-build` opcji publikowania, ponieważ zostały już zainstalowane zależności.
+W przypadku korzystania z zależności niestandardowych należy użyć `--no-build` opcji publikowania, ponieważ zostały już zainstalowane zależności w folderze projektu.
 
 ```command
 func azure functionapp publish <APP_NAME> --no-build
@@ -665,8 +676,8 @@ Aby zapoznać się z listą wstępnie zainstalowanych bibliotek systemowych w ob
 
 |  Środowisko uruchomieniowe funkcji  | Wersja Debian | Wersje języka Python |
 |------------|------------|------------|
-| Wersja 2. x | Stretch  | [Python 3,6](https://github.com/Azure/azure-functions-docker/blob/master/host/2.0/stretch/amd64/python/python36/python36.Dockerfile)<br/>[Środowisko Python w wersji 3.7](https://github.com/Azure/azure-functions-docker/blob/master/host/2.0/stretch/amd64/python/python37/python37.Dockerfile) |
-| Wersja 3. x | Buster | [Python 3,6](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python36/python36.Dockerfile)<br/>[Środowisko Python w wersji 3.7](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python37/python37.Dockerfile)<br />[Python 3,8](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python38/python38.Dockerfile) |
+| Wersja 2. x | Stretch  | [Python 3,6](https://github.com/Azure/azure-functions-docker/blob/master/host/2.0/stretch/amd64/python/python36/python36.Dockerfile)<br/>[Python 3.7](https://github.com/Azure/azure-functions-docker/blob/master/host/2.0/stretch/amd64/python/python37/python37.Dockerfile) |
+| Wersja 3. x | Buster | [Python 3,6](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python36/python36.Dockerfile)<br/>[Python 3.7](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python37/python37.Dockerfile)<br />[Python 3,8](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python38/python38.Dockerfile) |
 
 ## <a name="cross-origin-resource-sharing"></a>Współużytkowanie zasobów między źródłami
 
@@ -684,7 +695,7 @@ Wszystkie znane problemy i żądania funkcji są śledzone za pomocą listy [pro
 
 ## <a name="next-steps"></a>Następne kroki
 
-Więcej informacji zawierają następujące zasoby:
+Więcej informacji można znaleźć w następujących zasobach:
 
 * [Dokumentacja interfejsu API pakietu Azure Functions](/python/api/azure-functions/azure.functions?view=azure-python)
 * [Najlepsze rozwiązania dotyczące usługi Azure Functions](functions-best-practices.md)

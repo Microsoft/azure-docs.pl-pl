@@ -3,12 +3,12 @@ title: Zasoby platformy Azure — QnA Maker
 description: QnA Maker używa kilku źródeł platformy Azure, z których każdy ma inny cel. Zrozumienie, w jaki sposób są one używane pojedynczo, umożliwia zaplanowanie i wybranie odpowiedniej warstwy cenowej lub Dowiedz się, kiedy zmienić warstwę cenową. Zrozumienie, jak są używane w połączeniu, umożliwia znajdowanie i rozwiązywanie problemów, gdy wystąpią.
 ms.topic: conceptual
 ms.date: 03/25/2020
-ms.openlocfilehash: 916f5b9b012d233c6a28d5cbb75ea0b4e073d064
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 7d6598510ae75a76e0a4fcaff59297b4c724ba78
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84236091"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171078"
 ---
 # <a name="azure-resources-for-qna-maker"></a>Zasoby platformy Azure dla QnA Maker
 
@@ -44,11 +44,11 @@ Zwykle istnieją trzy parametry, które należy wziąć pod uwagę:
 
 W poniższej tabeli przedstawiono ogólne wytyczne.
 
-|                        | Zarządzanie QnA Maker | App Service | Azure Cognitive Search | Ograniczenia                      |
-| ---------------------- | -------------------- | ----------- | ------------ | -------------------------------- |
-| Eksperymentowanie        | Bezpłatna jednostka SKU             | Warstwa Bezpłatna   | Warstwa Bezpłatna    | Publikowanie do 2 artykułów bazy wiedzy, rozmiar 50 MB  |
-| Środowisko deweloperskie/testowe   | Standardowy SKU         | Shared      | Podstawowy        | Publikowanie do 14 artykułów bazy wiedzy, rozmiar 2 GB    |
-| Środowisko produkcyjne | Standardowy SKU         | Podstawowy       | Standardowa (Standard)     | Publikowanie do 49 artykułów bazy wiedzy, rozmiar 25 GB |
+|                            | Zarządzanie QnA Maker | App Service | Azure Cognitive Search | Ograniczenia                      |
+| -------------------------- | -------------------- | ----------- | ------------ | -------------------------------- |
+| **Eksperymentowanie**        | Bezpłatna jednostka SKU             | Warstwa Bezpłatna   | Warstwa Bezpłatna    | Publikowanie do 2 artykułów bazy wiedzy, rozmiar 50 MB  |
+| **Środowisko deweloperskie/testowe**   | Standardowy SKU         | Udostępniona      | Podstawowa        | Publikowanie do 14 artykułów bazy wiedzy, rozmiar 2 GB    |
+| **Środowisko produkcyjne** | Standardowy SKU         | Podstawowa       | Standardowa (Standard)     | Publikowanie do 49 artykułów bazy wiedzy, rozmiar 25 GB |
 
 ## <a name="recommended-settings"></a>Zalecane ustawienia
 
@@ -174,7 +174,7 @@ Te klucze są używane podczas wykonywania żądań do usługi za pomocą interf
 
 |Nazwa|Lokalizacja|Przeznaczenie|
 |--|--|--|
-|Klucz tworzenia|[Azure Portal](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)|Te klucze są używane w celu uzyskania dostępu do [interfejsów API usługi zarządzania QNA Maker](https://go.microsoft.com/fwlink/?linkid=2092179). Te interfejsy API umożliwiają edytowanie pytań i odpowiedzi w bazie wiedzy oraz publikowanie bazy wiedzy. Te klucze są tworzone podczas tworzenia nowej usługi QnA Maker.<br><br>Znajdź te klucze w zasobie **Cognitive Services** na stronie **klucze** .|
+|Klucz tworzenia|[Witryna Azure Portal](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)|Te klucze są używane w celu uzyskania dostępu do [interfejsów API usługi zarządzania QNA Maker](https://go.microsoft.com/fwlink/?linkid=2092179). Te interfejsy API umożliwiają edytowanie pytań i odpowiedzi w bazie wiedzy oraz publikowanie bazy wiedzy. Te klucze są tworzone podczas tworzenia nowej usługi QnA Maker.<br><br>Znajdź te klucze w zasobie **Cognitive Services** na stronie **klucze** .|
 |Klucz punktu końcowego zapytania|[Portal usługi QnA Maker](https://www.qnamaker.ai)|Te klucze służą do wysyłania zapytań do opublikowanego punktu końcowego bazy wiedzy w celu uzyskania odpowiedzi na pytanie użytkownika. Ten punkt końcowy zapytania jest zazwyczaj używany w bot rozmowy lub w kodzie aplikacji klienta, który nawiązuje połączenie z usługą QnA Maker. Te klucze są tworzone podczas publikowania bazy wiedzy QnA Maker.<br><br>Te klucze znajdują się na stronie **ustawień usługi** . Znajdź Tę stronę w menu użytkownika w prawym górnym rogu strony z menu rozwijanego.|
 
 ### <a name="subscription-keys"></a>Klucze subskrypcji

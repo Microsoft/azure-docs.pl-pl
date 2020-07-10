@@ -5,11 +5,12 @@ services: automation
 ms.subservice: change-inventory-management
 ms.date: 06/15/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0eebd626013614bb6240fc0e6530a358a2b86d1c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: eab509e389c074232526aa93fcebb72f3bc986c0
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84781195"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185606"
 ---
 # <a name="manage-change-tracking-and-inventory"></a>Zarządzanie usługą Change Tracking and Inventory
 
@@ -78,10 +79,10 @@ Wykonaj następujące kroki, aby skonfigurować śledzenie plików na komputerac
 
 ## <a name="track-file-contents"></a>Śledź zawartość pliku
 
-Śledzenie zawartości plików umożliwia wyświetlenie zawartości pliku przed prześledzoną zmianą i po niej. Funkcja zapisuje zawartość pliku na [koncie magazynu](https://docs.microsoft.com/azure/storage/common/storage-account-overview) po każdej zmianie. Oto kilka reguł, które należy wykonać, aby śledzić zawartość pliku:
+Śledzenie zawartości plików umożliwia wyświetlenie zawartości pliku przed prześledzoną zmianą i po niej. Funkcja zapisuje zawartość pliku na [koncie magazynu](../storage/common/storage-account-overview.md) po każdej zmianie. Oto kilka reguł, które należy wykonać, aby śledzić zawartość pliku:
 
 * Konto magazynu w warstwie Standardowa przy użyciu modelu wdrażania Menedżer zasobów jest wymagane do przechowywania zawartości pliku. 
-* Nie używaj kont magazynu modelu wdrażania Premium i klasycznych. Zobacz [Informacje o kontach usługi Azure Storage](../storage/common/storage-create-storage-account.md).
+* Nie używaj kont magazynu modelu wdrażania Premium i klasycznych. Zobacz [Informacje o kontach usługi Azure Storage](../storage/common/storage-account-create.md).
 * Konto magazynu można połączyć tylko z jednym kontem usługi Automation.
 * Na koncie usługi Automation należy włączyć [Change Tracking i spis](change-tracking.md) .
 
@@ -169,7 +170,7 @@ Skorzystajmy z tego przykładu, aby omówić kroki tworzenia alertów dotyczący
 ## <a name="next-steps"></a>Następne kroki
 
 * Aby uzyskać informacje na temat konfiguracji zakresów, zobacz [ograniczanie Change Tracking i zakresu wdrożenia spisu](automation-scope-configurations-change-tracking.md).
-* Jeśli musisz przeszukać dzienniki przechowywane w obszarze roboczym Log Analytics, zobacz [Wyszukiwanie w dzienniku w](../log-analytics/log-analytics-log-searches.md)dziennikach Azure monitor.
+* Jeśli musisz przeszukać dzienniki przechowywane w obszarze roboczym Log Analytics, zobacz [Wyszukiwanie w dzienniku w](../azure-monitor/log-query/log-query-overview.md)dziennikach Azure monitor.
 * Jeśli zakończono wdrożenia, zobacz [Odłącz obszar roboczy z konta usługi Automation dla Change Tracking i spisu](automation-unlink-workspace-change-tracking.md).
 * Aby usunąć maszyny wirtualne ze Change Tracking i spisu, zobacz [usuwanie maszyn wirtualnych z Change Tracking i spisu](automation-remove-vms-from-change-tracking.md).
 * Rozwiązywanie problemów z błędami funkcji można znaleźć w temacie [Rozwiązywanie problemów dotyczących Change Tracking i spisu](troubleshoot/change-tracking.md).

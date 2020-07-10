@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 06/30/2020
 ms.custom: contperfq4, tracking-python
-ms.openlocfilehash: 94a2f77326487aa4bb180dd62ec05f4e23ca6218
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 35938ca3b9d8f3aedd0892740a3dbfa0fb5b036a
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86057810"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186864"
 ---
 # <a name="network-isolation-during-training--inference-with-private-virtual-networks"></a>Izolacja sieci podczas uczenia & wnioskowania z prywatnymi sieciami wirtualnymi
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -42,7 +42,7 @@ Możesz również [włączyć link prywatny platformy Azure](how-to-configure-pr
 > [!TIP]
 > Możesz połączyć sieć wirtualną i połączenie prywatne, aby chronić komunikację między obszarem roboczym i innymi zasobami platformy Azure. Jednak niektóre kombinacje wymagają obszaru roboczego wersja Enterprise. Skorzystaj z poniższej tabeli, aby zrozumieć, jakie scenariusze wymagają wydania Enterprise Edition:
 >
-> | Scenariusz | Enterprise</br>bitowych | Podstawowy</br>bitowych |
+> | Scenariusz | Enterprise</br>bitowych | Podstawowa</br>bitowych |
 > | ----- |:-----:|:-----:| 
 > | Brak sieci wirtualnej lub prywatnego linku | ✔ | ✔ |
 > | Obszar roboczy bez linku prywatnego. Inne zasoby (z wyjątkiem Azure Container Registry) w sieci wirtualnej | ✔ | ✔ |
@@ -67,6 +67,9 @@ Możesz również [włączyć link prywatny platformy Azure](how-to-configure-pr
 
 Jeśli dane są przechowywane w sieci wirtualnej, należy użyć [tożsamości zarządzanej](../active-directory/managed-identities-azure-resources/overview.md) w obszarze roboczym, aby udzielić dostępu do danych w programie Studio.
 
+> [!IMPORTANT]
+> Chociaż większość z programu Studio współpracuje z danymi przechowywanymi w sieci wirtualnej, __nie są to__zintegrowane notesy. Zintegrowane notesy nie obsługują używania magazynu znajdującego się w sieci wirtualnej. Zamiast tego można użyć notesów Jupyter z wystąpienia obliczeniowego. Aby uzyskać więcej informacji, zobacz sekcję [dostęp do danych w notesie wystąpienia obliczeniowego](#access-data-in-a-compute-instance-notebook) .
+
 Jeśli uzyskanie dostępu do programu Studio nie powiedzie się, zostanie wyświetlony `Error: Unable to profile this dataset. This might be because your data is stored behind a virtual network or your data does not support profile.` następujący błąd i wyłączono następujące operacje:
 
 * Podgląd danych w Studio.
@@ -85,7 +88,7 @@ Program Virtual Machines obsługuje odczytywanie danych z następujących typów
 
 Dodaj obszar roboczy i konto magazynu do tej samej sieci wirtualnej, aby umożliwić im dostęp do siebie nawzajem.
 
-1. Aby połączyć obszar roboczy z siecią wirtualną, [Włącz łącze prywatne platformy Azure](how-to-configure-private-link.md).
+1. Aby połączyć obszar roboczy z siecią wirtualną, [Włącz łącze prywatne platformy Azure](how-to-configure-private-link.md). Ta funkcja jest obecnie dostępna w wersji zapoznawczej, a w regionach Południowo-środkowe stany USA 2, Stany USA — Europa Zachodnia.
 
 1. Aby połączyć konto magazynu z siecią wirtualną, [Skonfiguruj ustawienia zapory i sieci wirtualnych](#use-a-storage-account-for-your-workspace).
 
@@ -635,7 +638,7 @@ Aby uzyskać informacje na temat używania Azure Machine Learning z zaporą plat
 
 1. Aby znaleźć nazwę Azure Container Registry obszaru roboczego, użyj jednej z następujących metod:
 
-    __Azure Portal__
+    __Witryna Azure Portal__
 
     W sekcji przegląd obszaru roboczego wartość __rejestru__ łączy się z Azure Container Registry.
 

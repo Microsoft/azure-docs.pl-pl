@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 06/08/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 78de242cb6fd1d670dc9564a2725070b7424b5b5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bc0bcd4a978912dccc9f08802acbf2ec1151b3a1
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85385556"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170109"
 ---
 # <a name="integrating-trusona-with-azure-active-directory-b2c"></a>Integrowanie Trusona z Azure Active Directory B2C
 
@@ -40,8 +40,7 @@ W tym scenariuszu Trusona działa jako dostawca tożsamości dla Azure AD B2C w 
 
 ![Diagram architektury Trusona](media/partner-trusona/trusona-architecture-diagram.png)
 
-
-|  |  |
+| Krok | Opis |
 |------|------|
 |1     | Użytkownik próbuje zalogować się do aplikacji lub zarejestrować się w niej. Użytkownik jest uwierzytelniany za pośrednictwem Azure AD B2C zasad rejestracji i logowania. Podczas rejestracji zostanie użyty wcześniej zweryfikowany adres e-mail użytkownika z aplikacji Trusona.     |
 |2     | Usługa Azure B2C przekierowuje użytkownika do dostawcy tożsamości usługi Trusona OpenID Connect Connect (OIDC) przy użyciu niejawnego przepływu.     |

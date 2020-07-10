@@ -3,11 +3,12 @@ title: Indeks przykładów strategii
 description: Indeks przykładów dotyczących zgodności i przykładów standardowych dotyczących wdrażania środowisk, zasad i podstaw struktury Cloud Adoptions Framework za pomocą usługi Azure Blueprints.
 ms.date: 07/01/2020
 ms.topic: sample
-ms.openlocfilehash: 7e45cbbbf7cf6c2e267156dbb0087a19d8288aa2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ef85ef0615fa0817a574240e65b7670daeaff33b
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85832325"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86181560"
 ---
 # <a name="azure-blueprints-samples"></a>Przykłady usługi Azure Blueprints
 
@@ -15,7 +16,7 @@ Poniższa tabela zawiera linki do przykładów dla usługi Azure Blueprints. Ka�
 
 ## <a name="standards-based-blueprint-samples"></a>Przykłady strategii oparte na standardach
 
-|  |  |
+| Sample | Opis |
 |---------|---------|
 | [Australian Government ISM PROTECTED](./ism-protected/control-mapping.md) | Zapewnia zabezpieczenia zgodności z wytycznymi Australian Government ISM PROTECTED. |
 | [Test porównawczy zabezpieczeń platformy Azure](./azure-security-benchmark.md) | Zapewnia zabezpieczenia zgodności z wytycznymi [testu porównawczego zabezpieczeń platformy Azure](../../../security/benchmarks/overview.md). |

@@ -3,11 +3,12 @@ title: Tabela obsługi kopii zapasowych platformy SAP HANA
 description: W tym artykule omówiono obsługiwane scenariusze i ograniczenia dotyczące tworzenia kopii zapasowych SAP HANA baz danych na maszynach wirtualnych platformy Azure przy użyciu usługi Azure Backup.
 ms.topic: conceptual
 ms.date: 11/7/2019
-ms.openlocfilehash: 472bbfa09bff135fa9642c097974436241c433c6
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 19d62fac6a7072018508808b1c9695eb8b260b15
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85959725"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170619"
 ---
 # <a name="support-matrix-for-backup-of-sap-hana-databases-on-azure-vms"></a>Macierz obsługi dla kopii zapasowych baz danych platformy SAP HANA na maszynach wirtualnych platformy Azure
 
@@ -23,7 +24,7 @@ Azure Backup obsługuje tworzenie kopii zapasowych baz danych SAP HANA na platfo
 | **Topologia**               | SAP HANA działa tylko na maszynach wirtualnych z systemem Linux Azure                    | Duże wystąpienia HANA (HLI)                                   |
 | **Regiony**                   | **POWSZECHNE**<br> **Ameryki** — środkowe stany USA, Wschodnie stany USA 2, Wschodnie stany USA, Północno-środkowe stany USA, Południowo-środkowe stany USA, zachodnie stany USA 2, zachodnie stany USA, Europa Zachodnia, Kanada środkowa, Kanada Wschodnia, Brazylia Południowa <br> **Azja i Pacyfik** — Australia Środkowa, Australia Środkowa 2, Australia Wschodnia, Australia Południowo-Wschodnia, Japonia Zachodnia, Japonia zachodni, Korea środkowa, Korea Południowa, Republika Azja Wschodnia Południowej południowo-wschodnia, Chiny Północne Chiny Północne Chiny Wschodnie Indie Południowe <br> **Europa** — Europa Zachodnia, Europa Północna, Francja środkowa, Południowe Zjednoczone Królestwo, Zachodnie Zjednoczone Królestwo, Niemcy Północne, Niemcy Środkowo-Zachodnie, Szwajcaria Północna, Szwajcaria Zachodnia, środkowe Szwajcaria Północna, Norwegia Wschodnia, Norwegia Zachodnia <br> **Afryka/Me** -Północna Republika Południowej Afryki, Zachodnia Republika Południowej Afryki, Zjednoczone Emiraty Arabskie, środkowe Zjednoczone Emiraty Arabskie  <BR>  **Regiony Azure Government** | Francja Południowa, Niemcy środkowe, Niemcy północny, US Gov IOWA |
 | **Wersje systemu operacyjnego**            | SLES 12 z dodatkiem SP2, SP3 i SP4; SLES 15 z SP0 i SP1 <br><br>   **Wersja zapoznawcza** — RHEL 7,4, 7,6, 7,7 i 8,1  <br>     [Wprowadzenie](https://docs.microsoft.com/azure/backup/tutorial-backup-sap-hana-db) do usługi SAP HANA Backup Preview for RHEL (7,4, 7,6, 7,7 i 8,1). Aby dalsze zapytania były zapisywane w firmie Microsoft [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com) .                |                                             |
-| **Wersje platformy HANA**          | SDC na platformie HANA 1. x, MDC w systemie HANA 2. x <= SPS04 Rev 48       | -                                                            |
+| **Wersje platformy HANA**          | SDC na platformie HANA 1. x, MDC w systemie HANA 2. x <= SPS04 Rev 48, SPS05 (jeszcze nie można sprawdzić poprawności scenariuszy z włączoną obsługą szyfrowania)      |                                                            |
 | **Wdrożenia HANA**       | SAP HANA pojedynczą maszynę wirtualną platformy Azure — skalowanie w górę. <br><br> W przypadku wdrożeń o wysokiej dostępności oba węzły są traktowane jako pojedyncze węzły z osobnymi łańcuchami danych.               | Skalowanie w poziomie <br><br> W przypadku wdrożeń o wysokiej dostępności kopia zapasowa nie jest automatycznie przełączena w tryb failover do węzła pomocniczego. Konfigurowanie kopii zapasowej należy wykonać oddzielnie dla każdego węzła.                                           |
 | **Wystąpienia HANA**         | Pojedyncze wystąpienie SAP HANA na pojedynczej maszynie wirtualnej platformy Azure — skalowanie w górę | Wiele wystąpień SAP HANA na jednej maszynie wirtualnej                  |
 | **Typy baz danych HANA**    | Kontener pojedyncza baza danych (SDC) na 1. x, kontener wielobaza danych (MDC) w 2. x | MDC w HANA 1. x                                              |

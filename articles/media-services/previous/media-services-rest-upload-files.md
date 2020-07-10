@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: d5b84a9d216457720e9bd4e17b002d6ab9490f9d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fa7dca62ed51c52b704c199ca04eadb6306be4df
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73888596"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170789"
 ---
 # <a name="upload-files-into-a-media-services-account-using-rest"></a>Przekazywanie plików na konto usługi Media Services przy użyciu stylu REST  
 > [!div class="op_single_selector"]
@@ -47,7 +48,7 @@ W tym samouczku dowiesz się, jak przekazać plik i inną skojarzoną z nim oper
 - Aby uzyskać więcej informacji, zobacz artykuł [używanie uwierzytelniania usługi Azure AD w celu uzyskania dostępu do interfejsu API Media Services przy użyciu artykułu REST](https://docs.microsoft.com/azure/media-services/previous/media-services-rest-connect-with-aad) .
 - Skonfiguruj **notkę** zgodnie z opisem w artykule [Konfigurowanie programu poster dla Media Services wywołań interfejsu API REST](media-rest-apis-with-postman.md).
 
-## <a name="considerations"></a>Istotne zagadnienia
+## <a name="considerations"></a>Kwestie do rozważenia
 
 W przypadku korzystania z interfejsu API REST Media Services są stosowane następujące zagadnienia:
  
@@ -149,9 +150,9 @@ Aby otrzymać rzeczywisty adres URL przekazywania, Utwórz lokalizator sygnatury
 
 Adres URL sygnatury dostępu współdzielonego ma następujący format:
 
-    {https://myaccount.blob.core.windows.net}/{asset name}/{video file name}?{SAS signature}
+`{https://myaccount.blob.core.windows.net}/{asset name}/{video file name}?{SAS signature}`
 
-### <a name="considerations"></a>Istotne zagadnienia
+### <a name="considerations"></a>Kwestie do rozważenia
 
 Zagadnienia do rozważenia:
 
@@ -212,15 +213,17 @@ Aby sprawdzić, czy plik został pomyślnie przekazany, można wykonać zapytani
 
 Na przykład następująca operacja **Get** umożliwia przeniesienie danych pliku do pliku zasobów (w przypadku pliku BigBuckBunny.mp4). Zapytanie korzysta ze zdefiniowanych wcześniej [zmiennych środowiskowych](postman-environment.md) .
 
-    {{RESTAPIEndpoint}}/Assets('{{LastAssetId}}')/Files
+`{{RESTAPIEndpoint}}/Assets('{{LastAssetId}}')/Files`
 
 Odpowiedź będzie zawierać rozmiar, nazwę i inne informacje.
 
-    "Id": "nb:cid:UUID:69e72ede-2886-4f2a-8d36-80a59da09913",
-    "Name": "BigBuckBunny.mp4",
-    "ContentFileSize": "3186542",
-    "ParentAssetId": "nb:cid:UUID:0b8f3b04-72fb-4f38-8e7b-d7dd78888938",
-            
+```console
+"Id": "nb:cid:UUID:69e72ede-2886-4f2a-8d36-80a59da09913",
+"Name": "BigBuckBunny.mp4",
+"ContentFileSize": "3186542",
+"ParentAssetId": "nb:cid:UUID:0b8f3b04-72fb-4f38-8e7b-d7dd78888938",
+```
+  
 ## <a name="next-steps"></a>Następne kroki
 
 Teraz możesz zakodować przekazane elementy zawartości. Więcej informacji znajduje się na stronie [Kodowanie elementów zawartości](media-services-portal-encode.md).

@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 03/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 268295ce86a9323a1f7ae16bbfcbd4e78367c3a0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 724178f71befbe4eace0d3d5615871c21253c1f1
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85203626"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170075"
 ---
 # <a name="define-a-saml-identity-provider-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Zdefiniuj profil techniczny dostawcy tożsamości SAML w zasadach niestandardowych Azure Active Directory B2C
 
@@ -70,7 +70,7 @@ Aby zaszyfrować potwierdzenie odpowiedzi SAML:
 3. Ustaw **WantsEncryptedAssertions** metadanych profilu technicznego na `true` .
 4. Zaktualizuj dostawcę tożsamości za pomocą nowych Azure AD B2C metadanych profilu technicznego. Powinien zostać wyświetlony **deskryptor** klucza z właściwością **use** ustawioną na wartość `encryption` zawierającą klucz publiczny certyfikatu.
 
-W poniższym przykładzie przedstawiono sekcję Azure AD B2C szyfrowania profilu technicznego metadanych:
+Poniższy przykład przedstawia sekcję deskryptora klucza metadanych SAML używanych do szyfrowania:
 
 ```xml
 <KeyDescriptor use="encryption">

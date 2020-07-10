@@ -5,11 +5,12 @@ services: automation
 ms.date: 4/11/2019
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: 13f17ed9d165e368d2e9d9cde694408b600006cc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 302e0cc9b77605afd4012e95fc7c0ab8a22fef3e
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84171127"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186320"
 ---
 # <a name="enable-change-tracking-and-inventory-from-an-automation-account"></a>Włączanie śledzenia zmian i spisu na koncie usługi Automation
 
@@ -21,7 +22,7 @@ W tym artykule opisano sposób korzystania z konta usługi Automation w celu wł
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * Subskrypcja platformy Azure. Jeśli nie masz subskrypcji, możesz [aktywować korzyści dla subskrybentów MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) lub utworzyć [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* [Konto usługi Automation](automation-offering-get-started.md) do zarządzania maszynami.
+* [Konto usługi Automation](./index.yml) do zarządzania maszynami.
 * [Maszyna wirtualna](../virtual-machines/windows/quick-create-portal.md).
 
 ## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
@@ -72,7 +73,7 @@ Ręcznie zainstalowane maszyny lub maszyny, które są już raportowane do obsza
 
 6. Aby włączyć tę funkcję dla jednej lub wielu maszyn, wybierz pozycję **Włącz na wybranych maszynach** i kliknij przycisk **Dodaj** obok każdej maszyny, aby włączyć tę funkcję. To zadanie dodaje wybrane nazwy maszyn do grupy komputerów zapisane zapytanie wyszukiwania dla tej funkcji.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * Aby korzystać z tej funkcji, zobacz [zarządzanie Change Tracking i spisem](change-tracking-file-contents.md).
 * Rozwiązywanie ogólnych problemów z funkcją można znaleźć w temacie [Rozwiązywanie problemów dotyczących Change Tracking i spisu](troubleshoot/change-tracking.md).

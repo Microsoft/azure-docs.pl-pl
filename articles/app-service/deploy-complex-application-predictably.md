@@ -5,11 +5,12 @@ ms.assetid: bb51e565-e462-4c60-929a-2ff90121f41d
 ms.topic: article
 ms.date: 01/06/2016
 ms.custom: seodec18
-ms.openlocfilehash: 62d0bf776b2d0c97d95b992ed6a1fd2a356e467a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f5e4c4d89a1119b0f59aa15885406cd7261d2f69
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75967379"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170007"
 ---
 # <a name="provision-and-deploy-microservices-predictably-in-azure"></a>Udostępnianie i wdrażanie mikrousług na platformie Azure
 Ten samouczek pokazuje, jak zainicjować i wdrożyć aplikację składającą się z [mikrousług](https://en.wikipedia.org/wiki/Microservices) w [Azure App Service](https://azure.microsoft.com/services/app-service/) jako pojedynczą jednostkę i w sposób przewidywalny przy użyciu szablonów grup zasobów JSON i skryptów programu PowerShell. 
@@ -53,19 +54,19 @@ Teraz przyjrzyjmy się do niego.
 2. W readme.md kliknij pozycję **Wdróż na platformie Azure**.
 3. Nastąpi przekierowanie do witryny [wdrożenia na platformę Azure](https://deploy.azure.com) i poproszenie o wprowadzenie parametrów wdrożenia. Należy zauważyć, że większość pól jest wypełniana nazwą repozytorium i kilka losowych ciągów. Możesz zmienić wszystkie pola, jeśli chcesz, ale jedyną czynnością, którą trzeba wprowadzić, są SQL Server logowania administracyjnego i hasło, a następnie kliknij przycisk **dalej**.
    
-   ![](./media/app-service-deploy-complex-application-predictably/gettemplate-1-deploybuttonui.png)
+   ![Przedstawia parametry wdrożenia wejściowego w lokacji wdrożenia na platformie Azure.](./media/app-service-deploy-complex-application-predictably/gettemplate-1-deploybuttonui.png)
 4. Następnie kliknij przycisk **Wdróż** , aby rozpocząć proces wdrażania. Po zakończeniu działania procesu, kliknij http://todoapp link *XXXX*. azurewebsites.NET, aby przejrzeć wdrożoną aplikację. 
    
-   ![](./media/app-service-deploy-complex-application-predictably/gettemplate-2-deployprogress.png)
+   ![Pokazuje proces wdrażania aplikacji.](./media/app-service-deploy-complex-application-predictably/gettemplate-2-deployprogress.png)
    
    Interfejs użytkownika może działać nieco wolniej po pierwszym przejściu do niego, ponieważ aplikacje są właśnie uruchamiane, ale przekonasz się, że jest to w pełni funkcjonalna aplikacja.
 5. Na stronie Wdrażanie kliknij link **Zarządzaj** , aby wyświetlić nową aplikację w witrynie Azure Portal.
 6. Na liście rozwijanej **podstawowe** kliknij link grupy zasobów. Należy również pamiętać, że aplikacja jest już połączona z repozytorium GitHub w ramach **projektu zewnętrznego**. 
    
-   ![](./media/app-service-deploy-complex-application-predictably/gettemplate-3-portalresourcegroup.png)
+   ![Pokazuje link grupy zasobów w sekcji listy rozwijanej podstawowe informacje.](./media/app-service-deploy-complex-application-predictably/gettemplate-3-portalresourcegroup.png)
 7. W bloku Grupa zasobów Zwróć uwagę, że w grupie zasobów znajdują się już dwie aplikacje i jeden SQL Database.
    
-   ![](./media/app-service-deploy-complex-application-predictably/gettemplate-4-portalresourcegroupclicked.png)
+   ![Pokazuje zasoby dostępne w grupie zasobów.](./media/app-service-deploy-complex-application-predictably/gettemplate-4-portalresourcegroupclicked.png)
 
 Wszystko, co zostało już przeprowadzone w ciągu kilku krótkich minut, to w pełni wdrożona aplikacja dwuletnia ze wszystkimi składnikami, zależnościami, ustawieniami, bazą danych i publikowaniem ciągłym, skonfigurowanym przez zautomatyzowaną organizację w Azure Resource Manager. Wszystkie te czynności zostały wykonane przez dwie rzeczy:
 
@@ -79,10 +80,10 @@ Teraz przyjrzyjmy się konfigurowaniu repozytorium GitHub. Będziesz używać ed
 
 1. Sklonuj repozytorium [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp) przy użyciu ulubionego narzędzia Git. Na poniższym zrzucie ekranu robię to w Team Explorer w Visual Studio 2013.
    
-   ![](./media/app-service-deploy-complex-application-predictably/examinejson-1-vsclone.png)
+   ![Pokazuje, jak używać narzędzia Git do klonowania repozytorium ToDoApp.](./media/app-service-deploy-complex-application-predictably/examinejson-1-vsclone.png)
 2. W katalogu głównym repozytorium Otwórz azuredeploy.jsw programie Visual Studio. Jeśli nie widzisz okienka konspektu JSON, musisz zainstalować zestaw Azure .NET SDK.
    
-   ![](./media/app-service-deploy-complex-application-predictably/examinejson-2-vsjsoneditor.png)
+   ![Pokazuje okienko konspektu JSON w programie Visual Studio.](./media/app-service-deploy-complex-application-predictably/examinejson-2-vsjsoneditor.png)
 
 Nie mogę opisać wszystkich szczegółów w formacie JSON, ale sekcja [więcej zasobów](#resources) zawiera linki do uczenia się w języku szablonów grupy zasobów. W tym miejscu chcę pokazać interesujące funkcje, które mogą pomóc Ci rozpocząć tworzenie własnego szablonu niestandardowego dla wdrożenia aplikacji.
 
@@ -95,7 +96,7 @@ W węźle zasoby można zobaczyć, że są zdefiniowane 4 zasoby najwyższego po
 #### <a name="app-service-plan"></a>Plan usługi App Service
 Zacznijmy od prostego zasobu poziomu głównego w formacie JSON. W konspekcie JSON kliknij plan App Service o nazwie **[hostingPlanName]** , aby wyróżnić odpowiedni kod JSON. 
 
-![](./media/app-service-deploy-complex-application-predictably/examinejson-3-appserviceplan.png)
+![Pokazuje sekcję [hostingPlanName] kodu JSON.](./media/app-service-deploy-complex-application-predictably/examinejson-3-appserviceplan.png)
 
 Należy zauważyć, że `type` element określa ciąg dla planu App Service (jest on nazywany farmą serwerów o długim, długim czasie temu), a inne elementy i właściwości są wypełniane przy użyciu parametrów zdefiniowanych w pliku JSON, a ten zasób nie zawiera żadnych zasobów zagnieżdżonych.
 
@@ -107,7 +108,7 @@ Należy zauważyć, że `type` element określa ciąg dla planu App Service (jes
 #### <a name="sql-server"></a>SQL Server
 Następnie kliknij zasób SQL Server o nazwie **SqlServer** w konspekcie JSON.
 
-![](./media/app-service-deploy-complex-application-predictably/examinejson-4-sqlserver.png)
+![Przedstawia zasób SQL Server o nazwie SQLServer w konspekcie JSON.](./media/app-service-deploy-complex-application-predictably/examinejson-4-sqlserver.png)
 
 Zwróć uwagę na następujące informacje o wyróżnionym kodzie JSON:
 
@@ -127,12 +128,12 @@ Teraz przechodźmy na same rzeczywiste aplikacje, które są bardziej skomplikow
 ##### <a name="root-resource"></a>Zasób główny
 Aplikacja zależy od dwóch różnych zasobów. Oznacza to, że Azure Resource Manager utworzy aplikację dopiero po utworzeniu zarówno planu App Service, jak i wystąpienia SQL Server.
 
-![](./media/app-service-deploy-complex-application-predictably/examinejson-5-webapproot.png)
+![Pokazuje zależności aplikacji w planie App Service i wystąpieniu SQL Server.](./media/app-service-deploy-complex-application-predictably/examinejson-5-webapproot.png)
 
 ##### <a name="app-settings"></a>Ustawienia aplikacji
 Ustawienia aplikacji są również zdefiniowane jako zasób zagnieżdżony.
 
-![](./media/app-service-deploy-complex-application-predictably/examinejson-6-webappsettings.png)
+![Pokazuje ustawienia aplikacji zdefiniowane jako zasób zagnieżdżony w kodzie JSON.](./media/app-service-deploy-complex-application-predictably/examinejson-6-webappsettings.png)
 
 W `properties` elemencie dla programu `config/appsettings` masz dwa ustawienia aplikacji w formacie `"<name>" : "<value>"` .
 
@@ -142,7 +143,7 @@ W `properties` elemencie dla programu `config/appsettings` masz dwa ustawienia a
 ##### <a name="connection-strings"></a>Parametry połączeń
 Parametry połączenia są również zdefiniowane jako zasób zagnieżdżony.
 
-![](./media/app-service-deploy-complex-application-predictably/examinejson-7-webappconnstr.png)
+![Pokazuje, w jaki sposób parametry połączenia są definiowane jako zasób zagnieżdżony w kodzie JSON.](./media/app-service-deploy-complex-application-predictably/examinejson-7-webappconnstr.png)
 
 W `properties` elemencie dla `config/connectionstrings` każdego ciągu połączenia jest również zdefiniowana jako para Name: Value z określonym formatem `"<name>" : {"value": "…", "type": "…"}` . Dla `type` elementu, możliwe wartości to `MySql` ,, `SQLServer` `SQLAzure` , i `Custom` .
 
@@ -154,7 +155,7 @@ W `properties` elemencie dla `config/connectionstrings` każdego ciągu połącz
 ##### <a name="source-control"></a>Kontrola źródła
 Ustawienia kontroli źródła są również zdefiniowane jako zasób zagnieżdżony. Azure Resource Manager używa tego zasobu do konfigurowania ciągłego publikowania (zobacz zastrzeżenie na `IsManualIntegration` później), a także do uruchamiania automatycznego wdrażania kodu aplikacji podczas przetwarzania pliku JSON.
 
-![](./media/app-service-deploy-complex-application-predictably/examinejson-8-webappsourcecontrol.png)
+![Pokazuje, w jaki sposób ustawienia kontroli źródła są definiowane jako zasób zagnieżdżony w kodzie JSON.](./media/app-service-deploy-complex-application-predictably/examinejson-8-webappsourcecontrol.png)
 
 `RepoUrl``branch`powinien być całkiem intuicyjny i powinien wskazywać repozytorium git i nazwę gałęzi, z której ma zostać opublikowany. Są one definiowane przez parametry wejściowe. 
 
@@ -170,11 +171,11 @@ W tym miejscu możesz przejść przez wszystkie bloki aplikacji w [witrynie Azur
 
 Na przykład po przejściu do narzędzia [Azure Resource Explorer](https://resources.azure.com) i rozszerzeniu węzłów w Eksploratorze można zobaczyć grupę zasobów i zasoby poziomu głównego, które są zbierane w ramach odpowiednich typów zasobów.
 
-![](./media/app-service-deploy-complex-application-predictably/ARM-1-treeview.png)
+![Wyświetl grupę zasobów i zasoby na poziomie głównym w rozwiniętym narzędziu Eksplorator zasobów platformy Azure.](./media/app-service-deploy-complex-application-predictably/ARM-1-treeview.png)
 
 Jeśli przejdziesz do szczegółów aplikacji, powinno być możliwe wyświetlenie szczegółów konfiguracji aplikacji podobnej do poniższego zrzutu ekranu:
 
-![](./media/app-service-deploy-complex-application-predictably/ARM-2-jsonview.png)
+![Przejdź do szczegółów, aby wyświetlić szczegóły konfiguracji w aplikacji.](./media/app-service-deploy-complex-application-predictably/ARM-2-jsonview.png)
 
 Ponownie zagnieżdżone zasoby powinny mieć hierarchię podobną do tych w pliku szablonu JSON i powinny być widoczne ustawienia aplikacji, parametry połączenia itp., odpowiednio odzwierciedlone w okienku JSON. Brak ustawień w tym miejscu może wskazywać na problem z plikiem JSON i może pomóc w rozwiązywaniu problemów z plikiem szablonu JSON.
 
@@ -184,50 +185,50 @@ Przycisk **Wdróż na platformie Azure** jest świetny, ale umożliwia wdrożeni
 1. W programie Visual Studio kliknij pozycję **plik**  >  **Nowy**  >  **projekt**.
 2. Kliknij **Visual C#** pozycję  >  **Cloud**  >  **Grupa zasobów platformy Azure**w chmurze Visual C#, a następnie kliknij przycisk **OK**.
    
-   ![](./media/app-service-deploy-complex-application-predictably/deploy-1-vsproject.png)
+   ![Utwórz nowy projekt jako grupę zasobów platformy Azure w zestawie SDK platformy Azure.](./media/app-service-deploy-complex-application-predictably/deploy-1-vsproject.png)
 3. W obszarze **Wybierz szablon platformy Azure**wybierz pozycję **pusty szablon** i kliknij przycisk **OK**.
 4. Przeciągnij azuredeploy.jsdo folderu **Template** w nowym projekcie.
    
-   ![](./media/app-service-deploy-complex-application-predictably/deploy-2-copyjson.png)
+   ![Pokazuje wynik przeciągnięcia azuredeploy.jsw pliku do folderu szablonów projektu.](./media/app-service-deploy-complex-application-predictably/deploy-2-copyjson.png)
 5. W obszarze Eksplorator rozwiązań otwórz skopiowane azuredeploy.jsna stronie.
 6. Na przykład w celu dodania do pliku JSON standardowych zasobów usługi Application Insights, klikając pozycję **Dodaj zasób**. Jeśli interesuje Cię wdrażanie pliku JSON, przejdź do kroku Wdróż.
    
-   ![](./media/app-service-deploy-complex-application-predictably/deploy-3-newresource.png)
+   ![Pokazuje przycisk Dodaj zasób, który służy do dodawania standardowych zasobów usługi Application Insight do pliku JSON.](./media/app-service-deploy-complex-application-predictably/deploy-3-newresource.png)
 7. Wybierz pozycję **Application Insights dla Web Apps**, upewnij się, że zaznaczono istniejący plan App Service i aplikację, a następnie kliknij przycisk **Dodaj**.
    
-   ![](./media/app-service-deploy-complex-application-predictably/deploy-4-newappinsight.png)
+   ![Pokazuje wybór Application Insights dla Web Apps, nazwy, planu App Service i aplikacji sieci Web.](./media/app-service-deploy-complex-application-predictably/deploy-4-newappinsight.png)
    
    Teraz będzie można zobaczyć kilka nowych zasobów, w zależności od zasobów i ich działania, w zależności od planu App Service lub aplikacji. Te zasoby nie są włączane w istniejącej definicji i można je zmienić.
    
-   ![](./media/app-service-deploy-complex-application-predictably/deploy-5-appinsightresources.png)
+   ![Wyświetl nowe zasoby, które mają zależności od planu App Service lub aplikacji.](./media/app-service-deploy-complex-application-predictably/deploy-5-appinsightresources.png)
 8. W konspekcie JSON kliknij pozycję **AppInsights automatyczne skalowanie** , aby zaznaczyć swój kod JSON. Jest to ustawienie skalowania dla planu App Service.
 9. W wyróżnionym kodzie JSON Znajdź `location` `enabled` właściwości i ustaw je, jak pokazano poniżej.
    
-   ![](./media/app-service-deploy-complex-application-predictably/deploy-6-autoscalesettings.png)
+   ![Pokazuje lokalizację i włączone właściwości w kodzie JSON skalowania automatycznego appInsights oraz wartości, które należy ustawić.](./media/app-service-deploy-complex-application-predictably/deploy-6-autoscalesettings.png)
 10. W konspekcie JSON kliknij pozycję **CPUHigh appInsights** , aby zaznaczyć swój kod JSON. Jest to alert.
 11. Znajdź `location` właściwości i `isEnabled` i ustaw je, jak pokazano poniżej. Wykonaj te same inne trzy alerty (purpurowe cebule).
     
-    ![](./media/app-service-deploy-complex-application-predictably/deploy-7-alerts.png)
+    ![Pokazuje lokalizację i właściwości isEnabled w kodzie JSON CPUHigh appInsights i wartości, które powinny być ustawiane na.](./media/app-service-deploy-complex-application-predictably/deploy-7-alerts.png)
 12. Teraz można przystąpić do wdrożenia. Kliknij prawym przyciskiem myszy projekt i wybierz polecenie **Wdróż**  >  **nowe wdrożenie**.
     
-    ![](./media/app-service-deploy-complex-application-predictably/deploy-8-newdeployment.png)
+    ![Pokazuje, jak wdrożyć nowy projekt.](./media/app-service-deploy-complex-application-predictably/deploy-8-newdeployment.png)
 13. Zaloguj się do konta platformy Azure, jeśli jeszcze tego nie zrobiono.
 14. Wybierz istniejącą grupę zasobów w ramach subskrypcji lub Utwórz nową, wybierz pozycję **azuredeploy.jsna**, a następnie kliknij przycisk **Edytuj parametry**.
     
-    ![](./media/app-service-deploy-complex-application-predictably/deploy-9-deployconfig.png)
+    ![Pokazuje, w jaki sposób edytować parametry w azuredeploy.jspliku.](./media/app-service-deploy-complex-application-predictably/deploy-9-deployconfig.png)
     
     Teraz będzie można edytować wszystkie parametry zdefiniowane w pliku szablonu w tabeli całkiem. Parametry, które definiują ustawienia domyślne, mają już wartości domyślne, a parametry, które definiują listę dozwolonych wartości, będą wyświetlane jako listy rozwijane.
     
-    ![](./media/app-service-deploy-complex-application-predictably/deploy-10-parametereditor.png)
+    ![Przedstawia parametry, które definiują listę dozwolonych wartości jako listy rozwijane.](./media/app-service-deploy-complex-application-predictably/deploy-10-parametereditor.png)
 15. Wypełnij wszystkie puste parametry i Użyj [adresu repozytorium GitHub do ToDoApp](https://github.com/azure-appservice-samples/ToDoApp.git) **w ramach ponownego wypełniania**. Następnie kliknij przycisk **Zapisz**.
     
-    ![](./media/app-service-deploy-complex-application-predictably/deploy-11-parametereditorfilled.png)
+    ![Pokazuje nowo wypełnione parametry azuredeploy.jspliku.](./media/app-service-deploy-complex-application-predictably/deploy-11-parametereditorfilled.png)
     
     > [!NOTE]
     > Skalowanie automatyczne to funkcja oferowana w warstwie **standardowa** lub wyższa, a alerty na poziomie planu są oferowane w warstwie **podstawowa** lub wyższej, należy ustawić parametr **SKU** na **Standard** lub **Premium** , aby wyświetlić wszystkie nowe zasoby usługi App Insights.
     > 
     > 
-16. Kliknij przycisk **Deploy (Wdróż)**. Jeśli zaznaczono opcję **Zapisz hasła**, hasło zostanie zapisane w pliku parametrów **w postaci zwykłego tekstu**. W przeciwnym razie podczas procesu wdrażania zostanie wyświetlony monit o podanie hasła do bazy danych.
+16. Kliknij pozycję **Wdróż**. Jeśli zaznaczono opcję **Zapisz hasła**, hasło zostanie zapisane w pliku parametrów **w postaci zwykłego tekstu**. W przeciwnym razie podczas procesu wdrażania zostanie wyświetlony monit o podanie hasła do bazy danych.
 
 Gotowe. Teraz wystarczy przejść do witryny [Azure Portal](https://portal.azure.com/) i narzędzia [Azure Resource Explorer](https://resources.azure.com) , aby wyświetlić nowe alerty i ustawienia skalowania automatycznego dodane do aplikacji wdrożonej w formacie JSON.
 
@@ -239,7 +240,7 @@ Kroki opisane w tej sekcji zostały wykonane głównie w następujący sposób:
 
 Ostatni krok jest łatwo wykonywany przez polecenie cmdlet programu PowerShell. Aby zobaczyć, co program Visual Studio miał podczas wdrażania aplikacji, Otwórz Scripts\Deploy-AzureResourceGroup.ps1. W tym miejscu istnieje dużo kodu, ale po prostu wyróżnienie całego kodu potrzebnego do wdrożenia pliku szablonu za pomocą pliku parametrów.
 
-![](./media/app-service-deploy-complex-application-predictably/deploy-12-powershellsnippet.png)
+![Pokazuje odpowiedni kod w skrypcie, którego potrzebujesz użyć do wdrożenia pliku szablonu z plikiem parametrów.](./media/app-service-deploy-complex-application-predictably/deploy-12-powershellsnippet.png)
 
 Ostatnie polecenie cmdlet, `New-AzureResourceGroup` , jest tym, które faktycznie wykonuje akcję. Wszystko to powinno zademonstrować, że za pomocą narzędzi można w sposób nieprzewidywalny wdrożyć aplikację w chmurze. Za każdym razem, gdy uruchamiasz polecenie cmdlet w tym samym szablonie z tym samym plikiem parametrów, uzyskasz ten sam wynik.
 

@@ -3,11 +3,12 @@ title: Przykłady szablonów usługi Azure Resource Manager
 description: Znajdź przykłady szablonów Azure Resource Manager do wdrożenia Azure Container Instances w różnych konfiguracjach
 ms.topic: article
 ms.date: 03/07/2019
-ms.openlocfilehash: 7208e1b4b67879979507cc451d40a188a84373de
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6c487087b39244178643fd81364150ceb3ac4a63
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84299761"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169650"
 ---
 # <a name="azure-resource-manager-templates-for-azure-container-instances"></a>Szablony Azure Resource Manager dla Azure Container Instances
 
@@ -17,7 +18,7 @@ Aby zapoznać się z opcjami wdrażania, zobacz sekcję [wdrażanie](#deployment
 
 ## <a name="sample-templates"></a>Przykładowe szablony
 
-| | |
+| Template | Opis |
 |-|-|
 | **Aplikacje** ||
 | [WordPress][app-wp] | Tworzy witrynę sieci Web WordPress i jej bazę danych MySQL w grupie kontenerów. Zawartość witryny WordPress i baza danych MySQL są utrwalane w udziale Azure Files. Program tworzy również bramę aplikacji, aby udostępnić publiczny dostęp do sieci WordPress. |
@@ -33,7 +34,7 @@ Aby zapoznać się z opcjami wdrażania, zobacz sekcję [wdrażanie](#deployment
 | **Zasoby platformy Azure** ||
 | [Utwórz udział plików i konta usługi Azure Storage][az-files] | Używa interfejsu wiersza polecenia platformy Azure w wystąpieniu kontenera, aby utworzyć konto magazynu i udział Azure Files.
 
-## <a name="deployment"></a>Wdrożenie
+## <a name="deployment"></a>Wdrażanie
 
 Istnieje kilka opcji wdrażania zasobów przy użyciu szablonów Menedżer zasobów:
 
@@ -41,7 +42,7 @@ Istnieje kilka opcji wdrażania zasobów przy użyciu szablonów Menedżer zasob
 
 [Azure PowerShell][deploy-powershell]
 
-[Azure Portal][deploy-portal]
+[Witryna Azure Portal][deploy-portal]
 
 [Interfejs API REST][deploy-rest]
 

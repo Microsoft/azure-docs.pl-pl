@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: a03bc24b689df342be40536c26149a7611fc5176
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f18885634503cc65a5bf78d93bd84afd018956bd
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84712415"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170806"
 ---
 # <a name="managing-media-services-entities-with-rest"></a>Zarządzanie jednostkami Media Services przy użyciu interfejsu REST  
 
@@ -35,7 +36,7 @@ W tym temacie pokazano, jak zarządzać jednostkami Azure Media Services przy u�
 >[!NOTE]
 > Począwszy od 1 kwietnia 2017 roku, wszystkie rekordy zadań na Twoim koncie, które są starsze niż 90 dni, będą automatycznie usuwane wraz ze skojarzonymi rekordami zadań podrzędnych nawet wtedy, gdy całkowita liczba rekordów jest mniejsza niż maksymalny limit przydziału. Na przykład 1 kwietnia 2017 każdy rekord zadania na koncie starszym niż 31 grudnia 2016 zostanie automatycznie usunięty. Jeśli zachodzi potrzeba archiwizowania informacji o zadaniu/zadaniu, można użyć kodu opisanego w tym temacie.
 
-## <a name="considerations"></a>Istotne zagadnienia  
+## <a name="considerations"></a>Kwestie do rozważenia  
 
 Podczas uzyskiwania dostępu do jednostek w Media Services należy ustawić określone pola nagłówka i wartości w żądaniach HTTP. Aby uzyskać więcej informacji, zobacz [konfigurowanie Media Services tworzenia interfejsu API REST](media-services-rest-how-to-use.md).
 
@@ -48,73 +49,83 @@ Każda jednostka w Media Services jest dodawana do zestawu jednostek, takiego ja
 
 Poniższy przykład pokazuje, jak utworzyć AccessPolicy.
 
-    POST https://media.windows.net/API/AccessPolicies HTTP/1.1
-    Content-Type: application/json;odata=verbose
-    Accept: application/json;odata=verbose
-    DataServiceVersion: 3.0
-    MaxDataServiceVersion: 3.0
-    x-ms-version: 2.19
-    Authorization: Bearer <ENCODED JWT TOKEN> 
-    Host: media.windows.net
-    Content-Length: 74
-    Expect: 100-continue
+```console
+POST https://media.windows.net/API/AccessPolicies HTTP/1.1
+Content-Type: application/json;odata=verbose
+Accept: application/json;odata=verbose
+DataServiceVersion: 3.0
+MaxDataServiceVersion: 3.0
+x-ms-version: 2.19
+Authorization: Bearer <ENCODED JWT TOKEN> 
+Host: media.windows.net
+Content-Length: 74
+Expect: 100-continue
 
-    {"Name": "DownloadPolicy", "DurationInMinutes" : "300", "Permissions" : 1}
+{"Name": "DownloadPolicy", "DurationInMinutes" : "300", "Permissions" : 1}
+```
 
 ## <a name="querying-entities"></a>Wykonywanie zapytań względem jednostek
 Wykonywanie zapytań i wyświetlanie listy jednostek jest proste i obejmuje tylko żądania GET HTTP i opcjonalne operacje OData.
 Poniższy przykład pobiera listę wszystkich jednostek MediaProcessor.
 
-    GET https://media.windows.net/API/MediaProcessors HTTP/1.1
-    Content-Type: application/json;odata=verbose
-    Accept: application/json;odata=verbose
-    DataServiceVersion: 3.0
-    MaxDataServiceVersion: 3.0
-    x-ms-version: 2.19
-    Authorization: Bearer <ENCODED JWT TOKEN> 
-    Host: media.windows.net
+```console
+GET https://media.windows.net/API/MediaProcessors HTTP/1.1
+Content-Type: application/json;odata=verbose
+Accept: application/json;odata=verbose
+DataServiceVersion: 3.0
+MaxDataServiceVersion: 3.0
+x-ms-version: 2.19
+Authorization: Bearer <ENCODED JWT TOKEN> 
+Host: media.windows.net
+```
 
 Możesz również pobrać konkretną jednostkę lub wszystkie zestawy jednostek skojarzone z konkretną jednostką, na przykład w następujących przykładach:
 
-    GET https://media.windows.net/API/JobTemplates('nb:jtid:UUID:e81192f5-576f-b247-b781-70a790c20e7c') HTTP/1.1
-    Content-Type: application/json;odata=verbose
-    Accept: application/json;odata=verbose
-    DataServiceVersion: 3.0
-    MaxDataServiceVersion: 3.0
-    x-ms-version: 2.19
-    Authorization: Bearer <ENCODED JWT TOKEN> 
-    Host: media.windows.net
+```console
+GET https://media.windows.net/API/JobTemplates('nb:jtid:UUID:e81192f5-576f-b247-b781-70a790c20e7c') HTTP/1.1
+Content-Type: application/json;odata=verbose
+Accept: application/json;odata=verbose
+DataServiceVersion: 3.0
+MaxDataServiceVersion: 3.0
+x-ms-version: 2.19
+Authorization: Bearer <ENCODED JWT TOKEN> 
+Host: media.windows.net
 
-    GET https://media.windows.net/API/JobTemplates('nb:jtid:UUID:e81192f5-576f-b247-b781-70a790c20e7c')/TaskTemplates HTTP/1.1
-    Content-Type: application/json;odata=verbose
-    Accept: application/json;odata=verbose
-    DataServiceVersion: 3.0
-    MaxDataServiceVersion: 3.0
-    x-ms-version: 2.19
-    Authorization: Bearer <ENCODED JWT TOKEN> 
-    Host: media.windows.net
+GET https://media.windows.net/API/JobTemplates('nb:jtid:UUID:e81192f5-576f-b247-b781-70a790c20e7c')/TaskTemplates HTTP/1.1
+Content-Type: application/json;odata=verbose
+Accept: application/json;odata=verbose
+DataServiceVersion: 3.0
+MaxDataServiceVersion: 3.0
+x-ms-version: 2.19
+Authorization: Bearer <ENCODED JWT TOKEN> 
+Host: media.windows.net
+```
 
 Poniższy przykład zwraca tylko Właściwość State wszystkich zadań.
 
-    GET https://media.windows.net/API/Jobs?$select=State HTTP/1.1
-    Content-Type: application/json;odata=verbose
-    Accept: application/json;odata=verbose
-    DataServiceVersion: 3.0
-    MaxDataServiceVersion: 3.0
-    x-ms-version: 2.19
-    Authorization: Bearer <ENCODED JWT TOKEN> 
-    Host: media.windows.net
+```console
+GET https://media.windows.net/API/Jobs?$select=State HTTP/1.1
+Content-Type: application/json;odata=verbose
+Accept: application/json;odata=verbose
+DataServiceVersion: 3.0
+MaxDataServiceVersion: 3.0
+x-ms-version: 2.19
+Authorization: Bearer <ENCODED JWT TOKEN> 
+Host: media.windows.net
+```
 
 Poniższy przykład zwraca wszystkie JobTemplates o nazwie "SampleTemplate".
 
-    GET https://media.windows.net/API/JobTemplates?$filter=startswith(Name,%20'SampleTemplate') HTTP/1.1
-    Content-Type: application/json;odata=verbose
-    Accept: application/json;odata=verbose
-    DataServiceVersion: 3.0
-    MaxDataServiceVersion: 3.0
-    x-ms-version: 2.19
-    Authorization: Bearer <ENCODED JWT TOKEN> 
-    Host: media.windows.net
+```console
+GET https://media.windows.net/API/JobTemplates?$filter=startswith(Name,%20'SampleTemplate') HTTP/1.1
+Content-Type: application/json;odata=verbose
+Accept: application/json;odata=verbose
+DataServiceVersion: 3.0
+MaxDataServiceVersion: 3.0
+x-ms-version: 2.19
+Authorization: Bearer <ENCODED JWT TOKEN> 
+Host: media.windows.net
+```
 
 > [!NOTE]
 > Operacja $expand nie jest obsługiwana w Media Services, a także w przypadku nieobsługiwanych metod LINQ opisanych w temacie LINQ (Usługi danych programu WCF).
@@ -126,47 +137,53 @@ Podczas wykonywania zapytania o jednostki istnieje limit 1000 jednostek, które 
 
 Poniższy przykład pokazuje, jak używać **pominięcia** i **góry** , aby pominąć pierwsze 2000 zadań i uzyskać następne zadania 1000.  
 
-    GET https://media.windows.net/api/Jobs()?$skip=2000&$top=1000 HTTP/1.1
-    Content-Type: application/json;odata=verbose
-    Accept: application/json;odata=verbose
-    DataServiceVersion: 3.0
-    MaxDataServiceVersion: 3.0
-    x-ms-version: 2.19
-    Authorization: Bearer <ENCODED JWT TOKEN>
-    Host: media.windows.net
+```console
+GET https://media.windows.net/api/Jobs()?$skip=2000&$top=1000 HTTP/1.1
+Content-Type: application/json;odata=verbose
+Accept: application/json;odata=verbose
+DataServiceVersion: 3.0
+MaxDataServiceVersion: 3.0
+x-ms-version: 2.19
+Authorization: Bearer <ENCODED JWT TOKEN>
+Host: media.windows.net
+```
 
 ## <a name="updating-entities"></a>Aktualizowanie jednostek
 W zależności od typu jednostki i stanu, w którym się znajduje, można zaktualizować właściwości tej jednostki za pośrednictwem żądań HTTP, PUT lub MERGE. Aby uzyskać więcej informacji na temat tych operacji, zobacz [poprawka/umieszczenie/scalanie](https://msdn.microsoft.com/library/dd541276.aspx).
 
 Poniższy przykład kodu pokazuje, jak zaktualizować Właściwość nazwy w jednostce elementu zawartości.
 
-    MERGE https://media.windows.net/API/Assets('nb:cid:UUID:80782407-3f87-4e60-a43e-5e4454232f60') HTTP/1.1
-    Content-Type: application/json;odata=verbose
-    Accept: application/json;odata=verbose
-    DataServiceVersion: 3.0
-    MaxDataServiceVersion: 3.0
-    x-ms-version: 2.19
-    Authorization: Bearer <ENCODED JWT TOKEN>
-    Host: media.windows.net
-    Content-Length: 21
-    Expect: 100-continue
+```console
+MERGE https://media.windows.net/API/Assets('nb:cid:UUID:80782407-3f87-4e60-a43e-5e4454232f60') HTTP/1.1
+Content-Type: application/json;odata=verbose
+Accept: application/json;odata=verbose
+DataServiceVersion: 3.0
+MaxDataServiceVersion: 3.0
+x-ms-version: 2.19
+Authorization: Bearer <ENCODED JWT TOKEN>
+Host: media.windows.net
+Content-Length: 21
+Expect: 100-continue
 
-    {"Name" : "NewName" }
+{"Name" : "NewName" }
+```
 
 ## <a name="deleting-entities"></a>Usuwanie jednostek
 Jednostki można usuwać w Media Services przy użyciu żądania usunięcia HTTP. W zależności od jednostki kolejność usuwania jednostek może być ważna. Na przykład jednostki takie jak zasoby wymagają odwołania (lub usunięcia) wszystkich lokalizatorów odwołujących się do danego elementu zawartości przed usunięciem elementu zawartości.
 
 Poniższy przykład pokazuje, jak usunąć lokalizator, który został użyty do przekazania pliku do magazynu obiektów BLOB.
 
-    DELETE https://media.windows.net/API/Locators('nb:lid:UUID:76dcc8e8-4230-463d-97b0-ce25c41b5c8d') HTTP/1.1
-    Content-Type: application/json;odata=verbose
-    Accept: application/json;odata=verbose
-    DataServiceVersion: 3.0
-    MaxDataServiceVersion: 3.0
-    x-ms-version: 2.19
-    Authorization: Bearer <ENCODED JWT TOKEN>
-    Host: media.windows.net
-    Content-Length: 0
+```console
+DELETE https://media.windows.net/API/Locators('nb:lid:UUID:76dcc8e8-4230-463d-97b0-ce25c41b5c8d') HTTP/1.1
+Content-Type: application/json;odata=verbose
+Accept: application/json;odata=verbose
+DataServiceVersion: 3.0
+MaxDataServiceVersion: 3.0
+x-ms-version: 2.19
+Authorization: Bearer <ENCODED JWT TOKEN>
+Host: media.windows.net
+Content-Length: 0
+```
 
 ## <a name="media-services-learning-paths"></a>Ścieżki szkoleniowe dotyczące usługi Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

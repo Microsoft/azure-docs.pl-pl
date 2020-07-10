@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 06/26/2020
 ms.reviewer: andalmia
 ms.author: banders
-ms.openlocfilehash: 18c6e9aac220d7e76a82a2abded6840db931f2d1
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: b53c81a52c06780378e45b2141cbef452b4d363a
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86057725"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170636"
 ---
 # <a name="programmatically-create-azure-subscriptions-preview"></a>Programowe tworzenie subskrypcji platformy Azure (wersja zapoznawcza)
 
@@ -156,7 +156,7 @@ POST https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts
 | `offerType`   | Tak      | String | Oferta subskrypcji. Dwie opcje dla EA to [MS-AZR-0017P](https://azure.microsoft.com/pricing/enterprise-agreement/) (Product Use) i [MS-AZR-0148P](https://azure.microsoft.com/offers/ms-azr-0148p/) (Dev/Test, muszą być [włączone przy użyciu portalu EA](https://ea.azure.com/helpdocs/DevOrTestOffer)).                |
 | `owners`      | Nie       | String | Identyfikator obiektu dowolnego użytkownika, który ma zostać dodany jako właściciel RBAC w ramach subskrypcji podczas jej tworzenia.  |
 
-W odpowiedzi otrzymujesz `subscriptionOperation` obiekt do monitorowania. Po zakończeniu tworzenia subskrypcji `subscriptionOperation` obiekt zwróci `subscriptionLink` obiekt, który ma identyfikator subskrypcji.
+W odpowiedzi otrzymujesz `Location` adres URL do monitorowania. Po zakończeniu tworzenia subskrypcji `Location` adres URL Get on zwróci `subscriptionLink` obiekt, który ma identyfikator subskrypcji. Aby uzyskać więcej informacji, zobacz [dokumentację interfejsu API subskrypcji](https://docs.microsoft.com/rest/api/subscription/)
 
 ### <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 

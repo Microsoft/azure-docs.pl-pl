@@ -3,12 +3,12 @@ title: Często zadawane pytania — tworzenie kopii zapasowych baz danych platfo
 description: W tym artykule znajdują się odpowiedzi na często zadawane pytania dotyczące tworzenia kopii zapasowych SAP HANA baz danych przy użyciu usługi Azure Backup.
 ms.topic: conceptual
 ms.date: 11/7/2019
-ms.openlocfilehash: ddc4af9a164de3a822e8aebd6c0a4db769ec62a0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 512075a24cf9400415f2367ead16b57f8b31c038
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85262586"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170330"
 ---
 # <a name="frequently-asked-questions--back-up-sap-hana-databases-on-azure-vms"></a>Często zadawane pytania — tworzenie kopii zapasowych baz danych SAP HANA na maszynach wirtualnych platformy Azure
 
@@ -59,15 +59,19 @@ Obecnie nie mamy możliwości skonfigurowania rozwiązania wyłącznie dla wirtu
 
 ### <a name="how-can-i-move-an-on-demand-backup-to-the-local-file-system-instead-of-the-azure-vault"></a>Jak przenieść kopię zapasową na żądanie do lokalnego systemu plików zamiast z magazynu platformy Azure?
 
-1. Zaczekaj na ukończenie aktualnie uruchomionej kopii zapasowej w wymaganej bazie danych (Sprawdź, czy w programie Studio została ukończona)
+1. Zaczekaj na ukończenie aktualnie uruchomionej kopii zapasowej w wymaganej bazie danych (Sprawdź, czy w programie Studio została ukończona).
 1. Wyłącz kopie zapasowe dzienników i ustaw kopię zapasową wykazu w **systemie plików** dla żądanej bazy danych, wykonując następujące czynności:
 1. Kliknij dwukrotnie pozycję **SYSTEMDB**  ->  **Konfiguracja**SYSTEMDB  ->  **Wybierz pozycję Filtr bazy danych**  ->  **(Dziennik)**
     1. Ustaw enable_auto_log_backup na **nie**
-    1. Ustaw log_backup_using_backint na **wartość false**
-1. Wykonaj kopię zapasową na żądanie w wymaganej bazie danych i poczekaj na zakończenie tworzenia kopii zapasowych i wykazu.
+    1. Ustaw catalog_backup_using_backint na **wartość false**
+1. Wykonaj kopię zapasową na żądanie (pełna/różnicowa/przyrostowo) w odpowiedniej bazie danych i poczekaj na zakończenie tworzenia kopii zapasowej i wykazu.
+1. Jeśli chcesz również przenieść kopie zapasowe dziennika do systemu plików, ustaw enable_auto_log_backup na **tak**
 1. Przywróć poprzednie ustawienia, aby umożliwić tworzenie kopii zapasowych w magazynie platformy Azure:
     1. Ustaw wartość enable_auto_log_backup na **tak**
-    1. Ustaw log_backup_using_backint na **wartość true**
+    1. Ustaw catalog_backup_using_backint na **wartość true**
+
+>[!NOTE]
+>Przeniesienie kopii zapasowych do lokalnego systemu plików i ponowne przełączenie do magazynu platformy Azure może spowodować przerwanie przez łańcuch dziennika kopii zapasowych dziennika w magazynie. Spowoduje to wyzwolenie pełnej kopii zapasowej, która po pomyślnym zakończeniu rozpocznie tworzenie kopii zapasowych dzienników.
 
 ### <a name="how-can-i-use-sap-hana-backup-with-my-hana-replication-set-up"></a>Jak mogę użyć SAP HANA kopii zapasowej za pomocą konfiguracji replikacji platformy HANA?
 

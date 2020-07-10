@@ -7,12 +7,12 @@ keywords: Azure Automation, DSC, PowerShell, konfiguracja stanu, zarządzanie ak
 ms.date: 10/18/2018
 ms.custom: mvc
 ms.topic: overview
-ms.openlocfilehash: e02cfdaac602adfe455c26d9e87939586fd9738a
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 30cfadcec1f0c28a463740ddaefa8fc76f04af3f
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83835278"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186184"
 ---
 # <a name="an-introduction-to-azure-automation"></a>Wprowadzenie do usługi Azure Automation
 
@@ -31,13 +31,13 @@ Automatyzacja procesów obsługuje integrację usług platformy Azure i innych s
 Zarządzanie konfiguracją w programie Azure Automation umożliwia dostęp do dwóch funkcji:
 
 * Śledzenie zmian i spis
-* Usługa State Configuration w usłudze Azure Automation
+* Azure Automation State Configuration
 
 ### <a name="change-tracking-and-inventory"></a>Śledzenie zmian i spis
 
 Change Tracking i spis łączy funkcje śledzenia zmian i spisu, aby umożliwić śledzenie zmian infrastruktury maszyny wirtualnej i serwera. Usługa obsługuje śledzenie zmian w usługach, demonach, oprogramowaniu, rejestrze i plikach w środowisku, aby ułatwić diagnozowanie niepożądanych zmian i zgłaszanie alertów. Obsługa spisu umożliwia wykonywanie zapytań dotyczących zasobów gościa w celu wglądu w zainstalowane aplikacje i inne elementy konfiguracji. Aby uzyskać szczegółowe informacje o tej funkcji, zobacz [Change Tracking i spis](change-tracking.md).
 
-### <a name="azure-automation-state-configuration"></a>Usługa State Configuration w usłudze Azure Automation
+### <a name="azure-automation-state-configuration"></a>Azure Automation State Configuration
 
 [Konfiguracja stanu Azure Automation](automation-dsc-overview.md) to oparta na chmurze funkcja konfiguracji żądanego stanu (DSC) programu PowerShell, która udostępnia usługi dla środowisk przedsiębiorstwa. Korzystając z tej funkcji, można zarządzać zasobami DSC w Azure Automation i stosować konfiguracje na maszynach wirtualnych lub fizycznych z serwera ściągania DSC w chmurze platformy Azure. 
 
@@ -53,16 +53,16 @@ Azure Automation oferuje wiele udostępnionych możliwości, w tym udostępniony
 
 Usługa Azure Automation zawiera zestaw współdzielonych zasobów, które ułatwiają automatyzowanie i konfigurowanie środowiska odpowiednio do skali.
 
-* **[Harmonogramy](automation-schedules.md)** — wyzwalanie operacji automatyzacji we wstępnie zdefiniowanym czasie.
-* **[Moduły](automation-integration-modules.md)** — zarządzanie platformą Azure i innymi systemami. Moduły można importować do konta usługi Automation dla programu Microsoft, innych firm, społeczności i zasobów DSC zdefiniowanych przez użytkownika.
+* **[Harmonogramy](./shared-resources/schedules.md)** — wyzwalanie operacji automatyzacji we wstępnie zdefiniowanym czasie.
+* **[Moduły](./shared-resources/modules.md)** — zarządzanie platformą Azure i innymi systemami. Moduły można importować do konta usługi Automation dla programu Microsoft, innych firm, społeczności i zasobów DSC zdefiniowanych przez użytkownika.
 * **[Galeria modułów](automation-runbook-gallery.md)** — obsługuje natywną integrację z Galeria programu PowerShell, aby umożliwić wyświetlanie elementów Runbook i importowanie ich do konta usługi Automation. Galeria pozwala szybko rozpocząć Integrowanie i tworzenie procesów z poziomu galerii programu PowerShell i centrum skryptów Microsoft.
 * **[Pakiety Python 2](python-packages.md)** — Obsługa elementów Runbook języka Python 2 dla konta usługi Automation.
-* **[Poświadczenia](automation-credentials.md)** — bezpiecznie Przechowuj informacje poufne, których elementy Runbook i konfiguracje mogą używać w środowisku uruchomieniowym.
+* **[Poświadczenia](./shared-resources/credentials.md)** — bezpiecznie Przechowuj informacje poufne, których elementy Runbook i konfiguracje mogą używać w środowisku uruchomieniowym.
 * **[Połączenia](automation-connections.md)** — umożliwia przechowywanie par nazwa-wartość wspólnych informacji dotyczących połączeń z systemami. Autor modułu definiuje połączenia w elementach Runbook i konfiguracjach do użycia w czasie wykonywania.
-* **[Certyfikaty](automation-certificates.md)** — Zdefiniuj informacje, które mają być używane podczas uwierzytelniania i zabezpieczania wdrożonych zasobów w przypadku dostępu do elementów Runbook lub konfiguracji DSC w czasie wykonywania. 
-* **[Zmienne](automation-variables.md)** — Przechowuj zawartość, której można używać w elementach Runbook i konfiguracjach. Można zmienić wartości zmiennych bez konieczności modyfikowania elementów Runbook lub konfiguracji, które odwołują się do nich.
+* **[Certyfikaty](./shared-resources/certificates.md)** — Zdefiniuj informacje, które mają być używane podczas uwierzytelniania i zabezpieczania wdrożonych zasobów w przypadku dostępu do elementów Runbook lub konfiguracji DSC w czasie wykonywania. 
+* **[Zmienne](./shared-resources/variables.md)** — Przechowuj zawartość, której można używać w elementach Runbook i konfiguracjach. Można zmienić wartości zmiennych bez konieczności modyfikowania elementów Runbook lub konfiguracji, które odwołują się do nich.
 
-### <a name="role-based-access-control"></a>Kontrola dostępu oparta na rolach
+### <a name="role-based-access-control"></a>Kontrola dostępu na podstawie ról
 
 Azure Automation obsługuje kontrolę dostępu opartą na rolach (RBAC) w celu regulowania dostępu do konta usługi Automation i jego zasobów. Aby dowiedzieć się więcej o konfigurowaniu RBAC na koncie usługi Automation, elementach Runbook i zadaniach, zobacz [Kontrola dostępu oparta na rolach dla Azure Automation](automation-role-based-access-control.md).
 
@@ -94,7 +94,7 @@ Azure Automation obsługuje zarządzanie przez cały cykl życia infrastruktury 
 
 Ceny skojarzone z Azure Automation można sprawdzić na stronie [cennika](https://azure.microsoft.com/pricing/details/automation/) .
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 > [!div class="nextstepaction"]
 > [Tworzenie konta usługi Automation](automation-quickstart-create-account.md)

@@ -5,11 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 04/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: b40357e71275d835a200f3bc08c618b6713001d8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 146cf01d99ccc00a972c98128d8e93e1ed5fb690
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83830773"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185708"
 ---
 # <a name="query-update-management-logs"></a>Wykonywanie zapytań względem dzienników rozwiązania Update Management
 
@@ -39,7 +40,7 @@ Tworzony jest rekord typu `RequiredUpdate` , który reprezentuje aktualizacje wy
 | TimeGenerated | Data i godzina utworzenia rekordu. | 
 | Typ | *Aktualizacja* | 
 | UpdateClassification | Wskazuje typ aktualizacji, które mogą być stosowane. W przypadku systemu Windows:<br> *Aktualizacje krytyczne*<br> *Aktualizacje zabezpieczeń*<br> *Pakiety zbiorcze aktualizacji*<br> *Pakiety funkcji*<br> *Dodatki Service Pack*<br> *Aktualizacje definicji*<br> *Narzędzia*<br> *Aktualizacje*. Dla systemu Linux:<br> *Aktualizacje krytyczne i zabezpieczeń*<br> *Inne problemy* |
-| UpdateSeverity | Klasyfikacja ważności luki w zabezpieczeniach. Wartości to:<br> *Krytyczne*<br> *Ważne*<br> *Umiarkowane*<br> *Niski* |
+| UpdateSeverity | Klasyfikacja ważności luki w zabezpieczeniach. Wartości to:<br> *Krytyczny*<br> *Ważne*<br> *Umiarkowany*<br> *Niski* |
 | UpdateTitle | Tytuł aktualizacji.|
 
 ### <a name="query-update-record"></a>Kwerenda aktualizacji rekordu
@@ -54,7 +55,7 @@ Tworzony jest rekord typu `Update` , który reprezentuje dostępne aktualizacje 
 | Computer (Komputer) | W pełni kwalifikowana nazwa domeny komputera raportowania. |
 | ComputerEnvironment | Naturalne. Możliwe wartości to Azure lub non-Azure. |
 | MSRCBulletinID | Numer IDENTYFIKACYJNy biuletynu zabezpieczeń. | 
-| MSRCSeverity | Klasyfikacja ważności luki w zabezpieczeniach. Wartości to:<br> Krytyczne<br> Ważne<br> Umiarkowane<br> Małe |  
+| MSRCSeverity | Klasyfikacja ważności luki w zabezpieczeniach. Wartości to:<br> Krytyczny<br> Ważny<br> Umiarkowany<br> Niski |  
 | KBID | Identyfikator artykułu bazy wiedzy dla usługi Windows Update. |
 | ManagementGroupName | Nazwa grupy zarządzania Operations Manager lub Log Analytics obszaru roboczego. |
 | UpdateID | Unikatowy identyfikator aktualizacji oprogramowania. |
@@ -193,7 +194,7 @@ Na komputerze z systemem Windows można przejrzeć następujące informacje w ce
 1. W panelu sterowania Otwórz **Microsoft Monitoring Agent**. Na karcie **log Analytics Azure** Agent wyświetli następujący komunikat: **Microsoft Monitoring Agent pomyślnie nawiązał połączenie z log Analytics**.
 2. Otwórz dziennik zdarzeń systemu Windows. Przejdź do pozycji **Application and Services Logs\Operations Manager** i Wyszukaj zdarzenia o identyfikatorze 3000 i identyfikatorze 5002 z **łącznika usługi**źródłowej. Te zdarzenia informują o tym, że komputer został zarejestrowany w obszarze roboczym usługi Log Analytics i odbiera konfigurację.
 
-Jeśli Agent nie może komunikować się z dziennikami Azure Monitor i Agent jest skonfigurowany do komunikacji z Internetem za pomocą zapory lub serwera proxy, upewnij się, że zapora lub serwer proxy zostały prawidłowo skonfigurowane. Aby dowiedzieć się, jak upewnić się, że zapora lub serwer proxy są prawidłowo skonfigurowane, zobacz [Konfiguracja sieci dla agenta systemu Windows](../azure-monitor/platform/agent-windows.md) lub [Konfiguracja sieci dla agentów](../log-analytics/log-analytics-agent-linux.md)z systemem Linux.
+Jeśli Agent nie może komunikować się z dziennikami Azure Monitor i Agent jest skonfigurowany do komunikacji z Internetem za pomocą zapory lub serwera proxy, upewnij się, że zapora lub serwer proxy zostały prawidłowo skonfigurowane. Aby dowiedzieć się, jak upewnić się, że zapora lub serwer proxy są prawidłowo skonfigurowane, zobacz [Konfiguracja sieci dla agenta systemu Windows](../azure-monitor/platform/agent-windows.md) lub [Konfiguracja sieci dla agentów](../azure-monitor/learn/quick-collect-linux-computer.md)z systemem Linux.
 
 > [!NOTE]
 > Jeśli systemy Linux są skonfigurowane do komunikacji z serwerem proxy lub Log Analytics bramą i włączasz Update Management, zaktualizuj uprawnienia, `proxy.conf` Aby przyznać grupie omiuser uprawnienia do odczytu w pliku przy użyciu następujących poleceń:
@@ -408,5 +409,5 @@ Update
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Aby uzyskać szczegółowe informacje dotyczące dzienników Azure Monitor, zobacz [dzienniki Azure monitor](../log-analytics/log-analytics-log-searches.md).
+* Aby uzyskać szczegółowe informacje dotyczące dzienników Azure Monitor, zobacz [dzienniki Azure monitor](../azure-monitor/log-query/log-query-overview.md).
 * Aby uzyskać pomoc dotyczącą alertów, zobacz [Konfigurowanie alertów](automation-tutorial-update-management.md#configure-alerts).

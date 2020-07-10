@@ -5,11 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 12/14/2018
 ms.topic: conceptual
-ms.openlocfilehash: 741569740713fef72f714f7cbce38a3c6f075684
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f175e495af8e925c0d5a6c61669a5e2f44f73ae7
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83836689"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186008"
 ---
 # <a name="learn-powershell-workflow-for-azure-automation"></a>Informacje o przepływie pracy programu PowerShell dla Azure Automation
 
@@ -20,7 +21,7 @@ Podczas gdy przepływ pracy jest zapisywana przy użyciu składni środowiska Wi
 > [!NOTE]
 > Skrypt przepływu pracy programu PowerShell jest bardzo podobny do skryptu programu Windows PowerShell, ale zawiera pewne znaczące różnice, które mogą być mylące dla nowego użytkownika. Dlatego zalecamy zapisanie elementów Runbook za pomocą przepływu pracy programu PowerShell tylko wtedy, gdy trzeba użyć [punktów kontrolnych](#use-checkpoints-in-a-workflow). 
 
-Aby uzyskać szczegółowe informacje dotyczące tematów w tym artykule, zobacz [wprowadzenie with Windows PowerShell Workflow](https://technet.microsoft.com/library/jj134242.aspx).
+Aby uzyskać szczegółowe informacje dotyczące tematów w tym artykule, zobacz [wprowadzenie with Windows PowerShell Workflow](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj134242(v=ws.11)).
 
 ## <a name="use-workflow-keyword"></a>Użyj słowa kluczowego przepływu pracy
 
@@ -45,9 +46,9 @@ Kod przepływu pracy programu PowerShell wygląda niemal identycznie z kodem skr
 
 Działanie to określone zadanie w przepływie pracy, które jest wykonywane w sekwencji. Podczas wykonywania przepływu pracy program Windows PowerShell Workflow automatycznie konwertuje wiele spośród poleceń cmdlet środowiska Windows PowerShell na działania. Po określeniu jednego z tych poleceń cmdlet w elemencie Runbook odpowiednie działanie jest uruchamiane przez Windows Workflow Foundation. 
 
-Jeśli polecenie cmdlet nie ma odpowiedniego działania, przepływ pracy programu Windows PowerShell automatycznie uruchamia polecenie cmdlet w działaniu [InlineScript](#use-inlinescript) . Niektóre polecenia cmdlet są wykluczone i nie mogą być używane w przepływie pracy, chyba że zostaną jawnie umieszczone w bloku InlineScript. Aby uzyskać więcej informacji, zobacz [Używanie działań w skryptowych przepływach pracy](https://technet.microsoft.com/library/jj574194.aspx).
+Jeśli polecenie cmdlet nie ma odpowiedniego działania, przepływ pracy programu Windows PowerShell automatycznie uruchamia polecenie cmdlet w działaniu [InlineScript](#use-inlinescript) . Niektóre polecenia cmdlet są wykluczone i nie mogą być używane w przepływie pracy, chyba że zostaną jawnie umieszczone w bloku InlineScript. Aby uzyskać więcej informacji, zobacz [Używanie działań w skryptowych przepływach pracy](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj574194(v=ws.11)).
 
-Działania przepływów pracy dzielą zestaw wspólnych parametrów konfigurujących ich pracę. Zobacz [about_WorkflowCommonParameters](https://technet.microsoft.com/library/jj129719.aspx).
+Działania przepływów pracy dzielą zestaw wspólnych parametrów konfigurujących ich pracę. Zobacz [about_WorkflowCommonParameters](/powershell/module/psworkflow/about/about_workflowcommonparameters).
 
 ### <a name="positional-parameters"></a>Parametry pozycyjne
 
@@ -150,7 +151,7 @@ Chociaż działania InlineScript mogą być krytyczne w niektórych przepływach
 * Nie można użyć [wykonywania równoległego](#use-parallel-processing) wewnątrz bloku InlineScript.
 * InlineScript ma wpływ na skalowalność przepływu pracy, ponieważ zawiera sesję programu Windows PowerShell dla całej długości bloku InlineScript.
 
-Aby uzyskać więcej informacji na temat korzystania z programu InlineScript, zobacz [Uruchamianie poleceń programu Windows PowerShell w przepływie pracy](https://technet.microsoft.com/library/jj574197.aspx) i [about_InlineScript](https://technet.microsoft.com/library/jj649082.aspx).
+Aby uzyskać więcej informacji na temat korzystania z programu InlineScript, zobacz [Uruchamianie poleceń programu Windows PowerShell w przepływie pracy](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj574197(v=ws.11)) i [about_InlineScript](/powershell/module/psworkflow/about/about_inlinescript).
 
 ## <a name="use-parallel-processing"></a>Użyj przetwarzania równoległego
 
@@ -260,7 +261,7 @@ Workflow Copy-Files
 }
 ```
 
-Ponieważ poświadczenia nazwy użytkownika nie są utrwalane po wywołaniu działania [Suspend-Workflow](https://technet.microsoft.com/library/jj733586.aspx) lub po ostatnim punkcie kontrolnym, należy ustawić poświadczenia na wartość null, a następnie pobrać je ponownie z magazynu zasobów po wywołaniu lub wyjściu z `Suspend-Workflow` punktu kontrolnego.  W przeciwnym razie może zostać wyświetlony następujący komunikat o błędzie:`The workflow job cannot be resumed, either because persistence data could not be saved completely, or saved persistence data has been corrupted. You must restart the workflow.`
+Ponieważ poświadczenia nazwy użytkownika nie są utrwalane po wywołaniu działania [Suspend-Workflow](/powershell/module/psworkflow/about/about_suspend-workflow) lub po ostatnim punkcie kontrolnym, należy ustawić poświadczenia na wartość null, a następnie pobrać je ponownie z magazynu zasobów po wywołaniu lub wyjściu z `Suspend-Workflow` punktu kontrolnego.  W przeciwnym razie może zostać wyświetlony następujący komunikat o błędzie:`The workflow job cannot be resumed, either because persistence data could not be saved completely, or saved persistence data has been corrupted. You must restart the workflow.`
 
 Poniższy kod pokazuje, jak obsłużyć tę sytuację w elementach Runbook przepływu pracy programu PowerShell.
 
@@ -289,9 +290,9 @@ workflow CreateTestVms
 ```
 
 > [!NOTE]
-> Dla niegraficznych elementów Runbook programu PowerShell `Add-AzAccount` i `Add-AzureRMAccount` są aliasami dla polecenia [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-3.5.0). Możesz użyć tych poleceń cmdlet lub [zaktualizować moduły](automation-update-azure-modules.md) na koncie usługi Automation do najnowszych wersji. Może być konieczne zaktualizowanie modułów, nawet jeśli utworzono nowe konto usługi Automation. Korzystanie z tych poleceń cmdlet nie jest wymagane w przypadku uwierzytelniania przy użyciu konta Uruchom jako skonfigurowanego za pomocą nazwy głównej usługi.
+> Dla niegraficznych elementów Runbook programu PowerShell `Add-AzAccount` i `Add-AzureRMAccount` są aliasami dla polecenia [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount?view=azps-3.5.0). Możesz użyć tych poleceń cmdlet lub [zaktualizować moduły](automation-update-azure-modules.md) na koncie usługi Automation do najnowszych wersji. Może być konieczne zaktualizowanie modułów, nawet jeśli utworzono nowe konto usługi Automation. Korzystanie z tych poleceń cmdlet nie jest wymagane w przypadku uwierzytelniania przy użyciu konta Uruchom jako skonfigurowanego za pomocą nazwy głównej usługi.
 
-Aby uzyskać więcej informacji na temat punktów kontrolnych, zobacz [Dodawanie punktów kontrolnych do skryptu przepływu pracy](https://technet.microsoft.com/library/jj574114.aspx).
+Aby uzyskać więcej informacji na temat punktów kontrolnych, zobacz [Dodawanie punktów kontrolnych do skryptu przepływu pracy](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj574114(v=ws.11)).
 
 ## <a name="next-steps"></a>Następne kroki
 

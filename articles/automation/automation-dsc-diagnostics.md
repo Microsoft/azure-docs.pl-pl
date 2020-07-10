@@ -9,11 +9,12 @@ ms.author: magoedte
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: f7e24e1b4546c76348e61e3c2736fcfe4b66410d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0560d9a5156f06f7ae7473f63359d9d17926b7ab
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83836944"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186456"
 ---
 # <a name="integrate-with-azure-monitor-logs"></a>Integracja z dziennikami Azure Monitor
 
@@ -35,7 +36,7 @@ Aby rozpocząć wysyłanie raportów konfiguracji stanu usługi Automation do dz
 
 - Wydanie z listopada 2016 lub nowszą [Azure PowerShell](/powershell/azure/overview) (v 2.3.0).
 - Konto usługi Azure Automation. Aby uzyskać więcej informacji, zobacz [wprowadzenie do Azure Automation](automation-intro.md).
-- Obszar roboczy Log Analytics z ofertą usługi Automation & Control. Aby uzyskać więcej informacji, zobacz Rozpoczynanie [pracy z log Analytics w Azure monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal).
+- Obszar roboczy Log Analytics z ofertą usługi Automation & Control. Aby uzyskać więcej informacji, zobacz Rozpoczynanie [pracy z log Analytics w Azure monitor](../azure-monitor/log-query/get-started-portal.md).
 - Co najmniej jeden węzeł konfiguracji stanu Azure Automation. Aby uzyskać więcej informacji, zobacz sekcję dołączanie [maszyn w celu zarządzania przez Azure Automation konfigurację stanu](automation-dsc-onboarding.md).
 - Moduł [xDscDiagnostics](https://www.powershellgallery.com/packages/xDscDiagnostics/2.7.0.0) w wersji 2.7.0.0 lub nowszej. Kroki instalacji znajdują się w temacie [Rozwiązywanie problemów z konfiguracją żądanego stanu Azure Automation](./troubleshoot/desired-state-configuration.md).
 
@@ -43,7 +44,7 @@ Aby rozpocząć wysyłanie raportów konfiguracji stanu usługi Automation do dz
 
 Aby rozpocząć importowanie danych z konfiguracji stanu Azure Automation do dzienników Azure Monitor, wykonaj następujące czynności:
 
-1. Zaloguj się do konta platformy Azure w programie PowerShell. Zobacz [Logowanie za pomocą Azure PowerShell](https://docs.microsoft.com/powershell/azure/authenticate-azureps).
+1. Zaloguj się do konta platformy Azure w programie PowerShell. Zobacz [Logowanie za pomocą Azure PowerShell](/powershell/azure/authenticate-azureps).
 1. Aby uzyskać identyfikator zasobu konta usługi Automation, należy uruchomić następujące polecenie cmdlet programu PowerShell. Jeśli masz więcej niż jedno konto usługi Automation, wybierz identyfikator zasobu dla konta, które chcesz skonfigurować.
 
    ```powershell
@@ -90,7 +91,7 @@ Szczegóły filtrowania:
 * Odfiltruj w `DscResourceStatusData` celu zwrócenia operacji dla każdego zasobu DSC o nazwie w konfiguracji węzła zastosowanej do tego zasobu. 
 * Odfiltruj, `DscResourceStatusData` aby zwracać informacje o błędzie dla wszystkich zasobów DSC, które nie powiodą się.
 
-Aby dowiedzieć się więcej na temat konstruowania zapytań dzienników do znajdowania danych, zobacz [Omówienie zapytań dzienników w Azure monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview).
+Aby dowiedzieć się więcej na temat konstruowania zapytań dzienników do znajdowania danych, zobacz [Omówienie zapytań dzienników w Azure monitor](../azure-monitor/log-query/log-query-overview.md).
 
 ### <a name="send-an-email-when-a-state-configuration-compliance-check-fails"></a>Wyślij wiadomość e-mail, gdy sprawdzanie zgodności konfiguracji stanu nie powiedzie się
 
@@ -104,7 +105,7 @@ Aby utworzyć regułę alertu, Zacznij od utworzenia w dzienniku wyszukiwania re
    Jeśli skonfigurowano dzienniki z więcej niż jednego konta usługi Automation lub subskrypcji w obszarze roboczym, można grupować alerty według subskrypcji i konta usługi Automation. Utwórz nazwę konta usługi Automation na podstawie `Resource` pola wyszukiwania `DscNodeStatusData` rekordów.
 1. Aby otworzyć ekran **Utwórz regułę** , kliknij pozycję **Nowa reguła alertu** u góry strony. 
 
-Aby uzyskać więcej informacji na temat opcji konfigurowania alertu, zobacz [Tworzenie reguły alertu](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md).
+Aby uzyskać więcej informacji na temat opcji konfigurowania alertu, zobacz [Tworzenie reguły alertu](../azure-monitor/platform/alerts-metric.md).
 
 ### <a name="find-failed-dsc-resources-across-all-nodes"></a>Znajdź niepowodzenie zasobów DSC we wszystkich węzłach
 
@@ -195,9 +196,8 @@ Azure Automation Diagnostics Utwórz dwie kategorie rekordów w dziennikach Azur
 - Aby zapoznać się z omówieniem, zobacz [Omówienie konfiguracji stanu Azure Automation](automation-dsc-overview.md).
 - Aby rozpocząć, zobacz Wprowadzenie do [konfiguracji stanu Azure Automation](automation-dsc-getting-started.md).
 - Aby dowiedzieć się więcej na temat kompilowania konfiguracji DSC, aby można było przypisać je do węzłów docelowych, zobacz [Kompilowanie konfiguracji DSC w konfiguracji stanu Azure Automation](automation-dsc-compile.md).
-- Aby uzyskać informacje dotyczące poleceń cmdlet programu PowerShell, zobacz [AZ. Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
-).
+- Aby uzyskać informacje dotyczące poleceń cmdlet programu PowerShell, zobacz [AZ. Automation](/powershell/module/az.automation/?view=azps-3.7.0#automation).
 - Aby uzyskać informacje o cenach, zobacz [Cennik konfiguracji stanu Azure Automation](https://azure.microsoft.com/pricing/details/automation/).
 - Aby zapoznać się z przykładem użycia konfiguracji stanu Azure Automation w potoku ciągłego wdrażania, zobacz [Konfigurowanie ciągłego wdrażania z czekoladą](automation-dsc-cd-chocolatey.md).
-- Aby dowiedzieć się więcej na temat tworzenia różnych zapytań wyszukiwania i przeglądania dzienników konfiguracji stanu usługi Automation za pomocą dzienników Azure Monitor, zobacz [Wyszukiwanie w dzienniku w](../log-analytics/log-analytics-log-searches.md)dziennikach Azure monitor.
-- Aby dowiedzieć się więcej na temat dzienników Azure Monitor i źródeł zbierania danych, zobacz [zbieranie danych usługi Azure Storage w dziennikach Azure monitor Omówienie](../azure-monitor/platform/collect-azure-metrics-logs.md).
+- Aby dowiedzieć się więcej na temat tworzenia różnych zapytań wyszukiwania i przeglądania dzienników konfiguracji stanu usługi Automation za pomocą dzienników Azure Monitor, zobacz [Wyszukiwanie w dzienniku w](../azure-monitor/log-query/log-query-overview.md)dziennikach Azure monitor.
+- Aby dowiedzieć się więcej na temat dzienników Azure Monitor i źródeł zbierania danych, zobacz [zbieranie danych usługi Azure Storage w dziennikach Azure monitor Omówienie](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace).

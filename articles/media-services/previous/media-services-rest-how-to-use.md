@@ -15,11 +15,12 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.reviewer: johndeu
-ms.openlocfilehash: 597839f633ed2b925b86c5f859a0fb2d3b64dd59
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 288b7302b12d607c9090f699af83691b832256a3
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76773657"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170823"
 ---
 # <a name="media-services-operations-rest-api-overview"></a>Omówienie interfejsu API REST usługi Media Services Operations 
 
@@ -32,32 +33,34 @@ Media Services udostępnia interfejs API REST, który akceptuje zarówno format 
 
 Uwierzytelnianie w interfejsie API REST Media Services odbywa się przy użyciu uwierzytelniania Azure Active Directory, które opisano w artykule [używanie uwierzytelniania usługi Azure AD w celu uzyskania dostępu do interfejsu api Azure Media Services przy użyciu usługi REST](media-services-rest-connect-with-aad.md)
 
-## <a name="considerations"></a>Istotne zagadnienia
+## <a name="considerations"></a>Kwestie do rozważenia
 
 W przypadku korzystania z usługi REST obowiązują następujące zagadnienia.
 
 * Podczas wykonywania zapytania o jednostki istnieje limit 1000 jednostek, które są zwracane w tym samym czasie, ponieważ Public REST v2 ogranicza wyniki zapytania do 1000 wyników. Należy użyć funkcji **Skip** i **Take** (.NET)/ **Top** (REST) zgodnie z opisem w [tym przykładzie platformy .NET](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) i [przykładowym interfejsem API REST](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities). 
 * W przypadku używania kodu JSON i określania, aby użyć słowa kluczowego **__metadata** w żądaniu (na przykład w celu odwoływania się do obiektu połączonego), należy ustawić format **Zaakceptuj nagłówek akceptowania** [JSON](https://www.odata.org/documentation/odata-version-3-0/json-verbose-format/) (zobacz Poniższy przykład). Usługa OData nie rozpoznaje właściwości **__metadata** w żądaniu, chyba że ustawisz ją jako pełne.  
-  
-        POST https://media.windows.net/API/Jobs HTTP/1.1
-        Content-Type: application/json;odata=verbose
-        Accept: application/json;odata=verbose
-        DataServiceVersion: 3.0
-        MaxDataServiceVersion: 3.0
-        x-ms-version: 2.19
-        Authorization: Bearer <ENCODED JWT TOKEN> 
-        Host: media.windows.net
-  
-        {
-            "Name" : "NewTestJob", 
-            "InputMediaAssets" : 
-                [{"__metadata" : {"uri" : "https://media.windows.net/api/Assets('nb%3Acid%3AUUID%3Aba5356eb-30ff-4dc6-9e5a-41e4223540e7')"}}]
-        . . . 
+
+    ```console
+    POST https://media.windows.net/API/Jobs HTTP/1.1
+    Content-Type: application/json;odata=verbose
+    Accept: application/json;odata=verbose
+    DataServiceVersion: 3.0
+    MaxDataServiceVersion: 3.0
+    x-ms-version: 2.19
+    Authorization: Bearer <ENCODED JWT TOKEN> 
+    Host: media.windows.net
+
+    {
+        "Name" : "NewTestJob", 
+        "InputMediaAssets" : 
+            [{"__metadata" : {"uri" : "https://media.windows.net/api/Assets('nb%3Acid%3AUUID%3Aba5356eb-30ff-4dc6-9e5a-41e4223540e7')"}}]
+    . . . 
+   ```
 
 ## <a name="standard-http-request-headers-supported-by-media-services"></a>Standardowe nagłówki żądań HTTP obsługiwane przez Media Services
 Dla każdego wywołania, które wprowadzasz do Media Services, istnieje zestaw wymaganych nagłówków, które należy uwzględnić w żądaniu, a także zestaw opcjonalnych nagłówków, które warto uwzględnić. W poniższej tabeli wymieniono wymagane nagłówki:
 
-| Header | Typ | Wartość |
+| Nagłówek | Typ | Wartość |
 | --- | --- | --- |
 | Autoryzacja |Bearer |Posiadacz jest jedynym zaakceptowanym mechanizmem autoryzacji. Wartość musi również zawierać token dostępu dostarczony przez Azure Active Directory. |
 | x-MS-Version |Wartość dziesiętna |2,17 (lub Najnowsza wersja)|
@@ -71,7 +74,7 @@ Dla każdego wywołania, które wprowadzasz do Media Services, istnieje zestaw w
 
 Poniżej znajduje się zestaw opcjonalnych nagłówków:
 
-| Header | Typ | Wartość |
+| Nagłówek | Typ | Wartość |
 | --- | --- | --- |
 | Data |Data 1123 |Sygnatura czasowa żądania |
 | Zaakceptuj |Typ zawartości |Żądany typ zawartości dla odpowiedzi, na przykład następujące:<p> -Application/JSON; OData = verbose<p> -Application/Atom + XML<p> Odpowiedzi mogą mieć inny typ zawartości, taki jak pobieranie obiektów blob, gdzie pomyślnie odpowiedź zawiera strumień obiektów BLOB jako ładunek. |
@@ -85,7 +88,7 @@ Poniżej znajduje się zestaw opcjonalnych nagłówków:
 ## <a name="standard-http-response-headers-supported-by-media-services"></a>Standardowe nagłówki odpowiedzi HTTP obsługiwane przez Media Services
 Poniżej znajduje się zestaw nagłówków, które mogą zostać zwrócone do użytkownika w zależności od zasobu, którego dotyczy żądanie, oraz akcji, która ma zostać wykonana.
 
-| Header | Typ | Wartość |
+| Nagłówek | Typ | Wartość |
 | --- | --- | --- |
 | Identyfikator żądania |String |Unikatowy identyfikator bieżącej operacji i wygenerowanej usługi. |
 | Identyfikator żądania klienta |String |Identyfikator określony przez obiekt wywołujący w oryginalnym żądaniu, jeśli jest obecny. |

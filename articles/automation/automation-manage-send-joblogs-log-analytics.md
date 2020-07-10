@@ -5,11 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 05/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: ba498fe9f70664a801172a6ff3705ac41a6371ef
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0c8863615446f8b14043cd7bd13e529b7efa1e46
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83835255"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186201"
 ---
 # <a name="forward-azure-automation-job-data-to-azure-monitor-logs"></a>Przekazywanie danych zadania usługi Azure Automation do dzienników usługi Azure Monitor
 
@@ -27,8 +28,8 @@ Azure Automation może wysyłać strumienie zadań elementu Runbook i zadań do 
 
 Aby rozpocząć wysyłanie dzienników usługi Automation do dzienników Azure Monitor, potrzebne są:
 
-* Najnowsza wersja [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/).
-* Obszar roboczy usługi Log Analytics. Aby uzyskać więcej informacji, zobacz Rozpoczynanie [pracy z dziennikami Azure monitor](../log-analytics/log-analytics-get-started.md).
+* Najnowsza wersja [Azure PowerShell](/powershell/azureps-cmdlets-docs/).
+* Obszar roboczy usługi Log Analytics. Aby uzyskać więcej informacji, zobacz Rozpoczynanie [pracy z dziennikami Azure monitor](../azure-monitor/overview.md).
 * Identyfikator zasobu dla konta Azure Automation.
 
 Użyj następującego polecenia, aby znaleźć identyfikator zasobu dla konta Azure Automation:
@@ -185,8 +186,8 @@ Remove-AzDiagnosticSetting -ResourceId $automationAccountId
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Aby dowiedzieć się, jak tworzyć zapytania wyszukiwania i przeglądać dzienniki zadań usługi Automation za pomocą dzienników Azure Monitor, zobacz [Wyszukiwanie w dzienniku w](../log-analytics/log-analytics-log-searches.md)dziennikach Azure monitor.
+* Aby dowiedzieć się, jak tworzyć zapytania wyszukiwania i przeglądać dzienniki zadań usługi Automation za pomocą dzienników Azure Monitor, zobacz [Wyszukiwanie w dzienniku w](../azure-monitor/log-query/log-query-overview.md)dziennikach Azure monitor.
 * Aby zrozumieć tworzenie i pobieranie komunikatów wyjściowych i błędów z elementów Runbook, zobacz [monitorowanie danych wyjściowych elementu Runbook](automation-runbook-output-and-messages.md).
 * Aby dowiedzieć się więcej o wykonywaniu elementów Runbook, sposobie monitorowania zadań elementów Runbook i innych szczegółach technicznych, zobacz [wykonywanie elementów Runbook w Azure Automation](automation-runbook-execution.md).
-* Aby dowiedzieć się więcej na temat dzienników Azure Monitor i źródeł zbierania danych, zobacz [zbieranie danych usługi Azure Storage w dziennikach Azure monitor Omówienie](../azure-monitor/platform/collect-azure-metrics-logs.md).
+* Aby dowiedzieć się więcej na temat dzienników Azure Monitor i źródeł zbierania danych, zobacz [zbieranie danych usługi Azure Storage w dziennikach Azure monitor Omówienie](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace).
 * Aby uzyskać pomoc w rozwiązywaniu problemów Log Analytics, zobacz [Rozwiązywanie problemów, dlaczego log Analytics nie zbiera już danych](../azure-monitor/platform/manage-cost-storage.md#troubleshooting-why-log-analytics-is-no-longer-collecting-data).

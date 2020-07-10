@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: 4f62a94c8ed8baa9979aa1469e785d26781af7f0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6db4ceed0121f072104312ac24abb13fb241737b
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85361629"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186048"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Wykonywanie elementu runbook w usłudze Azure Automation
 
@@ -56,12 +56,12 @@ W poniższej tabeli wymieniono niektóre zadania wykonywania elementów Runbook 
 |Używanie modułów z określonymi wymaganiami| Hybrydowy proces roboczy elementu Runbook|Przykłady to:</br> WinSCP — zależność od winscp.exe </br> Administrowanie usługami IIS na potrzeby włączania usług IIS i zarządzania nimi|
 |Instalowanie modułu przy użyciu Instalatora|Hybrydowy proces roboczy elementu Runbook|Moduły dla piaskownicy muszą obsługiwać kopiowanie.|
 |Użyj elementów Runbook lub modułów, które wymagają .NET Framework wersji innej niż 4.7.2|Hybrydowy proces roboczy elementu Runbook|Piaskownice platformy Azure obsługują .NET Framework 4.7.2, a uaktualnienie do innej wersji nie jest obsługiwane.|
-|Uruchamianie skryptów wymagających podniesienia uprawnień|Hybrydowy proces roboczy elementu Runbook|Piaskownice nie umożliwiają podniesienia uprawnień. Przy użyciu hybrydowego procesu roboczego elementu Runbook można wyłączyć funkcję Kontrola konta użytkownika i użyć [polecenia Invoke-Command](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/invoke-command?view=powershell-7) przy uruchamianiu polecenia, które wymaga podniesienia uprawnień.|
+|Uruchamianie skryptów wymagających podniesienia uprawnień|Hybrydowy proces roboczy elementu Runbook|Piaskownice nie umożliwiają podniesienia uprawnień. Przy użyciu hybrydowego procesu roboczego elementu Runbook można wyłączyć funkcję Kontrola konta użytkownika i użyć [polecenia Invoke-Command](/powershell/module/microsoft.powershell.core/invoke-command?view=powershell-7) przy uruchamianiu polecenia, które wymaga podniesienia uprawnień.|
 |Uruchamianie skryptów, które wymagają dostępu do Instrumentacja zarządzania Windows (WMI)|Hybrydowy proces roboczy elementu Runbook|Zadania uruchomione w piaskownicach w chmurze nie mogą uzyskać dostępu do dostawcy WMI. |
 
 ## <a name="resources"></a>Zasoby
 
-Elementy Runbook muszą zawierać logikę do obsługi [zasobów](https://docs.microsoft.com/rest/api/resources/resources), np. maszyn wirtualnych, sieci i zasobów w sieci. Zasoby są powiązane z subskrypcją platformy Azure, a elementy Runbook wymagają odpowiednich poświadczeń w celu uzyskania dostępu do dowolnego zasobu. Aby zapoznać się z przykładem obsługi zasobów w elemencie Runbook, zobacz temat [Obsługa zasobów](manage-runbooks.md#handle-resources). 
+Elementy Runbook muszą zawierać logikę do obsługi [zasobów](/rest/api/resources/resources), np. maszyn wirtualnych, sieci i zasobów w sieci. Zasoby są powiązane z subskrypcją platformy Azure, a elementy Runbook wymagają odpowiednich poświadczeń w celu uzyskania dostępu do dowolnego zasobu. Aby zapoznać się z przykładem obsługi zasobów w elemencie Runbook, zobacz temat [Obsługa zasobów](manage-runbooks.md#handle-resources). 
 
 ## <a name="security"></a>Zabezpieczenia
 
@@ -71,7 +71,7 @@ Wartość ASC umieszcza ograniczenia dla użytkowników, którzy mogą uruchamia
 
 ## <a name="subscriptions"></a>Subskrypcje
 
-[Subskrypcja](https://docs.microsoft.com/office365/enterprise/subscriptions-licenses-accounts-and-tenants-for-microsoft-cloud-offerings) platformy Azure to umowa z firmą Microsoft umożliwiająca korzystanie z jednej lub kilku usług w chmurze, dla których opłata jest naliczana. W przypadku Azure Automation Każda subskrypcja jest połączona z kontem Azure Automation i można [utworzyć wiele subskrypcji](manage-runbooks.md#work-with-multiple-subscriptions) na koncie.
+[Subskrypcja](/office365/enterprise/subscriptions-licenses-accounts-and-tenants-for-microsoft-cloud-offerings) platformy Azure to umowa z firmą Microsoft umożliwiająca korzystanie z jednej lub kilku usług w chmurze, dla których opłata jest naliczana. W przypadku Azure Automation Każda subskrypcja jest połączona z kontem Azure Automation i można [utworzyć wiele subskrypcji](manage-runbooks.md#work-with-multiple-subscriptions) na koncie.
 
 ## <a name="credentials"></a>Poświadczenia
 
@@ -79,18 +79,18 @@ Element Runbook wymaga odpowiednich [poświadczeń](shared-resources/credentials
 
 ## <a name="azure-monitor"></a>Azure Monitor
 
-Azure Automation używa [Azure monitor](https://docs.microsoft.com/azure/azure-monitor/overview) do monitorowania operacji maszyny. Operacje wymagają Log Analytics obszaru roboczego i [agentów log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent).
+Azure Automation używa [Azure monitor](../azure-monitor/overview.md) do monitorowania operacji maszyny. Operacje wymagają Log Analytics obszaru roboczego i [agentów log Analytics](../azure-monitor/platform/log-analytics-agent.md).
 
 ### <a name="log-analytics-agent-for-windows"></a>Agent Log Analytics dla systemu Windows
 
-[Agent log Analytics dla systemu Windows](https://docs.microsoft.com/azure/azure-monitor/platform/agent-windows) współpracuje z usługą Azure monitor do zarządzania maszynami wirtualnymi z systemem Windows i komputerami fizycznymi. Maszyny mogą działać na platformie Azure lub w środowisku spoza platformy Azure, na przykład w lokalnym centrum danych. Należy skonfigurować agenta w celu raportowania do co najmniej jednego obszaru roboczego Log Analytics. 
+[Agent log Analytics dla systemu Windows](../azure-monitor/platform/agent-windows.md) współpracuje z usługą Azure monitor do zarządzania maszynami wirtualnymi z systemem Windows i komputerami fizycznymi. Maszyny mogą działać na platformie Azure lub w środowisku spoza platformy Azure, na przykład w lokalnym centrum danych. Należy skonfigurować agenta w celu raportowania do co najmniej jednego obszaru roboczego Log Analytics. 
 
 >[!NOTE]
 >Agent Log Analytics dla systemu Windows był wcześniej znany jako Microsoft Monitoring Agent (MMA).
 
 ### <a name="log-analytics-agent-for-linux"></a>Agent Log Analytics dla systemu Linux
 
-[Agent log Analytics dla systemu Linux](https://docs.microsoft.com/azure/azure-monitor/platform/agent-linux) działa podobnie jak Agent programu Windows, ale łączy komputery z systemem Linux, aby Azure monitor. Agent jest instalowany przy użyciu konta użytkownika **nxautomation** , które umożliwia wykonywanie poleceń wymagających uprawnień głównych, na przykład w hybrydowym procesie roboczym elementu Runbook. Konto **nxautomation** jest kontem systemowym, które nie wymaga hasła. 
+[Agent log Analytics dla systemu Linux](../azure-monitor/platform/agent-linux.md) działa podobnie jak Agent programu Windows, ale łączy komputery z systemem Linux, aby Azure monitor. Agent jest instalowany przy użyciu konta użytkownika **nxautomation** , które umożliwia wykonywanie poleceń wymagających uprawnień głównych, na przykład w hybrydowym procesie roboczym elementu Runbook. Konto **nxautomation** jest kontem systemowym, które nie wymaga hasła. 
 
 Konto **nxautomation** z odpowiednimi uprawnieniami sudo musi być obecne podczas [instalacji hybrydowego procesu roboczego elementu Runbook systemu Linux](automation-linux-hrw-install.md). Jeśli spróbujesz zainstalować proces roboczy, a konto nie jest obecne lub nie ma odpowiednich uprawnień, instalacja nie powiedzie się.
 
@@ -120,7 +120,7 @@ Elementy Runbook mogą korzystać z certyfikatów z podpisem własnym, które ni
 
 Azure Automation obsługuje środowisko do uruchamiania zadań z tego samego konta usługi Automation. Pojedynczy element Runbook może mieć wiele zadań uruchomionych jednocześnie. Im więcej zadań jest wykonywanych w tym samym czasie, tym częściej można je wysłać do tej samej piaskownicy. 
 
-Zadania uruchomione w tym samym procesie piaskownicy mogą mieć wpływ na siebie nawzajem. Przykładem jest uruchomienie polecenia cmdlet [Disconnect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/disconnect-azaccount?view=azps-3.7.0) . Wykonanie tego polecenia cmdlet rozłącza każde zadanie elementu Runbook w udostępnionym procesie piaskownicy. Przykład pracy z tym scenariuszem można znaleźć w temacie [zapobieganie współbieżnym zadaniami](manage-runbooks.md#prevent-concurrent-jobs).
+Zadania uruchomione w tym samym procesie piaskownicy mogą mieć wpływ na siebie nawzajem. Przykładem jest uruchomienie polecenia cmdlet [Disconnect-AzAccount](/powershell/module/az.accounts/disconnect-azaccount?view=azps-3.7.0) . Wykonanie tego polecenia cmdlet rozłącza każde zadanie elementu Runbook w udostępnionym procesie piaskownicy. Przykład pracy z tym scenariuszem można znaleźć w temacie [zapobieganie współbieżnym zadaniami](manage-runbooks.md#prevent-concurrent-jobs).
 
 >[!NOTE]
 >Zadania programu PowerShell uruchomione z elementu Runbook, który działa w piaskownicy platformy Azure, mogą nie działać w [trybie pełnego języka programu PowerShell](/powershell/module/microsoft.powershell.core/about/about_language_modes). 
@@ -136,7 +136,7 @@ W poniższej tabeli opisano Stany, które są możliwe dla danego zadania. Możn
 | Niepowodzenie, oczekiwanie na zasoby |Zadanie nie powiodło się, ponieważ osiągnął limit [godziwego udziału](#fair-share) trzy razy i został uruchomiony z tego samego punktu kontrolnego lub od początku elementu Runbook za każdym razem. |
 | W kolejce |Zadanie oczekuje na udostępnienie zasobów w procesie roboczym usługi Automation, aby można było je uruchomić. |
 | Wznawianie |System wznawia zadanie po jego wstrzymaniu. |
-| Działanie |Zadanie jest uruchomione. |
+| Uruchomiono |Zadanie jest uruchomione. |
 | Uruchamianie, oczekiwanie na zasoby |Zadanie zostało zwolnione, ponieważ osiągnęło odpowiedni limit udostępniania. Wkrótce zostanie wznowione od ostatniego punktu kontrolnego. |
 | Uruchamianie |Zadanie zostało przypisane do procesu roboczego, a system go uruchamia. |
 | Zatrzymano |Zadanie zostało zatrzymane przez użytkownika przed jego ukończeniem. |
@@ -156,7 +156,7 @@ W tej sekcji opisano niektóre sposoby obsługi wyjątków lub sporadycznych pro
 
 Zmienna [ErrorActionPreference](/powershell/module/microsoft.powershell.core/about/about_preference_variables#erroractionpreference) określa, jak program PowerShell reaguje na błąd niepowodujący zakończenia. Przerywanie błędów zawsze kończy się i nie dotyczy `ErrorActionPreference` .
 
-Gdy element Runbook używa `ErrorActionPreference` , zazwyczaj błąd niepowodujący zakończenia, taki jak `PathNotFound` polecenie cmdlet [GET-ChildItem](https://docs.microsoft.com/powershell/module/microsoft.powershell.management/get-childitem?view=powershell-7) , uniemożliwia ukończenie elementu Runbook. W poniższym przykładzie pokazano użycie `ErrorActionPreference` . Końcowe polecenie [Write-Output](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/write-output?view=powershell-7) nigdy nie jest wykonywane, gdy skrypt zostaje zatrzymany.
+Gdy element Runbook używa `ErrorActionPreference` , zazwyczaj błąd niepowodujący zakończenia, taki jak `PathNotFound` polecenie cmdlet [GET-ChildItem](/powershell/module/microsoft.powershell.management/get-childitem?view=powershell-7) , uniemożliwia ukończenie elementu Runbook. W poniższym przykładzie pokazano użycie `ErrorActionPreference` . Końcowe polecenie [Write-Output](/powershell/module/microsoft.powershell.utility/write-output?view=powershell-7) nigdy nie jest wykonywane, gdy skrypt zostaje zatrzymany.
 
 ```powershell-interactive
 $ErrorActionPreference = 'Stop'
@@ -222,14 +222,13 @@ Aby udostępnić zasoby między wszystkimi elementami Runbook w chmurze, platfor
 
 W przypadku długotrwałych Azure Automation zadań zaleca się użycie hybrydowego procesu roboczego elementu Runbook. Hybrydowe procesy robocze elementów Runbook nie są ograniczone przez sprawiedliwy udział i nie mają ograniczenia czasu wykonywania elementu Runbook. Pozostałe [limity](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits) zadań dotyczą zarówno piaskownic systemu Azure, jak i hybrydowych procesów roboczych elementów Runbook. Chociaż hybrydowe procesy robocze elementów Runbook nie są ograniczone przez 3-godzinny limit udziałów, należy opracować elementy Runbook do działania w ramach procesów roboczych, które obsługują ponowne uruchomienia z nieoczekiwanych problemów z infrastrukturą lokalną.
 
-Kolejną opcją jest optymalizacja elementu Runbook przy użyciu podrzędnych elementów Runbook. Na przykład element Runbook może przechodzić przez tę samą funkcję do kilku zasobów, na przykład z operacją bazy danych na kilku bazach danych. Tę funkcję można przenieść do [podrzędnego elementu Runbook](automation-child-runbooks.md) i mieć do niej wywołanie elementu Runbook za pomocą polecenia [Start-AzAutomationRunbook](https://docs.microsoft.com/powershell/module/az.automation/start-azautomationrunbook?view=azps-3.7.0). Podrzędne elementy Runbook są wykonywane równolegle w oddzielnych procesach.
+Kolejną opcją jest optymalizacja elementu Runbook przy użyciu podrzędnych elementów Runbook. Na przykład element Runbook może przechodzić przez tę samą funkcję do kilku zasobów, na przykład z operacją bazy danych na kilku bazach danych. Tę funkcję można przenieść do [podrzędnego elementu Runbook](automation-child-runbooks.md) i mieć do niej wywołanie elementu Runbook za pomocą polecenia [Start-AzAutomationRunbook](/powershell/module/az.automation/start-azautomationrunbook?view=azps-3.7.0). Podrzędne elementy Runbook są wykonywane równolegle w oddzielnych procesach.
 
-Użycie podrzędnych elementów Runbook zmniejsza łączny czas pracy nadrzędnego elementu Runbook. Element Runbook może użyć polecenia cmdlet [Get-AzAutomationJob](https://docs.microsoft.com/powershell/module/az.automation/get-azautomationjob?view=azps-3.7.0) , aby sprawdzić stan zadania podrzędnego elementu Runbook, jeśli nadal ma więcej operacji po zakończeniu działania podrzędnego.
+Użycie podrzędnych elementów Runbook zmniejsza łączny czas pracy nadrzędnego elementu Runbook. Element Runbook może użyć polecenia cmdlet [Get-AzAutomationJob](/powershell/module/az.automation/get-azautomationjob?view=azps-3.7.0) , aby sprawdzić stan zadania podrzędnego elementu Runbook, jeśli nadal ma więcej operacji po zakończeniu działania podrzędnego.
 
 ## <a name="next-steps"></a>Następne kroki
 
 * Aby rozpocząć pracę z elementem Runbook programu PowerShell, zobacz [Samouczek: Tworzenie elementu Runbook programu PowerShell](learn/automation-tutorial-runbook-textual-powershell.md).
 * Aby korzystać z elementów Runbook, zobacz [Zarządzanie elementami Runbook w Azure Automation](manage-runbooks.md).
-* Aby uzyskać szczegółowe informacje na temat programu PowerShell, zobacz dokumentację [programu PowerShell](https://docs.microsoft.com/powershell/scripting/overview).
-* * Aby uzyskać informacje dotyczące poleceń cmdlet programu PowerShell, zobacz [AZ. Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
-).
+* Aby uzyskać szczegółowe informacje na temat programu PowerShell, zobacz dokumentację [programu PowerShell](/powershell/scripting/overview).
+* * Aby uzyskać informacje dotyczące poleceń cmdlet programu PowerShell, zobacz [AZ. Automation](/powershell/module/az.automation/?view=azps-3.7.0#automation).

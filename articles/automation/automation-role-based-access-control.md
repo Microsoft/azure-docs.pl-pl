@@ -6,11 +6,12 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 05/17/2018
 ms.topic: conceptual
-ms.openlocfilehash: ac05d5b4eb8dd9d7a39f56ec6efae4831f00c623
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9e997f80ceee54a1454128c1308032fefa603f5d
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85100015"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186150"
 ---
 # <a name="manage-role-permissions-and-security"></a>Zarządzanie uprawnieniami ról i zabezpieczeniami
 
@@ -310,7 +311,7 @@ Możesz usunąć uprawnienie dostępu dla użytkownika, który nie zarządza kon
 
 Możesz również skonfigurować dostęp oparty na rolach do konta usługi Automation przy użyciu następujących [poleceń cmdlet Azure PowerShell](../role-based-access-control/role-assignments-powershell.md):
 
-[Get-AzRoleDefinition](https://docs.microsoft.com/powershell/module/Az.Resources/Get-AzRoleDefinition?view=azps-3.7.0) wyświetla wszystkie role RBAC, które są dostępne w Azure Active Directory. Tego polecenia cmdlet można użyć z `Name` parametrem, aby wyświetlić listę wszystkich akcji, które może wykonać określona rola.
+[Get-AzRoleDefinition](/powershell/module/Az.Resources/Get-AzRoleDefinition?view=azps-3.7.0) wyświetla wszystkie role RBAC, które są dostępne w Azure Active Directory. Tego polecenia cmdlet można użyć z `Name` parametrem, aby wyświetlić listę wszystkich akcji, które może wykonać określona rola.
 
 ```azurepowershell-interactive
 Get-AzRoleDefinition -Name 'Automation Operator'
@@ -329,7 +330,7 @@ NotActions       : {}
 AssignableScopes : {/}
 ```
 
-[Get-AzRoleAssignment](https://docs.microsoft.com/powershell/module/az.resources/get-azroleassignment?view=azps-3.7.0) wyświetla przypisania ról RBAC usługi Azure AD w określonym zakresie. Bez żadnych parametrów to polecenie cmdlet zwraca wszystkie przypisania roli wykonane w ramach subskrypcji. Użyj `ExpandPrincipalGroups` parametru, aby wyświetlić listę przypisań dostępu dla określonego użytkownika, a także grupy, do których należy użytkownik.
+[Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment?view=azps-3.7.0) wyświetla przypisania ról RBAC usługi Azure AD w określonym zakresie. Bez żadnych parametrów to polecenie cmdlet zwraca wszystkie przypisania roli wykonane w ramach subskrypcji. Użyj `ExpandPrincipalGroups` parametru, aby wyświetlić listę przypisań dostępu dla określonego użytkownika, a także grupy, do których należy użytkownik.
 
 **Przykład:** Użyj poniższego polecenia cmdlet, aby wyświetlić listę wszystkich użytkowników i ich ról w ramach konta usługi Automation.
 
@@ -351,7 +352,7 @@ ObjectId           : 15f26a47-812d-489a-8197-3d4853558347
 ObjectType         : User
 ```
 
-Użyj polecenie [New-AzRoleAssignment](https://docs.microsoft.com/powershell/module/Az.Resources/New-AzRoleAssignment?view=azps-3.7.0) , aby przypisać dostęp do użytkowników, grup i aplikacji do określonego zakresu.
+Użyj polecenie [New-AzRoleAssignment](/powershell/module/Az.Resources/New-AzRoleAssignment?view=azps-3.7.0) , aby przypisać dostęp do użytkowników, grup i aplikacji do określonego zakresu.
     
 **Przykład:** Użyj poniższego polecenia, aby przypisać rolę "operator usługi" dla użytkownika w zakresie konta usługi Automation.
 
@@ -373,7 +374,7 @@ ObjectId           : f5ecbe87-1181-43d2-88d5-a8f5e9d8014e
 ObjectType         : User
 ```
 
-Użyj polecenie [Remove-AzRoleAssignment](https://docs.microsoft.com/powershell/module/Az.Resources/Remove-AzRoleAssignment?view=azps-3.7.0) , aby usunąć dostęp określonego użytkownika, grupy lub aplikacji z określonego zakresu.
+Użyj polecenie [Remove-AzRoleAssignment](/powershell/module/Az.Resources/Remove-AzRoleAssignment?view=azps-3.7.0) , aby usunąć dostęp określonego użytkownika, grupy lub aplikacji z określonego zakresu.
 
 **Przykład:** Użyj poniższego polecenia, aby usunąć użytkownika z roli operatora automatyzacji w zakresie konta usługi Automation.
 

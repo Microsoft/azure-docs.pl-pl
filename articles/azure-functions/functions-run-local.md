@@ -1,19 +1,20 @@
 ---
-title: Pracuj z Azure Functions Core Tools
+title: Korzystanie z narzędzi Azure Functions Core Tools
 description: Dowiedz się, jak kodować i testować usługi Azure Functions w wierszu polecenia lub terminalu na komputerze lokalnym przed uruchomieniem ich na Azure Functions.
 ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.custom: 80e4ff38-5174-43
-ms.openlocfilehash: 35d408c636e20aef9495e72bc8535e0d7a99431e
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 8a68c793d9aaf94ad28f2e478254e42ede4800de
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85955272"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170364"
 ---
-# <a name="work-with-azure-functions-core-tools"></a>Pracuj z Azure Functions Core Tools
+# <a name="work-with-azure-functions-core-tools"></a>Korzystanie z narzędzi Azure Functions Core Tools
 
-Azure Functions Core Tools umożliwia tworzenie i testowanie funkcji na komputerze lokalnym z poziomu wiersza polecenia lub terminalu. Funkcje lokalne mogą łączyć się z aktywnymi usługami platformy Azure, a funkcje można debugować na komputerze lokalnym za pomocą środowiska uruchomieniowego Full Functions. Możesz nawet wdrożyć aplikację funkcji w ramach subskrypcji platformy Azure.
+Narzędzia Azure Functions Core Tools umożliwiają tworzenie i testowanie funkcji na komputerze lokalnym z poziomu wiersza polecenia lub terminalu. Funkcje lokalne mogą łączyć się z aktywnymi usługami platformy Azure, a funkcje można debugować na komputerze lokalnym za pomocą środowiska uruchomieniowego Full Functions. Możesz nawet wdrożyć aplikację funkcji w ramach subskrypcji platformy Azure.
 
 [!INCLUDE [Don't mix development environments](../../includes/functions-mixed-dev-environments.md)]
 
@@ -115,15 +116,15 @@ Poniższe kroki używają [apt](https://wiki.debian.org/Apt) do instalowania pod
     sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
     ```
 
-1. Skonfiguruj listę źródeł programistycznych platformy .NET przed wykonaniem aktualizacji APT.
+1. Przed wykonaniem aktualizacji APT skonfiguruj listę źródeł APT.
 
-   Aby skonfigurować listę źródeł APT dla Ubuntu, uruchom następujące polecenie:
+    ##### <a name="ubuntu"></a>Ubuntu
 
     ```bash
     sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-$(lsb_release -cs)-prod $(lsb_release -cs) main" > /etc/apt/sources.list.d/dotnetdev.list'
     ```
 
-   Aby skonfigurować listę źródeł APT dla Debian, uruchom następujące polecenie:
+    ##### <a name="debian"></a>Debian
 
     ```bash
     sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/debian/$(lsb_release -rs | cut -d'.' -f 1)/prod $(lsb_release -cs) main" > /etc/apt/sources.list.d/dotnetdev.list'
@@ -135,6 +136,7 @@ Poniższe kroki używają [apt](https://wiki.debian.org/Apt) do instalowania pod
     | --------------- | ----------- |
     | Debian 10 | `buster`  |
     | Debian 9  | `stretch` |
+    | Ubuntu 20.04    | `focal`     |
     | Ubuntu 19.04    | `disco`     |
     | Ubuntu 18,10    | `cosmic`    |
     | Ubuntu 18.04    | `bionic`    |
@@ -205,22 +207,17 @@ Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
 
 | Opcja     | Opis                            |
 | ------------ | -------------------------------------- |
-| **`--csharp`**<br/> **`--dotnet`** | Inicjuje [projekt biblioteki klas C# (. cs)](functions-dotnet-class-library.md). |
-| **`--csx`** | Inicjuje [projekt skryptu C# (. CSX)](functions-reference-csharp.md). Należy określić `--csx` w kolejnych poleceniach. |
-| **`--docker`** | Utwórz pliku dockerfile dla kontenera przy użyciu obrazu podstawowego, który jest oparty na wybranym z nich `--worker-runtime` . Użyj tej opcji, jeśli planujesz publikowanie do niestandardowego kontenera systemu Linux. |
+| **`--csx`** | Tworzy funkcje .NET jako skrypt języka C#, który jest zachowaniem w wersji 1. x. Prawidłowy tylko z `--worker-runtime dotnet` . |
+| **`--docker`** | Tworzy pliku dockerfile dla kontenera przy użyciu obrazu podstawowego, który jest oparty na wybranym `--worker-runtime` . Użyj tej opcji, jeśli planujesz publikowanie do niestandardowego kontenera systemu Linux. |
 | **`--docker-only`** |  Dodaje pliku dockerfile do istniejącego projektu. Jeśli nie zostanie określony lub ustawiony w local.settings.jsna. Użyj tej opcji, jeśli planujesz opublikować istniejący projekt w niestandardowym kontenerze systemu Linux. |
 | **`--force`** | Zainicjuj projekt nawet wtedy, gdy istnieją pliki w projekcie. To ustawienie zastępuje istniejące pliki o tej samej nazwie. Nie ma to wpływu na inne pliki w folderze projektu. |
-| **`--java`**  | Inicjuje [projekt Java](functions-reference-java.md). |
-| **`--javascript`**<br/>**`--node`**  | Inicjuje [projekt JavaScript](functions-reference-node.md). |
-| **`--no-source-control`**<br/>**`-n`** | Zapobiega domyślnym tworzeniu repozytorium Git w wersji 1. x. W wersji 3. x/2. x repozytorium Git nie jest tworzone domyślnie. |
-| **`--powershell`**  | Inicjuje [projekt programu PowerShell](functions-reference-powershell.md). |
-| **`--python`**  | Inicjuje [projekt języka Python](functions-reference-python.md). |
+| **`--language`** | Inicjuje projekt specyficzny dla języka. Obecnie obsługiwane, gdy jest `--worker-runtime` ustawiony na `node` . Dostępne opcje to `typescript` i `javascript` . Można również użyć `--worker-runtime javascript` lub `--worker-runtime typescript` .  |
+| **`--managed-dependencies`**  | Instaluje zależności zarządzane. Obecnie tylko środowisko uruchomieniowe środowiska wykonawczego programu PowerShell obsługuje tę funkcję. |
 | **`--source-control`** | Określa, czy tworzone jest repozytorium git. Domyślnie repozytorium nie jest tworzone. Gdy `true` jest tworzone repozytorium. |
-| **`--typescript`**  | Inicjuje [projekt TypeScript](functions-reference-node.md#typescript). |
-| **`--worker-runtime`** | Ustawia środowisko uruchomieniowe języka dla projektu. Obsługiwane są następujące wartości: `csharp` , `dotnet` ,, `java` `javascript` , `node` (JavaScript), `powershell` , `python` , i `typescript` . Gdy nie jest ustawiona, zostanie wyświetlony monit o wybranie środowiska uruchomieniowego podczas inicjowania. |
-
+| **`--worker-runtime`** | Ustawia środowisko uruchomieniowe języka dla projektu. Obsługiwane są następujące wartości: `csharp` , `dotnet` , `javascript` , `node` (JavaScript), `powershell` , `python` , i `typescript` . W przypadku języka Java należy użyć [Maven](functions-reference-java.md#create-java-functions). Gdy nie jest ustawiona, zostanie wyświetlony monit o wybranie środowiska uruchomieniowego podczas inicjowania. |
+|
 > [!IMPORTANT]
-> Domyślnie wersja 3. x/2. x podstawowych narzędzi tworzy projekty aplikacji funkcji dla środowiska uruchomieniowego .NET jako [projekty klas C#](functions-dotnet-class-library.md) (. csproj). Te projekty w języku C#, które mogą być używane z programem Visual Studio lub Visual Studio Code, są kompilowane podczas testowania i podczas publikowania na platformie Azure. Jeśli zamiast tego chcesz utworzyć i korzystać z tych samych plików skryptu C# (. CSX) utworzonych w wersji 1. x i w portalu, musisz uwzględnić `--csx` parametr podczas tworzenia i wdrażania funkcji.
+> Domyślnie wersja 2. x i nowsze wersje podstawowych narzędzi tworzy projekty aplikacji funkcji dla środowiska uruchomieniowego .NET jako [projekty klas C#](functions-dotnet-class-library.md) (. csproj). Te projekty w języku C#, które mogą być używane z programem Visual Studio lub Visual Studio Code, są kompilowane podczas testowania i podczas publikowania na platformie Azure. Jeśli zamiast tego chcesz utworzyć i korzystać z tych samych plików skryptu C# (. CSX) utworzonych w wersji 1. x i w portalu, musisz uwzględnić `--csx` parametr podczas tworzenia i wdrażania funkcji.
 
 [!INCLUDE [functions-core-tools-install-extension](../../includes/functions-core-tools-install-extension.md)]
 
@@ -234,6 +231,8 @@ Wartości ustawień aplikacji funkcji można także odczytać w kodzie jako zmie
 * [Skrypt języka C# (csx)](functions-reference-csharp.md#environment-variables)
 * [Java](functions-reference-java.md#environment-variables)
 * [JavaScript](functions-reference-node.md#environment-variables)
+* [Program PowerShell](functions-reference-powershell.md#environment-variables)
+* [Python](functions-reference-python.md#environment-variables)
 
 Gdy nie ustawiono prawidłowych parametrów połączenia magazynu dla [`AzureWebJobsStorage`] i emulator nie jest używany, wyświetlany jest następujący komunikat o błędzie:
 
@@ -306,10 +305,11 @@ Możesz również określić te opcje w poleceniu przy użyciu następujących a
 
 | Argument     | Opis                            |
 | ------------------------------------------ | -------------------------------------- |
-| **`--csx`** | (Wersja 3. x/2. x) Generuje te same szablony skryptów C# (. CSX), które są używane w wersji 1. x i w portalu. |
-| **`--language`**, **`-l`**| Język programowania szablonu, taki jak C#, F # lub JavaScript. Ta opcja jest wymagana w wersji 1. x. W wersji 3. x/2. x nie używaj tej opcji lub wybierz język, który jest zgodny ze środowiskiem uruchomieniowym procesu roboczego. |
+| **`--csx`** | (Wersja 2. x i nowsze wersje). Generuje te same szablony skryptów C# (. CSX), które są używane w wersji 1. x i w portalu. |
+| **`--language`**, **`-l`**| Język programowania szablonu, taki jak C#, F # lub JavaScript. Ta opcja jest wymagana w wersji 1. x. W wersji 2. x i nowszych wersje nie należy używać tej opcji ani wybierać języka odpowiadającego środowisku uruchomieniowemu procesu roboczego. |
 | **`--name`**, **`-n`** | Nazwa funkcji. |
 | **`--template`**, **`-t`** | Użyj `func templates list` polecenia, aby wyświetlić pełną listę dostępnych szablonów dla każdego obsługiwanego języka.   |
+
 
 Na przykład aby utworzyć wyzwalacz HTTP JavaScript w pojedynczym poleceniu, uruchom polecenie:
 
@@ -366,11 +366,10 @@ npm start
 | Opcja     | Opis                            |
 | ------------ | -------------------------------------- |
 | **`--no-build`** | Nie wykonuj kompilacji bieżącego projektu przed uruchomieniem. Tylko w przypadku projektów dotnet. Wartość domyślna to false. Nieobsługiwane w wersji 1. x. |
-| **`--cert`** | Ścieżka do pliku PFX, który zawiera klucz prywatny. Używany tylko z `--useHttps` . Nieobsługiwane w wersji 1. x. |
 | **`--cors-credentials`** | Zezwalaj na żądania uwierzytelniane między źródłami (np. pliki cookie i nagłówek uwierzytelniania) nie są obsługiwane w wersji 1. x. |
 | **`--cors`** | Rozdzielana przecinkami lista źródeł CORS bez spacji. |
 | **`--language-worker`** | Argumenty umożliwiające skonfigurowanie procesu roboczego języka. Na przykład można włączyć debugowanie dla procesu roboczego, dostarczając [port debugowania i inne wymagane argumenty](https://github.com/Azure/azure-functions-core-tools/wiki/Enable-Debugging-for-language-workers). Nieobsługiwane w wersji 1. x. |
-| **`--nodeDebugPort`**, **`-n`** | Port dla debugera Node.js, który ma być używany. Domyślnie: wartość z launch.jsw dniu lub 5858. Tylko wersja 1. x. |
+| **`--cert`** | Ścieżka do pliku PFX, który zawiera klucz prywatny. Używany tylko z `--useHttps` . Nieobsługiwane w wersji 1. x. |
 | **`--password`** | Hasło lub plik zawierający hasło dla pliku PFX. Używany tylko z `--cert` . Nieobsługiwane w wersji 1. x. |
 | **`--port`**, **`-p`** | Port lokalny, na którym nasłuchuje. Wartość domyślna: 7071. |
 | **`--pause-on-error`** | Wstrzymaj, aby uzyskać dodatkowe dane wejściowe przed wyjściem z procesu. Używane tylko w przypadku uruchamiania podstawowych narzędzi z zintegrowanego środowiska programistycznego (IDE).|
@@ -404,7 +403,7 @@ Aby uzyskać więcej ogólnych informacji na temat funkcji testowania, zapoznaj 
 
 Przywołująsz następujący punkt końcowy do lokalnego uruchamiania funkcji HTTP i elementu webhook:
 
-```http
+```
 http://localhost:{port}/api/{function_name}
 ```
 
@@ -440,7 +439,7 @@ Opcjonalnie można przekazać dane testowe do wykonania w treści żądania POST
 
 Aby wyzwolić funkcje inne niż HTTP, należy wywołać następujący punkt końcowy administratora:
 
-```http
+```
 http://localhost:{port}/admin/functions/{function_name}
 ```
 
@@ -510,14 +509,14 @@ To polecenie publikuje w istniejącej aplikacji funkcji na platformie Azure. Wys
 > Podczas tworzenia aplikacji funkcji w Azure Portal jest domyślnie używane środowisko uruchomieniowe funkcji w wersji 3. x. Aby aplikacja funkcji korzystała z wersji 1. x środowiska uruchomieniowego, postępuj zgodnie z instrukcjami w temacie [Run on Version 1. x](functions-versions.md#creating-1x-apps).
 > Nie można zmienić wersji środowiska uruchomieniowego dla aplikacji funkcji, która ma istniejące funkcje.
 
-Poniższe opcje publikowania dotyczą wersji 3. x, 2. x i 1. x:
+W przypadku wszystkich wersji są stosowane następujące opcje publikowania:
 
 | Opcja     | Opis                            |
 | ------------ | -------------------------------------- |
 | **`--publish-local-settings -i`** |  Publikuj ustawienia w local.settings.jsna platformie Azure, monitując o zastąpienie, jeśli to ustawienie już istnieje. Jeśli używasz emulator magazynu Microsoft Azure, najpierw Zmień ustawienie aplikacji na [rzeczywiste połączenie magazynu](#get-your-storage-connection-strings). |
 | **`--overwrite-settings -y`** | Pomiń monit o zastąpienie ustawień aplikacji, gdy `--publish-local-settings -i` jest używany.|
 
-Następujące opcje publikowania są obsługiwane tylko w wersji 3. x i 2. x:
+Następujące opcje publikowania są obsługiwane tylko dla wersji 2. x i nowszych:
 
 | Opcja     | Opis                            |
 | ------------ | -------------------------------------- |
@@ -530,7 +529,7 @@ Następujące opcje publikowania są obsługiwane tylko w wersji 3. x i 2. x:
 | **`--additional-packages`** | Lista pakietów do zainstalowania podczas kompilowania natywnych zależności. Na przykład: `python3-dev libevent-dev`. |
 | **`--force`** | Ignoruj weryfikację przed publikacją w określonych scenariuszach. |
 | **`--csx`** | Opublikuj projekt skryptu C# (. CSX). |
-| **`--no-build`** | Nie Kompiluj funkcji biblioteki klas .NET. |
+| **`--no-build`** | Projekt nie został skompilowany podczas publikowania. Dla języka Python `pip install` nie jest wykonywane. |
 | **`--dotnet-cli-params`** | Podczas publikowania skompilowanych funkcji języka C# (. csproj) podstawowe narzędzia powodują wywoływanie "dotnet Build--Output bin/Publish". Wszystkie parametry przesłane do tego zostaną dołączone do wiersza polecenia. |
 
 ### <a name="deploy-custom-container"></a>Wdróż kontener niestandardowy
@@ -581,7 +580,7 @@ Aby zgłosić błąd lub żądanie funkcji, [Otwórz problem z usługą GitHub](
 <!-- LINKS -->
 
 [Azure Functions Core Tools]: https://www.npmjs.com/package/azure-functions-core-tools
-[Azure Portal]: https://portal.azure.com 
+[Witryna Azure Portal]: https://portal.azure.com 
 [Node.js]: https://docs.npmjs.com/getting-started/installing-node#osx-or-windows
 [`FUNCTIONS_WORKER_RUNTIME`]: functions-app-settings.md#functions_worker_runtime
 [AzureWebJobsStorage]: functions-app-settings.md#azurewebjobsstorage

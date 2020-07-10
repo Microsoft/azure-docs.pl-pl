@@ -3,12 +3,12 @@ title: AMQP 1,0 Azure Service Bus i Event Hubs Przewodnik po protokole | Microso
 description: Przewodnik po protokole do wyrażeń i opisów AMQP 1,0 w Azure Service Bus i Event Hubs
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 17f2f6da88e585d770a0a04825dc817f870089f1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 79132ef7105de8de2261c35258006af3f0a665a5
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85337891"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186915"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>AMQP 1,0 Azure Service Bus i Event Hubs Przewodnik po protokole
 
@@ -222,8 +222,8 @@ Każda właściwość, którą aplikacja musi definiować, powinna być mapowana
 | --- | --- | --- |
 | Identyfikator komunikatu |Zdefiniowany przez aplikację identyfikator dowolnej postaci dla tego komunikatu. Używany do wykrywania duplikatów. |[Identyfikatora](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | user-id |Identyfikator użytkownika zdefiniowany przez aplikację, nieinterpretowany przez Service Bus. |Niedostępne za pomocą interfejsu API Service Bus. |
-| na |Zdefiniowany przez aplikację identyfikator docelowy, nieinterpretowany przez Service Bus. |[Do](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
-| Temat |Identyfikator przeznaczenie komunikatu zdefiniowany przez aplikację, nieinterpretowany przez Service Bus. |[Etykieta](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
+| na |Zdefiniowany przez aplikację identyfikator docelowy, nieinterpretowany przez Service Bus. |[Działanie](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
+| subject |Identyfikator przeznaczenie komunikatu zdefiniowany przez aplikację, nieinterpretowany przez Service Bus. |[Etykieta](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | Odpowiedz do |Zdefiniowany przez aplikację wskaźnik ścieżki odpowiedzi, nieinterpretowany przez Service Bus. |[From](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | correlation-id |Zdefiniowany przez aplikację identyfikator korelacji, nieinterpretowany przez Service Bus. |[Korelacj](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | Typ zawartości |Zdefiniowany przez aplikację wskaźnik typu zawartości dla treści, nieinterpretowany przez Service Bus. |[ContentType](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
@@ -264,8 +264,8 @@ Każde połączenie musi inicjować swój własny link kontroli, aby można był
 
 , Aby rozpocząć pracę transakcyjną. Kontroler musi uzyskać `txn-id` od koordynatora. Robi to przez wysłanie `declare` komunikatu typu. Jeśli deklaracja zostanie zakończona pomyślnie, koordynator odpowie z wynikiem dyspozycji, który przenosi przypisane `txn-id` .
 
-| Klient (kontroler) | | Service Bus (koordynator) |
-| --- | --- | --- |
+| Klient (kontroler) | Kierunek | Service Bus (koordynator) |
+| :--- | :---: | :--- |
 | Klej<br/>Nazwa = {Nazwa łącza},<br/>... ,<br/>rola =**nadawca**,<br/>Target =**koordynator**<br/>) | ------> |  |
 |  | <------ | Klej<br/>Nazwa = {Nazwa łącza},<br/>... ,<br/>Target = Coordinator ()<br/>) |
 | sunięć<br/>Identyfikator dostarczania = 0,...)<br/>{AmqpValue (**DECLARE ()**)}| ------> |  |
@@ -277,8 +277,8 @@ Kontroler kończy działanie transakcyjne przez wysłanie `discharge` komunikatu
 
 > Uwaga: błąd = true oznacza wycofanie transakcji i niepowodzenie = false oznacza zatwierdzenie.
 
-| Klient (kontroler) | | Service Bus (koordynator) |
-| --- | --- | --- |
+| Klient (kontroler) | Kierunek | Service Bus (koordynator) |
+| :--- | :---: | :--- |
 | sunięć<br/>Identyfikator dostarczania = 0,...)<br/>{AmqpValue (DECLARE ())}| ------> |  |
 |  | <------ | dyspozycji <br/> pierwsze = 0, ostatnie = 0, <br/>State = zadeklarowane (<br/>transakcja-ID = {Transaction ID}<br/>))|
 | | . . . <br/>Działania transakcyjne<br/>na inne linki<br/> . . . |
@@ -289,8 +289,8 @@ Kontroler kończy działanie transakcyjne przez wysłanie `discharge` komunikatu
 
 Wszystkie zadania transakcyjne są wykonywane ze transakcyjnym stanem dostarczania `transactional-state` , który ma identyfikator transakcja. W przypadku wysyłania komunikatów stan transakcyjny jest przenoszony przez ramkę transferu wiadomości. 
 
-| Klient (kontroler) | | Service Bus (koordynator) |
-| --- | --- | --- |
+| Klient (kontroler) | Kierunek | Service Bus (koordynator) |
+| :--- | :---: | :--- |
 | sunięć<br/>Identyfikator dostarczania = 0,...)<br/>{AmqpValue (DECLARE ())}| ------> |  |
 |  | <------ | dyspozycji <br/> pierwsze = 0, ostatnie = 0, <br/>State = zadeklarowane (<br/>transakcja-ID = {Transaction ID}<br/>))|
 | sunięć<br/>dojście = 1,<br/>Identyfikator dostarczania = 1, <br/>**stan = <br/> TransactionalState ( <br/> transakcja-ID = 0)**)<br/>ładunku| ------> |  |
@@ -300,8 +300,8 @@ Wszystkie zadania transakcyjne są wykonywane ze transakcyjnym stanem dostarczan
 
 Dyspozycja komunikatów obejmuje operacje takie jak `Complete`  /  `Abandon`  /  `DeadLetter`  /  `Defer` . Aby wykonać te operacje w ramach transakcji, należy przekazać ją do `transactional-state` dyspozycji.
 
-| Klient (kontroler) | | Service Bus (koordynator) |
-| --- | --- | --- |
+| Klient (kontroler) | Kierunek | Service Bus (koordynator) |
+| :--- | :---: | :--- |
 | sunięć<br/>Identyfikator dostarczania = 0,...)<br/>{AmqpValue (DECLARE ())}| ------> |  |
 |  | <------ | dyspozycji <br/> pierwsze = 0, ostatnie = 0, <br/>State = zadeklarowane (<br/>transakcja-ID = {Transaction ID}<br/>))|
 | | <------ |sunięć<br/>dojście = 2,<br/>Identyfikator dostarczania = 11, <br/>State = null)<br/>ładunku|  
@@ -362,7 +362,7 @@ Komunikat żądania ma następujące właściwości aplikacji:
 | operacje |Nie |ciąg |**Put-token** |
 | typ |Nie |ciąg |Typ umieszczanego tokenu. |
 | name |Nie |ciąg |"Odbiorcy", do którego ma zastosowanie token. |
-| datę |Tak |sygnatura czasowa |Czas wygaśnięcia tokenu. |
+| datę |Yes |sygnatura czasowa |Czas wygaśnięcia tokenu. |
 
 Właściwość *name* identyfikuje jednostkę, z którą ma zostać skojarzony token. W Service Bus jest to ścieżka do kolejki lub tematu/subskrypcji. Właściwość *Type* identyfikuje typ tokenu:
 
@@ -379,7 +379,7 @@ Komunikat odpowiedzi zawiera następujące wartości *właściwości aplikacji*
 | Klucz | Opcjonalne | Typ wartości | Zawartość wartości |
 | --- | --- | --- | --- |
 | stan — kod |Nie |int |Kod odpowiedzi HTTP **[RFC2616]**. |
-| stan — opis |Tak |ciąg |Opis stanu. |
+| stan — opis |Yes |ciąg |Opis stanu. |
 
 Klient może wielokrotnie wywoływać *token Put* i dla każdej jednostki w infrastrukturze obsługi wiadomości. Tokeny są objęte zakresem bieżącego klienta i zakotwiczone w bieżącym połączeniu, co oznacza, że serwer porzuca wszelkie zachowane tokeny, gdy połączenie zostanie odłączone.
 
@@ -399,8 +399,8 @@ Za pomocą tej funkcji utworzysz nadawcę i nawiążesz połączenie z `via-enti
 
 > Uwaga: przed ustanowieniem tego linku należy przeprowadzić *uwierzytelnianie zarówno dla jednostki, jak i* *obiektu docelowego* .
 
-| Klient | | Service Bus |
-| --- | --- | --- |
+| Klient | Kierunek | Service Bus |
+| :--- | :---: | :--- |
 | Klej<br/>Nazwa = {Nazwa łącza},<br/>Rola = nadawca,<br/>Źródło = {identyfikator łącza klienta},<br/>Target =**{Via-Entity}**,<br/>**Właściwości = map [( <br/> com. Microsoft: transfer-Destination-Address = <br/> {miejsce_docelowe-Entity})]** ) | ------> | |
 | | <------ | Klej<br/>Nazwa = {Nazwa łącza},<br/>Rola = odbiornik,<br/>Źródło = {identyfikator łącza klienta},<br/>Target = {Via-Entity},<br/>Właściwości = mapa [(<br/>com. Microsoft: transfer-Destination-Address =<br/>{Destination-Entity})] ) |
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 07/05/2020
-ms.openlocfilehash: aab0de11972f7d1abaaa0140da002f838e319fdf
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 4fb593f303eea0f4866dc248412af2f261993e92
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134612"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170347"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Azure Monitor klucz zarządzany przez klienta 
 
@@ -23,7 +23,7 @@ Zalecamy przejrzenie [ograniczeń i ograniczeń](#limitationsandconstraints) pon
 
 [Szyfrowanie w spoczynku](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest)   to typowe wymagania w zakresie ochrony prywatności i bezpieczeństwa w organizacjach.Możesz pozwolić, aby platforma Azure całkowicie zarządzała szyfrowaniem w stanie spoczynku, podczas gdy masz różne opcje, aby dokładnie zarządzać szyfrowaniem lub kluczami szyfrowania.
 
-Azure Monitor gwarantuje, że wszystkie dane są szyfrowane przy użyciu kluczy zarządzanych przez platformę Azure.Azure Monitor udostępnia również opcję szyfrowania danych przy użyciu własnego klucza przechowywanego w [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)   i dostępnego przez magazyn przy użyciu uwierzytelniania [tożsamości zarządzanej](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)przypisanego przez system   .Ten klucz może być [chroniony przez oprogramowanie lub sprzęt-moduł HSM](https://docs.microsoft.com/azure/key-vault/key-vault-overview).
+Azure Monitor gwarantuje, że wszystkie dane i zapisane zapytania są szyfrowane przy użyciu kluczy zarządzanych przez firmę Microsoft (MMK). Azure Monitor udostępnia również opcję szyfrowania przy użyciu własnego klucza przechowywanego w [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview) i dostępnego przez magazyn przy użyciu uwierzytelniania [tożsamości zarządzanej](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) przypisanego przez system. Ten klucz (CMK) może być chroniony za pomocą [oprogramowania lub sprzętowego modułu HSM](https://docs.microsoft.com/azure/key-vault/key-vault-overview).
 
 Azure Monitor korzystania z szyfrowania jest taka sama jak w sposobie działania [szyfrowania usługi Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-service-encryption#about-azure-storage-encryption)   .
 
@@ -42,7 +42,7 @@ Po CMK konfiguracji wszystkie dane pozyskiwane w obszarach roboczych skojarzonyc
 
 ![CMK — Omówienie](media/customer-managed-keys/cmk-overview.png)
 
-1. Key Vault
+1. Usługa Key Vault
 2. Log Analytics zasobu *klastra* mającego zarządzaną tożsamość z uprawnieniami do Key Vault — tożsamość jest propagowana do underlay dedykowanego log Analytics magazynu klastra
 3. Dedykowany klaster Log Analytics
 4. Obszary robocze skojarzone z zasobem *klastra* na potrzeby szyfrowania CMK
@@ -235,7 +235,7 @@ Content-type: application/json
 
 Tożsamość jest przypisywana do zasobu *klastra* podczas tworzenia.
 
-**Reakcji**
+**Odpowiedź**
 
 200 OK i nagłówek.
 
@@ -249,7 +249,7 @@ GET https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/
 Authorization: Bearer <token>
 ```
 
-**Reakcji**
+**Odpowiedź**
 
 ```json
 {
@@ -334,7 +334,7 @@ Content-type: application/json
 
 "KeyVaultProperties" zawiera szczegóły identyfikatora klucza Key Vault.
 
-**Reakcji**
+**Odpowiedź**
 
 200 OK i nagłówek.
 Wykonanie propagacji identyfikatora klucza trwa kilka minut. Stan aktualizacji można sprawdzić na dwa sposoby:
@@ -401,7 +401,7 @@ Content-type: application/json
 }
 ```
 
-**Reakcji**
+**Odpowiedź**
 
 200 OK i nagłówek.
 
@@ -415,7 +415,7 @@ GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/
 Authorization: Bearer <token>
 ```
 
-**Reakcji**
+**Odpowiedź**
 
 ```json
 {
@@ -546,7 +546,7 @@ Po zakończeniu konfiguracji wszystkie nowe zapytania o alerty zostaną zapisane
   Authorization: Bearer <token>
   ```
 
-  **Reakcji**
+  **Odpowiedź**
   
   ```json
   {
@@ -592,7 +592,7 @@ Po zakończeniu konfiguracji wszystkie nowe zapytania o alerty zostaną zapisane
   Authorization: Bearer <token>
   ```
     
-  **Reakcji**
+  **Odpowiedź**
     
   Taka sama odpowiedź jak dla "zasobów*klastra* dla grupy zasobów", ale w zakresie subskrypcji.
 
@@ -652,7 +652,7 @@ Po zakończeniu konfiguracji wszystkie nowe zapytania o alerty zostaną zapisane
   Authorization: Bearer <token>
   ```
 
-  **Reakcji**
+  **Odpowiedź**
 
   200 OK i nagłówek.
 
@@ -684,7 +684,7 @@ Po zakończeniu konfiguracji wszystkie nowe zapytania o alerty zostaną zapisane
   Authorization: Bearer <token>
   ```
 
-  **Reakcji**
+  **Odpowiedź**
 
   200 OK
 

@@ -4,11 +4,12 @@ description: Przenoszenie kolekcji obrazów lub innych artefaktów z jednego rej
 ms.topic: article
 ms.date: 05/08/2020
 ms.custom: ''
-ms.openlocfilehash: fd551671422931a51f5aa6468de87e28e3a81b5b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c80f10e8795c63b84bb46fc21fd3406a195b772e
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83006328"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186932"
 ---
 # <a name="transfer-artifacts-to-another-registry"></a>Przenoszenie artefaktów do innego rejestru
 
@@ -57,7 +58,7 @@ Uwierzytelnianie magazynu używa tokenów SAS zarządzanych jako wpisy tajne w m
 * **[PipelineRun](#create-pipelinerun-for-export-with-resource-manager)** — zasób używany do wywołania zasobu ExportPipeline lub ImportPipeline.  
   * ExportPipeline można uruchomić ręcznie przez utworzenie zasobu PipelineRun i określenie artefaktów do wyeksportowania.  
   * Jeśli wyzwalacz importu jest włączony, ImportPipeline zostanie uruchomiony automatycznie. Można go również uruchomić ręcznie przy użyciu PipelineRun. 
-  * Obecnie można przenieść maksymalnie **10 artefaktów** z każdym PipelineRunem.
+  * Obecnie można przenieść maksymalnie **50 artefaktów** z każdym PipelineRunem.
 
 ### <a name="things-to-know"></a>Co należy wiedzieć
 * ExportPipeline i ImportPipeline są zwykle w różnych dzierżawach Active Directory skojarzonych z chmurami źródłową i docelową. Ten scenariusz wymaga oddzielnych tożsamości zarządzanych i magazynów kluczy do zasobów eksportu i importu. Do celów testowych te zasoby mogą być umieszczane w tej samej chmurze i udostępniane tożsamości.
@@ -161,7 +162,7 @@ az deployment group create \
   --parameters azuredeploy.parameters.json
 ```
 
-W danych wyjściowych polecenia Zanotuj identyfikator zasobu ( `id` ) potoku. Tę wartość można zapisać w zmiennej środowiskowej w celu późniejszego użycia, uruchamiając [AZ Deployment Group Show][az-deployment-group-show]. Przykład:
+W danych wyjściowych polecenia Zanotuj identyfikator zasobu ( `id` ) potoku. Tę wartość można zapisać w zmiennej środowiskowej w celu późniejszego użycia, uruchamiając [AZ Deployment Group Show][az-deployment-group-show]. Na przykład:
 
 ```azurecli
 EXPORT_RES_ID=$(az group deployment show \
@@ -207,7 +208,7 @@ az deployment group create \
   --name importPipeline
 ```
 
-Jeśli planujesz uruchamianie importu ręcznie, zanotuj identyfikator zasobu ( `id` ) potoku. Tę wartość można zapisać w zmiennej środowiskowej w celu późniejszego użycia, uruchamiając [AZ Deployment Group Show][az-deployment-group-show]. Przykład:
+Jeśli planujesz uruchamianie importu ręcznie, zanotuj identyfikator zasobu ( `id` ) potoku. Tę wartość można zapisać w zmiennej środowiskowej w celu późniejszego użycia, uruchamiając [AZ Deployment Group Show][az-deployment-group-show]. Na przykład:
 
 ```azurecli
 IMPORT_RES_ID=$(az group deployment show \
@@ -336,7 +337,7 @@ az deployment group delete \
 * **AzCopy problemy**
   * Zobacz [Rozwiązywanie problemów z AzCopy](../storage/common/storage-use-azcopy-configure.md#troubleshoot-issues).  
 * **Problemy z transferem artefaktów**
-  * Nie wszystkie artefakty, ani żadne nie są transferowane. Potwierdź pisownię artefaktów w przebiegu eksportu i nazwę obiektu BLOB w ramach przebiegów eksportu i importu. Potwierdź, że przesyłasz maksymalnie 10 artefaktów.
+  * Nie wszystkie artefakty, ani żadne nie są transferowane. Potwierdź pisownię artefaktów w przebiegu eksportu i nazwę obiektu BLOB w ramach przebiegów eksportu i importu. Potwierdź, że przesyłasz maksymalnie 50 artefaktów.
   * Uruchomienie potoku mogło nie zostać zakończone. Przebieg eksportu lub importu może zająć trochę czasu. 
   * W przypadku innych problemów z potokiem Podaj [Identyfikator korelacji](../azure-resource-manager/templates/deployment-history.md) wdrożenia przebiegu eksportowania lub import do zespołu Azure Container Registry.
 

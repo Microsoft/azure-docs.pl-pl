@@ -6,11 +6,12 @@ ms.topic: article
 ms.date: 04/04/2018
 ms.reviewer: nicking
 ms.custom: seodec18
-ms.openlocfilehash: b17a49535541c8f75f65cdbe9986a895427f3877
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f7edb632559dc8da2de32c58d994a7c51b1b09e8
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78255152"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169978"
 ---
 # <a name="restore-an-app-in-azure-from-a-snapshot"></a>Przywracanie aplikacji na platformie Azure z migawki
 W tym artykule pokazano, jak przywrócić aplikację w [Azure App Service](../app-service/overview.md) z migawki. Możesz przywrócić poprzedni stan aplikacji, bazując na jednej z migawek aplikacji. Nie trzeba włączać kopii zapasowych migawek, platforma automatycznie zapisuje migawkę wszystkich aplikacji na potrzeby odzyskiwania danych.
@@ -36,15 +37,15 @@ Przywracanie z migawek jest dostępne dla aplikacji działających w warstwie **
 
 1. Na stronie **Ustawienia** aplikacji w [Azure Portal](https://portal.azure.com)kliknij pozycję **kopie zapasowe** , aby wyświetlić stronę **kopie zapasowe** . Następnie kliknij przycisk **Przywróć** w sekcji **migawka (wersja zapoznawcza)** .
    
-    ![](./media/app-service-web-restore-snapshots/1.png)
+    ![Zrzut ekranu pokazujący sposób przywracania aplikacji z kopii zapasowej migawki.](./media/app-service-web-restore-snapshots/1.png)
 
 2. Na stronie **przywracanie** wybierz migawkę do przywrócenia.
    
-    ![](./media/app-service-web-restore-snapshots/2.png)
+    ![Zrzut ekranu pokazujący sposób wybierania migawki do przywrócenia. ](./media/app-service-web-restore-snapshots/2.png)
    
 3. Określ lokalizację docelową przywracania aplikacji w **miejscu docelowym przywracania**.
    
-    ![](./media/app-service-web-restore-snapshots/3.png)
+    ![Zrzut ekranu pokazujący sposób określania miejsca docelowego przywracania.](./media/app-service-web-restore-snapshots/3.png)
    
    > [!WARNING]
    > W przypadku wybrania opcji **Zastąp**wszystkie istniejące dane w bieżącym systemie plików aplikacji zostaną wymazane i zastąpione. Przed kliknięciem przycisku **OK**upewnij się, że jest to co chcesz zrobić.
@@ -60,6 +61,6 @@ Przywracanie z migawek jest dostępne dla aplikacji działających w warstwie **
 
 4. Można przywrócić konfigurację lokacji.
    
-    ![](./media/app-service-web-restore-snapshots/4.png)
+    ![Zrzut ekranu pokazujący sposób przywracania konfiguracji lokacji.](./media/app-service-web-restore-snapshots/4.png)
 
 5. Kliknij przycisk **OK**.

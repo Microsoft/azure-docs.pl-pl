@@ -3,12 +3,12 @@ title: Łączenie szablonów do wdrożenia
 description: Opisuje, jak używać połączonych szablonów w szablonie Azure Resource Manager, aby utworzyć modularne rozwiązanie szablonów. Pokazuje, jak przekazać wartości parametrów, określić plik parametrów i dynamicznie tworzone adresy URL.
 ms.topic: conceptual
 ms.date: 06/26/2020
-ms.openlocfilehash: 1b63ebc62a944b43aef3b777dd7d285369356c29
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 6b28268a522dde4fe16ccf9d0d01738c3b6a9b5d
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86056688"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170653"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Używanie połączonych i zagnieżdżonych szablonów podczas wdrażania zasobów platformy Azure
 
@@ -160,7 +160,7 @@ Poniższy szablon pokazuje, jak są rozpoznawane wyrażenia szablonu zgodnie z z
 
 Wartość zmian w `exampleVar` zależności od wartości `scope` właściwości w `expressionEvaluationOptions` . W poniższej tabeli przedstawiono wyniki dla obu zakresów.
 
-| `expressionEvaluationOptions` `scope` | Dane wyjściowe |
+| `expressionEvaluationOptions`Scope | Dane wyjściowe |
 | ----- | ------ |
 | fabryk | z zagnieżdżonego szablonu |
 | zewnętrzny (lub domyślny) | z szablonu nadrzędnego |

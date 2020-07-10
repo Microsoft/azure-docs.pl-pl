@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab
 ms.date: 03/17/2020
-ms.openlocfilehash: 88f92117dc07fc241ca714851956e386cd10d617
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: d2e4b07c97e09fce5cdaa034e2fe67a18ef0d7f1
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86135029"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171163"
 ---
 # <a name="azure-sql-managed-instance-frequently-asked-questions-faq"></a>Często zadawane pytania dotyczące wystąpienia zarządzanego usługi Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -33,12 +33,38 @@ Aby uzyskać listę obsługiwanych funkcji w wystąpieniu zarządzanym SQL, zoba
 Różnice dotyczące składni i zachowań między wystąpieniem zarządzanym i SQL Server usługi Azure SQL można znaleźć w temacie [różnice w języku T-SQL z SQL Server](transact-sql-tsql-differences-sql-server.md).
 
 
-## <a name="tech-spec--resource-limits"></a>Specyfikacja techniczna & limity zasobów
+## <a name="technical-specification-resource-limits-and-other-limitations"></a>Specyfikacja techniczna, limity zasobów i inne ograniczenia
  
 **Gdzie można znaleźć cechy techniczne i limity zasobów dla wystąpienia zarządzanego SQL?**
 
 Aby uzyskać dostęp do charakterystyki generowania sprzętu, zobacz [różnice techniczne w generacjach sprzętowych](resource-limits.md#hardware-generation-characteristics).
 Aby uzyskać dostęp do dostępnych warstw usług i ich cech, zobacz [różnice techniczne między warstwami usług](resource-limits.md#service-tier-characteristics).
+
+**Do jakiej warstwy usług mam prawo?**
+
+Każdy klient kwalifikuje się do korzystania z dowolnej warstwy usług. Jeśli jednak chcesz wymienić istniejące licencje na oferty z rabatem na wystąpienie zarządzane usługi Azure SQL, korzystając z [korzyść użycia hybrydowego platformy Azure](https://azure.microsoft.com/pricing/hybrid-benefit/), weź pod uwagę, że klienci SQL Server Enterprise Edition z programem Software Assurance są uprawnieni do obsługi [ogólnego przeznaczenia](../database/service-tier-general-purpose.md) lub [krytyczne dla działania firmy](../database/service-tier-business-critical.md) warstw wydajności i SQL Server Standard wydania z programem Software Assurance, kwalifikują się tylko do warstwy wydajności ogólnego przeznaczenia. Aby uzyskać więcej informacji, zobacz [określone prawa AHB](../azure-hybrid-benefit.md?tabs=azure-powershell#what-are-the-specific-rights-of-the-azure-hybrid-benefit-for-sql-server).
+
+**Jakie typy subskrypcji są obsługiwane w przypadku wystąpienia zarządzanego SQL?**
+
+Aby zapoznać się z listą obsługiwanych typów subskrypcji, zobacz [obsługiwane typy subskrypcji](resource-limits.md#supported-subscription-types). 
+
+**Które regiony platformy Azure są obsługiwane?**
+
+Wystąpienia zarządzane można tworzyć w większości regionów świadczenia usługi Azure. Zobacz [Obsługiwane regiony dla wystąpienia zarządzanego SQL](https://azure.microsoft.com/global-infrastructure/services/?products=sql-database&regions=all). Jeśli potrzebujesz wystąpienia zarządzanego w regionie, który nie jest obecnie obsługiwany, [Wyślij żądanie pomocy technicznej za pośrednictwem Azure Portal](../database/quota-increase-request.md).
+
+**Czy istnieją jakieś ograniczenia przydziału dla wdrożeń wystąpienia zarządzanego SQL?**
+
+Wystąpienie zarządzane ma dwa domyślne limity: limit liczby podsieci, których można użyć, oraz limit liczby rdzeni wirtualnych, które można udostępnić. Limity różnią się w zależności od typów i regionów subskrypcji. Aby uzyskać listę ograniczeń zasobów regionalnych według typu subskrypcji, zobacz tabela z [ograniczenia zasobów regionalnych](resource-limits.md#regional-resource-limitations). Są to limity nietrwałe, które można zwiększyć na żądanie. Jeśli potrzebujesz udostępnić więcej wystąpień zarządzanych w Twoich regionach, Wyślij żądanie obsługi, aby zwiększyć przydział przy użyciu Azure Portal. Aby uzyskać więcej informacji, zobacz [zwiększenie przydziału żądań dla Azure SQL Database](../database/quota-increase-request.md).
+
+**Czy mogę zwiększyć liczbę baz danych (100) na moim wystąpieniu zarządzanym na żądanie?**
+
+Nie, a obecnie nie ma żadnych zatwierdzonych planów, aby zwiększyć liczbę baz danych w wystąpieniu zarządzanym SQL. 
+
+**Gdzie mogę przeprowadzić migrację, jeśli mam więcej niż 8TB danych?**
+Można rozważyć Migrowanie do innych wersji platformy Azure, które pasują do obciążenia: [Azure SQL Database skalowanie](../database/service-tier-hyperscale.md) lub [SQL Server na platformie Azure Virtual Machines](../virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md).
+
+**Gdzie można przeprowadzić migrację, jeśli mam określone wymagania sprzętowe, takie jak większa ilość pamięci RAM, aby rdzeń wirtualny współczynnik lub większą liczbę procesorów CPU?**
+Możesz rozważyć przeprowadzenie migracji do [SQL Server na platformie Azure Virtual Machines](../virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md) lub [Azure SQL Database](../database/sql-database-paas-overview.md) zoptymalizowanej pod kątem pamięci/procesora.
 
 ## <a name="known-issues--bugs"></a>Znane problemy & usterki
 
@@ -52,19 +78,45 @@ Aby zapoznać się z usterkami i znanymi problemami, zobacz [znane problemy](../
 
 Aby zapoznać się z nowymi funkcjami i wersjami zapoznawczymi, zobacz [Informacje o wersji](../database/doc-changes-updates-release-notes.md?tabs=managed-instance).
 
-## <a name="deployment-times"></a>Czasy wdrożenia 
+## <a name="create-update-delete-or-move-sql-managed-instance"></a>Tworzenie, aktualizowanie, usuwanie lub przenoszenie wystąpienia zarządzanego SQL
+
+**Jak mogę zainicjować wystąpienie zarządzane SQL?**
+
+Można zainicjować obsługę administracyjną wystąpienia za pomocą witryny [Azure Portal](instance-create-quickstart.md), [programu PowerShell](scripts/create-configure-managed-instance-powershell.md), [interfejsu wiersza polecenia platformy Azure](https://techcommunity.microsoft.com/t5/azure-sql-database/create-azure-sql-managed-instance-using-azure-cli/ba-p/386281) i [szablonów ARM](https://docs.microsoft.com/archive/blogs/sqlserverstorageengine/creating-azure-sql-managed-instance-using-arm-templates).
+
+**Czy mogę zainicjować zarządzane wystąpienia w istniejącej subskrypcji?**
+
+Tak, możesz udostępnić wystąpienie zarządzane w istniejącej subskrypcji, jeśli ta subskrypcja należy do [obsługiwanych typów subskrypcji](resource-limits.md#supported-subscription-types).
+
+**Dlaczego nie można zainicjować obsługi administracyjnej wystąpienia zarządzanego w podsieci, która rozpoczyna się od cyfry?**
+
+Jest to bieżące ograniczenie składnika podstawowego, który weryfikuje nazwę podsieci względem wyrażenia regularnego ^ [a-za-z_] [^ \\ \/ \: \* \? \" \<\> \| \` \' \^ ] * (? <! [ \. \s]) $. Wszystkie nazwy, które przekazują wyrażenie regularne i są prawidłowymi nazwami podsieci, są obecnie obsługiwane.
+
+**Jak mogę skalować moje wystąpienie zarządzane?**
+
+Wystąpienie zarządzane można skalować z poziomu witryny [Azure Portal](../database/service-tiers-vcore.md?tabs=azure-portal#selecting-a-hardware-generation), [programu PowerShell](https://docs.microsoft.com/archive/blogs/sqlserverstorageengine/change-size-azure-sql-managed-instance-using-powershell), [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/sql/mi?view=azure-cli-latest#az-sql-mi-update) lub [szablonów usługi ARM](https://docs.microsoft.com/archive/blogs/sqlserverstorageengine/updating-azure-sql-managed-instance-properties-using-arm-templates).
+
+**Czy mogę przenieść wystąpienie zarządzane z jednego regionu do innego?**
+
+Tak, możesz. Aby uzyskać instrukcje, zobacz [przenoszenie zasobów między regionami](../database/move-resources-across-regions.md).
+
+**Jak mogę usunąć moje wystąpienie zarządzane?**
+
+Wystąpienia zarządzane można usunąć za pomocą witryny Azure Portal, [programu PowerShell](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqlinstance?view=azps-4.3.0), [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/sql/mi?view=azure-cli-latest#az-sql-mi-delete) lub [interfejsów API REST Menedżer zasobów](https://docs.microsoft.com/rest/api/sql/managedinstances/delete).
 
 **Ile czasu zajmuje utworzenie lub zaktualizowanie wystąpienia lub przywrócenie bazy danych?**
 
-Oczekiwany czas utworzenia wystąpienia zarządzanego lub zmiany warstwy usług (rdzeni wirtualnych, Storage) zależy od kilku czynników. Zapoznaj się z [operacjami zarządzania](/azure/sql-database/sql-database-managed-instance#managed-instance-management-operations). 
-
+Oczekiwany czas utworzenia nowego wystąpienia zarządzanego lub zmiany warstw usług (rdzeni wirtualnych, Storage) zależy od kilku czynników. Zobacz [operacje zarządzania](sql-managed-instance-paas-overview.md#management-operations).
+ 
 ## <a name="naming-conventions"></a>Konwencje nazewnictwa
 
 **Czy wystąpienie zarządzane może mieć taką samą nazwę jak SQL Server wystąpienie lokalne?**
 
 Zmiana nazwy wystąpienia zarządzanego nie jest obsługiwana.
 
-Można zmienić domyślną strefę DNS *. Database.Windows.NET* dla wystąpienia zarządzanego. 
+**Czy mogę zmienić prefiks strefy DNS?**
+
+Tak, domyślna strefa DNS wystąpienia zarządzanego *. Database.Windows.NET* można zmienić. 
 
 Aby użyć innej strefy DNS zamiast domyślnego, na przykład *. contoso.com*: 
 - Użyj CliConfig, aby zdefiniować alias. To narzędzie jest tylko otoką ustawień rejestru, dlatego można ją wykonać przy użyciu zasad grupy lub skryptu.
@@ -179,45 +231,6 @@ Nie jest to wymagane. Można [utworzyć sieć wirtualną dla wystąpienia zarzą
 
 Nie. Obecnie nie obsługujemy umieszczania wystąpienia zarządzanego w podsieci, która zawiera już inne typy zasobów.
 
-## <a name="connectivity"></a>Łączność 
-
-**Czy mogę połączyć się z moim wystąpieniem zarządzanym przy użyciu adresu IP?**
-
-Nie, to nie jest obsługiwane. Nazwa hosta wystąpienia zarządzanego jest mapowana na moduł równoważenia obciążenia przed klastrem wirtualnym wystąpienia zarządzanego. Ponieważ jeden klaster wirtualny może obsługiwać wiele wystąpień zarządzanych, nie można kierować połączenia do właściwego wystąpienia zarządzanego bez określania jego nazwy.
-Aby uzyskać więcej informacji na temat architektury klastra wirtualnego wystąpienia zarządzanego SQL, zobacz [Architektura łączności klastra wirtualnego](connectivity-architecture-overview.md#virtual-cluster-connectivity-architecture).
-
-**Czy zarządzane wystąpienie ma statyczny adres IP?**
-
-Nie jest to obecnie obsługiwane.
-
-W rzadkich przypadkach, ale konieczne może być przeprowadzenie migracji w trybie online wystąpienia zarządzanego do nowego klastra wirtualnego. W razie potrzeby migracja jest spowodowana zmianami w naszym stosie technologii, które mają na celu poprawę bezpieczeństwa i niezawodności usługi. Migracja do nowego klastra wirtualnego powoduje zmianę adresu IP mapowanego na nazwę hosta wystąpienia zarządzanego. Usługa wystąpienia zarządzanego nie wiąże się z obsługą statycznego adresu IP i zastrzega sobie prawo do jego zmiany bez powiadomienia jako części zwykłych cykli konserwacyjnych.
-
-Z tego powodu zdecydowanie odradzamy niezmienności adresu IP, ponieważ może to spowodować niepotrzebne przestoje.
-
-**Czy zarządzane wystąpienie ma publiczny punkt końcowy?**
-
-Tak. Wystąpienie zarządzane ma publiczny punkt końcowy, który jest domyślnie używany tylko do zarządzania usługami, ale klient może również włączyć go na potrzeby dostępu do danych. Aby uzyskać więcej informacji, zobacz [Korzystanie z wystąpienia zarządzanego SQL z publicznymi punktami końcowymi](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-securely). Aby skonfigurować publiczny punkt końcowy, przejdź do pozycji [Konfigurowanie publicznego punktu końcowego w wystąpieniu zarządzanym SQL](public-endpoint-configure.md).
-
-**Jak zarządzane wystąpienie zarządza dostępem do publicznego punktu końcowego?**
-
-Wystąpienie zarządzane kontroluje dostęp do publicznego punktu końcowego zarówno na poziomie sieci, jak i aplikacji.
-
-Usługi zarządzania i wdrażania nawiązują połączenie z wystąpieniem zarządzanym przy użyciu [punktu końcowego zarządzania](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-connectivity-architecture#management-endpoint) , który jest mapowany na zewnętrzny moduł równoważenia obciążenia. Ruch jest kierowany do węzłów tylko wtedy, gdy jest odbierany ze wstępnie zdefiniowanym zestawem portów, których używają tylko składniki zarządzania wystąpienia zarządzanego. Wbudowana zapora w węzłach jest skonfigurowana tak, aby zezwalała na ruch tylko z zakresów adresów IP firmy Microsoft. Certyfikaty wzajemnie uwierzytelniają całą komunikację między składnikami zarządzania a płaszczyzną zarządzania. Aby uzyskać więcej informacji, zobacz [Architektura łączności dla wystąpienia zarządzanego SQL](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-connectivity-architecture#virtual-cluster-connectivity-architecture).
-
-**Czy mogę użyć publicznego punktu końcowego, aby uzyskać dostęp do danych w bazach danych wystąpienia zarządzanego?**
-
-Tak. Klient będzie musiał włączyć dostęp do danych publicznego punktu końcowego z poziomu programu PowerShell/ARM w [witrynie Azure Portal](public-endpoint-configure.md#enabling-public-endpoint-for-a-managed-instance-in-the-azure-portal)  /  [PowerShell](public-endpoint-configure.md#enabling-public-endpoint-for-a-managed-instance-using-powershell) i skonfigurować sieciowej grupy zabezpieczeń, aby zablokować dostęp do portu danych (numer portu 3342). Aby uzyskać więcej informacji, zobacz [Konfigurowanie publicznego punktu końcowego w wystąpieniu zarządzanym Azure SQL](public-endpoint-configure.md) i [bezpieczne używanie wystąpienia zarządzanego usługi Azure SQL z publicznym punktem końcowym](public-endpoint-overview.md). 
-
-**Czy można określić niestandardowy port dla punktów końcowych danych SQL?**
-
-Nie, ta opcja jest niedostępna.  W przypadku prywatnego punktu końcowego danych wystąpienie zarządzane używa domyślnego numeru portu 1433 i dla publicznego punktu końcowego danych, wystąpienie zarządzane używa domyślnego numeru portu 3342.
-
-**Jaki jest zalecany sposób łączenia wystąpień zarządzanych umieszczonych w różnych regionach?**
-
-Komunikacja równorzędna obwodu trasy Express jest preferowanym sposobem wykonania tej czynności. Nie ma to być mieszane w przypadku komunikacji równorzędnej sieci wirtualnych między regionami, która nie jest obsługiwana z powodu [ograniczenia](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview)dotyczącego wewnętrznego modułu równoważenia obciążenia.
-
-Jeśli Komunikacja równorzędna obwodu trasy Express nie jest możliwa, jedyną inną opcją jest utworzenie połączenia sieci VPN typu lokacja-lokacja ([Azure Portal](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal), [programu PowerShell](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell), [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli)).
-
 
 ## <a name="mitigate-data-exfiltration-risks"></a>Ograniczanie ryzyka związanego z eksfiltracji danych  
 
@@ -266,6 +279,20 @@ Konfiguracja DNS jest ostatecznie odświeżana:
 W ramach tego problemu można obniżyć wystąpienie zarządzanego programu SQL Server do 4 rdzeni wirtualnych i ponownie uaktualnić je. Ma to efekt po stronie odświeżenia konfiguracji DNS.
 
 
+## <a name="ip-address"></a>Adres IP
+
+**Czy można połączyć się z wystąpieniem zarządzanym SQL przy użyciu adresu IP?**
+
+Nawiązywanie połączenia z wystąpieniem zarządzanym SQL przy użyciu adresu IP nie jest obsługiwane. Nazwa hosta wystąpienia zarządzanego SQL jest mapowana na moduł równoważenia obciążenia przed klastrem wirtualnym wystąpienia zarządzanego SQL. Ponieważ jeden klaster wirtualny może obsługiwać wiele wystąpień zarządzanych, nie można kierować połączeń do właściwego wystąpienia zarządzanego bez jawnego określenia nazwy.
+
+Aby uzyskać więcej informacji na temat architektury klastra wirtualnego wystąpienia zarządzanego SQL, zobacz [Architektura łączności klastra wirtualnego](connectivity-architecture-overview.md#virtual-cluster-connectivity-architecture).
+
+**Czy wystąpienie zarządzane SQL ma statyczny adres IP?**
+
+W rzadkich przypadkach, ale konieczne może być przeprowadzenie migracji w trybie online wystąpienia zarządzanego SQL do nowego klastra wirtualnego. W razie potrzeby migracja jest spowodowana zmianami w naszym stosie technologii, które mają na celu poprawę bezpieczeństwa i niezawodności usługi. Migracja do nowego klastra wirtualnego powoduje zmianę adresu IP mapowanego na nazwę hosta wystąpienia zarządzanego SQL. Usługa wystąpienia zarządzanego SQL nie wiąże się z obsługą statycznych adresów IP i zastrzega sobie prawo do jego zmiany bez powiadomienia w ramach zwykłych cykli konserwacyjnych.
+
+Z tego powodu zdecydowanie odradzamy niezmienności adresu IP, ponieważ może to spowodować niepotrzebne przestoje.
+
 ## <a name="change-time-zone"></a>Zmień strefę czasową
 
 **Czy mogę zmienić strefę czasową dla istniejącego wystąpienia zarządzanego?**
@@ -275,16 +302,29 @@ Konfigurację strefy czasowej można ustawić, gdy zarządzane wystąpienie jest
 Obejścia obejmują tworzenie nowego wystąpienia zarządzanego ze stosowną strefą czasową, a następnie wykonywanie ręcznego tworzenia kopii zapasowej i przywracania, a także to, co zalecamy, wykonywanie [przywracania do punktu w czasie między wystąpieniami](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/07/cross-instance-point-in-time-restore-in-azure-sql-database-managed-instance/).
 
 
-## <a name="resolve-performance-issues"></a>Rozwiązywanie problemów z wydajnością
+## <a name="security-and-database-encryption"></a>Zabezpieczenia i szyfrowanie bazy danych
 
-**Jak mogę rozwiązać problemy z wydajnością w wystąpieniu zarządzanym SQL?**
+**Czy rola serwera sysadmin jest dostępna dla wystąpienia zarządzanego SQL?**
 
-W celu porównania wydajności między wystąpieniem zarządzanym SQL i SQL Server, dobrym punktem początkowym jest [najlepsze rozwiązanie dotyczące porównania wydajności między wystąpieniem zarządzanym usługi Azure SQL i SQL Server](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/The-best-practices-for-performance-comparison-between-Azure-SQL/ba-p/683210).
+Tak, klienci mogą tworzyć nazwy logowania należące do roli sysadmin.  Klienci, którzy zakładają uprawnienia administratora systemu, również zakładają odpowiedzialność za działanie tego wystąpienia, co może negatywnie wpłynąć na zobowiązania umowy SLA. Aby dodać logowanie do roli serwera sysadmin, zobacz [uwierzytelnianie w usłudze Azure AD](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-aad-security-tutorial#azure-ad-authentication).
 
-Ładowanie danych jest często wolniejsze w wystąpieniu zarządzanym SQL niż w SQL Server z powodu obowiązkowego pełnego modelu odzyskiwania i [limitów](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics) przepływności zapisu w dzienniku transakcji. Czasami może to być spowodowane załadowaniem danych przejściowych do bazy danych tempdb, a nie z jej bazą
+**Czy Transparent Data Encryption jest obsługiwana dla wystąpienia zarządzanego SQL?**
 
+Tak, Transparent Data Encryption jest obsługiwana w przypadku wystąpienia zarządzanego SQL. Aby uzyskać szczegółowe informacje, zobacz [transparent Data Encryption dla wystąpienia zarządzanego SQL](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-sql?tabs=azure-portal).
 
-## <a name="restore-encrypted-backup"></a>Przywracanie zaszyfrowanej kopii zapasowej
+**Czy mogę wykorzystać model "Przenieś własny klucz" dla TDE?**
+
+Tak, Azure Key Vault scenariusz BYOK jest dostępny dla wystąpienia zarządzanego Azure SQL. Aby uzyskać szczegółowe informacje, zobacz [transparent Data Encryption z kluczem zarządzanym przez klienta](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-sql?view=sql-server-ver15&tabs=azure-portal#customer-managed-transparent-data-encryption---bring-your-own-key).
+
+**Czy można przeprowadzić migrację zaszyfrowanej bazy danych SQL Server?**
+
+Tak, możesz. Aby przeprowadzić migrację zaszyfrowanej bazy danych SQL Server, należy wyeksportować i zaimportować istniejące certyfikaty do wystąpienia zarządzanego, a następnie wykonać pełną kopię zapasową bazy danych i przywrócić ją w wystąpieniu zarządzanym. 
+
+Można również użyć [Azure Database Migration Service](https://azure.microsoft.com/services/database-migration/) do migracji zaszyfrowanych baz danych TDE.
+
+**Jak mogę skonfigurować rotację funkcji ochrony TDE dla wystąpienia zarządzanego SQL?**
+
+Funkcję ochrony TDE można obrócić dla wystąpienia zarządzanego przy użyciu Azure Cloud Shell. Aby uzyskać instrukcje, zobacz [transparent Data Encryption w wystąpieniu zarządzanym SQL przy użyciu własnego klucza z Azure Key Vault](scripts/transparent-data-encryption-byok-powershell.md).
 
 **Czy można przywrócić zaszyfrowaną bazę danych do wystąpienia zarządzanego SQL?**
 
