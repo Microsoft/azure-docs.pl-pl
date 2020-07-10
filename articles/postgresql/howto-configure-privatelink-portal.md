@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 01/09/2020
-ms.openlocfilehash: 6986d5882e4d62ffc2e25b7ea998f46f41c67330
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: f05b70c8197283d9fa576d6ea464aa08554dd773
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86102467"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206774"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-postgresql---single-server-using-portal"></a>Tworzenie prywatnego linku do Azure Database for PostgreSQL-pojedynczego serwera przy użyciu portalu i zarządzanie nim
 
@@ -39,7 +39,7 @@ W tej sekcji utworzysz Virtual Network i podsieć, która będzie hostować masz
     | ------- | ----- |
     | Nazwa | Wprowadź *MyVirtualNetwork*. |
     | Przestrzeń adresowa | Wprowadź adres *10.1.0.0/16*. |
-    | Subskrypcja | Wybierz subskrypcję.|
+    | Subscription | Wybierz subskrypcję.|
     | Grupa zasobów | Wybierz pozycję **Utwórz nową**, wprowadź nazwę *myResourceGroup*, a następnie wybierz przycisk **OK**. |
     | Lokalizacja | Wybierz pozycję **Europa Zachodnia**.|
     | Podsieć — nazwa | Wprowadź nazwę moja *podsieć*. |
@@ -56,7 +56,7 @@ W tej sekcji utworzysz Virtual Network i podsieć, która będzie hostować masz
     | Ustawienie | Wartość |
     | ------- | ----- |
     | **SZCZEGÓŁY PROJEKTU** | |
-    | Subskrypcja | Wybierz subskrypcję. |
+    | Subscription | Wybierz subskrypcję. |
     | Grupa zasobów | Wybierz pozycję **myResourceGroup**. Utworzono to w poprzedniej sekcji.  |
     | **SZCZEGÓŁY WYSTĄPIENIA** |  |
     | Nazwa maszyny wirtualnej | Wprowadź *myVm*. |
@@ -91,7 +91,7 @@ W tej sekcji utworzysz Virtual Network i podsieć, która będzie hostować masz
     |||
 
 
-1. Wybierz pozycję **Przegląd + utwórz**. Nastąpi przejście do strony **Recenzja i tworzenie** , w której platforma Azure weryfikuje konfigurację.
+1. Wybierz pozycję **Przeglądanie + tworzenie**. Nastąpi przejście do strony **Recenzja i tworzenie** , w której platforma Azure weryfikuje konfigurację.
 
 1. Gdy zobaczysz komunikat o **przekazaniu walidacji** , wybierz pozycję **Utwórz**.
 
@@ -110,7 +110,7 @@ W tej sekcji utworzysz serwer Azure Database for PostgreSQL na platformie Azure.
     | Ustawienie | Wartość |
     | ------- | ----- |
     | **Szczegóły projektu** | |
-    | Subskrypcja | Wybierz subskrypcję. |
+    | Subscription | Wybierz subskrypcję. |
     | Grupa zasobów | Wybierz pozycję **myResourceGroup**. Utworzono to w poprzedniej sekcji.|
     | **Szczegóły serwera** |  |
     |Nazwa serwera  | Wprowadź *tekst*. Jeśli ta nazwa jest wykonywana, utwórz unikatową nazwę.|
@@ -121,8 +121,8 @@ W tej sekcji utworzysz serwer Azure Database for PostgreSQL na platformie Azure.
     | Obliczenia i magazyn| Wybierz warstwę cenową, która jest wymagana dla serwera na podstawie obciążenia. |
     |||
  
-7. Kliknij przycisk **OK**. 
-8. Wybierz pozycję **Przegląd + utwórz**. Nastąpi przejście do strony **Recenzja i tworzenie** , w której platforma Azure weryfikuje konfigurację. 
+7. Wybierz przycisk **OK**. 
+8. Wybierz pozycję **Przeglądanie + tworzenie**. Nastąpi przejście do strony **Recenzja i tworzenie** , w której platforma Azure weryfikuje konfigurację. 
 9. Gdy zobaczysz komunikat o przekazaniu walidacji, wybierz pozycję **Utwórz**. 
 10. Gdy zobaczysz komunikat o przekazaniu walidacji, wybierz pozycję Utwórz. 
 
@@ -140,7 +140,7 @@ W tej sekcji utworzysz serwer PostgreSQL i dodasz do niego prywatny punkt końco
     | Ustawienie | Wartość |
     | ------- | ----- |
     | **Szczegóły projektu** | |
-    | Subskrypcja | Wybierz subskrypcję. |
+    | Subscription | Wybierz subskrypcję. |
     | Grupa zasobów | Wybierz pozycję **myResourceGroup**. Utworzono to w poprzedniej sekcji.|
     | **Szczegóły wystąpienia** |  |
     | Nazwa | Wprowadź *myPrivateEndpoint*. Jeśli ta nazwa jest wykonywana, utwórz unikatową nazwę. |
@@ -152,7 +152,7 @@ W tej sekcji utworzysz serwer PostgreSQL i dodasz do niego prywatny punkt końco
     | Ustawienie | Wartość |
     | ------- | ----- |
     |Metoda połączenia  | Wybierz pozycję Połącz z zasobem platformy Azure w moim katalogu.|
-    | Subskrypcja| Wybierz subskrypcję. |
+    | Subscription| Wybierz subskrypcję. |
     | Typ zasobu | Wybierz pozycję **Microsoft. DBforPostgreSQL/serwery**. |
     | Zasób |Wybierz *pozycję* Wyznacz|
     |Docelowy zasób podrzędny |Wybierz *postgresqlServer*|
@@ -164,7 +164,7 @@ W tej sekcji utworzysz serwer PostgreSQL i dodasz do niego prywatny punkt końco
     | ------- | ----- |
     |**SIECI**| |
     | Sieć wirtualna| Wybierz pozycję *MyVirtualNetwork*. |
-    | Podsieć | Wybierz pozycję Moja *podsieć*. |
+    | Podsieć | Wybierz pozycję Moja *podsieć*. |
     |**PRYWATNA INTEGRACJA Z USŁUGĄ DNS**||
     |Integracja z prywatną strefą DNS |Wybierz pozycję **Tak**. |
     |Strefa Prywatna strefa DNS |SELECT *(New) privatelink. Postgres. Database. Azure. com* |
@@ -173,7 +173,7 @@ W tej sekcji utworzysz serwer PostgreSQL i dodasz do niego prywatny punkt końco
     > [!Note] 
     > Użyj wstępnie zdefiniowanej prywatnej strefy DNS dla usługi lub podaj nazwę preferowanego strefy DNS. Aby uzyskać szczegółowe informacje, zapoznaj się z [konfiguracją strefy DNS usług platformy Azure](../private-link/private-endpoint-dns.md) .
 
-1. Wybierz pozycję **Przegląd + utwórz**. Nastąpi przejście do strony **Recenzja i tworzenie** , w której platforma Azure weryfikuje konfigurację. 
+1. Wybierz pozycję **Przeglądanie + tworzenie**. Nastąpi przejście do strony **Recenzja i tworzenie** , w której platforma Azure weryfikuje konfigurację. 
 2. Gdy zobaczysz komunikat o **przekazaniu walidacji** , wybierz pozycję **Utwórz**. 
 
     ![Utworzono link prywatny](media/concepts-data-access-and-security-private-link/show-postgres-private-link.png)
@@ -190,7 +190,7 @@ Po utworzeniu **myVm**Połącz się z nim za pośrednictwem Internetu w następu
 
 1. Wybierz przycisk **Połącz**. Po wybraniu przycisku **Połącz** zostanie otwarta strona **Łączenie z maszyną wirtualną**.
 
-1. Wybierz opcję **Pobierz plik RDP**. Na platformie Azure zostanie utworzony plik Remote Desktop Protocol (*rdp*), który zostanie pobrany na komputer.
+1. Wybierz pozycję **Pobierz plik RDP**. Na platformie Azure zostanie utworzony plik Remote Desktop Protocol (*rdp*), który zostanie pobrany na komputer.
 
 1. Otwórz *pobrany plik RDP* .
 
@@ -201,7 +201,7 @@ Po utworzeniu **myVm**Połącz się z nim za pośrednictwem Internetu w następu
         > [!NOTE]
         > Może być konieczne wybranie **pozycji więcej opcji**  >  **Użyj innego konta**, aby określić poświadczenia wprowadzone podczas tworzenia maszyny wirtualnej.
 
-1. Kliknij przycisk **OK**.
+1. Wybierz przycisk **OK**.
 
 1. Podczas procesu logowania może pojawić się ostrzeżenie o certyfikacie. Jeśli zostanie wyświetlone ostrzeżenie o certyfikacie, wybierz opcję **Tak** lub **Kontynuuj**.
 
@@ -209,7 +209,7 @@ Po utworzeniu **myVm**Połącz się z nim za pośrednictwem Internetu w następu
 
 ## <a name="access-the-postgresql-server-privately-from-the-vm"></a>Dostęp do serwera PostgreSQL z maszyny wirtualnej do prywatnego
 
-1. W Pulpit zdalny *myVM*Otwórz program PowerShell.
+1. W Pulpit zdalny *myVM*Otwórz program PowerShell.
 
 2. Wprowadź  `nslookup mydemopostgresserver.privatelink.postgres.database.azure.com` . 
 
@@ -246,7 +246,7 @@ Po utworzeniu **myVm**Połącz się z nim za pośrednictwem Internetu w następu
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 Gdy skończysz korzystać z prywatnego punktu końcowego, serwera PostgreSQL i maszyny wirtualnej, Usuń grupę zasobów i wszystkie zawarte w niej zasoby:
 
-1. Wprowadź *myResourceGroup*   w polu **wyszukiwania** w górnej części portalu i wybierz pozycję Moja zasobów *myResourceGroup*   z wyników wyszukiwania.
+1. Wprowadź *w* polu **wyszukiwania** w górnej części portalu *i wybierz pozycję*moja zasobów   z wyników wyszukiwania.
 2. Wybierz pozycję **Usuń grupę zasobów**.
 3. Wprowadź wartość webresourcename **, aby wpisać nazwę grupy zasobów** , a następnie wybierz pozycję **Usuń**.
 

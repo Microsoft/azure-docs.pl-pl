@@ -1,5 +1,5 @@
 ---
-title: Scenariusze usługi Azure Disk Encryption na maszynach wirtualnych z systemem Linux
+title: Scenariusze usługi Azure Disk Encryption w przypadku maszyn wirtualnych z systemem Linux
 description: Ten artykuł zawiera instrukcje dotyczące włączania Microsoft Azure szyfrowania dysków dla maszyn wirtualnych z systemem Linux w różnych scenariuszach
 author: msmbaldwin
 ms.service: virtual-machines-linux
@@ -8,14 +8,14 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3fbbeaeafd8de5a38489034a13738ca3a9b934d5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b55707612c34cb3c95eafd95780955bf991c409c
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85601393"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206153"
 ---
-# <a name="azure-disk-encryption-scenarios-on-linux-vms"></a>Scenariusze usługi Azure Disk Encryption na maszynach wirtualnych z systemem Linux
+# <a name="azure-disk-encryption-scenarios-on-linux-vms"></a>Scenariusze usługi Azure Disk Encryption w przypadku maszyn wirtualnych z systemem Linux
 
 
 Azure Disk Encryption dla maszyn wirtualnych z systemem Linux używa funkcji DM-Crypt systemu Linux, aby zapewnić pełne szyfrowanie dysków w systemie operacyjnym i dyskach z danymi. Ponadto zapewnia szyfrowanie dysku tymczasowego przy użyciu funkcji EncryptFormatAll.
@@ -413,6 +413,8 @@ Azure Disk Encryption nie działa w następujących scenariuszach, funkcjach i t
 - Maszyna wirtualna z "zagnieżdżonych punktów instalacji"; oznacza to, że wiele punktów instalacji w jednej ścieżce (na przykład "/1stmountpoint/Data/2stmountpoint").
 - Maszyna wirtualna z dyskiem danych zainstalowanym na górze folderu systemu operacyjnego.
 - Maszyny wirtualne serii M z dyskami akcelerator zapisu.
+- Stosowanie [szyfrowania po stronie serwera z kluczami zarządzanymi przez klienta](disk-encryption.md) do maszyn wirtualnych szyfrowanych przez program ADE i na odwrót.
+- Migrowanie maszyny wirtualnej zaszyfrowanej przy użyciu programu ADE do [szyfrowania po stronie serwera z kluczami zarządzanymi przez klienta](disk-encryption.md).
 
 ## <a name="next-steps"></a>Następne kroki
 

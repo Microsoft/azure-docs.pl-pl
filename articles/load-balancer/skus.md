@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/01/2020
 ms.author: allensu
-ms.openlocfilehash: faf77411abca63516b00ac953bc7203da69f3ca9
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: d08d7a81fddfe70593c31ac3ebd2191679ea1220
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82854095"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206355"
 ---
 # <a name="azure-load-balancer-skus"></a>Jednostki SKU Azure Load Balancer
 
@@ -34,19 +34,19 @@ Autonomiczne maszyny wirtualne, zestawy dostępności i zestawy skalowania maszy
 
 | | usługa Load Balancer w warstwie Standardowa | Load Balancer podstawowa |
 | --- | --- | --- |
-| [Rozmiar puli zaplecza](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#load-balancer) | Obsługuje do 1000 wystąpień. | Obsługuje do 300 wystąpień. |
-| Punkty końcowe puli zaplecza | Wszystkie maszyny wirtualne lub zestawy skalowania maszyn wirtualnych w jednej sieci wirtualnej. | Maszyny wirtualne w jednym zestawie dostępności lub zestaw skalowania maszyn wirtualnych. |
-| [Sondy kondycji](./load-balancer-custom-probe-overview.md#types) | TCP, HTTP, HTTPS | TCP, HTTP |
-| [Zachowanie sondy kondycji podczas niepowodzenia](./load-balancer-custom-probe-overview.md#probedown) | Połączenia TCP pozostają aktywne na sondie wystąpienia __, a__ wszystkie sondy w dół. | Połączenia TCP pozostają aktywne na sondie wystąpienia. Wszystkie połączenia TCP kończą się, gdy wszystkie sondy są wyłączone. |
-| Strefy dostępności | Strefowo nadmiarowe i strefowe frontony dla ruchu przychodzącego i wychodzącego. | Niedostępne |
-| Diagnostyka | [Azure Monitor metryki wielowymiarowych](./load-balancer-standard-diagnostics.md) | [Dzienniki usługi Azure Monitor](./load-balancer-monitor-log.md) |
-| Porty wysokiej dostępności | [Dostępne dla Load Balancer wewnętrznej](./load-balancer-ha-ports-overview.md) | Niedostępne |
-| Zabezpieczenie domyślne | Zamknięty do przepływów przychodzących, chyba że jest to dozwolone przez grupę zabezpieczeń sieci. Należy pamiętać, że ruch wewnętrzny z sieci wirtualnej do wewnętrznego modułu równoważenia obciążenia jest dozwolony. | Otwórz domyślnie. Opcjonalna Grupa zabezpieczeń sieci. |
-| Reguły ruchu wychodzącego | [Deklaratywna konfiguracja wychodzącego NAT](./load-balancer-outbound-rules-overview.md) | Niedostępne |
-| Resetowanie protokołu TCP w wyniku bezczynności | [Dostępne dla każdej reguły](./load-balancer-tcp-reset.md) | Niedostępne |
-| [Wiele frontonów](./load-balancer-multivip-overview.md) | Ruch przychodzący i [wychodzący](./load-balancer-outbound-connections.md) | Tylko ruch przychodzący |
-| Operacje zarządzania | Większość operacji < 30 sekund | typowe 60 – 90 sekund |
-| Umowa SLA | [99.99%](https://azure.microsoft.com/support/legal/sla/load-balancer/v1_0/) | Niedostępne | 
+| **[Rozmiar puli zaplecza](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#load-balancer)** | Obsługuje do 1000 wystąpień. | Obsługuje do 300 wystąpień. |
+| **Punkty końcowe puli zaplecza** | Wszystkie maszyny wirtualne lub zestawy skalowania maszyn wirtualnych w jednej sieci wirtualnej. | Maszyny wirtualne w jednym zestawie dostępności lub zestaw skalowania maszyn wirtualnych. |
+| **[Sondy kondycji](./load-balancer-custom-probe-overview.md#types)** | TCP, HTTP, HTTPS | TCP, HTTP |
+| **[Zachowanie w dół sondy kondycji](./load-balancer-custom-probe-overview.md#probedown)** | Połączenia TCP pozostają aktywne na sondie wystąpienia __, a__ wszystkie sondy w dół. | Połączenia TCP pozostają aktywne na sondie wystąpienia. Wszystkie połączenia TCP kończą się, gdy wszystkie sondy są wyłączone. |
+| **Strefy dostępności** | Strefowo nadmiarowe i strefowe frontony dla ruchu przychodzącego i wychodzącego. | Niedostępne |
+| **Diagnostyka** | [Azure Monitor metryki wielowymiarowych](./load-balancer-standard-diagnostics.md) | [Dzienniki Azure Monitor](./load-balancer-monitor-log.md) |
+| **Porty wysokiej dostępności** | [Dostępne dla Load Balancer wewnętrznej](./load-balancer-ha-ports-overview.md) | Niedostępne |
+| **Zabezpieczenie domyślne** | Zamknięty do przepływów przychodzących, chyba że jest to dozwolone przez grupę zabezpieczeń sieci. Należy pamiętać, że ruch wewnętrzny z sieci wirtualnej do wewnętrznego modułu równoważenia obciążenia jest dozwolony. | Otwórz domyślnie. Opcjonalna Grupa zabezpieczeń sieci. |
+| **Reguły ruchu wychodzącego** | [Deklaratywna konfiguracja wychodzącego NAT](./load-balancer-outbound-rules-overview.md) | Niedostępne |
+| **Resetowanie protokołu TCP w wyniku bezczynności** | [Dostępne dla każdej reguły](./load-balancer-tcp-reset.md) | Niedostępne |
+| **[Wiele frontonów](./load-balancer-multivip-overview.md)** | Ruch przychodzący i [wychodzący](./load-balancer-outbound-connections.md) | Tylko ruch przychodzący |
+| **Operacje zarządzania** | Większość operacji < 30 sekund | typowe 60 – 90 sekund |
+| **Umowa SLA** | [99,99%](https://azure.microsoft.com/support/legal/sla/load-balancer/v1_0/) | Niedostępne | 
 
 Aby uzyskać więcej informacji, zobacz [limity usługi równoważenia obciążenia](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#load-balancer). Szczegółowe informacje dotyczące modułu równoważenia obciążenia w warstwie Standardowa zawiera [przegląd](load-balancer-standard-overview.md), [cennik](https://aka.ms/lbpricing) i [umowa dotycząca poziomu usług](https://aka.ms/lbsla).
 
@@ -56,7 +56,7 @@ Aby uzyskać więcej informacji, zobacz [limity usługi równoważenia obciąże
 - Zasób autonomicznej maszyny wirtualnej, zasób zestawu dostępności lub zasób zestawu skalowania maszyn wirtualnych może odwoływać się do jednej jednostki SKU, nigdy nie obu.
 - [Operacje przenoszenia subskrypcji](../azure-resource-manager/management/move-resource-group-and-subscription.md) nie są obsługiwane w przypadku zasobów usługa Load Balancer w warstwie Standardowa i standardowych adresów IP.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - Aby rozpocząć korzystanie z Load Balancer, zobacz [tworzenie usługa Load Balancer w warstwie Standardowa publicznego](quickstart-load-balancer-standard-public-portal.md) .
 - Dowiedz się więcej o korzystaniu z [Usługa Load Balancer w warstwie Standardowa i strefy dostępności](load-balancer-standard-availability-zones.md).

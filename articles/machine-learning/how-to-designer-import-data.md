@@ -1,7 +1,7 @@
 ---
-title: Importowanie danych
+title: Importuj dane do projektanta (wersja zapoznawcza)
 titleSuffix: Azure Machine Learning
-description: Dowiedz się, jak importować dane do programu Azure Machine Learning Designer z różnych źródeł danych.
+description: Dowiedz się, jak importować dane do programu Azure Machine Learning Designer (wersja zapoznawcza) z różnych źródeł danych.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,12 @@ author: peterclu
 ms.author: peterlu
 ms.date: 01/16/2020
 ms.custom: designer
-ms.openlocfilehash: 12473aca589f8a04dd0e09fdc2dc7f0d4e450c5a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7a204310454cb636e26e6366d4ff7375f4faea8d
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85610952"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207526"
 ---
 # <a name="import-data-into-azure-machine-learning-designer-preview"></a>Importowanie danych do programu Azure Machine Learning Designer (wersja zapoznawcza)
 

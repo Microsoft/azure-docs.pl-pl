@@ -5,11 +5,12 @@ description: Dowiedz się, jak utworzyć statyczny publiczny adres IP dla ruchu 
 services: container-service
 ms.topic: article
 ms.date: 03/04/2019
-ms.openlocfilehash: 08a9682434605fffde73c835e7a9e9d6971d7ff0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f66a33f49d856abde97756a2b4b483cfa6050d0a
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80803386"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86205790"
 ---
 # <a name="use-a-static-public-ip-address-for-egress-traffic-in-azure-kubernetes-service-aks"></a>Użyj statycznego publicznego adresu IP dla ruchu wychodzącego w usłudze Azure Kubernetes Service (AKS)
 
@@ -22,6 +23,9 @@ W tym artykule opisano sposób tworzenia i używania statycznego publicznego adr
 W tym artykule przyjęto założenie, że masz istniejący klaster AKS. Jeśli potrzebujesz klastra AKS, zapoznaj się z przewodnikiem Szybki Start AKS [przy użyciu interfejsu wiersza polecenia platformy Azure][aks-quickstart-cli] lub [przy użyciu Azure Portal][aks-quickstart-portal].
 
 Konieczne jest również zainstalowanie i skonfigurowanie interfejsu wiersza polecenia platformy Azure w wersji 2.0.59 lub nowszej. Uruchom polecenie  `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczne będzie przeprowadzenie instalacji lub uaktualnienia, zobacz  [Instalowanie interfejsu wiersza polecenia platformy Azure][install-azure-cli].
+
+> [!IMPORTANT]
+> W tym artykule zastosowano moduł równoważenia obciążenia *podstawowej* jednostki SKU z pulą jednego węzła. Ta konfiguracja jest niedostępna dla pul wielu węzłów, ponieważ moduł równoważenia obciążenia *podstawowej* jednostki SKU nie jest obsługiwany w przypadku wielu pul węzłów. Aby uzyskać więcej informacji na temat korzystania ze *standardowego* modułu równoważenia obciążenia SKU, zobacz temat [korzystanie z publicznej usługa Load Balancer w warstwie Standardowa w usłudze Azure KUBERNETES Service (AKS)][slb] .
 
 ## <a name="egress-traffic-overview"></a>Ruch wychodzący — Omówienie
 
@@ -92,7 +96,7 @@ Utwórz usługę i wdrożenie za pomocą `kubectl apply` polecenia.
 kubectl apply -f egress-service.yaml
 ```
 
-Ta usługa konfiguruje nowy adres IP frontonu na Azure Load Balancer. Jeśli nie skonfigurowano żadnych innych adresów IP, **cały** ruch wychodzący powinien teraz korzystać z tego adresu. W przypadku skonfigurowania wielu adresów na Azure Load Balancer ruch wychodzący używa pierwszego adresu IP w ramach tego modułu równoważenia obciążenia.
+Ta usługa konfiguruje nowy adres IP frontonu na Azure Load Balancer. Jeśli nie skonfigurowano żadnych innych adresów IP, **cały** ruch wychodzący powinien teraz korzystać z tego adresu. W przypadku skonfigurowania wielu adresów na Azure Load Balancer każdy z tych publicznych adresów IP jest kandydatem dla przepływów wychodzących, a jeden jest wybierany losowo.
 
 ## <a name="verify-egress-address"></a>Weryfikuj adres ruchu wychodzącego
 
@@ -133,3 +137,4 @@ Aby uniknąć konserwacji wielu publicznych adresów IP na Azure Load Balancer, 
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
 [install-azure-cli]: /cli/azure/install-azure-cli
+[slb]: load-balancer-standard.md

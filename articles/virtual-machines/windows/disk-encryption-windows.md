@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 81ac76ef5eeebd278dc10e03d661bb21469c8f4f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b423cc4cd933f84fccae5c2116be7abbdc288c67
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85610573"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86203677"
 ---
 # <a name="azure-disk-encryption-scenarios-on-windows-vms"></a>Scenariusze usługi Azure Disk Encryption na maszynach wirtualnych z systemem Windows
 
@@ -238,6 +238,9 @@ Azure Disk Encryption nie działa w następujących scenariuszach, funkcjach i t
 - Maszyny wirtualne Gen2 (patrz: [Obsługa maszyn wirtualnych 2. generacji na platformie Azure](generation-2.md#generation-1-vs-generation-2-capabilities))
 - Maszyny wirtualne serii Lsv2 (patrz: [Lsv2-Series](../lsv2-series.md))
 - Maszyny wirtualne serii M z dyskami akcelerator zapisu.
+- Stosowanie [szyfrowania po stronie serwera z kluczami zarządzanymi przez klienta](disk-encryption.md) do maszyn wirtualnych szyfrowanych przez program ADE i na odwrót.
+- Migrowanie maszyny wirtualnej zaszyfrowanej przy użyciu programu ADE do [szyfrowania po stronie serwera z kluczami zarządzanymi przez klienta](disk-encryption.md).
+
 
 ## <a name="next-steps"></a>Następne kroki
 

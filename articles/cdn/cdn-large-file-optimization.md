@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 05/01/2018
 ms.author: allensu
-ms.openlocfilehash: 22ec4058d9485858489162af223bb6d6c381797e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0fb136b6c37c8ef14f85455431fea80099088936
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84887660"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206697"
 ---
 # <a name="large-file-download-optimization-with-azure-cdn"></a>Optymalizacja pobierania dużych plików przy użyciu Azure CDN
 
@@ -107,8 +107,7 @@ Usługa CDN buforuje wszystkie fragmenty, gdy są odbierane. Cały plik nie musi
 ### <a name="caching"></a>Buforowanie
 Optymalizacja dużych plików używa różnych domyślnych czasów wygaśnięcia buforowania z ogólnego dostarczania w sieci Web. Różni się między buforem dodatnim i negatywnym buforowaniem na podstawie kodów odpowiedzi HTTP. Jeśli serwer pierwotny określa czas wygaśnięcia za pośrednictwem w odpowiedzi w pamięci podręcznej lub nagłówek wygaśnięcia, Usługa CDN przestrzega tej wartości. Gdy punkt początkowy nie zostanie określony, a plik jest zgodny z warunkiem typu i rozmiaru dla tego typu optymalizacji, Sieć CDN używa wartości domyślnych dla optymalizacji dużych plików. W przeciwnym razie sieć CDN używa ustawień domyślnych dla ogólnego dostarczania w sieci Web.
 
-
-|    | Ogólne sieci Web | Optymalizacja dużych plików 
+| Buforowanie  | Ogólne sieci Web | Optymalizacja dużych plików 
 --- | --- | --- 
 Buforowanie: dodatnie <br> HTTP 200, 203, 300, <br> 301, 302 i 410 | 7 dni |1 dzień  
 Buforowanie: ujemne <br> HTTP 204, 305, 404, <br> i 405 | Brak | 1 sekunda 

@@ -3,20 +3,20 @@ title: 'Szybki Start: uzyskiwanie modelu za pomocą interfejsów API REST — LU
 titleSuffix: Azure Cognitive Services
 description: W tym przewodniku szybki start interfejsu API REST Użyj Zwinięciea, aby dodać wyrażenia długości i szkolić model.
 services: cognitive-services
-author: roy-har
+author: nitinme
 manager: diberry
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 06/19/2020
-ms.author: v-royha
-ms.openlocfilehash: 00bc71f76b15455dd8e4f8242c5379e9e97a53f2
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.author: nitinme
+ms.openlocfilehash: e5cf3160e6592a48e3a81480480ad8f01cc6af3a
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85119585"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206252"
 ---
 # <a name="quickstart-use-curl-and-rest-to-change-model"></a>Szybki Start: używanie Zwinięciea i REST do zmiany modelu
 
@@ -168,7 +168,7 @@ Jeśli tablica entityLabels nie jest pusta, elementy `startCharIndex` i `endChar
 
 1. Zastąp wartości zaczynające się od `***YOUR-` własnymi wartościami.
 
-    |Informacje|Przeznaczenie|
+    |Informacyjny|Przeznaczenie|
     |--|--|
     |`***YOUR-AUTHORING-ENDPOINT***`| Twój punkt końcowy adresu URL tworzenia. Na przykład „https://REPLACE-WITH-YOUR-RESOURCE-NAME.api.cognitive.microsoft.com/”. Nazwa zasobu jest ustawiana podczas tworzenia zasobu.|
     |`***YOUR-APP-ID***`| Identyfikator aplikacji LUIS. |
@@ -372,7 +372,7 @@ Jeśli tablica entityLabels nie jest pusta, elementy `startCharIndex` i `endChar
 
 Po zakończeniu pracy z tym przewodnikiem Szybki Start Usuń `ExampleUtterances.JSON` plik z systemu plików.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 > [!div class="nextstepaction"]
 > [Najlepsze rozwiązania dla aplikacji](luis-concept-best-practices.md)

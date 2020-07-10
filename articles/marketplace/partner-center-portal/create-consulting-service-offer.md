@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: b9bac7b5b23c4e7d4042b53b93347628488be953
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: a06f0838f25e771a90fb6dc6f4fcd3bd9bdeda87
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85984274"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86203811"
 ---
 # <a name="create-a-consulting-service-offer"></a>Tworzenie oferty usługi konsultingowej
 
@@ -98,12 +98,22 @@ Na tej stronie można ustawić podstawowy produkt, z którym usługa doradcza of
 
 3. Jeśli wybrano **platformę Azure** jako produkt podstawowy, należy wybrać maksymalnie trzy **obszary rozwiązań**. Ułatwiają one klientom w witrynie Azure Marketplace znalezienie oferty. Jeśli nie wybrano platformy Azure, Pomiń ten krok.
 
-    | Obszar rozwiązania | | | |
-    | --- | --- | --- | --- |
-    | Analiza | Backup | DevOps | Migracja |
-    | Modernizacja aplikacji | Dane big data | Odzyskiwanie po awarii | Sieć |
-    | Archiwum | Platforma danych | Tożsamość | Zabezpieczenia |
-    | SI i uczenie maszynowe | Zarządzanie centrum danych | Internet rzeczy | Storage |
+    - Analiza
+    - Modernizacja aplikacji
+    - Archiwum
+    - SI i uczenie maszynowe
+    - Backup
+    - Dane big data
+    - Platforma danych
+    - Zarządzanie centrum danych
+    - DevOps
+    - Odzyskiwanie po awarii
+    - Tożsamość
+    - Internet rzeczy
+    - Migracja
+    - Sieć
+    - Zabezpieczenia
+    - Storage
 
 1. Jeśli wybrano **platformę Azure** jako produkt podstawowy, można wybrać maksymalnie sześć **branż**. Ułatwiają one klientom w witrynie Azure Marketplace znalezienie oferty. Zapoznaj się z pełną listą branż w [ofercie z ofertami dotyczącymi najlepszych](../gtm-offer-listing-best-practices.md)rozwiązań. Jeśli nie wybrano platformy Azure, Pomiń ten krok.
 1. Jeśli wybrano podstawowy produkt *inny* niż Azure, wybierz maksymalnie trzy **odpowiednie produkty**. Ułatwiają one klientom usługi AppSource znalezienie oferty. Aby uzyskać szczegółowe informacje, zobacz [Microsoft AppSource wskazówki dotyczące usługi konsultingowej](https://go.microsoft.com/fwlink/?LinkId=828734&amp;clcid=0x409) (PDF).
@@ -126,7 +136,7 @@ Oto przykład sposobu wyświetlania informacji o ofercie w witrynie Azure Market
 #### <a name="call-out-descriptions"></a>Opisy połączeń
 
 1. Logo
-2. Price
+2. Cena
 3. Obszary rozwiązania
 4. Branże
 5. Nazwa oferty
@@ -141,7 +151,7 @@ Oto przykład sposobu wyświetlania informacji o ofercie w witrynie Azure Market
 #### <a name="call-out-descriptions"></a>Opisy połączeń
 
 1. Logo
-2. Price
+2. Cena
 3. Produkty
 4. Branże
 5. Nazwa oferty
@@ -229,7 +239,7 @@ W tym miejscu zdefiniujesz elementy, takie jak Cennik, rynek i klucz prywatny.
 4. W przypadku płatnej oferty Określ **cenę i walutę** oraz czy cena jest **stała** czy **Szacowana**. W przypadku oszacowania należy określić, jakie czynniki mają wpływ na cenę.
 5. Wybierz pozycję **Zapisz wersję roboczą** przed kontynuowaniem.
 
-## <a name="review-and-publish"></a>Przejrzyj i Opublikuj
+## <a name="review-and-publish"></a>Przeglądanie i publikowanie
 
 Po zakończeniu wszystkich wymaganych sekcji oferty możesz przesłać swoją ofertę do przeglądu i publikacji.
 

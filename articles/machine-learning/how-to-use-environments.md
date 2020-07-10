@@ -9,20 +9,21 @@ ms.reviewer: nibaccam
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.date: 03/18/2020
+ms.date: 07/08/2020
 ms.custom: tracking-python
-ms.openlocfilehash: 7cfcb42093aeb9e323527dea7def7a5b65d2dce2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f9ddc498fdcfe3d1b6da57e012166066feec933e
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84558419"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207017"
 ---
-# <a name="reuse-environments-for-training-and-deployment-by-using-azure-machine-learning"></a>Ponowne używanie środowisk do szkolenia i wdrażania przy użyciu Azure Machine Learning
+# <a name="how-to-use-environments-in-azure-machine-learning"></a>Jak używać środowisk w Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 W tym artykule dowiesz się, jak tworzyć [środowiska](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py)Azure Machine Learning i zarządzać nimi. Używaj środowisk do śledzenia i odtwarzania zależności oprogramowania projektów podczas ich rozwoju.
 
-Zarządzanie zależnościami oprogramowania to typowe zadanie dla deweloperów. Chcesz upewnić się, że kompilacje są odtwarzalne bez rozbudowanej ręcznej konfiguracji oprogramowania. Klasy Azure Machine Learning są `Environment` kontami dla lokalnych rozwiązań programistycznych, takich jak PIP i Conda, a także udostępniają rozwiązanie do programowania w chmurze lokalnej i rozproszonej.
+Zarządzanie zależnościami oprogramowania to typowe zadanie dla deweloperów. Chcesz upewnić się, że kompilacje są odtwarzalne bez rozbudowanej ręcznej konfiguracji oprogramowania. Klasy Azure Machine Learning są `Environment` kontami dla lokalnych rozwiązań programistycznych, takich jak PIP i Conda i rozbudowane programowanie w chmurze za pomocą możliwości platformy Docker.
 
 W przykładach w tym artykule przedstawiono sposób wykonywania tych operacji:
 
@@ -44,13 +45,13 @@ W poniższych sekcjach opisano różne sposoby tworzenia środowiska dla ekspery
 
 ### <a name="use-a-curated-environment"></a>Korzystanie z nadzorowanego środowiska
 
-Możesz wybrać jedno z nadzorowanych środowisk, które mają być uruchamiane: 
+Środowiska nadzorowane zawierają kolekcje pakietów języka Python i są domyślnie dostępne w obszarze roboczym. Te środowiska są obsługiwane przez buforowane obrazy platformy Docker, co zmniejsza koszt przygotowania do uruchomienia. Możesz wybrać jedno z tych popularnych środowisk nadzorowanych, aby zacząć od: 
 
 * Środowisko _Azure-minimalne_ zawiera minimalny zestaw pakietów umożliwiających śledzenie uruchamiania i przekazywanie zasobów. Można go użyć jako punktu wyjścia dla własnego środowiska.
 
 * Środowisko uczenia maszynowego zawiera wspólne pakiety _do_ nauki o danych. Pakiety te obejmują Scikit-uczenie, Pandas, matplotlib i większy zestaw pakietów Azure SDK.
 
-Środowiska nadzorowane są obsługiwane przez buforowane obrazy platformy Docker. Ta kopia zapasowa zmniejsza koszt przygotowania do uruchomienia.
+Aby zapoznać się z listą środowisk nadzorowanych, zapoznaj się z [artykułem środowiska nadzorowane](resource-curated-environments.md).
 
 Użyj `Environment.get` metody, aby wybrać jedno z nadzorowanych środowisk:
 
@@ -61,6 +62,11 @@ ws = Workspace.from_config()
 env = Environment.get(workspace=ws, name="AzureML-Minimal")
 ```
 
+Aby zmodyfikować środowisko nadzorowane, należy je skopiować:
+
+```python
+env = Environment.get(workspace=ws, name="AzureML-Tutorial").clone("new_env")
+```
 Można wyświetlić listę środowisk nadzorowanych i ich pakietów przy użyciu następującego kodu:
 
 ```python
@@ -75,6 +81,7 @@ for env in envs:
 > [!WARNING]
 >  Nie uruchamiaj nazwy środowiska z prefiksem platformy _Azure_ . Ten prefiks jest zarezerwowany dla środowisk nadzorowanych.
 
+
 ### <a name="instantiate-an-environment-object"></a>Tworzenie wystąpienia obiektu środowiska
 
 Aby ręcznie utworzyć środowisko, zaimportuj `Environment` klasę z zestawu SDK. Następnie użyj poniższego kodu, aby utworzyć wystąpienie obiektu środowiska.
@@ -84,9 +91,11 @@ from azureml.core.environment import Environment
 Environment(name="myenv")
 ```
 
-### <a name="use-conda-and-pip-specification-files"></a>Użyj plików specyfikacji Conda i PIP
+W przypadku definiowania własnego środowiska należy wyświetlić listę `azureml-defaults` z wersją >= 1.0.45 jako zależność PIP. Ten pakiet zawiera funkcje, które są konieczne do hostowania modelu jako usługi sieci Web.
 
-Możesz również utworzyć środowisko na podstawie specyfikacji Conda lub pliku wymagań PIP. Użyj [`from_conda_specification()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#from-conda-specification-name--file-path-) metody lub [`from_pip_requirements()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#from-pip-requirements-name--file-path-) metody. W argumencie metody Podaj nazwę środowiska i ścieżkę do pliku, który chcesz.
+### <a name="use-conda-pip-and-docker-files"></a>Korzystanie z plików Conda, PIP i Docker
+
+Środowisko można utworzyć na podstawie specyfikacji Conda lub pliku wymagań PIP. Użyj [`from_conda_specification()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#from-conda-specification-name--file-path-) metody lub [`from_pip_requirements()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#from-pip-requirements-name--file-path-) metody. W argumencie metody Podaj nazwę środowiska i ścieżkę do pliku, który chcesz. Możesz również utworzyć środowisko na podstawie pliku platformy Docker za pomocą [`load_from_directory()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#load-from-directory-path-) metody. W argumencie metody należy uwzględnić ścieżkę do katalogu źródłowego zawierającego plik platformy Docker. 
 
 ```python
 # From a Conda specification file
@@ -96,9 +105,12 @@ myenv = Environment.from_conda_specification(name = "myenv",
 # From a pip requirements file
 myenv = Environment.from_pip_requirements(name = "myenv"
                                           file_path = "path-to-pip-requirements-file")
+                                          
+# From a Docker file
+myenv = Environment.load_from_directory(path = "path-to-dockerfile-directory")
 ```
 
-### <a name="use-existing-conda-environments"></a>Korzystanie z istniejących środowisk Conda
+### <a name="use-existing-environments"></a>Korzystanie z istniejących środowisk
 
 Jeśli masz istniejące środowisko Conda na komputerze lokalnym, możesz użyć usługi do utworzenia obiektu środowiska. Korzystając z tej strategii, można ponownie użyć lokalnego środowiska interaktywnego na zdalnych uruchomieniach.
 
@@ -107,6 +119,14 @@ Poniższy kod tworzy obiekt środowiska z istniejącego środowiska Conda `mycon
 ``` python
 myenv = Environment.from_existing_conda_environment(name = "myenv",
                                                     conda_environment_name = "mycondaenv")
+```
+
+Definicję środowiska można zapisać w katalogu w łatwo edytowalnym formacie za pomocą [`save_to_directory()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#save-to-directory-path--overwrite-false-) metody. Po zmodyfikowaniu nowe środowisko można utworzyć wystąpienie przez załadowanie plików z katalogu.
+
+```python
+myenv = Environment.save_to_directory(path = "path-to-destination-directory", overwrite = False)
+# modify the environment definition
+newenv = Environment.load_from_directory(path = "path-to-source-directory")
 ```
 
 ### <a name="create-environments-automatically"></a>Twórz środowiska automatycznie
@@ -163,18 +183,9 @@ myenv.python.conda_dependencies=conda_dep
 >[!IMPORTANT]
 > Jeśli używasz tej samej definicji środowiska dla innego uruchomienia, usługa Azure Machine Learning ponownie używa buforowanego obrazu środowiska. W przypadku tworzenia środowiska z przypiętym zależnością pakietu, na przykład, ```numpy``` to środowisko będzie korzystać z zainstalowanej wersji pakietu _w momencie tworzenia środowiska_. Ponadto wszystkie przyszłe środowiska ze zgodną definicją będą nadal używane w starej wersji. Aby uzyskać więcej informacji, zobacz [Tworzenie środowiska, buforowanie i ponowne użycie](https://docs.microsoft.com/azure/machine-learning/concept-environments#environment-building-caching-and-reuse).
 
-### <a name="private-wheel-files"></a>Pliki kół prywatnych
+### <a name="private-python-packages"></a>Prywatne pakiety języka Python
 
-Możesz użyć prywatnych plików kółka PIP, najpierw przekazując je do magazynu obszaru roboczego. Są one przekazywane przy użyciu metody statycznej [`add_private_pip_wheel()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#add-private-pip-wheel-workspace--file-path--exist-ok-false-) . Następnie należy przechwycić adres URL magazynu i przekazać adres URL do `add_pip_package()` metody.
-
-```python
-# During environment creation the service replaces the URL by secure SAS URL, so your wheel file is kept private and secure
-whl_url = Environment.add_private_pip_wheel(workspace=ws,file_path = "my-custom.whl")
-myenv = Environment(name="myenv")
-conda_dep = CondaDependencies()
-conda_dep.add_pip_package(whl_url)
-myenv.python.conda_dependencies=conda_dep
-```
+Aby w sposób prywatny i bezpieczny używać pakietów języka Python bez ujawniania ich w publicznej sieci Internet, zapoznaj się z artykułem [jak używać prywatnych pakietów języka Python](how-to-use-private-python-packages.md).
 
 ## <a name="manage-environments"></a>Zarządzanie środowiskami
 
@@ -219,7 +230,7 @@ Run.get_environment()
 
 ### <a name="update-an-existing-environment"></a>Aktualizowanie istniejącego środowiska
 
-Załóżmy, że zmienisz istniejące środowisko, na przykład dodając pakiet języka Python. Nowa wersja środowiska jest następnie tworzona podczas przesyłania przebiegu, wdrażania modelu lub ręcznego rejestrowania środowiska. Wersja pozwala przeglądać zmiany środowiska w miarę upływu czasu.
+Załóżmy, że zmienisz istniejące środowisko, na przykład dodając pakiet języka Python. To zajmie czas kompilowania, ponieważ nowa wersja środowiska zostanie utworzona podczas przesyłania przebiegu, wdrażania modelu lub ręcznego rejestrowania środowiska. Wersja pozwala przeglądać zmiany środowiska w miarę upływu czasu. 
 
 Aby zaktualizować wersję pakietu języka Python w istniejącym środowisku, określ numer wersji tego pakietu. Jeśli nie używasz dokładnego numeru wersji, Azure Machine Learning będzie ponownie używać istniejącego środowiska z oryginalnymi wersjami pakietu.
 
@@ -233,9 +244,11 @@ build = env.build(workspace=ws)
 build.wait_for_completion(show_output=True)
 ```
 
+Warto najpierw skompilować obrazy lokalnie przy użyciu [`build_local()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#build-local-workspace--platform-none----kwargs-) metody. Ustawienie parametru opcjonalnego `pushImageToWorkspaceAcr = True` spowoduje wypychanie obrazu do rejestru kontenerów obszaru roboczego usługi Azure ml. 
+
 ## <a name="enable-docker"></a>Włącz platformę Docker
 
- [`DockerSection`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.dockersection?view=azure-ml-py) `Environment` Klasa Azure Machine Learning umożliwia precyzyjne dostosowywanie i kontrolowanie systemu operacyjnego gościa, w którym jest uruchamiane szkolenie.
+[`DockerSection`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.dockersection?view=azure-ml-py) `Environment` Klasa Azure Machine Learning umożliwia precyzyjne dostosowywanie i kontrolowanie systemu operacyjnego gościa, w którym jest uruchamiane szkolenie. `arguments`Zmienna może służyć do określania dodatkowych argumentów do przekazania do polecenia Docker Run.
 
 Po włączeniu platformy Docker usługa kompiluje obraz platformy Docker. Tworzy również środowisko języka Python, które używa Twoich specyfikacji w tym kontenerze platformy Docker. Ta funkcja zapewnia dodatkową izolację i odtwarzalność dla przebiegów szkoleniowych.
 
@@ -246,7 +259,7 @@ myenv.docker.enabled = True
 
 Nowo utworzony obraz platformy Docker jest domyślnie wyświetlany w rejestrze kontenerów skojarzonym z obszarem roboczym.  Nazwa repozytorium ma postać *Azure/azureml_ \<uuid\> *. Część unikatowego identyfikatora (*UUID*) nazwy odpowiada skrótowi obliczonemu na podstawie konfiguracji środowiska. Ta zgodność umożliwia usłudze określenie, czy obraz danego środowiska już istnieje do ponownego użycia.
 
-Ponadto usługa automatycznie używa jednego z [obrazów podstawowych](https://github.com/Azure/AzureML-Containers)opartych na Ubuntu Linux. Instaluje określone pakiety języka Python. Obraz podstawowy ma wersje procesora CPU i procesora GPU. Azure Machine Learning automatycznie wykrywa, która wersja ma być używana.
+Ponadto usługa automatycznie używa jednego z [obrazów podstawowych](https://github.com/Azure/AzureML-Containers)opartych na Ubuntu Linux. Instaluje określone pakiety języka Python. Obraz podstawowy ma wersje procesora CPU i procesora GPU. Azure Machine Learning automatycznie wykrywa, która wersja ma być używana. Istnieje również możliwość użycia [niestandardowego obrazu platformy Docker](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-custom-docker-image#create-a-custom-base-image).
 
 ```python
 # Specify custom Docker base image and registry, if you don't want to use the defaults
@@ -254,7 +267,7 @@ myenv.docker.base_image="your_base-image"
 myenv.docker.base_image_registry="your_registry_location"
 ```
 
-Możesz również określić niestandardowy pliku dockerfile. Najprostszym rozwiązaniem jest rozpoczęcie od jednego z Azure Machine Learning obrazów podstawowych przy użyciu polecenia Docker ```FROM``` , a następnie dodanie własnych kroków niestandardowych. Użyj tej metody, jeśli chcesz zainstalować pakiety inne niż środowisko Python jako zależności.
+Możesz również określić niestandardowy pliku dockerfile. Najprostszym rozwiązaniem jest rozpoczęcie od jednego z Azure Machine Learning obrazów podstawowych przy użyciu polecenia Docker ```FROM``` , a następnie dodanie własnych kroków niestandardowych. Użyj tej metody, jeśli chcesz zainstalować pakiety inne niż środowisko Python jako zależności. Pamiętaj, aby ustawić obraz podstawowy na brak.
 
 ```python
 # Specify docker steps as a string. Alternatively, load the string from a file.
@@ -272,9 +285,9 @@ myenv.docker.base_dockerfile = dockerfile
 
 W niektórych sytuacjach niestandardowy obraz podstawowy może już zawierać środowisko Python z pakietami, które mają być używane.
 
-Domyślnie usługa Azure Machine Learning będzie kompilować środowisko Conda z określonymi zależnościami i wykona przebieg w tym środowisku, zamiast korzystać z bibliotek języka Python zainstalowanych na obrazie podstawowym. 
+Domyślnie usługa Azure Machine Learning będzie kompilować środowisko Conda z określonymi zależnościami i wykona przebieg w tym środowisku, zamiast korzystać z bibliotek języka Python zainstalowanych na obrazie podstawowym. Ponieważ środowisko Conda jest odizolowane od niestandardowego obrazu podstawowego, pakiety zainstalowane w innym miejscu nie zostaną uwzględnione.
 
-Aby użyć własnych zainstalowanych pakietów, należy ustawić parametr `Environment.python.user_managed_dependencies = True` . Upewnij się, że obraz podstawowy zawiera interpreter języka Python i ma pakiety, których potrzebuje Twój skrypt szkoleniowy.
+Aby użyć własnych zainstalowanych pakietów i wyłączyć Conda, należy ustawić parametr `Environment.python.user_managed_dependencies = True` . Upewnij się, że obraz podstawowy zawiera interpreter języka Python i ma pakiety, których potrzebuje Twój skrypt szkoleniowy.
 
 Na przykład aby uruchomić program w podstawowym środowisku Miniconda z zainstalowanym pakietem NumPy, należy najpierw określić pliku dockerfile z krokiem instalacji pakietu. Następnie ustaw zależności zarządzane przez użytkownika na `True` . 
 

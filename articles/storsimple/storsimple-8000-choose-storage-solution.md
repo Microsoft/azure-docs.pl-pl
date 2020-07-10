@@ -7,11 +7,12 @@ ms.service: storsimple
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: alkohli
-ms.openlocfilehash: 9456d975ffb6d7726166f9badbcb8fe0ccbe5256
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dc7de4e69d42a2165f5845f3d8214975d67cdc3c
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "68965361"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86203978"
 ---
 # <a name="compare-storsimple-with-azure-file-sync-and-data-box-edge-data-transfer-options"></a>Compare StorSimple with Azure File Sync and Data Box Edge data transfer options (Porównanie usługi StorSimple z usługami Azure File Sync i opcjami transferu danych usługi Data Box Edge) 
 
@@ -27,14 +28,14 @@ Ten dokument zawiera omówienie opcji lokalnego transferu danych na platformę A
 
 |                           |StorSimple 8000   |Azure File Sync   |Data Box Edge           |
 |---------------------------|----------------------------------------|-------------------------------|-----------------------------------------|
-|Omówienie         |Magazyn i archiwum hybrydowe warstwowe|Ogólny magazyn serwera plików z obsługą warstw chmury i synchronizacji z obsługą wiele lokacji.  |Rozwiązanie magazynu do wstępnego przetwarzania danych i wysyłania ich przez sieć do platformy Azure.        |
-|Scenariusze        |Serwer plików, archiwizowanie, miejsce docelowe kopii zapasowej |Serwer plików, archiwizowanie (wiele lokacji)   |Transfer danych, przetwarzanie wstępne danych, w tym inferencing ML, IoT, archiwalny    |
-|Funkcja obliczeniowa Edge     |Niedostępne |Niedostępne |Obsługuje uruchamianie kontenerów za pomocą Azure IoT Edge    |
-|Współczynnik postaci      |Urządzenie fizyczne   |Agent zainstalowany w systemie Windows Server |Urządzenie fizyczne   |
-|Sprzęt         |Urządzenie fizyczne udostępniane przez firmę Microsoft jako część usługi | Dostarczone przez klienta |Urządzenie fizyczne udostępniane przez firmę Microsoft jako część usługi  |
-|Format danych      |Format niestandardowy   |Files         |Obiekty blob lub pliki    |
-|Obsługa protokołów |iSCSI          |SMB, NFS    | SMB lub NFS      |
-|Cennik          |[StorSimple](https://azure.microsoft.com/pricing/details/storsimple/) |[Azure File Sync](https://azure.microsoft.com/pricing/details/storage/files/)  |[Data Box Edge](https://azure.microsoft.com/pricing/details/storage/databox/edge/)  |
+|**Omówienie**     |Magazyn i archiwum hybrydowe warstwowe|Ogólny magazyn serwera plików z obsługą warstw chmury i synchronizacji z obsługą wiele lokacji.  |Rozwiązanie magazynu do wstępnego przetwarzania danych i wysyłania ich przez sieć do platformy Azure.        |
+|**Scenariusze**    |Serwer plików, archiwizowanie, miejsce docelowe kopii zapasowej |Serwer plików, archiwizowanie (wiele lokacji)   |Transfer danych, przetwarzanie wstępne danych, w tym inferencing ML, IoT, archiwalny    |
+|**Funkcja obliczeniowa Edge** |Niedostępne |Niedostępne |Obsługuje uruchamianie kontenerów za pomocą Azure IoT Edge    |
+|**Współczynnik postaci**  |Urządzenie fizyczne   |Agent zainstalowany w systemie Windows Server |Urządzenie fizyczne   |
+|**Sprzęt**     |Urządzenie fizyczne udostępniane przez firmę Microsoft jako część usługi | Dostarczone przez klienta |Urządzenie fizyczne udostępniane przez firmę Microsoft jako część usługi  |
+|**Format danych**  |Format niestandardowy   |Pliki         |Obiekty blob lub pliki    |
+|**Obsługa protokołu** |iSCSI          |SMB, NFS    | SMB lub NFS      |
+|**Cennik**      |[Magazyn StorSimple](https://azure.microsoft.com/pricing/details/storsimple/) |[Azure File Sync](https://azure.microsoft.com/pricing/details/storage/files/)  |[Data Box Edge](https://azure.microsoft.com/pricing/details/storage/databox/edge/)  |
 
 ## <a name="next-steps"></a>Następne kroki
 

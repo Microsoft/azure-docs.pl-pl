@@ -3,12 +3,12 @@ title: Co nowego w Azure Site Recovery
 description: Zawiera podsumowanie nowych funkcji i najnowszych aktualizacji usługi Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 06/01/2020
-ms.openlocfilehash: f774dbd3172199e82509301f520eac4e25deb15b
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 3017be90e84441ad84c6a5a9d54498028388dffe
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86131075"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206398"
 ---
 # <a name="whats-new-in-site-recovery"></a>Co nowego w usłudze Site Recovery
 
@@ -20,27 +20,26 @@ Możesz postępować zgodnie z Site Recovery powiadomieniami o aktualizacji w ka
 
 W przypadku składników Site Recovery obsługiwane są wersje N-4, gdzie N to najnowsza wydana wersja. Podsumowanie dotyczące tych raportów można znaleźć w poniższej tabeli.
 
-**Aktualizacja** |  **Ujednolicona konfiguracja** | **Komórki jajowe serwera konfiguracji** | **Agent usługi mobilności** | **Dostawca Site Recovery** | **Agent Recovery Services**
+**Aktualizowanie** |  **Ujednolicona konfiguracja** | **Komórki jajowe serwera konfiguracji** | **Agent usługi mobilności** | **Dostawca Site Recovery** | **Agent Recovery Services**
 --- | --- | --- | --- | --- | ---
 [Pakiet zbiorczy 47](https://support.microsoft.com/help/4570609/) | 9.34.5634.1 | 5.1.6100.0 | 9.34.5634.1 | 5.1.6100.0 | 2.0.9183.0
 [Pakiet zbiorczy 46](https://support.microsoft.com/help/4564347/) | 9.33.5598.1 | 5.1.5900.0 | 9.33.5598.1 | 5.1.5900.0 | 2.0.9175.0
 [Pakiet zbiorczy 45](https://support.microsoft.com/help/4550047/) | 9.32.5487.1 | 5.1.5400.0 | 9.32.5487.1 | 5.1.5400.0 | 2.0.9165.0
 [Pakiet zbiorczy 43](https://support.microsoft.com/help/4537047/) | 9.31.5449.1 | 5.1.5300.0 | 9.31.5449.1 | 5.1.5300.0 | 2.0.9165.0
 [Pakiet zbiorczy 42](https://support.microsoft.com/help/4531426/) | 9.30.5407.1 | 5.1.5200.0 | 9.30.5407.1 | 5.1.5200.0 | 2.0.9165.0
-[Pakiet zbiorczy 41](https://support.microsoft.com/help/4528026/) | 9.29.5367.1 | 5.1.5000.0 | 9.29.5367.1 | 5.1.5000.0 | 2.0.9165.0
 
 [Dowiedz się więcej](service-updates-how-to.md) na temat instalacji i obsługi aktualizacji.
 
 > [!NOTE]
 > Pakiet zbiorczy aktualizacji 44 nie jest wyświetlany w tabeli, ponieważ nie zawiera on aktualizacji dostawców Site Recovery i agentów.
 
-## <a name="updates-june-2020"></a>Aktualizacje (Czerwiec 2020)
+## <a name="updates-july-2020"></a>Aktualizacje (lipiec 2020)
 
 ### <a name="update-rollup-47"></a>Pakiet zbiorczy aktualizacji 47
 
 [Pakiet zbiorczy aktualizacji 47](https://support.microsoft.com/help/4570609/update-rollup-47-for-azure-site-recovery) udostępnia następujące aktualizacje:
 
-**Aktualizacja** | **Szczegóły**
+**Aktualizowanie** | **Szczegóły**
 --- | ---
 **Dostawcy i agenci** | Aktualizacje Site Recovery agentów i dostawców zgodnie z opisem w zestawie zbiorczym.
 **Rozwiązywanie poprawek/ulepszeń** | Szereg poprawek i ulepszeń, które opisano szczegółowo w pakiecie zbiorczym.
@@ -51,7 +50,7 @@ W przypadku składników Site Recovery obsługiwane są wersje N-4, gdzie N to n
 
 [Pakiet zbiorczy aktualizacji 46](https://support.microsoft.com/help/4564347/update-rollup-46-for-azure-site-recovery) udostępnia następujące aktualizacje:
 
-**Aktualizacja** | **Szczegóły**
+**Aktualizowanie** | **Szczegóły**
 --- | ---
 **Dostawcy i agenci** | Aktualizacje Site Recovery agentów i dostawców zgodnie z opisem w zestawie zbiorczym.
 **Rozwiązywanie poprawek/ulepszeń** | Szereg poprawek i ulepszeń, które opisano szczegółowo w pakiecie zbiorczym.
@@ -62,7 +61,7 @@ W przypadku składników Site Recovery obsługiwane są wersje N-4, gdzie N to n
 
 [Pakiet zbiorczy aktualizacji 45](https://support.microsoft.com/help/4550047/update-rollup-45-for-azure-site-recovery) udostępnia następujące aktualizacje:
 
-**Aktualizacja** | **Szczegóły**
+**Aktualizowanie** | **Szczegóły**
 --- | ---
 **Dostawcy i agenci** | Aktualizacje Site Recovery agentów i dostawców zgodnie z opisem w zestawie zbiorczym.
 **Rozwiązywanie poprawek/ulepszeń** | Szereg poprawek i ulepszeń, które opisano szczegółowo w pakiecie zbiorczym.
@@ -73,7 +72,7 @@ W przypadku składników Site Recovery obsługiwane są wersje N-4, gdzie N to n
 
 [Pakiet zbiorczy aktualizacji 44](https://support.microsoft.com/help/4538187/update-rollup-44-for-azure-site-recovery) udostępnia następujące aktualizacje.
 
-**Aktualizacja** | **Szczegóły**
+**Aktualizowanie** | **Szczegóły**
 --- | ---
 **Dostawcy i agenci** | Nie było żadnych aktualizacji dla dostawców Site Recovery i agentów.
 **Rozwiązywanie poprawek/ulepszeń** | Szereg poprawek i ulepszeń, które opisano szczegółowo w pakiecie zbiorczym.
@@ -87,7 +86,7 @@ Usługi Azure Virtual Machines obsługują teraz maszyny wirtualne, które umoż
 
 [Pakiet zbiorczy aktualizacji 43](https://support.microsoft.com/help/4537047/update-rollup-43-for-azure-site-recovery) udostępnia następujące aktualizacje.
 
-**Aktualizacja** | **Szczegóły**
+**Aktualizowanie** | **Szczegóły**
 --- | ---
 **Dostawcy i agenci** | Aktualizacje Site Recovery agentów i dostawców (zgodnie z opisem w pakiecie zbiorczym)
 **Rozwiązywanie poprawek/ulepszeń** | Szereg poprawek i ulepszeń (zgodnie z opisem w pakiecie zbiorczym)
@@ -99,7 +98,7 @@ Usługi Azure Virtual Machines obsługują teraz maszyny wirtualne, które umoż
 
 [Pakiet zbiorczy aktualizacji 42](https://support.microsoft.com/help/4531426/update-rollup-42-for-azure-site-recovery) udostępnia następujące aktualizacje.
 
-**Aktualizacja** | **Szczegóły**
+**Aktualizowanie** | **Szczegóły**
 --- | ---
 **Dostawcy i agenci** | Aktualizacje Site Recovery agentów i dostawców (zgodnie z opisem w pakiecie zbiorczym)
 **Rozwiązywanie poprawek/ulepszeń** | Szereg poprawek i ulepszeń (zgodnie z opisem w pakiecie zbiorczym)
@@ -146,7 +145,7 @@ W przypadku odzyskiwania po awarii maszyn wirtualnych platformy Azure do regionu
 
 [Pakiet zbiorczy aktualizacji 41](https://support.microsoft.com/help/4528026/update-rollup-41-for-azure-site-recovery) udostępnia następujące aktualizacje.
 
-**Aktualizacja** | **Szczegóły**
+**Aktualizowanie** | **Szczegóły**
 --- | ---
 **Dostawcy i agenci** | Aktualizacje Site Recovery agentów i dostawców (zgodnie z opisem w pakiecie zbiorczym)
 **Rozwiązywanie poprawek/ulepszeń** | Szereg poprawek i ulepszeń (zgodnie z opisem w pakiecie zbiorczym)
@@ -177,7 +176,7 @@ Nowe funkcje odzyskiwania po awarii oprogramowania VMware na platformę Azure zo
 
 [Pakiet zbiorczy aktualizacji 40](https://support.microsoft.com/help/4521530/update-rollup-40-for-azure-site-recovery) udostępnia następujące aktualizacje.
 
-**Aktualizacja** | **Szczegóły**
+**Aktualizowanie** | **Szczegóły**
 --- | ---
 **Dostawcy i agenci** | Aktualizacje Site Recovery agentów i dostawców (zgodnie z opisem w pakiecie zbiorczym)
 **Rozwiązywanie poprawek/ulepszeń** | Szereg poprawek i ulepszeń (zgodnie z opisem w pakiecie zbiorczym)
@@ -217,7 +216,7 @@ Konto magazynu | Site Recovery teraz obsługuje używanie kont magazynu z włąc
 
 [Pakiet zbiorczy aktualizacji 39](https://support.microsoft.com/help/4517283/update-rollup-39-for-azure-site-recovery) udostępnia następujące aktualizacje.
 
-**Aktualizacja** | **Szczegóły**
+**Aktualizowanie** | **Szczegóły**
 --- | ---
 **Dostawcy i agenci** | Aktualizacje Site Recovery agentów i dostawców (zgodnie z opisem w pakiecie zbiorczym)
 **Rozwiązywanie poprawek/ulepszeń** | Szereg poprawek i ulepszeń (zgodnie z opisem w pakiecie zbiorczym)
@@ -238,7 +237,7 @@ W tabeli zestawiono nowe funkcje odzyskiwania po awarii maszyny wirtualnej platf
 
 [Pakiet zbiorczy aktualizacji 38](https://support.microsoft.com/help/4513507/) udostępnia następujące aktualizacje.
 
-**Aktualizacja** | **Szczegóły**
+**Aktualizowanie** | **Szczegóły**
 --- | ---
 **Dostawcy i agenci** | Aktualizacje Site Recovery agentów i dostawców (zgodnie z opisem w pakiecie zbiorczym)
 **Rozwiązywanie poprawek/ulepszeń** | Szereg poprawek i ulepszeń (zgodnie z opisem w pakiecie zbiorczym)
@@ -259,7 +258,7 @@ Teraz można replikować dyski do 8 TB w przypadku replikowania do maszyny wirtu
 
 [Pakiet zbiorczy aktualizacji 37](https://support.microsoft.com/help/4508614/) udostępnia następujące aktualizacje.
 
-**Aktualizacja** | **Szczegóły**
+**Aktualizowanie** | **Szczegóły**
 --- | ---
 **Dostawcy i agenci** | Aktualizacje Site Recovery agentów i dostawców (zgodnie z opisem w pakiecie zbiorczym)
 **Rozwiązywanie poprawek/ulepszeń** | Szereg poprawek i ulepszeń (zgodnie z opisem w pakiecie zbiorczym)
@@ -281,7 +280,7 @@ Funkcje dodane w tym miesiącu zostały podsumowane w tabeli.
 
 [Pakiet zbiorczy aktualizacji 36](https://support.microsoft.com/help/4503156) udostępnia następujące aktualizacje.
 
-**Aktualizacja** | **Szczegóły**
+**Aktualizowanie** | **Szczegóły**
 --- | ---
 **Dostawcy i agenci** | Aktualizacja Site Recovery agentów i dostawców (zgodnie z opisem w zestawie zbiorczym)
 **Rozwiązywanie poprawek/ulepszeń** | Szereg poprawek i ulepszeń (zgodnie z opisem w pakiecie zbiorczym)
@@ -314,7 +313,7 @@ Funkcje dodane w tym miesiącu zostały podsumowane w tabeli.
 
 [Pakiet zbiorczy aktualizacji 35](https://support.microsoft.com/en-us/help/4494485/update-rollup-35-for-azure-site-recovery) udostępnia następujące aktualizacje.
 
-**Aktualizacja** | **Szczegóły**
+**Aktualizowanie** | **Szczegóły**
 --- | ---
 **Dostawcy i agenci** | Aktualizacja Site Recovery agentów i dostawców (zgodnie z opisem w zestawie zbiorczym)
 **Rozwiązywanie poprawek/ulepszeń** | Szereg poprawek i ulepszeń (zgodnie z opisem w pakiecie zbiorczym)
@@ -335,7 +334,7 @@ Funkcje dodane w tym miesiącu zostały podsumowane w tabeli.
 
 [Pakiet zbiorczy aktualizacji 34](https://support.microsoft.com/help/4490016/update-rollup-34-for-azure-site-recovery) udostępnia następujące aktualizacje.
 
-**Aktualizacja** | **Szczegóły**
+**Aktualizowanie** | **Szczegóły**
 --- | ---
 **Dostawcy i agenci** | Aktualizacja Site Recovery agentów i dostawców (zgodnie z opisem w pakiecie zbiorczym).
 **Rozwiązywanie poprawek/ulepszeń** | Szereg poprawek i ulepszeń (zgodnie z opisem w pakiecie zbiorczym).
@@ -345,7 +344,7 @@ Funkcje dodane w tym miesiącu zostały podsumowane w tabeli.
 
 [Pakiet zbiorczy aktualizacji 33](https://support.microsoft.com/help/4489582/update-rollup-33-for-azure-site-recovery) udostępnia następujące aktualizacje.
 
-**Aktualizacja** | **Szczegóły**
+**Aktualizowanie** | **Szczegóły**
 --- | ---
 **Dostawcy i agenci** | Aktualizacja Site Recovery agentów i dostawców (zgodnie z opisem w pakiecie zbiorczym).
 **Rozwiązywanie poprawek/ulepszeń** | Szereg poprawek i ulepszeń (zgodnie z opisem w pakiecie zbiorczym).
@@ -385,7 +384,7 @@ Przyspieszona sieć umożliwia wirtualizację we/wy z jednym elementem głównym
 
 [Pakiet zbiorczy aktualizacji 32](https://support.microsoft.com/help/4485985/update-rollup-32-for-azure-site-recovery) udostępnia następujące aktualizacje.
 
-**Aktualizacja** | **Szczegóły**
+**Aktualizowanie** | **Szczegóły**
 --- | ---
 **Dostawcy i agenci** | Aktualizacja Site Recovery agentów i dostawców (zgodnie z opisem w pakiecie zbiorczym).
 **Rozwiązywanie poprawek/ulepszeń** | Szereg poprawek i ulepszeń (zgodnie z opisem w pakiecie zbiorczym).
@@ -412,7 +411,7 @@ Funkcje dodane w tym miesiącu zostały podsumowane w tabeli.
 
 [Pakiet zbiorczy aktualizacji 31](https://support.microsoft.com/help/4478871/update-rollup-31-for-azure-site-recovery) udostępnia następujące aktualizacje.
 
-**Aktualizacja** | **Szczegóły**
+**Aktualizowanie** | **Szczegóły**
 --- | ---
 **Dostawcy i agenci** | Aktualizacja Site Recovery agentów i dostawców (zgodnie z opisem w pakiecie zbiorczym).
 **Rozwiązywanie poprawek/ulepszeń** | Szereg poprawek i ulepszeń (zgodnie z opisem w pakiecie zbiorczym).
@@ -467,7 +466,7 @@ Odzyskiwanie po awarii maszyn wirtualnych platformy Azure wiąże się z kosztam
 
 [Pakiet zbiorczy aktualizacji 30](https://support.microsoft.com/help/4468181/azure-site-recovery-update-rollup-30) udostępnia następujące aktualizacje.
 
-**Aktualizacja** | **Szczegóły**
+**Aktualizowanie** | **Szczegóły**
 --- | ---
 **Dostawcy i agenci** | Aktualizacja Site Recovery agentów i dostawców (zgodnie z opisem w pakiecie zbiorczym).
 **Rozwiązywanie poprawek/ulepszeń** | Szereg poprawek i ulepszeń (zgodnie z opisem w pakiecie zbiorczym).
@@ -487,7 +486,7 @@ Funkcje dodane w tym miesiącu zostały podsumowane w tabeli.
 
 [Pakiet zbiorczy aktualizacji 29](https://support.microsoft.com/help/4466466/update-rollup-29-for-azure-site-recovery) udostępnia następujące aktualizacje.
 
-**Aktualizacja** | **Szczegóły**
+**Aktualizowanie** | **Szczegóły**
 --- | ---
 **Dostawcy i agenci** | Aktualizacja Site Recovery agentów i dostawców (zgodnie z opisem w pakiecie zbiorczym).
 **Rozwiązywanie poprawek/ulepszeń** | Szereg poprawek i ulepszeń (zgodnie z opisem w pakiecie zbiorczym).
@@ -499,7 +498,7 @@ Funkcje dodane w tym miesiącu zostały podsumowane w tabeli.
 
 [Pakiet zbiorczy aktualizacji 28](https://support.microsoft.com/help/4460079/update-rollup-28-for-azure-site-recovery) zawiera następujące aktualizacje.
 
-**Aktualizacja** | **Szczegóły**
+**Aktualizowanie** | **Szczegóły**
 --- | ---
 **Dostawcy i agenci** | Aktualizacja Site Recovery agentów i dostawców (zgodnie z opisem w pakiecie zbiorczym).
 **Rozwiązywanie poprawek/ulepszeń** | Szereg poprawek i ulepszeń (zgodnie z opisem w pakiecie zbiorczym).
@@ -528,7 +527,7 @@ Funkcje dodane w tym miesiącu zostały podsumowane w tabeli.
 
 [Pakiet zbiorczy aktualizacji 27](https://support.microsoft.com/help/4055712/update-rollup-27-for-azure-site-recovery) udostępnia następujące aktualizacje.
 
-**Aktualizacja** | **Szczegóły**
+**Aktualizowanie** | **Szczegóły**
 --- | ---
 **Dostawcy i agenci** | Aktualizacja Site Recovery agentów i dostawców (zgodnie z opisem w pakiecie zbiorczym).
 **Rozwiązywanie poprawek/ulepszeń** | Szereg poprawek i ulepszeń (zgodnie z opisem w pakiecie zbiorczym).

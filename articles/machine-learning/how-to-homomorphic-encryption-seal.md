@@ -1,22 +1,23 @@
 ---
-title: Wdróż zaszyfrowaną usługę inferencing
+title: Wdróż zaszyfrowaną usługę inferencing (wersja zapoznawcza)
 titleSuffix: Azure Machine Learning
 description: Dowiedz się, jak używać programu Microsoft SEAL do wdrożenia zaszyfrowanej usługi predykcyjnej na potrzeby klasyfikacji obrazów
 author: luisquintanilla
 ms.author: luquinta
-ms.date: 05/18/2020
+ms.date: 07/09/2020
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.custom: tracking-python
-ms.openlocfilehash: b92293973ac9b5027a9f1a10c2d19fd164c41e3f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c67ddf2d82a1cebaaa43a90111f4a42edb20058e
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84560184"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206780"
 ---
-# <a name="how-to-deploy-an-encrypted-inferencing-web-service"></a>Jak wdrożyć zaszyfrowaną usługę sieci Web inferencing
+# <a name="how-to-deploy-an-encrypted-inferencing-web-service-preview"></a>Jak wdrożyć zaszyfrowaną usługę sieci Web inferencing (wersja zapoznawcza)
 
 Dowiedz się, jak wdrożyć model klasyfikacji obrazów jako zaszyfrowaną usługę sieci Web inferencing w [Azure Container Instances](https://docs.microsoft.com/azure/container-instances/) (ACI). Usługa sieci Web jest obrazem kontenera Docker, który zawiera model i logikę oceniania.
 

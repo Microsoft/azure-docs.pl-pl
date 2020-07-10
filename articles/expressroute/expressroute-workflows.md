@@ -7,11 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: cherylmc
-ms.openlocfilehash: e833e20085d7cfd8f727acb394851e96e7e19368
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 58914709838c72246678ce92005de5ac18695a1f
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75864370"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86204168"
 ---
 # <a name="expressroute-workflows-for-circuit-provisioning-and-circuit-states"></a>Przepływy pracy ExpressRoute dla aprowizacji obwodu i stanów obwodu
 Ta strona przeprowadzi Cię przez przepływy pracy konfigurowania aprowizacji i routingu usług na wysokim poziomie.
@@ -54,33 +55,37 @@ Ta sekcja zawiera listę możliwych stanów obwodu ExpressRoute.
 
 Obwód ExpressRoute będzie zgłaszał następujące stany podczas tworzenia zasobu.
 
-    ServiceProviderProvisioningState : NotProvisioned
-    Status                           : Enabled
-
+```output
+ServiceProviderProvisioningState : NotProvisioned
+Status                           : Enabled
+```
 
 **Gdy dostawca łączności jest w trakcie aprowizacji obwodu**
 
 Obwód usługi ExpressRoute będzie zgłaszał następujące stany, gdy dostawca łączności pracuje nad udostępnieniem obwodu.
 
-    ServiceProviderProvisioningState : Provisioning
-    Status                           : Enabled
-
+```output
+ServiceProviderProvisioningState : Provisioning
+Status                           : Enabled
+```
 
 **Gdy dostawca połączenia zakończył proces aprowizacji**
 
 Obwód usługi ExpressRoute będzie zgłaszał następujące stany, gdy dostawca połączenia pomyślnie udostępnił obwód.
 
-    ServiceProviderProvisioningState : Provisioned
-    Status                           : Enabled
-
+```output
+ServiceProviderProvisioningState : Provisioned
+Status                           : Enabled
+```
 
 **Gdy dostawca łączności jest w trakcie anulowania aprowizacji obwodu**
 
 Jeśli obwód usługi ExpressRoute musi zostać anulowany, obwód będzie zgłaszał następujące stany, gdy dostawca usług ukończy proces anulowania aprowizacji.
 
-    ServiceProviderProvisioningState : NotProvisioned
-    Status                           : Enabled
-
+```output
+ServiceProviderProvisioningState : NotProvisioned
+Status                           : Enabled
+```
 
 W razie potrzeby możesz ponownie włączyć tę funkcję lub uruchomić polecenia cmdlet programu PowerShell, aby usunąć obwód.  
 

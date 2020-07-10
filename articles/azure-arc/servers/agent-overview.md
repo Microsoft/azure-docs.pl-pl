@@ -6,14 +6,14 @@ ms.service: azure-arc
 ms.subservice: azure-arc-servers
 author: mgoedtel
 ms.author: magoedte
-ms.date: 07/01/2020
+ms.date: 07/09/2020
 ms.topic: conceptual
-ms.openlocfilehash: e3d3521cfb3d3b0c6659013922ab11fe765af882
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 38c487928f15e953a1c660c5007398bc5c2b3f7d
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86111256"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206639"
 ---
 # <a name="overview-of-azure-arc-for-servers-agent"></a>Omówienie usługi Azure ARC dla agenta serwerów
 
@@ -202,12 +202,13 @@ Adresy
 
 | Zasób agenta | Opis |
 |---------|---------|
-|management.azure.com|Azure Resource Manager|
-|login.windows.net|Azure Active Directory|
-|dc.services.visualstudio.com|Application Insights|
-|agentserviceapi.azure-automation.net|Konfiguracja gościa|
-|*-agentservice-prod-1.azure-automation.net|Konfiguracja gościa|
-|*. his.arc.azure.com|Hybrydowa usługa tożsamości|
+|`management.azure.com`|Azure Resource Manager|
+|`login.windows.net`|Usługa Azure Active Directory|
+|`dc.services.visualstudio.com`|Application Insights|
+|`agentserviceapi.azure-automation.net`|Konfiguracja gościa|
+|`*-agentservice-prod-1.azure-automation.net`|Konfiguracja gościa|
+|`*.guestconfiguration.azure.com` |Konfiguracja gościa|
+|`*.his.arc.azure.com`|Hybrydowa usługa tożsamości|
 
 Aby uzyskać listę adresów IP dla każdego tagu usługi/regionu, zobacz plik JSON — [zakresy adresów IP platformy Azure i Tagi usług — chmura publiczna](https://www.microsoft.com/download/details.aspx?id=56519). Firma Microsoft publikuje cotygodniowe aktualizacje zawierające poszczególne usługi platformy Azure i zakresy adresów IP, z których korzystają. Aby uzyskać więcej informacji, przejrzyj [Tagi usług](../../virtual-network/security-overview.md#service-tags).
 

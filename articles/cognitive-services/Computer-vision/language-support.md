@@ -1,7 +1,7 @@
 ---
 title: Obsługa języka — przetwarzanie obrazów
 titleSuffix: Azure Cognitive Services
-description: Ten artykuł zawiera listę języków naturalnych obsługiwanych przez funkcje przetwarzanie obrazów. OCR, Rozpoznawanie tekstu i odczytywanie.
+description: Ten artykuł zawiera listę języków naturalnych obsługiwanych przez funkcje przetwarzanie obrazów. OCR, analiza obrazu.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -10,22 +10,22 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 680e3647e7a5847e132a53986e2cf17150bceac3
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 81d0183b6dde1a5fe6bd9cd36910fd3dfc1cc5b1
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85560177"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86205287"
 ---
 # <a name="language-support-for-computer-vision"></a>Obsługa języka dla przetwarzanie obrazów
 
 Niektóre funkcje przetwarzanie obrazów obsługują wiele języków; wszystkie funkcje, które nie są wymienione w tym miejscu, obsługują tylko język angielski.
 
-## <a name="text-detection-ocr"></a>Wykrywanie tekstu (OCR)
+## <a name="optical-character-recognition-ocr"></a>Optyczne rozpoznawanie znaków (OCR)
 
-Przetwarzanie obrazów może wykryć tekst w wielu językach. Interfejsy API odczytu i OCR nie wymagają określenia kodu języka. Aby uzyskać więcej informacji na temat tej funkcji i zalet poszczególnych interfejsów API, zobacz artykuł [odczytywanie tekstu z obrazów i dokumentów](concept-recognizing-text.md) .
+Interfejsy API rozpoznawania przetwarzanie obrazów obsługują kilka języków. Nie wymagają określenia kodu języka. Aby uzyskać więcej informacji, zobacz [optyczne rozpoznawanie znaków (OCR)](concept-recognizing-text.md) .
 
-|Język| Kod języka | INTERFEJS API OCR | Odczytaj interfejs API |
+|Language| Kod języka | INTERFEJS API OCR | Odczytaj interfejs API |
 |:-----|:----:|:-----:|:---:|
 |Arabski | `ar`|✔ | |
 |Chiński (uproszczony) | `zh-Hans`|✔ | |
@@ -58,7 +58,7 @@ Przetwarzanie obrazów może wykryć tekst w wielu językach. Interfejsy API odc
 
 Niektóre akcje interfejsu API [analizy obrazu](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) mogą zwracać wyniki w innych językach, określone za pomocą `language` parametru zapytania. Inne akcje zwracają wyniki w języku angielskim niezależnie od tego, jaki język jest określony, a inne zgłaszają wyjątek dla nieobsługiwanych języków. Akcje są określone za pomocą `visualFeatures` `details` parametrów i. Zapoznaj się z [omówieniem](home.md) listy wszystkich akcji, które można wykonać za pomocą analizy obrazów.
 
-|Język | Kod języka | Kategorie | Tagi | Opis | Dorosły | Marki | Kolor | Twarze | ImageType | Obiekty | Celebryci | Charakterystycznych obiektów |
+|Language | Kod języka | Kategorie | Tagi | Opis | Dorosły | Marki | Kolor | Twarze | ImageType | Obiekty | Osobistości | Punkty orientacyjne |
 |:---|:---:|:----:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 |Chiński | `zh`    | ✔ | ✔| ✔|-|-|-|-|-|❌|✔|✔|
 |Angielski | `en`   | ✔ | ✔| ✔|✔|✔|✔|✔|✔|✔|✔|✔|

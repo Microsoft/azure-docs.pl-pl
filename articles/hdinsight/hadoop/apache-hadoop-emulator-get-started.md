@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: how-to
 ms.date: 05/29/2019
 ms.author: hrasheed
-ms.openlocfilehash: e918740c884f377048febfe2177e2fe956b1d552
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: de2a8e6377ababadc7d42f873a816a01a8f3b77e
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86085059"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207465"
 ---
 # <a name="get-started-with-an-apache-hadoop-sandbox-an-emulator-on-a-virtual-machine"></a>Wprowadzenie do Apache Hadoop piaskownicy, emulatora na maszynie wirtualnej
 
@@ -57,7 +57,9 @@ Aby pobrać starszą piaskownicę wersji HDP, zobacz linki w obszarze **starsze 
 
 2. Po zalogowaniu wprowadź następujące polecenie:
 
-        ambari-admin-password-reset
+    ```bash
+    ambari-admin-password-reset
+    ```
 
     Po wyświetleniu monitu podaj hasło do konta administratora Ambari. Ta wartość jest używana podczas uzyskiwania dostępu do interfejsu użytkownika sieci Web Ambari.
 
@@ -65,13 +67,21 @@ Aby pobrać starszą piaskownicę wersji HDP, zobacz linki w obszarze **starsze 
 
 1. Z poziomu połączenia SSH z piaskownicą Użyj następującego polecenia, aby uruchomić powłokę programu Hive:
 
-        hive
+    ```bash
+    hive
+    ```
+
 2. Po rozpoczęciu powłoki Użyj następujących danych, aby wyświetlić tabele dostarczone z piaskownicą:
 
-        show tables;
+    ```hiveql
+    show tables;
+    ```
+
 3. Aby pobrać 10 wierszy z tabeli, użyj następujących danych `sample_07` :
 
-        select * from sample_07 limit 10;
+    ```hiveql
+    select * from sample_07 limit 10;
+    ```
 
 ## <a name="next-steps"></a>Następne kroki
 

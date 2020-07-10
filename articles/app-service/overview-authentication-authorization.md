@@ -3,14 +3,15 @@ title: Uwierzytelnianie i autoryzacja
 description: Dowiedz się więcej o wbudowanej obsłudze uwierzytelniania i autoryzacji w Azure App Service i Azure Functions oraz sposobie zabezpieczania aplikacji przed nieautoryzowanym dostępem.
 ms.assetid: b7151b57-09e5-4c77-a10c-375a262f17e5
 ms.topic: article
-ms.date: 04/15/2020
+ms.date: 07/08/2020
 ms.reviewer: mahender
 ms.custom: seodec18, fasttrack-edit, has-adal-ref
-ms.openlocfilehash: f51a396e997a9e6392f3e86a6f77e581753d6ada
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9588777305ca42603623075b908eee5d76164c84
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83196433"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206748"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service-and-azure-functions"></a>Uwierzytelnianie i autoryzacja w Azure App Service i Azure Functions
 
@@ -34,7 +35,7 @@ Aby uzyskać informacje specyficzne dla natywnych aplikacji mobilnych, zobacz [u
 
 Moduł uwierzytelniania i autoryzacji jest uruchamiany w tej samej piaskownicy, w której znajduje się kod aplikacji. Gdy jest włączona, każde przychodzące żądanie HTTP przechodzi przez niego przed przekazaniem przez kod aplikacji.
 
-![](media/app-service-authentication-overview/architecture.png)
+![Diagram architektury pokazujący żądania przechwytywane przez proces w piaskownicy lokacji, który współdziała z dostawcami tożsamości przed zezwoleniem na ruch do wdrożonej lokacji](media/app-service-authentication-overview/architecture.png)
 
 Ten moduł obsługuje kilka rzeczy dla aplikacji:
 
@@ -81,8 +82,11 @@ App Service używa [tożsamości federacyjnej](https://en.wikipedia.org/wiki/Fed
 | [Facebook](https://developers.facebook.com/docs/facebook-login) | `/.auth/login/facebook` |
 | [Google](https://developers.google.com/identity/choose-auth) | `/.auth/login/google` |
 | [Twitter](https://developer.twitter.com/en/docs/basics/authentication) | `/.auth/login/twitter` |
+| Dowolny dostawca [połączenia OpenID Connect](https://openid.net/connect/) (wersja zapoznawcza) | `/.auth/login/<providerName>` |
 
-Po włączeniu uwierzytelniania i autoryzacji jednego z tych dostawców, jego punkt końcowy logowania jest dostępny do uwierzytelnienia użytkownika i do weryfikacji tokenów uwierzytelniania od dostawcy. Możesz zapewnić użytkownikom dowolną liczbę tych opcji logowania. Możesz także zintegrować innego dostawcę tożsamości lub [własne niestandardowe rozwiązanie do tworzenia tożsamości][custom-auth].
+Po włączeniu uwierzytelniania i autoryzacji jednego z tych dostawców, jego punkt końcowy logowania jest dostępny do uwierzytelnienia użytkownika i do weryfikacji tokenów uwierzytelniania od dostawcy. Możesz zapewnić użytkownikom dowolną liczbę tych opcji logowania.
+
+Istnieje [Starsza ścieżka rozszerzalności][custom-auth] dla integracji z innymi dostawcami tożsamości lub niestandardowym rozwiązaniem uwierzytelniania, ale nie jest to zalecane. Zamiast tego należy rozważyć użycie usługi OpenID Connect Connect.
 
 ## <a name="authentication-flow"></a>Przepływ uwierzytelniania
 
@@ -112,7 +116,7 @@ W przypadku przeglądarek klienta App Service może automatycznie kierować wszy
 
 W [Azure Portal](https://portal.azure.com)można skonfigurować autoryzację App Service z liczbą zachowań, gdy żądanie przychodzące nie zostanie uwierzytelnione.
 
-![](media/app-service-authentication-overview/authorization-flow.png)
+![Zrzut ekranu przedstawiający listę rozwijaną "Akcja do wykonania, gdy żądanie nie zostało uwierzytelnione"](media/app-service-authentication-overview/authorization-flow.png)
 
 Poniższe nagłówki opisują opcje.
 
@@ -150,13 +154,14 @@ Przewodniki z poszczególnymi dostawcami:
 * [Jak skonfigurować aplikację do używania logowania usługi Google][Google]
 * [Jak skonfigurować aplikację do używania logowania za pomocą konta Microsoft][MSA]
 * [Jak skonfigurować aplikację do używania logowania usługi Twitter][Twitter]
-* [Instrukcje: korzystanie z uwierzytelniania niestandardowego dla aplikacji][custom-auth]
+* [Jak skonfigurować aplikację do używania dostawcy połączenia usługi OpenID Connect na potrzeby logowania (wersja zapoznawcza)][OIDC]
 
 [AAD]: configure-authentication-provider-aad.md
 [Facebook]: configure-authentication-provider-facebook.md
 [Google]: configure-authentication-provider-google.md
 [MSA]: configure-authentication-provider-microsoft.md
 [Twitter]: configure-authentication-provider-twitter.md
+[OIDC]: configure-authentication-provider-openid-connect.md
 
 [custom-auth]: ../app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#custom-auth
 

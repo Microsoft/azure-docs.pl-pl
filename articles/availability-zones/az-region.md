@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/06/2020
 ms.author: cynthn
 ms.custom: fasttrack-edit, mvc, references_regions
-ms.openlocfilehash: eec92672801d33290df1690d8cb17e79d4626192
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 2e337628542475c081a59bffd25368de313011f8
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86042054"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206201"
 ---
 # <a name="regions-that-support-availability-zones-in-azure"></a>Regiony obsługujące Strefy dostępności na platformie Azure
 
@@ -24,16 +24,15 @@ Ta sekcja zawiera listę usług i regionów platformy Azure, które obsługują 
 
 Usługi dostępne w poszczególnych regionach wraz z nadchodzącym planem dostępności można znaleźć w temacie [produkty dostępne według regionów](https://azure.microsoft.com/global-infrastructure/services/).
 
-|                                 |Ameryka Północna i Południowa |              |           |           | Europa |              |          |              | Azja i Pacyfik |                 |                |
+| Usługa |Ameryka Północna|Ameryka Północna|Ameryka Północna: Wschodnie stany USA 2|Ameryka Północna: zachodnie stany USA 2|Europa: Francja środkowa|Europa: Europa Północna|Europa: Południowe Zjednoczone Królestwo|Europa: Europa Zachodnia|Azja i Pacyfik: Japonia Wschodnia|Azja i Pacyfik: Azja Południowo-Wschodnia|Azja i Pacyfik: Australia Wschodnia|
 |----------------------------|----------|----------|---------|---------|--------------|------------|--------|----------|----------|-------------|-------------|
-|          |Środkowe stany USA|Wschodnie stany USA|Wschodnie stany USA 2|Zachodnie stany USA 2|Francja Środkowa|Europa Północna|Południowe Zjednoczone Królestwo|Europa Zachodnia|Japonia Wschodnia|Azja Południowo-Wschodnia|Australia Wschodnia|
-| **Obliczanie**                         |            |              |           |           |                |              |          |             |            |                |                |
-| Linux Virtual Machines          | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       | &#10003;               |
-| Windows Virtual Machines        | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       | &#10003;               |
-| Virtual Machine Scale Sets      | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       | &#10003;               |
+| **Środowisko obliczeniowe**                         |            |              |           |           |                |              |          |             |            |                |                |
+| Maszyny wirtualne z systemem Linux          | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       | &#10003;               |
+| Maszyny wirtualne z systemem Windows        | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       | &#10003;               |
+| Usługa Virtual Machine Scale Sets      | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       | &#10003;               |
 | ILB środowiska Azure App Service | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |                |
 | Azure Kubernetes Service        | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |                |
-| **Storage**   |            |              |           |           |                |              |          |             |            |                |                |
+| **Magazyn**   |            |              |           |           |                |              |          |             |            |                |                |
 | Dyski zarządzane                   | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       | &#10003;               |
 | Magazyn strefowo nadmiarowy          | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       | &#10003;               |
 | **Sieć**                     |            |              |           |           |                |              |          |             |            |                |                |
@@ -61,11 +60,11 @@ Platforma Azure oferuje również pomoc techniczną Strefy dostępności w nast�
 - US Gov Wirginia
 - Australia Wschodnia
 - Północna Republika Południowej Afryki
-- Południowo-środkowe stany USA
+- South Central US
 - Kanada Środkowa
 
 Aby dowiedzieć się więcej na temat obsługi Strefy dostępności w tych pięciu regionach, skontaktuj się z przedstawicielem firmy Microsoft ds. sprzedaży lub klienta.
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Regiony i Strefy dostępności na platformie Azure](az-overview.md)
+- [Regiony i strefy dostępności na platformie Azure](az-overview.md)

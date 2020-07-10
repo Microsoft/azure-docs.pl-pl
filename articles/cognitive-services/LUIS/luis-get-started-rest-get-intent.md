@@ -3,20 +3,20 @@ title: 'Szybki Start: pobieranie zamierzeń przy użyciu interfejsów API REST �
 titleSuffix: Azure Cognitive Services
 description: W tym przewodniku szybki start interfejsu API REST Użyj dostępnej publicznej aplikacji LUIS, aby określić zamiar użytkownika z tekstu konwersacji.
 services: cognitive-services
-author: roy-har
+author: nitinme
 manager: diberry
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 06/19/2020
-ms.author: v-royha
-ms.openlocfilehash: 8248d441add1af39ab9d2d08a6dba85055f254b6
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.author: nitinme
+ms.openlocfilehash: 714d76641dd22f566b2464e3470f6a3324f4d758
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85119586"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207175"
 ---
 # <a name="quickstart-use-curl-and-rest-to-get-intent"></a>Szybki Start: używanie założeń i REST w celu uzyskania zamiaru
 
@@ -79,7 +79,7 @@ Użyj Zwinięciea, aby wykonać zapytanie dotyczące [punktu końcowego przewidy
 
 1. Zastąp wartości zaczynające się od `***YOUR-` własnymi wartościami.
 
-    |Informacje|Przeznaczenie|
+    |Informacyjny|Przeznaczenie|
     |--|--|
     |`***YOUR-PREDICTION-ENDPOINT***`| Punkt końcowy adresu URL przewidywania. Znajdujący się w portalu LUIS, stronie zasobów platformy Azure dla Twojej aplikacji.<br>Na przykład `https://westus.api.cognitive.microsoft.com/`.|
     |`***YOUR-APP-ID***`|Identyfikator aplikacji. Na stronie Ustawienia aplikacji Portal LUIS dla aplikacji.
@@ -261,7 +261,7 @@ Użyj Zwinięciea, aby wykonać zapytanie dotyczące [punktu końcowego przewidy
     }
     ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 > [!div class="nextstepaction"]
 > [Dodawanie wyrażenia długości i uczenie](luis-get-started-rest-get-model.md)

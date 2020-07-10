@@ -6,12 +6,12 @@ author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 52391ffc8eb6b6879e5fd90df26d9ccacbfacebb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6b6f98f3c7f540e00743ae27b532b24d2310453e
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82188930"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86205719"
 ---
 # <a name="configure-application-insights-profiler"></a>Konfigurowanie Application Insights Profiler
 
@@ -32,7 +32,7 @@ Spowoduje to otwarcie strony, która wygląda następująco:
 
 Strona **konfigurowanie Application Insights Profiler** zawiera następujące funkcje:
 
-| | |
+| Cecha | Opis |
 |-|-|
 Profiluj teraz | Uruchamia sesje profilowania dla wszystkich aplikacji, które są połączone z tym wystąpieniem Application Insights.
 Wyzwalacze | Umożliwia skonfigurowanie wyzwalaczy, które powodują uruchomienie profilera. 
@@ -48,7 +48,7 @@ Aby użytkownik mógł ręcznie wyzwolić sesję profilera, wymaga co najmniej d
 
 Kliknięcie przycisku wyzwalacze na pasku menu spowoduje otwarcie pola ustawienia wyzwalacza. Można skonfigurować wyzwalacz, aby rozpocząć profilowanie, gdy procent użycia procesora lub pamięci osiągnie ustawiony poziom.
 
-| | |
+| Ustawienie | Opis |
 |-|-|
 Przycisk włączania/wyłączania | Włączone: profiler może być uruchamiany przez ten wyzwalacz; Wyłączone: Profiler nie zostanie uruchomiony przez ten wyzwalacz.
 Próg pamięci | Gdy procent pamięci jest używany, profiler zostanie uruchomiony.
@@ -58,7 +58,7 @@ Cooldown | Ustawia długość czasu, przez który Profiler będzie czekał przed
 ## <a name="recent-profiling-sessions"></a>Ostatnie sesje profilowania
 Ta sekcja na stronie zawiera informacje o ostatnich sesjach profilowania. Sesja profilowania reprezentuje okres czasu, w którym Agent profilera przetworzy profil na jednej z maszyn obsługujących aplikację. Możesz otworzyć profile z sesji, klikając jeden z wierszy. Dla każdej sesji pokazujemy:
 
-| | |
+| Ustawienie | Opis |
 |-|-|
 Wyzwolone przez | Jak sesja została uruchomiona, przez wyzwalacz, profil teraz lub domyślne próbkowanie. 
 Nazwa aplikacji | Nazwa aplikacji, która została profilowana.

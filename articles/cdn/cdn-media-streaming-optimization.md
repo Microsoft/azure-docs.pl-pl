@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 05/01/2018
 ms.author: allensu
-ms.openlocfilehash: 1f8dc5ef89c70cebce1d59fc389300b30dc828f6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: edc2198cff360b6f0d2f6ace3b76d35bf77fab97
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84887606"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206704"
 ---
 # <a name="media-streaming-optimization-with-azure-cdn"></a>Optymalizacja przesyłania strumieniowego multimediów przy użyciu Azure CDN 
  
@@ -82,12 +82,11 @@ Po utworzeniu punktu końcowego stosowana jest optymalizacja dla wszystkich plik
 Jeśli **Azure CDN Standard from Akamai** wykryje, że element zawartości jest manifestem lub fragmentem przesyłania strumieniowego, używa różnych czasów wygaśnięcia pamięci podręcznej z ogólnego dostarczania w sieci Web. (Zapoznaj się z pełną listą w poniższej tabeli). Jak zawsze, są honorowane nagłówki Cache-Control lub Expires, które są wysyłane z pochodzenia. Jeśli zasób nie jest zasobem multimedialnym, pamięć podręczna jest używana przez czas wygaśnięcia dla ogólnego dostarczania w sieci Web.
 
 Krótki ujemny czas buforowania jest przydatny do odciążania pochodzenia, gdy wielu użytkowników żąda fragmentu, który jeszcze nie istnieje. Przykładem jest strumień na żywo, w którym pakiety nie są dostępne z innego źródła. Dłuższy interwał buforowania ułatwia również odciążanie żądań od pochodzenia, ponieważ zawartość wideo nie jest zwykle modyfikowana.
- 
 
-|   | Ogólne dostarczanie w sieci Web | Ogólne przesyłanie strumieniowe multimediów | Przesyłanie strumieniowe multimediów wideo na żądanie  
---- | --- | --- | ---
-Buforowanie: dodatnie <br> HTTP 200, 203, 300, <br> 301, 302 i 410 | 7 dni |365 dni | 365 dni   
-Buforowanie: ujemne <br> HTTP 204, 305, 404, <br> i 405 | Brak | 1 sekunda | 1 sekunda
+| Buforowanie  | Ogólne dostarczanie w sieci Web | Ogólne przesyłanie strumieniowe multimediów | Przesyłanie strumieniowe multimediów wideo na żądanie  
+|--- | --- | --- | ---
+| Buforowanie: dodatnie <br> HTTP 200, 203, 300, <br> 301, 302 i 410 | 7 dni |365 dni | 365 dni   
+| Buforowanie: ujemne <br> HTTP 204, 305, 404, <br> i 405 | Brak | 1 sekunda | 1 sekunda
  
 ### <a name="deal-with-origin-failure"></a>Postępowanie z niepowodzeniem pochodzenia  
 

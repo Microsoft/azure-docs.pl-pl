@@ -6,11 +6,12 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 12/06/2019
 ms.author: brendm
-ms.openlocfilehash: ed8a46683d79211559b4af7972c6d1bb784e1f02
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7ef7614b32dd88e804b1a74749ee87504f9cea40
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84434161"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86205455"
 ---
 # <a name="understand-metrics-for-azure-spring-cloud"></a>Informacje o metrykach dla chmury wiosennej platformy Azure
 
@@ -89,63 +90,41 @@ W poniższych tabelach przedstawiono dostępne metryki i szczegóły.
 >[!div class="mx-tdCol2BreakAll"]
 >| Nazwa | Nazwa metryki siłownika | Jednostka | Szczegóły |
 >|----|----|----|------------|
->| Błąd globalny Tomcat (przestarzałe)<br><br>(do usunięcia po 1 lipca 2020)  | Tomcat. Global. Error | Liczba | Liczba błędów, które wystąpiły w przetwarzanych żądaniach |
 >| Tomcat. Global. Error | Tomcat. Global. Error | Liczba | Liczba błędów, które wystąpiły w przetwarzanych żądaniach |
 
 ### <a name="performance"></a>Wydajność
 >[!div class="mx-tdCol2BreakAll"]
 >| Nazwa | Nazwa metryki siłownika | Jednostka | Szczegóły |
 >|----|----|----|------------|
->| Procent użycia procesora systemu (przestarzałe)<br><br>(do usunięcia po 1 lipca 2020) | System. CPU. Usage | Procent | Ostatnie użycie procesora CPU całego systemu. Ta wartość jest podwójnym interwałem [0.0, 1.0]. Wartość 0,0 oznacza, że wszystkie procesory były bezczynne w trakcie ostatniego zaobserwowanego okresu, a wartość 1,0 oznacza, że wszystkie procesory aktywnie działały 100% czasu w trakcie ostatniego zaobserwowanego okresu.|
 >| System. CPU. Usage | System. CPU. Usage | Procent | Ostatnie użycie procesora CPU całego systemu. Ta wartość jest podwójnym interwałem [0.0, 1.0]. Wartość 0,0 oznacza, że wszystkie procesory były bezczynne w trakcie ostatniego zaobserwowanego okresu, a wartość 1,0 oznacza, że wszystkie procesory aktywnie działały 100% czasu w trakcie ostatniego zaobserwowanego okresu.|
->| Procent użycia procesora aplikacji (przestarzałe)<br><br>(usunięto po 1 lipca 2020) | Procent użycia procesora aplikacji | Procent | Ostatnie użycie procesora CPU przez proces wirtualna maszyna Java. Ta wartość jest podwójnym interwałem [0.0, 1.0]. Wartość 0,0 oznacza, że żaden z procesorów CPU nie był uruchomiony z procesu JVM w trakcie ostatniego zaobserwowanego okresu, a wartość 1,0 oznacza, że wszystkie procesory aktywnie działały wątki z JVM 100% czasu podczas ostatniego zaobserwowanego okresu. Wątki z JVM obejmują wątki aplikacji oraz wewnętrzne wątki JVM.|
 >| Process. CPU. Usage | Procent użycia procesora aplikacji | Procent | Ostatnie użycie procesora CPU przez proces wirtualna maszyna Java. Ta wartość jest podwójnym interwałem [0.0, 1.0]. Wartość 0,0 oznacza, że żaden z procesorów CPU nie był uruchomiony z procesu JVM w trakcie ostatniego zaobserwowanego okresu, a wartość 1,0 oznacza, że wszystkie procesory aktywnie działały wątki z JVM 100% czasu podczas ostatniego zaobserwowanego okresu. Wątki z JVM obejmują wątki aplikacji oraz wewnętrzne wątki JVM.|
->| Przypisana pamięć aplikacji (przestarzałe)<br><br>(do usunięcia po 1 lipca 2020) | JVM. Memory. Committed | Bajty | Reprezentuje ilość pamięci, która ma być dostępna do użycia przez JVM. JVM może zwolnić pamięć do systemu, a ilość pamięci zadeklarowanej może być mniejsza niż ilość pamięci początkowej. Pamięć zadeklarowana będzie zawsze większa lub równa używanej pamięci. |
 >| JVM. Memory. Committed | JVM. Memory. Committed | Bajty | Reprezentuje ilość pamięci, która ma być dostępna do użycia przez JVM. JVM może zwolnić pamięć do systemu, a zatwierdzenie może być mniejsze niż init. wartość zatwierdzone będzie zawsze większa lub równa używanej. |
->| Użyta pamięć aplikacji (przestarzałe)<br><br>(do usunięcia po 1 lipca 2020) | JVM. Memory. użyty | Bajty | Reprezentuje ilość pamięci aktualnie używaną w bajtach. |
 >| JVM. Memory. użyty | JVM. Memory. użyty | Bajty | Reprezentuje ilość pamięci aktualnie używaną w bajtach. |
->| Maks. pamięć aplikacji (przestarzałe)<br><br>(do usunięcia po 1 lipca 2020) | JVM. Memory. Max | Bajty | Reprezentuje maksymalną ilość pamięci, która może być używana do zarządzania pamięcią. Ilość użytych i przekazanych pamięci będzie zawsze mniejsza lub równa Max, jeśli zdefiniowano wartość Max. Alokacja pamięci może zakończyć się niepowodzeniem, jeśli próbuje zwiększyć użytą pamięć, taką jak > zatwierdzone, nawet jeśli użyto <= Max (na przykład gdy w systemie brakuje pamięci wirtualnej). |
 >| JVM. Memory. Max | JVM. Memory. Max | Bajty | Reprezentuje maksymalną ilość pamięci, która może być używana do zarządzania pamięcią. Ilość użytych i przekazanych pamięci będzie zawsze mniejsza lub równa Max, jeśli zdefiniowano wartość Max. Alokacja pamięci może zakończyć się niepowodzeniem, jeśli próbuje zwiększyć użytą pamięć, taką jak > zatwierdzone, nawet jeśli użyto <= Max (na przykład gdy w systemie brakuje pamięci wirtualnej). |
->| Maksymalna dostępna wartość starego rozmiaru danych generacji (przestarzałe)<br><br>(do usunięcia po 1 lipca 2020) | JVM. GC. max. Data. size | Bajty | Szczytowe użycie pamięci przez starszą pulę pamięci generacji od momentu uruchomienia maszyny wirtualnej Java. |
 >| JVM. GC. max. Data. size | JVM. GC. max. Data. size | Bajty | Szczytowe użycie pamięci przez starszą pulę pamięci generacji od momentu uruchomienia maszyny wirtualnej Java. |
->| Stary rozmiar danych generacji (przestarzałe)<br><br>(do usunięcia po 1 lipca 2020) | JVM. GC. Live. Data. size | Bajty | Rozmiar starej puli pamięci generacji po pełnej operacji GC. |
 >| JVM. GC. Live. Data. size | JVM. GC. Live. Data. size | Bajty | Rozmiar starej puli pamięci generacji po pełnej operacji GC. |
->| Stary rozmiar danych generacji (przestarzałe)<br><br>(do usunięcia po 1 lipca 2020) | JVM. GC. Memory. awansowana | Bajty | Liczba pozytywnych wzrostów rozmiaru starej puli pamięci generacji przed GC do po GC. |
 >| JVM. GC. Memory. awansowana | JVM. GC. Memory. awansowana | Bajty | Liczba pozytywnych wzrostów rozmiaru starej puli pamięci generacji przed GC do po GC. |
->| Podwyższ poziom do rozmiaru danych dla małych generacji (przestarzałe)<br><br>(do usunięcia po 1 lipca 2020) | JVM. GC. Memory. przydzielono | Bajty | Zwiększa się w celu zwiększenia rozmiaru puli pamięci młodej generacji po jednej operacji GC do wcześniejszej. |
 >| JVM. GC. Memory. przydzielono | JVM. GC. Memory. przydzielono | Bajty | Zwiększa się w celu zwiększenia rozmiaru puli pamięci młodej generacji po jednej operacji GC do wcześniejszej. |
->| Liczba wstrzymań GC (przestarzałe)<br><br>(do usunięcia po 1 lipca 2020) | JVM. GC. Pause (łącznie-Count) | Liczba | Łączna liczba GC po rozpoczęciu tego JMV, w tym w przypadku młodych i starych wykazów GC. |
 >| JVM. GC. Pause. Total. Count | JVM. GC. Pause (łącznie-Count) | Liczba | Łączna liczba GC po rozpoczęciu tego JMV, w tym w przypadku młodych i starych wykazów GC. |
->| Całkowity czas wstrzymania GC (przestarzałe)<br><br>(do usunięcia po 1 lipca 2020) | JVM. GC. Pause (całkowity czas) | ) | Łączny czas, zużyty przez GC po rozpoczęciu tego JMV, w tym dla młodych i starych WYKAZów. |
 >| JVM. GC. Pause. Total. Time | JVM. GC. Pause (całkowity czas) | ) | Łączny czas, zużyty przez GC po rozpoczęciu tego JMV, w tym dla młodych i starych WYKAZów. |
 
 ### <a name="request"></a>Żądanie
 >[!div class="mx-tdCol2BreakAll"]
 >| Nazwa | Nazwa metryki siłownika | Jednostka | Szczegóły |
 >|----|----|----|------------|
->| Całkowita liczba wysłanych bajtów Tomcat (przestarzałe)<br><br>(usunięto po 1 lipca 2020) | Tomcat. Global. sent | Bajty | Liczba wysłanych serwerów sieci Web Tomcat danych |
 >| Tomcat. Global. sent | Tomcat. Global. sent | Bajty | Liczba wysłanych serwerów sieci Web Tomcat danych |
->| Całkowita liczba odebranych bajtów Tomcat (przestarzałe)<br><br>(usunięto po 1 lipca 2020) | Tomcat. Global. Receives | Bajty | Liczba odebranych danych Tomcat serwera sieci Web |
 >| Tomcat. Global. Receives | Tomcat. Global. Receives | Bajty | Liczba odebranych danych Tomcat serwera sieci Web |
->| Łączny czas żądania Tomcat (przestarzałe)<br><br>(usunięto po 1 lipca 2020) | Tomcat. Global. Request (łącznie-Time) | ) | Łączny czas przetwarzania żądań przez serwer sieci Web Tomcat |
->| Łączna liczba żądań Tomcat (przestarzałe)<br><br>(usunięto po 1 lipca 2020) | Tomcat. Global. Request (Total-Count) | Liczba | Łączna liczba żądań przetworzonych przez serwer sieci Web Tomcat |
 >| Tomcat. Global. Request. Total. Count | Tomcat. Global. Request (Total-Count) | Liczba | Łączna liczba żądań przetworzonych przez serwer sieci Web Tomcat |
->| Maksymalny czas żądania Tomcat (przestarzałe)<br><br>(usunięto po 1 lipca 2020) | Tomcat. Global. Request. Max | ) | Maksymalny czas przetwarzania żądania przez serwer sieci Web Tomcat |
 >| Tomcat. Global. Request. Max | Tomcat. Global. Request. Max | ) | Maksymalny czas przetwarzania żądania przez serwer sieci Web Tomcat |
 
 ### <a name="session"></a>Sesja
 >[!div class="mx-tdCol2BreakAll"]
 >| Nazwa | Nazwa metryki siłownika | Jednostka | Szczegóły |
 >|----|----|----|------------|
->| Maksymalna liczba aktywnych sesji Tomcat (przestarzałe)<br><br>(usunięto po 1 lipca 2020) | Tomcat. Sessions. Active. Max | Liczba | Maksymalna liczba sesji, które były aktywne w tym samym czasie |
 >| Tomcat. Sessions. Active. Max | Tomcat. Sessions. Active. Max | Liczba | Maksymalna liczba sesji, które były aktywne w tym samym czasie |
->| Maksymalny czas aktywności sesji Tomcat (przestarzałe)<br><br>(usunięto po 1 lipca 2020) | Tomcat. Sessions. Alive. Max | ) | Najdłuższy czas (w sekundach) aktywności wygasłej sesji |
 >| Tomcat. Sessions. Alive. Max | Tomcat. Sessions. Alive. Max | ) | Najdłuższy czas (w sekundach) aktywności wygasłej sesji |
->| Liczba utworzonych sesji Tomcat (przestarzałe)<br><br>(usunięto po 1 lipca 2020) | Tomcat. Sessions. Created | Liczba | Liczba utworzonych sesji |
 >| Tomcat. Sessions. Created | Tomcat. Sessions. Created | Liczba | Liczba utworzonych sesji |
->| Liczba wygasłych sesji Tomcat (przestarzałe)<br><br>(usunięto po 1 lipca 2020) | Tomcat. Sessions. wygasła | Liczba | Liczba wygasłych sesji |
 >| Tomcat. Sessions. wygasła | Tomcat. Sessions. wygasła | Liczba | Liczba wygasłych sesji |
->| Liczba odrzuconych sesji Tomcat (przestarzałe)<br><br>(usunięto po 1 lipca 2020) | Tomcat. Sessions. rejected | Liczba | Liczba sesji, które nie zostały utworzone, ponieważ osiągnięto maksymalną liczbę aktywnych sesji. |
 >| Tomcat. Sessions. rejected | Tomcat. Sessions. rejected | Liczba | Liczba sesji, które nie zostały utworzone, ponieważ osiągnięto maksymalną liczbę aktywnych sesji. |
 >| Tomcat. Sessions. Active. Current | Tomcat. Sessions. Active. Current | Liczba | Liczba aktywnych sesji Tomcat |
 

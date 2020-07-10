@@ -11,12 +11,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 04/20/2020
 ms.author: apimpm
-ms.openlocfilehash: 6edb639cacc48e8b59c458bcf0ac9c9c5e07b030
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 93c686fb2688a7a8ae71d8156e6e5c7915d6c604
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82203572"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86205768"
 ---
 # <a name="upgrade-and-scale-an-azure-api-management-instance"></a>Uaktualnianie i skalowanie wystąpienia usługi Azure API Management  
 
@@ -67,7 +67,7 @@ Możesz uaktualnić i obniżyć wersję do i z dowolnej warstwy. Uaktualnianie l
 2. Wybierz opcję **lokalizacje** z menu.
 3. Kliknij wiersz z lokalizacją, która ma zostać przeskalowana.
 4. Określ nową liczbę **jednostek** — Użyj suwaka lub wpisz liczbę.
-5. Kliknij przycisk **Zastosuj**.
+5. Kliknij pozycję **Zastosuj**.
 
 ## <a name="change-your-api-management-service-tier"></a>Zmień warstwę usługi API Management
 
@@ -84,3 +84,4 @@ W przypadku skalowania z lub do warstwy dewelopera wygaśnie Przestój. W przeci
 
 - [Jak wdrożyć wystąpienie usługi Azure API Management w wielu regionach świadczenia usługi Azure](api-management-howto-deploy-multi-region.md)
 - [Jak automatycznie skalować wystąpienie usługi Azure API Management](api-management-howto-autoscale.md)
+- [Optymalizowanie i oszczędzanie wydatków w chmurze](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)

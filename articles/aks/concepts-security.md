@@ -6,12 +6,12 @@ author: mlearned
 ms.topic: conceptual
 ms.date: 07/01/2020
 ms.author: mlearned
-ms.openlocfilehash: 15bd0791917ca95e61a441b71947b70c81c0598e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a0fe0803b0961b3aaa89627823b4867fac0d5d61
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85831543"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206303"
 ---
 # <a name="security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks"></a>Pojęcia dotyczące zabezpieczeń aplikacji i klastrów w usłudze Azure Kubernetes Service (AKS)
 
@@ -19,11 +19,16 @@ Aby chronić dane klienta podczas uruchamiania obciążeń aplikacji w usłudze 
 
 W tym artykule przedstawiono podstawowe koncepcje zabezpieczania aplikacji w programie AKS:
 
-- [Zabezpieczenia składników głównych](#master-security)
-- [Zabezpieczenia węzła](#node-security)
-- [Uaktualnienia klastra](#cluster-upgrades)
-- [Zabezpieczenia sieci](#network-security)
-- [Wpisy tajne usługi Kubernetes](#kubernetes-secrets)
+- [Pojęcia dotyczące zabezpieczeń aplikacji i klastrów w usłudze Azure Kubernetes Service (AKS)](#security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks)
+  - [Zabezpieczenia główne](#master-security)
+  - [Zabezpieczenia węzła](#node-security)
+    - [Izolacja obliczeniowa](#compute-isolation)
+  - [Uaktualnienia klastra](#cluster-upgrades)
+    - [Cordon i opróżnianie](#cordon-and-drain)
+  - [Zabezpieczenia sieci](#network-security)
+    - [Sieciowe grupy zabezpieczeń platformy Azure](#azure-network-security-groups)
+  - [Kubernetes Secret](#kubernetes-secrets)
+  - [Następne kroki](#next-steps)
 
 ## <a name="master-security"></a>Zabezpieczenia główne
 
@@ -45,7 +50,14 @@ Węzły są wdrażane w prywatnej podsieci sieci wirtualnej, bez przypisanych pu
 
 Aby zapewnić magazyn, węzły używają usługi Azure Managed Disks. W przypadku większości rozmiarów węzłów maszyny wirtualnej są to dyski w warstwie Premium obsługiwane przez dysków SSD o wysokiej wydajności. Dane przechowywane na dyskach zarządzanych są automatycznie szyfrowane w ramach platformy Azure. Aby zwiększyć nadmiarowość, te dyski również są bezpiecznie replikowane w centrum danych platformy Azure.
 
-Środowiska Kubernetes, w AKS lub w innym miejscu, obecnie nie są całkowicie bezpieczne w celu zagwarantowania użycia wielu dzierżawców. Dodatkowe funkcje zabezpieczeń, takie jak *zasady zabezpieczeń* lub bardziej szczegółowe kontroli dostępu opartej na ROLACH (RBAC) dla węzłów sprawiają, że luki w zabezpieczeniach są trudniejsze. Jednak w celu zapewnienia prawdziwych zabezpieczeń przy uruchamianiu nieprzechodnich obciążeń z wieloma dzierżawcami funkcja hypervisor jest jedynym poziomem zabezpieczeń, który należy zaufać. Domena zabezpieczeń dla Kubernetes jest cały klaster, a nie pojedynczy węzeł. W przypadku tych typów nieszkodliwych obciążeń z wieloma dzierżawcami należy używać klastrów fizycznie izolowanych. Aby uzyskać więcej informacji na temat sposobów izolowania obciążeń, zobacz [najlepsze rozwiązania dotyczące izolacji klastra w AKS][cluster-isolation],
+Środowiska Kubernetes, w AKS lub w innym miejscu, obecnie nie są całkowicie bezpieczne w celu zagwarantowania użycia wielu dzierżawców. Dodatkowe funkcje zabezpieczeń, takie jak *zasady zabezpieczeń* lub bardziej szczegółowe kontroli dostępu opartej na ROLACH (RBAC) dla węzłów sprawiają, że luki w zabezpieczeniach są trudniejsze. Jednak w celu zapewnienia prawdziwych zabezpieczeń przy uruchamianiu nieprzechodnich obciążeń z wieloma dzierżawcami funkcja hypervisor jest jedynym poziomem zabezpieczeń, który należy zaufać. Domena zabezpieczeń dla Kubernetes jest cały klaster, a nie pojedynczy węzeł. W przypadku tych typów nieszkodliwych obciążeń z wieloma dzierżawcami należy używać klastrów fizycznie izolowanych. Aby uzyskać więcej informacji na temat sposobów izolowania obciążeń, zobacz [najlepsze rozwiązania dotyczące izolacji klastra w AKS][cluster-isolation].
+
+### <a name="compute-isolation"></a>Izolacja obliczeniowa
+
+ Niektóre obciążenia mogą wymagać wysokiego stopnia odizolowania od innych obciążeń klientów ze względu na zgodność lub wymagania prawne. W przypadku tych obciążeń platforma Azure udostępnia [izolowane maszyny wirtualne](../virtual-machines/linux/isolation.md), które mogą być używane jako węzły agentów w klastrze AKS. Te izolowane maszyny wirtualne są izolowane do określonego typu sprzętu i przeznaczone dla jednego klienta. 
+
+ Aby użyć tych odizolowanych maszyn wirtualnych z klastrem AKS, wybierz jedną z odizolowanych maszyn wirtualnych, które są wymienione w [tym miejscu](../virtual-machines/linux/isolation.md) jako **rozmiar węzła** podczas tworzenia klastra AKS lub dodania puli węzłów.
+
 
 ## <a name="cluster-upgrades"></a>Uaktualnienia klastra
 

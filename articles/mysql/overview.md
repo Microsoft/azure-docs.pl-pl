@@ -7,12 +7,12 @@ ms.author: andrela
 ms.custom: mvc
 ms.topic: overview
 ms.date: 3/18/2020
-ms.openlocfilehash: 8f49811ad0d40c70933d32227cfb17a5144b857a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c5758fa367ac17ceb687212b4073fd2c1a5c18f6
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80067818"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206404"
 ---
 # <a name="what-is-azure-database-for-mysql"></a>Co to jest usługa Azure Database for MySQL?
 
@@ -59,9 +59,16 @@ Ponadto, w zależności od potrzeb, należy wziąć pod uwagę następujące pun
 - Aby rozwiązać problem z Twoim kontem, wyślij [żądanie obsługi](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) w portalu Azure Portal.
 - Aby przekazać opinię lub poprosić o nowe funkcje, utwórz wpis w platformie [UserVoice](https://feedback.azure.com/forums/597982-azure-database-for-mysql).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Teraz, po zapoznaniu się z wprowadzeniem do Azure Database for MySQL i odpowiedzieć na pytanie "co to jest Azure Database for MySQL?". wszystko jest gotowe do:
 
 - Odwiedzenie strony cennika zawierającej porównania kosztów i kalkulatory. [Cennik](https://azure.microsoft.com/pricing/details/mysql/)
 - Rozpoczęcie pracy przez utworzenie pierwszego serwera. [Tworzenie serwera usługi Azure Database for MySQL za pomocą witryny Azure Portal](quickstart-create-mysql-server-database-using-azure-portal.md)
-- Tworzenie pierwszej aplikacji przy użyciu preferowanego języka: c#[Node. js](./connect-nodejs.md) | [Java języka](./connect-java.md) | [Ruby](./connect-ruby.md) | [PHP](./connect-php.md) |  [Python](./connect-python.md) | [.NET (C#)](./connect-csharp.md) | —[Przejdź](./connect-go.md)
+- Kompiluj swoją pierwszą aplikację przy użyciu preferowanego języka:
+  - [Python](./connect-python.md)
+  - [Node.JS](./connect-nodejs.md)
+  - [Java](./connect-java.md)
+  - [Ruby](./connect-ruby.md)
+  - [Język PHP](./connect-php.md)
+  - [.NET (C#)](./connect-csharp.md)
+  - [Przejdź](./connect-go.md)

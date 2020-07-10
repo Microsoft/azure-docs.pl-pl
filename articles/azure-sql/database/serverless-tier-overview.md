@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
-ms.date: 7/6/2020
-ms.openlocfilehash: 130b19f280c69bfbe4ca49abe1bcba5db7f23caa
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.date: 7/9/2020
+ms.openlocfilehash: 38ca6528b77d9f36c84f5aacaa34a64d113b5978
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045964"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206938"
 ---
 # <a name="azure-sql-database-serverless"></a>Azure SQL Database bezserwerowe
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -34,7 +34,7 @@ Warstwa obliczeń bezserwerowych dla pojedynczej bazy danych w Azure SQL Databas
 - **Minimalna rdzeni wirtualnych** i **Maksymalna rdzeni wirtualnych** to konfigurowalne parametry, które definiują zakres wydajności obliczeniowej dostępny dla bazy danych. Limity pamięci i operacji we/wy są proporcjonalne do określonego zakresu rdzeń wirtualny.  
 - **Opóźnienie AutoPause** to konfigurowalny parametr, który określa okres czasu, przez który baza danych musi być nieaktywna, zanim zostanie automatycznie wstrzymana. Baza danych zostanie automatycznie wznowiona po wystąpieniu następnego logowania lub innego działania.  Alternatywnie można wyłączyć autowstrzymywanie.
 
-### <a name="cost"></a>Koszty
+### <a name="cost"></a>Koszt
 
 - Koszt bazy danych bezserwerowej to podsumowanie kosztów i kosztów magazynu obliczeniowego.
 - Gdy użycie obliczeniowe ma wartość z przedziału minimalnego i maksymalnego skonfigurowanego limitu, koszt obliczeń jest oparty na rdzeń wirtualny i używanej pamięci.
@@ -125,11 +125,11 @@ Autowstrzymywanie jest tymczasowo uniemożliwiane podczas wdrażania niektórych
 
 Autowznawianie jest wyzwalane, jeśli w dowolnym momencie spełniony jest którykolwiek z następujących warunków:
 
-|Cecha|Wyzwalacz autowznawiania|
+|Obiekt feature|Wyzwalacz autowznawiania|
 |---|---|
-|Uwierzytelnianie i autoryzacja|Zaloguj się|
+|Uwierzytelnianie i autoryzacja|Identyfikator logowania|
 |Wykrywanie zagrożeń|Włączanie/wyłączanie ustawień wykrywania zagrożeń na poziomie bazy danych lub serwera.<br>Modyfikowanie ustawień wykrywania zagrożeń na poziomie bazy danych lub serwera.|
-|Odnajdowanie i klasyfikacja danych|Dodawanie, modyfikowanie, usuwanie lub wyświetlanie etykiet czułości|
+|Odnajdywanie i klasyfikacja danych|Dodawanie, modyfikowanie, usuwanie lub wyświetlanie etykiet czułości|
 |Inspekcja|Wyświetlanie rekordów inspekcji.<br>Aktualizowanie lub przeglądanie zasad inspekcji.|
 |Maskowanie danych|Dodawanie, modyfikowanie, usuwanie lub wyświetlanie reguł maskowania danych|
 |Transparent Data Encryption|Wyświetlanie stanu lub stanu przezroczystego szyfrowania danych|
@@ -272,7 +272,7 @@ Pula zasobów użytkowników jest wewnętrzną największą granicą zarządzani
 
 Metryki monitorowania użycia zasobów pakietu aplikacji i puli użytkowników bazy danych bezserwerowych są wymienione w poniższej tabeli:
 
-|Jednostka|Metric|Opis|Lekcji|
+|Jednostka|Metryka|Opis|Lekcji|
 |---|---|---|---|
 |Pakiet aplikacji|app_cpu_percent|Procent rdzeni wirtualnych używany przez aplikację względem maksymalnej rdzeni wirtualnych dozwolony dla aplikacji.|Procent|
 |Pakiet aplikacji|app_cpu_billed|Kwota obliczeń rozliczanych dla aplikacji w okresie raportowania. Kwota płacona w tym okresie jest iloczynem tej metryki i ceny jednostkowej rdzeń wirtualny. <br><br>Wartości tej metryki są określane przez agregowanie w czasie, gdy jest używana wartość maksymalna procesora CPU i używana pamięć. Jeśli użyta kwota jest mniejsza niż minimalna ilość określona przez minimalną rdzeni wirtualnych i minimalną pamięć, jest naliczana opłata w wysokości minimalnej.Aby porównać procesor z pamięcią na potrzeby rozliczeń, pamięć jest znormalizowana do jednostek rdzeni wirtualnych przez ponowne skalowanie ilości pamięci w GB przez 3 GB na rdzeń wirtualny.|Rdzeń wirtualny sekund|
@@ -324,6 +324,19 @@ Kwota naliczanych obliczeń jest uwidaczniana przez następującą metrykę:
 - **Częstotliwość raportowania**: na minutę
 
 Ta ilość jest obliczana na sekundę i agregowana w ciągu 1 minuty.
+
+### <a name="minimum-compute-bill"></a>Minimalny rachunek obliczeniowy
+
+Jeśli bezserwerowa baza danych jest wstrzymana, rachunek obliczeń wynosi zero.  Jeśli bezserwerowa baza danych nie jest wstrzymana, minimalna opłata naliczana nie jest mniejsza niż wartość rdzeni wirtualnych na podstawie maksymalnej (minimalnej rdzeni wirtualnych, minimalnej pamięci GB * 1/3).
+
+Przykłady:
+
+- Załóżmy, że bezserwerowa baza danych nie jest wstrzymana i skonfigurowana z 8 maksymalna rdzeni wirtualnych i 1 min rdzeń wirtualny odpowiadająca ilości pamięci 3,0 GB.  Następnie minimalna stawka obliczeniowa jest oparta na wartości maksymalnej (1 rdzeń wirtualny, 3,0 GB * 1 rdzeń wirtualny/3 GB) = 1 rdzeń wirtualny.
+- Załóżmy, że bezserwerowa baza danych nie jest wstrzymana i skonfigurowana przy użyciu 4 Max rdzeni wirtualnych i 0,5 min rdzeni wirtualnych odpowiadających ilości pamięci z 2,1 GB.  Następnie minimalna stawka obliczeniowa jest oparta na max (0,5 rdzeni wirtualnych, 2,1 GB * 1 rdzeń wirtualny/3 GB) = 0,7 rdzeni wirtualnych.
+
+[Kalkulatora cen Azure SQL Database](https://azure.microsoft.com/pricing/calculator/?service=sql-database) dla bezserwerowego można użyć do określenia minimalnej ilości pamięci, która jest konfigurowana na podstawie liczby skonfigurowanych maksymalnych i minimalnych rdzeni wirtualnych.  Zgodnie z regułą, jeśli minimalna rdzeni wirtualnych skonfigurowana wartość jest większa niż 0,5 rdzeni wirtualnych, minimalny rachunek obliczeniowy jest niezależny od minimalnej ilości pamięci skonfigurowanej i na podstawie liczby minimalnych skonfigurowanych rdzeni wirtualnych.
+
+### <a name="example-scenario"></a>Przykładowy scenariusz
 
 Rozważ użycie bezserwerowej bazy danych skonfigurowanej z 1 min rdzeń wirtualny i 4 maks rdzeni wirtualnych.  Odnosi się to do około 3 GB pamięci minimalnej i 12 GB pamięci maksymalnej.  Załóżmy, że opóźnienie autopauzy jest ustawione na 6 godzin, a obciążenie bazy danych jest aktywne w ciągu pierwszych 2 godzin okresu 24-godzinnego i w inny sposób nieaktywne.    
 

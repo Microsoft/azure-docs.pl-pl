@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2019
 ms.author: allensu
-ms.openlocfilehash: a96e22ee8d2f9565ae676574e263beae96b5c1f2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e00d6b674453f12f94a2859f9b0533aea0e7332c
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84809406"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207549"
 ---
 # <a name="load-balancer-health-probes"></a>Sondy kondycji usługi Load Balancer
 
@@ -29,8 +29,8 @@ Sondy kondycji obsługują wiele protokołów. Dostępność określonego protok
 
 | | Standardowy SKU | Podstawowy SKU |
 | --- | --- | --- |
-| [Typy sond](#types) | TCP, HTTP, HTTPS | TCP, HTTP |
-| [Zachowanie podczas sondowania](#probedown) | Wszystkie sondy w dół, wszystkie przepływy TCP będą kontynuowane. | Wszystkie sondy w dół, wszystkie przepływy TCP wygasają. | 
+| **[Typy sond](#types)** | TCP, HTTP, HTTPS | TCP, HTTP |
+| **[Zachowanie podczas sondowania](#probedown)** | Wszystkie sondy w dół, wszystkie przepływy TCP będą kontynuowane. | Wszystkie sondy w dół, wszystkie przepływy TCP wygasają. | 
 
 
 >[!IMPORTANT]
@@ -92,8 +92,8 @@ Dostępne protokoły zależą od używanej jednostki SKU Load Balancer:
 
 || TCP | HTTP | HTTPS |
 | --- | --- | --- | --- |
-| Standardowy SKU |    &#9989; |   &#9989; |   &#9989; |
-| Podstawowy SKU |   &#9989; |   &#9989; | &#10060; |
+| **Standardowy SKU** |    &#9989; |   &#9989; |   &#9989; |
+| **Podstawowy SKU** |   &#9989; |   &#9989; | &#10060; |
 
 ### <a name="tcp-probe"></a><a name="tcpprobe"></a>Sonda TCP
 

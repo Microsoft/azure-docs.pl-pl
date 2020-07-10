@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: e8917a0a5678c4c6b72352a0d4c1523bfea3c96d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b3cf2603dec7e921159824f565336cd91a575731
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79537214"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86205659"
 ---
 # <a name="mysql-drivers-and-management-tools-compatible-with-azure-database-for-mysql"></a>Sterowniki MySQL i narzędzia do zarządzania zgodne z Azure Database for MySQL
 W tym artykule opisano sterowniki i narzędzia do zarządzania, które są zgodne z programem Azure Database for MySQL.
@@ -21,7 +21,7 @@ Azure Database for MySQL korzysta z najbardziej popularnej wersji Community Data
 
 | **Język programowania** | **Sterownik** | **Linki** | **Zgodne wersje** | **Niezgodne wersje** | **Uwagi** |
 | :----------------------- | :--------- | :-------- | :---------------------- | :------------------------ | :-------- |
-| PHP | mysqli, pdo_mysql, mysqlnd | https://secure.php.net/downloads.php | 5,5, 5,6, 7. x | 5.3 | W przypadku połączenia PHP 7,0 z protokołem SSL MySQLi Dodaj MYSQLI_CLIENT_SSL_DONT_VERIFY_SERVER_CERT w parametrach połączenia. <br> ```mysqli_real_connect($conn, $host, $username, $password, $db_name, 3306, NULL, MYSQLI_CLIENT_SSL_DONT_VERIFY_SERVER_CERT);```<br> Zestaw PDO: ```PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT``` opcja false.|
+| Język PHP | mysqli, pdo_mysql, mysqlnd | https://secure.php.net/downloads.php | 5,5, 5,6, 7. x | 5.3 | W przypadku połączenia PHP 7,0 z protokołem SSL MySQLi Dodaj MYSQLI_CLIENT_SSL_DONT_VERIFY_SERVER_CERT w parametrach połączenia. <br> ```mysqli_real_connect($conn, $host, $username, $password, $db_name, 3306, NULL, MYSQLI_CLIENT_SSL_DONT_VERIFY_SERVER_CERT);```<br> Zestaw PDO: ```PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT``` opcja false.|
 | .NET | Łącznik Async MySQL dla platformy .NET | https://github.com/mysql-net/MySqlConnector <br> [Pakiet instalacyjny z narzędzia NuGet](https://www.nuget.org/packages/MySqlConnector/) | 0,27 i po | 0.26.5 i przed | |
 | .NET | Łącznik MySQL/NET | https://github.com/mysql/mysql-connector-net | 6.6.3, 7,0, 8,0 |  | Usterka kodowania może spowodować niepowodzenie połączeń w niektórych systemach Windows bez kodowania UTF8. |
 | Node.js | mysqljs | https://github.com/mysqljs/mysql/ <br> Pakiet instalacyjny z NPM:<br> Uruchom `npm install mysql` z npm | 2.15 | 2.14.1 i przed | |
@@ -45,14 +45,14 @@ Zalety zgodności rozszerzają się również do narzędzi do zarządzania bazam
 
 |                                     | **MySQL Workbench 6. x i w górę** | **Navicat 12** | **PHPMyAdmin 4. x i w górę** |
 | :---------------------------------- | :----------------------------- | :------------- | :-------------------------|
-| Tworzenie, aktualizowanie, Odczyt, zapis, usuwanie | X | X | X |
-| Połączenie SSL | X | X | X |
-| Autouzupełnianie zapytań SQL | X | X |  |
-| Importowanie i eksportowanie danych | X | X | X | 
-| Eksportuj do wielu formatów | X | X | X |
-| Wykonywanie kopii zapasowych i przywracanie |  | X |  |
-| Wyświetl parametry serwera | X | X | X |
-| Wyświetlanie połączeń klientów | X | X | X |
+| **Tworzenie, aktualizowanie, Odczyt, zapis, usuwanie** | X | X | X |
+| **Połączenie SSL** | X | X | X |
+| **Autouzupełnianie zapytań SQL** | X | X |  |
+| **Importowanie i eksportowanie danych** | X | X | X |
+| **Eksportuj do wielu formatów** | X | X | X |
+| **Tworzenie kopii zapasowej i przywracanie** |  | X |  |
+| **Wyświetl parametry serwera** | X | X | X |
+| **Wyświetlanie połączeń klientów** | X | X | X |
 
 ## <a name="next-steps"></a>Następne kroki
 

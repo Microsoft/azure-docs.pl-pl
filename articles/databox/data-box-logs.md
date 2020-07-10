@@ -1,26 +1,27 @@
 ---
-title: Śledzenie i rejestrowanie Azure Data Box, zdarzenia Azure Data Box Heavy | Microsoft Docs
-description: Opisuje sposób śledzenia i rejestrowania zdarzeń na różnych etapach Azure Data Box i Azure Data Box Heavy kolejności.
+title: Śledzenie i rejestrowanie Azure Data Box, Azure Data Box Heavy zdarzeń dla zamówienia importu | Microsoft Docs
+description: Opisuje sposób śledzenia i rejestrowania zdarzeń na różnych etapach Azure Data Box i Azure Data Box Heavy kolejności importu.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 08/08/2019
+ms.date: 07/10/2020
 ms.author: alkohli
-ms.openlocfilehash: 74d38af4a64a184b26bd6ba1105db0d2530d8ba6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b65d9579686cdf53f1cac35ba47bc5850b45c8e2
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81676408"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86204304"
 ---
-# <a name="tracking-and-event-logging-for-your-azure-data-box-and-azure-data-box-heavy"></a>Śledzenie i rejestrowanie zdarzeń dla Azure Data Box i Azure Data Box Heavy
+# <a name="tracking-and-event-logging-for-your-azure-data-box-and-azure-data-box-heavy-import-order"></a>Śledzenie i rejestrowanie zdarzeń dla Azure Data Box i Azure Data Box Heavy zamówienie importu
 
-Urządzenie Data Box lub Data Box Heavy kolejności przechodzą przez następujące kroki: kolejność, konfiguracja, kopiowanie danych, zwracanie, przekazywanie na platformę Azure oraz sprawdzanie i wymazywanie danych. Dla każdego kroku w kolejności można wykonać wiele akcji, aby kontrolować dostęp do zamówienia, przeprowadzać inspekcję zdarzeń, śledzić kolejność i interpretować różne dzienniki, które są generowane.
+Urządzenie Data Box lub Data Box Heavy zamówienia importu przechodzą przez następujące kroki: kolejność, konfiguracja, kopiowanie danych, zwracanie, przekazywanie na platformę Azure oraz sprawdzanie i wymazywanie danych. Dla każdego kroku w kolejności można wykonać wiele akcji, aby kontrolować dostęp do zamówienia, przeprowadzać inspekcję zdarzeń, śledzić kolejność i interpretować różne dzienniki, które są generowane.
 
-W poniższej tabeli przedstawiono podsumowanie kroków zlecenia urządzenie Data Box lub Data Box Heavy oraz dostępnych narzędzi do śledzenia i inspekcji kolejności w każdym kroku.
+W poniższej tabeli przedstawiono podsumowanie urządzenie Data Box lub Data Box Heavy czynności związanych z kolejnością importu oraz narzędzi dostępnych do śledzenia i inspekcji kolejności w każdym kroku.
 
-| urządzenie Data Box etap kolejności       | Narzędzie do śledzenia i inspekcji                                                                        |
+| urządzenie Data Box etap importowania kolejności       | Narzędzie do śledzenia i inspekcji                                                                        |
 |----------------------------|------------------------------------------------------------------------------------------------|
 | Tworzenie zamówienia               | [Konfigurowanie kontroli dostępu w kolejności za pośrednictwem RBAC](#set-up-access-control-on-the-order)                                                    |
 | Przetworzone zamówienie            | [Śledź kolejność](#track-the-order) <ul><li> Azure Portal </li><li> Witryna sieci Web firmy kurierskiej </li><li>Powiadomienia e-mail</ul> |
@@ -30,7 +31,7 @@ W poniższej tabeli przedstawiono podsumowanie kroków zlecenia urządzenie Data
 | Przekazywanie danych na platformę Azure       | [Przeglądanie dzienników kopiowania](#review-copy-log-during-upload-to-azure) pod kątem błędów podczas przekazywania danych w centrum dane platformy Azure                         |
 | Dane wymazywane z urządzenia   | [Wyświetlanie łańcucha dzienników opieki](#get-chain-of-custody-logs-after-data-erasure) , w tym dzienników inspekcji i historii kolejności                |
 
-W tym artykule opisano szczegółowo różne mechanizmy lub narzędzia dostępne do śledzenia i inspekcji urządzenie Data Box lub Data Box Heavy. Informacje przedstawione w tym artykule dotyczą obu programów, urządzenie Data Box i Data Box Heavy. W kolejnych sekcjach wszystkie odwołania do urządzenie Data Box dotyczą również Data Box Heavy.
+W tym artykule opisano szczegółowo różne mechanizmy lub narzędzia dostępne do śledzenia i inspekcji urządzenie Data Box lub Data Box Heavy kolejności importu. Informacje przedstawione w tym artykule mają zastosowanie do urządzenie Data Box i Data Box Heavy zamówienia importu. W kolejnych sekcjach wszystkie odwołania do urządzenie Data Box dotyczą również Data Box Heavy.
 
 ## <a name="set-up-access-control-on-the-order"></a>Konfigurowanie kontroli dostępu w kolejności
 

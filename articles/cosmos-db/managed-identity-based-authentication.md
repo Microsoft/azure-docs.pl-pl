@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 03/20/2020
 ms.author: justipat
 ms.reviewer: sngun
-ms.openlocfilehash: 2555719e13b0cba38150d3bce7a18f043158d5b5
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: dfce18674f382cb683fa74a1bed964e9f86d72c2
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85970964"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206108"
 ---
 # <a name="use-system-assigned-managed-identities-to-access-azure-cosmos-db-data"></a>Korzystanie z zarządzanych tożsamości przypisanych do systemu w celu uzyskiwania dostępu do danych Azure Cosmos DB
 
@@ -53,6 +53,8 @@ W tym kroku przypiszesz rolę do tożsamości zarządzanej przypisanej do system
 
 W tym scenariuszu aplikacja funkcji odczyta temperaturę Aquarium, a następnie zapisze te dane w kontenerze w Azure Cosmos DB. Ponieważ aplikacja funkcji musi zapisywać dane, należy przypisać rolę **współautor konta DocumentDB** . 
 
+### <a name="assign-the-role-using-azure-portal"></a>Przypisz rolę przy użyciu Azure Portal
+
 1. Zaloguj się do Azure Portal i przejdź do swojego konta Azure Cosmos DB. Otwórz okienko **Kontrola dostępu (IAM)** , a następnie kartę **przypisania ról** :
 
    :::image type="content" source="./media/managed-identity-based-authentication/cosmos-db-iam-tab.png" alt-text="Zrzut ekranu przedstawiający okienko kontroli dostępu i kartę przypisania roli.":::
@@ -70,6 +72,18 @@ W tym scenariuszu aplikacja funkcji odczyta temperaturę Aquarium, a następnie 
       :::image type="content" source="./media/managed-identity-based-authentication/cosmos-db-iam-tab-add-role-pane-filled.png" alt-text="Zrzut ekranu przedstawiający okienko Dodawanie przypisania roli z przykładami.":::
 
 1. Po wybraniu aplikacji funkcji wybierz pozycję **Zapisz**.
+
+### <a name="assign-the-role-using-azure-cli"></a>Przypisywanie roli przy użyciu interfejsu wiersza polecenia platformy Azure
+
+Aby przypisać rolę za pomocą interfejsu wiersza polecenia platformy Azure, użyj następujących poleceń:
+
+```azurecli-interactive
+$scope = az cosmosdb show --name '<Your_Azure_Cosmos_account_name>' --resource-group '<CosmosDB_Resource_Group>' --query id
+
+$principalId = az webapp identity show -n '<Your_Azure_Function_name>' -g '<Azure_Function_Resource_Group>' --query principalId
+
+az role assignment create --assignee $principalId --role "DocumentDB Account Contributor" --scope $scope
+```
 
 ## <a name="programmatically-access-the-azure-cosmos-db-keys"></a>Programowe uzyskiwanie dostępu do kluczy Azure Cosmos DB
 

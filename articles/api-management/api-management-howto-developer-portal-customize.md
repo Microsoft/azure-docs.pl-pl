@@ -12,11 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/05/2020
 ms.author: apimpm
-ms.openlocfilehash: af7c995c11322a538dd9e27a905f1ddbc723e8ab
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 345b4950e25f48eb1a48c5e583908d0f771771ba
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79244097"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206241"
 ---
 # <a name="access-and-customize-developer-portal"></a>Dostęp i dostosowywanie portalu dla deweloperów
 
@@ -79,9 +80,9 @@ Przewodnik po stylu jest panelem utworzonym z projektantami. Pozwala na wyświet
 
 Aby edytować wariant, kliknij go i wybierz ikonę ołówka, która pojawia się na górze. Po wprowadzeniu zmian w oknie podręcznym zamknij je.
 
-### <a name="save-button"></a>Przycisk Save (Zapisz)
+### <a name="save-button"></a>Przycisk Zapisz
 
-![Przycisk Save (Zapisz)](media/api-management-howto-developer-portal-customize/save-button.png)
+![Przycisk Zapisz](media/api-management-howto-developer-portal-customize/save-button.png)
 
 Za każdym razem, gdy wprowadzisz zmiany w portalu, musisz zapisać je ręcznie, naciskając przycisk **Zapisz** w menu u dołu. Po zapisaniu zmian zmodyfikowana zawartość jest automatycznie przekazywana do usługi API Management.
 
@@ -130,6 +131,7 @@ Po opublikowaniu portalu możesz uzyskać do niego dostęp przy użyciu tego sam
 Musisz włączyć funkcję CORS (Udostępnianie zasobów między źródłami) w interfejsach API, aby umożliwić odwiedzającym portalu testowanie interfejsów API za pomocą wbudowanej konsoli interaktywnej. Aby uzyskać więcej informacji, zapoznaj się z [artykułem dotyczącym tej dokumentacji](api-management-howto-developer-portal.md#cors) .
 
 ## <a name="next-steps"></a>Następne kroki
+- [Optymalizowanie i oszczędzanie wydatków w chmurze](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
 
 Dowiedz się więcej o portalu dla deweloperów:
 

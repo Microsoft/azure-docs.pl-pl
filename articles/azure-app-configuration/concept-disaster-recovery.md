@@ -6,11 +6,12 @@ ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 02/20/2020
-ms.openlocfilehash: 96ef09ac081aa328014217592a7fcd3ed6314c0e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5c62f10d67345d68cde27af7d0a7663b22d978a0
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77523768"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207195"
 ---
 # <a name="resiliency-and-disaster-recovery"></a>Odporność i odzyskiwanie po awarii
 
@@ -63,7 +64,11 @@ Zwróć uwagę na `optional` parametr przekazywany do `AddAzureAppConfiguration`
 
 ## <a name="synchronization-between-configuration-stores"></a>Synchronizacja między magazynami konfiguracji
 
-Ważne jest, aby wszystkie dane z geograficznie nadmiarowych magazynów miały ten sam zestaw danych. Aby skopiować dane z magazynu podstawowego do pomocniczego na żądanie, można użyć funkcji **eksportu** w konfiguracji aplikacji. Ta funkcja jest dostępna za pomocą zarówno Azure Portal, jak i interfejsu wiersza polecenia.
+Ważne jest, aby wszystkie dane z geograficznie nadmiarowych magazynów miały ten sam zestaw danych. Istnieją dwa sposoby osiągnięcia tego celu:
+
+### <a name="backup-manually-using-the-export-function"></a>Ręczne tworzenie kopii zapasowej przy użyciu funkcji eksportu
+
+Aby skopiować dane z magazynu podstawowego do pomocniczego na żądanie, można użyć funkcji **eksportu** w konfiguracji aplikacji. Ta funkcja jest dostępna za pomocą zarówno Azure Portal, jak i interfejsu wiersza polecenia.
 
 W Azure Portal można wypchnąć zmianę do innego magazynu konfiguracji, wykonując następujące kroki.
 
@@ -71,15 +76,19 @@ W Azure Portal można wypchnąć zmianę do innego magazynu konfiguracji, wykonu
 
 1. W nowym bloku, który zostanie otwarty, określ subskrypcję, grupę zasobów i nazwę zasobu magazynu pomocniczego, a następnie wybierz pozycję **Zastosuj**.
 
-1. Interfejs użytkownika zostanie zaktualizowany, aby można było wybrać dane konfiguracji, które mają zostać wyeksportowane do magazynu pomocniczego. Domyślną wartością czasu można pozostawić jako wartość i ustawić zarówno **z etykiety** , jak i **etykiety** na tę samą wartość. Wybierz przycisk **Zastosuj**.
+1. Interfejs użytkownika zostanie zaktualizowany, aby można było wybrać dane konfiguracji, które mają zostać wyeksportowane do magazynu pomocniczego. Domyślną wartością czasu można pozostawić jako wartość i ustawić zarówno **z etykiety** , jak i **etykiety** na tę samą wartość. Wybierz przycisk **Zastosuj**. Powtórz tę czynność dla wszystkich etykiet w magazynie podstawowym.
 
-1. Powtórz poprzednie kroki dla wszystkich zmian konfiguracji.
+1. Powtórz poprzednie kroki przy każdej zmianie konfiguracji.
 
-Aby zautomatyzować ten proces eksportowania, użyj interfejsu wiersza polecenia platformy Azure. Następujące polecenie pokazuje, jak wyeksportować pojedynczą zmianę konfiguracji z magazynu podstawowego do pomocniczego:
+Proces eksportowania można również uzyskać przy użyciu interfejsu wiersza polecenia platformy Azure. Następujące polecenie pokazuje, jak wyeksportować wszystkie konfiguracje z magazynu podstawowego do pomocniczego:
 
 ```azurecli
-    az appconfig kv export --destination appconfig --name {PrimaryStore} --label {Label} --dest-name {SecondaryStore} --dest-label {Label}
+    az appconfig kv export --destination appconfig --name {PrimaryStore} --dest-name {SecondaryStore} --label * --preserve-labels -y
 ```
+
+### <a name="backup-automatically-using-azure-functions"></a>Utwórz kopię zapasową automatycznie przy użyciu Azure Functions
+
+Proces tworzenia kopii zapasowej można zautomatyzować za pomocą Azure Functions. Wykorzystuje ona integrację z Azure Event Grid w konfiguracji aplikacji. Po skonfigurowaniu usługi Konfiguracja aplikacji będzie publikować zdarzenia do Event Grid dla wszelkich zmian wprowadzonych w kluczowych wartościach w magazynie konfiguracji. W związku z tym aplikacja Azure Functions może nasłuchiwać tych zdarzeń i odpowiednio tworzyć dane kopii zapasowej. Aby uzyskać szczegółowe informacje, zobacz Samouczek dotyczący [sposobu automatycznego tworzenia kopii zapasowych magazynów konfiguracji aplikacji](./howto-backup-config-store.md).
 
 ## <a name="next-steps"></a>Następne kroki
 

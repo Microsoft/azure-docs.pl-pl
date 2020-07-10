@@ -8,11 +8,12 @@ ms.author: mcarter
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/11/2020
-ms.openlocfilehash: e55dfc692bdd625de8873f6e61c9969ed7fbf2df
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 27fb165c36c17cee83cd9f90eba3bdcb9e32d517
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84466174"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206910"
 ---
 # <a name="create-a-private-endpoint-for-a-secure-connection-to-azure-cognitive-search"></a>Utwórz prywatny punkt końcowy dla bezpiecznego połączenia z platformą Azure Wyszukiwanie poznawcze
 
@@ -43,7 +44,7 @@ W tej sekcji utworzysz sieć wirtualną i podsieć do hostowania maszyny wirtual
 
     | Ustawienie | Wartość |
     | ------- | ----- |
-    | Subskrypcja | Wybieranie subskrypcji|
+    | Subskrypcja | Wybierz swoją subskrypcję|
     | Grupa zasobów | Wybierz pozycję **Utwórz nowy**, wprowadź nazwę *zasobu*, a następnie wybierz przycisk **OK** . |
     | Nazwa | Wprowadź *MyVirtualNetwork* |
     | Region | Wybierz żądany region |
@@ -85,11 +86,11 @@ W tej sekcji utworzysz nową usługę Wyszukiwanie poznawcze platformy Azure z p
     | Subskrypcja | Wybierz subskrypcję. |
     | Grupa zasobów | Wybierz pozycję **myResourceGroup**. Utworzono to w poprzedniej sekcji.|
     | Lokalizacja | wybierz pozycję **Zachodnie stany USA**.|
-    | Nazwa | Wprowadź *myPrivateEndpoint*.  |
+    | Nazwa | Wprowadź *myPrivateEndpoint*.  |
     | Docelowy zasób podrzędny | Pozostaw wartość domyślną **searchService**. |
     | **SIECI** |  |
-    | Sieć wirtualna  | Wybierz pozycję *MyVirtualNetwork* *z grupy zasobów*. |
-    | Podsieć | Wybierz pozycję Moja *podsieć*. |
+    | Sieć wirtualna  | Wybierz pozycję *MyVirtualNetwork* *z grupy zasobów*. |
+    | Podsieć | Wybierz pozycję Moja *podsieć*. |
     | **PRYWATNA INTEGRACJA Z USŁUGĄ DNS** |  |
     | Integracja z prywatną strefą DNS  | Pozostaw wartość domyślną **tak**. |
     | Prywatna strefa DNS  | Pozostaw wartość domyślną * * (New) privatelink.search.windows.net * *. |
@@ -97,7 +98,7 @@ W tej sekcji utworzysz nową usługę Wyszukiwanie poznawcze platformy Azure z p
 
 1. Wybierz przycisk **OK**. 
 
-1. Wybierz pozycję **Przegląd + utwórz**. Nastąpi przejście do strony **Recenzja i tworzenie** , w której platforma Azure weryfikuje konfigurację. 
+1. Wybierz pozycję **Przeglądanie + tworzenie**. Nastąpi przejście do strony **Recenzja i tworzenie** , w której platforma Azure weryfikuje konfigurację. 
 
 1. Gdy zobaczysz komunikat o **przekazaniu walidacji** , wybierz pozycję **Utwórz**. 
 
@@ -151,7 +152,7 @@ W tej sekcji utworzysz nową usługę Wyszukiwanie poznawcze platformy Azure z p
     | Wybierz porty wejściowe | Wybierz pozycje **HTTP** i **RDP**.|
     ||
 
-1. Wybierz pozycję **Przegląd + utwórz**. Nastąpi przejście do strony **Recenzja i tworzenie** , w której platforma Azure weryfikuje konfigurację.
+1. Wybierz pozycję **Przeglądanie + tworzenie**. Nastąpi przejście do strony **Recenzja i tworzenie** , w której platforma Azure weryfikuje konfigurację.
 
 1. Gdy zobaczysz komunikat o **przekazaniu walidacji** , wybierz pozycję **Utwórz**. 
 
@@ -164,7 +165,7 @@ Pobierz *myVm* maszyny wirtualnej, a następnie połącz się z nią w następuj
 
 1. Wybierz przycisk **Połącz**. Po wybraniu przycisku **Połącz** zostanie otwarta strona **Łączenie z maszyną wirtualną**.
 
-1. Wybierz opcję **Pobierz plik RDP**. Na platformie Azure zostanie utworzony plik Remote Desktop Protocol (*rdp*), który zostanie pobrany na komputer.
+1. Wybierz pozycję **Pobierz plik RDP**. Na platformie Azure zostanie utworzony plik Remote Desktop Protocol (*rdp*), który zostanie pobrany na komputer.
 
 1. Otwórz pobrany plik RDP *.
 
@@ -188,7 +189,7 @@ W tej sekcji będziesz weryfikować dostęp do sieci prywatnej do usługi wyszuk
 
 Gdy punkt końcowy usługi wyszukiwania jest prywatny, niektóre funkcje portalu są wyłączone. Będziesz mieć możliwość wyświetlania ustawień poziomu usług i zarządzania nimi, ale dostęp do portalu do indeksowania danych i różnych innych składników w usłudze, takich jak indeks, indeksator i definicje zestawu umiejętności, jest ograniczony ze względów bezpieczeństwa.
 
-1. W Pulpit zdalny *myVM*Otwórz program PowerShell.
+1. W Pulpit zdalny *myVM*Otwórz program PowerShell.
 
 1. Wprowadź ciąg "nslookup [nazwa usługi wyszukiwania]. Search. Windows. NET"
 
@@ -206,7 +207,7 @@ Gdy punkt końcowy usługi wyszukiwania jest prywatny, niektóre funkcje portalu
 
 1. Ukończenie szybkiego startu z maszyny wirtualnej to potwierdzenie, że usługa jest w pełni funkcjonalna.
 
-1. Zamknij połączenie pulpitu zdalnego z *myVM*. 
+1. Zamknij połączenie pulpitu zdalnego z *myVM*. 
 
 1. Aby sprawdzić, czy usługa jest niedostępna w publicznym punkcie końcowym, Otwórz program Poster na lokalnej stacji roboczej i spróbuj wykonać kilka pierwszych zadań w przewodniku Szybki Start. Jeśli zostanie wyświetlony komunikat o błędzie, że serwer zdalny nie istnieje, pomyślnie skonfigurowano prywatny punkt końcowy dla usługi wyszukiwania.
 

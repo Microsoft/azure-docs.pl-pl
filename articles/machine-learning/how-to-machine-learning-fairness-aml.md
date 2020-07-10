@@ -1,5 +1,5 @@
 ---
-title: Ocena atrakcyjności modeli ML w języku Python
+title: Ocena atrakcyjności modeli ML w języku Python (wersja zapoznawcza)
 titleSuffix: Azure Machine Learning
 description: Dowiedz się, jak ocenić atrakcyjność modeli w Azure Machine Learning
 services: machine-learning
@@ -9,15 +9,16 @@ ms.topic: how-to
 ms.author: mesameki
 author: mesameki
 ms.reviewer: luquinta
-ms.date: 06/30/2020
+ms.date: 07/09/2020
 ms.custom: tracking-python
-ms.openlocfilehash: 9e88b87a7f6471f6c7344cc5548c37e947f18791
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4f791ef9e18032ce6773f4262586431e693b43b2
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85660859"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206736"
 ---
-# <a name="use-azure-machine-learning-with-the-fairlearn-open-source-package-to-assess-the-fairness-of-ml-models"></a>Użyj Azure Machine Learning z pakietem typu open source Fairlearn do oceny sprawiedliwości modeli ML  
+# <a name="use-azure-machine-learning-with-the-fairlearn-open-source-package-to-assess-the-fairness-of-ml-models-preview"></a>Użyj Azure Machine Learning z pakietem typu open source Fairlearn do oceny sprawiedliwości modeli ML (wersja zapoznawcza)
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 

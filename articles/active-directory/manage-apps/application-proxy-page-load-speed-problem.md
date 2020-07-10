@@ -16,12 +16,12 @@ ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bff9873742d5d660f563eebcb58ff9bcca940d24
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b1dc1b14a917786e124775a4505c53f63238a383
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84760183"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86203861"
 ---
 # <a name="an-application-proxy-application-takes-too-long-to-load"></a>Ładowanie aplikacji serwera proxy aplikacji trwa zbyt długo
 
@@ -31,8 +31,6 @@ Ten artykuł pomaga zrozumieć, dlaczego ładowanie aplikacji serwer proxy aplik
 Mimo że aplikacje działają, mogą wystąpić duże opóźnienia. Może istnieć większa topologia sieci, która pozwala zwiększyć szybkość działania. Aby uzyskać informacje na temat oceny różnych topologii, zapoznaj się z [dokumentem zagadnienia dotyczące sieci](application-proxy-network-topology.md).
 
 Oprócz topologii sieci nie są obecnie dostępne dalsze zalecenia dotyczące dostrajania wydajności. Gdy usługa serwera proxy aplikacji zostanie rozwinięta, może to być centrum danych, które jest fizycznie bliższe. Bliższe zbliżenie może pomóc w opóźnieniu. Listę centrów danych platformy Azure można znaleźć na [stronie test opóźnienia](http://www.azurespeed.com/Azure/Latency). 
-
-Centra danych z usługą serwera proxy aplikacji można znaleźć za pomocą [Narzędzia Test portów łączników](https://aadap-portcheck.connectorporttest.msappproxy.net/). 
 
 ## <a name="feedback-on-application-proxy-data-center-locations"></a>Opinie dotyczące lokalizacji centrów danych serwera proxy aplikacji 
 Mogą istnieć centra danych platformy Azure, które jeszcze nie obejmują serwera proxy aplikacji, ale doprowadziłoby do poprawy opóźnienia. Wyślij lokalizację centrum danych do programu aadapfeedback@microsoft.com . Firma Microsoft korzysta z opinii na temat planów rozszerzania.

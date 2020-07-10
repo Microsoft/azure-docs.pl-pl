@@ -6,12 +6,12 @@ ms.service: storsimple
 ms.topic: how-to
 ms.date: 12/08/2017
 ms.author: alkohli
-ms.openlocfilehash: 3d8ab6da9327048469c8b781657bb03b6a4b9669
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 920f7f2fa6fb6e80b060f0308b124a3a1214cb3f
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85508252"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86204449"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-volumes-update-3-or-later"></a>Zarządzanie woluminami (Aktualizacja Update 3 lub nowsza) za pomocą usługi StorSimple Menedżer urządzeń
 
@@ -51,7 +51,7 @@ Jeśli używasz woluminu warstwowego dla danych archiwalnych, zaznacz pole wybor
 
 Zapoznaj się z poniższą tabelą dotyczącą maksymalnej alokowanej pojemności dla każdego typu urządzenia i woluminu. (Należy zauważyć, że woluminy przypięte lokalnie nie są dostępne na urządzeniu wirtualnym).
 
-|  | Maksymalny rozmiar warstwowy | Maksymalny rozmiar woluminu przypiętego lokalnie |
+| Typ | Maksymalny rozmiar warstwowy | Maksymalny rozmiar woluminu przypiętego lokalnie |
 | --- | --- | --- |
 | **Urządzenia fizyczne** | | |
 | 8100 |64 TB |8 TB |
@@ -157,7 +157,7 @@ Należy zmodyfikować wolumin, gdy trzeba go rozszerzyć lub zmienić hosty, kt�
 
        ![Przejrzyj wpływ przełączenia woluminu w tryb offline](./media/storsimple-8000-manage-volumes-u2/modifyvol11.png)
 
-5. Kliknij pozycję **Zapisz**, aby zapisać zmiany. Po wyświetleniu monitu o potwierdzenie kliknij przycisk **Tak**. W Azure Portal zostanie wyświetlony komunikat o aktualizowaniu woluminu. Po pomyślnym zaktualizowaniu woluminu zostanie wyświetlony komunikat o powodzeniu.
+5. Kliknij przycisk **Zapisz**, aby zapisać zmiany. Po wyświetleniu monitu o potwierdzenie kliknij przycisk **Tak**. W Azure Portal zostanie wyświetlony komunikat o aktualizowaniu woluminu. Po pomyślnym zaktualizowaniu woluminu zostanie wyświetlony komunikat o powodzeniu.
 
     ![Przejrzyj wpływ przełączenia woluminu w tryb offline](./media/storsimple-8000-manage-volumes-u2/modifyvol5.png)
 

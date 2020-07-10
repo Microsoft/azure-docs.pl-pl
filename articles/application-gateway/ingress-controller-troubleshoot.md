@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: troubleshooting
 ms.date: 06/18/2020
 ms.author: caya
-ms.openlocfilehash: 29f8a7823207f5571acc345bc6234a318342b173
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0fdfa6265b81140fa6536082fe7ad4c5fa687fc4
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85207859"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207155"
 ---
 # <a name="troubleshoot-common-questions-or-issues-with-ingress-controller"></a>Rozwiązywanie typowych pytań lub problemów z kontrolerem transferu danych przychodzących
 
@@ -26,7 +26,7 @@ ms.locfileid: "85207859"
 W poniższych krokach przyjęto, że:
   - Masz klaster AKS z włączoną funkcją zaawansowanej sieci
   - AGIC został zainstalowany w klastrze AKS
-  - Już zweryfikowaniu Application Gateway w sieci wirtualnej udostępnionej w klastrze AKS
+  - Masz już Application Gateway w sieci wirtualnej udostępnionej w klastrze AKS
 
 Aby sprawdzić, czy instalacja Application Gateway + AKS + AGIC została skonfigurowana prawidłowo, wdróż najprostszą możliwą aplikację:
 
@@ -118,7 +118,7 @@ Application Gateway zostanie zastosowana następująca konfiguracja:
 Na koniec możemy użyć `cURL` polecenia z poziomu [Cloud Shell](https://shell.azure.com/) , aby NAwiązać połączenie HTTP z nowo wdrożoną aplikacją:
 
 1. Użyj, `kubectl get ingress` Aby uzyskać publiczny adres IP Application Gateway
-2. Użycie rozszerzenia `curl -I -H 'test.agic.contoso.com' <publitc-ip-address-from-previous-command>`
+2. Korzystanie z polecenia `curl -I -H 'test.agic.contoso.com' <publitc-ip-address-from-previous-command>`
 
 ![zasobników](./media/application-gateway-ingress-controller-troubleshooting/tsg--curl.png)
 

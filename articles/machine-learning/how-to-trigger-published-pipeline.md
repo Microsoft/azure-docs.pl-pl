@@ -3,19 +3,20 @@ title: Wyzwól potoki ML dla nowych danych
 titleSuffix: Azure Machine Learning
 description: Dowiedz się, jak wyzwolić uruchomienie potoku ML przy użyciu Azure Logic Apps.
 services: machine-learning
-author: sanpil
-ms.author: sanpil
+author: NilsPohlmann
+ms.author: nilsp
 ms.service: machine-learning
 ms.subservice: core
 ms.workload: data-services
 ms.topic: how-to
 ms.date: 02/07/2020
 ms.custom: contperfq4
-ms.openlocfilehash: b56b07bce558a65df79a23eaf1948aac8e4fabad
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7d6222b4ea0e30997b3b55adb887c839fef6e624
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84433756"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207411"
 ---
 # <a name="trigger-a-run-of-a-machine-learning-pipeline-from-a-logic-app"></a>Wyzwalanie przebiegu potoku Machine Learning z poziomu aplikacji logiki
 

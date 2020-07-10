@@ -7,12 +7,12 @@ ms.date: 05/08/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: c66766b39ae104cf4a031c3fd73c173e81d47fb8
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: b6dc5ba59aa563da6e7c19e6c821f4a9b697832f
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85563493"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206526"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v12-with-xamarin"></a>Szybki Start: Biblioteka kliencka usługi Azure Blob Storage V12 z platformą Xamarin
 
@@ -26,7 +26,12 @@ Użyj biblioteki klienta usługi Azure Blob Storage V12 z platformą Xamarin, ab
 * Pobieranie obiektu BLOB do urządzenia
 * Usuwanie kontenera
 
-[Dokumentacja](/dotnet/api/azure.storage.blobs)  |  interfejsu API [Kod](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs)  |  źródłowy biblioteki [Pakiet (NuGet)](https://www.nuget.org/packages/Azure.Storage.Blobs)  |  [Przykład](https://github.com/Azure-Samples/storage-blobs-xamarin-quickstart)
+Linki odwołań:
+
+* [Dokumentacja referencyjna interfejsu API](/dotnet/api/azure.storage.blobs)
+* [Kod źródłowy biblioteki](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs)
+* [Pakiet (NuGet)](https://www.nuget.org/packages/Azure.Storage.Blobs)
+* [Przykład](https://github.com/Azure-Samples/storage-blobs-xamarin-quickstart)
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
@@ -261,7 +266,7 @@ Przed rozpoczęciem procesu oczyszczania Sprawdź, czy dane wyjściowe zawartoś
 
 Po zweryfikowaniu wartości Potwierdź monit o usunięcie kontenera i Zakończ pokaz.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 W tym przewodniku szybki start przedstawiono sposób przekazywania, pobierania i wyświetlania listy obiektów BLOB przy użyciu biblioteki klienta usługi Azure Blob Storage V12 z platformą Xamarin.
 

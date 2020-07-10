@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
 ms.date: 04/20/2020
-ms.openlocfilehash: 258dfec20644ee29368de075673dfc7798bee28a
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 183bc416dde941f11bd94cfcff3bf738b35f876f
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86083546"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207377"
 ---
 # <a name="query-apache-hive-through-the-jdbc-driver-in-hdinsight"></a>Query Apache Hive through the JDBC driver in HDInsight (Wysyłanie zapytań do usługi Apache Hive za pośrednictwem sterownika JDBC w usłudze HDInsight)
 
@@ -33,7 +33,9 @@ Aby uzyskać więcej informacji na temat interfejsu JDBC programu Hive, zobacz [
 
 Połączenia JDBC z klastrem usługi HDInsight na platformie Azure są realizowane za pośrednictwem portu 443. Ruch jest zabezpieczony przy użyciu protokołu TLS/SSL. Brama publiczna, w której znajdują się klastry, przekierowuje ruch do portu, na którym nasłuchuje serwera hiveserver2. Poniższe parametry połączenia przedstawiają format do użycia w usłudze HDInsight:
 
+```http
     jdbc:hive2://CLUSTERNAME.azurehdinsight.net:443/default;transportMode=http;ssl=true;httpPath=/hive2
+```
 
 Element `CLUSTERNAME` należy zastąpić nazwą klastra usługi HDInsight.
 
@@ -49,7 +51,7 @@ Nazwa hosta "CLUSTERNAME.azurehdinsight.net" w parametrach połączenia jest tak
 
 **Portu 443** można używać tylko do nawiązywania połączenia z klastrem z niektórych miejsc poza siecią wirtualną platformy Azure. HDInsight to usługa zarządzana, która oznacza, że wszystkie połączenia z klastrem są zarządzane za pośrednictwem bezpiecznej bramy. Nie można nawiązać połączenia z HiveServer 2 bezpośrednio na portach 10001 lub 10000. Porty te nie są widoczne dla zewnątrz.
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Uwierzytelnianie
 
 Podczas ustanawiania połączenia użyj nazwy administratora klastra usługi HDInsight i hasła do uwierzytelniania. Od klientów JDBC, takich jak SQuirreL SQL, wprowadź nazwę i hasło administratora w ustawieniach klienta.
 
@@ -121,7 +123,7 @@ SQuirreL SQL to klient JDBC, za pomocą którego można zdalnie uruchamiać zapy
 
 9. Po nawiązaniu połączenia wprowadź następujące zapytanie do okna dialogowego zapytania SQL, a następnie wybierz ikonę **Run** (uruchomiona osoba). Obszar wyników powinien zawierać wyniki zapytania.
 
-    ```hql
+    ```hiveql
     select * from hivesampletable limit 10;
     ```
 

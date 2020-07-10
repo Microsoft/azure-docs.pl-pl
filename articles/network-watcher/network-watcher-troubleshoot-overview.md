@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: damendo
-ms.openlocfilehash: acb7ff5c0862ceff8c73eaca92cc7000220eca41
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 675038189fdc9c9626fee409a90e17341cf9b6cd
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84738655"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207370"
 ---
 # <a name="introduction-to-resource-troubleshooting-in-azure-network-watcher"></a>Wprowadzenie do rozwiązywania problemów z zasobami w usłudze Azure Network Watcher
 
@@ -47,7 +47,7 @@ W poniższych tabelach przedstawiono różne typy błędów (identyfikator w obs
 
 ### <a name="gateway"></a>Brama
 
-| Typ błędu | Przyczyna | Log|
+| Typ błędu | Przyczyna | Dziennik|
 |---|---|---|
 | NoFault (brak błędów) | Gdy nie wykryto błędu |Tak|
 | GatewayNotFound (nie znaleziono bramy) | Nie można znaleźć bramy lub Brama nie została zainicjowana |Nie|
@@ -62,7 +62,7 @@ W poniższych tabelach przedstawiono różne typy błędów (identyfikator w obs
 
 ### <a name="connection"></a>Połączenie
 
-| Typ błędu | Przyczyna | Log|
+| Typ błędu | Przyczyna | Dziennik|
 |---|---|---|
 | NoFault (brak błędów) | Gdy nie wykryto błędu |Tak|
 | GatewayNotFound (nie znaleziono bramy) | Nie można znaleźć bramy lub Brama nie została zainicjowana |Nie|
@@ -73,7 +73,7 @@ W poniższych tabelach przedstawiono różne typy błędów (identyfikator w obs
 | ConnectionIsMarkedDisconnected | Połączenie jest oznaczone jako "rozłączone" |Nie|
 | ConnectionNotConfiguredOnGateway | Usługa bazowa nie ma skonfigurowanego połączenia. | Tak |
 | ConnectionMarkedStandby | Podstawowa usługa jest oznaczona jako w stanie wstrzymania.| Tak|
-| Authentication | Niezgodność klucza wstępnego | Tak|
+| Uwierzytelnianie | Niezgodność klucza wstępnego | Tak|
 | PeerReachability | Brama równorzędna jest nieosiągalna. | Tak|
 | IkePolicyMismatch | Brama równorzędna ma zasady IKE, które nie są obsługiwane przez platformę Azure. | Tak|
 | Błąd WfpParse | Wystąpił błąd podczas analizowania dziennika WFP. |Tak|
@@ -82,7 +82,7 @@ W poniższych tabelach przedstawiono różne typy błędów (identyfikator w obs
 
 W poniższej tabeli wymieniono bramy i połączenia obsługiwane przez Network Watcher rozwiązywania problemów:
 
-|  |  |
+| Brama lub połączenie | Obsługiwane  |
 |---------|---------|
 |**Typy bram**   |         |
 |VPN      | Obsługiwane        |

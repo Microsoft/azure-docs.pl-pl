@@ -4,24 +4,27 @@ description: Użyj prywatnego linku platformy Azure, aby bezpiecznie połączyć
 author: mgoedtel
 ms.author: magoedte
 ms.topic: conceptual
-ms.date: 06/22/2020
+ms.date: 07/09/2020
 ms.subservice: ''
-ms.openlocfilehash: fa473591355ef9e1ee582dd9c9b820dfa2f93f36
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a7ff659eb6fc204208c84146a2fc33c8278f7154
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85269042"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207273"
 ---
-# <a name="use-azure-private-link-to-securely-connect-networks-to-azure-automation"></a>Użyj prywatnego linku platformy Azure, aby bezpiecznie połączyć sieci z Azure Automation
+# <a name="use-azure-private-link-to-securely-connect-networks-to-azure-automation-preview"></a>Skorzystaj z prywatnego linku platformy Azure, aby bezpiecznie połączyć sieci z Azure Automation (wersja zapoznawcza)
 
 Prywatny punkt końcowy platformy Azure to interfejs sieciowy, który nawiązuje połączenie prywatnie i bezpiecznie z usługą obsługiwaną przez usługę Azure Private Link. Prywatny punkt końcowy używa prywatnego adresu IP z sieci wirtualnej, efektywnie przenosząc usługę Automation do sieci wirtualnej. Ruch sieciowy między maszynami w sieci wirtualnej a kontem usługi Automation przechodzi przez sieć wirtualną oraz łącze prywatne w usłudze Microsoft szkielet Network, eliminując ekspozycję z publicznego Internetu.
 
-Na przykład masz sieć wirtualną, w której wyłączono dostęp do Internetu. Jednak chcesz uzyskać dostęp do konta usługi Automation prywatnie i korzystać z funkcji automatyzacji, takich jak webhook, konfiguracja stanu i zadania elementu Runbook w hybrydowych procesach roboczych elementów Runbook. Ponadto chcesz, aby użytkownicy mieli dostęp do konta usługi Automation tylko za pomocą sieci wirtualnej. Można to osiągnąć przez wdrożenie prywatnych punktów końcowych.
+Na przykład masz sieć wirtualną, w której wyłączono dostęp do Internetu. Jednak chcesz uzyskać dostęp do konta usługi Automation prywatnie i korzystać z funkcji automatyzacji, takich jak webhook, konfiguracja stanu i zadania elementu Runbook w hybrydowych procesach roboczych elementów Runbook. Ponadto chcesz, aby użytkownicy mieli dostęp do konta usługi Automation tylko za pomocą sieci wirtualnej.  Wdrożenie prywatnego punktu końcowego osiąga te cele.
 
-W tym artykule omówiono, kiedy należy używać programu i jak skonfigurować prywatny punkt końcowy przy użyciu konta usługi Automation.
+W tym artykule omówiono, kiedy należy używać i jak skonfigurować prywatny punkt końcowy przy użyciu konta usługi Automation (wersja zapoznawcza).
 
 ![Przegląd koncepcyjny prywatnego linku do Azure Automation](./media/private-link-security/private-endpoints-automation.png)
+
+>[!NOTE]
+> Obsługa linków prywatnych z Azure Automation (wersja zapoznawcza) jest dostępna tylko w chmurach dla instytucji rządowych platformy Azure.
 
 ## <a name="advantages"></a>Zalety
 
@@ -46,9 +49,11 @@ Aby uzyskać więcej informacji, zobacz [najważniejsze zalety linku prywatnego]
 
 Po utworzeniu prywatnych punktów końcowych dla usługi Automation każdy z publicznych adresów URL usługi Automation, które użytkownik lub komputer może bezpośrednio się skontaktować, jest mapowany do jednego prywatnego punktu końcowego w sieci wirtualnej.
 
+W ramach wersji zapoznawczej konto usługi Automation nie może uzyskać dostępu do zasobów platformy Azure zabezpieczonych za pomocą prywatnego punktu końcowego. Na przykład Azure Key Vault, Azure SQL, konto usługi Azure Storage itd.
+
 ### <a name="webhook-scenario"></a>Scenariusz elementu webhook
 
-Elementy Runbook można uruchamiać przy użyciu wpisu na adres URL elementu webhook. Na przykład adres URL wygląda następująco:`https://<automationAccountId>.webhooks. <region>.azure-automation.net/webhooks?token=gzGMz4SMpqNo8gidqPxAJ3E%3d`
+Elementy Runbook można uruchamiać przy użyciu wpisu na adres URL elementu webhook. Na przykład adres URL wygląda następująco:`https://<automationAccountId>.webhooks.<region>.azure-automation.net/webhooks?token=gzGMz4SMpqNo8gidqPxAJ3E%3d`
 
 ### <a name="state-configuration-agentsvc-scenario"></a>Scenariusz konfiguracja stanu (agentsvc)
 
@@ -60,11 +65,11 @@ Adres URL publicznego punktu końcowego & prywatny będzie taki sam, ale został
 
 ## <a name="planning-based-on-your-network"></a>Planowanie w oparciu o sieć
 
-Przed skonfigurowaniem zasobu konta usługi Automation należy wziąć pod uwagę wymagania dotyczące izolacji sieci. Oceń dostęp do sieci wirtualnych za pomocą publicznego Internetu, a także ograniczenia dostępu do konta usługi Automation (w tym konfigurowania zakresu grupy linków prywatnych do Azure Monitor dzienników, jeśli są zintegrowane z kontem usługi Automation).
+Przed skonfigurowaniem zasobu konta usługi Automation należy wziąć pod uwagę wymagania dotyczące izolacji sieci. Oceń dostęp do sieci wirtualnych za pomocą publicznego Internetu, a także ograniczenia dostępu do konta usługi Automation (w tym konfigurowania zakresu grupy linków prywatnych do Azure Monitor dzienników, jeśli są zintegrowane z kontem usługi Automation). Należy również uwzględnić przegląd [rekordów DNS](./automation-region-dns-records.md) usługi Automation w ramach planu, aby zapewnić, że obsługiwane funkcje działają bez problemu.
 
 ### <a name="connect-to-a-private-endpoint"></a>Nawiązywanie połączenia z prywatnym punktem końcowym
 
-Utwórz prywatny punkt końcowy, aby połączyć naszą sieć. To zadanie można wykonać w [Azure Portal centrum łączy prywatnych](https://portal.azure.com/#blade/Microsoft_Azure_Network/PrivateLinkCenterBlade/privateendpoints). Po zastosowaniu zmian do publicNetworkAccess i linku prywatnego może upłynąć do 35 minut.
+Utwórz prywatny punkt końcowy, aby połączyć naszą sieć. Można go utworzyć w [Azure Portal centrum łączy prywatnych](https://portal.azure.com/#blade/Microsoft_Azure_Network/PrivateLinkCenterBlade/privateendpoints). Po zastosowaniu zmian do publicNetworkAccess i linku prywatnego może upłynąć do 35 minut.
 
 W tej sekcji utworzysz prywatny punkt końcowy dla konta usługi Automation.
 
@@ -72,12 +77,12 @@ W tej sekcji utworzysz prywatny punkt końcowy dla konta usługi Automation.
 
 2. W **centrum linków prywatnych — Omówienie**opcji **tworzenia połączenia prywatnego z usługą**wybierz pozycję **Rozpocznij**.
 
-3. W obszarze **Tworzenie maszyny wirtualnej — ustawienia podstawowe** wprowadź lub wybierz następujące informacje:
+3. W obszarze **Tworzenie maszyny wirtualnej — podstawy**wprowadź lub wybierz następujące informacje:
 
     | Ustawienie | Wartość |
     | ------- | ----- |
     | **SZCZEGÓŁY PROJEKTU** | |
-    | Subskrypcja | Wybierz subskrypcję. |
+    | Subscription | Wybierz subskrypcję. |
     | Grupa zasobów | Wybierz pozycję **myResourceGroup**. Utworzono to w poprzedniej sekcji.  |
     | **SZCZEGÓŁY WYSTĄPIENIA** |  |
     | Nazwa | Wprowadź *PrivateEndpoint*. |
@@ -91,10 +96,10 @@ W tej sekcji utworzysz prywatny punkt końcowy dla konta usługi Automation.
     | Ustawienie | Wartość |
     | ------- | ----- |
     |Metoda połączenia  | Wybierz pozycję Połącz z zasobem platformy Azure w moim katalogu.|
-    | Subskrypcja| Wybierz subskrypcję. |
+    | Subscription| Wybierz subskrypcję. |
     | Typ zasobu | Wybierz pozycję **Microsoft. Automation/automationAccounts**. |
     | Zasób |Wybierz *myAutomationAccount*|
-    |Docelowy zasób podrzędny |W zależności od scenariusza wybierz pozycję *webhook* lub *DSCAndHybridWorker* .|
+    |Podzasób docelowy |W zależności od scenariusza wybierz pozycję *webhook* lub *DSCAndHybridWorker* .|
     |||
 
 6. Wybierz pozycję **Dalej: Konfiguracja**.
@@ -111,7 +116,7 @@ W tej sekcji utworzysz prywatny punkt końcowy dla konta usługi Automation.
     |Strefa Prywatna strefa DNS |SELECT *(New) privatelink. Azure-Automation.NET* |
     |||
 
-8. Wybierz pozycję **Przegląd + utwórz**. Nastąpi przejście do strony **Recenzja i tworzenie** , w której platforma Azure weryfikuje konfigurację.
+8. Wybierz pozycję **Przeglądanie + tworzenie**. Nastąpi przejście do strony **Recenzja i tworzenie** , w której platforma Azure weryfikuje konfigurację.
 
 9. Gdy zobaczysz komunikat o **przekazaniu walidacji** , wybierz pozycję **Utwórz**.
 
@@ -141,7 +146,7 @@ $account | Set-AzResource -Force -ApiVersion "2020-01-13-preview"
 
 ## <a name="dns-configuration"></a>Konfiguracja usługi DNS
 
-W przypadku nawiązywania połączenia z prywatnym zasobem link przy użyciu nazwy FQDN w ramach parametrów połączenia należy prawidłowo skonfigurować ustawienia DNS w celu rozpoznania przydzielony prywatny adres IP. Istniejące usługi platformy Azure mogą już mieć konfigurację DNS do użycia podczas nawiązywania połączenia przez publiczny punkt końcowy. Należy je zastąpić, aby nawiązać połączenie przy użyciu prywatnego punktu końcowego.
+W przypadku nawiązywania połączenia z prywatnym zasobem linku przy użyciu w pełni kwalifikowanej nazwy domeny (FQDN) jako części parametrów połączenia należy prawidłowo skonfigurować ustawienia DNS w celu rozpoznania przydzielony prywatny adres IP. Istniejące usługi platformy Azure mogą już mieć konfigurację DNS do użycia podczas nawiązywania połączenia przez publiczny punkt końcowy. Twoja konfiguracja DNS powinna zostać sprawdzona i zaktualizowana w celu nawiązania połączenia przy użyciu prywatnego punktu końcowego.
 
 Interfejs sieciowy skojarzony z prywatnym punktem końcowym zawiera pełen zestaw informacji wymaganych do skonfigurowania systemu DNS, w tym nazwy FQDN i prywatnych adresów IP przyznanych dla danego zasobu linku prywatnego.
 

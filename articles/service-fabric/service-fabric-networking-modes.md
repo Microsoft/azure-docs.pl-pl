@@ -5,11 +5,12 @@ author: athinanthny
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.author: atsenthi
-ms.openlocfilehash: ba1fa92559d39a481008d1dd18036e4232be1bfa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: feeef1773ffe68f3ff88175b413cd40ba618b8d9
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75639806"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207230"
 ---
 # <a name="service-fabric-container-networking-modes"></a>Service Fabric tryby sieci kontenera
 
@@ -190,15 +191,14 @@ Po ponownym uruchomieniu lub przeniesieniu usługi kontenera do innego węzła w
  
 3. W przypadku klastrów systemu Windows należy skonfigurować regułę sieciowej grupy zabezpieczeń (sieciowej grupy zabezpieczeń) platformy Azure otwierającą port UDP/53 dla sieci wirtualnej przy użyciu następujących wartości:
 
-   |Ustawienie |Wartość | |
-   | --- | --- | --- |
-   |Priorytet |2000 | |
-   |Nazwa |Custom_Dns  | |
-   |Element źródłowy |VirtualNetwork | |
-   |Element docelowy | VirtualNetwork | |
-   |Usługa | DNS (UDP/53) | |
-   |Akcja | Zezwalaj  | |
-   | | |
+   |Ustawienie |Wartość |
+   | --- | --- |
+   |Priorytet |2000 |
+   |Nazwa |Custom_Dns  |
+   |Źródło |VirtualNetwork |
+   |Element docelowy | VirtualNetwork |
+   |Usługa | DNS (UDP/53) |
+   |Akcja | Zezwalaj  |
 
 4. Określ tryb sieci w manifeście aplikacji dla każdej usługi: `<NetworkConfig NetworkType="Open">` . **Otwórz** tryb sieci wyniki w usłudze przy użyciu dedykowanego adresu IP. Jeśli tryb nie jest określony, domyślnie jest używany tryb **translatora adresów sieciowych** . W poniższym przykładzie manifestu `NodeContainerServicePackage1` `NodeContainerServicePackage2` usługi i mogą nasłuchiwać każdego nasłuchiwania na tym samym porcie (obie usługi nasłuchują na `Endpoint1` ). W przypadku określenia trybu otwierania sieci należy `PortBinding` określić konfiguracje.
 

@@ -7,11 +7,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 8f91727ddc131b1f44acb4303a2368aed1890223
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a60200bd35d142b8b55a40d6912f946f9421f52e
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84783303"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207650"
 ---
 # <a name="sizes-for-windows-virtual-machines-in-azure"></a>Rozmiary maszyn wirtualnych z systemem Windows na platformie Azure
 
@@ -19,7 +20,7 @@ W tym artykule opisano dostępne rozmiary i opcje dla maszyn wirtualnych platfor
 
 | Typ | Rozmiary | Opis |
 |------|-------|-------------|
-| [Zastosowania ogólne](../sizes-general.md) | B, Dsv3, Dv3, Dasv4, Dav4, DSv2, Dv2, Av2, DC, DCv2, Dv4, Dsv4, Ddv4, Ddsv4 | Zrównoważony współczynnik procesora CPU do pamięci. Idealne rozwiązanie na potrzeby testowania i wdrażania, małych i średnich baz danych oraz serwerów internetowych o małym lub średnim ruchu. |
+| [Ogólnego przeznaczenia](../sizes-general.md) | B, Dsv3, Dv3, Dasv4, Dav4, DSv2, Dv2, Av2, DC, DCv2, Dv4, Dsv4, Ddv4, Ddsv4 | Zrównoważony współczynnik procesora CPU do pamięci. Idealne rozwiązanie na potrzeby testowania i wdrażania, małych i średnich baz danych oraz serwerów internetowych o małym lub średnim ruchu. |
 | [Optymalizacja pod kątem obliczeń](../sizes-compute.md) | Fsv2 | Wysoki współczynnik procesora CPU do pamięci. Dobre dla serwerów sieci Web o średnim ruchu, urządzeń sieciowych, procesów wsadowych i serwerów aplikacji. |
 | [Optymalizacja pod kątem pamięci](../sizes-memory.md) | Esv3, EV3, Easv4, Eav4, Ev4, Esv4, Edv4, Edsv4, Mv2, M, DSv2, Dv2 | Duże proporcje pamięci i procesora CPU. Opcja bardzo dobra w przypadku serwerów relacyjnych baz danych, średnich i dużych pamięci podręcznych oraz analizowania w pamięci. |
 | [Optymalizacja pod kątem magazynu](../sizes-storage.md)  | Lsv2 | Wysoka przepływność dysku i doskonałe operacje we/wy dla danych Big Data, baz danych SQL, NoSQL, magazynowania danych i dużych transakcyjnych baz danych.  |
@@ -47,11 +48,15 @@ Dowiedz się więcej o tym, jak [usługa Azure COMPUTE units (ACU)](../acu.md) m
 
 Dowiedz się więcej na temat wydajności obliczeń dla maszyn wirtualnych z systemem Windows przy użyciu [wyników testów porównawczych](compute-benchmark-scores.md).
 
+## <a name="manage-costs"></a>Zarządzanie kosztami
+
+[!INCLUDE [cost-management-horizontal](../../../includes/cost-management-horizontal.md)]
+
 ## <a name="next-steps"></a>Następne kroki
 
 Dowiedz się więcej o różnych dostępnych rozmiarach maszyn wirtualnych:
 
-- [Zastosowania ogólne](../sizes-general.md)
+- [Ogólnego przeznaczenia](../sizes-general.md)
 - [Optymalizacja pod kątem obliczeń](../sizes-compute.md)
 - [Optymalizacja pod kątem pamięci](../sizes-memory.md)
 - [Optymalizacja pod kątem magazynu](../sizes-storage.md)
