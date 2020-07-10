@@ -3,25 +3,26 @@ title: Monitoruj Azure Batch
 description: Dowiedz się więcej na temat usług monitorowania platformy Azure, metryk, dzienników diagnostycznych i innych funkcji monitorowania dla Azure Batch.
 ms.topic: how-to
 ms.date: 04/05/2018
-ms.openlocfilehash: 09ac9c676dc1e95cbece6fa500b4f2cf554f8526
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9387d4894dbf06445fd43722353ca7ae98607359
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83723531"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86144945"
 ---
 # <a name="monitor-batch-solutions"></a>Monitorowanie rozwiązań usługi Batch
 
 Platforma Azure i usługa Batch oferują szereg usług, narzędzi i interfejsów API do monitorowania rozwiązań usługi Batch. Ten artykuł omówienia ułatwia wybór podejścia do monitorowania, które odpowiada Twoim potrzebom.
 
-Aby zapoznać się z omówieniem składników i usług platformy Azure dostępnych do monitorowania zasobów platformy Azure, zobacz [monitorowanie aplikacji i zasobów platformy Azure](../monitoring-and-diagnostics/monitoring-overview.md).
+Aby zapoznać się z omówieniem składników i usług platformy Azure dostępnych do monitorowania zasobów platformy Azure, zobacz [monitorowanie aplikacji i zasobów platformy Azure](../azure-monitor/overview.md).
 
 ## <a name="subscription-level-monitoring"></a>Monitorowanie na poziomie subskrypcji
 
-Na poziomie subskrypcji, który obejmuje konta usługi Batch, [Dziennik aktywności platformy Azure](../azure-monitor/platform/platform-logs-overview.md) zbiera dane zdarzeń operacyjnych w [różnych kategoriach](../azure-monitor/platform/activity-log-view.md#categories-in-the-activity-log).
+Na poziomie subskrypcji, który obejmuje konta usługi Batch, [Dziennik aktywności platformy Azure](../azure-monitor/platform/platform-logs-overview.md) zbiera dane zdarzeń operacyjnych w [różnych kategoriach](../azure-monitor/platform/activity-log.md#view-the-activity-log).
 
 W przypadku kont usługi Batch dziennik aktywności zbiera zdarzenia związane z tworzeniem i usuwaniem kont oraz zarządzaniem kluczami.
 
-Jednym ze sposobów na pobranie zdarzeń z dziennika aktywności jest użycie Azure Portal. Kliknij kolejno pozycje **wszystkie usługi**  >  **Dziennik aktywności**. Można też wykonywać zapytania o zdarzenia za pomocą interfejsu wiersza polecenia platformy Azure, poleceń cmdlet programu PowerShell lub interfejsu API REST Azure Monitor. Możesz również wyeksportować dziennik aktywności lub skonfigurować [alerty dziennika aktywności](../monitoring-and-diagnostics/monitoring-activity-log-alerts-new-experience.md).
+Jednym ze sposobów na pobranie zdarzeń z dziennika aktywności jest użycie Azure Portal. Kliknij kolejno pozycje **wszystkie usługi**  >  **Dziennik aktywności**. Można też wykonywać zapytania o zdarzenia za pomocą interfejsu wiersza polecenia platformy Azure, poleceń cmdlet programu PowerShell lub interfejsu API REST Azure Monitor. Możesz również wyeksportować dziennik aktywności lub skonfigurować [alerty dziennika aktywności](../azure-monitor/platform/alerts-activity-log.md).
 
 ## <a name="batch-account-level-monitoring"></a>Monitorowanie na poziomie konta w usłudze Batch
 

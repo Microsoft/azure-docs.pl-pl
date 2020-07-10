@@ -10,18 +10,18 @@ ms.custom: tracking-python
 author: likebupt
 ms.author: keli19
 ms.date: 06/16/2020
-ms.openlocfilehash: f64c79a970ec54c07c2934a92a9ca349ea56ca40
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2115a0bae8b26113fc10648db2584210809441de
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84907554"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86147248"
 ---
 # <a name="execute-python-script-module"></a>Wykonaj moduł skryptu języka Python
 
 W tym artykule opisano moduł uruchamiania skryptów języka Python w programie Azure Machine Learning Designer (wersja zapoznawcza).
 
-Użyj tego modułu, aby uruchomić kod języka Python. Aby uzyskać więcej informacji na temat architektury i zasad projektowania języka Python, zobacz [ten artykuł](https://docs.microsoft.com/azure/machine-learning/machine-learning-execute-python-scripts).
+Użyj tego modułu, aby uruchomić kod języka Python. Aby uzyskać więcej informacji na temat architektury i zasad projektowania języka Python, zobacz [jak uruchomić kod w języku Python w programie Azure Machine Learning Designer](../how-to-designer-python.md).
 
 W języku Python można wykonywać zadania, które nie są obsługiwane przez istniejące moduły, takie jak:
 

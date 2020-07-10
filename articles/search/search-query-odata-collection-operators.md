@@ -19,11 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 54ddc8222816831b5b436297bbb1b40d03230f0c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 47e7e09bae082141efd872d3a90ecc30a3be04e5
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74113238"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86146070"
 ---
 # <a name="odata-collection-operators-in-azure-cognitive-search---any-and-all"></a>Operatory kolekcji OData na platformie Azure Wyszukiwanie poznawcze — `any` i`all`
 
@@ -65,23 +66,33 @@ Istnieją trzy formy wyrażeń, które filtrują kolekcje.
 
 Dopasowuje dokumenty, których `tags` pole zawiera dokładnie ciąg "Wi-Fi":
 
-    tags/any(t: t eq 'wifi')
+```text
+tags/any(t: t eq 'wifi')
+```
 
 Dopasowuje dokumenty, w których każdy element `ratings` pola mieści się w zakresie od 3 do 5 włącznie:
 
-    ratings/all(r: r ge 3 and r le 5)
+```text
+ratings/all(r: r ge 3 and r le 5)
+```
 
 Dopasuj dokumenty, w których każda ze współrzędnych geograficznych w `locations` polu znajduje się w obrębie danego wielokątu:
 
-    locations/any(loc: geo.intersects(loc, geography'POLYGON((-122.031577 47.578581, -122.031577 47.678581, -122.131577 47.678581, -122.031577 47.578581))'))
+```text
+locations/any(loc: geo.intersects(loc, geography'POLYGON((-122.031577 47.578581, -122.031577 47.678581, -122.131577 47.678581, -122.031577 47.578581))'))
+```
 
 Dopasuj dokumenty, w których `rooms` pole jest puste:
 
-    not rooms/any()
+```text
+not rooms/any()
+```
 
 Dopasuj dokumenty, w przypadku których wszystkie pokoje `rooms/amenities` zawierają wartość "TV" i `rooms/baseRate` jest mniejsza niż 100:
 
-    rooms/all(room: room/amenities/any(a: a eq 'tv') and room/baseRate lt 100.0)
+```text
+rooms/all(room: room/amenities/any(a: a eq 'tv') and room/baseRate lt 100.0)
+```
 
 ## <a name="limitations"></a>Ograniczenia
 

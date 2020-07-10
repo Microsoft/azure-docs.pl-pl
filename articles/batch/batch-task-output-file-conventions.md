@@ -4,12 +4,12 @@ description: Dowiedz się, jak używać biblioteki Konwencji plików Azure Batch
 ms.topic: how-to
 ms.date: 11/14/2018
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ba1b35bd8f2a4cc58558607581d10b598d23058c
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 2e06bc90c95f9951895e0434ec8a8a7defaa6156
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85965199"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86147173"
 ---
 # <a name="persist-job-and-task-data-to-azure-storage-with-the-batch-file-conventions-library-for-net"></a>Utrwalanie danych zadań i zadań w usłudze Azure Storage za pomocą biblioteki Konwencji plików wsadowych dla platformy .NET
 
@@ -55,7 +55,7 @@ Aby zachować dane wyjściowe do usługi Azure Storage przy użyciu biblioteki K
 
 Aby zachować dane wyjściowe zadania i zadania przy użyciu biblioteki Konwencji plików, Utwórz kontener w usłudze Azure Storage, a następnie Zapisz dane wyjściowe do kontenera. Użyj [biblioteki klienta usługi Azure Storage dla platformy .NET](https://www.nuget.org/packages/WindowsAzure.Storage) w kodzie zadania, aby przekazać dane wyjściowe zadania do kontenera.
 
-Aby uzyskać więcej informacji na temat pracy z kontenerami i obiektami BLOB w usłudze Azure Storage, zobacz Wprowadzenie [do usługi Azure Blob Storage przy użyciu platformy .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md).
+Aby uzyskać więcej informacji na temat pracy z kontenerami i obiektami BLOB w usłudze Azure Storage, zobacz Wprowadzenie [do usługi Azure Blob Storage przy użyciu platformy .NET](../storage/blobs/storage-quickstart-blobs-dotnet.md).
 
 > [!WARNING]
 > Wszystkie dane wyjściowe zadania i zadania utrwalane za pomocą biblioteki Konwencji plików są przechowywane w tym samym kontenerze. W przypadku dużej liczby zadań, które próbują jednocześnie utrwalać pliki, można wymusić limity ograniczenia usługi Azure Storage. Aby uzyskać więcej informacji na temat limitów ograniczania przepustowości, zobacz [Lista kontrolna wydajności i skalowalności dla usługi BLOB Storage](../storage/blobs/storage-performance-checklist.md).

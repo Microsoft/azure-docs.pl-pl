@@ -9,17 +9,18 @@ ms.topic: how-to
 ms.date: 05/18/2020
 ms.author: normesta
 ms.reviewer: prishet
-ms.openlocfilehash: 8fdcad18ccec2748761cf35f2cd0b8efe9749958
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 159f3c63a647ff565e838b01dbaaadf947fb8ada
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84466140"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86142621"
 ---
 # <a name="use-azure-cli-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Korzystanie z interfejsu wiersza polecenia platformy Azure do zarządzania katalogami, plikami i listami ACL w Azure Data Lake Storage Gen2
 
 W tym artykule pokazano, jak używać [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) do tworzenia katalogów, plików i uprawnień w ramach kont magazynu, które mają hierarchiczną przestrzeń nazw, oraz zarządzania nimi. 
 
-Mapowanie Gen1 do [Gen2](https://github.com/Azure/azure-cli-extensions/tree/master/src/storage-preview#mapping-from-adls-gen1-to-adls-gen2)  |  [Przekaż opinię](https://github.com/Azure/azure-cli-extensions/issues)
+[Przykłady](https://github.com/Azure/azure-cli/blob/dev/src/azure-cli/azure/cli/command_modules/storage/docs/ADLS%20Gen2.md)  |  [Przekaż opinię](https://github.com/Azure/azure-cli-extensions/issues)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -64,39 +65,39 @@ Mapowanie Gen1 do [Gen2](https://github.com/Azure/azure-cli-extensions/tree/mast
 > [!NOTE]
 > W przykładzie przedstawionym w tym artykule przedstawiono autoryzację Azure Active Directory (AD). Aby dowiedzieć się więcej o metodach autoryzacji, zobacz [Autoryzuj dostęp do danych obiektu BLOB lub kolejki za pomocą interfejsu wiersza polecenia platformy Azure](../common/authorize-data-operations-cli.md).
 
-## <a name="create-a-file-system"></a>Tworzenie systemu plików
+## <a name="create-a-container"></a>Tworzenie kontenera
 
-System plików działa jako kontener dla plików. Można go utworzyć za pomocą `az storage fs create` polecenia. 
+Kontener działa jako system plików dla plików. Można go utworzyć za pomocą `az storage fs create` polecenia. 
 
-Ten przykład tworzy system plików o nazwie `my-file-system` .
+Ten przykład tworzy kontener o nazwie `my-file-system` .
 
 ```azurecli
 az storage fs create -n my-file-system --account-name mystorageaccount --auth-mode login
 ```
 
-## <a name="show-file-system-properties"></a>Pokaż właściwości systemu plików
+## <a name="show-container-properties"></a>Pokaż właściwości kontenera
 
-Właściwości systemu plików można wydrukować do konsoli programu za pomocą `az storage fs show` polecenia.
+Właściwości kontenera można wydrukować do konsoli programu za pomocą `az storage fs show` polecenia.
 
 ```azurecli
 az storage fs show -n my-file-system --account-name mystorageaccount --auth-mode login
 ```
 
-## <a name="list-file-system-contents"></a>Wyświetl listę zawartości systemu plików
+## <a name="list-container-contents"></a>Wyświetlanie zawartości kontenera
 
 Wyświetl zawartość katalogu za pomocą `az storage fs file list` polecenia.
 
-Ten przykład zawiera listę zawartości systemu plików o nazwie `my-file-system` .
+Ten przykład zawiera listę zawartości kontenera o nazwie `my-file-system` .
 
 ```azurecli
 az storage fs file list -f my-file-system --account-name mystorageaccount --auth-mode login
 ```
 
-## <a name="delete-a-file-system"></a>Usuń system plików
+## <a name="delete-a-container"></a>Usuwanie kontenera
 
-Usuń system plików za pomocą `az storage fs delete` polecenia.
+Usuń kontener za pomocą `az storage fs delete` polecenia.
 
-Ten przykład usuwa system plików o nazwie `my-file-system` . 
+Ten przykład służy do usuwania kontenera o nazwie `my-file-system` . 
 
 ```azurecli
 az storage fs delete -n my-file-system --account-name mystorageaccount --auth-mode login
@@ -106,7 +107,7 @@ az storage fs delete -n my-file-system --account-name mystorageaccount --auth-mo
 
 Utwórz odwołanie do katalogu za pomocą `az storage fs directory create` polecenia. 
 
-Ten przykład dodaje katalog o nazwie `my-directory` do systemu plików o nazwie `my-file-system` znajdującego się na koncie o nazwie `mystorageaccount` .
+Ten przykład dodaje katalog o nazwie `my-directory` do kontenera o nazwie `my-file-system` , który znajduje się na koncie o nazwie `mystorageaccount` .
 
 ```azurecli
 az storage fs directory create -n my-directory -f my-file-system --account-name mystorageaccount --auth-mode login
@@ -124,13 +125,13 @@ az storage fs directory show -n my-directory -f my-file-system --account-name my
 
 Zmień nazwę lub Przenieś katalog przy użyciu `az storage fs directory move` polecenia.
 
-Ten przykład zmienia nazwę katalogu z nazwy `my-directory` na nazwę `my-new-directory` w tym samym systemie plików.
+Ten przykład zmienia nazwę katalogu z nazwy `my-directory` na nazwę `my-new-directory` w tym samym kontenerze.
 
 ```azurecli
 az storage fs directory move -n my-directory -f my-file-system --new-directory "my-file-system/my-new-directory" --account-name mystorageaccount --auth-mode login
 ```
 
-Ten przykład przenosi katalog do systemu plików o nazwie `my-second-file-system` .
+Ten przykład przenosi katalog do kontenera o nazwie `my-second-file-system` .
 
 ```azurecli
 az storage fs directory move -n my-directory -f my-file-system --new-directory "my-second-file-system/my-new-directory" --account-name mystorageaccount --auth-mode login
@@ -148,9 +149,9 @@ az storage fs directory delete -n my-directory -f my-file-system  --account-name
 
 ## <a name="check-if-a-directory-exists"></a>Sprawdź, czy katalog istnieje
 
-Ustal, czy określony katalog istnieje w systemie plików przy użyciu `az storage fs directory exists` polecenia.
+Ustal, czy określony katalog istnieje w kontenerze za pomocą `az storage fs directory exists` polecenia.
 
-Ten przykład pokazuje, czy katalog o nazwie `my-directory` istnieje w `my-file-system` systemie plików. 
+Ten przykład pokazuje, czy katalog o nazwie `my-directory` istnieje w `my-file-system` kontenerze. 
 
 ```azurecli
 az storage fs directory exists -n my-directory -f my-file-system --account-name mystorageaccount --auth-mode login 
@@ -170,7 +171,7 @@ az storage fs file download -p my-directory/upload.txt -f my-file-system -d "C:\
 
 Wyświetl zawartość katalogu za pomocą `az storage fs file list` polecenia.
 
-W tym przykładzie wymieniono zawartość katalogu o nazwie `my-directory` znajdującego się w `my-file-system` systemie plików konta magazynu o nazwie `mystorageaccount` . 
+W tym przykładzie wymieniono zawartość katalogu o nazwie `my-directory` znajdującego się w `my-file-system` kontenerze konta magazynu o nazwie `mystorageaccount` . 
 
 ```azurecli
 az storage fs file list -f my-file-system --path my-directory --account-name mystorageaccount --auth-mode login
@@ -309,7 +310,7 @@ az storage fs access set --owner xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p my-dir
 
 ## <a name="see-also"></a>Zobacz także
 
-* [Mapowanie Gen1 do Gen2](https://github.com/Azure/azure-cli-extensions/tree/master/src/storage-preview#mapping-from-adls-gen1-to-adls-gen2)
+* [Samples](https://github.com/Azure/azure-cli/blob/dev/src/azure-cli/azure/cli/command_modules/storage/docs/ADLS%20Gen2.md)
 * [Prześlij opinię](https://github.com/Azure/azure-cli-extensions/issues)
 * [Znane problemy](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
 

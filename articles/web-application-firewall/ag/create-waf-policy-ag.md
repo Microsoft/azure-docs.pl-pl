@@ -7,11 +7,12 @@ author: vhorne
 ms.service: web-application-firewall
 ms.date: 02/08/2020
 ms.author: victorh
-ms.openlocfilehash: 7ab4b60747509dfe56ec2e89b38986de747dab69
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5705eedfb919c792c558384f6309325dcded4b43
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84014540"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86146608"
 ---
 # <a name="create-web-application-firewall-policies-for-application-gateway"></a>Tworzenie zasad zapory aplikacji sieci Web dla Application Gateway
 
@@ -22,7 +23,7 @@ Możesz wprowadzić dowolną liczbę zasad. Po utworzeniu zasad, muszą one być
 Jeśli do Application Gateway zastosowano zasady, a następnie zastosujesz inne zasady do odbiornika w tym Application Gateway, zasady odbiornika zostaną zastosowane, ale tylko dla odbiorników, do których są przypisane. Zasady Application Gateway nadal dotyczą wszystkich innych odbiorników, do których nie są przypisane określone zasady. 
 
    > [!NOTE]
-   > Zasady WAF dla poszczególnych witryn i identyfikatorów URI są dostępne w publicznej wersji zapoznawczej. Oznacza to, że ta funkcja podlega dodatkowym warunkom użytkowania firmy Microsoft. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+   > Zasady WAF dla identyfikatorów URI są dostępne w publicznej wersji zapoznawczej. Oznacza to, że ta funkcja podlega dodatkowym warunkom użytkowania firmy Microsoft. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
    > [!NOTE]
    > Gdy zasady zapory są skojarzone z usługą WAF, zawsze muszą istnieć zasady skojarzone z tym WAF. Te zasady mogą zostać zastąpione, ale usunięcie skojarzenia zasad z WAF całkowicie nie jest obsługiwane. 
 
@@ -39,7 +40,7 @@ Najpierw Utwórz podstawowe zasady WAF z zarządzanym domyślnym zestawem reguł
    |---------|---------|
    |Zasady dla     |WAF regionalny (Application Gateway)|
    |Subskrypcja     |Wybierz nazwę subskrypcji|
-   |Grupa zasobów     |Wybieranie grupy zasobów|
+   |Grupa zasobów     |Wybierz grupę zasobów|
    |Nazwa zasady     |Wpisz unikatową nazwę zasad WAF.|
 3. Na karcie **skojarzenie** wprowadź jedno z następujących ustawień, a następnie wybierz pozycję **Dodaj**:
 

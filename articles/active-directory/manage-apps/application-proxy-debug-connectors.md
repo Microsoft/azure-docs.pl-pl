@@ -11,12 +11,12 @@ ms.topic: troubleshooting
 ms.date: 05/21/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 39a27ce3b3e7946504298451233b6054302c45f0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7e7a1de24e5032b2dade2f325560fd6964c892d5
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85555034"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86145691"
 ---
 # <a name="debug-application-proxy-connector-issues"></a>Problemy z debugowaniem łącznika serwera proxy aplikacji 
 
@@ -44,7 +44,7 @@ Ten schemat blokowy przeprowadzi Cię przez kroki dotyczące debugowania niektó
 |---------|---------|---------|
 |1 | Znajdowanie grupy łączników przypisanej do aplikacji | Prawdopodobnie masz łącznik zainstalowany na wielu serwerach, w takim przypadku łączniki powinny być [przypisane do grup łączników](application-proxy-connector-groups.md#assign-applications-to-your-connector-groups). Aby dowiedzieć się więcej na temat grup łączników, zobacz [publikowanie aplikacji w oddzielnych sieciach i lokalizacjach za pomocą grup łączników](application-proxy-connector-groups.md). |
 |2 | Instalowanie łącznika i przypisywanie grupy | Jeśli nie masz zainstalowanego łącznika, zobacz [Instalowanie i rejestrowanie łącznika](application-proxy-add-on-premises-application.md#install-and-register-a-connector).<br></br> Jeśli masz problemy z instalowaniem łącznika, zobacz [problem z instalowaniem łącznika](application-proxy-connector-installation-problem.md).<br></br> Jeśli łącznik nie jest przypisany do grupy, zobacz [przypisywanie łącznika do grupy](application-proxy-connector-groups.md#create-connector-groups).<br></br>Jeśli aplikacja nie jest przypisana do grupy łączników, zobacz [przypisywanie aplikacji do grupy łączników](application-proxy-connector-groups.md#assign-applications-to-your-connector-groups).|
-|3 | Uruchamianie testu portu na serwerze łącznika | Na serwerze łącznika Uruchom test portu przy użyciu programu [Telnet](https://docs.microsoft.com/windows-server/administration/windows-commands/telnet) lub innego narzędzia do testowania portów, aby sprawdzić, czy są otwarte porty 443 i 80.|
+|3 | Uruchamianie testu portu na serwerze łącznika | Na serwerze łącznika Uruchom test portu przy użyciu programu [Telnet](https://docs.microsoft.com/windows-server/administration/windows-commands/telnet) lub innego narzędzia do testowania portów, aby sprawdzić [, czy są otwarte porty 443 i 80](application-proxy-add-on-premises-application.md#open-ports).|
 |4 | Konfigurowanie domen i portów | Upewnij [się, że domeny i porty są prawidłowo skonfigurowane](application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment) Aby łącznik działał prawidłowo, istnieją pewne porty, które muszą być otwarte i adresy URL, do których serwer musi mieć dostęp. |
 |5 | Sprawdź, czy serwer proxy zaplecza jest używany | Sprawdź, czy łączniki korzystają z serwerów proxy zaplecza, czy ich pomijania. Aby uzyskać szczegółowe informacje, zobacz [Rozwiązywanie problemów z serwerem proxy łącznika i problemy z łącznością usług](application-proxy-configure-connectors-with-proxy-servers.md#troubleshoot-connector-proxy-problems-and-service-connectivity-issues). |
 |6 | Aktualizowanie łącznika i Aktualizator w celu korzystania z serwera proxy zaplecza | Jeśli serwer proxy zaplecza jest używany, należy się upewnić, że łącznik używa tego samego serwera proxy. Aby uzyskać szczegółowe informacje na temat rozwiązywania problemów i konfigurowania łączników do pracy z serwerami proxy, zobacz [pracy z istniejącymi lokalnymi serwerami proxy](application-proxy-configure-connectors-with-proxy-servers.md). |

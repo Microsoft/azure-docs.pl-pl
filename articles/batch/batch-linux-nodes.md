@@ -4,11 +4,12 @@ description: Dowiedz się, jak przetwarzać obciążenia równoległe obliczenio
 ms.topic: how-to
 ms.date: 06/01/2018
 ms.custom: H1Hack27Feb2017, tracking-python
-ms.openlocfilehash: 1a87b72b16c1d41e5569c4ce9e5e1a6e2c51a2e0
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 05e23093a00eab70db683c10eae59ef27152d2f7
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85960082"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86145036"
 ---
 # <a name="provision-linux-compute-nodes-in-batch-pools"></a>Inicjowanie obsługi węzłów obliczeniowych systemu Linux w pulach wsadowym
 
@@ -28,7 +29,7 @@ Podczas tworzenia puli węzłów obliczeniowych w usłudze Batch dostępne są d
 
 ### <a name="virtual-machine-image-reference"></a>Odwołanie do obrazu maszyny wirtualnej
 
-Usługa Batch używa [zestawów skalowania maszyn wirtualnych](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) w celu zapewnienia węzłów obliczeniowych w konfiguracji maszyny wirtualnej. Możesz określić obraz z [witryny Azure Marketplace][vm_marketplace]lub udostępnić niestandardowy obraz, który został przygotowany. Aby uzyskać więcej informacji o obrazach niestandardowych, zobacz [Tworzenie puli za pomocą galerii obrazów udostępnionych](batch-sig-images.md).
+Usługa Batch używa [zestawów skalowania maszyn wirtualnych](../virtual-machine-scale-sets/overview.md) w celu zapewnienia węzłów obliczeniowych w konfiguracji maszyny wirtualnej. Możesz określić obraz z [witryny Azure Marketplace][vm_marketplace]lub udostępnić niestandardowy obraz, który został przygotowany. Aby uzyskać więcej informacji o obrazach niestandardowych, zobacz [Tworzenie puli za pomocą galerii obrazów udostępnionych](batch-sig-images.md).
 
 Konfigurując odwołanie do obrazu maszyny wirtualnej, należy określić właściwości obrazu maszyny wirtualnej. Następujące właściwości są wymagane podczas tworzenia odwołania do obrazu maszyny wirtualnej:
 
@@ -36,7 +37,7 @@ Konfigurując odwołanie do obrazu maszyny wirtualnej, należy określić właś
 | --- | --- |
 | Publisher |Canonical |
 | Oferta |UbuntuServer |
-| SKU |18,04 – LTS |
+| Jednostka SKU |18,04 – LTS |
 | Wersja |najnowsza |
 
 > [!TIP]

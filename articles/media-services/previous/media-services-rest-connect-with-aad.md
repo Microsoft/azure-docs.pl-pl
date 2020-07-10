@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.reviewer: willzhan; johndeu
-ms.openlocfilehash: a693eb374365670da3fe8c4b2bb8ce664a024217
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8b4980ee8ea252b4ce13601501e4bf1f7af97d1b
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80295441"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86166369"
 ---
 # <a name="use-azure-ad-authentication-to-access-the-media-services-api-with-rest"></a>Używanie uwierzytelniania usługi Azure AD do uzyskiwania dostępu do interfejsu API usługi Media Services za pomocą architektury REST
 
@@ -137,8 +137,10 @@ W tej sekcji pokazano, jak za pomocą programu **Poster** wykonać interfejs API
 
     Alternatywnie możesz kliknąć link **Edytuj zbiorczo** po prawej stronie okna programu Poster i wkleić poniższy kod.
 
-        Content-Type:application/x-www-form-urlencoded
-        Keep-Alive:true
+    ```javascript
+    Content-Type:application/x-www-form-urlencoded
+    Keep-Alive:true
+    ```
 
 6. Naciśnij kartę **treść** .
 7. Wprowadź informacje o treści przy użyciu siatki danych "klucz/wartość" (Zastąp wartości identyfikator klienta i klucz tajny). 
@@ -147,10 +149,12 @@ W tej sekcji pokazano, jak za pomocą programu **Poster** wykonać interfejs API
 
     Alternatywnie, kliknij przycisk **Edytuj zbiorczo** po prawej stronie okna programu Poster i wklej następujący tekst (Zastąp wartości identyfikator klienta i klucz tajny):
 
-        grant_type:client_credentials
-        client_id:{Your Client ID that you got from your Azure AD Application}
-        client_secret:{Your client secret that you got from your Azure AD Application's Keys}
-        resource:https://rest.media.azure.net
+    ```javascript
+    grant_type:client_credentials
+    client_id:{Your Client ID that you got from your Azure AD Application}
+    client_secret:{Your client secret that you got from your Azure AD Application's Keys}
+    resource:https://rest.media.azure.net
+    ```
 
 8. Kliknij pozycję **Wyślij**.
 
@@ -180,11 +184,13 @@ W tej sekcji pokazano, jak uzyskać dostęp do interfejsu API **zasobów** przy 
 5. Kliknij link **Edytuj zbiorczo** w prawym okienku okna.
 6. Wklej następujące nagłówki:
 
-        x-ms-version:2.19
-        Accept:application/json
-        Content-Type:application/json
-        DataServiceVersion:3.0
-        MaxDataServiceVersion:3.0
+    ```javascript
+    x-ms-version:2.19
+    Accept:application/json
+    Content-Type:application/json
+    DataServiceVersion:3.0
+    MaxDataServiceVersion:3.0
+    ```
 
 7. Kliknij pozycję **Wyślij**.
 

@@ -3,16 +3,16 @@ title: Korzystanie z usługi Azure AD w usłudze Azure Kubernetes Service
 description: Dowiedz się, jak używać usługi Azure AD w usłudze Azure Kubernetes Service (AKS)
 services: container-service
 manager: gwallace
-author: mlearned
+author: TomGeske
 ms.topic: article
-ms.date: 06/25/2020
-ms.author: mlearned
-ms.openlocfilehash: f22b79cb8a730fb9c28dd1a208ab672473218b79
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 07/08/2020
+ms.author: thomasge
+ms.openlocfilehash: 9cacd2454dc987f7d507bb4b677e742f0be0d391
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86105952"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86166505"
 ---
 # <a name="aks-managed-azure-active-directory-integration-preview"></a>Integracja Azure Active Directory zarządzanej przez AKS (wersja zapoznawcza)
 
@@ -26,10 +26,6 @@ Integracja z usługą Azure AD zarządzaną przez usługę AKS jest przeznaczona
 Administratorzy klastra mogą konfigurować kontrolę dostępu opartą na rolach (RBAC) Kubernetes na podstawie tożsamości użytkownika lub członkostwa w grupie katalogów. Uwierzytelnianie usługi Azure AD jest udostępniane Klastrom AKS z OpenID Connect Connect. OpenID Connect Connect to warstwa tożsamości utworzona na podstawie protokołu OAuth 2,0. Aby uzyskać więcej informacji na temat OpenID Connect Connect, zapoznaj [się z dokumentacją dotyczącą otwartych identyfikatorów][open-id-connect].
 
 Więcej informacji o przepływie integracji usługi AAD znajduje się w [dokumentacji dotyczącej pojęć dotyczących integracji Azure Active Directory](concepts-identity.md#azure-active-directory-integration).
-
-## <a name="limitations"></a>Ograniczenia
-
-* Obecnie nie można uaktualnić istniejącego klastra zintegrowanego z usługą AKS Azure AD do nowego środowiska zarządzania usługą Azure AD AKS.
 
 > [!IMPORTANT]
 > Funkcje w wersji zapoznawczej AKS są dostępne w ramach samoobsługowego i samodzielnego wyboru. Wersje zapoznawcze są udostępniane w postaci "AS-IS" i "jako dostępne" i są wykluczone z umów dotyczących poziomu usług i ograniczonej rękojmi. Wersje zapoznawcze AKS są częściowo objęte obsługą klienta w oparciu o optymalny sposób. W związku z tym te funkcje nie są przeznaczone do użytku produkcyjnego. Aby uzyskać więcej informacji, zobacz następujące artykuły pomocy technicznej:

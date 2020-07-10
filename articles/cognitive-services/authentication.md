@@ -1,5 +1,5 @@
 ---
-title: Authentication
+title: Uwierzytelnianie
 titleSuffix: Azure Cognitive Services
 description: 'Istnieją trzy sposoby uwierzytelniania żądania do zasobu usługi Azure Cognitive Services: klucza subskrypcji, tokenu okaziciela lub subskrypcji wielousługowej. Ten artykuł zawiera informacje o każdej z tych metod oraz o sposobie wykonywania żądania.'
 services: cognitive-services
@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 11/22/2019
 ms.author: erhopf
-ms.openlocfilehash: 7c2484892f3de3c8eca3f766793be83bc7a29dc8
-ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
+ms.openlocfilehash: a56e815e3a4ac04d20b29163139ab40332c4bec4
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85445546"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86146972"
 ---
 # <a name="authenticate-requests-to-azure-cognitive-services"></a>Uwierzytelnianie żądań w usłudze Azure Cognitive Services
 
@@ -28,17 +28,17 @@ Każde żądanie do usługi poznawczej platformy Azure musi zawierać nagłówek
 
 Przed wysłaniem żądania musisz mieć konto platformy Azure i subskrypcję usługi Azure Cognitive Services. Jeśli masz już konto, przejdź do następnej sekcji. Jeśli nie masz konta, zawieramy Przewodnik pozwalający skonfigurować w ciągu kilku minut: [Utwórz konto Cognitive Services dla platformy Azure](cognitive-services-apis-create-account.md).
 
-Klucz subskrypcji możesz uzyskać z [Azure Portal](cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) po utworzeniu konta lub aktywowaniu [bezpłatnej wersji próbnej](https://azure.microsoft.com/try/cognitive-services/my-apis).
+Możesz uzyskać klucz subskrypcji z [Azure Portal](cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) po [utworzeniu konta](https://azure.microsoft.com/free/cognitive-services/).
 
 ## <a name="authentication-headers"></a>Nagłówki uwierzytelniania
 
 Szybko Przejrzyj nagłówki uwierzytelniania dostępne do użycia z usługą Azure Cognitive Services.
 
-| Header | Opis |
+| Nagłówek | Opis |
 |--------|-------------|
 | Ocp-Apim-Subscription-Key | Ten nagłówek służy do uwierzytelniania za pomocą klucza subskrypcji dla określonej usługi lub klucza subskrypcji wielousługowej. |
 | OCP-APIM-Subscription-region | Ten nagłówek jest wymagany tylko w przypadku korzystania z klucza subskrypcji wieloserviceowej z [usługą translator](./Translator/reference/v3-0-reference.md). Użyj tego nagłówka, aby określić region subskrypcji. |
-| Autoryzacja | Użyj tego nagłówka, jeśli używasz tokenu uwierzytelniania. Kroki umożliwiające przeprowadzenie wymiany tokenów opisano szczegółowo w poniższych sekcjach. Podana wartość jest zgodna z następującym formatem: `Bearer <TOKEN>` . |
+| Authorization | Użyj tego nagłówka, jeśli używasz tokenu uwierzytelniania. Kroki umożliwiające przeprowadzenie wymiany tokenów opisano szczegółowo w poniższych sekcjach. Podana wartość jest zgodna z następującym formatem: `Bearer <TOKEN>` . |
 
 ## <a name="authenticate-with-a-single-service-subscription-key"></a>Uwierzytelnianie za pomocą klucza subskrypcji pojedynczego usługi
 
@@ -160,7 +160,7 @@ curl -X POST 'https://api.cognitive.microsofttranslator.com/translate?api-versio
 
 [!INCLUDE [](../../includes/cognitive-services-azure-active-directory-authentication.md)]
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 * [Co to są usługi poznawcze Cognitive Services?](welcome.md)
 * [Cennik usług Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/)

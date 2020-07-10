@@ -19,11 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 62c8c93e07326e776cbe089042abc481544794bc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 572b653a49833ae06ee57b1718000e8555239de7
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74113223"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86146024"
 ---
 # <a name="odata-comparison-operators-in-azure-cognitive-search---eq-ne-gt-lt-ge-and-le"></a>Operatory porównania OData na platformie Azure wyszukiwanie poznawcze —,,,, `eq` `ne` `gt` `lt` `ge` i`le`
 
@@ -135,23 +136,33 @@ Ciągi można porównać w filtrach w celu uzyskania dokładnych dopasowań przy
 
 Dopasowuje dokumenty `Rating` , gdy pole jest z zakresu od 3 do 5 włącznie:
 
-    Rating ge 3 and Rating le 5
+```text
+Rating ge 3 and Rating le 5
+```
 
 Dopasuj dokumenty, w których `Location` pole jest mniejsze niż 2 kilometry od danego położenia i długości geograficznej:
 
-    geo.distance(Location, geography'POINT(-122.031577 47.578581)') lt 2.0
+```text
+geo.distance(Location, geography'POINT(-122.031577 47.578581)') lt 2.0
+```
 
 Dopasuj dokumenty, w których `LastRenovationDate` pole jest większe lub równe 1 stycznia, 2015, północ czasu UTC:
 
-    LastRenovationDate ge 2015-01-01T00:00:00.000Z
+```text
+LastRenovationDate ge 2015-01-01T00:00:00.000Z
+```
 
 Dopasuj dokumenty, w których `Details/Sku` pole nie jest `null` :
 
-    Details/Sku ne null
+```text
+Details/Sku ne null
+```
 
 Dopasuj dokumenty dla hoteli, w których co najmniej jedno pomieszczenie ma typ "Pokój Deluxe", gdzie ciąg `Rooms/Type` pola pasuje dokładnie do filtru:
 
-    Rooms/any(room: room/Type eq 'Deluxe Room')
+```text
+Rooms/any(room: room/Type eq 'Deluxe Room')
+```
 
 ## <a name="next-steps"></a>Następne kroki  
 

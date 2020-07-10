@@ -12,13 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/08/2020
+ms.date: 07/08/2020
 ms.author: b-juche
-ms.openlocfilehash: 8b417559a17dc05a07467a28d37fec9b9a7c12cb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a0d672f782cb9f476fa81d28ee369072caf8509b
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84553472"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86147203"
 ---
 # <a name="resource-limits-for-azure-netapp-files"></a>Limity zasobów dla usługi Azure NetApp Files
 
@@ -60,7 +61,7 @@ Usługa dynamicznie dostosowuje limit maxfiles dla woluminu na podstawie jego ro
 |    >= 3 TiB, ale < 4 TiB    |    80 000 000     |
 |    >= 4 TiB                |    100 000 000    |
 
-W przypadku dowolnego rozmiaru woluminu można zainicjować [żądanie obsługi](#limit_increase) , aby zwiększyć limit maxfilesy przekraczający 100 000 000.
+Jeśli przydzielono już co najmniej 4 TiB przydziału dla woluminu, można zainicjować [żądanie obsługi](#limit_increase) , aby zwiększyć limit maxfiles przekraczający 100 000 000.
 
 ## <a name="request-limit-increase"></a>Zwiększenie limitu żądań<a name="limit_increase"></a> 
 

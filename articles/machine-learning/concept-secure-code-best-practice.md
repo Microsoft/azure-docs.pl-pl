@@ -9,15 +9,16 @@ ms.topic: conceptual
 ms.author: larryfr
 author: larryfr
 ms.date: 11/12/2019
-ms.openlocfilehash: 8932640a69ad68e0fd30b8577ba95768dbf8b9b9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9e41323d05f1a81fbc73a9158cf30c2b0f7953f3
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85660883"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86147061"
 ---
 # <a name="secure-code-best-practices-with-azure-machine-learning"></a>Najlepsze rozwiązania w zakresie kodu z Azure Machine Learning
 
-W Azure Machine Learning można przekazać pliki i zawartość z dowolnego źródła. Zawartość w notesach lub skryptach Jupyter może potencjalnie odczytywać dane z sesji, uzyskiwać dostęp do danych w organizacji na platformie Azure lub uruchamiać złośliwe procesy w Twoim imieniu.
+W Azure Machine Learning można przekazać pliki i zawartość z dowolnego źródła na platformę Azure. Zawartość w notesach Jupyter lub załadowane skrypty mogą potencjalnie odczytywać dane z sesji, uzyskiwać dostęp do danych w organizacji na platformie Azure lub uruchamiać złośliwe procesy w Twoim imieniu.
 
 > [!IMPORTANT]
 > Uruchamiać Notesy i skrypty z zaufanych źródeł. Na przykład, gdy ty lub Twój zespół ds. zabezpieczeń zaprzeglądał Notes lub skrypt.

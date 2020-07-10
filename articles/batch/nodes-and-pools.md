@@ -3,12 +3,12 @@ title: Węzły i pule w Azure Batch
 description: Zapoznaj się z węzłami obliczeniowymi i pulami oraz sposobem ich użycia w przepływie pracy Azure Batch z punktu widzenia rozwoju.
 ms.topic: conceptual
 ms.date: 06/16/2020
-ms.openlocfilehash: f71be75c0358dbc7f76a61680df2c54f44bc4173
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 5707d834a7d99e147a81ee2b39952863a63ed695
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85964046"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86144926"
 ---
 # <a name="nodes-and-pools-in-azure-batch"></a>Węzły i pule w Azure Batch
 
@@ -111,7 +111,7 @@ Aby uzyskać informacje o cenach dla węzłów o niskim priorytecie i dedykowany
 
 ## <a name="node-size"></a>Rozmiar węzła
 
-Podczas tworzenia puli usługi Azure Batch możesz wybierać spośród prawie wszystkich rodzin i rozmiarów maszyn wirtualnych dostępnych na platformie Azure. Platforma Azure oferuje szereg rozmiarów maszyn wirtualnych dla różnych obciążeń, w tym specjalizowane rozmiary maszyn wirtualnych [HPC](../virtual-machines/linux/sizes-hpc.md) lub [z obsługą procesorów GPU](../virtual-machines/linux/sizes-gpu.md). 
+Podczas tworzenia puli usługi Azure Batch możesz wybierać spośród prawie wszystkich rodzin i rozmiarów maszyn wirtualnych dostępnych na platformie Azure. Platforma Azure oferuje szereg rozmiarów maszyn wirtualnych dla różnych obciążeń, w tym specjalizowane rozmiary maszyn wirtualnych [HPC](../virtual-machines/sizes-hpc.md) lub [z obsługą procesorów GPU](../virtual-machines/sizes-gpu.md). 
 
 Aby uzyskać więcej informacji, zobacz [Choose a VM size for compute nodes in an Azure Batch pool](batch-pool-vm-sizes.md) (Wybieranie rozmiaru maszyn wirtualnych dla węzłów obliczeniowych w puli usługi Azure Batch).
 

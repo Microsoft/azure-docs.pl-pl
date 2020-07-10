@@ -10,12 +10,12 @@ ms.reviewer: nibaccam
 author: nibaccam
 ms.author: nibaccam
 ms.date: 04/09/2020
-ms.openlocfilehash: e9e809eb805e891fdf70a85d42eebc3e17da8902
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 171b355f40939efb31e96a4bf8b2d77e97d19f25
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85210188"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86147098"
 ---
 # <a name="prevent-overfitting-and-imbalanced-data-with-automated-machine-learning"></a>Zapobiegaj przestępowaniu i niezrównoważonym danych za pomocą zautomatyzowanego uczenia maszynowego
 
@@ -71,7 +71,7 @@ Zautomatyzowanej ML również implementuje jawne **ograniczenia złożoności mo
 **Krzyżowe sprawdzanie poprawności (CV)** to proces tworzenia wielu podzbiorów danych pełnego szkolenia i uczenia modelu w każdym podzestawie. Pomysłem jest to, że model może uzyskać "Cieszymy" i mieć dużą dokładność z jednym podzbiorem, ale przy użyciu wielu podzestawów model nie będzie osiągał tej dużej dokładności za każdym razem. Podczas wykonywania operacji CV należy dostarczyć zestaw danych wstrzymania weryfikacji, określić swoje zgięcia CV (liczba podzbiorów), a zautomatyzowany ML będzie szkolić model i dostrajał parametry w celu zminimalizowania błędu w zestawie walidacji. Jedno zgięcie CV może być nadmiernie dopasowane, ale przy użyciu wielu z nich zmniejsza prawdopodobieństwo, że ostateczny model jest nadmiernie dopasowany. Wadą jest to, że CV skutkuje dłuższym czasem uczenia się, a tym samym większym kosztem, ponieważ zamiast uczenia się modelu jeden raz, przeszkoluje go raz dla każdego podzestawu *n* CV. 
 
 > [!NOTE]
-> Sprawdzanie krzyżowe nie jest domyślnie włączone; musi być skonfigurowany w ustawieniach zautomatyzowanej ML. Jednak po skonfigurowaniu krzyżowego sprawdzania poprawności i otrzymaniu zestawu danych sprawdzania poprawności proces jest zautomatyzowany. Zobacz 
+> Sprawdzanie krzyżowe nie jest domyślnie włączone; musi być skonfigurowany w ustawieniach zautomatyzowanej ML. Jednak po skonfigurowaniu krzyżowego sprawdzania poprawności i otrzymaniu zestawu danych sprawdzania poprawności proces jest zautomatyzowany. Dowiedz się więcej o [konfiguracji krzyżowego sprawdzania poprawności w obszarze automatycznej ml](how-to-configure-cross-validation-data-splits.md)
 
 <a name="imbalance"></a>
 
@@ -93,7 +93,7 @@ W ramach tego celu uproszczenie przepływu pracy usługi Machine Learning funkcj
 
 - **Kolumna wagi**: automatyczna część ml obsługuje kolumnę odważników jako dane wejściowe, co sprawia, że wiersze w danych mają być ważone w górę lub w dół, których można użyć, aby zwiększyć lub zmniejszyć klasę "ważne".
 
-- Algorytmy używane przez zautomatyzowaną ML mogą prawidłowo obsłużyć nierównowagi do 20:1, co oznacza, że najbardziej typowa Klasa może mieć 20 razy więcej wierszy w danych niż najmniejsza wspólna Klasa.
+- Algorytmy, które są używane przez zautomatyzowanej, wykrywają niezrównoważone, gdy liczba próbek w klasie mniejszości jest równa lub mniejsza niż 20% liczby próbek w klasie większości, gdzie Klasa drugorzędna odnosi się do tej klasy z największą liczbą próbek i większościową klasą, odnosi się do jednej z większości przykładów. Następnie AutoML uruchomi eksperyment z danymi podpróbkami, aby sprawdzić, czy użycie wag klasy mogłoby rozwiązać ten problem i zwiększyć wydajność. W przypadku zapewnienia lepszej wydajności w ramach tego eksperymentu stosowane jest rozwiązanie tego problemu.
 
 - Użyj metryki wydajności, która zajmuje się lepszym użyciem niezrównoważonych danych. Na przykład AUC_weighted jest podstawową metryką, która oblicza wkład każdej klasy w oparciu o względną liczbę próbek reprezentujących tę klasę, dlatego jest bardziej niezawodna w odniesieniu do nierównowagi.
 

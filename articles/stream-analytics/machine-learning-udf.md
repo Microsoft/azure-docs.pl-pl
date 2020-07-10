@@ -7,11 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/19/2020
-ms.openlocfilehash: b138d93b400c16837c250ede1e264b54a851327c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 50d6bebd1e38149096b865ad3654a9604d685f5d
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84488753"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86141957"
 ---
 # <a name="integrate-azure-stream-analytics-with-azure-machine-learning-preview"></a>Integracja Azure Stream Analytics z Azure Machine Learning (wersja zapoznawcza)
 
@@ -27,7 +28,7 @@ Przed dodaniem modelu uczenia maszynowego do zadania Stream Analytics należy wy
 
 3. Upewnij się, że usługa sieci Web akceptuje i zwraca dane serializowane JSON.
 
-4. Wdróż swój model w [usłudze Azure Kubernetes Service](../machine-learning/how-to-deploy-and-where.md#choose-a-compute-target) na potrzeby wdrożeń produkcyjnych o dużej skali. Jeśli usługa sieci Web nie może obsłużyć liczby żądań wysyłanych z zadania, wydajność zadania Stream Analytics zostanie obniżona, co wpływa na opóźnienia. Modele wdrożone w Azure Container Instances są obsługiwane tylko w przypadku korzystania z Azure Portal.
+4. Wdróż swój model w [usłudze Azure Kubernetes Service](../machine-learning/how-to-deploy-and-where.md#choose-a-compute-target) na potrzeby wdrożeń produkcyjnych o dużej skali. Jeśli usługa sieci Web nie może obsłużyć liczby żądań wysyłanych z zadania, wydajność zadania Stream Analytics zostanie obniżona, co wpływa na opóźnienia. Modele wdrożone w Azure Container Instances są obsługiwane tylko w przypadku korzystania z Azure Portal. Modele skompilowane przy użyciu programu [Azure Machine Learning Designer](https://docs.microsoft.com/azure/machine-learning/concept-designer) nie są jeszcze obsługiwane w programie Stream Analytics.
 
 ## <a name="add-a-machine-learning-model-to-your-job"></a>Dodawanie modelu uczenia maszynowego do zadania
 
@@ -46,7 +47,7 @@ W poniższej tabeli opisano każdą właściwość funkcji usługi Azure ML w St
 |Właściwość|Opis|
 |--------|-----------|
 |Alias funkcji|Wprowadź nazwę, aby wywołać funkcję w zapytaniu.|
-|Subskrypcja|Twoja subskrypcja platformy Azure.|
+|Subscription|Twoja subskrypcja platformy Azure.|
 |Obszar roboczy usługi Azure ML|Azure Machine Learning obszar roboczy, który został użyty do wdrożenia modelu jako usługi sieci Web.|
 |Wdrożenia|Usługa sieci Web obsługująca model.|
 |Sygnatura funkcji|Podpis usługi sieci Web wywnioskowanej ze specyfikacji schematu interfejsu API. Jeśli nie można załadować podpisu, sprawdź, czy podano przykładowe dane wejściowe i wyjściowe w skrypcie oceniania, aby automatycznie wygenerować schemat.|

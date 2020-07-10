@@ -4,19 +4,19 @@ description: Informacje o typach kont użytkowników i sposobach ich konfigurowa
 ms.topic: how-to
 ms.date: 11/18/2019
 ms.custom: seodec18
-ms.openlocfilehash: 514a104c879a8d601bb03e2ed1c59b69516bc621
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 412947b939d95be29dde374b311776829fa12582
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85209729"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86142679"
 ---
 # <a name="run-tasks-under-user-accounts-in-batch"></a>Uruchamianie zadań w obszarze konta użytkowników w usłudze Batch
 
 > [!NOTE]
 > Konta użytkowników omówione w tym artykule różnią się od kont użytkowników używanych dla Remote Desktop Protocol (RDP) lub Secure Shell (SSH) ze względów bezpieczeństwa.
 >
-> Aby nawiązać połączenie z węzłem z uruchomioną konfiguracją maszyny wirtualnej z systemem Linux za pośrednictwem protokołu SSH, zobacz [używanie pulpit zdalny do maszyny wirtualnej z systemem Linux na platformie Azure](../virtual-machines/virtual-machines-linux-use-remote-desktop.md) Aby połączyć się z węzłami z systemem Windows za pomocą protokołu RDP, zobacz [nawiązywanie połączenia z maszyną wirtualną z systemem Windows Server](../virtual-machines/windows/connect-logon.md).<br /><br />
+> Aby nawiązać połączenie z węzłem z uruchomioną konfiguracją maszyny wirtualnej z systemem Linux za pośrednictwem protokołu SSH, zobacz [używanie pulpit zdalny do maszyny wirtualnej z systemem Linux na platformie Azure](../virtual-machines/linux/use-remote-desktop.md) Aby połączyć się z węzłami z systemem Windows za pomocą protokołu RDP, zobacz [nawiązywanie połączenia z maszyną wirtualną z systemem Windows Server](../virtual-machines/windows/connect-logon.md).<br /><br />
 > Aby nawiązać połączenie z węzłem z uruchomioną konfiguracją usługi w chmurze za pośrednictwem protokołu RDP, zobacz [włączanie Podłączanie pulpitu zdalnego dla roli w usłudze Azure Cloud Services](../cloud-services/cloud-services-role-enable-remote-desktop-new-portal.md).
 
 Zadanie w Azure Batch zawsze działa w ramach konta użytkownika. Domyślnie zadania są uruchamiane w ramach kont użytkowników standardowych, bez uprawnień administratora. W przypadku niektórych scenariuszy można skonfigurować konto użytkownika, w ramach którego ma zostać uruchomione zadanie. W tym artykule omówiono typy kont użytkowników i sposób ich konfigurowania dla danego scenariusza.

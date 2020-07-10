@@ -7,15 +7,16 @@ author: vhorne
 ms.service: web-application-firewall
 ms.date: 04/16/2020
 ms.author: ant
-ms.openlocfilehash: fb3b922b753b9696aa26ea189597589ecc5772db
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: eccd6b33353e071a66225279f1f1c150d4bdaafc
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81536628"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86143856"
 ---
 # <a name="migrate-web-application-firewall-policies-using-azure-powershell"></a>Migrowanie zasad zapory aplikacji sieci Web przy użyciu Azure PowerShell
 
-Ten skrypt ułatwia przejście z konfiguracji WAF lub reguł niestandardowych — tylko zasady WAFymi do pełnych zasad WAF. W portalu może zostać wyświetlone ostrzeżenie z informacją o *migracji do zasad WAFymi*lub może być potrzebna Nowa publiczna wersja zapoznawcza WAF, taka jak reguła niestandardowa, dla każdej witryny i zasad WAF dla identyfikatora URI lub zestawu reguł ograniczenia bot. Aby można było korzystać z dowolnej z tych funkcji, potrzebne są pełne zasady WAF skojarzone z bramą aplikacji. 
+Ten skrypt ułatwia przejście z konfiguracji WAF lub reguł niestandardowych — tylko zasady WAFymi do pełnych zasad WAF. W portalu może zostać wyświetlone ostrzeżenie z informacją o *migracji do zasad WAFymi*lub można chcieć użyć nowych funkcji WAF, takich jak reguły niestandardowe o geodopasowania (wersja zapoznawcza), zasady WAF dla poszczególnych witryn oraz zasady WAF dla identyfikatorów URI (wersja zapoznawcza) lub zestaw reguł łagodzenia ryzyka (wersja zapoznawcza). Aby można było korzystać z dowolnej z tych funkcji, potrzebne są pełne zasady WAF skojarzone z bramą aplikacji. 
 
 Aby uzyskać więcej informacji na temat tworzenia nowych zasad WAF, zobacz [Tworzenie zasad zapory aplikacji sieci Web dla Application Gateway](create-waf-policy-ag.md). Aby uzyskać informacje na temat migracji, zobacz [Migrowanie do zasad WAFymi](create-waf-policy-ag.md#migrate-to-waf-policy).
 

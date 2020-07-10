@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 07/07/2020
 ms.author: cherylmc
-ms.openlocfilehash: e9891e3ac12de3f8735407c603ff59b61f4eb05d
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 6d14094edc7ae21ca0d56b544fb9c2b19f1f0582
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 07/08/2020
-ms.locfileid: "86118974"
+ms.locfileid: "86144993"
 ---
 # <a name="how-to-configure-virtual-hub-routing"></a>Jak skonfigurować rozsyłanie na koncentratorze wirtualnym
 
@@ -22,9 +22,7 @@ Koncentrator wirtualny może zawierać wiele bram, takich jak Brama sieci VPN ty
 Aby uzyskać więcej informacji, zobacz [Informacje o routingu koncentratora wirtualnego](about-virtual-hub-routing.md).
 
 > [!NOTE]
-> Niektóre z tych funkcji mogą być nadal wycofywane. Jeśli wdrożenie nie zakończyło się jeszcze w Twoim regionie, wykonaj kroki opisane w tych wersjach artykułów w międzyczasie:
->* [Azure Portal artykuł](virtual-wan-route-table-nva-portal.md)
->* [Artykuł programu PowerShell](virtual-wan-route-table-nva.md)
+> Niektóre z tych funkcji mogą być nadal wycofywane. Jest to oczekiwane w przypadku 3 sierpnia.
 >
 
 ## <a name="create-a-route-table"></a><a name="create-table"></a>Tworzenie tabeli tras
@@ -47,7 +45,7 @@ Aby uzyskać więcej informacji, zobacz [Informacje o routingu koncentratora wir
 
      W przypadku wybrania połączenia sieci wirtualnej zobaczysz pozycję **Konfiguruj trasy statyczne**. Jest to opcjonalne ustawienie konfiguracji. Aby uzyskać więcej informacji, zobacz [Konfigurowanie tras statycznych](about-virtual-hub-routing.md#static).
 
-      :::image type="content" source="./media/how-to-virtual-hub-routing/next-hop.png" alt-text="Następny przeskok":::
+      :::image type="content" source="./media/how-to-virtual-hub-routing/next-hop.png" alt-text="Narzędzie Następny przeskok":::
 
 5. Wybierz kartę **etykiety** , aby skonfigurować nazwy etykiet. Etykiety zapewniają mechanizm logicznego grupowania tabel tras.
 

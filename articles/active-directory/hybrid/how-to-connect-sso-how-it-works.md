@@ -16,12 +16,12 @@ ms.date: 04/16/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: af5a9b5b5dd8eb6b6bec8440287918d1f8610064
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bde937adba8d2469390a6cf404f6cce8c5008e87
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85357923"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86144706"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-technical-deep-dive"></a>Azure Active Directory bezproblemowe logowanie jednokrotne: głębokie szczegółowe
 
@@ -45,6 +45,9 @@ Bezproblemowe logowanie jednokrotne jest włączone przy użyciu Azure AD Connec
 
 >[!IMPORTANT]
 > `AZUREADSSOACC`Konto komputera musi być silnie chronione ze względów bezpieczeństwa. Tylko Administratorzy domeny powinni mieć możliwość zarządzania kontem komputera. Upewnij się, że delegowanie Kerberos na koncie komputera jest wyłączone i że żadne inne konto w Active Directory nie ma uprawnień do delegowania na `AZUREADSSOACC` koncie komputera. Przechowywanie konta komputera w jednostce organizacyjnej (OU), w którym są bezpieczne przed przypadkowym usunięciem i gdzie tylko Administratorzy domeny mają dostęp. Klucz odszyfrowujący protokołu Kerberos na koncie komputera powinien również być traktowany jako poufne. Zdecydowanie zalecamy przeprowadzenie [klucza odszyfrowywania Kerberos](how-to-connect-sso-faq.md) `AZUREADSSOACC` konta komputera co najmniej co 30 dni.
+
+>[!IMPORTANT]
+> Bezproblemowe logowanie jednokrotne obsługuje typy szyfrowania AES256_HMAC_SHA1, AES128_HMAC_SHA1 i RC4_HMAC_MD5 dla protokołu Kerberos. Zaleca się, aby w celu zwiększenia bezpieczeństwa typ szyfrowania dla konta AzureADSSOAcc $ miał wartość AES256_HMAC_SHA1 lub jeden z typów AES a RC4. Typ szyfrowania jest przechowywany w atrybucie msDS-Supportedencryptiontypes konta konta w Active Directory.  Jeśli typ szyfrowania AzureADSSOAcc $ Account jest ustawiony na RC4_HMAC_MD5 i chcesz zmienić go na jeden z typów szyfrowania AES, upewnij się, że najpierw przeniesiesz klucz odszyfrowujący protokołu Kerberos konta AzureADSSOAcc $ zgodnie z opisem w [dokumencie często zadawane pytania](how-to-connect-sso-faq.md) , w przeciwnym razie bezproblemowe logowanie jednokrotne nie następuje.
 
 Po zakończeniu konfiguracji bezproblemowe logowanie jednokrotne działa tak samo jak inne logowania korzystające ze zintegrowanego uwierzytelniania systemu Windows (IWA).
 

@@ -6,20 +6,21 @@ author: linda33wj
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 12/10/2019
+ms.date: 07/08/2020
 ms.author: jingwang
 ms.reviewer: craigg
-ms.openlocfilehash: f9e6c8dc7438e05f960504b2cacee7fc987adf70
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d7a872121ca6560b8ede86abc35294ab8c9b0c1b
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84022383"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86142006"
 ---
 # <a name="azure-data-factory-connector-overview"></a>Omówienie łącznika Azure Data Factory
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Azure Data Factory obsługiwać następujące magazyny i formaty danych za pomocą funkcji kopiowania, przepływu danych, wyszukiwania, pobierania metadanych i usuwania działań. Kliknij każdy magazyn danych, aby poznać obsługiwane możliwości i odpowiednie konfiguracje w szczegółach.
+Azure Data Factory obsługiwać następujące magazyny i formaty danych za pomocą operacji kopiowania, przepływu danych, wyszukiwania, pobierania metadanych i usuwania. Kliknij każdy magazyn danych, aby poznać obsługiwane możliwości i odpowiednie konfiguracje w szczegółach.
 
 ## <a name="supported-data-stores"></a>Obsługiwane magazyny danych
 
@@ -27,7 +28,16 @@ Azure Data Factory obsługiwać następujące magazyny i formaty danych za pomoc
 
 ## <a name="supported-file-formats"></a>Obsługiwane formaty plików
 
-[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)]
+Azure Data Factory obsługuje następujące formaty plików. Zapoznaj się z każdym artykułem dotyczącym ustawień opartych na formacie.
+
+- [Format Avro](format-avro.md)
+- [Format binarny](format-binary.md)
+- [Format Common Data Model](format-common-data-model.md)
+- [Format tekstu rozdzielanego](format-delimited-text.md)
+- [Format programu Excel](format-excel.md)
+- [Format JSON](format-json.md)
+- [Format ORC](format-orc.md)
+- [Format Parquet](format-parquet.md)
 
 ## <a name="next-steps"></a>Następne kroki
 

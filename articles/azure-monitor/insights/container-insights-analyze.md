@@ -3,11 +3,12 @@ title: Kubernetes monitorowanie za pomocą Azure Monitor dla kontenerów | Micro
 description: W tym artykule opisano sposób wyświetlania i analizowania wydajności klastra Kubernetes za pomocą Azure Monitor dla kontenerów.
 ms.topic: conceptual
 ms.date: 03/26/2020
-ms.openlocfilehash: 17efb89e36429f9658759a0ed90d4e7b785fe4b7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d8b298208794e4ba562a608f22f4d0a539b81b47
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85340892"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86166641"
 ---
 # <a name="monitor-your-kubernetes-cluster-performance-with-azure-monitor-for-containers"></a>Monitorowanie wydajności klastra Kubernetes za pomocą Azure Monitor dla kontenerów
 
@@ -65,23 +66,23 @@ Stan kondycji oblicza ogólny stan klastra jako *najgorszy* z trzech stanów z j
 
 W poniższej tabeli przedstawiono podział obliczeń kontrolujących Stany kondycji monitorowanego klastra w widoku wiele klastrów.
 
-| |Stan |Dostępność |
+| Monitorowany klaster |Stan |Dostępność |
 |-------|-------|-----------------|
 |**Użytkownik pod**| | |
 | |Dobra kondycja |100% |
 | |Ostrzeżenie |90 – 99% |
-| |Krytyczne |<90% |
-| |Nieznane |Jeśli nie zgłoszono w ciągu ostatnich 30 minut |
+| |Krytyczny |<90% |
+| |Nieznany |Jeśli nie zgłoszono w ciągu ostatnich 30 minut |
 |**System pod**| | |
 | |Dobra kondycja |100% |
 | |Ostrzeżenie |Nie dotyczy |
-| |Krytyczne |<100% |
-| |Nieznane |Jeśli nie zgłoszono w ciągu ostatnich 30 minut |
+| |Krytyczny |<100% |
+| |Nieznany |Jeśli nie zgłoszono w ciągu ostatnich 30 minut |
 |**Węzeł** | | |
 | |Dobra kondycja |>85% |
 | |Ostrzeżenie |60 – 84% |
-| |Krytyczne |<60% |
-| |Nieznane |Jeśli nie zgłoszono w ciągu ostatnich 30 minut |
+| |Krytyczny |<60% |
+| |Nieznany |Jeśli nie zgłoszono w ciągu ostatnich 30 minut |
 
 Z listy klastrów możesz przejść do szczegółów na stronie **klaster** , wybierając nazwę klastra. Następnie przejdź do strony wydajność **węzłów** , wybierając pakiet zbiorczy węzłów w kolumnie **węzły** dla danego klastra. Możesz też przejść do szczegółów na stronie wydajność **kontrolerów** , wybierając zestawienie z kolumną **zasobników użytkownika** lub **system** .
 
@@ -116,7 +117,7 @@ Azure Monitor for Containers obsługują również [Eksploratora metryk](../plat
 
 W Eksploratorze metryk można wyświetlić zagregowane metryki dotyczące węzła i użycia z Azure Monitor dla kontenerów. W poniższej tabeli zestawiono szczegółowe informacje ułatwiające zrozumienie sposobu używania wykresów metryk do wizualizacji metryk kontenera.
 
-|Przestrzeń nazw | Metric | Opis |
+|Przestrzeń nazw | Metryka | Opis |
 |----------|--------|-------------|
 | Szczegółowe informacje. kontenery/węzły | |
 | | cpuUsageMillicores | Zagregowane pomiary użycia procesora CPU w klastrze. Jest to rdzeń procesora CPU podzielony na 1000 jednostek (Milli = 1000). Służy do określania użycia rdzeni w kontenerze, w którym wiele aplikacji może korzystać z jednego rdzenia.|
@@ -134,7 +135,7 @@ Można [podzielić](../platform/metrics-charts.md#apply-splitting-to-a-chart) me
 * Kontroler
 * Kubernetes przestrzeń nazw
 * Węzeł
-* Etap
+* Faza
 
 ## <a name="analyze-nodes-controllers-and-container-health"></a>Analizowanie węzłów, kontrolerów i kondycji kontenera
 

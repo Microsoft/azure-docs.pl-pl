@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: scottwhi
 ms.custom: seodec2018
-ms.openlocfilehash: d459222327ef3535202e82f640f5b513f0426d54
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: ad2ac118908f1c1f77ea204ae2400913ac0807cb
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85609473"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86147402"
 ---
 # <a name="add-analytics-to-the-bing-search-apis"></a>Dodawanie analizy do interfejsy API wyszukiwania Bing
 
@@ -50,10 +50,10 @@ Domyślnie wykresy i wykresy zawierają wszystkie metryki i dane, do których ma
   
 - **Punkty końcowe**: wyszukiwanie Bing punkty końcowe interfejsu API. Lista zawiera wszystkie punkty końcowe, dla których masz płatną subskrypcję. Domyślnie są zaznaczone wszystkie punkty końcowe.  
 
-- **Przedział czasu**: okres raportowania. Można określić:
+- **Przedział czasu**: okres raportowania. Możesz określić następujące elementy:
   - **Wszystko**: obejmuje do 13 miesięcy danych.  
   - **Ostatnie 24 godziny**: zawiera analizę z ostatnich 24 godzin  
-  - **Ostatni tydzień**: zawiera analizę z ostatnich siedmiu dni  
+  - **Ostatni tydzień**: zawiera analizę z ostatnich 7 dni  
   - **Ostatni miesiąc**: zawiera analizę z ostatnich 30 dni  
   - **Niestandardowy zakres dat**: zawiera analizę z określonego zakresu dat, jeśli jest dostępna  
 

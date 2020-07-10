@@ -5,11 +5,12 @@ author: chrisreddington
 ms.author: chredd
 ms.date: 03/28/2019
 ms.topic: how-to
-ms.openlocfilehash: d6b68a8448d8b644500b62e54ab763838d707c66
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 3569e5cc25491fd408f7aec57a51d11f56dbd1fe
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85956665"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86145261"
 ---
 # <a name="use-azure-pipelines-to-build-and-deploy-hpc-solutions"></a>Używanie Azure Pipelines do kompilowania i wdrażania rozwiązań HPC
 
@@ -48,7 +49,7 @@ Struktura codebase użyta w tym przykładzie jest podobna do następującej:
 W tej sekcji założono, że znasz kontrolę wersji i projektujesz szablony Menedżer zasobów. Jeśli nie znasz tych pojęć, zobacz następujące strony, aby uzyskać więcej informacji.
 
 * [Co to jest kontrola źródła?](/azure/devops/user-guide/source-control?view=azure-devops)
-* [Understand the structure and syntax of Azure Resource Manager Templates (Omówienie struktury i składni szablonów usługi Azure Resource Manager)](../azure-resource-manager/templates/template-syntax.md)
+* [Zrozumienie struktury i składni szablonów Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md)
 
 #### <a name="azure-resource-manager-templates"></a>Szablony usługi Azure Resource Manager
 
@@ -188,7 +189,7 @@ Następny szablon pokazuje przykład tworzenia puli Azure Batch (maszyny zaplecz
 
 Na koniec mamy szablon, który działa podobnie do programu Orchestrator. Ten szablon jest odpowiedzialny za wdrażanie szablonów możliwości.
 
-Więcej informacji na temat [tworzenia połączonych Azure Resource Manager szablonów](../azure-resource-manager/templates/template-tutorial-create-linked-templates.md) można znaleźć w osobnym artykule.
+Więcej informacji na temat [tworzenia połączonych Azure Resource Manager szablonów](../azure-resource-manager/templates/deployment-tutorial-linked-template.md) można znaleźć w osobnym artykule.
 
 ```json
 {

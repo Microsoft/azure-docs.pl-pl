@@ -4,12 +4,12 @@ description: Dowiedz się, jak za pomocą interfejsu API usługi Batch utrwalać
 ms.topic: how-to
 ms.date: 03/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: c9d8eab5b4f4b89a613f5ffc3a7f9c9d9d53dcfc
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 24e9f242b3c71965984534ac986031757bbc8420
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85965131"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86143516"
 ---
 # <a name="persist-task-data-to-azure-storage-with-the-batch-service-api"></a>Utrwalanie danych zadań w usłudze Azure Storage za pomocą interfejsu API usługi Batch
 
@@ -43,7 +43,7 @@ await container.CreateIfNotExists();
 
 ## <a name="get-a-shared-access-signature-for-the-container"></a>Uzyskaj sygnaturę dostępu współdzielonego dla kontenera
 
-Po utworzeniu kontenera Uzyskaj sygnaturę dostępu współdzielonego (SAS) z dostępem do zapisu do kontenera. Sygnatura dostępu współdzielonego zapewnia delegowany dostęp do kontenera. Sygnatura dostępu współdzielonego przyznaje dostęp z określonym zestawem uprawnień i w określonym przedziale czasu. Usługa Batch potrzebuje sygnatury dostępu współdzielonego z uprawnieniami do zapisu, aby zapisywać dane wyjściowe zadania do kontenera. Aby uzyskać więcej informacji na temat SYGNATURy [dostępu współdzielonego, zobacz Using SAS Access Signatures \( \) w usłudze Azure Storage](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
+Po utworzeniu kontenera Uzyskaj sygnaturę dostępu współdzielonego (SAS) z dostępem do zapisu do kontenera. Sygnatura dostępu współdzielonego zapewnia delegowany dostęp do kontenera. Sygnatura dostępu współdzielonego przyznaje dostęp z określonym zestawem uprawnień i w określonym przedziale czasu. Usługa Batch potrzebuje sygnatury dostępu współdzielonego z uprawnieniami do zapisu, aby zapisywać dane wyjściowe zadania do kontenera. Aby uzyskać więcej informacji na temat SYGNATURy [dostępu współdzielonego, zobacz Using SAS Access Signatures \( \) w usłudze Azure Storage](../storage/common/storage-sas-overview.md).
 
 Gdy otrzymasz sygnaturę dostępu współdzielonego przy użyciu interfejsów API usługi Azure Storage, interfejs API zwraca ciąg tokenu SAS. Ten ciąg tokenu zawiera wszystkie parametry sygnatury dostępu współdzielonego, w tym uprawnienia i interwał, w jakim SYGNATURa czasowa jest prawidłowa. Aby uzyskać dostęp do kontenera w usłudze Azure Storage za pomocą sygnatury dostępu współdzielonego, należy dołączyć ciąg tokenu sygnatury dostępu współdzielonego do identyfikatora URI zasobu. Identyfikator URI zasobu, wraz z dołączonym tokenem SAS, zapewnia uwierzytelniony dostęp do usługi Azure Storage.
 

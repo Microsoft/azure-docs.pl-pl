@@ -4,12 +4,12 @@ description: Przy pierwszym użyciu Language Understanding (LUIS) nie trzeba two
 services: cognitive-services
 ms.topic: how-to
 ms.date: 07/07/2020
-ms.openlocfilehash: 7cc53e7105ba08ad33e02775fcfb0791c6cf1310
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: dfe5c416adeb4ff850dfe8f28ae4c61c8bb0844f
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86055770"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86144632"
 ---
 # <a name="create-luis-resources"></a>Tworzenie zasobów LUIS
 
@@ -110,7 +110,7 @@ Właściciel i wszyscy Współautorzy mają dostęp do tworzenia aplikacji.
 |Wersja importowana||
 |Tworzenie aplikacji jako publicznej|Gdy aplikacja jest publiczna, każda osoba mająca klucz tworzenia lub punktu końcowego może wysyłać zapytania do aplikacji.|
 |Modyfikuj model|
-|Publikowanie|
+|Opublikuj|
 |Zapoznaj się z punktem końcowym wyrażenia długości na potrzeby [aktywnego uczenia](luis-how-to-review-endpoint-utterances.md)|
 |Szkolenie|
 
@@ -154,9 +154,9 @@ Można kontrolować, kto może wyświetlać klucz punktu końcowego środowiska 
 ## <a name="sign-in-to-luis-portal-and-begin-authoring"></a>Zaloguj się do portalu LUIS i zacznij tworzenie
 
 1. Zaloguj się do [portalu Luis](https://www.luis.ai) i zaakceptuj warunki użytkowania.
-1. Rozpocznij swoją aplikację LUIS, wybierając typ klucza tworzenia LUIS, który ma być używany: bezpłatny klucz wersji próbnej lub nowy klucz tworzenia usługi Azure LUIS.
+1. Rozpocznij swoją aplikację LUIS, wybierając klucz tworzenia LUIS Azure.
 
-    ![Wybierz typ zasobu Language Understanding tworzenia](./media/luis-how-to-azure-subscription/sign-in-create-resource.png)
+   ![Wybierz typ zasobu Language Understanding tworzenia](./media/luis-how-to-azure-subscription/sign-in-create-resource.png)
 
 1. Po zakończeniu procesu wyboru zasobów [Utwórz nową aplikację](luis-how-to-start-new-app.md#create-new-app-in-luis).
 
@@ -232,7 +232,7 @@ W celach automatyzacji, takich jak potok ciągłej integracji/ciągłego wdraża
 
     Ten POST API wymaga następujących ustawień:
 
-    |Header|Wartość|
+    |Nagłówek|Wartość|
     |--|--|
     |`Authorization`|Wartość `Authorization` to `Bearer {token}` . Zwróć uwagę, że wartość tokenu musi być poprzedzona słowem `Bearer` i spacją.|
     |`Ocp-Apim-Subscription-Key`|Twój klucz tworzenia.|
@@ -245,9 +245,9 @@ W celach automatyzacji, takich jak potok ciągłej integracji/ciągłego wdraża
 
     |Typ|Ustawienie|Wartość|
     |--|--|--|
-    |Header|`Authorization`|Wartość `Authorization` to `Bearer {token}` . Zwróć uwagę, że wartość tokenu musi być poprzedzona słowem `Bearer` i spacją.|
-    |Header|`Ocp-Apim-Subscription-Key`|Twój klucz tworzenia.|
-    |Header|`Content-type`|`application/json`|
+    |Nagłówek|`Authorization`|Wartość `Authorization` to `Bearer {token}` . Zwróć uwagę, że wartość tokenu musi być poprzedzona słowem `Bearer` i spacją.|
+    |Nagłówek|`Ocp-Apim-Subscription-Key`|Twój klucz tworzenia.|
+    |Nagłówek|`Content-type`|`application/json`|
     |Kwerendy|`appid`|Identyfikator aplikacji usługi LUIS.
     |Treść||{"AzureSubscriptionId":"ddda2925-af7f-4b05-9ba1-2155c5fe8a8e",<br>"ResourceName": "resourceName-2",<br>"AccountName": "Luis-uswest-S0-2"}|
 

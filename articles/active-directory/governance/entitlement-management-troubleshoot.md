@@ -16,11 +16,12 @@ ms.date: 06/17/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7494f8e65f0b92540fec3ddc1f07e59004227625
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8bf19123888dd26073016131c93047b0cd0afaf4
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85338184"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86145754"
 ---
 # <a name="troubleshoot-azure-ad-entitlement-management"></a>Rozwiązywanie problemów z zarządzaniem prawami usługi Azure AD
 
@@ -94,7 +95,9 @@ W tym artykule opisano niektóre elementy, które należy zaznaczyć, aby pomóc
 
 Jeśli po wyzwoleniu żądania przetworzenia pakietu dostępu zostanie spełniony błąd, należy poczekać, aż system ponownie przetworzy żądanie. System próbuje wiele razy przetworzyć kilka godzin, więc nie można wymusić ponownego przetwarzania w tym czasie. 
 
-Można ponownie przetwarzać żądanie, które ma stan **dostawy zakończony niepowodzeniem** lub **częściowo dostarczone** i datę ukończenia mniejszą niż tydzień.
+Można ponownie przetwarzać żądanie, które ma stan **dostawy zakończony niepowodzeniem** lub **częściowo dostarczone** i datę ukończenia mniejszą niż tydzień. Przycisk **Reprocess** zostanie wyszarzony w inny sposób.
+
+![Przycisk Przetwórz ponownie wyszarzony](./media/entitlement-management-troubleshoot/cancel-reprocess-grayedout.png)
 
 - Jeśli błąd zostanie rozwiązany w oknie prób, stan żądania zmieni się na **dostarczenie**. Żądanie zostanie przetworzone ponownie bez dodatkowych akcji od użytkownika.
 
@@ -116,7 +119,7 @@ Można ponownie przetwarzać żądanie, które ma stan **dostawy zakończony nie
 
 ### <a name="cancel-a-pending-request"></a>Anulowanie oczekującego żądania
 
-Można anulować tylko oczekujące żądanie, które nie zostało jeszcze dostarczone lub którego dostarczenie nie powiodło się.
+Można anulować tylko oczekujące żądanie, które nie zostało jeszcze dostarczone lub którego dostarczenie nie powiodło się. Przycisk **Anuluj** zostałby wyszarzony w przeciwnym razie.
 
 **Rola wymagana wstępnie:** Administrator globalny, administrator użytkownika, właściciel katalogu lub Menedżer pakietów dostępu
 

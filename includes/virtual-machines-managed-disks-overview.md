@@ -70,7 +70,7 @@ Na platformie Azure istnieją trzy role dysków głównych: dysk danych, dysk sy
 
 ![Role dysków w działaniu](media/virtual-machines-managed-disks-overview/disk-types.png)
 
-### <a name="data-disk"></a>Dysk z danymi
+### <a name="data-disk"></a>Dysk danych
 
 Dysk danych to dysk zarządzany połączony z maszyną wirtualną w celu przechowywania danych aplikacji lub innych danych, które należy zachować. Dyski danych są rejestrowane jako dyski SCSI i są oznaczone wybraną literą. Każdy dysk z danymi ma maksymalną pojemność wynoszącą 32 767 gibibajtach (GiB). Rozmiar maszyny wirtualnej określa liczbę dysków z danymi, które można dołączyć do niej, oraz typ magazynu, którego można użyć do hostowania dysków.
 

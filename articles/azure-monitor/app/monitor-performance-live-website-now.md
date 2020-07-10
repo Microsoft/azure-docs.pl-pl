@@ -3,12 +3,12 @@ title: Monitorowanie działającej aplikacji internetowej platformy ASP.NET za p
 description: Monitorowanie wydajności witryny sieci Web bez jej ponownego wdrażania. Współpracuje z usługą ASP.NET Web Apps hostowaną lokalnie lub na maszynach wirtualnych.
 ms.topic: conceptual
 ms.date: 08/26/2019
-ms.openlocfilehash: e30700deaa0121fbe473580d868a79d75a899a1d
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: f4ce01ea8fc7b6bf1f294071f04e2bebce3e1d27
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86107482"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86166386"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-codeless-attach"></a>Instrumentacja aplikacji sieci Web w środowisku uruchomieniowym z dołączaniem bez kodu Application Insights
 
@@ -39,14 +39,14 @@ Poniżej przedstawiono podsumowanie tego, co można uzyskać, korzystając z dan
 
 |  | W czasie kompilacji | W czasie wykonywania |
 | --- | --- | --- |
-| Żądania i wyjątki |Tak |Tak |
-| [Bardziej szczegółowe wyjątki](../../azure-monitor/app/asp-net-exceptions.md) | |Tak |
-| [Diagnostyka zależności](../../azure-monitor/app/asp-net-dependencies.md) |Na platformie .NET 4.6 +, ale mniej szczegółów |Tak, kompletne szczegóły: kody wyników, tekst polecenia SQL, czasownik HTTP|
-| [Liczniki wydajności sytemu](../../azure-monitor/app/performance-counters.md) |Tak |Tak |
-| [Interfejs API dla telemetrii niestandardowej][api] |Yes |Nie |
-| [Integracja dziennika śledzenia](../../azure-monitor/app/asp-net-trace-logs.md) |Yes |Nie |
-| [Widok strony i dane użytkownika](../../azure-monitor/app/javascript.md) |Yes |Nie |
-| Konieczność ponownej kompilacji kodu |Yes | Nie |
+| **Żądania & wyjątki** |Tak |Tak |
+| **[Bardziej szczegółowe wyjątki](../../azure-monitor/app/asp-net-exceptions.md)** | |Tak |
+| **[Diagnostyka zależności](../../azure-monitor/app/asp-net-dependencies.md)** |Na platformie .NET 4.6 +, ale mniej szczegółów |Tak, kompletne szczegóły: kody wyników, tekst polecenia SQL, czasownik HTTP|
+| **[Liczniki wydajności sytemu](../../azure-monitor/app/performance-counters.md)** |Tak |Tak |
+| **[Interfejs API dla telemetrii niestandardowej][api]** |Yes |Nie |
+| **[Integracja dziennika śledzenia](../../azure-monitor/app/asp-net-trace-logs.md)** |Yes |Nie |
+| **[Widok strony & dane użytkownika](../../azure-monitor/app/javascript.md)** |Yes |Nie |
+| **Konieczność ponownej kompilacji kodu** |Yes | Nie |
 
 
 

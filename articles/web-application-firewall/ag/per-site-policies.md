@@ -8,11 +8,12 @@ ms.service: web-application-firewall
 ms.date: 01/24/2020
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: 1301db56cab36ae623bb94cfac97b8e4bdb934e5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7e40370421214ebe026090007122a641a216c256
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81682477"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86143934"
 ---
 # <a name="configure-per-site-waf-policies-using-azure-powershell"></a>Konfigurowanie zasad WAFymi dla poszczególnych witryn przy użyciu Azure PowerShell
 
@@ -28,7 +29,7 @@ W tym artykule omówiono sposób wykonywania następujących zadań:
 > * Konfigurowanie sieci
 > * Tworzenie zasad WAF
 > * Tworzenie bramy aplikacji z włączoną zaporą aplikacji internetowych
-> * Stosowanie zasad WAF globalnie, dla poszczególnych witryn i według identyfikatorów URI
+> * Zastosowanie zasad WAF globalnie dla poszczególnych witryn i dla poszczególnych identyfikatorów URI (wersja zapoznawcza)
 > * Tworzenie zestawu skalowania maszyn wirtualnych
 > * Tworzenie konta magazynu i konfigurowanie diagnostyki
 > * Testowanie bramy aplikacji
@@ -249,7 +250,7 @@ $appgw = New-AzApplicationGateway `
   -FirewallPolicy $wafPolicyGlobal
 ```
 
-### <a name="apply-a-per-uri-policy"></a>Zastosowanie zasad dla identyfikatora URI
+### <a name="apply-a-per-uri-policy-preview"></a>Zastosowanie zasad dla identyfikatora URI (wersja zapoznawcza)
 
 Aby zastosować zasady dotyczące identyfikatorów URI, wystarczy utworzyć nowe zasady i zastosować je do konfiguracji reguły ścieżki. 
 

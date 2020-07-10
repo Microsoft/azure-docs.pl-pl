@@ -4,12 +4,12 @@ description: Skorzystaj z Azure Active Directory do uwierzytelniania z poziomu a
 ms.topic: how-to
 ms.date: 04/27/2017
 ms.custom: has-adal-ref
-ms.openlocfilehash: b82d6b5f166f67752ea809353e074c01ac953a48
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 829a742c144f2bba39f1ca392e80db25640d4dee
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85848976"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86141960"
 ---
 # <a name="authenticate-batch-management-solutions-with-active-directory"></a>Uwierzytelnianie rozwiązań do zarządzania partiami przy użyciu Active Directory
 
@@ -23,9 +23,9 @@ Aby dowiedzieć się więcej o korzystaniu z biblioteki .NET Management Library 
 
 ## <a name="register-your-application-with-azure-ad"></a>Rejestrowanie aplikacji w usłudze Azure AD
 
-[Biblioteka Azure Active Directory Authentication Library](../active-directory/active-directory-authentication-libraries.md) (ADAL) udostępnia interfejs programistyczny usługi Azure AD do użycia w aplikacjach. Aby wywołać biblioteki ADAL z poziomu aplikacji, musisz zarejestrować aplikację w dzierżawie usługi Azure AD. Po zarejestrowaniu aplikacji dostarczasz usługę Azure AD z informacjami o swojej aplikacji, w tym jej nazwą w ramach dzierżawy usługi Azure AD. Następnie usługa Azure AD udostępnia identyfikator aplikacji, który służy do kojarzenia aplikacji z usługą Azure AD w czasie wykonywania. Aby dowiedzieć się więcej o IDENTYFIKATORze aplikacji, zobacz [obiekty główne aplikacji i usługi w Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md).
+[Biblioteka Azure Active Directory Authentication Library](../active-directory/azuread-dev/active-directory-authentication-libraries.md) (ADAL) udostępnia interfejs programistyczny usługi Azure AD do użycia w aplikacjach. Aby wywołać biblioteki ADAL z poziomu aplikacji, musisz zarejestrować aplikację w dzierżawie usługi Azure AD. Po zarejestrowaniu aplikacji dostarczasz usługę Azure AD z informacjami o swojej aplikacji, w tym jej nazwą w ramach dzierżawy usługi Azure AD. Następnie usługa Azure AD udostępnia identyfikator aplikacji, który służy do kojarzenia aplikacji z usługą Azure AD w czasie wykonywania. Aby dowiedzieć się więcej o IDENTYFIKATORze aplikacji, zobacz [obiekty główne aplikacji i usługi w Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md).
 
-Aby zarejestrować przykładową aplikację zarządzania kontem, wykonaj kroki opisane w sekcji [Dodawanie aplikacji](../active-directory/develop/quickstart-register-app.md) w temacie [Integrowanie aplikacji z Azure Active Directory](../active-directory/active-directory-integrating-applications.md). Określ **natywną aplikację kliencką** dla typu aplikacji. Standardowy identyfikator URI protokołu OAuth 2,0 dla **identyfikatora URI przekierowania** to `urn:ietf:wg:oauth:2.0:oob` . Można jednak określić dowolny prawidłowy identyfikator URI (na przykład `http://myaccountmanagementsample` ) dla **identyfikatora URI przekierowania**, ponieważ nie musi to być rzeczywisty punkt końcowy.
+Aby zarejestrować przykładową aplikację zarządzania kontem, wykonaj kroki opisane w sekcji [Dodawanie aplikacji](../active-directory/develop/quickstart-register-app.md) w temacie [Integrowanie aplikacji z Azure Active Directory](../active-directory/develop/quickstart-register-app.md). Określ **natywną aplikację kliencką** dla typu aplikacji. Standardowy identyfikator URI protokołu OAuth 2,0 dla **identyfikatora URI przekierowania** to `urn:ietf:wg:oauth:2.0:oob` . Można jednak określić dowolny prawidłowy identyfikator URI (na przykład `http://myaccountmanagementsample` ) dla **identyfikatora URI przekierowania**, ponieważ nie musi to być rzeczywisty punkt końcowy.
 
 ![Dodawanie aplikacji](./media/batch-aad-auth-management/app-registration-management-plane.png)
 

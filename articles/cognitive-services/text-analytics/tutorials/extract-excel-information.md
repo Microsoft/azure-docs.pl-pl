@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 02/27/2019
 ms.author: aahi
-ms.openlocfilehash: fd70fe14d3765fb7c21b92f62b4d73564176baa2
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b9e6561c1ed9870b669ec5e9825a376f8bd03c4d
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78201189"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86145701"
 ---
 # <a name="extract-information-in-excel-using-text-analytics-and-power-automate"></a>Wyodrębnij informacje w programie Excel przy użyciu analiza tekstu i automatyzacji 
 
@@ -33,7 +33,7 @@ Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Konto platformy Microsoft Azure. [Zacznij korzystać z bezpłatnej wersji próbnej](https://azure.microsoft.com/free/) lub [zaloguj się](https://portal.azure.com/).
+- Konto platformy Microsoft Azure. [Utwórz bezpłatne konto](https://azure.microsoft.com/free/cognitive-services/) lub [Zaloguj się](https://portal.azure.com/).
 - Zasób analiza tekstu. Jeśli go nie masz, możesz go [utworzyć w Azure Portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) i skorzystać z warstwy Bezpłatna, aby ukończyć ten samouczek.
 - [Klucz i punkt końcowy](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) , który został wygenerowany dla Ciebie podczas rejestracji.
 - Arkusz kalkulacyjny zawierający problemy z dzierżawcą. Przykładowe dane są dostępne w serwisie GitHub
@@ -182,7 +182,7 @@ Zminimalizuj akcję **Zastosuj do każdego 2** , klikając nazwę. Następnie Do
 > [!div class="mx-imgBorder"] 
 > :::image type="content" source="../media/tutorials/excel/add-apply-action-3.png" alt-text="Dodaj poświadczenia analiza tekstu do przepływu.":::
 
-W obszarze **Zastosuj do każdego 3**Dodaj kontrolkę **warunek** . Zostanie nazwany **warunek 2**. W pierwszym polu tekstowym Wyszukaj i Dodaj **typ jednostek** z okna zawartość dynamiczna. Upewnij się, że pole środkowe ma ustawioną wartość **równą**. Następnie w prawym polu tekstowym wprowadź `var_phone`. 
+W obszarze **Zastosuj do każdego 3**Dodaj kontrolkę **warunek** . Zostanie nazwany **warunek 2**. W pierwszym polu tekstowym Wyszukaj i Dodaj **typ jednostek** z okna zawartość dynamiczna. Upewnij się, że pole środkowe ma ustawioną wartość **równą**. Następnie w prawym polu tekstowym wprowadź `var_phone` . 
 
 > [!div class="mx-imgBorder"] 
 > :::image type="content" source="../media/tutorials/excel/condition-2-options.png" alt-text="Dodaj poświadczenia analiza tekstu do przepływu.":::
@@ -203,15 +203,15 @@ Minimalizuj **Zastosuj do każdego 3** , klikając nazwę. Następnie utwórz in
 
 Następnie przepływ sprawdzi, czy opis problemu w wierszu tabeli programu Excel zawiera słowo "instalacja". Jeśli tak, spowoduje to dodanie "instalacji wodociągowej" w kolumnie wystawca. W przeciwnym razie wprowadzimy "inne".
 
-Wewnątrz akcji **Zastosuj do każdego 4** Dodaj kontrolkę **warunek** . Zostanie nazwany **warunek 3**. W pierwszym polu tekstowym Wyszukaj i Dodaj **Opis** z pliku programu Excel przy użyciu okna zawartość dynamiczna. Upewnij się, że pole środkowe **zawiera**. Następnie w prawym polu tekstowym Znajdź i wybierz `var_plumbing`. 
+Wewnątrz akcji **Zastosuj do każdego 4** Dodaj kontrolkę **warunek** . Zostanie nazwany **warunek 3**. W pierwszym polu tekstowym Wyszukaj i Dodaj **Opis** z pliku programu Excel przy użyciu okna zawartość dynamiczna. Upewnij się, że pole środkowe **zawiera**. Następnie w prawym polu tekstowym Znajdź i wybierz `var_plumbing` . 
 
 > [!div class="mx-imgBorder"] 
 > :::image type="content" source="../media/tutorials/excel/condition-3-options.png" alt-text="Dodaj poświadczenia analiza tekstu do przepływu.":::
 
 
-W warunku **if Yes** kliknij pozycję **Dodaj akcję**, a następnie wybierz pozycję **Aktualizuj wiersz**. Następnie wprowadź informacje, jak poprzednio. W kolumnie wystawca wybierz pozycję `var_plumbing`. Spowoduje to zastosowanie do wiersza etykiety "Instalacja wodociągowa".
+W warunku **if Yes** kliknij pozycję **Dodaj akcję**, a następnie wybierz pozycję **Aktualizuj wiersz**. Następnie wprowadź informacje, jak poprzednio. W kolumnie wystawca wybierz pozycję `var_plumbing` . Spowoduje to zastosowanie do wiersza etykiety "Instalacja wodociągowa".
 
-W **przypadku braku** warunku kliknij pozycję **Dodaj akcję**, a następnie wybierz pozycję **Aktualizuj wiersz**. Następnie wprowadź informacje, jak poprzednio. W kolumnie wystawca wybierz pozycję `var_other`. Spowoduje to zastosowanie etykiety "Other" do wiersza.
+W **przypadku braku** warunku kliknij pozycję **Dodaj akcję**, a następnie wybierz pozycję **Aktualizuj wiersz**. Następnie wprowadź informacje, jak poprzednio. W kolumnie wystawca wybierz pozycję `var_other` . Spowoduje to zastosowanie etykiety "Other" do wiersza.
 
 > [!div class="mx-imgBorder"] 
 > :::image type="content" source="../media/tutorials/excel/plumbing-issue-condition.png" alt-text="Dodaj poświadczenia analiza tekstu do przepływu.":::

@@ -7,12 +7,12 @@ author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: how-to
-ms.openlocfilehash: 6fff0e224aaa6bb247543282ac16fbb33fe7e904
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 55ec04df2a107dabfc72298bc8849c13f3a926e0
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85965267"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86147304"
 ---
 # <a name="storage-and-data-movement-options-for-rendering-asset-and-output-files"></a>Opcje przenoszenia magazynu i danych na potrzeby renderowania zasobów i plików wyjściowych
 
@@ -87,7 +87,7 @@ Ponieważ pliki są po prostu obiektami BLOB w usłudze Azure Storage, standardo
 
 [Azure Files](../storage/files/storage-files-introduction.md) oferuje w pełni zarządzane udziały plików w chmurze, które są dostępne za pośrednictwem protokołu SMB.  Azure Files jest oparta na usłudze Azure Blob Storage; jest to [koszt wydajny](https://azure.microsoft.com/pricing/details/storage/files/) i można go skonfigurować z replikacją danych w innym regionie, tak aby globalnie nadmiarowo.  [Elementy docelowe skali](../storage/files/storage-files-scale-targets.md#azure-files-scale-targets) powinny być przeglądane w celu określenia, czy Azure Files powinny być używane w celu uwzględnienia rozmiaru puli prognozy i liczby plików zasobów.
 
-Istnieje wpis w [blogu](https://blogs.msdn.microsoft.com/windowsazurestorage/2014/05/26/persisting-connections-to-microsoft-azure-files/) i [Dokumentacja dotycząca](../storage/files/storage-how-to-use-files-windows.md) sposobu instalowania udziału plików platformy Azure.
+[Dokumentacja dotycząca](../storage/files/storage-how-to-use-files-windows.md) sposobu instalowania udziału plików platformy Azure.
 
 ### <a name="mounting-an-azure-files-share"></a>Instalowanie udziału Azure Files
 

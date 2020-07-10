@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
-ms.openlocfilehash: 0fd2bcfb32524c6911a70157f58cea1e48b7bea9
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 4f02d92e6264a05ed2cb4021adb5ae6312f58a85
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 07/08/2020
-ms.locfileid: "86135247"
+ms.locfileid: "86146645"
 ---
 # <a name="azure-serial-console-for-windows"></a>Konsola szeregowa platformy Azure dla systemu Windows
 
@@ -100,8 +100,7 @@ Jeśli konieczne jest włączenie wyświetlanych w konsoli szeregowej wierszy mo
 
 1. Nawiąż połączenie z konsolą szeregową. W przypadku pomyślnego nawiązania połączenia zostanie wyświetlony monit **>SAC **:
 
-    ![Nawiązywanie połączenia z konsolą SAC](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-connect-sac.png)
-
+   ![Nawiązywanie połączenia z konsolą SAC](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-connect-sac.png)
 1. Wprowadź, `cmd` Aby utworzyć kanał, który ma wystąpienie cmd.
 
 1. Wprowadź `ch -si 1` lub naciśnij `<esc>+<tab>` klawisze skrótów, aby przełączyć się na kanał, na którym działa wystąpienie cmd.
@@ -112,7 +111,7 @@ Jeśli konieczne jest włączenie wyświetlanych w konsoli szeregowej wierszy mo
 
 1. Aby uruchomić wystąpienie programu PowerShell, wpisz `PowerShell` w wystąpieniu cmd, a następnie naciśnij klawisz **Enter**.
 
-    ![Otwórz wystąpienie programu PowerShell](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-powershell.png)
+   ![Otwórz wystąpienie programu PowerShell](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-powershell.png)
 
 ### <a name="use-the-serial-console-for-nmi-calls"></a>Korzystanie z konsoli szeregowej dla wywołań NMI
 Przerwanie z maską (NMI) jest przeznaczone do tworzenia sygnałów, które nie będą ignorowane przez oprogramowanie na maszynie wirtualnej. Historycznie użyto NMIs do monitorowania problemów sprzętowych w systemach, które wymagały określonych czasów odpowiedzi. Obecnie programiści i Administratorzy systemu często używają NMI jako mechanizmu debugowania lub rozwiązywania problemów z nieodpowiadającymi systemami.
@@ -181,7 +180,7 @@ Korzystanie z programu inicjującego | Uzyskiwanie dostępu do danych BCD za pom
 ## <a name="known-issues"></a>Znane problemy
 Mamy świadomość niektórych problemów z konsolą szeregową i systemem operacyjnym maszyny wirtualnej. Poniżej znajduje się lista tych problemów i kroków związanych z eliminowaniem maszyn wirtualnych z systemem Windows. Te problemy i środki zaradcze dotyczą zarówno maszyn wirtualnych, jak i wystąpień zestawów skalowania maszyn wirtualnych. Jeśli nie są one zgodne z wyświetlonym błędem, zobacz Typowe błędy usługi konsoli szeregowej w przypadku [typowych błędów konsoli szeregowej](./serial-console-errors.md).
 
-Problem                             |   Środki zaradcze
+Problem                             |   Ograniczanie ryzyka
 :---------------------------------|:--------------------------------------------|
 Naciśnięcie klawisza **Enter** po banerze połączenia nie spowoduje wyświetlenia monitu logowania. | Aby uzyskać więcej informacji, zobacz [naciśnięcie klawisza ENTER nic nie robi](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md). Ten błąd może wystąpić, jeśli uruchamiasz niestandardową maszynę wirtualną, urządzenie z ograniczeniami lub konfigurację rozruchową, która powoduje, że system Windows nie może prawidłowo nawiązać połączenia z portem szeregowym. Ten błąd występuje również w przypadku korzystania z maszyny wirtualnej z systemem Windows 10, ponieważ na maszynach wirtualnych z systemem Windows Server skonfigurowano obsługę usług EMS.
 Podczas nawiązywania połączenia z maszyną wirtualną z systemem Windows wyświetlane są tylko informacje o kondycji| Ten błąd występuje, jeśli Specjalna konsola administracyjna nie została włączona dla obrazu systemu Windows. Zobacz [Włączanie konsoli szeregowej w obrazach niestandardowych lub starszych,](#enable-the-serial-console-in-custom-or-older-images) Aby uzyskać instrukcje dotyczące ręcznego włączania konsoli SAC na maszynie wirtualnej z systemem Windows. Aby uzyskać więcej informacji, zobacz [sygnały kondycji systemu Windows](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Windows_Health_Info.md).

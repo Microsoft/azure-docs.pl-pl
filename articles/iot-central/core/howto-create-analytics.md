@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: 40460b58ede0ca0da8fe25475906bdbe41bfffe0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 29605fc2a9094f70c26487691e74a4dd72a85813
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80158286"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86147263"
 ---
 # <a name="how-to-use-analytics-to-analyze-device-data"></a>Jak używać analiz do analizowania danych urządzenia
 
@@ -86,9 +86,11 @@ Po wykonaniu zapytania o dane możesz rozpocząć wizualizację na wykresie lini
 
   ![Powiększ dane](media/howto-create-analytics/zoom.png)
 
-W obszarze wielokropka istnieje więcej kontrolek wykresu do współpracy z danymi.
+W obszarze wielokropka istnieje więcej kontrolek wykresu do współpracy z danymi:
 
 - **Wyświetl siatkę:** Wyniki są dostępne w formacie tabeli, umożliwiając wyświetlanie określonej wartości dla każdego punktu danych.
+
+- **Pobierz jako plik CSV:** Wyniki są dostępne do wyeksportowania jako plik z wartościami rozdzielanymi przecinkami (CSV). Plik CSV zawiera dane dla każdego urządzenia. Wyniki są eksportowane z zastosowaniem interwału i określonego przedziału czasu. 
 
 - **Upuść znacznik:** Kontrolka "Drop marker" umożliwia zakotwiczenie określonych punktów danych na wykresie. Jest to przydatne, gdy próbujesz porównać dane dla wielu wierszy w różnych okresach czasu.
 

@@ -16,12 +16,12 @@ ms.date: 05/01/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b1aca245592bef98bc5d0cff3268d5b6496d2220
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: eaeaa8625a5bdb5bbf8ce76a68e616a913da5655
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 07/08/2020
-ms.locfileid: "86103555"
+ms.locfileid: "86147000"
 ---
 # <a name="azure-ad-connect-sync-scheduler"></a>Synchronizacja programu Azure AD Connect: Harmonogram
 W tym temacie opisano wbudowany harmonogram w programie Azure AD Connect Sync (aparat synchronizacji).
@@ -41,8 +41,12 @@ Harmonogram jest odpowiedzialny za dwa zadania:
 Sam harmonogram jest zawsze uruchomiony, ale można go skonfigurować tak, aby uruchamiał tylko jedno lub żadne z tych zadań. Na przykład jeśli musisz mieć własny proces cyklu synchronizacji, możesz wyłączyć to zadanie w harmonogramie, ale nadal uruchomić zadanie obsługi.
 
 >[!IMPORTANT]
->Musisz się upewnić, że cykl synchronizacji jest uruchamiany co najmniej raz w ciągu 7 dni. Niewykonanie tej czynności może spowodować problemy z synchronizacją, co spowoduje konieczność uruchomienia pełnej synchronizacji w celu rozwiązania problemu.
-
+>Domyślnie co 30 minut jest uruchamiany cykl synchronizacji. Jeśli zmodyfikowano cykl synchronizacji, należy się upewnić, że cykl synchronizacji jest uruchamiany co najmniej raz w ciągu 7 dni. 
+>
+>* Synchronizacja różnicowa musi wystąpić w ciągu 7 dni od ostatniej synchronizacji różnicowej.
+>* Synchronizacja różnicowa (po pełnej synchronizacji) musi nastąpić w ciągu 7 dni od momentu zakończenia ostatniej pełnej synchronizacji.
+>
+>Niewykonanie tej czynności może spowodować problemy z synchronizacją, co spowoduje konieczność uruchomienia pełnej synchronizacji w celu rozwiązania problemu. Dotyczy to również serwerów w trybie przejściowym.
 
 ## <a name="scheduler-configuration"></a>Konfiguracja harmonogramu
 Aby wyświetlić bieżące ustawienia konfiguracji, przejdź do programu PowerShell i uruchom polecenie `Get-ADSyncScheduler` . Przedstawiono tutaj następujący obraz:

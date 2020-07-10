@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/23/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: f0d957c05aded6641377b47c3fe383c141480b30
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bb18e2b0af6f04cee5b6be11afbb2d2aabdadb4b
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85504478"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86143003"
 ---
 # <a name="get-started-with-azcopy"></a>Wprowadzenie do narzędzia AzCopy
 
@@ -31,7 +31,7 @@ Najpierw Pobierz plik wykonywalny AzCopy v10 do dowolnego katalogu na komputerze
 
 - [Windows 64-bit](https://aka.ms/downloadazcopy-v10-windows) (zip)
 - [Windows 32-bit](https://aka.ms/downloadazcopy-v10-windows-32bit) (zip)
-- [Linux](https://aka.ms/downloadazcopy-v10-linux) (tar)
+- [Linux x86 — 64](https://aka.ms/downloadazcopy-v10-linux) (tar)
 - [MacOS](https://aka.ms/downloadazcopy-v10-mac) (zip)
 
 Te pliki są kompresowane jako plik zip (Windows i Mac) lub plik tar (Linux). Aby pobrać i zdekompresować plik tar w systemie Linux, zapoznaj się z dokumentacją dystrybucji systemu Linux.
@@ -65,9 +65,9 @@ Użyj tej tabeli jako przewodnika:
 
 | Typ magazynu | Obecnie obsługiwana metoda autoryzacji |
 |--|--|
-|**BLOB Storage** | Usługa Azure AD & SAS |
+|**Blob Storage** | Usługa Azure AD & SAS |
 |**BLOB Storage (hierarchiczna przestrzeń nazw)** | Usługa Azure AD & SAS |
-|**Magazyn plików** | Tylko SAS |
+|**File Storage** | Tylko SAS |
 
 ### <a name="option-1-use-azure-active-directory"></a>Opcja 1: Użyj Azure Active Directory
 
@@ -255,7 +255,7 @@ Aby znaleźć przykładowe polecenia, zapoznaj się z dowolnym z tych artykułó
 
 - [Transferowanie danych za pomocą AzCopy i magazynu obiektów BLOB](storage-use-azcopy-blobs.md)
 
-- [Transferowanie danych za pomocą AzCopy i magazynu plików](storage-use-azcopy-files.md)
+- [Transferowanie danych za pomocą narzędzia AzCopy i magazynu plików](storage-use-azcopy-files.md)
 
 - [Transferowanie danych za pomocą zasobników AzCopy i Amazon S3](storage-use-azcopy-s3.md)
 

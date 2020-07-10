@@ -3,11 +3,12 @@ title: Instalowanie wirtualnego systemu plików w puli
 description: Dowiedz się, jak zainstalować wirtualny system plików w puli wsadowej.
 ms.topic: how-to
 ms.date: 08/13/2019
-ms.openlocfilehash: 80acf5df0cf5262249b2eac584152744a4224a35
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 3f948f8441208f4a8741949e65afc8032f0a5080
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85954676"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86144416"
 ---
 # <a name="mount-a-virtual-file-system-on-a-batch-pool"></a>Instalowanie wirtualnego systemu plików w puli partii
 
@@ -76,7 +77,7 @@ new PoolAddParameter
 
 ### <a name="azure-blob-file-system"></a>System plików obiektów blob platformy Azure
 
-Innym rozwiązaniem jest użycie usługi Azure Blob Storage za pośrednictwem [blobfuse](../storage/blobs/storage-how-to-mount-container-linux.md). Zainstalowanie systemu plików BLOB wymaga `AccountKey` lub `SasKey` dla konta magazynu. Aby uzyskać informacje na temat uzyskiwania tych kluczy, zobacz [Zarządzanie kluczami dostępu do konta magazynu](../storage/common/storage-account-keys-manage.md)lub [przy użyciu sygnatur dostępu współdzielonego (SAS)](../storage/common/storage-dotnet-shared-access-signature-part-1.md). Aby uzyskać więcej informacji na temat korzystania z programu blobfuse, zobacz temat [Rozwiązywanie problemów](https://github.com/Azure/azure-storage-fuse/wiki/3.-Troubleshoot-FAQ)z blobfuse. Aby uzyskać domyślny dostęp do zainstalowanego katalogu blobfuse, uruchom zadanie jako **administrator**. Blobfuse instaluje katalog w miejscu użytkownika, a podczas tworzenia puli jest instalowany jako główny. W systemie Linux wszystkie zadania **administratora** są głównymi. Wszystkie opcje dla modułu bezpiecznik są opisane na [stronie odmowa](https://manpages.ubuntu.com/manpages/xenial/man8/mount.fuse.8.html).
+Innym rozwiązaniem jest użycie usługi Azure Blob Storage za pośrednictwem [blobfuse](../storage/blobs/storage-how-to-mount-container-linux.md). Zainstalowanie systemu plików BLOB wymaga `AccountKey` lub `SasKey` dla konta magazynu. Aby uzyskać informacje na temat uzyskiwania tych kluczy, zobacz [Zarządzanie kluczami dostępu do konta magazynu](../storage/common/storage-account-keys-manage.md)lub [przy użyciu sygnatur dostępu współdzielonego (SAS)](../storage/common/storage-sas-overview.md). Aby uzyskać więcej informacji na temat korzystania z programu blobfuse, zobacz temat [Rozwiązywanie problemów](https://github.com/Azure/azure-storage-fuse/wiki/3.-Troubleshoot-FAQ)z blobfuse. Aby uzyskać domyślny dostęp do zainstalowanego katalogu blobfuse, uruchom zadanie jako **administrator**. Blobfuse instaluje katalog w miejscu użytkownika, a podczas tworzenia puli jest instalowany jako główny. W systemie Linux wszystkie zadania **administratora** są głównymi. Wszystkie opcje dla modułu bezpiecznik są opisane na [stronie odmowa](https://manpages.ubuntu.com/manpages/xenial/man8/mount.fuse.8.html).
 
 Oprócz przewodnika rozwiązywania problemów problemy z usługą GitHub w repozytorium blobfuse są przydatnym sposobem na sprawdzenie bieżących problemów i rozwiązań związanych z blobfuse. Aby uzyskać więcej informacji, zobacz [blobfuse problemy](https://github.com/Azure/azure-storage-fuse/issues).
 
@@ -158,7 +159,7 @@ Aby pobrać pliki dziennika do debugowania, użyj [OutputFiles](batch-task-outpu
 
 ## <a name="supported-skus"></a>Obsługiwane jednostki SKU
 
-| Publisher | Oferta | SKU | Udział Azure Files | Blobfuse | Instalacja systemu plików NFS | Instalacja CIFS |
+| Publisher | Oferta | Jednostka SKU | Udział Azure Files | Blobfuse | Instalacja systemu plików NFS | Instalacja CIFS |
 |---|---|---|---|---|---|---|
 | partia | Renderowanie — centos73 | dawania | :heavy_check_mark: <br>Uwaga: zgodność z CentOS 7,7</br>| :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Canonical | UbuntuServer | 16,04 – LTS, 18,04-LTS | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |

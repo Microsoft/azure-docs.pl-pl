@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019,fasttrack-edit
 ms.topic: article
 ms.date: 02/20/2020
-ms.openlocfilehash: 35e6690726750e6c9e6dfb0cb62a6732603c3610
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: eb8ec09646fa3f3c226edbe957e19d079fd2607c
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 07/08/2020
-ms.locfileid: "86083665"
+ms.locfileid: "86147421"
 ---
 # <a name="migrate-sql-server-to-sql-managed-instance-with-powershell--azure-database-migration-service"></a>Migrowanie SQL Server do wystąpienia zarządzanego SQL za pomocą programu PowerShell & Azure Database Migration Service
 
@@ -121,13 +121,11 @@ $sourceConnInfo = New-AzDmsConnInfo -ServerType SQL `
   -TrustServerCertificate:$true
 ```
 
-W następnym przykładzie pokazano tworzenie informacji o połączeniu dla wystąpienia zarządzanego usługi Azure SQL o nazwie "targetmanagedinstance.database.windows.net" przy użyciu uwierzytelniania SQL:
+W następnym przykładzie pokazano tworzenie informacji o połączeniu dla wystąpienia zarządzanego Azure SQL o nazwie "targetmanagedinstance":
 
 ```powershell
-$targetConnInfo = New-AzDmsConnInfo -ServerType SQL `
-  -DataSource "targetmanagedinstance.database.windows.net" `
-  -AuthType SqlAuthentication `
-  -TrustServerCertificate:$false
+$targetResourceId = (Get-AzSqlInstance -Name "targetmanagedinstance").Id
+$targetConnInfo = New-AzDmsConnInfo -ServerType SQLMI -MiResourceId $targetResourceId
 ```
 
 ### <a name="provide-databases-for-the-migration-project"></a>Podaj bazy danych dla projektu migracji
@@ -418,7 +416,7 @@ Po zakończeniu migracji można usunąć wystąpienie Azure Database Migration S
 Remove-AzDms -ResourceGroupName myResourceGroup -ServiceName MyDMS
 ```
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 Aby uzyskać informacje na temat dodatkowych scenariuszy migracji (par Source/Target), zobacz [Przewodnik po migracji bazy danych](https://datamigration.microsoft.com/)firmy Microsoft.
 

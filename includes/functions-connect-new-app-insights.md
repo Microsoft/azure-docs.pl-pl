@@ -1,6 +1,6 @@
 ---
-title: dołączanie pliku
-description: dołączanie pliku
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: functions
 author: ggailey777
 ms.service: azure-functions
@@ -28,7 +28,7 @@ Azure Functions ułatwia dodawanie Application Insights integracji do aplikacji 
     | Ustawienie      | Sugerowana wartość  | Opis                                        |
     | ------------ |  ------- | -------------------------------------------------- |
     | **Nowa nazwa zasobu** | Unikatowa nazwa aplikacji | Najłatwiej używać tej samej nazwy, co aplikacja funkcji, która musi być unikatowa w subskrypcji. | 
-    | **Lokalizacja** | Europa Zachodnia | Jeśli to możliwe, użyj tego samego [regionu](https://azure.microsoft.com/regions/) , w którym znajduje się aplikacja funkcji lub która znajduje się blisko tego regionu. |
+    | **Lokalizacja** | West Europe | Jeśli to możliwe, użyj tego samego [regionu](https://azure.microsoft.com/regions/) , w którym znajduje się aplikacja funkcji lub która znajduje się blisko tego regionu. |
 
     :::image type="content" source="media/functions-connect-new-app-insights/ai-general.png" alt-text="Tworzenie zasobu Application Insights":::
 

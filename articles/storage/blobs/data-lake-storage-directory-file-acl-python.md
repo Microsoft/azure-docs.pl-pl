@@ -9,11 +9,12 @@ ms.topic: how-to
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
 ms.custom: tracking-python
-ms.openlocfilehash: f5ff33d021f27f2c5dfb86ca87f2579602f0d1cc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 07708de1326e0aba6485b2cf1fb0610d9710cdf7
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84559150"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86142476"
 ---
 # <a name="use-python-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Używanie języka Python do zarządzania katalogami, plikami i listami ACL w Azure Data Lake Storage Gen2
 
@@ -93,11 +94,11 @@ def initialize_storage_account_ad(storage_account_name, client_id, client_secret
 > [!NOTE]
 > Aby uzyskać więcej przykładów, zobacz [Biblioteka klienta tożsamości platformy Azure dla](https://pypi.org/project/azure-identity/) dokumentacji języka Python.
 
-## <a name="create-a-file-system"></a>Tworzenie systemu plików
+## <a name="create-a-container"></a>Tworzenie kontenera
 
-System plików działa jako kontener dla plików. Można go utworzyć, wywołując metodę **FileSystemDataLakeServiceClient. create_file_system** .
+Kontener działa jako system plików dla plików. Można go utworzyć, wywołując metodę **FileSystemDataLakeServiceClient. create_file_system** .
 
-Ten przykład tworzy system plików o nazwie `my-file-system` .
+Ten przykład tworzy kontener o nazwie `my-file-system` .
 
 ```python
 def create_file_system():
@@ -115,7 +116,7 @@ def create_file_system():
 
 Utwórz odwołanie do katalogu, wywołując metodę **FileSystemClient. create_directory** .
 
-Ten przykład dodaje katalog o nazwie `my-directory` do systemu plików. 
+Ten przykład dodaje katalog o nazwie `my-directory` do kontenera. 
 
 ```python
 def create_directory():

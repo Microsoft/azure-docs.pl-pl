@@ -8,11 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 02/11/2020
 ms.author: jushiman
-ms.openlocfilehash: 9c16cd4143bc07bf5f3b1d00b890dc54bd5ea318
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fef582048d1e1093a4a4d69229185e8a3d8dc229
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83659884"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86144854"
 ---
 # <a name="support-for-generation-2-vms-on-azure"></a>Obsługa maszyn wirtualnych 2. generacji na platformie Azure
 
@@ -77,7 +78,7 @@ Platforma Azure nie obsługuje obecnie niektórych funkcji, które są obsługiw
 
 ### <a name="generation-1-vs-generation-2-features"></a>Funkcje generacji 1 a generacja 2
 
-| Cecha | Pierwsza generacja | Druga generacja |
+| Obiekt feature | Pierwsza generacja | Druga generacja |
 |---------|--------------|--------------|
 | Rozruch             | PCAT                      | UEFI                               |
 | Kontrolery dysków | IDE                       | SCSI                               |
@@ -191,6 +192,9 @@ Można również tworzyć maszyny wirtualne 2. generacji przy użyciu zestawów 
 * **Czy maszyny wirtualne generacji 2 obsługują przyspieszone sieci?**  
     Tak. Aby uzyskać więcej informacji, zobacz [Tworzenie maszyny wirtualnej za pomocą przyspieszonej sieci](../../virtual-network/create-vm-accelerated-networking-cli.md).
 
+* **Czy maszyny wirtualne generacji 2 obsługują bezpieczny rozruch lub vTPM na platformie Azure?**
+    Zarówno maszyny wirtualne generacji 1, jak i 2. generacji na platformie Azure nie obsługują funkcji bezpiecznego rozruchu ani vTPM. 
+    
 * **Czy plik VHDX jest obsługiwany w generacji 2?**  
     Nie, maszyny wirtualne generacji 2 obsługują tylko dysk VHD.
 

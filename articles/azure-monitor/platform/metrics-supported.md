@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 06/16/2020
 ms.author: robb
 ms.subservice: metrics
-ms.openlocfilehash: 7ed55200db72879f7ec7323b5c165998944688a5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ffdfeacad2fcfa7f77f3bcb55e8b1edaea865202
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84906789"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86145170"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Obsługiwane metryki z Azure Monitor
 
@@ -46,7 +46,7 @@ Istnieją pewne ograniczenia dotyczące tego, co może być kierowane i formular
 |Metryka|Nazwa wyświetlana metryki|Jednostka|Typ agregacji|Opis|Wymiary|
 |---|---|---|---|---|---|
 |qpu_metric|QPU|Liczba|Średnia|QPU. Zakres 0-100 dla S1, 0-200 dla S2 i 0-400 dla S4|ServerResourceType|
-|memory_metric|Memory (Pamięć)|Bajty|Średnia|Memory (pamięć). Zakres 0-25 GB dla S1, 0-50 GB dla S2 i 0-100 GB dla S4|ServerResourceType|
+|memory_metric|Pamięć|Bajty|Średnia|Memory (pamięć). Zakres 0-25 GB dla S1, 0-50 GB dla S2 i 0-100 GB dla S4|ServerResourceType|
 |private_bytes_metric|Bajty prywatne|Bajty|Średnia|Bajty prywatne.|ServerResourceType|
 |virtual_bytes_metric|Bajty wirtualne|Bajty|Średnia|Bajty wirtualne.|ServerResourceType|
 |TotalConnectionRequests|Łączna liczba żądań połączenia|Liczba|Średnia|Łączna liczba żądań połączenia. Są to wejścia.|ServerResourceType|
@@ -65,7 +65,7 @@ Istnieją pewne ograniczenia dotyczące tego, co może być kierowane i formular
 |MemoryLimitHigh|Pamięć: limit pamięci jest wysoki|Bajty|Średnia|Górny limit pamięci z pliku konfiguracji.|ServerResourceType|
 |MemoryLimitLow|Pamięć: limit pamięci — niski|Bajty|Średnia|Limit braku pamięci z pliku konfiguracji.|ServerResourceType|
 |MemoryLimitVertiPaq|Pamięć: limit pamięci — tryb VertiPaq|Bajty|Średnia|Limit w pamięci z pliku konfiguracji.|ServerResourceType|
-|limit przydziału|Pamięć: limit przydziału|Bajty|Średnia|Bieżący limit pamięci (w bajtach). Przydział pamięci jest również nazywany przydziałem pamięci lub rezerwacją pamięci.|ServerResourceType|
+|Limit przydziału|Pamięć: limit przydziału|Bajty|Średnia|Bieżący limit pamięci (w bajtach). Przydział pamięci jest również nazywany przydziałem pamięci lub rezerwacją pamięci.|ServerResourceType|
 |QuotaBlocked|Pamięć: zablokowany limit przydziału|Liczba|Średnia|Bieżąca liczba żądań przydziałów blokowanych do momentu zwolnienia innych limitów przydziału pamięci.|ServerResourceType|
 |VertiPaqNonpaged|Pamięć: VertiPaq niestronicowana|Bajty|Średnia|Bajty pamięci zablokowane w zestawie roboczym do użycia przez aparat w pamięci.|ServerResourceType|
 |VertiPaqPaged|Pamięć: stronicowana na stronie VertiPaq|Bajty|Średnia|Bajty stronicowanej pamięci w użyciu dla danych w pamięci.|ServerResourceType|
@@ -474,7 +474,7 @@ Istnieją pewne ograniczenia dotyczące tego, co może być kierowane i formular
 |Transakcje|Transakcje|Liczba|Łącznie|Liczba żądań wysyłanych do usługi magazynu lub określonej operacji interfejsu API. Liczba ta obejmuje żądania zakończone powodzeniem i zakończone niepowodzeniem, a także żądania, które wygenerowały błędy. Użyj wymiaru responsetype dla liczby różnych typów odpowiedzi.|Responsetype, geotype, ApiName, uwierzytelnianie|
 |Ruch przychodzący|Ruch przychodzący|Bajty|Łącznie|Ilość danych wejściowych w bajtach. Ta liczba obejmuje dane przychodzące z klienta zewnętrznego do usługi Azure Storage, a także dane przychodzące w obrębie platformy Azure.|Geotype, ApiName, uwierzytelnianie|
 |Ruch wychodzący|Ruch wychodzący|Bajty|Łącznie|Ilość danych wyjściowych w bajtach. Ta liczba obejmuje dane wychodzące z klienta zewnętrznego do usługi Azure Storage, a także dane wychodzące w obrębie platformy Azure. W rezultacie liczba ta nie odzwierciedla danych wychodzących uwzględnianych na rozliczeniu.|Geotype, ApiName, uwierzytelnianie|
-|SuccessServerLatency|Opóźnienie serwera dla powodzenia|)|Średnia|Opóźnienie używane przez usługę Azure Storage do przetworzenia pomyślnego żądania w milisekundach. Ta wartość nie obejmuje opóźnienia sieci określonego przez wartość Opóźnienie E2E dla powodzenia.|Geotype, ApiName, uwierzytelnianie|
+|SuccessServerLatency|Opóźnienie serwera sukcesu|)|Średnia|Opóźnienie używane przez usługę Azure Storage do przetworzenia pomyślnego żądania w milisekundach. Ta wartość nie obejmuje opóźnienia sieci określonego przez wartość Opóźnienie E2E dla powodzenia.|Geotype, ApiName, uwierzytelnianie|
 |SuccessE2ELatency|Opóźnienie E2E dla powodzenia|)|Średnia|Kompleksowe opóźnienie pomyślnych żądań kierowanych do usługi magazynu lub określonej operacji interfejsu API (w milisekundach). Ta wartość obejmuje wymagany czas przetwarzania w usłudze Azure Storage do odczytania żądania, wysłania odpowiedzi i odebrania potwierdzenia dla odpowiedzi.|Geotype, ApiName, uwierzytelnianie|
 |Dostępność|Dostępność|Procent|Średnia|Procent dostępności usługi magazynu lub określonej operacji interfejsu API. Dostępność jest obliczana przez podzielenie wartości TotalBillableRequests przez liczbę żądań mających zastosowanie, łącznie z tymi, które wygenerowały nieoczekiwane błędy. Wszystkie nieoczekiwane błędy powodują obniżenie poziomu dostępności usługi magazynu lub określonej operacji interfejsu API.|Geotype, ApiName, uwierzytelnianie|
 
@@ -489,7 +489,7 @@ Istnieją pewne ograniczenia dotyczące tego, co może być kierowane i formular
 |Transakcje|Transakcje|Liczba|Łącznie|Liczba żądań wysyłanych do usługi magazynu lub określonej operacji interfejsu API. Liczba ta obejmuje żądania zakończone powodzeniem i zakończone niepowodzeniem, a także żądania, które wygenerowały błędy. Użyj wymiaru responsetype dla liczby różnych typów odpowiedzi.|Responsetype, geotype, ApiName, uwierzytelnianie|
 |Ruch przychodzący|Ruch przychodzący|Bajty|Łącznie|Ilość danych wejściowych w bajtach. Ta liczba obejmuje dane przychodzące z klienta zewnętrznego do usługi Azure Storage, a także dane przychodzące w obrębie platformy Azure.|Geotype, ApiName, uwierzytelnianie|
 |Ruch wychodzący|Ruch wychodzący|Bajty|Łącznie|Ilość danych wyjściowych w bajtach. Ta liczba obejmuje dane wychodzące z klienta zewnętrznego do usługi Azure Storage, a także dane wychodzące w obrębie platformy Azure. W rezultacie liczba ta nie odzwierciedla danych wychodzących uwzględnianych na rozliczeniu.|Geotype, ApiName, uwierzytelnianie|
-|SuccessServerLatency|Opóźnienie serwera dla powodzenia|)|Średnia|Opóźnienie używane przez usługę Azure Storage do przetworzenia pomyślnego żądania w milisekundach. Ta wartość nie obejmuje opóźnienia sieci określonego przez wartość Opóźnienie E2E dla powodzenia.|Geotype, ApiName, uwierzytelnianie|
+|SuccessServerLatency|Opóźnienie serwera sukcesu|)|Średnia|Opóźnienie używane przez usługę Azure Storage do przetworzenia pomyślnego żądania w milisekundach. Ta wartość nie obejmuje opóźnienia sieci określonego przez wartość Opóźnienie E2E dla powodzenia.|Geotype, ApiName, uwierzytelnianie|
 |SuccessE2ELatency|Opóźnienie E2E dla powodzenia|)|Średnia|Kompleksowe opóźnienie pomyślnych żądań kierowanych do usługi magazynu lub określonej operacji interfejsu API (w milisekundach). Ta wartość obejmuje wymagany czas przetwarzania w usłudze Azure Storage do odczytania żądania, wysłania odpowiedzi i odebrania potwierdzenia dla odpowiedzi.|Geotype, ApiName, uwierzytelnianie|
 |Dostępność|Dostępność|Procent|Średnia|Procent dostępności usługi magazynu lub określonej operacji interfejsu API. Dostępność jest obliczana przez podzielenie wartości TotalBillableRequests przez liczbę żądań mających zastosowanie, łącznie z tymi, które wygenerowały nieoczekiwane błędy. Wszystkie nieoczekiwane błędy powodują obniżenie poziomu dostępności usługi magazynu lub określonej operacji interfejsu API.|Geotype, ApiName, uwierzytelnianie|
 
@@ -503,7 +503,7 @@ Istnieją pewne ograniczenia dotyczące tego, co może być kierowane i formular
 |Transakcje|Transakcje|Liczba|Łącznie|Liczba żądań wysyłanych do usługi magazynu lub określonej operacji interfejsu API. Liczba ta obejmuje żądania zakończone powodzeniem i zakończone niepowodzeniem, a także żądania, które wygenerowały błędy. Użyj wymiaru responsetype dla liczby różnych typów odpowiedzi.|Responsetype, geotype, ApiName, uwierzytelnianie|
 |Ruch przychodzący|Ruch przychodzący|Bajty|Łącznie|Ilość danych wejściowych w bajtach. Ta liczba obejmuje dane przychodzące z klienta zewnętrznego do usługi Azure Storage, a także dane przychodzące w obrębie platformy Azure.|Geotype, ApiName, uwierzytelnianie|
 |Ruch wychodzący|Ruch wychodzący|Bajty|Łącznie|Ilość danych wyjściowych w bajtach. Ta liczba obejmuje dane wychodzące z klienta zewnętrznego do usługi Azure Storage, a także dane wychodzące w obrębie platformy Azure. W rezultacie liczba ta nie odzwierciedla danych wychodzących uwzględnianych na rozliczeniu.|Geotype, ApiName, uwierzytelnianie|
-|SuccessServerLatency|Opóźnienie serwera dla powodzenia|)|Średnia|Opóźnienie używane przez usługę Azure Storage do przetworzenia pomyślnego żądania w milisekundach. Ta wartość nie obejmuje opóźnienia sieci określonego przez wartość Opóźnienie E2E dla powodzenia.|Geotype, ApiName, uwierzytelnianie|
+|SuccessServerLatency|Opóźnienie serwera sukcesu|)|Średnia|Opóźnienie używane przez usługę Azure Storage do przetworzenia pomyślnego żądania w milisekundach. Ta wartość nie obejmuje opóźnienia sieci określonego przez wartość Opóźnienie E2E dla powodzenia.|Geotype, ApiName, uwierzytelnianie|
 |SuccessE2ELatency|Opóźnienie E2E dla powodzenia|)|Średnia|Kompleksowe opóźnienie pomyślnych żądań kierowanych do usługi magazynu lub określonej operacji interfejsu API (w milisekundach). Ta wartość obejmuje wymagany czas przetwarzania w usłudze Azure Storage do odczytania żądania, wysłania odpowiedzi i odebrania potwierdzenia dla odpowiedzi.|Geotype, ApiName, uwierzytelnianie|
 |Dostępność|Dostępność|Procent|Średnia|Procent dostępności usługi magazynu lub określonej operacji interfejsu API. Dostępność jest obliczana przez podzielenie wartości TotalBillableRequests przez liczbę żądań mających zastosowanie, łącznie z tymi, które wygenerowały nieoczekiwane błędy. Wszystkie nieoczekiwane błędy powodują obniżenie poziomu dostępności usługi magazynu lub określonej operacji interfejsu API.|Geotype, ApiName, uwierzytelnianie|
 
@@ -520,7 +520,7 @@ Istnieją pewne ograniczenia dotyczące tego, co może być kierowane i formular
 |Transakcje|Transakcje|Liczba|Łącznie|Liczba żądań wysyłanych do usługi magazynu lub określonej operacji interfejsu API. Liczba ta obejmuje żądania zakończone powodzeniem i zakończone niepowodzeniem, a także żądania, które wygenerowały błędy. Użyj wymiaru responsetype dla liczby różnych typów odpowiedzi.|Responsetype, geotype, ApiName, Authentication, przeudziale|
 |Ruch przychodzący|Ruch przychodzący|Bajty|Łącznie|Ilość danych wejściowych w bajtach. Ta liczba obejmuje dane przychodzące z klienta zewnętrznego do usługi Azure Storage, a także dane przychodzące w obrębie platformy Azure.|Geotyp, ApiName, uwierzytelnianie, przeudziale|
 |Ruch wychodzący|Ruch wychodzący|Bajty|Łącznie|Ilość danych wyjściowych w bajtach. Ta liczba obejmuje dane wychodzące z klienta zewnętrznego do usługi Azure Storage, a także dane wychodzące w obrębie platformy Azure. W rezultacie liczba ta nie odzwierciedla danych wychodzących uwzględnianych na rozliczeniu.|Geotyp, ApiName, uwierzytelnianie, przeudziale|
-|SuccessServerLatency|Opóźnienie serwera dla powodzenia|)|Średnia|Opóźnienie używane przez usługę Azure Storage do przetworzenia pomyślnego żądania w milisekundach. Ta wartość nie obejmuje opóźnienia sieci określonego przez wartość Opóźnienie E2E dla powodzenia.|Geotyp, ApiName, uwierzytelnianie, przeudziale|
+|SuccessServerLatency|Opóźnienie serwera sukcesu|)|Średnia|Opóźnienie używane przez usługę Azure Storage do przetworzenia pomyślnego żądania w milisekundach. Ta wartość nie obejmuje opóźnienia sieci określonego przez wartość Opóźnienie E2E dla powodzenia.|Geotyp, ApiName, uwierzytelnianie, przeudziale|
 |SuccessE2ELatency|Opóźnienie E2E dla powodzenia|)|Średnia|Kompleksowe opóźnienie pomyślnych żądań kierowanych do usługi magazynu lub określonej operacji interfejsu API (w milisekundach). Ta wartość obejmuje wymagany czas przetwarzania w usłudze Azure Storage do odczytania żądania, wysłania odpowiedzi i odebrania potwierdzenia dla odpowiedzi.|Geotyp, ApiName, uwierzytelnianie, przeudziale|
 |Dostępność|Dostępność|Procent|Średnia|Procent dostępności usługi magazynu lub określonej operacji interfejsu API. Dostępność jest obliczana przez podzielenie wartości TotalBillableRequests przez liczbę żądań mających zastosowanie, łącznie z tymi, które wygenerowały nieoczekiwane błędy. Wszystkie nieoczekiwane błędy powodują obniżenie poziomu dostępności usługi magazynu lub określonej operacji interfejsu API.|Geotyp, ApiName, uwierzytelnianie, przeudziale|
 
@@ -534,7 +534,7 @@ Istnieją pewne ograniczenia dotyczące tego, co może być kierowane i formular
 |Transakcje|Transakcje|Liczba|Łącznie|Liczba żądań wysyłanych do usługi magazynu lub określonej operacji interfejsu API. Liczba ta obejmuje żądania zakończone powodzeniem i zakończone niepowodzeniem, a także żądania, które wygenerowały błędy. Użyj wymiaru responsetype dla liczby różnych typów odpowiedzi.|Responsetype, geotype, ApiName, uwierzytelnianie|
 |Ruch przychodzący|Ruch przychodzący|Bajty|Łącznie|Ilość danych wejściowych w bajtach. Ta liczba obejmuje dane przychodzące z klienta zewnętrznego do usługi Azure Storage, a także dane przychodzące w obrębie platformy Azure.|Geotype, ApiName, uwierzytelnianie|
 |Ruch wychodzący|Ruch wychodzący|Bajty|Łącznie|Ilość danych wyjściowych w bajtach. Ta liczba obejmuje dane wychodzące z klienta zewnętrznego do usługi Azure Storage, a także dane wychodzące w obrębie platformy Azure. W rezultacie liczba ta nie odzwierciedla danych wychodzących uwzględnianych na rozliczeniu.|Geotype, ApiName, uwierzytelnianie|
-|SuccessServerLatency|Opóźnienie serwera dla powodzenia|)|Średnia|Opóźnienie używane przez usługę Azure Storage do przetworzenia pomyślnego żądania w milisekundach. Ta wartość nie obejmuje opóźnienia sieci określonego przez wartość Opóźnienie E2E dla powodzenia.|Geotype, ApiName, uwierzytelnianie|
+|SuccessServerLatency|Opóźnienie serwera sukcesu|)|Średnia|Opóźnienie używane przez usługę Azure Storage do przetworzenia pomyślnego żądania w milisekundach. Ta wartość nie obejmuje opóźnienia sieci określonego przez wartość Opóźnienie E2E dla powodzenia.|Geotype, ApiName, uwierzytelnianie|
 |SuccessE2ELatency|Opóźnienie E2E dla powodzenia|)|Średnia|Kompleksowe opóźnienie pomyślnych żądań kierowanych do usługi magazynu lub określonej operacji interfejsu API (w milisekundach). Ta wartość obejmuje wymagany czas przetwarzania w usłudze Azure Storage do odczytania żądania, wysłania odpowiedzi i odebrania potwierdzenia dla odpowiedzi.|Geotype, ApiName, uwierzytelnianie|
 |Dostępność|Dostępność|Procent|Średnia|Procent dostępności usługi magazynu lub określonej operacji interfejsu API. Dostępność jest obliczana przez podzielenie wartości TotalBillableRequests przez liczbę żądań mających zastosowanie, łącznie z tymi, które wygenerowały nieoczekiwane błędy. Wszystkie nieoczekiwane błędy powodują obniżenie poziomu dostępności usługi magazynu lub określonej operacji interfejsu API.|Geotype, ApiName, uwierzytelnianie|
 
@@ -1307,7 +1307,7 @@ Istnieją pewne ograniczenia dotyczące tego, co może być kierowane i formular
 |QueryDuration|Czas trwania zapytania|)|Średnia|Czas trwania zapytań (w sekundach)|QueryStatus|
 |IngestionUtilization|Wykorzystanie pozyskiwania|Procent|Średnia|Współczynnik używania miejsc pozyskiwania w klastrze|Brak|
 |Utrzymywani|Utrzymywanie aktywności|Liczba|Średnia|Sprawdzenie Sanity wskazuje, że klaster reaguje na zapytania|Brak|
-|IngestionVolumeInMB|Wolumin pozyskiwania (w MB)|Liczba|Łącznie|Ogólna ilość danych pozyskiwanych w klastrze (w MB)|baza danych|
+|IngestionVolumeInMB|Wolumin pozyskiwania (w MB)|Liczba|Łącznie|Ogólna ilość danych pozyskiwanych w klastrze (w MB)|Baza danych|
 |IngestionLatencyInSeconds|Opóźnienie pozyskiwania (w sekundach)|Sekundy|Średnia|Czas pozyskiwania ze źródła (np. komunikat jest w centrum EventHub) do klastra w ciągu kilku sekund|Brak|
 |EventsProcessedForEventHubs|Zdarzenia przetwarzane (dla centrów zdarzeń/IoT)|Liczba|Łącznie|Liczba zdarzeń przetwarzanych przez klaster podczas pozyskiwania ze zdarzenia/IoT Hub|EventStatus|
 |IngestionResult|Wynik pozyskiwania|Liczba|Liczba|Liczba operacji pozyskiwania|IngestionResultDetails|
@@ -1857,7 +1857,7 @@ Istnieją pewne ograniczenia dotyczące tego, co może być kierowane i formular
 |Długość kolejki Average_Processor|Długość kolejki procesora|Liczba|Średnia|Długość kolejki Average_Processor|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
 |Puls|Puls|Liczba|Łącznie|Puls|Komputer, OSType, wersja, SourceComputerId|
 |Aktualizacja|Aktualizacja|Liczba|Średnia|Aktualizacja|Komputer, produkt, klasyfikacja, UpdateState, opcjonalne, zatwierdzone|
-|Wydarzenie|Wydarzenie|Liczba|Średnia|Wydarzenie|Source, EventLog, Computer, EventCategory, EventLevel, EventLevelName, EventID|
+|Zdarzenie|Zdarzenie|Liczba|Średnia|Zdarzenie|Source, EventLog, Computer, EventCategory, EventLevel, EventLevelName, EventID|
 
 ## <a name="microsoftpeeringpeeringservices"></a>Microsoft. Komunikacja równorzędna/peeringServices
 
@@ -1882,7 +1882,7 @@ Istnieją pewne ograniczenia dotyczące tego, co może być kierowane i formular
 |QueryDuration|Czas trwania zapytania|)|Średnia|Czas trwania zapytania języka DAX w ostatnim interwale|Brak wymiarów|
 |QueryPoolJobQueueLength|Wątki: Długość kolejki zadań puli zapytań|Liczba|Średnia|Liczba zadań w kolejce puli wątków zapytań.|Brak wymiarów|
 |qpu_high_utilization_metric|Wysokie wykorzystanie jednostek QPU|Liczba|Łącznie|QPU wysokie użycie w ciągu ostatnich minut, 1 do dużego użycia QPU, w przeciwnym razie 0|Brak wymiarów|
-|memory_metric|Memory (Pamięć)|Bajty|Średnia|Memory (pamięć). Zakres 0-3 GB dla a1, 0-5 GB dla a2, 0-10 GB dla a3, 0-25 GB dla A4, 0-50 GB dla A5 i 0-100 GB dla A6|Brak wymiarów|
+|memory_metric|Pamięć|Bajty|Średnia|Memory (pamięć). Zakres 0-3 GB dla a1, 0-5 GB dla a2, 0-10 GB dla a3, 0-25 GB dla A4, 0-50 GB dla A5 i 0-100 GB dla A6|Brak wymiarów|
 |memory_thrashing_metric|Przeładowywanie pamięci|Procent|Średnia|Średnia pamięć migotanie.|Brak wymiarów|
 
 
@@ -1976,7 +1976,7 @@ Istnieją pewne ograniczenia dotyczące tego, co może być kierowane i formular
 
 |Metryka|Nazwa wyświetlana metryki|Jednostka|Typ agregacji|Opis|Wymiary|
 |---|---|---|---|---|---|
-|ConnectionCount|Liczba połączeń|Liczba|Maksimum|Ilość połączenia użytkownika.|Endpoint|
+|ConnectionCount|Liczba połączeń|Liczba|Maksimum|Ilość połączenia użytkownika.|Punkt końcowy|
 |MessageCount|Liczba komunikatów|Liczba|Łącznie|Całkowita ilość komunikatów.|Brak|
 |InboundTraffic|Ruch przychodzący|Bajty|Łącznie|Ruch przychodzący usługi|Brak|
 |OutboundTraffic|Ruch wychodzący|Bajty|Łącznie|Ruch wychodzący usługi|Brak|
@@ -2013,9 +2013,9 @@ Istnieją pewne ograniczenia dotyczące tego, co może być kierowane i formular
 |cache_used_percent|Procent użycia pamięci podręcznej|Procent|Maksimum|Procent użycia pamięci podręcznej. Dotyczy tylko magazynów danych.|Brak|
 |sqlserver_process_core_percent<sup>1</sup> |Procent podstawowych procesów SQL Server|Procent|Maksimum|Procent użycia procesora CPU dla procesu SQL Server, mierzony przez system operacyjny.|Brak|
 |sqlserver_process_memory_percent<sup>1</sup> |Procent pamięci procesu SQL Server|Procent|Maksimum|Procent użycia pamięci dla procesu SQL Server, mierzony przez system operacyjny.|Brak|
-|tempdb_data_size<sup>2</sup> |Rozmiar pliku danych tempdb kilobajtów|Liczba|Maksimum|Rozmiar pliku danych tempdb kilobajtów.|Brak|
-|tempdb_log_size<sup>2</sup> |Rozmiar pliku dziennika bazy danych tempdb kilobajtów|Liczba|Maksimum|Rozmiar pliku dziennika bazy danych tempdb kilobajtów.|Brak|
-|tempdb_log_used_percent<sup>2</sup> |Użyto dziennika% tempdb|Procent|Maksimum|Użyto dziennika bazy danych tempdb.|Brak|
+|tempdb_data_size<sup>1</sup> |Rozmiar pliku danych tempdb kilobajtów|Liczba|Maksimum|Rozmiar pliku danych tempdb kilobajtów.|Brak|
+|tempdb_log_size<sup>1</sup> |Rozmiar pliku dziennika bazy danych tempdb kilobajtów|Liczba|Maksimum|Rozmiar pliku dziennika bazy danych tempdb kilobajtów.|Brak|
+|tempdb_log_used_percent<sup>1</sup> |Użyto dziennika% tempdb|Procent|Maksimum|Użyto dziennika bazy danych tempdb.|Brak|
 |local_tempdb_usage_percent|Procent lokalnej bazy danych tempdb|Procent|Średnia|Procent lokalnej bazy danych tempdb. Dotyczy tylko magazynów danych.|Brak|
 |app_cpu_billed|Rozliczane użycie procesora przez aplikację|Liczba|Łącznie|Rozliczane użycie procesora przez aplikację. Dotyczy bezserwerowych baz danych.|Brak|
 |app_cpu_percent|Procent użycia procesora CPU aplikacji|Procent|Średnia|Procent użycia procesora CPU aplikacji. Dotyczy bezserwerowych baz danych.|Brak|
@@ -2040,9 +2040,7 @@ Istnieją pewne ograniczenia dotyczące tego, co może być kierowane i formular
 |snapshot_backup_size_bytes|Rozmiar magazynu kopii zapasowej migawek|Bajty|Maksimum|Rozmiar magazynu kopii zapasowej migawki skumulowanej. Dotyczy baz danych w skali.|Brak|
 |base_blob_size_bytes|Rozmiar podstawowego magazynu obiektów BLOB|Bajty|Maksimum|Rozmiar podstawowego magazynu obiektów BLOB. Dotyczy baz danych w skali.|Brak|
 
-<sup>1</sup> ta Metryka jest dostępna dla baz danych korzystających z modelu zakupów rdzeń wirtualny o wartości 2 rdzeni wirtualnych i wyższych lub 200 jednostek DTU i wyższych dla modeli zakupów opartych na jednostkach DTU. 
-
-<sup>Ta</sup> Metryka jest dostępna dla baz danych korzystających z modelu zakupów rdzeń wirtualny o wartości 2 rdzeni wirtualnych i wyższych lub 200 jednostek DTU i wyższych dla modeli zakupów opartych na jednostkach DTU. Ta Metryka jest obecnie niedostępna dla baz danych lub magazynów danych w skali.
+<sup>1</sup> ta Metryka jest dostępna dla baz danych korzystających z modelu zakupów rdzeń wirtualny o wartości 2 rdzeni wirtualnych i wyższych lub 200 jednostek DTU i wyższych dla modelu zakupu opartego na jednostkach DTU. 
 
 ## <a name="microsoftsqlserverselasticpools"></a>Microsoft. SQL/serwery/elasticPools
 
@@ -2074,16 +2072,14 @@ Istnieją pewne ograniczenia dotyczące tego, co może być kierowane i formular
 |database_cpu_used|Użycie procesora CPU|Liczba|Średnia|Użycie procesora CPU|DatabaseResourceId|
 |sqlserver_process_core_percent<sup>1</sup>|Procent podstawowych procesów SQL Server|Procent|Maksimum|Procent użycia procesora CPU dla procesu SQL Server, mierzony przez system operacyjny. Dotyczy pul elastycznych. |Brak|
 |sqlserver_process_memory_percent<sup>1</sup>|Procent pamięci procesu SQL Server|Procent|Maksimum|Procent użycia pamięci dla procesu SQL Server, mierzony przez system operacyjny. Dotyczy pul elastycznych. |Brak|
-|tempdb_data_size<sup>2</sup>|Rozmiar pliku danych tempdb kilobajtów|Liczba|Maksimum|Rozmiar pliku danych tempdb kilobajtów.|Brak|
-|tempdb_log_size<sup>2</sup>|Rozmiar pliku dziennika bazy danych tempdb kilobajtów|Liczba|Maksimum|Rozmiar pliku dziennika bazy danych tempdb kilobajtów. |Brak|
-|tempdb_log_used_percent<sup>2</sup>|Użyto dziennika% tempdb|Procent|Maksimum|Użyto dziennika bazy danych tempdb.|Brak|
+|tempdb_data_size<sup>1</sup>|Rozmiar pliku danych tempdb kilobajtów|Liczba|Maksimum|Rozmiar pliku danych tempdb kilobajtów.|Brak|
+|tempdb_log_size<sup>1</sup>|Rozmiar pliku dziennika bazy danych tempdb kilobajtów|Liczba|Maksimum|Rozmiar pliku dziennika bazy danych tempdb kilobajtów. |Brak|
+|tempdb_log_used_percent<sup>1</sup>|Użyto dziennika% tempdb|Procent|Maksimum|Użyto dziennika bazy danych tempdb.|Brak|
 |allocated_data_storage|Przydzielono miejsce na danych|Bajty|Średnia|Przydzielono miejsce na danych|Brak|
 |database_allocated_data_storage|Przydzielono miejsce na danych|Bajty|Średnia|Przydzielono miejsce na danych|DatabaseResourceId|
 |allocated_data_storage_percent|Procent przydzielonych przestrzeni danych|Procent|Maksimum|Procent przydzielonych przestrzeni danych|Brak|
 
-<sup>1</sup> ta Metryka jest dostępna dla baz danych korzystających z modelu zakupów rdzeń wirtualny o wartości 2 rdzeni wirtualnych i wyższych lub 200 jednostek DTU i wyższych dla modeli zakupów opartych na jednostkach DTU. 
-
-<sup>Ta</sup> Metryka jest dostępna dla baz danych korzystających z modelu zakupów rdzeń wirtualny o wartości 2 rdzeni wirtualnych i wyższych lub 200 jednostek DTU i wyższych dla modeli zakupów opartych na jednostkach DTU. Ta Metryka jest obecnie niedostępna dla baz danych w skali.
+<sup>1</sup> ta Metryka jest dostępna dla baz danych korzystających z modelu zakupów rdzeń wirtualny o wartości 2 rdzeni wirtualnych i wyższych lub 200 jednostek DTU i wyższych dla modelu zakupu opartego na jednostkach DTU. 
 
 ## <a name="microsoftsqlmanagedinstances"></a>Microsoft. SQL/managedInstances
 
@@ -2107,7 +2103,7 @@ Istnieją pewne ograniczenia dotyczące tego, co może być kierowane i formular
 |Transakcje|Transakcje|Liczba|Łącznie|Liczba żądań wysyłanych do usługi magazynu lub określonej operacji interfejsu API. Liczba ta obejmuje żądania zakończone powodzeniem i zakończone niepowodzeniem, a także żądania, które wygenerowały błędy. Użyj wymiaru responsetype dla liczby różnych typów odpowiedzi.|Responsetype, geotype, ApiName, uwierzytelnianie|
 |Ruch przychodzący|Ruch przychodzący|Bajty|Łącznie|Ilość danych wejściowych w bajtach. Ta liczba obejmuje dane przychodzące z klienta zewnętrznego do usługi Azure Storage, a także dane przychodzące w obrębie platformy Azure.|Geotype, ApiName, uwierzytelnianie|
 |Ruch wychodzący|Ruch wychodzący|Bajty|Łącznie|Ilość danych wyjściowych w bajtach. Ta liczba obejmuje dane wychodzące z klienta zewnętrznego do usługi Azure Storage, a także dane wychodzące w obrębie platformy Azure. W rezultacie liczba ta nie odzwierciedla danych wychodzących uwzględnianych na rozliczeniu.|Geotype, ApiName, uwierzytelnianie|
-|SuccessServerLatency|Opóźnienie serwera dla powodzenia|)|Średnia|Średnie opóźnienie używane przez usługę Azure Storage do przetworzenia pomyślnego żądania w milisekundach. Ta wartość nie obejmuje opóźnienia sieci uwzględnionego w wartości AverageE2ELatency.|Geotype, ApiName, uwierzytelnianie|
+|SuccessServerLatency|Opóźnienie serwera sukcesu|)|Średnia|Średnie opóźnienie używane przez usługę Azure Storage do przetworzenia pomyślnego żądania w milisekundach. Ta wartość nie obejmuje opóźnienia sieci uwzględnionego w wartości AverageE2ELatency.|Geotype, ApiName, uwierzytelnianie|
 |SuccessE2ELatency|Opóźnienie E2E dla powodzenia|)|Średnia|Średni czas oczekiwania na zakończenie pomyślnych żądań skierowanych do usługi magazynu lub określonej operacji interfejsu API (w milisekundach). Ta wartość obejmuje wymagany czas przetwarzania w usłudze Azure Storage do odczytania żądania, wysłania odpowiedzi i odebrania potwierdzenia dla odpowiedzi.|Geotype, ApiName, uwierzytelnianie|
 |Dostępność|Dostępność|Procent|Średnia|Procent dostępności usługi magazynu lub określonej operacji interfejsu API. Dostępność jest obliczana przez podzielenie wartości TotalBillableRequests przez liczbę żądań mających zastosowanie, łącznie z tymi, które wygenerowały nieoczekiwane błędy. Wszystkie nieoczekiwane błędy powodują obniżenie poziomu dostępności usługi magazynu lub określonej operacji interfejsu API.|Geotype, ApiName, uwierzytelnianie|
 
@@ -2122,7 +2118,7 @@ Istnieją pewne ograniczenia dotyczące tego, co może być kierowane i formular
 |Transakcje|Transakcje|Liczba|Łącznie|Liczba żądań wysyłanych do usługi magazynu lub określonej operacji interfejsu API. Liczba ta obejmuje żądania zakończone powodzeniem i zakończone niepowodzeniem, a także żądania, które wygenerowały błędy. Użyj wymiaru responsetype dla liczby różnych typów odpowiedzi.|Responsetype, geotype, ApiName, uwierzytelnianie|
 |Ruch przychodzący|Ruch przychodzący|Bajty|Łącznie|Ilość danych wejściowych w bajtach. Ta liczba obejmuje dane przychodzące z klienta zewnętrznego do usługi Azure Storage, a także dane przychodzące w obrębie platformy Azure.|Geotype, ApiName, uwierzytelnianie|
 |Ruch wychodzący|Ruch wychodzący|Bajty|Łącznie|Ilość danych wyjściowych w bajtach. Ta liczba obejmuje dane wychodzące z klienta zewnętrznego do usługi Azure Storage, a także dane wychodzące w obrębie platformy Azure. W rezultacie liczba ta nie odzwierciedla danych wychodzących uwzględnianych na rozliczeniu.|Geotype, ApiName, uwierzytelnianie|
-|SuccessServerLatency|Opóźnienie serwera dla powodzenia|)|Średnia|Średnie opóźnienie używane przez usługę Azure Storage do przetworzenia pomyślnego żądania w milisekundach. Ta wartość nie obejmuje opóźnienia sieci uwzględnionego w wartości AverageE2ELatency.|Geotype, ApiName, uwierzytelnianie|
+|SuccessServerLatency|Opóźnienie serwera sukcesu|)|Średnia|Średnie opóźnienie używane przez usługę Azure Storage do przetworzenia pomyślnego żądania w milisekundach. Ta wartość nie obejmuje opóźnienia sieci uwzględnionego w wartości AverageE2ELatency.|Geotype, ApiName, uwierzytelnianie|
 |SuccessE2ELatency|Opóźnienie E2E dla powodzenia|)|Średnia|Średni czas oczekiwania na zakończenie pomyślnych żądań skierowanych do usługi magazynu lub określonej operacji interfejsu API (w milisekundach). Ta wartość obejmuje wymagany czas przetwarzania w usłudze Azure Storage do odczytania żądania, wysłania odpowiedzi i odebrania potwierdzenia dla odpowiedzi.|Geotype, ApiName, uwierzytelnianie|
 |Dostępność|Dostępność|Procent|Średnia|Procent dostępności usługi magazynu lub określonej operacji interfejsu API. Dostępność jest obliczana przez podzielenie wartości TotalBillableRequests przez liczbę żądań mających zastosowanie, łącznie z tymi, które wygenerowały nieoczekiwane błędy. Wszystkie nieoczekiwane błędy powodują obniżenie poziomu dostępności usługi magazynu lub określonej operacji interfejsu API.|Geotype, ApiName, uwierzytelnianie|
 
@@ -2136,7 +2132,7 @@ Istnieją pewne ograniczenia dotyczące tego, co może być kierowane i formular
 |Transakcje|Transakcje|Liczba|Łącznie|Liczba żądań wysyłanych do usługi magazynu lub określonej operacji interfejsu API. Liczba ta obejmuje żądania zakończone powodzeniem i zakończone niepowodzeniem, a także żądania, które wygenerowały błędy. Użyj wymiaru responsetype dla liczby różnych typów odpowiedzi.|Responsetype, geotype, ApiName, uwierzytelnianie|
 |Ruch przychodzący|Ruch przychodzący|Bajty|Łącznie|Ilość danych wejściowych w bajtach. Ta liczba obejmuje dane przychodzące z klienta zewnętrznego do usługi Azure Storage, a także dane przychodzące w obrębie platformy Azure.|Geotype, ApiName, uwierzytelnianie|
 |Ruch wychodzący|Ruch wychodzący|Bajty|Łącznie|Ilość danych wyjściowych w bajtach. Ta liczba obejmuje dane wychodzące z klienta zewnętrznego do usługi Azure Storage, a także dane wychodzące w obrębie platformy Azure. W rezultacie liczba ta nie odzwierciedla danych wychodzących uwzględnianych na rozliczeniu.|Geotype, ApiName, uwierzytelnianie|
-|SuccessServerLatency|Opóźnienie serwera dla powodzenia|)|Średnia|Średnie opóźnienie używane przez usługę Azure Storage do przetworzenia pomyślnego żądania w milisekundach. Ta wartość nie obejmuje opóźnienia sieci uwzględnionego w wartości AverageE2ELatency.|Geotype, ApiName, uwierzytelnianie|
+|SuccessServerLatency|Opóźnienie serwera sukcesu|)|Średnia|Średnie opóźnienie używane przez usługę Azure Storage do przetworzenia pomyślnego żądania w milisekundach. Ta wartość nie obejmuje opóźnienia sieci uwzględnionego w wartości AverageE2ELatency.|Geotype, ApiName, uwierzytelnianie|
 |SuccessE2ELatency|Opóźnienie E2E dla powodzenia|)|Średnia|Średni czas oczekiwania na zakończenie pomyślnych żądań skierowanych do usługi magazynu lub określonej operacji interfejsu API (w milisekundach). Ta wartość obejmuje wymagany czas przetwarzania w usłudze Azure Storage do odczytania żądania, wysłania odpowiedzi i odebrania potwierdzenia dla odpowiedzi.|Geotype, ApiName, uwierzytelnianie|
 |Dostępność|Dostępność|Procent|Średnia|Procent dostępności usługi magazynu lub określonej operacji interfejsu API. Dostępność jest obliczana przez podzielenie wartości TotalBillableRequests przez liczbę żądań mających zastosowanie, łącznie z tymi, które wygenerowały nieoczekiwane błędy. Wszystkie nieoczekiwane błędy powodują obniżenie poziomu dostępności usługi magazynu lub określonej operacji interfejsu API.|Geotype, ApiName, uwierzytelnianie|
 
@@ -2153,7 +2149,7 @@ Istnieją pewne ograniczenia dotyczące tego, co może być kierowane i formular
 |Transakcje|Transakcje|Liczba|Łącznie|Liczba żądań wysyłanych do usługi magazynu lub określonej operacji interfejsu API. Liczba ta obejmuje żądania zakończone powodzeniem i zakończone niepowodzeniem, a także żądania, które wygenerowały błędy. Użyj wymiaru responsetype dla liczby różnych typów odpowiedzi.|Responsetype, geotype, ApiName, Authentication, przeudziale|
 |Ruch przychodzący|Ruch przychodzący|Bajty|Łącznie|Ilość danych wejściowych w bajtach. Ta liczba obejmuje dane przychodzące z klienta zewnętrznego do usługi Azure Storage, a także dane przychodzące w obrębie platformy Azure.|Geotyp, ApiName, uwierzytelnianie, przeudziale|
 |Ruch wychodzący|Ruch wychodzący|Bajty|Łącznie|Ilość danych wyjściowych w bajtach. Ta liczba obejmuje dane wychodzące z klienta zewnętrznego do usługi Azure Storage, a także dane wychodzące w obrębie platformy Azure. W rezultacie liczba ta nie odzwierciedla danych wychodzących uwzględnianych na rozliczeniu.|Geotyp, ApiName, uwierzytelnianie, przeudziale|
-|SuccessServerLatency|Opóźnienie serwera dla powodzenia|)|Średnia|Średnie opóźnienie używane przez usługę Azure Storage do przetworzenia pomyślnego żądania w milisekundach. Ta wartość nie obejmuje opóźnienia sieci uwzględnionego w wartości AverageE2ELatency.|Geotyp, ApiName, uwierzytelnianie, przeudziale|
+|SuccessServerLatency|Opóźnienie serwera sukcesu|)|Średnia|Średnie opóźnienie używane przez usługę Azure Storage do przetworzenia pomyślnego żądania w milisekundach. Ta wartość nie obejmuje opóźnienia sieci uwzględnionego w wartości AverageE2ELatency.|Geotyp, ApiName, uwierzytelnianie, przeudziale|
 |SuccessE2ELatency|Opóźnienie E2E dla powodzenia|)|Średnia|Średni czas oczekiwania na zakończenie pomyślnych żądań skierowanych do usługi magazynu lub określonej operacji interfejsu API (w milisekundach). Ta wartość obejmuje wymagany czas przetwarzania w usłudze Azure Storage do odczytania żądania, wysłania odpowiedzi i odebrania potwierdzenia dla odpowiedzi.|Geotyp, ApiName, uwierzytelnianie, przeudziale|
 |Dostępność|Dostępność|Procent|Średnia|Procent dostępności usługi magazynu lub określonej operacji interfejsu API. Dostępność jest obliczana przez podzielenie wartości TotalBillableRequests przez liczbę żądań mających zastosowanie, łącznie z tymi, które wygenerowały nieoczekiwane błędy. Wszystkie nieoczekiwane błędy powodują obniżenie poziomu dostępności usługi magazynu lub określonej operacji interfejsu API.|Geotyp, ApiName, uwierzytelnianie, przeudziale|
 
@@ -2167,7 +2163,7 @@ Istnieją pewne ograniczenia dotyczące tego, co może być kierowane i formular
 |Transakcje|Transakcje|Liczba|Łącznie|Liczba żądań wysyłanych do usługi magazynu lub określonej operacji interfejsu API. Liczba ta obejmuje żądania zakończone powodzeniem i zakończone niepowodzeniem, a także żądania, które wygenerowały błędy. Użyj wymiaru responsetype dla liczby różnych typów odpowiedzi.|Responsetype, geotype, ApiName, uwierzytelnianie|
 |Ruch przychodzący|Ruch przychodzący|Bajty|Łącznie|Ilość danych wejściowych w bajtach. Ta liczba obejmuje dane przychodzące z klienta zewnętrznego do usługi Azure Storage, a także dane przychodzące w obrębie platformy Azure.|Geotype, ApiName, uwierzytelnianie|
 |Ruch wychodzący|Ruch wychodzący|Bajty|Łącznie|Ilość danych wyjściowych w bajtach. Ta liczba obejmuje dane wychodzące z klienta zewnętrznego do usługi Azure Storage, a także dane wychodzące w obrębie platformy Azure. W rezultacie liczba ta nie odzwierciedla danych wychodzących uwzględnianych na rozliczeniu.|Geotype, ApiName, uwierzytelnianie|
-|SuccessServerLatency|Opóźnienie serwera dla powodzenia|)|Średnia|Średnie opóźnienie używane przez usługę Azure Storage do przetworzenia pomyślnego żądania w milisekundach. Ta wartość nie obejmuje opóźnienia sieci uwzględnionego w wartości AverageE2ELatency.|Geotype, ApiName, uwierzytelnianie|
+|SuccessServerLatency|Opóźnienie serwera sukcesu|)|Średnia|Średnie opóźnienie używane przez usługę Azure Storage do przetworzenia pomyślnego żądania w milisekundach. Ta wartość nie obejmuje opóźnienia sieci uwzględnionego w wartości AverageE2ELatency.|Geotype, ApiName, uwierzytelnianie|
 |SuccessE2ELatency|Opóźnienie E2E dla powodzenia|)|Średnia|Średni czas oczekiwania na zakończenie pomyślnych żądań skierowanych do usługi magazynu lub określonej operacji interfejsu API (w milisekundach). Ta wartość obejmuje wymagany czas przetwarzania w usłudze Azure Storage do odczytania żądania, wysłania odpowiedzi i odebrania potwierdzenia dla odpowiedzi.|Geotype, ApiName, uwierzytelnianie|
 |Dostępność|Dostępność|Procent|Średnia|Procent dostępności usługi magazynu lub określonej operacji interfejsu API. Dostępność jest obliczana przez podzielenie wartości TotalBillableRequests przez liczbę żądań mających zastosowanie, łącznie z tymi, które wygenerowały nieoczekiwane błędy. Wszystkie nieoczekiwane błędy powodują obniżenie poziomu dostępności usługi magazynu lub określonej operacji interfejsu API.|Geotype, ApiName, uwierzytelnianie|
 
@@ -2300,7 +2296,7 @@ Istnieją pewne ograniczenia dotyczące tego, co może być kierowane i formular
 |WLGAllocationBySystemPercent|Alokacja grupy obciążeń według wartości procentowej systemu|Procent|Maksimum|Procent alokacji zasobów względem całego systemu|IsUserDefined, obciążenie|
 |WLGAllocationByMaxResourcePercent|Alokacja grupy obciążeń według maksymalnego procentu zasobów|Procent|Maksimum|Wyświetla procentową alokację zasobów względem procentu zasobów obowiązujących dla grupy obciążenia. Ta Metryka zapewnia efektywne wykorzystanie grupy obciążeń|IsUserDefined, obciążenie|
 |WLGEffectiveCapResourcePercent|Procent zasobów obowiązujących dla limitu|Procent|Maksimum|Procent zasobów obowiązujących dla grupy obciążenia. Jeśli istnieją inne grupy obciążeń z min_percentage_resource > 0, effective_cap_percentage_resource jest obniżane proporcjonalnie|IsUserDefined, obciążenie|
-|wlg_effective_min_resource_percent|Efektywny minimalny procent zasobów|Procent|Minimalne|Ustawienie efektywnej minimalnej wartości procentowej zasobu może uwzględniać ustawienia poziomu usług i grupy obciążeń. Efektywne min_percentage_resource można zwiększyć na niższych poziomach usługi|IsUserDefined, obciążenie|
+|wlg_effective_min_resource_percent|Efektywny minimalny procent zasobów|Procent|Minimum|Ustawienie efektywnej minimalnej wartości procentowej zasobu może uwzględniać ustawienia poziomu usług i grupy obciążeń. Efektywne min_percentage_resource można zwiększyć na niższych poziomach usługi|IsUserDefined, obciążenie|
 |WLGQueuedQueries|Zakolejkowane zapytania grupy obciążenia|Liczba|Łącznie|Skumulowana liczba żądań umieszczonych w kolejce po osiągnięciu maksymalnego limitu współbieżności|IsUserDefined, obciążenie|
 
 ## <a name="microsofttimeseriesinsightsenvironments"></a>Microsoft. TimeSeriesInsights/środowiska

@@ -4,12 +4,12 @@ description: Pule obrazów niestandardowych są wydajnym sposobem konfigurowania
 ms.topic: conceptual
 ms.date: 07/01/2020
 ms.custom: tracking-python
-ms.openlocfilehash: 962b3c84e7f3cecc5f4d64febbfca635733a0bae
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 38233bc5d279c1c0ae7789dd06acff78ea26fb89
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85851725"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86147284"
 ---
 # <a name="use-the-shared-image-gallery-to-create-a-custom-image-pool"></a>Używanie galerii obrazów udostępnionych do tworzenia niestandardowej puli obrazów
 
@@ -30,7 +30,7 @@ Używanie udostępnionego obrazu skonfigurowanego dla danego scenariusza może z
 - **Aplikacje przed instalacją.** Wstępne Instalowanie aplikacji na dysku systemu operacyjnego jest wydajniejsze i mniej podatne na błędy niż instalowanie aplikacji po zainicjowaniu obsługi administracyjnej węzłów obliczeniowych za pomocą zadania podrzędnego.
 - **Kopiuj duże ilości danych raz.** Utwórz statyczny element danych w zarządzanym obrazie udostępnionym, kopiując go do dysków danych w zarządzanym obrazie. Należy to zrobić tylko raz i udostępnić dane dla każdego węzła puli.
 - **Zwiększaj pule do większych rozmiarów.** Za pomocą galerii obrazów udostępnionych można tworzyć większe pule przy użyciu dostosowanych obrazów wraz z bardziej udostępnionymi replikami obrazu.
-- **Lepsza wydajność niż użycie tylko obrazu zarządzanego jako obrazu niestandardowego.** W przypadku niestandardowej puli obrazów dla udostępnionego obrazu czas osiągnięcia stanu ustalonego wynosi do 25% fasterm, a opóźnienie bezczynności maszyny wirtualnej jest krótsze niż 30%.
+- **Lepsza wydajność niż użycie tylko obrazu zarządzanego jako obrazu niestandardowego.** W przypadku niestandardowej puli obrazów dla udostępnionego obrazu czas osiągnięcia stanu stałego jest szybszy do 25%, a opóźnienie bezczynności maszyny wirtualnej jest krótsze niż 30%.
 - **Przechowywanie wersji obrazów i grupowanie w celu łatwiejszego zarządzania.** Definicja grupowania obrazów zawiera informacje na temat przyczyny utworzenia obrazu, jego systemu operacyjnego oraz informacji o korzystaniu z obrazu. Grupowanie obrazów umożliwia łatwiejsze zarządzanie obrazami. Aby uzyskać więcej informacji, zobacz [definicje obrazu](../virtual-machines/windows/shared-image-galleries.md#image-definitions).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
@@ -83,7 +83,7 @@ Aby utworzyć obraz zarządzany na podstawie migawki, użyj narzędzi wiersza po
 
 ### <a name="create-a-shared-image-gallery"></a>Tworzenie galerii obrazów udostępnionych
 
-Po pomyślnym utworzeniu zarządzanego obrazu musisz utworzyć udostępnioną galerię obrazów, aby udostępnić niestandardowy obraz. Aby dowiedzieć się, jak utworzyć udostępnioną galerię obrazów dla obrazów, zobacz [Tworzenie udostępnionej galerii obrazów za pomocą interfejsu wiersza polecenia platformy Azure](../virtual-machines/linux/shared-images.md) lub [Tworzenie galerii obrazów udostępnionych przy użyciu Azure Portal](../virtual-machines/linux/shared-images-portal.md).
+Po pomyślnym utworzeniu zarządzanego obrazu musisz utworzyć udostępnioną galerię obrazów, aby udostępnić niestandardowy obraz. Aby dowiedzieć się, jak utworzyć udostępnioną galerię obrazów dla obrazów, zobacz [Tworzenie udostępnionej galerii obrazów za pomocą interfejsu wiersza polecenia platformy Azure](../virtual-machines/shared-images-cli.md) lub [Tworzenie galerii obrazów udostępnionych przy użyciu Azure Portal](../virtual-machines/linux/shared-images-portal.md).
 
 ## <a name="create-a-pool-from-a-shared-image-using-the-azure-cli"></a>Tworzenie puli na podstawie udostępnionego obrazu przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -203,7 +203,7 @@ client.pool.add(new_pool)
 
 Wykonaj następujące kroki, aby utworzyć pulę z udostępnionego obrazu w Azure Portal.
 
-1. Otwórz [witrynę Azure Portal](https://portal.azure.com).
+1. Otwórz witrynę [Azure Portal](https://portal.azure.com).
 1. Przejdź do pozycji **konta wsadowe** i wybierz swoje konto.
 1. Wybierz pozycję **Pule** , a następnie **Dodaj** , aby utworzyć nową pulę.
 1. W sekcji **Typ obrazu** wybierz pozycję **Galeria obrazów udostępnionych**.

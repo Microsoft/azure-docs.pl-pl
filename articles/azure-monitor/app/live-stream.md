@@ -4,12 +4,12 @@ description: Monitoruj swoją aplikację sieci Web w czasie rzeczywistym za pomo
 ms.topic: conceptual
 ms.date: 04/22/2019
 ms.reviewer: sdash
-ms.openlocfilehash: 10818a531a43b50b86a6d413c7a504e2c19c3986
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e554595a7a88e1455f7426636dc69db99a7d3e94
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85507350"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86166488"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Live Metrics Stream: monitorowanie & diagnozowanie przy użyciu 1-sekundowego opóźnienia
 
@@ -49,12 +49,12 @@ Sprawdź, czy [porty wychodzące Live Metrics Stream](../../azure-monitor/app/ip
 
 | |Transmisja strumieniowa na żywo | Eksplorator metryk i analiza |
 |---|---|---|
-|Opóźnienie|Dane wyświetlane w jednej sekundzie|Zagregowane w ciągu minut|
-|Brak przechowywania|Dane są przechowywane na wykresie, a następnie są odrzucane|[Dane przechowywane przez 90 dni](../../azure-monitor/app/data-retention-privacy.md#how-long-is-the-data-kept)|
-|Na żądanie|Dane są przesyłane strumieniowo, gdy okienko metryki na żywo jest otwarte |Dane są wysyłane za każdym razem, gdy zestaw SDK jest zainstalowany i włączony|
-|Bezpłatna|Za dane Live Stream nie są naliczane opłaty|Podlega [cennikowi](../../azure-monitor/app/pricing.md)
-|Próbkowanie|Wszystkie wybrane metryki i liczniki są przesyłane. Błędy i ślady stosu są próbkowane. TelemetryProcessors nie są stosowane.|Zdarzenia mogą być [próbkowane](../../azure-monitor/app/api-filtering-sampling.md)|
-|Kanał kontrolny|Sygnały kontroli filtru są wysyłane do zestawu SDK. Zalecamy zabezpieczenie tego kanału.|Komunikacja jest jednym ze sposobów, w portalu|
+|**Opóźnienie**|Dane wyświetlane w jednej sekundzie|Zagregowane w ciągu minut|
+|**Brak przechowywania**|Dane są przechowywane na wykresie, a następnie są odrzucane|[Dane przechowywane przez 90 dni](../../azure-monitor/app/data-retention-privacy.md#how-long-is-the-data-kept)|
+|**Na żądanie**|Dane są przesyłane strumieniowo, gdy okienko metryki na żywo jest otwarte |Dane są wysyłane za każdym razem, gdy zestaw SDK jest zainstalowany i włączony|
+|**Bezpłatna**|Za dane Live Stream nie są naliczane opłaty|Podlega [cennikowi](../../azure-monitor/app/pricing.md)
+|**Próbkowanie**|Wszystkie wybrane metryki i liczniki są przesyłane. Błędy i ślady stosu są próbkowane. TelemetryProcessors nie są stosowane.|Zdarzenia mogą być [próbkowane](../../azure-monitor/app/api-filtering-sampling.md)|
+|**Kanał kontrolny**|Sygnały kontroli filtru są wysyłane do zestawu SDK. Zalecamy zabezpieczenie tego kanału.|Komunikacja jest jednym ze sposobów, w portalu|
 
 ## <a name="select-and-filter-your-metrics"></a>Wybieranie i filtrowanie metryk
 
@@ -185,7 +185,7 @@ Jeśli jednak rozpoznasz i ufasz wszystkim połączonym serwerom, możesz wypró
 
 ## <a name="supported-features-table"></a>Tabela obsługiwanych funkcji
 
-| Język                         | Metryki podstawowe       | Metryki wydajności | Filtrowanie niestandardowe    | Przykładowa Telemetria    | Dzielenie procesora CPU przez proces |
+| Language                         | Metryki podstawowe       | Metryki wydajności | Filtrowanie niestandardowe    | Przykładowa Telemetria    | Dzielenie procesora CPU przez proces |
 |----------------------------------|:--------------------|:--------------------|:--------------------|:--------------------|:---------------------|
 | .NET                             | Obsługiwane (V 2.7.2 +) | Obsługiwane (V 2.7.2 +) | Obsługiwane (V 2.7.2 +) | Obsługiwane (V 2.7.2 +) | Obsługiwane (V 2.7.2 +)  |
 | .NET Core (target =. NET Framework)| Obsługiwane (V 2.4.1 +) | Obsługiwane (V 2.4.1 +) | Obsługiwane (V 2.4.1 +) | Obsługiwane (V 2.4.1 +) | Obsługiwane (V 2.4.1 +)  |

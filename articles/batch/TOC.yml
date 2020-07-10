@@ -276,7 +276,7 @@
     - name: Usługa Batch Shipyard
       href: 'https://github.com/Azure/batch-shipyard'
     - name: Blog
-      href: 'https://blogs.technet.microsoft.com/windowshpc/'
+      href: /archive/blogs/windowshpc/
     - name: Obliczenia HPC na platformie Azure
       href: /azure/architecture/topics/high-performance-computing/
     - name: Cennik

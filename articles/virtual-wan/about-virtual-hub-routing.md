@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 06/29/2020
 ms.author: cherylmc
-ms.openlocfilehash: 6809429b26eea30ca0569044634308d2e4dff9f7
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 368440976558730bd7bb9600a0bf45c56d1ee300
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86025985"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86147394"
 ---
 # <a name="about-virtual-hub-routing"></a>Informacje na temat routingu na koncentratorze wirtualnym
 
@@ -24,6 +24,10 @@ Aby skonfigurować Routing, zobacz [jak skonfigurować Routing koncentratora wir
 ## <a name="routing-concepts"></a><a name="concepts"></a>Pojęcia dotyczące routingu
 
 W poniższych sekcjach opisano kluczowe założenia routingu koncentratora wirtualnego.
+
+> [!NOTE]
+> Niektóre z tych nowych koncepcji dotyczące tabel tras centrum, skojarzenia, propagacji i trasy statyczne w połączeniu z siecią wirtualną mogą być w dalszym ciągu wycofywane i oczekiwane w tygodniu przed 3 sierpnia.
+>
 
 ### <a name="hub-route-table"></a><a name="hub-route"></a>Tabela tras centrum
 
@@ -59,10 +63,6 @@ Dla każdego koncentratora wirtualnego jest również dostępna **tabela tras no
 ### <a name="configuring-static-routes-in-a-virtual-network-connection"></a><a name="static"></a>Konfigurowanie tras statycznych w połączeniu sieci wirtualnej
 
 Skonfigurowanie tras statycznych zapewnia mechanizm kierowania ruchu przez adres IP następnego przeskoku, który może należeć do sieciowego urządzenia wirtualnego (urządzenie WUS) obsługiwanego w sieci wirtualnej szprych podłączonych do koncentratora wirtualnego. Trasa statyczna składa się z nazwy trasy, listy prefiksów miejsc docelowych oraz adresu IP następnego przeskoku.
-
-> [!NOTE]
-> Niektóre z tych nowych koncepcji związanych z skojarzeniem, propagacją i trasami statycznymi w połączeniu sieci wirtualnej mogą być nadal wdrażane i oczekiwane w tygodniu od trzeciej do 3 sierpnia.
->
 
 ## <a name="route-tables-in-basic-and-standard-virtual-wans-prior-to-the-feature-set-of-association-and-propagation"></a><a name="route"></a>Kierowanie tabel w warstwach Podstawowa i Standardowa wirtualnych sieci WAN przed zestawem funkcji skojarzenia i propagacji
 

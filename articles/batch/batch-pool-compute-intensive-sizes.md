@@ -3,12 +3,12 @@ title: Używanie maszyn wirtualnych platformy Azure intensywnie korzystających 
 description: Jak korzystać z systemu HPC i rozmiaru maszyny wirtualnej procesora GPU w pulach Azure Batch. Dowiedz się więcej o zależnościach systemu operacyjnego i zobacz kilka przykładów scenariusza.
 ms.topic: how-to
 ms.date: 12/17/2018
-ms.openlocfilehash: acc56679d8be157541b0d7c056e57659584645be
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 016da7669c9e6a6586a53d379f9665c9ea048b64
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85962513"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86147338"
 ---
 # <a name="use-rdma-or-gpu-instances-in-batch-pools"></a>Używanie wystąpień RDMA lub GPU w pulach wsadowym
 
@@ -20,9 +20,9 @@ Do uruchamiania pewnych zadań wsadowych można korzystać z rozmiarów maszyn w
 
 Ten artykuł zawiera wskazówki i przykłady dotyczące korzystania z niektórych specjalistycznych rozmiarów platformy Azure w pulach usługi Batch. Aby uzyskać specyfikacje i tło, zobacz:
 
-* Rozmiary maszyn wirtualnych obliczeniowych o wysokiej wydajności ([Linux](../virtual-machines/linux/sizes-hpc.md), [Windows](../virtual-machines/windows/sizes-hpc.md)) 
+* Rozmiary maszyn wirtualnych obliczeniowych o wysokiej wydajności ([Linux](../virtual-machines/sizes-hpc.md), [Windows](../virtual-machines/sizes-hpc.md)) 
 
-* Rozmiary maszyn wirtualnych z obsługą procesora GPU ([Linux](../virtual-machines/linux/sizes-gpu.md), [Windows](../virtual-machines/windows/sizes-gpu.md)) 
+* Rozmiary maszyn wirtualnych z obsługą procesora GPU ([Linux](../virtual-machines/sizes-gpu.md), [Windows](../virtual-machines/sizes-gpu.md)) 
 
 > [!NOTE]
 > Niektóre rozmiary maszyn wirtualnych mogą nie być dostępne w regionach, w których tworzysz konta w usłudze Batch. Aby sprawdzić, czy rozmiar jest dostępny, zobacz [dostępne produkty według regionów](https://azure.microsoft.com/regions/services/) i [Wybierz rozmiar maszyny wirtualnej dla puli usługi Batch](batch-pool-vm-sizes.md).
@@ -35,7 +35,7 @@ Możliwości RDMA lub GPU o rozmiarach intensywnie korzystających z obliczeń w
 
 | Rozmiar | Możliwość | Systemy operacyjne | Wymagane oprogramowanie | Ustawienia puli |
 | -------- | -------- | ----- |  -------- | ----- |
-| [H16r, H16mr, A8, A9](../virtual-machines/linux/sizes-hpc.md)<br/>[NC24r, NC24rs_v2, NC24rs_v3, ND24rs<sup>*</sup>](../virtual-machines/linux/n-series-driver-setup.md#rdma-network-connectivity) | Dostęp RDMA | Ubuntu 16,04 LTS, lub<br/>CentOS HPC<br/>(Azure Marketplace) | Intel MPI 5<br/><br/>Sterowniki RDMA systemu Linux | Włącz komunikację między węzłami, wyłącz współbieżne wykonywanie zadań |
+| [H16r, H16mr, A8, A9](../virtual-machines/sizes-hpc.md)<br/>[NC24r, NC24rs_v2, NC24rs_v3, ND24rs<sup>*</sup>](../virtual-machines/linux/n-series-driver-setup.md#rdma-network-connectivity) | Dostęp RDMA | Ubuntu 16,04 LTS, lub<br/>CentOS HPC<br/>(Azure Marketplace) | Intel MPI 5<br/><br/>Sterowniki RDMA systemu Linux | Włącz komunikację między węzłami, wyłącz współbieżne wykonywanie zadań |
 | [NC, NCv2, Seria NCV3, Seria NDv2](../virtual-machines/linux/n-series-driver-setup.md) | Procesor GPU NVIDIA Tesla (w zależności od serii) | Ubuntu 16,04 LTS, lub<br/>CentOS 7,3 lub 7,4<br/>(Azure Marketplace) | Sterowniki NVIDIA CUDA lub CUDA toolkit | Nie dotyczy | 
 | [NV, Seria NVv2](../virtual-machines/linux/n-series-driver-setup.md) | NVIDIA Tesla M60 GPU | Ubuntu 16,04 LTS, lub<br/>CentOS 7,3<br/>(Azure Marketplace) | Sterowniki sieci NVIDIA | Nie dotyczy |
 

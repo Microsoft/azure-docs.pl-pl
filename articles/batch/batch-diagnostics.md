@@ -4,11 +4,12 @@ description: Rejestruj i Analizuj zdarzenia dziennika diagnostycznego dla zasob�
 ms.topic: how-to
 ms.date: 05/29/2020
 ms.custom: seodec18
-ms.openlocfilehash: 6e10a4fc6cd13854682f094274c975931b056365
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: abf9ef53d3f2e3ffeffabfe9b7c77dc5c5debec3
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85960728"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86145093"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>Metryki, alerty i dzienniki usługi Batch na potrzeby oceny i monitorowania diagnostyki
  
@@ -86,8 +87,8 @@ Typowym scenariuszem jest wybranie konta usługi Azure Storage jako miejsca doce
 
 Alternatywnie można:
 
-- Zdarzenia dziennika diagnostycznego usługi Stream Part strumienia do [centrum zdarzeń platformy Azure](../event-hubs/event-hubs-what-is-event-hubs.md). Event Hubs może pozyskać miliony zdarzeń na sekundę, które można następnie przekształcać i przechowywać za pomocą dowolnego dostawcy analiz w czasie rzeczywistym. 
-- Wyślij dzienniki diagnostyczne do [dzienników Azure monitor](../log-analytics/log-analytics-overview.md), gdzie można je analizować lub wyeksportować do analizy w programie Power BI lub Excel.
+- Zdarzenia dziennika diagnostycznego usługi Stream Part strumienia do [centrum zdarzeń platformy Azure](../event-hubs/event-hubs-about.md). Event Hubs może pozyskać miliony zdarzeń na sekundę, które można następnie przekształcać i przechowywać za pomocą dowolnego dostawcy analiz w czasie rzeczywistym. 
+- Wyślij dzienniki diagnostyczne do [dzienników Azure monitor](../azure-monitor/log-query/log-query-overview.md), gdzie można je analizować lub wyeksportować do analizy w programie Power BI lub Excel.
 
 > [!NOTE]
 > Za pomocą usług platformy Azure mogą być naliczane dodatkowe koszty związane z przechowywaniem lub przetwarzaniem danych dzienników diagnostycznych. 
@@ -134,7 +135,7 @@ Poniżej znajduje się przykład `PoolResizeCompleteEvent` wpisu w `PT1H.json` p
 { "Tenant": "65298bc2729a4c93b11c00ad7e660501", "time": "2019-08-22T20:59:13.5698778Z", "resourceId": "/SUBSCRIPTIONS/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.BATCH/BATCHACCOUNTS/MYBATCHACCOUNT/", "category": "ServiceLog", "operationName": "PoolResizeCompleteEvent", "operationVersion": "2017-06-01", "properties": {"id":"MYPOOLID","nodeDeallocationOption":"Requeue","currentDedicatedNodes":10,"targetDedicatedNodes":100,"currentLowPriorityNodes":0,"targetLowPriorityNodes":0,"enableAutoScale":false,"isAutoPool":false,"startTime":"2019-08-22 20:50:59.522","endTime":"2019-08-22 20:59:12.489","resultCode":"Success","resultMessage":"The operation succeeded"}}
 ```
 
-Aby uzyskać więcej informacji na temat schematu dzienników diagnostycznych na koncie magazynu, zobacz [Archiwizowanie dzienników zasobów platformy Azure na koncie magazynu](../azure-monitor/platform/resource-logs-collect-storage.md#schema-of-platform-logs-in-storage-account). Aby programowo uzyskać dostęp do dzienników na koncie magazynu, Użyj interfejsów API magazynu.
+Aby uzyskać więcej informacji na temat schematu dzienników diagnostycznych na koncie magazynu, zobacz [Archiwizowanie dzienników zasobów platformy Azure na koncie magazynu](../azure-monitor/platform/resource-logs.md#send-to-azure-storage). Aby programowo uzyskać dostęp do dzienników na koncie magazynu, Użyj interfejsów API magazynu.
 
 ### <a name="service-log-events"></a>Zdarzenia dziennika usługi
 
@@ -177,4 +178,3 @@ Zdarzenia dziennika usługi emitowane przez usługę Batch obejmują następują
 
 - Dowiedz się więcej o [interfejsach API i narzędziach usługi Batch](batch-apis-tools.md) umożliwiających tworzenie rozwiązań usługi Batch.
 - Dowiedz się więcej o [monitorowaniu rozwiązań wsadowych](monitoring-overview.md).
-

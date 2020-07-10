@@ -3,14 +3,14 @@ title: Azure Batch uruchamia duże zadania równoległe w chmurze
 description: Opis korzystania z usługi Azure Batch na potrzeby dużych obciążeń równoległych oraz HPC
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.openlocfilehash: 134706622655029c6673aea5dd04a9284155be6f
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 03c958f44f707e7c5b6ac5c4414bdb5fd4963635
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85965080"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86142796"
 ---
-# <a name="what-is-azure-batch"></a>Co to jest Azure Batch?
+# <a name="what-is-azure-batch"></a>Co to jest usługa Azure Batch?
 
 Usługa Azure Batch umożliwia wydajne uruchamianie równoległych zadań wsadowych oraz zadań wsadowych obliczeń o wysokiej wydajności na platformie Azure. Usługa Azure Batch tworzy pulę węzłów obliczeniowych (maszyn wirtualnych) i zarządza nią, instaluje aplikacje, które chcesz uruchamiać, i tworzy harmonogram zadań do uruchomienia na węzłach. Nie ma żadnego oprogramowania klastra lub harmonogramu zadań, które trzeba instalować i skalować oraz którym trzeba zarządzać. Zamiast tego korzysta się z [interfejsu API usługi Batch i narzędzi](batch-apis-tools.md), skryptów wiersza polecenia lub witryny Azure Portal, aby konfigurować i monitorować zadania oraz zarządzać nimi. 
 
@@ -34,7 +34,7 @@ Oto przykłady obciążeń wewnętrznie równoległych, które można uruchamia�
 * Pozyskiwanie i przetwarzanie danych oraz operacje ETL
 * Wykonywanie testów oprogramowania
 
-Usługi Batch można również używać do [uruchamiania ściśle sprzężonych obciążeń](batch-mpi.md). Są to obciążenia, w których uruchamiane aplikacje muszą komunikować się ze sobą, co jest przeciwieństwem uruchamiania niezależnego. Ściśle sprzężone aplikacje zwykle korzystają z interfejsu API o nazwie Message Passing Interface (MPI). Ściśle sprzężone obciążenia można uruchamiać w usłudze Batch za pomocą interfejsu [Microsoft MPI](/message-passing-interface/microsoft-mpi) lub Intel MPI. Wydajność aplikacji można zwiększyć, używając specjalizowanych rozmiarów maszyn wirtualnych, przeznaczonych do obliczeń [HPC](../virtual-machines/linux/sizes-hpc.md) i [zoptymalizowanych pod kątem procesora GPU](../virtual-machines/linux/sizes-gpu.md).
+Usługi Batch można również używać do [uruchamiania ściśle sprzężonych obciążeń](batch-mpi.md). Są to obciążenia, w których uruchamiane aplikacje muszą komunikować się ze sobą, co jest przeciwieństwem uruchamiania niezależnego. Ściśle sprzężone aplikacje zwykle korzystają z interfejsu API o nazwie Message Passing Interface (MPI). Ściśle sprzężone obciążenia można uruchamiać w usłudze Batch za pomocą interfejsu [Microsoft MPI](/message-passing-interface/microsoft-mpi) lub Intel MPI. Wydajność aplikacji można zwiększyć, używając specjalizowanych rozmiarów maszyn wirtualnych, przeznaczonych do obliczeń [HPC](../virtual-machines/sizes-hpc.md) i [zoptymalizowanych pod kątem procesora GPU](../virtual-machines/sizes-gpu.md).
 
 Przykłady ściśle sprzężonych obciążeń:
 * Analiza elementów skończonych
@@ -83,4 +83,3 @@ Rozpocznij pracę z usługą Azure Batch, korzystając z jednego z tych przewodn
 * [Uruchamianie pierwszego zadania usługi Batch w witrynie Azure Portal](quick-create-portal.md)
 * [Uruchamianie pierwszego zadania usługi Batch za pomocą interfejsu .NET API](quick-run-dotnet.md)
 * [Uruchamianie pierwszego zadania usługi Batch za pomocą interfejsu Python API](quick-run-python.md)
-

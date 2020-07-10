@@ -8,16 +8,22 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 06/29/2020
 ms.author: cherylmc
-ms.openlocfilehash: 0716ca8f0457ca801098c97dd7a5e68751822d4d
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: ed64b9d281cfbbf8202a99335ea2759b27a6fc42
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85848098"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86142962"
 ---
 # <a name="scenario-route-traffic-through-an-nva"></a>Scenariusz: kierowanie ruchu przez urządzenie WUS
 
 Podczas pracy z routingiem wirtualnego koncentratora sieci WAN jest dość kilka dostępnych scenariuszy. W tym scenariuszu urządzenie WUS celem jest kierowanie ruchu przez urządzenie WUS (sieciowe urządzenie wirtualne) dla gałęzi do sieci wirtualnej i sieci wirtualnej do gałęzi. Aby uzyskać informacje na temat routingu koncentratorów wirtualnych, zobacz [Informacje o routingu koncentratora wirtualnego](about-virtual-hub-routing.md).
+
+> [!NOTE]
+> Niektóre możliwości routingu mogą nadal zostać wycofane. Jeśli wdrożenie nie zakończyło się jeszcze w Twoim regionie, wykonaj kroki opisane w tych wersjach artykułów w międzyczasie:
+>* [Azure Portal artykuł](virtual-wan-route-table-nva-portal.md)
+>* [Artykuł programu PowerShell](virtual-wan-route-table-nva.md)
+>
 
 ## <a name="scenario-architecture"></a><a name="architecture"></a>Architektura scenariusza
 

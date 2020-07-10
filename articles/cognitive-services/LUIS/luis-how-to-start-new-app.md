@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/18/2020
 ms.author: diberry
-ms.openlocfilehash: 3d6b2b5896242ff85c6fb96071b747083893b03a
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 304e76a2bf8bae3e6ee2120b892ef97d89c3decc
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84343170"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86144391"
 ---
 # <a name="create-a-new-luis-app-in-the-luis-portal"></a>Tworzenie nowej aplikacji LUIS w portalu LUIS
 Istnieje kilka sposobów tworzenia aplikacji LUIS. Aplikację LUIS można utworzyć w portalu LUIS lub za pomocą [interfejsów API](developer-reference-resource.md)tworzenia Luis.
@@ -45,7 +45,7 @@ Nową aplikację można utworzyć za pomocą interfejsów API tworzenia na kilka
 
 ## <a name="create-new-app-in-luis"></a>Utwórz nową aplikację w LUIS
 
-1. Na stronie **Moje aplikacje** wybierz swoją **subskrypcję**, a następnie **Utwórz** **zasób** , a następnie kliknij pozycję Włącz. Jeśli używasz bezpłatnego klucza wersji próbnej, Dowiedz się, jak [utworzyć zasób tworzenia](luis-how-to-azure-subscription.md#create-resources-in-the-azure-portal).
+1. Na stronie **Moje aplikacje** wybierz swoją **subskrypcję**, a następnie **Utwórz** **zasób** , a następnie kliknij pozycję Włącz. 
 
 > [!div class="mx-imgBorder"]
 > ![Lista aplikacji LUIS](./media/create-app-in-portal.png)

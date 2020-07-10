@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: 75b533368a01b2e98bece0751f45b12f36796658
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6af9db5ed76ecb79f8891895eab52ff71bcab048
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85556263"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86146880"
 ---
 # <a name="how-to-configure-caching-for-incremental-enrichment-in-azure-cognitive-search"></a>Jak skonfigurować buforowanie na potrzeby przyrostowego wzbogacania na platformie Azure Wyszukiwanie poznawcze
 
@@ -103,11 +103,13 @@ api-key: [YOUR-ADMIN-KEY]
 
 Jeśli masz teraz inne żądanie GET w indeksatorze, odpowiedź z usługi będzie zawierać `ID` Właściwość w obiekcie pamięci podręcznej. Ciąg alfanumeryczny jest dołączany do nazwy kontenera zawierającego wszystkie buforowane wyniki i stan pośredni każdego dokumentu przetworzonego przez ten indeksator. Identyfikator będzie używany do jednoznacznej nazwy pamięci podręcznej w usłudze BLOB Storage.
 
+```http
     "cache": {
         "ID": "<ALPHA-NUMERIC STRING>",
         "enableReprocessing": true,
         "storageConnectionString": "DefaultEndpointsProtocol=https;AccountName=<YOUR-STORAGE-ACCOUNT>;AccountKey=<YOUR-STORAGE-KEY>;EndpointSuffix=core.windows.net"
     }
+```
 
 ### <a name="step-5-run-the-indexer"></a>Krok 5. Uruchamianie indeksatora
 

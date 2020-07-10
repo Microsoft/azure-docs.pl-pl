@@ -8,11 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/08/2020
-ms.openlocfilehash: 32ad34bcfb42bf8fc45ba7fdb7fba5e797ee6106
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 03d4c2e0685ea165cbad524360a3db6e6c809733
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81262438"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86146139"
 ---
 # <a name="fuzzy-search-to-correct-misspellings-and-typos"></a>Wyszukiwanie rozmyte pozwala poprawić błędy pisowni i literówki
 
@@ -85,37 +86,49 @@ Załóżmy, że następujący ciąg istnieje w `"Description"` polu w dokumencie
 
 Rozpocznij od rozmytego wyszukiwania w "specjalny" i Dodaj wyróżnianie trafień do pola Opis:
 
-    search=special~&highlight=Description
+```console
+search=special~&highlight=Description
+```
 
 W odpowiedzi, ponieważ dodano podświetlanie trafień, formatowanie jest stosowane do wyrażenia "Special" jako kryterium dopasowywania.
 
-    "@search.highlights": {
-        "Description": [
-            "Test queries with <em>special</em> characters, plus strings for MSFT, SQL and Java."
-        ]
+```output
+"@search.highlights": {
+    "Description": [
+        "Test queries with <em>special</em> characters, plus strings for MSFT, SQL and Java."
+    ]
+```
 
 Spróbuj ponownie wykonać żądanie, wpisując polecenie "Special" (specjalne), pobierając kilka liter ("PE"):
 
-    search=scial~&highlight=Description
+```console
+search=scial~&highlight=Description
+```
 
 Do tej pory odpowiedź nie zostanie zmieniona. Korzystając z wartości domyślnej o długości 2 stopni, usunięcie dwóch znaków "PE" z "specjalnych" nadal umożliwia pomyślne dopasowanie w tym okresie.
 
-    "@search.highlights": {
-        "Description": [
-            "Test queries with <em>special</em> characters, plus strings for MSFT, SQL and Java."
-        ]
+```output
+"@search.highlights": {
+    "Description": [
+        "Test queries with <em>special</em> characters, plus strings for MSFT, SQL and Java."
+    ]
+```
 
 Po ponowieniu kolejnych żądań zmodyfikuj termin wyszukiwania, pobierając jeden ostatni znak z sumy trzech usunięć (od "Special" do "skalę"):
 
-    search=scal~&highlight=Description
+```console
+search=scal~&highlight=Description
+```
 
 Zwróć uwagę, że zwracana jest taka sama odpowiedź, ale teraz zamiast dopasowywania do "specjalnych" dopasowanie rozmyte jest w "SQL".
 
-            "@search.score": 0.4232868,
-            "@search.highlights": {
-                "Description": [
-                    "Mix of special characters, plus strings for MSFT, <em>SQL</em>, 2019, Linux, Java."
-                ]
+```output
+        "@search.score": 0.4232868,
+        "@search.highlights": {
+            "Description": [
+                "Mix of special characters, plus strings for MSFT, <em>SQL</em>, 2019, Linux, Java."
+            ]
+```
 
 Tym rozwiniętym przykładem jest zilustrowanie przejrzystości, którą wyróżnianie trafień może doprowadzić do niejednoznacznych wyników. We wszystkich przypadkach zwracany jest ten sam dokument. Czy korzystasz z identyfikatorów dokumentów w celu sprawdzenia dopasowania, być może pominięto zmianę z "Special" na "SQL".
 

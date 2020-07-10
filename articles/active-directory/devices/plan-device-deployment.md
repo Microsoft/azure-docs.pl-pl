@@ -11,11 +11,12 @@ author: BarbaraSelden
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aab57d48e8bd95f1ce2aec2dde42303d5d991a58
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aa83e295460cc847647e83c7e4e8a9d7ee91f6f4
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85444254"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86165774"
 ---
 # <a name="plan-your-azure-active-directory-device-deployment"></a>Planowanie wdrożenia urządzenia Azure Active Directory
 
@@ -37,7 +38,7 @@ Istnieje wiele metod integrowania urządzeń z usługą Azure AD:
 
 Przed rozpoczęciem upewnij się, że znasz już [Omówienie zarządzania tożsamościami urządzeń](overview.md).
 
-### <a name="benefits"></a>Zalety
+### <a name="benefits"></a>Korzyści
 
 Najważniejsze zalety nadawania urządzeniom tożsamości usługi Azure AD:
 
@@ -101,7 +102,7 @@ To drzewo służy do określania opcji dla urządzeń należących do organizacj
 
 urządzenia z systemami iOS i Android mogą być zarejestrowane wyłącznie w usłudze Azure AD. W poniższej tabeli przedstawiono zagadnienia dotyczące wysokiego poziomu dla urządzeń klienckich z systemem Windows. Użyj jej jako przeglądu, a następnie szczegółowo zapoznaj się z różnymi metodami integracji.
 
-| | Zarejestrowane w usłudze Azure AD| Dołączenie do usługi Azure AD| Dołączenie hybrydowe do usługi Azure AD |
+| Kwestie do rozważenia | Zarejestrowane w usłudze Azure AD| Dołączenie do usługi Azure AD| Dołączenie hybrydowe do usługi Azure AD |
 | - | - | - | - |
 | **Klienckie systemy operacyjne**| | |  |
 | Urządzenia z systemem Windows 10| ![zaznaczone](./media/plan-device-deployment/check.png)| ![zaznaczone](./media/plan-device-deployment/check.png)| ![zaznaczone](./media/plan-device-deployment/check.png) |
@@ -111,7 +112,7 @@ urządzenia z systemami iOS i Android mogą być zarejestrowane wyłącznie w us
 | Hasło| ![zaznaczone](./media/plan-device-deployment/check.png)| ![zaznaczone](./media/plan-device-deployment/check.png)| ![zaznaczone](./media/plan-device-deployment/check.png) |
 | Numer PIN urządzenia| ![zaznaczone](./media/plan-device-deployment/check.png)| |  |
 | Windows Hello| ![zaznaczone](./media/plan-device-deployment/check.png)| |  |
-| Windows Hello dla firm| | ![zaznaczone](./media/plan-device-deployment/check.png)| ![zaznaczone](./media/plan-device-deployment/check.png) |
+| Windows Hello for Business| | ![zaznaczone](./media/plan-device-deployment/check.png)| ![zaznaczone](./media/plan-device-deployment/check.png) |
 | Klucze zabezpieczeń FIDO 2,0| | ![zaznaczone](./media/plan-device-deployment/check.png)| ![zaznaczone](./media/plan-device-deployment/check.png) |
 | Aplikacja Microsoft Authenticator (bezhaseł)| ![zaznaczone](./media/plan-device-deployment/check.png)| ![zaznaczone](./media/plan-device-deployment/check.png)| ![zaznaczone](./media/plan-device-deployment/check.png) |
 |**Najważniejsze możliwości**| | |  |

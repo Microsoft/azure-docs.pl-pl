@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/23/2020
 ms.author: memildin
-ms.openlocfilehash: 2baf2b209cae11f734494c377aebd731f69f514d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b395931d11c7bc7119be0122531908ed680fc3b9
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85610867"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86145975"
 ---
 # <a name="prevent-dangling-dns-entries-and-avoid-subdomain-takeover"></a>Zapobiegaj zawieszonego wpisów DNS i unikaj przejęcia domen podrzędnych
 
@@ -45,7 +45,7 @@ Typowy scenariusz przejęcia domeny podrzędnej:
 
 1. Niemal natychmiast po usunięciu lokacji aktor zagrożeń odnajduje brakującą lokację i tworzy własną witrynę sieci Web pod adresem `app-contogreat-dev-001.azurewebsites.net` .
 
-    Teraz ruch przeznaczony dla programu `greatapp.contoso.com` prowadzi do witryny platformy Azure aktora zagrożeń, a aktor zagrożeń ma kontrolę nad wyświetlaną zawartością. 
+    Teraz ruch przeznaczony dla programu `greatapp.contoso.com` prowadzi do witryny platformy Azure aktora zagrożeń, a aktora zagrożeń kontroluje zawartość, która jest wyświetlana. 
 
     Usługa DNS zawieszonego była wykorzystywana, a poddomena contoso "GreatApp" jest ofiarą przejęcia poddomeny. 
 
@@ -61,7 +61,7 @@ Zawieszonego wpisy DNS umożliwiają uczestnikom zagrożeń przejęcie kontroli 
 
 - **Utrata kontroli nad zawartością poddomeny** — nieprzerwana prasa dotycząca niezdolności do zabezpieczania swojej zawartości przez organizację oraz uszkodzenia marki i utraty zaufania.
 
-- **Zbieranie plików cookie z niepodejrzanych osób odwiedzających** — często aplikacje sieci Web mogą uwidaczniać pliki cookie sesji w poddomenach (*. contoso.com), w związku z czym każda poddomena może uzyskiwać do nich dostęp. Aktory zagrożeń mogą korzystać z przejęcia poddomeny w celu utworzenia autentycznej strony, nakłonienia niepodejrzanych użytkowników do ich odwiedzenia i zebrania plików cookie (nawet bezpiecznych plików cookie). Powszechna koncepcja polega na tym, że za pomocą certyfikatów SSL chroni lokację oraz pliki cookie użytkowników z przejęcia. Jednak aktor zagrożeń może użyć poddomeny przejętej, aby zastosować do i odebrać prawidłowy certyfikat SSL. Następnie przyznaje im dostęp do zabezpieczonych plików cookie i może bardziej zwiększyć postrzeganą wiarygodność złośliwej witryny.
+- **Zbieranie plików cookie z niepodejrzanych osób odwiedzających** — często aplikacje sieci Web mogą uwidaczniać pliki cookie sesji w poddomenach (*. contoso.com), w związku z czym każda poddomena może uzyskiwać do nich dostęp. Aktory zagrożeń mogą korzystać z przejęcia poddomeny w celu utworzenia autentycznej strony, nakłonienia niepodejrzanych użytkowników do ich odwiedzenia i zebrania plików cookie (nawet bezpiecznych plików cookie). Powszechna koncepcja polega na tym, że za pomocą certyfikatów SSL chroni lokację oraz pliki cookie użytkowników z przejęcia. Jednak aktor zagrożeń może użyć poddomeny przejętej, aby zastosować do i odebrać prawidłowy certyfikat SSL. Prawidłowe certyfikaty SSL zapewniają im dostęp do zabezpieczonych plików cookie i mogą bardziej zwiększyć postrzeganą wiarygodność złośliwej witryny.
 
 - **Kampanie wyłudzające informacje** — w przypadku kampanii wyłudzających informacje mogą być używane jako autentyczne. Dotyczy to złośliwych witryn, a także dla rekordów MX, które umożliwiają aktorowi zagrożeń odbieranie wiadomości e-mail skierowanych do uprawnionej poddomeny o znanej, bezpiecznej marki.
 
@@ -78,14 +78,14 @@ Dostępne obecnie miary zapobiegawcze są wymienione poniżej.
 
 ### <a name="use-azure-dns-alias-records"></a>Użyj Azure DNS rekordów aliasów
 
-Poprzez ścisłe sprzęganie cyklu życia rekordu DNS z zasobem platformy Azure, [rekordy aliasów](https://docs.microsoft.com/azure/dns/dns-alias#scenarios) Azure DNS mogą uniemożliwiać odwołania zawieszonego. Rozważmy na przykład rekord DNS, który jest kwalifikowany jako rekord aliasu, aby wskazywał na publiczny adres IP lub profil Traffic Manager. Jeśli usuniesz te zasoby bazowe, rekord aliasu DNS będzie pustym zestawem rekordów. Nie odwołuje się już do usuniętego zasobu. Należy pamiętać, że istnieją ograniczenia dotyczące możliwości ochrony przy użyciu rekordów aliasów. Dzisiaj lista jest ograniczona do:
+[Rekordy aliasów](https://docs.microsoft.com/azure/dns/dns-alias#scenarios) Azure DNS mogą uniemożliwiać odwołania zawieszonego przez Sprzęganie cyklu życia rekordu DNS z zasobem platformy Azure. Rozważmy na przykład rekord DNS, który jest kwalifikowany jako rekord aliasu, aby wskazywał na publiczny adres IP lub profil Traffic Manager. Jeśli usuniesz te zasoby bazowe, rekord aliasu DNS będzie pustym zestawem rekordów. Nie odwołuje się już do usuniętego zasobu. Należy pamiętać, że istnieją ograniczenia dotyczące możliwości ochrony przy użyciu rekordów aliasów. Dzisiaj lista jest ograniczona do:
 
 - Azure Front Door
 - Profile usługi Traffic Manager
 - Punkty końcowe usługi Azure Content Delivery Network (CDN)
 - Publiczne adresy IP
 
-Jeśli masz zasoby, które mogą być chronione przed przejęciem domeny przy użyciu rekordów aliasów, zalecamy wykonanie tej czynności pomimo zaistnienia ograniczonej oferty usługi.
+Pomimo tego, że oferty usługi są ograniczone, zalecamy korzystanie z rekordów aliasów w celu obrony przed przejęciem poddomeny, jeśli to możliwe.
 
 [Dowiedz się więcej](https://docs.microsoft.com/azure/dns/dns-alias#capabilities) o możliwościach rekordów aliasów Azure DNS.
 
@@ -120,7 +120,7 @@ Często deweloperzy i zespoły operacji mogą uruchamiać procesy oczyszczania, 
         - **Istnieje** — kwerenda stref DNS dla zasobów wskazujących poddomeny platformy Azure, takich jak *. azurewebsites.NET lub *. cloudapp.Azure.com (zobacz [tę listę odwołań](azure-domains.md)).
         - **Jesteś** posiadaczem potwierdzenia, że masz wszystkie zasoby, które są przeznaczone dla poddomen DNS.
 
-    - Obsługa katalogu usług w pełni kwalifikowanych punktów końcowych nazw domen (FQDN) platformy Azure oraz właścicieli aplikacji. Aby skompilować katalog usług, uruchom następujące zapytanie dotyczące wykresu zasobów platformy Azure z parametrami w poniższej tabeli:
+    - Obsługa katalogu usług w pełni kwalifikowanych punktów końcowych nazw domen (FQDN) platformy Azure oraz właścicieli aplikacji. Aby skompilować katalog usług, uruchom następujące zapytanie dotyczące wykresu zasobów platformy Azure (ARG) z parametrami z poniższej tabeli:
     
         >[!IMPORTANT]
         > **Uprawnienia** — uruchom zapytanie jako użytkownik mający dostęp do wszystkich subskrypcji platformy Azure. 
@@ -139,19 +139,22 @@ Często deweloperzy i zespoły operacji mogą uruchamiać procesy oczyszczania, 
         
         Można również połączyć wiele typów zasobów. To przykładowe zapytanie zwraca zasoby z Azure App Service **i** Azure App Service-gniazd:
 
-        ```
+        ```azurepowershell
         Search-AzGraph -Query "resources | where type in ('microsoft.web/sites', 'microsoft.web/sites/slots') | project tenantId, subscriptionId, type, resourceGroup, name, endpoint = properties.defaultHostName"
         ```
+
+
+        Według parametrów usługi dla zapytania ARG:
 
         |Nazwa zasobu  |[ResourceType]  | [FQDNproperty]  |
         |---------|---------|---------|
         |Azure Front Door|Microsoft. Network/usługi frontdoor|Właściwości. cName|
         |Azure Blob Storage|Microsoft. Storage/storageaccounts|Properties. obiektu. blob|
-        |Usługa Azure CDN|Microsoft. CDN/profile/punkty końcowe|Właściwości. Nazwa hosta|
+        |Azure CDN|Microsoft. CDN/profile/punkty końcowe|Właściwości. Nazwa hosta|
         |Publiczne adresy IP|Microsoft. Network/adresów publicipaddress|Properties. dnsSettings. FQDN|
         |Azure Traffic Manager|Microsoft. Network/trafficmanagerprofiles|Properties. dnsConfig. FQDN|
         |Wystąpienie kontenera platformy Azure|Microsoft. containerinstance/containergroups|Properties. ipAddress. FQDN|
-        |Usługa Azure API Management|Microsoft. apimanagement/Service|Properties. hostnameConfigurations. hostName|
+        |Azure API Management|Microsoft. apimanagement/Service|Properties. hostnameConfigurations. hostName|
         |Azure App Service|Microsoft. Web/witryny|Właściwości. defaultHostName|
         |Azure App Service — miejsca|Microsoft. Web/Sites/miejsca|Właściwości. defaultHostName|
 

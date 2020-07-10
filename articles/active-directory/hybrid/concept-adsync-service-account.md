@@ -15,12 +15,12 @@ ms.date: 06/27/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9614def5310bdc6fa8c6f37d7cdcc0a5f081a96
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 875c503a9959565d76d46902b5ecb386995ef1e5
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85360303"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86144714"
 ---
 # <a name="adsync-service-account"></a>Konto usługi ADSync
 Azure AD Connect instaluje usługę lokalną, która organizuje synchronizację między Active Directory i Azure Active Directory.  Usługa synchronizacji synchronizacji Microsoft Azure AD (ADSync) jest uruchamiana na serwerze w środowisku lokalnym.  Poświadczenia usługi są domyślnie ustawiane w instalacjach ekspresowych, ale mogą być dostosowane do wymagań bezpieczeństwa organizacji.  Te poświadczenia nie są używane do nawiązywania połączeń z lokalnymi lasami lub Azure Active Directory.
@@ -46,9 +46,9 @@ Firma Microsoft zaleca uruchomienie usługi ADSync w kontekście konta usługi w
 - zarządzane konto usługi — Użyj autonomicznej lub współdzielonej grupy MSA obsługiwanej przez administratora
 - konto domeny — Użyj konta usługi domeny obsługiwanego przez administratora
 
-![](media/concept-adsync-service-account/adsync1.png)
+![Zrzut ekranu przedstawiający stronę ustawień programu Azure AD Connect Express z przyciskami opcji "Dostosuj" lub "Użyj ustawień ekspresowych".](media/concept-adsync-service-account/adsync1.png)
 
-![](media/concept-adsync-service-account/adsync2.png)
+![Zrzut ekranu przedstawiający stronę Azure AD Connect "Zainstaluj składniki wymagane" z opcją używania istniejącego konta usługi zarządzanej.](media/concept-adsync-service-account/adsync2.png)
 
 ## <a name="diagnosing-adsync-service-account-changes"></a>Diagnozowanie zmian konta usługi ADSync
 Zmiana poświadczeń dla usługi ADSync po zakończeniu instalacji spowoduje, że usługa nie zostanie uruchomiona, utraci dostęp do bazy danych synchronizacji i nie będzie można uwierzytelnić się przy użyciu podłączonych katalogów (platformy Azure i AD DS).  Przyznanie dostępu do bazy danych do nowego konta usługi ADSync jest niewystarczające do odzyskania sprawności po tym problemie. Żadna synchronizacja nie zostanie wykonana do momentu przywrócenia oryginalnych poświadczeń.

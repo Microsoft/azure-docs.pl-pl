@@ -18,6 +18,6 @@ Skorzystaj z forum [User Voice](https://go.microsoft.com/fwlink/?linkid=698785&c
 * [Kodowanie i przetwarzanie](https://feedback.azure.com/forums/169396-media-services/category/144411-encoding-and-processing/)
 * [Transmisja strumieniowa na żywo](https://feedback.azure.com/forums/169396-media-services/category/144414-live-streaming/)
 * [Media Analytics](https://feedback.azure.com/forums/169396-media-services/category/146181-media-analytics)
-* [Azure Portal](https://feedback.azure.com/forums/169396-media-services/category/144432-portal/)
+* [Witryna Azure Portal](https://feedback.azure.com/forums/169396-media-services/category/144432-portal/)
 * [Interfejs API REST i platforma](https://feedback.azure.com/forums/169396-media-services/category/144423-rest-api-and-platform/)
 * [Przesyłanie strumieniowe wideo na żądanie](https://feedback.azure.com/forums/169396-media-services/category/144429-vod-streaming/)

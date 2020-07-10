@@ -8,12 +8,13 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
-ms.date: 12/27/2019
-ms.openlocfilehash: 03bc49c24e3c2d32e97f3e5e03bd39da63428a6e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/08/2020
+ms.openlocfilehash: 415c624153971e88afac3b18920a3ba3a8f2cfae
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77505581"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86147038"
 ---
 # <a name="what-is-an-azure-machine-learning-workspace"></a>Co to jest obszar roboczy Azure Machine Learning?
 
@@ -52,6 +53,7 @@ Z obszarem roboczym można korzystać w następujący sposób:
 + W dowolnym środowisku języka Python z [zestawem SDK Azure Machine Learning dla języka Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
 + W każdym środowisku R z [zestawem SDK Azure Machine Learning dla języka r](https://azure.github.io/azureml-sdk-for-r/reference/index.html).
 + W wierszu polecenia przy użyciu [rozszerzenia CLI](https://docs.microsoft.com/azure/machine-learning/reference-azure-machine-learning-cli) Azure Machine Learning
++ [Rozszerzenie VS Code Azure Machine Learning](how-to-manage-resources-vscode.md#workspaces)
 
 ## <a name="machine-learning-with-a-workspace"></a>Uczenie maszynowe za pomocą obszaru roboczego
 
@@ -69,13 +71,13 @@ Zadania uczenia maszynowego odczytują i/lub zapisują artefakty w obszarze robo
 
 Można również wykonać następujące zadania zarządzania obszarem roboczym:
 
-| Zadanie zarządzania obszarem roboczym   | Portal              | Studio | Zestaw SDK języka Python/SDK       | Interfejs wiersza polecenia        |
-|---------------------------|---------|---------|------------|------------|
-| Tworzenie obszaru roboczego        | **&check;**     | | **&check;** | **&check;** |
-| Zarządzanie dostępem do obszaru roboczego    | **&check;**   || |  **&check;**    |
-| Uaktualnianie do wersji Enterprise    | **&check;** | **&check;**  | |     |
-| Tworzenie zasobów obliczeniowych i zarządzanie nimi    | **&check;**   | **&check;** | **&check;** |  **&check;**   |
-| Tworzenie maszyny wirtualnej notesu |   | **&check;** | |     |
+| Zadanie zarządzania obszarem roboczym   | Portal              | Studio | Zestaw SDK języka Python/SDK       | Interfejs wiersza polecenia        | VS Code
+|---------------------------|---------|---------|------------|------------|------------|
+| Tworzenie obszaru roboczego        | **&check;**     | | **&check;** | **&check;** | **&check;** |
+| Zarządzanie dostępem do obszaru roboczego    | **&check;**   || |  **&check;**    ||
+| Uaktualnianie do wersji Enterprise    | **&check;** | **&check;**  | |     ||
+| Tworzenie zasobów obliczeniowych i zarządzanie nimi    | **&check;**   | **&check;** | **&check;** |  **&check;**   ||
+| Tworzenie maszyny wirtualnej notesu |   | **&check;** | |     ||
 
 > [!WARNING]
 > Przeniesienie obszaru roboczego Azure Machine Learning do innej subskrypcji lub przeniesienie subskrypcji będącej właścicielem do nowej dzierżawy nie jest obsługiwane. Wykonanie tej operacji może spowodować błędy.
@@ -89,7 +91,7 @@ Istnieje wiele sposobów tworzenia obszaru roboczego:
 * Użyj [Azure Portal](how-to-manage-workspace.md) dla interfejsu typu punkt-i-kliknięcie, aby przeprowadzić Cię przez każdy krok.
 * Użyj [zestawu SDK Azure Machine Learning dla języka Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py#workspace) , aby utworzyć obszar roboczy na bieżąco ze skryptów języka Python lub notesów Jupiter
 * Użyj [szablonu Azure Resource Manager](how-to-create-workspace-template.md) lub [interfejsu wiersza polecenia Azure Machine Learning](reference-azure-machine-learning-cli.md) , gdy zachodzi potrzeba automatyzacji lub dostosowania tworzenia przy użyciu firmowych standardów zabezpieczeń.
-* Jeśli pracujesz w Visual Studio Code, użyj [rozszerzenia vs Code](tutorial-setup-vscode-extension.md).
+* Jeśli pracujesz w Visual Studio Code, użyj [rozszerzenia vs Code](how-to-manage-resources-vscode.md#create-a-workspace).
 
 > [!NOTE]
 > W nazwie obszaru roboczego nie jest rozróżniana wielkość liter.

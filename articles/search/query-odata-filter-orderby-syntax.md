@@ -19,11 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: f3a1be435e297ab4a9ba7f8bfbd5f3ce3451d8a8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 07f3e270e799753a582227abe53223bd05755eb5
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77153880"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86165213"
 ---
 # <a name="odata-language-overview-for-filter-orderby-and-select-in-azure-cognitive-search"></a>Omówienie języka OData dla `$filter` , `$orderby` i `$select` na platformie Azure wyszukiwanie poznawcze
 
@@ -82,7 +83,9 @@ Znaczenie ścieżki pola różni się w zależności od kontekstu. W filtrach ś
 
 Rozważ użycie ścieżki pola `Address/City` . W filtrze odnosi się to do jednego miasta dla bieżącego dokumentu, takiego jak "San Francisco". W przeciwieństwie `Rooms/Type` odnosi się do `Type` podpola dla wielu pokojów (na przykład "Standardowa" w pierwszym pokoju, "Deluxe" dla drugiego pokoju itd.). Ponieważ `Rooms/Type` nie odwołuje się do *pojedynczego wystąpienia* podpola `Type` , nie można go używać bezpośrednio w filtrze. Zamiast tego, aby odfiltrować typ pokoju, należy użyć [wyrażenia lambda](search-query-odata-collection-operators.md) z zmienną zakresu, takiej jak:
 
-    Rooms/any(room: room/Type eq 'deluxe')
+```odata
+Rooms/any(room: room/Type eq 'deluxe')
+```
 
 W tym przykładzie zmienna zakresu `room` pojawia się w `room/Type` ścieżce pola. W ten sposób, `room/Type` odnosi się do typu bieżącego pokoju w bieżącym dokumencie. Jest to pojedyncze wystąpienie `Type` podpola, dlatego może być używane bezpośrednio w filtrze.
 

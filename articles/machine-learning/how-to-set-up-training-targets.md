@@ -9,14 +9,14 @@ ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.date: 06/11/2020
+ms.date: 07/08/2020
 ms.custom: seodec18, tracking-python
-ms.openlocfilehash: 253d2c80f5a6ff96ba9249eddd127abb74f79a33
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c87812e665617f3ccfe48db3a0cca2ceac67f0bc
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85515821"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86147445"
 ---
 # <a name="set-up-and-use-compute-targets-for-model-training"></a>Skonfiguruj cele obliczeń i używaj ich do szkolenia modelu 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -389,7 +389,7 @@ Aby uzyskać więcej informacji, zobacz [Zarządzanie zasobami](reference-azure-
 
 ## <a name="set-up-with-vs-code"></a>Konfiguracja przy użyciu VS Code
 
-Możesz uzyskiwać dostęp do obiektów docelowych obliczeń skojarzonych z obszarem roboczym, tworzyć je i zarządzać nimi, korzystając z [rozszerzenia VS Code](tutorial-train-deploy-image-classification-model-vscode.md#configure-compute-targets) Azure Machine Learning.
+Możesz uzyskiwać dostęp do obiektów docelowych obliczeń skojarzonych z obszarem roboczym, tworzyć je i zarządzać nimi, korzystając z [rozszerzenia VS Code](how-to-manage-resources-vscode.md#compute-clusters) Azure Machine Learning.
 
 ## <a name="submit-training-run-using-azure-machine-learning-sdk"></a><a id="submit"></a>Prześlij uruchomienie szkolenia przy użyciu zestawu SDK Azure Machine Learning
 

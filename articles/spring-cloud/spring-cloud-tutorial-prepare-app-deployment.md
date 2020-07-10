@@ -1,17 +1,17 @@
 ---
 title: Jak przygotować aplikację ze sprężyną Java do wdrożenia w chmurze Azure wiosennej
-description: W tym temacie opisano przygotowanie aplikacji ze sprężyną Java do wdrożenia w chmurze Azure wiosennej.
+description: Dowiedz się, jak przygotować aplikację ze sprężyną Java do wdrożenia w chmurze z systemem Azure wiosną.
 author: bmitchell287
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 02/03/2020
 ms.author: brendm
-ms.openlocfilehash: 0cbe91de889b787d6f417afbe74720b40c3026e3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1840979fc1380f1e0d14f3a0a74eef5fa6df6538
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85833387"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86141871"
 ---
 # <a name="prepare-a-java-spring-application-for-deployment-in-azure-spring-cloud"></a>Przygotowywanie aplikacji ze sprężyną Java do wdrożenia w chmurze Azure wiosennej
 
@@ -253,7 +253,7 @@ Uwzględnij poniższe `spring-cloud-starter-sleuth` i `spring-cloud-starter-zipk
 </dependency>
 ```
 
- Musisz również włączyć wystąpienie usługi Azure Application Insights, aby współpracowało z wystąpieniem usług w chmurze sieci Azure ze sprężyną. Zapoznaj się z [samouczkiem dotyczącym śledzenia rozproszonego](spring-cloud-tutorial-distributed-tracing.md) , aby dowiedzieć się, jak używać Application Insights z chmurą Azure wiosną.
+ Musisz również włączyć wystąpienie usługi Azure Application Insights, aby współpracowało z wystąpieniem usług w chmurze sieci Azure ze sprężyną. Aby uzyskać informacje o sposobach używania Application Insights z chmurą Azure wiosennej, zapoznaj się z [dokumentacją śledzenia rozproszonego](spring-cloud-tutorial-distributed-tracing.md).
 
 ## <a name="see-also"></a>Zobacz także
 * [Analizowanie dzienników i metryk aplikacji](https://docs.microsoft.com/azure/spring-cloud/diagnostic-services)
@@ -264,9 +264,6 @@ Uwzględnij poniższe `spring-cloud-starter-sleuth` i `spring-cloud-starter-zipk
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym temacie opisano sposób konfigurowania aplikacji ze sprężyną Java na potrzeby wdrożenia w chmurze sieci platformy Azure. Aby dowiedzieć się, jak skonfigurować wystąpienie serwera konfiguracji, zapoznaj się z następującym artykułem.
-
-> [!div class="nextstepaction"]
-> [Dowiedz się, jak skonfigurować wystąpienie serwera konfiguracji](spring-cloud-tutorial-config-server.md)
+W tym temacie opisano sposób konfigurowania aplikacji ze sprężyną Java na potrzeby wdrożenia w chmurze sieci platformy Azure. Aby dowiedzieć się, jak skonfigurować wystąpienie serwera konfiguracji, zobacz [Konfigurowanie wystąpienia serwera konfiguracji](spring-cloud-tutorial-config-server.md).
 
 Więcej przykładów można znaleźć w witrynie GitHub: [przykłady chmur usługi Azure wiosennej](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples).

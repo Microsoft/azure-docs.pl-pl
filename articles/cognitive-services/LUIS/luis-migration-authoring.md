@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 06/17/2020
 ms.author: diberry
-ms.openlocfilehash: 338868c954df68fbf43bee9581a6afada58f7e97
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: cc14f1cd60f048ba01060b9ebdbca434af6b9751
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86055464"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86145618"
 ---
 # <a name="migrate-to-an-azure-resource-authoring-key"></a>Migrowanie do klucza tworzenia zasobów platformy Azure
 
@@ -226,7 +226,7 @@ Zalecamy wykonanie następujących czynności:
 ## <a name="troubleshooting-the-migration-process"></a>Rozwiązywanie problemów z procesem migracji
 
 Gdy próbujesz przeprowadzić migrację, ale nie możesz znaleźć subskrypcji platformy Azure na liście rozwijanej:
-* Upewnij się, że masz prawidłową subskrypcję platformy Azure, która jest uprawniona do tworzenia zasobów Cognitive Services. Przejdź do [Azure Portal](https://ms.portal.azure.com) i sprawdź stan subskrypcji. Jeśli go nie masz, [Utwórz bezpłatną wersję próbną](https://azure.microsoft.com/free/).
+* Upewnij się, że masz prawidłową subskrypcję platformy Azure, która jest uprawniona do tworzenia zasobów Cognitive Services. Przejdź do [Azure Portal](https://ms.portal.azure.com) i sprawdź stan subskrypcji. Jeśli go nie masz, [Utwórz bezpłatne konto platformy Azure](https://azure.microsoft.com/free/cognitive-services/).
 * Upewnij się, że jesteś w odpowiedniej dzierżawie skojarzonej z prawidłową subskrypcją. Możesz przełączyć dzierżawców z awatara z lewej strony inicjałów na tym pasku narzędzi: ![ pasek narzędzi umożliwiający przełączanie dzierżawców](./media/migrate-authoring-key/switch-user-tenant-2.png)
 
 Jeśli masz istniejący zasób tworzenia, ale nie można go znaleźć po wybraniu opcji **Użyj istniejącego zasobu tworzenia** :

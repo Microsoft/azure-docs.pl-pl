@@ -7,13 +7,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 06/10/2020
+ms.date: 07/08/2020
 ms.author: jingwang
-ms.openlocfilehash: 8b4876377501209e19ac496d605d228208d2323d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 46108ed06659d234907c6eaa6841dc18022c73bf
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84670922"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86144157"
 ---
 # <a name="excel-format-in-azure-data-factory"></a>Format programu Excel w Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -94,6 +95,54 @@ W sekcji *** \* Źródło \* *** działania kopiowania są obsługiwane następu
         ...
     }
 ]
+```
+
+## <a name="mapping-data-flow-properties"></a>Mapowanie właściwości przepływu danych
+
+W mapowaniu przepływów danych można odczytać format programu Excel w następujących magazynach danych: [Azure Blob Storage](connector-azure-blob-storage.md#mapping-data-flow-properties), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#mapping-data-flow-properties)i [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#mapping-data-flow-properties). Możesz wskazać pliki programu Excel przy użyciu zestawu danych programu Excel lub z użyciem [wbudowanego zestawu danych](data-flow-source.md#inline-datasets).
+
+### <a name="source-properties"></a>Właściwości źródła
+
+Poniższa tabela zawiera listę właściwości obsługiwanych przez źródło programu Excel. Można edytować te właściwości na karcie **Opcje źródła** . W przypadku korzystania z wbudowanego zestawu danych zostaną wyświetlone dodatkowe ustawienia plików, które są takie same jak właściwości opisane w sekcji [Właściwości zestawu danych](#dataset-properties) .
+
+| Nazwa                      | Opis                                                  | Wymagane | Dozwolone wartości                                            | Właściwość skryptu przepływu danych         |
+| ------------------------- | ------------------------------------------------------------ | -------- | --------------------------------------------------------- | --------------------------------- |
+| Ścieżki symboli wieloznacznych           | Wszystkie pliki zgodne ze ścieżką wieloznaczną zostaną przetworzone. Zastępuje folder i ścieżkę pliku ustawioną w zestawie danych. | nie       | Ciąg []                                                  | wildcardPaths                     |
+| Ścieżka katalogu głównego partycji       | W przypadku danych plików podzielonych na partycje można wprowadzić ścieżkę katalogu głównego partycji, aby odczytywać foldery partycjonowane jako kolumny | nie       | String                                                    | partitionRootPath                 |
+| Lista plików             | Czy źródło wskazuje plik tekstowy, który zawiera listę plików do przetworzenia | nie       | `true` lub `false`                                         | fileList                          |
+| Kolumna do przechowywania nazwy pliku | Utwórz nową kolumnę o nazwie i ścieżce pliku źródłowego       | nie       | String                                                    | rowUrlColumn                      |
+| Po zakończeniu          | Usuń lub Przenieś pliki po przetworzeniu. Ścieżka pliku zaczyna się od katalogu głównego kontenera | nie       | Usuń: `true` lub`false` <br> Przenieś`['<from>', '<to>']` | purgeFiles <br> moveFiles         |
+| Filtruj według ostatniej modyfikacji   | Wybierz filtrowanie plików na podstawie czasu ich ostatniej modyfikacji | nie       | Znacznik czasu                                                 | modifiedAfter <br> modifiedBefore |
+
+### <a name="source-example"></a>Przykład źródła
+
+Poniżej znajduje się przykład konfiguracji źródła programu Excel w mapowaniu przepływów danych przy użyciu trybu zestawu danych.
+
+![Źródło programu Excel](media/data-flow/excel-source.png)
+
+Skojarzony skrypt przepływu danych:
+
+```
+source(allowSchemaDrift: true,
+    validateSchema: false,
+    wildcardPaths:['*.xls']) ~> ExcelSource
+```
+
+Jeśli używasz wbudowanego zestawu danych, zobaczysz następujące opcje źródła w mapowaniu przepływu danych.
+
+![Wbudowany zestaw danych programu Excel](media/data-flow/excel-source-inline-dataset.png)
+
+Skojarzony skrypt przepływu danych:
+
+```
+source(allowSchemaDrift: true,
+    validateSchema: false,
+    format: 'excel',
+    fileSystem: 'container',
+    folderPath: 'path',
+    fileName: 'sample.xls',
+    sheetName: 'worksheet',
+    firstRowAsHeader: true) ~> ExcelSourceInlineDataset
 ```
 
 ## <a name="next-steps"></a>Następne kroki

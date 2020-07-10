@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/01/2020
-ms.openlocfilehash: 15d2a7a2ad00f7f9b5db59d3d4803f60508b7b2c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fd102706d1fa6c33d8962a5d1caf5aa3e41b231d
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85561593"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86146185"
 ---
 # <a name="how-to-work-with-search-results-in-azure-cognitive-search"></a>Jak korzystać z wyników wyszukiwania w usłudze Azure Wyszukiwanie poznawcze
 
@@ -55,20 +55,26 @@ Wyniki zapytań z podziałem na strony nie są gwarantowane w przypadku zmiany p
  
 Poniżej znajduje się przykład, w jaki sposób można uzyskać duplikaty. Załóżmy, że indeks ma cztery dokumenty:
 
-    { "id": "1", "rating": 5 }
-    { "id": "2", "rating": 3 }
-    { "id": "3", "rating": 2 }
-    { "id": "4", "rating": 1 }
+```text
+{ "id": "1", "rating": 5 }
+{ "id": "2", "rating": 3 }
+{ "id": "3", "rating": 2 }
+{ "id": "4", "rating": 1 }
+```
  
 Teraz Załóżmy, że wyniki zwracane są dwa naraz, uporządkowane według klasyfikacji. Wykonanie tego zapytania spowoduje uzyskanie pierwszej strony z wynikami: `$top=2&$skip=0&$orderby=rating desc` , generując następujące wyniki:
 
-    { "id": "1", "rating": 5 }
-    { "id": "2", "rating": 3 }
+```text
+{ "id": "1", "rating": 5 }
+{ "id": "2", "rating": 3 }
+```
  
 Załóżmy, że w usłudze zostanie dodany piąty dokument do indeksu między wywołaniami zapytań: `{ "id": "5", "rating": 4 }` .  Wkrótce należy wykonać zapytanie w celu pobrania drugiej strony: `$top=2&$skip=2&$orderby=rating desc` i uzyskać następujące wyniki:
 
-    { "id": "2", "rating": 3 }
-    { "id": "3", "rating": 2 }
+```text
+{ "id": "2", "rating": 3 }
+{ "id": "3", "rating": 2 }
+```
  
 Zauważ, że dokument 2 jest pobierany dwa razy. Wynika to z faktu, że nowy dokument 5 ma większą wartość dla klasyfikacji, więc sortuje przed dokument 2 i grunty na pierwszej stronie. Chociaż takie zachowanie może być nieoczekiwane, typowe jest zachowanie aparatu wyszukiwania.
 
