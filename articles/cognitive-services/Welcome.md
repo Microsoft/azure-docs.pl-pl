@@ -10,16 +10,18 @@ ms.subservice: ''
 ms.topic: overview
 ms.date: 12/19/2019
 ms.author: nitinme
-ms.openlocfilehash: f45cf27f427625571a58022c199391cac9a05bd2
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 6272d050e6a71032f32c72be696d8c3918fc3d61
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86146923"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223758"
 ---
 # <a name="what-are-azure-cognitive-services"></a>Co to jest platforma Azure Cognitive Services?
 
 Usługa Azure Cognitive Services to interfejsy API, zestawy SDK i usługi dostępne w celu ułatwienia deweloperom kompilowania inteligentnych aplikacji bez konieczności podawania umiejętności i wiedzy o niebezpośredniej lub naukowej wiedzy. Dzięki platformie Azure Cognitive Services deweloperzy mogą łatwo dodawać funkcje poznawcze do swoich aplikacji. Celem Cognitive Services platformy Azure jest ułatwienie deweloperom tworzenia aplikacji, które mogą wyświetlać, słyszeć, mówić i rozumieć, a nawet zacząć z przyczyn. Katalog usług w ramach platformy Azure Cognitive Services można podzielić na pięć głównych filarów, mowy, języka, wyszukiwanie w sieci Web i decyzji.
+
+Chcesz zobaczyć, co nowego i Zaktualizowano Cognitive Services dokumentacji? Zapoznaj się z [tematem co nowego w Cognitive Services](whats-new-docs.md)dokumentach.
 
 ## <a name="vision-apis"></a>Interfejsy API przetwarzania
 

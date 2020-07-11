@@ -1,6 +1,6 @@
 ---
-title: dołączanie pliku
-description: dołączanie pliku
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: storage
 author: tamram
 ms.service: storage
@@ -31,7 +31,7 @@ Poniższe linki zapewniają przydatne zasoby dla deweloperów korzystających z 
 - [Kod źródłowy biblioteki](https://github.com/Azure/azure-storage-net/tree/master/Blob)
 - [Pakiet (NuGet) dla wersji 11. x](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/)
 - [Pakiet (NuGet) dla wersji 12. x](https://www.nuget.org/packages/Azure.Storage.Blobs)
-- [Samples](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=dotnet&term=blob)
+- [Przykłady](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=dotnet&term=blob)
 
 ### <a name="net-tools"></a>Narzędzia platformy .NET
 

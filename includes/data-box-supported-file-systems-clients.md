@@ -12,7 +12,7 @@ ms.contentlocale: pl-PL
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "66242151"
 ---
-| **Protokoły** | **Wersje** |
+| **Protokoły** | **Versions** (Wersje) |
 | --- | --- |
 | SMB |2. X i nowsze |
 | NFS | Wszystkie wersje do i włącznie z 4,1|

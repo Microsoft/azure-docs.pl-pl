@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: overview
-ms.date: 05/07/2020
+ms.date: 07/10/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 289cc463732ee6b612b67f6c408d9d7260016137
-ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
+ms.openlocfilehash: 0d6cc523a56c9235360e6476b69303c51dc4d893
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/21/2020
-ms.locfileid: "85125808"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224353"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>Co to jest Windows Virtual Desktop? 
 
@@ -87,47 +87,7 @@ Maszyny wirtualne platformy Azure tworzone dla pulpitu wirtualnego systemu Windo
 >[!NOTE]
 >Jeśli potrzebujesz subskrypcji platformy Azure, możesz [zarejestrować się w celu korzystania z miesięcznej bezpłatnej wersji próbnej](https://azure.microsoft.com/free/). W przypadku korzystania z bezpłatnej wersji próbnej platformy Azure należy używać Azure AD Domain Services, aby zapewnić synchronizację Active Directory systemu Windows Server z Azure Active Directory.
 
-Maszyny wirtualne platformy Azure tworzone dla pulpitu wirtualnego systemu Windows muszą mieć dostęp do następujących adresów URL:
-
-|Adres|Wychodzący port TCP|Przeznaczenie|Tag usługi|
-|---|---|---|---|
-|*. wvd.microsoft.com|443|Ruch usługi|WindowsVirtualDesktop|
-|mrsglobalsteus2prod.blob.core.windows.net|443|Aktualizacje stosu agenta i SXS|AzureCloud|
-|*.core.windows.net|443|Ruch agenta|AzureCloud|
-|*.servicebus.windows.net|443|Ruch agenta|AzureCloud|
-|prod.warmpath.msftcloudes.com|443|Ruch agenta|AzureCloud|
-|catalogartifact.azureedge.net|443|Azure Marketplace|AzureCloud|
-|kms.core.windows.net|1688|Aktywacja systemu Windows|Internet|
-|wvdportalstorageblob.blob.core.windows.net|443|Obsługa Azure Portal|AzureCloud|
-
->[!IMPORTANT]
->Pulpit wirtualny systemu Windows obsługuje teraz tag FQDN. Aby uzyskać więcej informacji, zobacz [Korzystanie z zapory platformy Azure do ochrony wdrożeń pulpitów wirtualnych systemu Windows](../firewall/protect-windows-virtual-desktop.md).
->
->Zalecamy używanie tagów FQDN lub tagów usług zamiast adresów URL, aby zapobiec problemom z usługą. Wymienione adresy URL i Tagi odnoszą się tylko do witryn i zasobów pulpitu wirtualnego systemu Windows. Nie obejmują one adresów URL dla innych usług, takich jak Azure Active Directory.
-
-W poniższej tabeli przedstawiono opcjonalne adresy URL, do których maszyny wirtualne platformy Azure mogą mieć dostęp:
-
-|Adres|Wychodzący port TCP|Przeznaczenie|Tag usługi|
-|---|---|---|---|
-|*.microsoftonline.com|443|Uwierzytelnianie w usługach online firmy Microsoft|Brak|
-|*. events.data.microsoft.com|443|Usługa telemetrii|Brak|
-|www.msftconnecttest.com|443|Wykrywa, czy system operacyjny jest połączony z Internetem|Brak|
-|*. prod.do.dsp.mp.microsoft.com|443|Windows Update|Brak|
-|login.windows.net|443|Zaloguj się do usług Microsoft Online Services, Microsoft 365|Brak|
-|*. sfx.ms|443|Aktualizacje oprogramowania klienckiego usługi OneDrive|Brak|
-|*. digicert.com|443|Sprawdzanie odwołania certyfikatu|Brak|
-
-
->[!NOTE]
->Pulpit wirtualny systemu Windows nie ma obecnie listy zakresów adresów IP, które można dozwolonych, aby zezwalać na ruch sieciowy. W tej chwili obsługujemy tylko określone adresy URL listy dozwolonych.
->
->Aby uzyskać listę adresów URL związanych z pakietem Office, w tym wymaganych adresów URL związanych z Azure Active Directory, zobacz [adresy URL i zakresy adresów IP usługi office 365](/office365/enterprise/urls-and-ip-address-ranges).
->
->Należy użyć symbolu wieloznacznego (*) dla adresów URL związanych z ruchem usługi. Jeśli wolisz używać * w przypadku ruchu związanego z agentem, Oto jak znaleźć adresy URL bez symboli wieloznacznych:
->
->1. Zarejestruj maszyny wirtualne w puli hostów systemu Windows Virtual Desktop.
->2. Otwórz **Podgląd zdarzeń** i przejdź do **dziennika systemu Windows**  >  **Application**  >  **WVD-Agent** i poszukaj zdarzenia o identyfikatorze 3702.
->3. Dozwolonych adresy URL Znalezione w obszarze zdarzenia o IDENTYFIKATORze 3702. Adresy URL pod IDENTYFIKATORem zdarzenia 3702 są specyficzne dla regionu. Należy powtórzyć proces listy dozwolonych z odpowiednimi adresami URL dla każdego regionu, w którym mają zostać wdrożone maszyny wirtualne.
+Aby uzyskać listę adresów URL, które należy odblokować dla wdrożenia pulpitu wirtualnego systemu Windows, aby działały zgodnie z oczekiwaniami, zobacz naszą [bezpieczną listę adresów URL](safe-url-list.md).
 
 Pulpit wirtualny systemu Windows składa się z komputerów stacjonarnych i aplikacji z systemem Windows dostarczanych użytkownikom i rozwiązanie do zarządzania, które jest hostowane jako usługa na platformie Azure przez firmę Microsoft. Komputery stacjonarne i aplikacje można wdrażać na maszynach wirtualnych w dowolnym regionie świadczenia usługi Azure, a rozwiązanie do zarządzania i dane dla tych maszyn wirtualnych będą znajdować się w Stany Zjednoczone. Może to spowodować transfer danych do Stany Zjednoczone.
 
@@ -153,20 +113,7 @@ Następujący klienci Pulpit zdalny obsługują pulpit wirtualny systemu Windows
 > [!IMPORTANT]
 > Pulpit wirtualny systemu Windows obecnie nie obsługuje klienta Pulpit zdalny ze sklepu Windows. Obsługa tego klienta zostanie dodana w przyszłym wydaniu.
 
-Klienci Pulpit zdalny muszą mieć dostęp do następujących adresów URL:
-
-|Adres|Wychodzący port TCP|Przeznaczenie|Klienci|
-|---|---|---|---|
-|*. wvd.microsoft.com|443|Ruch usługi|Wszystko|
-|*.servicebus.windows.net|443|Rozwiązywanie problemów z danymi|Wszystko|
-|go.microsoft.com|443|Linki fwlink firmy Microsoft|Wszystko|
-|aka.ms|443|Shortener URL firmy Microsoft|Wszystko|
-|docs.microsoft.com|443|Dokumentacja|Wszystko|
-|privacy.microsoft.com|443|Oświadczenie o ochronie prywatności|Wszystko|
-|query.prod.cms.rt.microsoft.com|443|Aktualizacje klienta|Pulpit systemu Windows|
-
->[!IMPORTANT]
->Otwieranie tych adresów URL jest niezbędne dla niezawodnego środowiska klienta. Blokowanie dostępu do tych adresów URL nie jest obsługiwane i wpłynie na funkcjonalność usługi. Te adresy URL odnoszą się tylko do lokacji i zasobów klienta oraz nie obejmują adresów URL dla innych usług, takich jak Azure Active Directory.
+Aby dowiedzieć się więcej na temat adresów URL, które należy odblokować do korzystania z klientów zdalnych, zobacz [listę bezpiecznych adresów URL](safe-url-list.md).
 
 ## <a name="supported-virtual-machine-os-images"></a>Obsługiwane obrazy systemu operacyjnego maszyny wirtualnej
 
@@ -185,7 +132,7 @@ Dostępne opcje automatyzacji i wdrażania zależą od wybranego systemu operacy
 
 |System operacyjny|Galeria obrazów platformy Azure|Ręczne wdrożenie maszyny wirtualnej|Integracja z szablonem Azure Resource Manager|Inicjowanie obsługi pul hostów w witrynie Azure Marketplace|
 |--------------------------------------|:------:|:------:|:------:|:------:|
-|Wiele sesji systemu Windows 10, wersja 1903|Tak|Tak|Tak|Yes|
+|Wiele sesji systemu Windows 10, wersja 1903|Tak|Tak|Tak|Tak|
 |Wiele sesji systemu Windows 10, wersja 1809|Tak|Yes|Nie|Nie|
 |Windows 10 Enterprise, wersja 1903|Tak|Tak|Tak|Yes|
 |Windows 10 Enterprise, wersja 1809|Tak|Yes|Nie|Nie|

@@ -1,6 +1,6 @@
 ---
-title: dołączanie pliku
-description: dołączanie pliku
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
@@ -17,8 +17,8 @@ ms.locfileid: "73491684"
 ---
 | **Typ wirtualnej sieci WAN** | **Typ centrum** | **Dostępne konfiguracje** |
 |---|---|---|
-|Podstawowy | Podstawowy | Tylko sieć VPN typu lokacja-lokacja |
-| Standardowa (Standard) | Standardowa (Standard) | ExpressRoute<br>Sieć VPN użytkownika (P2S)<br>Sieć VPN (lokacja-lokacja)<br> Przesyłanie między centrami i między sieciami wirtualnymi za pomocą koncentratora wirtualnego |
+|Podstawowa | Podstawowa | Tylko sieć VPN typu lokacja-lokacja |
+| Standardowa | Standardowa | ExpressRoute<br>Sieć VPN użytkownika (P2S)<br>Sieć VPN (lokacja-lokacja)<br> Przesyłanie między centrami i między sieciami wirtualnymi za pomocą koncentratora wirtualnego |
 
 >[!NOTE]
 >Możesz przeprowadzić uaktualnienie z warstwy Podstawowa do standardowa, ale nie można przywrócić warstwy z powrotem z warstwy Standardowa do warstwy Podstawowa.

@@ -14,7 +14,7 @@ ms.locfileid: "66242167"
 ---
 Poniżej znajduje się lista przeglądarek sieci Web obsługiwanych przez lokalny interfejs użytkownika sieci Web.
 
-| **Przeglądarka** | **Wersje** | **Dodatkowe wymagania/uwagi** |
+| **Przeglądarka** | **Versions** (Wersje) | **Dodatkowe wymagania/uwagi** |
 | --- | --- | --- |
 | Google Chrome |Najnowsza wersja |Testowanie za pomocą przeglądarki Chrome|
 | Microsoft Edge |Najnowsza wersja | |

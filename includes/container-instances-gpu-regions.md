@@ -16,6 +16,6 @@ ms.locfileid: "75445810"
 | Regiony | System operacyjny | Dostępne jednostki SKU procesora GPU |
 | -------- | ---- | :-----------: |
 | Wschodnie stany USA, Europa Zachodnia, zachodnie stany USA 2 | Linux | K80, P100, V100 |
-| Azja Południowo-Wschodnia | Linux | P100, V100|
+| Southeast Asia | Linux | P100, V100|
 | Indie Środkowe | Linux | V100 |
 | Europa Północna | Linux | K80 |
