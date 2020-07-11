@@ -6,11 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 04/15/2020
 ms.author: v-erkel
-ms.openlocfilehash: fb3e4fd4935afc4869e50ccbc35c53333d43b1df
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 10f8e92138878381b5267742b8211df81e0c49d4
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85515531"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232682"
 ---
 # <a name="mount-the-azure-hpc-cache"></a>Instalowanie pamięci podręcznej usługi Azure HPC Cache
 
@@ -114,7 +115,7 @@ W przypadku niezawodnego instalowania klienta należy przekazać te ustawienia i
 
 > Instalacja-o twarde, proto = TCP, mountproto = TCP, retry = 30 $ {CACHE_IP_ADDRESS}:/$ {NAMESPACE_PATH} $ {LOCAL_FILESYSTEM_MOUNT_POINT}
 
-| Zalecane ustawienia poleceń instalacji | |
+| Zalecane ustawienia poleceń instalacji | Opis |
 --- | ---
 ``hard`` | Instalacje miękkie do pamięci podręcznej platformy Azure HPC są skojarzone z niepowodzeńmi aplikacji i możliwymi utratą danych.
 ``proto=tcp`` | Ta opcja obsługuje odpowiednią obsługę błędów sieci NFS.

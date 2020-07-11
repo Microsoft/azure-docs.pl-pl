@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/26/2020
 ms.author: kumud
-ms.openlocfilehash: 19824e978af78e85f9e8c790517bd66b1f6c0113
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5d32c130205420ef8f20d7ce8cb97f9a2595e978
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85481735"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232206"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Często zadawane pytania dotyczące sieci wirtualnych platformy Azure
 
@@ -44,7 +44,7 @@ Tak. Możesz użyć sieci wirtualnej bez łączenia jej z Twoim lokalem. Można 
 ### <a name="can-i-perform-wan-optimization-between-vnets-or-a-vnet-and-my-on-premises-data-center"></a>Czy mogę przeprowadzić optymalizację sieci WAN między sieci wirtualnychą a siecią wirtualną i lokalnym centrum danych?
 Tak. [Wirtualne urządzenie sieciowe optymalizacji sieci WAN](https://azuremarketplace.microsoft.com/en-us/marketplace/?term=wan%20optimization) można wdrożyć od kilku dostawców za pośrednictwem portalu Azure Marketplace.
 
-## <a name="configuration"></a>Konfigurowanie
+## <a name="configuration"></a>Konfiguracja
 
 ### <a name="what-tools-do-i-use-to-create-a-vnet"></a>Jakie narzędzia są używane do tworzenia sieci wirtualnej?
 Aby utworzyć lub skonfigurować sieć wirtualną, można użyć następujących narzędzi:
@@ -406,9 +406,8 @@ Azure Active Directory (Azure AD) nie obsługuje natywnych punktów końcowych u
 ### <a name="are-there-any-limits-on-how-many-vnet-service-endpoints-i-can-set-up-from-my-vnet"></a>Czy istnieją jakieś ograniczenia dotyczące liczby punktów końcowych usługi sieci wirtualnej, które mogę skonfigurować przy użyciu mojej VNet?
 Nie ma limitu całkowitej liczby punktów końcowych usługi wirtualnej w sieci wirtualnej. W przypadku zasobu usługi platformy Azure (takiego jak konto usługi Azure Storage) usługi mogą wymuszać limity liczby podsieci używanych do zabezpieczania zasobu. W poniższej tabeli przedstawiono niektóre przykładowe limity: 
 
-|||
-|---|---|
 |Usługa platformy Azure| Limity dla reguł sieci wirtualnej|
+|---|---|
 |Azure Storage| 100|
 |Azure SQL| 128|
 |Azure SQL Data Warehouse|  128|

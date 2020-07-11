@@ -3,12 +3,12 @@ title: Przekazywanie, kodowanie i przesyłanie strumieniowe zawartości przy uż
 description: W tym przewodniku szybki start przedstawiono sposób użycia portalu do przekazywania, kodowania i przesyłania strumieniowego zawartości za pomocą Azure Media Services.
 ms.topic: quickstart
 ms.date: 06/08/2020
-ms.openlocfilehash: b023a4ed68aa7cfa41661e986dcd4ad6819b810d
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
+ms.openlocfilehash: 374e8a22bf8fdcb14101bffc26f9d1b27480ce88
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "84988944"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232478"
 ---
 # <a name="quickstart-upload-encode-and-stream-content-with-portal"></a>Szybki Start: przekazywanie, kodowanie i przesyłanie strumieniowe zawartości za pomocą portalu
 
@@ -52,17 +52,17 @@ W tym przewodniku szybki start pokazano, jak używać Azure Portal do przekazywa
 
 [Tworzenie konta usługi Media Services](create-account-howto.md#use-the-azure-portal)
 
-## <a name="upload"></a>Upload
+## <a name="upload"></a>Przekazywanie
 
 1. Zaloguj się do [witryny Azure Portal](https://portal.azure.com/).
 1. Znajdź i kliknij konto Media Services.
 1. Wybierz pozycję **zasoby (nowe)**.
 1. Naciśnij przycisk **Przekaż** w górnej części okna. 
-1. Przeciągnij i upuść lub przejdź do pliku określona, który chcesz przekazać.
+1. Przeciągnij i upuść lub przejdź do pliku, który chcesz przekazać.
 
 Po przejściu do okna elementy zawartości zobaczysz, że do listy dodano nowy element zawartości:
 
-![Upload](./media/manage-assets-quickstart/upload.png)
+![Przekazywanie](./media/manage-assets-quickstart/upload.png)
 
 ## <a name="encode"></a>Kodowanie
 

@@ -1,5 +1,5 @@
 ---
-title: Azure Key Vault zarządzane konto magazynu — wersja programu PowerShell
+title: Pobieranie tokenów sygnatury dostępu współdzielonego w kodzie | Azure Key Vault
 description: Funkcja zarządzanego konta magazynu zapewnia bezproblemową integrację między Azure Key Vault i kontem usługi Azure Storage.
 ms.topic: conceptual
 ms.service: key-vault
@@ -8,36 +8,41 @@ author: msmbaldwin
 ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/10/2019
-ms.openlocfilehash: 7307741e56c7fc912f60d0496979243eb4be77a4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e429115ce2624685c413ae252229964feee70137
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81431269"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232597"
 ---
 # <a name="fetch-shared-access-signature-tokens-in-code"></a>Pobieranie tokenów sygnatury dostępu współdzielonego
 
-Kontem magazynu można zarządzać przy użyciu [tokenów sygnatury dostępu współdzielonego](../../storage/common/storage-dotnet-shared-access-signature-part-1.md) w magazynie kluczy. W tym artykule przedstawiono przykłady kodu w języku C#, który pobiera token sygnatury dostępu współdzielonego i wykonuje do niego operacje.  Aby uzyskać informacje na temat tworzenia i przechowywania tokenów SAS, zobacz [Zarządzanie kluczami konta magazynu przy użyciu Key Vault i interfejsu wiersza polecenia platformy Azure](overview-storage-keys.md) lub [Zarządzanie kluczami konta magazynu za pomocą Key Vault i Azure PowerShell](overview-storage-keys-powershell.md).
+Kontem magazynu można zarządzać za pomocą tokenów sygnatury dostępu współdzielonego (SAS) przechowywanych w magazynie kluczy. Aby uzyskać więcej informacji, zobacz [udzielanie ograniczonego dostępu do zasobów usługi Azure Storage za pomocą sygnatur dostępu współdzielonego](../../storage/common/storage-sas-overview.md).
+
+W tym artykule przedstawiono przykłady kodu platformy .NET, który pobiera token SAS i wykonuje do niego operacje. Aby uzyskać informacje na temat tworzenia i przechowywania tokenów SAS, zobacz [Zarządzanie kluczami konta magazynu przy użyciu Key Vault i interfejsu wiersza polecenia platformy Azure](overview-storage-keys.md) lub [Zarządzanie kluczami konta magazynu za pomocą Key Vault i Azure PowerShell](overview-storage-keys-powershell.md).
 
 ## <a name="code-samples"></a>Przykłady kodu
 
-W tym przykładzie kod pobiera token sygnatury dostępu współdzielonego z magazynu kluczy, używa go do utworzenia nowego konta magazynu i tworzy nowy klient Blob service.  
+W tym przykładzie kod pobiera token sygnatury dostępu współdzielonego z magazynu kluczy, używa go do utworzenia nowego konta magazynu i tworzy nowy klient Blob service.
 
 ```cs
-// After you get a security token, create KeyVaultClient with vault credentials.
-var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(securityToken));
+// The shared access signature is stored as a secret in keyvault. 
+// After you get a security token, create a new SecretClient with vault credentials and the key vault URI.
+// The format for the key vault URI (kvuri) is https://<YourKeyVaultName>.vault.azure.net
 
-// Get a shared access signature token for your storage from Key Vault.
-// The format for SecretUri is https://<YourKeyVaultName>.vault.azure.net/secrets/<ExamplePassword>
-var sasToken = await kv.GetSecretAsync("SecretUri");
+var kv = new SecretClient(new Uri(kvUri), new DefaultAzureCredential());
 
-// Create new storage credentials by using the shared access signature token.
-var accountSasCredential = new StorageCredentials(sasToken.Value);
+// Now retrive your storage SAS token from Key Vault using the name of the secret (secretName).
 
-// Use the storage credentials and the Blob storage endpoint to create a new Blob service client.
-var accountWithSas = new CloudStorageAccount(accountSasCredential, new Uri ("https://myaccount.blob.core.windows.net/"), null, null, null);
+KeyVaultSecret secret = client.GetSecret(secretName);
+var sasToken = secret.Value;
 
-var blobClientWithSas = accountWithSas.CreateCloudBlobClient();
+// Create new storage credentials using the SAS token.
+StorageCredentials accountSAS = new StorageCredentials(sasToken);
+
+// Use these credentials and your storage account name to create a Blob service client.
+CloudStorageAccount accountWithSAS = new CloudStorageAccount(accountSAS, "<storage-account>", endpointSuffix: null, useHttps: true);
+CloudBlobClient blobClientWithSAS = accountWithSAS.CreateCloudBlobClient();
 ```
 
 Jeśli token sygnatury dostępu współdzielonego niedługo wygaśnie, możesz pobrać token sygnatury dostępu współdzielonego z magazynu kluczy i zaktualizować kod.
@@ -45,12 +50,13 @@ Jeśli token sygnatury dostępu współdzielonego niedługo wygaśnie, możesz p
 ```cs
 // If your shared access signature token is about to expire,
 // get the shared access signature token again from Key Vault and update it.
-sasToken = await kv.GetSecretAsync("SecretUri");
-accountSasCredential.UpdateSASToken(sasToken);
+KeyVaultSecret secret = client.GetSecret(secretName);
+var sasToken = secret.Value;
+accountSAS.UpdateSASToken(sasToken);
 ```
 
 
 ## <a name="next-steps"></a>Następne kroki
+- Dowiedz się, jak [udzielić ograniczonego dostępu do zasobów usługi Azure Storage za pomocą sygnatur dostępu współdzielonego](../../storage/common/storage-sas-overview.md).
 - Dowiedz się, jak [zarządzać kluczami konta magazynu za pomocą Key Vault i interfejsu wiersza polecenia platformy Azure](overview-storage-keys.md) lub [Azure PowerShell](overview-storage-keys-powershell.md).
 - Zobacz [przykłady kluczy zarządzanego konta magazynu](https://github.com/Azure-Samples?utf8=%E2%9C%93&q=key+vault+storage&type=&language=)
-- [Dokumentacja programu Key Vault PowerShell](/powershell/module/az.keyvault/?view=azps-1.2.0#key_vault)

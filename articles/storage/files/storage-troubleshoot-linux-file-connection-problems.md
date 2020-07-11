@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 3a24f6c7c8339ee5e63fea4c0cd4d7edc9da2a17
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ffd73e9dff06df4b5acdd004dddcfca5ff03ede0
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85512005"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232274"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux"></a>Rozwiązywanie problemów z Azure Files w systemie Linux
 
@@ -30,12 +30,12 @@ Typowe przyczyny tego problemu:
 
 |   | SMB 2.1 <br>(Instalacja na maszynach wirtualnych w tym samym regionie platformy Azure) | SMB 3.0 <br>(Instalacje z poziomu lokalnego i obejmującego wiele regionów) |
 | --- | :---: | :---: |
-| Ubuntu Server | 14.04 + | 16.04 + |
-| RHEL | 7 + | 7.5 + |
-| CentOS | 7 + |  7.5 + |
-| Debian | 8 + |   |
-| openSUSE | 13.2 + | 42.3 + |
-| SUSE Linux Enterprise Server | 12 | 12 SP3 + |
+| **Serwer Ubuntu** | 14.04 + | 16.04 + |
+| **RHEL** | 7 + | 7.5 + |
+| **CentOS** | 7 + |  7.5 + |
+| **Debian** | 8 + |   |
+| **openSUSE** | 13.2 + | 42.3 + |
+| **SUSE Linux Enterprise Server** | 12 | 12 SP3 + |
 
 - Narzędzia CIFS (CIFS-Utilities) nie są zainstalowane na kliencie.
 - Minimalna wersja protokołu SMB/CIFS 2,1 nie jest zainstalowana na kliencie.
@@ -84,9 +84,9 @@ W systemie Linux pojawia się komunikat o błędzie podobny do następującego:
 
 ### <a name="cause"></a>Przyczyna
 
-Osiągnięto górny limit współbieżnych otwartych dojść, które są dozwolone dla pliku.
+Osiągnięto górny limit współbieżnych otwartych dojść, które są dozwolone dla pliku lub katalogu.
 
-W pojedynczym pliku występuje limit przydziału liczby otwartych dojścia do 2 000. Jeśli masz otwarte dojścia do 2 000, zostanie wyświetlony komunikat o błędzie informujący o osiągnięciu limitu przydziału.
+Istnieje limit przydziału otwartych dojść do 2 000 dla jednego pliku lub katalogu. Jeśli masz otwarte dojścia do 2 000, zostanie wyświetlony komunikat o błędzie informujący o osiągnięciu limitu przydziału.
 
 ### <a name="solution"></a>Rozwiązanie
 

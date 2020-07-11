@@ -5,11 +5,12 @@ ms.date: 10/04/2018
 ms.topic: conceptual
 description: Dowiedz się, jak szybko utworzyć klaster Kubernetes z włączoną funkcją Azure Dev Spaces bezpośrednio z przeglądarki bez konieczności instalowania żadnych elementów.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, Containers, Helm, Service siatk, Service siatk Routing, polecenia kubectl, k8s
-ms.openlocfilehash: 5e2e5cfd22eeedd3554737458caeca0b891b62fe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f6da9055e11b5c514d71122c3650bbc326fb8de8
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77605307"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232291"
 ---
 # <a name="create-a-kubernetes-cluster-with-azure-dev-spaces-enabled-with-azure-cloud-shell"></a>Utwórz klaster Kubernetes z włączonym Azure Dev Spaces z Azure Cloud Shell
 
@@ -33,7 +34,7 @@ Utworzenie klastra trwa kilka minut.  Po ukończeniu dane wyjściowe są wyświe
 
 ## <a name="next-steps"></a>Następne kroki
 
-Zobacz [Azure dev Spaces](/azure/dev-spaces/) , aby uzyskać linki do pełnych samouczków.
+Zobacz [Azure dev Spaces](../index.yml) , aby uzyskać linki do pełnych samouczków.
 
 > [!IMPORTANT]
 > Wiele przewodników Szybki Start i samouczków Azure Dev Spaces korzysta z interfejsu wiersza polecenia Azure Dev Spaces do wykonywania operacji. Nie można zainstalować interfejsu wiersza polecenia Azure Dev Spaces w Azure Cloud Shell.

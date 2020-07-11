@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/16/2019
 ms.author: erhopf
-ms.openlocfilehash: a87bdd7a55036e8b70f0bc5816d2b587c1569202
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: eace63effdbd62d8f08395aa16683627b475a963
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77168137"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232529"
 ---
 # <a name="speech-devices-sdk-microphone-array-recommendations"></a>Zestaw SDK urządzenia mowy zalecenia dotyczące tablicy mikrofonów
 
@@ -27,11 +27,11 @@ Zestaw SDK urządzeń mowy działa najlepiej z tablicą mikrofonu, która zosta�
 
 Poniższe geometrie tablicowe są zalecane do użycia z stosem audio firmy Microsoft. Lokalizacja źródeł dźwięku i odrzucanie szumów otoczenia jest ulepszona z większą liczbą mikrotelefonów z zależnościami od konkretnych aplikacji, scenariuszy użytkowników i współczynnika formularza urządzenia.
 
-|     | Tablica cykliczna |     | Tablica liniowa |     |
+| MICS & geometrii | Tablica cykliczna | Tablica cykliczna | Tablica liniowa | Tablica liniowa |
 | --- | -------------- | --- | ------------ | --- |
 |     | <img src="media/speech-devices-sdk/7-mic-c.png" alt="7 mic circular array" width="150"/> | <img src="media/speech-devices-sdk/4-mic-c.png" alt="4 mic circular array" width="150"/> | <img src="media/speech-devices-sdk/4-mic-l.png" alt="4 mic linear array" width="150"/> | <img src="media/speech-devices-sdk/2-mic-l.png" alt="2 mic linear array" width="150"/> |
 | \#Mics | 7 | 4 | 4 | 2 |
-| Geometrii | 6 zewnętrznych, 1 centrum, promień = 42,5 mm, równomiernie rozmieszczone | 3 zewnętrzne, 1 centrum, promień = 42,5 mm, równomiernie rozmieszczone | Długość = 120 mm, odstępy = 40 mm | Odstępy = 40 mm |
+| Geometria | 6 zewnętrznych, 1 centrum, promień = 42,5 mm, równomiernie rozmieszczone | 3 zewnętrzne, 1 centrum, promień = 42,5 mm, równomiernie rozmieszczone | Długość = 120 mm, odstępy = 40 mm | Odstępy = 40 mm |
 
 Kanały mikrofonu powinny być uporządkowane zgodnie z numerami przedstawionymi dla każdej z powyższych tablic i zwiększają się od 0. Stos audio firmy Microsoft wymaga dodatkowego strumienia referencyjnego odtwarzania audio do wykonywania anulowania echa.
 
@@ -90,7 +90,7 @@ Następujące wskazówki dotyczące architektury są niezbędne podczas integrow
 | Parametr | Zalecenie |
 | --------- | -------------- |
 | Podobieństwo portów mikrofonu | Wszystkie porty mikrofonu mają tę samą długość w tablicy |
-| Wymiary portów MIC | Rozmiar portu o 0,8 – 1,0 mm. Długość portu/średnica \< portu 2 |
+| Wymiary portów MIC | Rozmiar portu o 0,8 – 1,0 mm. Długość portu/średnica portu \< 2 |
 | Pieczętowanie mikrofonu         | Pieczętowanie gaskets jednolicie zaimplementowane w stosie. Zalecany \> współczynnik kompresji na 70% dla gaskets piany |
 | Niezawodność mikrofonu     | Siatka powinna być używana w celu zapobiegania pył i ruchu przychodzącego (między PCB w przypadku końcowych portów z portami i pieczętowania Gasket/górnej okładki) |
 | Izolacja MIC       | Gaskets gumowe i wibracje dzięki strukturze, szczególnie w przypadku izolowania wszelkich ścieżek wibracji ze względu na zintegrowane głośniki |

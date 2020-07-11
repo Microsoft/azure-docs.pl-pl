@@ -7,11 +7,12 @@ ms.manager: carmonm
 ms.topic: article
 ms.date: 03/12/2020
 ms.author: raynew
-ms.openlocfilehash: c6b791fda43a018a26204b2b43dc1e581ff3a945
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: afc3132ebdd0f144d16507ef2ccda2dcaffaa34e
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79269486"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232172"
 ---
 # <a name="migrate-vmware-vms-to-azure-vms-enabled-with-server-side-encryption-and-customer-managed-keys"></a>Migrowanie maszyn wirtualnych VMware do maszyn wirtualnych platformy Azure z włączoną funkcją szyfrowania po stronie serwera i kluczami zarządzanymi przez klienta
 
@@ -57,7 +58,7 @@ Infrastruktura replikacji musi być utworzona w docelowym regionie platformy Azu
 
 Obiekt zestawu szyfrowania dysku mapuje Managed Disks do Key Vault, który zawiera CMK do użycia na potrzeby SSE. Aby replikować maszyny wirtualne za pomocą CMK, należy utworzyć zestaw szyfrowania dysku i przekazać go jako dane wejściowe do operacji replikacji.
 
-Postępuj zgodnie [z poniższym przykładem](../virtual-machines/windows/disk-encryption.md#powershell) , aby utworzyć zestaw szyfrowania dysków przy użyciu Azure PowerShell. Upewnij się, że zestaw szyfrowania dysków został utworzony w subskrypcji docelowej, do której maszyny wirtualne są migrowane, i w docelowym regionie świadczenia usługi Azure na potrzeby migracji.
+Postępuj zgodnie [z poniższym przykładem](../virtual-machines/windows/disks-enable-customer-managed-keys-powershell.md) , aby utworzyć zestaw szyfrowania dysków przy użyciu Azure PowerShell. Upewnij się, że zestaw szyfrowania dysków został utworzony w subskrypcji docelowej, do której maszyny wirtualne są migrowane, i w docelowym regionie świadczenia usługi Azure na potrzeby migracji.
 
 ```azurepowershell
 $Location = "southcentralus"                           #Target Azure region for migration 

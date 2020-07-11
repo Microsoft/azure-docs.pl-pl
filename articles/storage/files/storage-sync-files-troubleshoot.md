@@ -7,11 +7,12 @@ ms.topic: troubleshooting
 ms.date: 6/12/2020
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: ec7469210bcfae53407a157a325c749aee2c2b08
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 17c8f846201553d3cfa9a2d68b8b4a7ab655c378
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85512055"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232382"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Rozwiązywanie problemów z usługą Azure File Sync
 Użyj Azure File Sync, aby scentralizować udziały plików w organizacji w Azure Files, utrzymując elastyczność, wydajność i zgodność lokalnego serwera plików. Funkcja Azure File Sync przekształca system Windows Server w szybką pamięć podręczną udziału plików platformy Azure. Możesz użyć dowolnego dostępnego protokołu w systemie Windows Server w celu uzyskania lokalnego dostępu do danych (w tym protokołu SMB, systemu plików NFS i protokołu FTPS). Na całym świecie możesz mieć dowolną liczbę pamięci podręcznych.
@@ -310,7 +311,7 @@ Aby wyświetlić te błędy, uruchom skrypt programu **FileSyncErrorsReport.ps1*
 #### <a name="troubleshooting-per-filedirectory-sync-errors"></a>Rozwiązywanie problemów na błędy synchronizacji plików/katalogów
 **Błędy synchronizacji dla elementu dziennika ItemResults**  
 
-| HRESULT | HRESULT (dziesiętny) | Ciąg błędu | Problem | Korekty |
+| HRESULT | HRESULT (dziesiętny) | Ciąg błędu | Problem | Korygowanie |
 |---------|-------------------|--------------|-------|-------------|
 | 0x80070043 | -2147942467 | ERROR_BAD_NET_NAME | Plik warstwowy na serwerze nie jest dostępny. Ten problem występuje, gdy plik warstwowy nie został odwołany przed usunięciem punktu końcowego serwera. | Aby rozwiązać ten problem, zobacz [pliki warstwowe nie są dostępne na serwerze po usunięciu punktu końcowego serwera](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint). |
 | 0x80c80207 | -2134375929 | ECS_E_SYNC_CONSTRAINT_CONFLICT | Nie można jeszcze zsynchronizować zmiany pliku lub katalogu, ponieważ folder zależny nie jest jeszcze zsynchronizowany. Ten element zostanie zsynchronizowany po zsynchronizowaniu zależnych zmian. | Żadna akcja nie jest wymagana. Jeśli błąd będzie się powtarzał przez kilka dni, Użyj skryptu FileSyncErrorsReport.ps1 PowerShell, aby określić, dlaczego folder zależny nie jest jeszcze zsynchronizowany. |
@@ -689,7 +690,9 @@ Ten błąd występuje, ponieważ usuwanie punktu końcowego serwera nie powiodł
 | **HRESULT (dziesiętny)** | -1906441711 |
 | **Ciąg błędu** | JET_errLogDiskFull |
 | **Wymagana korekta** | Tak |
+
 | | |
+|-|-|
 | **HRESULT** | 0x80c8031a |
 | **HRESULT (dziesiętny)** | -2134375654 |
 | **Ciąg błędu** | ECS_E_NOT_ENOUGH_LOCAL_STORAGE |
@@ -716,12 +719,16 @@ Ten błąd występuje, ponieważ punkt końcowy w chmurze został utworzony przy
 | **HRESULT (dziesiętny)** | -2134375877 |
 | **Ciąg błędu** | ECS_E_SYNC_METADATA_KNOWLEDGE_SOFT_LIMIT_REACHED |
 | **Wymagana korekta** | Tak |
+
 | | |
+|-|-|
 | **HRESULT** | 0x80c8021c |
 | **HRESULT (dziesiętny)** | -2134375908 |
 | **Ciąg błędu** | ECS_E_SYNC_METADATA_KNOWLEDGE_LIMIT_REACHED |
 | **Wymagana korekta** | Tak |
+
 | | |
+|-|-|
 | **HRESULT** | 0x80c80253 |
 | **HRESULT (dziesiętny)** | -2134375853 |
 | **Ciąg błędu** | ECS_E_TOO_MANY_PER_ITEM_ERRORS |
@@ -1085,7 +1092,7 @@ Jeśli nie ma warstwy do Azure Files:
 
 ### <a name="tiering-errors-and-remediation"></a>Błędy i korygowanie warstw
 
-| HRESULT | HRESULT (dziesiętny) | Ciąg błędu | Problem | Korekty |
+| HRESULT | HRESULT (dziesiętny) | Ciąg błędu | Problem | Korygowanie |
 |---------|-------------------|--------------|-------|-------------|
 | 0x80c86045 | -2134351803 | ECS_E_INITIAL_UPLOAD_PENDING | Nie można wykonać warstwy dla pliku, ponieważ trwa wstępne przekazywanie. | Żadna akcja nie jest wymagana. Plik zostanie warstwowy po zakończeniu ładowania początkowego. |
 | 0x80c86043 | -2134351805 | ECS_E_GHOSTING_FILE_IN_USE | Nie można wykonać warstwy dla pliku, ponieważ jest on używany. | Żadna akcja nie jest wymagana. Plik zostanie warstwowy, gdy nie jest już używany. |
@@ -1128,7 +1135,7 @@ Jeśli nie można odwołać plików:
 
 ### <a name="recall-errors-and-remediation"></a>Błędy i korygowanie odwołania
 
-| HRESULT | HRESULT (dziesiętny) | Ciąg błędu | Problem | Korekty |
+| HRESULT | HRESULT (dziesiętny) | Ciąg błędu | Problem | Korygowanie |
 |---------|-------------------|--------------|-------|-------------|
 | 0x80070079 | -2147942521 | ERROR_SEM_TIMEOUT | Odzyskanie pliku nie powiodło się z powodu przekroczenia limitu czasu operacji we/wy. Ten problem może wystąpić z kilku powodów: ograniczenia zasobów serwera, niska łączność sieciowa lub problem z usługą Azure Storage (na przykład ograniczenie przepustowości). | Żadna akcja nie jest wymagana. Jeśli błąd będzie się powtarzać przez kilka godzin, otwórz zgłoszenie do pomocy technicznej. |
 | 0x80070036 | -2147024842 | ERROR_NETWORK_BUSY | Odzyskanie pliku nie powiodło się z powodu problemu z siecią.  | Jeśli błąd będzie się powtarzał, sprawdź łączność sieciową z udziałem plików platformy Azure. |

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: e93dbd085ce99b8d555d6b9bb04e7eb6f60de0ee
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f9484b81622e208077f0659975f42f46d90d2137
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80422896"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232240"
 ---
 # <a name="enable-or-disable-a-firewall-rule-on-an-azure-vm-guest-os"></a>Włączanie lub wyłączanie reguły zapory w systemie operacyjnym gościa maszyny wirtualnej platformy Azure
 
@@ -107,7 +107,7 @@ Jeśli maszyna wirtualna jest w trybie online i można uzyskać do niej dostęp 
     
         Następnie zmień wartość **Active = false** na **Active = true** w ciągu:
 
-        **2.22 v | Akcja = Zezwalaj | Aktywny = TRUE | Dir = in | Protokół = 6 | Profil = domena | Profil = prywatny | Profil = publiczny | LPort = 3389 | Aplikacja =% główny_katalog_systemowy% \system32\svchost.exe| SVC = TermService | Nazwa = \@FirewallAPI.dll,-28775 | DESC = \@FirewallAPI.dll,-28756 | EmbedCtxt = \@FirewallAPI.dll,-28752 |**
+        `v2.22|Action=Allow|Active=TRUE|Dir=In|Protocol=6|Profile=Domain|Profile=Private|Profile=Public|LPort=3389|App=%SystemRoot%\system32\svchost.exe|Svc=termservice|Name=\@FirewallAPI.dll,-28775|Desc=\@FirewallAPI.dll,-28756|EmbedCtxt=\@FirewallAPI.dll,-28752|`
     
     * Aby wyłączyć regułę, Otwórz następującą wartość rejestru:
     
@@ -115,7 +115,7 @@ Jeśli maszyna wirtualna jest w trybie online i można uzyskać do niej dostęp 
 
         Następnie zmień wartość **Active = true** na **Active = false**:
         
-        **2.22 v | Akcja = Zezwalaj | Aktywny = FAŁSZ | Dir = in | Protokół = 6 | Profil = domena | Profil = prywatny | Profil = publiczny | LPort = 3389 | Aplikacja =% główny_katalog_systemowy% \system32\svchost.exe| SVC = TermService | Nazwa = \@FirewallAPI.dll,-28775 | DESC = \@FirewallAPI.dll,-28756 | EmbedCtxt = \@FirewallAPI.dll,-28752 |**
+        `v2.22|Action=Allow|Active=FALSE|Dir=In|Protocol=6|Profile=Domain|Profile=Private|Profile=Public|LPort=3389|App=%SystemRoot%\system32\svchost.exe|Svc=termservice|Name=\@FirewallAPI.dll,-28775|Desc=\@FirewallAPI.dll,-28756|EmbedCtxt=\@FirewallAPI.dll,-28752|`
 
 3.  Uruchom ponownie maszynę wirtualną, aby zastosować zmiany.
 
@@ -154,7 +154,7 @@ Przed wykonaniem tych kroków należy wykonać migawkę dysku systemowego, któr
         
         Następnie zmień wartość **Active = false** na **Active = true**.
         
-        **2.22 v | Akcja = Zezwalaj | Aktywny = TRUE | Dir = in | Protokół = 6 | Profil = domena | Profil = prywatny | Profil = publiczny | LPort = 3389 | Aplikacja =% główny_katalog_systemowy% \system32\svchost.exe| SVC = TermService | Nazwa = \@FirewallAPI.dll,-28775 | DESC = \@FirewallAPI.dll,-28756 | EmbedCtxt = \@FirewallAPI.dll,-28752 |**
+        `v2.22|Action=Allow|Active=TRUE|Dir=In|Protocol=6|Profile=Domain|Profile=Private|Profile=Public|LPort=3389|App=%SystemRoot%\system32\svchost.exe|Svc=termservice|Name=\@FirewallAPI.dll,-28775|Desc=\@FirewallAPI.dll,-28756|EmbedCtxt=\@FirewallAPI.dll,-28752|`
 
     3.  Aby wyłączyć regułę, Otwórz następujący klucz rejestru:
 
@@ -162,7 +162,7 @@ Przed wykonaniem tych kroków należy wykonać migawkę dysku systemowego, któr
 
         Następnie zmień wartość **Active = true na wartość** **Active = false**.
         
-        **2.22 v | Akcja = Zezwalaj | Aktywny = FAŁSZ | Dir = in | Protokół = 6 | Profil = domena | Profil = prywatny | Profil = publiczny | LPort = 3389 | Aplikacja =% główny_katalog_systemowy% \system32\svchost.exe| SVC = TermService | Nazwa = \@FirewallAPI.dll,-28775 | DESC = \@FirewallAPI.dll,-28756 | EmbedCtxt = \@FirewallAPI.dll,-28752 |**
+        `v2.22|Action=Allow|Active=FALSE|Dir=In|Protocol=6|Profile=Domain|Profile=Private|Profile=Public|LPort=3389|App=%SystemRoot%\system32\svchost.exe|Svc=termservice|Name=\@FirewallAPI.dll,-28775|Desc=\@FirewallAPI.dll,-28756|EmbedCtxt=\@FirewallAPI.dll,-28752|`
 
 9.  Podświetl pozycję **BROKENSYSTEM**, a następnie wybierz pozycję **plik**  >  **Zwolnij gałąź** z menu.
 

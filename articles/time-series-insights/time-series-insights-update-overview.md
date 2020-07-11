@@ -10,11 +10,12 @@ ms.workload: big-data
 ms.topic: overview
 ms.date: 04/13/2020
 ms.custom: seodec18
-ms.openlocfilehash: 20ab78aa67fa5d59dac774559b3c43561cf75fbc
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 5e8ea56de84f3d6b92bc23c0e3ab139d03bd68a9
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86040711"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232257"
 ---
 # <a name="what-is-azure-time-series-insights-preview"></a>Co to jest wersja zapoznawcza usługi Azure Time Series Insights?
 
@@ -75,7 +76,7 @@ Azure Time Series Insights udostępnia skalowalny model cenowy z płatnością z
  
 Wraz z wprowadzeniem tych kluczowych funkcji IoT rzeczy Time Series Insights również zapewnia następujące korzyści.  
 
-| | |
+| Możliwość | Korzyść |
 | ---| ---|
 | Magazyn wielowarstwowy dla danych szeregów czasowych w skali IoT | Za pomocą potoku przetwarzania danych udostępnionych do pozyskiwania danych można pozyskać dane zarówno do magazynu ciepłego, jak i chłodni. Korzystaj ze sklepu ciepłego dla interaktywnych zapytań i chłodnego magazynu do przechowywania dużych ilości danych. Aby dowiedzieć się więcej o tym, jak korzystać z wysoce wydajnych zapytań opartych na zasobach, zobacz [zapytania](./concepts-query-overview.md). |
 | Model szeregu czasowego na potrzeby określania kontekstu nieprzetworzonych danych telemetrycznych i uzyskiwania szczegółowych danych opartych na zasobach | Możesz użyć modelu szeregów czasowych, aby utworzyć wystąpienia, hierarchie, typy i zmienne dla danych szeregów czasowych. Aby dowiedzieć się więcej na temat modelu szeregów czasowych, zobacz [model szeregów czasowych](./concepts-model-overview.md).  |

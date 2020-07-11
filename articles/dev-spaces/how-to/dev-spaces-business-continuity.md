@@ -8,23 +8,24 @@ ms.topic: conceptual
 description: Dowiedz się, jak korzystać z usług Azure Dev Spaces i Azure Kubernetes Services w celu zapewnienia ciągłości działania i przygotowania do odzyskiwania po awarii
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, Containers, Helm, Service siatk, Service siatk Routing, polecenia kubectl, k8s '
 manager: gwallace
-ms.openlocfilehash: 993866a35f530616c235728cbe59e52e083aa968
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4e47d4b05dedb981d55c527f76ae1c3a120f23d0
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83996928"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232427"
 ---
 # <a name="business-continuity-and-disaster-recovery-in-azure-dev-spaces"></a>Ciągłość działania i odzyskiwanie po awarii w Azure Dev Spaces
 
 ## <a name="review-disaster-recovery-guidance-for-azure-kubernetes-service-aks"></a>Przejrzyj wskazówki dotyczące odzyskiwania po awarii dla usługi Azure Kubernetes Service (AKS)
 
-Azure Dev Spaces jest funkcją usługi Azure Kubernetes Service (AKS). Należy zapoznać się z wytycznymi dotyczącymi odzyskiwania po awarii w programie AKS i zastanowić się, czy mają one zastosowanie do klastrów AKS używanych na potrzeby funkcji Spaces dev. Aby uzyskać więcej informacji, zapoznaj się z [najlepszymi rozwiązaniami dotyczącymi ciągłości działania i odzyskiwania po awarii w usłudze Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/operator-best-practices-multi-region)
+Azure Dev Spaces jest funkcją usługi Azure Kubernetes Service (AKS). Należy zapoznać się z wytycznymi dotyczącymi odzyskiwania po awarii w programie AKS i zastanowić się, czy mają one zastosowanie do klastrów AKS używanych na potrzeby funkcji Spaces dev. Aby uzyskać więcej informacji, zapoznaj się z [najlepszymi rozwiązaniami dotyczącymi ciągłości działania i odzyskiwania po awarii w usłudze Azure Kubernetes Service (AKS)](../../aks/operator-best-practices-multi-region.md)
 
 ## <a name="enable-dev-spaces-on-aks-clusters-in-different-regions"></a>Włącz miejsca deweloperskie w klastrach AKS w różnych regionach
 
 Włączenie funkcji miejsca deweloperskie w klastrach AKS w różnych regionach pozwala na wznowienie pracy przy użyciu spacji deweloperskich bezpośrednio po awarii regionu platformy Azure.
 
-Aby uzyskać ogólne informacje na temat wdrożeń wieloregionowych AKS, zobacz [Planowanie wdrożenia wieloregionowego](https://docs.microsoft.com/azure/aks/operator-best-practices-multi-region#plan-for-multiregion-deployment)
+Aby uzyskać ogólne informacje na temat wdrożeń wieloregionowych AKS, zobacz [Planowanie wdrożenia wieloregionowego](../../aks/operator-best-practices-multi-region.md#plan-for-multiregion-deployment)
 
 ### <a name="enable-dev-spaces-via-the-azure-cli"></a>Włączanie funkcji Spaces dev za pośrednictwem interfejsu wiersza polecenia platformy Azure
 

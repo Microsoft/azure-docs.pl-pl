@@ -4,14 +4,14 @@ description: Dowiedz się, jak używać tożsamości zarządzanych w usłudze Az
 services: container-service
 author: mlearned
 ms.topic: article
-ms.date: 06/30/2020
+ms.date: 07/10/2020
 ms.author: mlearned
-ms.openlocfilehash: 30d1290f9eb7b2750f09e5e256d4dd212c7e4607
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 27ae1d1a2c6309bdac2410dca4b48abf27d8ea0b
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85610289"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86231985"
 ---
 # <a name="use-managed-identities-in-azure-kubernetes-service"></a>Korzystanie z tożsamości zarządzanych w usłudze Azure Kubernetes Service
 
@@ -23,7 +23,7 @@ Obecnie klaster usługi Azure Kubernetes Service (AKS) (w odróżnieniu od dosta
 
 Musisz mieć zainstalowany następujący zasób:
 
-- Interfejs wiersza polecenia platformy Azure w wersji 2.2.0 lub nowszej
+- Interfejs wiersza polecenia platformy Azure w wersji 2.8.0 lub nowszej
 
 ## <a name="limitations"></a>Ograniczenia
 

@@ -13,11 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: f9ed611ae530e49ad8e776c47450bc9b7ece3190
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 34294bf29ec861d7bbb954ece7016de37769a332
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84266767"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232699"
 ---
 # <a name="develop-secure-applications-on-azure"></a>Tworzenie bezpiecznych aplikacji na platformie Azure
 W tym artykule opisano działania związane z bezpieczeństwem i kontrolki, które należy wziąć pod uwagę podczas opracowywania aplikacji w chmurze. Pytania zabezpieczające i pojęcia, które należy wziąć pod uwagę podczas fazy wdrażania i weryfikacji [cyklu życia programu Microsoft Security Development (SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) . Celem jest ułatwienie zdefiniowania działań i usług platformy Azure, których można użyć do tworzenia bezpieczniejszej aplikacji.
@@ -133,7 +134,7 @@ Realizuj DAST, najlepiej z pomocą specjalisty ds. zabezpieczeń ( [testera pene
 
 W przypadku [testowania rozmytego](https://cloudblogs.microsoft.com/microsoftsecure/2007/09/20/fuzz-testing-at-microsoft-and-the-triage-process/)wywoływanie awarii programu polega na zamierzonym wprowadzeniu nieprawidłowo utworzonych lub losowo danych do aplikacji. Niepowodzenie programu ułatwia ujawnienie potencjalnych problemów z zabezpieczeniami przed wydaniem aplikacji.
 
-[Wykrywanie zagrożeń bezpieczeństwa](https://docs.microsoft.com/security-risk-detection/) to wyjątkowa usługa testowania rozmytego firmy Microsoft do znajdowania usterek krytycznych dla zabezpieczeń w oprogramowaniu.
+[Wykrywanie zagrożeń bezpieczeństwa](https://www.microsoft.com/en-us/security-risk-detection/) to wyjątkowa usługa testowania rozmytego firmy Microsoft do znajdowania usterek krytycznych dla zabezpieczeń w oprogramowaniu.
 
 ### <a name="conduct-attack-surface-review"></a>Przeprowadź przegląd obszaru ataków
 

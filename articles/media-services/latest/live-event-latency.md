@@ -13,11 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 04/22/2019
 ms.author: juliako
-ms.openlocfilehash: a82a0644fac099b568ab86ea213b98cd8e7d5c22
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 720931cf9f955f63075e3881b6b9f2e884bd3a76
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78199652"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232461"
 ---
 # <a name="live-event-low-latency-settings"></a>Ustawienia niskiego opóźnienia zdarzenia na żywo
 
@@ -61,15 +62,15 @@ W poniższych tabelach przedstawiono typowe wyniki opóźnienia (gdy flaga LowLa
 
 ||2 grupę GOP małe opóźnienia włączone|1 grupę GOP małe opóźnienia włączone|
 |---|---|---|
-|KRESKa w AMP|dziesiątkach|8S|
-|HLS na natywnym odtwarzaczu systemu iOS|14s|dziesiątkach|
+|**KRESKa w AMP**|dziesiątkach|8S|
+|**HLS na natywnym odtwarzaczu systemu iOS**|14s|dziesiątkach|
 
 ### <a name="live-encoding"></a>Kodowanie na żywo
 
 ||2 grupę GOP małe opóźnienia włączone|1 grupę GOP małe opóźnienia włączone|
 |---|---|---|
-|KRESKa w AMP|14s|dziesiątkach|
-|HLS na natywnym odtwarzaczu systemu iOS|18s|13s|
+|**KRESKa w AMP**|14s|dziesiątkach|
+|**HLS na natywnym odtwarzaczu systemu iOS**|18s|13s|
 
 > [!NOTE]
 > Opóźnienie end-to-end może się różnić w zależności od warunków sieci lokalnej lub przez wprowadzenie warstwy buforowania sieci CDN. Należy przetestować dokładne konfiguracje.

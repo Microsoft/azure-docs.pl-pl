@@ -5,11 +5,12 @@ ms.date: 09/25/2019
 ms.topic: troubleshooting
 description: Dowiedz się, jak rozwiązywać typowe problemy podczas włączania i używania Azure Dev Spaces
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, Containers, Helm, Service siatk, Service siatk Routing, polecenia kubectl, k8s '
-ms.openlocfilehash: 51846c8630e4e8c60205f8d92fb7f74f92de3f41
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7b97bab7182e382801a57bcf7dd6f325e665438b
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84309649"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232495"
 ---
 # <a name="azure-dev-spaces-troubleshooting"></a>Rozwiązywanie problemów Azure Dev Spaces
 
@@ -59,13 +60,13 @@ Ponowne tworzenie kontrolera można wykonać przy użyciu interfejsu wiersza pol
 
 ### <a name="controller-create-failing-because-of-controller-name-length"></a>Tworzenie kontrolera kończy się niepowodzeniem z powodu długości nazwy kontrolera
 
-Nazwa kontrolera Azure Dev Spaces nie może być dłuższa niż 31 znaków. Jeśli nazwa kontrolera przekracza 31 znaków po włączeniu funkcji miejsca do magazynowania w klastrze AKS lub utworzeniu kontrolera, zostanie wyświetlony komunikat o błędzie. Przykład:
+Nazwa kontrolera Azure Dev Spaces nie może być dłuższa niż 31 znaków. Jeśli nazwa kontrolera przekracza 31 znaków po włączeniu funkcji miejsca do magazynowania w klastrze AKS lub utworzeniu kontrolera, zostanie wyświetlony komunikat o błędzie. Na przykład:
 
 ```console
 Failed to create a Dev Spaces controller for cluster 'a-controller-name-that-is-way-too-long-aks-east-us': Azure Dev Spaces Controller name 'a-controller-name-that-is-way-too-long-aks-east-us' is invalid. Constraint(s) violated: Azure Dev Spaces Controller names can only be at most 31 characters long*
 ```
 
-Aby rozwiązać ten problem, Utwórz kontroler z alternatywną nazwą. Przykład:
+Aby rozwiązać ten problem, Utwórz kontroler z alternatywną nazwą. Na przykład:
 
 ```cmd
 azds controller create --name my-controller --target-name MyAKS --resource-group MyResourceGroup
@@ -131,7 +132,7 @@ Aby rozwiązać ten problem:
 
 ### <a name="timeout-at-waiting-for-container-image-build-step-with-aks-virtual-nodes"></a>Limit czasu w "Oczekiwanie na kompilację obrazu kontenera..." krok z węzłami wirtualnymi AKS
 
-Ten limit czasu występuje podczas próby użycia obszarów deweloperskich do uruchomienia usługi, która jest skonfigurowana do uruchamiania w [węźle wirtualnym AKS](https://docs.microsoft.com/azure/aks/virtual-nodes-portal). Obszary deweloperów nie obsługują obecnie usług kompilowania i debugowania w węzłach wirtualnych.
+Ten limit czasu występuje podczas próby użycia obszarów deweloperskich do uruchomienia usługi, która jest skonfigurowana do uruchamiania w [węźle wirtualnym AKS](../aks/virtual-nodes-portal.md). Obszary deweloperów nie obsługują obecnie usług kompilowania i debugowania w węzłach wirtualnych.
 
 Jeśli uruchamiasz `azds up` polecenie z `--verbose` przełącznikiem lub włączysz pełne rejestrowanie w programie Visual Studio, zobaczysz dodatkowe szczegóły:
 
@@ -169,7 +170,7 @@ Załóżmy na przykład, że używasz polecenia Helm do uruchamiania całej apli
 
 Azure Dev Spaces można skonfigurować tak, aby wskazywały określony _pliku dockerfile_ w projekcie. Jeśli jest wyświetlany Azure Dev Spaces nie używa _pliku dockerfile_ , aby móc kompilować kontenery, może być konieczne jawne poinformowanie Azure dev Spaces, których pliku dockerfile użyć. 
 
-Aby rozwiązać ten problem, Otwórz plik _azds. YAML_ , który Azure dev Spaces wygenerowany w projekcie. *Konfiguracje aktualizacji: Programowanie: kompilacja: pliku dockerfile* , aby wskazać pliku dockerfile, którego chcesz użyć. Przykład:
+Aby rozwiązać ten problem, Otwórz plik _azds. YAML_ , który Azure dev Spaces wygenerowany w projekcie. *Konfiguracje aktualizacji: Programowanie: kompilacja: pliku dockerfile* , aby wskazać pliku dockerfile, którego chcesz użyć. Na przykład:
 
 ```yaml
 ...
@@ -216,7 +217,7 @@ install:
 
 Ten błąd może pojawić się, gdy uruchomienie kodu usługi nie powiedzie się. Przyczyną jest często kod użytkownika. Aby uzyskać więcej informacji diagnostycznych, należy włączyć bardziej szczegółowe rejestrowanie podczas uruchamiania usługi.
 
-W wierszu polecenia Użyj, `--verbose` Aby włączyć bardziej szczegółowe rejestrowanie. Możesz również określić format danych wyjściowych przy użyciu `--output` . Przykład:
+W wierszu polecenia Użyj, `--verbose` Aby włączyć bardziej szczegółowe rejestrowanie. Możesz również określić format danych wyjściowych przy użyciu `--output` . Na przykład:
 
 ```cmd
 azds up --verbose --output json
@@ -327,7 +328,7 @@ Aby wyświetlić szczegóły zarządzanej tożsamości, uruchom następujące po
 az aks show -g <resourcegroup> -n <cluster> -o json --query "{clientId: identityProfile.kubeletidentity.clientId, resourceId: identityProfile.kubeletidentity.resourceId}"
 ```
 
-Powyższe polecenie wyprowadza *clientId* i *ResourceID* dla tożsamości zarządzanej. Przykład:
+Powyższe polecenie wyprowadza *clientId* i *ResourceID* dla tożsamości zarządzanej. Na przykład:
 
 ```json
 {
@@ -368,7 +369,7 @@ kubectl apply -f clusteridentity.yaml
 kubectl apply -f clusteridentitybinding.yaml
 ```
 
-Po wdrożeniu obiektów *AzureIdentity* i *AzureIdentityBinding* każde obciążenie z etykietą *aadpodidbinding: My-Label-Value* może uzyskać dostęp do zarządzanej tożsamości klastra. Dodaj tę etykietę i Wdróż ponownie wszystkie obciążenia działające w dowolnym miejscu dev. Przykład:
+Po wdrożeniu obiektów *AzureIdentity* i *AzureIdentityBinding* każde obciążenie z etykietą *aadpodidbinding: My-Label-Value* może uzyskać dostęp do zarządzanej tożsamości klastra. Dodaj tę etykietę i Wdróż ponownie wszystkie obciążenia działające w dowolnym miejscu dev. Na przykład:
 
 ```yaml
 apiVersion: apps/v1
@@ -452,7 +453,7 @@ Aby rozwiązać ten problem:
 
 ### <a name="authorization-error-microsoftdevspacesregisteraction"></a>Błąd autoryzacji "Microsoft. DevSpaces/Register/Action"
 
-Aby zarządzać Azure Dev Spaces, musisz mieć dostęp do *właściciela* lub *współautora* w ramach subskrypcji platformy Azure. Jeśli próbujesz zarządzać miejscami deweloperskimi, a nie masz dostępu *właściciela* lub *współautora* do skojarzonej subskrypcji platformy Azure, może zostać wyświetlony błąd autoryzacji. Przykład:
+Aby zarządzać Azure Dev Spaces, musisz mieć dostęp do *właściciela* lub *współautora* w ramach subskrypcji platformy Azure. Jeśli próbujesz zarządzać miejscami deweloperskimi, a nie masz dostępu *właściciela* lub *współautora* do skojarzonej subskrypcji platformy Azure, może zostać wyświetlony błąd autoryzacji. Na przykład:
 
 ```output
 The client '<User email/Id>' with object id '<Guid>' does not have authorization to perform action 'Microsoft.DevSpaces/register/action' over scope '/subscriptions/<Subscription Id>'.
@@ -591,7 +592,7 @@ Po ponownym uruchomieniu swoich zasobników możesz rozpocząć korzystanie z is
 
 Aby włączyć Azure Dev Spaces w klastrze AKS, dla którego ruch wychodzący z węzłów klastra jest ograniczony, należy zezwolić na następujące nazwy FQDN:
 
-| Nazwa FQDN                                    | Port      | Użycie      |
+| Nazwa FQDN                                    | Port      | Zastosowanie      |
 |-----------------------------------------|-----------|----------|
 | cloudflare.docker.com | HTTPS: 443 | Aby ściągnąć obrazy z systemem Linux Alpine i innymi Azure Dev Spaces |
 | gcr.io | HTTP: 443 | Aby ściągnąć obrazy Helm/er|
@@ -612,7 +613,7 @@ Aby rozwiązać ten problem:
 
 Po [obróceniu certyfikatów w KLASTRZE AKS](../aks/certificate-rotation.md)niektóre operacje, takie jak i, zakończą `azds space list` `azds up` się niepowodzeniem. Należy również odświeżyć certyfikaty na kontrolerze Azure Dev Spaces po obróceniu certyfikatów w klastrze.
 
-Aby rozwiązać ten problem, upewnij się, że *kubeconfig* ma zaktualizowane certyfikaty, `az aks get-credentials` a następnie uruchom `azds controller refresh-credentials` polecenie. Przykład:
+Aby rozwiązać ten problem, upewnij się, że *kubeconfig* ma zaktualizowane certyfikaty, `az aks get-credentials` a następnie uruchom `azds controller refresh-credentials` polecenie. Na przykład:
 
 ```azurecli
 az aks get-credentials -g <resource group name> -n <cluster name>

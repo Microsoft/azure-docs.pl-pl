@@ -11,11 +11,12 @@ services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 916eeaa60bc054301af039164ce1c14e77ceb91a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d7c924af297d9a315b61351b69d2fe6346bc1178
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81733526"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232631"
 ---
 # <a name="how-an-iot-edge-device-can-be-used-as-a-gateway"></a>Jak używać urządzenia usługi IoT Edge jako bramy
 
@@ -23,11 +24,11 @@ Bramy w IoT Edge rozwiązania zapewniają łączność urządzeń z urządzeniam
 
 ## <a name="patterns"></a>Wzorce
 
-Istnieją trzy wzorce używania urządzenia IoT Edge jako bramy: transparent, translacja protokołów i translacja tożsamości:
+Istnieją trzy wzorce korzystania z urządzenia usługi IoT Edge jako bramy — przezroczysty, translacji protokołów i translacji tożsamości:
 
-* **Przezroczyste** — urządzenia, które teoretycznie mogą połączyć się z IoT Hub mogą łączyć się z urządzeniem bramy. Urządzenia podrzędne mają własne tożsamości IoT Hub i korzystają z dowolnych protokołów MQTT, AMQP i HTTP. Brama po prostu przekazuje komunikację między urządzeniami i IoT Hub. Zarówno urządzenia, jak i użytkownicy korzystający z nich przy użyciu IoT Hub są nieświadome, że brama mediating ich komunikację. Brak świadomości oznacza, że brama jest uznawana za *przezroczystą*. Zapoznaj się z tematem [Tworzenie przezroczystej bramy](how-to-create-transparent-gateway.md) , aby uzyskać szczegółowe informacje na temat używania urządzenia IoT Edge jako przezroczystej bramy.
-* **Translacja protokołów** — znana także jako wzorzec nieprzezroczystej bramy, urządzenia, które nie obsługują MQTT, AMQP lub http, mogą używać urządzenia bramy do wysyłania danych do IoT Hub w ich imieniu. Brama rozumie protokół używany przez urządzenia podrzędne i jest jedynym urządzeniem, które ma tożsamość w IoT Hub. Wszystkie informacje wyglądają tak, jak pochodzą z jednego urządzenia, bramy. Urządzenia podrzędne muszą osadzać dodatkowe informacje identyfikacyjne w swoich komunikatach, jeśli aplikacje w chmurze chcą analizować dane na poszczególnych urządzeniach. Ponadto IoT Hub typy podstawowe, takie jak bliźniaczych reprezentacji i metody, są dostępne tylko dla urządzenia bramy, a nie dla urządzeń podrzędnych.
-* **Tłumaczenie tożsamości** — urządzenia, które nie mogą połączyć się z IoT Hub mogą łączyć się z urządzeniem bramy. Brama zapewnia IoT Hubą tożsamość i translację protokołów w imieniu urządzeń podrzędnych. Brama jest wystarczająco inteligentna, aby zrozumieć protokół używany przez urządzenia podrzędne, zapewnić ich tożsamość i przetłumaczyć IoT Hub elementy pierwotne. Urządzenia podrzędne są wyświetlane w IoT Hub jako urządzenia pierwszej klasy z bliźniaczych reprezentacji i metodami. Użytkownik może współdziałać z urządzeniami w IoT Hub i jest nieświadomy pośredniego urządzenia bramy.
+* **Przezroczyste** — urządzenia, które teoretycznie mogą połączyć się z IoT Hub mogą łączyć się z urządzeniem bramy. Urządzenia podrzędne mają swoje własne tożsamości usługi IoT Hub i korzystają z protokołu MQTT, AMQP lub HTTP. Brama po prostu przekazuje komunikaty pomiędzy urządzeniami a usługą IoT Hub. Zarówno urządzenia, jak i użytkownicy korzystający z nich przy użyciu IoT Hub są nieświadome, że brama mediating ich komunikację. Brak świadomości oznacza, że brama jest uznawana za *przezroczystą*. Zapoznaj się z artykułem [Tworzenie bramy przezroczystej](how-to-create-transparent-gateway.md), aby uzyskać szczegółowe informacje dotyczące korzystania z urządzenia usługi IoT Edge jako bramy przezroczystej.
+* **Translacja protokołów** — znana także jako wzorzec nieprzezroczystej bramy, urządzenia, które nie obsługują MQTT, AMQP lub http, mogą używać urządzenia bramy do wysyłania danych do IoT Hub w ich imieniu. Brama rozumie protokół używany przez urządzenia podrzędne i jest jedynym urządzeniem, które ma tożsamość w usłudze IoT Hub. Wszystkie informacje wyglądają tak, jak pochodzą z jednego urządzenia, bramy. Urządzenia podrzędne muszą osadzić dodatkowe informacje identyfikacyjne w swoich komunikatach, aby aplikacje w chmurze mogły przeanalizować dane według urządzenia. Co więcej typy pierwotne usługi IoT Hub, takie jak urządzenia bliźniacze czy metody, są dostępne tylko dla urządzenia bramy, a nie dla urządzeń podrzędnych.
+* **Tłumaczenie tożsamości** — urządzenia, które nie mogą połączyć się z IoT Hub mogą łączyć się z urządzeniem bramy. Brama zapewnia tożsamość usługi IoT Hub oraz translację protokołów w imieniu urządzeń podrzędnych. Brama jest dostatecznie inteligentna, aby rozumieć protokół używany przez urządzenia podrzędne, zapewniać im tożsamość oraz tłumaczyć typy pierwotne usługi IoT Hub. Urządzenia podrzędne pojawią się w usłudze IoT Hub jako urządzenia pierwszej klasy z urządzeniami bliźniaczymi i metodami. Użytkownik może korzystać z urządzeń w usłudze IoT Hub i nie wie o pośredniczącym urządzeniu bramy.
 
 ![Wzorce diagramów — przezroczyste, protokoły i bramy tożsamości](./media/iot-edge-as-gateway/edge-as-gateway.png)
 
@@ -49,7 +50,7 @@ Brama, która obsługuje translację tożsamości, zapewnia korzyści z translac
 
 Oto krótki Ściągawka arkusz, który porównuje IoT Hub pierwotne w przypadku używania przezroczystych, nieprzezroczystych (protokołów) i bram proxy.
 
-| &nbsp; | Niewidoczna Brama | Translacja protokołów | Tłumaczenie tożsamości |
+| Podstawowy | Niewidoczna Brama | Translacja protokołów | Tłumaczenie tożsamości |
 |--------|-------------|--------|--------|
 | Tożsamości przechowywane w rejestrze tożsamości IoT Hub | Tożsamości wszystkich połączonych urządzeń | Tylko tożsamość urządzenia bramy | Tożsamości wszystkich połączonych urządzeń |
 | Bliźniak urządzenia | Każde połączone urządzenie ma własną sznurki urządzenia | Tylko brama ma bliźniaczych reprezentacji urządzenia i modułu | Każde połączone urządzenie ma własną sznurki urządzenia |
