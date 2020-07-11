@@ -2,13 +2,13 @@
 title: Macierz obsługi dla oprogramowania VMware/fizycznego odzyskiwania po awarii w Azure Site Recovery
 description: Podsumowuje obsługę odzyskiwania po awarii maszyn wirtualnych programu VMware i serwera fizycznego na platformie Azure przy użyciu Azure Site Recovery.
 ms.topic: conceptual
-ms.date: 06/10/2020
-ms.openlocfilehash: ff99fd1dd1710cd96f6257096b97ae1912a61dc6
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.date: 07/10/2020
+ms.openlocfilehash: 86aed87be2d65a78b2485d0ce71ce1f674ea9407
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86131883"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224642"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Macierz obsługi odzyskiwania po awarii maszyn wirtualnych VMware i serwerów fizycznych na platformie Azure
 
@@ -53,15 +53,12 @@ Role systemu Windows Server | Nie włączaj Active Directory Domain Services; In
 Zasady grupy| -Zapobiegaj dostępowi do wiersza polecenia. <br/> — Uniemożliwia dostęp do narzędzi do edytowania rejestru. <br/> — Logika zaufania dla plików załączników. <br/> — Włącz wykonywanie skryptu. <br/> - [Dowiedz się więcej](/previous-versions/windows/it-pro/windows-7/gg176671(v=ws.10))|
 IIS | Upewnij się, że:<br/><br/> -Nie ma wstępnie istniejącej domyślnej witryny sieci Web <br/> -Włącz [uwierzytelnianie anonimowe](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731244(v=ws.10)) <br/> -Włącz ustawienie [FastCGI](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc753077(v=ws.10))  <br/> -Nie masz wstępnie istniejącej witryny sieci Web/aplikacja nasłuchujący na porcie 443<br/>
 Typ karty sieciowej | VMXNET3 (po wdrożeniu jako maszyny wirtualnej VMware)
-Typ adresu IP | Static
+Typ adresu IP | Statyczny
 Porty | 443 używane na potrzeby aranżacji kanału kontroli<br/>9443 do transportu danych
 
 ## <a name="replicated-machines"></a>Zreplikowane maszyny
 
 Site Recovery obsługuje replikację wszystkich obciążeń uruchomionych na obsługiwanej maszynie.
-
-> [!Note]
-> W poniższej tabeli przedstawiono obsługę maszyn z rozruchem systemu BIOS. Zapoznaj się z sekcją [Magazyn](#storage) , aby uzyskać pomoc techniczną dotyczącą komputerów z interfejsem UEFI.
 
 **Składnik** | **Szczegóły**
 --- | ---
@@ -181,6 +178,7 @@ Statyczny adres IP gościa/serwera (Linux) | Tak. <br/><br/>Maszyny wirtualne s�
 Sieć gościa/serwer z wieloma kartami sieciowymi | Tak.
 
 
+
 ## <a name="azure-vm-network-after-failover"></a>Sieć maszyn wirtualnych platformy Azure (po przejściu w tryb failover)
 
 **Składnik** | **Obsługiwane**
@@ -196,7 +194,7 @@ Zachowaj źródłowy adres IP | Tak
 Punkty końcowe usługi dla sieci wirtualnej platformy Azure<br/> | Tak
 Wydajniejsze sieci | Nie
 
-## <a name="storage"></a>Storage
+## <a name="storage"></a>Magazyn
 **Składnik** | **Obsługiwane**
 --- | ---
 Dysk dynamiczny | Dysk systemu operacyjnego musi być dyskiem podstawowym. <br/><br/>Dyski danych mogą być dyskami dynamicznymi
@@ -224,7 +222,7 @@ Gość/serwer — wykluczanie dysku | Tak
 Wielościeżkowa gość/serwer (MPIO) | Nie
 Partycje typu GPT/serwer | Z [pakietem zbiorczym aktualizacji 37](https://support.microsoft.com/help/4508614/) są obsługiwane pięć partycji (wersja 9,25 usługi mobilności). Cztery dawniej były obsługiwane.
 ReFS | System plików jest odporny na błędy w wersji 9,23 lub nowszej
-Gość/serwer EFI/rozruch UEFI | -Obsługiwane dla systemu Windows Server 2012 lub nowszego, SLES 12 SP4 i RHEL 8,0 z agentem mobilności w wersji 9,30 lub nowszej<br/> -Bezpieczny typ rozruchu UEFI nie jest obsługiwany. [Dowiedz się więcej.](../virtual-machines/windows/generation-2.md#on-premises-vs-azure-generation-2-vms)
+Gość/serwer EFI/rozruch UEFI | -Obsługiwane dla wszystkich [systemów operacyjnych Site Recovery w portalu Azure Marketplace](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2#generation-2-vm-images-in-azure-marketplace) z agentem mobilności w wersji 9,30 lub nowszej. <br/> -Bezpieczny typ rozruchu UEFI nie jest obsługiwany. [Dowiedz się więcej.](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2#on-premises-vs-azure-generation-2-vms)
 
 ## <a name="replication-channels"></a>Kanały replikacji
 
@@ -246,7 +244,9 @@ Magazyn gorąca| Nie
 Blokowe obiekty blob | Nie
 Szyfrowanie — w spoczynku (SSE)| Tak
 Szyfrowanie na poziomie spoczynku (CMK)| Tak (za pośrednictwem programu PowerShell AZ 3.3.0 module lub nowszym)
+Podwójne szyfrowanie w spoczynku | Tak (za pomocą programu PowerShell AZ 3.3.0 module). Dowiedz się więcej na temat obsługiwanych regionów dla [systemów Windows](../virtual-machines/windows/disk-encryption.md) i [Linux](../virtual-machines/linux/disk-encryption.md).
 Premium Storage | Tak
+Opcja bezpiecznego transferu | Tak
 Usługa importu/eksportu | Nie
 Zapory usługi Azure Storage dla sieci wirtualnych | Tak.<br/> Skonfigurowane na docelowym koncie magazynu/pamięci podręcznej (używane do przechowywania danych replikacji).
 Konta magazynu ogólnego przeznaczenia w wersji 2 (warstwy gorąca i chłodna) | Tak (koszt transakcji jest znacznie wyższy dla wersji 2 w porównaniu do v1)

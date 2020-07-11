@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: 6af9db5ed76ecb79f8891895eab52ff71bcab048
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 4a732bd81b65c0c6b0cc227e1ed82de7bae3a1a0
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86146880"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86230710"
 ---
 # <a name="how-to-configure-caching-for-incremental-enrichment-in-azure-cognitive-search"></a>Jak skonfigurować buforowanie na potrzeby przyrostowego wzbogacania na platformie Azure Wyszukiwanie poznawcze
 
@@ -169,12 +169,12 @@ Gdy pamięć podręczna działa, indeksatory sprawdzają pamięć podręczną pr
 
 W poniższej tabeli zestawiono różne interfejsy API powiązane z pamięcią podręczną:
 
-| Interfejs API           | Wpływ na pamięć podręczną     |
+| API           | Wpływ na pamięć podręczną     |
 |---------------|------------------|
 | [Tworzenie indeksatora (2020-06-30 — wersja zapoznawcza)](https://docs.microsoft.com/rest/api/searchservice/preview-api/create-indexer) | Tworzy i uruchamia indeksator przy pierwszym użyciu, w tym tworzenie pamięci podręcznej, jeśli określa ją definicja indeksatora. |
 | [Uruchom indeksator](https://docs.microsoft.com/rest/api/searchservice/run-indexer) | Wykonuje potok wzbogacania na żądanie. Ten interfejs API odczytuje z pamięci podręcznej, jeśli istnieje, lub tworzy pamięć podręczną, jeśli dodano buforowanie do zaktualizowanej definicji indeksatora. Gdy uruchamiasz indeksator, który ma włączone buforowanie, Indeksator pomija kroki, jeśli można użyć buforowanych danych wyjściowych. Można korzystać z ogólnie dostępnej lub wersji zapoznawczej interfejsu API tego interfejsu API.|
 | [Zresetuj indeksator](https://docs.microsoft.com/rest/api/searchservice/reset-indexer)| Czyści indeksator wszelkich przyrostowych informacji o indeksowaniu. Następny indeksator przebiega (na żądanie lub w harmonogramie) to pełne przetworzenie, w tym ponowne uruchamianie wszystkich umiejętności i odbudowanie pamięci podręcznej. Jest on funkcjonalnie równoważny do usunięcia indeksatora i ponownego utworzenia go. Można korzystać z ogólnie dostępnej lub wersji zapoznawczej interfejsu API tego interfejsu API.|
-| [Resetuj umiejętności](https://docs.microsoft.com/rest/api/searchservice/reset-skills) | Określa, które umiejętności należy uruchomić ponownie przy następnym uruchomieniu indeksatora, nawet jeśli nie zmodyfikowano żadnych umiejętności. Pamięć podręczna jest odpowiednio aktualizowana. Dane wyjściowe, takie jak magazyn wiedzy lub indeks wyszukiwania, są odświeżane przy użyciu danych wielokrotnego użytku z pamięci podręcznej oraz nowej zawartości na zaktualizowane umiejętności. |
+| [Resetuj umiejętności](https://docs.microsoft.com/rest/api/searchservice/preview-api/reset-skills) | Określa, które umiejętności należy uruchomić ponownie przy następnym uruchomieniu indeksatora, nawet jeśli nie zmodyfikowano żadnych umiejętności. Pamięć podręczna jest odpowiednio aktualizowana. Dane wyjściowe, takie jak magazyn wiedzy lub indeks wyszukiwania, są odświeżane przy użyciu danych wielokrotnego użytku z pamięci podręcznej oraz nowej zawartości na zaktualizowane umiejętności. |
 
 Aby uzyskać więcej informacji na temat kontrolowania, co się dzieje z pamięcią podręczną, zobacz [Zarządzanie pamięcią podręczną](cognitive-search-incremental-indexing-conceptual.md#cache-management).
 

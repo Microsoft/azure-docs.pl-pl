@@ -3,7 +3,7 @@ title: Rozwiązania firmy Oracle na Microsoft Azure | Microsoft Docs
 description: Dowiedz się więcej na temat opcji wdrażania aplikacji i rozwiązań dla oprogramowania Oracle na Microsoft Azure, w tym uruchamiania w całości w infrastrukturze platformy Azure lub łączności między chmurą i usługą Oracle Cloud Infrastructure (OCI).
 services: virtual-machines-linux
 documentationcenter: ''
-author: BorisB2015
+author: rgardler
 tags: azure-resource-management
 ms.assetid: ''
 ms.service: virtual-machines-linux
@@ -11,12 +11,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/05/2020
-ms.author: borisb
-ms.openlocfilehash: 7c15c96305cc1220d9ca3cdb9062d7ea7acb4e86
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: rogardle
+ms.openlocfilehash: e9a61c631e8a74bbbd58bb991848fcf60f81ff6a
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85098937"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224438"
 ---
 # <a name="overview-of-oracle-applications-and-solutions-on-azure"></a>Omówienie aplikacji i rozwiązań firmy Oracle na platformie Azure
 

@@ -3,11 +3,12 @@ title: Rozwiązywanie problemów z brakiem danych — usługa Application Insigh
 description: Nie widzisz danych w usłudze Azure Application Insights? Spróbuj tutaj.
 ms.topic: conceptual
 ms.date: 05/21/2020
-ms.openlocfilehash: 59543adaf01a8e19f0e3eefd167234f6c5d18deb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3f1c4a741bf092ab89638fdca130a52d96318157
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84485171"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86221038"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-netnet-core"></a>Rozwiązywanie problemów z brakiem danych — Application Insights dla platformy .NET/.NET Core
 
@@ -123,7 +124,7 @@ Wiązane
 *Uruchomiono moją aplikację, a następnie otwarto usługę Application Insights w Microsoft Azure, ale wszystkie wykresy pokazują "Dowiedz się, jak zbierać..." lub "nie skonfigurowano".* Lub *tylko widok strony i dane użytkownika, ale nie dane serwera.*
 
 * Uruchom aplikację w trybie debugowania w programie Visual Studio (F5). Użyj aplikacji, aby wygenerować pewne dane telemetryczne. Sprawdź, czy można zobaczyć zdarzenia zarejestrowane w oknie danych wyjściowych programu Visual Studio.  
-  ![](./media/asp-net-troubleshoot-no-data/output-window.png)
+  ![Zrzut ekranu pokazujący uruchomioną aplikację w trybie debugowania w programie Visual Studio.](./media/asp-net-troubleshoot-no-data/output-window.png)
 * W portalu Application Insights Otwórz pozycję [Wyszukiwanie diagnostyczne](../../azure-monitor/app/diagnostic-search.md). Dane zazwyczaj pojawiają się w tym miejscu jako pierwsze.
 * Kliknij przycisk Odśwież. Blok jest odświeżany okresowo, ale można go również wykonać ręcznie. Interwał odświeżania jest dłuższy dla większych zakresów czasu.
 * Sprawdź, czy klucze Instrumentacji są zgodne. W głównym bloku aplikacji w portalu Application Insights, na liście rozwijanej **podstawowe** , zapoznaj się z **kluczem Instrumentacji**. Następnie w projekcie w programie Visual Studio Otwórz ApplicationInsights.config i Znajdź `<instrumentationkey>` . Sprawdź, czy dwa klucze są równe. Jeśli nie:  

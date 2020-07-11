@@ -1,5 +1,5 @@
 ---
-title: Kopiowanie obrazu z innej galerii
+title: Kopiowanie obrazu z innej galerii przy użyciu programu PowerShell
 description: Skopiuj obraz z innej galerii przy użyciu Azure PowerShell.
 author: cynthn
 ms.service: virtual-machines
@@ -9,14 +9,14 @@ ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 10cd8514b529f29f68ea3df14cdc208dd8fdd556
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1fe26a880979a431e456d9a1819dfd1b18d25f77
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82796930"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86221225"
 ---
-# <a name="copy-an-image-from-another-gallery"></a>Kopiowanie obrazu z innej galerii
+# <a name="copy-an-image-from-another-gallery-using-powershell"></a>Kopiowanie obrazu z innej galerii przy użyciu programu PowerShell
 
 Jeśli masz wiele galerii w organizacji, możesz tworzyć obrazy z obrazów przechowywanych w innych galeriach. Na przykład możesz mieć galerię deweloperskią i testową do tworzenia i testowania nowych obrazów. Gdy są gotowe do użycia w środowisku produkcyjnym, można je skopiować do galerii produkcyjnej przy użyciu tego przykładu. Możesz również utworzyć obraz z obrazu w innej galerii przy użyciu [interfejsu wiersza polecenia platformy Azure](image-version-another-gallery-cli.md).
 
@@ -165,3 +165,5 @@ $job.State
 Utwórz maszynę wirtualną na podstawie [uogólnionej](vm-generalized-image-version-powershell.md) lub [wyspecjalizowanej](vm-specialized-image-version-powershell.md) wersji obrazu.
 
 [Usługa Azure Image Builder (wersja zapoznawcza)](./linux/image-builder-overview.md) ułatwia automatyzację tworzenia wersji obrazu. można nawet użyć jej do aktualizacji i [tworzenia nowej wersji obrazu z istniejącej wersji obrazu](./linux/image-builder-gallery-update-image-version.md). 
+
+Aby uzyskać informacje o sposobach dostarczania informacji o planie zakupu, zobacz temat [dostarczanie informacji o planie zakupu portalu Azure Marketplace podczas tworzenia obrazów](marketplace-images.md).

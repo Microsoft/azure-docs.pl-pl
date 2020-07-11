@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 05/31/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: ca7aca1c11158e396c27d3f0ac37e18a9cbea361
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 8a8fff374edab7e307cd6dc8fb9aa4a4f974d09c
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86182733"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224693"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Rozwiązywanie problemów z usługą Azure Files w systemie Windows
 
@@ -131,11 +131,11 @@ Przywróć wartość **LmCompatibilityLevel** do wartości domyślnej równej 3 
   **HKLM\SYSTEM\CurrentControlSet\Control\Lsa**
 
 <a id="error1816"></a>
-## <a name="error-1816-not-enough-quota-is-available-to-process-this-command-when-you-copy-to-an-azure-file-share"></a>Błąd 1816 "za mało dostępnego przydziału, aby przetworzyć to polecenie" podczas kopiowania do udziału plików platformy Azure
+## <a name="error-1816---not-enough-quota-is-available-to-process-this-command"></a>Błąd 1816 — brak wystarczającego limitu przydziału do przetworzenia tego polecenia
 
 ### <a name="cause"></a>Przyczyna
 
-Błąd 1816 występuje po osiągnięciu górnego limitu współbieżnych otwartych dojść, które są dozwolone dla pliku na komputerze, na którym jest instalowany udział plików.
+Błąd 1816 występuje po osiągnięciu górnego limitu współbieżnych otwartych dojść, które są dozwolone dla pliku lub katalogu w udziale plików platformy Azure. Aby uzyskać więcej informacji, zobacz [Azure Files scale targets (Cele skalowania usługi Azure Files)](https://docs.microsoft.com/azure/storage/files/storage-files-scale-targets#azure-files-scale-targets).
 
 ### <a name="solution"></a>Rozwiązanie
 

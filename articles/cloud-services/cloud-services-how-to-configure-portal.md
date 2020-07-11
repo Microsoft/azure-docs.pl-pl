@@ -8,11 +8,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 12/07/2016
 ms.author: tagore
-ms.openlocfilehash: e862818a4fe2471af574d153d43f0096af7847b8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 169b12ff4fbf2471270aa912d5d1f8242371036b
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80811411"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223741"
 ---
 # <a name="how-to-configure-cloud-services"></a>Jak skonfigurować Cloud Services
 
@@ -47,7 +48,7 @@ Jeśli musisz wybrać konkretną wersję systemu operacyjnego, możesz ustawić 
 
 Możesz dodać alerty do usługi w chmurze. Kliknij kolejno pozycje **Ustawienia**  >  **reguły alertu**  >  **Dodawanie alertu**.
 
-![](./media/cloud-services-how-to-configure-portal/cs-alerts.png)
+![Zrzut ekranu przedstawiający ustawienia kadrowania z opcjami reguły alertów wyróżniony i opisany na czerwono oraz opcję Dodaj alert opisany kolorem czerwonym.](./media/cloud-services-how-to-configure-portal/cs-alerts.png)
 
 W tym miejscu możesz skonfigurować alert. Za pomocą pola listy rozwijanej **Metryka** można skonfigurować alert dla następujących typów danych.
 
@@ -57,7 +58,7 @@ W tym miejscu możesz skonfigurować alert. Za pomocą pola listy rozwijanej **M
 * Ruch wychodzący w sieci
 * Procent użycia procesora CPU
 
-![](./media/cloud-services-how-to-configure-portal/cs-alert-item.png)
+![Zrzut ekranu przedstawiający okienko Dodawanie reguły alertu z ustawionymi wszystkimi opcjami konfiguracji.](./media/cloud-services-how-to-configure-portal/cs-alert-item.png)
 
 ### <a name="configure-monitoring-from-a-metric-tile"></a>Konfigurowanie monitorowania na podstawie kafelka metryki
 
@@ -91,10 +92,10 @@ Może być konieczne ponowne skonfigurowanie usługi w chmurze za pomocą pliku 
     ![Blok konfiguracji](./media/cloud-services-how-to-configure-portal/cs-settings-config.png)
 3. Kliknij przycisk **Pobierz**.
 
-    ![Pobierz](./media/cloud-services-how-to-configure-portal/cs-settings-config-panel-download.png)
+    ![Pobieranie](./media/cloud-services-how-to-configure-portal/cs-settings-config-panel-download.png)
 4. Po zaktualizowaniu pliku konfiguracji usługi należy przekazać i zastosować aktualizacje konfiguracji:
 
-    ![Upload](./media/cloud-services-how-to-configure-portal/cs-settings-config-panel-upload.png)
+    ![Przekazywanie](./media/cloud-services-how-to-configure-portal/cs-settings-config-panel-upload.png)
 5. Wybierz plik. cscfg i kliknij przycisk **OK**.
 
 ## <a name="next-steps"></a>Następne kroki

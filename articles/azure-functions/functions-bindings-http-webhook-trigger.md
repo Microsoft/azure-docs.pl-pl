@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/21/2020
 ms.author: cshoe
 ms.custom: tracking-python
-ms.openlocfilehash: 14da272ce5ce7c078719909345961f6ddf57f37b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 437cbb87694adf89054161a7b0d40f6528b94199
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85833795"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224098"
 ---
 # <a name="azure-functions-http-trigger"></a>Azure Functions wyzwalacza HTTP
 
@@ -476,7 +476,7 @@ Aby uzyskać pełny przykład, zobacz [przykład wyzwalacza](#example).
 
 ---
 
-## <a name="configuration"></a>Konfigurowanie
+## <a name="configuration"></a>Konfiguracja
 
 W poniższej tabeli objaśniono właściwości konfiguracji powiązań, które zostały ustawione w *function.js* pliku i `HttpTrigger` atrybutu.
 
@@ -801,7 +801,7 @@ W wersji 1. x szablony elementów webhook zapewniają dodatkową weryfikację ł
 
 Aby odpowiedzieć na elementy webhook usługi GitHub, najpierw Utwórz funkcję z wyzwalaczem HTTP i ustaw właściwość **Webhooktype** na `github` . Następnie skopiuj swój adres URL i klucz interfejsu API na stronę **Dodawanie elementu webhook** w repozytorium GitHub. 
 
-![](./media/functions-bindings-http-webhook/github-add-webhook.png)
+![Zrzut ekranu pokazujący sposób dodawania elementu webhook dla funkcji.](./media/functions-bindings-http-webhook/github-add-webhook.png)
 
 ### <a name="slack-webhooks"></a>Elementy webhook zapasu
 

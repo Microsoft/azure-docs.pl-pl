@@ -4,11 +4,12 @@ description: Dowiedz się więcej na temat skalowania w usłudze Azure Kubernete
 services: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
-ms.openlocfilehash: 83cbaf49f26a53518b1aa1e211b61af1959642a6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7c9c3cf159d67d2f4acaaab943ecf9d99263ae55
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84465341"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223843"
 ---
 # <a name="scaling-options-for-applications-in-azure-kubernetes-service-aks"></a>Opcje skalowania aplikacji w usłudze Azure Kubernetes Service 
 
@@ -79,7 +80,7 @@ Aby szybko skalować klaster AKS, możesz zintegrować z usługą Azure Containe
 
 ![Kubernetes skalowanie serii ACI](media/concepts-scale/burst-scaling.png)
 
-ACI umożliwia szybkie wdrażanie wystąpień kontenerów bez dodatkowych obciążeń związanych z infrastrukturą. Po nawiązaniu połączenia z usługą AKS ACI staną się zabezpieczonym, logicznym rozszerzeniem klastra AKS. Składnik [węzłów wirtualnych][virtual-nodes-cli] , który jest oparty na [wirtualnej Kubelet][virtual-kubelet], jest instalowany w klastrze AKS, który przedstawia ACI jako wirtualny węzeł Kubernetes. Kubernetes może następnie zaplanować wystąpienia, które są uruchamiane jako instancje ACI za poorednictwem węzłów wirtualnych, a nie jako zasobników w węzłach maszyn wirtualnych bezpośrednio w klastrze AKS. Węzły wirtualne są obecnie dostępne w wersji zapoznawczej w AKS.
+ACI umożliwia szybkie wdrażanie wystąpień kontenerów bez dodatkowych obciążeń związanych z infrastrukturą. Po nawiązaniu połączenia z usługą AKS ACI staną się zabezpieczonym, logicznym rozszerzeniem klastra AKS. Składnik [węzłów wirtualnych][virtual-nodes-cli] , który jest oparty na [wirtualnej Kubelet][virtual-kubelet], jest instalowany w klastrze AKS, który przedstawia ACI jako wirtualny węzeł Kubernetes. Kubernetes może następnie zaplanować wystąpienia, które są uruchamiane jako instancje ACI za poorednictwem węzłów wirtualnych, a nie jako zasobników w węzłach maszyn wirtualnych bezpośrednio w klastrze AKS.
 
 Aplikacja nie wymaga modyfikacji, aby używać węzłów wirtualnych. Wdrożenia mogą skalować między AKS i ACI i bez opóźnień, ponieważ automatyczne skalowanie klastra wdraża nowe węzły w klastrze AKS.
 

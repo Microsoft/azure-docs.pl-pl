@@ -12,12 +12,12 @@ ms.date: 12/03/2019
 ms.author: kenwith
 ms.reviewer: arvindh, japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a50f2cf6fc00189c8cc764a132b550153b80b52e
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: b7b2a75bff21825a47f4364a8936ee7d5f122c1a
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86144604"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223894"
 ---
 # <a name="what-is-single-sign-on-sso"></a>Co to jest logowanie jednokrotne?
 
@@ -46,7 +46,7 @@ Poniższa tabela zawiera podsumowanie metod logowania jednokrotnego i linki do d
 | [SAML](#saml-sso) | Chmura i lokalna | Wybierz pozycję SAML wszędzie tam, gdzie to możliwe dla istniejących aplikacji, które nie używają OpenID Connect Connect lub OAuth. Protokół SAML działa w przypadku aplikacji, które uwierzytelniają się przy użyciu jednego z protokołów SAML.|
 | [Oparte na hasłach](#password-based-sso) | Chmura i lokalna | Wybierz opcję hasła, gdy aplikacja jest uwierzytelniana przy użyciu nazwy użytkownika i hasła. Logowanie jednokrotne oparte na hasłach umożliwia bezpieczne przechowywanie i odtwarzanie haseł aplikacji przy użyciu rozszerzenia przeglądarki sieci Web lub aplikacji mobilnej. Ta metoda używa istniejącego procesu logowania dostarczonego przez aplikację, ale umożliwia administratorowi zarządzanie hasłami. |
 | [Połączone](#linked-sign-on) | Chmura i lokalna | Wybierz pozycję dołączone logowanie, gdy aplikacja jest skonfigurowana pod kątem logowania jednokrotnego w innej usłudze dostawcy tożsamości. Ta opcja nie powoduje dodania logowania jednokrotnego do aplikacji. Jednak aplikacja może już mieć zaimplementowane Logowanie jednokrotne przy użyciu innej usługi, takiej jak Active Directory Federation Services.|
-| [Wyłączone](#disabled-sso) | Chmura i lokalna | Wybierz pozycję wyłączone Logowanie jednokrotne, jeśli aplikacja nie jest gotowa do skonfigurowania do rejestracji jednokrotnej. Ten tryb jest wartością domyślną podczas tworzenia aplikacji.|
+| [Wyłączono](#disabled-sso) | Chmura i lokalna | Wybierz pozycję wyłączone Logowanie jednokrotne, jeśli aplikacja nie jest gotowa do skonfigurowania do rejestracji jednokrotnej. Ten tryb jest wartością domyślną podczas tworzenia aplikacji.|
 | [Zintegrowane uwierzytelnianie systemu Windows (IWA)](#integrated-windows-authentication-iwa-sso) | tylko lokalne | Wybierz pozycję IWA Logowanie jednokrotne dla aplikacji korzystających ze [zintegrowanego uwierzytelniania systemu Windows (IWA)](/aspnet/web-api/overview/security/integrated-windows-authentication)lub aplikacji obsługujących oświadczenia. W przypadku IWA łączniki serwera proxy aplikacji używają ograniczonego delegowania protokołu Kerberos (KCD) do uwierzytelniania użytkowników w aplikacji. |
 | [Na podstawie nagłówka](#header-based-sso) | tylko lokalne | Użyj logowania jednokrotnego opartego na nagłówkach, gdy aplikacja używa nagłówków do uwierzytelniania. Logowanie jednokrotne oparte na nagłówkach wymaga PingAccess dla usługi Azure AD. Serwer proxy aplikacji używa usługi Azure AD do uwierzytelniania użytkownika, a następnie przekazuje ruch przez usługę łącznika.  |
 
@@ -89,6 +89,9 @@ Wybierz Logowanie jednokrotne oparte na haśle, gdy:
 
 - Aplikacja nie obsługuje protokołu SAML logowania jednokrotnego.
 - Aplikacja uwierzytelnia się przy użyciu nazwy użytkownika i hasła zamiast tokenów dostępu i nagłówków.
+
+>[!NOTE]
+>Nie można zastosować zasad dostępu warunkowego ani usługi uwierzytelniania wieloskładnikowego na potrzeby logowania jednokrotnego opartego na hasłach.
 
 Logowanie jednokrotne oparte na haśle jest obsługiwane w przypadku aplikacji opartych na chmurze, które mają stronę logowania opartą na języku HTML. Użytkownik może korzystać z dowolnej z następujących przeglądarek:
 
@@ -136,6 +139,9 @@ Połączenie połączone umożliwia usłudze Azure AD udostępnianie logowania j
 Połączone logowanie może zapewnić spójny interfejs użytkownika podczas migrowania aplikacji w określonym czasie. Jeśli migrujesz aplikacje do Azure Active Directory, możesz użyć połączenia połączonego, aby szybko publikować linki do wszystkich aplikacji, które mają zostać zmigrowane.  Użytkownicy mogą znaleźć wszystkie linki w [portalu webapps](../user-help/active-directory-saas-access-panel-introduction.md) lub [uruchamiania aplikacji pakietu Office 365](https://support.office.com/article/meet-the-office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a). Użytkownicy nie będą wiedzieli, że uzyskują dostęp do połączonej aplikacji lub zmigrowanej aplikacji.  
 
 Po uwierzytelnieniu użytkownika w połączonej aplikacji należy utworzyć rekord konta, aby użytkownik końcowy mógł uzyskać dostęp do logowania jednokrotnego. Inicjowanie obsługi tego rekordu konta może odbywać się automatycznie lub może być wykonywane ręcznie przez administratora.
+
+>[!NOTE]
+>Nie można zastosować zasad dostępu warunkowego ani usługi uwierzytelniania wieloskładnikowego do połączonej aplikacji. Wynika to z faktu, że połączona aplikacja nie udostępnia funkcji logowania jednokrotnego za pomocą usługi Azure AD. Podczas konfigurowania połączonej aplikacji wystarczy dodać link, który będzie wyświetlany w portalu uruchamiania aplikacji lub aplikacjach. 
 
 ## <a name="disabled-sso"></a>Wyłączone Logowanie jednokrotne
 

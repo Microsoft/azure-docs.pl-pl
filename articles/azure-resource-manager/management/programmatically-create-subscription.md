@@ -1,17 +1,17 @@
 ---
 title: Programowe tworzenie subskrypcji platformy Azure
 description: Dowiedz się, jak programowo utworzyć dodatkowe subskrypcje platformy Azure.
-author: amberbhargava
+author: anuragdalmia
 ms.topic: conceptual
-ms.date: 06/26/2020
+ms.date: 07/09/2020
 ms.reviewer: andalmia
 ms.author: banders
-ms.openlocfilehash: b53c81a52c06780378e45b2141cbef452b4d363a
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 7fac201de2fd623058eb5771e194ae697f879ee8
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170636"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224166"
 ---
 # <a name="programmatically-create-azure-subscriptions-preview"></a>Programowe tworzenie subskrypcji platformy Azure (wersja zapoznawcza)
 
@@ -156,7 +156,7 @@ POST https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts
 | `offerType`   | Tak      | String | Oferta subskrypcji. Dwie opcje dla EA to [MS-AZR-0017P](https://azure.microsoft.com/pricing/enterprise-agreement/) (Product Use) i [MS-AZR-0148P](https://azure.microsoft.com/offers/ms-azr-0148p/) (Dev/Test, muszą być [włączone przy użyciu portalu EA](https://ea.azure.com/helpdocs/DevOrTestOffer)).                |
 | `owners`      | Nie       | String | Identyfikator obiektu dowolnego użytkownika, który ma zostać dodany jako właściciel RBAC w ramach subskrypcji podczas jej tworzenia.  |
 
-W odpowiedzi otrzymujesz `Location` adres URL do monitorowania. Po zakończeniu tworzenia subskrypcji `Location` adres URL Get on zwróci `subscriptionLink` obiekt, który ma identyfikator subskrypcji. Aby uzyskać więcej informacji, zobacz [dokumentację interfejsu API subskrypcji](https://docs.microsoft.com/rest/api/subscription/)
+W odpowiedzi w ramach nagłówka `Location` otrzymujesz adres URL, który można zbadać pod kątem stanu operacji tworzenia subskrypcji. Po zakończeniu tworzenia subskrypcji `Location` adres URL Get on zwróci `subscriptionLink` obiekt, który ma identyfikator subskrypcji. Aby uzyskać więcej informacji, zobacz [dokumentację interfejsu API subskrypcji](https://docs.microsoft.com/rest/api/subscription/)
 
 ### <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 

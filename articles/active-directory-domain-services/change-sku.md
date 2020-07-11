@@ -8,18 +8,20 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/31/2020
+ms.date: 07/09/2020
 ms.author: iainfou
-ms.openlocfilehash: 8109b7b1f6cd8477d49bafd114be24b91530d123
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 51f277827ac0865eaede141e5817962b04d2bd49
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84734966"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86221451"
 ---
 # <a name="change-the-sku-for-an-existing-azure-active-directory-domain-services-managed-domain"></a>Zmień jednostkę SKU dla istniejącej Azure Active Directory Domain Services domeny zarządzanej
 
-W Azure Active Directory Domain Services (Azure AD DS) dostępna wydajność i funkcje są oparte na typie jednostki SKU. Te różnice między funkcjami obejmują częstotliwość tworzenia kopii zapasowych lub maksymalną liczbę jednokierunkowych relacji zaufania między lasami (obecnie w wersji zapoznawczej). Podczas tworzenia domeny zarządzanej można wybrać jednostkę SKU, a jednostki SKU można zmienić w górę lub w dół, gdy zostanie wdrożona domena zarządzana. Zmiany wymagań firmy mogą obejmować konieczność wykonywania kilku często wykonywanych kopii zapasowych lub tworzenia dodatkowych relacji zaufania lasów. Aby uzyskać więcej informacji na temat limitów i cen różnych jednostek SKU, zobacz temat [azure AD DS SKU — koncepcje][concepts-sku] i [cennik usługi Azure AD DS][pricing] .
+W Azure Active Directory Domain Services (Azure AD DS) dostępna wydajność i funkcje są oparte na typie jednostki SKU. Te różnice między funkcjami obejmują częstotliwość tworzenia kopii zapasowych lub maksymalną liczbę jednokierunkowych relacji zaufania między lasami (obecnie w wersji zapoznawczej).
+
+Podczas tworzenia domeny zarządzanej można wybrać jednostkę SKU, a jednostki SKU można zmienić w górę lub w dół, gdy zostanie wdrożona domena zarządzana. Zmiany wymagań firmy mogą obejmować konieczność wykonywania kilku często wykonywanych kopii zapasowych lub tworzenia dodatkowych relacji zaufania lasów. Aby uzyskać więcej informacji na temat limitów i cen różnych jednostek SKU, zobacz temat [azure AD DS SKU — koncepcje][concepts-sku] i [cennik usługi Azure AD DS][pricing] .
 
 W tym artykule opisano sposób zmiany jednostki SKU dla istniejącej domeny zarządzanej AD DS platformy Azure przy użyciu Azure Portal.
 
@@ -38,7 +40,7 @@ Aby wykonać ten artykuł, potrzebne są następujące zasoby i uprawnienia:
 
 Po wdrożeniu domeny zarządzanej można zmienić jednostki SKU w górę lub w dół. Jeśli jednak korzystasz z lasu zasobów (obecnie w wersji zapoznawczej) i utworzono jednokierunkowe zaufania lasu wychodzącego z usługi Azure AD DS do środowiska lokalnego AD DS, istnieją pewne ograniczenia dotyczące operacji zmiany jednostki SKU. Jednostki SKU w *warstwie Premium* i *Enterprise* definiują limit liczby relacji zaufania, które można utworzyć. Nie można zmienić jednostki SKU z niższym maksymalnym limitem niż aktualnie skonfigurowany.
 
-Przykład:
+Na przykład:
 
 * Jeśli utworzono dwa zaufania lasów w jednostce SKU *Premium* , nie można zmienić w dół do *standardowej* jednostki SKU. *Standardowa* jednostka SKU nie obsługuje relacji zaufania lasów.
 * Lub, jeśli utworzono siedem relacji zaufania w jednostce SKU *Premium* , nie można zmienić w dół jednostki SKU *przedsiębiorstwa* . Jednostka SKU *przedsiębiorstwa* obsługuje maksymalnie pięć relacji zaufania.

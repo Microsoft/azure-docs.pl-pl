@@ -3,12 +3,12 @@ title: Przechowywanie i przechowywanie danych w usłudze Azure Application Insig
 description: Zasady przechowywania i zasad zachowania poufności informacji
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 848285accd7e05607bac418b6b4ae39055a5772f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: acee1ad0b531f23a872d78111ccd9f0ac09bcfb1
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85601364"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224489"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Zbieranie, przechowywanie i magazynowanie danych w Application Insights
 
@@ -62,7 +62,7 @@ Główne kategorie to:
 ## <a name="how-can-i-verify-whats-being-collected"></a>Jak mogę sprawdzić, co jest zbierane?
 Jeśli tworzysz aplikację przy użyciu programu Visual Studio, uruchom aplikację w trybie debugowania (F5). Dane telemetryczne pojawiają się w oknie danych wyjściowych. Z tego miejsca możesz skopiować go i sformatować jako kod JSON w celu zapewnienia łatwej inspekcji. 
 
-![](./media/data-retention-privacy/06-vs.png)
+![Zrzut ekranu pokazujący uruchomioną aplikację w trybie debugowania w programie Visual Studio.](./media/data-retention-privacy/06-vs.png)
 
 W oknie Diagnostyka znajduje się również bardziej czytelny widok.
 
@@ -255,7 +255,7 @@ Zestawy SDK różnią się między platformami i istnieje kilka składników, kt
 | [TrackMetric wywołań][api] |Wartości liczbowe<br/>**Właściwości** |
 | [Śledzenie wywołań *][api] |Nazwa zdarzenia<br/>**Właściwości** |
 | [Wywołanie metody Trackexception][api] |**Wyjątki**<br/>Zrzut stosu<br/>**Właściwości** |
-| Zestaw SDK nie może zbierać danych. Przykład: <br/> -nie można uzyskać dostępu do liczników wydajności<br/> -wyjątek w inicjatorze telemetrii |Diagnostyka zestawu SDK |
+| Zestaw SDK nie może zbierać danych. Na przykład: <br/> -nie można uzyskać dostępu do liczników wydajności<br/> -wyjątek w inicjatorze telemetrii |Diagnostyka zestawu SDK |
 
 W przypadku [zestawów SDK dla innych platform][platforms]Zobacz dokumenty.
 

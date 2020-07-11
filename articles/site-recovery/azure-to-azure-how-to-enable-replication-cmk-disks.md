@@ -5,14 +5,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 01/10/2020
+ms.date: 07/10/2020
 ms.author: mayg
-ms.openlocfilehash: 1e4dcd8847d7d79d816d80b453a37f58c45417fd
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 92b35284fd7bbb3d4f1196ee0d9bae4ce42d7c9e
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86135735"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224115"
 ---
 # <a name="replicate-machines-with-customer-managed-keys-cmk-enabled-disks"></a>Replikowanie maszyn z włączonymi dyskami zarządzanymi przez klienta (CMK)
 
@@ -81,3 +81,8 @@ Wykonaj następujące kroki, aby zmodyfikować domyślne ustawienia obiektu doce
 * Dodano nowy dysk z włączonym CMK do zreplikowanego elementu. Jak można replikować ten dysk z Azure Site Recovery?
 
     Dodanie nowego dysku z obsługą CMK do istniejącego zreplikowanego elementu nie jest obsługiwane. Wyłącz replikację i ponownie Włącz replikację dla maszyny wirtualnej.
+
+* Mam włączone klucze zarządzane przez platformę i klienta, jak mogę chronić moje dyski?
+
+    Włączenie podwójnego szyfrowania z kluczami zarządzanymi przez platformę i klienta jest suppprted przez Site Recovery. Postępuj zgodnie z instrukcjami w tym artykule, aby chronić maszynę. Należy najpierw utworzyć algorytm DES z włączonym szyfrowaniem w regionie docelowym. Podczas włączania replikacji dla takiej maszyny wirtualnej można podać ten algorytm DES Site Recovery.
+

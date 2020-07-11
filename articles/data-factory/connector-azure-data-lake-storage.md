@@ -10,12 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 06/12/2020
-ms.openlocfilehash: 52a99763e345096dcf379d2e4fd00fa4687ebcd1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/09/2020
+ms.openlocfilehash: 7a17e9b0de3e77b2f6b8bf3c6eb55503d34c359c
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84727113"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223724"
 ---
 # <a name="copy-and-transform-data-in-azure-data-lake-storage-gen2-using-azure-data-factory"></a>Kopiowanie i Przekształcanie danych w Azure Data Lake Storage Gen2 przy użyciu Azure Data Factory
 
@@ -49,7 +50,7 @@ W przypadku działania kopiowania przy użyciu tego łącznika można:
 >Jeśli włączysz opcję **Zezwalaj zaufanym usługom firmy Microsoft na dostęp do tego konta magazynu** w ustawieniach zapory usługi Azure Storage i chcesz używać środowiska Azure Integration Runtime do nawiązywania połączenia z Data Lake Storage Gen2, musisz użyć [uwierzytelniania tożsamości zarządzanej](#managed-identity) dla ADLS Gen2.
 
 
-## <a name="get-started"></a>Rozpoczęcie pracy
+## <a name="get-started"></a>Wprowadzenie
 
 >[!TIP]
 >Aby zapoznać się z przewodnikiem dotyczącym korzystania z łącznika Data Lake Storage Gen2, zobacz [ładowanie danych do Azure Data Lake Storage Gen2](load-azure-data-lake-storage-gen2.md).
@@ -414,11 +415,13 @@ Podczas kopiowania plików z Azure Data Lake Storage Gen1/Gen2 do Gen2 można za
 ## <a name="mapping-data-flow-properties"></a>Mapowanie właściwości przepływu danych
 
 Gdy przekształcasz dane w celu mapowania przepływów danych, możesz odczytywać i zapisywać pliki z Azure Data Lake Storage Gen2 w następujących formatach:
-* [JSON](format-json.md#mapping-data-flow-properties)
 * [Avro](format-avro.md#mapping-data-flow-properties)
-* [Tekst rozdzielany](format-delimited-text.md#mapping-data-flow-properties)
-* [Parquet](format-parquet.md#mapping-data-flow-properties).
 * [Common Data Model (wersja zapoznawcza)](format-common-data-model.md#mapping-data-flow-properties)
+* [Tekst rozdzielany](format-delimited-text.md#mapping-data-flow-properties)
+* [Delta](format-delta.md#mapping-data-flow-properties)
+* [Excel](format-excel.md#mapping-data-flow-properties)
+* [JSON](format-json.md#mapping-data-flow-properties)
+* [Parquet](format-parquet.md#mapping-data-flow-properties)
 
 Ustawienia specyficzne dla formatu znajdują się w dokumentacji dla tego formatu. Aby uzyskać więcej informacji, zobacz temat [przekształcanie źródła w mapowaniu przepływu danych](data-flow-source.md) i [transformacji ujścia w mapowaniu przepływu danych](data-flow-sink.md).
 

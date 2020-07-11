@@ -3,12 +3,12 @@ title: Obsługa migracji oprogramowania VMware w Azure Migrate
 description: Dowiedz się więcej o obsłudze migracji maszyn wirtualnych VMware w Azure Migrate.
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 7b026d07c6ac1630048d8aee6778215f3a99dddb
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: d8a2488e16031a4d960d039d646d9da5de1c1c2e
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134988"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223707"
 ---
 # <a name="support-matrix-for-vmware-migration"></a>Macierz obsługi migracji VMware
 
@@ -162,7 +162,7 @@ Architektura systemu operacyjnego gościa | 64-bitowa.
 Rozmiar dysku systemu operacyjnego | Do 2 048 GB. 
 Liczba dysków systemu operacyjnego | 1 
 Liczba dysków danych | 64 lub mniej. 
-Rozmiar dysku danych | Do 4 095 GB 
+Rozmiar dysku danych | Do 8 095 GB
 Karty sieciowe | Obsługiwane są wiele kart.
 Udostępniony wirtualny dysk twardy | Nieobsługiwane. 
 Dysk FC | Nieobsługiwane. 

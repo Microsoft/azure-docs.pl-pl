@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 06/02/2020
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: 983005e815061f65907fc54aa6a3dfec1771b3f0
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 740c5dfb7dd4bece32aa2df5ef47d5f87091445b
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86055498"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86231645"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Korzystanie z sieci korzystającą wtyczki kubenet z własnymi zakresami adresów IP w usłudze Azure Kubernetes Service (AKS)
 
@@ -54,7 +54,7 @@ W przypadku *usługi Azure CNI*typowym problemem jest zbyt mały zakres adresów
 
 Ze względu na kompromis można utworzyć klaster AKS, który używa *korzystającą wtyczki kubenet* i nawiązać połączenie z istniejącą podsiecią sieci wirtualnej. Takie podejście pozwala węzłom odbierać zdefiniowane adresy IP bez konieczności zastrzegania dużej liczby adresów IP na początku dla wszystkich potencjalnych zasobników, które można uruchomić w klastrze.
 
-Za pomocą *korzystającą wtyczki kubenet*można użyć znacznie mniejszego zakresu adresów IP i zapewnić obsługę dużych klastrów i wymagań aplikacji. Na przykład nawet z zakresem adresów IP */27* można uruchomić klaster węzłów 20-25 z wystarczającą ilością miejsca do skalowania lub uaktualnienia. Ten rozmiar klastra będzie obsługiwał do *2200-2750owych* zasobników (z domyślną maksymalną równą 110 zasobników na węzeł). Maksymalna liczba zasobników na węzeł, który można skonfigurować za pomocą *korzystającą wtyczki kubenet* w AKS, to 110.
+Za pomocą *korzystającą wtyczki kubenet*można użyć znacznie mniejszego zakresu adresów IP i zapewnić obsługę dużych klastrów i wymagań aplikacji. Na przykład, nawet z zakresem adresów IP */27* w podsieci, można uruchomić klaster węzłów 20-25 z wystarczającą ilością miejsca do skalowania lub uaktualnienia. Ten rozmiar klastra będzie obsługiwał do *2200-2750owych* zasobników (z domyślną maksymalną równą 110 zasobników na węzeł). Maksymalna liczba zasobników na węzeł, który można skonfigurować za pomocą *korzystającą wtyczki kubenet* w AKS, to 110.
 
 Poniższe podstawowe obliczenia porównują różnicę w modelach sieci:
 

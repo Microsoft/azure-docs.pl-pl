@@ -9,11 +9,12 @@ ms.topic: conceptual
 ms.date: 04/30/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: dd5d9c721c3e0204a66367b76654f9a917e26ba6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f8e84e845910b8f84a9b3f84ad414f2ecdd250a5
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82884633"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223792"
 ---
 # <a name="soft-delete-for-blob-storage"></a>Usuwanie nietrwałe dla magazynu obiektów BLOB
 
@@ -53,7 +54,7 @@ Nietrwałe usuwanie zachowuje dane w wielu przypadkach, w których obiekty są u
 
 Gdy obiekt BLOB zostanie zastąpiony przy użyciu funkcji **Put BLOB**, **Put Block list**lub **copy BLOB**, wersja lub migawka stanu obiektu BLOB przed operacją zapisu jest generowana automatycznie. Ten obiekt jest niewidoczny, jeśli nie zostały jawnie wymienione obiekty nietrwałe. Zobacz sekcję [odzyskiwanie](#recovery) , aby dowiedzieć się, jak wyświetlić nietrwałe obiekty usunięte.
 
-![](media/soft-delete-overview/storage-blob-soft-delete-overwrite.png)
+![Diagram przedstawiający sposób przechowywania migawek obiektów BLOB w trakcie ich nadpisania przy użyciu funkcji Put BLOB, Put Block list lub Copy BLOB.](media/soft-delete-overview/storage-blob-soft-delete-overwrite.png)
 
 *Usunięte dane nietrwałe są szare, a aktywne dane są niebieskie. Ostatnio zapisywane dane są wyświetlane poniżej starszych danych. Gdy B0 jest zastępowany przez B1, generowana jest nietrwałe migawka B0. Gdy B1 zostanie zastąpiona przez B2, generowana jest niewygładzona migawka z B1.*
 
@@ -65,13 +66,13 @@ Gdy obiekt BLOB zostanie zastąpiony przy użyciu funkcji **Put BLOB**, **Put Bl
 
 Gdy **obiekt BLOB jest usuwany** w migawce, migawka jest oznaczona jako nietrwała. Nie Wygenerowano nowej migawki.
 
-![](media/soft-delete-overview/storage-blob-soft-delete-explicit-delete-snapshot.png)
+![Diagram przedstawiający sposób usuwania nietrwałych migawek obiektów BLOB podczas korzystania z usuwania obiektów BLOB.](media/soft-delete-overview/storage-blob-soft-delete-explicit-delete-snapshot.png)
 
 *Usunięte dane nietrwałe są szare, a aktywne dane są niebieskie. Ostatnio zapisywane dane są wyświetlane poniżej starszych danych. Po wywołaniu **obiektu BLOB Snapshot** B0 stanie się migawką, a B1 jest aktywnym stanem obiektu BLOB. Po usunięciu migawki B0 jest ona oznaczona jako nietrwała.*
 
 Kiedy **obiekt BLOB Delete** jest wywoływany na bazowym obiekcie BLOB (dowolny obiekt BLOB, który nie jest samym migawką), ten obiekt BLOB jest oznaczony jako usunięty. Spójne z poprzednim zachowaniem, wywołanie **usuwania obiektów BLOB** na obiekcie blob, który ma aktywne migawki, zwraca błąd. Wywołanie metody **delete BLOB** na obiekcie blob z nietrwałymi usuniętymi migawkami nie powoduje zwrócenia błędu. Nadal można usunąć obiekt BLOB i wszystkie jego migawki w ramach jednej operacji, gdy jest włączona funkcja usuwania nietrwałego. Spowoduje to oznaczenie podstawowego obiektu BLOB i migawek jako nietrwałego usunięcia.
 
-![](media/soft-delete-overview/storage-blob-soft-delete-explicit-include.png)
+![Diagram przedstawiający, co się dzieje w przypadku wywołania elementu "Usuń blog" na bazowym obiekcie blob.](media/soft-delete-overview/storage-blob-soft-delete-explicit-include.png)
 
 *Usunięte dane nietrwałe są szare, a aktywne dane są niebieskie. Ostatnio zapisywane dane są wyświetlane poniżej starszych danych. W tym miejscu jest wykonywane wywołanie **usuwania obiektu BLOB** , aby usunąć B2 i wszystkie skojarzone migawki. Aktywne obiekty blob, B2 i wszystkie skojarzone migawki są oznaczane jako nietrwałe usunięte.*
 
@@ -98,13 +99,13 @@ W poniższej tabeli przedstawiono oczekiwane zachowanie podczas włączania usuw
 
 Należy zauważyć, że wywołanie funkcji **Put Page** to overwrite lub Clear zakresy obiektu BLOB Page nie spowoduje automatycznego generowania migawek. Dyski maszyny wirtualnej są obsługiwane przez stronicowe obiekty blob i wykorzystują **stronę Put** do zapisu danych.
 
-### <a name="recovery"></a>Odzyskiwanie
+### <a name="recovery"></a>Odzyskiwania
 
 Wywołanie operacji [cofnięcia usunięcia obiektu](/rest/api/storageservices/undelete-blob) BLOB dla nietrwałego, usuniętego obiektu typu Base spowoduje przywrócenie tego elementu i wszystkich skojarzonych nietrwałych usuniętych migawek jako aktywnych. Wywołanie operacji **cofnięcia usunięcia obiektu BLOB** na aktywnym podstawowym obiekcie blob spowoduje przywrócenie wszystkich skojarzonych usuniętych nietrwałych migawek jako aktywnych. Gdy migawki są przywracane jako aktywne, wyglądają jak migawki wygenerowane przez użytkownika; nie zastępuje podstawowego obiektu BLOB.
 
 Aby przywrócić obiekt BLOB do określonej nietrwałej migawki usuniętej, można wywołać **cofnięcie obiektu BLOB** na podstawowym obiekcie blob. Następnie można skopiować migawkę za pośrednictwem teraz aktywnego obiektu BLOB. Możesz również skopiować migawkę do nowego obiektu BLOB.
 
-![](media/soft-delete-overview/storage-blob-soft-delete-recover.png)
+![Diagram przedstawiający, co się stanie, gdy zostanie użyty cofający usunięcie obiektu BLOB.](media/soft-delete-overview/storage-blob-soft-delete-recover.png)
 
 *Usunięte dane nietrwałe są szare, a aktywne dane są niebieskie. Ostatnio zapisywane dane są wyświetlane poniżej starszych danych. W tym miejscu **obiekt BLOB Undelete** jest wywoływany w obiekcie blob B, a tym samym przywracasz podstawowy obiekt BLOB, B1 i wszystkie skojarzone migawki, tutaj tylko B0 jako aktywny. W drugim kroku B0 jest kopiowany przez podstawowy obiekt BLOB. Ta operacja kopiowania generuje niewygładzoną migawkę z B1.*
 

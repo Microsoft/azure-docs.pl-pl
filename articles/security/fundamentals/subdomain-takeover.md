@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/23/2020
 ms.author: memildin
-ms.openlocfilehash: b395931d11c7bc7119be0122531908ed680fc3b9
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: a7ff8a0cf23bf0701a7cc35cb137ec0965f295ec
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86145975"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223979"
 ---
 # <a name="prevent-dangling-dns-entries-and-avoid-subdomain-takeover"></a>Zapobiegaj zawieszonego wpisów DNS i unikaj przejęcia domen podrzędnych
 
@@ -117,8 +117,8 @@ Często deweloperzy i zespoły operacji mogą uruchamiać procesy oczyszczania, 
 
     - Regularnie Przeglądaj rekordy DNS, aby upewnić się, że domeny podrzędne są zamapowane na zasoby platformy Azure, które:
 
-        - **Istnieje** — kwerenda stref DNS dla zasobów wskazujących poddomeny platformy Azure, takich jak *. azurewebsites.NET lub *. cloudapp.Azure.com (zobacz [tę listę odwołań](azure-domains.md)).
-        - **Jesteś** posiadaczem potwierdzenia, że masz wszystkie zasoby, które są przeznaczone dla poddomen DNS.
+        - Istnieje — kwerenda stref DNS dla zasobów wskazujących poddomeny platformy Azure, takich jak *. azurewebsites.net lub *. cloudapp.azure.com (zobacz [tę listę odwołań](azure-domains.md)).
+        - Jesteś posiadaczem potwierdzenia, że masz wszystkie zasoby, które są przeznaczone dla poddomen DNS.
 
     - Obsługa katalogu usług w pełni kwalifikowanych punktów końcowych nazw domen (FQDN) platformy Azure oraz właścicieli aplikacji. Aby skompilować katalog usług, uruchom następujące zapytanie dotyczące wykresu zasobów platformy Azure (ARG) z parametrami z poniższej tabeli:
     
@@ -127,26 +127,15 @@ Często deweloperzy i zespoły operacji mogą uruchamiać procesy oczyszczania, 
         >
         > **Ograniczenia** — usługa Azure Resource Graph ma limity ograniczania i stronicowania, które należy wziąć pod uwagę w przypadku dużego środowiska platformy Azure. [Dowiedz się więcej](https://docs.microsoft.com/azure/governance/resource-graph/concepts/work-with-data) o pracy z dużymi zestawami danych zasobów platformy Azure.  
 
-        ```
-        Search-AzGraph -Query "resources | where type == '[ResourceType]' | project tenantId, subscriptionId, type, resourceGroup, name, endpoint = [FQDNproperty]"
+        ```powershell
+        Search-AzGraph -Query "resources | where type == '<ResourceType>' | 
+        project tenantId, subscriptionId, type, resourceGroup, name, 
+        endpoint = <FQDNproperty>"
         ``` 
-        
-        Na przykład to zapytanie zwraca zasoby z Azure App Service:
-
-        ```
-        Search-AzGraph -Query "resources | where type == 'microsoft.web/sites' | project tenantId, subscriptionId, type, resourceGroup, name, endpoint = properties.defaultHostName"
-        ```
-        
-        Można również połączyć wiele typów zasobów. To przykładowe zapytanie zwraca zasoby z Azure App Service **i** Azure App Service-gniazd:
-
-        ```azurepowershell
-        Search-AzGraph -Query "resources | where type in ('microsoft.web/sites', 'microsoft.web/sites/slots') | project tenantId, subscriptionId, type, resourceGroup, name, endpoint = properties.defaultHostName"
-        ```
-
 
         Według parametrów usługi dla zapytania ARG:
 
-        |Nazwa zasobu  |[ResourceType]  | [FQDNproperty]  |
+        |Nazwa zasobu  | `<ResourceType>`  | `<FQDNproperty>`  |
         |---------|---------|---------|
         |Azure Front Door|Microsoft. Network/usługi frontdoor|Właściwości. cName|
         |Azure Blob Storage|Microsoft. Storage/storageaccounts|Properties. obiektu. blob|
@@ -157,6 +146,23 @@ Często deweloperzy i zespoły operacji mogą uruchamiać procesy oczyszczania, 
         |Azure API Management|Microsoft. apimanagement/Service|Properties. hostnameConfigurations. hostName|
         |Azure App Service|Microsoft. Web/witryny|Właściwości. defaultHostName|
         |Azure App Service — miejsca|Microsoft. Web/Sites/miejsca|Właściwości. defaultHostName|
+
+        
+        **Przykład 1** — to zapytanie zwraca zasoby z Azure App Service: 
+
+        ```powershell
+        Search-AzGraph -Query "resources | where type == 'microsoft.web/sites' | 
+        project tenantId, subscriptionId, type, resourceGroup, name, 
+        endpoint = properties.defaultHostName"
+        ```
+        
+        **Przykład 2** — to zapytanie łączy wiele typów zasobów, aby zwrócić zasoby z Azure App Service **i** Azure App Service-gniazd:
+
+        ```powershell
+        Search-AzGraph -Query "resources | where type in ('microsoft.web/sites', 
+        'microsoft.web/sites/slots') | project tenantId, subscriptionId, type, 
+        resourceGroup, name, endpoint = properties.defaultHostName"
+        ```
 
 
 - **Utwórz procedury korygowania:**
@@ -173,4 +179,4 @@ Aby dowiedzieć się więcej na temat usług pokrewnych i funkcji platformy Azur
 
 - [Użyj identyfikatora weryfikacji domeny podczas dodawania domen niestandardowych w Azure App Service](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-domain#get-domain-verification-id) 
 
--    [Szybki Start: uruchamianie pierwszego zapytania grafu zasobów przy użyciu Azure PowerShell](https://docs.microsoft.com/azure/governance/resource-graph/first-query-powershell)
+- [Szybki Start: uruchamianie pierwszego zapytania grafu zasobów przy użyciu Azure PowerShell](https://docs.microsoft.com/azure/governance/resource-graph/first-query-powershell)

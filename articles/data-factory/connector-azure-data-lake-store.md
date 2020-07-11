@@ -10,17 +10,18 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 06/12/2020
-ms.openlocfilehash: 833dd0948a4a6a0ecc5c33ea8c92723169b52387
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/09/2020
+ms.openlocfilehash: dbfd90c760f4f5f9f6cf1bac8c7d75f474f6827b
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84737805"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223673"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen1-using-azure-data-factory"></a>Kopiowanie danych do lub z Azure Data Lake Storage Gen1 przy użyciu Azure Data Factory
 
 > [!div class="op_single_selector" title1="Wybierz używaną wersję Azure Data Factory:"]
+>
 > * [Wersja 1](v1/data-factory-azure-datalake-connector.md)
 > * [Bieżąca wersja](connector-azure-data-lake-store.md)
 
@@ -47,7 +48,7 @@ W przypadku tego łącznika możesz:
 > [!IMPORTANT]
 > W przypadku kopiowania danych przy użyciu własnego środowiska Integration Runtime Skonfiguruj zaporę firmową tak, aby zezwalała na ruch wychodzący do `<ADLS account name>.azuredatalakestore.net` i `login.microsoftonline.com/<tenant>/oauth2/token` na porcie 443. Jest to usługa tokenu zabezpieczającego platformy Azure, z którą musi się komunikować środowisko Integration Runtime w celu uzyskania tokenu dostępu.
 
-## <a name="get-started"></a>Rozpoczęcie pracy
+## <a name="get-started"></a>Wprowadzenie
 
 > [!TIP]
 > Aby zapoznać się z przewodnikiem dotyczącym korzystania z łącznika Azure Data Lake Store, zobacz [ładowanie danych do Azure Data Lake Store](load-azure-data-lake-store.md).
@@ -207,9 +208,11 @@ Następujące właściwości są obsługiwane dla Azure Data Lake Store Gen1 w o
 | typ                     | Właściwość Type w obszarze `storeSettings` musi być ustawiona na wartość **AzureDataLakeStoreReadSettings**. | Tak                                          |
 | ***Zlokalizuj pliki do skopiowania:*** |  |  |
 | Opcja 1: ścieżka statyczna<br> | Kopiuj z podanego folderu/ścieżki pliku określonego w zestawie danych. Jeśli chcesz skopiować wszystkie pliki z folderu, należy również określić `wildcardFileName` jako `*` . |  |
-| Opcja 2: symbol wieloznaczny<br>- wildcardFolderPath | Ścieżka folderu z symbolami wieloznacznymi do filtrowania folderów źródłowych. <br>Dozwolone symbole wieloznaczne to: `*` (dopasowuje zero lub więcej znaków) i `?` (dopasowuje zero lub pojedynczy znak); Użyj `^` do ucieczki, jeśli rzeczywista nazwa folderu ma symbol wieloznaczny lub ten znak ucieczki wewnątrz. <br>Zobacz więcej przykładów w [przykładach folderów i filtrów plików](#folder-and-file-filter-examples). | Nie                                            |
-| Opcja 2: symbol wieloznaczny<br>- wildcardFileName | Nazwa pliku z symbolami wieloznacznymi pod daną folderPath/wildcardFolderPath do filtrowania plików źródłowych. <br>Dozwolone symbole wieloznaczne to: `*` (dopasowuje zero lub więcej znaków) i `?` (dopasowuje zero lub pojedynczy znak); Użyj `^` do ucieczki, jeśli rzeczywista nazwa folderu ma symbol wieloznaczny lub ten znak ucieczki wewnątrz.  Zobacz więcej przykładów w [przykładach folderów i filtrów plików](#folder-and-file-filter-examples). | Tak |
-| Opcja 3: Lista plików<br>- fileListPath | Wskazuje, aby skopiować dany zestaw plików. Wskaż plik tekstowy zawierający listę plików, które chcesz skopiować, jeden plik w wierszu, który jest ścieżką względną do ścieżki skonfigurowanej w zestawie danych.<br/>W przypadku korzystania z tej opcji nie należy określać nazwy pliku w zestawie danych. Zobacz więcej przykładów na [listach plików](#file-list-examples). |Nie |
+| Opcja 2: Zakres nazw<br>- listAfter | Pobierz foldery/pliki, których nazwa jest po tej wartości alfabetycznie (wyłącznie). Wykorzystuje filtr po stronie usługi dla ADLS Gen1, który zapewnia lepszą wydajność niż filtr symboli wieloznacznych. <br/>Fabryka danych stosuje ten filtr do ścieżki zdefiniowanej w zestawie danych, a tylko jeden poziom jednostki jest obsługiwany. Zobacz więcej przykładów w [przykładach filtru zakresu nazw](#name-range-filter-examples). | Nie |
+| Opcja 2: Zakres nazw<br/>- listBefore | Pobierz foldery/pliki, których nazwa jest wcześniejsza niż ta wartość (włącznie). Wykorzystuje filtr po stronie usługi dla ADLS Gen1, który zapewnia lepszą wydajność niż filtr symboli wieloznacznych.<br>Fabryka danych stosuje ten filtr do ścieżki zdefiniowanej w zestawie danych, a tylko jeden poziom jednostki jest obsługiwany. Zobacz więcej przykładów w [przykładach filtru zakresu nazw](#name-range-filter-examples). | Nie |
+| Opcja 3: symbol wieloznaczny<br>- wildcardFolderPath | Ścieżka folderu z symbolami wieloznacznymi do filtrowania folderów źródłowych. <br>Dozwolone symbole wieloznaczne to: `*` (dopasowuje zero lub więcej znaków) i `?` (dopasowuje zero lub pojedynczy znak); Użyj `^` do ucieczki, jeśli rzeczywista nazwa folderu ma symbol wieloznaczny lub ten znak ucieczki wewnątrz. <br>Zobacz więcej przykładów w [przykładach folderów i filtrów plików](#folder-and-file-filter-examples). | Nie                                            |
+| Opcja 3: symbol wieloznaczny<br>- wildcardFileName | Nazwa pliku z symbolami wieloznacznymi pod daną folderPath/wildcardFolderPath do filtrowania plików źródłowych. <br>Dozwolone symbole wieloznaczne to: `*` (dopasowuje zero lub więcej znaków) i `?` (dopasowuje zero lub pojedynczy znak); Użyj `^` do ucieczki, jeśli rzeczywista nazwa folderu ma symbol wieloznaczny lub ten znak ucieczki wewnątrz.  Zobacz więcej przykładów w [przykładach folderów i filtrów plików](#folder-and-file-filter-examples). | Tak |
+| OPCJA 4: Lista plików<br>- fileListPath | Wskazuje, aby skopiować dany zestaw plików. Wskaż plik tekstowy zawierający listę plików, które chcesz skopiować, jeden plik w wierszu, który jest ścieżką względną do ścieżki skonfigurowanej w zestawie danych.<br/>W przypadku korzystania z tej opcji nie należy określać nazwy pliku w zestawie danych. Zobacz więcej przykładów na [listach plików](#file-list-examples). |Nie |
 | ***Ustawienia dodatkowe:*** |  | |
 | rozpoznawania | Wskazuje, czy dane są odczytane cyklicznie z podfolderów, czy tylko z określonego folderu. Należy pamiętać, że gdy wartość cykliczna jest ustawiona na wartość true, a ujścia jest magazynem opartym na plikach, pusty folder lub podfolder nie jest kopiowany ani tworzony w ujścia. <br>Dozwolone wartości to **true** (wartość domyślna) i **false**.<br>Ta właściwość nie ma zastosowania podczas konfigurowania `fileListPath` . |Nie |
 | deleteFilesAfterCompletion | Wskazuje, czy pliki binarne zostaną usunięte z magazynu źródłowego po pomyślnym przeniesieniu do magazynu docelowego. Plik jest usuwany dla każdego pliku, więc w przypadku niepowodzenia działania kopiowania niektóre pliki zostały już skopiowane do lokalizacji docelowej i usunięte ze źródła, podczas gdy inne nadal pozostają w magazynie źródłowym. <br/>Ta właściwość jest prawidłowa tylko w scenariuszu kopiowania plików binarnych, w którym magazyny źródeł danych to obiekty blob, ADLS Gen1, ADLS Gen2, S3, magazyn w chmurze Google, plik, plik platformy Azure, SFTP lub FTP. Wartość domyślna: false. |Nie |
@@ -305,6 +308,13 @@ Następujące właściwości są obsługiwane dla Azure Data Lake Store Gen1 w o
     }
 ]
 ```
+### <a name="name-range-filter-examples"></a>Przykłady filtru zakresu nazw
+
+W tej sekcji opisano wyniki działania filtrów zakresu nazw.
+
+| Przykładowa struktura źródła | Konfiguracja ADF | Wynik |
+|:--- |:--- |:--- |
+|root<br/>&nbsp;&nbsp;&nbsp;&nbsp;z<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;file.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;oś<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;file2.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;ax.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;b<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;file3.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;bx.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;s<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;file4.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;cx.csv| **W zestawie danych:**<br>-Ścieżka folderu:`root`<br><br>**W źródle działania kopiowania:**<br>-Lista po:`a`<br>-Lista przed:`b`| Następnie zostaną skopiowane następujące pliki:<br><br>root<br/>&nbsp;&nbsp;&nbsp;&nbsp;oś<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;file2.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;ax.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;b<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;file3.csv |
 
 ### <a name="folder-and-file-filter-examples"></a>Przykłady filtrów folderów i plików
 
@@ -350,10 +360,11 @@ Jeśli chcesz replikować listy kontroli dostępu (ACL) wraz z plikami danych po
 ## <a name="mapping-data-flow-properties"></a>Mapowanie właściwości przepływu danych
 
 Gdy przekształcasz dane w celu mapowania przepływów danych, możesz odczytywać i zapisywać pliki z Azure Data Lake Storage Gen1 w następujących formatach:
-* [JSON](format-json.md#mapping-data-flow-properties)
 * [Avro](format-avro.md#mapping-data-flow-properties)
 * [Tekst rozdzielany](format-delimited-text.md#mapping-data-flow-properties)
-* [Parquet](format-parquet.md#mapping-data-flow-properties).
+* [Excel](format-excel.md#mapping-data-flow-properties)
+* [JSON](format-json.md#mapping-data-flow-properties)
+* [Parquet](format-parquet.md#mapping-data-flow-properties)
 
 Ustawienia specyficzne dla formatu znajdują się w dokumentacji dla tego formatu. Aby uzyskać więcej informacji, zobacz temat [przekształcanie źródła w mapowaniu przepływu danych](data-flow-source.md) i [transformacji ujścia w mapowaniu przepływu danych](data-flow-sink.md).
 

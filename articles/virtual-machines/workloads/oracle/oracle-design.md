@@ -3,8 +3,8 @@ title: Projektowanie i implementowanie bazy danych Oracle na platformie Azure | 
 description: Projektuj i Implementuj bazę danych Oracle w środowisku platformy Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: BorisB2015
-manager: gwallace
+author: rgardler
+manager: ''
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -13,12 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
-ms.author: borisb
-ms.openlocfilehash: ad446180b3bd864c5b6df808e6e4efac7d6c1c65
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: rogardle
+ms.openlocfilehash: b553256d3e6a498e36e8b5c98d90c6c14b10df75
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81687537"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224574"
 ---
 # <a name="design-and-implement-an-oracle-database-in-azure"></a>Projektowanie i implementowanie bazy danych Oracle na platformie Azure
 
@@ -51,7 +52,7 @@ W poniższej tabeli wymieniono niektóre różnice między implementacją lokaln
 > | **Planowana konserwacja** |Poprawki/uaktualnienia|[Zestawy dostępności](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines) (poprawki/uaktualnienia zarządzane przez platformę Azure) |
 > | **Zasób** |Dedykowane  |Współużytkowane z innymi klientami|
 > | **Regiony** |Centra danych |[Pary regionów](https://docs.microsoft.com/azure/virtual-machines/windows/regions#region-pairs)|
-> | **Storage** |SAN/dyski fizyczne |[Magazyn zarządzany przez platformę Azure](https://azure.microsoft.com/pricing/details/managed-disks/?v=17.23h)|
+> | **Magazyn** |SAN/dyski fizyczne |[Magazyn zarządzany przez platformę Azure](https://azure.microsoft.com/pricing/details/managed-disks/?v=17.23h)|
 > | **Skalowanie** |Skalowanie w pionie |Skalowanie w poziomie|
 
 
@@ -143,7 +144,7 @@ Na podstawie wymagań dotyczących przepustowości sieci istnieją różne typy 
 - Opóźnienie sieci jest większe w porównaniu z wdrożeniem lokalnym. Zmniejszenie liczby podróży sieci może znacznie poprawić wydajność.
 - Aby zmniejszyć liczbę rund, Konsoliduj aplikacje, które mają wysokie transakcje lub aplikacje "rozmawiania" na tej samej maszynie wirtualnej.
 - Użyj Virtual Machines z [szybszymi sieciami](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli) , aby zapewnić lepszą wydajność sieci.
-- W przypadku niektórych distrubutions systemu Linux Rozważ włączenie [obsługi przycinania/mapowania](https://docs.microsoft.com/azure/virtual-machines/linux/configure-lvm#trimunmap-support).
+- W przypadku niektórych dystrybucji systemu Linux Rozważ włączenie [obsługi przycinania/mapowania](https://docs.microsoft.com/azure/virtual-machines/linux/configure-lvm#trimunmap-support).
 - Zainstaluj program [Oracle Enterprise Manager](https://www.oracle.com/technetwork/oem/enterprise-manager/overview/index.html) na oddzielnej maszynie wirtualnej.
 - Ogromne strony nie są domyślnie włączone w systemie Linux. Rozważ włączenie dużych stron i ustawienie `use_large_pages = ONLY` na Oracle DB. Może to pomóc zwiększyć wydajność. Więcej informacji można znaleźć [tutaj](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/refrn/USE_LARGE_PAGES.html#GUID-1B0F4D27-8222-439E-A01D-E50758C88390).
 

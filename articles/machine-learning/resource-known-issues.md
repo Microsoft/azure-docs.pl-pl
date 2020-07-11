@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: troubleshooting
 ms.custom: contperfq4
 ms.date: 03/31/2020
-ms.openlocfilehash: a3e78ff2936cb3dbbc1bcf432f130fbd17622d14
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bc41152bb39b0f5022d51dbefe16e3d56107c457
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85610070"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223462"
 ---
 # <a name="known-issues-and-troubleshooting-in-azure-machine-learning"></a>Znane problemy i rozwiązywanie problemów w Azure Machine Learning
 
@@ -181,7 +181,27 @@ Jeśli używasz udziału plików dla innych obciążeń, takich jak transfer dan
 |Podczas recenzowania obrazów nie są wyświetlane nowe obrazy z etykietami.     |   Aby załadować wszystkie obrazy z etykietami, wybierz **pierwszy** przycisk. **Pierwszy** przycisk przeprowadzi Cię z powrotem do początku listy, ale ładuje wszystkie dane z etykietami.      |
 |Naciśnięcie klawisza Esc podczas etykietowania dla wykrywania obiektów tworzy etykietę o zerowej wielkości w lewym górnym rogu. Przesyłanie etykiet w tym stanie nie powiodło się.     |   Usuń etykietę, klikając znak krzyżyka obok niego.  |
 
-### <a name="data-drift-monitors"></a>Monitory dryfowania danych
+### <a name="data-drift-monitors"></a><a name="data-drift"></a>Monitory dryfowania danych
+
+Ograniczenia i znane problemy dotyczące monitorów dryfowania danych:
+
+* Zakres czasu podczas analizowania danych historycznych jest ograniczony do 31 interwałów ustawienia częstotliwości monitora. 
+* Ograniczenie funkcji 200, chyba że lista funkcji nie zostanie określona (wszystkie używane funkcje).
+* Rozmiar obliczeń musi być wystarczająco duży, aby można było obsłużyć dane.
+* Upewnij się, że zestaw danych zawiera dane w dniu rozpoczęcia i zakończenia danego monitora.
+* Monitory zestawu danych będą działały tylko w zestawach, które zawierają 50 wierszy lub więcej.
+* Kolumny lub funkcje w zestawie danych są klasyfikowane jako kategorii lub liczbowe w zależności od warunków w poniższej tabeli. Jeśli funkcja nie spełnia tych warunków — na przykład kolumna typu ciąg z >100 unikatowymi wartościami — funkcja zostanie porzucona z algorytmu dryfowania danych, ale jest nadal profilowana. 
+
+    | Typ funkcji | Typ danych | Warunek | Ograniczenia | 
+    | ------------ | --------- | --------- | ----------- |
+    | Podzielone na kategorie | String, bool, int, float | Liczba unikatowych wartości w funkcji jest mniejsza niż 100 i mniejsza niż 5% liczby wierszy. | Wartość null jest traktowana jako jej własna Kategoria. | 
+    | Porządkow | int, float | Wartości w funkcji mają typ danych liczbowych i nie spełniają warunku funkcji kategorii. | Funkcja została porzucona, jeśli >15% wartości ma wartość null. | 
+
+* Po [utworzeniu monitora datadryfu](how-to-monitor-datasets.md) , ale nie można wyświetlić danych na stronie **Monitory zestawu danych** w programie Azure Machine Learning Studio, spróbuj wykonać poniższe czynności.
+
+    1. Sprawdź, czy w górnej części strony wybrano prawy zakres dat.  
+    1. Na karcie **Monitory zestawu danych** wybierz łącze eksperyment, aby sprawdzić stan uruchomienia.  Ten link znajduje się po prawej stronie tabeli.
+    1. Jeśli uruchomienie zakończyło się pomyślnie, Sprawdź dzienniki sterowników, aby zobaczyć, ile metryk zostało wygenerowanych, lub jeśli istnieją komunikaty ostrzegawcze.  Na karcie **dane wyjściowe i dzienniki** Znajdź dzienniki sterowników po kliknięciu eksperymentu.
 
 * Jeśli funkcja SDK nie `backfill()` generuje oczekiwanych danych wyjściowych, może to być spowodowane problemem z uwierzytelnianiem.  Podczas tworzenia obliczeń do przekazania do tej funkcji nie należy używać `Run.get_context().experiment.workspace.compute_targets` .  Zamiast tego należy użyć [ServicePrincipalAuthentication](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.serviceprincipalauthentication?view=azure-ml-py) , takich jak następujące, aby utworzyć obliczenia, które są przekazywane do tej `backfill()` funkcji: 
 

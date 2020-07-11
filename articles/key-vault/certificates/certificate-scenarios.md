@@ -9,11 +9,12 @@ ms.subservice: certificates
 ms.topic: conceptual
 ms.date: 06/13/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 316a6c13b55664bdabf7c0cb3e37d7bb18b8649f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d99d211ec48a507b205c4cef21618054c11aec9b
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84765101"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224863"
 ---
 # <a name="get-started-with-key-vault-certificates"></a>Rozpoczynanie pracy z certyfikatami usługi Key Vault
 Poniższe scenariusze przedstawiają kilka podstawowych zastosowań usługi zarządzania certyfikatami Key Vault, w tym dodatkowe kroki wymagane do utworzenia pierwszego certyfikatu w magazynie kluczy.
@@ -79,6 +80,9 @@ Uwaga — Ten proces, przez krok 3,1, jest operacją jednorazowej.
 [Pobierz operację certyfikatu](/rest/api/keyvault/getcertificateoperation/getcertificateoperation)  
       -   Stan: ukończono, Niepowodzenie i informacje o błędzie lub, anulowano  
       -   Ze względu na opóźnienie do utworzenia można zainicjować operację anulowania. Anulowanie może być nieskuteczne.  
+
+### <a name="network-security-and-access-policies-associated-with-integrated-ca"></a>Zasady zabezpieczeń i dostępu sieciowego skojarzone ze zintegrowanym urzędem certyfikacji
+Usługa Key Vault wysyła żądania do urzędu certyfikacji (ruch wychodzący). W związku z tym jest w pełni zgodny z magazynami kluczy z włączoną obsługą zapory. Key Vault nie udostępnia zasad dostępu do urzędu certyfikacji. Urząd certyfikacji musi być skonfigurowany tak, aby akceptował żądania podpisywania niezależnie. [Przewodnik integrowania zaufanego urzędu certyfikacji](https://docs.microsoft.com/azure/key-vault/certificates/how-to-integrate-certificate-authority)
 
 ## <a name="import-a-certificate"></a>Importowanie certyfikatu  
  Alternatywnie — można zaimportować certyfikat do Key Vault — PFX lub PEM.  

@@ -8,11 +8,12 @@ ms.topic: conceptual
 description: Użyj niestandardowego źródła danych NuGet, aby uzyskać dostęp do pakietów NuGet i korzystać z nich w obszarze dev platformy Azure.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, kontenery
 manager: gwallace
-ms.openlocfilehash: 39984a3b3a1be64a497fb8088559ccfcdee4f1c6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 77c7b733b12d9b352f9a806cadc0f900b9283ef3
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74325726"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86229281"
 ---
 # <a name="use-a-custom-nuget-feed-with-azure-dev-spaces"></a>Użyj niestandardowego źródła danych NuGet z Azure Dev Spaces
 
@@ -20,7 +21,7 @@ ms.locfileid: "74325726"
 
 ## <a name="set-up-a-nuget-feed"></a>Skonfiguruj źródło danych NuGet
 
-Dodaj [odwołanie do pakietu](https://docs.microsoft.com/nuget/consume-packages/package-references-in-project-files) dla zależności w pliku w `*.csproj` `PackageReference` węźle. Przykład:
+Dodaj [odwołanie do pakietu](/nuget/consume-packages/package-references-in-project-files) dla zależności w pliku w `*.csproj` `PackageReference` węźle. Na przykład:
 
 ```xml
 <ItemGroup>
@@ -30,7 +31,7 @@ Dodaj [odwołanie do pakietu](https://docs.microsoft.com/nuget/consume-packages/
 </ItemGroup>
 ```
 
-Utwórz plik [NuGet.Config](https://docs.microsoft.com/nuget/reference/nuget-config-file) w folderze projektu i ustaw `packageSources` `packageSourceCredentials` sekcje i dla źródła danych NuGet. `packageSources`Sekcja zawiera adres URL źródła danych, który musi być dostępny z klastra AKS. `packageSourceCredentials`Są to poświadczenia do uzyskiwania dostępu do źródła danych. Przykład:
+Utwórz plik [NuGet.Config](/nuget/reference/nuget-config-file) w folderze projektu i ustaw `packageSources` `packageSourceCredentials` sekcje i dla źródła danych NuGet. `packageSources`Sekcja zawiera adres URL źródła danych, który musi być dostępny z klastra AKS. `packageSourceCredentials`Są to poświadczenia do uzyskiwania dostępu do źródła danych. Na przykład:
 
 ```xml
 <packageSources>
@@ -45,7 +46,7 @@ Utwórz plik [NuGet.Config](https://docs.microsoft.com/nuget/reference/nuget-con
 </packageSourceCredentials>
 ```
 
-Zaktualizuj wieloetapowe dockerfile, aby skopiować `NuGet.Config` plik do obrazu. Przykład:
+Zaktualizuj wieloetapowe dockerfile, aby skopiować `NuGet.Config` plik do obrazu. Na przykład:
 
 ```console
 COPY ["<project folder>/NuGet.Config", "./NuGet.Config"]
@@ -70,4 +71,4 @@ Przy następnym uruchomieniu `azds up` lub trafieniu `F5` w programie Visual Stu
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej o [NuGet i sposobie jego działania](https://docs.microsoft.com/nuget/what-is-nuget).
+Dowiedz się więcej o [NuGet i sposobie jego działania](/nuget/what-is-nuget).

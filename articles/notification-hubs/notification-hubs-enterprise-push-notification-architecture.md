@@ -16,11 +16,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 0104547a432f7f78d74731e11926bcd82088cef7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e53e9599da3c12fdf01c8902a7275fc75ce86643
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76264037"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223605"
 ---
 # <a name="enterprise-push-architectural-guidance"></a>Wskazówki dotyczące architektury powiadomień wypychanych w przedsiębiorstwie
 
@@ -36,7 +37,7 @@ Poniżej znajduje się ogólna architektura rozwiązania (uogólniona wieloma ap
 
 ## <a name="architecture"></a>Architektura
 
-![][1]
+![Diagram architektury przedsiębiorstwa przedstawiający przepływ za pomocą zdarzeń, subskrypcji i komunikatów wypychanych.][1]
 
 Kluczowym elementem na tym diagramie architektury jest Azure Service Bus, w którym znajdują się tematy/model programowania subskrypcji (więcej informacji na ten temat znajduje się w [Service Bus programowaniu/podrzędnym]). Odbiorca, który w tym przypadku jest zapleczem mobilnym (zazwyczaj [Usługa mobilna platformy Azure], która inicjuje wypychanie do aplikacji mobilnych) nie odbiera komunikatów bezpośrednio z systemów zaplecza, ale zamiast tego, pośrednia warstwa abstrakcji udostępniana przez [Azure Service Bus], która umożliwia zapleczu mobilnego odbieranie komunikatów z jednego lub kilku systemów zaplecza. Należy utworzyć temat Service Bus dla każdego z systemów zaplecza, na przykład konto, HR, finanse, co jest zasadniczo "tematami", które inicjuje wysyłanie komunikatów jako powiadomień wypychanych. Systemy zaplecza wysyłają komunikaty do tych tematów. Zaplecze mobilne mogą subskrybować jeden lub więcej takich tematów, tworząc subskrypcję Service Bus. Uprawnia do korzystania z zaplecza mobilnego w celu otrzymywania powiadomień z odpowiedniego systemu zaplecza. Zaplecze Mobile w dalszym ciągu nasłuchuje komunikatów w swoich subskrypcjach i zaraz po nadejściu wiadomości zostanie przywrócony i wysłany jako powiadomienie do centrum powiadomień. Centra powiadomień ostatecznie dostarczają komunikat do aplikacji mobilnej. Oto lista kluczowych składników:
 
@@ -50,12 +51,12 @@ Kluczowym elementem na tym diagramie architektury jest Azure Service Bus, w któ
 1. Aplikacja mobilna
    * Odbiera i wyświetla powiadomienie
 
-### <a name="benefits"></a>Zalety
+### <a name="benefits"></a>Korzyści
 
 1. Rozdzielenie między odbiornikiem (aplikacją mobilną/usługą za pośrednictwem Centrum powiadomień) i nadawcą (systemy zaplecza) umożliwia integrację dodatkowych systemów zaplecza z minimalnymi zmianami.
 1. Ponadto scenariusz wielu aplikacji mobilnych może odbierać zdarzenia z co najmniej jednego systemu zaplecza.  
 
-## <a name="sample"></a>Przykład
+## <a name="sample"></a>Sample
 
 ### <a name="prerequisites"></a>Wymagania wstępne
 
@@ -227,15 +228,17 @@ Pełny przykładowy kod jest dostępny w [przykładach centrum powiadomień]. Je
 
     e. Aby opublikować tę aplikację jako **zadanie WebJob**, kliknij prawym przyciskiem myszy rozwiązanie w programie Visual Studio i wybierz polecenie **Publikuj jako zadanie WebJob**
 
-    ![][2]
+    ![Zrzut ekranu przedstawiający opcje dostępne po kliknięciu prawym przyciskiem myszy, które są wyświetlane z opcją Publikuj jako zadanie WebJob platformy Azure podane na czerwono.][2]
 
     f. Wybierz swój profil publikowania i Utwórz nową witrynę sieci Web systemu Azure, jeśli jeszcze nie istnieje, która hostuje ten element WebJob i gdy witryna sieci Web zostanie **opublikowana**.
 
-    ![][3]
+    :::image type="complex" source="./media/notification-hubs-enterprise-push-architecture/PublishAsWebJob.png" alt-text="Zrzut ekranu przedstawiający przepływ pracy służący do tworzenia witryny na platformie Azure.":::
+    Zrzut ekranu okna dialogowego publikowanie w sieci Web z wybraną opcją Microsoft Azure Websites, zieloną strzałką wskazującą okno dialogowe Wybierz istniejącą witrynę sieci Web z nową opcją podaną na czerwono i zieloną strzałkę wskazującą okno dialogowe Tworzenie witryny w Microsoft Azure z nazwą lokacji i Utwórz opcje opisane na czerwono.
+    :::image-end:::
 
     przykład Skonfiguruj zadanie jako "Uruchom w sposób ciągły", aby podczas logowania się do [Azure Portal] powinna wyglądać podobnie do poniższego:
 
-    ![][4]
+    ![Zrzut ekranu witryny Azure Portal z wyświetlonymi zadaniami Website zaplecza Enterprise push oraz wartościami nazwy, harmonogramu i dzienników pokreślonymi na czerwono.][4]
 
 3. **EnterprisePushMobileApp**
 
@@ -269,11 +272,11 @@ Pełny przykładowy kod jest dostępny w [przykładach centrum powiadomień]. Je
 2. Uruchom **EnterprisePushMobileApp**, który uruchamia aplikację ze sklepu Windows.
 3. Uruchom aplikację konsolową **EnterprisePushBackendSystem** , która symuluje zaplecze obiektów LOB i uruchamia wysyłanie komunikatów, a następnie zobaczysz wyskakujące powiadomienia, które są wyświetlane jak na poniższej ilustracji:
 
-    ![][5]
+    ![Zrzut ekranu konsoli programu z uruchomioną aplikacją systemową wypychania zaplecza Enterprise i wiadomości, która jest wysyłana przez aplikację.][5]
 
 4. Wiadomości zostały pierwotnie wysłane do tematów Service Bus, które były monitorowane przez Service Bus subskrypcje w zadaniu sieci Web. Po odebraniu komunikatu zostało utworzone i wysłane powiadomienie do aplikacji mobilnej. Możesz przejrzeć dzienniki zadań WebJob, aby potwierdzić przetwarzanie po przejściu do linku dzienniki w [Azure Portal] zadania sieci Web:
 
-    ![][6]
+    ![Zrzut ekranu przedstawiający okno dialogowe Szczegóły ciągłego Zadania WebJob z komunikatem, który jest wyświetlany w kolorze czerwonym.][6]
 
 <!-- Images -->
 [1]: ./media/notification-hubs-enterprise-push-architecture/architecture.png
@@ -290,4 +293,4 @@ Pełny przykładowy kod jest dostępny w [przykładach centrum powiadomień]. Je
 [Service Bus programowanie/procedura podrzędna]: https://azure.microsoft.com/documentation/articles/service-bus-dotnet-how-to-use-topics-subscriptions/
 [Zadanie WebJob platformy Azure]: ../app-service/webjobs-create.md
 [Notification Hubs — uniwersalny Samouczek systemu Windows]: https://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
-[Azure Portal]: https://portal.azure.com/
+[Witryna Azure Portal]: https://portal.azure.com/

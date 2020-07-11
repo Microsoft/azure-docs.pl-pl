@@ -3,8 +3,8 @@ title: Integracja Microsoft Azure z usługą Oracle Cloud Infrastructure | Micro
 description: Informacje o rozwiązaniach, które integrują aplikacje Oracle działające w Microsoft Azure z bazami danych w infrastrukturze chmury firmy Oracle (OCI).
 services: virtual-machines-linux
 documentationcenter: ''
-author: BorisB2015
-manager: gwallace
+author: rgardler
+manager: ''
 tags: ''
 ms.assetid: ''
 ms.service: virtual-machines
@@ -12,13 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/01/2020
-ms.author: borisb
+ms.author: rogardle
 ms.custom: ''
-ms.openlocfilehash: 9fc14a6a8211308ef9f1cd98cd4b831070a99e22
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d93446f4db914c736235daeb4e08e82b9ff00e62
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84299880"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224506"
 ---
 # <a name="oracle-application-solutions-integrating-microsoft-azure-and-oracle-cloud-infrastructure"></a>Rozwiązania aplikacji Oracle integrujące Microsoft Azure i infrastrukturę chmurową Oracle
 

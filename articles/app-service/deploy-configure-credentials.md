@@ -5,11 +5,12 @@ ms.topic: article
 ms.date: 08/14/2019
 ms.reviewer: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: c6f7c2422e043da6df498fe81da938576687b916
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 45d2ec6cf4b2a54b899036d932bc310caede3c29
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83649118"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223860"
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>Skonfiguruj poświadczenia wdrażania dla Azure App Service
 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) obsługuje dwa typy poświadczeń dla [lokalnego wdrożenia git](deploy-local-git.md) i [wdrożenia FTP/S](deploy-ftp.md). Te poświadczenia nie są takie same, jak poświadczenia subskrypcji platformy Azure.
@@ -39,17 +40,17 @@ W Azure Portal należy mieć co najmniej jedną aplikację, aby można było uzy
 
 1. W [Azure Portal](https://portal.azure.com)z menu po lewej stronie wybierz pozycję **App Services**  >  **\<any_app>**  >  **Deployment center**  >  **FTP**  >  **pulpit nawigacyjny**FTP programu Deployment Center.
 
-    ![](./media/app-service-deployment-credentials/access-no-git.png)
+    ![Pokazuje, w jaki sposób można wybrać pulpit nawigacyjny FTP z centrum wdrażania w usłudze Azure App Services.](./media/app-service-deployment-credentials/access-no-git.png)
 
     Lub, jeśli wdrożenie usługi git zostało już skonfigurowane, wybierz pozycję **App Services**  >  ** &lt; any_app>**  >  **Deployment center**  >  **FTP/Credentials**.
 
-    ![](./media/app-service-deployment-credentials/access-with-git.png)
+    ![Pokazuje, w jaki sposób można wybrać pulpit nawigacyjny FTP z centrum wdrażania w usłudze Azure App Services dla skonfigurowanego wdrożenia usługi git.](./media/app-service-deployment-credentials/access-with-git.png)
 
 2. Wybierz pozycję **poświadczenia użytkownika**, skonfiguruj nazwę użytkownika i hasło, a następnie wybierz pozycję **Zapisz poświadczenia**.
 
 Po ustawieniu poświadczeń wdrożenia można znaleźć nazwę użytkownika wdrożenia *narzędzia Git* na stronie **Przegląd** aplikacji,
 
-![](./media/app-service-deployment-credentials/deployment_credentials_overview.png)
+![Pokazuje, jak znaleźć nazwę użytkownika wdrożenia Git na stronie Przegląd aplikacji.](./media/app-service-deployment-credentials/deployment_credentials_overview.png)
 
 Jeśli skonfigurowano wdrożenie usługi git, na stronie zostanie wyświetlona **Nazwa użytkownika narzędzia Git/Deployment**; w przeciwnym razie **Nazwa użytkownika FTP/Deployment**.
 

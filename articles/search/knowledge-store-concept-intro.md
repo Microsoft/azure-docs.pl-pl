@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 75ecfcca24aa801c2ec277e810f60dbc0a9167fc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 78a8e0a46fd60f14ea3bae7485c737aa4fe3c60e
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85565268"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86230778"
 ---
 # <a name="knowledge-store-in-azure-cognitive-search"></a>Magazyn wiedzy na platformie Azure Wyszukiwanie poznawcze
 
@@ -134,12 +134,12 @@ Po wprowadzeniu wzbogaceń do magazynu dowolne narzędzie lub technologia, któr
 
 <a name="kstore-rest-api"></a>
 
-## <a name="api-reference"></a>Dokumentacja interfejsu API
+## <a name="api-reference"></a>Odwołanie API
 
 Wersja interfejsu API REST `2020-06-30` zapewnia magazyn wiedzy przez dodatkowe definicje w witrynie umiejętności. Oprócz odwołania, aby uzyskać szczegółowe informacje na temat wywoływania interfejsów API, zobacz artykuł [Tworzenie sklepu merytorycznego korzystającego z programu Poster](knowledge-store-create-rest.md) .
 
-+ [Create zestawu umiejętności (API-Version = 2020-06-30)](https://docs.microsoft.com/rest/api/searchservice/2020-06-30/create-skillset)
-+ [Update zestawu umiejętności (API-Version = 2020-06-30)](https://docs.microsoft.com/rest/api/searchservice/2020-06-30/update-skillset)
++ [Create zestawu umiejętności (API-Version = 2020-06-30)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
++ [Update zestawu umiejętności (API-Version = 2020-06-30)](https://docs.microsoft.com/rest/api/searchservice/update-skillset)
 
 
 ## <a name="next-steps"></a>Następne kroki

@@ -1,21 +1,21 @@
 ---
-title: dołączanie pliku
-description: dołączanie pliku
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: virtual-machines
 author: axayjo
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 04/25/2019
+ms.date: 06/15/2020
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: 40ba5a935e78cd75c4fcd7729e44f1cdf6c2859b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7aad1eb10018445150fb5cf3ac01b97480da674b
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75772994"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86226426"
 ---
-Jeśli napotkasz problemy podczas wykonywania jakichkolwiek operacji na galeriach obrazów udostępnionych, definicjach obrazów i wersjach obrazów, uruchom ponownie w trybie debugowania polecenie powodujące niepowodzenie. Tryb debugowania jest uaktywniany przez przekazanie przełącznika **-Debug** z interfejsem wiersza polecenia i przełącznikiem **-Debug** przy użyciu programu PowerShell. Po zlokalizowaniu błędu postępuj zgodnie z tym dokumentem, aby rozwiązać problemy.
+Jeśli napotkasz problemy podczas wykonywania jakichkolwiek operacji na galeriach obrazów udostępnionych, definicjach obrazów i wersjach obrazów, uruchom ponownie w trybie debugowania polecenie powodujące niepowodzenie. Tryb debugowania jest aktywowany przez przekazanie `--debug` przełącznika przy użyciu interfejsu wiersza polecenia i `-Debug` przełącznika przy użyciu programu PowerShell. Po zlokalizowaniu błędu postępuj zgodnie z tym dokumentem, aby rozwiązać problemy.
 
 
 ## <a name="unable-to-create-a-shared-image-gallery"></a>Nie można utworzyć galerii obrazów udostępnionych
@@ -43,7 +43,7 @@ Dozwolone znaki dla definicji obrazu to wielkie lub małe litery, cyfry, kropki,
 
 Właściwości, takie jak nazwa, Wydawca, oferta, jednostka SKU i typ systemu operacyjnego, są obowiązkowe. Sprawdź, czy wszystkie właściwości są przesyłane.
 
-Upewnij się, że definicja obrazu **OSType**, Linux lub Windows jest taka sama jak źródłowy obraz zarządzany używany do tworzenia wersji obrazu. 
+Upewnij się, że definicja obrazu **OSType**, Linux lub Windows jest taka sama jak źródło używane do tworzenia wersji obrazu. 
 
 
 ## <a name="unable-to-create-an-image-version"></a>Nie można utworzyć wersji obrazu 
@@ -84,7 +84,7 @@ Sprawdź, czy region, w którym próbujesz utworzyć maszynę wirtualną lub ska
 
 *Tworzenie zestawu skalowania maszyn wirtualnych lub maszyny wirtualnej zajmuje dużo czasu.*
 
-Sprawdź, czy **OSType** wersji obrazu, z której próbujesz utworzyć maszynę wirtualną lub zestaw skalowania maszyn wirtualnych, ma ten sam **OSType** obrazu zarządzanego, który został użyty do utworzenia wersji obrazu. 
+Sprawdź, czy **OSType** wersji obrazu, z której próbujesz utworzyć maszynę wirtualną lub zestaw skalowania maszyn wirtualnych, ma ten sam **OSType** źródła, którego użyto do utworzenia wersji obrazu. 
 
 ## <a name="unable-to-share-resources"></a>Nie można udostępnić zasobów
 

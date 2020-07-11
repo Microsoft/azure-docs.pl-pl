@@ -7,11 +7,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: tagore
-ms.openlocfilehash: 5880544137855a2ea5bcd6d6e4bada46563564ad
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e5452e0794083afabbee2759c5b37feb1eed0c88
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75360841"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223690"
 ---
 # <a name="how-to-configure-auto-scaling-for-a-cloud-service-in-the-portal"></a>Jak skonfigurować Skalowanie automatyczne dla usługi w chmurze w portalu
 
@@ -20,7 +21,7 @@ Warunki można ustawić dla roli proces roboczy usługi w chmurze, która wyzwal
 > [!NOTE]
 > Ten artykuł koncentruje się na rolach sieci Web i procesu roboczego usługi w chmurze. Gdy tworzysz maszynę wirtualną (klasyczną) bezpośrednio, jest ona hostowana w usłudze w chmurze. Można skalować standardową maszynę wirtualną, kojarząc ją z [zestawem dostępności](../virtual-machines/windows/classic/configure-availability-classic.md) i ręcznie ją włączać lub wyłączać.
 
-## <a name="considerations"></a>Istotne zagadnienia
+## <a name="considerations"></a>Kwestie do rozważenia
 Przed skonfigurowaniem skalowania aplikacji należy wziąć pod uwagę następujące informacje:
 
 * Na skalowanie ma wpływ podstawowe użycie.
@@ -42,10 +43,10 @@ Po wybraniu usługi w chmurze powinien być widoczny blok usługi w chmurze.
 1. W bloku usługa w chmurze na kafelku **role i wystąpienia** wybierz nazwę usługi w chmurze.   
    **Ważne**: Pamiętaj, aby kliknąć rolę usługi w chmurze, a nie wystąpienia roli znajdującego się poniżej roli.
 
-    ![](./media/cloud-services-how-to-scale-portal/roles-instances.png)
+    ![Zrzut ekranu przedstawiający kafelek Role i wystąpienia z rolą proces roboczy z kolejką S B z opcją zakreśloną w kolorze czerwonym.](./media/cloud-services-how-to-scale-portal/roles-instances.png)
 2. Wybierz kafelek **Skala** .
 
-    ![](./media/cloud-services-how-to-scale-portal/scale-tile.png)
+    ![Zrzut ekranu strony operacje z kafelkiem sprzedaż przedstawionym na czerwono.](./media/cloud-services-how-to-scale-portal/scale-tile.png)
 
 ## <a name="automatic-scale"></a>Automatyczne skalowanie
 Ustawienia skalowania dla roli można skonfigurować przy użyciu obu trybów **ręcznych** lub **automatycznych**. Ręczne jest tak jak oczekiwano, ustawiasz bezwzględną liczbę wystąpień. Funkcja automatycznego zezwala jednak na Określanie reguł, które określają, jak i w jakim stopniu należy skalować.
@@ -88,7 +89,7 @@ Reguły są dodawane do profilu i reprezentują Warunek wyzwalający skalę.
 
 Wyzwalacz reguły jest oparty na metryce usługi w chmurze (użycie procesora, aktywność dysku lub aktywność sieci), do której można dodać wartość warunkową. Ponadto możesz mieć wyzwalacz oparty na kolejce komunikatów lub w przypadku niektórych innych zasobów platformy Azure skojarzonych z Twoją subskrypcją.
 
-![](./media/cloud-services-how-to-scale-portal/rule-settings.png)
+![Zrzut ekranu przedstawiający okno dialogowe reguła z opcją Nazwa metryki zakreśloną na czerwono.](./media/cloud-services-how-to-scale-portal/rule-settings.png)
 
 Po skonfigurowaniu reguły wybierz przycisk **OK** w dolnej części bloku reguła.
 

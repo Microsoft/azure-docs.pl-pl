@@ -15,18 +15,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/08/2020
 ms.author: terrylan
-ms.openlocfilehash: e1223560c5d7b19bf9da4c7c16a56c4741e582a0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d8baf1c70d115b80e3238d3eedf128057684d2e6
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80981311"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224710"
 ---
 # <a name="security-management-in-azure"></a>Zarządzanie zabezpieczeniami na platformie Azure
 Subskrybenci platformy Azure mogą zarządzać środowiskami chmury przy użyciu wielu urządzeń, łącznie ze stacjami roboczymi do zarządzania, komputerami deweloperów, a nawet urządzeniami uprzywilejowanych użytkowników końcowych, którzy mają uprawnienia specyficzne dla zadania. W niektórych przypadkach funkcje administracyjne są wykonywane za pośrednictwem konsol sieci Web, takich jak [Azure Portal](https://azure.microsoft.com/features/azure-portal/). W innych przypadkach mogą istnieć bezpośrednie połączenia z platformą Azure z systemów lokalnych za pośrednictwem wirtualnych sieci prywatnych (VPN), usług terminalowych, protokołów aplikacji klienckich lub (programowo) interfejsu API zarządzania usługami Azure (SMAPI, Service Management API). Ponadto punkty końcowe klienta mogą być przyłączone do domeny lub odizolowane i niezarządzane (np. tablety lub smartfony).
 
 Liczne możliwości uzyskania dostępu i zarządzania zapewniają bogaty zestaw opcji, jednak mogą spowodować podwyższenie ryzyka związanego z wdrożeniem w chmurze. Może to utrudniać śledzenie i inspekcję czynności administracyjnych oraz zarządzanie nimi. To zróżnicowanie może również wprowadzać zagrożenia bezpieczeństwa związane z nieuregulowanym dostępem do punktów końcowych klienta używanych do zarządzania usługami w chmurze. Użycie ogólnych lub osobistych stacji roboczych do opracowywania infrastruktury i zarządzania nią powoduje, że zagrożenia mogą nadchodzić z nieprzewidywalnych kierunków, na przykład podczas przeglądania sieci Web (na przykład ataki za pośrednictwem używanych witryn) lub korzystania z poczty e-mail (na przykład techniki socjotechniczne i wyłudzanie informacji).
 
-![](./media/management/typical-management-network-topology.png)
+![Diagram przedstawiający różne sposoby instalowania ataków przez zagrożenie.](./media/management/typical-management-network-topology.png)
 
 Zagrożenie atakami jest większe w środowisku tego typu, ponieważ utrudnione jest skonstruowanie zasad i mechanizmów zabezpieczeń umożliwiających odpowiednie zarządzanie dostępem do interfejsów Azure (na przykład SMAPI) z bardzo różnorodnych punktów końcowych.
 
@@ -117,7 +118,7 @@ Brama usług pulpitu zdalnego jest opartą na zasadach usługą serwera proxy RD
 ## <a name="security-guidelines"></a>Zalecenia dotyczące zabezpieczeń
 Ogólnie rzecz biorąc, ulepszanie zabezpieczeń stacji roboczych administratorów używanych do pracy z chmurą jest podobne do rozwiązań stosowanych w przypadku dowolnych lokalnych stacji roboczych (na przykład minimalizacja funkcjonalności i ograniczanie uprawnień). Niektóre unikatowe aspekty zarządzania chmurą są bardziej zbliżone do zdalnego zarządzania lub zarządzania poza pasmem w przedsiębiorstwach. Przykładem może być użycie i inspekcja poświadczeń, rozszerzone zabezpieczenia dostępu zdalnego oraz wykrywanie zagrożeń i podejmowanie działań zaradczych.
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>Uwierzytelnianie
 Korzystając z ograniczeń logowania platformy Azure, można zmniejszyć liczbę źródłowych adresów IP używanych do uzyskiwania dostępu do narzędzi administracyjnych i prowadzić inspekcję żądań dostępu. Aby pomóc platformie Azure identyfikować klientów zarządzania (stacje robocze i/lub aplikacje), można skonfigurować oba typy SMAPI (przy użyciu narzędzi opracowanych przez klienta, takich jak polecenia cmdlet programu Windows PowerShell) i Azure Portal, aby wymagały zainstalowania certyfikatów zarządzania po stronie klienta, oprócz certyfikatów TLS/SSL. Zalecamy również stosowanie uwierzytelniania wieloskładnikowego w przypadku dostępu administratorów.
 
 Niektóre aplikacje lub usługi wdrażane na platformie Azure mogą mieć własne mechanizmy uwierzytelniania zarówno użytkowników końcowych, jak i administratorów, podczas gdy inne wykorzystują w pełnym zakresie usługę Azure AD. W zależności od tego, czy jest dokonywana federacja poświadczeń za pośrednictwem usługi Active Directory Federation Services (AD FS), używana synchronizacja katalogów, czy obsługa kont użytkowników jedynie w chmurze, użycie usługi [Microsoft Identity Manager](https://technet.microsoft.com/library/mt218776.aspx) (część usługi Azure AD Premium) ułatwia zarządzanie cyklami życia tożsamości między zasobami.
@@ -137,7 +138,7 @@ Wymuszanie zasad, które obejmuje ścisłą kontrolę dostępu, polega na stosow
 ## <a name="client-configuration"></a>Konfiguracja klientów
 Zalecamy trzy podstawowe konfiguracje stacji roboczych ze wzmocnionymi zabezpieczeniami. Najważniejsze różnice są związane z kosztem, użytecznością i dostępnością przy zachowaniu podobnego profilu zabezpieczeń dla wszystkich opcji. Poniższa tabela zawiera zwięzłe informacje umożliwiające analizę korzyści i zagrożeń związanych z poszczególnymi konfiguracjami. Określenie „komputer firmowy” oznacza standardową konfigurację komputera stacjonarnego wdrażaną dla wszystkich użytkowników w domenie niezależnie od roli.
 
-| Konfigurowanie | Zalety | Wady |
+| Konfiguracja | Korzyści | Wady |
 | --- | --- | --- |
 | Autonomiczna stacja robocza ze wzmocnionymi zabezpieczeniami |Ściśle kontrolowana stacja robocza |Wyższy koszt dla dedykowanych komputerów stacjonarnych |
 | - | Mniejsze ryzyko wykorzystania luk w zabezpieczeniach aplikacji |Większa ilość zasobów wymaganych do zarządzania |
@@ -156,12 +157,12 @@ W przypadku autonomicznej stacji roboczej ze wzmocnionymi zabezpieczeniami admin
 
 W scenariuszu autonomicznej stacji roboczej ze wzmocnionymi zabezpieczeniami (przedstawionym poniżej) lokalne wystąpienie zapory systemu Windows (lub zapory klienta firmy innej niż Microsoft) jest skonfigurowane do blokowania połączeń przychodzących, takich jak połączenia RDP. Administrator może zalogować się do stacji roboczej ze wzmocnionymi zabezpieczeniami i uruchomić sesję RDP, która nawiązuje połączenie z platformą Azure po ustanowieniu połączenia sieci VPN z usługą Azure Virtual Network, ale nie może zalogować się na komputerze firmowym i użyć protokołu RDP do połączenia się z tą stacją roboczą.
 
-![](./media/management/stand-alone-hardened-workstation-topology.png)
+![Diagram przedstawiający autonomiczny scenariusz stacji roboczej ze wzmocnionymi zabezpieczeniami.](./media/management/stand-alone-hardened-workstation-topology.png)
 
 ### <a name="corporate-pc-as-virtual-machine"></a>Komputer firmowy jako maszyna wirtualna
 Jeśli nie można użyć oddzielnej autonomicznej stacji roboczej ze wzmocnionymi zabezpieczeniami z powodu zbyt wysokiego kosztu lub innych problemów, stacja robocza może hostować maszynę wirtualną używaną do wykonywania zadań innych niż administracyjne.
 
-![](./media/management/hardened-workstation-enabled-with-hyper-v.png)
+![Diagram przedstawiający zaostrzoną stację roboczą obsługującą maszynę wirtualną w celu wykonywania zadań nieadministracyjnych.](./media/management/hardened-workstation-enabled-with-hyper-v.png)
 
 Aby uniknąć kilku zagrożeń wynikających z użycia pojedynczej stacji roboczej do zarządzania systemami i wykonywania innych codziennych zadań, na stacji roboczej ze wzmocnionymi zabezpieczeniami można wdrożyć maszynę wirtualną z funkcją Hyper-V systemu Windows. Ta maszyna wirtualna może być używana jako komputer firmowy. Środowisko komputera firmowego może pozostać odizolowane od hosta. Umożliwia to ograniczenie obszaru narażonego na ataki i oddzielenie czynności wykonywanych codziennie przez użytkowników (takich jak korzystanie z poczty e-mail) od ważnych zadań administracyjnych.
 

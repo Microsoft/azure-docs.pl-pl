@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 04/04/2020
 ms.author: yulili
-ms.openlocfilehash: d114e75a08f31a664772b84e19ec4d93b453af0b
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 8f3a6c808cec28d3c2184bfd99aa2f5b1f6f88a3
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81274724"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86226441"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -29,13 +29,13 @@ Przed rozpoczęciem upewnij się, że:
 
 Utworzymy podstawowy interfejs użytkownika dla aplikacji. Edytuj układ dla głównego działania, `activity_main.xml`. Początkowo układ zawiera pasek tytułu z nazwą aplikacji i element TextView zawierający tekst „Hello World!”.
 
-1. Kliknij element TextView. Zmień jego atrybut ID w prawym górnym rogu `outputMessage`, a następnie przeciągnij go do dolnego ekranu. Usuń jego tekst.
+1. Kliknij element TextView. Zmień jego atrybut ID w prawym górnym rogu `outputMessage` , a następnie przeciągnij go do dolnego ekranu. Usuń jego tekst.
 
 1. Z palety w lewym górnym rogu okna `activity_main.xml` przeciągnij przycisk do pustego miejsca nad tekstem.
 
 1. W atrybutach przycisku po prawej stronie w polu wartości atrybutu `onClick` wprowadź `onSpeechButtonClicked`. Napiszemy metodę o tej nazwie do obsługi zdarzenia przycisku.  Zmień atrybut ID w prawym górnym rogu na `button`.
 
-1. Przeciągnij zwykły tekst do obszaru powyżej przycisku; Zmień jego atrybut ID na `speakText`, a następnie Zmień atrybut tekstu na `Hi there!`.
+1. Przeciągnij zwykły tekst do obszaru powyżej przycisku; Zmień jego atrybut ID na `speakText` , a następnie Zmień atrybut tekstu na `Hi there!` .
 
 1. Użyj ikony różdżki u góry projektanta na potrzeby wnioskowania ograniczeń układu.
 
@@ -44,7 +44,7 @@ Utworzymy podstawowy interfejs użytkownika dla aplikacji. Edytuj układ dla gł
 
 Tekst i graficzna reprezentacja interfejsu użytkownika powinny teraz wyglądać następująco:
 
-![](~/articles/cognitive-services/Speech-Service/media/sdk/qs-java-android-11-2-tts-gui.png)
+![Zrzut ekranu przedstawiający sposób, w jaki interfejs użytkownika powinien wyglądać.](~/articles/cognitive-services/Speech-Service/media/sdk/qs-java-android-11-2-tts-gui.png)
 
 [!code-xml[](~/samples-cognitive-services-speech-sdk/quickstart/java/android/text-to-speech/app/src/main/res/layout/activity_main.xml)]
 
@@ -60,13 +60,13 @@ Tekst i graficzna reprezentacja interfejsu użytkownika powinny teraz wyglądać
 
 1. Zastąp także ciąg `YourServiceRegion`[regionem](~/articles/cognitive-services/Speech-Service/regions.md) skojarzonym z subskrypcją (na przykład `westus` w przypadku subskrypcji bezpłatnej wersji próbnej).
 
-## <a name="build-and-run-the-app"></a>Kompilowanie i uruchamianie aplikacji
+## <a name="build-and-run-the-app"></a>Skompiluj i uruchom aplikację
 
 1. Połącz urządzenie z systemem Android do komputera projektowego. Upewnij się, że na urządzeniu włączono [tryb projektowania i debugowanie USB](https://developer.android.com/studio/debug/dev-options). Alternatywnie możesz utworzyć [emulator systemu Android](https://developer.android.com/studio/run/emulator).
 
-1. Aby skompilować aplikację, naciśnij klawisze CTRL + F9 lub wybierz opcję **Kompiluj** > **Utwórz projekt** z paska menu.
+1. Aby skompilować aplikację, naciśnij klawisze CTRL + F9 lub wybierz opcję **Kompiluj**  >  **Utwórz projekt** z paska menu.
 
-1. Aby uruchomić aplikację, naciśnij klawisze Shift + F10 **lub wybierz polecenie** > Uruchom**przebieg "App"**.
+1. Aby uruchomić aplikację, naciśnij klawisze Shift + F10 **lub wybierz polecenie Uruchom**  >  **przebieg "App"**.
 
 1. W wyświetlonym oknie cel wdrożenia wybierz urządzenie z systemem Android lub emulator.
 

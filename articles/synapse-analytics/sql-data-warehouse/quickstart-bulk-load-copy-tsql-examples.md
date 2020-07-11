@@ -9,12 +9,12 @@ ms.subservice: sql-dw
 ms.date: 05/06/2020
 ms.author: kevin
 ms.reviewer: jrasnick
-ms.openlocfilehash: f5f6c6970ad8bb697ceb118b6725b37e93ca80b5
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: 94f9aca38ebe6fef50b555fa0d5b09050d996366
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85213061"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86230625"
 ---
 # <a name="securely-load-data-using-synapse-sql"></a>Bezpieczne ładowanie danych przy użyciu języka SQL Synapse
 
@@ -23,10 +23,10 @@ W tym artykule omówiono i przedstawiono przykłady mechanizmów bezpiecznego uw
 
 W poniższej macierzy opisano obsługiwane metody uwierzytelniania dla poszczególnych typów plików i kont magazynu. Dotyczy to źródłowej lokalizacji przechowywania i lokalizacji pliku błędów.
 
-|                      |                CSV                |              Parquet              |                ORC                |
-| :------------------: | :-------------------------------: | :-------------------------------: | :-------------------------------: |
-|  Azure Blob Storage  | SAS/MSI/NAZWA GŁÓWNA USŁUGI/USŁUGA/AAD |              SYGNATURA DOSTĘPU WSPÓŁDZIELONEGO/KLUCZ              |              SYGNATURA DOSTĘPU WSPÓŁDZIELONEGO/KLUCZ              |
-| Azure Data Lake Gen2 | SAS/MSI/NAZWA GŁÓWNA USŁUGI/USŁUGA/AAD | SAS/MSI/NAZWA GŁÓWNA USŁUGI/USŁUGA/AAD | SAS/MSI/NAZWA GŁÓWNA USŁUGI/USŁUGA/AAD |
+|                          |                CSV                |              Parquet              |                ORC                |
+| :----------------------: | :-------------------------------: | :-------------------------------: | :-------------------------------: |
+|  **Magazyn obiektów blob platformy Azure**  | SAS/MSI/NAZWA GŁÓWNA USŁUGI/USŁUGA/AAD |              SYGNATURA DOSTĘPU WSPÓŁDZIELONEGO/KLUCZ              |              SYGNATURA DOSTĘPU WSPÓŁDZIELONEGO/KLUCZ              |
+| **Azure Data Lake Gen2** | SAS/MSI/NAZWA GŁÓWNA USŁUGI/USŁUGA/AAD | SAS/MSI/NAZWA GŁÓWNA USŁUGI/USŁUGA/AAD | SAS/MSI/NAZWA GŁÓWNA USŁUGI/USŁUGA/AAD |
 
 ## <a name="a-storage-account-key-with-lf-as-the-row-terminator-unix-style-new-line"></a>A. Klucz konta magazynu z LF jako terminator wiersza (nowy wiersz w stylu systemu UNIX)
 

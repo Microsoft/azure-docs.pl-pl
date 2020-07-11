@@ -12,15 +12,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/18/2020
 ms.author: mnayak
-ms.openlocfilehash: 7db8dcc87606e5c58ddac8f609d1538989af5ed7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7d41893d734037e466ad786641fed98c461adcfc
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84689303"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86231815"
 ---
 # <a name="configure-routing-preference-for-a-public-ip-address-using-the-azure-portal"></a>Skonfiguruj preferencję routingu dla publicznego adresu IP przy użyciu Azure Portal
 
-W tym artykule pokazano, jak skonfigurować preferencję routingu za pośrednictwem sieci usługodawcy internetowego (opcja**internetowa** ) dla publicznego adresu IP. Po utworzeniu publicznego adresu IP możesz skojarzyć go z poniższymi zasobami platformy Azure dla ruchu przychodzącego i wychodzącego do Internetu:
+W tym artykule pokazano, jak skonfigurować [preferencję routingu](https://docs.microsoft.com/azure/virtual-network/routing-preference-overview) za pośrednictwem sieci usługodawcy internetowego (opcja**internetowa** ) dla publicznego adresu IP. Po utworzeniu publicznego adresu IP możesz skojarzyć go z poniższymi zasobami platformy Azure dla ruchu przychodzącego i wychodzącego do Internetu:
 
 * Maszyna wirtualna
 * Zestaw skalowania maszyn wirtualnych

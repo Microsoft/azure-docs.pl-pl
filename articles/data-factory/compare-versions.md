@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: overview
 ms.date: 04/09/2018
 ms.author: makromer
-ms.openlocfilehash: ea625fbe28dad08ec2c3e2a64bada96460a04225
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 6c43906468ee0124187dc5ce6d6f1405e3b96b2e
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81415569"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86231237"
 ---
 # <a name="compare-azure-data-factory-with-data-factory-version-1"></a>Porównanie bieżącej wersji usługi Azure Data Factory z wersją 1 usługi Data Factory
 
@@ -26,7 +26,7 @@ Ten artykuł zawiera porównanie bieżącej wersji usługi Data Factory z wersj�
 ## <a name="feature-comparison"></a>Porównanie funkcji
 Poniższa tabela zawiera porównanie funkcji bieżącej wersji usługi Data Factory oraz funkcji wersji 1 usługi Data Factory. 
 
-| Funkcja | Wersja 1 | Bieżąca wersja | 
+| Obiekt feature | Wersja 1 | Bieżąca wersja | 
 | ------- | --------- | --------- | 
 | Zestawy danych | Nazwany widok danych odwołujący się do danych, które mają być używane w działaniach jako dane wejściowe lub wyjściowe. Zestawy danych identyfikują dane w różnych magazynach danych, takich jak tabele, pliki, foldery i dokumenty. Na przykład zestaw danych obiektów blob platformy Azure określa kontener obiektów blob i folder w usłudze Azure Blob Storage, z których działanie ma odczytywać dane.<br/><br/>**Dostępność** definiuje model tworzenia wycinków okien przetwarzania dla zestawu danych (na przykład co godzinę, codziennie itd.). | Zestawy danych są takie same w bieżącej wersji. Nie trzeba jednak definiować harmonogramów **dostępności** dla zestawów danych. Można zdefiniować zasób wyzwalający, który może planować potoki z paradygmatu harmonogramu zegarowego. Aby uzyskać więcej informacji, zobacz [Triggers](concepts-pipeline-execution-triggers.md#trigger-execution) (Wyzwalacze) i [Datasets](concepts-datasets-linked-services.md) (Zestawy danych). | 
 | Połączone usługi | Połączone usługi działają podobnie do parametrów połączenia, umożliwiając definiowanie informacji dla usługi Data Factory, które są niezbędne do nawiązywania połączeń z zasobami zewnętrznymi. | Połączone usługi są takie same jak w usłudze Data Factory w wersji 1, ale z nową właściwością **connectVia** do korzystania ze środowiska obliczeniowego Integration Runtime bieżącej wersji usługi Data Factory. Aby uzyskać więcej informacji, zobacz [Infrastruktura Integration Runtime w usłudze Azure Data Factory](concepts-integration-runtime.md) i [Linked service properties for Azure Blob Storage](connector-azure-blob-storage.md#linked-service-properties) (Właściwości usługi połączonej dla usługi Azure Blob Storage). |
@@ -103,7 +103,7 @@ Bieżąca wersja obsługuje kopiowanie danych do i z większej liczby magazynów
 ## <a name="support-for-on-demand-spark-cluster"></a>Obsługa klastra platformy Spark na żądanie
 Bieżąca wersja obsługuje tworzenie klastra platformy Spark na żądanie w usłudze Azure HDInsight. Aby utworzyć klaster platformy Spark na żądanie, określ typ klastra Spark w definicji usługi połączonej HDInsight na żądanie. Następnie możesz skonfigurować działanie platformy Spark w potoku, aby używać tej usługi połączonej. 
 
-W czasie wykonywania, gdy jest wykonywane działanie, usługa Data Factory automatycznie tworzy klaster platformy Spark. Aby uzyskać więcej informacji zobacz następujące artykuły:
+W czasie wykonywania, gdy jest wykonywane działanie, usługa Data Factory automatycznie tworzy klaster platformy Spark. Aby uzyskać więcej informacji, zobacz następujące artykuły:
 
 - [Spark Activity in the current version of Data Factory (Działanie platformy Spark w bieżącej wersji usługi Data Factory)](transform-data-using-spark.md)
 - [Połączona usługa Azure HDInsight na żądanie](compute-linked-services.md#azure-hdinsight-on-demand-linked-service)
@@ -130,14 +130,14 @@ Zestawy SDK, które zostały zaktualizowane w bieżącej wersji, nie są zgodne 
 
 ## <a name="authoring-experience"></a>Środowisko tworzenia
 
-| &nbsp; | Wersja 2 | Wersja 1 |
+| | Wersja 2 | Wersja 1 |
 | ------ | -- | -- | 
-| Azure Portal | [Tak](quickstart-create-data-factory-portal.md) | Nie |
-| Azure PowerShell | [Tak](quickstart-create-data-factory-powershell.md) | [Tak](data-factory-build-your-first-pipeline-using-powershell.md) |
-| Zestaw SDK .NET | [Tak](quickstart-create-data-factory-dot-net.md) | [Tak](data-factory-build-your-first-pipeline-using-vs.md) |
-| Interfejs API REST | [Tak](quickstart-create-data-factory-rest-api.md) | [Tak](data-factory-build-your-first-pipeline-using-rest-api.md) |
-| Zestaw SDK dla języka Python | [Tak](quickstart-create-data-factory-python.md) | Nie |
-| Szablon usługi Resource Manager | [Tak](quickstart-create-data-factory-resource-manager-template.md) | [Tak](data-factory-build-your-first-pipeline-using-arm.md) | 
+| **Witryna Azure Portal** | [Tak](quickstart-create-data-factory-portal.md) | Nie |
+| **Azure PowerShell** | [Tak](quickstart-create-data-factory-powershell.md) | [Tak](data-factory-build-your-first-pipeline-using-powershell.md) |
+| **Zestaw SDK platformy .NET** | [Tak](quickstart-create-data-factory-dot-net.md) | [Tak](data-factory-build-your-first-pipeline-using-vs.md) |
+| **Interfejs API REST** | [Tak](quickstart-create-data-factory-rest-api.md) | [Tak](data-factory-build-your-first-pipeline-using-rest-api.md) |
+| **Zestaw SDK dla języka Python** | [Tak](quickstart-create-data-factory-python.md) | Nie |
+| **Szablon usługi Resource Manager** | [Tak](quickstart-create-data-factory-resource-manager-template.md) | [Tak](data-factory-build-your-first-pipeline-using-arm.md) | 
 
 ## <a name="roles-and-permissions"></a>Role i uprawnienia
 

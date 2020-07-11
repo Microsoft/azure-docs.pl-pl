@@ -6,11 +6,12 @@ ms.author: brendm
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 05/13/2020
-ms.openlocfilehash: d113d20e87d58bad007a35fce47d597a67849a6e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2aadc5806f0c5c610dc28b32039ca944af87ab13
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85445206"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86231730"
 ---
 # <a name="how-to-enable-system-assigned-managed-identity-for-azure-spring-cloud-application"></a>Jak włączyć tożsamość zarządzaną przypisaną przez system dla aplikacji w chmurze platformy Azure
 Zarządzane tożsamości dla zasobów platformy Azure zapewniają automatycznie zarządzaną tożsamość w Azure Active Directory do zasobów platformy Azure, takich jak aplikacja w chmurze ze sprężyną Azure. Tej tożsamości można użyć do uwierzytelniania w dowolnej usłudze, która obsługuje uwierzytelnianie usługi Azure AD, bez poświadczeń w kodzie.
@@ -80,6 +81,6 @@ az spring-cloud app identity remove -n app_name -s service_name -g resource_grou
 
 ## <a name="next-steps"></a>Następne kroki
 * [Jak używać tożsamości zarządzanych z zestawem SDK języka Java](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples)
-* [Dostęp do Azure Key Vault z tożsamościami zarządzanymi w rozruchie sprężynowym Starter](https://github.com/microsoft/azure-spring-boot/blob/master/azure-spring-boot-starters/azure-keyvault-secrets-spring-boot-starter/README.md#use-msi--managed-identities)
+* [Dostęp do Azure Key Vault z tożsamościami zarządzanymi w rozruchie sprężynowym Starter](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/spring/azure-spring-boot-starter-keyvault-secrets/README.md#use-msi--managed-identities)
 * [Dowiedz się więcej o tożsamościach zarządzanych dla zasobów platformy Azure](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/active-directory/managed-identities-azure-resources/overview.md)
 

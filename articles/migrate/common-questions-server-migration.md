@@ -3,12 +3,12 @@ title: Często zadawane pytania dotyczące migracji Azure Migrate serwera
 description: Uzyskaj odpowiedzi na często zadawane pytania dotyczące korzystania z migracji Azure Migrate serwera w celu migrowania maszyn.
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: 0cfe23b4e544040fc3ab69796988ca34b1bdcdbf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 282f7ab27eead59fc87a95ea7d397268177f4f2c
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82744327"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224132"
 ---
 # <a name="azure-migrate-server-migration-common-questions"></a>Migracja serwera Azure Migrate: typowe pytania
 
@@ -27,7 +27,7 @@ Przejrzyj obsługiwane lokalizacje geograficzne [chmur publicznych](migrate-supp
 
 Metoda replikacji bez agenta dla oprogramowania VMware używa migawek VMware i śledzenia bloków zmienionych przez program VMware (CBT).
 
-Oto proces:
+Proces jest następujący:
 
 1. Po uruchomieniu replikacji jest zaplanowana początkowa cykl replikacji. W cyklu początkowym tworzona jest migawka maszyny wirtualnej. Migawka służy do replikowania maszyn wirtualnych VMDK (disks). 
 2. Po zakończeniu cyklu replikacji początkowej cykle replikacji różnicowej są planowane okresowo.
@@ -66,6 +66,9 @@ Nie. Strefy dostępności platformy Azure nie są obsługiwane w przypadku migra
 ## <a name="what-transport-protocol-does-azure-migrate-use-during-replication"></a>Jakiego protokołu transportowego Azure Migrate używać podczas replikacji?
 
 Azure Migrate używa protokołu urządzenia bloku sieciowego (w przypadku szyfrowania TLS).
+
+## <a name="how-is-the-data-transmitted-from-on-prem-environment-to-azure-is-it-encrypted-before-transmission"></a>Jak dane są przesyłane ze środowiska Premium do platformy Azure? Czy jest szyfrowana przed przesłaniem? 
+Urządzenie Azure Migrate w przypadku replikacji bez agenta kompresuje dane i szyfruje przed przekazaniem. Dane są przesyłane przy użyciu bezpiecznego kanału komunikacyjnego za pośrednictwem protokołu HTTPS i korzystają z protokołu TLS 1,2 lub nowszego. Ponadto usługa Azure Storage automatycznie szyfruje dane, gdy zostaną utrwalone w chmurze (szyfrowanie w trybie REST).  
 
 ## <a name="what-is-the-minimum-vcenter-server-version-required-for-migration"></a>Co to jest minimalna wersja vCenter Server wymagana do migracji?
 

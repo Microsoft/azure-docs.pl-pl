@@ -7,12 +7,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 06/30/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 4959d530e1f7a3c777aa3db21fe577c853fbca13
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: 58c5fdcfef5e866d0c69d65412582c0ed649f7c6
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85856000"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86230829"
 ---
 # <a name="key-vault-versions"></a>Wersje usługi Key Vault
 
@@ -64,7 +64,7 @@ Ogólna dostępność (wersja 2015-06-01) została ogłoszona 24 czerwca 2015. W
 - Przywróć klucz — usunięte pole "use".     
 - Zmieniono "RSA_OAEP" na "RSA-OAEP" dla algorytmów RSA. Zobacz [Informacje o kluczach, wpisach tajnych i certyfikatach](about-keys-secrets-certificates.md).    
  
-Druga wersja zapoznawcza (wersja 2015-02-01-Preview) została ogłoszona 20 kwietnia 2015. Aby uzyskać więcej informacji, zobacz wpis w blogu [interfejsu API REST](https://blogs.technet.com/b/kv/archive/2015/04/20/empty-3.aspx) . Zaktualizowano następujące zadania:
+Druga wersja zapoznawcza (wersja 2015-02-01-Preview) została ogłoszona 20 kwietnia 2015. Aby uzyskać więcej informacji, zobacz wpis w blogu [interfejsu API REST](https://docs.microsoft.com/archive/blogs/kv/rest-api-update) . Zaktualizowano następujące zadania:
  
 - Wyświetl listę kluczy w magazynie — dodaliśmy obsługę dzielenia na strony.
 - Aby wyświetlić listę wersji klucza, Wyświetl listę wersji operacji dodanej do klucza.  

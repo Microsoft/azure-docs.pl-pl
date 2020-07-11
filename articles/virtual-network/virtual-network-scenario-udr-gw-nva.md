@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/05/2016
 ms.author: kumud
-ms.openlocfilehash: 80a9397838e90a2af504125b2dc4c4ef39251d4e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1d2dde4e77a39b114f721cd6d2be250141984e7f
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81455366"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86231713"
 ---
 # <a name="virtual-appliance-scenario"></a>Scenariusz urządzenia wirtualnego
 Typowy scenariusz między większym klientem platformy Azure to konieczność zapewnienia dwuwarstwowej aplikacji uwidocznionej w Internecie, dzięki czemu można uzyskać dostęp do warstwy back z lokalnego centrum danych. Ten dokument przeprowadzi Cię przez scenariusz przy użyciu zdefiniowanych przez użytkownika tras (UDR), VPN Gateway i wirtualnych urządzeń sieciowych do wdrożenia środowiska dwuwarstwowego spełniającego następujące wymagania:
@@ -33,12 +33,12 @@ Jest to standardowy scenariusz sieci obwodowej (nazywany także strefą DMZ) ze 
 
 |  | Zalety | Wady |
 | --- | --- | --- |
-| Sieciowa grupa zabezpieczeń |Bez kosztów. <br/>Integracja z usługą Azure RBAC. <br/>Reguły można tworzyć w szablonach Azure Resource Manager. |Złożoność może się różnić w większych środowiskach. |
-| Zapora |Pełna kontrola nad płaszczyzną danych. <br/>Centralne zarządzanie przy użyciu konsoli zapory. |Koszt urządzenia zapory. <br/>Niezintegrowane z funkcją RBAC platformy Azure. |
+| **Sieciowa grupa zabezpieczeń** |Bez kosztów. <br/>Integracja z usługą Azure RBAC. <br/>Reguły można tworzyć w szablonach Azure Resource Manager. |Złożoność może się różnić w większych środowiskach. |
+| **Zapora** |Pełna kontrola nad płaszczyzną danych. <br/>Centralne zarządzanie przy użyciu konsoli zapory. |Koszt urządzenia zapory. <br/>Niezintegrowane z funkcją RBAC platformy Azure. |
 
 Poniższe rozwiązanie używa urządzeń wirtualnych zapory do implementowania scenariusza sieci/Protected sieci obwodowej (DMZ).
 
-## <a name="considerations"></a>Istotne zagadnienia
+## <a name="considerations"></a>Kwestie do rozważenia
 Środowisko opisane powyżej na platformie Azure można wdrożyć przy użyciu różnych funkcji dostępnych dzisiaj w następujący sposób.
 
 * **Sieć wirtualna (VNet)** . Sieć wirtualna platformy Azure działa podobnie jak w przypadku sieci lokalnej i może zostać ujęta w jedną lub kilka podsieci w celu zapewnienia izolacji ruchu i rozdzielenia problemów.
@@ -77,30 +77,30 @@ Aby zapewnić, że komunikacja odbywa się przez odpowiednie urządzenie zapory,
 ### <a name="azgwudr"></a>azgwudr
 W tym scenariuszu jedyny ruch przepływający z lokalnego na platformę Azure będzie używany do zarządzania zaporami przez połączenie z usługą **AZF3**, a ruch musi przechodzić przez zaporę wewnętrzną, **AZF2**. W związku z tym w **GatewaySubnet** jest konieczna tylko jedna trasa, jak pokazano poniżej.
 
-| Element docelowy | Następny przeskok | Objaśnienie |
+| Miejsce docelowe | Narzędzie Następny przeskok | Objaśnienie |
 | --- | --- | --- |
 | 10.0.4.0/24 |10.0.3.11 |Zezwala na ruch lokalny do **AZF3** zapory zarządzania |
 
 ### <a name="azsn2udr"></a>azsn2udr
-| Element docelowy | Następny przeskok | Objaśnienie |
+| Miejsce docelowe | Narzędzie Następny przeskok | Objaśnienie |
 | --- | --- | --- |
 | 10.0.3.0/24 |10.0.2.11 |Zezwala na ruch do podsieci zaplecza hostującym serwer aplikacji za pomocą **AZF2** |
 | 0.0.0.0/0 |10.0.2.10 |Zezwala na kierowanie całego ruchu przez **AZF1** |
 
 ### <a name="azsn3udr"></a>azsn3udr
-| Element docelowy | Następny przeskok | Objaśnienie |
+| Miejsce docelowe | Narzędzie Następny przeskok | Objaśnienie |
 | --- | --- | --- |
 | 10.0.2.0/24 |10.0.3.10 |Zezwala na **azsn2** ruchu z serwera aplikacji do serwera WebServer za pośrednictwem usługi **AZF2** |
 
 Należy również utworzyć tabele tras dla podsieci w **onpremvnet** , aby naśladować lokalny centrum danych.
 
 ### <a name="onpremsn1udr"></a>onpremsn1udr
-| Element docelowy | Następny przeskok | Objaśnienie |
+| Miejsce docelowe | Narzędzie Następny przeskok | Objaśnienie |
 | --- | --- | --- |
 | 192.168.2.0/24 |192.168.1.4 |Zezwala na ruch do **onpremsn2** przez **OPFW** |
 
 ### <a name="onpremsn2udr"></a>onpremsn2udr
-| Element docelowy | Następny przeskok | Objaśnienie |
+| Miejsce docelowe | Narzędzie Następny przeskok | Objaśnienie |
 | --- | --- | --- |
 | 10.0.3.0/24 |192.168.2.4 |Zezwala na ruch do podsieci z kopią zapasową na platformie Azure za pomocą **OPFW** |
 | 192.168.1.0/24 |192.168.2.4 |Zezwala na ruch do **onpremsn1** przez **OPFW** |

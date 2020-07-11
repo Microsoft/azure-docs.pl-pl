@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: bonova, sstein
 ms.date: 06/25/2020
-ms.openlocfilehash: e48a027af70ec9d002ddcfbb2ee36ded4ca7875a
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 4eb1afdd7a6e48d8701dafc6dff44ce6e6db4902
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85983523"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86231628"
 ---
 # <a name="features-comparison-azure-sql-database-and-azure-sql-managed-instance"></a>Porównanie funkcji: Azure SQL Database i wystąpienie zarządzane Azure SQL
 
@@ -109,7 +109,7 @@ Poniższa tabela zawiera listę głównych funkcji SQL Server i zawiera informac
 | [Flagi śledzenia](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql) | Nie | Tak, ale tylko ograniczony zbiór globalnych flag śledzenia. Zobacz [różnice](../managed-instance/transact-sql-tsql-differences-sql-server.md#dbcc) w programie DBCC |
 | [Replikacja transakcyjna](../managed-instance/replication-transactional-overview.md) | Tak, [tylko subskrybent replikacji transakcyjnej i migawek](migrate-to-database-from-sql-server.md) | Tak, w [publicznej wersji zapoznawczej](https://docs.microsoft.com/sql/relational-databases/replication/replication-with-sql-database-managed-instance). Zobacz ograniczenia w [tym miejscu](../managed-instance/transact-sql-tsql-differences-sql-server.md#replication). |
 | [Przezroczyste szyfrowanie danych (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-tde) | Tak — Ogólnego przeznaczenia i Krytyczne dla działania firmy warstwy usługi| [Tak](transparent-data-encryption-tde-overview.md) |
-| Uwierzytelnianie systemu Windows | Nie | Nie |
+| Uwierzytelnianie Windows | Nie | Nie |
 | [Klaster trybu failover z systemem Windows Server](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/windows-server-failover-clustering-wsfc-with-sql-server) | Nie. Inne techniki zapewniające [wysoką dostępność](high-availability-sla.md) są zawarte w każdej bazie danych. Odzyskiwanie po awarii zostało omówione w [omówieniu ciągłości działania Azure SQL Database](business-continuity-high-availability-disaster-recover-hadr-overview.md). | Nie. Inne techniki zapewniające [wysoką dostępność](high-availability-sla.md) są zawarte w każdej bazie danych. Odzyskiwanie po awarii zostało omówione w [omówieniu ciągłości działania Azure SQL Database](business-continuity-high-availability-disaster-recover-hadr-overview.md). |
 
 ## <a name="platform-capabilities"></a>Możliwości platformy
@@ -141,14 +141,14 @@ Platforma Azure udostępnia wiele możliwości PaaS, które są dodawane jako do
 | [Analiza SQL](https://docs.microsoft.com/azure/azure-monitor/insights/azure-sql) | Tak | Tak |
 | [SQL Data Sync](sql-data-sync-sql-server-configure.md) | Yes | Nie |
 | [SQL Server Analysis Services (SSAS)](https://docs.microsoft.com/sql/analysis-services/analysis-services) | Nie, [Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) jest oddzielną usługą w chmurze platformy Azure. | Nie, [Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) jest oddzielną usługą w chmurze platformy Azure. |
-| [SQL Server Integration Services (SSIS)](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services) | Tak, z zarządzanym środowiskiem SSIS w Azure Data Factory (ADF), w którym pakiety są przechowywane w SSISDB hostowanym przez Azure SQL Database i wykonywane na platformie Azure SSIS Integration Runtime (IR), zobacz [tworzenie Azure-SSIS IR w ADF](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime). <br/><br/>Aby porównać funkcje usług SSIS w SQL Database i wystąpieniu zarządzanym SQL, zobacz [porównanie SQL Database z wystąpieniem zarządzanym SQL](../../data-factory/create-azure-ssis-integration-runtime.md#comparison-of-sql-database-and-sql-managed-instance). | Tak, z zarządzanym środowiskiem SSIS w Azure Data Factory (ADF), w którym pakiety są przechowywane w SSISDB hostowanym przez wystąpienie zarządzane SQL i wykonywane na platformie Azure SSIS Integration Runtime (IR), zobacz [Create Azure-SSIS IR in ADF](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime). <br/><br/>Aby porównać funkcje usług SSIS w SQL Database i wystąpieniu zarządzanym SQL, zobacz [porównanie SQL Database z wystąpieniem zarządzanym SQL](../../data-factory/create-azure-ssis-integration-runtime.md#comparison-of-sql-database-and-sql-managed-instance). |
+| [Usługi SQL Server Integration Services (SSIS)](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services) | Tak, z zarządzanym środowiskiem SSIS w Azure Data Factory (ADF), w którym pakiety są przechowywane w SSISDB hostowanym przez Azure SQL Database i wykonywane na platformie Azure SSIS Integration Runtime (IR), zobacz [tworzenie Azure-SSIS IR w ADF](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime). <br/><br/>Aby porównać funkcje usług SSIS w SQL Database i wystąpieniu zarządzanym SQL, zobacz [porównanie SQL Database z wystąpieniem zarządzanym SQL](../../data-factory/create-azure-ssis-integration-runtime.md#comparison-of-sql-database-and-sql-managed-instance). | Tak, z zarządzanym środowiskiem SSIS w Azure Data Factory (ADF), w którym pakiety są przechowywane w SSISDB hostowanym przez wystąpienie zarządzane SQL i wykonywane na platformie Azure SSIS Integration Runtime (IR), zobacz [Create Azure-SSIS IR in ADF](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime). <br/><br/>Aby porównać funkcje usług SSIS w SQL Database i wystąpieniu zarządzanym SQL, zobacz [porównanie SQL Database z wystąpieniem zarządzanym SQL](../../data-factory/create-azure-ssis-integration-runtime.md#comparison-of-sql-database-and-sql-managed-instance). |
 | [SQL Server Reporting Services (SSRS)](https://docs.microsoft.com/sql/reporting-services/create-deploy-and-manage-mobile-and-paginated-reports) | Nie — [zobacz Power BI](https://docs.microsoft.com/power-bi/) | Nie — [zobacz Power BI](https://docs.microsoft.com/power-bi/) |
 | [Szczegółowe informacje o wydajności zapytań (QPI)](query-performance-insight-use.md) | Tak | Nie. Użyj wbudowanych raportów w SQL Server Management Studio i Azure Data Studio. |
-| [Environment](../../virtual-network/virtual-networks-overview.md) | Częściowo, umożliwia ograniczony dostęp za pomocą [punktów końcowych sieci wirtualnej](vnet-service-endpoint-rule-overview.md) | Tak, wystąpienie zarządzane SQL jest wstrzykiwane w sieci wirtualnej klienta. Zobacz [podsieci](../managed-instance/transact-sql-tsql-differences-sql-server.md#subnet) i Sieć [wirtualną](../managed-instance/transact-sql-tsql-differences-sql-server.md#vnet) |
+| [Sieć wirtualna](../../virtual-network/virtual-networks-overview.md) | Częściowo, umożliwia ograniczony dostęp za pomocą [punktów końcowych sieci wirtualnej](vnet-service-endpoint-rule-overview.md) | Tak, wystąpienie zarządzane SQL jest wstrzykiwane w sieci wirtualnej klienta. Zobacz [podsieci](../managed-instance/transact-sql-tsql-differences-sql-server.md#subnet) i Sieć [wirtualną](../managed-instance/transact-sql-tsql-differences-sql-server.md#vnet) |
 | Punkt końcowy usługi sieci wirtualnej | [Tak](vnet-service-endpoint-rule-overview.md) | Nie |
 | Globalna komunikacja równorzędna sieci wirtualnej | Tak, za pomocą [prywatnego adresu IP i punktów końcowych usługi](vnet-service-endpoint-rule-overview.md) | Nie, [wystąpienie zarządzane SQL nie jest obsługiwane](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) ze względu na [ograniczenie modułu równoważenia obciążenia w globalnej komunikacji równorzędnej sieci wirtualnej](../../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints).
 
-## <a name="tools"></a>narzędzia
+## <a name="tools"></a>Narzędzia
 
 Azure SQL Database i wystąpienie zarządzane usługi Azure SQL obsługują różne narzędzia danych, które mogą ułatwić zarządzanie danymi.
 
@@ -167,13 +167,13 @@ Azure SQL Database i wystąpienie zarządzane usługi Azure SQL obsługują ró�
 | [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) | Tak | Tak [w wersji 18,0 lub nowszej](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) |
 | [SQL Server PowerShell](https://docs.microsoft.com/sql/relational-databases/scripting/sql-server-powershell) | Tak | Tak |
 | [SQL Server Profiler](https://docs.microsoft.com/sql/tools/sql-server-profiler/sql-server-profiler) | Nie — zobacz [zdarzenia rozszerzone](xevent-db-diff-from-svr.md) | Tak |
-| [System Center Operations Manager (SCOM)](https://docs.microsoft.com/system-center/scom/welcome) | [Tak](https://www.microsoft.com/download/details.aspx?id=38829) | Tak, [w wersji zapoznawczej](https://www.microsoft.com/download/details.aspx?id=100306) |
+| [System Center Operations Manager (SCOM)](https://docs.microsoft.com/system-center/scom/welcome) | [Tak](https://www.microsoft.com/download/details.aspx?id=38829) | Tak, [w wersji zapoznawczej](https://www.microsoft.com/download/details.aspx?id=38829) |
 
 ## <a name="migration-methods"></a>Metody migracji
 
 Możesz użyć różnych metod migracji, aby przenieść dane między SQL Server, Azure SQL Database i wystąpieniem zarządzanym usługi Azure SQL. Niektóre metody są w **trybie online** i pobierają wszystkie zmiany wprowadzone w źródle podczas przeprowadzania migracji, natomiast w metodach **offline** należy zatrzymać obciążenie, które modyfikuje dane ze źródła, podczas gdy migracja jest w toku.
 
-| **Element źródłowy** | **Azure SQL Database** | **Wystąpienie zarządzane Azure SQL** |
+| **Źródło** | **Azure SQL Database** | **Wystąpienie zarządzane Azure SQL** |
 | --- | --- | --- |
 | SQL Server (Premium, AzureVM, Amazon RDS) | **Online:** [usługa migracji danych (DMS)](https://docs.microsoft.com/sql/dma/dma-overview), [replikacja transakcyjna](../managed-instance/replication-transactional-overview.md) <br/> **Offline:** [plik BACPAC (import)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database), bcp | **Online:** [usługa migracji danych (DMS)](https://docs.microsoft.com/sql/dma/dma-overview), [replikacja transakcyjna](../managed-instance/replication-transactional-overview.md) <br/> **W trybie offline:** Natywna kopia zapasowa/przywracanie, [plik BACPAC (import)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database), bcp, [replikacja migawek](../managed-instance/replication-transactional-overview.md) |
 | Pojedyncza baza danych | **Offline:** [plik BACPAC (import)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database), bcp | **Offline:** [plik BACPAC (import)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database), bcp |

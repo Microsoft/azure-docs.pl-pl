@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 05/01/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: f53a6b63c744b0e3e41f7ad22270cd842da57674
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1a983fd65a4934f53643bb21c8751e90dcb9eb21
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82796579"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223537"
 ---
 # <a name="create-an-image-version-from-a-vm-in-azure-using-the-azure-cli"></a>Tworzenie wersji obrazu z maszyny wirtualnej na platformie Azure przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -105,3 +105,5 @@ az sig image-version create \
 ## <a name="next-steps"></a>Następne kroki
 
 Utwórz maszynę wirtualną na podstawie [uogólnionego obrazu](vm-generalized-image-version-cli.md) przy użyciu interfejsu wiersza polecenia platformy Azure.
+
+Aby uzyskać informacje o sposobach dostarczania informacji o planie zakupu, zobacz temat [dostarczanie informacji o planie zakupu portalu Azure Marketplace podczas tworzenia obrazów](marketplace-images.md).

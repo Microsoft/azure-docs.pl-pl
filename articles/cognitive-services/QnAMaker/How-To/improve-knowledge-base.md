@@ -3,12 +3,12 @@ title: Poprawianie bazy wiedzy — QnA Maker
 description: Popraw jakość bazy wiedzy dzięki aktywnej uczeniu. Przeglądanie, akceptowanie lub odrzucanie, Dodawanie bez usuwania lub zmieniania istniejących pytań.
 ms.topic: conceptual
 ms.date: 04/06/2020
-ms.openlocfilehash: 2e074716e4342a8748de4fb4e217548f1cb731f6
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 88ccbc52e0eb3447d0b99cac9ba41761e292a6fd
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83650760"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86231781"
 ---
 # <a name="accept-active-learning-suggested-questions-in-the-knowledge-base"></a>Akceptuj zasugerowane pytania w bazie wiedzy
 
@@ -131,8 +131,8 @@ Content-Type: application/json
 |--|--|--|--|
 |Parametr trasy adresu URL|Identyfikator bazy wiedzy|ciąg|Identyfikator GUID bazy wiedzy.|
 |Niestandardowa poddomena|Nazwa zasobu QnAMaker|ciąg|Nazwa zasobu jest używana jako niestandardowa poddomena dla QnA Maker. Jest on dostępny na stronie Ustawienia po opublikowaniu bazy wiedzy. Jest on wyświetlany jako `host` .|
-|Header|Content-Type|ciąg|Typ nośnika treści wysyłanej do interfejsu API. Wartość domyślna to:`application/json`|
-|Header|Autoryzacja|ciąg|Klucz punktu końcowego (EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx).|
+|Nagłówek|Content-Type|ciąg|Typ nośnika treści wysyłanej do interfejsu API. Wartość domyślna to:`application/json`|
+|Nagłówek|Autoryzacja|ciąg|Klucz punktu końcowego (EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx).|
 |Opublikuj treść|Obiekt JSON|JSON|Opinie szkoleniowe|
 
 Treść JSON ma kilka ustawień:
@@ -199,7 +199,7 @@ Kod struktury bot musi wywoływać interfejs API uczenia, jeśli zapytanie użyt
 * Określ, czy zapytanie ma być używane na potrzeby aktywnego uczenia
 * Wyślij zapytanie z powrotem do interfejsu API pouczenia QnA Maker na potrzeby aktywnego uczenia
 
-W [przykładzie usługi Azure bot](https://aka.ms/activelearningsamplebot)zostały zaprogramowane obie te działania.
+W [przykładzie usługi Azure bot](https://github.com/microsoft/BotBuilder-Samples)zostały zaprogramowane obie te działania.
 
 ### <a name="example-c-code-for-train-api-with-bot-framework-4x"></a>Przykładowy kod w języku C# dla interfejsu API uczenia z bot Framework 4. x
 
@@ -264,7 +264,7 @@ public async static void CallTrain(string endpoint, FeedbackRecords feedbackReco
 }
 ```
 
-### <a name="example-nodejs-code-for-train-api-with-bot-framework-4x"></a>Przykładowy kod Node. js dla interfejsu API uczenia z bot Framework 4. x
+### <a name="example-nodejs-code-for-train-api-with-bot-framework-4x"></a>Przykładowy kod Node.js dla interfejsu API uczenia z bot Framework 4. x
 
 Poniższy kod ilustruje sposób wysyłania informacji z powrotem do QnA Maker za pomocą interfejsu API uczenia.
 

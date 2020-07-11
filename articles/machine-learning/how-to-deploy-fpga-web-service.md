@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.date: 06/03/2020
 ms.custom: seodec18, contperfq4, tracking-python
-ms.openlocfilehash: 636d16c4fbbd662d6fccb811fb4a88b2d862b533
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: ace657efaac323dcf48cfba95629abc59ca0cac3
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86107329"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86231764"
 ---
 # <a name="what-are-field-programmable-gate-arrays-fpga-and-how-to-deploy"></a>Co to są tablice z bramą programowalną w polu (FPGA) i sposób wdrażania
 
@@ -65,7 +65,7 @@ Na poniższym diagramie i tabeli przedstawiono sposób porównywania FPGA z inny
 
 ![Diagram Azure Machine Learning porównania FPGA](./media/how-to-deploy-fpga-web-service/azure-machine-learning-fpga-comparison.png)
 
-|Procesor||Opis|
+|Procesor| Skrót |Opis|
 |---|:-------:|------|
 |Zintegrowane obwody specyficzne dla aplikacji|ASICs|Obwody niestandardowe, takie jak TensorFlowe jednostki procesora (TPU) firmy Google, zapewniają najwyższą wydajność. Nie można ich ponownie skonfigurować zgodnie z potrzebami zmian.|
 |Programowalne tablice bram|Układy FPGA|FPGA, takie jak te dostępne na platformie Azure, zapewniają wydajność zbliżoną do ASICs. Są one również elastyczne i można je skonfigurować w miarę upływu czasu w celu zaimplementowania nowej logiki.|
@@ -102,9 +102,9 @@ Te modele DNN są obecnie dostępne:
 
 FPGA są dostępne w tych regionach świadczenia usługi Azure:
 
-  - Wschodnie stany USA
-  - Azja Południowo-Wschodnia
-  - Europa Zachodnia
+  - East US
+  - Southeast Asia
+  - West Europe
   - Zachodnie stany USA 2
 
 > [!IMPORTANT]

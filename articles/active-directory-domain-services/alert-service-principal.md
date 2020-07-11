@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 09/20/2019
+ms.date: 07/09/2020
 ms.author: iainfou
-ms.openlocfilehash: 991bb3e296f18ef6d5182048d8ce4601c0fc09c9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fc665503413d2f022b10ae043aac3315597c6ba4
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84735000"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86221395"
 ---
 # <a name="known-issues-service-principal-alerts-in-azure-active-directory-domain-services"></a>Znane problemy: alerty nazw głównych usług w Azure Active Directory Domain Services
 
@@ -34,11 +34,11 @@ Jeśli zostanie usunięta wymagana jednostka usługi, platforma Azure nie będzi
 
 ### <a name="check-for-missing-service-principals"></a>Sprawdź brakujące jednostki usługi
 
-Aby sprawdzić, której nazwy głównej usługi nie ma i które należy utworzyć, należy wykonać następujące czynności:
+Aby sprawdzić, której nazwy głównej usługi nie ma, i należy ją utworzyć ponownie, wykonaj następujące czynności:
 
 1. W Azure Portal wybierz pozycję **Azure Active Directory** z menu nawigacji po lewej stronie.
 1. Wybierz pozycję **aplikacje dla przedsiębiorstw**. Wybierz opcję *wszystkie aplikacje* z menu rozwijanego **Typ aplikacji** , a następnie wybierz pozycję **Zastosuj**.
-1. Wyszukaj poszczególne identyfikatory aplikacji. Jeśli nie zostanie znaleziona istniejąca aplikacja, wykonaj kroki opisane w sekcji *rozwiązanie* , aby utworzyć nazwę główną usługi, lub ponownie zarejestruj przestrzeń nazw.
+1. Wyszukaj każdy z następujących identyfikatorów aplikacji. Jeśli nie zostanie znaleziona istniejąca aplikacja, wykonaj kroki opisane w sekcji *rozwiązanie* , aby utworzyć nazwę główną usługi, lub ponownie zarejestruj przestrzeń nazw.
 
     | Identyfikator aplikacji | Rozwiązanie |
     | :--- | :--- |
@@ -49,9 +49,9 @@ Aby sprawdzić, której nazwy głównej usługi nie ma i które należy utworzy�
 
 ### <a name="recreate-a-missing-service-principal"></a>Utwórz ponownie brakującą nazwę główną usługi
 
-Jeśli w katalogu usługi Azure AD brakuje identyfikatora aplikacji *2565bd9d-DA50-47d4-8b85-4c97f669dc36* , użyj programu Azure AD PowerShell, aby wykonać następujące czynności. Aby uzyskać więcej informacji, zobacz [Instalowanie programu Azure AD PowerShell](/powershell/azure/active-directory/install-adv2).
+Jeśli w katalogu usługi Azure AD brakuje identyfikatora aplikacji *2565bd9d-DA50-47d4-8b85-4c97f669dc36* , użyj programu Azure AD PowerShell, aby wykonać następujące czynności. Aby uzyskać więcej informacji, zobacz [Azure AD PowerShell](/powershell/azure/active-directory/install-adv2).
 
-1. Zainstaluj moduł Azure AD PowerShell i zaimportuj go w następujący sposób:
+1. W razie konieczności zainstaluj moduł Azure AD PowerShell i zaimportuj go w następujący sposób:
 
     ```powershell
     Install-Module AzureAD
@@ -89,7 +89,7 @@ Usługa Azure AD DS automatycznie synchronizuje konta użytkowników i poświadc
 
 Aby ponownie utworzyć aplikację usługi Azure AD służącą do synchronizacji poświadczeń, użyj programu Azure AD PowerShell, aby wykonać następujące czynności. Aby uzyskać więcej informacji, zobacz [Instalowanie programu Azure AD PowerShell](/powershell/azure/active-directory/install-adv2).
 
-1. Zainstaluj moduł Azure AD PowerShell i zaimportuj go w następujący sposób:
+1. W razie konieczności zainstaluj moduł Azure AD PowerShell i zaimportuj go w następujący sposób:
 
     ```powershell
     Install-Module AzureAD

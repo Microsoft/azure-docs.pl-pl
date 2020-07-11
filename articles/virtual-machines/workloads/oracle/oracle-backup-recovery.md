@@ -3,7 +3,7 @@ title: Tworzenie kopii zapasowej i odzyskiwanie bazy danych Oracle Database 12c 
 description: Dowiedz się, jak utworzyć kopię zapasową i odzyskać bazę danych Oracle Database 12c w środowisku platformy Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: BorisB2015
+author: rgardler
 manager: ''
 editor: ''
 tags: azure-resource-manager
@@ -13,12 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
-ms.author: borisb
-ms.openlocfilehash: c5f02117d3af7fb411c75d783df82f6008d8104e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: rogardle
+ms.openlocfilehash: 5a491bf85546c982db126ef4d6260a46ca8bf88b
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81687002"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224455"
 ---
 # <a name="back-up-and-recover-an-oracle-database-12c-database-on-an-azure-linux-virtual-machine"></a>Tworzenie kopii zapasowej i odzyskiwanie bazy danych Oracle Database 12c na maszynie wirtualnej platformy Azure z systemem Linux
 
@@ -171,7 +172,7 @@ Kopie zapasowe spójne z aplikacjami są nową funkcją w Azure Backup. Można t
 
 4. Edytuj plik JSON.
 
-    Edytuj VMSnapshotScriptPluginConfig.jspliku, aby uwzględnić `PreScriptLocation` `PostScriptlocation` Parametry i. Przykład:
+    Edytuj VMSnapshotScriptPluginConfig.jspliku, aby uwzględnić `PreScriptLocation` `PostScriptlocation` Parametry i. Na przykład:
 
     ```output
     {

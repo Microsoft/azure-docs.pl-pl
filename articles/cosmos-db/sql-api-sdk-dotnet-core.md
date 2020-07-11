@@ -8,11 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 05/11/2020
 ms.author: anfeldma
-ms.openlocfilehash: fdc3d4244daa1f3b3d12898d6de42128ae1670ec
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3c3f43ac1c4f427f74c86ccb06018688f80ddb55
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85392050"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86231118"
 ---
 # <a name="azure-cosmos-db-net-core-sdk-v2-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB zestaw .NET Core SDK V2 dla interfejsu API SQL: informacje o wersji i zasoby
 > [!div class="op_single_selector"]
@@ -26,7 +27,7 @@ ms.locfileid: "85392050"
 > * [Sync Java SDK 2](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
 > * CZĘŚĆ (/rest/api
-> * [Dostawca zasobów REST](/rest/apier/)
+> * [Dostawca zasobów REST](/azure/azure-resource-manager/management/azure-services-resource-providers)
 > * [SQL](sql-api-query-reference.md)
 > * [Wykonawca zbiorczy — .NET V2](sql-api-sdk-bulk-executor-dot-net.md)
 > * [Moduł wykonawczy zbiorczej — Java](sql-api-sdk-bulk-executor-java.md)

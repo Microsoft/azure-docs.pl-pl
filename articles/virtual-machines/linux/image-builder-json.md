@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: virtual-machines-linux
 ms.subservice: imaging
 ms.reviewer: cynthn
-ms.openlocfilehash: 975d6842110ffa864a534e09cf35d0d33612d7d5
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 191f0468a01c98ec60b85ea7aca6333807bf4b80
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86135082"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86221208"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>Wersja zapoznawcza: Tworzenie szablonu usługi Azure Image Builder 
 
@@ -65,20 +65,20 @@ Jest to podstawowy format szablonu:
 
 Lokalizacja to region, w którym zostanie utworzony obraz niestandardowy. W przypadku wersji zapoznawczej programu Image Builder obsługiwane są następujące regiony:
 
-- Wschodnie stany USA
+- East US
 - Wschodnie stany USA 2
 - Zachodnio-środkowe stany USA
 - Zachodnie stany USA
 - Zachodnie stany USA 2
 - Europa Północna
-- Europa Zachodnia
+- West Europe
 
 
 ```json
     "location": "<region>",
 ```
 ## <a name="vmprofile"></a>vmProfile
-Domyślnie program Image Builder użyje maszyny wirtualnej kompilacji "Standard_D1_v2". można to zastąpić, na przykład jeśli chcesz dostosować obraz dla maszyny wirtualnej procesora GPU, potrzebujesz rozmiaru maszyny wirtualnej procesora GPU. Jest to opcjonalne.
+Domyślnie program Image Builder użyje maszyny wirtualnej kompilacji "Standard_D1_v2". można to zastąpić, na przykład jeśli chcesz dostosować obraz dla maszyny wirtualnej procesora GPU, potrzebujesz rozmiaru maszyny wirtualnej procesora GPU. Jest on opcjonalny.
 
 ```json
  {
@@ -150,6 +150,9 @@ Interfejs API wymaga elementu "SourceType", który definiuje Źródło dla kompi
 - PlatformImage — wskazuje, że obraz źródłowy jest obrazem portalu Marketplace.
 - ManagedImage — Użyj tego w przypadku uruchamiania z regularnego zarządzanego obrazu.
 - SharedImageVersion — ta wartość jest używana w przypadku używania wersji obrazu w galerii obrazów udostępnionych jako źródło.
+
+> [!NOTE]
+> W przypadku korzystania z istniejących obrazów niestandardowych systemu Windows można uruchomić polecenie Sysprep do 8 razy w pojedynczym obrazie systemu Windows, aby uzyskać więcej informacji, zobacz dokumentację programu [Sysprep](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation#limits-on-how-many-times-you-can-run-sysprep) .
 
 ### <a name="iso-source"></a>Źródło ISO
 Ta funkcja jest przestarzała w programie Image Builder, ponieważ teraz [RHEL własne obrazy subskrypcji](https://docs.microsoft.com/azure/virtual-machines/workloads/redhat/byos), przejrzyj następujące osie czasu:
@@ -468,7 +471,10 @@ Konstruktor obrazów platformy Azure obsługuje trzy cele dystrybucji:
 - **sharedImage** — Galeria obrazów udostępnionych.
 - **Wirtualny dysk twardy** (VHD) na koncie magazynu.
 
-Można dystrybuować obraz do obu typów docelowych w tej samej konfiguracji, zobacz [przykłady](https://github.com/danielsollondon/azvmimagebuilder/blob/7f3d8c01eb3bf960d8b6df20ecd5c244988d13b6/armTemplates/azplatform_image_deploy_sigmdi.json#L80).
+Można dystrybuować obraz do obu typów docelowych w tej samej konfiguracji.
+
+> [!NOTE]
+> Domyślne polecenie narzędzia Sysprep AIB nie zawiera "/Mode: VM", jednak może być wymagane w przypadku tworzenia obrazów, które mają zainstalowaną rolę funkcji Hyper-v. Jeśli musisz dodać ten argument polecenia, musisz zastąpić polecenie Sysprep.
 
 Ponieważ możesz mieć więcej niż jeden element docelowy do dystrybucji, Konstruktor obrazów zachowuje stan dla każdego elementu docelowego dystrybucji, do którego można uzyskać dostęp za pomocą zapytania `runOutputName` .  `runOutputName`Jest obiektem, który można wysłać zapytanie o dystrybucję w celu uzyskania informacji o tej dystrybucji. Można na przykład zbadać lokalizację dysku VHD lub regiony, w których została zreplikowana wersja obrazu, lub utworzyć wersję obrazu SIG. Jest to właściwość każdego celu dystrybucji. `runOutputName`Musi być unikatowa dla każdego celu dystrybucji. Oto przykład, który wykonuje zapytanie do dystrybucji galerii obrazów udostępnionych:
 

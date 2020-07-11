@@ -8,11 +8,12 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 9b651776ccd8c93271b57eab0efa24c6a79f50a3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f209a8b1d7ba5ab4fc213e43d56c04aebc3bd410
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84676237"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224268"
 ---
 # <a name="key-vault-virtual-machine-extension-for-linux"></a>Key Vault rozszerzenie maszyny wirtualnej dla systemu Linux
 
@@ -57,8 +58,12 @@ Poniższy kod JSON przedstawia schemat rozszerzenia maszyny wirtualnej Key Vault
           "certificateStoreLocation": <disk path where certificate is stored, default: "/var/lib/waagent/Microsoft.Azure.KeyVault">,
           "requireInitialSync": <initial synchronization of certificates e..g: true>,
           "observedCertificates": <list of KeyVault URIs representing monitored certificates, e.g.: "https://myvault.vault.azure.net/secrets/mycertificate"
-        }      
-      }
+        },
+        "authenticationSettings": {
+                "msiEndpoint":  <Optional MSI endpoint e.g.: "http://169.254.169.254/metadata/identity">,
+                "msiClientId":  <Optional MSI identity e.g.: "c7373ae5-91c2-4165-8ab6-7381d6e75619">
+        }
+       }
       }
     }
 ```
@@ -67,6 +72,10 @@ Poniższy kod JSON przedstawia schemat rozszerzenia maszyny wirtualnej Key Vault
 > Adresy URL obserwowanych certyfikatów powinny mieć postać `https://myVaultName.vault.azure.net/secrets/myCertName` .
 > 
 > Wynika to z faktu, że `/secrets` ścieżka zwraca pełny certyfikat, w tym klucz prywatny, podczas gdy `/certificates` ścieżka nie jest. Więcej informacji o certyfikatach można znaleźć tutaj: [Key Vault Certificates](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates#key-vault-certificates)
+
+> [!NOTE]
+> Właściwość "authenticationSettings" jest opcjonalna w scenariuszach, gdy maszyna wirtualna ma wiele przypisanych tożsamości.
+> Umożliwia specifing tożsamość do uwierzytelniania w celu Key Vault.
 
 
 ### <a name="property-values"></a>Wartości właściwości
@@ -83,6 +92,8 @@ Poniższy kod JSON przedstawia schemat rozszerzenia maszyny wirtualnej Key Vault
 | certificateStoreLocation  | /var/lib/waagent/Microsoft.Azure.KeyVault | ciąg |
 | requiredInitialSync | true | wartość logiczna |
 | observedCertificates  | ["https://myvault.vault.azure.net/secrets/mycertificate"] | Tablica ciągów
+| msiEndpoint | http://169.254.169.254/metadata/identity | ciąg |
+| msiClientId | c7373ae5-91c2-4165-8ab6-7381d6e75619 | ciąg |
 
 
 ## <a name="template-deployment"></a>Wdrażanie na podstawie szablonu

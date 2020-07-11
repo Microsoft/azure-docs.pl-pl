@@ -9,11 +9,12 @@ ms.date: 06/15/2020
 ms.author: tamram
 ms.reviewer: wielriac
 ms.subservice: blobs
-ms.openlocfilehash: f54adb54ca842ea389b0d3ea203d747df0071ee5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2338c523c13b16b4a63ee9de0d966182e26c3286
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84792034"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223299"
 ---
 # <a name="overview-of-azure-page-blobs"></a>Omówienie obiektów BLOB na stronie platformy Azure
 
@@ -122,7 +123,7 @@ Gdy tylko żądanie zapisu dla sekwencyjnego zestawu stron powiedzie się w usł
 
 Poniższy diagram przedstawia 2 oddzielne operacje zapisu:
 
-![](./media/storage-blob-pageblob-overview/storage-blob-pageblob-overview-figure2.png)
+![Diagram przedstawiający dwie osobne opcje zapisu.](./media/storage-blob-pageblob-overview/storage-blob-pageblob-overview-figure2.png)
 
 1.  Operacja zapisu rozpoczynająca się z przesunięciem 0 o długości 1024 bajtów 
 2.  Operacja zapisu rozpoczynająca się o przesunięciu 4096 o długości 1024 
@@ -150,7 +151,7 @@ Dzięki temu można pobrać pełny obiekt BLOB lub zakres bajtów, zaczynając o
 
 Na poniższej ilustracji przedstawiono operację odczytu z przesunięciem 256 i rozmiarem zakresu 4352. Zwrócone dane są wyróżnione w kolorze pomarańczowym. Dla stron NUL są zwracane wartości zerowe.
 
-![](./media/storage-blob-pageblob-overview/storage-blob-pageblob-overview-figure3.png)
+![Diagram przedstawiający operację odczytu z przesunięciem 256 i rozmiarem zakresu 4352](./media/storage-blob-pageblob-overview/storage-blob-pageblob-overview-figure3.png)
 
 Jeśli masz rozrzedzonie wypełniony obiekt BLOB, możesz po prostu pobrać odpowiednie regiony stron, aby uniknąć płacenia za ruch wychodzący z zero bajtów i zmniejszyć czas oczekiwania na pobieranie.  
 

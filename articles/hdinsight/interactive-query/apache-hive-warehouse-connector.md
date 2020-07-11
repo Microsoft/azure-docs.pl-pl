@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 05/28/2020
-ms.openlocfilehash: 3efccc44255067b7e47c468c9a35853def2fce69
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: c2590a2c745969313ae73521dbcd110fbf3b7551
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86085858"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86221021"
 ---
 # <a name="integrate-apache-spark-and-apache-hive-with-hive-warehouse-connector-in-azure-hdinsight"></a>Integrowanie Apache Spark i Apache Hive z łącznikiem magazynu Hive w usłudze Azure HDInsight
 
@@ -37,6 +37,9 @@ Niektóre operacje obsługiwane przez łącznik magazynu Hive są następujące:
 * Zapisywanie ramki Dataframe lub strumienia Spark w usłudze Hive przy użyciu HiveStreaming
 
 ## <a name="hive-warehouse-connector-setup"></a>Konfiguracja łącznika magazynu Hive
+
+> [!IMPORTANT]
+> Wystąpienie interaktywne serwera hiveserver2 zainstalowane w klastrach pakiet Enterprise Security platformy Spark 2,4 nie jest obsługiwane do użycia z łącznikiem magazynu Hive. Zamiast tego należy skonfigurować oddzielny klaster serwera hiveserver2 Interactive do hostowania interaktywnych obciążeń serwera hiveserver2. Konfiguracja łącznika magazynu programu Hive wykorzystująca pojedynczy klaster Spark 2,4 nie jest obsługiwana.
 
 Łącznik magazynu Hive wymaga oddzielnych klastrów dla obciążeń Spark i Interactive zapytań. Wykonaj następujące kroki, aby skonfigurować te klastry w usłudze Azure HDInsight.
 

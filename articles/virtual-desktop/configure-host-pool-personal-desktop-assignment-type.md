@@ -5,15 +5,15 @@ services: virtual-desktop
 author: HeidiLohr
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 04/30/2020
+ms.date: 07/09/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 158ac92a930b53e02ee81570c62711ca27dc4ae8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bfe428b9eba1f83f3e1bb05c3941c4c56317c9bc
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85200396"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223112"
 ---
 # <a name="configure-the-personal-desktop-host-pool-assignment-type"></a>Konfigurowanie typu przypisania puli hostów pulpitu osobistego
 
@@ -71,6 +71,21 @@ Aby przypisać użytkownika do określonego hosta sesji, uruchom następujące p
 ```powershell
 Update-AzWvdSessionHost -HostPoolName <hostpoolname> -Name <sessionhostname> -ResourceGroupName <resourcegroupname> -AssignedUser <userupn>
 ```
+
+Aby bezpośrednio przypisać użytkownika do hosta sesji w Azure Portal:
+
+1. Zaloguj się do witryny Azure Portal pod adresem <https://portal.azure.com>.
+2. Na pasku wyszukiwania wprowadź **pulpit wirtualny systemu Windows** .
+3. W obszarze **usługi**wybierz pozycję **pulpit wirtualny systemu Windows**.
+4. Na stronie pulpit wirtualny systemu Windows przejdź do menu po lewej stronie okna i wybierz pozycję **Pule hostów**.
+5. Wybierz nazwę puli hostów, którą chcesz zaktualizować.
+6. Następnie przejdź do menu po lewej stronie okna i wybierz pozycję **grupy aplikacji**.
+7. Wybierz nazwę grupy aplikacji klasycznych, którą chcesz edytować, a następnie wybierz pozycję **przypisania** w menu po lewej stronie okna.
+8. Wybierz pozycję **+ Dodaj**, a następnie wybierz użytkowników lub grupy użytkowników, dla których chcesz opublikować tę grupę aplikacji klasycznych.
+9. Wybierz pozycję **Przypisz maszynę wirtualną** na pasku informacji, aby przypisać Host sesji do użytkownika.
+10. Wybierz hosta sesji, który chcesz przypisać do użytkownika, a następnie wybierz pozycję **Przypisz**.
+11. Wybierz użytkownika, do którego chcesz przypisać hosta sesji z listy dostępnych użytkowników.
+12. Gdy skończysz, wybierz pozycję **Wybierz**.
 
 ## <a name="next-steps"></a>Następne kroki
 

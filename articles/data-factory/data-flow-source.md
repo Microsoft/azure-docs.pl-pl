@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/08/2020
-ms.openlocfilehash: 5fc8352caa05a59508df7ada95518a5efb58e7df
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 8ad7cfad0a17608af6b59b712d1f0c2b72b49a61
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86147452"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223656"
 ---
 # <a name="source-transformation-in-mapping-data-flow"></a>Transformacja źródła w strumieniu danych mapowania 
 
@@ -43,9 +43,9 @@ Mapowanie przepływu danych odbywa się zgodnie z podejściem wyodrębniania, ł
 
 | Łącznik | Format | Zestaw danych/wbudowany |
 | --------- | ------ | -------------- |
-| [Azure Blob Storage](connector-azure-blob-storage.md#mapping-data-flow-properties) | [Avro](format-avro.md#mapping-data-flow-properties) <br> [Tekst rozdzielany](format-delimited-text.md#mapping-data-flow-properties) <br> [Excel](format-excel.md#mapping-data-flow-properties) <br> [JSON](format-json.md#mapping-data-flow-properties) <br> [Parquet](format-parquet.md#mapping-data-flow-properties) | ✓/- <br> ✓/- <br>✓/✓ <br/> ✓/- <br> ✓/- |
+| [Azure Blob Storage](connector-azure-blob-storage.md#mapping-data-flow-properties) | [Avro](format-avro.md#mapping-data-flow-properties) <br> [Tekst rozdzielany](format-delimited-text.md#mapping-data-flow-properties) <br> [Delta (wersja zapoznawcza)](format-delta.md) <br> [Excel](format-excel.md#mapping-data-flow-properties) <br> [JSON](format-json.md#mapping-data-flow-properties) <br> [Parquet](format-parquet.md#mapping-data-flow-properties) | ✓/- <br> ✓/- <br> -/✓ <br> ✓/✓ <br/> ✓/- <br> ✓/- |
 | [Usługa Azure Data Lake Storage 1. generacji](connector-azure-data-lake-store.md#mapping-data-flow-properties) | [Avro](format-avro.md#mapping-data-flow-properties) <br> [Tekst rozdzielany](format-delimited-text.md#mapping-data-flow-properties) <br> [Excel](format-excel.md#mapping-data-flow-properties) <br> [JSON](format-json.md#mapping-data-flow-properties) <br> [Parquet](format-parquet.md#mapping-data-flow-properties)  | ✓/- <br> ✓/- <br>✓/✓ <br/> ✓/- <br> ✓/- |
-| [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#mapping-data-flow-properties) | [Avro](format-avro.md#mapping-data-flow-properties)  <br> [Common Data Model (wersja zapoznawcza)](format-common-data-model.md#source-properties) <br> [Tekst rozdzielany](format-delimited-text.md#mapping-data-flow-properties) <br> [Excel](format-excel.md#mapping-data-flow-properties) <br> [JSON](format-json.md#mapping-data-flow-properties) <br> [Parquet](format-parquet.md#mapping-data-flow-properties) | ✓/-<br/> -/✓ <br> ✓/- <br> ✓/✓ <br>✓/- <br/> ✓/- |
+| [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#mapping-data-flow-properties) | [Avro](format-avro.md#mapping-data-flow-properties)  <br> [Common Data Model (wersja zapoznawcza)](format-common-data-model.md#source-properties) <br> [Tekst rozdzielany](format-delimited-text.md#mapping-data-flow-properties) <br> [Delta (wersja zapoznawcza)](format-delta.md) <br> [Excel](format-excel.md#mapping-data-flow-properties) <br> [JSON](format-json.md#mapping-data-flow-properties) <br> [Parquet](format-parquet.md#mapping-data-flow-properties) | ✓/-<br/> -/✓ <br> ✓/- <br> -/✓ <br> ✓/✓ <br>✓/- <br/> ✓/- |
 | [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md#mapping-data-flow-properties) | | ✓/- |
 | [Azure SQL Database](connector-azure-sql-database.md#mapping-data-flow-properties) | | ✓/- |
 | [Azure CosmosDB (interfejs API SQL)](connector-azure-cosmos-db.md#mapping-data-flow-properties) | | ✓/- |

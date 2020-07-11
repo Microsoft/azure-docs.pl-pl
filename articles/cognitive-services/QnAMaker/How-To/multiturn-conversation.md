@@ -3,12 +3,12 @@ title: Konwersacje wieloetapowe — QnA Maker
 description: Użyj wskazówek i kontekstu, aby zarządzać wielokrotnymi przepisaniami, nazywanymi wieloma przełączanymi, dla bot z jednego pytania do innego. Funkcja wielodostępna umożliwia konwersację z poprzednią i przechodzącą, w której kontekście poprzedniego pytania ma wpływ na następne pytanie i odpowiedź.
 ms.topic: conceptual
 ms.date: 04/13/2020
-ms.openlocfilehash: 8ef244e1b6baf480189bb90ea5ff53138a6f377a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 93bc6201cb627dc27071caf7beded5778b06ccb6
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81261469"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86229350"
 ---
 # <a name="use-follow-up-prompts-to-create-multiple-turns-of-a-conversation"></a>Tworzenie wielu etapów konwersacji za pomocą dodatkowych monitów
 
@@ -52,7 +52,7 @@ Po wybraniu tej opcji QnA Maker wyodrębnia hierarchię obecną w strukturze dok
 
 Strukturę wielostopniową można wywnioskować tylko na podstawie adresów URL, plików PDF lub plików DOCX. Aby zapoznać się z przykładem struktury, Wyświetl obraz [ręcznego pliku PDF użytkownika powierzchniowego](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/product-manual.pdf).
 
-![! [Przykład struktury w podręczniku użytkownika] (.. /media/conversational-context/import-file-with-conversational-structure.png)](../media/conversational-context/import-file-with-conversational-structure.png#lightbox)
+![! [Przykład struktury w podręczniku użytkownika] (.. /Media/conversational-Context/import-file-with-conversational-structure.png)](../media/conversational-context/import-file-with-conversational-structure.png#lightbox)
 
 ### <a name="building-your-own-multi-turn-document"></a>Tworzenie własnego dokumentu wielostopniowego
 
@@ -62,7 +62,7 @@ W przypadku tworzenia dokumentu z obsługą wielodostępności należy wziąć p
 
 * Pierwszy znak nagłówka musi być wielkimi literami.
 
-* Nie kończyj nagłówka ze znakiem zapytania `?`.
+* Nie kończyj nagłówka ze znakiem zapytania `?` .
 
 * Możesz użyć przykładowego [dokumentu](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/multi-turn.docx) w celu utworzenia własnego dokumentu wieloskładnikowego.
 
@@ -92,7 +92,7 @@ Wybierz pozycję **Wyświetl opcje**, a następnie wybierz pozycję **Pokaż kon
 
 Kontekst wielowłączany jest wyświetlany w pierwszej kolumnie.
 
-![! [Kolumna "kontekstowa (wersja zapoznawcza)"] (.. /media/conversational-context/surface-manual-pdf-follow-up-prompt.png)](../media/conversational-context/surface-manual-pdf-follow-up-prompt.png#lightbox)
+![! [Kolumna "kontekstowa (wersja zapoznawcza)"] (.. /Media/conversational-Context/surface-manual-pdf-follow-up-prompt.png)](../media/conversational-context/surface-manual-pdf-follow-up-prompt.png#lightbox)
 
 Na powyższym obrazie **#1** oznacza pogrubiony tekst w kolumnie, co oznacza bieżące pytanie. Pytanie nadrzędne to pierwszy element w wierszu. Wszystkie pytania poniżej są połączonymi parami pytań i odpowiedzi. Elementy te są wybierane, dzięki czemu można od razu przejść do innych elementów kontekstu.
 
@@ -167,7 +167,7 @@ Po dodaniu nowej pary pytań i odpowiedzi do bazy wiedzy każda para powinna by�
 
     Pytanie nadrzędne wyświetla nowe pytanie jako jedną z opcji.
 
-    ![! [Kolumna kontekstowa, dla obu pytań, wskazuje, że relacja monitu zostanie zaobserwuj] (.. /media/conversational-context/child-prompt-created.png)](../media/conversational-context/child-prompt-created.png#lightbox)
+    ![! [Kolumna kontekstowa, dla obu pytań, wskazuje, że relacja monitu zostanie zaobserwuj] (.. /Media/conversational-Context/child-prompt-created.png)](../media/conversational-context/child-prompt-created.png#lightbox)
 
 1. Po dodaniu monitu kliknij pozycję **Zapisz i pouczenie** na górnym pasku nawigacyjnym.
 
@@ -260,7 +260,7 @@ Poprzednia sekcja zażądała odpowiedzi i wszelkie monity monitujące dotycząc
 }
 ```
 
-`prompts` Tablica zawiera tekst we `displayText` właściwości i `qnaId` wartość. Możesz wyświetlić te odpowiedzi jako kolejne wyświetlane wybory w przepływie konwersacji, a następnie wysłać wybrane `qnaId` z powrotem do QNA Maker w poniższym żądaniu.
+`prompts`Tablica zawiera tekst we `displayText` właściwości i `qnaId` wartość. Możesz wyświetlić te odpowiedzi jako kolejne wyświetlane wybory w przepływie konwersacji, a następnie wysłać wybrane z `qnaId` powrotem do QNA Maker w poniższym żądaniu.
 
 <!--
 
@@ -290,7 +290,7 @@ W poniższym żądaniu JSON bieżące pytanie *służy do logowania* się, a pop
 
 ##  <a name="a-json-response-to-return-a-non-initial-answer-and-follow-up-prompts"></a>Odpowiedź JSON zwracająca odpowiedź niepoczątkową i monity monitujące
 
-Odpowiedź QnA Maker _GenerateAnswer_ JSON zawiera monity monitujące we `context` właściwości pierwszego elementu w `answers` obiekcie:
+Odpowiedź QnA Maker _GenerateAnswer_ JSON zawiera monity monitujące we `context` Właściwości pierwszego elementu w `answers` obiekcie:
 
 ```JSON
 {
@@ -350,7 +350,7 @@ Odpowiedź QnA Maker _GenerateAnswer_ JSON zawiera monity monitujące we `contex
 
 ## <a name="query-the-knowledge-base-with-the-qna-maker-id"></a>Zbadaj bazę wiedzy przy użyciu identyfikatora QnA Maker
 
-Jeśli tworzysz aplikację niestandardową przy użyciu funkcji wieloskładnikowej. W odpowiedzi na pytanie początkowe zostanie zwrócona prośba o wyświetlenie wszystkich monitów i skojarzonych `qnaId` z nią danych. Teraz, gdy masz identyfikator, możesz przekazać ten komunikat w treści żądania monitowania. Jeśli treść żądania zawiera `qnaId`, a obiekt kontekstu (zawierający poprzednie właściwości QNA Maker), GenerateAnswer zwróci dokładne pytanie według identyfikatora, zamiast używać algorytmu klasyfikacji do znajdowania odpowiedzi według tekstu pytania.
+Jeśli tworzysz aplikację niestandardową przy użyciu funkcji wieloskładnikowej. W odpowiedzi na pytanie początkowe zostanie zwrócona prośba o wyświetlenie wszystkich monitów i skojarzonych z nią danych `qnaId` . Teraz, gdy masz identyfikator, możesz przekazać ten komunikat w treści żądania monitowania. Jeśli treść żądania zawiera `qnaId` , a obiekt kontekstu (zawierający poprzednie właściwości QNA Maker), GenerateAnswer zwróci dokładne pytanie według identyfikatora, zamiast używać algorytmu klasyfikacji do znajdowania odpowiedzi według tekstu pytania.
 
 
 ## <a name="display-order-is-supported-in-the-update-api"></a>Kolejność wyświetlania jest obsługiwana w interfejsie API aktualizacji
@@ -367,7 +367,7 @@ QnA Maker obsługuje kontrolę wersji przez dołączenie do wyeksportowanego pli
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej o konwersacjach kontekstowych z tego [okna dialogowego](https://aka.ms/qnamakermultiturnsample) lub Dowiedz się więcej [na temat koncepcyjnych projektów bot w przypadku konwersacji z wieloma](https://docs.microsoft.com/azure/bot-service/bot-builder-conversations?view=azure-bot-service-4.0)zmianami.
+Dowiedz się więcej o konwersacjach kontekstowych z tego [okna dialogowego](https://github.com/microsoft/BotBuilder-Samples/blob/master/samples/csharp_dotnetcore/adaptive-dialog/07.qnamaker/QnAMaker.csproj) lub Dowiedz się więcej [na temat koncepcyjnych projektów bot w przypadku konwersacji z wieloma](https://docs.microsoft.com/azure/bot-service/bot-builder-conversations?view=azure-bot-service-4.0)zmianami.
 
 > [!div class="nextstepaction"]
 > [Migrowanie bazy wiedzy](../Tutorials/migrate-knowledge-base.md)

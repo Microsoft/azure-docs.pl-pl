@@ -8,11 +8,12 @@ ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 90a9672e3a58a068d1a4488a514a6fd51c272a56
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 69fec93c2426f4274e0c890d76bdcbbb4678fa7d
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85081115"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86230761"
 ---
 # <a name="design-patterns-for-multitenant-saas-applications-and-azure-cognitive-search"></a>Wzorce projektowe dla wielodostępnych aplikacji SaaS i platformy Azure Wyszukiwanie poznawcze
 
@@ -40,14 +41,14 @@ Dodawanie i usuwanie partycji oraz replik umożliwia zwiększenie pojemności us
 ### <a name="service-and-index-limits-in-azure-cognitive-search"></a>Limity usługi i indeksu na platformie Azure Wyszukiwanie poznawcze
 Na platformie Azure Wyszukiwanie poznawcze istnieje kilka różnych [warstw cenowych](https://azure.microsoft.com/pricing/details/search/) , a każda z nich ma różne [limity i przydziały](search-limits-quotas-capacity.md). Niektóre z tych limitów znajdują się na poziomie usługi, a niektóre z nich znajdują się na poziomie indeksu, a niektóre z nich znajdują się na poziomie partycji.
 
-|  | Podstawowy | Standard1 | Standard2 | Standard3 | Standard3 HD |
+|  | Podstawowa | Standard1 | Standard2 | Standard3 | Standard3 HD |
 | --- | --- | --- | --- | --- | --- |
-| Maksymalna liczba replik na usługę |3 |12 |12 |12 |12 |
-| Maksymalna liczba partycji na usługę |1 |12 |12 |12 |3 |
-| Maksymalna liczba jednostek wyszukiwania (repliki * partycje) na usługę |3 |36 |36 |36 |36 (maksymalnie 3 partycje) |
-| Maksymalny rozmiar magazynu na usługę |2 GB |300 GB |1,2 TB |2,4 TB |600 GB |
-| Maksymalny rozmiar magazynu na partycję |2 GB |25 GB |100 GB |200 GB |200 GB |
-| Maksymalna liczba indeksów na usługę |5 |50 |200 |200 |3000 (maksymalnie 1000 indeksów/partycji) |
+| **Maksymalna liczba replik na usługę** |3 |12 |12 |12 |12 |
+| **Maksymalna liczba partycji na usługę** |1 |12 |12 |12 |3 |
+| **Maksymalna liczba jednostek wyszukiwania (repliki * partycje) na usługę** |3 |36 |36 |36 |36 (maksymalnie 3 partycje) |
+| **Maksymalny rozmiar magazynu na usługę** |2 GB |300 GB |1,2 TB |2,4 TB |600 GB |
+| **Maksymalny rozmiar magazynu na partycję** |2 GB |25 GB |100 GB |200 GB |200 GB |
+| **Maksymalna liczba indeksów na usługę** |5 |50 |200 |200 |3000 (maksymalnie 1000 indeksów/partycji) |
 
 #### <a name="s3-high-density"></a>Wysoka gęstość S3
 W warstwie cenowej S3 usługi Azure Wyszukiwanie poznawcze istnieje opcja trybu wysokiej gęstości (HD) przeznaczonego specjalnie dla scenariuszy wielodostępnych. W wielu przypadkach konieczne jest obsługę dużej liczby mniejszych dzierżawców w ramach jednej usługi, aby osiągnąć zalety prostoty i opłacalności.

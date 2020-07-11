@@ -1,5 +1,5 @@
 ---
-title: Kopiuj wersję obrazu z innej galerii
+title: Kopiowanie wersji obrazu z innej galerii przy użyciu interfejsu wiersza polecenia
 description: Skopiuj wersję obrazu z innej galerii za pomocą interfejsu wiersza polecenia platformy Azure.
 author: cynthn
 ms.service: virtual-machines
@@ -9,13 +9,14 @@ ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: add08d7b8ef39322f03e0faf78959b08a6ae2a14
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 764fe98ad20aa29506b4fba723762124e24af245
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82797060"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224336"
 ---
-# <a name="copy-an-image-from-another-gallery"></a>Kopiowanie obrazu z innej galerii
+# <a name="copy-an-image-from-another-gallery-using-the-azure-cli"></a>Kopiowanie obrazu z innej galerii przy użyciu interfejsu wiersza polecenia platformy Azure
 
 Jeśli masz wiele galerii w organizacji, możesz również utworzyć wersje obrazu z istniejących wersji obrazu przechowywanych w innych galeriach. Na przykład możesz mieć galerię deweloperskią i testową do tworzenia i testowania nowych obrazów. Gdy są gotowe do użycia w środowisku produkcyjnym, można je skopiować do galerii produkcyjnej przy użyciu tego przykładu. Możesz również utworzyć obraz z obrazu w innej galerii przy użyciu [Azure PowerShell](image-version-another-gallery-powershell.md).
 
@@ -161,3 +162,5 @@ az sig image-version create \
 Utwórz maszynę wirtualną na podstawie [uogólnionej](vm-generalized-image-version-cli.md) lub [wyspecjalizowanej](vm-specialized-image-version-cli.md) wersji obrazu.
 
 Ponadto Wypróbuj program [Azure Image Builder (wersja zapoznawcza)](./linux/image-builder-overview.md) ułatwia automatyzację tworzenia wersji obrazu. Możesz nawet użyć go do zaktualizowania i [utworzenia nowej wersji obrazu z istniejącej wersji obrazu](./linux/image-builder-gallery-update-image-version.md). 
+
+Aby uzyskać informacje o sposobach dostarczania informacji o planie zakupu, zobacz temat [dostarczanie informacji o planie zakupu portalu Azure Marketplace podczas tworzenia obrazów](marketplace-images.md).

@@ -2,14 +2,14 @@
 title: Macierz obsługi odzyskiwania po awarii maszyny wirtualnej platformy Azure z Azure Site Recovery
 description: Podsumowuje obsługę odzyskiwania po awarii maszyn wirtualnych platformy Azure w regionie pomocniczym z Azure Site Recovery.
 ms.topic: article
-ms.date: 06/03/2020
+ms.date: 07/10/2020
 ms.author: raynew
-ms.openlocfilehash: c729645eadc192dba4d7bb4f2c346d7b9d36434a
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: d56a507586c9d62fdbeae01d47bb734b98bf385b
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86132679"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223809"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Macierz obsługi odzyskiwania po awarii maszyny wirtualnej platformy Azure między regionami platformy Azure
 
@@ -20,7 +20,7 @@ W tym artykule podsumowano obsługę i wymagania wstępne dotyczące odzyskiwani
 
 **Wdrożenie** |  **Pomoc techniczna**
 --- | ---
-**Azure Portal** | Obsługiwane.
+**Witryna Azure Portal** | Obsługiwane.
 **Program PowerShell** | Obsługiwane. [Dowiedz się więcej](azure-to-azure-powershell.md)
 **Interfejs API REST** | Obsługiwane.
 **Interfejs wiersza polecenia** | Nie jest obecnie obsługiwana.
@@ -41,7 +41,7 @@ W tym artykule podsumowano obsługę i wymagania wstępne dotyczące odzyskiwani
 Maszyny wirtualne można replikować i odzyskiwać między dwoma regionami w tym samym klastrze geograficznym. Klastry geograficzne są definiowane z uwzględnieniem opóźnień danych i suwerenności.
 
 
-**Klaster geograficzny** | **Regiony świadczenia usługi Azure**
+**Klaster geograficzny** | **Regiony platformy Azure**
 -- | --
 USA | Kanada Wschodnia, Kanada środkowa, Południowo-środkowe stany USA, zachodnie stany USA, Wschodnie stany USA, Wschodnie stany USA 2, zachodnie stany USA, zachodnie stany USA 2, środkowe stany USA, Północno-środkowe stany USA
 Europa | Zachodnie Zjednoczone Królestwo, Południowe Zjednoczone Królestwo, Europa Północna, Europa Zachodnia, Zachodnia Republika Południowej Afryki, Północna Republika Południowej Afryki, Norwegia Wschodnia, Norwegia Zachodnia
@@ -205,7 +205,7 @@ Dysk tymczasowy | Nieobsługiwane | Dysk tymczasowy jest zawsze wykluczony z rep
 Maksymalny rozmiar dysku danych | 8192 GB dla dysków zarządzanych<br></br>4095 GB dla dysków niezarządzanych|
 Minimalny rozmiar dysku danych | Brak ograniczeń dla dysków niezarządzanych. 2 GB dla dysków zarządzanych |
 Maksymalna liczba dysków danych | Do 64, zgodnie z obsługą określonego rozmiaru maszyny wirtualnej platformy Azure | [Dowiedz się więcej](../virtual-machines/windows/sizes.md) o rozmiarach maszyn wirtualnych.
-Szybkość zmian dysku danych | Maksymalnie 10 MB/s na dysk dla usługi Premium Storage. Maksymalnie 2 MB/s na dysk w przypadku magazynu w warstwie Standardowa. | Jeśli średnia szybkość zmian danych na dysku jest ciągle wyższa niż wartość maksymalna, replikacja nie zostanie wystawiona.<br/><br/>  Jeśli jednak maksimum zostanie przekroczone sporadycznie, replikacja może zostać wyświetlona, ale może wystąpić nieco opóźnione punkty odzyskiwania.
+Szybkość zmian dysku danych | Maksymalnie 20 MB/s na dysk dla usługi Premium Storage. Maksymalnie 2 MB/s na dysk w przypadku magazynu w warstwie Standardowa. | Jeśli średnia szybkość zmian danych na dysku jest ciągle wyższa niż wartość maksymalna, replikacja nie zostanie wystawiona.<br/><br/>  Jeśli jednak maksimum zostanie przekroczone sporadycznie, replikacja może zostać wyświetlona, ale może wystąpić nieco opóźnione punkty odzyskiwania.
 Dysk danych — standardowe konto magazynu | Obsługiwane |
 Dysk danych — konto magazynu w warstwie Premium | Obsługiwane | Jeśli maszyna wirtualna ma rozłożone dyski w warstwie Premium i w warstwie Standardowa, możesz wybrać inne docelowe konto magazynu dla każdego dysku, aby mieć pewność, że konfiguracja magazynu jest taka sama w regionie docelowym.
 Dysk zarządzany — standardowa | Obsługiwane w regionach świadczenia usługi Azure, w których Azure Site Recovery jest obsługiwana. |
@@ -216,6 +216,7 @@ Chłodna i gorąca pamięć masowa | Nieobsługiwane | Dyski maszyn wirtualnych 
 Miejsca do magazynowania | Obsługiwane |
 Szyfrowanie w spoczynku (SSE) | Obsługiwane | Funkcja SSE jest domyślnym ustawieniem na kontach magazynu.
 Szyfrowanie w spoczynku (CMK) | Obsługiwane | Obsługiwane są zarówno oprogramowanie, jak i klucze HSM dla dysków zarządzanych
+Podwójne szyfrowanie w spoczynku | Obsługiwane | Dowiedz się więcej na temat obsługiwanych regionów dla [systemów Windows](../virtual-machines/windows/disk-encryption.md) i [Linux](../virtual-machines/linux/disk-encryption.md)
 Azure Disk Encryption (ADE) dla systemu operacyjnego Windows | Obsługiwane w przypadku maszyn wirtualnych z dyskami zarządzanymi. | Maszyny wirtualne korzystające z dysków niezarządzanych nie są obsługiwane. <br/><br/> Klucze chronione przez moduł HSM nie są obsługiwane. <br/><br/> Szyfrowanie pojedynczych woluminów na pojedynczym dysku nie jest obsługiwane. |
 Azure Disk Encryption (ADE) dla systemu operacyjnego Linux | Obsługiwane w przypadku maszyn wirtualnych z dyskami zarządzanymi. | Maszyny wirtualne korzystające z dysków niezarządzanych nie są obsługiwane. <br/><br/> Klucze chronione przez moduł HSM nie są obsługiwane. <br/><br/> Szyfrowanie pojedynczych woluminów na pojedynczym dysku nie jest obsługiwane. |
 Dodawanie gorące    | Obsługiwane | W przypadku maszyn wirtualnych korzystających z dysków zarządzanych można włączyć replikację dla dysku danych dodawanego do zreplikowanej maszyny wirtualnej platformy Azure. <br/><br/> Tylko jeden dysk można dodać do maszyny wirtualnej platformy Azure jednocześnie. Równoległe Dodawanie wielu dysków nie jest obsługiwane. |
@@ -234,6 +235,7 @@ Konta magazynu ogólnego przeznaczenia w wersji 2 (warstwa gorąca i chłodna) |
 Generacja 2 (rozruch UEFI) | Obsługiwane
 Dyski interfejsu NVMe | Nieobsługiwane
 Dyski udostępnione platformy Azure | Nieobsługiwane
+Opcja bezpiecznego transferu | Obsługiwane
 
 >[!IMPORTANT]
 > Aby uniknąć problemów z wydajnością, należy się upewnić, że są używane elementy docelowe skalowalności i wydajności dysków maszyny wirtualnej dla maszyn wirtualnych z systemem [Linux](../virtual-machines/linux/disk-scalability-targets.md) lub [Windows](../virtual-machines/windows/disk-scalability-targets.md) . Jeśli używasz ustawień domyślnych, Site Recovery tworzy wymagane dyski i konta magazynu na podstawie konfiguracji źródłowej. Jeśli dostosowujesz i wybierasz własne ustawienia, postępuj zgodnie z celami skalowalności i wydajności dysków dla źródłowych maszyn wirtualnych.
@@ -268,7 +270,7 @@ Zarezerwowany (statyczny) adres IP | Obsługiwane | Jeśli karta sieciowa na źr
 Dynamiczny adres IP | Obsługiwane | Jeśli karta sieciowa w źródle ma dynamiczne adresowanie IP, karta sieciowa na maszynie wirtualnej w trybie failover jest również domyślnie dynamiczna.<br/><br/> Jeśli jest to wymagane, można je zmodyfikować na stały adres IP.
 Wiele adresów IP | Nieobsługiwane | Po przełączeniu maszyny wirtualnej w tryb failover, która ma kartę sieciową z wieloma adresami IP, zachowywany jest tylko podstawowy adres IP karty sieciowej w regionie źródłowym. Aby przypisać wiele adresów IP, można dodać maszyny wirtualne do [planu odzyskiwania](recovery-plan-overview.md) i dołączyć skrypt, aby przypisać dodatkowe adresy IP do planu, lub wprowadzić zmianę ręcznie lub za pomocą skryptu po przejściu do trybu failover.
 Traffic Manager     | Obsługiwane | Można wstępnie skonfigurować Traffic Manager tak, aby ruch był kierowany do punktu końcowego w regionie źródłowym w regularnych odstępach czasu i do punktu końcowego w regionie docelowym w przypadku przejścia w tryb failover.
-System DNS platformy Azure | Obsługiwane |
+Azure DNS | Obsługiwane |
 Niestandardowe DNS    | Obsługiwane |
 Nieuwierzytelniony serwer proxy | Obsługiwane | [Dowiedz się więcej](./azure-to-azure-about-networking.md)
 Uwierzytelniony serwer proxy | Nieobsługiwane | Jeśli maszyna wirtualna używa uwierzytelnionego serwera proxy do łączności wychodzącej, nie może być replikowana przy użyciu Azure Site Recovery.
@@ -282,5 +284,7 @@ Protokół IPv6  | Nieobsługiwane | Konfiguracje mieszane, które obejmują zar
 
 
 ## <a name="next-steps"></a>Następne kroki
+
 - Odczytaj [wskazówki dotyczące sieci](./azure-to-azure-about-networking.md) dotyczące replikacji maszyn wirtualnych platformy Azure.
 - Wdróż odzyskiwanie po awarii przez [replikowanie maszyn wirtualnych platformy Azure](./azure-to-azure-quickstart.md).
+

@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: e00538d1112492c5b7f9fc0f91c86df6d3500701
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7e59ee029b1705f6f789812b870de96bbb74a6e5
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82796592"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223554"
 ---
 # <a name="migrate-from-a-managed-image-to-a-shared-image-gallery-image"></a>Migrowanie z obrazu zarządzanego do obrazu z galerii udostępnionych obrazów
 
@@ -134,3 +134,4 @@ Remove-AzImage `
 
 Po sprawdzeniu, czy replikacja została ukończona, można utworzyć maszynę wirtualną na podstawie [uogólnionego obrazu](vm-generalized-image-version-powershell.md).
 
+Aby uzyskać informacje o sposobach dostarczania informacji o planie zakupu, zobacz temat [dostarczanie informacji o planie zakupu portalu Azure Marketplace podczas tworzenia obrazów](marketplace-images.md).

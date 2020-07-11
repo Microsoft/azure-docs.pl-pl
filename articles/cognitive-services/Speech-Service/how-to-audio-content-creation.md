@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/31/2020
 ms.author: trbye
-ms.openlocfilehash: 083580435c467a7d4b6a4cede0a821a2c271962f
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 72fecbdc173a6174e54a28e48f983965f397ba6a
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83589656"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224591"
 ---
 # <a name="improve-synthesis-with-the-audio-content-creation-tool"></a>Popraw syntezę przy użyciu narzędzia do tworzenia zawartości audio
 
@@ -23,11 +23,13 @@ ms.locfileid: "83589656"
 
 Narzędzie tworzenia zawartości audio jest oparte na [języku SSML (Speech syntezing Language)](speech-synthesis-markup.md). Aby uprościć Dostosowywanie i dostrajanie, tworzenie zawartości audio pozwala wizualnie zbadać wyniki zamiany tekstu na mowę w czasie rzeczywistym.
 
+Zobacz [Samouczek wideo](https://www.youtube.com/watch?v=O1wIJ7mts_w) dotyczący tworzenia zawartości audio.
+
 ## <a name="how-does-it-work"></a>Jak to działa?
 
 Na tym diagramie przedstawiono kroki, które należy wykonać, aby dostosować wyniki zamiany tekstu na mowę. Skorzystaj z poniższych linków, aby dowiedzieć się więcej o każdym z kroków.
 
-![](media/audio-content-creation/audio-content-creation-diagram.jpg)
+![Diagram kroków, które należy wykonać, aby dostosować wyniki zamiany tekstu na mowę.](media/audio-content-creation/audio-content-creation-diagram.jpg)
 
 1. [Skonfiguruj swoje konto platformy Azure i zasób mowy](#set-up-your-azure-account-and-speech-resource) , aby rozpocząć pracę.
 2. [Utwórz plik dostrajania audio](#create-an-audio-tuning-file) przy użyciu zwykłego tekstu lub skryptów SSML.

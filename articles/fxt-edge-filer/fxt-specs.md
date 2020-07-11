@@ -6,12 +6,12 @@ ms.service: fxt-edge-filer
 ms.topic: conceptual
 ms.date: 06/20/2019
 ms.author: rohogue
-ms.openlocfilehash: c06b0c79e01257eebf566b9752269cb88c072d8a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 57e312df31682ea868443423f40d54369cab6699
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85846712"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86231303"
 ---
 # <a name="azure-fxt-edge-filer-specifications"></a>Specyfikacje usługi Azure FXT Edge
 
@@ -34,7 +34,7 @@ Numery dysków są drukowane w przestrzeni między dyskami. W systemie plików u
 
 ![Fotografia jednej kieszeni dysku twardego w obudowie FXT, pokazująca numery dysków i etykiety pojemności](media/fxt-drives-photo.png)
 
-| Numery dysków    |  Użycie   |  Specyfikacje |
+| Numery dysków    |  Zastosowanie   |  Specyfikacje |
 |------------------|--------|-----------------|
 | 0, 1             | System operacyjny     | DYSK SSD 480 GB SATA |
 | 2, 3, 4, 5, 6, 7, 8, 9 | Dane   | FXT 6600:3,2 TB dysków SSD interfejsu NVMe <br> FXT 6400:1,6 TB dysków SSD interfejsu NVMe |
@@ -46,9 +46,9 @@ Usługa Azure FXT Edge Fileer została zaprojektowana tak, aby mieściła się w
 
 <!-- 10x2.5 inches version -->
 
-| Wymiary pliku           |                          |
+| Wymiary pliku            | Wartość                    |
 |-----------------------------|--------------------------|
-| Właściwość Height                      | 42,8 mm (1,68 cala)    |
+| Height                      | 42,8 mm (1,68 cala)    |
 | Szerokość (w tym Ears stojaka) | 482,0 mm (18,97 cala)  |
 | Szerokość — obudowa główna      | 434,0 mm (17,08 cala) |
 | Głębokość — stojak Ears do tyłu obudowy głównej                   | 733,82 mm (29,61 cala) |
@@ -56,7 +56,7 @@ Usługa Azure FXT Edge Fileer została zaprojektowana tak, aby mieściła się w
 | Głębokość — stojak Ears do najbardziej protrusionego frontu, bez żadnej osłony | 22,0 mm (0,87 cala)  |
 | Głębokość — stojak Ears do najbardziej protrusionego frontu, z ramką    | 35,84 mm (1,41 cala) |
 
-| Waga | |
+| Waga | Wartość |
 |-----------------|----------------------|
 | Waga węzła (bez pakowania, bez akcesoriów) | 40 funtów (18,1 kg) |
 | Waga netto (bez opakowania, z uwzględnieniem akcesoriów) | 51 funtów (23,1 kg)|
@@ -66,8 +66,8 @@ Usługa Azure FXT Edge Fileer została zaprojektowana tak, aby mieściła się w
 
 | Wymiar pakietu | Milimetrach | 15 |
 |-------------------|-------------|--------|
-| Właściwość Height            | 311,2       | 12,25 " |
-| impulsów             | 642,8       | 25,31 " |
+| Height            | 311,2       | 12,25 " |
+| Width             | 642,8       | 25,31 " |
 | Długość            | 1 051,1     | 41,38 " |
 
 ## <a name="power-and-thermal-specifications"></a>Specyfikacje dotyczące mocy i termiczne

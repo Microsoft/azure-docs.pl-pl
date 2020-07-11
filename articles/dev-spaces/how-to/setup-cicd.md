@@ -8,11 +8,12 @@ ms.topic: conceptual
 manager: gwallace
 description: Dowiedz się, jak skonfigurować ciągłą integrację/ciągłe wdrażanie przy użyciu usługi Azure DevOps z Azure Dev Spaces
 keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, kontenery
-ms.openlocfilehash: f2eb9449518b32ab74f2dbbca6b5489aed325db7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3a5f232111bd01f707080cc1638970f8dc51e6fa
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81685634"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86229333"
 ---
 # <a name="use-cicd-with-azure-dev-spaces"></a>Korzystanie z potoków ciągłej integracji/ciągłego wdrażania za pomocą obszarów Azure Dev Spaces
 
@@ -25,7 +26,7 @@ Mimo że ten artykuł prowadzi użytkownika przez usługę Azure DevOps, te same
 ## <a name="prerequisites"></a>Wymagania wstępne
 * [Klaster usługi Azure Kubernetes Service (AKS) z włączonym Azure Dev Spaces](../get-started-netcore.md)
 * [Zainstalowano interfejs wiersza polecenia Azure Dev Spaces](upgrade-tools.md)
-* [Organizacja usługi Azure DevOps z projektem](https://docs.microsoft.com/azure/devops/user-guide/sign-up-invite-teammates?view=vsts)
+* [Organizacja usługi Azure DevOps z projektem](/azure/devops/user-guide/sign-up-invite-teammates?view=vsts)
 * [Azure Container Registry (ACR)](../../container-registry/container-registry-get-started-azure-cli.md)
     * Dostępne są Azure Container Registry szczegóły [konta administratora](../../container-registry/container-registry-authentication.md#admin-account)
 * [Autoryzuj klaster AKS do ściągania z Azure Container Registry](../../aks/cluster-container-registry-integration.md)
@@ -67,7 +68,7 @@ Opcja wyłączenia:
 > [!Note]
 > Funkcja wersji zapoznawczej _tworzenia potoku_ usługi Azure DEVOPS New YAML jest w tej chwili w konflikcie z tworzeniem wstępnie zdefiniowanych potoków kompilacji. Musisz ją wyłączyć teraz, aby wdrożyć wstępnie zdefiniowany potok kompilacji.
 
-W gałęzi _azds_updates_ dodaliśmy PROSTą [YAML potoku platformy Azure](https://docs.microsoft.com/azure/devops/pipelines/yaml-schema?view=vsts&tabs=schema) , która definiuje kroki kompilacji wymagane dla *mywebapi* i *webfrontonu*.
+W gałęzi _azds_updates_ dodaliśmy PROSTą [YAML potoku platformy Azure](/azure/devops/pipelines/yaml-schema?view=vsts&tabs=schema) , która definiuje kroki kompilacji wymagane dla *mywebapi* i *webfrontonu*.
 
 W zależności od wybranego języka potok YAML został zaewidencjonowany w ścieżce podobnej do:`samples/dotnetcore/getting-started/azure-pipelines.dotnetcore.yml`
 

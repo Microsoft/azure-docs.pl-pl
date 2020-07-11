@@ -7,12 +7,12 @@ services: web-application-firewall
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: rimansdo
-ms.openlocfilehash: 12ad18edbb434bdfaec2ae817ea079a843661ef6
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 937f220980d602b755b6329da4d93df0e4b372ab
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86111352"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224064"
 ---
 # <a name="azure-web-application-firewall-and-azure-policy"></a>Zapora aplikacji sieci Web platformy Azure i Azure Policy
 
@@ -38,10 +38,12 @@ Istnieje kilka wbudowanych zasad platformy Azure do zarządzania zasobami WAF. P
 
 2.  W usłudze Azure Policy w obszarze **Tworzenie**wybierz pozycję **przypisania**.
 
+[!div class="mx-imgBorder"]
 ![Zapora aplikacji sieci Web platformy Azure](../media/waf-azure-policy/policy-home.png)
 
 3.  Na stronie przypisania wybierz ikonę **Przypisz zasady** u góry.
 
+[!div class="mx-imgBorder"]
 ![Zapora aplikacji sieci Web platformy Azure](../media/waf-azure-policy/assign-policy.png)
 
 4.  Na karcie informacje na stronie przypisywanie zasad należy zaktualizować następujące pola:
@@ -49,6 +51,7 @@ Istnieje kilka wbudowanych zasad platformy Azure do zarządzania zasobami WAF. P
     2.  **Wykluczenia**: Wybierz wszystkie zasoby z zakresu, które mają zostać wykluczone z zasad 
     3.  **Definicja zasad**: wybierz Azure Policy, które mają zostać zastosowane do zakresu z wykluczeniami. Wpisz "Zapora aplikacji sieci Web" na pasku wyszukiwania, aby wybrać odpowiednią zaporę aplikacji sieci Web Azure Policy.
 
+[!div class="mx-imgBorder"]
 ![Zapora aplikacji sieci Web platformy Azure](../media/waf-azure-policy/policy-listing.png)
 
 

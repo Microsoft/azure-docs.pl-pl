@@ -10,12 +10,12 @@ ms.date: 02/05/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 7e47440a54d733d0b5d849123633bf7e067fcd81
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bf7d72e6f16605827b55e3a460a9b28010842d2f
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84805713"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86220834"
 ---
 # <a name="create-an-account-that-supports-customer-managed-keys-for-tables-and-queues"></a>Utwórz konto, które obsługuje klucze zarządzane przez klienta dla tabel i kolejek
 
@@ -29,8 +29,8 @@ Aby utworzyć konto magazynu, które opiera się na kluczu szyfrowania konta dla
 
 Można utworzyć konto magazynu, które opiera się na kluczu szyfrowania konta dla usługi Queue i Table Storage w następujących regionach:
 
-- Wschodnie stany USA
-- Południowo-środkowe stany USA
+- East US
+- South Central US
 - Zachodnie stany USA 2  
 
 ### <a name="register-to-use-the-account-encryption-key"></a>Zarejestruj się, aby użyć klucza szyfrowania konta
@@ -237,7 +237,7 @@ $account.Encryption.Services.Table
 
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
-Aby sprawdzić, czy usługa na koncie magazynu korzysta z klucza szyfrowania konta, wywołaj polecenie [AZ Storage account](/cli/azure/storage/account#az-storage-account-show) . To polecenie zwraca zestaw właściwości konta magazynu i ich wartości. Wyszukaj `keyType` pole dla każdej usługi we właściwości szyfrowania i sprawdź, czy jest ono ustawione na wartość `Account` .
+Aby sprawdzić, czy usługa na koncie magazynu korzysta z klucza szyfrowania konta, wywołaj polecenie [AZ Storage account show](/cli/azure/storage/account#az-storage-account-show) . To polecenie zwraca zestaw właściwości konta magazynu i ich wartości. Wyszukaj `keyType` pole dla każdej usługi we właściwości szyfrowania i sprawdź, czy jest ono ustawione na wartość `Account` .
 
 ```azurecli
 az storage account show /

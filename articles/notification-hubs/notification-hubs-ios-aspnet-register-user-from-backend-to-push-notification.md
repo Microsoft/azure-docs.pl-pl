@@ -14,12 +14,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: a36fdbb985711887baa04320bb75e1a85cab84fe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0819f5196fffca25a840dc16d1df04cdd0a55029
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85253872"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223316"
 ---
 # <a name="register-the-current-user-for-push-notifications-by-using-aspnet"></a>Rejestrowanie bieżącego użytkownika na potrzeby powiadomień wypychanych przy użyciu ASP.NET
 
@@ -44,11 +44,11 @@ W tym temacie pokazano, jak zażądać rejestracji powiadomień wypychanych za p
 
      W tym momencie scenorys wygląda następująco:
 
-     ![][0]
+     ![Zrzut ekranu aplikacji MainStoryboard_iPhone. scenorys ze składnikami, które zostały dodane.][0]
 
 2. W edytorze asystenta Utwórz opcje dla wszystkich przełączników przełączanych i Wywołaj je, Połącz pola tekstowe z kontrolerem widoku (delegat) i Utwórz **akcję** dla przycisku **Zaloguj** .
 
-    ![][1]
+    ![Zrzut ekranu edytora asystenta w aplikacji MainStoryboard_iPhone. scenorys][1]
 
     Plik BreakingNewsViewController. h powinien teraz zawierać następujący kod:
 

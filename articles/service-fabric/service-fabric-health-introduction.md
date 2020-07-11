@@ -5,11 +5,12 @@ author: georgewallace
 ms.topic: conceptual
 ms.date: 2/28/2018
 ms.author: gwallace
-ms.openlocfilehash: 82e61b2bf127ba86d06aba3110a000ed28a79833
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4a6e8b2baa400e1221ac1e8271e04cdaa912aff6
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85392764"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224149"
 ---
 # <a name="introduction-to-service-fabric-health-monitoring"></a>Wprowadzenie do monitorowania kondycji usługi Service Fabric
 Na platformie Azure Service Fabric wprowadzono model kondycji, który zapewnia rozbudowane, elastyczne i rozszerzalne oceny kondycji oraz raportowanie. Model umożliwia monitorowanie stanu klastra i usług działających w czasie niemal w czasie rzeczywistym. Możesz łatwo uzyskać informacje o kondycji i rozwiązać potencjalne problemy, zanim staną się one kaskadowe i powodują ogromne przestoje. W typowym modelu usługi wysyłają raporty na podstawie widoków lokalnych, a informacje te są agregowane w celu zapewnienia ogólnego widoku poziomu klastra.
@@ -64,7 +65,7 @@ Możliwe są następujące [Stany kondycji](https://docs.microsoft.com/dotnet/ap
 * **OK**. Jednostka jest w dobrej kondycji. Nie ma żadnych znanych problemów dotyczących IT lub jego elementów podrzędnych (jeśli ma zastosowanie).
 * **Ostrzeżenie**. Jednostka ma pewne problemy, ale nadal może działać poprawnie. Na przykład występują opóźnienia, ale nie powodują jeszcze żadnych problemów funkcjonalnych. W niektórych przypadkach warunek ostrzegawczy może zostać naprawiony bez interwencji zewnętrznego. W takich przypadkach raporty kondycji zgłaszają świadomość i zapewniają wgląd w to, co się dzieje. W innych przypadkach warunek ostrzegawczy może obniżyć poziom poważnych problemów bez interwencji użytkownika.
 * **Błąd**. Jednostka jest w złej kondycji. Należy wykonać akcję, aby naprawić stan jednostki, ponieważ nie może ona działać prawidłowo.
-* **Nieznane**. Jednostka nie istnieje w magazynie kondycji. Ten wynik można uzyskać z zapytań rozproszonych, które scalają wyniki z wielu składników. Na przykład zapytanie Get node list przechodzi do **trybu failovermanager**, **Clustermanager**i **HealthManager**; zapytanie Get list aplikacji przechodzi do programu **clustermanager** i **kondycji**. Te zapytania scalają wyniki z wielu składników systemu. Jeśli inny składnik systemowy zwraca jednostkę, która nie jest obecna w magazynie kondycji, scalony wynik ma nieznany stan kondycji. Jednostka nie znajduje się w magazynie, ponieważ raporty kondycji nie zostały jeszcze przetworzone lub jednostka została oczyszczona po usunięciu.
+* **Nieznany**. Jednostka nie istnieje w magazynie kondycji. Ten wynik można uzyskać z zapytań rozproszonych, które scalają wyniki z wielu składników. Na przykład zapytanie Get node list przechodzi do **trybu failovermanager**, **Clustermanager**i **HealthManager**; zapytanie Get list aplikacji przechodzi do programu **clustermanager** i **kondycji**. Te zapytania scalają wyniki z wielu składników systemu. Jeśli inny składnik systemowy zwraca jednostkę, która nie jest obecna w magazynie kondycji, scalony wynik ma nieznany stan kondycji. Jednostka nie znajduje się w magazynie, ponieważ raporty kondycji nie zostały jeszcze przetworzone lub jednostka została oczyszczona po usunięciu.
 
 ## <a name="health-policies"></a>Zasady dotyczące kondycji
 Magazyn kondycji stosuje zasady dotyczące kondycji, aby określić, czy jednostka jest w dobrej kondycji na podstawie raportów i jego elementów podrzędnych.

@@ -3,12 +3,12 @@ title: Eksportowanie za pomocą Stream Analytics z platformy Azure Application I
 description: Stream Analytics mogą w sposób ciągły przekształcać, filtrować i kierować dane eksportowane z Application Insights.
 ms.topic: conceptual
 ms.date: 01/08/2019
-ms.openlocfilehash: 400c727b44d3794dc9a17c59959dc5c75cea71fe
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 71b19f0b49dec8f7176a53eeb656519c65f9c1d0
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86110491"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224523"
 ---
 # <a name="use-stream-analytics-to-process-exported-data-from-application-insights"></a>Użyj Stream Analytics, aby przetwarzać eksportowane dane z Application Insights
 [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) jest idealnym narzędziem do przetwarzania danych [wyeksportowanych z Application Insights](export-telemetry.md). Stream Analytics może pobierać dane z różnych źródeł. Może on przekształcać i filtrować dane, a następnie kierować je do różnych zlewów.
@@ -60,7 +60,7 @@ Eksport ciągły zawsze wyprowadza dane do konta usługi Azure Storage, dlatego 
     Ponadto dane zostaną wyeksportowane do magazynu. 
 2. Sprawdź wyeksportowane dane. W programie Visual Studio wybierz pozycję **Widok/Eksplorator chmury**i Otwórz pozycję Azure/Storage. (Jeśli nie masz tej opcji menu, musisz zainstalować zestaw Azure SDK: Otwórz okno dialogowe Nowy projekt i otwórz Visual C#/Cloud/Get Zestaw Microsoft Azure SDK dla platformy .NET).
    
-    ![](./media/export-stream-analytics/04-data.png)
+    ![Zrzut ekranu przedstawiający sposób ustawiania typów zdarzeń, które mają być wyświetlane.](./media/export-stream-analytics/04-data.png)
    
     Zanotuj wspólną część nazwy ścieżki, która jest pochodną nazwy aplikacji i klucza Instrumentacji. 
 
@@ -69,21 +69,21 @@ Zdarzenia są zapisywane w plikach obiektów BLOB w formacie JSON. Każdy plik m
 ## <a name="create-an-azure-stream-analytics-instance"></a>Tworzenie wystąpienia Azure Stream Analytics
 W [Azure Portal](https://portal.azure.com/)wybierz usługę Azure Stream Analytics i Utwórz nowe zadanie Stream Analytics:
 
-![](./media/export-stream-analytics/SA001.png)
+![Zrzut ekranu przedstawiający stronę główną służącą do tworzenia Stream Analytics zadania w Azure Portal.](./media/export-stream-analytics/SA001.png)
 
-![](./media/export-stream-analytics/SA002.png)
+![Zrzut ekranu pokazujący szczegóły, które są zbędne podczas tworzenia nowego zadania Stream Analytics.](./media/export-stream-analytics/SA002.png)
 
 Po utworzeniu nowego zadania wybierz pozycję **Przejdź do zasobu**.
 
-![](./media/export-stream-analytics/SA003.png)
+![Zrzut ekranu pokazujący komunikat odebrany po pomyślnym wdrożeniu nowego zadania Stream Analytics.](./media/export-stream-analytics/SA003.png)
 
 ### <a name="add-a-new-input"></a>Dodaj nowe dane wejściowe
 
-![](./media/export-stream-analytics/SA004.png)
+![Zrzut ekranu pokazujący sposób dodawania danych wejściowych do zadania Stream Analytics.](./media/export-stream-analytics/SA004.png)
 
 Ustaw, aby pobierał dane wejściowe z obiektu BLOB ciągłego eksportu:
 
-![](./media/export-stream-analytics/SA0005.png)
+![Zrzut ekranu pokazujący Konfigurowanie zadania Stream Analytics, które ma przyjmować dane wejściowe z obiektu BLOB ciągłego eksportu.](./media/export-stream-analytics/SA0005.png)
 
 Teraz potrzebny jest podstawowy klucz dostępu z konta magazynu, który został zanotowany wcześniej. Ustaw tę wartość jako klucz konta magazynu.
 
@@ -109,7 +109,7 @@ W tym przykładzie:
 ## <a name="add-new-output"></a>Dodaj nowe dane wyjściowe
 Teraz wybierz zadanie > Dodawanie danych **wyjściowych**  >  **Add**.
 
-![](./media/export-stream-analytics/SA006.png)
+![Zrzut ekranu pokazujący Wybieranie zadania Stream Analytics, aby dodać nowe dane wyjściowe.](./media/export-stream-analytics/SA006.png)
 
 
 ![Wybierz nowy kanał, kliknij pozycję dane wyjściowe, Dodaj, Power BI](./media/export-stream-analytics/SA010.png)

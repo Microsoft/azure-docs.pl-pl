@@ -1,28 +1,26 @@
 ---
-title: Wybieranie obrazów maszyn wirtualnych z systemem Windows na platformie Azure
+title: Znajdowanie obrazów portalu Azure Marketplace i korzystanie z nich
 description: Użyj Azure PowerShell, aby określić wydawcę, ofertę, jednostkę SKU i wersję dla obrazów maszyn wirtualnych z witryny Marketplace.
 author: cynthn
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
 ms.subservice: imaging
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 01/25/2019
 ms.author: cynthn
-ms.openlocfilehash: 46a2badbbe957f6a8a6af7f5a40633ea24cadcd4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e1ddc354e95185b6b2ba8bcb821fcabd5721c442
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82083369"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224251"
 ---
-# <a name="find-windows-vm-images-in-the-azure-marketplace-with-azure-powershell"></a>Znajdowanie obrazów maszyn wirtualnych z systemem Windows w witrynie Azure Marketplace przy użyciu programu Azure PowerShell
+# <a name="find-and-use-vm-images-in-the-azure-marketplace-with-azure-powershell"></a>Znajdowanie obrazów maszyn wirtualnych w portalu Azure Marketplace i korzystanie z nich przy użyciu Azure PowerShell
 
-W tym artykule opisano, jak używać Azure PowerShell do znajdowania obrazów maszyn wirtualnych w portalu Azure Marketplace. Następnie można określić obraz z witryny Marketplace podczas programistycznego tworzenia maszyny wirtualnej przy użyciu programu PowerShell, szablonów Menedżer zasobów lub innych narzędzi.
+W tym artykule opisano, jak używać Azure PowerShell do znajdowania obrazów maszyn wirtualnych w portalu Azure Marketplace. Następnie można określić obraz z witryny Marketplace podczas tworzenia maszyny wirtualnej.
 
 Dostępne obrazy i oferty można także przeglądać za pomocą [witryny Azure Marketplace](https://azuremarketplace.microsoft.com/) , [Azure Portal](https://portal.azure.com)lub [interfejsu wiersza polecenia platformy Azure](../linux/cli-ps-findimage.md). 
 
- 
 
 [!INCLUDE [virtual-machines-common-image-terms](../../../includes/virtual-machines-common-image-terms.md)]
 
@@ -318,7 +316,6 @@ Następnie można przekazać konfigurację maszyny wirtualnej wraz z obiektami k
 
 Aby szybko utworzyć maszynę wirtualną za pomocą `New-AzVM` polecenia cmdlet przy użyciu podstawowych informacji o obrazie, zobacz [Tworzenie maszyny wirtualnej z systemem Windows przy użyciu programu PowerShell](quick-create-powershell.md).
 
-
-Zobacz przykład skryptu programu PowerShell, aby [utworzyć w pełni skonfigurowaną maszynę wirtualną](../scripts/virtual-machines-windows-powershell-sample-create-vm.md).
+Aby uzyskać więcej informacji na temat tworzenia obrazów niestandardowych w galerii obrazów udostępnionych przy użyciu obrazów portalu Azure Marketplace, zobacz [Informacje o planie zakupu portalu Azure Marketplace podczas tworzenia obrazów](../marketplace-images.md).
 
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 06/30/2020
 ms.author: cherylmc
-ms.openlocfilehash: 42c8dd298c1fa0de04449945c7bb82e8b8bd6ff0
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: 3505427ab88a2241aa2781366c3d15179b03f050
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85856613"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86231164"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Partnerzy i lokalizacje komunikacji równorzędnej usługi ExpressRoute
 
@@ -40,7 +40,7 @@ Będziesz mieć dostęp do usług Azure we wszystkich regionach regionu geopolit
 ## <a name="azure-regions-to-expressroute-locations-within-a-geopolitical-region"></a><a name="locations"></a>Regiony świadczenia usługi Azure i lokalizacje usługi ExpressRoute w regionach geopolitycznych.
 Poniższa tabela zawiera mapę regionów świadczenia usługi Azure dla lokalizacji usługi ExpressRoute w regionie geopolitycznym.
 
-| **Region geopolityczny** | **Regiony świadczenia usługi Azure** | **Lokalizacje usługi ExpressRoute** |
+| **Region geopolityczny** | **Regiony platformy Azure** | **Lokalizacje usługi ExpressRoute** |
 | --- | --- | --- |
 | **Australia — instytucje rządowe** |Australia Środkowa, Australia Środkowa 2 |Canberra, Canberra2 |
 | **Europa** | Francja środkowa, Francja Południowa, Niemcy Północne, Niemcy Środkowo-Zachodnie, Europa Północna, Norwegia Wschodnia, Norwegia Zachodnia, Szwajcaria Północna, Szwajcaria Zachodnia, Zachodnie Zjednoczone Królestwo, Południowe Zjednoczone Królestwo, Europa Zachodnia |Amsterdam, Amsterdam2, Berlin, Kopenhaga, Dublin, Menem, Genewa, Londyn, London2, Marsylii, Mediolan, Monachium, Newport (Walia), Oslo, Paryż, Stavanger, Sztokholm, Zurych |
@@ -52,13 +52,13 @@ Poniższa tabela zawiera mapę regionów świadczenia usługi Azure dla lokaliza
 | **Korea Południowa** | Korea Środkowa, Korea Południowa |Busan, Seul|
 | **Zjednoczone Emiraty Arabskie** | Europa Północna, Zjednoczone Emiraty Arabskie | Dubaj, Dubai2 |
 | **Republika Południowej Afryki** | Zachodnia Republika Południowej Afryki, Północna Republika Południowej Afryki |Kapsztad, Johannesburg |
-| **Ameryka Południowa** | Brazylia Południowa |Sao Paulo |
+| **Ameryka Południowa** | Brazil South |Sao Paulo |
 
 
 ## <a name="regions-and-geopolitical-boundaries-for-national-clouds"></a>Regiony i granice geopolityczne chmur krajowych
 W poniższej tabeli zamieszczono informacje o regionach i granicach geopolitycznych chmur krajowych.
 
-| **Region geopolityczny** | **Regiony świadczenia usługi Azure** | **Lokalizacje usługi ExpressRoute** |
+| **Region geopolityczny** | **Regiony platformy Azure** | **Lokalizacje usługi ExpressRoute** |
 | --- | --- | --- |
 | **Chmura administracji USA** |US Gov Arizona, US Gov Iowa, US Gov Teksas, US Gov Wirginia, US DoD (region środkowy), US DoD (region wschodni)  |Atlanta, Chicago, Dallas, Nowy Jork, Phoenix, San Antonio, Seattle, Dolina Krzemowa, Waszyngton |
 | **Chiny Wschodnie** |Chiny Wschodnie, Chiny Wschodnie 2 |Szanghaj, Szanghaj 2 |
@@ -205,7 +205,7 @@ Aby dowiedzieć się więcej, zobacz [ExpressRoute w Chinach](http://www.windows
 | --- | --- | --- | --- |
 | **[Colt](https://www.colt.net/direct-connect/azure/)** |Obsługiwane |Nieobsługiwane |Frankfurt |
 | **[Equinix](https://www.equinix.com/partners/microsoft-azure/)** |Obsługiwane |Nieobsługiwane |Frankfurt |
-| **[dodasz e](https://www.e-shelter.de/en/microsoft-expressroutetm)** |Obsługiwane |Nieobsługiwane |Berlin |
+| **[dodasz e](https://www.e-shelter.de/en/microsoft-expressroute)** |Obsługiwane |Nieobsługiwane |Berlin |
 | **Interxion** |Obsługiwane |Nieobsługiwane |Frankfurt |
 | **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Obsługiwane  | Nieobsługiwane | Berlin |
 | **T-Systems** |Obsługiwane |Nieobsługiwane |Berlin |
@@ -243,7 +243,7 @@ Jeśli jesteś zdalny i nie masz łączności z włóknami lub chcesz poznać in
 | **Dostawca połączenia** | **Exchange** | **Lokalizacje** |
 | --- | --- | --- |
 | **[1CLOUDSTAR](https://www.1cloudstar.com/service/cloudconnect-azure-expressroute/)** |Equinix |Singapur |
-| **[Airgate Technologies, Inc.](https://www.airgate.ca/expressroute)** | Equinix, Cologix | Toronto, Montreal |
+| **[Airgate Technologies, Inc.](https://www.airgate.ca/)** | Equinix, Cologix | Toronto, Montreal |
 | **[Alaska Communications](https://www.alaskacommunications.com/For-Your-Business/Direct-Cloud-Service)** |Equinix |Seattle |
 | **[Altice Business](https://golightpath.com/transport)** |Equinix |Nowy Jork, Waszyngton |
 | **[Arteria Networks Corporation](https://www.arteria-net.com/business/service/cloud/sca/)** |Equinix |Tokio |
@@ -316,7 +316,7 @@ Jeśli jesteś zdalny i nie masz łączności z włóknami lub chcesz poznać in
 | **[Przesyłanie strumieniowe centrów danych]( https://www.streamdatacenters.com/products-services/network-cloud/ )** | Megaport |
 | **[RagingWire Data Centers](https://www.ragingwire.com/wholesale/wholesale-data-centers-worldwide-nexcenters)** | IX zasięg, Megaport, PacketFabric |
 | **[vXchnge](https://www.vxchnge.com/colocation-services/interconnection)** | IX zasięg, Megaport |
-| **[T5 Datacenters](https://t5datacenters.com/network-cloud-connect/)** | IX Reach |
+| **[T5 Datacenters](https://t5datacenters.com/)** | IX Reach |
 
 ## <a name="connectivity-through-national-research-and-education-networks-nren"></a>Łączność za pośrednictwem krajowych sieci badawczych i edukacyjnych (NREN)
 

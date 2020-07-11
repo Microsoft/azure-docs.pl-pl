@@ -9,11 +9,12 @@ ms.topic: how-to
 ms.date: 05/15/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 970a6dfc167a6bef7984598c60e7ce89c6e4b34c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2914dfed14360c114476025c74f3dc0c03d82e25
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84463726"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224897"
 ---
 # <a name="enable-and-manage-soft-delete-for-blobs"></a>Włączanie i zarządzanie nietrwałego usuwania dla obiektów BLOB
 
@@ -39,31 +40,31 @@ Włącz usuwanie nietrwałe dla obiektów BLOB na koncie magazynu przy użyciu A
 
 5. Wybierz przycisk **Zapisz** , aby potwierdzić ustawienia ochrony danych
 
-![](media/soft-delete-enable/storage-blob-soft-delete-portal-configuration.png)
+![Zrzut ekranu witryny Azure Portal z wybraną usługą obiektów BLOB ochrony danych.](media/soft-delete-enable/storage-blob-soft-delete-portal-configuration.png)
 
 Aby wyświetlić nietrwałe usunięte obiekty blob, zaznacz pole wyboru **Pokaż usunięte obiekty blob** .
 
-![](media/soft-delete-enable/storage-blob-soft-delete-portal-view-soft-deleted.png)
+![Zrzut ekranu strony usługi obiektów BLOB ochrony danych z wyróżnioną opcją Pokaż usunięte obiekty blob.](media/soft-delete-enable/storage-blob-soft-delete-portal-view-soft-deleted.png)
 
 Aby wyświetlić nietrwałe usunięte migawki dla danego obiektu BLOB, wybierz obiekt BLOB, a następnie kliknij pozycję **Wyświetl migawki**.
 
-![](media/soft-delete-enable/storage-blob-soft-delete-portal-view-soft-deleted-snapshots.png)
+![Zrzut ekranu strony usługi obiektów BLOB ochrony danych z wyróżnioną opcją Wyświetl migawki.](media/soft-delete-enable/storage-blob-soft-delete-portal-view-soft-deleted-snapshots.png)
 
 Upewnij się, że zaznaczone jest pole wyboru **Pokaż usunięte migawki** .
 
-![](media/soft-delete-enable/storage-blob-soft-delete-portal-view-soft-deleted-snapshots-check.png)
+![Zrzut ekranu strony wyświetlanie migawek z wyróżnioną opcją Pokaż usunięte obiekty blob.](media/soft-delete-enable/storage-blob-soft-delete-portal-view-soft-deleted-snapshots-check.png)
 
 Po kliknięciu nietrwałego usuniętego obiektu BLOB lub migawki Zwróć uwagę na nowe właściwości obiektu BLOB. Wskazują one, kiedy obiekt został usunięty i ile dni pozostało do momentu stałego wygaśnięcia migawki obiektu BLOB lub obiektu BLOB. Jeśli niewygładzony obiekt usunięty nie jest migawką, będzie również można cofnąć jego usunięcie.
 
-![](media/soft-delete-enable/storage-blob-soft-delete-portal-properties.png)
+![Zrzut ekranu przedstawiający szczegóły usuniętego obiektu nietrwałego.](media/soft-delete-enable/storage-blob-soft-delete-portal-properties.png)
 
 Należy pamiętać, że usunięcie obiektu BLOB spowoduje również cofnięcie usunięcia wszystkich skojarzonych migawek. Aby cofnąć usunięcie nieusuniętych migawek nietrwałych dla aktywnego obiektu BLOB, kliknij obiekt BLOB i wybierz pozycję **Cofnij usunięcie wszystkich migawek**.
 
-![](media/soft-delete-enable/storage-blob-soft-delete-portal-undelete-all-snapshots.png)
+![Zrzut ekranu przedstawiający szczegóły nietrwałego usuniętego obiektu BLOB.](media/soft-delete-enable/storage-blob-soft-delete-portal-undelete-all-snapshots.png)
 
 Po cofnięciu usunięcia migawek obiektu BLOB można kliknąć pozycję **Podwyższ poziom** , aby skopiować migawkę na głównym obiekcie blob, a tym samym przywrócić obiekt BLOB do migawki.
 
-![](media/soft-delete-enable/storage-blob-soft-delete-portal-promote-snapshot.png)
+![Zrzut ekranu przedstawiający stronę wyświetlanie migawek z wyróżnioną opcją podwyższania poziomu.](media/soft-delete-enable/storage-blob-soft-delete-portal-promote-snapshot.png)
 
 # <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 

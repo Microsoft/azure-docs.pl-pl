@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: overview
 ms.date: 01/13/2020
 ms.author: rohogue
-ms.openlocfilehash: a9dab2ca844feb1c24dfffc48b4f29cd1a311314
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7967b58819523173fd66d45eeabeaddc8605a21d
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76153195"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86229469"
 ---
 # <a name="what-is-avere-vfxt-for-azure"></a>Co to jest system Avere vFXT for Azure?
 
@@ -66,7 +66,7 @@ Klaster Avere vFXT umieszcza pliki w pamięci podręcznej w momencie ich żądan
 
 Avere vFXT for Azure używa następujących zasobów platformy Azure:
 
-|Składnik platformy Azure|   |
+|Składnik platformy Azure| Zasób |
 |----------|-----------|
 |Maszyny wirtualne|3 lub więcej E32s_v3|
 |Magazyn SSD w warstwie Premium|200 GB na system operacyjny i od 1 TB do 4 TB miejsca obszaru pamięci podręcznej na węzeł |

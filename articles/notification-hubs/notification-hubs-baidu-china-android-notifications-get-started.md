@@ -14,12 +14,12 @@ ms.date: 03/18/2020
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 06/19/2019
-ms.openlocfilehash: b9ca241b5deebc4d23e0ff648eddee0782617e0a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aaaaedbd6d2262f632bd47aa6eefb4cc83ab1abd
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79536993"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223962"
 ---
 # <a name="get-started-with-notification-hubs-using-baidu"></a>Rozpoczynanie pracy z usługą Azure Notification Hubs przy użyciu usługi Baidu
 
@@ -415,8 +415,8 @@ Zanotuj wartości `DefaultListenSharedAccessSignature` i `DefaultFullSharedAcces
 
 Odbieranie powiadomień możesz szybko przetestować w witrynie [Azure Portal], w tym celu użyj przycisku **Wyślij** na ekranie konfiguracji centrum powiadomień, jak pokazano na następującym zrzucie ekranu:
 
-![](./media/notification-hubs-baidu-get-started/BaiduTestSendButton.png)
-![](./media/notification-hubs-baidu-get-started/BaiduTestSend.png)
+![Zrzut ekranu witryny Azure Portal z opcją wysłania testu zakreśloną na czerwono i czerwoną strzałką wskazującą na to. ](./media/notification-hubs-baidu-get-started/BaiduTestSendButton.png)
+ ![ Zrzut ekranu przedstawiający stronę wysyłania testu Baidu w Azure Portal.](./media/notification-hubs-baidu-get-started/BaiduTestSend.png)
 
 Powiadomienia wypychane są zwykle wysyłane za pośrednictwem usługi zaplecza, takiej jak Mobile Services czy ASP.NET, z użyciem zgodnej biblioteki. Jeśli biblioteka nie jest dostępna w danym zapleczu, powiadomienia można wysyłać bezpośrednio za pomocą interfejsu API REST.
 
@@ -436,7 +436,7 @@ W tej sekcji przedstawiono sposób wysyłania powiadomienia za pomocą aplikacji
 
 1. Utwórz nową aplikację konsoli języka Visual C#:
 
-    ![](./media/notification-hubs-baidu-get-started/ConsoleProject.png)
+    ![Zrzut ekranu okna dialogowego Nowy projekt z wyróżnioną opcją Visual C# aplikacji konsolowej.](./media/notification-hubs-baidu-get-started/ConsoleProject.png)
 
 2. W oknie Konsola menedżera pakietów ustaw nowy projekt aplikacji konsoli jako **Projekt domyślny**, a następnie w oknie konsoli uruchom następujące polecenie:
 
@@ -446,7 +446,7 @@ W tej sekcji przedstawiono sposób wysyłania powiadomienia za pomocą aplikacji
 
     Ta instrukcja powoduje dodanie odwołania do zestawu SDK usługi Azure Notification Hubs z użyciem [pakietu NuGet Microsoft.Azure.Notification Hubs](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
 
-    ![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-package-manager.png)
+    ![Zrzut ekranu okna dialogowego konsola Menedżera pakietów z opcją Wyślij do centrum powiadomień kółkiem w kolorze czerwonym.](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-package-manager.png)
 
 3. Otwórz plik `Program.cs` i dodaj następującą instrukcję Using:
 
@@ -485,5 +485,5 @@ Testowe powiadomienie można wysłać przy użyciu karty debugowania w witrynie 
 <!-- URLs. -->
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
 [Zestaw SDK systemu Android dla powiadomień wypychanych w usłudze Baidu]: https://push.baidu.com/sdk/push_client_sdk_for_android
-[Azure Portal]: https://portal.azure.com/
+[Witryna Azure Portal]: https://portal.azure.com/
 [Baidu portal]: https://www.baidu.com/

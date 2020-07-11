@@ -3,11 +3,12 @@ title: Monitorowanie witryny programu SharePoint za pomocą usługi Application 
 description: Rozpocznij monitorowanie nowej aplikacji przy użyciu nowego klucza instrumentacji
 ms.topic: conceptual
 ms.date: 07/11/2018
-ms.openlocfilehash: 395e8d667985318f4a084428c6fd4c395ee8b956
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b9b31a715b19d6c06cbddb91c0bd9279088c4447
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77671447"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86221055"
 ---
 # <a name="monitor-a-sharepoint-site-with-application-insights"></a>Monitorowanie witryny programu SharePoint za pomocą usługi Application Insights
 Usługa Azure Application Insights monitoruje dostępność, wydajność i użycie Twoich aplikacji. Tutaj dowiesz się, jak skonfigurować je dla witryny programu SharePoint.
@@ -48,18 +49,18 @@ Jeśli możesz edytować stronę wzorcową witryny, będzie ona umożliwiać mon
 
 Wyrejestruj stronę wzorcową i edytuj ją za pomocą programu SharePoint Designer lub innego dowolnego edytora.
 
-![](./media/sharepoint/03-master.png)
+![Zrzut ekranu pokazujący sposób edycji strony wzorcowej przy użyciu narzędzia Administrator Designer lub innego edytora.](./media/sharepoint/03-master.png)
 
 Dodaj kod tuż przed </head> seryjn. 
 
-![](./media/sharepoint/04-code.png)
+![Zrzut ekranu pokazujący, gdzie dodać kod do strony witryny.](./media/sharepoint/04-code.png)
 
 #### <a name="or-on-individual-pages"></a>Lub na poszczególnych stronach
 Aby monitorować ograniczony zestaw stron, dodaj skrypt oddzielnie do każdej strony. 
 
 Wstaw składnik Web Part i osadź w nim fragment kodu.
 
-![](./media/sharepoint/05-page.png)
+![Zrzut ekranu pokazujący Dodawanie skryptu do monitorowania ograniczonego zestawu stron.](./media/sharepoint/05-page.png)
 
 ## <a name="view-data-about-your-app"></a>Wyświetlanie danych aplikacji
 Ponownie wdróż aplikację.
@@ -68,7 +69,7 @@ Wróć do bloku aplikacji w witrynie [Azure Portal](https://portal.azure.com).
 
 Pierwsze zdarzenia będą wyświetlane w obszarze wyszukiwania. 
 
-![](./media/sharepoint/09-search.png)
+![Zrzut ekranu pokazujący nowe dane, które można wyświetlić w aplikacji.](./media/sharepoint/09-search.png)
 
 Jeśli oczekujesz większej ilości danych, kliknij przycisk Odśwież po kilku sekundach.
 
@@ -77,7 +78,7 @@ Fragment kodu standardowej strony sieci Web nie przechwytuje identyfikatora uży
 
 1. Skopiuj klucz instrumentacji aplikacji z listy rozwijanej Podstawy w usłudze Application Insights. 
 
-    ![](./media/sharepoint/02-props.png)
+    ![Zrzut ekranu pokazujący kopiowanie Instrumentacji aplikacji z listy rozwijanej podstawowe w Application Insights.](./media/sharepoint/02-props.png)
 
 1. Zastąp klucz instrumentacji ciągiem „XXXX” we fragmencie kodu poniżej. 
 2. Osadź skrypt w aplikacji programu SharePoint zamiast fragmentu kodu pobranego z portalu.

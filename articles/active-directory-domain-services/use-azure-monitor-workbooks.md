@@ -7,14 +7,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/18/2020
+ms.date: 07/09/2020
 ms.author: iainfou
-ms.openlocfilehash: 99b61bdd4318bf7c77ae53cc9b77e66ebd6c098a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 879138d882913b8ab43c5689ff72a40e6987c104
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84733402"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223044"
 ---
 # <a name="review-security-audit-events-in-azure-active-directory-domain-services-using-azure-monitor-workbooks"></a>Przeglądanie zdarzeń inspekcji zabezpieczeń w Azure Active Directory Domain Services przy użyciu skoroszytów Azure Monitor
 
@@ -32,8 +32,8 @@ Aby wykonać ten artykuł, potrzebne są następujące zasoby i uprawnienia:
     * W razie konieczności [Utwórz dzierżawę Azure Active Directory][create-azure-ad-tenant] lub [skojarz subskrypcję platformy Azure z Twoim kontem][associate-azure-ad-tenant].
 * Azure Active Directory Domain Services zarządzana domena włączona i skonfigurowana w dzierżawie usługi Azure AD.
     * W razie potrzeby uzupełnij ten samouczek, aby [utworzyć i skonfigurować domenę zarządzaną Azure Active Directory Domain Services][create-azure-ad-ds-instance].
-* Zdarzenia inspekcji zabezpieczeń włączone dla Azure Active Directory Domain Servicesej domeny zarządzanej, która przesyła strumieniowo dane do Log Analytics obszaru roboczego.
-    * W razie potrzeby [Włącz inspekcje zabezpieczeń dla Azure Active Directory Domain Services][enable-security-audits].
+* Włączono zdarzenia inspekcji zabezpieczeń dla domeny zarządzanej, które przesyła strumieniowo dane do obszaru roboczego Log Analytics.
+    * W razie potrzeby [Włącz inspekcje zabezpieczeń dla AD DS platformy Azure][enable-security-audits].
 
 ## <a name="azure-monitor-workbooks-overview"></a>Przegląd Azure Monitor skoroszytów
 
@@ -61,11 +61,13 @@ Aby uzyskać dostęp do szablonu skoroszytu dla raportu Przegląd zabezpieczeń,
     ![Wybierz opcję menu skoroszyty w Azure Portal](./media/use-azure-monitor-workbooks/select-workbooks-in-azure-portal.png)
 
 1. Wybierz **raport Przegląd zabezpieczeń**.
-1. Z menu rozwijanego w górnej części skoroszytu wybierz subskrypcję platformy Azure, a następnie Azure Monitor obszarze roboczym. Wybierz **zakres czasu**, na przykład *ostatnie 7 dni*.
+1. Z menu rozwijanego w górnej części skoroszytu wybierz subskrypcję platformy Azure, a następnie obszar roboczy Azure Monitor.
+
+    Wybierz **zakres czasu**, taki jak *ostatnie 7 dni*, jak pokazano na poniższym przykładzie zrzutu ekranu:
 
     ![Wybierz opcję menu skoroszyty w Azure Portal](./media/use-azure-monitor-workbooks/select-query-filters.png)
 
-    Opcje **widoku kafelków** i **widoku wykresu** można także zmienić, aby analizować i wizualizować dane zgodnie z potrzebami
+    Opcje **widoku kafelków** i **widoku wykresu** można także zmienić, aby analizować i wizualizować dane zgodnie z potrzebami.
 
 1. Aby przejść do szczegółów określonego typu zdarzenia, wybierz jedną z kart **wyników logowania** , takich jak *Konto zablokowane*, jak pokazano w następującym przykładzie:
 
@@ -85,7 +87,11 @@ Aby uzyskać dostęp do szablonu skoroszytu dla raportu aktywność konta, wykon
 1. Wybierz domenę zarządzaną, taką jak *aaddscontoso.com*
 1. Z menu po lewej stronie wybierz pozycję **monitorowanie > skoroszyty**
 1. Wybierz **raport aktywność konta**.
-1. Z menu rozwijanego w górnej części skoroszytu wybierz subskrypcję platformy Azure, a następnie Azure Monitor obszarze roboczym. Wybierz **zakres czasu**, taki jak *ostatnie 30 dni*, a następnie sposób, w jaki **Widok kafelka** ma reprezentować dane. Można filtrować według **nazwy użytkownika konta**, takiej jak *Felix*, jak pokazano w poniższym przykładowym raporcie:
+1. Z menu rozwijanego w górnej części skoroszytu wybierz subskrypcję platformy Azure, a następnie obszar roboczy Azure Monitor.
+
+    Wybierz **zakres czasu**, taki jak *ostatnie 30 dni*, a następnie sposób, w jaki **Widok kafelka** ma reprezentować dane.
+
+    Można filtrować według **nazwy użytkownika konta**, takiej jak *Felix*, jak pokazano w poniższym przykładowym raporcie:
 
     [![](./media/use-azure-monitor-workbooks/account-activity-report-cropped.png "Account activity report in Azure Monitor Workbooks")](./media/use-azure-monitor-workbooks/account-activity-report.png#lightbox)
 
