@@ -6,12 +6,12 @@ ms.author: suvetriv
 ms.topic: tutorial
 ms.service: container-service
 ms.date: 04/24/2020
-ms.openlocfilehash: 61b6ad0bedb4817c262b4269a6e9f6930a6caa6c
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: b78364cef6bfd6cf91e6edf81fd57fa5912125db
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85985692"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260683"
 ---
 # <a name="tutorial-create-an-azure-red-hat-openshift-4-cluster"></a>Samouczek: Tworzenie klastra usługi Azure Red Hat OpenShift 4
 
@@ -87,11 +87,26 @@ Po uruchomieniu `az aro create` polecenia można odwoływać się do klucza tajn
 
 Jeśli kopiujesz klucz tajny ściągania lub odwołujesz się do niego w innych skryptach, klucz tajny ściągania powinien być sformatowany jako prawidłowy ciąg JSON.
 
+### <a name="prepare-a-custom-domain-for-your-cluster-optional"></a>Przygotuj domenę niestandardową dla klastra (opcjonalnie)
+
+Podczas uruchamiania `az aro create` polecenia można określić domenę niestandardową dla klastra przy użyciu `--domain foo.example.com` parametru.
+
+Jeśli podano domenę niestandardową dla klastra, należy zwrócić uwagę na następujące kwestie:
+
+* Po utworzeniu klastra należy utworzyć 2 rekordy A systemu DNS na serwerze DNS dla `--domain` określonych:
+    * **interfejs API** — wskazanie serwera interfejsu API
+    * ** \* aplikacje** — wskazuje na ruch przychodzący
+    * Pobierz te wartości, wykonując następujące polecenie: `az aro show -n -g --query '{api:apiserverProfile.ip, ingress:ingressProfiles[0].ip}'` .
+
+* Konsola OpenShift będzie dostępna pod adresem URL, takim jak `https://console-openshift-console.apps.foo.example.com` , a nie wbudowaną domeną `https://console-openshift-console.apps.<random>.<location>.aroapp.io` .
+
+* Domyślnie OpenShift używa certyfikatów z podpisem własnym dla wszystkich tras utworzonych w usłudze `*.apps.<random>.<location>.aroapp.io` .  Jeśli zdecydujesz się używać niestandardowej usługi DNS po nawiązaniu połączenia z klastrem, musisz postępować zgodnie z dokumentacją OpenShift w celu [skonfigurowania niestandardowego urzędu certyfikacji dla kontrolera](https://docs.openshift.com/container-platform/4.3/authentication/certificates/replacing-default-ingress-certificate.html) usług przychodzących i [niestandardowego urzędu certyfikacji dla serwera interfejsu API](https://docs.openshift.com/container-platform/4.3/authentication/certificates/api-server.html).
+
 ### <a name="create-a-virtual-network-containing-two-empty-subnets"></a>Tworzenie sieci wirtualnej zawierającej dwie puste podsieci
 
 Następnie utworzysz sieć wirtualną zawierającą dwie puste podsieci.
 
-1. **Ustaw następujące zmienne.**
+1. **Ustaw następujące zmienne w środowisku powłoki, w którym będą wykonywane `az` polecenia.**
 
    ```console
    LOCATION=eastus                 # the location of your cluster
@@ -99,9 +114,9 @@ Następnie utworzysz sieć wirtualną zawierającą dwie puste podsieci.
    CLUSTER=cluster                 # the name of your cluster
    ```
 
-1. **Tworzenie grupy zasobów**
+1. **Utwórz grupę zasobów.**
 
-    Grupa zasobów platformy Azure to logiczna grupa przeznaczona do wdrażania zasobów platformy Azure i zarządzania nimi. Podczas tworzenia grupy zasobów użytkownik jest proszony o określenie lokalizacji. Ta lokalizacja wskazuje, gdzie są przechowywane metadane grupy zasobów, a także czy zasoby są uruchamiane na platformie Azure, jeśli nie określisz innego regionu podczas tworzenia zasobów. Utwórz grupę zasobów za pomocą polecenia [AZ Group Create] [AZ-Group-Create].
+    Grupa zasobów platformy Azure to logiczna grupa przeznaczona do wdrażania zasobów platformy Azure i zarządzania nimi. Podczas tworzenia grupy zasobów użytkownik jest proszony o określenie lokalizacji. Ta lokalizacja wskazuje, gdzie są przechowywane metadane grupy zasobów, a także czy zasoby są uruchamiane na platformie Azure, jeśli nie określisz innego regionu podczas tworzenia zasobów. Utwórz grupę zasobów przy użyciu polecenia [az group create](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-create).
 
     ```azurecli-interactive
     az group create --name $RESOURCEGROUP --location $LOCATION
@@ -126,7 +141,7 @@ Następnie utworzysz sieć wirtualną zawierającą dwie puste podsieci.
 
     Klastry usługi Azure Red Hat OpenShift z systemem OpenShift 4 wymagają sieci wirtualnej z dwiema pustymi podsieciami dla węzłów głównych i procesów roboczych.
 
-    Utwórz nową sieć wirtualną w tej samej grupie zasobów, która została utworzona wcześniej.
+    Utwórz nową sieć wirtualną w tej samej grupie zasobów, która została utworzona wcześniej:
 
     ```azurecli-interactive
     az network vnet create \
@@ -189,10 +204,12 @@ Następnie utworzysz sieć wirtualną zawierającą dwie puste podsieci.
 
 ## <a name="create-the-cluster"></a>Tworzenie klastra
 
-Uruchom następujące polecenie, aby utworzyć klaster. Opcjonalnie możesz [przekazać swoje hasło w systemie Red Hat](#get-a-red-hat-pull-secret-optional) , które umożliwia klastrowi dostęp do rejestrów kontenerów Red Hat oraz dodatkowej zawartości.
+Uruchom następujące polecenie, aby utworzyć klaster. Jeśli zdecydujesz się użyć jednej z następujących opcji, zmodyfikuj polecenie odpowiednio:
+* Opcjonalnie możesz [przekazać swoje hasło w systemie Red Hat](#get-a-red-hat-pull-secret-optional) , które umożliwia klastrowi dostęp do rejestrów kontenerów Red Hat oraz dodatkowej zawartości. Dodaj `--pull-secret @pull-secret.txt` argument do polecenia.
+* Opcjonalnie możesz [użyć domeny niestandardowej](#prepare-a-custom-domain-for-your-cluster-optional). Dodaj `--domain foo.example.com` argument do polecenia, zastępując `foo.example.com` go własną domeną niestandardową.
 
->[!NOTE]
-> Jeśli kopiujesz/wklejasz polecenia i używasz jednego z parametrów opcjonalnych, pamiętaj o usunięciu początkowych hasztagów i końcowym tekście komentarza. Ponadto Zamknij argument w poprzednim wierszu polecenia z końcowym ukośnikiem odwrotnym.
+> [!NOTE]
+> Jeśli dodajesz opcjonalne argumenty do polecenia, pamiętaj o zamknięciu argumentu w poprzednim wierszu polecenia z końcowym ukośnikiem odwrotnym.
 
 ```azurecli-interactive
 az aro create \
@@ -201,17 +218,9 @@ az aro create \
   --vnet aro-vnet \
   --master-subnet master-subnet \
   --worker-subnet worker-subnet
-  # --domain foo.example.com # [OPTIONAL] custom domain
-  # --pull-secret @pull-secret.txt # [OPTIONAL]
 ```
 
 Po wykonaniu `az aro create` polecenia zwykle trwa około 35 minut na utworzenie klastra.
-
->[!IMPORTANT]
-> Jeśli zdecydujesz się określić domenę niestandardową, na przykład **foo.example.com**, konsola OpenShift będzie dostępna pod adresem URL, takim jak `https://console-openshift-console.apps.foo.example.com` , a nie wbudowaną domeną `https://console-openshift-console.apps.<random>.<location>.aroapp.io` .
->
-> Domyślnie OpenShift używa certyfikatów z podpisem własnym dla wszystkich tras utworzonych w usłudze `*.apps.<random>.<location>.aroapp.io` .  Jeśli zdecydujesz się używać niestandardowej usługi DNS po nawiązaniu połączenia z klastrem, musisz postępować zgodnie z dokumentacją OpenShift w celu [skonfigurowania niestandardowego urzędu certyfikacji dla kontrolera](https://docs.openshift.com/container-platform/4.3/authentication/certificates/replacing-default-ingress-certificate.html) usług przychodzących i [niestandardowego urzędu certyfikacji dla serwera interfejsu API](https://docs.openshift.com/container-platform/4.3/authentication/certificates/api-server.html).
->
 
 ## <a name="next-steps"></a>Następne kroki
 

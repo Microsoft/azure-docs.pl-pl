@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 07/22/2019
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 124fc6035c1d0ad504a34b7db227f0f4675f24f7
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 8dd47d27f928cb33e5a2bbc3ba9a6ab2bc044852
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75613962"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86245385"
 ---
 # <a name="tutorial-deploy-an-application-on-your-service-fabric-standalone-cluster"></a>Samouczek: wdrażanie aplikacji w autonomicznym klastrze usługi Service Fabric
 
@@ -46,13 +46,13 @@ Po pobraniu aplikacji można ją wdrożyć w klastrze bezpośrednio z programu V
 
 1. Otwórz program Visual Studio.
 
-2. Wybierz pozycję **plik** > **Otwórz**
+2. Wybierz pozycję **plik**  >  **Otwórz**
 
 3. Przejdź do folderu, do którego sklonowano repozytorium git, i wybierz plik Voting.sln.
 
 4. Kliknij prawym przyciskiem myszy projekt aplikacji `Voting` w Eksploratorze rozwiązań i wybierz polecenie **Publikuj**.
 
-5. Wybierz listę rozwijaną **Punkt końcowy połączenia** i wprowadź publiczną nazwę DNS jednego z węzłów w klastrze.  Na przykład `ec2-34-215-183-77.us-west-2.compute.amazonaws.com:19000`. Należy pamiętać, że na platformie Azure nie jest podawana w pełni kwalifikowana nazwa domeny (FQDN), ale można ją łatwo [ustawić na stronie Przegląd maszyny wirtualnej.](https://docs.microsoft.com/azure/virtual-machines/linux/portal-create-fqdn)
+5. Wybierz listę rozwijaną **Punkt końcowy połączenia** i wprowadź publiczną nazwę DNS jednego z węzłów w klastrze.  Na przykład `ec2-34-215-183-77.us-west-2.compute.amazonaws.com:19000`. Należy pamiętać, że na platformie Azure nie jest podawana w pełni kwalifikowana nazwa domeny (FQDN), ale można ją łatwo [ustawić na stronie Przegląd maszyny wirtualnej.](../virtual-machines/linux/portal-create-fqdn.md)
 
 6. Otwórz preferowaną przeglądarkę i wpisz adres klastra (punkt końcowy połączenia; ta aplikacja jest wdrożona na porcie 8080 — na przykład ec2-34-215-183-77.us-west-2.compute.amazonaws.com:8080).
 

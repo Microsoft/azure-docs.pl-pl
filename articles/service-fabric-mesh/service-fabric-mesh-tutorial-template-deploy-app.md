@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 01/11/2019
 ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 1ff1407400843fdb0f0ff997e2e0a3c1b7e67c7d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: f7cb3f75dcaaeb6e0304784941dfcfc81ae6d68f
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75494941"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86248394"
 ---
 # <a name="tutorial-deploy-an-application-to-service-fabric-mesh-using-a-template"></a>Samouczek: wdrażanie aplikacji w usłudze Service Fabric Mesh przy użyciu szablonu
 
@@ -171,7 +171,7 @@ Poprzednie dane wyjściowe potwierdzają obecność obrazu `azure-mesh-todo-serv
 ## <a name="retrieve-credentials-for-the-registry"></a>Pobieranie poświadczeń dla rejestru
 
 > [!IMPORTANT]
-> Włączanie uprawnień administratora dla wystąpienia usługi ACR nie jest zalecane w scenariuszach produkcyjnych. Tutaj zostało to zrobione dla wygody. W przypadku scenariuszy produkcyjnych używaj [nazwy głównej usługi](https://docs.microsoft.com/azure/container-registry/container-registry-auth-service-principal) na potrzeby uwierzytelniania zarówno użytkownika, jak i systemu.
+> Włączanie uprawnień administratora dla wystąpienia usługi ACR nie jest zalecane w scenariuszach produkcyjnych. Tutaj zostało to zrobione dla wygody. W przypadku scenariuszy produkcyjnych używaj [nazwy głównej usługi](../container-registry/container-registry-auth-service-principal.md) na potrzeby uwierzytelniania zarówno użytkownika, jak i systemu.
 
 W celu wdrożenia wystąpienia kontenera z rejestru utworzonego przy użyciu szablonu, podczas wdrażania musisz podać poświadczenia rejestru. Najpierw włącz administratora w rejestrze za pomocą następującego polecenia:
 
@@ -191,7 +191,7 @@ Użyj zwróconych wartości nazwy serwera logowania usługi ACR, nazwy użytkown
 
 ## <a name="download-and-explore-the-template-and-parameters-files"></a>Pobieranie i eksplorowanie szablonu i plików parametrów
 
-Aplikacja usługi Service Fabric Mesh jest zasobem platformy Azure, który można wdrożyć i którym można zarządzać przy użyciu szablonów usługi Azure Resource Manager (RM). Jeśli nie znasz pojęć dotyczących wdrażania Twoich rozwiązań platformy Azure i zarządzania nimi, zobacz [Omówienie usługi Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview) i [Omówienie struktury i składni szablonów usługi RM](/azure/azure-resource-manager/resource-group-authoring-templates).
+Aplikacja usługi Service Fabric Mesh jest zasobem platformy Azure, który można wdrożyć i którym można zarządzać przy użyciu szablonów usługi Azure Resource Manager (RM). Jeśli nie znasz pojęć dotyczących wdrażania Twoich rozwiązań platformy Azure i zarządzania nimi, zobacz [Omówienie usługi Azure Resource Manager](../azure-resource-manager/management/overview.md) i [Omówienie struktury i składni szablonów usługi RM](../azure-resource-manager/templates/template-syntax.md).
 
 W tym samouczku używamy przykładowej aplikacji To Do List.  Zamiast tworzyć nowy szablon i nowe pliki parametrów, pobierz pliki [mesh_rp.windows.json deployment template](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/todolist/mesh_rp.windows.json) i [mesh_rp.windows.parameter.json parameters](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/todolist/mesh_rp.windows.parameters.json).
 

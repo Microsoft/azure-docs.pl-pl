@@ -13,12 +13,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 08/10/2018
 ms.author: apimpm
-ms.openlocfilehash: 686d6e2ff01fd4d8283350ab8097e1f73c914af0
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: d90b212286b555bf5b858990fd5dcb062348be8d
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81261000"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86254728"
 ---
 # <a name="create-and-publish-a-product"></a>Tworzenie i publikowanie produktu  
 
@@ -85,7 +85,7 @@ Przed uzyskaniem dostępu do interfejsu API deweloperzy muszą najpierw zasubskr
 4. Wybierz interfejs API, a następnie kliknij pozycję **Wybierz**.
 
 > [!TIP]
-> Można utworzyć lub zaktualizować subskrypcję użytkownika do poziomu *produktu* przy użyciu niestandardowych kluczy subskrypcji [za pośrednictwem interfejsu API REST](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/subscription/createorupdate) lub polecenia programu PowerShell.
+> Można utworzyć lub zaktualizować subskrypcję użytkownika do poziomu *produktu* przy użyciu niestandardowych kluczy subskrypcji [za pośrednictwem interfejsu API REST](/rest/api/apimanagement/2019-12-01/subscription/createorupdate) lub polecenia programu PowerShell.
 
 ## <a name="next-steps"></a>Następne kroki
 

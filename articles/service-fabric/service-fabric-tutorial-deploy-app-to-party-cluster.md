@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 07/22/2019
 ms.author: mikhegn
 ms.custom: mvc
-ms.openlocfilehash: 9951610732cbb1c5884a7b7e830033f427db0ab1
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 4cd21669b30b8ec83d6a0538c90d4cec5cafe32a
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75646011"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86244994"
 ---
 # <a name="tutorial-deploy-a-service-fabric-application-to-a-cluster-in-azure"></a>Samouczek: wdrażanie aplikacji usługi Service Fabric w klastrze na platformie Azure
 
@@ -34,7 +34,7 @@ Ta seria samouczków zawiera informacje na temat wykonywania następujących czy
 
 Przed rozpoczęciem tego samouczka:
 
-* Jeśli nie masz subskrypcji platformy Azure, Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [Zainstaluj program Visual Studio 2019](https://www.visualstudio.com/)i zainstaluj obciążenia **deweloperskie** oraz **ASP.NET i programowanie dla sieci Web** .
 * [Zainstaluj zestaw SDK Service Fabric](service-fabric-get-started.md).
 
@@ -53,7 +53,7 @@ Otwórz aplikację w programie Visual Studio w trybie administratora i skompiluj
 
 ## <a name="create-a-cluster"></a>Tworzenie klastra
 
-Teraz, gdy aplikacja jest gotowa, utwórz klaster usługi Service Fabric, a następnie wdróż aplikację w klastrze. [Klaster Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-anywhere) jest połączonym z siecią zestawem maszyn wirtualnych lub fizycznych, w którym są wdrażane i zarządzane mikrousługi.
+Teraz, gdy aplikacja jest gotowa, utwórz klaster usługi Service Fabric, a następnie wdróż aplikację w klastrze. [Klaster Service Fabric](./service-fabric-deploy-anywhere.md) jest połączonym z siecią zestawem maszyn wirtualnych lub fizycznych, w którym są wdrażane i zarządzane mikrousługi.
 
 W ramach tego samouczka utworzysz nowy klaster testowy z trzema węzłami w środowisku IDE programu Visual Studio, a następnie opublikujesz aplikację w tym klastrze. Aby uzyskać informacje dotyczące tworzenia klastra produkcyjnego zobacz [Samouczek dotyczący tworzenia klastra i zarządzania nim](service-fabric-tutorial-create-vnet-and-windows-cluster.md). Możesz również wdrożyć aplikację w istniejącym klastrze, który został utworzony wcześniej za pośrednictwem witryny [Azure Portal](https://portal.azure.com), przy użyciu skryptów programu [PowerShell](./scripts/service-fabric-powershell-create-secure-cluster-cert.md) lub [interfejsu wiersza polecenia platformy Azure](./scripts/cli-create-cluster.md) albo za pomocą [szablonu usługi Azure Resource Manager](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
 
@@ -101,7 +101,7 @@ W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy pozycję **Voting (
 W polu **Punkt końcowy połączenia** wybierz punkt końcowy klastra utworzonego w poprzednim kroku.  Na przykład „mytestcluster.southcentral.cloudapp.azure.com:19000”. Jeśli wybierzesz pozycję **Zaawansowane parametry połączenia**, informacje o certyfikacie powinny być automatycznie wypełnione.  
 ![Publikowanie aplikacji usługi Service Fabric](./media/service-fabric-tutorial-deploy-app-to-party-cluster/publish-app.png)
 
-Wybierz pozycję **Publikuj**.
+Wybierz pozycję **Opublikuj**.
 
 Po wdrożeniu aplikacji otwórz przeglądarkę i wprowadź adres klastra, a następnie wartość **:8080**. Ewentualnie wpisz inny numer portu, jeśli został skonfigurowany. Może to być na przykład `http://mytestcluster.southcentral.cloudapp.azure.com:8080`. Aplikacja zostanie teraz wyświetlona jako uruchomiona w klastrze na platformie Azure. Na stronie internetowej aplikacji do głosowania spróbuj dodać lub usunąć opcje głosowania oraz zagłosować na co najmniej jedną z tych opcji.
 

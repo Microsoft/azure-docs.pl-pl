@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 04/22/2020
 ms.author: apimpm
-ms.openlocfilehash: e6195409a08498527ec40a2ddd2f909a092c9d19
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 28b055cb343b7f894a28eee5fbe452d037fd6b0e
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82202829"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86249494"
 ---
 # <a name="import-an-api-app-as-an-api"></a>Importowanie aplikacji interfejsu API jako interfejsu API
 
@@ -33,7 +33,7 @@ W tym artykule omówiono sposób wykonywania następujących zadań:
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 + Wykonaj procedury przedstawione w następującym przewodniku Szybki start: [Tworzenie wystąpienia usługi Azure API Management](get-started-create-service-instance.md)
-+ Upewnij się, że Twoja subskrypcja obejmuje aplikację interfejsu API. Aby uzyskać więcej informacji, zobacz [Dokumentacja usługi App Service](https://docs.microsoft.com/azure/app-service/)
++ Upewnij się, że Twoja subskrypcja obejmuje aplikację interfejsu API. Aby uzyskać więcej informacji, zobacz [Dokumentacja usługi App Service](../app-service/index.yml)
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
@@ -57,7 +57,7 @@ W tym artykule omówiono sposób wykonywania następujących zadań:
     * **Starter (początkowy)**
     * **Nieograniczona liczba**   
 7. Wprowadź inne ustawienia interfejsu API. Możesz ustawić wartości podczas tworzenia lub skonfigurować je później, przechodząc do karty **Ustawienia** . Ustawienia są wyjaśnione w samouczku [Importowanie i publikowanie pierwszego interfejsu API](import-and-publish.md#-import-and-publish-a-backend-api) .
-8. Wybierz przycisk **Utwórz**.
+8. Wybierz pozycję **Utwórz**.
 
 ## <a name="test-the-new-api-in-the-azure-portal"></a>Przetestuj nowy interfejs API w Azure Portal
 

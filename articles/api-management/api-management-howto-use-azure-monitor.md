@@ -10,18 +10,18 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 989608b9a087599ab73864ae2605fbffcf3221d9
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
+ms.openlocfilehash: 7f6c7a651e133122dab86d6ed81572f239718b43
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "84982054"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86243243"
 ---
 # <a name="monitor-published-apis"></a>Monitorowanie opublikowanych interfejsów API
 
 Dzięki usłudze Azure Monitor możesz wykonywać wizualizacje i zapytania, ustalać trasy, archiwizować i podejmować działania dotyczące metryk lub dzienników pochodzących z zasobów platformy Azure.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Wyświetlanie dzienników aktywności
@@ -43,7 +43,7 @@ W poniższym filmie wideo pokazano, jak monitorować usługę API Management prz
 
 ## <a name="view-metrics-of-your-apis"></a>Wyświetlanie metryk interfejsów API
 
-Usługa API Management emituje metryki co minutę, oferując wgląd w stan i kondycję interfejsów API w czasie zbliżonym do rzeczywistego. Poniżej znajdują się dwa najczęściej używane metryki. Aby uzyskać listę wszystkich dostępnych metryk, zobacz [obsługiwane metryki](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftapimanagementservice).
+Usługa API Management emituje metryki co minutę, oferując wgląd w stan i kondycję interfejsów API w czasie zbliżonym do rzeczywistego. Poniżej znajdują się dwa najczęściej używane metryki. Aby uzyskać listę wszystkich dostępnych metryk, zobacz [obsługiwane metryki](../azure-monitor/platform/metrics-supported.md#microsoftapimanagementservice).
 
 * Pojemność: ułatwia podejmowanie decyzji dotyczących uaktualniania/obniżania wersji usług APIM. Metryka jest emitowana co minutę i odzwierciedla pojemność bramy w momencie raportowania. Wartość metryki należy do zakresu od 0 do 100 i jest obliczana w oparciu o zasoby bramy, takie jak wykorzystanie procesora i pamięci.
 * Żądania: ułatwia analizowanie ruchu interfejsu API przechodzącego przez usługi APIM. Metryka jest emitowana na minutę i zgłasza liczbę żądań bramy z wymiarami, w tym kodami odpowiedzi, lokalizacjami, nazwą hosta i błędami. 
@@ -67,7 +67,7 @@ Aby uzyskać dostęp do metryk:
 
 Można skonfigurować odbieranie alertów w oparciu o metryki i dzienniki aktywności. Usługa Azure Monitor umożliwia skonfigurowanie alertu powodującego wykonywanie następujących czynności po jego wyzwoleniu:
 
-* Wysłanie powiadomienia e-mail
+* Wysyłanie powiadomienia e-mail
 * Wywołanie elementu webhook
 * Wywołanie aplikacji logiki platformy Azure
 

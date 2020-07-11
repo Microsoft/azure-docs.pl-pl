@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 7b73923b7fc32ae83bfc8405d074835c02031a63
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 2422204a809e0b13f4e337d49b851a0338681853
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77913705"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86249210"
 ---
 # <a name="migrate-from-google-maps-to-azure-maps"></a>Migrowanie z usługi Google Maps do Azure Maps
 
@@ -74,7 +74,7 @@ Poniżej przedstawiono kilka powiązanych zasobów Azure Maps:
 Poniżej znajduje się plan migracji wysokiego poziomu.
 
 1. Utwórz spis zestawów SDK i usług usługi Google Maps używanych przez aplikację. Sprawdź, czy Azure Maps udostępnia alternatywne zestawy SDK i usługi.
-2. Jeśli jeszcze tego nie masz, Utwórz subskrypcję platformy Azure pod [https://azure.com](https://azure.com)adresem.
+2. Jeśli jeszcze tego nie masz, Utwórz subskrypcję platformy Azure pod adresem [https://azure.com](https://azure.com) .
 3. Utwórz konto Azure Maps ([dokumentację](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys)) i klucz uwierzytelniania lub Azure Active Directory ([Dokumentacja](https://docs.microsoft.com/azure/azure-maps/how-to-manage-authentication)).
 4. Migruj kod aplikacji.
 5. Przetestuj zmigrowane aplikacje.
@@ -92,7 +92,7 @@ Poniżej znajduje się lista przydatnych zasobów technicznych dla Azure Maps.
 - Wpisów[https://aka.ms/AzureMapsBlog](https://aka.ms/AzureMapsBlog)
 - Blog techniczny:[https://aka.ms/AzureMapsTechBlog](https://aka.ms/AzureMapsTechBlog)
 - Azure Maps opinię (UserVoice):[https://aka.ms/AzureMapsFeedback](https://aka.ms/AzureMapsFeedback)
-- [Azure Maps Jupyter Notebook] [https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook]
+- [Azure Maps Jupyter Notebook](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook)
 
 ## <a name="migration-support"></a>Obsługa migracji
 

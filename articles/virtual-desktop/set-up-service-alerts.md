@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 06/11/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: ad25ab219cdb83227d39f86109d18b2c8402c38f
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 035fc4840b08a0a9807c228cb5f63c191efc524a
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82612354"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86256887"
 ---
 # <a name="tutorial-set-up-service-alerts"></a>Samouczek: Konfigurowanie alertów usługi
 
@@ -58,4 +58,4 @@ Aby skonfigurować alerty usługi:
 W tym samouczku przedstawiono sposób konfigurowania i używania Azure Service Health do monitorowania problemów z usługami i klasyfikatorów kondycji dla pulpitu wirtualnego systemu Windows. Aby dowiedzieć się, jak zalogować się do pulpitu wirtualnego systemu Windows, przejdź do programu Windows Virtual Desktop how-OTS.
 
 > [!div class="nextstepaction"]
-> [Nawiązywanie połączenia z klientem Pulpit zdalny w systemach Windows 7 i Windows 10](./connect-windows-7-and-10.md)
+> [Nawiązywanie połączenia z klientem Pulpit zdalny w systemach Windows 7 i Windows 10](./connect-windows-7-10.md)

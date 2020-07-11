@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 10/31/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: c36d45919ae8a17026fc91f8e9040f3bb11d3eb0
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 586641d721d0c29bcd6d7b42fc8ca9141df96c66
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75494945"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86261305"
 ---
 # <a name="tutorial-debug-a-service-fabric-mesh-application-running-in-your-local-development-cluster"></a>Samouczek: debugowanie aplikacji usługi Service Fabric Mesh w lokalnym klastrze projektowym
 
@@ -71,13 +71,13 @@ Znacznie przyspiesz swoje pierwsze debugowanie (F5), postępując zgodnie z inst
 
 Obecnie występuje problem, który powoduje, że nawiązanie połączenia z usługą za pomocą wywołania `using (HttpResponseMessage response = client.GetAsync("").GetAwaiter().GetResult())` kończy się niepowodzeniem. Tak może się zdarzyć w przypadku zmiany adresu IP hosta. Aby rozwiązać ten problem:
 
-1. Usuń aplikację z klastra lokalnego (w programie Visual Studio **Utwórz** > **czyste rozwiązanie**).
+1. Usuń aplikację z klastra lokalnego (w programie Visual Studio **Utwórz**  >  **czyste rozwiązanie**).
 2. Z poziomu menedżera klastra lokalnego usługi Service Fabric wybierz pozycję **Zatrzymaj klaster lokalny**, a następnie **Uruchom klaster lokalny**.
 3. Ponowne wdróż aplikację (w programie Visual Studio naciśnij klawisz **F5**).
 
 Jeśli pojawi się błąd **Nie uruchomiono klastra lokalnego usługi Service Fabric**, upewnij się, że uruchomiono menedżera klastra lokalnego usługi Service Fabric (LCM), a następnie kliknij prawym przyciskiem myszy ikonę menedżera LCM na pasku zadań i kliknij polecenie **Uruchom klaster lokalny**. Po uruchomieniu klastra wróć do programu Visual Studio i naciśnij klawisz **F5**.
 
-Jeśli po uruchomieniu aplikacji pojawi się błąd **404**, może to oznaczać to, że zmienne środowiskowe w pliku **service.yaml** są nieprawidłowe. Upewnij się, że zmienne `ApiHostPort` i `ToDoServiceName` są ustawione zgodnie z instrukcjami zawartymi w sekcji [Tworzenie zmiennych środowiskowych](https://docs.microsoft.com/azure/service-fabric-mesh/service-fabric-mesh-tutorial-create-dotnetcore#create-environment-variables).
+Jeśli po uruchomieniu aplikacji pojawi się błąd **404**, może to oznaczać to, że zmienne środowiskowe w pliku **service.yaml** są nieprawidłowe. Upewnij się, że zmienne `ApiHostPort` i `ToDoServiceName` są ustawione zgodnie z instrukcjami zawartymi w sekcji [Tworzenie zmiennych środowiskowych](./service-fabric-mesh-tutorial-create-dotnetcore.md#create-environment-variables).
 
 Jeśli wystąpią błędy kompilacji pliku **service.yaml**, upewnij się, że do wcięcia wierszy użyto spacji, a nie znaków tabulacji. Ponadto obecnie aplikacja musi być utworzona przy użyciu angielskich ustawień regionalnych.
 

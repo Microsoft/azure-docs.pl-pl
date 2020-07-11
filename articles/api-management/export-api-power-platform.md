@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 05/01/2020
 ms.author: apimpm
-ms.openlocfilehash: 9af20972a47e2d0ad20de62f1bb9d10e4d43563c
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 5814ff3909aa36ccfd9e14033f200fb4d3b8d32d
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82725952"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86252862"
 ---
 # <a name="export-apis-from-azure-api-management-to-the-power-platform"></a>Eksportuj interfejsy API z platformy Azure API Management do platformy 
 
@@ -29,7 +29,7 @@ W tym artykule omówiono procedurę eksportowania interfejsów API z API Managem
 
 + Wykonaj procedury przedstawione w następującym przewodniku Szybki start: [Tworzenie wystąpienia usługi Azure API Management](get-started-create-service-instance.md)
 + Upewnij się, że w wystąpieniu API Management znajduje się interfejs API, który chcesz wyeksportować do platformy usługi.
-+ Upewnij się, że masz aplikacje zaawansowane lub [środowisko](https://docs.microsoft.com/powerapps/powerapps-overview#power-apps-for-admins) automatyzacji 
++ Upewnij się, że masz aplikacje zaawansowane lub [środowisko](/powerapps/powerapps-overview#power-apps-for-admins) automatyzacji 
 
 ## <a name="export-an-api"></a>Eksportowanie interfejsu API
 
@@ -39,7 +39,7 @@ W tym artykule omówiono procedurę eksportowania interfejsów API z API Managem
 4. Wybierz pozycję **aplikacje zaawansowane i Automatyzacja**.
 5. Wybierz środowisko, do którego chcesz wyeksportować interfejs API. 
 6. Podaj nazwę wyświetlaną, która będzie używana jako nazwa łącznika niestandardowego.  
-7. Opcjonalnie `Client ID`, jeśli interfejs API jest chroniony przez serwer OAuth 2,0, należy również podać dodatkowe informacje, w tym, `Client secret` `Authorization URL` `Token URL`,, i. `Refresh URL`  
+7. Opcjonalnie, jeśli interfejs API jest chroniony przez serwer OAuth 2,0, należy również podać dodatkowe informacje, w tym,, `Client ID` , `Client secret` `Authorization URL` `Token URL` i `Refresh URL` .  
 8. Wybierz pozycję **Eksportuj**. 
 
 Po zakończeniu eksportowania przejdź do środowiska aplikacji Zasilaczowej lub automatyzacji. Interfejs API zostanie wyświetlony jako łącznik niestandardowy.
@@ -47,4 +47,4 @@ Po zakończeniu eksportowania przejdź do środowiska aplikacji Zasilaczowej lub
 ## <a name="next-steps"></a>Następne kroki
 
 * [Dowiedz się więcej o platformie dodatku](https://powerplatform.microsoft.com/)
-* [Poznaj typowe zadania w API Management, wykonując samouczki](https://docs.microsoft.com/azure/api-management/import-and-publish)
+* [Poznaj typowe zadania w API Management, wykonując samouczki](./import-and-publish.md)

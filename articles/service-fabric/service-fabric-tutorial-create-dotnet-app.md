@@ -4,12 +4,12 @@ description: W tym samouczku znajdziesz informacje o sposobie tworzenia aplikacj
 ms.topic: tutorial
 ms.date: 07/10/2019
 ms.custom: mvc
-ms.openlocfilehash: f7bad66d15cc2f9fb1885e440f95e76e12ea458a
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: dc869dce536449a901826db3b0d964bf17abbbec
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85214030"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86257126"
 ---
 # <a name="tutorial-create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>Samouczek: tworzenie i wdrażanie aplikacji przy użyciu usługi frontonu platformy ASP.NET Core z internetowym interfejsem API oraz stanowej usługi zaplecza
 
@@ -41,7 +41,7 @@ Przed rozpoczęciem tego samouczka:
 
 ## <a name="create-an-aspnet-web-api-service-as-a-reliable-service"></a>Tworzenie usługi internetowego interfejsu API platformy ASP.NET jako niezawodnej usługi
 
-Najpierw utwórz fronton internetowy aplikacji do głosowania za pomocą platformy ASP.NET Core. ASP.NET Core to uproszczone międzyplatformowe środowisko programistyczne, którego można używać do tworzenia nowoczesnych internetowych interfejsów użytkownika i interfejsów API. Aby w pełni zrozumieć, w jaki sposób platforma ASP.NET Core integruje się z usługą Service Fabric, zdecydowanie zalecamy zapoznanie się z artykułem [ASP.NET Core in Service Fabric Reliable Services](service-fabric-reliable-services-communication-aspnetcore.md) (Platforma ASP.NET Core w niezawodnych usługach Service Fabric). Na tym etapie wystarczy wykonać czynności opisane w tym samouczku, aby szybko rozpocząć pracę. Aby uzyskać więcej informacji na temat platformy ASP.NET Core, przejrzyj [dokumentację platformy ASP.NET Core](https://docs.microsoft.com/aspnet/core/).
+Najpierw utwórz fronton internetowy aplikacji do głosowania za pomocą platformy ASP.NET Core. ASP.NET Core to uproszczone międzyplatformowe środowisko programistyczne, którego można używać do tworzenia nowoczesnych internetowych interfejsów użytkownika i interfejsów API. Aby w pełni zrozumieć, w jaki sposób platforma ASP.NET Core integruje się z usługą Service Fabric, zdecydowanie zalecamy zapoznanie się z artykułem [ASP.NET Core in Service Fabric Reliable Services](service-fabric-reliable-services-communication-aspnetcore.md) (Platforma ASP.NET Core w niezawodnych usługach Service Fabric). Na tym etapie wystarczy wykonać czynności opisane w tym samouczku, aby szybko rozpocząć pracę. Aby uzyskać więcej informacji na temat platformy ASP.NET Core, przejrzyj [dokumentację platformy ASP.NET Core](/aspnet/core/).
 
 1. Uruchom program Visual Studio jako **administrator**.
 
@@ -641,4 +641,4 @@ W tej części samouczka zawarto informacje na temat wykonywania następujących
 
 Przejdź do następnego samouczka:
 > [!div class="nextstepaction"]
-> [Wdrażanie aplikacji na platformie Azure](service-fabric-tutorial-deploy-app-to-party-cluster.md)
+> [Wdrożenie aplikacji na platformie Azure](service-fabric-tutorial-deploy-app-to-party-cluster.md)

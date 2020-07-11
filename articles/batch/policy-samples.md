@@ -1,15 +1,15 @@
 ---
 title: Wbudowane definicje zasad dla Azure Batch
 description: Wyświetla listę wbudowanych definicji zasad Azure Policy dla Azure Batch. Te wbudowane definicje zasad zapewniają typowe podejścia do zarządzania zasobami platformy Azure.
-ms.date: 06/23/2020
+ms.date: 07/10/2020
 ms.topic: sample
 ms.custom: subject-policy-samples
-ms.openlocfilehash: 855c04c84ae55574dab9bd4e46d10aacdbde67a5
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: 499dc52fec9055638677f5ac35d86d3f5a17c990
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85318995"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86276089"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-batch"></a>Azure Policy wbudowane definicje Azure Batch
 

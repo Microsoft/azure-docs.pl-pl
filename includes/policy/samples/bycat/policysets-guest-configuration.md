@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 06/23/2020
+ms.date: 07/10/2020
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: f16f9b3fe6cd17b9fb6eb1cb2bd3ef1f42824701
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: a1df804681f0066fda025a60e0baddedc51f7a78
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85312709"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86276882"
 ---
 |Nazwa |Opis |Zasady |Wersja |
 |---|---|---|---|
@@ -37,4 +37,3 @@ ms.locfileid: "85312709"
 |[Inspekcja maszyn wirtualnych z systemem Windows, na których zainstalowano określone aplikacje](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Guest%20Configuration/GuestConfiguration_NotInstalledApp.json) |Ta inicjatywa wdraża wymagania dotyczące zasad i przeprowadza inspekcję maszyn wirtualnych z systemem Windows, na których zainstalowano określone aplikacje. Aby uzyskać więcej informacji na temat zasad konfiguracji gościa, odwiedź stronę[https://aka.ms/gcpol](https://aka.ms/gcpol) |2 |1.0.0 |
 |[Inspekcja maszyn wirtualnych z systemem Windows z oczekującym ponownym uruchomieniem](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Guest%20Configuration/GuestConfiguration_WindowsPendingReboot.json) |Ta inicjatywa wdraża wymagania dotyczące zasad i przeprowadza inspekcję maszyn wirtualnych z systemem Windows z oczekującym ponownym uruchomieniem. Aby uzyskać więcej informacji na temat zasad konfiguracji gościa, odwiedź stronę[https://aka.ms/gcpol](https://aka.ms/gcpol) |2 |1.0.0 |
 |[Inspekcja serwerów sieci Web systemu Windows, które nie używają bezpiecznych protokołów komunikacyjnych](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Guest%20Configuration/GuestConfiguration_TLS.json) |Ta inicjatywa wdraża wymagania dotyczące zasad i przeprowadza inspekcję serwerów sieci Web systemu Windows, które nie używają protokołów Secure Communication Protocol (TLS 1,1 lub TLS 1,2). Aby uzyskać więcej informacji na temat zasad konfiguracji gościa, odwiedź stronę[https://aka.ms/gcpol](https://aka.ms/gcpol) |2 |1.0.0 |
-|[Wdróż wymagania wstępne, aby włączyć zasady konfiguracji gościa na maszynach wirtualnych](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Guest%20Configuration/GuestConfiguration_Prerequisites.json) |Ta inicjatywa dodaje tożsamość zarządzaną przypisaną przez system i wdraża rozszerzenie konfiguracji gościa odpowiednie dla platformy na maszynach wirtualnych, które mogą być monitorowane przez zasady konfiguracji gościa. Jest to wymaganie wstępne dla wszystkich zasad konfiguracji gościa i musi być przypisane do zakresu przypisania zasad przed skorzystaniem z zasad konfiguracji gościa. Aby uzyskać więcej informacji na temat konfiguracji gościa, odwiedź stronę [https://aka.ms/gcpol](https://aka.ms/gcpol) . |4 |1.0.0 — wersja zapoznawcza |

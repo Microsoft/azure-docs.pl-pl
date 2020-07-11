@@ -4,12 +4,12 @@ description: Tworzenie wyzwalanej przez protokół HTTP bezserwerowej funkcji pr
 ms.topic: tutorial
 ms.date: 06/10/2020
 ms.custom: ''
-ms.openlocfilehash: d5fa4acf7ac5a7d0b9103458636adff4befcc3d9
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 298cf1452e514ede540e23d4e64f6dd1059cceab
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86144879"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259746"
 ---
 # <a name="tutorial-use-an-http-triggered-azure-function-to-create-a-container-group"></a>Samouczek: Tworzenie grupy kontenerów za pomocą funkcji platformy Azure wyzwalanej przez protokół HTTP
 
@@ -33,7 +33,7 @@ W dodatkowych krokach w tym artykule użyto Azure PowerShell. Jeśli musisz zain
 
 ## <a name="create-a-basic-powershell-function"></a>Tworzenie podstawowej funkcji programu PowerShell
 
-Wykonaj kroki opisane w temacie [Tworzenie pierwszej funkcji programu PowerShell na platformie Azure](../azure-functions/functions-create-first-function-powershell.md) , aby utworzyć funkcję programu PowerShell przy użyciu szablonu wyzwalacza http. Użyj domyślnej nazwy funkcji platformy Azure **HttpTrigger**. Jak pokazano w przewodniku Szybki Start, Przetestuj funkcję lokalnie i Opublikuj projekt w aplikacji funkcji na platformie Azure. Ten przykład jest podstawową funkcją wyzwalaną przez protokół HTTP, która zwraca ciąg tekstowy. W kolejnych krokach tego artykułu zmodyfikujesz funkcję w celu utworzenia grupy kontenerów.
+Wykonaj kroki opisane w temacie [Tworzenie pierwszej funkcji programu PowerShell na platformie Azure](../azure-functions/functions-create-first-function-vs-code.md?pivots=programming-language-powershell) , aby utworzyć funkcję programu PowerShell przy użyciu szablonu wyzwalacza http. Użyj domyślnej nazwy funkcji platformy Azure **HttpTrigger**. Jak pokazano w przewodniku Szybki Start, Przetestuj funkcję lokalnie i Opublikuj projekt w aplikacji funkcji na platformie Azure. Ten przykład jest podstawową funkcją wyzwalaną przez protokół HTTP, która zwraca ciąg tekstowy. W kolejnych krokach tego artykułu zmodyfikujesz funkcję w celu utworzenia grupy kontenerów.
 
 W tym artykule przyjęto założenie, że projekt jest publikowany przy użyciu nazwy *myfunctionapp*w grupie zasobów platformy Azure automatycznie nazwanej według nazwy aplikacji funkcji (również *myfunctionapp*). W kolejnych krokach Zastąp unikatową nazwę aplikacji funkcji i nazwę grupy zasobów.
 
@@ -201,7 +201,7 @@ W tym samouczku utworzono funkcję platformy Azure, która przyjmuje żądanie H
 
 Aby zapoznać się ze szczegółowym przykładem uruchamiania i monitorowania zadania kontenerowego, zapoznaj się z informacjami o [kontenerach Bezserwerowych opartych na zdarzeniach za pomocą programu PowerShell Azure Functions i Azure Container Instances](https://dev.to/azure/event-driven-serverless-containers-with-powershell-azure-functions-and-azure-container-instances-e9b) i [kodu](https://github.com/anthonychu/functions-powershell-run-aci)towarzyszącego.
 
-Zapoznaj się z [dokumentacją Azure Functions](/azure/azure-functions/) , aby uzyskać szczegółowe wskazówki dotyczące tworzenia usługi Azure Functions i publikowania projektu funkcji. 
+Zapoznaj się z [dokumentacją Azure Functions](../azure-functions/index.yml) , aby uzyskać szczegółowe wskazówki dotyczące tworzenia usługi Azure Functions i publikowania projektu funkcji. 
 
 <!-- IMAGES -->
 

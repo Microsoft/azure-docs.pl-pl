@@ -4,12 +4,12 @@ description: W tym samouczku dowiesz się, jak skalować klaster Service Fabric 
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
-ms.openlocfilehash: ed212083a29836e1da593ec42c31bbf86b907546
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: 05fd29f874d59601942216f907010b94bb7c4058
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85611649"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86257108"
 ---
 # <a name="tutorial-scale-a-service-fabric-cluster-in-azure"></a>Samouczek: skalowanie klastra usługi Service Fabric na platformie Azure
 
@@ -38,7 +38,7 @@ Ta seria samouczków zawiera informacje na temat wykonywania następujących czy
 Przed rozpoczęciem tego samouczka:
 
 * Jeśli nie masz subskrypcji platformy Azure, Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* Zainstaluj [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps) lub [interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
+* Zainstaluj [Azure PowerShell](/powershell/azure/install-az-ps) lub [interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
 * Tworzenie bezpiecznego [klastra systemu Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) na platformie Azure
 
 ## <a name="important-considerations-and-guidelines"></a>Ważne zagadnienia i wytyczne
@@ -64,7 +64,7 @@ Aby uzyskać więcej informacji, zapoznaj się z tematem [wskazówki dotyczące 
 
 ## <a name="export-the-template-for-the-resource-group"></a>Eksportowanie szablonu dla grupy zasobów
 
-Po pomyślnym utworzeniu bezpiecznego [klastra systemu Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) i skonfigurowaniu grupy zasobów wyeksportuj szablon Menedżer zasobów dla grupy zasobów. Eksportowanie szablonu pozwala zautomatyzować przyszłe wdrożenia klastra i jego zasobów, ponieważ szablon zawiera całą kompletną infrastrukturę.  Aby uzyskać więcej informacji na temat eksportowania szablonów, zobacz [Zarządzanie grupami zasobów Azure Resource Manager przy użyciu Azure Portal](/azure/azure-resource-manager/manage-resource-groups-portal).
+Po pomyślnym utworzeniu bezpiecznego [klastra systemu Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) i skonfigurowaniu grupy zasobów wyeksportuj szablon Menedżer zasobów dla grupy zasobów. Eksportowanie szablonu pozwala zautomatyzować przyszłe wdrożenia klastra i jego zasobów, ponieważ szablon zawiera całą kompletną infrastrukturę.  Aby uzyskać więcej informacji na temat eksportowania szablonów, zobacz [Zarządzanie grupami zasobów Azure Resource Manager przy użyciu Azure Portal](../azure-resource-manager/management/manage-resource-groups-portal.md).
 
 1. W [Azure Portal](https://portal.azure.com)przejdź do grupy zasobów zawierającej klaster (**sfclustertutorialgroup**, jeśli korzystasz z tego samouczka). 
 

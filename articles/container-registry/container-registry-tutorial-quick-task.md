@@ -4,14 +4,14 @@ description: Z tego samouczka dowiesz się, jak utworzyć obraz kontenera platfo
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 82b539ba8f275755ee31a00c2127a0dba7c38d9f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7178d7171d4c9c0183eb744f19776f6b2fac09ef
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78398512"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259491"
 ---
-# <a name="tutorial-build-and-deploy-container-images-in-the-cloud-with-azure-container-registry-tasks"></a>Samouczek: kompilowanie i wdrażanie obrazów kontenerów w chmurze za pomocą zadań Azure Container Registry
+# <a name="tutorial-build-and-deploy-container-images-in-the-cloud-with-azure-container-registry-tasks"></a>Samouczek: Kompilowanie obrazów kontenera w chmurze przy użyciu zadań usługi Azure Container Registry
 
 Usługa **ACR Tasks** to pakiet funkcji usługi Azure Container Registry, który udostępnia udoskonalone i wydajne kompilacje obrazów kontenerów platformy Docker na platformie Azure. Z tego artykułu dowiesz się, jak używać funkcji *szybkiego zadania* usługi ACR Tasks.
 
@@ -50,7 +50,7 @@ Utwórz rozwidlenie tego repozytorium: https://github.com/Azure-Samples/acr-buil
 
 Po utworzeniu rozwidlenia repozytorium sklonuj rozwidlenie, a następnie wprowadź katalog zawierający klon lokalny.
 
-Sklonuj repozytorium za pomocą `git`usługi, Zastąp ** \<nazwę użytkownika-\> GitHub-username** nazwą użytkownika serwisu GitHub:
+Sklonuj repozytorium za pomocą `git` usługi, Zastąp ciąg **\<your-github-username\>** nazwą użytkownika serwisu GitHub:
 
 ```console
 git clone https://github.com/<your-github-username>/acr-build-helloworld-node
@@ -70,7 +70,7 @@ Polecenia w tym samouczku zostały sformatowane pod kątem powłoki programu Bas
 
 Teraz, gdy kod źródłowy został pobrany do komputera, wykonaj następujące kroki, aby utworzyć rejestr kontenerów i skompilować obraz kontenera przy użyciu usługi ACR Tasks.
 
-Aby wykonywanie przykładowych poleceń było łatwiejsze, w tej serii samouczków używaj zmiennych środowiskowych powłoki. Uruchom następujące polecenie, aby ustawić zmienną `ACR_NAME`. Zastąp ** \<wartość Registry\> -Name** unikatową nazwą nowego rejestru kontenerów. Nazwa rejestru musi być unikatowa na platformie Azure, zawierać tylko małe litery i zawierać 5-50 znaków alfanumerycznych. Inne zasoby tworzone w tym samouczku opierają się na tej nazwie, dlatego konieczne powinno być zmodyfikowanie tylko tej pierwszej zmiennej.
+Aby wykonywanie przykładowych poleceń było łatwiejsze, w tej serii samouczków używaj zmiennych środowiskowych powłoki. Uruchom następujące polecenie, aby ustawić zmienną `ACR_NAME`. Zamień na **\<registry-name\>** unikatową nazwę nowego rejestru kontenerów. Nazwa rejestru musi być unikatowa na platformie Azure, zawierać tylko małe litery i zawierać 5-50 znaków alfanumerycznych. Inne zasoby tworzone w tym samouczku opierają się na tej nazwie, dlatego konieczne powinno być zmodyfikowanie tylko tej pierwszej zmiennej.
 
 [![Uruchom osadzenie](https://shell.azure.com/images/launchcloudshell.png "Uruchamianie usługi Azure Cloud Shell")](https://shell.azure.com)
 
@@ -176,7 +176,7 @@ Wszystkie scenariusze produkcyjne powinny używać [jednostek usługi][service-p
 
 #### <a name="create-a-key-vault"></a>Tworzenie magazynu kluczy
 
-Jeśli nie masz jeszcze magazynu w usłudze [Azure Key Vault](/azure/key-vault/), utwórz go przy użyciu interfejsu wiersza polecenia platformy Azure przy użyciu poniższych poleceń.
+Jeśli nie masz jeszcze magazynu w usłudze [Azure Key Vault](../key-vault/index.yml), utwórz go przy użyciu interfejsu wiersza polecenia platformy Azure przy użyciu poniższych poleceń.
 
 ```azurecli-interactive
 AKV_NAME=$ACR_NAME-vault
@@ -278,7 +278,7 @@ Po wyświetleniu elementu `Server running at http://localhost:80` przejdź do na
 
 Aby odłączyć konsolę od kontenera, wybierz pozycję `Control+C`.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Zatrzymaj wystąpienie kontenera przy użyciu polecenia [az container delete][az-container-delete]:
 

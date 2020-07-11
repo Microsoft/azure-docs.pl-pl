@@ -4,12 +4,12 @@ description: Tworzenie rejestru kontenerów platformy Azure, konfigurowanie repl
 ms.topic: tutorial
 ms.date: 06/30/2020
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 159426b7258d83fc28fc7d126c064167bbe00975
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.openlocfilehash: 780a16d691e0d8afe62cd06f37a37fc3f6445ea6
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85799474"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259532"
 ---
 # <a name="tutorial-prepare-a-geo-replicated-azure-container-registry"></a>Samouczek: przygotowywanie rejestru kontenerów platformy Azure z replikacją geograficzną
 
@@ -98,7 +98,7 @@ Przejdź do nowego rejestru kontenerów w Azure Portal i wybierz pozycję **kluc
 
 Po skonfigurowaniu replikacji geograficznej utwórz obraz kontenera i wypchnij go do rejestru. Musisz najpierw zalogować się do rejestru przed wypchnięciem do niego obrazów.
 
-Użyj polecenia [az acr login](https://docs.microsoft.com/cli/azure/acr#az-acr-login), aby przeprowadzić uwierzytelnianie i zapisać poświadczenia dla rejestru w pamięci podręcznej. Zastąp ciąg `<acrName>` nazwą rejestru utworzonego wcześniej.
+Użyj polecenia [az acr login](/cli/azure/acr#az-acr-login), aby przeprowadzić uwierzytelnianie i zapisać poświadczenia dla rejestru w pamięci podręcznej. Zastąp ciąg `<acrName>` nazwą wcześniej utworzonego rejestru.
 
 ```azurecli
 az acr login --name <acrName>

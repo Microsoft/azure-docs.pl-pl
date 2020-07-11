@@ -4,16 +4,16 @@ description: W tym samouczku dowiesz się, jak wdrożyć klaster Service Fabric 
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
-ms.openlocfilehash: dfcee93ffa5eea0b2aa0b9a93ff53ad7b61ea245
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: a7390858e55a456ec5fb2f851be1a7443be97082
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85611666"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86245045"
 ---
 # <a name="tutorial-deploy-a-service-fabric-cluster-running-windows-into-an-azure-virtual-network"></a>Samouczek: Wdrażanie klastra Service Fabric z systemem Windows w sieci wirtualnej platformy Azure
 
-Niniejszy samouczek jest pierwszą częścią serii. Dowiesz się, jak wdrożyć klaster Service Fabric platformy Azure z systemem Windows w [sieci wirtualnej platformy Azure](../virtual-network/virtual-networks-overview.md) i [sieciowej grupie zabezpieczeń](../virtual-network/virtual-networks-nsg.md) za pomocą programu PowerShell i szablonu. Po zakończeniu klaster będzie działać w chmurze, w którym można wdrażać aplikacje. Aby utworzyć klaster systemu Linux, który używa interfejsu wiersza polecenia platformy Azure, zobacz [Tworzenie bezpiecznego klastra z systemem Linux na platformie Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
+Niniejszy samouczek jest pierwszą częścią serii. Dowiesz się, jak wdrożyć klaster Service Fabric platformy Azure z systemem Windows w [sieci wirtualnej platformy Azure](../virtual-network/virtual-networks-overview.md) i [sieciowej grupie zabezpieczeń](../virtual-network/virtual-network-vnet-plan-design-arm.md) za pomocą programu PowerShell i szablonu. Po zakończeniu klaster będzie działać w chmurze, w którym można wdrażać aplikacje. Aby utworzyć klaster systemu Linux, który używa interfejsu wiersza polecenia platformy Azure, zobacz [Tworzenie bezpiecznego klastra z systemem Linux na platformie Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
 
 W tym samouczku opisano scenariusz produkcyjny. Jeśli chcesz utworzyć mniejszy klaster na potrzeby testowania, zobacz [Tworzenie klastra testowego](./scripts/service-fabric-powershell-create-secure-cluster-cert.md).
 
@@ -46,9 +46,9 @@ Ta seria samouczków zawiera informacje na temat wykonywania następujących czy
 
 Przed rozpoczęciem tego samouczka:
 
-* Jeśli nie masz subskrypcji platformy Azure, Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Zainstaluj [zestaw Service Fabric SDK i moduł programu PowerShell](service-fabric-get-started.md).
-* Zainstaluj [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps).
+* Zainstaluj [Azure PowerShell](/powershell/azure/install-az-ps).
 * Zapoznaj się z najważniejszymi pojęciami dotyczącymi [klastrów platformy Azure](service-fabric-azure-clusters-overview.md).
 * [Planowanie i przygotowywanie](service-fabric-cluster-azure-deployment-preparation.md) wdrożenia klastra produkcyjnego.
 
@@ -111,7 +111,7 @@ Poniższe reguły ruchu przychodzącego są włączone w zasobie **Microsoft.Net
 Jeśli są potrzebne inne porty aplikacji, należy dostosować zasób **Microsoft. Network/loadBalancers** oraz zasób **Microsoft. Network/networkSecurityGroups** , aby umożliwić ruch w programie.
 
 ### <a name="windows-defender"></a>Windows Defender
-Domyślnie [program antywirusowy Windows Defender](/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-on-windows-server-2016) jest instalowany i funkcjonalny w systemie Windows Server 2016. Interfejs użytkownika jest instalowany domyślnie w niektórych jednostkach SKU, ale nie jest wymagany. Dla każdego typu węzła/zestawu skalowania maszyn wirtualnych zadeklarowanego w szablonie [rozszerzenie Azure VM Antimalware](/azure/virtual-machines/extensions/iaas-antimalware-windows) służy do wykluczania katalogów i procesów usługi Service Fabric:
+Domyślnie [program antywirusowy Windows Defender](/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-on-windows-server-2016) jest instalowany i funkcjonalny w systemie Windows Server 2016. Interfejs użytkownika jest instalowany domyślnie w niektórych jednostkach SKU, ale nie jest wymagany. Dla każdego typu węzła/zestawu skalowania maszyn wirtualnych zadeklarowanego w szablonie [rozszerzenie Azure VM Antimalware](../virtual-machines/extensions/iaas-antimalware-windows.md) służy do wykluczania katalogów i procesów usługi Service Fabric:
 
 ```json
 {
@@ -145,8 +145,8 @@ Plik parametrów [azuredeploy.parameters.json][parameters] deklaruje wiele warto
 
 **Parametr** | **Przykładowa wartość** | **Uwagi** 
 |---|---|---|
-|adminUserName|vmadmin| Nazwa użytkownika będącego administratorem maszyn wirtualnych klastra. [Wymagania dotyczące nazwy użytkownika dla maszyny wirtualnej](https://docs.microsoft.com/azure/virtual-machines/windows/faq#what-are-the-username-requirements-when-creating-a-vm). |
-|adminPassword|Haslo#1234| Hasło administratora maszyn wirtualnych klastra. [Wymagania dotyczące hasła dla maszyny wirtualnej](https://docs.microsoft.com/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm).|
+|adminUserName|vmadmin| Nazwa użytkownika będącego administratorem maszyn wirtualnych klastra. [Wymagania dotyczące nazwy użytkownika dla maszyny wirtualnej](../virtual-machines/windows/faq.md#what-are-the-username-requirements-when-creating-a-vm). |
+|adminPassword|Haslo#1234| Hasło administratora maszyn wirtualnych klastra. [Wymagania dotyczące hasła dla maszyny wirtualnej](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).|
 |clusterName|mojklastersf123| Nazwa klastra. Może zawierać tylko litery i cyfry. Długość powinna wynosić od 3 do 23 znaków.|
 |location|southcentralus| Lokalizacja klastra. |
 |certificateThumbprint|| <p>W przypadku tworzenia certyfikatu z podpisem własnym lub podania pliku certyfikatu ta wartość powinna być pusta.</p><p>Aby użyć istniejącego certyfikatu, który został wcześniej przekazany do magazynu kluczy, wprowadź wartość odcisku palca SHA1 certyfikatu. Na przykład „6190390162C988701DB5676EB81083EA608DCCF3”.</p> |
@@ -172,7 +172,7 @@ Aby uprościć czynności związane z konfigurowaniem usługi Azure AD przy uży
 ### <a name="create-azure-ad-applications-and-assign-users-to-roles"></a>Tworzenie aplikacji usługi Azure AD i przypisywanie ról do użytkowników
 Utworzysz dwie aplikacje usługi Azure AD, aby kontrolować dostęp do klastra: jedną aplikację internetową i jedną aplikację natywną. Po utworzeniu aplikacji do reprezentowania klastra Przypisz użytkowników do [ról obsługiwanych przez Service Fabric](service-fabric-cluster-security-roles.md): tylko do odczytu i administrator.
 
-Uruchom skrypt `SetupApplications.ps1` i podaj jako parametry identyfikator dzierżawy, nazwę klastra i adres URL odpowiedzi aplikacji internetowej. Określ nazwy użytkownika i hasła dla użytkowników. Przykład:
+Uruchom skrypt `SetupApplications.ps1` i podaj jako parametry identyfikator dzierżawy, nazwę klastra i adres URL odpowiedzi aplikacji internetowej. Określ nazwy użytkownika i hasła dla użytkowników. Na przykład:
 
 ```powershell
 $Configobj = .\SetupApplications.ps1 -TenantId '<MyTenantID>' -ClusterName 'mysfcluster123' -WebApplicationReplyUrl 'https://mysfcluster123.eastus.cloudapp.azure.com:19080/Explorer/index.html' -AddResourceAccess
@@ -249,7 +249,7 @@ W pliku [azuredeploy.json][template] skonfiguruj usługę Azure AD w sekcji **Mi
 }
 ```
 
-Dodaj wartości parametrów do pliku parametrów [azuredeploy.parameters.json][parameters]. Przykład:
+Dodaj wartości parametrów do pliku parametrów [azuredeploy.parameters.json][parameters]. Na przykład:
 
 ```json
 "aadTenantId": {
@@ -701,9 +701,9 @@ Sprawdź, czy nawiązano połączenie i czy klaster jest w dobrej kondycji za po
 Get-ServiceFabricClusterHealth
 ```
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Inne artykuły w tej serii samouczków używają utworzonego klastra. Jeśli nie przechodzisz od razu do następnego artykułu, rozważ [usunięcie klastra](service-fabric-cluster-delete.md), aby uniknąć naliczania opłat.
+Inne artykuły w tej serii samouczków używają utworzonego klastra. Jeśli nie przechodzisz od razu do następnego artykułu, rozważ [usunięcie klastra](./service-fabric-tutorial-delete-cluster.md), aby uniknąć naliczania opłat.
 
 ## <a name="next-steps"></a>Następne kroki
 

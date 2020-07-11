@@ -8,12 +8,12 @@ ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 06/10/2020
-ms.openlocfilehash: f673fd4b49a33c2faf6bc8b489520f2a877b0689
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.openlocfilehash: 69618604c38d82567260e45d651df523055c5f7b
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85513813"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86245334"
 ---
 # <a name="tutorial-build-and-deploy-a-custom-skill-with-azure-machine-learning"></a>Samouczek: kompilowanie i wdrażanie niestandardowej umiejętności przy użyciu Azure Machine Learning 
 
@@ -29,6 +29,9 @@ Dostępne są dwa zestawy danych. Jeśli chcesz samodzielnie szkolić model, wym
 > * Uczenie i wdrażanie modelu w klastrze usługi Azure Kubernetes
 > * Łączenie potoku wzbogacania AI ze wdrożonym modelem
 > * Pozyskiwanie danych wyjściowych z wdrożonego modelu jako umiejętności niestandardowych
+
+> [!IMPORTANT] 
+> Ta umiejętność jest obecnie dostępna w publicznej wersji zapoznawczej. Funkcje wersji zapoznawczej są dostępne bez umowy dotyczącej poziomu usług i nie są zalecane w przypadku obciążeń produkcyjnych. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Obecnie nie ma obsługi zestawu SDK platformy .NET.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -94,9 +97,9 @@ Zapisz zestawu umiejętności.
 
 Po zapisaniu zestawu umiejętności przejdź do indeksatora i wybierz łącze indeksatora definicji (JSON). W portalu zostanie wyświetlony kod JSON indeksatora, który został utworzony w pierwszej komórce notesu. Mapowania pól wyjściowych muszą zostać zaktualizowane przy użyciu dodatkowych mapowań pól, aby upewnić się, że indeksator może obsłużyć i przekazać je poprawnie. Zapisz zmiany, a następnie wybierz pozycję Uruchom. 
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Jeśli pracujesz w ramach własnej subskrypcji, dobrym pomysłem po zakończeniu projektu jest sprawdzenie, czy dalej potrzebujesz utworzonych zasobów. Nadal uruchomione zasoby mogą generować koszty. Zasoby możesz usuwać pojedynczo lub możesz usunąć grupę zasobów, aby usunąć cały ich zestaw.
+W przypadku pracy w ramach własnej subskrypcji warto sprawdzić po zakończeniu projektu, czy dalej potrzebuje się utworzonych zasobów. Uruchomione zasoby mogą generować koszty. Zasoby możesz usuwać pojedynczo lub możesz usunąć grupę zasobów, aby usunąć cały ich zestaw.
 
 Zasoby można znaleźć w portalu i zarządzać nimi za pomocą linku **wszystkie zasoby** lub **grupy zasobów** w okienku nawigacji po lewej stronie.
 

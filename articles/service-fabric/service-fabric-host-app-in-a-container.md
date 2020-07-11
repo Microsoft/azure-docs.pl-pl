@@ -3,16 +3,16 @@ title: Wdrażanie aplikacji .NET w kontenerze na platformie Azure Service Fabric
 description: Dowiedz się, jak konteneryzować istniejącą aplikację platformy .NET przy użyciu programu Visual Studio i jak debugować kontenery lokalnie w usłudze Service Fabric. Konteneryzowana aplikacja jest wypychana do usługi Azure Container Registry i wdrażana w klastrze usługi Service Fabric. Po wdrożeniu na platformie Azure aplikacja utrwala dane za pomocą usługi Azure SQL DB.
 ms.topic: tutorial
 ms.date: 07/08/2019
-ms.openlocfilehash: aa99897da99ff1a1443e548e98ae415b6a8d49f5
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 4970cf6492da38ad76a51df88eeb73538c850c67
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84234239"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86258866"
 ---
 # <a name="tutorial-deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>Samouczek: wdrażanie aplikacji .NET w kontenerze systemu Windows w usłudze Azure Service Fabric
 
-W tym samouczku przedstawiono sposób konteneryzacji istniejącej aplikacji ASP.NET i tworzenia z niej pakietu będącego aplikacją usługi Service Fabric.  Uruchom kontenery lokalnie w klastrze programistycznym usługi Service Fabric, a następnie wdróż aplikację na platformie Azure.  Aplikacja będzie utrwalać dane w usłudze [Azure SQL Database](/azure/sql-database/sql-database-technical-overview).
+W tym samouczku przedstawiono sposób konteneryzacji istniejącej aplikacji ASP.NET i tworzenia z niej pakietu będącego aplikacją usługi Service Fabric.  Uruchom kontenery lokalnie w klastrze programistycznym usługi Service Fabric, a następnie wdróż aplikację na platformie Azure.  Aplikacja będzie utrwalać dane w usłudze [Azure SQL Database](../azure-sql/database/sql-database-paas-overview.md).
 
 Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
@@ -20,7 +20,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 >
 > * Konteneryzowanie istniejącej aplikacji za pomocą programu Visual Studio
 > * Tworzenie bazy danych w Azure SQL Database
-> * Tworzenie usługi Azure Container Registry
+> * Tworzenie rejestru kontenerów platformy Azure
 > * Wdrażanie aplikacji usługi Service Fabric na platformie Azure
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -55,7 +55,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 
 Gdy aplikacja Fabrikam Fiber CallCenter działa w środowisku produkcyjnym, dane muszą być utrwalane w bazie danych. Obecnie nie ma możliwości zagwarantowania trwałości danych w kontenerze, dlatego nie można zapisywać danych produkcyjnych w programie SQL Server w kontenerze.
 
-Zalecamy usługę [Azure SQL Database](/azure/sql-database/sql-database-get-started-powershell). Aby skonfigurować i uruchomić zarządzaną bazę danych SQL Server na platformie Azure, uruchom następujący skrypt.  Zmodyfikuj zmienne skryptu odpowiednio do potrzeb. Element *clientIP* określa adres IP Twojego komputera programistycznego. Zanotuj zwróconą przez skrypt nazwę serwera.
+Zalecamy usługę [Azure SQL Database](../azure-sql/database/powershell-script-content-guide.md). Aby skonfigurować i uruchomić zarządzaną bazę danych SQL Server na platformie Azure, uruchom następujący skrypt.  Zmodyfikuj zmienne skryptu odpowiednio do potrzeb. Element *clientIP* określa adres IP Twojego komputera programistycznego. Zanotuj zwróconą przez skrypt nazwę serwera.
 
 ```powershell
 $subscriptionID="<subscription ID>"
@@ -126,7 +126,7 @@ Naciśnij klawisz **F5**, aby uruchomić i debugować aplikację w kontenerze w 
 
 ## <a name="create-a-container-registry"></a>Tworzenie rejestru kontenerów
 
-Teraz, gdy aplikacja działa lokalnie, rozpocznij przygotowania do wdrożenia na platformie Azure.  Obrazy kontenerów muszą być przechowywane w rejestrze kontenerów.  Utwórz usługę [Azure Container Registry](/azure/container-registry/container-registry-intro) za pomocą następującego skryptu. Nazwa rejestru kontenera jest widoczna w innych subskrypcjach platformy Azure, dlatego musi być unikatowa.
+Teraz, gdy aplikacja działa lokalnie, rozpocznij przygotowania do wdrożenia na platformie Azure.  Obrazy kontenerów muszą być przechowywane w rejestrze kontenerów.  Utwórz usługę [Azure Container Registry](../container-registry/container-registry-intro.md) za pomocą następującego skryptu. Nazwa rejestru kontenera jest widoczna w innych subskrypcjach platformy Azure, dlatego musi być unikatowa.
 Przed wdrożeniem aplikacji na platformie Azure wypchnij obraz kontenera do tego rejestru.  Gdy aplikacja jest wdrażana na klastrze platformy Azure, obraz kontenera jest ściągany z tego rejestru.
 
 ```powershell
@@ -144,7 +144,7 @@ $registry = New-AzContainerRegistry -ResourceGroupName $acrresourcegroupname -Na
 
 Aplikacje usługi Service Fabric działają w klastrze — połączonym z siecią zestawie maszyn wirtualnych lub fizycznych.  Przed wdrożeniem aplikacji na platformie Azure utwórz klaster usługi Service Fabric na platformie Azure.
 
-Dostępne możliwości:
+Możesz:
 
 * Utworzyć klaster testowy z poziomu programu Visual Studio. Ta opcja służy do tworzenia bezpiecznego klastra bezpośrednio z poziomu programu Visual Studio z preferowaną konfiguracją.
 * [Utworzyć zabezpieczony klaster na podstawie szablonu](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
@@ -179,7 +179,7 @@ Podczas tworzenia klastra:
 
 ## <a name="allow-your-application-running-in-azure-to-access-sql-database"></a>Zezwalaj aplikacji na korzystanie z platformy Azure na dostęp do SQL Database
 
-Wcześniej dla usługi SQL została utworzona reguła zapory, która udziela dostępu aplikacji uruchomionej lokalnie.  W następnej kolejności należy włączyć dostęp do usługi SQL DB dla aplikacji uruchomionej na platformie Azure.  Utwórz [punkt końcowy usługi dla sieci wirtualnej](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview) dla klastra usługi Service Fabric, a następnie utwórz regułę, która umożliwia dostęp do usługi SQL DB temu punktowi końcowemu. Pamiętaj o określeniu zmiennej grupy zasobów klastra zanotowanej podczas tworzenia klastra.
+Wcześniej dla usługi SQL została utworzona reguła zapory, która udziela dostępu aplikacji uruchomionej lokalnie.  W następnej kolejności należy włączyć dostęp do usługi SQL DB dla aplikacji uruchomionej na platformie Azure.  Utwórz [punkt końcowy usługi dla sieci wirtualnej](../azure-sql/database/vnet-service-endpoint-rule-overview.md) dla klastra usługi Service Fabric, a następnie utwórz regułę, która umożliwia dostęp do usługi SQL DB temu punktowi końcowemu. Pamiętaj o określeniu zmiennej grupy zasobów klastra zanotowanej podczas tworzenia klastra.
 
 ```powershell
 # Create a virtual network service endpoint
@@ -227,7 +227,7 @@ $vnetRuleObject1 = New-AzSqlServerVirtualNetworkRule `
   -VirtualNetworkSubnetId $subnetID;
 ```
 
-## <a name="deploy-the-application-to-azure"></a>Wdrażanie aplikacji na platformie Azure
+## <a name="deploy-the-application-to-azure"></a>Wdrożenie aplikacji na platformie Azure
 
 Kiedy aplikacja jest gotowa, można wdrożyć ją w klastrze platformy Azure bezpośrednio z programu Visual Studio.  W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy projekt aplikacji **FabrikamFiber.CallCenterApplication** i wybierz polecenie **Publikuj**.  W polu **Punkt końcowy połączenia** wybierz punkt końcowy klastra, który został utworzony wcześniej.  W polu **Azure Container Registry** wybierz rejestr kontenerów utworzony wcześniej.  Kliknij polecenie **Publikuj**, aby wdrożyć aplikację w klastrze platformy Azure.
 
@@ -241,7 +241,7 @@ Kiedy aplikacja jest gotowa, można wdrożyć ją w klastrze platformy Azure bez
 
 Aby dowiedzieć się, jak skonfigurować wdrożenie aplikacji ciągłej integracji/ciągłego wdrażania w klastrze usługi Service Fabric za pomocą usługi Azure DevOps, zobacz [Samouczek: wdrażanie aplikacji przy użyciu ciągłej integracji/ciągłego wdrażania w klastrze usługi Service Fabric](service-fabric-tutorial-deploy-app-with-cicd-vsts.md). Proces opisany w tym samouczku jest taki sam dla tego projektu (FabrikamFiber) — wystarczy po prostu pominąć pobieranie przykładu Voting i zastąpić nazwę repozytorium Voting nazwą FabrikamFiber.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Po zakończeniu pracy usuń wszystkie utworzone zasoby.  Najprostszym sposobem jest usunięcie grup zasobów, które zawierają klaster usługi Service Fabric, usługę Azure SQL DB i usługę Azure Container Registry.
 
@@ -268,7 +268,7 @@ W niniejszym samouczku zawarto informacje na temat wykonywania następujących c
 >
 > * Konteneryzowanie istniejącej aplikacji za pomocą programu Visual Studio
 > * Tworzenie bazy danych w Azure SQL Database
-> * Tworzenie usługi Azure Container Registry
+> * Tworzenie rejestru kontenerów platformy Azure
 > * Wdrażanie aplikacji usługi Service Fabric na platformie Azure
 
 Z następnej części samouczka dowiesz się, jak [wdrażać aplikację kontenera przy użyciu ciągłej integracji/ciągłego wdrażania w klastrze usługi Service Fabric](service-fabric-tutorial-deploy-container-app-with-cicd-vsts.md).

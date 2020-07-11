@@ -11,16 +11,16 @@ ms.author: robinsh
 ms.custom:
 - mvc
 - mqtt
-ms.openlocfilehash: 86b39beb2958194f7c86409c5d78992616234b05
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 26679a7111e11eaf48e948fa6d3622814327433a
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81769910"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86252576"
 ---
 # <a name="tutorial-perform-manual-failover-for-an-iot-hub"></a>Samouczek: Wykonywanie ręcznego przełączania do trybu failover dla Centrum IoT Hub
 
-Ręczne przechodzenie w tryb failover to funkcja usługi IoT Hub, która umożliwia klientom [przełączanie w tryb failover](https://en.wikipedia.org/wiki/Failover) operacji centrum z regionu podstawowego do odpowiedniego sparowanego geograficznie regionu świadczenia usługi Azure. Ręczne przejście w tryb failover można wykonać w przypadku awarii regionalnej lub dłuższej awarii usługi. Można też wykonać planowane przejście w tryb failover, aby przetestować możliwości odzyskiwania po awarii, mimo że zalecamy użycie testowego centrum IoT Hub zamiast centrum w środowisku produkcyjnym. Funkcja ręcznego przechodzenia w tryb failover jest oferowana klientom bez dodatkowych kosztów.
+Ręczne przechodzenie w tryb failover to funkcja usługi IoT Hub, która umożliwia klientom [przełączanie w tryb failover](https://en.wikipedia.org/wiki/Failover) operacji centrum z regionu podstawowego do odpowiedniego sparowanego geograficznie regionu świadczenia usługi Azure. Ręczne przejście w tryb failover można wykonać w przypadku awarii regionalnej lub dłuższej awarii usługi. Można też wykonać planowane przejście w tryb failover, aby przetestować możliwości odzyskiwania po awarii, mimo że zalecamy użycie testowego centrum IoT Hub zamiast centrum w środowisku produkcyjnym. Funkcja ręcznego przełączania do trybu failover jest oferowana klientom bez dodatkowych kosztów dla centrów IoT utworzonych po 18 maja 2017.
 
 Ten samouczek obejmuje wykonanie następujących zadań:
 
@@ -33,11 +33,11 @@ Ten samouczek obejmuje wykonanie następujących zadań:
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+* Subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 * Upewnij się, że port 8883 jest otwarty w zaporze. Przykład urządzenia w tym samouczku używa protokołu MQTT, który komunikuje się przez port 8883. Ten port może być blokowany w niektórych firmowych i edukacyjnych środowiskach sieciowych. Aby uzyskać więcej informacji i sposobów obejścia tego problemu, zobacz [nawiązywanie połączenia z IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
-## <a name="create-an-iot-hub"></a>Tworzenie centrum IoT Hub
+## <a name="create-an-iot-hub"></a>Tworzenie centrum IoT
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com). 
 
@@ -57,7 +57,7 @@ Ten samouczek obejmuje wykonanie następujących zadań:
 
    ![Zrzut ekranu przedstawiający okienko Podstawowe umożliwiające utworzenie centrum IoT Hub](./media/tutorial-manual-failover/create-hub-02-basics.png)
 
-   Kliknij pozycję **Przegląd + utwórz**. Zostaną użyte domyślne ustawienia rozmiaru i skali. 
+   Kliknij pozycję **Przejrzyj i utwórz**. Zostaną użyte domyślne ustawienia rozmiaru i skali. 
 
 4. Przejrzyj informacje, a następnie kliknij pozycję **Utwórz**, aby utworzyć centrum IoT Hub. 
 
@@ -73,7 +73,7 @@ Istnieje limit dwóch przejść w tryb failover i dwóch powrotów po awarii dzi
 
    ![Zrzut ekranu przedstawiający okienko właściwości centrum IoT Hub](./media/tutorial-manual-failover/trigger-failover-01.png)
 
-1. W okienku ręczny tryb failover zobaczysz **bieżącą lokalizację** i **lokalizację trybu failover**. Bieżąca lokalizacja zawsze wskazuje lokalizację, w której centrum jest obecnie aktywne. Lokalizacja trybu failover to standardowy [region z parowaniem geograficznym platformy Azure](../best-practices-availability-paired-regions.md) , który jest sparowany z bieżącą lokalizacją. Nie można zmienić wartości lokalizacji. W tym samouczku bieżąca lokalizacja jest `West US 2` i lokalizacją trybu failover. `West Central US`
+1. W okienku ręczny tryb failover zobaczysz **bieżącą lokalizację** i **lokalizację trybu failover**. Bieżąca lokalizacja zawsze wskazuje lokalizację, w której centrum jest obecnie aktywne. Lokalizacja trybu failover to standardowy [region z parowaniem geograficznym platformy Azure](../best-practices-availability-paired-regions.md) , który jest sparowany z bieżącą lokalizacją. Nie można zmienić wartości lokalizacji. W tym samouczku bieżąca lokalizacja jest `West US 2` i lokalizacją trybu failover `West Central US` .
 
    ![Zrzut ekranu przedstawiający okienko ręcznego przejścia w tryb failover](./media/tutorial-manual-failover/trigger-failover-02.png)
 
@@ -93,11 +93,11 @@ Istnieje limit dwóch przejść w tryb failover i dwóch powrotów po awarii dzi
 
    ![Zrzut ekranu przedstawiający IoT Hub tryb failover w toku](./media/tutorial-manual-failover/trigger-failover-05-hub-inactive.png)
 
-   Po zakończeniu bieżące regiony i przełączenia w tryb failover na stronie ręczny tryb failover są przerzucane, a centrum jest ponownie aktywne. W tym przykładzie bieżąca lokalizacja jest teraz `WestCentralUS` i lokalizacją trybu failover jest teraz. `West US 2` 
+   Po zakończeniu bieżące regiony i przełączenia w tryb failover na stronie ręczny tryb failover są przerzucane, a centrum jest ponownie aktywne. W tym przykładzie bieżąca lokalizacja jest teraz `WestCentralUS` i lokalizacją trybu failover jest teraz `West US 2` . 
 
    ![Zrzut ekranu przedstawiający ukończone przejście w tryb failover](./media/tutorial-manual-failover/trigger-failover-06-finished.png)
 
-   Na stronie Przegląd jest również wyświetlany transparent wskazujący, że Ukończono pracę w trybie failover, a `West Central US`IoT Hub działa w systemie.
+   Na stronie Przegląd jest również wyświetlany transparent wskazujący, że Ukończono pracę w trybie failover, a IoT Hub działa w systemie `West Central US` .
 
    ![Zrzut ekranu przedstawiający tryb failover jest zakończony na stronie Przegląd](./media/tutorial-manual-failover/trigger-failover-06-finished-overview.png)
 
@@ -120,7 +120,7 @@ Powrót po awarii przebiega podobnie do ręcznego przejścia w tryb failover. Po
 
    Zostaną wyświetlone banery opisane w sekcji przechodzenia w tryb failover. Po zakończeniu powrotu po awarii jest on ponownie wyświetlany `West US 2` jako bieżąca lokalizacja oraz `West Central US` jako lokalizacja trybu failover ustawiona jako oryginalna.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów 
+## <a name="clean-up-resources"></a>Czyszczenie zasobów 
 
 Aby usunąć zasoby utworzone w ramach tego samouczka, usuń grupę zasobów. Ta akcja spowoduje również usunięcie wszystkich zasobów znajdujących się w grupie. W takim przypadku następuje również usunięcie centrum IoT Hub i samej grupy zasobów. 
 

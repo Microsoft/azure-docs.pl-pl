@@ -4,12 +4,12 @@ description: Z tego samouczka dowiesz się, jak skonfigurować ciągłą integra
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
-ms.openlocfilehash: 11485d22abcf0b8e1eb13d8123ff21c7fe0079f8
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 992d720d86fc2e7fedd8e7fd4b559220ff3c0512
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75614149"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260351"
 ---
 # <a name="tutorial-deploy-an-application-with-cicd-to-a-service-fabric-cluster"></a>Samouczek: wdrażanie aplikacji przy użyciu ciągłej integracji/ciągłego wdrażania w klastrze usługi Service Fabric
 
@@ -39,7 +39,7 @@ Przed rozpoczęciem tego samouczka:
 * [Zainstaluj program Visual Studio 2019](https://www.visualstudio.com/) i zainstaluj obciążenia związane z programowaniem i **programowaniem** na **platformie Azure** .
 * [Instalowanie zestawu SDK usługi Service Fabric](service-fabric-get-started.md)
 * Utwórz klaster usługi Service Fabric z systemem Windows na platformie Azure, na przykład [postępując zgodnie z tym samouczkiem](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
-* Utwórz [organizację usługi Azure DevOps](https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization-msa-or-work-student). Umożliwia to utworzenie projektu w usłudze Azure DevOps i korzystanie z usługi Azure Pipelines.
+* Utwórz [organizację usługi Azure DevOps](/azure/devops/organizations/accounts/create-organization-msa-or-work-student). Umożliwia to utworzenie projektu w usłudze Azure DevOps i korzystanie z usługi Azure Pipelines.
 
 ## <a name="download-the-voting-sample-application"></a>Pobieranie przykładowej aplikacji do głosowania
 
@@ -61,7 +61,7 @@ Wybierz profil docelowy w ramach projektu aplikacji na potrzeby przepływu pracy
 
 Udostępnij pliki źródłowe aplikacji w projekcie zespołowym usługi Azure DevOps, aby umożliwić generowanie kompilacji.
 
-Utwórz nowe lokalne repozytorium git dla projektu, wybierając pozycję **Dodaj do kontroli** -> źródła**git** na pasku stanu w prawym dolnym rogu programu Visual Studio.
+Utwórz nowe lokalne repozytorium git dla projektu, wybierając pozycję **Dodaj do kontroli źródła**  ->  **git** na pasku stanu w prawym dolnym rogu programu Visual Studio.
 
 W widoku **Wypychanie** w programie **Team Explorer** wybierz przycisk **Opublikuj repozytorium Git** w obszarze **Wypychanie do usługi Azure DevOps**.
 
@@ -111,7 +111,7 @@ Wybierz kartę **Potoki**, wybierz pozycję **Wydania**, a następnie wybierz po
 
 ![Wybieranie szablonu wydania][select-release-template]
 
-Wybierz pozycję **zadania**->**środowisko 1** i pozycję **+ Nowy** , aby dodać nowe połączenie klastra.
+Wybierz pozycję **zadania** -> **środowisko 1** i pozycję **+ Nowy** , aby dodać nowe połączenie klastra.
 
 ![Dodawanie połączenia klastra][add-cluster-connection]
 
@@ -131,7 +131,7 @@ Włącz wyzwalacz ciągłego wdrażania, aby umożliwić automatyczne tworzenie 
 
 ![Włączanie wyzwalacza][enable-trigger]
 
-Wybierz pozycję **+ wydanie** -> **Utwórz wersję** -> **Utwórz** , aby ręcznie utworzyć wydanie. Postęp wydawania możesz monitorować na karcie **Wydania**.
+Wybierz pozycję **+ wydanie**  ->  **Utwórz wersję**  ->  **Utwórz** , aby ręcznie utworzyć wydanie. Postęp wydawania możesz monitorować na karcie **Wydania**.
 
 Sprawdź, czy wdrożenie zakończyło się pomyślnie, a aplikacja została uruchomiona w klastrze.  Otwórz przeglądarkę internetową i przejdź pod adres `http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/`.  Zwróć uwagę na wersję aplikacji. W tym przykładzie jest to „1.0.0.20170616.3”.
 

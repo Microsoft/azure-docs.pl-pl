@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 09/18/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: d2bb37252bc93c982dbc090a0c3f20aef842325f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 3f0dca5aa9e430fa21d09509121a7ad26feda446
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75351858"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86261321"
 ---
 # <a name="tutorial-deploy-a-service-fabric-mesh-application"></a>Samouczek: wdrażanie aplikacji usługi Service Fabric Mesh
 
@@ -61,11 +61,11 @@ Następnie zobaczysz okno dialogowe **Publikowanie aplikacji usługi Service Fab
 
 Wybierz konto i subskrypcję platformy Azure. Wybierz **lokalizację**. W tym artykule jest używany region **Wschodnie stany USA**.
 
-W obszarze **Grupa zasobów** wybierz pozycję **\<Utwórz nową grupę zasobów...>**. Zostanie wyświetlone okno dialogowe umożliwiające utworzenie nowej grupy zasobów. W tym artykule jest używana lokalizacja **Wschodnie stany USA** i nazwa grupy **sfmeshTutorial1RG** (jeśli w Twojej organizacji wiele osób korzysta z tej samej subskrypcji, wybierz unikatową nazwę grupy).  Naciśnij pozycję **Utwórz**, aby utworzyć grupę zasobów i wrócić do okna dialogowego publikowania.
+W obszarze **Grupa zasobów**wybierz pozycję **\<Create New Resource Group...>** . Zostanie wyświetlone okno dialogowe umożliwiające utworzenie nowej grupy zasobów. W tym artykule jest używana lokalizacja **Wschodnie stany USA** i nazwa grupy **sfmeshTutorial1RG** (jeśli w Twojej organizacji wiele osób korzysta z tej samej subskrypcji, wybierz unikatową nazwę grupy).  Naciśnij pozycję **Utwórz**, aby utworzyć grupę zasobów i wrócić do okna dialogowego publikowania.
 
 ![Okno dialogowe nowej grupy zasobów usługi Service Fabric Mesh w programie Visual Studio](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-publish-new-resource-group-dialog.png)
 
-Po powrocie do okna **Publikowanie aplikacji usługi Service Fabric** w obszarze **Azure Container Registry** wybierz pozycję **\<Utwórz nowy rejestr kontenerów...>**. W oknie dialogowym **Tworzenie rejestru kontenerów** użyj unikatowej nazwy w polu **Nazwa rejestru kontenerów**. Określ **lokalizację** (w tym samouczku jest używany region **Wschodnie stany USA**). Z listy rozwijanej wybierz **grupę zasobów** utworzoną w poprzednim kroku, na przykład **sfmeshTutorial1RG**. Ustaw pozycję **Jednostka SKU** na wartość **Podstawowa**, a następnie wybierz pozycję **Utwórz**, aby utworzyć prywatny rejestr kontenerów platformy Azure i wrócić do okna dialogowego publikowania.
+Wróć do okna dialogowego **publikowanie aplikacji Service Fabric** w obszarze **Azure Container Registry**wybierz pozycję **\<Create New Container Registry...>** . W oknie dialogowym **Tworzenie rejestru kontenerów** użyj unikatowej nazwy w polu **Nazwa rejestru kontenerów**. Określ **lokalizację** (w tym samouczku jest używany region **Wschodnie stany USA**). Z listy rozwijanej wybierz **grupę zasobów** utworzoną w poprzednim kroku, na przykład **sfmeshTutorial1RG**. Ustaw pozycję **Jednostka SKU** na wartość **Podstawowa**, a następnie wybierz pozycję **Utwórz**, aby utworzyć prywatny rejestr kontenerów platformy Azure i wrócić do okna dialogowego publikowania.
 
 ![Okno dialogowe nowego rejestru kontenerów usługi Service Fabric Mesh w programie Visual Studio](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-publish-new-container-registry-dialog.png)
 
@@ -139,4 +139,4 @@ Przejdź do następnego samouczka:
 > [!div class="nextstepaction"]
 > [Uaktualnianie aplikacji usługi Service Fabric Mesh](service-fabric-mesh-tutorial-upgrade.md)
 
-[azure-cli-install]: https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest
+[azure-cli-install]: /cli/azure/install-azure-cli?view=azure-cli-latest

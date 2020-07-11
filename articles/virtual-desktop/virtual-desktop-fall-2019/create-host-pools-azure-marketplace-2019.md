@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: cd309b7c3b37e338b1d8e69635247cc90511b34f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b4472baa51bb0b8806c7ad617c0fc1001c800ff0
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85204748"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86256853"
 ---
 # <a name="tutorial-create-a-host-pool-by-using-the-azure-marketplace"></a>Samouczek: Tworzenie puli hostów przy użyciu witryny Azure Marketplace
 
@@ -58,7 +58,7 @@ Aby uruchomić ofertę Azure Marketplace w celu aprowizacji nowej puli hostów:
 
 Następnie postępuj zgodnie z instrukcjami w następnej sekcji, aby wprowadzić informacje dla odpowiednich kart.
 
-### <a name="basics"></a>Informacje podstawowe
+### <a name="basics"></a>Podstawy
 
 Oto co należy zrobić w przypadku karty **podstawowe** :
 
@@ -154,7 +154,7 @@ Użytkownicy dodanym do grupy aplikacji klasycznych mogą zalogować się do pul
 
 Oto obecnie obsługiwani klienci:
 
-* [Pulpit zdalny Client for Windows 7 i Windows 10](../connect-windows-7-and-10.md)
+* [Pulpit zdalny Client for Windows 7 i Windows 10](connect-windows-7-10-2019.md)
 * [Klient sieci Web pulpitu wirtualnego systemu Windows](connect-web-2019.md)
 
 ## <a name="next-steps"></a>Następne kroki

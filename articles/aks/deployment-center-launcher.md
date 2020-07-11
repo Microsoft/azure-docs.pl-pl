@@ -5,12 +5,12 @@ ms.author: puagarw
 ms.topic: tutorial
 ms.date: 07/12/2019
 author: pulkitaggarwl
-ms.openlocfilehash: b0a9597e370648faab3787218c7d038798dbd455
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 42bdde45b3a289a35c5bf4c4651e5a50a639f049
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80048109"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86251777"
 ---
 # <a name="deployment-center-for-azure-kubernetes"></a>Centrum wdrażania dla usługi Azure Kubernetes
 
@@ -34,7 +34,7 @@ W tym samouczku wykonasz następujące czynności:
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com/).
 
-1. Wybierz opcję [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) po prawej stronie paska menu w Azure Portal.
+1. Wybierz opcję [Cloud Shell](../cloud-shell/overview.md) po prawej stronie paska menu w Azure Portal.
 
 1. Aby utworzyć klaster AKS, uruchom następujące polecenia:
 
@@ -54,9 +54,9 @@ W tym samouczku wykonasz następujące czynności:
 
 1. Wybierz klaster AKS, a następnie wybierz pozycję **centrum wdrażania (wersja zapoznawcza)** w lewym bloku. Wybierz pozycję **Rozpocznij**.
 
-   ![settings](media/deployment-center-launcher/settings.png)
+   ![ustawienia](media/deployment-center-launcher/settings.png)
 
-1. Wybierz lokalizację kodu i wybierz pozycję **dalej**. Następnie wybierz jedną z obecnie obsługiwanych repozytoriów: **[Azure Repos](https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops)** lub **GitHub**.
+1. Wybierz lokalizację kodu i wybierz pozycję **dalej**. Następnie wybierz jedną z obecnie obsługiwanych repozytoriów: **[Azure Repos](/azure/devops/repos/index?view=azure-devops)** lub **GitHub**.
 
     Azure Repos to zestaw narzędzi kontroli wersji, które ułatwiają zarządzanie kodem. Bez względu na to, czy projekt oprogramowania jest duży, czy mały, z użyciem kontroli wersji jak najszybciej jest dobrym pomysłem.
 
@@ -75,9 +75,9 @@ W tym samouczku wykonasz następujące czynności:
 
     Jeśli repozytorium nie zawiera pliku dockerfile, system wyświetli komunikat, aby go zatwierdzić.
 
-    ![Pliku dockerfile](media/deployment-center-launcher/dockerfile.png)
+    ![Dockerfile](media/deployment-center-launcher/dockerfile.png)
 
-1. Wybierz istniejący rejestr kontenerów lub utwórz go, a następnie wybierz pozycję **Zakończ**. Potok jest tworzony automatycznie i kolejkuje kompilację w [Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/index?view=azure-devops).
+1. Wybierz istniejący rejestr kontenerów lub utwórz go, a następnie wybierz pozycję **Zakończ**. Potok jest tworzony automatycznie i kolejkuje kompilację w [Azure Pipelines](/azure/devops/pipelines/index?view=azure-devops).
 
     Azure Pipelines to usługa w chmurze, która umożliwia automatyczne Kompilowanie i testowanie projektu kodu i udostępnianie go innym użytkownikom. Azure Pipelines łączy ciągłą integrację i ciągłe dostarczanie, aby stale i spójnie testować i kompilować kod oraz dostarczać go do dowolnego celu.
 
@@ -133,7 +133,7 @@ Centrum wdrażania automatycznie tworzy i konfiguruje relację między organizac
 
 1. Wybierz pozycję **dzienniki**. Dzienniki zawierają przydatne informacje dotyczące wdrażania, które można wyświetlić w trakcie wdrażania i po nim.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Możesz usunąć powiązane zasoby, które zostały utworzone, gdy nie są już potrzebne. Użyj funkcji usuwania na pulpicie nawigacyjnym DevOps Projects.
 

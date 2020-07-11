@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 06/23/2020
+ms.date: 07/10/2020
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 8809bc98d1bb7309ebe916e3b2d6cae46f38406c
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: 88b5a2fcf5775ebc64f7f4501aaae72803679ddb
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85313871"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86276791"
 ---
 |Nazwa<br /><sub>(Azure Portal)</sub> |Opis |Efekt (s) |Wersja<br /><sub>GitHub</sub> |
 |---|---|---|---|
@@ -34,5 +34,7 @@ ms.locfileid: "85313871"
 |[Konta magazynu powinny używać punktu końcowego usługi sieci wirtualnej](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F60d21c4f-21a3-4d94-85f4-b924e6aeeda4) |Ta zasada przeprowadza inspekcję wszystkich kont magazynu nieskonfigurowanych do korzystania z punktu końcowego usługi sieci wirtualnej. |Inspekcja, wyłączona |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/VirtualNetworkServiceEndpoint_StorageAccount_Audit.json) |
 |[Maszyny wirtualne powinny być połączone z zatwierdzoną siecią wirtualną](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fd416745a-506c-48b6-8ab1-83cb814bcaa3) |Ta zasada przeprowadza inspekcję wszystkich maszyn wirtualnych połączonych z siecią wirtualną, która nie jest zatwierdzona. |Inspekcja, Odmów, wyłączone |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/ApprovedVirtualNetwork_Audit.json) |
 |[Sieci wirtualne powinny używać określonej bramy sieci wirtualnej](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff1776c76-f58c-4245-a8d0-2b207198dc8b) |Ta zasada przeprowadza inspekcję dowolnej sieci wirtualnej, jeśli trasa domyślna nie wskazuje określonej bramy sieci wirtualnej. |AuditIfNotExists, wyłączone |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/VirtualNetwork_ApprovedVirtualNetworkGateway_AuditIfNotExists.json) |
-|[Zapora aplikacji sieci Web powinna być trybem zestawu dla Application Gateway i usługi Azure front-drzwi](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff6b68e5a-7207-4638-a1fb-47d90404209e) |W ramach wszystkich zasad zapory aplikacji sieci Web dla drzwi platformy Azure i Application Gateway nie można wykryć trybu lub zapobiec jego aktywacji. Zasady zapory aplikacji sieci Web mogą mieć spójną konfigurację trybu w obrębie grupy zasobów. |Inspekcja, Odmów, wyłączone |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/ModeWAF_Deny.json) |
-|[Zapora aplikacji sieci Web powinna być włączona dla usługi Azure front-drzwi lub Application Gateway](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fbe7ed5c8-2660-4136-8216-e6f3412ba909) |Wymaga zapory aplikacji sieci Web w dowolnej usłudze lub Application Gateway platformy Azure. Zapora aplikacji sieci Web zapewnia większe bezpieczeństwo innych zasobów platformy Azure. |Inspekcja, Odmów, wyłączone |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/EnabledWAF_Deny.json) |
+|[Zapora aplikacji sieci Web (WAF) powinna być włączona dla Application Gateway](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F564feb30-bf6a-4854-b4bb-0d2d2d1e6c66) |Wymaga zapory aplikacji sieci Web (WAF) na dowolnym Application Gateway. Zapora aplikacji sieci Web zapewnia większe bezpieczeństwo innych zasobów platformy Azure. |Inspekcja, Odmów, wyłączone |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/WAF_AppGatewayEnabled_Audit.json) |
+|[Zapora aplikacji sieci Web (WAF) powinna być włączona dla usługi Azure front-drzwi](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F055aa869-bc98-4af8-bafc-23f1ab6ffe2c) |Wymaga zapory aplikacji sieci Web (WAF) w dowolnej usłudze Azure front-drzwi. Zapora aplikacji sieci Web zapewnia większe bezpieczeństwo innych zasobów platformy Azure. |Inspekcja, Odmów, wyłączone |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/WAF_AFD_Enabled_Audit.json) |
+|[Zapora aplikacji sieci Web (WAF) powinna używać określonego trybu dla Application Gateway](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F12430be1-6cc8-4527-a9a8-e3d38f250096) |Zezwala na aktywne użycie trybu wykrywania lub zapobiegania wszystkim zasadom zapory aplikacji sieci Web dla Application Gateway. |Inspekcja, Odmów, wyłączone |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/WAF_AppGatewayMode_Audit.json) |
+|[Zapora aplikacji sieci Web (WAF) powinna używać określonego trybu dla usługi frontonu platformy Azure](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F425bea59-a659-4cbb-8d31-34499bd030b8) |Zezwala na aktywne użycie trybu wykrywania lub zapobiegania wszystkim zasadom zapory aplikacji sieci Web dla usługi frontonu platformy Azure. |Inspekcja, Odmów, wyłączone |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/WAF_AFD_Mode_Audit.json) |
