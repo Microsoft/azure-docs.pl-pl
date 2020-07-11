@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: allensu
-ms.openlocfilehash: d0c438aee7f56e96feb7167fad718fd9519a9f76
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aa3c190912c0fbd62b08182018c99b985354811b
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81253717"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86201803"
 ---
 # <a name="how-caching-works"></a>Jak działa buforowanie
 
@@ -45,7 +46,7 @@ Każda pamięć podręczna zazwyczaj zarządza własną Aktualności zasobów i 
 
 Ponieważ buforowany zasób może być nieaktualny lub nieodświeżony (w porównaniu do odpowiadającego mu zasobu na serwerze źródłowym), ważne jest, aby mechanizm buforowania mógł kontrolować, kiedy zawartość jest odświeżana. Aby zaoszczędzić czas i użycie przepustowości, zasób pamięci podręcznej nie jest porównywany z wersją na serwerze źródłowym przy każdym uzyskaniu dostępu. Zamiast tego, pod warunkiem, że zasób pamięci podręcznej jest uznawany za świeży, zakłada się, że jest to Najnowsza wersja i jest wysyłana bezpośrednio do klienta. Zasób w pamięci podręcznej jest uznawany za świeży, gdy jego wiek jest mniejszy od wieku lub okresu zdefiniowanego przez ustawienie pamięci podręcznej. Na przykład gdy przeglądarka ponownie ładuje stronę sieci Web, sprawdza, czy każdy buforowany zasób na dysku twardym jest świeży i ładuje go. Jeśli zasób nie jest świeży (nieodświeżony), jest ładowana aktualna kopia z serwera.
 
-### <a name="validation"></a>Walidacja
+### <a name="validation"></a>Weryfikacja
 
 Jeśli zasób jest uznawany za przestarzały, zostanie wyświetlony monit o jego zweryfikowanie, czyli określenie, czy dane w pamięci podręcznej nadal pasują do tego, co znajduje się na serwerze źródłowym. Jeśli plik został zmodyfikowany na serwerze źródłowym, pamięć podręczna aktualizuje swoją wersję zasobu. W przeciwnym razie, jeśli zasób jest świeży, dane są dostarczane bezpośrednio z pamięci podręcznej bez weryfikowania ich w pierwszej kolejności.
 
@@ -111,11 +112,11 @@ Gdy pamięć podręczna jest nieodświeżona, moduły sprawdzania pamięci podr�
 
 Nie wszystkie zasoby mogą być buforowane. W poniższej tabeli przedstawiono zasoby, które mogą być buforowane, na podstawie typu odpowiedzi HTTP. Nie można buforować zasobów dostarczanych z odpowiedziami HTTP, które nie spełniają wszystkich tych warunków. W przypadku **Azure CDN Premium tylko Verizon** , można użyć aparatu reguł, aby dostosować niektóre z tych warunków.
 
-|                   | Azure CDN od firmy Microsoft          | Azure CDN z Verizon | Azure CDN z Akamai        |
-|-------------------|-----------------------------------|------------------------|------------------------------|
-| Kody stanu HTTP | 200, 203, 206, 300, 301, 410, 416 | 200                    | 200, 203, 300, 301, 302, 401 |
-| Metody HTTP      | GET, SZEF                         | GET                    | GET                          |
-| Limity rozmiaru plików  | 300 GB                            | 300 GB                 | — Optymalizacja ogólnej dostarczania sieci Web: 1,8 GB<br />— Optymalizacje przesyłania strumieniowego multimediów: 1,8 GB<br />— Optymalizacja dużych plików: 150 GB |
+|                       | Azure CDN od firmy Microsoft          | Azure CDN z Verizon | Azure CDN z Akamai        |
+|-----------------------|-----------------------------------|------------------------|------------------------------|
+| **Kody stanu HTTP** | 200, 203, 206, 300, 301, 410, 416 | 200                    | 200, 203, 300, 301, 302, 401 |
+| **Metody HTTP**      | GET, SZEF                         | GET                    | GET                          |
+| **Limity rozmiaru plików**  | 300 GB                            | 300 GB                 | — Optymalizacja ogólnej dostarczania sieci Web: 1,8 GB<br />— Optymalizacje przesyłania strumieniowego multimediów: 1,8 GB<br />— Optymalizacja dużych plików: 150 GB |
 
 Aby można było korzystać **z usługi Azure CDN Standard z buforowania firmy Microsoft** w celu pracy nad zasobem, serwer pierwotny musi obsługiwać wszystkie nagłówki i odbierać żądania HTTP, a wartości długości zawartości muszą być takie same dla każdego elementu podrzędnego i odbierać odpowiedzi HTTP dla zasobu. W przypadku żądania HEAD serwer źródłowy musi obsługiwać żądanie HEAD i musi odpowiedzieć z tymi samymi nagłówkami, co w przypadku otrzymania żądania GET.
 

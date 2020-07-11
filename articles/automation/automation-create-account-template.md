@@ -7,11 +7,12 @@ ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 06/09/2020
-ms.openlocfilehash: 6b26db522db246add48941da9af4784ed2942a0a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7b9d3ea30f502f8f95bb12c6a3b270f8eddde0cf
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84661033"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186626"
 ---
 # <a name="create-an-automation-account-using-an-azure-resource-manager-template"></a>Tworzenie konta usługi Automation przy użyciu szablonu Azure Resource Manager
 
@@ -35,13 +36,13 @@ W poniższej tabeli wymieniono wersje interfejsu API dla zasobów używanych w t
 | Zasób | Typ zasobu | Wersja interfejsu API |
 |:---|:---|:---|
 | Workspace | obszary robocze | 2020-03-01 — wersja zapoznawcza |
-| Konto usługi Automation | automation | 2018-06-30 | 
+| Konto usługi Automation | automatyzacja | 2018-06-30 | 
 
 ## <a name="before-you-use-the-template"></a>Przed użyciem szablonu
 
 Jeśli zdecydujesz się zainstalować program PowerShell i używać go lokalnie, ten artykuł będzie wymagał Azure PowerShell AZ module. Uruchom polecenie `Get-Module -ListAvailable Az`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczne będzie uaktualnienie, zobacz [Instalowanie modułu programu Azure PowerShell](/powershell/azure/install-az-ps). Jeśli używasz programu PowerShell lokalnie, musisz też uruchomić polecenie `Connect-AzAccount`, aby utworzyć połączenie z platformą Azure. W programie PowerShell wdrożenie używa polecenia [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment).
 
-Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia platformy Azure i korzystać z niego lokalnie, ten artykuł będzie wymagał programu w wersji 2.1.0 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie interfejsu, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). W przypadku korzystania z interfejsu wiersza polecenia platformy Azure w tym wdrożeniu zostanie użyte polecenie [AZ Group Deployment Create](https://docs.microsoft.com/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create). 
+Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia platformy Azure i korzystać z niego lokalnie, ten artykuł będzie wymagał programu w wersji 2.1.0 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie interfejsu, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?view=azure-cli-latest). W przypadku korzystania z interfejsu wiersza polecenia platformy Azure w tym wdrożeniu zostanie użyte polecenie [AZ Group Deployment Create](/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create). 
 
 Szablon JSON jest skonfigurowany tak, aby monitował o:
 
@@ -70,7 +71,7 @@ Jeśli dopiero zaczynasz Azure Automation i Azure Monitor, ważne jest zapoznani
 
 * Jeśli dopiero zaczynasz korzystać z dzienników Azure Monitor i nie wdrożono już obszaru roboczego, zapoznaj się z tematem [wskazówki dotyczące projektowania obszaru roboczego](../azure-monitor/platform/design-logs-deployment.md). Pomożemy Ci poznać kontrolę dostępu i zrozumieć strategie implementacji projektu, które zalecamy dla Twojej organizacji.
 
-## <a name="deploy-the-template"></a>Wdrożenie szablonu
+## <a name="deploy-the-template"></a>Wdrażanie szablonu
 
 1. Skopiuj i wklej następującą składnię JSON do pliku:
 

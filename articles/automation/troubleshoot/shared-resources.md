@@ -8,11 +8,12 @@ ms.date: 03/12/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 5b87a98ed38e3af315789adffc11824f2522b802
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c6bdc09d37cf29458346eaea360b4cd9e0d1226f
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83680887"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187170"
 ---
 # <a name="troubleshoot-shared-resource-issues"></a>Rozwiązywanie problemów z zasobami udostępnionymi
 
@@ -32,7 +33,7 @@ Ponieważ importowanie modułów programu PowerShell to złożony, wieloetapowy 
 
 #### <a name="resolution"></a>Rozwiązanie
 
-Aby rozwiązać ten problem, należy usunąć moduł, który jest zablokowany za pomocą polecenia cmdlet [Remove-AzAutomationModule](https://docs.microsoft.com/powershell/module/Az.Automation/Remove-AzAutomationModule?view=azps-3.7.0) . Następnie można ponowić próbę importowania modułu.
+Aby rozwiązać ten problem, należy usunąć moduł, który jest zablokowany za pomocą polecenia cmdlet [Remove-AzAutomationModule](/powershell/module/Az.Automation/Remove-AzAutomationModule?view=azps-3.7.0) . Następnie można ponowić próbę importowania modułu.
 
 ```azurepowershell-interactive
 Remove-AzAutomationModule -Name ModuleName -ResourceGroupName ExampleResourceGroup -AutomationAccountName ExampleAutomationAccount -Force
@@ -69,7 +70,7 @@ Niektóre typowe przyczyny, że moduł nie został pomyślnie zaimportowany do A
 * Struktura nie jest zgodna ze strukturą wymaganą przez automatyzację.
 * Moduł jest zależny od innego modułu, który nie został wdrożony na koncie usługi Automation.
 * W module brakuje jego zależności w folderze.
-* Polecenie cmdlet [New-AzAutomationModule](https://docs.microsoft.com/powershell/module/Az.Automation/New-AzAutomationModule?view=azps-3.7.0) jest używane do przekazywania modułu i nie podano pełnej ścieżki magazynu lub nie załadowano modułu przy użyciu publicznie dostępnego adresu URL.
+* Polecenie cmdlet [New-AzAutomationModule](/powershell/module/Az.Automation/New-AzAutomationModule?view=azps-3.7.0) jest używane do przekazywania modułu i nie podano pełnej ścieżki magazynu lub nie załadowano modułu przy użyciu publicznie dostępnego adresu URL.
 
 #### <a name="resolution"></a>Rozwiązanie
 

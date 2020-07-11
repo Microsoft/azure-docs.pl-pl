@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 06/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: d921ecc390ae9361c9b36b4738e73a499aa2e8a4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0960dfe067e5092f3d64f66cad1d49c2bea28ae6
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85361816"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186252"
 ---
 # <a name="hybrid-runbook-worker-overview"></a>Omówienie hybrydowych procesów roboczych elementów Runbook
 
@@ -63,7 +63,7 @@ Jeśli serwer proxy jest używany do komunikacji między Azure Automation i komp
 
 ### <a name="firewall-use"></a>Użycie zapory
 
-W przypadku używania zapory w celu ograniczenia dostępu do Internetu należy skonfigurować zaporę tak, aby zezwalała na dostęp. Jeśli jest używana brama Log Analytics jako serwer proxy, upewnij się, że jest ona skonfigurowana dla hybrydowych procesów roboczych elementów Runbook. Zobacz [Konfigurowanie bramy log Analytics dla hybrydowych procesów roboczych usługi Automation](https://docs.microsoft.com/azure/log-analytics/log-analytics-oms-gateway).
+W przypadku używania zapory w celu ograniczenia dostępu do Internetu należy skonfigurować zaporę tak, aby zezwalała na dostęp. Jeśli jest używana brama Log Analytics jako serwer proxy, upewnij się, że jest ona skonfigurowana dla hybrydowych procesów roboczych elementów Runbook. Zobacz [Konfigurowanie bramy log Analytics dla hybrydowych procesów roboczych usługi Automation](../azure-monitor/platform/gateway.md).
 
 ### <a name="service-tags"></a>Tagi usługi
 

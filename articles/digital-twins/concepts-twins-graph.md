@@ -7,11 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 6b6da2a15441564ef0b67e76ee5a0e0c85839a63
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 248725c7281c8c63e4ca5c0c70428b4fc997d350
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85609320"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86142402"
 ---
 # <a name="understand-digital-twins-and-their-twin-graph"></a>Informacje na temat bliźniaczych reprezentacji cyfrowych i ich bliźniaczych wykresów
 
@@ -97,6 +98,7 @@ Gdy jest reprezentowany jako obiekt JSON, dwuosiowy symbol cyfrowy będzie wyśw
 | Nazwa pola | Opis |
 | --- | --- |
 | `$dtId` | Ciąg dostarczony przez użytkownika reprezentujący identyfikator dwuosiowego |
+| `$etag` | Standardowe pole HTTP przypisane przez serwer sieci Web |
 | `$conformance` | Wyliczenie zawierające stan zgodności tej dwucyfrowej sznurka *(niezgodne,* *niezgodne*, *nieznany*) |
 | `{propertyName}` | Wartość właściwości w formacie JSON ( `string` , typ numeru lub obiekt) |
 | `$relationships` | Adres URL ścieżki do kolekcji Relationships. To pole jest nieobecne, jeśli cyfrowa dwuosiowa nie ma żadnych wychodzących krawędzi relacji. |
@@ -115,6 +117,7 @@ Poniżej znajduje się przykład cyfrowego sznurka sformatowanego jako obiekt JS
 ```json
 {
   "$dtId": "Cafe",
+  "$etag": "W/\"e59ce8f5-03c0-4356-aea9-249ecbdc07f9\"",
   "Temperature": 72,
   "Location": {
     "x": 101,
@@ -162,6 +165,7 @@ Gdy jest reprezentowany jako obiekt JSON, relacja z dwucyfrowego sznurka będzie
 | Nazwa pola | Opis |
 | --- | --- |
 | `$relationshipId` | Ciąg dostarczony przez użytkownika reprezentujący identyfikator tej relacji. Ten ciąg jest unikatowy w kontekście źródłowej cyfrowej przędzy, co oznacza, że `sourceId`  +  `relationshipId` jest unikatowy w kontekście wystąpienia usługi Azure Digital bliźniaczych reprezentacji. |
+| `$etag` | Standardowe pole HTTP przypisane przez serwer sieci Web |
 | `$sourceId` | Identyfikator źródłowej dwuosiowej |
 | `$targetId` | Identyfikator docelowej przędzy cyfrowej |
 | `$relationshipName` | Nazwa relacji |

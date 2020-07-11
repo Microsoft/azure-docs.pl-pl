@@ -2,12 +2,13 @@
 title: Wdróż wystąpienie kontenera z obsługą procesora GPU
 description: Dowiedz się, jak wdrożyć usługę Azure Container Instances, aby uruchamiać aplikacje kontenera intensywnie korzystające z obliczeń przy użyciu zasobów procesora GPU.
 ms.topic: article
-ms.date: 02/19/2020
-ms.openlocfilehash: 0f1d21c62be5d7ae099faa2c6fcc440829bb451f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/02/2020
+ms.openlocfilehash: 78b67843978583dd6b0f0aee2c1d8ad0e5a7ca77
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77525292"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169752"
 ---
 # <a name="deploy-container-instances-that-use-gpu-resources"></a>Wdrażanie wystąpień kontenerów korzystających z zasobów procesora GPU
 
@@ -42,7 +43,7 @@ Aby użyć procesorów GPU w wystąpieniu kontenera, określ *zasób procesora G
 * **Liczba** — liczba procesorów GPU: **1**, **2**lub **4**.
 * **Jednostka SKU** — jednostka SKU procesora GPU: **K80**, **P100**lub **V100**. Każda jednostka SKU jest mapowana na procesor GPU NVIDIA Tesla w jednej z następujących rodzin maszyn wirtualnych z obsługą procesora GPU platformy Azure:
 
-  | SKU | Rodzina maszyn wirtualnych |
+  | Jednostka SKU | Rodzina maszyn wirtualnych |
   | --- | --- |
   | K80 | [NC](../virtual-machines/nc-series.md) |
   | P100 | [NCv2](../virtual-machines/ncv2-series.md) |
@@ -72,7 +73,7 @@ Jednym ze sposobów dodawania zasobów procesora GPU jest wdrożenie grupy konte
 
 ```YAML
 additional_properties: {}
-apiVersion: '2018-10-01'
+apiVersion: '2019-12-01'
 name: gpucontainergroup
 properties:
   containers:
@@ -138,7 +139,7 @@ Innym sposobem wdrożenia grupy kontenerów z zasobami procesora GPU jest użyci
       {
         "name": "[parameters('containerGroupName')]",
         "type": "Microsoft.ContainerInstance/containerGroups",
-        "apiVersion": "2018-10-01",
+        "apiVersion": "2019-12-01",
         "location": "[resourceGroup().location]",
         "properties": {
             "containers": [
@@ -167,10 +168,10 @@ Innym sposobem wdrożenia grupy kontenerów z zasobami procesora GPU jest użyci
 }
 ```
 
-Wdróż szablon za pomocą polecenia [AZ Group Deployment Create][az-group-deployment-create] . Należy podać nazwę grupy zasobów, która została utworzona w regionie, takim jak *Wschodnie* , która obsługuje zasoby procesora GPU.
+Wdróż szablon za pomocą polecenia [AZ Deployment Group Create][az-deployment-group-create] . Należy podać nazwę grupy zasobów, która została utworzona w regionie, takim jak *Wschodnie* , która obsługuje zasoby procesora GPU.
 
 ```azurecli-interactive
-az group deployment create --resource-group myResourceGroup --template-file gpudeploy.json
+az deployment group create --resource-group myResourceGroup --template-file gpudeploy.json
 ```
 
 Przeprowadzenie wdrożenia zajmuje kilka minut. Następnie zostanie uruchomiony kontener i zostanie uruchomione zadanie TensorFlow. Uruchom polecenie [AZ Container Logs][az-container-logs] , aby wyświetlić dane wyjściowe dziennika:
@@ -208,7 +209,7 @@ Adding run metadata for 999
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Ponieważ korzystanie z zasobów procesora GPU może być kosztowne, należy się upewnić, że kontenery nie działają nieoczekiwanie przez długi czas. Monitoruj kontenery w Azure Portal lub Sprawdź stan grupy kontenerów za pomocą polecenia [AZ Container show][az-container-show] . Przykład:
+Ponieważ korzystanie z zasobów procesora GPU może być kosztowne, należy się upewnić, że kontenery nie działają nieoczekiwanie przez długi czas. Monitoruj kontenery w Azure Portal lub Sprawdź stan grupy kontenerów za pomocą polecenia [AZ Container show][az-container-show] . Na przykład:
 
 ```azurecli
 az container show --resource-group myResourceGroup --name gpucontainergroup --output table
@@ -239,4 +240,4 @@ az container delete --resource-group myResourceGroup --name gpucontainergrouprm 
 [az-container-show]: /cli/azure/container#az-container-show
 [az-container-logs]: /cli/azure/container#az-container-logs
 [az-container-show]: /cli/azure/container#az-container-show
-[az-group-deployment-create]: /cli/azure/group/deployment#az-group-deployment-create
+[az-deployment-group-create]: /cli/azure/deployment/group#az-deployment-group-create

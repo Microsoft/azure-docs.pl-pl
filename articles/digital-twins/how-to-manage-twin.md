@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/10/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 707cfb2e9bea3286daa92ea54f7bb9659a455caf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e37c680f6bf9e296230232c0d4e0fab5f50ad3cd
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85390520"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86142370"
 ---
 # <a name="manage-digital-twins"></a>Zarządzanie usługą Digital Twins
 
@@ -122,6 +122,7 @@ Wynik wywołania `object result = await client.DigitalTwins.GetByIdAsync("my-moo
 ```json
 {
   "$dtId": "myMoon-001",
+  "$etag": "W/\"e59ce8f5-03c0-4356-aea9-249ecbdc07f9\"",
   "radius": 1737.1,
   "mass": 0.0734,
   "$metadata": {
@@ -146,7 +147,8 @@ Wynik wywołania `object result = await client.DigitalTwins.GetByIdAsync("my-moo
 
 Zdefiniowane właściwości dwucyfrowej dwuosiowej są zwracane jako właściwości najwyższego poziomu na dwuosiowej cyfrowej. Metadane lub informacje o systemie, które nie są częścią definicji DTDL, są zwracane z `$` prefiksem. Właściwości metadanych obejmują:
 * Identyfikator wielocyfrowej dwuosiowej w tym wystąpieniu usługi Azure Digital bliźniaczych reprezentacji `$dtId` .
-* Inne właściwości w `$metadata` sekcji. Obejmuje on:
+* `$etag`Standardowe pole HTTP przypisane przez serwer sieci Web
+* Inne właściwości w `$metadata` sekcji. Należą do nich:
     - DTMI modelu dwuosiowy cyfrowo.
     - Stan synchronizacji dla każdej właściwości zapisywalnej. Jest to najbardziej przydatne w przypadku urządzeń, w których możliwe jest, że usługa i urządzenie mają rozbieżność stanu (na przykład gdy urządzenie jest w trybie offline). Obecnie ta właściwość dotyczy tylko urządzeń fizycznych podłączonych do IoT Hub. Za pomocą danych w sekcji metadanych można zrozumieć pełny stan właściwości, a także sygnaturę czasową ostatniej modyfikacji. Aby uzyskać więcej informacji na temat stanu synchronizacji, zobacz [ten IoT Hub samouczek](../iot-hub/tutorial-device-twins.md) dotyczący synchronizowania stanu urządzenia.
     - Metadane dotyczące usługi, takie jak IoT Hub lub Azure Digital bliźniaczych reprezentacji. 

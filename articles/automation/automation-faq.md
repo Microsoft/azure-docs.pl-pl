@@ -7,11 +7,12 @@ ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 02/25/2020
-ms.openlocfilehash: 1cd20e28d1b36167154059adf728a9cfdf8102bc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 76c8d09ef2ef0130ddac856a1f37f8b68d977494
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83836621"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186235"
 ---
 # <a name="azure-automation-frequently-asked-questions"></a>Azure Automation często zadawane pytania
 
@@ -37,7 +38,7 @@ Wdrażanie aktualizacji według klasyfikacji aktualizacji nie działa w wersjach
 
 ### <a name="can-i-deploy-updates-across-azure-tenants"></a>Czy można wdrażać aktualizacje w ramach dzierżawców platformy Azure?
 
-Jeśli masz maszyny wymagające zastosowania poprawek w innej usłudze raportowania dzierżawy platformy Azure do Update Management, musisz użyć następującego obejścia, aby je zaplanować. Można użyć polecenia cmdlet [New-AzAutomationSchedule](https://docs.microsoft.com/powershell/module/Az.Automation/New-AzAutomationSchedule?view=azps-3.7.0) z `ForUpdateConfiguration` parametrem określonym do utworzenia harmonogramu. Można użyć polecenia cmdlet [New-AzAutomationSoftwareUpdateConfiguration](https://docs.microsoft.com/powershell/module/Az.Automation/New-AzAutomationSoftwareUpdateConfiguration?view=azps-3.7.0) i przekazać maszyny w innej dzierżawie do `NonAzureComputer` parametru. W przykładzie poniżej pokazano, jak to zrobić.
+Jeśli masz maszyny wymagające zastosowania poprawek w innej usłudze raportowania dzierżawy platformy Azure do Update Management, musisz użyć następującego obejścia, aby je zaplanować. Można użyć polecenia cmdlet [New-AzAutomationSchedule](/powershell/module/Az.Automation/New-AzAutomationSchedule?view=azps-3.7.0) z `ForUpdateConfiguration` parametrem określonym do utworzenia harmonogramu. Można użyć polecenia cmdlet [New-AzAutomationSoftwareUpdateConfiguration](/powershell/module/Az.Automation/New-AzAutomationSoftwareUpdateConfiguration?view=azps-3.7.0) i przekazać maszyny w innej dzierżawie do `NonAzureComputer` parametru. W przykładzie poniżej pokazano, jak to zrobić.
 
 ```azurepowershell-interactive
 $nonAzurecomputers = @("server-01", "server-02")
@@ -53,5 +54,5 @@ New-AzAutomationSoftwareUpdateConfiguration  -ResourceGroupName $rg -AutomationA
 
 Jeśli na pytanie nie ma odpowiedzi, możesz zapoznać się z poniższymi źródłami w celu uzyskania dodatkowych pytań i odpowiedzi.
 
-- [Azure Automation](https://docs.microsoft.com/answers/topics/azure-automation.html)
+- [Azure Automation](/answers/topics/azure-automation.html)
 - [Forum z opiniami](https://feedback.azure.com/forums/905242-update-management)

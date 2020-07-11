@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 89dc96370f65ff20d7f8be38ff78d6c1664305d3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 543050bc899c257c4ad5e0d0c399a1de6f0f58f2
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80477798"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86220579"
 ---
 # <a name="how-to-create-an-app-service-environment-v1"></a>Jak utworzyć App Service Environment v1 
 
@@ -20,7 +20,7 @@ ms.locfileid: "80477798"
 > Ten artykuł dotyczy App Service Environment v1. Istnieje nowsza wersja App Service Environment ułatwiająca korzystanie z bardziej wydajną infrastrukturą. Aby dowiedzieć się więcej o nowej wersji, Zacznij od [wprowadzenia do App Service Environment](intro.md).
 > 
 
-### <a name="overview"></a>Omówienie
+### <a name="overview"></a>Przegląd
 App Service Environment (ASE) to opcja usługi Premium Azure App Service, która zapewnia rozszerzoną funkcję konfiguracji, która nie jest dostępna w sygnaturach z wieloma dzierżawcami. Funkcja ASE zasadniczo wdraża Azure App Service w sieci wirtualnej klienta. Aby uzyskać lepsze zrozumienie możliwości oferowanych przez App Service środowiska, przeczytaj artykuł [co to jest App Service Environment][WhatisASE] dokumentacja.
 
 ### <a name="before-you-create-your-ase"></a>Przed utworzeniem środowiska ASE
@@ -40,11 +40,11 @@ Aby utworzyć App Service Environment V1, możesz przeszukać witrynę Azure Mar
 
 1. Podaj nazwę środowiska ASE. Nazwa określona dla środowiska ASE zostanie użyta dla aplikacji utworzonych w środowisku ASE. Jeśli nazwa środowiska ASE to appsvcenvdemo, nazwą domeny podrzędnej byłaby: *appsvcenvdemo.p.azurewebsites.NET*. Jeśli w ten sposób utworzysz aplikację o nazwie *MojaAplikacja*, będzie ona adresować w *mytestapp.appsvcenvdemo.p.azurewebsites.NET*. Nie można użyć odstępu w nazwie środowiska ASE. Jeśli w nazwie używane są wielkie litery, nazwa domeny będzie sumą małych liter tej nazwy. Jeśli używasz ILB, Nazwa środowiska ASE nie zostanie użyta w poddomenie, ale zamiast tego zostanie jawnie określona podczas tworzenia środowiska ASE.
    
-    ![][1]
+    ![Zrzut ekranu pokazujący sposób tworzenia App Service Environment (ASE).][1]
 2. Wybierz subskrypcję. Subskrypcja używana dla środowiska ASE również będzie miała zastosowanie do wszystkich aplikacji tworzonych w tym środowisku ASE. Nie można umieścić środowiska ASE w sieci wirtualnej, która znajduje się w innej subskrypcji.
 3. Wybierz lub określ nową grupę zasobów. Grupa zasobów używana dla środowiska ASE musi być taka sama, jak w przypadku sieci wirtualnej. W przypadku wybrania istniejącej sieci wirtualnej wybór grupy zasobów dla środowiska ASE zostanie zaktualizowany w celu odzwierciedlenia tej sieci wirtualnej.
    
-    ![][2]
+    ![Zrzut ekranu pokazujący sposób wybierania lub modyfikowania nowej grupy zasobów.][2]
 4. Zmień wybór Virtual Network i lokalizacji. Można utworzyć nową sieć wirtualną lub wybrać istniejącą wcześniej sieć wirtualną. W przypadku wybrania nowej sieci wirtualnej można określić nazwę i lokalizację. Nowa sieć wirtualna będzie miała zakres adresów 192.168.250.0/23 i podsieć o nazwie **default** , która jest zdefiniowana jako 192.168.250.0/24. Możesz również po prostu wybrać istniejącą wcześniej sieć wirtualną lub Menedżer zasobów sieci wirtualnej. Wybór typu adresu VIP określa, czy do środowiska ASE można uzyskać dostęp bezpośrednio z Internetu (zewnętrznego) czy też używa wewnętrznego Load Balancer (ILB). Aby dowiedzieć się więcej na temat odczytu [przy użyciu wewnętrznego Load Balancer z App Service Environment][ILBASE]. W przypadku wybrania typu adresu VIP zewnętrznego można wybrać liczbę zewnętrznych adresów IP, z którymi system zostanie utworzony, na potrzeby Połączenie SSL z adresu IP. W przypadku wybrania opcji wewnętrzne należy określić poddomenę, która będzie używana przez środowisko ASE. Środowisk ASE można wdrożyć w sieciach *wirtualnych korzystających* z zakresów adresów publicznych *lub* przestrzeni adresów RFC1918 (np. adresów prywatnych). Aby można było używać sieci wirtualnej z zakresem adresów publicznych, należy najpierw utworzyć sieć wirtualną przed czasem. Po wybraniu istniejącej sieci wirtualnej należy utworzyć nową podsieć podczas tworzenia środowiska ASE. **Nie można użyć wstępnie utworzonej podsieci w portalu. Jeśli tworzysz środowisko ASE przy użyciu szablonu usługi Resource Manager, możesz utworzyć środowisko ASE z istniejącą podsiecią.** Aby utworzyć środowisko ASE na podstawie szablonu, użyj tutaj informacji, [tworząc App Service Environment z szablonu][ILBAseTemplate] i w tym miejscu, [tworząc App Service Environment ILB z szablonu][ASEfromTemplate].
 
 ### <a name="details"></a>Szczegóły

@@ -6,12 +6,12 @@ ms.service: storsimple
 ms.topic: troubleshooting
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: f8f84542cd52d8ad4affd64627637d4e95b1fb10
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c4332f3e5a1ca6d434671d3a2cfe100a5d12795d
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85514040"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86182019"
 ---
 # <a name="create-and-manage-a-support-package-for-storsimple-8000-series"></a>Utwórz pakiet pomocy technicznej dla serii StorSimple 8000 i Zarządzaj nim
 
@@ -23,7 +23,7 @@ Ten samouczek zawiera instrukcje krok po kroku dotyczące tworzenia pakietu dla 
 
 ## <a name="create-a-support-package"></a>Tworzenie pakietu dla pomocy technicznej
 
-W niektórych przypadkach należy ręcznie utworzyć pakiet pomocy technicznej za pomocą program Windows PowerShell dla usługi StorSimple. Przykład:
+W niektórych przypadkach należy ręcznie utworzyć pakiet pomocy technicznej za pomocą program Windows PowerShell dla usługi StorSimple. Na przykład:
 
 * Jeśli musisz usunąć poufne informacje z plików dziennika przed udostępnieniem pomoc techniczna firmy Microsoft.
 * Jeśli masz problemy z przekazywaniem pakietu ze względu na problemy z łącznością.
@@ -43,7 +43,7 @@ Możesz udostępnić ręcznie wygenerowany pakiet pomocy technicznej pomoc techn
    2. W otwartym oknie dialogowym wprowadź hasło administratora urządzenia. Domyślne hasło to _Password1_.
      
       ![Okno dialogowe poświadczeń programu PowerShell](./media/storsimple-8000-create-manage-support-package/IC740962.png)
-   3. Wybierz przycisk **OK**.
+   3. Wybierz pozycję **OK**.
    4. W wierszu polecenia wprowadź:
      
       `Enter-PSSession $MS`
@@ -98,9 +98,11 @@ Aby edytować pakiet pomocy technicznej przed przekazaniem go do witryny pomoc t
     ![Edytuj pakiet pomocy technicznej](./media/storsimple-8000-create-manage-support-package/IC750706.png)
 5. Po wyświetleniu monitu o hasło szyfrowania wprowadź hasło użyte podczas tworzenia pakietu dla pomocy technicznej.
    
-        cmdlet Open-HcsSupportPackage at command pipeline position 1
-   
-        Supply values for the following parameters:EncryptionPassphrase: ****
+    ```powershell
+    cmdlet Open-HcsSupportPackage at command pipeline position 1
+
+    Supply values for the following parameters:EncryptionPassphrase: ****
+    ```
 6. Przejdź do folderu, który zawiera pliki dziennika. Ponieważ pliki dziennika są teraz dekompresowane i odszyfrowywane, będą mieć oryginalne rozszerzenia plików. Zmodyfikuj te pliki, aby usunąć wszystkie informacje specyficzne dla klienta, takie jak nazwy woluminów i adresy IP urządzeń, a następnie Zapisz pliki.
 7. Zamknij pliki, aby skompresować je za pomocą gzip i zaszyfrować je za pomocą algorytmu AES-256. Jest to szybkość i bezpieczeństwo transferu pakietu pomocy technicznej przez sieć. Aby skompresować i zaszyfrować pliki, wprowadź następujące polecenie:
    
@@ -109,33 +111,37 @@ Aby edytować pakiet pomocy technicznej przed przekazaniem go do witryny pomoc t
     ![Edytuj pakiet pomocy technicznej](./media/storsimple-8000-create-manage-support-package/IC750707.png)
 8. Po wyświetleniu monitu podaj hasło szyfrowania dla zmodyfikowanego pakietu dla pomocy technicznej.
    
-        cmdlet Close-HcsSupportPackage at command pipeline position 1
-        Supply values for the following parameters:EncryptionPassphrase: ****
+    ```powershell
+    cmdlet Close-HcsSupportPackage at command pipeline position 1
+    Supply values for the following parameters:EncryptionPassphrase: ****
+    ```
 9. Zapisz nowe hasło, tak aby można było udostępnić je pomoc techniczna firmy Microsoft na żądanie.
 
 ### <a name="example-editing-files-in-a-support-package-on-a-password-protected-share"></a>Przykład: edytowanie plików w pakiecie pomocy technicznej w udziale chronionym hasłem
 
 Poniższy przykład pokazuje, jak odszyfrować, edytować i ponownie zaszyfrować pakiet pomocy technicznej.
 
-        PS C:\WINDOWS\system32> Import-module C:\Users\Default\StorSimple\SupportPackage\HCSSupportPackageTools.psm1
+```powershell
+PS C:\WINDOWS\system32> Import-module C:\Users\Default\StorSimple\SupportPackage\HCSSupportPackageTools.psm1
 
-        PS C:\WINDOWS\system32> Open-HcsSupportPackage \\hcsfs\Logs\TD48\TD48Logs\C0-A\etw
+PS C:\WINDOWS\system32> Open-HcsSupportPackage \\hcsfs\Logs\TD48\TD48Logs\C0-A\etw
 
-        cmdlet Open-HcsSupportPackage at command pipeline position 1
+cmdlet Open-HcsSupportPackage at command pipeline position 1
 
-        Supply values for the following parameters:
+Supply values for the following parameters:
 
-        EncryptionPassphrase: ****
+EncryptionPassphrase: ****
 
-        PS C:\WINDOWS\system32> Close-HcsSupportPackage \\hcsfs\Logs\TD48\TD48Logs\C0-A\etw
+PS C:\WINDOWS\system32> Close-HcsSupportPackage \\hcsfs\Logs\TD48\TD48Logs\C0-A\etw
 
-        cmdlet Close-HcsSupportPackage at command pipeline position 1
+cmdlet Close-HcsSupportPackage at command pipeline position 1
 
-        Supply values for the following parameters:
+Supply values for the following parameters:
 
-        EncryptionPassphrase: ****
+EncryptionPassphrase: ****
 
-        PS C:\WINDOWS\system32>
+PS C:\WINDOWS\system32>
+```
 
 ## <a name="next-steps"></a>Następne kroki
 

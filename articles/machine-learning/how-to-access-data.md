@@ -9,14 +9,14 @@ ms.topic: how-to
 ms.author: sihhu
 author: MayMSFT
 ms.reviewer: nibaccam
-ms.date: 03/24/2020
+ms.date: 07/08/2020
 ms.custom: seodec18, tracking-python
-ms.openlocfilehash: cb52935b731a507d2408d174a5aa571fb2bfc973
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d6b1d5c66c1dd15fa12638dd451d1ce2fa8fa79f
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85609269"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86146721"
 ---
 # <a name="connect-to-azure-storage-services"></a>Nawiązywanie połączenia z usługami Azure Storage
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -29,7 +29,7 @@ Aby zrozumieć, w jaki sposób magazyn danych mieści się w przepływie pracy o
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Będą potrzebne:
+Potrzebne będą następujące elementy:
 - Subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz bezpłatne konto. Wypróbuj [bezpłatną lub płatną wersję Azure Machine Learning](https://aka.ms/AMLFree).
 
 - Konto usługi Azure Storage z [kontenerem obiektów blob platformy Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) lub [udziałem plików platformy Azure](https://docs.microsoft.com/azure/storage/files/storage-files-introduction).
@@ -52,16 +52,16 @@ Będą potrzebne:
 
 Magazyny danych obsługują obecnie przechowywanie informacji o połączeniu z usługami magazynu wymienionymi w poniższej macierzy.
 
-| &nbsp;Typ magazynu | &nbsp;Typ uwierzytelniania | [Usługa Azure &nbsp; Machine &nbsp; Learning Studio](https://ml.azure.com/) | [&nbsp;Zestaw SDK języka Python usługi Azure Machine &nbsp; Learning &nbsp;](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) |  [&nbsp; &nbsp; Interfejs wiersza polecenia usługi Azure Machine Learning](reference-azure-machine-learning-cli.md) | [&nbsp; &nbsp; &nbsp; Interfejs API REST usługi Azure Machine Learning](https://docs.microsoft.com/rest/api/azureml/)
----|---|---|---|---|---
-[&nbsp;Magazyn obiektów blob platformy Azure &nbsp;](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview)| Klucz konta <br> Token SAS | ✓ | ✓ | ✓ |✓
-[&nbsp;Udział plików platformy Azure &nbsp;](https://docs.microsoft.com/azure/storage/files/storage-files-introduction)| Klucz konta <br> Token SAS | ✓ | ✓ | ✓ |✓
-[Azure &nbsp; Data Lake &nbsp; Storage gen &nbsp; 1](https://docs.microsoft.com/azure/data-lake-store/)| Jednostka usługi| ✓ | ✓ | ✓ |✓
-[Azure &nbsp; Data Lake &nbsp; Storage gen &nbsp; 2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction)| Jednostka usługi| ✓ | ✓ | ✓ |✓
-[&nbsp; &nbsp; Baza danych SQL Azure](https://docs.microsoft.com/azure/sql-database/sql-database-technical-overview)| Uwierzytelnianie SQL <br>Jednostka usługi| ✓ | ✓ | ✓ |✓
-[Azure &nbsp; PostgreSQL](https://docs.microsoft.com/azure/postgresql/overview) | Uwierzytelnianie SQL| ✓ | ✓ | ✓ |✓
-[Usługa Azure &nbsp; Database &nbsp; for &nbsp; MySQL](https://docs.microsoft.com/azure/mysql/overview) | Uwierzytelnianie SQL|  | ✓* | ✓* |✓*
-[&nbsp;System plików datakostek &nbsp;](https://docs.microsoft.com/azure/databricks/data/databricks-file-system)| Brak uwierzytelniania | | ✓** | ✓ ** |✓** 
+| &nbsp;Typ magazynu | &nbsp;Typ uwierzytelniania | [Usługa Azure &nbsp; Machine &nbsp; Learning Studio](https://ml.azure.com/) | [&nbsp;Zestaw SDK języka Python usługi Azure Machine &nbsp; Learning &nbsp;](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) |  [&nbsp; &nbsp; Interfejs wiersza polecenia usługi Azure Machine Learning](reference-azure-machine-learning-cli.md) | [&nbsp; &nbsp; &nbsp; Interfejs API REST usługi Azure Machine Learning](https://docs.microsoft.com/rest/api/azureml/) | VS Code
+---|---|---|---|---|---|---
+[&nbsp;Magazyn obiektów blob platformy Azure &nbsp;](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview)| Klucz konta <br> Token SAS | ✓ | ✓ | ✓ |✓ |✓
+[&nbsp;Udział plików platformy Azure &nbsp;](https://docs.microsoft.com/azure/storage/files/storage-files-introduction)| Klucz konta <br> Token SAS | ✓ | ✓ | ✓ |✓|✓
+[Azure &nbsp; Data Lake &nbsp; Storage gen &nbsp; 1](https://docs.microsoft.com/azure/data-lake-store/)| Jednostka usługi| ✓ | ✓ | ✓ |✓|
+[Azure &nbsp; Data Lake &nbsp; Storage gen &nbsp; 2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction)| Jednostka usługi| ✓ | ✓ | ✓ |✓|
+[&nbsp; &nbsp; Baza danych SQL Azure](https://docs.microsoft.com/azure/sql-database/sql-database-technical-overview)| Uwierzytelnianie SQL <br>Jednostka usługi| ✓ | ✓ | ✓ |✓|
+[Azure &nbsp; PostgreSQL](https://docs.microsoft.com/azure/postgresql/overview) | Uwierzytelnianie SQL| ✓ | ✓ | ✓ |✓|
+[Usługa Azure &nbsp; Database &nbsp; for &nbsp; MySQL](https://docs.microsoft.com/azure/mysql/overview) | Uwierzytelnianie SQL|  | ✓* | ✓* |✓*|
+[&nbsp;System plików datakostek &nbsp;](https://docs.microsoft.com/azure/databricks/data/databricks-file-system)| Brak uwierzytelniania | | ✓** | ✓ ** |✓** |
 
 * Baza danych MySQL jest obsługiwana tylko w przypadku potoku [DataTransferStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.datatransferstep?view=azure-ml-py). <br>
 * * Datakostki są obsługiwane tylko dla [DatabricksStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.databricks_step.databricksstep?view=azure-ml-py) potoków
@@ -205,6 +205,9 @@ Poniższy przykład pokazuje, jak wygląda formularz podczas tworzenia **magazyn
     
 ![Formularz dla nowego magazynu danych](media/how-to-access-data/new-datastore-form.png)
 
+### <a name="vs-code"></a>VS Code
+
+Magazyny danych można tworzyć i zarządzać nimi przy użyciu rozszerzenia Azure Machine Learning VS Code. Aby dowiedzieć się więcej, odwiedź stronę [pomocy dotyczącej zarządzania zasobami vs Code](how-to-manage-resources-vscode.md#datastores) .
 
 <a name="get"></a>
 
@@ -244,7 +247,7 @@ Możesz również zmienić domyślny magazyn danych przy użyciu następującego
 > [!NOTE]
 > Przekazywanie do magazynów danych AzureDataLakeGen2 nie jest w tej chwili obsługiwane.
 
-### <a name="upload"></a>Upload
+### <a name="upload"></a>Przekazywanie
 
 Przekaż katalog lub pojedyncze pliki do magazynu danych przy użyciu zestawu SDK języka Python:
 
@@ -259,7 +262,7 @@ datastore.upload(src_dir='your source directory',
 
 Możesz również przekazać listę pojedynczych plików do magazynu danych za pomocą `upload_files()` metody.
 
-### <a name="download"></a>Pobierz
+### <a name="download"></a>Pobieranie
 
 Pobierz dane z magazynu danych do lokalnego systemu plików:
 
@@ -295,7 +298,7 @@ Azure Machine Learning oferuje kilka sposobów na korzystanie z modeli do ocenia
 | Metoda | Dostęp do magazynu danych | Opis |
 | ----- | :-----: | ----- |
 | [Przewidywanie wsadowe](how-to-use-parallel-run-step.md) | ✔ | Asynchronicznie twórz prognozy dotyczące dużych ilości danych. |
-| [Usługa sieci Web](how-to-deploy-and-where.md) | &nbsp; | Wdróż modele jako usługę sieci Web. |
+| [Usługa internetowa](how-to-deploy-and-where.md) | &nbsp; | Wdróż modele jako usługę sieci Web. |
 | [Moduł Azure IoT Edge](how-to-deploy-and-where.md) | &nbsp; | Wdróż modele na IoT Edge urządzeniach. |
 
 W sytuacjach, w których zestaw SDK nie zapewnia dostępu do magazynów danych, może być możliwe utworzenie niestandardowego kodu przy użyciu odpowiedniego zestawu Azure SDK, aby uzyskać dostęp do tego programu. Na przykład [zestaw SDK usługi Azure Storage dla języka Python](https://github.com/Azure/azure-storage-python) jest biblioteką kliencką, za pomocą której można uzyskać dostęp do danych przechowywanych w obiektach Blob lub plikach.

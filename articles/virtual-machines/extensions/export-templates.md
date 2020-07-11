@@ -14,11 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/05/2016
 ms.author: akjosh
-ms.openlocfilehash: 79991dad96742109817d579b951082d1a30e3951
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4919ce9ecaa3dc4f621aa5658b44aa53fad0bbf3
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84703999"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86201030"
 ---
 # <a name="exporting-resource-groups-that-contain-vm-extensions"></a>Eksportowanie grup zasobów zawierających rozszerzenia maszyn wirtualnych
 
@@ -32,18 +33,7 @@ Dostępnych jest wiele rozszerzeń maszyn wirtualnych. Nie wszystkie rozszerzeni
 
 Następujące rozszerzenia można eksportować za pomocą funkcji skryptu automatyzacji.
 
-| Wewnętrzny ||||
-|---|---|---|---|
-| Kopia zapasowa Acronis | Usługi Datadog Agent systemu Windows | Stosowanie poprawek systemu operacyjnego w systemie Linux | Migawka maszyny wirtualnej Linux
-| Acronis kopia zapasowa systemu Linux | Rozszerzenie platformy Docker | Agent Puppet |
-| Informacje o BG | Rozszerzenie DSC | Site 24x7 APM Insight |
-| BMC CTM Agent Linux | DynaTrace Linux | Serwer 24x7 z systemem Linux |
-| CTM agenta BMC systemu Windows | DynaTrace systemu Windows | Lokacja 24x7 systemu Windows Server |
-| Klient Chef | Usługa Defender Security Application HPE | Trend Micro DSA |
-| Niestandardowy skrypt | IaaS chroniące przed złośliwym kodem | Trend Micro DSA Linux |
-| Rozszerzenie niestandardowego skryptu | Diagnostyka IaaS | Dostęp do maszyny wirtualnej dla systemu Linux |
-| Skrypt niestandardowy dla systemu Linux | Klient Chef systemu Linux | Dostęp do maszyny wirtualnej dla systemu Linux |
-| Agent usługi Datadog systemu Linux | Diagnostyka systemu Linux | Migawka maszyny wirtualnej |
+> Acronis Backup, Acronis Backup Linux, BG info, BMC CTM Agent Linux, BMC CTM Agent Windows, klient Chef, niestandardowy skrypt, rozszerzenie niestandardowego skryptu, niestandardowy skrypt dla systemu Linux, Agent usługi Datadog Linux, usługi Datadog Windows Agent, rozszerzenie usługi DSC, dynaTrace Linux, dynaTrace Windows, HPE Security Application Defender, IaaS chroniący przed złośliwym kodem, IaaS Diagnostics, Linux Chef Client, Linux , Site 24x7 Linux Server, site 24x7 Windows Server, Trend Micro DSA, Trend Micro DSA Linux, dostęp do maszyny wirtualnej dla systemu Linux, dostęp do maszyny wirtualnej dla systemu Linux, migawka maszyny wirtualnej, migawka maszyny wirtualnej Linux
 
 ## <a name="export-the-resource-group"></a>Eksportowanie grupy zasobów
 

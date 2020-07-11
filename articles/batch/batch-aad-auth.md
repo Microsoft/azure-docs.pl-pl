@@ -4,11 +4,12 @@ description: Usługa Batch obsługuje uwierzytelnianie z usługi Batch w usłudz
 ms.topic: how-to
 ms.date: 01/28/2020
 ms.custom: has-adal-ref
-ms.openlocfilehash: ed2bfb8e0fbaff0b7ad0ded734e33512c82a4040
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: a8601c69c37e973118a7ec9521070864caffb101
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85958212"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170313"
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Uwierzytelnianie rozwiązań usługi Batch za pomocą Active Directory
 
@@ -62,7 +63,7 @@ Po zarejestrowaniu aplikacji zobaczysz identyfikator aplikacji:
 
 ![Rejestrowanie aplikacji usługi Batch w usłudze Azure AD](./media/batch-aad-auth/app-registration-data-plane.png)
 
-Aby uzyskać więcej informacji na temat rejestrowania aplikacji w usłudze Azure AD, zobacz [scenariusze uwierzytelniania dla usługi Azure AD](../active-directory/develop/authentication-scenarios.md).
+Aby uzyskać więcej informacji na temat rejestrowania aplikacji w usłudze Azure AD, zobacz [scenariusze uwierzytelniania dla usługi Azure AD](../active-directory/develop/authentication-vs-authorization.md).
 
 ## <a name="get-the-tenant-id-for-your-active-directory"></a>Uzyskaj identyfikator dzierżawy dla Active Directory
 
@@ -426,8 +427,8 @@ Użyj poświadczeń jednostki usługi, aby otworzyć obiekt **BatchServiceClient
 
 - Przykładowy kod w języku Python dotyczący tworzenia klienta usługi Batch uwierzytelniany przy użyciu tokenu usługi Azure AD znajduje się w temacie [wdrażanie Azure Batch niestandardowego obrazu przy użyciu skryptu języka Python](https://github.com/azurebigcompute/recipes/blob/master/Azure%20Batch/CustomImages/CustomImagePython.md) .
 
-[aad_about]:../active-directory/fundamentals/active-directory-whatis.md "Co to jest Azure Active Directory?"
-[aad_adal]: ../active-directory/active-directory-authentication-libraries.md
-[aad_auth_scenarios]: ../active-directory/active-directory-authentication-scenarios.md "Scenariusze uwierzytelniania dla usługi Azure AD"
-[aad_integrate]: ../active-directory/active-directory-integrating-applications.md "Integrowanie aplikacji z Azure Active Directory"
+[aad_about]: ../active-directory/fundamentals/active-directory-whatis.md "Co to jest Azure Active Directory?"
+[aad_adal]: ../active-directory/azuread-dev/active-directory-authentication-libraries.md
+[aad_auth_scenarios]: ../active-directory/develop/authentication-vs-authorization.md "Scenariusze uwierzytelniania dla usługi Azure AD"
+[aad_integrate]: ../active-directory/develop/quickstart-register-app.md "Integrowanie aplikacji z Azure Active Directory"
 [azure_portal]: https://portal.azure.com

@@ -14,11 +14,12 @@ ms.workload: identity
 ms.date: 11/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 46aea9ab113a0c75ed24497ee39793d08c4f7165
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9b0df4337a5e5faff3427222fb66caf8e02184a3
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84790895"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86146655"
 ---
 # <a name="add-or-remove-azure-role-assignments-using-azure-powershell"></a>Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu Azure PowerShell
 
@@ -108,7 +109,7 @@ Nawet w przypadku zmiany nazwy roli identyfikator roli nie zmienia się. Jeśli 
 Aby dodać przypisanie roli przy użyciu unikatowego identyfikatora roli zamiast nazwy roli, użyj polecenia [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment).
 
 ```azurepowershell
-New-AzRoleAssignment -ObjectId <object_id> -RoleDefinitionId <role_id> -ResourceGroupName <resource_group_name>
+New-AzRoleAssignment -ObjectId <object_id> -RoleDefinitionId <role_id> -Scope <resource_group_name/resource/management groups>
 ```
 
 Poniższy przykład przypisuje rolę [współautor maszyny wirtualnej](built-in-roles.md#virtual-machine-contributor) do *Alain \@ example.com* użytkownika w zakresie grupy zasobów *Pharma-Sales* . Aby uzyskać unikatowy identyfikator roli, można użyć polecenie [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) lub zobaczyć [wbudowane role platformy Azure](built-in-roles.md).

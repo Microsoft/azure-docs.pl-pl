@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 04/21/2020
 ms.author: normesta
 ms.reviewer: prishet
-ms.openlocfilehash: 67aa9fcb51742432dcd629073f15a65d14bf3597
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: d22b83e1f3464f6d87d2bc3821682b25e05d947b
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85961204"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86142539"
 ---
 # <a name="use-powershell-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Użyj programu PowerShell do zarządzania katalogami, plikami i listami ACL w Azure Data Lake Storage Gen2
 
@@ -81,11 +81,11 @@ $storageAccount = Get-AzStorageAccount -ResourceGroupName "<resource-group-name>
 $ctx = $storageAccount.Context
 ```
 
-## <a name="create-a-file-system"></a>Tworzenie systemu plików
+## <a name="create-a-container"></a>Tworzenie kontenera
 
-System plików działa jako kontener dla plików. Można go utworzyć przy użyciu `New-AzStorageContainer` polecenia cmdlet. 
+Kontener działa jako system plików dla plików. Można go utworzyć przy użyciu `New-AzStorageContainer` polecenia cmdlet. 
 
-Ten przykład tworzy system plików o nazwie `my-file-system` .
+Ten przykład tworzy kontener o nazwie `my-file-system` .
 
 ```powershell
 $filesystemName = "my-file-system"
@@ -96,7 +96,7 @@ New-AzStorageContainer -Context $ctx -Name $filesystemName
 
 Utwórz odwołanie do katalogu przy użyciu `New-AzDataLakeGen2Item` polecenia cmdlet. 
 
-Ten przykład dodaje katalog o nazwie `my-directory` do systemu plików.
+Ten przykład dodaje katalog o nazwie `my-directory` do kontenera.
 
 ```powershell
 $filesystemName = "my-file-system"
@@ -202,7 +202,7 @@ $properties.Group
 $properties.Owner
 ```
 
-Aby wyświetlić listę zawartości systemu plików, Pomiń `-Path` parametr w poleceniu.
+Aby wyświetlić listę zawartości kontenera, Pomiń `-Path` parametr w poleceniu.
 
 ## <a name="upload-a-file-to-a-directory"></a>Przekaż plik do katalogu
 
@@ -270,7 +270,7 @@ Uprawnienia dostępu do katalogów i plików można uzyskiwać, ustawiać i aktu
 
 Pobierz listę kontroli dostępu do katalogu lub pliku przy użyciu `Get-AzDataLakeGen2Item` polecenia cmdlet.
 
-Ten przykład pobiera listę ACL katalogu głównego **systemu plików** , a następnie drukuje listę kontroli dostępu do konsoli programu.
+Ten przykład pobiera listę ACL katalogu głównego **kontenera** , a następnie drukuje listę kontroli dostępu do konsoli programu.
 
 ```powershell
 $filesystemName = "my-file-system"
@@ -305,7 +305,7 @@ W tym przykładzie użytkownik będący właścicielem ma uprawnienia do odczytu
 
 Użyj `set-AzDataLakeGen2ItemAclObject` polecenia cmdlet, aby utworzyć listę ACL dla użytkownika będącego właścicielem, grupy będącej właścicielem lub innych użytkowników. Następnie użyj `Update-AzDataLakeGen2Item` polecenia cmdlet, aby zatwierdzić listę kontroli dostępu.
 
-Ten przykład ustawia listę ACL dla katalogu głównego **systemu plików** dla użytkownika będącego właścicielem, grupy będącej właścicielem lub innych użytkowników, a następnie drukuje listę kontroli dostępu do konsoli programu.
+Ten przykład ustawia listę ACL w katalogu głównym **kontenera** dla użytkownika będącego właścicielem, grupy będącej właścicielem lub innych użytkowników, a następnie drukuje listę kontroli dostępu do konsoli programu.
 
 ```powershell
 $filesystemName = "my-file-system"
@@ -349,9 +349,9 @@ Na poniższej ilustracji przedstawiono dane wyjściowe po ustawieniu listy ACL p
 W tym przykładzie użytkownik będący właścicielem i grupa będąca właścicielem mają tylko uprawnienia do odczytu i zapisu. Wszyscy inni użytkownicy mają uprawnienia do zapisu i wykonywania. Aby uzyskać więcej informacji na temat list kontroli dostępu, zobacz [Kontrola dostępu w Azure Data Lake Storage Gen2](data-lake-storage-access-control.md).
 
 
-### <a name="set-acls-on-all-items-in-a-file-system"></a>Ustawianie list ACL dla wszystkich elementów w systemie plików
+### <a name="set-acls-on-all-items-in-a-container"></a>Ustawianie list ACL dla wszystkich elementów w kontenerze
 
-Można użyć `Get-AzDataLakeGen2Item` i `-Recurse` parametru razem z `Update-AzDataLakeGen2Item` poleceniem cmdlet, aby cyklicznie ustawić listę kontroli dostępu dla katalogów i plików w systemie plików. 
+Można użyć `Get-AzDataLakeGen2Item` i `-Recurse` parametru razem z `Update-AzDataLakeGen2Item` poleceniem cmdlet, aby rekursywnie ustawić listę kontroli dostępu dla katalogów i plików w kontenerze. 
 
 ```powershell
 $filesystemName = "my-file-system"

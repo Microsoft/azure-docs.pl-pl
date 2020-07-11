@@ -5,11 +5,12 @@ services: automation
 ms.date: 04/11/2019
 ms.topic: article
 ms.custom: mvc
-ms.openlocfilehash: 6eab9b543bfec90c0c338bdc758d690499f083e3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0af0848f057b5c225471e9ac13f14db2468d838c
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84204926"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186099"
 ---
 # <a name="enable-update-management-from-the-azure-portal"></a>Włączanie rozwiązania Update Management w witrynie Azure Portal
 
@@ -23,7 +24,7 @@ Liczba grup zasobów, których można użyć do zarządzania maszynami wirtualny
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * Subskrypcja platformy Azure. Jeśli nie masz subskrypcji, możesz [aktywować korzyści dla subskrybentów MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) lub utworzyć [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* [Konto usługi Automation](automation-offering-get-started.md) do zarządzania maszynami.
+* [Konto usługi Automation](./index.yml) do zarządzania maszynami.
 * [Maszyna wirtualna](../virtual-machines/windows/quick-create-portal.md).
 
 ## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure

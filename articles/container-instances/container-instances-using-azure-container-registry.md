@@ -3,15 +3,15 @@ title: Wdróż obraz kontenera z Azure Container Registry
 description: Dowiedz się, jak wdrażać kontenery w Azure Container Instances przez ściąganie obrazów kontenerów z usługi Azure Container Registry.
 services: container-instances
 ms.topic: article
-ms.date: 02/18/2020
+ms.date: 07/02/2020
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 212624b857d65297830995018603c2627f83369b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8a82b0b70b7be8897d8f85cabea2ee21ce84d913
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81453527"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169616"
 ---
 # <a name="deploy-to-azure-container-instances-from-azure-container-registry"></a>Wdrażanie do usługi Azure Container Instances z usługi Azure Container Registry
 
@@ -136,7 +136,7 @@ Właściwości usługi Azure Container Registry można określić w szablonie Az
 [...]
 ```
 
-Aby uzyskać pełne ustawienia grupy kontenerów, zobacz [odwołanie do szablonu Menedżer zasobów](/azure/templates/Microsoft.ContainerInstance/2018-10-01/containerGroups).    
+Aby uzyskać pełne ustawienia grupy kontenerów, zobacz [odwołanie do szablonu Menedżer zasobów](/azure/templates/Microsoft.ContainerInstance/2019-12-01/containerGroups).    
 
 Aby uzyskać szczegółowe informacje dotyczące odwoływania się do Azure Key Vault wpisów tajnych w szablonie Menedżer zasobów, zobacz [używanie Azure Key Vault do przekazywania bezpiecznej wartości parametru podczas wdrażania](../azure-resource-manager/templates/key-vault-parameter.md).
 

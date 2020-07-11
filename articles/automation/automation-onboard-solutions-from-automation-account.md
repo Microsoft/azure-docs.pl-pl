@@ -5,11 +5,12 @@ services: automation
 ms.date: 4/11/2019
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: f739134cd066f4dcc7fdf3da16c6db99a54d6265
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d756cf9705cc1ce0041c26dc3ef022c150c514c0
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84204943"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186065"
 ---
 # <a name="enable-update-management-from-an-automation-account"></a>Włączanie rozwiązania Update Management z poziomu konta usługi Automation
 
@@ -21,7 +22,7 @@ W tym artykule opisano, jak za pomocą konta usługi Automation włączyć funkc
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * Subskrypcja platformy Azure. Jeśli nie masz subskrypcji, możesz [aktywować korzyści dla subskrybentów MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) lub utworzyć [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* [Konto usługi Automation](automation-offering-get-started.md) do zarządzania maszynami.
+* [Konto usługi Automation](./index.yml) do zarządzania maszynami.
 * [Maszyna wirtualna](../virtual-machines/windows/quick-create-portal.md).
 
 ## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure

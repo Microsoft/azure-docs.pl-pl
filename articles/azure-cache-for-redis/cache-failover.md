@@ -6,11 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 10/18/2019
 ms.author: adsasine
-ms.openlocfilehash: 6ff33bd594181aabc4fd7d55ce33f780a0d06086
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d14e030898db364d6621933d0032fa9ce0cab676
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74122187"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185028"
 ---
 # <a name="failover-and-patching-for-azure-cache-for-redis"></a>Tryb failover i stosowanie poprawek dla usługi Azure cache for Redis
 
@@ -22,32 +23,32 @@ Zacznijmy od omówienia trybu failover dla usługi Azure cache for Redis.
 
 ### <a name="a-quick-summary-of-cache-architecture"></a>Krótkie podsumowanie architektury pamięci podręcznej
 
-Pamięć podręczna jest zbudowana z wielu maszyn wirtualnych z oddzielnymi prywatnymi adresami IP. Każda maszyna wirtualna, znana także jako węzeł, jest połączona z udostępnionym modułem równoważenia obciążenia z pojedynczym wirtualnym adresem IP. Każdy węzeł uruchamia proces serwera Redis i jest dostępny za pomocą nazwy hosta i portów Redis. Każdy węzeł jest traktowany jako główny lub węzeł repliki. Gdy aplikacja kliencka nawiązuje połączenie z pamięcią podręczną, ruch przechodzi przez ten moduł równoważenia obciążenia i jest automatycznie kierowany do węzła głównego.
+Pamięć podręczna jest zbudowana z wielu maszyn wirtualnych z oddzielnymi prywatnymi adresami IP. Każda maszyna wirtualna, znana także jako węzeł, jest połączona z udostępnionym modułem równoważenia obciążenia z pojedynczym wirtualnym adresem IP. Każdy węzeł uruchamia proces serwera Redis i jest dostępny za pomocą nazwy hosta i portów Redis. Każdy węzeł jest traktowany jako węzeł podstawowy lub replika. Gdy aplikacja kliencka nawiązuje połączenie z pamięcią podręczną, ruch przechodzi przez ten moduł równoważenia obciążenia i jest automatycznie kierowany do węzła podstawowego.
 
-W podstawowej pamięci podręcznej pojedynczy węzeł jest zawsze serwerem głównym. W pamięci podręcznej standardowa lub Premium istnieją dwa węzły: jeden jest wybierany jako wzorzec, a drugi to replika. Ponieważ pamięć podręczna w warstwach Standardowa i Premium ma wiele węzłów, jeden węzeł może być niedostępny, a drugi nadal przetwarza żądania. Klastrowane pamięci podręczne składają się z wielu fragmentów, z których każdy ma odrębne węzły główne i repliki. Jeden fragmentu może nie działać, gdy pozostałe pozostają dostępne.
+W podstawowej pamięci podręcznej pojedynczy węzeł jest zawsze podstawowym. W pamięci podręcznej standardowa lub Premium istnieją dwa węzły: jeden jest wybierany jako podstawowy, a drugi to replika. Ponieważ pamięć podręczna w warstwach Standardowa i Premium ma wiele węzłów, jeden węzeł może być niedostępny, a drugi nadal przetwarza żądania. Klastrowane pamięci podręczne składają się z wielu fragmentów, z których każdy ma odrębne węzły podstawowe i repliki. Jeden fragmentu może nie działać, gdy pozostałe pozostają dostępne.
 
 > [!NOTE]
 > Podstawowa pamięć podręczna nie ma wielu węzłów i nie oferuje umowy dotyczącej poziomu usług (SLA) na potrzeby jej dostępności. Podstawowe pamięci podręczne są zalecane tylko w celach deweloperskich i testowych. Użyj pamięci podręcznej standardowa lub Premium do wdrożenia wielowęzłowego, aby zwiększyć dostępność.
 
 ### <a name="explanation-of-a-failover"></a>Wyjaśnienie trybu failover
 
-Tryb failover występuje, gdy węzeł repliki promuje się do węzła głównego, a stary węzeł główny zamyka istniejące połączenia. Po utworzeniu kopii zapasowej węzła głównego następuje zmiana w rolach i obniżanie poziomu, aby stał się repliką. Następnie łączy się on z nowym wzorcem i synchronizuje dane. Przejście w tryb failover może być planowane lub nieplanowane.
+Tryb failover występuje, gdy węzeł repliki promuje się do węzła podstawowego, a stary węzeł podstawowy zamyka istniejące połączenia. Po utworzeniu kopii zapasowej węzła podstawowego następuje zmiana w rolach i obniżanie poziomu, aby stał się repliką. Następnie nawiązuje połączenie z nowym serwerem podstawowym i synchronizuje dane. Przejście w tryb failover może być planowane lub nieplanowane.
 
 *Planowana praca w trybie failover* odbywa się podczas aktualizacji systemu, takich jak poprawki Redis lub uaktualnienia systemu operacyjnego oraz operacje zarządzania, takie jak skalowanie i ponowne uruchamianie. Ponieważ węzły otrzymują zaawansowaną informację o aktualizacji, mogą wspólnie wymieniać role i szybko aktualizować moduł równoważenia obciążenia zmiany. Planowane przełączenie w tryb failover zwykle kończy się krócej niż 1 sekunda.
 
-*Nieplanowana praca w trybie failover* może wystąpić z powodu awarii sprzętu, awarii sieci lub innych nieoczekiwanych awarii węzła głównego. Węzeł repliki promuje się do wzorca, ale proces trwa dłużej. Węzeł repliki musi najpierw wykryć, że jego węzeł główny nie jest dostępny, zanim będzie mógł zainicjować proces przełączania do trybu failover. Węzeł repliki musi również sprawdzić, czy ten nieplanowany błąd nie jest przejściowy, czy lokalny, aby uniknąć niepotrzebnego przejścia w tryb failover. To opóźnienie wykrywania oznacza, że nieplanowane przełączenie w tryb failover zwykle kończy się w okresie od 10 do 15 sekund.
+*Nieplanowana praca w trybie failover* może wystąpić z powodu awarii sprzętu, awarii sieci lub innych nieoczekiwanych awarii węzła głównego. Węzeł repliki promuje się do podstawowego, ale proces trwa dłużej. Węzeł repliki musi najpierw wykryć, że jego węzeł podstawowy nie jest dostępny, zanim będzie mógł zainicjować proces przełączania do trybu failover. Węzeł repliki musi również sprawdzić, czy ten nieplanowany błąd nie jest przejściowy, czy lokalny, aby uniknąć niepotrzebnego przejścia w tryb failover. To opóźnienie wykrywania oznacza, że nieplanowane przełączenie w tryb failover zwykle kończy się w okresie od 10 do 15 sekund.
 
 ## <a name="how-does-patching-occur"></a>Jak występuje poprawka?
 
 Usługa Azure cache for Redis regularnie aktualizuje pamięć podręczną przy użyciu najnowszych funkcji i poprawek platformy. Aby poprawić pamięć podręczną, usługa wykonuje następujące czynności:
 
 1. Usługa zarządzania wybiera jeden węzeł, który ma zostać poprawiony.
-1. Jeśli wybrany węzeł jest węzłem głównym, odpowiadający mu węzeł repliki wspólnie promuje się do siebie. Promocja jest uznawana za planowane przejście w tryb failover.
+1. Jeśli wybrany węzeł jest węzłem podstawowym, odpowiadający mu węzeł repliki wspólnie promuje się do siebie. Promocja jest uznawana za planowane przejście w tryb failover.
 1. Wybrany węzeł zostanie uruchomiony ponownie w celu przeprowadzenia nowych zmian i zostanie przywrócony jako węzeł repliki.
-1. Węzeł repliki nawiązuje połączenie z węzłem głównym i synchronizuje dane.
+1. Węzeł repliki nawiązuje połączenie z węzłem podstawowym i synchronizuje dane.
 1. Po zakończeniu synchronizacji danych proces stosowania poprawek powtarza się dla pozostałych węzłów.
 
-Ponieważ stosowanie poprawek jest planowanym trybem failover, węzeł repliki szybko promuje się do wzorca i rozpoczyna żądania obsługi oraz nowe połączenia. Podstawowe pamięci podręczne nie mają węzła repliki i są niedostępne do momentu ukończenia aktualizacji. Każdy fragmentu klastrowanej pamięci podręcznej jest instalowany oddzielnie i nie zamyka połączeń z innym fragmentu.
+Ponieważ stosowanie poprawek jest planowanym trybem failover, węzeł repliki szybko promuje się do podstawowego i rozpoczyna żądania obsługi oraz nowe połączenia. Podstawowe pamięci podręczne nie mają węzła repliki i są niedostępne do momentu ukończenia aktualizacji. Każdy fragmentu klastrowanej pamięci podręcznej jest instalowany oddzielnie i nie zamyka połączeń z innym fragmentu.
 
 > [!IMPORTANT]
 > W celu zapobieżenia utracie danych węzły są w tej chwili poprawiane. Pamięć podręczna w warstwie Podstawowa będzie miała utratę danych. Klastrowane pamięci podręczne są poprawiane po jednym fragmentu w danym momencie.

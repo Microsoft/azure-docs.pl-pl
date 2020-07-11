@@ -5,15 +5,16 @@ services: automation
 ms.date: 03/04/2020
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: 72065b388f348da1d268f875a10d5b13d2f8cf3b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8770762fa2d2ae6bc0584d75397829298a62e8c0
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84117397"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185895"
 ---
 # <a name="limit-update-management-deployment-scope"></a>Ogranicz zakres wdrożenia Update Management
 
-W tym artykule opisano sposób pracy z konfiguracjami zakresu podczas korzystania z funkcji [Update Management](automation-update-management.md) w celu wdrażania aktualizacji i poprawek na maszynach wirtualnych. Aby uzyskać więcej informacji, zobacz [ukierunkowane rozwiązania monitorowania w Azure monitor (wersja zapoznawcza)](https://docs.microsoft.com/azure/azure-monitor/insights/solution-targeting). 
+W tym artykule opisano sposób pracy z konfiguracjami zakresu podczas korzystania z funkcji [Update Management](automation-update-management.md) w celu wdrażania aktualizacji i poprawek na maszynach wirtualnych. Aby uzyskać więcej informacji, zobacz [ukierunkowane rozwiązania monitorowania w Azure monitor (wersja zapoznawcza)](../azure-monitor/insights/solution-targeting.md). 
 
 ## <a name="about-scope-configurations"></a>Informacje o konfiguracjach zakresu
 

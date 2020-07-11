@@ -2,12 +2,13 @@
 title: Włączanie protokołu TLS z kontenerem przyczepki
 description: Utwórz punkt końcowy SSL lub TLS dla grupy kontenerów działającej w Azure Container Instances przez uruchomienie Nginx w kontenerze przyczepki
 ms.topic: article
-ms.date: 02/14/2020
-ms.openlocfilehash: b9ea9367219db694b89d6bf4a1e52efb373c71c4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/02/2020
+ms.openlocfilehash: f7f5d8e8136f4357067888f5a39fa0c3635122d1
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80984610"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169854"
 ---
 # <a name="enable-a-tls-endpoint-in-a-sidecar-container"></a>Włączanie punktu końcowego TLS w kontenerze przyczepki
 
@@ -39,7 +40,7 @@ openssl req -new -newkey rsa:2048 -nodes -keyout ssl.key -out ssl.csr
 
 Postępuj zgodnie z monitami, aby dodać informacje identyfikacyjne. W polu Nazwa pospolita wprowadź nazwę hosta skojarzoną z certyfikatem. Po wyświetleniu monitu o hasło naciśnij klawisz ENTER bez wpisywania, aby pominąć Dodawanie hasła.
 
-Uruchom następujące polecenie, aby utworzyć certyfikat z podpisem własnym (plik CRT) z żądania certyfikatu. Przykład:
+Uruchom następujące polecenie, aby utworzyć certyfikat z podpisem własnym (plik CRT) z żądania certyfikatu. Na przykład:
 
 ```console
 openssl x509 -req -days 365 -in ssl.csr -signkey ssl.key -out ssl.crt
@@ -146,7 +147,7 @@ code deploy-aci.yaml
 Wprowadź zawartość plików zakodowanych algorytmem Base64, gdzie wskazano w `secret` . Na przykład `cat` każdy plik kodowany algorytmem Base64, aby wyświetlić jego zawartość. Podczas wdrażania te pliki są dodawane do [woluminu tajnego](container-instances-volume-secret.md) w grupie kontenerów. W tym przykładzie wolumin tajny jest instalowany w kontenerze Nginx.
 
 ```YAML
-api-version: 2018-10-01
+api-version: 2019-12-01
 location: westus
 name: app-with-ssl
 properties:
@@ -240,5 +241,5 @@ W tym artykule jest używany Nginx w przyczepie, można użyć innego dostawcy T
 Jeśli grupa kontenerów jest wdrażana w [sieci wirtualnej platformy Azure](container-instances-vnet.md), można rozważyć inne opcje, aby włączyć punkt końcowy protokołu TLS dla wystąpienia kontenera zaplecza, w tym:
 
 * [serwery proxy usługi Azure Functions](../azure-functions/functions-proxies.md)
-* [Usługa Azure API Management](../api-management/api-management-key-concepts.md)
+* [Azure API Management](../api-management/api-management-key-concepts.md)
 * [Application Gateway platformy Azure](../application-gateway/overview.md) — Zobacz przykładowy [szablon wdrożenia](https://github.com/Azure/azure-quickstart-templates/tree/master/201-aci-wordpress-vnet).

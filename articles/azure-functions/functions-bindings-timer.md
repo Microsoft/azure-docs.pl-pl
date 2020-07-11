@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 09/08/2018
 ms.author: cshoe
 ms.custom: tracking-python
-ms.openlocfilehash: e1dd20514fcb14e411fbb7efee4157b670d462b9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a832fe4e212ce39ca423263ed2554c2682455002
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85389704"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86165667"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Wyzwalacz czasomierza dla Azure Functions 
 
@@ -213,7 +213,7 @@ public void keepAlive(
 
 ---
 
-## <a name="configuration"></a>Konfigurowanie
+## <a name="configuration"></a>Konfiguracja
 
 W poniższej tabeli objaśniono właściwości konfiguracji powiązań, które zostały ustawione w *function.js* pliku i `TimerTrigger` atrybutu.
 
@@ -287,24 +287,7 @@ Poniżej przedstawiono kilka przykładów wyrażeń NCRONTAB, których można u�
 
 Liczby w wyrażeniu firmy CRONUS odwołują się do daty i godziny, a nie przedziału czasu. Na przykład 5 w `hour` polu odnosi się do 5:00 am, nie co 5 godzin.
 
-Domyślna strefa czasowa używana z wyrażeniami firmy CRONUS jest uniwersalnym czasem koordynowanym (UTC). Aby wyrażenie firmy CRONUS było oparte na innej strefie czasowej, należy utworzyć ustawienie aplikacji dla aplikacji funkcji o nazwie `WEBSITE_TIME_ZONE` . Ustaw wartość na nazwę żądanej strefy czasowej, jak pokazano w [indeksie strefy czasowej firmy Microsoft](https://technet.microsoft.com/library/cc749073).
-
-  > [!NOTE]
-  > `WEBSITE_TIME_ZONE`nie jest obecnie obsługiwany w planie zużycia systemu Linux.
-
-Na przykład *Wschodni czas standardowy* to UTC-05:00. Aby wyzwalacz czasomierza był wyzwalany codziennie o godzinie 10:00, należy użyć następującego wyrażenia NCRONTAB, które jest kontem dla strefy czasowej UTC:
-
-```
-"0 0 15 * * *"
-``` 
-
-Lub Utwórz ustawienie aplikacji dla aplikacji funkcji o nazwie `WEBSITE_TIME_ZONE` i ustaw wartość na **Wschodni czas standardowy**.  Następnie używa następującego wyrażenia NCRONTAB: 
-
-```
-"0 0 10 * * *"
-``` 
-
-Gdy używasz `WEBSITE_TIME_ZONE` , czas jest dostosowywany do zmian czasu w określonej strefie czasowej, na przykład czasu letniego. 
+[!INCLUDE [functions-timezone](../../includes/functions-timezone.md)]
 
 ## <a name="timespan"></a>przedział_czasu
 
@@ -312,7 +295,7 @@ Gdy używasz `WEBSITE_TIME_ZONE` , czas jest dostosowywany do zmian czasu w okre
 
 W przeciwieństwie do wyrażenia CRONUS, `TimeSpan` wartość określa przedział czasu między poszczególnymi wywołaniami funkcji. Gdy funkcja kończy działanie po upływie określonego interwału, czasomierz natychmiast wywołuje funkcję.
 
-Jest to ciąg, który jest `TimeSpan` `hh:mm:ss` `hh` mniejszy niż 24. Gdy dwie pierwsze cyfry mają wartość 24 lub większą, format to `dd:hh:mm` . Poniżej przedstawiono kilka przykładów:
+Jest to ciąg, który jest `TimeSpan` `hh:mm:ss` `hh` mniejszy niż 24. Gdy dwie pierwsze cyfry mają wartość 24 lub większą, format to `dd:hh:mm` . Oto kilka przykładów:
 
 |Przykład |Po wyzwoleniu  |
 |---------|---------|

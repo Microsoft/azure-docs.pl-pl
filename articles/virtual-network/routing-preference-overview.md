@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/18/2020
 ms.author: mnayak
-ms.openlocfilehash: ba01b89b54dc7209449490059555f531f7616720
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 171ae04a70f3639981e74d20d260a03359a0f2c8
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85193366"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187442"
 ---
 # <a name="what-is-routing-preference-preview"></a>Co to jest preferencja routingu (wersja zapoznawcza)?
 
@@ -65,8 +65,8 @@ Publiczny adres IP z wyborem preferencji routingu "Microsoft Global Network" mo�
 W przypadku usługi Storage podstawowe punkty końcowe zawsze używają **sieci globalnej firmy Microsoft**. Pomocnicze punkty końcowe można włączyć w **Internecie** jako wybór dla routingu ruchu. Obsługiwane usługi magazynu:
 
 * Obiekty blob
-* Files
-* Internet
+* Pliki
+* Sieć Web
 * Azure DataLake
 
 ## <a name="pricing"></a>Cennik
@@ -88,7 +88,7 @@ Różnica między cenami w obu opcjach jest uwzględniana w cenach transferu dan
 
 Obsługa preferencji routingu jest dostępna w następujących regionach dla usług takich jak maszyna wirtualna i moduł równoważenia obciążenia dostępnego z Internetu, który korzysta z publicznego adresu IP dla ruchu wychodzącego z Internetu — Europa Północna, Europa Zachodnia, Francja Południowa, Południowe Zjednoczone Królestwo, Wschodnie stany USA, Północno-środkowe stany USA, Południowo-środkowe stany USA, zachodnie stany USA, zachodnie stany USA, Szwajcaria Zachodnia Niemcy Środkowo-Zachodnie Azja Południowo-Wschodnia,
 
-Obsługa preferencji routingu dla konta magazynu jest dostępna w następujących regionach świadczenia usługi Azure — Francja Południowa, Północno-środkowe stany USA, zachodnio-środkowe stany USA, Japonia Wschodnia, Japonia Zachodnia, Niemcy Środkowo-Zachodnie i Szwajcaria Zachodnia.
+Obsługa preferencji routingu dla konta magazynu jest dostępna w następujących regionach platformy Azure — Północno-środkowe stany USA, zachodnio-środkowe stany USA, Południowo-środkowe stany USA, wschód USA, zachodnie Stany Zjednoczone, Europa Północna, Francja Południowa, Niemcy Środkowo-Zachodnie, Szwajcaria Zachodnia, Południowe Azja Wschodnia, Japonia Wschodnia i Japonia Zachodnia.
 ## <a name="limitations"></a>Ograniczenia
 
 * Preferencja routingu jest zgodna tylko z standardową jednostką SKU publicznego adresu IP. Podstawowa jednostka SKU publicznego adresu IP nie jest obsługiwana.

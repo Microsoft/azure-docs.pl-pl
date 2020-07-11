@@ -9,11 +9,12 @@ ms.author: magoedte
 ms.date: 11/25/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 28b6b09c679e37ca4ecd901371e65bffb27ecba4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2149fd68cdf5f2991d6035f245f70515e920045c
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83681005"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187204"
 ---
 # <a name="troubleshoot-hybrid-runbook-worker-issues"></a>Rozwiązywanie problemów z hybrydowym procesem roboczym elementu runbook
 
@@ -57,7 +58,7 @@ Sprawdź w dzienniku zdarzeń **Microsoft-SMA** odpowiednie zdarzenie z opisem `
 
 #### <a name="issue"></a>Problem
 
-Hybrydowy proces roboczy elementu Runbook odbiera zdarzenie 15011, co oznacza, że wynik zapytania jest nieprawidłowy. Następujący błąd pojawia się, gdy proces roboczy próbuje otworzyć połączenie z [serwerem sygnałów](https://docs.microsoft.com/aspnet/core/signalr/introduction?view=aspnetcore-3.1).
+Hybrydowy proces roboczy elementu Runbook odbiera zdarzenie 15011, co oznacza, że wynik zapytania jest nieprawidłowy. Następujący błąd pojawia się, gdy proces roboczy próbuje otworzyć połączenie z [serwerem sygnałów](/aspnet/core/signalr/introduction?view=aspnetcore-3.1).
 
 ```error
 [AccountId={c7d22bd3-47b2-4144-bf88-97940102f6ca}]
@@ -175,7 +176,7 @@ Jeśli Agent nie jest uruchomiony, uniemożliwia komunikację hybrydowej element
 
 #### <a name="resolution"></a>Rozwiązanie
 
- Sprawdź, czy Agent jest uruchomiony, wprowadzając polecenie `ps -ef | grep python` . Powinny pojawić się dane wyjściowe podobne do następujących: Procesy Python są przetwarzane przy użyciu konta użytkownika **nxautomation** . Jeśli funkcja Azure Automation nie jest włączona, żaden z następujących procesów nie jest uruchomiony.
+ Sprawdź, czy Agent jest uruchomiony, wprowadzając polecenie `ps -ef | grep python` . Powinny pojawić się dane wyjściowe podobne do poniższych. Procesy Python są przetwarzane przy użyciu konta użytkownika **nxautomation** . Jeśli funkcja Azure Automation nie jest włączona, żaden z następujących procesów nie jest uruchomiony.
 
 ```bash
 nxautom+   8567      1  0 14:45 ?        00:00:00 python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/worker/main.py /var/opt/microsoft/omsagent/state/automationworker/oms.conf rworkspace:<workspaceId> <Linux hybrid worker version>
@@ -237,7 +238,7 @@ Hybrydowe procesy robocze wysyłają [dane wyjściowe i komunikaty elementu Runb
 
 #### <a name="issue"></a>Problem
 
-Skrypt uruchomiony w hybrydowym procesie roboczym elementu Runbook systemu Windows nie może nawiązać połączenia zgodnie z oczekiwaniami z pakietem Office 365 w piaskownicy programu Orchestrator. Skrypt używa polecenia [Connect-MsolService](https://docs.microsoft.com/powershell/module/msonline/connect-msolservice?view=azureadps-1.0) w celu nawiązania połączenia. 
+Skrypt uruchomiony w hybrydowym procesie roboczym elementu Runbook systemu Windows nie może nawiązać połączenia zgodnie z oczekiwaniami z pakietem Office 365 w piaskownicy programu Orchestrator. Skrypt używa polecenia [Connect-MsolService](/powershell/module/msonline/connect-msolservice?view=azureadps-1.0) w celu nawiązania połączenia. 
 
 W przypadku dostosowania **Orchestrator.Sandbox.exe.config** , aby ustawić serwer proxy i listę pomijania, Piaskownica nadal nie będzie się poprawnie łączyć. Plik **Powershell_ise.exe.config** z tymi samymi ustawieniami serwera proxy i listy obejścia wygląda prawdopodobnie zgodnie z oczekiwaniami. Dzienniki Service Management Automation (SMA) i dzienniki programu PowerShell nie zawierają żadnych informacji dotyczących serwera proxy.
 
@@ -247,9 +248,9 @@ Połączenie z Active Directory Federation Services (AD FS) na serwerze nie moż
 
 #### <a name="resolution"></a>Rozwiązanie
 
-Problem związany z piaskownicą programu Orchestrator można rozwiązać przez przeprowadzenie migracji skryptu w celu użycia modułów Azure Active Directory zamiast modułu MSOnline dla poleceń cmdlet programu PowerShell. Aby uzyskać więcej informacji, zobacz [Migrowanie z programu Orchestrator do Azure Automation (beta)](https://docs.microsoft.com/azure/automation/automation-orchestrator-migration).
+Problem związany z piaskownicą programu Orchestrator można rozwiązać przez przeprowadzenie migracji skryptu w celu użycia modułów Azure Active Directory zamiast modułu MSOnline dla poleceń cmdlet programu PowerShell. Aby uzyskać więcej informacji, zobacz [Migrowanie z programu Orchestrator do Azure Automation (beta)](../automation-orchestrator-migration.md).
 
-Jeśli chcesz kontynuować korzystanie z poleceń cmdlet modułu MSOnline, Zmień skrypt, aby używał [polecenia Invoke-Command](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/invoke-command?view=powershell-7). Określ wartości `ComputerName` `Credential` parametrów i. 
+Jeśli chcesz kontynuować korzystanie z poleceń cmdlet modułu MSOnline, Zmień skrypt, aby używał [polecenia Invoke-Command](/powershell/module/microsoft.powershell.core/invoke-command?view=powershell-7). Określ wartości `ComputerName` `Credential` parametrów i. 
 
 ```powershell
 $Credential = Get-AutomationPSCredential -Name MyProxyAccessibleCredential

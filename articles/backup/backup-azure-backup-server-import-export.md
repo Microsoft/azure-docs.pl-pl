@@ -3,11 +3,12 @@ title: Kopia zapasowa offline dla programu DPM i usługi Azure Backup Server
 description: Za pomocą Azure Backup można wysyłać dane z sieci za pomocą usługi Azure Import/Export. W tym artykule wyjaśniono przepływ pracy kopii zapasowej offline dla programu DPM i Azure Backup Server.
 ms.topic: conceptual
 ms.date: 05/24/2020
-ms.openlocfilehash: 0ff6198eed4e3e365b443a51e5c63534c2cf0973
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: 3f02c48ddd2c5cd4831d8c7a84dbbf42f55a562a
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85921263"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187799"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server-mabs"></a>Przepływ pracy kopii zapasowej offline dla programu DPM i Azure Backup Server (serwera usługi MAB)
 
@@ -23,7 +24,7 @@ Proces rozsadzenia w trybie offline Azure Backup jest ściśle zintegrowany z [u
 >
 > SERWERA usługi MAB UR1 Update umożliwia również podgląd kopii zapasowej offline przy użyciu Azure Data Box w serwera usługi MAB. Skontaktuj się z nami [SystemCenterFeedback@microsoft.com](mailto:SystemCenterFeedback@microsoft.com) , aby dowiedzieć się więcej.
 
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 
 Korzystając z możliwości wypełniania w trybie offline Azure Backup i usługi Azure Import/Export, można łatwo przekazać dane w trybie offline na platformę Azure przy użyciu dysków. Proces tworzenia kopii zapasowej w trybie offline obejmuje następujące kroki:
 
@@ -123,7 +124,7 @@ Narzędzie *AzureOfflineBackupDiskPrep* przygotowuje dyski SATA, które są wysy
     | Parametr | Opis |
     | --- | --- |
     | s: &lt; *ścieżka lokalizacji tymczasowej*&gt; |To obowiązkowe dane wejściowe są używane w celu zapewnienia ścieżki do lokalizacji tymczasowej wprowadzonej w przepływie pracy w sekcji "Inicjowanie kopii zapasowej w trybie offline". |
-    | p: &lt; *ścieżka do PublishSettingsFile*&gt; |To opcjonalne dane wejściowe są używane w celu zapewnienia ścieżki do pliku ustawień publikowania platformy Azure wprowadzonego w przepływie pracy w sekcji "Inicjowanie kopii zapasowej w trybie offline". |
+    | p: &lt; *ścieżka do PublishSettingsFile*&gt; |To opcjonalne dane wejściowe są używane w celu zapewnienia ścieżki do pliku ustawień publikowania platformy Azure. |
 
     Po uruchomieniu polecenia Narzędzie żąda wyboru zadania importowania platformy Azure odpowiadającego dyskom, które muszą zostać przygotowane. Jeśli tylko jedno zadanie importu jest skojarzone z podaną lokalizacją przemieszczania, zobaczysz ekran podobny do poniższego.
 

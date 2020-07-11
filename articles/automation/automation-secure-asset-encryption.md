@@ -9,11 +9,12 @@ ms.author: snmuvva
 ms.date: 01/11/2020
 ms.topic: conceptual
 manager: kmadnani
-ms.openlocfilehash: 1cb70109657343f41a1b3a19f3426377d97e261e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7d59ca60c7f90c227885927086511bd1f8ac7ca1
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83830127"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185844"
 ---
 # <a name="encryption-of-secure-assets-in-azure-automation"></a>Szyfrowanie zabezpieczonych zasobów w usłudze Azure Automation
 
@@ -51,12 +52,12 @@ Przed włączeniem kluczy zarządzanych przez klienta dla konta usługi Automati
 
  - Klucz, który ma być obsługiwany przez klienta, jest przechowywany w Azure Key Vault. 
  - Włącz zarówno właściwości **usuwania nietrwałego** , **jak i nie czyść** w magazynie kluczy. Te funkcje są wymagane, aby umożliwić odzyskiwanie kluczy w przypadku przypadkowego usunięcia.
- - Tylko klucze RSA są obsługiwane z szyfrowaniem Azure Automation. Aby uzyskać więcej informacji na temat kluczy, zobacz [Informacje o kluczach, wpisach tajnych i certyfikatach Azure Key Vault](../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys).
+ - Tylko klucze RSA są obsługiwane z szyfrowaniem Azure Automation. Aby uzyskać więcej informacji na temat kluczy, zobacz [Informacje o kluczach, wpisach tajnych i certyfikatach Azure Key Vault](../key-vault/general/about-keys-secrets-certificates.md).
 - Konto usługi Automation i Magazyn kluczy mogą znajdować się w różnych subskrypcjach, ale muszą znajdować się w tej samej dzierżawie Azure Active Directory.
 
 ### <a name="assignment-of-an-identity-to-the-automation-account"></a>Przypisanie tożsamości do konta usługi Automation
 
-Aby można było używać kluczy zarządzanych przez klienta z kontem usługi Automation, konto usługi Automation musi być uwierzytelniane w magazynie kluczy przechowującym klucze zarządzane przez klienta. Azure Automation używa tożsamości zarządzanych przypisanych przez system do uwierzytelniania konta przy użyciu Azure Key Vault. Aby uzyskać więcej informacji o tożsamościach zarządzanych, zobacz [co to są tożsamości zarządzane dla zasobów platformy Azure?](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
+Aby można było używać kluczy zarządzanych przez klienta z kontem usługi Automation, konto usługi Automation musi być uwierzytelniane w magazynie kluczy przechowującym klucze zarządzane przez klienta. Azure Automation używa tożsamości zarządzanych przypisanych przez system do uwierzytelniania konta przy użyciu Azure Key Vault. Aby uzyskać więcej informacji o tożsamościach zarządzanych, zobacz [co to są tożsamości zarządzane dla zasobów platformy Azure?](../active-directory/managed-identities-azure-resources/overview.md)
 
 Skonfiguruj tożsamość zarządzaną przypisaną przez system do konta usługi Automation przy użyciu następującego wywołania interfejsu API REST:
 
@@ -184,7 +185,7 @@ Obracanie klucza nie wyzwala ponownego szyfrowania bezpiecznych zasobów na konc
 
 ## <a name="revocation-of-access-to-a-customer-managed-key"></a>Odwoływanie dostępu do klucza zarządzanego przez klienta
 
-Aby odwołać dostęp do kluczy zarządzanych przez klienta, należy użyć programu PowerShell lub interfejsu wiersza polecenia platformy Azure. Aby uzyskać więcej informacji, zobacz [Azure Key Vault PowerShell](https://docs.microsoft.com/powershell/module/az.keyvault/) lub [interfejs wiersza polecenia Azure Key Vault](https://docs.microsoft.com/cli/azure/keyvault). Odwoływanie dostępu skutecznie blokuje dostęp do wszystkich bezpiecznych zasobów na koncie usługi Automation, ponieważ klucz szyfrowania jest niedostępny przez Azure Automation.
+Aby odwołać dostęp do kluczy zarządzanych przez klienta, należy użyć programu PowerShell lub interfejsu wiersza polecenia platformy Azure. Aby uzyskać więcej informacji, zobacz [Azure Key Vault PowerShell](/powershell/module/az.keyvault/) lub [interfejs wiersza polecenia Azure Key Vault](/cli/azure/keyvault). Odwoływanie dostępu skutecznie blokuje dostęp do wszystkich bezpiecznych zasobów na koncie usługi Automation, ponieważ klucz szyfrowania jest niedostępny przez Azure Automation.
 
 ## <a name="next-steps"></a>Następne kroki
 

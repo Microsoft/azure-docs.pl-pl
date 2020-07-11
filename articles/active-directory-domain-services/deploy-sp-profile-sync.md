@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/21/2020
+ms.date: 07/09/2020
 ms.author: iainfou
-ms.openlocfilehash: c45921b75fff000185c7e24b998b761ecc088d9f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9a65065a6f3cbc7264a8efb9bcf128b06897aacf
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84734796"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86220273"
 ---
 # <a name="configure-azure-active-directory-domain-services-to-support-user-profile-synchronization-for-sharepoint-server"></a>Konfigurowanie Azure Active Directory Domain Services do obsługi synchronizacji profilu użytkownika dla programu SharePoint Server
 
@@ -42,18 +42,18 @@ Aby wykonać ten artykuł, potrzebne są następujące zasoby i uprawnienia:
 
 ## <a name="service-accounts-overview"></a>Przegląd kont usług
 
-W domenie zarządzanej Grupa zabezpieczeń o nazwie **konta usługi AAD DC** istnieje jako część jednostki organizacyjnej *Użytkownicy* (OU). Członkowie tej grupy zabezpieczeń mają delegowane następujące uprawnienia:
+W domenie zarządzanej Grupa zabezpieczeń o nazwie *konta usługi AAD DC* istnieje jako część jednostki organizacyjnej *Użytkownicy* (OU). Członkowie tej grupy zabezpieczeń mają delegowane następujące uprawnienia:
 
 - Uprawnienie **Replikuj zmiany katalogu** w katalogu głównym DSE.
 - Uprawnienie **Replikowanie zmian w katalogu** w kontekście nazewnictwa *konfiguracji* ( `cn=configuration` kontener).
 
-Grupa zabezpieczeń **konta usługi AAD DC** jest również członkiem wbudowanej grupy **systemu sprzed Windows 2000**.
+Grupa zabezpieczeń *konta usługi AAD DC* jest również członkiem wbudowanej grupy *systemu sprzed Windows 2000*.
 
 Po dodaniu do tej grupy zabezpieczeń konto usługi synchronizacji profilu użytkownika programu SharePoint Server ma przyznane wymagane uprawnienia do poprawnego działania.
 
 ## <a name="enable-support-for-sharepoint-server-user-profile-sync"></a>Włącz obsługę synchronizacji profilu użytkownika programu SharePoint Server
 
-Konto usługi dla programu SharePoint Server musi mieć odpowiednie uprawnienia, aby replikować zmiany w katalogu i umożliwić poprawne działanie synchronizacji profilu użytkownika programu SharePoint Server. Aby zapewnić te uprawnienia, należy dodać konto usługi używane na potrzeby synchronizacji profilu użytkownika programu SharePoint z grupą **kont usługi AAD DC** .
+Konto usługi dla programu SharePoint Server musi mieć odpowiednie uprawnienia, aby replikować zmiany w katalogu i umożliwić poprawne działanie synchronizacji profilu użytkownika programu SharePoint Server. Aby zapewnić te uprawnienia, należy dodać konto usługi używane na potrzeby synchronizacji profilu użytkownika programu SharePoint z grupą *kont usługi AAD DC* .
 
 Na maszynie wirtualnej zarządzania AD DS platformy Azure wykonaj następujące czynności:
 

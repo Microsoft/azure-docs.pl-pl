@@ -1,5 +1,5 @@
 ---
-title: dołączanie pliku
+title: Plik dyrektywy include
 description: " — plik"
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -16,9 +16,9 @@ ms.locfileid: "86109674"
 ---
 Użyj tagów HTML, aby sformatować swój opis, aby był bardziej interesujący. Większość tagów wymaga zarówno składnika otwierającego, jak i zamykającego, jak pokazano w tej tabeli.
 
-|   Wymagana czynność  |  Użycie  |  Jak to  |  Aby uzyskać ten   |
+|   Wymagana czynność  |  Zastosowanie  |  Jak to  |  Aby uzyskać ten   |
 | --- | --- | --- | --- |
-|   Pogrubienie  |  `<b> & </b>`  |  `<b>`Przykład `</b>` : bezpłatna wersja próbna  |  **Przykład**: bezpłatna wersja próbna   |
+|   Pogrubiona  |  `<b> & </b>`  |  `<b>`Przykład `</b>` : bezpłatna wersja próbna  |  **Przykład**: bezpłatna wersja próbna   |
 |   Kursywa  |  `<i> & </i>`  |  Wybierz `<i>` pierwszy `</i>` wiersz.  |  Wybierz *pierwszy* wiersz.   |
 |   Nowy wiersz  |  `<br>`  |  Jest to mój pierwszy wiersz. `<br>` Jest to mój drugi wiersz.  |  Jest to mój pierwszy wiersz.<br>Jest to mój drugi wiersz.  |
 |  Litery  |  `<p> & </p>`  |  `<p>`Jest to mój pierwszy akapit.`</p>`<br>`<p>`Jest to mój drugi akapit.`</p>`   |   <p>Jest to mój pierwszy akapit.</p><p>Jest to mój drugi akapit.</p>   |

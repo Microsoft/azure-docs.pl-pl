@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/31/2020
+ms.date: 07/09/2020
 ms.author: iainfou
-ms.openlocfilehash: 285f5aabe32013a629eebb150e55ba343150f589
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0880f697ceea9c10a070ede0a73235022ce0529d
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84734847"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86220293"
 ---
 # <a name="deploy-azure-ad-application-proxy-for-secure-access-to-internal-applications-in-an-azure-active-directory-domain-services-managed-domain"></a>Wdrażanie serwer proxy aplikacji usługi Azure AD platformy Azure w celu bezpiecznego dostępu do wewnętrznych aplikacji w domenie zarządzanej Azure Active Directory Domain Services
 
@@ -40,9 +40,9 @@ Aby wykonać ten artykuł, potrzebne są następujące zasoby i uprawnienia:
 
 ## <a name="create-a-domain-joined-windows-vm"></a>Tworzenie maszyny wirtualnej z systemem Windows przyłączoną do domeny
 
-Aby skierować ruch do aplikacji uruchomionych w środowisku, należy zainstalować składnik łącznika usługi Azure serwer proxy aplikacji usługi Azure AD. Ten łącznik usługi Azure serwer proxy aplikacji usługi Azure AD musi być zainstalowany na maszynach wirtualnych z systemem Windows Server (VM) przyłączonych do domeny zarządzanej. W przypadku niektórych aplikacji można wdrożyć wiele serwerów z zainstalowanym łącznikiem. Ta opcja wdrażania zapewnia większą dostępność i pomaga w obsłudze cięższych obciążeń uwierzytelniania.
+Aby skierować ruch do aplikacji uruchomionych w środowisku, należy zainstalować składnik łącznika usługi Azure serwer proxy aplikacji usługi Azure AD. Ten łącznik usługi Azure serwer proxy aplikacji usługi Azure AD musi być zainstalowany na maszynie wirtualnej z systemem Windows Server, która jest dołączona do domeny zarządzanej. W przypadku niektórych aplikacji można wdrożyć wiele serwerów z zainstalowanym łącznikiem. Ta opcja wdrażania zapewnia większą dostępność i pomaga w obsłudze cięższych obciążeń uwierzytelniania.
 
-Maszyna wirtualna, na której działa łącznik usługi Azure serwer proxy aplikacji usługi Azure AD, musi należeć do tej samej lub równorzędnej sieci wirtualnej, w której włączono usługę Azure AD DS. Maszyny wirtualne, które będą hostować aplikacje publikowane przy użyciu serwera proxy aplikacji, również muszą zostać wdrożone w tej samej sieci wirtualnej platformy Azure.
+Maszyna wirtualna, na której działa łącznik usługi Azure serwer proxy aplikacji usługi Azure AD, musi należeć do tej samej lub równorzędnej sieci wirtualnej, co domena zarządzana. Maszyny wirtualne, które będą hostować aplikacje publikowane przy użyciu serwera proxy aplikacji, również muszą zostać wdrożone w tej samej sieci wirtualnej platformy Azure.
 
 Aby utworzyć maszynę wirtualną dla łącznika usługi Azure serwer proxy aplikacji usługi Azure AD, wykonaj następujące czynności:
 
@@ -72,7 +72,7 @@ Za pomocą maszyny wirtualnej gotowej do użycia jako łącznik usługi Azure se
         > [!NOTE]
         > Konto administratora globalnego użyte do zarejestrowania łącznika musi należeć do tego samego katalogu, w którym jest włączona usługa serwera proxy aplikacji.
         >
-        > Jeśli na przykład domena usługi Azure AD to *aaddscontoso.com*, Administrator globalny powinien mieć lub mieć `admin@aaddscontoso.com` inny prawidłowy alias w tej domenie.
+        > Jeśli na przykład domena usługi Azure AD to *contoso.com*, Administrator globalny powinien mieć lub mieć `admin@contoso.com` inny prawidłowy alias w tej domenie.
 
    * Jeśli konfiguracja zwiększonych zabezpieczeń programu Internet Explorer jest włączona dla maszyny wirtualnej, na której jest instalowany łącznik, ekran rejestracji może zostać zablokowany. Aby zezwolić na dostęp, postępuj zgodnie z instrukcjami w komunikacie o błędzie lub wyłącz zaawansowane zabezpieczenia programu Internet Explorer podczas procesu instalacji.
    * Jeśli rejestracja łącznika nie powiedzie się, zobacz [Rozwiązywanie problemów z serwerem proxy aplikacji](../active-directory/manage-apps/application-proxy-troubleshoot.md).

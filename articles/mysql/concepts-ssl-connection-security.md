@@ -5,16 +5,20 @@ author: kummanish
 ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 06/02/2020
-ms.openlocfilehash: 2421f8a9396b47d04db35a7cad843f6baa6f6177
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/09/2020
+ms.openlocfilehash: 0956a38349ef7bc7571dfac2f3722dd9fea425a3
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84416107"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86201646"
 ---
 # <a name="ssltls-connectivity-in-azure-database-for-mysql"></a>Łączność SSL/TLS w Azure Database for MySQL
 
 Azure Database for MySQL obsługuje łączenie serwera bazy danych z aplikacjami klienckimi przy użyciu protokołu SSL (SSL). Wymuszanie połączeń SSL między serwerem bazy danych a aplikacją kliencką ułatwia ochronę przed atakami typu man-in-the-middle dzięki szyfrowaniu strumienia danych między serwerem a aplikacją.
+
+> [!NOTE]
+> Aktualizowanie `require_secure_transport` wartości parametru serwera nie ma wpływu na zachowanie usługi MySQL. Użyj funkcji wymuszania protokołów SSL i TLS opisanych w tym artykule, aby zabezpieczyć połączenia z usługą.
 
 ## <a name="ssl-default-settings"></a>Ustawienia domyślne protokołu SSL
 
@@ -23,6 +27,10 @@ Domyślnie usługa bazy danych powinna być skonfigurowana w taki sposób, aby w
 Podczas aprowizacji nowego serwera Azure Database for MySQL za pośrednictwem Azure Portal i interfejsu wiersza polecenia wymuszanie połączeń SSL jest domyślnie włączone. 
 
 W Azure Portal przedstawiono parametry połączenia dla różnych języków programowania. Te parametry połączenia obejmują wymagania SSL wymagane do nawiązania połączenia z bazą danych. W Azure Portal wybierz serwer. W polu Nagłówek **ustawień** wybierz **Parametry połączenia**. Parametr SSL zależy od łącznika, na przykład "SSL = true" lub "sslmode = wymagaj" lub "sslmode = Required" i innych wariantów.
+
+W niektórych przypadkach aplikacje wymagają lokalnego pliku certyfikatu wygenerowanego na podstawie pliku certyfikatu zaufanego urzędu certyfikacji w celu bezpiecznego nawiązywania połączenia. Certyfikat do połączenia z serwerem Azure Database for MySQL znajduje się w lokalizacji https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem . 
+
+Zobacz następujące linki dla certyfikatów serwerów w chmurach suwerennych: [Azure Government](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem), [Azure Chiny](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem)i [Azure (Niemcy](https://www.d-trust.net/cgi-bin/D-TRUST_Root_Class_3_CA_2_2009.crt)).
 
 Aby dowiedzieć się, jak włączyć lub wyłączyć połączenie SSL podczas tworzenia aplikacji, zapoznaj się z [tematem Konfigurowanie protokołu SSL](howto-configure-ssl.md).
 
@@ -45,9 +53,9 @@ Azure Database for MySQL umożliwia wymuszanie wersji protokołu TLS dla połąc
 Na przykład ustawienie wartości minimalna wersja ustawienia protokołu TLS na TLS 1,0 oznacza, że serwer będzie zezwalał na połączenia od klientów przy użyciu protokołu TLS 1,0, 1,1 i 1.2 +. Alternatywnie ustawienie tego ustawienia na 1,2 oznacza, że zezwalasz tylko na połączenia od klientów korzystających z protokołu TLS 1.2 + i wszystkie połączenia z protokołem TLS 1,0 i TLS 1,1 zostaną odrzucone.
 
 > [!Note] 
-> Azure Database for MySQL wartość domyślna protokołu TLS jest wyłączona dla wszystkich nowych serwerów.
+> Domyślnie Azure Database for MySQL nie wymusza minimalnej wersji protokołu TLS (ustawienie `TLSEnforcementDisabled` ).
 >
-> Obecnie wersje protokołu TLS obsługiwane przez Azure Database for MySQL to TLS 1,0, 1,1 i 1,2. Po wymuszeniu dla określonej minimalnej wersji protokołu TLS nie można jej zmienić na wyłączony.
+> Po wymuszeniu minimalnej wersji protokołu TLS nie można później wyłączyć wymuszania wersji minimalnej.
 
 Aby dowiedzieć się, jak ustawić ustawienie protokołu TLS dla Azure Database for MySQL, zobacz [jak skonfigurować ustawienie protokołu TLS](howto-tls-configurations.md).
 

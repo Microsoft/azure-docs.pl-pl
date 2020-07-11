@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: inbarc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b77f2e78fa3df6c7ac6a422a03335f93d2a19d99
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4834cccff11a70249140f49b498b8f7891787c72
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85256006"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169344"
 ---
 # <a name="optimize-reauthentication-prompts-and-understand-session-lifetime-for-azure-multi-factor-authentication"></a>Optymalizowanie wierszy ponownego uwierzytelniania i zrozumienie okresu istnienia sesji dla usługi Azure Multi-Factor Authentication
 
@@ -122,10 +122,10 @@ Jeśli zostały włączone konfigurowalne okresy istnienia tokenu, ta możliwoś
 
 Poniższa tabela zawiera podsumowanie zaleceń w oparciu o licencje:
 
-|                              | Azure AD — wersja Bezpłatna i aplikacje pakietu Office 365 | Usługa Azure AD — wersja Premium |
+|              | Azure AD — wersja Bezpłatna i aplikacje pakietu Office 365 | Usługa Azure AD — wersja Premium |
 |------------------------------|-----------------------------------|------------------|
-| Logowanie jednokrotne                          | [Usługa Azure AD Join](../devices/concept-azure-ad-join.md) lub [hybrydowe łączenie z usługą Azure AD](../devices/concept-azure-ad-join-hybrid.md)lub [bezproblemowe logowanie jednokrotne](../hybrid/how-to-connect-sso.md) w przypadku urządzeń niezarządzanych. | Dołączenie do usługi Azure AD<br />Dołączenie hybrydowe do usługi Azure AD |
-| Ustawienia ponownego uwierzytelniania    | Pozostanie zalogowany                  | Korzystanie z zasad dostępu warunkowego w celu uzyskania częstotliwości logowania i trwałej sesji przeglądarki |
+| **Logowanie jednokrotne**                      | [Usługa Azure AD Join](../devices/concept-azure-ad-join.md) lub [hybrydowe łączenie z usługą Azure AD](../devices/concept-azure-ad-join-hybrid.md)lub [bezproblemowe logowanie jednokrotne](../hybrid/how-to-connect-sso.md) w przypadku urządzeń niezarządzanych. | Dołączenie do usługi Azure AD<br />Dołączenie hybrydowe do usługi Azure AD |
+| **Ustawienia ponownego uwierzytelniania** | Pozostanie zalogowany                  | Korzystanie z zasad dostępu warunkowego w celu uzyskania częstotliwości logowania i trwałej sesji przeglądarki |
 
 ## <a name="next-steps"></a>Następne kroki
 

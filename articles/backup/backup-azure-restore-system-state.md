@@ -1,15 +1,14 @@
 ---
 title: Przywracanie stanu systemu do systemu Windows Server
 description: Objaśnienie krok po kroku dotyczące przywracania stanu systemu Windows Server z kopii zapasowej na platformie Azure.
-ms.reviewer: saurse
 ms.topic: conceptual
-ms.date: 08/18/2017
-ms.openlocfilehash: 39cac84c4a33c1da209d0a0cc7b0f8ac8ee390a0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 06/30/2020
+ms.openlocfilehash: 5212e5ea0ed3a8c0e0a8e9d4fa45f1eb6c901bf5
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82610789"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86184474"
 ---
 # <a name="restore-system-state-to-windows-server"></a>Przywróć stan systemu do systemu Windows Server
 
@@ -19,7 +18,7 @@ W tym artykule wyjaśniono, jak przywrócić kopie zapasowe stanu systemu Window
    * Przywróć stan systemu na tym samym serwerze, na którym zostały wykonane kopie zapasowe, lub
    * Przywróć plik stanu systemu na alternatywny serwer.
 
-2. Zastosuj przywrócone pliki stanu systemu do systemu Windows Server.
+2. Zastosuj przywrócone pliki stanu systemu do systemu Windows Server za pomocą narzędzia Kopia zapasowa systemu Windows Server.
 
 ## <a name="recover-system-state-files-to-the-same-server"></a>Odzyskiwanie plików stanu systemu na tym samym serwerze
 
@@ -51,7 +50,7 @@ Poniższe kroki wyjaśniają, jak wycofać konfigurację systemu Windows Server 
 
     Azure Backup instaluje lokalny punkt odzyskiwania i używa go jako woluminu odzyskiwania.
 
-7. W następnym okienku określ miejsce docelowe dla odzyskiwanych plików stanu systemu, a następnie kliknij przycisk **Przeglądaj** , aby otworzyć Eksploratora Windows i znaleźć pliki i foldery, których chcesz użyć. Opcja **Utwórz kopie, aby mieć obie wersje**, tworzy kopie poszczególnych plików w istniejącym archiwum plików stanu systemu zamiast tworzyć kopię całego archiwum stanu systemu.
+7. W następnym okienku określ miejsce docelowe dla odzyskiwanych plików stanu systemu. Następnie kliknij przycisk **Przeglądaj** , aby otworzyć Eksploratora Windows i znaleźć pliki i foldery, których chcesz użyć. Opcja **Utwórz kopie, aby mieć obie wersje**, tworzy kopie poszczególnych plików w istniejącym archiwum plików stanu systemu zamiast tworzyć kopię całego archiwum stanu systemu.
 
     ![Opcje odzyskiwania](./media/backup-azure-restore-system-state/recover-as-files.png)
 
@@ -61,7 +60,7 @@ Poniższe kroki wyjaśniają, jak wycofać konfigurację systemu Windows Server 
 
 9. Skopiuj katalog *WindowsImageBackup* w miejscu docelowym odzyskiwania do niekrytycznego woluminu serwera. Zwykle wolumin systemu operacyjnego Windows jest woluminem krytycznym.
 
-10. Po pomyślnym zakończeniu odzyskiwania postępuj zgodnie z instrukcjami w sekcji, [Zastosuj przywrócone pliki stanu systemu do systemu Windows Server](backup-azure-restore-system-state.md), aby zakończyć proces odzyskiwania stanu systemu.
+10. Po pomyślnym zakończeniu odzyskiwania postępuj zgodnie z instrukcjami w sekcji, [Zastosuj przywrócony stan systemu w systemie Windows Server](#apply-restored-system-state-on-a-windows-server), aby zakończyć proces odzyskiwania stanu systemu.
 
 ## <a name="recover-system-state-files-to-an-alternate-server"></a>Odzyskiwanie plików stanu systemu do alternatywnego serwera
 
@@ -71,7 +70,7 @@ Terminologia użyta w tych krokach obejmuje:
 
 * *Maszyna źródłowa* — oryginalna maszyna, z której wykonano kopię zapasową, która jest obecnie niedostępna.
 * *Maszyna docelowa* — maszyna, do której dane są odzyskiwane.
-* *Przykładowy magazyn* — magazyn Recovery Services, do którego zarejestrowano *maszynę źródłową* i *maszynę docelową* . <br/>
+* *Przykładowy magazyn* — magazyn Recovery Services, do którego zarejestrowano *maszynę źródłową* i *maszynę docelową* .
 
 > [!NOTE]
 > Kopie zapasowe wykonane z jednego komputera nie mogą zostać przywrócone do maszyny z wcześniejszą wersją systemu operacyjnego. Na przykład kopie zapasowe wykonane z komputera z systemem Windows Server 2016 nie mogą zostać przywrócone do systemu Windows Server 2012 R2. Jednak jest możliwe odwracanie. Do przywrócenia systemu Windows Server 2016 można użyć kopii zapasowych z systemu Windows Server 2012 R2.
@@ -89,7 +88,7 @@ Terminologia użyta w tych krokach obejmuje:
 6. W okienku wybierz serwer kopii zapasowej wybierz *maszynę źródłową* z listy wyświetlanych maszyn.
 7. W okienku wybierz tryb odzyskiwania wybierz pozycję **stan systemu** i kliknij przycisk **dalej**.
 
-    ![Wyszukaj](./media/backup-azure-restore-system-state/recover-type-selection.png)
+    ![Wyszukiwanie](./media/backup-azure-restore-system-state/recover-type-selection.png)
 
 8. W kalendarzu w okienku **Wybierz wolumin i datę** wybierz punkt odzyskiwania. Można przywrócić z dowolnego punktu odzyskiwania w czasie. **Pogrubione** daty wskazują dostępność co najmniej jednego punktu odzyskiwania. Po wybraniu daty, jeśli dostępne są wiele punktów odzyskiwania, wybierz konkretny punkt odzyskiwania z menu rozwijanego **czas** .
 
@@ -115,6 +114,61 @@ Terminologia użyta w tych krokach obejmuje:
 
 Po odzyskaniu stanu systemu jako plików przy użyciu usługi Azure Recovery Services Agent Użyj narzędzia Kopia zapasowa systemu Windows Server, aby zastosować odzyskany stan systemu do systemu Windows Server. Narzędzie Kopia zapasowa systemu Windows Server jest już dostępne na serwerze. Poniższe kroki wyjaśniają, jak zastosować odzyskany stan systemu.
 
+1. Otwórz przystawkę Kopia zapasowa systemu Windows Server. Jeśli nie wiesz, gdzie zainstalowano przystawkę, przeszukaj komputer lub serwer pod kątem **kopia zapasowa systemu Windows Server**.
+
+    Aplikacja klasyczna zostanie wyświetlona w wynikach wyszukiwania. Jeśli nie jest wyświetlany lub wystąpią błędy podczas otwierania aplikacji, należy zainstalować **funkcje kopia zapasowa systemu Windows Server**i składniki zależne znajdujące się poniżej, które są dostępne w **Kreatorze dodawania funkcji** w programie **Menedżer serwera**.
+
+1. W przystawce wybierz pozycję **lokalna kopia zapasowa**.
+
+    ![Wybierz pozycję lokalna kopia zapasowa do przywrócenia](./media/backup-azure-restore-system-state/win-server-backup-local-backup.png)
+
+1. W lokalnej konsoli kopii zapasowej w **okienku Akcje**kliknij polecenie **Odzyskaj** , aby otworzyć Kreatora odzyskiwania.
+
+1. Wybierz opcję, kopię **zapasową przechowywaną w innej lokalizacji**, a następnie kliknij przycisk **dalej**.
+
+   ![Wybierz, aby odzyskać do innego serwera](./media/backup-azure-restore-system-state/backup-stored-in-diff-location.png)
+
+1. Podczas określania typu lokalizacji wybierz opcję **zdalny folder udostępniony** , jeśli kopia zapasowa stanu systemu została odzyskana na innym serwerze. Jeśli stan systemu został odzyskany lokalnie, wybierz pozycję **dyski lokalne**.
+
+    ![Wybierz, czy chcesz przeprowadzić odzyskiwanie z serwera lokalnego czy innego](./media/backup-azure-restore-system-state/ss-recovery-remote-shared-folder.png)
+
+1. Wprowadź ścieżkę do katalogu *WindowsImageBackup* lub wybierz dysk lokalny zawierający ten katalog (na przykład D:\WindowsImageBackup) odzyskany jako część odzyskiwania plików stanu systemu za pomocą usługi Azure Recovery Services Agent i kliknij przycisk **dalej**.
+
+    ![ścieżka do pliku udostępnionego](./media/backup-azure-restore-system-state/ss-recovery-remote-folder.png)
+
+1. Wybierz wersję stanu systemu, którą chcesz przywrócić, a następnie kliknij przycisk **dalej**.
+
+1. W okienku wybierz typ odzyskiwania wybierz pozycję **stan systemu** i kliknij przycisk **dalej**.
+
+1. W polu Lokalizacja odzyskiwania stanu systemu wybierz opcję **Oryginalna lokalizacja**, a następnie kliknij przycisk **dalej**.
+
+    W przypadku przywracania kontrolera domeny zostanie wyświetlona następująca dodatkowa opcja:
+
+    ![Lokalizacja odzyskiwania stanu systemu](./media/backup-azure-restore-system-state/location-for-system-state-recovery.png)
+
+    >[!NOTE]
+    >Wybierz opcję "wykonaj przywracanie autorytatywne plików Active Directory", jeśli jawnie zamierzasz przeprowadzić Autorytatywne przywracanie wszystkich Active Directory danych.
+
+1. Przejrzyj szczegóły potwierdzenia, sprawdź ustawienia ponownego rozruchu, a następnie kliknij przycisk **Odzyskaj** , aby zastosować przywrócone pliki stanu systemu.
+
+    ![Uruchom pliki stanu systemu przywracania](./media/backup-azure-restore-system-state/launch-ss-recovery.png)
+
+    >[!NOTE]
+    >Nie wybieraj opcji **automatycznie uruchamiaj ponownie serwer** , jeśli wykonujesz przywracanie w trybie DSRM.
+
+1. Po pomyślnym ukończeniu przywracania należy ponownie uruchomić serwer w trybie normalnym. Otwórz wiersz polecenia i wpisz następujące polecenie:`bcdedit /deletevalue safeboot`
+1. Uruchom ponownie serwer.
+
+## <a name="special-considerations-for-system-state-recovery-on-a-domain-controller"></a>Specjalne zagadnienia dotyczące odzyskiwania stanu systemu na kontrolerze domeny
+
+Kopia zapasowa stanu systemu zawiera Active Directory danych. Wykonaj następujące kroki, aby przywrócić poprzedni stan usługi domena usługi Active Directory (AD DS) z jej bieżącego stanu. Ten typ przywracania można wykonać w dwóch scenariuszach:
+
+* Przywracanie wszystkich danych Active Directory, gdy nie ma żadnych działających kontrolerów domeny w lesie
+* Przywracanie części danych Active Directory po usunięciu lub uszkodzeniu tych obiektów
+
+W tym artykule omówiono tylko pierwszy scenariusz, który wywołuje nonauthorative przywracanie AD DS i autorytatywne Przywracanie folderu SYSVOL.  Jeśli konieczne jest wykonanie drugiego scenariusza (w którym kontrolery domeny są nadal funkcjonalne, ale należy przywrócić konkretne obiekty usługi AD), zobacz [te instrukcje](https://support.microsoft.com/help/840001/how-to-restore-deleted-user-accounts-and-their-group-memberships-in-ac).
+
+1. Wykonaj kroki opisane tutaj, aby [odzyskać pliki stanu systemu na alternatywny serwer](#recover-system-state-files-to-an-alternate-server).
 1. Użyj następujących poleceń, aby ponownie uruchomić serwer w *trybie naprawy usług katalogowych*. W wierszu polecenia z podwyższonym poziomem uprawnień:
 
     ```cmd
@@ -122,44 +176,31 @@ Po odzyskaniu stanu systemu jako plików przy użyciu usługi Azure Recovery Ser
     Shutdown /r /t 0
     ```
 
-2. Po ponownym uruchomieniu Otwórz przystawkę Kopia zapasowa systemu Windows Server. Jeśli nie wiesz, gdzie zainstalowano przystawkę, przeszukaj komputer lub serwer pod kątem **kopia zapasowa systemu Windows Server**.
+1. Aby odzyskać Active Directory w ramach przywracania stanu systemu, można wybrać jedną z dwóch metod:
 
-    Aplikacja klasyczna zostanie wyświetlona w wynikach wyszukiwania. Jeśli nie jest wyświetlany lub wystąpią błędy podczas otwierania aplikacji, należy zainstalować **funkcje kopia zapasowa systemu Windows Server**i składniki zależne znajdujące się poniżej, które są dostępne w **Kreatorze dodawania funkcji** w programie **Menedżer serwera**.
+    * Postępuj zgodnie z powyższymi instrukcjami, aby [zastosować przywrócony stan systemu na serwerze z systemem Windows](#apply-restored-system-state-on-a-windows-server) za pomocą narzędzia Kopia zapasowa systemu Windows Server.
 
-3. W przystawce wybierz pozycję **lokalna kopia zapasowa**.
+        >[!NOTE]
+        >Jeśli przywracasz wszystkie dane Active Directory (i nie ma żadnych działających kontrolerów domeny w lesie), w kroku 9 powyżej upewnij się, że wybrano opcję **Wykonaj przywracanie autorytatywne plików Active Directory**.
 
-    ![Wybierz pozycję lokalna kopia zapasowa do przywrócenia](./media/backup-azure-restore-system-state/win-server-backup-local-backup.png)
+    * Za pomocą narzędzia [Wbadmin](https://docs.microsoft.com/windows-server/administration/windows-commands/wbadmin-start-systemstaterecovery) wykonaj przywracanie z wiersza polecenia.
 
-4. W lokalnej konsoli kopii zapasowej w **okienku Akcje**kliknij polecenie **Odzyskaj** , aby otworzyć Kreatora odzyskiwania.
+        Potrzebujesz identyfikatora wersji kopii zapasowej, której chcesz użyć. Listę identyfikatorów wersji można uzyskać, uruchamiając następujące polecenie:
 
-5. Wybierz opcję, kopię **zapasową przechowywaną w innej lokalizacji**, a następnie kliknij przycisk **dalej**.
+        ```cmd
+        wbadmin get versions -backuptarget <servername\sharename>
+        ```
 
-   ![Wybierz, aby odzyskać do innego serwera](./media/backup-azure-restore-system-state/backup-stored-in-diff-location.png)
+        Następnie można użyć tego identyfikatora wersji do uruchomienia przywracania.
 
-6. Podczas określania typu lokalizacji wybierz opcję **zdalny folder udostępniony** , jeśli kopia zapasowa stanu systemu została odzyskana na innym serwerze. Jeśli stan systemu został odzyskany lokalnie, wybierz pozycję **dyski lokalne**.
+        Na przykład aby przeprowadzić [przywracanie nonauthorative AD DS i autorytatywne Przywracanie folderu SYSVOL](https://docs.microsoft.com/windows-server/identity/ad-ds/manage/ad-forest-recovery-nonauthoritative-restore) przy użyciu kopii zapasowej z 04/30/2020 o 9:00 am, która jest przechowywana w udostępnionym zasobie `\\servername\share` dla `server01` , wpisz:
 
-    ![Wybierz, czy chcesz przeprowadzić odzyskiwanie z serwera lokalnego czy innego](./media/backup-azure-restore-system-state/ss-recovery-remote-shared-folder.png)
+        ```cmd
+        wbadmin start systemstaterecovery -version:04/30/2020-09:00 -backupTarget:\\servername\share -machine:server01 -authsysvol
+        ```
 
-7. Wprowadź ścieżkę do katalogu *WindowsImageBackup* lub wybierz dysk lokalny zawierający ten katalog (na przykład D:\WindowsImageBackup) odzyskany jako część odzyskiwania plików stanu systemu za pomocą usługi Azure Recovery Services Agent i kliknij przycisk **dalej**.
-
-    ![ścieżka do pliku udostępnionego](./media/backup-azure-restore-system-state/ss-recovery-remote-folder.png)
-
-8. Wybierz wersję stanu systemu, którą chcesz przywrócić, a następnie kliknij przycisk **dalej**.
-
-9. W okienku wybierz typ odzyskiwania wybierz pozycję **stan systemu** i kliknij przycisk **dalej**.
-
-10. W polu Lokalizacja odzyskiwania stanu systemu wybierz opcję **Oryginalna lokalizacja**, a następnie kliknij przycisk **dalej**.
-
-11. Przejrzyj szczegóły potwierdzenia, sprawdź ustawienia ponownego rozruchu, a następnie kliknij przycisk **Odzyskaj** , aby zastosować przywrócone pliki stanu systemu.
-
-    ![Uruchom pliki stanu systemu przywracania](./media/backup-azure-restore-system-state/launch-ss-recovery.png)
-
-## <a name="special-considerations-for-system-state-recovery-on-active-directory-server"></a>Specjalne zagadnienia dotyczące odzyskiwania stanu systemu na serwerze Active Directory
-
-Kopia zapasowa stanu systemu zawiera Active Directory danych. Wykonaj następujące kroki, aby przywrócić poprzedni stan usługi domena usługi Active Directory (AD DS) z jej bieżącego stanu.
-
-1. Uruchom ponownie kontroler domeny w trybie przywracania usług katalogowych (DSRM).
-2. Wykonaj kroki opisane [tutaj](https://docs.microsoft.com/windows-server/identity/ad-ds/manage/ad-forest-recovery-nonauthoritative-restore) , aby użyć poleceń cmdlet kopia zapasowa systemu Windows Server do odzyskania AD DS.
+1. Po pomyślnym ukończeniu przywracania należy ponownie uruchomić serwer w trybie normalnym. Otwórz wiersz polecenia i wpisz następujące polecenie:`bcdedit /deletevalue safeboot`
+1. Uruchom ponownie serwer.
 
 ## <a name="troubleshoot-failed-system-state-restore"></a>Rozwiązywanie problemów w przypadku niepowodzenia przywracania stanu systemu
 

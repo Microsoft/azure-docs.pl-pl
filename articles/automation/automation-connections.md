@@ -6,11 +6,12 @@ ms.subservice: shared-capabilities
 ms.date: 01/13/2020
 ms.topic: conceptual
 ms.custom: has-adal-ref
-ms.openlocfilehash: 3c5901dbd45cc0ce82c7fcd8117705eaeed7b4ba
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 39085aa7967ffeac3416b61f32146ac023b46dfe
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83837131"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186660"
 ---
 # <a name="manage-connections-in-azure-automation"></a>Zarządzanie połączeniami w Azure Automation
 
@@ -42,10 +43,10 @@ Polecenia cmdlet w poniższej tabeli tworzą połączenia automatyzacji i zarzą
 
 |Polecenie cmdlet|Opis|
 |---|---|
-|[Get-AzAutomationConnection](https://docs.microsoft.com/powershell/module/az.automation/get-azautomationconnection?view=azps-3.7.0)|Pobiera informacje o połączeniu.|
-|[New-AzAutomationConnection](https://docs.microsoft.com/powershell/module/az.automation/new-azautomationconnection?view=azps-3.7.0)|Tworzy nowe połączenie.|
-|[Remove-AzAutomationConnection](https://docs.microsoft.com/powershell/module/Az.Automation/Remove-AzAutomationConnection?view=azps-3.7.0)|Usuwa istniejące połączenie.|
-|[Set-AzAutomationConnectionFieldValue](https://docs.microsoft.com/powershell/module/Az.Automation/Set-AzAutomationConnectionFieldValue?view=azps-3.7.0)|Ustawia wartość określonego pola dla istniejącego połączenia.|
+|[Get-AzAutomationConnection](/powershell/module/az.automation/get-azautomationconnection?view=azps-3.7.0)|Pobiera informacje o połączeniu.|
+|[New-AzAutomationConnection](/powershell/module/az.automation/new-azautomationconnection?view=azps-3.7.0)|Tworzy nowe połączenie.|
+|[Remove-AzAutomationConnection](/powershell/module/Az.Automation/Remove-AzAutomationConnection?view=azps-3.7.0)|Usuwa istniejące połączenie.|
+|[Set-AzAutomationConnectionFieldValue](/powershell/module/Az.Automation/Set-AzAutomationConnectionFieldValue?view=azps-3.7.0)|Ustawia wartość określonego pola dla istniejącego połączenia.|
 
 ## <a name="internal-cmdlets-to-access-connections"></a>Wewnętrzne polecenia cmdlet do uzyskiwania dostępu do połączeń
 

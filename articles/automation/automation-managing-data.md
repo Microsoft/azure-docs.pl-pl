@@ -5,11 +5,12 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 06/03/2020
 ms.topic: conceptual
-ms.openlocfilehash: 2dbaebac2228c11aef5fb33af4588f75ea15677a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cc96f2dd81b618b4170acd4b415a09248adbb7d5
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84343058"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186167"
 ---
 # <a name="management-of-azure-automation-data"></a>Zarządzanie danymi usługi Azure Automation
 
@@ -36,9 +37,9 @@ Aby uzyskać informacje o obsłudze protokołu TLS 1,2 z agentem Log Analytics d
 |Platforma/język | Pomoc techniczna | Więcej informacji |
 | --- | --- | --- |
 |Linux | Dystrybucje systemu Linux zależą od [OpenSSL](https://www.openssl.org) obsługi TLS 1,2.  | Sprawdź [Dziennik zmian OpenSSL](https://www.openssl.org/news/changelog.html) , aby potwierdzić, że wersja OpenSSL jest obsługiwana.|
-| Windows 8,0 — 10 | Obsługiwane i domyślnie włączone. | , Aby upewnić się, że nadal używasz [ustawień domyślnych](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings).  |
-| Windows Server 2012 — 2016 | Obsługiwane i domyślnie włączone. | Aby potwierdzić, że nadal używasz [ustawień domyślnych](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) |
-| Windows 7 z dodatkiem SP1 i Windows Server 2008 R2 z dodatkiem SP1 | Obsługiwane, ale nie włączone domyślnie. | Aby uzyskać szczegółowe informacje na temat włączania, zobacz stronę [Ustawienia rejestru Transport Layer Security (TLS)](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) .  |
+| Windows 8,0 — 10 | Obsługiwane i domyślnie włączone. | , Aby upewnić się, że nadal używasz [ustawień domyślnych](/windows-server/security/tls/tls-registry-settings).  |
+| Windows Server 2012 — 2016 | Obsługiwane i domyślnie włączone. | Aby potwierdzić, że nadal używasz [ustawień domyślnych](/windows-server/security/tls/tls-registry-settings) |
+| Windows 7 z dodatkiem SP1 i Windows Server 2008 R2 z dodatkiem SP1 | Obsługiwane, ale nie włączone domyślnie. | Aby uzyskać szczegółowe informacje na temat włączania, zobacz stronę [Ustawienia rejestru Transport Layer Security (TLS)](/windows-server/security/tls/tls-registry-settings) .  |
 
 ## <a name="data-retention"></a>Przechowywanie danych
 
@@ -50,7 +51,7 @@ Poniższa tabela zawiera podsumowanie zasad przechowywania dla różnych zasobó
 |:--- |:--- |
 | Konta |Konto zostanie trwale usunięte 30 dni po usunięciu go przez użytkownika. |
 | Elementy zawartości |Zasób zostanie trwale usunięty 30 dni po usunięciu go przez użytkownika lub 30 dni po usunięciu przez użytkownika konta, które zawiera element zawartości. |
-| Węzły DSC |Węzeł DSC zostanie trwale usunięty 30 dni po wyrejestrowaniu z konta usługi Automation przy użyciu Azure Portal lub polecenia cmdlet [Unregister-AzAutomationDscNode](https://docs.microsoft.com/powershell/module/az.automation/unregister-azautomationdscnode?view=azps-3.7.0) w programie Windows PowerShell. Węzeł zostanie również trwale usunięty 30 dni po usunięciu konta, które zawiera węzeł. |
+| Węzły DSC |Węzeł DSC zostanie trwale usunięty 30 dni po wyrejestrowaniu z konta usługi Automation przy użyciu Azure Portal lub polecenia cmdlet [Unregister-AzAutomationDscNode](/powershell/module/az.automation/unregister-azautomationdscnode?view=azps-3.7.0) w programie Windows PowerShell. Węzeł zostanie również trwale usunięty 30 dni po usunięciu konta, które zawiera węzeł. |
 | Stanowiska |Zadanie jest usuwane i trwale usuwane po 30 dniach od modyfikacji, na przykład po zakończeniu zadania zostanie zatrzymane lub wstrzymane. |
 | Moduły |Moduł zostanie trwale usunięty 30 dni po usunięciu go przez użytkownika lub 30 dni po usunięciu przez użytkownika konta, które zawiera moduł. |
 | Konfiguracje węzłów/pliki MOF |Stara konfiguracja węzła zostanie trwale usunięta 30 dni po wygenerowaniu nowej konfiguracji węzła. |
@@ -65,7 +66,7 @@ Po usunięciu konta usługi Automation na platformie Azure wszystkie obiekty na 
 
 ### <a name="runbooks"></a>Elementy Runbook
 
-Elementy Runbook można eksportować do plików skryptów przy użyciu Azure Portal lub polecenia cmdlet [Get-AzureAutomationRunbookDefinition](https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azureautomationrunbookdefinition) w programie Windows PowerShell. Te pliki skryptów można zaimportować do innego konta usługi Automation, jak opisano w sekcji [Zarządzanie elementami Runbook w Azure Automation](manage-runbooks.md).
+Elementy Runbook można eksportować do plików skryptów przy użyciu Azure Portal lub polecenia cmdlet [Get-AzureAutomationRunbookDefinition](/powershell/module/servicemanagement/azure/get-azureautomationrunbookdefinition) w programie Windows PowerShell. Te pliki skryptów można zaimportować do innego konta usługi Automation, jak opisano w sekcji [Zarządzanie elementami Runbook w Azure Automation](manage-runbooks.md).
 
 ### <a name="integration-modules"></a>Moduły integracji
 
@@ -79,8 +80,7 @@ Nie można pobrać wartości szyfrowanych zmiennych lub pól haseł poświadcze�
 
 ### <a name="dsc-configurations"></a>Konfiguracje DSC
 
-Konfiguracje DSC można wyeksportować do plików skryptów przy użyciu Azure Portal lub polecenia cmdlet [Export-AzAutomationDscConfiguration](https://docs.microsoft.com/powershell/module/az.automation/export-azautomationdscconfiguration?view=azps-3.7.0
-) w programie Windows PowerShell. Możesz importować te konfiguracje i używać ich w innym koncie usługi Automation.
+Konfiguracje DSC można wyeksportować do plików skryptów przy użyciu Azure Portal lub polecenia cmdlet [Export-AzAutomationDscConfiguration](/powershell/module/az.automation/export-azautomationdscconfiguration?view=azps-3.7.0) w programie Windows PowerShell. Możesz importować te konfiguracje i używać ich w innym koncie usługi Automation.
 
 ## <a name="geo-replication-in-azure-automation"></a>Replikacja geograficzna w Azure Automation
 
@@ -102,4 +102,4 @@ Usługa replikacji geograficznej usługi Automation nie jest dostępna bezpośre
 
 * Aby dowiedzieć się więcej na temat zabezpieczania zasobów w Azure Automation, zobacz [szyfrowanie zabezpieczonych zasobów w programie Azure Automation](automation-secure-asset-encryption.md).
 
-* Aby dowiedzieć się więcej na temat replikacji geograficznej, zobacz [Tworzenie i używanie aktywnej replikacji geograficznej](../sql-database/sql-database-active-geo-replication.md).
+* Aby dowiedzieć się więcej na temat replikacji geograficznej, zobacz [Tworzenie i używanie aktywnej replikacji geograficznej](../azure-sql/database/active-geo-replication-overview.md).

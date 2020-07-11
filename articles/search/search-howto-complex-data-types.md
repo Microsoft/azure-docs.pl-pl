@@ -9,12 +9,12 @@ tags: complex data types; compound data types; aggregate data types
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 9fe61cf2a53b8e128a6cb58465cbb4785faa89d2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e6e66dc05ac2b6e54a1be94576b8686390949145
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85562049"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171843"
 ---
 # <a name="how-to-model-complex-data-types-in-azure-cognitive-search"></a>Jak modelować złożone typy danych w usłudze Azure Wyszukiwanie poznawcze
 
@@ -111,7 +111,7 @@ Wyrażenia wyszukiwania w dowolnym formacie działają zgodnie z oczekiwaniami w
 
 Zapytania uzyskują więcej złożonych, gdy istnieje wiele warunków i operatorów, a niektóre terminy mają określone nazwy pól, jak jest to możliwe przy użyciu [składni Lucene](query-lucene-syntax.md). Na przykład, zapytanie próbuje dopasować dwa warunki, "Portland" i "lub", w odniesieniu do dwóch podpól pola Adres:
 
-    search=Address/City:Portland AND Address/State:OR
+> `search=Address/City:Portland AND Address/State:OR`
 
 Zapytania takie jak takie nie są *skorelowane* dla wyszukiwania pełnotekstowego, w przeciwieństwie do filtrów. W filtrach zapytania dotyczące pól podrzędnych kolekcji złożonej są skorelowane przy użyciu zmiennych zakresu w [ `any` lub `all` ](search-query-odata-collection-operators.md). Powyższe zapytanie Lucene zwraca dokumenty zawierające zarówno "Portland, Maine" i "Portland, Oregon" oraz inne miasta w Oregon. Dzieje się tak, ponieważ każda klauzula ma zastosowanie do wszystkich wartości pola w całym dokumencie, dlatego nie istnieje koncepcja "bieżącego dokumentu podrzędnego". Aby uzyskać więcej informacji na ten temat, zobacz [Omówienie filtrów kolekcji OData w usłudze Azure wyszukiwanie poznawcze](search-query-understand-collection-filters.md).
 
@@ -119,7 +119,7 @@ Zapytania takie jak takie nie są *skorelowane* dla wyszukiwania pełnotekstoweg
 
 Ten `$select` parametr służy do wybierania pól, które są zwracane w wynikach wyszukiwania. Aby użyć tego parametru do zaznaczania określonych pól podrzędnych pola złożonego, należy uwzględnić pole nadrzędne i podpole oddzielone ukośnikiem ( `/` ).
 
-    $select=HotelName, Address/City, Rooms/BaseRate
+> `$select=HotelName, Address/City, Rooms/BaseRate`
 
 Jeśli chcesz, aby były one widoczne w wynikach wyszukiwania, pola muszą być oznaczone jako możliwe do pobierania w indeksie. W instrukcji nie można używać tylko pól oznaczonych jako możliwe do pobierania `$select` .
 
@@ -143,11 +143,11 @@ Operacje sortowania działają, gdy pola mają jedną wartość na dokument, nie
 
 Można odwoływać się do podpól złożonego pola w wyrażeniu filtru. Po prostu Użyj tej samej [składni ścieżki OData](query-odata-filter-orderby-syntax.md) , która jest używana do tworzenia aspektów, sortowania i wybierania pól. Na przykład następujący filtr zwróci wszystkie hotele w Kanadzie:
 
-    $filter=Address/Country eq 'Canada'
+> `$filter=Address/Country eq 'Canada'`
 
 Aby odfiltrować w polu kolekcji złożonej, można użyć **wyrażenia lambda** z [ `any` `all` operatorami i](search-query-odata-collection-operators.md). W takim przypadku **zmienna zakresu** wyrażenia lambda jest obiektem z podpolami. Można odwołać się do tych podpól ze standardową składnią ścieżki OData. Na przykład następujący filtr zwróci wszystkie hotele z co najmniej jedną usługą Deluxe i wszystkie pokoje nieprzeznaczone do palenia:
 
-    $filter=Rooms/any(room: room/Type eq 'Deluxe Room') and Rooms/all(room: not room/SmokingAllowed)
+> `$filter=Rooms/any(room: room/Type eq 'Deluxe Room') and Rooms/all(room: not room/SmokingAllowed)`
 
 Podobnie jak w przypadku pól prostych najwyższego poziomu, proste podpola złożonych pól można dołączać tylko do filtrów, jeśli mają atrybut z możliwością **filtrowania** ustawioną na wartość `true` w definicji indeksu. Aby uzyskać więcej informacji, zobacz [Dokumentacja interfejsu API tworzenia indeksu](/rest/api/searchservice/create-index).
 

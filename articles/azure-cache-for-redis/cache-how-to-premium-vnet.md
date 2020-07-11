@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 05/15/2017
-ms.openlocfilehash: dae829336c5328bec4b620217c34c69fa5931b3a
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: f07e18498138d29497fa6ba85c5930a5a5f7ec4e
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85856841"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86184773"
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-cache-for-redis"></a>Jak skonfigurować obsługę Virtual Network w przypadku pamięci podręcznej Premium platformy Azure dla Redis
 Usługa Azure cache for Redis ma różne oferty pamięci podręcznej, które zapewniają elastyczność w wyborze rozmiaru i funkcji pamięci podręcznej, w tym funkcji warstwy Premium, takich jak klastrowanie, trwałość i obsługa sieci wirtualnej. Sieć wirtualna jest siecią prywatną w chmurze. Gdy usługa Azure cache for Redis jest skonfigurowana przy użyciu sieci wirtualnej, nie jest ona publicznie adresowana i można uzyskać do niej dostęp tylko z maszyn wirtualnych i aplikacji w sieci wirtualnej. W tym artykule opisano sposób konfigurowania obsługi sieci wirtualnej na potrzeby wystąpienia usługi Redis w warstwie Premium.
@@ -60,10 +60,11 @@ Po utworzeniu pamięci podręcznej można wyświetlić konfigurację sieci wirtu
 Aby nawiązać połączenie z usługą Azure cache for Redis w przypadku korzystania z sieci wirtualnej, należy określić nazwę hosta pamięci podręcznej w parametrach połączenia, jak pokazano w następującym przykładzie:
 
 ```csharp
-private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
-{
-    return ConnectionMultiplexer.Connect("contoso5premium.redis.cache.windows.net,abortConnect=false,ssl=true,password=password");
-});
+private static Lazy<ConnectionMultiplexer>
+    lazyConnection = new Lazy<ConnectionMultiplexer> (() =>
+    {
+        return ConnectionMultiplexer.Connect("contoso5premium.redis.cache.windows.net,abortConnect=false,ssl=true,password=password");
+    });
 
 public static ConnectionMultiplexer Connection
 {
@@ -98,7 +99,7 @@ Gdy pamięć podręczna platformy Azure dla usługi Redis jest hostowana w sieci
 
 #### <a name="outbound-port-requirements"></a>Wymagania dotyczące portów wychodzących
 
-Istnieją dziewięć wymagań portu wychodzącego. Żądania wychodzące w tych zakresach są wychodzące do innych usług niezbędnych do funkcjonowania pamięci podręcznej lub wewnętrznej podsieci Redis na potrzeby komunikacji między węzłami. W przypadku replikacji geograficznej istnieją dodatkowe wymagania dotyczące komunikacji między podsieciami podstawowej i pomocniczej pamięci podręcznej.
+Istnieją dziewięć wymagań portu wychodzącego. Żądania wychodzące w tych zakresach są wychodzące do innych usług niezbędnych do funkcjonowania pamięci podręcznej lub wewnętrznej podsieci Redis na potrzeby komunikacji między węzłami. W przypadku replikacji geograficznej istnieją dodatkowe wymagania wychodzące dotyczące komunikacji między podsieciami podstawowej i pamięci podręcznej repliki.
 
 | Porty | Kierunek | Protokół transportu | Przeznaczenie | Lokalny adres IP | Zdalny adres IP |
 | --- | --- | --- | --- | --- | --- |
@@ -128,14 +129,14 @@ Istnieją osiem wymagań zakresu portów przychodzących. Żądania przychodząc
 
 | Porty | Kierunek | Protokół transportu | Przeznaczenie | Lokalny adres IP | Zdalny adres IP |
 | --- | --- | --- | --- | --- | --- |
-| 6379, 6380 |Przychodzący |TCP |Komunikacja z klientem do Redis, równoważenie obciążenia platformy Azure | (Podsieć Redis) | (Podsieć Redis), Virtual Network, Azure Load Balancer <sup>1</sup> |
-| 8443 |Przychodzący |TCP |Komunikacja wewnętrzna dla Redis | (Podsieć Redis) |(Podsieć Redis) |
-| 8500 |Przychodzący |TCP/UDP |Równoważenie obciążenia na platformie Azure | (Podsieć Redis) |Azure Load Balancer |
-| 10221-10231 |Przychodzący |TCP |Komunikacja wewnętrzna dla Redis | (Podsieć Redis) |(Podsieć Redis), Azure Load Balancer |
-| 13000-13999 |Przychodzący |TCP |Komunikacja klienta z klastrami Redis, usługa równoważenia obciążenia platformy Azure | (Podsieć Redis) |Virtual Network, Azure Load Balancer |
-| 15000-15999 |Przychodzący |TCP |Komunikacja z klientem do klastrów Redis, równoważenia obciążenia platformy Azure i replikacji geograficznej | (Podsieć Redis) |Virtual Network, Azure Load Balancer, (podsieć równorzędna z repliką geograficzną) |
-| 16001 |Przychodzący |TCP/UDP |Równoważenie obciążenia na platformie Azure | (Podsieć Redis) |Azure Load Balancer |
-| 20226 |Przychodzący |TCP |Komunikacja wewnętrzna dla Redis | (Podsieć Redis) |(Podsieć Redis) |
+| 6379, 6380 |Inbound |TCP |Komunikacja z klientem do Redis, równoważenie obciążenia platformy Azure | (Podsieć Redis) | (Podsieć Redis), Virtual Network, Azure Load Balancer <sup>1</sup> |
+| 8443 |Inbound |TCP |Komunikacja wewnętrzna dla Redis | (Podsieć Redis) |(Podsieć Redis) |
+| 8500 |Inbound |TCP/UDP |Równoważenie obciążenia na platformie Azure | (Podsieć Redis) |Azure Load Balancer |
+| 10221-10231 |Inbound |TCP |Komunikacja wewnętrzna dla Redis | (Podsieć Redis) |(Podsieć Redis), Azure Load Balancer |
+| 13000-13999 |Inbound |TCP |Komunikacja klienta z klastrami Redis, usługa równoważenia obciążenia platformy Azure | (Podsieć Redis) |Virtual Network, Azure Load Balancer |
+| 15000-15999 |Inbound |TCP |Komunikacja z klientem do klastrów Redis, równoważenia obciążenia platformy Azure i replikacji geograficznej | (Podsieć Redis) |Virtual Network, Azure Load Balancer, (podsieć równorzędna z repliką geograficzną) |
+| 16001 |Inbound |TCP/UDP |Równoważenie obciążenia na platformie Azure | (Podsieć Redis) |Azure Load Balancer |
+| 20226 |Inbound |TCP |Komunikacja wewnętrzna dla Redis | (Podsieć Redis) |(Podsieć Redis) |
 
 <sup>1</sup> do tworzenia reguł sieciowej grupy zabezpieczeń można użyć znacznika usługi "AzureLoadBalancer Menedżer zasobów" (lub "AZURE_LOADBALANCER" dla klasycznego).
 
@@ -159,7 +160,7 @@ Po skonfigurowaniu wymagań dotyczących portów zgodnie z opisem w poprzedniej 
 
 - [Uruchom ponownie](cache-administration.md#reboot) wszystkie węzły pamięci podręcznej. Jeśli nie można uzyskać dostępu do wszystkich wymaganych zależności pamięci podręcznej (zgodnie z opisem w [wymaganiach dotyczących portów przychodzących](cache-how-to-premium-vnet.md#inbound-port-requirements) i [wymagań dotyczących portów wychodzących](cache-how-to-premium-vnet.md#outbound-port-requirements)), pamięć podręczna nie będzie mogła zostać pomyślnie ponownie uruchomiona.
 - Po ponownym uruchomieniu węzłów pamięci podręcznej (zgodnie z informacjami o stanie pamięci podręcznej w Azure Portal) można wykonać następujące testy:
-  - Wyślij polecenie ping do punktu końcowego pamięci podręcznej (przy użyciu portu 6380) z komputera, który znajduje się w tej samej sieci wirtualnej co pamięć podręczna, przy użyciu [tcping](https://www.elifulkerson.com/projects/tcping.php). Przykład:
+  - Wyślij polecenie ping do punktu końcowego pamięci podręcznej (przy użyciu portu 6380) z komputera, który znajduje się w tej samej sieci wirtualnej co pamięć podręczna, przy użyciu [tcping](https://www.elifulkerson.com/projects/tcping.php). Na przykład:
     
     `tcping.exe contosocache.redis.cache.windows.net 6380`
     
@@ -182,7 +183,7 @@ Należy unikać używania adresu IP podobnego do następujących parametrów po�
 
 `10.128.2.84:6380,password=xxxxxxxxxxxxxxxxxxxx,ssl=True,abortConnect=False`
 
-Jeśli nie można rozpoznać nazwy DNS, niektóre biblioteki klienta obejmują opcje konfiguracji, takie jak `sslHost` dostarczone przez klienta stackexchange. Redis. Pozwala to zastąpić nazwę hosta używaną do sprawdzania poprawności certyfikatu. Przykład:
+Jeśli nie można rozpoznać nazwy DNS, niektóre biblioteki klienta obejmują opcje konfiguracji, takie jak `sslHost` dostarczone przez klienta stackexchange. Redis. Pozwala to zastąpić nazwę hosta używaną do sprawdzania poprawności certyfikatu. Na przykład:
 
 `10.128.2.84:6380,password=xxxxxxxxxxxxxxxxxxxx,ssl=True,abortConnect=False;sslHost=[mycachename].redis.windows.net`
 

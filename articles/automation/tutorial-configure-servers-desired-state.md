@@ -5,11 +5,12 @@ services: automation
 ms.subservice: dsc
 ms.topic: conceptual
 ms.date: 08/08/2018
-ms.openlocfilehash: a45aa8299d61e89f2a21bc9c53de3a88f88cbb93
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 55c7522ad1dc6c7f91fae608a777dab3cd67d2ed
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83827900"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86183174"
 ---
 # <a name="configure-machines-to-a-desired-state"></a>Konfigurowanie żądanego stanu maszyn
 
@@ -26,8 +27,8 @@ W tym samouczku używana jest prosta [Konfiguracja DSC](/powershell/scripting/ds
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Konto usługi Azure Automation. Aby uzyskać instrukcje dotyczące tworzenia konta Uruchom jako usługi Azure Automation, zobacz [Konto Uruchom jako platformy Azure](automation-sec-configure-azure-runas-account.md).
-- Maszyna wirtualna w Azure Resource Manager (nieklasyczny) z systemem Windows Server 2008 R2 lub nowszym. Aby uzyskać instrukcje dotyczące tworzenia maszyny wirtualnej, zobacz [Tworzenie pierwszej maszyny wirtualnej z systemem Windows w Azure Portal](../virtual-machines/virtual-machines-windows-hero-tutorial.md).
+- Konto usługi Azure Automation. Aby uzyskać instrukcje dotyczące tworzenia konta Uruchom jako usługi Azure Automation, zobacz [Konto Uruchom jako platformy Azure](./manage-runas-account.md).
+- Maszyna wirtualna w Azure Resource Manager (nieklasyczny) z systemem Windows Server 2008 R2 lub nowszym. Aby uzyskać instrukcje dotyczące tworzenia maszyny wirtualnej, zobacz [Tworzenie pierwszej maszyny wirtualnej z systemem Windows w Azure Portal](../virtual-machines/windows/quick-create-portal.md).
 - Azure PowerShell module w wersji 3,6 lub nowszej. Uruchom polecenie `Get-Module -ListAvailable Az`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczne będzie uaktualnienie, zobacz [Instalowanie modułu Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
 - Znajomość konfiguracji żądanego stanu (DSC). Aby uzyskać informacje na temat DSC, zobacz [Omówienie konfiguracji żądanego stanu programu Windows PowerShell](/powershell/scripting/dsc/overview/overview).
 
@@ -35,13 +36,13 @@ W tym samouczku używana jest prosta [Konfiguracja DSC](/powershell/scripting/ds
 
 Azure Automation konfiguracja stanu obsługuje korzystanie z [konfiguracji częściowych](/powershell/scripting/dsc/pull-server/partialconfigs). W tym scenariuszu Konfiguracja DSC jest konfigurowana w taki sposób, aby zarządzać wieloma konfiguracjami niezależnie, a każda z nich jest pobierana z Azure Automation. Tylko jedną konfigurację można jednak przypisać do węzła na konto usługi Automation. Oznacza to, że w przypadku korzystania z dwóch konfiguracji dla węzła wymagane są dwa konta usługi Automation.
 
-Aby uzyskać szczegółowe informacje na temat rejestrowania częściowej konfiguracji z usługi ściągania, zapoznaj się z dokumentacją [częściową konfiguracje](https://docs.microsoft.com/powershell/scripting/dsc/pull-server/partialconfigs#partial-configurations-in-pull-mode).
+Aby uzyskać szczegółowe informacje na temat rejestrowania częściowej konfiguracji z usługi ściągania, zapoznaj się z dokumentacją [częściową konfiguracje](/powershell/scripting/dsc/pull-server/partialconfigs#partial-configurations-in-pull-mode).
 
 Aby uzyskać więcej informacji o tym, jak zespoły mogą współdziałać, aby wspólnie zarządzać serwerami przy użyciu konfiguracji jako kodu, zobacz [Opis roli DSC w potoku](/powershell/scripting/dsc/overview/authoringadvanced)ciągłej integracji/ciągłego wdrażania.
 
 ## <a name="log-in-to-azure"></a>Zaloguj się do platformy Azure.
 
-Zaloguj się do subskrypcji platformy Azure za pomocą polecenia cmdlet [Connect-AzAccount](https://docs.microsoft.com/powershell/module/Az.Accounts/Connect-AzAccount?view=azps-3.7.0) i postępuj zgodnie z instrukcjami wyświetlanymi na ekranie.
+Zaloguj się do subskrypcji platformy Azure za pomocą polecenia cmdlet [Connect-AzAccount](/powershell/module/Az.Accounts/Connect-AzAccount?view=azps-3.7.0) i postępuj zgodnie z instrukcjami wyświetlanymi na ekranie.
 
 ```powershell
 Connect-AzAccount
@@ -67,7 +68,7 @@ configuration TestConfig {
 > [!NOTE]
 > W bardziej zaawansowanych scenariuszach, w których wymagane jest zaimportowanie wielu modułów, które udostępniają zasoby DSC, upewnij się, że każdy moduł ma unikatowy `Import-DscResource` wiersz w konfiguracji.
 
-Wywołaj polecenie cmdlet [Import-AzAutomationDscConfiguration](https://docs.microsoft.com/powershell/module/Az.Automation/Import-AzAutomationDscConfiguration?view=azps-3.7.0) , aby przekazać konfigurację do konta usługi Automation.
+Wywołaj polecenie cmdlet [Import-AzAutomationDscConfiguration](/powershell/module/Az.Automation/Import-AzAutomationDscConfiguration?view=azps-3.7.0) , aby przekazać konfigurację do konta usługi Automation.
 
 ```powershell
  Import-AzAutomationDscConfiguration -SourcePath 'C:\DscConfigs\TestConfig.ps1' -ResourceGroupName 'MyResourceGroup' -AutomationAccountName 'myAutomationAccount' -Published
@@ -77,7 +78,7 @@ Wywołaj polecenie cmdlet [Import-AzAutomationDscConfiguration](https://docs.mic
 
 Konfiguracja DSC musi zostać skompilowana do konfiguracji węzła, aby można było ją przypisać do węzła. Zobacz [konfiguracje DSC](/powershell/scripting/dsc/configurations/configurations).
 
-Wywołaj polecenie cmdlet [Start-AzAutomationDscCompilationJob](https://docs.microsoft.com/powershell/module/Az.Automation/Start-AzAutomationDscCompilationJob?view=azps-3.7.0) , aby skompilować `TestConfig` konfigurację do konfiguracji węzła o nazwie `TestConfig.WebServer` w Twoim koncie usługi Automation.
+Wywołaj polecenie cmdlet [Start-AzAutomationDscCompilationJob](/powershell/module/Az.Automation/Start-AzAutomationDscCompilationJob?view=azps-3.7.0) , aby skompilować `TestConfig` konfigurację do konfiguracji węzła o nazwie `TestConfig.WebServer` w Twoim koncie usługi Automation.
 
 ```powershell
 Start-AzAutomationDscCompilationJob -ConfigurationName 'TestConfig' -ResourceGroupName 'MyResourceGroup' -AutomationAccountName 'myAutomationAccount'
@@ -87,7 +88,7 @@ Start-AzAutomationDscCompilationJob -ConfigurationName 'TestConfig' -ResourceGro
 
 Konfiguracja stanu Azure Automation służy do zarządzania maszynami wirtualnymi platformy Azure (klasycznymi i Menedżer zasobów), lokalnymi maszynami wirtualnymi, maszynami z systemem Linux, AWS maszynami wirtualnymi i lokalnymi maszynami fizycznymi. W tym temacie omówiono sposób rejestrowania tylko Azure Resource Manager maszyn wirtualnych. Aby uzyskać informacje na temat rejestrowania innych typów maszyn, zobacz sekcję dołączanie [maszyn w celu zarządzania przez Azure Automation konfigurację stanu](automation-dsc-onboarding.md).
 
-Wywołaj polecenie cmdlet [register-AzAutomationDscNode](https://docs.microsoft.com/powershell/module/Az.Automation/Register-AzAutomationDscNode?view=azps-3.7.0) , aby zarejestrować maszynę wirtualną z konfiguracją stanu Azure Automation jako węzeł zarządzany. 
+Wywołaj polecenie cmdlet [register-AzAutomationDscNode](/powershell/module/Az.Automation/Register-AzAutomationDscNode?view=azps-3.7.0) , aby zarejestrować maszynę wirtualną z konfiguracją stanu Azure Automation jako węzeł zarządzany. 
 
 ```powershell
 Register-AzAutomationDscNode -ResourceGroupName 'MyResourceGroup' -AutomationAccountName 'myAutomationAccount' -AzureVMName 'DscVm'
@@ -124,7 +125,7 @@ Spowoduje to przypisanie konfiguracji węzła o nazwie `TestConfig.WebServer` do
 
 ## <a name="check-the-compliance-status-of-a-managed-node"></a>Sprawdź stan zgodności zarządzanego węzła
 
-Możesz uzyskać raporty dotyczące stanu zgodności zarządzanego węzła przy użyciu polecenia cmdlet [Get-AzAutomationDscNodeReport](https://docs.microsoft.com/powershell/module/Az.Automation/Get-AzAutomationDscNodeReport?view=azps-3.7.0) .
+Możesz uzyskać raporty dotyczące stanu zgodności zarządzanego węzła przy użyciu polecenia cmdlet [Get-AzAutomationDscNodeReport](/powershell/module/Az.Automation/Get-AzAutomationDscNodeReport?view=azps-3.7.0) .
 
 ```powershell
 # Get the ID of the DSC node
@@ -145,7 +146,7 @@ Jeśli zdecydujesz się usunąć węzeł z usługi, możesz to zrobić przy uży
 > [!NOTE]
 > Wyrejestrowanie węzła z usługi ustawia tylko ustawienia Configuration Manager lokalnego, aby węzeł nie był już połączony z usługą.
 > Nie wpływa to na konfigurację, która jest aktualnie stosowana do węzła.
-> Aby usunąć bieżącą konfigurację, użyj programu [PowerShell](https://docs.microsoft.com/powershell/module/psdesiredstateconfiguration/remove-dscconfigurationdocument?view=powershell-5.1) lub Usuń lokalny plik konfiguracji (jest to jedyna opcja dla węzłów systemu Linux).
+> Aby usunąć bieżącą konfigurację, użyj programu [PowerShell](/powershell/module/psdesiredstateconfiguration/remove-dscconfigurationdocument?view=powershell-5.1) lub Usuń lokalny plik konfiguracji (jest to jedyna opcja dla węzłów systemu Linux).
 
 ### <a name="azure-portal"></a>Azure Portal
 
@@ -156,7 +157,7 @@ W widoku węzła, który zostanie otwarty, kliknij pozycję **Wyrejestruj**.
 
 ### <a name="powershell"></a>PowerShell
 
-Aby wyrejestrować węzeł z usługi konfiguracji stanu Azure Automation przy użyciu programu PowerShell, postępuj zgodnie z dokumentacją polecenia cmdlet [Unregister-AzAutomationDscNode](https://docs.microsoft.com/powershell/module/az.automation/unregister-azautomationdscnode?view=azps-2.0.0).
+Aby wyrejestrować węzeł z usługi konfiguracji stanu Azure Automation przy użyciu programu PowerShell, postępuj zgodnie z dokumentacją polecenia cmdlet [Unregister-AzAutomationDscNode](/powershell/module/az.automation/unregister-azautomationdscnode?view=azps-2.0.0).
 
 ## <a name="next-steps"></a>Następne kroki
 
@@ -165,5 +166,4 @@ Aby wyrejestrować węzeł z usługi konfiguracji stanu Azure Automation przy u�
 - Aby dowiedzieć się więcej na temat kompilowania konfiguracji DSC, aby można było przypisać je do węzłów docelowych, zobacz [Kompilowanie konfiguracji DSC w konfiguracji stanu Azure Automation](automation-dsc-compile.md).
 - Aby zapoznać się z przykładem użycia konfiguracji stanu Azure Automation w potoku ciągłego wdrażania, zobacz [Konfigurowanie ciągłego wdrażania z czekoladą](automation-dsc-cd-chocolatey.md).
 - Aby uzyskać informacje o cenach, zobacz [Cennik konfiguracji stanu Azure Automation](https://azure.microsoft.com/pricing/details/automation/).
-- Aby uzyskać informacje dotyczące poleceń cmdlet programu PowerShell, zobacz [AZ. Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
-).
+- Aby uzyskać informacje dotyczące poleceń cmdlet programu PowerShell, zobacz [AZ. Automation](/powershell/module/az.automation/?view=azps-3.7.0#automation).

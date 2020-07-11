@@ -5,11 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 12/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: e550489f34d84946d0a9e3df641a1484b85a60f0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f1e4e288b5b95f355221188a45f1e6c764fde77c
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83828937"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187340"
 ---
 # <a name="use-source-control-integration-in-azure-automation---legacy"></a>Używanie integracji kontroli źródła w programie Azure Automation — Starsza wersja
 
@@ -55,7 +56,7 @@ Jeśli masz już konto usługi GitHub i repozytorium, do którego chcesz utworzy
 5. Po kliknięciu przycisku **OK**Integracja kontroli źródła jest teraz skonfigurowana dla konta usługi Automation i należy ją zaktualizować za pomocą informacji w witrynie GitHub. Teraz możesz kliknąć tę część, aby wyświetlić całą historię zadania synchronizacji kontroli źródła.  
 
     ![Wartości dla aktualnie skonfigurowanej konfiguracji kontroli źródła](media/source-control-integration-legacy/automation-RepoValues.png)
-6. Po skonfigurowaniu kontroli źródła na koncie usługi Automation tworzone są dwa [zasoby zmiennych](automation-variables.md) . Ponadto autoryzowana aplikacja zostanie dodana do konta usługi GitHub.
+6. Po skonfigurowaniu kontroli źródła na koncie usługi Automation tworzone są dwa [zasoby zmiennych](./shared-resources/variables.md) . Ponadto autoryzowana aplikacja zostanie dodana do konta usługi GitHub.
 
    * Zmienna **Microsoft. Azure. Automation. SourceControl. Connection** zawiera wartości parametrów połączenia, jak pokazano poniżej.  
 
@@ -83,7 +84,7 @@ Jeśli masz już konto usługi GitHub i repozytorium, do którego chcesz utworzy
 
 Zaewidencjonowanie elementu Runbook umożliwia wypchnięcie zmian wprowadzonych w elemencie Runbook w Azure Automation do repozytorium kontroli źródła. Poniżej przedstawiono procedurę zaewidencjonowania elementu Runbook:
 
-1. Na koncie usługi Automation [Utwórz nowy tekstowy element Runbook](automation-first-runbook-textual.md)lub [Edytuj istniejący, tekstowy element Runbook](automation-edit-textual-runbook.md). Ten element Runbook może być albo przepływem pracy programu PowerShell, albo elementem Runbook skryptu programu PowerShell.  
+1. Na koncie usługi Automation [Utwórz nowy tekstowy element Runbook](./learn/automation-tutorial-runbook-textual.md)lub [Edytuj istniejący, tekstowy element Runbook](automation-edit-textual-runbook.md). Ten element Runbook może być albo przepływem pracy programu PowerShell, albo elementem Runbook skryptu programu PowerShell.  
 2. Po przeprowadzeniu edycji elementu Runbook Zapisz go, a następnie kliknij przycisk **Zaewidencjonuj** na stronie Edycja.  
 
     ![Okno przedstawiające ewidencjonowanie na przycisk GitHub](media/source-control-integration-legacy/automation-CheckinButton.png)

@@ -5,11 +5,12 @@ services: automation
 ms.subservice: change-inventory-management
 ms.date: 06/08/2020
 ms.topic: conceptual
-ms.openlocfilehash: 2aab90b12cd3844b94b0b7e6e94582d403db2efe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 192fd0fe73a34ca4d6ffc49badeac7ca8a080793
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84555030"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185589"
 ---
 # <a name="change-tracking-and-inventory-overview"></a>Przegląd Change Tracking i spisu
 
@@ -48,11 +49,11 @@ W Change Tracking i spisu są obecnie występują następujące problemy:
 
 - Aktualizacje poprawek nie są zbierane na maszynach podstawowych RS3 systemu Windows Server 2016.
 
-- Demony systemu Linux mogą wyświetlać zmieniony stan nawet wtedy, gdy nie nastąpiła żadna zmiana. Ten problem występuje ze względu na sposób, w jaki `SvcRunLevels` dane w dzienniku Azure monitor [zmianakonfiguracji](https://docs.microsoft.com/azure/azure-monitor/reference/tables/configurationchange) są przechwytywane.
+- Demony systemu Linux mogą wyświetlać zmieniony stan nawet wtedy, gdy nie nastąpiła żadna zmiana. Ten problem występuje ze względu na sposób, w jaki `SvcRunLevels` dane w dzienniku Azure monitor [zmianakonfiguracji](/azure/azure-monitor/reference/tables/configurationchange) są przechwytywane.
 
 ## <a name="supported-operating-systems"></a>Obsługiwane systemy operacyjne
 
-Change Tracking i spis są obsługiwane we wszystkich systemach operacyjnych, które spełniają wymagania dotyczące Log Analytics agenta. Oficjalne wersje systemu operacyjnego to Windows Server 2008 z dodatkiem SP1 lub nowszym oraz system Windows 7 z dodatkiem SP1 lub nowszy. Ta funkcja jest również obsługiwana przez wiele systemów operacyjnych Linux. Aby uzyskać informacje na temat systemów operacyjnych Log Analytics, zobacz [Omówienie agenta usługi log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent).
+Change Tracking i spis są obsługiwane we wszystkich systemach operacyjnych, które spełniają wymagania dotyczące Log Analytics agenta. Oficjalne wersje systemu operacyjnego to Windows Server 2008 z dodatkiem SP1 lub nowszym oraz system Windows 7 z dodatkiem SP1 lub nowszy. Ta funkcja jest również obsługiwana przez wiele systemów operacyjnych Linux. Aby uzyskać informacje na temat systemów operacyjnych Log Analytics, zobacz [Omówienie agenta usługi log Analytics](../azure-monitor/platform/log-analytics-agent.md).
 
 Aby zrozumieć wymagania klienta dotyczące protokołu TLS 1,2, zobacz [Wymuszanie protokołu tls 1,2 dla Azure Automation](automation-managing-data.md#tls-12-enforcement-for-azure-automation).
 
@@ -79,7 +80,7 @@ Możesz kliknąć zmianę lub zdarzenie, aby wyświetlić jego szczegóły. Dost
 
 - Zdarzenia
 - Demonów
-- Files
+- Pliki
 - Rejestr
 - Oprogramowanie
 - Usługi firmy Microsoft
@@ -90,7 +91,7 @@ Można dodawać, modyfikować lub usuwać każdą zmianę. W poniższym przykła
 
 ## <a name="fim-support-in-azure-security-center"></a>Obsługa programu FIM w Azure Security Center
 
-Change Tracking i spis używają [Azure Security Center monitorowania integralności plików (FIM)](https://docs.microsoft.com/azure/security-center/security-center-file-integrity-monitoring). Podczas gdy program FIM monitoruje tylko pliki i rejestry, pełna funkcja Change Tracking i spisu obejmuje również śledzenie dla:
+Change Tracking i spis używają [Azure Security Center monitorowania integralności plików (FIM)](../security-center/security-center-file-integrity-monitoring.md). Podczas gdy program FIM monitoruje tylko pliki i rejestry, pełna funkcja Change Tracking i spisu obejmuje również śledzenie dla:
 
 - Zmiany oprogramowania
 - Usługi firmy Microsoft
@@ -105,7 +106,7 @@ Do śledzenia zmian w plikach w systemach Windows i Linux Change Tracking i spis
 
 ## <a name="tracking-of-file-content-changes"></a>Śledzenie zmian zawartości plików
 
-Change Tracking i spis umożliwia wyświetlenie zawartości pliku systemu Windows lub Linux. Dla każdej zmiany pliku Change Tracking i spis przechowuje zawartość pliku na [koncie usługi Azure Storage](../storage/common/storage-create-storage-account.md). Podczas śledzenia pliku można wyświetlić jego zawartość przed zmianą lub po niej. Zawartość pliku może być wyświetlana jako wbudowana lub obok siebie. 
+Change Tracking i spis umożliwia wyświetlenie zawartości pliku systemu Windows lub Linux. Dla każdej zmiany pliku Change Tracking i spis przechowuje zawartość pliku na [koncie usługi Azure Storage](../storage/common/storage-account-create.md). Podczas śledzenia pliku można wyświetlić jego zawartość przed zmianą lub po niej. Zawartość pliku może być wyświetlana jako wbudowana lub obok siebie. 
 
 ![Wyświetlanie zmian w pliku](./media/change-tracking/view-file-changes.png)
 
@@ -170,7 +171,7 @@ W poniższej tabeli przedstawiono limity śledzonych elementów na maszynę dla 
 |Usługi|250|
 |Demonów|250|
 
-Średnie użycie danych Log Analytics dla maszyny przy użyciu Change Tracking i spisu wynosi około 40 MB miesięcznie, w zależności od środowiska. Za pomocą funkcji użycie i szacowane koszty w obszarze roboczym Log Analytics można wyświetlić dane pozyskane przez Change Tracking i spis na wykresie użycia. Użyj tego widoku danych, aby oszacować użycie danych i określić, jak ma to wpływ na rachunek. Zobacz temat [Omówienie kosztów użytkowania i szacowania](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#understand-your-usage-and-estimate-costs).
+Średnie użycie danych Log Analytics dla maszyny przy użyciu Change Tracking i spisu wynosi około 40 MB miesięcznie, w zależności od środowiska. Za pomocą funkcji użycie i szacowane koszty w obszarze roboczym Log Analytics można wyświetlić dane pozyskane przez Change Tracking i spis na wykresie użycia. Użyj tego widoku danych, aby oszacować użycie danych i określić, jak ma to wpływ na rachunek. Zobacz temat [Omówienie kosztów użytkowania i szacowania](../azure-monitor/platform/manage-cost-storage.md#understand-your-usage-and-estimate-costs).
 
 ### <a name="microsoft-service-data"></a>Dane usługi firmy Microsoft
 

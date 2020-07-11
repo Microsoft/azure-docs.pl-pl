@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 1/27/2020
+ms.date: 7/10/2020
 ms.author: raynew
-ms.openlocfilehash: b48dfba6fa5dc270a4d711864d15e9128f4beb98
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: b7551ec01e3401c0636b47a25d83173b6322d06e
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86132410"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86219882"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Macierz obsługi odzyskiwania po awarii lokalnych maszyn wirtualnych funkcji Hyper-V na platformie Azure
 
@@ -76,6 +76,7 @@ Serwer proxy HTTPS | Nie | Nie
 
 
 
+
 ## <a name="azure-vm-network-configuration-after-failover"></a>Konfiguracja sieci maszyny wirtualnej platformy Azure (po przejściu w tryb failover)
 
 **Składnik** | **Funkcja Hyper-V z Virtual Machine Manager** | **Funkcja Hyper-V bez Virtual Machine Manager**
@@ -94,7 +95,7 @@ Accelerated Networking | Nie | Nie
 
 ## <a name="hyper-v-host-storage"></a>Magazyn hosta funkcji Hyper-V
 
-**Storage** | **Funkcja Hyper-V z Virtual Machine Manager** | **Funkcja Hyper-V bez Virtual Machine Manager**
+**Magazyn** | **Funkcja Hyper-V z Virtual Machine Manager** | **Funkcja Hyper-V bez Virtual Machine Manager**
 --- | --- | --- 
 NFS | Nie dotyczy | Nie dotyczy
 SMB 3.0 | Tak | Tak
@@ -103,7 +104,7 @@ Wiele ścieżek (MPIO). Przetestowano przy użyciu:<br></br> Microsoft DSM, EMC 
 
 ## <a name="hyper-v-vm-guest-storage"></a>Magazyn maszyny wirtualnej funkcji Hyper-V
 
-**Storage** | **Funkcja Hyper-V z Virtual Machine Manager** | **Funkcja Hyper-V bez Virtual Machine Manager**
+**Magazyn** | **Funkcja Hyper-V z Virtual Machine Manager** | **Funkcja Hyper-V bez Virtual Machine Manager**
 --- | --- | ---
 VMDK | Nie dotyczy | Nie dotyczy
 DYSK VHD/VHDX | Tak | Tak
@@ -136,11 +137,13 @@ Magazyn gorąca| Nie | Nie
 Blokowe obiekty blob | Nie | Nie
 Szyfrowanie w spoczynku (SSE)| Tak | Tak
 Szyfrowanie w spoczynku (CMK) <br></br> (Tylko w przypadku przełączenia w tryb failover do dysków zarządzanych)| Tak (za pośrednictwem programu PowerShell AZ 3.3.0 module lub nowszym) | Tak (za pośrednictwem programu PowerShell AZ 3.3.0 module lub nowszym)
+Podwójne szyfrowanie w spoczynku <br></br> (Tylko w przypadku przełączenia w tryb failover do dysków zarządzanych) <br></br> Dowiedz się więcej na temat obsługiwanych regionów dla [systemów Windows](../virtual-machines/windows/disk-encryption.md) i [Linux](../virtual-machines/linux/disk-encryption.md) | Tak (za pośrednictwem programu PowerShell AZ 3.3.0 module lub nowszym) | Tak (za pośrednictwem programu PowerShell AZ 3.3.0 module lub nowszym)
 Premium Storage | Tak | Tak
 Standard Storage | Tak | Tak
 Usługa importu/eksportu | Nie | Nie
 Konta usługi Azure Storage z włączoną zaporą | Tak. Dla magazynu docelowego i pamięci podręcznej. | Tak. Dla magazynu docelowego i pamięci podręcznej.
 Modyfikowanie konta magazynu | Nie. Nie można zmodyfikować docelowego konta usługi Azure Storage po włączeniu replikacji. Aby zmodyfikować, Wyłącz, a następnie włącz ponownie funkcję odzyskiwania po awarii. | Nie
+Opcja bezpiecznego transferu | Tak
 
 
 ## <a name="azure-compute-features"></a>Funkcje obliczeniowe platformy Azure

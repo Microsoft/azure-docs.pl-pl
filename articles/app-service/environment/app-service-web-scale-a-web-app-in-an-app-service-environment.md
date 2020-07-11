@@ -7,11 +7,12 @@ ms.topic: article
 ms.date: 10/17/2016
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 43849ca7084f2237c37ad537c50f4e94ac4ea7c0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0e665ec27da0a898e754817f946b965ac7360fda
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74688677"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86220562"
 ---
 # <a name="scaling-apps-in-an-app-service-environment-v1"></a>Skalowanie aplikacji w App Service Environment v1
 W Azure App Service zwykle trzy rzeczy, które można skalować:
@@ -29,7 +30,7 @@ W odniesieniu do rozmiarów procesów roboczych administrator środowiska ASE mo
 
 Zmiana dowolnego elementu odbywa się za pomocą odpowiedniego interfejsu użytkownika wyświetlanego dla planów App Service hostowanych przez środowisko ASE.  
 
-![][1]
+![Zrzut ekranu pokazujący, gdzie można wyświetlić szczegóły planu usługi skalowania oraz planu usługi puli procesów roboczych.][1]
 
 Nie można skalować w górę stron ASP poza liczbą dostępnych zasobów obliczeniowych w puli procesów roboczych, w której znajduje się środowisko ASP.  Jeśli potrzebujesz zasobów obliczeniowych w tej puli procesów roboczych, musisz mieć uprawnienia administratora programu ASE, aby je dodać.  Aby uzyskać informacje na temat ponownego konfigurowania środowiska ASE, przeczytaj informacje tutaj: [jak skonfigurować środowisko App Service][HowtoConfigureASE].  Warto również skorzystać z funkcji automatycznego skalowania środowiska ASE w celu dodania pojemności na podstawie harmonogramu lub metryk.  Aby uzyskać więcej informacji na temat konfigurowania automatycznego skalowania dla środowiska ASE, zobacz [jak skonfigurować Skalowanie automatyczne dla App Service Environment][ASEAutoscale].
 
@@ -40,14 +41,14 @@ Podczas pierwszej tworzenia aplikacji sieci Web w App Service Environment rozpoc
 
 Jeśli środowisko ASE ma wystarczającą ilość miejsca, jest to bardzo proste.  Przejdź do planu App Service, w którym znajdują się lokacje, które chcesz skalować w górę i wybierz pozycję Skala.  Spowoduje to otwarcie interfejsu użytkownika, w którym można ręcznie ustawić skalę dla ASP lub skonfigurować reguły automatycznego skalowania dla środowiska ASP.  Aby ręcznie skalować aplikację, wystarczy ustawić ***skalę według*** ***liczby wystąpień wprowadzanych ręcznie***.  W tym miejscu przeciągnij suwak do żądanej ilości lub wprowadź go w polu obok suwaka.  
 
-![][2] 
+![Zrzut ekranu pokazujący, gdzie można ustawić skalę dla ASP lub skonfigurować reguły automatycznego skalowania dla środowiska ASP.][2] 
 
 Reguły automatycznego skalowania środowiska ASP w środowisku ASE działają tak samo, jak w normalnych warunkach.  Możesz wybrać ***wartość procentową procesora CPU*** w obszarze ***skalowanie według*** i utworzyć reguły automatycznego skalowania dla ASP w oparciu o wartość procentową procesora CPU lub utworzyć bardziej złożone reguły przy użyciu ***reguł harmonogramu i wydajności***.  Aby zapoznać się z bardziej szczegółowymi informacjami na temat konfigurowania automatycznego skalowania, Skorzystaj z przewodnika [w sekcji skalowanie aplikacji w Azure App Service][AppScale]. 
 
 ### <a name="worker-pool-selection"></a>Wybór puli procesów roboczych
 Jak wspomniano wcześniej, do wyboru puli procesów roboczych jest uzyskiwany dostęp z interfejsu użytkownika ASP.  Otwórz blok dla ASP, który chcesz skalować, i wybierz pozycję Pula procesów roboczych.  Zostaną wyświetlone wszystkie pule procesów roboczych, które zostały skonfigurowane w App Service Environment.  Jeśli istnieje tylko jedna pula procesów roboczych, zostanie wyświetlona tylko jedna pula.  Aby zmienić pulę procesów roboczych, w której znajduje się środowisko ASP, wystarczy wybrać pulę procesów roboczych, do której ma zostać przeniesiony plan App Service.  
 
-![][3]
+![Zrzut ekranu pokazujący, gdzie można zmienić pulę procesów roboczych, w której znajduje się środowisko ASP.][3]
 
 Przed przeniesieniem ASP z jednej puli procesów roboczych do innej należy upewnić się, że będzie ona mieć odpowiednią pojemność dla środowiska ASP.  Na liście pul procesów roboczych nie tylko jest wyświetlana nazwa puli procesów roboczych, ale można także zobaczyć, ile procesów roboczych jest dostępnych w tej puli.  Upewnij się, że masz wystarczającą liczbę wystąpień, aby móc zawierać plan App Service.  Jeśli potrzebujesz więcej zasobów obliczeniowych w puli procesów roboczych, w której chcesz przenieść, a następnie poproś administratora programu ASE o ich dodanie.  
 

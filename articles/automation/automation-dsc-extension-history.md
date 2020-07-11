@@ -9,11 +9,12 @@ services: automation
 ms.service: automation
 ms.subservice: dsc
 ms.topic: conceptual
-ms.openlocfilehash: b55280dd8ed5ea82cf861e300306db5a787c31e8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0bb82ce92a151bd8e955c136751d8e7f307bbf1b
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83836927"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186422"
 ---
 # <a name="work-with-azure-desired-state-configuration-extension-version-history"></a>Pracuj z historią wersji rozszerzenia konfiguracji żądanego stanu platformy Azure
 
@@ -98,7 +99,7 @@ Ten artykuł zawiera informacje o każdej wersji rozszerzenia maszyny wirtualnej
 - **Środowisko:** Azure
 - **Uwagi:** Ta wersja używa DSC w systemie Windows Server 2016; w przypadku innych systemów operacyjnych systemu Windows jest instalowany [system Windows Management Framework 5,1](https://devblogs.microsoft.com/powershell/wmf-5-1-releasing-january-2017/) (zainstalowanie pakietu WMF wymaga ponownego uruchomienia). W przypadku serwera nano Server rola DSC jest zainstalowana na maszynie wirtualnej.
 - **Nowe funkcje:**
-  - Poprawki błędów & usprawnienia, które upraszczają korzystanie z Azure Automation DSC za pośrednictwem interfejsu użytkownika portalu, a także szablonu Menedżer zasobów. Aby uzyskać więcej informacji, zobacz [domyślny skrypt konfiguracji](/azure/virtual-machines/extensions/dsc-overview) w dokumentacji rozszerzenia DSC.
+  - Poprawki błędów & usprawnienia, które upraszczają korzystanie z Azure Automation DSC za pośrednictwem interfejsu użytkownika portalu, a także szablonu Menedżer zasobów. Aby uzyskać więcej informacji, zobacz [domyślny skrypt konfiguracji](../virtual-machines/extensions/dsc-overview.md) w dokumentacji rozszerzenia DSC.
 
 ### <a name="version-226"></a>Wersja 2,26
 
@@ -249,6 +250,6 @@ Ten artykuł zawiera informacje o każdej wersji rozszerzenia maszyny wirtualnej
 ## <a name="next-steps"></a>Następne kroki
 
 - Aby uzyskać więcej informacji na temat programu PowerShell DSC, zobacz [centrum dokumentacji programu PowerShell](/powershell/scripting/dsc/overview/overview).
-- Zapoznaj się z [szablonem Menedżer zasobów dla rozszerzenia DSC](/azure/virtual-machines/extensions/dsc-template).
+- Zapoznaj się z [szablonem Menedżer zasobów dla rozszerzenia DSC](../virtual-machines/extensions/dsc-template.md).
 - Aby uzyskać więcej funkcji i zasobów, którymi można zarządzać za pomocą programu PowerShell DSC, przejrzyj [galerię programu PowerShell](https://www.powershellgallery.com/packages?q=DscResource&x=0&y=0).
-- Aby uzyskać szczegółowe informacje o przekazywaniu poufnych parametrów do konfiguracji, zobacz [Zarządzanie poświadczeniami bezpiecznie przy użyciu programu obsługi rozszerzeń DSC](/azure/virtual-machines/extensions/dsc-credentials).
+- Aby uzyskać szczegółowe informacje o przekazywaniu poufnych parametrów do konfiguracji, zobacz [Zarządzanie poświadczeniami bezpiecznie przy użyciu programu obsługi rozszerzeń DSC](../virtual-machines/extensions/dsc-credentials.md).

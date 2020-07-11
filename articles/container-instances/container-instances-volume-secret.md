@@ -2,12 +2,13 @@
 title: Zainstaluj wolumin tajny do grupy kontenerów
 description: Dowiedz się, jak zainstalować wolumin tajny, aby przechowywać poufne informacje na potrzeby dostępu do wystąpień kontenerów
 ms.topic: article
-ms.date: 04/03/2020
-ms.openlocfilehash: 756828e71174246450245938595c8872afc62961
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/02/2020
+ms.openlocfilehash: ea82ba5994feaf102d4622eada284df431e004d0
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80657148"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169565"
 ---
 # <a name="mount-a-secret-volume-in-azure-container-instances"></a>Zainstaluj wolumin tajny w Azure Container Instances
 
@@ -61,7 +62,7 @@ W przypadku wdrażania przy użyciu szablonu YAML wartości klucza tajnego musz�
 Poniższy szablon YAML definiuje grupę kontenerów z jednym kontenerem instalującym wolumin *tajny* w systemie `/mnt/secrets` . Wolumin tajny ma dwa pliki zawierające wpisy tajne, "mysecret1" i "mysecret2".
 
 ```yaml
-apiVersion: '2018-10-01'
+apiVersion: '2019-12-01'
 location: eastus
 name: secret-volume-demo
 properties:

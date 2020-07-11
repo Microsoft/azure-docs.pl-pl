@@ -12,11 +12,12 @@ manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 1799f676e8971726832cc50598e119f029bc331d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1e17421b27082a079d078f53c38d0c942db7ae71
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83196388"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86200547"
 ---
 # <a name="blocking-legacy-authentication"></a>Blokowanie starszego uwierzytelniania
  
@@ -31,9 +32,9 @@ Dzisiaj większość wszelkich niezwiązanych z logowaniem nie pochodzi ze stars
 
 Przed zablokowaniem starszego uwierzytelniania w katalogu należy najpierw zrozumieć, czy użytkownicy mają aplikacje korzystające ze starszego uwierzytelniania i jak mają wpływ na ogólny katalog. Korzystając z dzienników logowania usługi Azure AD, można zrozumieć, czy używane jest starsze uwierzytelnianie.
 
-1. Przejdź do **Azure Portal**   >  **Azure Active Directory**   >  **logowania**.
+1. Przejdź do **Azure Portal**  >  **Azure Active Directory**  >  **logowania**.
 1. Dodaj kolumnę **aplikacji klienckiej** , jeśli nie jest ona wyświetlana po kliknięciu pozycji **kolumny**   >  **aplikacja kliencka**.
-1. Filtruj według **aplikacji klienckich**  > Sprawdź wszystkie dostępne opcje **starszych klientów uwierzytelniania** .
+1. Filtruj według **aplikacji klienckich** > Sprawdź wszystkie dostępne opcje **starszych klientów uwierzytelniania** .
 1. Filtrowanie według **stanu**  >  **sukcesu**. 
 1. W razie potrzeby rozwiń zakres dat, używając filtru **daty** .
 
@@ -99,4 +100,4 @@ Kroki umożliwiające włączenie nowoczesnego uwierzytelniania można znaleźć
 
 - [Jak skonfigurować lokalny serwer Exchange Server do korzystania z nowoczesnego uwierzytelniania hybrydowego](https://docs.microsoft.com/office365/enterprise/configure-exchange-server-for-hybrid-modern-authentication)
 - [Jak używać nowoczesnego uwierzytelniania (ADAL) w usłudze Skype dla firm](https://docs.microsoft.com/skypeforbusiness/manage/authentication/use-adal)
-- [Blokuj starsze uwierzytelnianie](../conditional-access/block-legacy-authentication.md)
+- [Blokowanie starszego uwierzytelniania](../conditional-access/block-legacy-authentication.md)

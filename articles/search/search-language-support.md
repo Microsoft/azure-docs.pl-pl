@@ -8,12 +8,12 @@ ms.author: jlembicz
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 344b3bb30c9a92046a5fbd13c35b0efc7e6f3a23
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 54def7f03e28acb201d613ab5a13d9077cff121b
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85560831"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86146756"
 ---
 # <a name="how-to-create-an-index-for-multiple-languages-in-azure-cognitive-search"></a>Jak utworzyć indeks dla wielu języków w usłudze Azure Wyszukiwanie poznawcze
 
@@ -52,6 +52,7 @@ Możesz wysyłać zapytania do indeksu z portalu przy użyciu [**Eksploratora wy
 
 Czasami język agenta wystawiającego zapytanie nie jest znany, w takim przypadku zapytanie można wystawić dla wszystkich pól jednocześnie. W razie potrzeby Preferencja dla wyników w określonym języku można zdefiniować za pomocą [profilów oceniania](index-add-scoring-profiles.md). W poniższym przykładzie dopasowań Znalezione w opisie w języku angielskim będą oceniane w sposób wyższy względem dopasowań w języku polskim i francuskim:
 
+```http
     "scoringProfiles": [
       {
         "name": "englishFirst",
@@ -60,6 +61,7 @@ Czasami język agenta wystawiającego zapytanie nie jest znany, w takim przypadk
         }
       }
     ]
+```
 
 `https://[service name].search.windows.net/indexes/[index name]/docs?search=Microsoft&scoringProfile=englishFirst&api-version=2020-06-30`
 

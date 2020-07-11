@@ -2,13 +2,13 @@
 title: Włącz zarządzaną tożsamość w grupie kontenerów
 description: Dowiedz się, jak włączyć zarządzaną tożsamość w Azure Container Instances, która może być uwierzytelniana za pomocą innych usług platformy Azure
 ms.topic: article
-ms.date: 04/15/2020
-ms.openlocfilehash: 31dc198bfb2023684f3a9022bec5a5f50f0d9a72
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/02/2020
+ms.openlocfilehash: 9bc96ed29039650082bdfa8b7b2b1b48ecb6bd3f
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82115724"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169786"
 ---
 # <a name="how-to-use-managed-identities-with-azure-container-instances"></a>Jak używać tożsamości zarządzanych z usługą Azure Container Instances
 

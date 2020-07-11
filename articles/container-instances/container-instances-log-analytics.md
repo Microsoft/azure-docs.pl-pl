@@ -2,13 +2,14 @@
 title: Zbieranie & analizowanie dzienników zasobów
 description: Dowiedz się, jak wysyłać dzienniki zasobów i dane zdarzeń z grup kontenerów w Azure Container Instances do dzienników Azure Monitor
 ms.topic: article
-ms.date: 04/07/2020
+ms.date: 07/02/2020
 ms.author: danlep
-ms.openlocfilehash: bd21a511641d5ea027c18bedb4dce47749110bcb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c76d8a2e7e468c511f0df47ebb240a787f40e026
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80892397"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169735"
 ---
 # <a name="container-group-and-instance-logging-with-azure-monitor-logs"></a>Rejestrowanie grup kontenerów i wystąpień przy użyciu dzienników Azure Monitor
 
@@ -27,7 +28,7 @@ W poniższych sekcjach opisano sposób tworzenia grupy kontenerów z włączoną
 
 Aby włączyć rejestrowanie w wystąpieniach kontenera, potrzebne są następujące elementy:
 
-* [Obszar roboczy usługi Log Analytics](../azure-monitor/learn/quick-create-workspace.md)
+* [Log Analytics obszar roboczy](../azure-monitor/learn/quick-create-workspace.md)
 * [Interfejs poziomu wywołania platformy Azure](/cli/azure/install-azure-cli) (lub usługa [Cloud Shell](/azure/cloud-shell/overview))
 
 ## <a name="get-log-analytics-credentials"></a>Uzyskiwanie poświadczeń usługi Log Analytics
@@ -41,7 +42,7 @@ Aby uzyskać identyfikator obszaru roboczego analizy dzienników i klucz podstaw
 1. Wybierz **połączone źródła**  >  **serwery z systemem Windows** (lub **serwery z systemem Linux**— identyfikator i klucze są takie same dla obu)
 1. Zwróć uwagę na następujące elementy:
    * **IDENTYFIKATOR OBSZARU ROBOCZEGO**
-   * **PRIMARY KEY** (KLUCZ PODSTAWOWY)
+   * **KLUCZ PODSTAWOWY**
 
 ## <a name="create-container-group"></a>Tworzenie grupy kontenerów
 
@@ -67,7 +68,7 @@ az container create \
 Użyj tej metody, jeśli chcesz wdrożyć grupy kontenerów za pomocą kodu YAML. Poniższy kod YAML definiuje grupę kontenerów z jednym kontenerem. Skopiuj kod YAML do nowego pliku, a następnie zastąp parametry `LOG_ANALYTICS_WORKSPACE_ID` i `LOG_ANALYTICS_WORKSPACE_KEY` przy użyciu wartości uzyskanych w poprzednim kroku. Zapisz plik jako **deploy-aci.yaml**.
 
 ```yaml
-apiVersion: 2018-10-01
+apiVersion: 2019-12-01
 location: eastus
 name: mycontainergroup001
 properties:

@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 06/11/2020
-ms.openlocfilehash: 7d631698f7c00a838f28d55b6b26055e686d27db
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 48d9990115a0e786d12915acf1eaadc196a00b0b
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84977003"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170041"
 ---
 # <a name="connectors-for-azure-logic-apps"></a>Łączniki dla usługi Azure Logic Apps
 
@@ -50,7 +50,7 @@ Chociaż Logic Apps oferuje [setki łączników](https://docs.microsoft.com/conn
 
   Możesz również identyfikować łączniki przy użyciu tych kategorii, chociaż niektóre łączniki mogą przecinać wiele kategorii. Na przykład SAP to łącznik przedsiębiorstwa i łącznik On-Premises Connector:
 
-  |   |   |
+  | Łączniki | Opis |
   |---|---|
   | [**Łączniki zarządzane**](#managed-api-connectors) | Twórz aplikacje logiki wykorzystujące usługi, takie jak Azure Blob Storage, Office 365, Dynamics, Power BI, OneDrive, Salesforce, SharePoint Online i wiele innych. |
   | [**Łączniki lokalne**](#on-premises-connectors) | Po zainstalowaniu i skonfigurowaniu [bramy danych lokalnych][gateway-doc]te łączniki ułatwiają aplikacjom lokalnym dostęp do systemów lokalnych, takich jak SQL Server, SharePoint Server, Oracle DB, udziały plików i inne. |
@@ -92,44 +92,118 @@ Aplikacje logiki, które są uruchamiane w ISE i ich łącznikach, bez względu 
 
 Logic Apps udostępnia wbudowane wyzwalacze i akcje, dzięki którym możesz tworzyć przepływy pracy oparte na harmonogramie, pomóc aplikacjom logiki komunikować się z innymi aplikacjami i usługami, kontrolować przepływ pracy za pośrednictwem aplikacji logiki oraz zarządzać danymi lub manipulować nimi.
 
-|   |   |   |   |
-|---|---|---|---|
-| [![Harmonogram ikon interfejsu API ][schedule-icon]<br> **Schedule**][schedule-doc] | — Uruchom aplikację logiki z określonym cyklem, od podstawowego do zaawansowanych harmonogramów z [wyzwalaczem **cyklu** ][schedule-recurrence-doc]. <p>-Uruchom aplikację logiki, która musi obsłużyć dane w ciągłych fragmentach przy użyciu [wyzwalacza **okna przewijania** ][schedule-sliding-window-doc]. <p>— Wstrzymaj aplikację logiki przez określony czas z [akcją **opóźnienia** ][schedule-delay-doc]. <p>— Wstrzymywanie aplikacji logiki do określonej daty i godziny z [ **opóźnieniem do** wykonania akcji][schedule-delay-until-doc]. | [![Partia ikon interfejsu API ][batch-icon]<br> **Batch**][batch-doc] | -Przetwarzaj komunikaty w partiach za pomocą wyzwalacza **wiadomości wsadowych** . <p>-Wywołaj Aplikacje logiki, które mają istniejące wyzwalacze wsadowe z akcją **Wyślij komunikaty do partii** . |
-| [![Ikona interfejsu API ][http-icon]<br> **http**][http-doc] | Wywoływanie punktów końcowych protokołu HTTP lub HTTPS przy użyciu wyzwalaczy i akcji dla protokołu HTTP. Inne wbudowane wyzwalacze protokołu HTTP i akcje obejmują [protokół http + Swagger][http-swagger-doc] i [protokół http + webhook][http-webhook-doc]. | [![Żądanie ikony interfejsu API ][http-request-icon]<br> **Request**][http-request-doc] | — Umożliwiaj wywoływanie aplikacji logiki z innych aplikacji lub usług, wyzwalanie na Event Grid zdarzeń zasobów lub wyzwalanie odpowiedzi w celu Azure Security Center alertów z wyzwalaczem **żądania** . <p>— Wysyłanie odpowiedzi do aplikacji lub usługi z akcją **odpowiedzi** . |
-| [![Ikona interfejsu API ][azure-api-management-icon]<br> **Azure API <br> Management**][azure-api-management-doc] | Wyzwalaj wyzwalacze i akcje zdefiniowane przez własne interfejsy API, którymi zarządzasz i które publikujesz przy użyciu usługi Azure API Management. | [![Ikona interfejsu API ][azure-app-services-icon]<br> **usługi Azure App <br> Services**][azure-app-services-doc] | Wywołuj aplikacje interfejsu API platformy Azure lub aplikacje internetowe hostowane w usłudze Azure App Service. Wyzwalacze i akcje zdefiniowane przez te aplikacje są wyświetlane jak wszystkie inne wyzwalacze i akcje pierwszej klasy, gdy jest uwzględniana struktura Swagger.|
-| [![Ikona interfejsu API ][azure-logic-apps-icon]<br> **Azure Logic <br> Apps**][nested-logic-app-doc] | Wywołaj inne aplikacje logiki, które zaczynają się od wyzwalacza **żądania** . |
-|||||
+[![Harmonogram ikon interfejsu API ][schedule-icon]<br> **Schedule**][schedule-doc] 
+
+- Uruchom aplikację logiki w określonym cyklu, począwszy od podstawowych do zaawansowanych harmonogramów z [wyzwalaczem **cyklu** ][schedule-recurrence-doc].
+- Uruchom aplikację logiki, która musi obsłużyć dane w ciągłych fragmentach przy użyciu [wyzwalacza **okna przewijania** ][schedule-sliding-window-doc].
+- Wstrzymaj aplikację logiki przez określony czas z [akcją **opóźnienia** ][schedule-delay-doc].
+- Wstrzymaj aplikację logiki do określonej daty i godziny z [ **opóźnieniem do** wykonania akcji][schedule-delay-until-doc].
+
+[![Partia ikon interfejsu API ][batch-icon]<br> **Batch**][batch-doc]
+
+- Przetwarzaj komunikaty w partiach za pomocą wyzwalacza **wiadomości wsadowych** .
+- Wywołaj Aplikacje logiki, które mają istniejące wyzwalacze wsadowe z akcją **Wyślij komunikaty do partii** .
+
+[![Ikona interfejsu API ][http-icon]<br> **http**][http-doc]
+
+Wywoływanie punktów końcowych protokołu HTTP lub HTTPS przy użyciu wyzwalaczy i akcji dla protokołu HTTP. Inne wbudowane wyzwalacze protokołu HTTP i akcje obejmują [protokół http + Swagger][http-swagger-doc] i [protokół http + webhook][http-webhook-doc].
+
+[![Żądanie ikony interfejsu API ][http-request-icon]<br> **Request**][http-request-doc]
+
+- Umożliwiaj wywoływanie aplikacji logiki z innych aplikacji lub usług, wyzwalanie na Event Grid zdarzeń zasobów lub wyzwalanie odpowiedzi w celu Azure Security Center alertów z wyzwalaczem **żądania** . 
+- Wyślij odpowiedzi do aplikacji lub usługi za pomocą akcji **odpowiedzi** .
+
+[![Ikona interfejsu API ][azure-api-management-icon]<br> **Azure API <br> Management**][azure-api-management-doc]
+
+Wyzwalaj wyzwalacze i akcje zdefiniowane przez własne interfejsy API, którymi zarządzasz i które publikujesz przy użyciu usługi Azure API Management.
+
+[![Ikona interfejsu API ][azure-app-services-icon]<br> **usługi Azure App <br> Services**][azure-app-services-doc]
+
+Wywołuj aplikacje interfejsu API platformy Azure lub aplikacje internetowe hostowane w usłudze Azure App Service. Wyzwalacze i akcje zdefiniowane przez te aplikacje są wyświetlane jak wszystkie inne wyzwalacze i akcje pierwszej klasy, gdy jest uwzględniana struktura Swagger. |
+
+[![Ikona interfejsu API ][azure-logic-apps-icon]<br> **Azure Logic <br> Apps**][nested-logic-app-doc]
+
+Wywołaj inne aplikacje logiki, które zaczynają się od wyzwalacza **żądania** .
 
 ### <a name="run-code-from-logic-apps"></a>Uruchamianie kodu z usługi Logic Apps
 
 Logic Apps udostępnia wbudowane akcje uruchamiania własnego kodu w przepływie pracy aplikacji logiki:
 
-|   |   |   |   |
-|---|---|---|---|
-| [![Ikona interfejsu API ][azure-functions-icon]<br> **Azure Functions**][azure-functions-doc] | Wywołaj usługi Azure Functions, które uruchamiają niestandardowe fragmenty kodu (C# lub Node.js) z aplikacji logiki. | [![][inline-code-icon]<br>**Wbudowany kod** ikony interfejsu API][inline-code-doc] | Dodawanie i uruchamianie fragmentów kodu JavaScript z aplikacji logiki. |
-|||||
+[![Ikona interfejsu API ][azure-functions-icon]<br> **Azure Functions**][azure-functions-doc]
+
+Wywołaj usługi Azure Functions, które uruchamiają niestandardowe fragmenty kodu (C# lub Node.js) z aplikacji logiki.
+
+[![][inline-code-icon]<br>**Wbudowany kod** ikony interfejsu API][inline-code-doc]
+
+Dodawanie i uruchamianie fragmentów kodu JavaScript z aplikacji logiki.
 
 ### <a name="control-workflow"></a>Przepływ pracy sterowania
 
 Logic Apps udostępnia wbudowane akcje do tworzenia struktury i kontrolowania akcji w przepływie pracy aplikacji logiki:
 
-|   |   |   |   |
-|---|---|---|---|
-| [![Wbudowany ][condition-icon]<br> **warunek** ikony][condition-doc] | Oceń warunek i uruchamiaj różne akcje w zależności od tego, czy warunek ma wartość Prawda czy fałsz. | [![Ikona wbudowana ][for-each-icon]<br> **dla każdego**][for-each-doc] | Wykonaj te same czynności dla każdego elementu w tablicy. |
-| [![Wbudowany ][scope-icon]<br> **zakres** ikon][scope-doc] | Grupuj akcje w *zakresy*, które uzyskują swój stan po zakończeniu akcji w zakresie. | [![Wbudowany ][switch-icon]<br> **przełącznik** ikon][switch-doc] | Grupuj działania w *przypadkach*, do których przypisano unikatowe wartości z wyjątkiem domyślnego przypadku. Uruchom tylko te przypadki, których przypisana wartość dopasowuje wynik z wyrażenia, obiektu lub tokenu. Jeśli nie ma żadnych dopasowań, uruchom przypadek domyślny. |
-| [![Zakończenie wbudowanej ikony ][terminate-icon]<br> **Terminate**][terminate-doc] | Zatrzymaj aktywnie uruchomiony przepływ pracy aplikacji logiki. | [![Ikona wbudowana ][until-icon]<br> **do**][until-doc] | Powtarzaj akcje do momentu, gdy określony warunek ma wartość true lub jakiś stan uległ zmianie. |
-|||||
+[![Wbudowany ][condition-icon]<br> **warunek** ikony][condition-doc]
+
+Oceń warunek i uruchamiaj różne akcje w zależności od tego, czy warunek ma wartość Prawda czy fałsz.
+
+[![Ikona wbudowana ][for-each-icon]<br> **dla każdego**][for-each-doc]
+
+Wykonaj te same czynności dla każdego elementu w tablicy.
+
+[![Wbudowany ][scope-icon]<br> **zakres** ikon][scope-doc]
+
+Grupuj akcje w *zakresy*, które uzyskują swój stan po zakończeniu akcji w zakresie.
+
+[![Wbudowany ][switch-icon]<br> **przełącznik** ikon][switch-doc]
+
+Grupuj działania w *przypadkach*, do których przypisano unikatowe wartości z wyjątkiem domyślnego przypadku. Uruchom tylko te przypadki, których przypisana wartość dopasowuje wynik z wyrażenia, obiektu lub tokenu. Jeśli nie ma żadnych dopasowań, uruchom przypadek domyślny.
+
+[![Zakończenie wbudowanej ikony ][terminate-icon]<br> **Terminate**][terminate-doc]
+
+Zatrzymaj aktywnie uruchomiony przepływ pracy aplikacji logiki.
+
+[![Ikona wbudowana ][until-icon]<br> **do**][until-doc]
+
+Powtarzaj akcje do momentu, gdy określony warunek ma wartość true lub jakiś stan uległ zmianie.
 
 ### <a name="manage-or-manipulate-data"></a>Zarządzanie danymi i ich manipulowanie
 
 Logic Apps udostępnia wbudowane akcje do pracy z danymi wyjściowymi i ich formatami:
 
-|   |   |
-|---|---|
-| [![Wbudowane ][data-operations-icon]<br> **operacje na danych** ikon][data-operations-doc] | Wykonaj operacje z danymi: <p>- **Redaguj**: tworzy pojedyncze dane wyjściowe z wielu danych wejściowych z różnymi typami. <br>- **Utwórz tabelę CSV**: Utwórz tabelę wartości rozdzielanych przecinkami (CSV) z tablicy z obiektami JSON. <br>- **Tworzenie tabeli HTML**: Tworzenie tabeli HTML z tablicy z obiektami JSON. <br>- **Filtruj tablicę**: Utwórz tablicę z elementów w innej tablicy, która spełnia kryteria. <br>- **Sprzężenie**: Utwórz ciąg ze wszystkich elementów w tablicy i oddziel te elementy z określonym ogranicznikiem. <br>- **Analizuj dane JSON**: Utwórz przyjazne dla użytkownika tokeny na podstawie właściwości i ich wartości w zawartości JSON, aby można było używać tych właściwości w przepływie pracy. <br>- **Wybierz**: Utwórz tablicę z obiektami JSON, przekształcając elementy lub wartości w innej tablicy i mapując te elementy do określonych właściwości. |
-| ![Ikona wbudowana][date-time-icon]<br>**Data i godzina** | Wykonaj operacje z sygnaturami czasowymi: <p>- **Dodaj do czasu**: Dodaj określoną liczbę jednostek do sygnatury czasowej. <br>- **Konwertuj strefę czasową**: Konwertuj sygnaturę czasową ze źródłowej strefy czasowej na docelową strefę czasową. <br>- **Bieżący czas**: Zwróć bieżącą sygnaturę czasową jako ciąg. <br>- **Pobierz czas w przyszłości**: Zwróć bieżącą sygnaturę czasową i określone jednostki czasu. <br>- **Pobierz godzinę**: Zwróć bieżącą sygnaturę czasową minus określoną liczbę jednostek czasu. <br>- **Odejmij od czasu**: Odejmij liczbę jednostek czasu od sygnatury czasowej. |
-| [![Wbudowane ][variables-icon]<br> **zmienne** ikon][variables-doc] | Wykonywanie operacji przy użyciu zmiennych: <p>- **Dołącz do zmiennej tablicowej**: Wstaw wartość jako ostatni element w tablicy przechowywanej przez zmienną. <br>- **Dołącz do zmiennej ciągu**: Wstaw wartość jako ostatni znak w ciągu przechowywanym przez zmienną. <br>- Zmniejsz **zmienną**: Zmniejsz zmienną przez wartość stałą. <br>- **Zmienna przyrostowa**: zwiększanie zmiennej przez wartość stałą. <br>- **Zainicjuj zmienną**: Utwórz zmienną i Zadeklaruj jej typ danych i wartość początkową. <br>- **Ustaw zmienną**: Przypisz inną wartość do istniejącej zmiennej. |
-|  |  |
+[![Wbudowane ][data-operations-icon]<br> **operacje na danych** ikon][data-operations-doc]
+
+Wykonaj operacje z danymi:
+
+- **Redaguj**: tworzy pojedyncze dane wyjściowe z wielu danych wejściowych z różnymi typami.
+- **Utwórz tabelę CSV**: Utwórz tabelę wartości rozdzielanych przecinkami (CSV) z tablicy z obiektami JSON.
+- **Tworzenie tabeli HTML**: Tworzenie tabeli HTML z tablicy z obiektami JSON.
+- **Filtruj tablicę**: Utwórz tablicę z elementów w innej tablicy, która spełnia kryteria.
+- **Sprzężenie**: Utwórz ciąg ze wszystkich elementów w tablicy i oddziel te elementy z określonym ogranicznikiem.
+- **Analizuj dane JSON**: Utwórz przyjazne dla użytkownika tokeny na podstawie właściwości i ich wartości w zawartości JSON, aby można było używać tych właściwości w przepływie pracy.
+- **Wybierz**: Utwórz tablicę z obiektami JSON, przekształcając elementy lub wartości w innej tablicy i mapując te elementy do określonych właściwości.
+
+![Ikona wbudowana][date-time-icon]
+
+**Data i godzina**
+
+Wykonaj operacje z sygnaturami czasowymi:
+
+- **Dodaj do czasu**: Dodaj określoną liczbę jednostek do sygnatury czasowej.
+- **Konwertuj strefę czasową**: Konwertuj sygnaturę czasową ze źródłowej strefy czasowej na docelową strefę czasową.
+- **Bieżący czas**: Zwróć bieżącą sygnaturę czasową jako ciąg.
+- **Pobierz czas w przyszłości**: Zwróć bieżącą sygnaturę czasową i określone jednostki czasu.
+- **Pobierz godzinę**: Zwróć bieżącą sygnaturę czasową minus określoną liczbę jednostek czasu.
+- **Odejmij od czasu**: Odejmij liczbę jednostek czasu od sygnatury czasowej.
+
+[![Wbudowane ][variables-icon]<br> **zmienne** ikon][variables-doc]
+
+Wykonywanie operacji przy użyciu zmiennych:
+
+- **Dołącz do zmiennej tablicowej**: Wstaw wartość jako ostatni element w tablicy przechowywanej przez zmienną.
+- **Dołącz do zmiennej ciągu**: Wstaw wartość jako ostatni znak w ciągu przechowywanym przez zmienną.
+- Zmniejsz **zmienną**: Zmniejsz zmienną przez wartość stałą.
+- **Zmienna przyrostowa**: zwiększanie zmiennej przez wartość stałą.
+- **Zainicjuj zmienną**: Utwórz zmienną i Zadeklaruj jej typ danych i wartość początkową.
+- **Ustaw zmienną**: Przypisz inną wartość do istniejącej zmiennej.
 
 <a name="managed-api-connectors"></a>
 
@@ -137,16 +211,62 @@ Logic Apps udostępnia wbudowane akcje do pracy z danymi wyjściowymi i ich form
 
 Logic Apps udostępnia te popularne standardowe łączniki do automatyzowania zadań, procesów i przepływów pracy przy użyciu tych usług lub systemów:
 
-|   |   |   |   |
-|---|---|---|---|
-| [![Ikona interfejsu API ][azure-service-bus-icon]<br> **Azure Service Bus**][azure-service-bus-doc] | Zarządzaj komunikatami asynchronicznymi, sesjami i subskrypcjami tematów przy użyciu najczęściej używanego łącznika w usłudze Logic Apps. | [![Ikona interfejsu API ][sql-server-icon]<br> **SQL Server**][sql-server-doc] | Połącz się ze swoją SQL Server lokalną lub Azure SQL Database w chmurze, aby móc zarządzać rekordami, uruchamiać procedury składowane lub wykonywać zapytania. |
-| [![Ikona interfejsu API ][azure-blob-storage-icon]<br> **Azure Blob <br> Storage**][azure-blob-storage-doc] | Połącz się z kontem magazynu, aby można było tworzyć zawartość obiektów blob i zarządzać nią. | [![Ikona interfejsu API ][office-365-outlook-icon]<br> **Office 365 <br> Outlook**][office-365-outlook-doc] | Połącz się z kontem e-mail pakietu Office 365, aby można było tworzyć wiadomości e-mail, zadania, zdarzenia kalendarza i spotkania, kontakty, żądania itp. oraz zarządzać nimi. |
-| [![Ikona interfejsu API ][sftp-ssh-icon]<br> **SFTP-SSH**][sftp-ssh-doc] | Łączenie z serwerami SFTP, do których można uzyskać dostęp z Internetu za pomocą protokołu SSH, aby można było korzystać z plików i folderów. | [![Ikona interfejsu API ][sharepoint-online-icon]<br> **SharePoint <br> online**][sharepoint-online-doc] | Połącz się z usługą SharePoint Online, aby móc zarządzać plikami, załącznikami, folderami i innymi. | 
-| [![Ikona interfejsu API ][dynamics-365-icon]<br> **Dynamics <br> 365**][dynamics-365-doc] | Połącz się z kontem Dynamics 365, aby móc tworzyć rekordy, elementy i zarządzać nimi. | [![Ikona interfejsu API ][azure-queues-icon]<br> **Azure <br> Queues**][azure-queues-doc] | Nawiązywanie połączenia z kontem usługi Azure Storage w celu tworzenia kolejek i komunikatów oraz zarządzania nimi |
-| [![Ikona interfejsu API ][ftp-icon]<br> **FTP**][ftp-doc] | Połącz się z serwerami FTP, z których możesz korzystać z Internetu, aby można było korzystać z plików i folderów. | [![][file-system-icon]<br>** <br> System plików** ikon interfejsu API][file-system-doc] | Połącz się z lokalnym udziałem plików, aby móc tworzyć pliki i zarządzać nimi. |
-| [![Ikona interfejsu API ][azure-event-hubs-icon]<br> **Azure Event Hubs**][azure-event-hubs-doc] | Używanie i publikowanie zdarzeń za poorednictwem centrum zdarzeń. Na przykład pobierz dane wyjściowe z aplikacji logiki przy użyciu usługi Event Hubs, a następnie wyślij je do dostawcy analiz w czasie rzeczywistym. | [![Ikona interfejsu API ][azure-event-grid-icon]<br> **Azure Event** <br> **Grid**][azure-event-grid-doc] | Monitoruj zdarzenia opublikowane przez Event Grid, na przykład w przypadku zmiany zasobów platformy Azure lub zasobów innych firm. |
-| [![Ikona interfejsu API ][salesforce-icon]<br> **Salesforce**][salesforce-doc] | Połącz się z kontem usługi Salesforce, aby można było tworzyć i zarządzać elementami, takimi jak rekordy, zadania, obiekty i wiele innych. | [![Ikona interfejsu API ][twitter-icon]<br> **Twitter**][twitter-doc] | Połącz się z kontem usługi Twitter, aby móc zarządzać tweetami, obserwatorami, osią czasu i wieloma innymi. Zapisuj tweety w programie SQL, Excel lub SharePoint. |
-|||||
+[![Ikona interfejsu API ][azure-service-bus-icon]<br> **Azure Service Bus**][azure-service-bus-doc]
+
+Zarządzaj komunikatami asynchronicznymi, sesjami i subskrypcjami tematów przy użyciu najczęściej używanego łącznika w usłudze Logic Apps.
+
+[![Ikona interfejsu API ][sql-server-icon]<br> **SQL Server**][sql-server-doc]
+
+Połącz się ze swoją SQL Server lokalną lub Azure SQL Database w chmurze, aby móc zarządzać rekordami, uruchamiać procedury składowane lub wykonywać zapytania.
+
+[![Ikona interfejsu API ][azure-blob-storage-icon]<br> **Azure Blob <br> Storage**][azure-blob-storage-doc]
+
+Połącz się z kontem magazynu, aby można było tworzyć zawartość obiektów blob i zarządzać nią.
+
+[![Ikona interfejsu API ][office-365-outlook-icon]<br> **Office 365 <br> Outlook**][office-365-outlook-doc]
+
+Połącz się z kontem e-mail pakietu Office 365, aby można było tworzyć wiadomości e-mail, zadania, zdarzenia kalendarza i spotkania, kontakty, żądania itp. oraz zarządzać nimi.
+
+[![Ikona interfejsu API ][sftp-ssh-icon]<br> **SFTP-SSH**][sftp-ssh-doc]
+
+Łączenie z serwerami SFTP, do których można uzyskać dostęp z Internetu za pomocą protokołu SSH, aby można było korzystać z plików i folderów.
+
+[![Ikona interfejsu API ][sharepoint-online-icon]<br> **SharePoint <br> online**][sharepoint-online-doc]
+
+Połącz się z usługą SharePoint Online, aby móc zarządzać plikami, załącznikami, folderami i innymi.
+
+[![Ikona interfejsu API ][dynamics-365-icon]<br> **Dynamics <br> 365**][dynamics-365-doc]
+
+Połącz się z kontem Dynamics 365, aby móc tworzyć rekordy, elementy i zarządzać nimi.
+
+[![Ikona interfejsu API ][azure-queues-icon]<br> **Azure <br> Queues**][azure-queues-doc]
+
+Nawiązywanie połączenia z kontem usługi Azure Storage w celu tworzenia kolejek i komunikatów oraz zarządzania nimi
+
+[![Ikona interfejsu API ][ftp-icon]<br> **FTP**][ftp-doc]
+
+Połącz się z serwerami FTP, z których możesz korzystać z Internetu, aby można było korzystać z plików i folderów.
+
+[![][file-system-icon]<br>** <br> System plików** ikon interfejsu API][file-system-doc]
+
+Połącz się z lokalnym udziałem plików, aby móc tworzyć pliki i zarządzać nimi.
+
+[![Ikona interfejsu API ][azure-event-hubs-icon]<br> **Azure Event Hubs**][azure-event-hubs-doc]
+
+Używanie i publikowanie zdarzeń za poorednictwem centrum zdarzeń. Na przykład pobierz dane wyjściowe z aplikacji logiki przy użyciu usługi Event Hubs, a następnie wyślij je do dostawcy analiz w czasie rzeczywistym.
+
+[![Ikona interfejsu API ][azure-event-grid-icon]<br> **Azure Event** <br> **Grid**][azure-event-grid-doc]
+
+Monitoruj zdarzenia opublikowane przez Event Grid, na przykład w przypadku zmiany zasobów platformy Azure lub zasobów innych firm.
+
+
+[![Ikona interfejsu API ][salesforce-icon]<br> **Salesforce**][salesforce-doc]
+
+Połącz się z kontem usługi Salesforce, aby można było tworzyć i zarządzać elementami, takimi jak rekordy, zadania, obiekty i wiele innych.
+
+[![Ikona interfejsu API ][twitter-icon]<br> **Twitter**][twitter-doc]
+
+Połącz się z kontem usługi Twitter, aby móc zarządzać tweetami, obserwatorami, osią czasu i wieloma innymi. Zapisuj tweety w programie SQL, Excel lub SharePoint.
 
 <a name="on-premises-connectors"></a>
 
@@ -154,11 +274,25 @@ Logic Apps udostępnia te popularne standardowe łączniki do automatyzowania za
 
 Poniżej przedstawiono kilka typowych łączników standardowych, które Logic Apps zapewniają dostęp do danych i zasobów w systemach lokalnych. Aby można było utworzyć połączenie z systemem lokalnym, należy najpierw [pobrać, zainstalować i skonfigurować lokalną bramę danych][gateway-doc]. Ta brama zapewnia bezpieczny kanał komunikacyjny bez konieczności konfigurowania niezbędnej infrastruktury sieciowej.
 
-|   |   |   |   |   |
-|---|---|---|---|---|
-| [![Ikona interfejsu API ][biztalk-server-icon]<br> **BizTalk** <br> **Server**][biztalk-server-doc] | [![][file-system-icon]<br>** <br> System plików** ikon interfejsu API][file-system-doc] | [![Ikona interfejsu API ][ibm-db2-icon]<br> **IBM DB2**][ibm-db2-doc] | [![Ikona interfejsu API ][ibm-informix-icon]<br> **IBM** <br> **Informix**][ibm-informix-doc] | [![Ikona interfejsu API ][mysql-icon]<br> **MySQL**][mysql-doc] |
-| [![Ikona interfejsu API ][oracle-db-icon]<br> **Oracle DB**][oracle-db-doc] | [![Ikona interfejsu API ][postgre-sql-icon]<br> **PostgreSQL**][postgre-sql-doc] | [![Ikona interfejsu API ][sharepoint-server-icon]<br> **programu SharePoint <br> Server**][sharepoint-server-doc] | [![Ikona interfejsu API ][sql-server-icon]<br> **SQL <br> Server**][sql-server-doc] | [![Ikona interfejsu API ][teradata-icon]<br> **Teradata**][teradata-doc] |
-|||||
+[![Ikona interfejsu API ][biztalk-server-icon]<br> **BizTalk** <br> **Server**][biztalk-server-doc]
+
+[![][file-system-icon]<br>** <br> System plików** ikon interfejsu API][file-system-doc]
+
+[![Ikona interfejsu API ][ibm-db2-icon]<br> **IBM DB2**][ibm-db2-doc]
+
+[![Ikona interfejsu API ][ibm-informix-icon]<br> **IBM** <br> **Informix**][ibm-informix-doc]
+
+[![Ikona interfejsu API ][mysql-icon]<br> **MySQL**][mysql-doc]
+
+[![Ikona interfejsu API ][oracle-db-icon]<br> **Oracle DB**][oracle-db-doc]
+
+[![Ikona interfejsu API ][postgre-sql-icon]<br> **PostgreSQL**][postgre-sql-doc]
+
+[![Ikona interfejsu API ][sharepoint-server-icon]<br> **programu SharePoint <br> Server**][sharepoint-server-doc]
+
+[![Ikona interfejsu API ][sql-server-icon]<br> **SQL <br> Server**][sql-server-doc]
+
+[![Ikona interfejsu API ][teradata-icon]<br> **Teradata**][teradata-doc]
 
 <a name="integration-account-connectors"></a>
 
@@ -166,12 +300,29 @@ Poniżej przedstawiono kilka typowych łączników standardowych, które Logic A
 
 Logic Apps udostępnia standardowe łączniki do tworzenia rozwiązań między firmami (B2B, Business-to-Business) za pomocą aplikacji logiki, gdy tworzysz i płacisz za [konto integracji](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md), które jest dostępne za pomocą pakiet INTEGRACYJNY dla przedsiębiorstw (EIP) na platformie Azure. Za pomocą tego konta możesz tworzyć i przechowywać artefakty B2B, takie jak partnerzy handlowi, umowy, mapy, schematy, certyfikaty itd. Aby użyć tych artefaktów, skojarz Aplikacje logiki z kontem integracji. Jeśli obecnie używasz BizTalk Server, te łączniki mogą wydawać się już znane.
 
-|   |   |   |   |
-|---|---|---|---|
-| [![Ikona interfejsu API ][as2-icon]<br> ** <br> dekodowanie AS2**][as2-doc] | [![Ikona interfejsu API ][as2-icon]<br> ** <br> kodowanie AS2**][as2-doc] | [![Ikona interfejsu API ][edifact-icon]<br> ** <br> dekodowanie EDIFACT**][edifact-decode-doc] | [![Ikona interfejsu API ][edifact-icon]<br> ** <br> kodowanie EDIFACT**][edifact-encode-doc] |
-| [![Ikona interfejsu API — ][flat-file-decode-icon]<br> ** <br> dekodowanie pliku prostego**][flat-file-decode-doc] | [![Ikona interfejsu API — ][flat-file-encode-icon]<br> ** <br> kodowanie pliku prostego**][flat-file-encode-doc] | [![Ikona interfejsu API ][integration-account-icon]<br> ** <br> konto integracji**][integration-account-doc] | [![Ikona interfejsu API ][liquid-icon]<br> **Liquid** <br> **transformacje** płynne][json-liquid-transform-doc] |
-| [![Ikona interfejsu API ][x12-icon]<br> ** <br> dekodowanie X12**][x12-decode-doc] | [![Ikona interfejsu API ][x12-icon]<br> ** <br> kodowanie X12**][x12-encode-doc] | [![Ikona interfejsu API ][xml-transform-icon]<br> **XML** <br> **przekształcenia** XML][xml-transform-doc] | [![][xml-validate-icon]<br>** <br> Weryfikacja kodu XML** ikony interfejsu API][xml-validate-doc] |  
-|||||
+[![Ikona interfejsu API ][as2-icon]<br> ** <br> dekodowanie AS2**][as2-doc]
+
+[![Ikona interfejsu API ][as2-icon]<br> ** <br> kodowanie AS2**][as2-doc]
+
+[![Ikona interfejsu API ][edifact-icon]<br> ** <br> dekodowanie EDIFACT**][edifact-decode-doc]
+
+[![Ikona interfejsu API ][edifact-icon]<br> ** <br> kodowanie EDIFACT**][edifact-encode-doc]
+
+[![Ikona interfejsu API — ][flat-file-decode-icon]<br> ** <br> dekodowanie pliku prostego**][flat-file-decode-doc]
+
+[![Ikona interfejsu API — ][flat-file-encode-icon]<br> ** <br> kodowanie pliku prostego**][flat-file-encode-doc]
+
+[![Ikona interfejsu API ][integration-account-icon]<br> ** <br> konto integracji**][integration-account-doc]
+
+[![Ikona interfejsu API ][liquid-icon]<br> **Liquid** <br> **transformacje** płynne][json-liquid-transform-doc]
+
+[![Ikona interfejsu API ][x12-icon]<br> ** <br> dekodowanie X12**][x12-decode-doc]
+
+[![Ikona interfejsu API ][x12-icon]<br> ** <br> kodowanie X12**][x12-encode-doc]
+
+[![Ikona interfejsu API ][xml-transform-icon]<br> **XML** <br> **przekształcenia** XML][xml-transform-doc]
+
+[![][xml-validate-icon]<br>** <br> Weryfikacja kodu XML** ikony interfejsu API][xml-validate-doc]
 
 <a name="enterprise-connectors"></a>
 
@@ -179,10 +330,11 @@ Logic Apps udostępnia standardowe łączniki do tworzenia rozwiązań między f
 
 Logic Apps udostępnia te łączniki przedsiębiorstwa do uzyskiwania dostępu do systemów przedsiębiorstwa, takich jak SAP i IBM MQ:
 
-|   |   |   |
-|---|---|---|
-| [![Ikona interfejsu API ][ibm-3270-icon]<br> **IBM 3270**][ibm-3270-doc] | [![Ikona interfejsu API ][ibm-mq-icon]<br> **IBM MQ**][ibm-mq-doc] | [![Ikona interfejsu API ][sap-icon]<br> **SAP**][sap-connector-doc] |
-||||
+[![Ikona interfejsu API ][ibm-3270-icon]<br> **IBM 3270**][ibm-3270-doc]
+
+[![Ikona interfejsu API ][ibm-mq-icon]<br> **IBM MQ**][ibm-mq-doc]
+
+[![Ikona interfejsu API ][sap-icon]<br> **SAP**][sap-connector-doc]
 
 <a name="ise-connectors"></a>
 
@@ -190,14 +342,53 @@ Logic Apps udostępnia te łączniki przedsiębiorstwa do uzyskiwania dostępu d
 
 W przypadku aplikacji logiki, które tworzą i uruchamiają izolowane [środowisko usługi integracji (ISE)](#integration-service-environment), projektant aplikacji logiki identyfikuje wbudowane wyzwalacze i akcje, które są uruchamiane w ISE przy użyciu **podstawowej** etykiety. Łączniki zarządzane, które działają w ISE wyświetlają etykietę **ISE** , podczas gdy łączniki działające w globalnej, wielodostępnej usłudze Logic Apps nie wyświetlają żadnej etykiety. Ta lista zawiera łączniki, które obecnie mają wersje ISE:
 
-|   |   |   |   |   |
-|---|---|---|---|---|
-[![Ikona interfejsu API ][as2-icon]<br> **AS2**][as2-doc] | [![Ikona interfejsu API ][azure-automation-icon]<br> **Azure <br> Automation**][azure-automation-doc] | [![Ikona interfejsu API ][azure-blob-storage-icon]<br> **Azure Blob <br> Storage**][azure-blob-storage-doc] | [![Ikona interfejsu API ][azure-cosmos-db-icon]<br> **Azure Cosmos <br> DB**][azure-cosmos-db-doc] | [![Ikona interfejsu API ][azure-event-hubs-icon]<br> **usługi Azure Event <br> Hub**][azure-event-hubs-doc] |
-[![Ikona interfejsu API ][azure-event-grid-icon]<br> **Azure Event <br> Grid**][azure-event-grid-doc] | [![Ikona interfejsu API ][azure-file-storage-icon]<br> **Azure File <br> Storage**][azure-file-storage-doc] | [![Ikona interfejsu API ][azure-key-vault-icon]<br> **Azure Key <br> magazynu**][azure-key-vault-doc] | [![Ikona interfejsu API ][azure-monitor-logs-icon]<br> **Azure monitor <br> dzienniki**][azure-monitor-logs-doc] | [![Ikona interfejsu API ][azure-service-bus-icon]<br> **Azure Service <br> Bus**][azure-service-bus-doc] |
-| [![Ikona interfejsu API ][azure-sql-data-warehouse-icon]<br> **Azure SQL Data <br> Warehouse**][azure-sql-data-warehouse-doc] | [![Ikona interfejsu API ][azure-table-storage-icon]<br> **Azure Table <br> Storage**][azure-table-storage-doc] | [![Ikona interfejsu API ][azure-queues-icon]<br> **Azure <br> Queues**][azure-queues-doc] | [![Ikona interfejsu API ][edifact-icon]<br> **EDIFACT**][edifact-doc] | [![][file-system-icon]<br>** <br> System plików** ikon interfejsu API][file-system-doc] |
-| [![Ikona interfejsu API ][ftp-icon]<br> **FTP**][ftp-doc] | [![Ikona interfejsu API ][ibm-3270-icon]<br> **IBM 3270**][ibm-3270-doc] | [![Ikona interfejsu API ][ibm-db2-icon]<br> **IBM DB2**][ibm-db2-doc] | [![Ikona interfejsu API ][ibm-mq-icon]<br> **IBM MQ**][ibm-mq-doc] | [![Ikona interfejsu API ][sap-icon]<br> **SAP**][sap-connector-doc] |
-| [![Ikona interfejsu API ][sftp-ssh-icon]<br> **SFTP-SSH**][sftp-ssh-doc] | [![Ikona interfejsu API ][smtp-icon]<br> **SMTP**][smtp-doc] | [![Ikona interfejsu API ][sql-server-icon]<br> **SQL <br> Server**][sql-server-doc] | [![Ikona interfejsu API ][x12-icon]<br> **X12**][x12-doc] |
-||||||
+[![Ikona interfejsu API ][as2-icon]<br> **AS2**][as2-doc]
+
+[![Ikona interfejsu API ][azure-automation-icon]<br> **Azure <br> Automation**][azure-automation-doc]
+
+[![Ikona interfejsu API ][azure-blob-storage-icon]<br> **Azure Blob <br> Storage**][azure-blob-storage-doc]
+
+[![Ikona interfejsu API ][azure-cosmos-db-icon]<br> **Azure Cosmos <br> DB**][azure-cosmos-db-doc]
+
+[![Ikona interfejsu API ][azure-event-hubs-icon]<br> **usługi Azure Event <br> Hub**][azure-event-hubs-doc]
+
+[![Ikona interfejsu API ][azure-event-grid-icon]<br> **Azure Event <br> Grid**][azure-event-grid-doc]
+
+[![Ikona interfejsu API ][azure-file-storage-icon]<br> **Azure File <br> Storage**][azure-file-storage-doc]
+
+[![Ikona interfejsu API ][azure-key-vault-icon]<br> **Azure Key <br> magazynu**][azure-key-vault-doc]
+
+[![Ikona interfejsu API ][azure-monitor-logs-icon]<br> **Azure monitor <br> dzienniki**][azure-monitor-logs-doc]
+
+[![Ikona interfejsu API ][azure-service-bus-icon]<br> **Azure Service <br> Bus**][azure-service-bus-doc]
+
+[![Ikona interfejsu API ][azure-sql-data-warehouse-icon]<br> **Azure SQL Data <br> Warehouse**][azure-sql-data-warehouse-doc]
+
+[![Ikona interfejsu API ][azure-table-storage-icon]<br> **Azure Table <br> Storage**][azure-table-storage-doc]
+
+[![Ikona interfejsu API ][azure-queues-icon]<br> **Azure <br> Queues**][azure-queues-doc]
+
+[![Ikona interfejsu API ][edifact-icon]<br> **EDIFACT**][edifact-doc]
+
+[![][file-system-icon]<br>** <br> System plików** ikon interfejsu API][file-system-doc]
+
+[![Ikona interfejsu API ][ftp-icon]<br> **FTP**][ftp-doc]
+
+[![Ikona interfejsu API ][ibm-3270-icon]<br> **IBM 3270**][ibm-3270-doc]
+
+[![Ikona interfejsu API ][ibm-db2-icon]<br> **IBM DB2**][ibm-db2-doc]
+
+[![Ikona interfejsu API ][ibm-mq-icon]<br> **IBM MQ**][ibm-mq-doc]
+
+[![Ikona interfejsu API ][sap-icon]<br> **SAP**][sap-connector-doc]
+
+[![Ikona interfejsu API ][sftp-ssh-icon]<br> **SFTP-SSH**][sftp-ssh-doc]
+
+[![Ikona interfejsu API ][smtp-icon]<br> **SMTP**][smtp-doc]
+
+[![Ikona interfejsu API ][sql-server-icon]<br> **SQL <br> Server**][sql-server-doc]
+
+[![Ikona interfejsu API ][x12-icon]<br> **X12**][x12-doc]
 
 Więcej informacji można znaleźć w następujących tematach:
 

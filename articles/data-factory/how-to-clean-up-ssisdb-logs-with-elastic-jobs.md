@@ -5,20 +5,21 @@ services: data-factory
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 08/13/2018
+ms.date: 07/09/2020
 author: swinarko
 ms.author: sawinark
 manager: mflasko
 ms.reviewer: douglasl
-ms.openlocfilehash: 8d15ab5f08b7f9f5bc4824aec8980ed4b711ae1d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c7a4a1a839282618e9723e5fc916770a789fc32b
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84020289"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187624"
 ---
 # <a name="clean-up-ssisdb-logs-with-azure-elastic-database-jobs"></a>Czyszczenie dzienników SSISDB za pomocą zadań Elastic Database platformy Azure
 
-[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 W tym artykule opisano, jak używać zadań Elastic Database platformy Azure do wyzwalania procedury składowanej, która czyści dzienniki dla bazy danych wykazu SQL Server Integration Services, `SSISDB` .
 

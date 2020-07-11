@@ -9,15 +9,16 @@ ms.author: magoedte
 ms.date: 01/31/2020
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 540ae25b22b2c134a47f91ad5b8b19089c7f2acb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 23f12278d02715bd94f1ea26abf2bd4b2b03caf1
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83744993"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187408"
 ---
 # <a name="manage-credentials-in-azure-automation"></a>Zarządzanie poświadczeniami w Azure Automation
 
-Zasób poświadczenia usługi Automation zawiera obiekt zawierający poświadczenia zabezpieczeń, takie jak nazwa użytkownika i hasło. Elementy Runbook i konfiguracje DSC używają poleceń cmdlet, które akceptują obiekt [PSCredential](https://docs.microsoft.com/dotnet/api/system.management.automation.pscredential?view=pscore-6.2.0) na potrzeby uwierzytelniania. Alternatywnie mogą wyodrębnić nazwę użytkownika i hasło `PSCredential` obiektu, aby zapewnić niektórym aplikacji lub usłudze wymaganie uwierzytelniania. 
+Zasób poświadczenia usługi Automation zawiera obiekt zawierający poświadczenia zabezpieczeń, takie jak nazwa użytkownika i hasło. Elementy Runbook i konfiguracje DSC używają poleceń cmdlet, które akceptują obiekt [PSCredential](/dotnet/api/system.management.automation.pscredential?view=pscore-6.2.0) na potrzeby uwierzytelniania. Alternatywnie mogą wyodrębnić nazwę użytkownika i hasło `PSCredential` obiektu, aby zapewnić niektórym aplikacji lub usłudze wymaganie uwierzytelniania. 
 
 >[!NOTE]
 >Zabezpieczanie zasobów w Azure Automation obejmuje poświadczenia, certyfikaty, połączenia i zmienne zaszyfrowane. Te zasoby są szyfrowane i przechowywane w Azure Automation przy użyciu unikatowego klucza wygenerowanego dla każdego konta usługi Automation. Azure Automation przechowuje klucz w Key Vault zarządzanych przez system. Przed zapisaniem bezpiecznego elementu zawartości Usługa Automation ładuje klucz z Key Vault a następnie używa go do zaszyfrowania elementu zawartości. 
@@ -30,7 +31,7 @@ Polecenia cmdlet w poniższej tabeli tworzą i zarządzają poświadczeniami us�
 
 | Polecenie cmdlet | Opis |
 |:--- |:--- |
-| [Get-AzAutomationCredential](/powershell/module/az.automation/get-azautomationcredential?view=azps-3.3.0) |Pobiera obiekt [CredentialInfo](https://docs.microsoft.com/dotnet/api/microsoft.azure.commands.automation.model.credentialinfo?view=azurerm-ps) zawierający metadane dotyczące poświadczeń. Polecenie cmdlet nie pobiera `PSCredential` samego obiektu.  |
+| [Get-AzAutomationCredential](/powershell/module/az.automation/get-azautomationcredential?view=azps-3.3.0) |Pobiera obiekt [CredentialInfo](/dotnet/api/microsoft.azure.commands.automation.model.credentialinfo?view=azurerm-ps) zawierający metadane dotyczące poświadczeń. Polecenie cmdlet nie pobiera `PSCredential` samego obiektu.  |
 | [New-AzAutomationCredential](/powershell/module/az.automation/new-azautomationcredential?view=azps-3.3.0) |Tworzy nowe poświadczenie usługi Automation. |
 | [Remove-AzAutomationCredential](/powershell/module/az.automation/remove-azautomationcredential?view=azps-3.3.0) |Usuwa poświadczenia usługi Automation. |
 | [Set-AzAutomationCredential](/powershell/module/az.automation/set-azautomationcredential?view=azps-3.3.0) |Ustawia właściwości dla istniejącego poświadczenia usługi Automation. |
@@ -42,8 +43,8 @@ Polecenia cmdlet w poniższej tabeli służą do uzyskiwania dostępu do poświa
 | Polecenie cmdlet | Opis |
 |:--- |:--- |
 | `Get-AutomationPSCredential` |Pobiera `PSCredential` obiekt do użycia w konfiguracji elementu Runbook lub DSC. Najczęściej należy używać tego [wewnętrznego polecenia cmdlet](modules.md#internal-cmdlets) zamiast `Get-AzAutomationCredential` polecenia cmdlet, ponieważ to drugie pobiera tylko informacje o poświadczeniach. Te informacje nie są zwykle pomocne do przekazania do innego polecenia cmdlet. |
-| [Get-Credential](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/get-credential?view=powershell-7) |Pobiera poświadczenie z monitem o podanie nazwy użytkownika i hasła. To polecenie cmdlet jest częścią domyślnego modułu Microsoft. PowerShell. Security. Zobacz [moduły domyślne](modules.md#default-modules).|
-| [New-AzureAutomationCredential](https://docs.microsoft.com/powershell/module/servicemanagement/azure/new-azureautomationcredential?view=azuresmps-4.0.0) | Tworzy zasób poświadczenia. To polecenie cmdlet jest częścią domyślnego modułu platformy Azure. Zobacz [moduły domyślne](modules.md#default-modules).|
+| [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential?view=powershell-7) |Pobiera poświadczenie z monitem o podanie nazwy użytkownika i hasła. To polecenie cmdlet jest częścią domyślnego modułu Microsoft. PowerShell. Security. Zobacz [moduły domyślne](modules.md#default-modules).|
+| [New-AzureAutomationCredential](/powershell/module/servicemanagement/azure/new-azureautomationcredential?view=azuresmps-4.0.0) | Tworzy zasób poświadczenia. To polecenie cmdlet jest częścią domyślnego modułu platformy Azure. Zobacz [moduły domyślne](modules.md#default-modules).|
 
 Aby pobrać `PSCredential` obiekty w kodzie, należy zaimportować `Orchestrator.AssetManagement.Cmdlets` moduł. Aby uzyskać więcej informacji, zobacz [Zarządzanie modułami w Azure Automation](modules.md).
 
@@ -103,7 +104,7 @@ Element Runbook lub Konfiguracja DSC pobiera zasób poświadczeń z wewnętrznym
 > [!NOTE]
 > `Get-AzAutomationCredential`Polecenie cmdlet nie pobiera `PSCredential` obiektu, który może być używany do uwierzytelniania. Zawiera on tylko informacje o poświadczeniu. Jeśli musisz użyć poświadczeń w elemencie Runbook, musisz pobrać go jako `PSCredential` Obiekt przy użyciu `Get-AutomationPSCredential` .
 
-Alternatywnie można użyć metody [GetNetworkCredential](https://docs.microsoft.com/dotnet/api/system.management.automation.pscredential.getnetworkcredential?view=pscore-6.2.0) , aby pobrać obiekt [NetworkCredential](/dotnet/api/system.net.networkcredential) , który reprezentuje niezabezpieczoną wersję hasła.
+Alternatywnie można użyć metody [GetNetworkCredential](/dotnet/api/system.management.automation.pscredential.getnetworkcredential?view=pscore-6.2.0) , aby pobrać obiekt [NetworkCredential](/dotnet/api/system.net.networkcredential) , który reprezentuje niezabezpieczoną wersję hasła.
 
 ### <a name="textual-runbook-example"></a>Przykład tekstowego elementu Runbook
 

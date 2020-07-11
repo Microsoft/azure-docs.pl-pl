@@ -3,11 +3,12 @@ title: Odwołanie YAML — ACR zadań
 description: Dokumentacja dotycząca definiowania zadań w YAML dla zadań ACR, takich jak właściwości zadania, typy kroków, właściwości kroku i wbudowane zmienne.
 ms.topic: article
 ms.date: 10/23/2019
-ms.openlocfilehash: 9558f698b4a9dbca46431fc02ced6ae30de29121
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 11771c32db3b3d7c975c0262bda228903a58978f
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79246983"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171061"
 ---
 # <a name="acr-tasks-reference-yaml"></a>Informacje o zadaniach ACR: YAML
 
@@ -140,7 +141,7 @@ steps:
 
 `build`Typ kroku obsługuje następujące właściwości. Szczegółowe informacje o tych właściwościach znajdują się w sekcji [Właściwości kroku zadania](#task-step-properties) w tym artykule.
 
-| | | |
+| Właściwości | Typ | Wymagane |
 | -------- | ---- | -------- |
 | `detach` | bool | Opcjonalne |
 | `disableWorkingDirectoryOverride` | bool | Opcjonalne |
@@ -212,7 +213,7 @@ steps:
 
 `push`Typ kroku obsługuje następujące właściwości. Szczegółowe informacje o tych właściwościach znajdują się w sekcji [Właściwości kroku zadania](#task-step-properties) w tym artykule.
 
-| | | |
+| Właściwość | Typ | Wymagane |
 | -------- | ---- | -------- |
 | `env` | [ciąg, String,...] | Opcjonalne |
 | `id` | ciąg | Opcjonalne |
@@ -257,7 +258,7 @@ steps:
 
 `cmd`Typ kroku obsługuje następujące właściwości:
 
-| | | |
+| Właściwość | Typ | Wymagane |
 | -------- | ---- | -------- |
 | `detach` | bool | Opcjonalne |
 | `disableWorkingDirectoryOverride` | bool | Opcjonalne |

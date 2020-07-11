@@ -9,11 +9,12 @@ ms.author: magoedte
 ms.date: 03/11/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 3cfc63b29b51b70cb41c476c49bc17f5e9cbd308
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 562ea5e0e9e4851ed59bd3ef917be2f9c48cd2a7
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83746631"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185555"
 ---
 # <a name="move-your-azure-automation-account-to-another-subscription"></a>Przenoszenie konta Azure Automation do innej subskrypcji
 
@@ -40,7 +41,7 @@ Aby odłączyć obszar roboczy od konta usługi Automation, musisz usunąć zaso
 
     ![Zrzut ekranu przedstawiający usuwanie zasobów funkcji z Azure Portal](../media/move-account/delete-solutions.png)
 
-Jeśli wolisz, możesz usunąć zasoby za pomocą polecenia cmdlet [Remove-AzResource](https://docs.microsoft.com/powershell/module/Az.Resources/Remove-AzResource?view=azps-3.7.0) :
+Jeśli wolisz, możesz usunąć zasoby za pomocą polecenia cmdlet [Remove-AzResource](/powershell/module/Az.Resources/Remove-AzResource?view=azps-3.7.0) :
 
 ```azurepowershell-interactive
 $workspaceName = <myWorkspaceName>
@@ -79,7 +80,7 @@ W przypadku Start/Stop VMs during off-hours należy również usunąć reguły a
 
     ![Zrzut ekranu strony grupy akcji](../media/move-account/delete-action-group.png)
 
-Jeśli wolisz, możesz usunąć grupę akcji przy użyciu polecenia cmdlet [Remove-AzActionGroup](https://docs.microsoft.com/powershell/module/az.monitor/remove-azactiongroup?view=azps-3.7.0) :
+Jeśli wolisz, możesz usunąć grupę akcji przy użyciu polecenia cmdlet [Remove-AzActionGroup](/powershell/module/az.monitor/remove-azactiongroup?view=azps-3.7.0) :
 
 ```azurepowershell-interactive
 Remove-AzActionGroup -ResourceGroupName <myResourceGroup> -Name StartStop_VM_Notification

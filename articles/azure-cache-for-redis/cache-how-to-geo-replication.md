@@ -6,15 +6,19 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 03/06/2019
 ms.author: yegu
-ms.openlocfilehash: ce50c665fa79c361f638fda4ec373d5215c407f8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9a2ec2e60ae38506d716a244872baddbbdf570e7
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74129417"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86184977"
 ---
 # <a name="how-to-set-up-geo-replication-for-azure-cache-for-redis"></a>Jak skonfigurować replikację geograficzną dla usługi Azure cache for Redis
 
-Replikacja geograficzna zapewnia mechanizm łączenia dwóch pamięci podręcznej platformy Azure w warstwie Premium dla wystąpień Redis. Jedna pamięć podręczna jest wybierana jako podstawowa połączona pamięć podręczna, a druga jako pomocnicza połączonej pamięci podręcznej. Pomocnicza połączonej pamięci podręcznej jest tylko do odczytu, a dane zapisywane w podstawowej pamięci podręcznej są replikowane do pomocniczej połączonej pamięci podręcznej. Tej funkcji można użyć do replikowania pamięci podręcznej w regionach platformy Azure. Ten artykuł zawiera Przewodnik konfigurowania replikacji geograficznej dla usługi Azure cache w warstwie Premium dla wystąpień Redis.
+Replikacja geograficzna zapewnia mechanizm łączenia dwóch pamięci podręcznej platformy Azure w warstwie Premium dla wystąpień Redis. Jedna pamięć podręczna jest wybierana jako podstawowa połączona pamięć podręczna, a druga jako pomocnicza połączonej pamięci podręcznej. Pomocnicza połączonej pamięci podręcznej jest tylko do odczytu, a dane zapisywane w podstawowej pamięci podręcznej są replikowane do pomocniczej połączonej pamięci podręcznej. Transfer danych między podstawowym i pomocniczym wystąpieniem pamięci podręcznej jest zabezpieczony przy użyciu protokołu TLS. Replikacja geograficzna może służyć do konfigurowania pamięci podręcznej obejmującej dwa regiony platformy Azure. Ten artykuł zawiera Przewodnik konfigurowania replikacji geograficznej dla usługi Azure cache w warstwie Premium dla wystąpień Redis.
+
+> [!NOTE]
+> Replikacja geograficzna jest zaprojektowana jako rozwiązanie odzyskiwania po awarii. Domyślnie aplikacja zostanie zapisana w regionie podstawowym i odczytana z niej. Opcjonalnie można ją skonfigurować do odczytu z regionu pomocniczego. Replikacja geograficzna nie zapewnia automatycznej pracy awaryjnej ze względu na problemy z dodanym opóźnieniem sieci między regionami, jeśli pozostała część aplikacji pozostaje w regionie podstawowym. Należy zarządzać i inicjować tryb failover przez odłączenie pomocniczej pamięci podręcznej. Spowoduje to podwyższenie poziomu IT do nowego wystąpienia podstawowego.
 
 ## <a name="geo-replication-prerequisites"></a>Wymagania wstępne dotyczące replikacji geograficznej
 

@@ -5,11 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 01/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: c15ed6e9409bee71a778986d8f38ae1ab126c180
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 95e156c17b723c679772293401c730cbdff2220b
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83828648"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169888"
 ---
 # <a name="create-modular-runbooks"></a>Tworzenie modułowych elementów runbook
 
@@ -19,12 +20,12 @@ Istnieją dwa sposoby wywoływania podrzędnego elementu Runbook, a istnieją r�
 
 |  | Śródwierszowo | Polecenie cmdlet |
 |:--- |:--- |:--- |
-| Zadanie |Podrzędne elementy Runbook są uruchamiane w tym samym zadaniu co element nadrzędny. |Tworzone jest osobne zadanie dla podrzędnego elementu Runbook. |
-| Wykonanie |Przed kontynuowaniem nadrzędny element Runbook czeka na ukończenie działania podrzędnego elementu Runbook. |Nadrzędny element Runbook jest kontynuowany natychmiast po uruchomieniu podrzędnego elementu Runbook *lub* nadrzędny element Runbook czeka na zakończenie zadania podrzędnego. |
-| Dane wyjściowe |Nadrzędny element Runbook może bezpośrednio pobierać dane wyjściowe z podrzędnego elementu Runbook. |Nadrzędny element Runbook musi pobrać dane wyjściowe z podrzędnego zadania elementu Runbook *lub* nadrzędnego elementu Runbook można bezpośrednio pobrać dane wyjściowe z podrzędnego elementu Runbook. |
-| Parametry |Wartości parametrów podrzędnego elementu Runbook są określane oddzielnie i mogą mieć dowolny typ danych. |Wartości parametrów podrzędnego elementu Runbook muszą być połączone w jedną tablicę skrótów. Ta tablica skrótów może zawierać tylko typy danych Simple, Array i Object, które używają serializacji JSON. |
-| Konto usługi Automation |Nadrzędny element Runbook może używać tylko podrzędnego elementu Runbook na tym samym koncie usługi Automation. |Nadrzędne elementy Runbook mogą używać podrzędnego elementu Runbook z dowolnego konta usługi Automation, z tej samej subskrypcji platformy Azure, a nawet z innej subskrypcji, z którą masz połączenie. |
-| Publikowanie |Podrzędny element Runbook należy opublikować przed opublikowaniem nadrzędnego elementu Runbook. |Podrzędny element Runbook jest publikowany w dowolnym momencie przed uruchomieniem nadrzędnego elementu Runbook. |
+| **Zadanie** |Podrzędne elementy Runbook są uruchamiane w tym samym zadaniu co element nadrzędny. |Tworzone jest osobne zadanie dla podrzędnego elementu Runbook. |
+| **Wykonanie** |Przed kontynuowaniem nadrzędny element Runbook czeka na ukończenie działania podrzędnego elementu Runbook. |Nadrzędny element Runbook jest kontynuowany natychmiast po uruchomieniu podrzędnego elementu Runbook *lub* nadrzędny element Runbook czeka na zakończenie zadania podrzędnego. |
+| **Dane wyjściowe** |Nadrzędny element Runbook może bezpośrednio pobierać dane wyjściowe z podrzędnego elementu Runbook. |Nadrzędny element Runbook musi pobrać dane wyjściowe z podrzędnego zadania elementu Runbook *lub* nadrzędnego elementu Runbook można bezpośrednio pobrać dane wyjściowe z podrzędnego elementu Runbook. |
+| **Parametry** |Wartości parametrów podrzędnego elementu Runbook są określane oddzielnie i mogą mieć dowolny typ danych. |Wartości parametrów podrzędnego elementu Runbook muszą być połączone w jedną tablicę skrótów. Ta tablica skrótów może zawierać tylko typy danych Simple, Array i Object, które używają serializacji JSON. |
+| **Konto usługi Automation** |Nadrzędny element Runbook może używać tylko podrzędnego elementu Runbook na tym samym koncie usługi Automation. |Nadrzędne elementy Runbook mogą używać podrzędnego elementu Runbook z dowolnego konta usługi Automation, z tej samej subskrypcji platformy Azure, a nawet z innej subskrypcji, z którą masz połączenie. |
+| **Publikowanie** |Podrzędny element Runbook należy opublikować przed opublikowaniem nadrzędnego elementu Runbook. |Podrzędny element Runbook jest publikowany w dowolnym momencie przed uruchomieniem nadrzędnego elementu Runbook. |
 
 ## <a name="invoke-a-child-runbook-using-inline-execution"></a>Wywołaj podrzędny element Runbook przy użyciu wykonywania wbudowanego
 

@@ -3,7 +3,7 @@ title: Dodaj role aplikacji i uzyskaj je z tokenu | Azure
 titleSuffix: Microsoft identity platform
 description: Dowiedz się, jak dodawać role aplikacji w aplikacji zarejestrowanej w Azure Active Directory, przypisywać użytkownikom i grupom te role i odbierać je w ramach `roles` roszczeń w tokenie.
 services: active-directory
-author: kkrishna
+author: kalyankrishna1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
@@ -13,12 +13,12 @@ ms.date: 09/24/2018
 ms.author: kkrishna
 ms.reviewer: kkrishna, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: aedf5d710b82185cb634fcd92e6981a2c358ad52
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 940ef671ab58074aaded49acb70db68a4971c1f2
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85477893"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187034"
 ---
 # <a name="how-to-add-app-roles-in-your-application-and-receive-them-in-the-token"></a>Instrukcje: Dodawanie ról aplikacji do aplikacji i odbieranie ich w tokenie
 
@@ -122,7 +122,7 @@ Po dodaniu ról aplikacji w aplikacji można przypisać użytkowników i grupy d
 ## <a name="more-information"></a>Więcej informacji
 
 - [Dodawanie autoryzacji przy użyciu ról aplikacji & oświadczenia ról do aplikacji sieci Web ASP.NET Core](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/5-WebApp-AuthZ/5-1-Roles)
-- [Używanie grup zabezpieczeń i ról aplikacji w aplikacjach (wideo)](https://www.youtube.com/watch?v=V8VUPixLSiM)
+- [Implementowanie autoryzacji w aplikacjach przy użyciu platformy tożsamości firmy Microsoft (wideo)](https://www.youtube.com/watch?v=LRoc-na27l0)
 - [Azure Active Directory, teraz z oświadczeniami grupy i rolami aplikacji](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-Active-Directory-now-with-Group-Claims-and-Application/ba-p/243862)
 - [Manifest aplikacji usługi Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest)
 - [Tokeny dostępu usługi AAD](access-tokens.md)

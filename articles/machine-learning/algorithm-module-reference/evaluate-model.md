@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 04/24/2020
-ms.openlocfilehash: 0b7ca2654fb8b7bdcca6dcb5f2fd354a138f2fcf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/08/2020
+ms.openlocfilehash: fe0d3819701e062fa2253bc6dd0c3a28eaeaadfb
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85564349"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171123"
 ---
 # <a name="evaluate-model-module"></a>Oceń moduł modelu
 
@@ -35,10 +35,10 @@ Ten moduł służy do mierzenia dokładności nauczonego modelu. Dostarczasz zes
 
 ## <a name="how-to-use-evaluate-model"></a>Jak używać modelu szacowania
 1. Połącz dane wyjściowe **zestawienia** danych wyjściowych [modelu wynikowego](./score-model.md) lub danych wyjściowych zestawu danych wynikowych [przypisywania danych do klastrów](./assign-data-to-clusters.md) do lewego portu wejściowego **oceny modelu**. 
-  > [!NOTE] 
-  > Jeśli używasz modułów takich jak "Wybieranie kolumn w zestawie danych", aby wybrać część wejściowego zestawu danych, upewnij się, że rzeczywista kolumna etykiety (używana w szkoleniu), kolumna "oceny prawdopodobieństwa" i "oceny etykiet" istnieją do obliczenia metryk, takich jak AUC, dokładność dla binarnej klasyfikacji/wykrywania anomalii.
-  > Rzeczywista kolumna etykiet, kolumna "oceny etykiet" istnieje, aby obliczyć metryki dla klasyfikacji/regresji dla wieloklasowego.
-  > Kolumna "przypisania", kolumny "DistancesToClusterCenter No. X ' (X jest indeksem centroida, od 0,..., liczba centroids-1) istnieje, aby obliczyć metryki dla klastrowania.
+    > [!NOTE] 
+    > Jeśli używasz modułów takich jak "Wybieranie kolumn w zestawie danych", aby wybrać część wejściowego zestawu danych, upewnij się, że rzeczywista kolumna etykiety (używana w szkoleniu), kolumna "oceny prawdopodobieństwa" i "oceny etykiet" istnieją do obliczenia metryk, takich jak AUC, dokładność dla binarnej klasyfikacji/wykrywania anomalii.
+    > Rzeczywista kolumna etykiet, kolumna "oceny etykiet" istnieje, aby obliczyć metryki dla klasyfikacji/regresji dla wieloklasowego.
+    > Kolumna "przypisania", kolumny "DistancesToClusterCenter No. X ' (X jest indeksem centroida, od 0,..., liczba centroids-1) istnieje, aby obliczyć metryki dla klastrowania.
 
 2. Obowiązkowe Połącz dane wyjściowe **zestawienia** danych wyjściowych [modelu oceny](./score-model.md) lub danych wyjściowych zestawu danych wynikowych przypisywania danych do klastrów dla drugiego modelu **na odpowiedni port wejściowy** **oceny modelu**. Możesz łatwo porównać wyniki z dwóch różnych modeli na tych samych danych. Dwa algorytmy wejściowe powinny być tym samym typem algorytmu. Lub można porównać wyniki z dwóch różnych przebiegów nad tymi samymi danymi z różnymi parametrami.
 
@@ -49,7 +49,12 @@ Ten moduł służy do mierzenia dokładności nauczonego modelu. Dostarczasz zes
 
 ## <a name="results"></a>Wyniki
 
-Po uruchomieniu **Oceń model**wybierz moduł, aby otworzyć panel nawigacyjny " **Oceń model** " po prawej stronie.  Następnie wybierz kartę dane **wyjściowe + dzienniki** i na tej karcie sekcja **wyprowadzania danych** zawiera kilka ikon.   Ikona **wizualizacji** ma ikonę wykresu słupkowego i jest pierwszym sposobem wyświetlania wyników.
+Po uruchomieniu **Oceń model**wybierz moduł, aby otworzyć panel nawigacyjny " **Oceń model** " po prawej stronie.  Następnie wybierz kartę dane **wyjściowe + dzienniki** i na tej karcie sekcja **wyprowadzania danych** zawiera kilka ikon. Ikona **wizualizacji** ma ikonę wykresu słupkowego i jest pierwszym sposobem wyświetlania wyników.
+
+W przypadku klasyfikacji binarnej, po kliknięciu ikony **wizualizacji** , można wizualizować macierz kodu binarnego.
+W przypadku wielokrotnej klasyfikacji można znaleźć plik wykresów macierzy o nieporozumieniu na karcie dane **wyjściowe i dzienniki** , tak jak poniżej:
+> [!div class="mx-imgBorder"]
+> ![Podgląd przekazanego obrazu](media/module/multi-class-confusion-matrix.png)
 
 W przypadku łączenia zestawów danych z obydwoma danymi wejściowymi **modelu szacowania**wyniki będą zawierać metryki dla zestawu danych lub obu modeli.
 Model lub dane dołączone do lewego portu są przedstawiane jako pierwsze w raporcie, a następnie metryki dla zestawu danych lub modelu dołączonego do właściwego portu.  
@@ -70,7 +75,8 @@ W tej sekcji opisano metryki zwracane dla określonych typów modeli obsługiwan
 
 ### <a name="metrics-for-classification-models"></a>Metryki dla modeli klasyfikacji
 
-Podczas oceniania modeli klasyfikacji są raportowane następujące metryki.
+
+Podczas oceniania binarnych modeli klasyfikacji są raportowane następujące metryki.
   
 -   **Dokładność** mierzy dobrą jakość modelu klasyfikacji jako proporcje prawdziwych wyników do łącznych przypadków.  
   
@@ -78,13 +84,10 @@ Podczas oceniania modeli klasyfikacji są raportowane następujące metryki.
   
 -   Funkcja **odwoływania** jest częścią wszystkich poprawnych wyników zwracanych przez model.  
   
--   **F-Score** jest obliczana jako średnia ważona precyzji i odzyskanie między 0 i 1, gdzie idealna wartość F-score to 1.  
+-   **Wynik F1** jest obliczany jako średnia ważona precyzji i wartość odwołania z zakresu od 0 do 1, gdzie idealny wynik jest równy 1.  
   
 -   **AUC** mierzy obszar pod krzywą na podstawie prawdziwej liczby dodatniej na osi y i fałszywych wartości dodatnich na osi x. Ta Metryka jest przydatna, ponieważ udostępnia pojedynczą liczbę, która umożliwia porównywanie modeli różnych typów.  
-  
-- **Średnia utrata dzienników** to pojedynczy wynik służący do wyrażania grzywny dla nieprawidłowych wyników. Jest ona obliczana jako różnica między dwoma rozkładami prawdopodobieństwa — wartość true i jeden w modelu.  
-  
-- **Utrata dzienników szkoleń** to pojedynczy wynik, który reprezentuje zalety klasyfikatora w przypadku prognoz losowych. Utrata dziennika mierzy niepewność modelu, porównując prawdopodobieństwa, które wyprowadza do znanych wartości (podstawa prawdy) w etykietach. Chcesz zminimalizować utratę dzienników dla modelu jako całości.
+
 
 ### <a name="metrics-for-regression-models"></a>Metryki dla modeli regresji
  

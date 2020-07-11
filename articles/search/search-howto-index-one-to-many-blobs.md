@@ -1,7 +1,7 @@
 ---
 title: Indeksowanie obiektów BLOB zawierających wiele dokumentów
 titleSuffix: Azure Cognitive Search
-description: Przeszukiwanie obiektów blob platformy Azure pod kątem zawartości tekstowej przy użyciu indeksatora BLOB usługi Azure Cognitive Search, gdzie każdy obiekt BLOB może mieć jeden lub więcej dokumentów indeksu wyszukiwania.
+description: Przeszukiwanie obiektów blob platformy Azure pod kątem zawartości tekstowej przy użyciu indeksatora usługi Azure Wyszukiwanie poznawcze BLOB, gdzie każdy obiekt BLOB może mieć jeden lub więcej dokumentów indeksu wyszukiwania.
 manager: nitinme
 author: arv100kri
 ms.author: arjagann
@@ -9,11 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 1840bda0ecc9462a5d8f796b616d728d0bb412f7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1f93ae8a017c889f6c465b3ccbbb66382577e871
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74112268"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86146798"
 ---
 # <a name="indexing-blobs-to-produce-multiple-search-documents"></a>Indeksowanie obiektów BLOB w celu utworzenia wielu dokumentów wyszukiwania
 Domyślnie indeksator obiektów BLOB będzie traktować zawartość obiektu BLOB jako pojedynczy dokument wyszukiwania. Niektóre wartości typu **analizowaniemode** obsługują scenariusze, w których pojedynczy obiekt BLOB może spowodować wielokrotne wyszukiwanie dokumentów. Różne typy **analizmode** , które umożliwiają Indeksatorowi wyodrębnienie więcej niż jednego dokumentu wyszukiwania z obiektu BLOB:
@@ -41,25 +42,31 @@ I kontener obiektów BLOB zawiera obiekty blob o następującej strukturze:
 
 _Blob1.jsna_
 
+```json
     { "temperature": 100, "pressure": 100, "timestamp": "2019-02-13T00:00:00Z" }
     { "temperature" : 33, "pressure" : 30, "timestamp": "2019-02-14T00:00:00Z" }
+```
 
 _Blob2.jsna_
 
+```json
     { "temperature": 1, "pressure": 1, "timestamp": "2018-01-12T00:00:00Z" }
     { "temperature" : 120, "pressure" : 3, "timestamp": "2013-05-11T00:00:00Z" }
+```
 
 Gdy tworzysz indeksator i ustawisz **dla opcji** `jsonLines` -bez określania wszystkich jawnych mapowań pól klucza, następujące mapowanie zostanie zastosowane niejawnie
-    
+
+```http
     {
         "sourceFieldName" : "AzureSearch_DocumentKey",
         "targetFieldName": "id",
         "mappingFunction": { "name" : "base64Encode" }
     }
+```
 
 Ta konfiguracja spowoduje, że indeks usługi Azure Wyszukiwanie poznawcze zawierający następujące informacje (skrócony identyfikator kodowany algorytmem Base64 dla zwięzłości)
 
-| identyfikator | temperature | pressure | sygnatura czasowa |
+| identyfikator | temperature | ciśnienie | sygnatura czasowa |
 |----|-------------|----------|-----------|
 | aHR0 ... YjEuanNvbjsx | 100 | 100 | 2019-02-13T00:00:00Z |
 | aHR0 ... YjEuanNvbjsy | 33 | 30 | 2019-02-14T00:00:00Z |
@@ -72,22 +79,28 @@ Przy założeniu, że ta sama definicja indeksu jest taka sama jak w poprzednim 
 
 _Blob1.jsna_
 
+```json
     recordid, temperature, pressure, timestamp
     1, 100, 100,"2019-02-13T00:00:00Z" 
     2, 33, 30,"2019-02-14T00:00:00Z" 
+```
 
 _Blob2.jsna_
 
+```json
     recordid, temperature, pressure, timestamp
     1, 1, 1,"2018-01-12T00:00:00Z" 
     2, 120, 3,"2013-05-11T00:00:00Z" 
+```
 
 Podczas tworzenia indeksatora przy użyciu elementu `delimitedText` **analizowaniamode**może zajść konieczność skonfigurowania funkcji mapowania pól do pola klucza w następujący sposób:
 
+```http
     {
         "sourceFieldName" : "recordid",
         "targetFieldName": "id"
     }
+```
 
 Jednak to mapowanie _nie_ powoduje, że 4 dokumenty wyświetlane w indeksie, ponieważ `recordid` pole nie jest unikatowe w obiektach _BLOB_. W związku z tym zalecamy użycie niejawnego mapowania pól stosowanego z `AzureSearch_DocumentKey` właściwości do pola indeksu klucza dla trybów analizy "jeden do wielu".
 

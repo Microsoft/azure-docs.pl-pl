@@ -9,11 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 05/26/2020
-ms.openlocfilehash: ca5c8fdd14f155163dd55d944cafd2e209e7a94b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: af14d4770d032c23216b805045eb27fadded5954
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84450661"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170262"
 ---
 # <a name="train-pytorch-model"></a>Trenowanie modelu Pytorch
 
@@ -26,7 +27,7 @@ W tym artykule opisano, jak używać modułu **uczenie Pytorch model** w program
 2. Dodaj moduł **uczenie modelu Pytorch** do potoku. Ten moduł można znaleźć w kategorii **szkolenia modeli** . Rozwiń węzeł **uczenie**, a następnie przeciągnij moduł **uczenie modelu Pytorch** do potoku.
 
    > [!NOTE]
-   > Moduł **szkolenia Pytorch model** można uruchomić tylko w przypadku obliczeń typu **GPU** . w przeciwnym razie potok nie powiedzie się. Można wybrać opcję obliczenia dla określonego modułu w prawym okienku modułu przez ustawienie opcji **Użyj innego elementu docelowego obliczeń**.
+   > Moduł **uczenie Pytorch model** jest lepszym rozwiązaniem w przypadku obliczeń typu **GPU** dla dużego zestawu danych. w przeciwnym razie potok zakończy się niepowodzeniem. Można wybrać opcję obliczenia dla określonego modułu w prawym okienku modułu przez ustawienie opcji **Użyj innego elementu docelowego obliczeń**.
 
 3.  Z lewej strony, Dołącz niepociąg model. Dołącz zestaw danych szkoleniowych i zestaw danych walidacji do środkowego i prawego wejścia do **modelu uczenie Pytorch**.
 
@@ -70,7 +71,7 @@ Po zakończeniu przebiegu potoku, aby użyć modelu do oceniania, Połącz [mode
 | Epoki        | >0               | Integer | 5       | Wybierz kolumnę, która zawiera etykietę lub kolumnę wyniku |
 | Rozmiar partii    | >0               | Integer | 16      | Liczba wystąpień do uczenia w partii   |
 | Tempo nauki | >= Double. Epsilon | Float   | 0,001   | Początkowa stawka szkoleniowa dla Stochastycznegoego gradientu. |
-| Losowy inicjator   | Dowolne              | Integer | 1       | Inicjator dla generatora liczb losowych używanego przez model. |
+| Losowy inicjator   | Dowolny              | Integer | 1       | Inicjator dla generatora liczb losowych używanego przez model. |
 | Oczekując      | >0               | Integer | 3       | Ile epok z wczesnym zatrzymywaniem szkoleń   |
 
 ###  <a name="outputs"></a>Dane wyjściowe  

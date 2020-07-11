@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: aahi
-ms.openlocfilehash: 2cc89bf57167db75404c044f58d18ab48edfaf38
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7ec407b7f6baf56f0a2fe724089826d8f9303b85
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "68854083"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186847"
 ---
 # <a name="configure-your-hosted-ui-experience"></a>Konfigurowanie środowiska hostowanego interfejsu użytkownika
 
@@ -35,13 +35,11 @@ Aby skonfigurować hostowany interfejs użytkownika dla aplikacji sieci Web, wyk
   
 4. Wybierz układ.
 
-    |  |  |
-    |---------|---------|
-    |Pasek wyszukiwania i wyniki (wartość domyślna)    | Wyświetla pole wyszukiwania z wynikami wyszukiwania poniżej.         |
-    |Tylko wyniki     | Wyświetla tylko wyniki wyszukiwania, bez pola wyszukiwania. W przypadku korzystania z tego układu należy podać zapytanie wyszukiwania (`&q=<query string>`). Dodaj parametr zapytania do adresu URL żądania w fragmencie kodu JavaScript lub linku do punktu końcowego HTML.        |
-    |Wyskakujące okienko     | Zawiera pole wyszukiwania i wyświetla wyniki wyszukiwania w przesuwanej nakładce.        |
-    
-5. Wybierz motyw kolorów. Kolory można dostosować w celu dopasowania do aplikacji przez kliknięcie przycisku **Dostosuj motyw**. Aby zmienić kolor, wprowadź wartość SZESNASTKOWą RGB koloru (na przykład `#366eb8`) lub kliknij Podgląd koloru.
+    - Pasek wyszukiwania i wyniki (domyślnie): Wyświetla pole wyszukiwania z wynikami wyszukiwania poniżej.
+    - Tylko wyniki: wyświetla tylko wyniki wyszukiwania, bez pola wyszukiwania. W przypadku korzystania z tego układu należy podać zapytanie wyszukiwania ( `&q=<query string>` ). Dodaj parametr zapytania do adresu URL żądania w fragmencie kodu JavaScript lub linku do punktu końcowego HTML.
+    - Wyskakujące okienko: zawiera pole wyszukiwania i wyświetla wyniki wyszukiwania w przesuwanej nakładce.
+
+5. Wybierz motyw kolorów. Kolory można dostosować w celu dopasowania do aplikacji przez kliknięcie przycisku **Dostosuj motyw**. Aby zmienić kolor, wprowadź wartość SZESNASTKOWą RGB koloru (na przykład `#366eb8` ) lub kliknij Podgląd koloru.
 
    Zmiany można wyświetlić w podglądzie po prawej stronie portalu. Kliknięcie przycisku **Resetuj do ustawień domyślnych** spowoduje przywrócenie domyślnych kolorów dla wybranego motywu.
 
@@ -96,55 +94,38 @@ Można skonfigurować zachowanie hostowanego interfejsu użytkownika, klikając 
 
 ### <a name="web-search-configurations"></a>Konfiguracje wyszukiwania w sieci Web
 
-|  |  |
-|---------|---------|
-|Wyniki sieci Web włączone    | Określa, czy jest włączone wyszukiwanie w sieci Web (w górnej części strony zostanie wyświetlona karta Sieć Web).        |
-|Włącz automatyczne sugerowanie     | Określa, czy jest włączone niestandardowe automatyczne sugerowanie (zobacz [Cennik](https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/) dla dodatkowych kosztów).        |
-|Wyniki sieci Web na stronę    | Liczba wyników wyszukiwania w sieci Web, które mają być wyświetlane w danym momencie (wartość maksymalna to 50 wyników na stronie).        |
-|Podpis obrazu   | Określa, czy obrazy są wyświetlane z wynikami wyszukiwania.|
-
+- Wyniki sieci Web włączone: określa, czy jest włączone wyszukiwanie w sieci Web (w górnej części strony zostanie wyświetlona karta Sieć Web).
+- Włącz automatyczne sugerowanie: określa, czy jest włączone niestandardowe automatyczne sugerowanie (zobacz [Cennik](https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/) dla dodatkowych kosztów).
+- Wyniki sieci Web na stronie: liczba wyników wyszukiwania w sieci Web do wyświetlenia w danym momencie (wartość maksymalna to 50 wyników na stronie).
+- Podpis obrazu: określa, czy obrazy są wyświetlane z wynikami wyszukiwania.
 
 Po kliknięciu przycisku **Pokaż konfiguracje zaawansowane**wyświetlane są następujące konfiguracje:
 
-
-|  | |
-|---------|---------|
-|Wyróżnij wyrazy     | Określa, czy wyniki wyszukiwania są wyświetlane pogrubioną czcionką.         |
-|Element docelowy linku    |  Określa, czy strona sieci Web otwiera się w nowej karcie przeglądarki (pustej) czy na tej samej karcie przeglądarki (samodzielnej), gdy użytkownik kliknie wynik wyszukiwania.        |
+- Wyróżnij wyrazy: określa, czy wyniki wyszukiwania są wyświetlane pogrubioną czcionką.
+- Obiekt docelowy linku: określa, czy strona sieci Web otwiera się w nowej karcie przeglądarki (pustej) czy na tej samej karcie przeglądarki (samodzielnej), gdy użytkownik kliknie wynik wyszukiwania.
 
 ### <a name="image-search-configurations"></a>Konfiguracje wyszukiwania obrazów
 
-| | |
-|---------|---------|
-|Wyniki obrazu są włączone     | Określa, czy jest włączone wyszukiwanie obrazów (w górnej części strony zostanie wyświetlona karta obrazy).            |
-|Wyniki obrazu na stronę     | Liczba wyników wyszukiwania obrazów, które mają być wyświetlane w danym momencie (wartość maksymalna to 150 wyników na stronie).          |
+- Wyniki obrazu włączone: określa, czy wyszukiwanie obrazów jest włączone (karta obrazy w górnej części strony).
+- Wyniki obrazu na stronę: liczba wyników wyszukiwania obrazów do wyświetlenia w danym momencie (wartość maksymalna to 150 wyników na stronie).
 
 Po kliknięciu przycisku **Pokaż konfiguracje zaawansowane**zostanie wyświetlona następująca konfiguracja.  
   
-| | |
-|---------|---------|
-| Włącz filtry     | Dodaje filtry, których użytkownik może użyć do filtrowania obrazów zwracanych przez usługę Bing. Na przykład użytkownik może filtrować wyniki tylko dla animowanych plików GIF.|
+- Włącz filtry: dodaje filtry, których użytkownik może użyć do filtrowania obrazów zwracanych przez usługę Bing. Na przykład użytkownik może filtrować wyniki tylko dla animowanych plików GIF.
 
 ### <a name="video-search-configurations"></a>Konfiguracje wyszukiwania wideo
 
-|  | |
-|---------|---------|
-|Wyniki wideo włączone     | Określa, czy funkcja wyszukiwania wideo jest włączona (karta wideo znajduje się u góry strony).           |
-|Wyniki wideo na stronę   | Liczba wyników wyszukiwania wideo, które mają być wyświetlane w danym momencie (wartość maksymalna to 150 wyników na stronie).        |
+- Wyniki wideo włączone: określa, czy wyszukiwanie wideo jest włączone (karta wideo znajduje się u góry strony).
+- Wyniki wideo na stronę: liczba wyników wyszukiwania wideo do wyświetlenia w danym momencie (maksymalna liczba wyników na stronę to 150).
 
 Po kliknięciu przycisku **Pokaż konfiguracje zaawansowane**zostanie wyświetlona następująca konfiguracja.  
   
-|  | |
-|---------|---------|
-|Włącz filtry    | Dodaje filtry, których użytkownik może użyć do filtrowania filmów wideo zwracanych przez usługę Bing. Na przykład użytkownik może filtrować wyniki filmów wideo z określoną rozdzielczością lub klipami wideo odnalezionymi w ciągu ostatnich 24 godzin.          |
+- Włącz filtry: dodaje filtry, których użytkownik może używać do filtrowania filmów wideo zwracanych przez usługę Bing. Na przykład użytkownik może filtrować wyniki filmów wideo z określoną rozdzielczością lub klipami wideo odnalezionymi w ciągu ostatnich 24 godzin.
 
 ### <a name="miscellaneous-configurations"></a>Różne konfiguracje
 
-
-| |  |
-|---------|---------|
-|Tytuł strony   | Tekst wyświetlany w obszarze tytułu strony wyników wyszukiwania (nie dla układu wyskakującego).        |
-|Motyw paska narzędzi    | Określa kolor tła obszaru tytułu strony wyników wyszukiwania. |
+- Tytuł strony: tekst wyświetlany w obszarze tytułu strony wyników wyszukiwania (nie dla układu wyskakującego).
+- Motyw paska narzędzi: Określa kolor tła obszaru tytułu strony wyników wyszukiwania.
 
 Po kliknięciu przycisku **Pokaż konfiguracje zaawansowane**wyświetlane są następujące konfiguracje.  
 

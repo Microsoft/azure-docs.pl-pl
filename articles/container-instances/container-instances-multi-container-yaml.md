@@ -2,17 +2,18 @@
 title: Samouczek — wdrażanie wielokontenerowych grup — YAML
 description: W tym samouczku dowiesz się, jak wdrożyć grupę kontenerów z wieloma kontenerami w Azure Container Instances przy użyciu pliku YAML z interfejsem wiersza polecenia platformy Azure.
 ms.topic: article
-ms.date: 04/03/2019
-ms.openlocfilehash: c029a9c605548b828c96fa741e12a43930ec4b01
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/01/2020
+ms.openlocfilehash: f101d19814687082ab02955a3a860486d3988211
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83653503"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169684"
 ---
 # <a name="tutorial-deploy-a-multi-container-group-using-a-yaml-file"></a>Samouczek: wdrażanie wielokontenerowej grupy przy użyciu pliku YAML
 
 > [!div class="op_single_selector"]
-> * [YAML](container-instances-multi-container-yaml.md)
+> * [Technologia YAML](container-instances-multi-container-yaml.md)
 > * [Resource Manager](container-instances-multi-container-group.md)
 >
 
@@ -45,7 +46,7 @@ code deploy-aci.yaml
 Ten plik YAML definiuje grupę kontenerów o nazwie "model kontenera" z dwoma kontenerami, publicznym adresem IP i dwoma uwidocznionymi portami. Kontenery są wdrażane z publicznych obrazów firmy Microsoft. Pierwszy kontener w grupie uruchamia internetową aplikację sieci Web. Drugi kontener, Przyczepka, okresowo wysyła żądania HTTP do aplikacji sieci Web uruchomionej w pierwszym kontenerze za pośrednictwem sieci lokalnej grupy kontenerów.
 
 ```YAML
-apiVersion: 2018-10-01
+apiVersion: 2019-12-01
 location: eastus
 name: myContainerGroup
 properties:
@@ -132,9 +133,9 @@ Dane wyjściowe:
 
 ```console
 listening on port 80
-::1 - - [21/Mar/2019:23:17:48 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
-::1 - - [21/Mar/2019:23:17:51 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
-::1 - - [21/Mar/2019:23:17:54 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
+::1 - - [02/Jul/2020:23:17:48 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
+::1 - - [02/Jul/2020:23:17:51 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
+::1 - - [02/Jul/2020:23:17:54 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
 ```
 
 Aby wyświetlić dzienniki dla kontenera przyczepki, uruchom podobne polecenie określające `aci-tutorial-sidecar` kontener.
@@ -146,7 +147,7 @@ az container logs --resource-group myResourceGroup --name myContainerGroup --con
 Dane wyjściowe:
 
 ```console
-Every 3s: curl -I http://localhost                          2019-03-21 20:36:41
+Every 3s: curl -I http://localhost                          2020-07-02 20:36:41
 
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
@@ -159,7 +160,7 @@ Last-Modified: Wed, 29 Nov 2017 06:40:40 GMT
 ETag: W/"67f-16006818640"
 Content-Type: text/html; charset=UTF-8
 Content-Length: 1663
-Date: Thu, 21 Mar 2019 20:36:41 GMT
+Date: Thu, 02 Jul 2020 20:36:41 GMT
 Connection: keep-alive
 ```
 

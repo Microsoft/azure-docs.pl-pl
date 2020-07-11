@@ -13,12 +13,12 @@ ms.date: 03/17/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur, lenalepa, sureshja, kkrishna
 ms.custom: aaddev
-ms.openlocfilehash: f4b76bd91a47f14104a9f7f23a4a545ee3d40e59
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6a48467100e396ed1b43544d1b10ae5007415e3e
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85477859"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86201953"
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>Instrukcje: Logowanie się dowolnego użytkownika usługi Azure Active Directory za pomocą wzorca aplikacji wielodostępnych
 
@@ -71,15 +71,21 @@ Aplikacje sieci Web i interfejsy API sieci Web odbierają i weryfikują tokeny z
 
 Przyjrzyjmy się, jak aplikacja sprawdza poprawność tokenów odbieranych z platformy tożsamości firmy Microsoft. Aplikacja pojedynczej dzierżawy zwykle przyjmuje wartość punktu końcowego, taką jak:
 
+```http
     https://login.microsoftonline.com/contoso.onmicrosoft.com
+```
 
 i używa go do konstruowania adresu URL metadanych (w tym przypadku OpenID Connect Connect), takich jak:
 
+```http
     https://login.microsoftonline.com/contoso.onmicrosoft.com/.well-known/openid-configuration
+```
 
 Aby pobrać dwie krytyczne informacje, które są używane do weryfikacji tokenów: klucze podpisywania i wartość wystawcy dzierżawcy. Każda dzierżawa usługi Azure AD ma unikatową wartość wystawcy w postaci:
 
+```http
     https://sts.windows.net/31537af4-6d77-4bb9-a681-d2394888ea26/
+```
 
 gdzie GUID wartością jest wersja z bezpiecznym zmianami identyfikatora dzierżawy dzierżawy. W przypadku wybrania poprzedniego linku metadanych dla programu `contoso.onmicrosoft.com` można zobaczyć tę wartość wystawcy w dokumencie.
 
@@ -87,7 +93,9 @@ Gdy aplikacja pojedynczej dzierżawy zweryfikuje token, sprawdza podpis tokenu w
 
 Ponieważ punkt końcowy/typowe nie odpowiada dzierżawcy i nie jest wystawcą, podczas badania wartości wystawcy w metadanych dla/typowe ma adres URL z szablonem, a nie rzeczywistą wartość:
 
+```http
     https://sts.windows.net/{tenantid}/
+```
 
 W związku z tym aplikacja wielodostępna nie może zweryfikować tokenów tylko przez dopasowanie wartości wystawcy w metadanych przy użyciu `issuer` wartości w tokenie. Aplikacja wielodostępna wymaga logiki, która decyduje o tym, które wartości wystawcy są prawidłowe i które nie są oparte na części identyfikatora dzierżawy wartości wystawcy. 
 
@@ -133,9 +141,11 @@ Aplikacja może mieć wiele warstw, z których każda jest reprezentowana przez 
 
 #### <a name="multiple-tiers-in-a-single-tenant"></a>Wiele warstw w jednej dzierżawie
 
-Może to być problem, jeśli aplikacja logiczna składa się z co najmniej dwóch rejestracji aplikacji, na przykład oddzielnego klienta i zasobu. Jak należy najpierw pobrać zasób do dzierżawy klienta? Usługa Azure AD omawia ten przypadek, umożliwiając klientowi i zalogowanie się w jednym kroku. Użytkownik widzi łączną sumę uprawnień wymaganych przez klienta i zasób na stronie wyrażania zgody. Aby włączyć to zachowanie, Rejestracja aplikacji zasobu musi zawierać identyfikator aplikacji klienta jako element `knownClientApplications` w [manifeście aplikacji][AAD-App-Manifest]. Przykład:
+Może to być problem, jeśli aplikacja logiczna składa się z co najmniej dwóch rejestracji aplikacji, na przykład oddzielnego klienta i zasobu. Jak należy najpierw pobrać zasób do dzierżawy klienta? Usługa Azure AD omawia ten przypadek, umożliwiając klientowi i zalogowanie się w jednym kroku. Użytkownik widzi łączną sumę uprawnień wymaganych przez klienta i zasób na stronie wyrażania zgody. Aby włączyć to zachowanie, Rejestracja aplikacji zasobu musi zawierać identyfikator aplikacji klienta jako element `knownClientApplications` w [manifeście aplikacji][AAD-App-Manifest]. Na przykład:
 
+```aad-app-manifest
     knownClientApplications": ["94da0930-763f-45c7-8d26-04d5938baab2"]
+```
 
 Jest to zademonstrowane w ramach wielowarstwowego, natywnego wywołania interfejsu API sieci Web w sekcji [powiązanej zawartości](#related-content) na końcu tego artykułu. Poniższy diagram zawiera omówienie wyrażania zgody dla aplikacji wielowarstwowej zarejestrowanej w ramach jednej dzierżawy.
 
@@ -178,7 +188,7 @@ W tym artykule przedstawiono sposób tworzenia aplikacji, która może zalogowa�
 * [Przykład aplikacji z wieloma dzierżawcami](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/master/2-WebApp-graph-user/2-3-Multi-Tenant/README.md)
 * [Wytyczne dotyczące oznaczania aplikacji marką][AAD-App-Branding]
 * [Obiekty aplikacji i obiekty główne usługi][AAD-App-SP-Objects]
-* [Integrating applications with Azure Active Directory][AAD-Integrating-Apps] (Integrowanie aplikacji za pomocą usługi Azure Active Directory)
+* [Integrowanie aplikacji z usługą Azure Active Directory][AAD-Integrating-Apps]
 * [Przegląd struktury zgody][AAD-Consent-Overview]
 * [Zakresy uprawnień interfejsu API Microsoft Graph][MSFT-Graph-permission-scopes]
 

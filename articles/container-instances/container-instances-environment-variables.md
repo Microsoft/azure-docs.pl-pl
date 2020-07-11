@@ -3,11 +3,12 @@ title: Ustawianie zmiennych środowiskowych w wystąpieniu kontenera
 description: Dowiedz się, jak ustawiać zmienne środowiskowe w kontenerach uruchamianych w Azure Container Instances
 ms.topic: article
 ms.date: 04/17/2019
-ms.openlocfilehash: c3c76ba0c6131a8ab3de68c13c9dfddaf7e8749a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 92ae59f69b7cb43fee1d3ce8190a85fc20a11f60
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84686736"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169769"
 ---
 # <a name="set-environment-variables-in-container-instances"></a>Ustawianie zmiennych środowiskowych w wystąpieniach kontenerów
 
@@ -165,7 +166,7 @@ Ustaw bezpieczną zmienną środowiskową, określając `secureValue` właściwo
 Utwórz `secure-env.yaml` plik z następującym fragmentem kodu.
 
 ```yaml
-apiVersion: 2018-10-01
+apiVersion: 2019-12-01
 location: eastus
 name: securetest
 properties:

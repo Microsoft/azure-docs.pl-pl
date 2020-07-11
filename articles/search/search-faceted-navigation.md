@@ -8,11 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 4d2ee2bccf94dca933981c3070323b659eab6cfa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f7bf1c8f3f1ecbb21207776a99bba99d123ea891
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83836094"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171945"
 ---
 # <a name="how-to-implement-faceted-navigation-in-azure-cognitive-search"></a>Jak wdrożyć nawigację aspektową na platformie Azure Wyszukiwanie poznawcze
 
@@ -37,7 +38,7 @@ W tym artykule jest na przykład wykorzystywany Portal wyszukiwania zadań. Przy
 
 - Pobierz kod z [repozytorium Azure-Samples w witrynie GitHub](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs).
 
-## <a name="get-started"></a>Rozpoczęcie pracy
+## <a name="get-started"></a>Wprowadzenie
 Jeśli dopiero zaczynasz opracowywanie aplikacji, najlepszym sposobem na podejście do nawigowania po aspektach jest wyświetlenie możliwości wyszukiwania z własnym kierowaniem. Jest to typ środowiska wyszukiwania przechodzenia do szczegółów na podstawie wstępnie zdefiniowanych filtrów, służący do szybkiego zawężania wyników wyszukiwania przez akcje typu punkt-kliknięcie. 
 
 ### <a name="interaction-model"></a>Model interakcji
@@ -283,10 +284,12 @@ W przypadku przechodzenia do szczegółów, zazwyczaj chcesz uwzględnić tylko 
 
 Wyniki aspektów są dokumentami znalezionymi w wynikach wyszukiwania, które pasują do warunku aspektu. W poniższym przykładzie, w wynikach wyszukiwania w przypadku *chmury obliczeniowej*, elementy 254 również mają *wewnętrzną specyfikację* jako typ zawartości. Elementy niekoniecznie wykluczają się wzajemnie. Jeśli element spełnia kryteria obu filtrów, jest liczony w każdym z nich. To duplikowanie jest możliwe w przypadku aspektów dla `Collection(Edm.String)` pól, które są często używane do implementowania tagowania dokumentów.
 
-        Search term: "cloud computing"
-        Content type
-           Internal specification (254)
-           Video (10) 
+```output
+Search term: "cloud computing"
+Content type
+   Internal specification (254)
+   Video (10)
+```
 
 Ogólnie rzecz biorąc, jeśli okaże się, że wyniki aspektów są stale zbyt duże, zalecamy dodanie kolejnych filtrów, aby zapewnić użytkownikom więcej opcji zawężania wyszukiwania.
 
@@ -344,7 +347,7 @@ W przypadku danych liczbowych można użyć listy wartości.  Weź pod uwagę za
 
 Aby określić zakres aspektów podobny do przedstawionego na poprzednim zrzucie ekranu, Użyj listy wartości:
 
-    facet=listPrice,values:10|25|100|500|1000|2500
+> `facet=listPrice,values:10|25|100|500|1000|2500`
 
 Każdy zakres jest tworzony przy użyciu 0 jako punkt początkowy, wartość z listy jako punkt końcowy, a następnie przycięta z poprzedniego zakresu w celu utworzenia odrębnych interwałów. Usługa Azure Wyszukiwanie poznawcze wykonuje te czynności jako część nawigacji aspektowej. Nie trzeba pisać kodu do tworzenia struktury każdego interwału.
 
@@ -394,7 +397,7 @@ Podczas pracy z wynikami wyszukiwania Obejrzyj adres URL pod kątem zmian w kons
    
 <a name="nextstep"></a>
 
-## <a name="learn-more"></a>Więcej tutaj
+## <a name="learn-more"></a>Dowiedz się więcej
 Obejrzyj [platformę Azure wyszukiwanie poznawcze głębokie szczegółowe](https://channel9.msdn.com/Events/TechEd/Europe/2014/DBI-B410). Na 45:25 znajduje się pokaz dotyczący implementacji aspektów.
 
 Aby uzyskać więcej szczegółowych informacji na temat zasad projektowania dla nawigacji aspektowej, zalecamy następujące linki:

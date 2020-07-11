@@ -2,12 +2,13 @@
 title: Konfigurowanie sondy gotowości dla wystąpienia kontenera
 description: Dowiedz się, jak skonfigurować sondę, aby upewnić się, że kontenery w Azure Container Instances odbierają żądania tylko wtedy, gdy są gotowe
 ms.topic: article
-ms.date: 01/30/2020
-ms.openlocfilehash: 64bb4a3e429ce820835abbf8e235600e592f7868
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/02/2020
+ms.openlocfilehash: 3e89086d66f284df35e36dc8f1d68bb09264843f
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76935676"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169667"
 ---
 # <a name="configure-readiness-probes"></a>Konfigurowanie sond gotowości
 
@@ -25,7 +26,7 @@ Azure Container Instances obsługuje również [sondy na żywo](container-instan
 Na przykład Utwórz `readiness-probe.yaml` plik z następującym fragmentem kodu zawierającym sondę gotowości. Ten plik definiuje grupę kontenerów, która składa się z kontenera z uruchomioną małą aplikacją internetową. Aplikacja jest wdrażana z obrazu publicznego `mcr.microsoft.com/azuredocs/aci-helloworld` . Ta aplikacja kontenera jest również przedstawiona w temacie [Wdrażanie wystąpienia kontenera na platformie Azure przy użyciu interfejsu wiersza polecenia platformy Azure](container-instances-quickstart.md) i innych przewodników Szybki Start.
 
 ```yaml
-apiVersion: 2018-10-01
+apiVersion: 2019-12-01
 location: eastus
 name: readinesstest
 properties:

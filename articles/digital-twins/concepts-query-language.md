@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/26/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 3196004015046b4d3d2789745c80d323bacdced9
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 6da539ccd8ad293aed402a4a6d130b6701e7b9c2
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85985245"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187119"
 ---
 # <a name="about-the-query-language-for-azure-digital-twins"></a>Informacje o języku zapytań dla usługi Azure Digital bliźniaczych reprezentacji
 
@@ -30,10 +30,10 @@ Oto operacje dostępne w języku magazynu zapytań usługi Azure Digital bliźni
 * Pobierz bliźniaczych reprezentacji według właściwości relacji.
 * Pobierz bliźniaczych reprezentacji przez wiele typów relacji ( `JOIN` zapytania). Istnieją ograniczenia liczby `JOIN` dozwolonych elementów (jeden poziom dla publicznej wersji zapoznawczej).
 * Użyj funkcji niestandardowej `IS_OF_MODEL(twinCollection, twinTypeName)` , która umożliwia filtrowanie na podstawie [modelu](concepts-models.md)przędzy. Obsługuje dziedziczenie.
-* Użyj dowolnej kombinacji ( `AND` , `OR` , `NOT` operator) powyższego.
 * Użyj funkcji skalarnych: `IS_BOOL` ,,,, `IS_DEFINED` `IS_NULL` `IS_NUMBER` `IS_OBJECT` ,,, `IS_PRIMITIVE` `IS_STRING` `STARTS_WITH` , `ENDS_WITH` .
-* Użyj operatorów porównania zapytania: `AND` / `OR` / `NOT` ,,,, `IN` / `NOT IN` `STARTSWITH` / `ENDSWITH` `=` `!=` , `<` , `>` , `<=` , `>=` .
-* Użyj kontynuacji: obiekt zapytania jest skonkretyzowany przy użyciu rozmiaru strony (do 100). Możesz pobrać cyfrowy bliźniaczych reprezentacji po jednej stronie w danym momencie przez powtarzające się wywołania `nextAsTwin` metody.
+* Użyj operatorów porównania zapytania: `IN` / `NIN` , `=` ,,, `!=` `<` `>` , `<=` , `>=` .
+* Użyj dowolnej kombinacji ( `AND` , `OR` , `NOT` operator) powyższego.
+* Użyj kontynuacji: obiekt zapytania jest skonkretyzowany przy użyciu rozmiaru strony (do 100). Możesz pobrać cyfrowy bliźniaczych reprezentacji jedną stronę jednocześnie, dostarczając token kontynuacji podczas kolejnych wywołań interfejsu API.
 
 ## <a name="next-steps"></a>Następne kroki
 

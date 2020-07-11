@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 05/26/2020
-ms.openlocfilehash: 41724753df0d529e4c44344e8e975e68ee5eafd6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b29b5fa1beb19bc055f94c56b064ae2c0ae175b5
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84904596"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171146"
 ---
 # <a name="convert-to-image-directory"></a>Konwertowanie na katalog obrazów
 
@@ -24,11 +24,15 @@ W tym artykule opisano sposób użycia modułu Konwertuj na katalog obrazu w cel
 
 1.  Dodaj do eksperymentu moduł **Konwertuj na katalog obrazu** . Ten moduł można znaleźć w kategorii "przetwarzanie obrazów/transformacje danych obrazu" na liście modułów. 
 
-2.  Połącz zestaw danych obrazu jako dane wejściowe. Upewnij się, że w wejściowym zestawie danych znajduje się obraz.
+2.  [Zarejestruj zestaw danych obrazu](https://docs.microsoft.com/azure/machine-learning/how-to-create-register-datasets) i połącz go z portem wejściowym modułu. Upewnij się, że w wejściowym zestawie danych znajduje się obraz. 
     Obsługiwane są następujące formaty zestawu danych:
 
     - Skompresowany plik w tych rozszerzeniach: "zip", ". tar", ". gz", ". bz2".
     - Folder zawierający obrazy. **Zdecydowanie zaleca się kompresowanie takiego folderu jako pierwszy, a następnie użycie skompresowanego pliku jako zestawu danych**.
+
+    > [!WARNING]
+    > **Nie można** użyć modułu **Import danych** w celu zaimportowania zestawu danych obrazu, ponieważ typ danych wyjściowych modułu **importowania danych** jest katalogiem Dataframe, który zawiera tylko ciąg ścieżki pliku.
+    
 
     > [!NOTE]
     > Jeśli Użyj zestawu danych obrazu w nadzorowanej uczeniu, etykieta jest wymagana.

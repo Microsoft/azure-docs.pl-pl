@@ -4,11 +4,12 @@ description: Dowiedz się, jak obsługiwać zdarzenia zewnętrzne w rozszerzeniu
 ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 0877161f8d668141c8efb7c06b10643bf209341f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 387b5d920de4a295366cc7e948862a12cea901d3
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76262966"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86165553"
 ---
 # <a name="handling-external-events-in-durable-functions-azure-functions"></a>Obsługa zdarzeń zewnętrznych w Durable Functions (Azure Functions)
 
@@ -19,7 +20,7 @@ Funkcje programu Orchestrator mają możliwość oczekiwania i nasłuchiwania zd
 
 ## <a name="wait-for-events"></a>Zaczekaj na zdarzenia
 
-`WaitForExternalEvent`Metody (.NET) i `waitForExternalEvent` (JavaScript) [powiązania wyzwalacza aranżacji](durable-functions-bindings.md#orchestration-trigger) umożliwiają funkcji programu Orchestrator, która asynchronicznie czeka i nasłuchuje na zewnętrznym zdarzeniu. Funkcja programu Orchestrator nasłuchiwanie deklaruje *nazwę* zdarzenia i *kształt danych* , które oczekuje na odebranie.
+Metody [WaitForExternalEvent](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_WaitForExternalEvent_) (.NET) i `waitForExternalEvent` (JavaScript) [powiązania wyzwalacza aranżacji](durable-functions-bindings.md#orchestration-trigger) pozwalają funkcji programu Orchestrator na asynchroniczne oczekiwanie na zdarzenie zewnętrzne i nasłuchiwanie. Funkcja programu Orchestrator nasłuchiwanie deklaruje *nazwę* zdarzenia i *kształt danych* , które oczekuje na odebranie.
 
 # <a name="c"></a>[C#](#tab/csharp)
 
@@ -172,7 +173,14 @@ module.exports = df.orchestrator(function*(context) {
 
 ## <a name="send-events"></a>Wysyłanie zdarzeń
 
-`RaiseEventAsync`Metoda (.NET) lub `raiseEvent` (JavaScript) [powiązania klienta aranżacji](durable-functions-bindings.md#orchestration-client) wysyła zdarzenia, które `WaitForExternalEvent` (.NET) lub `waitForExternalEvent` (JavaScript) czekają na.  `RaiseEventAsync`Metoda przyjmuje wartość *EventName* i *eventData* jako parametry. Dane zdarzenia muszą być serializowane w formacie JSON.
+Możesz użyć metod [RaiseEventAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RaiseEventAsync_) (.NET) lub `raiseEventAsync` (JavaScript) do wysyłania zdarzenia zewnętrznego do aranżacji. Te metody są udostępniane przez powiązanie [klienta aranżacji](durable-functions-bindings.md#orchestration-client) . Możesz również użyć wbudowanego [interfejsu API protokołu HTTP zdarzenia](durable-functions-http-api.md#raise-event) do wysyłania zdarzenia zewnętrznego do aranżacji.
+
+Zdarzenie wywoływane zawiera *Identyfikator wystąpienia*, *EventName*i *eventData* jako parametry. Funkcje programu Orchestrator obsługują te zdarzenia przy użyciu `WaitForExternalEvent` interfejsów API (.NET) lub `waitForExternalEvent` (JavaScript). Nazwa *zdarzenia* musi być zgodna zarówno po stronie wysyłającej, jak i odbiorczej, aby można było przetworzyć zdarzenie. Dane zdarzenia muszą być również serializowane w formacie JSON.
+
+Wewnętrznie, mechanizmy "zgłoś zdarzenie" w kolejce komunikatu, który jest pobierany przez oczekującą funkcję programu Orchestrator. Jeśli wystąpienie nie oczekuje na określoną *nazwę zdarzenia,* komunikat o zdarzeniu zostanie dodany do kolejki w pamięci. Jeśli wystąpienie aranżacji rozpocznie nasłuchiwanie dla tej *nazwy zdarzenia,* sprawdza kolejkę komunikatów o zdarzeniach.
+
+> [!NOTE]
+> Jeśli nie istnieje wystąpienie aranżacji o określonym *identyfikatorze wystąpienia*, komunikat o zdarzeniu zostanie odrzucony.
 
 Poniżej znajduje się przykładowa funkcja wyzwalana przez kolejki, która wysyła zdarzenie "zatwierdzenie" do wystąpienia funkcji programu Orchestrator. Identyfikator wystąpienia aranżacji pochodzi z treści komunikatu w kolejce.
 
@@ -208,6 +216,19 @@ Wewnętrznie, `RaiseEventAsync` (.NET) lub `raiseEvent` (JavaScript) enqueues ko
 
 > [!NOTE]
 > Jeśli nie istnieje wystąpienie aranżacji o określonym *identyfikatorze wystąpienia*, komunikat o zdarzeniu zostanie odrzucony.
+
+### <a name="http"></a>HTTP
+
+Poniżej znajduje się przykład żądania HTTP, które wywołuje zdarzenie "zatwierdzenie" do wystąpienia aranżacji. 
+
+```http
+POST /runtime/webhooks/durabletask/instances/MyInstanceId/raiseEvent/Approval&code=XXX
+Content-Type: application/json
+
+"true"
+```
+
+W takim przypadku identyfikator wystąpienia jest stałe jako obiekt *InstanceId*.
 
 ## <a name="next-steps"></a>Następne kroki
 

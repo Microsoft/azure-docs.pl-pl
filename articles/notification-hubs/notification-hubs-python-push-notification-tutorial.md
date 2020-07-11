@@ -17,11 +17,12 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.custom: tracking-python
-ms.openlocfilehash: e94448debe3e846e37dcffa81a6a6a28f0f7d757
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: af03d0fc091c34bfef7f38b1a215832086de57c6
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84561198"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86220069"
 ---
 # <a name="how-to-use-notification-hubs-from-python"></a>Jak używać Notification Hubs w języku Python
 
@@ -382,7 +383,7 @@ Uruchomienie kodu w języku Python powinno spowodować wyświetlenie powiadomien
 
 Po włączeniu flagi debugowania podczas inicjowania NotificationHub zobaczysz szczegółowy zrzut żądań HTTP i odpowiedzi, a także NotificationOutcome jak poniżej, gdzie można zrozumieć, jakie nagłówki HTTP są przesyłane w żądaniu i jakie odpowiedzi HTTP odebrano z centrum powiadomień:
 
-![][1]
+![Zrzut ekranu przedstawiający konsolę z szczegółowymi informacjami na temat żądania i zrzutu odpowiedzi i komunikatów o wyniku powiadomienia, pokreślonych na czerwono.][1]
 
 Zobaczysz na przykład szczegółowy wynik centrum powiadomień.
 
@@ -403,7 +404,7 @@ Zwróć uwagę na nagłówki, które są wysyłane podczas wysyłania wyskakują
 hub.send_windows_notification(wns_payload)
 ```
 
-![][2]
+![Zrzut ekranu konsoli zawierającej szczegóły żądania H T P oraz format powiadomienia Service Bus i wartości typu X W N S podane na czerwono.][2]
 
 ### <a name="send-notification-specifying-a-tag-or-tag-expression"></a>Wyślij powiadomienie określające tag (lub wyrażenie tagu)
 
@@ -413,7 +414,7 @@ Zwróć uwagę na nagłówek HTTP, który zostanie dodany do żądania HTTP (w p
 hub.send_windows_notification(wns_payload, "sports")
 ```
 
-![][3]
+![Zrzut ekranu konsoli zawierającej szczegóły żądania H T P oraz Service Bus format powiadomienia, Service Bus Tagi powiadomień i X W N S, które są podane na czerwono.][3]
 
 ### <a name="send-notification-specifying-multiple-tags"></a>Wyślij powiadomienie z podaniem wielu tagów
 
@@ -424,7 +425,7 @@ tags = {'sports', 'politics'}
 hub.send_windows_notification(wns_payload, tags)
 ```
 
-![][4]
+![Zrzut ekranu konsoli zawierającej szczegóły żądania H T P oraz Service Bus format powiadomienia, Service Bus Tagi powiadomień i X W N S, które są podane na czerwono.][4]
 
 ### <a name="templated-notification"></a>Powiadomienie z szablonem
 
@@ -443,7 +444,7 @@ template_payload = {'greeting_en': 'Hello', 'greeting_fr': 'Salut'}
 hub.send_template_notification(template_payload)
 ```
 
-![][5]
+![Zrzut ekranu konsoli zawierającej szczegóły żądania H T P i typu zawartości oraz Service Bus wartości formatu powiadomień pokreślonych na czerwono.][5]
 
 ## <a name="next-steps"></a>Następne kroki
 

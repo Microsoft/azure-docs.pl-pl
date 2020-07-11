@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 009b1ff08f9a3a0b840a20a01be5b16cd28d4533
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 49045c8b8c7b3ccfa44a1077e59683191393e1ee
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85833107"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86220817"
 ---
 # <a name="using-an-internal-load-balancer-with-an-app-service-environment"></a>Używanie wewnętrznego Load Balancer z App Service Environment
 
@@ -22,7 +22,7 @@ ms.locfileid: "85833107"
 
 Funkcja App Service Environment (ASE) to opcja usługi Premium Azure App Service, która zapewnia rozszerzoną funkcję konfiguracji, która nie jest dostępna w sygnaturach z wieloma dzierżawcami. Funkcja ASE zasadniczo wdraża Azure App Service w usłudze Azure Virtual Network (VNet). Aby uzyskać lepsze zrozumienie możliwości oferowanych przez App Service środowiska, przeczytaj artykuł [co to jest App Service Environment][WhatisASE] dokumentacja. Jeśli nie znasz korzyści płynących z używania sieci wirtualnej, zapoznaj się z tematem [często zadawanych pytań dotyczących platformy Azure Virtual Network][virtualnetwork]. 
 
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 Środowisko ASE można wdrożyć za pomocą punktu końcowego dostępnego z Internetu lub z adresem IP w sieci wirtualnej. Aby ustawić adres IP na adres sieci wirtualnej, należy wdrożyć środowisko ASE przy użyciu wewnętrznego Load Balancer (ILB). Gdy środowisko ASE jest skonfigurowane z ILB, należy udostępnić:
 
 * Twoja domena lub poddomena. Aby to ułatwić, ten dokument zakłada, że jest poddomeną, ale można go skonfigurować w dowolny sposób. 
@@ -54,7 +54,7 @@ Tworzenie środowiska ILB ASE nie różni się od tworzenia w normalnych warunka
 7. Podaj nazwę domeny podrzędnej (Ta nazwa jest poddomeną używaną dla aplikacji tworzonych w tym środowisku ASE).
 8. Wybierz przycisk **OK** , a następnie **Utwórz**.
 
-![][1]
+![Pokazuje ekrany używane do tworzenia ILB środowiska ASE.][1]
 
 W okienku Virtual Network jest dostępna opcja konfiguracji sieci wirtualnej, która umożliwia wybranie między zewnętrznym adresem VIP lub wewnętrznym adresem VIP. Wartość domyślna to Zewnętrzny. Jeśli jest ustawiona na zewnętrzny, środowisko ASE używa adresu VIP dostępnego z Internetu. W przypadku wybrania opcji Wewnętrzny środowisko ASE jest skonfigurowane z wewnętrznym modułem równoważenia obciążenia i adresem IP w sieci wirtualnej. 
 
@@ -70,7 +70,7 @@ Tworzenie aplikacji w środowisku ILB ASE jest takie samo jak w przypadku normal
 5. Wybierz lub Utwórz plan App Service (ASP). W przypadku tworzenia nowego środowiska ASP Wybierz środowisko ASE jako lokalizację i wybierz pulę procesów roboczych, w której ma zostać utworzona wartość ASP. Podczas tworzenia środowiska ASP należy wybrać środowisko ASE jako lokalizację i pulę procesów roboczych. Po określeniu nazwy aplikacji zobaczysz, że poddomena w ramach nazwy aplikacji jest zastępowana poddomeną dla środowiska ASE. 
 6. Wybierz pozycję **Utwórz**. Zaznacz pole wyboru **Przypnij do pulpitu nawigacyjnego** , jeśli chcesz, aby aplikacja była wyświetlana na pulpicie nawigacyjnym. 
 
-![][2]
+![Pokazuje, jak utworzyć aplikację w ILB ASE w Azure Portal.][2]
 
 W obszarze Nazwa aplikacji nazwa poddomeny zostanie zaktualizowana w celu odzwierciedlenia poddomeny środowiska ASE. 
 
@@ -79,11 +79,11 @@ W obszarze Nazwa aplikacji nazwa poddomeny zostanie zaktualizowana w celu odzwie
 
 Po utworzeniu środowiska ASE należy zauważyć, że poddomena zawiera określoną poddomenę, a w menu **Ustawienia** o nazwie **certyfikat ILB**jest dostępny nowy element. Środowisko ASE jest tworzone z certyfikatem z podpisem własnym, co ułatwia testowanie protokołu HTTPS. Portal informuje o tym, że musisz podać własny certyfikat dla protokołu HTTPS, ale ma to na celu zachęcanie do posiadania certyfikatu z poddomeną. 
 
-![][3]
+![Pokazuje poddomenę określoną podczas tworzenia środowiska ASE.][3]
 
 Jeśli chcesz po prostu próbować i nie wiesz, jak utworzyć certyfikat, możesz użyć aplikacji konsolowej MMC usług IIS do utworzenia certyfikatu z podpisem własnym. Po jego utworzeniu można wyeksportować go jako plik PFX, a następnie przekazać go w interfejsie użytkownika certyfikatu ILB. Gdy uzyskujesz dostęp do witryny zabezpieczonej przy użyciu certyfikatu z podpisem własnym, przeglądarka wyświetli ostrzeżenie, że dostęp do witryny nie jest bezpieczny z powodu braku możliwości zweryfikowania certyfikatu. Jeśli chcesz uniknąć tego ostrzeżenia, będziesz potrzebować prawidłowo podpisanego certyfikatu, który jest zgodny z poddomeną i ma łańcuch zaufania, który jest rozpoznawany przez przeglądarkę.
 
-![][6]
+![Pokazuje, jak utworzyć certyfikat z podpisem własnym za pomocą aplikacji konsoli MMC usług IIS.][6]
 
 Jeśli chcesz wypróbować przepływ z własnymi certyfikatami i przetestować dostęp do środowiska ASE przy użyciu protokołów HTTP i HTTPS:
 
@@ -98,7 +98,7 @@ Jeśli chcesz wypróbować przepływ z własnymi certyfikatami i przetestować d
 
 Adres IP ILB jest wyświetlany na liście właściwości jako wirtualny adres IP.
 
-![][4]
+![Pokazuje, że adres IP ILB jest wyświetlany w właściwościach jako wirtualny adres IP.][4]
 
 ## <a name="using-an-ilb-ase"></a>Korzystanie z ILB ASE
 #### <a name="network-security-groups"></a>Grupy zabezpieczeń sieci
@@ -108,7 +108,7 @@ Aby dodatkowo ograniczyć dostęp do programu sieciowych grup zabezpieczeń, nal
 
 Aby skonfigurować sieciowych grup zabezpieczeń, musisz znać adres IP używany przez platformę Azure do zarządzania środowiskiem ASE. Ten adres IP jest również wychodzącym adresem IP z środowiska ASE, jeśli wykonuje żądania internetowe. Wychodzący adres IP dla środowiska ASE pozostaje statyczny dla cyklu życia środowiska ASE. Jeśli usuniesz i utworzysz ponownie środowisko ASE, otrzymasz nowy adres IP. Aby znaleźć adres IP, przejdź do pozycji **Ustawienia-> właściwości** i Znajdź **wychodzący adres IP**. 
 
-![][5]
+![Pokazuje, gdzie można znaleźć wychodzący adres IP dla środowiska ASE.][5]
 
 #### <a name="general-ilb-ase-management"></a>Ogólne zarządzanie ILB ASE
 Zarządzanie ILB ASE jest w dużym stopniu takie samo jak w przypadku normalnego zarządzania środowiskiem ASE. Należy skalować pule procesów roboczych, aby hostować więcej wystąpień ASP i skalować serwery frontonu w celu obsługi zwiększonych ilości ruchu HTTP/HTTPS. Aby uzyskać ogólne informacje na temat zarządzania konfiguracją środowiska ASE, zobacz [konfigurowanie App Service Environment][ASEConfig]. 

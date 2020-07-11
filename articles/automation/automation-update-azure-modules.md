@@ -5,11 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 06/14/2019
 ms.topic: conceptual
-ms.openlocfilehash: 892197c79285495f49a870bbe79eb75229af2940
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9cc5e5107784d447640ef0ae77d412885b1e5668
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83831028"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185776"
 ---
 # <a name="update-azure-powershell-modules"></a>Aktualizowanie modułów programu Azure PowerShell
 
@@ -37,7 +38,7 @@ Element Runbook **Update-AutomationAzureModulesForAccount** obsługuje domyślni
 
 ## <a name="use-update-runbook-code-as-a-regular-powershell-script"></a>Użyj aktualizacji kodu elementu Runbook jako zwykłego skryptu programu PowerShell
 
-Możesz użyć kodu elementu Runbook jako zwykłego skryptu programu PowerShell zamiast elementu Runbook. Aby to zrobić, najpierw Zaloguj się do platformy Azure przy użyciu polecenia cmdlet [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-3.7.0) , a następnie Przekaż `-Login $false` do skryptu.
+Możesz użyć kodu elementu Runbook jako zwykłego skryptu programu PowerShell zamiast elementu Runbook. Aby to zrobić, najpierw Zaloguj się do platformy Azure przy użyciu polecenia cmdlet [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount?view=azps-3.7.0) , a następnie Przekaż `-Login $false` do skryptu.
 
 ## <a name="use-the-update-runbook-on-sovereign-clouds"></a>Używanie elementu Runbook aktualizacji w chmurach suwerennych
 

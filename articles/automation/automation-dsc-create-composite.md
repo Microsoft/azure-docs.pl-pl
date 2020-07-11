@@ -10,11 +10,12 @@ ms.author: migreene
 ms.date: 08/08/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: b3a49fac5600e6338d5fb56281a3360f0abaa39a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8c834caa2285135b7d39c440489b42c366418042
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83836978"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186473"
 ---
 # <a name="convert-configurations-to-composite-resources"></a>Konwertowanie konfiguracji do zasobów złożonych
 
@@ -42,14 +43,14 @@ Tworzenie zasobów złożonych po raz pierwszy może być przeciążone.
 Zostało utworzone rozwiązanie obsługiwane przez społeczność o nazwie [CompositeResource](https://github.com/microsoft/compositeresource) , aby rozwiązać ten problem.
 
 CompositeResource automatyzuje proces tworzenia nowego modułu na podstawie konfiguracji.
-Rozpoczynając od [kropki](https://blogs.technet.microsoft.com/heyscriptingguy/2010/08/10/how-to-reuse-windows-powershell-functions-in-scripts/) pozyskuje skrypt konfiguracji na stacji roboczej (lub serwerze kompilacji), tak aby został załadowany w pamięci.
+Rozpoczynając od [kropki](https://devblogs.microsoft.com/scripting/how-to-reuse-windows-powershell-functions-in-scripts/) pozyskuje skrypt konfiguracji na stacji roboczej (lub serwerze kompilacji), tak aby został załadowany w pamięci.
 Następnie zamiast uruchamiać konfigurację w celu wygenerowania pliku MOF, użyj funkcji dostarczonej przez moduł CompositeResource w celu zautomatyzowania konwersji.
 Polecenie cmdlet spowoduje załadowanie zawartości konfiguracji, uzyskanie listy parametrów i wygenerowanie nowego modułu ze wszystkimi potrzebnymi elementami.
 
 Po wygenerowaniu modułu można zwiększyć wersję i dodać informacje o wersji za każdym razem, gdy wprowadzisz zmiany i opublikujesz je w twoim własnym [repozytorium PowerShellGet](https://powershellexplained.com/2018-03-03-Powershell-Using-a-NuGet-server-for-a-PSRepository/?utm_source=blog&utm_medium=blog&utm_content=psscriptrepo).
 
-Po utworzeniu złożonego modułu zasobów z konfiguracją (lub wieloma konfiguracjami) można używać ich w ramach [tworzenia](/azure/automation/compose-configurationwithcompositeresources) i przekazywania plików MOF do [skryptów konfiguracji DSC](/powershell/scripting/dsc/configurations/configurations) w celu wygenerowania plików MOF i [przekazania ich do Azure Automation](/azure/automation/tutorial-configure-servers-desired-state#create-and-upload-a-configuration-to-azure-automation).
-Następnie zarejestruj serwery [lokalnie](/azure/automation/automation-dsc-onboarding#onboarding-physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azure-including-aws-ec2-instances) lub na [platformie Azure](/azure/automation/automation-dsc-onboarding#onboarding-azure-vms) , aby przeprowadzić konfigurację ściągania.
+Po utworzeniu złożonego modułu zasobów z konfiguracją (lub wieloma konfiguracjami) można używać ich w ramach [tworzenia](./compose-configurationwithcompositeresources.md) i przekazywania plików MOF do [skryptów konfiguracji DSC](/powershell/scripting/dsc/configurations/configurations) w celu wygenerowania plików MOF i [przekazania ich do Azure Automation](./tutorial-configure-servers-desired-state.md#create-and-upload-a-configuration-to-azure-automation).
+Następnie zarejestruj serwery [lokalnie](./automation-dsc-onboarding.md#enable-physicalvirtual-linux-machines) lub na [platformie Azure](./automation-dsc-onboarding.md#enable-azure-vms) , aby przeprowadzić konfigurację ściągania.
 Najnowsza aktualizacja projektu opublikowała również [elementy Runbook](https://www.powershellgallery.com/packages?q=DscGallerySamples) dla Azure Automation w celu zautomatyzowania procesu importowania konfiguracji z Galeria programu PowerShell.
 
 Aby wypróbować automatyzację tworzenia zasobów złożonych dla DSC, odwiedź [Galeria programu PowerShell](https://www.powershellgallery.com/packages/compositeresource/) i Pobierz rozwiązanie lub kliknij pozycję "Witryna projektu", aby wyświetlić [dokumentację](https://github.com/microsoft/compositeresource).

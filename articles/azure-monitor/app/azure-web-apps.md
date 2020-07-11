@@ -3,12 +3,12 @@ title: Monitorowanie wydajności usługi Azure App Services | Microsoft Docs
 description: Monitorowanie wydajności aplikacji dla usług Azure App Services. Załaduj wykres i czas odpowiedzi, informacje o zależnościach i ustaw alerty wydajności.
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: 0f4d4dedab30839db56cb47ac7ac103413f2d4be
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 574aefa4d554be7b0027c921289d8d15cffb8e49
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82733468"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169939"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Monitorowanie wydajności usługi Azure App Service
 
@@ -58,7 +58,7 @@ Istnieją dwa sposoby włączania monitorowania aplikacji na platformie Azure Ap
  
  Poniżej znajduje się podsumowanie danych zbieranych dla każdej trasy:
         
-|  | Podstawowa kolekcja .NET | Zalecana kolekcja .NET |
+| Dane | Podstawowa kolekcja .NET | Zalecana kolekcja .NET |
 | --- | --- | --- |
 | Dodanie trendów użycia procesora, pamięci i operacji we/wy |Tak |Tak |
 | Zbieranie trendów użycia z możliwością korelacji wyników dostępności z transakcjami | Tak |Tak |
@@ -116,9 +116,9 @@ Monitorowanie po stronie klienta jest zgodą na ASP.NET. Aby włączyć monitoro
 * Wybierz pozycję **ustawienia** > * * * * ustawienia aplikacji * * * *
    * W obszarze Ustawienia aplikacji Dodaj nową nazwę i **wartość** **Ustawienia aplikacji** :
 
-     Nazwij`APPINSIGHTS_JAVASCRIPT_ENABLED`
+     Nazwa: `APPINSIGHTS_JAVASCRIPT_ENABLED`
 
-     Wartość:`true`
+     Wartość: `true`
 
    * **Zapisz** ustawienia i **ponownie uruchom** aplikację.
 
@@ -137,7 +137,7 @@ Jeśli z jakiegoś powodu chcesz wyłączyć monitorowanie po stronie klienta:
 
      Nazwij`APPINSIGHTS_JAVASCRIPT_ENABLED`
 
-     Wartość:`false`
+     Wartość: `false`
 
    * **Zapisz** ustawienia i **ponownie uruchom** aplikację.
 
@@ -376,7 +376,7 @@ Poniżej przedstawiono Przewodnik rozwiązywania problemów krok po kroku dotycz
 
 Poniższa tabela zawiera bardziej szczegółowy opis znaczenia tych wartości, ich podstawowych przyczyn i zalecanych poprawek:
 
-|Wartość problemu|Objaśnienie|Poprawka
+|Wartość problemu|Objaśnienie|Wprowadzanie poprawek
 |---- |----|---|
 | `AppAlreadyInstrumented:true` | Ta wartość wskazuje, że rozszerzenie wykryło, że jakiś aspekt zestawu SDK jest już obecny w aplikacji i zostanie wycofany. Może to być spowodowane odwołaniem do `System.Diagnostics.DiagnosticSource` , `Microsoft.AspNet.TelemetryCorrelation` lub`Microsoft.ApplicationInsights`  | Usuń odwołania. Niektóre z tych odwołań są domyślnie dodawane z niektórych szablonów programu Visual Studio, a starsze wersje programu Visual Studio mogą dodawać odwołania do programu `Microsoft.ApplicationInsights` .
 |`AppAlreadyInstrumented:true` | Jeśli aplikacja jest przeznaczona dla platformy .NET Core 2,1 lub 2,2 i odwołuje się do [Microsoft. AspNetCore. All](https://www.nuget.org/packages/Microsoft.AspNetCore.All) meta-Package, to jest Application Insights, a rozszerzenie zostanie wycofane. | Klienci korzystający z programu .NET Core 2.1, 2.2 [zalecają](https://github.com/aspnet/Announcements/issues/287) zamiast tego użycie metadanych Microsoft. AspNetCore. app.|

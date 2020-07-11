@@ -1,14 +1,15 @@
 ---
 title: Informacje o tym, jak alerty metryk działają w Azure Monitor.
 description: Zapoznaj się z informacjami o tym, co możesz zrobić z alertami metryk i jak działają w Azure Monitor.
-ms.date: 03/17/2020
+ms.date: 07/09/2020
 ms.topic: conceptual
 ms.subservice: alerts
-ms.openlocfilehash: 603df6f9b00c9261885937a3d85052b3806ff4f8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cd8c28b2c26e8859eda1634d2441982336cdd460
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84248825"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187527"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Omówienie działania alertów metryk w usłudze Azure Monitor
 
@@ -134,9 +135,13 @@ Ta funkcja jest obecnie obsługiwana w przypadku metryk platformy (nie metryk ni
 
 Zakres monitorowania można określić za pomocą jednej reguły alertu metryki na jeden z trzech sposobów. Na przykład z maszynami wirtualnymi można określić zakres jako:  
 
-- Lista maszyn wirtualnych w jednym regionie świadczenia usługi Azure w ramach subskrypcji
+- Lista maszyn wirtualnych (w jednym regionie świadczenia usługi Azure) w ramach subskrypcji
 - wszystkie maszyny wirtualne (w jednym regionie świadczenia usługi Azure) w jednej lub większej liczbie grup zasobów w subskrypcji
-- wszystkie maszyny wirtualne (w jednym regionie świadczenia usługi Azure) w jednej subskrypcji
+- wszystkie maszyny wirtualne (w jednym regionie świadczenia usługi Azure) w ramach subskrypcji
+
+> [!NOTE]
+>
+> Zakres reguły alertu metryki wielu zasobów musi zawierać co najmniej jeden zasób wybranego typu zasobu.
 
 Tworzenie reguł alertów dotyczących metryk, które monitorują wiele zasobów, jest podobne do [tworzenia dowolnego innego alertu dotyczącego metryki](alerts-metric.md) monitorującego pojedynczy zasób. Tylko różnica polega na tym, że należy wybrać wszystkie zasoby, które mają być monitorowane. Te reguły można również utworzyć za poorednictwem [szablonów Azure Resource Manager](../../azure-monitor/platform/alerts-metric-create-templates.md#template-for-a-metric-alert-that-monitors-multiple-resources). Zostaną odebrane indywidualne powiadomienia dla każdego monitorowanego zasobu.
 

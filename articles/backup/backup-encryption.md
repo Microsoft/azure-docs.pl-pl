@@ -3,12 +3,12 @@ title: Szyfrowanie w Azure Backup
 description: Dowiedz się więcej na temat sposobu, w jaki funkcje szyfrowania w Azure Backup ułatwiają ochronę danych kopii zapasowych i zaspokajanie potrzeb firmy.
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: ca570cfdc6e78e712715ba075168f4b06c55e4af
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: aafb9868dfb6a63ec9b6a3ae654b88b202a1a145
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86116560"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171826"
 ---
 # <a name="encryption-in-azure-backup"></a>Szyfrowanie w Azure Backup
 
@@ -26,8 +26,7 @@ Domyślnie wszystkie dane są szyfrowane przy użyciu kluczy zarządzanych przez
 
 Podczas tworzenia kopii zapasowej Virtual Machines platformy Azure można teraz szyfrować dane przy użyciu kluczy należących do Ciebie i zarządzanych przez użytkownika. Azure Backup umożliwia korzystanie z kluczy RSA przechowywanych w Azure Key Vault na potrzeby szyfrowania kopii zapasowych. Klucz szyfrowania używany do szyfrowania kopii zapasowych może być inny niż użyty dla źródła. Dane są chronione przy użyciu klucza szyfrowania danych opartego na protokole AES 256, który jest z kolei chroniony przy użyciu kluczy. Zapewnia to pełną kontrolę nad danymi i kluczami. Aby umożliwić szyfrowanie, wymagane jest przyznanie magazynowi Recovery Services dostępu do klucza szyfrowania w Azure Key Vault. W razie konieczności można wyłączyć klucz lub odwołać dostęp. Należy jednak włączyć szyfrowanie przy użyciu kluczy przed podjęciem próby włączenia ochrony wszystkich elementów do magazynu.
 
->[!NOTE]
->Ta funkcja jest obecnie w ograniczonej dostępności. Wypełnij [tę ankietę](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0H3_nezt2RNkpBCUTbWEapURE9TTDRIUEUyNFhNT1lZS1BNVDdZVllHWi4u) i Wyślij wiadomość e-mail na adres, AskAzureBackupTeam@microsoft.com Jeśli chcesz zaszyfrować dane kopii zapasowej przy użyciu kluczy zarządzanych przez klienta. Należy zauważyć, że możliwość korzystania z tej funkcji podlega zatwierdzeniu przez usługę Azure Backup.
+Przeczytaj więcej na temat sposobu szyfrowania danych kopii zapasowej przy [użyciu kluczy zarządzanych](encryption-at-rest-with-cmk.md)przez klienta.
 
 ## <a name="backup-of-managed-disk-vms-encrypted-using-customer-managed-keys"></a>Kopia zapasowa maszyn wirtualnych z dyskami zarządzanymi szyfrowanymi przy użyciu kluczy zarządzanych przez klienta
 
@@ -38,7 +37,7 @@ Azure Backup umożliwia również tworzenie kopii zapasowych maszyn wirtualnych 
 Oprócz szyfrowania danych w magazynie Recovery Services przy użyciu kluczy zarządzanych przez klienta można również wybrać dodatkową warstwę szyfrowania skonfigurowaną w infrastrukturze magazynu. To szyfrowanie infrastruktury jest zarządzane przez platformę i wraz z szyfrowaniem w stanie spoczynku przy użyciu kluczy zarządzanych przez klienta, dzięki czemu możliwe jest szyfrowanie dwóch warstw danych kopii zapasowej. Należy zauważyć, że szyfrowanie infrastruktury można skonfigurować tylko wtedy, gdy użytkownik najpierw zdecyduje się użyć własnych kluczy do szyfrowania w stanie spoczynku. Szyfrowanie infrastruktury używa kluczy zarządzanych przez platformę do szyfrowania danych.
 
 >[!NOTE]
->Szyfrowanie infrastruktury jest obecnie w ograniczonej wersji zapoznawczej i jest dostępne tylko w regionach Wschodnie stany USA, Stany USA West2 i regiony Południowo-środkowe USA. Jeśli chcesz użyć funkcji w dowolnym z tych regionów, Wypełnij [ten formularz](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0H3_nezt2RNkpBCUTbWEapUN0VHNEpJS0ZUWklUNVdJSTEzR0hIOVRMVC4u) i Wyślij wiadomość e-mail na adres [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com) .
+>Szyfrowanie infrastruktury jest obecnie w ograniczonej wersji zapoznawczej i jest dostępne w regionach Wschodnie stany USA, Stany USA West2, Południowo-środkowe stany USA, US Gov Arizona i stany USA GOV Wirginia. Jeśli chcesz użyć funkcji w dowolnym z tych regionów, Wypełnij [ten formularz](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0H3_nezt2RNkpBCUTbWEapUN0VHNEpJS0ZUWklUNVdJSTEzR0hIOVRMVC4u) i Wyślij wiadomość e-mail na adres [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com) .
 
 ## <a name="backup-of-vms-encrypted-using-ade"></a>Tworzenie kopii zapasowych maszyn wirtualnych zaszyfrowanych przy użyciu systemu ADE
 

@@ -5,11 +5,12 @@ services: automation
 ms.date: 03/04/2020
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: 332ff4f6e63a831c1523c3f959708f9dc48a72a9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5ff6e0ffd4040393a040dc67a511aab47887f6e1
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84171059"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186269"
 ---
 # <a name="enable-change-tracking-and-inventory-from-an-azure-vm"></a>Włączanie śledzenia zmian i spisu na maszynie wirtualnej platformy Azure
 
@@ -21,7 +22,7 @@ W tym artykule opisano, jak można użyć maszyny wirtualnej platformy Azure w c
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * Subskrypcja platformy Azure. Jeśli nie masz subskrypcji, możesz [aktywować korzyści dla subskrybentów MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) lub utworzyć [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* [Konto usługi Automation](automation-offering-get-started.md) do zarządzania maszynami.
+* [Konto usługi Automation](./index.yml) do zarządzania maszynami.
 * [Maszyna wirtualna](../virtual-machines/windows/quick-create-portal.md).
 
 ## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure

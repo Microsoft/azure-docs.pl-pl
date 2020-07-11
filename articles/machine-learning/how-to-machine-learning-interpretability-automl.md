@@ -1,5 +1,5 @@
 ---
-title: Wyjaśnienie w zautomatyzowanej ML
+title: Wyjaśnienie w zautomatyzowanej ML (wersja zapoznawcza)
 titleSuffix: Azure Machine Learning
 description: Dowiedz się, jak uzyskać wyjaśnienia dotyczące sposobu, w jaki twój zautomatyzowany model ML określa ważność funkcji i wykonuje przewidywania przy użyciu zestawu SDK Azure Machine Learning.
 services: machine-learning
@@ -8,14 +8,15 @@ ms.subservice: core
 ms.topic: how-to
 ms.author: mesameki
 author: mesameki
-ms.date: 03/11/2020
-ms.openlocfilehash: 6fcebb34f82565fcf83a9535e8c036231c5b3cf7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/09/2020
+ms.openlocfilehash: af3fe7bffbf985936a1648088daaf1a294a69905
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84430529"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206598"
 ---
-# <a name="interpretability-model-explanations-in-automated-machine-learning"></a>Interpretowanie: Omówienie modelu w automatycznej usłudze Machine Learning
+# <a name="interpretability-model-explanations-in-automated-machine-learning-preview"></a>Interpretowanie: Omówienie modelu w zautomatyzowanej usłudze Machine Learning (wersja zapoznawcza)
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 

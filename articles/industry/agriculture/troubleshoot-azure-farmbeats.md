@@ -5,11 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: b82d415d5e0cf18250123f3483e196aa040285dd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6527ee8be64d57b42d7753c266a5c416ceeef589
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83656822"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187714"
 ---
 # <a name="troubleshoot"></a>Rozwiązywanie problemów
 
@@ -313,3 +314,39 @@ Ten problem może wystąpić, jeśli na serwerze wskaźnikowym są wykonywane ja
 1. Przejdź do grupy zasobów FarmBeats Datahub.
 2. Wybierz **usługę App Service**.  
 3. Przejdź do strony skalowanie w górę [App Service cennika](https://azure.microsoft.com/pricing/details/app-service/windows/), a następnie wybierz odpowiednią warstwę cenową.
+
+## <a name="weather-data-job-failures"></a>Błędy zadań dla danych pogody
+
+**Błąd**: uruchamiasz zadania w celu uzyskania danych pogodowych, ale zadanie kończy się niepowodzeniem
+
+### <a name="collect-logs-to-troubleshoot-weather-data-job-failures"></a>Zbieranie dzienników w celu rozwiązywania błędów zadań dotyczących danych pogody
+
+1. Przejdź do grupy zasobów FarmBeats w Azure Portal.
+2. Kliknij usługę Data Factory, która jest częścią grupy zasobów. Usługa będzie mieć tag "SKU: Datahub"
+
+> [!NOTE]
+> Aby wyświetlić Tagi usług w grupie zasobów, kliknij pozycję "Edytuj kolumny" i Dodaj "Tagi" do widoku grupy zasobów
+
+:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-1.png" alt-text="FarmBeats projektu":::
+
+3. Na stronie Przegląd fabryki danych kliknij pozycję **Tworzenie i monitorowanie**. Zostanie otwarta nowa karta w przeglądarce. Kliknij pozycję **monitor**
+
+:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-2.png" alt-text="FarmBeats projektu":::
+
+4. Zostanie wyświetlona lista uruchomień potoków, które są częścią wykonywania zadania pogodowego. Kliknij zadanie, dla którego chcesz zebrać dzienniki
+ 
+:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-3.png" alt-text="FarmBeats projektu":::
+
+5. Na stronie Przegląd potoku zostanie wyświetlona lista uruchomień działania. Zanotuj identyfikatory przebiegu działań, dla których chcesz zebrać dzienniki
+ 
+:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-4.png" alt-text="FarmBeats projektu":::
+
+6. Wróć do grupy zasobów FarmBeats w Azure Portal i kliknij konto magazynu o nazwie **datahublogs-xxxx**
+ 
+:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-5.png" alt-text="FarmBeats projektu":::
+
+7. Kliknij pozycję **kontenery**  ->  **adfjobs**. W polu wyszukiwania wprowadź identyfikator uruchomienia zadania zanotowany w kroku 5 powyżej.
+ 
+:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-6.png" alt-text="FarmBeats projektu":::
+
+8. Wynik wyszukiwania będzie zawierać folder, w którym znajdują się dzienniki dotyczące danego zadania. Pobierz dzienniki i wyślij je do farmbeatssupport@microsoft.com pomocy w celu debugowania problemu.

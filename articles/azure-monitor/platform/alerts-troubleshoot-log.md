@@ -6,11 +6,12 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 10/29/2018
-ms.openlocfilehash: ab6ee597cfdc5d169bd33b77a061880b19e134b6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7be1c350af6c9bb84669b45a9bc8a1d9dd808133
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84300309"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86165638"
 ---
 # <a name="troubleshoot-log-alerts-in-azure-monitor"></a>Rozwiązywanie problemów z alertami dzienników w Azure Monitor  
 
@@ -182,9 +183,10 @@ Każda reguła alertu dziennika utworzona w Azure Monitor w ramach swojej konfig
 - Nie przekazano przepływu danych do platformy analitycznej. [Wykonanie zapytania powoduje błąd,](https://dev.loganalytics.io/documentation/Using-the-API/Errors) ponieważ nie ma danych dla podanego zapytania.
 - Zmiany w [języku zapytań](https://docs.microsoft.com/azure/kusto/query/) zawierają poprawiony format poleceń i funkcji. Dlatego zapytanie podane wcześniej w regule alertu nie jest już prawidłowe.
 
-[Azure Advisor](../../advisor/advisor-overview.md) ostrzega o tym zachowaniu. Zostanie dodane zalecenie dotyczące konkretnej reguły alertu dziennika na Azure Advisor, w kategorii wysoka dostępność z średnim wpływem oraz opis "Napraw regułę alertu dziennika w celu zapewnienia monitorowania". Jeśli zapytanie alertu w regule alertu dziennika nie zostanie usunięte po podaniu przez Azure Advisor zalecenia przez siedem dni, Azure Monitor spowoduje wyłączenie alertu dziennika i upewnienie się, że nie są one rozliczane niepotrzebnie w przypadku ciągłego uruchamiania reguły przez dłuższy czas (na przykład tydzień).
+[Azure Advisor](../../advisor/advisor-overview.md) ostrzega o tym zachowaniu. Zostanie dodane zalecenie dotyczące konkretnej reguły alertu dziennika na Azure Advisor, w kategorii wysoka dostępność z średnim wpływem oraz opis "Napraw regułę alertu dziennika w celu zapewnienia monitorowania".
 
-Dokładny czas, w którym Azure Monitor wyłączyć regułę alertu dziennika, można znaleźć, szukając zdarzenia w [dzienniku aktywności platformy Azure](../../azure-resource-manager/management/view-activity-logs.md).
+> [!NOTE]
+> Jeśli zapytanie alertu w regule alertu dziennika nie zostanie usunięte po podaniu przez Azure Advisor zalecenia przez siedem dni, Azure Monitor spowoduje wyłączenie alertu dziennika i upewnienie się, że nie są one rozliczane niepotrzebnie, gdy zasada nie będzie działać ciągle przez okres o zmiennym rozmiarze (7 dni). Dokładny czas, w którym Azure Monitor wyłączyć regułę alertu dziennika, można znaleźć, szukając zdarzenia w [dzienniku aktywności platformy Azure](../../azure-resource-manager/management/view-activity-logs.md).
 
 ## <a name="next-steps"></a>Następne kroki
 

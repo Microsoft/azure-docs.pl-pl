@@ -5,11 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/20/2019
 ms.topic: conceptual
-ms.openlocfilehash: bf2a60e1387ccdfb24ff5c5e166780c00506bac8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f2bf058ddce81ab9f04e97787a4dc93e44036b1b
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83832303"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186116"
 ---
 # <a name="use-runbooks-and-modules-in-powershell-gallery"></a>Używanie elementów runbook i modułów w Galerii programu PowerShell
 
@@ -100,12 +101,11 @@ Elementy Runbook języka Python są dostępne w [galerii centrum skryptów](http
 
 ## <a name="request-a-runbook-or-module"></a>Żądaj elementu Runbook lub modułu
 
-Możesz wysyłać żądania do [głosu użytkownika](https://feedback.azure.com/forums/246290-azure-automation/).  Jeśli potrzebujesz pomocy przy pisaniu elementu Runbook lub masz pytania dotyczące programu PowerShell, Opublikuj pytanie na naszej stronie pytań i odpowiedzi na [pytania&firmy Microsoft](https://docs.microsoft.com/answers/topics/azure-automation.html).
+Możesz wysyłać żądania do [głosu użytkownika](https://feedback.azure.com/forums/246290-azure-automation/).  Jeśli potrzebujesz pomocy przy pisaniu elementu Runbook lub masz pytania dotyczące programu PowerShell, Opublikuj pytanie na naszej stronie pytań i odpowiedzi na [pytania&firmy Microsoft](/answers/topics/azure-automation.html).
 
 ## <a name="next-steps"></a>Następne kroki
 
 * Aby rozpocząć pracę z elementem Runbook programu PowerShell, zobacz [Samouczek: Tworzenie elementu Runbook programu PowerShell](learn/automation-tutorial-runbook-textual-powershell.md).
 * Aby korzystać z elementów Runbook, zobacz [Zarządzanie elementami Runbook w Azure Automation](manage-runbooks.md).
-* Aby uzyskać szczegółowe informacje na temat programu PowerShell, zobacz dokumentację [programu PowerShell](https://docs.microsoft.com/powershell/scripting/overview).
-* * Aby uzyskać informacje dotyczące poleceń cmdlet programu PowerShell, zobacz [AZ. Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
-).
+* Aby uzyskać szczegółowe informacje na temat programu PowerShell, zobacz dokumentację [programu PowerShell](/powershell/scripting/overview).
+* * Aby uzyskać informacje dotyczące poleceń cmdlet programu PowerShell, zobacz [AZ. Automation](/powershell/module/az.automation/?view=azps-3.7.0#automation).

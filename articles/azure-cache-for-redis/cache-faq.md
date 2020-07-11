@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 04/29/2019
-ms.openlocfilehash: f0fba815cdc8425f016b74be7df36e5b28dfee3d
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: 9a6ee4f5b18c6747796f33bc433d1d40982205a3
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85856966"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185011"
 ---
 # <a name="azure-cache-for-redis-faq"></a>Azure Cache for Redis — często zadawane pytania
 Poznaj odpowiedzi na często zadawane pytania, wzorce oraz najlepsze rozwiązania dotyczące usługi Azure cache for Redis.
@@ -41,6 +41,7 @@ Poniższe często zadawane pytania obejmują podstawowe pojęcia i pytania dotyc
 * [Jakiej pamięci podręcznej platformy Azure dla oferty Redis i rozmiaru należy użyć?](#what-azure-cache-for-redis-offering-and-size-should-i-use)
 * [Pamięć podręczna Azure dla wydajności Redis](#azure-cache-for-redis-performance)
 * [W jakim regionie należy znaleźć moją pamięć podręczną?](#in-what-region-should-i-locate-my-cache)
+* [Gdzie znajdują się dane z pamięci podręcznej?](#where-do-my-cached-data-reside)
 * [Jak naliczane są opłaty za usługę Azure cache for Redis?](#how-am-i-billed-for-azure-cache-for-redis)
 * [Czy mogę używać usługi Azure cache for Redis z usługą Azure Government Cloud, chmurą z Chin platformy Azure lub Microsoft Azure (Niemcy)?](#can-i-use-azure-cache-for-redis-with-azure-government-cloud-azure-china-cloud-or-microsoft-azure-germany)
 
@@ -128,7 +129,7 @@ Z tej tabeli można narysować następujące wnioski:
 | Warstwa cenowa | Rozmiar | Rdzenie procesora CPU | Dostępna przepustowość | rozmiar wartości 1 KB | rozmiar wartości 1 KB |
 | --- | --- | --- | --- | --- | --- |
 | **Standardowe rozmiary pamięci podręcznej** | | |**Megabity na sekundę (MB/s)/megabajty na sekundę (MB/s)** |**Żądania na sekundę (RPS pliku) bez protokołu SSL** |**Żądania na sekundę (RPS pliku) SSL** |
-| C0 | 250 MB | Shared | 100/12,5  |  15 000 |   7500 |
+| C0 | 250 MB | Udostępniona | 100/12,5  |  15 000 |   7500 |
 | C1 |   1 GB | 1      | 500/62,5  |  38 000 |  20 720 |
 | C2 | 2,5 GB | 2      | 500/62,5  |  41 000 |  37 000 |
 | C3 |   6 GB | 4      | 1000/125  | 100 000 |  90 000 |
@@ -149,6 +150,13 @@ Instrukcje dotyczące konfigurowania stunnel lub pobierania narzędzi Redis, tak
 ### <a name="in-what-region-should-i-locate-my-cache"></a>W jakim regionie należy znaleźć moją pamięć podręczną?
 Aby uzyskać najlepszą wydajność i najmniejsze opóźnienia, zlokalizuj pamięć podręczną platformy Azure dla Redis w tym samym regionie, w którym znajduje się aplikacja kliencka pamięci podręcznej.
 
+### <a name="where-do-my-cached-data-reside"></a>Gdzie znajdują się dane z pamięci podręcznej?
+Usługa Azure cache for Redis przechowuje dane aplikacji w pamięci RAM maszyny wirtualnej lub maszyn wirtualnych w zależności od warstwy, która hostuje pamięć podręczną. Dane znajdują się wyłącznie w regionie świadczenia usługi Azure, który został wybrany domyślnie. Istnieją dwa przypadki, w których dane mogą opuścić region:
+  1. Po włączeniu trwałości w pamięci podręcznej usługa Azure cache for Redis będzie tworzyć kopie zapasowe danych na koncie usługi Azure Storage, którego jesteś własnym. Jeśli konto magazynu jest dostępne w innym regionie, kopia danych zostanie tam zakończona.
+  1. Jeśli skonfigurujesz replikację geograficzną, a pomocnicza pamięć podręczna znajduje się w innym regionie, w przeciwnym razie dane zostaną zreplikowane do tego regionu.
+
+Aby korzystać z tych funkcji, należy jawnie skonfigurować pamięć podręczną platformy Azure dla Redis. Masz również pełną kontrolę nad regionem, w którym znajduje się konto magazynu lub pomocnicza pamięć podręczna.
+
 <a name="cache-billing"></a>
 
 ### <a name="how-am-i-billed-for-azure-cache-for-redis"></a>Jak naliczane są opłaty za usługę Azure cache for Redis?
@@ -159,7 +167,7 @@ Tak. pamięć podręczna platformy Azure dla usługi Redis jest dostępna w chmu
 
 | Chmura   | Sufiks DNS dla Redis            |
 |---------|---------------------------------|
-| Public  | *. redis.cache.windows.net       |
+| Publiczny  | *. redis.cache.windows.net       |
 | US Gov  | *. redis.cache.usgovcloudapi.net |
 | Niemcy | *. redis.cache.cloudapi.de       |
 | Chiny   | *. redis.cache.chinacloudapi.cn  |
@@ -196,7 +204,7 @@ Zwykle wartości domyślne klienta są wystarczające. Możesz dostosować opcje
   * Użyj pojedynczego wystąpienia ConnectionMultiplexer dla aplikacji. Można użyć LazyConnection do utworzenia pojedynczego wystąpienia, które jest zwracane przez właściwość połączenia, jak pokazano w [Połącz z pamięcią podręczną przy użyciu klasy ConnectionMultiplexer](cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-the-cache).
   * Ustaw `ConnectionMultiplexer.ClientName` Właściwość na unikatową nazwę wystąpienia aplikacji dla celów diagnostycznych.
   * Używaj wielu `ConnectionMultiplexer` wystąpień dla obciążeń niestandardowych.
-      * Możesz obsłużyć ten model, jeśli masz różne obciążenia w aplikacji. Przykład:
+      * Możesz obsłużyć ten model, jeśli masz różne obciążenia w aplikacji. Na przykład:
       * Możesz mieć jeden multiplekser do celów związanych z dużymi kluczami.
       * Można mieć jeden multiplekser do obsługi małych kluczy.
       * Można ustawić różne wartości limitów czasu połączenia i logikę ponowień dla wszystkich używanych ConnectionMultiplexer.
@@ -215,20 +223,20 @@ Nie ma lokalnego emulatora dla usługi Azure cache for Redis, ale można uruchom
 
 ```csharp
 private static Lazy<ConnectionMultiplexer>
-      lazyConnection = new Lazy<ConnectionMultiplexer>
-    (() =>
+    lazyConnection = new Lazy<ConnectionMultiplexer> (() =>
     {
-        // Connect to a locally running instance of Redis to simulate a local cache emulator experience.
+        // Connect to a locally running instance of Redis to simulate
+        // a local cache emulator experience.
         return ConnectionMultiplexer.Connect("127.0.0.1:6379");
     });
 
-    public static ConnectionMultiplexer Connection
+public static ConnectionMultiplexer Connection
+{
+    get
     {
-        get
-        {
-            return lazyConnection.Value;
-        }
+        return lazyConnection.Value;
     }
+}
 ```
 
 Opcjonalnie można skonfigurować plik [Redis. conf](https://redis.io/topics/config) , aby lepiej pasował do [domyślnych ustawień pamięci](cache-configure.md#default-redis-server-configuration) podręcznej w pamięci podręcznej platformy Azure online dla Redis w razie potrzeby.
@@ -367,11 +375,11 @@ W zasadzie oznacza to, że gdy liczba zajętych wątków jest większa niż min,
 
 Jeśli zobaczysz przykładowy komunikat o błędzie z StackExchange. Redis (kompilacja 1.0.450 lub nowsza), zobaczysz, że teraz jest drukowana Statystyka puli wątków (zobacz szczegóły dotyczące portu i procesu roboczego).
 
-```output
-    System.TimeoutException: Timeout performing GET MyKey, inst: 2, mgr: Inactive,
-    queue: 6, qu: 0, qs: 6, qc: 0, wr: 0, wq: 0, in: 0, ar: 0,
-    IOCP: (Busy=6,Free=994,Min=4,Max=1000),
-    WORKER: (Busy=3,Free=997,Min=4,Max=1000)
+```
+System.TimeoutException: Timeout performing GET MyKey, inst: 2, mgr: Inactive,
+queue: 6, qu: 0, qs: 6, qc: 0, wr: 0, wq: 0, in: 0, ar: 0,
+IOCP: (Busy=6,Free=994,Min=4,Max=1000),
+WORKER: (Busy=3,Free=997,Min=4,Max=1000)
 ```
 
 W poprzednim przykładzie można zobaczyć, że dla wątku portu są sześć zajętych wątków, a system jest skonfigurowany tak, aby zezwalał na cztery minimalne wątki. W takim przypadku klient prawdopodobnie widzi opóźnienia 2 500-MS, ponieważ 6 > 4.
@@ -384,22 +392,22 @@ Mając te informacje, zdecydowanie zalecamy, aby klienci ustawili minimalną war
 
 Jak skonfigurować to ustawienie:
 
-* Zalecamy zmianę tego ustawienia programowo przy użyciu metody [puli wątków. SetMinThreads — (...)](/dotnet/api/system.threading.threadpool.setminthreads#System_Threading_ThreadPool_SetMinThreads_System_Int32_System_Int32_) w programie `global.asax.cs` . Przykład:
+* Zalecamy zmianę tego ustawienia programowo przy użyciu metody [puli wątków. SetMinThreads — (...)](/dotnet/api/system.threading.threadpool.setminthreads#System_Threading_ThreadPool_SetMinThreads_System_Int32_System_Int32_) w programie `global.asax.cs` . Na przykład:
 
-```cs
-private readonly int minThreads = 200;
-void Application_Start(object sender, EventArgs e)
-{
-    // Code that runs on application startup
-    AreaRegistration.RegisterAllAreas();
-    RouteConfig.RegisterRoutes(RouteTable.Routes);
-    BundleConfig.RegisterBundles(BundleTable.Bundles);
-    ThreadPool.SetMinThreads(minThreads, minThreads);
-}
-```
+    ```csharp
+    private readonly int minThreads = 200;
+    void Application_Start(object sender, EventArgs e)
+    {
+        // Code that runs on application startup
+        AreaRegistration.RegisterAllAreas();
+        RouteConfig.RegisterRoutes(RouteTable.Routes);
+        BundleConfig.RegisterBundles(BundleTable.Bundles);
+        ThreadPool.SetMinThreads(minThreads, minThreads);
+    }
+    ```
 
-  > [!NOTE]
-  > Wartość określona przez tę metodę jest ustawieniem globalnym wpływającym na całą domenę aplikacji. Na przykład jeśli masz maszynę 4-rdzeniową i chcesz ustawić *MinWorkerThreads* i *minIoThreads* na 50 na procesor CPU podczas wykonywania, użyj **puli wątków. SetMinThreads — (200, 200)**.
+    > [!NOTE]
+    > Wartość określona przez tę metodę jest ustawieniem globalnym wpływającym na całą domenę aplikacji. Na przykład jeśli masz maszynę 4-rdzeniową i chcesz ustawić *MinWorkerThreads* i *minIoThreads* na 50 na procesor CPU podczas wykonywania, użyj **puli wątków. SetMinThreads — (200, 200)**.
 
 * Można również określić ustawienie minimalnych wątków przy użyciu [Ustawienia konfiguracji *MinIoThreads* lub *MinWorkerThreads* ](https://msdn.microsoft.com/library/vstudio/7w2sway1(v=vs.100).aspx) w obszarze `<processModel>` elementu konfiguracji w programie `Machine.config` , zwykle znajdującego się pod adresem `%SystemRoot%\Microsoft.NET\Framework\[versionNumber]\CONFIG\` . **Ustawienie minimalnej liczby wątków w ten sposób zwykle nie jest zalecane, ponieważ jest to ustawienie na poziomie całego systemu.**
 
@@ -455,7 +463,7 @@ Poniżej przedstawiono kilka typowych przyczyn odłączenia pamięci podręcznej
   * Osiągnięto limity progu przepustowości.
   * Operacje związane z procesorem CPU trwały zbyt długo.
 * Przyczyny po stronie serwera
-  * W przypadku standardowej oferty pamięci podręcznej usługa Azure cache for Redis zainicjowała przechodzenie w tryb failover z węzła podstawowego do węzła pomocniczego.
+  * W przypadku standardowej oferty pamięci podręcznej usługa Azure cache for Redis zainicjowała przechodzenie w tryb failover z węzła podstawowego do węzła repliki.
   * Platforma Azure nastąpiła poprawka do wystąpienia, w którym została wdrożona pamięć podręczna
     * Może to dotyczyć aktualizacji serwera Redis lub ogólnej konserwacji maszyn wirtualnych.
 

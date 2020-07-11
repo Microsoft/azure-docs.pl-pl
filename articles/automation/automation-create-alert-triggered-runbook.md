@@ -5,11 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/29/2019
 ms.topic: conceptual
-ms.openlocfilehash: 1feadeaf2a905abee396c09829dab5e06c46d99c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: acf31af6d3ba3d78a6435210fa17562aaddac0a3
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83837114"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186609"
 ---
 # <a name="use-an-alert-to-trigger-an-azure-automation-runbook"></a>Użyj alertu, aby wyzwolić Azure Automation element Runbook
 
@@ -44,14 +45,14 @@ Zgodnie z opisem w poprzedniej sekcji każdy typ alertu ma inny schemat. Skrypt 
 
 Ten przykład używa alertu z maszyny wirtualnej. Pobiera dane dotyczące maszyn wirtualnych z ładunku, a następnie używa tych informacji do zatrzymania maszyny wirtualnej. Połączenie musi zostać skonfigurowane na koncie usługi Automation, na którym jest uruchomiony element Runbook. W przypadku wyzwalania elementów Runbook przy użyciu alertów ważne jest sprawdzenie stanu alertu w elemencie Runbook, który zostanie wyzwolony. Element Runbook jest wyzwalany za każdym razem, gdy zmienia się stan alertu. Alerty mają wiele stanów, a dwa Najczęstsze są aktywowane i rozwiązane. Sprawdź stan w logice elementu Runbook, aby upewnić się, że element Runbook nie działa więcej niż raz. W przykładzie w tym artykule pokazano, jak wyszukiwać alerty z aktywowanym stanem.
 
-Element Runbook używa `AzureRunAsConnection` [konta Uruchom jako](automation-create-runas-account.md) zasobu połączenia do uwierzytelniania za pomocą platformy Azure, aby wykonać akcję zarządzania względem maszyny wirtualnej.
+Element Runbook używa `AzureRunAsConnection` [konta Uruchom jako](./manage-runas-account.md) zasobu połączenia do uwierzytelniania za pomocą platformy Azure, aby wykonać akcję zarządzania względem maszyny wirtualnej.
 
 Użyj tego przykładu, aby utworzyć element Runbook o nazwie **stop-AzureVmInResponsetoVMAlert**. Możesz zmodyfikować skrypt programu PowerShell i używać go z wieloma różnymi zasobami.
 
 1. Przejdź do swojego konta Azure Automation.
 2. W obszarze **Automatyzacja procesów**wybierz pozycję **elementy Runbook**.
 3. W górnej części listy elementów Runbook wybierz pozycję **+ Utwórz element Runbook**.
-4. Na stronie **Dodawanie elementu Runbook** wprowadź polecenie **stop-AzureVmInResponsetoVMAlert** dla nazwy elementu Runbook. W polu Typ elementu Runbook wybierz pozycję **PowerShell**. Następnie wybierz pozycję **Utwórz**.  
+4. Na stronie **Dodawanie elementu Runbook** wprowadź polecenie **stop-AzureVmInResponsetoVMAlert** dla nazwy elementu Runbook. W polu Typ elementu Runbook wybierz pozycję **PowerShell**. Następnie wybierz przycisk **Utwórz**.  
 5. Skopiuj poniższy przykład programu PowerShell do strony **Edycja** .
 
     ```powershell-interactive
@@ -191,7 +192,7 @@ Alerty korzystają z grup akcji, które są kolekcjami akcji wyzwalanych przez a
 ## <a name="next-steps"></a>Następne kroki
 
 * Aby uruchomić element Runbook za pomocą elementu webhook, zobacz temat [Uruchamianie elementu Runbook z elementu webhook](automation-webhooks.md).
-* Aby poznać różne sposoby uruchamiania elementu Runbook, zobacz temat [Uruchamianie elementu Runbook](automation-starting-a-runbook.md).
+* Aby poznać różne sposoby uruchamiania elementu Runbook, zobacz temat [Uruchamianie elementu Runbook](./start-runbooks.md).
 * Aby utworzyć alert dziennika aktywności, zobacz [tworzenie alertów dziennika aktywności](../azure-monitor/platform/activity-log-alerts.md?toc=%2fazure%2fautomation%2ftoc.json).
 * Aby dowiedzieć się, jak utworzyć alert niemal w czasie rzeczywistym, zobacz [Tworzenie reguły alertu w Azure Portal](../azure-monitor/platform/alerts-metric.md?toc=/azure/azure-monitor/toc.json).
-* Aby uzyskać informacje dotyczące poleceń cmdlet programu PowerShell, zobacz [AZ. Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation).
+* Aby uzyskać informacje dotyczące poleceń cmdlet programu PowerShell, zobacz [AZ. Automation](/powershell/module/az.automation/?view=azps-3.7.0#automation).

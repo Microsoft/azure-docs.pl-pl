@@ -5,11 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.topic: conceptual
 ms.date: 10/30/2018
-ms.openlocfilehash: 3369a807410e9e959e8091d5b16c8480803d26bb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 38963a8e1bfdbde50439ed871aa33e9aaa830d35
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83830586"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185657"
 ---
 # <a name="track-updated-files-with-a-watcher-task"></a>Śledzenie zaktualizowanych plików przy użyciu zadania obserwatora
 
@@ -19,7 +20,7 @@ Azure Automation używa zadania obserwatora, aby wyszukać zdarzenia i wyzwalać
 > Zadania obserwatora nie są obsługiwane w przypadku platformy Azure w Chinach Vianet 21.
 
 > [!IMPORTANT]
-> Począwszy od maja 2020, używanie Azure Logic Apps jest obsługiwanym sposobem monitorowania zdarzeń, planowania cyklicznych zadań i wyzwalania akcji. Zobacz temat [Planowanie i uruchamianie cyklicznych zautomatyzowanych zadań, procesów i przepływów pracy przy użyciu Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/concepts-schedule-automated-recurring-tasks-workflows).
+> Począwszy od maja 2020, używanie Azure Logic Apps jest obsługiwanym sposobem monitorowania zdarzeń, planowania cyklicznych zadań i wyzwalania akcji. Zobacz temat [Planowanie i uruchamianie cyklicznych zautomatyzowanych zadań, procesów i przepływów pracy przy użyciu Azure Logic Apps](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md).
 
 Ten samouczek przeprowadzi Cię przez proces tworzenia zadania obserwatora do monitorowania po dodaniu nowego pliku do katalogu. Omawiane kwestie:
 
@@ -36,7 +37,7 @@ Ten samouczek przeprowadzi Cię przez proces tworzenia zadania obserwatora do mo
 Do wykonania czynności przedstawionych w tym samouczku są wymagane następujące elementy:
 
 * Subskrypcja platformy Azure. Jeśli nie masz subskrypcji, możesz [aktywować korzyści dla subskrybentów MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) lub utworzyć [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* [Konto usługi Automation](automation-offering-get-started.md) do przechowywania obserwatora i elementów Runbook akcji oraz zadania obserwatora.
+* [Konto usługi Automation](./index.yml) do przechowywania obserwatora i elementów Runbook akcji oraz zadania obserwatora.
 * [Hybrydowy proces roboczy elementu Runbook](automation-hybrid-runbook-worker.md) , w którym jest uruchamiane zadanie obserwatora.
 * Elementy Runbook programu PowerShell. Elementy Runbook przepływu pracy programu PowerShell nie są obsługiwane przez zadania obserwatora.
 
@@ -60,7 +61,7 @@ Możesz również zaimportować ten element Runbook do konta usługi Automation 
 
 ## <a name="create-an-automation-variable"></a>Tworzenie zmiennej automatyzacji
 
-[Zmienna automatyzacji](automation-variables.md) służy do przechowywania sygnatur czasowych, które poprzedni element Runbook odczytuje i zapisuje z każdego pliku.
+[Zmienna automatyzacji](./shared-resources/variables.md) służy do przechowywania sygnatur czasowych, które poprzedni element Runbook odczytuje i zapisuje z każdego pliku.
 
 1. Wybierz **zmienne** w obszarze **zasoby udostępnione** i kliknij pozycję **+ Dodaj zmienną**.
 1. Dla nazwy wprowadź wartość Watch-NewFileTimestamp.

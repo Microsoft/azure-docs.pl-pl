@@ -12,11 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2017
 ms.author: rohink
-ms.openlocfilehash: b0585c755e8dd9a6625a8259dc71ca521f156afb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 88c2536ad53be0beb583dc64e633322b2a531d15
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84704067"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86183447"
 ---
 # <a name="troubleshooting-degraded-state-on-azure-traffic-manager"></a>Rozwiązywanie problemów ze stanem obniżonej wydajności usługi Azure Traffic Manager
 
@@ -55,9 +56,11 @@ Invoke-WebRequest 'http://watestsdp2008r2.cloudapp.net/Probe' -MaximumRedirectio
 
 Przykładowe dane wyjściowe:
 
-    StatusCode StatusDescription
-    ---------- -----------------
-           301 Moved Permanently
+```output
+StatusCode StatusDescription
+---------- -----------------
+        301 Moved Permanently
+```
 
 Zwróć uwagę, że odebrano odpowiedź przekierowania. Jak wspomniano wcześniej, każdy kod błędu inny niż 200 jest traktowany jako błąd. Traffic Manager zmienia stan punktu końcowego na offline. Aby rozwiązać ten problem, sprawdź konfigurację witryny sieci Web, aby upewnić się, że można zwrócić prawidłowy kod StatusCode ze ścieżki sondy. Skonfiguruj ponownie sondę Traffic Manager, aby wskazywała ścieżkę zwracającą 200.
 

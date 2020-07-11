@@ -5,11 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 01/29/2019
 ms.topic: conceptual
-ms.openlocfilehash: 8ea32b2e393a13f1725ff7a83f4b4f2191b59ddb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 22ab982abe9f73aa77cb9bb2c8d3eaa383bc42fb
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83835312"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186218"
 ---
 # <a name="run-runbooks-on-a-hybrid-runbook-worker"></a>Uruchamianie elementów Runbook w hybrydowym procesie roboczym elementu Runbook
 
@@ -21,7 +22,7 @@ Podczas tworzenia elementu Runbook do uruchamiania w hybrydowym procesie roboczy
 
 Azure Automation obsługuje zadania dla hybrydowych procesów roboczych elementu Runbook nieco inaczej niż zadania uruchamiane w piaskownicach platformy Azure. Jeśli masz długotrwały element Runbook, upewnij się, że jest on odporny na możliwe ponowne uruchomienie. Aby uzyskać szczegółowe informacje o zachowaniu zadania, zobacz [hybrydowe zadania procesu roboczego elementu Runbook](automation-hybrid-runbook-worker.md#hybrid-runbook-worker-jobs).
 
-Należy pamiętać, że zadania dla hybrydowych procesów roboczych elementów Runbook działają w ramach lokalnego konta **systemowego** w systemie Windows lub konta **Nxautomation** w systemie Linux. W przypadku systemu Linux upewnij się, że konto **nxautomation** ma dostęp do lokalizacji, w której są przechowywane moduły Runbook. W przypadku korzystania z polecenia cmdlet [Install-module](/powershell/module/powershellget/install-module) należy określić ALLUSERS dla `Scope` parametru, aby upewnić się, że konto **nxautomation** ma dostęp. Aby uzyskać więcej informacji na temat programu PowerShell w systemie Linux, zobacz [znane problemy dotyczące programu PowerShell na platformach innych niż Windows](https://docs.microsoft.com/powershell/scripting/whats-new/known-issues-ps6?view=powershell-6#known-issues-for-powershell-on-non-windows-platforms).
+Należy pamiętać, że zadania dla hybrydowych procesów roboczych elementów Runbook działają w ramach lokalnego konta **systemowego** w systemie Windows lub konta **Nxautomation** w systemie Linux. W przypadku systemu Linux upewnij się, że konto **nxautomation** ma dostęp do lokalizacji, w której są przechowywane moduły Runbook. W przypadku korzystania z polecenia cmdlet [Install-module](/powershell/module/powershellget/install-module) należy określić ALLUSERS dla `Scope` parametru, aby upewnić się, że konto **nxautomation** ma dostęp. Aby uzyskać więcej informacji na temat programu PowerShell w systemie Linux, zobacz [znane problemy dotyczące programu PowerShell na platformach innych niż Windows](/powershell/scripting/whats-new/known-issues-ps6?view=powershell-6#known-issues-for-powershell-on-non-windows-platforms).
 
 ## <a name="set-up-runbook-permissions"></a>Konfigurowanie uprawnień elementu Runbook
 
@@ -33,7 +34,7 @@ Zdefiniuj uprawnienia dla elementu Runbook do działania w hybrydowym procesie r
 
 ## <a name="use-runbook-authentication-to-local-resources"></a>Używanie uwierzytelniania elementu Runbook w zasobach lokalnych
 
-W przypadku przygotowywania elementu Runbook, który zapewnia własne uwierzytelnianie dla zasobów, użyj zasobów [poświadczeń](automation-credentials.md) i [certyfikatów](automation-certificates.md) w elemencie Runbook. Istnieje kilka poleceń cmdlet, które umożliwiają określenie poświadczeń, aby element Runbook mógł być uwierzytelniany w różnych zasobach. Poniższy przykład przedstawia część elementu Runbook, który uruchamia ponownie komputer. Pobiera poświadczenia z zasobu poświadczeń i nazwy komputera z zasobu zmiennej, a następnie używa tych wartości z `Restart-Computer` poleceniem cmdlet.
+W przypadku przygotowywania elementu Runbook, który zapewnia własne uwierzytelnianie dla zasobów, użyj zasobów [poświadczeń](./shared-resources/credentials.md) i [certyfikatów](./shared-resources/certificates.md) w elemencie Runbook. Istnieje kilka poleceń cmdlet, które umożliwiają określenie poświadczeń, aby element Runbook mógł być uwierzytelniany w różnych zasobach. Poniższy przykład przedstawia część elementu Runbook, który uruchamia ponownie komputer. Pobiera poświadczenia z zasobu poświadczeń i nazwy komputera z zasobu zmiennej, a następnie używa tych wartości z `Restart-Computer` poleceniem cmdlet.
 
 ```powershell
 $Cred = Get-AutomationPSCredential -Name "MyCredential"
@@ -58,7 +59,7 @@ Wykonaj kolejne kroki, aby użyć zarządzanej tożsamości dla zasobów platfor
 2. Skonfiguruj zarządzane tożsamości dla zasobów platformy Azure na maszynie wirtualnej. Zobacz [Konfigurowanie zarządzanych tożsamości dla zasobów platformy Azure na maszynie wirtualnej przy użyciu Azure Portal](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#enable-system-assigned-managed-identity-on-an-existing-vm).
 3. Nadaj MASZYNom wirtualnym dostęp do grupy zasobów w Menedżer zasobów. Aby [uzyskać dostęp do Menedżer zasobów, Użyj tożsamości zarządzanej przypisanej przez system Windows VM](../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-arm.md#grant-your-vm-access-to-a-resource-group-in-resource-manager).
 4. Zainstaluj hybrydowy proces roboczy elementu Runbook na maszynie wirtualnej. Zobacz [wdrażanie hybrydowego procesu roboczego elementu Runbook systemu Windows](automation-windows-hrw-install.md) lub [wdrażanie hybrydowego procesu roboczego elementu Runbook z systemem Linux](automation-linux-hrw-install.md).
-5. Zaktualizuj element Runbook, aby użyć polecenia cmdlet [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-3.5.0) z `Identity` parametrem do uwierzytelniania w zasobach platformy Azure. Ta konfiguracja zmniejsza konieczność użycia konta Uruchom jako i umożliwia zarządzanie kontami skojarzonymi.
+5. Zaktualizuj element Runbook, aby użyć polecenia cmdlet [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount?view=azps-3.5.0) z `Identity` parametrem do uwierzytelniania w zasobach platformy Azure. Ta konfiguracja zmniejsza konieczność użycia konta Uruchom jako i umożliwia zarządzanie kontami skojarzonymi.
 
     ```powershell
     # Connect to Azure using the managed identities for Azure resources identity configured on the Azure VM that is hosting the hybrid runbook worker
@@ -73,7 +74,7 @@ Wykonaj kolejne kroki, aby użyć zarządzanej tożsamości dla zasobów platfor
 
 ## <a name="use-runbook-authentication-with-run-as-account"></a>Korzystanie z uwierzytelniania Runbook przy użyciu konta Uruchom jako
 
-Zamiast używać elementu Runbook do udostępniania zasobów lokalnych, można określić konto Uruchom jako dla grupy hybrydowych procesów roboczych elementu Runbook. W tym celu należy zdefiniować [zasób poświadczeń](automation-credentials.md) , który ma dostęp do zasobów lokalnych. Te zasoby obejmują magazyny certyfikatów i wszystkie elementy Runbook są uruchamiane w ramach tych poświadczeń w hybrydowym procesie roboczym elementu Runbook w grupie.
+Zamiast używać elementu Runbook do udostępniania zasobów lokalnych, można określić konto Uruchom jako dla grupy hybrydowych procesów roboczych elementu Runbook. W tym celu należy zdefiniować [zasób poświadczeń](./shared-resources/credentials.md) , który ma dostęp do zasobów lokalnych. Te zasoby obejmują magazyny certyfikatów i wszystkie elementy Runbook są uruchamiane w ramach tych poświadczeń w hybrydowym procesie roboczym elementu Runbook w grupie.
 
 Nazwa użytkownika dla poświadczenia musi mieć jeden z następujących formatów:
 
@@ -83,7 +84,7 @@ Nazwa użytkownika dla poświadczenia musi mieć jeden z następujących format�
 
 Aby określić konto Uruchom jako dla grupy hybrydowych procesów roboczych elementu Runbook, wykonaj czynności opisane w poniższej procedurze:
 
-1. Utwórz [zasób poświadczeń](automation-credentials.md) z dostępem do zasobów lokalnych.
+1. Utwórz [zasób poświadczeń](./shared-resources/credentials.md) z dostępem do zasobów lokalnych.
 2. Otwórz konto usługi Automation w Azure Portal.
 3. Wybierz pozycję **grupy hybrydowych procesów roboczych**, a następnie wybierz konkretną grupę.
 4. Wybierz **wszystkie ustawienia**, a następnie **Ustawienia grupy hybrydowych procesów roboczych**.
@@ -298,7 +299,7 @@ Możesz teraz przekazać podpisany element Runbook do Azure Automation i wykona�
 
 Po uruchomieniu elementu Runbook w Azure Portal zostanie wyświetlona opcja **Uruchom na** , dla której można wybrać **platformę Azure** lub **hybrydowy proces roboczy**. W przypadku wybrania opcji **hybrydowy proces roboczy**można wybrać grupę hybrydowych procesów roboczych elementu Runbook z listy rozwijanej.
 
-Podczas uruchamiania elementu Runbook przy użyciu programu PowerShell należy użyć `RunOn` parametru z poleceniem cmdlet [Start-AzAutomationRunbook](https://docs.microsoft.com/powershell/module/Az.Automation/Start-AzAutomationRunbook?view=azps-3.7.0) . Poniższy przykład używa środowiska Windows PowerShell, aby uruchomić element Runbook o nazwie **test-Runbook** w grupie hybrydowych procesów roboczych elementu Runbook o nazwie Moja hybrydowa.
+Podczas uruchamiania elementu Runbook przy użyciu programu PowerShell należy użyć `RunOn` parametru z poleceniem cmdlet [Start-AzAutomationRunbook](/powershell/module/Az.Automation/Start-AzAutomationRunbook?view=azps-3.7.0) . Poniższy przykład używa środowiska Windows PowerShell, aby uruchomić element Runbook o nazwie **test-Runbook** w grupie hybrydowych procesów roboczych elementu Runbook o nazwie Moja hybrydowa.
 
 ```azurepowershell-interactive
 Start-AzAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-Runbook" -RunOn "MyHybridGroup"
@@ -307,5 +308,5 @@ Start-AzAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name
 ## <a name="next-steps"></a>Następne kroki
 
 * Jeśli elementy Runbook nie zakończą się pomyślnie, zapoznaj się z przewodnikiem rozwiązywania problemów z [błędami wykonywania elementu Runbook](troubleshoot/hybrid-runbook-worker.md#runbook-execution-fails).
-* Aby uzyskać więcej informacji na temat programu PowerShell, w tym modułów dokumentacji i uczenia dotyczącej języka, zapoznaj się z dokumentacją programu [PowerShell](https://docs.microsoft.com/powershell/scripting/overview).
-* Aby uzyskać informacje dotyczące poleceń cmdlet programu PowerShell, zobacz [AZ. Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation).
+* Aby uzyskać więcej informacji na temat programu PowerShell, w tym modułów dokumentacji i uczenia dotyczącej języka, zapoznaj się z dokumentacją programu [PowerShell](/powershell/scripting/overview).
+* Aby uzyskać informacje dotyczące poleceń cmdlet programu PowerShell, zobacz [AZ. Automation](/powershell/module/az.automation/?view=azps-3.7.0#automation).

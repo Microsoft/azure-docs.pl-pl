@@ -9,11 +9,12 @@ ms.author: magoedte
 ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 557dc3ad48f8f21d8898e2beb5d940d66058e90c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8bd988029b8d78a29de38e995c36ee1860d8cda9
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83744968"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187357"
 ---
 # <a name="manage-schedules-in-azure-automation"></a>Zarządzanie harmonogramami w Azure Automation
 
@@ -31,13 +32,13 @@ Polecenia cmdlet w poniższej tabeli tworzą harmonogramy automatyzacji i zarzą
 
 | Polecenia cmdlet | Opis |
 |:--- |:--- |
-| [Get-AzAutomationSchedule](https://docs.microsoft.com/powershell/module/Az.Automation/Get-AzAutomationSchedule?view=azps-3.7.0) |Pobiera harmonogram. |
-| [Get-AzAutomationScheduledRunbook](https://docs.microsoft.com/powershell/module/az.automation/get-azautomationscheduledrunbook?view=azps-3.7.0) |Pobiera zaplanowane elementy Runbook. |
-| [New-AzAutomationSchedule](https://docs.microsoft.com/powershell/module/Az.Automation/New-AzAutomationSchedule?view=azps-3.7.0) |Tworzy nowy harmonogram. |
-| [Register-AzAutomationScheduledRunbook](https://docs.microsoft.com/powershell/module/Az.Automation/Register-AzAutomationScheduledRunbook?view=azps-3.7.0) |Kojarzy element Runbook z harmonogramem. |
-| [Remove-AzAutomationSchedule](https://docs.microsoft.com/powershell/module/Az.Automation/Remove-AzAutomationSchedule?view=azps-3.7.0) |Usuwa harmonogram. |
-| [Set-AzAutomationSchedule](https://docs.microsoft.com/powershell/module/Az.Automation/Set-AzAutomationSchedule?view=azps-3.7.0) |Ustawia właściwości istniejącego harmonogramu. |
-| [Unregister — AzAutomationScheduledRunbook](https://docs.microsoft.com/powershell/module/Az.Automation/Unregister-AzAutomationScheduledRunbook?view=azps-3.7.0) |Deskojarzenie elementu Runbook z harmonogramem. |
+| [Get-AzAutomationSchedule](/powershell/module/Az.Automation/Get-AzAutomationSchedule?view=azps-3.7.0) |Pobiera harmonogram. |
+| [Get-AzAutomationScheduledRunbook](/powershell/module/az.automation/get-azautomationscheduledrunbook?view=azps-3.7.0) |Pobiera zaplanowane elementy Runbook. |
+| [New-AzAutomationSchedule](/powershell/module/Az.Automation/New-AzAutomationSchedule?view=azps-3.7.0) |Tworzy nowy harmonogram. |
+| [Register-AzAutomationScheduledRunbook](/powershell/module/Az.Automation/Register-AzAutomationScheduledRunbook?view=azps-3.7.0) |Kojarzy element Runbook z harmonogramem. |
+| [Remove-AzAutomationSchedule](/powershell/module/Az.Automation/Remove-AzAutomationSchedule?view=azps-3.7.0) |Usuwa harmonogram. |
+| [Set-AzAutomationSchedule](/powershell/module/Az.Automation/Set-AzAutomationSchedule?view=azps-3.7.0) |Ustawia właściwości istniejącego harmonogramu. |
+| [Unregister — AzAutomationScheduledRunbook](/powershell/module/Az.Automation/Unregister-AzAutomationScheduledRunbook?view=azps-3.7.0) |Deskojarzenie elementu Runbook z harmonogramem. |
 
 ## <a name="create-a-schedule"></a>Tworzenie harmonogramu
 
@@ -64,7 +65,7 @@ Nowy harmonogram dla elementów Runbook można utworzyć w Azure Portal lub przy
 
 ### <a name="create-a-new-schedule-with-powershell"></a>Tworzenie nowego harmonogramu za pomocą programu PowerShell
 
-Użyj polecenia cmdlet [New-AzAutomationSchedule](https://docs.microsoft.com/powershell/module/Az.Automation/New-AzAutomationSchedule?view=azps-3.7.0) , aby utworzyć harmonogramy. Należy określić godzinę rozpoczęcia harmonogramu oraz częstotliwość, w której ma zostać uruchomiony. W poniższych przykładach pokazano, jak utworzyć wiele różnych scenariuszy harmonogramu.
+Użyj polecenia cmdlet [New-AzAutomationSchedule](/powershell/module/Az.Automation/New-AzAutomationSchedule?view=azps-3.7.0) , aby utworzyć harmonogramy. Należy określić godzinę rozpoczęcia harmonogramu oraz częstotliwość, w której ma zostać uruchomiony. W poniższych przykładach pokazano, jak utworzyć wiele różnych scenariuszy harmonogramu.
 
 #### <a name="create-a-one-time-schedule"></a>Tworzenie harmonogramu jednorazowego
 
@@ -127,7 +128,7 @@ Element Runbook może zostać powiązany z wieloma harmonogramami, a harmonogram
 
 ### <a name="link-a-schedule-to-a-runbook-with-powershell"></a>Łączenie harmonogramu z elementem Runbook za pomocą programu PowerShell
 
-Użyj polecenia cmdlet [register-AzAutomationScheduledRunbook](https://docs.microsoft.com/powershell/module/Az.Automation/Register-AzAutomationScheduledRunbook?view=azps-3.7.0) , aby połączyć harmonogram. Można określić wartości parametrów elementu Runbook za pomocą parametru Parametry . Aby uzyskać więcej informacji na temat sposobu określania wartości parametrów, zobacz [Uruchamianie elementu Runbook w Azure Automation](../automation-starting-a-runbook.md).
+Użyj polecenia cmdlet [register-AzAutomationScheduledRunbook](/powershell/module/Az.Automation/Register-AzAutomationScheduledRunbook?view=azps-3.7.0) , aby połączyć harmonogram. Można określić wartości parametrów elementu Runbook za pomocą parametru Parametry . Aby uzyskać więcej informacji na temat sposobu określania wartości parametrów, zobacz [Uruchamianie elementu Runbook w Azure Automation](../start-runbooks.md).
 Poniższy przykład pokazuje, jak połączyć harmonogram z elementem Runbook za pomocą polecenia cmdlet Azure Resource Manager z parametrami.
 
 ```azurepowershell-interactive
@@ -163,7 +164,7 @@ Po wyłączeniu harmonogramu wszystkie elementy Runbook połączone z nim nie b�
 
 ### <a name="disable-a-schedule-with-powershell"></a>Wyłączanie harmonogramu przy użyciu programu PowerShell
 
-Aby zmienić właściwości istniejącego harmonogramu, użyj polecenia cmdlet [Set-AzAutomationSchedule](https://docs.microsoft.com/powershell/module/Az.Automation/Set-AzAutomationSchedule?view=azps-3.7.0) . Aby wyłączyć harmonogram, należy określić wartość false dla `IsEnabled` parametru.
+Aby zmienić właściwości istniejącego harmonogramu, użyj polecenia cmdlet [Set-AzAutomationSchedule](/powershell/module/Az.Automation/Set-AzAutomationSchedule?view=azps-3.7.0) . Aby wyłączyć harmonogram, należy określić wartość false dla `IsEnabled` parametru.
 
 Poniższy przykład pokazuje, jak wyłączyć harmonogram dla elementu Runbook za pomocą polecenia cmdlet Azure Resource Manager.
 

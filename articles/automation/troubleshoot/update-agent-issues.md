@@ -9,11 +9,12 @@ ms.topic: conceptual
 ms.service: automation
 ms.subservice: update-management
 manager: carmonm
-ms.openlocfilehash: ff996227e23836bf85cc3885d9184ae6d7d6c61d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 92020313fccf1b8be0add58a7bafab62b5daa4d5
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83680827"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187136"
 ---
 # <a name="troubleshoot-windows-update-agent-issues"></a>Rozwiązywanie problemów z agentem usługi Windows Update
 
@@ -109,7 +110,7 @@ Sprawdzanie dostępu do folderu kryptograficznego określa, czy konto systemu lo
 
 ## <a name="troubleshoot-offline"></a><a name="troubleshoot-offline"></a>Rozwiązywanie problemów w trybie offline
 
-Aby użyć narzędzia do rozwiązywania problemów z hybrydowym procesem roboczym elementu Runbook, należy uruchomić skrypt lokalnie. Pobierz następujący skrypt z Galeria programu PowerShell: [Rozwiązywanie problemów — WindowsUpdateAgentRegistration](https://www.powershellgallery.com/packages/Troubleshoot-WindowsUpdateAgentRegistration). Aby uruchomić skrypt, musisz mieć zainstalowany program WMF 4,0 lub nowszy. Aby pobrać najnowszą wersję programu PowerShell, zobacz [Instalowanie różnych wersji programu PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-powershell).
+Aby użyć narzędzia do rozwiązywania problemów z hybrydowym procesem roboczym elementu Runbook, należy uruchomić skrypt lokalnie. Pobierz następujący skrypt z Galeria programu PowerShell: [Rozwiązywanie problemów — WindowsUpdateAgentRegistration](https://www.powershellgallery.com/packages/Troubleshoot-WindowsUpdateAgentRegistration). Aby uruchomić skrypt, musisz mieć zainstalowany program WMF 4,0 lub nowszy. Aby pobrać najnowszą wersję programu PowerShell, zobacz [Instalowanie różnych wersji programu PowerShell](/powershell/scripting/install/installing-powershell).
 
 Dane wyjściowe tego skryptu wyglądają podobnie jak w poniższym przykładzie:
 

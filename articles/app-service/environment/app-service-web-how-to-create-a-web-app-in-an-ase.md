@@ -7,11 +7,12 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 5c947617f0c27708e72f9bff92e2b0041473cd92
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ba94f15f21696c87b336dc1f17b6f9f9def75c6c
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84701834"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86220698"
 ---
 # <a name="create-a-web-app-in-an-app-service-environment-v1"></a>Tworzenie aplikacji sieci Web w App Service Environment v1
 
@@ -33,7 +34,7 @@ W tym samouczku przyjęto założenie, że utworzono App Service Environment. Je
 ## <a name="create-a-web-app"></a>Tworzenie aplikacji internetowej
 1. W [witrynie Azure Portal](https://portal.azure.com/)kliknij pozycję **utwórz zasób > sieć Web + aplikacje mobilne > aplikacji sieci Web**. 
    
-    ![][1]
+    ![Zrzut ekranu pokazujący, gdzie utworzyć aplikację sieci Web w Azure Portal.][1]
 2. Wybierz subskrypcję.  
    
     Jeśli masz wiele subskrypcji, które należy wziąć pod uwagę, aby utworzyć aplikację w App Service Environment, musisz użyć tej samej subskrypcji, która została użyta podczas tworzenia środowiska. 
@@ -46,7 +47,7 @@ W tym samouczku przyjęto założenie, że utworzono App Service Environment. Je
    
     Możesz zidentyfikować App Service plany w środowisku ASE, przeglądając lokalizację zanotowaną pod nazwą planu.  
    
-    ![][5]
+    ![Zrzut ekranu pokazujący, że zostały wyświetlone plany App Service w środowisku ASE.][5]
    
     Jeśli chcesz użyć planu App Service, który już istnieje w App Service Environment, wybierz ten plan. Jeśli chcesz utworzyć nowy plan App Service, zapoznaj się z sekcją w tym samouczku, aby [utworzyć plan App Service w App Service Environment](#createplan).
 5. Wprowadź nazwę aplikacji sieci Web, a następnie kliknij przycisk **Utwórz**. 
@@ -68,18 +69,18 @@ Poniższe instrukcje pokazują, jak utworzyć plan App Service podczas tworzenia
    
     Ponieważ App Service Environment jest zasadniczo lokalizacją prywatnego wdrożenia, zostanie ona wyświetlona w obszarze Lokalizacja. 
    
-    ![][2]
+    ![Zrzut ekranu pokazujący selektor lokalizacji służący do wybierania żądanego środowiska ASE.][2]
    
     Po wybraniu środowiska ASE w selektorze lokalizacji aktualizacje interfejsu użytkownika tworzenia planu App Service.  Lokalizacja zawiera teraz nazwę systemu ASE i region, w którym znajduje się, a selektor planu cenowego jest zastępowany selektorem puli procesów roboczych.  
    
-    ![][3]
+    ![Zrzut ekranu pokazujący szczegóły systemu ASE po wybraniu środowiska ASE w selektorze lokalizacji.][3]
 
 ### <a name="selecting-a-worker-pool"></a>Wybieranie puli procesów roboczych
 Zwykle w Azure App Service i poza App Service Environment, dostępne są 3 rozmiary obliczeniowe z wyborem dedykowanego planu cenowego.  W podobny sposób, dla środowiska ASE można zdefiniować maksymalnie 3 pule procesów roboczych, a także określić rozmiar obliczeń używany dla tej puli.  Znaczenie dla dzierżawców środowiska ASE polega na tym, że zamiast wybierać plan cenowy z rozmiarem obliczeniowym dla planu App Service, należy wybrać element, który jest nazywany *pulą procesów roboczych*.  
 
 Interfejs użytkownika wyboru puli procesów roboczych pokazuje rozmiar obliczeń używany dla tej puli procesów roboczych poniżej nazwy.  Dostępna ilość odnosi się do liczby wystąpień obliczeniowych dostępnych do użycia w tej puli.  Całkowita liczba wystąpień w puli może być większa niż ta liczba, ale ta wartość określa, jak wiele nie jest w użyciu.  Jeśli musisz dostosować App Service Environment, aby dodać więcej zasobów obliczeniowych, zobacz [konfigurowanie App Service Environment](app-service-web-configure-an-app-service-environment.md).
 
-![][4]
+![Zrzut ekranu przedstawiający okienko Pula procesów roboczych, w którym można wybrać pule procesów roboczych dla środowiska ASE.][4]
 
 W tym przykładzie widoczne są tylko dwie dostępne pule procesów roboczych. Wynika to z faktu, że administrator ASE przydzielił tylko hosty do tych dwóch pul procesów roboczych.  Trzecia wartość zostanie wyświetlona w przypadku przydzielenia maszyn wirtualnych.  
 

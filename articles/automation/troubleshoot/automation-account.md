@@ -8,11 +8,12 @@ ms.date: 03/24/2020
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: bebc89514da7f28015da5cb145ae50bf3fccdb6a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: edd57d3d77432f3bb37872ee26f414b56398cae0
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83680085"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187289"
 ---
 # <a name="troubleshoot-azure-automation-account-issues"></a>Rozwiązywanie problemów z kontami Azure Automation
 
@@ -44,7 +45,7 @@ Aby zarejestrować dostawcę zasobów usługi Automation, wykonaj następujące 
 
 4. Z listy dostawców zasobów Sprawdź, czy dostawca zasobów **Microsoft. Automation** jest zarejestrowany.
 
-5. Jeśli dostawca nie znajduje się na liście, zarejestruj go zgodnie z opisem w artykule [Rozwiązywanie problemów dotyczących rejestracji dostawcy zasobów](/azure/azure-resource-manager/resource-manager-register-provider-errors).
+5. Jeśli dostawca nie znajduje się na liście, zarejestruj go zgodnie z opisem w artykule [Rozwiązywanie problemów dotyczących rejestracji dostawcy zasobów](../../azure-resource-manager/templates/error-register-resource-provider.md).
 
 ## <a name="next-steps"></a>Następne kroki
 

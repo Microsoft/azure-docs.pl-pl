@@ -13,11 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/23/2018
 ms.author: alkohli
-ms.openlocfilehash: c05b62b254320bd56a6f0591f1edbe32d5362e56
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 721dffcaea64e949ac7a5230e24f3aa37261fa9e
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85514722"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206487"
 ---
 # <a name="migrate-data-from-storsimple-5000-7000-series-to-8000-series-device"></a>Migrowanie danych z serii StorSimple 5000-7000 do urządzenia z serii 8000
 
@@ -27,7 +28,7 @@ ms.locfileid: "85514722"
 > - Po zapisaniu żądania obsługi może upłynąć kilka tygodni, aby wykonać plan migracji i ostatecznie rozpocząć migrację.
 > - Przed skontaktowaniem się z pomoc techniczna firmy Microsoft upewnij się, że zapoznaj się z [wymaganiami wstępnymi](#migration-prerequisites) dotyczącymi migracji określonymi w artykule.
 
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 
 W tym artykule wprowadzono funkcję migracji, która umożliwia klientom serii StorSimple 5000-7000 Migrowanie danych do urządzenia fizycznego z serii StorSimple 8000 lub 8010/8020 urządzenia w chmurze. Ten artykuł zawiera również instrukcje krok po kroku dotyczące czynności wymaganych do przeprowadzenia migracji danych z starszego urządzenia z serii 5000-7000 do urządzenia fizycznego lub w chmurze z serii 8000.
 
@@ -40,21 +41,21 @@ Dane można przenieść przy użyciu funkcji migracji lub migracji po stronie ho
 
 Funkcja migracji symuluje proces odzyskiwania po awarii (DR) z serii 7000/5000 do 8000 serii. Ta funkcja umożliwia migrację danych z formatu serii 5000/7000 do formatu serii 8000 na platformie Azure. Proces migracji jest inicjowany za pomocą narzędzia migracji StorSimple. Narzędzie uruchamia pobieranie i konwersję metadanych kopii zapasowych na urządzeniu z serii 8000, a następnie używa najnowszej kopii zapasowej, aby uwidocznić woluminy na urządzeniu.
 
-|      | Zalety                                                                                                                                     |Wady                                                                                                                                                              |
-|------|-------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 1.   | Proces migracji zachowuje historię kopii zapasowych wykonanych w serii 5000/7000.                                               | Gdy użytkownicy próbują uzyskać dostęp do danych, migracja pobierze dane z platformy Azure w ten sposób, co spowoduje policzenie kosztów pobierania danych.                                     |
-| 2.   | Na stronie hosta nie są migrowane żadne dane.                                                                                                     | Proces wymaga przestoju między rozpoczęciem tworzenia kopii zapasowej a ostatnią kopią zapasową w serii 8000 (można go oszacować przy użyciu narzędzia migracji). |
-| 3.   | Ten proces zachowuje wszystkie zasady, szablony przepustowości, szyfrowanie i inne ustawienia na urządzeniach z serii 8000.                      | Użytkownik uzyskuje dostęp tylko do danych, do których użytkownicy uzyskują dostęp, i nie będzie odgrzać całego zestawu danych.                                                  |
-| 4.   | Ten proces wymaga dodatkowego czasu na przekonwertowanie wszystkich starszych kopii zapasowych na platformie Azure, które są wykonywane asynchronicznie bez wpływu na produkcję. | Migracja można przeprowadzić tylko na poziomie konfiguracji chmury.  Nie można osobno migrować poszczególnych woluminów w konfiguracji chmury                       |
+| Zalety                                                                                                                                     |Wady                                                                                                                                                              |
+|-------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Proces migracji zachowuje historię kopii zapasowych wykonanych w serii 5000/7000.                                               | Gdy użytkownicy próbują uzyskać dostęp do danych, migracja pobierze dane z platformy Azure w ten sposób, co spowoduje policzenie kosztów pobierania danych.                                     |
+| Na stronie hosta nie są migrowane żadne dane.                                                                                                     | Proces wymaga przestoju między rozpoczęciem tworzenia kopii zapasowej a ostatnią kopią zapasową w serii 8000 (można go oszacować przy użyciu narzędzia migracji). |
+| Ten proces zachowuje wszystkie zasady, szablony przepustowości, szyfrowanie i inne ustawienia na urządzeniach z serii 8000.                      | Użytkownik uzyskuje dostęp tylko do danych, do których użytkownicy uzyskują dostęp, i nie będzie odgrzać całego zestawu danych.                                                  |
+| Ten proces wymaga dodatkowego czasu na przekonwertowanie wszystkich starszych kopii zapasowych na platformie Azure, które są wykonywane asynchronicznie bez wpływu na produkcję. | Migracja można przeprowadzić tylko na poziomie konfiguracji chmury.  Nie można osobno migrować poszczególnych woluminów w konfiguracji chmury                       |
 
 Migracja po stronie hosta umożliwia niezależne skonfigurowanie serii 8000 i skopiowanie danych z urządzenia z serii 5000/7000 do urządzenia z serii 8000. Jest to równoznaczne z migracją danych z jednego urządzenia magazynującego do drugiego. Do kopiowania danych służą różne narzędzia, takie jak Diskboss, Robocopy.
 
-|      | Zalety                                                                                                                      |Wady                                                                                                                                                                                                      |
-|------|---------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 1.   | Migracja może być zbliżana w zależności od ilości woluminu.                                               | Poprzednie kopie zapasowe (wykonane w serii 5000/7000) nie będą dostępne na urządzeniu z serii 8000.                                                                                                       |
-| 2.   | Umożliwia konsolidowanie danych na jedno konto magazynu na platformie Azure.                                                       | Pierwsza kopia zapasowa w chmurze na 8000 serii będzie trwać dłużej, ponieważ wszystkie dane z serii 8000 muszą mieć kopię zapasową na platformie Azure.                                                                     |
-| 3.   | Po pomyślnej migracji wszystkie dane są lokalne na urządzeniu. Brak opóźnień podczas uzyskiwania dostępu do danych. | Użycie usługi Azure Storage zwiększy się do momentu usunięcia danych z urządzenia 5000/7000.                                                                                                        |
-| 4.   |                                                                                                                           | Jeśli urządzenie serii 7000/5000 zawiera dużą ilość danych, podczas migracji te dane muszą zostać pobrane z platformy Azure, co wiąże się z kosztami i opóźnieniami związanymi z pobieraniem danych z platformy Azure |
+| Zalety                                                                                                                      |Wady                                                                                                                                                                                                      |
+|---------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Migracja może być zbliżana w zależności od ilości woluminu.                                               | Poprzednie kopie zapasowe (wykonane w serii 5000/7000) nie będą dostępne na urządzeniu z serii 8000.                                                                                                       |
+| Umożliwia konsolidowanie danych na jedno konto magazynu na platformie Azure.                                                       | Pierwsza kopia zapasowa w chmurze na 8000 serii będzie trwać dłużej, ponieważ wszystkie dane z serii 8000 muszą mieć kopię zapasową na platformie Azure.                                                                     |
+| Po pomyślnej migracji wszystkie dane są lokalne na urządzeniu. Brak opóźnień podczas uzyskiwania dostępu do danych. | Użycie usługi Azure Storage zwiększy się do momentu usunięcia danych z urządzenia 5000/7000.                                                                                                        |
+|                                                                                                                           | Jeśli urządzenie serii 7000/5000 zawiera dużą ilość danych, podczas migracji te dane muszą zostać pobrane z platformy Azure, co wiąże się z kosztami i opóźnieniami związanymi z pobieraniem danych z platformy Azure |
 
 Ten artykuł koncentruje się tylko na funkcji migracji z 5000/7000 do 8000 serii urządzeń. Aby uzyskać więcej informacji na temat migracji po stronie hosta, przejdź do [migracji z innych urządzeń magazynujących](https://download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating%20Data%20to%20StorSimple%20Volumes_09-02-15.pdf).
 

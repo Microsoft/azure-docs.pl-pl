@@ -16,13 +16,14 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 7d88f57fe92b9da62cc9f90d64bdec4c27642fb0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e3c64155053517205ab006673bb8f400325ad3c4
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76263748"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86219967"
 ---
-# <a name="templates"></a>Szablony
+# <a name="notification-hubs-templates"></a>Szablony Notification Hubs
 
 Szablony umożliwiają aplikacji klienckiej określenie dokładnego formatu powiadomień, które chce otrzymywać. Korzystając z szablonów, aplikacja może realizować kilka różnych korzyści, w tym następujące:
 
@@ -61,7 +62,7 @@ Funkcja szablon Notification Hubs umożliwia aplikacji klienckiej tworzenie reje
 
 Na poniższej ilustracji przedstawiono proces:
 
-![](./media/notification-hubs-templates/notification-hubs-hello.png)
+![Diagram przedstawiający proces korzystania z wieloplatformowych szablonów](./media/notification-hubs-templates/notification-hubs-hello.png)
 
 Szablon rejestracji aplikacji klienckiej systemu iOS jest następujący:
 
@@ -120,7 +121,7 @@ Komunikat wysłany do centrum powiadomień zawiera wszystkie następujące wła�
 
 Przy użyciu tego wzorca wewnętrzna baza danych wysyła tylko jeden komunikat bez konieczności przechowywania określonych opcji personalizacji dla użytkowników aplikacji. Na poniższej ilustracji przedstawiono ten scenariusz:
 
-![](./media/notification-hubs-templates/notification-hubs-registration-specific.png)
+![Diagram przedstawiający sposób, w jaki zaplecza wysyła tylko jeden komunikat do każdej platformy.](./media/notification-hubs-templates/notification-hubs-registration-specific.png)
 
 ## <a name="how-to-register-templates"></a>Jak zarejestrować szablony
 
@@ -158,7 +159,7 @@ Na przykład następujący szablon nie jest prawidłowym szablonem XML:
 </tile>
 ```
 
-Jak wyjaśniono wcześniej, w przypadku korzystania z łączenia wyrażenia muszą być opakowane w nawiasy klamrowe. Przykład:
+Jak wyjaśniono wcześniej, w przypadku korzystania z łączenia wyrażenia muszą być opakowane w nawiasy klamrowe. Na przykład:
 
 ```xml
 <tile>

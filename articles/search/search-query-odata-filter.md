@@ -19,11 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: b966e9cfa3ef40666dbbd62135f8f964e5eb2023
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 959adec9f74a8cda7fde941ccea7db75e981a650
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84692805"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86201551"
 ---
 # <a name="odata-filter-syntax-in-azure-cognitive-search"></a>Składnia $filter OData na platformie Azure Wyszukiwanie poznawcze
 
@@ -83,20 +84,28 @@ Jeśli piszesz wyrażenie filtru bez nawiasów wokół jego wyrażeń podrzędny
 
 Operator, który jest wyższy w powyższej tabeli, zostanie "poddany bardziej ścisłie" do jego operandów niż inne operatory. Na przykład `and` ma wyższy priorytet niż `or` , a operatory porównania mają wyższy priorytet niż jeden z nich, dlatego następujące dwa wyrażenia są równoważne:
 
+```odata-filter-expr
     Rating gt 0 and Rating lt 3 or Rating gt 7 and Rating lt 10
     ((Rating gt 0) and (Rating lt 3)) or ((Rating gt 7) and (Rating lt 10))
+```
 
 `not`Operator ma najwyższy priorytet wszystkich elementów — nawet wyższych niż operatory porównania. Dlatego jeśli próbujesz napisać filtr podobny do tego:
 
+```odata-filter-expr
     not Rating gt 5
+```
 
 Zostanie wyświetlony następujący komunikat o błędzie:
 
+```text
     Invalid expression: A unary operator with an incompatible type was detected. Found operand type 'Edm.Int32' for operator kind 'Not'.
+```
 
 Ten błąd występuje, ponieważ operator jest skojarzony tylko z `Rating` polem, który jest typu `Edm.Int32` , a nie z całym wyrażeniem porównania. Poprawka polega na umieszczeniu operandu `not` w nawiasach:
 
+```odata-filter-expr
     not (Rating gt 5)
+```
 
 <a name="bkmk_limits"></a>
 
@@ -111,87 +120,129 @@ Istnieją limity rozmiaru i złożoności wyrażeń filtru, które można wysła
 
 Znajdź wszystkie hotele o co najmniej jednym pokoju z stawką bazową mniejszą niż $200, które są klasyfikowane na poziomie lub powyżej 4:
 
+```odata-filter-expr
     $filter=Rooms/any(room: room/BaseRate lt 200.0) and Rating ge 4
+```
 
 Znajdź wszystkie hotele inne niż "Sea View Motel", które zostały Renovated od 2010:
 
+```odata-filter-expr
     $filter=HotelName ne 'Sea View Motel' and LastRenovationDate ge 2010-01-01T00:00:00Z
+```
 
 Znajdź wszystkie hotele, które zostały Renovated w 2010 lub nowszej. Literał DateTime zawiera informacje o strefie czasowej dla Pacyficzny czas standardowy:  
 
+```odata-filter-expr
     $filter=LastRenovationDate ge 2010-01-01T00:00:00-08:00
+```
 
 Znajdź wszystkie hotele, w których znajduje się parking i gdzie nie są naliczane wszystkie pokoje:
 
+```odata-filter-expr
     $filter=ParkingIncluded and Rooms/all(room: not room/SmokingAllowed)
+```
 
  \-Oraz  
 
+```odata-filter-expr
     $filter=ParkingIncluded eq true and Rooms/all(room: room/SmokingAllowed eq false)
+```
 
 Znajdź wszystkie hotele, które są możliwość zaprojektowaniae lub zawierają informacje o obparkowanie oraz o klasyfikacji 5:  
 
+```odata-filter-expr
     $filter=(Category eq 'Luxury' or ParkingIncluded eq true) and Rating eq 5
+```
 
 Znajdź wszystkie hotele ze znacznikiem "Wi-Fi" w co najmniej jednym pokoju (gdzie każde pomieszczenie ma Tagi przechowywane w `Collection(Edm.String)` polu):  
 
+```odata-filter-expr
     $filter=Rooms/any(room: room/Tags/any(tag: tag eq 'wifi'))
+```
 
 Znajdź wszystkie hotele z dowolnymi pomieszczeń:  
 
+```odata-filter-expr
     $filter=Rooms/any()
+```
 
 Znajdź wszystkie hotele, które nie mają pokojów:
 
+```odata-filter-expr
     $filter=not Rooms/any()
+```
 
 Znajdź wszystkie hotele w ciągu 10 kilometrów danego punktu odwołania (gdzie `Location` jest polem typu `Edm.GeographyPoint` ):
 
+```odata-filter-expr
     $filter=geo.distance(Location, geography'POINT(-122.131577 47.678581)') le 10
+```
 
 Znajdź wszystkie hotele w ramach danego okienka ekranu opisane jako wielokąt (gdzie `Location` jest polem typu EDM. geographyPoint względem). Wielokąt musi być zamknięty, co oznacza, że pierwszy i ostatni zestaw punktów muszą być takie same. Ponadto [punkty muszą być wymienione w porządku w lewo](https://docs.microsoft.com/rest/api/searchservice/supported-data-types#Anchor_1).
 
+```odata-filter-expr
     $filter=geo.intersects(Location, geography'POLYGON((-122.031577 47.578581, -122.031577 47.678581, -122.131577 47.678581, -122.031577 47.578581))')
+```
 
 Znajdź wszystkie hotele, w których pole "Description" ma wartość null. Pole będzie miało wartość null, jeśli nigdy nie zostało ustawione, lub jeśli zostało jawnie ustawione na wartość null:  
 
+```odata-filter-expr
     $filter=Description eq null
+```
 
 Znajdź wszystkie hotele z nazwą równą "Sea View Motel" lub "hotelem". Te frazy zawierają spacje, a spacja jest domyślnym ogranicznikiem. Można określić alternatywny ogranicznik w pojedynczym cudzysłowie jako trzeci parametr ciągu:  
 
+```odata-filter-expr
     $filter=search.in(HotelName, 'Sea View motel,Budget hotel', ',')
+```
 
 Znajdź wszystkie hotele z nazwą równą "Sea View Motel" lub "hotelem" oddzielonym przez "|"):  
 
+```odata-filter-expr
     $filter=search.in(HotelName, 'Sea View motel|Budget hotel', '|')
+```
 
 Znajdź wszystkie hotele, w których wszystkie pokoje mają tag "Wi-Fi" lub "wanny":
 
+```odata-filter-expr
     $filter=Rooms/any(room: room/Tags/any(tag: search.in(tag, 'wifi, tub'))
+```
 
 Znajdź dopasowanie do fraz w kolekcji, takich jak "ogrzewane Stojaki ręczników" lub "hairdryer dołączone" w tagach.
 
+```odata-filter-expr
     $filter=Rooms/any(room: room/Tags/any(tag: search.in(tag, 'heated towel racks,hairdryer included', ','))
+```
 
 Znajdź dokumenty z wyrazem "Waterfront". To zapytanie filtru jest identyczne z [żądaniem wyszukiwania](https://docs.microsoft.com/rest/api/searchservice/search-documents) w `search=waterfront` .
 
+```odata-filter-expr
     $filter=search.ismatchscoring('waterfront')
+```
 
 Znajdź dokumenty z wyrazem "Hostel" i klasyfikacją wyższą lub równą 4 lub dokumenty z wyrazem "Motel" i klasyfikacją równą 5. Nie można wyrazić tego żądania bez `search.ismatchscoring` funkcji, ponieważ łączy ono wyszukiwanie pełnotekstowe z operacjami filtrowania przy użyciu `or` .
 
+```odata-filter-expr
     $filter=search.ismatchscoring('hostel') and rating ge 4 or search.ismatchscoring('motel') and rating eq 5
+```
 
 Znajdź dokumenty bez słowa "możliwość zaprojektowania".
 
+```odata-filter-expr
     $filter=not search.ismatch('luxury')
+```
 
 Znajdź dokumenty z frazą "widok oceanu" lub klasyfikacją równą 5. `search.ismatchscoring`Zapytanie zostanie wykonane tylko względem pól `HotelName` i `Description` . Dokumenty, które pasują tylko do drugiej klauzuli rozłączenia, zostaną zwrócone zbyt--Hotele z `Rating` równymi 5. Te dokumenty zostaną zwrócone z wynikiem równym zero, aby było jasne, że nie pasują do żadnej z ocenionych części wyrażenia.
 
+```odata-filter-expr
     $filter=search.ismatchscoring('"ocean view"', 'Description,HotelName') or Rating eq 5
+```
 
 Znajdź Hotele, w których terminy "Hotel" i "Lotnisko" nie są więcej niż pięć wyrazów w opisie i gdzie nie są naliczane wszystkie pokoje. To zapytanie używa [pełnego języka zapytań Lucene](query-lucene-syntax.md).
 
+```odata-filter-expr
     $filter=search.ismatch('"hotel airport"~5', 'Description', 'full', 'any') and not Rooms/any(room: room/SmokingAllowed)
+```
 
 ## <a name="next-steps"></a>Następne kroki  
 

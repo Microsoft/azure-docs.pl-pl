@@ -10,12 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
-ms.date: 06/10/2020
-ms.openlocfilehash: 9dfa45e463ecd53524e7516160324a80824e4d8d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/09/2020
+ms.openlocfilehash: add2e0cc2852f9ab0b63565841f670ed6c53d9a7
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84669532"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206116"
 ---
 # <a name="resource-limits-for-single-databases-using-the-vcore-purchasing-model"></a>Limity zasobów dla pojedynczych baz danych przy użyciu modelu zakupu rdzeń wirtualny
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -125,12 +126,12 @@ Możesz ustawić warstwę usług, rozmiar obliczeń (cel usługi) i ilość miej
 |Obsługa magazynu kolumn|Tak|Tak|Tak|Tak|Tak|Tak|
 |Magazyn OLTP w pamięci (GB)|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|
 |Maksymalny rozmiar danych (TB)|100 |100 |100 |100 |100 |100|
-|Maksymalny rozmiar dziennika (TB)|1 |1 |1 |1 |1 |1 |
+|Maksymalny rozmiar dziennika (TB)|Nieograniczona liczba |Nieograniczona liczba |Nieograniczona liczba |Nieograniczona liczba |Nieograniczona liczba |Nieograniczona liczba |
 |Maksymalny rozmiar danych TempDB (GB)|32|64|96|128|160|192|
 |Typ magazynu| [Uwaga 1](#notes) |[Uwaga 1](#notes)|[Uwaga 1](#notes) |[Uwaga 1](#notes) |[Uwaga 1](#notes) |[Uwaga 1](#notes) |
-|Maksymalna liczba operacji we/wy danych *|[Uwaga 2](#notes)|[Uwaga 2](#notes)|[Uwaga 2](#notes)|[Uwaga 2](#notes)|[Uwaga 2](#notes)|[Uwaga 2](#notes)|
+|Maksymalna liczba operacji we/wy lokalnego dysku SSD *|4000 |8000 |12000 |16000 |20000 |24000 |
 |Maksymalny współczynnik rejestrowania (MB/s)|100 |100 |100 |100 |100 |100 |
-|Opóźnienie we/wy (przybliżone)|[Uwaga 3](#notes)|[Uwaga 3](#notes)|[Uwaga 3](#notes)|[Uwaga 3](#notes)|[Uwaga 3](#notes)|[Uwaga 3](#notes)|
+|Opóźnienie we/wy (przybliżone)|[Uwaga 2](#notes)|[Uwaga 2](#notes)|[Uwaga 2](#notes)|[Uwaga 2](#notes)|[Uwaga 2](#notes)|[Uwaga 2](#notes)|
 |Maksymalna liczba współbieżnych procesów roboczych (żądań)|200|400|600|800|1000|1200|
 |Maksymalna liczba współbieżnych sesji|30 000|30 000|30 000|30 000|30 000|30 000|
 |Repliki pomocnicze|0-4|0-4|0-4|0-4|0-4|0-4|
@@ -138,6 +139,8 @@ Możesz ustawić warstwę usług, rozmiar obliczeń (cel usługi) i ilość miej
 |Skalowanie w górę odczytu|Tak|Tak|Tak|Tak|Tak|Tak|
 |Przechowywanie kopii zapasowej magazynu|7 dni|7 dni|7 dni|7 dni|7 dni|7 dni|
 |||
+
+\*Oprócz lokalnego dysku SSD we/wy obciążenia będą używać zdalnego [serwera stron](service-tier-hyperscale.md#page-server) . Efektywne operacje we/wy będą zależeć od obciążenia. Aby uzyskać szczegółowe informacje, zobacz [Zarządzanie we/wy danych](resource-limits-logical-server.md#resource-governance)i [operacje we/wy danych w statystyce użycia zasobów](hyperscale-performance-diagnostics.md#data-io-in-resource-utilization-statistics).
 
 ### <a name="gen4-compute-generation-part-2"></a>Generowanie obliczeń obliczenia (część 2)
 
@@ -150,12 +153,12 @@ Możesz ustawić warstwę usług, rozmiar obliczeń (cel usługi) i ilość miej
 |Obsługa magazynu kolumn|Tak|Tak|Tak|Tak|Tak|Tak|
 |Magazyn OLTP w pamięci (GB)|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|
 |Maksymalny rozmiar danych (TB)|100 |100 |100 |100 |100 |100 |
-|Maksymalny rozmiar dziennika (TB)|1 |1 |1 |1 |1 |1 |
+|Maksymalny rozmiar dziennika (TB)|Nieograniczona liczba |Nieograniczona liczba |Nieograniczona liczba |Nieograniczona liczba |Nieograniczona liczba |Nieograniczona liczba |
 |Maksymalny rozmiar danych TempDB (GB)|224|256|288|320|512|768|
 |Typ magazynu| [Uwaga 1](#notes) |[Uwaga 1](#notes) |[Uwaga 1](#notes) |[Uwaga 1](#notes) |[Uwaga 1](#notes) |[Uwaga 1](#notes) |
-|Maksymalna liczba operacji we/wy danych *|[Uwaga 2](#notes)|[Uwaga 2](#notes)|[Uwaga 2](#notes)|[Uwaga 2](#notes)|[Uwaga 2](#notes)|[Uwaga 2](#notes)|
+|Maksymalna liczba operacji we/wy lokalnego dysku SSD *|28000 |32000 |36000 |40000 |64000 |76800 |
 |Maksymalny współczynnik rejestrowania (MB/s)|100 |100 |100 |100 |100 |100 |
-|Opóźnienie we/wy (przybliżone)|[Uwaga 3](#notes)|[Uwaga 3](#notes)|[Uwaga 3](#notes)|[Uwaga 3](#notes)|[Uwaga 3](#notes)|[Uwaga 3](#notes)|
+|Opóźnienie we/wy (przybliżone)|[Uwaga 2](#notes)|[Uwaga 2](#notes)|[Uwaga 2](#notes)|[Uwaga 2](#notes)|[Uwaga 2](#notes)|[Uwaga 2](#notes)|
 |Maksymalna liczba współbieżnych procesów roboczych (żądań)|1400|1600|1800|2000|3200|4800|
 |Maksymalna liczba współbieżnych sesji|30 000|30 000|30 000|30 000|30 000|30 000|
 |Repliki pomocnicze|0-4|0-4|0-4|0-4|0-4|0-4|
@@ -164,7 +167,7 @@ Możesz ustawić warstwę usług, rozmiar obliczeń (cel usługi) i ilość miej
 |Przechowywanie kopii zapasowej magazynu|7 dni|7 dni|7 dni|7 dni|7 dni|7 dni|
 |||
 
-\*Maksymalna wartość dla wielkości we/wy z zakresu od 8 KB do 64 KB. Rzeczywiste operacje we/wy są zależne od obciążenia. Aby uzyskać szczegółowe informacje, zobacz [Zarządzanie we/wy danych](resource-limits-logical-server.md#resource-governance).
+\*Oprócz lokalnego dysku SSD we/wy obciążenia będą używać zdalnego [serwera stron](service-tier-hyperscale.md#page-server) . Efektywne operacje we/wy będą zależeć od obciążenia. Aby uzyskać szczegółowe informacje, zobacz [Zarządzanie we/wy danych](resource-limits-logical-server.md#resource-governance)i [operacje we/wy danych w statystyce użycia zasobów](hyperscale-performance-diagnostics.md#data-io-in-resource-utilization-statistics).
 
 ## <a name="hyperscale---provisioned-compute---gen5"></a>Skalowanie tymczasowe — 5 rdzeń
 
@@ -179,12 +182,12 @@ Możesz ustawić warstwę usług, rozmiar obliczeń (cel usługi) i ilość miej
 |Obsługa magazynu kolumn|Tak|Tak|Tak|Tak|Tak|Tak|Tak|
 |Magazyn OLTP w pamięci (GB)|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|
 |Maksymalny rozmiar danych (TB)|100 |100 |100 |100 |100 |100 |100|
-|Maksymalny rozmiar dziennika (TB)|1 |1 |1 |1 |1 |1 |1 |
+|Maksymalny rozmiar dziennika (TB)|Nieograniczona liczba |Nieograniczona liczba |Nieograniczona liczba |Nieograniczona liczba |Nieograniczona liczba |Nieograniczona liczba |Nieograniczona liczba |
 |Maksymalny rozmiar danych TempDB (GB)|64|128|192|256|320|384|448|
 |Typ magazynu| [Uwaga 1](#notes) |[Uwaga 1](#notes)|[Uwaga 1](#notes) |[Uwaga 1](#notes) |[Uwaga 1](#notes) |[Uwaga 1](#notes) |[Uwaga 1](#notes) |
-|Maksymalna liczba operacji we/wy danych *|[Uwaga 2](#notes)|[Uwaga 2](#notes)|[Uwaga 2](#notes)|[Uwaga 2](#notes)|[Uwaga 2](#notes)|[Uwaga 2](#notes)|[Uwaga 2](#notes)|
+|Maksymalna liczba operacji we/wy lokalnego dysku SSD *|8000 |16000 |24000 |32000 |40000 |48000 |56000 |
 |Maksymalny współczynnik rejestrowania (MB/s)|100 |100 |100 |100 |100 |100 |100 |
-|Opóźnienie we/wy (przybliżone)|[Uwaga 3](#notes)|[Uwaga 3](#notes)|[Uwaga 3](#notes)|[Uwaga 3](#notes)|[Uwaga 3](#notes)|[Uwaga 3](#notes)|[Uwaga 3](#notes)|
+|Opóźnienie we/wy (przybliżone)|[Uwaga 2](#notes)|[Uwaga 2](#notes)|[Uwaga 2](#notes)|[Uwaga 2](#notes)|[Uwaga 2](#notes)|[Uwaga 2](#notes)|[Uwaga 2](#notes)|
 |Maksymalna liczba współbieżnych procesów roboczych (żądań)|200|400|600|800|1000|1200|1400|
 |Maksymalna liczba współbieżnych sesji|30 000|30 000|30 000|30 000|30 000|30 000|30 000|
 |Repliki pomocnicze|0-4|0-4|0-4|0-4|0-4|0-4|0-4|
@@ -193,7 +196,7 @@ Możesz ustawić warstwę usług, rozmiar obliczeń (cel usługi) i ilość miej
 |Przechowywanie kopii zapasowej magazynu|7 dni|7 dni|7 dni|7 dni|7 dni|7 dni|7 dni|
 |||
 
-\*Maksymalna wartość dla wielkości we/wy z zakresu od 8 KB do 64 KB. Rzeczywiste operacje we/wy są zależne od obciążenia. Aby uzyskać szczegółowe informacje, zobacz [Zarządzanie we/wy danych](resource-limits-logical-server.md#resource-governance).
+\*Oprócz lokalnego dysku SSD we/wy obciążenia będą używać zdalnego [serwera stron](service-tier-hyperscale.md#page-server) . Efektywne operacje we/wy będą zależeć od obciążenia. Aby uzyskać szczegółowe informacje, zobacz [Zarządzanie we/wy danych](resource-limits-logical-server.md#resource-governance)i [operacje we/wy danych w statystyce użycia zasobów](hyperscale-performance-diagnostics.md#data-io-in-resource-utilization-statistics).
 
 ### <a name="gen5-compute-generation-part-2"></a>Generowanie obliczeń 5 rdzeń (część 2)
 
@@ -206,12 +209,12 @@ Możesz ustawić warstwę usług, rozmiar obliczeń (cel usługi) i ilość miej
 |Obsługa magazynu kolumn|Tak|Tak|Tak|Tak|Tak|Tak|Tak|
 |Magazyn OLTP w pamięci (GB)|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|
 |Maksymalny rozmiar danych (TB)|100 |100 |100 |100 |100 |100 |100 |
-|Maksymalny rozmiar dziennika (TB)|1 |1 |1 |1 |1 |1 |1 |
+|Maksymalny rozmiar dziennika (TB)|Nieograniczona liczba |Nieograniczona liczba |Nieograniczona liczba |Nieograniczona liczba |Nieograniczona liczba |Nieograniczona liczba |Nieograniczona liczba |
 |Maksymalny rozmiar danych TempDB (GB)|512|576|640|768|1024|1280|2560|
 |Typ magazynu| [Uwaga 1](#notes) |[Uwaga 1](#notes)|[Uwaga 1](#notes)|[Uwaga 1](#notes) |[Uwaga 1](#notes) |[Uwaga 1](#notes) |[Uwaga 1](#notes) |
-|Maksymalna liczba operacji we/wy danych *|[Uwaga 2](#notes)|[Uwaga 2](#notes)|[Uwaga 2](#notes)|[Uwaga 2](#notes)|[Uwaga 2](#notes)|[Uwaga 2](#notes)|[Uwaga 2](#notes)|
+|Maksymalna liczba operacji we/wy lokalnego dysku SSD *|64000 |72000 |80000 |96000 |160000 |192000 |204800 |
 |Maksymalny współczynnik rejestrowania (MB/s)|100 |100 |100 |100 |100 |100 |100 |
-|Opóźnienie we/wy (przybliżone)|[Uwaga 3](#notes)|[Uwaga 3](#notes)|[Uwaga 3](#notes)|[Uwaga 3](#notes)|[Uwaga 3](#notes)|[Uwaga 3](#notes)|[Uwaga 3](#notes)|
+|Opóźnienie we/wy (przybliżone)|[Uwaga 2](#notes)|[Uwaga 2](#notes)|[Uwaga 2](#notes)|[Uwaga 2](#notes)|[Uwaga 2](#notes)|[Uwaga 2](#notes)|[Uwaga 2](#notes)|
 |Maksymalna liczba współbieżnych procesów roboczych (żądań)|1600|1800|2000|2400|3200|4000|8000|
 |Maksymalna liczba współbieżnych sesji|30 000|30 000|30 000|30 000|30 000|30 000|30 000|
 |Repliki pomocnicze|0-4|0-4|0-4|0-4|0-4|0-4|0-4|
@@ -220,15 +223,13 @@ Możesz ustawić warstwę usług, rozmiar obliczeń (cel usługi) i ilość miej
 |Przechowywanie kopii zapasowej magazynu|7 dni|7 dni|7 dni|7 dni|7 dni|7 dni|7 dni|
 |||
 
-\*Maksymalna wartość dla wielkości we/wy z zakresu od 8 KB do 64 KB. Rzeczywiste operacje we/wy są zależne od obciążenia. Aby uzyskać szczegółowe informacje, zobacz [Zarządzanie we/wy danych](resource-limits-logical-server.md#resource-governance).
+\*Oprócz lokalnego dysku SSD we/wy obciążenia będą używać zdalnego [serwera stron](service-tier-hyperscale.md#page-server) . Efektywne operacje we/wy będą zależeć od obciążenia. Aby uzyskać szczegółowe informacje, zobacz [Zarządzanie we/wy danych](resource-limits-logical-server.md#resource-governance)i [operacje we/wy danych w statystyce użycia zasobów](hyperscale-performance-diagnostics.md#data-io-in-resource-utilization-statistics).
 
 #### <a name="notes"></a>Uwagi
 
 **Uwaga 1**: funkcja do skalowania jest architekturą wielowarstwową z oddzielnymi składnikami obliczeniowymi i magazynowanymi: [skalowanie warstwy usług](service-tier-hyperscale.md#distributed-functions-architecture)
 
-**Uwaga 2**: skalowanie wielowarstwowej architektury ma buforowanie na wielu poziomach. Efektywne operacje we/wy będą zależeć od obciążenia.
-
-**Uwaga 3**: opóźnienie to 1-2 ms dla danych w pamięci podręcznej opartej na dyskach SSD RBPEX na replikach obliczeń, które buforują większość używanych stron danych. Wyższe opóźnienie dla danych pobieranych z serwerów stronicowania.
+**Uwaga 2**: opóźnienie to 1-2 ms dla danych na lokalnym dysku SSD repliki obliczeniowej, który przechowuje w pamięci podręcznej większość używanych stron danych. Wyższe opóźnienie dla danych pobieranych z serwerów stronicowania.
 
 ## <a name="general-purpose---provisioned-compute---gen4"></a>Obliczenia alokowane ogólnie do zastosowania — obliczenia
 

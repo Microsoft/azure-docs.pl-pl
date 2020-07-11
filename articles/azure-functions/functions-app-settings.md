@@ -3,11 +3,12 @@ title: Dokumentacja ustawień aplikacji dla usługi Azure Functions
 description: Dokumentacja referencyjna dla ustawień aplikacji Azure Functions lub zmiennych środowiskowych.
 ms.topic: conceptual
 ms.date: 09/22/2018
-ms.openlocfilehash: 5a0201eeed1678299ec16ff268062463b9c75e5c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: adb11f29460bd6dee7171fa97a6ebfc958cfad12
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84235348"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169917"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Dokumentacja ustawień aplikacji dla usługi Azure Functions
 
@@ -32,6 +33,42 @@ Parametry połączenia dla Application Insights. Użyj `APPLICATIONINSIGHTS_CONN
 |Klucz|Wartość przykładowa|
 |---|------------|
 |APPLICATIONINSIGHTS_CONNECTION_STRING|InstrumentationKey = [Key]; IngestionEndpoint = [URL]; LiveEndpoint = [URL]; ProfilerEndpoint = [URL]; SnapshotEndpoint = [URL];|
+
+## <a name="azure_function_proxy_disable_local_call"></a>AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL
+
+Domyślnie [serwery proxy usługi Functions](functions-proxies.md) używają skrótu do wysyłania wywołań interfejsu API z serwerów proxy bezpośrednio do funkcji w tej samej aplikacji funkcji. Ten skrót jest używany zamiast tworzenia nowego żądania HTTP. To ustawienie umożliwia wyłączenie tego zachowania skrótu.
+
+|Klucz|Wartość|Opis|
+|-|-|-|
+|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|true|Wywołania z adresem URL zaplecza wskazujące funkcję w lokalnej aplikacji funkcji nie będą wysyłane bezpośrednio do funkcji. Zamiast tego żądania są kierowane z powrotem do frontonu HTTP dla aplikacji funkcji.|
+|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|fałsz|Wywołania z adresem URL zaplecza wskazujące funkcję w lokalnej aplikacji funkcji są przekazywane bezpośrednio do funkcji. Jest to wartość domyślna. |
+
+## <a name="azure_function_proxy_backend_url_decode_slashes"></a>AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES
+
+To ustawienie określa, czy znaki `%2F` są dekodowane jako ukośniki w parametrach trasy, gdy są wstawiane do adresu URL zaplecza. 
+
+|Klucz|Wartość|Opis|
+|-|-|-|
+|AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES|true|Parametry trasy z zakodowanymi ukośnikami są zdekodowane. |
+|AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES|fałsz|Wszystkie parametry tras są przesyłane bez zmian, co jest zachowaniem domyślnym. |
+
+Rozważmy na przykład proxies.jsw pliku dla aplikacji funkcji w `myfunction.com` domenie.
+
+```JSON
+{
+    "$schema": "http://json.schemastore.org/proxies",
+    "proxies": {
+        "root": {
+            "matchCondition": {
+                "route": "/{*all}"
+            },
+            "backendUri": "example.com/{all}"
+        }
+    }
+}
+```
+
+Gdy `AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES` jest ustawiona na `true` , adres URL jest `example.com/api%2ftest` rozpoznawany jako `example.com/api/test` . Domyślnie adres URL pozostaje niezmieniony `example.com/test%2fapi` . Aby uzyskać więcej informacji, zobacz temat usługi [proxy usługi Functions](functions-proxies.md).
 
 ## <a name="azure_functions_environment"></a>AZURE_FUNCTIONS_ENVIRONMENT
 
@@ -86,7 +123,7 @@ Określa repozytorium lub dostawcę, który ma być używany na potrzeby magazyn
 
 |Klucz|Wartość przykładowa|
 |---|------------|
-|AzureWebJobsSecretStorageType|Files|
+|AzureWebJobsSecretStorageType|Pliki|
 
 ## <a name="azurewebjobsstorage"></a>AzureWebJobsStorage
 
@@ -150,7 +187,31 @@ Określa maksymalną liczbę procesów roboczych języka z wartością domyśln�
 |---|------------|
 |\_ \_ środowisko uruchomieniowe procesu roboczego|dotnet|
 
-## <a name="website_contentazurefileconnectionstring"></a>WEBSITE_CONTENTAZUREFILECONNECTIONSTRING
+## <a name="pip_extra_index_url"></a>\_ \_ adres URL dodatkowego indeksu PIP \_
+
+Wartość tego ustawienia wskazuje niestandardowy adres URL indeksu pakietu dla aplikacji języka Python. Użyj tego ustawienia, jeśli chcesz uruchomić zdalną kompilację przy użyciu zależności niestandardowych, które znajdują się w dodatkowym indeksie pakietu.   
+
+|Klucz|Wartość przykładowa|
+|---|------------|
+|\_ \_ adres URL dodatkowego indeksu PIP \_|http://my.custom.package.repo/simple |
+
+Aby dowiedzieć się więcej, zobacz [zależności niestandardowe](functions-reference-python.md#remote-build-with-extra-index-url) w dokumentacji dewelopera języka Python.
+
+## <a name="scale_controller_logging_enable"></a>\_ \_ Włączanie rejestrowania kontrolerów skalowania \_
+
+_To ustawienie jest obecnie dostępne w wersji zapoznawczej._  
+
+To ustawienie steruje rejestrowaniem z kontrolera skalowania Azure Functions. Aby uzyskać więcej informacji, zobacz [skalowanie dzienników kontrolera](functions-monitoring.md#scale-controller-logs-preview).
+
+|Klucz|Wartość przykładowa|
+|-|-|
+|SCALE_CONTROLLER_LOGGING_ENABLE|AppInsights: verbose|
+
+Wartość tego klucza jest podawana w formacie `<DESTINATION>:<VERBOSITY>` zdefiniowanym w następujący sposób:
+
+[!INCLUDE [functions-scale-controller-logging](../../includes/functions-scale-controller-logging.md)]
+
+## <a name="website_contentazurefileconnectionstring"></a>CONTENTAZUREFILECONNECTIONSTRING witryny sieci Web \_
 
 Do użycia tylko w planach Premium &. Parametry połączenia dla konta magazynu, w którym są przechowywane kod i konfiguracja aplikacji funkcji. Zobacz [Tworzenie aplikacji funkcji](functions-infrastructure-as-code.md#create-a-function-app).
 
@@ -196,47 +257,16 @@ Umożliwia uruchamianie aplikacji funkcji z zainstalowanego pliku pakietu.
 
 Prawidłowe wartości to adres URL, który jest rozpoznawany jako lokalizacja pliku pakietu wdrożeniowego lub `1` . Po ustawieniu na `1` , pakiet musi znajdować się w `d:\home\data\SitePackages` folderze. W przypadku korzystania z tego ustawienia podczas wdrażania zip pakiet jest automatycznie przekazywany do tej lokalizacji. W wersji zapoznawczej to ustawienie miało nazwę `WEBSITE_RUN_FROM_ZIP` . Aby uzyskać więcej informacji, zobacz [Uruchamianie funkcji z pliku pakietu](run-functions-from-deployment-package.md).
 
-## <a name="azure_function_proxy_disable_local_call"></a>AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL
+## <a name="website_time_zone"></a>\_strefa czasowa witryny sieci Web \_
 
-Domyślnie serwery proxy funkcji będą używać skrótu do wysyłania wywołań interfejsu API z serwerów proxy bezpośrednio do funkcji w tym samym aplikacja funkcji, zamiast tworzyć nowe żądanie HTTP. To ustawienie umożliwia wyłączenie tego zachowania.
+Umożliwia ustawienie strefy czasowej dla aplikacji funkcji. 
 
-|Klucz|Wartość|Opis|
-|-|-|-|
-|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|true|Wywołania z adresem URL zaplecza wskazujące funkcję w lokalnym aplikacja funkcji nie będą już wysyłane bezpośrednio do funkcji i będą kierowane z powrotem do frontonu HTTP dla aplikacja funkcji|
-|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|fałsz|Jest to wartość domyślna. Wywołania z adresem URL zaplecza wskazujące funkcję w lokalnym aplikacja funkcji będą przekazywane bezpośrednio do tej funkcji|
+|Klucz|System operacyjny|Wartość przykładowa|
+|---|--|------------|
+|\_strefa czasowa witryny sieci Web \_|Windows|Wschodni czas standardowy|
+|\_strefa czasowa witryny sieci Web \_|Linux|Ameryka/New_York|
 
-
-## <a name="azure_function_proxy_backend_url_decode_slashes"></a>AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES
-
-To ustawienie określa, czy% 2F jest dekodowane jako ukośniki w parametrach trasy, gdy są one wstawiane do adresu URL zaplecza. 
-
-|Klucz|Wartość|Opis|
-|-|-|-|
-|AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES|true|Parametry trasy z zakodowanymi ukośnikami zostaną zdekodowane. `example.com/api%2ftest`stanie się`example.com/api/test`|
-|AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES|fałsz|Jest to zachowanie domyślne. Wszystkie parametry tras zostaną przesłane bez zmian|
-
-### <a name="example"></a>Przykład
-
-Oto przykład proxies.jsw aplikacji funkcji pod adresem URL myfunction.com
-
-```JSON
-{
-    "$schema": "http://json.schemastore.org/proxies",
-    "proxies": {
-        "root": {
-            "matchCondition": {
-                "route": "/{*all}"
-            },
-            "backendUri": "example.com/{all}"
-        }
-    }
-}
-```
-|Dekodowanie adresu URL|Dane wejściowe|Dane wyjściowe|
-|-|-|-|
-|true|myfunction.com/test%2fapi|example.com/test/api
-|fałsz|myfunction.com/test%2fapi|example.com/test%2fapi|
-
+[!INCLUDE [functions-timezone](../../includes/functions-timezone.md)]
 
 ## <a name="next-steps"></a>Następne kroki
 

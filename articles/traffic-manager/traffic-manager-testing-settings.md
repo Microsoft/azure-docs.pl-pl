@@ -10,11 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: rohink
-ms.openlocfilehash: b2ac056ef9140b4187eeb1850e56ba09b9755abb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 894f01244fef94e9f5a60823ba06ff38c01288a1
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84704033"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187000"
 ---
 # <a name="verify-traffic-manager-settings"></a>Weryfikowanie ustawień usługi Traffic Manager
 
@@ -32,9 +33,11 @@ Poniższe przykłady ułatwiają przetestowanie profilu Traffic Manager.
 
 1. Otwórz wiersz polecenia lub programu Windows PowerShell jako administrator.
 2. Wpisz `ipconfig /flushdns` , aby opróżnić pamięć podręczną programu rozpoznawania nazw DNS.
-3. Wpisz polecenie `nslookup <your Traffic Manager domain name>`. Na przykład następujące polecenie sprawdza nazwę domeny z prefiksem *MojaApl. contoso*
+3. Wpisz `nslookup <your Traffic Manager domain name>`. Na przykład następujące polecenie sprawdza nazwę domeny z prefiksem *MojaApl. contoso*
 
-        nslookup myapp.contoso.trafficmanager.net
+    ```powershell
+    nslookup myapp.contoso.trafficmanager.net
+    ```
 
     Typowy wynik zawiera następujące informacje:
 

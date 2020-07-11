@@ -13,11 +13,12 @@ ms.workload: iaas-sql-server
 ms.date: 10/21/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 58f2b1828bcc63ce11c234847bc20f90944aba18
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 74757b2f5e272c7e7dbc0dc7f033c7899be1414b
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85960388"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86184314"
 ---
 # <a name="register-multiple-sql-virtual-machines-in-azure-with-the-sql-vm-resource-provider"></a>Rejestrowanie wielu maszyn wirtualnych SQL na platformie Azure przy użyciu dostawcy zasobów maszyny wirtualnej SQL
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -39,7 +40,7 @@ Aby zarejestrować SQL Server maszynę wirtualną przy użyciu dostawcy zasobów
 - Najnowsza wersja polecenia [AZ PowerShell](/powershell/azure/new-azureps-module-az). 
 - Najnowsza wersja [AZ. SqlVirtualMachine](https://www.powershellgallery.com/packages/Az.SqlVirtualMachine/0.1.0).
 
-## <a name="get-started"></a>Rozpoczęcie pracy
+## <a name="get-started"></a>Wprowadzenie
 
 Przed kontynuowaniem należy najpierw utworzyć kopię lokalną skryptu, zaimportować ją jako moduł programu PowerShell i nawiązać połączenie z platformą Azure. 
 
@@ -133,7 +134,7 @@ Please find the detailed report in file RegisterSqlVMScriptReport1571314821.txt
 Please find the error details in file VMsNotRegisteredDueToError1571314821.log
 ```
 
-## <a name="resister-all-vms-in-a-resource-group"></a>Przetworzyć wszystkie maszyny wirtualne w grupie zasobów
+## <a name="register-all-vms-in-a-resource-group"></a>Rejestrowanie wszystkich maszyn wirtualnych w grupie zasobów
 
 Użyj następującego polecenia cmdlet, aby zarejestrować wszystkie SQL Server maszyny wirtualne w pojedynczej grupie zasobów: 
 

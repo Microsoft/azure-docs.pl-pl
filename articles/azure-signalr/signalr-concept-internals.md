@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: zhshang
-ms.openlocfilehash: 8ba34edfc382f0f03abe080d78a6a47dcb65501b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f06b8f9a2d41fc5400aa0fa610a2be3f31e21f1c
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82105764"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169803"
 ---
 # <a name="azure-signalr-service-internals"></a>Wewnętrzne elementy usługi Azure SignalR
 
@@ -84,7 +84,9 @@ Gdy klient jest połączony z usługą SignalR Service, środowisko wykonawcze u
 
 W tym momencie serwer aplikacji odbiera zdarzenie z informacjami od nowego klienta. Na serwerze aplikacji tworzone jest połączenie logiczne do klienta. Kanał danych jest ustanawiany od klienta do serwera aplikacji za pośrednictwem usługi SignalR Service.
 
-Usługa SignalR przesyła dane z klienta do sparowanego serwera aplikacji. Natomiast dane z serwera aplikacji będą wysyłane do zamapowanych klientów.
+Usługa sygnalizująca przesyła dane z klienta do serwera aplikacji parowania. Natomiast dane z serwera aplikacji będą wysyłane do zamapowanych klientów.
+
+Usługa sygnalizująca nie zapisuje ani nie przechowuje danych klienta, wszystkie odebrane dane klienta są przesyłane do serwera docelowego lub klientów w czasie rzeczywistym.
 
 Jak widać, usługa Azure SignalR Service to zasadniczo logiczna warstwa transportowa między serwerem aplikacji a klientami. Wszystkie trwałe połączenia są przenoszone do usługi SignalR Service.
 Serwer aplikacji musi tylko obsługiwać logikę biznesową w klasie centrum bez martwienia się o połączenia klientów.

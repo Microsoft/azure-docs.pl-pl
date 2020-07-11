@@ -5,11 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 05/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: f05e705f351d75fdf772d3197b94fcece40d43fb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 246fcdb27737e99bb677e23216f0305037f54526
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85100389"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187459"
 ---
 # <a name="manage-pre-scripts-and-post-scripts"></a>Zarządzanie skryptami wstępnymi i końcowymi
 
@@ -146,7 +147,7 @@ Zadania podrzędne i zadania podrzędne są uruchamiane jako elementy Runbook i 
 * Konto Uruchom jako
 * Element Runbook, który chcesz uruchomić
 
-Aby móc korzystać z maszyn platformy Azure, użyj polecenia cmdlet [Invoke-AzVMRunCommand](https://docs.microsoft.com/powershell/module/az.compute/invoke-azvmruncommand?view=azps-3.7.0) , aby móc korzystać z maszyn wirtualnych platformy Azure. Aby zapoznać się z przykładem, jak to zrobić, zobacz przykład elementu Runbook [Update Management — uruchom skrypt z poleceniem Run](https://gallery.technet.microsoft.com/Update-Management-Run-40f470dc).
+Aby móc korzystać z maszyn platformy Azure, użyj polecenia cmdlet [Invoke-AzVMRunCommand](/powershell/module/az.compute/invoke-azvmruncommand?view=azps-3.7.0) , aby móc korzystać z maszyn wirtualnych platformy Azure. Aby zapoznać się z przykładem, jak to zrobić, zobacz przykład elementu Runbook [Update Management — uruchom skrypt z poleceniem Run](https://gallery.technet.microsoft.com/Update-Management-Run-40f470dc).
 
 ### <a name="interact-with-non-azure-machines"></a>Korzystanie z maszyn nienależących do platformy Azure
 
@@ -157,7 +158,7 @@ Zadania poprzedzające i zadania wykonywane w kontekście platformy Azure i nie 
 * Element Runbook, który ma być uruchamiany lokalnie
 * Nadrzędny element Runbook
 
-Aby można było korzystać z maszyn nienależących do platformy Azure, nadrzędny element Runbook jest uruchamiany w kontekście platformy Azure. Ten element Runbook wywołuje podrzędny element Runbook za pomocą polecenia cmdlet [Start-AzAutomationRunbook](https://docs.microsoft.com/powershell/module/Az.Automation/Start-AzAutomationRunbook?view=azps-3.7.0) . Należy określić `RunOn` parametr i podać nazwę hybrydowego procesu roboczego elementu Runbook, na którym ma być uruchamiany skrypt. Zapoznaj się z przykładem elementu Runbook [Update Management — uruchom skrypt lokalnie](https://gallery.technet.microsoft.com/Update-Management-Run-6949cc44).
+Aby można było korzystać z maszyn nienależących do platformy Azure, nadrzędny element Runbook jest uruchamiany w kontekście platformy Azure. Ten element Runbook wywołuje podrzędny element Runbook za pomocą polecenia cmdlet [Start-AzAutomationRunbook](/powershell/module/Az.Automation/Start-AzAutomationRunbook?view=azps-3.7.0) . Należy określić `RunOn` parametr i podać nazwę hybrydowego procesu roboczego elementu Runbook, na którym ma być uruchamiany skrypt. Zapoznaj się z przykładem elementu Runbook [Update Management — uruchom skrypt lokalnie](https://gallery.technet.microsoft.com/Update-Management-Run-6949cc44).
 
 ## <a name="abort-patch-deployment"></a>Przerwij wdrożenie poprawki
 
@@ -242,7 +243,7 @@ $variable = Get-AutomationVariable -Name $runId
 ```
 
 > [!NOTE]
-> Dla niegraficznych elementów Runbook programu PowerShell `Add-AzAccount` i `Add-AzureRMAccount` są aliasami dla polecenia [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-3.5.0). Możesz użyć tych poleceń cmdlet lub [zaktualizować moduły](automation-update-azure-modules.md) na koncie usługi Automation do najnowszych wersji. Może być konieczne zaktualizowanie modułów, nawet jeśli utworzono nowe konto usługi Automation.
+> Dla niegraficznych elementów Runbook programu PowerShell `Add-AzAccount` i `Add-AzureRMAccount` są aliasami dla polecenia [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount?view=azps-3.5.0). Możesz użyć tych poleceń cmdlet lub [zaktualizować moduły](automation-update-azure-modules.md) na koncie usługi Automation do najnowszych wersji. Może być konieczne zaktualizowanie modułów, nawet jeśli utworzono nowe konto usługi Automation.
 
 ## <a name="next-steps"></a>Następne kroki
 

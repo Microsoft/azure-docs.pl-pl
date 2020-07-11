@@ -1,5 +1,5 @@
 ---
-title: dołączanie pliku
+title: Plik dyrektywy include
 description: " — plik"
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher

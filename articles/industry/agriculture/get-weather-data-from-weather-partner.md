@@ -5,12 +5,12 @@ author: sunasing
 ms.topic: article
 ms.date: 03/31/2020
 ms.author: sunasing
-ms.openlocfilehash: 39d37b1a032a386219a98a409f2eb04a6ccc6eca
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 7666ee1a81c2ed93ee5e246b3ec79f056f9d63ab
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86078737"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187782"
 ---
 # <a name="get-weather-data-from-weather-partners"></a>Pobieranie danych pogody od partnerów pogody
 
@@ -153,7 +153,7 @@ Aby zbadać dane pogodowe przy użyciu interfejsu API REST FarmBeats, wykonaj na
 
 1. W centrum danych FarmBeats Swagger ( https://yourdatahub.azurewebsites.net/swagger) Przejdź do interfejsu API/WeatherDataLocation i Utwórz żądanie Get. Odpowiedź będzie mieć obiekty/WeatherDataLocation utworzone dla lokalizacji (Szerokość geograficzna/Długość geograficzna), która została określona w ramach uruchomienia zadania. Zanotuj **Identyfikator** i **weatherDataModelId** obiektów (y).
 
-2. Utwórz funkcję GET/{ID} w interfejsie API/WeatherDataModel dla **weatherDataModelId** zgodnie z opisem w kroku 1. "Model danych pogody" zawiera wszystkie metadane i szczegółowe informacje o pozyskanych danych pogodowych. Na przykład **miara pogody** w obiekcie **modelu danych pogody** zawiera szczegółowe informacje o tym, jakie informacje o pogodzie są obsługiwane i w jakich typach i jednostkach. Na przykład
+2. Utwórz funkcję GET/{ID} w interfejsie API/WeatherDataModel dla **weatherDataModelId** zgodnie z opisem w kroku 1. "Model danych pogody" zawiera wszystkie metadane i szczegółowe informacje o pozyskanych danych pogodowych. Na przykład **miara pogody** w obiekcie **modelu danych pogody** zawiera szczegółowe informacje o tym, jakie informacje o pogodzie są obsługiwane i w jakich typach i jednostkach. Przykład:
 
    ```json
    {
@@ -211,6 +211,11 @@ Aby zbadać dane pogodowe przy użyciu interfejsu API REST FarmBeats, wykonaj na
 
 W poprzednim przykładzie odpowiedź zawiera dane dla dwóch sygnatur czasowych wraz z nazwą miary ("temperatura") i wartościami danych o raportowanych Pogoda w dwóch sygnaturach czasowych. Należy odwołać się do skojarzonego modelu danych pogody (zgodnie z opisem w kroku 2 powyżej), aby interpretować typ i jednostkę raportowanych wartości.
 
+## <a name="troubleshoot-job-failures"></a>Rozwiązywanie problemów z błędami zadań
+
+Aby rozwiązać problemy z błędami zadań, można sprawdzić dzienniki zadań. Wykonaj [kroki opisane tutaj](troubleshoot-azure-farmbeats.md#weather-data-job-failures) , aby to zrobić.
+
+
 ## <a name="appendix"></a>Dodatek
 
 |        Partner   |  Szczegóły   |
@@ -224,7 +229,7 @@ W poprzednim przykładzie odpowiedź zawiera dane dla dwóch sygnatur czasowych 
 | DockerDetails - partnerCredentials | poświadczenia dotyczące wywoływania interfejsu API partnera w programie Docker. Partner musi przekazać klientom te informacje na podstawie mechanizmu uwierzytelniania, który jest obsługiwany na przykład. Nazwa użytkownika/hasło lub klucze interfejsu API. |
 | partnertype | "Pogoda" (inne typy partnerów w FarmBeats to "czujnik" i "obraz")  |
 |  name   |   Wymagana nazwa partnera w systemie FarmBeats   |
-|  description |  Opis   |
+|  opis |  Opis   |
 
 ## <a name="next-steps"></a>Następne kroki
 

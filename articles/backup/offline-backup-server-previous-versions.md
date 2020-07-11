@@ -3,12 +3,12 @@ title: Kopia zapasowa offline dla Data Protection Manager (DPM) i Microsoft Azur
 description: Za pomocą Azure Backup można wysyłać dane z sieci za pomocą usługi Azure Import/Export. W tym artykule wyjaśniono przepływ pracy kopii zapasowej offline dla programu DPM i Azure Backup Server.
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: f39e93973deab09eb328eeafcff4e49b326483f6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 128051210984a55620be60a5965a7067e74de7c7
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85374835"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186949"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server-previous-versions"></a>Przepływ pracy kopii zapasowej offline dla programu DPM i Azure Backup Server (poprzednie wersje)
 
@@ -23,7 +23,7 @@ Proces rozsadzenia w trybie offline Azure Backup jest ściśle zintegrowany z [u
 > Proces tworzenia kopii zapasowych w trybie offline dla agenta Microsoft Azure Recovery Services (MARS) różni się od programu DPM i serwera usługi MAB. Aby uzyskać informacje na temat używania kopii zapasowej offline z agentem MARS, zobacz [przepływ pracy kopii zapasowej offline w Azure Backup](backup-azure-backup-import-export.md). Kopia zapasowa offline nie jest obsługiwana w przypadku kopii zapasowych stanu systemu wykonywanych przy użyciu agenta Azure Backup.
 >
 
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 
 Korzystając z możliwości wypełniania w trybie offline Azure Backup i usługi Azure Import/Export, można łatwo przekazać dane w trybie offline na platformę Azure przy użyciu dysków. Proces tworzenia kopii zapasowej w trybie offline obejmuje następujące kroki:
 
@@ -45,6 +45,9 @@ Kopia zapasowa offline jest obsługiwana dla wszystkich modeli wdrażania Azure 
 > * Tworzenie kopii zapasowych wszystkich obciążeń i plików przy użyciu programu DPM.
 > * Tworzenie kopii zapasowych wszystkich obciążeń i plików z serwera usługi MAB.
 
+>[!NOTE]
+>Subskrypcje dostawcy CSP platformy Azure nie są obsługiwane w przypadku używania z rozrzutem offline dla programu DPM 2019 RTM i wcześniejszych wersji oraz serwera usługi MAB v3 RTM i wcześniejszych wersji. Kopie zapasowe online przez sieć są nadal obsługiwane.
+
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Przed uruchomieniem przepływu pracy tworzenia kopii zapasowej offline upewnij się, że zostały spełnione następujące wymagania wstępne:
@@ -55,8 +58,8 @@ Przed uruchomieniem przepływu pracy tworzenia kopii zapasowej offline upewnij s
 
     | Region suwerennej chmury | Link pliku ustawień publikowania platformy Azure |
     | --- | --- |
-    | Stany Zjednoczone | [Link](https://portal.azure.us#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade) |
-    | Chiny | [Link](https://portal.azure.cn/#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade) |
+    | Stany Zjednoczone | [Łącze](https://portal.azure.us#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade) |
+    | Chiny | [Łącze](https://portal.azure.cn/#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade) |
 
 * W subskrypcji, z której pobrano plik ustawień publikowania, utworzono konto usługi Azure Storage z modelem wdrażania Menedżer zasobów. Na koncie magazynu Utwórz nowy kontener obiektów blob, który będzie używany jako miejsce docelowe.
 
@@ -96,7 +99,7 @@ Przed uruchomieniem przepływu pracy tworzenia kopii zapasowej offline upewnij s
 
 Wykonaj następujące kroki, aby ręcznie przekazać certyfikat kopii zapasowej offline do wcześniej utworzonej aplikacji Azure Active Directory przeznaczonej do tworzenia kopii zapasowych w trybie offline.
 
-1. Zaloguj się do witryny Azure Portal.
+1. Zaloguj się w witrynie Azure Portal.
 1. Przejdź do **Azure Active Directory**  >  **rejestracje aplikacji**Azure Active Directory.
 1. Na karcie **posiadane aplikacje** Znajdź aplikację z formatem nazwy wyświetlanej `AzureOfflineBackup _<Azure User Id` .
 
@@ -121,7 +124,7 @@ Wykonaj następujące kroki, aby ręcznie przekazać certyfikat kopii zapasowej 
     >* Z poziomu programu PowerShell połączonego z platformą Azure Uruchom `Get-AzureRmADUser -UserPrincipalName "Account Holder's email as appears in the portal"` polecenie.
     >* Przejdź do ścieżki rejestru `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\DbgSettings\OnlineBackup; Name: CurrentUserId;` .
 
-1. Kliknij prawym przyciskiem myszy ciąg dodany w poprzednim kroku, a następnie wybierz polecenie **Modyfikuj**. W polu wartość Podaj odcisk palca certyfikatu wyeksportowanego w kroku 7. Następnie wybierz pozycję **OK**.
+1. Kliknij prawym przyciskiem myszy ciąg dodany w poprzednim kroku, a następnie wybierz polecenie **Modyfikuj**. W polu wartość Podaj odcisk palca certyfikatu wyeksportowanego w kroku 7. Następnie wybierz przycisk **OK**.
 1. Aby uzyskać wartość odcisku palca, kliknij dwukrotnie certyfikat. Wybierz kartę **szczegóły** i przewiń w dół do momentu wyświetlenia pola odcisk palca. Wybierz **odcisk palca**i skopiuj wartość.
 
     ![Kopiuj wartość z pola odcisku palca](./media/offline-backup-dpm-mabs-previous-versions/thumbprint-field.png)

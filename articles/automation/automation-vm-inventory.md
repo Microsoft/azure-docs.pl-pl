@@ -6,12 +6,12 @@ ms.subservice: change-inventory-management
 keywords: spis, automatyzacja, zmiana, śledzenie
 ms.date: 06/30/2020
 ms.topic: conceptual
-ms.openlocfilehash: 73f5105240b8b6475bb9ebed48baadd501aec87d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 32d3c17a5f3d152f32b19ffbfd5c9793a7a34b80
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85603115"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185725"
 ---
 # <a name="manage-inventory-collection-from-vms"></a>Zarządzanie zbieraniem spisu z maszyn wirtualnych
 
@@ -131,5 +131,5 @@ Aby usunąć maszynę wirtualną z Change Tracking i zarządzania spisem:
 ## <a name="next-steps"></a>Następne kroki
 
 * Aby uzyskać szczegółowe informacje na temat pracy z funkcją, zobacz [zarządzanie Change Tracking i spisem](change-tracking-file-contents.md).
-* Aby dowiedzieć się więcej o śledzeniu zmian oprogramowania, zobacz [śledzenie zmian oprogramowania w środowisku przy użyciu Change Tracking](../log-analytics/log-analytics-change-tracking.md).
+* Aby dowiedzieć się więcej o śledzeniu zmian oprogramowania, zobacz [śledzenie zmian oprogramowania w środowisku przy użyciu Change Tracking](./change-tracking.md).
 * Rozwiązywanie ogólnych problemów z funkcją można znaleźć w temacie [Rozwiązywanie problemów dotyczących Change Tracking i spisu](troubleshoot/change-tracking.md).

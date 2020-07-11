@@ -5,11 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: 184e65c929d43e7a5d4ca3be8bd93770c55cd2a5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 24d0123eecc56b56573e94d831283d8d360cd16e
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83836570"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185929"
 ---
 # <a name="azure-automation-runbook-types"></a>Azure Automation typy elementów Runbook
 
@@ -67,15 +68,15 @@ Elementy Runbook programu PowerShell są oparte na programie Windows PowerShell.
 * Musisz znać skrypty programu PowerShell.
 * Elementy Runbook nie mogą używać [przetwarzania równoległego](automation-powershell-workflow.md#use-parallel-processing) w celu równoległego wykonywania wielu akcji.
 * Jeśli wystąpi błąd, elementy Runbook nie mogą użyć [punktów kontrolnych](automation-powershell-workflow.md#use-checkpoints-in-a-workflow) w celu wznowienia działania elementu Runbook.
-* Można uwzględnić tylko elementy Runbook przepływu pracy programu PowerShell i graficzne elementy Runbook jako podrzędne elementy Runbook za pomocą polecenia cmdlet [Start-AzAutomationRunbook](https://docs.microsoft.com/powershell/module/az.automation/start-azautomationrunbook?view=azps-3.7.0) , które tworzy nowe zadanie.
+* Można uwzględnić tylko elementy Runbook przepływu pracy programu PowerShell i graficzne elementy Runbook jako podrzędne elementy Runbook za pomocą polecenia cmdlet [Start-AzAutomationRunbook](/powershell/module/az.automation/start-azautomationrunbook?view=azps-3.7.0) , które tworzy nowe zadanie.
 
 ### <a name="known-issues"></a>Znane problemy
 
 Poniżej przedstawiono bieżące znane problemy dotyczące elementów Runbook programu PowerShell:
 
-* Elementy Runbook programu PowerShell nie mogą pobrać nieszyfrowanego [zasobu zmiennej](automation-variables.md) z wartością null.
+* Elementy Runbook programu PowerShell nie mogą pobrać nieszyfrowanego [zasobu zmiennej](./shared-resources/variables.md) z wartością null.
 * Elementy Runbook programu PowerShell nie mogą pobrać zasobu zmiennej z `*~*` nazwą.
-* Operacja [Get-Process](https://docs.microsoft.com/powershell/module/microsoft.powershell.management/get-process?view=powershell-7) w pętli w elemencie Runbook programu PowerShell może ulec awarii po około 80 iteracjach.
+* Operacja [Get-Process](/powershell/module/microsoft.powershell.management/get-process?view=powershell-7) w pętli w elemencie Runbook programu PowerShell może ulec awarii po około 80 iteracjach.
 * Element Runbook programu PowerShell może zakończyć się niepowodzeniem, jeśli próbuje napisać dużą ilość danych do strumienia wyjściowego jednocześnie. Na ogół można obejść ten problem, ponieważ element Runbook wyprowadza tylko informacje potrzebne do pracy z dużymi obiektami. Na przykład zamiast używać bez `Get-Process` ograniczeń, można użyć polecenia cmdlet, które są wymagane tylko w programie `Get-Process | Select ProcessName, CPU` .
 
 ## <a name="powershell-workflow-runbooks"></a>Elementy Runbook przepływu pracy programu PowerShell

@@ -5,16 +5,16 @@ services: automation
 ms.subservice: process-automation
 ms.date: 06/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: e64f437b65964b585311aeae25e5f3a92275754a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2d73b87248fff2e99f05d2d6d6263f2bb3abba57
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85361680"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185640"
 ---
 # <a name="start-a-runbook-from-a-webhook"></a>Uruchamianie elementu runbook z poziomu elementu webhook
 
-Element webhook umożliwia zewnętrznej usłudze uruchamianie określonego elementu Runbook w Azure Automation za pośrednictwem pojedynczego żądania HTTP. Usługi zewnętrzne obejmują Azure DevOps Services, GitHub, dzienniki Azure Monitor i aplikacje niestandardowe. Taka usługa może użyć elementu webhook do uruchomienia elementu Runbook bez implementacji pełnego interfejsu API Azure Automation. Elementy webhook można porównać z innymi metodami uruchamiania elementu Runbook w programie w [Azure Automation](automation-starting-a-runbook.md).
+Element webhook umożliwia zewnętrznej usłudze uruchamianie określonego elementu Runbook w Azure Automation za pośrednictwem pojedynczego żądania HTTP. Usługi zewnętrzne obejmują Azure DevOps Services, GitHub, dzienniki Azure Monitor i aplikacje niestandardowe. Taka usługa może użyć elementu webhook do uruchomienia elementu Runbook bez implementacji pełnego interfejsu API Azure Automation. Elementy webhook można porównać z innymi metodami uruchamiania elementu Runbook w programie w [Azure Automation](./start-runbooks.md).
 
 > [!NOTE]
 > Korzystanie z elementu webhook do uruchamiania elementów Runbook języka Python nie jest obsługiwane.
@@ -133,7 +133,7 @@ Przy założeniu, że żądanie zakończy się pomyślnie, odpowiedź elementu w
 {"JobIds":["<JobId>"]}
 ```
 
-Klient nie może określić momentu zakończenia zadania elementu Runbook lub jego stanu ukończenia z elementu webhook. Informacje te można znaleźć za pomocą identyfikatora zadania innego mechanizmu, takiego jak [Windows PowerShell](https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azureautomationjob) lub [interfejsu API Azure Automation](/rest/api/automation/job).
+Klient nie może określić momentu zakończenia zadania elementu Runbook lub jego stanu ukończenia z elementu webhook. Informacje te można znaleźć za pomocą identyfikatora zadania innego mechanizmu, takiego jak [Windows PowerShell](/powershell/module/servicemanagement/azure/get-azureautomationjob) lub [interfejsu API Azure Automation](/rest/api/automation/job).
 
 ## <a name="renew-a-webhook"></a>Odnawianie elementu webhook
 
@@ -151,7 +151,7 @@ Można rozciągnąć element webhook, który nie osiągnął czasu wygaśnięcia
 Następujący przykładowy element Runbook akceptuje dane elementu webhook i uruchamia maszyny wirtualne określone w treści żądania. Aby przetestować ten element Runbook, na koncie usługi Automation w obszarze **elementy Runbook**kliknij pozycję **Utwórz element Runbook**. Jeśli nie wiesz, jak utworzyć element Runbook, zobacz [Tworzenie elementu Runbook](automation-quickstart-create-runbook.md).
 
 > [!NOTE]
-> Dla niegraficznych elementów Runbook programu PowerShell `Add-AzAccount` i `Add-AzureRMAccount` są aliasami dla polecenia [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-3.5.0). Możesz użyć tych poleceń cmdlet lub [zaktualizować moduły](automation-update-azure-modules.md) na koncie usługi Automation do najnowszych wersji. Może być konieczne zaktualizowanie modułów, nawet jeśli utworzono nowe konto usługi Automation.
+> Dla niegraficznych elementów Runbook programu PowerShell `Add-AzAccount` i `Add-AzureRMAccount` są aliasami dla polecenia [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount?view=azps-3.5.0). Możesz użyć tych poleceń cmdlet lub [zaktualizować moduły](automation-update-azure-modules.md) na koncie usługi Automation do najnowszych wersji. Może być konieczne zaktualizowanie modułów, nawet jeśli utworzono nowe konto usługi Automation.
 
 ```powershell
 param

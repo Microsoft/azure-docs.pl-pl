@@ -16,11 +16,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: db42cf7f886855af77073963e6f04ac088ca5612
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f953b21a221967c2310b2fc70056d48863149821
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75530735"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86220052"
 ---
 # <a name="securely-push-notifications-from-azure-notification-hubs"></a>Bezpieczne wypychanie powiadomień z usługi Azure Notification Hubs
 
@@ -93,7 +94,7 @@ Następnym krokiem jest utworzenie składnika w tle.
 1. W Eksplorator rozwiązań kliknij prawym przyciskiem myszy węzeł najwyższego poziomu rozwiązania (w tym przypadku**rozwiązanie SecurePush** ), a następnie kliknij pozycję **Dodaj**, a następnie kliknij pozycję **Nowy projekt**.
 2. Rozwiń węzeł **aplikacje ze sklepu**, a następnie kliknij pozycję **Windows Phone aplikacje**, a następnie kliknij pozycję **składnik środowisko wykonawcze systemu Windows (Windows Phone)**. Nazwij projekt **PushBackgroundComponent**, a następnie kliknij przycisk **OK** , aby utworzyć projekt.
 
-    ![][12]
+    ![Zrzut ekranu przedstawiający okno dialogowe Dodawanie nowego projektu z wyróżnioną opcją Visual C# składnika środowisko wykonawcze systemu Windows (Windows Phone).][12]
 3. W Eksplorator rozwiązań kliknij prawym przyciskiem myszy projekt **PushBackgroundComponent (Windows Phone 8,1)** , a następnie kliknij pozycję **Dodaj**, a następnie kliknij pozycję **Klasa**. Nadaj nazwę nowej klasie `PushBackgroundTask.cs` . Kliknij przycisk **Dodaj** , aby wygenerować klasę.
 4. Zastąp całą zawartość `PushBackgroundComponent` definicji przestrzeni nazw następującym kodem, zastępując symbol zastępczy `{back-end endpoint}` punktem końcowym uzyskanym podczas wdrażania zaplecza:
 
@@ -161,12 +162,12 @@ Następnym krokiem jest utworzenie składnika w tle.
 11. W Eksplorator rozwiązań w projekcie **NotifyUserWindowsPhone (Windows Phone 8,1)** kliknij prawym przyciskiem myszy pozycję **odwołania**, a następnie kliknij pozycję **Dodaj odwołanie...**. W oknie dialogowym Menedżer odwołań zaznacz pole wyboru obok pozycji **PushBackgroundComponent**, a następnie kliknij przycisk **OK**.
 12. W Eksplorator rozwiązań kliknij dwukrotnie pozycję **Package. appxmanifest** w projekcie **NotifyUserWindowsPhone (Windows Phone 8,1)** . W obszarze **powiadomienia**ustaw opcję **wyskakujący z możliwością** **tak**.
 
-    ![][3]
+    ![Zrzut ekranu okna Eksplorator rozwiązań skoncentrowanego na pakiecie. appxmanifest z opcją "wyskakujące powiadomienia" ustawioną na wartość tak w kolorze czerwonym.][3]
 13. Nadal w **pakiecie Package. appxmanifest**kliknij menu **deklaracji** w górnej części strony. Na liście **dostępnych deklaracji** kliknij pozycję **zadania w tle**, a następnie kliknij przycisk **Dodaj**.
 14. W **Package. appxmanifest**, w obszarze **Właściwości**, zaznacz opcję **powiadomień wypychanych**.
 15. W **pakiecie Package. appxmanifest**w obszarze **Ustawienia aplikacji**wpisz **PushBackgroundComponent. PushBackgroundTask** w polu **punkt wejścia** .
 
-    ![][13]
+    ![Zrzut ekranu okna Eksplorator rozwiązań skoncentrowany na pakiecie. appxmanifest z dostępnymi deklaracjami, obsługiwanymi deklaracjami, powiadomieniami wypychanymi i opcjami punktu wejścia pokreślonymi na czerwono.][13]
 16. W menu **Plik** kliknij polecenie **Zapisz wszystko**.
 
 ## <a name="run-the-application"></a>Uruchom aplikację

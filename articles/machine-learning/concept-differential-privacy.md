@@ -1,21 +1,22 @@
 ---
-title: Zaimplementuj różnicową prywatność z pakietem WhiteNoise
+title: Zaimplementuj różnicową prywatność z pakietem WhiteNoise (wersja zapoznawcza)
 titleSuffix: Azure Machine Learning
 description: Dowiedz się, co to jest różnicowa Ochrona prywatności i jak pakiet WhiteNoise może pomóc w zaimplementowaniu różnicowych systemów prywatnych, które zachowują prywatność danych.
 author: luisquintanilla
 ms.author: luquinta
-ms.date: 05/03/2020
+ms.date: 07/09/2020
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.openlocfilehash: aa4fe715c18e582448ee7f642a6a75947356ab61
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9728bf2c86c0629b09e2325650ce288cf9b3cc7e
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84982666"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86199801"
 ---
-# <a name="preserve-data-privacy-by-using-differential-privacy-and-the-whitenoise-package"></a>Zachowanie prywatności danych przy użyciu różnicowej prywatności i pakietu WhiteNoise
+# <a name="preserve-data-privacy-by-using-differential-privacy-and-the-whitenoise-package-preview"></a>Zachowanie prywatności danych przy użyciu różnicowej prywatności i pakietu WhiteNoise (wersja zapoznawcza)
 
 Dowiedz się, co to jest różnicowa Ochrona prywatności i jak pakiet WhiteNoise może pomóc w zaimplementowaniu różnych systemów prywatnych.
 
