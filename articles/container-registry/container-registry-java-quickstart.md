@@ -5,12 +5,12 @@ author: KarlErickson
 ms.author: karler
 ms.topic: quickstart
 ms.date: 02/26/2020
-ms.openlocfilehash: 561c45bd13648f5f17273b478f320e9fd3d71331
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 87a4741ea8a64445c10c73bb1204aef1a2fcfaaf
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82857587"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86248802"
 ---
 # <a name="quickstart-build-and-push-java-container-images-to-azure-container-registry"></a>Szybki Start: Tworzenie i wypychanie obrazów kontenera Java do Azure Container Registry
 
@@ -72,7 +72,7 @@ Następnie utworzysz grupę zasobów platformy Azure i ACR, wykonując następuj
    az account set -s <subscription ID>
    ```
 
-1. Utwórz grupę zasobów na potrzeby zasobów platformy Azure używanych w tym samouczku. W poniższym poleceniu Pamiętaj, aby zastąpić symbole zastępcze własną nazwą zasobu i lokalizacją, taką jak `eastus`.
+1. Utwórz grupę zasobów na potrzeby zasobów platformy Azure używanych w tym samouczku. W poniższym poleceniu Pamiętaj, aby zastąpić symbole zastępcze własną nazwą zasobu i lokalizacją, taką jak `eastus` .
 
    ```azurecli
    az group create \
@@ -104,11 +104,11 @@ Na koniec zaktualizujesz konfigurację projektu i użyjesz wiersza polecenia, ab
    az acr login
    ```
 
-   `az configure` Polecenie ustawia domyślną nazwę rejestru do użycia z `az acr` poleceniami.
+   `az configure`Polecenie ustawia domyślną nazwę rejestru do użycia z `az acr` poleceniami.
 
 1. Przejdź do katalogu ukończonego projektu aplikacji Spring Boot (na przykład „*C:\SpringBoot\gs-spring-boot-docker\complete*” lub „*/users/robert/SpringBoot/gs-spring-boot-docker/complete*”) i otwórz plik *pom.xml* w edytorze tekstu.
 
-1. Zaktualizuj `<properties>` kolekcję w pliku *pliku pom. XML* za pomocą poniższego kodu XML. Zastąp symbol zastępczy nazwą rejestru, a następnie Dodaj `<jib-maven-plugin.version>` właściwość z wartością `2.2.0`lub nowszą wersję programu [wysięgnik-Maven-plugin](https://github.com/GoogleContainerTools/jib/tree/master/jib-maven-plugin).
+1. Zaktualizuj `<properties>` kolekcję w pliku *pom.xml* przy użyciu poniższego kodu XML. Zastąp symbol zastępczy nazwą rejestru, a następnie Dodaj `<jib-maven-plugin.version>` Właściwość z wartością `2.2.0` lub nowszą wersję programu [wysięgnik-Maven-plugin](https://github.com/GoogleContainerTools/jib/tree/master/jib-maven-plugin).
 
    ```xml
    <properties>
@@ -118,7 +118,7 @@ Na koniec zaktualizujesz konfigurację projektu i użyjesz wiersza polecenia, ab
    </properties>
    ```
 
-1. Zaktualizuj `<plugins>` kolekcję w pliku *pliku pom. XML* tak, aby `<plugin>` element zawierał i wpis dla `jib-maven-plugin`, jak pokazano w poniższym przykładzie. Należy pamiętać, że korzystamy z obrazu podstawowego z Container Registry firmy Microsoft (MCR) `mcr.microsoft.com/java/jdk:8-zulu-alpine`:, który zawiera oficjalnie obsługiwane JDK dla platformy Azure. W przypadku innych obrazów podstawowych MCR z oficjalnie obsługiwanymi zestawy JDK, zobacz [Java SE JDK](https://hub.docker.com/_/microsoft-java-jdk), [Java SE JRE](https://hub.docker.com/_/microsoft-java-jre), [Java SE bezobsługowe środowisko JRE](https://hub.docker.com/_/microsoft-java-jre-headless)i [Java SE JDK i Maven](https://hub.docker.com/_/microsoft-java-maven).
+1. Zaktualizuj `<plugins>` kolekcję w pliku *pom.xml* , tak aby `<plugin>` element zawierał i wpis dla `jib-maven-plugin` , jak pokazano w poniższym przykładzie. Należy pamiętać, że korzystamy z obrazu podstawowego z Container Registry firmy Microsoft (MCR): `mcr.microsoft.com/java/jdk:8-zulu-alpine` , który zawiera oficjalnie obsługiwane JDK dla platformy Azure. W przypadku innych obrazów podstawowych MCR z oficjalnie obsługiwanymi zestawy JDK, zobacz [Java SE JDK](https://hub.docker.com/_/microsoft-java-jdk), [Java SE JRE](https://hub.docker.com/_/microsoft-java-jre), [Java SE bezobsługowe środowisko JRE](https://hub.docker.com/_/microsoft-java-jre-headless)i [Java SE JDK i Maven](https://hub.docker.com/_/microsoft-java-maven).
 
    ```xml
    <plugin>
@@ -144,7 +144,7 @@ Na koniec zaktualizujesz konfigurację projektu i użyjesz wiersza polecenia, ab
 
 > [!NOTE]
 >
-> Ze względów bezpieczeństwa poświadczenie utworzone przez `az acr login` program jest ważne tylko przez 1 godzinę. Jeśli wystąpi błąd *401* , możesz ponownie uruchomić `az acr login -n <your registry name>` polecenie w celu ponownego uwierzytelnienia.
+> Ze względów bezpieczeństwa poświadczenie utworzone przez program `az acr login` jest ważne tylko przez 1 godzinę. Jeśli wystąpi błąd *401* , możesz `az acr login -n <your registry name>` ponownie uruchomić polecenie w celu ponownego uwierzytelnienia.
 
 ## <a name="verify-your-container-image"></a>Weryfikowanie obrazu kontenera
 
@@ -170,11 +170,11 @@ Aby dowiedzieć się więcej na temat oprogramowania Spring i platformy Azure, p
 
 ### <a name="additional-resources"></a>Dodatkowe zasoby
 
-Więcej informacji zawierają następujące zasoby:
+Więcej informacji można znaleźć w następujących zasobach:
 
 * [Platforma Azure dla deweloperów języka Java](/azure/java)
 * [Praca z narzędziami Azure DevOps i językiem Java](/azure/devops/java)
 * [Spring Boot na platformie Docker — Wprowadzenie](https://spring.io/guides/gs/spring-boot-docker)
 * [Spring Initializr](https://start.spring.io)
 * [Deploy a Spring Boot Application to the Azure App Service](/azure/developer/java/spring-framework/deploy-spring-boot-java-app-from-container-registry-using-maven-plugin) (Wdrażanie aplikacji Spring Boot w usłudze Azure App Service)
-* [Używanie niestandardowego obrazu Docker dla usługi Azure Web App w systemie Linux](/azure/app-service-web/app-service-linux-using-custom-docker-image)
+* [Używanie niestandardowego obrazu Docker dla usługi Azure Web App w systemie Linux](../app-service/containers/tutorial-custom-docker-image.md)

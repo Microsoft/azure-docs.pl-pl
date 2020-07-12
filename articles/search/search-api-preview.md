@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: fb99530923f25541316fd159a2270f7035a1916b
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 0c0f40144fde49d467ca7fb126a19afa6c76660a
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86229248"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86246960"
 ---
 # <a name="preview-features-in-azure-cognitive-search"></a>Funkcje w wersji zapoznawczej na platformie Azure Wyszukiwanie poznawcze
 
@@ -23,6 +23,7 @@ Funkcje wersji zapoznawczej, które przechodzą do ogólnej dostępności, są u
 
 |Ona&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Kategoria | Opis | Dostępność  |
 |---------|------------------|-------------|---------------|
+| [**Umiejętność Azure Machine Learning (AML)**](cognitive-search-aml-skill.md) | Wzbogacanie sztucznej inteligencji| Nowy typ umiejętności służący do integrowania punktu końcowego inferencing z Azure Machine Learning. Rozpocznij pracę z [tym samouczkiem](cognitive-search-tutorial-aml-custom-skill.md). | Użyj [interfejsu API REST usługi Search 2020-06-30 — wersja](https://docs.microsoft.com/rest/api/searchservice/) zapoznawcza lub 2019-05-06 — wersja zapoznawcza. Dostępne również w portalu w projekcie zestawu umiejętności, przy założeniu, że Wyszukiwanie poznawcze i usługi Azure ML są wdrażane w tej samej subskrypcji. |
 | [**featuremode — parametr**](https://docs.microsoft.com/rest/api/searchservice/search-documents#featuresmode) | Istotność (ocenianie) | Rozszerzanie wyniku dopasowania do uwzględnienia szczegółów: wynikowe wyniki dla pola, częstotliwość poszczególnych pól oraz Liczba pasujących tokenów dla każdego pola. Te punkty danych można wykorzystać w [niestandardowych rozwiązaniach do oceniania](https://github.com/Azure-Samples/search-ranking-tutorial). | Dodaj ten parametr zapytania przy użyciu opcji [Wyszukaj dokumenty (REST)](https://docs.microsoft.com/rest/api/searchservice/search-documents) z interfejsem API-Version = 2020-06 -30 — wersja zapoznawcza lub 2019-05-06 — wersja zapoznawcza. |
 | [**Tożsamość usługi zarządzanej**](search-howto-managed-identities-data-sources.md) | Indeksatory, zabezpieczenia| Zarejestruj usługę wyszukiwania przy użyciu Azure Active Directory, aby udostępnić ją jako zaufaną usługę, a następnie użyj uprawnień RBAC w źródłach danych platformy Azure, aby umożliwić dostęp tylko do odczytu za pomocą indeksatora. | Uzyskaj dostęp do tej funkcji w przypadku korzystania z portalu lub [tworzenia źródła danych (REST)](https://docs.microsoft.com/rest/api/searchservice/create-data-source) z interfejsem API-Version = 2020-06 -30 — wersja zapoznawcza lub API-Version = 2019-05 -06-Preview. |
 | [**Sesje debugowania**](cognitive-search-debug-session.md) | Portal, wzbogacanie AI (zestawu umiejętności) | Edytor zestawu umiejętności w sesji używany do badania i rozwiązywania problemów z zestawu umiejętności. Poprawki stosowane podczas sesji debugowania można zapisać w zestawu umiejętności w usłudze. | Tylko Portal przy użyciu linków strony średniej na stronie Przegląd, aby otworzyć sesję debugowania. |

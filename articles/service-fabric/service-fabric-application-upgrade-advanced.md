@@ -3,25 +3,26 @@ title: Zaawansowane tematy dotyczące uaktualniania aplikacji
 description: W tym artykule omówiono niektóre zaawansowane tematy dotyczące uaktualniania aplikacji Service Fabric.
 ms.topic: conceptual
 ms.date: 03/11/2020
-ms.openlocfilehash: 98d8213cc50f73ef2c053e1fe5574fe33a2f3cb6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cc2fdc8f99b74078bd8d5274cbe52265ab8455ae
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84263095"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86248088"
 ---
 # <a name="service-fabric-application-upgrade-advanced-topics"></a>Uaktualnianie aplikacji Service Fabric: Tematy zaawansowane
 
 ## <a name="add-or-remove-service-types-during-an-application-upgrade"></a>Dodawanie lub usuwanie typów usług podczas uaktualniania aplikacji
 
-Jeśli nowy typ usługi zostanie dodany do opublikowanej aplikacji w ramach uaktualnienia, nowy typ usługi zostanie dodany do wdrożonej aplikacji. Takie uaktualnienie nie ma wpływu na żadne wystąpienia usługi, które już należały do aplikacji, ale wystąpienie typu usługi, który został dodany, musi zostać utworzone dla nowego typu usługi, który ma być aktywny (zobacz [New-ServiceFabricService](https://docs.microsoft.com/powershell/module/servicefabric/new-servicefabricservice?view=azureservicefabricps)).
+Jeśli nowy typ usługi zostanie dodany do opublikowanej aplikacji w ramach uaktualnienia, nowy typ usługi zostanie dodany do wdrożonej aplikacji. Takie uaktualnienie nie ma wpływu na żadne wystąpienia usługi, które już należały do aplikacji, ale wystąpienie typu usługi, który został dodany, musi zostać utworzone dla nowego typu usługi, który ma być aktywny (zobacz [New-ServiceFabricService](/powershell/module/servicefabric/new-servicefabricservice?view=azureservicefabricps)).
 
-Podobnie typy usług można usunąć z aplikacji w ramach uaktualnienia. Jednak przed kontynuowaniem uaktualniania należy usunąć wszystkie wystąpienia usługi typu, które mają zostać usunięte (zobacz [Remove-ServiceFabricService](https://docs.microsoft.com/powershell/module/servicefabric/remove-servicefabricservice?view=azureservicefabricps)).
+Podobnie typy usług można usunąć z aplikacji w ramach uaktualnienia. Jednak przed kontynuowaniem uaktualniania należy usunąć wszystkie wystąpienia usługi typu, które mają zostać usunięte (zobacz [Remove-ServiceFabricService](/powershell/module/servicefabric/remove-servicefabricservice?view=azureservicefabricps)).
 
 ## <a name="avoid-connection-drops-during-stateless-service-planned-downtime"></a>Unikaj przerw w działaniu podczas planowanego przestoju usługi bezstanowej
 
 W przypadku planowanych przestojów wystąpień bezstanowych, takich jak Uaktualnianie aplikacji/klastra lub dezaktywacja węzła, połączenia mogą zostać porzucone, ponieważ narażony punkt końcowy zostaje usunięty po przejściu wystąpienia w dół, co spowoduje wymuszenie zamknięcia połączenia.
 
-Aby tego uniknąć, należy skonfigurować funkcję *RequestDrain* , dodając *czas opóźnienia zamknięcia wystąpienia* w konfiguracji usługi, aby zezwolić na opróżnianie istniejących żądań z klastra na wyznaczonych punktach końcowych. Jest to osiągane, ponieważ punkt końcowy anonsowany przez wystąpienie bezstanowe jest usuwany *przed* rozpoczęciem oczekiwania przed zamknięciem wystąpienia. To opóźnienie umożliwia bezpieczne opróżnianie istniejących żądań przed faktycznym przekroczeniem wystąpienia. Klienci są powiadamiani o zmianie punktu końcowego przez funkcję wywołania zwrotnego w chwili rozpoczęcia opóźnienia, dzięki czemu mogą oni rozwiązać ten punkt końcowy i uniknąć wysyłania nowych żądań do wystąpienia, które się nie zmieniło. Te żądania mogą pochodzić z klientów przy użyciu [zwrotnego serwera proxy](https://docs.microsoft.com/azure/service-fabric/service-fabric-reverseproxy) lub interfejsu API rozpoznawania punktów końcowych usługi z modelem powiadomień ([ServiceNotificationFilterDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.servicenotificationfilterdescription)) w celu zaktualizowania punktów końcowych.
+Aby tego uniknąć, należy skonfigurować funkcję *RequestDrain* , dodając *czas opóźnienia zamknięcia wystąpienia* w konfiguracji usługi, aby zezwolić na opróżnianie istniejących żądań z klastra na wyznaczonych punktach końcowych. Jest to osiągane, ponieważ punkt końcowy anonsowany przez wystąpienie bezstanowe jest usuwany *przed* rozpoczęciem oczekiwania przed zamknięciem wystąpienia. To opóźnienie umożliwia bezpieczne opróżnianie istniejących żądań przed faktycznym przekroczeniem wystąpienia. Klienci są powiadamiani o zmianie punktu końcowego przez funkcję wywołania zwrotnego w chwili rozpoczęcia opóźnienia, dzięki czemu mogą oni rozwiązać ten punkt końcowy i uniknąć wysyłania nowych żądań do wystąpienia, które się nie zmieniło. Te żądania mogą pochodzić z klientów przy użyciu [zwrotnego serwera proxy](./service-fabric-reverseproxy.md) lub interfejsu API rozpoznawania punktów końcowych usługi z modelem powiadomień ([ServiceNotificationFilterDescription](/dotnet/api/system.fabric.description.servicenotificationfilterdescription)) w celu zaktualizowania punktów końcowych.
 
 ### <a name="service-configuration"></a>Konfiguracja usługi
 
@@ -76,7 +77,7 @@ Istnieje kilka sposobów konfigurowania opóźnienia po stronie usługi.
 
 ### <a name="client-configuration"></a>Konfiguracja klientów
 
-Aby otrzymywać powiadomienia o zmianie punktu końcowego, klienci powinni zarejestrować wywołanie zwrotne zobacz [ServiceNotificationFilterDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.servicenotificationfilterdescription).
+Aby otrzymywać powiadomienia o zmianie punktu końcowego, klienci powinni zarejestrować wywołanie zwrotne zobacz [ServiceNotificationFilterDescription](/dotnet/api/system.fabric.description.servicenotificationfilterdescription).
 Powiadomienie o zmianie to wskazanie, że punkty końcowe uległy zmianie, klient powinien rozwiązać punkty końcowe i nie korzystał z punktów końcowych, które nie są już anonsowane, ponieważ wkrótce staną się dostępne.
 
 ### <a name="optional-upgrade-overrides"></a>Opcjonalne zastąpienia uaktualnienia
@@ -93,7 +94,7 @@ Zastąpiony czas opóźnienia dotyczy tylko wywołanego wystąpienia uaktualnien
 
 > [!NOTE]
 > * Ustawienia do opróżniania żądań nie będą mogły uniemożliwiać wysyłania nowych żądań do punktów końcowych, które są opróżniane przez moduł równoważenia obciążenia platformy Azure.
-> * Mechanizm rozpoznawania na podstawie skargi nie spowoduje bezpiecznego opróżniania żądań, ponieważ wyzwala rozwiązanie usługi po awarii. Zgodnie z wcześniejszym opisem należy je rozszerzyć, aby subskrybować powiadomienia o zmianach w punktach końcowych za pomocą [ServiceNotificationFilterDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.servicenotificationfilterdescription).
+> * Mechanizm rozpoznawania na podstawie skargi nie spowoduje bezpiecznego opróżniania żądań, ponieważ wyzwala rozwiązanie usługi po awarii. Zgodnie z wcześniejszym opisem należy je rozszerzyć, aby subskrybować powiadomienia o zmianach w punktach końcowych za pomocą [ServiceNotificationFilterDescription](/dotnet/api/system.fabric.description.servicenotificationfilterdescription).
 > * Ustawienia nie są honorowane, gdy uaktualnienie jest bez wpływu na to gdy repliki nie zostaną przesunięte podczas uaktualniania.
 >
 >
@@ -113,7 +114,7 @@ Zastąpiony czas opóźnienia dotyczy tylko wywołanego wystąpienia uaktualnien
 
 W trybie *monitorowanym* Service Fabric stosuje zasady kondycji, aby upewnić się, że aplikacja jest w dobrej kondycji w miarę postępu uaktualniania. Jeśli zasady kondycji zostały naruszone, uaktualnienie jest zawieszone lub automatycznie wycofywane w zależności od określonej *FailureAction*.
 
-W trybie *UnmonitoredManual* administrator aplikacji ma całkowitą kontrolę nad postępem uaktualniania. Ten tryb jest przydatny w przypadku stosowania niestandardowych zasad oceny kondycji lub przeprowadzania niekonwencjonalnych uaktualnień w celu obejścia całkowitego monitorowania kondycji (np. aplikacja jest już w utracie danych). Uaktualnienie uruchomione w tym trybie zostanie zawieszone po ukończeniu każdego UDu i musi zostać jawnie wznowione przy użyciu polecenia [Resume-ServiceFabricApplicationUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/resume-servicefabricapplicationupgrade?view=azureservicefabricps). Gdy uaktualnienie zostanie wstrzymane i będzie gotowe do wznowienia przez użytkownika, jego stan uaktualnienia zostanie wyświetlony *RollforwardPending* (zobacz [UpgradeState](https://docs.microsoft.com/dotnet/api/system.fabric.applicationupgradestate?view=azure-dotnet)).
+W trybie *UnmonitoredManual* administrator aplikacji ma całkowitą kontrolę nad postępem uaktualniania. Ten tryb jest przydatny w przypadku stosowania niestandardowych zasad oceny kondycji lub przeprowadzania niekonwencjonalnych uaktualnień w celu obejścia całkowitego monitorowania kondycji (np. aplikacja jest już w utracie danych). Uaktualnienie uruchomione w tym trybie zostanie zawieszone po ukończeniu każdego UDu i musi zostać jawnie wznowione przy użyciu polecenia [Resume-ServiceFabricApplicationUpgrade](/powershell/module/servicefabric/resume-servicefabricapplicationupgrade?view=azureservicefabricps). Gdy uaktualnienie zostanie wstrzymane i będzie gotowe do wznowienia przez użytkownika, jego stan uaktualnienia zostanie wyświetlony *RollforwardPending* (zobacz [UpgradeState](/dotnet/api/system.fabric.applicationupgradestate?view=azure-dotnet)).
 
 Na koniec tryb *UnmonitoredAuto* jest przydatny do przeprowadzania szybkich iteracji uaktualniania podczas tworzenia lub testowania usług, ponieważ nie są wymagane żadne dane wejściowe użytkownika i nie są oceniane żadne zasady dotyczące kondycji aplikacji.
 
@@ -204,11 +205,11 @@ ApplicationParameters  : { "ImportantParameter" = "2"; "NewParameter" = "testAft
 
 ## <a name="roll-back-application-upgrades"></a>Wycofywanie uaktualnień aplikacji
 
-Podczas gdy uaktualnienia można przekazywać w jednym z trzech trybów (*monitorowane*, *UnmonitoredAuto*lub *UnmonitoredManual*), można je wycofać tylko w trybie *UnmonitoredAuto* lub *UnmonitoredManual* . Wycofywanie w trybie *UnmonitoredAuto* działa tak samo jak w przypadku przenoszonej do przodu z wyjątkiem, że wartość domyślna *UpgradeReplicaSetCheckTimeout* jest różna — zobacz [Parametry uaktualnienia aplikacji](service-fabric-application-upgrade-parameters.md). Wycofanie w trybie *UnmonitoredManual* działa tak samo jak w przypadku przenoszonego do przodu — wycofanie zostanie zawieszone po ukończeniu każdego ud i musi zostać jawnie wznowione przy użyciu [Resume-ServiceFabricApplicationUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/resume-servicefabricapplicationupgrade?view=azureservicefabricps) , aby kontynuować wycofywanie.
+Podczas gdy uaktualnienia można przekazywać w jednym z trzech trybów (*monitorowane*, *UnmonitoredAuto*lub *UnmonitoredManual*), można je wycofać tylko w trybie *UnmonitoredAuto* lub *UnmonitoredManual* . Wycofywanie w trybie *UnmonitoredAuto* działa tak samo jak w przypadku przenoszonej do przodu z wyjątkiem, że wartość domyślna *UpgradeReplicaSetCheckTimeout* jest różna — zobacz [Parametry uaktualnienia aplikacji](service-fabric-application-upgrade-parameters.md). Wycofanie w trybie *UnmonitoredManual* działa tak samo jak w przypadku przenoszonego do przodu — wycofanie zostanie zawieszone po ukończeniu każdego ud i musi zostać jawnie wznowione przy użyciu [Resume-ServiceFabricApplicationUpgrade](/powershell/module/servicefabric/resume-servicefabricapplicationupgrade?view=azureservicefabricps) , aby kontynuować wycofywanie.
 
-Wycofywanie mogą być wyzwalane automatycznie, gdy zasady kondycji uaktualnienia w *monitorowanym* trybie z *FailureAction* *wycofania* są naruszone (zobacz [Parametry uaktualnienia aplikacji](service-fabric-application-upgrade-parameters.md)) lub jawnie za pomocą polecenia [Start-ServiceFabricApplicationRollback](https://docs.microsoft.com/powershell/module/servicefabric/start-servicefabricapplicationrollback?view=azureservicefabricps).
+Wycofywanie mogą być wyzwalane automatycznie, gdy zasady kondycji uaktualnienia w *monitorowanym* trybie z *FailureAction* *wycofania* są naruszone (zobacz [Parametry uaktualnienia aplikacji](service-fabric-application-upgrade-parameters.md)) lub jawnie za pomocą polecenia [Start-ServiceFabricApplicationRollback](/powershell/module/servicefabric/start-servicefabricapplicationrollback?view=azureservicefabricps).
 
-W trakcie wycofywania wartość *UpgradeReplicaSetCheckTimeout* i tryb można nadal zmieniać w dowolnym momencie za pomocą polecenia [Update-ServiceFabricApplicationUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/update-servicefabricapplicationupgrade?view=azureservicefabricps).
+W trakcie wycofywania wartość *UpgradeReplicaSetCheckTimeout* i tryb można nadal zmieniać w dowolnym momencie za pomocą polecenia [Update-ServiceFabricApplicationUpgrade](/powershell/module/servicefabric/update-servicefabricapplicationupgrade?view=azureservicefabricps).
 
 ## <a name="next-steps"></a>Następne kroki
 [Uaktualnianie aplikacji przy użyciu programu Visual Studio](service-fabric-application-upgrade-tutorial.md) przeprowadzi Cię przez proces uaktualniania aplikacji przy użyciu programu Visual Studio.

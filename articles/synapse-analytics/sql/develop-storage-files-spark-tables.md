@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: e36f98a20d1fc6392aef1aebf5fc86e18085cc10
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: db6b2d95bf8f38495296885d14260b9900af1d51
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85204902"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86247051"
 ---
 # <a name="synchronize-apache-spark-for-azure-synapse-external-table-definitions-in-sql-on-demand-preview"></a>Synchronizowanie Apache Spark dla definicji tabel zewnętrznych Synapse platformy Azure na żądanie SQL (wersja zapoznawcza)
 
@@ -34,7 +34,10 @@ W przypadku zapytań dotyczących tabel zewnętrznych platformy Spark uruchom za
 SELECT * FROM [db].dbo.[spark_table]
 ```
 
-## <a name="spark-data-types-to-sql-data-types-mapping"></a>Mapowanie typów danych platformy Spark na typy danych SQL
+> [!NOTE]
+> Dodawanie, upuszczanie lub zmienianie kolumny tabeli zewnętrznej platformy Spark nie zostanie odzwierciedlone w tabeli zewnętrznej w programie SQL na żądanie.
+
+## <a name="apache-spark-data-types-to-sql-data-types-mapping"></a>Apache Spark typów danych do mapowania typów danych SQL
 
 | Typ danych Spark | Typ danych SQL               |
 | --------------- | --------------------------- |

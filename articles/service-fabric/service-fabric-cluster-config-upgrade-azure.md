@@ -5,18 +5,19 @@ author: dkkapur
 ms.topic: conceptual
 ms.date: 11/09/2018
 ms.author: dekapur
-ms.openlocfilehash: c2973428354f101b5b546128b08bf67587923a8e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 010f2b5d6dee3a5985c421e468bcd28b18148e5a
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82793078"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86247731"
 ---
 # <a name="upgrade-the-configuration-of-a-cluster-in-azure"></a>Uaktualnianie konfiguracji klastra na platformie Azure 
 
 W tym artykule opisano sposób dostosowywania różnych ustawień sieci szkieletowej dla klastra Service Fabric. W przypadku klastrów hostowanych na platformie Azure można dostosować ustawienia za pomocą [Azure Portal](https://portal.azure.com) lub szablonu Azure Resource Manager.
 
 > [!NOTE]
-> Nie wszystkie ustawienia są dostępne w portalu i [najlepszym rozwiązaniem jest dostosowanie go przy użyciu szablonu Azure Resource Manager](https://docs.microsoft.com/azure/service-fabric/service-fabric-best-practices-infrastructure-as-code). Portal jest przeznaczony wyłącznie dla Service Fabric scenariusza Dev\Test.
+> Nie wszystkie ustawienia są dostępne w portalu i [najlepszym rozwiązaniem jest dostosowanie go przy użyciu szablonu Azure Resource Manager](./service-fabric-best-practices-infrastructure-as-code.md). Portal jest przeznaczony wyłącznie dla Service Fabric scenariusza Dev\Test.
 > 
 
 
@@ -44,11 +45,11 @@ Klastry platformy Azure można skonfigurować za pomocą szablonu Menedżer zaso
 
 Ustawienia klastra można również dostosować w jeden z następujących Azure Resource Manager sposobów:
 
-- Użyj [Azure Portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template) , aby wyeksportować i zaktualizować szablon Menedżera zasobów.
-- Użyj [programu PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template-powershell) , aby wyeksportować i zaktualizować szablon Menedżer zasobów.
-- Użyj [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template-cli) , aby wyeksportować i zaktualizować szablon Menedżer zasobów.
-- Aby zmodyfikować ustawienie bezpośrednio, Użyj poleceń Azure PowerShell [Set-AzServiceFabricSetting](https://docs.microsoft.com/powershell/module/az.servicefabric/Set-azServiceFabricSetting) i [Remove-AzServiceFabricSetting](https://docs.microsoft.com/powershell/module/az.servicefabric/Remove-azServiceFabricSetting) .
-- Aby zmodyfikować ustawienie bezpośrednio, użyj interfejsu wiersza polecenia platformy Azure [AZ SF Cluster Setting](https://docs.microsoft.com/cli/azure/sf/cluster/setting) .
+- Użyj [Azure Portal](../azure-resource-manager/templates/export-template-portal.md) , aby wyeksportować i zaktualizować szablon Menedżera zasobów.
+- Użyj [programu PowerShell](../azure-resource-manager/management/manage-resources-powershell.md) , aby wyeksportować i zaktualizować szablon Menedżer zasobów.
+- Użyj [interfejsu wiersza polecenia platformy Azure](../azure-resource-manager/management/manage-resources-cli.md) , aby wyeksportować i zaktualizować szablon Menedżer zasobów.
+- Aby zmodyfikować ustawienie bezpośrednio, Użyj poleceń Azure PowerShell [Set-AzServiceFabricSetting](/powershell/module/az.servicefabric/set-azservicefabricsetting) i [Remove-AzServiceFabricSetting](/powershell/module/az.servicefabric/remove-azservicefabricsetting) .
+- Aby zmodyfikować ustawienie bezpośrednio, użyj interfejsu wiersza polecenia platformy Azure [AZ SF Cluster Setting](/cli/azure/sf/cluster/setting) .
 
 ## <a name="next-steps"></a>Następne kroki
 * Dowiedz się więcej o [ustawieniach klastra Service Fabric](service-fabric-cluster-fabric-settings.md).

@@ -5,12 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 04/03/2018
 ms.author: srrengar
-ms.openlocfilehash: b9a448ff41c66fa3a38c124f7acde062bacbe9ba
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ff13f8301274ebfc8b31dcbe01ef2a0fe6cd6fcc
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85846664"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86247816"
 ---
 # <a name="event-aggregation-and-collection-using-windows-azure-diagnostics"></a>Agregacja i zbieranie zdarzeń przy użyciu Diagnostyka Azure systemu Windows
 > [!div class="op_single_selector"]
@@ -21,7 +21,7 @@ ms.locfileid: "85846664"
 
 Gdy uruchamiasz klaster usługi Azure Service Fabric, dobrym pomysłem jest zebranie dzienników ze wszystkich węzłów w centralnej lokalizacji. Przechowywanie dzienników w centralnej lokalizacji ułatwia analizowanie i rozwiązywanie problemów z klastrem lub problemów z aplikacjami i usługami uruchomionymi w tym klastrze.
 
-Jednym ze sposobów przekazywania i zbierania dzienników jest użycie rozszerzenia Windows Diagnostyka Azure (funkcji wad), które przekazuje dzienniki do usługi Azure Storage, a także oferuje opcję wysyłania dzienników do usługi Azure Application Insights lub Event Hubs. Możesz również użyć procesu zewnętrznego, aby odczytać zdarzenia z magazynu i umieścić je w produkcie platformy analizy, takim jak [dzienniki Azure monitor](../log-analytics/log-analytics-service-fabric.md) lub inne rozwiązanie do analizy dzienników.
+Jednym ze sposobów przekazywania i zbierania dzienników jest użycie rozszerzenia Windows Diagnostyka Azure (funkcji wad), które przekazuje dzienniki do usługi Azure Storage, a także oferuje opcję wysyłania dzienników do usługi Azure Application Insights lub Event Hubs. Możesz również użyć procesu zewnętrznego, aby odczytać zdarzenia z magazynu i umieścić je w produkcie platformy analizy, takim jak [dzienniki Azure monitor](./service-fabric-diagnostics-oms-setup.md) lub inne rozwiązanie do analizy dzienników.
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -31,7 +31,7 @@ W tym artykule są używane następujące narzędzia:
 
 * [Azure Resource Manager](../azure-resource-manager/management/overview.md)
 * [Azure PowerShell](/powershell/azure/overview)
-* [Szablon usługi Azure Resource Manager](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Szablon Azure Resource Manager](../virtual-machines/extensions/diagnostics-template.md?toc=/azure/virtual-machines/windows/toc.json)
 
 ## <a name="service-fabric-platform-events"></a>Zdarzenia platformy Service Fabric
 Service Fabric konfiguruje kilka gotowych [kanałów rejestrowania](service-fabric-diagnostics-event-generation-infra.md), których następujące kanały są wstępnie skonfigurowane z rozszerzeniem, aby wysyłać dane monitorowania i diagnostyki do tabeli magazynu lub w innym miejscu:
@@ -202,12 +202,12 @@ Ponieważ tabele wypełnione przez rozszerzenie zwiększają się do momentu osi
 ## <a name="log-collection-configurations"></a>Konfiguracje kolekcji dzienników
 Dzienniki z dodatkowych kanałów są również dostępne dla kolekcji, poniżej przedstawiono kilka typowych konfiguracji, które można wprowadzić w szablonie dla klastrów działających na platformie Azure.
 
-* Obsługa kanałów operacyjnych: domyślnie włączone, operacje wysokiego poziomu wykonywane przez Service Fabric i klaster, w tym zdarzenia dla węzła, nowo wdrożone aplikacje lub wycofania uaktualnienia itp. Aby uzyskać listę zdarzeń, zapoznaj się z tematem [zdarzenia dotyczące kanału operacyjnego](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-generation-operational).
+* Obsługa kanałów operacyjnych: domyślnie włączone, operacje wysokiego poziomu wykonywane przez Service Fabric i klaster, w tym zdarzenia dla węzła, nowo wdrożone aplikacje lub wycofania uaktualnienia itp. Aby uzyskać listę zdarzeń, zapoznaj się z tematem [zdarzenia dotyczące kanału operacyjnego](./service-fabric-diagnostics-event-generation-operational.md).
   
 ```json
       scheduledTransferKeywordFilter: "4611686018427387904"
   ```
-* Kanał operacyjny — szczegóły: obejmuje to raporty kondycji i decyzje dotyczące równoważenia obciążenia, a także wszystko w podstawowym kanale operacyjnym. Te zdarzenia są generowane przez system lub kod przy użyciu interfejsów API raportowania kondycji lub obciążenia, takich jak [ReportPartitionHealth](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportpartitionhealth.aspx) lub [ReportLoad](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportload.aspx). Aby wyświetlić te zdarzenia w Podgląd zdarzeń diagnostycznym programu Visual Studio, Dodaj "Microsoft-servicefabric: 4:0x4000000000000008" do listy dostawców ETW.
+* Kanał operacyjny — szczegóły: obejmuje to raporty kondycji i decyzje dotyczące równoważenia obciążenia, a także wszystko w podstawowym kanale operacyjnym. Te zdarzenia są generowane przez system lub kod przy użyciu interfejsów API raportowania kondycji lub obciążenia, takich jak [ReportPartitionHealth](/previous-versions/azure/reference/mt645153(v=azure.100)) lub [ReportLoad](/previous-versions/azure/reference/mt161491(v=azure.100)). Aby wyświetlić te zdarzenia w Podgląd zdarzeń diagnostycznym programu Visual Studio, Dodaj "Microsoft-servicefabric: 4:0x4000000000000008" do listy dostawców ETW.
 
 ```json
       scheduledTransferKeywordFilter: "4611686018427387912"
@@ -296,7 +296,7 @@ Na przykład jeśli źródło zdarzenia ma nazwę my-EventSource, Dodaj następu
         }
 ```
 
-W celu zbierania liczników wydajności lub dzienników zdarzeń należy zmodyfikować szablon Menedżer zasobów przy użyciu przykładów podanych w temacie [Tworzenie maszyny wirtualnej z systemem Windows z funkcją monitorowania i diagnostyki przy użyciu szablonu Azure Resource Manager](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Następnie ponownie Opublikuj szablon Menedżer zasobów.
+W celu zbierania liczników wydajności lub dzienników zdarzeń należy zmodyfikować szablon Menedżer zasobów przy użyciu przykładów podanych w temacie [Tworzenie maszyny wirtualnej z systemem Windows z funkcją monitorowania i diagnostyki przy użyciu szablonu Azure Resource Manager](../virtual-machines/extensions/diagnostics-template.md?toc=/azure/virtual-machines/windows/toc.json). Następnie ponownie Opublikuj szablon Menedżer zasobów.
 
 ## <a name="collect-performance-counters"></a>Zbieranie liczników wydajności
 
@@ -358,7 +358,7 @@ Po poprawnym skonfigurowaniu diagnostyki platformy Azure dane będą widoczne w 
 >[!NOTE]
 >Obecnie nie ma możliwości filtrowania lub pielęgnacji zdarzeń wysyłanych do tabeli. Jeśli nie zaimplementujesz procesu usuwania zdarzeń z tabeli, będzie ona nadal rosnąć. Obecnie istnieje przykład usługi pielęgnacji danych działającej w [próbce licznika alarmowego](https://github.com/Azure-Samples/service-fabric-watchdog-service)i zaleca się napisać jeden dla siebie, chyba że istnieje dobry powód przechowywania dzienników poza okresem 30-lub 90 dni.
 
-* [Informacje na temat zbierania liczników wydajności lub dzienników przy użyciu rozszerzenia diagnostyki](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Informacje na temat zbierania liczników wydajności lub dzienników przy użyciu rozszerzenia diagnostyki](../virtual-machines/extensions/diagnostics-template.md?toc=/azure/virtual-machines/windows/toc.json)
 * [Analiza zdarzeń i wizualizacja przy użyciu Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md)
 * [Analiza zdarzeń i wizualizacja z dziennikami Azure Monitor](service-fabric-diagnostics-event-analysis-oms.md)
 * [Analiza zdarzeń i wizualizacja przy użyciu Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md)

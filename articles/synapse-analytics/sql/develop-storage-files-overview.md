@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/19/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: c251b70d1988be82821f1e133151dae1ac6d1bc9
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: f786e92ca99c4c1700d00adf396ba1127b66ea7c
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85921303"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86247102"
 ---
 # <a name="accessing-external-storage-in-synapse-sql-on-demand"></a>Uzyskiwanie dostępu do magazynu zewnętrznego w programie Synapse SQL (na żądanie)
 
@@ -35,7 +35,7 @@ Funkcja OPENROWSET umożliwia użytkownikom wysyłanie zapytań do zewnętrznych
 
 ```sql
 SELECT * FROM
- OPENROWSET(BULK 'http://storage...com/container/file/path/*.csv', format= 'parquet') as rows
+ OPENROWSET(BULK 'https://<storage_account>.dfs.core.windows.net/<container>/<path>/*.parquet', format= 'parquet') as rows
 ```
 
 Użytkownik może uzyskać dostęp do magazynu przy użyciu następujących reguł dostępu:
@@ -48,10 +48,10 @@ Podmioty zabezpieczeń SQL mogą również używać funkcji OPENROWSET do bezpo�
 ```sql
 EXECUTE AS somepoweruser
 
-CREATE CREDENTIAL [http://storage.dfs.com/container]
+CREATE CREDENTIAL [https://<storage_account>.dfs.core.windows.net/<container>]
  WITH IDENTITY = 'SHARED ACCESS SIGNATURE', SECRET = 'sas token';
 
-GRANT REFERENCES CREDENTIAL::[http://storage.dfs.com/container] TO sqluser
+GRANT REFERENCES CREDENTIAL::[https://<storage_account>.dfs.core.windows.net/<container>] TO sqluser
 ```
 
 Jeśli nie ma poświadczeń na poziomie serwera pasujących do adresu URL lub użytkownik SQL nie ma uprawnień odwołuje się do tego poświadczenia, zostanie zwrócony błąd. Podmioty zabezpieczeń SQL nie mogą personifikować się przy użyciu tożsamości usługi Azure AD.
@@ -78,7 +78,7 @@ CREATE DATABASE SCOPED CREDENTIAL AccessAzureInvoices
  SECRET = '******srt=sco&amp;sp=rwac&amp;se=2017-02-01T00:55:34Z&amp;st=201********' ;
 
 CREATE EXTERNAL DATA SOURCE MyAzureInvoices
- WITH ( LOCATION = 'https://newinvoices.blob.core.windows.net/week3' ,
+ WITH ( LOCATION = 'https://<storage_account>.dfs.core.windows.net/<container>/<path>/' ,
  CREDENTIAL = AccessAzureInvoices) ;
 ```
 
@@ -97,7 +97,7 @@ Użytkownik może utworzyć zewnętrzne źródło danych bez poświadczeń, któ
 
 ```sql
 CREATE EXTERNAL DATA SOURCE MyAzureInvoices
- WITH ( LOCATION = 'https://newinvoices.blob.core.windows.net/week3') ;
+ WITH ( LOCATION = 'https://<storage_account>.dfs.core.windows.net/<container>/<path>') ;
 ```
 
 ## <a name="external-table"></a>TABELA ZEWNĘTRZNA
@@ -125,7 +125,7 @@ CREATE DATABASE SCOPED CREDENTIAL cred
  SECRET = '******srt=sco&sp=rwac&se=2017-02-01T00:55:34Z&st=201********' ;
 
 CREATE EXTERNAL DATA SOURCE AzureDataLakeStore
- WITH ( LOCATION = 'https://samples.blob.core.windows.net/products' ,
+ WITH ( LOCATION = 'https://<storage_account>.dfs.core.windows.net/<container>/<path>' ,
  CREDENTIAL = cred
  ) ;
 ```

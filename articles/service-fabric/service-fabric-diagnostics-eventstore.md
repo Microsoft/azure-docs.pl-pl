@@ -5,11 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 6/6/2019
 ms.author: srrengar
-ms.openlocfilehash: d23c8114bf10ef3225775accef6910c0ba539e15
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e2fcbd07c105885da4180b06fa27ec13045940a6
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75645739"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86247646"
 ---
 # <a name="eventstore-overview"></a>EventStore — Omówienie
 
@@ -45,7 +46,7 @@ Usługa EventStore może być kwerendą dla zdarzeń, które są dostępne dla k
 * Repliki partycji: zdarzenia ze wszystkich replik/wystąpień w określonej partycji identyfikowanej przez`partitionId`
 * Replika partycji: zdarzenia z określonej repliki/wystąpienia identyfikowane przez `replicaId` i`partitionId`
 
-Aby dowiedzieć się więcej na temat interfejsu API, zobacz [Dokumentacja interfejsu API EventStore](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-eventsstore).
+Aby dowiedzieć się więcej na temat interfejsu API, zobacz [Dokumentacja interfejsu API EventStore](/rest/api/servicefabric/sfclient-index-eventsstore).
 
 Usługa EventStore ma także możliwość skorelowania zdarzeń w klastrze. Przeglądając zdarzenia, które zostały zapisaną w tym samym czasie od różnych jednostek, które mogły mieć wpływ na siebie, usługa EventStore może połączyć te zdarzenia, aby pomóc w identyfikowaniu przyczyn działań w klastrze. Na przykład jeśli jedna z aplikacji stanie się zła w złej kondycji bez żadnych niewywołanych zmian, EventStore będzie również przeglądać inne zdarzenia uwidocznione przez platformę i mogły je skorelować ze `Error` `Warning` zdarzeniem lub. Dzięki temu szybciej wykrywaj awarie i główne przyczyny analizy.
 
@@ -125,5 +126,5 @@ Jeśli używasz wersji 6,4, możesz edytować szablon Azure Resource Manager, ab
 * Wprowadzenie do interfejsu API EventStore — [Korzystanie z interfejsów API EventStore w klastrach usługi Azure Service Fabric](service-fabric-diagnostics-eventstore-query.md)
 * Dowiedz się więcej na temat listy zdarzeń oferowanych przez zdarzenia EventStore- [Service Fabric](service-fabric-diagnostics-event-generation-operational.md)
 * Przegląd monitorowania i diagnostyki w Service Fabric — [monitorowanie i diagnostyka Service Fabric](service-fabric-diagnostics-overview.md)
-* Wyświetl pełną listę wywołań interfejsu API — [Dokumentacja interfejsu API REST EventStore](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-eventsstore)
+* Wyświetl pełną listę wywołań interfejsu API — [Dokumentacja interfejsu API REST EventStore](/rest/api/servicefabric/sfclient-index-eventsstore)
 * Dowiedz się więcej o monitorowaniu klastra — [monitorowanie klastra i platformy](service-fabric-diagnostics-event-generation-infra.md).

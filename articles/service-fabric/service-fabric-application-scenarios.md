@@ -4,11 +4,12 @@ description: Omówienie kategorii aplikacji w chmurze w Service Fabric. Omawia p
 ms.topic: conceptual
 ms.date: 01/08/2020
 ms.custom: sfrev
-ms.openlocfilehash: 0aeb8ab2923915befdd11f96025687be3b3c4ff9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aaf8204158f720d8c69c98af758071cd91f6eff0
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76024743"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86248173"
 ---
 # <a name="service-fabric-application-scenarios"></a>Scenariusze aplikacji Service Fabric
 
@@ -16,7 +17,7 @@ Usługa Azure Service Fabric oferuje niezawodną i elastyczną platformę, w kt�
 
 Unikatowa architektura Service Fabric umożliwia wykonywanie analizy danych niemal w czasie rzeczywistym, obliczeń w pamięci, transakcji równoległych i przetwarzania zdarzeń w aplikacjach. Możesz łatwo skalować aplikacje w zależności od zmieniających się wymagań dotyczących zasobów.
 
-Aby uzyskać wskazówki dotyczące projektowania dotyczące tworzenia aplikacji, Przeczytaj [architekturę mikrousług na platformie Azure Service Fabric](https://docs.microsoft.com/azure/architecture/reference-architectures/microservices/service-fabric) i [najlepsze rozwiązania dotyczące projektowania aplikacji przy użyciu Service Fabric](service-fabric-best-practices-applications.md).
+Aby uzyskać wskazówki dotyczące projektowania dotyczące tworzenia aplikacji, Przeczytaj [architekturę mikrousług na platformie Azure Service Fabric](/azure/architecture/reference-architectures/microservices/service-fabric) i [najlepsze rozwiązania dotyczące projektowania aplikacji przy użyciu Service Fabric](service-fabric-best-practices-applications.md).
 
 Rozważ użycie Service Fabric platformy dla następujących typów aplikacji:
 
@@ -24,7 +25,7 @@ Rozważ użycie Service Fabric platformy dla następujących typów aplikacji:
 
     Klienci, którzy korzystali z usługi IoT Services przy użyciu Service Fabric obejmują systemy [Honeywell](https://customers.microsoft.com/story/honeywell-builds-microservices-based-thermostats-on-azure), [PCL](https://customers.microsoft.com/story/pcl-construction-professional-services-azure), [Crestron](https://customers.microsoft.com/story/crestron-partner-professional-services-azure), [BMW](https://customers.microsoft.com/story/bmw-enables-driver-mobility-via-azure-service-fabric/), [Schneider elektryczny](https://customers.microsoft.com/story/schneider-electric-powers-engergy-solutions-on-azure-service-fabric)i [siatkowe](https://customers.microsoft.com/story/mesh-systems-lights-up-the-market-with-iot-based-azure-solutions).
 
-* **Gry i interaktywne aplikacje oparte na sesji**: Service Fabric jest przydatne, jeśli aplikacja wymaga operacji odczytu i zapisu o małym opóźnieniu, na przykład w grach online lub w wiadomościach błyskawicznych. Service Fabric umożliwia tworzenie tych interaktywnych, stanowych aplikacji bez konieczności tworzenia oddzielnego magazynu lub pamięci podręcznej. Odwiedź witrynę [Azure gier Solutions](https://azure.microsoft.com/solutions/gaming/) , aby uzyskać wskazówki dotyczące projektowania [Service Fabric w usługach gier](https://docs.microsoft.com/gaming/azure/reference-architectures/multiplayer-synchronous-sf).
+* **Gry i interaktywne aplikacje oparte na sesji**: Service Fabric jest przydatne, jeśli aplikacja wymaga operacji odczytu i zapisu o małym opóźnieniu, na przykład w grach online lub w wiadomościach błyskawicznych. Service Fabric umożliwia tworzenie tych interaktywnych, stanowych aplikacji bez konieczności tworzenia oddzielnego magazynu lub pamięci podręcznej. Odwiedź witrynę [Azure gier Solutions](https://azure.microsoft.com/solutions/gaming/) , aby uzyskać wskazówki dotyczące projektowania [Service Fabric w usługach gier](/gaming/azure/reference-architectures/multiplayer-synchronous-sf).
 
     Klienci, którzy korzystali z wbudowanych usług gier, obejmują [kolejne gry](https://customers.microsoft.com/story/next-games-media-telecommunications-azure) i [Digamore](https://customers.microsoft.com/story/digamore-entertainment-scores-with-a-new-gaming-platform-based-on-azure-service-fabric/). Klienci z utworzonymi sesjami interaktywnymi obejmują [Honeywell z usługą HoloLens](https://customers.microsoft.com/story/honeywell-manufacturing-hololens).
 
@@ -67,7 +68,7 @@ Oto przykładowa aplikacja korzystająca z usług stanowych: ![ aplikacja, któr
 ## <a name="next-steps"></a>Następne kroki
 
 * Zacznij tworzyć bezstanowe i stanowe usługi przy użyciu Service Fabric [Reliable Services](service-fabric-reliable-services-quick-start.md) i [Reliable Actors](service-fabric-reliable-actors-get-started.md) modelami programowania.
-* Odwiedź Centrum architektury platformy Azure, aby uzyskać wskazówki dotyczące [tworzenia mikrousług na platformie Azure](https://docs.microsoft.com/azure/architecture/microservices/).
+* Odwiedź Centrum architektury platformy Azure, aby uzyskać wskazówki dotyczące [tworzenia mikrousług na platformie Azure](/azure/architecture/microservices/).
 * Przejdź do [platformy Azure Service Fabric aplikacji i najlepszych](service-fabric-best-practices-overview.md) rozwiązań dotyczących projektowania aplikacji.
 
 * Zobacz też:

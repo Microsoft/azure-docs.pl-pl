@@ -13,15 +13,16 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
-ms.openlocfilehash: ed0cd51fc686735f2d9c110ce46d5904107cafc2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8be8ffa1b569c365c8fa9b985d2b8319b7c0731b
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75430611"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86249839"
 ---
 # <a name="how-to-use-role-based-access-control-in-azure-api-management"></a>Jak używać kontroli dostępu opartej na rolach w usłudze Azure API Management
 
-Usługa Azure API Management opiera się na Access Control opartej na rolach (RBAC) na platformie Azure w celu umożliwienia szczegółowego zarządzania dostępem dla usług i jednostek API Management (na przykład interfejsów API i zasad). Ten artykuł zawiera omówienie wbudowanych i niestandardowych ról w programie API Management. Aby uzyskać więcej informacji na temat zarządzania dostępem w Azure Portal, zobacz [wprowadzenie do zarządzania dostępem w Azure Portal](https://azure.microsoft.com/documentation/articles/role-based-access-control-what-is/).
+Usługa Azure API Management opiera się na Access Control opartej na rolach (RBAC) na platformie Azure w celu umożliwienia szczegółowego zarządzania dostępem dla usług i jednostek API Management (na przykład interfejsów API i zasad). Ten artykuł zawiera omówienie wbudowanych i niestandardowych ról w programie API Management. Aby uzyskać więcej informacji na temat zarządzania dostępem w Azure Portal, zobacz [wprowadzenie do zarządzania dostępem w Azure Portal](../role-based-access-control/overview.md).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -29,7 +30,7 @@ Usługa Azure API Management opiera się na Access Control opartej na rolach (RB
 
 API Management obecnie udostępnia trzy wbudowane role i doda dwie kolejne role w najbliższej przyszłości. Role te można przypisywać w różnych zakresach, w tym w ramach subskrypcji, grupy zasobów i wystąpienia poszczególnych API Management. Jeśli na przykład przypiszesz rolę "API Management Service Reader" do użytkownika na poziomie grupy zasobów, użytkownik ma dostęp do odczytu do wszystkich wystąpień API Management wewnątrz grupy zasobów. 
 
-W poniższej tabeli przedstawiono krótkie opisy wbudowanych ról. Role te można przypisywać przy użyciu Azure Portal lub innych narzędzi, w tym [programu Azure PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell), interfejsu [wiersza polecenia platformy Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli)i [interfejsów API REST](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-rest). Aby uzyskać szczegółowe informacje o sposobie przypisywania ról wbudowanych, zobacz [Korzystanie z przypisań ról w celu zarządzania dostępem do zasobów subskrypcji platformy Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
+W poniższej tabeli przedstawiono krótkie opisy wbudowanych ról. Role te można przypisywać przy użyciu Azure Portal lub innych narzędzi, w tym [programu Azure PowerShell](../role-based-access-control/role-assignments-powershell.md), interfejsu [wiersza polecenia platformy Azure](../role-based-access-control/role-assignments-cli.md)i [interfejsów API REST](../role-based-access-control/role-assignments-rest.md). Aby uzyskać szczegółowe informacje o sposobie przypisywania ról wbudowanych, zobacz [Korzystanie z przypisań ról w celu zarządzania dostępem do zasobów subskrypcji platformy Azure](../role-based-access-control/role-assignments-portal.md).
 
 | Rola          | Dostęp do odczytu<sup>[1]</sup> | Dostęp do zapisu<sup>[2]</sup> | Tworzenie, usuwanie, skalowanie, Sieć VPN i konfiguracja domeny niestandardowej usługi | Dostęp do starszego portalu wydawców | Opis
 | ------------- | ---- | ---- | ---- | ---- | ---- 
@@ -47,7 +48,7 @@ W poniższej tabeli przedstawiono krótkie opisy wbudowanych ról. Role te możn
 
 ## <a name="custom-roles"></a>Role niestandardowe
 
-Jeśli żadna z wbudowanych ról nie spełnia określonych wymagań, można utworzyć role niestandardowe, aby zapewnić bardziej szczegółowy sposób zarządzania dostępem dla API Management jednostek. Można na przykład utworzyć rolę niestandardową, która ma dostęp tylko do odczytu do usługi API Management, ale ma dostęp tylko do zapisu do jednego określonego interfejsu API. Aby dowiedzieć się więcej na temat ról niestandardowych, zobacz [role niestandardowe w usłudze Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/custom-roles). 
+Jeśli żadna z wbudowanych ról nie spełnia określonych wymagań, można utworzyć role niestandardowe, aby zapewnić bardziej szczegółowy sposób zarządzania dostępem dla API Management jednostek. Można na przykład utworzyć rolę niestandardową, która ma dostęp tylko do odczytu do usługi API Management, ale ma dostęp tylko do zapisu do jednego określonego interfejsu API. Aby dowiedzieć się więcej na temat ról niestandardowych, zobacz [role niestandardowe w usłudze Azure RBAC](../role-based-access-control/custom-roles.md). 
 
 > [!NOTE]
 > Aby można było zobaczyć wystąpienie API Management w Azure Portal, rola niestandardowa musi zawierać ```Microsoft.ApiManagement/service/read``` akcję.
@@ -82,4 +83,4 @@ Aby dowiedzieć się więcej na temat Access Control opartych na rolach na platf
   * [Wprowadzenie do zarządzania dostępem w witrynie Azure Portal](../role-based-access-control/overview.md)
   * [Zarządzanie dostępem do zasobów subskrypcji platformy Azure za pomocą przypisań ról](../role-based-access-control/role-assignments-portal.md)
   * [Role niestandardowe w usłudze Azure RBAC](../role-based-access-control/custom-roles.md)
-  * [Operacje dostawcy zasobów Azure Resource Manager](../role-based-access-control/resource-provider-operations.md#microsoftapimanagement)
+  * [Operacje związane z dostawcami zasobów w usłudze Azure Resource Manager](../role-based-access-control/resource-provider-operations.md#microsoftapimanagement)

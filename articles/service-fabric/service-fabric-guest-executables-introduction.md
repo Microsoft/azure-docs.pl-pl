@@ -3,11 +3,12 @@ title: Pakowanie istniejącego pliku wykonywalnego na platformę Azure Service F
 description: Dowiedz się więcej o pakowaniu istniejącej aplikacji jako pliku wykonywalnego gościa, dzięki czemu można ją wdrożyć w klastrze Service Fabric.
 ms.topic: conceptual
 ms.date: 03/15/2018
-ms.openlocfilehash: 3d7aab28a32effa2caf7b04b830d72e5e3dfda56
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8b808d092001196a4d2150e44d508e031db95554
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75457833"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86247391"
 ---
 # <a name="deploy-an-existing-executable-to-service-fabric"></a>Wdróż istniejący plik wykonywalny w Service Fabric
 Możesz uruchomić dowolny typ kodu, taki jak Node.js, Java lub C++ na platformie Azure Service Fabric jako usługa. Service Fabric odnosi się do tych typów usług jako plików wykonywalnych gościa.
@@ -64,8 +65,7 @@ ApplicationPackageRoot zawiera plik ApplicationManifest.xml, który definiuje ap
 ## <a name="next-steps"></a>Następne kroki
 Zapoznaj się z następującymi artykułami dotyczącymi pokrewnych informacji i zadań.
 * [Wdrażanie aplikacji wykonywalnej gościa](service-fabric-deploy-existing-app.md)
-* [Wdrażanie wielu aplikacji wykonywalnych gości](service-fabric-deploy-multiple-apps.md)
+* [Wdrażanie wielu aplikacji wykonywalnych gości](./service-fabric-deploy-existing-app.md)
 * [Tworzenie pierwszej aplikacji wykonywalnej gościa przy użyciu programu Visual Studio](quickstart-guest-app.md)
 * [Przykład dotyczący pakowania i wdrażania pliku wykonywalnego gościa](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started), w tym link do wersji wstępnej narzędzia pakowanie
 * [Przykład dwóch plików wykonywalnych gościa (C# i NodeJS) komunikujących się za pośrednictwem usługi nazewnictwa przy użyciu REST](https://github.com/Azure-Samples/service-fabric-containers)
-

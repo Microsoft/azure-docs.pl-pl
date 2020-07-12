@@ -1,33 +1,31 @@
 ---
 title: Przewodnik Szybki Start dotyczący tworzenia magazynu usługi Azure Recovery Services przy użyciu szablonu Azure Resource Manager.
-description: W tym przewodniku szybki start dowiesz się, jak utworzyć magazyn usługi Azure Recovery Services przy użyciu szablonu Azure Resource Manager.
+description: W tym przewodniku szybki start dowiesz się, jak utworzyć magazyn usługi Azure Recovery Services przy użyciu szablonu Azure Resource Manager (szablon ARM).
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 04/29/2020
-author: davidsmatlak
-ms.author: v-dasmat
-ms.openlocfilehash: cf85939a1dbaf8d3e8a90a3acf10bda9faac83bc
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 9112841f6f07808d80fa2b8b61e612d57d0ec20e
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84217297"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86248829"
 ---
-# <a name="quickstart-create-a-recovery-services-vault-using-a-resource-manager-template"></a>Szybki Start: Tworzenie magazynu Recovery Services przy użyciu szablonu Menedżer zasobów
+# <a name="quickstart-create-a-recovery-services-vault-using-an-arm-template"></a>Szybki Start: Tworzenie magazynu Recovery Services przy użyciu szablonu ARM
 
-W tym przewodniku szybki start opisano sposób konfigurowania magazynu Recovery Services przy użyciu szablonu Azure Resource Manager. Usługa [Azure Site Recovery](site-recovery-overview.md) przyczynia się do strategii ciągłości działania i odzyskiwania po awarii (BCDR), dzięki czemu aplikacje biznesowe pozostają w trybie online podczas planowanych i nieplanowanych przestojów. Site Recovery zarządza odzyskiwaniem po awarii maszyn lokalnych i maszyn wirtualnych platformy Azure, w tym replikacji, trybu failover i odzyskiwania.
+W tym przewodniku szybki start opisano sposób konfigurowania magazynu Recovery Services przy użyciu szablonu Azure Resource Manager (szablon ARM). Usługa [Azure Site Recovery](site-recovery-overview.md) przyczynia się do strategii ciągłości działania i odzyskiwania po awarii (BCDR), dzięki czemu aplikacje biznesowe pozostają w trybie online podczas planowanych i nieplanowanych przestojów. Site Recovery zarządza odzyskiwaniem po awarii maszyn lokalnych i maszyn wirtualnych platformy Azure, w tym replikacji, trybu failover i odzyskiwania.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Jeśli nie masz aktywnej subskrypcji platformy Azure, możesz utworzyć [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) przed rozpoczęciem.
+Jeśli Twoje środowisko spełnia wymagania wstępne i masz doświadczenie w korzystaniu z szablonów usługi ARM, wybierz przycisk **Wdróż na platformie Azure** . Szablon zostanie otwarty w Azure Portal.
+
+[![Wdrażanie na platformie Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-recovery-services-vault-create%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Brak.
+Jeśli nie masz aktywnej subskrypcji platformy Azure, możesz utworzyć [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) przed rozpoczęciem.
 
-## <a name="create-a-recovery-services-vault"></a>Tworzenie magazynu usługi Recovery Services
-
-### <a name="review-the-template"></a>Przegląd szablonu
+## <a name="review-the-template"></a>Przegląd szablonu
 
 Szablon używany w tym przewodniku szybki start pochodzi z [szablonów szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/101-recovery-services-vault-create/).
 
@@ -42,7 +40,7 @@ Szablon zawiera opcjonalne parametry konfiguracji kopii zapasowej magazynu. Usta
 
 Aby uzyskać więcej szablonów Recovery Services platformy Azure, zobacz [Szablony szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Recoveryservices&pageNumber=1&sort=Popular).
 
-### <a name="deploy-the-template"></a>Wdrożenie szablonu
+## <a name="deploy-the-template"></a>Wdrażanie szablonu
 
 Aby wdrożyć szablon, wymagana jest **subskrypcja**, **Grupa zasobów**i **Nazwa magazynu** .
 

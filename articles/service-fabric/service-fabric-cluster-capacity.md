@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 05/21/2020
 ms.author: pepogors
 ms.custom: sfrev
-ms.openlocfilehash: 774b114a47958b173f891ed13d423f9b051ee37c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f2af8dcb2460e4e95d29bd81e6994d145ac61a48
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85610544"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86247782"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Zagadnienia dotyczące planowania pojemności klastra Service Fabric
 
@@ -26,7 +26,7 @@ Ten artykuł przeprowadzi Cię przez znaczące punkty decyzyjne dla każdego z t
 
 ## <a name="initial-number-and-properties-of-cluster-node-types"></a>Początkowa liczba i właściwości typów węzłów klastra
 
-*Typ węzła* definiuje rozmiar, liczbę i właściwości zestawu węzłów (maszyn wirtualnych) w klastrze. Każdy typ węzła zdefiniowany w klastrze Service Fabric jest mapowany na [zestaw skalowania maszyn wirtualnych](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview).
+*Typ węzła* definiuje rozmiar, liczbę i właściwości zestawu węzłów (maszyn wirtualnych) w klastrze. Każdy typ węzła zdefiniowany w klastrze Service Fabric jest mapowany na [zestaw skalowania maszyn wirtualnych](../virtual-machine-scale-sets/overview.md).
 
 Każdy typ węzła jest odrębnym zestawem skalowania, ale może być niezależnie skalowany w górę lub w dół, mieć różne zestawy portów otwarte i mieć różne metryki pojemności. Aby uzyskać więcej informacji na temat relacji między typami węzłów i zestawami skalowania maszyn wirtualnych, zobacz [Service Fabric typy węzłów klastra](service-fabric-cluster-nodetypes.md).
 
@@ -34,7 +34,7 @@ Każdy klaster wymaga jednego **podstawowego typu węzła**, który uruchamia kr
 
 **Typy węzłów innych niż podstawowe** mogą służyć do definiowania ról aplikacji (takich jak usługi *frontonu* i *zaplecza* ) oraz do fizycznego izolowania usług w ramach klastra. Klastry Service Fabric mogą mieć zero lub więcej typów węzłów innych niż podstawowe.
 
-Typ węzła podstawowego jest konfigurowany przy użyciu `isPrimary` atrybutu w definicji typu węzła w szablonie wdrażania Azure Resource Manager. Zobacz [obiekt NodeTypeDescription](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/clusters#nodetypedescription-object) , aby uzyskać pełną listę właściwości typu węzła. Na przykład, Otwórz dowolny *AzureDeploy.js* w pliku w [Service Fabric przykładach klastra](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/) i *Znajdź na stronie* wyszukiwanie `nodetTypes` obiektu.
+Typ węzła podstawowego jest konfigurowany przy użyciu `isPrimary` atrybutu w definicji typu węzła w szablonie wdrażania Azure Resource Manager. Zobacz [obiekt NodeTypeDescription](/azure/templates/microsoft.servicefabric/clusters#nodetypedescription-object) , aby uzyskać pełną listę właściwości typu węzła. Na przykład, Otwórz dowolny *AzureDeploy.js* w pliku w [Service Fabric przykładach klastra](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/) i *Znajdź na stronie* wyszukiwanie `nodetTypes` obiektu.
 
 ### <a name="node-type-planning-considerations"></a>Zagadnienia dotyczące planowania typu węzła
 
@@ -79,7 +79,7 @@ W poniższej tabeli wymieniono Service Fabric warstw trwałości, ich wymagania 
 > W przypadku trwałości Bronze automatyczne uaktualnianie obrazu systemu operacyjnego jest niedostępne. Mimo że [aplikacja aranżacji poprawek](service-fabric-patch-orchestration-application.md) (przeznaczona tylko dla klastrów hostowanych poza platformą Azure) *nie jest zalecana* dla poziomów trwałości Silver lub większej, jest to jedyna opcja automatyzacji aktualizacji systemu Windows w odniesieniu do domen uaktualnienia Service Fabric.
 
 > [!IMPORTANT]
-> Niezależnie od poziomu trwałości, uruchomienie operacji [cofania alokacji](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/deallocate) w zestawie skalowania maszyn wirtualnych spowoduje zniszczenie klastra.
+> Niezależnie od poziomu trwałości, uruchomienie operacji [cofania alokacji](/rest/api/compute/virtualmachinescalesets/deallocate) w zestawie skalowania maszyn wirtualnych spowoduje zniszczenie klastra.
 
 ### <a name="bronze"></a>Bron
 

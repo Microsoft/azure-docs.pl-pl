@@ -5,12 +5,12 @@ author: sajayantony
 ms.topic: article
 ms.date: 03/18/2020
 ms.author: sajaya
-ms.openlocfilehash: f160910024d9d64d22028c72825b98d93f66f15d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5ee58f6a2058158308cab8ec49b1d79587998d39
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85390367"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86247034"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>Często zadawane pytania dotyczące Azure Container Registry
 
@@ -32,7 +32,7 @@ Tak. Oto [szablon](https://github.com/Azure/azure-quickstart-templates/tree/mast
 
 ### <a name="is-there-security-vulnerability-scanning-for-images-in-acr"></a>Czy istnieją luki w zabezpieczeniach dotyczące skanowania obrazów w ACR?
 
-Tak. Zapoznaj się z dokumentacją z [Azure Security Center](https://docs.microsoft.com/azure/security-center/azure-container-registry-integration), [TwistLock](https://www.twistlock.com/2016/11/07/twistlock-supports-azure-container-registry/) i [akwamaryna](https://blog.aquasec.com/image-vulnerability-scanning-in-azure-container-registry).
+Tak. Zapoznaj się z dokumentacją z [Azure Security Center](../security-center/azure-container-registry-integration.md), [TwistLock](https://www.twistlock.com/2016/11/07/twistlock-supports-azure-container-registry/) i [akwamaryna](https://blog.aquasec.com/image-vulnerability-scanning-in-azure-container-registry).
 
 ### <a name="how-do-i-configure-kubernetes-with-azure-container-registry"></a>Jak mogę skonfigurować Kubernetes z Azure Container Registry?
 
@@ -314,7 +314,7 @@ unauthorized: authentication required
 ```
 
 Aby rozwiązać ten problem:
-1. Dodaj opcję `--signature-verification=false` do pliku konfiguracji demona platformy Docker `/etc/sysconfig/docker` . Przykład:
+1. Dodaj opcję `--signature-verification=false` do pliku konfiguracji demona platformy Docker `/etc/sysconfig/docker` . Na przykład:
    
    `OPTIONS='--selinux-enabled --log-driver=journald --live-restore --signature-verification=false'`
    
@@ -436,8 +436,8 @@ Skontaktuj się z administratorem sieci lub Sprawdź konfigurację sieci i łąc
 ### <a name="why-does-my-pull-or-push-request-fail-with-disallowed-operation"></a>Dlaczego moje żądanie ściągnięcia lub wypychania zakończy się niepowodzeniem z niedozwoloną operacją?
 
 Poniżej przedstawiono kilka scenariuszy, w których operacje mogą być niedozwolone:
-* Klasyczne rejestry nie są już obsługiwane. Przeprowadź uaktualnienie do obsługiwanej [warstwy usług](https://aka.ms/acr/skus) za pomocą polecenia [AZ acr Update](https://docs.microsoft.com/cli/azure/acr?view=azure-cli-latest#az-acr-update) lub Azure Portal.
-* Obraz lub repozytorium może być zablokowane, aby nie można go było usunąć ani zaktualizować. Aby wyświetlić bieżące atrybuty, można użyć polecenia [AZ ACR show Repository](https://docs.microsoft.com/azure/container-registry/container-registry-image-lock) .
+* Klasyczne rejestry nie są już obsługiwane. Przeprowadź uaktualnienie do obsługiwanej [warstwy usług](https://aka.ms/acr/skus) za pomocą polecenia [AZ acr Update](/cli/azure/acr?view=azure-cli-latest#az-acr-update) lub Azure Portal.
+* Obraz lub repozytorium może być zablokowane, aby nie można go było usunąć ani zaktualizować. Aby wyświetlić bieżące atrybuty, można użyć polecenia [AZ ACR show Repository](./container-registry-image-lock.md) .
 * Niektóre operacje są niedozwolone, jeśli obraz jest objęty kwarantanną. Dowiedz się więcej o [kwarantannie](https://github.com/Azure/acr/tree/master/docs/preview/quarantine).
 * Rejestr mógł osiągnąć [Limit magazynu](container-registry-skus.md#service-tier-features-and-limits).
 

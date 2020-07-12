@@ -4,11 +4,12 @@ description: Dowiedz się, jak debugować kontenery systemu Windows na platformi
 ms.topic: article
 ms.date: 02/14/2019
 ms.author: mikhegn
-ms.openlocfilehash: 2a00a352d09562ffe46dc8e6e63a5d4963ac3a3f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3e6e7785278b182cebb21115a70f35ade52303c3
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84701153"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86247255"
 ---
 # <a name="how-to-debug-windows-containers-in-azure-service-fabric-using-visual-studio-2019"></a>Instrukcje: debugowanie kontenerów systemu Windows na platformie Azure Service Fabric przy użyciu programu Visual Studio 2019
 
@@ -16,9 +17,9 @@ Program Visual Studio 2019 umożliwia debugowanie aplikacji .NET w kontenerach j
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* W systemie Windows 10 Skorzystaj z tego przewodnika Szybki Start, aby [skonfigurować system Windows 10 do uruchamiania kontenerów systemu Windows](https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-10)
-* W systemie Windows Server 2016 postępuj zgodnie z tym przewodnikiem Szybki Start, aby [skonfigurować system windows 2016 do uruchamiania kontenerów systemu Windows](https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-server)
-* Skonfiguruj lokalne środowisko Service Fabric, wykonując następujące czynności [przygotowując środowisko programistyczne w systemie Windows](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started)
+* W systemie Windows 10 Skorzystaj z tego przewodnika Szybki Start, aby [skonfigurować system Windows 10 do uruchamiania kontenerów systemu Windows](/virtualization/windowscontainers/quick-start/quick-start-windows-10)
+* W systemie Windows Server 2016 postępuj zgodnie z tym przewodnikiem Szybki Start, aby [skonfigurować system windows 2016 do uruchamiania kontenerów systemu Windows](/virtualization/windowscontainers/quick-start/quick-start-windows-server)
+* Skonfiguruj lokalne środowisko Service Fabric, wykonując następujące czynności [przygotowując środowisko programistyczne w systemie Windows](./service-fabric-get-started.md)
 
 ## <a name="configure-your-developer-environment-to-debug-containers"></a>Konfigurowanie środowiska deweloperskiego do debugowania kontenerów
 
@@ -37,7 +38,7 @@ Program Visual Studio 2019 umożliwia debugowanie aplikacji .NET w kontenerach j
       > `-CreateOneNodeCluster`Aby skonfigurować klaster z jednym węzłem, można użyć programu. Domyślnie zostanie utworzony lokalny klaster z pięcioma węzłami.
       >
 
-      Aby dowiedzieć się więcej na temat usługi DNS w Service Fabric, zobacz [Usługa DNS na platformie Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-dnsservice). Aby dowiedzieć się więcej o używaniu Service Fabric zwrotnego serwera proxy z usług uruchomionych w kontenerze, zobacz [odwracanie specjalnej obsługi serwera proxy dla usług uruchomionych w](service-fabric-reverseproxy.md#special-handling-for-services-running-in-containers)kontenerach.
+      Aby dowiedzieć się więcej na temat usługi DNS w Service Fabric, zobacz [Usługa DNS na platformie Azure Service Fabric](./service-fabric-dnsservice.md). Aby dowiedzieć się więcej o używaniu Service Fabric zwrotnego serwera proxy z usług uruchomionych w kontenerze, zobacz [odwracanie specjalnej obsługi serwera proxy dla usług uruchomionych w](service-fabric-reverseproxy.md#special-handling-for-services-running-in-containers)kontenerach.
 
 ### <a name="known-limitations-when-debugging-containers-in-service-fabric"></a>Znane ograniczenia dotyczące debugowania kontenerów w Service Fabric
 

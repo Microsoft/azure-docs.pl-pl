@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: apimpm
-ms.openlocfilehash: 0d122a56035e58bd5065da8fde56246da6478d54
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f594d4467e64ead40ff3c26aaf3e3a44cb673a98
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82871260"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86250298"
 ---
 # <a name="how-to-log-events-to-azure-event-hubs-in-azure-api-management"></a>Jak rejestrować zdarzenia w usłudze Azure Event Hubs na platformie Azure API Management
 Azure Event Hubs to wysoce skalowalna usługa transferu danych przychodzących, która może obsługiwać miliony zdarzeń na sekundę, dzięki czemu możliwe jest przetwarzanie i analizowanie olbrzymich ilości danych wytworzonych przez podłączone urządzenia i aplikacje. Event Hubs działa jako "drzwi tylne" dla potoku zdarzeń, a po zebraniu danych do centrum zdarzeń można je przekształcać i przechowywać za pomocą dowolnego dostawcy analiz w czasie rzeczywistym lub kart wsadowych/magazynowych. Usługa Event Hubs oddziela wytwarzanie strumienia zdarzeń od użycia tych zdarzeń, dzięki czemu odbiorcy zdarzeń mogą uzyskiwać dostęp do zdarzeń zgodnie z własnym harmonogramem.
@@ -26,12 +27,12 @@ Ten artykuł stanowi pomocnika [integracji API Management platformy Azure z Even
 
 ## <a name="create-an-azure-event-hub"></a>Tworzenie centrum zdarzeń usługi Azure Event Hub
 
-Aby uzyskać szczegółowe instrukcje dotyczące sposobu tworzenia centrum zdarzeń i uzyskiwania parametrów połączenia, które są potrzebne do wysyłania i odbierania zdarzeń do i z centrum zdarzeń, zobacz [Tworzenie przestrzeni nazw Event Hubs i centrum zdarzeń przy użyciu Azure Portal](https://docs.microsoft.com/azure/event-hubs/event-hubs-create).
+Aby uzyskać szczegółowe instrukcje dotyczące sposobu tworzenia centrum zdarzeń i uzyskiwania parametrów połączenia, które są potrzebne do wysyłania i odbierania zdarzeń do i z centrum zdarzeń, zobacz [Tworzenie przestrzeni nazw Event Hubs i centrum zdarzeń przy użyciu Azure Portal](../event-hubs/event-hubs-create.md).
 
 ## <a name="create-an-api-management-logger"></a>Tworzenie rejestratora API Management
-Teraz, gdy masz centrum zdarzeń, następnym krokiem jest skonfigurowanie [rejestratora](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/logger) w usłudze API Management, dzięki czemu może on rejestrować zdarzenia w centrum zdarzeń.
+Teraz, gdy masz centrum zdarzeń, następnym krokiem jest skonfigurowanie [rejestratora](/rest/api/apimanagement/2019-12-01/logger) w usłudze API Management, dzięki czemu może on rejestrować zdarzenia w centrum zdarzeń.
 
-Rejestratory API Management są konfigurowane przy użyciu [interfejsu API REST API Management](https://aka.ms/apimapi). Szczegółowe przykłady żądań można znaleźć w temacie [How to Create rejestrators](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/logger/createorupdate).
+Rejestratory API Management są konfigurowane przy użyciu [interfejsu API REST API Management](https://aka.ms/apimapi). Szczegółowe przykłady żądań można znaleźć w temacie [How to Create rejestrators](/rest/api/apimanagement/2019-12-01/logger/createorupdate).
 
 ## <a name="configure-log-to-eventhub-policies"></a>Konfigurowanie zasad rejestrowania w usłudze eventhub
 
@@ -68,7 +69,7 @@ Kliknij przycisk **Zapisz** , aby zapisać zaktualizowaną konfigurację zasad. 
 
 ## <a name="preview-the-log-in-event-hubs-by-using-azure-stream-analytics"></a>Podgląd logowania Event Hubs przy użyciu Azure Stream Analytics
 
-Możesz wyświetlić podgląd dziennika w Event Hubs przy użyciu [zapytań Azure Stream Analytics](https://docs.microsoft.com/azure/event-hubs/process-data-azure-stream-analytics). 
+Możesz wyświetlić podgląd dziennika w Event Hubs przy użyciu [zapytań Azure Stream Analytics](../event-hubs/process-data-azure-stream-analytics.md). 
 
 1. W Azure Portal przejdź do centrum zdarzeń, do którego Rejestrator wysyła zdarzenia. 
 2. W obszarze **funkcje**wybierz kartę **dane procesu** .
@@ -78,11 +79,11 @@ Możesz wyświetlić podgląd dziennika w Event Hubs przy użyciu [zapytań Azur
 ## <a name="next-steps"></a>Następne kroki
 * Dowiedz się więcej o usłudze Azure Event Hubs
   * [Wprowadzenie do usługi Azure Event Hubs](../event-hubs/event-hubs-c-getstarted-send.md)
-  * [Odbieranie komunikatów za pomocą klasy EventProcessorHost](../event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md)
+  * [Odbieranie komunikatów za pomocą klasy EventProcessorHost](../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)
   * [Przewodnik programowania Event Hubs](../event-hubs/event-hubs-programming-guide.md)
 * Dowiedz się więcej o integracji API Management i Event Hubs
-  * [Odwołanie do jednostki rejestratora](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/logger)
-  * [Dokumentacja zasad logowania do centrum eventhub](https://docs.microsoft.com/azure/api-management/api-management-advanced-policies#log-to-eventhub)
+  * [Odwołanie do jednostki rejestratora](/rest/api/apimanagement/2019-12-01/logger)
+  * [Dokumentacja zasad logowania do centrum eventhub](./api-management-advanced-policies.md#log-to-eventhub)
   * [Monitoruj interfejsy API przy użyciu usługi Azure API Management, Event Hubs i Moesif](api-management-log-to-eventhub-sample.md)  
 * Dowiedz się więcej [na temat integracji z usługą Azure Application Insights](api-management-howto-app-insights.md)
 

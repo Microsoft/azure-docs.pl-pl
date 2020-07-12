@@ -5,11 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: srrengar
-ms.openlocfilehash: 8c4721584e74bd7f7111c516f2d16bd190392bb5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: caa6d4fc27373e524f4c492635cffbf8b735add8
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75614370"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86247221"
 ---
 # <a name="add-logging-to-your-service-fabric-application"></a>Add logging to your Service Fabric application (Dodawanie rejestrowania do aplikacji usługi Service Fabric)
 
@@ -95,7 +96,7 @@ Użycie hybrydowej Instrumentacji strukturalnej i ogólnej może również wspó
 
 Rejestrowanie ASP.NET Core ([pakiet NuGet Microsoft. Extensions. rejestrowania](https://www.nuget.org/packages/Microsoft.Extensions.Logging)) to struktura rejestrowania, która udostępnia interfejs API rejestrowania standardowego dla aplikacji. Aby obsłużyć inne rejestracje, można podłączyć się do ASP.NET Core rejestrowania. Zapewnia to szeroką gamę obsługi rejestrowania w aplikacji, bez konieczności zmiany kodu.
 
-1. Dodaj pakiet NuGet **Microsoft. Extensions. Logging** do projektu, który chcesz instrumentować. Ponadto Dodaj wszystkie pakiety dostawcy. Aby uzyskać więcej informacji, zobacz [Rejestrowanie w ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/logging).
+1. Dodaj pakiet NuGet **Microsoft. Extensions. Logging** do projektu, który chcesz instrumentować. Ponadto Dodaj wszystkie pakiety dostawcy. Aby uzyskać więcej informacji, zobacz [Rejestrowanie w ASP.NET Core](/aspnet/core/fundamentals/logging).
 2. Dodaj dyrektywę **using** dla **Microsoft. Extensions. Logging** do pliku usługi.
 3. Zdefiniuj prywatną zmienną w klasie usługi.
 
@@ -166,13 +167,3 @@ Niektórzy dostawcy innych firm używają podejścia opisanego w poprzedniej sek
 
 - Przeczytaj więcej informacji [na temat monitorowania aplikacji w Service Fabric](service-fabric-diagnostics-event-generation-app.md).
 - Przeczytaj o rejestrowaniu za pomocą [użyciu struktury eventflow](service-fabric-diagnostics-event-aggregation-eventflow.md) i [Windows Diagnostyka Azure](service-fabric-diagnostics-event-aggregation-wad.md).
-
-
-
-
-
-
-
-
-
-

@@ -3,15 +3,15 @@ title: 'Dokumentacja dla deweloperów Azure Functions F #'
 description: 'Dowiedz się, jak opracowywać Azure Functions przy użyciu skryptu F #.'
 author: sylvanc
 ms.assetid: e60226e5-2630-41d7-9e5b-9f9e5acc8e50
-ms.topic: reference
+ms.topic: conceptual
 ms.date: 10/09/2018
 ms.author: syclebsc
-ms.openlocfilehash: 669701f91ab28a4eb734b0346be6515dc44e8685
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 005cb0044cb4d225c8b94602fb907fee09fb00b2
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85846741"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86249193"
 ---
 # <a name="azure-functions-f-developer-reference"></a>Dokumentacja dla deweloperów Azure Functions F #
 
@@ -51,7 +51,7 @@ Istnieje [host.jsudostępnione w](functions-host-json.md) pliku, którego można
 Rozszerzenia powiązań wymagane w [wersji 2. x i nowszych wersjach](functions-versions.md) środowiska uruchomieniowego Functions są zdefiniowane w `extensions.csproj` pliku z rzeczywistymi plikami biblioteki w `bin` folderze. Podczas programowania lokalnego należy [zarejestrować rozszerzenia powiązań](./functions-bindings-register.md#extension-bundles). Podczas tworzenia funkcji w Azure Portal Rejestracja jest wykonywana.
 
 ## <a name="binding-to-arguments"></a>Powiązanie z argumentami
-Każde powiązanie obsługuje jakiś zestaw argumentów, zgodnie z opisem w temacie [Azure Functions wyzwalacze i powiązania deweloperów](functions-triggers-bindings.md). Na przykład jeden z powiązań argumentów obsługiwanych przez wyzwalacz obiektu BLOB to POCO, który można wyrazić przy użyciu rekordu języka F #. Przykład:
+Każde powiązanie obsługuje jakiś zestaw argumentów, zgodnie z opisem w temacie [Azure Functions wyzwalacze i powiązania deweloperów](functions-triggers-bindings.md). Na przykład jeden z powiązań argumentów obsługiwanych przez wyzwalacz obiektu BLOB to POCO, który można wyrazić przy użyciu rekordu języka F #. Na przykład:
 
 ```fsharp
 type Item = { Id: string }
@@ -65,7 +65,7 @@ Funkcja języka F # platformy Azure będzie mieć jeden lub więcej argumentów.
 
 W powyższym przykładzie `blob` jest argumentem wejściowym i `output` jest argumentem wyjściowym. Zwróć uwagę, że `byref<>` została użyta `output` (nie ma potrzeby dodawania `[<Out>]` adnotacji). Użycie `byref<>` typu umożliwia funkcji zmianę rekordu lub obiektu, do którego odwołuje się argument.
 
-Gdy rekord języka F # jest używany jako typ danych wejściowych, definicja rekordu musi być oznaczona przy użyciu, `[<CLIMutable>]` Aby zezwolić Azure Functions Framework na ustawianie pól odpowiednio przed przekazaniem rekordu do funkcji. W obszarze okapu program `[<CLIMutable>]` generuje metody ustawiające właściwości rekordu. Przykład:
+Gdy rekord języka F # jest używany jako typ danych wejściowych, definicja rekordu musi być oznaczona przy użyciu, `[<CLIMutable>]` Aby zezwolić Azure Functions Framework na ustawianie pól odpowiednio przed przekazaniem rekordu do funkcji. W obszarze okapu program `[<CLIMutable>]` generuje metody ustawiające właściwości rekordu. Na przykład:
 
 ```fsharp
 [<CLIMutable>]
@@ -77,7 +77,7 @@ let Run(req: TestObject, log: ILogger) =
     { req with Greeting = sprintf "Hello, %s" req.SenderName }
 ```
 
-Klasy F # można również użyć dla obu argumentów i. W przypadku klasy właściwości zazwyczaj będą wymagały metod pobierających i setter. Przykład:
+Klasy F # można również użyć dla obu argumentów i. W przypadku klasy właściwości zazwyczaj będą wymagały metod pobierających i setter. Na przykład:
 
 ```fsharp
 type Item() =
@@ -90,7 +90,7 @@ let Run(input: string, item: byref<Item>) =
 ```
 
 ## <a name="logging"></a>Rejestrowanie
-Aby zalogować dane wyjściowe do [dzienników przesyłania strumieniowego](../app-service/troubleshoot-diagnostic-logs.md) w języku F #, funkcja powinna przyjmować argument typu [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger). W celu zapewnienia spójności zaleca się, aby ten argument miał nazwę `log` . Przykład:
+Aby zalogować dane wyjściowe do [dzienników przesyłania strumieniowego](../app-service/troubleshoot-diagnostic-logs.md) w języku F #, funkcja powinna przyjmować argument typu [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger). W celu zapewnienia spójności zaleca się, aby ten argument miał nazwę `log` . Na przykład:
 
 ```fsharp
 let Run(blob: string, output: byref<string>, log: ILogger) =
@@ -182,7 +182,7 @@ Ponadto następujące zestawy są specjalne i mogą być przywoływane przez pro
 Jeśli musisz odwołać się do zestawu prywatnego, możesz przekazać plik zestawu do `bin` folderu względem funkcji i odwołać się do niego przy użyciu nazwy pliku (np.  `#r "MyAssembly.dll"`). Informacje o sposobach przekazywania plików do folderu funkcji znajdują się w poniższej sekcji dotyczącej zarządzania pakietami.
 
 ## <a name="editor-prelude"></a>Preludium edytora
-Edytor obsługujący usługi kompilatora F # nie ma informacji o obszarach nazw i zestawach, które Azure Functions automatycznie dołączane. W związku z tym może być przydatne do uwzględnienia Preludium, który ułatwia edytorowi znalezienie zestawów, z których korzystasz, oraz do jawnie otwartych przestrzeni nazw. Przykład:
+Edytor obsługujący usługi kompilatora F # nie ma informacji o obszarach nazw i zestawach, które Azure Functions automatycznie dołączane. W związku z tym może być przydatne do uwzględnienia Preludium, który ułatwia edytorowi znalezienie zestawów, z których korzystasz, oraz do jawnie otwartych przestrzeni nazw. Na przykład:
 
 ```fsharp
 #if !COMPILED
@@ -258,7 +258,7 @@ let Run(timer: TimerInfo, log: ILogger) =
 ```
 
 ## <a name="reusing-fsx-code"></a>Używanie kodu. FSX
-Możesz użyć kodu z innych `.fsx` plików za pomocą `#load` dyrektywy. Przykład:
+Możesz użyć kodu z innych `.fsx` plików za pomocą `#load` dyrektywy. Na przykład:
 
 `run.fsx`
 
@@ -285,7 +285,7 @@ let mylog(log: ILogger, text: string) =
 `#load`Dyrektywa działa tylko z `.fsx` plikami (F # Script), a nie z `.fs` plikami.
 
 ## <a name="next-steps"></a>Następne kroki
-Więcej informacji zawierają następujące zasoby:
+Więcej informacji można znaleźć w następujących zasobach:
 
 * [Przewodnik po języku F #](/dotnet/articles/fsharp/index)
 * [Najlepsze rozwiązania dotyczące Azure Functions](functions-best-practices.md)

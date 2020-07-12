@@ -7,12 +7,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: pepogors
-ms.openlocfilehash: f8d8d5ae677ea438de4baed7d6636c2087277427
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aa1499c57ead28bfcee90a2f224ef9c3bb1d7f58
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85602707"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86247828"
 ---
 # <a name="service-fabric-guardrails"></a>Service Fabric guardrails 
 Podczas wdrażania klastra Service Fabric są umieszczane guardrails, co spowoduje niepowodzenie wdrożenia Azure Resource Manager w przypadku nieprawidłowej konfiguracji klastra. Poniższe sekcje zawierają omówienie typowych problemów z konfiguracją klastra oraz czynności wymagane w celu rozwiązania tych problemów. 
@@ -60,7 +60,7 @@ Poniższa sekcja zawiera przykład zgodności trwałości między ustawieniem tr
 * Trwałość zestawu skalowania maszyn wirtualnych nie jest zgodna z elementem docelowym typu węzła Service Fabric
 * Trwałość zestawu skalowania maszyn wirtualnych jest zgodna z bieżącym poziomem trwałości Service Fabric lub poziomem trwałości typu węzła Service Fabric docelowego 
 
-### <a name="mitigation"></a>Środki zaradcze
+### <a name="mitigation"></a>Ograniczanie ryzyka
 Aby rozwiązać niezgodność trwałości, która jest wskazywana przez którykolwiek z powyższych komunikatów o błędzie:
 1. Zaktualizuj poziom trwałości w sekcji rozszerzenia zestawu skalowania maszyn wirtualnych lub Service Fabric typ węzła szablonu Azure Resource Manager, aby upewnić się, że wartości są zgodne.
 2. Wdróż ponownie szablon Azure Resource Manager ze zaktualizowanymi wartościami.
@@ -68,18 +68,18 @@ Aby rozwiązać niezgodność trwałości, która jest wskazywana przez któryko
 
 ## <a name="seed-node-deletion"></a>Usuwanie węzła inicjatora 
 ### <a name="overview"></a>Omówienie
-Klaster Service Fabric ma właściwość [warstwy niezawodności](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#reliability-characteristics-of-the-cluster) , która jest używana do określania liczby replik usług systemowych, które są uruchomione na podstawowym typie węzła klastra. Liczba wymaganych replik określi minimalną liczbę węzłów, które muszą być utrzymywane w podstawowym typie klastra. Jeśli liczba węzłów w typie węzła podstawowego spadnie poniżej wymaganej wartości minimalnej dla warstwy niezawodności, klaster stanie się niestabilny.  
+Klaster Service Fabric ma właściwość [warstwy niezawodności](./service-fabric-cluster-capacity.md#reliability-characteristics-of-the-cluster) , która jest używana do określania liczby replik usług systemowych, które są uruchomione na podstawowym typie węzła klastra. Liczba wymaganych replik określi minimalną liczbę węzłów, które muszą być utrzymywane w podstawowym typie klastra. Jeśli liczba węzłów w typie węzła podstawowego spadnie poniżej wymaganej wartości minimalnej dla warstwy niezawodności, klaster stanie się niestabilny.  
 
 ### <a name="error-messages"></a>Komunikaty o błędach 
 Wykryto operację usuwania węzła inicjatora i zostanie on odrzucony. 
 * Ta operacja spowoduje, że tylko {0} potencjalni węzły inicjatora będą pozostawać w klastrze, a {1} ich minimum wymagają.
 * Usunięcie {0} węzłów inicjatora {1} spowoduje, że klaster przeprowadził z powodu utraty kworum węzła inicjatora. Maksymalna liczba węzłów inicjatora, które można usunąć w danym momencie, to {2} .
  
-### <a name="mitigation"></a>Środki zaradcze 
+### <a name="mitigation"></a>Ograniczanie ryzyka 
 Upewnij się, że typ węzła podstawowego ma wystarczającą Virtual Machines, aby zapewnić niezawodność określoną w klastrze. Nie będzie można usunąć maszyny wirtualnej, jeśli zestaw skalowania maszyn wirtualnych zostanie ustawiony poniżej minimalnej liczby węzłów dla danej warstwy niezawodności.
 * Jeśli warstwa niezawodności jest określona prawidłowo, upewnij się, że masz wystarczającą liczbę węzłów w podstawowym typie węzła, zgodnie z wymaganiami dla warstwy niezawodności. 
 * Jeśli warstwa niezawodności jest niepoprawna, przed zainicjowaniem operacji zestawu skalowania maszyn wirtualnych należy zaczekać na zainicjowanie Service Fabric zmiany poziomu niezawodności, a następnie zaczekaj na jej zakończenie.
-* Jeśli warstwa niezawodności jest Bronem, wykonaj następujące [kroki](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-scale-in-out#manually-remove-vms-from-a-node-typevirtual-machine-scale-set) , aby bezpiecznie skalować swój klaster.
+* Jeśli warstwa niezawodności jest Bronem, wykonaj następujące [kroki](./service-fabric-cluster-scale-in-out.md#manually-remove-vms-from-a-node-typevirtual-machine-scale-set) , aby bezpiecznie skalować swój klaster.
 
 ## <a name="next-steps"></a>Następne kroki
 * Tworzenie klastra na maszynach wirtualnych lub komputerach z systemem Windows Server: [Service Fabric tworzenia klastra dla systemu Windows Server](service-fabric-cluster-creation-for-windows-server.md)

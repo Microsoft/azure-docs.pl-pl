@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 06/16/2020
 ms.custom: sfrev
-ms.openlocfilehash: e059a503a29872ee6241fe00ff5c7ec94ae30308
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e82c7809f5a6c79b61dc0c6731a696c672f6aa97
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84888105"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86247340"
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>Przygotowywanie środowiska deweloperskiego w systemie Windows
 
@@ -42,7 +42,7 @@ Na potrzeby tworzenia aplikacji obsługiwane są następujące wersje systemu op
 
 ## <a name="install-the-sdk-and-tools"></a>Instalowanie zestawu SDK i narzędzi
 
-Instalator platformy sieci Web (Instalatora WebPI) jest zalecanym sposobem instalowania zestawu SDK i narzędzi. Jeśli wystąpią błędy środowiska uruchomieniowego za pomocą Instalatora WebPI, można także znaleźć bezpośrednie linki do instalatorów w informacjach o wersji dla określonej wersji Service Fabric. Informacje o wersji znajdują się w różnych anonsach wydań na [blogu zespołu Service Fabric](https://blogs.msdn.microsoft.com/azureservicefabric/).
+Instalator platformy sieci Web (Instalatora WebPI) jest zalecanym sposobem instalowania zestawu SDK i narzędzi. Jeśli wystąpią błędy środowiska uruchomieniowego za pomocą Instalatora WebPI, można także znaleźć bezpośrednie linki do instalatorów w informacjach o wersji dla określonej wersji Service Fabric. Informacje o wersji znajdują się w różnych anonsach wydań na [blogu zespołu Service Fabric](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric).
 
 > [!NOTE]
 > Uaktualnienia lokalnego klastra projektowego Service Fabric nie są obsługiwane.

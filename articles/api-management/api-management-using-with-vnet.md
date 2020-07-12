@@ -13,11 +13,12 @@ ms.topic: article
 ms.date: 06/10/2020
 ms.author: apimpm
 ms.custom: references_regions
-ms.openlocfilehash: 76107a3713a7570bc3bbca15aa1b47e76560bf66
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e7323793dcbbd05fc5abf032d140b2caa5975da4
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84674282"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86249465"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Używanie usługi Azure API Management z sieciami wirtualnymi
 Sieci wirtualne platformy Azure umożliwiają umieszczanie dowolnych zasobów platformy Azure w sieci nieobsługującej routingu internetowego, do której kontrolujesz dostęp. Te sieci mogą następnie być połączone z sieciami lokalnymi przy użyciu różnych technologii sieci VPN. Aby dowiedzieć się więcej na temat sieci wirtualnych platformy Azure, Zacznij od informacji tutaj: [Omówienie usługi azure Virtual Network](../virtual-network/virtual-networks-overview.md).
@@ -70,7 +71,7 @@ Aby wykonać kroki opisane w tym artykule, musisz dysponować:
     > [!IMPORTANT]
     > W przypadku wdrażania wystąpienia usługi Azure API Management w sieci wirtualnej Menedżer zasobów usługa musi znajdować się w dedykowanej podsieci, która nie zawiera żadnych innych zasobów z wyjątkiem wystąpień API Management platformy Azure. Jeśli podjęto próbę wdrożenia wystąpienia usługi Azure API Management w sieci wirtualnej Menedżer zasobów zawierającej inne zasoby, wdrożenie zakończy się niepowodzeniem.
 
-    Następnie wybierz pozycję **Zastosuj**. Strona **Sieć wirtualna** wystąpienia API Management jest aktualizowana przy użyciu nowych opcji sieci wirtualnej i podsieci.
+    Następnie wybierz przycisk **Zastosuj**. Strona **Sieć wirtualna** wystąpienia API Management jest aktualizowana przy użyciu nowych opcji sieci wirtualnej i podsieci.
 
     ![Wybieranie sieci VPN][api-management-setup-vpn-select]
 
@@ -102,7 +103,7 @@ Poniżej znajduje się lista typowych problemów z błędami konfiguracji, któr
 * **Konfiguracja niestandardowego serwera DNS**: usługa API Management zależy od kilku usług platformy Azure. Gdy API Management jest hostowana w sieci wirtualnej z niestandardowym serwerem DNS, musi rozpoznać nazwy hostów tych usług platformy Azure. Postępuj zgodnie z [tymi](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) wskazówkami dotyczącymi NIESTANDARDOWEJ konfiguracji DNS. Zapoznaj się z poniższą tabelą porty i innymi wymaganiami dotyczącymi sieci.
 
 > [!IMPORTANT]
-> Jeśli planujesz używać niestandardowych serwerów DNS dla sieci wirtualnej, skonfiguruj ją **przed** wdrożeniem usługi API Management. W przeciwnym razie należy zaktualizować usługę API Management przy każdej zmianie serwerów DNS przez uruchomienie [operacji Zastosuj konfigurację sieci](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/ApiManagementService/ApplyNetworkConfigurationUpdates)
+> Jeśli planujesz używać niestandardowych serwerów DNS dla sieci wirtualnej, skonfiguruj ją **przed** wdrożeniem usługi API Management. W przeciwnym razie należy zaktualizować usługę API Management przy każdej zmianie serwerów DNS przez uruchomienie [operacji Zastosuj konfigurację sieci](/rest/api/apimanagement/2019-12-01/apimanagementservice/applynetworkconfigurationupdates)
 
 * **Porty wymagane do API Management**: ruch przychodzący i wychodzący do podsieci, w której wdrożono API Management, może być kontrolowany przy użyciu [sieciowej grupy zabezpieczeń][Network Security Group]. Jeśli którykolwiek z tych portów jest niedostępny, API Management może nie działać prawidłowo i może stać się niedostępna. Jeśli co najmniej jeden z tych portów jest zablokowany, jest to inny typowy problem z konfiguracją podczas korzystania z API Management z siecią wirtualną.
 
@@ -110,8 +111,8 @@ Poniżej znajduje się lista typowych problemów z błędami konfiguracji, któr
 
 | Porty źródłowe/docelowe | Kierunek          | Protokół transportowy |   [Tagi usług](../virtual-network/security-overview.md#service-tags) <br> Źródło/miejsce docelowe   | Cel ( \* )                                                 | Typ Virtual Network |
 |------------------------------|--------------------|--------------------|---------------------------------------|-------------------------------------------------------------|----------------------|
-| */[80], 443                  | Przychodzący            | TCP                | INTERNET/VIRTUAL_NETWORK            | Komunikacja z klientem do API Management                      | Zewnętrzna             |
-| */3443                     | Przychodzący            | TCP                | ApiManagement/VIRTUAL_NETWORK       | Punkt końcowy zarządzania dla Azure Portal i programu PowerShell         | Wewnętrzna & zewnętrzna  |
+| */[80], 443                  | Inbound            | TCP                | INTERNET/VIRTUAL_NETWORK            | Komunikacja z klientem do API Management                      | Zewnętrzna             |
+| */3443                     | Inbound            | TCP                | ApiManagement/VIRTUAL_NETWORK       | Punkt końcowy zarządzania dla Azure Portal i programu PowerShell         | Wewnętrzna & zewnętrzna  |
 | */443                  | Wychodzący           | TCP                | VIRTUAL_NETWORK/magazyn             | **Zależność od usługi Azure Storage**                             | Wewnętrzna & zewnętrzna  |
 | */443                  | Wychodzący           | TCP                | VIRTUAL_NETWORK/usługi azureactivedirectory | [Azure Active Directory](api-management-howto-aad.md) (jeśli dotyczy)                   | Wewnętrzna & zewnętrzna  |
 | */1433                     | Wychodzący           | TCP                | VIRTUAL_NETWORK/SQL                 | **Dostęp do punktów końcowych usługi Azure SQL**                           | Wewnętrzna & zewnętrzna  |
@@ -122,7 +123,7 @@ Poniżej znajduje się lista typowych problemów z błędami konfiguracji, któr
 | */25, 587, 25028                       | Wychodzący           | TCP                | VIRTUAL_NETWORK/INTERNET            | Nawiązywanie połączenia z przekaźnikiem SMTP w celu wysyłania wiadomości e-mail                    | Wewnętrzna & zewnętrzna  |
 | */6381 – 6383              | Przychodzące & wychodzące | TCP                | VIRTUAL_NETWORK/VIRTUAL_NETWORK     | Dostęp do usługi Redis dla zasad [pamięci podręcznej](api-management-caching-policies.md) między maszynami         | Wewnętrzna & zewnętrzna  |
 | */4290              | Przychodzące & wychodzące | UDP                | VIRTUAL_NETWORK/VIRTUAL_NETWORK     | Liczniki synchronizacji dla zasad [limitu szybkości](api-management-access-restriction-policies.md#LimitCallRateByKey) między maszynami         | Wewnętrzna & zewnętrzna  |
-| * / *                        | Przychodzący            | TCP                | AZURE_LOAD_BALANCER/VIRTUAL_NETWORK | Load Balancer infrastruktury platformy Azure                          | Wewnętrzna & zewnętrzna  |
+| * / *                        | Inbound            | TCP                | AZURE_LOAD_BALANCER/VIRTUAL_NETWORK | Load Balancer infrastruktury platformy Azure                          | Wewnętrzna & zewnętrzna  |
 
 >[!IMPORTANT]
 > Porty, dla których *przeznaczenie* jest **pogrubienie** , są wymagane do pomyślnego wdrożenia usługi API Management. Zablokowanie innych portów spowoduje jednak **obniżenie wydajności** i **monitorowanie uruchomionej usługi oraz zapewnienie zatwierdzonej umowy SLA**.
@@ -173,7 +174,7 @@ Poniżej znajduje się lista typowych problemów z błędami konfiguracji, któr
   > [!IMPORTANT]
   > Po zweryfikowaniu łączności upewnij się, że usunięto wszystkie zasoby wdrożone w podsieci przed wdrożeniem API Management w podsieci.
 
-* **Aktualizacje przyrostowe**: w przypadku wprowadzania zmian w sieci należy zapoznać się z [interfejsem API NetworkStatus](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/networkstatus), aby sprawdzić, czy usługa API Management nie utraciła dostępu do żadnych krytycznych zasobów, od których zależy. Stan łączności powinien być aktualizowany co 15 minut.
+* **Aktualizacje przyrostowe**: w przypadku wprowadzania zmian w sieci należy zapoznać się z [interfejsem API NetworkStatus](/rest/api/apimanagement/2019-12-01/networkstatus), aby sprawdzić, czy usługa API Management nie utraciła dostępu do żadnych krytycznych zasobów, od których zależy. Stan łączności powinien być aktualizowany co 15 minut.
 
 * **Linki nawigacji zasobów**: podczas wdrażania do Menedżer zasobów stylu sieci wirtualnej, API Management rezerwuje podsieć przez utworzenie linku nawigacji do zasobów. Jeśli podsieć zawiera już zasób od innego dostawcy, wdrożenie zakończy **się niepowodzeniem**. Podobnie po przeniesieniu usługi API Management do innej podsieci lub usunięciu jej zostanie usunięte łącze nawigacyjne tego zasobu.
 
@@ -202,7 +203,7 @@ Każda dodatkowa jednostka skalowania API Management wymaga dwóch dodatkowych a
 
 Adresy IP są podzielone przez **środowisko platformy Azure**. W przypadku zezwolenia na adres IP żądań przychodzących oznaczony przy użyciu **szablonu globalnego** musi być listy dozwolonych wraz z adresem IP specyficznym dla **regionu** .
 
-| **Środowisko platformy Azure**|   **Okolicy**|  **Adres IP**|
+| **Środowisko platformy Azure**|   **Region**|  **Adres IP**|
 |-----------------|-------------------------|---------------|
 | Azure — publiczna| Południowo-środkowe stany USA (globalne)| 104.214.19.224|
 | Azure — publiczna| Północno-środkowe stany USA (globalne)| 52.162.110.80|
@@ -213,14 +214,14 @@ Adresy IP są podzielone przez **środowisko platformy Azure**. W przypadku zezw
 | Azure — publiczna| Północno-środkowe stany USA| 40.81.47.216|
 | Azure — publiczna| Południowe Zjednoczone Królestwo| 51.145.56.125|
 | Azure — publiczna| Indie Zachodnie| 40.81.89.24|
-| Azure — publiczna| Wschodnie stany USA| 52.224.186.99|
-| Azure — publiczna| Europa Zachodnia| 51.145.179.78|
-| Azure — publiczna| Japonia Wschodnia| 52.140.238.179|
+| Azure — publiczna| East US| 52.224.186.99|
+| Azure — publiczna| West Europe| 51.145.179.78|
+| Azure — publiczna| Japan East| 52.140.238.179|
 | Azure — publiczna| Francja Środkowa| 40.66.60.111|
 | Azure — publiczna| Kanada Wschodnia| 52.139.80.117|
 | Azure — publiczna| Północne Zjednoczone Emiraty Arabskie| 20.46.144.85|
-| Azure — publiczna| Brazylia Południowa| 191.233.24.179|
-| Azure — publiczna| Azja Południowo-Wschodnia| 40.90.185.46|
+| Azure — publiczna| Brazil South| 191.233.24.179|
+| Azure — publiczna| Southeast Asia| 40.90.185.46|
 | Azure — publiczna| Północna Republika Południowej Afryki| 102.133.130.197|
 | Azure — publiczna| Kanada Środkowa| 52.139.20.34|
 | Azure — publiczna| Korea Południowa| 40.80.232.185|
@@ -229,12 +230,12 @@ Adresy IP są podzielone przez **środowisko platformy Azure**. W przypadku zezw
 | Azure — publiczna| Australia Południowo-Wschodnia| 20.40.160.107|
 | Azure — publiczna| Australia Środkowa| 20.37.52.67|
 | Azure — publiczna| Indie Południowe| 20.44.33.246|
-| Azure — publiczna| Środkowe stany USA| 13.86.102.66|
+| Azure — publiczna| Central US| 13.86.102.66|
 | Azure — publiczna| Australia Wschodnia| 20.40.125.155|
 | Azure — publiczna| Zachodnie stany USA 2| 51.143.127.203|
 | Azure — publiczna| Wschodnie stany USA 2 — EUAP| 52.253.229.253|
 | Azure — publiczna| Środkowe stany USA — EUAP| 52.253.159.160|
-| Azure — publiczna| Południowo-środkowe stany USA| 20.188.77.119|
+| Azure — publiczna| South Central US| 20.188.77.119|
 | Azure — publiczna| Wschodnie stany USA 2| 20.44.72.3|
 | Azure — publiczna| Europa Północna| 52.142.95.35|
 | Azure — publiczna| Azja Wschodnia| 52.139.152.27|

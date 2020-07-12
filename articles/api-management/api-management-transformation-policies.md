@@ -12,11 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: apimpm
-ms.openlocfilehash: 27bb6abb7ae8eae46bc4dea3708270ecb4b731a6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0182c3aa9095ad6f7bf3d8d86f115517e9efb020
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81260908"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86249607"
 ---
 # <a name="api-management-transformation-policies"></a>Zasady przekształcania w usłudze API Management
 Ten temat zawiera informacje dotyczące następujących zasad API Management. Aby uzyskać informacje na temat dodawania i konfigurowania zasad, zobacz [zasady w API Management](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -81,7 +82,7 @@ Ten temat zawiera informacje dotyczące następujących zasad API Management. Ab
 |Analiza — Data|Gdy ustawienia `false` wartości dat są po prostu kopiowane podczas transformacji|Nie|true|
 
 ### <a name="usage"></a>Użycie
- Tych zasad można używać w następujących [sekcjach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)zasad.
+ Tych zasad można używać w następujących [sekcjach](./api-management-howto-policies.md#sections) i [zakresach](./api-management-howto-policies.md#scopes)zasad.
 
 -   **Sekcje zasad:** przychodzące, wychodzące, w przypadku błędu
 
@@ -125,7 +126,7 @@ Ten temat zawiera informacje dotyczące następujących zasad API Management. Ab
 |Rozważ-Accept-header|Atrybut musi być ustawiony na jedną z następujących wartości.<br /><br /> -true — Zastosuj konwersję, jeśli żądanie JSON jest wymagane w nagłówku akceptowania żądania.<br />-false — zawsze stosuj konwersję.|Nie|true|
 
 ### <a name="usage"></a>Użycie
- Tych zasad można używać w następujących [sekcjach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)zasad.
+ Tych zasad można używać w następujących [sekcjach](./api-management-howto-policies.md#sections) i [zakresach](./api-management-howto-policies.md#scopes)zasad.
 
 -   **Sekcje zasad:** przychodzące, wychodzące, w przypadku błędu
 
@@ -157,10 +158,10 @@ Ten temat zawiera informacje dotyczące następujących zasad API Management. Ab
 |Nazwa|Opis|Wymagane|Domyślne|
 |----------|-----------------|--------------|-------------|
 |wniosek|Ciąg do wyszukania.|Tak|Nie dotyczy|
-|na|Ciąg zastępujący. Określ ciąg zastępczy o zerowej długości, aby usunąć ciąg wyszukiwania.|Tak|Nie dotyczy|
+|na wartość|Ciąg zastępujący. Określ ciąg zastępczy o zerowej długości, aby usunąć ciąg wyszukiwania.|Tak|Nie dotyczy|
 
 ### <a name="usage"></a>Użycie
- Tych zasad można używać w następujących [sekcjach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)zasad.
+ Tych zasad można używać w następujących [sekcjach](./api-management-howto-policies.md#sections) i [zakresach](./api-management-howto-policies.md#scopes)zasad.
 
 -   **Sekcje zasad:** przychodzące, wychodzące, zaplecze, w przypadku błędu
 
@@ -191,7 +192,7 @@ Ten temat zawiera informacje dotyczące następujących zasad API Management. Ab
 |redirect-Content-URL|Element główny.|Tak|
 
 ### <a name="usage"></a>Użycie
- Tych zasad można używać w następujących [sekcjach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)zasad.
+ Tych zasad można używać w następujących [sekcjach](./api-management-howto-policies.md#sections) i [zakresach](./api-management-howto-policies.md#scopes)zasad.
 
 -   **Sekcje zasad:** przychodzące, wychodzące
 
@@ -213,7 +214,7 @@ lub
 ```
 
 > [!NOTE]
-> Jednostki zaplecza mogą być zarządzane za pośrednictwem [interfejsu API](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/backend) zarządzania i [programu PowerShell](https://www.powershellgallery.com/packages?q=apimanagement).
+> Jednostki zaplecza mogą być zarządzane za pośrednictwem [interfejsu API](/rest/api/apimanagement/2019-12-01/backend) zarządzania i [programu PowerShell](https://www.powershellgallery.com/packages?q=apimanagement).
 
 ### <a name="example"></a>Przykład
 
@@ -268,7 +269,7 @@ W tym przykładzie zasady kierują żądanie do zaplecza usługi Service Fabric 
 |Nazwa|Opis|Wymagane|Domyślne|
 |----------|-----------------|--------------|-------------|
 |podstawowy adres URL|Nowy podstawowy adres URL usługi zaplecza.|Jeden z `base-url` lub `backend-id` musi być obecny.|Nie dotyczy|
-|Identyfikator zaplecza|Identyfikator zaplecza do skierowania do. (Jednostki zaplecza są zarządzane za pośrednictwem [interfejsu API](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/backend) i [programu PowerShell](https://www.powershellgallery.com/packages?q=apimanagement)).|Jeden z `base-url` lub `backend-id` musi być obecny.|Nie dotyczy|
+|Identyfikator zaplecza|Identyfikator zaplecza do skierowania do. (Jednostki zaplecza są zarządzane za pośrednictwem [interfejsu API](/rest/api/apimanagement/2019-12-01/backend) i [programu PowerShell](https://www.powershellgallery.com/packages?q=apimanagement)).|Jeden z `base-url` lub `backend-id` musi być obecny.|Nie dotyczy|
 |SF-Partition-Key|Dotyczy tylko sytuacji, gdy zaplecze jest usługą Service Fabric i jest określona przy użyciu identyfikatora zaplecza. Służy do rozwiązywania określonej partycji z usługi rozpoznawania nazw.|Nie|Nie dotyczy|
 |SF-Replica-Type|Dotyczy tylko sytuacji, gdy zaplecze jest usługą Service Fabric i jest określona przy użyciu identyfikatora zaplecza. Kontroluje, czy żądanie powinno przechodzić do podstawowej lub pomocniczej repliki partycji. |Nie|Nie dotyczy|
 |SF-Rozwiązuj — warunek|Dotyczy tylko sytuacji, gdy zaplecze jest usługą Service Fabric. Warunek określający, czy wywołanie Service Fabric zaplecza musi być powtórzone przy użyciu nowego rozwiązania.|Nie|Nie dotyczy|
@@ -276,7 +277,7 @@ W tym przykładzie zasady kierują żądanie do zaplecza usługi Service Fabric 
 |SF-Listener-Name|Dotyczy tylko sytuacji, gdy zaplecze jest usługą Service Fabric i jest określona przy użyciu identyfikatora zaplecza. Service Fabric Reliable Services umożliwia tworzenie wielu odbiorników w usłudze. Ten atrybut służy do wybierania określonego odbiornika, gdy usługa niezawodna zaplecza ma więcej niż jeden odbiornik. Jeśli ten atrybut nie jest określony, API Management podejmie próbę użycia odbiornika bez nazwy. Odbiornik bez nazwy jest typowy dla Reliable Services, które mają tylko jeden odbiornik. |Nie|Nie dotyczy|
 
 ### <a name="usage"></a>Użycie
- Tych zasad można używać w następujących [sekcjach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)zasad.
+ Tych zasad można używać w następujących [sekcjach](./api-management-howto-policies.md#sections) i [zakresach](./api-management-howto-policies.md#scopes)zasad.
 
 -   **Sekcje zasad:** przychodzące, zaplecze
 
@@ -446,7 +447,7 @@ OriginalUrl.
 
 
 ### <a name="usage"></a>Użycie
- Tych zasad można używać w następujących [sekcjach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)zasad.
+ Tych zasad można używać w następujących [sekcjach](./api-management-howto-policies.md#sections) i [zakresach](./api-management-howto-policies.md#scopes)zasad.
 
 -   **Sekcje zasad:** przychodzące, wychodzące, zaplecze
 
@@ -522,7 +523,7 @@ OriginalUrl.
 |name|Określa nazwę nagłówka, który ma zostać ustawiony.|Tak|Nie dotyczy|
 
 ### <a name="usage"></a>Użycie
- Tych zasad można używać w następujących [sekcjach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)zasad.
+ Tych zasad można używać w następujących [sekcjach](./api-management-howto-policies.md#sections) i [zakresach](./api-management-howto-policies.md#scopes)zasad.
 
 -   **Sekcje zasad:** przychodzące, wychodzące, zaplecze, w przypadku błędu
 
@@ -577,7 +578,7 @@ OriginalUrl.
 |name|Określa nazwę parametru zapytania, który ma zostać ustawiony.|Tak|Nie dotyczy|
 
 ### <a name="usage"></a>Użycie
- Tych zasad można używać w następujących [sekcjach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)zasad.
+ Tych zasad można używać w następujących [sekcjach](./api-management-howto-policies.md#sections) i [zakresach](./api-management-howto-policies.md#scopes)zasad.
 
 -   **Sekcje zasad:** przychodzące, zaplecze
 
@@ -655,7 +656,7 @@ OriginalUrl.
 |Kopiowanie — niedopasowane-parametry|Określa, czy parametry zapytania w żądaniu przychodzącym nie występują w oryginalnym szablonie adresu URL są dodawane do adresu URL zdefiniowanego przez ponowne zapisanie szablonu|Nie|true|
 
 ### <a name="usage"></a>Użycie
- Tych zasad można używać w następujących [sekcjach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)zasad.
+ Tych zasad można używać w następujących [sekcjach](./api-management-howto-policies.md#sections) i [zakresach](./api-management-howto-policies.md#scopes)zasad.
 
 -   **Sekcje zasad:** przychodzące
 
@@ -719,7 +720,7 @@ OriginalUrl.
 |xsl: stylesheet|Główny element arkusza stylów. Wszystkie elementy i atrybuty zdefiniowane w ramach standardowej [specyfikacji XSLT](https://www.w3.org/TR/xslt)|Tak|
 
 ### <a name="usage"></a>Użycie
- Tych zasad można używać w następujących [sekcjach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)zasad.
+ Tych zasad można używać w następujących [sekcjach](./api-management-howto-policies.md#sections) i [zakresach](./api-management-howto-policies.md#scopes)zasad.
 
 -   **Sekcje zasad:** przychodzące, wychodzące
 
@@ -730,5 +731,5 @@ OriginalUrl.
 Aby uzyskać więcej informacji, zobacz następujące tematy:
 
 + [Zasady w API Management](api-management-howto-policies.md)
-+ [Dokumentacja zasad](api-management-policy-reference.md) pełna lista instrukcji zasad i ich ustawień
++ [Dokumentacja zasad](./api-management-policies.md) pełna lista instrukcji zasad i ich ustawień
 + [Przykłady zasad](policy-samples.md)

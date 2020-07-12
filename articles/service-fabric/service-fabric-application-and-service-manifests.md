@@ -3,11 +3,12 @@ title: Opisywanie usług i aplikacji Service Fabric platformy Azure
 description: Opisuje, w jaki sposób manifesty są używane do opisywania Service Fabric aplikacji i usług.
 ms.topic: conceptual
 ms.date: 8/12/2019
-ms.openlocfilehash: 6014ef6a9b6ec810aafd5e5be96223b8ed92d576
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fcf4c7611f0a6f52c28b234717b9244ac58ad2d4
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75349963"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86248224"
 ---
 # <a name="service-fabric-application-and-service-manifests"></a>Service Fabric manifesty aplikacji i usług
 W tym artykule opisano sposób, w jaki Service Fabric aplikacje i usługi są zdefiniowane i używane do obsługi wersji przy użyciu plików ApplicationManifest.xml i ServiceManifest.xml.  Aby uzyskać bardziej szczegółowe przykłady, zobacz [przykłady manifestów aplikacji i usług](service-fabric-manifest-examples.md).  Schemat XML dla tych plików manifestu jest udokumentowany w [dokumentacji schematu ServiceFabricServiceModel. xsd](service-fabric-service-model-schema.md).
@@ -62,7 +63,7 @@ Elementy **ServiceType** deklarują, jakie typy usług są obsługiwane przez **
 
 Plik wykonywalny określony przez **punkt wejścia** jest zwykle długotrwałym hostem usługi. **SetupEntryPoint** to uprzywilejowany punkt wejścia, który jest uruchamiany z tymi samymi poświadczeniami co Service Fabric (zazwyczaj konto *LocalSystem* ) przed innym punktem wejścia.  Obecność oddzielnego punktu wejścia Instalatora pozwala uniknąć konieczności uruchamiania hosta usługi z wysokim poziomem uprawnień przez dłuższy czas. Plik wykonywalny określony przez **punkt wejścia** jest uruchamiany po pomyślnym zamknięciu **SetupEntryPoint** . Jeśli proces kiedykolwiek się zakończy lub ulegnie awarii, proces wynikający jest monitorowany i uruchamiany ponownie (od **SetupEntryPoint**).  
 
-Typowymi scenariuszami używania **SetupEntryPoint** są uruchamianie plików wykonywalnych przed uruchomieniem usługi lub wykonywanie operacji z podniesionymi uprawnieniami. Przykład:
+Typowymi scenariuszami używania **SetupEntryPoint** są uruchamianie plików wykonywalnych przed uruchomieniem usługi lub wykonywanie operacji z podniesionymi uprawnieniami. Na przykład:
 
 * Konfigurowanie i Inicjowanie zmiennych środowiskowych wymaganych przez plik wykonywalny usługi. Nie jest to ograniczone tylko do plików wykonywalnych pisanych za pośrednictwem modeli programowania Service Fabric. Na przykład npm.exe potrzebuje pewnych zmiennych środowiskowych skonfigurowanych do wdrażania aplikacji node.js.
 * Konfigurowanie kontroli dostępu przez zainstalowanie certyfikatów zabezpieczeń.
@@ -156,7 +157,7 @@ Podobnie jak w przypadku manifestów usługi, atrybuty **wersji** są ciągami b
 
 **Certyfikaty** (nie są ustawiane w poprzednim przykładzie) deklaruje certyfikaty używane do [konfiguracji punktów końcowych https](service-fabric-service-manifest-resources.md#example-specifying-an-https-endpoint-for-your-service) lub [Szyfruj wpisy tajne w manifeście aplikacji](service-fabric-application-secret-management.md).
 
-**Ograniczenia umieszczania** to instrukcje określające, gdzie mają być uruchamiane usługi. Te instrukcje są dołączone do poszczególnych usług wybranych dla jednej lub wielu właściwości węzła. Aby uzyskać więcej informacji, zobacz temat [ograniczenia umieszczania i składnia właściwości węzła](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-resource-manager-cluster-description#placement-constraints-and-node-property-syntax) .
+**Ograniczenia umieszczania** to instrukcje określające, gdzie mają być uruchamiane usługi. Te instrukcje są dołączone do poszczególnych usług wybranych dla jednej lub wielu właściwości węzła. Aby uzyskać więcej informacji, zobacz temat [ograniczenia umieszczania i składnia właściwości węzła](./service-fabric-cluster-resource-manager-cluster-description.md#placement-constraints-and-node-property-syntax) .
 
 **Zasady** (nie zostały ustawione w poprzednim przykładzie) opisują zbieranie dzienników, [domyślne zasady uruchamiania](service-fabric-application-runas-security.md)i [kondycji](service-fabric-health-introduction.md#health-policies), aby [security access](service-fabric-application-runas-security.md) ustawić na poziomie aplikacji, w tym czy usługi mają dostęp do Service Fabric środowiska uruchomieniowego.
 
@@ -191,6 +192,3 @@ For more information about other features supported by application manifests, re
 [appmodel-diagram]: ./media/service-fabric-application-model/application-model.png
 [cluster-imagestore-apptypes]: ./media/service-fabric-application-model/cluster-imagestore-apptypes.png
 [cluster-application-instances]: media/service-fabric-application-model/cluster-application-instances.png
-
-
-

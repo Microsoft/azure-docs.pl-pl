@@ -7,11 +7,12 @@ author: dkkapur
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: dekapur
-ms.openlocfilehash: 8c1be30750e6a6d1c541f244c4d0c3875e7dd927
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dbe64bdcbff5592d271c773eff1d5c99c585fcd7
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84234688"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86248020"
 ---
 # <a name="overview-of-service-fabric-clusters-on-azure"></a>Omówienie klastrów Service Fabric na platformie Azure
 Klaster Service Fabric jest połączonym z siecią zestawem maszyn wirtualnych lub fizycznych, w którym są wdrażane i zarządzane mikrousługi. Maszyna lub maszyna wirtualna będąca częścią klastra nazywa się węzłem klastra. Klastry mogą być skalowane do tysięcy węzłów. Jeśli dodasz nowe węzły do klastra, Service Fabric ponownie zrównoważą repliki partycji usługi i wystąpienia w większej liczbie węzłów. Ogólna wydajność aplikacji zwiększa się i rywalizacja o zmniejszenie ilości pamięci. Jeśli węzły w klastrze nie są efektywnie używane, można zmniejszyć liczbę węzłów w klastrze. Service Fabric ponownie zrównoważy repliki partycji i wystąpienia na zmniejszonej liczbie węzłów, aby lepiej wykorzystać sprzęt w każdym węźle.
@@ -30,14 +31,14 @@ Klaster Service Fabric na platformie Azure to zasób platformy Azure, który uż
 ![Klaster Service Fabric][Image]
 
 ### <a name="virtual-machine"></a>Maszyna wirtualna
-[Maszyna wirtualna](/azure/virtual-machines/) będąca częścią klastra nazywa się węzłem, ale technicznie, węzeł klastra to proces środowiska uruchomieniowego Service Fabric. Każdy węzeł ma przypisaną nazwę węzła (ciąg). Węzły mają właściwości, takie jak [Właściwości umieszczania](service-fabric-cluster-resource-manager-cluster-description.md#node-properties-and-placement-constraints). Każda maszyna lub maszyna wirtualna ma usługę Autostart *FabricHost.exe*, która rozpoczyna pracę w czasie rozruchu, a następnie uruchamia dwa pliki wykonywalne, *Fabric.exe* i *FabricGateway.exe*, które tworzą ten węzeł. Wdrożenie produkcyjne to jeden węzeł na maszynę fizyczną lub wirtualną. Scenariusze testowania umożliwiają hostowanie wielu węzłów na pojedynczej maszynie lub maszynie wirtualnej przez uruchomienie wielu wystąpień *Fabric.exe* i *FabricGateway.exe*.
+[Maszyna wirtualna](../virtual-machines/index.yml) będąca częścią klastra nazywa się węzłem, ale technicznie, węzeł klastra to proces środowiska uruchomieniowego Service Fabric. Każdy węzeł ma przypisaną nazwę węzła (ciąg). Węzły mają właściwości, takie jak [Właściwości umieszczania](service-fabric-cluster-resource-manager-cluster-description.md#node-properties-and-placement-constraints). Każda maszyna lub maszyna wirtualna ma usługę Autostart *FabricHost.exe*, która rozpoczyna pracę w czasie rozruchu, a następnie uruchamia dwa pliki wykonywalne, *Fabric.exe* i *FabricGateway.exe*, które tworzą ten węzeł. Wdrożenie produkcyjne to jeden węzeł na maszynę fizyczną lub wirtualną. Scenariusze testowania umożliwiają hostowanie wielu węzłów na pojedynczej maszynie lub maszynie wirtualnej przez uruchomienie wielu wystąpień *Fabric.exe* i *FabricGateway.exe*.
 
 Każda maszyna wirtualna jest skojarzona z kartą sieci wirtualnej (NIC), a każda karta sieciowa ma przypisany prywatny adres IP.  Maszyna wirtualna jest przypisana do sieci wirtualnej i lokalnego modułu równoważenia obciążenia za pomocą karty sieciowej.
 
 Wszystkie maszyny wirtualne w klastrze są umieszczane w sieci wirtualnej.  Wszystkie węzły w tym samym typie węzła/zestawie skalowania są umieszczane w tej samej podsieci w sieci wirtualnej.  Te węzły mają tylko prywatne adresy IP i nie są adresowane bezpośrednio poza siecią wirtualną.  Klienci mogą uzyskiwać dostęp do usług w węzłach za pomocą modułu równoważenia obciążenia platformy Azure.
 
 ### <a name="scale-setnode-type"></a>Zestaw skalowania/typ węzła
-Podczas tworzenia klastra należy zdefiniować jeden lub więcej typów węzłów.  Węzły lub maszyny wirtualne w typie węzła mają taki sam rozmiar i cechy, jak liczba procesorów CPU, pamięć, liczba dysków i we/wy dysku.  Na przykład jeden typ węzła może być dla małych maszyn wirtualnych frontonu z portami otwartymi w Internecie, podczas gdy inny typ węzła może być dla dużych maszyn wirtualnych zaplecza, które przetwarzają dane. W klastrach platformy Azure każdy typ węzła jest mapowany na [zestaw skalowania maszyn wirtualnych](/azure/virtual-machine-scale-sets/).
+Podczas tworzenia klastra należy zdefiniować jeden lub więcej typów węzłów.  Węzły lub maszyny wirtualne w typie węzła mają taki sam rozmiar i cechy, jak liczba procesorów CPU, pamięć, liczba dysków i we/wy dysku.  Na przykład jeden typ węzła może być dla małych maszyn wirtualnych frontonu z portami otwartymi w Internecie, podczas gdy inny typ węzła może być dla dużych maszyn wirtualnych zaplecza, które przetwarzają dane. W klastrach platformy Azure każdy typ węzła jest mapowany na [zestaw skalowania maszyn wirtualnych](../virtual-machine-scale-sets/index.yml).
 
 Zestawy skalowania umożliwiają wdrażanie kolekcji maszyn wirtualnych jako zestawu i zarządzanie nimi. Każdy typ węzła zdefiniowany w klastrze Service Fabric platformy Azure konfiguruje oddzielny zestaw skalowania. Środowisko uruchomieniowe Service Fabric jest ładowane do każdej maszyny wirtualnej w zestawie skalowania przy użyciu rozszerzeń maszyny wirtualnej platformy Azure. Można niezależnie skalować każdy typ węzła w górę lub w dół, zmieniać jednostkę SKU systemu operacyjnego działającą w każdym węźle klastra, mieć otwarte różne zestawy portów i korzystać z różnych metryk pojemności. Zestaw skalowania ma pięć [domen uaktualnienia](service-fabric-cluster-resource-manager-cluster-description.md#upgrade-domains) i pięć [domen błędów](service-fabric-cluster-resource-manager-cluster-description.md#fault-domains) i może mieć do 100 maszyn wirtualnych.  Tworzenie klastrów o więcej niż 100 węzłów przez utworzenie wielu zestawów skalowania/typów węzłów.
 
@@ -47,12 +48,12 @@ Zestawy skalowania umożliwiają wdrażanie kolekcji maszyn wirtualnych jako zes
 Aby uzyskać więcej informacji, Przeczytaj [Service Fabric typy węzłów i zestawy skalowania maszyn wirtualnych](service-fabric-cluster-nodetypes.md).
 
 ### <a name="azure-load-balancer"></a>Azure Load Balancer
-Wystąpienia maszyn wirtualnych są przyłączone za [modułem równoważenia obciążenia platformy Azure](/azure/load-balancer/load-balancer-overview), który jest skojarzony z [publicznym adresem IP](../virtual-network/public-ip-addresses.md) i etykietą DNS.  W przypadku inicjowania obsługi administracyjnej klastra z * &lt; klastrem &gt; *nazwa DNS, * &lt; ClusterName &gt; . &lt; Location &gt; . cloudapp.Azure.com* to etykieta DNS skojarzona z modułem równoważenia obciążenia przed zestawem skalowania.
+Wystąpienia maszyn wirtualnych są przyłączone za [modułem równoważenia obciążenia platformy Azure](../load-balancer/load-balancer-overview.md), który jest skojarzony z [publicznym adresem IP](../virtual-network/public-ip-addresses.md) i etykietą DNS.  W przypadku inicjowania obsługi administracyjnej klastra z * &lt; klastrem &gt; *nazwa DNS, * &lt; ClusterName &gt; . &lt; Location &gt; . cloudapp.Azure.com* to etykieta DNS skojarzona z modułem równoważenia obciążenia przed zestawem skalowania.
 
 Maszyny wirtualne w klastrze mają tylko [prywatne adresy IP](../virtual-network/private-ip-addresses.md).  Ruch związany z zarządzaniem i ruch usługi są kierowane przez publiczny moduł równoważenia obciążenia.  Ruch sieciowy jest kierowany do tych maszyn za pośrednictwem reguł translatora adresów sieciowych (połączenia klientów z określonymi węzłami/wystąpieniami) lub reguł równoważenia obciążenia (ruch przechodzi do działania okrężnego maszyn wirtualnych).  Moduł równoważenia obciążenia ma skojarzony publiczny adres IP z nazwą DNS w formacie: * &lt; ClusterName &gt; . &lt; Location &gt; . cloudapp.Azure.com*.  Publiczny adres IP jest innym zasobem platformy Azure w grupie zasobów.  W przypadku zdefiniowania wielu typów węzłów w klastrze dla każdego typu węzła/zestawu skalowania zostanie utworzony moduł równoważenia obciążenia. Lub można skonfigurować pojedynczy moduł równoważenia obciążenia dla wielu typów węzłów.  Typ węzła podstawowego ma etykietę DNS * &lt; ClusterName &gt; . &lt; Location &gt; . cloudapp.Azure.com*, inne typy węzłów mają etykietę DNS * &lt; ClusterName &gt; - &lt; NodeType &gt; . &lt; Location &gt; . cloudapp.Azure.com*.
 
 ### <a name="storage-accounts"></a>Konta magazynu
-Każdy typ węzła klastra jest obsługiwany przez [konto usługi Azure Storage](/azure/storage/common/storage-introduction) i dyski zarządzane.
+Każdy typ węzła klastra jest obsługiwany przez [konto usługi Azure Storage](../storage/common/storage-introduction.md) i dyski zarządzane.
 
 ## <a name="cluster-security"></a>Zabezpieczenia klastra
 Klaster Service Fabric jest posiadanym zasobem.  Użytkownik jest odpowiedzialny za zabezpieczanie klastrów w celu zapobiegania łączeniu się z nimi nieautoryzowanych użytkowników. Bezpieczny klaster jest szczególnie ważny w przypadku uruchamiania obciążeń produkcyjnych w klastrze. 
@@ -70,7 +71,7 @@ Oprócz certyfikatów klienta Azure Active Directory można również skonfiguro
 Aby uzyskać więcej informacji, zapoznaj się z artykułem [Zabezpieczenia klienta-węzła](service-fabric-cluster-security.md#client-to-node-security)
 
 ### <a name="role-based-access-control"></a>Kontrola dostępu oparta na rolach
-Access Control oparte na rolach (RBAC) umożliwia przypisywanie szczegółowych kontroli dostępu do zasobów platformy Azure.  Można przypisać różne reguły dostępu do subskrypcji, grup zasobów i zasobów.  Reguły RBAC są dziedziczone wzdłuż hierarchii zasobów, chyba że zostaną zastąpione na niższym poziomie.  Można przypisać dowolnych grup użytkowników lub użytkowników w usłudze AAD za pomocą reguł RBAC, aby wyznaczeni Użytkownicy i grupy mogli modyfikować klaster.  Aby uzyskać więcej informacji, zapoznaj się z [omówieniem usługi Azure RBAC](/azure/role-based-access-control/overview).
+Access Control oparte na rolach (RBAC) umożliwia przypisywanie szczegółowych kontroli dostępu do zasobów platformy Azure.  Można przypisać różne reguły dostępu do subskrypcji, grup zasobów i zasobów.  Reguły RBAC są dziedziczone wzdłuż hierarchii zasobów, chyba że zostaną zastąpione na niższym poziomie.  Można przypisać dowolnych grup użytkowników lub użytkowników w usłudze AAD za pomocą reguł RBAC, aby wyznaczeni Użytkownicy i grupy mogli modyfikować klaster.  Aby uzyskać więcej informacji, zapoznaj się z [omówieniem usługi Azure RBAC](../role-based-access-control/overview.md).
 
 Service Fabric obsługuje również kontrolę dostępu, aby ograniczyć dostęp do niektórych operacji klastra dla różnych grup użytkowników. Dzięki temu klaster jest bezpieczniejszy. Obsługiwane są dwa typy kontroli dostępu dla klientów łączących się z klastrem: rola administratora i rola użytkownika.  
 
@@ -79,7 +80,7 @@ Aby uzyskać więcej informacji, Przeczytaj [Service Fabric Access Control opart
 ### <a name="network-security-groups"></a>Grupy zabezpieczeń sieci 
 Sieciowe grupy zabezpieczeń (sieciowych grup zabezpieczeń) kontrolują ruch przychodzący i wychodzący podsieci, maszyny wirtualnej lub konkretnej karty sieciowej.  Domyślnie, gdy wiele maszyn wirtualnych jest umieszczanych w tej samej sieci wirtualnej, mogą komunikować się ze sobą za pośrednictwem dowolnego portu.  Jeśli chcesz ograniczyć komunikację między maszynami, możesz zdefiniować sieciowych grup zabezpieczeń do segmentacji sieci lub izolowania maszyn wirtualnych od siebie.  Jeśli w klastrze istnieje wiele typów węzłów, można zastosować sieciowych grup zabezpieczeń do podsieci, aby uniemożliwić komunikację między maszynami należącymi do różnych typów węzłów.  
 
-Aby uzyskać więcej informacji, Przeczytaj o [grupach zabezpieczeń](/azure/virtual-network/security-overview)
+Aby uzyskać więcej informacji, Przeczytaj o [grupach zabezpieczeń](../virtual-network/security-overview.md)
 
 ## <a name="scaling"></a>Skalowanie
 
@@ -99,13 +100,13 @@ Możesz tworzyć klastry na maszynach wirtualnych z następującymi systemami op
 | --- | --- |
 | Windows Server 2012 z dodatkiem R2 | Wszystkie wersje |
 | Windows Server 2016 | Wszystkie wersje |
-| System Windows Server 1709 | 6.0 |
+| System Windows Server 1709 | 6,0 |
 | System Windows Server 1803 | 6.4 |
 | System Windows Server 1809 | 6.4.654.9590 |
 | Windows Server 2019 | 6.4.654.9590 |
-| Linux Ubuntu 16,04 | 6.0 |
+| Linux Ubuntu 16,04 | 6,0 |
 
-Aby uzyskać dodatkowe informacje, zobacz [obsługiwane wersje klastra na platformie Azure](https://docs.microsoft.com/azure/service-fabric/service-fabric-versions#supported-operating-systems)
+Aby uzyskać dodatkowe informacje, zobacz [obsługiwane wersje klastra na platformie Azure](./service-fabric-versions.md#supported-operating-systems)
 
 > [!NOTE]
 > Jeśli zdecydujesz się na wdrożenie Service Fabric w systemie Windows Server 1709, należy pamiętać, że (1) nie jest to długotrwała gałąź obsługi, więc może być konieczne przeniesienie wersji w przyszłości, a (2) w przypadku wdrażania kontenerów kontenery utworzone w systemie Windows Server 2016 nie działają w systemie Windows Server 1709 i na odwrót. konieczne będzie ich ponowne skompilowanie w celu ich wdrożenia.

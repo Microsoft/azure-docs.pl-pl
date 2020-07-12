@@ -13,17 +13,18 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/13/2020
 ms.author: apimpm
-ms.openlocfilehash: 8c1d126f01580574a83850e63945aa7e513eaeda
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e7be1e90d10a84465d6416f2c13a6e4b6855077b
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76713134"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86250077"
 ---
 # <a name="how-to-secure-apis-using-client-certificate-authentication-in-api-management"></a>Jak zabezpieczać interfejsy API przy użyciu uwierzytelniania za pomocą certyfikatów klienta w usłudze API Management
 
 API Management zapewnia możliwość zabezpieczenia dostępu do interfejsów API (np. klient API Management) przy użyciu certyfikatów klienta. Można sprawdzić poprawność certyfikatu przychodzącego i sprawdzić właściwości certyfikatu przed żądanymi wartościami przy użyciu wyrażeń zasad.
 
-Aby uzyskać informacje o zabezpieczaniu dostępu do usługi zaplecza interfejsu API przy użyciu certyfikatów klienta (tj. API Management zaplecza), zobacz [jak zabezpieczyć usługi zaplecza przy użyciu uwierzytelniania certyfikatu klienta](https://docs.microsoft.com/azure/api-management/api-management-howto-mutual-certificates) .
+Aby uzyskać informacje o zabezpieczaniu dostępu do usługi zaplecza interfejsu API przy użyciu certyfikatów klienta (tj. API Management zaplecza), zobacz [jak zabezpieczyć usługi zaplecza przy użyciu uwierzytelniania certyfikatu klienta](./api-management-howto-mutual-certificates.md) .
 
 > [!IMPORTANT]
 > Aby otrzymywać i weryfikować certyfikaty klienta za pośrednictwem protokołu HTTP/2 w warstwach Deweloper, podstawowa, standardowa lub Premium, należy włączyć ustawienie "Negocjuj certyfikat klienta" w bloku "domeny niestandardowe", jak pokazano poniżej.
@@ -98,5 +99,5 @@ Poniższy przykład pokazuje, jak sprawdzić odcisk palca certyfikatu klienta wz
 
 ## <a name="next-steps"></a>Następne kroki
 
--   [Jak zabezpieczyć usługi zaplecza przy użyciu uwierzytelniania certyfikatu klienta](https://docs.microsoft.com/azure/api-management/api-management-howto-mutual-certificates)
--   [Jak przekazać certyfikaty](https://docs.microsoft.com/azure/api-management/api-management-howto-mutual-certificates)
+-   [Jak zabezpieczyć usługi zaplecza przy użyciu uwierzytelniania certyfikatu klienta](./api-management-howto-mutual-certificates.md)
+-   [Jak przekazać certyfikaty](./api-management-howto-mutual-certificates.md)

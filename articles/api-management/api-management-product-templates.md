@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 393563427e936e07315cd44b78cb793d4292b352
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4c8cd4aa3e91c5d69c40e47683818ed8bc9be338
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79243928"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86249907"
 ---
 # <a name="product-templates-in-azure-api-management"></a>Szablony produktów w usłudze Azure API Management
 
@@ -30,7 +31,7 @@ Usługa Azure API Management umożliwia dostosowanie zawartości stron portalu d
 -   [Product](#Product)  
   
 > [!NOTE]
->  Przykładowe szablony domyślne są zawarte w poniższej dokumentacji, ale mogą ulec zmianie ze względu na ciągłe ulepszenia. Możesz wyświetlić szablony domyślne na żywo w portalu dla deweloperów, przechodząc do żądanych poszczególnych szablonów. Aby uzyskać więcej informacji na temat pracy z szablonami, zobacz [How to dostosowywanie portalu deweloperów API Management przy użyciu szablonów](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
+>  Przykładowe szablony domyślne są zawarte w poniższej dokumentacji, ale mogą ulec zmianie ze względu na ciągłe ulepszenia. Możesz wyświetlić szablony domyślne na żywo w portalu dla deweloperów, przechodząc do żądanych poszczególnych szablonów. Aby uzyskać więcej informacji na temat pracy z szablonami, zobacz [How to dostosowywanie portalu deweloperów API Management przy użyciu szablonów](./api-management-developer-portal-templates.md).  
 
 [!INCLUDE [api-management-portal-legacy.md](../../includes/api-management-portal-legacy.md)]
 
@@ -205,11 +206,11 @@ Usługa Azure API Management umożliwia dostosowanie zawartości stron portalu d
   
 |Właściwość|Typ|Opis|  
 |--------------|----------|-----------------|  
-|Produkt|[Product](api-management-template-data-model-reference.md#Product)|Określony produkt.|  
+|Iloczyn|[Product](api-management-template-data-model-reference.md#Product)|Określony produkt.|  
 |IsDeveloperSubscribed|wartość logiczna|Czy bieżący użytkownik subskrybuje ten produkt.|  
 |SubscriptionState|liczba|Stan subskrypcji. Możliwe stany to:<br /><br /> -   `0 - suspended`— subskrypcja została zablokowana i subskrybent nie może wywołać żadnych interfejsów API produktu.<br />-   `1 - active`— subskrypcja jest aktywna.<br />-   `2 - expired`— subskrypcja osiągnęła swoją datę wygaśnięcia i została zdezaktywowana.<br />-   `3 - submitted`— żądanie subskrypcji zostało wykonane przez dewelopera, ale jeszcze nie zostało zatwierdzone lub odrzucone.<br />-   `4 - rejected`— żądanie subskrypcji zostało odrzucone przez administratora.<br />-   `5 - cancelled`— subskrypcja została anulowana przez dewelopera lub administratora.|  
 |Limity|tablica|Ta właściwość jest przestarzała i nie powinna być używana.|  
-|DelegatedSubscriptionEnabled|wartość logiczna|Czy [delegowanie](https://azure.microsoft.com/documentation/articles/api-management-howto-setup-delegation/) jest włączone dla tej subskrypcji.|  
+|DelegatedSubscriptionEnabled|wartość logiczna|Czy [delegowanie](./api-management-howto-setup-delegation.md) jest włączone dla tej subskrypcji.|  
 |DelegatedSubscriptionUrl|ciąg|Jeśli Delegowanie jest włączone, delegowany adres URL subskrypcji.|  
 |Nie zgadzam się|wartość logiczna|Jeśli produkt ma warunki, niezależnie od tego, czy bieżący użytkownik wyraził zgodę na warunki.|  
 |Subskrypcje|Kolekcja jednostek [podsumowania subskrypcji](api-management-template-data-model-reference.md#SubscriptionSummary) .|Subskrypcje produktu.|  

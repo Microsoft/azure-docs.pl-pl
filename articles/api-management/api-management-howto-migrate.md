@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/26/2019
 ms.author: apimpm
-ms.openlocfilehash: 39803ab88e5b252ef119d22a697e135c83f87780
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 0eed2328aca78402c5f4691bb9b3d07d4f36472e
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86205640"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86250230"
 ---
 # <a name="how-to-migrate-azure-api-management-across-regions"></a>Jak migrować API Management platformy Azure między regionami
 Aby migrować wystąpienia API Management z jednego regionu świadczenia usługi Azure do innego, można użyć funkcji [tworzenia kopii zapasowych i przywracania](api-management-howto-disaster-recovery-backup-restore.md) . Należy wybrać tę samą API Management warstwę cenową w regionach źródłowym i docelowym. 
 
 > [!NOTE]
-> Tworzenie kopii zapasowych i przywracanie nie będzie funkcjonować podczas migrowania między różnymi typami chmur. W tym celu należy wyeksportować zasób [jako szablon](https://docs.microsoft.com/azure/azure-resource-manager/manage-resource-groups-portal#export-resource-groups-to-templates). Następnie dostosuj wyeksportowany szablon dla docelowego regionu platformy Azure i ponownie utwórz zasób. 
+> Tworzenie kopii zapasowych i przywracanie nie będzie funkcjonować podczas migrowania między różnymi typami chmur. W tym celu należy wyeksportować zasób [jako szablon](../azure-resource-manager/management/manage-resource-groups-portal.md#export-resource-groups-to-templates). Następnie dostosuj wyeksportowany szablon dla docelowego regionu platformy Azure i ponownie utwórz zasób. 
 
 ## <a name="option-1-use-a-different-api-management-instance-name"></a>Opcja 1. Użyj innej nazwy wystąpienia API Management
 
@@ -47,4 +47,4 @@ Aby migrować wystąpienia API Management z jednego regionu świadczenia usługi
 ## <a name="next-steps"></a><a name="next-steps"> </a>Następne kroki
 * Aby uzyskać więcej informacji na temat funkcji tworzenia kopii zapasowych i przywracania, zobacz [jak zaimplementować odzyskiwanie po awarii](api-management-howto-disaster-recovery-backup-restore.md).
 * Aby uzyskać informacje na temat migracji zasobów platformy Azure, zobacz [wskazówki dotyczące migracji między regionami na platformie Azure](https://github.com/Azure/Azure-Migration-Guidance).
-* [Zoptymalizuj i oszczędzaj wydatki na chmurę](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
+* [Zoptymalizuj i oszczędzaj wydatki na chmurę](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).

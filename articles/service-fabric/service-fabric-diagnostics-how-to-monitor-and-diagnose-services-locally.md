@@ -5,11 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: srrengar
-ms.openlocfilehash: 8435bb82afddd0070679768bb8d22ad9290f2279
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 58319b47c78a85b4f06c2c834db20f6c42cc1939
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84701204"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86247425"
 ---
 # <a name="monitor-and-diagnose-services-in-a-local-machine-development-setup"></a>Monitor and diagnose services in a local machine development setup (Monitorowanie i diagnozowanie usług w konfiguracji środowiska deweloperskiego na maszynie lokalnej)
 > [!div class="op_single_selector"]
@@ -21,7 +22,7 @@ ms.locfileid: "84701204"
 Monitorowanie, wykrywanie, diagnozowanie i rozwiązywanie problemów, dzięki czemu usługi mogą kontynuować minimalne zakłócenia środowiska użytkownika. Chociaż monitorowanie i Diagnostyka mają kluczowe znaczenie w rzeczywistym wdrożonym środowisku produkcyjnym, wydajność będzie zależeć od zastosowania podobnego modelu podczas tworzenia usług, aby zapewnić, że będą one działały po przejściu do rzeczywistego Instalatora. Service Fabric ułatwia deweloperom usług implementację diagnostyki, która może bezproblemowo współpracować zarówno z lokalnymi konfiguracjami programistycznymi na jednym komputerze, jak i rzeczywistymi konfiguracjami klastrów produkcyjnych.
 
 ## <a name="event-tracing-for-windows"></a>Śledzenie zdarzeń systemu Windows
-[Śledzenie zdarzeń systemu Windows](https://msdn.microsoft.com/library/windows/desktop/bb968803.aspx) (ETW) jest zalecaną technologią śledzenia komunikatów w Service Fabric. Niektóre zalety korzystania z funkcji ETW to:
+[Śledzenie zdarzeń systemu Windows](/windows/win32/etw/event-tracing-portal) (ETW) jest zalecaną technologią śledzenia komunikatów w Service Fabric. Niektóre zalety korzystania z funkcji ETW to:
 
 * **Funkcja ETW jest szybka.** Została skompilowana jako technologia śledzenia, która ma minimalny wpływ na czasy wykonywania kodu.
 * **Śledzenie ETW działa bezproblemowo w lokalnych środowiskach programistycznych, a także w rzeczywistych konfiguracjach klastra.** Oznacza to, że nie trzeba ponownie pisać kodu śledzenia, gdy wszystko jest gotowe do wdrożenia kodu w rzeczywistym klastrze.
@@ -55,6 +56,5 @@ Po dodaniu niestandardowego śledzenia funkcji ETW do kodu usługi możesz ponow
 ## <a name="next-steps"></a>Następne kroki
 Ten sam kod śledzenia, który został dodany do aplikacji powyżej dla lokalnej diagnostyki, będzie działać z narzędziami, których można użyć do wyświetlania tych zdarzeń podczas uruchamiania aplikacji w klastrze platformy Azure. Zapoznaj się z tymi artykułami, które omawiają różne opcje narzędzi i opisują, jak można je skonfigurować.
 
-* [Jak zbierać dzienniki przy użyciu Diagnostyka Azure](service-fabric-diagnostics-how-to-setup-wad.md)
+* [Jak zbierać dzienniki przy użyciu Diagnostyka Azure](./service-fabric-diagnostics-event-aggregation-wad.md)
 * [Agregacja i zbieranie zdarzeń przy użyciu użyciu struktury eventflow](service-fabric-diagnostics-event-aggregation-eventflow.md)
-

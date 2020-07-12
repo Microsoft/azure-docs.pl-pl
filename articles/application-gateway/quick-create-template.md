@@ -9,16 +9,16 @@ ms.topic: quickstart
 ms.date: 05/28/2020
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 986e061c03634fe33af985c9d11569848500862c
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 963f728db55f587f7ae72aec702a099882cf401a
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84170498"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86249377"
 ---
-# <a name="quickstart-direct-web-traffic-with-azure-application-gateway---resource-manager-template"></a>Szybki Start: bezpośredni ruch internetowy za pomocą usługi Azure Application Gateway — Menedżer zasobów szablon
+# <a name="quickstart-direct-web-traffic-with-azure-application-gateway---arm-template"></a>Szybki Start: bezpośredni ruch internetowy za pomocą usługi Azure Application Gateway — szablon ARM
 
-W tym przewodniku szybki start utworzysz Application Gateway platformy Azure przy użyciu szablonu Menedżer zasobów. Następnie przetestuj bramę aplikacji, aby upewnić się, że działa prawidłowo.
+W tym przewodniku szybki start utworzysz Application Gateway platformy Azure przy użyciu szablonu Azure Resource Manager (szablon ARM). Następnie przetestuj bramę aplikacji, aby upewnić się, że działa prawidłowo.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -26,17 +26,19 @@ Ten przewodnik Szybki Start można także wykonać przy użyciu [Azure Portal](q
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
+Jeśli Twoje środowisko spełnia wymagania wstępne i masz doświadczenie w korzystaniu z szablonów usługi ARM, wybierz przycisk **Wdróż na platformie Azure** . Szablon zostanie otwarty w Azure Portal.
+
+[![Wdrażanie na platformie Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fag-docs-qs%2Fazuredeploy.json)
+
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 - Konto platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## <a name="create-an-application-gateway"></a>Tworzenie bramy aplikacji
+## <a name="review-the-template"></a>Przegląd szablonu
 
 W celu uproszczenia ten szablon tworzy prostą konfigurację z publicznym adresem IP frontonu, podstawowym odbiornikiem obsługującym jedną lokację w bramie aplikacji, podstawową regułę routingu żądań i dwie maszyny wirtualne w puli zaplecza.
 
-### <a name="review-the-template"></a>Zapoznaj się z szablonem
-
-Szablon używany w tym przewodniku szybki start pochodzi z [szablonów szybkiego startu platformy Azure](https://github.com/Azure/azure-quickstart-templates/blob/master/ag-docs-qs/azuredeploy.json)
+Szablon używany w tym przewodniku szybki start pochodzi z [szablonów szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/ag-docs-qs/)
 
 :::code language="json" source="~/quickstart-templates/ag-docs-qs/azuredeploy.json" range="001-343" highlight="197-297":::
 
@@ -50,14 +52,13 @@ W szablonie zdefiniowano wiele zasobów platformy Azure:
 - [**Microsoft. Network/networkInterfaces**](/azure/templates/microsoft.network/networkinterfaces) : dwie dla maszyn wirtualnych
 - [**Microsoft. COMPUTE/virtualMachine/Extensions**](/azure/templates/microsoft.compute/virtualmachines/extensions) : Aby skonfigurować usługi IIS i strony sieci Web
 
+## <a name="deploy-the-template"></a>Wdrażanie szablonu
 
-### <a name="deploy-the-template"></a>Wdrożenie szablonu
-
-Wdróż szablon Menedżer zasobów na platformie Azure:
+Wdróż szablon ARM na platformie Azure:
 
 1. Wybierz pozycję **Wdróż na platformie Azure** , aby zalogować się do platformy Azure i otworzyć szablon. Ten szablon umożliwia utworzenie bramy aplikacji, infrastruktury sieciowej i dwóch maszyn wirtualnych w puli zaplecza z uruchomionymi usługami IIS.
 
-   [![Wdróż na platformie Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fag-docs-qs%2Fazuredeploy.json)
+   [![Wdrażanie na platformie Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fag-docs-qs%2Fazuredeploy.json)
 
 2. Wybierz lub Utwórz grupę zasobów, wpisz nazwę użytkownika i hasło administratora maszyny wirtualnej.
 3. Wybierz pozycję **Recenzja + Utwórz** , a następnie wybierz pozycję **Utwórz**.

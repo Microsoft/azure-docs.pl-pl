@@ -7,12 +7,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
 ms.date: 07/10/2020
-ms.openlocfilehash: 01968335ffcaffb26cabd2a5174d00e5471409c1
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: d2567a5a0374fd05f17e1153c3b2d7f3df50e0d9
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86232036"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86247000"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Co nowego w usłudze Azure Wyszukiwanie poznawcze
 
@@ -28,7 +28,6 @@ Dowiedz się, co nowego w usłudze. Oznacz Tę stronę zakładką, aby zapewnić
 | [**Interfejs API REST usługi Search 2020-06-30**](https://docs.microsoft.com/rest/api/searchservice/) | REST | Nowa stabilna wersja interfejsów API REST. Oprócz sklepu z bazami danych ta wersja zawiera ulepszenia dotyczące przydatności i oceny wyników wyszukiwania. | Ogólnie dostępna. |
 | [**Algorytm zgodności Okapi BM25**](https://en.wikipedia.org/wiki/Okapi_BM25) | Zapytanie | Nowy algorytm klasyfikacji istotności jest automatycznie używany dla wszystkich nowych usług wyszukiwania utworzonych po 15 lipca. W przypadku utworzonych wcześniej usług możesz wybrać wartość `similarity` właściwości dla pól indeksu. | Ogólnie dostępna. </br> Użyj [interfejsu API REST usługi Search 2020-06-30](https://docs.microsoft.com/rest/api/searchservice/) lub nowszego lub interfejsu api REST 2019-05-06. |
 | **executionEnvironment** | Zabezpieczenia (indeksatory) | Jawnie ustaw tę właściwość konfiguracji indeksatora na `private` , aby wymusić wszystkie połączenia z zewnętrznymi źródłami danych za pośrednictwem prywatnego punktu końcowego. Dotyczy tylko usług wyszukiwania, które korzystają z prywatnego linku platformy Azure. | Ogólnie dostępna. </br> Użyj [interfejsu API REST usługi Search 2020-06-30](https://docs.microsoft.com/rest/api/searchservice/) , aby ustawić ten ogólny parametr konfiguracji. |
-| [**Umiejętność Azure Machine Learning (AML)**](cognitive-search-aml-skill.md) | Wzbogacanie sztucznej inteligencji| Nowy typ umiejętności służący do integrowania punktu końcowego inferencing z Azure Machine Learning. Rozpocznij pracę z [tym samouczkiem](cognitive-search-tutorial-aml-custom-skill.md). | Ogólnie dostępna. </br> Użyj [interfejsu API REST usługi Search 2020-06-30](https://docs.microsoft.com/rest/api/searchservice/) lub nowszego. Dostępne również w portalu w projekcie zestawu umiejętności, przy założeniu, że Wyszukiwanie poznawcze i usługi Azure ML są wdrażane w tej samej subskrypcji. |
 
 ### <a name="may-2020-microsoft-build"></a>Maj 2020 (Microsoft Build)
 

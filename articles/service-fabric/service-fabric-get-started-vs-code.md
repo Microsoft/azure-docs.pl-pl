@@ -5,11 +5,12 @@ author: peterpogorski
 ms.topic: article
 ms.date: 06/29/2018
 ms.author: pepogors
-ms.openlocfilehash: 17bff459a0399d39c6bfdd772ad16d0b5b2f6771
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b34893b64ac3533406f33c45583a911b70ae42af
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84692602"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86247442"
 ---
 # <a name="service-fabric-for-visual-studio-code"></a>Service Fabric Visual Studio Code
 
@@ -27,7 +28,7 @@ Poniższe wymagania wstępne muszą być zainstalowane we wszystkich środowiska
 * [Visual Studio Code](https://code.visualstudio.com/)
 * [Node.js](https://nodejs.org/)
 * [Git](https://git-scm.com/)
-* [Zestaw SDK Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started)
+* [Zestaw SDK Service Fabric](./service-fabric-get-started.md)
 * Generatory narzędzia Yeoman — Zainstaluj odpowiednie generatory dla aplikacji
 
    ```sh

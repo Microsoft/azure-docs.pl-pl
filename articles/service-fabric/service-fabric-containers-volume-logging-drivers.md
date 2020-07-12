@@ -3,30 +3,31 @@ title: Azure Files sterownik woluminu dla Service Fabric
 description: Service Fabric obsługuje używanie Azure Files do tworzenia kopii zapasowych woluminów z kontenera.
 ms.topic: conceptual
 ms.date: 6/10/2018
-ms.openlocfilehash: 514a0cb12359d58e38ebc30ae12cdb277757f2b2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a5125dbd88a2fe236196c427244f1311d9b73b9f
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75750042"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86247697"
 ---
 # <a name="azure-files-volume-driver-for-service-fabric"></a>Azure Files sterownik woluminu dla Service Fabric
 
-Sterownik woluminu Azure Files to [wtyczka woluminu platformy Docker](https://docs.docker.com/engine/extend/plugins_volume/) , która dostarcza woluminy oparte na [Azure Files](/azure/storage/files/storage-files-introduction) dla kontenerów platformy Docker. Jest ona spakowana jako aplikacja Service Fabric, którą można wdrożyć w klastrze Service Fabric w celu udostępnienia woluminów dla innych Service Fabric aplikacji kontenera w klastrze.
+Sterownik woluminu Azure Files to [wtyczka woluminu platformy Docker](https://docs.docker.com/engine/extend/plugins_volume/) , która dostarcza woluminy oparte na [Azure Files](../storage/files/storage-files-introduction.md) dla kontenerów platformy Docker. Jest ona spakowana jako aplikacja Service Fabric, którą można wdrożyć w klastrze Service Fabric w celu udostępnienia woluminów dla innych Service Fabric aplikacji kontenera w klastrze.
 
 > [!NOTE]
 > Wersja 6.5.661.9590 wtyczki woluminu Azure Files została udostępniona w celu uzyskania ogólnej dostępności.
 >
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-* Wersja systemu Windows wtyczki woluminu Azure Files działa tylko w systemach operacyjnych [Windows Server w wersji 1709](/windows-server/get-started/whats-new-in-windows-server-1709), [Windows 10 w wersji 1709](https://docs.microsoft.com/windows/whats-new/whats-new-windows-10-version-1709) lub nowszej.
+* Wersja systemu Windows wtyczki woluminu Azure Files działa tylko w systemach operacyjnych [Windows Server w wersji 1709](/windows-server/get-started/whats-new-in-windows-server-1709), [Windows 10 w wersji 1709](/windows/whats-new/whats-new-windows-10-version-1709) lub nowszej.
 
 * Wersja systemu Linux dla wtyczki woluminu Azure Files działa we wszystkich wersjach systemów operacyjnych obsługiwanych przez Service Fabric.
 
 * Wtyczka woluminu Azure Files działa tylko na Service Fabric wersji 6,2 i nowszych.
 
-* Postępuj zgodnie z instrukcjami w [dokumentacji Azure Files](/azure/storage/files/storage-how-to-create-file-share) , aby utworzyć udział plików dla aplikacji kontenera Service Fabric do użycia jako wolumin.
+* Postępuj zgodnie z instrukcjami w [dokumentacji Azure Files](../storage/files/storage-how-to-create-file-share.md) , aby utworzyć udział plików dla aplikacji kontenera Service Fabric do użycia jako wolumin.
 
-* Wymagany jest program [PowerShell z zainstalowanym modułem Service Fabric](/azure/service-fabric/service-fabric-get-started) lub [SFCTL](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli) .
+* Wymagany jest program [PowerShell z zainstalowanym modułem Service Fabric](./service-fabric-get-started.md) lub [SFCTL](./service-fabric-cli.md) .
 
 * W przypadku korzystania z kontenerów funkcji Hyper-V następujące fragmenty kodu muszą zostać dodane w sekcji ClusterManifest (klaster lokalny) lub fabricSettings w szablonie Azure Resource Manager (klaster platformy Azure) lub ClusterConfig.jsw programie (autonomiczny klaster).
 
@@ -71,7 +72,7 @@ Azure Resource Manager polecenia wdrażania dla systemu Linux:
 .\DeployAzureFilesVolumeDriver.ps1 -subscriptionId [subscriptionId] -resourceGroupName [resourceGroupName] -clusterName [clusterName] -linux
 ```
 
-Po pomyślnym uruchomieniu skryptu możesz przejść do [sekcji Konfigurowanie aplikacji.](/azure/service-fabric/service-fabric-containers-volume-logging-drivers#configure-your-applications-to-use-the-volume)
+Po pomyślnym uruchomieniu skryptu możesz przejść do [sekcji Konfigurowanie aplikacji.](#configure-your-applications-to-use-the-volume)
 
 
 ### <a name="manual-deployment-for-standalone-clusters"></a>Ręczne wdrażanie klastrów autonomicznych
@@ -124,7 +125,7 @@ Aplikację Service Fabric, która dostarcza woluminy dla kontenerów, można pob
 > System Windows Server 2016 Datacenter nie obsługuje mapowania instalacji SMB do kontenerów ([które są obsługiwane tylko w systemie Windows Server w wersji 1709](/virtualization/windowscontainers/manage-containers/container-storage)). To ograniczenie uniemożliwia mapowanie woluminu sieciowego i Azure Files sterowniki woluminów w wersjach starszych niż 1709.
 
 #### <a name="deploy-the-application-on-a-local-development-cluster"></a>Wdrażanie aplikacji w lokalnym klastrze projektowym
-Wykonaj kroki 1-3 z [powyższego.](/azure/service-fabric/service-fabric-containers-volume-logging-drivers#manual-deployment-for-standalone-clusters)
+Wykonaj kroki 1-3 z [powyższego.](#manual-deployment-for-standalone-clusters)
 
  Domyślna liczba wystąpień usługi dla aplikacji wtyczki woluminu Azure Files to-1, co oznacza, że istnieje wystąpienie usługi wdrożone w każdym węźle w klastrze. Jednak podczas wdrażania aplikacji wtyczki woluminu Azure Files w lokalnym klastrze projektowym liczba wystąpień usługi powinna być określona jako 1. Można to zrobić za pomocą parametru aplikacji **InstanceCount** . W związku z tym, polecenie do tworzenia aplikacji wtyczki woluminu Azure Files w lokalnym klastrze projektowym jest następujące:
 
@@ -197,7 +198,7 @@ Jak pokazano w elementach **DriverOption** w powyższym fragmencie kodu, wtyczka
     ```
 
 ## <a name="using-your-own-volume-or-logging-driver"></a>Używanie własnego woluminu lub sterownika rejestrowania
-Service Fabric również umożliwia użycie własnych niestandardowych sterowników [woluminów](https://docs.docker.com/engine/extend/plugins_volume/) lub [dzienników](https://docs.docker.com/engine/admin/logging/overview/) . Jeśli w klastrze nie zainstalowano sterownika rejestrowania woluminów/sterowników platformy Docker, można zainstalować go ręcznie przy użyciu protokołów RDP/SSH. Instalację można przeprowadzić za pomocą tych protokołów za pomocą [skryptu uruchamiania zestawu skalowania maszyn wirtualnych](https://azure.microsoft.com/resources/templates/201-vmss-custom-script-windows/) lub [skryptu SetupEntryPoint](/azure/service-fabric/service-fabric-application-model).
+Service Fabric również umożliwia użycie własnych niestandardowych sterowników [woluminów](https://docs.docker.com/engine/extend/plugins_volume/) lub [dzienników](https://docs.docker.com/engine/admin/logging/overview/) . Jeśli w klastrze nie zainstalowano sterownika rejestrowania woluminów/sterowników platformy Docker, można zainstalować go ręcznie przy użyciu protokołów RDP/SSH. Instalację można przeprowadzić za pomocą tych protokołów za pomocą [skryptu uruchamiania zestawu skalowania maszyn wirtualnych](https://azure.microsoft.com/resources/templates/201-vmss-custom-script-windows/) lub [skryptu SetupEntryPoint](./service-fabric-application-model.md).
 
 Przykładowy skrypt [służący do instalacji sterownika woluminu platformy Docker dla platformy Azure](https://docs.docker.com/docker-for-azure/persistent-data-volumes/) jest następujący:
 
@@ -240,4 +241,4 @@ W przypadku określenia sterownika dziennika platformy Docker należy wdrożyć 
 
 ## <a name="next-steps"></a>Następne kroki
 * Aby zobaczyć przykłady kontenerów, w tym sterownik woluminu, odwiedź [przykłady kontenerów Service Fabric](https://github.com/Azure-Samples/service-fabric-containers)
-* Aby wdrożyć kontenery w klastrze Service Fabric, zapoznaj się z artykułem [wdrażanie kontenera na Service Fabric](service-fabric-deploy-container.md)
+* Aby wdrożyć kontenery w klastrze Service Fabric, zapoznaj się z artykułem [wdrażanie kontenera na Service Fabric](./service-fabric-get-started-containers.md)

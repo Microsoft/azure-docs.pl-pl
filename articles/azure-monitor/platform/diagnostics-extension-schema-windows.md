@@ -6,11 +6,12 @@ ms.topic: reference
 author: bwren
 ms.author: bwren
 ms.date: 01/20/2020
-ms.openlocfilehash: c04fc82b8b04e474a656a0849177f7aa5d27b427
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e078f81db75dd6b89a65ff2d00bb2805ea912d0d
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81676431"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86249142"
 ---
 # <a name="windows-diagnostics-extension-schema"></a>Schemat rozszerzenia diagnostyki systemu Windows
 Diagnostyka Azure Extension to Agent w Azure Monitor, który zbiera dane monitorowania z systemu operacyjnego gościa i obciążeń zasobów obliczeniowych platformy Azure. W tym artykule opisano Schemat używany do konfiguracji rozszerzenia diagnostyki na maszynach wirtualnych z systemem Windows i innych zasobów obliczeniowych.
@@ -75,7 +76,7 @@ Element najwyższego poziomu pliku konfiguracji diagnostyki.
 |----------------|-----------------|  
 | **overallQuotaInMB** | Maksymalna ilość miejsca na dysku lokalnym, która może być używana przez różne typy danych diagnostycznych zbieranych przez Diagnostyka Azure. Ustawienie domyślne to 4096 MB.<br />
 |**useProxyServer** | Skonfiguruj Diagnostyka Azure, aby używać ustawień serwera proxy jako ustawionych w ustawieniach programu IE.|
-|**ujścia** | Dodano w 1,5. Opcjonalny. Wskazuje lokalizację ujścia, aby wysłać również dane diagnostyczne dla wszystkich elementów podrzędnych, które obsługują ujścia. Przykładem ujścia jest Application Insights lub Event Hubs.|  
+|**ujścia** | Dodano w 1,5. Opcjonalny. Wskazuje lokalizację ujścia, aby wysłać również dane diagnostyczne dla wszystkich elementów podrzędnych, które obsługują ujścia. Przykładem ujścia jest Application Insights lub Event Hubs. Uwaga należy dodać właściwość *ResourceID* w elemencie *Metrics* , jeśli chcesz, aby zdarzenia przekazane do Event Hubs miały identyfikator zasobu. |  
 
 
 <br /> <br />
@@ -188,7 +189,7 @@ Element najwyższego poziomu pliku konfiguracji diagnostyki.
 
  Umożliwia generowanie tabeli liczników wydajności zoptymalizowanej pod kątem szybkich zapytań. Każdy licznik wydajności, który jest zdefiniowany w elemencie **liczniki wydajności** , jest przechowywany w tabeli metryk oprócz tabeli liczników wydajności.  
 
- Atrybut **ResourceID** jest wymagany.  Identyfikator zasobu maszyny wirtualnej lub zestawu skalowania maszyn wirtualnych, który jest wdrażany Diagnostyka Azure. Pobierz identyfikator **zasobu** z [Azure Portal](https://portal.azure.com). Wybierz kolejno pozycje **Przeglądaj**  ->  **grupy zasobów**  ->  **<nazwa \> **. Kliknij kafelek **Właściwości** i skopiuj wartość z pola **Identyfikator** .  
+ Atrybut **ResourceID** jest wymagany.  Identyfikator zasobu maszyny wirtualnej lub zestawu skalowania maszyn wirtualnych, który jest wdrażany Diagnostyka Azure. Pobierz identyfikator **zasobu** z [Azure Portal](https://portal.azure.com). Wybierz kolejno pozycje **Przeglądaj**  ->  **grupy zasobów**  ->  **<nazwa \> **. Kliknij kafelek **Właściwości** i skopiuj wartość z pola **Identyfikator** .  Ta właściwość resourceID służy do wysyłania metryk niestandardowych i dodawania właściwości resourceID do danych wysyłanych do Event Hubs. Uwaga należy dodać właściwość *ResourceID* w elemencie *Metrics* , jeśli chcesz, aby zdarzenia przekazane do Event Hubs miały identyfikator zasobu.
 
 |Elementy podrzędne|Opis|  
 |--------------------|-----------------|  
@@ -208,7 +209,7 @@ Element najwyższego poziomu pliku konfiguracji diagnostyki.
 |Element podrzędny|Opis|  
 |-------------------|-----------------|  
 |**PerformanceCounterConfiguration**|Wymagane są następujące atrybuty:<br /><br /> - **counterSpecifier** — Nazwa licznika wydajności. Na przykład `\Processor(_Total)\% Processor Time`. Aby uzyskać listę liczników wydajności na hoście, uruchom polecenie `typeperf` .<br /><br /> - **SampleRate** — częstotliwość próbkowania licznika.<br /><br /> Opcjonalny atrybut:<br /><br /> **Unit** — jednostka miary licznika. Wartości są dostępne w [klasie UnitType](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.sql.models.unittype?view=azure-dotnet) |
-|**ujścia** | Dodano w 1,5. Opcjonalny. Wskazuje lokalizację ujścia, aby również wysyłać dane diagnostyczne. Na przykład Azure Monitor lub Event Hubs.|    
+|**ujścia** | Dodano w 1,5. Opcjonalny. Wskazuje lokalizację ujścia, aby również wysyłać dane diagnostyczne. Na przykład Azure Monitor lub Event Hubs. Uwaga należy dodać właściwość *ResourceID* w elemencie *Metrics* , jeśli chcesz, aby zdarzenia przekazane do Event Hubs miały identyfikator zasobu.|    
 
 
 
@@ -222,7 +223,7 @@ Element najwyższego poziomu pliku konfiguracji diagnostyki.
 
 |Element podrzędny|Opis|  
 |-------------------|-----------------|  
-|**DataSource**|Dzienniki zdarzeń systemu Windows do zebrania. Wymagany atrybut:<br /><br /> **Nazwa** — zapytanie XPath opisujące zdarzenia systemu Windows, które mają być zbierane. Przykład:<br /><br /> `Application!*[System[(Level <=3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level <= 3)]`<br /><br /> Aby zebrać wszystkie zdarzenia, określ wartość "*" |
+|**DataSource**|Dzienniki zdarzeń systemu Windows do zebrania. Wymagany atrybut:<br /><br /> **Nazwa** — zapytanie XPath opisujące zdarzenia systemu Windows, które mają być zbierane. Na przykład:<br /><br /> `Application!*[System[(Level <=3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level <= 3)]`<br /><br /> Aby zebrać wszystkie zdarzenia, określ wartość "*" |
 |**ujścia** | Dodano w 1,5. Opcjonalny. Wskazuje lokalizację ujścia, aby wysłać również dane diagnostyczne dla wszystkich elementów podrzędnych, które obsługują ujścia. Przykładem ujścia jest Application Insights lub Event Hubs.|  
 
 
@@ -238,7 +239,7 @@ Element najwyższego poziomu pliku konfiguracji diagnostyki.
 |**bufferQuotaInMB**|**unsignedInt**|Opcjonalny. Określa maksymalną ilość magazynu systemu plików, który jest dostępny dla określonych danych.<br /><br /> Wartość domyślna to 0.|  
 |**scheduledTransferLogLevelFilter**|**parametry**|Opcjonalny. Określa minimalny poziom ważności wpisów dziennika, które są transferowane. Wartość domyślna to **undefined**, która przenosi wszystkie dzienniki. Inne możliwe wartości (w kolejności od największej do najmniejszej ilości informacji) to **pełny**, **informacyjny**, **ostrzegawczy**, **błąd**i **krytyczny**.|  
 |**scheduledTransferPeriod**|**trwania**|Opcjonalny. Określa interwał między planowanymi transferami danych zaokrągloną w górę do najbliższej minuty.<br /><br /> Wartość domyślna to PT0S.|  
-|**ujścia** |**ciąg**| Dodano w 1,5. Opcjonalny. Wskazuje lokalizację ujścia, aby również wysyłać dane diagnostyczne. Na przykład Application Insights lub Event Hubs.|  
+|**ujścia** |**parametry**| Dodano w 1,5. Opcjonalny. Wskazuje lokalizację ujścia, aby również wysyłać dane diagnostyczne. Na przykład Application Insights lub Event Hubs. Uwaga należy dodać właściwość *ResourceID* w elemencie *Metrics* , jeśli chcesz, aby zdarzenia przekazane do Event Hubs miały identyfikator zasobu.|  
 
 ## <a name="dockersources"></a>DockerSources
  *Drzewo: root-DiagnosticsConfiguration-PublicConfig-WadCFG-DiagnosticMonitorConfiguration-DockerSources*
@@ -294,8 +295,8 @@ Element najwyższego poziomu pliku konfiguracji diagnostyki.
 
 |Atrybuty|Typ|Opis|  
 |----------------|----------|-----------------|  
-|**logLevel**|**ciąg**|Określa minimalny poziom ważności wpisów dziennika, które są transferowane. Wartość domyślna to **undefined**, która przenosi wszystkie dzienniki. Inne możliwe wartości (w kolejności od największej do najmniejszej ilości informacji) to **pełny**, **informacyjny**, **ostrzegawczy**, **błąd**i **krytyczny**.|  
-|**Nazwij**|**ciąg**|Unikatowa nazwa kanału, do którego odwołuje się|  
+|**logLevel**|**parametry**|Określa minimalny poziom ważności wpisów dziennika, które są transferowane. Wartość domyślna to **undefined**, która przenosi wszystkie dzienniki. Inne możliwe wartości (w kolejności od największej do najmniejszej ilości informacji) to **pełny**, **informacyjny**, **ostrzegawczy**, **błąd**i **krytyczny**.|  
+|**Nazwij**|**parametry**|Unikatowa nazwa kanału, do którego odwołuje się|  
 
 
 ## <a name="privateconfig-element"></a>PrivateConfig, element
@@ -326,7 +327,7 @@ Element najwyższego poziomu pliku konfiguracji diagnostyki.
 *PublicConfig* i *PrivateConfig* są rozdzielone, ponieważ w większości przypadków użycia JSON są one przesyłane jako różne zmienne. Te przypadki obejmują Menedżer zasobów szablonów, programu PowerShell i programu Visual Studio.
 
 > [!NOTE]
-> Publiczna definicja Azure Monitor konfiguracji ujścia ma dwie właściwości, *ResourceID* i *region*. Są one wymagane tylko w przypadku klasycznych maszyn wirtualnych i klasycznych usług Cloud Services. Tych właściwości nie należy używać w przypadku innych zasobów.
+> Publiczna definicja Azure Monitor konfiguracji ujścia ma dwie właściwości, *ResourceID* i *region*. Są one wymagane tylko w przypadku klasycznych maszyn wirtualnych i klasycznych usług Cloud Services. Właściwość *region* nie powinna być używana w przypadku innych zasobów, właściwość *ResourceID* jest używana na maszynach wirtualnych ARM w celu wypełnienia pola ResourceID w dziennikach przekazanych do Event Hubs.
 
 ```json
 "PublicConfig" {

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 08/29/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 99c63fd04a40b1a4e591f5ad42d8f776e8e5b67c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9c2ad99a59e548ff7793455dac21748dd057c5fc
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85208505"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86248700"
 ---
 # <a name="customize-feed-for-windows-virtual-desktop-users"></a>Dostosowywanie kanału informacyjnego dla użytkowników usługi Windows Virtual Desktop
 
@@ -124,7 +124,7 @@ Można zmienić nazwę wyświetlaną opublikowanego pulpitu zdalnego, ustawiają
 
 Teraz, po dostosowaniu źródła danych dla użytkowników, możesz zalogować się do klienta pulpitu wirtualnego systemu Windows w celu przetestowania go. Aby to zrobić, przejdź do programu Windows Virtual Desktop how-Toss:
 
- * [Nawiązywanie połączenia z systemem Windows 10 lub Windows 7](connect-windows-7-and-10.md)
+ * [Nawiązywanie połączenia z systemem Windows 10 lub Windows 7](connect-windows-7-10.md)
  * [Łączenie się z klientem internetowym](connect-web.md)
  * [Łączenie się z klientem systemu Android](connect-android.md)
  * [Nawiązywanie połączenia z klientem systemu iOS](connect-ios.md)

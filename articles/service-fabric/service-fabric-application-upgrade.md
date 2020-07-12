@@ -3,11 +3,12 @@ title: Service Fabric uaktualniania aplikacji
 description: Ten artykuł zawiera wprowadzenie do uaktualniania aplikacji Service Fabric, w tym wybierania trybów uaktualniania i przeprowadzania kontroli kondycji.
 ms.topic: conceptual
 ms.date: 2/23/2018
-ms.openlocfilehash: 2dc484b49c5250510e5f018cbbc2da107573d452
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9e7a93dd3ef8a1adf6617dcd57887a0ce694c509
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84710324"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86248003"
 ---
 # <a name="service-fabric-application-upgrade"></a>Service Fabric uaktualniania aplikacji
 Aplikacja Service Fabric platformy Azure to zbiór usług. Podczas uaktualniania Service Fabric porównuje nowy [manifest aplikacji](service-fabric-application-and-service-manifests.md) z poprzednią wersją i określa, które usługi w aplikacji wymagają aktualizacji. Service Fabric porównuje numery wersji w manifestach usługi z numerami wersji w poprzedniej wersji. Jeśli usługa nie uległa zmianie, ta usługa nie zostanie uaktualniona.
@@ -36,7 +37,7 @@ Tryb, który zalecamy w przypadku uaktualniania aplikacji jest trybem monitorowa
 Niemonitorowany tryb ręczny wymaga ręcznej interwencji po każdym uaktualnieniu w domenie aktualizacji, aby rozpocząć uaktualnianie do następnej domeny aktualizacji. Nie są wykonywane żadne kontrole kondycji Service Fabric. Administrator przeprowadza Sprawdzanie kondycji lub stanu przed rozpoczęciem uaktualniania w następnej domenie aktualizacji.
 
 ## <a name="upgrade-default-services"></a>Uaktualnij domyślne usługi
-Niektóre domyślne parametry usługi zdefiniowane w [manifeście aplikacji](service-fabric-application-and-service-manifests.md) mogą być również uaktualniane w ramach uaktualnienia aplikacji. Tylko parametry usługi, które obsługują zmiany za pomocą [Update-ServiceFabricService](https://docs.microsoft.com/powershell/module/servicefabric/update-servicefabricservice?view=azureservicefabricps) , mogą zostać zmienione w ramach uaktualnienia. Zachowanie zmian domyślnych usług podczas uaktualniania aplikacji jest następujące:
+Niektóre domyślne parametry usługi zdefiniowane w [manifeście aplikacji](service-fabric-application-and-service-manifests.md) mogą być również uaktualniane w ramach uaktualnienia aplikacji. Tylko parametry usługi, które obsługują zmiany za pomocą [Update-ServiceFabricService](/powershell/module/servicefabric/update-servicefabricservice?view=azureservicefabricps) , mogą zostać zmienione w ramach uaktualnienia. Zachowanie zmian domyślnych usług podczas uaktualniania aplikacji jest następujące:
 
 1. Tworzone są domyślne usługi w manifeście nowej aplikacji, które nie istnieją jeszcze w klastrze.
 2. Domyślne usługi, które znajdują się w poprzednich i nowych manifestach aplikacji, są aktualizowane. Parametry usługi domyślnej w nowym manifeście aplikacji zastępują parametry istniejącej usługi. Uaktualnienie aplikacji zostanie automatycznie wycofane, jeśli aktualizacja usługi domyślnej nie powiedzie się.

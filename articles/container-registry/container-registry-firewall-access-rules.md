@@ -3,11 +3,12 @@ title: Reguły dostępu zapory
 description: Skonfiguruj reguły dostępu do usługi Azure Container Registry za zaporą, zezwalając na dostęp do ("listy dozwolonych") interfejsów API REST i nazw domen punktów końcowych danych lub zakresów adresów IP specyficznych dla usługi.
 ms.topic: article
 ms.date: 05/18/2020
-ms.openlocfilehash: 4774191087b3e88e657e8dc9bc6a9f9c406153e2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 679dbcaf30653b855d35825f94e93f87ac68c322
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83849993"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86246983"
 ---
 # <a name="configure-rules-to-access-an-azure-container-registry-behind-a-firewall"></a>Konfigurowanie reguł dostępu do usługi Azure Container Registry za zaporą
 
@@ -182,7 +183,7 @@ Jeśli musisz uzyskać dostęp do programu Microsoft Container Registry (MCR) z 
 
 * Poznaj [najlepsze rozwiązania dotyczące platformy Azure dotyczące zabezpieczeń sieci](../security/fundamentals/network-best-practices.md)
 
-* Dowiedz się więcej o [grupach zabezpieczeń](/azure/virtual-network/security-overview) w sieci wirtualnej platformy Azure
+* Dowiedz się więcej o [grupach zabezpieczeń](../virtual-network/security-overview.md) w sieci wirtualnej platformy Azure
 
 * Dowiedz się więcej o konfigurowaniu [prywatnego linku](container-registry-private-link.md) do rejestru kontenerów
 
@@ -198,4 +199,3 @@ Jeśli musisz uzyskać dostęp do programu Microsoft Container Registry (MCR) z 
 
 [az-acr-update]: /cli/azure/acr#az-acr-update
 [az-acr-show-endpoints]: /cli/azure/acr#az-acr-show-endpoints
-
