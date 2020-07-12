@@ -4,11 +4,12 @@ description: Dowiedz się, jak za pomocą automatycznego skalowania klastra auto
 services: container-service
 ms.topic: article
 ms.date: 07/18/2019
-ms.openlocfilehash: e87470e577f4d2613b43cc02755ccc2d500c0ef8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9aa06ea2fbc3aff218a4940fa60da767fabca500
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84730020"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86252032"
 ---
 # <a name="automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Automatyczne skalowanie klastra w celu spełnienia wymagań aplikacji w usłudze Azure Kubernetes Service (AKS)
 
@@ -144,7 +145,7 @@ az aks update \
   --cluster-autoscaler-profile scan-interval=30s
 ```
 
-Po włączeniu automatycznego skalowania klastra w pulach węzłów w klastrze te klastry będą również używać profilu automatycznego skalowania klastra. Przykład:
+Po włączeniu automatycznego skalowania klastra w pulach węzłów w klastrze te klastry będą również używać profilu automatycznego skalowania klastra. Na przykład:
 
 ```azurecli-interactive
 az aks nodepool update \
@@ -161,7 +162,7 @@ az aks nodepool update \
 
 ### <a name="set-the-cluster-autoscaler-profile-when-creating-an-aks-cluster"></a>Ustawianie profilu automatycznego skalowania klastra podczas tworzenia klastra AKS
 
-Podczas tworzenia klastra można również użyć parametru *klaster-autoscaleer* . Przykład:
+Podczas tworzenia klastra można również użyć parametru *klaster-autoscaleer* . Na przykład:
 
 ```azurecli-interactive
 az aks create \
@@ -212,7 +213,7 @@ AKS zarządza automatycznym skalowaniem klastra w Twoim imieniu i uruchamia go n
 
 Aby skonfigurować dzienniki do wypychania z automatycznego skalowania klastra do Log Analytics, wykonaj następujące kroki.
 
-1. Skonfiguruj regułę dla dzienników zasobów, aby wypychanie dzienników automatycznego skalowania klastra do Log Analytics. [Instrukcje są tutaj szczegółowe](https://docs.microsoft.com/azure/aks/view-master-logs#enable-resource-logs). Upewnij się, że pole wyboru jest zaznaczone, aby `cluster-autoscaler` wybrać opcję "dzienniki".
+1. Skonfiguruj regułę dla dzienników zasobów, aby wypychanie dzienników automatycznego skalowania klastra do Log Analytics. [Instrukcje są tutaj szczegółowe](./view-master-logs.md#enable-resource-logs). Upewnij się, że pole wyboru jest zaznaczone, aby `cluster-autoscaler` wybrać opcję "dzienniki".
 1. Kliknij sekcję "Logs" w klastrze za pomocą Azure Portal.
 1. Wprowadź następujące przykładowe zapytanie do Log Analytics:
 

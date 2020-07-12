@@ -5,11 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: 1c044d5fd973d3c577088a887f2fac413d2ab79d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c381c6e7d692eda32fea2033779bacddafc267bb
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75551832"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86253681"
 ---
 # <a name="infrastructure-as-code"></a>Infrastruktura jako kod
 
@@ -43,7 +44,7 @@ New-AzResourceGroupDeployment -Name $ResourceGroupName -TemplateFile $Template -
 
 ## <a name="azure-service-fabric-resources"></a>Zasoby usługi Azure Service Fabric
 
-Aplikacje i usługi można wdrożyć w klastrze Service Fabric za pośrednictwem Azure Resource Manager. Aby uzyskać szczegółowe informacje [, zobacz Zarządzanie aplikacjami i usługami jako zasoby Azure Resource Manager](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-arm-resource) . Poniżej przedstawiono najlepsze rozwiązanie Service Fabric zasoby dotyczące aplikacji do uwzględnienia w Menedżer zasobów zasobów szablonów.
+Aplikacje i usługi można wdrożyć w klastrze Service Fabric za pośrednictwem Azure Resource Manager. Aby uzyskać szczegółowe informacje [, zobacz Zarządzanie aplikacjami i usługami jako zasoby Azure Resource Manager](./service-fabric-application-arm-resource.md) . Poniżej przedstawiono najlepsze rozwiązanie Service Fabric zasoby dotyczące aplikacji do uwzględnienia w Menedżer zasobów zasobów szablonów.
 
 ```json
 {
@@ -72,7 +73,7 @@ Aplikacje i usługi można wdrożyć w klastrze Service Fabric za pośrednictwem
 }
 ```
 
-Aby wdrożyć aplikację przy użyciu Azure Resource Manager, musisz najpierw utworzyć pakiet aplikacji Service Fabric [sfpkg](https://docs.microsoft.com/azure/service-fabric/service-fabric-package-apps#create-an-sfpkg) . Poniższy skrypt w języku Python stanowi przykład tworzenia sfpkg:
+Aby wdrożyć aplikację przy użyciu Azure Resource Manager, musisz najpierw utworzyć pakiet aplikacji Service Fabric [sfpkg](./service-fabric-package-apps.md#create-an-sfpkg) . Poniższy skrypt w języku Python stanowi przykład tworzenia sfpkg:
 
 ```python
 # Create SFPKG that needs to be uploaded to Azure Storage Blob Container
@@ -90,7 +91,7 @@ microservices_sfpkg.close()
 ```
 
 ## <a name="azure-virtual-machine-operating-system-automatic-upgrade-configuration"></a>Konfiguracja automatycznego uaktualniania systemu operacyjnego maszyny wirtualnej platformy Azure 
-Uaktualnienie maszyn wirtualnych jest operacją inicjowaną przez użytkownika i zaleca się użycie [automatycznego uaktualnienia systemu operacyjnego zestawu skalowania maszyn wirtualnych](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade) dla klastrów Service Fabric platformy Azure. Aplikacja aranżacji poprawek jest rozwiązaniem alternatywnym, które jest przeznaczone do przechowywania poza platformą Azure, chociaż można używać go na platformie Azure, z obciążeniem hostingu na platformie Azure. Poniżej przedstawiono właściwości szablonu skalowania maszyn wirtualnych obliczeniowych Menedżer zasobów, które umożliwiają automatyczne uaktualnianie systemu operacyjnego:
+Uaktualnienie maszyn wirtualnych jest operacją inicjowaną przez użytkownika i zaleca się użycie [automatycznego uaktualnienia systemu operacyjnego zestawu skalowania maszyn wirtualnych](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md) dla klastrów Service Fabric platformy Azure. Aplikacja aranżacji poprawek jest rozwiązaniem alternatywnym, które jest przeznaczone do przechowywania poza platformą Azure, chociaż można używać go na platformie Azure, z obciążeniem hostingu na platformie Azure. Poniżej przedstawiono właściwości szablonu skalowania maszyn wirtualnych obliczeniowych Menedżer zasobów, które umożliwiają automatyczne uaktualnianie systemu operacyjnego:
 
 ```json
 "upgradePolicy": {

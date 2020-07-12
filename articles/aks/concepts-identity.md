@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: 55fd27d473bd47fd3321bdb2e730e4ef2d35352f
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 560f7b958e04b55a7d642c9f95750812b86d32bc
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86106180"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86251726"
 ---
 # <a name="access-and-identity-options-for-azure-kubernetes-service-aks"></a>Opcje dostępu i tożsamości dla usługi Azure Kubernetes Service (AKS)
 
@@ -83,7 +83,7 @@ W ramach klastra Kubernetes uwierzytelnianie tokenu elementu webhook służy do 
 
 Jak pokazano na powyższej ilustracji, serwer interfejsu API wywołuje serwer webhook AKS i wykonuje następujące czynności:
 
-1. Aplikacja kliencka usługi Azure AD jest używana przez polecenia kubectl do logowania użytkowników przy użyciu przepływu przypisywania autoryzacji urządzeń z uwierzytelnianiem [OAuth 2,0](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-device-code).
+1. Aplikacja kliencka usługi Azure AD jest używana przez polecenia kubectl do logowania użytkowników przy użyciu przepływu przypisywania autoryzacji urządzeń z uwierzytelnianiem [OAuth 2,0](../active-directory/develop/v2-oauth2-device-code.md).
 2. Usługa Azure AD udostępnia access_token, id_token i refresh_token.
 3. Użytkownik wysyła żądanie polecenia kubectl z access_token z kubeconfig.
 4. Polecenia kubectl wysyła access_token do APIServer.

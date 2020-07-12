@@ -3,11 +3,12 @@ title: Zbieranie & analizowanie dzienników zasobów
 description: Rejestruj i Analizuj zdarzenia dziennika zasobów dla Azure Container Registry takich jak uwierzytelnianie, wypychanie obrazów i ściąganie obrazów.
 ms.topic: article
 ms.date: 06/01/2020
-ms.openlocfilehash: b41b1001a669fe42721471bc196e7628eabff983
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8757b8bdb67cf75b1ba800658d80b2a44311f1ba
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84343187"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86252491"
 ---
 # <a name="azure-container-registry-logs-for-diagnostic-evaluation-and-auditing"></a>Dzienniki Azure Container Registry na potrzeby oceny i inspekcji diagnostyki
 
@@ -141,10 +142,9 @@ ContainerRegistryLoginEvents
 
 Oprócz wysyłania dzienników do Log Analytics lub jako alternatywy typowym scenariuszem jest wybranie konta usługi Azure Storage jako miejsca docelowego dziennika. Aby zarchiwizować dzienniki w usłudze Azure Storage, należy utworzyć konto magazynu przed włączeniem archiwizowania za pomocą ustawień diagnostycznych.
 
-Zdarzenia dzienników diagnostycznych można przesyłać strumieniowo do [centrum zdarzeń platformy Azure](../event-hubs/event-hubs-what-is-event-hubs.md). Event Hubs może pozyskać miliony zdarzeń na sekundę, które można następnie przekształcać i przechowywać za pomocą dowolnego dostawcy analiz w czasie rzeczywistym. 
+Zdarzenia dzienników diagnostycznych można przesyłać strumieniowo do [centrum zdarzeń platformy Azure](../event-hubs/event-hubs-about.md). Event Hubs może pozyskać miliony zdarzeń na sekundę, które można następnie przekształcać i przechowywać za pomocą dowolnego dostawcy analiz w czasie rzeczywistym. 
 
 ## <a name="next-steps"></a>Następne kroki
 
 * Dowiedz się więcej na temat używania [log Analytics](../azure-monitor/log-query/get-started-portal.md) i tworzenia [zapytań dzienników](../azure-monitor/log-query/get-started-queries.md).
 * Zobacz [Omówienie dzienników platformy Azure](../azure-monitor/platform/platform-logs-overview.md) , aby dowiedzieć się więcej o dziennikach platformy, które są dostępne na różnych warstwach platformy Azure.
-

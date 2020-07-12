@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 04/30/2020
 ms.author: apimpm
-ms.openlocfilehash: dd49680da6f52e32ddb52dbdb23ad5e8f627a91e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ac147863fe54be3343eda653fc863ebd08dac54d
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82205068"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86254507"
 ---
 # <a name="configure-local-metrics-and-logs-for-azure-api-management-self-hosted-gateway"></a>Konfigurowanie lokalnych metryk i dzienników dla usługi Azure API Management Brama samoobsługowa
 
@@ -189,7 +189,7 @@ Teraz wszystko zostało wdrożone i skonfigurowane, Brama samoobsługowa powinna
 
 Wykonaj pewne wywołania interfejsu API za pomocą bramy samohostowanej, jeśli wszystko jest prawidłowo skonfigurowane, powinno być możliwe wyświetlenie poniższych metryk:
 
-| Metric  | Opis |
+| Metryka  | Opis |
 | ------------- | ------------- |
 | Żądania  | Liczba żądań interfejsu API w danym okresie |
 | DurationInMS | Liczba milisekund od momentu odebrania żądania w bramie do momentu pełnego wysłania odpowiedzi |
@@ -204,7 +204,7 @@ Brama samoobsługowa domyślnie wyprowadza dzienniki do `stdout` i `stderr` . Dz
 kubectl logs <pod-name>
 ```
 
-Jeśli Brama własna jest wdrożona w usłudze Azure Kubernetes, można włączyć [Azure monitor dla kontenerów](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview) do zbierania `stdout` i pobierania `stderr` obciążeń oraz wyświetlać dzienniki w log Analytics. 
+Jeśli Brama własna jest wdrożona w usłudze Azure Kubernetes, można włączyć [Azure monitor dla kontenerów](../azure-monitor/insights/container-insights-overview.md) do zbierania `stdout` i pobierania `stderr` obciążeń oraz wyświetlać dzienniki w log Analytics. 
 
 Brama samoobsługowa obsługuje również wiele protokołów `localsyslog` , w tym, `rfc5424` i `journal` . Poniższa tabela podsumowuje wszystkie obsługiwane opcje. 
 
@@ -236,4 +236,3 @@ Poniżej przedstawiono przykładową konfigurację rejestrowania lokalnego:
 
 * Aby dowiedzieć się więcej na temat bramy samoobsługowej, zobacz temat [usługa Azure API Management](self-hosted-gateway-overview.md) samodzielna Brama — Omówienie
 * Dowiedz się więcej o [konfigurowaniu i utrwalaniu dzienników w chmurze](how-to-configure-local-metrics-logs.md)
-

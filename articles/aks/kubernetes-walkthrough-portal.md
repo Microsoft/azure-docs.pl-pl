@@ -6,12 +6,12 @@ services: container-service
 ms.topic: quickstart
 ms.date: 01/21/2020
 ms.custom: mvc, seo-javascript-october2019
-ms.openlocfilehash: d904be260db8fe6170f57d438d3be6d306864d89
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: 4ed4f69ea3c994d9d1cc71e26e35b8d2b6021982
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83725112"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86251423"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-the-azure-portal"></a>Szybki Start: Wdrażanie klastra usługi Azure Kubernetes Service (AKS) przy użyciu Azure Portal
 
@@ -29,15 +29,15 @@ Zaloguj się do witryny Azure Portal pod adresem [https://portal.azure.com](http
 
 ## <a name="create-an-aks-cluster"></a>Tworzenie klastra AKS
 
-Aby utworzyć klaster usługi AKS, wykonaj następujące czynności:
+Aby utworzyć klaster AKS, wykonaj następujące czynności:
 
 1. W menu witryny Azure Portal lub na **stronie głównej** wybierz pozycję **Utwórz zasób**.
 
-2. Wybierz pozycję **kontenery**  >   **Kubernetes usługi**.
+2. Wybierz pozycję **Kontenery** >  **Usługa Kubernetes**.
 
-3. Na stronie **podstawowe** skonfiguruj następujące opcje:
+3. Na stronie **Podstawowe** skonfiguruj następujące opcje:
     - **Szczegóły projektu**: Wybierz **subskrypcję**platformy Azure, a następnie wybierz lub Utwórz **grupę zasobów**platformy Azure, taką jak grupa *zasobów*.
-    - **Szczegóły klastra**: wprowadź **nazwę klastra Kubernetes**, na przykład *myAKSCluster*. Wybierz **region**, **wersję Kubernetes**i **prefiks nazwy DNS** dla klastra AKS.
+    - **Szczegóły klastra**: wprowadź **nazwę klastra Kubernetes**, na przykład *myAKSCluster*. Wybierz **region**, **wersję środowiska Kubernetes** oraz **prefiks nazwy DNS** dla klastra AKS.
     - **Pula węzłów podstawowych**: Wybierz **rozmiar węzła** maszyny wirtualnej dla węzłów AKS. *Nie* można zmienić rozmiaru maszyny wirtualnej po wdrożeniu klastra AKS. 
             -Wybierz liczbę węzłów, które mają zostać wdrożone w klastrze. Na potrzeby tego przewodnika Szybki start ustaw pozycję **Liczba węzłów** na *1*. Liczbę węzłów *można* dostosować po wdrożeniu klastra.
     
@@ -49,13 +49,13 @@ Aby utworzyć klaster usługi AKS, wykonaj następujące czynności:
     > [!CAUTION]
     > Utworzenie nowych jednostek usługi AAD może potrwać kilka minut, aby można było propagować i stać się dostępne, powodując nieznalezienie błędów jednostki usługi i niepowodzenia walidacji w Azure Portal. Jeśli trafisz, odwiedź [tutaj](troubleshooting.md#received-an-error-saying-my-service-principal-wasnt-found-or-is-invalid-when-i-try-to-create-a-new-cluster) , aby rozwiązać problem.
 
-5. Na stronie **uwierzytelnianie** skonfiguruj następujące opcje:
-    - Utwórz nową nazwę główną usługi, pozostawiając pole **nazwy głównej usługi** z **(nową) domyślną**jednostką usługi. Możesz też wybrać pozycję *Konfiguruj nazwę główną usługi* , aby użyć istniejącej. Jeśli używasz istniejącej usługi, musisz podać identyfikator klienta i klucz tajny SPN.
-    - Włącz opcję dla funkcji kontroli dostępu opartej na rolach (RBAC) w rozwiązaniu Kubernetes. Zapewni to dokładniejszą kontrolę nad dostępem do zasobów Kubernetes wdrożonych w klastrze AKS.
+5. Na stronie **Uwierzytelnianie** skonfiguruj następujące opcje:
+    - Utwórz nową nazwę główną usługi, pozostawiając w polu **Nazwa główna usługi** **domyślną nazwę główną usługi (nowa)**. Możesz też wybrać opcję *Skonfiguruj nazwę główną usługi*, aby użyć istniejącej usługi. Jeśli używasz istniejącej usługi, musisz podać identyfikator klienta i klucz tajny SPN.
+    - Włącz opcję kontroli dostępu na podstawie ról (RBAC) w Kubernetes. Zapewni to dokładniejszą kontrolę dostępu do zasobów Kubernetes wdrożonych w klastrze AKS.
 
     Alternatywnie można użyć tożsamości zarządzanej zamiast nazwy głównej usługi. Aby uzyskać więcej informacji, zobacz temat [Używanie tożsamości zarządzanych](use-managed-identity.md) .
 
-Domyślnie używana jest sieć *Podstawowa* i włączona jest usługa Azure Monitor dla kontenerów. Kliknij przycisk **Przegląd + Utwórz** , a następnie **Utwórz** po zakończeniu walidacji.
+Domyślnie używana jest sieć *Podstawowa* i włączona jest usługa Azure Monitor dla kontenerów. Kliknij opcję **Przejrzyj i utwórz**, a następnie **Utwórz** po zakończeniu walidacji.
 
 Utworzenie klastra AKS może potrwać kilka minut. Po zakończeniu wdrażania kliknij pozycję **Przejdź do zasobu**lub przejdź do grupy zasobów klastra AKS, *na przykład grupa zasobów, a*następnie wybierz zasób AKS, taki jak *myAKSCluster*. Zostanie wyświetlony pulpit nawigacyjny klastra AKS, jak w poniższym przykładzie:
 
@@ -232,7 +232,7 @@ Zebranie tych danych w witrynie Azure Portal może zająć kilka minut. Aby wyś
 
 1. W obszarze **Monitorowanie** po lewej stronie wybierz pozycję **Insights**
 1. U góry wybierz pozycję **+ Dodaj filtr**
-1. Wybierz wartość *Namespace* (Przestrzeń nazw) jako właściwość, a następnie wybierz pozycję *\<All but kube-system\>* (Wszystko oprócz kube-system)
+1. Wybierz *przestrzeń nazw* jako właściwość, a następnie wybierz pozycję*\<All but kube-system\>*
 1. Wybierz pozycję **Kontenery**, aby ją wyświetlić.
 
 Zostaną wyświetlone kontenery *azure-vote-back* i *azure-vote-front*, jak pokazano w poniższym przykładzie:
@@ -280,11 +280,11 @@ Aby dowiedzieć się więcej o usłudze AKS i poznać dokładnie proces od kompl
 [kubernetes-concepts]: concepts-clusters-workloads.md
 [az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
 [az-aks-delete]: /cli/azure/aks#az-aks-delete
-[aks-monitor]: ../monitoring/monitoring-container-health.md
+[aks-monitor]: ../azure-monitor/insights/container-insights-overview.md
 [aks-network]: ./concepts-network.md
 [aks-tutorial]: ./tutorial-kubernetes-prepare-app.md
 [http-routing]: ./http-application-routing.md
 [sp-delete]: kubernetes-service-principal.md#additional-considerations
-[azure-dev-spaces]: https://docs.microsoft.com/azure/dev-spaces/
+[azure-dev-spaces]: ../dev-spaces/index.yml
 [kubernetes-deployment]: concepts-clusters-workloads.md#deployments-and-yaml-manifests
 [kubernetes-service]: concepts-network.md#services

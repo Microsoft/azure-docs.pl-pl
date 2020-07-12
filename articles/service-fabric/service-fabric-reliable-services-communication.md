@@ -5,11 +5,12 @@ author: vturecek
 ms.topic: conceptual
 ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: 3c1a6cfa5227369bf1cde4af087019727c22c0c2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0899e33e875fea4a1708e593876b7ef771004677
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75462953"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86253188"
 ---
 # <a name="how-to-use-the-reliable-services-communication-apis"></a>Jak używać interfejsów API komunikacji Reliable Services
 Usługa Azure Service Fabric jako platforma jest całkowicie niezależny od o komunikację między usługami. Wszystkie protokoły i stosy są akceptowalne z protokołu UDP do protokołu HTTP. Aby wybrać sposób komunikacji usług, należy do deweloperów usług. Reliable Services Application Framework zawiera wbudowane stosy komunikacji oraz interfejsy API, których można używać do tworzenia niestandardowych składników komunikacji.
@@ -187,7 +188,7 @@ public CompletableFuture<String> openAsync(CancellationToken cancellationToken)
 Service Fabric udostępnia interfejsy API, które umożliwiają klientom i innym usługom następnie poproszenie o ten adres według nazwy usługi. Jest to ważne, ponieważ adres usługi nie jest statyczny. Usługi są przenoszone w klastrze w celu zrównoważenia zasobów i dostępności. Jest to mechanizm, który umożliwia klientom rozpoznawanie adresu nasłuchiwania dla usługi.
 
 > [!NOTE]
-> Aby zapoznać się z kompletnymi krokami dotyczącymi pisania odbiornika komunikacji, zobacz [Service Fabric usług interfejsu API sieci Web za pomocą samoobsługowego udostępniania](service-fabric-reliable-services-communication-webapi.md) w języku C#, a w przypadku języka Java można napisać własną implementację serwera http, zobacz przykład aplikacji EchoServer w lokalizacji https://github.com/Azure-Samples/service-fabric-java-getting-started .
+> Aby zapoznać się z kompletnymi krokami dotyczącymi pisania odbiornika komunikacji, zobacz [Service Fabric usług interfejsu API sieci Web za pomocą samoobsługowego udostępniania](./service-fabric-reliable-services-communication-aspnetcore.md) w języku C#, a w przypadku języka Java można napisać własną implementację serwera http, zobacz przykład aplikacji EchoServer w lokalizacji https://github.com/Azure-Samples/service-fabric-java-getting-started .
 >
 >
 
@@ -206,7 +207,7 @@ ServicePartitionResolver resolver = ServicePartitionResolver.GetDefault();
 FabricServicePartitionResolver resolver = FabricServicePartitionResolver.getDefault();
 ```
 
-Aby połączyć się z usługami w innym klastrze, ServicePartitionResolver można utworzyć za pomocą zestawu punktów końcowych bramy klastra. Należy pamiętać, że punkty końcowe bramy są tylko różnymi punktami końcowymi do łączenia się z tym samym klastrem. Przykład:
+Aby połączyć się z usługami w innym klastrze, ServicePartitionResolver można utworzyć za pomocą zestawu punktów końcowych bramy klastra. Należy pamiętać, że punkty końcowe bramy są tylko różnymi punktami końcowymi do łączenia się z tym samym klastrem. Na przykład:
 
 ```csharp
 ServicePartitionResolver resolver = new  ServicePartitionResolver("mycluster.cloudapp.azure.com:19000", "mycluster.cloudapp.azure.com:19001");

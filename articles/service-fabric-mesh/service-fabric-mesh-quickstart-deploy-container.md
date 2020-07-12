@@ -5,12 +5,12 @@ author: dkkapur
 ms.author: dekapur
 ms.date: 11/27/2018
 ms.topic: quickstart
-ms.openlocfilehash: ce897b6e0e9d6a0b9b672907a64f4683f907b677
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 5373cbf76b55b86e4851e1d7c6b53222871faa4c
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75458962"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86254337"
 ---
 # <a name="quickstart-deploy-hello-world-to-service-fabric-mesh"></a>Szybki start: wdrażanie aplikacji Hello World w usłudze Service Fabric Mesh
 
@@ -91,7 +91,7 @@ Sprawdź dzienniki wdrożonej aplikacji przy użyciu polecenia `az mesh code-pac
 az mesh code-package-log get --resource-group myResourceGroup --application-name helloWorldApp --service-name helloWorldService --replica-name 0 --code-package-name helloWorldCode
 ```
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Gdy wszystko będzie gotowe do usunięcia aplikacji, uruchom polecenie [az group delete][az-group-delete], aby usunąć grupę zasobów oraz zawarte w niej zasoby aplikacji i sieci.
 
@@ -110,4 +110,4 @@ Aby dowiedzieć się więcej na temat tworzenia i wdrażania aplikacji usługi S
 
 <!-- Links / Internal -->
 [az-group-delete]: /cli/azure/group
-[azure-cli-install]: https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest
+[azure-cli-install]: /cli/azure/install-azure-cli?view=azure-cli-latest

@@ -5,11 +5,12 @@ author: BharatNarasimman
 ms.topic: conceptual
 ms.date: 06/07/2017
 ms.author: bharatn
-ms.openlocfilehash: 7f3b3974893316a488270f755b8f8822080658d9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1fbcf552cee8a96636920f04472843b1fea5c845
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75433859"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86253239"
 ---
 # <a name="wcf-based-communication-stack-for-reliable-services"></a>Oparty na WCF stos komunikacji dla Reliable Services
 Struktura Reliable Services umożliwia autorom usługi Wybieranie stosu komunikacyjnego, który ma być używany dla swojej usługi. Mogą podłączyć stos komunikacji za pomocą **ICommunicationListener** zwróconych z metod [CreateServiceReplicaListeners lub CreateServiceInstanceListeners](service-fabric-reliable-services-communication.md) . Struktura zapewnia implementację stosu komunikacji na podstawie Windows Communication Foundation (WCF) dla autorów usług, którzy chcą korzystać z komunikacji opartej na platformie WCF.
@@ -115,6 +116,5 @@ var result = calculatorServiceCommunicationClient.InvokeWithRetryAsync(
 
 ## <a name="next-steps"></a>Następne kroki
 * [Zdalne wywołanie procedury z Reliable Services komunikacji zdalnej](service-fabric-reliable-services-communication-remoting.md)
-* [Interfejs API sieci Web z OWIN w Reliable Services](service-fabric-reliable-services-communication-webapi.md)
+* [Interfejs API sieci Web z OWIN w Reliable Services](./service-fabric-reliable-services-communication-aspnetcore.md)
 * [Zabezpieczanie komunikacji dla Reliable Services](service-fabric-reliable-services-secure-communication-wcf.md)
-

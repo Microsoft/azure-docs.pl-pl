@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: f4a29c7cb7e35e69eb9410dd7ddc9f07757e3565
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 069fc95d226e4417bb650b6092a7d00953f69e8d
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82128731"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86252857"
 ---
 # <a name="api-management-policies"></a>API Management policies
 Ta sekcja zawiera informacje dotyczące następujących zasad API Management. Aby uzyskać informacje na temat dodawania i konfigurowania zasad, zobacz [zasady w API Management](api-management-howto-policies.md).  
@@ -50,12 +50,12 @@ Ta sekcja zawiera informacje dotyczące następujących zasad API Management. Ab
     -   [Ustaw zmienną](api-management-advanced-policies.md#set-variable) — utrwalanie wartości w nazwanej zmiennej kontekstowej w celu późniejszego dostępu.  
     -   [Ustaw metodę żądania](api-management-advanced-policies.md#SetRequestMethod) — pozwala zmienić metodę http dla żądania.  
     -   [Ustawianie kodu stanu](api-management-advanced-policies.md#SetStatus) — zmienia kod stanu HTTP na określoną wartość.  
-    -   [Trace](api-management-advanced-policies.md#Trace) — dodaje niestandardowe ślady do danych wyjściowych [inspektora interfejsu API](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/) , Application Insights telemetrii i dzienników zasobów.  
+    -   [Trace](api-management-advanced-policies.md#Trace) — dodaje niestandardowe ślady do danych wyjściowych [inspektora interfejsu API](./api-management-howto-api-inspector.md) , Application Insights telemetrii i dzienników zasobów.  
     -   [Zaczekaj](api-management-advanced-policies.md#Wait) — oczekiwanie na załączone [żądanie wysłania](api-management-advanced-policies.md#SendRequest), [Pobierz wartość z pamięci podręcznej](api-management-caching-policies.md#GetFromCacheByKey)lub zasady [przepływu sterowania](api-management-advanced-policies.md#choose) do ukończenia przed kontynuowaniem.  
 -   [Zasady uwierzytelniania](api-management-authentication-policies.md#AuthenticationPolicies)  
     -   [Uwierzytelnianie z](api-management-authentication-policies.md#Basic) uwierzytelnianiem Basic z użyciem usługi wewnętrznej bazy danych przy użyciu uwierzytelniania podstawowego.  
     -   [Uwierzytelnianie przy użyciu certyfikatu klienta](api-management-authentication-policies.md#ClientCertificate) — uwierzytelnianie za pomocą usługi zaplecza przy użyciu certyfikatów klienta.  
-    -   [Uwierzytelnianie przy użyciu tożsamości zarządzanej](api-management-authentication-policies.md#ManagedIdentity) — uwierzytelnianie za pomocą usługi zaplecza przy użyciu [tożsamości zarządzanej](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).  
+    -   [Uwierzytelnianie przy użyciu tożsamości zarządzanej](api-management-authentication-policies.md#ManagedIdentity) — uwierzytelnianie za pomocą usługi zaplecza przy użyciu [tożsamości zarządzanej](../active-directory/managed-identities-azure-resources/overview.md).  
 -   [Caching policies](api-management-caching-policies.md#CachingPolicies)  
     -   [Pobierz z pamięci podręcznej](api-management-caching-policies.md#GetFromCache) — wykonaj wyszukiwanie w pamięci podręcznej i zwróć poprawną buforowaną odpowiedź, jeśli jest dostępna.  
     -   [Przechowywanie w pamięci](api-management-caching-policies.md#StoreToCache) podręcznej w pamięci podręcznej zgodnie z określoną konfiguracją kontroli pamięci podręcznej.  

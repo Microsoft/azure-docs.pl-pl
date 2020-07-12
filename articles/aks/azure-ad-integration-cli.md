@@ -6,12 +6,12 @@ author: TomGeske
 ms.topic: article
 ms.date: 07/08/2020
 ms.author: thomasge
-ms.openlocfilehash: 0465c54df2095cff7647e974765e61fa9b9ff3e1
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 0bbaca733eb9c1fffbc5c6781b51429edd73fb46
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86169463"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86252083"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service-using-the-azure-cli"></a>Integrowanie Azure Active Directory z usługą Azure Kubernetes przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -243,7 +243,7 @@ error: You must be logged in to the server (Unauthorized)
 * Użytkownik nie jest członkiem więcej niż 200 grup.
 * Wpis tajny zdefiniowany w rejestracji aplikacji dla serwera jest zgodny z wartością skonfigurowaną przy użyciu`--aad-server-app-secret`
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 Aby zapoznać się z kompletnym skryptem zawierającym polecenia przedstawione w tym artykule, zobacz [skrypt integracji usługi Azure AD w repozytorium przykładów AKS][complete-script].
 
@@ -263,7 +263,7 @@ Najlepsze rozwiązania dotyczące tożsamości i kontroli zasobów można znale�
 [az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az-aks-create
 [az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
 [az-group-create]: /cli/azure/group#az-group-create
-[open-id-connect]:../active-directory/develop/v2-protocols-oidc.md
+[open-id-connect]: ../active-directory/develop/v2-protocols-oidc.md
 [az-ad-user-show]: /cli/azure/ad/user#az-ad-user-show
 [az-ad-app-create]: /cli/azure/ad/app#az-ad-app-create
 [az-ad-app-update]: /cli/azure/ad/app#az-ad-app-update
@@ -275,7 +275,6 @@ Najlepsze rozwiązania dotyczące tożsamości i kontroli zasobów można znale�
 [az-group-create]: /cli/azure/group#az-group-create
 [az-account-show]: /cli/azure/account#az-account-show
 [az-ad-signed-in-user-show]: /cli/azure/ad/signed-in-user#az-ad-signed-in-user-show
-[azure-ad-portal]: azure-ad-integration.md
 [install-azure-cli]: /cli/azure/install-azure-cli
 [az-ad-sp-credential-reset]: /cli/azure/ad/sp/credential#az-ad-sp-credential-reset
 [rbac-authorization]: concepts-identity.md#kubernetes-role-based-access-controls-rbac

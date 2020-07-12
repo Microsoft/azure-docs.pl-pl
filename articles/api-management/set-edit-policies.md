@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: apimpm
-ms.openlocfilehash: 5670be6d4c45644ac8318702822c37ed82a81caa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9249cb1ac64bf61b405bc3537523cc85bca3f00c
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85205751"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86252797"
 ---
 # <a name="how-to-set-or-edit-azure-api-management-policies"></a>Jak ustawić i edytować zasady usługi Azure API Management
 
@@ -135,5 +135,5 @@ Dla wybranej operacji skonfigurowano zakres operacji.
 Zobacz następujące tematy pokrewne:
 
 + [Przekształć interfejsy API](transform-api.md)
-+ [Dokumentacja zasad](api-management-policy-reference.md) pełna lista instrukcji zasad i ich ustawień
++ [Dokumentacja zasad](./api-management-policies.md) pełna lista instrukcji zasad i ich ustawień
 + [Przykłady zasad](policy-samples.md)

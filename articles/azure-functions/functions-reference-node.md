@@ -2,13 +2,14 @@
 title: Dokumentacja dla deweloperów języka JavaScript dla Azure Functions
 description: Dowiedz się, jak opracowywać funkcje przy użyciu języka JavaScript.
 ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
-ms.topic: reference
+ms.topic: conceptual
 ms.date: 12/17/2019
-ms.openlocfilehash: 51d8c951958dc5fb4b26e92337f96e7a5c758999
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d71301ef73cd94c13b12e17c923ec73abb8e4aae
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83996605"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86252730"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Przewodnik dla deweloperów Azure Functions JavaScript
 
@@ -458,7 +459,7 @@ Istnieją dwa sposoby instalowania pakietów na aplikacja funkcji:
 
 
 ### <a name="using-kudu"></a>Korzystanie z kudu
-1. Przejdź do witryny `https://<function_app_name>.scm.azurewebsites.net`.
+1. Przejdź do obszaru `https://<function_app_name>.scm.azurewebsites.net`.
 
 2. Kliknij pozycję **Debuguj konsolę**  >  **cmd**.
 
@@ -490,7 +491,7 @@ W przypadku uruchamiania lokalnego ustawienia aplikacji są odczytywane z [local
 
 `function.json`Właściwości `scriptFile` i `entryPoint` można użyć do skonfigurowania lokalizacji i nazwy wyeksportowanej funkcji. Te właściwości mogą być ważne w przypadku transsterty języka JavaScript.
 
-### <a name="using-scriptfile"></a>Używanie elementu `scriptFile`
+### <a name="using-scriptfile"></a>Korzystanie z akcji `scriptFile`
 
 Domyślnie funkcja języka JavaScript jest wykonywana z `index.js` , plik, który współużytkuje ten sam katalog nadrzędny co odpowiadający mu `function.json` .
 
@@ -519,7 +520,7 @@ FunctionApp
 }
 ```
 
-### <a name="using-entrypoint"></a>Używanie elementu `entryPoint`
+### <a name="using-entrypoint"></a>Korzystanie z akcji `entryPoint`
 
 W `scriptFile` (lub `index.js` ) funkcja musi zostać wyeksportowana przy użyciu `module.exports` programu w celu znalezienia i uruchomienia. Domyślnie funkcja, która jest wykonywana, gdy wyzwalane jest jedynym eksportem z tego pliku, eksportem o nazwie `run` lub eksportem o nazwie `index` .
 
@@ -693,7 +694,7 @@ module.exports = async function (context) {
 
 ## <a name="next-steps"></a>Następne kroki
 
-Więcej informacji zawierają następujące zasoby:
+Więcej informacji można znaleźć w następujących zasobach:
 
 + [Najlepsze rozwiązania dotyczące usługi Azure Functions](functions-best-practices.md)
 + [Dokumentacja usługi Azure Functions dla deweloperów](functions-reference.md)

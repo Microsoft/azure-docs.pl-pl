@@ -3,12 +3,12 @@ title: Używanie tożsamości zarządzanej z aplikacją
 description: Jak uzyskać dostęp do usług platformy Azure za pomocą zarządzanych tożsamości w usłudze Azure Service Fabric kodzie aplikacji.
 ms.topic: article
 ms.date: 10/09/2019
-ms.openlocfilehash: 8f1f355d6add16f3b3ec25bc569f9b198a8d6778
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 07f960c01367ab42a434a8c2e1e276d9c5f7bd11
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81461569"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86253647"
 ---
 # <a name="how-to-leverage-a-service-fabric-applications-managed-identity-to-access-azure-services"></a>Jak korzystać z zarządzanej tożsamości aplikacji Service Fabric w celu uzyskiwania dostępu do usług platformy Azure
 
@@ -371,7 +371,7 @@ Zaleca się, aby żądania nie powiodły się, ponieważ trwa ponawianie próby 
 | 5 | Odczekaj 16 sekund i ponów próbę |
 
 ## <a name="resource-ids-for-azure-services"></a>Identyfikatory zasobów dla usług platformy Azure
-Zobacz [usługi platformy Azure, które obsługują uwierzytelnianie usługi Azure AD](../active-directory/managed-identities-azure-resources/services-support-msi.md) , aby uzyskać listę zasobów, które obsługują usługę Azure AD, oraz ich identyfikatory zasobów.
+Zobacz [usługi platformy Azure, które obsługują uwierzytelnianie usługi Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md) , aby uzyskać listę zasobów, które obsługują usługę Azure AD, oraz ich identyfikatory zasobów.
 
 ## <a name="next-steps"></a>Następne kroki
 * [Wdrażanie aplikacji Service Fabric platformy Azure przy użyciu tożsamości zarządzanej przypisanej do systemu](./how-to-deploy-service-fabric-application-system-assigned-managed-identity.md)

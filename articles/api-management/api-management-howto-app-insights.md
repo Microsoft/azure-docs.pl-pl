@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
-ms.openlocfilehash: 48a83fad3395f6ecf06fb1f1ba95aa1b06a53431
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8c9df3393a0554d2e65b3918c6760885f89e11ed
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81259140"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86254748"
 ---
 # <a name="how-to-integrate-azure-api-management-with-azure-application-insights"></a>Jak zintegrować usługę Azure API Management z usługą Azure Application Insights
 
@@ -50,7 +51,7 @@ Aby móc korzystać z usługi Azure Application Insights, musisz najpierw utworz
     ![Rejestrator usługi App Insights](media/api-management-howto-app-insights/apim-app-insights-logger-2.png)  
 
 > [!NOTE]
-> Za sceną jest tworzona jednostka [rejestratora](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/logger/createorupdate) w wystąpieniu API Management, zawierająca klucz Instrumentacji wystąpienia Application Insights.
+> Za sceną jest tworzona jednostka [rejestratora](/rest/api/apimanagement/2019-12-01/logger/createorupdate) w wystąpieniu API Management, zawierająca klucz Instrumentacji wystąpienia Application Insights.
 
 ## <a name="enable-application-insights-logging-for-your-api"></a>Włączanie rejestrowania Application Insights dla interfejsu API
 
@@ -69,12 +70,12 @@ Aby móc korzystać z usługi Azure Application Insights, musisz najpierw utworz
 > Zastąpienie wartości domyślnej **0** w **pierwszych bajtach pola Body** może znacząco zmniejszyć wydajność interfejsów API.
 
 > [!NOTE]
-> Za sceną jest tworzona jednostka [diagnostyczna](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/diagnostic/createorupdate) o nazwie "ApplicationInsights" na poziomie interfejsu API.
+> Za sceną jest tworzona jednostka [diagnostyczna](/rest/api/apimanagement/2019-12-01/diagnostic/createorupdate) o nazwie "ApplicationInsights" na poziomie interfejsu API.
 
 | Nazwa ustawienia                        | Typ wartości                        | Opis                                                                                                                                                                                                                                                                                                                                      |
 |-------------------------------------|-----------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Włącz                              | wartość logiczna                           | Określa, czy jest włączone rejestrowanie tego interfejsu API.                                                                                                                                                                                                                                                                                                |
-| Element docelowy                         | Rejestrator Application Insights platformy Azure | Określa Rejestrator Application Insights platformy Azure do użycia                                                                                                                                                                                                                                                                                           |
+| Włączanie                              | wartość logiczna                           | Określa, czy jest włączone rejestrowanie tego interfejsu API.                                                                                                                                                                                                                                                                                                |
+| Miejsce docelowe                         | Rejestrator Application Insights platformy Azure | Określa Rejestrator Application Insights platformy Azure do użycia                                                                                                                                                                                                                                                                                           |
 | Próbkowanie (%)                        | decimal                           | Wartości od 0 do 100 (procent). <br/> Określa procent żądań, które będą rejestrowane w usłudze Azure Application Insights. 0% próbkowanie oznacza, że zarejestrowano zero żądań, a próbkowanie 100% oznacza, że wszystkie żądania zostały zarejestrowane. <br/> To ustawienie służy do zmniejszania skutków wydajności żądań rejestrowania do usługi Azure Application Insights (zobacz sekcję poniżej). |
 | Zawsze Rejestruj błędy                   | wartość logiczna                           | W przypadku wybrania tego ustawienia wszystkie błędy zostaną zarejestrowane w usłudze Azure Application Insights niezależnie od ustawienia **próbkowania** .                                                                                                                                                                                                                  |
 | Opcje podstawowe: nagłówki              | list                              | Określa nagłówki, które będą rejestrowane w usłudze Azure Application Insights na potrzeby żądań i odpowiedzi.  Wartość domyślna: żadne nagłówki nie są rejestrowane.                                                                                                                                                                                                             |
@@ -125,5 +126,5 @@ Pomijanie rejestrowania nagłówków i treści żądań i odpowiedzi spowoduje r
 
 ## <a name="next-steps"></a>Następne kroki
 
-+ Dowiedz się więcej o [usłudze Azure Application Insights](https://docs.microsoft.com/azure/application-insights/).
++ Dowiedz się więcej o [usłudze Azure Application Insights](/azure/application-insights/).
 + Rozważ [zarejestrowanie się w usłudze Azure Event Hubs](api-management-howto-log-event-hubs.md).

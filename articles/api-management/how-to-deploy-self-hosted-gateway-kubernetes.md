@@ -9,11 +9,12 @@ ms.workload: mobile
 ms.topic: article
 ms.author: apimpm
 ms.date: 04/23/2020
-ms.openlocfilehash: 38cfab8a3b73eeef28249f53bd2f5c56e26b21a1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 51ce2e0dec8b38c9285f4f4e71dd35056b292b66
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82854114"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86254286"
 ---
 # <a name="deploy-a-self-hosted-gateway-to-kubernetes"></a>Wdrażanie własnej bramy w usłudze Kubernetes
 
@@ -64,7 +65,7 @@ W tym artykule opisano kroki wdrażania składnika bramy samoobsługowego API Ma
 ### <a name="access-token"></a>Token dostępu
 Bez prawidłowego tokenu dostępu Brama samoobsługowa nie może uzyskać dostępu do danych konfiguracyjnych z punktu końcowego skojarzonej usługi API Management i pobrać ich. Token dostępu może być ważny przez maksymalnie 30 dni. Należy go ponownie wygenerować i skonfigurować klaster ręcznie lub za pośrednictwem automatyzacji przed jego wygaśnięciem. 
 
-W przypadku automatyzowania odświeżania tokenu Użyj [tej operacji zarządzania interfejsem API](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/gateway/generatetoken) , aby wygenerować nowy token. Aby uzyskać informacje o zarządzaniu wpisami tajnymi Kubernetes, zobacz [witrynę sieci Web Kubernetes](https://kubernetes.io/docs/concepts/configuration/secret).
+W przypadku automatyzowania odświeżania tokenu Użyj [tej operacji zarządzania interfejsem API](/rest/api/apimanagement/2019-12-01/gateway/generatetoken) , aby wygenerować nowy token. Aby uzyskać informacje o zarządzaniu wpisami tajnymi Kubernetes, zobacz [witrynę sieci Web Kubernetes](https://kubernetes.io/docs/concepts/configuration/secret).
 
 ### <a name="namespace"></a>Przestrzeń nazw
 [Przestrzenie nazw](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/) Kubernetes ułatwiają dzielenie pojedynczego klastra między wieloma zespołami, projektami lub aplikacjami. Przestrzenie nazw zapewniają zakres dla zasobów i nazw. Można je kojarzyć z przydziałem zasobów i zasadami kontroli dostępu.

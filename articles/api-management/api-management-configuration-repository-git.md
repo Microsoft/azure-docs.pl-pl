@@ -12,11 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/12/2019
 ms.author: apimpm
-ms.openlocfilehash: c1a9f3e76622523dde03cc2a639cce33227dff5f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 183a3561a7c01d8f0911a70846384cf8ebc7dd9c
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83649219"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86254847"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Jak konfigurować i zapisywać konfigurację usługi API Management za pomocą narzędzia Git
 
@@ -141,7 +142,7 @@ git push
 
 Gdy lokalne zmiany zostaną zatwierdzone i wypychane do repozytorium serwera, można je wdrożyć w wystąpieniu usługi API Management.
 
-Aby uzyskać informacje na temat wykonywania tej operacji przy użyciu interfejsu API REST, zobacz [wdrażanie usługi git zmian w bazie danych konfiguracji przy użyciu interfejsu API REST](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/tenantconfiguration).
+Aby uzyskać informacje na temat wykonywania tej operacji przy użyciu interfejsu API REST, zobacz [wdrażanie usługi git zmian w bazie danych konfiguracji przy użyciu interfejsu API REST](/rest/api/apimanagement/2019-12-01/tenantconfiguration).
 
 ## <a name="file-and-folder-structure-reference-of-local-git-repository"></a>Dokumentacja struktury plików i folderów w lokalnym repozytorium git
 
@@ -171,8 +172,8 @@ Te pliki można tworzyć, usuwać, edytować i zarządzać nimi w lokalnym syste
 > [!NOTE]
 > Następujące jednostki nie są zawarte w repozytorium git i nie można ich skonfigurować przy użyciu usługi git.
 >
-> * [Użytkownicy](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/user)
-> * [Subskrypcje](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/subscription)
+> * [Użytkownicy](/rest/api/apimanagement/2019-12-01/user)
+> * [Subskrypcje](/rest/api/apimanagement/2019-12-01/subscription)
 > * Nazwane wartości
 > * Jednostki portalu dla deweloperów inne niż style
 >
@@ -221,15 +222,15 @@ Ustawienie końcowe, `$ref-policy` mapuje na plik globalnych zestawień zasad dl
 ### <a name="apis-folder"></a>folder interfejsów API
 `apis`Folder zawiera folder dla każdego interfejsu API w wystąpieniu usługi, który zawiera następujące elementy.
 
-* `apis\<api name>\configuration.json`— Konfiguracja interfejsu API i zawiera informacje o adresie URL usługi wewnętrznej bazy danych i operacjach. Są to te same informacje, które zostałyby zwrócone w przypadku wywołania [funkcji Pobierz konkretny interfejs API](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/apis/get) `export=true` w formacie in `application/json` .
-* `apis\<api name>\api.description.html`— jest to opis interfejsu API i odpowiada `description` właściwości [jednostki interfejsu API](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.table.entityproperty).
-* `apis\<api name>\operations\`-Ten folder zawiera `<operation name>.description.html` pliki, które są mapowane na operacje w interfejsie API. Każdy plik zawiera opis pojedynczej operacji w interfejsie API, która jest mapowana na `description` Właściwość [jednostki operacji](https://docs.microsoft.com/rest/api/visualstudio/operations/list#operationproperties) w interfejsie API REST.
+* `apis\<api name>\configuration.json`— Konfiguracja interfejsu API i zawiera informacje o adresie URL usługi wewnętrznej bazy danych i operacjach. Są to te same informacje, które zostałyby zwrócone w przypadku wywołania [funkcji Pobierz konkretny interfejs API](/rest/api/apimanagement/2019-12-01/apis/get) `export=true` w formacie in `application/json` .
+* `apis\<api name>\api.description.html`— jest to opis interfejsu API i odpowiada `description` właściwości [jednostki interfejsu API](/java/api/com.microsoft.azure.storage.table.entityproperty).
+* `apis\<api name>\operations\`-Ten folder zawiera `<operation name>.description.html` pliki, które są mapowane na operacje w interfejsie API. Każdy plik zawiera opis pojedynczej operacji w interfejsie API, która jest mapowana na `description` Właściwość [jednostki operacji](/rest/api/visualstudio/operations/list#operationproperties) w interfejsie API REST.
 
 ### <a name="groups-folder"></a>folder grup
 `groups`Folder zawiera folder dla każdej grupy zdefiniowanej w wystąpieniu usługi.
 
-* `groups\<group name>\configuration.json`-Konfiguracja grupy. Są to te same informacje, które zostałyby zwrócone w przypadku wywołania operacji [Pobierz określoną grupę](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/group/get) .
-* `groups\<group name>\description.html`-jest to opis grupy i odpowiada `description` właściwości [jednostki grupy](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-group-entity).
+* `groups\<group name>\configuration.json`-Konfiguracja grupy. Są to te same informacje, które zostałyby zwrócone w przypadku wywołania operacji [Pobierz określoną grupę](/rest/api/apimanagement/2019-12-01/group/get) .
+* `groups\<group name>\description.html`-jest to opis grupy i odpowiada `description` właściwości [jednostki grupy](/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-group-entity).
 
 ### <a name="policies-folder"></a>folder zasad
 `policies`Folder zawiera instrukcje zasad dla Twojego wystąpienia usługi.
@@ -248,8 +249,8 @@ Ustawienie końcowe, `$ref-policy` mapuje na plik globalnych zestawień zasad dl
 ### <a name="products-folder"></a>folder produkty
 `products`Folder zawiera folder dla każdego produktu zdefiniowanego w wystąpieniu usługi.
 
-* `products\<product name>\configuration.json`— jest to konfiguracja produktu. Są to te same informacje, które zostałyby zwrócone w przypadku wywołania operacji [pobierania określonego produktu](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/product/get) .
-* `products\<product name>\product.description.html`-Opis produktu i odpowiada `description` właściwości [jednostki produktu](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-product-entity) w interfejsie API REST.
+* `products\<product name>\configuration.json`— jest to konfiguracja produktu. Są to te same informacje, które zostałyby zwrócone w przypadku wywołania operacji [pobierania określonego produktu](/rest/api/apimanagement/2019-12-01/product/get) .
+* `products\<product name>\product.description.html`-Opis produktu i odpowiada `description` właściwości [jednostki produktu](/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-product-entity) w interfejsie API REST.
 
 ### <a name="templates"></a>szablonów
 `templates`Folder zawiera konfigurację [szablonów wiadomości e-mail](api-management-howto-configure-notifications.md) wystąpienia usługi.
@@ -261,8 +262,8 @@ Ustawienie końcowe, `$ref-policy` mapuje na plik globalnych zestawień zasad dl
 Aby uzyskać informacje na temat innych sposobów zarządzania wystąpieniem usługi, zobacz:
 
 * Zarządzanie wystąpieniem usługi przy użyciu następujących poleceń cmdlet programu PowerShell
-  * [Wdrażanie usług — dokumentacja poleceń cmdlet programu PowerShell](https://docs.microsoft.com/powershell/module/wds)
-  * [Zarządzanie usługami — dokumentacja poleceń cmdlet programu PowerShell](https://docs.microsoft.com/powershell/azure/servicemanagement/overview)
+  * [Wdrażanie usług — dokumentacja poleceń cmdlet programu PowerShell](/powershell/module/wds)
+  * [Zarządzanie usługami — dokumentacja poleceń cmdlet programu PowerShell](/powershell/azure/servicemanagement/overview)
 * Zarządzanie wystąpieniem usługi za pomocą interfejsu API REST
   * [Dokumentacja interfejsu API REST API Management](/rest/api/apimanagement/)
 
@@ -280,7 +281,3 @@ Aby uzyskać informacje na temat innych sposobów zarządzania wystąpieniem us�
 [api-management-identity-settings]: ./media/api-management-configuration-repository-git/api-management-identity-settings.png
 [api-management-delegation-settings]: ./media/api-management-configuration-repository-git/api-management-delegation-settings.png
 [api-management-git-icon-enable]: ./media/api-management-configuration-repository-git/api-management-git-icon-enable.png
-
-
-
-

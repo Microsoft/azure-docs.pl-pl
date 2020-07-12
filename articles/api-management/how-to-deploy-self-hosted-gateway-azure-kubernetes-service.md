@@ -10,12 +10,12 @@ ms.service: api-management
 ms.topic: article
 ms.date: 04/26/2020
 ms.author: apimpm
-ms.openlocfilehash: abf7e6d7032e7e5dc35b2f4397a5630d45d762de
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7321331adcfc81e26b40e7a3c4869b8b1e50fc0e
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82205120"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86254388"
 ---
 # <a name="deploy-to-azure-kubernetes-service"></a>Wdrażanie w usłudze Azure Kubernetes Service
 
@@ -36,7 +36,7 @@ W tym artykule przedstawiono procedurę wdrażania składnika bramy samoobsługo
 5. Upewnij się, że wybrano **Kubernetes** w obszarze **Skrypty wdrażania**.
 6. Wybierz pozycję **<Gateway-name>. yml** **, aby pobrać** plik.
 7. W razie konieczności dostosuj mapowania portów i nazwę kontenera w pliku YML.
-8. W zależności od danego scenariusza może zajść potrzeba zmiany [typu usługi](https://docs.microsoft.com/azure/aks/concepts-network#services). Wartość domyślna to `NodePort`.
+8. W zależności od danego scenariusza może zajść potrzeba zmiany [typu usługi](../aks/concepts-network.md#services). Wartość domyślna to `NodePort`.
 9. Wybierz ikonę **kopiowania** znajdującą się po prawej stronie pola tekstowego **Wdróż** , aby zapisać `kubectl` polecenie do Schowka.
 10. Wklej polecenie do okna terminalu (lub polecenia). Należy pamiętać, że polecenie oczekuje, że pobrany plik środowiska będzie obecny w bieżącym katalogu.
 ```console
@@ -63,10 +63,6 @@ contosogateway   NodePort    10.110.230.87   <none>        80:32504/TCP,443:3004
 ## <a name="next-steps"></a>Następne kroki
 
 * Aby dowiedzieć się więcej na temat bramy samoobsługowej, zobacz temat [usługa Azure API Management](self-hosted-gateway-overview.md) samodzielna Brama — Omówienie
-* Dowiedz się więcej o [usłudze Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/intro-kubernetes)
+* Dowiedz się więcej o [usłudze Azure Kubernetes Service](../aks/intro-kubernetes.md)
 * Informacje [na temat konfigurowania i utrwalania dzienników w chmurze](how-to-configure-cloud-metrics-logs.md)
 * * Informacje [na temat konfigurowania i utrwalania dzienników lokalnie](how-to-configure-local-metrics-logs.md)
-
-
-
-

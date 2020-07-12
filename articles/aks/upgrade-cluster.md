@@ -4,11 +4,12 @@ description: Dowiedz się, jak uaktualnić klaster usługi Azure Kubernetes Serv
 services: container-service
 ms.topic: article
 ms.date: 05/28/2020
-ms.openlocfilehash: ea9f0154c221fe99d683cc58d5f6dccfce8d948c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 603a27f0ecffb762a18f58847110c4dd3de68425
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85800498"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86250995"
 ---
 # <a name="upgrade-an-azure-kubernetes-service-aks-cluster"></a>Uaktualnianie klastra usługi Azure Kubernetes Service (AKS)
 
@@ -21,7 +22,7 @@ W przypadku klastrów AKS, które korzystają z wielu pul węzłów lub węzłó
 Ten artykuł wymaga uruchomienia interfejsu wiersza polecenia platformy Azure w wersji 2.0.65 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure][azure-cli-install].
 
 > [!WARNING]
-> Uaktualnienie klastra AKS wyzwala Cordon i opróżnia węzły. W przypadku braku dostępnego limitu przydziału obliczeń uaktualnienie może zakończyć się niepowodzeniem. Aby uzyskać więcej informacji, zobacz [zwiększenie limitów przydziału](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request) .
+> Uaktualnienie klastra AKS wyzwala Cordon i opróżnia węzły. W przypadku braku dostępnego limitu przydziału obliczeń uaktualnienie może zakończyć się niepowodzeniem. Aby uzyskać więcej informacji, zobacz [zwiększenie limitów przydziału](../azure-portal/supportability/resource-manager-core-quotas-request.md) .
 
 ## <a name="check-for-available-aks-cluster-upgrades"></a>Sprawdź dostępność dostępnych uaktualnień klastrów AKS
 

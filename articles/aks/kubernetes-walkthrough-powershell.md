@@ -4,12 +4,12 @@ description: Dowiedz się, jak szybko utworzyć klaster Kubernetes, wdrożyć ap
 services: container-service
 ms.topic: quickstart
 ms.date: 05/26/2020
-ms.openlocfilehash: 74a71bdc4c9aef9a6964f0c9120a902262a50526
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: e786b64554b5fbaf5bb7051e09daca8fb1eaf049
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85207145"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86251484"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-cluster-using-powershell"></a>Szybki Start: Wdrażanie klastra usługi Azure Kubernetes Service przy użyciu programu PowerShell
 
@@ -37,7 +37,7 @@ Set-AzContext -SubscriptionId 00000000-0000-0000-0000-000000000000
 
 ## <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 
-[Grupa zasobów platformy Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) to grupa logiczna, w której zasoby platformy Azure są wdrażane i zarządzane. Podczas tworzenia grupy zasobów użytkownik jest proszony o określenie lokalizacji. Ta lokalizacja wskazuje, gdzie są przechowywane metadane grupy zasobów, a także czy zasoby są uruchamiane na platformie Azure, jeśli nie określisz innego regionu podczas tworzenia zasobów. Utwórz grupę zasobów za pomocą polecenia cmdlet [New-AzResourceGroup][new-azresourcegroup] .
+[Grupa zasobów platformy Azure](../azure-resource-manager/management/overview.md) to grupa logiczna, w której zasoby platformy Azure są wdrażane i zarządzane. Podczas tworzenia grupy zasobów użytkownik jest proszony o określenie lokalizacji. Ta lokalizacja wskazuje, gdzie są przechowywane metadane grupy zasobów, a także czy zasoby są uruchamiane na platformie Azure, jeśli nie określisz innego regionu podczas tworzenia zasobów. Utwórz grupę zasobów za pomocą polecenia cmdlet [New-AzResourceGroup][new-azresourcegroup] .
 
 Poniższy przykład tworzy grupę zasobów o nazwie Moja **zasobów** w regionie **wschodnim** .
 
@@ -57,12 +57,12 @@ ResourceId        : /subscriptions/00000000-0000-0000-0000-000000000000/resource
 
 ## <a name="create-aks-cluster"></a>Tworzenie klastra AKS
 
-Użyj `ssh-keygen` narzędzia wiersza polecenia, aby wygenerować parę kluczy SSH. Aby uzyskać więcej informacji, zobacz [szybkie kroki: Tworzenie i używanie pary kluczy publiczny-prywatny SSH dla maszyn wirtualnych z systemem Linux na platformie Azure](/azure/virtual-machines/linux/mac-create-ssh-keys).
+Użyj `ssh-keygen` narzędzia wiersza polecenia, aby wygenerować parę kluczy SSH. Aby uzyskać więcej informacji, zobacz [szybkie kroki: Tworzenie i używanie pary kluczy publiczny-prywatny SSH dla maszyn wirtualnych z systemem Linux na platformie Azure](../virtual-machines/linux/mac-create-ssh-keys.md).
 
 Użyj polecenia cmdlet [New-AzAks][new-azaks] , aby utworzyć klaster AKS. W poniższym przykładzie pokazano tworzenie klastra o nazwie **myAKSCluster** z jednym węzłem. Azure Monitor dla kontenerów jest również domyślnie włączona. Wykonanie tej czynności może zająć kilka minut.
 
 > [!NOTE]
-> Podczas tworzenia klastra AKS zostaje automatycznie utworzona druga grupa zasobów do przechowywania zasobów AKS. Aby uzyskać więcej informacji, zobacz [dlaczego dwie grupy zasobów utworzono za pomocą AKS?](https://docs.microsoft.com/azure/aks/faq#why-are-two-resource-groups-created-with-aks)
+> Podczas tworzenia klastra AKS zostaje automatycznie utworzona druga grupa zasobów do przechowywania zasobów AKS. Aby uzyskać więcej informacji, zobacz [dlaczego dwie grupy zasobów utworzono za pomocą AKS?](./faq.md#why-are-two-resource-groups-created-with-aks)
 
 ```azurepowershell-interactive
 New-AzAks -ResourceGroupName myResourceGroup -Name myAKSCluster -NodeCount 1
@@ -266,7 +266,7 @@ Aby dowiedzieć się więcej o usłudze AKS i poznać dokładnie proces od kompl
 <!-- LINKS - external -->
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
-[azure-dev-spaces]: https://docs.microsoft.com/azure/dev-spaces/
+[azure-dev-spaces]: ../dev-spaces/index.yml
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [azure-vote-app]: https://github.com/Azure-Samples/azure-voting-app-redis.git
 

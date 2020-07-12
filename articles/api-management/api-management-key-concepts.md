@@ -13,12 +13,12 @@ ms.topic: overview
 ms.date: 11/15/2017
 ms.author: apimpm
 ms.custom: mvc
-ms.openlocfilehash: 8d7fa8b8119ddf1769b36bcb55831047d6242470
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 85fa79cdfc7036be5b0ab20e49986a1d075152c5
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84690204"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86254660"
 ---
 # <a name="about-api-management"></a>Informacje o usłudze API Management
 
@@ -38,15 +38,15 @@ Aby użyć usługi API Management, administratorzy tworzą interfejsy API. Każd
 
 System składa się z następujących składników:
 
-* **Brama interfejsu API** to punkt końcowy, który ma następujące zastosowania:
+* **Brama interfejsu API** jest punktem końcowym, który:
   
   * Przyjmowanie wywołań API i kierowanie ich do zaplecza.
   * Weryfikowanie kluczy interfejsu API, tokenów JWT, certyfikatów i innych poświadczeń.
-  * Wymuszanie przydziałów użycia i ograniczeń liczby wywołań.
-  * Przekształcanie interfejsu API na bieżąco, bez modyfikacji kodu.
-  * Buforowanie odpowiedzi zaplecza w skonfigurowanym miejscu.
+  * Wymuszanie limitów przydziałów użycia i limitów szybkości.
+  * Przekształcanie interfejsu API na bieżąco bez modyfikacji kodu.
+  * Przechowywanie odpowiedzi z zaplecza w pamięci podręcznej, jeśli zostało to skonfigurowane.
   * Rejestrowanie w dzienniku metadanych wywołań w celu analizy.
-* Witryna **Azure Portal** to interfejs administracyjny, w którym konfiguruje się program interfejsu API. Jego zastosowania to:
+* **Azure Portal** to interfejs administracyjny służący do konfigurowania programu interfejsu API. Jego zastosowania to:
   
   * Definiowanie lub importowanie schematu interfejsu API.
   * Tworzenie pakietów interfejsów API do produktów.
@@ -56,9 +56,9 @@ System składa się z następujących składników:
 * **Portal dla deweloperów** służy jako główna obecność w sieci Web dla deweloperów, gdzie mogą:
   
   * Czytanie dokumentacji interfejsu API.
-  * Wypróbowanie interfejsu API za pośrednictwem interakcyjnej konsoli.
-  * Tworzenie konta i subskrybowanie, aby uzyskać klucze interfejsu API.
-  * Zyskanie dostępu do analiz własnego użycia.
+  * Testowanie interfejsu API za pomocą konsoli interaktywnej.
+  * Tworzenie konta i subskrypcji w celu uzyskiwania kluczy interfejsu API.
+  * Dostęp do analiz dotyczących własnego użycia.
 
 Aby uzyskać więcej informacji, zobacz oficjalny dokument PDF [Cloud-based API Management: Harnessing the Power of APIs](https://j.mp/ms-apim-whitepaper) (Oparta na chmurze usługa API Management: wykorzystanie możliwości interfejsów API). Ten wprowadzający oficjalny dokument dotyczący usługi API Management opracowany przez firmę CITO Research obejmuje następujące tematy: 
  
@@ -69,7 +69,7 @@ Aby uzyskać więcej informacji, zobacz oficjalny dokument PDF [Cloud-based API 
  * Analizy i metryki
  * Uzyskiwanie kontroli i wglądu dzięki platformie usługi API Management
  * Porównanie rozwiązań w chmurze i rozwiązań lokalnych
- * Usługa Azure API Management
+ * Azure API Management
  
 ## <a name="apis-and-operations"></a><a name="apis"> </a>Interfejsy API i operacje
 Interfejsy API są podstawą wystąpienia usługi API Management. Każdy interfejs API reprezentuje zestaw operacji dostępnych dla deweloperów. Każdy interfejs API zawiera odwołanie do usługi zaplecza, która implementuje interfejs API, oraz mapę odwzorowań operacji interfejsu API na operacje zaimplementowane w usłudze zaplecza. Operacje usługi API Management są wysoce konfigurowalne, pozwalają na kontrolę mapowania adresu URL, parametrów zapytania i ścieżki, zawartości żądania i odpowiedzi oraz buforowanie odpowiedzi operacji. Ograniczenia liczby wywołań, przydziały i zasady ograniczeń adresów IP mogą być implementowane zarówno na poziomie interfejsu API, jak i na poziomie poszczególnych operacji.
@@ -102,7 +102,7 @@ Aby uzyskać więcej informacji, zobacz [How to create or invite developers][How
 ## <a name="policies"></a><a name="policies"> </a> Zasady
 Zasady są zaawansowaną możliwością usługi API Management, która pozwala witrynie Azure Portal zmieniać zachowanie interfejsu API za pomocą konfiguracji. Zasady to zbiór instrukcji, które są wykonywane sekwencyjnie podczas żądania lub odpowiedzi interfejsu API. Popularne instrukcje obejmują konwersję z formatu XML na format JSON i ograniczanie liczby wywołań, aby zmniejszyć liczbę wywołań przychodzących od dewelopera. Ponadto dostępnych jest wiele innych zasad.
 
-Wyrażenia zasad mogą służyć jako wartości atrybutów lub wartości tekstowe w dowolnej z zasad usługi API Management, o ile w zasadach nie określono inaczej. Niektóre zasady, np. [Przepływ sterowania](/azure/api-management/api-management-advanced-policies#choose) i [Ustawianie zmiennej](/azure/api-management/api-management-advanced-policies#set-variable), są oparte na wyrażeniach zasad. Aby uzyskać więcej informacji, zobacz tematy [Advanced policies](/azure/api-management/api-management-advanced-policies#AdvancedPolicies) (Zaawansowane zasady) i [Policy expressions](/azure/api-management/api-management-policy-expressions) (Wyrażenia zasad).
+Wyrażenia zasad mogą służyć jako wartości atrybutów lub wartości tekstowe w dowolnej z zasad usługi API Management, o ile w zasadach nie określono inaczej. Niektóre zasady, np. [Przepływ sterowania](./api-management-advanced-policies.md#choose) i [Ustawianie zmiennej](./api-management-advanced-policies.md#set-variable), są oparte na wyrażeniach zasad. Aby uzyskać więcej informacji, zobacz tematy [Advanced policies](./api-management-advanced-policies.md#AdvancedPolicies) (Zaawansowane zasady) i [Policy expressions](./api-management-policy-expressions.md) (Wyrażenia zasad).
 
 
 Pełna lista zasad usługi API Management jest zawarta w artykule [Policy reference][Policy reference] (Dokumentacja zasad). Aby uzyskać więcej informacji na temat korzystania z zasad i konfigurowania ich, zobacz artykuł [API Management policies][API Management policies] (Zasady usługi API Management). Samouczek dotyczący tworzenia produktu z zasadami dotyczącymi ograniczania liczby wywołań i przydziałów jest zawarty w artykule [Tworzenie i konfigurowanie zaawansowanych ustawień produktów][How create and configure advanced product settings].
@@ -135,17 +135,13 @@ Wykonaj procedury przedstawione w następującym przewodniku Szybki Start i zacz
 [Policies]: #policies
 [Developer portal]: #developer-portal
 
-[How to create APIs]: api-management-howto-create-apis.md
-[How to add operations to an API]: api-management-howto-add-operations.md
+[How to create APIs]: ./import-and-publish.md
+[How to add operations to an API]: ./mock-api-responses.md
 [How to create and publish a product]: api-management-howto-add-products.md
 [How to create and use groups]: api-management-howto-create-groups.md
 [How to associate groups with developers]: api-management-howto-create-groups.md#associate-group-developer
 [How create and configure advanced product settings]: transform-api.md
 [How to create or invite developers]: api-management-howto-create-or-invite-developers.md
-[Policy reference]: api-management-policy-reference.md
+[Policy reference]: ./api-management-policies.md
 [API Management policies]: api-management-howto-policies.md
 [Create an API Management service instance]: get-started-create-service-instance.md
-
-
-
-

@@ -4,11 +4,12 @@ description: Informacje o podstawowym klastrze i składnikach obciążenia Kuber
 services: container-service
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 9b54bdbfcbc37d3863d4e6b86ae6fe5522bb5be9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2fe687ddd63ee85faec2d1aa4c02fa2636a3058f
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85336625"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86251862"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Podstawowe pojęcia Kubernetes dla usługi Azure Kubernetes Service (AKS)
 
@@ -16,7 +17,7 @@ Gdy Programowanie aplikacji przenosi się do podejścia opartego na kontenerach,
 
 W tym artykule wprowadzono podstawowe składniki infrastruktury Kubernetes, takie jak *płaszczyzna kontroli*, *węzły*i *Pule węzłów*. Wprowadzono również zasoby obciążenia *, takie jak* *zbiory* , *wdrożenia*i zestawy, wraz z sposobem grupowania zasobów w *przestrzeni nazw*.
 
-## <a name="what-is-kubernetes"></a>Co to jest Kubernetes?
+## <a name="what-is-kubernetes"></a>Co to jest platforma Kubernetes?
 
 Kubernetes to gwałtownie rozwijający się platforma, która zarządza aplikacjami opartymi na kontenerach i skojarzonymi z nimi składnikami sieci i magazynu. Fokus dotyczy obciążeń aplikacji, a nie podstawowych składników infrastruktury. Kubernetes zapewnia deklaracyjne podejście do wdrożeń, które są obsługiwane przez niezawodny zestaw interfejsów API dla operacji zarządzania.
 
@@ -37,7 +38,7 @@ Klaster Kubernetes jest podzielony na dwa składniki:
 
 ## <a name="control-plane"></a>Płaszczyzna sterowania
 
-Podczas tworzenia klastra AKS, zostanie automatycznie utworzona i skonfigurowana płaszczyzna kontroli. Ta płaszczyzna kontroli jest udostępniana jako zarządzany zasób platformy Azure, który został podzielny przez użytkownika. Dla płaszczyzny kontroli nie ma kosztu, tylko węzły, które są częścią klastra AKS.
+Podczas tworzenia klastra AKS, zostanie automatycznie utworzona i skonfigurowana płaszczyzna kontroli. Ta płaszczyzna kontroli jest udostępniana jako zarządzany zasób platformy Azure, który został podzielny przez użytkownika. Dla płaszczyzny kontroli nie ma kosztu, tylko węzły, które są częścią klastra AKS. Płaszczyzna kontroli i jej zasoby znajdują się tylko w regionie, w którym został utworzony klaster.
 
 Płaszczyzna kontroli obejmuje następujące podstawowe składniki Kubernetes:
 
@@ -48,7 +49,7 @@ Płaszczyzna kontroli obejmuje następujące podstawowe składniki Kubernetes:
 
 AKS zapewnia jednodostępną płaszczyznę kontroli z dedykowanym serwerem interfejsu API, harmonogramem itd. Zdefiniuj liczbę i rozmiar węzłów, a platforma Azure skonfiguruje bezpieczną komunikację między płaszczyzną i węzłami. Interakcja z płaszczyzną kontroli odbywa się za pomocą interfejsów API Kubernetes, takich jak `kubectl` lub pulpitu nawigacyjnego Kubernetes.
 
-Ta płaszczyzna kontroli zarządzanej oznacza, że nie trzeba konfigurować składników takich jak magazyn *etcd* o wysokiej dostępności, ale oznacza to również, że nie można bezpośrednio uzyskać dostępu do płaszczyzny kontroli. Uaktualnienia do Kubernetes są zorganizowane za pomocą interfejsu wiersza polecenia platformy Azure lub Azure Portal, który uaktualnia płaszczyznę kontroli, a następnie węzły. Aby rozwiązać ewentualne problemy, można przejrzeć dzienniki płaszczyzny kontroli za pomocą dzienników Azure Monitor.
+Ta płaszczyzna kontroli zarządzanej oznacza, że nie trzeba konfigurować składników, takich jak magazyn *etcd* o wysokiej dostępności, ale oznacza to również, że nie można bezpośrednio uzyskać dostępu do płaszczyzny kontroli. Uaktualnienia do Kubernetes są zorganizowane za pomocą interfejsu wiersza polecenia platformy Azure lub Azure Portal, który uaktualnia płaszczyznę kontroli, a następnie węzły. Aby rozwiązać ewentualne problemy, można przejrzeć dzienniki płaszczyzny kontroli za pomocą dzienników Azure Monitor.
 
 Jeśli konieczne jest skonfigurowanie płaszczyzny kontroli w określony sposób lub konieczność bezpośredniego dostępu do niej, można wdrożyć własny klaster Kubernetes przy użyciu [aparatu AKS][aks-engine].
 
@@ -72,9 +73,9 @@ Jeśli konieczne jest użycie innego systemu operacyjnego hosta, środowiska uru
 
 ### <a name="resource-reservations"></a>Rezerwacje zasobów
 
-Zasoby węzła są używane przez AKS, aby uczynić węzeł funkcją jako częścią klastra. Może to spowodować niezgodność między całkowitymi zasobami węzła a zasobami, które można przydzielić w programie AKS. Jest to ważne, aby zauważyć, gdy ustawiasz żądania i limity dla wdrożonych przez użytkownika zasobników.
+Zasoby węzła są używane przez AKS, aby uczynić węzeł funkcją jako częścią klastra. To użycie może stworzyć niezgodność między całkowitymi zasobami węzła a zasobami, które można przydzielić, gdy są używane w AKS. Te informacje mają na celu zanotowanie, kiedy należy ustawić żądania i limity dla wdrożonych przez użytkownika zasobników.
 
-Aby znaleźć zasoby możliwe do przydzielenia przez węzeł:
+Aby znaleźć zasoby przydzielane przez węzeł, uruchom polecenie:
 ```kubectl
 kubectl describe node [NODE_NAME]
 
@@ -93,7 +94,7 @@ Aby zachować wydajność i funkcjonalność węzła, zasoby są zastrzeżone dl
 
 - **Pamięć używana** przez AKS zawiera sumę dwóch wartości.
 
-1. Demon kubelet został zainstalowany we wszystkich węzłach agenta Kubernetes w celu zarządzania tworzeniem i kończeniem kontenera. Domyślnie w systemie AKS ten demon ma następującą regułę wykluczania: *Memory. available<750Mi*, co oznacza, że w każdym momencie węzeł musi mieć co najmniej 750.  Gdy host jest poniżej tego progu dostępnej pamięci, kubelet zakończy jeden z uruchomionych zasobników, aby zwolnić pamięć na komputerze hosta i chronić ją. Jest to akcja aktywna, gdy ilość dostępnej pamięci spada poza próg 750Mi.
+1. Demon kubelet został zainstalowany we wszystkich węzłach agenta Kubernetes w celu zarządzania tworzeniem i kończeniem kontenera. Domyślnie w systemie AKS ten demon ma następującą regułę wykluczania: *Memory. available<750Mi*, co oznacza, że w każdym momencie węzeł musi mieć co najmniej 750.  Gdy host jest poniżej tego progu dostępnej pamięci, kubelet zakończy jeden z uruchomionych zasobników, aby zwolnić pamięć na komputerze hosta i chronić ją. Ta akcja jest wyzwalana, gdy ilość dostępnej pamięci nie przekracza progu 750Mi.
 
 2. Druga wartość to regresywnycha szybkość rezerwacji pamięci dla demona kubelet do prawidłowego działania (polecenia-zarezerwowane).
     - 25% pierwszego 4 GB pamięci
@@ -102,7 +103,7 @@ Aby zachować wydajność i funkcjonalność węzła, zasoby są zastrzeżone dl
     - 6% następnego 112 GB pamięci (do 128 GB)
     - 2% każdej pamięci powyżej 128 GB
 
-Powyższe zasady dotyczące pamięci i alokacji procesora są używane w celu zachowania poprawnego działania węzłów agenta, w tym pewnych systemów hostingu, które mają kluczowe znaczenie dla kondycji klastra. Te reguły alokacji powodują również, że węzeł zgłasza mniejszą alokację pamięci i procesora CPU niż w przypadku, gdy nie był częścią klastra Kubernetes. Nie można zmienić powyższych rezerwacji zasobów.
+Powyższe zasady dotyczące pamięci i alokacji procesora są używane w celu zachowania poprawnego działania węzłów agenta, w tym pewnych systemów hostingu, które mają kluczowe znaczenie dla kondycji klastra. Te reguły alokacji powodują również, że węzeł raportuje mniejszą alokację pamięci i procesora CPU niż zwykle, jeśli nie był częścią klastra Kubernetes. Nie można zmienić powyższych rezerwacji zasobów.
 
 Na przykład, jeśli węzeł zawiera 7 GB, zgłasza 34% pamięci nie można przydzielić, łącznie z progiem wykluczeń 750Mi.
 
@@ -152,7 +153,7 @@ Podczas tworzenia elementu pod można zdefiniować *żądania zasobów* , aby za
 
 Aby uzyskać więcej informacji, zobacz [Kubernetes][kubernetes-pods] i [Kubernetes pod cykl życia][kubernetes-pod-lifecycle].
 
-A pod jest zasobem logicznym, ale kontenery są, w których są uruchamiane obciążenia aplikacji. Zasobniki to zazwyczaj tymczasowe, jednorazowe zasoby, a indywidualnie zaplanowane zasobniki nie mogą mieć niektórych funkcji wysokiej dostępności i nadmiarowości Kubernetes. Zamiast tego są zwykle wdrażane i zarządzane przez *Kontrolery*Kubernetes, takie jak kontroler wdrażania.
+A pod jest zasobem logicznym, ale kontenery są, w których są uruchamiane obciążenia aplikacji. Zasobniki to zazwyczaj tymczasowe, jednorazowe zasoby, a indywidualnie zaplanowane zasobniki nie mogą mieć niektórych funkcji wysokiej dostępności i nadmiarowości Kubernetes. Zamiast tego są wdrażane i zarządzane przez *Kontrolery*Kubernetes, takie jak kontroler wdrażania.
 
 ## <a name="deployments-and-yaml-manifests"></a>Wdrożenia i manifesty YAML
 
@@ -162,9 +163,9 @@ Możesz zaktualizować wdrożenia, aby zmienić konfigurację zasobników, używ
 
 Większość aplikacji bezstanowych w AKS powinna używać modelu wdrażania zamiast planowania pojedynczych zasobników. Kubernetes może monitorować kondycję i stan wdrożeń, aby upewnić się, że wymagana liczba replik działa w ramach klastra. W przypadku zaplanowania tylko pojedynczych zasobników te nie są ponownie uruchamiane, Jeśli napotkają problem, i nie są ponownie planowane w węzłach o dobrej kondycji, jeśli ich bieżący węzeł napotka problem.
 
-Jeśli aplikacja wymaga, aby kworum wystąpień było zawsze dostępne do podejmowania decyzji dotyczących zarządzania, nie chcesz, aby proces aktualizacji mógł przerwać tę możliwość. *Budżety na zakłócenia* mogą służyć do definiowania liczby replik w ramach wdrożenia, które mogą zostać wyłączone podczas uaktualniania aktualizacji lub węzła. Na przykład jeśli w danym wdrożeniu znajdują się *5* replik, można zdefiniować zakłócenia pod kątem wartości *4* , aby zezwolić na usunięcie lub ponowne zaplanowanie jednej repliki. Podobnie jak w przypadku limitów zasobów, najlepszym rozwiązaniem jest zdefiniowanie budżetów w aplikacjach, które wymagają minimalnej liczby replik, aby zawsze były obecne.
+Jeśli aplikacja wymaga, aby kworum wystąpień było zawsze dostępne do podejmowania decyzji dotyczących zarządzania, nie chcesz, aby proces aktualizacji mógł przerwać tę możliwość. *Budżety na zakłócenia* mogą służyć do definiowania liczby replik w ramach wdrożenia, które mogą zostać wyłączone podczas uaktualniania aktualizacji lub węzła. Na przykład jeśli w danym wdrożeniu znajduje się *pięć (5)* replik, można zdefiniować zakłócenia pod kątem wartości *4* , aby zezwolić na usunięcie lub ponowne zaplanowanie jednej repliki. Podobnie jak w przypadku limitów zasobów, najlepszym rozwiązaniem jest zdefiniowanie budżetów w aplikacjach, które wymagają minimalnej liczby replik, aby zawsze były obecne.
 
-Wdrożenia są zwykle tworzone i zarządzane przy użyciu programu `kubectl create` lub `kubectl apply` . Aby utworzyć wdrożenie, należy zdefiniować plik manifestu w formacie YAML (YAML Ain't Markup Language). Poniższy przykład tworzy podstawowe wdrożenie serwera sieci Web NGINX. Wdrożenie określa *3* repliki do utworzenia, a port *80* będzie otwarty w kontenerze. Żądania zasobów i limity są również zdefiniowane dla procesora CPU i pamięci.
+Wdrożenia są zwykle tworzone i zarządzane przy użyciu programu `kubectl create` lub `kubectl apply` . Aby utworzyć wdrożenie, należy zdefiniować plik manifestu w formacie YAML (YAML Ain't Markup Language). Poniższy przykład tworzy podstawowe wdrożenie serwera sieci Web NGINX. Wdrożenie określa *trzy (3)* repliki do utworzenia i wymaga, aby port *80* był otwarty w kontenerze. Żądania zasobów i limity są również zdefiniowane dla procesora CPU i pamięci.
 
 ```yaml
 apiVersion: apps/v1
@@ -253,7 +254,7 @@ Aby uzyskać więcej informacji, zobacz [Kubernetes przestrzenie nazw][kubernete
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym artykule omówiono niektóre podstawowe składniki Kubernetes oraz sposób ich stosowania do klastrów AKS. Aby uzyskać dodatkowe informacje na temat podstawowych pojęć związanych z Kubernetes i AKS, zobacz następujące artykuły:
+W tym artykule omówiono niektóre podstawowe składniki Kubernetes oraz sposób ich stosowania do klastrów AKS. Aby uzyskać więcej informacji na temat podstawowych pojęć związanych z Kubernetes i AKS, zobacz następujące artykuły:
 
 - [Kubernetes/AKS, dostęp i tożsamość][aks-concepts-identity]
 - [Zabezpieczenia Kubernetes/AKS][aks-concepts-security]

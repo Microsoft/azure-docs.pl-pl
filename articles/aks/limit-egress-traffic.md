@@ -6,12 +6,12 @@ ms.topic: article
 ms.author: jpalma
 ms.date: 06/29/2020
 author: palma21
-ms.openlocfilehash: 6aed6c84439e65646c15367cdad3bf13c5573256
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9d06852e9d3d61b3e3d368a1d1c6f4107aff1442
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85831715"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86251318"
 ---
 # <a name="control-egress-traffic-for-cluster-nodes-in-azure-kubernetes-service-aks"></a>Sterowanie ruchem wychodzącym węzłów klastra w usłudze Azure Kubernetes Service (AKS)
 
@@ -46,7 +46,7 @@ Następujące reguły dotyczące sieci i nazwy FQDN/aplikacji są wymagane dla k
 
 Wymagane reguły sieciowe i zależności adresów IP to:
 
-| Docelowy punkt końcowy                                                             | Protokół | Port    | Użycie  |
+| Docelowy punkt końcowy                                                             | Protokół | Port    | Zastosowanie  |
 |----------------------------------------------------------------------------------|----------|---------|------|
 | **`*:1194`** <br/> *Oraz* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.<Region>:1194`** <br/> *Oraz* <br/> [Regionalne CIDR](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:1194`** <br/> *Oraz* <br/> **`APIServerIP:1194`** `(only known after cluster creation)`  | UDP           | 1194      | W przypadku tunelowanej bezpiecznej komunikacji między węzłami i płaszczyzną kontroli. |
 | **`*:9000`** <br/> *Oraz* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.<Region>:9000`** <br/> *Oraz* <br/> [Regionalne CIDR](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:9000`** <br/> *Oraz* <br/> **`APIServerIP:9000`** `(only known after cluster creation)`  | TCP           | 9000      | W przypadku tunelowanej bezpiecznej komunikacji między węzłami i płaszczyzną kontroli. |
@@ -58,7 +58,7 @@ Wymagane reguły sieciowe i zależności adresów IP to:
 
 Wymagane są następujące reguły dotyczące nazwy FQDN/aplikacji:
 
-| Docelowa nazwa FQDN                 | Port            | Użycie      |
+| Docelowa nazwa FQDN                 | Port            | Zastosowanie      |
 |----------------------------------|-----------------|----------|
 | **`*.hcp.<location>.azmk8s.io`** | **`HTTPS:443`** | Wymagany do komunikacji z serwerem interfejsu API > <. Zamień na *\<location\>* region, w którym wdrożono klaster AKS. |
 | **`mcr.microsoft.com`**          | **`HTTPS:443`** | Wymagane w celu uzyskania dostępu do obrazów w programie Microsoft Container Registry (MCR). Ten Rejestr zawiera obrazy i wykresy pierwszej strony (na przykład coreDNS itp.). Te obrazy są wymagane do prawidłowego utworzenia i działania klastra, w tym operacji skalowania i uaktualniania.  |
@@ -73,7 +73,7 @@ Wymagane są następujące reguły dotyczące nazwy FQDN/aplikacji:
 
 Wymagane reguły sieciowe i zależności adresów IP to:
 
-| Docelowy punkt końcowy                                                             | Protokół | Port    | Użycie  |
+| Docelowy punkt końcowy                                                             | Protokół | Port    | Zastosowanie  |
 |----------------------------------------------------------------------------------|----------|---------|------|
 | **`*:1194`** <br/> *Oraz* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.Region:1194`** <br/> *Oraz* <br/> [Regionalne CIDR](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:1194`** <br/> *Oraz* <br/> **`APIServerIP:1194`** `(only known after cluster creation)`  | UDP           | 1194      | W przypadku tunelowanej bezpiecznej komunikacji między węzłami i płaszczyzną kontroli. |
 | **`*:9000`** <br/> *Oraz* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.<Region>:9000`** <br/> *Oraz* <br/> [Regionalne CIDR](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:9000`** <br/> *Oraz* <br/> **`APIServerIP:9000`** `(only known after cluster creation)`  | TCP           | 9000      | W przypadku tunelowanej bezpiecznej komunikacji między węzłami i płaszczyzną kontroli. |
@@ -86,7 +86,7 @@ Wymagane reguły sieciowe i zależności adresów IP to:
 
 Wymagane są następujące reguły dotyczące nazwy FQDN/aplikacji:
 
-| Docelowa nazwa FQDN                               | Port            | Użycie      |
+| Docelowa nazwa FQDN                               | Port            | Zastosowanie      |
 |------------------------------------------------|-----------------|----------|
 | **`*.hcp.<location>.cx.prod.service.azk8s.cn`**| **`HTTPS:443`** | Wymagany do komunikacji z serwerem interfejsu API > <. Zamień na *\<location\>* region, w którym wdrożono klaster AKS. |
 | **`*.tun.<location>.cx.prod.service.azk8s.cn`**| **`HTTPS:443`** | Wymagany do komunikacji z serwerem interfejsu API > <. Zamień na *\<location\>* region, w którym wdrożono klaster AKS. |
@@ -102,7 +102,7 @@ Wymagane są następujące reguły dotyczące nazwy FQDN/aplikacji:
 
 Wymagane reguły sieciowe i zależności adresów IP to:
 
-| Docelowy punkt końcowy                                                             | Protokół | Port    | Użycie  |
+| Docelowy punkt końcowy                                                             | Protokół | Port    | Zastosowanie  |
 |----------------------------------------------------------------------------------|----------|---------|------|
 | **`*:1194`** <br/> *Oraz* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.<Region>:1194`** <br/> *Oraz* <br/> [Regionalne CIDR](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:1194`** <br/> *Oraz* <br/> **`APIServerIP:1194`** `(only known after cluster creation)`  | UDP           | 1194      | W przypadku tunelowanej bezpiecznej komunikacji między węzłami i płaszczyzną kontroli. |
 | **`*:9000`** <br/> *Oraz* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.<Region>:9000`** <br/> *Oraz* <br/> [Regionalne CIDR](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:9000`** <br/> *Oraz* <br/> **`APIServerIP:9000`** `(only known after cluster creation)`  | TCP           | 9000      | W przypadku tunelowanej bezpiecznej komunikacji między węzłami i płaszczyzną kontroli. |
@@ -114,7 +114,7 @@ Wymagane reguły sieciowe i zależności adresów IP to:
 
 Wymagane są następujące reguły dotyczące nazwy FQDN/aplikacji:
 
-| Docelowa nazwa FQDN                                        | Port            | Użycie      |
+| Docelowa nazwa FQDN                                        | Port            | Zastosowanie      |
 |---------------------------------------------------------|-----------------|----------|
 | **`*.hcp.<location>.cx.aks.containerservice.azure.us`** | **`HTTPS:443`** | Wymagany do komunikacji z serwerem interfejsu API > <. Zamień na *\<location\>* region, w którym wdrożono klaster AKS.|
 | **`mcr.microsoft.com`**                                 | **`HTTPS:443`** | Wymagane w celu uzyskania dostępu do obrazów w programie Microsoft Container Registry (MCR). Ten Rejestr zawiera obrazy i wykresy pierwszej strony (na przykład coreDNS itp.). Te obrazy są wymagane do prawidłowego utworzenia i działania klastra, w tym operacji skalowania i uaktualniania. |
@@ -129,7 +129,7 @@ Wymagane są następujące reguły dotyczące nazwy FQDN/aplikacji:
 
 Następujące reguły nazwy FQDN/aplikacji są opcjonalne, ale zalecane dla klastrów AKS:
 
-| Docelowa nazwa FQDN                                                               | Port          | Użycie      |
+| Docelowa nazwa FQDN                                                               | Port          | Zastosowanie      |
 |--------------------------------------------------------------------------------|---------------|----------|
 | **`security.ubuntu.com`, `azure.archive.ubuntu.com`, `changelogs.ubuntu.com`** | **`HTTP:80`** | Ten adres umożliwia pobranie przez węzły klastra systemu Linux wymaganych poprawek i aktualizacji zabezpieczeń. |
 
@@ -141,7 +141,7 @@ W przypadku wybrania opcji blokowania/niezezwalania na te nazwy FQDN węzły bę
 
 Następujące reguły dotyczące nazwy FQDN/aplikacji są wymagane dla klastrów AKS z włączonym procesorem GPU:
 
-| Docelowa nazwa FQDN                        | Port      | Użycie      |
+| Docelowa nazwa FQDN                        | Port      | Zastosowanie      |
 |-----------------------------------------|-----------|----------|
 | **`nvidia.github.io`**                  | **`HTTPS:443`** | Ten adres jest używany do poprawnego instalowania i działania sterowników w węzłach opartych na procesorze GPU. |
 | **`us.download.nvidia.com`**            | **`HTTPS:443`** | Ten adres jest używany do poprawnego instalowania i działania sterowników w węzłach opartych na procesorze GPU. |
@@ -153,7 +153,7 @@ Następujące reguły dotyczące nazwy FQDN/aplikacji są wymagane dla klastrów
 
 Następujące reguły dotyczące nazwy FQDN/aplikacji są wymagane do korzystania z pul węzłów opartych na systemie Windows Server:
 
-| Docelowa nazwa FQDN                                                           | Port      | Użycie      |
+| Docelowa nazwa FQDN                                                           | Port      | Zastosowanie      |
 |----------------------------------------------------------------------------|-----------|----------|
 | **`onegetcdn.azureedge.net, go.microsoft.com`**                            | **`HTTPS:443`** | Aby zainstalować pliki binarne powiązane z systemem Windows |
 | **`*.mp.microsoft.com, www.msftconnecttest.com, ctldl.windowsupdate.com`** | **`HTTP:80`**   | Aby zainstalować pliki binarne powiązane z systemem Windows |
@@ -168,7 +168,7 @@ Dostępne są dwie opcje zapewnienia dostępu do Azure Monitor dla kontenerów, 
 
 Wymagane są następujące reguły dotyczące nazwy FQDN/aplikacji:
 
-| Docelowy punkt końcowy                                                             | Protokół | Port    | Użycie  |
+| Docelowy punkt końcowy                                                             | Protokół | Port    | Zastosowanie  |
 |----------------------------------------------------------------------------------|----------|---------|------|
 | [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureMonitor:443`**  | TCP           | 443      | Ten punkt końcowy służy do wysyłania danych metryk i dzienników do Azure Monitor i Log Analytics. |
 
@@ -176,7 +176,7 @@ Wymagane są następujące reguły dotyczące nazwy FQDN/aplikacji:
 
 Następujące reguły dotyczące nazwy FQDN/aplikacji są wymagane dla klastrów AKS, dla Azure Monitor których włączono obsługę kontenerów:
 
-| Nazwa FQDN                                    | Port      | Użycie      |
+| Nazwa FQDN                                    | Port      | Zastosowanie      |
 |-----------------------------------------|-----------|----------|
 | dc.services.visualstudio.com | **`HTTPS:443`**    | Ten punkt końcowy jest używany na potrzeby metryk i monitorowania danych telemetrycznych przy użyciu Azure Monitor. |
 | *.ods.opinsights.azure.com    | **`HTTPS:443`**    | Ten punkt końcowy jest używany przez Azure Monitor do pozyskiwania danych usługi log Analytics. |
@@ -189,7 +189,7 @@ Zaktualizuj zaporę lub konfigurację zabezpieczeń, aby zezwalać na ruch sieci
 
 #### <a name="required-network-rules"></a>Wymagane reguły sieci
 
-| Docelowy punkt końcowy                                                             | Protokół | Port    | Użycie  |
+| Docelowy punkt końcowy                                                             | Protokół | Port    | Zastosowanie  |
 |----------------------------------------------------------------------------------|----------|---------|------|
 | [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureDevSpaces`**  | TCP           | 443      | Ten punkt końcowy służy do wysyłania danych metryk i dzienników do Azure Monitor i Log Analytics. |
 
@@ -197,7 +197,7 @@ Zaktualizuj zaporę lub konfigurację zabezpieczeń, aby zezwalać na ruch sieci
 
 Następujące reguły dotyczące nazwy FQDN/aplikacji są wymagane dla klastrów AKS z włączonym Azure Dev Spaces:
 
-| Nazwa FQDN                                    | Port      | Użycie      |
+| Nazwa FQDN                                    | Port      | Zastosowanie      |
 |-----------------------------------------|-----------|----------|
 | `cloudflare.docker.com` | **`HTTPS:443`** | Ten adres służy do ściągania obrazów z systemem Linux Alpine i innych Azure Dev Spaces |
 | `gcr.io` | **`HTTPS:443`** | Ten adres służy do ściągania obrazów Helm/do odczekania |
@@ -213,7 +213,7 @@ Następujące reguły dotyczące nazwy FQDN/aplikacji są wymagane dla klastrów
 
 Następujące reguły dotyczące nazwy FQDN/aplikacji są wymagane dla klastrów AKS z włączonym Azure Policy.
 
-| Nazwa FQDN                                          | Port      | Użycie      |
+| Nazwa FQDN                                          | Port      | Zastosowanie      |
 |-----------------------------------------------|-----------|----------|
 | **`gov-prod-policy-data.trafficmanager.net`** | **`HTTPS:443`** | Ten adres jest używany do poprawnego działania Azure Policy. (obecnie w wersji zapoznawczej w AKS) |
 | **`raw.githubusercontent.com`**               | **`HTTPS:443`** | Ten adres służy do ściągania wbudowanych zasad z usługi GitHub w celu zapewnienia prawidłowego działania Azure Policy. (obecnie w wersji zapoznawczej w AKS) |
@@ -239,7 +239,7 @@ Poniżej znajduje się przykładowa architektura wdrożenia:
   * Żądania z węzłów agenta AKS są zgodne z UDRem umieszczonym w podsieci, do której został wdrożony klaster AKS.
   * Zapora platformy Azure egresses z sieci wirtualnej z publicznego frontonu IP
   * Dostęp do publicznej sieci Internet lub innych usług platformy Azure przepływy do i z adresu IP frontonu zapory
-  * Opcjonalnie dostęp do płaszczyzny kontroli AKS jest chroniony przez [autoryzowane zakresy adresów IP serwera interfejsu API](https://docs.microsoft.com/azure/aks/api-server-authorized-ip-ranges), co obejmuje publiczny adres IP frontonu zapory.
+  * Opcjonalnie dostęp do płaszczyzny kontroli AKS jest chroniony przez [autoryzowane zakresy adresów IP serwera interfejsu API](./api-server-authorized-ip-ranges.md), co obejmuje publiczny adres IP frontonu zapory.
 * Ruch wewnętrzny
   * Opcjonalnie, zamiast lub oprócz [Load Balancer publicznego](load-balancer-standard.md) , można użyć [wewnętrznego Load Balancer](internal-lb.md) do obsługi ruchu wewnętrznego, który można wyizolować również w jego własnej podsieci.
 
@@ -353,7 +353,7 @@ FWPRIVATE_IP=$(az network firewall show -g $RG -n $FWNAME --query "ipConfigurati
 ```
 
 > [!NOTE]
-> W przypadku używania bezpiecznego dostępu do serwera interfejsu API AKS z [autoryzowanymi zakresami adresów IP](https://docs.microsoft.com/azure/aks/api-server-authorized-ip-ranges)należy dodać publiczny adres IP zapory do autoryzowanego zakresu adresów IP.
+> W przypadku używania bezpiecznego dostępu do serwera interfejsu API AKS z [autoryzowanymi zakresami adresów IP](./api-server-authorized-ip-ranges.md)należy dodać publiczny adres IP zapory do autoryzowanego zakresu adresów IP.
 
 ### <a name="create-a-udr-with-a-hop-to-azure-firewall"></a>Tworzenie UDR z przeskokiem do zapory platformy Azure
 
@@ -389,7 +389,7 @@ az network firewall network-rule create -g $RG -f $FWNAME --collection-name 'aks
 az network firewall application-rule create -g $RG -f $FWNAME --collection-name 'aksfwar' -n 'fqdn' --source-addresses '*' --protocols 'http=80' 'https=443' --fqdn-tags "AzureKubernetesService" --action allow --priority 100
 ```
 
-Zobacz [dokumentację zapory platformy Azure](https://docs.microsoft.com/azure/firewall/overview) , aby dowiedzieć się więcej na temat usługi Zapora systemu Azure.
+Zobacz [dokumentację zapory platformy Azure](../firewall/overview.md) , aby dowiedzieć się więcej na temat usługi Zapora systemu Azure.
 
 ### <a name="associate-the-route-table-to-aks"></a>Skojarz tabelę tras z AKS
 
@@ -722,7 +722,7 @@ kubectl apply -f example.yaml
 ### <a name="add-a-dnat-rule-to-azure-firewall"></a>Dodawanie reguły DNAT do zapory platformy Azure
 
 > [!IMPORTANT]
-> W przypadku korzystania z zapory platformy Azure w celu ograniczenia ruchu wychodzącego i utworzenia trasy zdefiniowanej przez użytkownika (UDR) w celu wymuszenia całego ruchu wychodzącego upewnij się, że utworzono odpowiednią regułę DNAT w zaporze, aby prawidłowo zezwolić na ruch przychodzący. Używanie zapory platformy Azure z UDR powoduje przerwanie konfiguracji transferu danych przychodzących z powodu routingu asymetrycznego. (Problem występuje, jeśli podsieć AKS ma trasę domyślną, która przechodzi do prywatnego adresu IP zapory, ale używasz publicznego modułu równoważenia obciążenia — ruchu przychodzącego lub usługi Kubernetes typu: moduł równoważenia danych). W takim przypadku ruch przychodzącego modułu równoważenia obciążenia jest odbierany za pośrednictwem jego publicznego adresu IP, ale ścieżka zwrotna przechodzi przez prywatny adres IP zapory. Ze względu na to, że Zapora jest stanowa, opuszcza pakiet, ponieważ Zapora nie rozpoznaje ustanowionej sesji. Aby dowiedzieć się, jak zintegrować zaporę platformy Azure z ruchem przychodzącym lub usługą równoważenia obciążenia, zobacz [integrowanie zapory platformy Azure z usługą azure usługa Load Balancer w warstwie Standardowa](https://docs.microsoft.com/azure/firewall/integrate-lb).
+> W przypadku korzystania z zapory platformy Azure w celu ograniczenia ruchu wychodzącego i utworzenia trasy zdefiniowanej przez użytkownika (UDR) w celu wymuszenia całego ruchu wychodzącego upewnij się, że utworzono odpowiednią regułę DNAT w zaporze, aby prawidłowo zezwolić na ruch przychodzący. Używanie zapory platformy Azure z UDR powoduje przerwanie konfiguracji transferu danych przychodzących z powodu routingu asymetrycznego. (Problem występuje, jeśli podsieć AKS ma trasę domyślną, która przechodzi do prywatnego adresu IP zapory, ale używasz publicznego modułu równoważenia obciążenia — ruchu przychodzącego lub usługi Kubernetes typu: moduł równoważenia danych). W takim przypadku ruch przychodzącego modułu równoważenia obciążenia jest odbierany za pośrednictwem jego publicznego adresu IP, ale ścieżka zwrotna przechodzi przez prywatny adres IP zapory. Ze względu na to, że Zapora jest stanowa, opuszcza pakiet, ponieważ Zapora nie rozpoznaje ustanowionej sesji. Aby dowiedzieć się, jak zintegrować zaporę platformy Azure z ruchem przychodzącym lub usługą równoważenia obciążenia, zobacz [integrowanie zapory platformy Azure z usługą azure usługa Load Balancer w warstwie Standardowa](../firewall/integrate-lb.md).
 
 
 Aby można było skonfigurować łączność z ruchem przychodzącym, reguła DNAT musi być zapisywana w zaporze platformy Azure. W celu przetestowania łączności z klastrem reguła jest definiowana dla publicznego adresu IP frontonu zapory, która będzie kierować do wewnętrznego adresu IP uwidocznionego przez usługę wewnętrzną.

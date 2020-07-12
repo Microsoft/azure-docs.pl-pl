@@ -1,13 +1,14 @@
 ---
 title: Dokumentacja dla deweloperów Azure Functions C#
 description: Dowiedz się, jak opracowywać Azure Functions przy użyciu języka C#.
-ms.topic: reference
+ms.topic: conceptual
 ms.date: 09/12/2018
-ms.openlocfilehash: cfa53fe2defca768196af595c1d088d41bc60f71
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 038c1db2d4bb4d8bd80801d36cf5feec1905bbc1
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84697191"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86254371"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Dokumentacja dla deweloperów Azure Functions C#
 
@@ -137,7 +138,7 @@ Proces kompilacji tworzy *function.js* w pliku w folderze funkcji w folderze Bui
 
 Celem tego pliku jest udostępnienie informacji kontrolerowi skalowania do użycia w celu [skalowania w ramach planu zużycia](functions-scale.md#how-the-consumption-and-premium-plans-work). Z tego powodu plik zawiera tylko informacje wyzwalacza, a nie dane wejściowe i wyjściowe.
 
-Wygenerowany *function.jsw* pliku zawiera `configurationSource` Właściwość, która informuje środowisko uruchomieniowe, aby używało atrybutów .NET dla powiązań, a nie *function.jsw* konfiguracji. Przykład:
+Wygenerowany *function.jsw* pliku zawiera `configurationSource` Właściwość, która informuje środowisko uruchomieniowe, aby używało atrybutów .NET dla powiązań, a nie *function.jsw* konfiguracji. Oto przykład:
 
 ```json
 {
@@ -377,7 +378,7 @@ public static class IBinderExample
 
 ### <a name="multiple-attribute-example"></a>Przykład wielu atrybutów
 
-W poprzednim przykładzie jest pobierane ustawienie aplikacji dla głównych parametrów połączenia konta magazynu aplikacji funkcji (co to jest `AzureWebJobsStorage` ). Możesz określić niestandardowe ustawienie aplikacji do użycia dla konta magazynu, dodając [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) i przekazując tablicę atrybutów do `BindAsync<T>()` . Użyj `Binder` parametru, a nie `IBinder` .  Przykład:
+W poprzednim przykładzie jest pobierane ustawienie aplikacji dla głównych parametrów połączenia konta magazynu aplikacji funkcji (co to jest `AzureWebJobsStorage` ). Możesz określić niestandardowe ustawienie aplikacji do użycia dla konta magazynu, dodając [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) i przekazując tablicę atrybutów do `BindAsync<T>()` . Użyj `Binder` parametru, a nie `IBinder` .  Na przykład:
 
 ```cs
 public static class IBinderExampleMultipleAttributes

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 04/30/2020
 ms.author: apimpm
-ms.openlocfilehash: d0fbdcb877e91a703306f15fdc7507fd19d534f4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3bbfd167e89ae1b5f9b7de1df5fd1cb72c720cb6
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82205133"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86254536"
 ---
 # <a name="configure-cloud-metrics-and-logs-for-azure-api-management-self-hosted-gateway"></a>Konfigurowanie metryk i dzienników w chmurze dla usługi Azure API Management Brama samoobsługowa
 
@@ -49,7 +49,7 @@ Oto Przykładowa konfiguracja:
 
 Brama samoobsługowa obecnie emituje następujące metryki za pomocą Azure Monitor:
 
-| Metric  | Opis |
+| Metryka  | Opis |
 | ------------- | ------------- |
 | Żądania  | Liczba żądań interfejsu API w danym okresie |
 | Czas trwania żądań bramy | Liczba milisekund od momentu odebrania żądania w bramie do momentu pełnego wysłania odpowiedzi |
@@ -57,14 +57,12 @@ Brama samoobsługowa obecnie emituje następujące metryki za pomocą Azure Moni
 
 ## <a name="logs"></a>Dzienniki
 
-Brama samoobsługowa obecnie nie wysyła [dzienników diagnostycznych](https://docs.microsoft.com/azure/api-management/api-management-howto-use-azure-monitor#diagnostic-logs) do chmury. Istnieje jednak możliwość [skonfigurowania i utrwalenia dzienników lokalnie](how-to-configure-local-metrics-logs.md) , w których wdrożono bramę samohostowaną. 
+Brama samoobsługowa obecnie nie wysyła [dzienników diagnostycznych](./api-management-howto-use-azure-monitor.md#activity-logs) do chmury. Istnieje jednak możliwość [skonfigurowania i utrwalenia dzienników lokalnie](how-to-configure-local-metrics-logs.md) , w których wdrożono bramę samohostowaną. 
 
-Jeśli Brama jest wdrożona w [usłudze Azure Kubernetes](https://azure.microsoft.com/services/kubernetes-service/), można włączyć funkcję [Azure monitor dla kontenerów](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview) w celu zbierania dzienników z kontenerów i wyświetlania ich w log Analytics. 
+Jeśli Brama jest wdrożona w [usłudze Azure Kubernetes](https://azure.microsoft.com/services/kubernetes-service/), można włączyć funkcję [Azure monitor dla kontenerów](../azure-monitor/insights/container-insights-overview.md) w celu zbierania dzienników z kontenerów i wyświetlania ich w log Analytics. 
 
 
 ## <a name="next-steps"></a>Następne kroki
 
 * Aby dowiedzieć się więcej na temat bramy samoobsługowej, zobacz temat [usługa Azure API Management](self-hosted-gateway-overview.md) samodzielna Brama — Omówienie
 * Informacje na temat [konfigurowania i utrwalania dzienników lokalnie](how-to-configure-local-metrics-logs.md)
-
-

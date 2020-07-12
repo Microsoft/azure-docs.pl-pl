@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 02/20/2020
 ms.author: wieastbu
 ms.custom: fasttrack-new
-ms.openlocfilehash: 3c5c13b3aae33b098de79a3429a299cc33f1c4f6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 60177dd00dc6326aae4cfdc0b658c85f2635f8c0
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82202880"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86253698"
 ---
 # <a name="protect-spa-backend-with-oauth-20-azure-active-directory-b2c-and-azure-api-management"></a>Ochrona zaplecza SPA przy użyciu protokołu OAuth 2,0 Azure Active Directory B2C i platformy Azure API Management
 
@@ -458,7 +458,7 @@ Musisz dodać bloki z formatowaniem CIDR do panelu ograniczenia adresów IP. Gdy
 Powyższe kroki można dostosować i edytować, aby umożliwić korzystanie z wielu różnych Azure AD B2C z API Management.
 
 ## <a name="next-steps"></a>Następne kroki
-* Dowiedz się więcej o [Azure Active Directory i OAuth 2.0](../active-directory/develop/authentication-scenarios.md).
+* Dowiedz się więcej o [Azure Active Directory i OAuth 2.0](../active-directory/develop/authentication-vs-authorization.md).
 * Poznaj więcej [filmów wideo](https://azure.microsoft.com/documentation/videos/index/?services=api-management) dotyczących API Management.
 * Aby poznać inne sposoby zabezpieczenia usługi zaplecza, zobacz [uwierzytelnianie wzajemne certyfikatów](api-management-howto-mutual-certificates.md).
 * [Utwórz wystąpienie usługi API Management](get-started-create-service-instance.md).

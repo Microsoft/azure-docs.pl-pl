@@ -5,11 +5,12 @@ author: sumukhs
 ms.topic: conceptual
 ms.date: 10/02/2017
 ms.author: sumukhs
-ms.openlocfilehash: 9743213394b59af701b25b8be9dd48cf4310b499
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8765e86ffeae86b9f4e2b693c0dbf92478632dbf
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75645518"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86253171"
 ---
 # <a name="configure-stateful-reliable-services"></a>Konfigurowanie niezawodnych usług stanowych
 Istnieją dwa zestawy ustawień konfiguracji dla niezawodnych usług. Jeden zestaw jest globalny dla wszystkich niezawodnych usług w klastrze, podczas gdy drugi zestaw jest specyficzny dla konkretnej niezawodnej usługi.
@@ -108,8 +109,8 @@ ReplicatorConfig
 | CheckpointThresholdInMB |MB |50 |Ilość miejsca w pliku dziennika, po którym stan jest tworzony w punkcie kontrolnym. |
 | MaxRecordSizeInKB |KB |1024 |Największy rozmiar rekordu, który Replikator może zapisać w dzienniku. Ta wartość musi być wielokrotnością 4 i większa niż 16. |
 | MinLogSizeInMB |MB |0 (określony przez system) |Minimalny rozmiar dziennika transakcyjnego. Nie będzie można obciąć dziennika do rozmiaru poniżej tego ustawienia. wartość 0 oznacza, że Replikator określi minimalny rozmiar dziennika. Zwiększenie tej wartości zwiększa możliwość wykonywania kopii częściowych i przyrostowych kopii zapasowych, ponieważ znaczenie odpowiednich rekordów dziennika jest mniejsze. |
-| TruncationThresholdFactor |1U |2 |Określa rozmiar dziennika, który zostanie wyzwolony. Próg obcinania jest określany przez MinLogSizeInMB pomnożony przez TruncationThresholdFactor. Wartość TruncationThresholdFactor musi być większa niż 1. MinLogSizeInMB * TruncationThresholdFactor musi być mniejsze niż MaxStreamSizeInMB. |
-| ThrottlingThresholdFactor |1U |4 |Określa, jaki rozmiar dziennika rozpocznie się dla repliki. Próg ograniczania przepustowości (w MB) jest określany przez funkcję Max ((MinLogSizeInMB * ThrottlingThresholdFactor), (CheckpointThresholdInMB * ThrottlingThresholdFactor)). Próg ograniczania (w MB) musi być większy niż próg obcinania (w MB). Próg obcinania (w MB) musi być mniejszy niż MaxStreamSizeInMB. |
+| TruncationThresholdFactor |Czynnik |2 |Określa rozmiar dziennika, który zostanie wyzwolony. Próg obcinania jest określany przez MinLogSizeInMB pomnożony przez TruncationThresholdFactor. Wartość TruncationThresholdFactor musi być większa niż 1. MinLogSizeInMB * TruncationThresholdFactor musi być mniejsze niż MaxStreamSizeInMB. |
+| ThrottlingThresholdFactor |Czynnik |4 |Określa, jaki rozmiar dziennika rozpocznie się dla repliki. Próg ograniczania przepustowości (w MB) jest określany przez funkcję Max ((MinLogSizeInMB * ThrottlingThresholdFactor), (CheckpointThresholdInMB * ThrottlingThresholdFactor)). Próg ograniczania (w MB) musi być większy niż próg obcinania (w MB). Próg obcinania (w MB) musi być mniejszy niż MaxStreamSizeInMB. |
 | MaxAccumulatedBackupLogSizeInMB |MB |800 |Maksymalny rozmiar skumulowany (w MB) dzienników kopii zapasowej w danym łańcuchu dzienników kopii zapasowych. Przyrostowe żądania kopii zapasowej zakończą się niepowodzeniem, jeśli przyrostowa kopia zapasowa wygeneruje dziennik kopii zapasowej, który mógłby spowodować zebrane dzienniki kopii zapasowej, ponieważ odpowiednia pełna kopia zapasowa będzie większa niż ten rozmiar. W takich przypadkach użytkownik musi wykonać pełną kopię zapasową. |
 | SharedLogId |GUID |"" |Określa unikatowy identyfikator GUID, który będzie używany do identyfikowania udostępnionego pliku dziennika używanego z tą repliką. Zazwyczaj usługi nie powinny używać tego ustawienia. Jeśli jednak SharedLogId jest określony, należy również określić SharedLogPath. |
 | SharedLogPath |W pełni kwalifikowana nazwa ścieżki |"" |Określa w pełni kwalifikowaną ścieżkę, w której zostanie utworzony udostępniony plik dziennika dla tej repliki. Zazwyczaj usługi nie powinny używać tego ustawienia. Jeśli jednak SharedLogPath jest określony, należy również określić SharedLogId. |
@@ -183,5 +184,4 @@ Ustawienia SharedLogId i SharedLogPath są zawsze używane razem, aby usługa ko
 
 ## <a name="next-steps"></a>Następne kroki
 * [Debugowanie aplikacji Service Fabric w programie Visual Studio](service-fabric-debugging-your-application.md)
-* [Dokumentacja dla deweloperów Reliable Services](https://msdn.microsoft.com/library/azure/dn706529.aspx)
-
+* [Dokumentacja dla deweloperów Reliable Services](/previous-versions/azure/dn706529(v=azure.100))

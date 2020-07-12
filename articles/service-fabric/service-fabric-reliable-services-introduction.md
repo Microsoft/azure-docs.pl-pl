@@ -6,11 +6,12 @@ ms.topic: conceptual
 ms.date: 3/9/2018
 ms.author: masnider
 ms.custom: sfrev
-ms.openlocfilehash: 58259b0d19d68c468779a579bd9c86e77106c18d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 66fc58941de206d0bff086f44852d0f2a31587f1
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77083504"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86253086"
 ---
 # <a name="reliable-services-overview"></a>Omówienie usług Reliable Services
 
@@ -36,7 +37,7 @@ Reliable Services zapewnia prosty, zaawansowany model programistyczny najwyższe
   * Korzystanie z [niezawodnych kolekcji](service-fabric-reliable-services-reliable-collections.md)
   * Dostęp do wielu innych funkcji — wszystko to z modelu programowania pierwszej klasy w kilku językach programowania.
 * Prosty model służący do uruchamiania własnego kodu, który jest taki sam jak inne znane modele programowania. Twój kod zawiera dobrze zdefiniowany punkt wejścia i umożliwia łatwe zarządzanie cyklem życia.
-* Model komunikacji podłączanej. Używaj wybranego transportu, takiego jak HTTP z [interfejsem API sieci Web](service-fabric-reliable-services-communication-webapi.md), WebSockets, niestandardowych protokołów TCP lub innych. Reliable Services zapewnić pewne wspaniałe dostępne opcje, których możesz użyć, lub możesz podać własne.
+* Model komunikacji podłączanej. Używaj wybranego transportu, takiego jak HTTP z [interfejsem API sieci Web](./service-fabric-reliable-services-communication-aspnetcore.md), WebSockets, niestandardowych protokołów TCP lub innych. Reliable Services zapewnić pewne wspaniałe dostępne opcje, których możesz użyć, lub możesz podać własne.
 * W przypadku usług stanowych model programowania Reliable Services pozwala spójnie i niezawodne przechowywanie stanu bezpośrednio w ramach usługi przy użyciu [niezawodnych kolekcji](service-fabric-reliable-services-reliable-collections.md). Niezawodne Kolekcje to prosty zestaw klas wysokiej dostępności i niezawodnych kolekcji, które będą znane wszystkim użytkownikom, którzy korzystali z kolekcji języka C#. Tradycyjnie niezawodne zarządzanie Stanami wymaga usług zewnętrznych. Za pomocą niezawodnych kolekcji można przechowywać swój stan obok obliczeń o tej samej wysokiej dostępności i niezawodności, które mają być oczekiwane w przypadku magazynów zewnętrznych z wysoką dostępnością. Ten model zwiększa również opóźnienia, ponieważ są umieszczane w tym miejscu obliczenia i stan, który musi działać.
 
 ## <a name="what-makes-reliable-services-different"></a>Co sprawia, że Reliable Services różne
@@ -52,7 +53,7 @@ Reliable Services różnią się od wcześniej zapisanych usług, ponieważ Serv
 
 Niezależnie od tego, czy usługa jest stanowa, czy bezstanowa, Reliable Services zapewnić prosty cykl życia, który umożliwia szybkie podłączenie kodu i rozpoczęcie pracy.  Wprowadzenie nowej usługi i uruchomienia wymaga wdrożenia dwóch metod:
 
-* **CreateServiceReplicaListeners/CreateServiceInstanceListeners** — ta metoda polega na tym, że usługa definiuje stosy komunikacji, których chce użyć. Stos komunikacyjny, taki jak [interfejs API sieci Web](service-fabric-reliable-services-communication-webapi.md), definiuje punkt końcowy nasłuchujący lub punkty końcowe usługi (jak klienci docierają do usługi). Definiuje także sposób, w jaki komunikaty pojawiają się w pozostałej części kodu usługi.
+* **CreateServiceReplicaListeners/CreateServiceInstanceListeners** — ta metoda polega na tym, że usługa definiuje stosy komunikacji, których chce użyć. Stos komunikacyjny, taki jak [interfejs API sieci Web](./service-fabric-reliable-services-communication-aspnetcore.md), definiuje punkt końcowy nasłuchujący lub punkty końcowe usługi (jak klienci docierają do usługi). Definiuje także sposób, w jaki komunikaty pojawiają się w pozostałej części kodu usługi.
 * **RunAsync** — ta metoda polega na tym, że Usługa uruchamia swoją logikę biznesową, oraz miejsce, w której można uruchomić wszystkie zadania w tle, które powinny być uruchamiane przez okres istnienia usługi. Podany token anulowania jest sygnałem, kiedy ta pracy powinna zostać zatrzymana. Na przykład, jeśli usługa musi ściągać komunikaty z niezawodnej kolejki i przetwarzać je, jest to miejsce, w którym działa.
 
 Jeśli po raz pierwszy uczysz się o niezawodnych usługach, przeczytaj temat. Jeśli szukasz szczegółowego przewodnika po cyklu życia niezawodnych usług, zapoznaj się z [omówieniem cyklu życia Reliable Services](service-fabric-reliable-services-lifecycle.md).
@@ -67,7 +68,7 @@ Przyjrzyjmy się bliżej, jak model Reliable Services współpracuje z usługami
 
 Rozważmy na przykład kalkulator, który nie ma pamięci i odbiera wszystkie warunki i operacje, które mają być wykonywane jednocześnie.
 
-W takim przypadku `RunAsync()` (C#) lub `runAsync()` (Java) usługi może być pusta, ponieważ nie ma żadnego przetwarzania zadań w tle wymaganych przez usługę. Po utworzeniu usługi kalkulatora zwraca wartość `ICommunicationListener` (C#) lub `CommunicationListener` (Java) (na przykład [internetowy interfejs API](service-fabric-reliable-services-communication-webapi.md)) otwierającą punkt końcowy nasłuchiwania na niektórych portach. Ten punkt końcowy nasłuchiwania przechwytuje do różnych metod obliczeń (na przykład: "Add (N1, N2)"), które definiują publiczny interfejs API kalkulatora.
+W takim przypadku `RunAsync()` (C#) lub `runAsync()` (Java) usługi może być pusta, ponieważ nie ma żadnego przetwarzania zadań w tle wymaganych przez usługę. Po utworzeniu usługi kalkulatora zwraca wartość `ICommunicationListener` (C#) lub `CommunicationListener` (Java) (na przykład [internetowy interfejs API](./service-fabric-reliable-services-communication-aspnetcore.md)) otwierającą punkt końcowy nasłuchiwania na niektórych portach. Ten punkt końcowy nasłuchiwania przechwytuje do różnych metod obliczeń (na przykład: "Add (N1, N2)"), które definiują publiczny interfejs API kalkulatora.
 
 W przypadku wywołania z klienta odpowiednia metoda jest wywoływana i usługa Kalkulator wykonuje operacje na danych i zwraca wynik. Nie przechowuje żadnego stanu.
 

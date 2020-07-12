@@ -12,21 +12,22 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 12/14/2019
 ms.author: apimpm
-ms.openlocfilehash: 1d6773b4daac256234c33bf50fb3736d585ac505
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5e995d008b441e122f9e93e5f7c29f0bb9bf9c53
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75480998"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86254694"
 ---
 # <a name="use-azure-api-management-with-microservices-deployed-in-azure-kubernetes-service"></a>Korzystanie z usługi Azure API Management z mikrousługami wdrożonymi w usłudze Azure Kubernetes Service
 
-Mikrousługi doskonale nadaje się do kompilowania interfejsów API. Za pomocą [usługi Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/) (AKS) można szybko wdrożyć i obsługiwać [architekturę opartą na mikrousługach](https://docs.microsoft.com/azure/architecture/guide/architecture-styles/microservices) w chmurze. Następnie można wykorzystać [platformę Azure API Management](https://aka.ms/apimrocks) (API Management) do publikowania mikrousług jako interfejsów API do użytku wewnętrznego i zewnętrznego. W tym artykule opisano opcje wdrażania API Management z AKS. Założono podstawową wiedzę na temat Kubernetes, API Management i sieci platformy Azure. 
+Mikrousługi doskonale nadaje się do kompilowania interfejsów API. Za pomocą [usługi Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/) (AKS) można szybko wdrożyć i obsługiwać [architekturę opartą na mikrousługach](/azure/architecture/guide/architecture-styles/microservices) w chmurze. Następnie można wykorzystać [platformę Azure API Management](https://aka.ms/apimrocks) (API Management) do publikowania mikrousług jako interfejsów API do użytku wewnętrznego i zewnętrznego. W tym artykule opisano opcje wdrażania API Management z AKS. Założono podstawową wiedzę na temat Kubernetes, API Management i sieci platformy Azure. 
 
 ## <a name="background"></a>Tło
 
 Podczas publikowania mikrousług jako interfejsów API do użycia może być trudne do zarządzania komunikacją między mikrousługami i klientami, którzy ich używają. Występuje wiele problemów z wycinaniem, takich jak uwierzytelnianie, autoryzacja, ograniczanie, buforowanie, przekształcenie i monitorowanie. Te zagadnienia są ważne niezależnie od tego, czy mikrousługi są udostępniane klientom wewnętrznym, czy zewnętrznym. 
 
-Wzorzec [bramy interfejsu API](https://docs.microsoft.com/dotnet/architecture/microservices/architect-microservice-container-applications/direct-client-to-microservice-communication-versus-the-api-gateway-pattern) dotyczy tych zagadnień. Brama interfejsu API służy jako przód do mikrousług, oddziela klientów od mikrousług, dodaje dodatkową warstwę zabezpieczeń i zmniejsza złożoność mikrousług, eliminując obciążenie związane z obcinaniem. 
+Wzorzec [bramy interfejsu API](/dotnet/architecture/microservices/architect-microservice-container-applications/direct-client-to-microservice-communication-versus-the-api-gateway-pattern) dotyczy tych zagadnień. Brama interfejsu API służy jako przód do mikrousług, oddziela klientów od mikrousług, dodaje dodatkową warstwę zabezpieczeń i zmniejsza złożoność mikrousług, eliminując obciążenie związane z obcinaniem. 
 
 [API Management platformy Azure](https://aka.ms/apimrocks) to rozwiązanie gotowe, które pozwala rozwiązać potrzeby bramy interfejsu API. Można szybko utworzyć spójną i nowoczesne bramy dla mikrousług i opublikować je jako interfejsy API. W ramach rozwiązania do zarządzania interfejsami API pełnego cyklu życia dostępne są również dodatkowe funkcje, w tym samoobsługowy portal dla deweloperów umożliwiający odnajdywanie interfejsów API, zarządzanie cyklem życia interfejsu API oraz analizowanie interfejsów API.
 
@@ -52,7 +53,7 @@ Mimo że klaster AKS jest zawsze wdrażany w sieci wirtualnej (VNet), nie trzeba
 
 ### <a name="option-1-expose-services-publicly"></a>Opcja 1: ujawnianie usług publicznie
 
-Usługi w klastrze AKS mogą być udostępniane publicznie przy użyciu [typów usług](https://docs.microsoft.com/azure/aks/concepts-network) NodePort, modułu równoważenia obciążenia lub zewnętrznegoname. W takim przypadku usługi są dostępne bezpośrednio z publicznej sieci Internet. Po wdrożeniu API Management przed klastrem musimy upewnić się, że cały ruch przychodzący przechodzi przez API Management, stosując uwierzytelnianie w mikrousługach. Na przykład API Management może zawierać token dostępu w każdym żądaniu wykonywanym w klastrze. Każda mikrousługa jest odpowiedzialna za sprawdzanie poprawności tokenu przed przetworzeniem żądania. 
+Usługi w klastrze AKS mogą być udostępniane publicznie przy użyciu [typów usług](../aks/concepts-network.md) NodePort, modułu równoważenia obciążenia lub zewnętrznegoname. W takim przypadku usługi są dostępne bezpośrednio z publicznej sieci Internet. Po wdrożeniu API Management przed klastrem musimy upewnić się, że cały ruch przychodzący przechodzi przez API Management, stosując uwierzytelnianie w mikrousługach. Na przykład API Management może zawierać token dostępu w każdym żądaniu wykonywanym w klastrze. Każda mikrousługa jest odpowiedzialna za sprawdzanie poprawności tokenu przed przetworzeniem żądania. 
 
 
 Może to być najłatwiejsza opcja wdrażania API Management przed AKS, zwłaszcza jeśli masz już implementację logiki uwierzytelniania w mikrousługach. 
@@ -72,7 +73,7 @@ Wada
 
 Chociaż opcja 1 może być łatwiejsza, ma znaczące wady, jak wspomniano powyżej. Jeśli wystąpienie API Management nie znajduje się w sieci wirtualnej klastra, uwierzytelnianie wzajemne TLS (mTLS) jest niezawodnym sposobem zapewnienia bezpieczeństwa i zaufanego ruchu w obu kierunkach między wystąpieniem API Management a klastrem AKS. 
 
-Uwierzytelnianie wzajemne przy użyciu protokołu TLS jest [natywnie obsługiwane](https://docs.microsoft.com/azure/api-management/api-management-howto-mutual-certificates) przez API Management i można je włączyć w Kubernetes, [instalując kontroler](https://docs.microsoft.com/azure/aks/ingress-own-tls) transferu danych przychodzących (rys. 3). W związku z tym uwierzytelnianie zostanie przeprowadzone w kontrolerze transferu danych przychodzących, co upraszcza mikrousługi. Ponadto adresy IP API Management można dodać do listy dozwolonych przez ruch przychodzący, aby upewnić się, że tylko API Management ma dostęp do klastra.  
+Uwierzytelnianie wzajemne przy użyciu protokołu TLS jest [natywnie obsługiwane](./api-management-howto-mutual-certificates.md) przez API Management i można je włączyć w Kubernetes, [instalując kontroler](../aks/ingress-own-tls.md) transferu danych przychodzących (rys. 3). W związku z tym uwierzytelnianie zostanie przeprowadzone w kontrolerze transferu danych przychodzących, co upraszcza mikrousługi. Ponadto adresy IP API Management można dodać do listy dozwolonych przez ruch przychodzący, aby upewnić się, że tylko API Management ma dostęp do klastra.  
 
  
 ![Publikowanie za pośrednictwem kontrolera transferu danych przychodzących](./media/api-management-aks/ingress-controller.png)
@@ -96,7 +97,7 @@ Aby uzyskać klucz subskrypcji do uzyskiwania dostępu do interfejsów API, wyma
 
 W niektórych przypadkach klienci z ograniczeniami obowiązującymi lub rygorystycznymi wymaganiami dotyczącymi zabezpieczeń mogą znaleźć opcję 1 i 2 nieżywotne rozwiązania ze względu na publicznie uwidocznione punkty końcowe. W innych przypadkach klaster AKS i aplikacje korzystające z mikrousług mogą znajdować się w tej samej sieci wirtualnej, dlatego nie istnieje powód, aby udostępnić klaster publicznie, ponieważ cały ruch interfejsu API pozostanie w sieci wirtualnej. W tych scenariuszach można wdrożyć API Management w sieci wirtualnej klastra. [API Management warstwa Premium](https://aka.ms/apimpricing) obsługuje wdrożenie sieci wirtualnej. 
 
-Istnieją dwa tryby [wdrażania API Management w sieci wirtualnej](https://docs.microsoft.com/azure/api-management/api-management-using-with-vnet) — zewnętrzna i wewnętrzna. 
+Istnieją dwa tryby [wdrażania API Management w sieci wirtualnej](./api-management-using-with-vnet.md) — zewnętrzna i wewnętrzna. 
 
 Jeśli odbiorcy interfejsu API nie znajdują się w sieci wirtualnej klastra, należy użyć trybu zewnętrznego (rys. 4). W tym trybie Brama API Management jest wstrzykiwana do sieci wirtualnej klastra, ale jest dostępna z publicznej sieci Internet za pośrednictwem zewnętrznego modułu równoważenia obciążenia. Pozwala ona na całkowite ukrycie klastra, a jednocześnie umożliwia klientom zewnętrznym korzystanie z mikrousług. Ponadto można użyć funkcji sieciowych platformy Azure, takich jak sieciowe grupy zabezpieczeń (sieciowej grupy zabezpieczeń), aby ograniczyć ruch sieciowy.
 
@@ -119,10 +120,5 @@ Wada
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Dowiedz się więcej o [pojęciach sieci dla aplikacji w AKS](https://docs.microsoft.com/azure/aks/concepts-network)
-* Dowiedz się więcej [na temat używania API Management z sieciami wirtualnymi](https://docs.microsoft.com/azure/api-management/api-management-using-with-vnet)
-
-
-
-
-
+* Dowiedz się więcej o [pojęciach sieci dla aplikacji w AKS](../aks/concepts-network.md)
+* Dowiedz się więcej [na temat używania API Management z sieciami wirtualnymi](./api-management-using-with-vnet.md)

@@ -6,12 +6,12 @@ ms.topic: quickstart
 ms.date: 01/29/2019
 ms.author: suhuruli
 ms.custom: mvc, devcenter, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: fc615149b092aebfdde767fb3b716fb897bfd551
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 833b8fff65de7e7fdfc36565e91d18a1644723d1
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77121504"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86254320"
 ---
 # <a name="quickstart--deploy-a-java-app-to-azure-service-fabric-on-linux"></a>Szybki Start: wdrażanie aplikacji Java na platformie Azure Service Fabric w systemie Linux
 
@@ -21,12 +21,12 @@ Usługa Azure Service Fabric to platforma systemów rozproszonych umożliwiając
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- [Środowisko Java](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#set-up-java-development) i [Narzędzia Yeoman](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#set-up-yeoman-generators-for-containers-and-guest-executables)
-- [Zaćmienie (4.6) +](https://www.eclipse.org/downloads/packages/) i [zaćmienie plug-in dla Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#install-the-eclipse-plug-in-optional)
-- [Service Fabric zestawu SDK i interfejsu wiersza polecenia (CLI)](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#installation-methods)
+- [Środowisko Java](./service-fabric-get-started-linux.md#set-up-java-development) i [Narzędzia Yeoman](./service-fabric-get-started-linux.md#set-up-yeoman-generators-for-containers-and-guest-executables)
+- [Zaćmienie (4.6) +](https://www.eclipse.org/downloads/packages/) i [zaćmienie plug-in dla Service Fabric](./service-fabric-get-started-linux.md#install-the-eclipse-plug-in-optional)
+- [Service Fabric zestawu SDK i interfejsu wiersza polecenia (CLI)](./service-fabric-get-started-linux.md#installation-methods)
 - [Git](https://git-scm.com/downloads)
 
-## <a name="download-the-sample"></a>Pobierz przykład
+## <a name="download-the-sample"></a>Pobieranie przykładu
 
 W oknie polecenia uruchom następujące polecenie, aby sklonować przykładowe repozytorium aplikacji na komputer lokalny.
 
@@ -46,13 +46,13 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart.git
     ![Usługa Azure Service Fabric Explorer wyświetla w dobrej kondycji węzły](./media/service-fabric-quickstart-java/service-fabric-explorer-healthy-nodes.png)
 
 2. Otwórz program Eclipse.
-3. Wybierz pozycję **plik** > **Import** > **Gradle** > **istniejący projekt Gradle** i postępuj zgodnie z instrukcjami kreatora.
+3. Wybierz pozycję **plik**  >  **Import**  >  **Gradle**  >  **istniejący projekt Gradle** i postępuj zgodnie z instrukcjami kreatora.
 4. Wybierz pozycję **katalog** i wybierz katalog **głosowania** z folderu **Service-Fabric-Java-Start** , który został sklonowany z witryny GitHub. Wybierz pozycję **Zakończ**.
 
     ![Importuj projekt Gradle do przezaćmienia](./media/service-fabric-quickstart-java/eclipse-import-gradle-project.png)
 
 5. Teraz projekt `Voting` będzie dostępny w widoku Eksplorator pakietów programu Eclipse.
-6. Kliknij prawym przyciskiem myszy projekt i wybierz pozycję **Opublikuj aplikację** na liście rozwijanej **Service Fabric** . Wybierz pozycję **PublishProfiles/Local. JSON** jako profil docelowy, a następnie wybierz pozycję **Publikuj**.
+6. Kliknij prawym przyciskiem myszy projekt i wybierz pozycję **Opublikuj aplikację** na liście rozwijanej **Service Fabric** . Wybierz pozycję **PublishProfiles/Local.js** jako profil docelowy, a następnie wybierz pozycję **Publikuj**.
 
     ![Usługa Azure Service Fabric publikowanie lokalnego pliku JSON](./media/service-fabric-quickstart-java/service-fabric-publish-local-json.png)
 
@@ -66,7 +66,7 @@ Teraz możesz dodać zestaw opcji głosowania i rozpocząć obsługę głosów. 
 
 ## <a name="scale-applications-and-services-in-a-cluster"></a>Skalowanie aplikacji i usług w klastrze
 
-Usługi można skalować na klaster w celu dostosowania ich do zmiany obciążenia. Skalowanie usługi odbywa się przez zmienianie liczby wystąpień uruchomionych w klastrze. Istnieje wiele sposobów skalowania usług. Można na przykład użyć skryptów lub poleceń z Service Fabric interfejsu wiersza polecenia (`sfctl`). W poniższych krokach będzie używane narzędzie Service Fabric Explorer.
+Usługi można skalować na klaster w celu dostosowania ich do zmiany obciążenia. Skalowanie usługi odbywa się przez zmienianie liczby wystąpień uruchomionych w klastrze. Istnieje wiele sposobów skalowania usług. Można na przykład użyć skryptów lub poleceń z Service Fabric interfejsu wiersza polecenia ( `sfctl` ). W poniższych krokach będzie używane narzędzie Service Fabric Explorer.
 
 Service Fabric Explorer działa we wszystkich klastrach Service Fabric i można uzyskać do nich dostęp z przeglądarki, przechodząc do portu HTTP zarządzania klastrami (19080). Na przykład `http://localhost:19080`.
 

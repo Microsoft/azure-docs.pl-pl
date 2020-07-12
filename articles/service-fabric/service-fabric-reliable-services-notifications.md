@@ -5,11 +5,12 @@ author: mcoskun
 ms.topic: conceptual
 ms.date: 6/29/2017
 ms.author: mcoskun
-ms.openlocfilehash: 1f3239ea1da252ccd84c6572b562756c8fd1677d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 16dcfd23ec00a144b17244e811e91a92db9e6995
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75639568"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86253052"
 ---
 # <a name="reliable-services-notifications"></a>Powiadomienia Reliable Services
 Powiadomienia umożliwiają klientom śledzenie zmian wprowadzonych w obiekcie, który Cię interesuje. Dwa typy obiektów obsługują powiadomienia: *niezawodnego menedżera stanu* i *niezawodnego słownika*.
@@ -209,5 +210,4 @@ Poniżej przedstawiono niektóre kwestie, o których należy pamiętać:
 * [Elementy Reliable Collections](service-fabric-work-with-reliable-collections.md)
 * [Reliable Services Szybki Start](service-fabric-reliable-services-quick-start.md)
 * [Reliable Services kopii zapasowej i przywracania (odzyskiwanie po awarii)](service-fabric-reliable-services-backup-restore.md)
-* [Dokumentacja dla deweloperów dla niezawodnych kolekcji](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
-
+* [Dokumentacja dla deweloperów dla niezawodnych kolekcji](/dotnet/api/microsoft.servicefabric.data.collections?view=azure-dotnet#microsoft_servicefabric_data_collections)

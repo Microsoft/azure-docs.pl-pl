@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: b8215cd852d54283bfc6bd47e77d7d63ee4e2582
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7b586edd7adce8bcea61419005a3ce8cfc814fb3
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79475497"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86254949"
 ---
 # <a name="how-to-authorize-developer-accounts-by-using-azure-active-directory-b2c-in-azure-api-management"></a>Jak autoryzować konta deweloperów przy użyciu usługi Azure Active Directory B2C w usłudze Azure API Management
 
@@ -63,7 +64,7 @@ Azure Active Directory B2C to rozwiązanie do zarządzania tożsamościami w chm
 
     ![Oświadczenia aplikacji](./media/api-management-howto-aad-b2c/api-management-application-claims.png)
 
-1. Kliknij przycisk **Utwórz**. Gdy aplikacja zostanie utworzona, zostanie wyświetlona w bloku **aplikacje** . Kliknij nazwę aplikacji, aby wyświetlić jej szczegóły.
+1. Kliknij przycisk **Utwórz** . Gdy aplikacja zostanie utworzona, zostanie wyświetlona w bloku **aplikacje** . Kliknij nazwę aplikacji, aby wyświetlić jej szczegóły.
 
    ![Rejestrowanie nowej aplikacji 4][api-management-howto-aad-b2c-app-created]
 
@@ -117,7 +118,7 @@ Mimo że nowe konto zostanie utworzone automatycznie za każdym razem, gdy nowy 
    > [!NOTE]
    > Jeśli Azure Active Directory B2C jest jedyną opcją włączoną na karcie **tożsamości** w portalu wydawcy, nastąpi przekierowanie do zasad rejestracji bezpośrednio.
 
-   ![Portal dla deweloperów][api-management-howto-aad-b2c-dev-portal-b2c-options]
+   ![Portal deweloperów][api-management-howto-aad-b2c-dev-portal-b2c-options]
 
    Po zakończeniu rejestracji nastąpi przekierowanie do portalu dla deweloperów. Zalogowano Cię do portalu dla deweloperów dla wystąpienia usługi API Management.
 
@@ -181,25 +182,25 @@ Mimo że nowe konto zostanie utworzone automatycznie za każdym razem, gdy nowy 
 [api-management-groups]: ./media/api-management-howto-aad/api-management-groups.png
 [api-management-edit-group]: ./media/api-management-howto-aad/api-management-edit-group.png
 
-[How to add operations to an API]: api-management-howto-add-operations.md
+[How to add operations to an API]: ./mock-api-responses.md
 [How to add and publish a product]: api-management-howto-add-products.md
 [Monitoring and analytics]: api-management-monitoring.md
 [Add APIs to a product]: api-management-howto-add-products.md#add-apis
 [Publish a product]: api-management-howto-add-products.md#publish-product
 [Get started with Azure API Management]: get-started-create-service-instance.md
-[API Management policy reference]: api-management-policy-reference.md
-[Caching policies]: api-management-policy-reference.md#caching-policies
+[API Management policy reference]: ./api-management-policies.md
+[Caching policies]: ./api-management-policies.md#caching-policies
 [Create an API Management service instance]: get-started-create-service-instance.md
 
 [https://oauth.net/2/]: https://oauth.net/2/
 [WebApp-GraphAPI-DotNet]: https://github.com/AzureADSamples/WebApp-GraphAPI-DotNet
-[Przegląd Azure Active Directory B2C]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview
-[Jak autoryzować konta dewelopera przy użyciu Azure Active Directory]: https://docs.microsoft.com/azure/api-management/api-management-howto-aad
-[Azure Active Directory B2C: rozszerzalna struktura zasad]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-policies
-[Użyj konto Microsoft jako dostawcy tożsamości w programie Azure Active Directory B2C]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-setup-msa-app
-[Użyj konta Google jako dostawcy tożsamości w Azure Active Directory B2C]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-setup-goog-app
-[Używanie konta w usłudze Facebook jako dostawcy tożsamości w Azure Active Directory B2C]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-setup-fb-app
-[Używanie konta LinkedIn jako dostawcy tożsamości w Azure Active Directory B2C]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-setup-li-app
+[Przegląd Azure Active Directory B2C]: ../active-directory-b2c/overview.md
+[Jak autoryzować konta dewelopera przy użyciu Azure Active Directory]: ./api-management-howto-aad.md
+[Azure Active Directory B2C: rozszerzalna struktura zasad]: ../active-directory-b2c/user-flow-overview.md
+[Użyj konto Microsoft jako dostawcy tożsamości w programie Azure Active Directory B2C]: ../active-directory-b2c/identity-provider-microsoft-account.md
+[Użyj konta Google jako dostawcy tożsamości w Azure Active Directory B2C]: ../active-directory-b2c/identity-provider-google.md
+[Używanie konta w usłudze Facebook jako dostawcy tożsamości w Azure Active Directory B2C]: ../active-directory-b2c/identity-provider-facebook.md
+[Używanie konta LinkedIn jako dostawcy tożsamości w Azure Active Directory B2C]: ../active-directory-b2c/identity-provider-linkedin.md
 
 [Prerequisites]: #prerequisites
 [Configure an OAuth 2.0 authorization server in API Management]: #step1

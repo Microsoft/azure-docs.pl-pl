@@ -7,15 +7,16 @@ ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: thfalgou
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 7aa93d8ba21cafddc5511e16fa430b76942b1a6d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e4e2a1fc08851e4e625bfc59419fc274ebbce1c8
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80668291"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86251200"
 ---
 # <a name="best-practices-for-business-continuity-and-disaster-recovery-in-azure-kubernetes-service-aks"></a>Najlepsze rozwiązania związane z ciągłością biznesową i odzyskiwaniem po awarii w usłudze Azure Kubernetes Service (AKS)
 
-Podczas zarządzania klastrami w usłudze Azure Kubernetes Service (AKS), działania aplikacji staną się ważne. Domyślnie AKS zapewnia wysoką dostępność przy użyciu wielu węzłów w [zestawie skalowania maszyn wirtualnych (VMSS)](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview). Jednak te wiele węzłów nie chroni systemu przed awarią regionu. Aby zmaksymalizować czas pracy, Planuj z wyprzedzeniem, aby zachować ciągłość działania i przygotować się do odzyskiwania po awarii.
+Podczas zarządzania klastrami w usłudze Azure Kubernetes Service (AKS), działania aplikacji staną się ważne. Domyślnie AKS zapewnia wysoką dostępność przy użyciu wielu węzłów w [zestawie skalowania maszyn wirtualnych (VMSS)](../virtual-machine-scale-sets/overview.md). Jednak te wiele węzłów nie chroni systemu przed awarią regionu. Aby zmaksymalizować czas pracy, Planuj z wyprzedzeniem, aby zachować ciągłość działania i przygotować się do odzyskiwania po awarii.
 
 Ten artykuł koncentruje się na tym, jak planować ciągłość działania i odzyskiwanie po awarii w programie AKS. Omawiane kwestie:
 
@@ -32,8 +33,8 @@ Ten artykuł koncentruje się na tym, jak planować ciągłość działania i od
 
 Klaster AKS jest wdrażany w jednym regionie. Aby chronić system przed awarią regionu, wdróż aplikację w wielu klastrach AKS w różnych regionach. Planując miejsce wdrożenia klastra AKS, Rozważ następujące kwestie:
 
-* [**Dostępność regionu AKS**](https://docs.microsoft.com/azure/aks/quotas-skus-regions#region-availability): Wybierz regiony blisko Twoich użytkowników. AKS ciągle rozszerza się w nowe regiony.
-* [**Sparowane regiony platformy Azure**](https://docs.microsoft.com/azure/best-practices-availability-paired-regions): dla obszaru geograficznego wybierz dwa regiony, które są sparowane ze sobą. Sparowane regiony koordynują aktualizacje platformy i ustalają priorytety działań związanych z odzyskiwaniem w razie konieczności.
+* [**Dostępność regionu AKS**](./quotas-skus-regions.md#region-availability): Wybierz regiony blisko Twoich użytkowników. AKS ciągle rozszerza się w nowe regiony.
+* [**Sparowane regiony platformy Azure**](../best-practices-availability-paired-regions.md): dla obszaru geograficznego wybierz dwa regiony, które są sparowane ze sobą. Sparowane regiony koordynują aktualizacje platformy i ustalają priorytety działań związanych z odzyskiwaniem w razie konieczności.
 * **Dostępność usługi**: Zdecyduj, czy sparowane regiony powinny mieć gorącą/gorącą, gorącą/ciepłą lub gorącą/zimną. Czy chcesz uruchomić oba regiony w tym samym czasie, z jednym regionem *gotowym* do uruchomienia ruchu? Lub czy chcesz, aby jeden region miał czas gotowy do obsługi ruchu?
 
 AKS region dostępności i sparowane regiony są wspólne. Wdróż klastry AKS w połączonych regionach, które są przeznaczone do zarządzania odzyskiwaniem po awarii regionu. Na przykład AKS jest dostępna w regionach Wschodnie stany USA i zachodnie stany USA. Te regiony są sparowane. Wybierz te dwa regiony podczas tworzenia strategii AKS BC/DR.
@@ -44,7 +45,7 @@ Podczas wdrażania aplikacji należy dodać kolejny krok do potoku ciągłej int
 
 **Najlepsze rozwiązanie**: usługa Azure Traffic Manager może kierować klientów do najbliższego klastra AKS i wystąpienia aplikacji. Aby uzyskać najlepszą wydajność i nadmiarowość, należy skierować cały ruch aplikacji przez Traffic Manager przed przejściem do klastra AKS.
 
-Jeśli masz wiele klastrów AKS w różnych regionach, użyj Traffic Manager, aby kontrolować sposób przepływu ruchu do aplikacji uruchamianych w każdym klastrze. [Azure Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/) to oparty na systemie DNS moduł równoważenia obciążenia, który może dystrybuować ruch sieciowy między regionami. Użyj Traffic Manager, aby kierować użytkowników na podstawie czasu odpowiedzi klastra lub na podstawie lokalizacji geograficznej.
+Jeśli masz wiele klastrów AKS w różnych regionach, użyj Traffic Manager, aby kontrolować sposób przepływu ruchu do aplikacji uruchamianych w każdym klastrze. [Azure Traffic Manager](../traffic-manager/index.yml) to oparty na systemie DNS moduł równoważenia obciążenia, który może dystrybuować ruch sieciowy między regionami. Użyj Traffic Manager, aby kierować użytkowników na podstawie czasu odpowiedzi klastra lub na podstawie lokalizacji geograficznej.
 
 ![AKS z Traffic Manager](media/operator-best-practices-bc-dr/aks-azure-traffic-manager.png)
 
@@ -54,15 +55,15 @@ Klienci, którzy mają jeden klaster AKS zazwyczaj nawiązują połączenie z ad
 
 Traffic Manager wykonuje wyszukiwania DNS i zwraca najbardziej odpowiedni punkt końcowy użytkownika. Profile zagnieżdżone mogą określać priorytet lokalizacji podstawowej. Na przykład użytkownicy powinni zwykle łączyć się z najbliższym regionem geograficznym. Jeśli ten region ma problem, Traffic Manager zamiast tego kieruje użytkowników do regionu pomocniczego. Takie podejście zapewnia, że klienci mogą łączyć się z wystąpieniem aplikacji nawet wtedy, gdy ich najbliższy region geograficzny jest niedostępny.
 
-Aby uzyskać informacje na temat konfigurowania punktów końcowych i routingu, zobacz [Konfigurowanie metody routingu ruchu geograficznego przy użyciu Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-configure-geographic-routing-method).
+Aby uzyskać informacje na temat konfigurowania punktów końcowych i routingu, zobacz [Konfigurowanie metody routingu ruchu geograficznego przy użyciu Traffic Manager](../traffic-manager/traffic-manager-configure-geographic-routing-method.md).
 
 ### <a name="layer-7-application-routing-with-azure-front-door-service"></a>Routing aplikacji warstwy 7 z usługą Azure front-drzwi
 
-Traffic Manager używa systemu DNS (warstwa 3) do kształtowania ruchu. [Usługa frontonu platformy Azure](https://docs.microsoft.com/azure/frontdoor/front-door-overview) udostępnia opcję routingu http/https (warstwa 7). Dodatkowe funkcje usługi Azure Front drzwiczk obejmują zakończenie protokołu TLS, domenę niestandardową, zaporę aplikacji sieci Web, ponowne zapisywanie adresów URL i koligację sesji. Przejrzyj potrzeby ruchu aplikacji, aby zrozumieć, które rozwiązanie jest najbardziej odpowiednie.
+Traffic Manager używa systemu DNS (warstwa 3) do kształtowania ruchu. [Usługa frontonu platformy Azure](../frontdoor/front-door-overview.md) udostępnia opcję routingu http/https (warstwa 7). Dodatkowe funkcje usługi Azure Front drzwiczk obejmują zakończenie protokołu TLS, domenę niestandardową, zaporę aplikacji sieci Web, ponowne zapisywanie adresów URL i koligację sesji. Przejrzyj potrzeby ruchu aplikacji, aby zrozumieć, które rozwiązanie jest najbardziej odpowiednie.
 
 ### <a name="interconnect-regions-with-global-virtual-network-peering"></a>Regiony programu InterConnect z globalną siecią wirtualną sieci wirtualnej
 
-Jeśli klastry muszą komunikować się ze sobą, połączenie między sieciami wirtualnymi można osiągnąć za pomocą [komunikacji równorzędnej sieci wirtualnych](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview). Ta technologia umożliwia połączenie między sieciami wirtualnymi, zapewniając wysoką przepustowość w sieci szkieletowej firmy Microsoft, nawet w różnych regionach geograficznych.
+Jeśli klastry muszą komunikować się ze sobą, połączenie między sieciami wirtualnymi można osiągnąć za pomocą [komunikacji równorzędnej sieci wirtualnych](../virtual-network/virtual-network-peering-overview.md). Ta technologia umożliwia połączenie między sieciami wirtualnymi, zapewniając wysoką przepustowość w sieci szkieletowej firmy Microsoft, nawet w różnych regionach geograficznych.
 
 Warunkiem wstępnym komunikacji równorzędnej sieci wirtualnych, w których są uruchomione klastry AKS, jest użycie standardowego Load Balancer w klastrze AKS, dzięki czemu usługi Kubernetes Services są dostępne dla komunikacji równorzędnej sieci wirtualnej.
 
@@ -82,7 +83,7 @@ W przypadku używania Container Registry replikacji geograficznej do ściągania
 * **Bardziej niezawodne**: jeśli region jest niedostępny, klaster AKS pobiera obrazy z dostępnego rejestru kontenerów.
 * **Tańsze**: nie ma opłat za wyjście z sieci między centrami danych.
 
-Replikacja geograficzna to funkcja rejestrów kontenerów jednostki SKU w *warstwie Premium* . Aby uzyskać informacje na temat konfigurowania replikacji geograficznej, zobacz [Container Registry replikacji geograficznej](https://docs.microsoft.com/azure/container-registry/container-registry-geo-replication).
+Replikacja geograficzna to funkcja rejestrów kontenerów jednostki SKU w *warstwie Premium* . Aby uzyskać informacje na temat konfigurowania replikacji geograficznej, zobacz [Container Registry replikacji geograficznej](../container-registry/container-registry-geo-replication.md).
 
 ## <a name="remove-service-state-from-inside-containers"></a>Usuwanie stanu usługi z wewnątrz kontenerów
 
@@ -97,7 +98,7 @@ Kontenery i mikrousługi są najbardziej odporne, gdy procesy, które w nich dzi
 Aby skompilować aplikacje przenośne, zapoznaj się z następującymi wskazówkami:
 
 * [Metodologia aplikacji 12-Factor](https://12factor.net/)
-* [Uruchamianie aplikacji sieci Web w wielu regionach platformy Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/multi-region)
+* [Uruchamianie aplikacji sieci Web w wielu regionach platformy Azure](/azure/architecture/reference-architectures/app-service-web-app/multi-region)
 
 ## <a name="create-a-storage-migration-plan"></a>Utwórz plan migracji magazynu
 

@@ -5,12 +5,12 @@ services: container-service
 ms.topic: conceptual
 ms.date: 06/24/2020
 ms.custom: references_regions
-ms.openlocfilehash: 9f8b0cc5a80853542b15d1993713d8a97f5371b9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 672a5afe36449aaa486ca6980f510ba52cf6daf2
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85361578"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86250961"
 ---
 # <a name="azure-kubernetes-service-aks-uptime-sla"></a>Umowa SLA dla usługi Azure Kubernetes Service (AKS)
 
@@ -40,7 +40,7 @@ Umowa SLA na czas pracy to płatna funkcja i włączona na klaster. Cennik umowy
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 
-* Instalowanie [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) w wersji 2.8.0 lub nowszej
+* Instalowanie [interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) w wersji 2.8.0 lub nowszej
 
 ## <a name="creating-a-new-cluster-with-uptime-sla"></a>Tworzenie nowego klastra z umową SLA w razie przestoju
 

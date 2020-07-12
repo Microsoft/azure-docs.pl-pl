@@ -12,11 +12,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 01/13/2020
 ms.author: apimpm
-ms.openlocfilehash: 380b61df8a774e69454577d201cebf1c495b4f74
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 981d3134e957e1f19b9cd88ee13a72fc45d79277
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83004742"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86252899"
 ---
 # <a name="configure-a-custom-domain-name"></a>Konfigurowanie niestandardowej nazwy domeny
 
@@ -70,14 +71,14 @@ Aby wykonać kroki opisane w tym artykule, musisz dysponować:
     > Nazwy domen wieloznacznych, np., `*.contoso.com` są obsługiwane we wszystkich warstwach poza warstwą zużycia.
 
     > [!TIP]
-    > Zalecamy używanie [Azure Key Vault do zarządzania certyfikatami](https://docs.microsoft.com/azure/key-vault/certificates/about-certificates) i ustawiania ich do autoodnawiania.
-    > Jeśli używasz Azure Key Vault do zarządzania certyfikatami protokołu TLS/SSL domeny niestandardowej, upewnij się, że certyfikat został wstawiony do Key Vault [jako _certyfikat_](https://docs.microsoft.com/rest/api/keyvault/CreateCertificate/CreateCertificate), a nie _wpis tajny_.
+    > Zalecamy używanie [Azure Key Vault do zarządzania certyfikatami](../key-vault/certificates/about-certificates.md) i ustawiania ich do autoodnawiania.
+    > Jeśli używasz Azure Key Vault do zarządzania certyfikatami protokołu TLS/SSL domeny niestandardowej, upewnij się, że certyfikat został wstawiony do Key Vault [jako _certyfikat_](/rest/api/keyvault/createcertificate/createcertificate), a nie _wpis tajny_.
     >
     > Aby można było pobrać certyfikat TLS/SSL, API Management musi mieć uprawnienia listy i pobrania kluczy tajnych na Azure Key Vault zawierający certyfikat. W przypadku korzystania z Azure Portal wszystkie niezbędne kroki konfiguracji zostaną wykonane automatycznie. W przypadku korzystania z narzędzi wiersza polecenia lub interfejsu API zarządzania należy przyznać te uprawnienia ręcznie. Odbywa się to w dwóch krokach. Najpierw użyj strony tożsamości zarządzane w wystąpieniu API Management, aby upewnić się, że zarządzana tożsamość jest włączona, i zanotuj identyfikator podmiotu zabezpieczeń pokazywany na tej stronie. Następnie nadaj liście uprawnień i uzyskaj uprawnienia do tego identyfikatora podmiotu zabezpieczeń na Azure Key Vault zawierającym certyfikat.
     >
     > Jeśli certyfikat jest ustawiony na automatyczne odnawianie, API Management automatycznie pobierze najnowszą wersję bez żadnego przestoju usługi (Jeśli warstwa API Management ma umowę SLA-i. e. we wszystkich warstwach poza warstwą dewelopera).
 
-1. Kliknij przycisk Zastosuj.
+1. Kliknij pozycję Zastosuj.
 
     > [!NOTE]
     > Proces przypisywania certyfikatu może potrwać 15 minut lub dłużej w zależności od rozmiaru wdrożenia. Jednostka SKU dla deweloperów ma przestoje, a w przypadku wersji podstawowa i wyższa nie ma przestojów.

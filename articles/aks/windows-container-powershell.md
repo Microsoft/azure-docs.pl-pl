@@ -4,12 +4,12 @@ description: Dowiedz się, jak szybko utworzyć klaster Kubernetes, wdrożyć ap
 services: container-service
 ms.topic: article
 ms.date: 05/26/2020
-ms.openlocfilehash: 735869da1432c241927597789f00a0bd2aea63f3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 036c97d406e37e038474287daf39182ddce194a1
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85207952"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86250876"
 ---
 # <a name="create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-powershell"></a>Tworzenie kontenera systemu Windows Server w klastrze usługi Azure Kubernetes Service (AKS) przy użyciu programu PowerShell
 
@@ -47,7 +47,7 @@ Następujące dodatkowe ograniczenia mają zastosowanie do pul węzłów systemu
 
 ## <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 
-[Grupa zasobów platformy Azure](/azure/azure-resource-manager/resource-group-overview) to grupa logiczna, w której zasoby platformy Azure są wdrażane i zarządzane. Podczas tworzenia grupy zasobów użytkownik jest proszony o określenie lokalizacji. Ta lokalizacja wskazuje, gdzie są przechowywane metadane grupy zasobów, a także czy zasoby są uruchamiane na platformie Azure, jeśli nie określisz innego regionu podczas tworzenia zasobów. Utwórz grupę zasobów za pomocą polecenia cmdlet [New-AzResourceGroup][new-azresourcegroup] .
+[Grupa zasobów platformy Azure](../azure-resource-manager/management/overview.md) to grupa logiczna, w której zasoby platformy Azure są wdrażane i zarządzane. Podczas tworzenia grupy zasobów użytkownik jest proszony o określenie lokalizacji. Ta lokalizacja wskazuje, gdzie są przechowywane metadane grupy zasobów, a także czy zasoby są uruchamiane na platformie Azure, jeśli nie określisz innego regionu podczas tworzenia zasobów. Utwórz grupę zasobów za pomocą polecenia cmdlet [New-AzResourceGroup][new-azresourcegroup] .
 
 Poniższy przykład obejmuje tworzenie grupy zasobów o nazwie **myResourceGroup** w lokalizacji **eastus**.
 
@@ -70,7 +70,7 @@ ResourceId        : /subscriptions/00000000-0000-0000-0000-000000000000/resource
 
 ## <a name="create-an-aks-cluster"></a>Tworzenie klastra AKS
 
-Użyj `ssh-keygen` narzędzia wiersza polecenia, aby wygenerować parę kluczy SSH. Aby uzyskać więcej informacji, zobacz [szybkie kroki: Tworzenie i używanie pary kluczy publiczny-prywatny SSH dla maszyn wirtualnych z systemem Linux na platformie Azure](/azure/virtual-machines/linux/mac-create-ssh-keys).
+Użyj `ssh-keygen` narzędzia wiersza polecenia, aby wygenerować parę kluczy SSH. Aby uzyskać więcej informacji, zobacz [szybkie kroki: Tworzenie i używanie pary kluczy publiczny-prywatny SSH dla maszyn wirtualnych z systemem Linux na platformie Azure](../virtual-machines/linux/mac-create-ssh-keys.md).
 
 Aby uruchomić klaster AKS, który obsługuje pule węzłów dla kontenerów systemu Windows Server, klaster musi używać zasad sieciowych, które korzystają z wtyczki sieciowej [Azure CNI][azure-cni-about] (Advanced). Aby uzyskać bardziej szczegółowe informacje ułatwiające planowanie wymaganych zakresów podsieci i zagadnień dotyczących sieci, zobacz [Konfigurowanie usługi Azure CNI Networking][use-advanced-networking]. Aby utworzyć klaster AKS o nazwie **myAKSCluster**, użyj poniższego polecenia cmdlet [New-AzAks][new-azaks] . Poniższy przykład tworzy niezbędne zasoby sieciowe, jeśli nie istnieją.
 

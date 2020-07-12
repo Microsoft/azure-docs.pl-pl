@@ -12,11 +12,12 @@ ms.date: 04/24/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jmprieur, saeeda, jesakowi, nacanuma
-ms.openlocfilehash: 764600d61704378b1bc0937dd1399260a1266150
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 91094285aa50641f62527326bab121adcf026a9a
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84308630"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86252066"
 ---
 # <a name="microsoft-identity-platform-developer-glossary"></a>Słownik oprogramowania Microsoft Identity platform dla deweloperów
 
@@ -116,7 +117,7 @@ Aby uzyskać więcej informacji, zobacz [Informacje o tokenach platformy tożsam
 
 ## <a name="microsoft-identity-platform"></a>Platforma tożsamości firmy Microsoft
 
-Platforma tożsamości firmy Microsoft to unowocześnienie platformy deweloperów i usługi tożsamości Azure Active Directory (Azure AD). Dzięki niej deweloperzy mogą tworzyć aplikacje, które logują użytkowników przy użyciu wszystkich tożsamości firmy Microsoft i uzyskują tokeny do wywoływania programu Microsoft Graph, innych interfejsów API firmy Microsoft lub interfejsów API opracowanych przez deweloperów. Jest to w pełni funkcjonalna platforma, która obejmuje usługę uwierzytelniania, biblioteki, rejestrację i konfigurację aplikacji, pełną dokumentację dla deweloperów, przykłady kodu i inną zawartość dla deweloperów. Platforma tożsamości firmy Microsoft obsługuje standardowe protokoły branżowe, takie jak OAuth 2.0 i OpenID Connect. Aby uzyskać więcej informacji, zobacz [Informacje o platformie Microsoft Identity platform](about-microsoft-identity-platform.md) .
+Platforma tożsamości firmy Microsoft to unowocześnienie platformy deweloperów i usługi tożsamości Azure Active Directory (Azure AD). Dzięki niej deweloperzy mogą tworzyć aplikacje, które logują użytkowników przy użyciu wszystkich tożsamości firmy Microsoft i uzyskują tokeny do wywoływania programu Microsoft Graph, innych interfejsów API firmy Microsoft lub interfejsów API opracowanych przez deweloperów. Jest to w pełni funkcjonalna platforma, która obejmuje usługę uwierzytelniania, biblioteki, rejestrację i konfigurację aplikacji, pełną dokumentację dla deweloperów, przykłady kodu i inną zawartość dla deweloperów. Platforma tożsamości firmy Microsoft obsługuje standardowe protokoły branżowe, takie jak OAuth 2.0 i OpenID Connect.
 
 ## <a name="multi-tenant-application"></a>Aplikacja wielodostępna
 
