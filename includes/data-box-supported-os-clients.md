@@ -14,7 +14,7 @@ ms.locfileid: "67812552"
 ---
 Poniżej znajduje się lista systemów operacyjnych obsługiwanych przez operacje kopiowania danych za pośrednictwem klientów podłączonych do urządzenia.
 
-| **System operacyjny** | **Wersje** |
+| **System operacyjny** | **Versions** (Wersje) |
 | --- | --- |
 | Windows Server |2008 R2 z dodatkiem SP1 <br> 2012 <br> 2012 R2 <br> 2016 <br> 2019 |
 | Windows |7, 8, 10 |
