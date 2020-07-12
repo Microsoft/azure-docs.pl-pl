@@ -5,12 +5,12 @@ ms.topic: quickstart
 ms.date: 07/22/2019
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: eb0a83d0110002cc32998af4083d06cf6e86e16a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: d765168ea2eddaf42715536b5da67f15bb8a8cee
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75372690"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86258549"
 ---
 # <a name="quickstart-deploy-linux-containers-to-service-fabric"></a>Szybki start: wdrażanie kontenerów systemu Linux w usłudze Service Fabric
 
@@ -108,7 +108,7 @@ domyślną przeglądarką w systemie Ubuntu 16.04 jest Mozilla Firefox. Aby zaim
     ./install.sh
     ```
 
-3. Otwórz przeglądarkę internetową i przejdź do punktu końcowego narzędzia Service Fabric Explorer dla Twojego klastra. Punkt końcowy ma następujący format: **https://\<my-Azure-Service-Fabric-cluster-URL>:19080/Explorer**; na przykład `https://containertestcluster.eastus.cloudapp.azure.com:19080/Explorer`. </br>
+3. Otwórz przeglądarkę internetową i przejdź do punktu końcowego narzędzia Service Fabric Explorer dla Twojego klastra. Punkt końcowy ma następujący format: **https:// \<my-azure-service-fabric-cluster-url> : 19080/Explorer**; na przykład `https://containertestcluster.eastus.cloudapp.azure.com:19080/Explorer` . </br>
 
 4. Rozwiń węzeł **aplikacje** , aby zobaczyć, że istnieje teraz wpis dla typu aplikacji do głosowania i utworzonego wystąpienia.
 
@@ -159,7 +159,7 @@ Aby skalować usługę internetową frontonu, wykonaj następujące czynności:
 
 Za pomocą tego prostego zadania zarządzania zostały podwojone zasoby dostępne dla usługi frontonu na potrzeby przetwarzania obciążenia użytkownika. Pamiętaj, że nie musisz mieć wielu wystąpień usługi, aby działała ona niezawodnie. W przypadku awarii usługa Service Fabric gwarantuje uruchomienie nowego wystąpienie usługi w klastrze.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Użyj skryptu odinstalowywania (uninstall.sh) udostępnionego w szablonie, aby usunąć wystąpienie aplikacji z klastra i wyrejestrować typ aplikacji. Ten skrypt wymaga pewnego czasu, aby wyczyścić wystąpienie, dlatego nie należy uruchamiać skryptu instalacji natychmiast po tym skrypcie. Narzędzia Service Fabric Explorer możesz użyć do określenia typu wyrejestrowanej aplikacji i tego, kiedy wystąpienie zostało usunięte.
 
@@ -178,8 +178,8 @@ ResourceGroupName="containertestcluster"
 az group delete --name $ResourceGroupName
 ```
 
-Po zakończeniu pracy z klastrem, możesz usunąć certyfikat ze swojego magazynu certyfikatów. Przykład:
-- W systemie Windows: użyj [przystawki MMC certyfikatów](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in). Pamiętaj, aby wybrać pozycję **Moje konto użytkownika** podczas dodawania przystawki. Przejdź do pozycji `Certificates - Current User\Personal\Certificates` i usuń certyfikat.
+Po zakończeniu pracy z klastrem, możesz usunąć certyfikat ze swojego magazynu certyfikatów. Na przykład:
+- W systemie Windows: użyj [przystawki MMC certyfikatów](/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in). Pamiętaj, aby wybrać pozycję **Moje konto użytkownika** podczas dodawania przystawki. Przejdź do pozycji `Certificates - Current User\Personal\Certificates` i usuń certyfikat.
 - Na komputerze Mac: użyj aplikacji pęku kluczy.
 - W systemie Ubuntu: wykonaj czynności, które zostały użyte do wyświetlenia certyfikatów, i usuń certyfikat.
 

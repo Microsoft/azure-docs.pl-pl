@@ -5,11 +5,12 @@ author: pkcsf
 ms.topic: troubleshooting
 ms.date: 8/24/2018
 ms.author: pkc
-ms.openlocfilehash: f2da9fbb04f9d1fa696250967db404864a3cce82
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: ae49a59c2629d9f9461d298ada555d314c0c9f22
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85921823"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86256972"
 ---
 # <a name="azure-service-fabric-support-options"></a>Opcje pomocy technicznej platformy Azure Service Fabric
 
@@ -25,9 +26,9 @@ Dowiedz się więcej:
 - [Microsoft Premier Support](https://support.microsoft.com/en-us/premier).
 
 > [!Note]
-> Klastry działające w ramach warstwy niezawodności Bronów lub klastra z jednym węzłem będą umożliwiały uruchamianie obciążeń testowych. Jeśli występują problemy z klastrem uruchomionym w usłudze Bronze lub klastrze z jednym węzłem, zespół pomocy technicznej firmy Microsoft pomoże Ci uniknąć problemu, ale nie będzie wykonywał analizy głównej przyczyny. Aby uzyskać więcej informacji, zapoznaj się z [charakterystyką niezawodności klastra](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#reliability-characteristics-of-the-cluster) .
+> Klastry działające w ramach warstwy niezawodności Bronów lub klastra z jednym węzłem będą umożliwiały uruchamianie obciążeń testowych. Jeśli występują problemy z klastrem uruchomionym w usłudze Bronze lub klastrze z jednym węzłem, zespół pomocy technicznej firmy Microsoft pomoże Ci uniknąć problemu, ale nie będzie wykonywał analizy głównej przyczyny. Aby uzyskać więcej informacji, zapoznaj się z [charakterystyką niezawodności klastra](./service-fabric-cluster-capacity.md#reliability-characteristics-of-the-cluster) .
 >
-> Aby uzyskać więcej informacji o tym, co jest wymagane w przypadku klastra gotowego do produkcji, zapoznaj się z [listą kontrolną gotowości produkcyjnej](https://docs.microsoft.com/azure/service-fabric/service-fabric-production-readiness-checklist).
+> Aby uzyskać więcej informacji o tym, co jest wymagane w przypadku klastra gotowego do produkcji, zapoznaj się z [listą kontrolną gotowości produkcyjnej](./service-fabric-production-readiness-checklist.md).
 
 <a id="getlivesitesupportonprem"></a>
 
@@ -58,15 +59,15 @@ Zgłoś problemy dotyczące Service Fabric platformy Azure w [usłudze Service-F
 
 ## <a name="service-fabric-preview-versions---unsupported-for-production-use"></a>Wersje zapoznawcze Service Fabric — nieobsługiwane do użycia w środowisku produkcyjnym
 
-Od czasu do czasu firma Microsoft udostępnia wersje, które mają znaczące funkcje, dla których chcemy uzyskać opinię, które są udostępniane jako wersje zapoznawcze. Te wersje zapoznawcze powinny być używane tylko do celów testowych. Klaster produkcyjny powinien mieć zawsze uruchomioną obsługiwaną, stabilną wersję Service Fabric. Wersja zapoznawcza zawsze rozpoczyna się od wersji głównej i pomocniczej o numerze 255. Na przykład jeśli zostanie wyświetlona Service Fabric wersja 255.255.5703.949, ta wersja jest używana tylko w przypadku klastrów testowych i jest w wersji zapoznawczej. Te wersje zapoznawcze są również ogłoszone na [blogu zespołu Service Fabric](https://blogs.msdn.microsoft.com/azureservicefabric) i zawiera szczegółowe informacje dotyczące funkcji uwzględnionych w tym obszarze.
-Brak płatnych opcji pomocy technicznej dla tych wersji zapoznawczych. Skorzystaj z jednej z opcji wymienionych w sekcji [Zgłoś problemy Service Fabric platformy Azure](https://docs.microsoft.com/azure/service-fabric/service-fabric-support#report-azure-service-fabric-issues) , aby zadać pytania lub przekazać opinię.
+Od czasu do czasu firma Microsoft udostępnia wersje, które mają znaczące funkcje, dla których chcemy uzyskać opinię, które są udostępniane jako wersje zapoznawcze. Te wersje zapoznawcze powinny być używane tylko do celów testowych. Klaster produkcyjny powinien mieć zawsze uruchomioną obsługiwaną, stabilną wersję Service Fabric. Wersja zapoznawcza zawsze rozpoczyna się od wersji głównej i pomocniczej o numerze 255. Na przykład jeśli zostanie wyświetlona Service Fabric wersja 255.255.5703.949, ta wersja jest używana tylko w przypadku klastrów testowych i jest w wersji zapoznawczej. Te wersje zapoznawcze są również ogłoszone na [blogu zespołu Service Fabric](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric) i zawiera szczegółowe informacje dotyczące funkcji uwzględnionych w tym obszarze.
+Brak płatnych opcji pomocy technicznej dla tych wersji zapoznawczych. Skorzystaj z jednej z opcji wymienionych w sekcji [Zgłoś problemy Service Fabric platformy Azure](#report-azure-service-fabric-issues) , aby zadać pytania lub przekazać opinię.
 
 ## <a name="next-steps"></a>Następne kroki
 
 [Obsługiwane Service Fabric wersje](service-fabric-versions.md)
 
 <!--references-->
-[Microsoft Q&A question page]: https://docs.microsoft.com/answers/topics/azure-service-fabric.html
+[Microsoft Q&A question page]: /answers/topics/azure-service-fabric.html
 [stackoverflow]: https://stackoverflow.com/questions/tagged/azure-service-fabric
 [uservoice-forum]: https://feedback.azure.com/forums/293901-service-fabric
 [acom-docs]: https://aka.ms/servicefabricdocs

@@ -5,11 +5,12 @@ author: dkkapur
 ms.topic: conceptual
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: 1277af2e8f9de575fbe51ea0f43bbcfd2812e610
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 43825728da34c027557f6e6d722e39d494451e55
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83653643"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86255935"
 ---
 # <a name="secure-a-standalone-cluster-on-windows-by-using-x509-certificates"></a>Zabezpieczanie klastra autonomicznego w systemie Windows za pomocą certyfikatów X. 509
 W tym artykule opisano sposób zabezpieczania komunikacji między różnymi węzłami autonomicznego klastra systemu Windows. Opisano w nim również sposób uwierzytelniania klientów łączących się z tym klastrem za pomocą certyfikatów X. 509. Uwierzytelnianie zapewnia, że tylko autoryzowani użytkownicy mogą uzyskiwać dostęp do klastra i wdrożonych aplikacji oraz wykonywać zadania zarządzania. Zabezpieczenia certyfikatów należy włączyć w klastrze podczas tworzenia klastra.  
@@ -109,7 +110,7 @@ W tej sekcji opisano certyfikaty, które należy zabezpieczyć autonomiczny klas
 
 
 > [!NOTE]
-> [Odcisk palca](https://en.wikipedia.org/wiki/Public_key_fingerprint) to podstawowa tożsamość certyfikatu. Aby uzyskać odcisk palca tworzonych certyfikatów, zobacz [Pobieranie odcisku palca certyfikatu](https://msdn.microsoft.com/library/ms734695.aspx).
+> [Odcisk palca](https://en.wikipedia.org/wiki/Public_key_fingerprint) to podstawowa tożsamość certyfikatu. Aby uzyskać odcisk palca tworzonych certyfikatów, zobacz [Pobieranie odcisku palca certyfikatu](/dotnet/framework/wcf/feature-details/how-to-retrieve-the-thumbprint-of-a-certificate).
 > 
 > 
 
@@ -124,7 +125,7 @@ W poniższej tabeli wymieniono certyfikaty, które są potrzebne w konfiguracji 
 | ServerCertificateCommonNames |Zalecane dla środowiska produkcyjnego. Ten certyfikat jest prezentowany klientowi podczas próby nawiązania połączenia z tym klastrem. CertificateIssuerThumbprint odnosi się do odcisku palca wystawcy tego certyfikatu. Jeśli jest używany więcej niż jeden certyfikat o tej samej nazwie pospolitej, można określić wiele odcisków palców wystawcy. Dla wygody możesz użyć tego samego certyfikatu dla ClusterCertificateCommonNames i ServerCertificateCommonNames. Można użyć jednej lub dwóch wspólnych nazw certyfikatów serwera. |
 | ServerCertificateIssuerStores |Zalecane dla środowiska produkcyjnego. Ten certyfikat odpowiada wystawcy certyfikatu serwera. W tej sekcji można podać nazwę pospolitą wystawcy i odpowiadającą jej nazwę magazynu zamiast określania odcisku palca wystawcy w obszarze ServerCertificateCommonNames.  Dzięki temu można łatwo przerzucać certyfikaty wystawcy serwera. Jeśli jest używany więcej niż jeden certyfikat serwera, można określić wielu wystawców. Puste IssuerCommonName dozwolonych wszystkie certyfikaty w odpowiednich magazynach określonych w obszarze X509StoreNames.|
 | ClientCertificateThumbprints |Zainstaluj ten zestaw certyfikatów na uwierzytelnionych klientach. Na maszynach, które mają zezwalać na dostęp do klastra, można zainstalować wiele różnych certyfikatów klienta. Ustaw odcisk palca każdego certyfikatu w zmiennej CertificateThumbprint. Jeśli ustawisz wartość IsAdmin na *true*, klient z zainstalowanym tym certyfikatem może wykonywać działania związane z zarządzaniem administratorami w klastrze. Jeśli administrator ma *wartość false*, klient z tym certyfikatem może wykonywać akcje tylko dla praw dostępu użytkownika, zwykle tylko do odczytu. Aby uzyskać więcej informacji na temat ról, zobacz [Access Control oparte na rolach (RBAC)](service-fabric-cluster-security.md#role-based-access-control-rbac). |
-| ClientCertificateCommonNames |Ustaw nazwę pospolitą pierwszego certyfikatu klienta dla CertificateCommonName. CertificateIssuerThumbprint jest odciskiem palca dla wystawcy tego certyfikatu. Aby dowiedzieć się więcej na temat typowych nazw i wystawcy, zobacz [Work with Certificates](https://msdn.microsoft.com/library/ms731899.aspx). |
+| ClientCertificateCommonNames |Ustaw nazwę pospolitą pierwszego certyfikatu klienta dla CertificateCommonName. CertificateIssuerThumbprint jest odciskiem palca dla wystawcy tego certyfikatu. Aby dowiedzieć się więcej na temat typowych nazw i wystawcy, zobacz [Work with Certificates](/dotnet/framework/wcf/feature-details/working-with-certificates). |
 | ClientCertificateIssuerStores |Zalecane dla środowiska produkcyjnego. Ten certyfikat odpowiada wystawcy certyfikatu klienta (role administratora i nie administratora). W tej sekcji można podać nazwę pospolitą wystawcy i odpowiadającą jej nazwę magazynu zamiast określania odcisku palca wystawcy w obszarze ClientCertificateCommonNames.  Dzięki temu można łatwo przerzucać certyfikaty wystawcy klienta. Jeśli jest używany więcej niż jeden certyfikat klienta, można określić wielu wystawców. Puste IssuerCommonName dozwolonych wszystkie certyfikaty w odpowiednich magazynach określonych w obszarze X509StoreNames.|
 | ReverseProxyCertificate |Zalecane dla środowiska testowego. Ten opcjonalny certyfikat można określić, jeśli chcesz zabezpieczyć [zwrotny serwer proxy](service-fabric-reverseproxy.md). Upewnij się, że reverseProxyEndpointPort jest ustawiony w elementów NodeType, jeśli używasz tego certyfikatu. |
 | ReverseProxyCertificateCommonNames |Zalecane dla środowiska produkcyjnego. Ten opcjonalny certyfikat można określić, jeśli chcesz zabezpieczyć [zwrotny serwer proxy](service-fabric-reverseproxy.md). Upewnij się, że reverseProxyEndpointPort jest ustawiony w elementów NodeType, jeśli używasz tego certyfikatu. |
@@ -247,7 +248,7 @@ Jeśli używasz magazynów wystawcy, nie trzeba wykonywać żadnych uaktualnień
 ## <a name="acquire-the-x509-certificates"></a>Pozyskiwanie certyfikatów X. 509
 Aby zabezpieczyć komunikację w klastrze, należy najpierw uzyskać certyfikaty X. 509 dla węzłów klastra. Ponadto w celu ograniczenia połączenia z tym klastrem z autoryzowanymi komputerami/użytkownikami należy uzyskać i zainstalować certyfikaty dla komputerów klienckich.
 
-W przypadku klastrów z uruchomionym obciążeniem produkcyjnym należy użyć certyfikatu X. 509 podpisanego przez [urząd certyfikacji](https://en.wikipedia.org/wiki/Certificate_authority), aby zabezpieczyć klaster. Aby uzyskać więcej informacji na temat uzyskiwania tych certyfikatów, zobacz [jak uzyskać certyfikat](https://msdn.microsoft.com/library/aa702761.aspx). 
+W przypadku klastrów z uruchomionym obciążeniem produkcyjnym należy użyć certyfikatu X. 509 podpisanego przez [urząd certyfikacji](https://en.wikipedia.org/wiki/Certificate_authority), aby zabezpieczyć klaster. Aby uzyskać więcej informacji na temat uzyskiwania tych certyfikatów, zobacz [jak uzyskać certyfikat](/dotnet/framework/wcf/feature-details/how-to-obtain-a-certificate-wcf). 
 
 Istnieje wiele właściwości, które musi mieć certyfikat, aby zapewnić prawidłowe działanie:
 
@@ -261,7 +262,7 @@ Istnieje wiele właściwości, które musi mieć certyfikat, aby zapewnić prawi
 
 W przypadku klastrów używanych do celów testowych można wybrać opcję użycia certyfikatu z podpisem własnym.
 
-Dodatkowe pytania można znaleźć w tematach [często zadawanych pytań dotyczących certyfikatów](https://docs.microsoft.com/azure/service-fabric/cluster-security-certificate-management#troubleshooting-and-frequently-asked-questions).
+Dodatkowe pytania można znaleźć w tematach [często zadawanych pytań dotyczących certyfikatów](./cluster-security-certificate-management.md#troubleshooting-and-frequently-asked-questions).
 
 ## <a name="optional-create-a-self-signed-certificate"></a>Opcjonalne: Tworzenie certyfikatu z podpisem własnym
 Jednym ze sposobów utworzenia certyfikatu z podpisem własnym, który może być zabezpieczony prawidłowo, jest użycie skryptu CertSetup.ps1 w folderze Service Fabric SDK w katalogu C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup\Secure. Edytuj ten plik, aby zmienić domyślną nazwę certyfikatu. (Poszukaj wartości CN = ServiceFabricDevClusterCert). Uruchom ten skrypt jako `.\CertSetup.ps1 -Install` .
@@ -349,14 +350,14 @@ Po skonfigurowaniu sekcji Zabezpieczenia ClusterConfig.X509.MultiMachine.jsw pli
 .\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.X509.MultiMachine.json
 ```
 
-Po pomyślnym uruchomieniu bezpiecznego autonomicznego klastra systemu Windows i skonfigurowaniu uwierzytelnionych klientów w celu nawiązania z nim połączenia wykonaj kroki opisane w sekcji [nawiązywanie połączenia z klastrem przy użyciu programu PowerShell](service-fabric-connect-to-secure-cluster.md#connect-to-a-cluster-using-powershell) . Przykład:
+Po pomyślnym uruchomieniu bezpiecznego autonomicznego klastra systemu Windows i skonfigurowaniu uwierzytelnionych klientów w celu nawiązania z nim połączenia wykonaj kroki opisane w sekcji [nawiązywanie połączenia z klastrem przy użyciu programu PowerShell](service-fabric-connect-to-secure-cluster.md#connect-to-a-cluster-using-powershell) . Na przykład:
 
 ```powershell
 $ConnectArgs = @{  ConnectionEndpoint = '10.7.0.5:19000';  X509Credential = $True;  StoreLocation = 'LocalMachine';  StoreName = "MY";  ServerCertThumbprint = "057b9544a6f2733e0c8d3a60013a58948213f551";  FindType = 'FindByThumbprint';  FindValue = "057b9544a6f2733e0c8d3a60013a58948213f551"   }
 Connect-ServiceFabricCluster $ConnectArgs
 ```
 
-Następnie można uruchomić inne polecenia programu PowerShell, aby pracować z tym klastrem. Na przykład można uruchomić polecenie [Get-ServiceFabricNode](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricnode?view=azureservicefabricps) , aby wyświetlić listę węzłów w tym bezpiecznym klastrze.
+Następnie można uruchomić inne polecenia programu PowerShell, aby pracować z tym klastrem. Na przykład można uruchomić polecenie [Get-ServiceFabricNode](/powershell/module/servicefabric/get-servicefabricnode?view=azureservicefabricps) , aby wyświetlić listę węzłów w tym bezpiecznym klastrze.
 
 
 Aby usunąć klaster, Połącz się z węzłem w klastrze, w którym został pobrany pakiet Service Fabric, Otwórz wiersz polecenia i przejdź do folderu pakietu. Teraz uruchom następujące polecenie:
@@ -369,4 +370,3 @@ Aby usunąć klaster, Połącz się z węzłem w klastrze, w którym został pob
 > Niepoprawna konfiguracja certyfikatu może uniemożliwić przejście klastra podczas wdrażania. Aby automatycznie zdiagnozować problemy z zabezpieczeniami, zapoznaj się z **dziennikami Podgląd zdarzeń aplikacji i usług**w  >  **witrynie Microsoft-Service Fabric**.
 > 
 > 
-

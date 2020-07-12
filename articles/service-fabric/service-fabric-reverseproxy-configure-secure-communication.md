@@ -3,11 +3,12 @@ title: Bezpieczna komunikacja z usługą Azure Service Fabric zwrotny bezpieczny
 description: Skonfiguruj zwrotny serwer proxy, aby zapewnić bezpieczną kompleksową komunikację w aplikacji Service Fabric platformy Azure.
 ms.topic: conceptual
 ms.date: 08/10/2017
-ms.openlocfilehash: e88a81108f38efefe413024fb2b41bbd82f297b2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b01ce559b3c790164992d6618149afa9df069466
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82858529"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86256139"
 ---
 # <a name="connect-to-a-secure-service-with-the-reverse-proxy"></a>Connect to a secure service with the reverse proxy (Łączenie z bezpieczną usługą przy użyciu zwrotnego serwera proxy)
 
@@ -19,7 +20,7 @@ W tym artykule wyjaśniono, jak ustanowić bezpieczne połączenie między zwrot
 ## <a name="secure-connection-establishment-between-the-reverse-proxy-and-services"></a>Ustanowienie bezpiecznego połączenia między zwrotnym serwerem proxy a usługami 
 
 ### <a name="reverse-proxy-authenticating-to-services"></a>Zwrotny serwer proxy uwierzytelniania do usług:
-Zwrotny serwer proxy identyfikuje siebie w usługach przy użyciu swojego certyfikatu. W przypadku klastrów platformy Azure certyfikat jest określony za pomocą właściwości ***reverseProxyCertificate*** w [sekcji Typ zasobu](../azure-resource-manager/templates/template-syntax.md) [**Microsoft. servicefabric/klastrów**](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/clusters) szablonu Menedżer zasobów. W przypadku klastrów autonomicznych certyfikat jest określany za pomocą właściwości ***ReverseProxyCertificate*** lub ***ReverseProxyCertificateCommonNames*** w sekcji **Security** ClusterConfig.json. Aby dowiedzieć się więcej, zobacz [Włączanie zwrotnego serwera proxy w klastrach autonomicznych](service-fabric-reverseproxy-setup.md#enable-reverse-proxy-on-standalone-clusters). 
+Zwrotny serwer proxy identyfikuje siebie w usługach przy użyciu swojego certyfikatu. W przypadku klastrów platformy Azure certyfikat jest określony za pomocą właściwości ***reverseProxyCertificate*** w [sekcji Typ zasobu](../azure-resource-manager/templates/template-syntax.md) [**Microsoft. servicefabric/klastrów**](/azure/templates/microsoft.servicefabric/clusters) szablonu Menedżer zasobów. W przypadku klastrów autonomicznych certyfikat jest określany za pomocą właściwości ***ReverseProxyCertificate*** lub ***ReverseProxyCertificateCommonNames*** w sekcji **Security** ClusterConfig.json. Aby dowiedzieć się więcej, zobacz [Włączanie zwrotnego serwera proxy w klastrach autonomicznych](service-fabric-reverseproxy-setup.md#enable-reverse-proxy-on-standalone-clusters). 
 
 Usługi mogą wdrożyć logikę w celu zweryfikowania certyfikatu przedstawionego przez zwrotny serwer proxy. Usługi mogą określić zaakceptowane szczegóły certyfikatu klienta jako ustawienia konfiguracji w pakiecie konfiguracyjnym. Można go odczytać w czasie wykonywania i służy do weryfikowania certyfikatu przedstawionego przez zwrotny serwer proxy. Aby dodać ustawienia konfiguracji, zapoznaj się z tematem [Zarządzanie parametrami aplikacji](service-fabric-manage-multiple-environment-app-configuration.md) . 
 
@@ -188,5 +189,5 @@ Jeśli klient nie zaprezentuje certyfikatu, zwrotny serwer proxy przekaże pusty
 * Zapoznaj się z tematem [Konfigurowanie zwrotnego serwera proxy w celu nawiązania połączenia z zabezpieczeniami](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/Reverse-Proxy-Sample#configure-reverse-proxy-to-connect-to-secure-services)
 * Zobacz przykład komunikacji HTTP między usługami w [przykładowym projekcie w witrynie GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started).
 * [Zdalne wywołania procedur z Reliable Services komunikacji zdalnej](service-fabric-reliable-services-communication-remoting.md)
-* [Internetowy interfejs API, który używa OWIN w Reliable Services](service-fabric-reliable-services-communication-webapi.md)
+* [Internetowy interfejs API, który używa OWIN w Reliable Services](./service-fabric-reliable-services-communication-aspnetcore.md)
 * [Zarządzanie certyfikatami klastra](service-fabric-cluster-security-update-certs-azure.md)

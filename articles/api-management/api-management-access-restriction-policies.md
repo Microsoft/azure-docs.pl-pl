@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: apimpm
-ms.openlocfilehash: 3ba620d66b84e6724751b2024059e8ecd66888cd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d6e5012d64f7370c4d81c24324522824bc88584d
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84690340"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86255119"
 ---
 # <a name="api-management-access-restriction-policies"></a>Zasady ograniczeń dostępu usługi API Management
 
@@ -75,7 +76,7 @@ Użyj `check-header` zasad, aby wymusić, że żądanie ma określony nagłówek
 
 ### <a name="usage"></a>Użycie
 
-Tych zasad można używać w następujących [sekcjach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)zasad.
+Tych zasad można używać w następujących [sekcjach](./api-management-howto-policies.md#sections) i [zakresach](./api-management-howto-policies.md#scopes)zasad.
 
 -   **Sekcje zasad:** przychodzące, wychodzące
 
@@ -135,7 +136,7 @@ Tych zasad można używać w następujących [sekcjach](https://azure.microsoft.
 
 ### <a name="usage"></a>Użycie
 
-Tych zasad można używać w następujących [sekcjach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)zasad.
+Tych zasad można używać w następujących [sekcjach](./api-management-howto-policies.md#sections) i [zakresach](./api-management-howto-policies.md#scopes)zasad.
 
 -   **Sekcje zasad:** przychodzące
 
@@ -148,7 +149,7 @@ Tych zasad można używać w następujących [sekcjach](https://azure.microsoft.
 
 `rate-limit-by-key`Zasady uniemożliwiają użycie interfejsu API na podstawie poszczególnych kluczy, ograniczając częstotliwość wywołań do określonej liczby w określonym przedziale czasu. Klucz może mieć dowolną wartość ciągu i jest zwykle dostarczany przy użyciu wyrażenia zasad. Opcjonalny warunek przyrostu można dodać, aby określić, które żądania powinny być wliczane do limitu. Po wyzwoleniu tych zasad obiekt wywołujący otrzymuje `429 Too Many Requests` kod stanu odpowiedzi.
 
-Aby uzyskać więcej informacji i przykłady tych zasad, zobacz [zaawansowane Ograniczanie żądań za pomocą usługi Azure API Management](https://azure.microsoft.com/documentation/articles/api-management-sample-flexible-throttling/).
+Aby uzyskać więcej informacji i przykłady tych zasad, zobacz [zaawansowane Ograniczanie żądań za pomocą usługi Azure API Management](./api-management-sample-flexible-throttling.md).
 
 > [!CAUTION]
 > Ze względu na rozproszoną naturę architektury ograniczanie szybkości nie jest nigdy całkowicie dokładne. Różnica między skonfigurowaną i rzeczywistą liczbą dozwolonych żądań różni się w zależności od ilości żądania, liczby opóźnień zaplecza i innych czynników.
@@ -199,7 +200,7 @@ W poniższym przykładzie Limit szybkości jest poprzedzony przez adres IP obiek
 
 ### <a name="usage"></a>Użycie
 
-Tych zasad można używać w następujących [sekcjach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)zasad.
+Tych zasad można używać w następujących [sekcjach](./api-management-howto-policies.md#sections) i [zakresach](./api-management-howto-policies.md#scopes)zasad.
 
 -   **Sekcje zasad:** przychodzące
 
@@ -246,7 +247,7 @@ W poniższym przykładzie zasada zezwala tylko na żądania pochodzące z pojedy
 
 ### <a name="usage"></a>Użycie
 
-Tych zasad można używać w następujących [sekcjach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)zasad.
+Tych zasad można używać w następujących [sekcjach](./api-management-howto-policies.md#sections) i [zakresach](./api-management-howto-policies.md#scopes)zasad.
 
 -   **Sekcje zasad:** przychodzące
 -   **Zakresy zasad:** wszystkie zakresy
@@ -303,7 +304,7 @@ Tych zasad można używać w następujących [sekcjach](https://azure.microsoft.
 
 ### <a name="usage"></a>Użycie
 
-Tych zasad można używać w następujących [sekcjach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)zasad.
+Tych zasad można używać w następujących [sekcjach](./api-management-howto-policies.md#sections) i [zakresach](./api-management-howto-policies.md#scopes)zasad.
 
 -   **Sekcje zasad:** przychodzące
 -   **Zakresy zasad:** produkt
@@ -315,7 +316,7 @@ Tych zasad można używać w następujących [sekcjach](https://azure.microsoft.
 
 `quota-by-key`Zasady wymuszają odnowienie i/lub przydział przepustowości dla każdego klucza. Klucz może mieć dowolną wartość ciągu i jest zwykle dostarczany przy użyciu wyrażenia zasad. Opcjonalny warunek przyrostu można dodać, aby określić, które żądania powinny być wliczane do limitu przydziału. Jeśli wiele zasad zwiększy tę samą wartość klucza, jest zwiększana tylko raz dla każdego żądania. Po osiągnięciu limitu wywołań wywołujący otrzymuje `403 Forbidden` kod stanu odpowiedzi.
 
-Aby uzyskać więcej informacji i przykłady tych zasad, zobacz [zaawansowane Ograniczanie żądań za pomocą usługi Azure API Management](https://azure.microsoft.com/documentation/articles/api-management-sample-flexible-throttling/).
+Aby uzyskać więcej informacji i przykłady tych zasad, zobacz [zaawansowane Ograniczanie żądań za pomocą usługi Azure API Management](./api-management-sample-flexible-throttling.md).
 
 ### <a name="policy-statement"></a>Instrukcja zasad
 
@@ -364,7 +365,7 @@ W poniższym przykładzie limit przydziału jest poprzedzony przez adres IP obie
 
 ### <a name="usage"></a>Użycie
 
-Tych zasad można używać w następujących [sekcjach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)zasad.
+Tych zasad można używać w następujących [sekcjach](./api-management-howto-policies.md#sections) i [zakresach](./api-management-howto-policies.md#scopes)zasad.
 
 -   **Sekcje zasad:** przychodzące
 -   **Zakresy zasad:** wszystkie zakresy
@@ -533,7 +534,7 @@ Ten przykład pokazuje, jak używać zasad [weryfikacji tokenu JWT](api-manageme
 
 ### <a name="usage"></a>Użycie
 
-Tych zasad można używać w następujących [sekcjach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)zasad.
+Tych zasad można używać w następujących [sekcjach](./api-management-howto-policies.md#sections) i [zakresach](./api-management-howto-policies.md#scopes)zasad.
 
 -   **Sekcje zasad:** przychodzące
 -   **Zakresy zasad:** wszystkie zakresy
@@ -544,5 +545,5 @@ Aby uzyskać więcej informacji na temat pracy z zasadami, zobacz:
 
 -   [Zasady w API Management](api-management-howto-policies.md)
 -   [Przekształć interfejsy API](transform-api.md)
--   [Dokumentacja zasad](api-management-policy-reference.md) pełna lista instrukcji zasad i ich ustawień
+-   [Dokumentacja zasad](./api-management-policies.md) pełna lista instrukcji zasad i ich ustawień
 -   [Przykłady zasad](policy-samples.md)

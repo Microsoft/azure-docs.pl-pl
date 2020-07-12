@@ -5,20 +5,20 @@ author: abhishekram
 ms.topic: conceptual
 ms.date: 10/26/2017
 ms.author: abhisram
-ms.openlocfilehash: e6e9fb66368461e0d3ebdd2709f4ced0e796bea5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a38a11d9cf062cd0a45890d43afe9b2530b2b7bb
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85846595"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86258468"
 ---
 # <a name="diagnostics-and-performance-monitoring-for-reliable-actors"></a>Diagnostyka i monitorowanie wydajności struktury Reliable Actors
-Środowisko uruchomieniowe Reliable Actors emituje zdarzenia [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) i [liczniki wydajności](https://msdn.microsoft.com/library/system.diagnostics.performancecounter.aspx). Zapewniają one wgląd w działanie środowiska uruchomieniowego i ułatwiają rozwiązywanie problemów i monitorowanie wydajności.
+Środowisko uruchomieniowe Reliable Actors emituje zdarzenia [EventSource](/dotnet/api/system.diagnostics.tracing.eventsource?view=netcore-3.1) i [liczniki wydajności](/dotnet/api/system.diagnostics.performancecounter?view=dotnet-plat-ext-3.1). Zapewniają one wgląd w działanie środowiska uruchomieniowego i ułatwiają rozwiązywanie problemów i monitorowanie wydajności.
 
 ## <a name="eventsource-events"></a>Zdarzenia EventSource
 Nazwa dostawcy EventSource dla środowiska uruchomieniowego Reliable Actors to "Microsoft-servicefabric-Aktors". Zdarzenia z tego źródła zdarzeń pojawiają się w oknie [zdarzenia diagnostyczne](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md#view-service-fabric-system-events-in-visual-studio) , gdy aplikacja aktora jest [debugowana w programie Visual Studio](service-fabric-debugging-your-application.md).
 
-Przykłady narzędzi i technologii, które pomagają zbierać i/lub wyświetlać zdarzenia EventSource, to [Narzędzia PerfView](https://www.microsoft.com/download/details.aspx?id=28567), [Diagnostyka Azure](../cloud-services/cloud-services-dotnet-diagnostics.md), [Rejestrowanie semantyczne](https://msdn.microsoft.com/library/dn774980.aspx)i [Biblioteka Microsoft zdarzenie śledzenia Library](https://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent).
+Przykłady narzędzi i technologii, które pomagają zbierać i/lub wyświetlać zdarzenia EventSource, to [Narzędzia PerfView](https://www.microsoft.com/download/details.aspx?id=28567), [Diagnostyka Azure](../cloud-services/cloud-services-dotnet-diagnostics.md), [Rejestrowanie semantyczne](/previous-versions/msp-n-p/dn774980(v=pandp.10))i [Biblioteka Microsoft zdarzenie śledzenia Library](https://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent).
 
 ### <a name="keywords"></a>Słowa kluczowe
 Wszystkie zdarzenia należące do Reliable Actors EventSource są skojarzone z co najmniej jednym słowami kluczowymi. Umożliwia to filtrowanie zdarzeń, które są zbierane. Zdefiniowane są następujące bity słowa kluczowego.
@@ -40,7 +40,7 @@ Wszystkie zdarzenia należące do Reliable Actors EventSource są skojarzone z c
 
 Każda z powyższych kategorii ma jeden lub więcej liczników.
 
-Aplikacja [Monitor wydajności systemu Windows](https://technet.microsoft.com/library/cc749249.aspx) , która jest dostępna domyślnie w systemie operacyjnym Windows, może służyć do zbierania i wyświetlania danych licznika wydajności. [Diagnostyka Azure](../cloud-services/cloud-services-dotnet-diagnostics.md) jest kolejną opcją do zbierania danych licznika wydajności i przekazywania ich do tabel platformy Azure.
+Aplikacja [Monitor wydajności systemu Windows](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc749249(v=ws.11)) , która jest dostępna domyślnie w systemie operacyjnym Windows, może służyć do zbierania i wyświetlania danych licznika wydajności. [Diagnostyka Azure](../cloud-services/cloud-services-dotnet-diagnostics.md) jest kolejną opcją do zbierania danych licznika wydajności i przekazywania ich do tabel platformy Azure.
 
 ### <a name="performance-counter-instance-names"></a>Nazwy wystąpień liczników wydajności
 Klaster, który ma dużą liczbę usług aktora lub partycji usługi aktora, będzie miał dużą liczbę wystąpień liczników wydajności aktora. Nazwy wystąpień licznika wydajności mogą pomóc w zidentyfikowaniu określonej [partycji](service-fabric-reliable-actors-platform.md#service-fabric-partition-concepts-for-actors) i metody aktora (jeśli dotyczy), z którym jest skojarzone wystąpienie licznika wydajności.
@@ -50,7 +50,7 @@ W przypadku kategorii `Service Fabric Actor` nazwy wystąpień liczników mają 
 
 `ServiceFabricPartitionID_ActorsRuntimeInternalID`
 
-*ServiceFabricPartitionID* to ciąg reprezentujący identyfikator partycji Service Fabric, z którym jest skojarzone wystąpienie licznika wydajności. Identyfikator partycji jest identyfikatorem GUID, a jego reprezentacja w postaci ciągu jest generowana za pomocą [`Guid.ToString`](https://msdn.microsoft.com/library/97af8hh4.aspx) metody ze specyfikatorem formatu "D".
+*ServiceFabricPartitionID* to ciąg reprezentujący identyfikator partycji Service Fabric, z którym jest skojarzone wystąpienie licznika wydajności. Identyfikator partycji jest identyfikatorem GUID, a jego reprezentacja w postaci ciągu jest generowana za pomocą [`Guid.ToString`](/dotnet/api/system.guid.tostring?view=netcore-3.1#System_Guid_ToString_System_String_) metody ze specyfikatorem formatu "D".
 
 *ActorRuntimeInternalID* to ciąg reprezentujący 64-bitową liczbę całkowitą, która jest generowana przez środowisko uruchomieniowe aktorów do użytku wewnętrznego. Ta wartość jest uwzględniona w nazwie wystąpienia licznika wydajności, aby zapewnić jej unikatowość i uniknąć konfliktu z innymi nazwami wystąpień liczników wydajności. Użytkownicy nie powinni próbować interpretować tej części nazwy wystąpienia licznika wydajności.
 
@@ -69,7 +69,7 @@ W przypadku kategorii `Service Fabric Actor Method` nazwy wystąpień liczników
 
 *ActorsRuntimeMethodId* to ciąg reprezentujący 32-bitową liczbę całkowitą, która jest generowana przez środowisko uruchomieniowe aktorów do użytku wewnętrznego. Ta wartość jest uwzględniona w nazwie wystąpienia licznika wydajności, aby zapewnić jej unikatowość i uniknąć konfliktu z innymi nazwami wystąpień liczników wydajności. Użytkownicy nie powinni próbować interpretować tej części nazwy wystąpienia licznika wydajności.
 
-*ServiceFabricPartitionID* to ciąg reprezentujący identyfikator partycji Service Fabric, z którym jest skojarzone wystąpienie licznika wydajności. Identyfikator partycji jest identyfikatorem GUID, a jego reprezentacja w postaci ciągu jest generowana za pomocą [`Guid.ToString`](https://msdn.microsoft.com/library/97af8hh4.aspx) metody ze specyfikatorem formatu "D".
+*ServiceFabricPartitionID* to ciąg reprezentujący identyfikator partycji Service Fabric, z którym jest skojarzone wystąpienie licznika wydajności. Identyfikator partycji jest identyfikatorem GUID, a jego reprezentacja w postaci ciągu jest generowana za pomocą [`Guid.ToString`](/dotnet/api/system.guid.tostring?view=netcore-3.1#System_Guid_ToString_System_String_) metody ze specyfikatorem formatu "D".
 
 *ActorRuntimeInternalID* to ciąg reprezentujący 64-bitową liczbę całkowitą, która jest generowana przez środowisko uruchomieniowe aktorów do użytku wewnętrznego. Ta wartość jest uwzględniona w nazwie wystąpienia licznika wydajności, aby zapewnić jej unikatowość i uniknąć konfliktu z innymi nazwami wystąpień liczników wydajności. Użytkownicy nie powinni próbować interpretować tej części nazwy wystąpienia licznika wydajności.
 
@@ -161,6 +161,6 @@ Gdy klient wywołuje metodę za pośrednictwem obiektu serwera proxy aktora, pow
 
 ## <a name="next-steps"></a>Następne kroki
 * [Jak Reliable Actors używać platformy Service Fabric](service-fabric-reliable-actors-platform.md)
-* [Dokumentacja interfejsu API aktora](https://msdn.microsoft.com/library/azure/dn971626.aspx)
+* [Dokumentacja interfejsu API aktora](/previous-versions/azure/dn971626(v=azure.100))
 * [Przykładowy kod](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
-* [Dostawcy EventSource w narzędzia PerfView](https://blogs.msdn.microsoft.com/vancem/2012/07/09/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource/)
+* [Dostawcy EventSource w narzędzia PerfView](/archive/blogs/vancem/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource)

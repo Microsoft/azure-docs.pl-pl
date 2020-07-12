@@ -6,12 +6,12 @@ ms.topic: quickstart
 ms.date: 06/26/2019
 ms.author: mikhegn
 ms.custom: mvc, devcenter, vs-azure
-ms.openlocfilehash: e3d984fee75dcdb8d4e14e7b454e74a3f7c629f2
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b88dfedd5454d708386afa6912a26dac41c6d6b4
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75730147"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86258571"
 ---
 # <a name="quickstart-deploy-a-net-reliable-services-application-to-service-fabric"></a>Szybki start: wdrażanie aplikacji niezawodnych usług .NET w usłudze Service Fabric
 
@@ -52,7 +52,7 @@ Po zainstalowaniu środowiska uruchomieniowego, zestawów SDK, narzędzi program
 > Mimo iż nie jest to konieczne w przypadku tego przewodnika Szybki Start, instrukcja dotycząca uruchamiania platformy Docker podczas tworzenia klastra jest uwzględniona jako najlepsze rozwiązanie.
 > Aby sprawdzić, czy platforma Docker jest uruchomiona, otwórz okno terminalu i uruchom polecenie `docker ps`. Jeśli odpowiedź nie wskazuje na wystąpienie błędu, oznacza to, że platforma Docker jest uruchomiona i można przystąpić do tworzenia klastra.
 >
-> [Konfigurowanie systemu Windows 10 lub Windows Server dla kontenerów](https://docs.microsoft.com/virtualization/windowscontainers/quick-start/set-up-environment?tabs=Windows-10-Client)
+> [Konfigurowanie systemu Windows 10 lub Windows Server dla kontenerów](/virtualization/windowscontainers/quick-start/set-up-environment?tabs=Windows-10-Client)
 
 1. Otwórz nowe okno programu PowerShell jako administrator.
 2. Utwórz klaster projektowy za pomocą następującego polecenia programu PowerShell:
@@ -70,7 +70,7 @@ Po zainstalowaniu środowiska uruchomieniowego, zestawów SDK, narzędzi program
 > Przykładowa aplikacja w tym przewodniku Szybki start korzysta z funkcji, które nie są dostępne w systemie Windows 7.
 >
 
-## <a name="download-the-sample"></a>Pobierz przykład
+## <a name="download-the-sample"></a>Pobieranie przykładu
 
 W oknie polecenia uruchom następujące polecenie, aby sklonować przykładowe repozytorium aplikacji na komputer lokalny.
 

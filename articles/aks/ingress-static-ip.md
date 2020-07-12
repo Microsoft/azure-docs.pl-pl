@@ -5,11 +5,12 @@ description: Dowiedz się, jak zainstalować i skonfigurować kontroler transfer
 services: container-service
 ms.topic: article
 ms.date: 07/02/2020
-ms.openlocfilehash: f10bed46f93af3579f07e04d9940fc98eef67826
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: a59bd1cfcc03b0a6c9af218cb7108a0ba094377d
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85920315"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86255289"
 ---
 # <a name="create-an-ingress-controller-with-a-static-public-ip-address-in-azure-kubernetes-service-aks"></a>Utwórz kontroler transferu danych przychodzących ze statycznym publicznym adresem IP w usłudze Azure Kubernetes Service (AKS)
 
@@ -433,7 +434,7 @@ W tym artykule uwzględniono niektóre składniki zewnętrzne do AKS. Aby dowied
 
 - [Interfejs wiersza polecenia Helm][helm-cli]
 - [Kontroler transferu danych przychodzących NGINX][nginx-ingress]
-- [Menedżer certyfikatów][cert-manager]
+- [cert-manager][cert-manager]
 
 Możesz również wykonać następujące czynności:
 
@@ -444,7 +445,7 @@ Możesz również wykonać następujące czynności:
 - [Utwórz kontroler transferu danych przychodzących z dynamicznym publicznym adresem IP, a następnie skonfiguruj szyfrowanie, aby automatycznie generować certyfikaty TLS][aks-ingress-tls]
 
 <!-- LINKS - external -->
-[helm-cli]: https://docs.microsoft.com/azure/aks/kubernetes-helm
+[helm-cli]: ./kubernetes-helm.md
 [cert-manager]: https://github.com/jetstack/cert-manager
 [cert-manager-certificates]: https://cert-manager.readthedocs.io/en/latest/reference/certificates.html
 [cert-manager-cluster-issuer]: https://cert-manager.readthedocs.io/en/latest/reference/clusterissuers.html

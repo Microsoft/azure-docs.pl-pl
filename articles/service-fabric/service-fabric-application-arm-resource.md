@@ -3,11 +3,12 @@ title: Wdrażanie i uaktualnianie przy użyciu Azure Resource Manager
 description: Dowiedz się, jak wdrażać aplikacje i usługi w klastrze Service Fabric przy użyciu szablonu Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 12/06/2017
-ms.openlocfilehash: a2dfe54bf2c6b4fa8814f10c10576a73727a7417
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a849bdff0d2719f02b6b5f2d7159b87ce664c13f
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75610254"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86256513"
 ---
 # <a name="manage-applications-and-services-as-azure-resource-manager-resources"></a>Zarządzanie aplikacjami i usługami jako zasobami Azure Resource Manager
 
@@ -260,13 +261,12 @@ Po prostu usunięcie usługi Microsoft. servicefabric/klastrów/aplikacji z szab
 
 ## <a name="manage-an-existing-application-via-resource-manager"></a>Zarządzanie istniejącą aplikacją za pośrednictwem Menedżer zasobów
 
-Jeśli klaster jest już włączony i niektóre aplikacje, które mają być zarządzane, jako Menedżer zasobów zasoby są już wdrożone na nim, zamiast usuwać aplikacje i wdrażać je ponownie, można użyć wywołania PUT przy użyciu tych samych interfejsów API, aby aplikacje były potwierdzane jako zasoby Menedżer zasobów. Aby uzyskać dodatkowe informacje, zobacz [temat co to jest model zasobów aplikacji Service Fabric?](https://docs.microsoft.com/azure/service-fabric/service-fabric-concept-resource-model)
+Jeśli klaster jest już włączony i niektóre aplikacje, które mają być zarządzane, jako Menedżer zasobów zasoby są już wdrożone na nim, zamiast usuwać aplikacje i wdrażać je ponownie, można użyć wywołania PUT przy użyciu tych samych interfejsów API, aby aplikacje były potwierdzane jako zasoby Menedżer zasobów. Aby uzyskać dodatkowe informacje, zobacz [temat co to jest model zasobów aplikacji Service Fabric?](./service-fabric-concept-resource-model.md)
 
 > [!NOTE]
-> Aby umożliwić uaktualnienie klastra do ignorowania aplikacji w złej kondycji, klient może określić "maxPercentUnhealthyApplications: 100" w sekcji "upgradeDescription/healthPolicy"; szczegółowe opisy wszystkich ustawień znajdują się w [dokumentacji zasad uaktualniania klastra interfejsu API REST usługi Service Fabric](https://docs.microsoft.com/rest/api/servicefabric/sfrp-model-clusterupgradepolicy).
+> Aby umożliwić uaktualnienie klastra do ignorowania aplikacji w złej kondycji, klient może określić "maxPercentUnhealthyApplications: 100" w sekcji "upgradeDescription/healthPolicy"; szczegółowe opisy wszystkich ustawień znajdują się w [dokumentacji zasad uaktualniania klastra interfejsu API REST usługi Service Fabric](/rest/api/servicefabric/sfrp-model-clusterupgradepolicy).
 
 ## <a name="next-steps"></a>Następne kroki
 
 * Użyj [interfejsu wiersza polecenia Service Fabric](service-fabric-cli.md) lub [programu PowerShell](service-fabric-deploy-remove-applications.md) , aby wdrożyć inne aplikacje w klastrze. 
 * [Uaktualnianie klastra Service Fabric](service-fabric-cluster-upgrade.md)
-

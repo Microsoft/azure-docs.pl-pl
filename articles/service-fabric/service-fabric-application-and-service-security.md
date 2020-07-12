@@ -3,12 +3,12 @@ title: Dowiedz się więcej o usłudze Azure Service Fabric Application Security
 description: Omówienie sposobu bezpiecznego uruchamiania aplikacji mikrousług na Service Fabric. Dowiedz się, jak uruchamiać usługi i skrypty uruchomieniowe w ramach różnych kont zabezpieczeń, uwierzytelniać i autoryzować użytkowników, zarządzać kluczami tajnymi aplikacji, zabezpieczać komunikację z usługą, korzystać z bramy interfejsu API i zabezpieczać dane aplikacji w stanie spoczynku.
 ms.topic: conceptual
 ms.date: 03/16/2018
-ms.openlocfilehash: c97c5345a1a18cce8c44508542f12d3642d2b8f9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f17840f31d2a4c12a1d4618bd16e81dcc2cc8a14
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81461433"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86256581"
 ---
 # <a name="service-fabric-application-and-service-security"></a>Service Fabric zabezpieczenia aplikacji i usługi
 Architektura mikrousług może przynieść [wiele korzyści](service-fabric-overview-microservices.md). Zarządzanie zabezpieczeniami mikrousług jest jednak wyzwaniem i innym niż zarządzanie tradycyjnymi aplikacjami litymi zabezpieczeń. 
@@ -35,7 +35,7 @@ Po uwierzytelnieniu usługi muszą autoryzować dostęp użytkowników lub okre�
 ## <a name="restrict-and-secure-access-using-an-api-gateway"></a>Ograniczanie i bezpieczny dostęp przy użyciu bramy interfejsu API
 Aplikacje w chmurze zwykle potrzebują bramy frontonu, aby udostępniać pojedynczy punkt danych przychodzących dla użytkowników, urządzeń lub innych aplikacji. [Brama interfejsu API](/azure/architecture/microservices/gateway) znajduje się między klientami a usługami i jest punktem wejścia do wszystkich usług udostępnianych przez aplikację. Działa jako zwrotny serwer proxy, żądania routingu od klientów do usług. Może również wykonywać różne zadania wycinania, takie jak uwierzytelnianie i autoryzacja, zakończenie protokołu TLS i ograniczanie szybkości. Jeśli Brama nie zostanie wdrożona, klienci muszą wysyłać żądania bezpośrednio do usług frontonu.
 
-W Service Fabric Brama może być dowolną usługą bezstanową, taką jak [aplikacja ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md)lub inna usługa zaprojektowana na potrzeby ruchu przychodzącego, na przykład [Traefik](https://docs.traefik.io/), [Event Hubs](https://docs.microsoft.com/azure/event-hubs/), [IoT Hub](https://docs.microsoft.com/azure/iot-hub/)lub [Azure API Management](https://docs.microsoft.com/azure/api-management).
+W Service Fabric Brama może być dowolną usługą bezstanową, taką jak [aplikacja ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md)lub inna usługa zaprojektowana na potrzeby ruchu przychodzącego, na przykład [Traefik](https://docs.traefik.io/), [Event Hubs](../event-hubs/index.yml), [IoT Hub](../iot-hub/index.yml)lub [Azure API Management](../api-management/index.yml).
 
 API Management integruje się bezpośrednio z Service Fabric, co pozwala na publikowanie interfejsów API z bogatym zestawem reguł routingu do usług Service Fabric zaplecza.  Można zabezpieczyć dostęp do usług zaplecza, zapobiegać atakom na system DOS przy użyciu ograniczania lub weryfikować klucze interfejsu API, tokeny JWT, certyfikaty i inne poświadczenia. Aby dowiedzieć się więcej, Przeczytaj [Service Fabric z usługą Azure API Management — Omówienie](service-fabric-api-management-overview.md).
 
@@ -85,7 +85,7 @@ Można nawiązać bezpieczne połączenie między zwrotnym serwerem proxy a usł
 Platforma aplikacji Reliable Services zawiera kilka wstępnie utworzonych stosów i narzędzi do komunikacji, których można użyć w celu zwiększenia bezpieczeństwa. Dowiedz się, jak poprawić zabezpieczenia podczas korzystania z usług zdalnych (w [języku C#](service-fabric-reliable-services-secure-communication.md) lub [Java](service-fabric-reliable-services-secure-communication-java.md)) lub przy użyciu programu [WCF](service-fabric-reliable-services-secure-communication-wcf.md).
 
 ## <a name="encrypt-application-data-at-rest"></a>Szyfruj dane aplikacji w stanie spoczynku
-Każdy [Typ węzła](service-fabric-cluster-nodetypes.md) w klastrze Service Fabric uruchomionym na platformie Azure jest obsługiwany przez [zestaw skalowania maszyn wirtualnych](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). Za pomocą szablonu usługi Azure Resource Manager możesz dołączać dyski z danymi do zestawów skalowania tworzących klaster usługi Service Fabric.  Jeśli usługi zapisują dane na dołączonym dysku danych, można je [zaszyfrować](../virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-ps.md) , aby chronić dane aplikacji.
+Każdy [Typ węzła](service-fabric-cluster-nodetypes.md) w klastrze Service Fabric uruchomionym na platformie Azure jest obsługiwany przez [zestaw skalowania maszyn wirtualnych](../virtual-machine-scale-sets/overview.md). Za pomocą szablonu usługi Azure Resource Manager możesz dołączać dyski z danymi do zestawów skalowania tworzących klaster usługi Service Fabric.  Jeśli usługi zapisują dane na dołączonym dysku danych, można je [zaszyfrować](../virtual-machine-scale-sets/disk-encryption-powershell.md) , aby chronić dane aplikacji.
 
 <!--TO DO: Enable BitLocker on Windows standalone clusters?
 TO DO: Encrypt disks on Linux clusters?-->

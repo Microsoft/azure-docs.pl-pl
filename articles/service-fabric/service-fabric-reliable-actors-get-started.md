@@ -5,16 +5,17 @@ author: vturecek
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: vturecek
-ms.openlocfilehash: a6e4fb48653572139463738c82de632ff7d55074
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c2ee5df9f0b09e30212f61e804e24086874f07f5
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75466252"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86256275"
 ---
 # <a name="getting-started-with-reliable-actors"></a>Wprowadzenie do Reliable Actors
 > [!div class="op_single_selector"]
 > * [C# w systemie Windows](service-fabric-reliable-actors-get-started.md)
-> * [Java w systemie Linux](service-fabric-reliable-actors-get-started-java.md)
+> * [Java w systemie Linux](./service-fabric-create-your-first-linux-application-with-java.md)
 
 W tym artykule omówiono tworzenie i debugowanie prostej niezawodnej aplikacji aktora w programie Visual Studio. Aby uzyskać więcej informacji na temat Reliable Actors, zobacz [wprowadzenie do Service Fabric Reliable Actors](service-fabric-reliable-actors-introduction.md).
 

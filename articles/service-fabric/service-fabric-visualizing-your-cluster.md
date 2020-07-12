@@ -5,11 +5,12 @@ author: mikkelhegn
 ms.topic: conceptual
 ms.date: 01/24/2019
 ms.author: mikhegn
-ms.openlocfilehash: 80e3d990b6e8026c57ffff0048d0447a95529564
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 92f6f495f6aac23785dd2a21672747bffb07e2e3
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79258189"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86256258"
 ---
 # <a name="visualize-your-cluster-with-service-fabric-explorer"></a>Wizualizowanie klastra przy użyciu narzędzia Service Fabric Explorer
 
@@ -79,7 +80,7 @@ Na każdym poziomie drzewa okienko główne pokazuje odpowiednie informacje o el
 ### <a name="view-the-clusters-nodes"></a>Wyświetlanie węzłów klastra
 Widok węzła przedstawia fizyczny układ klastra. Dla danego węzła można sprawdzić, które aplikacje mają kod wdrożony w tym węźle. Dokładniej mówiąc, można zobaczyć, które repliki są obecnie uruchomione.
 
-## <a name="actions"></a>Akcje
+## <a name="actions"></a>Działania
 Service Fabric Explorer umożliwia szybkie wywoływanie akcji na węzłach, aplikacjach i usługach w ramach klastra.
 
 Na przykład aby usunąć wystąpienie aplikacji, wybierz aplikację z drzewa po lewej stronie, a następnie wybierz **Akcje**  >  **Usuń aplikację**.
@@ -131,7 +132,7 @@ Możliwe są następujące operacje:
 * Wyzwalanie i śledzenie kopii zapasowej partycji.
 * Wyzwalanie i śledzenie przywracania dla partycji.
 
-Aby uzyskać więcej informacji na temat usługi tworzenia kopii zapasowych i przywracania, zobacz [Dokumentacja interfejsu API REST](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-backuprestore).
+Aby uzyskać więcej informacji na temat usługi tworzenia kopii zapasowych i przywracania, zobacz [Dokumentacja interfejsu API REST](/rest/api/servicefabric/sfclient-index-backuprestore).
 ## <a name="next-steps"></a>Następne kroki
 * [Zarządzanie aplikacjami Service Fabric w programie Visual Studio](service-fabric-manage-application-in-visual-studio.md)
 * [Service Fabric wdrażanie aplikacji przy użyciu programu PowerShell](service-fabric-deploy-remove-applications.md)

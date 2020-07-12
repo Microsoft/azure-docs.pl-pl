@@ -5,11 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: srrengar
-ms.openlocfilehash: 5bd3bda71943b2ba8a34cd4fbd0b20917b875670
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fe31c6fdca3651bfe56e798b30d50c9f047c680b
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75645756"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86258638"
 ---
 # <a name="service-fabric-linux-cluster-events-in-syslog"></a>Zdarzenia klastra Service Fabric systemu Linux w dzienniku systemu
 
@@ -112,6 +113,6 @@ Powyższy przykład dotyczy zdarzenia NodeDown. Pełną listę zdarzeń można z
 
 ## <a name="next-steps"></a>Następne kroki
 * [Wdróż agenta log Analytics](service-fabric-diagnostics-oms-agent.md) w węzłach w celu zebrania liczników wydajności i zebrania statystyk i dzienników platformy Docker dla kontenerów
-* Zapoznaj się z funkcjami [przeszukiwania dzienników i wykonywania zapytań](../log-analytics/log-analytics-log-searches.md) , które są oferowane w ramach dzienników Azure monitor
-* [Używanie projektanta widoków do tworzenia widoków niestandardowych w dziennikach Azure Monitor](../log-analytics/log-analytics-view-designer.md)
-* Informacje dotyczące sposobu [Azure Monitornia dzienników integracja z dziennikiem](../log-analytics/log-analytics-data-sources-syslog.md)systemowym.
+* Zapoznaj się z funkcjami [przeszukiwania dzienników i wykonywania zapytań](../azure-monitor/log-query/log-query-overview.md) , które są oferowane w ramach dzienników Azure monitor
+* [Używanie projektanta widoków do tworzenia widoków niestandardowych w dziennikach Azure Monitor](../azure-monitor/platform/view-designer.md)
+* Informacje dotyczące sposobu [Azure Monitornia dzienników integracja z dziennikiem](../azure-monitor/platform/data-sources-syslog.md)systemowym.

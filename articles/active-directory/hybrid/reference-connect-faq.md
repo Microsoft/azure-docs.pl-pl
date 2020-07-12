@@ -15,11 +15,12 @@ ms.date: 08/23/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ad8990512cb09f6048b169c1d0c0a259a62b61b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4956014e3a950a729ef3993e10ca455ab8aae6f4
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83827152"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86256683"
 ---
 # <a name="azure-active-directory-connect-faq"></a>Azure Active Directory Connect często zadawane pytania
 
@@ -31,7 +32,7 @@ Firma Microsoft zaleca, aby zabezpieczyć serwer Azure AD Connect, aby zmniejszy
 
 * Wdrażanie Azure AD Connect na serwerze przyłączonym do domeny i ograniczanie dostępu administracyjnego do administratorów domeny lub innych chronionych grup zabezpieczeń
 
-Aby dowiedzieć się więcej, zobacz: 
+Aby dowiedzieć się więcej, zobacz następujące artykuły: 
 
 * [Zabezpieczanie grup administratorów](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/appendix-g--securing-administrators-groups-in-active-directory)
 
@@ -256,6 +257,16 @@ W rzadkich przypadkach usługa Azure AD Connect nie zostanie uruchomiona po prze
 
 **P: nie wiem, jakie jest ryzyko związane z uaktualnieniem do nowszej wersji Azure AD Connect. Czy można zadzwonić do mnie, aby pomóc Ci w uaktualnieniu?**  
 Jeśli potrzebujesz pomocy w uaktualnieniu do nowszej wersji Azure AD Connect, Otwórz bilet pomocy technicznej na temat [tworzenia żądania usługi, aby skontaktować się z pomocą techniczną pakietu Office 365](https://blogs.technet.microsoft.com/praveenkumar/2013/07/17/how-to-create-service-requests-to-contact-office-365-support/).
+
+## <a name="operational-best-practice"></a>Najlepsze rozwiązanie w zakresie działania    
+Poniżej przedstawiono niektóre najlepsze rozwiązania, które należy zaimplementować podczas synchronizacji między Active Directory i Azure Active Directory systemu Windows Server.
+
+**Zastosuj Multi-Factor Authentication dla wszystkich zsynchronizowanych kont** Usługa Azure Multi-Factor Authentication pomaga w zabezpieczeniu dostępu do danych i aplikacji przy jednoczesnym zachowaniu prostoty dla użytkowników. Zapewnia dodatkowe zabezpieczenia, wymagając drugiej formy uwierzytelniania i zapewnia silne uwierzytelnianie za pośrednictwem różnych metod uwierzytelniania. Użytkownicy mogą lub nie mogą zakwestionować usługi MFA w oparciu o decyzje konfiguracyjne wykonywane przez administratora. Więcej informacji na temat usługi MFA można znaleźć tutaj:https://www.microsoft.com/security/business/identity/mfa?rtc=1
+
+**Postępuj zgodnie z zaleceniami dotyczącymi zabezpieczeń serwera Azure AD Connect** Serwer Azure AD Connect zawiera krytyczne dane tożsamości i powinien być traktowany jako składnik warstwy 0, zgodnie z opisem w [Active Directory modelu warstwy administracyjnej](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material). Zapoznaj się również z naszymi [wskazówkami dotyczącymi zabezpieczania serwera AADConnect](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-prerequisites#azure-ad-connect-server).
+
+**Włącz PHS na potrzeby wykrywania przecieków poświadczeń** Synchronizacja skrótów haseł umożliwia również [Wykrywanie przecieków poświadczeń](https://docs.microsoft.com/azure/active-directory/identity-protection/concept-identity-protection-risks) dla kont hybrydowych. Firma Microsoft współpracuje z najciemniejszymi specjalistami z sieci Web i agencjami ścigania, aby znaleźć publicznie dostępne pary nazw i haseł. Jeśli którakolwiek z tych par pasuje do tych użytkowników, skojarzone konto jest przenoszone do wysokiego ryzyka. 
+
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 **P: Jak mogę uzyskać pomoc dotyczącą Azure AD Connect?**

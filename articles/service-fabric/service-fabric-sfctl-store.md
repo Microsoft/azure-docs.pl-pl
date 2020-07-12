@@ -5,11 +5,12 @@ author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: 75c62b54ff3aa7f3af344aa3e1ca81d431ae0ab2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: af5399be44d2946775622598c5c1db3d8355f7cd
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76905630"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86257074"
 ---
 # <a name="sfctl-store"></a>sfctl store
 Wykonaj podstawowe operacje na poziomie plików w magazynie obrazów klastra.
@@ -18,7 +19,7 @@ Wykonaj podstawowe operacje na poziomie plików w magazynie obrazów klastra.
 
 |Polecenie|Opis|
 | --- | --- |
-| delete | Usuwa istniejącą zawartość magazynu obrazów. |
+| usunięcie | Usuwa istniejącą zawartość magazynu obrazów. |
 | element główny — informacje | Pobiera informacje o zawartości w katalogu głównym magazynu obrazów. |
 | Określ | Pobiera informacje o zawartości magazynu obrazu. |
 
@@ -90,4 +91,4 @@ Zwraca informacje o zawartości magazynu obrazu w określonym contentPath. Conte
 
 ## <a name="next-steps"></a>Następne kroki
 - [Skonfiguruj](service-fabric-cli.md) interfejs wiersza polecenia Service Fabric.
-- Dowiedz się, jak używać interfejsu wiersza polecenia Service Fabric przy użyciu [przykładowych skryptów](/azure/service-fabric/scripts/sfctl-upgrade-application).
+- Dowiedz się, jak używać interfejsu wiersza polecenia Service Fabric przy użyciu [przykładowych skryptów](./scripts/sfctl-upgrade-application.md).

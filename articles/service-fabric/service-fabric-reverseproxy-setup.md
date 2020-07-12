@@ -4,12 +4,12 @@ description: Dowiedz się, jak skonfigurować i skonfigurować usługę zwrotneg
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: pepogors
-ms.openlocfilehash: 6e3edb0fe238dcaddb7d99cc68660591f081581c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f8a9025a50b2815f0e6030e7baf317b261c8c462
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80476676"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86256335"
 ---
 # <a name="set-up-and-configure-reverse-proxy-in-azure-service-fabric"></a>Konfigurowanie i Konfigurowanie zwrotnego serwera proxy na platformie Azure Service Fabric
 Zwrotny serwer proxy to opcjonalna usługa Service Fabric platformy Azure, która pomaga mikrousługom działającym w klastrze Service Fabric odnajdywania i komunikowania się z innymi usługami, które mają punkty końcowe http. Aby dowiedzieć się więcej, zobacz [zwrotny serwer proxy na platformie Azure Service Fabric](service-fabric-reverseproxy.md). W tym artykule opisano sposób konfigurowania i konfigurowania zwrotnego serwera proxy w klastrze. 
@@ -37,7 +37,7 @@ W przypadku nowego klastra można [utworzyć niestandardowy szablon Menedżer za
 
 Możesz znaleźć przykładowe szablony Menedżer zasobów, które mogą ułatwić skonfigurowanie bezpiecznego zwrotnego serwera proxy dla klastra platformy Azure w [przykładowych szablonach bezpiecznych zwrotnych serwerów proxy](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/Reverse-Proxy-Sample) w witrynie GitHub. Zapoznaj się z tematem [Konfigurowanie zwrotnego serwera proxy HTTPS w zabezpieczonym klastrze](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/Reverse-Proxy-Sample/README.md#configure-https-reverse-proxy-in-a-secure-cluster) w pliku Readme, aby uzyskać instrukcje i szablony służące do konfigurowania bezpiecznego zwrotnego serwera proxy z certyfikatem i do obsługi przerzucania certyfikatów.
 
-W przypadku istniejącego klastra można wyeksportować szablon Menedżer zasobów dla grupy zasobów klastra przy użyciu [Azure Portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template), [programu PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template-powershell)lub [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template-cli).
+W przypadku istniejącego klastra można wyeksportować szablon Menedżer zasobów dla grupy zasobów klastra przy użyciu [Azure Portal](../azure-resource-manager/templates/export-template-portal.md), [programu PowerShell](../azure-resource-manager/management/manage-resources-powershell.md)lub [interfejsu wiersza polecenia platformy Azure](../azure-resource-manager/management/manage-resources-cli.md).
 
 Po utworzeniu szablonu Menedżer zasobów można włączyć zwrotny serwer proxy, wykonując następujące czynności:
 
@@ -52,7 +52,7 @@ Po utworzeniu szablonu Menedżer zasobów można włączyć zwrotny serwer proxy
         }
     },
     ```
-2. Określ port dla każdego z obiektów NodeType w [sekcji Typ zasobu](../azure-resource-manager/templates/template-syntax.md) [**Microsoft. servicefabric/klastrów**](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/clusters) .
+2. Określ port dla każdego z obiektów NodeType w [sekcji Typ zasobu](../azure-resource-manager/templates/template-syntax.md) [**Microsoft. servicefabric/klastrów**](/azure/templates/microsoft.servicefabric/clusters) .
 
     Port jest identyfikowany przez nazwę parametru, reverseProxyEndpointPort.
 
@@ -74,7 +74,7 @@ Po utworzeniu szablonu Menedżer zasobów można włączyć zwrotny serwer proxy
         ...
     }
     ```
-3. Aby skonfigurować certyfikaty TLS/SSL na porcie dla zwrotnego serwera proxy, Dodaj certyfikat do właściwości ***reverseProxyCertificate*** w [sekcji Typ zasobu](../resource-group-authoring-templates.md) **Microsoft. servicefabric/** Reports.
+3. Aby skonfigurować certyfikaty TLS/SSL na porcie dla zwrotnego serwera proxy, Dodaj certyfikat do właściwości ***reverseProxyCertificate*** w [sekcji Typ zasobu](../azure-resource-manager/templates/template-syntax.md) **Microsoft. servicefabric/** Reports.
 
     ```json
     {
@@ -98,7 +98,7 @@ Po utworzeniu szablonu Menedżer zasobów można włączyć zwrotny serwer proxy
     ```
 
 ### <a name="supporting-a-reverse-proxy-certificate-thats-different-from-the-cluster-certificate"></a>Obsługa certyfikatu zwrotnego serwera proxy, który różni się od certyfikatu klastra
- Jeśli certyfikat zwrotnego serwera proxy różni się od certyfikatu, który zabezpiecza klaster, wówczas wcześniej określony certyfikat powinien zostać zainstalowany na maszynie wirtualnej i dodany do listy kontroli dostępu (ACL), tak aby Service Fabric mógł uzyskać do niej dostęp. Można to zrobić w [sekcji Typ zasobu](../resource-group-authoring-templates.md) [**Microsoft. COMPUTE/virtualMachineScaleSets**](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachinescalesets) . Na potrzeby instalacji Dodaj certyfikat do osProfile. Sekcja rozszerzenia szablonu może zaktualizować certyfikat na liście ACL.
+ Jeśli certyfikat zwrotnego serwera proxy różni się od certyfikatu, który zabezpiecza klaster, wówczas wcześniej określony certyfikat powinien zostać zainstalowany na maszynie wirtualnej i dodany do listy kontroli dostępu (ACL), tak aby Service Fabric mógł uzyskać do niej dostęp. Można to zrobić w [sekcji Typ zasobu](../azure-resource-manager/templates/template-syntax.md) [**Microsoft. COMPUTE/virtualMachineScaleSets**](/azure/templates/microsoft.compute/virtualmachinescalesets) . Na potrzeby instalacji Dodaj certyfikat do osProfile. Sekcja rozszerzenia szablonu może zaktualizować certyfikat na liście ACL.
 
   ```json
   {
@@ -252,50 +252,50 @@ Jeśli chcesz uwidocznić odwrotny serwer proxy publicznie dla klastra autonomic
 
 ### <a name="expose-the-reverse-proxy-via-resource-manager-templates"></a>Uwidacznianie zwrotnego serwera proxy za pomocą szablonów Menedżer zasobów
 
-Poniższy kod JSON odwołuje się do tego samego szablonu, który jest używany w funkcji [Włącz zwrotny serwer proxy za pomocą szablonów Azure Resource Manager](#enable-reverse-proxy-via-azure-resource-manager-templates). Zapoznaj się z tą sekcją dokumentu, aby uzyskać informacje na temat sposobu tworzenia szablonu Menedżer zasobów lub eksportowania szablonu dla istniejącego klastra.  Zmiany są wprowadzane w [sekcji Typ zasobu](../resource-group-authoring-templates.md) [**Microsoft. Network/loadBalancers**](https://docs.microsoft.com/azure/templates/microsoft.network/loadbalancers) .
+Poniższy kod JSON odwołuje się do tego samego szablonu, który jest używany w funkcji [Włącz zwrotny serwer proxy za pomocą szablonów Azure Resource Manager](#enable-reverse-proxy-via-azure-resource-manager-templates). Zapoznaj się z tą sekcją dokumentu, aby uzyskać informacje na temat sposobu tworzenia szablonu Menedżer zasobów lub eksportowania szablonu dla istniejącego klastra.  Zmiany są wprowadzane w [sekcji Typ zasobu](../azure-resource-manager/templates/template-syntax.md) [**Microsoft. Network/loadBalancers**](/azure/templates/microsoft.network/loadbalancers) .
 
-    ```json
-    {
-        "apiVersion": "[variables('lbApiVersion')]",
-        "type": "Microsoft.Network/loadBalancers",
+```json
+{
+    "apiVersion": "[variables('lbApiVersion')]",
+    "type": "Microsoft.Network/loadBalancers",
+    ...
+    ...
+    "loadBalancingRules": [
         ...
-        ...
-        "loadBalancingRules": [
-            ...
-            {
-                "name": "LBSFReverseProxyRule",
-                "properties": {
-                    "backendAddressPool": {
-                        "id": "[variables('lbPoolID0')]"
-                    },
-                    "backendPort": "[parameters('SFReverseProxyPort')]",
-                    "enableFloatingIP": "false",
-                    "frontendIPConfiguration": {
-                        "id": "[variables('lbIPConfig0')]"
-                    },
-                    "frontendPort": "[parameters('SFReverseProxyPort')]",
-                    "idleTimeoutInMinutes": "5",
-                    "probe": {
-                        "id": "[concat(variables('lbID0'),'/probes/SFReverseProxyProbe')]"
-                    },
-                    "protocol": "tcp"
-                }
+        {
+            "name": "LBSFReverseProxyRule",
+            "properties": {
+                "backendAddressPool": {
+                    "id": "[variables('lbPoolID0')]"
+                },
+                "backendPort": "[parameters('SFReverseProxyPort')]",
+                "enableFloatingIP": "false",
+                "frontendIPConfiguration": {
+                    "id": "[variables('lbIPConfig0')]"
+                },
+                "frontendPort": "[parameters('SFReverseProxyPort')]",
+                "idleTimeoutInMinutes": "5",
+                "probe": {
+                    "id": "[concat(variables('lbID0'),'/probes/SFReverseProxyProbe')]"
+                },
+                "protocol": "tcp"
             }
-        ],
-        "probes": [
-            ...
-            {
-                "name": "SFReverseProxyProbe",
-                "properties": {
-                    "intervalInSeconds": 5,
-                    "numberOfProbes": 2,
-                    "port":     "[parameters('SFReverseProxyPort')]",
-                    "protocol": "tcp"
-                }
-            }  
-        ]
-    }
-    ```
+        }
+    ],
+    "probes": [
+        ...
+        {
+            "name": "SFReverseProxyProbe",
+            "properties": {
+                "intervalInSeconds": 5,
+                "numberOfProbes": 2,
+                "port":     "[parameters('SFReverseProxyPort')]",
+                "protocol": "tcp"
+            }
+        }  
+    ]
+}
+```
 
 
 ## <a name="customize-reverse-proxy-behavior-using-fabric-settings"></a>Dostosowywanie zachowania zwrotnego serwera proxy przy użyciu ustawień sieci szkieletowej

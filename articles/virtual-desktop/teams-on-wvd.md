@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/29/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 3fc44ca18f237fecd1c694e96f9ebc2d5b541757
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d482b3335b31d116846ec64883b43897fcc4e43d
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85564451"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86255663"
 ---
 # <a name="use-microsoft-teams-on-windows-virtual-desktop"></a>Korzystanie z programu Microsoft Teams na pulpicie wirtualnym systemu Windows
 
@@ -32,7 +32,7 @@ Dzięki optymalizacji multimediów dla zespołów Microsoft Teams klient klasycz
 Aby można było korzystać z programu Microsoft Teams na pulpicie wirtualnym systemu Windows, należy wykonać następujące czynności:
 
 - [Przygotuj sieć](/microsoftteams/prepare-network/) dla programu Microsoft Teams.
-- Zainstaluj [klienta pulpitu systemu Windows](connect-windows-7-and-10.md) na urządzeniu z systemem Windows 10 lub Windows 10 IoT Enterprise spełniającym wymagania sprzętowe zespołów firmy Microsoft [dla zespołów na komputerze z systemem Windows](/microsoftteams/hardware-requirements-for-the-teams-app#hardware-requirements-for-teams-on-a-windows-pc/).
+- Zainstaluj [klienta pulpitu systemu Windows](connect-windows-7-10.md) na urządzeniu z systemem Windows 10 lub Windows 10 IoT Enterprise spełniającym wymagania sprzętowe zespołów firmy Microsoft [dla zespołów na komputerze z systemem Windows](/microsoftteams/hardware-requirements-for-the-teams-app#hardware-requirements-for-teams-on-a-windows-pc/).
 - Nawiązywanie połączenia z maszyną wirtualną z systemem Windows 10 lub systemem Windows 10 Enterprise.
 - Zainstaluj aplikację Team Desktop na hoście przy użyciu instalacji na komputerze. Optymalizacja multimediów dla zespołów Microsoft Teams wymaga aplikacji Team Desktop w wersji 1.3.00.4461 lub nowszej.
 

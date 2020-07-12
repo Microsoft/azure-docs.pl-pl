@@ -5,11 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: 0819ca02d088aeb9ada5de1269467f70242bbcca
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c2114f5392da788bb440589e69e704a148731e02
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75609914"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86258626"
 ---
 # <a name="performance-monitoring-with-the-windows-azure-diagnostics-extension"></a>Monitorowanie wydajności za pomocą rozszerzenia Diagnostyka Azure systemu Windows
 
@@ -192,5 +193,5 @@ Poniżej znajduje się przykład konfiguracji z licznikiem dla *łącznego czasu
 
 ## <a name="next-steps"></a>Następne kroki
 * Zbieraj więcej liczników wydajności dla klastra. Zobacz [metryki wydajności](service-fabric-diagnostics-event-generation-perf.md) , aby zapoznać się z listą liczników, które należy zebrać.
-* [Używaj monitorowania i diagnostyki z maszyną wirtualną z systemem Windows i szablonami Azure Resource Manager](../virtual-machines/windows/extensions-diagnostics-template.md) , aby wprowadzić dalsze modyfikacje `WadCfg` , w tym Konfigurowanie dodatkowych kont magazynu do wysyłania danych diagnostycznych do programu.
+* [Używaj monitorowania i diagnostyki z maszyną wirtualną z systemem Windows i szablonami Azure Resource Manager](../virtual-machines/extensions/diagnostics-template.md) , aby wprowadzić dalsze modyfikacje `WadCfg` , w tym Konfigurowanie dodatkowych kont magazynu do wysyłania danych diagnostycznych do programu.
 * Odwiedź [WadCfg Builder](https://azure.github.io/azure-diagnostics-tools/config-builder/) , aby utworzyć szablon od podstaw i upewnić się, że składnia jest poprawna. ( https://azure.github.io/azure-diagnostics-tools/config-builder/) Aby utworzyć szablon od podstaw i upewnić się, że składnia jest poprawna.

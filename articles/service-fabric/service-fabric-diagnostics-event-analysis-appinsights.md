@@ -5,11 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: 3b7cb09d67080d49f53d9dd48b5ed0f8f3a54884
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a912b7a6d918a40aaae54c9b177250dc3c30c84d
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83701896"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86256564"
 ---
 # <a name="event-analysis-and-visualization-with-application-insights"></a>Analiza zdarzeń i wizualizacja przy użyciu Application Insights
 
@@ -37,7 +38,7 @@ Application Insights ma wyznaczono widok do wykonywania zapytań dotyczących ws
 
 ![Szczegóły żądania Application Insights](media/service-fabric-diagnostics-event-analysis-appinsights/ai-metrics-explorer.png)
 
-Aby dowiedzieć się więcej o możliwościach portalu Application Insights, przejdź do [dokumentacji portalu Application Insights](../azure-monitor/app/app-insights-dashboards.md).
+Aby dowiedzieć się więcej o możliwościach portalu Application Insights, przejdź do [dokumentacji portalu Application Insights](../azure-monitor/app/overview-dashboard.md).
 
 ### <a name="configuring-application-insights-with-eventflow"></a>Konfigurowanie Application Insights przy użyciu użyciu struktury eventflow
 
@@ -66,11 +67,11 @@ Jeśli opracowujesz program w programie .NET i prawdopodobnie będziesz używać
 
 Po skonfigurowaniu Application Insights jako danych wyjściowych dla zdarzeń i dzienników informacje powinny zacząć pojawić się w zasobie Application Insights w ciągu kilku minut. Przejdź do zasobu Application Insights, co spowoduje przejście do pulpitu nawigacyjnego zasobów Application Insights. Kliknij przycisk **Wyszukaj** na pasku zadań Application Insights, aby zobaczyć najnowsze dane śledzenia odebrane i aby można było je filtrować.
 
-*Eksplorator metryk* to przydatne narzędzie do tworzenia niestandardowych pulpitów nawigacyjnych opartych na metrykach, które mogą być raportowane przez aplikacje, usługi i klaster. Zobacz [Eksplorowanie metryk w Application Insights](../azure-monitor/app/metrics-explorer.md) , aby skonfigurować kilka wykresów dla siebie na podstawie zbieranych danych.
+*Eksplorator metryk* to przydatne narzędzie do tworzenia niestandardowych pulpitów nawigacyjnych opartych na metrykach, które mogą być raportowane przez aplikacje, usługi i klaster. Zobacz [Eksplorowanie metryk w Application Insights](../azure-monitor/platform/metrics-charts.md) , aby skonfigurować kilka wykresów dla siebie na podstawie zbieranych danych.
 
-Kliknięcie pozycji **Analiza** spowoduje przejście do portalu analizy Application Insights, w którym można badać zdarzenia i ślady z większym zakresem i opcjonalnością. Więcej informacji na ten temat można znaleźć [w części analiza w Application Insights](../azure-monitor/app/analytics.md).
+Kliknięcie pozycji **Analiza** spowoduje przejście do portalu analizy Application Insights, w którym można badać zdarzenia i ślady z większym zakresem i opcjonalnością. Więcej informacji na ten temat można znaleźć [w części analiza w Application Insights](../azure-monitor/log-query/log-query-overview.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Konfigurowanie alertów w programie AI](/azure/azure-monitor/platform/alerts-log) do powiadamiania o zmianach wydajności lub użycia
+* [Konfigurowanie alertów w programie AI](../azure-monitor/platform/alerts-log.md) do powiadamiania o zmianach wydajności lub użycia
 * [Inteligentne wykrywanie w Application Insights](../azure-monitor/app/proactive-diagnostics.md) służy do aktywnej analizy danych telemetrycznych wysyłanych do Application Insights w celu ostrzegania o potencjalnych problemach z wydajnością

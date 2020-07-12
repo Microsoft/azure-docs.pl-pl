@@ -8,12 +8,12 @@ ms.date: 12/02/2019
 ms.topic: how-to
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 009e762b69d4f3512158d69ef3c67089096c9da7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 77ea5a354dde7adb006c95e9548d8fcc37e2dc12
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85360796"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86256870"
 ---
 # <a name="cloud-provisioning-troubleshooting"></a>Rozwiązywanie problemów z obsługą chmury
 
@@ -43,7 +43,7 @@ Te elementy można zweryfikować w Azure Portal i na serwerze lokalnym, na któr
 
 Aby sprawdzić, czy Agent jest widziany przez platformę Azure i jest w dobrej kondycji, wykonaj następujące kroki.
 
-1. Zaloguj się do witryny Azure Portal.
+1. Zaloguj się w witrynie Azure Portal.
 1. Po lewej stronie wybierz pozycję **Azure Active Directory**  >  **Azure AD Connect**. W centrum wybierz pozycję **Zarządzaj Provisioning (wersja zapoznawcza)**.
 1. Na ekranie **Azure AD Provisioning (wersja zapoznawcza)** wybierz pozycję **Przejrzyj wszystkich agentów**.
 
@@ -55,9 +55,7 @@ Aby sprawdzić, czy Agent jest widziany przez platformę Azure i jest w dobrej k
 
 ### <a name="verify-the-port"></a>Weryfikowanie portu
 
-Aby sprawdzić, czy platforma Azure nasłuchuje na porcie 443 i czy Agent może się z nim komunikować, użyj następującego narzędzia:
-
-https://aadap-portcheck.connectorporttest.msappproxy.net/ 
+Sprawdź, czy platforma Azure nasłuchuje na porcie 443 i czy Agent może się z nim komunikować. 
 
 Ten test sprawdza, czy agenci mogą komunikować się z platformą Azure przez port 443. Otwórz przeglądarkę i przejdź do poprzedniego adresu URL z serwera, na którym zainstalowano agenta.
 

@@ -4,11 +4,12 @@ description: Dowiedz się więcej na temat używania tożsamości zarządzanych 
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.custom: sfrev
-ms.openlocfilehash: a5c82f49195fc6d790ca4308d78b70106b6cc042
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 786d9b4b577f4a686367a103542ae4f8fa5453da
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84710307"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86257627"
 ---
 # <a name="using-managed-identities-for-azure-with-service-fabric"></a>Korzystanie z tożsamości zarządzanych dla platformy Azure z Service Fabric
 
@@ -23,7 +24,7 @@ Typowym wyzwaniem podczas kompilowania aplikacji w chmurze jest sposób bezpiecz
 
 Zarządzane tożsamości dla systemu Azure są oparte na kilku najważniejszych pojęciach:
 
-- **Identyfikator klienta** — unikatowy identyfikator wygenerowany przez usługę Azure AD, który jest powiązany z aplikacją i jednostką usługi podczas początkowej aprowizacji (Zobacz również [Identyfikator aplikacji](/azure/active-directory/develop/developer-glossary#application-id-client-id)).
+- **Identyfikator klienta** — unikatowy identyfikator wygenerowany przez usługę Azure AD, który jest powiązany z aplikacją i jednostką usługi podczas początkowej aprowizacji (Zobacz również [Identyfikator aplikacji](../active-directory/develop/developer-glossary.md#application-id-client-id)).
 
 - **Identyfikator podmiotu zabezpieczeń** — identyfikator obiektu jednostki usługi dla tożsamości zarządzanej, który jest używany do udzielania dostępu opartego na rolach do zasobu platformy Azure.
 

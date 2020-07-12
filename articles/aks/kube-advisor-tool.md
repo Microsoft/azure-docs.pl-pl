@@ -7,11 +7,12 @@ author: seanmck
 ms.topic: troubleshooting
 ms.date: 11/05/2018
 ms.author: seanmck
-ms.openlocfilehash: 9dc5a38a05ef73863f85e4dbe92d52eb94b2715f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2b0078f1aff3ef81ee270f67de0fffddec3abab9
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83773800"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86255255"
 ---
 # <a name="checking-for-kubernetes-best-practices-in-your-cluster"></a>Sprawdzanie najlepszych rozwiązań dotyczących platformy Kubernetes w klastrze
 
@@ -28,7 +29,7 @@ Narzędzie polecenia-Advisor może raportować żądania zasobów i limitów bra
 
 ## <a name="running-kube-advisor"></a>Uruchamianie polecenia-Advisor
 
-Aby uruchomić narzędzie w klastrze skonfigurowanym na potrzeby [kontroli dostępu opartej na rolach (RBAC)](azure-ad-integration.md), użyj następujących poleceń. Pierwsze polecenie tworzy konto usługi Kubernetes. Drugie polecenie uruchamia narzędzie w składniku pod przy użyciu tego konta usługi i konfiguruje go pod kątem usuwania po zakończeniu. 
+Aby uruchomić narzędzie w klastrze skonfigurowanym na potrzeby [kontroli dostępu opartej na rolach (RBAC)](./azure-ad-integration-cli.md), użyj następujących poleceń. Pierwsze polecenie tworzy konto usługi Kubernetes. Drugie polecenie uruchamia narzędzie w składniku pod przy użyciu tego konta usługi i konfiguruje go pod kątem usuwania po zakończeniu. 
 
 ```bash
 kubectl apply -f https://raw.githubusercontent.com/Azure/kube-advisor/master/sa.yaml

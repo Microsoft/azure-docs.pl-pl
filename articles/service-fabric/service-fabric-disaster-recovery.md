@@ -5,11 +5,12 @@ author: masnider
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: b29985d40ae3a1bf582099e998e000fed83460f6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9c258d8d0a7aa26c96ab4f64017770ebdd153e60
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79371651"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86257513"
 ---
 # <a name="disaster-recovery-in-azure-service-fabric"></a>Odzyskiwanie po awarii na platformie Azure Service Fabric
 Krytyczna część dostarczania wysokiej dostępności zapewnia, że usługi mogą przetrwać wszystkie różne typy awarii. Jest to szczególnie ważne w przypadku nieplanowanych awarii i poza formantem. 
@@ -171,7 +172,7 @@ Następujące akcje mogą spowodować utratę danych. Sprawdź przed wykonaniem 
 >
 
 - Użyj `Repair-ServiceFabricPartition -PartitionId` `System.Fabric.FabricClient.ClusterManagementClient.RecoverPartitionAsync(Guid partitionId)` interfejsu API lub. Ten interfejs API umożliwia określenie identyfikatora partycji, która ma zostać przeniesiona z utraty kworum, oraz do utraty danych.
-- Jeśli klaster napotyka częste błędy, które powodują, że usługi przechodzą w stan utraty kworum, a potencjalną _utratą danych jest akceptowalna_, określenie odpowiedniej wartości [QuorumLossWaitDuration](https://docs.microsoft.com/powershell/module/servicefabric/update-servicefabricservice?view=azureservicefabricps) może ułatwić automatyczne odzyskanie usługi. Service Fabric będzie oczekiwać na podaną `QuorumLossWaitDuration` wartość (domyślnie nieskończoną) przed wykonaniem odzyskiwania. Ta metoda *nie* jest zalecana, ponieważ może to spowodować nieoczekiwane straty danych.
+- Jeśli klaster napotyka częste błędy, które powodują, że usługi przechodzą w stan utraty kworum, a potencjalną _utratą danych jest akceptowalna_, określenie odpowiedniej wartości [QuorumLossWaitDuration](/powershell/module/servicefabric/update-servicefabricservice?view=azureservicefabricps) może ułatwić automatyczne odzyskanie usługi. Service Fabric będzie oczekiwać na podaną `QuorumLossWaitDuration` wartość (domyślnie nieskończoną) przed wykonaniem odzyskiwania. Ta metoda *nie* jest zalecana, ponieważ może to spowodować nieoczekiwane straty danych.
 
 ## <a name="availability-of-the-service-fabric-cluster"></a>Dostępność klastra Service Fabric
 Ogólnie rzecz biorąc, klaster Service Fabric jest wysoce rozproszonym środowiskiem bez pojedynczych punktów awarii. Awaria jednego z węzłów nie powoduje problemów z dostępnością lub niezawodnością klastra, głównie ponieważ usługi systemu Service Fabric są zgodne z tymi samymi wskazówkami opisanymi wcześniej. Oznacza to, że zawsze są domyślnie uruchamiane z co najmniej trzema replikami, a usługi systemowe, które są bezstanowe uruchamiane na wszystkich węzłach. 
@@ -207,17 +208,17 @@ W przypadku autonomicznych klastrów Service Fabric i platformy Azure typ węzł
 - Dowiedz się, jak symulować różne błędy przy użyciu [środowiska testowania](service-fabric-testability-overview.md).
 - Zapoznaj się z innymi zasobami odzyskiwania po awarii i wysokiej dostępności. Firma Microsoft opublikowała na tych tematach dużą liczbę wskazówek. Mimo że niektóre z tych zasobów odnoszą się do określonych technik korzystania z innych produktów, zawierają one wiele ogólnych najlepszych rozwiązań, które można zastosować w kontekście Service Fabric:
   - [Lista kontrolna dotycząca dostępności](/azure/architecture/checklist/resiliency-per-service)
-  - [Przechodzenie do szczegółów odzyskiwania po awarii](../sql-database/sql-database-disaster-recovery-drills.md)
+  - [Przechodzenie do szczegółów odzyskiwania po awarii](../azure-sql/database/disaster-recovery-drills.md)
   - [Odzyskiwanie aplikacji platformy Azure po awarii i ich wysoka dostępność][dr-ha-guide]
 - Dowiedz się więcej o [opcjach pomocy technicznej Service Fabric](service-fabric-support.md).
 
 
 <!-- External links -->
 
-[repair-partition-ps]: https://msdn.microsoft.com/library/mt163522.aspx
+[repair-partition-ps]: /windows/win32/perfctrs/specifying-a-counter-path
 [azure-status-dashboard]:https://azure.microsoft.com/status/
 [azure-regions]: https://azure.microsoft.com/regions/
-[dr-ha-guide]: https://msdn.microsoft.com/library/azure/dn251004.aspx
+[dr-ha-guide]: /previous-versions/azure/dn251004(v=azure.100)
 
 
 <!-- Images -->

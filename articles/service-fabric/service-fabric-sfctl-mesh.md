@@ -5,11 +5,12 @@ author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: 40d0f70b0dabdc02434fa662663a2fd105431f0a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4682eee93b5ff9f01e65611e8d5e0920930776a5
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76905895"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86257237"
 ---
 # <a name="sfctl-mesh"></a>sfctl mesh
 Usuwanie aplikacji siatki Service Fabric i zarządzanie nimi.
@@ -31,4 +32,4 @@ Usuwanie aplikacji siatki Service Fabric i zarządzanie nimi.
 
 ## <a name="next-steps"></a>Następne kroki
 - [Skonfiguruj](service-fabric-cli.md) interfejs wiersza polecenia Service Fabric.
-- Dowiedz się, jak używać interfejsu wiersza polecenia Service Fabric przy użyciu [przykładowych skryptów](/azure/service-fabric/scripts/sfctl-upgrade-application).
+- Dowiedz się, jak używać interfejsu wiersza polecenia Service Fabric przy użyciu [przykładowych skryptów](./scripts/sfctl-upgrade-application.md).

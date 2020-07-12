@@ -5,11 +5,12 @@ author: vturecek
 ms.topic: conceptual
 ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: e57d169decf482f8b8be1e3b31a07690bc222c5d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a873a32aa8c12b535c06711ea7dc7a4aa920a27f
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75458229"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86257769"
 ---
 # <a name="connect-and-communicate-with-services-in-service-fabric"></a>Łączenie się z usługami w Service Fabric i komunikowanie się z nimi
 W Service Fabric usługa działa w dowolnym miejscu w klastrze Service Fabric, zazwyczaj rozmieszczona na wielu maszynach wirtualnych. Może być przenoszony z jednego miejsca do innego przez właściciela usługi lub automatycznie przez Service Fabric. Usługi nie są statycznie powiązane z określonym komputerem lub adresem.
@@ -162,14 +163,14 @@ Należy pamiętać, że Azure Load Balancer i sondy wiedzą tylko o *węzłach*,
 Struktura Reliable Services jest dostarczana z kilkoma wstępnie skompilowanymi opcjami komunikacji. Decyzja o tym, który z nich będzie działał najlepiej, zależy od wyboru modelu programowania, struktury komunikacji i języka programowania, w którym są zapisywane usługi.
 
 * **Brak określonego protokołu:**  Jeśli nie masz określonego wyboru struktury komunikacyjnej, ale chcesz szybko uzyskać coś i uruchamiania, to idealna opcja dla Ciebie jest [usługą komunikacji zdalnej](service-fabric-reliable-services-communication-remoting.md), która pozwala na używanie jednoznacznie określonych wywołań procedur zdalnych dla Reliable Services i Reliable Actors. Jest to najprostszy i najszybszy sposób rozpoczęcia komunikacji z usługą. Zdalna usługa obsługuje rozpoznawanie adresów usług, połączeń, ponowień i obsługi błędów. Jest ona dostępna dla aplikacji C# i Java.
-* **Http**: w przypadku komunikacji z językiem niezależny od protokół http zapewnia standardową branżę z narzędziami i serwerami http dostępnymi w wielu różnych językach, które są obsługiwane przez Service Fabric. Usługi mogą korzystać z dowolnego dostępnego stosu HTTP, w tym [interfejsu API sieci Web ASP.NET](service-fabric-reliable-services-communication-webapi.md) dla aplikacji języka C#. Klienci zapisanie w języku C# mogą korzystać z `ICommunicationClient` `ServicePartitionClient` klas i, natomiast w przypadku języka Java należy używać `CommunicationClient` `FabricServicePartitionClient` klas i [w celu rozpoznawania usług, połączeń HTTP i pętli ponawiania](service-fabric-reliable-services-communication.md).
+* **Http**: w przypadku komunikacji z językiem niezależny od protokół http zapewnia standardową branżę z narzędziami i serwerami http dostępnymi w wielu różnych językach, które są obsługiwane przez Service Fabric. Usługi mogą korzystać z dowolnego dostępnego stosu HTTP, w tym [interfejsu API sieci Web ASP.NET](./service-fabric-reliable-services-communication-aspnetcore.md) dla aplikacji języka C#. Klienci zapisanie w języku C# mogą korzystać z `ICommunicationClient` `ServicePartitionClient` klas i, natomiast w przypadku języka Java należy używać `CommunicationClient` `FabricServicePartitionClient` klas i [w celu rozpoznawania usług, połączeń HTTP i pętli ponawiania](service-fabric-reliable-services-communication.md).
 * **WCF**: Jeśli masz istniejący kod, który używa programu WCF jako struktury komunikacji, możesz użyć programu `WcfCommunicationListener` dla strony serwera i `WcfCommunicationClient` i `ServicePartitionClient` dla klienta. Jest to jednak dostępne tylko dla aplikacji w języku C# w klastrach opartych na systemie Windows. Aby uzyskać więcej informacji, zobacz ten artykuł dotyczący [implementacji stosu komunikacyjnego opartego na technologii WCF](service-fabric-reliable-services-communication-wcf.md).
 
 ## <a name="using-custom-protocols-and-other-communication-frameworks"></a>Korzystanie z niestandardowych protokołów i innych platform komunikacji
 Usługi mogą używać dowolnego protokołu lub platformy do komunikacji, niezależnie od tego, czy jest to niestandardowy protokół binarny dla gniazd TCP Sockets, czy przesyłania strumieniowego zdarzeń za pośrednictwem [platformy azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) lub [platformy Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/). Service Fabric udostępnia interfejsy API komunikacji, do których można podłączyć stos komunikacji, podczas gdy cała pozostała do odnalezienia i nawiązania połączenia jest podzielona od użytkownika. Aby uzyskać więcej informacji, zobacz ten artykuł dotyczący [modelu komunikacji niezawodnej usługi](service-fabric-reliable-services-communication.md) .
 
 ## <a name="next-steps"></a>Następne kroki
-Dowiedz się więcej na temat pojęć i interfejsów API dostępnych w [modelu komunikacji Reliable Services](service-fabric-reliable-services-communication.md), a następnie szybko Rozpocznij pracę z usługami [zdalnymi](service-fabric-reliable-services-communication-remoting.md) , aby dowiedzieć się, jak napisać odbiornik komunikacyjny przy użyciu [interfejsu API sieci Web z własnym hostem Owin](service-fabric-reliable-services-communication-webapi.md).
+Dowiedz się więcej na temat pojęć i interfejsów API dostępnych w [modelu komunikacji Reliable Services](service-fabric-reliable-services-communication.md), a następnie szybko Rozpocznij pracę z usługami [zdalnymi](service-fabric-reliable-services-communication-remoting.md) , aby dowiedzieć się, jak napisać odbiornik komunikacyjny przy użyciu [interfejsu API sieci Web z własnym hostem Owin](./service-fabric-reliable-services-communication-aspnetcore.md).
 
 [1]: ./media/service-fabric-connect-and-communicate-with-services/serviceendpoints.png
 [2]: ./media/service-fabric-connect-and-communicate-with-services/namingservice.png

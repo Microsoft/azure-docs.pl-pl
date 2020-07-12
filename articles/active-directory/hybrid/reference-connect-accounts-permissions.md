@@ -17,11 +17,12 @@ ms.date: 05/18/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 23508535c1853cd056bb162c254cda5f7f86d7fe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f84724285dee6dfff4913b067daa651837787d4e
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83681752"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86255782"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: Accounts and permissions (Azure AD Connect: konta i uprawnienia)
 
@@ -140,7 +141,7 @@ Musi także mieć przyznane wymagane uprawnienia. Kreator instalacji nie weryfik
 
 Wymagane uprawnienia są zależne od funkcji opcjonalnych, które można włączyć. Jeśli masz wiele domen, uprawnienia muszą zostać przyznane dla wszystkich domen w lesie. Jeśli nie włączysz żadnej z tych funkcji, uprawnienia **użytkownika domeny** domyślnej są wystarczające.
 
-| Cecha | Uprawnienia |
+| Obiekt feature | Uprawnienia |
 | --- | --- |
 | Funkcja MS-DS-ConsistencyGuid |Uprawnienia do zapisu w atrybucie MS-DS-ConsistencyGuid udokumentowanym w [koncepcji projektowania — przy użyciu MS-ds-ConsistencyGuid jako sourceAnchor](plan-connect-design-concepts.md#using-ms-ds-consistencyguid-as-sourceanchor). | 
 | Synchronizacja skrótów haseł |<li>Replikowanie zmian w katalogu</li>  <li>Replikuj wszystkie zmiany katalogu |
@@ -201,7 +202,6 @@ Legenda:
 
 | | LocalDB</br>Express | LocalDB/LocalSQL</br>Niestandardowy | Zdalne SQL</br>Niestandardowy |
 | --- | --- | --- | --- |
-| **komputer autonomiczny/Grupa robocza** | Nieobsługiwane | **ATRYBUTU**</br>Konto lokalne (2008)</br>Konto lokalne |  Nieobsługiwane |
 | **komputer przyłączony do domeny** | **ATRYBUTU**</br>Konto lokalne (2008) | **ATRYBUTU**</br>Konto lokalne (2008)</br>Konto lokalne</br>Konto domeny</br>Autonomiczne, gMSA | **gMSA**</br>Konto domeny |
 | **Kontroler domeny** | **Konto domeny** | *gMSA*</br>**Konto domeny**</br>Autonomiczne| *gMSA*</br>**Konto domeny**|
 
@@ -259,7 +259,7 @@ Aby uzyskać dodatkowe informacje na temat sposobu zarządzania lub resetowania 
 ## <a name="related-documentation"></a>Dokumentacja pokrewna
 Jeśli nie odczytano dokumentacji dotyczącej [integrowania tożsamości lokalnych z Azure Active Directory](whatis-hybrid-identity.md), Poniższa tabela zawiera linki do powiązanych tematów.
 
-|Temat |Link|  
+|Temat |Łącze|  
 | --- | --- |
 |Pobieranie programu Azure AD Connect | [Pobieranie programu Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=615771)|
 |Instalowanie przy użyciu ustawień ekspresowych | [Ekspresowa instalacja programu Azure AD Connect](how-to-connect-install-express.md)|

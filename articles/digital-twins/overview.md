@@ -7,17 +7,14 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: overview
 ms.service: digital-twins
-ROBOTS: NOINDEX, NOFOLLOW
-ms.openlocfilehash: 1d86749a4e6071213ba5e229765bb6391affb199
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: 05a3fc7524b16033c48170b6cf0fa4e004c9eb9b
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84737125"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86258002"
 ---
 # <a name="what-is-azure-digital-twins"></a>Co to jest usługa Azure Digital Twins?
-
-[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 **Azure Digital bliźniaczych reprezentacji** to platforma IoT, która umożliwia tworzenie kompleksowych modeli cyfrowych dla całego środowiska. Te środowiska mogą być budynkami, fabrykami, gospodarstwami, sieciami energetycznymi, liniami, Stadium i innymi — nawet w całym miejscowości. Te modele cyfrowe mogą służyć do uzyskiwania szczegółowych informacji, które zapewniają lepsze produkty, zoptymalizowane działania, zmniejszone koszty i przełomowe środowiska klienta.
 
@@ -46,6 +43,12 @@ DTDL jest używany dla modeli danych w innych usługach Azure IoT, w tym [Plug a
 ### <a name="live-execution-environment"></a>Środowisko wykonywania na żywo
 
 Modele cyfrowe w usłudze Azure Digital bliźniaczych reprezentacji są na bieżąco z aktualnymi reprezentacjami świata rzeczywistego. Korzystając z relacji w niestandardowych modelach DTDL, nastąpi połączenie bliźniaczych reprezentacji do **grafu na żywo** reprezentującego Twoje środowisko.
+
+Możesz wyświetlić wizualizację grafu Digital bliźniaczych reprezentacji na platformie Azure za pomocą przykładowej aplikacji, programu [**Azure Digital bliźniaczych reprezentacji Explorer**](https://github.com/Azure-Samples/digital-twins-explorer).
+
+Oto widok wizualizacji przykładowej:
+
+:::image type="content" source="media/includes/azure-digital-twins-explorer.png" alt-text="Zrzut ekranu przedstawiający przykładową aplikację w Eksploratorze Digital bliźniaczych reprezentacji" lightbox="media/includes/azure-digital-twins-explorer.png":::
 
 Usługa Azure Digital bliźniaczych reprezentacji zapewnia rozbudowany **system zdarzeń** , który umożliwia aktualność tego wykresu przy użyciu przetwarzania danych i logiki biznesowej. Zewnętrzne zasoby obliczeniowe, takie jak [Azure Functions](../azure-functions/functions-overview.md), mogą być połączone w elastyczny sposób i dostosowane metody.
 

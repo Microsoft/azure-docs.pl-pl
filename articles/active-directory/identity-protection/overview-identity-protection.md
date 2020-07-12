@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 27adab85f684143db29e248739492b68af869404
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 59f83c7896ca371809d9103489b140ae73d5a42d
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83647358"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86256661"
 ---
 # <a name="what-is-azure-active-directory-identity-protection"></a>Co to jest usługa Azure Active Directory Identity Protection?
 
@@ -48,7 +48,7 @@ Ochrona tożsamości identyfikuje ryzyko w następujących klasyfikacjach:
 
 | Typ wykrywania ryzyka | Opis |
 | --- | --- |
-| Nietypowe podróże | Zaloguj się z nietypowej lokalizacji na podstawie ostatnich logowań użytkownika. |
+| Nietypowa podróż | Zaloguj się z nietypowej lokalizacji na podstawie ostatnich logowań użytkownika. |
 | Anonimowy adres IP | Zaloguj się przy użyciu anonimowego adresu IP (na przykład: przeglądarki tor, sieci VPN Anonymizer). |
 | Nieznane właściwości logowania | Zaloguj się przy użyciu właściwości, które nie były ostatnio widziane dla danego użytkownika. |
 | Połączony adres IP złośliwego oprogramowania | Zaloguj się przy użyciu połączonego adresu IP złośliwego oprogramowania |
@@ -94,7 +94,7 @@ Administratorzy dostępu warunkowego mogą również tworzyć zasady, które są
 
 [!INCLUDE [Active Directory P2 license](../../../includes/active-directory-p2-license.md)]
 
-| Możliwość | Szczegóły | Usługa Azure AD — warstwa Premium P2 | Usługa Azure AD — warstwa Premium P1 | Azure AD — wersja Podstawowa/bezpłatnie |
+| Możliwość | Szczegóły | Usługa Azure AD — wersja Premium P2 | Usługa Azure AD — wersja Premium P1 | Aplikacje Azure AD — wersja Bezpłatna/Office 365 |
 | --- | --- | --- | --- | --- |
 | Zasady dotyczące ryzyka | Zasady ryzyka użytkownika (za pośrednictwem ochrony tożsamości) | Tak | Nie | Nie |
 | Zasady dotyczące ryzyka | Zasady dotyczące ryzyka związanego z logowaniem (za pośrednictwem funkcji ochrony tożsamości lub dostępu warunkowego) | Tak | Nie | Nie |
@@ -104,7 +104,7 @@ Administratorzy dostępu warunkowego mogą również tworzyć zasady, które są
 | Raporty dotyczące zabezpieczeń | Wykrycia ryzyka | Dostęp pełny | Ograniczone informacje | Nie |
 | Powiadomienia | Użytkownicy zagrożeni wykrytymi alertami | Tak | Nie | Nie |
 | Powiadomienia | Podsumowanie tygodniowe | Tak | Nie | Nie |
-| | Zasady rejestracji usługi MFA | Tak | Nie | Nie |
+| | Zasady rejestracji uwierzytelniania wieloskładnikowego | Tak | Nie | Nie |
 
 ## <a name="next-steps"></a>Następne kroki
 

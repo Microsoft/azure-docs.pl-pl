@@ -5,11 +5,12 @@ author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: 1e40ca4e3c5ec8b7566646aa7ef723bd4c9e45a1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e84b35ff3dfa7be0c848a4d7b906c622d9b88914
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76906130"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86257351"
 ---
 # <a name="sfctl-compose"></a>sfctl compose
 Twórz i usuwaj Docker Compose aplikacje oraz zarządzaj nimi.
@@ -204,4 +205,4 @@ Zwraca informacje o stanie uaktualnienia redagowania wdrożenia wraz ze szczegó
 
 ## <a name="next-steps"></a>Następne kroki
 - [Skonfiguruj](service-fabric-cli.md) interfejs wiersza polecenia Service Fabric.
-- Dowiedz się, jak używać interfejsu wiersza polecenia Service Fabric przy użyciu [przykładowych skryptów](/azure/service-fabric/scripts/sfctl-upgrade-application).
+- Dowiedz się, jak używać interfejsu wiersza polecenia Service Fabric przy użyciu [przykładowych skryptów](./scripts/sfctl-upgrade-application.md).

@@ -4,12 +4,12 @@ description: Dowiedz się, jak obrócić certyfikaty w klastrze usługi Azure Ku
 services: container-service
 ms.topic: article
 ms.date: 11/15/2019
-ms.openlocfilehash: 715771c7a1704e0d39f790d018980c4b39ba351b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2e48a05a36fdbd56fb78cd1394c512485b521e50
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84817442"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86255357"
 ---
 # <a name="rotate-certificates-in-azure-kubernetes-service-aks"></a>Obróć certyfikaty w usłudze Azure Kubernetes Service (AKS)
 
@@ -62,7 +62,7 @@ az aks rotate-certs -g $RESOURCE_GROUP_NAME -n $CLUSTER_NAME
 > [!IMPORTANT]
 > Ukończenie tego procesu może potrwać do 30 minut `az aks rotate-certs` . Jeśli polecenie zakończy się niepowodzeniem przed ukończeniem, należy użyć `az aks show` do sprawdzenia stanu klastra jako *rotacji certyfikatu*. Jeśli klaster jest w stanie niepowodzenia, uruchom ponownie, `az aks rotate-certs` Aby ponownie obrócić certyfikaty.
 
-Sprawdź, czy stare certyfikaty nie są już prawidłowe, uruchamiając `kubectl` polecenie. Ponieważ certyfikaty używane przez program nie zostały zaktualizowane `kubectl` , zostanie wyświetlony komunikat o błędzie.  Przykład:
+Sprawdź, czy stare certyfikaty nie są już prawidłowe, uruchamiając `kubectl` polecenie. Ponieważ certyfikaty używane przez program nie zostały zaktualizowane `kubectl` , zostanie wyświetlony komunikat o błędzie.  Na przykład:
 
 ```console
 $ kubectl get no
@@ -75,7 +75,7 @@ Zaktualizuj certyfikat używany przez program `kubectl` przez uruchomienie `az a
 az aks get-credentials -g $RESOURCE_GROUP_NAME -n $CLUSTER_NAME --overwrite-existing
 ```
 
-Sprawdź, czy certyfikaty zostały zaktualizowane, uruchamiając `kubectl` polecenie, które zakończy się pomyślnie. Przykład:
+Sprawdź, czy certyfikaty zostały zaktualizowane, uruchamiając `kubectl` polecenie, które zakończy się pomyślnie. Na przykład:
 
 ```console
 kubectl get no
@@ -94,5 +94,5 @@ W tym artykule pokazano, jak automatycznie obrócić certyfikaty klastra, urzęd
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
 [aks-best-practices-security-upgrades]: operator-best-practices-cluster-security.md
-[dev-spaces]: https://docs.microsoft.com/azure/dev-spaces/
+[dev-spaces]: ../dev-spaces/index.yml
 [dev-spaces-rotate]: ../dev-spaces/troubleshooting.md#error-using-dev-spaces-after-rotating-aks-certificates

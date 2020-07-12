@@ -5,20 +5,20 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: 9f6049a69b88c85f4e1bdf1c2400866739a6718d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 90ffd1c01411982f56aed3332c499aa0c10b8a94
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84944325"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86257602"
 ---
 # <a name="azure-service-fabric-security"></a>Zabezpieczenia usługi Azure Service Fabric 
 
-Aby uzyskać więcej informacji na temat najlepszych rozwiązań dotyczących [zabezpieczeń platformy Azure](https://docs.microsoft.com/azure/security/), zobacz [najlepsze rozwiązania dotyczące usługi Azure Service Fabric Security](https://docs.microsoft.com/azure/security/fundamentals/service-fabric-best-practices)
+Aby uzyskać więcej informacji na temat najlepszych rozwiązań dotyczących [zabezpieczeń platformy Azure](../security/index.yml), zobacz [najlepsze rozwiązania dotyczące usługi Azure Service Fabric Security](../security/fundamentals/service-fabric-best-practices.md)
 
 ## <a name="key-vault"></a>Usługa Key Vault
 
-[Azure Key Vault](https://docs.microsoft.com/azure/key-vault/) to zalecana usługa zarządzania kluczami tajnymi dla aplikacji i klastrów usługi Azure Service Fabric.
+[Azure Key Vault](../key-vault/index.yml) to zalecana usługa zarządzania kluczami tajnymi dla aplikacji i klastrów usługi Azure Service Fabric.
 > [!NOTE]
 > Jeśli certyfikaty/wpisy tajne z Key Vault są wdrażane do zestawu skalowania maszyn wirtualnych jako klucz tajny zestawu skalowania maszyn wirtualnych, wówczas Key Vault i zestaw skalowania maszyn wirtualnych muszą być wspólnie zlokalizowane.
 
@@ -29,11 +29,11 @@ Certyfikat Azure Key Vault można utworzyć lub zaimportować do Key Vault. Po u
 - Utwórz certyfikat z podpisem własnym, aby utworzyć parę kluczy publiczny-prywatny i skojarzyć ją z certyfikatem. Certyfikat zostanie podpisany przy użyciu własnego klucza. 
 - Utwórz ręcznie nowy certyfikat, aby utworzyć parę kluczy publiczny-prywatny i wygenerować żądanie podpisania certyfikatu X. 509. Żądanie podpisania może być podpisane przez Urząd rejestrowania lub urząd certyfikacji. Podpisany certyfikat x509 można scalić z parą kluczy oczekujących w celu ukończenia certyfikatu KV w Key Vault. Chociaż ta metoda wymaga większej liczby kroków, zapewnia większe bezpieczeństwo, ponieważ klucz prywatny jest tworzony w systemie i jest ograniczony do Key Vault. Wyjaśniono to na poniższym diagramie. 
 
-Zobacz [metody tworzenia certyfikatów magazynu kluczy platformy Azure](https://docs.microsoft.com/azure/key-vault/create-certificate) , aby uzyskać dodatkowe szczegóły.
+Zobacz [metody tworzenia certyfikatów magazynu kluczy platformy Azure](../key-vault/certificates/create-certificate.md) , aby uzyskać dodatkowe szczegóły.
 
 ## <a name="deploy-key-vault-certificates-to-service-fabric-cluster-virtual-machine-scale-sets"></a>Wdrażanie certyfikatów Key Vault w Service Fabric klastrach zestawów skalowania maszyn wirtualnych
 
-Aby wdrożyć certyfikaty z podwyższego poziomu magazynu kluczy do zestawu skalowania maszyn wirtualnych, użyj zestawu skalowania maszyn wirtualnych [osProfile](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate#virtualmachinescalesetosprofile). Poniżej przedstawiono właściwości szablonu Menedżer zasobów:
+Aby wdrożyć certyfikaty z podwyższego poziomu magazynu kluczy do zestawu skalowania maszyn wirtualnych, użyj zestawu skalowania maszyn wirtualnych [osProfile](/rest/api/compute/virtualmachinescalesets/createorupdate#virtualmachinescalesetosprofile). Poniżej przedstawiono właściwości szablonu Menedżer zasobów:
 
 ```json
 "secrets": [
@@ -56,7 +56,7 @@ Aby wdrożyć certyfikaty z podwyższego poziomu magazynu kluczy do zestawu skal
 
 ## <a name="apply-an-access-control-list-acl-to-your-certificate-for-your-service-fabric-cluster"></a>Stosowanie listy Access Control (ACL) do certyfikatu dla klastra Service Fabric
 
-[Rozszerzenia zestawu skalowania maszyn wirtualnych](https://docs.microsoft.com/cli/azure/vmss/extension?view=azure-cli-latest) Wydawca Microsoft. Azure. servicefabric służy do skonfigurowania zabezpieczeń węzłów.
+[Rozszerzenia zestawu skalowania maszyn wirtualnych](/cli/azure/vmss/extension?view=azure-cli-latest) Wydawca Microsoft. Azure. servicefabric służy do skonfigurowania zabezpieczeń węzłów.
 Aby zastosować listę ACL do certyfikatów dla procesów klastra Service Fabric, użyj następujących właściwości szablonu Menedżer zasobów:
 
 ```json
@@ -70,7 +70,7 @@ Aby zastosować listę ACL do certyfikatów dla procesów klastra Service Fabric
 
 ## <a name="secure-a-service-fabric-cluster-certificate-by-common-name"></a>Zabezpiecz certyfikat klastra Service Fabric według nazwy pospolitej
 
-Aby zabezpieczyć klaster Service Fabric przy użyciu certyfikatu `Common Name` , należy użyć właściwości szablonu Menedżer zasobów [certificateCommonNames](https://docs.microsoft.com/rest/api/servicefabric/sfrp-model-clusterproperties#certificatecommonnames)w następujący sposób:
+Aby zabezpieczyć klaster Service Fabric przy użyciu certyfikatu `Common Name` , należy użyć właściwości szablonu Menedżer zasobów [certificateCommonNames](/rest/api/servicefabric/sfrp-model-clusterproperties#certificatecommonnames)w następujący sposób:
 
 ```json
 "certificateCommonNames": {
@@ -89,7 +89,7 @@ Aby zabezpieczyć klaster Service Fabric przy użyciu certyfikatu `Common Name` 
 
 Domeny platformy Azure, takie jak * \<YOUR SUBDOMAIN\> . cloudapp.Azure.com lub \<YOUR SUBDOMAIN\> . trafficmanager.NET, należą do firmy Microsoft. Urzędy certyfikacji nie będą wystawiać certyfikatów dla domen dla nieautoryzowanych użytkowników. Większość użytkowników będzie musiał zakupić domenę od rejestratora lub być uprawnionym administratorem domeny, aby Urząd certyfikacji wystawiał certyfikat z tą nazwą pospolitą.
 
-Aby uzyskać dodatkowe informacje na temat konfigurowania usługi DNS w celu rozpoznania domeny w adresie IP firmy Microsoft, zapoznaj się z tematem Konfigurowanie [Azure DNS do hostowania domeny](https://docs.microsoft.com/azure/dns/dns-delegate-domain-azure-dns).
+Aby uzyskać dodatkowe informacje na temat konfigurowania usługi DNS w celu rozpoznania domeny w adresie IP firmy Microsoft, zapoznaj się z tematem Konfigurowanie [Azure DNS do hostowania domeny](../dns/dns-delegate-domain-azure-dns.md).
 
 > [!NOTE]
 > Po delegowaniu serwerów nazw domen do Azure DNS serwerów nazw strefy, Dodaj następujące dwa rekordy do strefy DNS:
@@ -106,7 +106,7 @@ Aby zaktualizować Portal tak, aby wyświetlał niestandardową nazwę DNS klast
 
 Typowe wartości, które są szyfrowane w pakietach Service Fabric, obejmują poświadczenia Azure Container Registry (ACR), zmienne środowiskowe, ustawienia i klucze kont magazynu wtyczki woluminu platformy Azure.
 
-Aby [skonfigurować certyfikat szyfrowania i zaszyfrować wpisy tajne w klastrach systemu Windows](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-secret-management-windows):
+Aby [skonfigurować certyfikat szyfrowania i zaszyfrować wpisy tajne w klastrach systemu Windows](./service-fabric-application-secret-management-windows.md):
 
 Wygeneruj certyfikat z podpisem własnym na potrzeby szyfrowania klucza tajnego:
 
@@ -122,7 +122,7 @@ Zaszyfruj klucz tajny przy użyciu następującego polecenia programu PowerShell
 Invoke-ServiceFabricEncryptText -CertStore -CertThumbprint "<thumbprint>" -Text "mysecret" -StoreLocation CurrentUser -StoreName My
 ```
 
-Aby [skonfigurować certyfikat szyfrowania i zaszyfrować wpisy tajne w klastrach systemu Linux](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-secret-management-linux):
+Aby [skonfigurować certyfikat szyfrowania i zaszyfrować wpisy tajne w klastrach systemu Linux](./service-fabric-application-secret-management-linux.md):
 
 Wygeneruj certyfikat z podpisem własnym na potrzeby szyfrowania wpisów tajnych:
 
@@ -141,7 +141,7 @@ user@linux:$ iconv -f ASCII -t UTF-16LE plaintext.txt -o plaintext_UTF-16.txt
 user@linux:$ openssl smime -encrypt -in plaintext_UTF-16.txt -binary -outform der TestCert.pem | base64 > encrypted.txt
 ```
 
-Po zaszyfrowaniu chronionych wartości [Określ zaszyfrowane klucze tajne w aplikacji Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-secret-management#specify-encrypted-secrets-in-an-application)i [Odszyfruj zaszyfrowane klucze tajne z kodu usługi](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-secret-management#decrypt-encrypted-secrets-from-service-code).
+Po zaszyfrowaniu chronionych wartości [Określ zaszyfrowane klucze tajne w aplikacji Service Fabric](./service-fabric-application-secret-management.md#specify-encrypted-secrets-in-an-application)i [Odszyfruj zaszyfrowane klucze tajne z kodu usługi](./service-fabric-application-secret-management.md#decrypt-encrypted-secrets-from-service-code).
 
 ## <a name="include-certificate-in-service-fabric-applications"></a>Uwzględnij certyfikat w aplikacjach Service Fabric
 
@@ -158,8 +158,8 @@ Aby zapewnić aplikacji dostęp do wpisów tajnych, Uwzględnij certyfikat przez
 ## <a name="authenticate-service-fabric-applications-to-azure-resources-using-managed-service-identity-msi"></a>Uwierzytelnianie aplikacji Service Fabric w zasobach platformy Azure przy użyciu tożsamość usługi zarządzanej (MSI)
 
 Aby dowiedzieć się więcej o tożsamościach zarządzanych dla zasobów platformy Azure, zobacz [co to jest tożsamość zarządzana dla zasobów platformy Azure?](../active-directory/managed-identities-azure-resources/overview.md).
-Klastry usługi Azure Service Fabric są hostowane na Virtual Machine Scale Sets, które obsługują [tożsamość usługi zarządzanej](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-msi#azure-services-that-support-managed-identities-for-azure-resources).
-Aby uzyskać listę usług, których można użyć do uwierzytelniania za pomocą pliku MSI, zobacz [usługi platformy Azure, które obsługują uwierzytelnianie Azure Active Directory](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-msi#azure-services-that-support-azure-ad-authentication).
+Klastry usługi Azure Service Fabric są hostowane na Virtual Machine Scale Sets, które obsługują [tożsamość usługi zarządzanej](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-managed-identities-for-azure-resources).
+Aby uzyskać listę usług, których można użyć do uwierzytelniania za pomocą pliku MSI, zobacz [usługi platformy Azure, które obsługują uwierzytelnianie Azure Active Directory](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
 
 
 Aby włączyć tożsamość zarządzaną przypisaną przez system podczas tworzenia zestawu skalowania maszyn wirtualnych lub istniejącego zestawu skalowania maszyn wirtualnych, zadeklaruj następującą `"Microsoft.Compute/virtualMachinesScaleSets"` Właściwość:
@@ -169,9 +169,9 @@ Aby włączyć tożsamość zarządzaną przypisaną przez system podczas tworze
     "type": "SystemAssigned"
 }
 ```
-Aby uzyskać więcej informacji, zobacz [co to są zarządzane tożsamości dla zasobów platformy Azure?](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-template-windows-vmss#system-assigned-managed-identity)
+Aby uzyskać więcej informacji, zobacz [co to są zarządzane tożsamości dla zasobów platformy Azure?](../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vmss.md#system-assigned-managed-identity)
 
-Jeśli utworzono [tożsamość zarządzaną przypisaną przez użytkownika](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-arm#create-a-user-assigned-managed-identity), zadeklaruj następujący zasób w szablonie, aby przypisać go do zestawu skalowania maszyn wirtualnych. Zamień na `\<USERASSIGNEDIDENTITYNAME\>` nazwę utworzonej tożsamości zarządzanej przez użytkownika:
+Jeśli utworzono [tożsamość zarządzaną przypisaną przez użytkownika](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-arm.md#create-a-user-assigned-managed-identity), zadeklaruj następujący zasób w szablonie, aby przypisać go do zestawu skalowania maszyn wirtualnych. Zamień na `\<USERASSIGNEDIDENTITYNAME\>` nazwę utworzonej tożsamości zarządzanej przez użytkownika:
 
 ```json
 "identity": {
@@ -191,7 +191,7 @@ principalid=$(az resource show --id /subscriptions/<YOUR SUBSCRIPTON>/resourceGr
 az role assignment create --assignee $principalid --role 'Contributor' --scope "/subscriptions/<YOUR SUBSCRIPTION>/resourceGroups/<YOUR RG>/providers/<PROVIDER NAME>/<RESOURCE TYPE>/<RESOURCE NAME>"
 ```
 
-W kodzie aplikacji Service Fabric [Uzyskaj token dostępu](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-use-vm-token#get-a-token-using-http) dla Azure Resource Manager, wykonując pozostałe czynności:
+W kodzie aplikacji Service Fabric [Uzyskaj token dostępu](../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md#get-a-token-using-http) dla Azure Resource Manager, wykonując pozostałe czynności:
 
 ```bash
 access_token=$(curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F' -H Metadata:true | python -c "import sys, json; print json.load(sys.stdin)['access_token']")
@@ -205,10 +205,10 @@ Poniższy przykład pokazuje, jak to zrobić dla Cosmos DB zasobów:
 cosmos_db_password=$(curl 'https://management.azure.com/subscriptions/<YOUR SUBSCRIPTION>/resourceGroups/<YOUR RG>/providers/Microsoft.DocumentDB/databaseAccounts/<YOUR ACCOUNT>/listKeys?api-version=2016-03-31' -X POST -d "" -H "Authorization: Bearer $access_token" | python -c "import sys, json; print(json.load(sys.stdin)['primaryMasterKey'])")
 ```
 ## <a name="windows-security-baselines"></a>Linie bazowe zabezpieczeń systemu Windows
-[Zalecamy wdrożenie standardowej konfiguracji branżowej, która jest szeroko znana i dobrze sprawdzona, takich jak linie bazowe zabezpieczeń firmy Microsoft, a nie do samodzielnego tworzenia linii bazowej](https://docs.microsoft.com/windows/security/threat-protection/windows-security-baselines); Opcja aprowizacji tych danych na Virtual Machine Scale Sets polega na użyciu programu obsługi rozszerzeń konfiguracji żądanego stanu (DSC) platformy Azure w celu skonfigurowania maszyn wirtualnych w trybie online, tak aby korzystały z oprogramowania produkcyjnego.
+[Zalecamy wdrożenie standardowej konfiguracji branżowej, która jest szeroko znana i dobrze sprawdzona, takich jak linie bazowe zabezpieczeń firmy Microsoft, a nie do samodzielnego tworzenia linii bazowej](/windows/security/threat-protection/windows-security-baselines); Opcja aprowizacji tych danych na Virtual Machine Scale Sets polega na użyciu programu obsługi rozszerzeń konfiguracji żądanego stanu (DSC) platformy Azure w celu skonfigurowania maszyn wirtualnych w trybie online, tak aby korzystały z oprogramowania produkcyjnego.
 
 ## <a name="azure-firewall"></a>Azure Firewall
-[Zapora systemu Azure to zarządzana, oparta na chmurze usługa zabezpieczeń sieci, która chroni zasoby Virtual Network platformy Azure. Jest to w pełni stanowa Zapora jako usługa z wbudowaną wysoką dostępnością i nieograniczoną skalowalnością chmury.](https://docs.microsoft.com/azure/firewall/overview) Dzięki temu można ograniczyć ruch wychodzący HTTP/S do określonej listy w pełni kwalifikowanych nazw domen (FQDN), w tym symboli wieloznacznych. Ta funkcja nie wymaga zakończenia protokołu TLS/SSL. Zalecane jest użycie [tagów FQDN zapory platformy Azure](https://docs.microsoft.com/azure/firewall/fqdn-tags) dla aktualizacji systemu Windows i włączenie ruchu sieciowego do punktów końcowych Windows Update firmy Microsoft przez zaporę. [Wdrażanie zapory platformy Azure przy użyciu szablonu](https://docs.microsoft.com/azure/firewall/deploy-template) zawiera przykład definicji szablonu zasobów Microsoft. Network/azureFirewalls. Reguły zapory, które są wspólne dla aplikacji Service Fabric, to Zezwalanie na następujące sieci wirtualne klastrów:
+[Zapora systemu Azure to zarządzana, oparta na chmurze usługa zabezpieczeń sieci, która chroni zasoby Virtual Network platformy Azure. Jest to w pełni stanowa Zapora jako usługa z wbudowaną wysoką dostępnością i nieograniczoną skalowalnością chmury.](../firewall/overview.md) Dzięki temu można ograniczyć ruch wychodzący HTTP/S do określonej listy w pełni kwalifikowanych nazw domen (FQDN), w tym symboli wieloznacznych. Ta funkcja nie wymaga zakończenia protokołu TLS/SSL. Zalecane jest użycie [tagów FQDN zapory platformy Azure](../firewall/fqdn-tags.md) dla aktualizacji systemu Windows i włączenie ruchu sieciowego do punktów końcowych Windows Update firmy Microsoft przez zaporę. [Wdrażanie zapory platformy Azure przy użyciu szablonu](../firewall/deploy-template.md) zawiera przykład definicji szablonu zasobów Microsoft. Network/azureFirewalls. Reguły zapory, które są wspólne dla aplikacji Service Fabric, to Zezwalanie na następujące sieci wirtualne klastrów:
 
 - * download.microsoft.com
 - * servicefabric.azure.com
@@ -226,7 +226,7 @@ Klienci powinni skonfigurować obciążenia obsługiwane przez platformę Azure 
 
 ## <a name="windows-defender"></a>Windows Defender 
 
-Domyślnie program antywirusowy Windows Defender jest instalowany w systemie Windows Server 2016. Aby uzyskać szczegółowe informacje, zobacz Program [antywirusowy Windows Defender w systemie Windows Server 2016](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-on-windows-server-2016). Interfejs użytkownika jest domyślnie instalowany w przypadku niektórych jednostek SKU, ale nie jest to wymagane. Aby zmniejszyć wpływ wydajności i obciążenia zasobów poniesione przez usługę Windows Defender, a jeśli zasady zabezpieczeń umożliwiają wykluczenie procesów i ścieżek dla oprogramowania open source, zadeklaruj następujące rozszerzenie zestawu skalowania maszyn wirtualnych Menedżer zasobów właściwości szablonu, aby wykluczyć klaster Service Fabric z skanów:
+Domyślnie program antywirusowy Windows Defender jest instalowany w systemie Windows Server 2016. Aby uzyskać szczegółowe informacje, zobacz Program [antywirusowy Windows Defender w systemie Windows Server 2016](/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-on-windows-server-2016). Interfejs użytkownika jest domyślnie instalowany w przypadku niektórych jednostek SKU, ale nie jest to wymagane. Aby zmniejszyć wpływ wydajności i obciążenia zasobów poniesione przez usługę Windows Defender, a jeśli zasady zabezpieczeń umożliwiają wykluczenie procesów i ścieżek dla oprogramowania open source, zadeklaruj następujące rozszerzenie zestawu skalowania maszyn wirtualnych Menedżer zasobów właściwości szablonu, aby wykluczyć klaster Service Fabric z skanów:
 
 
 ```json

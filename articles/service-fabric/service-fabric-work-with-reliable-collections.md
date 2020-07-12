@@ -3,12 +3,12 @@ title: Praca z elementami Reliable Collections
 description: Poznaj najlepsze rozwiązania dotyczące pracy z niezawodnymi kolekcjami w aplikacji Service Fabric platformy Azure.
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: f0f1d332b3636e28ffc50ee8b8edcd253474a307
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7df48bc0dfbef6fc85335801e64484914a218eb7
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85374699"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86255799"
 ---
 # <a name="working-with-reliable-collections"></a>Praca z elementami Reliable Collections
 Service Fabric oferuje model programowania stanowego dostępny dla deweloperów platformy .NET za pośrednictwem niezawodnych kolekcji. W Service Fabric udostępnia niezawodne słowniki i niezawodne klasy kolejek. W przypadku korzystania z tych klas stan jest partycjonowany (na potrzeby skalowalności), replikowany (na potrzeby dostępności) i transakcyjny w ramach partycji (dla semantyki KWASowej). Przyjrzyjmy się typowi użycia niezawodnego obiektu słownika i zobacz, co faktycznie robi.
@@ -219,10 +219,10 @@ Ponadto kod usługi jest uaktualniany po jednej domenie uaktualnienia w danym mo
 Alternatywnie można wykonać czynności, które zwykle są określane jako dwa uaktualnienia. W przypadku uaktualniania dwufazowego należy uaktualnić usługę z wersji od 1 do v2: V2 zawiera kod, który zna sposób postępowania z nową zmianą schematu, ale ten kod nie jest wykonywany. Gdy kod v2 odczytuje dane V1, działa na nim i zapisuje dane v1. Następnie po zakończeniu uaktualniania we wszystkich domenach uaktualnienia można w jakiś sposób sygnalizować sygnały z uruchomionym wystąpieniem v2, że uaktualnienie zostało ukończone. (Jeden ze sposobów na sygnalizowanie polega na przewróceniu uaktualnienia konfiguracji; jest to co sprawia, że jest to dwufazowe uaktualnienie). Teraz wystąpienia v2 mogą odczytywać dane w wersji 1, konwertować je na dane w wersji 2, wykonywać na nich operacje i zapisywać je jako dane w wersji 2. Gdy inne wystąpienia odczytują dane w wersji 2, nie wymagają ich konwersji, działają na nich i zapisują dane w wersji 2.
 
 ## <a name="next-steps"></a>Następne kroki
-Aby dowiedzieć się więcej o tworzeniu kontraktowych zgodnych danych, zobacz [Kontrakty danych zgodne z przekazywaniem dalej](https://msdn.microsoft.com/library/ms731083.aspx)
+Aby dowiedzieć się więcej o tworzeniu kontraktowych zgodnych danych, zobacz [Kontrakty danych zgodne z przekazywaniem dalej](/dotnet/framework/wcf/feature-details/forward-compatible-data-contracts)
 
-Aby poznać najlepsze rozwiązania dotyczące wersji umów dotyczących danych, zobacz [przechowywanie wersji kontraktu danych](https://msdn.microsoft.com/library/ms731138.aspx)
+Aby poznać najlepsze rozwiązania dotyczące wersji umów dotyczących danych, zobacz [przechowywanie wersji kontraktu danych](/dotnet/framework/wcf/feature-details/data-contract-versioning)
 
-Aby dowiedzieć się, jak zaimplementować Kontrakty danych odporne na wersje, zobacz [wywołania zwrotne serializacji z odpornością na wersje](https://msdn.microsoft.com/library/ms733734.aspx)
+Aby dowiedzieć się, jak zaimplementować Kontrakty danych odporne na wersje, zobacz [wywołania zwrotne serializacji z odpornością na wersje](/dotnet/framework/wcf/feature-details/version-tolerant-serialization-callbacks)
 
-Aby dowiedzieć się, jak zapewnić strukturę danych, która może współdziałać z wieloma wersjami, zobacz [IExtensibleDataObject](https://msdn.microsoft.com/library/system.runtime.serialization.iextensibledataobject.aspx)
+Aby dowiedzieć się, jak zapewnić strukturę danych, która może współdziałać z wieloma wersjami, zobacz [IExtensibleDataObject](/dotnet/api/system.runtime.serialization.iextensibledataobject?view=netcore-3.1)

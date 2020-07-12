@@ -3,11 +3,12 @@ title: Szablon do tworzenia alertów Resource Health
 description: Programowe tworzenie alertów powiadamiających o stanie niedostępności zasobów platformy Azure.
 ms.topic: conceptual
 ms.date: 9/4/2018
-ms.openlocfilehash: 60ff5bdf2f4f0dab94c18fd7c751869c1893ad65
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 18a3b2df2d159d2903c69debd79cccfc6d0af63e
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81759020"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86255884"
 ---
 # <a name="configure-resource-health-alerts-using-resource-manager-templates"></a>Konfigurowanie alertów dotyczących kondycji zasobów przy użyciu szablonów usługi Resource Manager
 
@@ -30,45 +31,55 @@ Aby postępować zgodnie z instrukcjami na tej stronie, musisz skonfigurować ki
 ## <a name="instructions"></a>Instrukcje
 1. Korzystając z programu PowerShell, zaloguj się do platformy Azure przy użyciu swojego konta i wybierz subskrypcję, z którą chcesz korzystać
 
-        Login-AzAccount
-        Select-AzSubscription -Subscription <subscriptionId>
+    ```azurepowershell
+    Login-AzAccount
+    Select-AzSubscription -Subscription <subscriptionId>
+    ```
 
     > Możesz użyć, `Get-AzSubscription` Aby wyświetlić listę subskrypcji, do których masz dostęp.
 
 2. Znajdź i Zapisz pełny identyfikator Azure Resource Manager dla grupy akcji
 
-        (Get-AzActionGroup -ResourceGroupName <resourceGroup> -Name <actionGroup>).Id
+    ```azurepowershell
+    (Get-AzActionGroup -ResourceGroupName <resourceGroup> -Name <actionGroup>).Id
+    ```
 
 3. Utwórz i Zapisz szablon Menedżer zasobów dla alertów Resource Health AS `resourcehealthalert.json` ([Zobacz szczegóły poniżej](#resource-manager-template-options-for-resource-health-alerts))
 
 4. Utwórz nowe wdrożenie Azure Resource Manager przy użyciu tego szablonu
 
-        New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName <resourceGroup> -TemplateFile <path\to\resourcehealthalert.json>
+    ```azurepowershell
+    New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName <resourceGroup> -TemplateFile <path\to\resourcehealthalert.json>
+    ```
 
 5. Zostanie wyświetlony monit o wpisanie nazwy alertu i identyfikatora zasobu grupy akcji skopiowanego wcześniej:
 
-        Supply values for the following parameters:
-        (Type !? for Help.)
-        activityLogAlertName: <Alert Name>
-        actionGroupResourceId: /subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/microsoft.insights/actionGroups/<actionGroup>
+    ```azurepowershell
+    Supply values for the following parameters:
+    (Type !? for Help.)
+    activityLogAlertName: <Alert Name>
+    actionGroupResourceId: /subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/microsoft.insights/actionGroups/<actionGroup>
+    ```
 
 6. Jeśli wszystko działało prawidłowo, otrzymasz potwierdzenie w programie PowerShell
 
-        DeploymentName          : ExampleDeployment
-        ResourceGroupName       : <resourceGroup>
-        ProvisioningState       : Succeeded
-        Timestamp               : 11/8/2017 2:32:00 AM
-        Mode                    : Incremental
-        TemplateLink            :
-        Parameters              :
-                                Name                     Type       Value
-                                ===============          =========  ==========
-                                activityLogAlertName     String     <Alert Name>
-                                activityLogAlertEnabled  Bool       True
-                                actionGroupResourceId    String     /...
-        
-        Outputs                 :
-        DeploymentDebugLogLevel :
+    ```output
+    DeploymentName          : ExampleDeployment
+    ResourceGroupName       : <resourceGroup>
+    ProvisioningState       : Succeeded
+    Timestamp               : 11/8/2017 2:32:00 AM
+    Mode                    : Incremental
+    TemplateLink            :
+    Parameters              :
+                            Name                     Type       Value
+                            ===============          =========  ==========
+                            activityLogAlertName     String     <Alert Name>
+                            activityLogAlertEnabled  Bool       True
+                            actionGroupResourceId    String     /...
+
+    Outputs                 :
+    DeploymentDebugLogLevel :
+    ```
 
 Należy pamiętać, że jeśli planujesz w pełni automatyzowanie tego procesu, wystarczy edytować szablon Menedżer zasobów, aby nie monitował o wartości w kroku 5.
 

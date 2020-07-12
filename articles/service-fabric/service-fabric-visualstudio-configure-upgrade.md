@@ -5,11 +5,12 @@ author: mikkelhegn
 ms.topic: conceptual
 ms.date: 06/29/2017
 ms.author: mikhegn
-ms.openlocfilehash: ef88a528dbb6d326e5cc742d14c27218eb7502f7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1db6cea0af229664b07e88463e279b2a64d7e267
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75464078"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86256054"
 ---
 # <a name="configure-the-upgrade-of-a-service-fabric-application-in-visual-studio"></a>Konfigurowanie uaktualnienia aplikacji Service Fabric w programie Visual Studio
 Narzędzia Visual Studio Tools for Azure Service Fabric zapewniają obsługę uaktualnienia w przypadku klastrów lokalnych lub zdalnych. Istnieją trzy scenariusze, w których aplikacja ma zostać uaktualniona do nowszej wersji zamiast zastępowania aplikacji podczas testowania i debugowania:
@@ -56,7 +57,7 @@ Jeśli używasz narzędzi Service Fabric Visual Studio do uaktualnienia aplikacj
 3. W przypadku wybrania trybu uaktualnienia UnmonitoredManual należy ręcznie uruchomić konsolę programu PowerShell, aby kontynuować i zakończyć proces uaktualniania. Zapoznaj się z tematem [Service Fabric uaktualniania aplikacji: Zaawansowane tematy](service-fabric-application-upgrade-advanced.md) , aby dowiedzieć się, jak działa uaktualnienie ręczne.
 
 ## <a name="upgrade-an-application-by-using-powershell"></a>Uaktualnianie aplikacji przy użyciu programu PowerShell
-Za pomocą poleceń cmdlet programu PowerShell można uaktualnić aplikację Service Fabric. Aby uzyskać szczegółowe informacje, zobacz [Samouczek dotyczący uaktualniania aplikacji Service Fabric](service-fabric-application-upgrade-tutorial.md) i [Start-ServiceFabricApplicationUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/start-servicefabricapplicationupgrade) .
+Za pomocą poleceń cmdlet programu PowerShell można uaktualnić aplikację Service Fabric. Aby uzyskać szczegółowe informacje, zobacz [Samouczek dotyczący uaktualniania aplikacji Service Fabric](service-fabric-application-upgrade-tutorial.md) i [Start-ServiceFabricApplicationUpgrade](/powershell/module/servicefabric/start-servicefabricapplicationupgrade) .
 
 ## <a name="specify-a-health-check-policy-in-the-application-manifest-file"></a>Określ zasady sprawdzania kondycji w pliku manifestu aplikacji
 Każda usługa w aplikacji Service Fabric może mieć własne parametry zasad dotyczących kondycji, które zastępują wartości domyślne. Można podać te wartości parametrów w pliku manifestu aplikacji.

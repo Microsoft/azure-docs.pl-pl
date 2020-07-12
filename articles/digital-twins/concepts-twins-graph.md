@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 248725c7281c8c63e4ca5c0c70428b4fc997d350
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 955a3b8d12eb3b93bc9d44c624953cd5c1007318
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86142402"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86258211"
 ---
 # <a name="understand-digital-twins-and-their-twin-graph"></a>Informacje na temat bliźniaczych reprezentacji cyfrowych i ich bliźniaczych wykresów
 
@@ -21,11 +21,27 @@ W rozwiązaniu Digital bliźniaczych reprezentacji na platformie Azure jednostki
 > [!TIP]
 > "Usługa Azure Digital bliźniaczych reprezentacji" odnosi się do tej usługi platformy Azure jako całości. "Pojedyncze sznury cyfrowe" lub "same sznury" odnoszą się do pojedynczych węzłów bliźniaczych wewnątrz Twojego wystąpienia usługi.
 
-## <a name="creating-digital-twins"></a>Tworzenie bliźniaczych reprezentacji cyfrowych
+## <a name="digital-twins"></a>Digital bliźniaczych reprezentacji
 
 Aby można było utworzyć dwuosiową cyfrę w wystąpieniu usługi Azure Digital bliźniaczych reprezentacji, musisz mieć *model* przekazany do usługi. Model opisuje zestaw właściwości, wiadomości telemetrycznych i relacje, które mogą mieć poszczególne sznurki, między innymi. Aby uzyskać informacje o typach informacji, które są zdefiniowane w modelu, zobacz [pojęcia: modele niestandardowe](concepts-models.md).
 
 Po utworzeniu i przekazaniu modelu aplikacja kliencka może utworzyć wystąpienie typu; to jest dwuosiowa cyfra. Na przykład po utworzeniu modelu *podłogi*można utworzyć jedną lub kilka bliźniaczych reprezentacji cyfrowych, które używają tego typu (takich jak sznury typu *podłogi*o nazwie *GroundFloor*, inne o nazwie *Floor2*itp.). 
+
+## <a name="relationships-a-graph-of-digital-twins"></a>Relacje: wykres Digital bliźniaczych reprezentacji
+
+Bliźniaczych reprezentacji są połączone z wykresem bliźniaczym przez ich relacje. Relacje, które mogą mieć sznurek, są zdefiniowane jako część jego modelu.  
+
+Na przykład model *podłogi* może definiować relację *zawierania* , która jest przeznaczona dla bliźniaczych reprezentacji typu *pokoju*. W przypadku tej definicji usługa Azure Digital bliźniaczych reprezentacji umożliwia tworzenie relacji między *dowolnym* *podłogą piętra* a dowolnym przędzą za *Pokój* (w tym bliźniaczych reprezentacji, *Room* które są podtypem). 
+
+Wynikiem tego procesu jest zestaw węzłów (Digital bliźniaczych reprezentacji) połączony za pośrednictwem krawędzi (ich relacji) w grafie.
+
+[!INCLUDE [visualizing with Azure Digital Twins explorer](../../includes/digital-twins-visualization.md)]
+
+## <a name="create-with-the-apis"></a>Tworzenie za pomocą interfejsów API
+
+W tej sekcji pokazano, jak wygląda sposób tworzenia cyfrowych bliźniaczych reprezentacji i relacji z aplikacji klienckiej. Zawiera przykłady kodu platformy .NET, które wykorzystują [interfejsy API DigitalTwins](how-to-use-apis-sdks.md), aby zapewnić dodatkowy kontekst dotyczący tego, co się znajduje w ramach każdego z tych koncepcji.
+
+### <a name="create-digital-twins"></a>Utwórz cyfrowy bliźniaczych reprezentacji
 
 Poniżej znajduje się fragment kodu klienta, który używa [interfejsów API DigitalTwins](how-to-use-apis-sdks.md) do tworzenia wycinków typu *pokoju*.
 
@@ -59,11 +75,7 @@ public Task<boolean> CreateRoom(string id, double temperature, double humidity)
 }
 ```
 
-## <a name="relationships-creating-a-graph-of-digital-twins"></a>Relacje: Tworzenie grafu cyfrowego bliźniaczych reprezentacji
-
-Bliźniaczych reprezentacji są połączone z wykresem bliźniaczym przez ich relacje. Relacje, które mogą mieć sznurek, są zdefiniowane jako część jego modelu.  
-
-Na przykład model *podłogi* może definiować relację *zawierania* , która jest przeznaczona dla bliźniaczych reprezentacji typu *pokoju*. W przypadku tej definicji usługa Azure Digital bliźniaczych reprezentacji umożliwia tworzenie relacji między *dowolnym* *podłogą piętra* a dowolnym przędzą za *Pokój* (w tym bliźniaczych reprezentacji, *Room* które są podtypem). 
+### <a name="create-relationships"></a>Utwórz relacje
 
 Poniżej przedstawiono przykładowy kod klienta korzystający z [interfejsów API DigitalTwins](how-to-use-apis-sdks.md) do tworzenia relacji między cyframi cyfrowymi typu *podłogi*o nazwie *GroundFloor* i sznurem cyfrowym typu *Room*o nazwie *Cafe*.
 
@@ -84,8 +96,6 @@ try
     Console.WriteLine($"*** Error creating relationship: {e.Response.StatusCode}");
 }
 ```
-
-Wynikiem tego procesu jest zestaw węzłów (Digital bliźniaczych reprezentacji) połączony za pośrednictwem krawędzi (ich relacji) w grafie.
 
 ## <a name="json-representations-of-graph-elements"></a>Reprezentacje JSON elementów grafu
 

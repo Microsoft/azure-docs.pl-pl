@@ -5,11 +5,12 @@ author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: 56efa15a7de3414f9c535e66bd80c94594cd5038
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fc317345155a6807a20d342e2cefd0701b20f180
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76906222"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86257057"
 ---
 # <a name="sfctl"></a>sfctl
 Polecenia służące do zarządzania klastrami i jednostkami Service Fabric. Ta wersja jest zgodna z środowiskiem uruchomieniowym Service Fabric 7,0.
@@ -25,7 +26,7 @@ Polecenia są zgodne ze wzorcem rzeczownik-czasownik. Aby uzyskać więcej infor
 | [Compose](service-fabric-sfctl-compose.md) | Twórz i usuwaj Docker Compose aplikacje oraz zarządzaj nimi. |
 | [wbudowane](service-fabric-sfctl-container.md) | Uruchom polecenia związane z kontenerem w węźle klastra. |
 | [wydarzeniach](service-fabric-sfctl-events.md) | Pobierz zdarzenia ze sklepu Events (Jeśli usługa EventStore jest już zainstalowana). |
-| [is](service-fabric-sfctl-is.md) | Wykonywanie zapytań i wysyłanie poleceń do usługi infrastruktury. |
+| [była](service-fabric-sfctl-is.md) | Wykonywanie zapytań i wysyłanie poleceń do usługi infrastruktury. |
 | [siatka](service-fabric-sfctl-mesh.md) | Usuwanie aplikacji siatki Service Fabric i zarządzanie nimi. |
 | [większości](service-fabric-sfctl-node.md) | Zarządzaj węzłami, które tworzą klaster. |
 | [podzielić](service-fabric-sfctl-partition.md) | Wykonywanie zapytań dotyczących partycji i zarządzanie nimi dla dowolnej usługi. |
@@ -39,4 +40,4 @@ Polecenia są zgodne ze wzorcem rzeczownik-czasownik. Aby uzyskać więcej infor
 
 ## <a name="next-steps"></a>Następne kroki
 - [Skonfiguruj](service-fabric-cli.md) interfejs wiersza polecenia Service Fabric.
-- Dowiedz się, jak używać interfejsu wiersza polecenia Service Fabric przy użyciu [przykładowych skryptów](/azure/service-fabric/scripts/sfctl-upgrade-application).
+- Dowiedz się, jak używać interfejsu wiersza polecenia Service Fabric przy użyciu [przykładowych skryptów](./scripts/sfctl-upgrade-application.md).

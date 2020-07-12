@@ -3,14 +3,15 @@ title: ReliableConcurrentQueue na platformie Azure Service Fabric
 description: ReliableConcurrentQueue to kolejka o wysokiej przepływności, która umożliwia równoległe enqueues i dequeues.
 ms.topic: conceptual
 ms.date: 5/1/2017
-ms.openlocfilehash: a7115db8259fde0e87e53557ecef730f8e82d2fd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 423ef3d1898176d7c25c596ad186a9c000108aa4
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75462727"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86257446"
 ---
 # <a name="introduction-to-reliableconcurrentqueue-in-azure-service-fabric"></a>Wprowadzenie do ReliableConcurrentQueue na platformie Azure Service Fabric
-Niezawodna Kolejka współbieżna jest asynchroniczną, transakcyjną i replikowaną kolejką, która zapewnia wysoką współbieżność dla operacji na kolejce i w kolejce. Zaprojektowano w celu zapewnienia wysokiej przepływności i małych opóźnień dzięki złagodzeniu wymagań dotyczących ścisłej kolejności FIFO dostarczonej przez [niezawodną kolejkę](https://msdn.microsoft.com/library/azure/dn971527.aspx) , a zamiast tego zapewnia optymalną kolejność.
+Niezawodna Kolejka współbieżna jest asynchroniczną, transakcyjną i replikowaną kolejką, która zapewnia wysoką współbieżność dla operacji na kolejce i w kolejce. Zaprojektowano w celu zapewnienia wysokiej przepływności i małych opóźnień dzięki złagodzeniu wymagań dotyczących ścisłej kolejności FIFO dostarczonej przez [niezawodną kolejkę](/dotnet/api/microsoft.servicefabric.data.collections.ireliablequeue-1?view=azure-dotnet#microsoft_servicefabric_data_collections_ireliablequeue_1) , a zamiast tego zapewnia optymalną kolejność.
 
 ## <a name="apis"></a>Interfejsy API
 
@@ -20,11 +21,11 @@ Niezawodna Kolejka współbieżna jest asynchroniczną, transakcyjną i replikow
 | bool — TryDequeue (wynik T)  | Zadanie< ConditionalValue < T > > TryDequeueAsync (ITransaction TX)  |
 | Liczba int ()                    | Liczba długa ()                                                     |
 
-## <a name="comparison-with-reliable-queue"></a>Porównanie z [niezawodną kolejką](https://msdn.microsoft.com/library/azure/dn971527.aspx)
+## <a name="comparison-with-reliable-queue"></a>Porównanie z [niezawodną kolejką](/dotnet/api/microsoft.servicefabric.data.collections.ireliablequeue-1?view=azure-dotnet#microsoft_servicefabric_data_collections_ireliablequeue_1)
 
-Niezawodna Kolejka współbieżna jest oferowana jako alternatywa dla [niezawodnej kolejki](https://msdn.microsoft.com/library/azure/dn971527.aspx). Powinna być używana w przypadkach, gdy ścisła kolejność FIFO nie jest wymagana, ponieważ gwarantuje to, że funkcja FIFO wymaga kompromisu z współbieżnością.  [Niezawodna Kolejka](https://msdn.microsoft.com/library/azure/dn971527.aspx) używa blokad, aby wymusić kolejność FIFO, z co najwyżej jedną transakcją dopuszczalną do kolejki i co najwyżej jedną transakcję, która może zostać odrzucona jednocześnie. W porównaniu, niezawodna Kolejka współbieżna ogranicza ograniczenia kolejności i pozwala na równoczesne wykonywanie operacji w kolejce i usuwaniu ich z kolejki. Podano optymalny sposób porządkowania, ale względne porządkowanie dwóch wartości w niezawodnej kolejki współbieżnej nigdy nie jest gwarantowane.
+Niezawodna Kolejka współbieżna jest oferowana jako alternatywa dla [niezawodnej kolejki](/dotnet/api/microsoft.servicefabric.data.collections.ireliablequeue-1?view=azure-dotnet#microsoft_servicefabric_data_collections_ireliablequeue_1). Powinna być używana w przypadkach, gdy ścisła kolejność FIFO nie jest wymagana, ponieważ gwarantuje to, że funkcja FIFO wymaga kompromisu z współbieżnością.  [Niezawodna Kolejka](/dotnet/api/microsoft.servicefabric.data.collections.ireliablequeue-1?view=azure-dotnet#microsoft_servicefabric_data_collections_ireliablequeue_1) używa blokad, aby wymusić kolejność FIFO, z co najwyżej jedną transakcją dopuszczalną do kolejki i co najwyżej jedną transakcję, która może zostać odrzucona jednocześnie. W porównaniu, niezawodna Kolejka współbieżna ogranicza ograniczenia kolejności i pozwala na równoczesne wykonywanie operacji w kolejce i usuwaniu ich z kolejki. Podano optymalny sposób porządkowania, ale względne porządkowanie dwóch wartości w niezawodnej kolejki współbieżnej nigdy nie jest gwarantowane.
 
-Niezawodna Kolejka współbieżna zapewnia wyższą przepływność i mniejsze opóźnienia niż [niezawodna Kolejka](https://msdn.microsoft.com/library/azure/dn971527.aspx) , gdy istnieje wiele współbieżnych transakcji wykonujących enqueues i/lub wszystkie kolejki.
+Niezawodna Kolejka współbieżna zapewnia wyższą przepływność i mniejsze opóźnienia niż [niezawodna Kolejka](/dotnet/api/microsoft.servicefabric.data.collections.ireliablequeue-1?view=azure-dotnet#microsoft_servicefabric_data_collections_ireliablequeue_1) , gdy istnieje wiele współbieżnych transakcji wykonujących enqueues i/lub wszystkie kolejki.
 
 Przykładowy przypadek użycia dla ReliableConcurrentQueue jest scenariuszem [kolejki komunikatów](https://en.wikipedia.org/wiki/Message_queue) . W tym scenariuszu co najmniej jeden producent wiadomości tworzy i dodaje elementy do kolejki, a co najmniej jeden odbiorca wiadomości pobiera komunikaty z kolejki i przetwarza je. Wielu producentów i konsumenci mogą działać niezależnie, korzystając z współbieżnych transakcji w celu przetworzenia kolejki.
 
@@ -337,6 +338,6 @@ using (var txn = this.StateManager.CreateTransaction())
 * [Powiadomienia Reliable Services](service-fabric-reliable-services-notifications.md)
 * [Reliable Services kopii zapasowej i przywracania (odzyskiwanie po awarii)](service-fabric-reliable-services-backup-restore.md)
 * [Konfiguracja niezawodnego menedżera stanu](service-fabric-reliable-services-configuration.md)
-* [Wprowadzenie z usługami interfejsu API sieci Web Service Fabric](service-fabric-reliable-services-communication-webapi.md)
-* [Zaawansowane użycie modelu programowania Reliable Services](service-fabric-reliable-services-advanced-usage.md)
-* [Dokumentacja dla deweloperów dla niezawodnych kolekcji](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
+* [Wprowadzenie z usługami interfejsu API sieci Web Service Fabric](./service-fabric-reliable-services-communication-aspnetcore.md)
+* [Zaawansowane użycie modelu programowania Reliable Services](./service-fabric-reliable-services-lifecycle.md)
+* [Dokumentacja dla deweloperów dla niezawodnych kolekcji](/dotnet/api/microsoft.servicefabric.data.collections?view=azure-dotnet#microsoft_servicefabric_data_collections)

@@ -5,12 +5,12 @@ author: dkkapur
 ms.author: dekapur
 ms.date: 10/1/2018
 ms.topic: overview
-ms.openlocfilehash: d6522d417556104a1ece703c725f3fbeab49d683
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e64cc158a18e604cbd022be5c91350c95258272c
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75458987"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86257796"
 ---
 # <a name="what-is-service-fabric-mesh"></a>Co to jest Service Fabric Mesh?
 
@@ -42,7 +42,7 @@ Usługa Service Fabric Mesh umożliwia:
 
 - Wdrażanie aplikacji i zarządzanie nimi bez konieczności jawnego aprowizowania infrastruktury i zarządzania nią.  Usługa Service Fabric Mesh aprowizuje, uaktualnia, stosuje poprawki i utrzymuje podstawową infrastrukturę za Ciebie.
 - Skonfigurowanie ciągłej integracji przy użyciu zintegrowanych narzędzi w celu łatwego pakowania i wdrażania aplikacji.
-- Skorzystaj ze wszystkich funkcji zasobów Azure Resource Manager. Przykłady tych funkcji obejmują dziennik inspekcji i [kontrolę dostępu opartą na rolach](/azure/role-based-access-control/overview). Wszystkie zasoby wdrażane w usłudze siatka Service Fabric na platformie Azure są zasobami Azure Resource Manager. Te zasoby obejmują aplikacje, usługi, wpisy tajne i tak dalej.
+- Skorzystaj ze wszystkich funkcji zasobów Azure Resource Manager. Przykłady tych funkcji obejmują dziennik inspekcji i [kontrolę dostępu opartą na rolach](../role-based-access-control/overview.md). Wszystkie zasoby wdrażane w usłudze siatka Service Fabric na platformie Azure są zasobami Azure Resource Manager. Te zasoby obejmują aplikacje, usługi, wpisy tajne i tak dalej.
 - Wdrażanie zasobów i zarządzanie nimi za pomocą [witryny Azure Portal](https://portal.azure.com), szablonów usługi Resource Manager lub bibliotek interfejsu wiersza polecenia platformy Azure/programu PowerShell.
 - Konfigurowanie operacyjnego monitorowania i zgłaszania alertów za pomocą usługi [Application Insights](/azure/application-insights/) (lub wybranego narzędzia) w celu przechwytywania śladów operacyjnych i diagnostycznych z platformy.
 - Uzyskiwanie dostępu do informacji diagnostycznych dotyczących aplikacji emitowanych przez model aplikacji przy użyciu [usługi Application Insights](/azure/application-insights/) lub wybranego narzędzia.
@@ -50,14 +50,14 @@ Usługa Service Fabric Mesh umożliwia:
 
 ## <a name="mission-critical-platform-capabilities"></a>Możliwości platformy o kluczowym znaczeniu
 
-Usługa Service Fabric Mesh tworzy kolekcję klastrów, które obejmują [strefy dostępności platformy Azure](/azure/availability-zones/az-overview) i/lub geopolityczne granice regionalne. Service Fabric siatka zawiera opis aplikacji z zestawem założeń, takich jak skalowanie, wymagania sprzętowe, wymagania dotyczące trwałości i zasady zabezpieczeń.  Po wdrożeniu aplikacji usługa Service Fabric Mesh znajduje optymalne miejsce do jej uruchomienia.
+Usługa Service Fabric Mesh tworzy kolekcję klastrów, które obejmują [strefy dostępności platformy Azure](../availability-zones/az-overview.md) i/lub geopolityczne granice regionalne. Service Fabric siatka zawiera opis aplikacji z zestawem założeń, takich jak skalowanie, wymagania sprzętowe, wymagania dotyczące trwałości i zasady zabezpieczeń.  Po wdrożeniu aplikacji usługa Service Fabric Mesh znajduje optymalne miejsce do jej uruchomienia.
 
 Usługa Service Fabric Mesh umożliwia:
 
 - Korzystanie z wysokiej dostępności, skalowania na zewnątrz/do wewnątrz, możliwości odnajdywania, orkiestracji, routingu komunikatów, niezawodnej obsługi komunikatów, uaktualnień bez przestojów, zarządzania zabezpieczeniami/wpisami tajnymi, odzyskiwania po awarii, zarządzania stanem, zarządzania konfiguracją i transakcji rozproszonych.
 - Wybieranie spośród wielu modeli aplikacji podczas tworzenia aplikacji.
 - Używanie możliwości platformy udostępnianych przez punkty końcowe REST poprzez korzystanie z powiązań specyficznych dla języka wygenerowanych za pomocą struktury Swagger.
-- Wdrażanie aplikacji w [strefach dostępności](/azure/availability-zones/az-overview) i w wielu regionach na potrzeby niezawodności replikacji geograficznej.
+- Wdrażanie aplikacji w [strefach dostępności](../availability-zones/az-overview.md) i w wielu regionach na potrzeby niezawodności replikacji geograficznej.
 - Korzystanie ze wszystkich funkcji zabezpieczeń i zgodności udostępnianych przez platformę Azure.
 
 ## <a name="next-steps"></a>Następne kroki

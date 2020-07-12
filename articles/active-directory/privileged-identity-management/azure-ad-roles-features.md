@@ -1,27 +1,25 @@
 ---
-title: Zarządzanie rolami usługi Azure AD w Privileged Identity Management (PIM) | Microsoft Docs
+title: Funkcje roli usługi Azure AD w Privileged Identity Management | Microsoft Docs
 description: Jak zarządzać rolami usługi Azure AD na potrzeby przypisywania Privileged Identity Management (PIM)
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: pim
-ms.devlang: na
-ms.topic: how-to
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.workload: identity
-ms.date: 12/06/2019
+ms.date: 07/10/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 501efaf2e9e97f37521daa770e6c760cc794fa36
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 54a286ed63d842dba08ad545b17498cb4000a5cf
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84742865"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86256632"
 ---
 # <a name="management-capabilities-for-azure-ad-roles-in-privileged-identity-management"></a>Możliwości zarządzania dla ról usługi Azure AD w Privileged Identity Management
 
@@ -29,28 +27,30 @@ ms.locfileid: "84742865"
 
 Gdy aktualizacja jest obecnie wdrażana, scalamy te dwa usługi w jednym środowisku zarządzania, a w tym samym działaniu ról usługi Azure AD jako ról zasobów platformy Azure. Ten artykuł informuje o zaktualizowanych funkcjach i wymaganiach.
 
-
 ## <a name="time-bound-assignments"></a>Przypisania powiązane z czasem
 
-Wcześniej w Privileged Identity Management dla ról usługi Azure AD masz doświadczenie z przypisaniami ról z dwoma możliwymi Stanami — *kwalifikujące się* i *trwałe*. Teraz można ustawić godzinę początkową i końcową dla każdego typu przypisania. To dodanie powoduje cztery możliwe stany, w których można umieścić przypisanie:
+Wcześniej były dostępne dwa stany przypisywania ról: *kwalifikujące się* i *trwałe*. Teraz można również ustawić godzinę początkową i końcową dla każdego typu przypisania. To dodanie powoduje cztery możliwe stany, w których można umieścić przypisanie:
 
 - Kwalifikujące się trwale
 - Aktywne trwale
 - Kwalifikujące się, z określonymi datami rozpoczęcia i zakończenia przypisywania
-- Aktywny z określonymi datami rozpoczęcia/zakończenia przypisania
+- Aktywne, z określonymi datami rozpoczęcia i zakończenia przypisywania
 
 W wielu przypadkach nawet jeśli nie chcesz, aby użytkownicy mieli uprawnienia do przypisywania i uaktywniać role za każdym razem, możesz nadal chronić swoją organizację usługi Azure AD, ustawiając czas wygaśnięcia dla przypisań. Jeśli na przykład masz pewnych użytkowników tymczasowych, należy rozważyć ustawienie wygaśnięcia, aby usunąć je automatycznie z przypisania roli po zakończeniu pracy.
 
 ## <a name="new-role-settings"></a>Nowe ustawienia roli
 
-Dodawane są również nowe ustawienia dla ról usługi Azure AD. Wcześniej można skonfigurować tylko ustawienia aktywacji dla poszczególnych ról. Oznacza to, że ustawienia aktywacji, takie jak wymagania dotyczące uwierzytelniania wieloskładnikowego i zdarzenia/bilet żądania zostały zastosowane do wszystkich użytkowników uprawnionych do określonej roli. Teraz można skonfigurować, czy indywidualni użytkownicy muszą przeprowadzić uwierzytelnianie wieloskładnikowe, zanim będą mogli aktywować rolę. Ponadto możesz mieć zaawansowaną kontrolę nad Privileged Identity Managementymi wiadomościami e-mail związanymi z określonymi rolami.
+Dodawane są również nowe ustawienia dla ról usługi Azure AD.
+
+- **Wcześniej**można skonfigurować tylko ustawienia aktywacji dla poszczególnych ról. Oznacza to, że ustawienia aktywacji, takie jak wymagania dotyczące uwierzytelniania wieloskładnikowego i zdarzenia/bilet żądania zostały zastosowane do wszystkich użytkowników uprawnionych do określonej roli.
+- **Teraz**można skonfigurować, czy indywidualni użytkownicy muszą przeprowadzić uwierzytelnianie wieloskładnikowe, zanim będą mogli aktywować rolę. Ponadto możesz mieć zaawansowaną kontrolę nad Privileged Identity Managementymi wiadomościami e-mail związanymi z określonymi rolami.
 
 ## <a name="extend-and-renew-assignments"></a>Przedłużanie i odnawianie przypisań
 
 Po rozwiązaniu przydziału związanego z czasem pierwsze pytanie, na które może się zdarzyć, ma wpływ na to, co się stanie, Jeśli rola wygasła? W tej nowej wersji udostępniamy dwie opcje w tym scenariuszu:
 
-- Rozszerzanie — gdy przypisanie roli zbliża się do jego wygaśnięcia, użytkownik może użyć Privileged Identity Management, aby zażądać rozszerzenia dla tego przypisania roli
-- Odnów — po wygaśnięciu przypisania roli użytkownik może użyć Privileged Identity Management, aby zażądać odnowienia dla tego przypisania roli
+- **Rozszerzanie**: gdy przypisanie roli zbliża się do jego wygaśnięcia, użytkownik może użyć Privileged Identity Management, aby zażądać rozszerzenia dla tego przypisania roli
+- **Odnów**: po wygaśnięciu przypisania roli użytkownik może użyć Privileged Identity Management, aby zażądać odnowienia dla tego przypisania roli
 
 Obie akcje inicjowane przez użytkownika wymagają zatwierdzenia od administratora globalnego lub administratora roli uprzywilejowanej. Administratorzy nie będą już musieli zarządzać tymi wygasami. Po prostu muszą czekać na żądanie rozszerzenia lub odnowienia i zatwierdzić je w przypadku poprawnego żądania.
 

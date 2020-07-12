@@ -8,11 +8,12 @@ ms.date: 06/02/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: b13944e30c339357997fbc5f0919e5eb8485a0a9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4c49345f7036dfee7d1f37c15a4647202b3e5670
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84308782"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86257840"
 ---
 # <a name="manage-certificates-on-an-iot-edge-device"></a>Zarządzanie certyfikatami na urządzeniu IoT Edge
 
@@ -47,6 +48,9 @@ Aby utworzyć następujące pliki, należy użyć własnego urzędu certyfikacji
 
 Ten artykuł zawiera informacje o tym, jako że *główny urząd certyfikacji* nie jest najwyższym urzędem certyfikatu dla organizacji. Jest to najwyższy urząd certyfikacji dla scenariusza IoT Edge, do którego moduł IoT Edge Hub, moduły użytkownika i wszystkie urządzenia podrzędne używają do ustanawiania relacji zaufania między sobą.
 
+> [!NOTE]
+> Obecnie ograniczenie w libiothsm uniemożliwia korzystanie z certyfikatów, które wygasną od 1 stycznia 2050.
+
 Aby zapoznać się z przykładem tych certyfikatów, przejrzyj skrypty, które tworzą certyfikaty demonstracyjne w [zarządzaniu testowymi certyfikatami urzędu certyfikacji dla przykładów i samouczków](https://github.com/Azure/iotedge/tree/master/tools/CACertificates).
 
 ### <a name="install-certificates-on-the-device"></a>Instalowanie certyfikatów na urządzeniu
@@ -68,7 +72,7 @@ Jeśli na przykład do [tworzenia certyfikatów demonstracyjnych](how-to-create-
    * Systemy`C:\ProgramData\iotedge\config.yaml`
    * System`/etc/iotedge/config.yaml`
 
-1. Ustaw właściwości **certyfikatu** w pliku config. YAML na ścieżkę identyfikatora URI, aby uzyskać certyfikat i pliki kluczy na urządzeniu IoT Edge. Usuń `#` znak przed właściwościami certyfikatu, aby usunąć komentarz z czterech wierszy. Upewnij się, że w wierszu **Certyfikaty:** nie ma powyższego odstępu, a elementy zagnieżdżone są wcięte o dwie spacje. Przykład:
+1. Ustaw właściwości **certyfikatu** w pliku config. YAML na ścieżkę identyfikatora URI, aby uzyskać certyfikat i pliki kluczy na urządzeniu IoT Edge. Usuń `#` znak przed właściwościami certyfikatu, aby usunąć komentarz z czterech wierszy. Upewnij się, że w wierszu **Certyfikaty:** nie ma powyższego odstępu, a elementy zagnieżdżone są wcięte o dwie spacje. Na przykład:
 
    * W systemie Windows:
 
@@ -108,7 +112,7 @@ Aby uzyskać więcej informacji na temat funkcji różnych certyfikatów na urz�
 Dla tych dwóch automatycznie generowanych certyfikatów istnieje możliwość ustawienia flagi **auto_generated_ca_lifetime_days** w pliku config. YAML w celu skonfigurowania liczby dni okresu istnienia certyfikatów.
 
 >[!NOTE]
->Istnieje trzeci certyfikat wygenerowany automatycznie, który zostanie utworzony przez program IoT Edge Security Manager, **certyfikat serwera centrum IoT Edge**. Ten certyfikat zawsze ma 90 dzień, ale jest automatycznie odnawiany przed wygaśnięciem. Wartość **auto_generated_ca_lifetime_days** nie ma wpływu na ten certyfikat.
+>Istnieje trzeci certyfikat wygenerowany automatycznie, który zostanie utworzony przez program IoT Edge Security Manager, **certyfikat serwera centrum IoT Edge**. Ten certyfikat zawsze ma 90 dzień okresu istnienia, ale jest automatycznie odnawiany przed wygaśnięciem. Wartość **auto_generated_ca_lifetime_days** nie ma wpływu na ten certyfikat.
 
 Aby skonfigurować wygaśnięcie certyfikatu do wartości innej niż domyślna 90 dni, Dodaj wartość w dniach do sekcji **Certyfikaty** w pliku config. YAML.
 
@@ -119,6 +123,9 @@ certificates:
   trusted_ca_certs: "<ADD URI TO TRUSTED CA CERTIFICATES HERE>"
   auto_generated_ca_lifetime_days: <value>
 ```
+
+> [!NOTE]
+> Obecnie ograniczenie w libiothsm uniemożliwia korzystanie z certyfikatów, które wygasną od 1 stycznia 2050.
 
 Jeśli podano własne certyfikaty urzędu certyfikacji, ta wartość nadal ma zastosowanie do certyfikatu urzędu certyfikacji, pod warunkiem, że ustawiona wartość okresu istnienia jest krótsza niż okres istnienia certyfikatu urzędu certyfikacji.
 

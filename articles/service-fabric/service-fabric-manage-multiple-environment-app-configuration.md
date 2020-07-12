@@ -5,11 +5,12 @@ author: mikkelhegn
 ms.topic: conceptual
 ms.date: 02/23/2018
 ms.author: mikhegn
-ms.openlocfilehash: 0bca690fd585b288f15cbab21c1c951474390318
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b6d6ff37024a3181a43b67d2af26b067225654fe
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78196983"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86257478"
 ---
 # <a name="manage-applications-for-multiple-environments"></a>Zarządzanie aplikacjami dla wielu środowisk
 
@@ -39,8 +40,8 @@ Podaną konfigurację można podzielić na dwie kategorie:
 
 Podczas tworzenia nazwanych wystąpień aplikacji w programie Service Fabric istnieje możliwość przekazania parametrów. W ten sposób zależy od sposobu tworzenia wystąpienia aplikacji.
 
-  - W programie PowerShell [`New-ServiceFabricApplication`](https://docs.microsoft.com/powershell/module/servicefabric/new-servicefabricapplication?view=azureservicefabricps) polecenie cmdlet przyjmuje parametry aplikacji jako tablicę skrótów.
-  - Przy użyciu sfctl [`sfctl application create`](https://docs.microsoft.com/azure/service-fabric/service-fabric-sfctl-application#sfctl-application-create) polecenie przyjmuje parametry jako ciąg JSON. Skrypt install.sh używa sfctl.
+  - W programie PowerShell [`New-ServiceFabricApplication`](/powershell/module/servicefabric/new-servicefabricapplication?view=azureservicefabricps) polecenie cmdlet przyjmuje parametry aplikacji jako tablicę skrótów.
+  - Przy użyciu sfctl [`sfctl application create`](./service-fabric-sfctl-application.md#sfctl-application-create) polecenie przyjmuje parametry jako ciąg JSON. Skrypt install.sh używa sfctl.
   - Program Visual Studio udostępnia zestaw plików parametrów w folderze Parameters w projekcie aplikacji. Te pliki parametrów są używane podczas publikowania z programu Visual Studio przy użyciu Azure DevOps Services lub Azure DevOps Server. W programie Visual Studio pliki parametrów są przesyłane do skryptu Deploy-FabricApplication.ps1.
 
 ## <a name="next-steps"></a>Następne kroki

@@ -7,11 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: a1bb07ee900622b138a556a33469641e4e8310af
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ab0b08c01478d1375ec2a234dc0277980312f17c
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85392305"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86258276"
 ---
 # <a name="understand-twin-models-in-azure-digital-twins"></a>Zrozumienie modeli bliźniaczych w usłudze Azure Digital bliźniaczych reprezentacji
 
@@ -196,9 +197,14 @@ Interfejs rozszerzający nie może zmienić żadnej definicji interfejsów nadrz
 
 ## <a name="validating-models"></a>Sprawdzanie poprawności modeli
 
-Dostępny jest przykład do sprawdzania poprawności dokumentów modelu, aby upewnić się, że DTDL jest prawidłowy. Jest on oparty na bibliotece DTDL parser i ma język niezależny od. Znajdź tutaj: [DTDL moduł sprawdzania poprawności](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator).
+> [!TIP]
+> Zaleca się zweryfikowanie modeli w trybie offline przed przekazaniem ich do wystąpienia usługi Azure Digital bliźniaczych reprezentacji.
 
-Lub, aby uzyskać więcej informacji na temat biblioteki parsera, w tym przykład korzystania z niego bezpośrednio, zobacz [How to: Parse and Validate models](how-to-use-parser.md).
+Dostępny jest przykład niezależny od języka do sprawdzania poprawności dokumentów modelu, aby upewnić się, że DTDL jest poprawna. Znajduje się tutaj: [**DTDL moduł sprawdzania poprawności**](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator).
+
+Przykład modułu sprawdzania DTDL jest oparty na bibliotece analizatora oprogramowania .NET DTDL, która jest dostępna w NuGet jako biblioteka po stronie klienta: [**Microsoft. Azure. DigitalTwins. parser**](https://nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/). Możesz również bezpośrednio korzystać z biblioteki, aby zaprojektować własne rozwiązanie do sprawdzania poprawności. W przypadku korzystania z biblioteki parserów upewnij się, że używasz wersji zgodnej z wersją, którą obsługuje usługa Azure Digital bliźniaczych reprezentacji. W trakcie okresu zapoznawczego jest to wersja *3.7.0*.
+
+Więcej informacji o bibliotece analizatorów, w tym przykłady użycia, można znaleźć w temacie [How to: Parse and Validate models](how-to-use-parser.md).
 
 ## <a name="next-steps"></a>Następne kroki
 

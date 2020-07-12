@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: apimpm
-ms.openlocfilehash: 06c4ede12f939e48973d3e0b502d90b848d199bb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e58cd8f19ab98601d37df185656038dbd5679eb2
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79280302"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86255051"
 ---
 # <a name="api-management-caching-policies"></a>Zasady buforowania usługi API Management
 Ten temat zawiera informacje dotyczące następujących zasad API Management. Aby uzyskać informacje na temat dodawania i konfigurowania zasad, zobacz [zasady w API Management](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -113,11 +114,11 @@ Aby uzyskać więcej informacji, zobacz [wyrażenia zasad](api-management-policy
 | Typ buforowania               | Wybierz między następującymi wartościami atrybutu:<br />- `internal`Aby użyć wbudowanej pamięci podręcznej API Management,<br />- `external`Aby użyć zewnętrznej pamięci podręcznej, zgodnie z opisem w temacie [Korzystanie z zewnętrznej pamięci podręcznej platformy Azure dla Redis w usłudze Azure API Management](api-management-howto-cache-external.md),<br />- `prefer-external`użycie zewnętrznej pamięci podręcznej, jeśli jest skonfigurowana lub wewnętrzna pamięć podręczna w przeciwnym razie. | Nie       | `prefer-external` |
 | buforowanie podrzędne-Type        | Ten atrybut musi być ustawiony na jedną z następujących wartości.<br /><br /> -None — buforowanie podrzędne nie jest dozwolone.<br />— prywatne buforowanie w trybie podrzędnym jest dozwolone.<br />-publiczne i udostępnione buforowanie podrzędne jest dozwolone.                                                                                                          | Nie       | brak              |
 | musi ponownie sprawdzić poprawność                | Gdy buforowanie podrzędne jest włączone, ten atrybut włącza lub wyłącza `must-revalidate` dyrektywę kontroli pamięci podręcznej w odpowiedziach bramy.                                                                                                                                                                                                                      | Nie       | true              |
-| Zróżnicuj według deweloperów              | Ustaw na `true` buforowanie odpowiedzi na [klucz subskrypcji](https://docs.microsoft.com/azure/api-management/api-management-subscriptions).                                                                                                                                                                                                                                                                                                         | Tak      |         Fałsz          |
-| różne grupy deweloperów       | Ustaw na wartość `true` w celu buforowania odpowiedzi dla każdej [grupy użytkowników](https://docs.microsoft.com/azure/api-management/api-management-howto-create-groups).                                                                                                                                                                                                                                                                                                             | Tak      |       Fałsz            |
+| Zróżnicuj według deweloperów              | Ustaw na `true` buforowanie odpowiedzi na [klucz subskrypcji](./api-management-subscriptions.md).                                                                                                                                                                                                                                                                                                         | Tak      |         Fałsz          |
+| różne grupy deweloperów       | Ustaw na wartość `true` w celu buforowania odpowiedzi dla każdej [grupy użytkowników](./api-management-howto-create-groups.md).                                                                                                                                                                                                                                                                                                             | Tak      |       Fałsz            |
 
 ### <a name="usage"></a>Użycie
-Tych zasad można używać w następujących [sekcjach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)zasad.
+Tych zasad można używać w następujących [sekcjach](./api-management-howto-policies.md#sections) i [zakresach](./api-management-howto-policies.md#scopes)zasad.
 
 - **Sekcje zasad:** przychodzące
 - **Zakresy zasad:** wszystkie zakresy
@@ -189,7 +190,7 @@ Aby uzyskać więcej informacji, zobacz [wyrażenia zasad](api-management-policy
 | czas trwania         | Czas wygaśnięcia wpisów w pamięci podręcznej (w sekundach).                                                                                                                                                                                                                                                                                                   | Tak      | Nie dotyczy               |
 
 ### <a name="usage"></a>Użycie
-Tych zasad można używać w następujących [sekcjach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)zasad.
+Tych zasad można używać w następujących [sekcjach](./api-management-howto-policies.md#sections) i [zakresach](./api-management-howto-policies.md#scopes)zasad.
 
 - **Sekcje zasad:** wychodzące
 - **Zakresy zasad:** wszystkie zakresy
@@ -210,7 +211,7 @@ Użyj `cache-lookup-value` zasad do przeszukiwania pamięci podręcznej według 
 ```
 
 ### <a name="example"></a>Przykład
-Aby uzyskać więcej informacji i przykłady tych zasad, zobacz [niestandardowe buforowanie na platformie Azure API Management](https://azure.microsoft.com/documentation/articles/api-management-sample-cache-by-key/).
+Aby uzyskać więcej informacji i przykłady tych zasad, zobacz [niestandardowe buforowanie na platformie Azure API Management](./api-management-sample-cache-by-key.md).
 
 ```xml
 <cache-lookup-value
@@ -235,7 +236,7 @@ Aby uzyskać więcej informacji i przykłady tych zasad, zobacz [niestandardowe 
 | Nazwa zmiennej    | Nazwa [zmiennej kontekstowej](api-management-policy-expressions.md#ContextVariables) , do której zostanie przypisana wartość, jeśli wyszukiwanie zakończyło się pomyślnie. Jeśli wyszukiwanie spowoduje odrzucenie, zmienna zostanie przypisana do wartości `default-value` atrybutu lub `null` , jeśli `default-value` atrybut zostanie pominięty.                                       | Tak      | Nie dotyczy               |
 
 ### <a name="usage"></a>Użycie
-Tych zasad można używać w następujących [sekcjach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)zasad.
+Tych zasad można używać w następujących [sekcjach](./api-management-howto-policies.md#sections) i [zakresach](./api-management-howto-policies.md#scopes)zasad.
 
 - **Sekcje zasad:** przychodzące, wychodzące, zaplecze, w przypadku błędu
 - **Zakresy zasad:** wszystkie zakresy
@@ -253,7 +254,7 @@ Tych zasad można używać w następujących [sekcjach](https://azure.microsoft.
 ```
 
 ### <a name="example"></a>Przykład
-Aby uzyskać więcej informacji i przykłady tych zasad, zobacz [niestandardowe buforowanie na platformie Azure API Management](https://azure.microsoft.com/documentation/articles/api-management-sample-cache-by-key/).
+Aby uzyskać więcej informacji i przykłady tych zasad, zobacz [niestandardowe buforowanie na platformie Azure API Management](./api-management-sample-cache-by-key.md).
 
 ```xml
 <cache-store-value
@@ -277,7 +278,7 @@ Aby uzyskać więcej informacji i przykłady tych zasad, zobacz [niestandardowe 
 | key              | Klucz pamięci podręcznej, w której będzie przechowywana wartość.                                                                                                                                                                                                                                                                                                                   | Tak      | Nie dotyczy               |
 | wartość            | Wartość do buforowania.                                                                                                                                                                                                                                                                                                                                     | Tak      | Nie dotyczy               |
 ### <a name="usage"></a>Użycie
-Tych zasad można używać w następujących [sekcjach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)zasad.
+Tych zasad można używać w następujących [sekcjach](./api-management-howto-policies.md#sections) i [zakresach](./api-management-howto-policies.md#scopes)zasad.
 
 - **Sekcje zasad:** przychodzące, wychodzące, zaplecze, w przypadku błędu
 - **Zakresy zasad:** wszystkie zakresy
@@ -315,7 +316,7 @@ Tych zasad można używać w następujących [sekcjach](https://azure.microsoft.
 | key              | Klucz poprzednio buforowanej wartości, który ma zostać usunięty z pamięci podręcznej.                                                                                                                                                                                                                                                                                        | Tak      | Nie dotyczy               |
 
 #### <a name="usage"></a>Użycie
-Tych zasad można używać w następujących [sekcjach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) zasad.
+Tych zasad można używać w następujących [sekcjach](./api-management-howto-policies.md#sections) i [zakresach](./api-management-howto-policies.md#scopes) zasad.
 
 - **Sekcje zasad:** przychodzące, wychodzące, zaplecze, w przypadku błędu
 - **Zakresy zasad:** wszystkie zakresy
@@ -326,5 +327,5 @@ Aby uzyskać więcej informacji na temat pracy z zasadami, zobacz:
 
 + [Zasady w API Management](api-management-howto-policies.md)
 + [Przekształć interfejsy API](transform-api.md)
-+ [Dokumentacja zasad](api-management-policy-reference.md) pełna lista instrukcji zasad i ich ustawień
++ [Dokumentacja zasad](./api-management-policies.md) pełna lista instrukcji zasad i ich ustawień
 + [Przykłady zasad](policy-samples.md)

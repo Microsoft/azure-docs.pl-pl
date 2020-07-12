@@ -3,12 +3,12 @@ title: Wzorce sieciowe dla Service Fabric platformy Azure
 description: Opisuje typowe wzorce sieci dla Service Fabric i sposób tworzenia klastra przy użyciu funkcji sieciowych platformy Azure.
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.openlocfilehash: b9114be5498bcb7fdec4e105ad6e3ff9fcc03a7c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0c3664d1890fd318aa1bff508a51cb227bdcc01d
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85106623"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86258528"
 ---
 # <a name="service-fabric-networking-patterns"></a>Service Fabric wzorców sieci
 Możesz zintegrować klaster usługi Azure Service Fabric z innymi funkcjami sieciowymi platformy Azure. W tym artykule przedstawiono sposób tworzenia klastrów, które korzystają z następujących funkcji:
@@ -598,10 +598,9 @@ Po wdrożeniu można wyświetlić dwie usługi równoważenia obciążenia w gru
 
 ## <a name="notes-for-production-workloads"></a>Uwagi dotyczące obciążeń produkcyjnych
 
-Powyższe szablony GitHub są przeznaczone do pracy z domyślną jednostką SKU dla platformy Azure usługa Load Balancer w warstwie Standardowa (program do obsługi modułu równoważenia obciążenia) — podstawowa jednostka SKU. Ten program nie ma umowy SLA, dlatego w przypadku obciążeń produkcyjnych należy używać standardowej jednostki SKU. Aby uzyskać więcej informacji na ten temat, zobacz [Omówienie usługi Azure usługa Load Balancer w warstwie Standardowa](/azure/load-balancer/load-balancer-standard-overview). Każdy klaster Service Fabric używający standardowej jednostki SKU dla modułu równoważenia obciążenia musi zapewnić, że każdy typ węzła ma regułę zezwalającą na ruch wychodzący na porcie 443. Jest to niezbędne do ukończenia instalacji klastra, a wszelkie wdrożenia bez takiej reguły zakończą się niepowodzeniem. W powyższym przykładzie usługi równoważenia obciążenia "tylko wewnętrznie" do szablonu należy dodać dodatkowy zewnętrzny moduł równoważenia obciążenia z regułą zezwalającą na ruch wychodzący dla portu 443.
+Powyższe szablony GitHub są przeznaczone do pracy z domyślną jednostką SKU dla platformy Azure usługa Load Balancer w warstwie Standardowa (program do obsługi modułu równoważenia obciążenia) — podstawowa jednostka SKU. Ten program nie ma umowy SLA, dlatego w przypadku obciążeń produkcyjnych należy używać standardowej jednostki SKU. Aby uzyskać więcej informacji na ten temat, zobacz [Omówienie usługi Azure usługa Load Balancer w warstwie Standardowa](../load-balancer/load-balancer-overview.md). Każdy klaster Service Fabric używający standardowej jednostki SKU dla modułu równoważenia obciążenia musi zapewnić, że każdy typ węzła ma regułę zezwalającą na ruch wychodzący na porcie 443. Jest to niezbędne do ukończenia instalacji klastra, a wszelkie wdrożenia bez takiej reguły zakończą się niepowodzeniem. W powyższym przykładzie usługi równoważenia obciążenia "tylko wewnętrznie" do szablonu należy dodać dodatkowy zewnętrzny moduł równoważenia obciążenia z regułą zezwalającą na ruch wychodzący dla portu 443.
 
 ## <a name="next-steps"></a>Następne kroki
 [Tworzenie klastra](service-fabric-cluster-creation-via-arm.md)
 
 Po wdrożeniu można wyświetlić dwie usługi równoważenia obciążenia w grupie zasobów. W przypadku przeglądania modułów równoważenia obciążenia można zobaczyć publiczny adres IP i punkty końcowe zarządzania (porty 19000 i 19080) przypisane do publicznego adresu IP. Można też zobaczyć statyczny wewnętrzny adres IP i punkt końcowy aplikacji (port 80) przypisany do wewnętrznego modułu równoważenia obciążenia. Oba moduły równoważenia obciążenia używają tej samej puli zaplecza zestawu skalowania maszyn wirtualnych.
-
