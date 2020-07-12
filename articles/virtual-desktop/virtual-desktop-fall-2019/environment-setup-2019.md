@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: d666f7e3e43b5429423a5356aa00e074ed020869
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 153532b3c33158ee1a43db7883eb7a9ec621ade7
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82615333"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86241679"
 ---
 # <a name="windows-virtual-desktop-environment"></a>Środowisko usługi Windows Virtual Desktop
 
@@ -67,5 +67,5 @@ Aby dowiedzieć się, jak skonfigurować dzierżawcę pulpitów wirtualnych syst
 
 Aby dowiedzieć się, jak nawiązać połączenie z pulpitem wirtualnym systemu Windows, zobacz jeden z następujących artykułów:
 
-- [Łączenie z systemu Windows 10 lub Windows 7](../connect-windows-7-and-10.md)
+- [Łączenie z systemu Windows 10 lub Windows 7](connect-windows-7-10-2019.md)
 - [Łączenie z przeglądarki internetowej](connect-web-2019.md)

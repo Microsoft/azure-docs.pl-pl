@@ -5,12 +5,12 @@ author: athinanthny
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.author: atsenthi
-ms.openlocfilehash: feeef1773ffe68f3ff88175b413cd40ba618b8d9
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: e6174f35bd54b3ca0b2c5240a663369350b30ce8
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86207230"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86241900"
 ---
 # <a name="service-fabric-container-networking-modes"></a>Service Fabric tryby sieci kontenera
 
@@ -21,7 +21,7 @@ Jeśli masz jedną usługę kontenera ze statycznym punktem końcowym w manifeś
 Po ponownym uruchomieniu lub przeniesieniu usługi kontenera do innego węzła w klastrze adres IP ulega zmianie. Z tego powodu nie zaleca się używania dynamicznie przypisanego adresu IP do odnajdowania usług kontenerów. Do odnajdowania usług należy używać tylko Usługa nazewnictwa Service Fabric lub usługi DNS. 
 
 >[!WARNING]
->System Azure umożliwia łączną liczbę adresów IP 65 356 dla każdej sieci wirtualnej. Suma liczby węzłów i liczby wystąpień usługi kontenera (używających trybu otwierania) nie może przekraczać 65 356 adresów IP w ramach sieci wirtualnej. W przypadku scenariuszy o dużej gęstości zalecamy użycie trybu sieci NAT. Ponadto inne zależności, takie jak moduł równoważenia obciążenia, będą miały inne [ograniczenia](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits) , które należy wziąć pod uwagę. Obecnie testy do 50 adresów IP na węzeł zostały przetestowane i sprawdzone jako stabilne. 
+>System Azure umożliwia łączną liczbę adresów IP 65 356 dla każdej sieci wirtualnej. Suma liczby węzłów i liczby wystąpień usługi kontenera (używających trybu otwierania) nie może przekraczać 65 356 adresów IP w ramach sieci wirtualnej. W przypadku scenariuszy o dużej gęstości zalecamy użycie trybu sieci NAT. Ponadto inne zależności, takie jak moduł równoważenia obciążenia, będą miały inne [ograniczenia](../azure-resource-manager/management/azure-subscription-service-limits.md) , które należy wziąć pod uwagę. Obecnie testy do 50 adresów IP na węzeł zostały przetestowane i sprawdzone jako stabilne. 
 >
 
 ## <a name="set-up-open-networking-mode"></a>Konfigurowanie trybu otwierania sieci
@@ -196,7 +196,7 @@ Po ponownym uruchomieniu lub przeniesieniu usługi kontenera do innego węzła w
    |Priorytet |2000 |
    |Nazwa |Custom_Dns  |
    |Źródło |VirtualNetwork |
-   |Element docelowy | VirtualNetwork |
+   |Miejsce docelowe | VirtualNetwork |
    |Usługa | DNS (UDP/53) |
    |Akcja | Zezwalaj  |
 
@@ -263,6 +263,6 @@ Po ponownym uruchomieniu lub przeniesieniu usługi kontenera do innego węzła w
  
 ## <a name="next-steps"></a>Następne kroki
 * [Informacje o modelu aplikacji usługi Service Fabric](service-fabric-application-model.md)
-* [Dowiedz się więcej o zasobach manifestu usługi Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-service-manifest-resources)
+* [Dowiedz się więcej o zasobach manifestu usługi Service Fabric](./service-fabric-service-manifest-resources.md)
 * [Wdrażanie kontenera systemu Windows w celu Service Fabric w systemie Windows Server 2016](service-fabric-get-started-containers.md)
 * [Wdrażanie kontenera platformy Docker w celu Service Fabric w systemie Linux](service-fabric-get-started-containers-linux.md)

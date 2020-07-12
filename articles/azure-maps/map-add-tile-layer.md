@@ -9,11 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 61d7a11df499e6b740adb45968721b6a9bb1af22
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6bb3cfa7266688ac8973bd3838d0d03e9efe8d50
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76988604"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86242308"
 ---
 # <a name="add-a-tile-layer-to-a-map"></a>Dodawanie warstwy kafelków do mapy
 
@@ -36,6 +37,7 @@ Adres URL kafelka przesłany do warstwy kafelków musi być adresem URL http lub
 * `{quadkey}`-Kafelek quadkey identyfikator oparty na konwencji nazewnictwa systemu kafelków mapy Bing.
 * `{bbox-epsg-3857}`-Ciąg pola granicznego z formatem `{west},{south},{east},{north}` w systemie referencyjnym przestrzennym EPSG 3857.
 * `{subdomain}`-Symbol zastępczy dla wartości poddomeny, jeśli zostanie określony, `subdomain` zostanie dodany.
+* `{azMapsDomain}`— Symbol zastępczy, aby wyrównać domenę i uwierzytelnianie żądań kafelków z tymi samymi wartościami, które są używane przez mapę.
 
 ## <a name="add-a-tile-layer"></a>Dodawanie warstwy kafelków
 

@@ -8,11 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: ac4df0b63d48e590bfdfc49f1c8b5607b4651cd5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c18a09b494de7ecb639fbc5639b7162bdb02d2a6
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84310193"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86241985"
 ---
 # <a name="azure-maps-weather-coverage"></a>Azure Maps pokrycie pogodowe
 
@@ -27,7 +28,7 @@ Poniższa tabela zawiera informacje o rodzaju informacji o pogodzie, które moż
 |*       |Obejmuje Pogoda na trasie, bieżące warunki, prognozę godzinową, prognozę kwartalną i dzienne interfejsy API prognozowania |
 
 
-## <a name="americas"></a>Ameryka Północna i Południowa
+## <a name="americas"></a>Ameryki
 
 | Kraj/region              |  Kafelki satelitarne | Prognoza minutowa, kafelki radarowe | Różnych | 
 |-----------------------------|:----------------:|:-----------------:|:--------:|  
@@ -110,7 +111,7 @@ Poniższa tabela zawiera informacje o rodzaju informacji o pogodzie, które moż
 | Czad                        | ✓               |                              |        ✓| 
 | Komory                     | ✓               |                              |        ✓| 
 | Kongo (DRK)                 | ✓               |                              |        ✓|
-| Wybrzeże Kości Słoniowej               | ✓               |                              |        ✓| 
+| Côte d'Ivoire               | ✓               |                              |        ✓| 
 | Dżibuti                    | ✓               |                              |        ✓| 
 | Egipt                       | ✓               |                              |        ✓| 
 | Gwinea Równikowa           | ✓               |                              |        ✓| 

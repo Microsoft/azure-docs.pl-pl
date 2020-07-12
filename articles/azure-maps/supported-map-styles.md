@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 2eafe3c16a89723d55ec52fde785e9ec69e45e0c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3db8ae98302ad6df7355ce03f5a33b5d21f1ea09
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80334035"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86242104"
 ---
 # <a name="azure-maps-supported-map-styles"></a>Azure Maps obsługiwane style mapy
 Azure Maps obsługuje kilka różnych wbudowanych stylów mapy, zgodnie z poniższym opisem.
@@ -28,6 +28,7 @@ Mapa **drogowa** to standardowa mapa, która wyświetla drogi, naturalne i sztuc
 * [Kafelek mapy](https://docs.microsoft.com/rest/api/maps/render/getmaptile)
 * Kontrolka mapy zestawu SDK sieci Web
 * Kontrolka mapy systemu Android
+* Wizualizacja usługi Power BI
 
 ## <a name="blank-and-blank_accessible"></a>puste i blank_accessible
 
@@ -48,6 +49,7 @@ Styl **satelity** to kombinacja zdjęć satelitarnych i antenowych.
 * [Kafelek satelitarny](https://docs.microsoft.com/rest/api/maps/render/getmapimagerytilepreview)
 * Kontrolka mapy zestawu SDK sieci Web
 * Kontrolka mapy systemu Android
+* Wizualizacja usługi Power BI
 
 ## <a name="satellite_road_labels"></a>satellite_road_labels
 Ten styl mapy jest hybrydą dróg i etykiet, które są nakładane na Zdjęcia satelitarne i anteny.
@@ -57,6 +59,7 @@ Ten styl mapy jest hybrydą dróg i etykiet, które są nakładane na Zdjęcia s
 **Odpowiednie interfejsy API:**
 * Kontrolka mapy zestawu SDK sieci Web
 * Kontrolka mapy systemu Android
+* Wizualizacja usługi Power BI
 
 ## <a name="grayscale_dark"></a>grayscale_dark
 **ciemna Skala szarości** jest ciemną wersją stylu mapy drogowej.
@@ -68,6 +71,7 @@ Ten styl mapy jest hybrydą dróg i etykiet, które są nakładane na Zdjęcia s
 * [Kafelek mapy](https://docs.microsoft.com/rest/api/maps/render/getmaptile)
 * Kontrolka mapy zestawu SDK sieci Web 
 * Kontrolka mapy systemu Android
+* Wizualizacja usługi Power BI
 
 
 ## <a name="grayscale_light"></a>grayscale_light
@@ -78,6 +82,7 @@ Ten styl mapy jest hybrydą dróg i etykiet, które są nakładane na Zdjęcia s
 **Odpowiednie interfejsy API:**
 * Kontrolka mapy zestawu SDK sieci Web
 * Kontrolka mapy systemu Android
+* Wizualizacja usługi Power BI
 
 
 ## <a name="night"></a>noc
@@ -88,6 +93,7 @@ Ten styl mapy jest hybrydą dróg i etykiet, które są nakładane na Zdjęcia s
 **Odpowiednie interfejsy API:**
 * Kontrolka mapy zestawu SDK sieci Web
 * Kontrolka mapy systemu Android
+* Wizualizacja usługi Power BI
 
 ## <a name="road_shaded_relief"></a>road_shaded_relief
 nastąpi **odcień drogi** jest Azure Maps głównym stylem, który został ukończony z obprezentacją ziemi.
@@ -98,6 +104,7 @@ nastąpi **odcień drogi** jest Azure Maps głównym stylem, który został uko�
 * [Kafelek mapy](https://docs.microsoft.com/rest/api/maps/render/getmaptile)
 * Kontrolka mapy zestawu SDK sieci Web
 * Kontrolka mapy systemu Android
+* Wizualizacja usługi Power BI
 
 ## <a name="high_contrast_dark"></a>high_contrast_dark
 
@@ -107,6 +114,7 @@ nastąpi **odcień drogi** jest Azure Maps głównym stylem, który został uko�
 
 **Odpowiednie interfejsy API:**
 * Kontrolka mapy zestawu SDK sieci Web
+* Wizualizacja usługi Power BI
 
 ## <a name="next-steps"></a>Następne kroki
 

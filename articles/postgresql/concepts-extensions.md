@@ -5,12 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 02/13/2020
-ms.openlocfilehash: a12738f5de783c8a34718b8d9cb4bbf54f230589
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/10/2020
+ms.openlocfilehash: b97b373936f9c485eaa96cdd34ed33c49e75ad9a
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77201275"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86242070"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql---single-server"></a>Rozszerzenia PostgreSQL w Azure Database for PostgreSQL — pojedynczy serwer
 PostgreSQL zapewnia możliwość rozszerzenia funkcjonalności bazy danych przy użyciu rozszerzeń. Rozszerzenia rozszerzają wiele powiązanych obiektów SQL razem w jednym pakiecie, który można załadować lub usunąć z bazy danych za pomocą jednego polecenia. Po załadowaniu do bazy danych programu rozszerzenia działają jak wbudowane funkcje.
@@ -211,7 +212,7 @@ Istnieje kompromis między informacjami o wykonywaniu zapytania pg_stat_statemen
 ## <a name="dblink-and-postgres_fdw"></a>dblink i postgres_fdw
 [dblink](https://www.postgresql.org/docs/current/contrib-dblink-function.html) i [postgres_fdw](https://www.postgresql.org/docs/current/postgres-fdw.html) umożliwiają łączenie się z jednego serwera PostgreSQL z innym lub z inną bazą danych na tym samym serwerze. Serwer otrzymujący musi zezwalać na połączenia z serwera wysyłającego za pośrednictwem jego zapory. Korzystając z tych rozszerzeń do łączenia się między serwerami Azure Database for PostgreSQL, można to zrobić przez ustawienie opcji "Zezwalaj na dostęp do usług platformy Azure" na wartość włączone. Jest to również wymagane, jeśli chcesz użyć rozszerzeń do zapętlenia z powrotem do tego samego serwera. Ustawienie "Zezwalaj na dostęp do usług platformy Azure" można znaleźć na stronie Azure Portal serwera Postgres, w obszarze zabezpieczenia połączeń. Włączenie opcji "Zezwalaj na dostęp do usług platformy Azure" spowoduje umieszczenie wszystkich adresów IP platformy Azure na liście dozwolonych.
 
-Obecnie połączenia wychodzące z Azure Database for PostgreSQL nie są obsługiwane, z wyjątkiem połączeń z innymi serwerami Azure Database for PostgreSQL.
+Obecnie połączenia wychodzące z Azure Database for PostgreSQL nie są obsługiwane, z wyjątkiem połączeń z innymi serwerami Azure Database for PostgreSQL w tym samym regionie.
 
 ## <a name="uuid"></a>uuid
 Jeśli planujesz użyć `uuid_generate_v4()` z [rozszerzenia UUID-OSSP](https://www.postgresql.org/docs/current/uuid-ossp.html), rozważ porównanie z `gen_random_uuid()` [rozszerzeniem pgcrypto](https://www.postgresql.org/docs/current/pgcrypto.html) w celu uzyskania korzyści z wydajności.

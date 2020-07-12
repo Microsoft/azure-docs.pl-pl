@@ -8,11 +8,12 @@ ms.date: 12/10/2019
 ms.topic: conceptual
 ms.service: azure-maps
 manager: cpendleton
-ms.openlocfilehash: 23f52e48c6a435678a01569d25e0072d9c8a3e28
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: febfdf5405038e5b60a3133a554eba7a756f617d
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83648577"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86242376"
 ---
 # <a name="building-an-accessible-application"></a>Tworzenie dostępnej aplikacji
 
@@ -45,6 +46,7 @@ Istnieje kilka różnych sposobów, w których mapowanie może być powiększane
 - Używając mapy, użyj znaku minus, łącznika ( `-` ) lub znaku podkreślenia (), `_` Aby pomniejszyć jeden poziom.
 - Za pomocą kontrolki powiększenie za pomocą myszy, dotyku lub klawisza Tab/klawisz ENTER.
 - Naciśnij i przytrzymaj `Shift` przycisk i naciśnij lewy przycisk myszy w dół mapy i przeciągnij, aby narysować obszar, w którym chcesz powiększyć mapę.
+- Korzystając z niektórych konsol wielodotykowych, przeciągnij dwa Palcy w górę, aby pomniejszyć, lub w dół, aby powiększyć.
 
 **Panoramowanie mapy**
 

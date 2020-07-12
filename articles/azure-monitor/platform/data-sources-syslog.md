@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/22/2019
-ms.openlocfilehash: 8d68a8d6d28d79c50a92cd2d18df2abab26c30ec
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cce74358a206c7103d537ba80c62d6561606b818
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85847411"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86242036"
 ---
 # <a name="syslog-data-sources-in-azure-monitor"></a>Syslog data sources in Azure Monitor (Źródła danych usługi Syslog w usłudze Azure Monitor)
 Dziennik systemowy to protokół rejestrowania zdarzeń, który jest wspólny dla systemu Linux. Aplikacje będą wysyłać komunikaty, które mogą być przechowywane na komputerze lokalnym lub dostarczane do modułu zbierającego dziennik systemowy. Po zainstalowaniu agenta Log Analytics dla systemu Linux program skonfiguruje lokalny demon dziennika systemowego, aby przekazywać komunikaty do agenta. Następnie Agent wysyła komunikat do Azure Monitor, w którym zostanie utworzony odpowiedni rekord.  
@@ -64,87 +64,94 @@ Po [zainstalowaniu agenta log Analytics na kliencie z systemem Linux](../../azur
 #### <a name="rsyslog"></a>rsyslog
 Plik konfiguracji rsyslog znajduje się w lokalizacji **/etc/rsyslog.d/95-omsagent.conf**. Jego domyślna zawartość jest pokazana poniżej. W ten sposób zbierane są komunikaty dziennika systemowego wysyłane z agenta lokalnego dla wszystkich urządzeń z poziomem ostrzegawczym lub wyższym.
 
-    kern.warning       @127.0.0.1:25224
-    user.warning       @127.0.0.1:25224
-    daemon.warning     @127.0.0.1:25224
-    auth.warning       @127.0.0.1:25224
-    syslog.warning     @127.0.0.1:25224
-    uucp.warning       @127.0.0.1:25224
-    authpriv.warning   @127.0.0.1:25224
-    ftp.warning        @127.0.0.1:25224
-    cron.warning       @127.0.0.1:25224
-    local0.warning     @127.0.0.1:25224
-    local1.warning     @127.0.0.1:25224
-    local2.warning     @127.0.0.1:25224
-    local3.warning     @127.0.0.1:25224
-    local4.warning     @127.0.0.1:25224
-    local5.warning     @127.0.0.1:25224
-    local6.warning     @127.0.0.1:25224
-    local7.warning     @127.0.0.1:25224
+```config
+kern.warning       @127.0.0.1:25224
+user.warning       @127.0.0.1:25224
+daemon.warning     @127.0.0.1:25224
+auth.warning       @127.0.0.1:25224
+syslog.warning     @127.0.0.1:25224
+uucp.warning       @127.0.0.1:25224
+authpriv.warning   @127.0.0.1:25224
+ftp.warning        @127.0.0.1:25224
+cron.warning       @127.0.0.1:25224
+local0.warning     @127.0.0.1:25224
+local1.warning     @127.0.0.1:25224
+local2.warning     @127.0.0.1:25224
+local3.warning     @127.0.0.1:25224
+local4.warning     @127.0.0.1:25224
+local5.warning     @127.0.0.1:25224
+local6.warning     @127.0.0.1:25224
+local7.warning     @127.0.0.1:25224
+```
 
 Można usunąć obiekt, usuwając jego sekcję w pliku konfiguracji. Można ograniczyć liczbę zbieranych danych dla konkretnej funkcji, modyfikując wpis tej funkcji. Na przykład, aby ograniczyć możliwości użytkownika do komunikatów o ważności błędu lub nowszej, należy zmodyfikować ten wiersz pliku konfiguracji na następujący:
 
-    user.error    @127.0.0.1:25224
+```config
+user.error    @127.0.0.1:25224
+```
 
 
 #### <a name="syslog-ng"></a>Dziennik systemowy — ng
 Plik konfiguracji dla dziennika systemowego jest lokalizacją o godzinie **/etc/syslog-ng/syslog-ng.conf**.  Jego domyślna zawartość jest pokazana poniżej. W ten sposób zbierane są komunikaty dziennika systemowego wysyłane z agenta lokalnego dla wszystkich obiektów i wszystkich serwerów.   
 
-    #
-    # Warnings (except iptables) in one file:
-    #
-    destination warn { file("/var/log/warn" fsync(yes)); };
-    log { source(src); filter(f_warn); destination(warn); };
+```config
+#
+# Warnings (except iptables) in one file:
+#
+destination warn { file("/var/log/warn" fsync(yes)); };
+log { source(src); filter(f_warn); destination(warn); };
 
-    #OMS_Destination
-    destination d_oms { udp("127.0.0.1" port(25224)); };
+#OMS_Destination
+destination d_oms { udp("127.0.0.1" port(25224)); };
 
-    #OMS_facility = auth
-    filter f_auth_oms { level(alert,crit,debug,emerg,err,info,notice,warning) and facility(auth); };
-    log { source(src); filter(f_auth_oms); destination(d_oms); };
+#OMS_facility = auth
+filter f_auth_oms { level(alert,crit,debug,emerg,err,info,notice,warning) and facility(auth); };
+log { source(src); filter(f_auth_oms); destination(d_oms); };
 
-    #OMS_facility = authpriv
-    filter f_authpriv_oms { level(alert,crit,debug,emerg,err,info,notice,warning) and facility(authpriv); };
-    log { source(src); filter(f_authpriv_oms); destination(d_oms); };
+#OMS_facility = authpriv
+filter f_authpriv_oms { level(alert,crit,debug,emerg,err,info,notice,warning) and facility(authpriv); };
+log { source(src); filter(f_authpriv_oms); destination(d_oms); };
 
-    #OMS_facility = cron
-    filter f_cron_oms { level(alert,crit,debug,emerg,err,info,notice,warning) and facility(cron); };
-    log { source(src); filter(f_cron_oms); destination(d_oms); };
+#OMS_facility = cron
+filter f_cron_oms { level(alert,crit,debug,emerg,err,info,notice,warning) and facility(cron); };
+log { source(src); filter(f_cron_oms); destination(d_oms); };
 
-    #OMS_facility = daemon
-    filter f_daemon_oms { level(alert,crit,debug,emerg,err,info,notice,warning) and facility(daemon); };
-    log { source(src); filter(f_daemon_oms); destination(d_oms); };
+#OMS_facility = daemon
+filter f_daemon_oms { level(alert,crit,debug,emerg,err,info,notice,warning) and facility(daemon); };
+log { source(src); filter(f_daemon_oms); destination(d_oms); };
 
-    #OMS_facility = kern
-    filter f_kern_oms { level(alert,crit,debug,emerg,err,info,notice,warning) and facility(kern); };
-    log { source(src); filter(f_kern_oms); destination(d_oms); };
+#OMS_facility = kern
+filter f_kern_oms { level(alert,crit,debug,emerg,err,info,notice,warning) and facility(kern); };
+log { source(src); filter(f_kern_oms); destination(d_oms); };
 
-    #OMS_facility = local0
-    filter f_local0_oms { level(alert,crit,debug,emerg,err,info,notice,warning) and facility(local0); };
-    log { source(src); filter(f_local0_oms); destination(d_oms); };
+#OMS_facility = local0
+filter f_local0_oms { level(alert,crit,debug,emerg,err,info,notice,warning) and facility(local0); };
+log { source(src); filter(f_local0_oms); destination(d_oms); };
 
-    #OMS_facility = local1
-    filter f_local1_oms { level(alert,crit,debug,emerg,err,info,notice,warning) and facility(local1); };
-    log { source(src); filter(f_local1_oms); destination(d_oms); };
+#OMS_facility = local1
+filter f_local1_oms { level(alert,crit,debug,emerg,err,info,notice,warning) and facility(local1); };
+log { source(src); filter(f_local1_oms); destination(d_oms); };
 
-    #OMS_facility = mail
-    filter f_mail_oms { level(alert,crit,debug,emerg,err,info,notice,warning) and facility(mail); };
-    log { source(src); filter(f_mail_oms); destination(d_oms); };
+#OMS_facility = mail
+filter f_mail_oms { level(alert,crit,debug,emerg,err,info,notice,warning) and facility(mail); };
+log { source(src); filter(f_mail_oms); destination(d_oms); };
 
-    #OMS_facility = syslog
-    filter f_syslog_oms { level(alert,crit,debug,emerg,err,info,notice,warning) and facility(syslog); };
-    log { source(src); filter(f_syslog_oms); destination(d_oms); };
+#OMS_facility = syslog
+filter f_syslog_oms { level(alert,crit,debug,emerg,err,info,notice,warning) and facility(syslog); };
+log { source(src); filter(f_syslog_oms); destination(d_oms); };
 
-    #OMS_facility = user
-    filter f_user_oms { level(alert,crit,debug,emerg,err,info,notice,warning) and facility(user); };
-    log { source(src); filter(f_user_oms); destination(d_oms); };
+#OMS_facility = user
+filter f_user_oms { level(alert,crit,debug,emerg,err,info,notice,warning) and facility(user); };
+log { source(src); filter(f_user_oms); destination(d_oms); };
+```
 
 Można usunąć obiekt, usuwając jego sekcję w pliku konfiguracji. Można ograniczyć liczbę zbieranych danych dla konkretnej funkcji, usuwając je z listy.  Aby na przykład ograniczyć możliwości użytkownika tylko do alertów i komunikatów o krytycznym znaczeniu, należy zmodyfikować tę sekcję w pliku konfiguracji na następujące:
 
-    #OMS_facility = user
-    filter f_user_oms { level(alert,crit) and facility(user); };
-    log { source(src); filter(f_user_oms); destination(d_oms); };
-
+```config
+#OMS_facility = user
+filter f_user_oms { level(alert,crit) and facility(user); };
+log { source(src); filter(f_user_oms); destination(d_oms); };
+```
 
 ### <a name="collecting-data-from-additional-syslog-ports"></a>Zbieranie danych z dodatkowych portów dziennika systemu
 Agent Log Analytics nasłuchuje komunikatów dziennika systemowego na kliencie lokalnym na porcie 25224.  Po zainstalowaniu agenta zostanie zastosowana domyślna konfiguracja dziennika systemowego i znaleziona w następującej lokalizacji:
@@ -156,16 +163,18 @@ Aby zmienić numer portu, można utworzyć dwa pliki konfiguracji: plik konfigur
 
 * Plik konfiguracji, który został pozostały, musi być nowym plikiem znajdującym się w lokalizacji: `/etc/opt/microsoft/omsagent/conf/omsagent.d` i zastąpić wartość w wpisie **portu** numerem portu niestandardowego.
 
-        <source>
-          type syslog
-          port %SYSLOG_PORT%
-          bind 127.0.0.1
-          protocol_type udp
-          tag oms.syslog
-        </source>
-        <filter oms.syslog.**>
-          type filter_syslog
-        </filter>
+    ```config
+    <source>
+      type syslog
+      port %SYSLOG_PORT%
+      bind 127.0.0.1
+      protocol_type udp
+      tag oms.syslog
+    </source>
+    <filter oms.syslog.**>
+      type filter_syslog
+    </filter>
+    ```
 
 * W przypadku rsyslog należy utworzyć nowy plik konfiguracji znajdujący się w: `/etc/rsyslog.d/` i zastąpić wartość% SYSLOG_PORT% numerem portu niestandardowego.  
 
@@ -173,11 +182,13 @@ Aby zmienić numer portu, można utworzyć dwa pliki konfiguracji: plik konfigur
     > Jeśli zmodyfikujesz tę wartość w pliku konfiguracji `95-omsagent.conf` , zostanie ona nadpisywana, gdy Agent zastosuje konfigurację domyślną.
     >
 
-        # OMS Syslog collection for workspace %WORKSPACE_ID%
-        kern.warning              @127.0.0.1:%SYSLOG_PORT%
-        user.warning              @127.0.0.1:%SYSLOG_PORT%
-        daemon.warning            @127.0.0.1:%SYSLOG_PORT%
-        auth.warning              @127.0.0.1:%SYSLOG_PORT%
+    ```config
+    # OMS Syslog collection for workspace %WORKSPACE_ID%
+    kern.warning              @127.0.0.1:%SYSLOG_PORT%
+    user.warning              @127.0.0.1:%SYSLOG_PORT%
+    daemon.warning            @127.0.0.1:%SYSLOG_PORT%
+    auth.warning              @127.0.0.1:%SYSLOG_PORT%
+    ```
 
 * Konfigurację dziennika systemowego-NG należy zmodyfikować przez skopiowanie przykładowej konfiguracji pokazanej poniżej i dodanie niestandardowych ustawień zmodyfikowanych na końcu pliku konfiguracji dziennika systemowego — ng. conf znajdującego się w temacie `/etc/syslog-ng/` . **Nie** Używaj domyślnej etykiety **% WORKSPACE_ID% _oms** lub **% WORKSPACE_ID_OMS**, zdefiniuj etykietę niestandardową, aby ułatwić odróżnienie zmian.  
 
@@ -185,9 +196,11 @@ Aby zmienić numer portu, można utworzyć dwa pliki konfiguracji: plik konfigur
     > Jeśli zmodyfikujesz wartości domyślne w pliku konfiguracji, zostaną one nadpisywane, gdy Agent zastosuje konfigurację domyślną.
     >
 
-        filter f_custom_filter { level(warning) and facility(auth; };
-        destination d_custom_dest { udp("127.0.0.1" port(%SYSLOG_PORT%)); };
-        log { source(s_src); filter(f_custom_filter); destination(d_custom_dest); };
+    ```config
+    filter f_custom_filter { level(warning) and facility(auth; };
+    destination d_custom_dest { udp("127.0.0.1" port(%SYSLOG_PORT%)); };
+    log { source(s_src); filter(f_custom_filter); destination(d_custom_dest); };
+    ```
 
 Po wprowadzeniu zmian należy ponownie uruchomić dziennik systemowy i usługę agenta Log Analytics, aby upewnić się, że zmiany konfiguracji zostały wprowadzone.   
 

@@ -8,32 +8,34 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 06/30/2020
 ms.author: victorh
-ms.openlocfilehash: 6641cc29025d39ddff33e706dd9b1b0da517b884
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 1917bed7727b97de27e560a0f2d8032a8ae08996
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85563700"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86242019"
 ---
-# <a name="quickstart-secure-your-virtual-hub-using-azure-firewall-manager---resource-manager-template"></a>Szybki Start: Zabezpieczanie koncentratora wirtualnego przy użyciu Menedżera zapory platformy Azure — Menedżer zasobów szablonu
+# <a name="quickstart-secure-your-virtual-hub-using-azure-firewall-manager---arm-template"></a>Szybki Start: Zabezpieczanie koncentratora wirtualnego za pomocą Menedżera zapory platformy Azure — szablon ARM
 
-W tym przewodniku szybki start użyjesz szablonu Menedżer zasobów, aby zabezpieczyć centrum wirtualne przy użyciu Menedżera zapory platformy Azure. Wdrożona Zapora ma regułę aplikacji, która umożliwia nawiązywanie połączeń z usługą `www.microsoft.com` . Dwie maszyny wirtualne z systemem Windows Server 2019 są wdrażane w celu przetestowania zapory. Jeden serwer skoku jest używany do nawiązywania połączenia z serwerem obciążeń. Z serwera obciążenia można łączyć się tylko z usługą `www.microsoft.com` .
+W tym przewodniku szybki start użyjesz szablonu Azure Resource Manager (szablon ARM) do zabezpieczenia centrum wirtualnego za pomocą Menedżera zapory platformy Azure. Wdrożona Zapora ma regułę aplikacji, która umożliwia nawiązywanie połączeń z usługą `www.microsoft.com` . Dwie maszyny wirtualne z systemem Windows Server 2019 są wdrażane w celu przetestowania zapory. Jeden serwer skoku jest używany do nawiązywania połączenia z serwerem obciążeń. Z serwera obciążenia można łączyć się tylko z usługą `www.microsoft.com` .
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
 Aby uzyskać więcej informacji na temat Menedżera zapory platformy Azure, zobacz [co to jest Menedżer zapory platformy Azure?](overview.md).
 
+Jeśli Twoje środowisko spełnia wymagania wstępne i masz doświadczenie w korzystaniu z szablonów usługi ARM, wybierz przycisk **Wdróż na platformie Azure** . Szablon zostanie otwarty w Azure Portal.
+
+[![Wdrażanie na platformie Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Ffwm-docs-qs%2Fazuredeploy.json)
+
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 - Konto platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## <a name="create-a-secured-virtual-hub"></a>Tworzenie bezpiecznego centrum wirtualnego
+## <a name="review-the-template"></a>Przegląd szablonu
 
 Ten szablon umożliwia utworzenie bezpiecznego koncentratora wirtualnego przy użyciu Menedżera zapory platformy Azure wraz z zasobami wymaganymi do obsługi tego scenariusza.
 
-### <a name="review-the-template"></a>Przegląd szablonu
-
-Szablon używany w tym przewodniku Szybki start jest jednym z [szablonów szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/fwm-docs-qs/).
+Szablon używany w tym przewodniku szybki start pochodzi z [szablonów szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/fwm-docs-qs/).
 
 :::code language="json" source="~/quickstart-templates/fwm-docs-qs/azuredeploy.json" range="001-477" highlight="47-76":::
 
@@ -51,9 +53,9 @@ W szablonie zdefiniowano wiele zasobów platformy Azure:
 - [**Microsoft. Network/adresów publicipaddress**](/azure/templates/microsoft.network/publicipaddresses)
 - [**Microsoft. Network/routeTables**](/azure/templates/microsoft.network/routeTables)
 
-### <a name="deploy-the-template"></a>Wdrożenie szablonu
+## <a name="deploy-the-template"></a>Wdrażanie szablonu
 
-Wdróż szablon Menedżer zasobów na platformie Azure:
+Wdróż szablon ARM na platformie Azure:
 
 1. Wybierz pozycję **Wdróż na platformie Azure** , aby zalogować się do platformy Azure i otworzyć szablon. Szablon umożliwia utworzenie zapory platformy Azure, wirtualnej sieci WAN i wirtualnego centrum, infrastruktury sieciowej i dwóch maszyn wirtualnych.
 
@@ -86,9 +88,9 @@ Teraz Przetestuj reguły zapory, aby upewnić się, że działa zgodnie z oczeki
 
 Teraz sprawdzono, że reguły zapory działają:
 
-* Możesz przejść do jednej z dozwolonych nazw FQDN, ale nie do innych.
+- Możesz przejść do jednej z dozwolonych nazw FQDN, ale nie do innych.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Gdy nie potrzebujesz już zasobów utworzonych za pomocą zapory, Usuń grupę zasobów. Spowoduje to usunięcie zapory i wszystkich powiązanych zasobów.
 

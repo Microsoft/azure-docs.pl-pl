@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 7/7/2020
-ms.openlocfilehash: b5751bdccde33fa16d5f09cfbe9a411a351518b0
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 74fdfb9f3a3f59f55b0f0ed4865601c0ddb7b7f2
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86086555"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86241968"
 ---
 # <a name="understand-business-continuity-in-azure-database-for-mysql"></a>Zrozumienie ciągłości działania w Azure Database for MySQL
 
@@ -23,7 +23,7 @@ Azure Database for MySQL zapewnia funkcje ciągłości biznesowej, które obejmu
 
 W poniższej tabeli porównano ERT i cel punktu odzyskiwania dla dostępnych funkcji:
 
-| **Funkcja** | **Podstawowe** | **Ogólnego przeznaczenia** | **Optymalizacja pod kątem pamięci** |
+| **Funkcja** | **Podstawowa** | **Ogólnego przeznaczenia** | **Optymalizacja pod kątem pamięci** |
 | :------------: | :-------: | :-----------------: | :------------------: |
 | Przywracanie do punktu w czasie z kopii zapasowej | Dowolny punkt przywracania w okresie przechowywania | Dowolny punkt przywracania w okresie przechowywania | Dowolny punkt przywracania w okresie przechowywania |
 | Przywracanie geograficzne z kopii zapasowych replikowanych geograficznie | Nieobsługiwane | ERT < 12 h<br/>Cel punktu odzyskiwania < 1 h | ERT < 12 h<br/>Cel punktu odzyskiwania < 1 h |
@@ -51,6 +51,10 @@ Drugą opcją jest użycie funkcji przywracania geograficznego Azure Database fo
 ## <a name="cross-region-read-replicas"></a>Repliki odczytu między regionami
 
 Za pomocą replik odczytu między regionami można usprawnić planowanie ciągłości działania i odzyskiwania po awarii. Repliki odczytu są aktualizowane asynchronicznie przy użyciu technologii replikacji binarnych dzienników MySQL. Dowiedz się więcej na temat odczytywania replik, dostępnych regionów i sposobu przełączenia w tryb failover z [artykułu pojęć dotyczących replik](concepts-read-replicas.md). 
+
+## <a name="faq"></a>Często zadawane pytania
+### <a name="where-does-azure-database-for-mysql-store-customer-data"></a>Gdzie usługa Azure Database for MySQL przechowywać dane klienta?
+Domyślnie Azure Database for MySQL nie przenosi ani nie zapisuje danych klienta poza regionem, w którym jest wdrożony. Jednak klienci mogą opcjonalnie wybrać, aby włączyć [geograficznie nadmiarowe kopie zapasowe](concepts-backup.md#backup-redundancy-options) lub utworzyć [replikę odczytu między regionami](concepts-read-replicas.md#cross-region-replication) do przechowywania danych w innym regionie.
 
 ## <a name="next-steps"></a>Następne kroki
 
