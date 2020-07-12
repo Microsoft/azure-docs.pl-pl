@@ -15,11 +15,12 @@ ms.workload: identity
 ms.date: 05/26/2020
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6415214e5d6b71d174e5117c1cf1e41af381334c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8bbd461072a137bf32874805e5c6171d1102ef0c
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84013590"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86245351"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie produktu Workday do automatycznego aprowizacji użytkowników
 
@@ -290,7 +291,7 @@ Ta sekcja zawiera kroki dla aprowizacji konta użytkownika z produktu Workday do
 
 **Aby skonfigurować dzień roboczy do Active Directory aprowizacji:**
 
-1. Przejdź do witryny <https://portal.azure.com>.
+1. Przejdź do obszaru <https://portal.azure.com>.
 
 2. W Azure Portal Wyszukaj i wybierz pozycję **Azure Active Directory**.
 
@@ -496,13 +497,13 @@ W tej sekcji skonfigurujesz sposób przepływu danych przez użytkownika z produ
 
 | ATRYBUT WORKDAY | ATRYBUT USŁUGI ACTIVE DIRECTORY |  PASUJE IDENTYFIKATOR? | UTWÓRZ/ZAKTUALIZUJ |
 | ---------- | ---------- | ---------- | ---------- |
-| **WorkerID**  |  EmployeeID | **Tak** | Zapisywane tylko w przypadku tworzenia |
+| **WorkerID**  |  EmployeeID (Identyfikator pracownika) | **Tak** | Zapisywane tylko w przypadku tworzenia |
 | **PreferredNameData**    |  CN    |   |   Zapisywane tylko w przypadku tworzenia |
 | **SelectUniqueValue (join (" \@ ", join (".", \[ FirstName \] , \[ LastName \] ), "contoso.com"), join (" \@ ", join (".", Mid ( \[ FirstName \] , 1, 1), \[ LastName \] ), "contoso.com"), join (" \@ ", join (".", Mid ( \[ FirstName \] , 1, 2), \[ LastName \] ), "contoso.com")**   | userPrincipalName     |     | Zapisywane tylko w przypadku tworzenia 
 | `Replace(Mid(Replace(\[UserID\], , "(\[\\\\/\\\\\\\\\\\\\[\\\\\]\\\\:\\\\;\\\\\|\\\\=\\\\,\\\\+\\\\\*\\\\?\\\\&lt;\\\\&gt;\])", , "", , ), 1, 20), , "([\\\\.)\*\$](file:///\\.)*$)", , "", , )`      |    sAMAccountName            |     |         Zapisywane tylko w przypadku tworzenia |
 | **Switch ( \[ aktywny \] ,, "0", "true", "1", "false")** |  accountDisabled      |     | Utwórz i zaktualizuj |
-| **Imię**   | givenName       |     |    Utwórz i zaktualizuj |
-| **Nazwisko**   |   sn   |     |  Utwórz i zaktualizuj |
+| **FirstName (Imię)**   | givenName       |     |    Utwórz i zaktualizuj |
+| **LastName (Nazwisko)**   |   sn   |     |  Utwórz i zaktualizuj |
 | **PreferredNameData**  |  displayName |     |   Utwórz i zaktualizuj |
 | **Przedsiębiorstwo**         | company   |     |  Utwórz i zaktualizuj |
 | **SupervisoryOrganization**  | działu,  |     |  Utwórz i zaktualizuj |
@@ -683,12 +684,7 @@ Zastąp zmienne [proxy-server] i [proxy-port] odpowiednio nazwą i numerem portu
 
 #### <a name="how-do-i-ensure-that-the-provisioning-agent-is-able-to-communicate-with-the-azure-ad-tenant-and-no-firewalls-are-blocking-ports-required-by-the-agent"></a>Jak mogę upewnić się, że Agent aprowizacji jest w stanie komunikować się z dzierżawą usługi Azure AD, a zapory nie blokują portów wymaganych przez agenta?
 
-Możesz również sprawdzić, czy masz otwarte wszystkie wymagane porty, otwierając [Narzędzie Test Ports łącznika](https://aadap-portcheck.connectorporttest.msappproxy.net/) z sieci lokalnej. Więcej zielony znacznik wyboru oznacza większą odporność.
-
-Aby upewnić się, że narzędzie daje odpowiednie wyniki, upewnij się, że:
-
-* Otwórz narzędzie w przeglądarce z serwera, na którym zainstalowano agenta aprowizacji.
-* Upewnij się, że wszystkie serwery proxy lub zapory mające zastosowanie do Twojego agenta aprowizacji są również stosowane do tej strony. Można to zrobić w programie Internet Explorer, przechodząc do **opcji Ustawienia — > Opcje internetowe — > połączenia — > ustawienia sieci LAN**. Na tej stronie zobaczysz pole "Użyj serwera proxy dla sieci LAN". Zaznacz to pole i umieść adres serwera proxy w polu "Address" (adres).
+Możesz również sprawdzić, czy wszystkie [wymagane porty](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application#open-ports) są otwarte.
 
 #### <a name="can-one-provisioning-agent-be-configured-to-provision-multiple-ad-domains"></a>Czy można skonfigurować jednego agenta aprowizacji do udostępniania wielu domen usługi AD?
 
@@ -1058,7 +1054,7 @@ Aby to zmienić, należy użyć programu [Workday Studio](https://community.work
 8.    Kliknij łącze małe **Konfigurowanie** poniżej okienka żądanie/odpowiedź, aby ustawić poświadczenia dla produktu Workday. Sprawdź pozycję **uwierzytelnianie**, a następnie wprowadź nazwę użytkownika i hasło do konta systemu integracji z programem Workday. Upewnij się, że nazwa użytkownika jest sformatowana jako \@ dzierżawca, i pozostaw wybraną opcję **WS-Security UsernameToken** .
    ![Workday Studio](./media/workday-inbound-tutorial/wdstudio2.png)
 
-9. Wybierz przycisk **OK**.
+9. Wybierz pozycję **OK**.
 
 10. W okienku **żądanie** wklej poniższy kod XML. Ustaw **EMPLOYEE_ID** identyfikator pracownika rzeczywistego użytkownika w dzierżawie platformy Workday. Ustaw wartość **WD: Version** do wersji WWS, która ma zostać użyta. Wybierz użytkownika, który ma atrybut wypełniony, który ma zostać wyodrębniony.
 

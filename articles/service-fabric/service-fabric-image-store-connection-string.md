@@ -5,11 +5,12 @@ author: alexwun
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: alexwun
-ms.openlocfilehash: c3395248188c2a16736cfc8cea262fe163a6944b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8fc0239dd18fc7071823a129a7dbc4f102023d66
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75645671"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86246201"
 ---
 # <a name="understand-the-imagestoreconnectionstring-setting"></a>Omówienie ustawienia ImageStoreConnectionString
 
@@ -37,7 +38,7 @@ Dostawca systemu plików jest używany zamiast usługi Magazyn obrazów lokalnyc
 
 Ponadto nie należy używać dostawcy systemu plików ani dostawcy usługi Azure Storage jako metody udostępniania Magazyn obrazów między wieloma klastrami — spowoduje to uszkodzenie danych konfiguracji klastra, ponieważ każdy klaster może zapisywać dane powodujące konflikt z Magazyn obrazów. Aby udostępnić udostępniane pakiety aplikacji między wieloma klastrami, należy zamiast tego użyć plików [sfpkg][12] , które mogą być przekazywane do dowolnego zewnętrznego magazynu z identyfikatorem URI pobierania.
 
-Mimo że ImageStoreConnectionString można skonfigurować, wystarczy użyć ustawienia domyślnego. W przypadku publikowania na platformie Azure za pomocą programu Visual Studio, parametr jest automatycznie ustawiany odpowiednio. W celu wdrożenia programistycznego w klastrach hostowanych na platformie Azure parametry połączenia to zawsze "Sieć szkieletowa: magazynu ImageStore". Chociaż w razie wątpliwości, jego wartość może być zawsze weryfikowana przez pobranie manifestu klastra przez program [PowerShell](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricclustermanifest), [.NET](https://msdn.microsoft.com/library/azure/mt161375.aspx)lub [rest](https://docs.microsoft.com/rest/api/servicefabric/get-a-cluster-manifest). Zarówno lokalne klastry testowe, jak i produkcyjne powinny być zawsze skonfigurowane do korzystania z Magazyn obrazów dostawcy usług.
+Mimo że ImageStoreConnectionString można skonfigurować, wystarczy użyć ustawienia domyślnego. W przypadku publikowania na platformie Azure za pomocą programu Visual Studio, parametr jest automatycznie ustawiany odpowiednio. W celu wdrożenia programistycznego w klastrach hostowanych na platformie Azure parametry połączenia to zawsze "Sieć szkieletowa: magazynu ImageStore". Chociaż w razie wątpliwości, jego wartość może być zawsze weryfikowana przez pobranie manifestu klastra przez program [PowerShell](/powershell/module/servicefabric/get-servicefabricclustermanifest), [.NET](/previous-versions/azure/reference/mt161375(v=azure.100))lub [rest](/rest/api/servicefabric/get-a-cluster-manifest). Zarówno lokalne klastry testowe, jak i produkcyjne powinny być zawsze skonfigurowane do korzystania z Magazyn obrazów dostawcy usług.
 
 ### <a name="next-steps"></a>Następne kroki
 [Wdrażanie i usuwanie aplikacji przy użyciu programu PowerShell][10]

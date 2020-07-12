@@ -5,11 +5,12 @@ author: rapatchi
 ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: rapatchi
-ms.openlocfilehash: 0a243c1cd0ab0dcb93a1cc6169c89ba18606f346
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c093958b9a8c5a21cb6996db891705ec8c3d21ab
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75451680"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86246286"
 ---
 # <a name="azure-service-fabric-java-client-apis"></a>Interfejsy API klienta Java Service Fabric platformy Azure
 
@@ -124,5 +125,4 @@ Dla każdego interfejsu API znajdują się cztery przeciążenia implementacji. 
     * Tego wariantu wywołania interfejsu API można użyć, jeśli chcesz używać reaktywnego programowania asynchronicznego i obsługiwać niesformatowaną odpowiedź REST
 
 ## <a name="next-steps"></a>Następne kroki
-* Dowiedz się więcej na temat [Service Fabric interfejsów API REST](https://docs.microsoft.com/rest/api/servicefabric/)
-
+* Dowiedz się więcej na temat [Service Fabric interfejsów API REST](/rest/api/servicefabric/)

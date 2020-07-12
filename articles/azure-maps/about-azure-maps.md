@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc, references_regions
-ms.openlocfilehash: 4b53c4d1a26d8e4b8d784087dcb9b9feba9c7ded
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 2b6c61c5c144923ece80fddf8a1412d68f35ad52
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84191753"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86242881"
 ---
 # <a name="what-is-azure-maps"></a>Co to jest usługa Azure Maps?
 
-Azure Maps jest kolekcją usług geoprzestrzennych, które używają danych do odwzorowania w celu zapewnienia geograficznego kontekstu dla aplikacji sieci Web i mobilnych. Azure Maps zapewnia:
+Usługa Azure Maps to zbiór usług geoprzestrzennych wykorzystujących aktualne dane z map w celu zapewnienia kontekstu geograficznego do użycia w aplikacjach internetowych i mobilnych. Azure Maps zapewnia:
 
 * Interfejsy API REST do renderowania map w wielu stylach i obrazach satelitarnych. ' '
 * Usługi wyszukiwania umożliwiają lokalizowanie adresów, miejsc i punktów orientacyjnych na całym świecie.
@@ -57,7 +57,7 @@ Użyj Android SDK Azure Maps, aby utworzyć aplikacje do mapowania aplikacji mob
 
 Azure Maps składa się z następujących dziewięciu usług, które mogą zapewnić kontekst geograficzny aplikacji platformy Azure.
 
-### <a name="data-service"></a>Usługa Data Service
+### <a name="data-service"></a>Usługa danych
 
 Dane są konieczne dla map. Usługa danych umożliwia przekazywanie i przechowywanie danych geoprzestrzennych do użycia z operacjami przestrzennymi i kompozycjami obrazów.  Przełączenie danych klienta bliżej usługi Azure Maps spowoduje skrócenie opóźnienia, zwiększenie produktywności i utworzenie nowych scenariuszy w aplikacjach. Aby uzyskać szczegółowe informacje na temat tej usługi, zobacz [dokumentację interfejsu API usługi danych](https://docs.microsoft.com/rest/api/maps/data).
 
@@ -165,13 +165,21 @@ Azure Maps jest zbudowana na potrzeby mobilności i mogą pomóc w tworzeniu apl
 
 Ponadto Azure Maps oferuje wygodną [kontrolkę mapy JavaScript](https://docs.microsoft.com/javascript/api/azure-maps-control) z prostym modelem programowania. Programowanie jest szybkie i łatwe w przypadku aplikacji sieci Web i mobilnych.
 
+## <a name="power-bi-visual"></a>Wizualizacja usługi Power BI
+
+Wizualizacja Azure Maps dla Power BI oferuje bogaty zestaw danych graficznych dla danych przestrzennych na mapie. Szacuje się, że ponad 80% danych gospodarczych ma kontekst lokalizacji. Wizualizacja Azure Maps oferuje niekodowe rozwiązanie do uzyskiwania wglądu w sposób odnoszący się do tego kontekstu lokalizacji i ma wpływ na dane biznesowe.
+
+![Power BI pulpicie z wizualizacją Azure Maps wyświetlającą dane biznesowe](media/power-bi-visual/azure-maps-visual-hero.png)
+
+Aby uzyskać więcej informacji, zobacz artykuł Wprowadzenie do [Azure Maps Power BI dokumentacji wizualnej](power-bi-visual-getting-started.md) .
+
 ## <a name="usage"></a>Użycie
 
 Uzyskiwanie dostępu do Azure Maps usług jest kwestią przechodzenia do [Azure Portal](https://portal.azure.com) i tworzenia konta Azure Maps.
 
 Usługa Azure Maps korzysta ze schematu uwierzytelniania opartego na kluczach. Twoje konto zawiera dwa klucze już wygenerowane dla Ciebie, Użyj obu kluczy. Rozpocznij integrację możliwości tej lokalizacji w aplikacji i wprowadź żądania do usług Azure Maps.
 
-Uwaga: Azure Maps udostępnia zapytania o adres/lokalizację dostarczone przez klienta ("zapytania") za pomocą TomTom innych firm na potrzeby mapowania funkcji. Zapytania nie są połączone z żadnym klientem ani użytkownikiem końcowym, gdy są udostępniane za pomocą TomTom i nie mogą być używane do identyfikowania osób. Firma Microsoft jest obecnie w trakcie dodawania TomTom do listy podwykonawców usług online. Należy pamiętać, że usługi mobilności i pogody, które obejmują integrację z Moovit i AccuWeather są obecnie w [wersji zapoznawczej](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+Uwaga: Azure Maps udostępnia zapytania dotyczące adresu i lokalizacji dostarczone przez klienta ("zapytania") za pomocą TomTom innych firm na potrzeby mapowania funkcji. Zapytania nie są połączone z żadnym klientem ani użytkownikiem końcowym w przypadku udostępnienia z TomTom i nie mogą być używane do identyfikowania osób. Firma Microsoft jest obecnie w trakcie dodawania TomTom do listy podwykonawców usług online. Należy pamiętać, że usługi mobilności i pogody, które obejmują integrację z Moovit i AccuWeather są obecnie w [wersji zapoznawczej](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="supported-regions"></a>Obsługiwane regiony
 

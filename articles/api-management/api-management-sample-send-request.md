@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: 1c86570850894a47f57a2d3587811411cc9a76eb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ac5f6b4d2d197bbd4f4aff9236837eab062b4a63
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77190011"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86243311"
 ---
 # <a name="using-external-services-from-the-azure-api-management-service"></a>Korzystanie z usług zewnętrznych z usługi Azure API Management
 Zasady dostępne w usłudze Azure API Management mogą wykonywać szeroką gamę przydatnych działań na przykład na żądanie przychodzące, odpowiedź wychodzącą i podstawowe informacje o konfiguracji. Jednak możliwość współpracy z usługami zewnętrznymi z poziomu zasad API Management otwiera dużo więcej szans.
@@ -26,7 +27,7 @@ Zasady dostępne w usłudze Azure API Management mogą wykonywać szeroką gamę
 Wcześniej dowiesz się, jak korzystać z [usługi Azure Event Hub na potrzeby rejestrowania, monitorowania i analizy](api-management-log-to-eventhub-sample.md). W tym artykule przedstawiono zasady, które umożliwiają współpracującie z dowolną zewnętrzną usługą opartą na protokole HTTP. Te zasady mogą służyć do wyzwalania zdarzeń zdalnych lub do pobierania informacji, które są używane do manipulowania pierwotnym żądaniem i odpowiedzi w jakiś sposób.
 
 ## <a name="send-one-way-request"></a>Wyślij-jednokierunkowe-żądanie
-Prawdopodobnie najprostsza interakcja zewnętrzna jest stylem żądania, który pozwala na powiadamianie usługi zewnętrznej o jakimś rodzaju ważnych wydarzeniach. Zasady przepływu sterowania `choose` mogą służyć do wykrywania dowolnego rodzaju warunku, który Cię interesuje.  Jeśli warunek jest spełniony, można wykonać zewnętrzne żądanie HTTP przy użyciu zasad [wysyłania jednokierunkowego](/azure/api-management/api-management-advanced-policies#SendOneWayRequest) . Może to być żądanie do systemu obsługi komunikatów, takiego jak HipChat lub zapasowy, lub interfejs API poczty, taki jak SendGrid lub MailChimp, lub dla krytycznych zdarzeń pomocy technicznej, takich jak usługi PagerDuty. Wszystkie te systemy obsługi komunikatów mają proste interfejsy API protokołu HTTP, które mogą być wywoływane.
+Prawdopodobnie najprostsza interakcja zewnętrzna jest stylem żądania, który pozwala na powiadamianie usługi zewnętrznej o jakimś rodzaju ważnych wydarzeniach. Zasady przepływu sterowania `choose` mogą służyć do wykrywania dowolnego rodzaju warunku, który Cię interesuje.  Jeśli warunek jest spełniony, można wykonać zewnętrzne żądanie HTTP przy użyciu zasad [wysyłania jednokierunkowego](./api-management-advanced-policies.md#SendOneWayRequest) . Może to być żądanie do systemu obsługi komunikatów, takiego jak HipChat lub zapasowy, lub interfejs API poczty, taki jak SendGrid lub MailChimp, lub dla krytycznych zdarzeń pomocy technicznej, takich jak usługi PagerDuty. Wszystkie te systemy obsługi komunikatów mają proste interfejsy API protokołu HTTP, które mogą być wywoływane.
 
 ### <a name="alerting-with-slack"></a>Alerty z zapasem czasu
 W poniższym przykładzie pokazano, jak wysłać komunikat do pokoju rozmów zapasowych, jeśli kod stanu odpowiedzi HTTP jest większy lub równy 500. Błąd zakresu 500 wskazuje na problem z interfejsem API zaplecza, który nie może zostać rozwiązany przez klienta interfejsu API. Zwykle wymaga pewnego rodzaju interwencji na API Management część.  
@@ -61,7 +62,7 @@ Zapasowy element ma koncepcję przychodzących elementów sieci Web. Podczas kon
 ![Element webhook w sieci Web](./media/api-management-sample-send-request/api-management-slack-webhook.png)
 
 ### <a name="is-fire-and-forget-good-enough"></a>Czy jest to dobre i zapomniane?
-W przypadku korzystania z stylu żądania "Uruchom i zapomnij" istnieją pewne kompromisy. Jeśli z jakiegoś powodu żądanie nie powiedzie się, błąd nie zostanie zgłoszony. W tej sytuacji złożoność posiadania dodatkowego systemu raportowania awarii i dodatkowego kosztu wydajności oczekiwania na odpowiedź nie jest uzasadnione. W przypadku scenariuszy, w których konieczna jest kontrola odpowiedzi, zasady [wysyłania żądań](/azure/api-management/api-management-advanced-policies#SendRequest) są lepszym rozwiązaniem.
+W przypadku korzystania z stylu żądania "Uruchom i zapomnij" istnieją pewne kompromisy. Jeśli z jakiegoś powodu żądanie nie powiedzie się, błąd nie zostanie zgłoszony. W tej sytuacji złożoność posiadania dodatkowego systemu raportowania awarii i dodatkowego kosztu wydajności oczekiwania na odpowiedź nie jest uzasadnione. W przypadku scenariuszy, w których konieczna jest kontrola odpowiedzi, zasady [wysyłania żądań](./api-management-advanced-policies.md#SendRequest) są lepszym rozwiązaniem.
 
 ## <a name="send-request"></a>Wyślij żądanie
 `send-request`Zasady umożliwiają użycie usługi zewnętrznej do wykonywania złożonych funkcji przetwarzania i zwracania danych do usługi API Management, która może być używana do dalszej przetwarzania zasad.
@@ -212,7 +213,7 @@ Po uzyskaniu tych informacji można wykonać żądania do wszystkich systemów z
 Te żądania są wykonywane w kolejności, która nie jest idealnym rozwiązaniem. 
 
 ### <a name="responding"></a>Zwan
-Do skonstruowania odpowiedzi złożonej można użyć zasad [powrotu odpowiedzi](/azure/api-management/api-management-advanced-policies#ReturnResponse) . `set-body`Element może użyć wyrażenia, aby utworzyć nowy `JObject` ze wszystkimi reprezentacjami składników osadzonych jako właściwości.
+Do skonstruowania odpowiedzi złożonej można użyć zasad [powrotu odpowiedzi](./api-management-advanced-policies.md#ReturnResponse) . `set-body`Element może użyć wyrażenia, aby utworzyć nowy `JObject` ze wszystkimi reprezentacjami składników osadzonych jako właściwości.
 
 ```xml
 <return-response response-variable-name="existing response variable">
@@ -286,4 +287,3 @@ W konfiguracji operacji symbolu zastępczego można skonfigurować zasób pulpit
 
 ## <a name="summary"></a>Podsumowanie
 Usługa Azure API Management zapewnia elastyczne zasady, które można wybiórczo stosować do ruchu HTTP i umożliwiają składanie usług zaplecza. Bez względu na to, czy chcesz ulepszyć bramę interfejsu API za pomocą funkcji alertów, weryfikacji, możliwości sprawdzania poprawności lub tworzyć nowe zasoby złożone na podstawie wielu usług zaplecza, `send-request` i powiązane zasady otwierają na świecie możliwości.
-

@@ -5,11 +5,12 @@ author: dkkapur
 ms.topic: conceptual
 ms.date: 11/12/2018
 ms.author: dekapur
-ms.openlocfilehash: 0f9b625dfbe9c39bea7771dcc5fd58805ce19811
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e8a1fdfb23b6e0aee9b9bdd04f70c554824f4c35
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75458375"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86246575"
 ---
 # <a name="configuration-settings-for-a-standalone-windows-cluster"></a>Ustawienia konfiguracji dla autonomicznego klastra systemu Windows
 W tym artykule opisano ustawienia konfiguracji autonomicznego klastra Service Fabric platformy Azure, które można ustawić w *ClusterConfig.js* pliku. Ten plik będzie używany do określania informacji o węzłach klastra, konfiguracjach zabezpieczeń, a także topologii sieci pod względem błędów i domen uaktualniania.  Po zmianie lub dodaniu ustawień konfiguracji można [utworzyć autonomiczny klaster](service-fabric-cluster-creation-for-windows-server.md) lub [uaktualnić konfigurację klastra autonomicznego](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -88,7 +89,7 @@ W sekcji diagnosticsStore można skonfigurować parametry w celu włączenia dia
 }
 ```
 
-Metadane są opisami diagnostyki klastra i można je ustawić zgodnie z konfiguracją. Te zmienne pomagają zbierać dzienniki śledzenia ETW i Zrzuty awaryjne oraz liczniki wydajności. Aby uzyskać więcej informacji na temat dzienników śledzenia ETW, zobacz [tracelog](https://msdn.microsoft.com/library/windows/hardware/ff552994.aspx) and [ETW Tracing](https://msdn.microsoft.com/library/ms751538.aspx). Wszystkie dzienniki, w tym [Zrzuty awaryjne](https://blogs.technet.microsoft.com/askperf/2008/01/08/understanding-crash-dump-files/) i [liczniki wydajności](https://msdn.microsoft.com/library/windows/desktop/aa373083.aspx), można skierować do folderu ConnectionString na komputerze. Można również użyć AzureStorage do przechowywania danych diagnostycznych. Zobacz następujący fragment przykładu:
+Metadane są opisami diagnostyki klastra i można je ustawić zgodnie z konfiguracją. Te zmienne pomagają zbierać dzienniki śledzenia ETW i Zrzuty awaryjne oraz liczniki wydajności. Aby uzyskać więcej informacji na temat dzienników śledzenia ETW, zobacz [tracelog](/windows-hardware/drivers/devtest/tracelog) and [ETW Tracing](/dotnet/framework/wcf/samples/etw-tracing). Wszystkie dzienniki, w tym [Zrzuty awaryjne](https://techcommunity.microsoft.com/t5/ask-the-performance-team/bg-p/AskPerf) i [liczniki wydajności](/windows/win32/perfctrs/performance-counters-portal), można skierować do folderu ConnectionString na komputerze. Można również użyć AzureStorage do przechowywania danych diagnostycznych. Zobacz następujący fragment przykładu:
 
 ```json
 "diagnosticsStore": {
@@ -192,7 +193,7 @@ Aby skonfigurować funkcje dodatków, skonfiguruj apiVersion jako 04-2017 lub wy
     ]
 }
 ```
-Wszystkie dostępne funkcje dodatków można zobaczyć w [dokumentacji interfejsu API REST Service Fabric](https://docs.microsoft.com/rest/api/servicefabric/sfrp-model-addonfeatures).
+Wszystkie dostępne funkcje dodatków można zobaczyć w [dokumentacji interfejsu API REST Service Fabric](/rest/api/servicefabric/sfrp-model-addonfeatures).
 
 ### <a name="container-support"></a>Obsługa kontenerów
 Aby włączyć obsługę kontenerów dla kontenerów systemu Windows Server i kontenerów funkcji Hyper-V dla klastrów autonomicznych, należy włączyć funkcję dodatku DnsService.
@@ -203,4 +204,3 @@ Po zakończeniu *ClusterConfig.jsna* pliku skonfigurowanym zgodnie z konfiguracj
 W przypadku wdrożenia klastra autonomicznego można także [uaktualnić konfigurację klastra autonomicznego](service-fabric-cluster-config-upgrade-windows-server.md). 
 
 Dowiedz się, jak [wizualizować klaster za pomocą Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
-

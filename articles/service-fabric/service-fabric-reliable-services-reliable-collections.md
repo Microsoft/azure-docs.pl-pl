@@ -3,12 +3,12 @@ title: Wprowadzenie do niezawodnych kolekcji
 description: Service Fabric usługi stanowe udostępniają niezawodne kolekcje, które umożliwiają pisanie aplikacji w chmurze o wysokiej dostępności i skalowalności.
 ms.topic: conceptual
 ms.date: 3/10/2020
-ms.openlocfilehash: 78ecc57a4da43bf416839226253e6d0e2f4c1651
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6e0f39b994087fe44038e62e85326945589c719a
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81398428"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86245130"
 ---
 # <a name="introduction-to-reliable-collections-in-azure-service-fabric-stateful-services"></a>Wprowadzenie do niezawodnych kolekcji w usłudze Azure Service Fabric stanowe usługi
 
@@ -40,8 +40,8 @@ Niezawodne interfejsy API kolekcji to ewolucja współbieżnych kolekcji interfe
 
 Dzisiaj **firma Microsoft. servicefabric. Data. Collections** zawiera trzy Kolekcje:
 
-* [Niezawodny słownik](https://msdn.microsoft.com/library/azure/dn971511.aspx): reprezentuje replikowany, transakcyjny i asynchroniczny zbiór par klucz/wartość. Podobnie jak w przypadku **ConcurrentDictionary**, zarówno klucz, jak i wartość mogą być dowolnego typu.
-* [Niezawodna Kolejka](https://msdn.microsoft.com/library/azure/dn971527.aspx): reprezentuje kolejkę z wbudowaną, transakcyjną i asynchroniczną, pierwszą kolejką (FIFO). Podobnie jak w przypadku **ConcurrentQueue**, wartość może być dowolnego typu.
+* [Niezawodny słownik](/dotnet/api/microsoft.servicefabric.data.collections.ireliabledictionary-2?view=azure-dotnet#microsoft_servicefabric_data_collections_ireliabledictionary_2): reprezentuje replikowany, transakcyjny i asynchroniczny zbiór par klucz/wartość. Podobnie jak w przypadku **ConcurrentDictionary**, zarówno klucz, jak i wartość mogą być dowolnego typu.
+* [Niezawodna Kolejka](/dotnet/api/microsoft.servicefabric.data.collections.ireliablequeue-1?view=azure-dotnet#microsoft_servicefabric_data_collections_ireliablequeue_1): reprezentuje kolejkę z wbudowaną, transakcyjną i asynchroniczną, pierwszą kolejką (FIFO). Podobnie jak w przypadku **ConcurrentQueue**, wartość może być dowolnego typu.
 * [Niezawodna Kolejka współbieżna](service-fabric-reliable-services-reliable-concurrent-queue.md): reprezentuje zreplikowaną, transakcyjną i asynchroniczną kolejkę kolejności, w której ma być duża przepływność. Podobnie jak w przypadku **ConcurrentQueue**, wartość może być dowolnego typu.
 
 ## <a name="next-steps"></a>Następne kroki
@@ -57,4 +57,4 @@ Dzisiaj **firma Microsoft. servicefabric. Data. Collections** zawiera trzy Kolek
   * [Konfiguracja niezawodnego menedżera stanu](service-fabric-reliable-services-configuration.md)
 * Inne
   * [Reliable Services — Szybki Start](service-fabric-reliable-services-quick-start.md)
-  * [Dokumentacja dla deweloperów dla niezawodnych kolekcji](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
+  * [Dokumentacja dla deweloperów dla niezawodnych kolekcji](/dotnet/api/microsoft.servicefabric.data.collections?view=azure-dotnet#microsoft_servicefabric_data_collections)

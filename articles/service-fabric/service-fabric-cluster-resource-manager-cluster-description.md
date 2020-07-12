@@ -5,11 +5,12 @@ author: masnider
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: a9699eae17657e96b38b3bccc95e8f84326efbb3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f473b70d260c552dc67d00715b6ee4bc56b670e0
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84259477"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86246558"
 ---
 # <a name="describe-a-service-fabric-cluster-by-using-cluster-resource-manager"></a>Opisywanie klastra Service Fabric przy użyciu Menedżer zasobów klastra
 Funkcja Menedżer zasobów klastra platformy Azure Service Fabric oferuje kilka mechanizmów opisywania klastra:
@@ -35,7 +36,7 @@ W środowisku platformy Azure Service Fabric używa informacji o domenie błęd�
 > [!WARNING]
 > Należy pamiętać, że informacje o domenie błędów udostępniane Service Fabric są dokładne. Załóżmy na przykład, że węzły klastra Service Fabric działają w 10 maszynach wirtualnych uruchomionych na 5 hostach fizycznych. W takim przypadku, nawet jeśli są 10 maszyn wirtualnych, istnieją tylko 5 różnych domen błędów (najwyższego poziomu). Udostępnienie tego samego hosta fizycznego powoduje, że maszyny wirtualne mogą współużytkować tę samą główną domenę błędów, ponieważ środowisko maszyny wirtualnej działa niepowodzeniem w przypadku awarii hosta fizycznego.  
 >
-> Service Fabric oczekuje, że domena błędów węzła nie zostanie zmieniona. Inne mechanizmy zapewniające wysoką dostępność maszyn wirtualnych, takich jak [ha-](https://technet.microsoft.com/library/cc967323.aspx)VM, mogą powodować konflikty z Service Fabric. Te mechanizmy używają przezroczystej migracji maszyn wirtualnych z jednego hosta na inny. Nie konfigurują one ponownie ani nie powiadamiają uruchomionego kodu w ramach maszyny wirtualnej. W związku z tym nie są one *obsługiwane* jako środowiska do uruchamiania klastrów Service Fabric. 
+> Service Fabric oczekuje, że domena błędów węzła nie zostanie zmieniona. Inne mechanizmy zapewniające wysoką dostępność maszyn wirtualnych, takich jak [ha-](/previous-versions/system-center/virtual-machine-manager-2008-r2/cc967323(v=technet.10))VM, mogą powodować konflikty z Service Fabric. Te mechanizmy używają przezroczystej migracji maszyn wirtualnych z jednego hosta na inny. Nie konfigurują one ponownie ani nie powiadamiają uruchomionego kodu w ramach maszyny wirtualnej. W związku z tym nie są one *obsługiwane* jako środowiska do uruchamiania klastrów Service Fabric. 
 >
 > Service Fabric powinna być jedyną zastosowanymi technologiami wysokiej dostępności. Takie mechanizmy jak migracja maszyn wirtualnych na żywo i sieci SAN nie są konieczne. Jeśli te mechanizmy są używane w połączeniu z Service Fabric, _zmniejszają_ dostępność i niezawodność aplikacji. Przyczyną jest wprowadzenie dodatkowej złożoności, dodanie scentralizowanych źródeł błędów i użycie strategii niezawodności i dostępności, które powodują konflikt z tymi w Service Fabric. 
 >
@@ -346,7 +347,7 @@ Czasami (w przypadku większości czasu) należy upewnić się, że pewne obcią
 
 Doskonałym przykładem określania sprzętu dla konkretnych obciążeń jest niemal każda architektura n-warstwowa. Niektóre maszyny służą jako fronton lub strona obsługująca interfejs API aplikacji i są udostępniane klientom lub w Internecie. Różne komputery, często z różnymi zasobami sprzętowymi, obsługują zadania obliczeniowe i warstwy magazynu. Zwykle _nie_ są one ujawniane bezpośrednio klientom ani internetowi. 
 
-Service Fabric oczekuje, że w niektórych przypadkach może być konieczne uruchomienie konkretnych obciążeń w określonych konfiguracjach sprzętu. Przykład:
+Service Fabric oczekuje, że w niektórych przypadkach może być konieczne uruchomienie konkretnych obciążeń w określonych konfiguracjach sprzętu. Na przykład:
 
 * Istniejąca aplikacja n-warstwowa została podniesiona i przeniesiona do środowiska Service Fabric.
 * Obciążenie musi być uruchamiane na określonym sprzęcie dla powodów związanych z wydajnością, skalą lub izolacją zabezpieczeń.

@@ -6,12 +6,12 @@ author: jnoller
 ms.topic: article
 ms.date: 01/24/2020
 ms.author: jenoller
-ms.openlocfilehash: ec58f8df5507fd9c52950e880c062e6cad964b7a
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: ce014fc338ebfad18b91ba65b614ca0a380a3f7c
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86106989"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86243855"
 ---
 # <a name="support-policies-for-azure-kubernetes-service"></a>Zasady pomocy technicznej dla usługi Azure Kubernetes Service
 
@@ -75,7 +75,7 @@ Firma Microsoft nie zapewnia pomocy technicznej w zakresie następujących czynn
   > Firma Microsoft może zapewnić najlepszą pomoc techniczną dla projektów typu "open source" innych firm, takich jak Helm i Kured. Jeśli narzędzie Open-Source innej firmy integruje się z dostawcą usług w chmurze Kubernetes systemu Azure lub innymi błędami specyficznymi dla AKS, firma Microsoft obsługuje przykłady i aplikacje z dokumentacji firmy Microsoft.
 * Oprogramowanie dotyczące oprogramowania zamkniętego innej firmy. To oprogramowanie może obejmować narzędzia do skanowania zabezpieczeń i urządzenia sieciowe lub oprogramowanie.
 * Problemy związane z kompilacjami wielochmurowymi lub wielodostawcami. Na przykład firma Microsoft nie obsługuje problemów związanych z uruchamianiem federacyjnego rozwiązania dostawcy chmury z chmurą publiczną.
-* Dostosowania sieci inne niż wymienione w [dokumentacji AKS](https://docs.microsoft.com/azure/aks/).
+* Dostosowania sieci inne niż wymienione w [dokumentacji AKS](./index.yml).
   > [!NOTE]
   > Firma Microsoft obsługuje problemy i błędy związane z grupami zabezpieczeń sieci (sieciowych grup zabezpieczeń). Na przykład pomoc techniczna firmy Microsoft może odpowiedzieć na pytania dotyczące błędu sieciowej grupy zabezpieczeń lub nieoczekiwane zachowanie usługi sieciowej grupy zabezpieczeń lub równoważenia obciążenia.
 
@@ -88,7 +88,7 @@ Firma Microsoft i klienci mogą korzystać z odpowiedzialności za węzły proce
 * Podstawowy obraz systemu operacyjnego ma wymagane Dodatki (na przykład monitorowanie i agenci sieci).
 * Węzły procesu roboczego automatycznie otrzymują poprawki systemu operacyjnego.
 * Problemy ze składnikami płaszczyzny kontrolnej Kubernetes, które działają w węzłach procesu roboczego, są automatycznie korygowane. Dostępne są następujące składniki:
-  * Polecenia — proxy
+  * Kube-proxy
   * Tunele sieciowe dostarczające ścieżki komunikacji do składników głównych Kubernetes
   * Kubelet
   * Demon Docker lub Moby

@@ -4,12 +4,12 @@ description: Dowiedz się, jak rozwiązywać typowe problemy związane z korzyst
 services: container-service
 ms.topic: troubleshooting
 ms.date: 06/20/2020
-ms.openlocfilehash: 08668289faa2341389a80b00cba11a33021da608
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: f334f501335e9e384cfcc35b356e61ab66efe7a8
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86054393"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86243685"
 ---
 # <a name="aks-troubleshooting"></a>Rozwiązywanie problemów z usługą Azure Kubernetes Service
 
@@ -22,7 +22,7 @@ Istnieje również [Przewodnik rozwiązywania problemów](https://github.com/fei
 
 ## <a name="im-getting-a-quota-exceeded-error-during-creation-or-upgrade-what-should-i-do"></a>Otrzymuję błąd "Przekroczono limit przydziału" podczas tworzenia lub uaktualniania. Co mam zrobić? 
 
- [Zażądaj większej liczby rdzeni](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request).
+ [Zażądaj większej liczby rdzeni](../azure-portal/supportability/resource-manager-core-quotas-request.md).
 
 ## <a name="what-is-the-maximum-pods-per-node-setting-for-aks"></a>Co to jest ustawienie maksymalnej liczby elementów w poszczególnych węzłach dla AKS?
 
@@ -34,7 +34,7 @@ Ustawienie maksymalny rozmiar poszczególnych węzłów domyślnie 110 w przypad
 Ten błąd wskazuje, że podsieć w użyciu dla klastra nie ma już dostępnych adresów IP w ramach CIDR dla pomyślnego przypisania zasobu. W przypadku klastrów korzystającą wtyczki kubenet wymaga wystarczającej przestrzeni adresowej IP dla każdego węzła w klastrze. W przypadku klastrów usługi Azure CNI wymagane jest wystarczające miejsce na adresy IP dla każdego węzła i znajdującego się w klastrze.
 Przeczytaj więcej na temat [projektowania usługi Azure CNI, aby przypisać adresy IP do zasobników](configure-azure-cni.md#plan-ip-addressing-for-your-cluster).
 
-Te błędy są również nawiązane w [diagnostyce AKS](https://docs.microsoft.com/azure/aks/concepts-diagnostics) , która aktywnie przyniesie problemy, takie jak niewystarczająca ilość podsieci.
+Te błędy są również nawiązane w [diagnostyce AKS](./concepts-diagnostics.md) , która aktywnie przyniesie problemy, takie jak niewystarczająca ilość podsieci.
 
 Następujące trzy przypadki (3) powodują niewystarczający rozmiar podsieci:
 
@@ -197,14 +197,14 @@ Sprawdź, czy ustawienia nie powodują konfliktu z żadnym z wymaganych lub opcj
 
 W programie Kubernetes w wersji 1,10, MountVolume. WaitForAttach może zakończyć się niepowodzeniem przy ponownej instalacji dysku platformy Azure.
 
-W systemie Linux może zostać wyświetlony nieprawidłowy błąd formatu DevicePath. Przykład:
+W systemie Linux może zostać wyświetlony nieprawidłowy błąd formatu DevicePath. Na przykład:
 
 ```console
 MountVolume.WaitForAttach failed for volume "pvc-f1562ecb-3e5f-11e8-ab6b-000d3af9f967" : azureDisk - Wait for attach expect device path as a lun number, instead got: /dev/disk/azure/scsi1/lun1 (strconv.Atoi: parsing "/dev/disk/azure/scsi1/lun1": invalid syntax)
   Warning  FailedMount             1m (x10 over 21m)   kubelet, k8s-agentpool-66825246-0  Unable to mount volumes for pod
 ```
 
-W systemie Windows może zostać wyświetlony nieprawidłowy błąd numeru DevicePath (LUN). Przykład:
+W systemie Windows może zostać wyświetlony nieprawidłowy błąd numeru DevicePath (LUN). Na przykład:
 
 ```console
 Warning  FailedMount             1m    kubelet, 15282k8s9010    MountVolume.WaitForAttach failed for volume "disk01" : azureDisk - WaitForAttach failed within timeout node (15282k8s9010) diskId:(andy-mghyb
@@ -251,7 +251,7 @@ spec:
   >[!NOTE]
   > Ponieważ GID i UID są domyślnie instalowane jako root lub 0. Jeśli gid lub UID są ustawione jako spoza katalogu głównego, na przykład 1000, Kubernetes będzie używać `chown` do zmiany wszystkich katalogów i plików znajdujących się na tym dysku. Ta operacja może być czasochłonna i może spowodować, że instalacja dysku będzie bardzo niska.
 
-* Użyj `chown` w initContainers, aby ustawić GID i UID. Przykład:
+* Użyj `chown` w initContainers, aby ustawić GID i UID. Na przykład:
 
 ```yaml
 initContainers:
@@ -410,13 +410,13 @@ Jeśli klucz konta magazynu został zmieniony, mogą pojawić się błędy insta
 
 Możesz zmniejszyć wartość ręcznie aktualizując `azurestorageaccountkey` pole ręcznie w kluczu tajnym systemu Azure za pomocą klucza konta magazynu szyfrowanego algorytmem Base64.
 
-Aby zakodować klucz konta magazynu w formacie Base64, można użyć programu `base64` . Przykład:
+Aby zakodować klucz konta magazynu w formacie Base64, można użyć programu `base64` . Na przykład:
 
 ```console
 echo X+ALAAUgMhWHL7QmQ87E1kSfIqLKfgC03Guy7/xk9MyIg2w4Jzqeu60CVw2r/dm6v6E0DWHTnJUEJGVQAoPaBc== | base64
 ```
 
-Aby zaktualizować plik tajny platformy Azure, użyj programu `kubectl edit secret` . Przykład:
+Aby zaktualizować plik tajny platformy Azure, użyj programu `kubectl edit secret` . Na przykład:
 
 ```console
 kubectl edit secret azure-storage-account-{storage-account-name}-secret

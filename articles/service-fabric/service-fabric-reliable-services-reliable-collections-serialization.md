@@ -3,11 +3,12 @@ title: Serializacja niezawodnych obiektów kolekcji
 description: Dowiedz się więcej na temat serializacji niezawodnych kolekcji obiektów Service Fabric platformy Azure, w tym domyślnej strategii i sposobu definiowania serializacji niestandardowej.
 ms.topic: conceptual
 ms.date: 5/8/2017
-ms.openlocfilehash: 666e1bb45a9c75ee143f15a0d871d6ae1408eca9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f7a0dc56c181ddd6a98ab0e263180c222368dafb
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75639551"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86245997"
 ---
 # <a name="reliable-collection-object-serialization-in-azure-service-fabric"></a>Serializacja niezawodnych obiektów kolekcji na platformie Azure Service Fabric
 Niezawodne kolekcje "Replikuj i utrwalają swoje elementy", aby upewnić się, że są one trwałe przez awarie maszyn i przestoje.
@@ -18,7 +19,7 @@ Niezawodny Menedżer stanu zawiera wbudowane serializatory i umożliwia zarejest
 
 ## <a name="built-in-serializers"></a>Wbudowane serializatory
 
-Niezawodny Menedżer stanu zawiera wbudowany serializator dla niektórych typów wspólnych, dzięki czemu mogą one być efektywnie serializowane domyślnie. W przypadku innych typów niezawodny Menedżer stanu powraca do korzystania z [DataContractSerializer](https://msdn.microsoft.com/library/system.runtime.serialization.datacontractserializer(v=vs.110).aspx).
+Niezawodny Menedżer stanu zawiera wbudowany serializator dla niektórych typów wspólnych, dzięki czemu mogą one być efektywnie serializowane domyślnie. W przypadku innych typów niezawodny Menedżer stanu powraca do korzystania z [DataContractSerializer](/dotnet/api/system.runtime.serialization.datacontractserializer?view=netcore-3.1).
 Wbudowane serializatory są bardziej wydajne, ponieważ wiedzą, że ich typy nie mogą ulec zmianie i nie muszą zawierać informacji o typie, takim jak nazwa jego typu.
 
 Niezawodny Menedżer stanu ma wbudowany serializator dla następujących typów: 
@@ -43,7 +44,7 @@ Niezawodny Menedżer stanu ma wbudowany serializator dla następujących typów:
 
 Niestandardowe serializatory są często używane do zwiększania wydajności lub szyfrowania danych za pośrednictwem sieci i na dysku. Z tego względu niestandardowe serializatory są zwykle bardziej wydajne niż serializator ogólny, ponieważ nie muszą serializować informacji o typie. 
 
-[IReliableStateManager. TryAddStateSerializer \<T> ](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.data.ireliablestatemanager.tryaddstateserializer) służy do rejestrowania niestandardowego serializatora dla danego typu T. Ta rejestracja powinna wystąpić w przygotowaniu StatefulServiceBase, aby upewnić się, że przed rozpoczęciem odzyskiwania wszystkie niezawodne kolekcje mają dostęp do odpowiedniego serializatora w celu odczytania danych utrwalonych.
+[IReliableStateManager. TryAddStateSerializer \<T> ](/dotnet/api/microsoft.servicefabric.data.ireliablestatemanager.tryaddstateserializer) służy do rejestrowania niestandardowego serializatora dla danego typu T. Ta rejestracja powinna wystąpić w przygotowaniu StatefulServiceBase, aby upewnić się, że przed rozpoczęciem odzyskiwania wszystkie niezawodne kolekcje mają dostęp do odpowiedniego serializatora w celu odczytania danych utrwalonych.
 
 ```csharp
 public StatefulBackendService(StatefulServiceContext context)
@@ -61,7 +62,7 @@ public StatefulBackendService(StatefulServiceContext context)
 
 ### <a name="how-to-implement-a-custom-serializer"></a>Jak zaimplementować serializator niestandardowy
 
-Niestandardowy serializator musi implementować interfejs [IStateSerializer \<T> ](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.data.istateserializer-1) .
+Niestandardowy serializator musi implementować interfejs [IStateSerializer \<T> ](/dotnet/api/microsoft.servicefabric.data.istateserializer-1) .
 
 > [!NOTE]
 > IStateSerializer \<T> zawiera Przeciążenie do zapisu i odczytu, który przyjmuje dodatkową wartość T o nazwie bazowej. Ten interfejs API jest przeznaczony do serializacji różnicowej. Obecnie funkcja serializacji różnicowej nie jest udostępniona. W związku z tym te dwa przeciążenia nie są wywoływane, dopóki Serializacja różnicowa nie zostanie udostępniona i włączona.
@@ -130,7 +131,7 @@ Jeśli używasz wbudowanego serializatora, nie musisz martwić się o zgodność
 Jeśli jednak używasz niestandardowego serializatora lub DataContractSerializer, dane muszą być w nieskończony wstecz i przekazywać zgodne.
 Innymi słowy, każda wersja serializatora musi mieć możliwość serializacji i deserializacji dowolnej wersji typu.
 
-Użytkownicy kontraktów danych powinni przestrzegać dobrze zdefiniowanych zasad przechowywania wersji, aby dodawać, usuwać i zmieniać pola. Umowa o dane ma również obsługę w przypadku nieznanych pól, podłączania do procesu serializacji i deserializacji oraz w przypadku dziedziczenia klas. Aby uzyskać więcej informacji, zobacz [Korzystanie z kontraktu danych](https://msdn.microsoft.com/library/ms733127.aspx).
+Użytkownicy kontraktów danych powinni przestrzegać dobrze zdefiniowanych zasad przechowywania wersji, aby dodawać, usuwać i zmieniać pola. Umowa o dane ma również obsługę w przypadku nieznanych pól, podłączania do procesu serializacji i deserializacji oraz w przypadku dziedziczenia klas. Aby uzyskać więcej informacji, zobacz [Korzystanie z kontraktu danych](/dotnet/framework/wcf/feature-details/using-data-contracts).
 
 Użytkownicy korzystający z serializatorów niestandardowych powinni przestrzegać wytycznych dotyczących serializatora, które są używane w celu upewnienia się, że są zgodne i przenoszone dalej.
 Typowym sposobem obsługi wszystkich wersji jest dodanie informacji o rozmiarze na początku i dodanie tylko właściwości opcjonalnych.
@@ -138,7 +139,7 @@ W ten sposób każda wersja może odczytywać tyle, ile może i przeskoczyć do 
 
 ## <a name="next-steps"></a>Następne kroki
   * [Serializacja i uaktualnienie](service-fabric-application-upgrade-data-serialization.md)
-  * [Dokumentacja dla deweloperów dla niezawodnych kolekcji](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
+  * [Dokumentacja dla deweloperów dla niezawodnych kolekcji](/dotnet/api/microsoft.servicefabric.data.collections?view=azure-dotnet#microsoft_servicefabric_data_collections)
   * [Uaktualnianie aplikacji przy użyciu programu Visual Studio](service-fabric-application-upgrade-tutorial.md) przeprowadzi Cię przez proces uaktualniania aplikacji przy użyciu programu Visual Studio.
   * [Uaktualnianie aplikacji przy użyciu programu PowerShell](service-fabric-application-upgrade-tutorial-powershell.md) przeprowadzi Cię przez proces uaktualniania aplikacji przy użyciu programu PowerShell.
   * Kontroluj sposób uaktualniania aplikacji przy użyciu [parametrów uaktualnienia](service-fabric-application-upgrade-parameters.md).

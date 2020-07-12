@@ -4,12 +4,12 @@ description: Dowiedz się, jak utworzyć prywatny klaster usługi Azure Kubernet
 services: container-service
 ms.topic: article
 ms.date: 6/18/2020
-ms.openlocfilehash: ebbe2f754aa70c6c65ec7016da29a4a1b0bd7dd6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c788f2009bdc771bcdde20d1c3dbe9eafdbcffcb
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85374529"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86244229"
 ---
 # <a name="create-a-private-azure-kubernetes-service-cluster"></a>Tworzenie prywatnego klastra usługi Azure Kubernetes Service
 
@@ -67,7 +67,7 @@ Punkt końcowy serwera interfejsu API nie ma publicznego adresu IP. Aby zarządz
 
 Najłatwiej jest utworzyć maszynę wirtualną w tej samej sieci wirtualnej, co klaster AKS.  Funkcja Express Route i sieci VPN zwiększa koszty i wymaga dodatkowej złożoności sieci.  Komunikacja równorzędna sieci wirtualnych wymaga zaplanowania zakresów CIDR sieci, aby upewnić się, że nie ma nakładających się zakresów.
 
-## <a name="virtual-network-peering"></a>Wirtualne sieci równorzędne
+## <a name="virtual-network-peering"></a>Komunikacja równorzędna sieci wirtualnych
 
 Jak wspomniano, Komunikacja równorzędna sieci wirtualnej jest jednym ze sposobów uzyskiwania dostępu do klastra prywatnego. Aby można było użyć komunikacji równorzędnej sieci wirtualnej, należy skonfigurować łącze między siecią wirtualną i prywatną strefą DNS.
     
@@ -83,7 +83,7 @@ Jak wspomniano, Komunikacja równorzędna sieci wirtualnej jest jednym ze sposob
 
 ## <a name="hub-and-spoke-with-custom-dns"></a>Koncentrator i szprycha z niestandardowym systemem DNS
 
-[Architektury](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) gwiazdy są często używane do wdrażania sieci na platformie Azure. W wielu z tych wdrożeń ustawienia DNS w szprychie sieci wirtualnych są skonfigurowane tak, aby odwoływać się do centralnej usługi przesyłania dalej w systemie DNS w celu umożliwienia lokalnego rozpoznawania nazw DNS opartych na platformie Azure. W przypadku wdrażania klastra AKS do takiego środowiska sieciowego należy wziąć pod uwagę pewne szczególne kwestie.
+[Architektury](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) gwiazdy są często używane do wdrażania sieci na platformie Azure. W wielu z tych wdrożeń ustawienia DNS w szprychie sieci wirtualnych są skonfigurowane tak, aby odwoływać się do centralnej usługi przesyłania dalej w systemie DNS w celu umożliwienia lokalnego rozpoznawania nazw DNS opartych na platformie Azure. W przypadku wdrażania klastra AKS do takiego środowiska sieciowego należy wziąć pod uwagę pewne szczególne kwestie.
 
 ![Prywatny koncentrator klastra i szprycha](media/private-clusters/aks-private-hub-spoke.png)
 
@@ -116,9 +116,9 @@ Jak wspomniano, Komunikacja równorzędna sieci wirtualnej jest jednym ze sposob
 [az-feature-list]: /cli/azure/feature?view=azure-cli-latest#az-feature-list
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
-[private-link-service]: /azure/private-link/private-link-service-overview#limitations
+[private-link-service]: ../private-link/private-link-service-overview.md#limitations
 [virtual-network-peering]: ../virtual-network/virtual-network-peering-overview.md
 [azure-bastion]: ../bastion/bastion-create-host-portal.md
 [express-route-or-vpn]: ../expressroute/expressroute-about-virtual-network-gateways.md
-[devops-agents]: https://docs.microsoft.com/azure/devops/pipelines/agents/agents?view=azure-devops
+[devops-agents]: /azure/devops/pipelines/agents/agents?view=azure-devops
 [availability-zones]: availability-zones.md

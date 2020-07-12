@@ -3,12 +3,12 @@ title: Skalowanie klastra Service Fabric lub wychodzącego
 description: Skalowanie klastra Service Fabric w celu dopasowania do zapotrzebowania przez ustawienie reguł automatycznego skalowania dla każdego typu węzła/zestawu skalowania maszyn wirtualnych. Dodawanie lub usuwanie węzłów do klastra Service Fabric
 ms.topic: conceptual
 ms.date: 03/12/2019
-ms.openlocfilehash: c72f8eca9bc054446ceec35448c930098c5f81fd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c9393ca4531dea58859a4fc60509524e9c4a0b7f
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85610255"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86246490"
 ---
 # <a name="scale-a-cluster-in-or-out"></a>Skalowanie klastra w poziomie lub w pionie
 
@@ -24,7 +24,7 @@ Skalowanie zasobów obliczeniowych do źródła obciążenia wymaga zamierzonego
 Zestawy skalowania maszyn wirtualnych to zasób obliczeniowy platformy Azure, który służy do wdrażania kolekcji maszyn wirtualnych jako zestawu i zarządzania nią. Każdy typ węzła zdefiniowany w klastrze Service Fabric jest ustawiany jako oddzielny zestaw skalowania maszyn wirtualnych. Każdy typ węzła można następnie przeskalować lub wyróżnić niezależnie, mieć otwarte różne zestawy portów i może mieć różne metryki pojemności. Więcej informacji na ten temat znajduje się w dokumencie [Service Fabric typów węzłów](service-fabric-cluster-nodetypes.md) . Ponieważ typy węzłów Service Fabric w klastrze składają się z zestawów skalowania maszyn wirtualnych w zapleczu, należy skonfigurować reguły automatycznego skalowania dla każdego typu węzła/zestawu skalowania maszyn wirtualnych.
 
 > [!NOTE]
-> Twoja subskrypcja musi mieć wystarczającą liczbę rdzeni, aby można było dodać nowe maszyny wirtualne tworzące ten klaster. Nie ma obecnie weryfikacji modelu, więc w przypadku dowolnych limitów przydziału występuje błąd czasu wdrożenia. Ponadto typ pojedynczego węzła nie może po prostu przekraczać 100 węzłów na VMSS. Może być konieczne dodanie VMSS, aby osiągnąć dodaną skalę skalowania, i automatyczne skalowanie nie może automatycznie dodać VMSS. Dodanie miejscowego VMSS do klastra na żywo jest wyzwaniem i często powoduje, że użytkownicy będą aprowizacji nowe klastry przy użyciu odpowiednich typów węzłów, które są obsługiwane podczas tworzenia. [Zaplanuj odpowiednio pojemność klastra](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity) . 
+> Twoja subskrypcja musi mieć wystarczającą liczbę rdzeni, aby można było dodać nowe maszyny wirtualne tworzące ten klaster. Nie ma obecnie weryfikacji modelu, więc w przypadku dowolnych limitów przydziału występuje błąd czasu wdrożenia. Ponadto typ pojedynczego węzła nie może po prostu przekraczać 100 węzłów na VMSS. Może być konieczne dodanie VMSS, aby osiągnąć dodaną skalę skalowania, i automatyczne skalowanie nie może automatycznie dodać VMSS. Dodanie miejscowego VMSS do klastra na żywo jest wyzwaniem i często powoduje, że użytkownicy będą aprowizacji nowe klastry przy użyciu odpowiednich typów węzłów, które są obsługiwane podczas tworzenia. [Zaplanuj odpowiednio pojemność klastra](./service-fabric-cluster-capacity.md) . 
 > 
 > 
 
@@ -52,7 +52,7 @@ Obecnie funkcja automatycznego skalowania nie jest obsługiwana przez obciążen
 Postępuj zgodnie [z tymi instrukcjami, aby skonfigurować automatyczne skalowanie dla każdego zestawu skalowania maszyn wirtualnych](../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview.md).
 
 > [!NOTE]
-> W scenariuszu w skali, chyba że typ węzła ma [poziom trwałości][durability] Gold lub Silver, należy wywołać [polecenie cmdlet Remove-ServiceFabricNodeState](https://docs.microsoft.com/powershell/module/servicefabric/remove-servicefabricnodestate) z odpowiednią nazwą węzła. W przypadku trwałości Bronze nie zaleca się skalowania w więcej niż jednym węźle jednocześnie.
+> W scenariuszu w skali, chyba że typ węzła ma [poziom trwałości][durability] Gold lub Silver, należy wywołać [polecenie cmdlet Remove-ServiceFabricNodeState](/powershell/module/servicefabric/remove-servicefabricnodestate) z odpowiednią nazwą węzła. W przypadku trwałości Bronze nie zaleca się skalowania w więcej niż jednym węźle jednocześnie.
 > 
 > 
 
@@ -229,7 +229,7 @@ az vmss scale -g sfclustertutorialgroup -n nt1vm --new-capacity 5
 ```
 
 ## <a name="behaviors-you-may-observe-in-service-fabric-explorer"></a>Zachowania, które można obserwować w Service Fabric Explorer
-Podczas skalowania klastra Service Fabric Explorer odzwierciedla liczbę węzłów (wystąpień zestawu skalowania maszyn wirtualnych), które są częścią klastra.  Jednak podczas skalowania klastra w programie zostanie wyświetlone usunięte wystąpienie węzła/maszyny wirtualnej w złej kondycji, chyba że zostanie wywołane [polecenie Remove-ServiceFabricNodeState cmd](https://docs.microsoft.com/powershell/module/servicefabric/remove-servicefabricnodestate) z odpowiednią nazwą węzła.   
+Podczas skalowania klastra Service Fabric Explorer odzwierciedla liczbę węzłów (wystąpień zestawu skalowania maszyn wirtualnych), które są częścią klastra.  Jednak podczas skalowania klastra w programie zostanie wyświetlone usunięte wystąpienie węzła/maszyny wirtualnej w złej kondycji, chyba że zostanie wywołane [polecenie Remove-ServiceFabricNodeState cmd](/powershell/module/servicefabric/remove-servicefabricnodestate) z odpowiednią nazwą węzła.   
 
 Oto wyjaśnienie tego zachowania.
 
@@ -240,7 +240,7 @@ Aby mieć pewność, że węzeł zostanie usunięty po usunięciu maszyny wirtua
 1. Wybierz poziom trwałości Gold lub Silver dla typów węzłów w klastrze, który zapewnia integrację infrastruktury. Po skalowaniu w poziomie program automatycznie usunie węzły z naszego stanu usług systemowych (FM).
 Szczegóły dotyczące [poziomów trwałości](service-fabric-cluster-capacity.md) można znaleźć tutaj.
 
-2. Po skalowaniu wystąpienia maszyny wirtualnej w programie należy wywołać [polecenie cmdlet Remove-ServiceFabricNodeState](https://docs.microsoft.com/powershell/module/servicefabric/remove-servicefabricnodestate).
+2. Po skalowaniu wystąpienia maszyny wirtualnej w programie należy wywołać [polecenie cmdlet Remove-ServiceFabricNodeState](/powershell/module/servicefabric/remove-servicefabricnodestate).
 
 > [!NOTE]
 > Klastry Service Fabric wymagają, aby pewna liczba węzłów była cały czas, aby zachować dostępność i zachować stan — nazywane "konserwacją kworum". W związku z tym zwykle niebezpieczne jest zamknięcie wszystkich maszyn w klastrze, chyba że zostanie wykonana [pełna kopia zapasowa stanu](service-fabric-reliable-services-backup-restore.md).

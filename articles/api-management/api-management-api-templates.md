@@ -14,11 +14,12 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.custom: tracking-python
-ms.openlocfilehash: 467d8b89ef5c114d647a257053ed3367d6336bdc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 193dc7a953bc746ec7211433f846343969176c96
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84559337"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86243702"
 ---
 # <a name="api-templates-in-azure-api-management"></a>Szablony interfejsu API na platformie Azure API Management
 
@@ -34,12 +35,12 @@ Szablony w tej sekcji umożliwiają dostosowanie zawartości stron interfejsu AP
     -   [Java](#Stub)  
     -   [JavaScript](#JavaScript)  
     -   [Cel C](#ObjectiveC)  
-    -   [PHP](#PHP)  
+    -   [Język PHP](#PHP)  
     -   [Python](#Python)  
     -   [Ruby](#Ruby)  
 
 > [!NOTE]
->  Przykładowe szablony domyślne są zawarte w poniższej dokumentacji, ale mogą ulec zmianie ze względu na ciągłe ulepszenia. Możesz wyświetlić szablony domyślne na żywo w portalu dla deweloperów, przechodząc do żądanych poszczególnych szablonów. Aby uzyskać więcej informacji na temat pracy z szablonami, zobacz [How to dostosowywanie portalu deweloperów API Management przy użyciu szablonów](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
+>  Przykładowe szablony domyślne są zawarte w poniższej dokumentacji, ale mogą ulec zmianie ze względu na ciągłe ulepszenia. Możesz wyświetlić szablony domyślne na żywo w portalu dla deweloperów, przechodząc do żądanych poszczególnych szablonów. Aby uzyskać więcej informacji na temat pracy z szablonami, zobacz [How to dostosowywanie portalu deweloperów API Management przy użyciu szablonów](./api-management-developer-portal-templates.md).  
 
 [!INCLUDE [api-management-portal-legacy.md](../../includes/api-management-portal-legacy.md)]
 
@@ -353,7 +354,7 @@ Szablony w tej sekcji umożliwiają dostosowanie zawartości stron interfejsu AP
 |`operation`|[Operacja](api-management-template-data-model-reference.md#Operation)|Aktualnie wyświetlana operacja.|  
 |`sampleUrl`|ciąg|Adres URL bieżącej operacji.|  
 |`operationMenu`|[Menu operacje](api-management-template-data-model-reference.md#Menu)|Menu operacji dla tego interfejsu API.|  
-|`consoleUrl`|Identyfikator URI|Identyfikator URI przycisku **try it** .|  
+|`consoleUrl`|URI|Identyfikator URI przycisku **try it** .|  
 |`samples`|Kolekcja [przykładowych jednostek kodu](api-management-template-data-model-reference.md#Sample) .|Przykłady kodu dla bieżącej operacji...|  
   
 ### <a name="sample-template-data"></a>Przykładowe dane szablonu  
@@ -658,7 +659,7 @@ Szablony w tej sekcji umożliwiają dostosowanie zawartości stron interfejsu AP
   
 -   [Cel C](#ObjectiveC)  
   
--   [PHP](#PHP)  
+-   [Język PHP](#PHP)  
   
 -   [Python](#Python)  
   

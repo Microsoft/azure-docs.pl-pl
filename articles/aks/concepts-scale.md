@@ -4,12 +4,12 @@ description: Dowiedz się więcej na temat skalowania w usłudze Azure Kubernete
 services: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
-ms.openlocfilehash: 7c9c3cf159d67d2f4acaaab943ecf9d99263ae55
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 41d4088a0942eb408d3d3c9eeb2d13ff38fc0362
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223843"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86244518"
 ---
 # <a name="scaling-options-for-applications-in-azure-kubernetes-service-aks"></a>Opcje skalowania aplikacji w usłudze Azure Kubernetes Service 
 
@@ -26,7 +26,7 @@ W tym artykule przedstawiono podstawowe pojęcia, które ułatwiają skalowanie 
 
 W celu przetestowania, w jaki sposób aplikacja reaguje na zmianę w dostępnych zasobach i stanie, można ręcznie skalować repliki (na podst.) i węzły. Ręczne skalowanie zasobów pozwala także zdefiniować określoną ilość zasobów do użycia w celu utrzymania stałego kosztu, takiego jak liczba węzłów. Aby ręcznie skalować, należy zdefiniować replikę lub liczbę węzłów. Interfejs API Kubernetes następnie tworzy harmonogram tworzenia dodatkowych węzłów lub opróżniania w oparciu o tę replikę lub liczbę węzłów.
 
-Podczas skalowania węzłów w dół interfejs API Kubernetes wywołuje odpowiedni interfejs API obliczeń platformy Azure związany z typem obliczeń używanym przez klaster. Na przykład w przypadku klastrów opartych na VM Scale Sets logiki do wybierania węzłów do usunięcia jest określana przez VM Scale Sets API. Aby dowiedzieć się więcej o tym, jak węzły są wybrane do usunięcia podczas skalowania, zobacz [często zadawane pytania](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-faq#if-i-reduce-my-scale-set-capacity-from-20-to-15-which-vms-are-removed)dotyczące usługi VMSS.
+Podczas skalowania węzłów w dół interfejs API Kubernetes wywołuje odpowiedni interfejs API obliczeń platformy Azure związany z typem obliczeń używanym przez klaster. Na przykład w przypadku klastrów opartych na VM Scale Sets logiki do wybierania węzłów do usunięcia jest określana przez VM Scale Sets API. Aby dowiedzieć się więcej o tym, jak węzły są wybrane do usunięcia podczas skalowania, zobacz [często zadawane pytania](../virtual-machine-scale-sets/virtual-machine-scale-sets-faq.md#if-i-reduce-my-scale-set-capacity-from-20-to-15-which-vms-are-removed)dotyczące usługi VMSS.
 
 Aby rozpocząć pracę z ręcznym skalowaniem i węzłami, zobacz [skalowanie aplikacji w AKS][aks-scale].
 
@@ -111,7 +111,7 @@ Aby uzyskać więcej informacji na temat podstawowych pojęć związanych z Kube
 [aks-scale]: tutorial-kubernetes-scale.md
 [aks-manually-scale-pods]: tutorial-kubernetes-scale.md#manually-scale-pods
 [aks-manually-scale-nodes]: tutorial-kubernetes-scale.md#manually-scale-aks-nodes
-[aks-cluster-autoscaler]: autoscaler.md
+[aks-cluster-autoscaler]: ./cluster-autoscaler.md
 [aks-concepts-clusters-workloads]: concepts-clusters-workloads.md
 [aks-concepts-security]: concepts-security.md
 [aks-concepts-storage]: concepts-storage.md

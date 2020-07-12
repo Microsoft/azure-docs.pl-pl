@@ -5,11 +5,12 @@ services: container-service
 manager: gwallace
 ms.topic: article
 ms.date: 06/22/2020
-ms.openlocfilehash: 095746b9cf3cada9cebf7d169078eff9eb64a52d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1bcdfb4bb3c910feeac0521308e1e7d733fbd959
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85444271"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86244076"
 ---
 # <a name="reduce-latency-with-proximity-placement-groups-preview"></a>Zmniejszanie opóźnień przy użyciu grup umieszczania w sąsiedztwie
 
@@ -73,7 +74,7 @@ Pierwszy zasób wdrażany wraz z grupą umieszczania w sąsiedztwie dołącza do
 
 W poniższym przykładzie za pomocą polecenia [AZ Group Create][az-group-create] można utworzyć grupę zasobów o nazwie Moja *zasobów* w regionie *centralnym* . Klaster AKS o nazwie *myAKSCluster* jest tworzony przy użyciu polecenia [AZ AKS Create][az-aks-create] . 
 
-Przyspieszona sieć znacznie poprawia wydajność sieci maszyn wirtualnych. Najlepiej używać grup umieszczania sąsiedztwa w połączeniu z przyspieszoną siecią. Domyślnie AKS korzysta z przyspieszonej sieci na [obsługiwanych wystąpieniach maszyn wirtualnych](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli?toc=/azure/virtual-machines/linux/toc.json#limitations-and-constraints), które obejmują większość maszyn wirtualnych platformy Azure z co najmniej dwoma procesorów wirtualnych vCPU.
+Przyspieszona sieć znacznie poprawia wydajność sieci maszyn wirtualnych. Najlepiej używać grup umieszczania sąsiedztwa w połączeniu z przyspieszoną siecią. Domyślnie AKS korzysta z przyspieszonej sieci na [obsługiwanych wystąpieniach maszyn wirtualnych](../virtual-network/create-vm-accelerated-networking-cli.md?toc=/azure/virtual-machines/linux/toc.json#limitations-and-constraints), które obejmują większość maszyn wirtualnych platformy Azure z co najmniej dwoma procesorów wirtualnych vCPU.
 
 Utwórz nowy klaster AKS z grupą położenia zbliżeniowe:
 
@@ -163,4 +164,3 @@ az group delete --name myResourceGroup --yes --no-wait
 [az-aks-create]: /cli/azure/aks#az-aks-create
 [az-group-create]: /cli/azure/group#az-group-create
 [az-group-delete]: /cli/azure/group#az-group-delete
-

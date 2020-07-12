@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 04/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 7dfb863da9f06cfc0c81944aa4037933cdd650ad
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 43dc0020f64a80e10f179fd194c4878f2fec41ad
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83649187"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86243209"
 ---
 # <a name="how-to-delegate-user-registration-and-product-subscription"></a>Jak delegować rejestrację użytkownika i subskrypcję produktu
 
@@ -185,10 +186,10 @@ Aby uzyskać więcej informacji na temat delegowania, zobacz następujące wideo
 
 [Delegating developer sign in and sign up]: #delegate-signin-up
 [Delegating product subscription]: #delegate-product-subscription
-[Żądaj tokenu logowania jednokrotnego (SSO)]: https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/User/GenerateSsoUrl
-[Tworzenie użytkownika]: https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/user/createorupdate
-[Wywoływanie interfejsu API REST dla subskrypcji]: https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/subscription/createorupdate
+[Żądaj tokenu logowania jednokrotnego (SSO)]: /rest/api/apimanagement/2019-12-01/user/generatessourl
+[Tworzenie użytkownika]: /rest/api/apimanagement/2019-12-01/user/createorupdate
+[Wywoływanie interfejsu API REST dla subskrypcji]: /rest/api/apimanagement/2019-12-01/subscription/createorupdate
 [Next steps]: #next-steps
 [przykładowy kod podany poniżej]: #delegate-example-code
 
-[api-management-delegation-signin-up]: ./media/api-management-howto-setup-delegation/api-management-delegation-signin-up.png 
+[api-management-delegation-signin-up]: ./media/api-management-howto-setup-delegation/api-management-delegation-signin-up.png

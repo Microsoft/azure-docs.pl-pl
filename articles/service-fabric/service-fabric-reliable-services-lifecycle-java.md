@@ -5,11 +5,12 @@ author: PavanKunapareddyMSFT
 ms.topic: conceptual
 ms.date: 06/30/2017
 ms.author: pakunapa
-ms.openlocfilehash: 1d3be958a0649ed3e80df2d63adbdf0b91831dbd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b86f68126825f146a50ed21edf2acbda2b5181cf
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75639602"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86245181"
 ---
 # <a name="reliable-services-lifecycle"></a>Cykl życia usług Reliable Services
 > [!div class="op_single_selector"]
@@ -114,7 +115,7 @@ Usługi, które nie obsługują czyszczenia anulowania mogą napotkać kilka pro
 
 Ponieważ usługi są stanowe, istnieje również możliwość, że usługi używają [niezawodnych kolekcji](service-fabric-reliable-services-reliable-collections.md). W Service Fabric, gdy podstawowa jest obniżana, jeden z pierwszych rzeczy jest taki, że dostęp do zapisu do podstawowego stanu jest odwołany. Prowadzi to do drugiego zestawu problemów, które mogą mieć wpływ na cykl usługi. Kolekcje zwracają wyjątki na podstawie chronometrażu i tego, czy replika jest przenoszona, czy wyłączona. Ważne jest, aby prawidłowo obsługiwać te wyjątki. 
 
-Wyjątki zgłoszone przez Service Fabric są trwałe [( `FabricException` )](https://docs.microsoft.com/java/api/system.fabric.exception) lub przejściowe [( `FabricTransientException` )](https://docs.microsoft.com/java/api/system.fabric.exception.fabrictransientexception). Stałe wyjątki powinny być rejestrowane i zgłaszane. Wyjątki przejściowe mogą być ponawiane na podstawie logiki ponawiania.
+Wyjątki zgłoszone przez Service Fabric są trwałe [( `FabricException` )](/java/api/system.fabric.exception) lub przejściowe [( `FabricTransientException` )](/java/api/system.fabric.exception.fabrictransientexception). Stałe wyjątki powinny być rejestrowane i zgłaszane. Wyjątki przejściowe mogą być ponawiane na podstawie logiki ponawiania.
 
 Ważnym elementem testowania i sprawdzania poprawności Reliable Services jest obsługa wyjątków, które pochodzą z używania programu `ReliableCollections` w połączeniu z zdarzeniami cyklu życia usługi. Zalecamy, aby zawsze uruchamiać usługę pod obciążeniem. Należy również wykonać uaktualnienia i [testowanie chaos](service-fabric-controlled-chaos.md) przed wdrożeniem w środowisku produkcyjnym. Te podstawowe kroki pomagają upewnić się, że usługa jest zaimplementowana prawidłowo i że prawidłowo obsługuje zdarzenia dotyczące cyklu życia.
 
@@ -129,4 +130,3 @@ Ważnym elementem testowania i sprawdzania poprawności Reliable Services jest o
 ## <a name="next-steps"></a>Następne kroki
 * [Wprowadzenie do Reliable Services](service-fabric-reliable-services-introduction.md)
 * [Reliable Services — Szybki Start](service-fabric-reliable-services-quick-start-java.md)
-

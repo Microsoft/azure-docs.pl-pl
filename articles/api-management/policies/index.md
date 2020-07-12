@@ -13,12 +13,12 @@ ms.topic: sample
 ms.date: 10/31/2017
 ms.author: apimpm
 ms.custom: mvc
-ms.openlocfilehash: b8f97bb27b3eb45c731b20ad51e35fde9b6a394a
-ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
+ms.openlocfilehash: 252e7b8d13cf53a98ea1f25b207740c0e623f92c
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/21/2020
-ms.locfileid: "85126904"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86242971"
 ---
 # <a name="api-management-policy-samples"></a>Przykłady zasad usługi API Management
 
@@ -34,7 +34,7 @@ ms.locfileid: "85126904"
 | [Autoryzacja żądań za pomocą zewnętrznego obiektu autoryzującego](./authorize-request-using-external-authorizer.md)                                                   | Pokazuje sposób zabezpieczania dostępu do interfejsu API za pomocą zewnętrznego obiektu autoryzującego.                                                                                                                                                               |
 | [Autoryzacja dostępu za pomocą tokenu OAuth usługi Google](./use-google-as-oauth-token-provider.md)                                            | Pokazuje sposób autoryzowania dostępu do punktów końcowych przy użyciu usługi Google jako dostawcy tokenów OAuth.                                                                                                                                    |
 | [Filtrowanie adresów IP w przypadku używania usługi Application Gateway](./filter-ip-addresses-when-using-appgw.md) | Pokazuje sposób filtrowania protokołu IP w zasadach, gdy dostęp do wystąpienia usługi API Management jest uzyskiwany za pośrednictwem usługi Application Gateway
-| [Generowanie sygnatury dostępu współdzielonego i przekazywanie żądania do usługi Azure Storage](./generate-shared-access-signature.md)                  | Pokazuje sposób generowania [sygnatury dostępu współdzielonego](../../storage/storage-dotnet-shared-access-signature-part-1.md) przy użyciu wyrażeń i przekazywania żądania do usługi Azure Storage za pomocą zasad ponownego zapisywania identyfikatorów URI. |
+| [Generowanie sygnatury dostępu współdzielonego i przekazywanie żądania do usługi Azure Storage](./generate-shared-access-signature.md)                  | Pokazuje sposób generowania [sygnatury dostępu współdzielonego](../../storage/common/storage-sas-overview.md) przy użyciu wyrażeń i przekazywania żądania do usługi Azure Storage za pomocą zasad ponownego zapisywania identyfikatorów URI. |
 | [Uzyskiwanie tokenu dostępu OAuth2 z usługi AAD i przekazywanie go do zaplecza](./use-oauth2-for-authorization.md)                             | Udostępnia przykład użycia protokołu OAuth2 do autoryzacji między bramą i zapleczem. Pokazuje sposób uzyskiwania tokenu dostępu z usługi AAD i przekazywania go do zaplecza.                                                    |
 | [Uzyskiwanie tokenu X-CSRF z bramy SAP przy użyciu zasad żądania wysłania](./get-x-csrf-token-from-sap-gateway.md)                           | Pokazuje sposób implementowania wzorca X-CSRF używanego przez wiele interfejsów API. Ten przykład jest specyficzny dla bramy SAP.                                                                                                                           |
 | [Kierowanie żądania na podstawie rozmiaru jego treści](./route-requests-based-on-size.md)                                            | Przedstawia kierowanie żądań na podstawie rozmiaru ich treści.                                                                                                                                                       |

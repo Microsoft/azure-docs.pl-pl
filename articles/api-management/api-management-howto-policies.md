@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: apimpm
-ms.openlocfilehash: c10939b50a66cd608d27a71f02d959fbc2380f59
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cc19c5ea7a45f78110818bc6c8cea8fbe25981c0
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "70072303"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86243447"
 ---
 # <a name="policies-in-azure-api-management"></a>Zasady w usłudze Azure API Management
 
@@ -58,7 +58,7 @@ Konfiguracja jest podzielona na `inbound` , `backend` , `outbound` , i `on-error
 </policies> 
 ```
 
-Jeśli wystąpi błąd podczas przetwarzania żądania, wszystkie pozostałe kroki w `inbound` `backend` `outbound` sekcjach, lub są pomijane, a wykonywanie przechodzi do instrukcji w `on-error` sekcji. Umieszczając instrukcje zasad w `on-error` sekcji, można sprawdzić błąd przy użyciu `context.LastError` właściwości, sprawdzić i dostosować odpowiedź na błąd przy użyciu `set-body` zasad i skonfigurować działanie w przypadku wystąpienia błędu. Istnieją kody błędów dla wbudowanych kroków i dla błędów, które mogą wystąpić podczas przetwarzania instrukcji zasad. Aby uzyskać więcej informacji, zobacz [Obsługa błędów w zasadach API Management](/azure/api-management/api-management-error-handling-policies).
+Jeśli wystąpi błąd podczas przetwarzania żądania, wszystkie pozostałe kroki w `inbound` `backend` `outbound` sekcjach, lub są pomijane, a wykonywanie przechodzi do instrukcji w `on-error` sekcji. Umieszczając instrukcje zasad w `on-error` sekcji, można sprawdzić błąd przy użyciu `context.LastError` właściwości, sprawdzić i dostosować odpowiedź na błąd przy użyciu `set-body` zasad i skonfigurować działanie w przypadku wystąpienia błędu. Istnieją kody błędów dla wbudowanych kroków i dla błędów, które mogą wystąpić podczas przetwarzania instrukcji zasad. Aby uzyskać więcej informacji, zobacz [Obsługa błędów w zasadach API Management](./api-management-error-handling-policies.md).
 
 ## <a name="how-to-configure-policies"></a><a name="scopes"> </a>Jak skonfigurować zasady
 
@@ -66,7 +66,7 @@ Aby uzyskać informacje na temat konfigurowania zasad, zobacz [Ustawianie lub ed
 
 ## <a name="policy-reference"></a>Dokumentacja zasad
 
-Aby zapoznać się z pełną listą instrukcji zasad i ich ustawień, zobacz [Informacje o zasadach](api-management-policy-reference.md) .
+Aby zapoznać się z pełną listą instrukcji zasad i ich ustawień, zobacz [Informacje o zasadach](./api-management-policies.md) .
 
 ## <a name="policy-samples"></a>Przykłady zasad
 
@@ -118,17 +118,17 @@ Aby ograniczyć żądania przychodzące i akceptować tylko te z adresu IP 1.2.3
 Aby uzyskać więcej informacji na temat pracy z zasadami, zobacz:
 
 + [Przekształć interfejsy API](transform-api.md)
-+ [Dokumentacja zasad](api-management-policy-reference.md) pełna lista instrukcji zasad i ich ustawień
++ [Dokumentacja zasad](./api-management-policies.md) pełna lista instrukcji zasad i ich ustawień
 + [Przykłady zasad](policy-samples.md)   
 
-[Policy Reference]: api-management-policy-reference.md
+[Policy Reference]: ./api-management-policies.md
 [Product]: api-management-howto-add-products.md
 [API]: api-management-howto-add-products.md
-[Operation]: api-management-howto-add-operations.md
+[Operation]: ./mock-api-responses.md
 
-[Advanced policies]: https://msdn.microsoft.com/library/azure/dn894085.aspx
-[Control flow]: https://msdn.microsoft.com/library/azure/dn894085.aspx#choose
-[Set variable]: https://msdn.microsoft.com/library/azure/dn894085.aspx#set_variable
-[Policy expressions]: https://msdn.microsoft.com/library/azure/dn910913.aspx
+[Advanced policies]: ./api-management-advanced-policies.md
+[Control flow]: ./api-management-advanced-policies.md#choose
+[Set variable]: ./api-management-advanced-policies.md#set-variable
+[Policy expressions]: ./api-management-policy-expressions.md
 
 [policies-restrict]: ./media/api-management-howto-policies/api-management-policies-restrict.png

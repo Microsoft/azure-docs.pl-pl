@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 219681351159de6ac6bb48ff979cc68aa4ee18d3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 72f9381a320dc0fb946dbf6f48c5bcab5390aed5
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82233486"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86243583"
 ---
 # <a name="azure-api-management-faqs"></a>Azure API Management — często zadawane pytania
 Uzyskaj odpowiedzi na często zadawane pytania, wzorce oraz najlepsze rozwiązania dotyczące usługi Azure API Management.
@@ -49,7 +49,7 @@ Uzyskaj odpowiedzi na często zadawane pytania, wzorce oraz najlepsze rozwiązan
 Gdy funkcja jest w wersji zapoznawczej, oznacza to, że aktywnie szukamy opinii na temat sposobu działania tej funkcji. Funkcja w wersji zapoznawczej jest funkcjonalnie kompletna, ale istnieje możliwość, że w odpowiedzi na Opinie klientów wprowadzimy istotną zmianę. Zalecamy, aby nie zależały od funkcji, która jest w wersji zapoznawczej w środowisku produkcyjnym.
 
 ### <a name="how-can-i-secure-the-connection-between-the-api-management-gateway-and-my-back-end-services"></a>Jak mogę zabezpieczyć połączenie między bramą usługi API Management i usługami zaplecza?
-Istnieje kilka opcji zabezpieczania połączenia między bramą API Management i usługami zaplecza. Dostępne możliwości:
+Istnieje kilka opcji zabezpieczania połączenia między bramą API Management i usługami zaplecza. Możesz:
 
 * Użyj uwierzytelniania podstawowego protokołu HTTP. Aby uzyskać więcej informacji, zobacz [Importowanie i publikowanie pierwszego interfejsu API](import-and-publish.md).
 * Uwierzytelniania wzajemnego protokołu TLS należy używać zgodnie z opisem w artykule [jak zabezpieczyć usługi zaplecza przy użyciu uwierzytelniania certyfikatu klienta w usłudze Azure API Management](api-management-howto-mutual-certificates.md).
@@ -57,7 +57,7 @@ Istnieje kilka opcji zabezpieczania połączenia między bramą API Management i
 * Połącz wystąpienie API Management z usługą Azure Virtual Network.
 
 ### <a name="how-do-i-copy-my-api-management-service-instance-to-a-new-instance"></a>Jak mogę skopiować moje wystąpienie usługi API Management do nowego wystąpienia?
-Istnieje kilka opcji, jeśli chcesz skopiować wystąpienie API Management do nowego wystąpienia. Dostępne możliwości:
+Istnieje kilka opcji, jeśli chcesz skopiować wystąpienie API Management do nowego wystąpienia. Możesz:
 
 * Użyj funkcji tworzenia kopii zapasowych i przywracania w API Management. Aby uzyskać więcej informacji, zobacz [jak zaimplementować odzyskiwanie awaryjne przy użyciu kopii zapasowej i przywracania usługi w usłudze Azure API Management](api-management-howto-disaster-recovery-backup-restore.md).
 * Utwórz własną funkcję tworzenia kopii zapasowych i przywracania za pomocą [interfejsu API REST API Management](/rest/api/apimanagement/). Za pomocą interfejsu API REST Zapisz i Przywróć jednostki z wystąpienia usługi, które chcesz.
@@ -68,7 +68,7 @@ Tak, możesz zarządzać API Management programowo przy użyciu:
 
 * [Interfejs API REST API Management](/rest/api/apimanagement/).
 * [Zestaw SDK biblioteki zarządzania usługą Microsoft Azure ApiManagement](https://aka.ms/apimsdk).
-* Polecenia cmdlet programu PowerShell dotyczące [wdrażania usług](https://docs.microsoft.com/powershell/module/wds) i [zarządzania usługami](https://docs.microsoft.com/powershell/azure/servicemanagement/overview) .
+* Polecenia cmdlet programu PowerShell dotyczące [wdrażania usług](/powershell/module/wds) i [zarządzania usługami](/powershell/azure/servicemanagement/overview) .
 
 ### <a name="how-do-i-add-a-user-to-the-administrators-group"></a>Jak dodać użytkownika do grupy administratorów?
 Oto jak można dodać użytkownika do grupy Administratorzy:
@@ -77,7 +77,7 @@ Oto jak można dodać użytkownika do grupy Administratorzy:
 2. Przejdź do grupy zasobów, która ma API Management wystąpienia, które chcesz zaktualizować.
 3. W API Management Przypisz do użytkownika rolę **współautor usługi API Management** .
 
-Teraz nowo dodany współautor może używać Azure PowerShell [poleceń cmdlet](https://docs.microsoft.com/powershell/azure/overview). Oto jak zalogować się jako administrator:
+Teraz nowo dodany współautor może używać Azure PowerShell [poleceń cmdlet](/powershell/azure/overview). Oto jak zalogować się jako administrator:
 
 1. Użyj `Connect-AzAccount` polecenia cmdlet, aby się zalogować.
 2. Ustaw kontekst na subskrypcję, która ma usługę przy użyciu `Set-AzContext -SubscriptionID <subscriptionGUID>` .
@@ -85,16 +85,16 @@ Teraz nowo dodany współautor może używać Azure PowerShell [poleceń cmdlet]
 4. Użyj adresu URL, aby uzyskać dostęp do portalu administracyjnego.
 
 ### <a name="why-is-the-policy-that-i-want-to-add-unavailable-in-the-policy-editor"></a>Dlaczego zasady, które chcę dodać, są niedostępne w edytorze zasad?
-Jeśli zasady, które mają zostać dodane, są wyszarzone lub wyszarzone w edytorze zasad, upewnij się, że jesteś w prawidłowym zakresie dla zasad. Każda instrukcja zasad jest przeznaczona do użycia w określonych zakresach i sekcjach zasad. Aby zapoznać się z sekcjami zasad i zakresami zasad, zobacz sekcję użycie zasad w temacie [zasady API Management](/azure/api-management/api-management-policies).
+Jeśli zasady, które mają zostać dodane, są wyszarzone lub wyszarzone w edytorze zasad, upewnij się, że jesteś w prawidłowym zakresie dla zasad. Każda instrukcja zasad jest przeznaczona do użycia w określonych zakresach i sekcjach zasad. Aby zapoznać się z sekcjami zasad i zakresami zasad, zobacz sekcję użycie zasad w temacie [zasady API Management](./api-management-policies.md).
 
 ### <a name="how-do-i-set-up-multiple-environments-in-a-single-api"></a>Jak mogę skonfigurować wiele środowisk w jednym interfejsie API?
-Aby skonfigurować wiele środowisk, na przykład środowisko testowe i środowisko produkcyjne, w jednym interfejsie API dostępne są dwie opcje. Dostępne możliwości:
+Aby skonfigurować wiele środowisk, na przykład środowisko testowe i środowisko produkcyjne, w jednym interfejsie API dostępne są dwie opcje. Możesz:
 
 * Hostowanie różnych interfejsów API w tej samej dzierżawie.
 * Hostowanie tych samych interfejsów API w różnych dzierżawach.
 
 ### <a name="can-i-use-soap-with-api-management"></a>Czy można używać protokołu SOAP z API Management?
-Obsługa [przekazywania protokołu SOAP](https://blogs.msdn.microsoft.com/apimanagement/2016/10/13/soap-pass-through/) jest teraz dostępna. Administratorzy mogą zaimportować WSDL usługi SOAP, a platforma Azure API Management utworzy fronton protokołu SOAP. Dokumentacja portalu dla deweloperów, konsola testowa, zasady i analiza są dostępne dla usług SOAP.
+Obsługa [przekazywania protokołu SOAP](https://azure.microsoft.com/blog/soap-pass-through/) jest teraz dostępna. Administratorzy mogą zaimportować WSDL usługi SOAP, a platforma Azure API Management utworzy fronton protokołu SOAP. Dokumentacja portalu dla deweloperów, konsola testowa, zasady i analiza są dostępne dla usług SOAP.
 
 ### <a name="can-i-configure-an-oauth-20-authorization-server-with-ad-fs-security"></a>Czy można skonfigurować serwer autoryzacji OAuth 2,0 z zabezpieczeniami AD FS?
 Aby dowiedzieć się, jak skonfigurować serwer autoryzacji OAuth 2,0 z zabezpieczeniami Active Directory Federation Services (AD FS), zobacz [Korzystanie z usług AD FS w API Management](https://phvbaars.wordpress.com/2016/02/06/using-adfs-in-api-management/).
@@ -109,7 +109,7 @@ Tak. Zobacz Szablony szybkiego startu [usługi Azure API Management](https://aka
 Tak. Można to zrobić za pomocą programu PowerShell lub przez bezpośrednie przesłanie do interfejsu API. Spowoduje to wyłączenie weryfikacji łańcucha certyfikatów i umożliwi korzystanie z certyfikatów z podpisem własnym lub z podpisem prywatnym podczas komunikowania się z API Management do usług zaplecza.
 
 #### <a name="powershell-method"></a>PowerShell — Metoda ####
-Użyj [`New-AzApiManagementBackend`](https://docs.microsoft.com/powershell/module/az.apimanagement/new-azapimanagementbackend) (dla nowego zaplecza) lub [`Set-AzApiManagementBackend`](https://docs.microsoft.com/powershell/module/az.apimanagement/set-azapimanagementbackend) (dla istniejących zaplecza) poleceń cmdlet programu PowerShell i ustaw `-SkipCertificateChainValidation` parametr na `True` .
+Użyj [`New-AzApiManagementBackend`](/powershell/module/az.apimanagement/new-azapimanagementbackend) (dla nowego zaplecza) lub [`Set-AzApiManagementBackend`](/powershell/module/az.apimanagement/set-azapimanagementbackend) (dla istniejących zaplecza) poleceń cmdlet programu PowerShell i ustaw `-SkipCertificateChainValidation` parametr na `True` .
 
 ```powershell
 $context = New-AzApiManagementContext -resourcegroup 'ContosoResourceGroup' -servicename 'ContosoAPIMService'

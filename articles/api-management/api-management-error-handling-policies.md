@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: apimpm
-ms.openlocfilehash: 0bc4792b44ccff23a141460c3521d684801c4567
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bddb4ea3759d19d1e122739fb69cf9bf96c66635
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84674265"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86243549"
 ---
 # <a name="error-handling-in-api-management-policies"></a>Obsługa błędów w zasadach usługi API Management
 
@@ -50,7 +51,7 @@ Podczas przetwarzania żądania wbudowane kroki są wykonywane wraz z wszelkimi 
 `on-error`Sekcji zasad można używać w dowolnym zakresie. Wydawcy interfejsu API mogą konfigurować zachowanie niestandardowe, takie jak rejestrowanie błędu w centrach zdarzeń lub tworzenie nowej odpowiedzi w celu powrotu do obiektu wywołującego.
 
 > [!NOTE]
-> `on-error`Sekcja domyślnie nie istnieje w zasadach. Aby dodać `on-error` sekcję do zasad, przejdź do odpowiedniej zasady w edytorze zasad i Dodaj ją. Aby uzyskać więcej informacji o konfigurowaniu zasad, zobacz [zasady w API Management](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/).
+> `on-error`Sekcja domyślnie nie istnieje w zasadach. Aby dodać `on-error` sekcję do zasad, przejdź do odpowiedniej zasady w edytorze zasad i Dodaj ją. Aby uzyskać więcej informacji o konfigurowaniu zasad, zobacz [zasady w API Management](./api-management-howto-policies.md).
 >
 > Jeśli nie ma `on-error` sekcji, obiekty wywołujące otrzymają komunikaty odpowiedzi HTTP 400 lub 500 w przypadku wystąpienia błędu.
 
@@ -99,7 +100,7 @@ Gdy wystąpi błąd i formant przechodzi do `on-error` sekcji zasad, ten błąd 
 
 Następujące błędy są wstępnie zdefiniowane dla warunków błędów, które mogą wystąpić podczas oceny wbudowanych kroków przetwarzania.
 
-| Element źródłowy        | Warunek                                 | Przyczyna                  | Komunikat                                                                                                                |
+| Źródło        | Warunek                                 | Przyczyna                  | Komunikat                                                                                                                |
 | ------------- | ----------------------------------------- | ----------------------- | ---------------------------------------------------------------------------------------------------------------------- |
 | konfiguracja | Identyfikator URI nie jest zgodny z żadnym interfejsem API ani operacją | OperationNotFound       | Nie można dopasować przychodzącego żądania do operacji.                                                                      |
 | autoryzacja | Nie podano klucza subskrypcji             | SubscriptionKeyNotFound | Odmowa dostępu z powodu braku klucza subskrypcji. Pamiętaj o dołączeniu klucza subskrypcji podczas wykonywania żądań do tego interfejsu API. |
@@ -112,7 +113,7 @@ Następujące błędy są wstępnie zdefiniowane dla warunków błędów, które
 
 Następujące błędy są wstępnie zdefiniowane dla warunków błędów, które mogą wystąpić podczas oceny zasad.
 
-| Element źródłowy       | Warunek                                                       | Przyczyna                    | Komunikat                                                                                                                              |
+| Źródło       | Warunek                                                       | Przyczyna                    | Komunikat                                                                                                                              |
 | ------------ | --------------------------------------------------------------- | ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
 | stawka — limit   | Przekroczono limit szybkości                                             | RateLimitExceeded         | Przekroczono limit szybkości                                                                                                               |
 | limit przydziału        | Przekroczono limit przydziału                                                  | QuotaExceeded             | Poza limitem woluminu wywołania. Przydział zostanie uzupełniony w XX: XX: XX. -lub do limitu przydziału przepustowości. Przydział zostanie uzupełniony w XX: XX: XX. |
@@ -188,5 +189,5 @@ Aby uzyskać więcej informacji na temat pracy z zasadami, zobacz:
 
 -   [Zasady w API Management](api-management-howto-policies.md)
 -   [Przekształć interfejsy API](transform-api.md)
--   [Dokumentacja zasad](api-management-policy-reference.md) pełna lista instrukcji zasad i ich ustawień
+-   [Dokumentacja zasad](./api-management-policies.md) pełna lista instrukcji zasad i ich ustawień
 -   [Przykłady zasad](policy-samples.md)

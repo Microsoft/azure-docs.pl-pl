@@ -5,11 +5,12 @@ author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: 0e5ba1a311bd0480c56ee40edf01fc13ec01664a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 57efca87aefad346fda175b073409868d21564ae
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76905913"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86245516"
 ---
 # <a name="sfctl-mesh-volume"></a>sfctl mesh volume
 Pobierz i Usuń zasoby woluminu.
@@ -18,7 +19,7 @@ Pobierz i Usuń zasoby woluminu.
 
 |Polecenie|Opis|
 | --- | --- |
-| delete | Usuwa zasób woluminu. |
+| usunięcie | Usuwa zasób woluminu. |
 | list | Wyświetla listę wszystkich zasobów woluminu. |
 | pokaż | Pobiera zasób woluminu o podaną nazwę. |
 
@@ -82,4 +83,4 @@ Pobiera informacje o zasobie woluminu o podanej nazwie. Informacje obejmują opi
 
 ## <a name="next-steps"></a>Następne kroki
 - [Skonfiguruj](service-fabric-cli.md) interfejs wiersza polecenia Service Fabric.
-- Dowiedz się, jak używać interfejsu wiersza polecenia Service Fabric przy użyciu [przykładowych skryptów](/azure/service-fabric/scripts/sfctl-upgrade-application).
+- Dowiedz się, jak używać interfejsu wiersza polecenia Service Fabric przy użyciu [przykładowych skryptów](./scripts/sfctl-upgrade-application.md).

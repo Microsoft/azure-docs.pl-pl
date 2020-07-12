@@ -5,11 +5,12 @@ author: aagup
 ms.topic: conceptual
 ms.date: 10/30/2018
 ms.author: aagup
-ms.openlocfilehash: 1737102ee652cc2263bd0a908c1336bc93a6757b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f98bf4f4518abd5f1b1a826e355c851acc055852
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75377909"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86246694"
 ---
 # <a name="restoring-backup-in-azure-service-fabric"></a>Przywracanie kopii zapasowej na platformie Azure Service Fabric
 
@@ -51,7 +52,7 @@ Przywracanie może zostać wyzwolone dla jednego z następujących scenariuszy:
 
 ### <a name="data-restore-in-the-case-of-disaster-recovery"></a>Przywracanie danych w przypadku odzyskiwania po awarii
 
-Jeśli cały klaster Service Fabric zostanie utracony, można odzyskać dane dla partycji niezawodnej usługi stanowej i Reliable Actors. Żądaną kopię zapasową można wybrać z listy, jeśli używasz [GetBackupAPI z informacjami o magazynie kopii zapasowych](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getbackupsfrombackuplocation). Wyliczenie kopii zapasowej może dotyczyć aplikacji, usługi lub partycji.
+Jeśli cały klaster Service Fabric zostanie utracony, można odzyskać dane dla partycji niezawodnej usługi stanowej i Reliable Actors. Żądaną kopię zapasową można wybrać z listy, jeśli używasz [GetBackupAPI z informacjami o magazynie kopii zapasowych](/rest/api/servicefabric/sfclient-api-getbackupsfrombackuplocation). Wyliczenie kopii zapasowej może dotyczyć aplikacji, usługi lub partycji.
 
 W poniższym przykładzie Załóżmy, że utracony klaster jest tym samym klastrem, który jest określany jako [umożliwia okresowe tworzenie kopii zapasowej niezawodnej usługi stanowej i Reliable Actors](service-fabric-backuprestoreservice-quickstart-azurecluster.md#enabling-periodic-backup-for-reliable-stateful-service-and-reliable-actors). W tym przypadku program `SampleApp` jest wdrażany z włączonymi zasadami tworzenia kopii zapasowych, a kopie zapasowe są konfigurowane do usługi Azure Storage.
 
@@ -165,7 +166,7 @@ Restore-SFPartition  -PartitionId '1c42c47f-439e-4e09-98b9-88b8f60800c6' -Backup
 
 #### <a name="rest-call-using-powershell"></a>Wywołanie REST przy użyciu programu PowerShell
 
-Użytkownik żąda odzyskania względem partycji klastra kopii zapasowej za pomocą następującego [interfejsu API przywracania](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-restorepartition):
+Użytkownik żąda odzyskania względem partycji klastra kopii zapasowej za pomocą następującego [interfejsu API przywracania](/rest/api/servicefabric/sfclient-api-restorepartition):
 
 ```powershell
 
@@ -305,7 +306,7 @@ $restoreResponse | Format-List
         RestoredEpoch : 
         RestoredLsn   : 0
         ```
-    - **Przekroczenie** _limitu czasu: stan przywracania wskazuje_ , że żądanie ma limit czasu. Utwórz nowe żądanie przywracania o większej [RestoreTimeout](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-backuppartition#backuptimeout). Domyślny limit czasu wynosi 10 minut. Upewnij się, że partycja nie jest w stanie utraty danych przed ponownym zażądaniem przywracania.
+    - **Przekroczenie** _limitu czasu: stan przywracania wskazuje_ , że żądanie ma limit czasu. Utwórz nowe żądanie przywracania o większej [RestoreTimeout](/rest/api/servicefabric/sfclient-api-backuppartition#backuptimeout). Domyślny limit czasu wynosi 10 minut. Upewnij się, że partycja nie jest w stanie utraty danych przed ponownym zażądaniem przywracania.
      
         ```
         RestoreState  : Timeout
@@ -319,12 +320,12 @@ $restoreResponse | Format-List
 Można skonfigurować niezawodne usługi stanowe i Reliable Actors partycje w klastrze Service Fabric na potrzeby _przywracania automatycznie_. W zasadach tworzenia kopii zapasowych ustawiono `AutoRestore` _wartość true_. Włączenie _automatycznego przywracania_ automatycznie przywraca dane z najnowszej kopii zapasowej partycji po zgłoszeniu utraty danych. Aby uzyskać więcej informacji, zobacz:
 
 - [Włączanie funkcji autoprzywracania w zasadach tworzenia kopii zapasowych](service-fabric-backuprestoreservice-configure-periodic-backup.md#auto-restore-on-data-loss)
-- [Dokumentacja interfejsu API RestorePartition](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-restorepartition)
-- [Dokumentacja interfejsu API GetPartitionRestoreProgress](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getpartitionrestoreprogress)
+- [Dokumentacja interfejsu API RestorePartition](/rest/api/servicefabric/sfclient-api-restorepartition)
+- [Dokumentacja interfejsu API GetPartitionRestoreProgress](/rest/api/servicefabric/sfclient-api-getpartitionrestoreprogress)
 
 ## <a name="next-steps"></a>Następne kroki
 - [Opis konfiguracji okresowej kopii zapasowej](./service-fabric-backuprestoreservice-configure-periodic-backup.md)
-- [Dokumentacja interfejsu API REST przywracania kopii zapasowych](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-backuprestore)
+- [Dokumentacja interfejsu API REST przywracania kopii zapasowych](/rest/api/servicefabric/sfclient-index-backuprestore)
 
 [2]: ./media/service-fabric-backuprestoreservice/restore-partition-backup.png
 [3]: ./media/service-fabric-backuprestoreservice/restore-partition-fileshare.png

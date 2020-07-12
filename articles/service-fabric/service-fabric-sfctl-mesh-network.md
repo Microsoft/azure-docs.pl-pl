@@ -5,11 +5,12 @@ author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: 9aa0b6795508cb94200c486df092b867c1086316
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2b2b2c444bb492fa6c6b945a82090e91963fb1a8
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76905996"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86245864"
 ---
 # <a name="sfctl-mesh-network"></a>sfctl mesh network
 Pobierz i Usuń zasoby sieci siatki.
@@ -18,7 +19,7 @@ Pobierz i Usuń zasoby sieci siatki.
 
 |Polecenie|Opis|
 | --- | --- |
-| delete | Usuwa zasób sieciowy. |
+| usunięcie | Usuwa zasób sieciowy. |
 | list | Wyświetla listę wszystkich zasobów sieciowych. |
 | pokaż | Pobiera zasób sieciowy o podaną nazwę. |
 
@@ -82,4 +83,4 @@ Pobiera informacje o zasobie sieciowym o podanej nazwie. Informacje obejmują op
 
 ## <a name="next-steps"></a>Następne kroki
 - [Skonfiguruj](service-fabric-cli.md) interfejs wiersza polecenia Service Fabric.
-- Dowiedz się, jak używać interfejsu wiersza polecenia Service Fabric przy użyciu [przykładowych skryptów](/azure/service-fabric/scripts/sfctl-upgrade-application).
+- Dowiedz się, jak używać interfejsu wiersza polecenia Service Fabric przy użyciu [przykładowych skryptów](./scripts/sfctl-upgrade-application.md).

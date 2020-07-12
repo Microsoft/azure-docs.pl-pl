@@ -4,11 +4,12 @@ description: Omówienie przyczyn kompilowania aplikacji w chmurze z podejściem 
 ms.topic: conceptual
 ms.date: 01/07/2020
 ms.custom: sfrev
-ms.openlocfilehash: 9e0c93423b3639fb2bc3739f0d6569c4c4cec8da
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b8fbe5096014b116c3d5c5deaa7615874135d001
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82792872"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86246024"
 ---
 # <a name="why-use-a-microservices-approach-to-building-applications"></a>Dlaczego warto stosować podejście mikrousług do kompilowania aplikacji
 
@@ -130,7 +131,7 @@ Kondycja różni się od diagnostyki. Kondycja polega na tym, że usługa mikrou
 
 ## <a name="guidance-for-designing-microservices-on-azure"></a>Wskazówki dotyczące projektowania mikrousług na platformie Azure
 
-Odwiedź centrum architektury platformy Azure, aby uzyskać wskazówki dotyczące [projektowania i tworzenia mikrousług na platformie Azure](https://docs.microsoft.com/azure/architecture/microservices/).
+Odwiedź centrum architektury platformy Azure, aby uzyskać wskazówki dotyczące [projektowania i tworzenia mikrousług na platformie Azure](/azure/architecture/microservices/).
 
 ## <a name="service-fabric-as-a-microservices-platform"></a>Service Fabric jako platforma mikrousług
 
@@ -162,7 +163,7 @@ Pamiętaj, że możesz *uruchomić i zatrzymać na dowolnym z tych etapów*. Nie
 
 Przyjrzyjmy się przykładom dla każdego z tych etapów.
 
-**Migrate (Migracja)**  
+**Migracja**  
 Z dwóch powodów wiele firm migruje istniejące aplikacje monolityczne do kontenerów:
 
 * Obniżka kosztów — z powodu konsolidacji i usuwania istniejącego sprzętu lub w przypadku uruchamiania aplikacji z większą gęstością.
@@ -190,7 +191,7 @@ Celem Service Fabric jest zredukowanie złożoności tworzenia aplikacji mikrous
 ## <a name="next-steps"></a>Następne kroki
 
 * [Mikrousługi: obroty aplikacji obsługiwane przez chmurę](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/)
-* [Centrum architektury platformy Azure: budowanie mikrousług na platformie Azure](https://docs.microsoft.com/azure/architecture/microservices/)
+* [Centrum architektury platformy Azure: budowanie mikrousług na platformie Azure](/azure/architecture/microservices/)
 * [Najlepsze rozwiązania dotyczące aplikacji i klastrów na platformie Azure Service Fabric](service-fabric-best-practices-overview.md)
 * [Przegląd terminologii Service Fabric](service-fabric-technical-overview.md)
 

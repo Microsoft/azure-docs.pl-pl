@@ -5,15 +5,16 @@ author: dkkapur
 ms.author: dekapur
 ms.date: 11/27/2018
 ms.topic: conceptual
-ms.openlocfilehash: 0b0bd611fa86d155bb5bf2e07808e7365e28871c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d56ce811155f7b7f60fa870dbdae2550afab2eac
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84692686"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86246830"
 ---
 # <a name="state-management-with-service-fabric"></a>Zarządzanie stanem za pomocą Service Fabric
 
-Service Fabric obsługuje wiele różnych opcji magazynu Stanów. Omówienie pojęć dotyczących wzorców zarządzania stanów i Service Fabric można znaleźć w temacie [Service Fabric koncepcje: stan](/azure/service-fabric/service-fabric-concepts-state). Wszystkie te same koncepcje dotyczą tego, czy usługi są uruchamiane w sieci Service Fabric lub poza nią. 
+Service Fabric obsługuje wiele różnych opcji magazynu Stanów. Omówienie pojęć dotyczących wzorców zarządzania stanów i Service Fabric można znaleźć w temacie [Service Fabric koncepcje: stan](../service-fabric/service-fabric-concepts-state.md). Wszystkie te same koncepcje dotyczą tego, czy usługi są uruchamiane w sieci Service Fabric lub poza nią. 
 
 Za pomocą Service Fabric siatki możesz łatwo wdrożyć nową aplikację i połączyć ją z istniejącym magazynem danych hostowanym na platformie Azure. Oprócz korzystania ze zdalnej bazy danych istnieje kilka opcji przechowywania danych, zależnie od tego, czy usługa żąda magazynu lokalnego czy zdalnego. 
 

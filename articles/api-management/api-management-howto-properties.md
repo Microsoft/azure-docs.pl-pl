@@ -12,11 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/08/2020
 ms.author: apimpm
-ms.openlocfilehash: dc8ca7296658f4113d86765f230ca0158727255f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 28a9f37f58a6c056bf23a85fcf2641f407988891
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83649198"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86243481"
 ---
 # <a name="how-to-use-named-values-in-azure-api-management-policies"></a>Jak używać nazwanych wartości w zasadach usługi Azure API Management
 
@@ -33,7 +34,7 @@ Każde wystąpienie usługi API Management ma kolekcję par klucz/wartość, kt�
 
 ![Nazwane wartości](./media/api-management-howto-properties/named-values.png)
 
-Nazwane wartości mogą zawierać ciągi literałów i [wyrażenia zasad](/azure/api-management/api-management-policy-expressions). Na przykład wartość `Expression` jest wyrażenie zasad, które zwraca ciąg zawierający bieżącą datę i godzinę. Nazwana wartość `Credential` jest oznaczona jako wpis tajny, więc jej wartość nie jest domyślnie wyświetlana.
+Nazwane wartości mogą zawierać ciągi literałów i [wyrażenia zasad](./api-management-policy-expressions.md). Na przykład wartość `Expression` jest wyrażenie zasad, które zwraca ciąg zawierający bieżącą datę i godzinę. Nazwana wartość `Credential` jest oznaczona jako wpis tajny, więc jej wartość nie jest domyślnie wyświetlana.
 
 | Nazwa       | Wartość                      | Wpis tajny | Tagi          |
 | ---------- | -------------------------- | ------ | ------------- |
@@ -97,7 +98,7 @@ Jeśli te zasady zostaną ocenione, `{{ExpressionProperty}}` zostaną zastąpion
 
 Możesz to przetestować w portalu dla deweloperów, wywołując operację, która ma zasady z nazwanymi wartościami w zakresie. W poniższym przykładzie operacja jest wywoływana z dwiema poprzednimi przykładowymi `set-header` zasadami z nazwanymi wartościami. Należy zauważyć, że odpowiedź zawiera dwa niestandardowe nagłówki, które zostały skonfigurowane przy użyciu zasad z nazwanymi wartościami.
 
-![Portal dla deweloperów][api-management-send-results]
+![Portal deweloperów][api-management-send-results]
 
 Jeśli przeszukiwany jest [ślad inspektora interfejsu API](api-management-howto-api-inspector.md) dla wywołania, które obejmuje dwie poprzednie przykładowe zasady z nazwanymi wartościami, można zobaczyć dwie `set-header` zasady z nazwanymi wartościami, a także oszacować wyrażenie zasad dla nazwanej wartości, która zawierała wyrażenie zasad.
 
@@ -109,8 +110,8 @@ Gdy nazwane wartości mogą zawierać wyrażenia zasad, nie mogą zawierać inny
 
 -   Dowiedz się więcej na temat pracy z zasadami
     -   [Zasady w API Management](api-management-howto-policies.md)
-    -   [Dokumentacja zasad](/azure/api-management/api-management-policies)
-    -   [Wyrażenia zasad](/azure/api-management/api-management-policy-expressions)
+    -   [Dokumentacja zasad](./api-management-policies.md)
+    -   [Wyrażenia zasad](./api-management-policy-expressions.md)
 
 [api-management-send-results]: ./media/api-management-howto-properties/api-management-send-results.png
 [api-management-properties-filter]: ./media/api-management-howto-properties/api-management-properties-filter.png

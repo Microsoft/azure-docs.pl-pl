@@ -2,14 +2,15 @@
 title: Azure Functions miejsc wdrożenia
 description: Dowiedz się, jak tworzyć i używać miejsc wdrożenia przy użyciu Azure Functions
 author: craigshoemaker
-ms.topic: reference
+ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: cshoe
-ms.openlocfilehash: 7cfbd533921ba4d1757e7415a3bb8f70aeb71251
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f8abc670535f240d436e90c34f7245a3d176f517
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83122599"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86242784"
 ---
 # <a name="azure-functions-deployment-slots"></a>Azure Functions miejsc wdrożenia
 
@@ -175,7 +176,7 @@ Aby zmienić plan App Service gniazda, wykonaj następujące czynności:
 
     :::image type="content" source="./media/functions-deployment-slots/azure-functions-deployment-slots-change-app-service-apply.png" alt-text="Zmień plan App Service w Azure Portal." border="true":::
 
-1. Wybierz przycisk **OK**.
+1. Wybierz pozycję **OK**.
 
 ## <a name="limitations"></a>Ograniczenia
 

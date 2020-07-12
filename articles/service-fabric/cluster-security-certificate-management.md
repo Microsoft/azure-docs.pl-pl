@@ -4,11 +4,12 @@ description: Informacje o zarządzaniu certyfikatami w klastrze Service Fabric z
 ms.topic: conceptual
 ms.date: 04/10/2020
 ms.custom: sfrev
-ms.openlocfilehash: 6be9cbe77ef5e64659e56447d0a5b6be30b05272
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fb5d19e1cceacfeabc4bc670de98e56d3fbc2596
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84324746"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86246711"
 ---
 # <a name="certificate-management-in-service-fabric-clusters"></a>Zarządzanie certyfikatami w klastrach Service Fabric
 
@@ -75,8 +76,8 @@ Te kroki przedstawiono poniżej: Zwróć uwagę na różnice w aprowizacji międ
 ![Certyfikaty aprowizacji zadeklarowane przez wspólną nazwę podmiotu][Image2]
 
 ### <a name="certificate-enrollment"></a>Rejestrowanie certyfikatów
-Ten temat został szczegółowo opisany w [dokumentacji](../key-vault/create-certificate.md)Key Vaultej. w tym miejscu zawieramy streszczenie w celu zapewnienia ciągłości i łatwiejszego odwoływania się do nich. Kontynuując korzystanie z platformy Azure jako kontekstu, a Azure Key Vault jako usługi zarządzania tajnego, autoryzowany Obiekt żądający certyfikatu musi mieć co najmniej uprawnienia do zarządzania certyfikatami w magazynie, udzielane przez właściciela magazynu; zleceniodawca zarejestruje się w następujący sposób:
-    - tworzy zasady certyfikatów w Azure Key Vault (AKV), które określają domenę/podmiot certyfikatu, żądany wystawcę, typ klucza i długość, zamierzone użycie klucza i wiele więcej; Aby uzyskać szczegółowe informacje, zobacz [Certyfikaty w Azure Key Vault](../key-vault/certificate-scenarios.md) . 
+Ten temat został szczegółowo opisany w [dokumentacji](../key-vault/certificates/create-certificate.md)Key Vaultej. w tym miejscu zawieramy streszczenie w celu zapewnienia ciągłości i łatwiejszego odwoływania się do nich. Kontynuując korzystanie z platformy Azure jako kontekstu, a Azure Key Vault jako usługi zarządzania tajnego, autoryzowany Obiekt żądający certyfikatu musi mieć co najmniej uprawnienia do zarządzania certyfikatami w magazynie, udzielane przez właściciela magazynu; zleceniodawca zarejestruje się w następujący sposób:
+    - tworzy zasady certyfikatów w Azure Key Vault (AKV), które określają domenę/podmiot certyfikatu, żądany wystawcę, typ klucza i długość, zamierzone użycie klucza i wiele więcej; Aby uzyskać szczegółowe informacje, zobacz [Certyfikaty w Azure Key Vault](../key-vault/certificates/certificate-scenarios.md) . 
     - tworzy certyfikat w tym samym magazynie z zasadami określonymi powyżej; to z kolei generuje parę kluczy jako obiekty magazynu, żądanie podpisania certyfikatu podpisane przy użyciu klucza prywatnego, a następnie przekazywane do wystawiającego wystawcy na potrzeby podpisywania
     - gdy wystawca (urząd certyfikacji) odpowie z podpisanym certyfikatem, wynik zostanie scalony z magazynem, a certyfikat jest dostępny dla następujących operacji:
       - w obszarze {vaultUri}/Certificates/{Name}: certyfikat zawierający klucz publiczny i metadane
@@ -209,7 +210,7 @@ Jak wspomniano wcześniej, certyfikat zainicjowany jako wpis tajny zestawu skalo
 
 Wszystkie kolejne fragmenty powinny zostać wdrożone w sposób równoległy — są one osobno wyświetlane na potrzeby analizy odtwarzania i wyjaśnień.
 
-Najpierw Zdefiniuj tożsamość przypisaną przez użytkownika (wartości domyślne są uwzględniane jako przykłady) — zapoznaj się z [oficjalną dokumentacją](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-arm#create-a-user-assigned-managed-identity) dotyczącą aktualnych informacji:
+Najpierw Zdefiniuj tożsamość przypisaną przez użytkownika (wartości domyślne są uwzględniane jako przykłady) — zapoznaj się z [oficjalną dokumentacją](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-arm.md#create-a-user-assigned-managed-identity) dotyczącą aktualnych informacji:
 ```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -240,7 +241,7 @@ Najpierw Zdefiniuj tożsamość przypisaną przez użytkownika (wartości domyś
   ]}
 ```
 
-Następnie przyznaj tej tożsamości dostęp do wpisów tajnych magazynu — zapoznaj się z [oficjalną dokumentacją](https://docs.microsoft.com/rest/api/keyvault/vaults/updateaccesspolicy) dotyczącą bieżących informacji:
+Następnie przyznaj tej tożsamości dostęp do wpisów tajnych magazynu — zapoznaj się z [oficjalną dokumentacją](/rest/api/keyvault/vaults/updateaccesspolicy) dotyczącą bieżących informacji:
 ```json
   "resources":
   [{
@@ -265,7 +266,7 @@ Następnie przyznaj tej tożsamości dostęp do wpisów tajnych magazynu — zap
 W następnym kroku będziemy:
   - Przypisywanie tożsamości przypisanej do użytkownika do zestawu skalowania maszyn wirtualnych
   - Zadeklaruj zależność zestawu skalowania maszyn wirtualnych przy tworzeniu tożsamości zarządzanej i w wyniku udzielenia mu dostępu do magazynu
-  - Zadeklaruj rozszerzenie maszyny wirtualnej magazynu kluczy, co wymaga pobrania obserwowanych certyfikatów przy uruchamianiu ([Oficjalna dokumentacja](https://docs.microsoft.com/azure/virtual-machines/extensions/key-vault-windows))
+  - Zadeklaruj rozszerzenie maszyny wirtualnej magazynu kluczy, co wymaga pobrania obserwowanych certyfikatów przy uruchamianiu ([Oficjalna dokumentacja](../virtual-machines/extensions/key-vault-windows.md))
   - Zaktualizuj definicję rozszerzenia maszyny wirtualnej Service Fabric, aby zależała od rozszerzenia KVVM, i aby przekonwertować certyfikat klastra na nazwę pospolitą (wprowadzamy te zmiany w jednym kroku, ponieważ należą one do zakresu tego samego zasobu).
 
 ```json
@@ -419,12 +420,12 @@ Rozszerzenie KVVM, jako agent aprowizacji, działa w sposób ciągły zgodnie z 
 #### <a name="certificate-linking-explained"></a>Łączenie certyfikatów, wyjaśnienie
 Być może zauważono flagę "linkOnRenewal" rozszerzenia KVVM i oznacza to, że jest ona ustawiona na wartość false. W tym miejscu rozmieszczono tutaj szczegółowe omówienie zachowania kontrolowanego przez tę flagę i jego wpływ na działanie klastra. Należy zauważyć, że to zachowanie jest specyficzne dla systemu Windows.
 
-Zgodnie z jego [definicją](https://docs.microsoft.com/azure/virtual-machines/extensions/key-vault-windows#extension-schema):
+Zgodnie z jego [definicją](../virtual-machines/extensions/key-vault-windows.md#extension-schema):
 ```json
 "linkOnRenewal": <Only Windows. This feature enables auto-rotation of SSL certificates, without necessitating a re-deployment or binding.  e.g.: false>,
 ```
 
-Certyfikaty używane do nawiązania połączenia TLS są zazwyczaj [uzyskiwane jako dojście](https://docs.microsoft.com/windows/win32/api/sspi/nf-sspi-acquirecredentialshandlea) za pośrednictwem dostawcy obsługi zabezpieczeń kanału S-Channel — to oznacza, że klient nie uzyskuje bezpośredniego dostępu do klucza prywatnego certyfikatu. Polecenie s-Channel obsługuje przekierowywanie (łączenie) poświadczeń w postaci rozszerzenia certyfikatu ([CERT_RENEWAL_PROP_ID](https://docs.microsoft.com/windows/win32/api/wincrypt/nf-wincrypt-certsetcertificatecontextproperty#cert_renewal_prop_id)): Jeśli ta właściwość jest ustawiona, jego wartość reprezentuje odcisk palca certyfikatu "odnowienie", a w zamian zostanie podjęta próba załadowania połączonego certyfikatu. W rzeczywistości spowoduje to połączoną listę połączonych (i miejmy nadzieję acykliczne), dopóki nie zostanie ona zakończona certyfikatem "Final" — jeden bez znacznika odnowienia. Ta funkcja, gdy jest używana w rozsądny sposób, to doskonałe środki zaradcze przed utratą dostępności powodowaną przez wygasłe certyfikaty (na przykład). W innych przypadkach może być powodem przestoju trudnego do zdiagnozowania i rozwiązania problemu. Polecenie S-Channel wykonuje przechodzenie certyfikatów na podstawie ich właściwości odnowienia bezwarunkowo niezależnie od podmiotu, wystawców lub innych określonych atrybutów, które uczestniczą w weryfikacji podanego certyfikatu przez klienta. Istnieje również możliwość, że wynikający z tego certyfikat nie ma skojarzonego klucza prywatnego lub klucz nie został ACLed do jego potencjalnego klienta. 
+Certyfikaty używane do nawiązania połączenia TLS są zazwyczaj [uzyskiwane jako dojście](/windows/win32/api/sspi/nf-sspi-acquirecredentialshandlea) za pośrednictwem dostawcy obsługi zabezpieczeń kanału S-Channel — to oznacza, że klient nie uzyskuje bezpośredniego dostępu do klucza prywatnego certyfikatu. Polecenie s-Channel obsługuje przekierowywanie (łączenie) poświadczeń w postaci rozszerzenia certyfikatu ([CERT_RENEWAL_PROP_ID](/windows/win32/api/wincrypt/nf-wincrypt-certsetcertificatecontextproperty#cert_renewal_prop_id)): Jeśli ta właściwość jest ustawiona, jego wartość reprezentuje odcisk palca certyfikatu "odnowienie", a w zamian zostanie podjęta próba załadowania połączonego certyfikatu. W rzeczywistości spowoduje to połączoną listę połączonych (i miejmy nadzieję acykliczne), dopóki nie zostanie ona zakończona certyfikatem "Final" — jeden bez znacznika odnowienia. Ta funkcja, gdy jest używana w rozsądny sposób, to doskonałe środki zaradcze przed utratą dostępności powodowaną przez wygasłe certyfikaty (na przykład). W innych przypadkach może być powodem przestoju trudnego do zdiagnozowania i rozwiązania problemu. Polecenie S-Channel wykonuje przechodzenie certyfikatów na podstawie ich właściwości odnowienia bezwarunkowo niezależnie od podmiotu, wystawców lub innych określonych atrybutów, które uczestniczą w weryfikacji podanego certyfikatu przez klienta. Istnieje również możliwość, że wynikający z tego certyfikat nie ma skojarzonego klucza prywatnego lub klucz nie został ACLed do jego potencjalnego klienta. 
  
 Jeśli jest włączone łączenie, rozszerzenie maszyny wirtualnej magazynu kluczy, przy pobieraniu zaobserwowanego certyfikatu z magazynu, podejmie próbę znalezienia pasujących istniejących certyfikatów w celu połączenia ich za pośrednictwem właściwości rozszerzenia odnowienia. Dopasowanie jest (wyłącznie) w oparciu o alternatywną nazwę podmiotu (SAN) i działa jak exemplified poniżej.
 Przyjęto założenie dwóch istniejących certyfikatów w następujący sposób: A: CN = "accessorers", SAN = {"alice.universalexports.com"}, Renew = "" B: CN = "bity Roberta", SAN = {"bob.universalexports.com", "bob.universalexports.net"}, odnowienie = ""
@@ -491,4 +492,3 @@ Odp *.: uzyskanie*certyfikatu z zamierzonym tematem i dodanie go do definicji kl
 
 [Image1]:./media/security-cluster-certificate-mgmt/certificate-journey-thumbprint.png
 [Image2]:./media/security-cluster-certificate-mgmt/certificate-journey-common-name.png
-

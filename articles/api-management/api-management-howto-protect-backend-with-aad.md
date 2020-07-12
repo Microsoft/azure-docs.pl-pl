@@ -12,11 +12,12 @@ ms.workload: mobile
 ms.topic: article
 ms.date: 06/24/2020
 ms.author: apimpm
-ms.openlocfilehash: 72899e743e167eef5ee7d1be04cb50cafc1f2a95
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 455444fe78171e3e2b37a309fd5708f283121ed6
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85445512"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86243413"
 ---
 # <a name="protect-an-api-by-using-oauth-20-with-azure-active-directory-and-api-management"></a>Ochrona interfejsu API przy użyciu protokołu OAuth 2.0 za pomocą usługi Azure Active Directory i usługi API Management
 
@@ -145,7 +146,7 @@ W tym przykładzie Konsola dewelopera jest aplikacją Client-App. W poniższych 
 
 1. Jeśli używasz punktów końcowych **V1** , Dodaj parametr treści o nazwie **Resource**. Dla wartości tego parametru Użyj **identyfikatora aplikacji** dla aplikacji zaplecza. 
 
-1. Jeśli korzystasz z punktów końcowych **v2** , użyj zakresu utworzonego dla aplikacji zaplecza w polu **zakres domyślny** . Upewnij się również, że wartość właściwości jest ustawiona [`accessTokenAcceptedVersion`](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest#accesstokenacceptedversion-attribute) na `2` w [manifeście aplikacji](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest).
+1. Jeśli korzystasz z punktów końcowych **v2** , użyj zakresu utworzonego dla aplikacji zaplecza w polu **zakres domyślny** . Upewnij się również, że wartość właściwości jest ustawiona [`accessTokenAcceptedVersion`](../active-directory/develop/reference-app-manifest.md#accesstokenacceptedversion-attribute) na `2` w [manifeście aplikacji](../active-directory/develop/reference-app-manifest.md).
 
 1. Następnie określ poświadczenia klienta. Są to poświadczenia dla aplikacji klient.
 
@@ -202,7 +203,7 @@ W tym momencie, gdy użytkownik próbuje wykonać wywołanie z poziomu konsoli d
 
 Jeśli jednak ktoś dzwoni do interfejsu API bez tokenu lub z nieprawidłowym tokenem? Na przykład spróbuj wywołać interfejs API bez `Authorization` nagłówka, połączenie będzie nadal się powtarzać. Przyczyną jest to, że API Management nie sprawdza poprawności tokenu dostępu w tym momencie. Po prostu przekazuje `Authorization` nagłówek do interfejsu API zaplecza.
 
-Użyj [weryfikacji zasad JWT](https://docs.microsoft.com/azure/api-management/api-management-access-restriction-policies#ValidateJWT) , aby wstępnie autoryzować żądania w API Management, sprawdzając tokeny dostępu dla każdego żądania przychodzącego. Jeśli żądanie nie ma prawidłowego tokenu, API Management ją zablokuje. Na przykład Dodaj następujące zasady do `<inbound>` sekcji zasady programu `Echo API` . Sprawdza to w tokenie dostępu i zwraca komunikat o błędzie, jeśli token jest nieprawidłowy. Aby uzyskać informacje na temat konfigurowania zasad, zobacz [Ustawianie lub edytowanie zasad](https://docs.microsoft.com/azure/api-management/set-edit-policies).
+Użyj [weryfikacji zasad JWT](./api-management-access-restriction-policies.md#ValidateJWT) , aby wstępnie autoryzować żądania w API Management, sprawdzając tokeny dostępu dla każdego żądania przychodzącego. Jeśli żądanie nie ma prawidłowego tokenu, API Management ją zablokuje. Na przykład Dodaj następujące zasady do `<inbound>` sekcji zasady programu `Echo API` . Sprawdza to w tokenie dostępu i zwraca komunikat o błędzie, jeśli token jest nieprawidłowy. Aby uzyskać informacje na temat konfigurowania zasad, zobacz [Ustawianie lub edytowanie zasad](./set-edit-policies.md).
 
 
 ```xml
@@ -227,7 +228,7 @@ W tym przewodniku użyto konsoli dewelopera w API Management jako Przykładowa a
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Dowiedz się więcej o [Azure Active Directory i OAuth 2.0](../active-directory/develop/authentication-scenarios.md).
+- Dowiedz się więcej o [Azure Active Directory i OAuth 2.0](../active-directory/develop/authentication-vs-authorization.md).
 - Poznaj więcej [filmów wideo](https://azure.microsoft.com/documentation/videos/index/?services=api-management) dotyczących API Management.
 - Aby poznać inne sposoby zabezpieczenia usługi zaplecza, zobacz [uwierzytelnianie wzajemne certyfikatów](./api-management-howto-mutual-certificates.md).
 - [Utwórz wystąpienie usługi API Management](./get-started-create-service-instance.md).

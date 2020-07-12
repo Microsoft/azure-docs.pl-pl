@@ -3,12 +3,12 @@ title: Dokumentacja ustawień aplikacji dla usługi Azure Functions
 description: Dokumentacja referencyjna dla ustawień aplikacji Azure Functions lub zmiennych środowiskowych.
 ms.topic: conceptual
 ms.date: 09/22/2018
-ms.openlocfilehash: adb11f29460bd6dee7171fa97a6ebfc958cfad12
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 2be13fbdbf8ce75a051448bfb46d2a41ad425be8
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86169917"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86242767"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Dokumentacja ustawień aplikacji dla usługi Azure Functions
 
@@ -17,6 +17,9 @@ Ustawienia aplikacji w aplikacji funkcji zawierają globalne opcje konfiguracji,
 [!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
 
 Istnieją inne opcje konfiguracji globalnej w [host.js](functions-host-json.md) plik i w [local.settings.js](functions-run-local.md#local-settings-file) pliku.
+
+> [!NOTE]  
+> Ustawienia aplikacji umożliwiają przesłonięcie host.jsprzy ustawianiu wartości bez konieczności zmiany host.jssamego pliku. Jest to przydatne w scenariuszach, w których trzeba skonfigurować lub zmodyfikować określone host.jsw ustawieniach dla określonego środowiska. Pozwala to również na zmianę host.jsw ustawieniach bez konieczności ponownego publikowania projektu. Aby dowiedzieć się więcej, zobacz [artykułhost.json Reference](functions-host-json.md#override-hostjson-values).  
 
 ## <a name="appinsights_instrumentationkey"></a>APPINSIGHTS_INSTRUMENTATIONKEY
 

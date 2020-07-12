@@ -13,16 +13,17 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 5625ff7e4fc51b9b6b894698719247902a480f44
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 868ad3d1c6e7e7ef2cf32dcf675bc471a614f3ed
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84690035"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86243158"
 ---
 # <a name="azure-api-management-template-data-model-reference"></a>Dokumentacja modelu danych szablonu API Management platformy Azure
 W tym temacie opisano reprezentacje jednostek i typów dla typowych elementów używanych w modelach danych dla szablonów portalu dla deweloperów w usłudze Azure API Management.  
   
- Aby uzyskać więcej informacji na temat pracy z szablonami, zobacz [How to dostosowywanie portalu deweloperów API Management przy użyciu szablonów](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
+ Aby uzyskać więcej informacji na temat pracy z szablonami, zobacz [How to dostosowywanie portalu deweloperów API Management przy użyciu szablonów](./api-management-developer-portal-templates.md).  
 
 [!INCLUDE [api-management-portal-legacy.md](../../includes/api-management-portal-legacy.md)]
 
@@ -30,14 +31,14 @@ W tym temacie opisano reprezentacje jednostek i typów dla typowych elementów u
 
 ## <a name="reference"></a>Dokumentacja
 
--   [Interfejs API](#API)  
+-   [INTERFEJS API](#API)  
 -   [Podsumowanie interfejsu API](#APISummary)  
 -   [Aplikacja](#Application)  
 -   [Załącznik](#Attachment)  
 -   [Przykład kodu](#Sample)  
 -   [Komentarz](#Comment)  
 -   [Filtrowanie](#Filtering)  
--   [Nagłówki](#Header)  
+-   [Nagłówek](#Header)  
 -   [Żądanie HTTP](#HTTPRequest)  
 -   [Odpowiedź HTTP](#HTTPResponse)  
 -   [Problem](#Issue)  
@@ -66,7 +67,7 @@ W tym temacie opisano reprezentacje jednostek i typów dla typowych elementów u
 |`serviceUrl`|ciąg|Bezwzględny adres URL usługi wewnętrznej bazy danych implementującej ten interfejs API.|  
 |`path`|ciąg|Względny adres URL, który jednoznacznie identyfikuje ten interfejs API i wszystkie jego ścieżki zasobów w ramach wystąpienia usługi API Management. Jest dołączany do podstawowego adresu URL punktu końcowego interfejsu API określonego podczas tworzenia wystąpienia usługi, aby utworzyć publiczny adres URL dla tego interfejsu API.|  
 |`protocols`|tablica liczb|Opisuje protokoły, w których można wywołać operacje w tym interfejsie API. Dozwolone wartości to `1 - http` i i `2 - https` .|  
-|`authenticationSettings`|[Ustawienia uwierzytelniania serwera autoryzacji](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-contract-reference#AuthenticationSettings)|Kolekcja ustawień uwierzytelniania uwzględnionych w tym interfejsie API.|  
+|`authenticationSettings`|[Ustawienia uwierzytelniania serwera autoryzacji](/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-contract-reference#AuthenticationSettings)|Kolekcja ustawień uwierzytelniania uwzględnionych w tym interfejsie API.|  
 |`subscriptionKeyParameterNames`|object|Opcjonalna właściwość, która może służyć do określania nazw niestandardowych dla parametrów zapytania i/lub nagłówka zawierających klucz subskrypcji. Gdy ta właściwość jest obecna, musi zawierać co najmniej jedną z dwóch następujących właściwości.<br /><br /> `{   "subscriptionKeyParameterNames":   {     "query": “customQueryParameterName",     "header": “customHeaderParameterName"   } }`|  
   
 ##  <a name="api-summary"></a><a name="APISummary"></a>Podsumowanie interfejsu API  
@@ -86,7 +87,7 @@ W tym temacie opisano reprezentacje jednostek i typów dla typowych elementów u
 |`Id`|ciąg|Unikatowy identyfikator aplikacji.|  
 |`Title`|ciąg|Tytuł aplikacji.|  
 |`Description`|ciąg|Opis aplikacji.|  
-|`Url`|Identyfikator URI|Identyfikator URI aplikacji.|  
+|`Url`|URI|Identyfikator URI aplikacji.|  
 |`Version`|ciąg|Informacje o wersji aplikacji.|  
 |`Requirements`|ciąg|Opis wymagań aplikacji.|  
 |`State`|liczba|Bieżący stan aplikacji.<br /><br /> -0-zarejestrowano<br /><br /> -1-przesłane<br /><br /> -2 — Opublikowano<br /><br /> -3 — odrzucono<br /><br /> -4 — nieopublikowany|  

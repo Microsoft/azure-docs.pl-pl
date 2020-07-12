@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 06/12/2020
 ms.author: apimpm
-ms.openlocfilehash: 70f1e4414888ceb8fb04fd92dc954d1a7c06dcb4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4d077f6b3c84b0279a7a1c99243240192c2b45d1
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85557975"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86243719"
 ---
 # <a name="api-management-authentication-policies"></a>Zasady uwierzytelniania w usłudze API Management
 Ten temat zawiera informacje dotyczące następujących zasad API Management. Aby uzyskać informacje na temat dodawania i konfigurowania zasad, zobacz [zasady w API Management](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -60,7 +60,7 @@ Ten temat zawiera informacje dotyczące następujących zasad API Management. Ab
 |hasło|Określa hasło poświadczeń podstawowych.|Tak|Nie dotyczy|
 
 ### <a name="usage"></a>Użycie
- Tych zasad można używać w następujących [sekcjach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)zasad.
+ Tych zasad można używać w następujących [sekcjach](./api-management-howto-policies.md#sections) i [zakresach](./api-management-howto-policies.md#scopes)zasad.
 
 -   **Sekcje zasad:** przychodzące
 
@@ -111,7 +111,7 @@ W tym przykładzie certyfikat klienta jest ustawiany w zasadach, a nie pobierany
 |hasło|Hasło dla certyfikatu klienta.|Używany, jeśli certyfikat określony w programie `body` jest chroniony hasłem.|Nie dotyczy|
   
 ### <a name="usage"></a>Użycie  
- Tych zasad można używać w następujących [sekcjach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)zasad.  
+ Tych zasad można używać w następujących [sekcjach](./api-management-howto-policies.md#sections) i [zakresach](./api-management-howto-policies.md#scopes)zasad.  
   
 -   **Sekcje zasad:** przychodzące  
   
@@ -188,7 +188,7 @@ Do żądania tokenu można użyć zarówno tożsamości przypisanej do systemu, 
 |Ignoruj-błąd|Typu. W przypadku wybrania opcji `true` potok zasad będzie nadal wykonywany nawet wtedy, gdy nie zostanie uzyskany token dostępu.|Nie|fałsz|  
   
 ### <a name="usage"></a>Użycie  
- Tych zasad można używać w następujących [sekcjach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)zasad.  
+ Tych zasad można używać w następujących [sekcjach](./api-management-howto-policies.md#sections) i [zakresach](./api-management-howto-policies.md#scopes)zasad.  
   
 -   **Sekcje zasad:** przychodzące  
   
@@ -199,5 +199,5 @@ Aby uzyskać więcej informacji na temat pracy z zasadami, zobacz:
 
 + [Zasady w API Management](api-management-howto-policies.md)
 + [Przekształć interfejsy API](transform-api.md)
-+ [Dokumentacja zasad](api-management-policy-reference.md) pełna lista instrukcji zasad i ich ustawień
++ [Dokumentacja zasad](./api-management-policies.md) pełna lista instrukcji zasad i ich ustawień
 + [Przykłady zasad](policy-samples.md)

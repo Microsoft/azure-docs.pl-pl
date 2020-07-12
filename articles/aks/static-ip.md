@@ -5,11 +5,12 @@ description: Dowiedz się, jak utworzyć statyczny adres IP i używać go w usł
 services: container-service
 ms.topic: article
 ms.date: 03/09/2020
-ms.openlocfilehash: 5051232f29ad51d9fee893a4a660fc81f6e60d77
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3055b5d32055d0ed0e3870f16f6af95407a68cd9
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80886742"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86243940"
 ---
 # <a name="use-a-static-public-ip-address-and-dns-label-with-the-azure-kubernetes-service-aks-load-balancer"></a>Używanie statycznego publicznego adresu IP i etykiety DNS w usłudze Azure Kubernetes Service (AKS)
 
@@ -62,7 +63,7 @@ $ az network public-ip show --resource-group myResourceGroup --name myAKSPublicI
 
 ## <a name="create-a-service-using-the-static-ip-address"></a>Tworzenie usługi przy użyciu statycznego adresu IP
 
-Przed utworzeniem usługi upewnij się, że nazwa główna usługi używana przez klaster AKS ma delegowane uprawnienia do innej grupy zasobów. Przykład:
+Przed utworzeniem usługi upewnij się, że nazwa główna usługi używana przez klaster AKS ma delegowane uprawnienia do innej grupy zasobów. Na przykład:
 
 ```azurecli-interactive
 az role assignment create \
@@ -101,7 +102,7 @@ kubectl apply -f load-balancer-service.yaml
 
 Jeśli w usłudze jest używany dynamiczny lub statyczny publiczny adres IP, możesz użyć adnotacji usługi, `service.beta.kubernetes.io/azure-dns-label-name` Aby ustawić publiczną etykietę DNS. Spowoduje to opublikowanie w pełni kwalifikowanej nazwy domeny dla usługi przy użyciu publicznych serwerów DNS i domen najwyższego poziomu platformy Azure. Wartość adnotacji musi być unikatowa w obrębie lokalizacji platformy Azure, więc zaleca się użycie wystarczająco kwalifikowanej etykiety.   
 
-Na platformie Azure zostanie automatycznie dołączona domyślna podsieć, na przykład `<location>.cloudapp.azure.com` (gdzie lokalizacja jest wybranym regionem) do podania nazwy, aby utworzyć w pełni kwalifikowaną nazwę DNS. Przykład:
+Na platformie Azure zostanie automatycznie dołączona domyślna podsieć, na przykład `<location>.cloudapp.azure.com` (gdzie lokalizacja jest wybranym regionem) do podania nazwy, aby utworzyć w pełni kwalifikowaną nazwę DNS. Na przykład:
 
 ```yaml
 apiVersion: v1
@@ -172,4 +173,4 @@ W celu zapewnienia dodatkowej kontroli nad ruchem sieciowym w aplikacjach można
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
 [install-azure-cli]: /cli/azure/install-azure-cli
-[ip-sku]: ../virtual-network/virtual-network-ip-addresses-overview-arm.md#sku
+[ip-sku]: ../virtual-network/public-ip-addresses.md#sku

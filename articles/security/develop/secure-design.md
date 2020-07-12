@@ -13,22 +13,23 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 533f287693ca8aac76a3233674d95f3f49d4ae22
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d0cffbd1fa09abef9853e0ef853696c3c8ed353c
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82857162"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86246813"
 ---
 # <a name="design-secure-applications-on-azure"></a>Projektowanie bezpiecznych aplikacji na platformie Azure
 W tym artykule opisano działania związane z bezpieczeństwem i kontrolki, które należy wziąć pod uwagę podczas projektowania aplikacji w chmurze. Zasoby szkoleniowe wraz z pytaniami i pojęciami związanymi z bezpieczeństwem, które należy wziąć pod uwagę podczas wymagań i fazy projektowania [cyklu życia Microsoft Security Development (SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) . Celem jest ułatwienie zdefiniowania działań i usług platformy Azure, których można użyć do zaprojektowania bezpieczniejszej aplikacji.
 
 Następujące fazy SDL zostały omówione w tym artykule:
 
-- Szkolenia
+- Trenowanie
 - Wymagania
-- Projekt
+- Projektowanie
 
-## <a name="training"></a>Szkolenia
+## <a name="training"></a>Trenowanie
 Przed rozpoczęciem opracowywania aplikacji w chmurze należy zapoznać się z tematem bezpieczeństwo i prywatność na platformie Azure. Wykonując ten krok, można zmniejszyć liczbę i ważność luk w zabezpieczeniach w aplikacji. Zostanie przygotowana do odpowiedniej reakcji na stale zmieniający się poziom zagrożenia.
 
 Skorzystaj z następujących zasobów na etapie uczenia, aby zaznajomić się z usługami platformy Azure, które są dostępne dla deweloperów i z najlepszymi rozwiązaniami dotyczącymi zabezpieczeń na platformie Azure:
@@ -96,7 +97,7 @@ Jednak warto również założyć, że nastąpi [naruszenie](https://docs.micros
 
   - Jak odzyskiwać dane z ataku, takiego jak przecieki lub manipulowanie danymi?
 
-## <a name="design"></a>Projekt
+## <a name="design"></a>Projektowanie
 
 Faza projektowania ma kluczowe znaczenie dla ustanowienia najlepszych rozwiązań dotyczących projektowania i specyfikacji funkcjonalnych. Ma ona również kluczowe znaczenie dla przeprowadzania analizy ryzyka, która pomaga w ograniczeniu bezpieczeństwa i ochrony prywatności w całym projekcie.
 
@@ -152,12 +153,12 @@ Modelowanie projektu aplikacji i wyliczanie [zagrożeń dotyczących](https://do
 
 | Zagrożenie | Właściwość zabezpieczeń | Potencjalne ograniczenia dotyczące platformy Azure |
 | ---------------------- | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Fałszowanie zawartości               | Authentication        | [Wymagaj połączeń HTTPS](https://docs.microsoft.com/aspnet/core/security/enforcing-ssl?view=aspnetcore-2.1&tabs=visual-studio). |
+| Fałszowanie               | Uwierzytelnianie        | [Wymagaj połączeń HTTPS](https://docs.microsoft.com/aspnet/core/security/enforcing-ssl?view=aspnetcore-2.1&tabs=visual-studio). |
 | Manipulowanie              | Integralność             | Sprawdź poprawność certyfikatów SSL/TLS. Aplikacje korzystające z protokołu SSL/TLS muszą w pełni weryfikować certyfikaty X. 509 jednostek, z którymi się łączą. Użyj Azure Key Vault certyfikatów do [zarządzania certyfikatami x509](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-certificates). |
-| Rzuca            | Brak wyparcia       | Włącz [monitorowanie i diagnostykę](https://docs.microsoft.com/azure/architecture/best-practices/monitoring)platformy Azure.|
-| Ujawnianie informacji | Poufność       | Szyfruj [poufne dane przechowywane](../fundamentals/encryption-atrest.md) [i przesyłane](../fundamentals/data-encryption-best-practices.md#protect-data-in-transit). |
+| Wypieranie się            | Weryfikacja tożsamości       | Włącz [monitorowanie i diagnostykę](https://docs.microsoft.com/azure/architecture/best-practices/monitoring)platformy Azure.|
+| Ujawnienie informacji | Poufność       | Szyfruj [poufne dane przechowywane](../fundamentals/encryption-atrest.md) [i przesyłane](../fundamentals/data-encryption-best-practices.md#protect-data-in-transit). |
 | Odmowa usługi      | Dostępność          | Monitoruj metryki wydajności pod kątem potencjalnych odmowy warunków usługi. Implementuj filtry połączeń. [Usługa Azure DDoS Protection](../../virtual-network/ddos-protection-overview.md#next-steps), w połączeniu z najlepszymi rozwiązaniami dotyczącymi projektowania aplikacji, zapewnia ochronę przed atakami na DDoS.|
-| Podniesienie uprawnień | Autoryzacja         | Użyj <span class="underline"> </span> [Privileged Identity Management](../../active-directory/privileged-identity-management/pim-configure.md)Azure Active Directory.|
+| Podnoszenie uprawnień | Autoryzacja         | Użyj <span class="underline"> </span> [Privileged Identity Management](../../active-directory/privileged-identity-management/pim-configure.md)Azure Active Directory.|
 
 ### <a name="reduce-your-attack-surface"></a>Zmniejszenie podatności na ataki
 
@@ -208,7 +209,7 @@ Użyj uwierzytelniania dwuskładnikowego. Uwierzytelnianie dwuskładnikowe jest 
 
 Używanie mechanizmów uwierzytelniania i autoryzacji dostarczonych przez platformę zamiast kodu niestandardowego. Wynika to z faktu, że tworzenie niestandardowego kodu uwierzytelniania może być podatne na błędy. Kod komercyjny (na przykład od firmy Microsoft) często jest szeroko przeglądany pod kątem bezpieczeństwa. [Azure Active Directory (Azure AD)](../../active-directory/fundamentals/active-directory-whatis.md) to rozwiązanie platformy Azure służące do zarządzania tożsamościami i dostępem. Te narzędzia i usługi Azure AD ułatwiają bezpieczne programowanie:
 
-- [Azure AD Identity platform (Azure AD dla deweloperów)](../../active-directory/develop/about-microsoft-identity-platform.md) to usługa tożsamości w chmurze używana przez deweloperów do kompilowania aplikacji, które w bezpieczny sposób logują użytkowników. Usługa Azure AD pomaga deweloperom, którzy tworzą aplikacje z jedną dzierżawą i deweloperzy, którzy chcą opracowywać aplikacje z wieloma dzierżawcami. Oprócz podstawowej rejestracji aplikacje tworzone za pomocą usługi Azure AD mogą wywoływać interfejsy API firmy Microsoft i niestandardowe interfejsy API, które są oparte na platformie Azure AD. Platforma tożsamości usługi Azure AD obsługuje protokoły standardowe branżowe, takie jak OAuth 2,0 i OpenID Connect Connect.
+- [Microsoft Identity platform](/azure/active-directory/develop/) to zestaw składników, których deweloperzy używają do kompilowania aplikacji, które bezpiecznie logują użytkowników. Platforma wspiera deweloperów, którzy tworzą aplikacje korzystające z jednej dzierżawy i deweloperów, którzy chcą opracowywać aplikacje z wieloma dzierżawcami. Poza podstawową rejestracją aplikacje utworzone przy użyciu platformy tożsamości firmy Microsoft mogą wywoływać interfejsy API firmy Microsoft i niestandardowe interfejsy API. Platforma tożsamości firmy Microsoft obsługuje protokoły standardowe branżowe, takie jak OAuth 2,0 i OpenID Connect Connect.
 
 - [Azure Active Directory B2C (Azure AD B2C)](../../active-directory-b2c/index.yml) to usługa zarządzania tożsamościami, za pomocą której można dostosowywać i kontrolować sposób tworzenia konta, logowania i zarządzania swoimi profilami przy użyciu aplikacji. Obejmuje to aplikacje, które są opracowywane dla systemów iOS, Android i .NET, między innymi. Azure AD B2C włącza te akcje przy ochronie tożsamości klientów.
 

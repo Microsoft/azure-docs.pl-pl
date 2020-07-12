@@ -5,11 +5,12 @@ author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: 696de713129ca71dd7f2451501a7cc9eca0ee9b9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 426220f38e6ddfaaf8b24bf4f7d34473d881ae56
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76906243"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86245606"
 ---
 # <a name="sfctl-service"></a>sfctl service
 Tworzenie, usuwanie usług, typów usług i pakietów usług oraz zarządzanie nimi.
@@ -21,10 +22,10 @@ Tworzenie, usuwanie usług, typów usług i pakietów usług oraz zarządzanie n
 | Nazwa aplikacji | Pobiera nazwę aplikacji Service Fabric dla usługi. |
 | kod pakietu — lista | Pobiera listę pakietów kodu wdrożonych w węźle Service Fabric. |
 | create | Tworzy określoną usługę Service Fabric. |
-| delete | Usuwa istniejącą usługę Service Fabric. |
+| usunięcie | Usuwa istniejącą usługę Service Fabric. |
 | wdrożono-Type | Pobiera informacje o określonym typie usługi aplikacji wdrożonym w węźle klastra Service Fabric. |
 | wdrożone — lista typów | Pobiera listę zawierającą informacje o typach usług z aplikacji wdrożonych w węźle w klastrze Service Fabric. |
-| description | Pobiera opis istniejącej usługi Service Fabric. |
+| opis | Pobiera opis istniejącej usługi Service Fabric. |
 | Pobierz kontener — dzienniki | Pobiera dzienniki kontenerów dla kontenera wdrożonego w węźle Service Fabric. |
 | kondycji | Pobiera kondycję określonej usługi Service Fabric. |
 | informacje o | Pobiera informacje o konkretnej usłudze należącej do aplikacji Service Fabric. |
@@ -587,4 +588,4 @@ Aktualizuje określoną usługę za pomocą podanego opisu aktualizacji.
 
 ## <a name="next-steps"></a>Następne kroki
 - [Skonfiguruj](service-fabric-cli.md) interfejs wiersza polecenia Service Fabric.
-- Dowiedz się, jak używać interfejsu wiersza polecenia Service Fabric przy użyciu [przykładowych skryptów](/azure/service-fabric/scripts/sfctl-upgrade-application).
+- Dowiedz się, jak używać interfejsu wiersza polecenia Service Fabric przy użyciu [przykładowych skryptów](./scripts/sfctl-upgrade-application.md).

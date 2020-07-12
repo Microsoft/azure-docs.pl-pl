@@ -8,12 +8,12 @@ author: mgoedtel
 ms.author: magoedte
 ms.date: 07/09/2020
 ms.topic: conceptual
-ms.openlocfilehash: 38c487928f15e953a1c660c5007398bc5c2b3f7d
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: ed95b902c2c0768f50a0c6dadbfc617292932c2b
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206639"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86242954"
 ---
 # <a name="overview-of-azure-arc-for-servers-agent"></a>Omówienie usługi Azure ARC dla agenta serwerów
 
@@ -62,7 +62,7 @@ Po zainstalowaniu agenta połączonej maszyny dla systemu Windows są stosowane 
 
     |Folder |Opis |
     |-------|------------|
-    |C:\Program Files\AzureConnectedMachineAgent |Domyślna ścieżka instalacji zawierająca pliki obsługi agentów.|
+    |%ProgramFiles%\AzureConnectedMachineAgent |Domyślna ścieżka instalacji zawierająca pliki obsługi agentów.|
     |%ProgramData%\AzureConnectedMachineAgent |Zawiera pliki konfiguracji agenta.|
     |%ProgramData%\AzureConnectedMachineAgent\Tokens |Zawiera nabyte tokeny.|
     |%ProgramData%\AzureConnectedMachineAgent\Config |Zawiera plik konfiguracji agenta `agentconfig.json` rejestrującego informacje o rejestracji w usłudze.|
@@ -99,7 +99,7 @@ Po zainstalowaniu agenta połączonej maszyny dla systemu Windows są stosowane 
 
 * Podczas odinstalowywania agenta nie są usuwane następujące artefakty.
 
-    * C:\Program Files\AzureConnectedMachineAgent\Logs
+    * %ProgramFiles%\AzureConnectedMachineAgent\Logs
     * %ProgramData%\AzureConnectedMachineAgent i podkatalogi
     * %ProgramData%\GuestConfig
 
@@ -170,9 +170,9 @@ Następujące wersje systemu operacyjnego Windows i Linux są oficjalnie obsług
 
 ### <a name="required-permissions"></a>Wymagane uprawnienia
 
-- Aby dodać maszyny, musisz być członkiem roli **dołączania maszyny połączonej z platformą Azure** .
+* Aby dodać maszyny, musisz być członkiem roli **dołączania maszyny połączonej z platformą Azure** .
 
-- Aby odczytywać, modyfikować, przełączać i usuwać maszynę, jesteś członkiem roli **administratora zasobów maszyny połączonej z platformą Azure** . 
+* Aby odczytywać, modyfikować, przełączać i usuwać maszynę, jesteś członkiem roli **administratora zasobów maszyny połączonej z platformą Azure** . 
 
 ### <a name="azure-subscription-and-service-limits"></a>Limity subskrypcji i usług platformy Azure
 
@@ -195,15 +195,15 @@ Jeśli łączność wychodząca jest ograniczona przez zaporę lub serwer proxy,
 
 Tagi usługi:
 
-- Usługi azureactivedirectory
-- AzureTrafficManager
+* Usługi azureactivedirectory
+* AzureTrafficManager
 
 Adresy
 
 | Zasób agenta | Opis |
 |---------|---------|
 |`management.azure.com`|Azure Resource Manager|
-|`login.windows.net`|Usługa Azure Active Directory|
+|`login.windows.net`|Azure Active Directory|
 |`dc.services.visualstudio.com`|Application Insights|
 |`agentserviceapi.azure-automation.net`|Konfiguracja gościa|
 |`*-agentservice-prod-1.azure-automation.net`|Konfiguracja gościa|
@@ -218,8 +218,8 @@ Adresy URL w powyższej tabeli są wymagane oprócz informacji o zakresie adres�
 
 Usługa Azure ARC dla serwerów (wersja zapoznawcza) jest zależna od następujących dostawców zasobów platformy Azure w ramach subskrypcji, aby można było korzystać z tej usługi:
 
-- **Microsoft. HybridCompute**
-- **Microsoft. GuestConfiguration**
+* **Microsoft. HybridCompute**
+* **Microsoft. GuestConfiguration**
 
 Jeśli nie są one zarejestrowane, można je zarejestrować przy użyciu następujących poleceń:
 

@@ -5,16 +5,17 @@ author: motanv
 ms.topic: conceptual
 ms.date: 02/05/2018
 ms.author: motanv
-ms.openlocfilehash: 37b451abd0a519dff17aba9b2d6c42b4762f30cd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 33ad837195c747a4e7f9a4609d745659be69dc9a
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75463170"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86246184"
 ---
 # <a name="induce-controlled-chaos-in-service-fabric-clusters"></a>Chaos kontrolowane w klastrach Service Fabric
 Systemy rozproszone o dużej skali, takie jak infrastruktury chmury, są z natury zawodowe. Dzięki platformie Azure Service Fabric deweloperzy mogą pisać niezawodne usługi rozproszone w oparciu o niezawodną infrastrukturę. Aby pisać niezawodne usługi rozproszone w oparciu o niezawodną infrastrukturę, deweloperzy muszą mieć możliwość przetestowania stabilności usług, podczas gdy podstawowa zawodna infrastruktura przechodzi przez skomplikowane przejścia stanu z powodu błędów.
 
-[Iniekcja błędów i usługa analizy klastrów](https://docs.microsoft.com/azure/service-fabric/service-fabric-testability-overview) (znana również jako usługa błędu analizy) oferuje deweloperom możliwość wywołania błędów w celu przetestowania ich usług. Te wystąpienia symulowanych błędów, takich jak [Ponowne uruchamianie partycji](https://docs.microsoft.com/powershell/module/servicefabric/start-servicefabricpartitionrestart?view=azureservicefabricps), mogą pomóc w wykonywaniu najczęstszych przejść między Stanami. Jednak ukierunkowane błędy symulowane są rozdzielone przez definicję i w związku z tym mogą pominąć usterki, które są wyświetlane tylko w trudnej do przewidywania, długotrwałej i skomplikowanej sekwencji przejść stanu. W przypadku testowania nieobciążonego można użyć chaos.
+[Iniekcja błędów i usługa analizy klastrów](./service-fabric-testability-overview.md) (znana również jako usługa błędu analizy) oferuje deweloperom możliwość wywołania błędów w celu przetestowania ich usług. Te wystąpienia symulowanych błędów, takich jak [Ponowne uruchamianie partycji](/powershell/module/servicefabric/start-servicefabricpartitionrestart?view=azureservicefabricps), mogą pomóc w wykonywaniu najczęstszych przejść między Stanami. Jednak ukierunkowane błędy symulowane są rozdzielone przez definicję i w związku z tym mogą pominąć usterki, które są wyświetlane tylko w trudnej do przewidywania, długotrwałej i skomplikowanej sekwencji przejść stanu. W przypadku testowania nieobciążonego można użyć chaos.
 
 Chaos symuluje okresowe, przeplatane błędy (zarówno bezpieczne, jak i nieprolongaty) w całym klastrze przez dłuższy czas. Płynna awaria składa się z zestawu Service Fabric wywołań interfejsu API, na przykład ponowne uruchomienie błędu repliki jest bezpieczne, ponieważ jest to zamknięcie, a następnie otwarty w replice. Usuń replikę, Przenieś replikę podstawową i Przenieś replikę pomocniczą na inne bezpieczne błędy wykonywane przez chaos. Błędne błędy to wyjścia procesów, takie jak ponowne uruchomienie węzła i ponowne uruchomienie pakietu kodu. 
 
@@ -24,7 +25,7 @@ Po skonfigurowaniu usługi chaos przy użyciu stawki i rodzaju błędów można 
 > W bieżącej postaci chaos wywołuje tylko bezpieczne błędy, co oznacza, że w przypadku braku zewnętrznych błędów utraconych kworum lub utraty danych.
 >
 
-Podczas gdy Chaos jest uruchomiony, generuje inne zdarzenia, które w tej chwili przechwytują stan przebiegu. Na przykład ExecutingFaultsEvent zawiera wszystkie błędy, które chaos zdecydował się wykonać w tej iteracji. ValidationFailedEvent zawiera szczegóły błędu walidacji (problemy z kondycją lub stabilnością), które zostały znalezione podczas weryfikacji klastra. Można wywołać interfejs API raporcie getchaosreport (C#, PowerShell lub REST), aby uzyskać raport o uruchomieniach chaos. Te zdarzenia są utrwalane w [niezawodnym słowniku](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-reliable-collections), który ma zasady obcinania podyktowane dwiema konfiguracjami: **MaxStoredChaosEventCount** (wartość domyślna to 25000) i **StoredActionCleanupIntervalInSeconds** (wartość domyślna to 3600). Każdy *StoredActionCleanupIntervalInSeconds* chaos sprawdza i wszystkie ostatnie zdarzenia *MaxStoredChaosEventCount* są czyszczone ze niezawodnego słownika.
+Podczas gdy Chaos jest uruchomiony, generuje inne zdarzenia, które w tej chwili przechwytują stan przebiegu. Na przykład ExecutingFaultsEvent zawiera wszystkie błędy, które chaos zdecydował się wykonać w tej iteracji. ValidationFailedEvent zawiera szczegóły błędu walidacji (problemy z kondycją lub stabilnością), które zostały znalezione podczas weryfikacji klastra. Można wywołać interfejs API raporcie getchaosreport (C#, PowerShell lub REST), aby uzyskać raport o uruchomieniach chaos. Te zdarzenia są utrwalane w [niezawodnym słowniku](./service-fabric-reliable-services-reliable-collections.md), który ma zasady obcinania podyktowane dwiema konfiguracjami: **MaxStoredChaosEventCount** (wartość domyślna to 25000) i **StoredActionCleanupIntervalInSeconds** (wartość domyślna to 3600). Każdy *StoredActionCleanupIntervalInSeconds* chaos sprawdza i wszystkie ostatnie zdarzenia *MaxStoredChaosEventCount* są czyszczone ze niezawodnego słownika.
 
 ## <a name="faults-induced-in-chaos"></a>Błędy wywołane w chaos
 Chaos generuje błędy w całym klastrze Service Fabric i kompresuje błędy, które pojawiły się w ciągu kilku miesięcy lub lat, na kilka godzin. Kombinacja błędów z przeplotem o wysokim współczynniku błędów powoduje znalezienie przypadków narożnych, które mogą być pominięte. To ćwiczenie chaos prowadzi do znacznej poprawy jakości kodu usługi.

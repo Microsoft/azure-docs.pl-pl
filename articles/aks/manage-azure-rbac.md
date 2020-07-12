@@ -7,14 +7,14 @@ ms.topic: article
 ms.date: 07/07/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 84800f978790a114b80c415a5e5e3dad77eaf8da
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: fc0464c226b8edc2dae01f8ea54c3e5b2e11f2d6
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86122366"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86244264"
 ---
-# <a name="use-azure-rbac-for-kubernetes-authorization-preview"></a>Korzystanie z usługi Azure RBAC na potrzeby autoryzacji Kubernetes (wersja zapoznawcza)
+# <a name="use-azure-rbac-for-kubernetes-authorization-preview"></a>Autoryzacja na platformie Kubernetes przy użyciu kontroli dostępu opartej na rolach platformy Azure (wersja zapoznawcza)
 
 Obecnie można już korzystać ze [zintegrowanego uwierzytelniania między Azure Active Directory (Azure AD) i AKS](managed-aad.md). Po włączeniu ta Integracja umożliwia klientom korzystanie z użytkowników usługi Azure AD, grup lub jednostek usługi jako tematów w Kubernetes RBAC, zobacz [tutaj](azure-ad-rbac.md).
 Ta funkcja zwalnia z konieczności oddzielnego zarządzania tożsamościami i poświadczeniami użytkowników w celu Kubernetes. Jednak nadal trzeba skonfigurować i osobno zarządzać usługą Azure RBAC oraz Kubernetes RBAC. Aby uzyskać więcej informacji na temat uwierzytelniania, autoryzacji i RBAC w witrynie AKS, zobacz [tutaj](concepts-identity.md).
@@ -215,7 +215,7 @@ az aks get-credentials -g MyResourceGroup -n MyManagedCluster
 ```
 
 > [!IMPORTANT]
-> Do wykonania powyższych kroków będzie potrzebna wbudowana rola [użytkownika klastra usługi Azure Kubernetes](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#azure-kubernetes-service-cluster-user-role) .
+> Do wykonania powyższych kroków będzie potrzebna wbudowana rola [użytkownika klastra usługi Azure Kubernetes](../role-based-access-control/built-in-roles.md#azure-kubernetes-service-cluster-user-role) .
 
 Teraz możesz użyć polecenia kubectl, aby na przykład wyświetlić listę węzłów w klastrze. Przy pierwszym uruchomieniu należy się zalogować, a kolejne polecenia będą używały odpowiedniego tokenu dostępu.
 
