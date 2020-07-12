@@ -8,12 +8,12 @@ ms.author: rogarana
 ms.service: virtual-machines-linux
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: c78fa51150ba09e5b72eeb0587679f779c947acf
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 2d4fc47247c9fe2ed1af0eee59500db7e894fdd0
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86231055"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260130"
 ---
 # <a name="server-side-encryption-of-azure-disk-storage"></a>Szyfrowanie po stronie serwera Azure Disk Storage
 
@@ -80,9 +80,8 @@ Klienci z wysokim poziomem zabezpieczeń, którzy są zainteresowani ryzykiem zw
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Włącz szyfrowanie na hoście](disks-enable-host-based-encryption-cli.md)
-- [Interfejs wiersza polecenia platformy Azure — Włącz podwójne szyfrowanie na dyskach zarządzanych przez usługę REST](disks-enable-double-encryption-at-rest-cli.md)
+- [Włącz kompleksowe szyfrowanie przy użyciu szyfrowania w interfejsie wiersza polecenia hosta](disks-enable-host-based-encryption-cli.md)
+- [Włącz podwójne szyfrowanie dla dysków zarządzanych — interfejs wiersza polecenia](disks-enable-double-encryption-at-rest-cli.md)
 - [Włącz klucze zarządzane przez klienta dla dysków zarządzanych — interfejs wiersza polecenia](disks-enable-customer-managed-keys-cli.md)
 - [Włącz klucze zarządzane przez klienta dla dysków zarządzanych — Portal](disks-enable-customer-managed-keys-portal.md)
-- [Włączanie kluczy zarządzanych przez klienta dla dysku zarządzanego — PowerShell](../windows/disks-enable-customer-managed-keys-powershell.md)
 - [Co to jest usługa Azure Key Vault?](../../key-vault/general/overview.md)

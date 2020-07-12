@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 07/09/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: bfe428b9eba1f83f3e1bb05c3941c4c56317c9bc
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 12caa6fce4d49e86d1ad5da16aa7abba30f26207
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223112"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260812"
 ---
 # <a name="configure-the-personal-desktop-host-pool-assignment-type"></a>Konfigurowanie typu przypisania puli hostów pulpitu osobistego
 
@@ -91,7 +91,7 @@ Aby bezpośrednio przypisać użytkownika do hosta sesji w Azure Portal:
 
 Teraz, po skonfigurowaniu typu przypisania pulpitu osobistego, można zalogować się do klienta pulpitu wirtualnego systemu Windows w celu przetestowania go w ramach sesji użytkownika. Te następne dwie porady informują Cię, jak nawiązać połączenie z sesją przy użyciu wybranego przez siebie klienta:
 
-- [Łączenie się z klientem klasycznym systemu Windows](connect-windows-7-and-10.md)
+- [Łączenie się z klientem klasycznym systemu Windows](connect-windows-7-10.md)
 - [Łączenie się z klientem internetowym](connect-web.md)
 - [Łączenie się z klientem systemu Android](connect-android.md)
 - [Nawiązywanie połączenia z klientem systemu iOS](connect-ios.md)

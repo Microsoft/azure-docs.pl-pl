@@ -5,12 +5,12 @@ author: shsha-msft
 ms.topic: conceptual
 ms.date: 03/10/2020
 ms.author: shsha
-ms.openlocfilehash: 8483e00f55d0dd49ba57db58b99b237ce0a169e5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3be079b97c2660437344f88203fdda06cc6d6740
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81430632"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86258970"
 ---
 # <a name="initializer-codepackages"></a>Pakiety CodePackage inicjatora
 
@@ -50,7 +50,7 @@ Spójrzmy na kompletny przykład przy użyciu inicjatora CodePackages.
 > [!IMPORTANT]
 > W poniższym przykładzie założono znajomość tworzenia [aplikacji kontenera systemu Windows przy użyciu Service Fabric i platformy Docker][containers-getting-started-link].
 >
-> Ten przykład odwołuje się do mcr.microsoft.com/windows/nanoserver:1809. Kontenery systemu Windows Server nie są zgodne ze wszystkimi wersjami systemu operacyjnego hosta. Aby dowiedzieć się więcej, zobacz [zgodność wersji kontenera systemu Windows](https://docs.microsoft.com/virtualization/windowscontainers/deploy-containers/version-compatibility).
+> Ten przykład odwołuje się do mcr.microsoft.com/windows/nanoserver:1809. Kontenery systemu Windows Server nie są zgodne ze wszystkimi wersjami systemu operacyjnego hosta. Aby dowiedzieć się więcej, zobacz [zgodność wersji kontenera systemu Windows](/virtualization/windowscontainers/deploy-containers/version-compatibility).
 
 Poniższy ServiceManifest.xml kompiluje się w opisany wcześniej fragmencie kodu servicemanifest. *InitCodePackage0*, *InitCodePackage1* i *WorkloadCodePackage* są CodePackages, które reprezentują kontenery. Po aktywacji *InitCodePackage0* jest wykonywane najpierw. Rejestruje on komunikat do pliku i kończy pracę. Następnie jest wykonywana *InitCodePackage1* , która również rejestruje komunikat w pliku i kończy pracę. Na koniec *WorkloadCodePackage* rozpoczyna wykonywanie. Rejestruje także komunikat do pliku, wyprowadza zawartość pliku do **stdout** , a następnie wysyła polecenie ping do nieograniczonego.
 
@@ -151,4 +151,3 @@ Zapoznaj się z następującymi artykułami dotyczącymi pokrewnych informacji.
 [application-model-link]: service-fabric-application-model.md
 [hosting-model-link]: service-fabric-hosting-model.md
 [setup-entry-point-link]: service-fabric-run-script-at-service-startup.md
-

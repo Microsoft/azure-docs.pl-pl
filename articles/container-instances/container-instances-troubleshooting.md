@@ -4,12 +4,12 @@ description: Dowiedz się, jak rozwiązywać typowe problemy związane z wdraża
 ms.topic: article
 ms.date: 06/25/2020
 ms.custom: mvc
-ms.openlocfilehash: aeb4517f5be7fff9c29487d6521f80ee697c0e96
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 46d3ad6afb1761ca9503676ad2176482b7e4530e
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85807846"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260754"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>Rozwiązywanie typowych problemów w usłudze Azure Container Instances
 
@@ -183,7 +183,7 @@ Klucz służący do zachowywania rozmiaru obrazów jest zapewniany, że końcowy
 
 #### <a name="image-location"></a>Lokalizacja obrazu
 
-Innym sposobem zmniejszenia wpływu pobierania obrazu na czas uruchamiania kontenera jest hostowanie obrazu kontenera w [Azure Container Registry](/azure/container-registry/) w tym samym regionie, w którym zamierzasz wdrożyć wystąpienia kontenerów. Skraca to ścieżkę sieciową wymaganą przez obraz kontenera, co znacznie skraca czas pobierania.
+Innym sposobem zmniejszenia wpływu pobierania obrazu na czas uruchamiania kontenera jest hostowanie obrazu kontenera w [Azure Container Registry](../container-registry/index.yml) w tym samym regionie, w którym zamierzasz wdrożyć wystąpienia kontenerów. Skraca to ścieżkę sieciową wymaganą przez obraz kontenera, co znacznie skraca czas pobierania.
 
 #### <a name="cached-images"></a>Obrazy w pamięci podręcznej
 
@@ -228,9 +228,9 @@ Jeśli chcesz potwierdzić, że Azure Container Instances może nasłuchiwać na
 Dowiedz się, jak [pobrać dzienniki kontenerów i zdarzenia](container-instances-get-logs.md) w celu ułatwienia debugowania kontenerów.
 
 <!-- LINKS - External -->
-[azure-name-restrictions]: https://docs.microsoft.com/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#naming-and-tagging-resources
+[azure-name-restrictions]: /azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#naming-and-tagging-resources
 [naming-rules]: ../azure-resource-manager/management/resource-name-rules.md
-[windows-sac-overview]: https://docs.microsoft.com/windows-server/get-started/semi-annual-channel-overview
+[windows-sac-overview]: /windows-server/get-started/semi-annual-channel-overview
 [docker-multi-stage-builds]: https://docs.docker.com/engine/userguide/eng-image/multistage-build/
 [docker-hub-windows-core]: https://hub.docker.com/_/microsoft-windows-servercore
 [docker-hub-windows-nano]: https://hub.docker.com/_/microsoft-windows-nanoserver

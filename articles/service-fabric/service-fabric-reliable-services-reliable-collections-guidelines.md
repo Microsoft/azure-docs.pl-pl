@@ -3,12 +3,12 @@ title: Wskazówki dotyczące niezawodnych kolekcji
 description: Wskazówki i zalecenia dotyczące używania Service Fabric niezawodnych kolekcji w aplikacji Service Fabric platformy Azure.
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: f196df4b58f1acb01a497b5fa08e9af99a4707d0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 63e6de436bdaceed7f1d2a78e8385dd14bfc0ed6
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85483129"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260915"
 ---
 # <a name="guidelines-and-recommendations-for-reliable-collections-in-azure-service-fabric"></a>Wskazówki i zalecenia dotyczące niezawodnych kolekcji na platformie Azure Service Fabric
 Ta sekcja zawiera wskazówki dotyczące używania niezawodnego menedżera stanu i niezawodnych kolekcji. Celem jest ułatwienie użytkownikom unikania typowych pułapek.
@@ -64,4 +64,4 @@ Podczas decydowania o korzystaniu z niezawodnych kolekcji nietrwałych należy w
   * [Konfiguracja niezawodnego menedżera stanu](service-fabric-reliable-services-configuration.md)
 * Inne
   * [Reliable Services — Szybki Start](service-fabric-reliable-services-quick-start.md)
-  * [Dokumentacja dla deweloperów dla niezawodnych kolekcji](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
+  * [Dokumentacja dla deweloperów dla niezawodnych kolekcji](/dotnet/api/microsoft.servicefabric.data.collections?view=azure-dotnet#microsoft_servicefabric_data_collections)

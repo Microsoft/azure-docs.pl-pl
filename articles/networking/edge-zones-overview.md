@@ -7,12 +7,12 @@ ms.service: vnf-manager
 ms.topic: article
 ms.date: 07/07/2020
 ms.author: ganesr
-ms.openlocfilehash: 65a5f7e261913fa38c41930cc44341ca872d1b44
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: be113fec596d4730d55403b6ce4dbd6d2709e273
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86086895"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260074"
 ---
 # <a name="about-azure-edge-zone-preview"></a>Informacje o strefie Edge platformy Azure w wersji zapoznawczej
 
@@ -75,6 +75,8 @@ Typowe przypadki użycia obejmują:
 Strefy brzegowe będą oferowane w ramach partnerstwa z następującymi operatorami:
 
 - W&T (Atlanta, Dallas i Los Angeles) 
+
+Niezależni dostawcy oprogramowania pracującego nad zoptymalizowanymi i skalowalnymi aplikacjami połączonymi z sieciami 5Gymi mogą teraz używać nowej lokalizacji w wersji zapoznawczej&usługi Los Zarejestruj się, aby uzyskać dostęp do programu wczesnego zastosowania, aby korzystać z bezpiecznej łączności o wysokiej przepustowości.
 
 Aby uzyskać więcej informacji [, skontaktuj się z zespołem strefy brzegowej](https://aka.ms/EdgeZones) .
 

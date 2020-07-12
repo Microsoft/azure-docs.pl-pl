@@ -3,12 +3,12 @@ title: Uaktualnij wersję Service Fabric platformy Azure w klastrze
 description: Uaktualnij Service Fabric kod i/lub konfigurację, w której działa klaster Service Fabric, w tym Ustawianie trybu aktualizacji klastra, uaktualnianie certyfikatów, Dodawanie portów aplikacji, wykonywanie poprawek systemu operacyjnego i tak dalej. Czego można oczekiwać w przypadku wykonywania uaktualnień?
 ms.topic: conceptual
 ms.date: 11/12/2018
-ms.openlocfilehash: 802e7402f60370b7151c5e373c8a4921a5af7c80
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b0fef612725d606f1415e7e8d004aacee025cedf
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82789604"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86261059"
 ---
 # <a name="upgrade-the-service-fabric-version-of-a-cluster"></a>Uaktualnianie wersji klastra usługi Service Fabric
 
@@ -19,7 +19,7 @@ Można ustawić, aby klaster odbierał automatyczne uaktualnienia sieci szkielet
 W tym celu należy ustawić konfigurację klastra "upgrademode" w portalu lub przy użyciu Menedżer zasobów w momencie tworzenia lub w późniejszym klastrze na żywo. 
 
 > [!NOTE]
-> Upewnij się, że w klastrze działa zawsze obsługiwana wersja sieci szkieletowej. Po opublikowaniu wydania nowej wersji usługi Service Fabric Poprzednia wersja zostanie oznaczona jako przeznaczona do końca wsparcia po upływie co najmniej 60 dni od tej daty. Nowe wersje są ogłaszane [na blogu zespołu usługi Service Fabric](https://blogs.msdn.microsoft.com/azureservicefabric/). Nowe wydanie jest dostępne do wyboru. 
+> Upewnij się, że w klastrze działa zawsze obsługiwana wersja sieci szkieletowej. Po opublikowaniu wydania nowej wersji usługi Service Fabric Poprzednia wersja zostanie oznaczona jako przeznaczona do końca wsparcia po upływie co najmniej 60 dni od tej daty. Nowe wersje są ogłaszane [na blogu zespołu usługi Service Fabric](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric). Nowe wydanie jest dostępne do wyboru. 
 > 
 > 
 

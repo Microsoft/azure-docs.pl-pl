@@ -5,11 +5,12 @@ author: dkkapur
 ms.topic: conceptual
 ms.date: 2/21/2019
 ms.author: dekapur
-ms.openlocfilehash: a42797b51d811ee9427c9b77f8ea59a24c00feee
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ba6474751913b4994ae840f77577b3c1db6c5f73
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83827968"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259282"
 ---
 # <a name="create-a-standalone-cluster-running-on-windows-server"></a>Tworzenie klastra autonomicznego działającego w systemie Windows Server
 Za pomocą usługi Azure Service Fabric można tworzyć klastry Service Fabric na wszystkich maszynach wirtualnych lub komputerach z systemem Windows Server. Oznacza to, że można wdrażać i uruchamiać aplikacje Service Fabric w dowolnym środowisku zawierającym zestaw połączonych komputerów z systemem Windows Server, być lokalnym lub dowolnym dostawcą chmury. Service Fabric udostępnia pakiet instalacyjny do tworzenia klastrów Service Fabric o nazwie autonomiczny pakiet systemu Windows Server. Tradycyjne Service Fabric klastrów na platformie Azure są dostępne jako usługa zarządzana, natomiast autonomiczne klastry Service Fabric są samoobsługowe. Aby uzyskać więcej informacji na temat różnic, zobacz [porównywanie klastrów na platformie Azure i autonomicznych Service Fabric](./service-fabric-deploy-anywhere.md).
@@ -24,10 +25,10 @@ W tym artykule omówiono procedurę tworzenia klastra autonomicznego Service Fab
 <a id="getsupport"></a>
 
 ## <a name="get-support-for-the-service-fabric-for-windows-server-package"></a>Uzyskaj pomoc techniczną dotyczącą pakietu Service Fabric dla systemu Windows Server
-* Zapoznaj się ze społecznością Service Fabric pakiet autonomiczny dla systemu Windows Server na [stronie pytań i odpowiedzi Microsoft&pytań i odpowiedzi na platformie Azure Service Fabric](https://docs.microsoft.com/answers/topics/azure-service-fabric.html).
+* Zapoznaj się ze społecznością Service Fabric pakiet autonomiczny dla systemu Windows Server na [stronie pytań i odpowiedzi Microsoft&pytań i odpowiedzi na platformie Azure Service Fabric](/answers/topics/azure-service-fabric.html).
 * Otwórz bilet dla [profesjonalnej pomocy technicznej dla Service Fabric](https://support.microsoft.com/oas/default.aspx?prid=16146).  Dowiedz się więcej na temat profesjonalnej pomocy technicznej firmy Microsoft [tutaj](https://support.microsoft.com/en-us/gp/offerprophone?wa=wsignin1.0).
 * Możesz również uzyskać pomoc techniczną dotyczącą tego pakietu w ramach [programu Microsoft Pomoc techniczna Premier](https://support.microsoft.com/en-us/premier).
-* Aby uzyskać więcej informacji, zobacz [Opcje pomocy technicznej platformy Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-support).
+* Aby uzyskać więcej informacji, zobacz [Opcje pomocy technicznej platformy Azure Service Fabric](./service-fabric-support.md).
 * Aby zbierać dzienniki do celów pomocy technicznej, uruchom [Service Fabric autonomiczny moduł zbierający dzienniki](service-fabric-cluster-standalone-package-contents.md).
 
 <a id="downloadpackage"></a>
@@ -77,7 +78,7 @@ Administrator klastra wdrażający i konfigurujący klaster musi mieć uprawnien
     .\TestConfiguration.ps1 -ClusterConfigFilePath .\ClusterConfig.json
     ```
 
-    Powinny pojawić się dane wyjściowe podobne do następujących: Jeśli ostatnie pole "Passed" jest zwracane jako "true", testy Sanity zostały zakończone, a klaster zostanie wdrożony na podstawie konfiguracji wejściowej.
+    Powinny pojawić się dane wyjściowe podobne do poniższych. Jeśli ostatnie pole "Passed" jest zwracane jako "true", testy Sanity zostały zakończone, a klaster zostanie wdrożony na podstawie konfiguracji wejściowej.
 
     ```powershell
     Trace folder already exists. Traces will be written to existing trace folder: C:\temp\Microsoft.Azure.ServiceFabric.WindowsServer\DeploymentTraces
@@ -125,7 +126,7 @@ Aby nawiązać połączenie z niezabezpieczonym klastrem, uruchom następujące 
 Connect-ServiceFabricCluster -ConnectionEndpoint <*IPAddressofaMachine*>:<Client connection end point port>
 ```
 
-Przykład:
+Na przykład:
 ```powershell
 Connect-ServiceFabricCluster -ConnectionEndpoint 192.13.123.2345:19000
 ```
@@ -215,7 +216,7 @@ Brak.
 * [Ustawienia konfiguracji autonomicznego klastra systemu Windows](service-fabric-cluster-manifest.md)
 * [Dodawanie lub usuwanie węzłów w autonomicznym klastrze Service Fabric](service-fabric-cluster-windows-server-add-remove-nodes.md)
 * [Uaktualnianie autonomicznej wersji klastra Service Fabric](service-fabric-cluster-upgrade-windows-server.md)
-* [Tworzenie autonomicznego klastra Service Fabric z maszynami wirtualnymi platformy Azure z systemem Windows](service-fabric-cluster-creation-with-windows-azure-vms.md)
+* [Tworzenie autonomicznego klastra Service Fabric z maszynami wirtualnymi platformy Azure z systemem Windows](./service-fabric-cluster-creation-via-arm.md)
 * [Zabezpieczanie klastra autonomicznego w systemie Windows przy użyciu zabezpieczeń systemu Windows](service-fabric-windows-cluster-windows-security.md)
 * [Zabezpieczanie klastra autonomicznego w systemie Windows przy użyciu certyfikatów x509](service-fabric-windows-cluster-x509-security.md)
 

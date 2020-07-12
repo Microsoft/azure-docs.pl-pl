@@ -3,19 +3,19 @@ title: Uaktualnianie autonomicznego klastra platformy Azure Service Fabric
 description: Dowiedz się więcej o uaktualnianiu wersji lub konfiguracji autonomicznego klastra platformy Azure Service Fabric.  T
 ms.topic: conceptual
 ms.date: 11/12/2018
-ms.openlocfilehash: ac3e80aae440c6709057e4211f7a4f6a1beea058
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 519a9163d16fda2dd9fcf49cf22fe4ad4a272e09
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82790647"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260984"
 ---
 # <a name="upgrading-and-updating-a-service-fabric-standalone-cluster"></a>Uaktualnianie i aktualizowanie Service Fabric autonomicznego klastra
 
 W przypadku każdego nowoczesnego systemu projektowanie pod kątem wydajności jest kluczem do osiągnięcia długotrwałego sukcesu produktu. Autonomiczny klaster usługi Azure Service Fabric to zasób, którego jesteś członkiem. W tym artykule opisano, co można uaktualnić lub zaktualizować.
 
 ## <a name="controlling-the-fabric-version-that-runs-on-your-cluster"></a>Kontrolowanie wersji sieci szkieletowej działającej w klastrze
-Upewnij się, że w klastrze jest zawsze uruchomiona [obsługiwana wersja Service Fabric](service-fabric-versions.md). Gdy firma Microsoft ogłasza wydanie nowej wersji Service Fabric, poprzednia wersja zostanie oznaczona do końca wsparcia po upływie co najmniej 60 dni od daty powiadomienia. Nowe wersje są ogłaszane [na blogu zespołu Service Fabric](https://blogs.msdn.microsoft.com/azureservicefabric/). Nowa wersja jest dostępna do wyboru w tym momencie.
+Upewnij się, że w klastrze jest zawsze uruchomiona [obsługiwana wersja Service Fabric](service-fabric-versions.md). Gdy firma Microsoft ogłasza wydanie nowej wersji Service Fabric, poprzednia wersja zostanie oznaczona do końca wsparcia po upływie co najmniej 60 dni od daty powiadomienia. Nowe wersje są ogłaszane [na blogu zespołu Service Fabric](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric). Nowa wersja jest dostępna do wyboru w tym momencie.
 
 Można ustawić, aby klaster odbierał automatyczne uaktualnienia sieci szkieletowej, gdy zostaną wydane przez firmę Microsoft, lub można ręcznie wybrać obsługiwaną wersję sieci szkieletowej, w której ma być włączony klaster. Aby uzyskać więcej informacji, przeczytaj artykuł [Uaktualnij wersję Service Fabric działającą w klastrze](service-fabric-cluster-upgrade-windows-server.md).
 

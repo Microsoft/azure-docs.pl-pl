@@ -4,12 +4,12 @@ description: Dowiedz się, jak zainstalować wolumin Azure Files, aby zachować 
 ms.topic: article
 ms.date: 07/02/2020
 ms.custom: mvc
-ms.openlocfilehash: 593400f67db5018f1533dd37eed88ece7fd596c6
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: eaf5e0704ba2ea4f0e0a30d61e4ae1d2ad1bf58d
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86169582"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259477"
 ---
 # <a name="mount-an-azure-file-share-in-azure-container-instances"></a>Instalowanie udziału plików platformy Azure w usłudze Azure Container Instances
 
@@ -223,11 +223,11 @@ Tak jak w poprzednich przykładach, `dnsNameLabel` wartość musi być unikatowa
 }
 ```
 
-Aby wdrożyć z szablonem Menedżer zasobów, Zapisz poprzedni kod JSON do pliku o nazwie `deploy-aci.json` , a następnie uruchom polecenie [AZ Group Deployment Create][az-group-deployment-create] z `--template-file` parametrem:
+Aby wdrożyć z szablonem Menedżer zasobów, Zapisz poprzedni kod JSON w pliku o nazwie `deploy-aci.json` , a następnie uruchom polecenie [AZ Deployment Group Create][az-deployment-group-create] z `--template-file` parametrem:
 
 ```azurecli
 # Deploy with Resource Manager template
-az group deployment create --resource-group myResourceGroup --template-file deploy-aci.json
+az deployment group create --resource-group myResourceGroup --template-file deploy-aci.json
 ```
 
 
@@ -285,4 +285,4 @@ Dowiedz się, jak zainstalować inne typy woluminów w Azure Container Instances
 <!-- LINKS - Internal -->
 [az-container-create]: /cli/azure/container#az-container-create
 [az-container-show]: /cli/azure/container#az-container-show
-[az-group-deployment-create]: /cli/azure/group/deployment#az-group-deployment-create
+[az-deployment-group-create]: /cli/azure/deployment/group#az-deployment-group-create

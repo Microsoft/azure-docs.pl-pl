@@ -5,11 +5,12 @@ author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: 1787c0c8a8d5994ce1f1e9e4c55f155bbca6934c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7317fd66303aaabf5232106aa7391439880bebaf
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76904941"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260286"
 ---
 # <a name="sfctl-rpm"></a>sfctl rpm
 Wykonywanie zapytań i wysyłanie poleceń do usługi Repair Manager.
@@ -19,7 +20,7 @@ Wykonywanie zapytań i wysyłanie poleceń do usługi Repair Manager.
 |Polecenie|Opis|
 | --- | --- |
 | Zatwierdź — Wymuś | Wymusza zatwierdzenie danego zadania naprawy. |
-| delete | Usuwa zakończone zadanie naprawy. |
+| usunięcie | Usuwa zakończone zadanie naprawy. |
 | list | Pobiera listę zadań naprawczych zgodnych z podanym filtrem. |
 
 ## <a name="sfctl-rpm-approve-force"></a>sfctl RPM — Zatwierdź — Wymuś
@@ -92,4 +93,4 @@ Ten interfejs API obsługuje platformę Service Fabric. nie jest przeznaczona do
 
 ## <a name="next-steps"></a>Następne kroki
 - [Skonfiguruj](service-fabric-cli.md) interfejs wiersza polecenia Service Fabric.
-- Dowiedz się, jak używać interfejsu wiersza polecenia Service Fabric przy użyciu [przykładowych skryptów](/azure/service-fabric/scripts/sfctl-upgrade-application).
+- Dowiedz się, jak używać interfejsu wiersza polecenia Service Fabric przy użyciu [przykładowych skryptów](./scripts/sfctl-upgrade-application.md).

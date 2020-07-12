@@ -5,11 +5,12 @@ author: dkkapur
 ms.topic: conceptual
 ms.date: 9/11/2018
 ms.author: dekapur
-ms.openlocfilehash: 495949d1a4ec927c601f174521c360f51034a2fb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6b07e3fe14478cf45df2f02378da4e83853cf9ea
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85079354"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86261036"
 ---
 # <a name="plan-and-prepare-your-service-fabric-standalone-cluster-deployment"></a>Planowanie i przygotowywanie Service Fabric wdrożenia klastra autonomicznego
 
@@ -58,10 +59,10 @@ Poniżej przedstawiono zalecane specyfikacje dotyczące maszyn w klastrze Servic
 * Łączność z bezpieczną siecią lub sieciami dla wszystkich maszyn
 * Zainstalowany system operacyjny Windows Server (prawidłowe wersje: 2012 R2, 2016, 1709 lub 1803). Service Fabric w wersji 6.4.654.9590 i nowszych również obsługuje serwer 2019 i 1809.
 * [.NET Framework 4.5.1 lub nowszy](https://www.microsoft.com/download/details.aspx?id=40773), pełna instalacja
-* [Windows PowerShell 3.0](https://msdn.microsoft.com/powershell/scripting/install/installing-windows-powershell)
-* [Usługa RemoteRegistry](https://technet.microsoft.com/library/cc754820) powinna być uruchomiona na wszystkich maszynach
+* [Windows PowerShell 3.0](/powershell/scripting/windows-powershell/install/installing-windows-powershell?view=powershell-7)
+* [Usługa RemoteRegistry](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754820(v=ws.11)) powinna być uruchomiona na wszystkich maszynach
 * **Dysk instalacji Service Fabric musi mieć system plików NTFS**
-* **Dzienniki wydajności usług systemu Windows, *& alerty* i *Dziennik zdarzeń systemu Windows* , muszą [być włączone](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc755249(v=ws.11))**.
+* **Dzienniki wydajności usług systemu Windows, *& alerty* i *Dziennik zdarzeń systemu Windows* , muszą [być włączone](/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/cc755249(v=ws.11))**.
 
 > [!IMPORTANT]
 > Administrator klastra wdrażający i konfigurujący klaster musi mieć [uprawnienia administratora](https://social.technet.microsoft.com/wiki/contents/articles/13436.windows-server-2012-how-to-add-an-account-to-a-local-administrator-group.aspx) na każdej z tych maszyn. Usługi Service Fabric nie można zainstalować na kontrolerze domeny.
@@ -156,7 +157,7 @@ Passed                     : True
 Obecnie ten moduł testowania konfiguracji nie sprawdza poprawności konfiguracji zabezpieczeń, dlatego musi być wykonywany niezależnie.
 
 > [!NOTE]
-> Ciągle wprowadzamy udoskonalenia, aby ten moduł był bardziej niezawodny, więc jeśli wystąpi wadliwy lub brakujący przypadek, w którym sądzisz, że nie jest on obecnie przechwytywany przez TestConfiguration, daj nam znać nasze [kanały pomocy technicznej](https://docs.microsoft.com/azure/service-fabric/service-fabric-support).
+> Ciągle wprowadzamy udoskonalenia, aby ten moduł był bardziej niezawodny, więc jeśli wystąpi wadliwy lub brakujący przypadek, w którym sądzisz, że nie jest on obecnie przechwytywany przez TestConfiguration, daj nam znać nasze [kanały pomocy technicznej](./service-fabric-support.md).
 >
 >
 

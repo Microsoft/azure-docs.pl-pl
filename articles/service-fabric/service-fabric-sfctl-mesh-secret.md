@@ -5,11 +5,12 @@ author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: fab388ff223eb95020e2ba0945c76532bc54f224
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2c91a59e57613934c946e3cd56089b330893a51a
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76905988"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260333"
 ---
 # <a name="sfctl-mesh-secret"></a>sfctl mesh secret
 Pobierz i Usuń zasoby z siatką kluczy tajnych.
@@ -18,7 +19,7 @@ Pobierz i Usuń zasoby z siatką kluczy tajnych.
 
 |Polecenie|Opis|
 | --- | --- |
-| delete | Usuwa zasób tajny. |
+| usunięcie | Usuwa zasób tajny. |
 | list | Wyświetla listę wszystkich zasobów tajnych. |
 | pokaż | Pobiera tajny zasób o podaną nazwę. |
 
@@ -82,4 +83,4 @@ Pobiera informacje o zasobie tajnym o podanej nazwie. Informacje obejmują opis 
 
 ## <a name="next-steps"></a>Następne kroki
 - [Skonfiguruj](service-fabric-cli.md) interfejs wiersza polecenia Service Fabric.
-- Dowiedz się, jak używać interfejsu wiersza polecenia Service Fabric przy użyciu [przykładowych skryptów](/azure/service-fabric/scripts/sfctl-upgrade-application).
+- Dowiedz się, jak używać interfejsu wiersza polecenia Service Fabric przy użyciu [przykładowych skryptów](./scripts/sfctl-upgrade-application.md).

@@ -3,11 +3,12 @@ title: Usługa DNS Service Fabric Azure
 description: Użyj usługi DNS Service Fabric do odnajdywania mikrousług z wewnątrz klastra.
 ms.topic: conceptual
 ms.date: 7/20/2018
-ms.openlocfilehash: 317aa81238ec7a0dc24b69b1d00568901b9bc34f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6a6611281fd2d2368809419ad594d2eb1289b5a0
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75458035"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86258908"
 ---
 # <a name="dns-service-in-azure-service-fabric"></a>DNS Service in Azure Service Fabric (Usługa DNS w usłudze Azure Service Fabric)
 Usługa DNS to opcjonalna usługa systemowa, którą można włączyć w klastrze w celu odnajdywania innych usług przy użyciu protokołu DNS. 
@@ -41,7 +42,7 @@ Podczas tworzenia klastra przy użyciu portalu usługa DNS jest domyślnie włą
 Jeśli nie używasz portalu do utworzenia klastra lub jeśli aktualizujesz istniejący klaster, musisz włączyć usługę DNS w szablonie:
 
 - Aby wdrożyć nowy klaster, można użyć [przykładowych szablonów](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype) lub utworzyć własny szablon Menedżer zasobów. 
-- Aby zaktualizować istniejący klaster, możesz przejść do grupy zasobów klastra w portalu, a następnie kliknąć pozycję **skrypt automatyzacji** , aby współpracować z szablonem, który odzwierciedla bieżący stan klastra i innych zasobów w grupie. Aby dowiedzieć się więcej, zobacz [Eksportowanie szablonu z grupy zasobów](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template).
+- Aby zaktualizować istniejący klaster, możesz przejść do grupy zasobów klastra w portalu, a następnie kliknąć pozycję **skrypt automatyzacji** , aby współpracować z szablonem, który odzwierciedla bieżący stan klastra i innych zasobów w grupie. Aby dowiedzieć się więcej, zobacz [Eksportowanie szablonu z grupy zasobów](../azure-resource-manager/templates/export-template-portal.md).
 
 Po utworzeniu szablonu można włączyć usługę DNS, wykonując następujące czynności:
 
@@ -102,7 +103,7 @@ Po utworzeniu szablonu można włączyć usługę DNS, wykonując następujące 
 3. Po zaktualizowaniu szablonu klastra przy użyciu zmian zastosuj je i pozwól na zakończenie uaktualniania. Po zakończeniu uaktualniania usługa systemu DNS uruchamia się w klastrze. Nazwa usługi to `fabric:/System/DnsService` i można ją znaleźć w sekcji usługa **systemowa** w Eksploratorze Service Fabric. 
 
 > [!NOTE]
-> Podczas uaktualniania usługi DNS z wyłączone do włączonej, Service Fabric Explorer może nie odzwierciedlać nowego stanu. Aby rozwiązać ten problem, uruchom ponownie węzły, modyfikując UpgradePolicy w szablonie Azure Resource Manager. Więcej informacji można znaleźć w temacie [Service Fabric Template Reference](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/2019-03-01/clusters/applications) .
+> Podczas uaktualniania usługi DNS z wyłączone do włączonej, Service Fabric Explorer może nie odzwierciedlać nowego stanu. Aby rozwiązać ten problem, uruchom ponownie węzły, modyfikując UpgradePolicy w szablonie Azure Resource Manager. Więcej informacji można znaleźć w temacie [Service Fabric Template Reference](/azure/templates/microsoft.servicefabric/2019-03-01/clusters/applications) .
 
 > [!NOTE]
 > Włączenie usługi DNS podczas tworzenia na komputerze lokalnym spowoduje zastąpienie niektórych ustawień DNS. Jeśli występują problemy z połączeniem z Internetem, sprawdź ustawienia DNS.
@@ -128,7 +129,7 @@ Po wdrożeniu aplikacji wystąpienie usługi w Eksploratorze Service Fabric wyś
 
 ![punkty końcowe usługi](./media/service-fabric-dnsservice/service-fabric-explorer-dns.png)
 
-Poniższy przykład ustawia nazwę DNS usługi stanowej na `statefulsvc.app` . Usługa używa nazwanego schematu partycjonowania. Zauważ, że nazwy partycji są małymi literami. Jest to wymagane w przypadku partycji, które będą przeznaczone dla kwerend DNS; Aby uzyskać więcej informacji, zobacz [Tworzenie zapytań DNS na partycji usługi stanowej](https://docs.microsoft.com/azure/service-fabric/service-fabric-dnsservice#preview-making-dns-queries-on-a-stateful-service-partition).
+Poniższy przykład ustawia nazwę DNS usługi stanowej na `statefulsvc.app` . Usługa używa nazwanego schematu partycjonowania. Zauważ, że nazwy partycji są małymi literami. Jest to wymagane w przypadku partycji, które będą przeznaczone dla kwerend DNS; Aby uzyskać więcej informacji, zobacz [Tworzenie zapytań DNS na partycji usługi stanowej](#preview-making-dns-queries-on-a-stateful-service-partition).
 
 ```xml
     <Service Name="Stateful1" ServiceDnsName="statefulsvc.app" />
@@ -252,4 +253,3 @@ public class ValuesController : Controller
 
 ## <a name="next-steps"></a>Następne kroki
 Dowiedz się więcej o komunikacji usługi w ramach klastra przy użyciu [usługi Connect i Komunikuj się z usługami](service-fabric-connect-and-communicate-with-services.md)
-

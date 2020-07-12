@@ -1,10 +1,10 @@
 - name: Kubernetes
-  href: kubernetes/container-service-kubernetes-walkthrough.md
+  href: /previous-versions/azure/container-service/kubernetes/container-service-kubernetes-walkthrough
 - name: DC/OS i Docker Swarm
-  href: dcos-swarm/container-service-dcos-quickstart.md
+  href: /previous-versions/azure/container-service/dcos-swarm/container-service-dcos-quickstart
 - name: Zasoby
   items:
-    - name: Rozwijanie umiejętności dzięki Microsoft Learn
+    - name: Rozwijanie umiejętności dzięki środowisku Microsoft Learn
       href: /learn/browse/?products=azure-container-instances&azure-container-registry
     - name: Harmonogram działania dla platformy Azure
       href: 'https://azure.microsoft.com/roadmap/?category=containers'

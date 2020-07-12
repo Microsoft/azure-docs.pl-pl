@@ -3,11 +3,12 @@ title: Statyczny adres IP dla grupy kontenerów
 description: Utwórz grupę kontenerów w sieci wirtualnej i Użyj usługi Azure Application Gateway, aby udostępnić statyczny adres IP frontonu dla zwirtualizowanej aplikacji sieci Web.
 ms.topic: article
 ms.date: 03/16/2020
-ms.openlocfilehash: a27cf20b7d04fedb0b9e0ab408de24d37f2935c7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bc128da0f4c2e92af98781cef45f48f9e8aeab31
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84299166"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260785"
 ---
 # <a name="expose-a-static-ip-address-for-a-container-group"></a>Uwidacznianie statycznego adresu IP dla grupy kontenerów
 
@@ -28,7 +29,7 @@ Tak długo, jak działa Brama aplikacji, a grupa kontenerów uwidacznia stabilny
 
 W typowym przypadku może już istnieć Sieć wirtualna platformy Azure. Jeśli go nie masz, utwórz taki, jak pokazano w następujących przykładowych poleceniach. Sieć wirtualna wymaga oddzielnych podsieci dla bramy aplikacji i grupy kontenerów.
 
-Jeśli potrzebujesz, Utwórz grupę zasobów platformy Azure. Przykład:
+Jeśli potrzebujesz, Utwórz grupę zasobów platformy Azure. Na przykład:
 
 ```azureci
 az group create --name myResourceGroup --location eastus
@@ -102,7 +103,7 @@ ACI_IP=$(az container show \
 
 ## <a name="create-application-gateway"></a>Tworzenie bramy aplikacji
 
-Utwórz bramę aplikacji w sieci wirtualnej, wykonując czynności opisane w [przewodniku szybki start dotyczącym bramy aplikacji](../application-gateway/quick-create-cli.md). Poniższe polecenie [AZ Network Application-Gateway Create][az-network-application-gateway-create] tworzy bramę z publicznym adresem IP frontonu i trasą do grupy kontenerów zaplecza. Szczegółowe informacje na temat ustawień bramy znajdują się w [dokumentacji Application Gateway](/azure/application-gateway/) .
+Utwórz bramę aplikacji w sieci wirtualnej, wykonując czynności opisane w [przewodniku szybki start dotyczącym bramy aplikacji](../application-gateway/quick-create-cli.md). Poniższe polecenie [AZ Network Application-Gateway Create][az-network-application-gateway-create] tworzy bramę z publicznym adresem IP frontonu i trasą do grupy kontenerów zaplecza. Szczegółowe informacje na temat ustawień bramy znajdują się w [dokumentacji Application Gateway](../application-gateway/index.yml) .
 
 ```azurecli
 az network application-gateway create \

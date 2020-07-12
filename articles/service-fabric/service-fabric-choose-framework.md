@@ -5,11 +5,12 @@ author: vturecek
 ms.topic: conceptual
 ms.date: 01/07/2020
 ms.custom: sfrev
-ms.openlocfilehash: 11e32c9d1290227e638a314ed8417b1bed906842
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8e1c96d0b04140f8c1121cfb74b43969b49cfdda
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75749535"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260532"
 ---
 # <a name="service-fabric-programming-model-overview"></a>Omówienie modelu programowania usługi Service Fabric
 
@@ -25,7 +26,7 @@ Wprowadzenie do plików wykonywalnych gościa przez wdrożenie pierwszej [aplika
 
 Domyślnie program Service Fabric wdraża i aktywuje usługi jako procesy. Service Fabric można również wdrożyć usługi w [kontenerach](service-fabric-containers-overview.md). Service Fabric obsługuje wdrażanie kontenerów systemu Linux i kontenerów Windows w systemie Windows Server 2016 i nowszych. Obrazy kontenerów można ściągnąć z dowolnego repozytorium kontenera i wdrożyć je na komputerze. Istniejące aplikacje można wdrażać jako pliki wykonywalne gościa, Service Fabric bezstanowe lub stanowe usługi niezawodne lub Reliable Actors w kontenerach, a także łączyć usługi w ramach procesów i usług w kontenerach w tej samej aplikacji.
 
-[Dowiedz się więcej na temat konteneryzowania usług w systemie Windows lub Linux](service-fabric-deploy-container.md)
+[Dowiedz się więcej na temat konteneryzowania usług w systemie Windows lub Linux](./service-fabric-get-started-containers.md)
 
 ## <a name="reliable-services"></a>Reliable Services
 

@@ -4,12 +4,12 @@ description: Dowiedz się więcej o scenariuszach zabezpieczeń dla klastra usł
 ms.topic: conceptual
 ms.date: 08/14/2018
 ms.custom: sfrev
-ms.openlocfilehash: ba1565c31e8a3ce3f25501f0cad321d5413dc962
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 258a6dd141ccc31516e37dac9f265328f981bbf5
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85080681"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86261065"
 ---
 # <a name="service-fabric-cluster-security-scenarios"></a>Scenariusze zabezpieczeń klastra Service Fabric
 
@@ -27,7 +27,7 @@ Zabezpieczenia typu węzeł-węzeł pomagają w zabezpieczaniu komunikacji międ
 
 ![Diagram komunikacji między węzłami][Node-to-Node]
 
-Klastry działające na platformie Azure i autonomicznych klastrach działających w systemie Windows mogą korzystać z [zabezpieczeń certyfikatów](https://msdn.microsoft.com/library/ff649801.aspx) lub [zabezpieczeń systemu Windows](https://msdn.microsoft.com/library/ff649396.aspx) na komputerach z systemem Windows Server.
+Klastry działające na platformie Azure i autonomicznych klastrach działających w systemie Windows mogą korzystać z [zabezpieczeń certyfikatów](/previous-versions/msp-n-p/ff649801(v=pandp.10)) lub [zabezpieczeń systemu Windows](/previous-versions/msp-n-p/ff649396(v=pandp.10)) na komputerach z systemem Windows Server.
 
 ### <a name="node-to-node-certificate-security"></a>Zabezpieczenia certyfikatów między węzłami
 
@@ -54,7 +54,7 @@ Zabezpieczenia klienta w węźle uwierzytelniają klientów i pomagają w zabezp
 
 ![Diagram komunikacji między klientem a węzłem][Client-to-Node]
 
-Klastry działające na platformie Azure i w klastrach autonomicznych działających w systemie Windows mogą korzystać z [zabezpieczeń certyfikatów](https://msdn.microsoft.com/library/ff649801.aspx) lub [zabezpieczeń systemu Windows](https://msdn.microsoft.com/library/ff649396.aspx), ale zalecane jest użycie uwierzytelniania certyfikatu X. 509, jeśli to możliwe.
+Klastry działające na platformie Azure i w klastrach autonomicznych działających w systemie Windows mogą korzystać z [zabezpieczeń certyfikatów](/previous-versions/msp-n-p/ff649801(v=pandp.10)) lub [zabezpieczeń systemu Windows](/previous-versions/msp-n-p/ff649396(v=pandp.10)), ale zalecane jest użycie uwierzytelniania certyfikatu X. 509, jeśli to możliwe.
 
 ### <a name="client-to-node-certificate-security"></a>Zabezpieczenia certyfikatów między klientami a węzłami
 
@@ -95,7 +95,7 @@ Podczas tworzenia klastra Ustaw role administratora i klienta użytkownika. Przy
 
 ## <a name="x509-certificates-and-service-fabric"></a>Certyfikaty X. 509 i Service Fabric
 
-Certyfikaty cyfrowe X. 509 są zwykle używane do uwierzytelniania klientów i serwerów. Są one również używane do szyfrowania i cyfrowego podpisywania wiadomości. Service Fabric używa certyfikatów X. 509 w celu zabezpieczenia klastra i zapewnienia funkcji zabezpieczeń aplikacji. Aby uzyskać więcej informacji na temat certyfikatów cyfrowych X. 509, zobacz [Praca z certyfikatami](https://msdn.microsoft.com/library/ms731899.aspx). [Key Vault](../key-vault/general/overview.md) służy do zarządzania certyfikatami dla klastrów Service Fabric na platformie Azure.
+Certyfikaty cyfrowe X. 509 są zwykle używane do uwierzytelniania klientów i serwerów. Są one również używane do szyfrowania i cyfrowego podpisywania wiadomości. Service Fabric używa certyfikatów X. 509 w celu zabezpieczenia klastra i zapewnienia funkcji zabezpieczeń aplikacji. Aby uzyskać więcej informacji na temat certyfikatów cyfrowych X. 509, zobacz [Praca z certyfikatami](/dotnet/framework/wcf/feature-details/working-with-certificates). [Key Vault](../key-vault/general/overview.md) służy do zarządzania certyfikatami dla klastrów Service Fabric na platformie Azure.
 
 Niektóre ważne zagadnienia, które należy wziąć pod uwagę:
 

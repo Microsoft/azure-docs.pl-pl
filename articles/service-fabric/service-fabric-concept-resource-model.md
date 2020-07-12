@@ -4,12 +4,12 @@ description: Ten artykuł zawiera omówienie zarządzania aplikacją Service Fab
 ms.topic: conceptual
 ms.date: 10/21/2019
 ms.custom: sfrev
-ms.openlocfilehash: 7a9f59e3e44d3302ac19c7a9e7e77beb51947ce4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7ad0d4f6d92ba8d85383df281bd14681f43bb6d4
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81682642"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86258731"
 ---
 # <a name="service-fabric-application-resource-model"></a>Model zasobów aplikacji Service Fabric
 
@@ -56,7 +56,7 @@ Zasoby w klastrze mogą być zabezpieczone przez ustawienie publicznego poziomu 
 
 * Autoryzuj dostęp do obiektów blob i kolejek przy użyciu [Azure Active Directory](../storage/common/storage-auth-aad-app.md).
 * Udzielanie dostępu do obiektów blob platformy Azure i danych z kolejki przy użyciu [RBAC w Azure Portal](../storage/common/storage-auth-aad-rbac-portal.md).
-* Delegowanie dostępu przy użyciu [sygnatury dostępu współdzielonego](https://docs.microsoft.com/rest/api/storageservices/delegate-access-with-shared-access-signature).
+* Delegowanie dostępu przy użyciu [sygnatury dostępu współdzielonego](/rest/api/storageservices/delegate-access-with-shared-access-signature).
 
 Przykład na poniższym zrzucie ekranu używa anonimowego dostępu do odczytu dla obiektów BLOB.
 
@@ -166,13 +166,13 @@ Możesz uaktualnić aplikację, która została już wdrożona w klastrze Servic
 
 Aby usunąć aplikację, która została wdrożona przy użyciu modelu zasobów aplikacji w Menedżer zasobów:
 
-1. Użyj polecenia cmdlet [Get-AzResource](https://docs.microsoft.com/powershell/module/az.resources/get-azresource?view=azps-2.5.0) , aby uzyskać identyfikator zasobu dla aplikacji:
+1. Użyj polecenia cmdlet [Get-AzResource](/powershell/module/az.resources/get-azresource?view=azps-2.5.0) , aby uzyskać identyfikator zasobu dla aplikacji:
 
     ```powershell
     Get-AzResource  -Name <String> | f1
     ```
 
-1. Użyj polecenia cmdlet [Remove-AzResource](https://docs.microsoft.com/powershell/module/az.resources/remove-azresource?view=azps-2.5.0) , aby usunąć zasoby aplikacji:
+1. Użyj polecenia cmdlet [Remove-AzResource](/powershell/module/az.resources/remove-azresource?view=azps-2.5.0) , aby usunąć zasoby aplikacji:
 
     ```powershell
     Remove-AzResource  -ResourceId <String> [-Force] [-ApiVersion <String>]

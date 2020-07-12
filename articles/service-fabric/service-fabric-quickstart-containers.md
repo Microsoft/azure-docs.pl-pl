@@ -5,12 +5,12 @@ ms.topic: quickstart
 ms.date: 07/10/2019
 ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 477d47fabc59c5718c449418f225d6a38838b270
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: da50fb9f331e91089bb6bf0fb373cab8045639f0
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75466266"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260515"
 ---
 # <a name="quickstart-deploy-windows-containers-to-service-fabric"></a>Szybki start: wdrażanie kontenerów systemu Windows do usługi Service Fabric
 
@@ -41,7 +41,7 @@ W tym przewodniku Szybki start zawarto informacje na temat wykonywania następuj
 
 Zestaw SDK usługi Service Fabric oraz narzędzia udostępniają szablon usługi ułatwiający wdrażanie kontenera w klastrze usługi Service Fabric.
 
-Uruchom program Visual Studio jako administrator.  Wybierz pozycję **plik** > **Nowy** > **projekt**.
+Uruchom program Visual Studio jako administrator.  Wybierz pozycję **plik**  >  **Nowy**  >  **projekt**.
 
 Wybierz **Service Fabric aplikację**, nadaj jej nazwę "MyFirstContainer", a następnie kliknij pozycję **Utwórz**.
 
@@ -90,13 +90,13 @@ W razie potrzeby zainstaluj program Azure PowerShell przy użyciu instrukcji dos
 
 Przed uruchomieniem poniższego skryptu programu PowerShell uruchom polecenie `Connect-AzAccount` w celu utworzenia połączenia z platformą Azure.
 
-Skopiuj poniższy skrypt do Schowka i otwórz program **Windows PowerShell ISE**.  Wklej tę zawartość w pustym oknie pliku Untitled1.ps1. Następnie `subscriptionId`podaj wartości zmiennych w skrypcie:, `certpwd` `certfolder` `adminuser` `adminpwd`,,, i tak dalej.  Katalog określony w zmiennej `certfolder` musi istnieć przed uruchomieniem skryptu.
+Skopiuj poniższy skrypt do Schowka i otwórz program **Windows PowerShell ISE**.  Wklej tę zawartość w pustym oknie pliku Untitled1.ps1. Następnie podaj wartości zmiennych w skrypcie:,,, `subscriptionId` , `certpwd` `certfolder` `adminuser` `adminpwd` i tak dalej.  Katalog określony w zmiennej `certfolder` musi istnieć przed uruchomieniem skryptu.
 
 [!code-powershell[main](../../powershell_scripts/service-fabric/create-secure-cluster/create-secure-cluster.ps1 "Create a Service Fabric cluster")]
 
 Po podaniu wartości dla zmiennych naciśnij klawisz **F5** , aby uruchomić skrypt.
 
-Po uruchomieniu skryptu i utworzeniu klastra znajdź w danych wyjściowych pozycję `ClusterEndpoint`. Przykład:
+Po uruchomieniu skryptu i utworzeniu klastra znajdź w danych wyjściowych pozycję `ClusterEndpoint`. Na przykład:
 
 ```powershell
 ...
@@ -142,13 +142,13 @@ Kliknij przycisk **Opublikuj**.
 
 Każda aplikacja w klastrze musi mieć unikatową nazwę. W przypadku konfliktu nazw Zmień nazwę projektu programu Visual Studio i Wdróż go ponownie.
 
-Otwórz przeglądarkę i przejdź do adresu, który został umieszczony w polu **Punkt końcowy połączenia** w poprzednim kroku. Adres URL można opcjonalnie poprzedzić identyfikatorem schematu `http://` i dołączyć port `:80`. Na przykład http:\//mysfcluster.SouthCentralUS.cloudapp.Azure.com:80.
+Otwórz przeglądarkę i przejdź do adresu, który został umieszczony w polu **Punkt końcowy połączenia** w poprzednim kroku. Adres URL można opcjonalnie poprzedzić identyfikatorem schematu `http://` i dołączyć port `:80`. Na przykład http: \/ /mysfcluster.SouthCentralUS.cloudapp.Azure.com:80.
 
  Powinna zostać wyświetlona domyślna strona internetowa usługi IIS: ![domyślna strona internetowa usług IIS][iis-default]
 
 ## <a name="clean-up"></a>Czyszczenie
 
-Podczas działania klastra nadal są naliczane opłaty. Rozważ [usunięcie klastra](service-fabric-cluster-delete.md).
+Podczas działania klastra nadal są naliczane opłaty. Rozważ [usunięcie klastra](./service-fabric-tutorial-delete-cluster.md).
 
 ## <a name="next-steps"></a>Następne kroki
 

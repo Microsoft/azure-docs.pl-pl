@@ -4,12 +4,12 @@ description: Dowiedz się, jak szybko rozpocząć pracę z usługą Azure API Ma
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.custom: mvc
-ms.openlocfilehash: 7bd781a21a32ca29fe3f5dd2f4432dbf1e5ca411
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 40f8c53394292a85f6fd032e445d79ed82e2d4e9
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80292141"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260255"
 ---
 # <a name="integrate-api-management-with-service-fabric-in-azure"></a>Integracja API Management z Service Fabric na platformie Azure
 
@@ -30,7 +30,7 @@ W tym artykule opisano sposób konfigurowania [usługi Azure API Management](../
 Przed rozpoczęciem:
 
 * Jeśli nie masz subskrypcji platformy Azure, Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* Zainstaluj program [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps) lub [interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
+* Zainstaluj program [Azure PowerShell](/powershell/azure/install-az-ps) lub [interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
 * Utwórz bezpieczny [klaster systemu Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) w sieciowej grupie zabezpieczeń.
 * W przypadku wdrażania klastra systemu Windows skonfiguruj środowisko deweloperskie w systemie Windows. Zainstaluj [program Visual Studio 2019](https://www.visualstudio.com) oraz **wieloplatformowe obciążenia programistyczne** **platformy Azure**, **ASP.NET i Web Development**oraz platformy .NET Core.  Następnie skonfiguruj [środowisko deweloperskie platformy .NET](service-fabric-get-started.md).
 
@@ -151,9 +151,9 @@ Aby dodać operację interfejsu API frontonu, podaj następujące wartości:
 
 ### <a name="microsoftapimanagementserviceapispolicies"></a>Microsoft.ApiManagement/service/apis/policies
 
-Szablon [Microsoft.ApiManagement/service/apis/policies](/azure/templates/microsoft.apimanagement/service/apis/policies) umożliwia utworzenie zasad zaplecza, które pozwalają zintegrować wszystkie elementy. Zasady te umożliwiają skonfigurowanie usługi Service Fabric zaplecza, do której są kierowane żądania. Zasady można zastosować do dowolnej operacji interfejsu API.  Aby uzyskać więcej informacji, zobacz [Omówienie zasad](/azure/api-management/api-management-howto-policies).
+Szablon [Microsoft.ApiManagement/service/apis/policies](/azure/templates/microsoft.apimanagement/service/apis/policies) umożliwia utworzenie zasad zaplecza, które pozwalają zintegrować wszystkie elementy. Zasady te umożliwiają skonfigurowanie usługi Service Fabric zaplecza, do której są kierowane żądania. Zasady można zastosować do dowolnej operacji interfejsu API.  Aby uzyskać więcej informacji, zobacz [Omówienie zasad](../api-management/api-management-howto-policies.md).
 
-[Konfiguracja zaplecza dla usługi Service Fabric](/azure/api-management/api-management-transformation-policies#SetBackendService) udostępnia następujące możliwości sterowania routingiem żądań:
+[Konfiguracja zaplecza dla usługi Service Fabric](../api-management/api-management-transformation-policies.md#SetBackendService) udostępnia następujące możliwości sterowania routingiem żądań:
 
 * Wybieranie wystąpienia usługi przez podanie nazwy wystąpienia usługi Service Fabric — zakodowanej (na przykład `"fabric:/myapp/myservice"`) lub wygenerowanej na podstawie żądania HTTP (na przykład `"fabric:/myapp/users/" + context.Request.MatchedParameters["name"]`).
 * Rozpoznawanie partycji przez wygenerowanie klucza partycji przy użyciu dowolnego schematu partycjonowania usługi Service Fabric.
@@ -180,7 +180,7 @@ Szablon [Microsoft.ApiManagement/service/apis/policies](/azure/templates/microso
 </policies>
 ```
 
-Aby uzyskać pełny zestaw atrybutów zasad zaplecza usługi Service Fabric, zobacz[API Management back-end documentation (Dokumentacja zaplecza usługi API Management)](https://docs.microsoft.com/azure/api-management/api-management-transformation-policies#SetBackendService).
+Aby uzyskać pełny zestaw atrybutów zasad zaplecza usługi Service Fabric, zobacz[API Management back-end documentation (Dokumentacja zaplecza usługi API Management)](../api-management/api-management-transformation-policies.md#SetBackendService).
 
 ## <a name="set-parameters-and-deploy-api-management"></a>Ustawianie parametrów i wdrażanie usługi API Management
 
@@ -190,7 +190,7 @@ Wypełnij następujące puste parametry szablonu *apim.parameters.json* dla dane
 |---|---|
 |apimInstanceName|sf-apim|
 |apimPublisherEmail|myemail@contosos.com|
-|apimSku|Deweloper|
+|apimSku|Developer|
 |serviceFabricCertificateName|sfclustertutorialgroup320171031144217|
 |certificatePassword|q6D7nN%6ck@6|
 |serviceFabricCertificateThumbprint|C4C1E541AD512B8065280292A8BA6079C3F26F10 |
@@ -291,9 +291,9 @@ az group delete --name $ResourceGroupName
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej o korzystaniu z [API Management](/azure/api-management/import-and-publish).
+Dowiedz się więcej o korzystaniu z [API Management](../api-management/import-and-publish.md).
 
-[azure-powershell]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/
+[azure-powershell]: /powershell/azure/
 
 [apim-arm]:https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/service-integration/apim.json
 [apim-parameters-arm]:https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/service-integration/apim.parameters.json

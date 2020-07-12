@@ -8,11 +8,12 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 70ae4a014768976c7dcf81ffadf1066027fa06ad
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 956934bd536d8eb5e692ed193cad1424929db24b
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85214285"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260758"
 ---
 # <a name="expand-an-existing-host-pool-with-new-session-hosts"></a>Rozwiń istniejącą pulę hostów przy użyciu nowych hostów sesji
 
@@ -75,7 +76,7 @@ Oto jak ponownie wdrożyć szablon Azure Resource Manager, aby rozszerzyć pulę
 
 Postępuj zgodnie z instrukcjami w temacie [Tworzenie puli hostów za pomocą witryny Azure Marketplace](create-host-pools-azure-marketplace-2019.md) do momentu osiągnięcia [oferty usługi Azure Marketplace w celu aprowizacji nowej puli hostów](create-host-pools-azure-marketplace-2019.md#run-the-azure-marketplace-offering-to-provision-a-new-host-pool). Po uzyskaniu tego punktu należy wprowadzić następujące informacje dla każdej karty:
 
-### <a name="basics"></a>Informacje podstawowe
+### <a name="basics"></a>Podstawy
 
 Wszystkie wartości w tej sekcji powinny być zgodne z informacjami podanymi podczas pierwszego tworzenia puli hostów i maszyn wirtualnych hosta sesji, z wyjątkiem *domyślnego użytkownika pulpitu*:
 
@@ -129,7 +130,7 @@ Postępuj zgodnie z instrukcjami w temacie [Uruchamianie szablonu Azure Resource
 
 Po rozwinięciu istniejącej puli hostów możesz zalogować się do klienta pulpitu wirtualnego systemu Windows, aby przetestować je w ramach sesji użytkownika. Możesz połączyć się z sesją przy użyciu dowolnego z następujących klientów:
 
-- [Łączenie się z klientem klasycznym systemu Windows](../connect-windows-7-and-10.md)
+- [Łączenie się z klientem klasycznym systemu Windows](connect-windows-7-10-2019.md)
 - [Łączenie się z klientem internetowym](connect-web-2019.md)
 - [Łączenie się z klientem systemu Android](connect-android-2019.md)
 - [Nawiązywanie połączenia z klientem systemu macOS](connect-macos-2019.md)

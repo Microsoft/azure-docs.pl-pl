@@ -4,12 +4,12 @@ description: Scenariusze, zasoby i ograniczenia dotyczące wdrażania grup konte
 ms.topic: article
 ms.date: 04/29/2020
 ms.author: danlep
-ms.openlocfilehash: 77fbdb1720e571027f28b5bdca5c0e3c65c3ded2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c4e983e7d83e661b4ba50ebe2c6d65bce2f42514
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82584404"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259540"
 ---
 # <a name="virtual-network-scenarios-and-resources"></a>Scenariusze i zasoby sieci wirtualnej
 
@@ -67,7 +67,7 @@ Podsieć używana dla grup kontenerów może zawierać tylko grupy kontenerów. 
 
 Profil sieci to szablon konfiguracji sieci dla zasobów platformy Azure. Określa pewne właściwości sieci dla zasobu, na przykład podsieć, w której ma zostać wdrożona. Po pierwszym użyciu polecenia [AZ Container Create][az-container-create] do wdrożenia grupy kontenerów w podsieci (i w ten sposób do sieci wirtualnej) platforma Azure tworzy profil sieciowy. Tego profilu sieciowego można następnie użyć do przyszłych wdrożeń w podsieci. 
 
-Aby użyć szablonu Menedżer zasobów, pliku YAML lub metody programowej do wdrożenia grupy kontenerów w podsieci, należy podać pełny Menedżer zasobów identyfikator zasobu profilu sieciowego. Możesz użyć profilu utworzonego wcześniej przy użyciu polecenia [AZ Container Create][az-container-create]lub Create a profile przy użyciu szablonu Menedżer zasobów (zobacz [przykład szablonu](https://github.com/Azure/azure-quickstart-templates/tree/master/101-aci-vnet) i [odwołanie](https://docs.microsoft.com/azure/templates/microsoft.network/networkprofiles)). Aby uzyskać identyfikator utworzonego wcześniej profilu, użyj polecenia [AZ Network profile list][az-network-profile-list] . 
+Aby użyć szablonu Menedżer zasobów, pliku YAML lub metody programowej do wdrożenia grupy kontenerów w podsieci, należy podać pełny Menedżer zasobów identyfikator zasobu profilu sieciowego. Możesz użyć profilu utworzonego wcześniej przy użyciu polecenia [AZ Container Create][az-container-create]lub Create a profile przy użyciu szablonu Menedżer zasobów (zobacz [przykład szablonu](https://github.com/Azure/azure-quickstart-templates/tree/master/101-aci-vnet) i [odwołanie](/azure/templates/microsoft.network/networkprofiles)). Aby uzyskać identyfikator utworzonego wcześniej profilu, użyj polecenia [AZ Network profile list][az-network-profile-list] . 
 
 Na poniższym diagramie kilka grup kontenerów zostało wdrożonych w podsieci delegowanej do Azure Container Instances. Po wdrożeniu jednej grupy kontenerów w podsieci można wdrożyć do niej dodatkowe grupy kontenerów, określając ten sam profil sieci.
 
@@ -86,4 +86,3 @@ Na poniższym diagramie kilka grup kontenerów zostało wdrożonych w podsieci d
 <!-- LINKS - Internal -->
 [az-container-create]: /cli/azure/container#az-container-create
 [az-network-profile-list]: /cli/azure/network/profile#az-network-profile-list
-

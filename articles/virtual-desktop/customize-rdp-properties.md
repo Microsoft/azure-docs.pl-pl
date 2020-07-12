@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 06/19/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 4cbfe03c48c6d971c140dc332c38a47bc9234173
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: d41df8fe4f411cf28af83c8b4b667f1e86bdb45d
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86135116"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259912"
 ---
 # <a name="customize-remote-desktop-protocol-properties-for-a-host-pool"></a>Dostosowywanie Remote Desktop Protocol właściwości dla puli hostów
 
@@ -132,7 +132,7 @@ CustomRdpProperty : <CustomRDPpropertystring>
 
 Teraz, po dostosowaniu właściwości RDP dla danej puli hostów, można zalogować się do klienta pulpitu wirtualnego systemu Windows, aby przetestować je w ramach sesji użytkownika. W poniższych następnych przewodnikach przedstawiono sposób nawiązywania połączenia z sesją przy użyciu wybranego przez siebie klienta:
 
-- [Łączenie się z klientem klasycznym systemu Windows](connect-windows-7-and-10.md)
+- [Łączenie się z klientem klasycznym systemu Windows](connect-windows-7-10.md)
 - [Łączenie się z klientem internetowym](connect-web.md)
 - [Łączenie się z klientem systemu Android](connect-android.md)
 - [Nawiązywanie połączenia z klientem systemu macOS](connect-macos.md)

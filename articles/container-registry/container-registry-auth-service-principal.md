@@ -3,11 +3,12 @@ title: Uwierzytelnianie za pomocą jednostki usługi
 description: Zapewnianie dostępu do obrazów w prywatnym rejestrze kontenera przy użyciu nazwy głównej usługi Azure Active Directory.
 ms.topic: article
 ms.date: 10/04/2019
-ms.openlocfilehash: 37da784c8e95a5f5b924532e4a019552924a1a3f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8d49628576a1c337efaea3e5286fef00e39def17
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74455408"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259139"
 ---
 # <a name="azure-container-registry-authentication-with-service-principals"></a>Uwierzytelnianie Azure Container Registry przy użyciu jednostek usługi
 
@@ -27,9 +28,9 @@ Na przykład skonfiguruj aplikację sieci Web tak, aby korzystała z jednostki u
 
 ## <a name="when-to-use-a-service-principal"></a>Kiedy używać nazwy głównej usługi
 
-Aby zapewnić dostęp do rejestru w **scenariuszach bezobsługowym**, należy użyć nazwy głównej usługi. Oznacza to, że dowolna aplikacja, usługa lub skrypt, który musi wypchnąć lub ściągnąć obrazy kontenerów w sposób zautomatyzowany lub w inny sposób nienadzorowany. Przykład:
+Aby zapewnić dostęp do rejestru w **scenariuszach bezobsługowym**, należy użyć nazwy głównej usługi. Oznacza to, że dowolna aplikacja, usługa lub skrypt, który musi wypchnąć lub ściągnąć obrazy kontenerów w sposób zautomatyzowany lub w inny sposób nienadzorowany. Na przykład:
 
-  * *Ściąganie*: wdrażanie kontenerów z rejestru w systemach aranżacji, takich jak KUBERNETES, DC/OS i Docker Swarm. Możesz również ściągnąć z rejestrów kontenerów do powiązanych usług platformy Azure, takich jak [Azure Kubernetes Service (AKS)](../aks/cluster-container-registry-integration.md), [Azure Container Instances](container-registry-auth-aci.md), [App Service](../app-service/index.yml), [Batch](../batch/index.yml), [Service Fabric](/azure/service-fabric/)i innych.
+  * *Ściąganie*: wdrażanie kontenerów z rejestru w systemach aranżacji, takich jak KUBERNETES, DC/OS i Docker Swarm. Możesz również ściągnąć z rejestrów kontenerów do powiązanych usług platformy Azure, takich jak [Azure Kubernetes Service (AKS)](../aks/cluster-container-registry-integration.md), [Azure Container Instances](container-registry-auth-aci.md), [App Service](../app-service/index.yml), [Batch](../batch/index.yml), [Service Fabric](../service-fabric/index.yml)i innych.
 
   * *Wypychanie*: Tworzenie obrazów kontenerów i wypychanie ich do rejestru przy użyciu rozwiązań ciągłej integracji i wdrażania, takich jak Azure Pipelines lub Jenkins.
 

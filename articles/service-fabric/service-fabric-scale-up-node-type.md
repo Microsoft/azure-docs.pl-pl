@@ -3,12 +3,12 @@ title: Skalowanie w górę typu węzła Service Fabric platformy Azure
 description: Dowiedz się, jak skalować klaster Service Fabric przez dodanie zestawu skalowania maszyn wirtualnych.
 ms.topic: article
 ms.date: 02/13/2019
-ms.openlocfilehash: 2d700367049e0bf9bf710aad110c850a78c26220
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a42e33fa87b6cf7966368481ef6d3920511919e3
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85610697"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260457"
 ---
 # <a name="scale-up-a-service-fabric-cluster-primary-node-type"></a>Skalowanie w górę węzła klastra usługi Service Fabric podstawowego typu
 W tym artykule opisano sposób skalowania w górę typu węzła podstawowego klastra Service Fabric przez zwiększenie zasobów maszyny wirtualnej. Klaster Service Fabric jest połączonym z siecią zestawem maszyn wirtualnych lub fizycznych, w którym są wdrażane i zarządzane mikrousługi. Maszyna lub maszyna wirtualna będąca częścią klastra nazywa się węzłem. Zestawy skalowania maszyn wirtualnych to zasób obliczeniowy platformy Azure, który służy do wdrażania kolekcji maszyn wirtualnych jako zestawu i zarządzania nią. Każdy typ węzła, który jest zdefiniowany w klastrze platformy Azure [, jest ustawiany jako oddzielny zestaw skalowania](service-fabric-cluster-nodetypes.md). Każdy typ węzła może być następnie zarządzany osobno. Po utworzeniu klastra Service Fabric można skalować typ węzła klastra w pionie (zmienić zasoby węzłów) lub uaktualnić system operacyjny maszyn wirtualnych typu węzła.  Klaster można skalować w dowolnym momencie, nawet w przypadku uruchamiania obciążeń w klastrze.  W miarę skalowania klastra aplikacje są automatycznie skalowane.
@@ -49,7 +49,7 @@ Następnie zaloguj się do konta platformy Azure.
 Login-AzAccount -SubscriptionId "<your subscription ID>"
 ```
 
-Ten samouczek przeprowadzi Cię przez scenariusz tworzenia certyfikatu z podpisem własnym. Aby użyć istniejącego certyfikatu z Azure Key Vault, Pomiń ten krok i w zamian wykonaj duplikaty kroków z [używania istniejącego certyfikatu w celu wdrożenia klastra](https://docs.microsoft.com/azure/service-fabric/upgrade-managed-disks#use-an-existing-certificate-to-deploy-the-cluster).
+Ten samouczek przeprowadzi Cię przez scenariusz tworzenia certyfikatu z podpisem własnym. Aby użyć istniejącego certyfikatu z Azure Key Vault, Pomiń ten krok i w zamian wykonaj duplikaty kroków z [używania istniejącego certyfikatu w celu wdrożenia klastra](./upgrade-managed-disks.md#use-an-existing-certificate-to-deploy-the-cluster).
 
 ### <a name="generate-a-self-signed-certificate-and-deploy-the-cluster"></a>Wygeneruj certyfikat z podpisem własnym i Wdróż klaster
 
@@ -251,4 +251,3 @@ Typ węzła podstawowego klastra został teraz uaktualniony. Sprawdź, czy wdro�
 * [Skalowanie klastra platformy Azure w poziomie lub na zewnątrz](service-fabric-tutorial-scale-cluster.md).
 * [Programowo Skaluj klaster platformy Azure](service-fabric-cluster-programmatic-scaling.md) przy użyciu zestawu Azure COMPUTE SDK.
 * [Skalowanie klastra autonomicznego w poziomie lub na zewnątrz](service-fabric-cluster-windows-server-add-remove-nodes.md).
-

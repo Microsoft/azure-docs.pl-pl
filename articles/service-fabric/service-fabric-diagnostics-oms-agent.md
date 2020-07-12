@@ -5,11 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 04/16/2018
 ms.author: srrengar
-ms.openlocfilehash: c3c1bf511f3313e7408d6ce90b73de60bd1309f7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b91a8a8742a5bdc9454ebcbd8894889084a12a79
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79366749"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86258680"
 ---
 # <a name="performance-monitoring-with-azure-monitor-logs"></a>Monitorowanie wydajności za pomocą dzienników Azure Monitor
 
@@ -22,7 +23,7 @@ W tym artykule opisano procedurę dodawania agenta Log Analytics jako rozszerzen
 
 ## <a name="add-the-agent-extension-via-azure-cli"></a>Dodawanie rozszerzenia agenta za pomocą interfejsu wiersza polecenia platformy Azure
 
-Najlepszym sposobem dodawania agenta Log Analytics do klastra jest za pośrednictwem interfejsów API zestawu skalowania maszyn wirtualnych dostępnych w interfejsie wiersza polecenia platformy Azure. Jeśli nie masz jeszcze skonfigurowanego interfejsu wiersza polecenia platformy Azure, przejdź do Azure Portal i Otwórz wystąpienie [Cloud Shell](../cloud-shell/overview.md) lub [Zainstaluj interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Najlepszym sposobem dodawania agenta Log Analytics do klastra jest za pośrednictwem interfejsów API zestawu skalowania maszyn wirtualnych dostępnych w interfejsie wiersza polecenia platformy Azure. Jeśli nie masz jeszcze skonfigurowanego interfejsu wiersza polecenia platformy Azure, przejdź do Azure Portal i Otwórz wystąpienie [Cloud Shell](../cloud-shell/overview.md) lub [Zainstaluj interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
 
 1. Po zażądaniu Cloud Shell upewnij się, że Pracujesz w tej samej subskrypcji co zasób. Sprawdź to `az account show` i upewnij się, że wartość "name" jest zgodna z subskrypcją klastra.
 
@@ -72,7 +73,7 @@ Teraz, po dodaniu agenta Log Analytics, przejdź do portalu Log Analytics, aby w
 
 3. Kliknij pozycję **Ustawienia zaawansowane**.
 
-4. Kliknij pozycję **dane**, a następnie kliknij pozycję **liczniki wydajności systemu Windows lub Linux**. Istnieje lista domyślnych liczników, które można włączyć, i można ustawić interwał dla kolekcji. Możesz również dodać [Dodatkowe liczniki wydajności](service-fabric-diagnostics-event-generation-perf.md) do zbierania. W tym [artykule](https://msdn.microsoft.com/library/windows/desktop/aa373193(v=vs.85).aspx)jest przywoływany właściwy format.
+4. Kliknij pozycję **dane**, a następnie kliknij pozycję **liczniki wydajności systemu Windows lub Linux**. Istnieje lista domyślnych liczników, które można włączyć, i można ustawić interwał dla kolekcji. Możesz również dodać [Dodatkowe liczniki wydajności](service-fabric-diagnostics-event-generation-perf.md) do zbierania. W tym [artykule](/windows/win32/perfctrs/specifying-a-counter-path)jest przywoływany właściwy format.
 
 5. Kliknij przycisk **Zapisz**, a następnie kliknij przycisk **OK**.
 
@@ -91,5 +92,5 @@ Teraz, po dodaniu agenta Log Analytics, przejdź do portalu Log Analytics, aby w
 ## <a name="next-steps"></a>Następne kroki
 
 * Zbierz odpowiednie [liczniki wydajności](service-fabric-diagnostics-event-generation-perf.md). Aby skonfigurować agenta Log Analytics do zbierania określonych liczników wydajności, zapoznaj się z tematem [Konfigurowanie źródeł danych](../azure-monitor/platform/agent-data-sources.md#configuring-data-sources).
-* Konfigurowanie dzienników Azure Monitor, aby skonfigurować [Automatyczne alerty](../log-analytics/log-analytics-alerts.md) w celu ułatwienia wykrywania i diagnostyki
+* Konfigurowanie dzienników Azure Monitor, aby skonfigurować [Automatyczne alerty](../azure-monitor/platform/alerts-overview.md) w celu ułatwienia wykrywania i diagnostyki
 * Alternatywnie można zbierać liczniki wydajności przy użyciu [rozszerzenia Diagnostyka Azure i wysyłać je do Application Insights](service-fabric-diagnostics-event-aggregation-wad.md#add-the-application-insights-sink-to-the-resource-manager-template)

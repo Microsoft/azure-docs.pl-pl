@@ -5,12 +5,12 @@ author: georgewallace
 ms.topic: conceptual
 ms.date: 2/28/2018
 ms.author: gwallace
-ms.openlocfilehash: 4a6e8b2baa400e1221ac1e8271e04cdaa912aff6
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: f691eb6433907ed10737329de3edd78547f130f1
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86224149"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86258860"
 ---
 # <a name="introduction-to-service-fabric-health-monitoring"></a>Wprowadzenie do monitorowania kondycji usługi Service Fabric
 Na platformie Azure Service Fabric wprowadzono model kondycji, który zapewnia rozbudowane, elastyczne i rozszerzalne oceny kondycji oraz raportowanie. Model umożliwia monitorowanie stanu klastra i usług działających w czasie niemal w czasie rzeczywistym. Możesz łatwo uzyskać informacje o kondycji i rozwiązać potencjalne problemy, zanim staną się one kaskadowe i powodują ogromne przestoje. W typowym modelu usługi wysyłają raporty na podstawie widoków lokalnych, a informacje te są agregowane w celu zapewnienia ogólnego widoku poziomu klastra.
@@ -60,7 +60,7 @@ Zaplanuj inwestowanie w sposób zgłaszania i reagowania na kondycję podczas pr
 ## <a name="health-states"></a>Stany kondycji
 Service Fabric używa trzech stanów kondycji, aby określić, czy jednostka jest w dobrej kondycji: OK, ostrzeżenie i błąd. Wszystkie raporty wysyłane do magazynu kondycji muszą określać jeden z tych stanów. Wynik oceny kondycji jest jednym z tych stanów.
 
-Możliwe są następujące [Stany kondycji](https://docs.microsoft.com/dotnet/api/system.fabric.health.healthstate) :
+Możliwe są następujące [Stany kondycji](/dotnet/api/system.fabric.health.healthstate) :
 
 * **OK**. Jednostka jest w dobrej kondycji. Nie ma żadnych znanych problemów dotyczących IT lub jego elementów podrzędnych (jeśli ma zastosowanie).
 * **Ostrzeżenie**. Jednostka ma pewne problemy, ale nadal może działać poprawnie. Na przykład występują opóźnienia, ale nie powodują jeszcze żadnych problemów funkcjonalnych. W niektórych przypadkach warunek ostrzegawczy może zostać naprawiony bez interwencji zewnętrznego. W takich przypadkach raporty kondycji zgłaszają świadomość i zapewniają wgląd w to, co się dzieje. W innych przypadkach warunek ostrzegawczy może obniżyć poziom poważnych problemów bez interwencji użytkownika.
@@ -78,13 +78,13 @@ Magazyn kondycji stosuje zasady dotyczące kondycji, aby określić, czy jednost
 Domyślnie Service Fabric stosuje rygorystyczne reguły (wszystkie elementy muszą mieć dobrą kondycję) dla relacji hierarchicznej nadrzędny-podrzędny. Jeśli nawet jeden z elementów podrzędnych ma jedno zdarzenie w złej kondycji, element nadrzędny jest uznawany za nieprawidłowy.
 
 ### <a name="cluster-health-policy"></a>Zasady kondycji klastra
-[Zasady kondycji klastra](https://docs.microsoft.com/dotnet/api/system.fabric.health.clusterhealthpolicy) służą do oszacowania stanu kondycji klastra i Stanów kondycji węzła. Zasady można definiować w manifeście klastra. Jeśli nie istnieje, zostanie użyta domyślna zasada (niedozwolone zero).
+[Zasady kondycji klastra](/dotnet/api/system.fabric.health.clusterhealthpolicy) służą do oszacowania stanu kondycji klastra i Stanów kondycji węzła. Zasady można definiować w manifeście klastra. Jeśli nie istnieje, zostanie użyta domyślna zasada (niedozwolone zero).
 Zasady dotyczące kondycji klastra obejmują:
 
-* [ConsiderWarningAsError](https://docs.microsoft.com/dotnet/api/system.fabric.health.clusterhealthpolicy.considerwarningaserror). Określa, czy raporty kondycji ostrzeżeń mają być traktowane jako błędy podczas oceny kondycji. Wartość domyślna: false.
-* [MaxPercentUnhealthyApplications](https://docs.microsoft.com/dotnet/api/system.fabric.health.clusterhealthpolicy.maxpercentunhealthyapplications). Określa maksymalny dopuszczalny procent aplikacji, które mogą być w złej kondycji, zanim klaster zostanie uznany za błąd.
-* [MaxPercentUnhealthyNodes](https://docs.microsoft.com/dotnet/api/system.fabric.health.clusterhealthpolicy.maxpercentunhealthynodes). Określa maksymalny dopuszczalny procent węzłów, które mogą być złej kondycji, zanim klaster zostanie uznany za błąd. W dużych klastrach niektóre węzły są zawsze wyłączone lub wychodzące w celu naprawy, więc ta wartość procentowa powinna być skonfigurowana do tolerowania.
-* [ApplicationTypeHealthPolicyMap](https://docs.microsoft.com/dotnet/api/system.fabric.health.clusterhealthpolicy.applicationtypehealthpolicymap). Mapa zasad kondycji typu aplikacji może być używana podczas oceny kondycji klastra do opisywania specjalnych typów aplikacji. Domyślnie wszystkie aplikacje są umieszczane w puli i oceniane przy użyciu MaxPercentUnhealthyApplications. Jeśli niektóre typy aplikacji powinny być traktowane inaczej, mogą one zostać pobrane z puli globalnej. Zamiast tego są oceniane względem wartości procentowych skojarzonych z ich nazwą typu aplikacji na mapie. Na przykład w klastrze istnieją tysiące aplikacji różnych typów oraz kilka wystąpień aplikacji typu "Special". Aplikacje sterujące nigdy nie powinny być w ogóle błędne. Można określić globalne MaxPercentUnhealthyApplications do 20%, aby tolerować błędy, ale dla typu aplikacji "ControlApplicationType" ustawić MaxPercentUnhealthyApplications na 0. W ten sposób, jeśli niektóre z wielu aplikacji są w złej kondycji, ale poniżej globalnej wartości procentowej w złej kondycji, klaster zostanie oceniony jako ostrzegawczy. Ostrzegawczy stan kondycji nie ma wpływu na uaktualnienie klastra ani inne monitorowanie wyzwalane przez stan kondycji błędu. Jednak nawet jedna aplikacja sterująca w ramach błędu powoduje złej kondycji klastra, która wyzwala wycofywanie lub wstrzymuje uaktualnienie klastra, w zależności od konfiguracji uaktualnienia.
+* [ConsiderWarningAsError](/dotnet/api/system.fabric.health.clusterhealthpolicy.considerwarningaserror). Określa, czy raporty kondycji ostrzeżeń mają być traktowane jako błędy podczas oceny kondycji. Wartość domyślna: false.
+* [MaxPercentUnhealthyApplications](/dotnet/api/system.fabric.health.clusterhealthpolicy.maxpercentunhealthyapplications). Określa maksymalny dopuszczalny procent aplikacji, które mogą być w złej kondycji, zanim klaster zostanie uznany za błąd.
+* [MaxPercentUnhealthyNodes](/dotnet/api/system.fabric.health.clusterhealthpolicy.maxpercentunhealthynodes). Określa maksymalny dopuszczalny procent węzłów, które mogą być złej kondycji, zanim klaster zostanie uznany za błąd. W dużych klastrach niektóre węzły są zawsze wyłączone lub wychodzące w celu naprawy, więc ta wartość procentowa powinna być skonfigurowana do tolerowania.
+* [ApplicationTypeHealthPolicyMap](/dotnet/api/system.fabric.health.clusterhealthpolicy.applicationtypehealthpolicymap). Mapa zasad kondycji typu aplikacji może być używana podczas oceny kondycji klastra do opisywania specjalnych typów aplikacji. Domyślnie wszystkie aplikacje są umieszczane w puli i oceniane przy użyciu MaxPercentUnhealthyApplications. Jeśli niektóre typy aplikacji powinny być traktowane inaczej, mogą one zostać pobrane z puli globalnej. Zamiast tego są oceniane względem wartości procentowych skojarzonych z ich nazwą typu aplikacji na mapie. Na przykład w klastrze istnieją tysiące aplikacji różnych typów oraz kilka wystąpień aplikacji typu "Special". Aplikacje sterujące nigdy nie powinny być w ogóle błędne. Można określić globalne MaxPercentUnhealthyApplications do 20%, aby tolerować błędy, ale dla typu aplikacji "ControlApplicationType" ustawić MaxPercentUnhealthyApplications na 0. W ten sposób, jeśli niektóre z wielu aplikacji są w złej kondycji, ale poniżej globalnej wartości procentowej w złej kondycji, klaster zostanie oceniony jako ostrzegawczy. Ostrzegawczy stan kondycji nie ma wpływu na uaktualnienie klastra ani inne monitorowanie wyzwalane przez stan kondycji błędu. Jednak nawet jedna aplikacja sterująca w ramach błędu powoduje złej kondycji klastra, która wyzwala wycofywanie lub wstrzymuje uaktualnienie klastra, w zależności od konfiguracji uaktualnienia.
   W przypadku typów aplikacji zdefiniowanych na mapie wszystkie wystąpienia aplikacji są pobierane z globalnej puli aplikacji. Są one oceniane na podstawie łącznej liczby aplikacji typu aplikacji przy użyciu określonego MaxPercentUnhealthyApplications z mapy. Wszystkie pozostałe aplikacje pozostają w puli globalnej i są oceniane przy użyciu MaxPercentUnhealthyApplications.
 
 Poniższy przykład to fragment z manifestu klastra. Aby zdefiniować wpisy na mapie typu aplikacji, należy prefiksować nazwę parametru z "ApplicationTypeMaxPercentUnhealthyApplications-", po którym następuje nazwa typu aplikacji.
@@ -101,20 +101,20 @@ Poniższy przykład to fragment z manifestu klastra. Aby zdefiniować wpisy na m
 ```
 
 ### <a name="application-health-policy"></a>Zasady dotyczące kondycji aplikacji
-[Zasady kondycji aplikacji](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthpolicy) opisują sposób obliczania agregacji zdarzeń i Stanów podrzędnych w przypadku aplikacji i ich elementów podrzędnych. Można ją zdefiniować w manifeście aplikacji, **ApplicationManifest.xml**w pakiecie aplikacji. Jeśli nie określono żadnych zasad, Service Fabric zakłada, że jednostka jest w złej kondycji, jeśli ma raport o kondycji lub podrzędny stan kondycji ostrzeżenia lub błędu.
+[Zasady kondycji aplikacji](/dotnet/api/system.fabric.health.applicationhealthpolicy) opisują sposób obliczania agregacji zdarzeń i Stanów podrzędnych w przypadku aplikacji i ich elementów podrzędnych. Można ją zdefiniować w manifeście aplikacji, **ApplicationManifest.xml**w pakiecie aplikacji. Jeśli nie określono żadnych zasad, Service Fabric zakłada, że jednostka jest w złej kondycji, jeśli ma raport o kondycji lub podrzędny stan kondycji ostrzeżenia lub błędu.
 Konfigurowalne zasady są następujące:
 
-* [ConsiderWarningAsError](https://docs.microsoft.com/dotnet/api/system.fabric.health.clusterhealthpolicy.considerwarningaserror). Określa, czy raporty kondycji ostrzeżeń mają być traktowane jako błędy podczas oceny kondycji. Wartość domyślna: false.
-* [MaxPercentUnhealthyDeployedApplications](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthpolicy.maxpercentunhealthydeployedapplications). Określa maksymalny dopuszczalny procent wdrożonych aplikacji, które mogą być w złej kondycji, zanim aplikacja zostanie uznana za błąd. Ta wartość procentowa jest obliczana przez podzielenie liczby wdrożonych aplikacji w złej kondycji na liczbę węzłów, w których aplikacje są obecnie wdrożone w klastrze. Obliczenia są zaokrąglane w górę, aby tolerować jeden błąd w niewielkiej liczbie węzłów. Wartość domyślna: zero.
-* [DefaultServiceTypeHealthPolicy](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthpolicy.defaultservicetypehealthpolicy). Określa domyślną zasadę kondycji typu usługi, która zastępuje domyślne zasady kondycji dla wszystkich typów usług w aplikacji.
-* [ServiceTypeHealthPolicyMap](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthpolicy.servicetypehealthpolicymap). Zawiera mapę zasad dotyczących kondycji usług na typ usługi. Te zasady zastępują domyślne zasady kondycji typu usługi dla każdego określonego typu usługi. Na przykład jeśli aplikacja ma typ usługi bramy bezstanowej i typ usługi aparatu stanowego, można skonfigurować zasady kondycji dla ich oceny w różny sposób. W przypadku określania zasad dla typu usługi można uzyskać bardziej szczegółową kontrolę kondycji usługi.
+* [ConsiderWarningAsError](/dotnet/api/system.fabric.health.clusterhealthpolicy.considerwarningaserror). Określa, czy raporty kondycji ostrzeżeń mają być traktowane jako błędy podczas oceny kondycji. Wartość domyślna: false.
+* [MaxPercentUnhealthyDeployedApplications](/dotnet/api/system.fabric.health.applicationhealthpolicy.maxpercentunhealthydeployedapplications). Określa maksymalny dopuszczalny procent wdrożonych aplikacji, które mogą być w złej kondycji, zanim aplikacja zostanie uznana za błąd. Ta wartość procentowa jest obliczana przez podzielenie liczby wdrożonych aplikacji w złej kondycji na liczbę węzłów, w których aplikacje są obecnie wdrożone w klastrze. Obliczenia są zaokrąglane w górę, aby tolerować jeden błąd w niewielkiej liczbie węzłów. Wartość domyślna: zero.
+* [DefaultServiceTypeHealthPolicy](/dotnet/api/system.fabric.health.applicationhealthpolicy.defaultservicetypehealthpolicy). Określa domyślną zasadę kondycji typu usługi, która zastępuje domyślne zasady kondycji dla wszystkich typów usług w aplikacji.
+* [ServiceTypeHealthPolicyMap](/dotnet/api/system.fabric.health.applicationhealthpolicy.servicetypehealthpolicymap). Zawiera mapę zasad dotyczących kondycji usług na typ usługi. Te zasady zastępują domyślne zasady kondycji typu usługi dla każdego określonego typu usługi. Na przykład jeśli aplikacja ma typ usługi bramy bezstanowej i typ usługi aparatu stanowego, można skonfigurować zasady kondycji dla ich oceny w różny sposób. W przypadku określania zasad dla typu usługi można uzyskać bardziej szczegółową kontrolę kondycji usługi.
 
 ### <a name="service-type-health-policy"></a>Zasady dotyczące kondycji typu usługi
-[Zasady kondycji typu usługi](https://docs.microsoft.com/dotnet/api/system.fabric.health.servicetypehealthpolicy) określają, jak oszacować i agregować usługi i elementy podrzędne usług. Zasady zawierają:
+[Zasady kondycji typu usługi](/dotnet/api/system.fabric.health.servicetypehealthpolicy) określają, jak oszacować i agregować usługi i elementy podrzędne usług. Zasady zawierają:
 
-* [MaxPercentUnhealthyPartitionsPerService](https://docs.microsoft.com/dotnet/api/system.fabric.health.servicetypehealthpolicy.maxpercentunhealthypartitionsperservice). Określa maksymalny dopuszczalny procent partycji w złej kondycji, zanim usługa zostanie uznana za złą. Wartość domyślna: zero.
-* [MaxPercentUnhealthyReplicasPerPartition](https://docs.microsoft.com/dotnet/api/system.fabric.health.servicetypehealthpolicy.maxpercentunhealthyreplicasperpartition). Określa maksymalny dopuszczalny procent replik w złej kondycji, zanim partycja zostanie uznana za złą. Wartość domyślna: zero.
-* [MaxPercentUnhealthyServices](https://docs.microsoft.com/dotnet/api/system.fabric.health.servicetypehealthpolicy.maxpercentunhealthyservices). Określa maksymalny dopuszczalny procent usług w złej kondycji, zanim aplikacja zostanie uznana za złą. Wartość domyślna: zero.
+* [MaxPercentUnhealthyPartitionsPerService](/dotnet/api/system.fabric.health.servicetypehealthpolicy.maxpercentunhealthypartitionsperservice). Określa maksymalny dopuszczalny procent partycji w złej kondycji, zanim usługa zostanie uznana za złą. Wartość domyślna: zero.
+* [MaxPercentUnhealthyReplicasPerPartition](/dotnet/api/system.fabric.health.servicetypehealthpolicy.maxpercentunhealthyreplicasperpartition). Określa maksymalny dopuszczalny procent replik w złej kondycji, zanim partycja zostanie uznana za złą. Wartość domyślna: zero.
+* [MaxPercentUnhealthyServices](/dotnet/api/system.fabric.health.servicetypehealthpolicy.maxpercentunhealthyservices). Określa maksymalny dopuszczalny procent usług w złej kondycji, zanim aplikacja zostanie uznana za złą. Wartość domyślna: zero.
 
 Poniższy przykład to fragment z manifestu aplikacji:
 
@@ -179,10 +179,10 @@ Po przeprowadzeniu oceny wszystkich elementów podrzędnych przez magazyn kondyc
 ## <a name="health-reporting"></a>Raportowanie kondycji
 Składniki systemowe, aplikacje sieci szkieletowej systemu i wewnętrzne/zewnętrzne alarmy mogą raportować względem jednostek Service Fabric. Raporty umożliwiają *lokalne* Określanie kondycji monitorowanych jednostek na podstawie warunków, które są monitorowane. Nie muszą oni przeglądać stanu globalnego ani zagregowanych danych. Odpowiednie zachowanie ma na celu posiadanie prostych raportów, a nie złożone organizmy, które wymagają poszukania wielu rzeczy w celu wywnioskowania, jakie informacje należy wysłać.
 
-Aby wysłać dane o kondycji do magazynu kondycji, musi on identyfikować jednostkę, której to dotyczy, i utworzyć raport kondycji. Aby wysłać raport, użyj interfejsu API [FabricClient. HealthClient. ReportHealth](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.reporthealth) , raportów usługi API Health, które są uwidocznione na `Partition` `CodePackageActivationContext` obiektach, poleceniach CMDLET programu PowerShell lub Rest.
+Aby wysłać dane o kondycji do magazynu kondycji, musi on identyfikować jednostkę, której to dotyczy, i utworzyć raport kondycji. Aby wysłać raport, użyj interfejsu API [FabricClient. HealthClient. ReportHealth](/dotnet/api/system.fabric.fabricclient.healthclient.reporthealth) , raportów usługi API Health, które są uwidocznione na `Partition` `CodePackageActivationContext` obiektach, poleceniach CMDLET programu PowerShell lub Rest.
 
 ### <a name="health-reports"></a>Raporty dotyczące kondycji
-[Raporty kondycji](https://docs.microsoft.com/dotnet/api/system.fabric.health.healthreport) dla każdej jednostki w klastrze zawierają następujące informacje:
+[Raporty kondycji](/dotnet/api/system.fabric.health.healthreport) dla każdej jednostki w klastrze zawierają następujące informacje:
 
 * **SourceId**. Ciąg unikatowo identyfikujący raport zdarzenia kondycji.
 * **Identyfikator jednostki**. Identyfikuje jednostkę, w której jest stosowany raport. Różni się on w zależności od [typu jednostki](service-fabric-health-introduction.md#health-entities-and-hierarchy):
@@ -205,7 +205,7 @@ Aby wysłać dane o kondycji do magazynu kondycji, musi on identyfikować jednos
 Te cztery informacje--SourceId, identyfikator jednostki, właściwość i HealthState — są wymagane dla każdego raportu kondycji. Ciąg SourceId nie może rozpoczynać się od prefiksu "**System.**", który jest zarezerwowany dla raportów systemowych. Dla tej samej jednostki istnieje tylko jeden raport dla tego samego źródła i właściwości. Wiele raportów dla tego samego źródła i właściwości przesłania siebie nawzajem, po stronie klienta kondycji (jeśli są przetwarzane w partii) lub po stronie magazynu kondycji. Zastąpienie jest oparte na numerach sekwencyjnych; nowsze raporty (z wyższymi numerami sekwencji) zamieniają starsze raporty.
 
 ### <a name="health-events"></a>Zdarzenia dotyczące kondycji
-Wewnętrznie magazyn kondycji przechowuje [zdarzenia dotyczące kondycji](https://docs.microsoft.com/dotnet/api/system.fabric.health.healthevent), które zawierają wszystkie informacje z raportów i dodatkowe metadane. Metadane obejmują czas przyznany przez raport klientowi kondycji i godzinę jego modyfikacji po stronie serwera. Zdarzenia dotyczące kondycji są zwracane przez [zapytania o kondycję](service-fabric-view-entities-aggregated-health.md#health-queries).
+Wewnętrznie magazyn kondycji przechowuje [zdarzenia dotyczące kondycji](/dotnet/api/system.fabric.health.healthevent), które zawierają wszystkie informacje z raportów i dodatkowe metadane. Metadane obejmują czas przyznany przez raport klientowi kondycji i godzinę jego modyfikacji po stronie serwera. Zdarzenia dotyczące kondycji są zwracane przez [zapytania o kondycję](service-fabric-view-entities-aggregated-health.md#health-queries).
 
 Dodane metadane zawierają:
 
@@ -306,4 +306,3 @@ Model kondycji jest wielokrotnie używany do monitorowania i diagnozowania, do o
 [Lokalne monitorowanie i diagnozowanie usług](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 
 [Service Fabric uaktualniania aplikacji](service-fabric-application-upgrade.md)
-

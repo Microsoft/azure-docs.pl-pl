@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 05/19/2020
-ms.openlocfilehash: be0e24977bbb1aeec74e8847b3fb128267a9ec0e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5afa6b9127317fcd1a683651be86cdfe078cfcd6
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85392237"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259436"
 ---
 # <a name="enterprise-security-for-azure-machine-learning"></a>Zabezpieczenia przedsiębiorstwa dla Azure Machine Learning
 
@@ -26,7 +26,7 @@ W przypadku korzystania z usługi w chmurze najlepszym rozwiązaniem jest ograni
 > [!NOTE]
 > Informacje przedstawione w tym artykule współdziałają z Azure Machine Learning Python SDK w wersji 1.0.83.1 lub nowszej.
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Uwierzytelnianie
 
 Uwierzytelnianie wieloskładnikowe jest obsługiwane, jeśli Azure Active Directory (Azure AD) jest skonfigurowany do korzystania z niego. Oto proces uwierzytelniania:
 
@@ -44,7 +44,7 @@ Azure Machine Learning obsługuje dwie formy uwierzytelniania dla usług sieci W
 
 |Metoda uwierzytelniania|Opis|Azure Container Instances|AKS|
 |---|---|---|---|
-|Klucz|Klucze są statyczne i nie muszą być odświeżane. Klucze można generować ponownie ręcznie.|Domyślnie wyłączone| Domyślnie włączone|
+|Klucz|Klucze są statyczne i nie trzeba ich odświeżyć. Klucze można generować ponownie ręcznie.|Domyślnie wyłączone| Domyślnie włączone|
 |Token|Tokeny wygasają po upływie określonego czasu i wymagają odświeżenia.| Niedostępne| Domyślnie wyłączone |
 
 Aby zapoznać się z przykładami kodu, zobacz [sekcję uwierzytelnianie usługi sieci Web](how-to-setup-authentication.md#web-service-authentication).
@@ -111,15 +111,20 @@ Możesz również włączyć prywatne łącze platformy Azure dla Twojego obszar
 
 ## <a name="data-encryption"></a>Szyfrowanie danych
 
+> [!IMPORTANT]
+> W przypadku szyfrowania klasy produkcyjnej w trakcie __szkolenia__firma Microsoft zaleca korzystanie z Azure Machine Learning klastra obliczeniowego. W przypadku szyfrowania klasy produkcyjnej podczas __wnioskowania__firma Microsoft zaleca korzystanie z usługi Azure Kubernetes Service.
+>
+> Wystąpienie obliczeniowe Azure Machine Learning jest środowiskiem deweloperskim/testowym. W przypadku korzystania z tego programu zalecamy przechowywanie plików, takich jak Notesy i skrypty, w udziale plików. Dane powinny być przechowywane w magazynie danych.
+
 ### <a name="encryption-at-rest"></a>Szyfrowanie w spoczynku
 
 > [!IMPORTANT]
 > Jeśli obszar roboczy zawiera dane poufne, zalecamy ustawienie [flagi hbi_workspace](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) podczas tworzenia obszaru roboczego. 
 
-`hbi_workspace`Flaga kontroluje ilość danych zbieranych przez firmę Microsoft do celów diagnostycznych i umożliwia dodatkowe szyfrowanie w środowiskach zarządzanych przez firmę Microsoft. Ponadto oferuje następujące elementy:
+`hbi_workspace`Flaga kontroluje ilość danych zbieranych przez firmę Microsoft do celów diagnostycznych i umożliwia dodatkowe szyfrowanie w środowiskach zarządzanych przez firmę Microsoft. Ponadto włącza następujące akcje:
 
-* Program uruchamia szyfrowanie lokalnego dysku magazynującego w klastrze Amlcompute, pod warunkiem że nie utworzono żadnych wcześniejszych klastrów w tej subskrypcji. W przeciwnym razie musisz zgłosić bilet pomocy technicznej, aby umożliwić szyfrowanie dysku magazynującego klastrów obliczeniowych 
-* Czyści lokalny dysk magazynujący między przebiegami
+* Program uruchamia szyfrowanie lokalnego dysku magazynującego w klastrze obliczeniowym Azure Machine Learning, pod warunkiem że nie utworzono żadnych wcześniejszych klastrów w tej subskrypcji. W przeciwnym razie musisz zgłosić bilet pomocy technicznej, aby umożliwić szyfrowanie dysku magazynującego klastrów obliczeniowych 
+* Oczyszcza lokalny dysk tymczasowy między przebiegami.
 * Bezpieczne przekazanie poświadczeń dla konta magazynu, rejestru kontenerów i konta SSH z warstwy wykonywania do klastrów obliczeniowych przy użyciu magazynu kluczy
 * Włącza filtrowanie adresów IP, aby upewnić się, że źródłowe pule usługi Batch nie mogą być wywoływane przez żadną zewnętrzną usługę inną niż AzureMachineLearningService
 
@@ -224,11 +229,11 @@ Każda maszyna wirtualna ma także lokalny dysk tymczasowy dla operacji systemu 
 
 Azure Databricks można używać w potokach Azure Machine Learning. Domyślnie system plików dataDBFSs używany przez Azure Databricks jest szyfrowany przy użyciu klucza zarządzanego przez firmę Microsoft. Aby skonfigurować Azure Databricks do korzystania z kluczy zarządzanych przez klienta, zobacz [Konfigurowanie kluczy zarządzanych przez klienta na domyślnym (głównym) DBFS](/azure/databricks/security/customer-managed-keys-dbfs).
 
-### <a name="encryption-in-transit"></a>Szyfrowanie podczas transferu
+### <a name="encryption-in-transit"></a>Szyfrowanie danych przesyłanych
 
 Azure Machine Learning używa protokołu TLS do zabezpieczania komunikacji wewnętrznej między różnymi mikrousługami Azure Machine Learning. Cały dostęp do usługi Azure Storage odbywa się również za pośrednictwem bezpiecznego kanału.
 
-Aby zabezpieczyć wywołania zewnętrzne do oceniania punktów końcowych Azure Machine Learning używa protokołu TLS. Aby uzyskać więcej informacji, zobacz [Korzystanie z protokołu TLS w celu zabezpieczenia usługi sieci Web za pomocą Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-secure-web-service).
+Aby zabezpieczyć wywołania zewnętrzne w punkcie końcowym oceniania, Azure Machine Learning używa protokołu TLS. Aby uzyskać więcej informacji, zobacz [Korzystanie z protokołu TLS w celu zabezpieczenia usługi sieci Web za pomocą Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-secure-web-service).
 
 ### <a name="using-azure-key-vault"></a>Używanie Azure Key Vault
 
@@ -322,7 +327,7 @@ Skojarzona z obszarem roboczym Azure Machine Learning to katalogi (eksperymenty)
 
 [![Przepływ pracy migawek kodu](media/concept-enterprise-security/code-snapshot.png)](media/concept-enterprise-security/code-snapshot-expanded.png#lightbox)
 
-### <a name="training"></a>Szkolenia
+### <a name="training"></a>Trenowanie
 
 Na poniższym diagramie przedstawiono przepływ pracy szkoleniowej.
 

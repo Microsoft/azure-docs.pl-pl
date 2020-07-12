@@ -5,11 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 06/18/2019
 ms.author: pepogors
-ms.openlocfilehash: 46601fd91fccb5bd0866bd999cc7643c37c6d582
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 86a02fd489ca0eec61b798db7136f963277f6c82
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75551781"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86261091"
 ---
 # <a name="azure-service-fabric-application-and-cluster-best-practices"></a>Najlepsze rozwiązania dotyczące aplikacji i klastrów na platformie Azure Service Fabric
 
@@ -26,7 +27,7 @@ Ten artykuł zawiera linki do najlepszych rozwiązań związanych z zarządzanie
 ## <a name="compute-planning-and-scaling"></a>Planowanie i skalowanie obliczeń
 
 * [Najlepsze rozwiązania dotyczące skalowania obliczeń](service-fabric-best-practices-capacity-scaling.md)
-* [Planowanie pojemności obliczeniowej](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity)
+* [Planowanie pojemności obliczeniowej](./service-fabric-cluster-capacity.md)
 
 ## <a name="infrastructure-as-code"></a>Infrastruktura jako kod
 
@@ -43,7 +44,7 @@ Ten artykuł zawiera linki do najlepszych rozwiązań związanych z zarządzanie
 ## <a name="checklist"></a>Lista kontrolna
 
 Po zaimplementowaniu praktyk zalecanych w poprzednich sekcjach upewnij się, że wszystkie najlepsze rozwiązania zostały zintegrowane z listą kontrolną gotowości do produkcji:
-* [Lista kontrolna gotowości produkcyjnej platformy Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-production-readiness-checklist)
+* [Lista kontrolna gotowości produkcyjnej platformy Azure Service Fabric](./service-fabric-production-readiness-checklist.md)
 
 ## <a name="next-steps"></a>Następne kroki
 

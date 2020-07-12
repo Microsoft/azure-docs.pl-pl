@@ -6,17 +6,18 @@ ms.topic: conceptual
 ms.date: 11/21/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 5bb7ab6c861d958f6811ca852363c59cfced3940
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 54edc242260479a8f48cc4aae91845041fc2d376
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76718824"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260098"
 ---
 # <a name="mount-an-azure-files-based-volume-in-a-service-fabric-mesh-application"></a>Zainstaluj wolumin oparty na Azure Files w aplikacji Service Fabric siatkę 
 
 W tym artykule opisano sposób instalowania woluminu opartego na Azure Files w usłudze Service Fabric aplikacji siatki.  Sterownik woluminu Azure Files to sterownik woluminu platformy Docker używany do instalowania udziału Azure Files w kontenerze, który służy do utrwalania stanu usługi. Woluminy zapewniają magazyn plików ogólnego przeznaczenia i umożliwiają odczytywanie i zapisywanie plików przy użyciu standardowych interfejsów API plików we/wy dysku.  Aby dowiedzieć się więcej o woluminach i opcjach przechowywania danych aplikacji, zobacz artykuł [przechowywanie stanu](service-fabric-mesh-storing-state.md).
 
-Aby zainstalować wolumin w usłudze, należy utworzyć zasób woluminu w aplikacji siatki Service Fabric, a następnie odwołać się do tego woluminu w usłudze.  Deklarowanie zasobu woluminu i odwoływanie się do niego w ramach zasobu usługi można wykonać w [plikach zasobów opartych na YAML](#declare-a-volume-resource-and-update-the-service-resource-yaml) lub [szablonie wdrożenia opartym na notacji JSON](#declare-a-volume-resource-and-update-the-service-resource-json). Przed zainstalowaniem woluminu należy najpierw utworzyć konto usługi Azure Storage i [udział plików w Azure Files](/azure/storage/files/storage-how-to-create-file-share).
+Aby zainstalować wolumin w usłudze, należy utworzyć zasób woluminu w aplikacji siatki Service Fabric, a następnie odwołać się do tego woluminu w usłudze.  Deklarowanie zasobu woluminu i odwoływanie się do niego w ramach zasobu usługi można wykonać w [plikach zasobów opartych na YAML](#declare-a-volume-resource-and-update-the-service-resource-yaml) lub [szablonie wdrożenia opartym na notacji JSON](#declare-a-volume-resource-and-update-the-service-resource-json). Przed zainstalowaniem woluminu należy najpierw utworzyć konto usługi Azure Storage i [udział plików w Azure Files](../storage/files/storage-how-to-create-file-share.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 > [!NOTE]

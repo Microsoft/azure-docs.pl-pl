@@ -3,17 +3,17 @@ title: Tworzenie klastra usługi Service Fabric w witrynie Azure Portal
 description: Dowiedz się, jak skonfigurować bezpieczny klaster Service Fabric na platformie Azure przy użyciu Azure Portal i Azure Key Vault.
 ms.topic: conceptual
 ms.date: 09/06/2018
-ms.openlocfilehash: eeadfcf24ad2448c845f3d612247686347600001
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b47f3b756ef4d012b41fd15686ffc08ab54fc187
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85611156"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259310"
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>Tworzenie klastra Service Fabric na platformie Azure przy użyciu Azure Portal
 > [!div class="op_single_selector"]
 > * [Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)
-> * [Azure Portal](service-fabric-cluster-creation-via-portal.md)
+> * [Witryna Azure Portal](service-fabric-cluster-creation-via-portal.md)
 > 
 > 
 
@@ -121,7 +121,7 @@ Skonfiguruj węzły klastra. Typy węzłów definiują rozmiary maszyn wirtualny
 ### <a name="3-security"></a>3. zabezpieczenia
 ![Zrzut ekranu konfiguracji zabezpieczeń na Azure Portal.][BasicSecurityConfigs]
 
-Aby łatwo skonfigurować bezpieczny klaster testowy dla Ciebie, udostępniamy opcję **podstawowa** . Jeśli masz już certyfikat i przekazano go do [magazynu kluczy](/azure/key-vault/) (i włączono Magazyn kluczy na potrzeby wdrożenia), użyj opcji **niestandardowej**
+Aby łatwo skonfigurować bezpieczny klaster testowy dla Ciebie, udostępniamy opcję **podstawowa** . Jeśli masz już certyfikat i przekazano go do [magazynu kluczy](../key-vault/index.yml) (i włączono Magazyn kluczy na potrzeby wdrożenia), użyj opcji **niestandardowej**
 
 #### <a name="basic-option"></a>Opcja podstawowa
 Postępuj zgodnie z ekranami, aby dodać lub użyć istniejącego magazynu kluczy i dodać certyfikat. Dodanie certyfikatu jest procesem synchronicznym i dlatego trzeba będzie czekać na utworzenie certyfikatu.
@@ -202,7 +202,7 @@ Każdy elementów NodeType określony w klastrze powoduje pobranie konfiguracji 
 W tym momencie istnieje bezpieczny klaster używający certyfikatów do uwierzytelniania zarządzania. Następnie połącz się z [klastrem](service-fabric-connect-to-secure-cluster.md) i Dowiedz się, jak zarządzać wpisami [tajnymi aplikacji](service-fabric-application-secret-management.md).  Dowiedz się więcej o [opcjach pomocy technicznej Service Fabric](service-fabric-support.md).
 
 <!-- Links -->
-[azure-powershell]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/
+[azure-powershell]: /powershell/azure/
 [azure-portal]: https://portal.azure.com/
 [key-vault-get-started]: ../key-vault/general/overview.md
 [create-cluster-arm]: service-fabric-cluster-creation-via-arm.md

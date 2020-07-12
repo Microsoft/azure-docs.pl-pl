@@ -5,11 +5,12 @@ author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: b4e1066bba1db387c9dc0600bc55522f0b5fe897
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 880770345eb7d65850db322bd97d64c60b6681ee
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76906197"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260874"
 ---
 # <a name="sfctl-application"></a>sfctl application
 Twórz i usuwaj aplikacje i typy aplikacji oraz zarządzaj nimi.
@@ -19,7 +20,7 @@ Twórz i usuwaj aplikacje i typy aplikacji oraz zarządzaj nimi.
 |Polecenie|Opis|
 | --- | --- |
 | create | Tworzy aplikację Service Fabric przy użyciu podanego opisu. |
-| delete | Usuwa istniejącą aplikację Service Fabric. |
+| usunięcie | Usuwa istniejącą aplikację Service Fabric. |
 | szczebl | Pobiera informacje o aplikacji wdrożonej w węźle Service Fabric. |
 | wdrożone — kondycja | Pobiera informacje o kondycji aplikacji wdrożonej w węźle Service Fabric. |
 | wdrożone — lista | Pobiera listę aplikacji wdrożonych w węźle Service Fabric. |
@@ -549,4 +550,4 @@ Opcjonalnie Wyświetl postęp przekazywania dla każdego pliku w pakiecie. Post�
 
 ## <a name="next-steps"></a>Następne kroki
 - [Skonfiguruj](service-fabric-cli.md) interfejs wiersza polecenia Service Fabric.
-- Dowiedz się, jak używać interfejsu wiersza polecenia Service Fabric przy użyciu [przykładowych skryptów](/azure/service-fabric/scripts/sfctl-upgrade-application).
+- Dowiedz się, jak używać interfejsu wiersza polecenia Service Fabric przy użyciu [przykładowych skryptów](./scripts/sfctl-upgrade-application.md).

@@ -5,18 +5,19 @@ author: dkkapur
 ms.topic: conceptual
 ms.date: 11/09/2018
 ms.author: dekapur
-ms.openlocfilehash: 5921fc9038e53f34e23f6fd97111c71b29699dc5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 31712ce4f661b13802d9a0f2d798c1fe87fdebf3
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82793146"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260998"
 ---
 # <a name="upgrade-the-service-fabric-version-that-runs-on-your-cluster"></a>Uaktualnij wersję Service Fabric działającą w klastrze 
 
 W przypadku każdego nowoczesnego systemu możliwość uaktualnienia jest kluczem do długoterminowej sukcesu produktu. Klaster Service Fabric platformy Azure to zasób, którego jesteś członkiem. W tym artykule opisano sposób uaktualniania wersji Service Fabric uruchomionej w klastrze autonomicznym.
 
 > [!NOTE]
-> Upewnij się, że w klastrze jest zawsze uruchomiona obsługiwana wersja Service Fabric. Gdy firma Microsoft ogłasza wydanie nowej wersji Service Fabric, poprzednia wersja zostanie oznaczona do końca wsparcia po upływie co najmniej 60 dni od daty powiadomienia. Nowe wersje są ogłaszane [na blogu zespołu Service Fabric](https://blogs.msdn.microsoft.com/azureservicefabric/). Nowa wersja jest dostępna do wyboru w tym momencie.
+> Upewnij się, że w klastrze jest zawsze uruchomiona obsługiwana wersja Service Fabric. Gdy firma Microsoft ogłasza wydanie nowej wersji Service Fabric, poprzednia wersja zostanie oznaczona do końca wsparcia po upływie co najmniej 60 dni od daty powiadomienia. Nowe wersje są ogłaszane [na blogu zespołu Service Fabric](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric). Nowa wersja jest dostępna do wyboru w tym momencie.
 >
 >
 
@@ -65,7 +66,7 @@ Gdy widzisz ostrzeżenie kondycji klastra, Uaktualnij klaster:
     Powinno zostać wyświetlone dane wyjściowe podobne do tego:
 
     ![Pobierz Service Fabric wersje][getfabversions]
-3. Rozpocznij Uaktualnianie klastra do dostępnej wersji za pomocą polecenia [Start-ServiceFabricClusterUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/start-servicefabricclusterupgrade) programu Windows PowerShell.
+3. Rozpocznij Uaktualnianie klastra do dostępnej wersji za pomocą polecenia [Start-ServiceFabricClusterUpgrade](/powershell/module/servicefabric/start-servicefabricclusterupgrade) programu Windows PowerShell.
 
     ```powershell
     Start-ServiceFabricClusterUpgrade -Code -CodePackageVersion <codeversion#> -Monitored -FailureAction Rollback
@@ -80,7 +81,7 @@ Gdy widzisz ostrzeżenie kondycji klastra, Uaktualnij klaster:
     Get-ServiceFabricClusterUpgrade
     ```
 
-    Jeśli zasady kondycji klastra nie są spełnione, uaktualnienie jest wycofywane. Aby określić niestandardowe zasady dotyczące kondycji dla polecenia Start-ServiceFabricClusterUpgrade, zapoznaj się z dokumentacją programu [Start-ServiceFabricClusterUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/start-servicefabricclusterupgrade).
+    Jeśli zasady kondycji klastra nie są spełnione, uaktualnienie jest wycofywane. Aby określić niestandardowe zasady dotyczące kondycji dla polecenia Start-ServiceFabricClusterUpgrade, zapoznaj się z dokumentacją programu [Start-ServiceFabricClusterUpgrade](/powershell/module/servicefabric/start-servicefabricclusterupgrade).
 
     Po rozwiązaniu problemów, które wystąpiły w wyniku wycofania, należy ponownie zainicjować uaktualnienie, wykonując te same czynności, które zostały opisane wcześniej.
 
@@ -88,7 +89,7 @@ Gdy widzisz ostrzeżenie kondycji klastra, Uaktualnij klaster:
 Wykonaj te kroki, aby uaktualnić klaster do obsługiwanej wersji, jeśli węzły klastra nie mają łączności z Internetem z [Centrum pobierania Microsoft](https://download.microsoft.com).
 
 > [!NOTE]
-> Jeśli używasz klastra, który nie jest połączony z Internetem, musisz monitorować [Blog zespołu Service Fabric](https://blogs.msdn.microsoft.com/azureservicefabric/) , aby poznać nowe wersje. System nie wyświetla ostrzeżenia kondycji klastra w celu powiadomienia o nowych wersjach.  
+> Jeśli używasz klastra, który nie jest połączony z Internetem, musisz monitorować [Blog zespołu Service Fabric](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric) , aby poznać nowe wersje. System nie wyświetla ostrzeżenia kondycji klastra w celu powiadomienia o nowych wersjach.  
 >
 >
 
@@ -103,7 +104,7 @@ Zmodyfikuj konfigurację klastra, aby ustawić dla następującej właściwości
 "fabricClusterAutoupgradeEnabled": false,
 ```
 
-Aby uzyskać szczegółowe informacje na temat użycia, zobacz polecenie programu PowerShell [Start-ServiceFabricClusterConfigurationUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade) . Przed rozpoczęciem uaktualniania konfiguracji należy zaktualizować element "clusterConfigurationVersion" w formacie JSON.
+Aby uzyskać szczegółowe informacje na temat użycia, zobacz polecenie programu PowerShell [Start-ServiceFabricClusterConfigurationUpgrade](/powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade) . Przed rozpoczęciem uaktualniania konfiguracji należy zaktualizować element "clusterConfigurationVersion" w formacie JSON.
 
 ```powershell
     Start-ServiceFabricClusterConfigurationUpgrade -ClusterConfigPath <Path to Configuration File>
@@ -111,7 +112,7 @@ Aby uzyskać szczegółowe informacje na temat użycia, zobacz polecenie program
 
 ### <a name="cluster-upgrade-workflow"></a>Przepływ pracy uaktualniania klastra
 
-1. Uruchom [Get-ServiceFabricClusterUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricclusterupgrade) z jednego z węzłów w klastrze i zanotuj *TargetCodeVersion*.
+1. Uruchom [Get-ServiceFabricClusterUpgrade](/powershell/module/servicefabric/get-servicefabricclusterupgrade) z jednego z węzłów w klastrze i zanotuj *TargetCodeVersion*.
 
 2. Uruchom następujące dane z maszyny połączonej z Internetem, aby wyświetlić wszystkie wersje zgodne z uaktualnieniem z bieżącą wersją i pobrać odpowiedni pakiet ze skojarzonych linków pobierania:
 
@@ -154,7 +155,7 @@ Aby uzyskać szczegółowe informacje na temat użycia, zobacz polecenie program
     Get-ServiceFabricClusterUpgrade
     ```
 
-    Jeśli zasady kondycji klastra nie są spełnione, uaktualnienie jest wycofywane. Aby określić niestandardowe zasady dotyczące kondycji dla polecenia Start-ServiceFabricClusterUpgrade, zapoznaj się z dokumentacją programu [Start-ServiceFabricClusterUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/start-servicefabricclusterupgrade).
+    Jeśli zasady kondycji klastra nie są spełnione, uaktualnienie jest wycofywane. Aby określić niestandardowe zasady dotyczące kondycji dla polecenia Start-ServiceFabricClusterUpgrade, zapoznaj się z dokumentacją programu [Start-ServiceFabricClusterUpgrade](/powershell/module/servicefabric/start-servicefabricclusterupgrade).
 
     Po rozwiązaniu problemów, które wystąpiły w wyniku wycofania, należy ponownie zainicjować uaktualnienie, wykonując te same czynności, które zostały opisane wcześniej.
 

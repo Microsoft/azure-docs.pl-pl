@@ -5,12 +5,12 @@ author: tugup
 ms.topic: conceptual
 ms.date: 05/1/2020
 ms.author: tugup
-ms.openlocfilehash: da395f020cf3d299211427e740975764653b487d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b106061805ea5485893df292c40974d3ee9bcadb
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85802281"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86258829"
 ---
 # <a name="azure-service-fabric-hosting-lifecycle"></a>Cykl życia usługi Azure Service Fabric hosting
 Ten artykuł zawiera omówienie zdarzeń, które pojawiają się, gdy aplikacja zostanie aktywowana w węźle i różne konfiguracje klastra używane do sterowania zachowaniem.
@@ -138,7 +138,7 @@ Konfiguracje z wartościami domyślnymi wpływającymi na aktywację/decativatio
 **ActivationMaxRetryInterval**: domyślnie 3600 sek. max dla aktywacji w przypadku awarii.
 **CodePackageContinuousExitFailureResetInterval**: domyślnie 300 sek. Limit czasu resetowania liczby niepowodzeń ciągłego zamykania dla CodePackage.
 
-### <a name="download"></a>Pobierz
+### <a name="download"></a>Pobieranie
 **DeploymentRetryBackoffInterval**: domyślnie 10. Interwał wycofywania dla błędu wdrożenia.
 **DeploymentMaxRetryInterval**: domyślnie 3600 sek. max dla wdrożenia w przypadku awarii.
 **DeploymentMaxFailureCount**: domyślnie 20. Ponowna próba wdrożenia aplikacji zostanie ponowiona dla DeploymentMaxFailureCount czasów przed niepowodzeniem wdrożenia tej aplikacji w węźle.
@@ -159,4 +159,4 @@ Utwórz [pakiet aplikacji][a3] i przygotuj go do wdrożenia.
 [a3]: service-fabric-package-apps.md
 [a4]: service-fabric-deploy-remove-applications.md
 
-[p1]: https://docs.microsoft.com/powershell/module/servicefabric/copy-servicefabricservicepackagetonode
+[p1]: /powershell/module/servicefabric/copy-servicefabricservicepackagetonode

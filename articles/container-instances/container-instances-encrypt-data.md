@@ -5,12 +5,12 @@ ms.topic: article
 ms.date: 01/17/2020
 author: dkkapur
 ms.author: dekapur
-ms.openlocfilehash: 2f9aff2ea88c2334ab30c9819f68fd6cbb9124c5
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 3c7a84dad1f107d8709e3bcdeac696414cdf883d
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86232444"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259716"
 ---
 # <a name="encrypt-deployment-data"></a>Szyfrowanie danych wdrożenia
 
@@ -39,7 +39,7 @@ Pozostała część dokumentu obejmuje kroki wymagane do zaszyfrowania danych wd
 
 ### <a name="create-service-principal-for-aci"></a>Utwórz nazwę główną usługi dla ACI
 
-Pierwszym krokiem jest upewnienie się, że [dzierżawa platformy Azure](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant) ma nazwę główną usługi przypisaną do przyznawania uprawnień do usługi Azure Container Instances. 
+Pierwszym krokiem jest upewnienie się, że [dzierżawa platformy Azure](../active-directory/develop/quickstart-create-new-tenant.md) ma nazwę główną usługi przypisaną do przyznawania uprawnień do usługi Azure Container Instances. 
 
 > [!IMPORTANT]
 > Aby uruchomić następujące polecenie i utworzyć jednostkę usługi pomyślnie, potwierdź, że masz uprawnienia do tworzenia jednostek usługi w dzierżawie.
@@ -59,7 +59,7 @@ Jeśli nie możesz pomyślnie utworzyć jednostki usługi:
 
 ### <a name="create-a-key-vault-resource"></a>Tworzenie zasobu Key Vault
 
-Utwórz Azure Key Vault przy użyciu [Azure Portal](https://docs.microsoft.com/azure/key-vault/quick-create-portal#create-a-vault), [interfejsu wiersza polecenia](https://docs.microsoft.com/azure/key-vault/quick-create-cli)lub [programu PowerShell](https://docs.microsoft.com/azure/key-vault/quick-create-powershell). 
+Utwórz Azure Key Vault przy użyciu [Azure Portal](../key-vault/secrets/quick-create-portal.md#create-a-vault), [interfejsu wiersza polecenia](../key-vault/secrets/quick-create-cli.md)lub [programu PowerShell](../key-vault/secrets/quick-create-powershell.md). 
 
 W przypadku właściwości magazynu kluczy należy użyć następujących wytycznych: 
 * Nazwa: wymagana jest unikatowa nazwa. 
@@ -96,7 +96,7 @@ Zasady dostępu powinny teraz pojawiać się w zasadach dostępu magazynu kluczy
 > [!IMPORTANT]
 > Szyfrowanie danych wdrożenia za pomocą klucza zarządzanego przez klienta jest dostępne w najnowszej wersji interfejsu API (2019-12-01), która jest obecnie wdrażana. Określ tę wersję interfejsu API w szablonie wdrożenia. Jeśli masz jakieś problemy z tym, skontaktuj się z pomocą techniczną platformy Azure.
 
-Po skonfigurowaniu klucza i zasad dostępu w magazynie kluczy Dodaj następujące właściwości do szablonu wdrożenia ACI. Dowiedz się więcej o wdrażaniu zasobów ACI za pomocą szablonu w [samouczku: Wdróż grupę z wieloma kontenerami przy użyciu szablonu Menedżer zasobów](https://docs.microsoft.com/azure/container-instances/container-instances-multi-container-group). 
+Po skonfigurowaniu klucza i zasad dostępu w magazynie kluczy Dodaj następujące właściwości do szablonu wdrożenia ACI. Dowiedz się więcej o wdrażaniu zasobów ACI za pomocą szablonu w [samouczku: Wdróż grupę z wieloma kontenerami przy użyciu szablonu Menedżer zasobów](./container-instances-multi-container-group.md). 
 * W obszarze `resources` Ustaw `apiVersion` wartość `2019-12-01` .
 * W sekcji Właściwości grupy kontenerów szablonu wdrożenia Dodaj element `encryptionProperties` , który zawiera następujące wartości:
   * `vaultBaseUrl`: nazwa DNS magazynu kluczy znajduje się w bloku przegląd zasobu magazynu kluczy w portalu
@@ -129,7 +129,7 @@ Poniższy fragment kodu przedstawia te dodatkowe właściwości służące do sz
 ]
 ```
 
-Poniżej znajduje się kompletny szablon dostosowany do szablonu w [samouczku: wdrażanie wielokontenerowej grupy przy użyciu szablonu Menedżer zasobów](https://docs.microsoft.com/azure/container-instances/container-instances-multi-container-group). 
+Poniżej znajduje się kompletny szablon dostosowany do szablonu w [samouczku: wdrażanie wielokontenerowej grupy przy użyciu szablonu Menedżer zasobów](./container-instances-multi-container-group.md). 
 
 ```json
 {
@@ -233,14 +233,14 @@ Utwórz grupę zasobów za pomocą polecenia [az group create][az-group-create].
 az group create --name myResourceGroup --location eastus
 ```
 
-Wdróż szablon za pomocą polecenia [AZ Group Deployment Create][az-group-deployment-create] .
+Wdróż szablon za pomocą polecenia [AZ Deployment Group Create][az-deployment-group-create] .
 
 ```azurecli-interactive
-az group deployment create --resource-group myResourceGroup --template-file deployment-template.json
+az deployment group create --resource-group myResourceGroup --template-file deployment-template.json
 ```
 
 W ciągu kilku sekund powinna pojawić się początkowa odpowiedź z platformy Azure. Po zakończeniu wdrożenia wszystkie dane związane z nim utrwalane przez usługę ACI zostaną zaszyfrowane przy użyciu podanego klucza.
 
 <!-- LINKS - Internal -->
 [az-group-create]: /cli/azure/group#az-group-create
-[az-group-deployment-create]: /cli/azure/group/deployment#az-group-deployment-create
+[az-deployment-group-create]: /cli/azure/deployment/group/#az-deployment-group-create

@@ -3,11 +3,12 @@ title: Bezpieczne nawiązywanie połączenia z klastrem usługi Azure Service Fa
 description: Zawiera opis sposobu uwierzytelniania dostępu klienta do klastra Service Fabric i zabezpieczania komunikacji między klientami a klastrem.
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: a1f4abbabe428a09492efefca4a8da9801b9f68d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 89d3598b283a91645f0db648be81c73dffde8b46
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84701223"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259241"
 ---
 # <a name="connect-to-a-secure-cluster"></a>Nawiązywanie połączenia z zabezpieczonym klastrem
 
@@ -29,7 +30,7 @@ openssl pkcs12 -in your-cert-file.pfx -out your-cert-file.pem -nodes -passin pas
 
 Jeśli plik PFX nie jest chroniony hasłem, użyj parametru Pass-Pass: dla ostatniego parametru.
 
-Aby określić certyfikat klienta jako plik PEM, określ ścieżkę pliku w `--pem` argumencie. Przykład:
+Aby określić certyfikat klienta jako plik PEM, określ ścieżkę pliku w `--pem` argumencie. Na przykład:
 
 ```shell
 sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem
@@ -43,7 +44,7 @@ Aby określić certyfikat, para kluczy Użyj `--cert` argumentów i, `--key` Aby
 sfctl cluster select --endpoint https://testsecurecluster.com:19080 --cert ./client.crt --key ./keyfile.key
 ```
 
-Czasami certyfikaty używane do zabezpieczania klastrów testowych lub deweloperów nie przechodzą pomyślnie weryfikacji certyfikatu. Aby pominąć weryfikację certyfikatu, określ `--no-verify` opcję. Przykład:
+Czasami certyfikaty używane do zabezpieczania klastrów testowych lub deweloperów nie przechodzą pomyślnie weryfikacji certyfikatu. Aby pominąć weryfikację certyfikatu, określ `--no-verify` opcję. Na przykład:
 
 > [!WARNING]
 > Nie należy używać `no-verify` opcji podczas nawiązywania połączenia z klastrami Service Fabric produkcyjnych.
@@ -52,7 +53,7 @@ Czasami certyfikaty używane do zabezpieczania klastrów testowych lub deweloper
 sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem --no-verify
 ```
 
-Ponadto można określić ścieżki do katalogów zaufanych certyfikatów urzędów certyfikacji lub pojedynczych certyfikatów. Aby określić te ścieżki, użyj `--ca` argumentu. Przykład:
+Ponadto można określić ścieżki do katalogów zaufanych certyfikatów urzędów certyfikacji lub pojedynczych certyfikatów. Aby określić te ścieżki, użyj `--ca` argumentu. Na przykład:
 
 ```shell
 sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem --ca ./trusted_ca
@@ -144,7 +145,7 @@ Connect-ServiceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `
 <a id="connectsecureclusterfabricclient"></a>
 
 ## <a name="connect-to-a-cluster-using-the-fabricclient-apis"></a>Nawiązywanie połączenia z klastrem przy użyciu interfejsów API FabricClient
-Zestaw Service Fabric SDK udostępnia klasę [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient) do zarządzania klastrem. Aby skorzystać z interfejsów API FabricClient, Pobierz pakiet NuGet Microsoft. servicefabric.
+Zestaw Service Fabric SDK udostępnia klasę [FabricClient](/dotnet/api/system.fabric.fabricclient) do zarządzania klastrem. Aby skorzystać z interfejsów API FabricClient, Pobierz pakiet NuGet Microsoft. servicefabric.
 
 ### <a name="connect-to-an-unsecure-cluster"></a>Nawiązywanie połączenia z niezabezpieczonym klastrem
 
@@ -162,7 +163,7 @@ FabricClient fabricClient = new FabricClient();
 
 ### <a name="connect-to-a-secure-cluster-using-a-client-certificate"></a>Nawiązywanie połączenia z zabezpieczonym klastrem przy użyciu certyfikatu klienta
 
-Węzły w klastrze muszą mieć prawidłowe certyfikaty, których nazwa pospolita lub nazwa DNS w sieci SAN pojawia się we [Właściwości RemoteCommonNames](https://docs.microsoft.com/dotnet/api/system.fabric.x509credentials) ustawionym na [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient). Poniższy proces umożliwia wzajemne uwierzytelnianie między klientem a węzłami klastra.
+Węzły w klastrze muszą mieć prawidłowe certyfikaty, których nazwa pospolita lub nazwa DNS w sieci SAN pojawia się we [Właściwości RemoteCommonNames](/dotnet/api/system.fabric.x509credentials) ustawionym na [FabricClient](/dotnet/api/system.fabric.fabricclient). Poniższy proces umożliwia wzajemne uwierzytelnianie między klientem a węzłami klastra.
 
 ```csharp
 using System.Fabric;
@@ -230,7 +231,7 @@ catch (Exception e)
 
 Poniższy przykład korzysta z Microsoft. IdentityModel. clients. ActiveDirectory, Version: 2.19.208020213.
 
-Aby uzyskać więcej informacji na temat pozyskiwania tokenów usługi AAD, zobacz [Microsoft. IdentityModel. clients. ActiveDirectory](https://msdn.microsoft.com/library/microsoft.identitymodel.clients.activedirectory.aspx).
+Aby uzyskać więcej informacji na temat pozyskiwania tokenów usługi AAD, zobacz [Microsoft. IdentityModel. clients. ActiveDirectory](/dotnet/api/microsoft.identitymodel.clients.activedirectory?view=azure-dotnet).
 
 ```csharp
 string tenantId = "C15CFCEA-02C1-40DC-8466-FBD0EE0B05D2";

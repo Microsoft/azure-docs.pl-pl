@@ -5,11 +5,12 @@ author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: 3e398ff8a1a0a28fd9d0650a7c9d18ba04817d33
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9b6766137dd88a5a780dcca7b6eab7c6c3f9bbf4
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76906022"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260395"
 ---
 # <a name="sfctl-mesh-gateway"></a>sfctl mesh gateway
 Pobierz i Usuń zasoby bramy siatki.
@@ -18,7 +19,7 @@ Pobierz i Usuń zasoby bramy siatki.
 
 |Polecenie|Opis|
 | --- | --- |
-| delete | Usuwa zasób bramy. |
+| usunięcie | Usuwa zasób bramy. |
 | list | Wyświetla listę wszystkich zasobów bramy. |
 | pokaż | Pobiera zasób bramy o podaną nazwę. |
 
@@ -82,4 +83,4 @@ Pobiera informacje o zasobie bramy o podanej nazwie. Informacje obejmują opis i
 
 ## <a name="next-steps"></a>Następne kroki
 - [Skonfiguruj](service-fabric-cli.md) interfejs wiersza polecenia Service Fabric.
-- Dowiedz się, jak używać interfejsu wiersza polecenia Service Fabric przy użyciu [przykładowych skryptów](/azure/service-fabric/scripts/sfctl-upgrade-application).
+- Dowiedz się, jak używać interfejsu wiersza polecenia Service Fabric przy użyciu [przykładowych skryptów](./scripts/sfctl-upgrade-application.md).

@@ -3,17 +3,18 @@ title: Tworzenie reguły Azure Load Balancer dla klastra
 description: Skonfiguruj Azure Load Balancer, aby otworzyć porty dla klastra Service Fabric platformy Azure.
 ms.topic: conceptual
 ms.date: 12/06/2017
-ms.openlocfilehash: f4599b2e0174381ab7df04aeeb33db7e3ee60f26
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 049afb88b5552c92294180069b54d49574a410fa
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77025388"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259038"
 ---
 # <a name="open-ports-for-a-service-fabric-cluster"></a>Otwieranie portów dla klastra usługi Service Fabric
 
 Moduł równoważenia obciążenia wdrożony z klastrem Service Fabric platformy Azure kieruje ruch do aplikacji uruchomionej w węźle. Jeśli zmienisz aplikację w taki sposób, aby korzystała z innego portu, musisz uwidocznić ten port (lub skierować inny port) w Azure Load Balancer.
 
-Po wdrożeniu klastra Service Fabric na platformie Azure moduł równoważenia obciążenia został automatycznie utworzony. Jeśli nie masz modułu równoważenia obciążenia, zobacz [Konfigurowanie modułu równoważenia obciążenia połączonego z Internetem](../load-balancer/load-balancer-get-started-internet-portal.md).
+Po wdrożeniu klastra Service Fabric na platformie Azure moduł równoważenia obciążenia został automatycznie utworzony. Jeśli nie masz modułu równoważenia obciążenia, zobacz [Konfigurowanie modułu równoważenia obciążenia połączonego z Internetem](../load-balancer/quickstart-load-balancer-standard-public-portal.md).
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -24,7 +25,7 @@ Plik konfiguracji **ServiceManifest.xml** aplikacji Service Fabric definiuje pun
 
 ## <a name="create-a-load-balancer-rule"></a>Tworzenie reguły modułu równoważenia obciążenia
 
-Reguła Load Balancer otwiera port internetowy i przekazuje ruch do portu wewnętrznego węzła używanego przez aplikację. Jeśli nie masz modułu równoważenia obciążenia, zobacz [Konfigurowanie modułu równoważenia obciążenia połączonego z Internetem](../load-balancer/load-balancer-get-started-internet-portal.md).
+Reguła Load Balancer otwiera port internetowy i przekazuje ruch do portu wewnętrznego węzła używanego przez aplikację. Jeśli nie masz modułu równoważenia obciążenia, zobacz [Konfigurowanie modułu równoważenia obciążenia połączonego z Internetem](../load-balancer/quickstart-load-balancer-standard-public-portal.md).
 
 Aby utworzyć regułę Load Balancer, należy zebrać następujące informacje:
 

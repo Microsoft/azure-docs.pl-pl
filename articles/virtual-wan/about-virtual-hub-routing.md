@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 06/29/2020
 ms.author: cherylmc
-ms.openlocfilehash: 368440976558730bd7bb9600a0bf45c56d1ee300
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 659cb9aabe5fcca68aea9a73ea9beadb8e52ec50
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86147394"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259184"
 ---
 # <a name="about-virtual-hub-routing"></a>Informacje na temat routingu na koncentratorze wirtualnym
 
@@ -63,6 +63,9 @@ Dla każdego koncentratora wirtualnego jest również dostępna **tabela tras no
 ### <a name="configuring-static-routes-in-a-virtual-network-connection"></a><a name="static"></a>Konfigurowanie tras statycznych w połączeniu sieci wirtualnej
 
 Skonfigurowanie tras statycznych zapewnia mechanizm kierowania ruchu przez adres IP następnego przeskoku, który może należeć do sieciowego urządzenia wirtualnego (urządzenie WUS) obsługiwanego w sieci wirtualnej szprych podłączonych do koncentratora wirtualnego. Trasa statyczna składa się z nazwy trasy, listy prefiksów miejsc docelowych oraz adresu IP następnego przeskoku.
+
+## <a name="reset-hub"></a><a name="route"></a>Resetuj centrum
+Dostępna tylko w Azure Portal, ta opcja zapewnia użytkownikowi metodę, aby zapewnić, że zasoby zakończone niepowodzeniem, takie jak tabele tras, router centralny lub zasób koncentratora wirtualnego z powrotem do stanu aprowizacji Rightful. Jest to dodatkowa opcja dla użytkownika, którą należy wziąć pod uwagę przed skontaktowaniem się z firmą Microsoft w celu uzyskania pomocy technicznej. Ta operacja nie resetuje żadnych bram w koncentratorze wirtualnym. 
 
 ## <a name="route-tables-in-basic-and-standard-virtual-wans-prior-to-the-feature-set-of-association-and-propagation"></a><a name="route"></a>Kierowanie tabel w warstwach Podstawowa i Standardowa wirtualnych sieci WAN przed zestawem funkcji skojarzenia i propagacji
 

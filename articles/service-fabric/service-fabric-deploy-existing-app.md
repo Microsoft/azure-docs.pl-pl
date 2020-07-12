@@ -3,12 +3,12 @@ title: Wdróż istniejący plik wykonywalny na platformie Azure Service Fabric
 description: Dowiedz się, jak spakować istniejącą aplikację jako plik wykonywalny gościa, aby można ją było wdrożyć w klastrze Service Fabric.
 ms.topic: conceptual
 ms.date: 03/30/2020
-ms.openlocfilehash: c6c6bc0369593c177b74261da1fd8c15dd73fcb3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 72fde75e16341164106bb952d0bb66b83be744e1
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80520484"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259269"
 ---
 # <a name="package-and-deploy-an-existing-executable-to-service-fabric"></a>Pakowanie i wdrażanie istniejącego pliku wykonywalnego do Service Fabric
 
@@ -76,7 +76,7 @@ Proces ręcznego pakowania pliku wykonywalnego gościa jest oparty na następuj�
 
 ### <a name="create-the-package-directory-structure"></a>Tworzenie struktury katalogów pakietu
 
-Możesz rozpocząć od utworzenia struktury katalogów, zgodnie z opisem w artykule [pakowanie aplikacji platformy Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-package-apps).
+Możesz rozpocząć od utworzenia struktury katalogów, zgodnie z opisem w artykule [pakowanie aplikacji platformy Azure Service Fabric](./service-fabric-package-apps.md).
 
 ### <a name="add-the-applications-code-and-configuration-files"></a>Dodawanie kodu i plików konfiguracji aplikacji
 

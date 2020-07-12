@@ -7,11 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 03/17/2020
 ms.author: philmea
-ms.openlocfilehash: 87932887edd0aac536a2c7fbd25a02d2442f9db9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 84fa7ae50b69e7e1a2fe341e34497f2bf1a75b0d
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84267634"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260164"
 ---
 # <a name="iot-hub-high-availability-and-disaster-recovery"></a>Wysoka dostępność i odzyskiwanie po awarii usługi IoT Hub
 
@@ -75,6 +76,8 @@ Jeśli cele działania Twojej firmy nie są spełnione przez RTO zainicjowanej p
 
 Opcja ręcznego przełączania do trybu failover jest zawsze dostępna do użytku niezależnie od tego, czy w regionie podstawowym występuje przestój, czy nie. W związku z tym ta opcja może być używana do wykonywania planowanych przełączeń w tryb failover. Przykładem użycia planowanej pracy w trybie failover jest przeprowadzenie okresowych przechodzenia do trybu failover. Należy zachować ostrożność w przypadku, gdy planowana operacja trybu failover powoduje przestoje dla centrum przez okres zdefiniowany przez RTO dla tej opcji, a także powoduje utratę danych zgodnie z definicją powyższą w tabeli celu. Można rozważyć skonfigurowanie przykładowego wystąpienia Centrum IoT Hub, aby okresowo korzystać z opcji planowanej pracy w trybie failover w celu uzyskania pewności, że masz pewność, że kompleksowe rozwiązania mają być w stanie działać w przypadku rzeczywistej awarii.
 
+Ręczna praca awaryjna jest dostępna bez dodatkowych kosztów dla centrów IoT utworzonych po 18 maja 2017
+
 Aby uzyskać instrukcje krok po kroku, zobacz [Samouczek: Wykonywanie ręcznego przełączania do trybu failover dla Centrum IoT Hub](tutorial-manual-failover.md)
 
 ### <a name="running-test-drills"></a>Wykonywanie testów testowych
@@ -131,7 +134,7 @@ Poniżej znajduje się podsumowanie opcji HA/DR przedstawionych w tym artykule, 
 | --- | --- | --- | --- | --- | --- |
 | Tryb failover zainicjowany przez firmę Microsoft |2-26 godzin|Odwołaj się do tabeli celu punktu odzyskiwania|Nie|Brak|Brak|
 | Ręczne przełączenie w tryb failover |10 min-2 godz.|Odwołaj się do tabeli celu punktu odzyskiwania|Tak|Bardzo niska. Musisz tylko wyzwolić tę operację z portalu.|Brak|
-| HA w różnych regionach |< 1 min|Zależy od częstotliwości replikacji niestandardowego rozwiązania o wysokiej dostępności|Nie|Wysoki|> 1x koszt 1 IoT Hub|
+| HA w różnych regionach |< 1 min|Zależy od częstotliwości replikacji niestandardowego rozwiązania o wysokiej dostępności|Nie|Wys.|> 1x koszt 1 IoT Hub|
 
 ## <a name="next-steps"></a>Następne kroki
 

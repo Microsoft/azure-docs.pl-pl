@@ -4,12 +4,12 @@ description: Dowiedz się, jak wysyłać dzienniki zasobów i dane zdarzeń z gr
 ms.topic: article
 ms.date: 07/02/2020
 ms.author: danlep
-ms.openlocfilehash: c76d8a2e7e468c511f0df47ebb240a787f40e026
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: d9f3e844e9d82e540776cdcf821770929d238e3f
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86169735"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259617"
 ---
 # <a name="container-group-and-instance-logging-with-azure-monitor-logs"></a>Rejestrowanie grup kontenerów i wystąpień przy użyciu dzienników Azure Monitor
 
@@ -29,7 +29,7 @@ W poniższych sekcjach opisano sposób tworzenia grupy kontenerów z włączoną
 Aby włączyć rejestrowanie w wystąpieniach kontenera, potrzebne są następujące elementy:
 
 * [Log Analytics obszar roboczy](../azure-monitor/learn/quick-create-workspace.md)
-* [Interfejs poziomu wywołania platformy Azure](/cli/azure/install-azure-cli) (lub usługa [Cloud Shell](/azure/cloud-shell/overview))
+* [Interfejs poziomu wywołania platformy Azure](/cli/azure/install-azure-cli) (lub usługa [Cloud Shell](../cloud-shell/overview.md))
 
 ## <a name="get-log-analytics-credentials"></a>Uzyskiwanie poświadczeń usługi Log Analytics
 
@@ -153,7 +153,7 @@ ContainerInstanceLog_CL
 
 Aby uzyskać więcej informacji dotyczących wykonywania zapytań dla dzienników i konfigurowania alertów w dziennikach usługi Azure Monitor, zobacz:
 
-* [Informacje o przeszukiwaniu dzienników w dziennikach Azure Monitor](../log-analytics/log-analytics-log-search.md)
+* [Informacje o przeszukiwaniu dzienników w dziennikach Azure Monitor](../azure-monitor/log-query/log-query-overview.md)
 * [Unified alerts in Azure Monitor](../azure-monitor/platform/alerts-overview.md) (Ujednolicone alerty na platformie Azure Monitor)
 
 

@@ -4,11 +4,12 @@ description: Zapoznaj się z często zadawanymi pytaniami i odpowiedziami dotycz
 ms.author: pepogors
 ms.date: 4/23/2019
 ms.topic: troubleshooting
-ms.openlocfilehash: 2a5c2ea63d162eb6fb78ab702e0519f8ac25dcc7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 64eeb43d743d71d5acd456409445a4fadfe91aeb
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78252488"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260126"
 ---
 # <a name="commonly-asked-service-fabric-mesh-questions"></a>Często zadawane pytania dotyczące Service Fabric siatki
 
@@ -43,7 +44,7 @@ Obecnie ograniczono okres istnienia aplikacji na dwa dni. Jest to w celu zmaksym
 
 Jeśli zobaczysz ten problem, możesz sprawdzić, czy system zamknie go, uruchamiając `az mesh app show` polecenie w interfejsie wiersza polecenia platformy Azure. Sprawdź, czy funkcja zwróci wartość`"status": "Failed", "statusDetails": "Stopped resource due to max lifetime policies for an application during preview. Delete the resource to continue."` 
 
-Przykład: 
+Na przykład: 
 
 ```azurecli
 az mesh app show --resource-group myResourceGroup --name helloWorldApp
@@ -106,7 +107,7 @@ Wychodzące zapytania DNS z kontenera do usługi DNS Service Fabric mogą kończ
 
 - Użyj aktualizacji Windows Update Creators (wersja 1709) lub nowszej jako obrazu podstawowego kontenera.
 - Jeśli sama nazwa usługi nie działa, spróbuj użyć w pełni kwalifikowanej nazwy: ServiceName. ApplicationName.
-- W pliku platformy Docker dla usługi Dodaj port, `EXPOSE <port>` gdzie jest to port, na którym ujawniasz swoją usługę. Przykład:
+- W pliku platformy Docker dla usługi Dodaj port, `EXPOSE <port>` gdzie jest to port, na którym ujawniasz swoją usługę. Na przykład:
 
 ```Dockerfile
 EXPOSE 80
@@ -120,7 +121,7 @@ W lokalnym klastrze deweloperskim Użyj programu `{serviceName}.{applicationName
 
 Siatka Azure nie obsługuje obecnie rozpoznawania nazw DNS między aplikacjami.
 
-Inne znane problemy z usługą DNS dotyczące uruchamiania Service Fabric klastra projektowego w systemie Windows 10 można znaleźć w temacie: [debugowanie kontenerów systemu Windows](/azure/service-fabric/service-fabric-how-to-debug-windows-containers) i [znanych problemów z usługą DNS](https://docs.microsoft.com/azure/service-fabric/service-fabric-dnsservice#known-issues).
+Inne znane problemy z usługą DNS dotyczące uruchamiania Service Fabric klastra projektowego w systemie Windows 10 można znaleźć w temacie: [debugowanie kontenerów systemu Windows](../service-fabric/service-fabric-how-to-debug-windows-containers.md) i [znanych problemów z usługą DNS](../service-fabric/service-fabric-dnsservice.md#known-issues).
 
 ### <a name="networking"></a>Networking
 

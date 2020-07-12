@@ -5,11 +5,12 @@ author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: 7c571136e6bef64c2024c81db85ef736f64a4e01
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 835369116b07b74c666fba271476f1cba5a708b8
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76906061"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259949"
 ---
 # <a name="sfctl-mesh-app"></a>sfctl mesh app
 Pobieranie i usuwanie zasobów aplikacji.
@@ -18,7 +19,7 @@ Pobieranie i usuwanie zasobów aplikacji.
 
 |Polecenie|Opis|
 | --- | --- |
-| delete | Usuwa zasób aplikacji. |
+| usunięcie | Usuwa zasób aplikacji. |
 | list | Wyświetla listę wszystkich zasobów aplikacji. |
 | pokaż | Pobiera zasób aplikacji o podaną nazwę. |
 
@@ -82,4 +83,4 @@ Pobiera informacje o zasobie aplikacji o podanej nazwie. Informacje obejmują op
 
 ## <a name="next-steps"></a>Następne kroki
 - [Skonfiguruj](service-fabric-cli.md) interfejs wiersza polecenia Service Fabric.
-- Dowiedz się, jak używać interfejsu wiersza polecenia Service Fabric przy użyciu [przykładowych skryptów](/azure/service-fabric/scripts/sfctl-upgrade-application).
+- Dowiedz się, jak używać interfejsu wiersza polecenia Service Fabric przy użyciu [przykładowych skryptów](./scripts/sfctl-upgrade-application.md).

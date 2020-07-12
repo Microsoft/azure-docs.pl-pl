@@ -6,11 +6,12 @@ ms.author: edoyle
 ms.topic: how-to
 ms.date: 01/14/2020
 ms.custom: subject-moving-resources
-ms.openlocfilehash: 376808a6d8f61d4dc03d17061323a473d48053a6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c842a065f108a924c6bffd70d6c2edbbd31b6dff
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76908165"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260156"
 ---
 # <a name="move-a-service-fabric-mesh-application-to-another-azure-region"></a>Przenoszenie aplikacji siatki Service Fabric do innego regionu platformy Azure
 
@@ -20,14 +21,14 @@ W tym artykule opisano sposób przenoszenia aplikacji siatki Service Fabric i je
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Kontroler transferu danych przychodzących (na przykład [Application Gateway](https://docs.microsoft.com/azure/application-gateway/)), który będzie używany jako pośrednik do routingu ruchu między klientami a aplikacją Service Fabric siatką
+* Kontroler transferu danych przychodzących (na przykład [Application Gateway](../application-gateway/index.yml)), który będzie używany jako pośrednik do routingu ruchu między klientami a aplikacją Service Fabric siatką
 * Dostępność siatki Service Fabric (wersja zapoznawcza) w docelowym regionie platformy Azure ( `westus` , `eastus` lub `westeurope` )
 
 ## <a name="prepare"></a>Przygotowanie
 
-1. Utwórz "migawkę" bieżącego stanu aplikacji siatki Service Fabric, eksportując szablon Azure Resource Manager i parametry z najnowszego wdrożenia. Aby to zrobić, wykonaj kroki opisane w sekcji [Eksportowanie szablonu po wdrożeniu](../azure-resource-manager/templates/export-template-portal.md#export-template-after-deployment) przy użyciu Azure Portal. Można również użyć interfejsu [wiersza polecenia platformy Azure](../azure-resource-manager/management/manage-resource-groups-cli.md#export-resource-groups-to-templates), [Azure PowerShell](../azure-resource-manager/management/manage-resource-groups-powershell.md#export-resource-groups-to-templates)lub [API REST](https://docs.microsoft.com/rest/api/resources/resourcegroups/exporttemplate).
+1. Utwórz "migawkę" bieżącego stanu aplikacji siatki Service Fabric, eksportując szablon Azure Resource Manager i parametry z najnowszego wdrożenia. Aby to zrobić, wykonaj kroki opisane w sekcji [Eksportowanie szablonu po wdrożeniu](../azure-resource-manager/templates/export-template-portal.md#export-template-after-deployment) przy użyciu Azure Portal. Można również użyć interfejsu [wiersza polecenia platformy Azure](../azure-resource-manager/management/manage-resource-groups-cli.md#export-resource-groups-to-templates), [Azure PowerShell](../azure-resource-manager/management/manage-resource-groups-powershell.md#export-resource-groups-to-templates)lub [API REST](/rest/api/resources/resourcegroups/exporttemplate).
 
-2. W razie potrzeby [wyeksportuj inne zasoby w tej samej grupie zasobów](https://docs.microsoft.com/azure/azure-resource-manager/templates/export-template-portal#export-template-from-a-resource-group) na potrzeby ponownego wdrożenia w regionie docelowym.
+2. W razie potrzeby [wyeksportuj inne zasoby w tej samej grupie zasobów](../azure-resource-manager/templates/export-template-portal.md#export-template-from-a-resource-group) na potrzeby ponownego wdrożenia w regionie docelowym.
 
 3. Przejrzyj (i Edytuj, w razie potrzeby) wyeksportowany szablon, aby upewnić się, że istniejące wartości właściwości są tymi, których chcesz użyć w regionie docelowym. Nowy `location` (region platformy Azure) to parametr, który będzie dostarczany podczas ponownego wdrażania.
 
@@ -35,15 +36,15 @@ W tym artykule opisano sposób przenoszenia aplikacji siatki Service Fabric i je
 
 1. Utwórz nową grupę zasobów (lub Użyj istniejącej) w regionie docelowym.
 
-2. W wyeksportowanym szablonie postępuj zgodnie z instrukcjami w temacie [wdrażanie zasobów z szablonu niestandardowego](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-portal#deploy-resources-from-custom-template) przy użyciu Azure Portal. Można również użyć interfejsu [wiersza polecenia platformy Azure](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-cli), [Azure PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-powershell)lub [API REST](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-rest).
+2. W wyeksportowanym szablonie postępuj zgodnie z instrukcjami w temacie [wdrażanie zasobów z szablonu niestandardowego](../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template) przy użyciu Azure Portal. Można również użyć interfejsu [wiersza polecenia platformy Azure](../azure-resource-manager/templates/deploy-cli.md), [Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md)lub [API REST](../azure-resource-manager/templates/deploy-rest.md).
 
 3. Aby uzyskać wskazówki dotyczące przeniesienia powiązanych zasobów, takich jak [konta usługi Azure Storage](../storage/common/storage-account-move.md), zapoznaj się ze wskazówkami dotyczącymi poszczególnych usług wymienionych w temacie [przemieszczanie zasobów platformy Azure między regionami](../azure-resource-manager/management/move-region.md).
 
-## <a name="verify"></a>Weryfikuj
+## <a name="verify"></a>Weryfikacja
 
 1. Po zakończeniu wdrożenia Przetestuj punkty końcowe aplikacji, aby zweryfikować funkcjonalność aplikacji.
 
-2. Możesz również sprawdzić stan aplikacji, sprawdzając stan aplikacji ([AZ siatk aplikacji show](https://docs.microsoft.com/cli/azure/ext/mesh/mesh/app?view=azure-cli-latest#ext-mesh-az-mesh-app-show)) i przeglądając Dzienniki aplikacji oraz ([AZ siatking-Package-log](https://docs.microsoft.com/cli/azure/ext/mesh/mesh/code-package-log?view=azure-cli-latest)) polecenia przy użyciu [interfejsu wiersza poleceń usługi Azure Service Fabric siatka](https://docs.microsoft.com/azure/service-fabric-mesh/service-fabric-mesh-quickstart-deploy-container#set-up-service-fabric-mesh-cli).
+2. Możesz również sprawdzić stan aplikacji, sprawdzając stan aplikacji ([AZ siatk aplikacji show](/cli/azure/ext/mesh/mesh/app?view=azure-cli-latest#ext-mesh-az-mesh-app-show)) i przeglądając Dzienniki aplikacji oraz ([AZ siatking-Package-log](/cli/azure/ext/mesh/mesh/code-package-log?view=azure-cli-latest)) polecenia przy użyciu [interfejsu wiersza poleceń usługi Azure Service Fabric siatka](./service-fabric-mesh-quickstart-deploy-container.md#set-up-service-fabric-mesh-cli).
 
 ## <a name="commit"></a>Zatwierdzenie
 

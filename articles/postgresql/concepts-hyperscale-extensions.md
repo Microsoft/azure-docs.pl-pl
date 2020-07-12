@@ -6,13 +6,13 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
-ms.date: 04/16/2020
-ms.openlocfilehash: ba8f4591782a4e34fbde26d9669ef01f24450486
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/09/2020
+ms.openlocfilehash: de2579868ad72bdf4cf78c552e9553f289ecabd0
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82146411"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259054"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql--hyperscale-citus"></a>Rozszerzenia PostgreSQL w Azure Database for PostgreSQL — funkcja do skalowania (Citus)
 
@@ -144,6 +144,6 @@ Ustawienie `pg_stat_statements.track` określa, jakie instrukcje są zliczane pr
 Istnieje kompromis między informacjami o wykonywaniu zapytania pg_stat_statements zapewnia i wpływ na wydajność serwera podczas rejestrowania każdej instrukcji SQL. Jeśli nie korzystasz aktywnie z rozszerzenia pg_stat_statements, zalecamy ustawienie wartości `pg_stat_statements.track` `none` . Niektóre usługi monitorowania innych firm mogą polegać na pg_stat_statements w celu dostarczenia szczegółowych informacji o wydajności zapytań, dlatego należy sprawdzić, czy tak się dzieje.
 
 ## <a name="dblink-and-postgres_fdw"></a>dblink i postgres_fdw
-Można użyć dblink i postgres_fdw, aby nawiązać połączenie z jednego serwera PostgreSQL do innego lub do innej bazy danych na tym samym serwerze. Serwer otrzymujący musi zezwalać na połączenia z serwera wysyłającego za pośrednictwem jego zapory. Aby użyć tych rozszerzeń do łączenia się między serwerami Azure Database for PostgreSQL, ustaw opcję **Zezwalaj na dostęp do usług platformy Azure** . To ustawienie należy również włączyć, jeśli chcesz użyć rozszerzeń do zapętlenia z powrotem do tego samego serwera. Ustawienie **Zezwalaj na dostęp do usług platformy Azure** można znaleźć na stronie Azure Portal serwera Postgres w obszarze **zabezpieczenia połączeń**. Włączenie opcji **Zezwalaj na dostęp do usług platformy Azure** w usłudze dozwolonych wszystkie adresy IP platformy Azure.
 
-Obecnie połączenia wychodzące z Azure Database for PostgreSQL nie są obsługiwane, z wyjątkiem połączeń z innymi serwerami Azure Database for PostgreSQL.
+\_Do łączenia się z jednego serwera PostgreSQL lub innej bazy danych na tym samym serwerze można użyć dblink i Postgres FDW.  Serwer otrzymujący musi zezwalać na połączenia z serwera wysyłającego za pośrednictwem jego zapory.  Aby użyć tych rozszerzeń do nawiązywania połączeń między grupami serwerów Azure Database for PostgreSQL lub Citus), ustaw opcję **Zezwól usługom i zasobom platformy Azure na dostęp do tej grupy serwerów (lub serwera)** do systemu.  To ustawienie należy również włączyć, jeśli chcesz użyć rozszerzeń do zapętlenia z powrotem do tego samego serwera.
+Ustawienie **Zezwalaj na dostęp do usług platformy Azure i zasobów do dostępu do tej grupy serwerów** można znaleźć na stronie Azure Portal grupy serwerów Citus) w obszarze **Sieć**.  Obecnie połączenia wychodzące z Azure Database for PostgreSQL pojedynczego serwera i skalowania (Citus) nie są obsługiwane, z wyjątkiem połączeń z innymi grupami serwerów Azure Database for PostgreSQL i Citus.

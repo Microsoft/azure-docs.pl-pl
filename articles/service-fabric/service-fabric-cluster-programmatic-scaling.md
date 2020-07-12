@@ -5,12 +5,12 @@ author: mjrousos
 ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: mikerou
-ms.openlocfilehash: bd7c57f3089115e4da861fc8fd20331ab92bc33e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 19f773fa781c51f64412039201842a7af4c29052
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82787145"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86261115"
 ---
 # <a name="scale-a-service-fabric-cluster-programmatically"></a>Programowe skalowanie klastra Service Fabricowego 
 
@@ -20,7 +20,7 @@ Klastry Service Fabric działające na platformie Azure są oparte na zestawach 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="manage-credentials"></a>Zarządzanie poświadczeniami
-Jednym z wyzwań zapisywania usługi do obsługi skalowania jest to, że usługa musi mieć dostęp do zasobów zestawu skalowania maszyn wirtualnych bez interakcyjnego logowania. Uzyskiwanie dostępu do klastra Service Fabric jest proste, jeśli usługa skalowania modyfikuje własną aplikację Service Fabric, ale do uzyskania dostępu do zestawu skalowania są potrzebne poświadczenia. Aby się zalogować, można użyć jednostki [usługi](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli) utworzonej przy użyciu [interfejsu wiersza polecenia platformy Azure](https://github.com/azure/azure-cli).
+Jednym z wyzwań zapisywania usługi do obsługi skalowania jest to, że usługa musi mieć dostęp do zasobów zestawu skalowania maszyn wirtualnych bez interakcyjnego logowania. Uzyskiwanie dostępu do klastra Service Fabric jest proste, jeśli usługa skalowania modyfikuje własną aplikację Service Fabric, ale do uzyskania dostępu do zestawu skalowania są potrzebne poświadczenia. Aby się zalogować, można użyć jednostki [usługi](/cli/azure/create-an-azure-service-principal-azure-cli) utworzonej przy użyciu [interfejsu wiersza polecenia platformy Azure](https://github.com/azure/azure-cli).
 
 Jednostkę usługi można utworzyć przy użyciu następujących kroków:
 
@@ -59,7 +59,7 @@ var newCapacity = (int)Math.Min(MaximumNodeCount, scaleSet.Capacity + 1);
 scaleSet.Update().WithCapacity(newCapacity).Apply(); 
 ``` 
 
-Alternatywnie można także zarządzać rozmiarem zestawu skalowania maszyn wirtualnych za pomocą poleceń cmdlet programu PowerShell. [`Get-AzVmss`](https://docs.microsoft.com/powershell/module/az.compute/get-azvmss)może pobrać obiekt zestawu skalowania maszyn wirtualnych. Bieżąca pojemność jest dostępna za pomocą `.sku.capacity` właściwości. Po zmianie pojemności na żądaną wartość zestaw skalowania maszyn wirtualnych na platformie Azure można zaktualizować za pomocą [`Update-AzVmss`](https://docs.microsoft.com/powershell/module/az.compute/update-azvmss) polecenia.
+Alternatywnie można także zarządzać rozmiarem zestawu skalowania maszyn wirtualnych za pomocą poleceń cmdlet programu PowerShell. [`Get-AzVmss`](/powershell/module/az.compute/get-azvmss)może pobrać obiekt zestawu skalowania maszyn wirtualnych. Bieżąca pojemność jest dostępna za pomocą `.sku.capacity` właściwości. Po zmianie pojemności na żądaną wartość zestaw skalowania maszyn wirtualnych na platformie Azure można zaktualizować za pomocą [`Update-AzVmss`](/powershell/module/az.compute/update-azvmss) polecenia.
 
 Podobnie jak podczas ręcznego dodawania węzła dodanie wystąpienia zestawu skalowania powinno być wszystkie konieczne do uruchomienia nowego węzła Service Fabric, ponieważ szablon zestawu skalowania zawiera rozszerzenia umożliwiające automatyczne dołączanie nowych wystąpień do klastra Service Fabric. 
 
@@ -121,4 +121,4 @@ Aby rozpocząć implementowanie własnej logiki automatycznego skalowania, zapoz
 
 - [Skalowanie ręczne lub przy użyciu reguł skalowania automatycznego](./service-fabric-cluster-scale-in-out.md)
 - [Biblioteki zarządzania systemu Azure Fluent dla platformy .NET](https://github.com/Azure/azure-sdk-for-net/tree/Fluent) (przydatne do współdziałania z podstawowymi zestawami skalowania maszyn wirtualnych w klastrze Service Fabric)
-- [System. Fabric. FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient) (przydatny do współpracy z klastrem Service Fabric i jego węzłami)
+- [System. Fabric. FabricClient](/dotnet/api/system.fabric.fabricclient) (przydatny do współpracy z klastrem Service Fabric i jego węzłami)

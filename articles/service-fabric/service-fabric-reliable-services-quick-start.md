@@ -4,12 +4,12 @@ description: Wprowadzenie do tworzenia aplikacji Microsoft Azure Service Fabric 
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.custom: sfrev
-ms.openlocfilehash: 0a8d5a05f922cd01067abbc3e98320a32cd9d256
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 201131f774632e1130c6be6a0dbcb950b96ec508
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86038025"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260477"
 ---
 # <a name="get-started-with-reliable-services"></a>Wprowadzenie do usług Reliable Services
 
@@ -169,11 +169,11 @@ protected override async Task RunAsync(CancellationToken cancellationToken)
 var myDictionary = await this.StateManager.GetOrAddAsync<IReliableDictionary<string, long>>("myDictionary");
 ```
 
-[IReliableDictionary](https://msdn.microsoft.com/library/dn971511.aspx) to implementacja słownika, której można użyć do niezawodnego przechowywania stanu usługi. Za pomocą Service Fabric i niezawodnych kolekcji można przechowywać dane bezpośrednio w usłudze bez potrzeby zewnętrznego magazynu trwałego. Niezawodne kolekcje sprawiają, że dane są wysoce dostępne. Service Fabric to osiągnąć przez utworzenie wielu *replik* usługi i zarządzanie nimi. Udostępnia również interfejs API, który stanowi streszczenie złożoności zarządzania tymi replikami i ich przejścia stanu.
+[IReliableDictionary](/dotnet/api/microsoft.servicefabric.data.collections.ireliabledictionary-2?view=azure-dotnet#microsoft_servicefabric_data_collections_ireliabledictionary_2) to implementacja słownika, której można użyć do niezawodnego przechowywania stanu usługi. Za pomocą Service Fabric i niezawodnych kolekcji można przechowywać dane bezpośrednio w usłudze bez potrzeby zewnętrznego magazynu trwałego. Niezawodne kolekcje sprawiają, że dane są wysoce dostępne. Service Fabric to osiągnąć przez utworzenie wielu *replik* usługi i zarządzanie nimi. Udostępnia również interfejs API, który stanowi streszczenie złożoności zarządzania tymi replikami i ich przejścia stanu.
 
 Niezawodne kolekcje mogą przechowywać dowolny typ .NET, w tym typy niestandardowe, z kilkoma zastrzeżeniami:
 
-* Service Fabric zapewnia wysoką dostępność stanu przez *replikowanie* stanu między węzłami, a niezawodne kolekcje przechowują dane na dysku lokalnym na każdej replice. Oznacza to, że wszystkie elementy, które są przechowywane w niezawodnych kolekcjach, muszą być *serializowane*. Domyślnie niezawodne kolekcje używają [schematu DataContract](https://msdn.microsoft.com/library/system.runtime.serialization.datacontractattribute%28v=vs.110%29.aspx) do serializacji, dlatego ważne jest, aby upewnić się, że typy są [obsługiwane przez serializator kontraktu danych](https://msdn.microsoft.com/library/ms731923%28v=vs.110%29.aspx) w przypadku użycia serializatora domyślnego.
+* Service Fabric zapewnia wysoką dostępność stanu przez *replikowanie* stanu między węzłami, a niezawodne kolekcje przechowują dane na dysku lokalnym na każdej replice. Oznacza to, że wszystkie elementy, które są przechowywane w niezawodnych kolekcjach, muszą być *serializowane*. Domyślnie niezawodne kolekcje używają [schematu DataContract](/dotnet/api/system.runtime.serialization.datacontractattribute?view=netcore-3.1) do serializacji, dlatego ważne jest, aby upewnić się, że typy są [obsługiwane przez serializator kontraktu danych](/dotnet/framework/wcf/feature-details/types-supported-by-the-data-contract-serializer) w przypadku użycia serializatora domyślnego.
 * Obiekty są replikowane w celu zapewnienia wysokiej dostępności podczas zatwierdzania transakcji dla niezawodnych kolekcji. Obiekty przechowywane w niezawodnych kolekcjach są przechowywane w pamięci lokalnej w usłudze. Oznacza to, że masz lokalne odwołanie do obiektu.
   
    Należy pamiętać, że nie można zmodyfikować wystąpień lokalnych tych obiektów bez wykonywania operacji aktualizacji dla niezawodnej kolekcji transakcji. Dzieje się tak dlatego, że zmiany lokalnych wystąpień obiektów nie będą replikowane automatycznie. Należy ponownie wstawić obiekt do słownika lub użyć jednej z metod *aktualizacji* w słowniku.
@@ -212,7 +212,7 @@ Po uruchomieniu usług można wyświetlić wygenerowane zdarzenia śledzenia zda
 ## <a name="next-steps"></a>Następne kroki
 [Debugowanie aplikacji Service Fabric w programie Visual Studio](service-fabric-debugging-your-application.md)
 
-[Wprowadzenie: Service Fabric usług interfejsu API sieci Web za pomocą samoobsługowego udostępniania usługi OWIN](service-fabric-reliable-services-communication-webapi.md)
+[Wprowadzenie: Service Fabric usług interfejsu API sieci Web za pomocą samoobsługowego udostępniania usługi OWIN](./service-fabric-reliable-services-communication-aspnetcore.md)
 
 [Dowiedz się więcej na temat niezawodnych kolekcji](service-fabric-reliable-services-reliable-collections.md)
 
@@ -220,5 +220,4 @@ Po uruchomieniu usług można wyświetlić wygenerowane zdarzenia śledzenia zda
 
 [Uaktualnienie aplikacji](service-fabric-application-upgrade.md)
 
-[Dokumentacja dla deweloperów Reliable Services](https://msdn.microsoft.com/library/azure/dn706529.aspx)
-
+[Dokumentacja dla deweloperów Reliable Services](/previous-versions/azure/dn706529(v=azure.100))

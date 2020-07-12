@@ -24,6 +24,8 @@
   items:
     - name: Łączenie się z zasobami usługi Windows Virtual Desktop
       items:
+        - name: Łączenie się z klientem klasycznym systemu Windows
+          href: connect-windows-7-10-2019.md
         - name: Łączenie się z klientem internetowym
           href: connect-web-2019.md
         - name: Łączenie się z klientem systemu Android

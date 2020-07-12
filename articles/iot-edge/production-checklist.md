@@ -4,18 +4,19 @@ description: Dowiedz się, jak wdrożyć rozwiązanie Azure IoT Edge od projekto
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 4/25/2020
+ms.date: 07/10/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 128504c59690476afef03aa82a03d69769968e99
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6f5698c5390a341df505bf5a1f849e121bd754a2
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84431930"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86258786"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>Przygotowanie do wdrożenia rozwiązania IoT Edge w środowisku produkcyjnym
 
@@ -37,11 +38,14 @@ Urządzenia IoT Edge mogą być dowolne od Raspberry Pi do laptopu do maszyny wi
 
 ### <a name="install-production-certificates"></a>Instalowanie certyfikatów produkcyjnych
 
-Każde urządzenie IoT Edge w środowisku produkcyjnym wymaga zainstalowanego certyfikatu urzędu certyfikacji urządzenia (CA). Ten certyfikat urzędu certyfikacji jest następnie deklarowany do środowiska uruchomieniowego IoT Edge w pliku config. YAML. W przypadku scenariuszy projektowania i testowania środowisko uruchomieniowe IoT Edge tworzy certyfikaty tymczasowe, jeśli w pliku config. YAML nie zadeklarowano żadnych certyfikatów. Jednak te certyfikaty tymczasowe wygasną po trzech miesiącach i nie są bezpieczne w scenariuszach produkcyjnych.
+Każde urządzenie IoT Edge w środowisku produkcyjnym wymaga zainstalowanego certyfikatu urzędu certyfikacji urządzenia (CA). Ten certyfikat urzędu certyfikacji jest następnie deklarowany do środowiska uruchomieniowego IoT Edge w pliku config. YAML. W przypadku scenariuszy projektowania i testowania środowisko uruchomieniowe IoT Edge tworzy certyfikaty tymczasowe, jeśli w pliku config. YAML nie zadeklarowano żadnych certyfikatów. Jednak te certyfikaty tymczasowe wygasną po trzech miesiącach i nie są bezpieczne w scenariuszach produkcyjnych. W przypadku scenariuszy produkcyjnych należy podać własny certyfikat urzędu certyfikacji z podpisem własnym lub zakupionego od komercyjnego urzędu certyfikacji.
+
+> [!NOTE]
+> Obecnie ograniczenie w libiothsm uniemożliwia korzystanie z certyfikatów, które wygasną od 1 stycznia 2050.
 
 Aby zrozumieć rolę certyfikatu urzędu certyfikacji, zobacz [jak Azure IoT Edge używa certyfikatów](iot-edge-certs.md).
 
-Aby uzyskać więcej informacji na temat sposobu instalowania certyfikatów na urządzeniu IoT Edge i odwoływania się do nich z pliku config. YAML, zobacz [Instalowanie certyfikatów produkcyjnych na urządzeniu IoT Edge](how-to-manage-device-certificates.md).
+Aby uzyskać więcej informacji na temat sposobu instalowania certyfikatów na urządzeniu IoT Edge i odwoływania się do nich z pliku config. YAML, zobacz [Zarządzanie certyfikatem na urządzeniu IoT Edge](how-to-manage-device-certificates.md).
 
 ### <a name="have-a-device-management-plan"></a>Zaplanuj zarządzanie urządzeniami
 
@@ -281,7 +285,7 @@ Aby zmiany zaczęły obowiązywać, należy ponownie uruchomić silnik kontenera
 
 #### <a name="option-adjust-log-settings-for-each-container-module"></a>Opcja: Dopasuj ustawienia dziennika dla każdego modułu kontenera
 
-Można to zrobić w **opcjach** dla każdego modułu. Przykład:
+Można to zrobić w **opcjach** dla każdego modułu. Na przykład:
 
 ```yml
 "createOptions": {

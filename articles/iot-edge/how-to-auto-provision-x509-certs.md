@@ -9,12 +9,12 @@ ms.date: 04/09/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: ccd8d383db265826d8644ee89d7300128fc3a350
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c54690645286a4fceb3fd786d85652b1cf77d7aa
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82131306"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260036"
 ---
 # <a name="create-and-provision-an-iot-edge-device-using-x509-certificates"></a>Tworzenie i Inicjowanie obsługi urządzenia IoT Edge przy użyciu certyfikatów X. 509
 
@@ -50,6 +50,9 @@ Aby skonfigurować automatyczną Inicjowanie obsługi przy użyciu pliku X. 509,
 * Certyfikat tożsamości urządzenia i jego certyfikat klucza prywatnego. Certyfikat tożsamości urządzenia zostanie przekazany do funkcji DPS w przypadku utworzenia rejestracji indywidualnej. Klucz prywatny jest przesyłany do środowiska uruchomieniowego IoT Edge.
 * Pełny certyfikat łańcucha, który powinien mieć co najmniej tożsamość urządzenia i certyfikaty pośrednie. Pełny certyfikat łańcucha jest przesyłany do środowiska uruchomieniowego IoT Edge.
 * Certyfikat pośredniego lub głównego urzędu certyfikacji z łańcucha certyfikatów zaufania. Ten certyfikat jest przekazywany do programu DPS w przypadku utworzenia rejestracji grupy.
+
+> [!NOTE]
+> Obecnie ograniczenie w libiothsm uniemożliwia korzystanie z certyfikatów, które wygasną od 1 stycznia 2050.
 
 ### <a name="use-test-certificates"></a>Korzystanie z certyfikatów testowych
 
@@ -161,7 +164,7 @@ Podczas tworzenia grupy rejestracji można skorzystać z zweryfikowanego certyfi
 
 1. Na tej samej stronie Szczegóły certyfikatu w Azure Portal Przekaż nowo wygenerowany certyfikat weryfikacyjny.
 
-1. Wybierz pozycję **Verify** (Weryfikuj).
+1. Wybierz pozycję **Weryfikuj**.
 
 ### <a name="create-enrollment-group"></a>Utwórz grupę rejestracji
 
@@ -204,7 +207,7 @@ Teraz, gdy istnieje Rejestracja dla tego urządzenia, środowisko uruchomieniowe
 
 ## <a name="install-the-iot-edge-runtime"></a>Zainstaluj środowisko uruchomieniowe IoT Edge
 
-Środowisko uruchomieniowe usługi IoT Edge jest wdrożone na wszystkich urządzeniach usługi IoT Edge. Jego składniki działają w kontenerach i umożliwiają wdrożenie dodatkowych kontenerów na urządzeniu, aby można było uruchomić kod na krawędzi.
+Środowisko uruchomieniowe usługi IoT Edge jest wdrażane na wszystkich urządzeniach usługi IoT Edge. Jego składniki działają w kontenerach i umożliwiają wdrożenie dodatkowych kontenerów na urządzeniu, aby można było uruchomić kod na krawędzi.
 
 Obsługa administracyjna X. 509 z usługą DPS jest obsługiwana tylko w IoT Edge w wersji 1.0.9 lub nowszej.
 

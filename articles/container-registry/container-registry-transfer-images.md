@@ -4,12 +4,12 @@ description: Przenoszenie kolekcji obrazów lub innych artefaktów z jednego rej
 ms.topic: article
 ms.date: 05/08/2020
 ms.custom: ''
-ms.openlocfilehash: c80f10e8795c63b84bb46fc21fd3406a195b772e
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 7f63936ad8f2a97bae6ff63e783e38c15db35e13
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86186932"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259461"
 ---
 # <a name="transfer-artifacts-to-another-registry"></a>Przenoszenie artefaktów do innego rejestru
 
@@ -36,7 +36,7 @@ Ta funkcja jest dostępna w warstwie usługi kontenera **Premium** . Aby uzyska�
 * **Konta magazynu** — Utwórz źródłowe i docelowe konta magazynu w wybranej subskrypcji i lokalizacji. Do celów testowych możesz użyć tej samej subskrypcji lub subskrypcji jako rejestrów źródłowych i docelowych. W przypadku scenariuszy obejmujących wiele chmur zazwyczaj tworzysz oddzielne konto magazynu w każdej chmurze. W razie konieczności Utwórz konta magazynu za pomocą [interfejsu wiersza polecenia platformy Azure](../storage/common/storage-account-create.md?tabs=azure-cli) lub innych narzędzi. 
 
   Utwórz kontener obiektów BLOB na potrzeby transferu artefaktów na każdym koncie. Na przykład utwórz kontener o nazwie *transfer*. Dwa lub więcej potoków transferu mogą współużytkować to samo konto magazynu, ale należy używać różnych zakresów kontenera magazynu.
-* **Magazyny kluczy** — magazyny kluczy są konieczne do przechowywania wpisów tajnych tokenów SAS używanych do uzyskiwania dostępu do źródłowych i docelowych kont magazynu. Utwórz źródłowe i docelowe magazyny kluczy w tej samej subskrypcji lub subskrypcjach platformy Azure jako rejestry źródłowe i docelowe. W razie konieczności Utwórz magazyny kluczy za pomocą [interfejsu wiersza polecenia platformy Azure](../key-vault/quick-create-cli.md) lub innych narzędzi.
+* **Magazyny kluczy** — magazyny kluczy są konieczne do przechowywania wpisów tajnych tokenów SAS używanych do uzyskiwania dostępu do źródłowych i docelowych kont magazynu. Utwórz źródłowe i docelowe magazyny kluczy w tej samej subskrypcji lub subskrypcjach platformy Azure jako rejestry źródłowe i docelowe. W razie konieczności Utwórz magazyny kluczy za pomocą [interfejsu wiersza polecenia platformy Azure](../key-vault/secrets/quick-create-cli.md) lub innych narzędzi.
 * **Zmienne środowiskowe** — w przypadku przykładowych poleceń w tym artykule ustaw następujące zmienne środowiskowe dla środowiska źródłowego i docelowego. Wszystkie przykłady są sformatowane dla powłoki bash.
   ```console
   SOURCE_RG="<source-resource-group>"
@@ -257,7 +257,7 @@ az storage blob list \
 
 Użyj narzędzia AzCopy lub innych metod [transferu danych obiektów BLOB](../storage/common/storage-use-azcopy-blobs.md#copy-blobs-between-storage-accounts) z konta magazynu źródłowego na docelowe konto magazynu.
 
-Na przykład następujące [`azcopy copy`](/azure/storage/common/storage-ref-azcopy-copy) polecenie kopiuje obiekt BLOB z kontenera *transferu* na koncie źródłowym do kontenera *transferu* na koncie docelowym. Jeśli obiekt BLOB istnieje na koncie docelowym, zostanie nadpisany. Uwierzytelnianie używa tokenów SAS z odpowiednimi uprawnieniami dla kontenerów źródłowy i docelowy. (Kroki tworzenia tokenów nie są wyświetlane).
+Na przykład następujące [`azcopy copy`](../storage/common/storage-ref-azcopy-copy.md) polecenie kopiuje obiekt BLOB z kontenera *transferu* na koncie źródłowym do kontenera *transferu* na koncie docelowym. Jeśli obiekt BLOB istnieje na koncie docelowym, zostanie nadpisany. Uwierzytelnianie używa tokenów SAS z odpowiednimi uprawnieniami dla kontenerów źródłowy i docelowy. (Kroki tworzenia tokenów nie są wyświetlane).
 
 ```console
 azcopy copy \
@@ -366,6 +366,3 @@ Aby zaimportować pojedyncze obrazy kontenera do usługi Azure Container Registr
 [az-deployment-group-show]: /cli/azure/deployment/group#az-deployment-group-show
 [az-acr-repository-list]: /cli/azure/acr/repository#az-acr-repository-list
 [az-acr-import]: /cli/azure/acr#az-acr-import
-
-
-

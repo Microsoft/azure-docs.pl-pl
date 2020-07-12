@@ -3,11 +3,12 @@ title: Przegląd Service Fabric i kontenerów
 description: Omówienie Service Fabric i używania kontenerów do wdrażania aplikacji mikrousług. Ten artykuł zawiera omówienie sposobu użycia kontenerów i dostępne możliwości w Service Fabric.
 ms.topic: conceptual
 ms.date: 8/8/2018
-ms.openlocfilehash: 884cefa3d6a60f55269afac73c40b9f6b21518f6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7c92910a92c8fa3061a1a0d53611734cf681484f
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75458225"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259225"
 ---
 # <a name="service-fabric-and-containers"></a>Service Fabric i kontenery
 
@@ -64,7 +65,7 @@ Na poniższej ilustracji przedstawiono różne typy wirtualizacji i dostępne po
 
 Oto typowe przykłady, w których kontener jest dobry wybór:
 
-* **Przesunięcia i Shift usług IIS**: można umieścić istniejącą aplikację [ASP.NET MVC](https://www.asp.net/mvc) w kontenerze zamiast migrować ją do ASP.NET Core. Te aplikacje ASP.NET MVC są zależne od Internet Information Services (IIS). Te aplikacje można spakować na obrazy kontenerów ze utworzonego obrazu usług IIS i wdrożyć je za pomocą Service Fabric. Zobacz [obrazy kontenerów w systemie Windows Server](https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-server) , aby uzyskać informacje o kontenerach systemu Windows.
+* **Przesunięcia i Shift usług IIS**: można umieścić istniejącą aplikację [ASP.NET MVC](https://www.asp.net/mvc) w kontenerze zamiast migrować ją do ASP.NET Core. Te aplikacje ASP.NET MVC są zależne od Internet Information Services (IIS). Te aplikacje można spakować na obrazy kontenerów ze utworzonego obrazu usług IIS i wdrożyć je za pomocą Service Fabric. Zobacz [obrazy kontenerów w systemie Windows Server](/virtualization/windowscontainers/quick-start/quick-start-windows-server) , aby uzyskać informacje o kontenerach systemu Windows.
 
 * **Mieszaj kontenery i Service Fabric mikrousługi**: Użyj istniejącego obrazu kontenera dla części aplikacji. Można na przykład użyć [kontenera Nginx](https://hub.docker.com/_/nginx/) dla frontonu sieci Web aplikacji i usług stanowych w celu uzyskania bardziej intensywnych obliczeń zaplecza.
 
@@ -89,7 +90,7 @@ Service Fabric oferuje kilka możliwości kontenera, które ułatwiają tworzeni
 * Możliwość ustawienia poświadczeń zabezpieczeń w kontenerze.
 * Wybór różnych trybów sieciowych dla kontenerów.
 
-Aby zapoznać się z kompleksowym omówieniem obsługi kontenerów na platformie Azure, takich jak tworzenie klastra Kubernetes za pomocą usługi Azure Kubernetes, jak utworzyć prywatny rejestr platformy Docker w Azure Container Registry i więcej, zobacz temat [Azure for Containers](https://docs.microsoft.com/azure/containers/).
+Aby zapoznać się z kompleksowym omówieniem obsługi kontenerów na platformie Azure, takich jak tworzenie klastra Kubernetes za pomocą usługi Azure Kubernetes, jak utworzyć prywatny rejestr platformy Docker w Azure Container Registry i więcej, zobacz temat [Azure for Containers](../containers/index.yml).
 
 ## <a name="next-steps"></a>Następne kroki
 
@@ -97,6 +98,6 @@ W tym artykule przedstawiono informacje o Service Fabric pomocy technicznej doty
 
 [Tworzenie pierwszej aplikacji kontenera usługi Service Fabric w systemie Linux](service-fabric-get-started-containers-linux.md)  
 [Tworzenie pierwszej aplikacji kontenera usługi Service Fabric w systemie Windows](service-fabric-get-started-containers.md)  
-[Dowiedz się więcej o kontenerach systemu Windows](https://docs.microsoft.com/virtualization/windowscontainers/about/)
+[Dowiedz się więcej o kontenerach systemu Windows](/virtualization/windowscontainers/about/)
 
 [Image1]: media/service-fabric-containers/Service-Fabric-Types-of-Isolation.png

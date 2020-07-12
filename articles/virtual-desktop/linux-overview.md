@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 8c5de43ed29856451ad67e02a426b07cc34a0d54
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3dc9d62141a63574a6796982542cb1491108eedc
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80422418"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259859"
 ---
 # <a name="linux-support"></a>Obsługa systemu Linux
 
@@ -69,7 +69,7 @@ Przed rozpoczęciem opracowywania klienta systemu Linux dla pulpitu wirtualnego 
 
 Zapoznaj się z naszą dokumentacją dla następujących klientów:
 
-- [Klient klasyczny systemu Windows](connect-windows-7-and-10.md)
+- [Klient klasyczny systemu Windows](connect-windows-7-10.md)
 - [Klient internetowy](connect-web.md)
 - [Klient systemu Android](connect-android.md)
 - [Klient systemu macOS](connect-macos.md)

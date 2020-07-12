@@ -5,15 +5,16 @@ author: vturecek
 ms.topic: conceptual
 ms.date: 06/22/2017
 ms.author: vturecek
-ms.openlocfilehash: 2a331715d4e4538cfdda8d958ff549a81b627b79
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bbde23dd888d179917f123d00745fb7d0099c2d2
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76028554"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259294"
 ---
 # <a name="service-fabric-with-azure-api-management-overview"></a>Usługi Service Fabric i Azure API Management — omówienie
 
-Aplikacje w chmurze zwykle potrzebują bramy frontonu, aby udostępniać pojedynczy punkt danych przychodzących dla użytkowników, urządzeń lub innych aplikacji. W Service Fabric Brama może być dowolną usługą bezstanową, taką jak [aplikacja ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md)lub inna usługa zaprojektowana na potrzeby ruchu przychodzącego, na przykład [Event Hubs](https://docs.microsoft.com/azure/event-hubs/), [IoT Hub](https://docs.microsoft.com/azure/iot-hub/)lub [Azure API Management](https://docs.microsoft.com/azure/api-management/).
+Aplikacje w chmurze zwykle potrzebują bramy frontonu, aby udostępniać pojedynczy punkt danych przychodzących dla użytkowników, urządzeń lub innych aplikacji. W Service Fabric Brama może być dowolną usługą bezstanową, taką jak [aplikacja ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md)lub inna usługa zaprojektowana na potrzeby ruchu przychodzącego, na przykład [Event Hubs](../event-hubs/index.yml), [IoT Hub](../iot-hub/index.yml)lub [Azure API Management](../api-management/index.yml).
 
 Ten artykuł zawiera wprowadzenie do korzystania z usługi Azure API Management jako bramy do aplikacji Service Fabric. API Management integruje się bezpośrednio z Service Fabric, co pozwala na publikowanie interfejsów API z bogatym zestawem reguł routingu do usług Service Fabric zaplecza.
 
@@ -76,7 +77,7 @@ W tym przykładzie nowe wystąpienie usługi bezstanowej jest tworzone dla każd
 
 - `fabric:/app/users/<username>`
 
-  Każda usługa ma unikatową nazwę, ale nazwy nie są znane z góry, ponieważ usługi są tworzone w odpowiedzi na dane wejściowe użytkownika lub administratora i dlatego nie mogą być zakodowane w zasadach APIM lub regułach routingu. Zamiast tego nazwa usługi, do której należy wysłać żądanie, jest generowana w definicji zasad zaplecza z `name` wartości podanej w ścieżce żądania adresu URL. Przykład:
+  Każda usługa ma unikatową nazwę, ale nazwy nie są znane z góry, ponieważ usługi są tworzone w odpowiedzi na dane wejściowe użytkownika lub administratora i dlatego nie mogą być zakodowane w zasadach APIM lub regułach routingu. Zamiast tego nazwa usługi, do której należy wysłać żądanie, jest generowana w definicji zasad zaplecza z `name` wartości podanej w ścieżce żądania adresu URL. Na przykład:
 
   - Żądanie skierowane do `/api/users/foo` wystąpienia usługi`fabric:/app/users/foo`
   - Żądanie skierowane do `/api/users/bar` wystąpienia usługi`fabric:/app/users/bar`
@@ -95,7 +96,7 @@ W tym przykładzie tworzone jest nowe wystąpienie usługi stanowej dla każdego
 
 - `fabric:/app/users/<username>`
 
-  Każda usługa ma unikatową nazwę, ale nazwy nie są znane z góry, ponieważ usługi są tworzone w odpowiedzi na dane wejściowe użytkownika lub administratora i dlatego nie mogą być zakodowane w zasadach APIM lub regułach routingu. Zamiast tego nazwa usługi, do której należy wysłać żądanie, jest generowana w definicji zasad zaplecza z `name` wartości podanej w polu Ścieżka żądania adresu URL. Przykład:
+  Każda usługa ma unikatową nazwę, ale nazwy nie są znane z góry, ponieważ usługi są tworzone w odpowiedzi na dane wejściowe użytkownika lub administratora i dlatego nie mogą być zakodowane w zasadach APIM lub regułach routingu. Zamiast tego nazwa usługi, do której należy wysłać żądanie, jest generowana w definicji zasad zaplecza z `name` wartości podanej w polu Ścieżka żądania adresu URL. Na przykład:
 
   - Żądanie skierowane do `/api/users/foo` wystąpienia usługi`fabric:/app/users/foo`
   - Żądanie skierowane do `/api/users/bar` wystąpienia usługi`fabric:/app/users/bar`

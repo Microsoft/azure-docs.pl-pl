@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 07/11/2019
 ms.author: charwen
-ms.openlocfilehash: f3a658d4b02501994437691308810ffb9cabcb6d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2672068e505b7c86127b8b765372e7c607c3875a
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84738859"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259782"
 ---
 # <a name="optimize-expressroute-routing"></a>Optymalizacja routingu usługi ExpressRoute
 Jeśli masz wiele obwodów usługi ExpressRoute, masz więcej niż jedną ścieżkę łączenia z firmą Microsoft. W związku z tym może wystąpić routing nieoptymalny, tzn. ruch może użyć dłuższej ścieżki w celu dotarcia do firmy Microsoft lub z firmy Microsoft do sieci użytkownika. Im dłuższa ścieżka sieciowa, tym większe opóźnienie. Opóźnienie ma bezpośredni wpływ na wydajność aplikacji i środowisko użytkownika. W tym artykule przedstawiono ten problem i wyjaśniono, jak zoptymalizować routing przy użyciu standardowych technologii routingu.
@@ -33,18 +33,18 @@ W powyższym przykładzie, aby preferować ExpressRoute ścieżki skonfigurować
 
 **Cisco IOS — konfiguracja XE z perspektywy R1:**
 
-    R1(config)#route-map prefer-ExR permit 10
-    R1(config-route-map)#set local-preference 150
+- R1 (config) #route-map Preferuj ExR 10
+- R1 (Konfiguracja-trasa-mapa) #set preferencja lokalna 150
 
-    R1(config)#router BGP 345
-    R1(config-router)#neighbor 1.1.1.2 remote-as 12076
-    R1(config-router)#neighbor 1.1.1.2 activate
-    R1(config-router)#neighbor 1.1.1.2 route-map prefer-ExR in
+- R1 (Konfiguracja) #router BGP 345
+- R1 (Konfiguracja-router) #neighbor 1.1.1.2 zdalnego — jako 12076
+- R1 (Konfiguracja-router) #neighbor aktywowanie 1.1.1.2
+- R1 (Konfiguracja-router) #neighbor 1.1.1.2 Route-map Preferuj ExR
 
 **Junos konfigurację z perspektywy R1:**
 
-    user@R1# set protocols bgp group ibgp type internal
-    user@R1# set protocols bgp group ibgp local-preference 150
+- user@R1# Set protokoły protokołu BGP Grupa iBGP typ wewnętrzny
+- user@R1# Set protokoły BGP Grupa iBGP Local — preferencja 150
 
 
 

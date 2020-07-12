@@ -3,11 +3,12 @@ title: Uwierzytelnianie przy użyciu tożsamości zarządzanej
 description: Zapewnianie dostępu do obrazów w prywatnym rejestrze kontenera przy użyciu przypisanej do użytkownika lub zarządzanej tożsamości platformy Azure przypisanej do systemu.
 ms.topic: article
 ms.date: 01/16/2019
-ms.openlocfilehash: 9b8bed78629d3a9739ec00772ad5c8216a04c122
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d3a1f0f9c9e814cabaa205fbb0abf05333fd6daf
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74456498"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259092"
 ---
 # <a name="use-an-azure-managed-identity-to-authenticate-to-an-azure-container-registry"></a>Uwierzytelnianie w usłudze Azure Container Registry za pomocą tożsamości zarządzanej platformy Azure 
 
@@ -95,7 +96,7 @@ This message shows that your installation appears to be working correctly.
 [...]
 ```
 
-### <a name="install-the-azure-cli"></a>Zainstaluj interfejs wiersza polecenia platformy Azure
+### <a name="install-the-azure-cli"></a>Instalowanie interfejsu wiersza polecenia platformy Azure
 
 Wykonaj kroki opisane w temacie [Instalowanie interfejsu wiersza polecenia platformy Azure z programem apt](/cli/azure/install-azure-cli-apt?view=azure-cli-latest) , aby zainstalować interfejs wiersza polecenia platformy Azure na maszynie wirtualnej Ubuntu. W tym artykule upewnij się, że instalujesz wersję 2.0.55 lub nowszą.
 
@@ -238,7 +239,7 @@ W tym artykule przedstawiono informacje dotyczące korzystania z tożsamości za
 > * Udzielanie tożsamości dostępu do usługi Azure Container Registry
 > * Korzystanie z tożsamości zarządzanej w celu uzyskania dostępu do rejestru i ściągania obrazu kontenera
 
-* Dowiedz się więcej o [zarządzanych tożsamościach dla zasobów platformy Azure](/azure/active-directory/managed-identities-azure-resources/).
+* Dowiedz się więcej o [zarządzanych tożsamościach dla zasobów platformy Azure](../active-directory/managed-identities-azure-resources/index.yml).
 
 
 <!-- LINKS - external -->

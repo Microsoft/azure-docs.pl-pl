@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: e9a90ab7100ae9757f59c80bb8f4738772482f56
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4f78928c26b595caafd6709a200297d62ce1c361
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85833659"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259684"
 ---
 # <a name="query-storage-files-using-sql-on-demand-preview-resources-within-synapse-sql"></a>Wykonywanie zapytań dotyczących plików magazynu za pomocą zasobów SQL na żądanie (wersja zapoznawcza) w programie Synapse SQL
 
@@ -46,7 +46,7 @@ Aby wykonać zapytanie dotyczące danych źródłowych Parquet, użyj formatu = 
 
 ```syntaxsql
 SELECT * FROM
-OPENROWSET( BULK N'https://myaccount.blob.core.windows.net/mycontainer/mysubfolder/data.parquet', FORMAT = 'PARQUET') 
+OPENROWSET( BULK N'https://myaccount.dfs.core.windows.net//mycontainer/mysubfolder/data.parquet', FORMAT = 'PARQUET') 
 WITH (C1 int, C2 varchar(20), C3 as varchar(max)) as rows
 ```
 
@@ -58,7 +58,7 @@ Aby zbadać dane źródłowe Parquet, użyj formatu "CSV". Możesz określić sc
 
 ```sql
 SELECT * FROM
-OPENROWSET( BULK N'https://myaccount.blob.core.windows.net/mycontainer/mysubfolder/data.csv', FORMAT = 'CSV', PARSER_VERSION='2.0') 
+OPENROWSET( BULK N'https://myaccount.dfs.core.windows.net/mycontainer/mysubfolder/data.csv', FORMAT = 'CSV', PARSER_VERSION='2.0') 
 WITH (C1 int, C2 varchar(20), C3 as varchar(max)) as rows
 ```
 
@@ -81,7 +81,7 @@ Aby określić kolumny, które mają zostać odczytane, możesz podać opcjonaln
 
 ```sql
 SELECT * FROM
-OPENROWSET( BULK N'https://myaccount.blob.core.windows.net/mycontainer/mysubfolder/data.parquet', FORMAT = 'PARQUET') 
+OPENROWSET( BULK N'https://myaccount.dfs.core.windows.net/mycontainer/mysubfolder/data.parquet', FORMAT = 'PARQUET') 
 WITH (
       C1 int, 
       C2 varchar(20),
@@ -101,7 +101,7 @@ Pomijając klauzulę WITH z `OPENROWSET` instrukcji, można nakazać usłudze au
 
 ```sql
 SELECT * FROM
-OPENROWSET( BULK N'https://myaccount.blob.core.windows.net/mycontainer/mysubfolder/data.parquet', FORMAT = 'PARQUET') 
+OPENROWSET( BULK N'https://myaccount.dfs.core.windows.net/mycontainer/mysubfolder/data.parquet', FORMAT = 'PARQUET') 
 ```
 
 Upewnij się, że [odpowiednie wywnioskowane typy danych](best-practices-sql-on-demand.md#check-inferred-data-types) są używane w celu uzyskania optymalnej wydajności. 
@@ -118,7 +118,7 @@ Mają zastosowanie następujące zasady:
 
 ```sql
 SELECT * FROM
-OPENROWSET( BULK N'https://myaccount.blob.core.windows.net/myroot/*/mysubfolder/*.parquet', FORMAT = 'PARQUET' ) as rows
+OPENROWSET( BULK N'https://myaccount.dfs.core.windows.net/myroot/*/mysubfolder/*.parquet', FORMAT = 'PARQUET' ) as rows
 ```
 
 Przykłady użycia znajdują się w [folderach zapytań i wielu plikach](query-folders-multiple-csv-files.md) .
@@ -179,7 +179,7 @@ Przykład fragmentu składni jest następujący:
 
 Domyślnie `OPENROWSET` Funkcja jest zgodna z nazwą pola źródłowego i ścieżką z nazwami kolumn podanymi w klauzuli with. Do elementów zawartych na różnych poziomach zagnieżdżenia w tym samym pliku źródłowym Parquet można uzyskać dostęp za pośrednictwem klauzuli WITH.
 
-**Zwracane wartości**
+**Wartości zwracane**
 
 - Funkcja zwraca wartość skalarną, taką jak int, Decimal i varchar, z określonego elementu i w określonej ścieżce dla wszystkich typów Parquet, które nie należą do grupy typów zagnieżdżonych.
 - Jeśli ścieżka wskazuje element, który jest typu zagnieżdżonego, funkcja zwraca fragment JSON, zaczynając od górnego elementu w określonej ścieżce. Fragment JSON jest typu varchar (8000).
@@ -219,7 +219,7 @@ Przykłady zapytań umożliwiające uzyskiwanie dostępu do elementów z powtór
 
 Możesz dowiedzieć się więcej o wysyłaniu zapytań do różnych typów danych przy użyciu przykładowych zapytań.
 
-### <a name="tools"></a>narzędzia
+### <a name="tools"></a>Narzędzia
 
 Narzędzia potrzebne do wysyłania zapytań:
     - Azure Synapse Studio (wersja zapoznawcza)

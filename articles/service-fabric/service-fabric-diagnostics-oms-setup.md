@@ -5,11 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: srrengar
-ms.openlocfilehash: cf0fab9942dcbb7ee09e554f2c9ba8738f208009
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 691f3b7987c2591b0f6cea3f7b520c03c0ba9a9e
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75609931"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86258651"
 ---
 # <a name="set-up-azure-monitor-logs-for-a-cluster"></a>Konfigurowanie dzienników Azure Monitor dla klastra
 
@@ -90,7 +91,7 @@ Azure Resource Manager wykryje, że to polecenie jest aktualizacją istniejąceg
 
 ## <a name="deploy-azure-monitor-logs-with-azure-powershell"></a>Wdrażanie dzienników Azure Monitor przy użyciu Azure PowerShell
 
-Możesz również wdrożyć zasób usługi log Analytics za pomocą programu PowerShell przy użyciu `New-AzOperationalInsightsWorkspace` polecenia. Aby użyć tej metody, upewnij się, że zainstalowano [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps). Użyj tego skryptu, aby utworzyć nowy obszar roboczy Log Analytics i dodać do niego rozwiązanie Service Fabric: 
+Możesz również wdrożyć zasób usługi log Analytics za pomocą programu PowerShell przy użyciu `New-AzOperationalInsightsWorkspace` polecenia. Aby użyć tej metody, upewnij się, że zainstalowano [Azure PowerShell](/powershell/azure/install-az-ps). Użyj tego skryptu, aby utworzyć nowy obszar roboczy Log Analytics i dodać do niego rozwiązanie Service Fabric: 
 
 ```powershell
 
@@ -122,5 +123,5 @@ Możesz również dodawać inne rozwiązania lub wprowadzać inne modyfikacje w 
 
 ## <a name="next-steps"></a>Następne kroki
 * [Wdróż agenta log Analytics](service-fabric-diagnostics-oms-agent.md) w węzłach w celu zebrania liczników wydajności i zebrania statystyk i dzienników platformy Docker dla kontenerów
-* Zapoznaj się z funkcjami [przeszukiwania dzienników i wykonywania zapytań](../log-analytics/log-analytics-log-searches.md) , które są oferowane w ramach dzienników Azure monitor
+* Zapoznaj się z funkcjami [przeszukiwania dzienników i wykonywania zapytań](../azure-monitor/log-query/log-query-overview.md) , które są oferowane w ramach dzienników Azure monitor
 * [Używanie projektanta widoków do tworzenia widoków niestandardowych w dziennikach Azure Monitor](../azure-monitor/platform/view-designer.md)

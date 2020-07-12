@@ -5,16 +5,16 @@ ms.topic: conceptual
 ms.date: 03/23/2018
 ms.author: pepogors
 ms.custom: sfrev
-ms.openlocfilehash: 03076a711041812f7587aa1c388b0889b49725d2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4efa8626e80cbd64cd6216faa1869d7210f32cf2
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82787137"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86261111"
 ---
 # <a name="azure-service-fabric-node-types-and-virtual-machine-scale-sets"></a>Typy węzłów usługi Azure Service Fabric i zestawy skalowania maszyn wirtualnych
 
-[Zestawy skalowania maszyn wirtualnych](/azure/virtual-machine-scale-sets) to zasób obliczeniowy platformy Azure. Zestawy skalowania umożliwiają wdrażanie kolekcji maszyn wirtualnych jako zestawu i zarządzanie nimi. Każdy typ węzła, który definiujesz w klastrze Service Fabric platformy Azure, ustawia dokładnie jeden zestaw skalowania: nie można wykonać kopii zapasowej wielu typów węzłów za pomocą tego samego zestawu skalowania, a jeden typ węzła nie powinien być obsługiwany przez wiele zestawów skalowania. Wyjątkiem jest w rzadkim przypadku [skalowania w pionie](service-fabric-best-practices-capacity-scaling.md#vertical-scaling-considerations) typu węzła, gdy program ma tymczasowo dwa zestawy skalowania o tej samej `nodeTypeRef` wartości, podczas gdy repliki są migrowane z oryginału do uaktualnionego zestawu skalowania.
+[Zestawy skalowania maszyn wirtualnych](../virtual-machine-scale-sets/index.yml) to zasób obliczeniowy platformy Azure. Zestawy skalowania umożliwiają wdrażanie kolekcji maszyn wirtualnych jako zestawu i zarządzanie nimi. Każdy typ węzła, który definiujesz w klastrze Service Fabric platformy Azure, ustawia dokładnie jeden zestaw skalowania: nie można wykonać kopii zapasowej wielu typów węzłów za pomocą tego samego zestawu skalowania, a jeden typ węzła nie powinien być obsługiwany przez wiele zestawów skalowania. Wyjątkiem jest w rzadkim przypadku [skalowania w pionie](service-fabric-best-practices-capacity-scaling.md#vertical-scaling-considerations) typu węzła, gdy program ma tymczasowo dwa zestawy skalowania o tej samej `nodeTypeRef` wartości, podczas gdy repliki są migrowane z oryginału do uaktualnionego zestawu skalowania.
 
 Środowisko uruchomieniowe Service Fabric jest instalowane na każdej maszynie wirtualnej w zestawie skalowania za pomocą rozszerzenia maszyny wirtualnej *Microsoft. Azure. servicefabric* . Można niezależnie skalować każdy typ węzła w górę lub w dół, zmieniać jednostkę SKU systemu operacyjnego działającą w każdym węźle klastra, mieć otwarte różne zestawy portów i korzystać z różnych metryk pojemności.
 

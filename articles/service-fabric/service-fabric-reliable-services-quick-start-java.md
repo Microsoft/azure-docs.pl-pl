@@ -5,12 +5,12 @@ author: suhuruli
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: suhuruli
-ms.openlocfilehash: 7855b92c90a9ccd208a25080c260437e6808d1b7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f4cab376318bec471fa59614e5bcc716a31dc333
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82184150"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260936"
 ---
 # <a name="get-started-with-reliable-services-in-java"></a>Wprowadzenie do Reliable Services w języku Java
 > [!div class="op_single_selector"]
@@ -190,7 +190,7 @@ protected CompletableFuture<?> runAsync(CancellationToken cancellationToken) {
 ReliableHashMap<String,Long> map = this.stateManager.<String, Long>getOrAddReliableHashMapAsync("myHashMap")
 ```
 
-[ReliableHashMap](https://docs.microsoft.com/java/api/microsoft.servicefabric.data.collections.reliablehashmap) to implementacja słownika, której można użyć do niezawodnego przechowywania stanu usługi. Dzięki Service Fabric i niezawodnej HashMaps można przechowywać dane bezpośrednio w usłudze bez potrzeby zewnętrznego magazynu trwałego. Niezawodne HashMaps zapewnia wysoką dostępność danych. Service Fabric to osiągnąć przez utworzenie wielu *replik* usługi i zarządzanie nimi. Udostępnia również interfejs API, który stanowi streszczenie złożoności zarządzania tymi replikami i ich przejścia stanu.
+[ReliableHashMap](/java/api/microsoft.servicefabric.data.collections.reliablehashmap) to implementacja słownika, której można użyć do niezawodnego przechowywania stanu usługi. Dzięki Service Fabric i niezawodnej HashMaps można przechowywać dane bezpośrednio w usłudze bez potrzeby zewnętrznego magazynu trwałego. Niezawodne HashMaps zapewnia wysoką dostępność danych. Service Fabric to osiągnąć przez utworzenie wielu *replik* usługi i zarządzanie nimi. Udostępnia również interfejs API, który stanowi streszczenie złożoności zarządzania tymi replikami i ich przejścia stanu.
 
 Niezawodne kolekcje mogą przechowywać dowolny typ Java, łącznie z typami niestandardowymi, z kilkoma zastrzeżeniami:
 

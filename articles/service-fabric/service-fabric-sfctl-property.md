@@ -5,11 +5,12 @@ author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: a9bd75e0b7f8bfceb50a71ca83b60ff1e7b45508
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0a5ebd4822c5f0ff1735464bb4d5b42c436ee529
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76905828"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260319"
 ---
 # <a name="sfctl-property"></a>sfctl property
 Właściwości magazynu i zapytania w obszarze nazwy Service Fabric.
@@ -18,7 +19,7 @@ Właściwości magazynu i zapytania w obszarze nazwy Service Fabric.
 
 |Polecenie|Opis|
 | --- | --- |
-| delete | Usuwa określoną właściwość Service Fabric. |
+| usunięcie | Usuwa określoną właściwość Service Fabric. |
 | get | Pobiera określoną właściwość Service Fabric. |
 | list | Pobiera informacje o wszystkich Service Fabric właściwościach o podanej nazwie. |
 | umieszczanie | Tworzy lub aktualizuje właściwość Service Fabric. |
@@ -121,4 +122,4 @@ Tworzy lub aktualizuje określoną właściwość Service Fabric pod daną nazw�
 
 ## <a name="next-steps"></a>Następne kroki
 - [Skonfiguruj](service-fabric-cli.md) interfejs wiersza polecenia Service Fabric.
-- Dowiedz się, jak używać interfejsu wiersza polecenia Service Fabric przy użyciu [przykładowych skryptów](/azure/service-fabric/scripts/sfctl-upgrade-application).
+- Dowiedz się, jak używać interfejsu wiersza polecenia Service Fabric przy użyciu [przykładowych skryptów](./scripts/sfctl-upgrade-application.md).

@@ -4,12 +4,12 @@ description: Informacje o uwierzytelnianiu opartym na certyfikatach w klastrach 
 ms.topic: conceptual
 ms.date: 03/16/2020
 ms.custom: sfrev
-ms.openlocfilehash: 699015e322c599dea996b3a8b9dbc0a4589440ab
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 36717f526f88af753f3929d62e84ee65be4320e9
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81429670"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259024"
 ---
 # <a name="x509-certificate-based-authentication-in-service-fabric-clusters"></a>Uwierzytelnianie oparte na certyfikatach X. 509 w klastrach Service Fabric
 
@@ -180,7 +180,7 @@ Wspomniano wcześniej, że ustawienia zabezpieczeń klastra Service Fabric umoż
 
 Jak wspomniano wcześniej, sprawdzanie poprawności certyfikatu zawsze implikuje Kompilowanie i ocenianie łańcucha certyfikatu. W przypadku certyfikatów wystawionych przez urząd certyfikacji to pozornie proste wywołanie interfejsu API systemu operacyjnego powoduje zwykle kilka wywołań wychodzących do różnych punktów końcowych wystawiającej infrastrukturę PKI, buforowanie odpowiedzi i tak dalej. W przypadku występowania wywołań weryfikacji certyfikatów w klastrze Service Fabric wszystkie problemy z punktami końcowymi infrastruktury PKI mogą spowodować zredukowanie dostępności klastra lub niewłaściwego podziału. Nie można pominąć wywołań wychodzących (zobacz poniżej w sekcji często zadawane pytania, aby uzyskać więcej informacji na ten temat). można użyć następujących ustawień w celu zamaskowania błędów walidacji spowodowanych błędami wywołań listy CRL.
 
-  * CrlCheckingFlag — w sekcji "zabezpieczenia" ciąg przekonwertowany na UINT. Wartość tego ustawienia jest używana przez Service Fabric do maskowania błędów stanu łańcucha certyfikatów przez zmianę zachowania tworzenia łańcucha; jest ona przenoszona do wywołania interfejsu [CertGetCertificateChain](https://docs.microsoft.com/windows/win32/api/wincrypt/nf-wincrypt-certgetcertificatechain) systemu Win32 jako parametr "flagiDW" i może być ustawiona na dowolną prawidłową kombinację flag akceptowanych przez funkcję. Wartość 0 wymusza ignorowanie wszelkich błędów stanu zaufania przez środowisko uruchomieniowe Service Fabric. nie jest to zalecane, ponieważ jego użycie stanowiłoby znaczące narażenie na bezpieczeństwo. Wartość domyślna to 0x40000000 (CERT_CHAIN_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT).
+  * CrlCheckingFlag — w sekcji "zabezpieczenia" ciąg przekonwertowany na UINT. Wartość tego ustawienia jest używana przez Service Fabric do maskowania błędów stanu łańcucha certyfikatów przez zmianę zachowania tworzenia łańcucha; jest ona przenoszona do wywołania interfejsu [CertGetCertificateChain](/windows/win32/api/wincrypt/nf-wincrypt-certgetcertificatechain) systemu Win32 jako parametr "flagiDW" i może być ustawiona na dowolną prawidłową kombinację flag akceptowanych przez funkcję. Wartość 0 wymusza ignorowanie wszelkich błędów stanu zaufania przez środowisko uruchomieniowe Service Fabric. nie jest to zalecane, ponieważ jego użycie stanowiłoby znaczące narażenie na bezpieczeństwo. Wartość domyślna to 0x40000000 (CERT_CHAIN_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT).
 
   Kiedy używać: do testowania lokalnego z certyfikatami z podpisem własnym lub certyfikatów deweloperów, które nie są w pełni uformowane/nie mają właściwej infrastruktury kluczy publicznych do obsługi certyfikatów. Mogą również używać jako ograniczenia w środowiskach gapped powietrze podczas przejścia między infrastruktur kluczy publicznych.
 
@@ -257,7 +257,7 @@ Zakończenie fazy 2 oznacza także konwersję klastra do typowych certyfikatów 
 W osobnym artykule omówiono zarządzanie certyfikatami i inicjowanie ich obsługi w klastrze Service Fabric.
 
 ## <a name="troubleshooting-and-frequently-asked-questions"></a>Rozwiązywanie problemów i często zadawane pytania
-Debugowanie problemów związanych z uwierzytelnianiem w klastrach Service Fabric nie jest proste, dlatego hopeful następujące wskazówki i porady mogą pomóc. Najprostszym sposobem rozpoczęcia badania jest zbadanie Service Fabric dzienników zdarzeń w węzłach klastra — niekoniecznie są to tylko te, które pokazują objawy, ale również węzły, które są, ale nie mogą połączyć się z jednym z ich sąsiadów. W systemie Windows zdarzenia o znaczeniu są zwykle rejestrowane odpowiednio w kanałach "Applications and Services Logs\Microsoft-ServiceFabric\Admin" lub "działa". Czasami może być pomocne [włączenie rejestrowania CAPI2](https://docs.microsoft.com/archive/blogs/benjaminperkins/enable-capi2-event-logging-to-troubleshoot-pki-and-ssl-certificate-issues), aby przechwycić więcej szczegółów dotyczących sprawdzania poprawności certyfikatu, pobierania list CRL/CTL itd. (należy pamiętać, aby wyłączyć go po zakończeniu odtwórzu, może być całkiem pełne).
+Debugowanie problemów związanych z uwierzytelnianiem w klastrach Service Fabric nie jest proste, dlatego hopeful następujące wskazówki i porady mogą pomóc. Najprostszym sposobem rozpoczęcia badania jest zbadanie Service Fabric dzienników zdarzeń w węzłach klastra — niekoniecznie są to tylko te, które pokazują objawy, ale również węzły, które są, ale nie mogą połączyć się z jednym z ich sąsiadów. W systemie Windows zdarzenia o znaczeniu są zwykle rejestrowane odpowiednio w kanałach "Applications and Services Logs\Microsoft-ServiceFabric\Admin" lub "działa". Czasami może być pomocne [włączenie rejestrowania CAPI2](/archive/blogs/benjaminperkins/enable-capi2-event-logging-to-troubleshoot-pki-and-ssl-certificate-issues), aby przechwycić więcej szczegółów dotyczących sprawdzania poprawności certyfikatu, pobierania list CRL/CTL itd. (należy pamiętać, aby wyłączyć go po zakończeniu odtwórzu, może być całkiem pełne).
 
 Typowe objawy polegające na tym, że w klastrze występują problemy z uwierzytelnianiem: 
   - węzły są wyłączone/cykliczne 
@@ -300,5 +300,4 @@ Każdy ze objawów może być spowodowany przez różne problemy, a ta sama gł�
     ```C++
     0x80090014  -2146893804 NTE_BAD_PROV_TYPE
     ```
-    Aby rozwiązać ten certyfikat, należy utworzyć go ponownie przy użyciu CAPI1 (np. "Microsoft Enhanced RSA And AES Cryptographic Provider"). Aby uzyskać więcej informacji na temat dostawców usług kryptograficznych, zobacz [opis dostawców usług kryptograficznych](https://docs.microsoft.com/windows/win32/seccertenroll/understanding-cryptographic-providers) .
-
+    Aby rozwiązać ten certyfikat, należy utworzyć go ponownie przy użyciu CAPI1 (np. "Microsoft Enhanced RSA And AES Cryptographic Provider"). Aby uzyskać więcej informacji na temat dostawców usług kryptograficznych, zobacz [opis dostawców usług kryptograficznych](/windows/win32/seccertenroll/understanding-cryptographic-providers) .

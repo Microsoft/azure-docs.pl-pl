@@ -3,12 +3,12 @@ title: Włącz zarządzaną tożsamość w grupie kontenerów
 description: Dowiedz się, jak włączyć zarządzaną tożsamość w Azure Container Instances, która może być uwierzytelniana za pomocą innych usług platformy Azure
 ms.topic: article
 ms.date: 07/02/2020
-ms.openlocfilehash: 9bc96ed29039650082bdfa8b7b2b1b48ecb6bd3f
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 23f2347593137a4846c8fd22e3b90f22db39bda3
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86169786"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259619"
 ---
 # <a name="how-to-use-managed-identities-with-azure-container-instances"></a>Jak używać tożsamości zarządzanych z usługą Azure Container Instances
 
@@ -392,6 +392,6 @@ W tym artykule przedstawiono informacje o zarządzanych tożsamościach w Azure 
 > * Udzielanie tożsamości dostępu do magazynu kluczy platformy Azure
 > * Korzystanie z tożsamości zarządzanej w celu uzyskiwania dostępu do magazynu kluczy z działającego kontenera
 
-* Dowiedz się więcej o [zarządzanych tożsamościach dla zasobów platformy Azure](/azure/active-directory/managed-identities-azure-resources/).
+* Dowiedz się więcej o [zarządzanych tożsamościach dla zasobów platformy Azure](../active-directory/managed-identities-azure-resources/index.yml).
 
 * Zobacz [przykład zestawu SDK platformy Azure](https://medium.com/@samkreter/c98911206328) , aby uzyskać dostęp do magazynu kluczy z Azure Container Instances przy użyciu tożsamości zarządzanej.

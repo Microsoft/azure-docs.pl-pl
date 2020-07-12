@@ -4,11 +4,12 @@ description: Często zadawane pytania dotyczące Service Fabric, w tym możliwo�
 ms.topic: troubleshooting
 ms.date: 08/18/2017
 ms.author: pepogors
-ms.openlocfilehash: bf61858b446c1ac6d4a0210571fffaa721ad0166
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 056ff2475e0ae8c78887e24e07a3e33f12d7df88
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78254884"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86258940"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Często zadawane pytania dotyczące usługi Service Fabric
 
@@ -21,9 +22,9 @@ Istnieje wiele często zadawanych pytań na temat tego, co Service Fabric może 
 
 ### <a name="how-do-i-roll-back-my-service-fabric-cluster-certificate"></a>Jak mogę wycofać certyfikat mojego Service Fabric klastra?
 
-Wycofanie wszelkich uaktualnień do aplikacji wymaga wykrywania błędów kondycji przed zatwierdzeniem przez Service Fabric kworum klastra zmiany; zatwierdzone zmiany mogą być rzutowane tylko do przodu. W celu odzyskania klastra może być wymagane przeprowadzenie przez specjalistę eskalacji, jeśli wprowadzono niemonitorowaną zmianę certyfikatu.  [Uaktualnienie aplikacji Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-upgrade?branch=master) stosuje [Parametry uaktualnienia aplikacji](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-upgrade-parameters?branch=master)i zapewnia nieprzerwane obietnice uaktualniania.  Zgodnie z naszym zalecanym trybem monitorowania aplikacji, automatyczny postęp przy użyciu domeny aktualizacji jest oparty na testach kondycji, które są przekazywane automatycznie, jeśli aktualizacja usługi domyślnej nie powiedzie się.
+Wycofanie wszelkich uaktualnień do aplikacji wymaga wykrywania błędów kondycji przed zatwierdzeniem przez Service Fabric kworum klastra zmiany; zatwierdzone zmiany mogą być rzutowane tylko do przodu. W celu odzyskania klastra może być wymagane przeprowadzenie przez specjalistę eskalacji, jeśli wprowadzono niemonitorowaną zmianę certyfikatu.  [Uaktualnienie aplikacji Service Fabric](./service-fabric-application-upgrade.md?branch=master) stosuje [Parametry uaktualnienia aplikacji](./service-fabric-application-upgrade-parameters.md?branch=master)i zapewnia nieprzerwane obietnice uaktualniania.  Zgodnie z naszym zalecanym trybem monitorowania aplikacji, automatyczny postęp przy użyciu domeny aktualizacji jest oparty na testach kondycji, które są przekazywane automatycznie, jeśli aktualizacja usługi domyślnej nie powiedzie się.
  
-Jeśli klaster nadal wykorzystuje Właściwość klasycznego odcisku palca certyfikatu w szablonie Menedżer zasobów, zaleca się [zmianę klastra z odcisku palca certyfikatu na nazwę pospolitą](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-change-cert-thumbprint-to-cn), aby korzystać z nowoczesnych funkcji zarządzania kluczami tajnymi.
+Jeśli klaster nadal wykorzystuje Właściwość klasycznego odcisku palca certyfikatu w szablonie Menedżer zasobów, zaleca się [zmianę klastra z odcisku palca certyfikatu na nazwę pospolitą](./service-fabric-cluster-change-cert-thumbprint-to-cn.md), aby korzystać z nowoczesnych funkcji zarządzania kluczami tajnymi.
 
 ### <a name="can-i-create-a-cluster-that-spans-multiple-azure-regions-or-my-own-datacenters"></a>Czy mogę utworzyć klaster, który obejmuje wiele regionów platformy Azure lub własne centra danych?
 
@@ -40,7 +41,7 @@ Niektóre zagadnienia, które należy wziąć pod uwagę:
 
 ### <a name="do-service-fabric-nodes-automatically-receive-os-updates"></a>Czy Service Fabric węzły automatycznie odbierają aktualizacje systemu operacyjnego?
 
-Teraz można użyć funkcji [automatycznego aktualizowania obrazu systemu operacyjnego dla zestawu skalowania maszyn wirtualnych](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade) .
+Teraz można użyć funkcji [automatycznego aktualizowania obrazu systemu operacyjnego dla zestawu skalowania maszyn wirtualnych](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md) .
 
 W przypadku klastrów, które nie są uruchomione na platformie Azure, firma Microsoft [udostępniła aplikację](service-fabric-patch-orchestration-application.md) do poprawiania systemów operacyjnych pod węzłami Service Fabric.
 
@@ -125,7 +126,7 @@ Nie. Maszyny wirtualne o niskim priorytecie nie są obsługiwane.
 Poniżej przedstawiono sposób, w jaki aplikacja uzyskuje poświadczenia do uwierzytelniania w magazynie kluczy:
 
 A. Podczas tworzenia i pakowania aplikacji można ściągnąć certyfikat do pakietu danych aplikacji SF i używać go do uwierzytelniania w magazynie kluczy.
-B. W przypadku hostów z włączonym zestawem skalowania maszyn wirtualnych można utworzyć prostą SetupEntryPoint programu PowerShell dla aplikacji SF, aby uzyskać [token dostępu z punktu końcowego MSI](https://docs.microsoft.com/azure/active-directory/managed-service-identity/how-to-use-vm-token), a następnie [pobrać klucze tajne z magazynu kluczy](/powershell/module/azurerm.keyvault/get-azurekeyvaultsecret).
+B. W przypadku hostów z włączonym zestawem skalowania maszyn wirtualnych można utworzyć prostą SetupEntryPoint programu PowerShell dla aplikacji SF, aby uzyskać [token dostępu z punktu końcowego MSI](../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md), a następnie [pobrać klucze tajne z magazynu kluczy](/powershell/module/azurerm.keyvault/get-azurekeyvaultsecret).
 
 ## <a name="application-design"></a>Projekt aplikacji
 
@@ -176,9 +177,9 @@ Kontenery oferują prosty sposób na spakowanie usług i ich zależności, tak �
 
 Firma Microsoft udostępnia części typu "open source" Service Fabric ([Struktura niezawodnych usług](https://github.com/Azure/service-fabric-services-and-actors-dotnet), [niezawodna struktura aktorów](https://github.com/Azure/service-fabric-services-and-actors-dotnet), [biblioteki integracji ASP.NET Core](https://github.com/Azure/service-fabric-aspnetcore), [Service Fabric Explorer](https://github.com/Azure/service-fabric-explorer)i [interfejs wiersza polecenia Service Fabric](https://github.com/Azure/service-fabric-cli)) w witrynie GitHub oraz akceptują wkłady społeczności do tych projektów. 
 
-[Niedawno ogłoszono](https://blogs.msdn.microsoft.com/azureservicefabric/2018/03/14/service-fabric-is-going-open-source/) , że planujemy otwarcie źródła Service Fabric środowiska uruchomieniowego. W tym momencie mamy [Service Fabric repozytorium](https://github.com/Microsoft/service-fabric/) w witrynie GitHub przy użyciu narzędzi do kompilowania i testowania systemu Linux, co oznacza, że można sklonować repozytorium, kompilować Service Fabric dla systemu Linux, uruchamiać podstawowe testy, otwierać problemy i przesyłać żądania ściągnięcia. Pracujemy nad udostępnieniem środowiska kompilacji systemu Windows, a także z kompletnym środowiskiem CI.
+[Niedawno ogłoszono](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric) , że planujemy otwarcie źródła Service Fabric środowiska uruchomieniowego. W tym momencie mamy [Service Fabric repozytorium](https://github.com/Microsoft/service-fabric/) w witrynie GitHub przy użyciu narzędzi do kompilowania i testowania systemu Linux, co oznacza, że można sklonować repozytorium, kompilować Service Fabric dla systemu Linux, uruchamiać podstawowe testy, otwierać problemy i przesyłać żądania ściągnięcia. Pracujemy nad udostępnieniem środowiska kompilacji systemu Windows, a także z kompletnym środowiskiem CI.
 
-Aby uzyskać szczegółowe informacje na temat ogłaszania, postępuj zgodnie z [Service Fabric blogu](https://blogs.msdn.microsoft.com/azureservicefabric/) .
+Aby uzyskać szczegółowe informacje na temat ogłaszania, postępuj zgodnie z [Service Fabric blogu](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric) .
 
 ## <a name="next-steps"></a>Następne kroki
 

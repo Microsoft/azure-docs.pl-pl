@@ -4,14 +4,14 @@ description: Dowiedz się, jak skonfigurować link prywatny platformy Azure, aby
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 06/11/2020
+ms.date: 07/10/2020
 ms.author: thweiss
-ms.openlocfilehash: 1ee468b99cddeb5f18f78a6d1298c8959bda075b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bb1310d0f45f945fc150e0ae011ede0d102a5918
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85261634"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259118"
 ---
 # <a name="configure-azure-private-link-for-an-azure-cosmos-account"></a>Konfigurowanie prywatnego linku platformy Azure dla konta usługi Azure Cosmos
 
@@ -69,7 +69,7 @@ Wykonaj następujące kroki, aby utworzyć prywatny punkt końcowy dla istnieją
     |Strefa Prywatna strefa DNS |Wybierz pozycję **privatelink.documents.Azure.com**. <br><br/> Prywatna strefa DNS jest określana automatycznie. Nie można go zmienić za pomocą Azure Portal.|
     |||
 
-1. Wybierz pozycję **Przegląd + utwórz**. Na stronie **Recenzja i tworzenie** zweryfikuje swoją konfigurację.
+1. Wybierz pozycję **Przeglądanie + tworzenie**. Na stronie **Recenzja i tworzenie** zweryfikuje swoją konfigurację.
 1. Gdy zobaczysz komunikat o **przekazaniu walidacji** , wybierz pozycję **Utwórz**.
 
 Po zaakceptowaniu prywatnego linku dla konta usługi Azure Cosmos w obszarze Azure Portal opcja **wszystkie sieci** w okienku **Zapora i sieci wirtualne** jest niedostępna.
@@ -398,7 +398,7 @@ $deploymentOutput = New-AzResourceGroupDeployment -Name "PrivateCosmosDbEndpoint
 $deploymentOutput
 ```
 
-W skrypcie programu PowerShell `GroupId` zmienna może zawierać tylko jedną wartość. Ta wartość jest typem interfejsu API konta. Dozwolone wartości to: `Sql` , `MongoDB` , `Cassandra` , `Gremlin` i `Table` . Niektóre typy kont usługi Azure Cosmos są dostępne za pomocą wielu interfejsów API. Przykład:
+W skrypcie programu PowerShell `GroupId` zmienna może zawierać tylko jedną wartość. Ta wartość jest typem interfejsu API konta. Dozwolone wartości to: `Sql` , `MongoDB` , `Cassandra` , `Gremlin` i `Table` . Niektóre typy kont usługi Azure Cosmos są dostępne za pomocą wielu interfejsów API. Na przykład:
 
 * Do konta interfejsu API Gremlin można uzyskać dostęp zarówno z kont usługi Gremlin, jak i interfejsu API SQL.
 * Do konta interfejs API tabel można uzyskać dostęp z poziomu kont interfejsu API zarówno w tabeli, jak i SQL.
@@ -655,8 +655,6 @@ W przypadku korzystania z prywatnego linku do konta usługi Azure Cosmos stosowa
 * W przypadku korzystania z interfejsu API Azure Cosmos DB dla konta MongoDB, które ma link prywatny, niektóre narzędzia i biblioteki mogą nie funkcjonować, ponieważ automatycznie rozkładają `appName` parametr z parametrów połączenia. Ten parametr jest wymagany do nawiązania połączenia z kontem za pośrednictwem prywatnego punktu końcowego. Niektóre narzędzia, takie jak Visual Studio Code, nie usuwają tego parametru z parametrów połączenia i są w związku z tym zgodne.
 
 * Administrator sieci powinien mieć co najmniej `Microsoft.DocumentDB/databaseAccounts/PrivateEndpointConnectionsApproval/action` uprawnienia w zakresie konta usługi Azure Cosmos w celu utworzenia automatycznie zatwierdzonych prywatnych punktów końcowych.
-
-* Tryb bezpośredni nie jest obecnie obsługiwany w regionach platformy Azure opartych na Chinach.
 
 ### <a name="limitations-to-private-dns-zone-integration"></a>Ograniczenia związane z integracją prywatnej strefy DNS
 

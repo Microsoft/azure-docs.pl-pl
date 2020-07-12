@@ -5,11 +5,12 @@ author: georgewallace
 ms.topic: conceptual
 ms.date: 2/28/2018
 ms.author: gwallace
-ms.openlocfilehash: a3b2f7c22c1afd0a24aafa3bcd9dc9a6c3f725f1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8e60ac5065c2f9543a641daf4f62299c00c61fc8
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85392577"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260180"
 ---
 # <a name="use-system-health-reports-to-troubleshoot"></a>Używanie raportów kondycji systemu do rozwiązywania problemów
 Składniki usługi Azure Service Fabric udostępniają raporty kondycji systemu na wszystkich jednostkach w klastrze, które są od razu do końca. [Magazyn kondycji](service-fabric-health-introduction.md#health-store) tworzy i usuwa jednostki na podstawie raportów systemowych. Organizuje także je w hierarchii, która przechwytuje interakcje jednostek.
@@ -73,17 +74,17 @@ Raport ostrzegawczy stanu węzła inicjatora wyświetli listę wszystkich węzł
 * **Następne kroki**: Jeśli to ostrzeżenie jest wyświetlane w klastrze, postępuj zgodnie z poniższymi instrukcjami, aby rozwiązać ten problem: w przypadku klastra z systemem Service Fabric w wersji 6,5 lub nowszej: w przypadku klastra Service Fabric na platformie Azure po przekroczeniu węzła inicjatora Service Fabric spróbuje zmienić go na węzeł niebędący inicjatorem. Aby to osiągnąć, upewnij się, że liczba węzłów innych niż inicjator w typie podstawowym nie jest większa lub równa liczbie węzłów wypełniania. W razie potrzeby Dodaj więcej węzłów do typu węzła podstawowego, aby to osiągnąć.
 W zależności od stanu klastra może upłynąć trochę czasu, aby rozwiązać ten problem. Po wykonaniu tej czynności raport ostrzegawczy zostanie automatycznie wyczyszczony.
 
-Aby wyczyścić Raport z ostrzeżeniem dla Service Fabric klastra autonomicznego, wszystkie węzły inicjatora muszą stać się w dobrej kondycji. W zależności od tego, dlaczego węzły inicjatora są w złej kondycji, należy wykonać różne akcje: Jeśli węzeł inicjatora nie działa, użytkownicy muszą przenieść ten węzeł inicjatora; Jeśli węzeł inicjatora został usunięty lub nieznany, ten węzeł inicjatora [musi zostać usunięty z klastra](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-windows-server-add-remove-nodes).
+Aby wyczyścić Raport z ostrzeżeniem dla Service Fabric klastra autonomicznego, wszystkie węzły inicjatora muszą stać się w dobrej kondycji. W zależności od tego, dlaczego węzły inicjatora są w złej kondycji, należy wykonać różne akcje: Jeśli węzeł inicjatora nie działa, użytkownicy muszą przenieść ten węzeł inicjatora; Jeśli węzeł inicjatora został usunięty lub nieznany, ten węzeł inicjatora [musi zostać usunięty z klastra](./service-fabric-cluster-windows-server-add-remove-nodes.md).
 Raport ostrzegawczy jest automatycznie czyszczony, gdy wszystkie węzły inicjatora staną się w dobrej kondycji.
 
 W przypadku klastra z systemem Service Fabric w wersji starszej niż 6,5: w tym przypadku raport ostrzegawczy musi zostać wyczyszczony ręcznie. **Przed wyczyszczeniem raportu użytkownicy powinni upewnić się, że wszystkie węzły inicjatora staną się w dobrej kondycji**: Jeśli węzeł inicjatora nie działa, użytkownicy muszą przenieść ten węzeł inicjatora. Jeśli węzeł inicjatora zostanie usunięty lub nieznany, ten węzeł inicjatora musi zostać usunięty z klastra.
-Gdy wszystkie węzły inicjatora staną się w dobrej kondycji, użyj następującego polecenia programu PowerShell, aby [wyczyścić raport ostrzegawczy](https://docs.microsoft.com/powershell/module/servicefabric/send-servicefabricclusterhealthreport):
+Gdy wszystkie węzły inicjatora staną się w dobrej kondycji, użyj następującego polecenia programu PowerShell, aby [wyczyścić raport ostrzegawczy](/powershell/module/servicefabric/send-servicefabricclusterhealthreport):
 
 ```powershell
 PS C:\> Send-ServiceFabricClusterHealthReport -SourceId "System.FM" -HealthProperty "SeedNodeStatus" -HealthState OK
 
 ## Node system health reports
-System.FM, which represents the Failover Manager service, is the authority that manages information about cluster nodes. Each node should have one report from System.FM showing its state. The node entities are removed when the node state is removed. For more information, see [RemoveNodeStateAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.clustermanagementclient.removenodestateasync).
+System.FM, which represents the Failover Manager service, is the authority that manages information about cluster nodes. Each node should have one report from System.FM showing its state. The node entities are removed when the node state is removed. For more information, see [RemoveNodeStateAsync](/dotnet/api/system.fabric.fabricclient.clustermanagementclient.removenodestateasync).
 
 ### Node up/down
 System.FM reports as OK when the node joins the ring (it's up and running). It reports an error when the node departs the ring (it's down, either for upgrading or simply because it has failed). The health hierarchy built by the health store acts on deployed entities in correlation with System.FM node reports. It considers the node a virtual parent of all deployed entities. The deployed entities on that node are exposed through queries if the node is reported as up by System.FM, with the same instance as the instance associated with the entities. When System.FM reports that the node is down or restarted, as a new instance, the health store automatically cleans up the deployed entities that can exist only on the down node or on the previous instance of the node.
@@ -646,7 +647,7 @@ Właściwość i tekst wskazują, który interfejs API został zablokowany. Kole
 
 - **IStatefulServiceReplica. ChangeRole (P)**: najbardziej typowym przypadkiem jest to, że usługa nie zwróciła zadania z `RunAsync` .
 
-Inne wywołania interfejsu API, które mogą zostać zablokowane, znajdują się w interfejsie **IReplicator** . Przykład:
+Inne wywołania interfejsu API, które mogą zostać zablokowane, znajdują się w interfejsie **IReplicator** . Na przykład:
 
 - **IReplicator. CatchupReplicaSet**: to ostrzeżenie wskazuje jedną z dwóch rzeczy. Istnieją niewystarczające repliki. Aby sprawdzić, czy tak jest, sprawdź stan repliki replik w partycji lub raporcie o kondycji System.FM dla zablokowanej ponownej konfiguracji. Lub repliki nie potwierdzają operacji. Polecenia cmdlet programu PowerShell `Get-ServiceFabricDeployedReplicaDetail` można użyć do określenia postępu wszystkich replik. Problem polega na replikach `LastAppliedReplicationSequenceNumber` , których wartość znajduje się za `CommittedSequenceNumber` wartością podstawową.
 
@@ -674,7 +675,7 @@ Inne wywołania interfejsu API, które mogą zostać zablokowane, znajdują się
 * **Właściwość**: **PrimaryReplicationQueueStatus** lub **SecondaryReplicationQueueStatus**, w zależności od roli repliki.
 
 ### <a name="slow-naming-operations"></a>Wolne operacje nazewnictwa
-**System. NamingService** raportuje kondycję repliki podstawowej, gdy operacja nazewnictwa trwa dłużej niż akceptowalne. Przykłady operacji nazewnictwa to [CreateServiceAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync) lub [DeleteServiceAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient.deleteserviceasync). Więcej metod można znaleźć w obszarze FabricClient. Na przykład można je znaleźć w obszarze [metody zarządzania usługami](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient) lub [metody zarządzania właściwościami](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.propertymanagementclient).
+**System. NamingService** raportuje kondycję repliki podstawowej, gdy operacja nazewnictwa trwa dłużej niż akceptowalne. Przykłady operacji nazewnictwa to [CreateServiceAsync](/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync) lub [DeleteServiceAsync](/dotnet/api/system.fabric.fabricclient.servicemanagementclient.deleteserviceasync). Więcej metod można znaleźć w obszarze FabricClient. Na przykład można je znaleźć w obszarze [metody zarządzania usługami](/dotnet/api/system.fabric.fabricclient.servicemanagementclient) lub [metody zarządzania właściwościami](/dotnet/api/system.fabric.fabricclient.propertymanagementclient).
 
 > [!NOTE]
 > Usługa nazewnictwa rozwiązuje nazwy usług do lokalizacji w klastrze. Użytkownicy mogą używać go do zarządzania nazwami i właściwościami usług. Jest to Service Fabric podzielona na partycje. Jedna z partycji reprezentuje *właściciela urzędu*, który zawiera metadane dotyczące wszystkich Service Fabric nazw i usług. Nazwy Service Fabric są mapowane na różne partycje o nazwie partycje *właściciela nazwy* , więc usługa jest rozszerzalna. Przeczytaj więcej na temat [usługi nazewnictwa](service-fabric-architecture.md).
@@ -772,7 +773,7 @@ HealthEvents                       :
                                      Transitions           : Error->Ok = 7/14/2017 4:55:14 PM, LastWarning = 1/1/0001 12:00:00 AM
 ```
 
-### <a name="download"></a>Pobierz
+### <a name="download"></a>Pobieranie
 System. host zgłasza błąd, jeśli pobieranie pakietu aplikacji nie powiedzie się.
 
 * **SourceId**: System. hosting
@@ -850,7 +851,7 @@ HealthEvents               :
                              Transitions           : Error->Ok = 7/14/2017 4:55:14 PM, LastWarning = 1/1/0001 12:00:00 AM
 ```
 
-### <a name="download"></a>Pobierz
+### <a name="download"></a>Pobieranie
 System. host zgłasza błąd, jeśli pobranie pakietu usługi nie powiedzie się.
 
 * **SourceId**: System. hosting
@@ -879,4 +880,3 @@ System. host zgłasza ostrzeżenie, jeśli pojemności węzła nie są zdefiniow
 * [Lokalne monitorowanie i diagnozowanie usług](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 
 * [Service Fabric uaktualniania aplikacji](service-fabric-application-upgrade.md)
-

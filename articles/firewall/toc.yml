@@ -12,8 +12,6 @@
       href: tutorial-hybrid-portal.md
     - name: Filtrowanie ruchu przychodzącego ruchu przy użyciu DNAT
       href: tutorial-firewall-dnat.md
-    - name: Monitorowanie dzienników diagnostycznych
-      href: tutorial-diagnostics.md
 - name: Przewodniki Szybki start
   expanded: true
   items:
@@ -86,6 +84,8 @@
       href: protect-azure-kubernetes-service.md
     - name: Ustawienia DNS
       href: dns-settings.md
+    - name: Monitorowanie dzienników diagnostycznych
+      href: firewall-diagnostics.md
 - name: Dokumentacja
   items:
     - name: Interfejs wiersza polecenia platformy Azure

@@ -5,11 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 2/25/2019
 ms.author: srrengar
-ms.openlocfilehash: fdb78498d33416ef21b2e2b0f498e7afa6a58d99
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 453258bb5768a2faa8f4e42cce86d02125283026
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75609965"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259204"
 ---
 # <a name="event-aggregation-and-collection-using-linux-azure-diagnostics"></a>Agregacja i zbieranie zdarzeń przy użyciu Diagnostyka Azure systemu Linux
 > [!div class="op_single_selector"]
@@ -20,7 +21,7 @@ ms.locfileid: "75609965"
 
 Gdy uruchamiasz klaster usługi Azure Service Fabric, dobrym pomysłem jest zebranie dzienników ze wszystkich węzłów w centralnej lokalizacji. Przechowywanie dzienników w centralnej lokalizacji ułatwia analizowanie i rozwiązywanie problemów z klastrem lub problemów z aplikacjami i usługami uruchomionymi w tym klastrze.
 
-Jednym ze sposobów przekazywania i zbierania dzienników jest użycie rozszerzenia systemu Linux Diagnostyka Azure (LAD), które przekazuje dzienniki do usługi Azure Storage, a także oferuje opcję wysyłania dzienników do usługi Azure Application Insights lub Event Hubs. Możesz również użyć procesu zewnętrznego, aby odczytać zdarzenia z magazynu i umieścić je w produkcie platformy analizy, takim jak [dzienniki Azure monitor](../log-analytics/log-analytics-service-fabric.md) lub inne rozwiązanie do analizy dzienników.
+Jednym ze sposobów przekazywania i zbierania dzienników jest użycie rozszerzenia systemu Linux Diagnostyka Azure (LAD), które przekazuje dzienniki do usługi Azure Storage, a także oferuje opcję wysyłania dzienników do usługi Azure Application Insights lub Event Hubs. Możesz również użyć procesu zewnętrznego, aby odczytać zdarzenia z magazynu i umieścić je w produkcie platformy analizy, takim jak [dzienniki Azure monitor](./service-fabric-diagnostics-oms-setup.md) lub inne rozwiązanie do analizy dzienników.
 
 ## <a name="log-and-event-sources"></a>Dzienniki i źródła zdarzeń
 
@@ -42,5 +43,5 @@ Spowoduje to skonfigurowanie agenta LAD do monitorowania określonych plików dz
 
 ## <a name="next-steps"></a>Następne kroki
 
-1. Aby bardziej szczegółowo zrozumieć, jakie zdarzenia należy sprawdzić podczas rozwiązywania problemów, zobacz [dokumentację LTTng](https://lttng.org/docs) i [Korzystanie z lad](https://docs.microsoft.com/azure/virtual-machines/extensions/diagnostics-linux).
+1. Aby bardziej szczegółowo zrozumieć, jakie zdarzenia należy sprawdzić podczas rozwiązywania problemów, zobacz [dokumentację LTTng](https://lttng.org/docs) i [Korzystanie z lad](../virtual-machines/extensions/diagnostics-linux.md).
 2. [Skonfiguruj agenta log Analytics](service-fabric-diagnostics-event-analysis-oms.md) , aby pomóc zbierać metryki, monitorować kontenery wdrożone w klastrze i wizualizować dzienniki 

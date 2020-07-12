@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 07394fb2d33aaacdc8e47bc2d1809854c0c8ca1b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5eee6f34124f8b286deff278c6c3d1038b595357
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85209355"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259880"
 ---
 # <a name="expand-an-existing-host-pool-with-new-session-hosts"></a>Rozwiń istniejącą pulę hostów przy użyciu nowych hostów sesji
 
@@ -31,7 +31,7 @@ W tym artykule przedstawiono, jak można rozszerzyć istniejącą pulę hostów 
 
 Przed rozpoczęciem upewnij się, że utworzono pulę hostów i maszyny wirtualne hosta sesji (VM), korzystając z jednej z następujących metod:
 
-- [Azure Portal](./create-host-pools-azure-marketplace.md)
+- [Witryna Azure Portal](./create-host-pools-azure-marketplace.md)
 - [Tworzenie puli hostów przy użyciu programu PowerShell](./create-host-pools-powershell.md)
 
 Podczas pierwszego tworzenia puli hostów i maszyn wirtualnych hosta sesji wymagane są również następujące informacje:
@@ -44,7 +44,7 @@ Podczas pierwszego tworzenia puli hostów i maszyn wirtualnych hosta sesji wymag
 
 Aby rozszerzyć pulę hostów przez dodanie maszyn wirtualnych:
 
-1. Zaloguj się do witryny Azure Portal.
+1. Zaloguj się w witrynie Azure Portal.
 
 2. Wyszukaj i wybierz pozycję **pulpit wirtualny systemu Windows**.
 
@@ -78,7 +78,7 @@ Aby rozszerzyć pulę hostów przez dodanie maszyn wirtualnych:
 
 Po rozwinięciu istniejącej puli hostów możesz zalogować się do klienta pulpitu wirtualnego systemu Windows, aby przetestować je w ramach sesji użytkownika. Możesz połączyć się z sesją przy użyciu dowolnego z następujących klientów:
 
-- [Łączenie się z klientem klasycznym systemu Windows](./connect-windows-7-and-10.md)
+- [Łączenie się z klientem klasycznym systemu Windows](./connect-windows-7-10.md)
 - [Łączenie się z klientem internetowym](./connect-web.md)
 - [Łączenie się z klientem systemu Android](./connect-android.md)
 - [Nawiązywanie połączenia z klientem systemu macOS](./connect-macos.md)

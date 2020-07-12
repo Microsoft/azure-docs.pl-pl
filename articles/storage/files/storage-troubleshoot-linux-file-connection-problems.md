@@ -7,18 +7,18 @@ ms.topic: troubleshooting
 ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: ffd73e9dff06df4b5acdd004dddcfca5ff03ede0
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 4dddc2eab5004377afd6743c4722498dd5c6e2a0
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86232274"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260004"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux"></a>Rozwiązywanie problemów z Azure Files w systemie Linux
 
 W tym artykule wymieniono typowe problemy dotyczące Azure Files podczas łączenia się z klientami z systemem Linux. Zapewnia również możliwe przyczyny i rozwiązania tych problemów. 
 
-Oprócz kroków opisanych w tym artykule można użyć programu [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-02184089) , aby upewnić się, że klient systemu Linux ma odpowiednie wymagania wstępne. AzFileDiagnostics automatyzuje wykrywanie większości objawów wymienionych w tym artykule. Pomaga skonfigurować środowisko w celu uzyskania optymalnej wydajności. Te informacje można również znaleźć w oknie [Rozwiązywanie problemów z udziałami Azure Files](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares). Narzędzie do rozwiązywania problemów zawiera kroki ułatwiające problemy z łączeniem, mapowaniem i instalowaniem udziałów Azure Files.
+Oprócz kroków opisanych w tym artykule można użyć programu [AzFileDiagnostics](https://github.com/Azure-Samples/azure-files-samples/tree/master/AzFileDiagnostics/Linux) , aby upewnić się, że klient systemu Linux ma odpowiednie wymagania wstępne. AzFileDiagnostics automatyzuje wykrywanie większości objawów wymienionych w tym artykule. Pomaga skonfigurować środowisko w celu uzyskania optymalnej wydajności. Te informacje można również znaleźć w oknie [Rozwiązywanie problemów z udziałami Azure Files](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares). Narzędzie do rozwiązywania problemów zawiera kroki ułatwiające problemy z łączeniem, mapowaniem i instalowaniem udziałów Azure Files.
 
 ## <a name="cannot-connect-to-or-mount-an-azure-file-share"></a>Nie można nawiązać połączenia z udziałem plików platformy Azure lub instalować go
 

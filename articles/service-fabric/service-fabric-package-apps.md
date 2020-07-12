@@ -3,11 +3,12 @@ title: Pakowanie aplikacji Service Fabric platformy Azure
 description: Dowiedz się więcej o pakowaniu aplikacji Service Fabric platformy Azure i sposobach przygotowania do wdrożenia w klastrze.
 ms.topic: conceptual
 ms.date: 2/23/2018
-ms.openlocfilehash: 7c99eec28ac06ecf666d6dda1015f889841a5dbf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c00e46915c7bf147d224911ef4988d9fedd691c7
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84701051"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260965"
 ---
 # <a name="package-an-application"></a>Tworzenie pakietu aplikacji
 
@@ -42,7 +43,7 @@ Nazwy folderów odpowiadają atrybutom **nazw** każdego odpowiadającego elemen
 
 ## <a name="use-setupentrypoint"></a>Użyj SetupEntryPoint
 
-Typowymi scenariuszami używania **SetupEntryPoint** są sytuacje, w których należy uruchomić plik wykonywalny przed uruchomieniem usługi lub trzeba wykonać operację z podniesionymi uprawnieniami. Przykład:
+Typowymi scenariuszami używania **SetupEntryPoint** są sytuacje, w których należy uruchomić plik wykonywalny przed uruchomieniem usługi lub trzeba wykonać operację z podniesionymi uprawnieniami. Na przykład:
 
 * Konfigurowanie i Inicjowanie zmiennych środowiskowych wymaganych przez plik wykonywalny usługi. Nie jest ograniczony tylko do plików wykonywalnych pisanych za pośrednictwem modeli programowania Service Fabric. Na przykład npm.exe potrzebuje pewnych zmiennych środowiskowych skonfigurowanych do wdrażania aplikacji node.js.
 * Konfigurowanie kontroli dostępu przez zainstalowanie certyfikatów zabezpieczeń.
@@ -51,7 +52,7 @@ Aby uzyskać więcej informacji na temat konfigurowania **SetupEntryPoint**, zob
 
 <a id="Package-App"></a>
 
-## <a name="configure"></a>Konfigurowanie
+## <a name="configure"></a>Konfiguracja
 
 ### <a name="build-a-package-by-using-visual-studio"></a>Tworzenie pakietu przy użyciu programu Visual Studio
 
@@ -210,7 +211,7 @@ W przypadku tej opcji pakiet aplikacji nie musi być kopiowany do magazynu obraz
 `sfpkg`Plik jest plikiem ZIP, który zawiera początkowy pakiet aplikacji i ma rozszerzenie ". sfpkg".
 W pliku zip pakiet aplikacji może być skompresowany lub nieskompresowany. Kompresja pakietu aplikacji wewnątrz pliku zip odbywa się przy użyciu kodu, konfiguracji i poziomów pakietów danych, jak [wspomniano wcześniej](service-fabric-package-apps.md#compress-a-package).
 
-Aby utworzyć `sfpkg` , należy rozpocząć od folderu zawierającego oryginalny pakiet aplikacji, skompresowany lub nie. Następnie użyj dowolnego narzędzia do ZIP folderu z rozszerzeniem ". sfpkg". Na przykład użyj [zipfile. CreateFromDirectory](https://msdn.microsoft.com/library/hh485721(v=vs.110).aspx).
+Aby utworzyć `sfpkg` , należy rozpocząć od folderu zawierającego oryginalny pakiet aplikacji, skompresowany lub nie. Następnie użyj dowolnego narzędzia do ZIP folderu z rozszerzeniem ". sfpkg". Na przykład użyj [zipfile. CreateFromDirectory](/dotnet/api/system.io.compression.zipfile.createfromdirectory?view=netcore-3.1#System_IO_Compression_ZipFile_CreateFromDirectory_System_String_System_String_System_IO_Compression_CompressionLevel_System_Boolean_).
 
 ```csharp
 ZipFile.CreateFromDirectory(appPackageDirectoryPath, sfpkgFilePath);

@@ -3,11 +3,12 @@ title: Konfigurowanie Azure Active Directory na potrzeby uwierzytelniania klient
 description: Dowiedz się, jak skonfigurować Azure Active Directory (Azure AD) do uwierzytelniania klientów Service Fabric klastrów.
 ms.topic: conceptual
 ms.date: 6/28/2019
-ms.openlocfilehash: 28c4c65cfcc77607dfe9a463a09ecd10389a6eca
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 537a81a090828d3fcc9dde6032f1d4eb2df9b4e4
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78193388"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86258774"
 ---
 # <a name="set-up-azure-active-directory-for-client-authentication"></a>Konfigurowanie Azure Active Directory na potrzeby uwierzytelniania klientów
 
@@ -37,7 +38,7 @@ Aby uprościć niektóre kroki konfigurowania usługi Azure AD za pomocą klastr
 
 Użyjemy skryptów, aby utworzyć dwie aplikacje usługi Azure AD w celu kontrolowania dostępu do klastra: jedną aplikację sieci Web i jedną aplikację natywną. Po utworzeniu aplikacji do reprezentowania klastra utworzysz użytkowników dla [ról obsługiwanych przez Service Fabric](service-fabric-cluster-security-roles.md): tylko do odczytu i administrator.
 
-Uruchom skrypt `SetupApplications.ps1` i podaj jako parametry identyfikator dzierżawy, nazwę klastra i adres URL odpowiedzi aplikacji internetowej.  Podaj także nazwy użytkowników i ich hasła. Przykład:
+Uruchom skrypt `SetupApplications.ps1` i podaj jako parametry identyfikator dzierżawy, nazwę klastra i adres URL odpowiedzi aplikacji internetowej.  Podaj także nazwy użytkowników i ich hasła. Na przykład:
 
 ```powershell
 $Configobj = .\SetupApplications.ps1 -TenantId '0e3d2646-78b3-4711-b8be-74a381d9890c' -ClusterName 'mysftestcluster' -WebApplicationReplyUrl 'https://mysftestcluster.eastus.cloudapp.azure.com:19080/Explorer/index.html' -AddResourceAccess
@@ -124,7 +125,7 @@ Aby połączyć klaster Service Fabric, użyj następującego przykładu polecen
 Connect-ServiceFabricCluster -ConnectionEndpoint <endpoint> -KeepAliveIntervalInSec 10 -AzureActiveDirectory -ServerCertThumbprint <thumbprint>
 ```
 
-Aby dowiedzieć się więcej, zobacz [polecenie cmdlet Connect-ServiceFabricCluster](https://docs.microsoft.com/powershell/module/servicefabric/connect-servicefabriccluster).
+Aby dowiedzieć się więcej, zobacz [polecenie cmdlet Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster).
 
 ### <a name="can-i-reuse-the-same-azure-ad-tenant-in-multiple-clusters"></a>Czy mogę ponownie użyć tej samej dzierżawy usługi Azure AD w wielu klastrach?
 Tak. Pamiętaj jednak, aby dodać adres URL Service Fabric Explorer do aplikacji klastra (sieci Web). W przeciwnym razie Service Fabric Explorer nie działa.

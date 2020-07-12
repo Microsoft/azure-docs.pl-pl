@@ -5,11 +5,12 @@ author: dkkapur
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: dekapur
-ms.openlocfilehash: f9bee35ee8e82070b4cf601139b471562ba5e10b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9fa8b0970d198f9801c7661b9555db17cdf67b3c
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75934204"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86258718"
 ---
 # <a name="add-or-remove-nodes-to-a-standalone-service-fabric-cluster-running-on-windows-server"></a>Dodawanie węzłów do autonomicznego klastra usługi Service Fabric uruchomionego na serwerze Windows Server lub usuwanie go
 Po [utworzeniu autonomicznego klastra Service Fabric na maszynach z systemem Windows Server](service-fabric-cluster-creation-for-windows-server.md), wymagania (biznesowe) mogą ulec zmianie i trzeba będzie dodać lub usunąć węzły do klastra. Ten artykuł zawiera szczegółowe instrukcje, aby to osiągnąć. Należy pamiętać, że funkcje Dodaj/Usuń węzeł nie są obsługiwane w lokalnych klastrach programistycznych.
@@ -141,5 +142,4 @@ Zastąpienie węzłów podstawowych powinno odbywać się po jednym węźle, zam
 ## <a name="next-steps"></a>Następne kroki
 * [Ustawienia konfiguracji autonomicznego klastra systemu Windows](service-fabric-cluster-manifest.md)
 * [Zabezpieczanie klastra autonomicznego w systemie Windows przy użyciu certyfikatów x509](service-fabric-windows-cluster-x509-security.md)
-* [Tworzenie autonomicznego klastra Service Fabric z maszynami wirtualnymi platformy Azure z systemem Windows](service-fabric-cluster-creation-with-windows-azure-vms.md)
-
+* [Tworzenie autonomicznego klastra Service Fabric z maszynami wirtualnymi platformy Azure z systemem Windows](./service-fabric-cluster-creation-via-arm.md)
