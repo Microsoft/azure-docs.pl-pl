@@ -8,12 +8,12 @@ ms.service: load-balancer
 ms.topic: overview
 ms.date: 07/07/2020
 ms.author: allensu
-ms.openlocfilehash: 51b00119a5cb7e49a04f02978613678a5144f8b9
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: f1718de6bc9a86f85cadf4531386e663d5a420d3
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86113976"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86273765"
 ---
 # <a name="backend-pool-management"></a>Zarządzanie pulą zaplecza
 Pula zaplecza jest krytycznym składnikiem modułu równoważenia obciążenia. Pula zaplecza definiuje grupę zasobów, która będzie obsługiwała ruch dla danej reguły równoważenia obciążenia.
@@ -22,9 +22,9 @@ Istnieją dwa sposoby konfigurowania puli zaplecza:
 * Karta interfejsu sieciowego (NIC)
 * Kombinacja adresu IP i identyfikatora zasobu Virtual Network (VNET)
 
-Skonfiguruj pulę zaplecza przez kartę sieciową, korzystając z maszyn wirtualnych i zestawów skalowania maszyn wirtualnych. Ta metoda kompiluje najbardziej bezpośredni link między zasobem a pulą zaplecza. 
+Skonfiguruj pulę zaplecza przez kartę sieciową, gdy korzysta się z istniejących maszyn wirtualnych i zestawów skalowania maszyn wirtualnych. Ta metoda kompiluje najbardziej bezpośredni link między zasobem a pulą zaplecza. 
 
-W scenariuszach, w których karta sieciowa jest niedostępna, taka jak Containers lub Kubernetes, skonfiguruj pulę zaplecza przy użyciu adresu IP i kombinacji identyfikatorów sieci wirtualnej.
+Podczas wstępnie przydzielania puli zaplecza z zakresem adresów IP, który planujesz później tworzyć maszyny wirtualne i zestawy skalowania maszyn wirtualnych, skonfiguruj pulę zaplecza według adresu IP i kombinacji identyfikatorów sieci wirtualnej.
 
 Sekcje konfiguracji tego artykułu dotyczą:
 
@@ -249,7 +249,7 @@ Treść żądania JSON:
 Postępuj zgodnie z tym [szablonem Menedżer zasobów szybkiego startu](https://github.com/Azure/azure-quickstart-templates/tree/master/101-load-balancer-standard-create/) , aby wdrożyć moduł równoważenia obciążenia i maszyny wirtualne oraz dodać maszyny wirtualne do puli zaplecza za pośrednictwem interfejsu sieciowego.
 
 ## <a name="configure-backend-pool-by-ip-address-and-virtual-network"></a>Konfigurowanie puli zaplecza według adresu IP i sieci wirtualnej
-W scenariuszach z kontenerami lub wstępnie wypełnioną pulą zaplecza z adresami IP używaj protokołu IP i sieci wirtualnej.
+W scenariuszach z wstępnie wypełnionymi pulami zaplecza Użyj protokołu IP i sieci wirtualnej.
 
 Wszystkie zarządzanie pulą zaplecza odbywa się bezpośrednio w obiekcie puli zaplecza, jak wyróżniono w poniższych przykładach.
 

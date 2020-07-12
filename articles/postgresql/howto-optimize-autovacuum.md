@@ -5,18 +5,20 @@ author: dianaputnam
 ms.author: dianas
 ms.service: postgresql
 ms.topic: how-to
-ms.date: 5/6/2019
-ms.openlocfilehash: 9b0e263d3b8bce9e04548f5e8433ff90d2bda274
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 07/09/2020
+ms.openlocfilehash: a94afc1ab970c2cd3f509c86efba4e455d46fd13
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86116359"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86274513"
 ---
 # <a name="optimize-autovacuum-on-an-azure-database-for-postgresql---single-server"></a>Optymalizowanie autopróżni na Azure Database for PostgreSQL-pojedynczym serwerze
+
 W tym artykule opisano sposób efektywnego optymalizowania autopróżni na serwerze Azure Database for PostgreSQL.
 
 ## <a name="overview-of-autovacuum"></a>Omówienie autopróżni
+
 PostgreSQL używa kontroli współbieżności wielowersji (MVCC), aby zapewnić większe współbieżność bazy danych. Każda aktualizacja skutkuje wstawianiem i usuwaniem, a każde usunięcie powoduje, że wiersze są nietrwałe — oznaczone do usunięcia. Oznaczanie nietrwałe identyfikuje nieaktywne krotki, które zostaną później przeczyszczone. Aby wykonać te zadania, PostgreSQL uruchamia zadanie próżniowe.
 
 Zadanie próżniowe może być wyzwalane ręcznie lub automatycznie. Więcej martwych krotek występuje, gdy baza danych działa w dużej liczbie operacji aktualizowania lub usuwania. Gdy baza danych jest bezczynna, istnieje mniej martwych krotek. Konieczne jest przetworzenie próżni częściej, gdy obciążenie bazy danych jest duże, co sprawia, że uruchomione zadania próżniowe są *ręcznie* niewygodne.
@@ -36,6 +38,7 @@ W przypadku braku próżni od czasu do czasu, niedziałające krotki, które gro
 - Zwiększona we/wy.
 
 ## <a name="monitor-bloat-with-autovacuum-queries"></a>Monitoruj przeładowanie z użyciem zapytań autopróżniowych
+
 Następujące przykładowe zapytanie zostało zaprojektowane, aby określić liczbę utraconych i na żywo krotek w tabeli o nazwie XYZ:
 
 ```sql
@@ -43,7 +46,9 @@ SELECT relname, n_dead_tup, n_live_tup, (n_dead_tup/ n_live_tup) AS DeadTuplesRa
 ```
 
 ## <a name="autovacuum-configurations"></a>Konfiguracje autopróżniowe
+
 Parametry konfiguracji kontrolujące autopróżniowo są oparte na odpowiedzi na dwa kluczowe pytania:
+
 - Kiedy należy zacząć?
 - Ile powinno być czyste po rozpoczęciu?
 
@@ -55,10 +60,10 @@ autovacuum_vacuum_threshold|Określa minimalną liczbę zaktualizowanych lub usu
 autovacuum_vacuum_scale_factor|Określa ułamek rozmiaru tabeli, który ma zostać dodany do autovacuum_vacuum_threshold podczas decydowania o tym, czy wyzwolić operację próżniową. Wartość domyślna to 0,2, czyli 20 procent rozmiaru tabeli. Ten parametr należy ustawić tylko w pliku PostgreSQL. conf lub w wierszu polecenia serwera. Aby zastąpić ustawienia dla poszczególnych tabel, Zmień parametry magazynu tabel.|0,2
 autovacuum_vacuum_cost_limit|Określa wartość limitu kosztu używaną w automatycznych operacjach próżniowych. Jeśli określono wartość-1, która jest wartością domyślną, używana jest zwykła vacuum_cost_limit. Jeśli istnieje więcej niż jeden proces roboczy, wartość jest dystrybuowana proporcjonalnie między uruchomionymi pracownikami autopróżniowymi. Suma limitów dla każdego pracownika nie przekracza wartości tej zmiennej. Ten parametr należy ustawić tylko w pliku PostgreSQL. conf lub w wierszu polecenia serwera. Aby zastąpić ustawienia dla poszczególnych tabel, Zmień parametry magazynu tabel.|-1
 autovacuum_vacuum_cost_delay|Określa wartość opóźnienia kosztu używaną w automatycznych operacjach próżniowych. Jeśli określono wartość-1, stosowana jest zwykła vacuum_cost_delay. Wartość domyślna to 20 milisekund. Ten parametr należy ustawić tylko w pliku PostgreSQL. conf lub w wierszu polecenia serwera. Aby zastąpić ustawienia dla poszczególnych tabel, Zmień parametry magazynu tabel.|20 MS
-autovacuum_nap_time|Określa minimalne opóźnienie między uruchomieniami autopróżniowymi w danej bazie danych. W każdej rundzie demon sprawdza bazę danych i wystawia problemy PRÓŻNIOWe i analizuje polecenia zgodnie z wymaganiami dla tabel w tej bazie danych. Opóźnienie jest mierzone w sekundach, a wartość domyślna to jedna minuta (1 min). Ten parametr należy ustawić tylko w pliku PostgreSQL. conf lub w wierszu polecenia serwera.|15 s
-autovacuum_max_workers|Określa maksymalną liczbę procesów autopróżniowych, z wyjątkiem uruchamiania autopróżniowego, która może być uruchamiana w dowolnym momencie. Wartość domyślna to trzy. Ten parametr należy ustawić tylko podczas uruchamiania serwera.|3
+autovacuum_naptime | Określa minimalne opóźnienie między uruchomieniami autopróżniowymi w danej bazie danych. W każdej rundzie demon sprawdza bazę danych i wystawia problemy PRÓŻNIOWe i analizuje polecenia zgodnie z wymaganiami dla tabel w tej bazie danych. Opóźnienie jest mierzone w sekundach. Ten parametr należy ustawić tylko w pliku PostgreSQL. conf lub w wierszu polecenia serwera.| 15 s
+autovacuum_max_workers | Określa maksymalną liczbę procesów autopróżniowych, z wyjątkiem uruchamiania autopróżniowego, która może być uruchamiana w dowolnym momencie. Wartość domyślna to trzy. Ten parametr należy ustawić tylko podczas uruchamiania serwera.|3
 
-Aby zastąpić ustawienia poszczególnych tabel, należy zmienić parametry magazynu tabel. 
+Aby zastąpić ustawienia poszczególnych tabel, należy zmienić parametry magazynu tabel.
 
 ## <a name="autovacuum-cost"></a>Koszt samopróżniowy
 
@@ -82,12 +87,14 @@ Domyślny współczynnik skalowania wynoszący 20 procent działa prawidłowo w 
 Za pomocą PostgreSQL można ustawić te parametry na poziomie tabeli lub wystąpieniu. Obecnie te parametry można ustawić na poziomie tabeli tylko w Azure Database for PostgreSQL.
 
 ## <a name="estimate-the-cost-of-autovacuum"></a>Oszacowanie kosztów autopróżni
+
 Uruchamianie autopróżni jest kosztowne, a dostępne są parametry służące do kontrolowania środowiska uruchomieniowego operacji próżniowych. Następujące parametry pomagają oszacować koszt uruchomienia próżni:
+
 - vacuum_cost_page_hit = 1
 - vacuum_cost_page_miss = 10
 - vacuum_cost_page_dirty = 20
 
-Proces próżniowy odczytuje strony fizyczne i sprawdza obecność utraconych krotek. Każda Strona w shared_buffers jest uznawana za koszt 1 (vacuum_cost_page_hit). Wszystkie inne strony są uznawane za 20 (vacuum_cost_page_dirty), jeśli istnieją nieaktywne krotki lub 10 (vacuum_cost_page_miss), jeśli nie istnieją żadne nieaktywne krotki. Operacja próżniowa zostaje zatrzymana, gdy proces przekroczy autovacuum_vacuum_cost_limit. 
+Proces próżniowy odczytuje strony fizyczne i sprawdza obecność utraconych krotek. Każda Strona w shared_buffers jest uznawana za koszt 1 (vacuum_cost_page_hit). Wszystkie inne strony są uznawane za 20 (vacuum_cost_page_dirty), jeśli istnieją nieaktywne krotki lub 10 (vacuum_cost_page_miss), jeśli nie istnieją żadne nieaktywne krotki. Operacja próżniowa zostaje zatrzymana, gdy proces przekroczy autovacuum_vacuum_cost_limit.
 
 Po osiągnięciu limitu proces zostanie uśpiony przez czas określony przez parametr autovacuum_vacuum_cost_delay przed ponownym uruchomieniem. Jeśli limit nie zostanie osiągnięty, autopróżnia zaczyna się po wartości określonej przez parametr autovacuum_nap_time.
 
@@ -99,7 +106,7 @@ Za pomocą PostgreSQL można ustawić te parametry na poziomie tabeli lub wystą
 
 ## <a name="optimize-autovacuum-per-table"></a>Optymalizuj autopróżnię na tabelę
 
-Wszystkie poprzednie parametry konfiguracji można skonfigurować dla każdej tabeli. Przykład:
+Wszystkie poprzednie parametry konfiguracji można skonfigurować dla każdej tabeli. Oto przykład:
 
 ```sql
 ALTER TABLE t SET (autovacuum_vacuum_threshold = 1000);

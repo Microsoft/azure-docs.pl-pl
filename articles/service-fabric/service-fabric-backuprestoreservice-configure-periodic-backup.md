@@ -5,11 +5,12 @@ author: hrushib
 ms.topic: article
 ms.date: 2/01/2019
 ms.author: hrushib
-ms.openlocfilehash: 34c6495e094a1160f6ac75b9f098934d5cbce967
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c77f069d93e368652c30cd100b0f99ca55341882
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75610152"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86261232"
 ---
 # <a name="understanding-periodic-backup-configuration-in-azure-service-fabric"></a>Informacje o konfiguracji okresowej kopii zapasowej na platformie Azure Service Fabric
 
@@ -157,23 +158,23 @@ Załóżmy, że wymagania dotyczące tworzenia kopii zapasowych tych aplikacji s
 
 Aby rozwiązać te wymagania dotyczące kopii zapasowych danych, tworzone są zasady tworzenia kopii zapasowych BP_1 do BP_5, a kopie zapasowe są włączone w następujący sposób.
 1. MyApp_A
-    1. Utwórz zasady tworzenia kopii zapasowych, _BP_1_z harmonogramem tworzenia kopii zapasowych opartego na częstotliwości, gdzie częstotliwość jest ustawiona na 24 godziny. i magazyn kopii zapasowych skonfigurowany do korzystania z lokalizacji magazynu _BackupStore1_. Włącz te zasady dla _MyApp_A_ aplikacji przy użyciu interfejsu API [włączania kopii zapasowej aplikacji](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-enableapplicationbackup) . Ta akcja umożliwia tworzenie kopii zapasowych danych przy użyciu zasad tworzenia kopii zapasowych _BP_1_ dla wszystkich partycji _niezawodnych usług stanowych_ i _Reliable Actors_ należących do _MyApp_A_aplikacji.
+    1. Utwórz zasady tworzenia kopii zapasowych, _BP_1_z harmonogramem tworzenia kopii zapasowych opartego na częstotliwości, gdzie częstotliwość jest ustawiona na 24 godziny. i magazyn kopii zapasowych skonfigurowany do korzystania z lokalizacji magazynu _BackupStore1_. Włącz te zasady dla _MyApp_A_ aplikacji przy użyciu interfejsu API [włączania kopii zapasowej aplikacji](/rest/api/servicefabric/sfclient-api-enableapplicationbackup) . Ta akcja umożliwia tworzenie kopii zapasowych danych przy użyciu zasad tworzenia kopii zapasowych _BP_1_ dla wszystkich partycji _niezawodnych usług stanowych_ i _Reliable Actors_ należących do _MyApp_A_aplikacji.
 
-    2. Utwórz zasady tworzenia kopii zapasowych, _BP_2_z harmonogramem tworzenia kopii zapasowych opartego na częstotliwości, gdzie częstotliwość jest ustawiona na 1 godz. i magazyn kopii zapasowych skonfigurowany do korzystania z lokalizacji magazynu _BackupStore1_. Włącz tę zasadę dla usługi _SvcA3_ za pomocą interfejsu API [włączania kopii zapasowych usługi](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-enableservicebackup) . Ta akcja przesłania propagowane zasady _BP_1_ przez jawne włączenie zasad tworzenia kopii zapasowych _BP_2_ dla wszystkich partycji usługi _SvcA3_ , co prowadzi do tworzenia kopii zapasowych danych przy użyciu _BP_2_ zasad tworzenia kopii zapasowych dla tych partycji.
+    2. Utwórz zasady tworzenia kopii zapasowych, _BP_2_z harmonogramem tworzenia kopii zapasowych opartego na częstotliwości, gdzie częstotliwość jest ustawiona na 1 godz. i magazyn kopii zapasowych skonfigurowany do korzystania z lokalizacji magazynu _BackupStore1_. Włącz tę zasadę dla usługi _SvcA3_ za pomocą interfejsu API [włączania kopii zapasowych usługi](/rest/api/servicefabric/sfclient-api-enableservicebackup) . Ta akcja przesłania propagowane zasady _BP_1_ przez jawne włączenie zasad tworzenia kopii zapasowych _BP_2_ dla wszystkich partycji usługi _SvcA3_ , co prowadzi do tworzenia kopii zapasowych danych przy użyciu _BP_2_ zasad tworzenia kopii zapasowych dla tych partycji.
 
-    3. Utwórz zasady tworzenia kopii zapasowych, _BP_3_z harmonogramem tworzenia kopii zapasowych opartego na częstotliwości, gdzie częstotliwość jest ustawiona na 24 godziny. i magazyn kopii zapasowych skonfigurowany do korzystania z lokalizacji magazynu _BackupStore2_. Włącz tę zasadę dla _SvcA1_P2_ partycji przy użyciu interfejsu API [włączania kopii zapasowej partycji](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-enablepartitionbackup) . Ta akcja przesłania propagowane _BP_1_ zasad przez jawne włączenie zasad tworzenia kopii zapasowych _BP_3_ dla partycji _SvcA1_P2_.
+    3. Utwórz zasady tworzenia kopii zapasowych, _BP_3_z harmonogramem tworzenia kopii zapasowych opartego na częstotliwości, gdzie częstotliwość jest ustawiona na 24 godziny. i magazyn kopii zapasowych skonfigurowany do korzystania z lokalizacji magazynu _BackupStore2_. Włącz tę zasadę dla _SvcA1_P2_ partycji przy użyciu interfejsu API [włączania kopii zapasowej partycji](/rest/api/servicefabric/sfclient-api-enablepartitionbackup) . Ta akcja przesłania propagowane _BP_1_ zasad przez jawne włączenie zasad tworzenia kopii zapasowych _BP_3_ dla partycji _SvcA1_P2_.
 
 2. MyApp_B
-    1. Utwórz zasady tworzenia kopii zapasowych, _BP_4_, z harmonogramem tworzenia kopii zapasowych opartego na czasie, w którym ustawiono typ częstotliwości harmonogramu co tydzień, dni uruchamiania to niedziela, a czas wykonywania jest ustawiony na 8:00 am. Magazyn kopii zapasowych skonfigurowany do korzystania z lokalizacji magazynu _BackupStore1_. Włącz tę zasadę dla usługi _SvcB1_ za pomocą interfejsu API [włączania kopii zapasowych usługi](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-enableservicebackup) . Ta akcja umożliwia tworzenie kopii zapasowych danych przy użyciu zasad tworzenia kopii zapasowych _BP_4_ dla wszystkich partycji usługi _SvcB1_.
+    1. Utwórz zasady tworzenia kopii zapasowych, _BP_4_, z harmonogramem tworzenia kopii zapasowych opartego na czasie, w którym ustawiono typ częstotliwości harmonogramu co tydzień, dni uruchamiania to niedziela, a czas wykonywania jest ustawiony na 8:00 am. Magazyn kopii zapasowych skonfigurowany do korzystania z lokalizacji magazynu _BackupStore1_. Włącz tę zasadę dla usługi _SvcB1_ za pomocą interfejsu API [włączania kopii zapasowych usługi](/rest/api/servicefabric/sfclient-api-enableservicebackup) . Ta akcja umożliwia tworzenie kopii zapasowych danych przy użyciu zasad tworzenia kopii zapasowych _BP_4_ dla wszystkich partycji usługi _SvcB1_.
 
-    2. Utwórz zasady tworzenia kopii zapasowych, _BP_5_, z harmonogramem tworzenia kopii zapasowych opartego na czasie, w którym ustawiono typ częstotliwości harmonogramu dziennie, a czas wykonywania jest ustawiony na 8:00 am. Magazyn kopii zapasowych skonfigurowany do korzystania z lokalizacji magazynu _BackupStore1_. Włącz tę zasadę dla _SvcB2_P1_ partycji przy użyciu interfejsu API [włączania kopii zapasowej partycji](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-enablepartitionbackup) . Ta akcja umożliwia tworzenie kopii zapasowych danych przy użyciu zasad tworzenia kopii zapasowych _BP_5_ dla _SvcB2_P1_partycji.
+    2. Utwórz zasady tworzenia kopii zapasowych, _BP_5_, z harmonogramem tworzenia kopii zapasowych opartego na czasie, w którym ustawiono typ częstotliwości harmonogramu dziennie, a czas wykonywania jest ustawiony na 8:00 am. Magazyn kopii zapasowych skonfigurowany do korzystania z lokalizacji magazynu _BackupStore1_. Włącz tę zasadę dla _SvcB2_P1_ partycji przy użyciu interfejsu API [włączania kopii zapasowej partycji](/rest/api/servicefabric/sfclient-api-enablepartitionbackup) . Ta akcja umożliwia tworzenie kopii zapasowych danych przy użyciu zasad tworzenia kopii zapasowych _BP_5_ dla _SvcB2_P1_partycji.
 
 Na poniższym diagramie przedstawiono jawnie włączone zasady tworzenia kopii zapasowych i propagowane zasady tworzenia kopii zapasowych.
 
 ![Service Fabric hierarchia aplikacji][0]
 
 ## <a name="disable-backup"></a>Wyłącz kopię zapasową
-Zasady tworzenia kopii zapasowych można wyłączyć, jeśli nie ma potrzeby tworzenia kopii zapasowych danych. Zasady tworzenia kopii zapasowych włączone w _aplikacji_ można wyłączyć tylko w tej samej _aplikacji_ przy użyciu opcji Wyłącz interfejs API [tworzenia kopii](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-disableapplicationbackup) zapasowej aplikacji, a zasady tworzenia kopii zapasowych włączone w _usłudze_ _mogą być_ wyłączone _w tej samej_ _usłudze_ przy [użyciu interfejsu API](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-disablepartitionbackup) [usługi Disable Backup](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-disableservicebackup) .
+Zasady tworzenia kopii zapasowych można wyłączyć, jeśli nie ma potrzeby tworzenia kopii zapasowych danych. Zasady tworzenia kopii zapasowych włączone w _aplikacji_ można wyłączyć tylko w tej samej _aplikacji_ przy użyciu opcji Wyłącz interfejs API [tworzenia kopii](/rest/api/servicefabric/sfclient-api-disableapplicationbackup) zapasowej aplikacji, a zasady tworzenia kopii zapasowych włączone w _usłudze_ _mogą być_ wyłączone _w tej samej_ _usłudze_ przy [użyciu interfejsu API](/rest/api/servicefabric/sfclient-api-disablepartitionbackup) [usługi Disable Backup](/rest/api/servicefabric/sfclient-api-disableservicebackup) .
 
 * Wyłączenie zasad tworzenia kopii zapasowych dla _aplikacji_ powoduje zatrzymanie wszystkich okresowych kopii zapasowych danych w wyniku propagacji zasad tworzenia kopii zapasowych na niezawodne partycje usługi stanowej lub niezawodne partycje aktora.
 
@@ -191,19 +192,19 @@ Zasady tworzenia kopii zapasowych można wyłączyć, jeśli nie ma potrzeby two
 ## <a name="suspend--resume-backup"></a>Wstrzymywanie & Wznów tworzenie kopii zapasowej
 Niektóre sytuacje mogą wymagać tymczasowego zawieszania okresowej kopii zapasowej danych. W takiej sytuacji, w zależności od wymagań, w _aplikacji_, _usłudze_lub _partycji_może być używany interfejs API zawieszania kopii zapasowych. Okresowe zawieszenie kopii zapasowej jest przechodnie w porównaniu z poddrzewem hierarchii aplikacji od punktu, w którym jest stosowany. 
 
-* Po zastosowaniu zawieszenia w _aplikacji_ przy użyciu interfejsu API [wstrzymania tworzenia kopii zapasowej aplikacji](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-suspendapplicationbackup) wszystkie usługi i partycje w tej aplikacji są zawieszane w celu okresowego wykonywania kopii zapasowych danych.
+* Po zastosowaniu zawieszenia w _aplikacji_ przy użyciu interfejsu API [wstrzymania tworzenia kopii zapasowej aplikacji](/rest/api/servicefabric/sfclient-api-suspendapplicationbackup) wszystkie usługi i partycje w tej aplikacji są zawieszane w celu okresowego wykonywania kopii zapasowych danych.
 
-* Po zastosowaniu zawieszenia w _usłudze_ za pomocą interfejsu API [usługi zawieszania kopii zapasowych](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-suspendservicebackup) wszystkie partycje w ramach tej usługi są zawieszane w celu okresowego wykonywania kopii zapasowych danych.
+* Po zastosowaniu zawieszenia w _usłudze_ za pomocą interfejsu API [usługi zawieszania kopii zapasowych](/rest/api/servicefabric/sfclient-api-suspendservicebackup) wszystkie partycje w ramach tej usługi są zawieszane w celu okresowego wykonywania kopii zapasowych danych.
 
-* Po zastosowaniu zawieszenia na _partycji_ przy użyciu interfejsu API [wstrzymania kopii zapasowej](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-suspendpartitionbackup) zawieszania partycji w ramach tej usługi zawiesza się okresowe wykonywanie kopii zapasowych danych.
+* Po zastosowaniu zawieszenia na _partycji_ przy użyciu interfejsu API [wstrzymania kopii zapasowej](/rest/api/servicefabric/sfclient-api-suspendpartitionbackup) zawieszania partycji w ramach tej usługi zawiesza się okresowe wykonywanie kopii zapasowych danych.
 
 Gdy zachodzi potrzeba zawieszenia, okresowe wykonywanie kopii zapasowych danych można przywrócić przy użyciu odpowiedniego, wznawiając interfejs API tworzenia kopii zapasowych. Okresowe wykonywanie kopii zapasowej należy wznowić w tej samej _aplikacji_, _usłudze_lub _partycji_ , w której zostało wstrzymane.
 
-* Jeśli zawieszanie zostało zastosowane w _aplikacji_, należy ją wznowić przy użyciu interfejsu API [przywracania kopii zapasowej aplikacji](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-resumeapplicationbackup) . 
+* Jeśli zawieszanie zostało zastosowane w _aplikacji_, należy ją wznowić przy użyciu interfejsu API [przywracania kopii zapasowej aplikacji](/rest/api/servicefabric/sfclient-api-resumeapplicationbackup) . 
 
-* Jeśli zawieszanie zostało zastosowane w _usłudze_, należy ją wznowić przy użyciu interfejsu API [przywracania kopii zapasowej usługi](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-resumeservicebackup) .
+* Jeśli zawieszanie zostało zastosowane w _usłudze_, należy ją wznowić przy użyciu interfejsu API [przywracania kopii zapasowej usługi](/rest/api/servicefabric/sfclient-api-resumeservicebackup) .
 
-* Jeśli zawieszanie zostało zastosowane w _partycji_, należy je wznowić przy użyciu interfejsu API [wznawiania tworzenia kopii zapasowej partycji](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-resumepartitionbackup) .
+* Jeśli zawieszanie zostało zastosowane w _partycji_, należy je wznowić przy użyciu interfejsu API [wznawiania tworzenia kopii zapasowej partycji](/rest/api/servicefabric/sfclient-api-resumepartitionbackup) .
 
 ### <a name="difference-between-suspend-and-disable-backups"></a>Różnica między wstrzymywaniem i wyłączaniem kopii zapasowych
 Jeśli kopie zapasowe nie są już wymagane dla konkretnej aplikacji, usługi lub partycji, należy wyłączyć opcję Utwórz kopię zapasową. Jeden może wywołać Wyłączanie żądania kopii zapasowej wraz z parametrem czyste kopie zapasowe w celu uzyskania wartości true, co oznacza, że wszystkie istniejące kopie zapasowe również zostaną usunięte. Jednakże wstrzymanie ma być używane w scenariuszach, w których jeden z nich chce wyłączyć kopie zapasowe tymczasowo, jak w przypadku zapełnienia dysku lokalnego lub przekazanie kopii zapasowej kończy się niepowodzeniem ze względu na znany problem z siecią. 
@@ -216,7 +217,7 @@ Partycja usługi może utracić dane z powodu nieoczekiwanych błędów. Na przy
 Gdy Service Fabric wykryje, że partycja jest w utracie danych, wywołuje `OnDataLossAsync` metodę interfejsu na partycji i oczekuje, że partycja może wykonać wymaganą akcję, aby wyczerpać utratę danych. W takiej sytuacji, jeśli obowiązujące zasady tworzenia kopii zapasowych na partycji mają `AutoRestoreOnDataLoss` ustawioną flagę `true` , przywracanie zostanie wyzwolone automatycznie przy użyciu najnowszej dostępnej kopii zapasowej dla tej partycji.
 
 ## <a name="get-backup-configuration"></a>Pobierz konfigurację kopii zapasowej
-Dostępne są oddzielne interfejsy API do uzyskiwania informacji o konfiguracji kopii zapasowych w ramach _aplikacji_, _usługi_i zakresu _partycji_ . [Pobierz informacje o konfiguracji kopii](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getapplicationbackupconfigurationinfo)zapasowej aplikacji, [Pobierz informacje o konfiguracji kopii zapasowej usługi](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getservicebackupconfigurationinfo)i [Pobierz informacje o konfiguracji kopii zapasowej partycji](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getpartitionbackupconfigurationinfo) są odpowiednio opisane. Głównie te interfejsy API zwracają odpowiednie zasady tworzenia kopii zapasowych, zakres, w którym są stosowane zasady tworzenia kopii zapasowych, oraz szczegóły zawieszenia kopii zapasowej. Poniżej znajduje się krótki opis zwracanych wyników tych interfejsów API.
+Dostępne są oddzielne interfejsy API do uzyskiwania informacji o konfiguracji kopii zapasowych w ramach _aplikacji_, _usługi_i zakresu _partycji_ . [Pobierz informacje o konfiguracji kopii](/rest/api/servicefabric/sfclient-api-getapplicationbackupconfigurationinfo)zapasowej aplikacji, [Pobierz informacje o konfiguracji kopii zapasowej usługi](/rest/api/servicefabric/sfclient-api-getservicebackupconfigurationinfo)i [Pobierz informacje o konfiguracji kopii zapasowej partycji](/rest/api/servicefabric/sfclient-api-getpartitionbackupconfigurationinfo) są odpowiednio opisane. Głównie te interfejsy API zwracają odpowiednie zasady tworzenia kopii zapasowych, zakres, w którym są stosowane zasady tworzenia kopii zapasowych, oraz szczegóły zawieszenia kopii zapasowej. Poniżej znajduje się krótki opis zwracanych wyników tych interfejsów API.
 
 - Informacje o konfiguracji kopii zapasowej aplikacji: zawierają szczegóły zasad tworzenia kopii zapasowych stosowane w aplikacji oraz wszystkie zasady nadmiernej ridden w usługach i partycjach należących do aplikacji. Zawiera również informacje o zawieszeniu dla aplikacji i usług IT oraz partycje.
 
@@ -232,13 +233,13 @@ Te interfejsy API obsługują również stronicowanie wyników, gdy parametr _Ma
 
 Poniżej przedstawiono krótkie informacje dotyczące obsługiwanych wariantów.
 
-- [Pobierz listę kopii zapasowych aplikacji](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getapplicationbackuplist): zwraca listę kopii zapasowych dostępnych dla każdej partycji należącej do danej Service Fabric aplikacji.
+- [Pobierz listę kopii zapasowych aplikacji](/rest/api/servicefabric/sfclient-api-getapplicationbackuplist): zwraca listę kopii zapasowych dostępnych dla każdej partycji należącej do danej Service Fabric aplikacji.
 
-- [Pobierz listę kopii zapasowych usługi](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getservicebackuplist): zwraca listę kopii zapasowych dostępnych dla każdej partycji należącej do danej usługi Service Fabric.
+- [Pobierz listę kopii zapasowych usługi](/rest/api/servicefabric/sfclient-api-getservicebackuplist): zwraca listę kopii zapasowych dostępnych dla każdej partycji należącej do danej usługi Service Fabric.
  
-- [Pobierz listę kopii zapasowych partycji](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getpartitionbackuplist): zwraca listę kopii zapasowych dostępnych dla określonej partycji.
+- [Pobierz listę kopii zapasowych partycji](/rest/api/servicefabric/sfclient-api-getpartitionbackuplist): zwraca listę kopii zapasowych dostępnych dla określonej partycji.
 
 ## <a name="next-steps"></a>Następne kroki
-- [Dokumentacja interfejsu API REST przywracania kopii zapasowych](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-backuprestore)
+- [Dokumentacja interfejsu API REST przywracania kopii zapasowych](/rest/api/servicefabric/sfclient-index-backuprestore)
 
 [0]: ./media/service-fabric-backuprestoreservice/backup-policy-association-example.png

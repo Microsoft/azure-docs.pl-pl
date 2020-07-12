@@ -1,14 +1,14 @@
 ---
 title: Wyświetlanie dostawców usług i zarządzanie nimi
 description: Klienci mogą używać strony dostawcy usług w Azure Portal do wyświetlania informacji o dostawcach usług, ofertach dostawcy usług i delegowanych zasobach.
-ms.date: 07/07/2020
+ms.date: 07/10/2020
 ms.topic: how-to
-ms.openlocfilehash: 56ba5b8c88cd4653c9d41f7f3fcc6219cc376256
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: bc0de0d3fd7ac4fe7c00720aab41961d9100ff5a
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86111630"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86273782"
 ---
 # <a name="view-and-manage-service-providers"></a>Wyświetlanie dostawców usług i zarządzanie nimi
 
@@ -19,7 +19,7 @@ Aby uzyskać dostęp do strony **dostawcy usług** w Azure Portal, klient może 
 > [!NOTE]
 > Aby wyświetlić stronę **dostawcy usług** , użytkownik w dzierżawie klienta musi mieć [wbudowaną rolę czytnika](../../role-based-access-control/built-in-roles.md#reader) (lub inną wbudowaną rolę, która obejmuje dostęp do czytnika).
 >
-> Aby dodać oferty, delegować zasoby i usunąć oferty, użytkownik musi mieć [wbudowaną rolę właściciela](../../role-based-access-control/built-in-roles.md#owner) subskrypcji.
+> Aby dodać lub zaktualizować oferty, delegować zasoby i usuwać oferty, użytkownik musi mieć [wbudowaną rolę właściciela](../../role-based-access-control/built-in-roles.md#owner) subskrypcji.
 
 Należy pamiętać, że na stronie **dostawcy usług** są wyświetlane tylko informacje o dostawcach usług, którzy mają dostęp do subskrypcji lub grup zasobów klienta za pomocą usługi Azure Lighthouse. Jeśli klient współpracuje z dodatkowymi dostawcami usług, którzy nie korzystają z usługi Azure Lighthouse w celu uzyskania dostępu do zasobów klienta, informacje o tych dostawcach usług nie są wyświetlane w tym miejscu.
 

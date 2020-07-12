@@ -7,11 +7,12 @@ ms.reviewers: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 05/29/2020
 tags: connectors
-ms.openlocfilehash: 9f3f361b3e9fafdb350f943c0a8adcd87fa06c78
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 25aafee59c7f5f7ae59aa2fd7871de8926907f68
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84325137"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86261374"
 ---
 # <a name="receive-and-respond-to-inbound-https-requests-in-azure-logic-apps"></a>Odbieranie przychodzących żądań HTTPS i odpowiadanie na nie w Azure Logic Apps
 
@@ -23,7 +24,7 @@ Za pomocą [Azure Logic Apps](../logic-apps/logic-apps-overview.md) i wbudowanej
 
 * Odbieraj i odpowiadaj na wywołanie HTTPS z innej aplikacji logiki.
 
-Wyzwalacz żądania obsługuje [Azure Active Directory Otwórz uwierzytelnianie](../active-directory/develop/about-microsoft-identity-platform.md) (Azure AD OAuth) do autoryzacji wywołań przychodzących do aplikacji logiki. Aby uzyskać więcej informacji na temat włączania tego uwierzytelniania, zobacz [bezpieczny dostęp i dane w Azure Logic Apps — Włącz uwierzytelnianie OAuth usługi Azure AD](../logic-apps/logic-apps-securing-a-logic-app.md#enable-oauth).
+Wyzwalacz żądania obsługuje [Azure Active Directory Otwórz uwierzytelnianie](/azure/active-directory/develop/) (Azure AD OAuth) do autoryzacji wywołań przychodzących do aplikacji logiki. Aby uzyskać więcej informacji na temat włączania tego uwierzytelniania, zobacz [bezpieczny dostęp i dane w Azure Logic Apps — Włącz uwierzytelnianie OAuth usługi Azure AD](../logic-apps/logic-apps-securing-a-logic-app.md#enable-oauth).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -156,7 +157,7 @@ Ten wbudowany wyzwalacz tworzy ręcznie możliwy do przełączenia punkt końcow
          "account": {
             "name": "Contoso",
             "ID": "12345",
-            "address": { 
+            "address": {
                "number": "1234",
                "street": "Anywhere Street",
                "city": "AnyTown",
@@ -171,9 +172,9 @@ Ten wbudowany wyzwalacz tworzy ręcznie możliwy do przełączenia punkt końcow
 1. Aby sprawdzić, czy wywołanie przychodzące ma treść żądania zgodną z określonym schematem, wykonaj następujące kroki:
 
    1. Na pasku tytułu wyzwalacza żądania wybierz przycisk wielokropka (**...**).
-   
+
    1. W ustawieniach wyzwalacza Włącz **Sprawdzanie poprawności schematu**i wybierz pozycję **gotowe**.
-   
+
       Jeśli treść żądania wywołania przychodzącego nie jest zgodna ze schematem, wyzwalacz zwróci `HTTP 400 Bad Request` błąd.
 
 1. Aby określić dodatkowe właściwości, Otwórz listę **Dodaj nowy parametr** i wybierz parametry, które chcesz dodać.
@@ -258,7 +259,7 @@ Aplikacja logiki utrzymuje otwarte żądanie przychodzące tylko przez [ogranicz
 
    Wyzwalacz żądania jest zwinięty w tym przykładzie dla uproszczenia.
 
-1. Dodaj wszystkie wartości, które są wymagane dla komunikatu odpowiedzi. 
+1. Dodaj wszystkie wartości, które są wymagane dla komunikatu odpowiedzi.
 
    W niektórych polach kliknięcie wewnątrz nich spowoduje otwarcie listy zawartości dynamicznej. Następnie można wybrać tokeny reprezentujące dostępne dane wyjściowe z poprzednich kroków w przepływie pracy. Właściwości ze schematu określonego w poprzednim przykładzie pojawiają się teraz na liście zawartości dynamicznej.
 
@@ -270,7 +271,7 @@ Aplikacja logiki utrzymuje otwarte żądanie przychodzące tylko przez [ogranicz
 
    ![Nagłówki — Przełącz do widoku tekstu](./media/connectors-native-reqres/switch-to-text-view.png)
 
-   Poniżej znajduje się więcej informacji na temat właściwości, które można ustawić w akcji odpowiedzi. 
+   Poniżej znajduje się więcej informacji na temat właściwości, które można ustawić w akcji odpowiedzi.
 
    | Nazwa właściwości | Nazwa właściwości JSON | Wymagane | Opis |
    |---------------|--------------------|----------|-------------|
@@ -281,7 +282,7 @@ Aplikacja logiki utrzymuje otwarte żądanie przychodzące tylko przez [ogranicz
 
 1. Aby określić dodatkowe właściwości, takie jak schemat JSON dla treści odpowiedzi, Otwórz listę **Dodaj nowy parametr** i wybierz parametry, które chcesz dodać.
 
-1. Gdy skończysz, Zapisz aplikację logiki. Na pasku narzędzi projektanta wybierz pozycję **Zapisz**. 
+1. Gdy skończysz, Zapisz aplikację logiki. Na pasku narzędzi projektanta wybierz pozycję **Zapisz**.
 
 ## <a name="next-steps"></a>Następne kroki
 

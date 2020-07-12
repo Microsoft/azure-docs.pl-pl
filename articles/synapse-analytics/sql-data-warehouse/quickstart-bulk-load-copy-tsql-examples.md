@@ -6,15 +6,15 @@ author: kevinvngo
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: sql-dw
-ms.date: 05/06/2020
+ms.date: 07/10/2020
 ms.author: kevin
 ms.reviewer: jrasnick
-ms.openlocfilehash: 94f9aca38ebe6fef50b555fa0d5b09050d996366
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: f9aa0214712704c1a80f73ae3fd05929f7245eb3
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86230625"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86274150"
 ---
 # <a name="securely-load-data-using-synapse-sql"></a>Bezpieczne ładowanie danych przy użyciu języka SQL Synapse
 
@@ -93,6 +93,11 @@ Uwierzytelnianie tożsamości zarządzanej jest wymagane, gdy konto magazynu jes
    > [!NOTE]
    > Tylko członkowie z uprawnieniami właściciela mogą wykonać ten krok. Aby uzyskać różne wbudowane role dla zasobów platformy Azure, zapoznaj się z tym [przewodnikiem](../../role-based-access-control/built-in-roles.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
    
+    > [!IMPORTANT]
+    > Określ rolę właściciel **danych obiektów BLOB** , współautor lub czytelnika **magazynu** . Role te są inne niż wbudowane role właściciela, współautora i czytelnika. 
+
+    ![Udzielanie uprawnień RBAC do załadowania](./media/quickstart-bulk-load-copy-tsql-examples/rbac-load-permissions.png)
+
 4. Teraz można uruchomić instrukcję COPY określającą "tożsamość zarządzaną":
 
     ```sql
@@ -104,14 +109,15 @@ Uwierzytelnianie tożsamości zarządzanej jest wymagane, gdy konto magazynu jes
     )
     ```
 
-> [!IMPORTANT]
->
-> - Określ rolę właściciel **danych obiektów BLOB** , współautor lub czytelnika **magazynu** . Role te są inne niż wbudowane role właściciela, współautora i czytelnika. 
-
 ## <a name="d-azure-active-directory-authentication-aad"></a>D. Uwierzytelnianie Azure Active Directory (AAD)
 #### <a name="steps"></a>Kroki
 
 1. W obszarze konto magazynu przejdź do pozycji **Access Control (IAM)**, a następnie wybierz pozycję **Dodaj przypisanie roli**. Przypisz rolę **właściciel danych obiektów blob, współautor lub czytelnika** do użytkownika usługi AAD. 
+
+    > [!IMPORTANT]
+    > Określ rolę właściciel **danych obiektów BLOB** , współautor lub czytelnika **magazynu** . Role te są inne niż wbudowane role właściciela, współautora i czytelnika.
+
+    ![Udzielanie uprawnień RBAC do załadowania](./media/quickstart-bulk-load-copy-tsql-examples/rbac-load-permissions.png)
 
 2. Skonfiguruj uwierzytelnianie usługi Azure AD, wykonując poniższą [dokumentację](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure?tabs=azure-powershell#create-an-azure-ad-administrator-for-azure-sql-server). 
 
@@ -125,9 +131,6 @@ Uwierzytelnianie tożsamości zarządzanej jest wymagane, gdy konto magazynu jes
     )
     ```
 
-> [!IMPORTANT]
->
-> - Określ rolę właściciel **danych obiektów BLOB** , współautor lub czytelnika **magazynu** . Role te są inne niż wbudowane role właściciela, współautora i czytelnika. 
 
 ## <a name="e-service-principal-authentication"></a>E. Uwierzytelnianie jednostki usługi
 #### <a name="steps"></a>Kroki

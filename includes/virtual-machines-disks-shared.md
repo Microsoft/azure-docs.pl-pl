@@ -1,19 +1,19 @@
 ---
-title: dołączanie pliku
-description: dołączanie pliku
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 04/08/2020
+ms.date: 07/10/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 6e7294f10ba094a1adaae399187fb9973397a561
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2589c2abf13edc19b930d597a4d75a2be823f45d
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83868047"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86277799"
 ---
 Azure Shared disks (wersja zapoznawcza) to nowa funkcja dysków zarządzanych przez platformę Azure, która umożliwia równoczesne dołączanie dysku zarządzanego do wielu maszyn wirtualnych. Dołączenie dysku zarządzanego do wielu maszyn wirtualnych pozwala wdrożyć nowe lub migrować istniejące aplikacje klastrowane na platformę Azure.
 
@@ -41,7 +41,7 @@ Większość klastrów opartych na systemie Windows kompiluje się w środowisku
 
 Niektóre popularne aplikacje działające w środowisku WSFC obejmują:
 
-- Wystąpienia klastra trybu failover programu SQL Server
+- [Tworzenie FCI przy użyciu dysków udostępnionych platformy Azure (SQL Server na maszynach wirtualnych platformy Azure)](../articles/azure-sql/virtual-machines/windows/failover-cluster-instance-azure-shared-disks-manually-configure.md)
 - Serwer plików skalowalny w poziomie
 - Serwer plików do użytku ogólnego (obciążenie IW)
 - Dysk profilu użytkownika serwera pulpitu zdalnego (RDS UPD)
@@ -87,7 +87,12 @@ Ultra disks oferuje dodatkową przepustowość w przypadku łącznej liczby dwó
 
 :::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-reservation-table.png" alt-text="Obraz tabeli, która przedstawia dostęp do odczytu lub zapisu i zapis dla posiadacza rezerwacji, zarejestrowany i innych.":::
 
-## <a name="ultra-disk-performance-throttles"></a>Ograniczenia wydajności Ultra Disk
+## <a name="performance-throttles"></a>Ograniczenia wydajności
+
+### <a name="premium-ssd-performance-throttles"></a>Ograniczenia wydajności w warstwie Premium SSD
+Dysk SSD w warstwie Premium umożliwia stałe operacje we/wy na sekundę, np. operacje we/wy na sekundę P30 to 5000. Ta wartość pozostaje bez względu na to, czy dysk jest udostępniany przez 2 maszyny wirtualne, czy 5 maszyn wirtualnych. Limity dysku można osiągnąć z jednej maszyny wirtualnej lub podzielić na dwie lub więcej maszyn wirtualnych. 
+
+### <a name="ultra-disk-performance-throttles"></a>Ograniczenia wydajności Ultra Disk
 
 Funkcja Ultra disks ma unikatową funkcję umożliwiającą ustawienie wydajności przez ujawnienie modyfikowalnych atrybutów i umożliwienie ich modyfikacji. Domyślnie istnieją tylko dwa modyfikowalne atrybuty, ale współużytkowane Ultra disks mają dwa dodatkowe atrybuty.
 
@@ -111,23 +116,23 @@ Poniższe wzory wyjaśniają, jak można ustawić atrybuty wydajności, poniewa�
     - Limit przepływności pojedynczego dysku to 256 KiB/s dla każdej z zainicjowanych operacji we/wy, maksymalnie 2000 s MB na dysk
     - Minimalną gwarantowaną przepływność na dysk to 4KiB/s dla każdej zainicjowanej operacji we/wy, a ogólna podstawowa linia bazowa wynosi 1 MB/s
 
-### <a name="examples"></a>Przykłady
+#### <a name="examples"></a>Przykłady
 
 W poniższych przykładach przedstawiono kilka scenariuszy, które pokazują, jak ograniczenie może współdziałać z udostępnionymi dyskami o najwyższej wydajności.
 
-#### <a name="two-nodes-cluster-using-cluster-shared-volumes"></a>Klaster z dwoma węzłami przy użyciu udostępnionych woluminów klastra
+##### <a name="two-nodes-cluster-using-cluster-shared-volumes"></a>Klaster z dwoma węzłami przy użyciu udostępnionych woluminów klastra
 
 Poniżej znajduje się przykład 2-węzłowego usługi WSFC korzystającej z udostępnionych woluminów klastra. W przypadku tej konfiguracji obie maszyny wirtualne mają jednoczesny dostęp do zapisu do dysku, co powoduje, że ograniczenie ReadWrite jest dzielone na dwie maszyny wirtualne i nie jest używane ograniczenie tylko do odczytu.
 
 :::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-two-node-example.png" alt-text="Przykładowy plik CSV dwa węzły":::
 
-#### <a name="two-node-cluster-without-cluster-share-volumes"></a>Klaster z dwoma węzłami bez woluminów udziałów klastra
+##### <a name="two-node-cluster-without-cluster-share-volumes"></a>Klaster z dwoma węzłami bez woluminów udziałów klastra
 
 Poniżej znajduje się przykład 2-węzłowego usługi WSFC, która nie korzysta z udostępnionych woluminów klastra. W przypadku tej konfiguracji tylko jedna maszyna wirtualna ma dostęp do zapisu na dysku. Powoduje to, że ograniczenie ReadWrite jest używane wyłącznie dla podstawowej maszyny wirtualnej i ograniczenie tylko do odczytu używane przez pomocniczą.
 
 :::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-two-node-no-csv.png" alt-text="Dwa węzły w formacie CSV — przykład braku dysku CSV":::
 
-#### <a name="four-node-linux-cluster"></a>Klaster z systemem Linux z czterema węzłami
+##### <a name="four-node-linux-cluster"></a>Klaster z systemem Linux z czterema węzłami
 
 Poniżej znajduje się przykładowy klaster z systemem Linux z 4 węzłami z pojedynczym modułem zapisywania i trzema czytnikami skalowalnymi w poziomie. W przypadku tej konfiguracji tylko jedna maszyna wirtualna ma dostęp do zapisu na dysku. Powoduje to, że ograniczenie ReadWrite jest używane wyłącznie dla podstawowej maszyny wirtualnej i ograniczenie tylko do odczytu przez pomocnicze maszyny wirtualne.
 

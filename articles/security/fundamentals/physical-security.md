@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 19fd257e76cdf811343f1c1c772fb3646933bb86
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fd83cd164415f45929049541a8731f80a4ba146d
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83774047"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86273510"
 ---
 # <a name="azure-facilities-premises-and-physical-security"></a>Funkcje platformy Azure, lokalne i zabezpieczenia fizyczne
 W tym artykule opisano, co firma Microsoft zabezpiecza infrastruktury platformy Azure.
@@ -29,7 +30,7 @@ Platforma Azure składa się z [globalnej rozproszonej infrastruktury centrów](
 
 Infrastruktura została zaprojektowana w celu zapewnienia bliższych aplikacji użytkownikom na całym świecie, zachowywania miejsca zamieszkania i zapewniania kompleksowych opcji dotyczących zgodności i odporności klientów. Platforma Azure ma 58 regionów na całym świecie i jest dostępna w 140 krajach/regionach.
 
-Region to zestaw centrów danych, które są połączone za pośrednictwem dużej i odpornej sieci. Sieć zawiera domyślnie dystrybucję zawartości, równoważenie obciążenia, nadmiarowość i szyfrowanie. W przypadku więcej regionów globalnych niż każdy inny dostawca usług w chmurze platforma Azure zapewnia elastyczność wdrażania aplikacji, w których są one potrzebne.
+Region to zestaw centrów danych, które są połączone za pośrednictwem dużej i odpornej sieci. Sieć obejmuje dystrybucję zawartości, równoważenie obciążenia, nadmiarowość i [szyfrowanie warstwy łącza danych](encryption-overview.md#encryption-of-data-in-transit) domyślnie dla całego ruchu platformy Azure w obrębie regionu lub poruszania się między regionami. W przypadku więcej regionów globalnych niż każdy inny dostawca usług w chmurze platforma Azure zapewnia elastyczność wdrażania aplikacji, w których są one potrzebne.
 
 Regiony platformy Azure są zorganizowane w lokalizacje geograficzne. Lokalizacja geograficzna platformy Azure zapewnia, że wymagania dotyczące miejsca zamieszkania, suwerenności, zgodności i odporności są honorowane w granicach geograficznych.
 

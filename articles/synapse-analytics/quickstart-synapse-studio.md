@@ -1,5 +1,5 @@
 ---
-title: Korzystanie z programu Synapse Studio (wersja zapoznawcza)
+title: 'Szybki Start: korzystanie z programu Synapse Studio'
 description: W tym przewodniku szybki start zobaczysz i dowiesz się, jak łatwo można wysyłać zapytania o różne typy plików przy użyciu programu Synapse Studio.
 services: synapse-analytics
 author: jovanpop-msft
@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 182c6a20af51508c357079b9542b2bda695fdae4
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 271fd77e519ce9d78e2fa4e4837004a77cf73522
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83658574"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86276060"
 ---
 # <a name="quickstart-use-synapse-studio-preview"></a>Szybki Start: korzystanie z programu Synapse Studio (wersja zapoznawcza)
 
@@ -30,11 +30,11 @@ Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
 [Utwórz obszar roboczy usługi Azure Synapse i skojarzone konto magazynu](quickstart-create-workspace.md).
 
-## <a name="launch-synapse-studio"></a>Uruchom Synapse Studio
+## <a name="launch-synapse-studio"></a>Uruchamianie programu Synapse Studio
 
 W obszarze roboczym usługi Azure Synapse w Azure Portal kliknij pozycję **Uruchom Synapse Studio**.
 
-![Uruchom Synapse Studio](./media/quickstart-synapse-studio/launch-synapse-workspace.png)
+![Uruchamianie programu Synapse Studio](./media/quickstart-synapse-studio/launch-synapse-workspace.png)
 
 Alternatywnie możesz uruchomić program Synapse Studio, klikając pozycję [Azure Synapse Analytics](https://web.azuresynapse.net) i podając odpowiednie wartości dzierżawców, subskrypcji i obszaru roboczego.
 
@@ -66,5 +66,5 @@ Możesz tworzyć nowe foldery i przekazywać pliki przy użyciu linków na pasku
 
 - Włącz użytkownikom usługi Azure AD wykonywanie zapytań [dotyczących plików, przypisując im uprawnienia kontrola dostępu do **magazynu danych** lub **Magazyn danych obiektów BLOB** w usłudze Azure Storage](../storage/common/storage-auth-aad-rbac-portal.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#assign-a-built-in-rbac-role)
 - [Wysyłanie zapytań do plików w usłudze Azure Storage przy użyciu programu SQL na żądanie](sql/on-demand-workspace-overview.md)
-- [Tworzenie puli platformy Apache Spark przy użyciu witryny Azure Portal](quickstart-create-apache-spark-pool-portal.md)
+- [Tworzenie puli zadań platformy Apache Spark przy użyciu witryny Azure Portal](quickstart-create-apache-spark-pool-portal.md)
 - [Tworzenie raportu Power BI dla plików przechowywanych w usłudze Azure Storage](sql/tutorial-connect-power-bi-desktop.md)

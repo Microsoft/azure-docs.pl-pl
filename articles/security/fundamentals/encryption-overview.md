@@ -15,13 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
 ms.author: mbaldwin
-ms.openlocfilehash: c45839d622f4bad5097006a364a36db05ce5dacc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 005932f4a4be9e4a7bae85a6b380c934de5e9874
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84012980"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86276536"
 ---
-# <a name="azure-encryption-overview"></a>Omówienie usługi Azure Encryption
+# <a name="azure-encryption-overview"></a>Omówienie szyfrowania na platformie Azure
 
 Ten artykuł zawiera omówienie sposobu użycia szyfrowania w Microsoft Azure. Obejmuje to główne obszary szyfrowania, w tym szyfrowanie w spoczynku, szyfrowanie w locie i zarządzanie kluczami za pomocą Azure Key Vault. Każda sekcja zawiera linki do bardziej szczegółowych informacji.
 
@@ -116,9 +117,13 @@ Do szyfrowania i odszyfrowywania danych używane są trzy typy kluczy: główny 
 
 Platforma Azure oferuje wiele mechanizmów utrzymywania prywatnych danych w trakcie ich przenoszenia z jednej lokalizacji do innej.
 
-### <a name="tlsssl-encryption-in-azure"></a>Szyfrowanie TLS/SSL na platformie Azure
+### <a name="data-link-layer-encryption-in-azure"></a>Szyfrowanie warstwy linku danych na platformie Azure
 
-Firma Microsoft korzysta z protokołu [Transport Layer Security](https://en.wikipedia.org/wiki/Transport_Layer_Security) (TLS) w celu ochrony danych w przypadku podróży między usługami w chmurze i klientami. Centra danych firmy Microsoft negocjują połączenie TLS z systemami klienckimi, które łączą się z usługami platformy Azure. Protokół TLS zapewnia silne uwierzytelnianie, prywatność komunikatów i integralność (umożliwiając wykrywanie manipulowania komunikatami, przechwycenie i fałszowanie), współdziałanie, elastyczność algorytmu oraz łatwość wdrażania i używania.
+Za każdym razem, gdy ruch klientów platformy Azure jest przenoszony między centrami danych — poza granicami fizycznymi niekontrolowanymi przez firmę Microsoft (lub w imieniu firmy Microsoft) — Metoda szyfrowania warstwy linku z użyciem [IEEE 802.1 AE](https://1.ieee802.org/security/802-1ae/) (znana także jako MACsec) jest stosowana między punkt-punkt w ramach podstawowego sprzętu sieciowego.  Pakiety są szyfrowane i odszyfrowywane na urządzeniach przed ich wysłaniem, co uniemożliwia fizyczne ataki typu "man-in-the-middle" lub "śledzenie/wiretapping".  Ponieważ ta technologia jest zintegrowana z samym sprzętem sieciowym, zapewnia szyfrowanie przy użyciu stawki liniowej sprzętu sieciowego bez wymiernego wzrostu opóźnienia linków.  To szyfrowanie MACsec jest domyślnie włączone dla całego ruchu platformy Azure w obrębie regionu lub między regionami. nie jest wymagane wykonanie jakiejkolwiek czynności przez część klientów do włączenia. 
+
+### <a name="tls-encryption-in-azure"></a>Szyfrowanie TLS na platformie Azure
+
+Firma Microsoft zapewnia klientom możliwość korzystania z protokołu [Transport Layer Security](https://en.wikipedia.org/wiki/Transport_Layer_Security) (TLS) w celu ochrony danych podczas podróży między usługami w chmurze i klientami. Centra danych firmy Microsoft negocjują połączenie TLS z systemami klienckimi, które łączą się z usługami platformy Azure. Protokół TLS zapewnia silne uwierzytelnianie, prywatność komunikatów i integralność (umożliwiając wykrywanie manipulowania komunikatami, przechwycenie i fałszowanie), współdziałanie, elastyczność algorytmu oraz łatwość wdrażania i używania.
 
 [Doskonałe](https://en.wikipedia.org/wiki/Forward_secrecy) utajnienie przekazywania (PFS) chroni połączenia między systemami klienta i usługami w chmurze firmy Microsoft przez unikatowe klucze. Połączenia korzystają również z 2 048-bitowych kluczy szyfrowania RSA. Ta kombinacja utrudnia przechwycenie i dostęp do danych przesyłanych przez inną osobę.
 
@@ -140,7 +145,7 @@ Domyślnie po włączeniu szyfrowania SMB dla udziału lub serwera, tylko klienc
 
 ## <a name="in-transit-encryption-in-vms"></a>Szyfrowanie w trakcie przesyłania na maszynach wirtualnych
 
-Dane przesyłane do, z i między maszynami wirtualnymi z systemem Windows, są szyfrowane na wiele sposobów, w zależności od charakteru połączenia.
+Dane przesyłane do, z i między maszynami wirtualnymi z systemem Windows, mogą być szyfrowane na wiele sposobów, w zależności od charakteru połączenia.
 
 ### <a name="rdp-sessions"></a>Sesje protokołu RDP
 

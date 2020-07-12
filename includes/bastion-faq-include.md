@@ -1,6 +1,6 @@
 ---
-title: dołączanie pliku
-description: dołączanie pliku
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: bastion
 author: cherylmc
 ms.service: bastion
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/04/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: b8d30e7fe3138a26d9b64ec35d18260933df7999
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: efb32631c5ee1eedece6d2a06b94702b602ed418
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82780315"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86276122"
 ---
 ### <a name="which-regions-are-available"></a><a name="regions"></a>Które regiony są dostępne?
 
@@ -48,6 +48,10 @@ W tej chwili obsługiwana jest tylko kopiowanie/wklejanie tekstu. Funkcje, takie
 ### <a name="which-browsers-are-supported"></a><a name="browsers"></a>Które przeglądarki są obsługiwane?
 
 Użyj przeglądarki Microsoft Edge lub Google Chrome w systemie Windows. W przypadku komputerów Mac firmy Apple należy użyć przeglądarki Google Chrome. Program Microsoft Edge chrom jest również obsługiwany odpowiednio w systemach Windows i Mac.
+
+### <a name="where-does-azure-bastion-store-customer-data"></a><a name="data"></a>Gdzie usługa Azure bastionu przechowuje dane klienta?
+
+Usługa Azure bastionu nie przenosi ani nie zapisuje danych klienta z regionu, w którym jest wdrożony.
 
 ### <a name="are-any-roles-required-to-access-a-virtual-machine"></a><a name="roles"></a>Czy wszystkie role są wymagane do uzyskania dostępu do maszyny wirtualnej?
 

@@ -15,14 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
-ms.openlocfilehash: 630304bec17dd34befab4e5bd9f1cfdfb6505645
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d723e60afe543808c88b1ae040e2979412ff324c
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80811428"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86273476"
 ---
 # <a name="azure-customer-data-protection"></a>Ochrona danych klienta platformy Azure   
-Domyślnie odmowa dostępu do danych klienta przez operacje firmy Microsoft i personel pomocy technicznej. W przypadku udzielenia dostępu do danych klienta wymagane jest zatwierdzenie lidera, a następnie dostęp jest dokładnie zarządzany i rejestrowany. Wymagania dotyczące kontroli dostępu są określane przez następujące zasady zabezpieczeń platformy Azure:
+Domyślnie odmowa dostępu do danych klienta przez operacje firmy Microsoft i personel pomocy technicznej. W przypadku przyznania dostępu do danych związanych z działem pomocy technicznej jest on przyznawany tylko przy użyciu modelu just-in-Time (JIT), korzystając z zasad, które są poddawane inspekcji, i zbadane się zgodnie z naszymi zasadami zgodności i zasad zachowania poufności informacji.  Wymagania dotyczące kontroli dostępu są określane przez następujące zasady zabezpieczeń platformy Azure:
 
 - Domyślnie nie ma dostępu do danych klienta.
 - Brak kont użytkowników ani administratorów na maszynach wirtualnych klienta.
@@ -39,12 +40,9 @@ Podział **danych**: platforma Azure to usługa z wieloma dzierżawami, która o
 
 **Ochrona danych w czasie spoczynku**: klienci są odpowiedzialni za zapewnienie, że dane przechowywane na platformie Azure są szyfrowane zgodnie ze standardami. Platforma Azure oferuje szeroką gamę możliwości szyfrowania, dzięki czemu klienci mogą wybrać rozwiązanie, które najlepiej spełnia ich potrzeby. Azure Key Vault pomaga klientom w łatwym zachowaniu kontroli nad kluczami, które są używane przez aplikacje i usługi w chmurze do szyfrowania danych. Azure Disk Encryption umożliwia klientom szyfrowanie maszyn wirtualnych. Usługa Azure szyfrowanie usługi Storage umożliwia szyfrowanie wszystkich danych umieszczonych na koncie magazynu klienta.
 
-**Ochrona danych w tranzycie**: klienci mogą włączyć szyfrowanie ruchu między własnymi maszynami wirtualnymi i użytkownikami końcowymi. Platforma Azure chroni dane przesyłane do lub z zewnętrznych składników i danych w tranzycie wewnętrznie, na przykład między dwiema sieciami wirtualnymi. System Azure używa standardu branżowego Transport Layer Security (TLS) 1,2 lub nowszego z 2 048-bitowymi kluczami szyfrowania RSA/SHA256 zgodnie z zaleceniami CESG/NCSC, aby szyfrować komunikację między:
+**Ochrona danych w tranzycie**: Firma Microsoft udostępnia wiele opcji, które mogą być wykorzystane przez klientów do zabezpieczania danych w ramach przesyłania wewnętrznie w sieci platformy Azure i zewnętrznie przez Internet do użytkownika końcowego.  Obejmują one komunikację za pośrednictwem wirtualnych sieci prywatnych (wykorzystujących szyfrowanie IPsec/IKE), Transport Layer Security (TLS) 1,2 lub nowszych (za pośrednictwem składników platformy Azure, takich jak Application Gateway lub drzwi platformy Azure), protokołów bezpośrednio na maszynach wirtualnych platformy Azure (takich jak Windows IPsec lub SMB) i innych. 
 
-- Klienta i chmurę.
-- Wewnętrznie między systemami i centrami danych platformy Azure.
-
-**Szyfrowanie**: szyfrowanie danych w magazynie i w tranzycie może być wdrażane przez klientów jako najlepsze rozwiązanie w celu zapewnienia poufności i integralności danych. Klienci mogą konfigurować swoje usługi w chmurze platformy Azure w celu ochrony komunikacji z Internetu, a nawet między maszynami wirtualnymi hostowanymi na platformie Azure.
+Ponadto "szyfrowanie domyślnie" przy użyciu MACsec (IEEE standard w warstwie linku danych) jest włączone dla całego ruchu platformy Azure między centrami Datacenter, aby zapewnić poufność i integralność danych klientów. 
 
 **Nadmiarowość danych**: Firma Microsoft gwarantuje, że dane są chronione w przypadku wystąpienia cybernetycznego lub fizycznego uszkodzenia centrum danych. Klienci mogą wybrać następujące opcje:
 

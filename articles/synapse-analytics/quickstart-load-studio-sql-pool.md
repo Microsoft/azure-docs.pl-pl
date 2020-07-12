@@ -1,5 +1,5 @@
 ---
-title: Ładowanie zbiorcze danych za pomocą języka SQL Synapse
+title: 'Szybki Start: ładowanie zbiorcze danych przy użyciu Synapse kW'
 description: Ładowanie danych za pomocą programu Synapse Studio w programie SQL Server Synapse
 services: synapse-analytics
 author: kevinvngo
@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/06/2020
 ms.author: kevin
 ms.reviewer: jrasnick
-ms.openlocfilehash: 959742ec3c0434213d19b0f92fe523671fd60f33
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 7f840d4a75be72a4317860dcf4a6708642369a24
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85964553"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86274224"
 ---
 # <a name="bulk-loading-with-synapse-sql"></a>Ładowanie zbiorcze przy użyciu języka SQL Synapse
 

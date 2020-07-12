@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: how-to
-ms.date: 06/09/2020
-ms.openlocfilehash: 8e148a3dac8435a08c0f1735cd35d06c700e1e84
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 07/10/2020
+ms.openlocfilehash: 8ca4d3d2d52e79dbcaaa15eba5794a4d2d28366a
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86106632"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86274547"
 ---
 # <a name="create-and-manage-read-replicas-in-azure-database-for-postgresql---single-server-from-the-azure-portal"></a>Tworzenie replik odczytu i zarządzanie nimi w Azure Database for PostgreSQL-pojedynczym serwerze z Azure Portal
 
@@ -78,15 +78,15 @@ Aby utworzyć replikę odczytu, wykonaj następujące kroki:
 
 6. Wybierz **przycisk OK** , aby potwierdzić utworzenie repliki.
 
-Replika jest tworzona przy użyciu tych samych ustawień obliczeniowych i magazynu co główny. Po utworzeniu repliki można zmienić kilka ustawień niezależnie od serwera głównego: generowanie obliczeń, rdzeni wirtualnych, magazyn i okres przechowywania zapasowego. Warstwę cenową można także zmienić niezależnie, z wyjątkiem warstwy Podstawowa lub z niej.
-
-> [!IMPORTANT]
-> Przed zaktualizowaniem ustawienia serwera głównego do nowej wartości należy zaktualizować ustawienie repliki na wartość równą lub większą. Ta akcja ułatwia przeprowadzenie replikacji ze wszystkimi zmianami wprowadzonymi do wzorca.
-
 Po utworzeniu repliki odczytu można ją wyświetlić w oknie **replikacja** :
 
 ![Wyświetl nową replikę w oknie replikacji](./media/howto-read-replicas-portal/list-replica.png)
  
+
+> [!IMPORTANT]
+> Zapoznaj się z [sekcją zagadnienia w temacie Omówienie repliki odczytu](concepts-read-replicas.md#considerations).
+>
+> Przed zaktualizowaniem ustawienia serwera głównego do nowej wartości należy zaktualizować ustawienie repliki na wartość równą lub większą. Ta akcja ułatwia przeprowadzenie replikacji ze wszystkimi zmianami wprowadzonymi do wzorca.
 
 ## <a name="stop-replication"></a>Zatrzymywanie replikacji
 Można zatrzymać replikację między serwerem głównym a repliką odczytu.

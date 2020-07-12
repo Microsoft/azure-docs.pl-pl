@@ -1,5 +1,5 @@
 ---
-title: Szybki Start — Tworzenie puli Apache Spark (wersja zapoznawcza) przy użyciu programu Synapse Studio
+title: 'Szybki Start: Tworzenie puli Apache Spark (wersja zapoznawcza) przy użyciu programu Synapse Studio'
 description: Utwórz nową pulę Apache Spark przy użyciu programu Synapse Studio, wykonując czynności opisane w tym przewodniku.
 services: synapse-analytics
 author: julieMSFT
@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 3/19/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: c945e56aa0b6f851f54cf7679276558190b4bc10
-ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
+ms.openlocfilehash: 87fcbef5a3cedab3142fe9ad47c68752515fdd2e
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85194971"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86274343"
 ---
 # <a name="quickstart-create-an-apache-spark-pool-preview-using-synapse-studio"></a>Szybki Start: Tworzenie puli Apache Spark (wersja zapoznawcza) przy użyciu programu Synapse Studio
 
@@ -34,7 +34,7 @@ Jeśli nie masz subskrypcji platformy Azure, [przed rozpoczęciem utwórz bezpł
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logowanie się do witryny Azure Portal
 
-Zaloguj się do [Azure Portal](https://portal.azure.com/)
+Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
 ## <a name="navigate-to-the-synapse-workspace"></a>Przejdź do obszaru roboczego Synapse
 
@@ -65,7 +65,7 @@ Zaloguj się do [Azure Portal](https://portal.azure.com/)
     | :------ | :-------------- | :---------- |
     | **Nazwa puli Apache Spark** | contosospark | Jest to nazwa, która będzie miała pulę Apache Spark. |
     | **Rozmiar węzła** | Mały (4 vCPU/32 GB) | Ustaw wartość na najmniejszy rozmiar, aby zmniejszyć koszty dla tego przewodnika Szybki Start |
-    | **Automatyczne skalowanie** | Disabled (Wyłączony) | W tym przewodniku Szybki Start nie będziemy potrzebować automatycznego skalowania |
+    | **Automatyczne skalowanie** | Disabled | W tym przewodniku Szybki Start nie będziemy potrzebować automatycznego skalowania |
     | **Liczba węzłów** | 8 | Aby ograniczyć koszty w tym przewodniku Szybki Start, Użyj małego rozmiaru|
     
     ![Nowy formularz puli Apache Spark Synapse Studio.](media/quickstart-create-apache-spark-pool/create-spark-pool-studio-24.png)

@@ -1,5 +1,5 @@
 ---
-title: Korzystanie z SQL na żądanie (wersja zapoznawcza)
+title: 'Szybki Start: korzystanie z SQL na żądanie'
 description: W tym przewodniku szybki start zobaczysz, jak łatwo można wysyłać zapytania o różne typy plików przy użyciu funkcji SQL na żądanie (wersja zapoznawcza).
 services: synapse-analytics
 author: azaricstefan
@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: cbc13695610e8fe190793a7dc925a414f5da2e53
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: fe07192b0077518cdd73092f53342c298034cfa8
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85207434"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86274173"
 ---
 # <a name="quickstart-use-sql-on-demand"></a>Szybki Start: korzystanie z SQL na żądanie
 

@@ -1,5 +1,5 @@
 ---
-title: Szybki Start — tworzenie Synapse puli SQL (wersja zapoznawcza) przy użyciu Azure Portal
+title: 'Szybki Start: Tworzenie puli SQL Synapse (wersja zapoznawcza) przy użyciu Azure Portal'
 description: Utwórz nową pulę SQL Synapse przy użyciu Azure Portal, wykonując czynności opisane w tym przewodniku.
 services: synapse-analytics
 author: julieMSFT
@@ -9,11 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 966ca099c44ba8b0f2d3241c391f4d7a101afb26
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 768b559ddaf7364726cb26a34d12f357d4126426
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85955101"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86274258"
 ---
 # <a name="quickstart-create-a-synapse-sql-pool-preview-using-the-azure-portal"></a>Szybki Start: Tworzenie puli SQL Synapse (wersja zapoznawcza) przy użyciu Azure Portal
 
@@ -30,7 +31,7 @@ Jeśli nie masz subskrypcji platformy Azure, [przed rozpoczęciem utwórz bezpł
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logowanie się do witryny Azure Portal
 
-Zaloguj się do [Azure Portal](https://portal.azure.com/)
+Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
 ## <a name="navigate-to-the-synapse-workspace"></a>Przejdź do obszaru roboczego Synapse
 
@@ -59,7 +60,7 @@ Zaloguj się do [Azure Portal](https://portal.azure.com/)
 4. Wybierz opcję **Brak** , aby zainicjować obsługę administracyjną puli SQL bez danych. Pozostaw wybrane domyślne sortowanie.
 ![Utwórz przepływ puli SQL — karta Ustawienia dodatkowe.](media/quickstart-create-sql-pool/create-sql-pool-portal-03.png)
 
-5. Wybierz pozycję **Przegląd + utwórz**.
+5. Wybierz pozycję **Przeglądanie + tworzenie**.
 6. Upewnij się, że szczegóły są poprawne na podstawie wprowadzonych wcześniej informacji. Wybierz pozycję **Utwórz**.
 ![Utwórz przepływ w puli SQL — Przejrzyj kartę Ustawienia.](media/quickstart-create-sql-pool/create-sql-pool-portal-04.png)
 

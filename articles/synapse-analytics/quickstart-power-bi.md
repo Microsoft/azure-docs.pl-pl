@@ -1,5 +1,5 @@
 ---
-title: Szybki Start — łączenie obszaru roboczego Power BI z obszarem roboczym Synapse
+title: 'Szybki Start: łączenie obszaru roboczego Power BI z obszarem roboczym Synapse'
 description: Połącz obszar roboczy Power BI z obszarem roboczym usługi Azure Synapse Analytics, wykonując czynności opisane w tym przewodniku.
 services: synapse-analytics
 author: jocaplan
@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/29/2020
 ms.author: jocaplan
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 3317410408754519bcd8b52e78dee4a81b3ab070
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: f9ae7b74c17bb330c2c7aa99903c62d4701f0a52
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84609492"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86274190"
 ---
 # <a name="quickstart-linking-a-power-bi-workspace-to-a-synapse-workspace"></a>Szybki Start: łączenie obszaru roboczego Power BI z obszarem roboczym Synapse
 
@@ -49,7 +49,7 @@ Jeśli nie masz subskrypcji platformy Azure, [przed rozpoczęciem utwórz bezpł
 
     ![Wyświetlanie konfiguracji połączonej usługi Power BI.](media/quickstart-link-powerbi/workspace-link-dialog.png)
 
-6. Kliknij przycisk **Utwórz**.
+6. Kliknij pozycję **Utwórz**.
 
 ## <a name="view-power-bi-workspace-in-synapse-studio"></a>Wyświetlanie obszaru roboczego Power BI w programie Synapse Studio
 

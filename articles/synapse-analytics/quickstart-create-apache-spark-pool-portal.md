@@ -1,5 +1,5 @@
 ---
-title: Szybki Start — Tworzenie puli Apache Spark (wersja zapoznawcza) przy użyciu Azure Portal
+title: 'Szybki Start: Tworzenie puli Apache Spark (wersja zapoznawcza) przy użyciu Azure Portal'
 description: Utwórz nową pulę Apache Spark przy użyciu Azure Portal, wykonując czynności opisane w tym przewodniku.
 services: synapse-analytics
 author: julieMSFT
@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 2b199848e6c84370bd9d8711eed25dbf6c3f4dfa
-ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
+ms.openlocfilehash: 959ad0413c83389aef6a7607c1239043e242b75b
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85194935"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86274360"
 ---
 # <a name="quickstart-create-a-new-apache-spark-pool-preview-using-the-azure-portal"></a>Szybki Start: Tworzenie nowej puli Apache Spark (wersja zapoznawcza) przy użyciu Azure Portal
 
@@ -34,7 +34,7 @@ Jeśli nie masz subskrypcji platformy Azure, [przed rozpoczęciem utwórz bezpł
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logowanie się do witryny Azure Portal
 
-Zaloguj się do [Azure Portal](https://portal.azure.com/)
+Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
 ## <a name="navigate-to-the-synapse-workspace"></a>Przejdź do obszaru roboczego Synapse 
 1. Przejdź do obszaru roboczego Synapse, w którym zostanie utworzona Pula Apache Spark, wpisując nazwę usługi (lub nazwę zasobu bezpośrednio) na pasku wyszukiwania.
@@ -53,7 +53,7 @@ Zaloguj się do [Azure Portal](https://portal.azure.com/)
     | :------ | :-------------- | :---------- |
     | **Nazwa puli Apache Spark** | Prawidłowa nazwa puli | Jest to nazwa, która będzie miała pulę Apache Spark. |
     | **Rozmiar węzła** | Mały (4 vCPU/32 GB) | Ustaw wartość na najmniejszy rozmiar, aby zmniejszyć koszty dla tego przewodnika Szybki Start |
-    | **Automatyczne skalowanie** | Disabled (Wyłączony) | Nie potrzebujemy automatycznego skalowania dla tego przewodnika Szybki Start |
+    | **Automatyczne skalowanie** | Disabled | Nie potrzebujemy automatycznego skalowania dla tego przewodnika Szybki Start |
     | **Liczba węzłów** | 5 | Aby ograniczyć koszty dla tego przewodnika Szybki Start, Użyj małego rozmiaru |
 
 
@@ -67,7 +67,7 @@ Zaloguj się do [Azure Portal](https://portal.azure.com/)
 4. Wybierz pozycję **Dalej: Tagi**. Nie dodawaj żadnych tagów.
     ![Utwórz przepływ Apache Spark puli — karta Ustawienia dodatkowe.](media/quickstart-create-apache-spark-pool/create-spark-pool-03-tags.png)
 
-5. Wybierz pozycję **Przegląd + utwórz**.
+5. Wybierz pozycję **Przeglądanie + tworzenie**.
 
 6. Upewnij się, że szczegóły są poprawne w zależności od tego, co zostało wcześniej wprowadzone, i wybierz pozycję **Utwórz**.
     ![Tworzenie przepływu Apache Spark puli — przegląd ustawień.](media/quickstart-create-apache-spark-pool/create-spark-pool-portal-05.png)
