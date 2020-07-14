@@ -20,7 +20,7 @@ Jeśli kliknięto tę kartę, prawdopodobnie nie widzisz przewodnika Szybki Star
 | C#          | [.NET Framework][dotnet], [.NET Core][netcore], [platformy UWP][uwp], [Unity][unity], [Xamarin][xamarin] |
 | C++         | [Windows][cpp-windows], [Linux][cpp-linux], [macOS][cpp-mac]                                   |
 | Java        | [Android][java-android], [JRE][java-jre]                                                       |
-| JavaScript  | [Przeglądarka, Node. js][js-code]                                                                    |
+| JavaScript  | [Przeglądarka, Node.js][js-code]                                                                    |
 | Obiektowy C | [iOS][obj-iOS], [macOS][obj-macOS]                                                             |
 | Python      | [Windows, Linux, macOS][python]                                                                |
 | Swift       | [iOS][swift-iOS], [macOS][swift-macOS]                                                         |

@@ -23,4 +23,4 @@ Po spełnieniu kilku wymagań wstępnych połączenie niestandardowego asystenta
 > * Utwórz `BotFrameworkConfig` obiekt z klucza subskrypcji i regionu.
 > * Utwórz `DialogServiceConnector` Obiekt przy użyciu `BotFrameworkConfig` obiektu powyższego.
 > * Za pomocą `DialogServiceConnector` obiektu, Rozpocznij proces nasłuchiwania dla jednego wypowiedź.
-> * Sprawdź zwracaną wartość `ActivityReceivedEventArgs` .
+> * Sprawdź `ActivityReceivedEventArgs` zwracaną wartość.

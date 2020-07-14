@@ -28,7 +28,7 @@ Przed rozpoczęciem upewnij się, że:
 
 [!INCLUDE [](~/includes/cognitive-services-speech-service-quickstart-java-create-proj.md)]
 
-Ponadto aby włączyć rejestrowanie, zaktualizuj plik _pliku pom. XML_ w celu uwzględnienia następujących zależności:
+Ponadto, aby włączyć rejestrowanie, zaktualizuj plik _pom.xml_ , aby uwzględnić następujące zależności:
 
 ```xml
  <dependency>
@@ -40,7 +40,7 @@ Ponadto aby włączyć rejestrowanie, zaktualizuj plik _pliku pom. XML_ w celu u
 
 ## <a name="add-sample-code"></a>Dodawanie przykładowego kodu
 
-1. Aby dodać nową pustą klasę do projektu Java, wybierz pozycję **plik** > **Nowa** > **Klasa**.
+1. Aby dodać nową pustą klasę do projektu Java, wybierz pozycję **plik**  >  **Nowa**  >  **Klasa**.
 
 1. W **nowym oknie klasy Java** wprowadź _speechsdk. szybkiego startu_ w polu **pakiet** i _Main_ w polu **Nazwa** .
 
@@ -113,10 +113,10 @@ Ponadto aby włączyć rejestrowanie, zaktualizuj plik _pliku pom. XML_ w celu u
    }
    ```
 
-1. W `main` metodzie należy najpierw skonfigurować `DialogServiceConfig` i użyć jej do utworzenia `DialogServiceConnector` wystąpienia. To wystąpienie nawiązuje połączenie z kanałem mowy linii bezpośredniej w celu korzystania z bot. `AudioConfig` Wystąpienie jest również używane do określania źródła danych wejściowych audio. W tym przykładzie domyślny mikrofon jest używany z `AudioConfig.fromDefaultMicrophoneInput()`.
+1. W `main` metodzie należy najpierw skonfigurować `DialogServiceConfig` i użyć jej do utworzenia `DialogServiceConnector` wystąpienia. To wystąpienie nawiązuje połączenie z kanałem mowy linii bezpośredniej w celu korzystania z bot. `AudioConfig`Wystąpienie jest również używane do określania źródła danych wejściowych audio. W tym przykładzie domyślny mikrofon jest używany z `AudioConfig.fromDefaultMicrophoneInput()` .
 
    - Zastąp ciąg `YourSubscriptionKey` kluczem subskrypcji, który można uzyskać z [tej witryny sieci Web](~/articles/cognitive-services/speech-service/get-started.md).
-   - Zamień ciąg `YourServiceRegion` na [region](~/articles/cognitive-services/speech-service/regions.md) skojarzony z subskrypcją.
+   - Zamień ciąg na `YourServiceRegion` [region](~/articles/cognitive-services/speech-service/regions.md) skojarzony z subskrypcją.
 
    > [!NOTE]
    > Zapoznaj się z [listą obsługiwanych regionów dla asystentów głosowych](~/articles/cognitive-services/speech-service/regions.md#voice-assistants) i upewnij się, że zasoby zostały wdrożone w jednym z tych regionów.
@@ -172,7 +172,7 @@ Ponadto aby włączyć rejestrowanie, zaktualizuj plik _pliku pom. XML_ w celu u
        });
    ```
 
-1. Nawiąż połączenie `DialogServiceConnector` z linią bezpośrednią mowy `connectAsync()` , wywołując metodę. Aby przetestować bot, możesz wywołać `listenOnceAsync` metodę w celu wysłania danych wejściowych audio z mikrofonu. Ponadto można również użyć `sendActivityAsync` metody do wysłania niestandardowego działania jako serializowanego ciągu. Te niestandardowe działania mogą zapewnić dodatkowe dane używane przez bot w konwersacji.
+1. Nawiąż połączenie `DialogServiceConnector` z linią bezpośrednią mowy, wywołując `connectAsync()` metodę. Aby przetestować bot, możesz wywołać `listenOnceAsync` metodę w celu wysłania danych wejściowych audio z mikrofonu. Ponadto można również użyć `sendActivityAsync` metody do wysłania niestandardowego działania jako serializowanego ciągu. Te niestandardowe działania mogą zapewnić dodatkowe dane używane przez bot w konwersacji.
 
    ```java
    connector.connectAsync();
@@ -185,7 +185,7 @@ Ponadto aby włączyć rejestrowanie, zaktualizuj plik _pliku pom. XML_ w celu u
 
 1. Zapisz zmiany w `Main` pliku.
 
-1. Aby obsłużyć odtwarzanie odpowiedzi, należy dodać dodatkową klasę, która przekształca obiekt PullAudioOutputStream zwrócony z interfejsu API getaudio () na InputStream języka Java w celu ułatwienia obsługi. Jest `ActivityAudioStream` to wyspecjalizowana Klasa, która obsługuje odpowiedź audio z kanału Direct Speech line. Zapewnia metody dostępu do pobierania informacji o formacie audio, które są wymagane do obsługi odtwarzania. W tym celu wybierz pozycję **plik** > **Nowa** > **Klasa**.
+1. Aby obsłużyć odtwarzanie odpowiedzi, należy dodać dodatkową klasę, która przekształca obiekt PullAudioOutputStream zwrócony z interfejsu API getaudio () na InputStream języka Java w celu ułatwienia obsługi. `ActivityAudioStream`Jest to wyspecjalizowana Klasa, która obsługuje odpowiedź audio z kanału Direct Speech line. Zapewnia metody dostępu do pobierania informacji o formacie audio, które są wymagane do obsługi odtwarzania. W tym celu wybierz pozycję **plik**  >  **Nowa**  >  **Klasa**.
 
 1. W **nowym oknie klasy Java** wprowadź _speechsdk. szybkiego startu_ w polu **pakiet** i _ActivityAudioStream_ w polu **Nazwa** .
 
@@ -432,9 +432,9 @@ Ponadto aby włączyć rejestrowanie, zaktualizuj plik _pliku pom. XML_ w celu u
 
 1. Zapisz zmiany w `ActivityAudioStream` pliku.
 
-## <a name="build-and-run-the-app"></a>Kompilowanie i uruchamianie aplikacji
+## <a name="build-and-run-the-app"></a>Skompiluj i uruchom aplikację
 
-Wybierz polecenie F11 lub wybierz polecenie **Uruchom** > **debugowanie**.
+Wybierz polecenie F11 lub wybierz polecenie **Uruchom**  >  **debugowanie**.
 W konsoli programu jest wyświetlany komunikat "Powiedz coś".
 W tym momencie Porozmawiaj z angielską frazą lub zdaniem bot. Twoja Zamiana jest przekazywana do bot za pośrednictwem kanału bezpośredniej linii mowy, który jest rozpoznawany i przetwarzany przez bot. Odpowiedź jest zwracana jako działanie. Jeśli bot zwraca mowę jako odpowiedź, dźwięk zostanie odtworzony przy użyciu `AudioPlayer` klasy.
 
