@@ -9,11 +9,12 @@ ms.subservice: autoscale
 ms.date: 04/18/2019
 ms.reviewer: avverma
 ms.custom: avverma
-ms.openlocfilehash: 565d98bd5f27351f16ff523aa017c4b980fbdd53
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 597a9e3b018f4ddb68710dff65094f35828b3c4b
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83827270"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232665"
 ---
 # <a name="vertical-autoscale-with-virtual-machine-scale-sets"></a>Automatyczne skalowanie w pionie za pomocą zestawów skalowania maszyn wirtualnych
 
@@ -38,7 +39,7 @@ Można skonfigurować skalowanie w pionie na podstawie alertów opartych na metr
 > [!NOTE]
 > Ze względu na rozmiar pierwszej maszyny wirtualnej rozmiary, do których można skalować, mogą być ograniczone ze względu na dostępność innych rozmiarów z bieżącej maszyny wirtualnej klastra wdrożonych w programie. W opublikowanym elemencie Runbook usługi Automation używanym w tym artykule zajmiemy się tym przypadkiem i skalujemy ją tylko w obrębie poniższych par rozmiaru maszyny wirtualnej. Oznacza to, że Standard_D1v2 maszynie wirtualnej nie można nagle skalować do Standard_G5 lub przeskalować do Basic_A0. Nie są obsługiwane również rozmiary maszyn wirtualnych z ograniczeniami skalowania w górę/w dół. Można wybrać skalowanie między następującymi parami rozmiarów:
 > 
-> | Para skalowania rozmiaru maszyny wirtualnej |  |
+> | Składowa pary skalowania rozmiaru maszyny wirtualnej | Członek |
 > | --- | --- |
 > | Basic_A0 |Basic_A4 |
 > | Standardowa_A0 |Standardowa_A4 |

@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 07/01/2020
-ms.openlocfilehash: 8406c556ecaa0cea968fc1976d709b4f3c51c78b
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 1613486880885a3b7838b1bf806c17f88e3be06d
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85852534"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86231271"
 ---
 # <a name="quickstart-create-an-azure-stream-analytics-job-using-the-azure-cli"></a>Szybki Start: Tworzenie zadania Azure Stream Analytics przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -23,11 +23,11 @@ W tym przewodniku szybki start użyjesz interfejsu wiersza polecenia platformy A
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 
-* Jeśli nie masz subskrypcji platformy Azure, Utwórz [bezpłatne konto](https://azure.microsoft.com/free/).
+* Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/).
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="prepare-your-environment"></a>Przygotowywanie środowiska
+## <a name="prepare-your-environment"></a>Przygotowanie środowiska
 
 1. Zaloguj się.
 
@@ -49,7 +49,7 @@ W tym przewodniku szybki start użyjesz interfejsu wiersza polecenia platformy A
     az extension add --name stream-analytics
     ```
 
-   Zainstaluj [rozszerzenie usługi Azure IoT](/cli/azure/ext/azure-iot/azure-iot) , uruchamiając następujące polecenie:
+   Zainstaluj [rozszerzenie usługi Azure IoT](/cli/azure/ext/azure-iot) , uruchamiając następujące polecenie:
 
     ```azurecli
     az extension add --name azure-iot
@@ -198,7 +198,7 @@ az stream-analytics input create
 
 Dodawanie danych wyjściowych do zadania za pomocą polecenia [AZ Stream-Analytics Output Create](/cli/azure/ext/stream-analytics/stream-analytics/output?view=azure-cli-latest#ext-stream-analytics-az-stream-analytics-output-create) . To polecenie cmdlet przyjmuje jako parametry nazwę zadania, nazwę danych wyjściowych zadania, nazwę grupy zasobów i definicję danych wyjściowych zadania. Definicja danych wyjściowych zadania to plik JSON, który zawiera właściwości wymagane do skonfigurowania danych wyjściowych zadania. W tym przykładzie jako dane wyjściowe używany jest magazyn obiektów blob.
 
-Na maszynie lokalnej utwórz plik o nazwie `datasink.json` i dodaj do niego następujące dane JSON. Pamiętaj, aby zastąpić wartość `accountKey` kluczem dostępu konta magazynu, czyli wartością zapisaną w zmiennej $storageAccountKey.
+Na maszynie lokalnej utwórz plik o nazwie `datasink.json` i dodaj do niego następujące dane JSON. Pamiętaj, aby zastąpić wartość dla `accountKey` klucza dostępu konta magazynu, który jest wartością przechowywaną w $storageAccountKey wartość.
 
 ```json
 {

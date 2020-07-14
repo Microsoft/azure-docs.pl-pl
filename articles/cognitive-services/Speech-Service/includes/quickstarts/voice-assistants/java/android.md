@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 04/04/2020
 ms.author: travisw
-ms.openlocfilehash: 8a1dd07fd567f41c2b406aabccd0421b5a6983af
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: fbfc6bf9c50257c2683522913503bf9b29450d94
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80671251"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86226379"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -36,7 +36,7 @@ Przed rozpoczęciem upewnij się, że:
 
 ## <a name="create-user-interface"></a>Tworzenie interfejsu użytkownika
 
-W tej sekcji utworzymy podstawowy interfejs użytkownika dla aplikacji. Zacznijmy od otwarcia głównego działania: `activity_main.xml`. Szablon podstawowy zawiera pasek tytułu z nazwą aplikacji i `TextView` z komunikatem "Hello World!".
+W tej sekcji utworzymy podstawowy interfejs użytkownika dla aplikacji. Zacznijmy od otwarcia głównego działania: `activity_main.xml` . Szablon podstawowy zawiera pasek tytułu z nazwą aplikacji i `TextView` z komunikatem "Hello World!".
 
 Następnie zastąp zawartość `activity_main.xml` następującym kodem:
 
@@ -89,17 +89,17 @@ Następnie zastąp zawartość `activity_main.xml` następującym kodem:
 
 Ten plik XML definiuje prosty interfejs użytkownika do współpracy z bot.
 
-- `button` Element inicjuje interakcję i wywołuje `onBotButtonClicked` metodę po kliknięciu.
-- `recoText` Element wyświetli wyniki zamiany mowy na tekst podczas rozmowy z bot.
-- `activityText` Element będzie WYŚWIETLAŁ ładunek JSON dla najnowszej aktywności bot Framework z bot.
+- `button`Element inicjuje interakcję i wywołuje `onBotButtonClicked` metodę po kliknięciu.
+- `recoText`Element wyświetli wyniki zamiany mowy na tekst podczas rozmowy z bot.
+- `activityText`Element będzie wyświetlał ładunek JSON dla najnowszej aktywności bot Framework z bot.
 
 Tekst i graficzna reprezentacja interfejsu użytkownika powinny teraz wyglądać następująco:
 
-![](~/articles/cognitive-services/speech-service/media/sdk/qs-java-android-assistant-designer-ui.png)
+![Zrzut ekranu przedstawiający sposób, w jaki porozmawiają z interfejsem użytkownika bot.](~/articles/cognitive-services/speech-service/media/sdk/qs-java-android-assistant-designer-ui.png)
 
 ## <a name="add-sample-code"></a>Dodawanie przykładowego kodu
 
-1. Otwórz `MainActivity.java`i Zastąp zawartość następującym kodem:
+1. Otwórz `MainActivity.java` i Zastąp zawartość następującym kodem:
 
    ```java
     package samples.speech.cognitiveservices.microsoft.com;
@@ -241,11 +241,11 @@ Tekst i graficzna reprezentacja interfejsu użytkownika powinny teraz wyglądać
     }
    ```
 
-   * `onCreate` Metoda zawiera kod, który żąda dostępu do mikrofonu i Internetu.
+   * `onCreate`Metoda zawiera kod, który żąda dostępu do mikrofonu i Internetu.
 
    * Metoda `onBotButtonClicked` oznacza, jak wspomniano wcześniej, procedurę obsługi naciskania przycisku. Naciśnięcie przycisku powoduje wyzwolenie pojedynczej interakcji ("skręt") na bot.
 
-   * `registerEventListeners` Metoda pokazuje zdarzenia używane przez i w `DialogServiceConnector` podstawowej obsłudze działań przychodzących.
+   * `registerEventListeners`Metoda pokazuje zdarzenia używane przez `DialogServiceConnector` i w podstawowej obsłudze działań przychodzących.
 
 1. W tym samym pliku Zastąp ciągi konfiguracyjne, aby były zgodne z zasobami:
 
@@ -253,13 +253,13 @@ Tekst i graficzna reprezentacja interfejsu użytkownika powinny teraz wyglądać
 
     * Zastąp `YourServiceRegion` w [regionie](~/articles/cognitive-services/speech-service/regions.md) skojarzonym z subskrypcją tylko podzbiór regionów usługi mowy jest obecnie obsługiwany przez funkcję Direct line Speech. Aby uzyskać więcej informacji, zobacz [regiony](~/articles/cognitive-services/speech-service/regions.md#voice-assistants).
 
-## <a name="build-and-run-the-app"></a>Kompilowanie i uruchamianie aplikacji
+## <a name="build-and-run-the-app"></a>Skompiluj i uruchom aplikację
 
 1. Połącz urządzenie z systemem Android do komputera projektowego. Upewnij się, że na urządzeniu włączono [tryb projektowania i debugowanie USB](https://developer.android.com/studio/debug/dev-options).
 
-1. Aby skompilować aplikację, naciśnij klawisze CTRL + F9 lub wybierz opcję **Kompiluj** > **Utwórz projekt** z paska menu.
+1. Aby skompilować aplikację, naciśnij klawisze CTRL + F9 lub wybierz opcję **Kompiluj**  >  **Utwórz projekt** z paska menu.
 
-1. Aby uruchomić aplikację, naciśnij klawisze Shift + F10 **lub wybierz polecenie** > Uruchom**przebieg "App"**.
+1. Aby uruchomić aplikację, naciśnij klawisze Shift + F10 **lub wybierz polecenie Uruchom**  >  **przebieg "App"**.
 
 1. W oknie docelowym wdrożenia, które zostanie wyświetlone, wybierz urządzenie Android.
 

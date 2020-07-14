@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 6/22/2020
 ms.author: mebeatty
-ms.openlocfilehash: 4d698375488d4dac551f0028883fc4e18a10d8ef
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: d489186dc1c012fe8c181f17e00bcdb999e230dd
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85323528"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232138"
 ---
-# <a name="add-security-headers-with-rules-engine"></a>Dodawanie nagłówków zabezpieczeń z aparatem reguł
+# <a name="add-security-headers-with-rules-engine"></a>Dodawanie nagłówków zabezpieczeń za pomocą aparatu reguł
 
 Zaimplementuj nagłówki zabezpieczeń, aby zapobiec występowaniu luk w zabezpieczeniach opartych na przeglądarce, takich jak HTTP Strict-Transport-Security (HSTS), X-XSS-Protection, Content-Security-Policy lub X-Frame-Options. Atrybuty oparte na zabezpieczeniach można także definiować za pomocą plików cookie.
 
-Poniższy przykład pokazuje, jak dodać nagłówek Content-Security-Policy do wszystkich żądań przychodzących, które pasują do ścieżki zdefiniowanej w marszrucie konfiguracji aparatu reguł. W tym miejscu zezwolimy tylko na skrypty z naszej zaufanej witryny **https://apis.contoso.com** do uruchamiania w naszej aplikacji.
+Poniższy przykład pokazuje, jak dodać nagłówek Content-Security-Policy do wszystkich żądań przychodzących, które pasują do ścieżki zdefiniowanej w marszrucie konfiguracji aparatu reguł. W tym miejscu zezwolimy tylko na skrypty z naszej zaufanej witryny **https://apiphany.portal.azure-api.net** do uruchamiania w naszej aplikacji.
 
 ## <a name="add-a-content-security-policy-header-in-azure-portal"></a>Dodawanie nagłówka Content-Security-Policy w Azure Portal
 
@@ -33,7 +33,7 @@ Poniższy przykład pokazuje, jak dodać nagłówek Content-Security-Policy do w
 
 3. Ustaw operator do **dołączenia** , aby dodać ten nagłówek jako odpowiedź do wszystkich żądań przychodzących do tej trasy.
 
-4. Dodaj nazwę nagłówka: **Content-Security-Policy** i Zdefiniuj wartości, które ten nagłówek powinien zaakceptować. W tym scenariuszu wybieramy *"sam" skrypt-src " https://apis.contoso.com .*
+4. Dodaj nazwę nagłówka: **Content-Security-Policy** i Zdefiniuj wartości, które ten nagłówek powinien zaakceptować. W tym scenariuszu wybieramy *"sam" skrypt-src " https://apiphany.portal.azure-api.net .*
 
 5. Po dodaniu wszystkich reguł, które chcesz skonfigurować, nie zapomnij przejść do preferowanej trasy i skojarz konfigurację aparatu reguł z regułą trasy. Ten krok jest wymagany, aby umożliwić działanie reguły. 
 

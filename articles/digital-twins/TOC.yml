@@ -78,16 +78,22 @@
       href: reference-service-limits.md
     - name: Interfejsy API i zestawy SDK
       items:
+        - name: Dokumentacja interfejsu API REST
+          href: 'https://docs.microsoft.com/rest/api/azure-digitaltwins/'
         - name: Płaszczyzna sterowania
           items:
             - name: Swagger
               href: 'https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins'
             - name: Zestaw SDK dla platformy .NET (C#) — NuGet
               href: 'https://www.nuget.org/packages/Microsoft.Azure.Management.DigitalTwins/1.0.0-preview.1'
+            - name: Dokumentacja zestawu SDK dla platformy .NET (C#)
+              href: 'https://docs.microsoft.com/dotnet/api/overview/azure/digitaltwins/management?view=azure-dotnet-preview'
             - name: Zestaw SDK dla platformy .NET (C#) — źródło
               href: 'https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Microsoft.Azure.Management.DigitalTwins'
             - name: Zestaw SDK Java
               href: 'https://search.maven.org/artifact/com.microsoft.azure.digitaltwins.v2020_03_01_preview/azure-mgmt-digitaltwins'
+            - name: Zestaw Java SDK — dokumentacja
+              href: 'https://docs.microsoft.com/java/api/overview/azure/digitaltwins/management?view=azure-java-preview'
             - name: Zestaw SDK dla języka Java — źródło
               href: 'https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins'
             - name: Zestaw SDK dla języka JavaScript
@@ -102,14 +108,12 @@
               href: 'https://github.com/Azure/azure-sdk-for-go/tree/master/services/preview/digitaltwins/mgmt/2020-03-01-preview/digitaltwins'
         - name: Płaszczyzna danych
           items:
-            - name: Dokumentacja interfejsu API REST
-              href: 'https://docs.microsoft.com/rest/api/azure-digitaltwins/'
             - name: Swagger
               href: 'https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/data-plane/Microsoft.DigitalTwins'
-            - name: Dokumentacja zestawu SDK dla platformy .NET (C#)
-              href: 'https://docs.microsoft.com/dotnet/api/overview/azure/digitaltwins?view=azure-dotnet-preview'
             - name: Zestaw SDK dla platformy .NET (C#) — NuGet
               href: 'https://www.nuget.org/packages/Azure.DigitalTwins.Core'
+            - name: Dokumentacja zestawu SDK dla platformy .NET (C#)
+              href: 'https://docs.microsoft.com/dotnet/api/overview/azure/digitaltwins?view=azure-dotnet-preview'
             - name: Zestaw SDK dla platformy .NET (C#) — źródło
               href: 'https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core'
     - name: Interfejs wiersza polecenia usługi Digital Twins
@@ -126,10 +130,20 @@
           href: 'https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-dtdl'
         - name: Biblioteka analizatora DTDL — NuGet
           href: 'https://www.nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/'
-        - name: Przykład modułu sprawdzania poprawności DTDL
-          href: 'https://github.com/Azure-Samples/dtdl-validator'
+        - name: Moduł sprawdzania poprawności DTDL (przykład)
+          href: 'https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator/'
         - name: Specyfikacja DTMI
           href: 'https://github.com/Azure/digital-twin-model-identifier'
+    - name: Narzędzia i przykładowe projekty
+      items:
+        - name: Usługa symulatora urządzeń
+          href: 'https://github.com/Azure/device-simulation-dotnet/tree/master'
+        - name: Przykłady usługi Azure Digital Twins
+          href: 'https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples/'
+        - name: Eksplorator usługi Azure Digital Twins (przykład)
+          href: 'https://github.com/Azure-Samples/digital-twins-explorer'
+        - name: Moduł sprawdzania poprawności DTDL (przykład)
+          href: 'https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator/'
     - name: Narzędzia platformy Azure
       items:
         - name: Azure Cloud Shell

@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 07/10/2020
 ms.author: victorh
-ms.openlocfilehash: 27cdff24672f70407e8f8f89c6c49a8c2de87d0a
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 3174576201f0068191c2918b47fbd99eaa1ec182
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86078429"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232087"
 ---
 # <a name="azure-firewall-faq"></a>Często zadawane pytania dotyczące zapory platformy Azure
 
@@ -88,7 +88,7 @@ Zobacz [Cennik usługi Azure firewall](https://azure.microsoft.com/pricing/detai
 
 Można użyć Azure PowerShell *alokacji* i *alokacji* metod.
 
-Przykład:
+Na przykład:
 
 ```azurepowershell
 # Stop an existing firewall
@@ -223,3 +223,7 @@ Standardowe zachowanie zapory sieciowej polega na zapewnieniu aktywności połą
 ## <a name="can-i-deploy-azure-firewall-without-a-public-ip-address"></a>Czy mogę wdrożyć zaporę platformy Azure bez publicznego adresu IP?
 
 Nie. obecnie należy wdrożyć zaporę platformy Azure z publicznym adresem IP.
+
+## <a name="where-does-azure-firewall-store-customer-data"></a>Gdzie usługa Azure firewall ma przechowywać dane klienta?
+
+Zapora platformy Azure nie przenosi ani nie zapisuje danych klienta poza regionem, w którym jest wdrożony.

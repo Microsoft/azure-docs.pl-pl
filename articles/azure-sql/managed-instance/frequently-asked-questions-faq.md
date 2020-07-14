@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab
 ms.date: 03/17/2020
-ms.openlocfilehash: d2e4b07c97e09fce5cdaa034e2fe67a18ef0d7f1
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: b5fad1e287ffca569546092893c4f1a6501a3b7b
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86171163"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224421"
 ---
 # <a name="azure-sql-managed-instance-frequently-asked-questions-faq"></a>Często zadawane pytania dotyczące wystąpienia zarządzanego usługi Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -122,56 +122,121 @@ Aby użyć innej strefy DNS zamiast domyślnego, na przykład *. contoso.com*:
 - Użyj CliConfig, aby zdefiniować alias. To narzędzie jest tylko otoką ustawień rejestru, dlatego można ją wykonać przy użyciu zasad grupy lub skryptu.
 - Użyj opcji *CNAME* z opcją *TrustServerCertificate = true* .
 
-## <a name="move-a-database-from-sql-managed-instance"></a>Przenoszenie bazy danych z wystąpienia zarządzanego SQL 
+## <a name="migration-options"></a>Opcje migracji
 
-**Jak przenieść bazę danych z wystąpienia zarządzanego SQL z powrotem do SQL Server lub Azure SQL Database?**
+**Jak przeprowadzić migrację z Azure SQL Database jednej lub elastycznej puli do wystąpienia zarządzanego SQL?**
 
-[Bazę danych można wyeksportować do BACPAC](../database/database-export.md) , a następnie [zaimportować plik BACPAC](../database/database-import.md). Jest to zalecane rozwiązanie, jeśli baza danych jest mniejsza niż 100 GB.
+Wystąpienie zarządzane oferuje te same poziomy wydajności dla wielkości zasobów obliczeniowych i magazynu, co inne opcje wdrażania Azure SQL Database. Jeśli chcesz skonsolidować dane w jednym wystąpieniu lub po prostu potrzebna jest funkcja obsługiwana wyłącznie w wystąpieniu zarządzanym, można migrować dane przy użyciu funkcji eksportu/importu (BACPAC). Poniżej przedstawiono inne sposoby rozpatrywania SQL Database migracji do wystąpienia zarządzanego SQL: 
+- Używanie [zewnętrznego źródła danych]()
+- Korzystanie z [Sqlpackage](https://techcommunity.microsoft.com/t5/azure-database-support-blog/how-to-migrate-azure-sql-database-to-azure-sql-managed-instance/ba-p/369182)
+- Korzystanie z narzędzia [BCP](https://medium.com/azure-sqldb-managed-instance/migrate-from-azure-sql-managed-instance-using-bcp-674c92efdca7)
 
-Jeśli wszystkie tabele w bazie danych mają klucze podstawowe, można użyć replikacji transakcyjnej.
+**Jak przeprowadzić migrację bazy danych wystąpienia do jednego Azure SQL Database?**
 
-Nie można przywrócić natywnych `COPY_ONLY` kopii zapasowych wykonanych z wystąpienia zarządzanego SQL do SQL Server, ponieważ wystąpienie zarządzane SQL ma nowszą wersję bazy danych porównaną z SQL Server.
+Jedną z opcji jest [wyeksportowanie bazy danych do BACPAC](../database/database-export.md) , a następnie [zaimportowanie pliku BACPAC](../database/database-import.md). Jest to zalecane rozwiązanie, jeśli baza danych jest mniejsza niż 100 GB.
 
-## <a name="migrate-an-instance-database"></a>Migrowanie bazy danych wystąpienia
+[Replikacji transakcyjnej](replication-two-instances-and-sql-server-configure-tutorial.md?view=sql-server-2017) można użyć, jeśli wszystkie tabele w bazie danych mają klucze *podstawowe* i w bazie danych nie ma obiektów OLTP w pamięci.
 
-**Jak przeprowadzić migrację bazy danych wystąpienia do Azure SQL Database?**
+Nie można przywrócić natywnych kopii zapasowych COPY_ONLY pobranych z wystąpienia zarządzanego do SQL Server, ponieważ wystąpienie zarządzane ma nowszą wersję bazy danych w porównaniu do SQL Server. Aby uzyskać więcej informacji, zobacz [kopia zapasowa tylko do kopiowania](https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server?view=sql-server-ver15).
 
-Jedną z opcji jest [wyeksportowanie bazy danych do BACPAC](../database/database-export.md) , a następnie [zaimportowanie pliku BACPAC](../database/database-import.md). 
+**Jak można migrować wystąpienie SQL Server do wystąpienia zarządzanego SQL?**
 
-Jest to zalecane rozwiązanie, jeśli baza danych jest mniejsza niż 100 GB. Jeśli wszystkie tabele w bazie danych mają klucze podstawowe, można użyć replikacji transakcyjnej.
+Aby przeprowadzić migrację wystąpienia SQL Server, zobacz [SQL Server migracji wystąpień do wystąpienia zarządzanego Azure SQL](migrate-to-instance-from-sql-server.md).
+
+**Jak przeprowadzić migrację z innych platform do wystąpienia zarządzanego SQL?**
+
+Informacje o migracji z innych platform znajdują się w temacie [Przewodnik po migracji bazy danych Azure](https://datamigration.microsoft.com/).
 
 ## <a name="switch-hardware-generation"></a>Przełącz generowanie sprzętu 
 
-**Czy mogę przełączać generowanie sprzętu wystąpienia zarządzanego SQL między programem gen 4 i gen 5 online?**
+**Czy mogę przełączać generowanie sprzętu wystąpienia zarządzanego między programem gen 4 i gen 5 online?**
 
-Automatyczne przełączanie do trybu online między generacjami sprzętowymi jest możliwe, jeśli w regionie, w którym Zainicjowano obsługę wystąpienia zarządzanego SQL, są dostępne oba generacji sprzętowe. W takim przypadku można sprawdzić [stronę przegląd modelu rdzeń wirtualny](../database/service-tiers-vcore.md), która wyjaśnia, jak przełączać się między generacjami sprzętowymi.
+Automatyczne przełączanie online z obliczenia do 5 rdzeń jest możliwe, jeśli sprzęt 5 rdzeń jest dostępny w regionie, w którym zainicjowano udostępnianie wystąpienia zarządzanego. W takim przypadku można sprawdzić na [stronie Przegląd modelu rdzeń wirtualny](../database/service-tiers-vcore.md) , jak przełączać się między generacjami sprzętowymi.
 
-Jest to długotrwała operacja, ponieważ nowe wystąpienie zarządzane zostanie udostępnione w tle, a bazy danych są automatycznie transferowane między starymi i nowymi wystąpieniami, z szybką pracą w trybie failover na końcu procesu. 
+Jest to długotrwała operacja, ponieważ nowe wystąpienie zarządzane zostanie udostępnione w tle, a bazy danych zostaną automatycznie przeniesione między starym i nowym wystąpieniem z szybką pracą w trybie failover na końcu procesu.
 
-**Co zrobić, jeśli oba generacje sprzętowe nie są obsługiwane w tym samym regionie?**
+Uwaga: Sprzęt obliczenia jest wycofywany i nie jest już dostępny w przypadku nowych wdrożeń. Wszystkie nowe bazy danych należy wdrożyć na sprzęcie 5 rdzeń. Przełączanie z 5 rdzeń do obliczenia jest również niedostępne.
 
-Jeśli oba generacje sprzętowe nie są obsługiwane w tym samym regionie, zmiana generacji sprzętu jest możliwa, ale należy ją wykonać ręcznie. Wymaga to zainicjowania obsługi nowego wystąpienia w regionie, w którym jest dostępna żądana generacja sprzętu, a następnie ręcznie utworzyć kopię zapasową i przywrócić dane między starym i nowym wystąpieniem.
+## <a name="performance"></a>Wydajność 
 
-**Co zrobić, jeśli nie ma wystarczającej liczby adresów IP do wykonania operacji aktualizacji?**
+**Jak porównać wydajność wystąpienia zarządzanego w celu SQL Server wydajności?**
 
-W przypadku braku wystarczającej liczby adresów IP w podsieci, w której jest inicjowane zarządzane wystąpienie, należy utworzyć nową podsieć i w niej nowe wystąpienie zarządzane. Sugerujemy również, że Nowa podsieć jest tworzona przy użyciu większej liczby adresów IP przyznanych, aby przyszłe operacje aktualizowania zastąpią podobne sytuacje. (W przypadku odpowiedniego rozmiaru podsieci Sprawdź, [jak określić rozmiar podsieci sieci wirtualnej](vnet-subnet-determine-size.md)). Po aprowizacji nowego wystąpienia można ręcznie utworzyć kopię zapasową i przywrócić dane między starym i nowym wystąpieniem lub wykonać [przywracanie do określonego momentu w czasie](point-in-time-restore.md?tabs=azure-powershell). 
+Aby porównać wydajność między wystąpieniem zarządzanym i SQL Server, dobrym punktem początkowym jest [najlepsze rozwiązanie w zakresie porównania wydajności między wystąpieniem zarządzanym usługi Azure SQL i](https://techcommunity.microsoft.com/t5/azure-sql-database/the-best-practices-for-performance-comparison-between-azure-sql/ba-p/683210) artykułem SQL Server.
 
+**Co powoduje różnice w działaniu między wystąpieniem zarządzanym i SQL Server?**
 
-## <a name="tune-performance"></a>Dostosowywanie wydajności
+Zobacz [najważniejsze przyczyny różnic wydajności między wystąpieniem zarządzanym SQL i SQL Server](https://azure.microsoft.com/blog/key-causes-of-performance-differences-between-sql-managed-instance-and-sql-server/). Aby uzyskać więcej informacji na temat wpływu rozmiaru pliku dziennika na wydajność wystąpienia zarządzanego Ogólnego przeznaczenia, zobacz [wpływ rozmiaru pliku dziennika na ogólnego przeznaczenia](https://medium.com/azure-sqldb-managed-instance/impact-of-log-file-size-on-general-purpose-managed-instance-performance-21ad170c823e).
 
-**Jak mogę dostosować wydajność wystąpienia zarządzanego SQL?**
+**Jak mogę dostosować wydajność wystąpienia zarządzanego?**
 
-Wystąpienie zarządzane SQL w warstwie Ogólnego przeznaczenia używa magazynu zdalnego, więc rozmiar danych i plików dzienników jest istotny dla wydajności. Aby uzyskać więcej informacji, zobacz [wpływ rozmiaru pliku dziennika na ogólnego przeznaczenia wydajności wystąpienia zarządzanego SQL](https://medium.com/azure-sqldb-managed-instance/impact-of-log-file-size-on-general-purpose-managed-instance-performance-21ad170c823e).
+Wydajność wystąpienia zarządzanego można zoptymalizować, wykonując następujące działania:
+- [Dostrajanie automatyczne](../database/automatic-tuning-overview.md) , które zapewnia wydajność szczytową i stabilną w ramach ciągłego dostrajania wydajności na podstawie systemu AI i uczenia maszynowego.
+-   [OLTP w pamięci](../in-memory-oltp-overview.md) , które zwiększa przepływność i opóźnienie w przypadku obciążeń przetwarzania transakcyjnego i zapewnia szybszy wgląd w dane biznesowe. 
 
-Jeśli obciążenie obejmuje wiele małych transakcji, rozważ przełączenie typu połączenia z serwera proxy do trybu przekierowania.
+Aby jeszcze bardziej dostosować wydajność, należy rozważyć zastosowanie niektórych *najlepszych* rozwiązań w zakresie [dostrajania aplikacji i bazy danych](../database/performance-guidance.md#tune-your-database).
+Jeśli obciążenie obejmuje wiele małych transakcji, należy rozważyć [przełączenie typu połączenia z serwera proxy do trybu przekierowywania](connection-types-overview.md#changing-connection-type) dla małych opóźnień i większej przepływności.
 
-## <a name="maximum-storage-size"></a>Maksymalny rozmiar magazynu
+## <a name="monitoring-metrics-and-alerts"></a>Monitorowanie, metryki i alerty
+
+**Jakie są opcje monitorowania i generowania alertów dla mojego wystąpienia zarządzanego?**
+
+Aby uzyskać wszystkie opcje monitorowania i generowania alertów dotyczących użycia i wydajności wystąpienia zarządzanego przez usługę SQL, zobacz wpis w blogu dotyczący [opcji monitorowania wystąpienia zarządzanego Azure SQL](https://techcommunity.microsoft.com/t5/azure-sql-database/monitoring-options-available-for-azure-sql-managed-instance/ba-p/1065416). Aby monitorować wydajności w czasie rzeczywistym dla programu SQL, zobacz [monitorowanie wydajności w czasie rzeczywistym dla wystąpienia zarządzanego usługi Azure SQL DB](https://docs.microsoft.com/archive/blogs/sqlcat/real-time-performance-monitoring-for-azure-sql-database-managed-instance).
+
+**Czy mogę używać programu SQL Profiler do śledzenia wydajności?**
+
+Tak, program SQL Profiler jest obsługiwany lub wystąpienie zarządzane SQL. Aby uzyskać więcej informacji, zobacz [SQL Profiler](https://docs.microsoft.com/sql/tools/sql-server-profiler/sql-server-profiler?view=sql-server-ver15).
+
+**Czy Database Advisor i Szczegółowe informacje o wydajności zapytań obsługiwane dla baz danych wystąpienia zarządzanego?**
+
+Nie, nie są obsługiwane. Do monitorowania baz danych można używać [widoków DMV](../database/monitoring-with-dmvs.md) i [magazynu zapytań](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store?view=sql-server-ver15) wraz z [programem SQL Profiler](https://docs.microsoft.com/sql/tools/sql-server-profiler/sql-server-profiler?view=sql-server-ver15) i [XEvents](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events?view=sql-server-ver15) .
+
+**Czy można tworzyć alerty metryk w wystąpieniu zarządzanym SQL?**
+
+Tak. Aby uzyskać instrukcje, zobacz [tworzenie alertów dla wystąpienia zarządzanego SQL](alerts-create.md).
+
+**Czy można tworzyć alerty metryk dla bazy danych w wystąpieniu zarządzanym?**
+
+Metryki alertów są dostępne tylko dla wystąpienia zarządzanego. Metryki alertów dla poszczególnych baz danych w wystąpieniu zarządzanym są niedostępne.
+
+## <a name="storage-size"></a>Rozmiar magazynu
 
 **Jaki jest maksymalny rozmiar magazynu dla wystąpienia zarządzanego SQL?**
 
 Rozmiar magazynu zarządzanego przez SQL zależy od wybranej warstwy usług (Ogólnego przeznaczenia lub Krytyczne dla działania firmy). Aby uzyskać ograniczenia dotyczące magazynu tych warstw usług, zobacz [Charakterystyka warstwy usług](../database/service-tiers-general-purpose-business-critical.md).
 
-  
+**Jaki jest minimalny rozmiar magazynu dla wystąpienia zarządzanego?**
+
+Minimalna ilość miejsca dostępnego w wystąpieniu wynosi 32 GB. Magazyn można dodać z przyrostem 32 GB do maksymalnego rozmiaru magazynu. Pierwsze 32 GB są bezpłatne.
+
+**Czy mogę zwiększyć miejsce do magazynowania przypisane do wystąpienia, niezależnie od zasobów obliczeniowych?**
+
+Tak, możesz kupić magazyn dodatków niezależnie od obliczeń, w pewnym zakresie. Zobacz *maks. zarezerwowany magazyn wystąpień* w [tabeli](resource-limits.md#hardware-generation-characteristics).
+
+**Jak mogę zoptymalizować moją wydajność magazynu w Ogólnego przeznaczenia warstwie usług?**
+
+Aby zoptymalizować wydajność magazynu, zobacz [najlepsze rozwiązania dotyczące magazynu w ogólnego przeznaczenia](https://techcommunity.microsoft.com/t5/datacat/storage-performance-best-practices-and-considerations-for-azure/ba-p/305525).
+
+## <a name="backup-and-restore"></a>Tworzenie kopii zapasowej i przywracanie
+
+**Czy magazyn kopii zapasowych jest odejmowany od magazynu wystąpienia zarządzanego?**
+
+Nie, magazyn kopii zapasowych nie jest odejmowany od przestrzeni dyskowej wystąpienia zarządzanego. Magazyn kopii zapasowych jest niezależny od ilości miejsca w magazynie i nie ma ograniczonego rozmiaru. Magazyn kopii zapasowych jest ograniczony przez okres, aby zachować kopię zapasową baz danych wystąpień, można skonfigurować do 35 dni. Aby uzyskać szczegółowe informacje, zobacz [zautomatyzowane kopie zapasowe](../database/automated-backups-overview.md).
+
+**Jak mogę zobaczyć, kiedy zautomatyzowane kopie zapasowe są tworzone na moim wystąpieniu zarządzanym?**
+Aby śledzić, kiedy zautomatyzowane kopie zapasowe zostały wykonane na wystąpieniu zarządzanym, zobacz [jak śledzić automatyczne kopie zapasowe wystąpienia zarządzanego Azure SQL](https://techcommunity.microsoft.com/t5/azure-database-support-blog/lesson-learned-128-how-to-track-the-automated-backup-for-an/ba-p/1442355).
+
+**Czy jest dostępna kopia zapasowa na żądanie?**
+Tak, możesz utworzyć pełną kopię zapasową w swoich Blob Storage platformy Azure, ale będzie ona dostępnych tylko w wystąpieniu zarządzanym. Aby uzyskać szczegółowe informacje, zobacz [kopia zapasowa tylko do kopiowania](https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server?view=sql-server-ver15). Jednak kopia zapasowa tylko do kopiowania jest niemożliwa, jeśli baza danych została zaszyfrowana przez TDE zarządzaną przez usługę, ponieważ certyfikat używany do szyfrowania jest niedostępny. W takim przypadku należy użyć funkcji przywracania w czasie do przenoszenia bazy danych do innego wystąpienia zarządzanego SQL lub przełączyć się na klucz zarządzany przez klienta.
+
+**Czy natywne odzyskiwanie (z plików. bak) do obsługiwanego wystąpienia zarządzanego?**
+Tak, jest obsługiwana i dostępna dla wersji SQL Server 2005 +.  Aby użyć przywracania natywnego, Przekaż plik. bak do usługi Azure Blob Storage i wykonaj polecenia T-SQL. Aby uzyskać więcej informacji, zobacz [natywne odzyskiwanie z adresu URL](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-migrate#native-restore-from-url).
+
+## <a name="business-continuity"></a>Ciągłość działalności biznesowej
+
+**Czy moje systemowe bazy danych zostały zreplikowane do wystąpienia dodatkowego w grupie trybu failover?**
+
+Systemowe bazy danych nie są replikowane do wystąpienia dodatkowego w grupie trybu failover. W związku z tym scenariusze, które są zależne od obiektów z systemowych baz danych, będą niedostępne w wystąpieniu pomocniczym, chyba że obiekty są tworzone ręcznie na serwerze pomocniczym. Aby obejść ten temat, zobacz [Włączanie scenariuszy zależnych od obiektu z systemowych baz danych](../database/auto-failover-group-overview.md?tabs=azure-powershell#enable-scenarios-dependent-on-objects-from-the-system-databases).
+ 
 ## <a name="networking-requirements"></a>Wymagania dotyczące sieci 
 
 **Jakie są bieżące ograniczenia sieciowej grupy zabezpieczeń ruchu przychodzącego/wychodzącego w podsieci wystąpienia zarządzanego?**
@@ -231,6 +296,44 @@ Nie jest to wymagane. Można [utworzyć sieć wirtualną dla wystąpienia zarzą
 
 Nie. Obecnie nie obsługujemy umieszczania wystąpienia zarządzanego w podsieci, która zawiera już inne typy zasobów.
 
+## <a name="connectivity"></a>Łączność 
+
+**Czy mogę połączyć się z moim wystąpieniem zarządzanym przy użyciu adresu IP?**
+
+Nie, to nie jest obsługiwane. Nazwa hosta wystąpienia zarządzanego jest mapowana na moduł równoważenia obciążenia przed klastrem wirtualnym wystąpienia zarządzanego. Ponieważ jeden klaster wirtualny może obsługiwać wiele wystąpień zarządzanych, nie można kierować połączenia do właściwego wystąpienia zarządzanego bez określania jego nazwy.
+Aby uzyskać więcej informacji na temat architektury klastra wirtualnego wystąpienia zarządzanego SQL, zobacz [Architektura łączności klastra wirtualnego](connectivity-architecture-overview.md#virtual-cluster-connectivity-architecture).
+
+**Czy moje wystąpienie zarządzane ma statyczny adres IP?**
+
+Nie jest to obecnie obsługiwane.
+
+W rzadkich przypadkach, ale konieczne może być przeprowadzenie migracji w trybie online wystąpienia zarządzanego do nowego klastra wirtualnego. W razie potrzeby migracja jest spowodowana zmianami w naszym stosie technologii, które mają na celu poprawę bezpieczeństwa i niezawodności usługi. Migracja do nowego klastra wirtualnego powoduje zmianę adresu IP mapowanego na nazwę hosta wystąpienia zarządzanego. Usługa wystąpienia zarządzanego nie wiąże się z obsługą statycznego adresu IP i zastrzega sobie prawo do jego zmiany bez powiadomienia jako części zwykłych cykli konserwacyjnych.
+
+Z tego powodu zdecydowanie odradzamy niezmienności adresu IP, ponieważ może to spowodować niepotrzebne przestoje.
+
+**Czy zarządzane wystąpienie ma publiczny punkt końcowy?**
+
+Tak. Wystąpienie zarządzane ma publiczny punkt końcowy, który jest domyślnie używany tylko do zarządzania usługami, ale klient może również włączyć go na potrzeby dostępu do danych. Aby uzyskać więcej informacji, zobacz [Korzystanie z wystąpienia zarządzanego SQL z publicznymi punktami końcowymi](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-securely). Aby skonfigurować publiczny punkt końcowy, przejdź do pozycji [Konfigurowanie publicznego punktu końcowego w wystąpieniu zarządzanym SQL](public-endpoint-configure.md).
+
+**Jak zarządzane wystąpienie zarządza dostępem do publicznego punktu końcowego?**
+
+Wystąpienie zarządzane kontroluje dostęp do publicznego punktu końcowego zarówno na poziomie sieci, jak i aplikacji.
+
+Usługi zarządzania i wdrażania nawiązują połączenie z wystąpieniem zarządzanym przy użyciu [punktu końcowego zarządzania](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-connectivity-architecture#management-endpoint) , który jest mapowany na zewnętrzny moduł równoważenia obciążenia. Ruch jest kierowany do węzłów tylko wtedy, gdy jest odbierany ze wstępnie zdefiniowanym zestawem portów, których używają tylko składniki zarządzania wystąpienia zarządzanego. Wbudowana zapora w węzłach jest skonfigurowana tak, aby zezwalała na ruch tylko z zakresów adresów IP firmy Microsoft. Certyfikaty wzajemnie uwierzytelniają całą komunikację między składnikami zarządzania a płaszczyzną zarządzania. Aby uzyskać więcej informacji, zobacz [Architektura łączności dla wystąpienia zarządzanego SQL](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-connectivity-architecture#virtual-cluster-connectivity-architecture).
+
+**Czy mogę użyć publicznego punktu końcowego, aby uzyskać dostęp do danych w bazach danych wystąpienia zarządzanego?**
+
+Tak. Klient będzie musiał włączyć dostęp do danych publicznego punktu końcowego z poziomu programu PowerShell/ARM w [witrynie Azure Portal](public-endpoint-configure.md#enabling-public-endpoint-for-a-managed-instance-in-the-azure-portal)  /  [PowerShell](public-endpoint-configure.md#enabling-public-endpoint-for-a-managed-instance-using-powershell) i skonfigurować sieciowej grupy zabezpieczeń, aby zablokować dostęp do portu danych (numer portu 3342). Aby uzyskać więcej informacji, zobacz [Konfigurowanie publicznego punktu końcowego w wystąpieniu zarządzanym Azure SQL](public-endpoint-configure.md) i [bezpieczne używanie wystąpienia zarządzanego usługi Azure SQL z publicznym punktem końcowym](public-endpoint-overview.md). 
+
+**Czy można określić niestandardowy port dla punktów końcowych danych SQL?**
+
+Nie, ta opcja jest niedostępna.  W przypadku prywatnego punktu końcowego danych wystąpienie zarządzane używa domyślnego numeru portu 1433 i dla publicznego punktu końcowego danych, wystąpienie zarządzane używa domyślnego numeru portu 3342.
+
+**Jaki jest zalecany sposób łączenia wystąpień zarządzanych umieszczonych w różnych regionach?**
+
+Komunikacja równorzędna obwodu trasy Express jest preferowanym sposobem wykonania tej czynności. Nie ma to być mieszane w przypadku komunikacji równorzędnej sieci wirtualnych między regionami, która nie jest obsługiwana z powodu [ograniczenia](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview)dotyczącego wewnętrznego modułu równoważenia obciążenia.
+
+Jeśli Komunikacja równorzędna obwodu trasy Express nie jest możliwa, jedyną inną opcją jest utworzenie połączenia sieci VPN typu lokacja-lokacja ([Azure Portal](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal), [programu PowerShell](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell), [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli)).
 
 ## <a name="mitigate-data-exfiltration-risks"></a>Ograniczanie ryzyka związanego z eksfiltracji danych  
 
@@ -261,7 +364,7 @@ Analizy przypadków wystąpienia zarządzanego SQL:
 Aby lepiej zrozumieć korzyści, koszty i ryzyko związane z wdrażaniem wystąpienia zarządzanego usługi Azure SQL, istnieje również analiza Forrestera: [Całkowity wpływ na gospodarcze wystąpienia zarządzanego Microsoft Azure SQL Database](https://azure.microsoft.com/resources/forrester-tei-sql-database-managed-instance).
 
 
-## <a name="dns"></a>DNS
+## <a name="dns"></a>System DNS
 
 **Czy można skonfigurować niestandardowe DNS dla wystąpienia zarządzanego SQL?**
 
@@ -277,21 +380,6 @@ Konfiguracja DNS jest ostatecznie odświeżana:
 - Podczas uaktualniania platformy.
 
 W ramach tego problemu można obniżyć wystąpienie zarządzanego programu SQL Server do 4 rdzeni wirtualnych i ponownie uaktualnić je. Ma to efekt po stronie odświeżenia konfiguracji DNS.
-
-
-## <a name="ip-address"></a>Adres IP
-
-**Czy można połączyć się z wystąpieniem zarządzanym SQL przy użyciu adresu IP?**
-
-Nawiązywanie połączenia z wystąpieniem zarządzanym SQL przy użyciu adresu IP nie jest obsługiwane. Nazwa hosta wystąpienia zarządzanego SQL jest mapowana na moduł równoważenia obciążenia przed klastrem wirtualnym wystąpienia zarządzanego SQL. Ponieważ jeden klaster wirtualny może obsługiwać wiele wystąpień zarządzanych, nie można kierować połączeń do właściwego wystąpienia zarządzanego bez jawnego określenia nazwy.
-
-Aby uzyskać więcej informacji na temat architektury klastra wirtualnego wystąpienia zarządzanego SQL, zobacz [Architektura łączności klastra wirtualnego](connectivity-architecture-overview.md#virtual-cluster-connectivity-architecture).
-
-**Czy wystąpienie zarządzane SQL ma statyczny adres IP?**
-
-W rzadkich przypadkach, ale konieczne może być przeprowadzenie migracji w trybie online wystąpienia zarządzanego SQL do nowego klastra wirtualnego. W razie potrzeby migracja jest spowodowana zmianami w naszym stosie technologii, które mają na celu poprawę bezpieczeństwa i niezawodności usługi. Migracja do nowego klastra wirtualnego powoduje zmianę adresu IP mapowanego na nazwę hosta wystąpienia zarządzanego SQL. Usługa wystąpienia zarządzanego SQL nie wiąże się z obsługą statycznych adresów IP i zastrzega sobie prawo do jego zmiany bez powiadomienia w ramach zwykłych cykli konserwacyjnych.
-
-Z tego powodu zdecydowanie odradzamy niezmienności adresu IP, ponieważ może to spowodować niepotrzebne przestoje.
 
 ## <a name="change-time-zone"></a>Zmień strefę czasową
 

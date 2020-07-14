@@ -1,5 +1,5 @@
 ---
-title: Uwierzytelnianie
+title: Authentication
 titleSuffix: Azure Cognitive Services
 description: 'Istnieją trzy sposoby uwierzytelniania żądania do zasobu usługi Azure Cognitive Services: klucza subskrypcji, tokenu okaziciela lub subskrypcji wielousługowej. Ten artykuł zawiera informacje o każdej z tych metod oraz o sposobie wykonywania żądania.'
 services: cognitive-services
@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 11/22/2019
 ms.author: erhopf
-ms.openlocfilehash: a56e815e3a4ac04d20b29163139ab40332c4bec4
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 4fab0be90e6941d1a6b8f137ae574223b0d7a9d1
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86146972"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232750"
 ---
 # <a name="authenticate-requests-to-azure-cognitive-services"></a>Uwierzytelnianie żądań w usłudze Azure Cognitive Services
 
@@ -38,7 +38,7 @@ Szybko Przejrzyj nagłówki uwierzytelniania dostępne do użycia z usługą Azu
 |--------|-------------|
 | Ocp-Apim-Subscription-Key | Ten nagłówek służy do uwierzytelniania za pomocą klucza subskrypcji dla określonej usługi lub klucza subskrypcji wielousługowej. |
 | OCP-APIM-Subscription-region | Ten nagłówek jest wymagany tylko w przypadku korzystania z klucza subskrypcji wieloserviceowej z [usługą translator](./Translator/reference/v3-0-reference.md). Użyj tego nagłówka, aby określić region subskrypcji. |
-| Authorization | Użyj tego nagłówka, jeśli używasz tokenu uwierzytelniania. Kroki umożliwiające przeprowadzenie wymiany tokenów opisano szczegółowo w poniższych sekcjach. Podana wartość jest zgodna z następującym formatem: `Bearer <TOKEN>` . |
+| Autoryzacja | Użyj tego nagłówka, jeśli używasz tokenu uwierzytelniania. Kroki umożliwiające przeprowadzenie wymiany tokenów opisano szczegółowo w poniższych sekcjach. Podana wartość jest zgodna z następującym formatem: `Bearer <TOKEN>` . |
 
 ## <a name="authenticate-with-a-single-service-subscription-key"></a>Uwierzytelnianie za pomocą klucza subskrypcji pojedynczego usługi
 
@@ -81,14 +81,21 @@ W przypadku korzystania z wielousługowego klucza subskrypcji z usługą transla
 
 Uwierzytelnianie wieloskładnikowe jest obsługiwane w następujących regionach:
 
-| | | |
-|-|-|-|
-| `australiaeast` | `brazilsouth` | `canadacentral` |
-| `centralindia` | `eastasia` | `eastus` |
-| `japaneast` | `northeurope` | `southcentralus` |
-| `southeastasia` | `uksouth` | `westcentralus` |
-| `westeurope` | `westus` | `westus2` |
-
+- `australiaeast`
+- `brazilsouth`
+- `canadacentral`
+- `centralindia`
+- `eastasia`
+- `eastus`
+- `japaneast`
+- `northeurope`
+- `southcentralus`
+- `southeastasia`
+- `uksouth`
+- `westcentralus`
+- `westeurope`
+- `westus`
+- `westus2`
 
 ### <a name="sample-requests"></a>Przykładowe żądania
 
@@ -141,13 +148,21 @@ curl -v -X POST \
 
 Te wielousługowe regiony obsługują wymianę tokenów:
 
-| | | |
-|-|-|-|
-| `australiaeast` | `brazilsouth` | `canadacentral` |
-| `centralindia` | `eastasia` | `eastus` |
-| `japaneast` | `northeurope` | `southcentralus` |
-| `southeastasia` | `uksouth` | `westcentralus` |
-| `westeurope` | `westus` | `westus2` |
+- `australiaeast`
+- `brazilsouth`
+- `canadacentral`
+- `centralindia`
+- `eastasia`
+- `eastus`
+- `japaneast`
+- `northeurope`
+- `southcentralus`
+- `southeastasia`
+- `uksouth`
+- `westcentralus`
+- `westeurope`
+- `westus`
+- `westus2`
 
 Po otrzymaniu tokenu uwierzytelniania należy przekazać go w każdym żądaniu jako `Authorization` nagłówek. To jest przykładowe wywołanie do usługi translatora:
 

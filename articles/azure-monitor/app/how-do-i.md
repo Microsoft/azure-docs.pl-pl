@@ -3,12 +3,12 @@ title: Jak mogę... na platformie Azure Application Insights | Microsoft Docs
 description: Często zadawane pytania w Application Insights.
 ms.topic: conceptual
 ms.date: 04/04/2017
-ms.openlocfilehash: 665d98378fc52e972986111847872ae30701f631
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: bda0091fe06c93150d5b3cae27f278f3fd9a91ea
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86110236"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224472"
 ---
 # <a name="how-do-i--in-application-insights"></a>Jak mogę (...) w usłudze Application Insights?
 ## <a name="get-an-email-when-"></a>Otrzymuj wiadomość e-mail, gdy...
@@ -18,7 +18,7 @@ Ustaw [test sieci Web dostępności](../../azure-monitor/app/monitor-web-app-ava
 ### <a name="email-if-my-site-is-overloaded"></a>Wyślij wiadomość e-mail, jeśli moja witryna jest przeciążona
 Ustaw [alert](../../azure-monitor/platform/alerts-log.md) dotyczący **czasu odpowiedzi serwera**. Wartość progowa z przedziału od 1 do 2 sekund powinna być poprawna.
 
-![](./media/how-do-i/030-server.png)
+![Zrzut ekranu pokazujący sposób ustawiania alertu na czas odpowiedzi serwera.](./media/how-do-i/030-server.png)
 
 Aplikacja może również wyświetlać oznaki szczepu, zwracając kody błędów. Ustaw Alert dla **żądań zakończonych niepowodzeniem**.
 
@@ -53,11 +53,11 @@ telemetry.TrackMetric("Alarm", 0.5);
 
 Utwórz wykres w [Eksploratorze metryk](../../azure-monitor/platform/metrics-charts.md) , aby zobaczyć alarm:
 
-![](./media/how-do-i/010-alarm.png)
+![Zrzut ekranu pokazujący sposób tworzenia wykresu w Eksploratorze metryk, aby zobaczyć alarm.](./media/how-do-i/010-alarm.png)
 
 Teraz Ustaw Alert do uruchomienia, gdy Metryka spadnie powyżej wartości średniej przez krótki czas:
 
-![](./media/how-do-i/020-threshold.png)
+![Zrzut ekranu pokazujący, jak ustawić alert do uruchomienia, gdy Metryka przekracza wartość średnią przez krótki okres.](./media/how-do-i/020-threshold.png)
 
 Ustaw średni okres jako minimum.
 
@@ -106,11 +106,11 @@ Następnie można wykonywać czynności takie jak:
 
 * Wyszukaj określone identyfikatory użytkowników
 
-![](./media/how-do-i/110-search.png)
+![Zrzut ekranu przedstawiający opcje wyszukiwania określonych identyfikatorów użytkowników.](./media/how-do-i/110-search.png)
 
 * Filtruj metryki do anonimowych lub uwierzytelnionych użytkowników
 
-![](./media/how-do-i/115-metrics.png)
+![Zrzut ekranu pokazujący filtrowanie metrixs do użytkowników anonimowych lub uwierzytelnionych.](./media/how-do-i/115-metrics.png)
 
 ## <a name="modify-property-names-or-values"></a>Modyfikowanie nazw lub wartości właściwości
 Utwórz [Filtr](../../azure-monitor/app/api-filtering-sampling.md#filtering). Pozwala to na modyfikowanie i filtrowanie danych telemetrycznych przed wysłaniem ich z aplikacji do Application Insights.

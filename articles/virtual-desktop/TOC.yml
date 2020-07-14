@@ -23,7 +23,7 @@
     - name: Łączenie się z zasobami usługi Windows Virtual Desktop
       items:
         - name: Łączenie się z klientem klasycznym systemu Windows
-          href: connect-windows-7-and-10.md
+          href: connect-windows-7-10.md
         - name: Łączenie się z klientem internetowym
           href: connect-web.md
         - name: Łączenie się z klientem systemu Android
@@ -38,6 +38,8 @@
       items:
         - name: PowerShell
           href: create-host-pools-powershell.md
+        - name: Wdrażanie maszyny wirtualnej z systemem Windows 7
+          href: deploy-windows-7-virtual-machine.md
         - name: Wdrażanie hosta sesji opartego na procesorze graficznym
           href: configure-vm-gpu.md
         - name: Rozszerzanie istniejącej puli hostów
@@ -90,6 +92,8 @@
       href: language-packs.md
 - name: Pojęcia
   items:
+    - name: Lista bezpiecznych adresów URL
+      href: safe-url-list.md
     - name: Środowisko usługi Windows Virtual Desktop
       href: environment-setup.md
     - name: Określanie opóźnienia połączenia użytkownika

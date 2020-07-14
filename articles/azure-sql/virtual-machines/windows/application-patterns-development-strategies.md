@@ -13,18 +13,15 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: mathoma
-ms.openlocfilehash: b77756f81eb5085b9c1d386b7c59d5aae03d1fb8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2904a61077c5538846fbfb7cc7d6ee1791ea890c
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84669498"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86231611"
 ---
 # <a name="application-patterns-and-development-strategies-for-sql-server-on-azure-virtual-machines"></a>Wzorce aplikacji i strategie programowania dla SQL Server na platformie Azure Virtual Machines
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
-
-
-
-
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-both-include.md)]
 

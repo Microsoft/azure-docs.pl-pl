@@ -8,11 +8,12 @@ ms.date: 09/12/2018
 ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.openlocfilehash: 752529454a5b6293d9cbfdf8378b46947aed5a0e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: edf669eb813240505cba8faef41e166785cc5b18
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77564648"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232070"
 ---
 # <a name="integrate-azure-time-series-insights-with-remote-monitoring"></a>Integrowanie usługi Azure Time Series Insights za pomocą zdalnego monitorowania
 
@@ -65,7 +66,7 @@ Następnie wdróż Time Series Insights jako dodatkowy zasób w rozwiązaniu do 
     | SKU |**S1** |
     | Pojemność | **1** |
 
-    ![Utwórz Time Series Insights](./media/iot-accelerators-remote-monitoring-integrate-time-series-insights/new-time-series-insights-create.png)
+    ![Tworzenie usługi Time Series Insights](./media/iot-accelerators-remote-monitoring-integrate-time-series-insights/new-time-series-insights-create.png)
 
 1. Kliknij pozycję **Utwórz**. Utworzenie środowiska może chwilę potrwać.
 
@@ -88,7 +89,7 @@ Utwórz nowe źródło zdarzenia w celu nawiązania połączenia z usługą IoT 
     | Ustawienie | Wartość |
     | ------- | ----- |
     | Nazwa źródła zdarzeń | Poniższy zrzut ekranu używa nazwy **contosorm-IoT-Hub**. Po wykonaniu tego kroku Użyj własnej unikatowej nazwy. |
-    | Element źródłowy | **IoT Hub** |
+    | Źródło | **IoT Hub** |
     | Opcja importu | **Korzystanie z IoT Hub z dostępnych subskrypcji** |
     | Identyfikator subskrypcji | Z listy rozwijanej wybierz subskrypcję platformy Azure. |
     | Nazwa Centrum IoT Hub | **contosorma57a6**. Użyj nazwy Centrum IoT Hub z rozwiązania do zdalnego monitorowania. |
@@ -96,7 +97,7 @@ Utwórz nowe źródło zdarzenia w celu nawiązania połączenia z usługą IoT 
     | Klucz zasad Centrum IoT | To pole jest wypełniane automatycznie. |
     | Grupa użytkowników IoT Hub | **timeseriesinsights** |
     | Format serializacji zdarzeń | **JSON**     | 
-    | Nazwa właściwości znacznika czasu | Pozostaw puste |
+    | Nazwa właściwości znacznika czasu | Pozostaw puste. |
 
     ![Utwórz źródło zdarzenia](./media/iot-accelerators-remote-monitoring-integrate-time-series-insights/time-series-insights-event-source-create.png)
 
@@ -243,7 +244,7 @@ Skonfiguruj środowisko `basic` wdrożenia zaktualizowanych mikrousług.
 
 Skonfiguruj środowisko `standard` wdrożenia dla zaktualizowanych Micro usług powyżej
 
-1. W wierszu polecenia Uruchom polecenie `kubectl proxy` . Aby uzyskać więcej informacji, zobacz [Uzyskiwanie dostępu do interfejsu API Kubernetes](https://kubernetes.io/docs/tasks/access-kubernetes-api/http-proxy-access-api/#using-kubectl-to-start-a-proxy-server).
+1. W wierszu polecenia Uruchom polecenie `kubectl proxy` . Aby uzyskać więcej informacji, zobacz [Uzyskiwanie dostępu do interfejsu API Kubernetes](https://kubernetes.io/docs/reference/access-authn-authz/).
 
 1. Otwórz konsolę zarządzania Kubernetes.
 

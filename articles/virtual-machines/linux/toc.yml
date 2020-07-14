@@ -477,6 +477,8 @@
                   items:
                     - name: Z maszyny wirtualnej
                       href: ../image-version-vm-cli.md
+                    - name: Z dysku VHD lub migawki
+                      href: ../image-version-snapshot-cli.md
                     - name: Migrowanie z obrazu zarządzanego
                       href: ../image-version-managed-image-cli.md
                     - name: Kopiowanie z innej galerii
@@ -499,6 +501,8 @@
                   items:
                     - name: Z maszyny wirtualnej
                       href: ../image-version-vm-powershell.md
+                    - name: Z dysku VHD lub migawki
+                      href: ../image-version-snapshot-powershell.md
                     - name: Migrowanie z obrazu zarządzanego
                       href: ../image-version-managed-image-powershell.md
                     - name: Kopiowanie z innej galerii
@@ -547,6 +551,8 @@
               href: 'https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md'
         - name: Znajdowanie obrazów i korzystanie z nich
           href: cli-ps-findimage.md
+        - name: Informacje o planie zakupu
+          href: ../marketplace-images.md
         - name: Przechwytywanie maszyny wirtualnej do obrazu zarządzanego
           href: capture-image.md
         - name: Tworzenie obrazu za pomocą usługi Packer
@@ -945,6 +951,16 @@
           href: disks-incremental-snapshots-portal.md
         - name: Tworzenie kopii zapasowych dysków niezarządzanych
           href: incremental-snapshots.md
+        - name: Szyfrowanie
+          items:
+            - name: Włączanie szyfrowania na hoście — interfejs wiersza polecenia
+              href: disks-enable-host-based-encryption-cli.md
+            - name: Włączanie kluczy zarządzanych przez klienta — interfejs wiersza polecenia
+              href: disks-enable-customer-managed-keys-cli.md
+            - name: Włączanie kluczy zarządzanych przez klienta — portal
+              href: disks-enable-customer-managed-keys-portal.md
+            - name: Włączanie podwójnego szyfrowania danych magazynowanych
+              href: disks-enable-double-encryption-at-rest-cli.md
         - name: Migracja i konwersja
           items:
             - name: Migrowanie do usługi Premium Storage przy użyciu usługi Azure Site Recovery

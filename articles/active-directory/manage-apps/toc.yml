@@ -5,6 +5,8 @@
   items:
     - name: Co to jest zarządzanie aplikacjami?
       href: what-is-application-management.md
+    - name: Co to jest logowanie jednokrotne?
+      href: what-is-single-sign-on.md
 - name: Przewodniki Szybki start
   items:
     - name: Wyświetlanie aplikacji
@@ -19,6 +21,8 @@
       href: delete-application-portal.md
 - name: Samouczki
   items:
+    - name: Dodawanie aplikacji spoza galerii
+      href: add-non-gallery-app.md
     - name: 'Zintegrowane aplikacje z galerii (np. usługi ServiceNow, Salesforce, Dropbox)'
       href: /azure/active-directory/saas-apps/
     - name: Dodawanie aplikacji lokalnej za pomocą serwera proxy aplikacji
@@ -46,8 +50,6 @@
               href: developer-guidance-for-integrating-applications.md
         - name: Logowanie jednokrotne
           items:
-            - name: Co to jest logowanie jednokrotne
-              href: what-is-single-sign-on.md
             - name: Włączanie logowania jednokrotnego dla aplikacji wielodostępnej
               href: isv-sso-content.md
             - name: Tworzenie dzierżawy platformy Azure dla aplikacji wielodostępnej
@@ -103,10 +105,6 @@
   items:
     - name: Aplikacje w chmurze i logowanie jednokrotne
       items:
-        - name: Dodawanie aplikacji w chmurze
-          items:
-            - name: Dodawanie aplikacji spoza galerii
-              href: add-non-gallery-app.md
         - name: Konfigurowanie logowania jednokrotnego
           items:
             - name: Konfigurowanie logowania jednokrotnego opartego na języku SAML
@@ -143,6 +141,8 @@
               href: configure-admin-consent-workflow.md
             - name: Przypisywanie użytkownika lub grupy do aplikacji
               href: assign-user-or-group-access-portal.md
+            - name: Przeglądanie uprawnień przyznanych aplikacjom
+              href: manage-application-permissions.md
             - name: Tworzenie kolekcji w Moich aplikacjach
               href: access-panel-collections.md
             - name: Używanie dostępu do aplikacji samoobsługowej

@@ -3,21 +3,21 @@ title: Łączność urządzeń w usłudze Azure IoT Central | Microsoft Docs
 description: W tym artykule przedstawiono kluczowe pojęcia związane z łącznością urządzeń w usłudze Azure IoT Central
 author: dominicbetts
 ms.author: dobett
-ms.date: 12/09/2019
+ms.date: 06/26/2020
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-manager: philmea
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: aa6aa7a8d98ae756a65a2618371c320118875c42
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a66613406de66cf9478b90d4ad58c115a30fdf5d
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84710443"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224769"
 ---
-# <a name="get-connected-to-azure-iot-central"></a>Połącz z usługą Azure IoT Central
+# <a name="get-connected-to-azure-iot-central"></a>Nawiązywanie połączenia z usługą Azure IoT Central
 
 *Ten artykuł ma zastosowanie do operatorów i deweloperów urządzeń.*
 
@@ -72,19 +72,40 @@ Użyj informacji o połączeniu z pliku eksportu w kodzie urządzenia, aby umoż
 
 W środowisku produkcyjnym używanie certyfikatów X. 509 jest zalecanym mechanizmem uwierzytelniania urządzeń dla IoT Central. Aby dowiedzieć się więcej, zobacz [uwierzytelnianie urządzeń za pomocą certyfikatów X. 509 urzędu certyfikacji](../../iot-hub/iot-hub-x509ca-overview.md).
 
-Przed nawiązaniem połączenia z urządzeniem za pomocą certyfikatu X. 509 Dodaj i sprawdź pośredni lub główny certyfikat X. 509 w aplikacji. Urządzenia muszą używać certyfikatów liścia X. 509 wygenerowanych na podstawie certyfikatu głównego lub pośredniego.
+Aby połączyć urządzenie z certyfikatem X. 509 z aplikacją:
 
-### <a name="add-and-verify-a-root-or-intermediate-certificate"></a>Dodawanie i weryfikowanie certyfikatu głównego lub pośredniego
+1. Utwórz *grupę rejestracji* , która używa typu zaświadczania **certyfikatów (X. 509)** .
+2. Dodawanie i weryfikowanie pośredniego lub głównego certyfikatu X. 509 w grupie rejestracji.
+3. Zarejestruj i Połącz urządzenia, które używają certyfikatów liścia X. 509 wygenerowanych z certyfikatu głównego lub pośredniego w grupie rejestracji.
 
-Przejdź do opcji **administracja > połączenie z urządzeniem > zarządzanie certyfikatem podstawowym** i Dodawanie głównego lub pośredniego certyfikatu X. 509 używanego do generowania certyfikatów urządzeń.
+### <a name="create-an-enrollment-group"></a>Tworzenie grupy rejestracji
 
-![Ustawienia połączenia](media/concepts-get-connected/manage-x509-certificate.png)
+[Grupa rejestracji](../../iot-dps/concepts-service.md#enrollment) jest grupą urządzeń, które mają ten sam typ zaświadczania. Dwa obsługiwane typy zaświadczania to certyfikaty X. 509 i sygnatury dostępu współdzielonego:
 
-Weryfikowanie własności certyfikatu gwarantuje, że osoba przekazująca certyfikat ma klucz prywatny certyfikatu. Aby zweryfikować certyfikat:
+- W grupie rejestracji X. 509 wszystkie urządzenia, które łączą się z IoT Central używają liścia X. 509 certyfikatów wygenerowanych na podstawie certyfikatu głównego lub pośredniego w grupie rejestracji.
+- W grupie rejestracji sygnatury dostępu współdzielonego wszystkie urządzenia, które łączą się z IoT Central używają tokenu SYGNATURy dostępu współdzielonego wygenerowanego na podstawie tokenu SAS w grupie rejestracji.
 
-  1. Wybierz przycisk obok **kodu weryfikacyjnego** , aby wygenerować kod.
-  1. Utwórz certyfikat weryfikacji X. 509 z kodem weryfikacyjnym wygenerowanym w poprzednim kroku. Zapisz certyfikat jako plik CER.
-  1. Przekaż podpisany certyfikat weryfikacyjny i wybierz pozycję **Weryfikuj**. Certyfikat jest oznaczony jako **zweryfikowany** , gdy weryfikacja zakończy się pomyślnie.
+Dwie domyślne grupy rejestracji w każdej aplikacji IoT Central są grupami rejestracji sygnatury dostępu współdzielonego — jeden dla urządzeń IoT i jeden dla urządzeń Azure IoT Edge. Aby utworzyć grupę rejestracji X. 509, przejdź do strony **połączenie urządzenia** i wybierz pozycję **+ Dodaj grupę rejestracji**:
+
+:::image type="content" source="media/concepts-get-connected/add-enrollment-group.png" alt-text="Dodawanie zrzutu ekranu grupy rejestracji X. 509":::
+
+### <a name="add-and-verify-a-root-or-intermediate-x509-certificate"></a>Dodawanie i weryfikowanie głównego lub pośredniego certyfikatu X. 509
+
+Aby dodać i zweryfikować certyfikat główny lub pośredni do grupy rejestracji:
+
+1. Przejdź do grupy rejestracji X. 509, która została właśnie utworzona. Istnieje możliwość dodania podstawowego i dodatkowego certyfikatu X. 509. Wybierz pozycję **+ Zarządzaj podstawowym**.
+
+1. Na **stronie certyfikat podstawowy**Przekaż podstawowy certyfikat X. 509. Jest to certyfikat główny lub pośredni:
+
+    :::image type="content" source="media/concepts-get-connected/upload-primary-certificate.png" alt-text="Zrzut ekranu certyfikatu podstawowego":::
+
+1. Użyj **kodu weryfikacyjnego** , aby wygenerować kod weryfikacyjny w używanym narzędziu. Następnie wybierz pozycję **Weryfikuj** , aby przekazać certyfikat weryfikacji.
+
+1. Jeśli weryfikacja zakończy się pomyślnie, zobaczysz następujące potwierdzenie:
+
+    :::image type="content" source="media/concepts-get-connected/verified-primary-certificate.png" alt-text="Zweryfikowano zrzut ekranu podstawowego certyfikatu":::
+
+Weryfikowanie własności certyfikatu gwarantuje, że osoba przekazująca certyfikat ma klucz prywatny certyfikatu.
 
 W przypadku naruszenia zabezpieczeń lub wymuszenia wygaśnięcia certyfikatu podstawowego Użyj certyfikatu pomocniczego, aby zmniejszyć przestoje. Podczas aktualizowania certyfikatu podstawowego można nadal inicjować obsługę administracyjną urządzeń przy użyciu certyfikatu pomocniczego.
 
@@ -92,7 +113,7 @@ W przypadku naruszenia zabezpieczeń lub wymuszenia wygaśnięcia certyfikatu po
 
 Aby połączyć zbiorczo urządzenia za pomocą certyfikatów X. 509, należy najpierw zarejestrować urządzenia w aplikacji przy użyciu pliku CSV w celu [zaimportowania identyfikatorów urządzeń i nazw urządzeń](howto-manage-devices.md#import-devices). Wszystkie identyfikatory urządzeń powinny być małymi literami.
 
-Generuj certyfikaty liścia X. 509 dla urządzeń przy użyciu przekazanego certyfikatu głównego lub pośredniego. Użyj **identyfikatora urządzenia** jako `CNAME` wartości w certyfikatach liścia. Kod urządzenia wymaga wartości **identyfikatora zakresu** dla aplikacji, **identyfikatora urządzenia**i odpowiedniego certyfikatu urządzenia.
+Generuj certyfikaty liścia X. 509 dla urządzeń przy użyciu certyfikatu głównego lub pośredniego przekazanego do grupy rejestracji X. 509. Użyj **identyfikatora urządzenia** jako `CNAME` wartości w certyfikatach liścia. Kod urządzenia wymaga wartości **identyfikatora zakresu** dla aplikacji, **identyfikatora urządzenia**i odpowiedniego certyfikatu urządzenia.
 
 #### <a name="sample-device-code"></a>Przykładowy kod urządzenia
 
@@ -122,9 +143,9 @@ Przepływ jest nieco różny w zależności od tego, czy urządzenia używają t
 
 ### <a name="connect-devices-that-use-sas-tokens-without-registering"></a>Łączenie urządzeń korzystających z tokenów SAS bez rejestrowania
 
-1. Skopiuj klucz podstawowy grupy aplikacji IoT Central:
+1. Skopiuj klucz podstawowy grupy z grupy rejestracji **SAS-IoT-Devices** :
 
-    ![Podstawowy klucz SAS grupy aplikacji](media/concepts-get-connected/group-sas-keys.png)
+    :::image type="content" source="media/concepts-get-connected/group-primary-key.png" alt-text="Grupuj klucz podstawowy z grupy rejestracji SAS-IoT-Devices":::
 
 1. Użyj narzędzia [DPS-Keygen](https://www.npmjs.com/package/dps-keygen) do wygenerowania kluczy SAS urządzeń. Użyj klucza podstawowego grupy z poprzedniego kroku. Identyfikatory urządzeń muszą mieć wielkie litery:
 
@@ -145,7 +166,7 @@ Przepływ jest nieco różny w zależności od tego, czy urządzenia używają t
 
 ### <a name="connect-devices-that-use-x509-certificates-without-registering"></a>Łączenie urządzeń korzystających z certyfikatów X. 509 bez rejestrowania
 
-1. [Dodaj i Sprawdź główny lub pośredni certyfikat X. 509](#connect-devices-using-x509-certificates) do aplikacji IoT Central.
+1. [Utwórz grupę rejestracji](#create-an-enrollment-group) , a następnie [Dodaj i Zweryfikuj główny lub pośredni certyfikat X. 509](#add-and-verify-a-root-or-intermediate-x509-certificate) do aplikacji IoT Central.
 
 1. Wygeneruj certyfikaty liści dla urządzeń przy użyciu certyfikatu głównego lub pośredniego dodanego do aplikacji IoT Central. W przypadku certyfikatów liścia należy używać identyfikatorów urządzeń z małymi literami `CNAME` .
 
@@ -255,7 +276,7 @@ Poniższa tabela zawiera podsumowanie sposobu mapowania funkcji usługi Azure Io
 
 | Azure IoT Central | Azure IoT Hub |
 | ----------- | ------- |
-| Telemetria | Obsługa komunikatów przesyłanych z urządzeń do chmury |
+| Telemetry | Obsługa komunikatów przesyłanych z urządzeń do chmury |
 | Właściwość | Właściwości zgłoszone przez urządzenie |
 | Właściwość (zapisywalny) | Wymagane i zgłoszone właściwości dotyczące sznurka urządzenia |
 | Polecenie | Metody bezpośrednie |

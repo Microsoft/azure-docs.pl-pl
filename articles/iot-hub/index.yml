@@ -11,12 +11,12 @@ metadata:
   manager: eliotgra
   ms.date: 03/23/2020
   ms.custom: amqp
-  ms.openlocfilehash: 93f81f444acae9b4b4451de75de018c2a894bcba
-  ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+  ms.openlocfilehash: c2faec6885987a57147cef2f0e9ec50bcf003793
+  ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 04/21/2020
-  ms.locfileid: "81730761"
+  ms.lasthandoff: 07/11/2020
+  ms.locfileid: "86259359"
 landingContent:
 - title: Getting Started
   linkLists:
@@ -104,3 +104,19 @@ landingContent:
       url: iot-hub-security-x509-get-started.md
     - text: Pojęcia dotyczące zabezpieczeń X.509 urzędu certyfikacji
       url: iot-hub-x509ca-concept.md
+- title: Korzystanie z interfejsu wiersza polecenia platformy Azure na potrzeby usługi IoT Hub
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Dokumentacja interfejsu wiersza polecenia dla IoT
+      url: /cli/azure/azure-cli-reference-for-IoT
+  - linkListType: concept
+    links:
+    - text: Tworzenie centrum IoT Hub
+      url: iot-hub-create-using-cli.md
+    - text: Zarządzanie urządzeniami IoT
+      url: iot-hub-device-management-iot-extension-azure-cli-2-0.md
+    - text: Konfigurowanie routingu komunikatów
+      url: tutorial-routing-config-message-routing-cli.md
+    - text: Wysyłanie danych telemetrycznych i monitorowanie
+      url: quickstart-send-telemetry-cli.md

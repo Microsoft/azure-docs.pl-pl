@@ -7,12 +7,12 @@ ms.topic: article
 author: anbene
 ms.author: mingshen
 ms.date: 06/29/2020
-ms.openlocfilehash: 2192b3757281bf6796fbf93f83cab6e71deb29f6
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: e708d9a32d63c306a2d1ee8d06b044652f108dde
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86120558"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86231883"
 ---
 # <a name="frequently-asked-questions-about-transitioning-from-the-cloud-partner-portal-to-partner-center"></a>Często zadawane pytania dotyczące przechodzenia z portal Cloud Partner do Centrum partnerskiego
 
@@ -76,7 +76,7 @@ W przypadku typów ofert obsługiwanych w centrum partnerskim wszystkie oferty z
 | Usługa konsultingowa | Tak | Zaloguj się do Centrum partnerskiego, aby utworzyć nowe oferty i zarządzać ofertami, które zostały utworzone w portal Cloud Partner. Dowiedz się więcej na temat [tworzenia oferty usługi konsultingowej](partner-center-portal/create-consulting-service-offer.md). |
 | Usługa zarządzana | Tak | Zaloguj się do Centrum partnerskiego, aby utworzyć nowe oferty i zarządzać ofertami, które zostały utworzone w portal Cloud Partner. Dowiedz się więcej na temat [tworzenia oferty usługi zarządzanej](partner-center-portal/create-new-managed-service-offer.md). |
 | Usługa zarządzana w programie Dynamics NAV | Nie | Firma Microsoft przyłączyła usługę zarządzaną przez program Dynamics NAV do usługi [dynamics 365 Business Central](https://docs.microsoft.com/dynamics365/business-central/) Oferty te nie są już odnajdywane przez klientów i nie zostały przeniesione do Centrum partnerskiego. Aby udostępnić oferty w usłudze AppSource, dostosuj je do oferty Dynamics 365 Business Central i prześlij je do [Centrum partnerskiego](https://partner.microsoft.com/). Dowiedz się więcej na temat [tworzenia oferty Dynamics 365 Business Central](partner-center-portal/create-new-business-central-offer.md). |
-| Cortana Intelligence | Nie | Firma Microsoft wyłączyła mapę drogową dotyczącą produktu, aby uzyskać Cortana Intelligence, więc nie mamy na żywo Cortana Intelligence z AppSource. Oferty te nie są już odnajdywane przez klientów i nie zostały przeniesione do Centrum partnerskiego. Aby udostępnić oferty w komercyjnej witrynie Marketplace, Dostosuj oferty do oprogramowania jako usługi (SaaS) oferty i prześlij je w [centrum partnerskim](hhttps://partner.microsoft.com/). Dowiedz się więcej na temat [listy kontrolnej tworzenia oferty SaaS w centrum partnerskim](partner-center-portal/offer-creation-checklist.md). |
+| Cortana Intelligence | Nie | Firma Microsoft wyłączyła mapę drogową dotyczącą produktu, aby uzyskać Cortana Intelligence, więc nie mamy na żywo Cortana Intelligence z AppSource. Oferty te nie są już odnajdywane przez klientów i nie zostały przeniesione do Centrum partnerskiego. Aby udostępnić oferty w komercyjnej witrynie Marketplace, Dostosuj oferty do oprogramowania jako usługi (SaaS) oferty i prześlij je w [centrum partnerskim](https://partner.microsoft.com/). Dowiedz się więcej na temat [listy kontrolnej tworzenia oferty SaaS w centrum partnerskim](partner-center-portal/offer-creation-checklist.md). |
 
 ## <a name="i-cant-find-my-cloud-partner-portal-offers-in-partner-center"></a>Nie mogę znaleźć ofert portal Cloud Partner w centrum partnerskim
 
@@ -166,7 +166,7 @@ Możesz poprosić o [zaprzestanie sprzedaży oferty](partner-center-portal/updat
 
 Interfejsy API portal Cloud Partner są zintegrowane z centrum partnerskim i nadal będą działały. Przejście do Centrum partnerskiego wprowadza niewielkie zmiany. Zapoznaj się z tabelą poniżej, aby upewnić się, że kod będzie nadal działał w centrum partnerskim.
 
-| Interfejs API <img src="" width=100px>| Zmień opis | Wpływ |
+| API <img src="" width=100px>| Zmień opis | Wpływ |
 | --- | --- | --- |
 | Publikuj publikowanie, GoLive, Anuluj | W przypadku zmigrowanych ofert nagłówek odpowiedzi będzie miał inny format, ale będzie nadal działał w taki sam sposób, co oznacza ścieżkę względną do pobrania stanu operacji. | Podczas wysyłania dowolnego z odpowiednich żądań POST dla oferty nagłówek lokalizacji będzie miał jeden z dwóch formatów w zależności od stanu migracji oferty: <ul><li>Oferty bez migracji:`/api/operations/{PublisherId}${offerId}$2$preview?api-version=2017-10-31`</li><li>Zmigrowane oferty:`/api/publishers/{PublisherId}/offers/{offereId}/operations/408a4835-0000-1000-0000-000000000000?api-version=2017-10-31`</li></ul>|
 | Pobierz operację | W przypadku ofert, które wcześniej obsługiwały w odpowiedzi pole "notification-email", to pole będzie przestarzałe i nie będzie już zwracane dla zmigrowanych ofert. | W przypadku zmigrowanych ofert nie będą już wysyłane powiadomienia do listy wiadomości e-mail określonych w żądaniach. Zamiast tego usługa API zostanie wyrównuje z procesem powiadomień e-mail w centrum partnerskim w celu wysyłania wiadomości e-mail. W każdym przypadku powiadomienia o postępie operacji będą wysyłane na adres e-mail ustawiony w sekcji informacje kontaktowe sprzedawcy ustawień konta w centrum partnerskim.<br><br>Upewnij się, że adres e-mail jest ustawiony w sekcji informacje kontaktowe sprzedawcy w obszarze [Ustawienia konta](https://partner.microsoft.com/dashboard/account/management) w centrum partnerskim, aby otrzymywać powiadomienia. |

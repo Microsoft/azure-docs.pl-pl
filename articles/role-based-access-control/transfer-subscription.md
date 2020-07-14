@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 07/01/2020
 ms.author: rolyon
-ms.openlocfilehash: f169cf45702d4a5051f9f6908b77c645c7a0018f
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: db1b030aed34498ade91a195d5ca68725b579ba3
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86042394"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86230846"
 ---
 # <a name="transfer-an-azure-subscription-to-a-different-azure-ad-directory-preview"></a>Przenoszenie subskrypcji platformy Azure do innego katalogu usługi Azure AD (wersja zapoznawcza)
 
@@ -78,7 +78,7 @@ Kilka zasobów platformy Azure ma zależność od subskrypcji lub katalogu. W za
 | Azure File Sync | Tak | Yes |  |  |
 | Dyski zarządzane platformy Azure | Tak | Nie dotyczy |  |  |
 | Azure Container Services dla Kubernetes | Tak | Yes |  |  |
-| Azure Active Directory Domain Services | Yes | Nie |  |  |
+| Usługi Azure Active Directory Domain Services | Yes | Nie |  |  |
 | Rejestracje aplikacji | Tak | Tak |  |  |
 
 Jeśli używasz szyfrowania dla zasobu, takiego jak konto magazynu lub baza danych SQL, która ma zależność od magazynu kluczy, który nie znajduje się w tej samej subskrypcji, która jest transferowana, może prowadzić do nieodwracalnego scenariusza. W przypadku takiej sytuacji należy wykonać kroki w celu użycia innego magazynu kluczy lub tymczasowo wyłączyć klucze zarządzane przez klienta, aby uniknąć tego nieodwracalnego scenariusza.
@@ -189,7 +189,7 @@ Tożsamości zarządzane nie są aktualizowane, gdy subskrypcja zostanie przetra
 
 1. Przejrzyj [listę usług platformy Azure, które obsługują tożsamości zarządzane,](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md) aby zauważyć, gdzie mogą być używane tożsamości zarządzane.
 
-1. Użyj [AZ AD Sp list](/azure/ad/sp#az-ad-sp-list) , aby wyświetlić zarządzane tożsamości przypisane do systemu i przypisane przez użytkownika.
+1. Użyj [AZ AD Sp list](/cli/azure/identity?view=azure-cli-latest#az-identity-list) , aby wyświetlić zarządzane tożsamości przypisane do systemu i przypisane przez użytkownika.
 
     ```azurecli
     az ad sp list --all --filter "servicePrincipalType eq 'ManagedIdentity'"
