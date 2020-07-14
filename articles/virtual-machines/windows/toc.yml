@@ -434,6 +434,8 @@
                   items:
                     - name: Z maszyny wirtualnej
                       href: ../image-version-vm-powershell.md
+                    - name: Z dysku VHD lub migawki
+                      href: ../image-version-snapshot-powershell.md
                     - name: Migrowanie z obrazu zarządzanego
                       href: ../image-version-managed-image-powershell.md
                     - name: Kopiowanie z innej galerii
@@ -454,6 +456,8 @@
                   items:
                     - name: Z maszyny wirtualnej
                       href: ../image-version-vm-cli.md
+                    - name: Z dysku VHD lub migawki
+                      href: ../image-version-snapshot-cli.md
                     - name: Migrowanie z obrazu zarządzanego
                       href: ../image-version-managed-image-cli.md
                     - name: Kopiowanie z innej galerii
@@ -508,6 +512,8 @@
               href: 'https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md'
         - name: Znajdowanie obrazów i korzystanie z nich
           href: cli-ps-findimage.md
+        - name: Informacje o planie zakupu
+          href: ../marketplace-images.md
         - name: Przygotowywanie maszyny wirtualnej do przekazywania
           href: prepare-for-upload-vhd-image.md
         - name: Przechwytywanie maszyny wirtualnej do obrazu
@@ -853,10 +859,18 @@
           href: disks-incremental-snapshots-portal.md
         - name: Tworzenie kopii zapasowych dysków niezarządzanych
           href: incremental-snapshots.md
+        - name: Szyfrowanie
+          items:
+            - name: Włączanie szyfrowania opartego na hoście — PowerShell
+              href: disks-enable-host-based-encryption-powershell.md
+            - name: Włączanie kluczy zarządzanych przez klienta — PowerShell
+              href: disks-enable-customer-managed-keys-powershell.md
+            - name: Włączanie kluczy zarządzanych przez klienta — portal
+              href: disks-enable-customer-managed-keys-portal.md
+            - name: Włączanie podwójnego szyfrowania danych magazynowanych
+              href: disks-enable-double-encryption-at-rest-powershell.md
         - name: Migracja i konwersja
           items:
-            - name: Konwertowanie na szyfrowanie po stronie serwera
-              href: disks-ade-sse-conversion-powershell.md
             - name: Konwertowanie dysku między warstwami Standardowa i Premium
               href: convert-disk-storage.md
             - name: Migrowanie do usługi Premium Storage przy użyciu usługi Azure Site Recovery
