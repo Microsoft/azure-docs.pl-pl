@@ -8,20 +8,21 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 8/2/2019
+ms.date: 07/09/2020
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: anandsub
-ms.openlocfilehash: 0023bcc4a7c31a0e337683fa3d3080a45445fc49
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4df4f7e1db880a38f647e8e384cbfb29b70954ec
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84117907"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187255"
 ---
 # <a name="how-to-start-and-stop-azure-ssis-integration-runtime-on-a-schedule"></a>How to start and stop Azure-SSIS Integration Runtime on a schedule (Jak uruchamiać i zatrzymywać środowisko Azure-SSIS Integration Runtime według harmonogramu)
 
-[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 W tym artykule opisano sposób planowania uruchamiania i zatrzymywania Azure-SSIS Integration Runtime (IR) przy użyciu funkcji Azure Data Factory (ADF). Azure-SSIS IR to zasób obliczeniowy ADF przeznaczony do wykonywania pakietów SQL Server Integration Services (SSIS). Z uruchomionym Azure-SSIS IR jest związany koszt. W związku z tym zazwyczaj chcesz uruchomić swój IR tylko wtedy, gdy musisz wykonać pakiety usług SSIS na platformie Azure i zatrzymać środowisko IR, gdy nie jest już potrzebne. Do [ręcznego uruchamiania lub zatrzymywania środowiska IR](manage-azure-ssis-integration-runtime.md)można użyć interfejsu użytkownika ADF/app lub Azure PowerShell.
 
@@ -162,7 +163,7 @@ Teraz, gdy potok działa zgodnie z oczekiwaniami, można utworzyć wyzwalacze, a
     4. W polu **cykl**wprowadź wartość erze dla wyzwalacza. W poniższym przykładzie jest to **codziennie** jeden raz. 
     5. Na **koniec**wybierz pozycję **Brak Zakończ** lub wprowadź datę i godzinę zakończenia po wybraniu pozycji **Data**. 
     6. Wybierz pozycję **aktywowany** , aby aktywować wyzwalacz natychmiast po opublikowaniu całego ustawienia ADF. 
-    7. Wybierz pozycję **Dalej**.
+    7. Wybierz pozycję **Next** (Dalej).
 
    ![Wyzwalanie — > nowe/Edycja](./media/how-to-schedule-azure-ssis-integration-runtime/new-trigger-window.png)
     

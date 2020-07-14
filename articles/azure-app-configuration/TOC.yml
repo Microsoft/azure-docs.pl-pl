@@ -103,6 +103,8 @@
       href: howto-import-export-data.md
     - name: Kierowanie zdarzeń do niestandardowego punktu końcowego
       href: howto-app-configuration-event.md
+    - name: Automatyczne magazynowanie konfiguracji kopii zapasowej
+      href: howto-backup-config-store.md
     - name: Najlepsze rozwiązania
       href: howto-best-practices.md
 - name: Dokumentacja

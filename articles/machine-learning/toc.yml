@@ -443,6 +443,9 @@
     - name: Zarządzanie przydziałami zasobów
       displayName: limits
       href: how-to-manage-quotas.md
+    - name: Zarządzanie zasobami w programie VS Code
+      displayName: 'vscode,resources'
+      href: how-to-manage-resources-vscode.md
     - name: Eksportowanie i usuwanie danych
       displayName: GDPR
       href: how-to-export-delete-data.md
@@ -495,3 +498,6 @@
     - name: Funkcje ułatwień dostępu projektanta
       displayName: 'accessibility, designer, visual interface, screen reader, keyboard shortcuts'
       href: designer-accessibility.md
+    - name: Wyselekcjonowane środowiska
+      displayName: 'environments, curated environments'
+      href: resource-curated-environments.md

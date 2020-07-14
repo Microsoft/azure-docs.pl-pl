@@ -5,11 +5,13 @@ author: tsushi
 ms.topic: conceptual
 ms.date: 10/10/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 8e12d58c0077084c181d111b0b017665b74b9157
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 45f87898f7da432e5bdd09061e74c33a1a8fe41b
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74231253"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86165706"
 ---
 # <a name="zero-downtime-deployment-for-durable-functions"></a>Wdrożenie bez przestojów dla Durable Functions
 
@@ -18,9 +20,6 @@ ms.locfileid: "74231253"
 Aby zapobiec wystąpieniu tych błędów, dostępne są dwie opcje: 
 - Opóźnij wdrożenie, dopóki nie zostaną ukończone wszystkie uruchomione wystąpienia aranżacji.
 - Upewnij się, że wszystkie uruchomione wystąpienia aranżacji korzystają z istniejących wersji funkcji. 
-
-> [!NOTE]
-> Ten artykuł zawiera wskazówki dotyczące aplikacji funkcji przeznaczonych dla Durable Functions 1. x. Nie została zaktualizowana w celu uwzględnienia zmian wprowadzonych w Durable Functions 2. x. Aby uzyskać więcej informacji na temat różnic między wersjami rozszerzeń, zobacz [wersje Durable Functions](durable-functions-versions.md).
 
 Poniższy wykres zawiera porównanie trzech głównych strategii w celu osiągnięcia wdrożenia bez przestojów dla Durable Functions: 
 
@@ -96,7 +95,7 @@ Skonfiguruj potok ciągłej integracji/ciągłego wdrażania tylko wtedy, gdy ap
 [FunctionName("StatusCheck")]
 public static async Task<IActionResult> StatusCheck(
     [HttpTrigger(AuthorizationLevel.Function, "get", "post")] HttpRequestMessage req,
-    [OrchestrationClient] DurableOrchestrationClient client,
+    [DurableClient] IDurableOrchestrationClient client,
     ILogger log)
 {
     var runtimeStatus = new List<OrchestrationRuntimeStatus>();
@@ -104,8 +103,8 @@ public static async Task<IActionResult> StatusCheck(
     runtimeStatus.Add(OrchestrationRuntimeStatus.Pending);
     runtimeStatus.Add(OrchestrationRuntimeStatus.Running);
 
-    var status = await client.GetStatusAsync(new DateTime(2015,10,10), null, runtimeStatus);
-    return (ActionResult) new OkObjectResult(new Status() {HasRunning = (status.Count != 0)});
+    var result = await client.ListInstancesAsync(new OrchestrationStatusQueryCondition() { RuntimeStatus = runtimeStatus }, CancellationToken.None);
+    return (ActionResult)new OkObjectResult(new { HasRunning = result.DurableOrchestrationState.Any() });
 }
 ```
 

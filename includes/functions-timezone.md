@@ -10,7 +10,7 @@ Domyślna strefa czasowa używana z wyrażeniami firmy CRONUS jest uniwersalnym 
 
 Wartość tego ustawienia zależy od systemu operacyjnego oraz planu, w którym działa aplikacja funkcji.
 
-|System operacyjny |Plan |Wartość |
+|System operacyjny |Planowanie |Wartość |
 |-|-|-|
 | **Windows** |Wszystko | Ustaw wartość na nazwę żądanej strefy czasowej, jak pokazano w [indeks strefy czasowej firmy Microsoft] ( https://docs.microsoft.com/previous-versions/windows/it-pro/windows-vista/cc749073(v=ws.10) . |
 | **Linux** |Premium<br/>Dedykowane |Ustaw wartość na nazwę żądanej strefy czasowej, jak pokazano w [bazie danych](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones). |

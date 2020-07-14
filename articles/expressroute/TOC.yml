@@ -40,6 +40,8 @@
       items:
         - name: Informacje o obwodach i komunikacji równorzędnej
           href: expressroute-circuit-peerings.md
+        - name: Informacje o uaktualnianiu przepustowości obwodu
+          href: about-upgrade-circuit-bandwidth.md
         - name: Przenoszenie obwodów z wersji klasycznej do usługi Resource Manager
           href: expressroute-move.md
     - name: Protokół BFD działający za pośrednictwem usługi ExpressRoute

@@ -1,6 +1,6 @@
 ---
-title: dołączanie pliku
-description: dołączanie pliku
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: active-directory
 author: msaburnley
 ms.service: active-directory
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/30/2020
 ms.author: ajburnle
 ms.custom: include file
-ms.openlocfilehash: 7fd716be397d9ef6b9d6132cd4470f653f3cea0f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ae3efec3722570e7e94316c5d874a74c523b1f05
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80655935"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86156587"
 ---
 ## <a name="for-users-in-your-directory"></a>Dla użytkowników w katalogu
 
@@ -194,7 +194,7 @@ Na przykład, jeśli w pierwszej osoby zatwierdzającej wystawiłeś Alicja i Ro
 
 1. W polu **Przekaż do alternatywnych osób zatwierdzających po** liczbie dni wprowadź liczbę dni, przez które osoby zatwierdzające muszą zatwierdzić lub odrzucić żądanie. Jeśli żadna osoba zatwierdzająca nie zatwierdziła lub nie odrzuciła żądania przed upływem czasu żądania, żądanie wygasa (timeout), a użytkownik będzie musiał przesłać kolejne żądanie dotyczące pakietu dostępu. 
 
-    Żądania mogą być przekazywane do alternatywnych osób zatwierdzających dziennie po upływie czasu trwania żądania. W tym przykładzie czas trwania żądania wynosi 14 dni. W związku z tym czas trwania żądania osiągnie połowę okresu ważności w dniu 7. Dlatego nie można przesłać dalej żądania przed dniem 8. Ponadto żądania nie mogą być przekazywane w ostatnim dniu czasu trwania żądania. W tym przykładzie najnowsze żądanie może być przekazywane z dniem 13.
+    Żądania mogą być przekazywane do alternatywnych osób zatwierdzających dziennie po upływie czasu trwania żądania, a decyzja głównych osób zatwierdzających musi przekroczyć limit czasu po upływie co najmniej 4 dni. Jeśli limit czasu żądania jest mniejszy lub równy 3, nie jest wystarczająco dużo czasu na przesłanie żądania do alternatywnej osoby zatwierdzającej. W tym przykładzie czas trwania żądania wynosi 14 dni. W związku z tym czas trwania żądania osiągnie połowę okresu ważności w dniu 7. Dlatego nie można przesłać dalej żądania przed dniem 8. Ponadto żądania nie mogą być przekazywane w ostatnim dniu czasu trwania żądania. W tym przykładzie najnowsze żądanie może być przekazywane z dniem 13.
 
 ## <a name="enable-requests"></a>Włącz żądania
 

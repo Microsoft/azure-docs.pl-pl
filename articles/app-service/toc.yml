@@ -176,6 +176,8 @@
               href: configure-authentication-provider-microsoft.md
             - name: Uwierzytelnianie za pomocą usługi Twitter
               href: configure-authentication-provider-twitter.md
+            - name: Uwierzytelnianie za pomocą dostawcy uwierzytelniania OpenID Connect (wersja zapoznawcza)
+              href: configure-authentication-provider-openid-connect.md
         - name: Zaawansowane uwierzytelnianie
           href: app-service-authentication-how-to.md
         - name: Ograniczanie dostępu

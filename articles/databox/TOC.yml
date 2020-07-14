@@ -14,30 +14,52 @@
               href: data-box-quickstart-portal.md
         - name: Samouczki
           items:
-            - name: 1 — zamawianie
-              href: data-box-deploy-ordered.md
-            - name: 2 — konfigurowanie
-              href: data-box-deploy-set-up.md
-            - name: 3 — łączenie i kopiowanie
+            - name: Importowanie danych do platformy Azure
               items:
-                - name: Za pośrednictwem protokołu SMB
-                  href: data-box-deploy-copy-data.md
-                - name: Za pośrednictwem systemu plików NFS
-                  href: data-box-deploy-copy-data-via-nfs.md
-                - name: Za pośrednictwem interfejsu REST
-                  href: data-box-deploy-copy-data-via-rest.md
-                - name: Za pomocą usługi kopiowania danych
-                  href: data-box-deploy-copy-data-via-copy-service.md
-                - name: Na dyski zarządzane
-                  href: data-box-deploy-copy-data-from-vhds.md
-            - name: '4 — zwracanie, przekazywanie, weryfikowanie'
-              href: data-box-deploy-picked-up.md
+                - name: 1 — zamawianie
+                  href: data-box-deploy-ordered.md
+                - name: 2 — konfigurowanie
+                  href: data-box-deploy-set-up.md
+                - name: 3 — łączenie i kopiowanie
+                  items:
+                    - name: Za pośrednictwem protokołu SMB
+                      href: data-box-deploy-copy-data.md
+                    - name: Za pośrednictwem systemu plików NFS
+                      href: data-box-deploy-copy-data-via-nfs.md
+                    - name: Za pośrednictwem interfejsu REST
+                      href: data-box-deploy-copy-data-via-rest.md
+                    - name: Za pomocą usługi kopiowania danych
+                      href: data-box-deploy-copy-data-via-copy-service.md
+                    - name: Na dyski zarządzane
+                      href: data-box-deploy-copy-data-from-vhds.md
+                - name: '4 — zwracanie, przekazywanie, weryfikowanie'
+                  href: data-box-deploy-picked-up.md
+            - name: Eksportowanie danych z platformy Azure
+              items:
+                - name: 1 — zamawianie
+                  href: data-box-deploy-export-ordered.md
+                - name: 2 — konfigurowanie
+                  href: data-box-deploy-set-up.md
+                - name: 3 — łączenie i kopiowanie
+                  items:
+                    - name: Za pośrednictwem protokołu SMB
+                      href: data-box-deploy-export-copy-data.md
+                    - name: Za pośrednictwem systemu plików NFS
+                      href: data-box-deploy-export-copy-data-via-nfs.md
+                - name: 4 — zwracanie
+                  href: data-box-deploy-export-picked-up.md
         - name: Pojęcia
           items:
             - name: Przeczytaj wytyczne dotyczące bezpieczeństwa
               href: data-box-safety.md
             - name: Sprawdzanie śledzenia i rejestrowania
-              href: data-box-logs.md
+              items:
+                - name: Dla zamówień importowania
+                  href: data-box-logs.md
+                - name: Dla zamówień eksportowania
+                  href: data-box-export-logs.md
+            - name: Wyświetlanie dzienników inspekcji
+              href: data-box-audit-logs.md
             - name: Sprawdzanie wymagań
               items:
                 - name: Usługa Data Box
@@ -64,6 +86,8 @@
               href: data-box-portal-customer-managed-shipping.md
             - name: Włączanie klucza zarządzanego przez klienta
               href: data-box-customer-managed-encryption-key-portal.md
+            - name: Używanie skrytki klienta
+              href: data-box-customer-lockbox.md
             - name: Przenoszenie danych do warstwy obiektu blob
               href: data-box-how-to-set-data-tier.md
             - name: Podłączanie kabli urządzenia

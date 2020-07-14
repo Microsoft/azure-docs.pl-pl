@@ -6,13 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 07/11/2019
+ms.date: 07/20/2020
 ms.author: alkohli
-ms.openlocfilehash: e232ad131b1c0930afcf5e7e78b386aba2c9490b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 496069ebf64340bc55f03df8dc15304b4888bec0
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79259957"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86200309"
 ---
 # <a name="azure-data-box-system-requirements"></a>Wymagania systemowe Azure Data Box
 
@@ -32,13 +33,19 @@ Wymagania dotyczące oprogramowania obejmują informacje w obsługiwanych system
 
 [!INCLUDE [data-box-supported-os-clients](../../includes/data-box-supported-os-clients.md)]
 
-### <a name="supported-file-systems-for-linux-clients"></a>Obsługiwane systemy plików dla klientów z systemem Linux
+
+### <a name="supported-filesystems-for-linux-clients"></a>Obsługiwane systemy plików dla klientów z systemem Linux
 
 [!INCLUDE [data-box-supported-file-systems-clients](../../includes/data-box-supported-file-systems-clients.md)]
+
+
+> [!IMPORTANT] 
+> Połączenia z udziałami urządzenie Data Boxymi nie są obsługiwane za pośrednictwem usługi REST dla zamówień eksportu. 
 
 ### <a name="supported-storage-accounts"></a>Obsługiwane konta magazynu
 
 [!INCLUDE [data-box-supported-storage-accounts](../../includes/data-box-supported-storage-accounts.md)]
+
 
 ### <a name="supported-storage-types"></a>Obsługiwane typy magazynu
 

@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 06/08/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d8229864acc80a27994ae3c795213dc2a65d22db
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 85dd58398021ef61e425eb58797e818b233c491b
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85385573"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170126"
 ---
 # <a name="configure-itsme-openid-connect-oidc-with-azure-active-directory-b2c"></a>Konfigurowanie itsme OpenID Connect Connect (OIDC) z Azure Active Directory B2C
 
@@ -40,7 +40,7 @@ Aby rozpocząć, musisz:
 Please clarify step 1 in the description below - we don't have steps in this tutorial for "adapting in the Azure AD B2C Custom Policy- User Journeys" - should this be added somewhere?
 -->
 
-|   |   |
+| Krok | Opis |
 |------|------|
 |1     | W witrynie sieci Web lub aplikacji Dołącz przycisk **Zaloguj się przy użyciu itsme** , dostosowując go do przepływu użytkownika Azure AD B2C. Przepływ interakcji jest uruchamiany po kliknięciu tego przycisku przez użytkownika.  |
 |2     | Azure AD B2C uruchamia przepływ połączenia OpenID Connect, wysyłając żądanie autoryzacji do interfejsu API tajnego klienta itsme. Dostępny jest dobrze znany/OpenID connecty punkt końcowy konfiguracji zawierający informacje o punktach końcowych.  |
@@ -94,9 +94,9 @@ Please clarify step 1 in the description below - we don't have steps in this tut
    |Nazwa wyświetlana | name |
    |Imię | given_name |
    |Nazwisko | family_name |
-   |Poczta e-mail | poczta e-mail|
+   |Wiadomość e-mail | poczta e-mail|
 
-5. Wybierz pozycję **Zapisz**.
+5. Wybierz przycisk **Save** (Zapisz).
 
 ### <a name="configure-a-user-flow"></a>Konfigurowanie przepływu użytkownika
 
@@ -127,11 +127,11 @@ Please clarify step 1 in the description below - we don't have steps in this tut
 
 3. Upewnij się, że uwierzytelnianie wieloskładnikowe jest **wyłączone**.
 
-4. Wybierz pozycję **Zarejestruj**.
+4. Wybierz pozycję **Rejestruj**.
 
    a. W celach testowych wybierz pozycję **uwierzytelnianie**i w obszarze **niejawne przyznanie**zaznacz pola wyboru **tokeny dostępu** i **tokeny identyfikatorów** .  
 
-   b. Wybierz pozycję **Zapisz**.
+   b. Wybierz przycisk **Save** (Zapisz).
 
 ## <a name="test-the-user-flow"></a>Testowanie przepływu użytkownika
 

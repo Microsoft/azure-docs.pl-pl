@@ -2,22 +2,22 @@
 title: Architektura referencyjna dla baz danych Oracle na platformie Azure | Microsoft Docs
 description: Odwołuje się do architektur do uruchamiania Oracle Database Enterprise Edition baz danych w Microsoft Azure Virtual Machines.
 services: virtual-machines-linux
-author: BorisB2015
-manager: gwallace
+author: rgardler
+manager: ''
 tags: ''
 ms.service: virtual-machines
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 12/13/2019
-ms.author: borisb
+ms.author: rogardle
 ms.custom: ''
-ms.openlocfilehash: bbb6665299ce9b6521eeb8801d8621dfbdc17f4a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9125d8d2177b9bc40bb280f414cdfb2797ccf8fe
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81683487"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86221616"
 ---
 # <a name="reference-architectures-for-oracle-database-enterprise-edition-on-azure"></a>Architektury referencyjne dla Oracle Database Enterprise Edition na platformie Azure
 
@@ -41,7 +41,7 @@ Na koniec podczas migrowania lub tworzenia aplikacji dla chmury ważne jest, aby
 
 ### <a name="oracle-rac-in-the-cloud"></a>Oracle RAC w chmurze
 
-Oracle Real Application Cluster (RAC) to rozwiązanie zapewniane przez firmę Oracle, które ułatwia klientom osiąganie dużej przepływności przez wiele wystąpień uzyskujących dostęp do jednego magazynu bazy danych (współdzielony wzorzec architektury). Mimo że certyfikat RAC dla programu Oracle może być używany w środowisku lokalnym o wysokiej dostępności, nie można używać go w celu zapewnienia wysokiej dostępności w chmurze, ponieważ chroni on tylko przed awariami na poziomie wystąpienia, a nie z awariami na poziomie stojaków lub centrów danych. Z tego powodu firma Oracle zaleca użycie usługi Oracle Data Guard z bazą danych (w przypadku pojedynczego wystąpienia lub certyfikatu RAC) w celu zapewnienia wysokiej dostępności. Klienci zazwyczaj wymagają dużej umowy SLA na potrzeby uruchamiania aplikacji o znaczeniu strategicznym. Certyfikat Oracle RAC nie jest obecnie certyfikowany ani obsługiwany przez program Oracle na platformie Azure. Jednak platforma Azure oferuje funkcje, takie jak platforma Azure, oferuje Strefy dostępności i planowane okna obsługi, aby ułatwić ochronę przed awariami na poziomie wystąpienia. Oprócz tego klienci mogą korzystać z technologii takich jak Oracle Data Guard, Oracle GoldenGate i Oracle fragmentowania w celu zapewnienia wysokiej wydajności i odporność przez ochronę swoich baz danych przed awariami na poziomie i geograficznie.
+Oracle Real Application Cluster (RAC) to rozwiązanie zapewniane przez firmę Oracle, które ułatwia klientom osiąganie dużej przepływności przez wiele wystąpień uzyskujących dostęp do jednego magazynu bazy danych (współdzielony wzorzec architektury). Mimo że certyfikat RAC dla programu Oracle może być używany w środowisku lokalnym o wysokiej dostępności, nie można używać go w celu zapewnienia wysokiej dostępności w chmurze, ponieważ chroni on tylko przed awariami na poziomie wystąpienia, a nie z awariami na poziomie stojaków lub centrów danych. Z tego powodu firma Oracle zaleca użycie usługi Oracle Data Guard z bazą danych (w przypadku pojedynczego wystąpienia lub certyfikatu RAC) w celu zapewnienia wysokiej dostępności. Klienci zazwyczaj wymagają dużej umowy SLA na potrzeby uruchamiania aplikacji o znaczeniu strategicznym. Certyfikat Oracle RAC nie jest obecnie certyfikowany ani obsługiwany przez program Oracle na platformie Azure. Jednak platforma Azure oferuje funkcje, takie jak platforma Azure, oferuje Strefy dostępności i planowane okna obsługi, aby ułatwić ochronę przed awariami na poziomie wystąpienia. Oprócz tego klienci mogą korzystać z technologii takich jak Oracle Data Guard, Oracle GoldenGate i Oracle fragmentowania w celu zapewnienia wysokiej wydajności i odporności przez ochronę swoich baz danych przed awariami na poziomie stojaków oraz geograficznie-politycznych.
 
 W przypadku uruchamiania baz danych Oracle w wielu [strefach dostępności](https://docs.microsoft.com/azure/availability-zones/az-overview) w połączeniu z usługą Oracle Data Guard lub GoldenGate klienci mogą uzyskać umowę SLA na 99,99% czasu pracy. W regionach platformy Azure, w których strefy dostępności nie są jeszcze obecne, klienci mogą korzystać z [zestawów dostępności](https://docs.microsoft.com/azure/virtual-machines/linux/manage-availability#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) i uzyskać umowę SLA dotyczącą czasu działania wynoszącą 99,95% czasu.
 

@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/02/2020
-ms.openlocfilehash: 13c55f2a7470a0d33e12e9e6f0da9df3421242fb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 60f4ed9940c70ed479c3108f3637aa55f2a42811
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85556247"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86146893"
 ---
 # <a name="how-to-index-cosmos-db-data-using-an-indexer-in-azure-cognitive-search"></a>Jak indeksować dane usługi Cosmos DB przy użyciu indeksatora usługi Azure Cognitive Search 
 
@@ -154,6 +154,8 @@ Te wartości można znaleźć w portalu:
 
 Aby utworzyć źródło danych, należy sformułować żądanie POST:
 
+```http
+
     POST https://[service name].search.windows.net/datasources?api-version=2020-06-30
     Content-Type: application/json
     api-key: [Search service admin key]
@@ -170,6 +172,7 @@ Aby utworzyć źródło danych, należy sformułować żądanie POST:
             "highWaterMarkColumnName": "_ts"
         }
     }
+```
 
 Treść żądania zawiera definicję źródła danych, która powinna zawierać następujące pola:
 
@@ -190,6 +193,7 @@ Możesz określić zapytanie SQL do spłaszczania zagnieżdżonych właściwośc
 
 Przykładowy dokument:
 
+```http
     {
         "userId": 10001,
         "contact": {
@@ -199,30 +203,37 @@ Przykładowy dokument:
         "company": "microsoft",
         "tags": ["azure", "cosmosdb", "search"]
     }
+```
 
 Zapytanie filtru:
 
-    SELECT * FROM c WHERE c.company = "microsoft" and c._ts >= @HighWaterMark ORDER BY c._ts
+```sql
+SELECT * FROM c WHERE c.company = "microsoft" and c._ts >= @HighWaterMark ORDER BY c._ts
+```
 
 Spłaszczanie zapytania:
 
-    SELECT c.id, c.userId, c.contact.firstName, c.contact.lastName, c.company, c._ts FROM c WHERE c._ts >= @HighWaterMark ORDER BY c._ts
-    
-    
+```sql
+SELECT c.id, c.userId, c.contact.firstName, c.contact.lastName, c.company, c._ts FROM c WHERE c._ts >= @HighWaterMark ORDER BY c._ts
+```
+
 Zapytanie projekcji:
 
-    SELECT VALUE { "id":c.id, "Name":c.contact.firstName, "Company":c.company, "_ts":c._ts } FROM c WHERE c._ts >= @HighWaterMark ORDER BY c._ts
-
+```sql
+SELECT VALUE { "id":c.id, "Name":c.contact.firstName, "Company":c.company, "_ts":c._ts } FROM c WHERE c._ts >= @HighWaterMark ORDER BY c._ts
+```
 
 Zapytanie spłaszczone tablicy:
 
-    SELECT c.id, c.userId, tag, c._ts FROM c JOIN tag IN c.tags WHERE c._ts >= @HighWaterMark ORDER BY c._ts
-
+```sql
+SELECT c.id, c.userId, tag, c._ts FROM c JOIN tag IN c.tags WHERE c._ts >= @HighWaterMark ORDER BY c._ts
+```
 
 ### <a name="3---create-a-target-search-index"></a>3 — Tworzenie docelowego indeksu wyszukiwania 
 
 [Utwórz docelowy indeks wyszukiwanie poznawcze platformy Azure](/rest/api/searchservice/create-index) , jeśli jeszcze go nie masz. Poniższy przykład tworzy indeks z polem ID i Description:
 
+```http
     POST https://[service name].search.windows.net/indexes?api-version=2020-06-30
     Content-Type: application/json
     api-key: [Search service admin key]
@@ -243,6 +254,7 @@ Zapytanie spłaszczone tablicy:
          "suggestions": true
        }]
      }
+```
 
 Upewnij się, że schemat indeksu docelowego jest zgodny ze schematem źródłowych dokumentów JSON lub danymi wyjściowymi projekcji zapytań niestandardowych.
 
@@ -267,6 +279,7 @@ Upewnij się, że schemat indeksu docelowego jest zgodny ze schematem źródłow
 
 Po utworzeniu indeksu i źródła danych można rozpocząć tworzenie indeksatora:
 
+```http
     POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
@@ -277,6 +290,7 @@ Po utworzeniu indeksu i źródła danych można rozpocząć tworzenie indeksator
       "targetIndexName" : "mysearchindex",
       "schedule" : { "interval" : "PT2H" }
     }
+```
 
 Ten indeksator działa co dwie godziny (interwał harmonogramu jest ustawiony na wartość "PT2H"). Aby uruchomić indeksator co 30 minut, ustaw interwał na wartość "PT30M". Najkrótszy obsługiwany interwał to 5 minut. Harmonogram jest opcjonalny — w przypadku pominięcia, indeksator jest uruchamiany tylko raz, gdy zostanie utworzony. Można jednak uruchomić indeksator na żądanie w dowolnym momencie.   
 
@@ -299,10 +313,12 @@ Ogólnie dostępny zestaw .NET SDK ma pełną zgodność z ogólnie dostępnym i
 
 Celem zasad wykrywania zmian danych jest efektywne zidentyfikowanie zmienionych elementów danych. Obecnie jedyną obsługiwaną zasadą jest [`HighWaterMarkChangeDetectionPolicy`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.highwatermarkchangedetectionpolicy) użycie `_ts` właściwości (Sygnatura czasowa) dostarczonej przez Azure Cosmos DB, która jest określona w następujący sposób:
 
+```http
     {
         "@odata.type" : "#Microsoft.Azure.Search.HighWaterMarkChangeDetectionPolicy",
         "highWaterMarkColumnName" : "_ts"
     }
+```
 
 Korzystanie z tych zasad jest zdecydowanie zalecane, aby zapewnić dobrą wydajność indeksatora. 
 
@@ -318,11 +334,13 @@ Aby włączyć przyrostowy postęp przy użyciu zapytania niestandardowego, upew
 
 W niektórych przypadkach, nawet jeśli zapytanie zawiera `ORDER BY [collection alias]._ts` klauzulę, usługa Azure wyszukiwanie poznawcze nie może wywnioskować, że zapytanie jest uporządkowane według `_ts` . Możesz powiedzieć, Wyszukiwanie poznawcze platformy Azure, że wyniki są uporządkowane przy użyciu `assumeOrderByHighWaterMarkColumn` właściwości konfiguracja. Aby określić tę wskazówkę, należy utworzyć lub zaktualizować indeksator w następujący sposób: 
 
+```http
     {
      ... other indexer definition properties
      "parameters" : {
             "configuration" : { "assumeOrderByHighWaterMarkColumn" : true } }
     } 
+```
 
 <a name="DataDeletionDetectionPolicy"></a>
 
@@ -330,16 +348,19 @@ W niektórych przypadkach, nawet jeśli zapytanie zawiera `ORDER BY [collection 
 
 Po usunięciu wierszy z kolekcji, zazwyczaj chcesz usunąć te wiersze z indeksu wyszukiwania. Celem zasad wykrywania usuwania danych jest efektywne identyfikowanie usuniętych elementów danych. Obecnie jedynymi obsługiwanymi zasadami są `Soft Delete` zasady (usuwanie jest oznaczone flagą niektórych rodzajów sortowania), które są określone w następujący sposób:
 
+```http
     {
         "@odata.type" : "#Microsoft.Azure.Search.SoftDeleteColumnDeletionDetectionPolicy",
         "softDeleteColumnName" : "the property that specifies whether a document was deleted",
         "softDeleteMarkerValue" : "the value that identifies a document as deleted"
     }
+```
 
 Jeśli używasz zapytania niestandardowego, upewnij się, że właściwość, do której się odwołuje `softDeleteColumnName` się, jest rzutowana przez zapytanie.
 
 Poniższy przykład tworzy źródło danych z zasadami usuwania nietrwałego:
 
+```http
     POST https://[service name].search.windows.net/datasources?api-version=2020-06-30
     Content-Type: application/json
     api-key: [Search service admin key]
@@ -361,6 +382,7 @@ Poniższy przykład tworzy źródło danych z zasadami usuwania nietrwałego:
             "softDeleteMarkerValue": "true"
         }
     }
+```
 
 ## <a name="next-steps"></a><a name="NextSteps"></a>Następne kroki
 

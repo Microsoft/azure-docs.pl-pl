@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 10/18/2018
 ms.author: rambala
-ms.openlocfilehash: fe7b74b0d4d065d4f222fefbbdc4a1d434d1163b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 635a8fc5409e18da9529763b06e4a531a36d0156
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80518260"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169208"
 ---
 # <a name="interoperability-in-azure--data-plane-analysis"></a>Współdziałanie na platformie Azure: Analiza płaszczyzny danych
 
@@ -29,13 +29,15 @@ Analiza płaszczyzny danych bada ścieżki podejmowane przez pakiety, które prz
 
 Komunikacja równorzędna sieci wirtualnych (VNet) emuluje funkcjonalność mostka sieciowego między dwoma sieci wirtualnych, które są połączone za pomocą komunikacji równorzędnej. Traceroute dane wyjściowe z piasty do maszyny wirtualnej w sieci wirtualnej szprychy są pokazane tutaj:
 
-    C:\Users\rb>tracert 10.11.30.4
+```console
+C:\Users\rb>tracert 10.11.30.4
 
-    Tracing route to 10.11.30.4 over a maximum of 30 hops
+Tracing route to 10.11.30.4 over a maximum of 30 hops
 
-      1     2 ms     1 ms     1 ms  10.11.30.4
+  1     2 ms     1 ms     1 ms  10.11.30.4
 
-    Trace complete.
+Trace complete.
+```
 
 Na poniższej ilustracji przedstawiono graficzny widok połączenia sieci wirtualnej Hub i sieci wirtualnej szprychy z perspektywy Network Watcher platformy Azure:
 
@@ -46,15 +48,17 @@ Na poniższej ilustracji przedstawiono graficzny widok połączenia sieci wirtua
 
 Traceroute dane wyjściowe z koncentratora do maszyny wirtualnej w sieci wirtualnej gałęzi jest pokazane tutaj:
 
-    C:\Users\rb>tracert 10.11.30.68
+```console
+C:\Users\rb>tracert 10.11.30.68
 
-    Tracing route to 10.11.30.68 over a maximum of 30 hops
+Tracing route to 10.11.30.68 over a maximum of 30 hops
 
-      1     1 ms     1 ms     1 ms  10.10.30.142
-      2     *        *        *     Request timed out.
-      3     2 ms     2 ms     2 ms  10.11.30.68
+  1     1 ms     1 ms     1 ms  10.10.30.142
+  2     *        *        *     Request timed out.
+  3     2 ms     2 ms     2 ms  10.11.30.68
 
-    Trace complete.
+Trace complete.
+```
 
 W tym traceroute pierwszy przeskok to Brama sieci VPN w usłudze Azure VPN Gateway Sieć wirtualna centrum. Drugim przeskokiem jest Brama sieci VPN w oddziale firmy. Adres IP bramy sieci VPN gałęzi nie jest anonsowany przez sieć wirtualną centrali. Trzeci przeskok to maszyna wirtualna w sieci wirtualnej gałęzi.
 
@@ -70,16 +74,18 @@ Dla tego samego połączenia na poniższej ilustracji przedstawiono widok siatki
 
 Traceroute dane wyjściowe z Centrum sieci wirtualnej do maszyny wirtualnej w lokalizacji lokalnej 1 są wyświetlane tutaj:
 
-    C:\Users\rb>tracert 10.2.30.10
+```console
+C:\Users\rb>tracert 10.2.30.10
 
-    Tracing route to 10.2.30.10 over a maximum of 30 hops
+Tracing route to 10.2.30.10 over a maximum of 30 hops
 
-      1     2 ms     2 ms     2 ms  10.10.30.132
-      2     *        *        *     Request timed out.
-      3     *        *        *     Request timed out.
-      4     2 ms     2 ms     2 ms  10.2.30.10
+  1     2 ms     2 ms     2 ms  10.10.30.132
+  2     *        *        *     Request timed out.
+  3     *        *        *     Request timed out.
+  4     2 ms     2 ms     2 ms  10.2.30.10
 
-    Trace complete.
+Trace complete.
+```
 
 W tym traceroute pierwszy przeskok jest punktem końcowym tunelu bramy usługi Azure ExpressRoute do routera brzegowego firmy Microsoft (MSEE). Drugi i trzeci przeskoki są routerem brzegowym klienta (CE) i lokalizacją lokalną sieci LAN 1. Te adresy IP nie są anonsowane w sieci wirtualnej centrum. Czwarty przeskok to maszyna wirtualna w lokalizacji lokalnej 1.
 
@@ -88,16 +94,18 @@ W tym traceroute pierwszy przeskok jest punktem końcowym tunelu bramy usługi A
 
 Traceroute dane wyjściowe z Centrum sieci wirtualnej do maszyny wirtualnej w lokalizacji lokalnej 2 przedstawiono tutaj:
 
-    C:\Users\rb>tracert 10.1.31.10
+```console
+C:\Users\rb>tracert 10.1.31.10
 
-    Tracing route to 10.1.31.10 over a maximum of 30 hops
+Tracing route to 10.1.31.10 over a maximum of 30 hops
 
-      1    76 ms    75 ms    75 ms  10.10.30.134
-      2     *        *        *     Request timed out.
-      3     *        *        *     Request timed out.
-      4    75 ms    75 ms    75 ms  10.1.31.10
+  1    76 ms    75 ms    75 ms  10.10.30.134
+  2     *        *        *     Request timed out.
+  3     *        *        *     Request timed out.
+  4    75 ms    75 ms    75 ms  10.1.31.10
 
-    Trace complete.
+Trace complete.
+```
 
 W tym traceroute pierwszy przeskok jest punktem końcowym tunelu bramy ExpressRoute do MSEE. Drugi i trzeci przeskoki to router CE i lokalne adresy IP w lokalizacji lokalnej 2. Te adresy IP nie są anonsowane w sieci wirtualnej centrum. Czwarty przeskok to maszyna wirtualna w lokalizacji lokalnej 2.
 
@@ -105,15 +113,17 @@ W tym traceroute pierwszy przeskok jest punktem końcowym tunelu bramy ExpressRo
 
 Traceroute dane wyjściowe z koncentratora do maszyny wirtualnej w zdalnej sieci wirtualnej są wyświetlane tutaj:
 
-    C:\Users\rb>tracert 10.17.30.4
+```console
+C:\Users\rb>tracert 10.17.30.4
 
-    Tracing route to 10.17.30.4 over a maximum of 30 hops
+Tracing route to 10.17.30.4 over a maximum of 30 hops
 
-      1     2 ms     2 ms     2 ms  10.10.30.132
-      2     *        *        *     Request timed out.
-      3    69 ms    68 ms    69 ms  10.17.30.4
+  1     2 ms     2 ms     2 ms  10.10.30.132
+  2     *        *        *     Request timed out.
+  3    69 ms    68 ms    69 ms  10.17.30.4
 
-    Trace complete.
+Trace complete.
+```
 
 W tym traceroute pierwszy przeskok jest punktem końcowym tunelu bramy ExpressRoute do MSEE. Drugi przeskok to adres IP bramy zdalnej sieci wirtualnej. Zakres adresów IP drugiego przeskoku nie jest anonsowany w sieci wirtualnej centrum. Trzeci przeskok to maszyna wirtualna w zdalnej sieci wirtualnej.
 
@@ -125,27 +135,31 @@ Sieć wirtualna szprychy udostępnia widok sieci wirtualnej centrum. Za pośredn
 
 Dane wyjściowe traceroute z sieci wirtualnej szprychy do maszyny wirtualnej w sieci wirtualnej centrum są wyświetlane tutaj:
 
-    C:\Users\rb>tracert 10.10.30.4
+```console
+C:\Users\rb>tracert 10.10.30.4
 
-    Tracing route to 10.10.30.4 over a maximum of 30 hops
+Tracing route to 10.10.30.4 over a maximum of 30 hops
 
-      1    <1 ms    <1 ms    <1 ms  10.10.30.4
+  1    <1 ms    <1 ms    <1 ms  10.10.30.4
 
-    Trace complete.
+Trace complete.
+```
 
 ### <a name="path-to-the-branch-vnet"></a>Ścieżka do sieci wirtualnej gałęzi
 
 Dane wyjściowe traceroute z sieci wirtualnej szprychy do maszyny wirtualnej w sieci wirtualnej gałęzi są pokazane tutaj:
 
-    C:\Users\rb>tracert 10.11.30.68
+```console
+C:\Users\rb>tracert 10.11.30.68
 
-    Tracing route to 10.11.30.68 over a maximum of 30 hops
+Tracing route to 10.11.30.68 over a maximum of 30 hops
 
-      1     1 ms    <1 ms    <1 ms  10.10.30.142
-      2     *        *        *     Request timed out.
-      3     3 ms     2 ms     2 ms  10.11.30.68
+  1     1 ms    <1 ms    <1 ms  10.10.30.142
+  2     *        *        *     Request timed out.
+  3     3 ms     2 ms     2 ms  10.11.30.68
 
-    Trace complete.
+Trace complete.
+```
 
 W tym traceroute pierwszy przeskok jest bramą sieci VPN koncentratora. Drugim przeskokiem jest Brama sieci VPN w oddziale firmy. Adres IP bramy sieci VPN gałęzi nie jest anonsowany w sieci wirtualnej Hub/szprychy. Trzeci przeskok to maszyna wirtualna w sieci wirtualnej gałęzi.
 
@@ -153,16 +167,18 @@ W tym traceroute pierwszy przeskok jest bramą sieci VPN koncentratora. Drugim p
 
 Dane wyjściowe traceroute z sieci wirtualnej szprychy do maszyny wirtualnej w lokalizacji lokalnej 1 są przedstawione tutaj:
 
-    C:\Users\rb>tracert 10.2.30.10
+```console
+C:\Users\rb>tracert 10.2.30.10
 
-    Tracing route to 10.2.30.10 over a maximum of 30 hops
+Tracing route to 10.2.30.10 over a maximum of 30 hops
 
-      1    24 ms     2 ms     3 ms  10.10.30.132
-      2     *        *        *     Request timed out.
-      3     *        *        *     Request timed out.
-      4     3 ms     2 ms     2 ms  10.2.30.10
+  1    24 ms     2 ms     3 ms  10.10.30.132
+  2     *        *        *     Request timed out.
+  3     *        *        *     Request timed out.
+  4     3 ms     2 ms     2 ms  10.2.30.10
 
-    Trace complete.
+Trace complete.
+```
 
 W tym traceroute pierwszy przeskok jest punktem końcowym tunelu bramy ExpressRoute Gateway sieci wirtualnej do MSEE. Drugi i trzeci przeskoki są routerem CE i lokalnymi adresami IP sieci LAN. Te adresy IP nie są anonsowane w sieci wirtualnej Hub/szprychy. Czwarty przeskok to maszyna wirtualna w lokalizacji lokalnej 1.
 
@@ -170,17 +186,18 @@ W tym traceroute pierwszy przeskok jest punktem końcowym tunelu bramy ExpressRo
 
 Traceroute dane wyjściowe z sieci wirtualnej szprychy do maszyny wirtualnej w lokalizacji lokalnej 2 przedstawiono tutaj:
 
+```console
+C:\Users\rb>tracert 10.1.31.10
 
-    C:\Users\rb>tracert 10.1.31.10
+Tracing route to 10.1.31.10 over a maximum of 30 hops
 
-    Tracing route to 10.1.31.10 over a maximum of 30 hops
+  1    76 ms    75 ms    76 ms  10.10.30.134
+  2     *        *        *     Request timed out.
+  3     *        *        *     Request timed out.
+  4    75 ms    75 ms    75 ms  10.1.31.10
 
-      1    76 ms    75 ms    76 ms  10.10.30.134
-      2     *        *        *     Request timed out.
-      3     *        *        *     Request timed out.
-      4    75 ms    75 ms    75 ms  10.1.31.10
-
-    Trace complete.
+Trace complete.
+```
 
 W tym traceroute pierwszy przeskok jest punktem końcowym tunelu bramy ExpressRoute Gateway sieci wirtualnej do MSEE. Drugi i trzeci przeskoki to router CE i lokalne adresy IP w lokalizacji lokalnej 2. Te adresy IP nie są anonsowane w sieci wirtualnych Hub/szprychy. Czwarty przeskok to maszyna wirtualna w lokalizacji lokalnej 2.
 
@@ -188,15 +205,17 @@ W tym traceroute pierwszy przeskok jest punktem końcowym tunelu bramy ExpressRo
 
 Dane wyjściowe traceroute z sieci wirtualnej szprychy do maszyny wirtualnej w zdalnej sieci wirtualnej są pokazane tutaj:
 
-    C:\Users\rb>tracert 10.17.30.4
+```console
+C:\Users\rb>tracert 10.17.30.4
 
-    Tracing route to 10.17.30.4 over a maximum of 30 hops
+Tracing route to 10.17.30.4 over a maximum of 30 hops
 
-      1     2 ms     1 ms     1 ms  10.10.30.133
-      2     *        *        *     Request timed out.
-      3    71 ms    70 ms    70 ms  10.17.30.4
+  1     2 ms     1 ms     1 ms  10.10.30.133
+  2     *        *        *     Request timed out.
+  3    71 ms    70 ms    70 ms  10.17.30.4
 
-    Trace complete.
+Trace complete.
+```
 
 W tym traceroute pierwszy przeskok jest punktem końcowym tunelu bramy ExpressRoute Gateway sieci wirtualnej do MSEE. Drugi przeskok to adres IP bramy zdalnej sieci wirtualnej. Zakres adresów IP drugiego przeskoku nie jest anonsowany w sieci wirtualnej Hub/szprychy. Trzeci przeskok to maszyna wirtualna w zdalnej sieci wirtualnej.
 
@@ -206,15 +225,17 @@ W tym traceroute pierwszy przeskok jest punktem końcowym tunelu bramy ExpressRo
 
 Dane wyjściowe traceroute z sieci wirtualnej gałęzi do maszyny wirtualnej w sieci wirtualnej centrum są pokazane tutaj:
 
-    C:\Windows\system32>tracert 10.10.30.4
+```console
+C:\Windows\system32>tracert 10.10.30.4
 
-    Tracing route to 10.10.30.4 over a maximum of 30 hops
+Tracing route to 10.10.30.4 over a maximum of 30 hops
 
-      1    <1 ms    <1 ms    <1 ms  10.11.30.100
-      2     *        *        *     Request timed out.
-      3     4 ms     3 ms     3 ms  10.10.30.4
+  1    <1 ms    <1 ms    <1 ms  10.11.30.100
+  2     *        *        *     Request timed out.
+  3     4 ms     3 ms     3 ms  10.10.30.4
 
-    Trace complete.
+Trace complete.
+```
 
 W tym traceroute pierwszy przeskok to Brama sieci VPN gałęzi. Drugi przeskok to Brama sieci VPN koncentratora. Adres IP bramy sieci VPN koncentratora nie jest anonsowany w zdalnej sieci wirtualnej. Trzeci przeskok to maszyna wirtualna w sieci wirtualnej centrum.
 
@@ -222,15 +243,17 @@ W tym traceroute pierwszy przeskok to Brama sieci VPN gałęzi. Drugi przeskok t
 
 Traceroute wyjście z sieci wirtualnej gałęzi do maszyny wirtualnej w sieci wirtualnej szprychy jest pokazane tutaj:
 
-    C:\Users\rb>tracert 10.11.30.4
+```console
+C:\Users\rb>tracert 10.11.30.4
 
-    Tracing route to 10.11.30.4 over a maximum of 30 hops
+Tracing route to 10.11.30.4 over a maximum of 30 hops
 
-      1     1 ms    <1 ms     1 ms  10.11.30.100
-      2     *        *        *     Request timed out.
-      3     4 ms     3 ms     2 ms  10.11.30.4
+  1     1 ms    <1 ms     1 ms  10.11.30.100
+  2     *        *        *     Request timed out.
+  3     4 ms     3 ms     2 ms  10.11.30.4
 
-    Trace complete.
+Trace complete.
+```
 
 W tym traceroute pierwszy przeskok to Brama sieci VPN gałęzi. Drugi przeskok to Brama sieci VPN koncentratora. Adres IP bramy sieci VPN koncentratora nie jest anonsowany w zdalnej sieci wirtualnej. Trzeci przeskok to maszyna wirtualna w sieci wirtualnej szprych.
 
@@ -238,17 +261,19 @@ W tym traceroute pierwszy przeskok to Brama sieci VPN gałęzi. Drugi przeskok t
 
 Dane wyjściowe traceroute z sieci wirtualnej gałęzi do maszyny wirtualnej w lokalizacji lokalnej 1 są przedstawione tutaj:
 
-    C:\Users\rb>tracert 10.2.30.10
+```console
+C:\Users\rb>tracert 10.2.30.10
 
-    Tracing route to 10.2.30.10 over a maximum of 30 hops
+Tracing route to 10.2.30.10 over a maximum of 30 hops
 
-      1     1 ms    <1 ms    <1 ms  10.11.30.100
-      2     *        *        *     Request timed out.
-      3     3 ms     2 ms     2 ms  10.2.30.125
-      4     *        *        *     Request timed out.
-      5     3 ms     3 ms     3 ms  10.2.30.10
+  1     1 ms    <1 ms    <1 ms  10.11.30.100
+  2     *        *        *     Request timed out.
+  3     3 ms     2 ms     2 ms  10.2.30.125
+  4     *        *        *     Request timed out.
+  5     3 ms     3 ms     3 ms  10.2.30.10
 
-    Trace complete.
+Trace complete.
+```
 
 W tym traceroute pierwszy przeskok to Brama sieci VPN gałęzi. Drugi przeskok to Brama sieci VPN koncentratora. Adres IP bramy sieci VPN koncentratora nie jest anonsowany w zdalnej sieci wirtualnej. Trzeci przeskok to punkt końcowy tunelu sieci VPN na podstawowym routerze CE. Czwarty przeskok to wewnętrzny adres IP lokalizacji lokalnej 1. Ten adres IP sieci LAN nie jest anonsowany poza routerem CE. Piąty przeskok to docelowa maszyna wirtualna w lokalizacji lokalnej 1.
 
@@ -256,27 +281,29 @@ W tym traceroute pierwszy przeskok to Brama sieci VPN gałęzi. Drugi przeskok t
 
 Jak opisano w analizie płaszczyzny kontroli, Sieć wirtualna gałęzi nie ma wglądu w lokalizację lokalną 2 lub do zdalnej sieci wirtualnej na konfigurację sieci. Następujące wyniki polecenia ping potwierdzają: 
 
-    C:\Users\rb>ping 10.1.31.10
+```console
+C:\Users\rb>ping 10.1.31.10
 
-    Pinging 10.1.31.10 with 32 bytes of data:
+Pinging 10.1.31.10 with 32 bytes of data:
 
-    Request timed out.
-    ...
-    Request timed out.
+Request timed out.
+...
+Request timed out.
 
-    Ping statistics for 10.1.31.10:
-        Packets: Sent = 4, Received = 0, Lost = 4 (100% loss),
+Ping statistics for 10.1.31.10:
+    Packets: Sent = 4, Received = 0, Lost = 4 (100% loss),
 
-    C:\Users\rb>ping 10.17.30.4
+C:\Users\rb>ping 10.17.30.4
 
-    Pinging 10.17.30.4 with 32 bytes of data:
+Pinging 10.17.30.4 with 32 bytes of data:
 
-    Request timed out.
-    ...
-    Request timed out.
+Request timed out.
+...
+Request timed out.
 
-    Ping statistics for 10.17.30.4:
-        Packets: Sent = 4, Received = 0, Lost = 4 (100% loss),
+Ping statistics for 10.17.30.4:
+    Packets: Sent = 4, Received = 0, Lost = 4 (100% loss),
+```
 
 ## <a name="data-path-from-on-premises-location-1"></a>Ścieżka danych z lokalizacji lokalnej 1
 
@@ -284,17 +311,19 @@ Jak opisano w analizie płaszczyzny kontroli, Sieć wirtualna gałęzi nie ma wg
 
 Traceroute dane wyjściowe z lokalizacji lokalnej 1 do maszyny wirtualnej w sieci wirtualnej centrum są wyświetlane tutaj:
 
-    C:\Users\rb>tracert 10.10.30.4
+```console
+C:\Users\rb>tracert 10.10.30.4
 
-    Tracing route to 10.10.30.4 over a maximum of 30 hops
+Tracing route to 10.10.30.4 over a maximum of 30 hops
 
-      1    <1 ms    <1 ms    <1 ms  10.2.30.3
-      2    <1 ms    <1 ms    <1 ms  192.168.30.0
-      3    <1 ms    <1 ms    <1 ms  192.168.30.18
-      4     *        *        *     Request timed out.
-      5     2 ms     2 ms     2 ms  10.10.30.4
+  1    <1 ms    <1 ms    <1 ms  10.2.30.3
+  2    <1 ms    <1 ms    <1 ms  192.168.30.0
+  3    <1 ms    <1 ms    <1 ms  192.168.30.18
+  4     *        *        *     Request timed out.
+  5     2 ms     2 ms     2 ms  10.10.30.4
 
-    Trace complete.
+Trace complete.
+```
 
 W tym traceroute pierwsze dwa przeskoki są częścią sieci lokalnej. Trzeci przeskok to podstawowy interfejs MSEE, który jest przeznaczony dla routera CE. Czwarty przeskok to brama ExpressRoute sieci wirtualnej centrum. Zakres adresów IP bramy ExpressRoute sieci wirtualnej koncentratora nie jest anonsowany w przypadku lokalnej pamięci. Piąty przeskok to docelowa maszyna wirtualna.
 
@@ -306,15 +335,17 @@ Na poniższej ilustracji przedstawiono widok topologii łączności maszyny wirt
 
 Jak wspomniano wcześniej, Konfiguracja testu używa sieci VPN typu lokacja-lokacja jako łączności kopii zapasowej dla ExpressRoute między lokalizacją lokalną 1 i siecią wirtualną piasty. Aby przetestować ścieżkę danych kopii zapasowej, przyciągnąćmy błąd łącza ExpressRoute między lokalnym routerem CE i odpowiednim MSEE. Aby wywołać błąd łącza ExpressRoute, Zamknij interfejs CE, który nawiąże MSEE:
 
-    C:\Users\rb>tracert 10.10.30.4
+```console
+C:\Users\rb>tracert 10.10.30.4
 
-    Tracing route to 10.10.30.4 over a maximum of 30 hops
+Tracing route to 10.10.30.4 over a maximum of 30 hops
 
-      1    <1 ms    <1 ms    <1 ms  10.2.30.3
-      2    <1 ms    <1 ms    <1 ms  192.168.30.0
-      3     3 ms     2 ms     3 ms  10.10.30.4
+  1    <1 ms    <1 ms    <1 ms  10.2.30.3
+  2    <1 ms    <1 ms    <1 ms  192.168.30.0
+  3     3 ms     2 ms     3 ms  10.10.30.4
 
-    Trace complete.
+Trace complete.
+```
 
 Na poniższej ilustracji przedstawiono widok topologii łączności maszyny wirtualnej w lokalizacji lokalnej 1 z maszyną wirtualną w sieci wirtualnej koncentratora za pośrednictwem połączenia VPN między lokacjami, gdy ExpressRoute łączność nie działa:
 
@@ -326,17 +357,19 @@ Traceroute dane wyjściowe z lokalizacji lokalnej 1 do maszyny wirtualnej w siec
 
 Wróćmy do ExpressRoute podstawowej łączności, aby przeprowadzić analizę ścieżki danych w kierunku sieci wirtualnej szprychy:
 
-    C:\Users\rb>tracert 10.11.30.4
+```console
+C:\Users\rb>tracert 10.11.30.4
 
-    Tracing route to 10.11.30.4 over a maximum of 30 hops
+Tracing route to 10.11.30.4 over a maximum of 30 hops
 
-      1    <1 ms    <1 ms    <1 ms  10.2.30.3
-      2    <1 ms    <1 ms    <1 ms  192.168.30.0
-      3    <1 ms    <1 ms    <1 ms  192.168.30.18
-      4     *        *        *     Request timed out.
-      5     3 ms     2 ms     2 ms  10.11.30.4
+  1    <1 ms    <1 ms    <1 ms  10.2.30.3
+  2    <1 ms    <1 ms    <1 ms  192.168.30.0
+  3    <1 ms    <1 ms    <1 ms  192.168.30.18
+  4     *        *        *     Request timed out.
+  5     3 ms     2 ms     2 ms  10.11.30.4
 
-    Trace complete.
+Trace complete.
+```
 
 Wywołaj podstawową łączność ExpressRoute 1 dla pozostałej części analizy ścieżki danych.
 
@@ -344,46 +377,52 @@ Wywołaj podstawową łączność ExpressRoute 1 dla pozostałej części analiz
 
 Traceroute dane wyjściowe z lokalizacji lokalnej 1 do maszyny wirtualnej w sieci wirtualnej gałęzi jest pokazane tutaj:
 
-    C:\Users\rb>tracert 10.11.30.68
+```console
+C:\Users\rb>tracert 10.11.30.68
 
-    Tracing route to 10.11.30.68 over a maximum of 30 hops
+Tracing route to 10.11.30.68 over a maximum of 30 hops
 
-      1    <1 ms    <1 ms    <1 ms  10.2.30.3
-      2    <1 ms    <1 ms    <1 ms  192.168.30.0
-      3     3 ms     2 ms     2 ms  10.11.30.68
+  1    <1 ms    <1 ms    <1 ms  10.2.30.3
+  2    <1 ms    <1 ms    <1 ms  192.168.30.0
+  3     3 ms     2 ms     2 ms  10.11.30.68
 
-    Trace complete.
+Trace complete.
+```
 
 ### <a name="path-to-on-premises-location-2"></a>Ścieżka do lokalizacji lokalnej 2
 
 Podczas omawiania [analizy płaszczyzny kontroli][Control-Analysis], lokalizacja lokalna 1 nie ma wglądu w lokalizację lokalną 2 dla konfiguracji sieci. Następujące wyniki polecenia ping potwierdzają: 
 
-    C:\Users\rb>ping 10.1.31.10
-    
-    Pinging 10.1.31.10 with 32 bytes of data:
+```console
+C:\Users\rb>ping 10.1.31.10
 
-    Request timed out.
-    ...
-    Request timed out.
+Pinging 10.1.31.10 with 32 bytes of data:
 
-    Ping statistics for 10.1.31.10:
-        Packets: Sent = 4, Received = 0, Lost = 4 (100% loss),
+Request timed out.
+...
+Request timed out.
+
+Ping statistics for 10.1.31.10:
+    Packets: Sent = 4, Received = 0, Lost = 4 (100% loss),
+```
 
 ### <a name="path-to-the-remote-vnet"></a>Ścieżka do zdalnej sieci wirtualnej
 
 Traceroute dane wyjściowe z lokalizacji lokalnej 1 do maszyny wirtualnej w zdalnej sieci wirtualnej są wyświetlane tutaj:
 
-    C:\Users\rb>tracert 10.17.30.4
+```console
+C:\Users\rb>tracert 10.17.30.4
 
-    Tracing route to 10.17.30.4 over a maximum of 30 hops
+Tracing route to 10.17.30.4 over a maximum of 30 hops
 
-      1    <1 ms    <1 ms    <1 ms  10.2.30.3
-      2     2 ms     5 ms     7 ms  192.168.30.0
-      3    <1 ms    <1 ms    <1 ms  192.168.30.18
-      4     *        *        *     Request timed out.
-      5    69 ms    70 ms    69 ms  10.17.30.4
+  1    <1 ms    <1 ms    <1 ms  10.2.30.3
+  2     2 ms     5 ms     7 ms  192.168.30.0
+  3    <1 ms    <1 ms    <1 ms  192.168.30.18
+  4     *        *        *     Request timed out.
+  5    69 ms    70 ms    69 ms  10.17.30.4
 
-    Trace complete.
+Trace complete.
+```
 
 ## <a name="data-path-from-on-premises-location-2"></a>Ścieżka danych z lokalizacji lokalnej 2
 
@@ -391,32 +430,36 @@ Traceroute dane wyjściowe z lokalizacji lokalnej 1 do maszyny wirtualnej w zdal
 
 Traceroute dane wyjściowe z lokalizacji lokalnej 2 do maszyny wirtualnej w sieci wirtualnej centrum są wyświetlane tutaj:
 
-    C:\Windows\system32>tracert 10.10.30.4
+```console
+C:\Windows\system32>tracert 10.10.30.4
 
-    Tracing route to 10.10.30.4 over a maximum of 30 hops
+Tracing route to 10.10.30.4 over a maximum of 30 hops
 
-      1    <1 ms    <1 ms    <1 ms  10.1.31.3
-      2    <1 ms    <1 ms    <1 ms  192.168.31.4
-      3    <1 ms    <1 ms    <1 ms  192.168.31.22
-      4     *        *        *     Request timed out.
-      5    75 ms    74 ms    74 ms  10.10.30.4
+  1    <1 ms    <1 ms    <1 ms  10.1.31.3
+  2    <1 ms    <1 ms    <1 ms  192.168.31.4
+  3    <1 ms    <1 ms    <1 ms  192.168.31.22
+  4     *        *        *     Request timed out.
+  5    75 ms    74 ms    74 ms  10.10.30.4
 
-    Trace complete.
+Trace complete.
+```
 
 ### <a name="path-to-the-spoke-vnet"></a>Ścieżka do sieci wirtualnej szprychy
 
 Traceroute dane wyjściowe z lokalizacji lokalnej 2 do maszyny wirtualnej w sieci wirtualnej szprychy są pokazane tutaj:
 
-    C:\Windows\system32>tracert 10.11.30.4
+```console
+C:\Windows\system32>tracert 10.11.30.4
 
-    Tracing route to 10.11.30.4 over a maximum of 30 hops
-      1    <1 ms    <1 ms     1 ms  10.1.31.3
-      2    <1 ms    <1 ms    <1 ms  192.168.31.0
-      3    <1 ms    <1 ms    <1 ms  192.168.31.18
-      4     *        *        *     Request timed out.
-      5    75 ms    74 ms    74 ms  10.11.30.4
+Tracing route to 10.11.30.4 over a maximum of 30 hops
+  1    <1 ms    <1 ms     1 ms  10.1.31.3
+  2    <1 ms    <1 ms    <1 ms  192.168.31.0
+  3    <1 ms    <1 ms    <1 ms  192.168.31.18
+  4     *        *        *     Request timed out.
+  5    75 ms    74 ms    74 ms  10.11.30.4
 
-    Trace complete.
+Trace complete.
+```
 
 ### <a name="path-to-the-branch-vnet-on-premises-location-1-and-the-remote-vnet"></a>Ścieżka do sieci wirtualnej gałęzi, lokalizacji lokalnej 1 i zdalnej sieci wirtualnej
 
@@ -428,29 +471,33 @@ W miarę dyskusji w [analizie płaszczyzny kontroli][Control-Analysis], lokaliza
 
 Traceroute dane wyjściowe z zdalnej sieci wirtualnej do maszyny wirtualnej w sieci wirtualnej centrum są wyświetlane tutaj:
 
-    C:\Users\rb>tracert 10.10.30.4
+```console
+C:\Users\rb>tracert 10.10.30.4
 
-    Tracing route to 10.10.30.4 over a maximum of 30 hops
+Tracing route to 10.10.30.4 over a maximum of 30 hops
 
-      1    65 ms    65 ms    65 ms  10.17.30.36
-      2     *        *        *     Request timed out.
-      3    69 ms    68 ms    68 ms  10.10.30.4
+  1    65 ms    65 ms    65 ms  10.17.30.36
+  2     *        *        *     Request timed out.
+  3    69 ms    68 ms    68 ms  10.10.30.4
 
-    Trace complete.
+Trace complete.
+```
 
 ### <a name="path-to-the-spoke-vnet"></a>Ścieżka do sieci wirtualnej szprychy
 
 Traceroute dane wyjściowe z zdalnej sieci wirtualnej do maszyny wirtualnej w sieci wirtualnej szprychy są pokazane tutaj:
 
-    C:\Users\rb>tracert 10.11.30.4
+```console
+C:\Users\rb>tracert 10.11.30.4
 
-    Tracing route to 10.11.30.4 over a maximum of 30 hops
+Tracing route to 10.11.30.4 over a maximum of 30 hops
 
-      1    67 ms    67 ms    67 ms  10.17.30.36
-      2     *        *        *     Request timed out.
-      3    71 ms    69 ms    69 ms  10.11.30.4
+  1    67 ms    67 ms    67 ms  10.17.30.36
+  2     *        *        *     Request timed out.
+  3    71 ms    69 ms    69 ms  10.11.30.4
 
-    Trace complete.
+Trace complete.
+```
 
 ### <a name="path-to-the-branch-vnet-and-on-premises-location-2"></a>Ścieżka do sieci wirtualnej gałęzi i lokalizacji lokalnej 2
 
@@ -460,17 +507,18 @@ Podczas omawiania [analizy płaszczyzny kontroli][Control-Analysis]zdalna Sieć 
 
 Dane wyjściowe traceroute z zdalnej sieci wirtualnej do maszyny wirtualnej w lokalizacji lokalnej 1 są przedstawione tutaj:
 
-    C:\Users\rb>tracert 10.2.30.10
+```console
+C:\Users\rb>tracert 10.2.30.10
 
-    Tracing route to 10.2.30.10 over a maximum of 30 hops
+Tracing route to 10.2.30.10 over a maximum of 30 hops
 
-      1    67 ms    67 ms    67 ms  10.17.30.36
-      2     *        *        *     Request timed out.
-      3     *        *        *     Request timed out.
-      4    69 ms    69 ms    69 ms  10.2.30.10
+  1    67 ms    67 ms    67 ms  10.17.30.36
+  2     *        *        *     Request timed out.
+  3     *        *        *     Request timed out.
+  4    69 ms    69 ms    69 ms  10.2.30.10
 
-    Trace complete.
-
+Trace complete.
+```
 
 ## <a name="expressroute-and-site-to-site-vpn-connectivity-in-tandem"></a>ExpressRoute i połączenie sieci VPN typu lokacja-lokacja wspólnie
 

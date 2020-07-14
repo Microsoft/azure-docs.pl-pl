@@ -1,5 +1,5 @@
 ---
-title: Ocenianie i eliminowanie problemów z atrakcyjnością w modelach uczenia maszynowego
+title: Ocenianie i eliminowanie problemów z atrakcyjnością w modelach uczenia maszynowego (wersja zapoznawcza)
 titleSuffix: Azure Machine Learning
 description: Dowiedz się więcej o atrakcyjności modeli uczenia maszynowego oraz o sposobie, w jaki pakiet języka Python Fairlearn może pomóc w tworzeniu atrakcyjnych modeli.
 services: machine-learning
@@ -8,15 +8,15 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: luquinta
 author: luisquintanilla
-ms.date: 06/30/2020
-ms.openlocfilehash: c4e9b8386c8341d076a69e2e81b5e92f296153ac
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/09/2020
+ms.openlocfilehash: 2cc3228c20fba322ec804a3bcc9ee322c7d37907
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85611785"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207302"
 ---
-# <a name="build-fairer-machine-learning-models"></a>Twórz bardziej atrakcyjne modele uczenia maszynowego
+# <a name="build-fairer-machine-learning-models-preview"></a>Twórz bardziej atrakcyjne modele uczenia maszynowego (wersja zapoznawcza)
 
 Dowiedz się więcej o atrakcyjności uczenia maszynowego oraz o sposobie, w jaki pakiet języka Python [Fairlearn](https://fairlearn.github.io/) open-source może pomóc w tworzeniu bardziej uczciwych modeli. Jeśli nie chcesz, aby poznać problemy z uczciwymi działaniami i ocenić sprawiedliwość podczas kompilowania modeli uczenia maszynowego, możesz tworzyć modele, które generują nieuczciwe wyniki. 
 

@@ -44,6 +44,14 @@
       href: troubleshooting-identity-protection-faq.md
 - name: Dokumentacja
   items:
+    - name: Interfejs API programu Graph
+      items:
+        - name: Interfejs API riskDetection
+          href: /graph/api/resources/riskdetection?view=graph-rest-v1.0
+        - name: Interfejs API riskyUsers
+          href: /graph/api/resources/riskyuser?view=graph-rest-v1.0
+        - name: Interfejs API signIn
+          href: /graph/api/resources/signin?view=graph-rest-v1.0
     - name: Słownik
       href: reference-identity-protection-glossary.md
 - name: Zasoby

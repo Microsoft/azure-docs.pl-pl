@@ -1,5 +1,5 @@
 ---
-title: Składniki bramy aplikacji
+title: Application gateway components (Składniki usługi Application Gateway)
 description: Ten artykuł zawiera informacje dotyczące różnych składników w bramie aplikacji
 services: application-gateway
 author: abshamsft
@@ -7,14 +7,14 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: absha
-ms.openlocfilehash: 46ef67e5ede1ea41469a8dcc78244e74c0bffc45
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 798137a74f22824dbfec9653bff327d3a0a1f3b4
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85254331"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186762"
 ---
-# <a name="application-gateway-components"></a>Składniki bramy aplikacji
+# <a name="application-gateway-components"></a>Application gateway components (Składniki usługi Application Gateway)
 
  Brama aplikacji służy jako pojedynczy punkt kontaktu dla klientów. Dystrybuuje ruch aplikacji przychodzących między wieloma pulami zaplecza, takich jak maszyny wirtualne platformy Azure, zestawy skalowania maszyn wirtualnych, Azure App Service i serwery lokalne/zewnętrzne. Aby dystrybuować ruch, Brama aplikacji używa kilku składników opisanych w tym artykule.
 
@@ -144,7 +144,7 @@ Dla różnych typów żądań można utworzyć różne pule zaplecza. Na przykł
 
 Domyślnie Brama aplikacji monitoruje kondycję wszystkich zasobów w puli zaplecza i automatycznie usuwa w złej kondycji. Następnie monitoruje wystąpienia w złej kondycji i dodaje je z powrotem do odpowiedniej puli zaplecza, gdy staną się dostępne i reagują na sondy kondycji.
 
-Oprócz domyślnego monitorowania sondy kondycji można także dostosować sondę kondycji do wymagań aplikacji. Niestandardowe sondy umożliwiają dokładniejszą kontrolę nad monitorowaniem kondycji. W przypadku korzystania z sond niestandardowych można skonfigurować interwał sondowania, adres URL i ścieżkę do testowania oraz liczbę niepowodzeń odpowiedzi, które mają być akceptowane, zanim wystąpienie puli zaplecza zostanie oznaczone jako w złej kondycji. Zalecamy skonfigurowanie niestandardowych sond do monitorowania kondycji każdej puli zaplecza.
+Oprócz domyślnego monitorowania sondy kondycji można także dostosować sondę kondycji do wymagań aplikacji. Niestandardowe sondy umożliwiają dokładniejszą kontrolę nad monitorowaniem kondycji. W przypadku korzystania z sond niestandardowych można skonfigurować niestandardową nazwę hosta, ścieżkę adresu URL, interwał sondy oraz liczbę niepowodzeń odpowiedzi akceptowanych przed oznaczeniem wystąpienia puli zaplecza jako złej kondycji, niestandardowych kodów stanu i zgodności treści odpowiedzi itp. Zalecamy skonfigurowanie niestandardowych sond do monitorowania kondycji każdej puli zaplecza.
 
 Aby uzyskać więcej informacji, zobacz [monitorowanie kondycji bramy aplikacji](../application-gateway/application-gateway-probe-overview.md).
 

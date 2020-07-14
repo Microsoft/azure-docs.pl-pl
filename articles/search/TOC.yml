@@ -72,6 +72,8 @@
           href: cognitive-search-tutorial-blob-python.md
     - name: Debugowanie zestawu umiejętności
       href: cognitive-search-tutorial-debug-sessions.md
+    - name: Tworzenie niestandardowego analizatora
+      href: tutorial-create-custom-analyzer.md
     - name: Wykonywanie zapytań z poziomu usługi Power Apps
       href: search-howto-powerapps.md
 - name: Samples

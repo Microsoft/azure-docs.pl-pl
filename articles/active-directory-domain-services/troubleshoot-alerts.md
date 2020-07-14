@@ -9,13 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 01/21/2020
+ms.date: 07/09/2020
 ms.author: iainfou
-ms.openlocfilehash: 5d3300151dc5fdfde0b34aa3f76c3ed9494d34fd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 91a060e8a5fe1bdaf3e6ea08811814297c355108
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84734065"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86222976"
 ---
 # <a name="known-issues-common-alerts-and-resolutions-in-azure-active-directory-domain-services"></a>Znane problemy: typowe alerty i rozwiązania w Azure Active Directory Domain Services
 
@@ -33,7 +34,7 @@ Ten artykuł zawiera informacje dotyczące rozwiązywania problemów dotyczącyc
 
 Ten błąd jest zwykle spowodowany przeniesieniem subskrypcji platformy Azure do nowego katalogu usługi Azure AD, a stary katalog usługi Azure AD skojarzony z usługą Azure AD DS zostanie usunięty.
 
-Ten błąd jest nieodwracalny. Aby rozwiązać ten alert, [Usuń istniejącą domenę zarządzaną platformy Azure AD DS](delete-aadds.md) i utwórz ją ponownie w nowym katalogu. Jeśli masz problem z usunięciem domeny zarządzanej, [Otwórz żądanie pomocy technicznej platformy Azure][azure-support] , aby uzyskać dodatkową pomoc dotyczącą rozwiązywania problemów.
+Ten błąd jest nieodwracalny. Aby rozwiązać alert, [Usuń istniejącą domenę zarządzaną](delete-aadds.md) i utwórz ją ponownie w nowym katalogu. Jeśli masz problem z usunięciem domeny zarządzanej, [Otwórz żądanie pomocy technicznej platformy Azure][azure-support] , aby uzyskać dodatkową pomoc dotyczącą rozwiązywania problemów.
 
 ## <a name="aadds101-azure-ad-b2c-is-running-in-this-directory"></a>AADDS101: Azure AD B2C jest uruchomiony w tym katalogu
 
@@ -66,7 +67,7 @@ Przed rozpoczęciem upewnij się, że znasz [prywatne przestrzenie adresowe IP w
 W sieci wirtualnej maszyny wirtualne mogą wykonywać żądania do zasobów platformy Azure w ramach tego samego zakresu adresów IP, co jest skonfigurowane dla podsieci. W przypadku skonfigurowania zakresu publicznego adresu IP dla podsieci żądania kierowane w ramach sieci wirtualnej mogą nie dotrzeć do zamierzonych zasobów sieci Web. Ta konfiguracja może prowadzić do nieprzewidywalnych błędów w usłudze Azure AD DS.
 
 > [!NOTE]
-> Jeśli masz własny zakres adresów IP w Internecie skonfigurowanym w sieci wirtualnej, ten alert może zostać zignorowany. Jednak w przypadku tej konfiguracji Azure AD Domain Services nie można zatwierdzić [umowy SLA](https://azure.microsoft.com/support/legal/sla/active-directory-ds/v1_0/)], ponieważ może to prowadzić do nieprzewidywalnego błędu.
+> Jeśli masz własny zakres adresów IP w Internecie skonfigurowanym w sieci wirtualnej, ten alert może zostać zignorowany. Niemniej jednak Azure AD Domain Services nie można zatwierdzić [umowy SLA](https://azure.microsoft.com/support/legal/sla/active-directory-ds/v1_0/) z tą konfiguracją, ponieważ może to prowadzić do nieprzewidywalnego błędu.
 
 Aby rozwiązać ten alert, Usuń istniejącą domenę zarządzaną i utwórz ją ponownie w sieci wirtualnej z zakresem prywatnych adresów IP. Ten proces jest zakłócany, ponieważ domena zarządzana jest niedostępna, a wszystkie zasoby niestandardowe, które zostały utworzone, takie jak jednostki organizacyjne lub konta usług, są tracone.
 
@@ -147,7 +148,7 @@ Ten alert jest generowany, gdy jeden z tych wymaganych zasobów zostanie usunię
 
 ### <a name="resolution"></a>Rozwiązanie
 
-Podsieć sieci wirtualnej dla usługi Azure AD DS wymaga odpowiednich adresów IP dla automatycznie utworzonych zasobów. Ta przestrzeń adresów IP obejmuje konieczność tworzenia zasobów zastępczych w przypadku wystąpienia zdarzenia konserwacji. Aby zminimalizować ryzyko braku dostępnych adresów IP, nie Wdrażaj dodatkowych zasobów, takich jak własne maszyny wirtualne, w tej samej podsieci sieci wirtualnej co usługa Azure AD DS.
+Podsieć sieci wirtualnej dla usługi Azure AD DS wymaga odpowiednich adresów IP dla automatycznie utworzonych zasobów. Ta przestrzeń adresów IP obejmuje konieczność tworzenia zasobów zastępczych w przypadku wystąpienia zdarzenia konserwacji. Aby zminimalizować ryzyko braku dostępnych adresów IP, nie Wdrażaj dodatkowych zasobów, takich jak własne maszyny wirtualne, w tej samej podsieci sieci wirtualnej co domena zarządzana.
 
 Ten błąd jest nieodwracalny. Aby rozwiązać alert, [Usuń istniejącą domenę zarządzaną](delete-aadds.md) i utwórz ją ponownie. Jeśli masz problem z usunięciem domeny zarządzanej, [Otwórz żądanie pomocy technicznej platformy Azure][azure-support] , aby uzyskać dodatkową pomoc dotyczącą rozwiązywania problemów.
 
@@ -172,14 +173,14 @@ Niektóre automatycznie generowane jednostki usługi są używane do zarządzani
 
 ### <a name="resolution"></a>Rozwiązanie
 
-Podsieć sieci wirtualnej dla usługi Azure AD DS wymaga wystarczającej liczby adresów IP dla automatycznie utworzonych zasobów. Ta przestrzeń adresów IP obejmuje konieczność tworzenia zasobów zastępczych w przypadku wystąpienia zdarzenia konserwacji. Aby zminimalizować ryzyko braku dostępnych adresów IP, nie Wdrażaj dodatkowych zasobów, takich jak własne maszyny wirtualne, w tej samej podsieci sieci wirtualnej co usługa Azure AD DS.
+Podsieć sieci wirtualnej dla usługi Azure AD DS wymaga wystarczającej liczby adresów IP dla automatycznie utworzonych zasobów. Ta przestrzeń adresów IP obejmuje konieczność tworzenia zasobów zastępczych w przypadku wystąpienia zdarzenia konserwacji. Aby zminimalizować ryzyko braku dostępnych adresów IP, nie Wdrażaj dodatkowych zasobów, takich jak własne maszyny wirtualne, w tej samej podsieci sieci wirtualnej co domena zarządzana.
 
 Aby rozwiązać ten alert, Usuń istniejącą domenę zarządzaną i utwórz ją ponownie w sieci wirtualnej z dużym zakresem adresów IP. Ten proces jest zakłócany, ponieważ domena zarządzana jest niedostępna, a wszystkie zasoby niestandardowe, które zostały utworzone, takie jak jednostki organizacyjne lub konta usług, są tracone.
 
 1. [Usuń domenę zarządzaną](delete-aadds.md) z katalogu.
-1. Aby zaktualizować zakres adresów IP sieci wirtualnej, Wyszukaj i wybierz pozycję *Sieć wirtualna* w Azure Portal. Wybierz sieć wirtualną dla AD DS platformy Azure, która ma mały zakres adresów IP.
+1. Aby zaktualizować zakres adresów IP sieci wirtualnej, Wyszukaj i wybierz pozycję *Sieć wirtualna* w Azure Portal. Wybierz sieć wirtualną dla domeny zarządzanej, która ma mały zakres adresów IP.
 1. W obszarze **Ustawienia**wybierz pozycję *przestrzeń adresowa*.
-1. Zaktualizuj zakres adresów, wybierając istniejący zakres adresów i edytując go lub dodając dodatkowy zakres adresów. Upewnij się, że nowy zakres adresów IP jest wystarczająco duży dla zakresu podsieci AD DS platformy Azure. Gdy wszystko będzie gotowe, **Zapisz** zmiany.
+1. Zaktualizuj zakres adresów, wybierając istniejący zakres adresów i edytując go lub dodając dodatkowy zakres adresów. Upewnij się, że nowy zakres adresów IP jest wystarczająco duży dla zakresu podsieci domeny zarządzanej. Gdy wszystko będzie gotowe, **Zapisz** zmiany.
 1. W lewym okienku nawigacji wybierz pozycję **podsieci** .
 1. Wybierz podsieć, którą chcesz edytować, lub Utwórz dodatkową podsieć.
 1. Zaktualizuj lub określ wystarczająco duży zakres adresów IP, a następnie **Zapisz** zmiany.
@@ -219,7 +220,7 @@ Blokad zasobów można zastosować do zasobów platformy Azure, aby zapobiec zmi
 
 Aby sprawdzić blokady zasobów w składnikach AD DS platformy Azure i usunąć je, wykonaj następujące czynności:
 
-1. W przypadku wszystkich składników sieci AD DS platformy Azure w grupie zasobów, takich jak sieć wirtualna, interfejs sieciowy lub publiczny adres IP, Sprawdź dzienniki operacji w Azure Portal. Te dzienniki operacji powinny wskazywać, dlaczego operacja kończy się niepowodzeniem i kiedy jest stosowana blokada zasobu.
+1. W przypadku wszystkich składników sieci domeny zarządzanej w grupie zasobów, takich jak sieć wirtualna, interfejs sieciowy lub publiczny adres IP, Sprawdź dzienniki operacji w Azure Portal. Te dzienniki operacji powinny wskazywać, dlaczego operacja kończy się niepowodzeniem i kiedy jest stosowana blokada zasobu.
 1. Wybierz zasób, w którym zastosowana jest blokada, a następnie w obszarze **blokady**wybierz i Usuń blokady.
 
 ## <a name="aadds116-resources-are-unusable"></a>AADDS116: zasoby są bezużyteczne
@@ -234,7 +235,7 @@ Zasady są stosowane do zasobów platformy Azure i grup zasobów, które kontrol
 
 Aby sprawdzić zastosowane zasady dla składników usługi Azure AD DS i zaktualizować je, wykonaj następujące czynności:
 
-1. W przypadku wszystkich składników sieci AD DS platformy Azure w grupie zasobów, takich jak sieć wirtualna, karta sieciowa lub publiczny adres IP, Sprawdź dzienniki operacji w Azure Portal. Te dzienniki operacji powinny wskazywać, dlaczego operacja kończy się niepowodzeniem i gdzie stosowane są restrykcyjne zasady.
+1. W przypadku wszystkich składników sieciowych domeny zarządzanej w grupie zasobów, takich jak sieć wirtualna, karta sieciowa lub publiczny adres IP, Sprawdź dzienniki operacji w Azure Portal. Te dzienniki operacji powinny wskazywać, dlaczego operacja kończy się niepowodzeniem i gdzie stosowane są restrykcyjne zasady.
 1. Wybierz zasób, do którego zastosowano zasady, a następnie w obszarze **zasady**wybierz i Edytuj zasady, aby było mniej restrykcyjne.
 
 ## <a name="aadds500-synchronization-has-not-completed-in-a-while"></a>AADDS500: synchronizacja nie została ukończona w czasie
@@ -247,9 +248,9 @@ Aby sprawdzić zastosowane zasady dla składników usługi Azure AD DS i zaktual
 
 [Sprawdź kondycję usługi Azure AD DS](check-health.md) pod kątem alertów wskazujących na problemy z konfiguracją domeny zarządzanej. Problemy z konfiguracją sieci mogą blokować synchronizację z usługi Azure AD. Jeśli możesz rozwiązać alerty wskazujące problem z konfiguracją, zaczekaj dwie godziny i sprawdź, czy synchronizacja została pomyślnie ukończona.
 
-Następujące typowe przyczyny powodują zatrzymanie synchronizacji w domenach zarządzanych:
+Następujące typowe przyczyny powodują zatrzymanie synchronizacji w domenie zarządzanej:
 
-* Wymagana łączność sieciowa jest zablokowana. Aby dowiedzieć się więcej o tym, jak sprawdzić, czy usługa Azure Virtual Network rozwiązuje problemy i jakie są wymagane, zobacz [Rozwiązywanie problemów z sieciowymi grupami zabezpieczeń](alert-nsg.md) i [wymagania sieciowe dotyczące Azure AD Domain Services](network-considerations.md).
+* Wymagana łączność sieciowa jest zablokowana. Aby dowiedzieć się więcej o tym, jak sprawdzić, czy usługa Azure Virtual Network rozwiązuje problemy i jakie są wymagane, zobacz [Rozwiązywanie problemów z sieciowymi grupami zabezpieczeń](alert-nsg.md) i [wymagania sieciowe dotyczące usługi Azure AD DS](network-considerations.md).
 *  Synchronizacja haseł nie została skonfigurowana lub zakończyła się pomyślnie, gdy została wdrożona domena zarządzana. Synchronizację haseł można skonfigurować dla [użytkowników tylko w chmurze](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds) lub dla [użytkowników hybrydowych z Premium](tutorial-configure-password-hash-sync.md).
 
 ## <a name="aadds501-a-backup-has-not-been-taken-in-a-while"></a>AADDS501: nie wykonano kopii zapasowej w czasie

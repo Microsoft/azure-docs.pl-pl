@@ -8,11 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 03a16ac065b585c499efa268500e0a8c81c07738
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f38ef2c337564d2b36d3939b3ed03130437e35ea
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80333813"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86221769"
 ---
 # <a name="weather-services-in-azure-maps"></a>Usługi pogodowe w Azure Maps
 
@@ -55,46 +56,46 @@ Niektóre interfejsy API usługi Pogoda zwracają `iconCode` w odpowiedzi. `icon
 
 | Numer ikony |Ikona| Dzień | Godzinach | Tekst |
 |-------------|:----:|-----|-------|------|
-| 1           |![](./media/weather-services-concepts/sunny-i.png)                      | Yes |  Nie    | Sunny|
-| 2           |![](./media/weather-services-concepts/mostly-sunny.png)                | Yes |  Nie    | W większości Sunny|
-| 3           |![](./media/weather-services-concepts/partly-sunny.png)                | Yes |  Nie    | Częściowo Sunny|
-| 4           |![](./media/weather-services-concepts/intermittent-clouds.png)         | Yes |  Nie    | Przerwy w chmurze|
-| 5           |![](./media/weather-services-concepts/hazy-sunshine.png)               | Yes |  Nie    | Hazy słońca |
-| 6           |![](./media/weather-services-concepts/mostly-cloudy.png)               | Yes |  Nie    | W większości w chmurze|
-| 7           |![](./media/weather-services-concepts/cloudy-i.png)                     | Tak |  Tak   | Chmura |
-| 8           |![](./media/weather-services-concepts/dreary-overcast.png)             | Tak |  Tak   | Dreary (Overcast)|
-| 11           |![](./media/weather-services-concepts/fog-i.png)                       | Tak |  Tak   | Przeciwmgielnych|
-| 12           |![](./media/weather-services-concepts/showers-i.png)                   | Tak |  Tak   | Natrysk|
-| 13           |![](./media/weather-services-concepts/mostly-cloudy-showers.png)       | Yes |  Nie    | W większości w chmurze z prysznicami|
-| 14           |![](./media/weather-services-concepts/partly-sunny-showers.png)        | Yes |  Nie    | Częściowo Sunny z prysznicami|
-| 15           |![](./media/weather-services-concepts/tstorms-i.png)                   | Tak |  Tak   | Thunderstorms|
-| 16           |![](./media/weather-services-concepts/mostly-cloudy-tstorms.png)       | Yes |  Nie    | W większości chmur z Thunderstorms|
-| 17           |![](./media/weather-services-concepts/partly-sunny-tstorms.png)        | Yes |  Nie    | Częściowo Sunny z Thunderstorms|
-| 18           |![](./media/weather-services-concepts/rain-i.png)                      | Tak |  Tak   | Fartuch|
-| 19           |![](./media/weather-services-concepts/flurries-i.png)                  | Tak |  Tak   | Flurries|
-| 20           |![](./media/weather-services-concepts/mostly-cloudy-flurries.png)      | Yes |  Nie    | W większości chmur z Flurries|
-| 21           |![](./media/weather-services-concepts/partly-sunny-flurries.png)       | Yes |  Nie    | Częściowo Sunny z Flurries|
-| 22           |![](./media/weather-services-concepts/snow-i.png)                      | Tak |  Tak   | Krab|
-| 23           |![](./media/weather-services-concepts/mostly-cloudy-snow.png)          | Yes |  Nie    | W większości chmur z śniegiem|
-| 24           |![](./media/weather-services-concepts/ice-i.png)                       | Tak |  Tak   | Ice |
-| 25           |![](./media/weather-services-concepts/sleet-i.png)                     | Tak |  Tak   | Sleet|
-| 26           |![](./media/weather-services-concepts/freezing-rain.png)              | Tak |  Tak   | Zamrażanie deszczu|
-| 29           |![](./media/weather-services-concepts/rain-snow.png)                  | Tak |  Tak   | Deszcz i śnieg|
-| 30           |![](./media/weather-services-concepts/hot-i.png)                       | Tak |  Tak   | Gorąca|
-| 31           |![](./media/weather-services-concepts/cold-i.png)                      | Tak |  Tak   | Chłodne|
-| 32           |![](./media/weather-services-concepts/windy-i.png)                     | Tak |  Tak   | Wiatr|
-| 33           |![](./media/weather-services-concepts/clear-night.png)                | Nie  |  Yes   | Czyste|
-| 34           |![](./media/weather-services-concepts/mostly-clear-night.png)          | Nie  |  Yes   | Przede wszystkim|
-| 35           |![](./media/weather-services-concepts/partly-cloudy-night.png)         | Nie  |  Yes   | Częściowo chmura|
-| 36           |![](./media/weather-services-concepts/intermittent-clouds-Night.png)   | Nie  |  Yes   | Przerwy w chmurze|
-| 37           |![](./media/weather-services-concepts/hazymoon-light.png)             | Nie  |  Yes   | Hazy Moonlight|
-| 38           |![](./media/weather-services-concepts/mostly-cloudy-night.png)         | Nie  |  Tak   | W większości w chmurze|
-| 39           |![](./media/weather-services-concepts/partly-cloudy-showers-night.png)  | Nie  |  Tak   | Częściowo chmura z prysznicami|
-| 40           |![](./media/weather-services-concepts/mostly-cloudy-showers-night.png)  | Nie  |  Tak   | W większości w chmurze z prysznicami|
-| 41           |![](./media/weather-services-concepts/partly-cloudy-tstorms-night.png)  | Nie  |  Tak   | Częściowo chmura z Thunderstorms|
-| 42           |![](./media/weather-services-concepts/mostly-cloudy-tstorms-night.png)  | Nie  |  Tak   | W większości chmur z Thunderstorms|
-| 43           |![](./media/weather-services-concepts/mostly-cloudy-flurries-night.png) | Nie  |  Tak   | W większości chmur z Flurries|
-| 44           |![](./media/weather-services-concepts/mostly-cloudy-snow.png)          | Nie  |  Tak   | W większości chmur z śniegiem|
+| 1           | :::image type="icon" source="./media/weather-services-concepts/sunny-i.png"::: | Yes |  Nie    | Sunny|
+| 2           | :::image type="icon" source="./media/weather-services-concepts/mostly-sunny.png"::: | Yes |  Nie    | W większości Sunny|
+| 3           | :::image type="icon" source="./media/weather-services-concepts/partly-sunny.png"::: | Yes |  Nie    | Częściowo Sunny|
+| 4           | :::image type="icon" source="./media/weather-services-concepts/intermittent-clouds.png"::: | Yes |  Nie    | Przerwy w chmurze|
+| 5           | :::image type="icon" source="./media/weather-services-concepts/hazy-sunshine.png"::: | Yes |  Nie    | Hazy słońca |
+| 6           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy.png"::: | Yes |  Nie    | W większości w chmurze|
+| 7           | :::image type="icon" source="./media/weather-services-concepts/cloudy-i.png"::: | Tak |  Tak   | Chmura |
+| 8           | :::image type="icon" source="./media/weather-services-concepts/dreary-overcast.png"::: | Tak |  Tak   | Dreary (Overcast)|
+| 11           | :::image type="icon" source="./media/weather-services-concepts/fog-i.png"::: | Tak |  Tak   | Przeciwmgielnych|
+| 12           | :::image type="icon" source="./media/weather-services-concepts/showers-i.png"::: | Tak |  Tak   | Natrysk|
+| 13           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-showers.png"::: | Yes |  Nie    | W większości w chmurze z prysznicami|
+| 14           | :::image type="icon" source="./media/weather-services-concepts/partly-sunny-showers.png"::: | Yes |  Nie    | Częściowo Sunny z prysznicami|
+| 15           | :::image type="icon" source="./media/weather-services-concepts/tstorms-i.png"::: | Tak |  Tak   | Thunderstorms|
+| 16           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-tstorms.png"::: | Yes |  Nie    | W większości chmur z Thunderstorms|
+| 17           | :::image type="icon" source="./media/weather-services-concepts/partly-sunny-tstorms.png"::: | Yes |  Nie    | Częściowo Sunny z Thunderstorms|
+| 18           | :::image type="icon" source="./media/weather-services-concepts/rain-i.png"::: | Tak |  Tak   | Fartuch|
+| 19           | :::image type="icon" source="./media/weather-services-concepts/flurries-i.png"::: | Tak |  Tak   | Flurries|
+| 20           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-flurries.png"::: | Yes |  Nie    | W większości chmur z Flurries|
+| 21           | :::image type="icon" source="./media/weather-services-concepts/partly-sunny-flurries.png"::: | Yes |  Nie    | Częściowo Sunny z Flurries|
+| 22           | :::image type="icon" source="./media/weather-services-concepts/snow-i.png"::: | Tak |  Tak   | Krab|
+| 23           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-snow.png"::: | Yes |  Nie    | W większości chmur z śniegiem|     
+| 24           | :::image type="icon" source="./media/weather-services-concepts/ice-i.png"::: | Tak |  Tak   | Ice |
+| 25           | :::image type="icon" source="./media/weather-services-concepts/sleet-i.png"::: | Tak |  Tak   | Sleet|
+| 26           | :::image type="icon" source="./media/weather-services-concepts/freezing-rain.png"::: | Tak |  Tak   | Zamrażanie deszczu|
+| 29           | :::image type="icon" source="./media/weather-services-concepts/rain-snow.png"::: | Tak |  Tak   | Deszcz i śnieg|
+| 30           | :::image type="icon" source="./media/weather-services-concepts/hot-i.png"::: | Tak |  Tak   | Gorąca|
+| 31           | :::image type="icon" source="./media/weather-services-concepts/cold-i.png"::: | Tak |  Tak   | Chłodne|
+| 32           | :::image type="icon" source="./media/weather-services-concepts/windy-i.png"::: | Tak |  Tak   | Wiatr|
+| 33           | :::image type="icon" source="./media/weather-services-concepts/clear-night.png"::: | Nie  |  Yes   | Czyste|
+| 34           | :::image type="icon" source="./media/weather-services-concepts/mostly-clear-night.png"::: | Nie  |  Yes   | Przede wszystkim|
+| 35           | :::image type="icon" source="./media/weather-services-concepts/partly-cloudy-night.png"::: | Nie  |  Yes   | Częściowo chmura|
+| 36           | :::image type="icon" source="./media/weather-services-concepts/intermittent-clouds-Night.png"::: | Nie  |  Yes   | Przerwy w chmurze|
+| 37           | :::image type="icon" source="./media/weather-services-concepts/hazymoon-light.png"::: | Nie  |  Yes   | Hazy Moonlight|
+| 38           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-night.png"::: | Nie  |  Tak   | W większości w chmurze|
+| 39           | :::image type="icon" source="./media/weather-services-concepts/partly-cloudy-showers-night.png"::: | Nie  |  Tak   | Częściowo chmura z prysznicami|
+| 40           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-showers-night.png"::: | Nie  |  Tak   | W większości w chmurze z prysznicami|
+| 41           | :::image type="icon" source="./media/weather-services-concepts/partly-cloudy-tstorms-night.png"::: | Nie  |  Tak   | Częściowo chmura z Thunderstorms|
+| 42           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-tstorms-night.png"::: | Nie  |  Tak   | W większości chmur z Thunderstorms|
+| 43           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-flurries-night.png"::: | Nie  |  Tak   | W większości chmur z Flurries|
+| 44           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-snow.png"::: | Nie  |  Tak   | W większości chmur z śniegiem|
 
 
 ## <a name="radar-and-satellite-imagery-color-scale"></a>Skala kolorów obrazów radarowych i satelitarnych
@@ -107,22 +108,22 @@ Poniższa tabela zawiera wskazówki dotyczące interpretacji obrazów radarowych
 
 | Szesnastkowy kod koloru | Przykład koloru | Warunek pogodowy |
 |----------------|--------------|-------------------|
-| #93c701        | ![](./media/weather-services-concepts/color-93c701.png) | Deszcz — jasne |
-| #ffd701        | ![](./media/weather-services-concepts/color-ffd701.png) | Deszcz — umiarkowany |
-| #f05514        | ![](./media/weather-services-concepts/color-f05514.png) | Deszcz — ciężki |
-| #dc250e        | ![](./media/weather-services-concepts/color-dc250e.png) | Odporne na deszcze |
-| #9ec8f2        | ![](./media/weather-services-concepts/color-9ec8f2.png) | Jasnozielony |
-| #2a8fdb        | ![](./media/weather-services-concepts/color-2a8fdb.png) | Śnieg — umiarkowany |
-| #144bed        | ![](./media/weather-services-concepts/color-144bed.png) | Śnieg — ciężki |
-| #020096        | ![](./media/weather-services-concepts/color-020096.png) | Poważny śnieg |
-| #e6a5c8        | ![](./media/weather-services-concepts/color-e6a5c8.png) | Lody — jasne |
-| #d24fa0        | ![](./media/weather-services-concepts/color-d24fa0.png) | Lody — umiarkowane |
-| #b71691        | ![](./media/weather-services-concepts/color-b71691.png) | Surowe lody |
-| #7a1570        | ![](./media/weather-services-concepts/color-7a1570.png) | Lód ciężki |
-| #c196e6        | ![](./media/weather-services-concepts/color-c196e6.png) | Mieszane — jasne |
-| #ae6ee6        | ![](./media/weather-services-concepts/color-ae6ee6.png) | Mieszanie — umiarkowane |
-| #8a32d7        | ![](./media/weather-services-concepts/color-8a32d7.png) | Mieszane |
-| #6500ba        | ![](./media/weather-services-concepts/color-6500ba.png) | Silne mieszanie |
+| #93c701        | ![Kolor dla światła deszczu.](./media/weather-services-concepts/color-93c701.png) | Deszcz — jasne |
+| #ffd701        | ![Kolor dla deszczu.](./media/weather-services-concepts/color-ffd701.png) | Deszcz — umiarkowany |
+| #f05514        | ![Kolor dla deszczu.](./media/weather-services-concepts/color-f05514.png) | Deszcz — ciężki |
+| #dc250e        | ![Kolor dla poważnego oddeszczu.](./media/weather-services-concepts/color-dc250e.png) | Odporne na deszcze |
+| #9ec8f2        | ![Kolor dla oświetlenia śniegu.](./media/weather-services-concepts/color-9ec8f2.png) | Jasnozielony |
+| #2a8fdb        | ![Kolor dla śniegu.](./media/weather-services-concepts/color-2a8fdb.png) | Śnieg — umiarkowany |
+| #144bed        | ![Kolor dla śniegu.](./media/weather-services-concepts/color-144bed.png) | Śnieg — ciężki |
+| #020096        | ![Kolor dla poważnego śniegu.](./media/weather-services-concepts/color-020096.png) | Poważny śnieg |
+| #e6a5c8        | ![Kolor na potrzeby lodu — jasne.](./media/weather-services-concepts/color-e6a5c8.png) | Lody — jasne |
+| #d24fa0        | ![Kolor dla lodu-umiarkowany.](./media/weather-services-concepts/color-d24fa0.png) | Lody — umiarkowane |
+| #b71691        | ![Kolor dla surowego lodu.](./media/weather-services-concepts/color-b71691.png) | Surowe lody |
+| #7a1570        | ![Kolor w przypadku dużego obciążenia.](./media/weather-services-concepts/color-7a1570.png) | Lód ciężki |
+| #c196e6        | ![Kolor dla światła mieszanego.](./media/weather-services-concepts/color-c196e6.png) | Mieszane — jasne |
+| #ae6ee6        | ![Kolor dla mieszanki średniej.](./media/weather-services-concepts/color-ae6ee6.png) | Mieszanie — umiarkowane |
+| #8a32d7        | ![Kolor dla dużych kombinacji.](./media/weather-services-concepts/color-8a32d7.png) | Mieszane |
+| #6500ba        | ![Kolor na potrzeby mieszania silnego.](./media/weather-services-concepts/color-6500ba.png) | Silne mieszanie |
 
 Poniżej przedstawiono szczegółową paletę kolorów dla kafelków radarowych z kodami kolorów szesnastkowych i wartościami dBZ. dBZ przedstawia intensywność wytrącania w radaru pogody. 
 
@@ -198,18 +199,18 @@ Poniższa tabela zawiera wskazówki dotyczące interpretacji obrazów satelitarn
 
 | Szesnastkowy kod koloru | Przykład koloru | Temperatura chmury |
 |----------------|--------------|-------------------|
-| #b5b5b5        | ![](./media/weather-services-concepts/color-b5b5b5.png) | Temperatura — niska | 
-| #d24fa0        | ![](./media/weather-services-concepts/color-d24fa0.png) |  |
-| #8a32d7        | ![](./media/weather-services-concepts/color-8a32d7.png) |  |
-| #144bed        | ![](./media/weather-services-concepts/color-144bed.png) |  |
-| #479702        | ![](./media/weather-services-concepts/color-479702.png) |  |
-| #72b403        | ![](./media/weather-services-concepts/color-72b403.png) |  |
-| #93c701        | ![](./media/weather-services-concepts/color-93c701.png) |  |
-| #ffd701        | ![](./media/weather-services-concepts/color-ffd701.png) |  |
-| #f05514        | ![](./media/weather-services-concepts/color-f05514.png) |  |
-| #dc250e        | ![](./media/weather-services-concepts/color-dc250e.png) |  |
-| #ba0808        | ![](./media/weather-services-concepts/color-ba0808.png) |  |
-| #1f1f1f        | ![](./media/weather-services-concepts/color-1f1f1f.png) | Temperatura — wysoka |
+| #b5b5b5        | ![Kafelek koloru dla #b5b5b5.](./media/weather-services-concepts/color-b5b5b5.png) | Temperatura — niska | 
+| #d24fa0        | ![Kafelek koloru dla #d24fa0.](./media/weather-services-concepts/color-d24fa0.png) |  |
+| #8a32d7        | ![Kafelek koloru dla #8a32d7.](./media/weather-services-concepts/color-8a32d7.png) |  |
+| #144bed        | ![Kafelek koloru dla #144bed.](./media/weather-services-concepts/color-144bed.png) |  |
+| #479702        | ![Kafelek koloru dla #479702.](./media/weather-services-concepts/color-479702.png) |  |
+| #72b403        | ![Kafelek koloru dla #72b403.](./media/weather-services-concepts/color-72b403.png) |  |
+| #93c701        | ![Kafelek koloru dla #93c701.](./media/weather-services-concepts/color-93c701.png) |  |
+| #ffd701        | ![Kafelek koloru dla #ffd701.](./media/weather-services-concepts/color-ffd701.png) |  |
+| #f05514        | ![Kafelek koloru dla #f05514.](./media/weather-services-concepts/color-f05514.png) |  |
+| #dc250e        | ![Kafelek koloru dla #dc250e.](./media/weather-services-concepts/color-dc250e.png) |  |
+| #ba0808        | ![Kafelek koloru dla #ba0808.](./media/weather-services-concepts/color-ba0808.png) |  |
+| #1f1f1f        | ![Kafelek koloru dla #1f1f1f.](./media/weather-services-concepts/color-1f1f1f.png) | Temperatura — wysoka |
 
 
 Poniżej przedstawiono szczegółową paletę kolorów dla kafelków satelitarnych w podczerwieni.

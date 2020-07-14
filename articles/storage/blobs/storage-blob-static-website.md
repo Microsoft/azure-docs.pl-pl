@@ -44,7 +44,7 @@ Aby przekazać zawartość do kontenera **$Web** , można użyć dowolnego z tyc
 > [!div class="checklist"]
 > * [Interfejs wiersza polecenia platformy Azure](storage-blob-static-website-how-to.md?tabs=azure-cli)
 > * [Moduł programu Azure PowerShell](storage-blob-static-website-how-to.md?tabs=azure-powershell)
-> * [AzCopy](../common/storage-use-azcopy-v10.md)
+> * [Narzędzie AzCopy](../common/storage-use-azcopy-v10.md)
 > * [Eksplorator usługi Azure Storage](https://azure.microsoft.com/features/storage-explorer/)
 > * [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/)
 > * [Rozszerzenie programu Visual Studio Code](/azure/developer/javascript/tutorial-vscode-static-website-node-01)

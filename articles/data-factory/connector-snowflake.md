@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 05/15/2020
-ms.openlocfilehash: 347f37fb999656a1c4951f01a75a392887b5b882
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.date: 07/09/2020
+ms.openlocfilehash: 43839e19eb252c9fa7ab46605fd247f3a798d223
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045675"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86220307"
 ---
 # <a name="copy-data-from-and-to-snowflake-by-using-azure-data-factory"></a>Kopiuj dane z i do płatne za pomocą Azure Data Factory
 
@@ -60,7 +60,7 @@ W przypadku usługi połączonej z płatnym śniegu są obsługiwane następują
     "properties": {
         "type": "Snowflake",
         "typeProperties": {
-            "connectionString": "jdbc:snowflake://<accountname>.snowflakecomputing.com/?user=<username>&password=<password>&db=<database>&warehouse=<warehouse>(optional)"
+            "connectionString": "jdbc:snowflake://<accountname>.snowflakecomputing.com/?user=<username>&password=<password>&db=<database>&warehouse=<warehouse>"
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
@@ -78,7 +78,7 @@ W przypadku usługi połączonej z płatnym śniegu są obsługiwane następują
     "properties": {
         "type": "Snowflake",
         "typeProperties": {
-            "connectionString": "jdbc:snowflake://<accountname>.snowflakecomputing.com/?user=<username>&db=<database>&warehouse=<warehouse>(optional)",
+            "connectionString": "jdbc:snowflake://<accountname>.snowflakecomputing.com/?user=<username>&db=<database>&warehouse=<warehouse>",
             "password": {
                 "type": "AzureKeyVaultSecret",
                 "store": { 
@@ -106,7 +106,7 @@ Następujące właściwości są obsługiwane dla zestawu danych płatka śniegu
 | :-------- | :----------------------------------------------------------- | :-------------------------- |
 | typ      | Właściwość Type zestawu danych musi być ustawiona na **Płatne**. | Tak                         |
 | schematy | Nazwa schematu. |Nie dla źródła, tak dla ujścia  |
-| tabela | Nazwa tabeli/widoku. |Nie dla źródła, tak dla ujścia  |
+| table | Nazwa tabeli/widoku. |Nie dla źródła, tak dla ujścia  |
 
 **Przykład:**
 
@@ -156,14 +156,19 @@ Jeśli magazyn danych ujścia i format spełniają kryteria opisane w tej sekcji
 
 - **Połączona usługa ujścia** to [**Magazyn obiektów blob platformy Azure**](connector-azure-blob-storage.md) z uwierzytelnianiem za pomocą **sygnatury dostępu współdzielonego** .
 
-- **Format danych ujścia** jest **Parquet** lub **rozdzielany tekstem**z następującymi konfiguracjami:
+- **Format danych ujścia** to **Parquet**, **rozdzielany tekstem**lub **JSON** z następującymi konfiguracjami:
 
-   - W przypadku formatu **Parquet** kompresji koder-dekoder ma **wartość None**, **przyciąganie**lub **LZO**.
-   - Format **tekstu rozdzielanego** :
-     - `rowDelimiter`jest **\r\n**lub pojedynczym znakiem.
-     - `compression`nie może to być **kompresja**, **gzip**, **bzip2**lub **Wklęśnięcie**.
-     - `encodingName`jest pozostawiony jako domyślny lub ustawiony na **UTF-8**.
-     - `quoteChar`jest **podwójnym cudzysłowem**, **pojedynczym cudzysłowem**lub **pustym ciągiem** (bez cudzysłowu).
+    - W przypadku formatu **Parquet** kompresji koder-dekoder ma **wartość None**, **przyciąganie**lub **LZO**.
+    - Format **tekstu rozdzielanego** :
+        - `rowDelimiter`jest **\r\n**lub pojedynczym znakiem.
+        - `compression`nie może to być **kompresja**, **gzip**, **bzip2**lub **Wklęśnięcie**.
+        - `encodingName`jest pozostawiony jako domyślny lub ustawiony na **UTF-8**.
+        - `quoteChar`jest **podwójnym cudzysłowem**, **pojedynczym cudzysłowem** lub **pustym ciągiem** (bez cudzysłowu).
+    - W przypadku formatu **JSON** kopia bezpośrednia obsługuje tylko przypadek, gdy źródłowa tabela płatnych lub wynik zapytania zawiera tylko jedną kolumnę, a typ danych tej kolumny to **Variant**, **Object**lub **Array**.
+        - `compression`nie może to być **kompresja**, **gzip**, **bzip2**lub **Wklęśnięcie**.
+        - `encodingName`jest pozostawiony jako domyślny lub ustawiony na **UTF-8**.
+        - `filePattern`w obszarze ujścia działania kopiowania jest pozostawiona wartość domyślna lub ustawiona na **setOfObjects**.
+
 - W źródle działania kopiowania `additionalColumns` nie określono.
 - Nie określono mapowania kolumn.
 
@@ -282,15 +287,19 @@ Jeśli źródłowy magazyn danych i format spełniają kryteria opisane w tej se
 
 - **Połączona usługa** jest usługą [**Azure Blob Storage**](connector-azure-blob-storage.md) z uwierzytelnianiem za pomocą **sygnatury dostępu współdzielonego** .
 
-- **Format danych źródłowych** jest **Parquet** lub **rozdzielany tekstem**z następującymi konfiguracjami:
+- **Format danych źródłowych** to **Parquet**, **rozdzielany tekstem**lub **JSON** z następującymi konfiguracjami:
 
-   - W przypadku formatu **Parquet** kompresji koder-dekoder ma **wartość Brak** lub **przyciąganie**.
+    - W przypadku formatu **Parquet** kompresji koder-dekoder ma **wartość Brak**lub **przyciąganie**.
 
-   - Format **tekstu rozdzielanego** :
-     - `rowDelimiter`jest **\r\n**lub pojedynczym znakiem. Jeśli ogranicznik wiersza nie jest "\r\n", `firstRowAsHeader` musi mieć **wartość false**i `skipLineCount` nie został określony.
-     - `compression`nie może to być **kompresja**, **gzip**, **bzip2**lub **Wklęśnięcie**.
-     - `encodingName`jest pozostawiony jako domyślny lub ustawiony na wartość "UTF-8", "UTF-16", "UTF-16BE", "UTF-32", "UTF-32BE", "BIG5", "EUC-JP", "EUC-KR", "GB18030", "ISO-2022-JP", "ISO-2022-KR", "ISO-8859-1", "ISO-8859-2", "ISO-8859-5", "ISO-8859-6", "ISO-8859-7", "ISO-8859-8", "ISO-8859-9", "Windows-1250", "Windows-1251", "Windows-1252", "Windows-1253", "Windows-1254"
-     - `quoteChar`jest **podwójnym cudzysłowem**, **pojedynczym cudzysłowem**lub **pustym ciągiem** (bez cudzysłowu).
+    - Format **tekstu rozdzielanego** :
+        - `rowDelimiter`jest **\r\n**lub pojedynczym znakiem. Jeśli ogranicznik wiersza nie jest "\r\n", `firstRowAsHeader` musi mieć **wartość false**i `skipLineCount` nie został określony.
+        - `compression`nie może to być **kompresja**, **gzip**, **bzip2**lub **Wklęśnięcie**.
+        - `encodingName`jest pozostawiony jako domyślny lub ustawiony na wartość "UTF-8", "UTF-16", "UTF-16BE", "UTF-32", "UTF-32BE", "BIG5", "EUC-JP", "EUC-KR", "GB18030", "ISO-2022-JP", "ISO-2022-KR", "ISO-8859-1", "ISO-8859-2", "ISO-8859-5", "ISO-8859-6", "ISO-8859-7", "ISO-8859-8", "ISO-8859-9", "Windows-1250", "Windows-1251", "Windows-1252", "Windows-1253", "Windows-1254"
+        - `quoteChar`jest **podwójnym cudzysłowem**, **pojedynczym cudzysłowem** lub **pustym ciągiem** (bez cudzysłowu).
+    - W przypadku formatu **JSON** kopia bezpośrednia obsługuje tylko przypadek, w którym tylko tabela "ujścia płatne" ma tylko jedną kolumnę, a typ danych tej kolumny to **Variant**, **Object**lub **Array**.
+        - `compression`nie może to być **kompresja**, **gzip**, **bzip2**lub **Wklęśnięcie**.
+        - `encodingName`jest pozostawiony jako domyślny lub ustawiony na **UTF-8**.
+        - Nie określono mapowania kolumn.
 
 - W źródle działania kopiowania: 
 

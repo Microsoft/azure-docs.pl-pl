@@ -15,11 +15,12 @@ ms.topic: article
 ms.date: 10/17/2016
 ms.author: akjosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5f22fbd77069488e7aaf490f93f42cde747444a8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4143e049f0a89d1218d9442eaebc1c5ebaf4cc77
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74073853"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186830"
 ---
 # <a name="understanding-and-using-the-azure-linux-agent"></a>Zrozumienie i używanie agenta systemu Linux platformy Azure
 
@@ -133,36 +134,36 @@ Zapoznaj się z dokumentacją w [repozytorium agenta systemu Azure Linux w witry
 ## <a name="configuration"></a>Konfigurowanie
 Plik konfiguracji (/etc/waagent.conf) kontroluje akcje waagent. Poniżej przedstawiono przykładowy plik konfiguracji:
 
-    ```
-    Provisioning.Enabled=y
-    Provisioning.DeleteRootPassword=n
-    Provisioning.RegenerateSshHostKeyPair=y
-    Provisioning.SshHostKeyPairType=rsa
-    Provisioning.MonitorHostName=y
-    Provisioning.DecodeCustomData=n
-    Provisioning.ExecuteCustomData=n
-    Provisioning.AllowResetSysUser=n
-    Provisioning.PasswordCryptId=6
-    Provisioning.PasswordCryptSaltLength=10
-    ResourceDisk.Format=y
-    ResourceDisk.Filesystem=ext4
-    ResourceDisk.MountPoint=/mnt/resource
-    ResourceDisk.MountOptions=None
-    ResourceDisk.EnableSwap=n
-    ResourceDisk.SwapSizeMB=0
-    LBProbeResponder=y
-    Logs.Verbose=n
-    OS.RootDeviceScsiTimeout=300
-    OS.OpensslPath=None
-    HttpProxy.Host=None
-    HttpProxy.Port=None
-    AutoUpdate.Enabled=y
-    ```
+```config
+Provisioning.Enabled=y
+Provisioning.DeleteRootPassword=n
+Provisioning.RegenerateSshHostKeyPair=y
+Provisioning.SshHostKeyPairType=rsa
+Provisioning.MonitorHostName=y
+Provisioning.DecodeCustomData=n
+Provisioning.ExecuteCustomData=n
+Provisioning.AllowResetSysUser=n
+Provisioning.PasswordCryptId=6
+Provisioning.PasswordCryptSaltLength=10
+ResourceDisk.Format=y
+ResourceDisk.Filesystem=ext4
+ResourceDisk.MountPoint=/mnt/resource
+ResourceDisk.MountOptions=None
+ResourceDisk.EnableSwap=n
+ResourceDisk.SwapSizeMB=0
+LBProbeResponder=y
+Logs.Verbose=n
+OS.RootDeviceScsiTimeout=300
+OS.OpensslPath=None
+HttpProxy.Host=None
+HttpProxy.Port=None
+AutoUpdate.Enabled=y
+```
 
 Opisane są następujące różne opcje konfiguracji. Opcje konfiguracji są trzy typy: Wartość logiczna, String lub Integer. Opcje konfiguracji wartości logicznych można określić jako "y" lub "n". Specjalne słowo kluczowe "none" może być używane dla niektórych wpisów konfiguracji typu String jako następujące szczegóły:
 
 **Inicjowanie obsługi administracyjnej. włączone:**  
-```
+```txt
 Type: Boolean  
 Default: y
 ```
@@ -174,14 +175,14 @@ Dzięki temu użytkownik może włączyć lub wyłączyć funkcję aprowizacji w
 > 
 
 **Inicjowanie obsługi administracyjnej. DeleteRootPassword:**  
-```
+```txt
 Type: Boolean  
 Default: n
 ```
 Jeśli ta wartość jest ustawiona, hasło główne w pliku/etc/shadow zostanie wymazane podczas procesu aprowizacji.
 
 **Inicjowanie obsługi administracyjnej. RegenerateSshHostKeyPair:**  
-```
+```txt
 Type: Boolean  
 Default: y
 ```
@@ -190,42 +191,42 @@ Jeśli ta wartość jest ustawiona, wszystkie pary kluczy hosta SSH (ECDSA, DSA 
 Typ szyfrowania pary kluczy można skonfigurować przy użyciu wpisu aprowizacji. SshHostKeyPairType. Niektóre dystrybucje ponownie tworzą pary kluczy SSH dla wszelkich brakujących typów szyfrowania po ponownym uruchomieniu demona SSH (na przykład po ponownym uruchomieniu).
 
 **Inicjowanie obsługi administracyjnej. SshHostKeyPairType:**  
-```
+```txt
 Type: String  
 Default: rsa
 ```
 Można ustawić ten typ algorytmu szyfrowania, który jest obsługiwany przez demona SSH na maszynie wirtualnej. Zazwyczaj obsługiwane są wartości "RSA", "DSA" i "ECDSA". "putty.exe" w systemie Windows nie obsługuje "ECDSA". Dlatego jeśli zamierzasz używać putty.exe w systemie Windows do nawiązywania połączenia z wdrożeniem systemu Linux, użyj "RSA" lub "DSA".
 
 **Inicjowanie obsługi administracyjnej. MonitorHostName:**  
-```
+```txt
 Type: Boolean  
 Default: y
 ```
 Jeśli ta wartość jest ustawiona, waagent monitoruje maszynę wirtualną z systemem Linux pod kątem zmian nazw hostów (zwracanych przez polecenie "hostname") i automatycznie aktualizuje konfigurację sieci w obrazie, aby odzwierciedlić zmianę. Aby można było wypchnąć zmianę nazwy na serwery DNS, Sieć jest ponownie uruchamiana na maszynie wirtualnej. Powoduje to krótką utratę łączności z Internetem.
 
 **Inicjowanie obsługi administracyjnej. DecodeCustomData**  
-```
+```txt
 Type: Boolean  
 Default: n
 ```
 Jeśli jest ustawiona, waagent dekoduje CustomData z base64.
 
 **Provisioning.ExecuteCustomData**  
-```
+```txt
 Type: Boolean  
 Default: n
 ```
 Jeśli ta wartość jest ustawiona, waagent wykonuje CustomData po aprowizacji.
 
 **Inicjowanie obsługi administracyjnej. AllowResetSysUser**
-```
+```txt
 Type: Boolean
 Default: n
 ```
 Ta opcja umożliwia resetowanie hasła dla użytkownika sys; wartość domyślna jest wyłączona.
 
 **Inicjowanie obsługi administracyjnej. PasswordCryptId**  
-```
+```txt
 Type: String  
 Default: 6
 ```
@@ -236,91 +237,91 @@ Algorytm używany przez Crypt podczas generowania skrótu hasła.
  6 — SHA-512  
 
 **Inicjowanie obsługi administracyjnej. PasswordCryptSaltLength**  
-```
+```txt
 Type: String  
 Default: 10
 ```
 Długość losowej soli używanej podczas generowania skrótu hasła.
 
 **ResourceDisk. Format:**  
-```
+```txt
 Type: Boolean  
 Default: y
 ```
 Jeśli ta wartość jest ustawiona, dysk zasobów dostarczony przez platformę jest sformatowany i instalowany przez waagent, jeśli typ systemu plików żądany przez użytkownika w "ResourceDisk. FileSystem" jest inny niż "NTFS". Na dysku są udostępniane pojedynczej partycji typu Linux (83). Ta partycja nie jest sformatowana, jeśli może zostać pomyślnie zainstalowana.
 
 **ResourceDisk. FileSystem:**  
-```
+```txt
 Type: String  
 Default: ext4
 ```
 Określa typ systemu plików dla dysku zasobu. Obsługiwane wartości różnią się w zależności od dystrybucji systemu Linux. Jeśli ciąg to X, a następnie mkfs. Symbol X powinien być obecny w obrazie systemu Linux. Obrazy SLES 11 powinny zwykle korzystać z "ext3". W tym miejscu obrazy FreeBSD powinny używać "UFS2".
 
 **ResourceDisk.MountPoint:**  
-```
+```txt
 Type: String  
 Default: /mnt/resource 
 ```
 Określa ścieżkę, w której zainstalowano dysk zasobu. Dysk zasobu jest dyskiem *tymczasowym* i może zostać opróżniony w przypadku anulowania aprowizacji maszyny wirtualnej.
 
 **ResourceDisk.MountOptions**  
-```
+```txt
 Type: String  
 Default: None
 ```
 Określa opcje instalacji dysków, które mają zostać przesłane do polecenia instalacji-o. Jest to rozdzielona przecinkami lista wartości, np. 'nodev,nosuid'. Aby uzyskać szczegółowe informacje, zobacz Instalowanie (8).
 
 **ResourceDisk.EnableSwap:**  
-```
+```txt
 Type: Boolean  
 Default: n
 ```
 Jeśli ta wartość jest ustawiona, plik wymiany (/swapfile) jest tworzony na dysku zasobu i dodawany do obszaru wymiany w systemie.
 
 **ResourceDisk.SwapSizeMB:**  
-```
+```txt
 Type: Integer  
 Default: 0
 ```
 Rozmiar pliku wymiany w megabajtach.
 
 **Logs. verbose:**  
-```
+```txt
 Type: Boolean  
 Default: n
 ```
 W przypadku ustawienia opcji szczegółowości dziennika jest zwiększana. Waagent dzienniki do/var/log/waagent.log i wykorzystuje funkcjonalność System logrotate do rotacji dzienników.
 
 **Macintosh. EnableRDMA**  
-```
+```txt
 Type: Boolean  
 Default: n
 ```
 Jeśli ta wartość jest ustawiona, Agent podejmie próbę instalacji, a następnie załadowania sterownika jądra RDMA zgodnego z wersją oprogramowania układowego na źródłowym sprzęcie.
 
 **Macintosh. RootDeviceScsiTimeout:**  
-```
+```txt
 Type: Integer  
 Default: 300
 ```
 To ustawienie umożliwia skonfigurowanie limitu czasu interfejsu SCSI w sekundach na dysku systemu operacyjnego i na dyskach danych. Jeśli nie zostanie ustawiona, są używane wartości domyślne systemu.
 
 **Macintosh. OpensslPath:**  
-```
+```txt
 Type: String  
 Default: None
 ```
 Tego ustawienia można użyć do określenia alternatywnej ścieżki pliku binarnego OpenSSL, który ma być używany na potrzeby operacji kryptograficznych.
 
 **HttpProxy. host, HttpProxy. Port**  
-```
+```txt
 Type: String  
 Default: None
 ```
 W przypadku ustawienia agent używa tego serwera proxy w celu uzyskania dostępu do Internetu. 
 
 **Funkcja Aktualizacje automatyczne. włączona**
-```
+```txt
 Type: Boolean
 Default: y
 ```

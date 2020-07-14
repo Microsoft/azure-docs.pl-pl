@@ -79,6 +79,10 @@
       href: enterprise-state-roaming-group-policy-settings.md
     - name: Ustawienia roamingu stanu dla przedsiębiorstw w systemie Windows
       href: enterprise-state-roaming-windows-settings-reference.md
+    - name: Interfejs API programu Graph
+      items:
+        - name: Interfejs API tożsamości urządzenia
+          href: /graph/api/resources/device?view=graph-rest-1.0
 - name: Zasoby
   items:
     - name: Forum z opiniami na temat platformy Azure

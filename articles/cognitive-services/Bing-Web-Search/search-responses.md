@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 06/25/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 7933d5e5cf7d82de013e18b221f3a0c3ce6b5229
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.openlocfilehash: 284f8c8432d732fdfa7e16b43a47578437bcf0ba
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85800532"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86202240"
 ---
 # <a name="bing-web-search-api-response-structure-and-answer-types"></a>Struktura odpowiedzi interfejs API wyszukiwania w sieci Web Bing i typy odpowiedzi  
 
@@ -292,10 +292,10 @@ Wyrażenie matematyczne może zawierać następujące symbole:
 
 |Symbol|Opis|
 |------------|-----------------|
-|+|Znak dodawania|
+|+|Dodawanie|
 |-|Odejmowanie|
-|/|Dział|
-|*|Znak mnożenia|
+|/|Dzielenie|
+|*|Mnożenie|
 |^|Zasilanie|
 |!|Silnia|
 |.|Wartość dziesiętna|
@@ -435,7 +435,7 @@ Jeśli Bing określi, że użytkownik może chcieć wyszukać coś innego, odpow
 
 Odpowiedzi z interfejs API wyszukiwania w sieci Web Bing mogą zawierać następujące nagłówki:
 
-|||
+| Nagłówek | Opis |
 |-|-|
 |`X-MSEdge-ClientID`|Unikatowy identyfikator, który jest przypisany do użytkownika usługi Bing|
 |`BingAPIs-Market`|Rynek używany do realizacji żądania|

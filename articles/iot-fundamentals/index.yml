@@ -10,12 +10,12 @@ metadata:
   author: philmea
   ms.author: philmea
   ms.date: 09/04/2019
-  ms.openlocfilehash: 6796906ca24eb69a52a3b822ee6a000038a445c5
-  ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
+  ms.openlocfilehash: 08b54d7ae3217f9b9f7715ba2ccb3fe1a290cc05
+  ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 04/22/2020
-  ms.locfileid: "82024595"
+  ms.lasthandoff: 07/08/2020
+  ms.locfileid: "86147121"
 highlightedContent:
   items:
   - title: Co to jest usługa Azure IoT?
@@ -24,6 +24,9 @@ highlightedContent:
   - title: Instalowanie narzędzi programu VS Code dla usługi Azure IoT
     itemType: download
     url: https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools
+  - title: Rozpoczynanie tworzenia za pomocą interfejsu wiersza polecenia platformy Azure dla usługi Azure IoT
+    itemType: reference
+    url: https://docs.microsoft.com/en-us/cli/azure/azure-cli-reference-for-IoT?view=azure-cli-latest
   - title: Przeglądanie przykładów kodu dla usługi Azure IoT
     itemType: overview
     url: https://docs.microsoft.com/samples/browse/?term=iot

@@ -104,6 +104,18 @@
           href: troubleshoot-conditional-access-what-if.md
         - name: Często zadawane pytania
           href: faqs.md
+- name: Dokumentacja
+  items:
+    - name: Interfejsy Graph API w wersji beta
+      items:
+        - name: Interfejs API conditionalAccessPolicy
+          href: /graph/api/resources/conditionalaccesspolicy?view=graph-rest-beta
+        - name: Interfejs API namedLocation
+          href: /graph/api/resources/namedlocation?view=graph-rest-beta
+        - name: Interfejs API countryNamedLocation
+          href: /graph/api/resources/countrynamedlocation?view=graph-rest-beta
+        - name: Interfejs API ipNamedLocation
+          href: /graph/api/resources/ipnamedlocation?view=graph-rest-beta
 - name: Zasoby
   items:
     - name: Forum z opiniami na temat platformy Azure

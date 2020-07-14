@@ -3,12 +3,12 @@ title: Tworzenie i klonowanie notesów Jupyter — wersja zapoznawcza Azure Note
 description: Projekty Azure Notebooks w wersji zapoznawczej zarządzają kolekcją notesów i powiązanych plików, które można utworzyć nowe lub klonować z innego źródła.
 ms.topic: how-to
 ms.date: 02/25/2019
-ms.openlocfilehash: e1321afc2ce294c8a39ba8d55574e2ca949f632e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4a51f9b12ca24d16858b41357627ff26d233357f
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85831288"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86181504"
 ---
 # <a name="create-and-clone-projects-in-azure-notebooks-preview"></a>Tworzenie i klonowanie projektów w podglądzie Azure Notebooks
 
@@ -61,20 +61,40 @@ W przypadku korzystania z polecenia **+ Nowy projekt** Azure Notebooks wyświetl
 | --- | --- |
 | Project name (Nazwa projektu) | Przyjazna nazwa projektu, który Azure Notebooks używany do wyświetlania. Na przykład "mój projekt notesu". |
 | Identyfikator projektu | Niestandardowy identyfikator, który jest częścią adresu URL, który jest używany do udostępniania projektu (formularz to `https://notebooks.azure.com/<user_id>/projects/<project_id>` ). Ten identyfikator może korzystać tylko z liter, cyfr i łączników, jest ograniczony do 30 znaków i nie może być [zarezerwowanym identyfikatorem projektu](#reserved-project-ids). Jeśli nie masz pewności, co należy używać, Wspólna konwencja polega na użyciu małych wersji nazwy projektu, gdzie spacje są włączane do łączników, takich jak "My-Notes-Project" (w razie potrzeby można je dopasować do limitu długości). |
-| Public | Jeśli ta wartość jest ustawiona, umożliwia każdej osobie z linkiem dostęp do projektu. Podczas tworzenia projektu prywatnego Usuń zaznaczenie tej opcji. |
+| Publiczny | Jeśli ta wartość jest ustawiona, umożliwia każdej osobie z linkiem dostęp do projektu. Podczas tworzenia projektu prywatnego Usuń zaznaczenie tej opcji. |
 | Zainicjuj ten projekt przy użyciu pliku Readme | Jeśli ta wartość jest ustawiona, program tworzy domyślny plik *README.MD* w projekcie. Plik *README.MD* to miejsce, w którym podano dokumentację projektu, w razie potrzeby. |
 
 ### <a name="reserved-project-ids"></a>Zarezerwowane identyfikatory projektów
 
 Następujące słowa zastrzeżone nie mogą być używane przez siebie jako identyfikatory projektu. Te słowa zastrzeżone mogą jednak być używane jako część dłuższego identyfikatora projektu.
 
-| | | | | | |
-| --- | --- | --- | --- | --- | --- |
-| informacje | account | administracja | api | blog | klasa |
-| zawartość | pulpit nawigacyjny | odkrywanie | FAQ | Pomoc | html |
-| strona główna | import | biblioteka | zarządzanie | new | notesu |
-| notesy | pdf | preview | wpisaną | profil | search |
-| status | pomoc techniczna | test | | | |
+- informacje
+- account
+- administracja
+- api
+- blog
+- klasa
+- zawartość
+- pulpit nawigacyjny
+- odkrywanie
+- FAQ
+- Pomoc
+- html
+- strona główna
+- import
+- biblioteka
+- zarządzanie
+- new
+- notesu
+- notesy
+- pdf
+- preview
+- wpisaną
+- profil
+- search
+- status
+- pomoc techniczna
+- test
 
 Jeśli spróbujesz użyć jednego z tych słów jako identyfikatora projektu, okna podręczne **Utwórz nowy projekt** i **Ustawienia projektu** wskazują, "identyfikator biblioteki jest zarezerwowanym identyfikatorem".
 
@@ -90,7 +110,7 @@ Możesz łatwo zaimportować cały publiczny repozytorium GitHub jako projekt ob
 | Klonuj cyklicznie | Repozytoria GitHub mogą zawierać wiele repozytoriów podrzędnych. Ustaw tę opcję, jeśli chcesz sklonować repozytorium nadrzędne i wszystkie jego elementy podrzędne. Ponieważ istnieje możliwość, aby repozytorium miało wiele elementów podrzędnych, należy pozostawić tę opcję niezbędną, chyba że wiadomo, że jest ona potrzebna. |
 | Project name (Nazwa projektu) | Przyjazna nazwa projektu, który Azure Notebooks używany do wyświetlania. |
 | Identyfikator projektu | Niestandardowy identyfikator, który jest częścią adresu URL, który jest używany do udostępniania projektu (formularz to `https://notebooks.azure.com/<user_id>/projects/<project_id>` ). Ten identyfikator może korzystać tylko z liter, cyfr i łączników, jest ograniczony do 30 znaków i nie może być [zarezerwowanym identyfikatorem projektu](#reserved-project-ids). Jeśli nie masz pewności, co należy używać, Wspólna konwencja polega na użyciu małych wersji nazwy projektu, gdzie spacje są włączane do łączników, takich jak "My-Notes-Project" (w razie potrzeby można je dopasować do limitu długości). |
-| Public | Jeśli ta wartość jest ustawiona, umożliwia każdej osobie z linkiem dostęp do projektu. Podczas tworzenia projektu prywatnego Usuń zaznaczenie tej opcji. |
+| Publiczny | Jeśli ta wartość jest ustawiona, umożliwia każdej osobie z linkiem dostęp do projektu. Podczas tworzenia projektu prywatnego Usuń zaznaczenie tej opcji. |
 
 Importowanie repozytorium z usługi GitHub również importuje jego historię. Możesz użyć standardowych poleceń git z terminalu, aby zatwierdzić nowe zmiany, ściągnąć zmiany z usługi GitHub i tak dalej.
 

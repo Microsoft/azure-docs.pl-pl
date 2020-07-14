@@ -1,6 +1,6 @@
 ---
-title: dołączanie pliku
-description: dołączanie pliku
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/26/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 98b82047c1744fbd63ecd3665e804e9d8f6c5221
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 28ea1e68441a57d67fef1e78153e00eb1bd09211
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85565964"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86143929"
 ---
 ### <a name="does-the-user-need-to-have-hub-and-spoke-with-sd-wanvpn-devices-to-use-azure-virtual-wan"></a>Czy użytkownik musi dysponować centrum i szprychą z urządzeniami z systemem SD/WAN/VPN, aby można było korzystać z wirtualnej sieci WAN platformy Azure?
 
@@ -25,7 +25,7 @@ Wirtualna sieć WAN jest dostępna w dwóch wersjach: podstawowa i standardowa. 
 
 ### <a name="how-are-availability-zones-and-resiliency-handled-in-virtual-wan"></a>Jak Strefy dostępności i odporność jest obsługiwana w wirtualnej sieci WAN?
 
-Wirtualna sieć WAN to kolekcja centrów i usług udostępnianych w centrum. Użytkownik może mieć dowolną liczbę wirtualnych sieci WAN zgodnie z ich potrzebami. W wirtualnym koncentratorze sieci WAN istnieje wiele usług, takich jak VPN, ExpressRoute itp. Każda z tych usług jest wdrażana w regionie Strefy dostępności, jeśli region obsługuje Strefy dostępności. Jeśli region stanie się strefą dostępności po początkowym wdrożeniu w centrum, użytkownik może odtworzyć bramy, co spowoduje wyzwolenie wdrożenia strefy dostępności. Wszystkie bramy są inicjowane w centrum jako aktywne-aktywne, co oznacza, że istnieje odporność wbudowana w centrum. Użytkownicy mogą łączyć się z wieloma centrami, jeśli chcą mieć odporność między regionami. Chociaż pojęcie wirtualnej sieci WAN jest globalne, rzeczywiste wirtualne zasoby sieci WAN są oparte Menedżer zasobów i wdrażane regionalnie. Jeśli wirtualny region sieci WAN miał problem, wszystkie centra w tej wirtualnej sieci WAN będą nadal działać w taki sam sposób, ale użytkownik nie będzie mógł tworzyć nowych centrów do momentu udostępnienia wirtualnego regionu sieci WAN.
+Wirtualna sieć WAN to kolekcja centrów i usług udostępnianych w centrum. Użytkownik może mieć dowolną liczbę wirtualnych sieci WAN na ich potrzeby. W wirtualnym koncentratorze sieci WAN istnieje wiele usług, takich jak VPN, ExpressRoute itp. Każda z tych usług (z wyjątkiem zapory platformy Azure) jest wdrażana w regionie Strefy dostępności, czyli jeśli region obsługuje Strefy dostępności. Jeśli region stanie się strefą dostępności po początkowym wdrożeniu w centrum, użytkownik może odtworzyć bramy, co spowoduje wyzwolenie wdrożenia strefy dostępności. Wszystkie bramy są inicjowane w centrum jako aktywne-aktywne, co oznacza, że istnieje odporność wbudowana w centrum. Użytkownicy mogą łączyć się z wieloma centrami, jeśli chcą mieć odporność między regionami. Chociaż pojęcie wirtualnej sieci WAN jest globalne, rzeczywiste wirtualne zasoby sieci WAN są oparte Menedżer zasobów i wdrażane regionalnie. Jeśli wirtualny region sieci WAN miał problem, wszystkie centra w tej wirtualnej sieci WAN będą nadal działać w taki sam sposób, ale użytkownik nie będzie mógł tworzyć nowych centrów do momentu udostępnienia wirtualnego regionu sieci WAN.
 
 ### <a name="what-client-does-the-azure-virtual-wan-user-vpn-point-to-site-support"></a>Co klient obsługuje sieć VPN użytkownika wirtualnej sieci WAN platformy Azure (punkt-lokacja)?
 
