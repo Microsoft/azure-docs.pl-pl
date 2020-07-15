@@ -6,18 +6,18 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: banders
-ms.openlocfilehash: 1003e26fa670a804328d5e34def7c9d78eced9c0
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 76aa21aea647e5096ba47fb691622ea5146d9901
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84702605"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207204"
 ---
 # <a name="understand-microsoft-customer-agreement-administrative-roles-in-azure"></a>Omówienie ról administracyjnych dla umowy klienta firmy Microsoft na platformie Azure
 
 Aby zarządzać kontem rozliczeniowym dla umowy klienta firmy Microsoft, użyj ról opisanych w poniższych sekcjach. Te role są dodatkiem do wbudowanych ról platformy Azure, które umożliwiają kontrolowanie dostępu do zasobów. Aby uzyskać więcej informacji, zobacz temat [Wbudowane role dla zasobów platformy Azure](../../role-based-access-control/built-in-roles.md).
 
-Ten artykuł dotyczy konta rozliczeniowego w ramach Umowy klienta firmy Microsoft. Sprawdź, czy masz dostęp do umowy klienta firmy Microsoft.
+Ten artykuł dotyczy konta rozliczeniowego związanego z umową klienta firmy Microsoft. Sprawdź, czy masz dostęp do umowy klienta firmy Microsoft.
 
 ## <a name="billing-role-definitions"></a>Definicje ról rozliczeniowych
 
@@ -34,7 +34,7 @@ W poniższej tabeli opisano role rozliczeniowe używane do zarządzania kontem r
 |Menedżer faktur|Wyświetla i reguluje faktury dla profilu rozliczeniowego|
 |Właściciel sekcji faktury|Zarządza wszystkimi elementami w sekcji faktury|
 |Współautor sekcji faktury|Zarządza wszystkimi elementami z wyjątkiem uprawnień w sekcji faktury|
-|Czytelnik sekcji faktury|Widok tylko do odczytu wszystkich elementów w sekcji faktur|
+|Czytelnik sekcji faktury|Ma widok tylko do odczytu wszystkich elementów w sekcji faktury|
 |Twórca subskrypcji platformy Azure|Tworzy subskrypcje platformy Azure|
 
 ## <a name="billing-account-roles-and-tasks"></a>Role i zadania konta rozliczeniowego
@@ -141,12 +141,12 @@ W poniższych tabelach przedstawiono, jaką należy mieć rolę, aby móc wykony
 
 ### <a name="manage-invoice-section-permissions-and-properties"></a>Zarządzanie uprawnieniami i właściwościami sekcji faktury
 
-|Zadania|Właściciel sekcji faktury|Współautor sekcji faktury|Czytelnik sekcji faktury|Twórca subskrypcji platformy Azure|Właściciel konta rozliczeniowego|Współautor konta rozliczeniowego|Czytelnik konta rozliczeniowego | |
-|---|---|---|---|---|---|---|---|---|
-|Wyświetlanie wszystkich uprawnień dotyczących sekcji faktury|✔|✔|✔|✔|✔|✔|✔| |
-|Przyznawanie innym osobom uprawnień do wyświetlania sekcji faktury i zarządzania nią|✔|✘|✘|✘|✘|✘|✘| |
-|Wyświetlanie właściwości sekcji faktury|✔|✔|✔|✔|✔|✔|✔| |
-|Aktualizowanie właściwości sekcji faktury|✔|✔|✘|✘|✘|✘|✘|✘|
+|Zadania|Właściciel sekcji faktury|Współautor sekcji faktury|Czytelnik sekcji faktury|Twórca subskrypcji platformy Azure|Właściciel konta rozliczeniowego|Współautor konta rozliczeniowego|Czytelnik konta rozliczeniowego |
+|---|---|---|---|---|---|---|---|
+|Wyświetlanie wszystkich uprawnień dotyczących sekcji faktury|✔|✔|✔|✔|✔|✔|✔|
+|Przyznawanie innym osobom uprawnień do wyświetlania sekcji faktury i zarządzania nią|✔|✘|✘|✘|✘|✘|✘|
+|Wyświetlanie właściwości sekcji faktury|✔|✔|✔|✔|✔|✔|✔|
+|Aktualizowanie właściwości sekcji faktury|✔|✔|✘|✘|✘|✘|✘|
 
 ### <a name="manage-products-for-invoice-section"></a>Zarządzanie produktami na potrzeby sekcji faktury
 
@@ -176,7 +176,7 @@ W poniższej tabeli przedstawiono, jaką należy mieć rolę, aby móc wykonywa�
 
 ## <a name="manage-billing-roles-in-the-azure-portal"></a>Zarządzanie rolami rozliczeniowymi w witrynie Azure Portal
 
-1. Zaloguj się do [Azure portal](https://portal.azure.com).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
 2. Wyszukaj pozycję **Zarządzanie kosztami i rozliczenia**.
 
@@ -196,7 +196,7 @@ W poniższej tabeli przedstawiono, jaką należy mieć rolę, aby móc wykonywa�
 
    ![Zrzut ekranu przedstawiający usuwanie administratora konta rozliczeniowego](./media/understand-mca-roles/billing-remove-admin.png)
 
-## <a name="check-access-to-a-microsoft-customer-agreement"></a>Sprawdzanie dostępu do Umowy klienta firmy Microsoft
+## <a name="check-access-to-a-microsoft-customer-agreement"></a>Sprawdzanie dostępu do umowy klienta firmy Microsoft
 [!INCLUDE [billing-check-mca](../../../includes/billing-check-mca.md)]
 
 ## <a name="need-help-contact-support"></a>Potrzebujesz pomocy? Kontakt z pomocą techniczną
