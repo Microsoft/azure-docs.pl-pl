@@ -9,18 +9,18 @@ ms.topic: quickstart
 ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 04343f684539307957cd635822ba1ba5a1ce24c9
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: dd429dadcbe67f0ac91da19d6606626b39f34ef5
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76313777"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86201085"
 ---
-# <a name="get-started-with-azure-data-box"></a>Rozpoczynanie pracy z usługą Azure Data Box 
+# <a name="get-started-with-azure-data-box-to-import-data-into-azure"></a>Rozpocznij pracę z usługą Azure Data Box, aby importować dane na platformę Azure
 
 ::: zone target="docs"
 
-W tym przewodniku Szybki start opisano sposób wdrażania usługi Azure Data Box przy użyciu witryny Azure Portal. Przedstawiono między innymi czynności podłączania i konfigurowania urządzenia Data Box oraz kopiowania na nie danych do przekazania na platformę Azure. Czynności opisane w przewodniku Szybki start należy wykonać w witrynie Azure Portal oraz w lokalnym internetowym interfejsie użytkownika na urządzeniu.
+W tym przewodniku Szybki start opisano sposób wdrażania usługi Azure Data Box przy użyciu witryny Azure Portal na potrzeby zamówienia importu. Przedstawiono między innymi czynności podłączania i konfigurowania urządzenia Data Box oraz kopiowania na nie danych do przekazania na platformę Azure. Czynności opisane w przewodniku Szybki start należy wykonać w witrynie Azure Portal oraz w lokalnym internetowym interfejsie użytkownika na urządzeniu.
 
 Aby zyskać szczegółowe instrukcje dotyczące wdrażania i śledzenia krok po kroku, zobacz [Samouczek: zamawianie urządzenia Azure Data Box](data-box-deploy-ordered.md)
 
@@ -28,7 +28,7 @@ Aby zyskać szczegółowe instrukcje dotyczące wdrażania i śledzenia krok po 
 
 ::: zone target="chromeless"
 
-W tym przewodniku opisano sposób wdrażania usługi Azure Data Box przy użyciu witryny Azure Portal. Opisane czynności obejmują przeglądanie wymagań wstępnych, podłączanie kabli do urządzenia i nawiązywanie z nim połączenia oraz kopiowanie danych do urządzenia w celu przekazania ich do platformy Azure.
+W tym przewodniku opisano sposób wdrażania usługi Azure Data Box na potrzeby importowania przy użyciu witryny Azure Portal. Opisane czynności obejmują przeglądanie wymagań wstępnych, podłączanie kabli do urządzenia i nawiązywanie z nim połączenia oraz kopiowanie danych do urządzenia w celu przekazania ich do platformy Azure.
 
 ::: zone-end
 

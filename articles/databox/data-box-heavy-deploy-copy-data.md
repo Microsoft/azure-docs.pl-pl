@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 08/29/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: e855bb669d86db246d57709607f62e77385e8c42
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: b02345ded6f519981db03795678802107f9cfb1f
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83199160"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206680"
 ---
 ::: zone target = "docs"
 
@@ -80,7 +80,7 @@ W przypadku udziałów usługi Azure Files:
 
 W poniższej tabeli przedstawiono ścieżkę UNC do udziałów na urządzeniu Data Box Heavy i adres URL ścieżki w usłudze Azure Storage, na który przekazywane są dane. Ostateczny adres URL w usłudze Azure Storage można uzyskać ze ścieżki udziału UNC.
  
-|                   |                                                            |
+| Magazyn           | Ścieżka UNC                                                                       |
 |-------------------|--------------------------------------------------------------------------------|
 | Blokowe obiekty blob platformy Azure | <li>Ścieżka UNC do udziałów: `\\<DeviceIPAddress>\<StorageAccountName_BlockBlob>\<ContainerName>\files\a.txt`</li><li>Adres URL w usłudze Azure Storage: `https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/files/a.txt`</li> |  
 | Stronicowe obiekty blob platformy Azure  | <li>Ścieżka UNC do udziałów: `\\<DeviceIPAddres>\<StorageAccountName_PageBlob>\<ContainerName>\files\a.txt`</li><li>Adres URL w usłudze Azure Storage: `https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/files/a.txt`</li>   |  

@@ -8,22 +8,28 @@ ms.service: cost-management-billing
 ms.topic: quickstart
 ms.date: 06/10/2020
 ms.custom: subject-armqs
-ms.openlocfilehash: dc37039d6777a77f9de247808329930f1621ee82
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 5bff8e6057475701a2e78835fb5a950dcb8c8fcb
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84686413"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86252440"
 ---
-# <a name="quickstart-create-a-budget-with-an-azure-resource-manager-template"></a>Szybki start: Tworzenie budżetu za pomocą szablonu usługi Azure Resource Manager
+# <a name="quickstart-create-a-budget-with-an-arm-template"></a>Szybki start: Tworzenie budżetu przy użyciu szablonu usługi ARM
 
-Budżety w usłudze Cost Management ułatwiają planowanie poprawy odpowiedzialności organizacji. Za pomocą budżetów możesz obserwować koszt wykorzystywanych lub subskrybowanych usług platformy Azure w określonym czasie. Ułatwiają one informowanie innych osób o ich wydatkach, co umożliwia proaktywne zarządzanie kosztami oraz monitorowanie wydatków w czasie. Po przekroczeniu utworzonych progów budżetowych wyzwalane są powiadomienia. Nie ma to wpływu na zasoby ani nie następuje zatrzymanie użycia. Budżety umożliwiają porównywanie i śledzenie wydatków, co ułatwia analizę kosztów. W tym przewodniku Szybki start przedstawiono, w jaki sposób można utworzyć budżet za pomocą szablonu usługi Resource Manager.
+Budżety w usłudze Cost Management ułatwiają planowanie poprawy odpowiedzialności organizacji. Za pomocą budżetów możesz obserwować koszt wykorzystywanych lub subskrybowanych usług platformy Azure w określonym czasie. Ułatwiają one informowanie innych osób o ich wydatkach, co umożliwia proaktywne zarządzanie kosztami oraz monitorowanie wydatków w czasie. Po przekroczeniu utworzonych progów budżetowych wyzwalane są powiadomienia. Nie ma to wpływu na zasoby ani nie następuje zatrzymanie użycia. Budżety umożliwiają porównywanie i śledzenie wydatków, co ułatwia analizę kosztów. W tym przewodniku Szybki start przedstawiono, w jaki sposób można utworzyć budżet za pomocą szablonu usługi Azure Resource Manager (szablonu ARM).
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
+Jeśli Twoje środowisko spełnia wymagania wstępne i masz doświadczenie w korzystaniu z szablonów ARM, wybierz przycisk **Wdróż na platformie Azure**. Szablon zostanie otwarty w witrynie Azure Portal.
+
+[![Wdrażanie na platformie Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fcreate-budget%2Fazuredeploy.json)
+
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Szablon usługi Azure Resource Manager obsługuje tylko subskrypcje platformy Azure dla umów Enterprise Agreement (EA). Inne typy subskrypcji nie są obsługiwane przez ten szablon.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+
+Szablon ARM obsługuje tylko subskrypcje platformy Azure dla umów Enterprise Agreement (EA). Inne typy subskrypcji nie są obsługiwane przez ten szablon.
 
 Aby tworzyć budżety i zarządzać nimi, musisz mieć uprawnienie współautora. Możesz tworzyć indywidualne budżety dla subskrypcji EA i grup zasobów. Nie możesz jednak tworzyć budżetów dla kont rozliczeniowych EA. W przypadku subskrypcji Azure EA wyświetlanie budżetów wymaga dostępu do odczytu.
 
@@ -39,9 +45,7 @@ Na potrzeby tworzenia budżetów przez użytkownika i grupę w ramach subskrypcj
 
 Aby uzyskać więcej informacji na temat przypisywania uprawnień do danych usługi Cost Management, zobacz [Przypisywanie dostępu do danych usługi Cost Management](assign-access-acm-data.md).
 
-## <a name="create-a-budget"></a>Tworzenie budżetu
-
-### <a name="review-the-template"></a>Przegląd szablonu
+## <a name="review-the-template"></a>Przegląd szablonu
 
 Szablon używany w tym przewodniku Szybki start jest jednym z [szablonów szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/create-budget).
 
@@ -51,7 +55,7 @@ Jeden zasób platformy Azure jest zdefiniowany w szablonie:
 
 * [Microsoft.Consumption/budgets](/azure/templates/microsoft.consumption/budgets): Tworzenie budżetu platformy Azure.
 
-### <a name="deploy-the-template"></a>Wdrożenie szablonu
+## <a name="deploy-the-template"></a>Wdrożenie szablonu
 
 1. Wybierz poniższy obraz, aby zalogować się na platformie Azure i otworzyć szablon. Ten szablon tworzy budżet.
 

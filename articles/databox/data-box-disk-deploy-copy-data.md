@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 93a7181a3b720a3b313bb75855b2564c4cd33bc1
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: ff57a67d5e6d617d6d51c924161f586f90f92c3c
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79214330"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86231543"
 ---
 ::: zone target="docs"
 
@@ -111,7 +111,7 @@ Aby podłączyć urządzenia Data Box Disk do komputera i skopiować na nie dane
     |/NFL                | Określa, że nazwy plików nie mają być rejestrowane w dzienniku.        |
     |/NDL                | Określa, że nazwy katalogów nie mają być rejestrowane w dzienniku.        |
     |/FFT                | Zakłada czas plików w formacie FAT (dokładność do dwóch sekund).        |
-    |/Log:\<plik dziennika>     | Zapisuje dane wyjściowe stanu w pliku dziennika (zastępuje istniejący plik dziennika).         |
+    |/Log:\<Log File>     | Zapisuje dane wyjściowe stanu w pliku dziennika (zastępuje istniejący plik dziennika).         |
 
     Można użyć równolegle wielu dysków, uruchamiając wiele zadań na każdym z nich.
 
@@ -273,7 +273,7 @@ Po zakończeniu kopiowania danych możesz przejść do walidowania danych. Jeśl
 
 Jeśli nie użyto narzędzia do dzielenia skopiowanych plików, musisz przeprowadzić walidację danych. Aby zweryfikować dane, wykonaj następujące czynności:
 
-1. Uruchom polecenie `DataBoxDiskValidation.cmd` w celu zweryfikowania sumy kontrolnej w folderze *DataBoxDiskImport* na dysku.
+1. Uruchom polecenie `DataBoxDiskValidation.cmd` w celu zweryfikowania sumy kontrolnej w folderze *DataBoxDiskImport* na dysku. Jest to dostępne tylko dla środowiska systemu Windows. Użytkownicy systemu Linux muszą sprawdzić, czy dane źródłowe, które są kopiowane na dysk, spełniają [wymagania wstępne](https://docs.microsoft.com/azure/databox/data-box-disk-limits).
     
     ![Dane wyjściowe narzędzia walidacji dysków Data Box Disk](media/data-box-disk-deploy-copy-data/data-box-disk-validation-tool-output.png)
 

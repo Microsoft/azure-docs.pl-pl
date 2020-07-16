@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 09/03/2019
+ms.date: 07/10/2020
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 850144e4835b43e219fa059bbc1c92bb3ef412f4
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: c74b5ba5101dae9165898aeb4f265d449988ecab
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83200499"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86205243"
 ---
 ::: zone target="docs"
 
@@ -42,17 +42,19 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 
 Przed rozpoczęciem upewnij się, że:
 
-1. Ukończono [samouczek dotyczący zamawiania urządzenia Azure Data Box](data-box-deploy-ordered.md).
-2. Urządzenie Data Box zostało do Ciebie dostarczone, a stan zamówienia w portalu to **Dostarczono**. 
+1. Złożono zamówienie na urządzenie Azure Data Box.
+    - Aby uzyskać zamówienie importu, zobacz [Samouczek: zamawianie urządzenia Azure Data Box](data-box-deploy-ordered.md).
+    - Aby uzyskać zamówienie eksportu, zobacz [Samouczek: zamawianie urządzenia Azure Data Box](data-box-deploy-export-ordered.md)
+1. Urządzenie Data Box zostało do Ciebie dostarczone, a stan zamówienia w portalu to **Dostarczono**. 
     - Do urządzenia dołączono etykietę wysyłkową w przezroczystej kieszeni pod bieżącą etykietą. Przechowuj tę etykietę w bezpiecznym miejscu, ponieważ użyjesz jej do wysyłki zwrotnej.
     - W niektórych regionach Europy możesz otrzymać urządzenie w opakowaniu. Pamiętaj, aby po rozpakowaniu urządzenia zachować opakowanie na wypadek wysyłki zwrotnej.
-3. Zapoznano się z [wytycznymi bezpieczeństwa dotyczącymi urządzenia Data Box](data-box-safety.md).
-4. Odebrano jeden kabel zasilający z uziemieniem do korzystania z urządzenia magazynującego o pojemności 100 TB.
-5. Masz komputer-host zawierający dane, które mają zostać skopiowane na urządzenie Data Box. Na komputerze hosta wymagane jest:
+1. Zapoznano się z [wytycznymi bezpieczeństwa dotyczącymi urządzenia Data Box](data-box-safety.md).
+1. Odebrano jeden kabel zasilający z uziemieniem do korzystania z urządzenia magazynującego o pojemności 100 TB.
+1. Masz komputer hosta służący do kopiowania danych do (zamówienie importu) lub kopiowania danych z (zamówienie eksportu) urządzenia Data Box. Na komputerze hosta wymagane jest:
     - Korzystanie z [obsługiwanego systemu operacyjnego](data-box-system-requirements.md).
     - Połączenie z siecią o dużej szybkości. Zdecydowanie zaleca się posiadanie co najmniej jednego połączenia 10 GbE. Jeśli połączenie 10 GbE nie jest dostępne, można użyć połączenia danych 1 GbE, ale będzie miało to wpływ na szybkość kopiowania. 
-6. Należy mieć dostęp do płaskiej powierzchni, na której można umieścić urządzenie Data Box. Jeśli chcesz umieścić urządzenie na standardowej półce na stojaku, na stojaku centrum danych potrzebne jest gniazdo 7U. Urządzenie możesz umieścić na stojaku płasko lub pionowo.
-7. Należy zapewnić następujące kable w celu podłączenia urządzenia Data Box do komputera hosta.
+1. Należy mieć dostęp do płaskiej powierzchni, na której można umieścić urządzenie Data Box. Jeśli chcesz umieścić urządzenie na standardowej półce na stojaku, na stojaku centrum danych potrzebne jest gniazdo 7U. Urządzenie możesz umieścić na stojaku płasko lub pionowo.
+1. Należy zapewnić następujące kable w celu podłączenia urządzenia Data Box do komputera hosta.
     - Co najmniej jeden kabel miedziany SFP+ Twinax 10 GbE lub kable światłowodowe SFP+ (do użytku z interfejsami sieciowymi DATA 1 i DATA 2). Urządzenie Data Box jest wyposażone w karty Mellanox ConnectX®-3 Pro EN Dual-Port 10GBASE-T z interfejsem sieciowym PCI Express 3.0, więc kable, które są zgodne z tym interfejsem, powinny działać. Na przykład do testowania wewnętrznego użyto kabla CISCO SFP-H10GB-CU3M 10GBASE-CU TWINAX SFP +3M. Aby uzyskać więcej informacji, zobacz [listę obsługiwanych kabli i przełączników firmy Mellanox](https://www.mellanox.com/pdf/firmware/ConnectX3-FW-2_42_5000-release_notes.pdf).
     - Jeden kabel sieciowy RJ-45 CAT 6 (do użytku z interfejsem sieciowym MGMT)
     - Jeden kabel sieciowy RJ-45 CAT 6A lub RJ-45 CAT 6 (do użytku z interfejsem sieciowym DATA 3 skonfigurowanym odpowiednio dla przepływności 10 GB/s lub 1 GB/s)
@@ -135,7 +137,7 @@ Wykonaj poniższe kroki, aby skonfigurować urządzenie przy użyciu lokalnego i
 
 Po skonfigurowaniu sieciowych interfejsów danych można też uzyskać dostęp do lokalnego internetowego interfejsu użytkownika pod adresem `https://<IP address of a data network interface>` przy użyciu adresu IP dowolnego interfejsu DATA 1–DATA 3. 
 
-Po zakończeniu konfiguracji urządzenia możesz połączyć się z udziałami na urządzeniu i skopiować dane z komputera na urządzenie. 
+Po zakończeniu konfiguracji urządzenia możesz połączyć się z udziałami na urządzeniu i skopiować dane. 
 
 ::: zone-end
 
@@ -161,10 +163,15 @@ W tym samouczku przedstawiono zagadnienia dotyczące usługi Azure Data Box, tak
 > * Podłączanie kabli do urządzenia Data Box
 > * Nawiązywanie połączenia z urządzeniem Data Box
 
-Przejdź do następnego samouczka, aby dowiedzieć się, jak skopiować dane na urządzenie Data Box.
+Przejdź do następnego samouczka, aby dowiedzieć się, jak kopiować dane.
 
 > [!div class="nextstepaction"]
-> [Kopiowanie danych na urządzenie Azure Data Box](./data-box-deploy-copy-data.md)
+> [Kopiowanie danych na urządzenie Azure Data Box dla zamówienia importu](./data-box-deploy-copy-data.md)
+
+Lub
+
+> [!div class="nextstepaction"]
+> [Kopiowanie danych z urządzenia Azure Data Box dla zamówienia eksportu](./data-box-deploy-export-copy-data.md)
 
 ::: zone-end
 
