@@ -5,11 +5,12 @@ author: apwestgarth
 ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: anwestg
-ms.openlocfilehash: 7ad748aa9a5b45af10121648a668344548484cf7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 73b9533fa00c783e1cfb85270198f5c00c66afd5
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74226735"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86540387"
 ---
 # <a name="install-the-azure-functions-runtime-preview-2"></a>Zainstaluj wersję zapoznawczą środowisko uruchomieniowe usługi Azure Functions 2
 
@@ -70,7 +71,7 @@ Aby ukończyć instalację środowisko uruchomieniowe usługi Azure Functions, n
 
     ![Narzędzie konfiguracji środowisko uruchomieniowe usługi Azure Functions Preview][7]
 
-1. Kliknij kartę **baza danych** , wprowadź szczegóły połączenia dla wystąpienia SQL Server, w tym określenie [klucza głównego bazy danych](https://docs.microsoft.com/sql/relational-databases/security/encryption/sql-server-and-database-encryption-keys-database-engine), a następnie kliknij przycisk **Zastosuj**.  Połączenie z wystąpieniem SQL Server jest wymagane, aby środowisko uruchomieniowe usługi Azure Functions utworzyć bazę danych do obsługi środowiska uruchomieniowego.
+1. Kliknij kartę **baza danych** , wprowadź szczegóły połączenia dla wystąpienia SQL Server, w tym określenie [klucza głównego bazy danych](/sql/relational-databases/security/encryption/sql-server-and-database-encryption-keys-database-engine), a następnie kliknij przycisk **Zastosuj**.  Połączenie z wystąpieniem SQL Server jest wymagane, aby środowisko uruchomieniowe usługi Azure Functions utworzyć bazę danych do obsługi środowiska uruchomieniowego.
 
     ![środowisko uruchomieniowe usługi Azure Functions konfigurację bazy danych w wersji zapoznawczej][8]
 

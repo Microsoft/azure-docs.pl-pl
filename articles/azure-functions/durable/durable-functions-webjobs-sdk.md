@@ -4,12 +4,12 @@ description: Dowiedz się, jak kodować i konfigurować Durable Functions do uru
 ms.topic: conceptual
 ms.date: 04/25/2018
 ms.author: azfuncdf
-ms.openlocfilehash: ad498bdbc4e6dc9745c6ef45b3dc601ad36c0a62
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 826e475eb71563b52d687903aeac4ec936e267f6
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82733417"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86540302"
 ---
 # <a name="how-to-run-durable-functions-as-webjobs"></a>Jak uruchamiać Durable Functions jako zadania WebJob
 
@@ -31,7 +31,7 @@ W tym artykule założono, że znasz podstawowe informacje o zestawie SDK zadań
 
 Aby wykonać kroki opisane w tym artykule:
 
-* [Zainstaluj program Visual Studio 2019](https://docs.microsoft.com/visualstudio/install/) przy użyciu obciążeń **programistycznych platformy Azure** .
+* [Zainstaluj program Visual Studio 2019](/visualstudio/install/) przy użyciu obciążeń **programistycznych platformy Azure** .
 
   Jeśli masz już program Visual Studio, ale nie masz tego obciążenia, Dodaj obciążenie, wybierając kolejno pozycje **Narzędzia**  >  **Pobierz narzędzia i funkcje**.
 
@@ -224,7 +224,7 @@ Główną wprowadzaną zmianą jest użycie platformy .NET Core zamiast .NET Fra
     * `Microsoft.Azure.WebJobs.Extensions.Storage`
     * `Microsoft.Azure.WebJobs.Logging.ApplicationInsights`
 
-1. Ustaw parametry połączenia magazynu i klucz Instrumentacji Application Insights w *appsettings.js* pliku przy użyciu platformy .NET Core Configuration Framework. Przykład:
+1. Ustaw parametry połączenia magazynu i klucz Instrumentacji Application Insights w *appsettings.js* pliku przy użyciu platformy .NET Core Configuration Framework. Oto przykład:
 
     ```json
         {
@@ -233,7 +233,7 @@ Główną wprowadzaną zmianą jest użycie platformy .NET Core zamiast .NET Fra
         }
     ```
 
-1. Zmień `Main` Kod metody, aby to zrobić. Przykład:
+1. Zmień `Main` Kod metody, aby to zrobić. Oto przykład:
 
    ```cs
    static void Main(string[] args)

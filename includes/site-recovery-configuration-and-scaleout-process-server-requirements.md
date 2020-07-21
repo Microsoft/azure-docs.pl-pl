@@ -1,20 +1,20 @@
 ---
-title: dołączanie pliku
-description: dołączanie pliku
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: include
-ms.date: 06/23/2020
+ms.date: 07/08/2020
 ms.author: raynew
 ms.custom: include file
-ms.openlocfilehash: c8c51d671cd98a606c11a39b6cf489aa288d71b3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 60012f79c3c04a4ff14c4a7f0609b6940d3402c4
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85292104"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86544448"
 ---
 **Wymagania dotyczące konfiguracji i serwera przetwarzania**
 
@@ -46,7 +46,7 @@ FIPS (Federal Information Processing Standards) | Nie włączaj trybu FIPS
 
 **Składnik** | **Wymaganie** 
 --- | --- 
-Typ adresu IP | Static 
+Typ adresu IP | Statyczny 
 Porty | 443 (organizowanie kanału sterowania)<br>9443 (transport danych) 
 Typ karty sieciowej | VMXNET3 (Jeśli serwer konfiguracji jest maszyną wirtualną VMware)
  |
@@ -61,6 +61,9 @@ time.windows.com | Służy do sprawdzania synchronizacji czasu między systemem 
 https: \/ /dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi  | Aby ukończyć pobieranie bazy danych MySQL. </br> W kilku regionach pobieranie może zostać przekierowane na adres URL sieci CDN. Upewnij się, że adres URL usługi CDN jest również listy dozwolonych, w razie potrzeby.
 |
 
+> [!NOTE]
+> Jeśli masz [połączenia prywatne](../articles/site-recovery/hybrid-how-to-enable-replication-private-endpoints.md) z magazynem Site Recovery, nie potrzebujesz dodatkowego dostępu do Internetu dla serwera konfiguracji. Wyjątkiem jest to, że podczas konfigurowania maszyny CS przy użyciu szablonu komórki jajowe będziesz potrzebować dostępu do następujących adresów URL za pośrednictwem i powyżej prywatnego linku dostępu — https://management.azure.com https://www.live.com i https://www.microsoft.com . Jeśli nie chcesz zezwalać na dostęp do tych adresów URL, skonfiguruj CS za pomocą ujednoliconego Instalatora.
+
 ## <a name="required-software"></a>Wymagane oprogramowanie
 
 **Składnik** | **Wymaganie** 
@@ -74,7 +77,7 @@ MYSQL | Należy zainstalować MySQL. Można zainstalować go ręcznie lub Site R
 Poniższa tabela zawiera podsumowanie wymagań dotyczących pojemności dla serwera konfiguracji. W przypadku replikowania wielu maszyn wirtualnych VMware zapoznaj się z [zagadnieniami dotyczącymi planowania pojemności](../articles/site-recovery/site-recovery-plan-capacity-vmware.md) i uruchom [Narzędzie planista wdrażania usługi Azure Site Recovery](../articles/site-recovery/site-recovery-deployment-planner.md).
 
 
-**Procesor CPU** | **Memory (Pamięć)** | **Dysk pamięci podręcznej** | **Szybkość zmian danych** | **Zreplikowane maszyny**
+**Procesor CPU** | **Pamięć** | **Dysk pamięci podręcznej** | **Szybkość zmian danych** | **Zreplikowane maszyny**
 --- | --- | --- | --- | ---
 8 procesorów wirtualnych vCPU<br/><br/> 2 gniazda * 4 rdzenie \@ 2,5 GHz | 16 GB | 300 GB | 500 GB lub mniej | Maszyny < 100
 12 procesorów wirtualnych vCPU<br/><br/> 2 SOCKS * 6 rdzeni \@ 2,5 GHz | 18 GB | 600 GB | 500 GB — 1 TB | 100 do 150 maszyn

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: e5611eeb08ac370e12cf452d57a87e449fbd80da
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 92e111a6e76dbe285dd8cc7a93ce75f556142565
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80335372"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86540149"
 ---
 # <a name="show-traffic-data-on-the-map-using-azure-maps-android-sdk"></a>Wyświetlanie danych o ruchu na mapie przy użyciu Azure Maps Android SDK
 
@@ -21,9 +21,9 @@ Dane przepływu i dane zdarzeń to dwa typy danych ruchu, które mogą być wyś
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby można było wyświetlić ruch na mapie, należy [utworzyć konto platformy Azure](quick-demo-map-app.md#create-an-account-with-azure-maps)i [uzyskać klucz subskrypcji](quick-demo-map-app.md#get-the-primary-key-for-your-account). Następnie należy zainstalować [Android SDK Azure Maps](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) i załadować mapę.
+Aby można było wyświetlić ruch na mapie, należy [utworzyć konto platformy Azure](quick-demo-map-app.md#create-an-azure-maps-account)i [uzyskać klucz subskrypcji](quick-demo-map-app.md#get-the-primary-key-for-your-account). Następnie należy zainstalować [Android SDK Azure Maps](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) i załadować mapę.
 
-## <a name="incidents-traffic-data"></a>Zdarzenia danych ruchu 
+## <a name="incidents-traffic-data"></a>Zdarzenia danych ruchu
 
 Należy zaimportować następujące biblioteki do wywołania `setTraffic` i `incidents` :
 
@@ -53,7 +53,7 @@ import static com.microsoft.azure.maps.mapcontrol.options.TrafficOptions.flow;
 
 Użyj poniższego fragmentu kodu, aby ustawić dane przepływu ruchu. Podobnie jak w przypadku kodu w poprzedniej sekcji, przekazujemy wartość zwracaną `flow` metody do `setTraffic` metody. Istnieją cztery wartości, które mogą być przenoszone do `flow` , a każda wartość będzie wyzwalać `flow` odpowiednią wartość. Zwracana wartość `flow` zostanie następnie przeniesiona jako argument do `setTraffic` . Zapoznaj się z poniższą tabelą dla tych czterech wartości:
 
-| | |
+|Wartość przepływu | Opis|
 | :-- | :-- |
 | TrafficFlow. NONE | Nie wyświetla danych o ruchu na mapie |
 | TrafficFlow. RELATYWN | Pokazuje dane o ruchu odnoszące się do szybkości swobodnego przepływu drogi |

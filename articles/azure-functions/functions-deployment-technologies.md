@@ -6,12 +6,12 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: glenga
-ms.openlocfilehash: ec5e9da2ab80f4728d342303e1eb08c49f765485
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 63c52b8b1ee9b9448a1ba6f78873ae6a036e3563
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82735304"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86540217"
 ---
 # <a name="deployment-technologies-in-azure-functions"></a>Technologie wdrażania w Azure Functions
 
@@ -21,8 +21,8 @@ Do wdrożenia kodu projektu Azure Functions na platformie Azure można użyć ki
 
 Azure Functions obsługuje Międzyplatformowe programowanie lokalne i hosting w systemach Windows i Linux. Obecnie dostępne są trzy plany hostingu:
 
-+ [Wyrażon](functions-scale.md#consumption-plan)
-+ [Premium](functions-scale.md#premium-plan)
++ [Zużycie](functions-scale.md#consumption-plan)
++ [Tytułu](functions-scale.md#premium-plan)
 + [Dedykowane (App Service)](functions-scale.md#app-service-plan)
 
 Każdy plan ma inne zachowania. Nie wszystkie technologie wdrażania są dostępne dla każdej wersji Azure Functions. Na poniższym wykresie przedstawiono, które technologie wdrażania są obsługiwane dla każdej kombinacji systemu operacyjnego i planu hostingu:
@@ -175,11 +175,11 @@ W edytorze opartym na portalu można bezpośrednio edytować pliki znajdujące s
 >
 >* [Visual Studio Code](functions-create-first-function-vs-code.md)
 >* [Azure Functions Core Tools (wiersz polecenia)](functions-run-local.md)
->* [Program Visual Studio](functions-create-your-first-function-visual-studio.md)
+>* [Visual Studio](functions-create-your-first-function-visual-studio.md)
 
 W poniższej tabeli przedstawiono systemy operacyjne i języki obsługujące edycję portalu:
 
-| | Użycie systemu Windows | Windows Premium | Dedykowane systemu Windows | Użycie systemu Linux | System Linux Premium | System Linux — dedykowany |
+| Język | Użycie systemu Windows | Windows Premium | Dedykowane systemu Windows | Użycie systemu Linux | System Linux Premium | System Linux — dedykowany |
 |-|:-----------------: |:----------------:|:-----------------:|:-----------------:|:-------------:|:---------------:|
 | C# | | | | | |
 | Skrypt C# |✔|✔|✔| |✔<sup>\*</sup> |✔<sup>\*</sup>|

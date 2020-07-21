@@ -1,6 +1,6 @@
 ---
-title: dołączanie pliku
-description: dołączanie pliku
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: virtual-machines
 author: roygara
 ms.service: virtual-machines
@@ -8,11 +8,12 @@ ms.topic: include
 ms.date: 03/31/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 9764d3964a38408493bafe0e9c8ca059b055ca21
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: efec7656675b649d365a479c184de06a67d33db0
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85242229"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86545087"
 ---
 W tym artykule przedstawiono kilka często zadawanych pytań dotyczących usługi Azure Managed Disks i Azure SSD w warstwie Premium Disks.
 
@@ -157,15 +158,19 @@ Rezerwacja dysków Azure jest zakupionych dla określonego regionu i jednostki S
 **Co się stanie w przypadku wygaśnięcia rezerwacji z usługi Azure disks?**    
 Powiadomienia e-mail będą wysyłane na 30 dni przed wygaśnięciem i od daty wygaśnięcia. Po wygaśnięciu rezerwacji wdrożone dyski będą nadal działać i opłaty są naliczane przy użyciu najnowszych [stawek płatności zgodnie z rzeczywistym](https://azure.microsoft.com/pricing/details/managed-disks/)użyciem.
 
+**Czy SSD w warstwie Standardowa dyski obsługują "umowę SLA maszyny wirtualnej o pojedynczym wystąpieniu"?**
+
+Tak, wszystkie typy dysków obsługują umowę SLA maszyny wirtualnej z jednym wystąpieniem.
+
 ### <a name="azure-shared-disks"></a>Dyski udostępnione platformy Azure
 
 **Czy funkcja dysków udostępnionych jest obsługiwana w przypadku dysków niezarządzanych lub stronicowych obiektów BLOB?**
 
-Nie, jest obsługiwana tylko w przypadku dysków zarządzanych SSD w warstwie Premium.
+Nie, jest obsługiwana tylko w przypadku dysków Ultra i Managed disks w warstwie Premium.
 
 **Jakie regiony obsługują dyski udostępnione?**
 
-Obecnie tylko zachodnie stany USA.
+Informacje regionalne znajdują się w naszym [artykule koncepcyjnym](../articles/virtual-machines/linux/disks-shared.md).
 
 **Czy dyski udostępnione mogą być używane jako dysk systemu operacyjnego?**
 
@@ -173,11 +178,11 @@ Nie, dyski udostępnione są obsługiwane tylko w przypadku dysków z danymi.
 
 **Jakie rozmiary dysków obsługują dyski udostępnione?**
 
-Tylko Premium dysków SSD, które są P15 lub większe obsługują dyski udostępnione.
+Aby uzyskać obsługiwane rozmiary, zobacz [artykuł dotyczący koncepcyjnych](../articles/virtual-machines/linux/disks-shared.md)zagadnień.
 
-**Jeśli mam dysk SSD w warstwie Premium, czy mogę włączyć na nim dyski udostępnione?**
+**Jeśli mam istniejący dysk, czy mogę włączyć na nim dyski udostępnione?**
 
-Wszystkie dyski zarządzane utworzone przy użyciu interfejsu API w wersji 2019-07-01 lub nowszej mogą umożliwić udostępnianie dysków. W tym celu należy odinstalować dysk ze wszystkich maszyn wirtualnych, do których jest dołączony. Następnie Edytuj `maxShares` Właściwość na dysku.
+Wszystkie dyski zarządzane utworzone przy użyciu interfejsu API w wersji 2019-07-01 lub nowszej mogą umożliwić udostępnianie dysków. W tym celu należy odinstalować dysk ze wszystkich maszyn wirtualnych, do których jest dołączony. Następnie Edytuj Właściwość **maxShares** na dysku.
 
 **Jeśli nie chcesz już używać dysku w trybie udostępniania, jak go wyłączyć?**
 
@@ -193,7 +198,7 @@ Nie.
 
 **Czy mogę włączyć buforowanie hosta dla dysku z włączonym dyskiem udostępnionym?**
 
-Jedyną obsługiwaną opcją buforowania hosta jest "none".
+Jedyną obsługiwaną opcją buforowania hosta jest **none**.
 
 ## <a name="ultra-disks"></a>Dyski w warstwie Ultra
 
@@ -204,7 +209,7 @@ Jeśli nie masz pewności, w jaki sposób ustawić przepływność dysku, zaleca
 Oprócz ograniczenia dysku istnieje ograniczenie we/wy, które jest nakładane na poziomie maszyny wirtualnej. Upewnij się, że rozmiar maszyny wirtualnej, z której korzystasz, może obsługiwać poziomy skonfigurowane na dyskach. Aby uzyskać szczegółowe informacje dotyczące limitów we/wy narzuconych przez maszynę wirtualną, zobacz [rozmiary maszyn wirtualnych z systemem Windows na platformie Azure](../articles/virtual-machines/windows/sizes.md).
 
 **Czy mogę użyć poziomów buforowania z dyskiem o bardzo wysokiej rozdzielczości?**
-Nie, Ultra disks nie obsługuje różnych metod buforowania, które są obsługiwane przez inne typy dysków. Ustaw buforowanie dysku na brak.
+Nie, Ultra disks nie obsługuje różnych metod buforowania, które są obsługiwane przez inne typy dysków. Ustaw buforowanie dysku na **Brak**.
 
 **Czy mogę dołączyć dysk Ultra do istniejącej maszyny wirtualnej?**
 Może to być, że maszyna wirtualna musi znajdować się w stacji i strefie dostępności, która obsługuje Ultra Disks. Aby uzyskać szczegółowe informacje, zobacz Wprowadzenie do usługi [Ultra disks](../articles/virtual-machines/windows/disks-enable-ultra-ssd.md) .
@@ -261,9 +266,6 @@ SSD w warstwie Standardowa dyski zapewniają lepsze opóźnienia, spójność, d
 
 **Czy można używać standardowych dysków SSD jako dysków niezarządzanych?**
 Nie, standardowe dyski dysków SSD są dostępne tylko jako Managed Disks.
-
-**Czy SSD w warstwie Standardowa dyski obsługują "umowę SLA maszyny wirtualnej o pojedynczym wystąpieniu"?**
-Nie, standardowa dysków SSD nie ma umowy SLA dotyczącej pojedynczego wystąpienia maszyny wirtualnej. Użyj SSD w warstwie Premium dysków dla umowy SLA dla pojedynczego wystąpienia maszyny wirtualnej.
 
 ## <a name="migrate-to-managed-disks"></a>Migrowanie do funkcji Dyski zarządzane
 
@@ -412,7 +414,7 @@ Nie musisz uaktualniać istniejących narzędzi platformy Azure, aby tworzyć, d
 |Narzędzia platformy Azure      | Obsługiwane wersje                                |
 |-----------------|---------------------------------------------------|
 |Azure PowerShell | Numer wersji 4.1.0: wydanie 2017 czerwca lub nowszej|
-|Interfejs wiersza polecenia platformy Azure w wersji 1     | Numer wersji 0.10.13:2017 maja lub nowszej|
+|Interfejs wiersza polecenia platformy Azure w wersji 1     | Numer wersji 0.10.13:2017 maja lub nowszej|
 |Interfejs wiersza polecenia platformy Azure w wersji 2     | Numer wersji 2.0.12: wydanie 2017 lipca lub nowszej|
 |AzCopy              | Numer wersji 6.1.0: wydanie 2017 czerwca lub nowszej|
 
@@ -450,7 +452,41 @@ Można zatrzymać i uruchomić maszynę wirtualną, do której jest dołączony 
 
 **Czy obsługujemy Włączanie buforowania hosta dla wszystkich rozmiarów dysków?**
 
-Buforowanie hosta (ReadOnly i odczyt/zapis) jest obsługiwane na dyskach o rozmiarze mniejszym niż 4 TiB. Oznacza to, że każdy dysk o pojemności do 4095 GiB może korzystać z buforowania hosta. Buforowanie hosta nie jest obsługiwane w przypadku dysków o rozmiarze większym lub równym 4096 GiB. Na przykład dysk P50 Premium zainicjowany w 4095 GiB może korzystać z pamięci podręcznej hosta, a dysk P50 z obsługą administracyjną na 4096 GiB nie może korzystać z buforowania hosta. Zalecamy korzystanie z pamięci podręcznej w przypadku mniejszych rozmiarów dysków, w których można oczekiwać, że lepsze zwiększenie wydajności w przypadku danych zapisanych w pamięci podręcznej do maszyny wirtualnej.
+Buforowanie hosta (**ReadOnly** i **Odczyt/zapis**) jest obsługiwane na dyskach o rozmiarze mniejszym niż 4 TIB. Oznacza to, że każdy dysk o pojemności do 4095 GiB może korzystać z buforowania hosta. Buforowanie hosta nie jest obsługiwane w przypadku dysków o rozmiarze większym lub równym 4096 GiB. Na przykład dysk P50 Premium zainicjowany w 4095 GiB może korzystać z pamięci podręcznej hosta, a dysk P50 z obsługą administracyjną na 4096 GiB nie może korzystać z buforowania hosta. Zalecamy korzystanie z pamięci podręcznej w przypadku mniejszych rozmiarów dysków, w których można oczekiwać, że lepsze zwiększenie wydajności w przypadku danych zapisanych w pamięci podręcznej do maszyny wirtualnej.
+
+## <a name="private-links-for-securely-exporting-and-importing-managed-disks"></a>Prywatne linki do bezpiecznego eksportowania i importowania Managed Disks
+
+**Jaka jest korzyść z używania prywatnych linków do eksportowania i importowania Managed Disks?**
+
+Za pomocą prywatnych linków można ograniczyć eksport i import do Managed Disks tylko z sieci wirtualnej platformy Azure. 
+
+**Co mogę zrobić, aby można było wyeksportować lub zaimportować dysk tylko za pośrednictwem prywatnych linków?**
+
+Należy ustawić `DiskAccessId` Właściwość na wystąpienie obiektu dostępu do dysku, a także ustawić właściwość NetworkAccessPolicy na `AllowPrivate` .
+
+**Czy mogę połączyć wiele sieci wirtualnych z tym samym obiektem dostępu do dysku?**
+
+Nie. Obecnie można połączyć obiekt dostępu do dysku tylko z jedną siecią wirtualną.
+
+**Czy można połączyć sieć wirtualną z obiektem dostępu do dysku w innej subskrypcji?**
+
+Nie. Obecnie można połączyć obiekt dostępu do dysku z siecią wirtualną w tej samej subskrypcji.
+
+**Czy można połączyć sieć wirtualną z obiektem dostępu do dysku w innej subskrypcji?**
+
+Nie. Obecnie można połączyć obiekt dostępu do dysku z siecią wirtualną w tej samej subskrypcji.
+
+**Ile eksportu lub importów korzystających z tego samego obiektu dostępu do dysku może nastąpić w tym samym czasie?**
+
+5
+
+**Czy można użyć identyfikatora URI sygnatury dostępu współdzielonego dysku/migawki w celu pobrania bazowego wirtualnego dysku twardego maszyny wirtualnej w tej samej podsieci, w której znajduje się podsieć prywatnego punktu końcowego skojarzonego z dyskiem?**
+
+Tak.
+
+**Czy mogę użyć identyfikatora URI sygnatury dostępu współdzielonego dysku/migawki do pobrania źródłowego wirtualnego dysku twardego maszyny wirtualnej, która nie znajduje się w tej samej podsieci, co podsieć prywatnego punktu końcowego nieskojarzonej z dyskiem?**
+
+Nie.
 
 ## <a name="what-if-my-question-isnt-answered-here"></a>Co zrobić, jeśli w tym miejscu nie udzielono odpowiedzi na moje pytanie?
 

@@ -1,32 +1,32 @@
 ---
-title: dołączanie pliku
-description: dołączanie pliku
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: include
-ms.date: 05/19/2020
+ms.date: 07/16/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: b4cdb787fe65c52a77fa4761a65e9108e7927c40
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a924cb42ce1c5fccde3d49fa8f9c2d402997df52
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83721194"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86544647"
 ---
 >[!NOTE]
 >Pracujemy nad dodaniem dodatkowych regionów. Po dodaniu regionu dodamy go do tej listy.
 >
 
 **Ameryka Północna i Południowa**
-* Brazylia Południowa
+* Brazil South
 * Kanada Środkowa
-* Środkowe stany USA
-* Wschodnie stany USA
+* Central US
+* East US
 * Wschodnie stany USA 2
 * Północno-środkowe stany USA
-* Południowo-środkowe stany USA
+* South Central US
 * Zachodnio-środkowe stany USA
 * Zachodnie stany USA
 * Zachodnie stany USA 2
@@ -51,7 +51,7 @@ ms.locfileid: "83721194"
 * Korea Środkowa
 * Korea Południowa
 * Azja Południowo-Wschodnia
-* Indie Środkowe
+* Central India
 * Indie Zachodnie
 
 **Bliski Wschód i Afryka**
@@ -65,3 +65,6 @@ ms.locfileid: "83721194"
 * US Gov Iowa
 * US Gov Teksas
 * US Gov Wirginia
+
+**Chiny platformy Azure**
+* Chiny Północne 2

@@ -5,12 +5,12 @@ author: chenyl
 ms.topic: reference
 ms.date: 05/11/2020
 ms.author: chenyl
-ms.openlocfilehash: c2ad9b6c4410a62d5652050406e05be4cde5fab0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ec2952a3093661f0f6ef32908307a8a82c6367ed
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85830710"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86540234"
 ---
 # <a name="signalr-service-trigger-binding-for-azure-functions"></a>Powiązanie wyzwalacza usługi sygnalizującej dla Azure Functions
 
@@ -43,7 +43,7 @@ public class SignalRTestHub : ServerlessHub
 
 ### <a name="with-traditional-model"></a>Z tradycyjnym modelem
 
-Tradycyjny model przestrzega konwencji platformy Azure opracowanej przez język C#. Jeśli nie masz doświadczenia z nim, możesz poznać [dokumenty](https://docs.microsoft.com/azure/azure-functions/functions-dotnet-class-library).
+Tradycyjny model przestrzega konwencji platformy Azure opracowanej przez język C#. Jeśli nie masz doświadczenia z nim, możesz poznać [dokumenty](./functions-dotnet-class-library.md).
 
 ```cs
 [FunctionName("SignalRTest")]
@@ -162,7 +162,7 @@ def main(invocation) -> None:
 
 ---
 
-## <a name="configuration"></a>Konfigurowanie
+## <a name="configuration"></a>Konfiguracja
 
 ### <a name="signalrtrigger"></a>SignalRTrigger
 
@@ -175,7 +175,7 @@ W poniższej tabeli objaśniono właściwości konfiguracji powiązań, które z
 |**Nazwij**| nie dotyczy | Nazwa zmiennej używana w kodzie funkcji dla obiektu kontekstu wywołania wyzwalacza. |
 |**hubName**|**HubName**| Ta wartość musi być ustawiona na nazwę centrum sygnalizującego, aby funkcja została wyzwolona.|
 |**kategorii**|**Kategoria**| Ta wartość musi być ustawiona jako kategoria komunikatów dla funkcji, która ma być wyzwalana. Kategoria może być jedną z następujących wartości: <ul><li>**połączenia**: w tym zdarzenia *połączone* i *rozłączone*</li><li>**komunikaty**: łącznie ze wszystkimi innymi zdarzeniami, z wyjątkiem kategorii *połączenia*</li></ul> |
-|**wydarzen**|**Wydarzenie**| Ta wartość musi być ustawiona jako zdarzenie komunikatów dla funkcji, która ma być wyzwalana. W przypadku kategorii *messages* , Event to *obiekt docelowy* w [komunikacie wywołania](https://github.com/dotnet/aspnetcore/blob/master/src/SignalR/docs/specs/HubProtocol.md#invocation-message-encoding) wysyłanym przez klientów. W kategorii *połączenia* jest używana tylko *połączona* i *rozłączona* . |
+|**wydarzen**|**Zdarzenie**| Ta wartość musi być ustawiona jako zdarzenie komunikatów dla funkcji, która ma być wyzwalana. W przypadku kategorii *messages* , Event to *obiekt docelowy* w [komunikacie wywołania](https://github.com/dotnet/aspnetcore/blob/master/src/SignalR/docs/specs/HubProtocol.md#invocation-message-encoding) wysyłanym przez klientów. W kategorii *połączenia* jest używana tylko *połączona* i *rozłączona* . |
 |**parameterNames**|**ParameterNames**| Obowiązkowe Lista nazw, które wiążą się z parametrami. |
 |**connectionStringSetting**|**ConnectionStringSetting**| Nazwa ustawienia aplikacji zawierającego parametry połączenia usługi sygnalizującego (wartość domyślna to "AzureSignalRConnectionString"). |
 
@@ -193,14 +193,14 @@ InvocationContext zawiera całą zawartość wiadomości wysyłanej z usługi sy
 |Błąd| Dostępne dla zdarzenia *odłączonego* . Może być pusta, jeśli połączenie zostało zamknięte bez błędu lub zawiera komunikaty o błędach.|
 |Koncentrator| Nazwa centrum, do którego należy wiadomość.|
 |Kategoria| Kategoria komunikatu.|
-|Wydarzenie| Zdarzenie.|
+|Zdarzenie| Zdarzenie.|
 |ConnectionId| Identyfikator połączenia klienta, który wysyła komunikat.|
 |UserId| Tożsamość użytkownika klienta wysyłającego komunikat.|
 |Nagłówki| Nagłówki żądania.|
 |Zapytanie| Zapytanie o żądanie, gdy klienci łączą się z usługą.|
 |Oświadczenia| Oświadczenia klienta.|
 
-## <a name="using-parameternames"></a>Używanie elementu `ParameterNames`
+## <a name="using-parameternames"></a>Korzystanie z akcji `ParameterNames`
 
 Właściwość `ParameterNames` w `SignalRTrigger` umożliwia Powiązywanie argumentów komunikatów wywołania do parametrów funkcji. Zapewnia to wygodniejszy sposób uzyskiwania dostępu do argumentów `InvocationContext` .
 

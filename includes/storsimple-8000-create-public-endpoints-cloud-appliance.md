@@ -4,30 +4,30 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 1cf5bbdad555c50c418851904f36a578522843b2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a5a286753e438b7d65f3d33a82669c4f7e79a282
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "67183293"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86544843"
 ---
 #### <a name="to-create-public-endpoints-on-the-cloud-appliance"></a>Aby utworzyć publiczne punkty końcowe na urządzeniu w chmurze
 
-1. Zaloguj się do witryny Azure Portal.
+1. Zaloguj się w witrynie Azure Portal.
 2. Kliknij opcję **Maszyny wirtualne**, a następnie wybierz maszynę wirtualną, która jest używana jako urządzenie w chmurze.
     
 3. Musisz utworzyć regułę sieciowej grupy zabezpieczeń, aby kontrolować przepływ ruchu do i z maszyny wirtualnej. Wykonaj poniższe kroki, aby utworzyć regułę sieciowej grupy zabezpieczeń.
     1. Wybierz pozycję **Sieciowa grupa zabezpieczeń**.
-        ![](./media/storsimple-8000-create-public-endpoints-cloud-appliance/sca-create-public-endpt1.png)
+        ![Zrzut ekranu przedstawiający stronę maszyny wirtualnej. W sekcji Ustawienia zostanie wyróżniona Grupa zabezpieczeń sieci.](./media/storsimple-8000-create-public-endpoints-cloud-appliance/sca-create-public-endpt1.png)
 
     2. Kliknij przedstawioną domyślną sieciową grupę zabezpieczeń.
-        ![](./media/storsimple-8000-create-public-endpoints-cloud-appliance/sca-create-public-endpt2.png)
+        ![Zrzut ekranu przedstawiający stronę Network Security Group. Zostanie wyróżniona domyślna grupa zabezpieczeń sieci.](./media/storsimple-8000-create-public-endpoints-cloud-appliance/sca-create-public-endpt2.png)
 
-    3. W obszarze **Reguły zabezpieczeń dla ruchu przychodzącego**.
-        ![](./media/storsimple-8000-create-public-endpoints-cloud-appliance/sca-create-public-endpt3.png)
+    3. Wybierz pozycję **Reguły zabezpieczeń dla ruchu przychodzącego**.
+        ![Zrzut ekranu przedstawiający stronę z właściwościami domyślnej sieciowej grupy zabezpieczeń. W okienku nawigacji są wyróżnione reguły zabezpieczeń dla ruchu przychodzącego.](./media/storsimple-8000-create-public-endpoints-cloud-appliance/sca-create-public-endpt3.png)
 
     4. Kliknij pozycję **+ Dodaj** w celu utworzenia reguły zabezpieczeń dla ruchu przychodzącego.
-        ![](./media/storsimple-8000-create-public-endpoints-cloud-appliance/sca-create-public-endpt4.png)
+        ![Zrzut ekranu przedstawiający stronę reguły zabezpieczeń dla ruchu przychodzącego. Znak plus i Dodaj wyraz są obok siebie i są wyróżnione.](./media/storsimple-8000-create-public-endpoints-cloud-appliance/sca-create-public-endpt4.png)
 
         W bloku Dodawanie reguły zabezpieczeń dla ruchu przychodzącego:
 
@@ -41,17 +41,17 @@ ms.locfileid: "67183293"
 
         5. Kliknij przycisk **OK**, aby utworzyć regułę.
 
-            ![](./media/storsimple-8000-create-public-endpoints-cloud-appliance/sca-create-public-endpt5.png)
+            ![Zrzut ekranu przedstawiający blok Dodawanie reguły zabezpieczeń dla ruchu przychodzącego. Wartości są wypełniane zgodnie z opisem w procedurze, a przycisk OK jest wyróżniony.](./media/storsimple-8000-create-public-endpoints-cloud-appliance/sca-create-public-endpt5.png)
 
 4. Ostatni krok to skojarzenie sieciowej grupy zabezpieczeń z podsiecią lub określonym interfejsem sieciowym. Wykonaj poniższe kroki, aby skojarzyć sieciową grupę zabezpieczeń z podsiecią.
     1. Przejdź do pozycji **Podsieci**.
     2. Kliknij pozycję **+ Skojarz**.
-        ![](./media/storsimple-8000-create-public-endpoints-cloud-appliance/sca-create-public-endpt7.png)
+        ![Zrzut ekranu przedstawiający stronę podsieci. Znak plus i słowo skojarzone są obok siebie i są wyróżnione.](./media/storsimple-8000-create-public-endpoints-cloud-appliance/sca-create-public-endpt7.png)
 
     3. Wybierz sieć wirtualną, a następnie wybierz odpowiednią podsieć.
     4. Kliknij przycisk **OK**, aby utworzyć regułę.
 
-        ![](./media/storsimple-8000-create-public-endpoints-cloud-appliance/sca-create-public-endpt11.png)
+        ![Zrzut ekranu przedstawiający stronę Skojarz podsieć. Wybrana jest sieć wirtualna, a przycisk OK jest wyróżniony.](./media/storsimple-8000-create-public-endpoints-cloud-appliance/sca-create-public-endpt11.png)
 
 Po utworzeniu reguły można wyświetlić jej szczegóły, aby ustalić publiczny wirtualny adres IP (VIP). Zapisz ten adres.
 
