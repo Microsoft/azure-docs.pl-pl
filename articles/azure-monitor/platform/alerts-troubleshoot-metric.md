@@ -4,14 +4,14 @@ description: Typowe problemy związane z alertami metryk Azure Monitor i możliw
 author: harelbr
 ms.author: harelbr
 ms.topic: reference
-ms.date: 06/21/2020
+ms.date: 07/15/2020
 ms.subservice: alerts
-ms.openlocfilehash: 36ff80bc0858d6d08cc120d126628de02ba6e703
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0d569facb6c2b58222980cfa1488de3b1f5fb60f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85130742"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86515771"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Rozwiązywanie problemów z alertami metryk Azure Monitor 
 
@@ -30,11 +30,11 @@ Jeśli uważasz, że alert dotyczący metryki powinien zostać wywołany, ale ni
        > [!NOTE] 
        > Progi dynamiczne wymagają co najmniej 3 dni i 30 próbek metryk, zanim staną się aktywne.
 
-2. **Wywołane, ale bez powiadomienia** — Przejrzyj [listę wywołanych alertów](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/alertsV2) , aby sprawdzić, czy można zlokalizować wywołany alert. Jeśli na liście widzisz alert, ale masz problem z niektórymi akcjami lub powiadomieniami, zobacz [więcej informacji.](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-troubleshoot#action-or-notification-on-my-alert-did-not-work-as-expected)
+2. **Wywołane, ale bez powiadomienia** — Przejrzyj [listę wywołanych alertów](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/alertsV2) , aby sprawdzić, czy można zlokalizować wywołany alert. Jeśli na liście widzisz alert, ale masz problem z niektórymi akcjami lub powiadomieniami, zobacz [więcej informacji.](./alerts-troubleshoot.md#action-or-notification-on-my-alert-did-not-work-as-expected)
 
 3. Jest **już aktywny** — Sprawdź, czy istnieje już wyzwolony alert dla szeregów czasowych metryk, dla których oczekiwano, aby otrzymać Alert. Alerty metryk są stanowe, co oznacza, że po uruchomieniu alertu z określoną serią czasową metryki dodatkowe alerty w tej serii czasowej nie są uruchamiane do momentu, gdy problem nie zostanie już zaobserwowany. Ten wybór projektu zmniejsza szum. Alert jest rozpoznawany automatycznie, gdy warunek alertu nie jest spełniony dla trzech kolejnych ocen.
 
-4. **Używane wymiary** — w przypadku wybrania [wartości wymiarów dla metryki](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-overview#using-dimensions)reguła alertu monitoruje każdą pojedynczą serię czasową metryk (zgodnie z definicją wartości wymiaru) dla naruszenia progu. Aby również monitorować zagregowaną serię czasową metryk (bez wybranych wymiarów), skonfiguruj dodatkową regułę alertu dla metryki bez wybierania wymiarów.
+4. **Używane wymiary** — w przypadku wybrania [wartości wymiarów dla metryki](./alerts-metric-overview.md#using-dimensions)reguła alertu monitoruje każdą pojedynczą serię czasową metryk (zgodnie z definicją wartości wymiaru) dla naruszenia progu. Aby również monitorować zagregowaną serię czasową metryk (bez wybranych wymiarów), skonfiguruj dodatkową regułę alertu dla metryki bez wybierania wymiarów.
 
 5. **Stopień szczegółowości agregacji i czasu** — w przypadku wizualizacji metryk przy użyciu [wykresów metryk](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/metrics)upewnij się, że:
     * Wybrana **agregacja** w wykresie pomiarowym jest taka sama jak **typ agregacji** w regule alertu
@@ -49,7 +49,7 @@ Jeśli uważasz, że alert dotyczący metryk nie powinien zostać wywołany, ale
     > [!NOTE] 
     > Jeśli używasz typu warunku Progi dynamiczne i sądzisz, że użyte progi nie były poprawne, prześlij opinię za pomocą ikony niezadowolenia. Ta opinia będzie miała wpływ na badania algorytmów uczenia maszynowego i pomaga ulepszyć w przyszłości.
 
-2. Jeśli wybrano wiele wartości wymiaru dla metryki, alert zostanie wyzwolony, gdy **którakolwiek** z szeregów czasowych metryk (zgodnie z definicją wartości wymiaru) narusza próg. Więcej informacji o korzystaniu z wymiarów w alertach dotyczących metryk możesz znaleźć [tutaj](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-overview#using-dimensions).
+2. Jeśli wybrano wiele wartości wymiaru dla metryki, alert zostanie wyzwolony, gdy **którakolwiek** z szeregów czasowych metryk (zgodnie z definicją wartości wymiaru) narusza próg. Więcej informacji o korzystaniu z wymiarów w alertach dotyczących metryk możesz znaleźć [tutaj](./alerts-metric-overview.md#using-dimensions).
 
 3. Przejrzyj konfigurację reguły alertu, aby upewnić się, że została prawidłowo skonfigurowana:
     - Sprawdź, czy **typ agregacji**, **stopień szczegółowości agregacji (okres)** i **wartość progowa** lub **czułość** są skonfigurowane zgodnie z oczekiwaniami
@@ -65,23 +65,25 @@ Jeśli uważasz, że alert dotyczący metryk nie powinien zostać wywołany, ale
 5. Jeśli alert został wywołany, gdy istnieją już alerty, które monitorują te same kryteria (które nie zostały rozwiązane), sprawdź, czy reguła alertu została skonfigurowana z właściwością *Autołagodzenie* o **wartości false** (Ta właściwość może być KONFIGUROWANA tylko za pomocą REST/PowerShell/interfejsu wiersza polecenia, więc sprawdź skrypt używany do wdrażania reguły alertu). W takim przypadku reguła alertu nie rozwiązuje automatycznie wyzwalanych alertów i nie wymaga rozpoznania wywołanego alertu przed ponownym uruchomieniem.
 
 
-## <a name="cant-find-metric-to-alert-on---virtual-machines"></a>Nie można znaleźć metryki do alertu na maszynach wirtualnych 
+## <a name="cant-find-the-metric-to-alert-on---virtual-machines-guest-metrics"></a>Nie można znaleźć metryki do alertu na maszynie wirtualnej — metryki gościa
 
-Aby ostrzec metryki gościa na maszynach wirtualnych (w przypadku pamięci, miejsca na dysku), upewnij się, że skonfigurowano ustawienia diagnostyczne do wysyłania danych do Azure Monitor ujścia:
-    * [Maszyny wirtualne z systemem Windows](https://docs.microsoft.com/azure/azure-monitor/platform/collect-custom-metrics-guestos-resource-manager-vm)
-    * [Maszyny wirtualne z systemem Linux](https://docs.microsoft.com/azure/azure-monitor/platform/collect-custom-metrics-linux-telegraf)
+Aby otrzymywać alerty dotyczące metryk systemu operacyjnego gościa maszyn wirtualnych (np. pamięci, miejsca na dysku), upewnij się, że zainstalowano wymaganego agenta w celu zebrania tych danych w celu Azure Monitor metryk:
+- [Maszyny wirtualne z systemem Windows](./collect-custom-metrics-guestos-resource-manager-vm.md)
+- [Maszyny wirtualne z systemem Linux](./collect-custom-metrics-linux-telegraf.md)
+
+Aby uzyskać więcej informacji na temat zbierania danych z systemu operacyjnego gościa maszyny wirtualnej, zobacz [tutaj](../insights/monitor-vm-azure.md#guest-operating-system).
     
 > [!NOTE] 
-> W przypadku skonfigurowania metryk gościa do wysłania do obszaru roboczego Log Analytics metryki są wyświetlane w obszarze zasób obszaru roboczego Log Analytics i rozpoczną wyświetlanie danych **dopiero** po utworzeniu reguły alertu, która je monitoruje. W tym celu postępuj zgodnie z instrukcjami, aby [skonfigurować alert metryki na potrzeby dzienników](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-logs#configuring-metric-alert-for-logs).
+> W przypadku skonfigurowania metryk gościa do wysłania do obszaru roboczego Log Analytics metryki są wyświetlane w obszarze zasób obszaru roboczego Log Analytics i rozpoczną wyświetlanie danych **dopiero** po utworzeniu reguły alertu, która je monitoruje. W tym celu postępuj zgodnie z instrukcjami, aby [skonfigurować alert metryki na potrzeby dzienników](./alerts-metric-logs.md#configuring-metric-alert-for-logs).
 
 ## <a name="cant-find-the-metric-to-alert-on"></a>Nie można znaleźć metryki do alertu
 
-Jeśli chcesz otrzymywać alerty dotyczące określonej metryki, ale nie widzisz żadnych metryk dla zasobu, [Sprawdź, czy typ zasobu jest obsługiwany dla alertów dotyczących metryk](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-near-real-time).
-Jeśli można zobaczyć pewne metryki dla zasobu, ale nie można znaleźć określonej metryki, [Sprawdź, czy ta Metryka jest dostępna](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported), a jeśli tak, zobacz Opis metryki, aby sprawdzić, czy jest dostępna tylko w określonych wersjach lub wersjach tego zasobu.
+Jeśli chcesz otrzymywać alerty dotyczące określonej metryki, ale nie widzisz żadnych metryk dla zasobu, [Sprawdź, czy typ zasobu jest obsługiwany dla alertów dotyczących metryk](./alerts-metric-near-real-time.md).
+Jeśli można zobaczyć pewne metryki dla zasobu, ale nie można znaleźć określonej metryki, [Sprawdź, czy ta Metryka jest dostępna](./metrics-supported.md), a jeśli tak, zobacz Opis metryki, aby sprawdzić, czy jest dostępna tylko w określonych wersjach lub wersjach tego zasobu.
 
 ## <a name="cant-find-the-metric-dimension-to-alert-on"></a>Nie można znaleźć wymiaru metryki dla alertu
 
-Jeśli chcesz otrzymywać alerty dotyczące [określonych wartości wymiarów metryki](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-overview#using-dimensions), ale nie można znaleźć tych wartości, zwróć uwagę na następujące kwestie:
+Jeśli chcesz otrzymywać alerty dotyczące [określonych wartości wymiarów metryki](./alerts-metric-overview.md#using-dimensions), ale nie można znaleźć tych wartości, zwróć uwagę na następujące kwestie:
 
 1. Wyświetlenie wartości wymiarów na liście **Wartości wymiarów** może potrwać kilka minut
 1. Wyświetlone wartości wymiarów są oparte na danych metryk zebranych w ciągu ostatnich trzech dni
@@ -99,7 +101,7 @@ Podczas usuwania zasobu platformy Azure skojarzone reguły alertów metryk nie s
 
 ## <a name="make-metric-alerts-occur-every-time-my-condition-is-met"></a>Alerty metryk są wykonywane za każdym razem, gdy mój warunek jest spełniony
 
-Alerty metryk są domyślnie stanowe i w związku z tym dodatkowe alerty nie są wyzwalane, jeśli istnieje już niewyzwalany alert w danej szeregu czasowym. Jeśli chcesz ustawić konkretną regułę alertu metryki jako bezstanowe i otrzymywać alerty dla każdej oceny, w której spełniony jest warunek alertu, Utwórz regułę alertu programowo (na przykład za pośrednictwem [Menedżer zasobów](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-create-templates), [PowerShell](https://docs.microsoft.com/powershell/module/az.monitor/?view=azps-3.6.1), [rest](https://docs.microsoft.com/rest/api/monitor/metricalerts/createorupdate), [CLI](https://docs.microsoft.com/cli/azure/monitor/metrics/alert?view=azure-cli-latest)) i ustaw właściwość *autołagodzenie* na wartość "false".
+Alerty metryk są domyślnie stanowe i w związku z tym dodatkowe alerty nie są wyzwalane, jeśli istnieje już niewyzwalany alert w danej szeregu czasowym. Jeśli chcesz ustawić konkretną regułę alertu metryki jako bezstanowe i otrzymywać alerty dla każdej oceny, w której spełniony jest warunek alertu, Utwórz regułę alertu programowo (na przykład za pośrednictwem [Menedżer zasobów](./alerts-metric-create-templates.md), [PowerShell](/powershell/module/az.monitor/?view=azps-3.6.1), [rest](/rest/api/monitor/metricalerts/createorupdate), [CLI](/cli/azure/monitor/metrics/alert?view=azure-cli-latest)) i ustaw właściwość *autołagodzenie* na wartość "false".
 
 > [!NOTE] 
 > Utworzenie reguły alertu metryki bezstanowej uniemożliwia rozpoznanie wyzwalanych alertów, nawet gdy nie zostanie już spełniony warunek, wyzwolone alerty pozostaną w stanie uruchomienia do 30-dniowego okresu przechowywania.
@@ -107,12 +109,12 @@ Alerty metryk są domyślnie stanowe i w związku z tym dodatkowe alerty nie są
 
 ## <a name="metric-alert-rules-quota-too-small"></a>Zbyt mały przydział reguł alertów dotyczących metryk
 
-Dozwolona liczba reguł alertów dotyczących metryk na subskrypcję podlega [limitom przydziału](https://docs.microsoft.com/azure/azure-monitor/service-limits).
+Dozwolona liczba reguł alertów dotyczących metryk na subskrypcję podlega [limitom przydziału](../service-limits.md).
 
 Jeśli osiągnięto limit przydziału, następujące czynności mogą pomóc w rozwiązaniu problemu:
 1. Spróbuj usunąć lub wyłączyć reguły alertów metryk, które nie są już używane.
 
-2. Zacznij korzystać z reguł alertów dotyczących metryk, które monitorują wiele zasobów. Dzięki tej możliwości jedna reguła alertu może monitorować wiele zasobów, używając tylko jednej reguły alertu w stosunku do limitu przydziału. Aby uzyskać więcej informacji na temat tej możliwości i obsługiwanych typów zasobów, zobacz [tutaj](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-overview#monitoring-at-scale-using-metric-alerts-in-azure-monitor).
+2. Zacznij korzystać z reguł alertów dotyczących metryk, które monitorują wiele zasobów. Dzięki tej możliwości jedna reguła alertu może monitorować wiele zasobów, używając tylko jednej reguły alertu w stosunku do limitu przydziału. Aby uzyskać więcej informacji na temat tej możliwości i obsługiwanych typów zasobów, zobacz [tutaj](./alerts-metric-overview.md#monitoring-at-scale-using-metric-alerts-in-azure-monitor).
 
 3. Aby zwiększyć limit przydziału, Otwórz żądanie pomocy technicznej i podaj następujące informacje:
 
@@ -135,9 +137,9 @@ Aby sprawdzić bieżące użycie reguł alertów metryk, wykonaj poniższe kroki
 
 ### <a name="from-api"></a>Za pomocą interfejsu API
 
-- PowerShell — [Get-AzMetricAlertRuleV2](https://docs.microsoft.com/powershell/module/az.monitor/get-azmetricalertrulev2?view=azps-3.7.0)
-- Interfejs API REST — [lista według subskrypcji](https://docs.microsoft.com/rest/api/monitor/metricalerts/listbysubscription)
-- Interfejs wiersza polecenia platformy Azure — [az monitor metrics alert list](https://docs.microsoft.com/cli/azure/monitor/metrics/alert?view=azure-cli-latest#az-monitor-metrics-alert-list)
+- PowerShell — [Get-AzMetricAlertRuleV2](/powershell/module/az.monitor/get-azmetricalertrulev2?view=azps-3.7.0)
+- Interfejs API REST — [lista według subskrypcji](/rest/api/monitor/metricalerts/listbysubscription)
+- Interfejs wiersza polecenia platformy Azure — [az monitor metrics alert list](/cli/azure/monitor/metrics/alert?view=azure-cli-latest#az-monitor-metrics-alert-list)
 
 ## <a name="managing-alert-rules-using-resource-manager-templates-rest-api-powershell-or-azure-cli"></a>Zarządzanie regułami alertów za pomocą szablonów Menedżer zasobów, interfejsu API REST, programu PowerShell lub interfejsu wiersza polecenia platformy Azure
 
@@ -145,43 +147,43 @@ W przypadku problemów z tworzeniem, aktualizowaniem, pobieraniem lub usuwaniem 
 
 ### <a name="resource-manager-templates"></a>Szablony usługi Resource Manager
 
-- Przejrzyj listę [typowych błędów wdrożeń platformy Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-common-deployment-errors) i odpowiednie procedury rozwiązywania problemów
-- Zapoznaj się z [alertami metryki Azure Resource Manager przykłady szablonów](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-create-templates) , aby upewnić się, że wszystkie parametry zostały prawidłowo przeprzekazywane
+- Przejrzyj listę [typowych błędów wdrożeń platformy Azure](../../azure-resource-manager/templates/common-deployment-errors.md) i odpowiednie procedury rozwiązywania problemów
+- Zapoznaj się z [alertami metryki Azure Resource Manager przykłady szablonów](./alerts-metric-create-templates.md) , aby upewnić się, że wszystkie parametry zostały prawidłowo przeprzekazywane
 
 ### <a name="rest-api"></a>Interfejs API REST
 
-Przejrzyj [podręcznik interfejsu API REST](https://docs.microsoft.com/rest/api/monitor/metricalerts/), aby sprawdzić, czy wszystkie parametry są przekazywane prawidłowo
+Przejrzyj [podręcznik interfejsu API REST](/rest/api/monitor/metricalerts/), aby sprawdzić, czy wszystkie parametry są przekazywane prawidłowo
 
 ### <a name="powershell"></a>PowerShell
 
 Upewnij się, że używasz właściwych poleceń cmdlet programu PowerShell dla alertów metryk:
 
-- Polecenia cmdlet programu PowerShell dla alertów dotyczących metryk są dostępne w [module AZ.Monitor](https://docs.microsoft.com/powershell/module/az.monitor/?view=azps-3.6.1)
-- Upewnij się, że używasz poleceń cmdlet kończących się na "v2" dla nowych (nieklasycznych) alertów metryk (na przykład [Add-AzMetricAlertRuleV2](https://docs.microsoft.com/powershell/module/az.monitor/Add-AzMetricAlertRuleV2?view=azps-3.6.1))
+- Polecenia cmdlet programu PowerShell dla alertów dotyczących metryk są dostępne w [module AZ.Monitor](/powershell/module/az.monitor/?view=azps-3.6.1)
+- Upewnij się, że używasz poleceń cmdlet kończących się na "v2" dla nowych (nieklasycznych) alertów metryk (na przykład [Add-AzMetricAlertRuleV2](/powershell/module/az.monitor/add-azmetricalertrulev2?view=azps-3.6.1))
 
 ### <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure
 
 Upewnij się, że używasz właściwych poleceń interfejsu wiersza polecenia dla alertów metryk:
 
-- Polecenia interfejsu wiersza polecenia dla alertów metryk rozpoczynają się od `az monitor metrics alert`. Przejrzyj [dokumentację interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/monitor/metrics/alert?view=azure-cli-latest), aby poznać składnię.
-- Możesz zapoznać się z [przykładem przedstawiającym sposób użycia interfejsu wiersza polecenia alertów dotyczących metryk](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric#with-azure-cli)
+- Polecenia interfejsu wiersza polecenia dla alertów metryk rozpoczynają się od `az monitor metrics alert`. Przejrzyj [dokumentację interfejsu wiersza polecenia platformy Azure](/cli/azure/monitor/metrics/alert?view=azure-cli-latest), aby poznać składnię.
+- Możesz zapoznać się z [przykładem przedstawiającym sposób użycia interfejsu wiersza polecenia alertów dotyczących metryk](./alerts-metric.md#with-azure-cli)
 - Przed utworzeniem alertu dotyczącego metryki niestandardowej upewnij, że nazwa metryki jest poprzedzona odpowiednią przestrzenią nazw metryki: PRZESTRZEŃ_NAZW.METRYKA
 
 ### <a name="general"></a>Ogólne
 
 - Jeśli otrzymujesz błąd `Metric not found`:
 
-   - Dla metryki platformy: Upewnij się, że używasz nazwy **metryki** na [stronie Azure monitor obsługiwane metryki](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported), a nie **Nazwa wyświetlana metryki**
+   - Dla metryki platformy: Upewnij się, że używasz nazwy **metryki** na [stronie Azure monitor obsługiwane metryki](./metrics-supported.md), a nie **Nazwa wyświetlana metryki**
 
-   - W przypadku metryki niestandardowej: Upewnij się, że Metryka jest już emitowana (nie można utworzyć reguły alertu dla niestandardowej metryki, która jeszcze nie istnieje) i że udostępniana jest przestrzeń nazw metryki niestandardowej (Zobacz przykład szablonu ARM [tutaj](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-create-templates#template-for-a-static-threshold-metric-alert-that-monitors-a-custom-metric))
+   - W przypadku metryki niestandardowej: Upewnij się, że Metryka jest już emitowana (nie można utworzyć reguły alertu dla niestandardowej metryki, która jeszcze nie istnieje) i że udostępniana jest przestrzeń nazw metryki niestandardowej (Zobacz przykład szablonu ARM [tutaj](./alerts-metric-create-templates.md#template-for-a-static-threshold-metric-alert-that-monitors-a-custom-metric))
 
-- Jeśli tworzysz [metryki alertów dotyczące dzienników](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-logs), upewnij się, że uwzględniono odpowiednie zależności. Zobacz [przykładowy szablon](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-logs#resource-template-for-metric-alerts-for-logs).
+- Jeśli tworzysz [metryki alertów dotyczące dzienników](./alerts-metric-logs.md), upewnij się, że uwzględniono odpowiednie zależności. Zobacz [przykładowy szablon](./alerts-metric-logs.md#resource-template-for-metric-alerts-for-logs).
 
 - Jeśli tworzysz regułę alertu, która zawiera wiele kryteriów, należy pamiętać o następujących ograniczeniach:
 
    - W każdym kryterium można wybrać tylko jedną wartość dla każdego wymiaru
    - Nie można użyć ciągu „\*” jako wartości wymiaru
-   - Gdy metryki, które są skonfigurowane w różnych kryterium obsługują ten sam wymiar, skonfigurowana wartość wymiaru musi być jawnie ustawiona w taki sam sposób dla wszystkich tych metryk (Zobacz przykład szablonu Menedżer zasobów [tutaj](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-create-templates#template-for-a-static-threshold-metric-alert-that-monitors-multiple-criteria))
+   - Gdy metryki, które są skonfigurowane w różnych kryterium obsługują ten sam wymiar, skonfigurowana wartość wymiaru musi być jawnie ustawiona w taki sam sposób dla wszystkich tych metryk (Zobacz przykład szablonu Menedżer zasobów [tutaj](./alerts-metric-create-templates.md#template-for-a-static-threshold-metric-alert-that-monitors-multiple-criteria))
 
 
 ## <a name="no-permissions-to-create-metric-alert-rules"></a>Brak uprawnień do tworzenia reguł alertów dotyczących metryk
@@ -211,7 +213,7 @@ Należy pamiętać o następujących ograniczeniach w przypadku używania wymiar
 1. Można wybrać tylko jedną wartość dla każdego wymiaru w każdym warunku.
 2. Nie można użyć opcji "zaznacz wszystkie bieżące i przyszłe wartości" (wybierz \* ).
 3. Gdy metryki, które są skonfigurowane w różnych warunkach, obsługują ten sam wymiar, wówczas skonfigurowana wartość wymiaru musi być jawnie ustawiona w taki sam sposób dla wszystkich metryk (w odpowiednich warunkach).
-Przykład:
+Na przykład:
     - Należy wziąć pod uwagę regułę alertu metryki zdefiniowaną na koncie magazynu i monitoruje dwa warunki:
         * Łączna liczba **transakcji** > 5
         * Średnia **SuccessE2ELatency** > 250 MS

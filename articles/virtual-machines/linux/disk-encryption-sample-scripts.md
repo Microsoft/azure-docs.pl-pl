@@ -8,14 +8,14 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 32d4e709036135a9a88ec36eaafaa176df33fabf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5e7b22a8010d7dfbdeeaeae623a55c1aff9c006c
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85610357"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86510501"
 ---
-# <a name="azure-disk-encryption-sample-scripts"></a>Przykładowe skrypty usługi Azure Disk Encryption 
+# <a name="azure-disk-encryption-sample-scripts-for-linux-vms"></a>Azure Disk Encryption przykładowe skrypty dla maszyn wirtualnych z systemem Linux
 
 Ten artykuł zawiera przykładowe skrypty do przygotowywania wstępnie zaszyfrowanych dysków VHD i innych zadań.
 
@@ -186,7 +186,7 @@ Skonfiguruj szyfrowanie podczas instalacji dystrybucji, wykonując następujące
 
    ![Instalator Ubuntu 16,04 — Podaj hasło przy rozruchu](./media/disk-encryption/ubuntu-1604-preencrypted-fig5.png)
 
-6. Przygotuj maszynę wirtualną do przekazania do platformy Azure, korzystając z [tych instrukcji](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-create-upload-ubuntu/). Nie uruchamiaj jeszcze ostatniego kroku (anulowanie aprowizacji maszyny wirtualnej).
+6. Przygotuj maszynę wirtualną do przekazania do platformy Azure, korzystając z [tych instrukcji](./create-upload-ubuntu.md?toc=/azure/virtual-machines/linux/toc.json). Nie uruchamiaj jeszcze ostatniego kroku (anulowanie aprowizacji maszyny wirtualnej).
 
 Skonfiguruj szyfrowanie do pracy z platformą Azure, wykonując następujące czynności:
 
@@ -262,7 +262,7 @@ Aby skonfigurować szyfrowanie podczas instalacji dystrybucji, wykonaj następuj
 
    ![Instalator openSUSE 13,2 — Podaj hasło przy rozruchu](./media/disk-encryption/opensuse-encrypt-fig2.png)
 
-3. Przygotuj MASZYNę wirtualną do przekazania na platformę Azure, postępując zgodnie z instrukcjami w temacie [przygotowanie maszyny wirtualnej SLES lub openSUSE dla platformy Azure](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-suse-create-upload-vhd/#prepare-opensuse-131). Nie uruchamiaj jeszcze ostatniego kroku (anulowanie aprowizacji maszyny wirtualnej).
+3. Przygotuj MASZYNę wirtualną do przekazania na platformę Azure, postępując zgodnie z instrukcjami w temacie [przygotowanie maszyny wirtualnej SLES lub openSUSE dla platformy Azure](./suse-create-upload-vhd.md?toc=/azure/virtual-machines/linux/toc.json#prepare-opensuse-131). Nie uruchamiaj jeszcze ostatniego kroku (anulowanie aprowizacji maszyny wirtualnej).
 
 Aby skonfigurować szyfrowanie do pracy z platformą Azure, wykonaj następujące czynności:
 1. Edytuj/etc/Dracut.conf i Dodaj następujący wiersz:
@@ -339,7 +339,7 @@ Aby skonfigurować szyfrowanie podczas instalacji dystrybucji, wykonaj następuj
 
    ![Instalator CentOS 7 — Wprowadź hasło w rozruchu](./media/disk-encryption/centos-encrypt-fig4.png)
 
-5. Przygotuj maszynę wirtualną do przekazania na platformę Azure, używając instrukcji "CentOS 7.0 +" w temacie [przygotowanie maszyny wirtualnej opartej na CentOS dla platformy Azure](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-create-upload-centos/#centos-70). Nie uruchamiaj jeszcze ostatniego kroku (anulowanie aprowizacji maszyny wirtualnej).
+5. Przygotuj maszynę wirtualną do przekazania na platformę Azure, używając instrukcji "CentOS 7.0 +" w temacie [przygotowanie maszyny wirtualnej opartej na CentOS dla platformy Azure](./create-upload-centos.md?toc=/azure/virtual-machines/linux/toc.json#centos-70). Nie uruchamiaj jeszcze ostatniego kroku (anulowanie aprowizacji maszyny wirtualnej).
 
 6. Teraz możesz anulować obsługę administracyjną maszyny wirtualnej i przekazać dysk VHD na platformę Azure.
 
@@ -439,7 +439,7 @@ Aby skonfigurować wpis tajny w magazynie kluczy, użyj polecenie [Set-AzKeyVaul
 Użyj `$secretUrl` w następnym kroku w celu [dołączenia dysku systemu operacyjnego bez użycia KEK](#without-using-a-kek).
 
 ### <a name="disk-encryption-secret-encrypted-with-a-kek"></a>Wpis tajny szyfrowania dysku zaszyfrowany za pomocą KEK
-Przed przekazaniem wpisu tajnego do magazynu kluczy można opcjonalnie go zaszyfrować przy użyciu klucza szyfrowania klucza. Użyj [interfejsu API](https://msdn.microsoft.com/library/azure/dn878066.aspx) Otocz, aby najpierw zaszyfrować klucz tajny przy użyciu klucza szyfrowania klucza. Dane wyjściowe tej operacji zawijania to ciąg zakodowany przez adres URL w formacie Base64, który można następnie przekazać jako wpis tajny przy użyciu [`Set-AzKeyVaultSecret`](/powershell/module/az.keyvault/set-azkeyvaultsecret) polecenia cmdlet.
+Przed przekazaniem wpisu tajnego do magazynu kluczy można opcjonalnie go zaszyfrować przy użyciu klucza szyfrowania klucza. Użyj [interfejsu API](/rest/api/keyvault/wrapkey) Otocz, aby najpierw zaszyfrować klucz tajny przy użyciu klucza szyfrowania klucza. Dane wyjściowe tej operacji zawijania to ciąg zakodowany przez adres URL w formacie Base64, który można następnie przekazać jako wpis tajny przy użyciu [`Set-AzKeyVaultSecret`](/powershell/module/az.keyvault/set-azkeyvaultsecret) polecenia cmdlet.
 
 ```powershell
     # This is the passphrase that was provided for encryption during the distribution installation

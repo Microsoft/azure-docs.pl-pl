@@ -6,11 +6,12 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 11/09/2018
 ms.author: edprice
-ms.openlocfilehash: 98e912894a4d93a057a2f6a2153d0690deaed250
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7e2ec4bfe04112d300a63e6326f0391968e385f7
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78968896"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86510738"
 ---
 # <a name="deploy-ibm-db2-purescale-on-azure"></a>Wdrażanie programu IBM DB2 pureScale na platformie Azure
 
@@ -18,14 +19,14 @@ W tym artykule opisano, jak wdrożyć [przykładową architekturę](ibm-db2-pure
 
 Aby wykonać kroki używane do migracji, zobacz Skrypty instalacji w repozytorium [DB2onAzure](https://aka.ms/db2onazure) w witrynie GitHub. Skrypty te są oparte na architekturze typowego, średniego obciążenia przetwarzania transakcji online (OLTP).
 
-## <a name="get-started"></a>Rozpoczęcie pracy
+## <a name="get-started"></a>Wprowadzenie
 
 Aby wdrożyć tę architekturę, Pobierz i uruchom skrypt deploy.sh znaleziony w repozytorium [DB2onAzure](https://aka.ms/db2onazure) w witrynie GitHub.
 
 Repozytorium ma także skrypty do konfigurowania pulpitu nawigacyjnego usługi Grafana. Możesz użyć pulpitu nawigacyjnego do wysyłania zapytań do Prometheus, systemu monitorowania i alertów Open Source zawartych w programie DB2.
 
 > [!NOTE]
-> Skrypt deploy.sh na kliencie tworzy prywatne klucze SSH i przekazuje je do szablonu wdrożenia za pośrednictwem protokołu HTTPS. W celu zapewnienia większego bezpieczeństwa zalecamy używanie [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview) do przechowywania wpisów tajnych, kluczy i haseł.
+> Skrypt deploy.sh na kliencie tworzy prywatne klucze SSH i przekazuje je do szablonu wdrożenia za pośrednictwem protokołu HTTPS. W celu zapewnienia większego bezpieczeństwa zalecamy używanie [Azure Key Vault](../../key-vault/general/overview.md) do przechowywania wpisów tajnych, kluczy i haseł.
 
 ## <a name="how-the-deployment-script-works"></a>Jak działa skrypt wdrożenia
 
@@ -74,9 +75,9 @@ Repozytorium GitHub zawiera plik odpowiedzi DB2server. rsp, odpowiedź (. RSP), 
 |---------------------------|----------------------------------------------|-------------------------------------------------------------------------------------------------------|
 | Powitanie                   |                                              | Nowa instalacja                                                                                           |
 | Wybierz produkt          |                                              | 11.1.3.3 wersja programu DB2. Wersje serwera z programem DB2 pureScale                                              |
-| Konfigurowanie             | Katalog                                    | /data1/opt/ibm/db2/V11.1                                                                              |
+| Konfiguracja             | Katalog                                    | /data1/opt/ibm/db2/V11.1                                                                              |
 |                           | Wybierz typ instalacji                 | Normalne                                                                                               |
-|                           | Akceptuję warunki firmy IBM                     | Zaznaczono                                                                                               |
+|                           | Akceptuję warunki firmy IBM                     | Zaznaczone                                                                                               |
 | Właściciel wystąpienia            | Istniejący użytkownik na przykład, nazwa użytkownika        | DB2sdin1                                                                                              |
 | Użytkownik z ogranicznikiem               | Istniejący użytkownik, nazwa użytkownika                     | DB2sdfe1                                                                                              |
 | System plików klastra       | Ścieżka urządzenia udostępnionego partycji dysku            | /dev/dm-2                                                                                             |

@@ -3,11 +3,12 @@ title: Użyj Nowoczesny magazyn kopii zapasowych z Azure Backup Server
 description: Dowiedz się więcej o nowych funkcjach w Azure Backup Server. W tym artykule opisano sposób uaktualniania instalacji serwera kopii zapasowej.
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.openlocfilehash: c6346d7b0275a00271c1787b378a63b8365edf2d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ee55355b0f2cabe97f5d2a838edcbd5cfddf44e6
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74172378"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86513714"
 ---
 # <a name="add-storage-to-azure-backup-server"></a>Dodawanie magazynu do usługi Azure Backup Server
 
@@ -17,7 +18,7 @@ Azure Backup Server v2 i nowszych obsługuje Nowoczesny magazyn kopii zapasowych
 > Aby korzystać z Nowoczesny magazyn kopii zapasowych, należy uruchomić polecenie Backup Server v2 lub V3 w systemie Windows Server 2016 lub V3 w systemie Windows Server 2019.
 > W przypadku uruchomienia programu Backup Server v2 w starszej wersji systemu Windows Server Azure Backup Server nie może korzystać z Nowoczesny magazyn kopii zapasowych. Zamiast tego chroni obciążenia w taki sposób, w jaki działa serwer zapasowy v1. Aby uzyskać więcej informacji, zobacz [macierz ochrony](backup-mabs-protection-matrix.md)wersji serwera kopii zapasowej.
 >
-> Aby osiągnąć ulepszone wykonywanie kopii zapasowych, zalecamy wdrożenie serwera usługi MAB v3 z magazynem warstwowym w systemie Windows Server 2019. Aby uzyskać instrukcje dotyczące konfigurowania magazynu warstwowego, zapoznaj się z artykułem programu DPM "[set up the MB with Tiered Storage](https://docs.microsoft.com/system-center/dpm/add-storage?view=sc-dpm-2019#set-up-mbs-with-tiered-storage)".
+> Aby osiągnąć ulepszone wykonywanie kopii zapasowych, zalecamy wdrożenie serwera usługi MAB v3 z magazynem warstwowym w systemie Windows Server 2019. Aby uzyskać instrukcje dotyczące konfigurowania magazynu warstwowego, zapoznaj się z artykułem programu DPM "[set up the MB with Tiered Storage](/system-center/dpm/add-storage?view=sc-dpm-2019#set-up-mbs-with-tiered-storage)".
 
 ## <a name="volumes-in-backup-server"></a>Woluminy na serwerze kopii zapasowej
 
@@ -102,13 +103,13 @@ Aktualizowanie grup ochrony w celu korzystania z funkcji Modern Backup Storage j
 
 1. W konsola administratora wybierz funkcję **ochrony** . Na liście **członek grupy ochrony** kliknij prawym przyciskiem myszy element członkowski, a następnie wybierz polecenie **Zatrzymaj ochronę elementu członkowskiego**.
 
-   ![Zatrzymaj ochronę elementu członkowskiego](https://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-stop-protection1.png)
+   ![Zatrzymaj ochronę elementu członkowskiego](/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-stop-protection1.png)
 
 2. W oknie dialogowym **usuwanie z grupy** Sprawdź zajęte miejsce na dysku i dostępne wolne miejsce dla puli magazynów. Domyślnie punkty odzyskiwania pozostają na dysku i wygasają zgodnie ze skojarzonymi z nimi zasadami przechowywania. Kliknij przycisk **OK**.
 
    Jeśli chcesz natychmiast przywrócić zajęte miejsce na dysku do puli magazynu, zaznacz pole wyboru **Usuń replikę na dysku** , aby usunąć dane kopii zapasowej (i punkty odzyskiwania) skojarzone z tym elementem członkowskim.
 
-   ![Okno dialogowe Usuwanie z grupy](https://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-retain-data.png)
+   ![Okno dialogowe Usuwanie z grupy](/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-retain-data.png)
 
 3. Utwórz grupę ochrony korzystającą z Nowoczesny magazyn kopii zapasowych. Uwzględnij niechronione źródła danych.
 
@@ -120,7 +121,7 @@ Aby dodać magazyn dyskowy:
 
 1. W Konsola administratora wybierz pozycję **Zarządzanie**  >  **Disk Storage**  >  **Dodaj**.
 
-    ![Okno dialogowe Dodawanie Disk Storage](https://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-add-disk-storage.png)
+    ![Okno dialogowe Dodawanie Disk Storage](/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-add-disk-storage.png)
 
 2. W oknie dialogowym **dodawanie Disk Storage** wybierz pozycję **Dodaj dyski**.
 

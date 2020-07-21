@@ -9,12 +9,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: 58f542238c952088777ed9809b57dae3cdb9cf12
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 68e88ec90625f34e5bc8ae1b70c75e3cfe9a53ad
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81457267"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86515533"
 ---
 # <a name="azure-monitor-data-platform"></a>Platforma danych Azure Monitor
 
@@ -49,7 +49,7 @@ Dzienniki w Azure Monitor są przechowywane w Log Analytics obszarze roboczym, k
 > Ważne jest rozróżnienie między dziennikami Azure Monitor i źródłami danych dzienników na platformie Azure. Na przykład zdarzenia na poziomie subskrypcji na platformie Azure są zapisywane w [dzienniku aktywności](platform-logs-overview.md) , który można wyświetlić z menu Azure monitor. Większość zasobów będzie zapisywać informacje operacyjne w [dzienniku zasobów](platform-logs-overview.md) , które można przesłać dalej do różnych lokalizacji. Dzienniki Azure Monitor to platforma danych dziennika, która zbiera dzienniki aktywności i dzienniki zasobów wraz z innymi danymi monitorowania w celu zapewnienia głębokiej analizy w całym zestawie zasobów.
 
 
- Możesz interakcyjnie korzystać z [zapytań dzienników](../log-query/log-query-overview.md) w [log Analytics](../log-query/portals.md) w Azure Portal lub dodać wyniki do [pulpitu nawigacyjnego platformy Azure](../learn/tutorial-app-dashboards.md) w celu wizualizacji w połączeniu z innymi danymi. Możesz również utworzyć [alerty dziennika](alerts-log.md) , które będą wyzwalać alert w oparciu o wyniki zapytania dotyczącego harmonogramu.
+ Możesz interakcyjnie korzystać z [zapytań dzienników](../log-query/log-query-overview.md) w [log Analytics](../log-query/log-query-overview.md) w Azure Portal lub dodać wyniki do [pulpitu nawigacyjnego platformy Azure](../learn/tutorial-app-dashboards.md) w celu wizualizacji w połączeniu z innymi danymi. Możesz również utworzyć [alerty dziennika](alerts-log.md) , które będą wyzwalać alert w oparciu o wyniki zapytania dotyczącego harmonogramu.
 
 Przeczytaj więcej na temat dzienników Azure Monitor, w tym ich źródeł danych w [dziennikach Azure monitor](data-platform-logs.md).
 
@@ -67,7 +67,7 @@ Poniższa tabela zawiera porównanie metryk i dzienników w Azure Monitor.
 
 | Atrybut  | Metryki | Dzienniki |
 |:---|:---|:---|
-| Zalety | Lekkie i możliwe do zrealizowania scenariusze w czasie zbliżonym do rzeczywistego, takie jak alerty. Idealne rozwiązanie do szybkiego wykrywania problemów. | Przeanalizowane przy użyciu zaawansowanego języka zapytań. Idealne dla głębokiej analizy i identyfikowania głównej przyczyny. |
+| Korzyści | Lekkie i możliwe do zrealizowania scenariusze w czasie zbliżonym do rzeczywistego, takie jak alerty. Idealne rozwiązanie do szybkiego wykrywania problemów. | Przeanalizowane przy użyciu zaawansowanego języka zapytań. Idealne dla głębokiej analizy i identyfikowania głównej przyczyny. |
 | Dane | Tylko wartości liczbowe | Dane tekstowe lub liczbowe |
 | Struktura | Standardowy zestaw właściwości, w tym czas próbkowania, monitorowany zasób, wartość liczbowa. Niektóre metryki obejmują wiele wymiarów w celu dalszej definicji. | Unikatowy zestaw właściwości w zależności od typu dziennika. |
 | Kolekcja | Zbierane w regularnych odstępach czasu. | Mogą być zbierane sporadycznie, ponieważ zdarzenia wyzwalają rekord, który ma zostać utworzony. |
@@ -81,7 +81,7 @@ Zobacz [metryki w Azure monitor](data-platform-metrics.md) i [dzienniki w Azure 
 
 
 ## <a name="stream-data-to-external-systems"></a>Przesyłanie strumieniowe danych do systemów zewnętrznych
-Oprócz korzystania z narzędzi platformy Azure do analizowania danych monitorowania, może być wymagane przekazanie go do zewnętrznego narzędzia, takiego jak informacje o zabezpieczeniach i produkt zarządzania zdarzeniami (SIEM). Takie przekazywanie zazwyczaj odbywa się bezpośrednio z monitorowanych zasobów za pomocą [usługi Azure Event Hubs](/azure/event-hubs/). Niektóre źródła można skonfigurować tak, aby wysyłali dane bezpośrednio do centrum zdarzeń, podczas gdy można użyć innego procesu, takiego jak aplikacja logiki, aby pobrać wymagane dane. Aby uzyskać szczegółowe informacje [, zobacz Przesyłanie strumieniowe danych monitorowania platformy Azure do centrum zdarzeń w celu użycia przez zewnętrzne narzędzie](stream-monitoring-data-event-hubs.md) .
+Oprócz korzystania z narzędzi platformy Azure do analizowania danych monitorowania, może być wymagane przekazanie go do zewnętrznego narzędzia, takiego jak informacje o zabezpieczeniach i produkt zarządzania zdarzeniami (SIEM). Takie przekazywanie zazwyczaj odbywa się bezpośrednio z monitorowanych zasobów za pomocą [usługi Azure Event Hubs](../../event-hubs/index.yml). Niektóre źródła można skonfigurować tak, aby wysyłali dane bezpośrednio do centrum zdarzeń, podczas gdy można użyć innego procesu, takiego jak aplikacja logiki, aby pobrać wymagane dane. Aby uzyskać szczegółowe informacje [, zobacz Przesyłanie strumieniowe danych monitorowania platformy Azure do centrum zdarzeń w celu użycia przez zewnętrzne narzędzie](stream-monitoring-data-event-hubs.md) .
 
 
 

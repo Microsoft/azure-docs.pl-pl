@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 07/06/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: 2bf0443465f0cfd98f8bce93e60f9007ac7503be
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 81e138e7149327c7b792df58180419b93417d263
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86042083"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86510977"
 ---
 # <a name="troubleshooting-vm-provisioning-with-cloud-init"></a>Rozwiązywanie problemów z obsługą maszyny wirtualnej za pomocą funkcji Cloud-init
 
@@ -21,17 +21,17 @@ W przypadku tworzenia uogólnionych obrazów niestandardowych przy użyciu funkc
 
 Przykłady problemów dotyczących aprowizacji:
 - Maszyna wirtualna jest zablokowana przy "tworzeniu" przez 40 minut, a Tworzenie maszyny wirtualnej zostanie oznaczone jako zakończone niepowodzeniem
-- Nie przetworzono CustomData
+- `CustomData`nie przetworzono
 - Nie można zainstalować dysku tymczasowych
 - Użytkownicy nie zostaną utworzeni lub występują problemy z dostępem użytkowników
 - Sieć nie jest prawidłowo skonfigurowana
 - Zamiana błędów pliku lub partycji
 
-W tym artykule opisano sposób rozwiązywania problemów z usługą Cloud-init. Aby uzyskać bardziej szczegółowe informacje, zobacz [Cloud-init głębokie szczegółowe](https://docs.microsoft.com/azure/virtual-machines/linux/cloud-init-deep-dive).
+W tym artykule opisano sposób rozwiązywania problemów z usługą Cloud-init. Aby uzyskać bardziej szczegółowe informacje, zobacz [Cloud-init głębokie szczegółowe](./cloud-init-deep-dive.md).
 
-## <a name="step-1-test-the-deployment-without-customdata"></a>Krok 1. Testowanie wdrożenia bez customData
+## <a name="step-1-test-the-deployment-without-customdata"></a>Krok 1. Testowanie wdrożenia bez`customData`
 
-Usługa Cloud-init może akceptować customData, które są do niego przesyłane podczas tworzenia maszyny wirtualnej. Najpierw należy upewnić się, że nie powoduje to problemów z wdrożeniami. Spróbuj zainicjować maszynę wirtualną bez przechodzenia do żadnej konfiguracji. Jeśli okaże się, że nie można zainicjować obsługi administracyjnej maszyny wirtualnej, wykonaj poniższe czynności, jeśli okaże się, że przekazanie konfiguracji nie jest stosowane, przejdź do [kroku 4](). 
+Usługa Cloud-init może akceptować `customData` , która jest przenoszona do niego podczas tworzenia maszyny wirtualnej. Najpierw należy upewnić się, że nie powoduje to problemów z wdrożeniami. Spróbuj zainicjować maszynę wirtualną bez przechodzenia do żadnej konfiguracji. Jeśli okaże się, że nie można zainicjować obsługi administracyjnej maszyny wirtualnej, wykonaj poniższe czynności, jeśli okaże się, że przekazanie konfiguracji nie jest stosowane, przejdź do [kroku 4](). 
 
 ## <a name="step-2-review-image-requirements"></a>Krok 2. Przegląd wymagań dotyczących obrazu
 Główną przyczyną niepowodzenia aprowizacji maszyny wirtualnej jest obraz systemu operacyjnego, który nie spełnia wymagań wstępnych dotyczących uruchamiania na platformie Azure. Upewnij się, że obrazy są prawidłowo przygotowane przed próbą udostępnienia ich na platformie Azure. 
@@ -39,15 +39,16 @@ Główną przyczyną niepowodzenia aprowizacji maszyny wirtualnej jest obraz sys
 
 W poniższych artykułach przedstawiono kroki, które należy wykonać, aby przygotować różne dystrybucje systemu Linux, które są obsługiwane na platformie Azure:
 
-- [dystrybucje oparte na systemie CentOS](create-upload-centos.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [Debian Linux](debian-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [Oracle Linux](oracle-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [Red Hat Enterprise Linux](redhat-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [SLES i openSUSE](suse-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [Ubuntu](create-upload-ubuntu.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [Inne: dystrybucje niezatwierdzone](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- [dystrybucje oparte na systemie CentOS](create-upload-centos.md)
+- [Debian Linux](debian-create-upload-vhd.md)
+- [Flatcar Container Linux](flatcar-create-upload-vhd.md)
+- [Oracle Linux](oracle-create-upload-vhd.md)
+- [Red Hat Enterprise Linux](redhat-create-upload-vhd.md)
+- [SLES i openSUSE](suse-create-upload-vhd.md)
+- [Ubuntu](create-upload-ubuntu.md)
+- [Inne: dystrybucje niezatwierdzone](create-upload-generic.md)
 
-W przypadku [obsługiwanych obrazów usługi Azure Cloud-init dystrybucji systemu](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init)Linux mają już wszystkie wymagane pakiety i konfiguracje umożliwiające prawidłowe udostępnienie obrazu na platformie Azure. Jeśli okaże się, że maszyna wirtualna nie zostanie utworzona na podstawie własnego obrazu nadzorowanego, wypróbuj obsługiwany obraz portalu Azure Marketplace, który jest już skonfigurowany dla funkcji Cloud-init z opcjonalną customData. Jeśli customData działa prawidłowo z obrazem portalu Azure Marketplace, prawdopodobnie występuje problem z obrazem nadzorowanym.
+W przypadku [obsługiwanych obrazów usługi Azure Cloud-init dystrybucji systemu](./using-cloud-init.md)Linux mają już wszystkie wymagane pakiety i konfiguracje umożliwiające prawidłowe udostępnienie obrazu na platformie Azure. Jeśli okaże się, że maszyna wirtualna nie zostanie utworzona na podstawie własnego obrazu nadzorowanego, wypróbuj obsługiwany obraz portalu Azure Marketplace, który jest już skonfigurowany dla funkcji Cloud-init z opcjonalnym `customData` . Jeśli `customData` działa prawidłowo z obrazem portalu Azure Marketplace, prawdopodobnie wystąpił problem z obrazem nadzorowanym.
 
 ## <a name="step-3-collect--review-vm-logs"></a>Krok 3. zbieranie & przegląd dzienników maszyn wirtualnych
 
@@ -55,11 +56,11 @@ Gdy nie można zainicjować obsługi administracyjnej maszyny wirtualnej, platfo
 
 Gdy maszyna wirtualna jest uruchomiona, potrzebne będą dzienniki z maszyny wirtualnej, aby zrozumieć, dlaczego Inicjowanie obsługi nie powiodło się.  Aby zrozumieć, dlaczego Inicjowanie obsługi maszyny wirtualnej nie powiodło się, nie należy zatrzymać maszyny wirtualnej. Pozostaw uruchomioną maszynę wirtualną. W celu zbierania dzienników należy zachować niedziałającą maszynę wirtualną w stanie uruchomienia. Aby zebrać dzienniki, użyj jednej z następujących metod:
 
-- [Konsola szeregowa](https://docs.microsoft.com/azure/virtual-machines/linux/serial-console-grub-single-user-mode)
+- [Konsola szeregowa](./serial-console-grub-single-user-mode.md)
 
-- [Włącz diagnostykę rozruchu](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-monitor#enable-boot-diagnostics) przed utworzeniem maszyny wirtualnej, a następnie [Wyświetl](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-monitor#view-boot-diagnostics) je w trakcie rozruchu.
+- [Włącz diagnostykę rozruchu](./tutorial-monitor.md#enable-boot-diagnostics) przed utworzeniem maszyny wirtualnej, a następnie [Wyświetl](./tutorial-monitor.md#view-boot-diagnostics) je w trakcie rozruchu.
 
-- [Uruchom polecenie AZ VM Repair](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-linux-vm-using-azure-virtual-machine-repair-commands) , aby dołączyć i zainstalować dysk systemu operacyjnego, co umożliwi zbieranie tych dzienników:
+- [Uruchom polecenie AZ VM Repair](../troubleshooting/repair-linux-vm-using-azure-virtual-machine-repair-commands.md) , aby dołączyć i zainstalować dysk systemu operacyjnego, co umożliwi zbieranie tych dzienników:
 ```bash
 /var/log/cloud-init*
 /var/log/waagent*
@@ -88,7 +89,7 @@ Poniżej znajdują się szczegółowe informacje o tym, co należy wyszukać w k
 
 Domyślnie wszystkie zdarzenia z chmury i init z priorytetem debugowania lub nowszym są zapisywane w `/var/log/cloud-init.log` . Zapewnia to pełne dzienniki każdego zdarzenia, które wystąpiło podczas inicjowania usługi Cloud-init. 
 
-Przykład:
+Na przykład:
 
 ```console
 2019-10-10 04:51:25,321 - util.py[DEBUG]: Failed mount of '/dev/sr0' as 'auto': Unexpected error while running command.
@@ -107,7 +108,7 @@ Po znalezieniu błędu lub ostrzeżenia Odczytaj do tyłu w dzienniku Cloud-init
 2019-10-10 04:51:24,010 - util.py[DEBUG]: Running command ['mount', '-o', 'ro,sync', '-t', 'auto', u'/dev/sr0', '/run/cloud-init/tmp/tmpXXXXX'] with allowed return codes [0] (shell=False, capture=True)
 ```
 
-Jeśli masz dostęp do [konsoli szeregowej](https://docs.microsoft.com/azure/virtual-machines/linux/serial-console-grub-single-user-mode), możesz spróbować ponownie uruchomić polecenie, że usługa Cloud-init podjęła próbę uruchomienia.
+Jeśli masz dostęp do [konsoli szeregowej](./serial-console-grub-single-user-mode.md), możesz spróbować ponownie uruchomić polecenie, że usługa Cloud-init podjęła próbę uruchomienia.
 
 Rejestrowanie dla programu `/var/log/cloud-init.log` można także zmienić w programie/etc/cloud/cloud.cfg.d/05_logging. cfg. Więcej szczegółów dotyczących rejestrowania w usłudze Cloud-init można znaleźć w [dokumentacji usługi Cloud-init](https://cloudinit.readthedocs.io/en/latest/topics/logging.html). 
 
@@ -123,7 +124,7 @@ Jeśli nadal nie można wyizolować przyczyny niepowodzenia aprowizacji przez fu
 
 
 ## <a name="step-4-investigate-why-the-configuration-isnt-being-applied"></a>Krok 4. Badanie przyczyny niestosowania konfiguracji
-Nie każdy błąd w usłudze Cloud-init powoduje niepowodzenie inicjowania obsługi krytycznej. Na przykład jeśli używasz `runcmd` modułu w konfiguracji Cloud-init, niezerowy kod zakończenia z uruchomionego polecenia spowoduje niepowodzenie aprowizacji maszyny wirtualnej. Dzieje się tak, ponieważ jest ono uruchamiane po podstawowej funkcji inicjowania obsługi administracyjnej, która występuje w pierwszych 3 etapach inicjowania usługi Cloud-init. Aby rozwiązać problem z tym, dlaczego konfiguracja nie została zastosowana, Przejrzyj dzienniki w kroku 3 i moduły Cloud-init ręcznie. Przykład:
+Nie każdy błąd w usłudze Cloud-init powoduje niepowodzenie inicjowania obsługi krytycznej. Na przykład jeśli używasz `runcmd` modułu w konfiguracji Cloud-init, niezerowy kod zakończenia z uruchomionego polecenia spowoduje niepowodzenie aprowizacji maszyny wirtualnej. Dzieje się tak, ponieważ jest ono uruchamiane po podstawowej funkcji inicjowania obsługi administracyjnej, która występuje w pierwszych 3 etapach inicjowania usługi Cloud-init. Aby rozwiązać problem z tym, dlaczego konfiguracja nie została zastosowana, Przejrzyj dzienniki w kroku 3 i moduły Cloud-init ręcznie. Na przykład:
 
 - `runcmd`-czy skrypty są uruchamiane bez błędów? Uruchom konfigurację ręcznie z poziomu terminalu, aby upewnić się, że działają one zgodnie z oczekiwaniami.
 - Instalowanie pakietów — czy maszyna wirtualna ma dostęp do repozytoriów pakietów?
@@ -132,4 +133,4 @@ Nie każdy błąd w usłudze Cloud-init powoduje niepowodzenie inicjowania obsł
 
 ## <a name="next-steps"></a>Następne kroki
 
-Jeśli nadal nie można izolować, dlaczego usługa Cloud-init nie uruchomiła konfiguracji, należy dokładniej zapoznać się z informacjami o tym, co się dzieje w każdym etapie inicjowania chmury i po uruchomieniu modułów. Aby uzyskać więcej informacji, Zobacz szczegółowe informacje o [konfiguracji usługi Cloud-init](https://docs.microsoft.com/azure/virtual-machines/linux/cloud-init-deep-dive) . 
+Jeśli nadal nie można izolować, dlaczego usługa Cloud-init nie uruchomiła konfiguracji, należy dokładniej zapoznać się z informacjami o tym, co się dzieje w każdym etapie inicjowania chmury i po uruchomieniu modułów. Aby uzyskać więcej informacji, Zobacz szczegółowe informacje o [konfiguracji usługi Cloud-init](./cloud-init-deep-dive.md) . 

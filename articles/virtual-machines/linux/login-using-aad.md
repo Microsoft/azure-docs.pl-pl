@@ -7,12 +7,12 @@ ms.topic: article
 ms.workload: infrastructure
 ms.date: 08/29/2019
 ms.author: iainfou
-ms.openlocfilehash: 2731693667d2129a72da72455c6bbdd74c277697
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c5275a979cbffe7fb6600978487454ac11cd2002
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80366484"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86510433"
 ---
 # <a name="preview-log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication"></a>Wersja zapoznawcza: Logowanie do maszyny wirtualnej z systemem Linux na platformie Azure przy użyciu uwierzytelniania Azure Active Directory
 
@@ -109,7 +109,7 @@ az vm extension set \
     --vm-name myVM
 ```
 
-*ProvisioningState* *powiodło* się, gdy rozszerzenie zostanie pomyślnie zainstalowane na maszynie wirtualnej. Aby można było zainstalować rozszerzenie, maszyna wirtualna musi być uruchomionym agentem maszyny wirtualnej. Aby uzyskać więcej informacji, zobacz [Omówienie agenta maszyny wirtualnej](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows).
+*ProvisioningState* *powiodło* się, gdy rozszerzenie zostanie pomyślnie zainstalowane na maszynie wirtualnej. Aby można było zainstalować rozszerzenie, maszyna wirtualna musi być uruchomionym agentem maszyny wirtualnej. Aby uzyskać więcej informacji, zobacz [Omówienie agenta maszyny wirtualnej](../extensions/agent-windows.md).
 
 ## <a name="configure-role-assignments-for-the-vm"></a>Konfigurowanie przypisań ról dla maszyny wirtualnej
 
@@ -138,7 +138,7 @@ az role assignment create \
 
 Aby uzyskać więcej informacji na temat korzystania z funkcji RBAC do zarządzania dostępem do zasobów subskrypcji platformy Azure, zobacz Korzystanie z [interfejsu wiersza polecenia platformy Azure](../../role-based-access-control/role-assignments-cli.md), [Azure Portal](../../role-based-access-control/role-assignments-portal.md)lub [Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
 
-Możesz również skonfigurować usługę Azure AD, aby wymagać uwierzytelniania wieloskładnikowego dla określonego użytkownika do logowania się do maszyny wirtualnej systemu Linux. Aby uzyskać więcej informacji, zobacz Rozpoczynanie [pracy z usługą Azure Multi-Factor Authentication w chmurze](../../multi-factor-authentication/multi-factor-authentication-get-started-cloud.md).
+Możesz również skonfigurować usługę Azure AD, aby wymagać uwierzytelniania wieloskładnikowego dla określonego użytkownika do logowania się do maszyny wirtualnej systemu Linux. Aby uzyskać więcej informacji, zobacz Rozpoczynanie [pracy z usługą Azure Multi-Factor Authentication w chmurze](../../active-directory/authentication/howto-mfa-getstarted.md).
 
 ## <a name="log-in-to-the-linux-virtual-machine"></a>Logowanie do maszyny wirtualnej z systemem Linux
 

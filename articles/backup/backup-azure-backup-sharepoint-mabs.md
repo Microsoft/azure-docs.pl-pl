@@ -3,11 +3,12 @@ title: Tworzenie kopii zapasowej farmy programu SharePoint na platformie Azure z
 description: Użyj Azure Backup Server, aby utworzyć kopię zapasową i przywrócić dane programu SharePoint. Ten artykuł zawiera informacje dotyczące konfigurowania farmy programu SharePoint w taki sposób, aby wymagane dane mogły być przechowywane na platformie Azure. Chronione dane programu SharePoint można przywrócić z dysku lub z platformy Azure.
 ms.topic: conceptual
 ms.date: 04/26/2020
-ms.openlocfilehash: 62fcb434ef00df43ce2950a5df569e346a06903a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 40997ad2153cdec867fb36ba3475829e18519592
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84234787"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86514241"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure-with-mabs"></a>Tworzenie kopii zapasowej farmy programu SharePoint na platformie Azure za pomocą usługi serwera usługi MAB
 
@@ -17,7 +18,7 @@ Tworzenie kopii zapasowej programu SharePoint na platformie Azure za pomocą ser
 
 ## <a name="sharepoint-supported-versions-and-related-protection-scenarios"></a>Obsługiwane wersje programu SharePoint i powiązane z nimi scenariusze ochrony
 
-Aby uzyskać listę obsługiwanych wersji programu SharePoint i wersji serwera usługi MAB wymaganych do tworzenia ich kopii zapasowych [, zobacz macierz ochrony serwera usługi MAB](https://docs.microsoft.com/azure/backup/backup-mabs-protection-matrix)
+Aby uzyskać listę obsługiwanych wersji programu SharePoint i wersji serwera usługi MAB wymaganych do tworzenia ich kopii zapasowych [, zobacz macierz ochrony serwera usługi MAB](./backup-mabs-protection-matrix.md)
 
 ## <a name="before-you-start"></a>Przed rozpoczęciem
 
@@ -99,7 +100,7 @@ Aby utworzyć kopię zapasową farmy programu SharePoint, skonfiguruj ochronę p
 
 1. W obszarze **Określ zasady przechowywania danych online**możesz określić sposób zachowywania punktów odzyskiwania tworzonych na podstawie kopii zapasowych na dzień/tydzień/miesiąc/rok.
 
-1. W obszarze **Wybierz replikację online**Określ, jak będzie wykonywana początkowa pełna replikacja danych. Możesz wykonywać replikację za pośrednictwem sieci lub tworzyć kopie zapasowe offline (rozmieszczanie offline). W przypadku kopii zapasowych offline używana jest funkcja Azure Import. [Przeczytaj więcej](https://azure.microsoft.com/documentation/articles/backup-azure-backup-import-export/).
+1. W obszarze **Wybierz replikację online**Określ, jak będzie wykonywana początkowa pełna replikacja danych. Możesz wykonywać replikację za pośrednictwem sieci lub tworzyć kopie zapasowe offline (rozmieszczanie offline). W przypadku kopii zapasowych offline używana jest funkcja Azure Import. [Przeczytaj więcej](./backup-azure-backup-import-export.md).
 
 1. Na stronie **Podsumowanie** przejrzyj ustawienia. Po kliknięciu przycisku **Utwórz grupę**następuje Replikacja początkowa danych. Po zakończeniu stan grupy ochrony zostanie wyświetlony na stronie **stan** jako **OK** . Następnie odbywa się tworzenie kopii zapasowych zgodnie z ustawieniami grupy ochrony.
 

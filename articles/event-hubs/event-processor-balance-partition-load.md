@@ -3,12 +3,12 @@ title: Równoważenie obciążenia partycji w wielu wystąpieniach — Event Hub
 description: Opisuje sposób równoważenia obciążenia partycji w wielu wystąpieniach aplikacji przy użyciu procesora zdarzeń i zestawu Azure Event Hubs SDK.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: d5db1e877c1bfa6fac177e1ff8ed137e0301b709
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ff68408be15d8160ea7ecd878a05441d82700f99
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85314984"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86512320"
 ---
 # <a name="balance-partition-load-across-multiple-instances-of-your-application"></a>Równoważenie obciążenia partycji w wielu wystąpieniach aplikacji
 Aby skalować aplikację do przetwarzania zdarzeń, można uruchomić wiele wystąpień aplikacji i zrównoważyć obciążenie między sobą. W starszych wersjach [klasy eventprocessorhost](event-hubs-event-processor-host.md) można zrównoważyć obciążenie między wieloma wystąpieniami zdarzeń programu i punktów kontrolnych podczas otrzymywania. W nowszych wersjach (5,0), **EventProcessorClient** (.NET i Java) lub **EventHubConsumerClient** (Python i JavaScript) umożliwiają wykonywanie tych samych czynności. Model programistyczny jest prostszy przy użyciu zdarzeń. Zasubskrybuj zdarzenia, które Cię interesują, rejestrując procedurę obsługi zdarzeń.
@@ -16,7 +16,7 @@ Aby skalować aplikację do przetwarzania zdarzeń, można uruchomić wiele wyst
 W tym artykule opisano przykładowy scenariusz używany przez wiele wystąpień do odczytu zdarzeń z centrum zdarzeń, a następnie udostępniamy szczegółowe informacje o funkcjach klienta procesora zdarzeń, co umożliwia odbieranie zdarzeń z wielu partycji jednocześnie i równoważenie obciążenia z innymi konsumentami korzystającymi z tego samego centrum zdarzeń i grupy odbiorców.
 
 > [!NOTE]
-> Klucz do skalowania dla Event Hubs jest pomysłem dla użytkowników z podziałem na partycje. W przeciwieństwie do wzorca [konkurujących odbiorców](https://msdn.microsoft.com/library/dn568101.aspx) , partycjonowany wzorzec klienta umożliwia wysoką skalowalność, usuwając wąskie gardła rywalizacji i ułatwiając zakończenie równoległości.
+> Klucz do skalowania dla Event Hubs jest pomysłem dla użytkowników z podziałem na partycje. W przeciwieństwie do wzorca [konkurujących odbiorców](/previous-versions/msp-n-p/dn568101(v=pandp.10)) , partycjonowany wzorzec klienta umożliwia wysoką skalowalność, usuwając wąskie gardła rywalizacji i ułatwiając zakończenie równoległości.
 
 ## <a name="example-scenario"></a>Przykładowy scenariusz
 
@@ -75,7 +75,7 @@ Jeśli procesor zdarzeń rozłącza połączenie z partycji, inne wystąpienie m
 Gdy punkt kontrolny jest wykonywany do oznaczania zdarzenia jako przetworzone, wpis w magazynie punktów kontrolnych jest dodawany lub aktualizowany z przesunięciem i numerem sekwencyjnym zdarzenia. Użytkownicy powinni określić częstotliwość aktualizowania punktu kontrolnego. Aktualizacja po każdym pomyślnie przetworzonym zdarzeniu może mieć wpływ na wydajność i koszty, ponieważ wyzwala operację zapisu w źródłowym magazynie punktów kontrolnych. Ponadto punkt kontrolny każdego pojedynczego zdarzenia ma wskaźnik wzorca komunikatów umieszczonych w kolejce, dla którego Kolejka Service Bus może być lepszym rozwiązaniem niż centrum zdarzeń. Event Hubs poniżej zawarto "co najmniej raz" dostarczanie na dużą skalę. Dzięki wykorzystaniu systemów podrzędnych idempotentne można łatwo odzyskać z błędów lub ponownych uruchomień, co spowoduje, że te same zdarzenia są odbierane wiele razy.
 
 > [!NOTE]
-> Jeśli używasz platformy Azure Blob Storage jako magazynu punktów kontrolnych w środowisku obsługującym inną wersję zestawu SDK magazynu obiektów BLOB niż te, które są zwykle dostępne na platformie Azure, musisz użyć kodu, aby zmienić wersję interfejsu API usługi magazynu na określoną wersję obsługiwaną przez to środowisko. Na przykład jeśli używasz [Event Hubs w centrum Azure Stack w wersji 2002](https://docs.microsoft.com/azure-stack/user/event-hubs-overview), najwyższa dostępna wersja usługi Storage to wersja 2017-11-09. W takim przypadku należy użyć kodu, aby docelowa wersja interfejsu API usługi Storage do 2017-11-09. Aby zapoznać się z przykładem dotyczącym konkretnej wersji interfejsu API usługi Storage, zobacz następujące przykłady w witrynie GitHub: 
+> Jeśli używasz platformy Azure Blob Storage jako magazynu punktów kontrolnych w środowisku obsługującym inną wersję zestawu SDK magazynu obiektów BLOB niż te, które są zwykle dostępne na platformie Azure, musisz użyć kodu, aby zmienić wersję interfejsu API usługi magazynu na określoną wersję obsługiwaną przez to środowisko. Na przykład jeśli używasz [Event Hubs w centrum Azure Stack w wersji 2002](/azure-stack/user/event-hubs-overview), najwyższa dostępna wersja usługi Storage to wersja 2017-11-09. W takim przypadku należy użyć kodu, aby docelowa wersja interfejsu API usługi Storage do 2017-11-09. Aby zapoznać się z przykładem dotyczącym konkretnej wersji interfejsu API usługi Storage, zobacz następujące przykłady w witrynie GitHub: 
 > - [.NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples/Sample10_RunningWithDifferentStorageVersion.cs). 
 > - [Java](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs-checkpointstore-blob/src/samples/java/com/azure/messaging/eventhubs/checkpointstore/blob/)
 > - [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/javascript) lub [TypeScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/typescript)

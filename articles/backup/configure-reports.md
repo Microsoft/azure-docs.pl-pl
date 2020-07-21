@@ -3,11 +3,12 @@ title: Konfigurowanie raportów usługi Azure Backup
 description: Konfigurowanie i wyświetlanie raportów dla Azure Backup przy użyciu Log Analytics i skoroszytów platformy Azure
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: 20dcf7f3f9bbc5626c4a05ef064203b3ae5020cd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5d1c7d628a61e550aa9dc4a5265ae16c5ed5336a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84484974"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86513629"
 ---
 # <a name="configure-azure-backup-reports"></a>Konfigurowanie raportów usługi Azure Backup
 
@@ -17,7 +18,7 @@ Typowym wymaganiem dla administratorów kopii zapasowych jest uzyskanie wglądu 
 - Inspekcja kopii zapasowych i przywracania.
 - Identyfikowanie kluczowych trendów na różnych poziomach szczegółowości.
 
-Obecnie Azure Backup udostępnia rozwiązanie do raportowania, które korzysta z [dzienników Azure monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal) i [skoroszytów platformy Azure](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview). Te zasoby ułatwiają uzyskiwanie szczegółowych informacji o kopiach zapasowych w całej kopii zapasowej. W tym artykule opisano sposób konfigurowania i wyświetlania raportów Azure Backup.
+Obecnie Azure Backup udostępnia rozwiązanie do raportowania, które korzysta z [dzienników Azure monitor](../azure-monitor/log-query/get-started-portal.md) i [skoroszytów platformy Azure](../azure-monitor/platform/workbooks-overview.md). Te zasoby ułatwiają uzyskiwanie szczegółowych informacji o kopiach zapasowych w całej kopii zapasowej. W tym artykule opisano sposób konfigurowania i wyświetlania raportów Azure Backup.
 
 ## <a name="supported-scenarios"></a>Obsługiwane scenariusze
 
@@ -25,11 +26,11 @@ Obecnie Azure Backup udostępnia rozwiązanie do raportowania, które korzysta z
 - W przypadku obciążeń programu DPM raporty kopii zapasowych są obsługiwane w programie DPM w wersji 5.1.363.0 i nowszych oraz w wersji agent 2.0.9127.0 i nowszych.
 - W przypadku obciążeń serwera usługi MAB raporty kopii zapasowych są obsługiwane dla serwera usługi MAB wersji 13.0.415.0 i nowszych oraz do wersji agenta 2.0.9170.0 i nowszych.
 - Raporty kopii zapasowych można wyświetlać w ramach wszystkich elementów kopii zapasowych, magazynów, subskrypcji i regionów, o ile ich dane są wysyłane do obszaru roboczego Log Analytics, do którego użytkownik ma dostęp. Aby wyświetlić raporty dla zbioru magazynów, musisz mieć dostęp do czytnika do obszaru roboczego Log Analytics, do którego magazyny wysyłają swoje dane. Nie musisz mieć dostępu do poszczególnych magazynów.
-- Jeśli jesteś użytkownikiem [usługi Azure Lighthouse](https://docs.microsoft.com/azure/lighthouse/) z delegowanym dostępem do subskrypcji klientów, możesz użyć tych raportów za pomocą usługi Azure Lighthouse do wyświetlania raportów dla wszystkich dzierżawców.
+- Jeśli jesteś użytkownikiem [usługi Azure Lighthouse](../lighthouse/index.yml) z delegowanym dostępem do subskrypcji klientów, możesz użyć tych raportów za pomocą usługi Azure Lighthouse do wyświetlania raportów dla wszystkich dzierżawców.
 - Obecnie dane można wyświetlać w raportach dotyczących kopii zapasowych w maksymalnie 100 Log Analytics obszarach roboczych (między dzierżawcami).
 - Dane dla zadań kopii zapasowej dzienników nie są obecnie wyświetlane w raportach.
 
-## <a name="get-started"></a>Rozpoczęcie pracy
+## <a name="get-started"></a>Wprowadzenie
 
 Wykonaj następujące kroki, aby rozpocząć korzystanie z raportów.
 
@@ -37,22 +38,22 @@ Wykonaj następujące kroki, aby rozpocząć korzystanie z raportów.
 
 Skonfiguruj co najmniej jeden obszar roboczy Log Analytics do przechowywania danych raportowania kopii zapasowych. Lokalizację i subskrypcję, w której można utworzyć ten obszar roboczy Log Analytics, są niezależne od lokalizacji i subskrypcji, w której istnieją Twoje magazyny.
 
-Aby skonfigurować obszar roboczy Log Analytics, zobacz [tworzenie log Analytics obszaru roboczego w Azure Portal](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace).
+Aby skonfigurować obszar roboczy Log Analytics, zobacz [tworzenie log Analytics obszaru roboczego w Azure Portal](../azure-monitor/learn/quick-create-workspace.md).
 
-Domyślnie dane w obszarze roboczym Log Analytics są przechowywane przez 30 dni. Aby wyświetlić dane przez dłuższy czas, należy zmienić okres przechowywania obszaru roboczego Log Analytics. Aby zmienić okres przechowywania, zobacz [Zarządzanie użyciem i kosztami za pomocą dzienników Azure monitor](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage).
+Domyślnie dane w obszarze roboczym Log Analytics są przechowywane przez 30 dni. Aby wyświetlić dane przez dłuższy czas, należy zmienić okres przechowywania obszaru roboczego Log Analytics. Aby zmienić okres przechowywania, zobacz [Zarządzanie użyciem i kosztami za pomocą dzienników Azure monitor](../azure-monitor/platform/manage-cost-storage.md).
 
 ### <a name="2-configure-diagnostics-settings-for-your-vaults"></a>2. Skonfiguruj ustawienia diagnostyki dla swoich magazynów
 
 Azure Resource Manager zasobów, takich jak magazyny Recovery Services, rejestruje informacje o operacjach zaplanowanych i operacjach wyzwalanych przez użytkownika jako danych diagnostycznych.
 
-W sekcji monitorowanie magazynu Recovery Services wybierz pozycję **Ustawienia diagnostyczne** i określ cel dla danych diagnostycznych magazynu Recovery Services. Aby dowiedzieć się więcej o korzystaniu z zdarzeń diagnostycznych, zobacz [Używanie ustawień diagnostycznych dla magazynów Recovery Services](https://docs.microsoft.com/azure/backup/backup-azure-diagnostic-events).
+W sekcji monitorowanie magazynu Recovery Services wybierz pozycję **Ustawienia diagnostyczne** i określ cel dla danych diagnostycznych magazynu Recovery Services. Aby dowiedzieć się więcej o korzystaniu z zdarzeń diagnostycznych, zobacz [Używanie ustawień diagnostycznych dla magazynów Recovery Services](./backup-azure-diagnostic-events.md).
 
 ![Okienko ustawień diagnostycznych](./media/backup-azure-configure-backup-reports/resource-specific-blade.png)
 
-Azure Backup również zawiera wbudowaną definicję Azure Policy, która automatyzuje konfigurację ustawień diagnostycznych dla wszystkich magazynów w danym zakresie. Aby dowiedzieć się, jak korzystać z tych zasad, zobacz [Konfigurowanie ustawień diagnostyki magazynu w odpowiedniej skali](https://docs.microsoft.com/azure/backup/azure-policy-configure-diagnostics).
+Azure Backup również zawiera wbudowaną definicję Azure Policy, która automatyzuje konfigurację ustawień diagnostycznych dla wszystkich magazynów w danym zakresie. Aby dowiedzieć się, jak korzystać z tych zasad, zobacz [Konfigurowanie ustawień diagnostyki magazynu w odpowiedniej skali](./azure-policy-configure-diagnostics.md).
 
 > [!NOTE]
-> Po skonfigurowaniu diagnostyki zakończenie wypychania danych może potrwać do 24 godzin. Gdy dane zaczynają przepływać do obszaru roboczego Log Analytics, dane w raportach mogą nie być natychmiast widoczne, ponieważ dane bieżącego częściowego dnia nie są wyświetlane w raportach. Aby uzyskać więcej informacji, zobacz [konwencje używane w raportach kopii zapasowych](https://docs.microsoft.com/azure/backup/configure-reports#conventions-used-in-backup-reports). Zalecamy rozpoczęcie wyświetlania raportów dwa dni po skonfigurowaniu magazynów w celu wysyłania danych do Log Analytics.
+> Po skonfigurowaniu diagnostyki zakończenie wypychania danych może potrwać do 24 godzin. Gdy dane zaczynają przepływać do obszaru roboczego Log Analytics, dane w raportach mogą nie być natychmiast widoczne, ponieważ dane bieżącego częściowego dnia nie są wyświetlane w raportach. Aby uzyskać więcej informacji, zobacz [konwencje używane w raportach kopii zapasowych](#conventions-used-in-backup-reports). Zalecamy rozpoczęcie wyświetlania raportów dwa dni po skonfigurowaniu magazynów w celu wysyłania danych do Log Analytics.
 
 #### <a name="3-view-reports-in-the-azure-portal"></a>3. Wyświetl raporty w Azure Portal
 
@@ -71,7 +72,7 @@ Raport zawiera różne karty:
 
 - **Podsumowanie**: Użyj tej karty, aby uzyskać ogólne omówienie funkcji tworzenia kopii zapasowych. Możesz uzyskać szybki wgląd w łączną liczbę elementów kopii zapasowych, łączną ilość używanych magazynów w chmurze, liczbę chronionych wystąpień oraz Częstotliwość powodzeń zadań dla każdego typu obciążenia. Aby uzyskać szczegółowe informacje na temat określonego typu artefaktu kopii zapasowej, przejdź do odpowiedniej karty.
 
-   ![Karta Podsumowanie](./media/backup-azure-configure-backup-reports/summary.png)
+   ![Karta Summary (Podsumowanie)](./media/backup-azure-configure-backup-reports/summary.png)
 
 - **Elementy kopii zapasowej**: Użyj tej karty, aby wyświetlić informacje i trendy dotyczące magazynu w chmurze zużytego na poziomie elementu kopii zapasowej. Na przykład jeśli używasz SQL w kopii zapasowej maszyny wirtualnej platformy Azure, możesz zobaczyć magazyn w chmurze zużyty dla każdej bazy danych SQL, której kopia zapasowa jest tworzona. Możesz również wyświetlić dane dotyczące elementów kopii zapasowej określonego stanu ochrony. Na przykład wybranie kafelka **zatrzymana ochrona** w górnej części karty filtruje wszystkie widżety poniżej, aby wyświetlić dane tylko dla elementów kopii zapasowych w stanie zatrzymania ochrony.
 
@@ -102,7 +103,7 @@ Wybierz przycisk pinezki w górnej części każdego widżetu, aby przypiąć wi
 
 ## <a name="cross-tenant-reports"></a>Raporty obejmujące wiele dzierżawców
 
-Jeśli używasz [usługi Azure Lighthouse](https://docs.microsoft.com/azure/lighthouse/) z delegowanym dostępem do subskrypcji w wielu środowiskach dzierżawców, możesz użyć domyślnego filtru subskrypcji. Wybierz przycisk Filtr w prawym górnym rogu Azure Portal, aby wybrać wszystkie subskrypcje, dla których chcesz wyświetlić dane. Dzięki temu można wybrać Log Analytics obszary robocze dla dzierżawców w celu wyświetlenia wielodostępnych raportów.
+Jeśli używasz [usługi Azure Lighthouse](../lighthouse/index.yml) z delegowanym dostępem do subskrypcji w wielu środowiskach dzierżawców, możesz użyć domyślnego filtru subskrypcji. Wybierz przycisk Filtr w prawym górnym rogu Azure Portal, aby wybrać wszystkie subskrypcje, dla których chcesz wyświetlić dane. Dzięki temu można wybrać Log Analytics obszary robocze dla dzierżawców w celu wyświetlenia wielodostępnych raportów.
 
 ## <a name="conventions-used-in-backup-reports"></a>Konwencje używane w raportach kopii zapasowych
 
@@ -130,8 +131,8 @@ Widżety w raporcie kopii zapasowych są obsługiwane przez zapytania Kusto, kt�
 
 - Wcześniejsza aplikacja Power BI Template for Reporting, która zawiera dane źródłowe z konta usługi Azure Storage, znajduje się na ścieżce przestarzałej. Zalecamy, aby rozpocząć wysyłanie danych diagnostycznych magazynu do Log Analytics, aby wyświetlić raporty.
 
-- Ponadto [schemat wersji 1](https://docs.microsoft.com/azure/backup/backup-azure-diagnostics-mode-data-model#v1-schema-vs-v2-schema) służący do wysyłania danych diagnostycznych na konto magazynu lub w obszarze roboczym La znajduje się również na ścieżce przestarzałej. Oznacza to, że w przypadku zapisaniu niestandardowych zapytań lub automatyzacji opartych na schemacie V1 zaleca się zaktualizowanie tych zapytań, aby używały obecnie obsługiwanego schematu v2.
+- Ponadto [schemat wersji 1](./backup-azure-diagnostics-mode-data-model.md#v1-schema-vs-v2-schema) służący do wysyłania danych diagnostycznych na konto magazynu lub w obszarze roboczym La znajduje się również na ścieżce przestarzałej. Oznacza to, że w przypadku zapisaniu niestandardowych zapytań lub automatyzacji opartych na schemacie V1 zaleca się zaktualizowanie tych zapytań, aby używały obecnie obsługiwanego schematu v2.
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Dowiedz się więcej o monitorowaniu i raportowaniu za pomocą Azure Backup](https://docs.microsoft.com/azure/backup/backup-azure-monitor-alert-faq)
+[Dowiedz się więcej o monitorowaniu i raportowaniu za pomocą Azure Backup](./backup-azure-monitor-alert-faq.md)

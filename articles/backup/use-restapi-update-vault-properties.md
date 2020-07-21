@@ -4,11 +4,12 @@ description: W tym artykule dowiesz się, jak zaktualizować konfigurację magaz
 ms.topic: conceptual
 ms.date: 12/06/2019
 ms.assetid: 9aafa5a0-1e57-4644-bf79-97124db27aa2
-ms.openlocfilehash: eadcebdaf4db3dbe6c0a62b8631ff7d76fa50fad
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1f0fee505443b15ba2ea97710efc220ef05df738
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84248230"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86513119"
 ---
 # <a name="update-azure-recovery-services-vault-configurations-using-rest-api"></a>Aktualizowanie konfiguracji magazynu Recovery Services platformy Azure przy użyciu interfejsu API REST
 
@@ -24,7 +25,7 @@ W zależności od scenariusza należy uważnie wybierać, czy wyłączyć usuwan
 
 ### <a name="fetch-soft-delete-state-using-rest-api"></a>Pobieranie stanu nietrwałego usuwania przy użyciu interfejsu API REST
 
-Domyślnie stan usuwania nietrwałego zostanie włączony dla nowo utworzonego magazynu Recovery Services. Aby pobrać/zaktualizować stan usuwania nietrwałego dla magazynu, użyj [dokumentu interfejsu API REST](https://docs.microsoft.com/rest/api/backup/backupresourcevaultconfigs) powiązanego z konfiguracją magazynu kopii zapasowych.
+Domyślnie stan usuwania nietrwałego zostanie włączony dla nowo utworzonego magazynu Recovery Services. Aby pobrać/zaktualizować stan usuwania nietrwałego dla magazynu, użyj [dokumentu interfejsu API REST](/rest/api/backup/backupresourcevaultconfigs) powiązanego z konfiguracją magazynu kopii zapasowych.
 
 Aby pobrać bieżący stan usuwania nietrwałego dla magazynu, użyj następującej operacji *Get*
 
@@ -44,7 +45,7 @@ Poniższa odpowiedź dla operacji "GET" została pokazana poniżej:
 
 |Nazwa  |Typ  |Opis  |
 |---------|---------|---------|
-|200 OK     |   [BackupResourceVaultConfig](https://docs.microsoft.com/rest/api/backup/backupresourcevaultconfigs/get#backupresourcevaultconfigresource)      | OK        |
+|200 OK     |   [BackupResourceVaultConfig](/rest/api/backup/backupresourcevaultconfigs/get#backupresourcevaultconfigresource)      | OK        |
 
 ##### <a name="example-response"></a>Przykładowa odpowiedź
 
@@ -80,13 +81,13 @@ PATCH https://management.azure.com/Subscriptions/00000000-0000-0000-0000-0000000
 
 Następujące typowe definicje są używane do tworzenia treści żądania
 
-Aby uzyskać więcej informacji, zapoznaj się z [dokumentacją interfejsu API REST](https://docs.microsoft.com/rest/api/backup/backupresourcevaultconfigs/update#request-body) .
+Aby uzyskać więcej informacji, zapoznaj się z [dokumentacją interfejsu API REST](/rest/api/backup/backupresourcevaultconfigs/update#request-body) .
 
 |Nazwa  |Wymagany  |Typ  |Opis  |
 |---------|---------|---------|---------|
-|Element ETag     |         |   String      |  Opcjonalny element eTag       |
-|location     |  true       |String         |   Lokalizacja zasobu      |
-|properties     |         | [VaultProperties](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#vaultproperties)        |  Właściwości magazynu       |
+|Element ETag     |         |   String (ciąg)      |  Opcjonalny element eTag       |
+|location     |  true       |String (ciąg)         |   Lokalizacja zasobu      |
+|properties     |         | [VaultProperties](/rest/api/recoveryservices/vaults/createorupdate#vaultproperties)        |  Właściwości magazynu       |
 |tags     |         | Obiekt        |     Tagi zasobów    |
 
 #### <a name="example-request-body"></a>Przykładowa treść żądania
@@ -108,7 +109,7 @@ Poniższa odpowiedź dla operacji "PATCH" została pokazana poniżej:
 
 |Nazwa  |Typ  |Opis  |
 |---------|---------|---------|
-|200 OK     |   [BackupResourceVaultConfig](https://docs.microsoft.com/rest/api/backup/backupresourcevaultconfigs/get#backupresourcevaultconfigresource)      | OK        |
+|200 OK     |   [BackupResourceVaultConfig](/rest/api/backup/backupresourcevaultconfigs/get#backupresourcevaultconfigresource)      | OK        |
 
 ##### <a name="example-response"></a>Przykładowa odpowiedź
 

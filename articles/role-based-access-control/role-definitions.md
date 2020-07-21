@@ -15,11 +15,12 @@ ms.date: 05/08/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: 3dc2834af501d3ecc2ff44c2511916447f27cfae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7c6f9203385c47da9803fb05358889d00d77d3e5
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82996611"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86511640"
 ---
 # <a name="understand-azure-role-definitions"></a>Informacje o definicjach ról platformy Azure
 
@@ -27,7 +28,7 @@ Jeśli próbujesz zrozumieć, jak działa rola platformy Azure, lub jeśli tworz
 
 ## <a name="role-definition"></a>Definicja roli
 
-*Definicja roli* to zbiór uprawnień. Czasami jest nazywana po prostu *rolą*. Definicja roli określa dozwolone operacje, na przykład odczyt, zapis, czy usuwanie. Można również wyświetlić listę operacji, które są wykluczone z dozwolonych operacji lub operacji związanych z danymi źródłowymi.
+*Definicja roli* to kolekcja uprawnień. Jest to czasami nazywane tylko *rolą*. Definicja roli określa dozwolone operacje, na przykład odczyt, zapis, czy usuwanie. Można również wyświetlić listę operacji, które są wykluczone z dozwolonych operacji lub operacji związanych z danymi źródłowymi.
 
 Poniżej przedstawiono przykład właściwości w definicji roli, które są wyświetlane przy użyciu Azure PowerShell:
 
@@ -89,7 +90,7 @@ Operacje są określone za pomocą ciągów, które mają następujący format:
 
 ### <a name="role-definition-example"></a>Przykład definicji roli
 
-Oto definicja roli [współautor](built-in-roles.md#contributor) , która jest wyświetlana w Azure PowerShell i interfejs wiersza polecenia platformy Azure. Symbol wieloznaczny (`*`) w obszarze `Actions` oznacza, że podmiot zabezpieczeń przypisany do tej roli może wykonywać wszystkie akcje, czyli może zarządzać wszystkim. Dotyczy to również akcji, które zostaną zdefiniowane, gdy do platformy Azure zostaną dodane nowe typy zasobów. Operacje w obszarze `NotActions` są odejmowane od zestawu operacji w obszarze `Actions`. W przypadku roli [Współautor](built-in-roles.md#contributor) zawartość właściwości `NotActions` uniemożliwia tej roli zarządzanie dostępem do zasobów oraz przypisywanie dostępu do zasobów.
+Oto definicja roli [współautor](built-in-roles.md#contributor) , która jest wyświetlana w Azure PowerShell i interfejs wiersza polecenia platformy Azure. Symbol wieloznaczny (`*`) w obszarze `Actions` oznacza, że podmiot zabezpieczeń przypisany do tej roli może wykonywać wszystkie akcje, czyli może zarządzać wszystkim. Dotyczy to również akcji, które zostaną zdefiniowane, gdy do platformy Azure zostaną dodane nowe typy zasobów. Operacje w obszarze `NotActions` są odejmowane od zestawu operacji w obszarze `Actions`. W przypadku roli [współautor](built-in-roles.md#contributor) program `NotActions` usuwa możliwość zarządzania dostępem do zasobów, a także do zarządzania przypisaniami Azure Blueprint.
 
 Rola współautor wyświetlana w Azure PowerShell:
 
@@ -338,4 +339,4 @@ Informacje o `AssignableScopes` rolach niestandardowych można znaleźć w temac
 
 * [Wbudowane role platformy Azure](built-in-roles.md)
 * [Role niestandardowe platformy Azure](custom-roles.md)
-* [Operacje dostawcy zasobów Azure Resource Manager](resource-provider-operations.md)
+* [Operacje związane z dostawcami zasobów w usłudze Azure Resource Manager](resource-provider-operations.md)

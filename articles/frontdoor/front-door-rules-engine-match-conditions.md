@@ -1,5 +1,5 @@
 ---
-title: Azure Front Door
+title: Warunki dopasowania aparatu do usługi Azure Front drzwiczk
 description: Ten artykuł zawiera listę różnych warunków dopasowania dostępnych w aparacie reguł dla drzwi platformy Azure.
 services: frontdoor
 documentationcenter: ''
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 4/30/2020
 ms.author: mebeatty
-ms.openlocfilehash: d42b6b56f0cdd1f6ef2ea45b21a027f1b4c56b1c
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: 311914078f8169a3b48b5559ed58a690c29be83a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85321987"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86512167"
 ---
-# <a name="azure-front-door-rules-engine-match-conditions"></a>Warunki dopasowania aparatu do usługi Azure Front drzwiczk
+# <a name="azure-front-door-rules-engine-match-conditions"></a>Warunki dopasowania Aparatu reguł usługi Azure Front Door
 
 W [aparacie reguł AFD](front-door-rules-engine.md) reguła składa się z zero lub więcej warunków dopasowania i akcji. Ten artykuł zawiera szczegółowe opisy warunków dopasowania, których można użyć w aparacie reguł AFD.
 
@@ -51,7 +51,7 @@ Identyfikuje żądania na podstawie argumentów zdefiniowanych dla metody POST R
 
 Nazwa argumentu | Operator | Wartość argumentu | Przekształcanie wielkości liter
 --------------|----------|----------------|---------------
-Ciąg | [Standardowa lista operatorów](#standard-operator-list) | String, int | Małe litery, wielkie litery, przycinanie, usuwanie białych znaków, kodowanie URL, dekodowanie adresu URL
+String (ciąg) | [Standardowa lista operatorów](#standard-operator-list) | String, int | Małe litery, wielkie litery, przycinanie, usuwanie białych znaków, kodowanie URL, dekodowanie adresu URL
 
 ## <a name="query-string"></a>Ciąg zapytania
 
@@ -71,9 +71,9 @@ Identyfikuje żądania na podstawie lokalizacji lub adresu IP osoby żądającej
 
 Operator | Obsługiwane wartości
 ---------|-----------------
-Dopasowanie geograficzne | Kod kraju
+Dopasowanie geograficzne | Numer kierunkowy kraju
 Dopasowanie adresu IP | Adres IP (rozdzielone spacjami)
-Brak dopasowania geograficznego | Kod kraju
+Brak dopasowania geograficznego | Numer kierunkowy kraju
 Niezgodność adresów IP | Adres IP (rozdzielone spacjami)
 
 #### <a name="key-information"></a>Informacje o kluczu
@@ -82,7 +82,7 @@ Niezgodność adresów IP | Adres IP (rozdzielone spacjami)
 - Aby określić wiele adresów IP i bloków adresów IP, należy użyć pojedynczej spacji między wartościami:
   - **Przykład IPv4**: *1.2.3.4 10.20.30.40* dopasowuje wszystkie żądania, które dotarły do adresu 1.2.3.4 lub 10.20.30.40.
   - **Przykład IPv6**: *1:2:3:4:5:6:7:8 10:20:30:40:50:60:70:80* dopasowuje wszystkie żądania, które nadeszły z adresu 1:2:3:4:5:6:7:8 lub 10:20:30:40:50:60:70:80.
-- Składnia bloku adresów IP to podstawowy adres IP, po którym następuje ukośnik i rozmiar prefiksu. Przykład:
+- Składnia bloku adresów IP to podstawowy adres IP, po którym następuje ukośnik i rozmiar prefiksu. Na przykład:
   - **Przykład IPv4**: *5.5.5.64/26* dopasowuje wszystkie żądania odbierane z adresów 5.5.5.64 przez 5.5.5.127.
   - **Przykład IPv6**: *1:2:3:/48* dopasowuje wszystkie żądania odbierane z adresów 1:2:3:0:0:0:0:0 do 1:2: 3: FFFF: FFFF: FFFF: FFFF: FFFF.
 
@@ -104,7 +104,7 @@ Identyfikuje żądania, które używają określonego nagłówka w żądaniu.
 
 Nazwa nagłówka | Operator | Wartość nagłówka | Przekształcanie wielkości liter
 ------------|----------|--------------|---------------
-Ciąg | [Standardowa lista operatorów](#standard-operator-list) | String, int | Małe litery, wielkie litery, przycinanie, usuwanie białych znaków, kodowanie URL, dekodowanie adresu URL
+String (ciąg) | [Standardowa lista operatorów](#standard-operator-list) | String, int | Małe litery, wielkie litery, przycinanie, usuwanie białych znaków, kodowanie URL, dekodowanie adresu URL
 
 ## <a name="request-method"></a>Metoda żądania
 
@@ -150,7 +150,7 @@ Identyfikuje żądania, które zawierają określone rozszerzenie pliku w nazwie
 
 #### <a name="required-fields"></a>Pola wymagane
 
-Operator | Wewnętrzny | Przekształcanie wielkości liter
+Operator | Rozszerzenie | Przekształcanie wielkości liter
 ---------|-----------|---------------
 [Standardowa lista operatorów](#standard-operator-list) | String, int | Małe litery, wielkie litery, przycinanie, usuwanie białych znaków, kodowanie URL, dekodowanie adresu URL
 

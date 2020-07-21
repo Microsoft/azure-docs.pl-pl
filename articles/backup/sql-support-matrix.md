@@ -3,11 +3,13 @@ title: Macierz obsługi Azure Backup dla SQL Server tworzenia kopii zapasowych n
 description: Zawiera podsumowanie ustawień i ograniczeń pomocy technicznej podczas tworzenia kopii zapasowych SQL Server na maszynach wirtualnych platformy Azure przy użyciu usługi Azure Backup.
 ms.topic: conceptual
 ms.date: 03/05/2020
-ms.openlocfilehash: f9594b9157f84a0536ffd4b62f792fd86fb1c243
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: references_regions
+ms.openlocfilehash: 4d197f8b3c1ed74ef45c1f7942ead52ccef0c14a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84234247"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86513187"
 ---
 # <a name="support-matrix-for-sql-server-backup-in-azure-vms"></a>Macierz obsługi SQL Server tworzenia kopii zapasowych na maszynach wirtualnych platformy Azure
 
@@ -26,7 +28,7 @@ Za pomocą Azure Backup można tworzyć kopie zapasowe baz danych SQL Server na 
 ## <a name="feature-consideration-and-limitations"></a>Zagadnienia i ograniczenia dotyczące funkcji
 
 * SQL Server kopii zapasowej można skonfigurować w Azure Portal lub **PowerShell**. Interfejs wiersza polecenia nie jest obsługiwany.
-* Rozwiązanie jest obsługiwane w przypadku obu rodzajów [wdrożeń](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model) — Azure Resource Manager maszyn wirtualnych i klasycznych maszyn wirtualnych.
+* Rozwiązanie jest obsługiwane w przypadku obu rodzajów [wdrożeń](../azure-resource-manager/management/deployment-models.md) — Azure Resource Manager maszyn wirtualnych i klasycznych maszyn wirtualnych.
 * Maszyna wirtualna z systemem SQL Server wymaga łączności z Internetem, aby uzyskać dostęp do publicznych adresów IP platformy Azure.
 * SQL Server **wystąpienie klastra trybu failover (FCI)** nie jest obsługiwane.
 * Operacje tworzenia kopii zapasowych i przywracania dla duplikatów baz danych i migawek baz danych nie są obsługiwane.

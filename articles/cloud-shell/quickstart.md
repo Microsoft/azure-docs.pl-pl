@@ -10,11 +10,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: damaerte
-ms.openlocfilehash: 58d795a5aee79e4149864a79a923ce34950b31d6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3001e814a5f31725bfc78385d2435bbb0e971d40
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79458073"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86513024"
 ---
 # <a name="quickstart-for-bash-in-azure-cloud-shell"></a>Przewodnik Szybki Start dla usługi Bash w Azure Cloud Shell
 
@@ -25,7 +26,7 @@ Ten dokument zawiera szczegółowe informacje dotyczące używania bash w Azure 
 
 ## <a name="start-cloud-shell"></a>Uruchamianie usługi Cloud Shell
 1. Uruchom **Cloud Shell** od górnego nawigowania Azure Portal. <br>
-![](media/quickstart/shell-icon.png)
+![Zrzut ekranu przedstawiający sposób uruchamiania Azure Cloud Shell w Azure Portal.](media/quickstart/shell-icon.png)
 
 2. Wybierz subskrypcję, aby utworzyć konto magazynu i udział plików Microsoft Azure.
 3. Wybierz pozycję "Utwórz magazyn"
@@ -35,7 +36,7 @@ Ten dokument zawiera szczegółowe informacje dotyczące używania bash w Azure 
 
 ### <a name="select-the-bash-environment"></a>Wybierz środowisko bash
 Upewnij się, że lista rozwijana środowiska z lewej strony okna powłoki ma wartość `Bash` . <br>
-![](media/quickstart/env-selector.png)
+![Zrzut ekranu przedstawiający sposób wybierania środowiska bash dla Azure Cloud Shell.](media/quickstart/env-selector.png)
 
 ### <a name="set-your-subscription"></a>Ustawianie subskrypcji
 1. Lista subskrypcji, do których masz dostęp.
@@ -43,10 +44,11 @@ Upewnij się, że lista rozwijana środowiska z lewej strony okna powłoki ma wa
    az account list
    ```
 
-2. Ustaw preferowaną subskrypcję: <br>
-```azurecli-interactive
-az account set --subscription 'my-subscription-name'
-```
+2. Ustaw preferowaną subskrypcję:
+
+   ```azurecli-interactive
+   az account set --subscription 'my-subscription-name'
+   ```
 
 > [!TIP]
 > Twoja subskrypcja zostanie zapamiętana na potrzeby przyszłych sesji przy użyciu usługi `/home/<user>/.azure/azureProfile.json` .
@@ -72,7 +74,7 @@ Nazwa użytkownika na tej maszynie wirtualnej będzie używana w Cloud Shell ($ 
 ### <a name="ssh-into-your-linux-vm"></a>Użyj protokołu SSH na maszynie wirtualnej z systemem Linux
 1. Wyszukaj nazwę maszyny wirtualnej na pasku wyszukiwania Azure Portal.
 2. Kliknij przycisk "Połącz", aby uzyskać nazwę i publiczny adres IP maszyny wirtualnej. <br>
-   ![](media/quickstart/sshcmd-copy.png)
+   ![Zrzut ekranu przedstawiający sposób nawiązywania połączenia z systemem Linux V M przy użyciu S S H.](media/quickstart/sshcmd-copy.png)
 
 3. Za pomocą polecenia SSH do maszyny wirtualnej `ssh` .
    ```
@@ -80,7 +82,7 @@ Nazwa użytkownika na tej maszynie wirtualnej będzie używana w Cloud Shell ($ 
    ```
 
 Po ustanowieniu połączenia SSH powinien zostać wyświetlony monit Ubuntu powitalny. <br>
-![](media/quickstart/ubuntu-welcome.png)
+![Zrzut ekranu przedstawiający inicjalizację Ubuntu i monit powitalny po nawiązaniu połączenia S S H.](media/quickstart/ubuntu-welcome.png)
 
 ## <a name="cleaning-up"></a>Czyszczenie 
 1. Zakończ sesję SSH.

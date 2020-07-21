@@ -3,12 +3,12 @@ title: Rozwiązywanie problemów z powolnej kopii zapasowej plików i folderów
 description: Zawiera wskazówki dotyczące rozwiązywania problemów ułatwiające zdiagnozowanie przyczyny problemów z wydajnością Azure Backup
 ms.topic: troubleshooting
 ms.date: 07/05/2019
-ms.openlocfilehash: 07f596f0900fbd92391a383678ade99df30592f1
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 7bdda02b837cc2312b997b23ba7b714ca7ebb41a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86135050"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86513840"
 ---
 # <a name="troubleshoot-slow-backup-of-files-and-folders-in-azure-backup"></a>Rozwiązywanie problemów związanych z powolnym tworzeniem kopii zapasowych plików i folderów w usłudze Azure Backup
 
@@ -95,7 +95,7 @@ Następujące wskaźniki mogą pomóc zrozumieć wąskie gardło i odpowiednio w
 * **Interfejs użytkownika pokazuje postęp transferu danych**. Dane nadal są transferowane. Przepustowość sieci lub rozmiar danych może powodować opóźnienia.
 * **Interfejs użytkownika nie pokazuje postępu transferu danych**. Otwórz dzienniki zlokalizowane w folderze C:\Program Files\Microsoft Azure Recovery Services Agent\Temp, a następnie sprawdź wpis FileProvider:: EndData w dziennikach. Ten wpis oznacza, że proces transferu danych zakończył pracę i jest wykonywane działanie katalogu. Nie Anuluj zadań tworzenia kopii zapasowej. Zamiast tego poczekaj chwilę na zakończenie operacji katalogu. Jeśli problem będzie się powtarzać, skontaktuj się z [pomocą techniczną platformy Azure](https://portal.azure.com/#create/Microsoft.Support).
 
-Jeśli próbujesz utworzyć kopię zapasową dużych dysków, zaleca się użycie [Azure Data Box](https://docs.microsoft.com/azure/backup/offline-backup-azure-data-box) do pierwszej kopii zapasowej (replikacja początkowa).  Jeśli nie można użyć urządzenie Data Box, wszystkie przejściowe problemy z siecią występujące w danym środowisku podczas długotrwałego przesyłania danych przez sieć mogą powodować błędy kopii zapasowych.  Aby zapewnić ochronę przed awariami, można dodać kilka folderów do początkowej kopii zapasowej i stale dodawać więcej folderów do momentu pomyślnego utworzenia kopii zapasowej wszystkich folderów na platformie Azure.  Kolejne przyrostowe kopie zapasowe będą stosunkowo szybsze.
+Jeśli próbujesz utworzyć kopię zapasową dużych dysków, zaleca się użycie [Azure Data Box](./offline-backup-azure-data-box.md) do pierwszej kopii zapasowej (replikacja początkowa).  Jeśli nie można użyć urządzenie Data Box, wszystkie przejściowe problemy z siecią występujące w danym środowisku podczas długotrwałego przesyłania danych przez sieć mogą powodować błędy kopii zapasowych.  Aby zapewnić ochronę przed awariami, można dodać kilka folderów do początkowej kopii zapasowej i stale dodawać więcej folderów do momentu pomyślnego utworzenia kopii zapasowej wszystkich folderów na platformie Azure.  Kolejne przyrostowe kopie zapasowe będą stosunkowo szybsze.
 
 ## <a name="next-steps"></a>Następne kroki
 

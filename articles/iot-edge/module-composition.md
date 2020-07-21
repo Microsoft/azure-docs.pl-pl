@@ -8,12 +8,12 @@ ms.date: 03/26/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 6a4b90d8b6fe67de26c8e652e0dc5b62cc27023f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dd2b9bc462a9d4bc11f49a7e3294e52f88a926fb
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80545626"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86511844"
 ---
 # <a name="learn-how-to-deploy-modules-and-establish-routes-in-iot-edge"></a>Learn how to deploy modules and establish routes in IoT Edge (Dowiedz się, jak wdrażać moduły i ustanawiać trasy w usłudze IoT Edge).
 
@@ -38,7 +38,7 @@ Na wysokim poziomie manifest wdrożenia jest listą bliźniaczych reprezentacji 
 
 W każdym manifeście wdrożenia są wymagane dwa moduły: `$edgeAgent` , i `$edgeHub` . Te moduły są częścią środowiska uruchomieniowego IoT Edge, które zarządza urządzeniem IoT Edge i uruchomionymi na nim modułami. Aby uzyskać więcej informacji o tych modułach, zobacz [Omówienie środowiska uruchomieniowego IoT Edge i jego architektury](iot-edge-runtime.md).
 
-Oprócz dwóch modułów środowiska uruchomieniowego można dodać do 20 modułów do uruchomienia na urządzeniu IoT Edge.
+Oprócz dwóch modułów środowiska uruchomieniowego można dodać do 30 modułów, które będą uruchamiane na urządzeniu IoT Edge.
 
 Manifest wdrożenia zawierający tylko środowisko uruchomieniowe IoT Edge (edgeAgent i edgeHub) jest prawidłowy.
 
@@ -141,7 +141,7 @@ Korzystając z zestawów SDK IoT, moduły mogą deklarować określone kolejki w
 
 Właściwość Source może mieć jedną z następujących wartości:
 
-| Element źródłowy | Opis |
+| Źródło | Opis |
 | ------ | ----------- |
 | `/*` | Wszystkie komunikaty z urządzenia do chmury lub dwuosiowe powiadomienia o zmianie z dowolnego modułu lub urządzenia typu liść |
 | `/twinChangeNotifications` | Wszelkie zmiany przędzenia (raportowane właściwości) pochodzące z dowolnego modułu lub urządzenia typu liść |

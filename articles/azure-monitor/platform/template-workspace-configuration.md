@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/09/2020
-ms.openlocfilehash: dbeaa58da109c5afceb03a560e69e0c8bf63ad42
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 240a261f8dd401f36ef763e4c1274a1c0760f2dd
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81768116"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86515652"
 ---
 # <a name="manage-log-analytics-workspace-using-azure-resource-manager-templates"></a>Zarządzanie obszarem roboczym Log Analytics przy użyciu szablonów Azure Resource Manager
 
@@ -39,7 +40,7 @@ W poniższej tabeli wymieniono wersje interfejsu API dla zasobów używanych w t
 | Zasób | Typ zasobu | Wersja interfejsu API |
 |:---|:---|:---|
 | Workspace   | obszary robocze    | 2017-03-15 — wersja zapoznawcza |
-| Wyszukiwanie      | savedSearches | 2015-03-20 |
+| Wyszukaj      | savedSearches | 2015-03-20 |
 | Źródło danych | źródła danych   | 2015-11-01 — wersja zapoznawcza |
 | Rozwiązanie    | rozwiązania     | 2015-11-01 — wersja zapoznawcza |
 
@@ -152,7 +153,7 @@ W przypadku rezerwacji pojemności należy określić wybraną rezerwację pojem
    >* "name": "CapacityReservation",
    >* "capacityReservationLevel": 100
 
-2. Edytuj szablon w celu spełnienia wymagań. Rozważ utworzenie [pliku parametrów Menedżer zasobów](../../azure-resource-manager/templates/parameter-files.md) zamiast przekazywania parametrów jako wartości wbudowanych. Zapoznaj się z tematem dokumentacja [szablonu Microsoft. OperationalInsights/Workspaces](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/2015-11-01-preview/workspaces) , aby dowiedzieć się, jakie właściwości i wartości są obsługiwane. 
+2. Edytuj szablon w celu spełnienia wymagań. Rozważ utworzenie [pliku parametrów Menedżer zasobów](../../azure-resource-manager/templates/parameter-files.md) zamiast przekazywania parametrów jako wartości wbudowanych. Zapoznaj się z tematem dokumentacja [szablonu Microsoft. OperationalInsights/Workspaces](/azure/templates/microsoft.operationalinsights/2015-11-01-preview/workspaces) , aby dowiedzieć się, jakie właściwości i wartości są obsługiwane. 
 
 3. Zapisz ten plik jako **deploylaworkspacetemplate.jsw** folderze lokalnym.
 

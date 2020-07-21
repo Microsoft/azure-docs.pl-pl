@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/08/2019
-ms.openlocfilehash: 043369bd6112c4cac36539bbd764393d889439c0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: de42a70cf2950aca3dbe151407671306c793ed10
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84696970"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86515499"
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Rozwiązywanie problemów za pomocą Diagnostyki Azure
 W tym artykule opisano Rozwiązywanie problemów związanych z używaniem Diagnostyka Azure. Aby uzyskać więcej informacji na temat diagnostyki platformy Azure, zobacz [omówienie Diagnostyka Azure](diagnostics-extension-overview.md).
@@ -49,7 +50,7 @@ Poniżej przedstawiono ścieżki do ważnych dzienników i artefaktów. Te infor
 | **Plik dziennika MonAgentHost** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics \<DiagnosticsVersion> \WAD0107\Configuration\MonAgentHost. <seq_num>. log |
 
 ## <a name="metric-data-doesnt-appear-in-the-azure-portal"></a>Dane metryk nie są wyświetlane w Azure Portal
-Diagnostyka Azure udostępnia dane metryk, które mogą być wyświetlane w Azure Portal. Jeśli masz problemy z wyświetlaniem danych w portalu, sprawdź tabelę WADMetrics na \* koncie magazynu Diagnostyka Azure, aby sprawdzić, czy odpowiednie rekordy metryk są tam dostępne, i upewnij się, że [dostawca zasobów](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services) Microsoft. Insights został zarejestrowany.
+Diagnostyka Azure udostępnia dane metryk, które mogą być wyświetlane w Azure Portal. Jeśli masz problemy z wyświetlaniem danych w portalu, sprawdź tabelę WADMetrics na \* koncie magazynu Diagnostyka Azure, aby sprawdzić, czy odpowiednie rekordy metryk są tam dostępne, i upewnij się, że [dostawca zasobów](../../azure-resource-manager/management/resource-providers-and-types.md) Microsoft. Insights został zarejestrowany.
 
 W tym miejscu **PartitionKey** tabeli jest identyfikatorem zasobu, maszyną wirtualną lub zestawem skalowania maszyn wirtualnych. **RowKey** to nazwa metryki (znana także jako Nazwa licznika wydajności).
 
@@ -204,7 +205,7 @@ Oto przykład:
 ```
 Ten kod generuje cztery tabele:
 
-| Wydarzenie | Nazwa tabeli |
+| Zdarzenie | Nazwa tabeli |
 | --- | --- |
 | Provider = "prov1" &lt; Identyfikator zdarzenia = "1"/&gt; |WADEvent + MD5 ("prov1") + "1" |
 | Provider = "prov1" &lt; Identyfikator zdarzenia = "2" eventDestination = "dest1"/&gt; |WADdest1 |
@@ -296,4 +297,3 @@ System.IO.FileLoadException: Could not load file or assembly 'System.Threading.T
 - Czy dane w magazynie mają nazwy liczników w języku angielskim. Jeśli nazwy liczników nie są w języku angielskim, wykres metryki portalu nie będzie mógł go rozpoznać. Środki **zaradcze**: Zmień język maszyny na angielski w przypadku kont systemowych. W tym celu wybierz kolejno pozycje **Panel sterowania**  >  **region**  >  **Administrative**  >  **Ustawienia kopiowanie**administracyjne. Następnie usuń zaznaczenie opcji **ekran powitalny i konta systemowe** , aby język niestandardowy nie został zastosowany do konta System.
 
 - Jeśli używasz symboli wieloznacznych ( \* ) w nazwach liczników wydajności, portal nie będzie w stanie skorelować skonfigurowanych i zebranych liczników, gdy liczniki wydajności są wysyłane do ujścia usługi Azure Storage. Środki **zaradcze**: aby upewnić się, że można użyć symboli wieloznacznych i że portal rozwinie ( \* ), Roześlij liczniki wydajności do ujścia Azure monitor.
-

@@ -3,11 +3,12 @@ title: Sesje komunikatów Azure Service Bus | Microsoft Docs
 description: W tym artykule wyjaśniono, jak używać sesji, aby umożliwić wspólną i uporządkowaną obsługę niepowiązanych sekwencji powiązanych komunikatów.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: c1b714df1df7e2c3ba39c63581dc3c40a2ff9d1e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 05efc550e119186a2925c13d3fcfed11bec17251
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85341191"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86511300"
 ---
 # <a name="message-sessions"></a>Sesje komunikatów
 Sesje Microsoft Azure Service Bus umożliwiają wspólną i uporządkowaną obsługę niepowiązanych sekwencji powiązanych komunikatów. Sesji można używać w wzorcach **First In, First Out (FIFO)** i **Request-Response** . W tym artykule pokazano, jak za pomocą sesji zaimplementować te wzorce przy użyciu Service Bus. 
@@ -30,7 +31,7 @@ Funkcja sesji w Service Bus włącza określoną operację odbierania w postaci 
 
 W portalu Ustaw flagę przy użyciu następującego pola wyboru:
 
-![][2]
+![Zrzut ekranu przedstawiający okno dialogowe Tworzenie kolejki z wybraną opcją Włącz sesje i wyróżnioną kolorem czerwonym.][2]
 
 > [!NOTE]
 > Po włączeniu sesji dla kolejki lub subskrypcji aplikacje klienckie ***nie mogą już*** wysyłać/odbierać zwykłych komunikatów. Wszystkie komunikaty muszą być wysyłane w ramach sesji (przez ustawienie identyfikatora sesji) i odebrane przez odebranie sesji.
@@ -41,7 +42,7 @@ Interfejsy API dla sesji znajdują się na klientach w kolejkach i subskrypcjach
 
 Sesje umożliwiają jednoczesne usuwanie z przeplotu strumieni komunikatów podczas zachowywania i zagwarantowania uporządkowanego dostarczania.
 
-![][1]
+![Diagram przedstawiający sposób zachowywania uporządkowanej dostawy przez funkcję Sessions.][1]
 
 Odbiorca [MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) jest tworzony przez klienta akceptującego sesję. Klient wywołuje [QueueClient. AcceptMessageSession](/dotnet/api/microsoft.servicebus.messaging.queueclient.acceptmessagesession#Microsoft_ServiceBus_Messaging_QueueClient_AcceptMessageSession) lub [QueueClient. AcceptMessageSessionAsync](/dotnet/api/microsoft.servicebus.messaging.queueclient.acceptmessagesessionasync#Microsoft_ServiceBus_Messaging_QueueClient_AcceptMessageSessionAsync) w języku C#. W reaktywnym modelu wywołania zwrotnego rejestruje procedurę obsługi sesji.
 

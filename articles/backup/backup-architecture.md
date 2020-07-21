@@ -3,12 +3,12 @@ title: Omówienie architektury
 description: Zawiera omówienie architektury, składników i procesów używanych przez usługę Azure Backup.
 ms.topic: conceptual
 ms.date: 02/19/2019
-ms.openlocfilehash: 26f10f96cac412854f4bb0f732a0aec7f595c8ae
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: eab820c2a045c8602bfdbf77b5e2dba4cb2318af
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86055260"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86514309"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Azure Backup architektura i składniki
 
@@ -42,17 +42,17 @@ Recovery Services magazyny mają następujące funkcje:
 - Magazyny ułatwiają organizowanie danych kopii zapasowej, przy jednoczesnym zminimalizowaniu obciążeń związanych z zarządzaniem.
 - W każdej subskrypcji platformy Azure można utworzyć maksymalnie 500 magazynów.
 - Możesz monitorować elementy kopii zapasowej w magazynie, w tym maszyn wirtualnych platformy Azure i maszynach lokalnych.
-- Możesz zarządzać dostępem do magazynu za pomocą [kontroli dostępu opartej na rolach (RBAC) na](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)platformie Azure.
+- Możesz zarządzać dostępem do magazynu za pomocą [kontroli dostępu opartej na rolach (RBAC) na](../role-based-access-control/role-assignments-portal.md)platformie Azure.
 - Określ sposób replikowania danych w magazynie w celu zapewnienia nadmiarowości:
-  - **Magazyn lokalnie nadmiarowy (LRS)**: aby chronić przed awarią w centrum danych, można użyć LRS. LRS replikuje dane do jednostki skalowania magazynu. [Dowiedz się więcej](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs).
-  - **Magazyn Geograficznie nadmiarowy (GRS)**: aby chronić przed awarią całego regionu, możesz użyć GRS. GRS replikuje dane do regionu pomocniczego. [Dowiedz się więcej](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs).
+  - **Magazyn lokalnie nadmiarowy (LRS)**: aby chronić przed awarią w centrum danych, można użyć LRS. LRS replikuje dane do jednostki skalowania magazynu. [Dowiedz się więcej](../storage/common/storage-redundancy.md).
+  - **Magazyn Geograficznie nadmiarowy (GRS)**: aby chronić przed awarią całego regionu, możesz użyć GRS. GRS replikuje dane do regionu pomocniczego. [Dowiedz się więcej](../storage/common/storage-redundancy.md).
   - Domyślnie magazyny Recovery Services używają GRS.
 
 ## <a name="backup-agents"></a>Agenci tworzenia kopii zapasowych
 
 Azure Backup udostępnia różnych agentów kopii zapasowych, w zależności od tego, jakiego typu maszyny jest tworzona kopia zapasowa:
 
-**Odczynnik** | **Szczegóły**
+**Agent** | **Szczegóły**
 --- | ---
 **Agent MARS** | <ul><li>Działa na pojedynczych lokalnych maszynach z systemem Windows Server, aby utworzyć kopię zapasową plików, folderów i stanu systemu.</li> <li>Działa na maszynach wirtualnych platformy Azure, aby utworzyć kopię zapasową plików, folderów i stanu systemu.</li> <li>Działa na serwerach DPM/serwera usługi MAB, aby utworzyć kopię zapasową lokalnego dysku magazynu programu DPM/serwera usługi MAB na platformie Azure.</li></ul>
 **Rozszerzenie maszyny wirtualnej platformy Azure** | Działa na maszynach wirtualnych platformy Azure w celu tworzenia kopii zapasowych w magazynie.
@@ -65,7 +65,7 @@ W poniższej tabeli objaśniono różne typy kopii zapasowych i używane:
 --- | --- | ---
 **Pełne** | Pełna kopia zapasowa zawiera całe źródło danych. Zwiększa przepustowość sieci niż różnicowe lub przyrostowe kopie zapasowe. | Używany do początkowej kopii zapasowej.
 **Różnicy** |  Różnicowa kopia zapasowa przechowuje bloki, które uległy zmianie od początkowej pełnej kopii zapasowej. Program używa mniejszej ilości sieci i magazynu i nie zachowuje nadmiarowych kopii niezmienionych danych.<br/><br/> Niewydajne, ponieważ bloki danych, które nie są zmieniane między nowszymi kopiami zapasowymi, są transferowane i przechowywane. | Nieużywane przez Azure Backup.
-**Interlini** | Przyrostowa kopia zapasowa przechowuje tylko te bloki danych, które uległy zmianie od czasu utworzenia poprzedniej kopii zapasowej. Wysoka wydajność magazynu i sieci. <br/><br/> Dzięki przyrostowym kopiom zapasowym nie trzeba uzupełniać z pełnymi kopiami zapasowymi. | Używane przez program DPM/serwera usługi MAB do tworzenia kopii zapasowych na dyskach i używane we wszystkich kopiach zapasowych na platformie Azure. Nieużywany do SQL Server kopii zapasowej.
+**Przyrostowy** | Przyrostowa kopia zapasowa przechowuje tylko te bloki danych, które uległy zmianie od czasu utworzenia poprzedniej kopii zapasowej. Wysoka wydajność magazynu i sieci. <br/><br/> Dzięki przyrostowym kopiom zapasowym nie trzeba uzupełniać z pełnymi kopiami zapasowymi. | Używane przez program DPM/serwera usługi MAB do tworzenia kopii zapasowych na dyskach i używane we wszystkich kopiach zapasowych na platformie Azure. Nieużywany do SQL Server kopii zapasowej.
 
 ## <a name="sql-server-backup-types"></a>SQL Server typy kopii zapasowych
 
@@ -120,6 +120,17 @@ Tworzenie kopii zapasowej deduplikowanych dysków | | | ![Częściowo][yellow]<b
 - Po utworzeniu magazynu tworzony jest również "DefaultPolicy" i może służyć do tworzenia kopii zapasowych zasobów.
 - Wszelkie zmiany wprowadzone w okresie przechowywania zasad tworzenia kopii zapasowych będą stosowane z mocą wstecz do wszystkich starszych punktów odzyskiwania od nowych.
 
+### <a name="additional-reference"></a>Dodatkowe informacje 
+
+-   Maszyna wirtualna platformy Azure: jak [tworzyć](./backup-azure-vms-first-look-arm.md#back-up-from-azure-vm-settings) i [modyfikować](./backup-azure-manage-vms.md#manage-backup-policy-for-a-vm) zasady? 
+-   SQL Server bazy danych na maszynie wirtualnej platformy Azure: jak [tworzyć](./backup-sql-server-database-azure-vms.md#create-a-backup-policy) i [modyfikować](./manage-monitor-sql-database-backup.md#modify-policy) zasady? 
+-   Udział plików platformy Azure: jak [tworzyć](./backup-afs.md#discover-file-shares-and-configure-backup) i [modyfikować](./manage-afs-backup.md#modify-policy) zasady? 
+-   SAP HANA: jak [tworzyć](./backup-azure-sap-hana-database.md#create-a-backup-policy) i [modyfikować](./sap-hana-db-manage.md#change-policy) zasady? 
+-   MARS: jak [utworzyć](./backup-windows-with-mars-agent.md#create-a-backup-policy) i [zmodyfikować](./backup-azure-manage-mars.md#modify-a-backup-policy) zasady? 
+-   [Czy istnieją jakieś ograniczenia dotyczące planowania tworzenia kopii zapasowych na podstawie typu obciążenia?](./backup-azure-backup-faq.md#are-there-limits-on-backup-scheduling)
+- [Co się stanie z istniejącymi punktami odzyskiwania, jeśli zmienię zasady przechowywania?](./backup-azure-backup-faq.md#what-happens-when-i-change-my-backup-policy)
+
+
 ## <a name="architecture-built-in-azure-vm-backup"></a>Architektura: Wbudowana kopia zapasowa maszyny wirtualnej platformy Azure
 
 1. Po włączeniu kopii zapasowej dla maszyny wirtualnej platformy Azure kopia zapasowa jest uruchamiana zgodnie z określonym harmonogramem.
@@ -134,7 +145,7 @@ Tworzenie kopii zapasowej deduplikowanych dysków | | | ![Częściowo][yellow]<b
     - Kopiowane są tylko bloki danych, które uległy zmianie od momentu utworzenia ostatniej kopii zapasowej.
     - Dane nie są szyfrowane. Azure Backup można utworzyć kopie zapasowe maszyn wirtualnych platformy Azure, które zostały zaszyfrowane przy użyciu Azure Disk Encryption.
     - Dane migawki mogą nie być od razu kopiowane do magazynu. W godzinach szczytu kopia zapasowa może trwać kilka godzin. Łączny czas wykonywania kopii zapasowej maszyny wirtualnej będzie krótszy niż 24 godziny dla codziennych zasad tworzenia kopii zapasowych.
-1. Po wysłaniu danych do magazynu zostanie utworzony punkt odzyskiwania. Domyślnie migawki są zachowywane przez dwa dni przed ich usunięciem. Ta funkcja umożliwia przywracanie z tych migawek, a tym samym wycinanie czasów przywracania. Skraca czas wymagany do przekształcania i kopiowania danych z magazynu. Zobacz [Azure Backup możliwości przywracania natychmiastowego](https://docs.microsoft.com/azure/backup/backup-instant-restore-capability).
+1. Po wysłaniu danych do magazynu zostanie utworzony punkt odzyskiwania. Domyślnie migawki są zachowywane przez dwa dni przed ich usunięciem. Ta funkcja umożliwia przywracanie z tych migawek, a tym samym wycinanie czasów przywracania. Skraca czas wymagany do przekształcania i kopiowania danych z magazynu. Zobacz [Azure Backup możliwości przywracania natychmiastowego](./backup-instant-restore-capability.md).
 
 Nie musisz jawnie zezwalać na połączenia z Internetem, aby utworzyć kopię zapasową maszyn wirtualnych platformy Azure.
 

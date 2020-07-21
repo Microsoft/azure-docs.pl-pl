@@ -1,5 +1,5 @@
 ---
-title: Azure Front Door
+title: Dodawanie nagłówków zabezpieczeń z aparatem reguł — drzwi platformy Azure
 description: W tym artykule przedstawiono sposób konfigurowania nagłówka zabezpieczeń za pośrednictwem aparatu reguł na platformie Azure front-drzwi
 services: frontdoor
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 6/22/2020
 ms.author: mebeatty
-ms.openlocfilehash: d489186dc1c012fe8c181f17e00bcdb999e230dd
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 5f07a57e0d41a5e7c546bc89ca7a0b5ac5fce5de
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86232138"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86512235"
 ---
 # <a name="add-security-headers-with-rules-engine"></a>Dodawanie nagłówków zabezpieczeń za pomocą aparatu reguł
 

@@ -1,19 +1,19 @@
 ---
-title: dołączanie pliku
-description: dołączanie pliku
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: service-bus-messaging
 author: spelluru
 ms.service: service-bus-messaging
 ms.topic: include
-ms.date: 12/13/2018
+ms.date: 07/15/2020
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: b19dc7a85fafa1a4d875c84db9bbefabb3cd5a7d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d22b0100074a230451e5c6b3967fa5dbc8ae3f56
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77651506"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86515928"
 ---
 W poniższej tabeli wymieniono informacje o limicie przydziału dotyczące Azure Service Bus komunikatów. Aby uzyskać informacje na temat cen i innych przydziałów Service Bus, zobacz [Cennik usługi Service Bus](https://azure.microsoft.com/pricing/details/service-bus/).
 
@@ -22,7 +22,7 @@ W poniższej tabeli wymieniono informacje o limicie przydziału dotyczące Azure
 | Maksymalna liczba przestrzeni nazw podstawowa lub standardowa na subskrypcję platformy Azure |Przestrzeń nazw |Kolejne żądania dotyczące dodatkowych podstawowych lub standardowych przestrzeni nazw są odrzucane przez Azure Portal. |100|
 | Maksymalna liczba przestrzeni nazw w warstwie Premium na subskrypcję platformy Azure |Przestrzeń nazw |Kolejne żądania dla dodatkowych przestrzeni nazw w warstwie Premium są odrzucane przez portal. |100 |
 | Rozmiar kolejki lub tematu |Jednostka |Zdefiniowane podczas tworzenia kolejki lub tematu. <br/><br/> Kolejne komunikaty przychodzące są odrzucane i występuje wyjątek przez wywoływany kod. |1, 2, 3, 4 GB lub 5 GB.<br /><br />W jednostkach SKU Premium i standardowej jednostce SKU z włączoną funkcją [partycjonowania](/azure/service-bus-messaging/service-bus-partitioning) maksymalny rozmiar kolejki lub tematu wynosi 80 GB. |
-| Liczba równoczesnych połączeń w przestrzeni nazw |Przestrzeń nazw |Kolejne żądania dla dodatkowych połączeń są odrzucane i występuje wyjątek przez wywoływany kod. Operacje REST nie są wliczane do współbieżnych połączeń TCP. |Obsługa komunikatów: 1 000.<br /><br />AMQP: 5 000. |
+| Liczba równoczesnych połączeń w przestrzeni nazw |Przestrzeń nazw |Kolejne żądania dla dodatkowych połączeń są odrzucane i występuje wyjątek przez wywoływany kod. Operacje REST nie są wliczane do współbieżnych połączeń TCP. |Obsługa komunikatów netto: 1 000.<br /><br />AMQP: 5 000. |
 | Liczba współbieżnych żądań odebrania dla kolejki, tematu lub jednostki subskrypcji |Jednostka |Kolejne żądania odbioru są odrzucane, a wywoływany kod wywołuje wyjątek. Ten limit przydziału ma zastosowanie do łącznej liczby równoczesnych operacji odbierania we wszystkich subskrypcjach w temacie. |5000 |
 | Liczba tematów lub kolejek na przestrzeń nazw |Przestrzeń nazw |Kolejne żądania utworzenia nowego tematu lub kolejki w przestrzeni nazw są odrzucane. W związku z tym, jeśli zostanie on skonfigurowany za pomocą [Azure Portal][Azure portal], zostanie wygenerowany komunikat o błędzie. Jeśli wywoływana z interfejsu API zarządzania, kod wywołujący otrzymuje wyjątek. |10 000 dla warstwy Podstawowa lub standardowa. Łączna liczba tematów i kolejek w przestrzeni nazw musi być mniejsza lub równa 10 000. <br/><br/>W przypadku warstwy Premium 1 000 na jednostkę obsługi wiadomości (MU). Maksymalny limit to 4 000. |
 | Liczba [podzielonych tematów lub kolejek](/azure/service-bus-messaging/service-bus-partitioning) na przestrzeń nazw |Przestrzeń nazw |Kolejne żądania utworzenia nowego podzielonego tematu lub kolejki w przestrzeni nazw są odrzucane. W związku z tym, jeśli zostanie on skonfigurowany za pomocą [Azure Portal][Azure portal], zostanie wygenerowany komunikat o błędzie. W przypadku wywołania z interfejsu API zarządzania wyjątek **QuotaExceededException** jest odbierany przez wywoływany kod. |Warstwy Podstawowa i standardowa: 100.<br/><br/>Partycjonowane jednostki nie są obsługiwane w warstwie [Premium](../articles/service-bus-messaging/service-bus-premium-messaging.md) .<br/><br />Każda podzielona Kolejka lub temat ma do przydziału liczby jednostek 1 000 na przestrzeń nazw. |
@@ -31,7 +31,7 @@ W poniższej tabeli wymieniono informacje o limicie przydziału dotyczące Azure
 | Maksymalny rozmiar [identyfikatora komunikatu](/dotnet/api/microsoft.azure.servicebus.message.messageid) | Jednostka |- | 128 |
 | Maksymalny rozmiar [identyfikatora sesji](/dotnet/api/microsoft.azure.servicebus.message.sessionid) komunikatu | Jednostka |- | 128 |
 | Rozmiar komunikatu dla jednostki kolejki, tematu lub subskrypcji |Jednostka |Komunikaty przychodzące, które przekraczają te przydziały, są odrzucane i występuje wyjątek przez wywoływany kod. |Maksymalny rozmiar komunikatu: 256 KB dla [warstwy Standardowa](../articles/service-bus-messaging/service-bus-premium-messaging.md), 1 MB dla [warstwy Premium](../articles/service-bus-messaging/service-bus-premium-messaging.md). <br /><br />Ze względu na obciążenie systemu ten limit jest mniejszy niż te wartości.<br /><br />Maksymalny rozmiar nagłówka: 64 KB.<br /><br />Maksymalna liczba właściwości nagłówka w zbiorze właściwości: **Byte/int. MaxValue**.<br /><br />Maksymalny rozmiar właściwości w zbiorze właściwości: brak jawnego limitu. Ograniczone przez maksymalny rozmiar nagłówka. |
-| Rozmiar właściwości komunikatu dla jednostki kolejki, tematu lub subskrypcji |Jednostka | Wyjątek **SerializationException** jest generowany. |Maksymalny rozmiar właściwości komunikatu dla każdej właściwości to 32 000. Łączny rozmiar wszystkich właściwości nie może przekroczyć 64 000. Ten limit dotyczy całego nagłówka [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage), który ma zarówno właściwości użytkownika, jak i właściwości systemu, takie jak [SequenceNumber](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sequencenumber), [Label](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.label)i [MessageID](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.messageid). |
+| Rozmiar właściwości komunikatu dla jednostki kolejki, tematu lub subskrypcji |Jednostka | Wyjątek `SerializationException` jest generowany. |Maksymalny rozmiar właściwości komunikatu dla każdej właściwości to 32 000. Łączny rozmiar wszystkich właściwości nie może przekroczyć 64 000. Ten limit dotyczy całego nagłówka komunikatu obsługiwanego przez [brokera](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage), który ma zarówno właściwości użytkownika, jak i właściwości systemu, takie jak [numer sekwencyjny](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sequencenumber), [etykieta](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.label)i [Identyfikator wiadomości](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.messageid). |
 | Liczba subskrypcji na temat |Jednostka |Kolejne żądania utworzenia dodatkowych subskrypcji dla tematu są odrzucane. W związku z tym, jeśli zostanie skonfigurowany za pomocą portalu, zostanie wyświetlony komunikat o błędzie. Jeśli wywoływana z interfejsu API zarządzania, kod wywołujący otrzymuje wyjątek. |2 000 na temat dla warstwy Standardowa. |
 | Liczba filtrów SQL na temat |Jednostka |Kolejne żądania utworzenia dodatkowych filtrów w temacie są odrzucane i występuje wyjątek przez wywoływany kod. |2000 |
 | Liczba filtrów korelacji na temat |Jednostka |Kolejne żądania utworzenia dodatkowych filtrów w temacie są odrzucane i występuje wyjątek przez wywoływany kod. |100 000 |

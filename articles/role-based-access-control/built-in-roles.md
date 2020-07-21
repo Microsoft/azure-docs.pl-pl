@@ -7,13 +7,13 @@ ms.topic: reference
 ms.workload: identity
 author: rolyon
 ms.author: rolyon
-ms.date: 07/06/2020
-ms.openlocfilehash: 24e964ec37184e38358b5c64eff05a8aa10a431d
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.date: 07/16/2020
+ms.openlocfilehash: c0a397ac71c7c466145357093b6c22f78e627d1c
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86086814"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86511589"
 ---
 # <a name="azure-built-in-roles"></a>Wbudowane role platformy Azure
 
@@ -33,7 +33,7 @@ W poniższej tabeli przedstawiono krótki opis i unikatowy identyfikator każdej
 > | [Właściciel](#owner) | Umożliwia zarządzanie wszystko, w tym dostęp do zasobów. | 8e3af657-a8ff-443c-a75c-2fe8c4bcb635 |
 > | [Czytelnik](#reader) | Umożliwia wyświetlenie wszystkiego, ale nie wprowadza żadnych zmian. | acdd72a7-3385-48ef-bd42-f606fba81ae7 |
 > | [Administrator dostępu użytkowników](#user-access-administrator) | Umożliwia zarządzanie dostępem użytkowników do zasobów platformy Azure. | 18d7d88d-d35e-4fb5-a5c3-7773c20a72d9 |
-> | **Obliczanie** |  |  |
+> | **Środowisko obliczeniowe** |  |  |
 > | [Współautor klasycznej maszyny wirtualnej](#classic-virtual-machine-contributor) | Umożliwia zarządzanie klasycznymi maszynami wirtualnymi, ale nie umożliwia uzyskiwania do nich dostępu, a nie do sieci wirtualnej ani konta magazynu, z którymi są połączone. | d73bb868-a0df-4d4d-bd69-98a00b01fccb |
 > | [Logowanie administratora maszyny wirtualnej](#virtual-machine-administrator-login) | Wyświetl Virtual Machines w portalu i zaloguj się jako administrator | 1c0163c0-47e6-4577-8991-ea5c82e286e4 |
 > | [Współautor maszyny wirtualnej](#virtual-machine-contributor) | Umożliwia zarządzanie maszynami wirtualnymi, ale nie dostęp do nich, a nie do sieci wirtualnej ani konta magazynu, z którymi są połączone. | 9980e02c-c2be-4d73-94e8-173b1dc7cf3c |
@@ -48,7 +48,7 @@ W poniższej tabeli przedstawiono krótki opis i unikatowy identyfikator każdej
 > | [Współautor sieci](#network-contributor) | Umożliwia zarządzanie sieciami, ale nie umożliwia uzyskiwania do nich dostępu. | 4d97b98b-1d4f-4787-a291-c67834d212e7 |
 > | [Współautor strefy Prywatna strefa DNS](#private-dns-zone-contributor) | Umożliwia zarządzanie prywatnymi zasobami strefy DNS, ale nie z sieciami wirtualnymi, z którymi są one połączone. | b12aa53e-6015-4669-85d0-8515ebb3ae7f |
 > | [Współautor Traffic Manager](#traffic-manager-contributor) | Umożliwia zarządzanie profilami Traffic Manager, ale nie pozwala na kontrolowanie użytkowników, którzy mają do nich dostęp. | a4b10055-b0c7-44c2-b00f-c7b5b3550cf7 |
-> | **Storage** |  |  |
+> | **Magazyn** |  |  |
 > | [Współautor avere](#avere-contributor) | Można utworzyć klaster avere vFXT i zarządzać nim. | 4f8fab4f-1852-4a58-a46a-8eaf358af14a |
 > | [Operator avere](#avere-operator) | Używane przez klaster avere vFXT do zarządzania klastrem | c025889f-8102-4ebf-b32c-fc0c6f0c6bd9 |
 > | [Współautor kopii zapasowej](#backup-contributor) | Umożliwia zarządzanie usługą kopii zapasowych, ale nie może tworzyć magazynów i zapewniać dostępu innym osobom | 5e467623-bb1f-42f4-a55d-6e525e11384b |
@@ -66,9 +66,9 @@ W poniższej tabeli przedstawiono krótki opis i unikatowy identyfikator każdej
 > | [Właściciel danych obiektów blob magazynu](#storage-blob-data-owner) | Zapewnia pełen dostęp do kontenerów obiektów blob i danych usługi Azure Storage, w tym do przypisywania kontroli dostępu POSIX. Aby dowiedzieć się, które akcje są wymagane dla danej operacji danych, zobacz [uprawnienia do wywoływania operacji na danych obiektów blob i kolejek](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). | b7e6dc6d-f1e8-4753-8033-0f276bb0955b |
 > | [Czytnik danych obiektów blob magazynu](#storage-blob-data-reader) | Odczytuj i wyświetlaj kontenery usługi Azure Storage oraz obiekty blob. Aby dowiedzieć się, które akcje są wymagane dla danej operacji danych, zobacz [uprawnienia do wywoływania operacji na danych obiektów blob i kolejek](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). | 2a2b9908-6ea1-4ae2-8e65-a410df84e7d1 |
 > | [Delegat obiektów blob magazynu](#storage-blob-delegator) | Pobierz klucz delegowania użytkownika, którego można następnie użyć do utworzenia sygnatury dostępu współdzielonego dla kontenera lub obiektu BLOB podpisanego przy użyciu poświadczeń usługi Azure AD. Aby uzyskać więcej informacji, zobacz [Tworzenie skojarzeń zabezpieczeń dla delegowania użytkowników](https://docs.microsoft.com/rest/api/storageservices/create-user-delegation-sas). | db58b8e5-c6ad-4a2a-8342-4190687cbf4a |
-> | [Współautor udziałów SMB danych plików magazynu](#storage-file-data-smb-share-contributor) | Zezwala na dostęp do odczytu, zapisu i usuwania w plikach/katalogach w udziałach plików platformy Azure. Ta rola nie ma wbudowanego odpowiedniku na serwerach plików systemu Windows. | 0c867c2a-1d8c-454a-a3db-ab2ea1bdc8bb |
-> | [Współautor współautora udziału SMB danych plików magazynu](#storage-file-data-smb-share-elevated-contributor) | Zezwala na odczyt, zapis, usuwanie i modyfikowanie list ACL dla plików/katalogów w udziałach plików platformy Azure. Ta rola jest równoważna z listą ACL udziałów plików na serwerach plików systemu Windows. | a7264617-510b-434b-a828-9731dc254ea7 |
-> | [Czytnik udziałów SMB danych plików magazynu](#storage-file-data-smb-share-reader) | Zezwala na dostęp do odczytu dla plików/katalogów w udziałach plików platformy Azure. Ta rola jest równoważna z listą ACL udziału plików odczytywaną na serwerach plików systemu Windows. | aba4ae5f-2193-4029-9191-0cb91df5e314 |
+> | [Współautor udziału SMB danych w pliku magazynu](#storage-file-data-smb-share-contributor) | Zezwala na dostęp do odczytu, zapisu i usuwania w plikach/katalogach w udziałach plików platformy Azure. Ta rola nie ma wbudowanego odpowiedniku na serwerach plików systemu Windows. | 0c867c2a-1d8c-454a-a3db-ab2ea1bdc8bb |
+> | [Współautor udziału SMB danych w pliku magazynu z podwyższonym poziomem uprawnień](#storage-file-data-smb-share-elevated-contributor) | Zezwala na odczyt, zapis, usuwanie i modyfikowanie list ACL dla plików/katalogów w udziałach plików platformy Azure. Ta rola jest równoważna z listą ACL udziałów plików na serwerach plików systemu Windows. | a7264617-510b-434b-a828-9731dc254ea7 |
+> | [Czytelnik udziału SMB danych w pliku magazynu](#storage-file-data-smb-share-reader) | Zezwala na dostęp do odczytu dla plików/katalogów w udziałach plików platformy Azure. Ta rola jest równoważna z listą ACL udziału plików odczytywaną na serwerach plików systemu Windows. | aba4ae5f-2193-4029-9191-0cb91df5e314 |
 > | [Współautor danych kolejki magazynu](#storage-queue-data-contributor) | Odczytuj, zapisuj i usuwaj kolejki usługi Azure Storage oraz wiadomości w kolejce. Aby dowiedzieć się, które akcje są wymagane dla danej operacji danych, zobacz [uprawnienia do wywoływania operacji na danych obiektów blob i kolejek](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). | 974c5e8b-45b9-4653-ba55-5f855dd0fb88 |
 > | [Procesor komunikatów danych kolejki magazynu](#storage-queue-data-message-processor) | Wgląd, pobieranie i usuwanie wiadomości z kolejki usługi Azure Storage. Aby dowiedzieć się, które akcje są wymagane dla danej operacji danych, zobacz [uprawnienia do wywoływania operacji na danych obiektów blob i kolejek](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). | 8a0f0c08-91a1-4084-bc3d-661d67233fed |
 > | [Nadawca komunikatu o danych kolejki magazynu](#storage-queue-data-message-sender) | Dodawanie komunikatów do kolejki usługi Azure Storage. Aby dowiedzieć się, które akcje są wymagane dla danej operacji danych, zobacz [uprawnienia do wywoływania operacji na danych obiektów blob i kolejek](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). | c6a89b2d-59bc-44d0-9896-0f6e12d7b80a |
@@ -88,6 +88,10 @@ W poniższej tabeli przedstawiono krótki opis i unikatowy identyfikator każdej
 > | [Rola administratora klastra usługi Kubernetes platformy Azure](#azure-kubernetes-service-cluster-admin-role) | Wyświetl listę akcji poświadczeń administratora klastra. | 0ab0b1a8-8aac-4efd-b8c2-3ee1fb270be8 |
 > | [Rola użytkownika klastra usługi Azure Kubernetes Service](#azure-kubernetes-service-cluster-user-role) | Wyświetl listę akcji poświadczeń użytkownika klastra. | 4abbcc35-e782-43d8-92c5-2d3f1bd2253f |
 > | [Rola współautora usługi Azure Kubernetes](#azure-kubernetes-service-contributor-role) | Przyznaje dostęp do odczytu i zapisu klastrów usługi Azure Kubernetes | ed7f3fbd-7b88-4dd4-9017-9adb7ce333f8 |
+> | [Administrator RBAC usługi Azure Kubernetes Service](#azure-kubernetes-service-rbac-admin) | Umożliwia zarządzanie wszystkimi zasobami w obszarze klaster/przestrzeń nazw, z wyjątkiem aktualizacji lub usuwania przydziałów zasobów i przestrzeni nazw. | 3498e952-d568-435e-9b2c-8d77e338d7f7 |
+> | [Administrator klastra RBAC usługi Azure Kubernetes Service](#azure-kubernetes-service-rbac-cluster-admin) | Umożliwia zarządzanie wszystkimi zasobami w klastrze. | b1ff04bb-8a4e-4dc4-8eb5-8693973ce19b |
+> | [Czytnik RBAC usługi Azure Kubernetes Service](#azure-kubernetes-service-rbac-reader) | Umożliwia wyświetlenie wszystkich zasobów w klastrze/przestrzeni nazw, z wyjątkiem kluczy tajnych. | 7f6c6a51-bcf8-42ba-9220-52d62157d7db |
+> | [Składnik zapisywania RBAC usługi Azure Kubernetes Service](#azure-kubernetes-service-rbac-writer) | Umożliwia aktualizowanie wszystkich elementów klastra/przestrzeni nazw, z wyjątkiem przydziałów zasobów, przestrzeni nazw, zasad zabezpieczeń, żądań podpisywania certyfikatów, ról klastra i powiązań ról (klastra). | a7ffa36f-339b-4b5c-8bdf-e2c188b2c0eb |
 > | **Bazy danych** |  |  |
 > | [Rola czytnika konta Cosmos DB](#cosmos-db-account-reader-role) | Może odczytywać Azure Cosmos DB dane konta. Aby zarządzać kontami Azure Cosmos DB, zobacz [współautor konta usługi DocumentDB](#documentdb-account-contributor) . | fbdf93bf-df7d-467e-a4d2-9458aa1360c8 |
 > | [Operator Cosmos DB](#cosmos-db-operator) | Umożliwia zarządzanie kontami Azure Cosmos DB, ale nie dostęp do danych w nich. Uniemożliwia dostęp do kluczy konta i parametrów połączenia. | 230815da-be43-4aae-9cb4-875f7bd000aa |
@@ -155,7 +159,7 @@ W poniższej tabeli przedstawiono krótki opis i unikatowy identyfikator każdej
 > | [Czytelnik zabezpieczeń](#security-reader) | Wyświetl uprawnienia dla Security Center. Może wyświetlać zalecenia, alerty, zasady zabezpieczeń i Stany zabezpieczeń, ale nie może wprowadzać zmian. | 39bc4728-0917-49c7-9d2c-d95423bc2eb4 |
 > | **DevOps** |  |  |
 > | [Użytkownik DevTest Labs](#devtest-labs-user) | Umożliwia łączenie, uruchamianie, ponowne uruchamianie i zamykanie maszyn wirtualnych w Azure DevTest Labs. | 76283e04-6283-4c54-8f91-bcf1374a3c64 |
-> | [Twórca laboratorium](#lab-creator) | Umożliwia tworzenie i usuwanie zarządzanych laboratoriów z kont laboratorium platformy Azure oraz zarządzanie nimi. | b97fb8bc-a8b2-4522-a38b-dd33c7e65ead |
+> | [Twórca laboratorium](#lab-creator) | Umożliwia tworzenie nowych laboratoriów na kontach laboratorium platformy Azure. | b97fb8bc-a8b2-4522-a38b-dd33c7e65ead |
 > | **Monitor** |  |  |
 > | [Współautor składnika Application Insights](#application-insights-component-contributor) | Może zarządzać składnikami Application Insights | ae349356-3a1b-4a5e-921d-050484c6347e |
 > | [Application Insights Snapshot Debugger](#application-insights-snapshot-debugger) | Daje użytkownikowi uprawnienia do wyświetlania i pobierania migawek debugowania zebranych za pomocą Snapshot Debugger Application Insights. Należy zauważyć, że te uprawnienia nie są uwzględnione w rolach [właściciel](#owner) lub [współautor](#contributor) . Podczas nadawania użytkownikom roli Snapshot Debugger Application Insights należy przyznać rolę bezpośrednio użytkownikowi. Rola nie jest rozpoznawana, gdy zostanie dodana do roli niestandardowej. | 08954f03-6346-4c2e-81c0-ec3a5cfae23b |
@@ -204,9 +208,8 @@ W poniższej tabeli przedstawiono krótki opis i unikatowy identyfikator każdej
 Umożliwia zarządzanie wszystko z wyjątkiem udzielania dostępu do zasobów. [Dowiedz się więcej](rbac-and-directory-admin-roles.md)
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | * | Twórz zasoby wszystkich typów i zarządzaj nimi |
 > | **NotActions** |  |
 > | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Delete | Usuwanie ról, przypisań zasad, definicji zasad i definicji zestawów zasad |
@@ -254,9 +257,8 @@ Umożliwia zarządzanie wszystko z wyjątkiem udzielania dostępu do zasobów. [
 Umożliwia zarządzanie wszystko, w tym dostęp do zasobów. [Dowiedz się więcej](rbac-and-directory-admin-roles.md)
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | * | Twórz zasoby wszystkich typów i zarządzaj nimi |
 > | **NotActions** |  |
 > | *brak* |  |
@@ -294,9 +296,8 @@ Umożliwia zarządzanie wszystko, w tym dostęp do zasobów. [Dowiedz się więc
 Umożliwia wyświetlenie wszystkiego, ale nie wprowadza żadnych zmian. [Dowiedz się więcej](rbac-and-directory-admin-roles.md)
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | */read | Odczytuj zasoby wszystkich typów, z wyjątkiem kluczy tajnych. |
 > | **NotActions** |  |
 > | *brak* |  |
@@ -334,9 +335,8 @@ Umożliwia wyświetlenie wszystkiego, ale nie wprowadza żadnych zmian. [Dowiedz
 Umożliwia zarządzanie dostępem użytkowników do zasobów platformy Azure. [Dowiedz się więcej](rbac-and-directory-admin-roles.md)
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | */read | Odczytuj zasoby wszystkich typów, z wyjątkiem kluczy tajnych. |
 > | [Microsoft. autoryzacja](resource-provider-operations.md#microsoftauthorization)/* | Zarządzanie autoryzacją |
 > | [Microsoft. Support](resource-provider-operations.md#microsoftsupport)/* | Tworzenie i aktualizowanie biletu pomocy technicznej |
@@ -381,9 +381,8 @@ Umożliwia zarządzanie dostępem użytkowników do zasobów platformy Azure. [D
 Umożliwia zarządzanie klasycznymi maszynami wirtualnymi, ale nie umożliwia uzyskiwania do nich dostępu, a nie do sieci wirtualnej ani konta magazynu, z którymi są połączone.
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Odczytuj role i przypisania ról |
 > | [Microsoft. ClassicCompute](resource-provider-operations.md#microsoftclassiccompute)/domainNames/* | Tworzenie klasycznych nazw domen obliczeniowych i zarządzanie nimi |
 > | [Microsoft. ClassicCompute](resource-provider-operations.md#microsoftclassiccompute)/virtualMachines/* | Tworzenie maszyn wirtualnych i zarządzanie nimi |
@@ -453,9 +452,8 @@ Umożliwia zarządzanie klasycznymi maszynami wirtualnymi, ale nie umożliwia uz
 Wyświetl Virtual Machines w portalu i zaloguj się jako administrator [Dowiedz się więcej](../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md)
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | [Microsoft. Network](resource-provider-operations.md#microsoftnetwork)/publicIPAddresses/Read | Pobiera definicję publicznego adresu IP. |
 > | [Microsoft. Network](resource-provider-operations.md#microsoftnetwork)/virtualNetworks/Read | Pobierz definicję sieci wirtualnej |
 > | [Microsoft. Network](resource-provider-operations.md#microsoftnetwork)/loadBalancers/Read | Pobiera definicję modułu równoważenia obciążenia |
@@ -505,9 +503,8 @@ Wyświetl Virtual Machines w portalu i zaloguj się jako administrator [Dowiedz 
 Umożliwia zarządzanie maszynami wirtualnymi, ale nie dostęp do nich, a nie do sieci wirtualnej ani konta magazynu, z którymi są połączone. [Dowiedz się więcej](../virtual-machines/linux/tutorial-govern-resources.md)
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Odczytuj role i przypisania ról |
 > | [Microsoft. COMPUTE](resource-provider-operations.md#microsoftcompute)/availabilitySets/* | Tworzenie zestawów dostępności obliczeń i zarządzanie nimi |
 > | [Microsoft. COMPUTE](resource-provider-operations.md#microsoftcompute)/Locations/* | Tworzenie lokalizacji obliczeniowych i zarządzanie nimi |
@@ -625,9 +622,8 @@ Umożliwia zarządzanie maszynami wirtualnymi, ale nie dostęp do nich, a nie do
 Wyświetl Virtual Machines w portalu i zaloguj się jako zwykły użytkownik. [Dowiedz się więcej](../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md)
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | [Microsoft. Network](resource-provider-operations.md#microsoftnetwork)/publicIPAddresses/Read | Pobiera definicję publicznego adresu IP. |
 > | [Microsoft. Network](resource-provider-operations.md#microsoftnetwork)/virtualNetworks/Read | Pobierz definicję sieci wirtualnej |
 > | [Microsoft. Network](resource-provider-operations.md#microsoftnetwork)/loadBalancers/Read | Pobiera definicję modułu równoważenia obciążenia |
@@ -678,9 +674,8 @@ Wyświetl Virtual Machines w portalu i zaloguj się jako zwykły użytkownik. [D
 Może zarządzać punktami końcowymi usługi CDN, ale nie może udzielić dostępu innym użytkownikom.
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Odczytuj role i przypisania ról |
 > | [Microsoft. CDN](resource-provider-operations.md#microsoftcdn)/edgenodes/Read |  |
 > | [Microsoft. CDN](resource-provider-operations.md#microsoftcdn)/operationresults/* |  |
@@ -732,9 +727,8 @@ Może zarządzać punktami końcowymi usługi CDN, ale nie może udzielić dost�
 Może wyświetlać punkty końcowe usługi CDN, ale nie może wprowadzać zmian.
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Odczytuj role i przypisania ról |
 > | [Microsoft. CDN](resource-provider-operations.md#microsoftcdn)/edgenodes/Read |  |
 > | [Microsoft. CDN](resource-provider-operations.md#microsoftcdn)/operationresults/* |  |
@@ -786,9 +780,8 @@ Może wyświetlać punkty końcowe usługi CDN, ale nie może wprowadzać zmian.
 Może zarządzać profilami sieci CDN i ich punktami końcowymi, ale nie może udzielać dostępu innym użytkownikom. [Dowiedz się więcej](../cdn/cdn-app-dev-net.md)
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Odczytuj role i przypisania ról |
 > | [Microsoft. CDN](resource-provider-operations.md#microsoftcdn)/edgenodes/Read |  |
 > | [Microsoft. CDN](resource-provider-operations.md#microsoftcdn)/operationresults/* |  |
@@ -840,9 +833,8 @@ Może zarządzać profilami sieci CDN i ich punktami końcowymi, ale nie może u
 Może wyświetlać profile usługi CDN i ich punkty końcowe, ale nie może wprowadzać zmian.
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Odczytuj role i przypisania ról |
 > | [Microsoft. CDN](resource-provider-operations.md#microsoftcdn)/edgenodes/Read |  |
 > | [Microsoft. CDN](resource-provider-operations.md#microsoftcdn)/operationresults/* |  |
@@ -894,9 +886,8 @@ Może wyświetlać profile usługi CDN i ich punkty końcowe, ale nie może wpro
 Umożliwia zarządzanie sieciami klasycznymi, ale nie umożliwia uzyskiwania do nich dostępu. [Dowiedz się więcej](../virtual-network/virtual-network-manage-peering.md)
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Odczytuj role i przypisania ról |
 > | [Microsoft. ClassicNetwork](resource-provider-operations.md#microsoftclassicnetwork)/* | Tworzenie klasycznych sieci i zarządzanie nimi |
 > | [Microsoft. Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Tworzenie i zarządzanie alertem dotyczącego klasycznej metryki |
@@ -946,9 +937,8 @@ Umożliwia zarządzanie sieciami klasycznymi, ale nie umożliwia uzyskiwania do 
 Umożliwia zarządzanie strefami i zestawami rekordów DNS w Azure DNS, ale nie pozwala na kontrolowanie dostępu do nich. [Dowiedz się więcej](../dns/dns-protect-zones-recordsets.md)
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Odczytuj role i przypisania ról |
 > | [Microsoft. Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Tworzenie i zarządzanie alertem dotyczącego klasycznej metryki |
 > | [Microsoft. Network](resource-provider-operations.md#microsoftnetwork)/dnsZones/* | Tworzenie stref i rekordów DNS oraz zarządzanie nimi |
@@ -998,9 +988,8 @@ Umożliwia zarządzanie strefami i zestawami rekordów DNS w Azure DNS, ale nie 
 Umożliwia zarządzanie sieciami, ale nie umożliwia uzyskiwania do nich dostępu.
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Odczytuj role i przypisania ról |
 > | [Microsoft. Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Tworzenie i zarządzanie alertem dotyczącego klasycznej metryki |
 > | [Microsoft. Network](resource-provider-operations.md#microsoftnetwork)/* | Tworzenie sieci i zarządzanie nimi |
@@ -1050,9 +1039,8 @@ Umożliwia zarządzanie sieciami, ale nie umożliwia uzyskiwania do nich dostęp
 Umożliwia zarządzanie prywatnymi zasobami strefy DNS, ale nie z sieciami wirtualnymi, z którymi są one połączone. [Dowiedz się więcej](../dns/dns-protect-private-zones-recordsets.md)
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | [Microsoft. Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Tworzenie i zarządzanie alertem dotyczącego klasycznej metryki |
 > | [Microsoft. resources](resource-provider-operations.md#microsoftresources)/Deployments/* | Tworzenie wdrożenia i zarządzanie nim |
 > | [Microsoft. resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/Read | Pobiera lub wyświetla listę grup zasobów. |
@@ -1108,9 +1096,8 @@ Umożliwia zarządzanie prywatnymi zasobami strefy DNS, ale nie z sieciami wirtu
 Umożliwia zarządzanie profilami Traffic Manager, ale nie pozwala na kontrolowanie użytkowników, którzy mają do nich dostęp.
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Odczytuj role i przypisania ról |
 > | [Microsoft. Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Tworzenie i zarządzanie alertem dotyczącego klasycznej metryki |
 > | [Microsoft. Network](resource-provider-operations.md#microsoftnetwork)/trafficManagerProfiles/* |  |
@@ -1163,9 +1150,8 @@ Umożliwia zarządzanie profilami Traffic Manager, ale nie pozwala na kontrolowa
 Można utworzyć klaster avere vFXT i zarządzać nim. [Dowiedz się więcej](../avere-vfxt/avere-vfxt-deploy-plan.md)
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Odczytuj role i przypisania ról |
 > | [Microsoft. COMPUTE](resource-provider-operations.md#microsoftcompute)/*/Read |  |
 > | [Microsoft. COMPUTE](resource-provider-operations.md#microsoftcompute)/availabilitySets/* |  |
@@ -1247,9 +1233,8 @@ Można utworzyć klaster avere vFXT i zarządzać nim. [Dowiedz się więcej](..
 Używane przez klaster avere vFXT do zarządzania klastrem [Dowiedz się więcej](../avere-vfxt/avere-vfxt-manage-cluster.md)
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | [Microsoft. COMPUTE](resource-provider-operations.md#microsoftcompute)/virtualMachines/Read | Pobierz właściwości maszyny wirtualnej |
 > | [Microsoft. Network](resource-provider-operations.md#microsoftnetwork)/networkInterfaces/Read | Pobiera definicję interfejsu sieciowego.  |
 > | [Microsoft. Network](resource-provider-operations.md#microsoftnetwork)/networkInterfaces/Write | Tworzy interfejs sieciowy lub aktualizuje istniejący interfejs sieciowy.  |
@@ -1313,9 +1298,8 @@ Używane przez klaster avere vFXT do zarządzania klastrem [Dowiedz się więcej
 Umożliwia zarządzanie usługą kopii zapasowych, ale nie może tworzyć magazynów i zapewniać innym użytkownikom [więcej informacji](../backup/backup-rbac-rs-vault.md)
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Odczytuj role i przypisania ról |
 > | [Microsoft. Network](resource-provider-operations.md#microsoftnetwork)/virtualNetworks/Read | Pobierz definicję sieci wirtualnej |
 > | [Microsoft. RecoveryServices](resource-provider-operations.md#microsoftrecoveryservices)/Locations/* |  |
@@ -1433,9 +1417,8 @@ Umożliwia zarządzanie usługą kopii zapasowych, ale nie może tworzyć magazy
 Umożliwia zarządzanie usługami kopii zapasowych, z wyjątkiem usuwania kopii zapasowych, tworzenia magazynu i zapewniania [dostępu innym](../backup/backup-rbac-rs-vault.md) osobom.
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Odczytuj role i przypisania ról |
 > | [Microsoft. Network](resource-provider-operations.md#microsoftnetwork)/virtualNetworks/Read | Pobierz definicję sieci wirtualnej |
 > | [Microsoft. RecoveryServices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/backupFabrics/operationResults/Read | Zwraca stan operacji |
@@ -1583,9 +1566,8 @@ Umożliwia zarządzanie usługami kopii zapasowych, z wyjątkiem usuwania kopii 
 Może wyświetlać usługi kopii zapasowych, ale nie może [wprowadzać zmian](../backup/backup-rbac-rs-vault.md)
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Odczytuj role i przypisania ról |
 > | [Microsoft. RecoveryServices](resource-provider-operations.md#microsoftrecoveryservices)/Locations/allocatedStamp/Read | Operacja getallocatedstamp jest operacją wewnętrzną używaną przez usługę |
 > | [Microsoft. RecoveryServices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/backupFabrics/operationResults/Read | Zwraca stan operacji |
@@ -1697,9 +1679,8 @@ Może wyświetlać usługi kopii zapasowych, ale nie może [wprowadzać zmian](.
 Umożliwia zarządzanie klasycznymi kontami magazynu, ale nie umożliwia uzyskiwania do nich dostępu.
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Odczytuj role i przypisania ról |
 > | [Microsoft. ClassicStorage](resource-provider-operations.md#microsoftclassicstorage)/storageAccounts/* | Tworzenie kont magazynu i zarządzanie nimi |
 > | [Microsoft. Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Tworzenie i zarządzanie alertem dotyczącego klasycznej metryki |
@@ -1749,9 +1730,8 @@ Umożliwia zarządzanie klasycznymi kontami magazynu, ale nie umożliwia uzyskiw
 Operatorzy kluczy klasycznego konta magazynu mogą wyświetlać i generować ponownie klucze na klasycznych kontach magazynu [dowiedzieć się więcej](../key-vault/secrets/overview-storage-keys.md)
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | [Microsoft. ClassicStorage](resource-provider-operations.md#microsoftclassicstorage)/storageAccounts/ListKeys/Action | Wyświetla listę kluczy dostępu dla kont magazynu. |
 > | [Microsoft. ClassicStorage](resource-provider-operations.md#microsoftclassicstorage)/storageAccounts/regeneratekey/Action | Generuje ponownie istniejące klucze dostępu dla konta magazynu. |
 > | **NotActions** |  |
@@ -1791,9 +1771,8 @@ Operatorzy kluczy klasycznego konta magazynu mogą wyświetlać i generować pon
 Umożliwia zarządzanie wszystko w obszarze usługi urządzenie Data Box z wyjątkiem udzielenia dostępu innym osobom. [Dowiedz się więcej](../databox/data-box-logs.md)
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Odczytuj role i przypisania ról |
 > | [Microsoft. ResourceHealth](resource-provider-operations.md#microsoftresourcehealth)/availabilityStatuses/Read | Pobiera stan dostępności dla wszystkich zasobów w określonym zakresie |
 > | [Microsoft. resources](resource-provider-operations.md#microsoftresources)/Deployments/* | Tworzenie wdrożenia i zarządzanie nim |
@@ -1841,9 +1820,8 @@ Umożliwia zarządzanie wszystko w obszarze usługi urządzenie Data Box z wyją
 Umożliwia zarządzanie usługą urządzenie Data Box, z wyjątkiem tworzenia kolejności lub edytowania szczegółów kolejności i udzielania dostępu innym osobom. [Dowiedz się więcej](../databox/data-box-logs.md)
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Odczytuj role i przypisania ról |
 > | [Microsoft. DATAbox](resource-provider-operations.md#microsoftdatabox)/*/Read |  |
 > | [Microsoft. DATAbox](resource-provider-operations.md#microsoftdatabox)/Jobs/listsecrets/Action |  |
@@ -1899,9 +1877,8 @@ Umożliwia zarządzanie usługą urządzenie Data Box, z wyjątkiem tworzenia ko
 Umożliwia przesyłanie własnych zadań, monitorowanie ich i zarządzanie nimi, ale nie tworzenie ani usuwanie kont Data Lake Analytics. [Dowiedz się więcej](../data-lake-analytics/data-lake-analytics-manage-use-portal.md)
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Odczytuj role i przypisania ról |
 > | Microsoft. BigAnalytics/accounts/* |  |
 > | [Microsoft. DataLakeAnalytics](resource-provider-operations.md#microsoftdatalakeanalytics)/accounts/* |  |
@@ -1981,9 +1958,8 @@ Umożliwia przesyłanie własnych zadań, monitorowanie ich i zarządzanie nimi,
 Umożliwia wyświetlenie wszystkiego, ale nie pozwala na usunięcie ani utworzenie konta magazynu ani zawartego zasobu. Zezwoli również na dostęp do odczytu i zapisu do wszystkich danych znajdujących się na koncie magazynu za pośrednictwem dostępu do kluczy konta magazynu.
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | [Microsoft. Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/listKeys/Action | Zwraca klucze dostępu dla określonego konta magazynu. |
 > | [Microsoft. Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/ListAccountSas/Action | Zwraca token sygnatury dostępu współdzielonego konta dla określonego konta magazynu. |
 > | [Microsoft. Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/Read | Zwraca listę kont magazynu lub pobiera właściwości dla określonego konta magazynu. |
@@ -2025,9 +2001,8 @@ Umożliwia wyświetlenie wszystkiego, ale nie pozwala na usunięcie ani utworzen
 Umożliwia zarządzanie kontami magazynu. Zapewnia dostęp do klucza konta, który może służyć do uzyskiwania dostępu do danych za pośrednictwem autoryzacji klucza współużytkowanego. [Dowiedz się więcej](../storage/common/storage-auth-aad.md)
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Odczytuj role i przypisania ról |
 > | [Microsoft. Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Tworzenie i zarządzanie alertem dotyczącego klasycznej metryki |
 > | [Microsoft. Insights](resource-provider-operations.md#microsoftinsights)/diagnosticSettings/* | Tworzy, aktualizuje lub odczytuje ustawienia diagnostyczne dla Analysis Server |
@@ -2081,9 +2056,8 @@ Umożliwia zarządzanie kontami magazynu. Zapewnia dostęp do klucza konta, któ
 Zezwala na wyświetlanie i ponowne generowanie kluczy dostępu do konta magazynu. [Dowiedz się więcej](../storage/common/storage-account-keys-manage.md)
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | [Microsoft. Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/ListKeys/Action | Zwraca klucze dostępu dla określonego konta magazynu. |
 > | [Microsoft. Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/regeneratekey/Action | Generuje ponownie klucze dostępu dla określonego konta magazynu. |
 > | **NotActions** |  |
@@ -2123,9 +2097,8 @@ Zezwala na wyświetlanie i ponowne generowanie kluczy dostępu do konta magazynu
 Odczytuj, zapisuj i usuwaj kontenery i obiekty blob usługi Azure Storage. Aby dowiedzieć się, które akcje są wymagane dla danej operacji danych, zobacz [uprawnienia do wywoływania operacji na danych obiektów blob i kolejek](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). [Dowiedz się więcej](../storage/common/storage-auth-aad-rbac-portal.md)
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | [Microsoft. Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/blobServices/Containers/Delete | Usuń kontener. |
 > | [Microsoft. Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/blobServices/Containers/Read | Zwraca kontener lub listę kontenerów. |
 > | [Microsoft. Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/blobServices/Containers/Write | Modyfikowanie metadanych lub właściwości kontenera. |
@@ -2177,9 +2150,8 @@ Odczytuj, zapisuj i usuwaj kontenery i obiekty blob usługi Azure Storage. Aby d
 Zapewnia pełen dostęp do kontenerów obiektów blob i danych usługi Azure Storage, w tym do przypisywania kontroli dostępu POSIX. Aby dowiedzieć się, które akcje są wymagane dla danej operacji danych, zobacz [uprawnienia do wywoływania operacji na danych obiektów blob i kolejek](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). [Dowiedz się więcej](../storage/common/storage-auth-aad-rbac-portal.md)
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | [Microsoft. Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/blobServices/Containers/* | Pełne uprawnienia do kontenerów. |
 > | [Microsoft. Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/blobServices/generateUserDelegationKey/Action | Zwraca klucz delegowania użytkownika dla Blob service. |
 > | **NotActions** |  |
@@ -2221,9 +2193,8 @@ Zapewnia pełen dostęp do kontenerów obiektów blob i danych usługi Azure Sto
 Odczytuj i wyświetlaj kontenery usługi Azure Storage oraz obiekty blob. Aby dowiedzieć się, które akcje są wymagane dla danej operacji danych, zobacz [uprawnienia do wywoływania operacji na danych obiektów blob i kolejek](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). [Dowiedz się więcej](../storage/common/storage-auth-aad-rbac-portal.md)
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | [Microsoft. Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/blobServices/Containers/Read | Zwraca kontener lub listę kontenerów. |
 > | [Microsoft. Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/blobServices/generateUserDelegationKey/Action | Zwraca klucz delegowania użytkownika dla Blob service. |
 > | **NotActions** |  |
@@ -2265,9 +2236,8 @@ Odczytuj i wyświetlaj kontenery usługi Azure Storage oraz obiekty blob. Aby do
 Pobierz klucz delegowania użytkownika, którego można następnie użyć do utworzenia sygnatury dostępu współdzielonego dla kontenera lub obiektu BLOB podpisanego przy użyciu poświadczeń usługi Azure AD. Aby uzyskać więcej informacji, zobacz [Tworzenie skojarzeń zabezpieczeń dla delegowania użytkowników](https://docs.microsoft.com/rest/api/storageservices/create-user-delegation-sas). [Dowiedz się więcej](https://docs.microsoft.com/rest/api/storageservices/get-user-delegation-key)
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | [Microsoft. Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/blobServices/generateUserDelegationKey/Action | Zwraca klucz delegowania użytkownika dla Blob service. |
 > | **NotActions** |  |
 > | *brak* |  |
@@ -2300,14 +2270,13 @@ Pobierz klucz delegowania użytkownika, którego można następnie użyć do utw
 }
 ```
 
-### <a name="storage-file-data-smb-share-contributor"></a>Współautor udziałów SMB danych plików magazynu
+### <a name="storage-file-data-smb-share-contributor"></a>Współautor udziału SMB danych w pliku magazynu
 
 Zezwala na dostęp do odczytu, zapisu i usuwania w plikach/katalogach w udziałach plików platformy Azure. Ta rola nie ma wbudowanego odpowiedniku na serwerach plików systemu Windows. [Dowiedz się więcej](../storage/files/storage-files-identity-auth-active-directory-enable.md)
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | *brak* |  |
 > | **NotActions** |  |
 > | *brak* |  |
@@ -2344,14 +2313,13 @@ Zezwala na dostęp do odczytu, zapisu i usuwania w plikach/katalogach w udziała
 }
 ```
 
-### <a name="storage-file-data-smb-share-elevated-contributor"></a>Współautor współautora udziału SMB danych plików magazynu
+### <a name="storage-file-data-smb-share-elevated-contributor"></a>Współautor udziału SMB danych w pliku magazynu z podwyższonym poziomem uprawnień
 
 Zezwala na odczyt, zapis, usuwanie i modyfikowanie list ACL dla plików/katalogów w udziałach plików platformy Azure. Ta rola jest równoważna z listą ACL udziałów plików na serwerach plików systemu Windows. [Dowiedz się więcej](../storage/files/storage-files-identity-auth-active-directory-enable.md)
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | *brak* |  |
 > | **NotActions** |  |
 > | *brak* |  |
@@ -2390,14 +2358,13 @@ Zezwala na odczyt, zapis, usuwanie i modyfikowanie list ACL dla plików/katalog�
 }
 ```
 
-### <a name="storage-file-data-smb-share-reader"></a>Czytnik udziałów SMB danych plików magazynu
+### <a name="storage-file-data-smb-share-reader"></a>Czytelnik udziału SMB danych w pliku magazynu
 
 Zezwala na dostęp do odczytu dla plików/katalogów w udziałach plików platformy Azure. Ta rola jest równoważna z listą ACL udziału plików odczytywaną na serwerach plików systemu Windows. [Dowiedz się więcej](../storage/files/storage-files-identity-auth-active-directory-enable.md)
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | *brak* |  |
 > | **NotActions** |  |
 > | *brak* |  |
@@ -2435,9 +2402,8 @@ Zezwala na dostęp do odczytu dla plików/katalogów w udziałach plików platfo
 Odczytuj, zapisuj i usuwaj kolejki usługi Azure Storage oraz wiadomości w kolejce. Aby dowiedzieć się, które akcje są wymagane dla danej operacji danych, zobacz [uprawnienia do wywoływania operacji na danych obiektów blob i kolejek](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). [Dowiedz się więcej](../storage/common/storage-auth-aad-rbac-portal.md)
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | [Microsoft. Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/queueServices/Queues/Delete | Usuń kolejkę. |
 > | [Microsoft. Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/queueServices/Queues/Read | Zwróć kolejkę lub listę kolejek. |
 > | [Microsoft. Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/queueServices/Queues/Write | Modyfikuj metadane lub właściwości kolejki. |
@@ -2485,9 +2451,8 @@ Odczytuj, zapisuj i usuwaj kolejki usługi Azure Storage oraz wiadomości w kole
 Wgląd, pobieranie i usuwanie wiadomości z kolejki usługi Azure Storage. Aby dowiedzieć się, które akcje są wymagane dla danej operacji danych, zobacz [uprawnienia do wywoływania operacji na danych obiektów blob i kolejek](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). [Dowiedz się więcej](../storage/common/storage-auth-aad-rbac-portal.md)
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | *brak* |  |
 > | **NotActions** |  |
 > | *brak* |  |
@@ -2527,9 +2492,8 @@ Wgląd, pobieranie i usuwanie wiadomości z kolejki usługi Azure Storage. Aby d
 Dodawanie komunikatów do kolejki usługi Azure Storage. Aby dowiedzieć się, które akcje są wymagane dla danej operacji danych, zobacz [uprawnienia do wywoływania operacji na danych obiektów blob i kolejek](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). [Dowiedz się więcej](../storage/common/storage-auth-aad-rbac-portal.md)
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | *brak* |  |
 > | **NotActions** |  |
 > | *brak* |  |
@@ -2567,9 +2531,8 @@ Dodawanie komunikatów do kolejki usługi Azure Storage. Aby dowiedzieć się, k
 Odczytuj i wyświetlaj kolejki usługi Azure Storage oraz wiadomości w kolejce. Aby dowiedzieć się, które akcje są wymagane dla danej operacji danych, zobacz [uprawnienia do wywoływania operacji na danych obiektów blob i kolejek](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). [Dowiedz się więcej](../storage/common/storage-auth-aad-rbac-portal.md)
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | [Microsoft. Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/queueServices/Queues/Read | Zwraca kolejkę lub listę kolejek. |
 > | **NotActions** |  |
 > | *brak* |  |
@@ -2612,9 +2575,8 @@ Odczytuj i wyświetlaj kolejki usługi Azure Storage oraz wiadomości w kolejce.
 Przyznaje dostęp do odczytu danych związanych z mapowaniem z konta usługi Azure Maps.
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | *brak* |  |
 > | **NotActions** |  |
 > | *brak* |  |
@@ -2652,9 +2614,8 @@ Przyznaje dostęp do odczytu danych związanych z mapowaniem z konta usługi Azu
 Umożliwia zarządzanie usługami wyszukiwania, ale nie umożliwia uzyskiwania do nich dostępu. [Dowiedz się więcej](../search/search-security-rbac.md)
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Odczytuj role i przypisania ról |
 > | [Microsoft. Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Tworzenie i zarządzanie alertem dotyczącego klasycznej metryki |
 > | [Microsoft. ResourceHealth](resource-provider-operations.md#microsoftresourcehealth)/availabilityStatuses/Read | Pobiera stan dostępności dla wszystkich zasobów w określonym zakresie |
@@ -2704,9 +2665,8 @@ Umożliwia zarządzanie usługami wyszukiwania, ale nie umożliwia uzyskiwania d
 Umożliwia zarządzanie planami sieci Web dla witryn internetowych, ale nie umożliwia uzyskiwania do nich dostępu.
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Odczytuj role i przypisania ról |
 > | [Microsoft. Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Tworzenie i zarządzanie alertem dotyczącego klasycznej metryki |
 > | [Microsoft. ResourceHealth](resource-provider-operations.md#microsoftresourcehealth)/availabilityStatuses/Read | Pobiera stan dostępności dla wszystkich zasobów w określonym zakresie |
@@ -2758,9 +2718,8 @@ Umożliwia zarządzanie planami sieci Web dla witryn internetowych, ale nie umo�
 Umożliwia zarządzanie witrynami sieci Web (nie planami internetowymi), ale nie umożliwia uzyskiwania do nich dostępu.
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Odczytuj role i przypisania ról |
 > | [Microsoft. Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Tworzenie i zarządzanie alertem dotyczącego klasycznej metryki |
 > | [Microsoft. Insights](resource-provider-operations.md#microsoftinsights)/Components/* | Tworzenie składników usługi Insights i zarządzanie nimi |
@@ -2823,9 +2782,8 @@ Umożliwia zarządzanie witrynami sieci Web (nie planami internetowymi), ale nie
 ACR Usuń [więcej informacji](../container-registry/container-registry-roles.md)
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | [Microsoft. ContainerRegistry](resource-provider-operations.md#microsoftcontainerregistry)/Registries/Artifacts/Delete | Usuń artefakt w rejestrze kontenerów. |
 > | **NotActions** |  |
 > | *brak* |  |
@@ -2863,9 +2821,8 @@ ACR Usuń [więcej informacji](../container-registry/container-registry-roles.md
 osoba podpisująca obraz ACR [Dowiedz się więcej](../container-registry/container-registry-roles.md)
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | [Microsoft. ContainerRegistry](resource-provider-operations.md#microsoftcontainerregistry)/Registries/Sign/Write | Wypychanie/Ściąganie metadanych zaufania zawartości dla rejestru kontenerów. |
 > | **NotActions** |  |
 > | *brak* |  |
@@ -2903,9 +2860,8 @@ osoba podpisująca obraz ACR [Dowiedz się więcej](../container-registry/contai
 ACR Ściągnij [więcej informacji](../container-registry/container-registry-roles.md)
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | [Microsoft. ContainerRegistry](resource-provider-operations.md#microsoftcontainerregistry)/Registries/pull/Read | Ściąganie lub pobieranie obrazów z rejestru kontenerów. |
 > | **NotActions** |  |
 > | *brak* |  |
@@ -2943,9 +2899,8 @@ ACR Ściągnij [więcej informacji](../container-registry/container-registry-rol
 ACR wypychanie [Dowiedz się więcej](../container-registry/container-registry-roles.md)
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | [Microsoft. ContainerRegistry](resource-provider-operations.md#microsoftcontainerregistry)/Registries/pull/Read | Ściąganie lub pobieranie obrazów z rejestru kontenerów. |
 > | [Microsoft. ContainerRegistry](resource-provider-operations.md#microsoftcontainerregistry)/Registries/push/Write | Wypchnij lub Zapisz obrazy do rejestru kontenerów. |
 > | **NotActions** |  |
@@ -2985,9 +2940,8 @@ ACR wypychanie [Dowiedz się więcej](../container-registry/container-registry-r
 czytnik danych kwarantanny ACR
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | [Microsoft. ContainerRegistry](resource-provider-operations.md#microsoftcontainerregistry)/Registries/Quarantine/Read | Ściąganie lub pobieranie obrazów z kwarantanny z rejestru kontenerów |
 > | **NotActions** |  |
 > | *brak* |  |
@@ -3025,9 +2979,8 @@ czytnik danych kwarantanny ACR
 składnik zapisywania danych kwarantanny ACR
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | [Microsoft. ContainerRegistry](resource-provider-operations.md#microsoftcontainerregistry)/Registries/Quarantine/Read | Ściąganie lub pobieranie obrazów z kwarantanny z rejestru kontenerów |
 > | [Microsoft. ContainerRegistry](resource-provider-operations.md#microsoftcontainerregistry)/Registries/Quarantine/Write | Zapisywanie/modyfikowanie stanu kwarantanny obrazów z kwarantanny |
 > | **NotActions** |  |
@@ -3067,9 +3020,8 @@ składnik zapisywania danych kwarantanny ACR
 Wyświetl listę akcji poświadczeń administratora klastra. [Dowiedz się więcej](../aks/control-kubeconfig-access.md)
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | [Microsoft. ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/listClusterAdminCredential/Action | Wyświetlanie clusterAdmin poświadczenia zarządzanego klastra |
 > | [Microsoft. ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/accessProfiles/listCredential/Action | Uzyskiwanie zarządzanego profilu dostępu do klastra według nazwy roli przy użyciu poświadczeń listy |
 > | **NotActions** |  |
@@ -3109,9 +3061,8 @@ Wyświetl listę akcji poświadczeń administratora klastra. [Dowiedz się więc
 Wyświetl listę akcji poświadczeń użytkownika klastra. [Dowiedz się więcej](../aks/control-kubeconfig-access.md)
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | [Microsoft. ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/listClusterUserCredential/Action | Wyświetlanie clusterUser poświadczenia zarządzanego klastra |
 > | **NotActions** |  |
 > | *brak* |  |
@@ -3149,9 +3100,8 @@ Wyświetl listę akcji poświadczeń użytkownika klastra. [Dowiedz się więcej
 Przyznaje dostęp do odczytu i zapisu klastrów usługi Azure Kubernetes
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | [Microsoft. ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/Read | Pobierz zarządzany klaster |
 > | [Microsoft. ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/Write | Tworzy nowy zarządzany klaster lub aktualizuje istniejący. |
 > | [Microsoft. resources](resource-provider-operations.md#microsoftresources)/Deployments/* | Tworzenie wdrożenia i zarządzanie nim |
@@ -3188,6 +3138,254 @@ Przyznaje dostęp do odczytu i zapisu klastrów usługi Azure Kubernetes
 }
 ```
 
+### <a name="azure-kubernetes-service-rbac-admin"></a>Administrator RBAC usługi Azure Kubernetes Service
+
+Umożliwia zarządzanie wszystkimi zasobami w obszarze klaster/przestrzeń nazw, z wyjątkiem aktualizacji lub usuwania przydziałów zasobów i przestrzeni nazw. [Dowiedz się więcej](../aks/concepts-identity.md)
+
+> [!div class="mx-tableFixed"]
+> | Akcje | Opis |
+> | --- | --- |
+> | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Odczytuj role i przypisania ról |
+> | [Microsoft. Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Tworzenie i zarządzanie alertem dotyczącego klasycznej metryki |
+> | [Microsoft. resources](resource-provider-operations.md#microsoftresources)/Deployments/Write | Tworzy lub aktualizuje wdrożenie. |
+> | [Microsoft. resources](resource-provider-operations.md#microsoftresources)/subscriptions/operationresults/Read | Pobierz wyniki operacji subskrypcji. |
+> | [Microsoft. resources](resource-provider-operations.md#microsoftresources)/subscriptions/Read | Pobiera listę subskrypcji. |
+> | [Microsoft. resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/Read | Pobiera lub wyświetla listę grup zasobów. |
+> | [Microsoft. Support](resource-provider-operations.md#microsoftsupport)/* | Tworzenie i aktualizowanie biletu pomocy technicznej |
+> | [Microsoft. ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/listClusterUserCredential/Action | Wyświetlanie clusterUser poświadczenia zarządzanego klastra |
+> | **NotActions** |  |
+> | *brak* |  |
+> | **Akcje dataactions** |  |
+> | [Microsoft. ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/* |  |
+> | **NotDataActions** |  |
+> | [Microsoft. ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/resourcequotas/Write | Zapisuje resourcequotas |
+> | [Microsoft. ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/resourcequotas/Delete | Usuwa resourcequotas |
+> | [Microsoft. ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/Namespaces/Write | Zapisuje przestrzenie nazw |
+> | [Microsoft. ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/Namespaces/Delete | Usuwa przestrzenie nazw |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Lets you manage all resources under cluster/namespace, except update or delete resource quotas and namespaces.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/3498e952-d568-435e-9b2c-8d77e338d7f7",
+  "name": "3498e952-d568-435e-9b2c-8d77e338d7f7",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Insights/alertRules/*",
+        "Microsoft.Resources/deployments/write",
+        "Microsoft.Resources/subscriptions/operationresults/read",
+        "Microsoft.Resources/subscriptions/read",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Support/*",
+        "Microsoft.ContainerService/managedClusters/listClusterUserCredential/action"
+      ],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.ContainerService/managedClusters/*"
+      ],
+      "notDataActions": [
+        "Microsoft.ContainerService/managedClusters/resourcequotas/write",
+        "Microsoft.ContainerService/managedClusters/resourcequotas/delete",
+        "Microsoft.ContainerService/managedClusters/namespaces/write",
+        "Microsoft.ContainerService/managedClusters/namespaces/delete"
+      ]
+    }
+  ],
+  "roleName": "Azure Kubernetes Service RBAC Admin",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### <a name="azure-kubernetes-service-rbac-cluster-admin"></a>Administrator klastra RBAC usługi Azure Kubernetes Service
+
+Umożliwia zarządzanie wszystkimi zasobami w klastrze. [Dowiedz się więcej](../aks/concepts-identity.md)
+
+> [!div class="mx-tableFixed"]
+> | Akcje | Opis |
+> | --- | --- |
+> | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Odczytuj role i przypisania ról |
+> | [Microsoft. Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Tworzenie i zarządzanie alertem dotyczącego klasycznej metryki |
+> | [Microsoft. resources](resource-provider-operations.md#microsoftresources)/Deployments/Write | Tworzy lub aktualizuje wdrożenie. |
+> | [Microsoft. resources](resource-provider-operations.md#microsoftresources)/subscriptions/operationresults/Read | Pobierz wyniki operacji subskrypcji. |
+> | [Microsoft. resources](resource-provider-operations.md#microsoftresources)/subscriptions/Read | Pobiera listę subskrypcji. |
+> | [Microsoft. resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/Read | Pobiera lub wyświetla listę grup zasobów. |
+> | [Microsoft. Support](resource-provider-operations.md#microsoftsupport)/* | Tworzenie i aktualizowanie biletu pomocy technicznej |
+> | [Microsoft. ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/listClusterUserCredential/Action | Wyświetlanie clusterUser poświadczenia zarządzanego klastra |
+> | **NotActions** |  |
+> | *brak* |  |
+> | **Akcje dataactions** |  |
+> | [Microsoft. ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/* |  |
+> | **NotDataActions** |  |
+> | *brak* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Lets you manage all resources in the cluster.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/b1ff04bb-8a4e-4dc4-8eb5-8693973ce19b",
+  "name": "b1ff04bb-8a4e-4dc4-8eb5-8693973ce19b",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Insights/alertRules/*",
+        "Microsoft.Resources/deployments/write",
+        "Microsoft.Resources/subscriptions/operationresults/read",
+        "Microsoft.Resources/subscriptions/read",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Support/*",
+        "Microsoft.ContainerService/managedClusters/listClusterUserCredential/action"
+      ],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.ContainerService/managedClusters/*"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Azure Kubernetes Service RBAC Cluster Admin",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### <a name="azure-kubernetes-service-rbac-reader"></a>Czytnik RBAC usługi Azure Kubernetes Service
+
+Umożliwia wyświetlenie wszystkich zasobów w klastrze/przestrzeni nazw, z wyjątkiem kluczy tajnych. [Dowiedz się więcej](../aks/concepts-identity.md)
+
+> [!div class="mx-tableFixed"]
+> | Akcje | Opis |
+> | --- | --- |
+> | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Odczytuj role i przypisania ról |
+> | [Microsoft. Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Tworzenie i zarządzanie alertem dotyczącego klasycznej metryki |
+> | [Microsoft. resources](resource-provider-operations.md#microsoftresources)/Deployments/Write | Tworzy lub aktualizuje wdrożenie. |
+> | [Microsoft. resources](resource-provider-operations.md#microsoftresources)/subscriptions/operationresults/Read | Pobierz wyniki operacji subskrypcji. |
+> | [Microsoft. resources](resource-provider-operations.md#microsoftresources)/subscriptions/Read | Pobiera listę subskrypcji. |
+> | [Microsoft. resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/Read | Pobiera lub wyświetla listę grup zasobów. |
+> | [Microsoft. Support](resource-provider-operations.md#microsoftsupport)/* | Tworzenie i aktualizowanie biletu pomocy technicznej |
+> | [Microsoft. ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/listClusterUserCredential/Action | Wyświetlanie clusterUser poświadczenia zarządzanego klastra |
+> | **NotActions** |  |
+> | *brak* |  |
+> | **Akcje dataactions** |  |
+> | [Microsoft. ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/*/Read |  |
+> | **NotDataActions** |  |
+> | [Microsoft. ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/RBAC.Authorization.k8s.IO/*/Read |  |
+> | [Microsoft. ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/RBAC.Authorization.k8s.IO/*/Write |  |
+> | [Microsoft. ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/Secrets/* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Lets you view all resources in cluster/namespace, except secrets.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/7f6c6a51-bcf8-42ba-9220-52d62157d7db",
+  "name": "7f6c6a51-bcf8-42ba-9220-52d62157d7db",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Insights/alertRules/*",
+        "Microsoft.Resources/deployments/write",
+        "Microsoft.Resources/subscriptions/operationresults/read",
+        "Microsoft.Resources/subscriptions/read",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Support/*",
+        "Microsoft.ContainerService/managedClusters/listClusterUserCredential/action"
+      ],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.ContainerService/managedClusters/*/read"
+      ],
+      "notDataActions": [
+        "Microsoft.ContainerService/managedClusters/rbac.authorization.k8s.io/*/read",
+        "Microsoft.ContainerService/managedClusters/rbac.authorization.k8s.io/*/write",
+        "Microsoft.ContainerService/managedClusters/secrets/*"
+      ]
+    }
+  ],
+  "roleName": "Azure Kubernetes Service RBAC Reader",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### <a name="azure-kubernetes-service-rbac-writer"></a>Składnik zapisywania RBAC usługi Azure Kubernetes Service
+
+Umożliwia aktualizowanie wszystkich elementów klastra/przestrzeni nazw, z wyjątkiem przydziałów zasobów, przestrzeni nazw, zasad zabezpieczeń, żądań podpisywania certyfikatów, ról klastra i powiązań ról (klastra). [Dowiedz się więcej](../aks/concepts-identity.md)
+
+> [!div class="mx-tableFixed"]
+> | Akcje | Opis |
+> | --- | --- |
+> | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Odczytuj role i przypisania ról |
+> | [Microsoft. Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Tworzenie i zarządzanie alertem dotyczącego klasycznej metryki |
+> | [Microsoft. resources](resource-provider-operations.md#microsoftresources)/Deployments/Write | Tworzy lub aktualizuje wdrożenie. |
+> | [Microsoft. resources](resource-provider-operations.md#microsoftresources)/subscriptions/operationresults/Read | Pobierz wyniki operacji subskrypcji. |
+> | [Microsoft. resources](resource-provider-operations.md#microsoftresources)/subscriptions/Read | Pobiera listę subskrypcji. |
+> | [Microsoft. resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/Read | Pobiera lub wyświetla listę grup zasobów. |
+> | [Microsoft. Support](resource-provider-operations.md#microsoftsupport)/* | Tworzenie i aktualizowanie biletu pomocy technicznej |
+> | [Microsoft. ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/listClusterUserCredential/Action | Wyświetlanie clusterUser poświadczenia zarządzanego klastra |
+> | **NotActions** |  |
+> | *brak* |  |
+> | **Akcje dataactions** |  |
+> | [Microsoft. ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/*/Read |  |
+> | [Microsoft. ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/*/Write |  |
+> | **NotDataActions** |  |
+> | [Microsoft. ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/RBAC.Authorization.k8s.IO/*/Read |  |
+> | [Microsoft. ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/RBAC.Authorization.k8s.IO/*/Write |  |
+> | [Microsoft. ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/Namespaces/Write | Zapisuje przestrzenie nazw |
+> | [Microsoft. ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/resourcequotas/Write | Zapisuje resourcequotas |
+> | [Microsoft. ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/Certificates.k8s.IO/certificatesigningrequests/Write | Zapisuje certificatesigningrequests |
+> | [Microsoft. ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/Policy/podsecuritypolicies/Write | Zapisuje podsecuritypolicies |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Lets you update everything in cluster/namespace, except resource quotas, namespaces, pod security policies, certificate signing requests, (cluster)roles and (cluster)role bindings.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/a7ffa36f-339b-4b5c-8bdf-e2c188b2c0eb",
+  "name": "a7ffa36f-339b-4b5c-8bdf-e2c188b2c0eb",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Insights/alertRules/*",
+        "Microsoft.Resources/deployments/write",
+        "Microsoft.Resources/subscriptions/operationresults/read",
+        "Microsoft.Resources/subscriptions/read",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Support/*",
+        "Microsoft.ContainerService/managedClusters/listClusterUserCredential/action"
+      ],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.ContainerService/managedClusters/*/read",
+        "Microsoft.ContainerService/managedClusters/*/write"
+      ],
+      "notDataActions": [
+        "Microsoft.ContainerService/managedClusters/rbac.authorization.k8s.io/*/read",
+        "Microsoft.ContainerService/managedClusters/rbac.authorization.k8s.io/*/write",
+        "Microsoft.ContainerService/managedClusters/namespaces/write",
+        "Microsoft.ContainerService/managedClusters/resourcequotas/write",
+        "Microsoft.ContainerService/managedClusters/certificates.k8s.io/certificatesigningrequests/write",
+        "Microsoft.ContainerService/managedClusters/policy/podsecuritypolicies/write"
+      ]
+    }
+  ],
+  "roleName": "Azure Kubernetes Service RBAC Writer",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
 ## <a name="databases"></a>Bazy danych
 
 
@@ -3196,9 +3394,8 @@ Przyznaje dostęp do odczytu i zapisu klastrów usługi Azure Kubernetes
 Może odczytywać Azure Cosmos DB dane konta. Aby zarządzać kontami Azure Cosmos DB, zobacz [współautor konta usługi DocumentDB](#documentdb-account-contributor) . [Dowiedz się więcej](../cosmos-db/role-based-access-control.md)
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Odczytuj role i przypisania ról |
 > | [Microsoft.DocumentDB](resource-provider-operations.md#microsoftdocumentdb)/*/Read | Odczytaj dowolną kolekcję |
 > | [Microsoft.DocumentDB](resource-provider-operations.md#microsoftdocumentdb)/databaseAccounts/readonlykeys/Action | Odczytuje klucze tylko do odczytu konta bazy danych. |
@@ -3248,9 +3445,8 @@ Może odczytywać Azure Cosmos DB dane konta. Aby zarządzać kontami Azure Cosm
 Umożliwia zarządzanie kontami Azure Cosmos DB, ale nie dostęp do danych w nich. Uniemożliwia dostęp do kluczy konta i parametrów połączenia. [Dowiedz się więcej](../cosmos-db/role-based-access-control.md)
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | [Microsoft.DocumentDb](resource-provider-operations.md#microsoftdocumentdb)/databaseAccounts/* |  |
 > | [Microsoft. Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Tworzenie i zarządzanie alertem dotyczącego klasycznej metryki |
 > | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Odczytuj role i przypisania ról |
@@ -3310,9 +3506,8 @@ Umożliwia zarządzanie kontami Azure Cosmos DB, ale nie dostęp do danych w nic
 Może przesłać żądanie przywracania dla bazy danych Cosmos DB lub kontenera dla konta [Dowiedz się więcej](../cosmos-db/role-based-access-control.md)
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | [Microsoft.DocumentDB](resource-provider-operations.md#microsoftdocumentdb)/databaseAccounts/Backup/Action | Prześlij żądanie skonfigurowania kopii zapasowej |
 > | [Microsoft.DocumentDB](resource-provider-operations.md#microsoftdocumentdb)/databaseAccounts/Restore/Action | Prześlij żądanie przywrócenia |
 > | **NotActions** |  |
@@ -3352,9 +3547,8 @@ Może przesłać żądanie przywracania dla bazy danych Cosmos DB lub kontenera 
 Może zarządzać kontami Azure Cosmos DB. Azure Cosmos DB jest dawniej znany jako DocumentDB. [Dowiedz się więcej](../cosmos-db/role-based-access-control.md)
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Odczytuj role i przypisania ról |
 > | [Microsoft.DocumentDb](resource-provider-operations.md#microsoftdocumentdb)/databaseAccounts/* | Tworzenie kont Azure Cosmos DB i zarządzanie nimi |
 > | [Microsoft. Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Tworzenie i zarządzanie alertem dotyczącego klasycznej metryki |
@@ -3406,10 +3600,10 @@ Może zarządzać kontami Azure Cosmos DB. Azure Cosmos DB jest dawniej znany ja
 Umożliwia zarządzanie pamięciami podręcznymi Redis, ale nie umożliwia uzyskiwania do nich dostępu.
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Odczytuj role i przypisania ról |
+> | [Microsoft. cache](resource-provider-operations.md#microsoftcache)/Register/Action | Rejestruje dostawcę zasobów "Microsoft. cache" z subskrypcją |
 > | [Microsoft. cache](resource-provider-operations.md#microsoftcache)/Redis/* | Tworzenie pamięci podręcznych Redis i zarządzanie nimi |
 > | [Microsoft. Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Tworzenie i zarządzanie alertem dotyczącego klasycznej metryki |
 > | [Microsoft. ResourceHealth](resource-provider-operations.md#microsoftresourcehealth)/availabilityStatuses/Read | Pobiera stan dostępności dla wszystkich zasobów w określonym zakresie |
@@ -3435,6 +3629,7 @@ Umożliwia zarządzanie pamięciami podręcznymi Redis, ale nie umożliwia uzysk
     {
       "actions": [
         "Microsoft.Authorization/*/read",
+        "Microsoft.Cache/register/action",
         "Microsoft.Cache/redis/*",
         "Microsoft.Insights/alertRules/*",
         "Microsoft.ResourceHealth/availabilityStatuses/read",
@@ -3458,9 +3653,8 @@ Umożliwia zarządzanie pamięciami podręcznymi Redis, ale nie umożliwia uzysk
 Umożliwia zarządzanie bazami danych SQL, ale nie umożliwia uzyskiwania do nich dostępu. Nie można również zarządzać zasadami związanymi z zabezpieczeniami ani ich nadrzędnymi serwerami SQL. [Dowiedz się więcej](../data-share/concepts-roles-permissions.md)
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Odczytuj role i przypisania ról |
 > | [Microsoft. Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Tworzenie i zarządzanie alertem dotyczącego klasycznej metryki |
 > | [Microsoft. ResourceHealth](resource-provider-operations.md#microsoftresourcehealth)/availabilityStatuses/Read | Pobiera stan dostępności dla wszystkich zasobów w określonym zakresie |
@@ -3566,9 +3760,8 @@ Umożliwia zarządzanie bazami danych SQL, ale nie umożliwia uzyskiwania do nic
 Umożliwia zarządzanie wystąpieniami zarządzanymi SQL i wymaganą konfiguracją sieci, ale nie zapewnia dostępu innym osobom.
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | [Microsoft. ResourceHealth](resource-provider-operations.md#microsoftresourcehealth)/availabilityStatuses/Read | Pobiera stan dostępności dla wszystkich zasobów w określonym zakresie |
 > | [Microsoft. resources](resource-provider-operations.md#microsoftresources)/Deployments/* | Tworzenie wdrożenia i zarządzanie nim |
 > | [Microsoft. resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/Read | Pobiera lub wyświetla listę grup zasobów. |
@@ -3634,9 +3827,8 @@ Umożliwia zarządzanie wystąpieniami zarządzanymi SQL i wymaganą konfiguracj
 Umożliwia zarządzanie zasadami związanymi z zabezpieczeniami serwerów SQL i baz danych, ale nie umożliwia uzyskiwania do nich dostępu. [Dowiedz się więcej](../sql-database/sql-database-advanced-data-security.md)
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Odczytuj role i przypisania ról |
 > | [Microsoft. Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Tworzenie i zarządzanie alertem dotyczącego klasycznej metryki |
 > | [Microsoft. Network](resource-provider-operations.md#microsoftnetwork)/virtualNetworks/Subnets/joinViaServiceEndpoint/Action | Dołącza do podsieci zasoby, takie jak konto magazynu lub baza danych SQL. Brak alertów. |
@@ -3758,9 +3950,8 @@ Umożliwia zarządzanie zasadami związanymi z zabezpieczeniami serwerów SQL i 
 Umożliwia zarządzanie serwerami i bazami danych SQL, ale nie umożliwia uzyskiwania do nich dostępu ani zasad związanych z zabezpieczeniami. [Dowiedz się więcej](../sql-database/sql-database-aad-authentication-configure.md)
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Odczytuj role i przypisania ról |
 > | [Microsoft. Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Tworzenie i zarządzanie alertem dotyczącego klasycznej metryki |
 > | [Microsoft. ResourceHealth](resource-provider-operations.md#microsoftresourcehealth)/availabilityStatuses/Read | Pobiera stan dostępności dla wszystkich zasobów w określonym zakresie |
@@ -3875,9 +4066,8 @@ Umożliwia zarządzanie serwerami i bazami danych SQL, ale nie umożliwia uzyski
 Umożliwia pełny dostęp do zasobów usługi Azure Event Hubs. [Dowiedz się więcej](../event-hubs/authenticate-application.md)
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | [Microsoft. EventHub](resource-provider-operations.md#microsofteventhub)/* |  |
 > | **NotActions** |  |
 > | *brak* |  |
@@ -3917,9 +4107,8 @@ Umożliwia pełny dostęp do zasobów usługi Azure Event Hubs. [Dowiedz się wi
 Zezwala na odbieranie dostępu do zasobów usługi Azure Event Hubs. [Dowiedz się więcej](../event-hubs/authenticate-application.md)
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | [Microsoft. EventHub](resource-provider-operations.md#microsofteventhub)/*/eventhubs/consumergroups/Read |  |
 > | **NotActions** |  |
 > | *brak* |  |
@@ -3959,9 +4148,8 @@ Zezwala na odbieranie dostępu do zasobów usługi Azure Event Hubs. [Dowiedz si
 Zezwala na wysyłanie dostępu do zasobów Event Hubs platformy Azure. [Dowiedz się więcej](../event-hubs/authenticate-application.md)
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | [Microsoft. EventHub](resource-provider-operations.md#microsofteventhub)/*/eventhubs/Read |  |
 > | **NotActions** |  |
 > | *brak* |  |
@@ -4001,9 +4189,8 @@ Zezwala na wysyłanie dostępu do zasobów Event Hubs platformy Azure. [Dowiedz 
 Twórz fabryki danych i zarządzaj nimi, a także zasobami podrzędnymi. [Dowiedz się więcej](../data-factory/concepts-roles-permissions.md)
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Odczytuj role i przypisania ról |
 > | [Microsoft. DataFactory](resource-provider-operations.md#microsoftdatafactory)/dataFactories/* | Twórz fabryki danych i zarządzaj nimi. |
 > | [Microsoft. DataFactory](resource-provider-operations.md#microsoftdatafactory)/Factories/* | Twórz fabryki danych i zarządzaj nimi. |
@@ -4057,9 +4244,8 @@ Twórz fabryki danych i zarządzaj nimi, a także zasobami podrzędnymi. [Dowied
 Można przeczyścić dane analityczne [więcej informacji](../azure-monitor/platform/personal-data-mgmt.md)
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | [Microsoft. Insights](resource-provider-operations.md#microsoftinsights)/Components/*/Read |  |
 > | [Microsoft. Insights](resource-provider-operations.md#microsoftinsights)/Components/PURGE/Action | Przeczyszczanie danych z Application Insights |
 > | [Microsoft. OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/Workspaces/*/Read | Wyświetlanie danych usługi log Analytics |
@@ -4103,9 +4289,8 @@ Można przeczyścić dane analityczne [więcej informacji](../azure-monitor/plat
 Umożliwia odczytywanie i modyfikowanie konfiguracji klastrów usługi HDInsight. [Dowiedz się więcej](../hdinsight/hdinsight-migrate-granular-access-cluster-configurations.md)
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | [Microsoft. HDInsight](resource-provider-operations.md#microsofthdinsight)/*/Read |  |
 > | [Microsoft. HDInsight](resource-provider-operations.md#microsofthdinsight)/Clusters/getGatewaySettings/Action | Pobierz ustawienia bramy dla klastra usługi HDInsight |
 > | [Microsoft. HDInsight](resource-provider-operations.md#microsofthdinsight)/Clusters/updateGatewaySettings/Action | Aktualizowanie ustawień bramy dla klastra usługi HDInsight |
@@ -4159,9 +4344,8 @@ Umożliwia odczytywanie i modyfikowanie konfiguracji klastrów usługi HDInsight
 Może odczytywać, tworzyć, modyfikować i usuwać powiązane z usługami domenowymi operacje dotyczące usługi HDInsight pakiet Enterprise Security [dowiedzieć się więcej](../hdinsight/domain-joined/apache-domain-joined-configure-using-azure-adds.md)
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | [Microsoft. AAD](resource-provider-operations.md#microsoftaad)/*/Read |  |
 > | [Microsoft. AAD](resource-provider-operations.md#microsoftaad)/domainServices/*/Read |  |
 > | [Microsoft. AAD](resource-provider-operations.md#microsoftaad)/domainServices/oucontainer/* |  |
@@ -4203,9 +4387,8 @@ Może odczytywać, tworzyć, modyfikować i usuwać powiązane z usługami domen
 Współautor Log Analytics może odczytywać wszystkie dane monitorowania i edytować ustawienia monitorowania. Edytowanie ustawień monitorowania obejmuje dodanie rozszerzenia maszyny wirtualnej do maszyn wirtualnych; Odczytywanie kluczy konta magazynu w celu skonfigurowania kolekcji dzienników z usługi Azure Storage; Tworzenie i Konfigurowanie kont usługi Automation; Dodawanie rozwiązań; i Konfigurowanie diagnostyki platformy Azure dla wszystkich zasobów platformy Azure. [Dowiedz się więcej](../azure-monitor/platform/manage-access.md)
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | */read | Odczytuj zasoby wszystkich typów, z wyjątkiem kluczy tajnych. |
 > | [Microsoft. Automation](resource-provider-operations.md#microsoftautomation)/automationAccounts/* |  |
 > | [Microsoft. ClassicCompute](resource-provider-operations.md#microsoftclassiccompute)/virtualMachines/Extensions/* |  |
@@ -4269,9 +4452,8 @@ Współautor Log Analytics może odczytywać wszystkie dane monitorowania i edyt
 Log Analytics Reader może wyświetlać i przeszukiwać wszystkie dane monitorowania, a także wyświetlać ustawienia monitorowania, w tym Wyświetlanie konfiguracji diagnostyki platformy Azure na wszystkich zasobach platformy Azure. [Dowiedz się więcej](../azure-monitor/platform/manage-access.md)
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | */read | Odczytuj zasoby wszystkich typów, z wyjątkiem kluczy tajnych. |
 > | [Microsoft. OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/Workspaces/Analytics/Query/Action | Wyszukaj przy użyciu nowego aparatu. |
 > | [Microsoft. OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/Workspaces/Search/Action | Wykonuje zapytanie wyszukiwania |
@@ -4320,9 +4502,8 @@ Log Analytics Reader może wyświetlać i przeszukiwać wszystkie dane monitorow
 Zezwala na dostęp do łańcucha bloków węzłów członkowskich [Dowiedz się więcej](../blockchain/service/configure-aad.md)
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | [Microsoft. łańcucha bloków](resource-provider-operations.md#microsoftblockchain)/blockchainMembers/transactionNodes/Read | Pobiera lub Wyświetla istniejące węzły transakcji składowych łańcucha bloków. |
 > | **NotActions** |  |
 > | *brak* |  |
@@ -4365,9 +4546,8 @@ Zezwala na dostęp do łańcucha bloków węzłów członkowskich [Dowiedz się 
 Umożliwia tworzenie, odczytywanie, aktualizowanie, usuwanie i zarządzanie kluczami Cognitive Services. [Dowiedz się więcej](../cognitive-services/cognitive-services-virtual-networks.md)
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Odczytuj role i przypisania ról |
 > | [Microsoft. CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/* |  |
 > | [Microsoft. Features](resource-provider-operations.md#microsoftfeatures)—/Features/Read | Pobiera funkcje subskrypcji. |
@@ -4437,9 +4617,8 @@ Umożliwia tworzenie, odczytywanie, aktualizowanie, usuwanie i zarządzanie kluc
 Umożliwia odczytywanie danych Cognitive Services.
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | *brak* |  |
 > | **NotActions** |  |
 > | *brak* |  |
@@ -4477,9 +4656,8 @@ Umożliwia odczytywanie danych Cognitive Services.
 Umożliwia odczytywanie i wyświetlanie listy kluczy Cognitive Services. [Dowiedz się więcej](../cognitive-services/authentication.md)
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | [Microsoft. CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/*/Read |  |
 > | [Microsoft. CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/ListKeys/Action | Klucze list |
 > | [Microsoft. Insights](resource-provider-operations.md#microsoftinsights)/alertRules/Read | Przeczytaj klasyczny alert dotyczący metryki |
@@ -4546,9 +4724,8 @@ Umożliwia odczytywanie i wyświetlanie listy kluczy Cognitive Services. [Dowied
 Zapewnia użytkownikowi konwersję, możliwość zarządzania sesją, renderowania i diagnostyki na potrzeby renderowania zdalnego na platformie Azure [więcej informacji](../remote-rendering/how-tos/authentication.md)
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | *brak* |  |
 > | **NotActions** |  |
 > | *brak* |  |
@@ -4600,9 +4777,8 @@ Zapewnia użytkownikowi konwersję, możliwość zarządzania sesją, renderowan
 Umożliwia użytkownikowi zarządzanie sesjami, renderowaniem i diagnostyką w przypadku renderowania zdalnego na platformie Azure. [Dowiedz się więcej](../remote-rendering/how-tos/authentication.md)
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | *brak* |  |
 > | **NotActions** |  |
 > | *brak* |  |
@@ -4648,9 +4824,8 @@ Umożliwia użytkownikowi zarządzanie sesjami, renderowaniem i diagnostyką w p
 Pozwala zarządzać zakotwiczeniami przestrzennymi na Twoim koncie, ale nie usuwać ich [więcej](../spatial-anchors/concepts/authentication.md)
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | *brak* |  |
 > | **NotActions** |  |
 > | *brak* |  |
@@ -4698,9 +4873,8 @@ Pozwala zarządzać zakotwiczeniami przestrzennymi na Twoim koncie, ale nie usuw
 Pozwala zarządzać zakotwiczeniami przestrzennymi na Twoim koncie, w tym ich usuwanie [dowiedzieć się więcej](../spatial-anchors/concepts/authentication.md)
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | *brak* |  |
 > | **NotActions** |  |
 > | *brak* |  |
@@ -4750,9 +4924,8 @@ Pozwala zarządzać zakotwiczeniami przestrzennymi na Twoim koncie, w tym ich us
 Pozwala lokalizować i odczytywać właściwości kotwic przestrzennych na koncie [dowiedzieć się więcej](../spatial-anchors/concepts/authentication.md)
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | *brak* |  |
 > | **NotActions** |  |
 > | *brak* |  |
@@ -4799,9 +4972,8 @@ Pozwala lokalizować i odczytywać właściwości kotwic przestrzennych na konci
 Może zarządzać usługą i interfejsami API [dowiedzieć się więcej](../api-management/api-management-role-based-access-control.md)
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | [Microsoft. ApiManagement](resource-provider-operations.md#microsoftapimanagement)/Service/* | Utwórz usługę API Management i zarządzaj nią |
 > | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Odczytuj role i przypisania ról |
 > | [Microsoft. Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Tworzenie i zarządzanie alertem dotyczącego klasycznej metryki |
@@ -4851,9 +5023,8 @@ Może zarządzać usługą i interfejsami API [dowiedzieć się więcej](../api-
 Może zarządzać usługą, ale nie [dowiedzieć się więcej](../api-management/api-management-role-based-access-control.md)
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | [Microsoft. ApiManagement](resource-provider-operations.md#microsoftapimanagement)/Service/*/Read | Odczytaj API Management wystąpienia usługi |
 > | [Microsoft. ApiManagement](resource-provider-operations.md#microsoftapimanagement)/Service/Backup/Action | Usługa tworzenia kopii zapasowych API Management do określonego kontenera na koncie magazynu podanego przez użytkownika |
 > | [Microsoft. ApiManagement](resource-provider-operations.md#microsoftapimanagement)/Service/Delete | Usuń wystąpienie usługi API Management |
@@ -4921,9 +5092,8 @@ Może zarządzać usługą, ale nie [dowiedzieć się więcej](../api-management
 Dostęp tylko do odczytu do usługi i interfejsów API [Dowiedz się więcej](../api-management/api-management-role-based-access-control.md)
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | [Microsoft. ApiManagement](resource-provider-operations.md#microsoftapimanagement)/Service/*/Read | Odczytaj API Management wystąpienia usługi |
 > | [Microsoft. ApiManagement](resource-provider-operations.md#microsoftapimanagement)/Service/Read | Odczytaj metadane dla wystąpienia usługi API Management |
 > | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Odczytuj role i przypisania ról |
@@ -4977,9 +5147,8 @@ Dostęp tylko do odczytu do usługi i interfejsów API [Dowiedz się więcej](..
 Umożliwia pełny dostęp do danych konfiguracji aplikacji. [Dowiedz się więcej](../azure-app-configuration/concept-enable-rbac.md)
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | *brak* |  |
 > | **NotActions** |  |
 > | *brak* |  |
@@ -5021,9 +5190,8 @@ Umożliwia pełny dostęp do danych konfiguracji aplikacji. [Dowiedz się więce
 Zezwala na dostęp do odczytu do danych konfiguracji aplikacji. [Dowiedz się więcej](../azure-app-configuration/concept-enable-rbac.md)
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | *brak* |  |
 > | **NotActions** |  |
 > | *brak* |  |
@@ -5061,9 +5229,8 @@ Zezwala na dostęp do odczytu do danych konfiguracji aplikacji. [Dowiedz się wi
 Umożliwia pełny dostęp do zasobów Azure Service Bus. [Dowiedz się więcej](../service-bus-messaging/authenticate-application.md)
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | [Microsoft. ServiceBus](resource-provider-operations.md#microsoftservicebus)/* |  |
 > | **NotActions** |  |
 > | *brak* |  |
@@ -5103,9 +5270,8 @@ Umożliwia pełny dostęp do zasobów Azure Service Bus. [Dowiedz się więcej](
 Umożliwia uzyskanie dostępu do zasobów Azure Service Bus. [Dowiedz się więcej](../service-bus-messaging/authenticate-application.md)
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | [Microsoft. ServiceBus](resource-provider-operations.md#microsoftservicebus)/*/Queues/Read |  |
 > | [Microsoft. ServiceBus](resource-provider-operations.md#microsoftservicebus)/*/topics/Read |  |
 > | [Microsoft. ServiceBus](resource-provider-operations.md#microsoftservicebus)/*/topics/subscriptions/Read |  |
@@ -5149,9 +5315,8 @@ Umożliwia uzyskanie dostępu do zasobów Azure Service Bus. [Dowiedz się więc
 Zezwala na dostęp do Azure Service Bus zasobów. [Dowiedz się więcej](../service-bus-messaging/authenticate-application.md)
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | [Microsoft. ServiceBus](resource-provider-operations.md#microsoftservicebus)/*/Queues/Read |  |
 > | [Microsoft. ServiceBus](resource-provider-operations.md#microsoftservicebus)/*/topics/Read |  |
 > | [Microsoft. ServiceBus](resource-provider-operations.md#microsoftservicebus)/*/topics/subscriptions/Read |  |
@@ -5195,9 +5360,8 @@ Zezwala na dostęp do Azure Service Bus zasobów. [Dowiedz się więcej](../serv
 Umożliwia zarządzanie rejestracjami Azure Stack.
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | [Microsoft. AzureStack](resource-provider-operations.md#microsoftazurestack)/edgeSubscriptions/Read | Pobierz właściwości subskrypcji Azure Stack Edge |
 > | [Microsoft. AzureStack](resource-provider-operations.md#microsoftazurestack)/registrations/Products/*/Action |  |
 > | [Microsoft. AzureStack](resource-provider-operations.md#microsoftazurestack)/registrations/Products/Read | Pobiera właściwości produktu Azure Stack Marketplace |
@@ -5241,9 +5405,8 @@ Umożliwia zarządzanie rejestracjami Azure Stack.
 Umożliwia zarządzanie operacjami subskrypcji zdarzeń EventGrid. [Dowiedz się więcej](../event-grid/security-authorization.md)
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Odczytuj role i przypisania ról |
 > | [Microsoft. EventGrid](resource-provider-operations.md#microsofteventgrid)/eventSubscriptions/* |  |
 > | [Microsoft. EventGrid](resource-provider-operations.md#microsofteventgrid)/topicTypes/eventSubscriptions/Read | Wyświetl listę globalnych subskrypcji zdarzeń według typu tematu |
@@ -5297,9 +5460,8 @@ Umożliwia zarządzanie operacjami subskrypcji zdarzeń EventGrid. [Dowiedz się
 Umożliwia odczytanie subskrypcji zdarzeń EventGrid. [Dowiedz się więcej](../event-grid/security-authorization.md)
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Odczytuj role i przypisania ról |
 > | [Microsoft. EventGrid](resource-provider-operations.md#microsofteventgrid)/eventSubscriptions/Read | Odczytaj eventSubscription |
 > | [Microsoft. EventGrid](resource-provider-operations.md#microsofteventgrid)/topicTypes/eventSubscriptions/Read | Wyświetl listę globalnych subskrypcji zdarzeń według typu tematu |
@@ -5347,9 +5509,8 @@ Umożliwia odczytanie subskrypcji zdarzeń EventGrid. [Dowiedz się więcej](../
 Rola pozwala użytkownikowi lub głównemu pełny dostęp do danych FHIR [dowiedzieć się więcej](../healthcare-apis/configure-azure-rbac.md)
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | *brak* |  |
 > | **NotActions** |  |
 > | *brak* |  |
@@ -5387,9 +5548,8 @@ Rola pozwala użytkownikowi lub głównemu pełny dostęp do danych FHIR [dowied
 Rola umożliwia użytkownikowi lub podmiotowi zabezpieczeń odczytywanie i eksportowanie danych FHIR [Dowiedz się więcej](../healthcare-apis/configure-azure-rbac.md)
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | *brak* |  |
 > | **NotActions** |  |
 > | *brak* |  |
@@ -5429,9 +5589,8 @@ Rola umożliwia użytkownikowi lub podmiotowi zabezpieczeń odczytywanie i ekspo
 Rola umożliwia użytkownikowi lub podmiotowi zabezpieczeń odczytywanie danych FHIR [Dowiedz się więcej](../healthcare-apis/configure-azure-rbac.md)
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | *brak* |  |
 > | **NotActions** |  |
 > | *brak* |  |
@@ -5469,9 +5628,8 @@ Rola umożliwia użytkownikowi lub podmiotowi zabezpieczeń odczytywanie danych 
 Rola umożliwia użytkownikowi lub podmiotowi zabezpieczeń odczytywanie i zapisywanie danych FHIR [Dowiedz się więcej](../healthcare-apis/configure-azure-rbac.md)
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | *brak* |  |
 > | **NotActions** |  |
 > | *brak* |  |
@@ -5511,9 +5669,8 @@ Rola umożliwia użytkownikowi lub podmiotowi zabezpieczeń odczytywanie i zapis
 Umożliwia zarządzanie środowiskami usługi integracji, ale nie umożliwia uzyskiwania do nich dostępu. [Dowiedz się więcej](../logic-apps/add-artifacts-integration-service-environment-ise.md)
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Odczytuj role i przypisania ról |
 > | [Microsoft. Support](resource-provider-operations.md#microsoftsupport)/* | Tworzenie i aktualizowanie biletu pomocy technicznej |
 > | [Microsoft. Logic](resource-provider-operations.md#microsoftlogic)/integrationServiceEnvironments/* |  |
@@ -5555,9 +5712,8 @@ Umożliwia zarządzanie środowiskami usługi integracji, ale nie umożliwia uzy
 Umożliwia deweloperom tworzenie i aktualizowanie przepływów pracy, kont integracji i połączeń interfejsów API w środowiskach usługi integracji. [Dowiedz się więcej](../logic-apps/add-artifacts-integration-service-environment-ise.md)
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Odczytuj role i przypisania ról |
 > | [Microsoft. Support](resource-provider-operations.md#microsoftsupport)/* | Tworzenie i aktualizowanie biletu pomocy technicznej |
 > | [Microsoft. Logic](resource-provider-operations.md#microsoftlogic)/integrationServiceEnvironments/Read | Odczytuje środowisko usługi integracji. |
@@ -5601,9 +5757,8 @@ Umożliwia deweloperom tworzenie i aktualizowanie przepływów pracy, kont integ
 Umożliwia zarządzanie kontami inteligentnych systemów, ale nie umożliwia uzyskiwania do nich dostępu.
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Odczytuj role i przypisania ról |
 > | [Microsoft. Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Tworzenie i zarządzanie alertem dotyczącego klasycznej metryki |
 > | Microsoft. IntelligentSystems/accounts/* | Tworzenie kont inteligentnych systemów i zarządzanie nimi |
@@ -5653,9 +5808,8 @@ Umożliwia zarządzanie kontami inteligentnych systemów, ale nie umożliwia uzy
 Umożliwia zarządzanie aplikacjami logiki, ale nie umożliwia zmiany dostępu do nich. [Dowiedz się więcej](../logic-apps/logic-apps-securing-a-logic-app.md)
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Odczytuj role i przypisania ról |
 > | [Microsoft. ClassicStorage](resource-provider-operations.md#microsoftclassicstorage)/storageAccounts/listKeys/Action | Wyświetla listę kluczy dostępu dla kont magazynu. |
 > | [Microsoft. ClassicStorage](resource-provider-operations.md#microsoftclassicstorage)/storageAccounts/Read | Zwróć konto magazynu z danym kontem. |
@@ -5733,9 +5887,8 @@ Umożliwia zarządzanie aplikacjami logiki, ale nie umożliwia zmiany dostępu d
 Umożliwia odczytywanie, Włączanie i wyłączanie aplikacji logiki, ale nie ich edytowanie ani aktualizowanie. [Dowiedz się więcej](../logic-apps/logic-apps-securing-a-logic-app.md)
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Odczytuj role i przypisania ról |
 > | [Microsoft. Insights](resource-provider-operations.md#microsoftinsights)/alertRules/*/Read | Czytaj reguły alertów szczegółowych informacji |
 > | [Microsoft. Insights](resource-provider-operations.md#microsoftinsights)/metricAlerts/*/Read |  |
@@ -5808,9 +5961,8 @@ Umożliwia odczytywanie, Włączanie i wyłączanie aplikacji logiki, ale nie ic
 Tworzenie, odczytywanie, aktualizowanie i usuwanie tożsamości przypisanej przez użytkownika [Dowiedz się więcej](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md)
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | [Microsoft. ManagedIdentity](resource-provider-operations.md#microsoftmanagedidentity)/userAssignedIdentities/Read | Pobiera istniejącą tożsamość przypisanego użytkownika |
 > | [Microsoft. ManagedIdentity](resource-provider-operations.md#microsoftmanagedidentity)/userAssignedIdentities/Write | Tworzy nową tożsamość przypisanego użytkownika lub aktualizuje Tagi skojarzone z istniejącą tożsamością przypisanego użytkownika |
 > | [Microsoft. ManagedIdentity](resource-provider-operations.md#microsoftmanagedidentity)/userAssignedIdentities/Delete | Usuwa istniejącą tożsamość przypisanego użytkownika |
@@ -5862,9 +6014,8 @@ Tworzenie, odczytywanie, aktualizowanie i usuwanie tożsamości przypisanej prze
 Odczytaj i przypisz tożsamość przypisanych do użytkownika [Dowiedz się więcej](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md)
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | [Microsoft. ManagedIdentity](resource-provider-operations.md#microsoftmanagedidentity)/userAssignedIdentities/*/Read |  |
 > | [Microsoft. ManagedIdentity](resource-provider-operations.md#microsoftmanagedidentity)/userAssignedIdentities/*/Assign/Action |  |
 > | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Odczytuj role i przypisania ról |
@@ -5917,9 +6068,8 @@ Odczytaj i przypisz tożsamość przypisanych do użytkownika [Dowiedz się wię
 Współautor Azure wskaźnikowego [Dowiedz się więcej](../sentinel/roles.md)
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | [Microsoft. SecurityInsights](resource-provider-operations.md#microsoftsecurityinsights)/* |  |
 > | [Microsoft. OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/Workspaces/Analytics/Query/Action | Wyszukaj przy użyciu nowego aparatu. |
 > | [Microsoft. OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/Workspaces/*/Read | Wyświetlanie danych usługi log Analytics |
@@ -5983,9 +6133,8 @@ Współautor Azure wskaźnikowego [Dowiedz się więcej](../sentinel/roles.md)
 Czytnik wskaźnikowy platformy Azure [Dowiedz się więcej](../sentinel/roles.md)
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | [Microsoft. SecurityInsights](resource-provider-operations.md#microsoftsecurityinsights)/*/Read |  |
 > | [Microsoft. SecurityInsights](resource-provider-operations.md#microsoftsecurityinsights)/dataConnectorsCheckRequirements/Action | Sprawdź autoryzację i licencję użytkownika |
 > | [Microsoft. OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/Workspaces/Analytics/Query/Action | Wyszukaj przy użyciu nowego aparatu. |
@@ -6053,9 +6202,8 @@ Czytnik wskaźnikowy platformy Azure [Dowiedz się więcej](../sentinel/roles.md
 Obiekt odpowiadający usługi Azure wskaźnikowej [Dowiedz się więcej](../sentinel/roles.md)
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | [Microsoft. SecurityInsights](resource-provider-operations.md#microsoftsecurityinsights)/*/Read |  |
 > | [Microsoft. SecurityInsights](resource-provider-operations.md#microsoftsecurityinsights)/dataConnectorsCheckRequirements/Action | Sprawdź autoryzację i licencję użytkownika |
 > | [Microsoft. SecurityInsights](resource-provider-operations.md#microsoftsecurityinsights)/Cases/* |  |
@@ -6127,9 +6275,8 @@ Obiekt odpowiadający usługi Azure wskaźnikowej [Dowiedz się więcej](../sent
 Umożliwia Zarządzanie magazynami kluczy, ale nie umożliwia uzyskiwania do nich dostępu. [Dowiedz się więcej](../key-vault/general/secure-your-key-vault.md)
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Odczytuj role i przypisania ról |
 > | [Microsoft. Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Tworzenie i zarządzanie alertem dotyczącego klasycznej metryki |
 > | [Microsoft. kluczy — magazyn](resource-provider-operations.md#microsoftkeyvault)/* |  |
@@ -6181,9 +6328,8 @@ Umożliwia Zarządzanie magazynami kluczy, ale nie umożliwia uzyskiwania do nic
 Wyświetl i zaktualizuj uprawnienia dla Security Center. Te same uprawnienia, jak rola czytelnik zabezpieczeń, mogą także aktualizować zasady zabezpieczeń i odrzucać alerty i zalecenia. [Dowiedz się więcej](../security-center/security-center-permissions.md)
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Odczytuj role i przypisania ról |
 > | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/policyAssignments/* | Tworzenie przypisań zasad i zarządzanie nimi |
 > | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/policyDefinitions/* | Tworzenie definicji zasad i zarządzanie nimi |
@@ -6241,9 +6387,8 @@ Wyświetl i zaktualizuj uprawnienia dla Security Center. Te same uprawnienia, ja
 Umożliwia wypychanie ocen do Security Center
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | [Microsoft. Security](resource-provider-operations.md#microsoftsecurity)/Assessments/Write | Utwórz lub zaktualizuj oceny zabezpieczeń w ramach subskrypcji |
 > | **NotActions** |  |
 > | *brak* |  |
@@ -6281,9 +6426,8 @@ Umożliwia wypychanie ocen do Security Center
 Jest to Starsza rola. Zamiast tego należy użyć administratora zabezpieczeń.
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Odczytuj role i przypisania ról |
 > | [Microsoft. ClassicCompute](resource-provider-operations.md#microsoftclassiccompute)/*/Read | Odczytaj informacje o konfiguracji klasyczne maszyny wirtualne |
 > | [Microsoft. ClassicCompute](resource-provider-operations.md#microsoftclassiccompute)/virtualMachines/*/Write | Zapisz konfigurację dla klasycznych maszyn wirtualnych |
@@ -6339,9 +6483,8 @@ Jest to Starsza rola. Zamiast tego należy użyć administratora zabezpieczeń.
 Wyświetl uprawnienia dla Security Center. Może wyświetlać zalecenia, alerty, zasady zabezpieczeń i Stany zabezpieczeń, ale nie może wprowadzać zmian. [Dowiedz się więcej](../security-center/security-center-permissions.md)
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Odczytuj role i przypisania ról |
 > | [Microsoft. Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Tworzenie i zarządzanie alertem dotyczącego klasycznej metryki |
 > | [Microsoft. operationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/Workspaces/*/Read | Wyświetlanie danych usługi log Analytics |
@@ -6396,9 +6539,8 @@ Wyświetl uprawnienia dla Security Center. Może wyświetlać zalecenia, alerty,
 Umożliwia łączenie, uruchamianie, ponowne uruchamianie i zamykanie maszyn wirtualnych w Azure DevTest Labs. [Dowiedz się więcej](../devtest-labs/devtest-lab-add-devtest-user.md)
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Odczytuj role i przypisania ról |
 > | [Microsoft. COMPUTE](resource-provider-operations.md#microsoftcompute)/availabilitySets/Read | Pobierz właściwości zestawu dostępności |
 > | [Microsoft. COMPUTE](resource-provider-operations.md#microsoftcompute)/virtualMachines/*/Read | Odczytywanie właściwości maszyny wirtualnej (rozmiary maszyn wirtualnych, stan środowiska uruchomieniowego, rozszerzenia maszyn wirtualnych itp.) |
@@ -6497,17 +6639,14 @@ Umożliwia łączenie, uruchamianie, ponowne uruchamianie i zamykanie maszyn wir
 
 ### <a name="lab-creator"></a>Twórca laboratorium
 
-Umożliwia tworzenie i usuwanie zarządzanych laboratoriów z kont laboratorium platformy Azure oraz zarządzanie nimi. [Dowiedz się więcej](../lab-services/add-lab-creator.md)
+Umożliwia tworzenie nowych laboratoriów na kontach laboratorium platformy Azure. [Dowiedz się więcej](../lab-services/add-lab-creator.md)
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Odczytuj role i przypisania ról |
 > | [Microsoft. LabServices](resource-provider-operations.md#microsoftlabservices)/labAccounts/*/Read |  |
 > | [Microsoft. LabServices](resource-provider-operations.md#microsoftlabservices)/labAccounts/createLab/Action | Utwórz laboratorium na koncie laboratorium. |
-> | [Microsoft. LabServices](resource-provider-operations.md#microsoftlabservices)/labAccounts/Sizes/getRegionalAvailability/Action |  |
-> | [Microsoft. LabServices](resource-provider-operations.md#microsoftlabservices)/labAccounts/getRegionalAvailability/Action | Uzyskaj informacje o dostępności regionalnej dla każdej kategorii rozmiaru skonfigurowanej w ramach konta laboratorium |
 > | [Microsoft. LabServices](resource-provider-operations.md#microsoftlabservices)/labAccounts/getPricingAndAvailability/Action | Skorzystaj z cen i dostępności kombinacji rozmiarów, lokalizacje geograficzne i systemów operacyjnych dla konta laboratorium. |
 > | [Microsoft. LabServices](resource-provider-operations.md#microsoftlabservices)/labAccounts/getRestrictionsAndUsage/Action | Pobierz podstawowe ograniczenia i użycie dla tej subskrypcji |
 > | [Microsoft. resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/Read | Pobiera lub wyświetla listę grup zasobów. |
@@ -6524,7 +6663,7 @@ Umożliwia tworzenie i usuwanie zarządzanych laboratoriów z kont laboratorium 
   "assignableScopes": [
     "/"
   ],
-  "description": "Lets you create, manage, delete your managed labs under your Azure Lab Accounts.",
+  "description": "Lets you create new labs under your Azure Lab Accounts.",
   "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/b97fb8bc-a8b2-4522-a38b-dd33c7e65ead",
   "name": "b97fb8bc-a8b2-4522-a38b-dd33c7e65ead",
   "permissions": [
@@ -6533,8 +6672,6 @@ Umożliwia tworzenie i usuwanie zarządzanych laboratoriów z kont laboratorium 
         "Microsoft.Authorization/*/read",
         "Microsoft.LabServices/labAccounts/*/read",
         "Microsoft.LabServices/labAccounts/createLab/action",
-        "Microsoft.LabServices/labAccounts/sizes/getRegionalAvailability/action",
-        "Microsoft.LabServices/labAccounts/getRegionalAvailability/action",
         "Microsoft.LabServices/labAccounts/getPricingAndAvailability/action",
         "Microsoft.LabServices/labAccounts/getRestrictionsAndUsage/action",
         "Microsoft.Resources/subscriptions/resourceGroups/read",
@@ -6559,9 +6696,8 @@ Umożliwia tworzenie i usuwanie zarządzanych laboratoriów z kont laboratorium 
 Może zarządzać składnikami Application Insights [dowiedzieć się więcej](../azure-monitor/app/resources-roles-access-control.md)
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Odczytuj role i przypisania ról |
 > | [Microsoft. Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Tworzenie klasycznych reguł alertów i zarządzanie nimi |
 > | [Microsoft. Insights](resource-provider-operations.md#microsoftinsights)/metricAlerts/* | Tworzenie nowych reguł alertów i zarządzanie nimi |
@@ -6615,9 +6751,8 @@ Może zarządzać składnikami Application Insights [dowiedzieć się więcej](.
 Daje użytkownikowi uprawnienia do wyświetlania i pobierania migawek debugowania zebranych za pomocą Snapshot Debugger Application Insights. Należy zauważyć, że te uprawnienia nie są uwzględnione w rolach [właściciel](#owner) lub [współautor](#contributor) . Podczas nadawania użytkownikom roli Snapshot Debugger Application Insights należy przyznać rolę bezpośrednio użytkownikowi. Rola nie jest rozpoznawana, gdy zostanie dodana do roli niestandardowej. [Dowiedz się więcej](../azure-monitor/app/snapshot-debugger.md)
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Odczytuj role i przypisania ról |
 > | [Microsoft. Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Tworzenie i zarządzanie alertem dotyczącego klasycznej metryki |
 > | [Microsoft. Insights](resource-provider-operations.md#microsoftinsights)/Components/*/Read |  |
@@ -6665,9 +6800,8 @@ Daje użytkownikowi uprawnienia do wyświetlania i pobierania migawek debugowani
 Może odczytywać wszystkie dane monitorowania i edytować ustawienia monitorowania. Zobacz też Rozpoczynanie [pracy z rolami, uprawnieniami i zabezpieczeniami przy użyciu Azure monitor](https://docs.microsoft.com/azure/azure-monitor/platform/roles-permissions-security#built-in-monitoring-roles). [Dowiedz się więcej](../azure-monitor/platform/roles-permissions-security.md)
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | */read | Odczytuj zasoby wszystkich typów, z wyjątkiem kluczy tajnych. |
 > | [Microsoft. AlertsManagement](resource-provider-operations.md#microsoftalertsmanagement)/Alerts/* |  |
 > | [Microsoft. AlertsManagement](resource-provider-operations.md#microsoftalertsmanagement)/alertsSummary/* |  |
@@ -6765,9 +6899,8 @@ Może odczytywać wszystkie dane monitorowania i edytować ustawienia monitorowa
 Włącza publikowanie metryk dla zasobów platformy Azure [Dowiedz się więcej](../azure-monitor/insights/container-insights-update-metrics.md)
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | [Microsoft. Insights](resource-provider-operations.md#microsoftinsights)/Register/Action | Zarejestruj dostawcę usługi Microsoft Insights |
 > | [Microsoft. Support](resource-provider-operations.md#microsoftsupport)/* | Tworzenie i aktualizowanie biletu pomocy technicznej |
 > | [Microsoft. resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/Read | Pobiera lub wyświetla listę grup zasobów. |
@@ -6811,9 +6944,8 @@ Włącza publikowanie metryk dla zasobów platformy Azure [Dowiedz się więcej]
 Może odczytywać wszystkie dane monitorowania (metryki, dzienniki itp.). Zobacz też Rozpoczynanie [pracy z rolami, uprawnieniami i zabezpieczeniami przy użyciu Azure monitor](https://docs.microsoft.com/azure/azure-monitor/platform/roles-permissions-security#built-in-monitoring-roles). [Dowiedz się więcej](../azure-monitor/platform/roles-permissions-security.md)
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | */read | Odczytuj zasoby wszystkich typów, z wyjątkiem kluczy tajnych. |
 > | [Microsoft. OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/Workspaces/Search/Action | Wykonuje zapytanie wyszukiwania |
 > | [Microsoft. Support](resource-provider-operations.md#microsoftsupport)/* | Tworzenie i aktualizowanie biletu pomocy technicznej |
@@ -6855,9 +6987,8 @@ Może odczytywać wszystkie dane monitorowania (metryki, dzienniki itp.). Zobacz
 Może zapisywać udostępnione skoroszyty. [Dowiedz się więcej](../sentinel/tutorial-monitor-your-data.md)
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | [Microsoft. Insights](resource-provider-operations.md#microsoftinsights)/Workbooks/Write | Utwórz lub zaktualizuj skoroszyt |
 > | [Microsoft. Insights](resource-provider-operations.md#microsoftinsights)/Workbooks/Delete | Usuwanie skoroszytu |
 > | [Microsoft. Insights](resource-provider-operations.md#microsoftinsights)/Workbooks/Read | Odczytaj skoroszyt |
@@ -6899,9 +7030,8 @@ Może zapisywać udostępnione skoroszyty. [Dowiedz się więcej](../sentinel/tu
 Może odczytywać skoroszyty. [Dowiedz się więcej](../sentinel/tutorial-monitor-your-data.md)
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | [Microsoft. Insights](resource-provider-operations.md#microsoftinsights)/Workbooks/Read | Odczytaj skoroszyt |
 > | **NotActions** |  |
 > | *brak* |  |
@@ -6942,9 +7072,8 @@ Może odczytywać skoroszyty. [Dowiedz się więcej](../sentinel/tutorial-monito
 Twórz zadania i zarządzaj nimi za pomocą elementów Runbook usługi Automation. [Dowiedz się więcej](../automation/automation-role-based-access-control.md)
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Odczytuj role i przypisania ról |
 > | [Microsoft. Automation](resource-provider-operations.md#microsoftautomation)/automationAccounts/hybridRunbookWorkerGroups/Read | Odczytuje zasoby hybrydowego procesu roboczego elementu Runbook |
 > | [Microsoft. Automation](resource-provider-operations.md#microsoftautomation)/automationAccounts/Jobs/Read | Pobiera zadanie Azure Automation |
@@ -7006,9 +7135,8 @@ Twórz zadania i zarządzaj nimi za pomocą elementów Runbook usługi Automatio
 Operatory automatyzacji mogą uruchamiać, zatrzymywać, wstrzymywać i wznawiać zadania [dowiedzieć się więcej](../automation/automation-role-based-access-control.md)
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Odczytuj role i przypisania ról |
 > | [Microsoft. Automation](resource-provider-operations.md#microsoftautomation)/automationAccounts/hybridRunbookWorkerGroups/Read | Odczytuje zasoby hybrydowego procesu roboczego elementu Runbook |
 > | [Microsoft. Automation](resource-provider-operations.md#microsoftautomation)/automationAccounts/Jobs/Read | Pobiera zadanie Azure Automation |
@@ -7086,9 +7214,8 @@ Operatory automatyzacji mogą uruchamiać, zatrzymywać, wstrzymywać i wznawia�
 Odczytywanie właściwości elementu Runbook — aby można było tworzyć zadania elementu Runbook. [Dowiedz się więcej](../automation/automation-role-based-access-control.md)
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Odczytuj role i przypisania ról |
 > | [Microsoft. Automation](resource-provider-operations.md#microsoftautomation)/automationAccounts/Runbooks/Read | Pobiera element Runbook Azure Automation |
 > | [Microsoft. Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Tworzenie i zarządzanie alertem dotyczącego klasycznej metryki |
@@ -7136,9 +7263,8 @@ Odczytywanie właściwości elementu Runbook — aby można było tworzyć zadan
 Można dołączyć maszyny połączone z platformą Azure. [Dowiedz się więcej](../azure-arc/servers/onboard-service-principal.md)
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | [Microsoft. HybridCompute](resource-provider-operations.md#microsofthybridcompute)/Machines/Read | Odczytaj wszystkie maszyny usługi Azure Arc |
 > | [Microsoft. HybridCompute](resource-provider-operations.md#microsofthybridcompute)/Machines/Write | Zapisuje maszyny usługi Azure Arc |
 > | [Microsoft. GuestConfiguration](resource-provider-operations.md#microsoftguestconfiguration)/guestConfigurationAssignments/Read | Pobierz przypisanie konfiguracji gościa. |
@@ -7180,9 +7306,8 @@ Można dołączyć maszyny połączone z platformą Azure. [Dowiedz się więcej
 Może odczytywać, zapisywać, usuwać i ponownie dołączać maszyny wirtualne platformy Azure.
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | [Microsoft. HybridCompute](resource-provider-operations.md#microsofthybridcompute)/Machines/Read | Odczytaj wszystkie maszyny usługi Azure Arc |
 > | [Microsoft. HybridCompute](resource-provider-operations.md#microsofthybridcompute)/Machines/Write | Zapisuje maszyny usługi Azure Arc |
 > | [Microsoft. HybridCompute](resource-provider-operations.md#microsofthybridcompute)/Machines/Delete | Usuwa maszyny usługi Azure Arc |
@@ -7230,9 +7355,8 @@ Może odczytywać, zapisywać, usuwać i ponownie dołączać maszyny wirtualne 
 Zezwala na dostęp do odczytu do danych rozliczeniowych [Dowiedz się więcej](../cost-management-billing/manage/manage-billing-access.md)
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Odczytuj role i przypisania ról |
 > | [Microsoft. rozliczenia](resource-provider-operations.md#microsoftbilling)/*/Read | Odczytaj informacje o rozliczeniach |
 > | [Microsoft. Commerce](resource-provider-operations.md#microsoftcommerce)/*/Read |  |
@@ -7282,9 +7406,8 @@ Zezwala na dostęp do odczytu do danych rozliczeniowych [Dowiedz się więcej](.
 Może zarządzać definicjami planu, ale nie należy ich przypisywać. [Dowiedz się więcej](../governance/blueprints/overview.md)
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Odczytuj role i przypisania ról |
 > | [Microsoft. plan](resource-provider-operations.md#microsoftblueprint)/Blueprints/* | Twórz definicje planów lub artefakty planów i zarządzaj nimi. |
 > | [Microsoft. resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/Read | Pobiera lub wyświetla listę grup zasobów. |
@@ -7330,9 +7453,8 @@ Może zarządzać definicjami planu, ale nie należy ich przypisywać. [Dowiedz 
 Może przypisywać istniejące opublikowane plany, ale nie może tworzyć nowych planów. Należy zauważyć, że to działanie działa tylko wtedy, gdy przypisanie zostało wykonane przy użyciu tożsamości zarządzanej przypisanej przez użytkownika. [Dowiedz się więcej](../governance/blueprints/overview.md)
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Odczytuj role i przypisania ról |
 > | [Microsoft. plan](resource-provider-operations.md#microsoftblueprint)/blueprintAssignments/* | Utwórz przypisania planu i zarządzaj nimi. |
 > | [Microsoft. resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/Read | Pobiera lub wyświetla listę grup zasobów. |
@@ -7378,9 +7500,8 @@ Może przypisywać istniejące opublikowane plany, ale nie może tworzyć nowych
 Umożliwia wyświetlanie kosztów i zarządzanie konfiguracją kosztów (np. budżetów, eksportów) [więcej informacji](../cost-management-billing/costs/understand-work-scopes.md)
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | [Microsoft. zużycie](resource-provider-operations.md#microsoftconsumption)/* |  |
 > | [Microsoft. CostManagement](resource-provider-operations.md#microsoftcostmanagement)/* |  |
 > | [Microsoft. rozliczenia](resource-provider-operations.md#microsoftbilling)/billingPeriods/Read |  |
@@ -7434,9 +7555,8 @@ Umożliwia wyświetlanie kosztów i zarządzanie konfiguracją kosztów (np. bud
 Może wyświetlać dane i konfigurację kosztów (np. budżetów, eksportów) [więcej informacji](../cost-management-billing/costs/understand-work-scopes.md)
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | [Microsoft. zużycie](resource-provider-operations.md#microsoftconsumption)/*/Read |  |
 > | [Microsoft. CostManagement](resource-provider-operations.md#microsoftcostmanagement)/*/Read |  |
 > | [Microsoft. rozliczenia](resource-provider-operations.md#microsoftbilling)/billingPeriods/Read |  |
@@ -7490,9 +7610,8 @@ Może wyświetlać dane i konfigurację kosztów (np. budżetów, eksportów) [w
 Umożliwia użytkownikom edytowanie i usuwanie ustawień hierarchii
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | [Microsoft. Management](resource-provider-operations.md#microsoftmanagement)/managementGroups/Settings/Write | Tworzy lub aktualizuje ustawienia hierarchii grup zarządzania. |
 > | [Microsoft. Management](resource-provider-operations.md#microsoftmanagement)/managementGroups/Settings/Delete | Usuwa ustawienia hierarchii grupy zarządzania. |
 > | **NotActions** |  |
@@ -7532,9 +7651,8 @@ Umożliwia użytkownikom edytowanie i usuwanie ustawień hierarchii
 Umożliwia tworzenie zasobów aplikacji zarządzanej.
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | */read | Odczytuj zasoby wszystkich typów, z wyjątkiem kluczy tajnych. |
 > | [Microsoft. Solutions](resource-provider-operations.md#microsoftsolutions)/Applications/* |  |
 > | [Microsoft. Solutions](resource-provider-operations.md#microsoftsolutions)/Register/Action | Zarejestruj się w rozwiązaniach. |
@@ -7580,9 +7698,8 @@ Umożliwia tworzenie zasobów aplikacji zarządzanej.
 Umożliwia odczytywanie i wykonywanie akcji dotyczących zasobów aplikacji zarządzanej
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | */read | Odczytuj zasoby wszystkich typów, z wyjątkiem kluczy tajnych. |
 > | [Microsoft. Solutions](resource-provider-operations.md#microsoftsolutions)/Applications/Read | Pobiera listę aplikacji. |
 > | [Microsoft. Solutions](resource-provider-operations.md#microsoftsolutions)/*/Action |  |
@@ -7624,9 +7741,8 @@ Umożliwia odczytywanie i wykonywanie akcji dotyczących zasobów aplikacji zarz
 Umożliwia odczytanie zasobów w zarządzanej aplikacji i zażądanie dostępu JIT.
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | */read | Odczytuj zasoby wszystkich typów, z wyjątkiem kluczy tajnych. |
 > | [Microsoft. resources](resource-provider-operations.md#microsoftresources)/Deployments/* | Tworzenie wdrożenia i zarządzanie nim |
 > | [Microsoft. Solutions](resource-provider-operations.md#microsoftsolutions)/jitRequests/* |  |
@@ -7668,9 +7784,8 @@ Umożliwia odczytanie zasobów w zarządzanej aplikacji i zażądanie dostępu J
 Rola usuwania przypisania rejestracji usług zarządzanych umożliwia użytkownikom zarządzającym dzierżawę usuwanie przypisania rejestracji przypisanego do swojej dzierżawy. [Dowiedz się więcej](../lighthouse/how-to/remove-delegation.md)
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | [Microsoft. ManagedServices](resource-provider-operations.md#microsoftmanagedservices)/registrationAssignments/Read | Pobiera listę przypisań rejestracji usług zarządzanych. |
 > | [Microsoft. ManagedServices](resource-provider-operations.md#microsoftmanagedservices)/registrationAssignments/Delete | Usuwa przypisanie rejestracji usług zarządzanych. |
 > | [Microsoft. ManagedServices](resource-provider-operations.md#microsoftmanagedservices)/operationStatuses/Read | Odczytuje stan operacji dla zasobu. |
@@ -7712,14 +7827,14 @@ Rola usuwania przypisania rejestracji usług zarządzanych umożliwia użytkowni
 Rola współautora grupy zarządzania [Dowiedz się więcej](../governance/management-groups/overview.md)
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | [Microsoft. Management](resource-provider-operations.md#microsoftmanagement)/managementGroups/Delete | Usuń grupę zarządzania. |
 > | [Microsoft. Management](resource-provider-operations.md#microsoftmanagement)/managementGroups/Read | Wyświetl listę grup zarządzania dla uwierzytelnionego użytkownika. |
 > | [Microsoft. Management](resource-provider-operations.md#microsoftmanagement)/managementGroups/subscriptions/Delete | Anuluj skojarzenie subskrypcji z grupą zarządzania. |
 > | [Microsoft. Management](resource-provider-operations.md#microsoftmanagement)/managementGroups/subscriptions/Write | Kojarzy istniejącą subskrypcję z grupą zarządzania. |
 > | [Microsoft. Management](resource-provider-operations.md#microsoftmanagement)/managementGroups/Write | Utwórz lub Zaktualizuj grupę zarządzania. |
+> | [Microsoft. Management](resource-provider-operations.md#microsoftmanagement)/managementGroups/subscriptions/Read | Wyświetla listę subskrypcji w ramach danej grupy zarządzania. |
 > | **NotActions** |  |
 > | *brak* |  |
 > | **Akcje dataactions** |  |
@@ -7742,7 +7857,8 @@ Rola współautora grupy zarządzania [Dowiedz się więcej](../governance/manag
         "Microsoft.Management/managementGroups/read",
         "Microsoft.Management/managementGroups/subscriptions/delete",
         "Microsoft.Management/managementGroups/subscriptions/write",
-        "Microsoft.Management/managementGroups/write"
+        "Microsoft.Management/managementGroups/write",
+        "Microsoft.Management/managementGroups/subscriptions/read"
       ],
       "notActions": [],
       "dataActions": [],
@@ -7760,10 +7876,10 @@ Rola współautora grupy zarządzania [Dowiedz się więcej](../governance/manag
 Rola czytelnika grupy zarządzania
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | [Microsoft. Management](resource-provider-operations.md#microsoftmanagement)/managementGroups/Read | Wyświetl listę grup zarządzania dla uwierzytelnionego użytkownika. |
+> | [Microsoft. Management](resource-provider-operations.md#microsoftmanagement)/managementGroups/subscriptions/Read | Wyświetla listę subskrypcji w ramach danej grupy zarządzania. |
 > | **NotActions** |  |
 > | *brak* |  |
 > | **Akcje dataactions** |  |
@@ -7782,7 +7898,8 @@ Rola czytelnika grupy zarządzania
   "permissions": [
     {
       "actions": [
-        "Microsoft.Management/managementGroups/read"
+        "Microsoft.Management/managementGroups/read",
+        "Microsoft.Management/managementGroups/subscriptions/read"
       ],
       "notActions": [],
       "dataActions": [],
@@ -7800,9 +7917,8 @@ Rola czytelnika grupy zarządzania
 Umożliwia zarządzanie kontami i aplikacjami New Relic Application Performance Management, ale nie umożliwia uzyskiwania do nich dostępu.
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Odczytuj role i przypisania ról |
 > | [Microsoft. Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Tworzenie i zarządzanie alertem dotyczącego klasycznej metryki |
 > | [Microsoft. ResourceHealth](resource-provider-operations.md#microsoftresourcehealth)/availabilityStatuses/Read | Pobiera stan dostępności dla wszystkich zasobów w określonym zakresie |
@@ -7852,9 +7968,8 @@ Umożliwia zarządzanie kontami i aplikacjami New Relic Application Performance 
 Zezwala na dostęp do odczytu do zasad zasobów i dostęp do zapisu dla zdarzeń zasad składnika zasobów. [Dowiedz się więcej](../governance/policy/concepts/policy-for-kubernetes.md)
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/policyassignments/Read | Pobierz informacje o przypisaniu zasad. |
 > | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/PolicyDefinitions/Read | Pobierz informacje o definicji zasad. |
 > | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/policysetdefinitions/Read | Pobierz informacje o definicji zestawu zasad. |
@@ -7900,9 +8015,8 @@ Zezwala na dostęp do odczytu do zasad zasobów i dostęp do zapisu dla zdarzeń
 Użytkownicy z prawami do tworzenia/modyfikowania zasad dotyczących zasobów, tworzenia biletów pomocy technicznej i odczytywania zasobów/hierarchii. [Dowiedz się więcej](../governance/policy/overview.md)
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | */read | Odczytuj zasoby wszystkich typów, z wyjątkiem kluczy tajnych. |
 > | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/policyassignments/* | Tworzenie przypisań zasad i zarządzanie nimi |
 > | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/PolicyDefinitions/* | Tworzenie definicji zasad i zarządzanie nimi |
@@ -7950,9 +8064,8 @@ Użytkownicy z prawami do tworzenia/modyfikowania zasad dotyczących zasobów, t
 Umożliwia zarządzanie usługą Site Recovery z wyjątkiem tworzenia magazynu i przypisywania ról [Dowiedz się więcej](../site-recovery/site-recovery-role-based-linked-access-control.md)
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Odczytuj role i przypisania ról |
 > | [Microsoft. Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Tworzenie i zarządzanie alertem dotyczącego klasycznej metryki |
 > | [Microsoft. Network](resource-provider-operations.md#microsoftnetwork)/virtualNetworks/Read | Pobierz definicję sieci wirtualnej |
@@ -8044,9 +8157,8 @@ Umożliwia zarządzanie usługą Site Recovery z wyjątkiem tworzenia magazynu i
 Umożliwia przełączenie w tryb failover i powrót po awarii, ale nie wykonywanie innych operacji zarządzania Site Recovery [więcej informacji](../site-recovery/site-recovery-role-based-linked-access-control.md)
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Odczytuj role i przypisania ról |
 > | [Microsoft. Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Tworzenie i zarządzanie alertem dotyczącego klasycznej metryki |
 > | [Microsoft. Network](resource-provider-operations.md#microsoftnetwork)/virtualNetworks/Read | Pobierz definicję sieci wirtualnej |
@@ -8198,9 +8310,8 @@ Umożliwia przełączenie w tryb failover i powrót po awarii, ale nie wykonywan
 Umożliwia wyświetlanie stanu Site Recovery, ale nie wykonywanie innych operacji zarządzania więcej [informacji](../site-recovery/site-recovery-role-based-linked-access-control.md)
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Odczytuj role i przypisania ról |
 > | [Microsoft. RecoveryServices](resource-provider-operations.md#microsoftrecoveryservices)/Locations/allocatedStamp/Read | Operacja getallocatedstamp jest operacją wewnętrzną używaną przez usługę |
 > | [Microsoft. RecoveryServices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/extendedInformation/Read | Operacja Pobierz rozszerzone informacje pobiera rozszerzone informacje o obiekcie reprezentujące zasób platformy Azure typu? |
@@ -8298,9 +8409,8 @@ Umożliwia wyświetlanie stanu Site Recovery, ale nie wykonywanie innych operacj
 Pozwala tworzyć żądania pomocy technicznej i zarządzać nimi [dowiedzieć się więcej](../azure-portal/supportability/how-to-create-azure-support-request.md)
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Odczytuj role i przypisania ról |
 > | [Microsoft. resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/Read | Pobiera lub wyświetla listę grup zasobów. |
 > | [Microsoft. Support](resource-provider-operations.md#microsoftsupport)/* | Tworzenie i aktualizowanie biletu pomocy technicznej |
@@ -8342,9 +8452,8 @@ Pozwala tworzyć żądania pomocy technicznej i zarządzać nimi [dowiedzieć si
 Umożliwia zarządzanie tagami w jednostkach bez zapewniania dostępu do samych jednostek. [Dowiedz się więcej](../azure-resource-manager/management/tag-resources.md)
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Odczytuj role i przypisania ról |
 > | [Microsoft. resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/Read | Pobiera lub wyświetla listę grup zasobów. |
 > | [Microsoft. resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/Resources/Read | Pobiera zasoby dla grupy zasobów. |
@@ -8399,9 +8508,8 @@ Umożliwia zarządzanie tagami w jednostkach bez zapewniania dostępu do samych 
 Umożliwia zarządzanie usługami BizTalk Services, ale nie umożliwia uzyskiwania do nich dostępu.
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Odczytuj role i przypisania ról |
 > | Microsoft. BizTalkServices/BizTalk/* | Tworzenie usługi BizTalk Services i zarządzanie nimi |
 > | [Microsoft. Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Tworzenie i zarządzanie alertem dotyczącego klasycznej metryki |
@@ -8451,9 +8559,8 @@ Umożliwia zarządzanie usługami BizTalk Services, ale nie umożliwia uzyskiwan
 Umożliwia użytkownikom korzystanie z aplikacji w grupie aplikacji. [Dowiedz się więcej](../virtual-desktop/delegated-access-virtual-desktop.md)
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | *brak* |  |
 > | **NotActions** |  |
 > | *brak* |  |
@@ -8491,9 +8598,8 @@ Umożliwia użytkownikom korzystanie z aplikacji w grupie aplikacji. [Dowiedz si
 Umożliwia zarządzanie kolekcjami zadań harmonogramu, ale nie umożliwia uzyskiwania do nich dostępu.
 
 > [!div class="mx-tableFixed"]
-> |  |  |
+> | Akcje | Opis |
 > | --- | --- |
-> | **Akcje** |  |
 > | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Odczytuj role i przypisania ról |
 > | [Microsoft. Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Tworzenie i zarządzanie alertem dotyczącego klasycznej metryki |
 > | [Microsoft. ResourceHealth](resource-provider-operations.md#microsoftresourcehealth)/availabilityStatuses/Read | Pobiera stan dostępności dla wszystkich zasobów w określonym zakresie |

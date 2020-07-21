@@ -12,14 +12,14 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/18/2020
-ms.openlocfilehash: 32347f6d943565eeca7c37a9cdd2cf511e39ddb3
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 507253fcddddf7331ff51c71904c2cdd8e7e5dfd
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85985313"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86514729"
 ---
-# <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>Usługa Azure SQL Transparent Data Encryption z kluczem zarządzanym przez klienta
+# <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>Funkcja Transparent Data Encryption usługi Azure SQL przy użyciu klucza zarządzanego przez klienta
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
 Usługa Azure SQL [transparent Data Encryption (TDE)](/sql/relational-databases/security/encryption/transparent-data-encryption) z kluczem zarządzanym przez klienta umożliwia Bring Your Own Key (BYOK) scenariusz ochrony danych w spoczynku i umożliwia organizacjom wdrażanie rozdzieleń obowiązków związanych z zarządzaniem kluczami i danymi. Dzięki funkcji transparent Data Encryption zarządzanej przez klienta klient jest odpowiedzialny za i w pełnej kontroli nad zarządzaniem cyklem życia kluczy (tworzenie kluczy, przekazywanie, obracanie, usuwanie), uprawnienia do użycia kluczy oraz Inspekcja operacji na kluczach.
@@ -62,7 +62,7 @@ Aby serwer mógł korzystać z funkcji ochrony TDE przechowywanej w AKV na potrz
 
 - **unwrapKey** — aby można było wyłączyć ochronę (odszyfrowywać)
 
-Administrator magazynu kluczy może również [włączyć rejestrowanie zdarzeń inspekcji magazynu kluczy](../../azure-monitor/insights/azure-key-vault.md), aby mogły być później poddane inspekcji.
+Administrator magazynu kluczy może również [włączyć rejestrowanie zdarzeń inspekcji magazynu kluczy](../../azure-monitor/insights/key-vault-insights-overview.md), aby mogły być później poddane inspekcji.
 
 Gdy serwer jest skonfigurowany do korzystania z funkcji ochrony TDE z AKV, serwer wysyła do magazynu kluczy klucz szyfrowania danych z każdej TDE z włączoną obsługą systemu, aby przeprowadzić szyfrowanie. Magazyn kluczy zwraca zaszyfrowane szyfrowanie, które jest następnie przechowywane w bazie danych użytkownika.
 

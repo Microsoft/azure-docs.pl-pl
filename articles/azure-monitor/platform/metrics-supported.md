@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 06/16/2020
 ms.author: robb
 ms.subservice: metrics
-ms.openlocfilehash: ffdfeacad2fcfa7f77f3bcb55e8b1edaea865202
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: e8bae2062051156d6de378e54bc354b3f785e403
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86145170"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86515465"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Obsługiwane metryki z Azure Monitor
 
@@ -21,7 +21,7 @@ ms.locfileid: "86145170"
 
 Azure Monitor oferuje kilka sposobów współpracy z metrykami, w tym wykresów w portalu, uzyskiwania do nich dostępu za pośrednictwem interfejsu API REST lub wykonywania zapytań przy użyciu programu PowerShell lub interfejsu wiersza polecenia. 
 
-Ten artykuł to kompletna lista wszystkich platform (które są zbierane automatycznie), które są obecnie dostępne w ramach skonsolidowanego potoku metryki Azure Monitor. Lista została ostatnio zaktualizowana 27 marca, 2020. Metryki zostały zmienione lub dodane po tej dacie mogą nie być wyświetlane poniżej. Aby wykonać zapytanie o i uzyskać dostęp do listy metryk programowo, użyj [wersji interfejsu api 2018-01-01](https://docs.microsoft.com/rest/api/monitor/metricdefinitions). Inne metryki, których nie ma na tej liście, mogą być dostępne w portalu lub przy użyciu starszych interfejsów API.
+Ten artykuł to kompletna lista wszystkich platform (które są zbierane automatycznie), które są obecnie dostępne w ramach skonsolidowanego potoku metryki Azure Monitor. Lista została ostatnio zaktualizowana 27 marca, 2020. Metryki zostały zmienione lub dodane po tej dacie mogą nie być wyświetlane poniżej. Aby wykonać zapytanie o i uzyskać dostęp do listy metryk programowo, użyj [wersji interfejsu api 2018-01-01](/rest/api/monitor/metricdefinitions). Inne metryki, których nie ma na tej liście, mogą być dostępne w portalu lub przy użyciu starszych interfejsów API.
 
 Metryki są zorganizowane według dostawców zasobów i typów zasobów. Aby uzyskać listę usług i dostawców zasobów, które należą do nich, zobacz [dostawcy zasobów dla usług platformy Azure](../../azure-resource-manager/management/azure-services-resource-providers.md). 
 
@@ -65,7 +65,7 @@ Istnieją pewne ograniczenia dotyczące tego, co może być kierowane i formular
 |MemoryLimitHigh|Pamięć: limit pamięci jest wysoki|Bajty|Średnia|Górny limit pamięci z pliku konfiguracji.|ServerResourceType|
 |MemoryLimitLow|Pamięć: limit pamięci — niski|Bajty|Średnia|Limit braku pamięci z pliku konfiguracji.|ServerResourceType|
 |MemoryLimitVertiPaq|Pamięć: limit pamięci — tryb VertiPaq|Bajty|Średnia|Limit w pamięci z pliku konfiguracji.|ServerResourceType|
-|Limit przydziału|Pamięć: limit przydziału|Bajty|Średnia|Bieżący limit pamięci (w bajtach). Przydział pamięci jest również nazywany przydziałem pamięci lub rezerwacją pamięci.|ServerResourceType|
+|limit przydziału|Pamięć: limit przydziału|Bajty|Średnia|Bieżący limit pamięci (w bajtach). Przydział pamięci jest również nazywany przydziałem pamięci lub rezerwacją pamięci.|ServerResourceType|
 |QuotaBlocked|Pamięć: zablokowany limit przydziału|Liczba|Średnia|Bieżąca liczba żądań przydziałów blokowanych do momentu zwolnienia innych limitów przydziału pamięci.|ServerResourceType|
 |VertiPaqNonpaged|Pamięć: VertiPaq niestronicowana|Bajty|Średnia|Bajty pamięci zablokowane w zestawie roboczym do użycia przez aparat w pamięci.|ServerResourceType|
 |VertiPaqPaged|Pamięć: stronicowana na stronie VertiPaq|Bajty|Średnia|Bajty stronicowanej pamięci w użyciu dla danych w pamięci.|ServerResourceType|
@@ -267,7 +267,7 @@ Istnieją pewne ograniczenia dotyczące tego, co może być kierowane i formular
 |cacheRead|Odczyt pamięci podręcznej|BytesPerSecond|Maksimum||ShardId|
 |percentProcessorTime|Procesor CPU|Procent|Maksimum||ShardId|
 |cacheLatency|Mikrosekundy opóźnienia pamięci podręcznej (wersja zapoznawcza)|Liczba|Średnia||ShardId|
-|błędy|Errors|Liczba|Maksimum||ShardId, ErrorType|
+|błędy|błędy|Liczba|Maksimum||ShardId, ErrorType|
 |connectedclients0|Połączeni klienci (fragmentu 0)|Liczba|Maksimum||Brak|
 |totalcommandsprocessed0|Łączna liczba operacji (fragmentu 0)|Liczba|Łącznie||Brak|
 |cachehits0|Trafienia pamięci podręcznej (fragmentu 0)|Liczba|Łącznie||Brak|
@@ -516,7 +516,7 @@ Istnieją pewne ograniczenia dotyczące tego, co może być kierowane i formular
 |FileShareCount|Liczba udziałów plików|Liczba|Średnia|Liczba udziałów plików w usłudze plików konta magazynu.|Brak|
 |FileShareSnapshotCount|Liczba migawek udziału plików|Liczba|Średnia|Liczba migawek znajdujących się w udziale w usłudze plików konta magazynu.|Udział plików|
 |FileShareSnapshotSize|Rozmiar migawki udziału plików|Bajty|Średnia|Ilość miejsca do magazynowania używanego przez migawki w usłudze plików konta magazynu w bajtach.|Udział plików|
-|FileShareQuota|Rozmiar przydziału udziału plików|Bajty|Średnia|Górny limit ilości miejsca do magazynowania, który może być używany przez usługę Azure Files w bajtach.|Udział plików|
+|FileShareCapacityQuota|Rozmiar przydziału udziału plików|Bajty|Średnia|Górny limit ilości miejsca do magazynowania, który może być używany przez usługę Azure Files w bajtach.|Udział plików|
 |Transakcje|Transakcje|Liczba|Łącznie|Liczba żądań wysyłanych do usługi magazynu lub określonej operacji interfejsu API. Liczba ta obejmuje żądania zakończone powodzeniem i zakończone niepowodzeniem, a także żądania, które wygenerowały błędy. Użyj wymiaru responsetype dla liczby różnych typów odpowiedzi.|Responsetype, geotype, ApiName, Authentication, przeudziale|
 |Ruch przychodzący|Ruch przychodzący|Bajty|Łącznie|Ilość danych wejściowych w bajtach. Ta liczba obejmuje dane przychodzące z klienta zewnętrznego do usługi Azure Storage, a także dane przychodzące w obrębie platformy Azure.|Geotyp, ApiName, uwierzytelnianie, przeudziale|
 |Ruch wychodzący|Ruch wychodzący|Bajty|Łącznie|Ilość danych wyjściowych w bajtach. Ta liczba obejmuje dane wychodzące z klienta zewnętrznego do usługi Azure Storage, a także dane wychodzące w obrębie platformy Azure. W rezultacie liczba ta nie odzwierciedla danych wychodzących uwzględnianych na rozliczeniu.|Geotyp, ApiName, uwierzytelnianie, przeudziale|
@@ -697,7 +697,7 @@ Istnieją pewne ograniczenia dotyczące tego, co może być kierowane i formular
 
 |Metryka|Nazwa wyświetlana metryki|Jednostka|Typ agregacji|Opis|Wymiary|
 |---|---|---|---|---|---|
-|CpuUsage|Użycie procesora|Liczba|Średnia|Użycie procesora CPU we wszystkich rdzeniach w millicores.|containerName|
+|CpuUsage|Użycie procesora CPU|Liczba|Średnia|Użycie procesora CPU we wszystkich rdzeniach w millicores.|containerName|
 |MemoryUsage|Użycie pamięci|Bajty|Średnia|Całkowite użycie pamięci w bajcie.|containerName|
 |NetworkBytesReceivedPerSecond|Bajty odebrane przez sieć na sekundę|Bajty|Średnia|Bajty odebrane przez sieć na sekundę.|Brak|
 |NetworkBytesTransmittedPerSecond|Bajty przesyłane przez sieć na sekundę|Bajty|Średnia|Bajty przesyłane przez sieć na sekundę.|Brak|
@@ -748,21 +748,6 @@ Istnieją pewne ograniczenia dotyczące tego, co może być kierowane i formular
 |BytesUploadedToCloud|Przekazane bajty w chmurze (urządzenie)|Bajty|Średnia|Całkowita liczba bajtów przekazana na platformę Azure z urządzenia w okresie raportowania.|Brak|
 |HyperVVirtualProcessorUtilization|Obliczenia brzegowe — procentowy procesor CPU|Procent|Średnia|Procent użycia procesora CPU|InstanceName|
 |HyperVMemoryUtilization|Obliczenia brzegowe — użycie pamięci|Procent|Średnia|Ilość pamięci RAM w użyciu|InstanceName|
-
-
-## <a name="microsoftdatacatalogdatacatalogs"></a>Microsoft. datacatalog/wykazy
-
-|Metryka|Nazwa wyświetlana metryki|Jednostka|Typ agregacji|Opis|Wymiary|
-|---|---|---|---|---|---|
-|AssetDistributionByClassification|Dystrybucja zasobów według klasyfikacji|Liczba|Łącznie|Wskazuje liczbę zasobów z przypisaną określoną klasyfikacją, tj. są one klasyfikowane przy użyciu tej etykiety.|Klasyfikacja, Źródło|
-|AssetDistributionByStorageType|Dystrybucja zasobów według typu magazynu|Liczba|Łącznie|Wskazuje liczbę zasobów z określonym typem magazynu.|StorageType|
-|NumberOfAssetsWithClassifications|Liczba zasobów z co najmniej jedną klasyfikacją|Liczba|Średnia|Wskazuje liczbę zasobów z co najmniej jedną klasyfikacją tagów.|Brak|
-|ScanCancelled|Anulowano skanowanie|Liczba|Łącznie|Wskazuje liczbę anulowanych skanów.|Brak|
-|ScanCompleted|Ukończono skanowanie|Liczba|Łącznie|Wskazuje, ile skanów zostało ukończonych pomyślnie.|Brak|
-|ScanFailed|Skanowanie nie powiodło się|Liczba|Łącznie|Wskazuje liczbę operacji skanowania zakończonych niepowodzeniem.|Brak|
-|ScanTimeTaken|Czas skanowania|Sekundy|Łącznie|Wskazuje łączny czas (w sekundach) skanowania.|Brak|
-|CatalogActiveUsers|Aktywni użytkownicy codziennie|Liczba|Łącznie|Liczba aktywnych użytkowników dziennie|Brak|
-|CatalogUsage|Dystrybucja użycia według operacji|Liczba|Łącznie|Wskaż liczbę operacji wprowadzanych przez użytkownika do wykazu, tj. dostępu, wyszukiwania, słownika.|Operacja|
 
 
 ## <a name="microsoftdatafactorydatafactories"></a>Microsoft. DataFactory/datafactors
@@ -1307,7 +1292,7 @@ Istnieją pewne ograniczenia dotyczące tego, co może być kierowane i formular
 |QueryDuration|Czas trwania zapytania|)|Średnia|Czas trwania zapytań (w sekundach)|QueryStatus|
 |IngestionUtilization|Wykorzystanie pozyskiwania|Procent|Średnia|Współczynnik używania miejsc pozyskiwania w klastrze|Brak|
 |Utrzymywani|Utrzymywanie aktywności|Liczba|Średnia|Sprawdzenie Sanity wskazuje, że klaster reaguje na zapytania|Brak|
-|IngestionVolumeInMB|Wolumin pozyskiwania (w MB)|Liczba|Łącznie|Ogólna ilość danych pozyskiwanych w klastrze (w MB)|Baza danych|
+|IngestionVolumeInMB|Wolumin pozyskiwania (w MB)|Liczba|Łącznie|Ogólna ilość danych pozyskiwanych w klastrze (w MB)|baza danych|
 |IngestionLatencyInSeconds|Opóźnienie pozyskiwania (w sekundach)|Sekundy|Średnia|Czas pozyskiwania ze źródła (np. komunikat jest w centrum EventHub) do klastra w ciągu kilku sekund|Brak|
 |EventsProcessedForEventHubs|Zdarzenia przetwarzane (dla centrów zdarzeń/IoT)|Liczba|Łącznie|Liczba zdarzeń przetwarzanych przez klaster podczas pozyskiwania ze zdarzenia/IoT Hub|EventStatus|
 |IngestionResult|Wynik pozyskiwania|Liczba|Liczba|Liczba operacji pozyskiwania|IngestionResultDetails|
@@ -1420,7 +1405,7 @@ Istnieją pewne ograniczenia dotyczące tego, co może być kierowane i formular
 |Uruchomienia w kolejce|Uruchomienia w kolejce|Liczba|Łącznie|Liczba uruchomień umieszczonych w kolejce dla tego obszaru roboczego|Scenariusz, RunType, PublishedPipelineId, Computetype, PipelineStepType|
 |Uruchomione uruchomienia|Uruchomione uruchomienia|Liczba|Łącznie|Liczba rozpoczętych uruchomień dla tego obszaru roboczego|Scenariusz, RunType, PublishedPipelineId, Computetype, PipelineStepType|
 |Uruchamianie przebiegów|Uruchamianie przebiegów|Liczba|Łącznie|Liczba rozpoczętych uruchomień dla tego obszaru roboczego|Scenariusz, RunType, PublishedPipelineId, Computetype, PipelineStepType|
-|Errors|Errors|Liczba|Łącznie|Liczba błędów uruchomienia w tym obszarze roboczym|Scenariusz|
+|błędy|błędy|Liczba|Łącznie|Liczba błędów uruchomienia w tym obszarze roboczym|Scenariusz|
 |Ostrzeżenia|Ostrzeżenia|Liczba|Łącznie|Liczba ostrzeżeń uruchamiania w tym obszarze roboczym|Scenariusz|
 |Rejestrowanie modelu powiodło się|Rejestrowanie modelu powiodło się|Liczba|Łącznie|Liczba rejestracji modelu zakończonych powodzeniem w tym obszarze roboczym|Scenariusz|
 |Nie można zarejestrować modelu|Nie można zarejestrować modelu|Liczba|Łącznie|Liczba rejestracji modelu zakończonych niepowodzeniem w tym obszarze roboczym|Scenariusz, StatusCode|
@@ -1856,7 +1841,7 @@ Istnieją pewne ograniczenia dotyczące tego, co może być kierowane i formular
 |Average_Bytes całkowita/s|Całkowita liczba bajtów/s|Liczba|Średnia|Average_Bytes całkowita/s|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
 |Długość kolejki Average_Processor|Długość kolejki procesora|Liczba|Średnia|Długość kolejki Average_Processor|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
 |Puls|Puls|Liczba|Łącznie|Puls|Komputer, OSType, wersja, SourceComputerId|
-|Aktualizacja|Aktualizacja|Liczba|Średnia|Aktualizacja|Komputer, produkt, klasyfikacja, UpdateState, opcjonalne, zatwierdzone|
+|Aktualizacja|Aktualizacja|Liczba|Średnia|Aktualizowanie|Komputer, produkt, klasyfikacja, UpdateState, opcjonalne, zatwierdzone|
 |Zdarzenie|Zdarzenie|Liczba|Średnia|Zdarzenie|Source, EventLog, Computer, EventCategory, EventLevel, EventLevelName, EventID|
 
 ## <a name="microsoftpeeringpeeringservices"></a>Microsoft. Komunikacja równorzędna/peeringServices
@@ -2145,7 +2130,7 @@ Istnieją pewne ograniczenia dotyczące tego, co może być kierowane i formular
 |FileShareCount|Liczba udziałów plików|Liczba|Średnia|Liczba udziałów plików w usłudze plików konta magazynu.|Brak|
 |FileShareSnapshotCount|Liczba migawek udziału plików|Liczba|Średnia|Liczba migawek znajdujących się w udziale w usłudze plików konta magazynu.|Udział plików|
 |FileShareSnapshotSize|Rozmiar migawki udziału plików|Bajty|Średnia|Ilość miejsca do magazynowania używanego przez migawki w usłudze plików konta magazynu w bajtach.|Udział plików|
-|FileShareQuota|Rozmiar przydziału udziału plików|Bajty|Średnia|Górny limit ilości miejsca do magazynowania, który może być używany przez usługę Azure Files w bajtach.|Udział plików|
+|FileShareCapacityQuota|Rozmiar przydziału udziału plików|Bajty|Średnia|Górny limit ilości miejsca do magazynowania, który może być używany przez usługę Azure Files w bajtach.|Udział plików|
 |Transakcje|Transakcje|Liczba|Łącznie|Liczba żądań wysyłanych do usługi magazynu lub określonej operacji interfejsu API. Liczba ta obejmuje żądania zakończone powodzeniem i zakończone niepowodzeniem, a także żądania, które wygenerowały błędy. Użyj wymiaru responsetype dla liczby różnych typów odpowiedzi.|Responsetype, geotype, ApiName, Authentication, przeudziale|
 |Ruch przychodzący|Ruch przychodzący|Bajty|Łącznie|Ilość danych wejściowych w bajtach. Ta liczba obejmuje dane przychodzące z klienta zewnętrznego do usługi Azure Storage, a także dane przychodzące w obrębie platformy Azure.|Geotyp, ApiName, uwierzytelnianie, przeudziale|
 |Ruch wychodzący|Ruch wychodzący|Bajty|Łącznie|Ilość danych wyjściowych w bajtach. Ta liczba obejmuje dane wychodzące z klienta zewnętrznego do usługi Azure Storage, a także dane wychodzące w obrębie platformy Azure. W rezultacie liczba ta nie odzwierciedla danych wychodzących uwzględnianych na rozliczeniu.|Geotyp, ApiName, uwierzytelnianie, przeudziale|
@@ -2248,7 +2233,7 @@ Istnieją pewne ograniczenia dotyczące tego, co może być kierowane i formular
 |LateInputEvents|Opóźnione zdarzenia wejściowe|Liczba|Łącznie|Opóźnione zdarzenia wejściowe|Logicznaname, PartitionId|
 |OutputEvents|Zdarzenia wyjściowe|Liczba|Łącznie|Zdarzenia wyjściowe|Logicznaname, PartitionId|
 |ConversionErrors|Błędy konwersji danych|Liczba|Łącznie|Błędy konwersji danych|Logicznaname, PartitionId|
-|Errors|Błędy środowiska uruchomieniowego|Liczba|Łącznie|Błędy środowiska uruchomieniowego|Logicznaname, PartitionId|
+|błędy|Błędy środowiska uruchomieniowego|Liczba|Łącznie|Błędy środowiska uruchomieniowego|Logicznaname, PartitionId|
 |DroppedOrAdjustedEvents|Zdarzenia poza kolejnością|Liczba|Łącznie|Zdarzenia poza kolejnością|Logicznaname, PartitionId|
 |AMLCalloutRequests|Żądania funkcji|Liczba|Łącznie|Żądania funkcji|Logicznaname, PartitionId|
 |AMLCalloutFailedRequests|Nieudane żądania funkcji|Liczba|Łącznie|Nieudane żądania funkcji|Logicznaname, PartitionId|
@@ -2534,4 +2519,3 @@ Istnieją pewne ograniczenia dotyczące tego, co może być kierowane i formular
 * [Przeczytaj informacje o metrykach w Azure Monitor](data-platform.md)
 * [Tworzenie alertów dotyczących metryk](alerts-overview.md)
 * [Eksportowanie metryk do magazynu, centrum zdarzeń lub Log Analytics](platform-logs-overview.md)
-

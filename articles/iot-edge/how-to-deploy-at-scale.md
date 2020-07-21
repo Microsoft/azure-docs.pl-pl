@@ -9,12 +9,12 @@ ms.date: 4/21/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: e55d3f704c76d2783c3e442a90c829448129a4d0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b0952f31bf6e327ff6d9f632f242919139ed6cae
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82134418"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86512014"
 ---
 # <a name="deploy-iot-edge-modules-at-scale-using-the-azure-portal"></a>Wdrażanie modułów IoT Edge na dużą skalę przy użyciu Azure Portal
 
@@ -61,7 +61,7 @@ Istnieje pięć kroków, które należy wykonać, aby utworzyć wdrożenie. W po
 
 ### <a name="step-2-modules"></a>Krok 2. moduły
 
-Do wdrożenia można dodać maksymalnie 20 modułów. Jeśli utworzysz wdrożenie bez modułów, spowoduje to usunięcie wszystkich bieżących modułów z urządzeń docelowych.
+Do wdrożenia można dodać do 30 modułów. Jeśli utworzysz wdrożenie bez modułów, spowoduje to usunięcie wszystkich bieżących modułów z urządzeń docelowych.
 
 W obszarze wdrożenia można zarządzać ustawieniami agenta IoT Edge i IoT Edge modułów centrów. Wybierz pozycję **Ustawienia środowiska uruchomieniowego** , aby skonfigurować dwa moduły środowiska uruchomieniowego. W przypadku wdrażania warstwowego moduły środowiska uruchomieniowego nie są uwzględniane, więc nie można ich skonfigurować.
 
@@ -209,7 +209,7 @@ Po usunięciu wdrożenia wszystkie wdrożone urządzenia przyjmą kolejne wdroż
 
 1. Użyj pola wyboru, aby wybrać wdrożenie, które chcesz usunąć.
 1. Wybierz pozycję **Usuń**.
-1. Zostanie wyświetlony monit z informacją o tym, że ta akcja spowoduje usunięcie tego wdrożenia i przywrócenie poprzedniego stanu dla wszystkich urządzeń.Zostanie zastosowane wdrożenie z niższym priorytetem.Jeśli żadne inne wdrożenie nie jest wskazywane, moduły nie zostaną usunięte. Jeśli chcesz usunąć wszystkie moduły z urządzenia, Utwórz wdrożenie z zerowymi modułami i wdróż je na tych samych urządzeniach.Wybierz pozycję **tak** , aby kontynuować.
+1. Zostanie wyświetlony monit z informacją o tym, że ta akcja spowoduje usunięcie tego wdrożenia i przywrócenie poprzedniego stanu dla wszystkich urządzeń.Zostanie zastosowane wdrożenie z niższym priorytetem.Jeśli żadne inne wdrożenie nie jest wskazywane, moduły nie zostaną usunięte. Jeśli chcesz usunąć wszystkie moduły z urządzenia, Utwórz wdrożenie z zerowymi modułami i wdróż je na tych samych urządzeniach.Wybierz przycisk **Tak**, aby kontynuować.
 
 ## <a name="next-steps"></a>Następne kroki
 

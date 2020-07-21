@@ -5,11 +5,12 @@ ms.service: virtual-machines
 ms.topic: article
 ms.date: 10/30/2019
 ms.author: zivr
-ms.openlocfilehash: d2fd8a2cd7dac7b1d3c78691c84a861d924005ce
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0a28b238701eeb0572149fb55e1633cdd40ec0a4
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79250285"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86511028"
 ---
 # <a name="co-locate-resources-for-improved-latency"></a>Wspólne Lokalizowanie zasobów w celu uzyskania lepszych opóźnień
 
@@ -25,6 +26,6 @@ Wdróż maszynę wirtualną w [grupie umieszczania sąsiedztwa](proximity-placem
 
 Dowiedz się, jak [testować opóźnienia sieci](https://aka.ms/TestNetworkLatency?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-Dowiedz się, jak [zoptymalizować przepływność sieci](https://docs.microsoft.com/azure/virtual-network/virtual-network-optimize-network-bandwidth?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).  
+Dowiedz się, jak [zoptymalizować przepływność sieci](../../virtual-network/virtual-network-optimize-network-bandwidth.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).  
 
-Dowiedz się, jak [używać grup umieszczania zbliżeniowe z aplikacjami SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-proximity-placement-scenarios?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Dowiedz się, jak [używać grup umieszczania zbliżeniowe z aplikacjami SAP](../workloads/sap/sap-proximity-placement-scenarios.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

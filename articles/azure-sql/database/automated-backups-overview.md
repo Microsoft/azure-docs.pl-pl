@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
-ms.date: 06/04/2020
-ms.openlocfilehash: 340f4310da5131ea0d2576e7c77d8f6cd0a731b3
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.date: 07/20/2020
+ms.openlocfilehash: 0eea1b696d8eae8606c0b6009f248a215d12db57
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85983108"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86515130"
 ---
 # <a name="automated-backups---azure-sql-database--sql-managed-instance"></a>Zautomatyzowane kopie zapasowe — Azure SQL Database & wystąpienia zarządzane SQL
 
@@ -101,7 +101,7 @@ Użycie magazynu kopii zapasowej do maksymalnego rozmiaru danych dla bazy danych
 
 ## <a name="backup-retention"></a>Przechowywanie kopii zapasowych
 
-W przypadku wszystkich nowych, przywróconych i kopiowanych baz danych Azure SQL Database i wystąpienie zarządzane SQL Azure zachowują wystarczające kopie zapasowe, aby domyślnie zezwolić na kopie w ciągu ostatnich 7 dni. Z wyjątkiem baz danych ze skalowaniem można [zmienić okres przechowywania kopii zapasowej](#change-the-pitr-backup-retention-period) dla bazy danych w 1-35. Zgodnie z opisem w temacie [użycie magazynu kopii zapasowych](#backup-storage-consumption), kopie zapasowe przechowywane w celu włączenia kopie mogą być starsze niż okres przechowywania.
+W przypadku wszystkich nowych, przywróconych i kopiowanych baz danych Azure SQL Database i wystąpienie zarządzane SQL Azure zachowują wystarczające kopie zapasowe, aby domyślnie zezwolić na kopie w ciągu ostatnich 7 dni. Z wyjątkiem baz danych ze skalowaniem można [zmienić okres przechowywania kopii zapasowej](#change-the-pitr-backup-retention-period) dla każdej aktywnej bazy danych w 1-35 dzień. Zgodnie z opisem w temacie [użycie magazynu kopii zapasowych](#backup-storage-consumption), kopie zapasowe przechowywane w celu włączenia kopie mogą być starsze niż okres przechowywania. Tylko w przypadku wystąpienia zarządzanego Azure SQL można ustawić szybkość przechowywania kopii zapasowych kopie po usunięciu bazy danych w zakresie 0-35 dni. 
 
 W przypadku usunięcia bazy danych System przechowuje kopie zapasowe w taki sam sposób jak w przypadku bazy danych w trybie online z określonym okresem przechowywania. Nie można zmienić okresu przechowywania kopii zapasowej dla usuniętej bazy danych.
 
@@ -192,7 +192,7 @@ Domyślny okres przechowywania kopii zapasowej kopie można zmienić przy użyci
 
 ### <a name="change-the-pitr-backup-retention-period-by-using-the-azure-portal"></a>Zmień okres przechowywania kopii zapasowej kopie przy użyciu Azure Portal
 
-Aby zmienić kopie okres przechowywania kopii zapasowej przy użyciu Azure Portal, przejdź do serwera lub wystąpienia zarządzanego z bazami danych, których okres przechowywania chcesz zmienić. 
+Aby zmienić kopie okres przechowywania kopii zapasowych dla aktywnych baz danych przy użyciu Azure Portal, przejdź do serwera lub wystąpienia zarządzanego z bazami danych, których okres przechowywania chcesz zmienić. 
 
 #### <a name="sql-database"></a>[SQL Database](#tab/single-database)
 
@@ -214,9 +214,54 @@ Zmiany w kopie przechowywanie kopii zapasowych dla wystąpienia zarządzanego SQ
 > [!IMPORTANT]
 > Moduł AzureRM programu PowerShell jest nadal obsługiwany przez wystąpienia zarządzane SQL Database i SQL, ale wszystkie przyszłe Programowanie dla modułu AZ. SQL. Aby uzyskać więcej informacji, zobacz [AzureRM. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Argumenty poleceń polecenia AZ module są zasadniczo identyczne z tymi w modułach AzureRm.
 
+#### <a name="sql-database"></a>[SQL Database](#tab/single-database)
+
+Aby zmienić kopie przechowywanie kopii zapasowych dla aktywnych baz danych usługi Azure SQL, użyj następującego przykładu programu PowerShell.
+
 ```powershell
+# SET new PITR backup retention period on an active individual database
+# Valid backup retention must be between 1 and 35 days
 Set-AzSqlDatabaseBackupShortTermRetentionPolicy -ResourceGroupName resourceGroup -ServerName testserver -DatabaseName testDatabase -RetentionDays 28
 ```
+
+#### <a name="sql-managed-instance"></a>[Wystąpienie zarządzane SQL](#tab/managed-instance)
+
+Aby zmienić kopie przechowywanie kopii zapasowych dla **indywidualnych aktywnych** baz danych wystąpienia zarządzanego SQL, użyj następującego przykładu programu PowerShell.
+
+```powershell
+# SET new PITR backup retention period on an active individual database
+# Valid backup retention must be between 1 and 35 days
+Set-AzSqlInstanceDatabaseBackupShortTermRetentionPolicy -ResourceGroupName resourceGroup -InstanceName testserver -DatabaseName testDatabase -RetentionDays 1
+```
+
+Aby zmienić kopie przechowywanie kopii zapasowych dla **wszystkich aktywnych** baz danych wystąpienia zarządzanego SQL, użyj poniższego przykładu programu PowerShell.
+
+```powershell
+# SET new PITR backup retention period for ALL active databases
+# Valid backup retention must be between 1 and 35 days
+Get-AzSqlInstanceDatabase -ResourceGroupName resourceGroup -InstanceName testserver | Set-AzSqlInstanceDatabaseBackupShortTermRetentionPolicy -RetentionDays 1
+```
+
+Aby zmienić kopie przechowywanie kopii zapasowej dla **pojedynczej usuniętej** bazy danych wystąpienia zarządzanego SQL, użyj następującego przykładu programu PowerShell.
+ 
+```powershell
+# SET new PITR backup retention on an individual deleted database
+# Valid backup retention must be between 0 (no retention) and 35 days. Valid retention rate can only be lower than the period of the retention period when database was active, or remaining backup days of a deleted database.
+Get-AzSqlDeletedInstanceDatabaseBackup -ResourceGroupName resourceGroup -InstanceName testserver -DatabaseName testDatabase | Set-AzSqlInstanceDatabaseBackupShortTermRetentionPolicy -RetentionDays 0
+```
+
+Aby zmienić kopie przechowywanie kopii zapasowych dla **wszystkich usuniętych** baz danych wystąpienia zarządzanego SQL, użyj następującego przykładu programu PowerShell.
+
+```powershell
+# SET new PITR backup retention for ALL deleted databases
+# Valid backup retention must be between 0 (no retention) and 35 days. Valid retention rate can only be lower than the period of the retention period when database was active, or remaining backup days of a deleted database
+Get-AzSqlDeletedInstanceDatabaseBackup -ResourceGroupName resourceGroup -InstanceName testserver | Set-AzSqlInstanceDatabaseBackupShortTermRetentionPolicy -RetentionDays 0
+```
+
+Zero (0) dni przechowywania spowoduje, że kopia zapasowa zostanie natychmiast usunięta i nie będzie już przechowywana dla usuniętej bazy danych.
+Gdy kopie przechowywanie kopii zapasowych zostało zmniejszone dla usuniętej bazy danych, nie można już jej zwiększyć.
+
+---
 
 ### <a name="change-the-pitr-backup-retention-period-by-using-the-rest-api"></a>Zmienianie okresu przechowywania kopii zapasowych kopie przy użyciu interfejsu API REST
 
@@ -260,3 +305,4 @@ Aby uzyskać więcej informacji, zobacz [interfejs API REST przechowywania kopii
 - Uzyskaj więcej informacji na temat [przywracania bazy danych do punktu w czasie za pomocą programu PowerShell](scripts/restore-database-powershell.md).
 - Aby uzyskać informacje dotyczące sposobu konfigurowania, zarządzania i przywracania długoterminowego przechowywania zautomatyzowanych kopii zapasowych w usłudze Azure Blob Storage za pomocą Azure Portal, zobacz [Zarządzanie długoterminową przechowywanie kopii zapasowych przy użyciu Azure Portal](long-term-backup-retention-configure.md).
 - Aby uzyskać informacje na temat sposobu konfigurowania, zarządzania i przywracania długoterminowego przechowywania zautomatyzowanych kopii zapasowych w usłudze Azure Blob Storage za pomocą programu PowerShell, zobacz [Zarządzanie długoterminową przechowywaniem kopii zapasowych za pomocą programu PowerShell](long-term-backup-retention-configure.md).
+- Aby dowiedzieć się, jak dostosować przechowywanie i koszty przechowywania kopii zapasowych dla wystąpienia zarządzanego usługi Azure SQL, zobacz [dostrajanie kosztów magazynu kopii zapasowych na wystąpieniu zarządzanym](https://aka.ms/mi-backup-tuning).

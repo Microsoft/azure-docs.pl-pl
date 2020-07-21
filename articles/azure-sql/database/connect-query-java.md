@@ -1,190 +1,497 @@
 ---
-title: Używanie języka Java do wykonywania zapytań w bazie danych
-description: Pokazuje, w jaki sposób używać języka Java do utworzenia programu, który nawiązuje połączenie z bazą danych w Azure SQL Database lub wystąpieniu zarządzanym usługi Azure SQL, i wykonuje zapytania przy użyciu instrukcji języka T-SQL.
-titleSuffix: Azure SQL Database & SQL Managed Instance
+title: Używanie języka Java i JDBC z Azure SQL Database
+description: Dowiedz się, jak używać języka Java i JDBC z Azure SQL Database.
 services: sql-database
+author: jdubois
+ms.author: judubois
 ms.service: sql-database
 ms.subservice: development
-ms.devlang: java
 ms.topic: quickstart
-author: stevestein
-ms.author: sstein
-ms.reviewer: v-masebo
-ms.date: 05/29/2020
-ms.custom: seo-java-july2019. seo-java-august2019, sqldbrb=2 
-ms.openlocfilehash: 6be52d2d3472888607bbd6276b4794184bb11273
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.devlang: java
+ms.date: 06/26/2020
+ms.openlocfilehash: 59124928e9bfb75265e3556e37d65a3b30c851d3
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84267396"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86515079"
 ---
-# <a name="quickstart-use-java-to-query-a-database-in-azure-sql-database-or-azure-sql-managed-instance"></a>Szybki Start: używanie języka Java do wykonywania zapytań w bazie danych w Azure SQL Database lub wystąpieniu zarządzanym Azure SQL
-[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
+# <a name="use-java-and-jdbc-with--azure-sql-database"></a>Używanie języka Java i JDBC z Azure SQL Database
 
-W tym przewodniku szybki start używasz języka Java do łączenia się z bazą danych w Azure SQL Database lub wystąpieniu zarządzanym Azure SQL, a także Użyj instrukcji języka T-SQL do wykonywania zapytań dotyczących danych.
+W tym temacie przedstawiono Tworzenie przykładowej aplikacji, która używa języka Java i [JDBC](https://en.wikipedia.org/wiki/Java_Database_Connectivity) do przechowywania i pobierania informacji w [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/).
+
+JDBC jest standardowym interfejsem API języka Java do łączenia z tradycyjnymi relacyjnymi bazami danych.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby ukończyć ten przewodnik Szybki Start, musisz spełnić następujące warunki:
+- Konto platformy Azure. Jeśli go nie masz, [Uzyskaj bezpłatną wersję próbną](https://azure.microsoft.com/free/).
+- [Azure Cloud Shell](/azure/cloud-shell/quickstart) lub [interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli). Zalecamy Azure Cloud Shell, aby zalogować się automatycznie i mieć dostęp do wszystkich potrzebnych narzędzi.
+- Obsługiwany [zestaw Java Development Kit](https://aka.ms/azure-jdks), wersja 8 (uwzględniony w Azure Cloud Shell).
+- Narzędzie kompilacji [Apache Maven](https://maven.apache.org/) .
 
-- Konto platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+## <a name="prepare-the-working-environment"></a>Przygotowanie środowiska roboczego
 
-  || Baza danych SQL | Wystąpienie zarządzane SQL | Program SQL Server na maszynie wirtualnej platformy Azure |
-  |:--- |:--- |:---|:---|
-  | Utwórz| [Portal](single-database-create-quickstart.md) | [Portal](../managed-instance/instance-create-quickstart.md) | [Portal](../virtual-machines/windows/sql-vm-create-portal-quickstart.md)
-  || [Interfejs wiersza polecenia](scripts/create-and-configure-database-cli.md) | [Interfejs wiersza polecenia](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
-  || [Program PowerShell](scripts/create-and-configure-database-powershell.md) | [Program PowerShell](../managed-instance/scripts/create-configure-managed-instance-powershell.md) | [Program PowerShell](../virtual-machines/windows/sql-vm-create-powershell-quickstart.md)
-  | Konfigurowanie | [Reguła zapory bazująca na adresach IP na poziomie serwera](firewall-create-server-level-portal-quickstart.md)| [Łączność z maszyny wirtualnej](../managed-instance/connect-vm-instance-configure.md)|
-  |||[Łączność z lokalnego](../managed-instance/point-to-site-p2s-configure.md) | [Nawiązywanie połączenia z wystąpieniem SQL Server](../virtual-machines/windows/sql-vm-create-portal-quickstart.md)
-  |Ładowanie danych|Ładowanie bazy danych Adventure Works na potrzeby samouczka Szybki start|[Przywracanie bazy danych Wide World Importers](../managed-instance/restore-sample-database-quickstart.md) | [Przywracanie bazy danych Wide World Importers](../managed-instance/restore-sample-database-quickstart.md) |
-  |||Przywróć lub zaimportuj Adventure Works z pliku [BACPAC](database-import.md) z usługi [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)| Przywróć lub zaimportuj Adventure Works z pliku [BACPAC](database-import.md) z usługi [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
-  |||
+Zamierzamy używać zmiennych środowiskowych, aby ograniczyć liczbę błędów i ułatwić dostosowanie poniższej konfiguracji do konkretnych potrzeb.
 
-- Oprogramowanie związane z [językiem Java](/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server)
+Skonfiguruj te zmienne środowiskowe za pomocą następujących poleceń:
 
-  # <a name="macos"></a>[macOS](#tab/macos)
+```bash
+AZ_RESOURCE_GROUP=database-workshop
+AZ_DATABASE_NAME=<YOUR_DATABASE_NAME>
+AZ_LOCATION=<YOUR_AZURE_REGION>
+AZ_SQL_SERVER_USERNAME=demo
+AZ_SQL_SERVER_PASSWORD=<YOUR_AZURE_SQL_PASSWORD>
+AZ_LOCAL_IP_ADDRESS=<YOUR_LOCAL_IP_ADDRESS>
+```
 
-  Zainstaluj program oprogramowania Homebrew i środowisko Java, a następnie zainstaluj Maven, korzystając z kroków **1,2** i **1,3** w temacie [tworzenie aplikacji Java przy użyciu SQL Server na macOS](https://www.microsoft.com/sql-server/developer-get-started/java/mac/).
+Zastąp symbole zastępcze następującymi wartościami, które są używane w tym artykule:
 
-  # <a name="ubuntu"></a>[Ubuntu](#tab/ubuntu)
+- `<YOUR_DATABASE_NAME>`: Nazwa serwera Azure SQL Database. Powinna być unikatowa w ramach platformy Azure.
+- `<YOUR_AZURE_REGION>`: Region świadczenia usługi Azure, który będzie używany. Można używać `eastus` Domyślnie, ale zalecamy skonfigurowanie regionu bliżej miejsca, w którym się znajdują. Aby uzyskać pełną listę dostępnych regionów, wprowadź `az account list-locations` .
+- `<AZ_SQL_SERVER_PASSWORD>`: Hasło serwera Azure SQL Database. To hasło powinno zawierać co najmniej osiem znaków. Znaki powinny pochodzić z trzech z następujących kategorii: wielkie litery angielskie, małe litery angielskie, cyfry (0-9) i znaki inne niż alfanumeryczne (!, $, #,% itd.).
+- `<YOUR_LOCAL_IP_ADDRESS>`: Adres IP komputera lokalnego, z którego będzie uruchamiana aplikacja Java. Jednym z wygody jest wskazanie, że Twoja przeglądarka ma być [whatismyip.Akamai.com](http://whatismyip.akamai.com/).
 
-  Zainstaluj środowisko Java, Zainstaluj zestaw Java Development Kit, a następnie zainstaluj Maven, korzystając z kroków **1,2**, **1,3**i **1,4** w temacie [Tworzenie aplikacji Java przy użyciu SQL Server na Ubuntu](https://www.microsoft.com/sql-server/developer-get-started/java/ubuntu/).
+Następnie utwórz grupę zasobów przy użyciu następującego polecenia:
 
-  # <a name="windows"></a>[Windows](#tab/windows)
-
-  Zainstaluj środowisko Java, a następnie zainstaluj Maven, korzystając z kroków **1,2** i **1,3** w temacie [tworzenie aplikacji Java przy użyciu SQL Server w systemie Windows](https://www.microsoft.com/sql-server/developer-get-started/java/windows/).
-
-  ---
-
-> [!IMPORTANT]
-> Skrypty w tym artykule są przeznaczone do korzystania z bazy danych firmy **Adventure Works** .
-
-> [!NOTE]
-> Opcjonalnie możesz wybrać użycie wystąpienia zarządzanego Azure SQL.
->
-> Aby utworzyć i skonfigurować, użyj [Azure Portal](../managed-instance/instance-create-quickstart.md), [PowerShell](../managed-instance/scripts/create-configure-managed-instance-powershell.md)lub [interfejsu wiersza polecenia](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44), a następnie skonfiguruj łączność [lokalną](../managed-instance/point-to-site-p2s-configure.md) lub [maszynę wirtualną](../managed-instance/connect-vm-instance-configure.md) .
->
-> Aby załadować dane, zobacz [Restore with BACPAC](database-import.md) with the [Adventure Works](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works) File lub zobacz [przywracanie bazy danych Wide World](../managed-instance/restore-sample-database-quickstart.md)Imports.
-
-## <a name="get-server-connection-information"></a>Pobierz informacje o połączeniu z serwerem
-
-Pobierz informacje o połączeniu potrzebne do nawiązania połączenia z bazą danych w Azure SQL Database. W następnych procedurach będą potrzebne w pełni kwalifikowana nazwa serwera lub nazwa hosta, nazwa bazy danych i informacje logowania.
-
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
-
-2. Wybierz pozycję **bazy danych SQL** lub Otwórz stronę **wystąpienia zarządzane SQL** .
-
-3. Na stronie **Przegląd** Przejrzyj w pełni kwalifikowaną nazwę serwera obok pozycji **Nazwa serwera** dla bazy danych w Azure SQL Database lub w pełni kwalifikowana nazwa serwera (lub adres IP) obok **hosta** dla wystąpienia zarządzanego usługi Azure SQL lub SQL Server na maszynie wirtualnej platformy Azure. Aby skopiować nazwę serwera lub hosta, umieść na niej wskaźnik myszy i wybierz ikonę **Kopiuj**.
+```azurecli
+az group create \
+    --name $AZ_RESOURCE_GROUP \
+    --location $AZ_LOCATION \
+  	| jq
+```
 
 > [!NOTE]
-> Aby uzyskać informacje o połączeniu dla SQL Server na maszynie wirtualnej platformy Azure, zobacz [Connect to SQL Server](../virtual-machines/windows/sql-vm-create-portal-quickstart.md#connect-to-sql-server).
+> Używamy `jq` Narzędzia do wyświetlania danych JSON i zwiększania czytelności. To narzędzie jest instalowane domyślnie na [Azure Cloud Shell](https://shell.azure.com/). Jeśli nie lubisz tego narzędzia, możesz bezpiecznie usunąć `| jq` część wszystkich poleceń, które będą używane.
 
-## <a name="create-the-project"></a>Tworzenie projektu
+## <a name="create-an-azure-sql-database-instance"></a>Tworzenie wystąpienia Azure SQL Database
 
-1. Z poziomu wiersza polecenia utwórz nowy projekt rozwiązania Maven o nazwie *sqltest*.
+W pierwszej kolejności tworzymy serwer Azure SQL Database zarządzany.
 
-    ```bash
-    mvn archetype:generate "-DgroupId=com.sqldbsamples" "-DartifactId=sqltest" "-DarchetypeArtifactId=maven-archetype-quickstart" "-Dversion=1.0.0" --batch-mode
-    ```
+> [!NOTE]
+> Więcej szczegółowych informacji na temat tworzenia serwerów Azure SQL Database można znaleźć w [przewodniku szybki start: tworzenie Azure SQL Database pojedynczej bazy danych](/azure/sql-database/sql-database-single-database-get-started).
 
-1. Zmień folder na *sqltest*, a następnie otwórz plik *pom.xml* w ulubionym edytorze tekstów. Dodaj **sterownik JDBC firmy Microsoft dla programu SQL Server** do zależności projektu, używając poniższego kodu.
+W [Azure Cloud Shell](https://shell.azure.com/)Uruchom następujące polecenie:
 
-    ```xml
-    <dependency>
-        <groupId>com.microsoft.sqlserver</groupId>
-        <artifactId>mssql-jdbc</artifactId>
-        <version>7.0.0.jre8</version>
-    </dependency>
-    ```
+```azurecli
+az sql server create \
+    --resource-group $AZ_RESOURCE_GROUP \
+    --name $AZ_DATABASE_NAME \
+    --location $AZ_LOCATION \
+    --admin-user $AZ_SQL_SERVER_USERNAME \
+    --admin-password $AZ_SQL_SERVER_PASSWORD \
+  	| jq
+```
 
-1. Również w pliku *pom.xml* dodaj następujące właściwości do projektu. W przypadku braku sekcji właściwości można ją dodać po zależnościach.
+To polecenie tworzy serwer Azure SQL Database.
 
-   ```xml
-   <properties>
-       <maven.compiler.source>1.8</maven.compiler.source>
-       <maven.compiler.target>1.8</maven.compiler.target>
-   </properties>
-   ```
+### <a name="configure-a-firewall-rule-for-your-azure-sql-database-server"></a>Konfigurowanie reguły zapory dla serwera Azure SQL Database
 
-1. Zapisz i zamknij plik *pom.xml*.
+Wystąpienia Azure SQL Database są zabezpieczone domyślnie. Mają zaporę, która nie zezwala na żadne połączenie przychodzące. Aby można było korzystać z bazy danych programu, należy dodać regułę zapory zezwalającą na dostęp lokalnego adresu IP do serwera bazy danych.
 
-## <a name="add-code-to-query-the-database"></a>Dodawanie kodu do wykonywania zapytań w bazie danych
+Ze względu na to, że lokalny adres IP został skonfigurowany na początku tego artykułu, możesz otworzyć zaporę serwera, uruchamiając następujące polecenie:
 
-1. Projekt Maven powinien już zawierać plik o nazwie *App.java* w następującej lokalizacji:
+```azurecli
+az sql server firewall-rule create \
+    --resource-group $AZ_RESOURCE_GROUP \
+    --name $AZ_DATABASE_NAME-database-allow-local-ip \
+    --server $AZ_DATABASE_NAME \
+    --start-ip-address $AZ_LOCAL_IP_ADDRESS \
+    --end-ip-address $AZ_LOCAL_IP_ADDRESS \
+  	| jq
+```
 
-   *..\sqltest\src\main\java\com\sqldbsamples\App.java*
+### <a name="configure-a-azure-sql-database"></a>Konfigurowanie bazy danych Azure SQL Database
 
-1. Otwórz ten plik i zastąp jego zawartość następującym kodem. Następnie dodaj odpowiednie wartości dla swojego serwera, bazy danych, użytkownika i hasła.
+Utworzony wcześniej serwer Azure SQL Database jest pusty. Nie ma żadnej bazy danych, której można używać z aplikacją Java. Utwórz nową bazę danych o nazwie `demo` , uruchamiając następujące polecenie:
 
-    ```java
-    package com.sqldbsamples;
+```azurecli
+az sql db create \
+    --resource-group $AZ_RESOURCE_GROUP \
+    --name demo \
+    --server $AZ_DATABASE_NAME \
+  	| jq
+```
 
-    import java.sql.Connection;
-    import java.sql.Statement;
-    import java.sql.PreparedStatement;
-    import java.sql.ResultSet;
-    import java.sql.DriverManager;
+### <a name="create-a-new-java-project"></a>Utwórz nowy projekt Java
 
-    public class App {
+Korzystając z ulubionego środowiska IDE, Utwórz nowy projekt Java i Dodaj `pom.xml` plik w jego katalogu głównym:
 
-        public static void main(String[] args) {
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.example</groupId>
+    <artifactId>demo</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>demo</name>
 
-            // Connect to database
-            String hostName = "your_server.database.windows.net"; // update me
-            String dbName = "your_database"; // update me
-            String user = "your_username"; // update me
-            String password = "your_password"; // update me
-            String url = String.format("jdbc:sqlserver://%s:1433;database=%s;user=%s;password=%s;encrypt=true;"
-                + "hostNameInCertificate=*.database.windows.net;loginTimeout=30;", hostName, dbName, user, password);
-            Connection connection = null;
+    <properties>
+        <java.version>1.8</java.version>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+    </properties>
 
-            try {
-                connection = DriverManager.getConnection(url);
-                String schema = connection.getSchema();
-                System.out.println("Successful connection - Schema: " + schema);
+    <dependencies>
+        <dependency>
+            <groupId>com.microsoft.sqlserver</groupId>
+            <artifactId>mssql-jdbc</artifactId>
+            <version>7.4.1.jre8</version>
+        </dependency>
+    </dependencies>
+</project>
+```
 
-                System.out.println("Query data example:");
-                System.out.println("=========================================");
+Ten plik to [Apache Maven](https://maven.apache.org/) , który konfiguruje nasz projekt do użycia:
 
-                // Create and execute a SELECT SQL statement.
-                String selectSql = "SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName "
-                    + "FROM [SalesLT].[ProductCategory] pc "  
-                    + "JOIN [SalesLT].[Product] p ON pc.productcategoryid = p.productcategoryid";
+- Java 8
+- Najnowszy SQL Server sterownika dla języka Java
 
-                try (Statement statement = connection.createStatement();
-                ResultSet resultSet = statement.executeQuery(selectSql)) {
+### <a name="prepare-a-configuration-file-to-connect-to-azure-sql-database"></a>Przygotuj plik konfiguracji do nawiązania połączenia z usługą Azure SQL Database
 
-                    // Print results from select statement
-                    System.out.println("Top 20 categories:");
-                    while (resultSet.next())
-                    {
-                        System.out.println(resultSet.getString(1) + " "
-                            + resultSet.getString(2));
-                    }
-                    connection.close();
-                }
-            }
-            catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
+Utwórz plik *src/Main/sources/Application. Properties* i Dodaj:
+
+```properties
+url=jdbc:sqlserver://$AZ_DATABASE_NAME.database.windows.net:1433;database=demo;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;
+user=demo@$AZ_DATABASE_NAME
+password=$AZ_SQL_SERVER_PASSWORD
+```
+
+- Zastąp dwie `$AZ_DATABASE_NAME` zmienne wartością skonfigurowaną na początku tego artykułu.
+- Zastąp `$AZ_SQL_SERVER_PASSWORD` zmienną wartością skonfigurowaną na początku tego artykułu.
+
+### <a name="create-an-sql-file-to-generate-the-database-schema"></a>Utwórz plik SQL, aby wygenerować schemat bazy danych
+
+Użyjemy *src/Main/sources `schema.sql` * , aby utworzyć schemat bazy danych. Utwórz ten plik z następującą zawartością:
+
+```sql
+DROP TABLE IF EXISTS todo;
+CREATE TABLE todo (id INT PRIMARY KEY, description VARCHAR(255), details VARCHAR(4096), done BIT);
+```
+
+## <a name="code-the-application"></a>Kod aplikacji
+
+### <a name="connect-to-the-database"></a>Łączenie z bazą danych
+
+Następnie Dodaj kod Java, który będzie używać JDBC do przechowywania i pobierania danych z bazy danych SQL Azure.
+
+Utwórz plik *src/Main/Java/DemoApplication. Java* zawierający następujące polecenie:
+
+```java
+package com.example.demo;
+
+import java.sql.*;
+import java.util.*;
+import java.util.logging.Logger;
+
+public class DemoApplication {
+
+    private static final Logger log;
+
+    static {
+        System.setProperty("java.util.logging.SimpleFormatter.format", "[%4$-7s] %5$s %n");
+        log =Logger.getLogger(DemoApplication.class.getName());
     }
-    ```
 
-   > [!NOTE]
-   > Przykład kodu używa przykładowej bazy danych **AdventureWorksLT** w Azure SQL Database.
+    public static void main(String[] args) throws Exception {
+        log.info("Loading application properties");
+        Properties properties = new Properties();
+        properties.load(DemoApplication.class.getClassLoader().getResourceAsStream("application.properties"));
 
-## <a name="run-the-code"></a>Uruchamianie kodu
+        log.info("Connecting to the database");
+        Connection connection = DriverManager.getConnection(properties.getProperty("url"), properties);
+        log.info("Database connection test: " + connection.getCatalog());
 
-1. W wierszu polecenia uruchom aplikację.
+        log.info("Create database schema");
+        Scanner scanner = new Scanner(DemoApplication.class.getClassLoader().getResourceAsStream("schema.sql"));
+        Statement statement = connection.createStatement();
+        while (scanner.hasNextLine()) {
+            statement.execute(scanner.nextLine());
+        }
 
-    ```bash
-    mvn package -DskipTests
-    mvn -q exec:java "-Dexec.mainClass=com.sqldbsamples.App"
-    ```
+        /*
+        Todo todo = new Todo(1L, "configuration", "congratulations, you have set up JDBC correctly!", true);
+        insertData(todo, connection);
+        todo = readData(connection);
+        todo.setDetails("congratulations, you have updated data!");
+        updateData(todo, connection);
+        deleteData(todo, connection);
+        */
 
-1. Sprawdź, czy pierwsze 20 wierszy jest zwracanych i Zamknij okno aplikacji.
+        log.info("Closing database connection");
+        connection.close();
+    }
+}
+```
+
+Ten kod Java będzie używać *aplikacji. właściwości* i utworzonych wcześniej plików *Schema. SQL* w celu nawiązania połączenia z bazą danych SQL Server i utworzenia schematu, w którym będą przechowywane nasze dane.
+
+W tym pliku można zobaczyć, że dodałeś metody do wstawiania, odczytywania, aktualizowania i usuwania danych: kodują te metody w pozostałej części tego artykułu i będziesz mieć możliwość usuwania komentarzy do nich po sobie nawzajem.
+
+> [!NOTE]
+> Poświadczenia bazy danych są przechowywane we właściwościach *użytkownika* i *hasło* pliku *Application. Properties* . Te poświadczenia są używane podczas wykonywania `DriverManager.getConnection(properties.getProperty("url"), properties);` , ponieważ plik właściwości jest przesyłany jako argument.
+
+Możesz teraz wykonać tę klasę główną przy użyciu ulubionego narzędzia:
+
+- Korzystając ze środowiska IDE, należy kliknąć prawym przyciskiem myszy klasę *DemoApplication* i wykonać ją.
+- Za pomocą Maven można uruchomić aplikację, wykonując: `mvn exec:java -Dexec.mainClass="com.example.demo.DemoApplication"` .
+
+Aplikacja powinna połączyć się z Azure SQL Database, utworzyć schemat bazy danych, a następnie zamknąć połączenie, tak jak powinno się zobaczyć w dziennikach konsoli:
+
+```
+[INFO   ] Loading application properties 
+[INFO   ] Connecting to the database 
+[INFO   ] Database connection test: demo 
+[INFO   ] Create database schema 
+[INFO   ] Closing database connection 
+```
+
+### <a name="create-a-domain-class"></a>Utwórz klasę domeny
+
+Utwórz nową `Todo` klasę języka Java, obok `DemoApplication` klasy, i Dodaj następujący kod:
+
+```java
+package com.example.demo;
+
+public class Todo {
+
+    private Long id;
+    private String description;
+    private String details;
+    private boolean done;
+
+    public Todo() {
+    }
+
+    public Todo(Long id, String description, String details, boolean done) {
+        this.id = id;
+        this.description = description;
+        this.details = details;
+        this.done = done;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getDetails() {
+        return details;
+    }
+
+    public void setDetails(String details) {
+        this.details = details;
+    }
+
+    public boolean isDone() {
+        return done;
+    }
+
+    public void setDone(boolean done) {
+        this.done = done;
+    }
+
+    @Override
+    public String toString() {
+        return "Todo{" +
+                "id=" + id +
+                ", description='" + description + '\'' +
+                ", details='" + details + '\'' +
+                ", done=" + done +
+                '}';
+    }
+}
+```
+
+Ta klasa jest modelem domeny mapowanym w `todo` tabeli, która została utworzona podczas wykonywania skryptu *Schema. SQL* .
+
+### <a name="insert-data-into-azure-sql-database"></a>Wstawianie danych do usługi Azure SQL Database
+
+W pliku *src/Main/Java/DemoApplication. Java* po metodzie Main Dodaj następującą metodę, aby wstawić dane do bazy danych:
+
+```java
+private static void insertData(Todo todo, Connection connection) throws SQLException {
+    log.info("Insert data");
+    PreparedStatement insertStatement = connection
+            .prepareStatement("INSERT INTO todo (id, description, details, done) VALUES (?, ?, ?, ?);");
+
+    insertStatement.setLong(1, todo.getId());
+    insertStatement.setString(2, todo.getDescription());
+    insertStatement.setString(3, todo.getDetails());
+    insertStatement.setBoolean(4, todo.isDone());
+    insertStatement.executeUpdate();
+}
+```
+
+Teraz można odkomentować dwa następujące wiersze w `main` metodzie:
+
+```java
+Todo todo = new Todo(1L, "configuration", "congratulations, you have set up JDBC correctly!", true);
+insertData(todo, connection);
+```
+
+Wykonanie klasy głównej powinno teraz generować następujące dane wyjściowe:
+
+```
+[INFO   ] Loading application properties 
+[INFO   ] Connecting to the database 
+[INFO   ] Database connection test: demo 
+[INFO   ] Create database schema 
+[INFO   ] Insert data 
+[INFO   ] Closing database connection
+```
+
+### <a name="reading-data-from-azure-sql-database"></a>Odczytywanie danych z usługi Azure SQL Database
+
+Zapoznaj się z poprzednio wstawionymi danymi, aby sprawdzić, czy kod działa poprawnie.
+
+W pliku *src/Main/Java/DemoApplication. Java* po `insertData` metodzie Dodaj następującą metodę w celu odczytania danych z bazy danych:
+
+```java
+private static Todo readData(Connection connection) throws SQLException {
+    log.info("Read data");
+    PreparedStatement readStatement = connection.prepareStatement("SELECT * FROM todo;");
+    ResultSet resultSet = readStatement.executeQuery();
+    if (!resultSet.next()) {
+        log.info("There is no data in the database!");
+        return null;
+    }
+    Todo todo = new Todo();
+    todo.setId(resultSet.getLong("id"));
+    todo.setDescription(resultSet.getString("description"));
+    todo.setDetails(resultSet.getString("details"));
+    todo.setDone(resultSet.getBoolean("done"));
+    log.info("Data read from the database: " + todo.toString());
+    return todo;
+}
+```
+
+Teraz można usunąć komentarz z następującego wiersza w `main` metodzie:
+
+```java
+todo = readData(connection);
+```
+
+Wykonanie klasy głównej powinno teraz generować następujące dane wyjściowe:
+
+```
+[INFO   ] Loading application properties 
+[INFO   ] Connecting to the database 
+[INFO   ] Database connection test: demo 
+[INFO   ] Create database schema 
+[INFO   ] Insert data 
+[INFO   ] Read data 
+[INFO   ] Data read from the database: Todo{id=1, description='configuration', details='congratulations, you have set up JDBC correctly!', done=true} 
+[INFO   ] Closing database connection 
+```
+
+### <a name="updating-data-in-azure-sql-database"></a>Aktualizowanie danych w Azure SQL Database
+
+Zaktualizujmy wcześniej wstawione dane.
+
+Mimo że w pliku *src/Main/Java/DemoApplication. Java* , po `readData` metodzie Dodaj następującą metodę, aby zaktualizować dane w bazie danych:
+
+```java
+private static void updateData(Todo todo, Connection connection) throws SQLException {
+    log.info("Update data");
+    PreparedStatement updateStatement = connection
+            .prepareStatement("UPDATE todo SET description = ?, details = ?, done = ? WHERE id = ?;");
+
+    updateStatement.setString(1, todo.getDescription());
+    updateStatement.setString(2, todo.getDetails());
+    updateStatement.setBoolean(3, todo.isDone());
+    updateStatement.setLong(4, todo.getId());
+    updateStatement.executeUpdate();
+    readData(connection);
+}
+```
+
+Teraz można odkomentować dwa następujące wiersze w `main` metodzie:
+
+```java
+todo.setDetails("congratulations, you have updated data!");
+updateData(todo, connection);
+```
+
+Wykonanie klasy głównej powinno teraz generować następujące dane wyjściowe:
+
+```
+[INFO   ] Loading application properties 
+[INFO   ] Connecting to the database 
+[INFO   ] Database connection test: demo 
+[INFO   ] Create database schema 
+[INFO   ] Insert data 
+[INFO   ] Read data 
+[INFO   ] Data read from the database: Todo{id=1, description='configuration', details='congratulations, you have set up JDBC correctly!', done=true} 
+[INFO   ] Update data 
+[INFO   ] Read data 
+[INFO   ] Data read from the database: Todo{id=1, description='configuration', details='congratulations, you have updated data!', done=true} 
+[INFO   ] Closing database connection 
+```
+
+### <a name="deleting-data-in-azure-sql-database"></a>Usuwanie danych w usłudze Azure SQL Database
+
+Na koniec usuńmy wcześniej wstawione dane.
+
+Mimo że w pliku *src/Main/Java/DemoApplication. Java* , po `updateData` metodzie Dodaj następującą metodę, aby usunąć dane w bazie danych:
+
+```java
+private static void deleteData(Todo todo, Connection connection) throws SQLException {
+    log.info("Delete data");
+    PreparedStatement deleteStatement = connection.prepareStatement("DELETE FROM todo WHERE id = ?;");
+    deleteStatement.setLong(1, todo.getId());
+    deleteStatement.executeUpdate();
+    readData(connection);
+}
+```
+
+Teraz można usunąć komentarz z następującego wiersza w `main` metodzie:
+
+```java
+deleteData(todo, connection);
+```
+
+Wykonanie klasy głównej powinno teraz generować następujące dane wyjściowe:
+
+```
+[INFO   ] Loading application properties 
+[INFO   ] Connecting to the database 
+[INFO   ] Database connection test: demo 
+[INFO   ] Create database schema 
+[INFO   ] Insert data 
+[INFO   ] Read data 
+[INFO   ] Data read from the database: Todo{id=1, description='configuration', details='congratulations, you have set up JDBC correctly!', done=true} 
+[INFO   ] Update data 
+[INFO   ] Read data 
+[INFO   ] Data read from the database: Todo{id=1, description='configuration', details='congratulations, you have updated data!', done=true} 
+[INFO   ] Delete data 
+[INFO   ] Read data 
+[INFO   ] There is no data in the database! 
+[INFO   ] Closing database connection 
+```
+
+## <a name="conclusion-and-resources-clean-up"></a>Usuwanie wniosków i zasobów
+
+Gratulacje! Utworzono aplikację Java, która używa JDBC do przechowywania i pobierania danych z usługi Azure SQL Database.
+
+Aby wyczyścić wszystkie zasoby używane w ramach tego przewodnika Szybki Start, Usuń grupę zasobów przy użyciu następującego polecenia:
+
+```azurecli
+az group delete \
+    --name $AZ_RESOURCE_GROUP \
+    --yes
+```
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -3,11 +3,13 @@ title: Service Bus kolejek utraconych wiadomości | Microsoft Docs
 description: Opisuje kolejki utraconych wiadomości w Azure Service Bus. Kolejki Service Bus i subskrypcje tematów zapewniają pomocniczą podkolejkę o nazwie Kolejka utraconych wiadomości.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 62db4e71d99d1242cfbb69bdb7979bf9e5dc67ea
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 7078a7889947c4121713e9374d1487f408fed871
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85337589"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86511215"
 ---
 # <a name="overview-of-service-bus-dead-letter-queues"></a>Przegląd Service Busych kolejek utraconych
 
@@ -56,7 +58,7 @@ Nie można wyłączyć tego zachowania, ale można ustawić [MaxDeliveryCount](/
 
 Gdy właściwość [QueueDescription. EnableDeadLetteringOnMessageExpiration](/dotnet/api/microsoft.servicebus.messaging.queuedescription) lub [SubscriptionDescription. EnableDeadLetteringOnMessageExpiration](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription) ma **wartość true** (wartością domyślną jest **false**), wszystkie komunikaty wygasające są przenoszone do DLQ, określając `TTLExpiredException` kod przyczyny.
 
-Wygasłe komunikaty są przeczyszczane i przenoszone do DLQ, gdy istnieje co najmniej jeden aktywny odbiornik ściągający z kolejki głównej lub subskrypcji. takie zachowanie jest zaprojektowane.
+Wygasłe komunikaty są przeczyszczane i przenoszone do DLQ, gdy istnieje co najmniej jeden aktywny odbiornik ściągający z kolejki lub subskrypcji głównej, a [odroczone komunikaty](./message-deferral.md) również nie zostaną usunięte i przeniesione do kolejki utraconych wiadomości po ich wygaśnięciu. Te zachowania są zaprojektowane.
 
 ## <a name="errors-while-processing-subscription-rules"></a>Błędy podczas przetwarzania reguł subskrypcji
 

@@ -4,12 +4,12 @@ description: W tym artykule dowiesz się, jak odzyskiwać pliki i foldery z punk
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.custom: references_regions
-ms.openlocfilehash: ded26718f176629f6c53ae90abf3c7e69b4df893
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: a594b9636dcb4e584fd10a17bca6c48c2d1fb960
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027169"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86514088"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Odzyskiwanie plików z kopii zapasowej maszyny wirtualnej platformy Azure
 
@@ -329,6 +329,6 @@ Skrypt zapewnia dostęp tylko do odczytu do punktu odzyskiwania i jest prawidło
 ## <a name="next-steps"></a>Następne kroki
 
 - Wszelkie problemy podczas przywracania plików można znaleźć w sekcji [Rozwiązywanie problemów](#troubleshooting) .
-- Dowiedz się, jak [przywrócić pliki za pośrednictwem programu PowerShell](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#restore-files-from-an-azure-vm-backup)
-- Dowiedz się, jak [przywrócić pliki za pośrednictwem interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/azure/backup/tutorial-restore-files)
-- Po przywróceniu maszyny wirtualnej Dowiedz się, jak [zarządzać kopiami zapasowymi](https://docs.microsoft.com/azure/backup/backup-azure-manage-vms)
+- Dowiedz się, jak [przywrócić pliki za pośrednictwem programu PowerShell](./backup-azure-vms-automation.md#restore-files-from-an-azure-vm-backup)
+- Dowiedz się, jak [przywrócić pliki za pośrednictwem interfejsu wiersza polecenia platformy Azure](./tutorial-restore-files.md)
+- Po przywróceniu maszyny wirtualnej Dowiedz się, jak [zarządzać kopiami zapasowymi](./backup-azure-manage-vms.md)

@@ -8,11 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/05/2020
-ms.openlocfilehash: fc460abe65709f90ff22e1ec6f8e47b315db7f67
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 402fd8da8e29e8f3fec6747be5d9480ca176fc55
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84555232"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86511402"
 ---
 # <a name="add-custom-analyzers-to-string-fields-in-an-azure-cognitive-search-index"></a>Dodawanie niestandardowych analizatorów do pól ciągów w indeksie Wyszukiwanie poznawcze platformy Azure
 
@@ -134,7 +135,7 @@ Definicje filtrów char, tokenizatory i filtrów tokenów są dodawane do indeks
 
 Możesz użyć **operacji analizatora testowego** w [interfejsie API REST](https://docs.microsoft.com/rest/api/searchservice/test-analyzer) , aby zobaczyć, w jaki sposób analizator przerywa dany tekst do tokenów.
 
-**Żądanie**
+**Request**
 ```
   POST https://[search service name].search.windows.net/indexes/[index name]/analyze?api-version=[api-version]
   Content-Type: application/json
@@ -145,7 +146,7 @@ Możesz użyć **operacji analizatora testowego** w [interfejsie API REST](https
      "text": "Vis-à-vis means Opposite"
   }
 ```
-**Reakcji**
+**Odpowiedź**
 ```
   {
     "tokens": [
@@ -199,16 +200,16 @@ W przypadku analizatorów atrybuty indeksu różnią się w zależności od tego
 
 #### <a name="predefined-analyzers"></a>Wstępnie zdefiniowane analizatory
 
-|||  
-|-|-|  
+| Typ | Opis |
+| ---- | ----------- |  
 |Nazwa|Musi zawierać tylko litery, cyfry, spacje, kreski i znaki podkreślenia, może zaczynać się i kończyć tylko znakami alfanumerycznymi i mieć ograniczone do 128 znaków.|  
 |Typ|Typ analizatorze z listy obsługiwanych analizatorów. Zobacz kolumnę **analyzer_type** w tabeli [analizatory](#AnalyzerTable) poniżej.|  
 |Opcje|Muszą być prawidłowymi opcjami wstępnie zdefiniowanego analizatora wymienionymi w tabeli [analizatorów](#AnalyzerTable) poniżej.|  
 
 #### <a name="custom-analyzers"></a>Analizatory niestandardowe
 
-|||  
-|-|-|  
+| Typ | Opis |
+| ---- | ----------- |  
 |Nazwa|Musi zawierać tylko litery, cyfry, spacje, kreski i znaki podkreślenia, może zaczynać się i kończyć tylko znakami alfanumerycznymi i mieć ograniczone do 128 znaków.|  
 |Typ|Musi mieć wartość "#Microsoft. Azure. Search. CustomAnalyzer".|  
 |CharFilters|Ustaw jeden z wstępnie zdefiniowanych filtrów znaków wymienionych w tabeli [filtry znaków](#char-filters-reference) lub niestandardowy filtr znaków określony w definicji indeksu.|  
@@ -224,8 +225,8 @@ W przypadku analizatorów atrybuty indeksu różnią się w zależności od tego
 
  Filtr char służy do przygotowywania danych wejściowych przed przetworzeniem przez tokenizatora. Na przykład mogą zastąpić niektóre znaki lub symbole. W analizatorze niestandardowym można korzystać z wielu filtrów typu char. Filtry znaków są uruchamiane w kolejności, w jakiej są wyświetlane.  
 
-|||  
-|-|-|  
+| Typ | Opis |
+| ---- | ----------- | 
 |Nazwa|Musi zawierać tylko litery, cyfry, spacje, kreski i znaki podkreślenia, może zaczynać się i kończyć tylko znakami alfanumerycznymi i mieć ograniczone do 128 znaków.|  
 |Typ|Typ filtru char z listy obsługiwanych filtrów char. Zobacz **char_filter_type** kolumny w tabeli [filtry znaków](#char-filters-reference) poniżej.|  
 |Opcje|Musi być prawidłowymi opcjami danego typu [filtrów znaków](#char-filters-reference) .|  
@@ -237,8 +238,8 @@ W przypadku analizatorów atrybuty indeksu różnią się w zależności od tego
  Można określić dokładnie jeden tokenizatora na analizatora niestandardowego. Jeśli potrzebujesz więcej niż jednego tokenizatora, możesz utworzyć wiele analizatorów niestandardowych i przypisać je do poszczególnych pól w schemacie indeksu.  
 Analizator niestandardowy może użyć wstępnie zdefiniowanego tokenizatora z domyślnymi lub dostosowanymi opcjami.  
 
-|||  
-|-|-|  
+| Typ | Opis |
+| ---- | ----------- | 
 |Nazwa|Musi zawierać tylko litery, cyfry, spacje, kreski i znaki podkreślenia, może zaczynać się i kończyć tylko znakami alfanumerycznymi i mieć ograniczone do 128 znaków.|  
 |Typ|Nazwa tokenizatora z listy obsługiwanych tokenizatory. Zobacz **tokenizer_type** kolumny w poniższej tabeli [tokenizatory](#Tokenizers) .|  
 |Opcje|Muszą być prawidłowymi opcjami danego typu tokenizatora wymienionymi w poniższej tabeli [tokenizatory](#Tokenizers) .|  
@@ -248,8 +249,8 @@ Analizator niestandardowy może użyć wstępnie zdefiniowanego tokenizatora z d
  Filtr tokenu służy do filtrowania lub modyfikowania tokenów wygenerowanych przez tokenizatora. Na przykład można określić filtr małych liter, który konwertuje wszystkie znaki na małe litery.   
 W analizatorze niestandardowym można korzystać z wielu filtrów tokenu. Filtry tokenów działają w kolejności, w jakiej są wyświetlane.  
 
-|||  
-|-|-|  
+| Typ | Opis |
+| ---- | ----------- |  
 |Nazwa|Musi zawierać tylko litery, cyfry, spacje, kreski i znaki podkreślenia, może zaczynać się i kończyć tylko znakami alfanumerycznymi i mieć ograniczone do 128 znaków.|  
 |Typ|Nazwa filtru tokenu z listy obsługiwanych filtrów tokenu. Zapoznaj się z kolumną **token_filter_type** w tabeli [filtry tokenu](#TokenFilters) poniżej.|  
 |Opcje|Musi być [filtrami tokenu](#TokenFilters) danego typu filtru tokenu.|  

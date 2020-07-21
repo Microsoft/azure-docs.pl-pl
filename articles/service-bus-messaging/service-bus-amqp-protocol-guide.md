@@ -3,12 +3,12 @@ title: AMQP 1,0 Azure Service Bus i Event Hubs Przewodnik po protokole | Microso
 description: Przewodnik po protokole do wyrażeń i opisów AMQP 1,0 w Azure Service Bus i Event Hubs
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 79132ef7105de8de2261c35258006af3f0a665a5
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 5957e2d36b57be7db1af279736e8859d1a69b66b
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86186915"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86511317"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>AMQP 1,0 Azure Service Bus i Event Hubs Przewodnik po protokole
 
@@ -48,7 +48,7 @@ Najbardziej autorytatywne źródło informacji o tym, jak działa AMQP, jest spe
 
 AMQP wywołuje *kontenery*programów komunikujących się; zawierają *węzły*, które są komunikującymi się jednostkami w tych kontenerach. Kolejka może być węzłem. AMQP umożliwia obsługę multipleksera, dlatego pojedyncze połączenie może być używane dla wielu ścieżek komunikacji między węzłami. na przykład klient aplikacji może jednocześnie odbierać z jednej kolejki i wysyłać do innej kolejki za pośrednictwem tego samego połączenia sieciowego.
 
-![][1]
+![Diagram przedstawiający sesje i połączenia między kontenerami.][1]
 
 Połączenie sieciowe jest zakotwiczone w kontenerze. Jest inicjowany przez kontener w roli klienta, co powoduje wychodzące połączenie gniazda TCP z kontenerem w roli odbiornika, który nasłuchuje i akceptuje przychodzące połączenia TCP. Uzgadnianie połączenia obejmuje negocjowanie wersji protokołu, deklarowanie lub negocjowanie użycia zabezpieczeń na poziomie transportu (TLS/SSL) oraz uzgadnianie uwierzytelniania i autoryzacji w zakresie połączenia opartym na protokole SASL.
 
@@ -84,7 +84,7 @@ Klient platformy .NET może zakończyć się niepowodzeniem z użyciem gniazda S
 
 AMQP przesyła komunikaty przez linki. Link jest ścieżką komunikacyjną utworzoną za pośrednictwem sesji, która umożliwia przesyłanie komunikatów w jednym kierunku; negocjowanie stanu transferu odbywa się nad łączem i dwukierunkową między połączonymi stronami.
 
-![][2]
+![Zrzut ekranu przedstawiający sesję carryign połączenie między dwoma kontenerami.][2]
 
 Linki można tworzyć za pomocą kontenera w dowolnym momencie i za pośrednictwem istniejącej sesji, co sprawia, że AMQP różni się od wielu innych protokołów, w tym HTTP i MQTT, gdzie inicjowanie transferów i ścieżki transferu jest wyłącznym uprawnieniem dla strony tworzącej połączenie gniazda.
 
@@ -100,7 +100,7 @@ Klient łączący jest również wymagany do tworzenia linków przy użyciu nazw
 
 Po nawiązaniu połączenia można przesłać komunikaty za pośrednictwem tego linku. W programie AMQP transfer jest wykonywany z jawnym gestem protokołu ( *transfer* performative), który przenosi komunikat z nadawcy do odbiorcy przez łącze. Przeniesienie jest zakończone, gdy jest "rozliczane", co oznacza, że obie strony ustanowiły wspólne zrozumienie wyniku tego transferu.
 
-![][3]
+![Diagram przedstawiający transfer komunikatów między nadawcą i odbiorcą i dyspozycją, które z niego wynikają.][3]
 
 W najprostszym przypadku nadawca może zdecydować się na wysłanie komunikatów ", które zostały wstępnie rozliczone", co oznacza, że klient nie interesuje wyników, a odbiorca nie poda żadnej opinii na temat wyniku operacji. Ten tryb jest obsługiwany przez Service Bus na poziomie protokołu AMQP, ale nie został ujawniony w żadnym z interfejsów API klienta.
 
@@ -120,7 +120,7 @@ Aby skompensować możliwe niezduplikowane komunikaty, Service Bus obsługuje wy
 
 Oprócz modelu sterowania przepływem na poziomie sesji, który został wcześniej omówiony, każdy link ma własny model sterowania przepływem. Sterowanie przepływem na poziomie sesji chroni kontener przed zajściem zbyt wielu ramek jednocześnie, sterowanie przepływem na poziomie łącza umieszcza aplikację, która będzie mogła obsługiwać wiele komunikatów, które chcą obsłużyć z linku.
 
-![][4]
+![Zrzut ekranu przedstawiający dziennik z danymi źródłowymi, docelowymi, port źródłowy, port docelowy i nazwa protokołu. W wierszu fiest port docelowy 10401 (0x28 A 1) jest podkreślony jako czarny.][4]
 
 W przypadku linku transfery mogą wystąpić tylko wtedy, gdy nadawca dysponuje wystarczającym *środkiem konsolidacji*. Link kredyt jest licznikiem ustawionym przez odbiornik przy użyciu performative *przepływu* , który jest objęty zakresem linku. Gdy nadawca ma przypisany kredyt, próbuje użyć tego kredytu, dostarczając komunikaty. Każde dostarczanie komunikatów zmniejsza pozostałe środki w wysokości łącznej o 1. Gdy zostanie użyte środki łącza, dostawy są zatrzymane.
 
@@ -222,10 +222,10 @@ Każda właściwość, którą aplikacja musi definiować, powinna być mapowana
 | --- | --- | --- |
 | Identyfikator komunikatu |Zdefiniowany przez aplikację identyfikator dowolnej postaci dla tego komunikatu. Używany do wykrywania duplikatów. |[Identyfikatora](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | user-id |Identyfikator użytkownika zdefiniowany przez aplikację, nieinterpretowany przez Service Bus. |Niedostępne za pomocą interfejsu API Service Bus. |
-| na |Zdefiniowany przez aplikację identyfikator docelowy, nieinterpretowany przez Service Bus. |[Działanie](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
+| na |Zdefiniowany przez aplikację identyfikator docelowy, nieinterpretowany przez Service Bus. |[Do](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | subject |Identyfikator przeznaczenie komunikatu zdefiniowany przez aplikację, nieinterpretowany przez Service Bus. |[Etykieta](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | Odpowiedz do |Zdefiniowany przez aplikację wskaźnik ścieżki odpowiedzi, nieinterpretowany przez Service Bus. |[From](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
-| correlation-id |Zdefiniowany przez aplikację identyfikator korelacji, nieinterpretowany przez Service Bus. |[Korelacj](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
+| correlation-id |Zdefiniowany przez aplikację identyfikator korelacji, nieinterpretowany przez Service Bus. |[CorrelationId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | Typ zawartości |Zdefiniowany przez aplikację wskaźnik typu zawartości dla treści, nieinterpretowany przez Service Bus. |[ContentType](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | Kodowanie zawartości |Zdefiniowany przez aplikację wskaźnik kodowania zawartości dla treści, nieinterpretowany przez Service Bus. |Niedostępne za pomocą interfejsu API Service Bus. |
 | bezwzględny czas wygaśnięcia |Deklaruje, że bezwzględnie utraci komunikat. Zignorowano w danych wejściowych (zaobserwowane jest czas wygaśnięcia nagłówka), autorytatywny dla danych wyjściowych. |[ExpiresAtUtc](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
@@ -362,7 +362,7 @@ Komunikat żądania ma następujące właściwości aplikacji:
 | operacje |Nie |ciąg |**Put-token** |
 | typ |Nie |ciąg |Typ umieszczanego tokenu. |
 | name |Nie |ciąg |"Odbiorcy", do którego ma zastosowanie token. |
-| datę |Yes |sygnatura czasowa |Czas wygaśnięcia tokenu. |
+| datę |Tak |sygnatura czasowa |Czas wygaśnięcia tokenu. |
 
 Właściwość *name* identyfikuje jednostkę, z którą ma zostać skojarzony token. W Service Bus jest to ścieżka do kolejki lub tematu/subskrypcji. Właściwość *Type* identyfikuje typ tokenu:
 
@@ -379,7 +379,7 @@ Komunikat odpowiedzi zawiera następujące wartości *właściwości aplikacji*
 | Klucz | Opcjonalne | Typ wartości | Zawartość wartości |
 | --- | --- | --- | --- |
 | stan — kod |Nie |int |Kod odpowiedzi HTTP **[RFC2616]**. |
-| stan — opis |Yes |ciąg |Opis stanu. |
+| stan — opis |Tak |ciąg |Opis stanu. |
 
 Klient może wielokrotnie wywoływać *token Put* i dla każdej jednostki w infrastrukturze obsługi wiadomości. Tokeny są objęte zakresem bieżącego klienta i zakotwiczone w bieżącym połączeniu, co oznacza, że serwer porzuca wszelkie zachowane tokeny, gdy połączenie zostanie odłączone.
 

@@ -3,16 +3,15 @@ title: Ograniczenia i limity subskrypcji platformy Azure
 description: Zawiera listę typowych limitów subskrypcji i usług platformy Azure, przydziałów i ograniczeń. Ten artykuł zawiera informacje o sposobach zwiększania limitów oraz wartości maksymalnych.
 ms.topic: conceptual
 author: davidsmatlak
-ms.author: v-dasmat
 ms.date: 06/04/2020
-ms.openlocfilehash: 594e34a07cf2c370546e59ebe59df1de88eb2aa4
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: ffe0703fbbea75b221dfc6fd16f334dcf58e8ab3
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86080979"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86515897"
 ---
-# <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure subscription and service limits, quotas, and constraints (Limity subskrypcji i usług, limity przydziału oraz ograniczenia platformy Azure)
+# <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Limity subskrypcji i usług, limity przydziału oraz ograniczenia platformy Azure
 
 Ten dokument zawiera listę najbardziej typowych limitów Microsoft Azure, które są również czasami nazywane przydziałami.
 
@@ -378,6 +377,10 @@ Aby uzyskać więcej informacji na temat limitów Azure Files, zobacz [Azure Fil
 
 Aby uzyskać więcej informacji, zobacz [rozmiary maszyn wirtualnych](../../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
+#### <a name="disk-encryption-sets"></a>Zestawy szyfrowania dysków
+
+Istnieje ograniczenie 50 zestawów szyfrowania dysków na region, na subskrypcję. Aby uzyskać więcej informacji, zobacz dokumentację dotyczącą szyfrowania dla maszyn wirtualnych z systemem [Linux](/azure/virtual-machines/linux/disk-encryption#restrictions) lub [Windows](/azure/virtual-machines/windows/disk-encryption#restrictions) . Jeśli musisz zwiększyć limit przydziału, skontaktuj się z pomocą techniczną platformy Azure.
+
 ### <a name="managed-virtual-machine-disks"></a>Zarządzane dyski maszyny wirtualnej
 
 [!INCLUDE [azure-storage-limits-vm-disks-managed](../../../includes/azure-storage-limits-vm-disks-managed.md)]
@@ -420,7 +423,7 @@ Istnieją limity dla każdej subskrypcji dotyczące wdrażania zasobów przy uż
 
 [!INCLUDE [virtual-machine-scale-sets-limits](../../../includes/azure-virtual-machine-scale-sets-limits.md)]
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 * [Informacje o limitach i ograniczeniach platformy Azure](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
 * [Rozmiary maszyn wirtualnych i usług w chmurze dla platformy Azure](../../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

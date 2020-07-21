@@ -5,19 +5,20 @@ services: azure-monitor
 ms.topic: reference
 ms.date: 03/30/2020
 ms.subservice: metrics
-ms.openlocfilehash: 91fc2c4525ee622064520b0098087d54158bbe9e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f0a8fd186862cf95ebdbb2d5bd92d8ff860b3ba1
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83680690"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86515482"
 ---
 # <a name="azure-monitor-platform-metrics-exportable-via-diagnostic-settings"></a>Metryki platformy Azure Monitor eksportowane za pośrednictwem ustawień diagnostycznych
 
-Azure Monitor domyślnie udostępnia [metryki platformy](data-platform-metrics.md) bez konfiguracji. Zapewnia kilka sposobów współpracy z metrykami platformy, w tym wykresów w portalu, uzyskiwania dostępu do nich za pośrednictwem interfejsu API REST lub wykonywania zapytań przy użyciu programu PowerShell lub interfejsu wiersza polecenia. Zobacz [metryki — obsługa](metrics-supported.md) pełnej listy metryk platformy dostępnych obecnie w ramach skonsolidowanego potoku metryki Azure monitor. Aby wykonać zapytanie o i uzyskać dostęp do tych metryk, użyj [wersji interfejsu api 2018-01-01](https://docs.microsoft.com/rest/api/monitor/metricdefinitions). Inne metryki mogą być dostępne w portalu lub przy użyciu starszych interfejsów API.
+Azure Monitor domyślnie udostępnia [metryki platformy](data-platform-metrics.md) bez konfiguracji. Zapewnia kilka sposobów współpracy z metrykami platformy, w tym wykresów w portalu, uzyskiwania dostępu do nich za pośrednictwem interfejsu API REST lub wykonywania zapytań przy użyciu programu PowerShell lub interfejsu wiersza polecenia. Zobacz [metryki — obsługa](metrics-supported.md) pełnej listy metryk platformy dostępnych obecnie w ramach skonsolidowanego potoku metryki Azure monitor. Aby wykonać zapytanie o i uzyskać dostęp do tych metryk, użyj [wersji interfejsu api 2018-01-01](/rest/api/monitor/metricdefinitions). Inne metryki mogą być dostępne w portalu lub przy użyciu starszych interfejsów API.
 
 Metryki platformy z potoku usługi Azure monitor można wyeksportować do innych lokalizacji na jeden z dwóch sposobów.
 1. Wysyłanie do Log Analytics, Event Hubs lub Azure Storage przy użyciu [ustawień diagnostycznych](diagnostic-settings.md) .
-2. Korzystanie z [interfejsu API REST metryk](https://docs.microsoft.com/rest/api/monitor/metrics/list)
+2. Korzystanie z [interfejsu API REST metryk](/rest/api/monitor/metrics/list)
 
 Ze względu na złożonego w zapleczu Azure Monitor nie wszystkie metryki są eksportowane przy użyciu ustawień diagnostycznych. W poniższej tabeli wymieniono i nie można eksportować za pomocą ustawień diagnostycznych.
 
@@ -70,7 +71,7 @@ Tabela zawiera następujące kolumny.
 | **Tak**  | Nie |  Microsoft. AnalysisServices/serwery  |  mashup_engine_private_bytes_metric  |  Liczba prywatnych bajtów aparatu M  |  Bajty  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. AnalysisServices/serwery  |  mashup_engine_qpu_metric  |  M QPU aparatu  |  Liczba  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. AnalysisServices/serwery  |  mashup_engine_virtual_bytes_metric  |  Liczba bajtów wirtualnych aparatu M  |  Bajty  |  Średnia | 
-| **Tak**  | Nie |  Microsoft. AnalysisServices/serwery  |  memory_metric  |  Memory (Pamięć)  |  Bajty  |  Średnia | 
+| **Tak**  | Nie |  Microsoft. AnalysisServices/serwery  |  memory_metric  |  Pamięć  |  Bajty  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. AnalysisServices/serwery  |  memory_thrashing_metric  |  Przeładowywanie pamięci  |  Procent  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. AnalysisServices/serwery  |  MemoryLimitHard  |  Pamięć: sztywny limit pamięci  |  Bajty  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. AnalysisServices/serwery  |  MemoryLimitHigh  |  Pamięć: limit pamięci jest wysoki  |  Bajty  |  Średnia | 
@@ -263,7 +264,7 @@ Tabela zawiera następujące kolumny.
 | **Tak**  | Nie |  Microsoft. cache/Redis  |  connectedclients7  |  Połączeni klienci (fragmentu 7)  |  Liczba  |  Maksimum | 
 | **Tak**  | Nie |  Microsoft. cache/Redis  |  connectedclients8  |  Połączeni klienci (fragmentu 8)  |  Liczba  |  Maksimum | 
 | **Tak**  | Nie |  Microsoft. cache/Redis  |  connectedclients9  |  Połączeni klienci (fragmentu 9)  |  Liczba  |  Maksimum | 
-| **Tak**  | Nie |  Microsoft. cache/Redis  |  błędy  |  Errors  |  Liczba  |  Maksimum | 
+| **Tak**  | Nie |  Microsoft. cache/Redis  |  błędy  |  błędy  |  Liczba  |  Maksimum | 
 | **Tak**  | Nie |  Microsoft. cache/Redis  |  evictedkeys  |  Wykluczone klucze  |  Liczba  |  Łącznie | 
 | **Tak**  | Nie |  Microsoft. cache/Redis  |  evictedkeys0  |  Wykluczone klucze (fragmentu 0)  |  Liczba  |  Łącznie | 
 | **Tak**  | Nie |  Microsoft. cache/Redis  |  evictedkeys1  |  Wykluczone klucze (fragmentu 1)  |  Liczba  |  Łącznie | 
@@ -404,7 +405,7 @@ Tabela zawiera następujące kolumny.
 | **Tak**  | Nie |  Microsoft. ClassicStorage/storageAccounts  |  Ruch wychodzący  |  Ruch wychodzący  |  Bajty  |  Łącznie | 
 | **Tak**  | Nie |  Microsoft. ClassicStorage/storageAccounts  |  Ruch przychodzący  |  Ruch przychodzący  |  Bajty  |  Łącznie | 
 | **Tak**  | Nie |  Microsoft. ClassicStorage/storageAccounts  |  SuccessE2ELatency  |  Opóźnienie E2E dla powodzenia  |  )  |  Średnia | 
-| **Tak**  | Nie |  Microsoft. ClassicStorage/storageAccounts  |  SuccessServerLatency  |  Opóźnienie serwera dla powodzenia  |  )  |  Średnia | 
+| **Tak**  | Nie |  Microsoft. ClassicStorage/storageAccounts  |  SuccessServerLatency  |  Opóźnienie serwera sukcesu  |  )  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. ClassicStorage/storageAccounts  |  Transakcje  |  Transakcje  |  Liczba  |  Łącznie | 
 | Nie  | Nie |  Microsoft. ClassicStorage/storageAccounts  |  UsedCapacity  |  Używana pojemność  |  Bajty  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. ClassicStorage/storageAccounts/blobServices  |  Dostępność  |  Dostępność  |  Procent  |  Średnia | 
@@ -415,7 +416,7 @@ Tabela zawiera następujące kolumny.
 | Nie  | Nie |  Microsoft. ClassicStorage/storageAccounts/blobServices  |  IndexCapacity  |  Pojemność indeksu  |  Bajty  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. ClassicStorage/storageAccounts/blobServices  |  Ruch przychodzący  |  Ruch przychodzący  |  Bajty  |  Łącznie | 
 | **Tak**  | Nie |  Microsoft. ClassicStorage/storageAccounts/blobServices  |  SuccessE2ELatency  |  Opóźnienie E2E dla powodzenia  |  )  |  Średnia | 
-| **Tak**  | Nie |  Microsoft. ClassicStorage/storageAccounts/blobServices  |  SuccessServerLatency  |  Opóźnienie serwera dla powodzenia  |  )  |  Średnia | 
+| **Tak**  | Nie |  Microsoft. ClassicStorage/storageAccounts/blobServices  |  SuccessServerLatency  |  Opóźnienie serwera sukcesu  |  )  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. ClassicStorage/storageAccounts/blobServices  |  Transakcje  |  Transakcje  |  Liczba  |  Łącznie | 
 | **Tak**  | Nie |  Microsoft. ClassicStorage/storageAccounts/fileServices  |  Dostępność  |  Dostępność  |  Procent  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. ClassicStorage/storageAccounts/fileServices  |  Ruch wychodzący  |  Ruch wychodzący  |  Bajty  |  Łącznie | 
@@ -427,7 +428,7 @@ Tabela zawiera następujące kolumny.
 | Nie  | Nie |  Microsoft. ClassicStorage/storageAccounts/fileServices  |  FileShareSnapshotSize  |  Rozmiar migawki udziału plików  |  Bajty  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. ClassicStorage/storageAccounts/fileServices  |  Ruch przychodzący  |  Ruch przychodzący  |  Bajty  |  Łącznie | 
 | **Tak**  | Nie |  Microsoft. ClassicStorage/storageAccounts/fileServices  |  SuccessE2ELatency  |  Opóźnienie E2E dla powodzenia  |  )  |  Średnia | 
-| **Tak**  | Nie |  Microsoft. ClassicStorage/storageAccounts/fileServices  |  SuccessServerLatency  |  Opóźnienie serwera dla powodzenia  |  )  |  Średnia | 
+| **Tak**  | Nie |  Microsoft. ClassicStorage/storageAccounts/fileServices  |  SuccessServerLatency  |  Opóźnienie serwera sukcesu  |  )  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. ClassicStorage/storageAccounts/fileServices  |  Transakcje  |  Transakcje  |  Liczba  |  Łącznie | 
 | **Tak**  | Nie |  Microsoft. ClassicStorage/storageAccounts/queueServices  |  Dostępność  |  Dostępność  |  Procent  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. ClassicStorage/storageAccounts/queueServices  |  Ruch wychodzący  |  Ruch wychodzący  |  Bajty  |  Łącznie | 
@@ -436,13 +437,13 @@ Tabela zawiera następujące kolumny.
 | **Tak**  | Nie |  Microsoft. ClassicStorage/storageAccounts/queueServices  |  QueueCount  |  Liczba kolejek  |  Liczba  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. ClassicStorage/storageAccounts/queueServices  |  QueueMessageCount  |  Liczba komunikatów w kolejce  |  Liczba  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. ClassicStorage/storageAccounts/queueServices  |  SuccessE2ELatency  |  Opóźnienie E2E dla powodzenia  |  )  |  Średnia | 
-| **Tak**  | Nie |  Microsoft. ClassicStorage/storageAccounts/queueServices  |  SuccessServerLatency  |  Opóźnienie serwera dla powodzenia  |  )  |  Średnia | 
+| **Tak**  | Nie |  Microsoft. ClassicStorage/storageAccounts/queueServices  |  SuccessServerLatency  |  Opóźnienie serwera sukcesu  |  )  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. ClassicStorage/storageAccounts/queueServices  |  Transakcje  |  Transakcje  |  Liczba  |  Łącznie | 
 | **Tak**  | Nie |  Microsoft. ClassicStorage/storageAccounts/tableServices  |  Dostępność  |  Dostępność  |  Procent  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. ClassicStorage/storageAccounts/tableServices  |  Ruch wychodzący  |  Ruch wychodzący  |  Bajty  |  Łącznie | 
 | **Tak**  | Nie |  Microsoft. ClassicStorage/storageAccounts/tableServices  |  Ruch przychodzący  |  Ruch przychodzący  |  Bajty  |  Łącznie | 
 | **Tak**  | Nie |  Microsoft. ClassicStorage/storageAccounts/tableServices  |  SuccessE2ELatency  |  Opóźnienie E2E dla powodzenia  |  )  |  Średnia | 
-| **Tak**  | Nie |  Microsoft. ClassicStorage/storageAccounts/tableServices  |  SuccessServerLatency  |  Opóźnienie serwera dla powodzenia  |  )  |  Średnia | 
+| **Tak**  | Nie |  Microsoft. ClassicStorage/storageAccounts/tableServices  |  SuccessServerLatency  |  Opóźnienie serwera sukcesu  |  )  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. ClassicStorage/storageAccounts/tableServices  |  TableCapacity  |  Pojemność tabeli  |  Bajty  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. ClassicStorage/storageAccounts/tableServices  |  TableCount  |  Liczba tabel  |  Liczba  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. ClassicStorage/storageAccounts/tableServices  |  TableEntityCount  |  Liczba jednostek tabeli  |  Liczba  |  Średnia | 
@@ -578,7 +579,7 @@ Tabela zawiera następujące kolumny.
 | **Tak**  | Nie |  Microsoft. COMPUTE/virtualMachineScaleSets/virtualMachines  |  Chybienia odczytu pamięci podręcznej dysku danych w warstwie Premium  |  Chybienia odczytu pamięci podręcznej dysku z danymi Premium (wersja zapoznawcza)  |  Procent  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. COMPUTE/virtualMachineScaleSets/virtualMachines  |  Trafienie odczytu pamięci podręcznej systemu operacyjnego Premium  |  Trafienie odczytu pamięci podręcznej systemu operacyjnego Premium (wersja zapoznawcza)  |  Procent  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. COMPUTE/virtualMachineScaleSets/virtualMachines  |  Brak odczytu pamięci podręcznej dysku systemu operacyjnego w warstwie Premium  |  Brak chybień w pamięci podręcznej systemu operacyjnego Premium (wersja zapoznawcza)  |  Procent  |  Średnia | 
-| **Tak**  | Nie |  Microsoft. ContainerInstance/containerGroups  |  CpuUsage  |  Użycie procesora  |  Liczba  |  Średnia | 
+| **Tak**  | Nie |  Microsoft. ContainerInstance/containerGroups  |  CpuUsage  |  Użycie procesora CPU  |  Liczba  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. ContainerInstance/containerGroups  |  MemoryUsage  |  Użycie pamięci  |  Bajty  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. ContainerInstance/containerGroups  |  NetworkBytesReceivedPerSecond  |  Bajty odebrane przez sieć na sekundę  |  Bajty  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. ContainerInstance/containerGroups  |  NetworkBytesTransmittedPerSecond  |  Bajty przesyłane przez sieć na sekundę  |  Bajty  |  Średnia | 
@@ -1298,10 +1299,10 @@ Tabela zawiera następujące kolumny.
 | **Tak**  | Nie |  Microsoft. OperationalInsights/obszary robocze  |  Pamięć Average_Used pamięci (MB)  |  Używana pamięć (MB)  |  Liczba  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. OperationalInsights/obszary robocze  |  Average_Users  |  Użytkownicy  |  Liczba  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. OperationalInsights/obszary robocze  |  Average_Virtual pamięci współdzielonej  |  Wirtualna pamięć udostępniona  |  Liczba  |  Średnia | 
-| **Tak**  | Nie |  Microsoft. OperationalInsights/obszary robocze  |  Wydarzenie  |  Wydarzenie  |  Liczba  |  Średnia | 
+| **Tak**  | Nie |  Microsoft. OperationalInsights/obszary robocze  |  Zdarzenie  |  Zdarzenie  |  Liczba  |  Średnia | 
 | **Tak**  | **Tak** |  Microsoft. OperationalInsights/obszary robocze  |  Puls  |  Puls  |  Liczba  |  Łącznie | 
 | **Tak**  | Nie |  Microsoft. OperationalInsights/obszary robocze  |  Aktualizacja  |  Aktualizacja  |  Liczba  |  Średnia | 
-| **Tak**  | Nie |  Microsoft. PowerBIDedicated/pojemności  |  memory_metric  |  Memory (Pamięć)  |  Bajty  |  Średnia | 
+| **Tak**  | Nie |  Microsoft. PowerBIDedicated/pojemności  |  memory_metric  |  Pamięć  |  Bajty  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. PowerBIDedicated/pojemności  |  memory_thrashing_metric  |  Migotanie pamięci (zbiory danych)  |  Procent  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. PowerBIDedicated/pojemności  |  qpu_high_utilization_metric  |  Wysokie wykorzystanie jednostek QPU  |  Liczba  |  Łącznie | 
 | **Tak**  | Nie |  Microsoft. PowerBIDedicated/pojemności  |  QueryDuration  |  Czas trwania zapytania (zestawy danych)  |  )  |  Średnia | 
@@ -1435,7 +1436,7 @@ Tabela zawiera następujące kolumny.
 | **Tak**  | Nie |  Microsoft. Storage/storageAccounts  |  Ruch wychodzący  |  Ruch wychodzący  |  Bajty  |  Łącznie | 
 | **Tak**  | Nie |  Microsoft. Storage/storageAccounts  |  Ruch przychodzący  |  Ruch przychodzący  |  Bajty  |  Łącznie | 
 | **Tak**  | Nie |  Microsoft. Storage/storageAccounts  |  SuccessE2ELatency  |  Opóźnienie E2E dla powodzenia  |  )  |  Średnia | 
-| **Tak**  | Nie |  Microsoft. Storage/storageAccounts  |  SuccessServerLatency  |  Opóźnienie serwera dla powodzenia  |  )  |  Średnia | 
+| **Tak**  | Nie |  Microsoft. Storage/storageAccounts  |  SuccessServerLatency  |  Opóźnienie serwera sukcesu  |  )  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. Storage/storageAccounts  |  Transakcje  |  Transakcje  |  Liczba  |  Łącznie | 
 | Nie  | Nie |  Microsoft. Storage/storageAccounts  |  UsedCapacity  |  Używana pojemność  |  Bajty  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. Storage/storageAccounts/blobServices  |  Dostępność  |  Dostępność  |  Procent  |  Średnia | 
@@ -1446,7 +1447,7 @@ Tabela zawiera następujące kolumny.
 | Nie  | Nie |  Microsoft. Storage/storageAccounts/blobServices  |  IndexCapacity  |  Pojemność indeksu  |  Bajty  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. Storage/storageAccounts/blobServices  |  Ruch przychodzący  |  Ruch przychodzący  |  Bajty  |  Łącznie | 
 | **Tak**  | Nie |  Microsoft. Storage/storageAccounts/blobServices  |  SuccessE2ELatency  |  Opóźnienie E2E dla powodzenia  |  )  |  Średnia | 
-| **Tak**  | Nie |  Microsoft. Storage/storageAccounts/blobServices  |  SuccessServerLatency  |  Opóźnienie serwera dla powodzenia  |  )  |  Średnia | 
+| **Tak**  | Nie |  Microsoft. Storage/storageAccounts/blobServices  |  SuccessServerLatency  |  Opóźnienie serwera sukcesu  |  )  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. Storage/storageAccounts/blobServices  |  Transakcje  |  Transakcje  |  Liczba  |  Łącznie | 
 | **Tak**  | Nie |  Microsoft. Storage/storageAccounts/fileServices  |  Dostępność  |  Dostępność  |  Procent  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. Storage/storageAccounts/fileServices  |  Ruch wychodzący  |  Ruch wychodzący  |  Bajty  |  Łącznie | 
@@ -1458,7 +1459,7 @@ Tabela zawiera następujące kolumny.
 | Nie  | Nie |  Microsoft. Storage/storageAccounts/fileServices  |  FileShareSnapshotSize  |  Rozmiar migawki udziału plików  |  Bajty  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. Storage/storageAccounts/fileServices  |  Ruch przychodzący  |  Ruch przychodzący  |  Bajty  |  Łącznie | 
 | **Tak**  | Nie |  Microsoft. Storage/storageAccounts/fileServices  |  SuccessE2ELatency  |  Opóźnienie E2E dla powodzenia  |  )  |  Średnia | 
-| **Tak**  | Nie |  Microsoft. Storage/storageAccounts/fileServices  |  SuccessServerLatency  |  Opóźnienie serwera dla powodzenia  |  )  |  Średnia | 
+| **Tak**  | Nie |  Microsoft. Storage/storageAccounts/fileServices  |  SuccessServerLatency  |  Opóźnienie serwera sukcesu  |  )  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. Storage/storageAccounts/fileServices  |  Transakcje  |  Transakcje  |  Liczba  |  Łącznie | 
 | **Tak**  | Nie |  Microsoft. Storage/storageAccounts/queueServices  |  Dostępność  |  Dostępność  |  Procent  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. Storage/storageAccounts/queueServices  |  Ruch wychodzący  |  Ruch wychodzący  |  Bajty  |  Łącznie | 
@@ -1467,13 +1468,13 @@ Tabela zawiera następujące kolumny.
 | **Tak**  | Nie |  Microsoft. Storage/storageAccounts/queueServices  |  QueueCount  |  Liczba kolejek  |  Liczba  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. Storage/storageAccounts/queueServices  |  QueueMessageCount  |  Liczba komunikatów w kolejce  |  Liczba  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. Storage/storageAccounts/queueServices  |  SuccessE2ELatency  |  Opóźnienie E2E dla powodzenia  |  )  |  Średnia | 
-| **Tak**  | Nie |  Microsoft. Storage/storageAccounts/queueServices  |  SuccessServerLatency  |  Opóźnienie serwera dla powodzenia  |  )  |  Średnia | 
+| **Tak**  | Nie |  Microsoft. Storage/storageAccounts/queueServices  |  SuccessServerLatency  |  Opóźnienie serwera sukcesu  |  )  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. Storage/storageAccounts/queueServices  |  Transakcje  |  Transakcje  |  Liczba  |  Łącznie | 
 | **Tak**  | Nie |  Microsoft. Storage/storageAccounts/tableServices  |  Dostępność  |  Dostępność  |  Procent  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. Storage/storageAccounts/tableServices  |  Ruch wychodzący  |  Ruch wychodzący  |  Bajty  |  Łącznie | 
 | **Tak**  | Nie |  Microsoft. Storage/storageAccounts/tableServices  |  Ruch przychodzący  |  Ruch przychodzący  |  Bajty  |  Łącznie | 
 | **Tak**  | Nie |  Microsoft. Storage/storageAccounts/tableServices  |  SuccessE2ELatency  |  Opóźnienie E2E dla powodzenia  |  )  |  Średnia | 
-| **Tak**  | Nie |  Microsoft. Storage/storageAccounts/tableServices  |  SuccessServerLatency  |  Opóźnienie serwera dla powodzenia  |  )  |  Średnia | 
+| **Tak**  | Nie |  Microsoft. Storage/storageAccounts/tableServices  |  SuccessServerLatency  |  Opóźnienie serwera sukcesu  |  )  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. Storage/storageAccounts/tableServices  |  TableCapacity  |  Pojemność tabeli  |  Bajty  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. Storage/storageAccounts/tableServices  |  TableCount  |  Liczba tabel  |  Liczba  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. Storage/storageAccounts/tableServices  |  TableEntityCount  |  Liczba jednostek tabeli  |  Liczba  |  Średnia | 
@@ -1525,7 +1526,7 @@ Tabela zawiera następujące kolumny.
 | **Tak**  | Nie |  Microsoft. StreamAnalytics/streamingjobs  |  DeserializationError  |  Błędy deserializacji danych wejściowych  |  Liczba  |  Łącznie | 
 | **Tak**  | Nie |  Microsoft. StreamAnalytics/streamingjobs  |  DroppedOrAdjustedEvents  |  Zdarzenia poza kolejnością  |  Liczba  |  Łącznie | 
 | **Tak**  | Nie |  Microsoft. StreamAnalytics/streamingjobs  |  EarlyInputEvents  |  Wczesne zdarzenia wejściowe  |  Liczba  |  Łącznie | 
-| **Tak**  | Nie |  Microsoft. StreamAnalytics/streamingjobs  |  Errors  |  Błędy środowiska uruchomieniowego  |  Liczba  |  Łącznie | 
+| **Tak**  | Nie |  Microsoft. StreamAnalytics/streamingjobs  |  błędy  |  Błędy środowiska uruchomieniowego  |  Liczba  |  Łącznie | 
 | **Tak**  | Nie |  Microsoft. StreamAnalytics/streamingjobs  |  InputEventBytes  |  Bajty zdarzeń wejściowych  |  Bajty  |  Łącznie | 
 | **Tak**  | Nie |  Microsoft. StreamAnalytics/streamingjobs  |  InputEvents  |  Zdarzenia wejściowe  |  Liczba  |  Łącznie | 
 | **Tak**  | Nie |  Microsoft. StreamAnalytics/streamingjobs  |  InputEventsSourcesBacklogged  |  Zaległe zdarzenia wejściowe  |  Liczba  |  Maksimum | 

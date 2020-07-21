@@ -3,16 +3,16 @@ title: Kopia zapasowa offline przy użyciu Azure Data Box
 description: Dowiedz się, w jaki sposób można użyć Azure Data Box, aby wypełniać duże dane początkowej kopii zapasowej w trybie offline z agenta MARS do magazynu Recovery Services.
 ms.topic: conceptual
 ms.date: 1/27/2020
-ms.openlocfilehash: e45b8e26d332019b03ac41c3993e311480494040
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a60d749f270c9efab0649b49b5c0c41945faddf5
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82160959"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86513697"
 ---
 # <a name="azure-backup-offline-backup-by-using-azure-data-box"></a>Azure Backup kopii zapasowej offline przy użyciu Azure Data Box
 
-Za pomocą [Azure Data Box](https://docs.microsoft.com/azure/databox/data-box-overview) można wypełniać duże początkowe kopie zapasowe Microsoft Azure Recovery Services (MARS) w trybie offline (bez użycia sieci) do magazynu Recovery Services. Ten proces oszczędza czas i przepustowość sieci, w przypadku których w przeciwnym razie można przenieść duże ilości danych kopii zapasowej w tryb online w sieci o dużej opóźnieniu. To ulepszenie jest obecnie dostępne w wersji zapoznawczej. Kopia zapasowa offline oparta na Azure Data Box zapewnia dwie różne zalety [tworzenia kopii zapasowych w trybie offline na podstawie usługi Azure Import/Export](https://docs.microsoft.com/azure/backup/backup-azure-backup-import-export):
+Za pomocą [Azure Data Box](../databox/data-box-overview.md) można wypełniać duże początkowe kopie zapasowe Microsoft Azure Recovery Services (MARS) w trybie offline (bez użycia sieci) do magazynu Recovery Services. Ten proces oszczędza czas i przepustowość sieci, w przypadku których w przeciwnym razie można przenieść duże ilości danych kopii zapasowej w tryb online w sieci o dużej opóźnieniu. To ulepszenie jest obecnie dostępne w wersji zapoznawczej. Kopia zapasowa offline oparta na Azure Data Box zapewnia dwie różne zalety [tworzenia kopii zapasowych w trybie offline na podstawie usługi Azure Import/Export](./backup-azure-backup-import-export.md):
 
 - Nie ma potrzeby pozyskiwania własnych dysków i łączników zgodnych z platformą Azure. Azure Data Box dostarcza dyski skojarzone z wybraną jednostką [SKU urządzenie Data Box](https://azure.microsoft.com/services/databox/data/).
 - Azure Backup (Agent MARS) może bezpośrednio zapisywać dane kopii zapasowej na obsługiwanych jednostkach SKU Azure Data Box. Ta funkcja eliminuje konieczność udostępniania lokalizacji tymczasowej dla danych początkowej kopii zapasowej. Nie są też potrzebne narzędzia do formatowania i kopiowania tych danych na dyski.
@@ -25,7 +25,7 @@ W tym artykule wyjaśniono, jak można użyć Azure Data Box, aby wypełniać du
 
 Proces tworzenia inicjatora danych z agenta MARS przy użyciu Azure Data Box jest obsługiwany przez następujące jednostki SKU systemu Windows.
 
-| **Macintosh**                                 | **SKU**                                                      |
+| **System operacyjny**                                 | **SKU**                                                      |
 | -------------------------------------- | ------------------------------------------------------------ |
 | **Stacja robocza**                        |                                                              |
 | Windows 10 (wersja 64-bitowa)                     | Enterprise, Pro, Home                                       |
@@ -47,8 +47,8 @@ Proces tworzenia inicjatora danych z agenta MARS przy użyciu Azure Data Box jes
 
 | Rozmiar danych kopii zapasowej (po kompresji przez MARS) * na serwer | Obsługiwana Azure Data Box jednostka SKU                                      |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| <= 7,2 TB                                                    | [Dysk Azure Data Box](https://docs.microsoft.com/azure/databox/data-box-disk-overview) |
-| >7,2 TB i <= 80 TB * *                                      | [Azure Data Box (100 TB)](https://docs.microsoft.com/azure/databox/data-box-overview) |
+| <= 7,2 TB                                                    | [Dysk Azure Data Box](../databox/data-box-disk-overview.md) |
+| >7,2 TB i <= 80 TB * *                                      | [Azure Data Box (100 TB)](../databox/data-box-overview.md) |
 
 * Typowe stawki kompresji różnią się od 10% do 20%. <br>
 * * Jeśli spodziewasz się, że dane początkowej kopii zapasowej jednego serwera MARS mają więcej niż 80 TB, skontaktuj się z [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com) .
@@ -113,7 +113,7 @@ Azure PowerShell można również zainstalować przy użyciu pliku msi. Aby go u
 
 ### <a name="order-and-receive-the-data-box-device"></a>Zamówienie i odbieranie urządzenia urządzenie Data Box
 
-Proces tworzenia kopii zapasowej w trybie offline przy użyciu usług MARS i Azure Data Box wymaga, aby urządzenia urządzenie Data Box były w stanie dostarczonym przed wywołaniem kopii zapasowej w trybie offline przy użyciu agenta MARS. Aby zamówić najbardziej odpowiednią jednostkę SKU dla danego wymagania, zobacz [rozmiar danych kopii zapasowej i obsługiwane urządzenie Data Box jednostek SKU](#backup-data-size-and-supported-data-box-skus). Wykonaj kroki opisane w [samouczku: Zamów dysk Azure Data Box](https://docs.microsoft.com/azure/databox/data-box-disk-deploy-ordered) , aby zamówić i odbierać urządzenie Data Box urządzeń.
+Proces tworzenia kopii zapasowej w trybie offline przy użyciu usług MARS i Azure Data Box wymaga, aby urządzenia urządzenie Data Box były w stanie dostarczonym przed wywołaniem kopii zapasowej w trybie offline przy użyciu agenta MARS. Aby zamówić najbardziej odpowiednią jednostkę SKU dla danego wymagania, zobacz [rozmiar danych kopii zapasowej i obsługiwane urządzenie Data Box jednostek SKU](#backup-data-size-and-supported-data-box-skus). Wykonaj kroki opisane w [samouczku: Zamów dysk Azure Data Box](../databox/data-box-disk-deploy-ordered.md) , aby zamówić i odbierać urządzenie Data Box urządzeń.
 
 > [!IMPORTANT]
 > Nie wybieraj *BlobStorage* dla **rodzaju konta**. Agent MARS wymaga konta obsługującego stronicowe obiekty blob, które nie jest obsługiwane w przypadku wybrania *BlobStorage* . Wybierz pozycję **Storage v2 (ogólnego przeznaczenia w wersji 2)** jako **rodzaj konta** podczas tworzenia docelowego konta magazynu dla zadania Azure Data Box.
@@ -124,7 +124,7 @@ Proces tworzenia kopii zapasowej w trybie offline przy użyciu usług MARS i Azu
 
 1. Upewnij się, że odinstalowano wszystkie poprzednie instalacje agenta MARS.
 1. Pobierz najnowszego agenta MARS z [tej witryny sieci Web](https://aka.ms/azurebackup_agent).
-1. Uruchom *MARSAgentInstaller.exe*i wykonaj *tylko* te czynności, aby [zainstalować i zarejestrować agenta](https://docs.microsoft.com/azure/backup/install-mars-agent#install-and-register-the-agent) w magazynie Recovery Services, w którym mają być przechowywane kopie zapasowe.
+1. Uruchom *MARSAgentInstaller.exe*i wykonaj *tylko* te czynności, aby [zainstalować i zarejestrować agenta](./install-mars-agent.md#install-and-register-the-agent) w magazynie Recovery Services, w którym mają być przechowywane kopie zapasowe.
 
    > [!NOTE]
    > Magazyn Recovery Services musi znajdować się w tej samej subskrypcji co zadanie Azure Data Box.
@@ -137,14 +137,14 @@ W zależności od zamówionej jednostki SKU Azure Data Box wykonaj kroki opisane
 
 ### <a name="set-up-azure-data-box-disks"></a>Konfigurowanie dysków Azure Data Box
 
-Jeśli zostały uporządkowane co najmniej jeden Azure Data Box dysków (do 8 TB), wykonaj kroki opisane tutaj, aby [rozpakować, połączyć i odblokować dysk urządzenie Data Box](https://docs.microsoft.com/azure/databox/data-box-disk-deploy-set-up).
+Jeśli zostały uporządkowane co najmniej jeden Azure Data Box dysków (do 8 TB), wykonaj kroki opisane tutaj, aby [rozpakować, połączyć i odblokować dysk urządzenie Data Box](../databox/data-box-disk-deploy-set-up.md).
 
 >[!NOTE]
 >Istnieje możliwość, że serwer z agentem MARS nie ma portu USB. W takiej sytuacji można połączyć Azure Data Box dysk z innym serwerem lub klientem i udostępnić katalog główny urządzenia jako udział sieciowy.
 
 ### <a name="set-up-azure-data-box"></a>Skonfiguruj Azure Data Box
 
-Jeśli zamówiłeś wystąpienie Azure Data Box (do 100 TB), postępuj zgodnie z poniższymi instrukcjami, [Aby skonfigurować wystąpienie urządzenie Data Box](https://docs.microsoft.com/azure/databox/data-box-deploy-set-up).
+Jeśli zamówiłeś wystąpienie Azure Data Box (do 100 TB), postępuj zgodnie z poniższymi instrukcjami, [Aby skonfigurować wystąpienie urządzenie Data Box](../databox/data-box-deploy-set-up.md).
 
 #### <a name="mount-your-azure-data-box-instance-as-a-local-system"></a>Zainstaluj wystąpienie Azure Data Box jako system lokalny
 
@@ -160,8 +160,8 @@ Aby mieć pewność, że urządzenie urządzenie Data Box można zainstalować j
     psexec.exe  -s  -i  cmd.exe
     ```
 
-   Okno polecenia otwierane w wyniku poprzedniego polecenia znajduje się w kontekście systemu lokalnego. Za pomocą tego okna polecenia można wykonać kroki instalacji udziału usługi Azure Page BLOB jako dysku sieciowego na serwerze z systemem Windows.
-1. Postępuj zgodnie z instrukcjami w temacie [Connect to urządzenie Data Box](https://docs.microsoft.com/azure/databox/data-box-deploy-copy-data-via-nfs#connect-to-data-box) , aby połączyć serwer z agentem Mars do urządzenia urządzenie Data Box za pośrednictwem systemu plików NFS. Uruchom następujące polecenie w wierszu polecenia systemu lokalnego, aby zainstalować udział obiektów BLOB na stronie platformy Azure.
+   Okno polecenia otwierane z powodu poprzedniego polecenia znajduje się w kontekście systemu lokalnego. Za pomocą tego okna polecenia można wykonać kroki instalacji udziału usługi Azure Page BLOB jako dysku sieciowego na serwerze z systemem Windows.
+1. Postępuj zgodnie z instrukcjami w temacie [Connect to urządzenie Data Box](../databox/data-box-deploy-copy-data-via-nfs.md#connect-to-data-box) , aby połączyć serwer z agentem Mars do urządzenia urządzenie Data Box za pośrednictwem systemu plików NFS. Uruchom następujące polecenie w wierszu polecenia systemu lokalnego, aby zainstalować udział obiektów BLOB na stronie platformy Azure.
 
     ```cmd
     mount -o nolock \\<DeviceIPAddress>\<StorageAccountName_PageBlob X:  
@@ -195,7 +195,7 @@ Aby mieć pewność, że urządzenie urządzenie Data Box można zainstalować j
 
     ![Pobierz zadania urządzenie Data Box dla identyfikatora subskrypcji](./media/offline-backup-azure-data-box/fetching-databox-jobs.png)
 
-1. Wybierz poprawną kolejność urządzenie Data Box, dla której masz rozpakowane, połączono i odblokowano dysk urządzenie Data Box. Wybierz pozycję **Dalej**.
+1. Wybierz poprawną kolejność urządzenie Data Box, dla której masz rozpakowane, połączono i odblokowano dysk urządzenie Data Box. Wybierz przycisk **Dalej**.
 
     ![Wybierz zamówienia urządzenie Data Box](./media/offline-backup-azure-data-box/select-databox-order.png)
 
@@ -238,9 +238,9 @@ Po zakończeniu tworzenia kopii zapasowej danych na agencie MARS zostanie wyświ
 
 W tej sekcji opisano kroki, które należy wykonać po pomyślnym wykonaniu kopii zapasowej danych Azure Data Box Disk.
 
-- Wykonaj kroki opisane w tym artykule, aby [dostarczyć Azure Data Box dysk do platformy Azure](https://docs.microsoft.com/azure/databox/data-box-disk-deploy-picked-up). Jeśli używasz urządzenia z systemem Azure Data Box 100 TB, wykonaj następujące kroki, aby [dostarczyć urządzenie Azure Data Box do platformy Azure](https://docs.microsoft.com/azure/databox/data-box-deploy-picked-up).
+- Wykonaj kroki opisane w tym artykule, aby [dostarczyć Azure Data Box dysk do platformy Azure](../databox/data-box-disk-deploy-picked-up.md). Jeśli używasz urządzenia z systemem Azure Data Box 100 TB, wykonaj następujące kroki, aby [dostarczyć urządzenie Azure Data Box do platformy Azure](../databox/data-box-deploy-picked-up.md).
 
-- [Monitoruj zadanie urządzenie Data Box](https://docs.microsoft.com/azure/databox/data-box-disk-deploy-upload-verify) w Azure Portal. Po zakończeniu zadania Azure Data Box Agent MARS automatycznie przenosi dane z konta magazynu do magazynu Recovery Services w czasie następnej zaplanowanej kopii zapasowej. Oznacza to, że zadanie tworzenia kopii zapasowej zostanie oznaczone jako *ukończone* w przypadku pomyślnego utworzenia punktu odzyskiwania.
+- [Monitoruj zadanie urządzenie Data Box](../databox/data-box-disk-deploy-upload-verify.md) w Azure Portal. Po zakończeniu zadania Azure Data Box Agent MARS automatycznie przenosi dane z konta magazynu do magazynu Recovery Services w czasie następnej zaplanowanej kopii zapasowej. Oznacza to, że zadanie tworzenia kopii zapasowej zostanie oznaczone jako *ukończone* w przypadku pomyślnego utworzenia punktu odzyskiwania.
 
     >[!NOTE]
     >Agent MARS wyzwala kopie zapasowe w planowanych godzinach podczas tworzenia zasad. Te zadania oznaczają flagę "Oczekiwanie na ukończenie zadania Azure Data Box, aż do momentu zakończenia zadania.
@@ -249,7 +249,7 @@ W tej sekcji opisano kroki, które należy wykonać po pomyślnym wykonaniu kopi
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 
-Agent Microsoft Azure Backup (MAB) tworzy aplikację Azure Active Directory (Azure AD) dla Ciebie w dzierżawie. Ta aplikacja wymaga certyfikatu do uwierzytelniania utworzonego i przekazanego podczas konfigurowania zasad rozmieszczania w trybie offline. Używamy Azure PowerShell do tworzenia i przekazywania certyfikatu do aplikacji usługi Azure AD.
+Agent Microsoft Azure Recovery Services (MARS) tworzy aplikację Azure Active Directory (Azure AD) dla Ciebie w dzierżawie. Ta aplikacja wymaga certyfikatu do uwierzytelniania utworzonego i przekazanego podczas konfigurowania zasad rozmieszczania w trybie offline. Używamy Azure PowerShell do tworzenia i przekazywania certyfikatu do aplikacji usługi Azure AD.
 
 ### <a name="problem"></a>Problem
 

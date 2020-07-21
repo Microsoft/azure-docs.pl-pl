@@ -6,16 +6,16 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/20/2020
-ms.openlocfilehash: 05eb92e2fb887b5c64e2c73576fe85a4543ac1b7
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: da9ec0fc421f0cb2f2a1e6fa65d8c936cfd5a3c7
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86184501"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86515431"
 ---
 # <a name="customer-owned-storage-accounts-for-log-ingestion-in-azure-monitor"></a>Konta magazynu należące do klienta na potrzeby pozyskiwania dzienników w Azure Monitor
 
-Azure Monitor używa kont magazynu w procesie pozyskiwania niektórych typów danych, takich jak [dzienniki niestandardowe](data-sources-custom-logs.md) i niektóre [dzienniki platformy Azure](azure-storage-iis-table.md). W procesie pozyskiwania dzienniki są najpierw wysyłane do konta magazynu i później wprowadzane do Log Analytics lub Application Insights. Jeśli chcesz kontrolować dane podczas pozyskiwania, możesz użyć własnych kont magazynu zamiast magazynu zarządzanego przez usługę. Korzystanie z własnego konta magazynu zapewnia kontrolę nad dostępem, zawartością, szyfrowaniem i przechowywaniem dzienników podczas pozyskiwania. Nazywamy to własnymi magazynami lub BYOS. 
+Azure Monitor używa kont magazynu w procesie pozyskiwania niektórych typów danych, takich jak [dzienniki niestandardowe](data-sources-custom-logs.md) i niektóre [dzienniki platformy Azure](./diagnostics-extension-logs.md). W procesie pozyskiwania dzienniki są najpierw wysyłane do konta magazynu i później wprowadzane do Log Analytics lub Application Insights. Jeśli chcesz kontrolować dane podczas pozyskiwania, możesz użyć własnych kont magazynu zamiast magazynu zarządzanego przez usługę. Korzystanie z własnego konta magazynu zapewnia kontrolę nad dostępem, zawartością, szyfrowaniem i przechowywaniem dzienników podczas pozyskiwania. Nazywamy to własnymi magazynami lub BYOS. 
 
 Jeden scenariusz wymagający BYOS jest izolacją sieci za poorednictwem prywatnych linków. W przypadku używania sieci wirtualnej izolacja sieci jest często wymagane i dostęp do publicznej sieci Internet jest ograniczony. W takich przypadkach dostęp do usługi Azure Monitor Service Storage na potrzeby pozyskiwania dzienników jest całkowicie zablokowany lub traktowany jako niewłaściwy. Zamiast tego dzienniki powinny być pozyskane za pośrednictwem konta magazynu należącego do klienta w sieci wirtualnej lub łatwo dostępne.
 
@@ -23,7 +23,7 @@ Innym scenariuszem jest szyfrowanie dzienników za pomocą kluczy zarządzanych 
 
 ## <a name="data-types-supported"></a>Obsługiwane typy danych
 
-Typy danych, które są pozyskiwane z konta magazynu, obejmują następujące elementy: Aby uzyskać więcej informacji na temat pozyskiwania tych typów, zobacz [zbieranie danych z rozszerzenia diagnostyki platformy Azure do Azure monitor dzienników](azure-storage-iis-table.md) .
+Typy danych, które są pozyskiwane z konta magazynu, obejmują następujące elementy: Aby uzyskać więcej informacji na temat pozyskiwania tych typów, zobacz [zbieranie danych z rozszerzenia diagnostyki platformy Azure do Azure monitor dzienników](./diagnostics-extension-logs.md) .
 
 | Typ | Informacje o tabeli |
 |:-----|:------------------|
@@ -54,7 +54,7 @@ Jedyną dostępną metodą tworzenia i usuwania łączy jest użycie interfejsu 
 ## <a name="command-line-and-rest-api"></a>Wiersz polecenia i interfejs API REST
 
 ### <a name="command-line"></a>Wiersz polecenia
-Aby utworzyć połączone konta magazynu i zarządzać nimi, użyj [AZ Monitor Log-Analytics obszaru roboczego połączonego magazynu](https://docs.microsoft.com/cli/azure/monitor/log-analytics/workspace/linked-storage). To polecenie umożliwia łączenie i odłączanie kont magazynu z obszaru roboczego i wyświetlanie listy połączonych kont magazynu.
+Aby utworzyć połączone konta magazynu i zarządzać nimi, użyj [AZ Monitor Log-Analytics obszaru roboczego połączonego magazynu](/cli/azure/monitor/log-analytics/workspace/linked-storage). To polecenie umożliwia łączenie i odłączanie kont magazynu z obszaru roboczego i wyświetlanie listy połączonych kont magazynu.
 
 ### <a name="request-and-cli-values"></a>Wartości żądań i interfejsu wiersza polecenia
 

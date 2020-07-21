@@ -3,12 +3,12 @@ title: Mechanizmy zabezpieczeń
 description: Dowiedz się więcej o kontrolkach zabezpieczeń używanych w usłudze Azure Backup. Te kontrolki ułatwiają zapobieganie wykrywaniu luk w zabezpieczeniach, wykrywanie ich i reagowanie na nie.
 ms.topic: conceptual
 ms.date: 09/23/2019
-ms.openlocfilehash: 7d8fd98467e975c6151d09779ab450810ea32c6e
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: c5a324ac3738abfcf1a51442d7acd78a01e5717e
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86165570"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86513544"
 ---
 # <a name="security-controls-for-azure-backup"></a>Kontrolki zabezpieczeń dla Azure Backup
 
@@ -38,7 +38,7 @@ W tym artykule opisano kontrolki zabezpieczeń wbudowane w Azure Backup.
 | Kontrola zabezpieczeń | Tak/Nie | Uwagi| Dokumentacja
 |---|---|--|--|
 | Uwierzytelnianie| Tak | Uwierzytelnianie odbywa się za Azure Active Directory. |  |
-| Authorization| Tak | Są używane wbudowane role RBAC klienta. Aby uzyskać więcej informacji, zobacz [używanie Access Control opartej na rolach w celu zarządzania Azure Backup punktów odzyskiwania](/azure/backup/backup-rbac-rs-vault). |  |
+| Autoryzacja| Tak | Są używane wbudowane role RBAC klienta. Aby uzyskać więcej informacji, zobacz [używanie Access Control opartej na rolach w celu zarządzania Azure Backup punktów odzyskiwania](./backup-rbac-rs-vault.md). |  |
 
 ## <a name="data-protection"></a>Ochrona danych
 

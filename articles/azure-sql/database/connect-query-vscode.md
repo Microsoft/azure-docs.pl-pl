@@ -13,12 +13,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/29/2020
-ms.openlocfilehash: e0554711aa6db436bc0c3076ec468555c47fff39
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 7a096e355e140b18bd7df010c379e31d21f90634
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84267260"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86515057"
 ---
 # <a name="quickstart-use-visual-studio-code-to-connect-and-query"></a>Szybki Start: używanie Visual Studio Code do nawiązywania połączeń i zapytań 
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -29,7 +29,7 @@ ms.locfileid: "84267260"
 
 - Baza danych programu Azure SQL Database lub wystąpienia zarządzanego Azure SQL. Aby utworzyć, a następnie skonfigurować bazę danych w usłudze Azure SQL Database, można użyć instrukcji z jednego z tych przewodników Szybki start:
 
-  || Azure SQL Database | Wystąpienie zarządzane Azure SQL |
+  | Akcja | Azure SQL Database | Wystąpienie zarządzane Azure SQL |
   |:--- |:--- |:---|
   | Utwórz| [Portal](single-database-create-quickstart.md) | [Portal](../managed-instance/instance-create-quickstart.md) |
   || [Interfejs wiersza polecenia](scripts/create-and-configure-database-cli.md) | [Interfejs wiersza polecenia](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
@@ -43,7 +43,7 @@ ms.locfileid: "84267260"
   > [!IMPORTANT]
   > Skrypty zamieszczone w tym artykule korzystają z bazy danych Adventure Works. W przypadku wystąpienia zarządzanego SQL należy zaimportować bazę danych firmy Adventure Works do bazy danych wystąpienia lub zmodyfikować skrypty w tym artykule, aby użyć bazy danych Wide World Imports.
 
-## <a name="install-visual-studio-code"></a>Instalowanie programu Visual Studio Code
+## <a name="install-visual-studio-code"></a>Instalacja programu Visual Studio Code
 
 Upewnij się, że masz zainstalowaną najnowszą wersję programu [Visual Studio Code](https://code.visualstudio.com/Download) i załadowane [rozszerzenie mssql](https://aka.ms/mssql-marketplace). Aby uzyskać wskazówki dotyczące instalowania rozszerzenia MSSQL, zobacz [Install Visual Studio Code](https://docs.microsoft.com/sql/linux/sql-server-linux-develop-use-vscode#install-and-start-visual-studio-code) and [MSSQL for Visual Studio Code ](https://marketplace.visualstudio.com/items?itemName=ms-mssql.mssql).
 
@@ -111,7 +111,7 @@ Użyj Visual Studio Code, aby nawiązać połączenie z serwerem.
    | ------------ | ------------------ | ------------------------------------------------- |
    | **Nazwa serwera** | W pełni kwalifikowana nazwa serwera | Na przykład: **mojnowyserwer20170313.database.windows.net**. |
    | **Nazwa bazy danych** | mySampleDatabase | Baza danych, z którą ma zostać nawiązane połączenie. |
-   | **Authentication** | Identyfikator logowania SQL| W tym samouczku używane jest uwierzytelnianie SQL. |
+   | **Uwierzytelnianie** | Identyfikator logowania SQL| W tym samouczku używane jest uwierzytelnianie SQL. |
    | **Nazwa użytkownika** | Nazwa użytkownika | Nazwa użytkownika konta administratora serwera, którego użyto do utworzenia serwera. |
    | **Hasło (identyfikator logowania SQL)** | Hasło | Hasło użytkownika konta administratora serwera, którego użyto do utworzenia serwera. |
    | **Zapisać hasło?** | Tak lub Nie | Wybierz opcję **Tak**, jeśli nie chcesz wprowadzać hasła za każdym razem. |

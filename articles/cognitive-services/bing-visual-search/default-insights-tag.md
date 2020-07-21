@@ -10,16 +10,16 @@ ms.subservice: bing-visual-search
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: scottwhi
-ms.openlocfilehash: b6bc323f4e8deaf975c292f92d862b1fbe0e2714
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a11bf408f06b5c4e621f0af1f71f23c335dc2069
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "60510126"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86512643"
 ---
 # <a name="default-insights-tag"></a>Tag default Insights
 
-Domyślny tag Insights to ten, z którym `displayName` pole jest ustawione na pusty ciąg. W poniższym przykładzie przedstawiono listę domyślnych szczegółowych informacji (akcji). Lista akcji, których dotyczy odpowiedź, zależy od obrazu. I dla każdej akcji Lista właściwości może się różnić w zależności od obrazu, dlatego sprawdź, czy właściwość istnieje przed próbą jej użycia.
+Domyślny tag Insights to ten, z którym pole jest `displayName` ustawione na pusty ciąg. W poniższym przykładzie przedstawiono listę domyślnych szczegółowych informacji (akcji). Lista akcji, których dotyczy odpowiedź, zależy od obrazu. I dla każdej akcji Lista właściwości może się różnić w zależności od obrazu, dlatego sprawdź, czy właściwość istnieje przed próbą jej użycia.
 
 ```json
 {
@@ -313,7 +313,7 @@ ImageById Insights udostępnia `Image` obiekt obrazu, dla którego zażądano sz
 
 ## <a name="productvisualsearch-insight"></a>ProductVisualSearch wgląd w szczegółowe dane
 
-ProductVisualSearch Insights zawiera listę obrazów produktów, które są wizualnie podobne do produktów przedstawionych w oryginalnym obrazie. `insightsMetadata` Pole może zawierać informacje o ofertach, w których można kupić produkt i cenę produktu.
+ProductVisualSearch Insights zawiera listę obrazów produktów, które są wizualnie podobne do produktów przedstawionych w oryginalnym obrazie. `insightsMetadata`Pole może zawierać informacje o ofertach, w których można kupić produkt i cenę produktu.
 
 ```json
       {
@@ -425,4 +425,12 @@ DocumentLevelSuggestions Insights zawiera listę sugerowanych terminów wyszukiw
 
 Zapoznaj się [z przykładami użycia usługi Bing Insights](bing-insights-usage.md) , aby dowiedzieć się, jak Bing może wyświetlać wizualizacje wizualne.
 
-Aby szybko zacząć korzystać z pierwszego żądania, zobacz Przewodnik Szybki Start: [C#](quickstarts/csharp.md) | [Java](quickstarts/java.md) | [Node. js](quickstarts/nodejs.md) | [Python](quickstarts/python.md).
+Aby szybko rozpocząć pracę z pierwszym żądaniem, zobacz przewodniki Szybki start:
+
+* [C#](quickstarts/csharp.md)
+
+* [Java](quickstarts/java.md)
+
+* [node.js](quickstarts/nodejs.md)
+
+* Język [Python](quickstarts/python.md).

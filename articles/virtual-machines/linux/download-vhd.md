@@ -6,17 +6,18 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 08/21/2019
 ms.author: cynthn
-ms.openlocfilehash: 02c3ee483e6a31960fd5123070a49f568ac4c690
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 14beeebe15193cbe2ef4684f97e4783810ad77a4
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78968796"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86510558"
 ---
 # <a name="download-a-linux-vhd-from-azure"></a>Pobieranie wirtualnego dysku twardego z systemem Linux z platformy Azure
 
 W tym artykule dowiesz się, jak pobrać plik wirtualnego dysku twardego z systemem Linux z platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure i Azure Portal. 
 
-Jeśli jeszcze tego nie zrobiono, zainstaluj [interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-az-cli2).
+Jeśli jeszcze tego nie zrobiono, zainstaluj [interfejs wiersza polecenia platformy Azure](/cli/azure/install-az-cli2).
 
 ## <a name="stop-the-vm"></a>Zatrzymywanie maszyny wirtualnej
 
@@ -24,7 +25,7 @@ Nie można pobrać wirtualnego dysku twardego z platformy Azure, jeśli jest on 
 
 Aby użyć dysku VHD jako obrazu do tworzenia innych maszyn wirtualnych, wykonaj następujące kroki:
 
-1. Użyj protokołu SSH, nazwy konta i publicznego adresu IP maszyny wirtualnej w celu nawiązania połączenia z serwerem i anulowania aprowizacji. Publiczny adres IP można znaleźć za pomocą [AZ Network Public-IP show](https://docs.microsoft.com/cli/azure/network/public-ip#az-network-public-ip-show). Parametr + User usuwa także ostatnio zainicjowane konto użytkownika. Jeśli masz poświadczenia konta pieczenia na maszynie wirtualnej, pozostaw ten parametr + użytkownika. Poniższy przykład usuwa ostatnio zainicjowane konto użytkownika:
+1. Użyj protokołu SSH, nazwy konta i publicznego adresu IP maszyny wirtualnej w celu nawiązania połączenia z serwerem i anulowania aprowizacji. Publiczny adres IP można znaleźć za pomocą [AZ Network Public-IP show](/cli/azure/network/public-ip#az-network-public-ip-show). Parametr + User usuwa także ostatnio zainicjowane konto użytkownika. Jeśli masz poświadczenia konta pieczenia na maszynie wirtualnej, pozostaw ten parametr + użytkownika. Poniższy przykład usuwa ostatnio zainicjowane konto użytkownika:
 
     ```bash
     ssh azureuser@<publicIpAddress>
@@ -32,7 +33,7 @@ Aby użyć dysku VHD jako obrazu do tworzenia innych maszyn wirtualnych, wykonaj
     exit 
     ```
 
-2. Zaloguj się do konta platformy Azure przy użyciu [AZ login](https://docs.microsoft.com/cli/azure/reference-index).
+2. Zaloguj się do konta platformy Azure przy użyciu [AZ login](/cli/azure/reference-index).
 3. Zatrzymaj i Cofnij przydział maszyny wirtualnej.
 
     ```azurecli
@@ -56,7 +57,7 @@ Aby użyć dysku VHD jako dysku dla nowego wystąpienia istniejącej maszyny wir
 
 ## <a name="generate-sas-url"></a>Generuj adres URL SAS
 
-Aby pobrać plik VHD, należy wygenerować adres URL [sygnatury dostępu współdzielonego (SAS)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) . Po wygenerowaniu adresu URL zostanie do niego przypisany czas wygaśnięcia.
+Aby pobrać plik VHD, należy wygenerować adres URL [sygnatury dostępu współdzielonego (SAS)](../../storage/common/storage-sas-overview.md?toc=/azure/virtual-machines/windows/toc.json) . Po wygenerowaniu adresu URL zostanie do niego przypisany czas wygaśnięcia.
 
 1.  W menu strony dla maszyny wirtualnej wybierz pozycję **dyski**.
 2.  Wybierz dysk systemu operacyjnego dla maszyny wirtualnej, a następnie wybierz pozycję **eksport dysku**.
@@ -78,4 +79,3 @@ Aby pobrać plik VHD, należy wygenerować adres URL [sygnatury dostępu współ
 
 - Dowiedz się, jak [przekazać i utworzyć maszynę wirtualną z systemem Linux z dysku niestandardowego przy użyciu interfejsu wiersza polecenia platformy Azure](upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
 - [Zarządzanie dyskami platformy Azure za pomocą interfejsu wiersza polecenia platformy Azure](tutorial-manage-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-

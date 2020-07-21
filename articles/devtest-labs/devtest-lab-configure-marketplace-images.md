@@ -3,22 +3,24 @@ title: Konfigurowanie ustawień obrazu portalu Azure Marketplace w Azure DevTest
 description: Skonfiguruj, które obrazy w portalu Azure Marketplace mogą być używane podczas tworzenia maszyny wirtualnej w Azure DevTest Labs
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 9fdb4e3a888e876f91b8af2e4854a9c101eea45c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a5158ed33bf253db1dbe0eb3232bc43d27ce15e7
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85482721"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86512439"
 ---
 # <a name="configure-azure-marketplace-image-settings-in-azure-devtest-labs"></a>Konfigurowanie ustawień obrazu portalu Azure Marketplace w Azure DevTest Labs
-DevTest Labs obsługuje tworzenie maszyn wirtualnych opartych na obrazach portalu Azure Marketplace w zależności od tego, jak zostały skonfigurowane obrazy w portalu Azure Marketplace, które mają być używane w środowisku laboratoryjnym. W tym artykule opisano, jak określić, w jaki sposób można używać obrazów portalu Azure Marketplace podczas tworzenia maszyn wirtualnych w środowisku laboratoryjnym. Gwarantuje to, że Twój zespół ma dostęp tylko do obrazów portalu Marketplace, których potrzebują. 
+DevTest Labs obsługuje tworzenie maszyn wirtualnych opartych na obrazach portalu Azure Marketplace w zależności od tego, jak zostały skonfigurowane obrazy w portalu Azure Marketplace, które mają być używane w środowisku laboratoryjnym. W tym artykule opisano, jak określić, w jaki sposób można używać obrazów portalu Azure Marketplace podczas tworzenia maszyn wirtualnych w środowisku laboratoryjnym. Gwarantuje to, że Twój zespół ma dostęp tylko do potrzebnych obrazów portalu Marketplace. 
 
-## <a name="select-which-azure-marketplace-images-are-allowed-when-creating-a-vm"></a>Wybierz, które obrazy w portalu Azure Marketplace są dozwolone podczas tworzenia maszyny wirtualnej
+## <a name="specify-allowed-images-for-creating-vms"></a>Określ dozwolone obrazy do tworzenia maszyn wirtualnych
+Wykonaj następujące kroki, aby określić, które obrazy w portalu Azure Marketplace są dozwolone podczas tworzenia maszyny wirtualnej. 
+
 1. Zaloguj się w witrynie [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 2. Wybierz pozycję **wszystkie usługi**, a następnie z listy wybierz pozycję **DevTest Labs** .
-3. Z listy laboratoriów wybierz odpowiednie laboratorium. 
-4. W bloku laboratorium wybierz pozycję **Konfiguracja i zasady**.
-5. W bloku **Konfiguracja i zasady** laboratorium w obszarze **bazy maszyn wirtualnych**wybierz pozycję **obrazy z witryny Marketplace**.
+3. Z listy laboratoriów wybierz laboratorium. 
+4. Na stronie głównej strony laboratorium wybierz pozycję **Konfiguracja i zasady**.
+5. Na stronie **Konfiguracja i zasady** laboratorium w obszarze **bazy maszyn wirtualnych**wybierz pozycję **obrazy z witryny Marketplace**.
 6. Określ, czy chcesz, aby wszystkie kwalifikowane obrazy portalu Azure Marketplace były dostępne do użycia jako podstawa nowej maszyny wirtualnej. Jeśli wybierzesz opcję **tak**, wszystkie obrazy w portalu Azure Marketplace, które spełniają wszystkie następujące kryteria, są dozwolone w laboratorium:
    
    * Obraz tworzy pojedynczą maszynę wirtualną **i**
@@ -35,7 +37,15 @@ DevTest Labs obsługuje tworzenie maszyn wirtualnych opartych na obrazach portal
    
      ![Możesz określić, które obrazy w portalu Azure Marketplace mogą być używane jako obrazy podstawowe dla maszyn wirtualnych](./media/devtest-lab-configure-marketplace-images/select-marketplace-images.png)
 
-[!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
+
+## <a name="troubleshoot"></a>Rozwiązywanie problemów
+Jeśli nie możesz znaleźć określonego obrazu do włączenia dla laboratorium, wykonaj następujące czynności: 
+
+- Sprawdź, czy można wyświetlić obraz podczas tworzenia maszyny wirtualnej obliczeniowej.
+- Obraz może nie być dostępny w typie używanej subskrypcji. Skontaktuj się z administratorem subskrypcji dla typu subskrypcji (na przykład: MSDN, Free, płatność zgodnie z rzeczywistym użyciem itp.). 
+- Obsługa obrazów generacji 2 w programie DevTest Labs jest ograniczona. Jeśli dla obrazu są dostępne wersje generacji 1 i Gen 2, DevTest Labs wyświetla tylko wersję Gen 1 obrazu podczas tworzenia maszyny wirtualnej. Obejście polega na utworzeniu niestandardowego obrazu generacji 2 poza laboratorium i użyciu go do utworzenia maszyny wirtualnej. Jeśli dostępna jest tylko wersja 2 generacji obrazu, jest ona obsługiwana i widoczna na liście przez DevTest Labs. 
+      
+
 
 ## <a name="next-steps"></a>Następne kroki
 Po skonfigurowaniu sposobu, w jaki obrazy portalu Azure Marketplace są dozwolone podczas tworzenia maszyny wirtualnej, następnym krokiem jest [dodanie maszyny wirtualnej do laboratorium](devtest-lab-add-vm.md).

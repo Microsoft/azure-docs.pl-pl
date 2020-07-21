@@ -3,11 +3,12 @@ title: Automatyczne włączanie kopii zapasowych podczas tworzenia maszyny wirtu
 description: Artykuł opisujący sposób użycia Azure Policy do samodzielnego włączania kopii zapasowych dla wszystkich maszyn wirtualnych utworzonych w danym zakresie
 ms.topic: conceptual
 ms.date: 11/08/2019
-ms.openlocfilehash: 1d423371788f87155328e8f5c9334e47349a68e8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2b4ce7825b714eed1b025a6a807a62759177b81f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77584272"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86514224"
 ---
 # <a name="auto-enable-backup-on-vm-creation-using-azure-policy"></a>Automatyczne włączanie kopii zapasowych podczas tworzenia maszyny wirtualnej za pomocą usługi Azure Policy
 
@@ -17,7 +18,7 @@ Obecnie Azure Backup udostępnia wbudowane zasady (przy użyciu Azure Policy), k
 
 ## <a name="supported-scenarios"></a>Scenariusze obsługiwane
 
-* Wbudowane zasady są obecnie obsługiwane tylko dla maszyn wirtualnych platformy Azure. Użytkownicy muszą mieć ostrożność, aby upewnić się, że zasady przechowywania określone podczas przypisywania są zasadami przechowywania maszyn wirtualnych. Zapoznaj się z [tym](https://docs.microsoft.com/azure/backup/backup-azure-policy-supported-skus) dokumentem, aby wyświetlić wszystkie jednostki SKU maszyny wirtualnej obsługiwane przez te zasady.
+* Wbudowane zasady są obecnie obsługiwane tylko dla maszyn wirtualnych platformy Azure. Użytkownicy muszą mieć ostrożność, aby upewnić się, że zasady przechowywania określone podczas przypisywania są zasadami przechowywania maszyn wirtualnych. Zapoznaj się z [tym](./backup-azure-policy-supported-skus.md) dokumentem, aby wyświetlić wszystkie jednostki SKU maszyny wirtualnej obsługiwane przez te zasady.
 
 * Zasady można przypisywać jednocześnie do jednej lokalizacji i subskrypcji. Aby włączyć tworzenie kopii zapasowych maszyn wirtualnych w różnych lokalizacjach i subskrypcjach, należy utworzyć wiele wystąpień przypisywania zasad, po jednym dla każdej kombinacji lokalizacji i subskrypcji.
 
@@ -47,7 +48,7 @@ Aby przypisać zasady do wymaganego zakresu, wykonaj następujące czynności:
 
 > [!NOTE]
 >
-> Azure Policy można również używać na istniejących maszynach wirtualnych przy użyciu [korygowania](https://docs.microsoft.com/azure/governance/policy/how-to/remediate-resources).
+> Azure Policy można również używać na istniejących maszynach wirtualnych przy użyciu [korygowania](../governance/policy/how-to/remediate-resources.md).
 
 > [!NOTE]
 >
@@ -55,4 +56,4 @@ Aby przypisać zasady do wymaganego zakresu, wykonaj następujące czynności:
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Dowiedz się więcej o Azure Policy](https://docs.microsoft.com/azure/governance/policy/overview)
+[Dowiedz się więcej o Azure Policy](../governance/policy/overview.md)

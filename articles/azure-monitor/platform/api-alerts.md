@@ -4,19 +4,19 @@ description: Interfejs API REST alertów Log Analytics umożliwia tworzenie i za
 ms.subservice: logs
 ms.topic: conceptual
 ms.date: 07/29/2018
-ms.openlocfilehash: 4ab2a1369fc4902afec7d62e44ef8e947864167f
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 38f2f671ecf426f6544f6faf934aec7071451b0d
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86112055"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86515754"
 ---
 # <a name="create-and-manage-alert-rules-in-log-analytics-with-rest-api"></a>Tworzenie reguł alertów i zarządzanie nimi w Log Analytics z interfejsem API REST 
 
 Interfejs API REST alertów Log Analytics umożliwia tworzenie i zarządzanie alertami w programie Log Analytics.  Ten artykuł zawiera szczegółowe informacje o interfejsie API i kilku przykładach służących do wykonywania różnych operacji.
 
 > [!IMPORTANT]
-> Jak [ogłoszono wcześniej](https://azure.microsoft.com/updates/switch-api-preference-log-alerts/)obszary robocze usługi log Analytics utworzone po *1 czerwca 2019* — będą mogły zarządzać regułami alertów przy użyciu **tylko** usługi Azure scheduledQueryRules [rest](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/), [szablonu](../../azure-monitor/platform/alerts-log.md#managing-log-alerts-using-azure-resource-template) i [polecenia cmdlet programu PowerShell](../../azure-monitor/platform/alerts-log.md#managing-log-alerts-using-powershell)platformy Azure. Klienci mogą łatwo [przełączać swoje preferowane środki zarządzania regułami alertów](../../azure-monitor/platform/alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api) dla starszych obszarów roboczych, aby korzystać z Azure monitor scheduledQueryRules jako domyślne i uzyskiwać wiele [nowych korzyści](../../azure-monitor/platform/alerts-log-api-switch.md#benefits-of-switching-to-new-azure-api) , takich jak możliwość używania natywnych poleceń cmdlet programu PowerShell, zwiększonych lookback okresów czasu w regułach, tworzenie reguł w osobnej grupie zasobów lub subskrypcji i wiele innych.
+> Jak [ogłoszono wcześniej](https://azure.microsoft.com/updates/switch-api-preference-log-alerts/)obszary robocze usługi log Analytics utworzone po *1 czerwca 2019* — będą mogły zarządzać regułami alertów przy użyciu **tylko** usługi Azure scheduledQueryRules [rest](/rest/api/monitor/scheduledqueryrules/), [szablonu](../../azure-monitor/platform/alerts-log.md#managing-log-alerts-using-azure-resource-template) i [polecenia cmdlet programu PowerShell](../../azure-monitor/platform/alerts-log.md#managing-log-alerts-using-powershell)platformy Azure. Klienci mogą łatwo [przełączać swoje preferowane środki zarządzania regułami alertów](../../azure-monitor/platform/alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api) dla starszych obszarów roboczych, aby korzystać z Azure monitor scheduledQueryRules jako domyślne i uzyskiwać wiele [nowych korzyści](../../azure-monitor/platform/alerts-log-api-switch.md#benefits-of-switching-to-new-azure-api) , takich jak możliwość używania natywnych poleceń cmdlet programu PowerShell, zwiększonych lookback okresów czasu w regułach, tworzenie reguł w osobnej grupie zasobów lub subskrypcji i wiele innych.
 
 Interfejs API REST usługi Log Analytics Search to RESTful i można uzyskać do niego dostęp za pośrednictwem interfejsu API REST Azure Resource Manager. W tym dokumencie znajdują się przykłady, do których dostęp do interfejsu API uzyskuje się za pomocą wiersza polecenia programu PowerShell przy użyciu [ARMClient](https://github.com/projectkudu/ARMClient), narzędzia wiersza polecenia typu open source, które upraszcza wywoływanie interfejsu API Azure Resource Manager. Korzystanie z ARMClient i programu PowerShell to jedna z wielu opcji dostępu do interfejsu API wyszukiwania Log Analytics. Za pomocą tych narzędzi można użyć interfejsu API Azure Resource Manager RESTful, aby umożliwić wywoływanie Log Analytics obszarów roboczych i wykonywać w nich polecenia przeszukiwania. Interfejs API będzie wyprowadzał wyniki wyszukiwania w formacie JSON, co pozwala na używanie wyników wyszukiwania na wiele różnych sposobów programistycznie.
 
@@ -29,7 +29,7 @@ Harmonogramy mają właściwości podane w poniższej tabeli.
 
 | Właściwość | Opis |
 |:--- |:--- |
-| Interval |Częstotliwość uruchamiania wyszukiwania. Mierzona w minutach. |
+| Interwał |Częstotliwość uruchamiania wyszukiwania. Mierzona w minutach. |
 | QueryTimeSpan |Przedział czasu, w którym są oceniane kryteria. Musi być równa lub większa niż interwał. Mierzona w minutach. |
 | Wersja |Używana wersja interfejsu API.  Obecnie ta wartość powinna zawsze wynosić 1. |
 
@@ -265,7 +265,7 @@ armclient put /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupName
 #### <a name="action-groups"></a>Grupy akcji
 Wszystkie alerty na platformie Azure używają grupy akcji jako domyślnego mechanizmu obsługi akcji. Za pomocą grupy akcji można określić akcje raz, a następnie skojarzyć grupę akcji z wieloma alertami — na platformie Azure. Bez konieczności, aby wielokrotnie zadeklarować te same akcje w trybie failover i ponownie. Grupy akcji obsługują wiele akcji — w tym wiadomości e-mail, wiadomości SMS, rozmowy głosowej, połączenia narzędzia ITSM, elementu Runbook usługi Automation, identyfikatora URI elementu webhook i nie tylko. 
 
-W przypadku użytkowników, którzy rozszerzyły swoje alerty na platformę Azure — harmonogram powinien teraz zawierać szczegóły grupy akcji, które są przesyłane wraz z progiem, aby można było utworzyć alert. Szczegóły poczty E-mail, adresy URL elementu webhook, szczegóły automatyzacji elementu Runbook i inne akcje muszą być zdefiniowane w grupie akcji najpierw przed utworzeniem alertu. jeden może utworzyć [grupę akcji na podstawie Azure monitor](../../azure-monitor/platform/action-groups.md) w portalu lub użyć [interfejsu API grupy akcji](https://docs.microsoft.com/rest/api/monitor/actiongroups).
+W przypadku użytkowników, którzy rozszerzyły swoje alerty na platformę Azure — harmonogram powinien teraz zawierać szczegóły grupy akcji, które są przesyłane wraz z progiem, aby można było utworzyć alert. Szczegóły poczty E-mail, adresy URL elementu webhook, szczegóły automatyzacji elementu Runbook i inne akcje muszą być zdefiniowane w grupie akcji najpierw przed utworzeniem alertu. jeden może utworzyć [grupę akcji na podstawie Azure monitor](../../azure-monitor/platform/action-groups.md) w portalu lub użyć [interfejsu API grupy akcji](/rest/api/monitor/actiongroups).
 
 Aby dodać skojarzenie grupy akcji do alertu, określ unikatowy identyfikator Azure Resource Manager grupy akcji w definicji alertu. Poniżej przedstawiono przykładową ilustrację:
 
@@ -390,4 +390,3 @@ armclient put /subscriptions/{Subscription ID}/resourceGroups/{Resource Group Na
 * Użyj [interfejsu API REST do przeszukiwania dzienników](../../azure-monitor/log-query/log-query-overview.md) w log Analytics.
 * Informacje o [alertach dzienników w usłudze Azure monitor](../../azure-monitor/platform/alerts-unified-log.md)
 * Jak [tworzyć, edytować i zarządzać regułami alertów dziennika w usłudze Azure monitor](../../azure-monitor/platform/alerts-log.md)
-

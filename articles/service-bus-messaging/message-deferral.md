@@ -3,12 +3,13 @@ title: Azure Service Bus — odroczenie komunikatu
 description: W tym artykule wyjaśniono, jak odroczyć dostarczanie komunikatów Azure Service Bus. Komunikat pozostanie w kolejce lub subskrypcji, ale zostanie odłożony.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: f4fe231c56a1bcdea4f15de90cb0e9406f0284a3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 7c9ec55de24c97df3530d80deef55ed87be84077
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85341220"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86511283"
 ---
 # <a name="message-deferral"></a>Odraczanie komunikatów
 
@@ -19,6 +20,9 @@ Odroczenie to funkcja, która została utworzona w scenariuszach przetwarzania p
 Prosty przykład ilustruje sekwencję przetwarzania zamówień, w której powiadomienie o płatności od zewnętrznego dostawcy płatności pojawia się w systemie, zanim zgodne zamówienie zakupu zostało rozpropagowane ze sklepu od przodu do systemu realizacji. W takim przypadku system realizacji może odroczyć przetwarzanie powiadomienia o płatności do momentu, w którym ma zostać skojarzona kolejność. W przypadku scenariuszy, w których komunikaty z różnych źródeł kierują przepływ pracy do przodu, kolejność wykonywania w czasie rzeczywistym może być poprawna, ale komunikaty odzwierciedlające wyniki mogą być nieuporządkowane.
 
 Ostatecznie w przypadku zmiany kolejności komunikatów z zamówienia przyjęcia do kolejności, w której można je przetworzyć, pozostawiając te komunikaty bezpiecznie w magazynie komunikatów, dla którego przetwarzanie musi zostać odroczone.
+
+> [!NOTE]
+> Komunikaty odroczone nie będą automatycznie przenoszone do kolejki utraconych wiadomości [po ich wygaśnięciu](./service-bus-dead-letter-queues.md#exceeding-timetolive). To zachowanie jest zaprojektowane.
 
 ## <a name="message-deferral-apis"></a>Interfejsy API odroczeń komunikatów
 

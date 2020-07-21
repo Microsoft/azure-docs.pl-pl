@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.date: 12/21/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: e821c650bae7694070624aeebe7fcc3482f7a3b9
-ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
+ms.openlocfilehash: eafbf102c092b180a1f3c882f5ae626e60b80f30
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84667407"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86514615"
 ---
 # <a name="quickstart-create-sql-server-on-a-windows-virtual-machine-with-azure-powershell"></a>Szybki Start: tworzenie SQL Server na maszynie wirtualnej z systemem Windows z Azure PowerShell
 
@@ -89,7 +89,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
       -AllocationMethod Static -IdleTimeoutInMinutes 4 -Name $PipName
    ```
 
-1. Utwórz sieciową grupę zabezpieczeń. Skonfiguruj reguły, aby zezwolić na połączenia między pulpitem zdalnym (RDP) i programem SQL Server.
+1. Utworzenie sieciowej grupy zabezpieczeń. Skonfiguruj reguły, aby zezwolić na połączenia między pulpitem zdalnym (RDP) i programem SQL Server.
 
    ```powershell
    # Rule to allow remote desktop (RDP)
@@ -147,13 +147,34 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
    > [!TIP]
    > Utworzenie maszyny wirtualnej zajmuje kilka minut.
 
-## <a name="install-the-sql-iaas-agent"></a>Instalacja agenta SQL IaaS
+## <a name="register-with-sql-vm-rp"></a>Rejestrowanie za pomocą dostawcy zasobów maszyny wirtualnej SQL 
 
-Aby uzyskać integrację portalu z funkcjami maszyny wirtualnej programu SQL, musisz zainstalować [rozszerzenie agenta IaaS programu SQL Server](sql-server-iaas-agent-extension-automate-management.md). Aby zainstalować agenta na nowej maszynie wirtualnej, uruchom następujące polecenie po utworzeniu maszyny wirtualnej.
+Aby uzyskać integrację portalu i funkcje maszyny wirtualnej SQL, należy zarejestrować się u [dostawcy zasobów maszyny wirtualnej SQL](sql-vm-resource-provider-register.md).
 
-   ```powershell
-   Set-AzVMSqlServerExtension -ResourceGroupName $ResourceGroupName -VMName $VMName -name "SQLIaasExtension" -version "2.0" -Location $Location
-   ```
+Aby uzyskać pełną funkcjonalność, należy zarejestrować się u dostawcy zasobów w trybie pełnym. Jednak spowoduje to ponowne uruchomienie usługi SQL Server, Dlatego zalecane jest zarejestrowanie w trybie uproszczonym, a następnie przeprowadzenie uaktualnienia do pełnej wersji w oknie obsługi. 
+
+Najpierw Zarejestruj maszynę wirtualną SQL Server w trybie uproszczonym: 
+
+```powershell-interactive
+# Get the existing compute VM
+$vm = Get-AzVM -Name <vm_name> -ResourceGroupName <resource_group_name>
+        
+# Register SQL VM with 'Lightweight' SQL IaaS agent
+New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $vm.Location `
+  -LicenseType PAYG -SqlManagementType LightWeight
+```
+
+Następnie w oknie obsługi Uaktualnij do trybu pełnego: 
+
+```powershell-interactive
+# Get the existing Compute VM
+$vm = Get-AzVM -Name <vm_name> -ResourceGroupName <resource_group_name>
+      
+# Register with SQL VM resource provider in full mode
+New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -SqlManagementType Full
+```
+
+
 
 ## <a name="remote-desktop-into-the-vm"></a>Łączenie pulpitu zdalnego z maszyną wirtualną
 

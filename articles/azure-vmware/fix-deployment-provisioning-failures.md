@@ -3,11 +3,12 @@ title: Uzyskaj pomoc dotyczącą wdrażania rozwiązań VMware platformy Azure l
 description: Jak uzyskać potrzebne informacje z chmury prywatnej w rozwiązaniu Azure VMware (Automatyczna synchronizacja), aby wysłać żądanie obsługi na potrzeby wdrożenia automatycznej synchronizacji lub niepowodzeń aprowizacji.
 ms.topic: how-to
 ms.date: 06/09/2020
-ms.openlocfilehash: 3032c01d48617347c454d71498571b0e6b789e32
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 05c9dee088b37c37cdcdee7e745cdcd2222b63e0
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84986863"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86514581"
 ---
 # <a name="get-help-with-azure-vmware-solution-deployment-or-provisioning-failures"></a>Uzyskaj pomoc dotyczącą wdrażania rozwiązań VMware platformy Azure lub niepowodzeń aprowizacji
 
@@ -71,7 +72,7 @@ Wklej identyfikator ExpressRoute do odpowiedniego pola w nowym żądaniu obsług
 
 ## <a name="create-your-support-request"></a>Utwórz żądanie pomocy technicznej
 
-Ogólne wskazówki dotyczące tworzenia żądania pomocy technicznej można znaleźć w temacie [jak utworzyć żądanie pomocy technicznej platformy Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). 
+Ogólne wskazówki dotyczące tworzenia żądania pomocy technicznej można znaleźć w temacie [jak utworzyć żądanie pomocy technicznej platformy Azure](../azure-portal/supportability/how-to-create-azure-support-request.md). 
 
 Poniżej przedstawiono dodatkowe wskazówki dotyczące tworzenia funkcji SR na potrzeby wdrażania automatycznej synchronizacji lub niepowodzeń aprowizacji.
 

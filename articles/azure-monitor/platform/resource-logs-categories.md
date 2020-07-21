@@ -4,11 +4,12 @@ description: Informacje dotyczące Azure Monitor zrozumieć obsługiwane usługi
 ms.subservice: logs
 ms.topic: reference
 ms.date: 06/03/2020
-ms.openlocfilehash: 6156b9d311859534160258256ff6315b037f3a14
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ceca6b0a230de6d3eeab47e60d90767b33b5ac59
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84418764"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86515397"
 ---
 # <a name="supported-categories-for-azure-resource-logs"></a>Kategorie obsługiwane w przypadku dzienników zasobów platformy Azure
 
@@ -602,7 +603,7 @@ Jeśli nadal brakuje czegoś, możesz otworzyć komentarz w witrynie GitHub w do
 
 |Kategoria|Nazwa wyświetlana kategorii|
 |---|---|
-|Errors|Errors|
+|błędy|błędy|
 |QueryStoreRuntimeStatistics|Statystyka środowiska uruchomieniowego magazynu zapytań|
 |QueryStoreWaitStatistics|Statystyka oczekiwania magazynu zapytań|
 |SQLInsights|Szczegółowe informacje SQL|
@@ -618,7 +619,7 @@ Jeśli nadal brakuje czegoś, możesz otworzyć komentarz w witrynie GitHub w do
 |Zakleszczenia|Zakleszczenia|
 |DevOpsOperationsAudit|Dzienniki inspekcji operacji DevOps|
 |DmsWorkers|Pracownicy DMS|
-|Errors|Errors|
+|błędy|błędy|
 |ExecRequests|Żądania exec|
 |QueryStoreRuntimeStatistics|Statystyka środowiska uruchomieniowego magazynu zapytań|
 |QueryStoreWaitStatistics|Statystyka oczekiwania magazynu zapytań|
@@ -711,6 +712,6 @@ Jeśli nadal brakuje czegoś, możesz otworzyć komentarz w witrynie GitHub w do
 ## <a name="next-steps"></a>Następne kroki
 
 * [Dowiedz się więcej o dziennikach zasobów](../../azure-monitor/platform/platform-logs-overview.md)
-* [Przesyłanie strumieniowe dzienników zasobów zasobów do **Event Hubs**](../../azure-monitor/platform/resource-logs-stream-event-hubs.md)
-* [Zmienianie ustawień diagnostycznych dziennika zasobów przy użyciu interfejsu API REST Azure Monitor](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings)
-* [Analizowanie dzienników z usługi Azure Storage za pomocą Log Analytics](../../azure-monitor/platform/collect-azure-metrics-logs.md)
+* [Przesyłanie strumieniowe dzienników zasobów zasobów do **Event Hubs**](./resource-logs.md#send-to-azure-event-hubs)
+* [Zmienianie ustawień diagnostycznych dziennika zasobów przy użyciu interfejsu API REST Azure Monitor](/rest/api/monitor/diagnosticsettings)
+* [Analizowanie dzienników z usługi Azure Storage za pomocą Log Analytics](./resource-logs.md#send-to-log-analytics-workspace)

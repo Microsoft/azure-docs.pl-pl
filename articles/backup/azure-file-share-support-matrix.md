@@ -4,15 +4,16 @@ description: Zawiera podsumowanie ustawień i ograniczeń pomocy technicznej pod
 ms.topic: conceptual
 ms.date: 5/07/2020
 ms.custom: references_regions
-ms.openlocfilehash: 5670f4702a8e8d199b9762d87793a053cf6e53b1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d0172ecab682b69f255eedb9270a6208b52dac45
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85806875"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86514559"
 ---
 # <a name="support-matrix-for-azure-file-share-backup"></a>Macierz obsługi dla kopii zapasowej udziału plików platformy Azure
 
-Za pomocą [usługi Azure Backup](https://docs.microsoft.com/azure/backup/backup-overview) można tworzyć kopie zapasowe udziałów plików platformy Azure. Ten artykuł podsumowuje ustawienia pomocy technicznej podczas tworzenia kopii zapasowych udziałów plików platformy Azure za pomocą Azure Backup.
+Za pomocą [usługi Azure Backup](./backup-overview.md) można tworzyć kopie zapasowe udziałów plików platformy Azure. Ten artykuł podsumowuje ustawienia pomocy technicznej podczas tworzenia kopii zapasowych udziałów plików platformy Azure za pomocą Azure Backup.
 
 ## <a name="supported-regions"></a>Obsługiwane regiony
 
@@ -22,7 +23,7 @@ Kopie zapasowe udziałów plików platformy Azure są dostępne we wszystkich re
 
 ### <a name="supported-regions-for-accidental-delete-protection"></a>Obsługiwane regiony do przypadkowego usunięcia ochrony
 
-Zachodnio-środkowe stany USA, Australia Południowo-Wschodnia, Kanada środkowa
+Zachodnie stany USA, Australia Południowo-Wschodnia, Kanada środkowa, zachodnio-środkowe stany USA, Indie Południowe, Północno-środkowe stany USA, Japonia Wschodnia, Brazylia Południowa, Południowe środkowe stany USA, Australia Wschodnia, Wschodnie stany USA, Wschodnie stany USA 2
 
 ## <a name="supported-storage-accounts"></a>Obsługiwane konta magazynu
 
@@ -37,7 +38,7 @@ Zachodnio-środkowe stany USA, Australia Południowo-Wschodnia, Kanada środkowa
 
 | Typ udziału plików                                   | Pomoc techniczna   |
 | -------------------------------------------------- | --------- |
-| Standardowa (Standard)                                           | Obsługiwane |
+| Standard                                           | Obsługiwane |
 | Duży                                              | Obsługiwane |
 | Premium                                            | Obsługiwane |
 | Udziały plików połączone z usługą Azure File Sync | Obsługiwane |

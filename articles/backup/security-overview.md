@@ -3,11 +3,12 @@ title: Omówienie funkcji zabezpieczeń
 description: Dowiedz się więcej o możliwościach zabezpieczeń w Azure Backup, które ułatwiają ochronę danych kopii zapasowych i zaspokajanie potrzeb firmy.
 ms.topic: conceptual
 ms.date: 03/12/2020
-ms.openlocfilehash: 178518f9f04a789f3cb634797cab650e24864337
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ce6d8a43b48be5189f0459c9f82c69354f40689f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83653789"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86513205"
 ---
 # <a name="overview-of-security-features-in-azure-backup"></a>Omówienie funkcji zabezpieczeń w programie Azure Backup
 
@@ -15,17 +16,17 @@ Jednym z najważniejszych kroków, które można wykonać w celu ochrony danych,
 
 ## <a name="management-and-control-of-identity-and-user-access"></a>Zarządzanie tożsamościami i dostępem użytkowników oraz ich kontrola
 
-Konta magazynu używane przez magazyny usługi Recovery Services są izolowane i nie są dostępne dla użytkowników w przypadku jakichkolwiek złośliwych celów. Dostęp jest dozwolony tylko za pomocą Azure Backup operacji zarządzania, takich jak przywracanie. Azure Backup pozwala kontrolować zarządzane operacje za pośrednictwem szczegółowego dostępu przy użyciu [Access Control opartego na rolach (RBAC) na platformie Azure](https://docs.microsoft.com/azure/backup/backup-rbac-rs-vault). RBAC umożliwia rozdzielenie obowiązków w zespole i udzielanie dostępu użytkownikom niezbędnym do wykonywania swoich zadań.
+Konta magazynu używane przez magazyny usługi Recovery Services są izolowane i nie są dostępne dla użytkowników w przypadku jakichkolwiek złośliwych celów. Dostęp jest dozwolony tylko za pomocą Azure Backup operacji zarządzania, takich jak przywracanie. Azure Backup pozwala kontrolować zarządzane operacje za pośrednictwem szczegółowego dostępu przy użyciu [Access Control opartego na rolach (RBAC) na platformie Azure](./backup-rbac-rs-vault.md). RBAC umożliwia rozdzielenie obowiązków w zespole i udzielanie dostępu użytkownikom niezbędnym do wykonywania swoich zadań.
 
-Azure Backup udostępnia trzy [wbudowane role](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) do kontrolowania operacji zarządzania kopiami zapasowymi:
+Azure Backup udostępnia trzy [wbudowane role](../role-based-access-control/built-in-roles.md) do kontrolowania operacji zarządzania kopiami zapasowymi:
 
 * Współautorzy kopii zapasowych — tworzenie kopii zapasowych i zarządzanie nimi, z wyjątkiem usuwania magazynu Recovery Services i udzielania dostępu innym osobom
 * Operator kopii zapasowych — wszystko to współautor, z wyjątkiem usuwania kopii zapasowych i zarządzania zasadami tworzenia kopii zapasowych
 * Czytnik kopii zapasowych — uprawnienia do wyświetlania wszystkich operacji zarządzania kopiami zapasowymi
 
-Dowiedz się więcej na temat [kontroli dostępu opartej na rolach, aby zarządzać Azure Backup](https://docs.microsoft.com/azure/backup/backup-rbac-rs-vault).
+Dowiedz się więcej na temat [kontroli dostępu opartej na rolach, aby zarządzać Azure Backup](./backup-rbac-rs-vault.md).
 
-Azure Backup ma kilka kontrolek zabezpieczeń wbudowanych w usługę w celu zapobiegania i wykrywania luk w zabezpieczeniach oraz reagowania na nie. Dowiedz się więcej o [kontrolkach zabezpieczeń dla Azure Backup](https://docs.microsoft.com/azure/backup/backup-security-controls).
+Azure Backup ma kilka kontrolek zabezpieczeń wbudowanych w usługę w celu zapobiegania i wykrywania luk w zabezpieczeniach oraz reagowania na nie. Dowiedz się więcej o [kontrolkach zabezpieczeń dla Azure Backup](./backup-security-controls.md).
 
 ## <a name="separation-between-guest-and-azure-storage"></a>Rozdzielenie między gośćmi a usługą Azure Storage
 
@@ -37,9 +38,9 @@ Tworzenie kopii zapasowych maszyn wirtualnych platformy Azure wymaga przenoszeni
 
 ## <a name="private-endpoints-for-azure-backup"></a>Prywatne punkty końcowe dla usługi Azure Backup
 
-Możesz teraz używać [prywatnych punktów końcowych](https://docs.microsoft.com/azure/private-link/private-endpoint-overview) do bezpiecznego wykonywania kopii zapasowych danych z serwerów w sieci wirtualnej do magazynu Recovery Services. Prywatny punkt końcowy używa adresu IP z przestrzeni adresowej sieci wirtualnej dla Twojego magazynu, więc nie trzeba ujawniać sieci wirtualnych żadnym publicznym adresom IP. Prywatne punkty końcowe mogą służyć do tworzenia kopii zapasowych i przywracania baz danych SQL i SAP HANA, które działają w ramach maszyn wirtualnych platformy Azure. Można go również użyć dla serwerów lokalnych przy użyciu agenta MARS.
+Możesz teraz używać [prywatnych punktów końcowych](../private-link/private-endpoint-overview.md) do bezpiecznego wykonywania kopii zapasowych danych z serwerów w sieci wirtualnej do magazynu Recovery Services. Prywatny punkt końcowy używa adresu IP z przestrzeni adresowej sieci wirtualnej dla Twojego magazynu, więc nie trzeba ujawniać sieci wirtualnych żadnym publicznym adresom IP. Prywatne punkty końcowe mogą służyć do tworzenia kopii zapasowych i przywracania baz danych SQL i SAP HANA, które działają w ramach maszyn wirtualnych platformy Azure. Można go również użyć dla serwerów lokalnych przy użyciu agenta MARS.
 
-Przeczytaj więcej na temat prywatnych punktów końcowych Azure Backup [tym miejscu](https://docs.microsoft.com/azure/backup/private-endpoints).
+Przeczytaj więcej na temat prywatnych punktów końcowych Azure Backup [tym miejscu](./private-endpoints.md).
 
 ## <a name="encryption-of-data-in-transit-and-at-rest"></a>Szyfrowanie danych podczas przesyłania i przechowywania
 
@@ -47,7 +48,7 @@ Szyfrowanie chroni dane i pomaga sprostać wymaganiom dotyczącym zabezpieczeń 
 
 * Dane kopii zapasowej są automatycznie szyfrowane przy użyciu kluczy zarządzanych przez firmę Microsoft. Można także szyfrować kopie zapasowe maszyn wirtualnych z dyskami zarządzanymi w magazynie Recovery Services przy użyciu [kluczy zarządzanych przez klienta](backup-encryption.md#encryption-of-backup-data-using-customer-managed-keys) przechowywanych w Azure Key Vault. Aby włączyć szyfrowanie, nie trzeba podejmować żadnych jawnych akcji. Ma to zastosowanie do wszystkich obciążeń, których kopie zapasowe są tworzone w magazynie Recovery Services.
 
-* Azure Backup obsługuje tworzenie kopii zapasowych i przywracanie maszyn wirtualnych platformy Azure, w których dyski systemu operacyjnego/danych są szyfrowane za pomocą Azure Disk Encryption (ADE). [Dowiedz się więcej o zaszyfrowanych maszynach wirtualnych platformy Azure i Azure Backup](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption).
+* Azure Backup obsługuje tworzenie kopii zapasowych i przywracanie maszyn wirtualnych platformy Azure, w których dyski systemu operacyjnego/danych są szyfrowane za pomocą Azure Disk Encryption (ADE). [Dowiedz się więcej o zaszyfrowanych maszynach wirtualnych platformy Azure i Azure Backup](./backup-azure-vms-encryption.md).
 
 ## <a name="protection-of-backup-data-from-unintentional-deletes"></a>Ochrona danych kopii zapasowej przed przypadkowym usunięciem
 
@@ -55,15 +56,15 @@ Azure Backup zapewnia funkcje zabezpieczeń chroniące dane kopii zapasowej nawe
 
 ## <a name="monitoring-and-alerts-of-suspicious-activity"></a>Monitorowanie i alerty podejrzanych działań
 
-Azure Backup udostępnia [wbudowane funkcje monitorowania i alertów](https://docs.microsoft.com/azure/backup/backup-azure-monitoring-built-in-monitor) umożliwiające wyświetlanie i Konfigurowanie akcji dla zdarzeń związanych z Azure Backup. [Raporty kopii zapasowych](https://docs.microsoft.com/azure/backup/configure-reports) stanowią jedno miejsce docelowe do śledzenia użycia, inspekcji kopii zapasowych i przywracania oraz identyfikowania kluczowych trendów na różnych poziomach szczegółowości. Korzystając z narzędzi do monitorowania i raportowania Azure Backup, można powiadamiać użytkownika o wszelkich nieautoryzowanych, podejrzanych lub złośliwych działaniach, gdy tylko wystąpią.
+Azure Backup udostępnia [wbudowane funkcje monitorowania i alertów](./backup-azure-monitoring-built-in-monitor.md) umożliwiające wyświetlanie i Konfigurowanie akcji dla zdarzeń związanych z Azure Backup. [Raporty kopii zapasowych](./configure-reports.md) stanowią jedno miejsce docelowe do śledzenia użycia, inspekcji kopii zapasowych i przywracania oraz identyfikowania kluczowych trendów na różnych poziomach szczegółowości. Korzystając z narzędzi do monitorowania i raportowania Azure Backup, można powiadamiać użytkownika o wszelkich nieautoryzowanych, podejrzanych lub złośliwych działaniach, gdy tylko wystąpią.
 
 ## <a name="security-features-to-help-protect-hybrid-backups"></a>Funkcje zabezpieczeń chroniące hybrydowe kopie zapasowe
 
 Usługa Azure Backup używa agenta Microsoft Azure Recovery Services (MARS) do tworzenia kopii zapasowych i przywracania plików, folderów oraz stanu woluminu lub systemu z komputera lokalnego na platformę Azure. Usługa MARS zapewnia teraz funkcje zabezpieczeń chroniące hybrydowe kopie zapasowe. Te funkcje obejmują:
 
-* Dodatkowa warstwa uwierzytelniania jest dodawana zawsze wtedy, gdy jest wykonywane krytyczne operacje, takie jak zmiana hasła. Ta weryfikacja polega na zapewnieniu, że operacje te mogą być wykonywane tylko przez użytkowników, którzy mają prawidłowe poświadczenia platformy Azure. [Dowiedz się więcej o funkcjach, które uniemożliwiają ataki](https://docs.microsoft.com/azure/backup/backup-azure-security-feature#prevent-attacks).
+* Dodatkowa warstwa uwierzytelniania jest dodawana zawsze wtedy, gdy jest wykonywane krytyczne operacje, takie jak zmiana hasła. Ta weryfikacja polega na zapewnieniu, że operacje te mogą być wykonywane tylko przez użytkowników, którzy mają prawidłowe poświadczenia platformy Azure. [Dowiedz się więcej o funkcjach, które uniemożliwiają ataki](./backup-azure-security-feature.md#prevent-attacks).
 
-* Usunięte dane kopii zapasowej są przechowywane przez dodatkowe 14 dni od daty usunięcia. Zapewnia to możliwość odzyskania danych w danym okresie, dlatego nie ma utraty danych, nawet jeśli wystąpi atak. Ponadto do ochrony przed uszkodzeniem danych są utrzymywane większą liczbę punktów odzyskiwania. [Dowiedz się więcej o odzyskiwaniu usuniętych danych kopii zapasowej](https://docs.microsoft.com/azure/backup/backup-azure-security-feature#recover-deleted-backup-data).
+* Usunięte dane kopii zapasowej są przechowywane przez dodatkowe 14 dni od daty usunięcia. Zapewnia to możliwość odzyskania danych w danym okresie, dlatego nie ma utraty danych, nawet jeśli wystąpi atak. Ponadto do ochrony przed uszkodzeniem danych są utrzymywane większą liczbę punktów odzyskiwania. [Dowiedz się więcej o odzyskiwaniu usuniętych danych kopii zapasowej](./backup-azure-security-feature.md#recover-deleted-backup-data).
 
 * W przypadku danych utworzonych przy użyciu agenta Microsoft Azure Recovery Services (MARS) hasło służy do zapewnienia szyfrowania danych przed przekazaniem do Azure Backup i odszyfrowywane dopiero po pobraniu z Azure Backup. Szczegóły hasła są dostępne tylko dla użytkownika, który utworzył hasło, oraz agenta, który jest z nim skonfigurowany. Nic nie jest przesyłane ani udostępniane usłudze. Zapewnia to pełne bezpieczeństwo danych, ponieważ wszystkie dane, które są narażone na przypadkowe (takie jak atak typu man-in-the-Middle w sieci), nie nadają się do użytku bez hasła i hasło nie jest wysyłane w sieci.
 

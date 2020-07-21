@@ -13,15 +13,16 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 10/05/2018
 ms.author: robreed
-ms.openlocfilehash: 4ec81ef69f21fc74864e437a3c6de46550a70c18
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dc73b5b9f05d24de206b25095ea7eaf93f035298
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82891659"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86511164"
 ---
 # <a name="desired-state-configuration-extension-with-azure-resource-manager-templates"></a>Rozszerzenie konfiguracji żądanego stanu z szablonami Azure Resource Manager
 
-W tym artykule opisano szablon Azure Resource Manager na potrzeby [obsługi rozszerzenia konfiguracji żądanego stanu (DSC)](dsc-overview.md). Wiele przykładów używa **RegistrationURL** (dostarczonych jako ciąg) i **RegistrationKey** (dostarczonych jako [PSCredential](/dotnet/api/system.management.automation.pscredential)) do dołączenia do Azure Automation. Aby uzyskać szczegółowe informacje na temat uzyskiwania tych wartości, zobacz sekcję dołączanie [maszyn w celu zarządzania przez Azure Automation konfiguracja stanu — bezpieczna Rejestracja](/azure/automation/automation-dsc-onboarding#onboarding-securely-using-registration).
+W tym artykule opisano szablon Azure Resource Manager na potrzeby [obsługi rozszerzenia konfiguracji żądanego stanu (DSC)](dsc-overview.md). Wiele przykładów używa **RegistrationURL** (dostarczonych jako ciąg) i **RegistrationKey** (dostarczonych jako [PSCredential](/dotnet/api/system.management.automation.pscredential) do dołączenia do Azure Automation. Aby uzyskać szczegółowe informacje na temat uzyskiwania tych wartości, zobacz sekcję dołączanie [maszyn w celu zarządzania przez Azure Automation konfiguracja stanu — bezpieczna Rejestracja](../../automation/automation-dsc-onboarding.md#enable-machines-securely-using-registration).
 
 > [!NOTE]
 > Mogą wystąpić nieco inne przykłady schematu. Zmiana schematu wystąpiła w wersji 2016 października. Aby uzyskać szczegółowe informacje, zobacz [Aktualizacja w poprzednim formacie](#update-from-a-previous-format).
@@ -203,9 +204,9 @@ Możesz użyć domyślnego skryptu konfiguracji rozszerzenia DSC, aby skonfiguro
 | settings.configurationArguments.ConfigurationMode |ciąg |Określa tryb LCM. Prawidłowe opcje to **ApplyOnly**, **ApplyandMonitor**i **ApplyandAutoCorrect**.  Wartość domyślna to **ApplyandMonitor**. |
 | settings.configurationArguments. RefreshFrequencyMins | równ | Określa, jak często LCM próbuje sprawdzić konto usługi Automation pod kątem aktualizacji.  Wartość domyślna to **30**.  Wartość minimalna to **15**. |
 | settings.configurationArguments.ConfigurationModeFrequencyMins | równ | Określa, jak często LCM sprawdza bieżącą konfigurację. Wartość domyślna to **15**. Wartość minimalna to **15**. |
-| settings.configurationArguments. RebootNodeIfNeeded | wartość logiczna | Określa, czy węzeł może być automatycznie uruchamiany ponownie, jeśli operacja DSC zostanie zażądana. Wartość domyślna to **false**. |
+| settings.configurationArguments. RebootNodeIfNeeded | boolean | Określa, czy węzeł może być automatycznie uruchamiany ponownie, jeśli operacja DSC zostanie zażądana. Wartość domyślna to **false**. |
 | settings.configurationArguments. ActionAfterReboot | ciąg | Określa, co się stanie po ponownym uruchomieniu podczas stosowania konfiguracji. Prawidłowe opcje to **ContinueConfiguration** i **StopConfiguration**. Wartość domyślna to **ContinueConfiguration**. |
-| settings.configurationArguments. AllowModuleOverwrite | wartość logiczna | Określa, czy LCM zastępuje istniejące moduły w węźle. Wartość domyślna to **false**. |
+| settings.configurationArguments. AllowModuleOverwrite | boolean | Określa, czy LCM zastępuje istniejące moduły w węźle. Wartość domyślna to **false**. |
 
 ## <a name="settings-vs-protectedsettings"></a>ustawienia a protectedSettings
 

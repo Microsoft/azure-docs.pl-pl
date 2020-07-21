@@ -10,15 +10,16 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/30/2020
+ms.date: 07/13/2020
 ms.author: rolyon
-ms.openlocfilehash: a7be51cfceee3bb445b085efd780463c8b6f49be
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 91d2605dddd6107d09e635969f5e5d98c2a02d60
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84791201"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86511725"
 ---
-# <a name="create-or-update-azure-custom-roles-using-the-azure-portal"></a>Tworzenie lub aktualizowanie ról niestandardowych platformy Azure przy użyciu witryny Azure Portal
+# <a name="create-or-update-azure-custom-roles-using-the-azure-portal"></a>Tworzenie lub aktualizowanie ról niestandardowych platformy Azure za pomocą witryny Azure Portal
 
 Jeśli [wbudowane role platformy Azure](built-in-roles.md) nie są zgodne z konkretnymi potrzebami organizacji, możesz utworzyć własne role niestandardowe platformy Azure. Podobnie jak wbudowane role można przypisywać niestandardowe role do użytkowników, grup i jednostek usługi w ramach subskrypcji i zakresów grup zasobów. Role niestandardowe są przechowywane w katalogu Azure Active Directory (Azure AD) i mogą być współużytkowane przez subskrypcje. Każdy katalog może mieć maksymalnie 5000 ról niestandardowych. Role niestandardowe można tworzyć przy użyciu Azure Portal, Azure PowerShell, interfejsu wiersza polecenia platformy Azure lub API REST. W tym artykule opisano sposób tworzenia ról niestandardowych przy użyciu Azure Portal.
 
@@ -203,17 +204,7 @@ Wykonaj następujące kroki, aby dodać lub usunąć uprawnienia dla roli niesta
 
 ### <a name="add-wildcard-permissions"></a>Dodawanie uprawnień symboli wieloznacznych
 
-W zależności od wybranego sposobu uruchamiania możesz mieć uprawnienia z symbolami wieloznacznymi ( \* ) na liście uprawnień. Symbol wieloznaczny ( \* ) rozszerza uprawnienia do wszystkich elementów, które pasują do podanego ciągu. Załóżmy na przykład, że chcesz dodać wszystkie uprawnienia związane z Azure Cost Management i eksportami. Można dodać wszystkie te uprawnienia:
-
-```
-Microsoft.CostManagement/exports/action
-Microsoft.CostManagement/exports/read
-Microsoft.CostManagement/exports/write
-Microsoft.CostManagement/exports/delete
-Microsoft.CostManagement/exports/run/action
-```
-
-Zamiast dodawać wszystkie te uprawnienia, można po prostu dodać uprawnienia do symboli wieloznacznych. Na przykład następujące uprawnienie symboli wieloznacznych jest równoważne z pięcioma poprzednimi uprawnieniami. Obejmuje to również wszelkie przyszłe uprawnienia eksportu, które mogą zostać dodane.
+W zależności od wybranego sposobu uruchamiania możesz mieć uprawnienia z symbolami wieloznacznymi ( `*` ) na liście uprawnień. Symbol wieloznaczny ( `*` ) rozszerza uprawnienia do wszystkich elementów, które pasują do podanego ciągu akcji. Na przykład następujący symbol wieloznaczny dodaje wszystkie uprawnienia dotyczące Azure Cost Management i eksportu. Obejmuje to również wszelkie przyszłe uprawnienia eksportu, które mogą zostać dodane.
 
 ```
 Microsoft.CostManagement/exports/*
@@ -223,7 +214,7 @@ Jeśli chcesz dodać nowe uprawnienie do symbolu wieloznacznego, nie możesz dod
 
 ### <a name="exclude-permissions"></a>Wyklucz uprawnienia
 
-Jeśli rola ma uprawnienie do symbolu wieloznacznego ( \* ) i chcesz wykluczyć lub odjęciu określonych uprawnień z tego uprawnienia, można je wykluczyć. Załóżmy na przykład, że masz następujące uprawnienia do symboli wieloznacznych:
+Jeśli rola ma uprawnienie do symbolu wieloznacznego ( `*` ) i chcesz wykluczyć lub odjęciu określonych uprawnień z tego uprawnienia, można je wykluczyć. Załóżmy na przykład, że masz następujące uprawnienia do symboli wieloznacznych:
 
 ```
 Microsoft.CostManagement/exports/*
@@ -268,7 +259,7 @@ Na karcie **zakresy** możliwe do przypisania Określ lokalizację, w której ro
 
 ## <a name="step-6-json"></a>Krok 6. kod JSON
 
-Na karcie **JSON** zobaczysz niestandardową rolę sformatowaną w formacie JSON. Jeśli chcesz, możesz bezpośrednio edytować kod JSON. Jeśli chcesz dodać uprawnienie symbol wieloznaczny ( \* ), musisz użyć tej karty.
+Na karcie **JSON** zobaczysz niestandardową rolę sformatowaną w formacie JSON. Jeśli chcesz, możesz bezpośrednio edytować kod JSON. Jeśli chcesz dodać uprawnienie symbol wieloznaczny ( `*` ), musisz użyć tej karty.
 
 1. Aby edytować kod JSON, kliknij przycisk **Edytuj**.
 
@@ -348,4 +339,4 @@ Wykonaj następujące kroki, aby wyświetlić role niestandardowe.
 
 - [Samouczek: tworzenie roli niestandardowej platformy Azure przy użyciu Azure PowerShell](tutorial-custom-role-powershell.md)
 - [Role niestandardowe platformy Azure](custom-roles.md)
-- [Operacje dostawcy zasobów Azure Resource Manager](resource-provider-operations.md)
+- [Operacje związane z dostawcami zasobów w usłudze Azure Resource Manager](resource-provider-operations.md)

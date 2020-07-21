@@ -7,11 +7,12 @@ ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: bwren
 ms.subservice: metrics
-ms.openlocfilehash: 14079f42fd857495396a0c44fd3bdeaf4371ea5f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 208515b7541948ca6913e6fda092c6a424de85f9
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83650548"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86515788"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-by-using-an-azure-resource-manager-template-for-a-windows-virtual-machine"></a>Wysyłanie metryk systemu operacyjnego gościa do Azure Monitor magazynu metryk przy użyciu szablonu Azure Resource Manager dla maszyny wirtualnej z systemem Windows
 Dane dotyczące wydajności z systemu operacyjnego gościa maszyn wirtualnych platformy Azure nie są zbierane automatycznie, podobnie jak inne [metryki platformy](../insights/monitor-azure-resource.md#monitoring-data). Zainstaluj [rozszerzenie diagnostyka](diagnostics-extension-overview.md) Azure monitor, aby zbierać METRYKI systemu operacyjnego gościa do bazy danych metryk, aby można było ich używać ze wszystkimi funkcjami metryk Azure monitor, w tym alertami niemal w czasie rzeczywistym, wykresami, routingiem i dostępem z interfejsu API REST. W tym artykule opisano proces wysyłania metryk wydajności systemu operacyjnego gościa dla maszyny wirtualnej z systemem Windows do bazy danych metryk przy użyciu szablonu Menedżer zasobów. 
@@ -24,9 +25,9 @@ Jeśli jesteś nowym szablonem Menedżer zasobów, Dowiedz się więcej na temat
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Twoja subskrypcja musi być zarejestrowana w usłudze [Microsoft. Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services).
+- Twoja subskrypcja musi być zarejestrowana w usłudze [Microsoft. Insights](../../azure-resource-manager/management/resource-providers-and-types.md).
 
-- Musisz mieć zainstalowaną [Azure PowerShell](/powershell/azure) lub [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) .
+- Musisz mieć zainstalowaną [Azure PowerShell](/powershell/azure) lub [Azure Cloud Shell](../../cloud-shell/overview.md) .
 
 - Zasób maszyny wirtualnej musi znajdować się w [regionie, który obsługuje metryki niestandardowe](metrics-custom-overview.md#supported-regions). 
 
@@ -285,4 +286,3 @@ Aby wdrożyć szablon Menedżer zasobów, wykorzystujemy Azure PowerShell.
 
 ## <a name="next-steps"></a>Następne kroki
 - Dowiedz się więcej o [metrykach niestandardowych](metrics-custom-overview.md).
-

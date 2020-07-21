@@ -4,11 +4,12 @@ description: W tym artykule dowiesz się, jak konfigurować i inicjować operacj
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.assetid: b80b3a41-87bf-49ca-8ef2-68e43c04c1a3
-ms.openlocfilehash: d037339d9ff9a891fcc595a3eff75097204a77ab
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 595291549b4d181967ea168d0dc71bc7e2237a67
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84248689"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86514207"
 ---
 # <a name="back-up-an-azure-vm-using-azure-backup-via-rest-api"></a>Tworzenie kopii zapasowej maszyny wirtualnej platformy Azure przy użyciu Azure Backup za pośrednictwem interfejsu API REST
 
@@ -22,7 +23,7 @@ Załóżmy, że chcesz chronić maszynę wirtualną "testVM" w grupie zasobów "
 
 ### <a name="discover-unprotected-azure-vms"></a>Odnajdywanie niechronionych maszyn wirtualnych platformy Azure
 
-Najpierw magazyn powinien być w stanie identyfikować maszynę wirtualną platformy Azure. Jest to wyzwalane przy użyciu [operacji odświeżania](https://docs.microsoft.com/rest/api/backup/protectioncontainers/refresh). Jest to asynchroniczna operacja *post* , która zapewnia, że magazyn otrzymuje najnowszą listę wszystkich niechronionych maszyn wirtualnych w bieżącej subskrypcji i "pamięci podręcznej". Po zapisaniu maszyny wirtualnej usługi odzyskiwania będą mogły uzyskać dostęp do maszyny wirtualnej i chronić ją.
+Najpierw magazyn powinien być w stanie identyfikować maszynę wirtualną platformy Azure. Jest to wyzwalane przy użyciu [operacji odświeżania](/rest/api/backup/protectioncontainers/refresh). Jest to asynchroniczna operacja *post* , która zapewnia, że magazyn otrzymuje najnowszą listę wszystkich niechronionych maszyn wirtualnych w bieżącej subskrypcji i "pamięci podręcznej". Po zapisaniu maszyny wirtualnej usługi odzyskiwania będą mogły uzyskać dostęp do maszyny wirtualnej i chronić ją.
 
 ```http
 POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{vaultresourceGroupname}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/refreshContainers?api-version=2016-12-01
@@ -36,7 +37,7 @@ POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-00000000
 
 #### <a name="responses"></a>Odpowiedzi
 
-Operacja "Refresh" jest [operacją asynchroniczną](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Oznacza to, że ta operacja tworzy kolejną operację, która musi być śledzona oddzielnie.
+Operacja "Refresh" jest [operacją asynchroniczną](../azure-resource-manager/management/async-operations.md). Oznacza to, że ta operacja tworzy kolejną operację, która musi być śledzona oddzielnie.
 
 Zwraca dwie odpowiedzi: 202 (zaakceptowane), gdy tworzona jest inna operacja, a następnie 200 (OK) po zakończeniu tej operacji.
 
@@ -91,7 +92,7 @@ X-Powered-By: ASP.NET
 
 ### <a name="selecting-the-relevant-azure-vm"></a>Wybieranie odpowiedniej maszyny wirtualnej platformy Azure
 
- Aby potwierdzić, że "buforowanie" jest wykonywane, należy wyświetlić [listę wszystkich elementów podlegających ochronie](https://docs.microsoft.com/rest/api/backup/backupprotectableitems/list) w ramach subskrypcji i zlokalizować ŻĄDAną maszynę wirtualną w odpowiedzi. [Odpowiedź tej operacji](#example-responses-1) zawiera również informacje dotyczące sposobu, w jaki Recovery Services identyfikuje maszynę wirtualną.  Po zapoznaniu się ze wzorcem możesz pominąć ten krok i bezpośrednio przejść do [włączania ochrony](#enabling-protection-for-the-azure-vm).
+ Aby potwierdzić, że "buforowanie" jest wykonywane, należy wyświetlić [listę wszystkich elementów podlegających ochronie](/rest/api/backup/backupprotectableitems/list) w ramach subskrypcji i zlokalizować ŻĄDAną maszynę wirtualną w odpowiedzi. [Odpowiedź tej operacji](#example-responses-1) zawiera również informacje dotyczące sposobu, w jaki Recovery Services identyfikuje maszynę wirtualną.  Po zapoznaniu się ze wzorcem możesz pominąć ten krok i bezpośrednio przejść do [włączania ochrony](#enabling-protection-for-the-azure-vm).
 
 Ta operacja jest operacją *pobierania* .
 
@@ -105,7 +106,7 @@ Identyfikator URI *Get* zawiera wszystkie wymagane parametry. Żadna dodatkowa t
 
 |Nazwa  |Typ  |Opis  |
 |---------|---------|---------|
-|200 OK     | [WorkloadProtectableItemResourceList](https://docs.microsoft.com/rest/api/backup/backupprotectableitems/list#workloadprotectableitemresourcelist)        |       OK |
+|200 OK     | [WorkloadProtectableItemResourceList](/rest/api/backup/backupprotectableitems/list#workloadprotectableitemresourcelist)        |       OK |
 
 #### <a name="example-responses"></a><a name="example-responses-1"></a>Przykładowe odpowiedzi
 
@@ -161,7 +162,7 @@ W tym przykładzie powyższe wartości przekładają się na:
 
 ### <a name="enabling-protection-for-the-azure-vm"></a>Włączanie ochrony maszyny wirtualnej platformy Azure
 
-Gdy odpowiednia maszyna wirtualna jest "buforowana" i "zidentyfikowana", wybierz zasady do ochrony. Aby dowiedzieć się więcej na temat istniejących zasad w magazynie, zapoznaj się z tematem [interfejs API zasad listy](https://docs.microsoft.com/rest/api/backup/backuppolicies/list). Następnie wybierz [odpowiednie zasady](/rest/api/backup/protectionpolicies/get) , odwołując się do nazwy zasad. Aby utworzyć zasady, zobacz [samouczek Tworzenie zasad](backup-azure-arm-userestapi-createorupdatepolicy.md). W poniższym przykładzie wybrano wartość "DefaultPolicy".
+Gdy odpowiednia maszyna wirtualna jest "buforowana" i "zidentyfikowana", wybierz zasady do ochrony. Aby dowiedzieć się więcej na temat istniejących zasad w magazynie, zapoznaj się z tematem [interfejs API zasad listy](/rest/api/backup/backuppolicies/list). Następnie wybierz [odpowiednie zasady](/rest/api/backup/protectionpolicies/get) , odwołując się do nazwy zasad. Aby utworzyć zasady, zobacz [samouczek Tworzenie zasad](backup-azure-arm-userestapi-createorupdatepolicy.md). W poniższym przykładzie wybrano wartość "DefaultPolicy".
 
 Włączenie ochrony jest asynchroniczną operacją *Put* , która tworzy "chroniony element".
 
@@ -183,7 +184,7 @@ Aby utworzyć chroniony element, poniżej przedstawiono składniki treści żąd
 |---------|---------|---------|
 |properties     | AzureIaaSVMProtectedItem        |Właściwości zasobów ProtectedItem         |
 
-Aby uzyskać pełną listę definicji treści żądania i innych szczegółów, zobacz [dokument interfejsu API Rest tworzenia chronionego elementu](https://docs.microsoft.com/rest/api/backup/protecteditems/createorupdate#request-body).
+Aby uzyskać pełną listę definicji treści żądania i innych szczegółów, zobacz [dokument interfejsu API Rest tworzenia chronionego elementu](/rest/api/backup/protecteditems/createorupdate#request-body).
 
 ##### <a name="example-request-body"></a>Przykładowa treść żądania
 
@@ -203,13 +204,13 @@ Następująca treść żądania definiuje właściwości wymagane do utworzenia 
 
 #### <a name="responses"></a>Odpowiedzi
 
-Tworzenie chronionego elementu jest [operacją asynchroniczną](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Oznacza to, że ta operacja tworzy kolejną operację, która musi być śledzona oddzielnie.
+Tworzenie chronionego elementu jest [operacją asynchroniczną](../azure-resource-manager/management/async-operations.md). Oznacza to, że ta operacja tworzy kolejną operację, która musi być śledzona oddzielnie.
 
 Zwraca dwie odpowiedzi: 202 (zaakceptowane), gdy tworzona jest inna operacja, a następnie 200 (OK) po zakończeniu tej operacji.
 
 |Nazwa  |Typ  |Opis  |
 |---------|---------|---------|
-|200 OK     |    [ProtectedItemResource](https://docs.microsoft.com/rest/api/backup/protecteditemoperationresults/get#protecteditemresource)     |  OK       |
+|200 OK     |    [ProtectedItemResource](/rest/api/backup/protecteditemoperationresults/get#protecteditemresource)     |  OK       |
 |202 zaakceptowane     |         |     Zaakceptowano    |
 
 ##### <a name="example-responses"></a>Przykładowe odpowiedzi
@@ -295,9 +296,9 @@ Aby wyzwolić kopię zapasową na żądanie, poniżej przedstawiono składniki t
 
 |Nazwa  |Typ  |Opis  |
 |---------|---------|---------|
-|properties     | [IaaSVMBackupRequest](https://docs.microsoft.com/rest/api/backup/backups/trigger#iaasvmbackuprequest)        |Właściwości BackupRequestResource         |
+|properties     | [IaaSVMBackupRequest](/rest/api/backup/backups/trigger#iaasvmbackuprequest)        |Właściwości BackupRequestResource         |
 
-Aby zapoznać się z pełną listą definicji treści żądania i innych szczegółów, zapoznaj się z tematem [wyzwalanie kopii zapasowych dla dokumentów interfejsu API REST elementów chronionych](https://docs.microsoft.com/rest/api/backup/backups/trigger#request-body).
+Aby zapoznać się z pełną listą definicji treści żądania i innych szczegółów, zapoznaj się z tematem [wyzwalanie kopii zapasowych dla dokumentów interfejsu API REST elementów chronionych](/rest/api/backup/backups/trigger#request-body).
 
 #### <a name="example-request-body"></a>Przykładowa treść żądania
 
@@ -314,7 +315,7 @@ Następująca treść żądania definiuje właściwości wymagane do wyzwolenia 
 
 ### <a name="responses"></a>Odpowiedzi
 
-Wyzwalanie kopii zapasowej na żądanie jest [operacją asynchroniczną](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Oznacza to, że ta operacja tworzy kolejną operację, która musi być śledzona oddzielnie.
+Wyzwalanie kopii zapasowej na żądanie jest [operacją asynchroniczną](../azure-resource-manager/management/async-operations.md). Oznacza to, że ta operacja tworzy kolejną operację, która musi być śledzona oddzielnie.
 
 Zwraca dwie odpowiedzi: 202 (zaakceptowane), gdy tworzona jest inna operacja, a następnie 200 (OK) po zakończeniu tej operacji.
 
@@ -418,7 +419,7 @@ Odpowiedź będzie zgodna z tym samym formatem, jak wspomniano w [przypadku wyzw
 
 ### <a name="stop-protection-and-delete-data"></a>Zatrzymywanie ochrony i usuwanie danych
 
-Aby usunąć ochronę chronionej maszyny wirtualnej i usunąć również dane kopii zapasowej, wykonaj operację usuwania w sposób opisany [tutaj](https://docs.microsoft.com/rest/api/backup/protecteditems/delete).
+Aby usunąć ochronę chronionej maszyny wirtualnej i usunąć również dane kopii zapasowej, wykonaj operację usuwania w sposób opisany [tutaj](/rest/api/backup/protecteditems/delete).
 
 Zatrzymywanie ochrony i usuwanie danych jest operacją *usuwania* .
 
@@ -434,7 +435,7 @@ DELETE https://management.azure.com//Subscriptions/00000000-0000-0000-0000-00000
 
 #### <a name="responses"></a><a name="responses-2"></a>Odpowiedzi
 
-*Usuwanie* ochrony jest [operacją asynchroniczną](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Oznacza to, że ta operacja tworzy kolejną operację, która musi być śledzona oddzielnie.
+*Usuwanie* ochrony jest [operacją asynchroniczną](../azure-resource-manager/management/async-operations.md). Oznacza to, że ta operacja tworzy kolejną operację, która musi być śledzona oddzielnie.
 
 Zwraca dwie odpowiedzi: 202 (zaakceptowane), gdy tworzona jest inna operacja, a następnie 204 (NoContent) po zakończeniu tej operacji.
 

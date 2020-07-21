@@ -6,16 +6,16 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 11/13/2018
 ms.author: guybo
-ms.openlocfilehash: ebd20b6187fd4f04ac525e0152d805d9d81de3ab
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 4c2edddb8eec4a2f8300077bb00df72d7e2b00de
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134597"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86510729"
 ---
 # <a name="prepare-a-debian-vhd-for-azure"></a>Przygotowywanie wirtualnego dysku twardego Debian dla platformy Azure
 ## <a name="prerequisites"></a>Wymagania wstępne
-W tej sekcji założono, że zainstalowano już system operacyjny Debian Linux z pliku ISO pobranego z [witryny internetowej Debian](https://www.debian.org/distrib/) do wirtualnego dysku twardego. Istnieje wiele narzędzi do tworzenia plików VHD; Funkcja Hyper-V jest tylko jednym przykładem. Aby uzyskać instrukcje dotyczące korzystania z funkcji Hyper-V, zobacz [Instalowanie roli funkcji Hyper-v i Konfigurowanie maszyny wirtualnej](https://technet.microsoft.com/library/hh846766.aspx).
+W tej sekcji założono, że zainstalowano już system operacyjny Debian Linux z pliku ISO pobranego z [witryny internetowej Debian](https://www.debian.org/distrib/) do wirtualnego dysku twardego. Istnieje wiele narzędzi do tworzenia plików VHD; Funkcja Hyper-V jest tylko jednym przykładem. Aby uzyskać instrukcje dotyczące korzystania z funkcji Hyper-V, zobacz [Instalowanie roli funkcji Hyper-v i Konfigurowanie maszyny wirtualnej](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh846766(v=ws.11)).
 
 ## <a name="installation-notes"></a>Uwagi dotyczące instalacji
 * Aby uzyskać więcej porad dotyczących przygotowywania systemu Linux dla platformy Azure, zobacz również [Ogólne informacje o instalacji](create-upload-generic.md#general-linux-installation-notes) w systemie Linux.
@@ -116,4 +116,3 @@ Dostępne są narzędzia do generowania wirtualnych dysków twardych Debian dla 
 
 ## <a name="next-steps"></a>Następne kroki
 Możesz teraz przystąpić do tworzenia nowych maszyn wirtualnych na platformie Azure przy użyciu wirtualnego dysku twardego debian. Jeśli przekazujesz plik VHD na platformę Azure po raz pierwszy, zobacz [Tworzenie maszyny wirtualnej z systemem Linux z dysku niestandardowego](upload-vhd.md#option-1-upload-a-vhd).
-
