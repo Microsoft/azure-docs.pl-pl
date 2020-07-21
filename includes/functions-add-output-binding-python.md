@@ -11,8 +11,8 @@ ms.contentlocale: pl-PL
 ms.lasthandoff: 04/29/2020
 ms.locfileid: "78191065"
 ---
-Zaktualizuj *\\\_HttpExample\_init\_. PR, aby pasował do poniższego kodu, dodając parametr do definicji funkcji i w ramach\_* `msg` `msg.set(name)` `if name:` instrukcji.
+Zaktualizuj *HttpExample \\ \_ \_ init \_ \_ . PR* , aby pasował do poniższego kodu, dodając `msg` parametr do definicji funkcji i `msg.set(name)` w ramach `if name:` instrukcji.
 
 :::code language="python" source="~/functions-docs-python/functions-add-output-binding-storage-queue-cli/HttpExample/__init__.py":::
 
-`msg` Parametr jest wystąpieniem [`azure.functions.InputStream class`](/python/api/azure-functions/azure.functions.httprequest). Jego `set` Metoda zapisuje komunikat ciągu do kolejki, w tym przypadku nazwa została przeniesiona do funkcji w ciągu zapytania adresu URL.
+`msg`Parametr jest wystąpieniem [`azure.functions.InputStream class`](/python/api/azure-functions/azure.functions.httprequest) . Jego `set` Metoda zapisuje komunikat ciągu do kolejki, w tym przypadku nazwa została przeniesiona do funkcji w ciągu zapytania adresu URL.

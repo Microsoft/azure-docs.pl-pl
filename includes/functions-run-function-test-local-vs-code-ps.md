@@ -21,7 +21,7 @@ Azure Functions Core Tools integruje się z Visual Studio Code, aby umożliwić 
 
     ![Lokalne dane wyjściowe platformy Azure](./media/functions-run-function-test-local-vs-code-ps/functions-vscode-f5.png)
 
-1. Dołącz ciąg `?name=<yourname>` zapytania do tego adresu URL, a następnie użyj `Invoke-RestMethod` w drugim wierszu polecenia programu PowerShell, aby wykonać żądanie w następujący sposób:
+1. Dołącz ciąg zapytania `?name=<yourname>` do tego adresu URL, a następnie użyj `Invoke-RestMethod` w drugim wierszu polecenia programu PowerShell, aby wykonać żądanie w następujący sposób:
 
     ```powershell
     PS > Invoke-RestMethod -Method Get -Uri http://localhost:7071/api/HttpTrigger?name=PowerShell
@@ -32,7 +32,7 @@ Azure Functions Core Tools integruje się z Visual Studio Code, aby umożliwić 
 
     <http://localhost:7071/api/HttpExample?name=PowerShell>
 
-    Po wywołaniu punktu końcowego HttpTrigger bez przekazywania `name` parametru jako parametru zapytania lub w treści funkcja zwraca `BadRequest` błąd. Gdy przeglądasz kod w programie Run. ps1, zobaczysz, że ten błąd występuje podczas projektowania.
+    Po wywołaniu punktu końcowego HttpTrigger bez przekazywania `name` parametru jako parametru zapytania lub w treści funkcja zwraca `BadRequest` błąd. Podczas przeglądania kodu w run.ps1, zobaczysz, że ten błąd występuje podczas projektowania.
 
 1. Informacje o żądaniu są wyświetlane w panelu **terminalu** .
 

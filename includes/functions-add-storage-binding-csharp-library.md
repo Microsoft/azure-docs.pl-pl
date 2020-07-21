@@ -11,13 +11,13 @@ ms.contentlocale: pl-PL
 ms.lasthandoff: 04/29/2020
 ms.locfileid: "78190923"
 ---
-W projekcie biblioteki klas języka C# powiązania są zdefiniowane jako atrybuty powiązania w metodzie funkcji. Plik *Function. JSON* wymagany przez funkcje jest następnie generowany automatycznie na podstawie tych atrybutów.
+W projekcie biblioteki klas języka C# powiązania są zdefiniowane jako atrybuty powiązania w metodzie funkcji. *function.jsw* pliku wymaganym przez funkcje są generowane automatycznie na podstawie tych atrybutów.
 
-Otwórz plik projektu *HttpExample.cs* i Dodaj następujący parametr do definicji `Run` metody:
+Otwórz plik projektu *HttpExample.cs* i Dodaj następujący parametr do `Run` definicji metody:
 
 :::code language="csharp" source="~/functions-docs-csharp/functions-add-output-binding-storage-queue-cli/HttpExample.cs" range="17":::
 
-`msg` Parametr jest `ICollector<T>` typem, który reprezentuje kolekcję komunikatów, które są zapisywane do powiązania danych wyjściowych po zakończeniu działania funkcji. W takim przypadku dane wyjściowe są kolejki magazynu o nazwie `outqueue`. Parametry połączenia dla konta magazynu są ustawiane przez `StorageAccountAttribute`. Ten atrybut wskazuje ustawienie, które zawiera parametry połączenia konta magazynu i może być stosowane na poziomie klasy, metody lub parametru. W takim przypadku można pominąć `StorageAccountAttribute` , ponieważ jest już używane domyślne konto magazynu.
+`msg`Parametr jest `ICollector<T>` typem, który reprezentuje kolekcję komunikatów, które są zapisywane do powiązania danych wyjściowych po zakończeniu działania funkcji. W takim przypadku dane wyjściowe są kolejki magazynu o nazwie `outqueue` . Parametry połączenia dla konta magazynu są ustawiane przez `StorageAccountAttribute` . Ten atrybut wskazuje ustawienie, które zawiera parametry połączenia konta magazynu i może być stosowane na poziomie klasy, metody lub parametru. W takim przypadku można pominąć, `StorageAccountAttribute` ponieważ jest już używane domyślne konto magazynu.
 
 Definicja metody Run powinna teraz wyglądać następująco:  
 
