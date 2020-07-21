@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 04/13/2019
-ms.openlocfilehash: 97bea90e67b9449a8f5fd7b333b9ac149abef2f8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7b52a1ee67c22fb3bded49a80d35305bdf612f10
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84945464"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86498959"
 ---
 # <a name="monitoring-your-key-vault-service-with-azure-monitor-for-key-vault-preview"></a>Monitorowanie usługi magazynu kluczy za pomocą Azure Monitor dla Key Vault (wersja zapoznawcza)
 Azure Monitor dla Key Vault (wersja zapoznawcza) zapewnia kompleksowe monitorowanie magazynów kluczy, udostępniając ujednolicony widok żądań Key Vault, wydajności, błędów i opóźnień.
@@ -24,7 +24,7 @@ Przed przechodzeniem do środowiska należy zrozumieć, jak prezentuje i wizuali
 -   **Przechodzenie do szczegółów analizy** określonego magazynu kluczy w celu przeprowadzenia szczegółowej analizy.
 -    **Dostosowywalne** miejsce, w którym można zmienić metryki, które mają być wyświetlane, zmodyfikować lub ustawić progi, które są wyrównane z limitami, i zapisać własny skoroszyt. Wykresy w skoroszycie można przypinać do pulpitów nawigacyjnych platformy Azure.
 
-Azure Monitor Key Vault łączy zarówno dzienniki, jak i metryki, aby zapewnić globalne rozwiązanie do monitorowania. Wszyscy użytkownicy mogą uzyskać dostęp do danych monitorowania opartych na metrykach, jednak dołączenie wizualizacji opartych na dziennikach może wymagać od użytkowników [umożliwienia użytkownikom rejestrowania ich Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-logging).
+Azure Monitor Key Vault łączy zarówno dzienniki, jak i metryki, aby zapewnić globalne rozwiązanie do monitorowania. Wszyscy użytkownicy mogą uzyskać dostęp do danych monitorowania opartych na metrykach, jednak dołączenie wizualizacji opartych na dziennikach może wymagać od użytkowników [umożliwienia użytkownikom rejestrowania ich Azure Key Vault](../../key-vault/general/logging.md).
 
 ## <a name="configuring-your-key-vaults-for-monitoring"></a>Konfigurowanie magazynów kluczy do monitorowania
 
@@ -39,7 +39,7 @@ Azure Monitor Key Vault łączy zarówno dzienniki, jak i metryki, aby zapewnić
 
 3. Po zapisaniu ustawień diagnostycznych będzie można wyświetlić wszystkie wykresy i wizualizacje oparte na dziennikach poniżej Key Vault szczegółowych informacji. Zapełnianie dzienników może potrwać kilka minut.
 
-4. Aby uzyskać dodatkową pomoc dotyczącą sposobu włączania dzienników diagnostycznych dla usługi Key Vault, Przeczytaj [Pełny przewodnik](https://docs.microsoft.com/azure/key-vault/key-vault-logging).
+4. Aby uzyskać dodatkową pomoc dotyczącą sposobu włączania dzienników diagnostycznych dla usługi Key Vault, Przeczytaj [Pełny przewodnik](../../key-vault/general/logging.md).
 
 ## <a name="view-from-azure-monitor"></a>Wyświetl od Azure Monitor
 
@@ -75,7 +75,7 @@ Istnieje warunkowe kodowanie kolorami lub map cieplnych dla kolumn w skoroszycie
 
 W tym skoroszycie są wyświetlane sukcesy (kody stanu 2xx), błędy uwierzytelniania (kody stanu 401/403), ograniczanie (kody stanu 429) i inne błędy (kody stanu 4xx).
 
-Aby lepiej zrozumieć, co reprezentuje każdy kod stanu, zalecamy zapoznanie się z dokumentacją dotyczącą [Azure Key Vault stanu i kodów odpowiedzi](https://docs.microsoft.com/azure/key-vault/authentication-requests-and-responses).
+Aby lepiej zrozumieć, co reprezentuje każdy kod stanu, zalecamy zapoznanie się z dokumentacją dotyczącą [Azure Key Vault stanu i kodów odpowiedzi](../../key-vault/general/authentication-requests-and-responses.md).
 
 ## <a name="operations--latency-workbook"></a>Skoroszyt opóźnienia & operacji
 
@@ -120,7 +120,7 @@ Skoroszyt operacji pozwala użytkownikom na głębokie szczegółowe w szczegó�
 Użytkownicy mogą również przedefiniować zakres widoków w oparciu o określone typy transakcji w górnej tabeli, co dynamicznie aktualizuje niższą tabelę, gdzie użytkownicy mogą wyświetlać pełne szczegóły operacji w okienku kontekstowym okienka wyskakującego.
 
 >[!NOTE]
-> Należy pamiętać, że użytkownicy muszą mieć włączone ustawienia diagnostyczne, aby wyświetlić ten skoroszyt. Aby dowiedzieć się więcej na temat włączania ustawień diagnostycznych, Przeczytaj więcej na temat [rejestrowania Azure Key Vault](https://docs.microsoft.com/azure/key-vault/general/logging).
+> Należy pamiętać, że użytkownicy muszą mieć włączone ustawienia diagnostyczne, aby wyświetlić ten skoroszyt. Aby dowiedzieć się więcej na temat włączania ustawień diagnostycznych, Przeczytaj więcej na temat [rejestrowania Azure Key Vault](../../key-vault/general/logging.md).
 
 ## <a name="pin-and-export"></a>Przypnij i Eksportuj
 
@@ -164,7 +164,7 @@ Ta sekcja pomoże Ci w diagnozowaniu i rozwiązywaniu problemów z typowymi prob
 
 ### <a name="resolving-performance-issues-or-failures"></a>Rozwiązywanie problemów z wydajnością lub niepowodzeń
 
-Aby ułatwić rozwiązywanie problemów związanych z magazynem kluczy, które można zidentyfikować za pomocą Azure Monitor dla Key Vault (wersja zapoznawcza), zobacz [dokumentację Azure Key Vault](https://docs.microsoft.com/azure/key-vault/).
+Aby ułatwić rozwiązywanie problemów związanych z magazynem kluczy, które można zidentyfikować za pomocą Azure Monitor dla Key Vault (wersja zapoznawcza), zobacz [dokumentację Azure Key Vault](../../key-vault/index.yml).
 
 ### <a name="why-can-i-only-see-200-key-vaults"></a>Dlaczego można zobaczyć tylko magazyny kluczy 200
 
@@ -208,4 +208,4 @@ Istniejący skoroszyt można edytować za pomocą trybu edycji, a następnie zap
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się, jakie scenariusze skoroszyty są przeznaczone do obsługi, jak tworzyć nowe i dostosowywać istniejące raporty, a inne dzięki przeglądowi [Tworzenie interaktywnych raportów przy użyciu skoroszytów Azure monitor](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview).
+Dowiedz się, jakie scenariusze skoroszyty są przeznaczone do obsługi, jak tworzyć nowe i dostosowywać istniejące raporty, a inne dzięki przeglądowi [Tworzenie interaktywnych raportów przy użyciu skoroszytów Azure monitor](../platform/workbooks-overview.md).

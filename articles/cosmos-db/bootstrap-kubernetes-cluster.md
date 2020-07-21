@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/06/2019
 ms.author: sngun
-ms.openlocfilehash: e7e1480d00280fc567a69556f25db8ffab800f70
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 31c3c02f2b32594e5b20450d0bb519f4cdf82807
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85262637"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86497764"
 ---
 # <a name="how-to-use-azure-kubernetes-with-azure-cosmos-db-preview"></a>Jak używać usługi Azure Kubernetes z Azure Cosmos DB (wersja zapoznawcza)
 
@@ -33,7 +33,7 @@ Aby dowiedzieć się więcej o interfejsie API etcd w Azure Cosmos DB, zapoznaj 
 
    Aparat usługi Azure Kubernetes (**AKS-Engine**) generuje szablony Azure Resource Manager dla klastrów Kubernetes na platformie Azure. Wejście do AKS-Engine jest plikiem definicji klastra opisującym żądany klaster, w tym Orchestrator, Features i Agents. Struktura plików wejściowych jest podobna do publicznego interfejsu API usługi Azure Kubernetes.
 
-1. Interfejs API etcd w Azure Cosmos DB jest obecnie w wersji zapoznawczej. Zarejestruj się, aby korzystać z wersji zapoznawczej w: https://aka.ms/cosmosetcdapi-signup . Po przesłaniu formularza subskrypcja będzie listy dozwolonych do korzystania z interfejsu API usługi Azure Cosmos etcd. 
+1. Interfejs API etcd w Azure Cosmos DB jest obecnie w wersji zapoznawczej. Zarejestruj się, aby korzystać z wersji zapoznawczej w: https://aka.ms/cosmosetcdapi-signup . Po przesłaniu formularza subskrypcja będzie mogła korzystać z interfejsu API usługi Azure Cosmos etcd. 
 
 ## <a name="deploy-the-cluster-with-azure-cosmos-db"></a>Wdróż klaster przy użyciu Azure Cosmos DB
 
@@ -43,7 +43,7 @@ Aby dowiedzieć się więcej o interfejsie API etcd w Azure Cosmos DB, zapoznaj 
    az login 
    ```
 
-1. Jeśli masz więcej niż jedną subskrypcję, przejdź do subskrypcji, która została listy dozwolonych dla interfejsu API usługi Azure Cosmos DB etcd. Możesz przełączyć się do wymaganej subskrypcji przy użyciu następującego polecenia:
+1. Jeśli masz więcej niż jedną subskrypcję, przejdź do subskrypcji, która została dozwolona dla Azure Cosmos DB interfejsu API etcd. Możesz przełączyć się do wymaganej subskrypcji przy użyciu następującego polecenia:
 
    ```azurecli-interactive
    az account set --subscription "<Name of your subscription>"

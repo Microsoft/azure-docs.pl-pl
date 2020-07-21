@@ -9,11 +9,12 @@ ms.subservice: autoscale
 ms.date: 05/29/2018
 ms.reviewer: avverma
 ms.custom: avverma
-ms.openlocfilehash: ea9d243e46aace9030c25222217ac3ad09a31c38
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cfbd5af7063a4764820b5ce892a9a2b8a305b1b7
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83124945"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86494942"
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-in-the-azure-portal"></a>Automatyczne skalowanie zestawu skalowania maszyn wirtualnych w Azure Portal
 Podczas tworzenia zestawu skalowania musisz zdefiniować liczbę wystąpień maszyn wirtualnych, które chcesz uruchamiać. W odpowiedzi na zmieniające się zapotrzebowanie aplikacji możesz automatycznie zwiększać lub zmniejszać liczbę wystąpień maszyn wirtualnych. Skalowanie automatyczne pozwala spełniać potrzeby klientów lub reagować na zmiany wydajności aplikacji w całym cyklu jej życia.
@@ -40,7 +41,7 @@ Wraz ze wzrostem zapotrzebowania aplikacji zwiększa się obciążenie wystąpie
 
     Określ następujące ustawienia reguły:
     
-    | Parametr              | Objaśnienie                                                                                                         | Wartość          |
+    | Parametr              | Wyjaśnienie                                                                                                         | Wartość          |
     |------------------------|---------------------------------------------------------------------------------------------------------------------|----------------|
     | *Agregacja czasu*     | Określa sposób agregacji metryk zebranych do celów analizy.                                                | Średnia        |
     | *Nazwa metryki*          | Metryka wydajności, która jest monitorowana i na której są stosowane akcje zestawu skalowania.                                                   | Procentowe użycie procesora CPU |
@@ -50,7 +51,7 @@ Wraz ze wzrostem zapotrzebowania aplikacji zwiększa się obciążenie wystąpie
     | *Czas trwania*             | Przedział czasu monitorowania, po którym wartość metryki jest porównywana z wartością progową.                                   | 10 minut     |
     | *Operacja*            | Określa, czy zestaw skalowania ma być skalowany w górę, czy w dół, gdy reguła zostanie zastosowana, a następnie przez zwiększenie                        | Zwiększ wartość procentową o |
     | *Liczba wystąpień*       | Wartość procentowa liczby wystąpień maszyn wirtualnych, która powinna zostać zmieniona po wyzwoleniu reguły.                                            | 20             |
-    | *Czas schładzania (minuty)*  | Przedział czasu przed ponownym zastosowaniem reguły, który gwarantuje, że akcje skalowania automatycznego zaczną obowiązywać. | 5 minut      |
+    | *Czas schładzania (minuty)*  | Przedział czasu przed ponownym zastosowaniem reguły, który gwarantuje, że akcje skalowania automatycznego zaczną obowiązywać. | 5 min      |
 
     W poniższych przykładach przedstawiono regułę utworzoną w Azure Portal, która pasuje do następujących ustawień:
 
@@ -67,7 +68,7 @@ Wieczorami lub w weekendy zapotrzebowanie aplikacji może być mniejsze. Jeśli 
 
     Użyj tego samego podejścia jak w przypadku poprzedniej reguły. Dostosuj następujące ustawienia reguły:
     
-    | Parametr              | Objaśnienie                                                                                                          | Wartość          |
+    | Parametr              | Wyjaśnienie                                                                                                          | Wartość          |
     |------------------------|----------------------------------------------------------------------------------------------------------------------|----------------|
     | *Operator*             | Operator używany do porównywania danych metryki z wartością progową.                                                      | Mniejsze niż   |
     | *Próg*            | Wartość procentowa powodująca wyzwalanie akcji przez regułę skalowania automatycznego.                                                 | 30             |
@@ -82,7 +83,7 @@ Profil skalowania automatycznego musi definiować minimalną, maksymalną i domy
 
 1. Ustaw następujące limity wystąpień:
 
-    | Minimalne | Maksimum | Domyślne|
+    | Minimum | Maksimum | Domyślne|
     |---------|---------|--------|
     | 2       | 10      | 2      |
 
@@ -122,6 +123,6 @@ Aby zobaczyć, jak są stosowane reguły automatycznego skalowania, wybierz pozy
 ## <a name="next-steps"></a>Następne kroki
 W tym artykule przedstawiono sposób używania reguł skalowania automatycznego w celu skalowania w poziomie i zwiększania lub zmniejszania *liczby* wystąpień maszyn wirtualnych w zestawie skalowania. Możesz również skalować w pionie, aby zwiększyć lub zmniejszyć *rozmiar*wystąpienia maszyny wirtualnej. Aby uzyskać więcej informacji, zobacz [pionowy Skalowanie automatyczne przy użyciu zestawów skalowania maszyn wirtualnych](virtual-machine-scale-sets-vertical-scale-reprovision.md).
 
-Aby uzyskać informacje na temat zarządzania wystąpieniami maszyn wirtualnych, zobacz [Zarządzanie zestawami skalowania maszyn wirtualnych za pomocą Azure PowerShell](virtual-machine-scale-sets-windows-manage.md).
+Aby uzyskać informacje na temat zarządzania wystąpieniami maszyn wirtualnych, zobacz [Zarządzanie zestawami skalowania maszyn wirtualnych za pomocą Azure PowerShell](./virtual-machine-scale-sets-manage-powershell.md).
 
-Aby dowiedzieć się, jak generować alerty podczas wyzwalacza reguł skalowania automatycznego, zobacz [Używanie akcji automatycznego skalowania do wysyłania powiadomień o alertach poczty e-mail i elementów webhook w Azure monitor](../azure-monitor/platform/autoscale-webhook-email.md). [Dzienników inspekcji można także używać do wysyłania powiadomień o alertach poczty e-mail i elementów webhook w programie Azure monitor](../monitoring-and-diagnostics/insights-auditlog-to-webhook-email.md).
+Aby dowiedzieć się, jak generować alerty podczas wyzwalacza reguł skalowania automatycznego, zobacz [Używanie akcji automatycznego skalowania do wysyłania powiadomień o alertach poczty e-mail i elementów webhook w Azure monitor](../azure-monitor/platform/autoscale-webhook-email.md). [Dzienników inspekcji można także używać do wysyłania powiadomień o alertach poczty e-mail i elementów webhook w programie Azure monitor](../azure-monitor/platform/alerts-log-webhook.md).

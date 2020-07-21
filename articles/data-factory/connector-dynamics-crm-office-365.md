@@ -12,12 +12,12 @@ manager: shwang
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
 ms.date: 06/10/2020
-ms.openlocfilehash: a7a8af505394b5bf860778b9872434cdacf54210
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 54aac9fda42a867ab66d631279efbca4f812b01a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84887011"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86497623"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Skopiuj dane z programu i do usługi Dynamics 365 (Common Data Service) lub Dynamics CRM przy użyciu Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -65,7 +65,7 @@ Ten łącznik systemu Dynamics jest oparty na [narzędziach programu Dynamics Xr
 
 Aby użyć tego łącznika z uwierzytelnianiem głównym usługi Azure AD, należy skonfigurować uwierzytelnianie serwer-serwer (S2S) w Common Data Service lub Dynamics. Zapoznaj się z [tym artykułem](https://docs.microsoft.com/powerapps/developer/common-data-service/build-web-applications-server-server-s2s-authentication) , aby uzyskać szczegółowe instrukcje.
 
-## <a name="get-started"></a>Rozpoczęcie pracy
+## <a name="get-started"></a>Wprowadzenie
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -81,7 +81,7 @@ Dla połączonej usługi Dynamics są obsługiwane następujące właściwości.
 |:--- |:--- |:--- |
 | typ | Właściwość Type musi mieć wartość "Dynamics", "DynamicsCrm" lub "CommonDataServiceForApps". | Tak |
 | Typ wdrożenia | Typ wdrożenia wystąpienia programu Dynamics. Wartość musi być równa "online" dla usługi Dynamics online. | Tak |
-| identyfikator URI usługi | Adres URL usługi wystąpienia programu Dynamics. Może to być na przykład https://adfdynamics.crm.dynamics.com. | Tak |
+| identyfikator URI usługi | Adres URL usługi wystąpienia programu Dynamics. Może to być na przykład https://www.crmdynamics.com. | Tak |
 | authenticationType | Typ uwierzytelniania służący do nawiązywania połączenia z serwerem Dynamics. Prawidłowe wartości to "AADServicePrincipal" i "Office 365". | Tak |
 | servicePrincipalId | Identyfikator klienta aplikacji usługi Azure AD. | Tak, gdy uwierzytelnianie jest "AADServicePrincipal" |
 | servicePrincipalCredentialType | Typ poświadczeń, który ma być używany do uwierzytelniania podmiotu zabezpieczeń usługi. Prawidłowe wartości to "ServicePrincipalKey" i "ServicePrincipalCert". | Tak, gdy uwierzytelnianie jest "AADServicePrincipal" |
@@ -102,7 +102,7 @@ Dla połączonej usługi Dynamics są obsługiwane następujące właściwości.
         "type": "Dynamics",  
         "typeProperties": {  
             "deploymentType": "Online",  
-            "serviceUri": "https://adfdynamics.crm.dynamics.com",  
+            "serviceUri": "https://www.crmdynamics.com",  
             "authenticationType": "AADServicePrincipal",  
             "servicePrincipalId": "<service principal id>",  
             "servicePrincipalCredentialType": "ServicePrincipalKey",  
@@ -124,7 +124,7 @@ Dla połączonej usługi Dynamics są obsługiwane następujące właściwości.
         "type": "Dynamics", 
         "typeProperties": { 
             "deploymentType": "Online", 
-            "serviceUri": "https://adfdynamics.crm.dynamics.com", 
+            "serviceUri": "https://www.crmdynamics.com", 
             "authenticationType": "AADServicePrincipal", 
             "servicePrincipalId": "<service principal id>", 
             "servicePrincipalCredentialType": "ServicePrincipalCert", 
@@ -154,7 +154,7 @@ Dla połączonej usługi Dynamics są obsługiwane następujące właściwości.
         "type": "Dynamics",
         "typeProperties": {
             "deploymentType": "Online",
-            "serviceUri": "https://adfdynamics.crm.dynamics.com",
+            "serviceUri": "https://www.crmdynamics.com",
             "authenticationType": "Office365",
             "username": "test@contoso.onmicrosoft.com",
             "password": {
@@ -378,21 +378,21 @@ Skonfiguruj odpowiedni typ danych Data Factory w strukturze zestawu danych, któ
 | Typ danych Dynamics | Data Factory typ danych pośrednich | Obsługiwane jako źródło | Obsługiwane jako ujścia |
 |:--- |:--- |:--- |:--- |
 | AttributeTypeCode. BigInt | Długo | ✓ | ✓ |
-| AttributeTypeCode. Boolean | Boolean | ✓ | ✓ |
+| AttributeTypeCode. Boolean | Boolean (wartość logiczna) | ✓ | ✓ |
 | AttributeType. Customer | GUID | ✓ | ✓ (Zobacz [wskazówki](#writing-data-to-a-lookup-field)) |
 | AttributeType. DateTime | Datetime (data/godzina) | ✓ | ✓ |
 | AttributeType. Decimal | Wartość dziesiętna | ✓ | ✓ |
 | AttributeType. Double | Double | ✓ | ✓ |
-| AttributeType. EntityName | String | ✓ | ✓ |
+| AttributeType. EntityName | String (ciąg) | ✓ | ✓ |
 | AttributeType. Integer | Int32 | ✓ | ✓ |
 | AttributeType. Lookup | GUID | ✓ | ✓ (Zobacz [wskazówki](#writing-data-to-a-lookup-field)) |
-| AttributeType. ManagedProperty | Boolean | ✓ | |
-| AttributeType. MEMO | String | ✓ | ✓ |
+| AttributeType. ManagedProperty | Boolean (wartość logiczna) | ✓ | |
+| AttributeType. MEMO | String (ciąg) | ✓ | ✓ |
 | AttributeType. Money | Wartość dziesiętna | ✓ | ✓ |
 | AttributeType. Owner | GUID | ✓ | ✓ (Zobacz [wskazówki](#writing-data-to-a-lookup-field)) |
 | AttributeType. Lista wyboru | Int32 | ✓ | ✓ |
 | AttributeType. unikatowy identyfikator | GUID | ✓ | ✓ |
-| AttributeType. String | String | ✓ | ✓ |
+| AttributeType. String | String (ciąg) | ✓ | ✓ |
 | AttributeType. State | Int32 | ✓ | ✓ |
 | AttributeType. status | Int32 | ✓ | ✓ |
 

@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: abshamsft
 ms.author: absha
 ms.date: 02/20/2018
-ms.openlocfilehash: 93f3820b7cf1db85b9ff4cd514fe22efc75a90d9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0ba93db3e692a34de42849b469978cea4459c6fc
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84690018"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86498869"
 ---
 # <a name="service-connectivity-monitor"></a>Monitorowanie łączności usług
 
@@ -28,7 +29,7 @@ Za pomocą monitora łączności usług można wykonywać następujące funkcje:
 ![Monitorowanie łączności usług](media/network-performance-monitor-service-endpoint/service-endpoint-intro.png)
 
 
-## <a name="configuration"></a>Konfigurowanie 
+## <a name="configuration"></a>Konfiguracja 
 Aby otworzyć konfigurację Network Performance Monitor, Otwórz [rozwiązanie Network Performance Monitor](network-performance-monitor.md) i wybierz pozycję **Konfiguruj**.
 
 ![Konfigurowanie rozwiązania Network Performance Monitor](media/network-performance-monitor-service-endpoint/npm-configure-button.png)
@@ -56,7 +57,7 @@ Rozpocznij tworzenie testów do monitorowania łączności sieciowej z punktami 
 
     * Wybierz pozycję **Sieć Web** , aby monitorować łączność z usługą, która odpowiada na żądania HTTP/S, takie jak outlook.office365.com lub Bing.com.<br>
     * Wybierz opcję **Sieć** , aby monitorować łączność z usługą, która odpowiada na żądania TCP, ale nie odpowiada na żądania HTTP/S, takie jak serwer SQL Server, serwer FTP lub port SSH. 
-    * Na przykład: Aby utworzyć test sieci Web na koncie usługi BLOB Storage, wybierz pozycję **Sieć Web** i wprowadź element docelowy jako *yourstorageaccount*. blob.Core.Windows.NET. Podobnie można utworzyć testy dla innych magazynów tabel, magazynu kolejek i Azure Files przy użyciu [tego linku.](https://docs.microsoft.com/azure/storage/common/storage-account-overview#storage-account-endpoints)
+    * Na przykład: Aby utworzyć test sieci Web na koncie usługi BLOB Storage, wybierz pozycję **Sieć Web** i wprowadź element docelowy jako *yourstorageaccount*. blob.Core.Windows.NET. Podobnie można utworzyć testy dla innych magazynów tabel, magazynu kolejek i Azure Files przy użyciu [tego linku.](../../storage/common/storage-account-overview.md#storage-account-endpoints)
 4. Jeśli nie chcesz wykonywać pomiarów sieci, takich jak opóźnienie sieci, utrata pakietów i odnajdywanie topologii, wyczyść pole wyboru **Wykonaj pomiary sieci** . Kontynuuj, aby uzyskać maksymalną korzyść z możliwości. 
 5. W polu **docelowy**wprowadź adres URL/nazwę FQDN/adres IP, do którego chcesz monitorować łączność sieciową.
 6. W polu **numer portu**wprowadź numer portu usługi docelowej. 

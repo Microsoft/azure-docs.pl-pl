@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/26/2020
 ms.author: akjosh
-ms.openlocfilehash: aa8f5fa9901055957c5c94923ebd74c3d57ce41a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 302a0361c19d247b6da4abd516d3a5df8dfd10c7
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85481786"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86494670"
 ---
 # <a name="log-analytics-virtual-machine-extension-for-windows"></a>Rozszerzenie maszyny wirtualnej usługi Log Analytics dla systemu Windows
 
@@ -34,7 +34,7 @@ Szczegółowe informacje o obsługiwanych systemach operacyjnych Windows można 
 ### <a name="agent-and-vm-extension-version"></a>Wersja rozszerzenia agenta i maszyny wirtualnej
 Poniższa tabela zawiera mapowanie wersji rozszerzenia maszyny wirtualnej z systemem Windows Log Analytics i pakietu agenta Log Analytics dla każdej wersji. 
 
-| Wersja pakietu Log Analytics Windows Agent | Log Analytics wersja rozszerzenia maszyny wirtualnej z systemem Windows | Data wydania | Informacje o wersji |
+| Wersja pakietu Log Analytics Windows Agent | Log Analytics wersja rozszerzenia maszyny wirtualnej z systemem Windows | Data wydania | Uwagi do wersji |
 |--------------------------------|--------------------------|--------------------------|--------------------------|
 | 10.20.18038 | 1.0.18038 | Kwiecień 2020 r.   | <ul><li>Umożliwia łączność za pośrednictwem prywatnego linku przy użyciu Azure Monitor zakresy linków prywatnych</li><li>Dodaje ograniczenie pozyskiwania, aby uniknąć nagłego i przypadkowego napływu w obszarze roboczym</li><li>Dodaje obsługę dodatkowych chmur Azure Government i regionów</li><li>Rozwiązuje usterkę, w której HealthService.exe awaria</li></ul> |
 | 10.20.18029 | 1.0.18029 | Marzec 2020 r.   | <ul><li>Dodaje obsługę podpisywania kodu SHA-2</li><li>Udoskonalenie instalacji i zarządzania rozszerzeniami maszyny wirtualnej</li><li>Rozwiązuje usterkę w usłudze Azure Arc na potrzeby integracji serwerów</li><li>Dodaje wbudowane narzędzie do rozwiązywania problemów z obsługą klienta</li><li>Dodaje obsługę dodatkowych regionów Azure Government</li> |
@@ -98,7 +98,7 @@ Poniższy kod JSON przedstawia schemat rozszerzenia agenta Log Analytics. Rozsze
 \*Identyfikator obszaru roboczego jest nazywana consumerId w interfejsie API Log Analytics.
 
 > [!NOTE]
-> Aby uzyskać dodatkowe właściwości, zobacz Azure [Connect komputery z systemem Windows do Azure monitor](https://docs.microsoft.com/azure/azure-monitor/platform/agent-windows).
+> Aby uzyskać dodatkowe właściwości, zobacz Azure [Connect komputery z systemem Windows do Azure monitor](../../azure-monitor/platform/agent-windows.md).
 
 ## <a name="template-deployment"></a>Wdrażanie na podstawie szablonu
 

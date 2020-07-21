@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 07/06/2020
-ms.openlocfilehash: fe8d2a2c083072ebc717b7476bb0738bb83301f1
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 14fa6859a16dc173e75091983abee717bf813220
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85984628"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86499025"
 ---
 # <a name="container-monitoring-solution-in-azure-monitor"></a>Rozwiązanie do monitorowania kontenerów w Azure Monitor
 
@@ -45,7 +45,7 @@ Przed rozpoczęciem zapoznaj się z poniższymi szczegółami, aby upewnić się
 
 W poniższej tabeli przedstawiono wsparcie w zakresie organizowania i monitorowania systemu operacyjnego platformy Docker, a następnie obsługę spisu kontenerów, wydajności i dzienników przy użyciu Azure Monitor.   
 
-| | ACS | Linux | Windows | Kontener<br>Zapasy | Obraz<br>Zapasy | Węzeł<br>Zapasy | Kontener<br>Wydajność | Kontener<br>Wydarzenie | Wydarzenie<br>Log | Kontener<br>Log |
+|Aranżacja platformy Docker | ACS | Linux | Windows | Kontener<br>Stan zapasów | Obraz<br>Stan zapasów | Węzeł<br>Stan zapasów | Kontener<br>Wydajność | Kontener<br>Zdarzenie | Zdarzenie<br>Log | Kontener<br>Log |
 |-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
 | Kubernetes | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; |
 | Mesosphere<br>DC/OS | &#8226; | &#8226; | | &#8226; | &#8226; | &#8226; | &#8226;| &#8226; | &#8226; | &#8226; |
@@ -105,11 +105,11 @@ Skorzystaj z poniższych informacji, aby zainstalować i skonfigurować rozwiąz
        - Zapoznaj [się z tematem konfigurowanie log Analytics agenta systemu Linux dla usługi Kubernetes](#configure-a-log-analytics-linux-agent-for-kubernetes).
        - Zapoznaj [się z tematem konfigurowanie log Analytics agenta systemu Windows dla Kubernetes](#configure-a-log-analytics-windows-agent-for-kubernetes).
        - Zapoznaj się z tematem korzystanie z Helm w celu wdrożenia agenta Log Analytics w systemie Linux Kubernetes.
-     - Jeśli masz klaster DC/OS Azure Container Service, Dowiedz się więcej na temat [monitorowania Azure Container Service klastra DC/OS przy użyciu Azure monitor](../../container-service/dcos-swarm/container-service-monitoring-oms.md).
+     - Jeśli masz klaster DC/OS Azure Container Service, Dowiedz się więcej na temat [monitorowania Azure Container Service klastra DC/OS przy użyciu Azure monitor](/previous-versions/azure/container-service/dcos-swarm/container-service-monitoring-oms).
      - Jeśli masz środowisko Docker Swarm Mode, Dowiedz się więcej na temat konfigurowania agenta Log Analytics dla platformy Docker Swarm.
      - Jeśli masz klaster Service Fabric, Dowiedz się więcej w obszarze [monitorowanie kontenerów z Azure monitor](../../service-fabric/service-fabric-diagnostics-oms-containers.md).
 
-Zapoznaj się z artykułem [aparat platformy Docker w systemie Windows](https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/configure-docker-daemon) , aby uzyskać dodatkowe informacje na temat instalowania i konfigurowania aparatów platformy Docker na komputerach z systemem Windows.
+Zapoznaj się z artykułem [aparat platformy Docker w systemie Windows](/virtualization/windowscontainers/manage-docker/configure-docker-daemon) , aby uzyskać dodatkowe informacje na temat instalowania i konfigurowania aparatów platformy Docker na komputerach z systemem Windows.
 
 > [!IMPORTANT]
 > Program Docker musi być uruchomiony **przed** zainstalowaniem [agenta log Analytics dla systemu Linux](../../azure-monitor/learn/quick-collect-linux-computer.md) na hostach kontenerów. Jeśli Agent został już zainstalowany przed instalacją platformy Docker, należy ponownie zainstalować agenta Log Analytics dla systemu Linux. Aby uzyskać więcej informacji na temat platformy Docker, zobacz [witrynę sieci Web platformy Docker](https://www.docker.com).
@@ -505,7 +505,7 @@ dockerd --register-service -H npipe:// -H 0.0.0.0:2375
 Start-Service docker
 ```
 
-Aby uzyskać więcej informacji na temat konfiguracji demona platformy Docker używanej z kontenerami systemu Windows, zobacz [aparat platformy Docker w systemie Windows](https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/configure-docker-daemon).
+Aby uzyskać więcej informacji na temat konfiguracji demona platformy Docker używanej z kontenerami systemu Windows, zobacz [aparat platformy Docker w systemie Windows](/virtualization/windowscontainers/manage-docker/configure-docker-daemon).
 
 #### <a name="install-windows-agents"></a>Instalowanie agentów systemu Windows
 

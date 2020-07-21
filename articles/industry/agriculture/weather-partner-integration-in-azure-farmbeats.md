@@ -1,18 +1,18 @@
 ---
-title: Integracja z partnerem pogody
+title: Integracja z partnerami obsługującymi dane o pogodzie
 description: W tym artykule opisano, jak dostawca danych pogody można zintegrować z usługą FarmBeats
 author: sunasing
 ms.topic: article
 ms.date: 07/09/2020
 ms.author: sunasing
-ms.openlocfilehash: d4ceb25b9b81c831ed1b285a875742ebfaa6d24f
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: a2677b5343b2d65a39e7c9f6d5006db599c1ac73
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86232648"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86496999"
 ---
-# <a name="weather-partner-integration"></a>Integracja z partnerem pogody
+# <a name="weather-partner-integration"></a>Integracja z partnerami obsługującymi dane o pogodzie
 
 Ten artykuł zawiera informacje na temat składnika Docker **łącznika** usługi Azure FarmBeats, który dostawcy danych pogody mogą opracowywać, aby zintegrować się z usługą FarmBeats, wykorzystując swoje interfejsy API i wysyłając dane pogody do FarmBeats. Gdy dane będą dostępne w FarmBeats, można je wykorzystać do łączenia danych i tworzenia modeli uczenia maszynowego/sztucznej analizy.
 
@@ -36,16 +36,16 @@ Korzystając z podanych powyżej informacji platformy Docker, klient będzie rej
 
 Interfejsy API FarmBeats zawierają dokumentację techniczną struktury Swagger. Aby uzyskać informacje na temat wszystkich interfejsów API i odpowiadających im żądań lub odpowiedzi, zobacz [FarmBeats Swagger](https://aka.ms/farmbeatsswagger). 
 
-Jeśli zainstalowano FarmBeats, możesz uzyskać dostęp do programu FarmBeats Swagger w[https://yourfarmbeatswebsitename-api.azurewebsites.net](https://yourfarmbeatswebsitename-api.azurewebsites.net/swagger)
+Jeśli zainstalowano FarmBeats, możesz uzyskać dostęp do programu FarmBeats Swagger w`https://yourfarmbeatswebsitename-api.azurewebsites.net/swagger`
 
 Należy zauważyć, że parametr "-API" jest dołączany do nazwy witryny sieci Web FarmBeats.
-Punkt końcowy interfejsu API będzie:[https://yourfarmbeatswebsitename-api.azurewebsites.net](https://yourfarmbeatswebsitename-api.azurewebsites.net)
+Punkt końcowy interfejsu API będzie:`https://yourfarmbeatswebsitename-api.azurewebsites.net`
 
 ### <a name="datahub-lib"></a>Biblioteka Datahub
 
 FarmBeats dostarczy biblioteki lib, która może być używana przez partnera pogody. Biblioteka lib jest obecnie dostępna w ramach implementacji odwołania w [tym miejscu](https://github.com/azurefarmbeats/noaa_docker/tree/master/datahub_lib). W przyszłości taka sama będzie dostępna jako zestaw SDK dla wielu języków.
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>Uwierzytelnianie
 
 **Uwierzytelnianie za pomocą interfejsów API FarmBeats**
 
@@ -134,7 +134,7 @@ Ten składnik będzie wywoływany za każdym razem, gdy użytkownik FarmBeats ur
 
 ### <a name="details-of-the-objects"></a>Szczegóły obiektów
 
-  **WeatherDataModel** |  |
+  WeatherDataModel | Opis |
   --- | ---
   Nazwa  | Nazwa modelu danych pogody |
   Opis  | Podaj znaczący opis modelu. |
@@ -147,7 +147,7 @@ Ten składnik będzie wywoływany za każdym razem, gdy użytkownik FarmBeats ur
   weatherMeasures > agregacji  | Brak, średnia, maksimum, minimum, StandardDeviation, sum, suma
   Głębokość > weatherMeasures  | Głębokość czujnika w centymetrach. Na przykład pomiar wilgoci 10 cm pod ziemią.
   weatherMeasures > opis  | Podaj znaczący opis miary. |
-  **Typu zadania** |  |
+  **Typu zadania** | **Opis** |
   Nazwa  | Nazwa zadania — na przykład Get_Daily_Forecast; zadanie, które zostanie uruchomione przez klienta w celu uzyskania danych pogody|
   pipelineDetails > parametry > nazwa  | Nazwa parametru |
   pipelineDetails > parametrów > typu | jeden z ciągów, int, float, bool, Array |
@@ -156,7 +156,7 @@ Ten składnik będzie wywoływany za każdym razem, gdy użytkownik FarmBeats ur
   pipelineDetails > parametrów > opis | Opis parametru |
   Właściwości  | Dodatkowe właściwości producenta.
   Właściwości > **programRunCommand** | polecenie Docker Run — to polecenie zostanie wykonane, gdy klient uruchomi zadanie pogodowe. |
-  **WeatherDataLocation** |  |
+  **WeatherDataLocation** | **Opis** |
   weatherDataModelId  | Identyfikator odpowiadającego WeatherDataModel, który został utworzony podczas ładowania początkowego|
   location  | reprezentuje szerokość geograficzną, długość geograficzną i podniesienia |
   Nazwa | Nazwa obiektu |

@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 04/27/2017
-ms.openlocfilehash: dd3279db67fb45aee43cf1b0ef1bebf49433eef4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5cecf24f4ba086feba5ab87b5752fd665c540dff
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77663236"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86498682"
 ---
 # <a name="targeting-monitoring-solutions-in-azure-monitor-preview"></a>Kierowanie rozwiązań do monitorowania w Azure Monitor (wersja zapoznawcza)
 Po dodaniu rozwiązania do monitorowania do subskrypcji jest ono automatycznie wdrażane domyślnie dla wszystkich agentów systemu Windows i Linux połączonych z obszarem roboczym Log Analytics.  Możesz chcieć zarządzać kosztami i ograniczyć ilość danych zbieranych dla rozwiązania, ograniczając je do określonego zestawu agentów.  W tym artykule opisano sposób korzystania z funkcji **określania celu rozwiązania** , która umożliwia zastosowanie zakresu do rozwiązań.
@@ -58,7 +59,7 @@ Zastosuj konfigurację zakresu przy użyciu następującego procesu.
 Poniżej przedstawiono kryteria dla agentów i rozwiązań, które nie mogą być używane z celem rozwiązania.
 
 - Ukierunkowane rozwiązanie dotyczy tylko rozwiązań wdrażanych w agentach.
-- Ukierunkowane rozwiązanie dotyczy tylko rozwiązań dostarczonych przez firmę Microsoft.  Nie dotyczy to rozwiązań [utworzonych przez siebie ani partnerów](solutions-creating.md).
+- Ukierunkowane rozwiązanie dotyczy tylko rozwiązań dostarczonych przez firmę Microsoft.  Nie dotyczy to rozwiązań [utworzonych przez siebie ani partnerów](./solutions.md).
 - Można filtrować tylko agentów, którzy łączą się bezpośrednio z Azure Monitor.  Rozwiązania zostaną automatycznie wdrożone na wszystkich agentach, które są częścią połączonej grupy zarządzania Operations Manager, niezależnie od tego, czy są one uwzględnione w konfiguracji zakresu.
 
 ### <a name="exceptions"></a>Wyjątki

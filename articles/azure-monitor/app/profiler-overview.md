@@ -6,11 +6,12 @@ author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: ce952bd248640d03fcff43284707614577df8469
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0d3074d58560df5cb5bd6bdc2c0437a4be828918
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77671651"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86499396"
 ---
 # <a name="profile-production-applications-in-azure-with-application-insights"></a>Profilowanie aplikacji produkcyjnych na platformie Azure za pomocą Application Insights
 ## <a name="enable-application-insights-profiler-for-your-application"></a>Włączanie Application Insights Profiler dla aplikacji
@@ -29,7 +30,7 @@ Jeśli włączono Profiler, ale nie widzisz śladów, zapoznaj się [z naszym pr
 
 ## <a name="view-profiler-data"></a>Wyświetl dane profilera
 
-Aby Profiler mógł przekazać ślady, aplikacja musi aktywnie obsługiwać żądania. Jeśli wykonujesz eksperyment, możesz generować żądania do aplikacji sieci Web za pomocą [Application Insights testowania wydajnościowego](https://docs.microsoft.com/vsts/load-test/app-service-web-app-performance-test). Jeśli wcześniej włączono Profiler, możesz uruchomić krótki test obciążenia. Gdy test obciążenia jest uruchomiony, wybierz przycisk **profil teraz** w [okienku **Ustawienia profilera** ](profiler-settings.md). Gdy profiler jest uruchomiony, profiluje losowo około raz na godzinę i przez dwa minuty. Jeśli aplikacja obsługuje stały strumień żądań, operacje przekazywania profilera są śladami co godzinę.
+Aby Profiler mógł przekazać ślady, aplikacja musi aktywnie obsługiwać żądania. Jeśli wykonujesz eksperyment, możesz generować żądania do aplikacji sieci Web za pomocą [Application Insights testowania wydajnościowego](/vsts/load-test/app-service-web-app-performance-test). Jeśli wcześniej włączono Profiler, możesz uruchomić krótki test obciążenia. Gdy test obciążenia jest uruchomiony, wybierz przycisk **profil teraz** w [okienku **Ustawienia profilera** ](profiler-settings.md). Gdy profiler jest uruchomiony, profiluje losowo około raz na godzinę i przez dwa minuty. Jeśli aplikacja obsługuje stały strumień żądań, operacje przekazywania profilera są śladami co godzinę.
 
 Gdy aplikacja odbierze ruch, a program Profiler miał czas na przekazanie śladów, należy wyświetlić dane śledzenia. Ten proces może potrwać od 5 do 10 minut. Aby wyświetlić ślady, w okienku **wydajność** wybierz pozycję **Przejmij akcje**, a następnie wybierz przycisk **ślady profilera** .
 

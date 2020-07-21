@@ -6,11 +6,12 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 01/03/2019
 ms.reviewer: abgreg;mbullwin
-ms.openlocfilehash: ecdcc8a84cdccb05ec514003d63f808583d719c9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a3a59b6658e6ea0229f65492b20b5f5f2882d12a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83797681"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86499243"
 ---
 # <a name="send-user-context-ids-to-enable-usage-experiences-in-azure-application-insights"></a>Wyślij identyfikatory kontekstu użytkownika, aby włączyć środowiska użycia na platformie Azure Application Insights
 
@@ -18,10 +19,10 @@ ms.locfileid: "83797681"
 
 Application Insights umożliwia monitorowanie i śledzenie użytkowników za pomocą zestawu narzędzi do użycia produktów:
 
-- [Użytkownicy, sesje, zdarzenia](https://docs.microsoft.com/azure/application-insights/app-insights-usage-segmentation)
-- [Lejki](https://docs.microsoft.com/azure/application-insights/usage-funnels)
-- [Przechowywanie](https://docs.microsoft.com/azure/application-insights/app-insights-usage-retention) Kohorty
-- [Skoroszyty](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview)
+- [Użytkownicy, sesje, zdarzenia](./usage-segmentation.md)
+- [Lejki](./usage-funnels.md)
+- [Przechowywanie](./usage-retention.md) Kohorty
+- [Skoroszyty](../platform/workbooks-overview.md)
 
 Aby śledzić, co użytkownik robi w czasie, Application Insights wymaga identyfikatora dla każdego użytkownika lub sesji. Uwzględnij następujące identyfikatory w każdym zdarzeniu niestandardowym lub w dowolnym widoku strony.
 
@@ -41,11 +42,11 @@ Identyfikatory użytkowników powinny być przechowywane między sesjami użytko
 
 Identyfikator powinien być GUID lub innym złożonym ciągiem, aby identyfikować każdy użytkownik w unikatowy sposób. Na przykład może to być długa liczba losowa.
 
-Jeśli identyfikator zawiera informacje osobiste dotyczące użytkownika, nie jest to odpowiednia wartość do wysłania do Application Insights jako identyfikator użytkownika. Ten identyfikator można wysłać jako [Identyfikator użytkownika uwierzytelnionego](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#authenticated-users), ale nie spełnia on wymagań dotyczących identyfikatora użytkownika dla scenariuszy użycia.
+Jeśli identyfikator zawiera informacje osobiste dotyczące użytkownika, nie jest to odpowiednia wartość do wysłania do Application Insights jako identyfikator użytkownika. Ten identyfikator można wysłać jako [Identyfikator użytkownika uwierzytelnionego](./api-custom-events-metrics.md#authenticated-users), ale nie spełnia on wymagań dotyczących identyfikatora użytkownika dla scenariuszy użycia.
 
 ## <a name="aspnet-apps-setting-the-user-context-in-an-itelemetryinitializer"></a>ASP.NET Apps: Ustawianie kontekstu użytkownika w ITelemetryInitializer
 
-Utwórz inicjator telemetrii, jak opisano [tutaj](https://docs.microsoft.com/azure/application-insights/app-insights-api-filtering-sampling#addmodify-properties-itelemetryinitializer)szczegółowo. Przekaż identyfikator sesji za pomocą telemetrii żądania, a następnie ustaw Context.User.Id i Context.Session.Id.
+Utwórz inicjator telemetrii, jak opisano [tutaj](./api-filtering-sampling.md#addmodify-properties-itelemetryinitializer)szczegółowo. Przekaż identyfikator sesji za pomocą telemetrii żądania, a następnie ustaw Context.User.Id i Context.Session.Id.
 
 Ten przykład ustawia identyfikator użytkownika na identyfikator, który wygasa po sesji. Jeśli to możliwe, należy użyć identyfikatora użytkownika, który utrzymuje się między sesjami.
 
@@ -127,7 +128,7 @@ namespace MvcWebRole.Telemetry
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Aby włączyć środowiska użycia, Rozpocznij wysyłanie [zdarzeń niestandardowych](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackevent) lub [wyświetleń stron](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views).
+- Aby włączyć środowiska użycia, Rozpocznij wysyłanie [zdarzeń niestandardowych](./api-custom-events-metrics.md#trackevent) lub [wyświetleń stron](./api-custom-events-metrics.md#page-views).
 - Jeśli masz już wysłane zdarzenia niestandardowe lub widoki stron, zapoznaj się z narzędziami użycia, aby dowiedzieć się, jak użytkownicy korzystają z usługi.
     - [Przegląd użycia](usage-overview.md)
     - [Użytkownicy, sesje i zdarzenia](usage-segmentation.md)

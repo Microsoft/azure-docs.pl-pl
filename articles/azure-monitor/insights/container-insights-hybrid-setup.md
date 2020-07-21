@@ -3,11 +3,12 @@ title: Konfigurowanie hybrydowych klastrów Kubernetes za pomocą Azure Monitor 
 description: W tym artykule opisano sposób konfigurowania Azure Monitor kontenerów do monitorowania klastrów Kubernetes hostowanych w Azure Stack lub innym środowisku.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: c7a92476fca2bc61d51ab518c22ff0c436fb78f4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d2ca977f572ee9f60c1ca72fc472f3a6ee6c6362
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85801465"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86498903"
 ---
 # <a name="configure-hybrid-kubernetes-clusters-with-azure-monitor-for-containers"></a>Konfigurowanie hybrydowych klastrów Kubernetes za pomocą Azure Monitor dla kontenerów
 
@@ -21,7 +22,7 @@ Następujące konfiguracje są oficjalnie obsługiwane w przypadku kontenerów A
 
     - Kubernetes lokalnie
     
-    - Aparat AKS na platformie Azure i Azure Stack. Aby uzyskać więcej informacji, zobacz [aparat AKS na Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908)
+    - Aparat AKS na platformie Azure i Azure Stack. Aby uzyskać więcej informacji, zobacz [aparat AKS na Azure Stack](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908)
     
     - [OpenShift](https://docs.openshift.com/container-platform/4.3/welcome/index.html) w wersji 4 lub nowszej, lokalnie lub w innych środowiskach w chmurze.
 
@@ -84,7 +85,7 @@ Jeśli nie znasz koncepcji wdrażania zasobów przy użyciu szablonu, zobacz:
 
 - [Wdrażanie zasobów za pomocą szablonów Menedżer zasobów i interfejsu wiersza polecenia platformy Azure](../../azure-resource-manager/templates/deploy-cli.md)
 
-Jeśli zdecydujesz się na korzystanie z interfejsu wiersza polecenia platformy Azure, musisz najpierw zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie. Wymagany jest interfejs wiersza polecenia platformy Azure w wersji 2.0.59 lub nowszej. Aby zidentyfikować swoją wersję, uruchom polecenie `az --version` . Jeśli konieczne jest zainstalowanie lub uaktualnienie interfejsu wiersza polecenia platformy Azure, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Jeśli zdecydujesz się na korzystanie z interfejsu wiersza polecenia platformy Azure, musisz najpierw zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie. Wymagany jest interfejs wiersza polecenia platformy Azure w wersji 2.0.59 lub nowszej. Aby zidentyfikować swoją wersję, uruchom polecenie `az --version` . Jeśli konieczne jest zainstalowanie lub uaktualnienie interfejsu wiersza polecenia platformy Azure, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
 
 Ta metoda obejmuje dwa szablony JSON. Jeden szablon określa konfigurację umożliwiającą monitorowanie, a druga zawiera wartości parametrów, które można skonfigurować, aby określić następujące elementy:
 
@@ -201,7 +202,7 @@ Aby najpierw określić pełny identyfikator zasobu Log Analytics obszaru robocz
     }
     ```
 
-7. Edytuj wartości dla **workspaceResourceId** przy użyciu wartości skopiowanej w kroku 3, a w przypadku **WorkspaceRegion** skopiuj wartość **region** po uruchomieniu polecenia wiersza poleceń platformy Azure [AZ Monitor Log-Analytics Workspace show](https://docs.microsoft.com/cli/azure/monitor/log-analytics/workspace?view=azure-cli-latest#az-monitor-log-analytics-workspace-list).
+7. Edytuj wartości dla **workspaceResourceId** przy użyciu wartości skopiowanej w kroku 3, a w przypadku **WorkspaceRegion** skopiuj wartość **region** po uruchomieniu polecenia wiersza poleceń platformy Azure [AZ Monitor Log-Analytics Workspace show](/cli/azure/monitor/log-analytics/workspace?view=azure-cli-latest#az-monitor-log-analytics-workspace-list).
 
 8. Zapisz ten plik jako containerSolutionParams.jsw folderze lokalnym.
 

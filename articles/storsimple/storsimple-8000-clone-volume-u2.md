@@ -4,22 +4,18 @@ description: Opisuje różne typy klonów i użycie i wyjaśnia, jak można uży
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: timlt
-editor: ''
 ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: how-to
-ms.tgt_pltfrm: NA
-ms.workload: TBD
-ms.date: 12/05/2017
+ms.date: 07/15/2020
 ms.author: alkohli
-ms.openlocfilehash: 1ddc7d9e359fbb43680ae093c4e6cd2b9fb1ab2d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 86a3e2ab15e83f5393315f75f37ad8b41d3489b2
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85514981"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86496149"
 ---
 # <a name="use-the-storsimple-device-manager-service-in-azure-portal-to-clone-a-volume"></a>Klonowanie woluminu przy użyciu usługi Menedżer urządzeń StorSimple w witrynie Azure Portal
 
@@ -51,7 +47,7 @@ Podczas klonowania woluminu należy wziąć pod uwagę następujące informacje.
 
 Można utworzyć klon na tym samym urządzeniu, innym urządzeniu lub nawet urządzeniu w chmurze przy użyciu migawki lokalnej lub w chmurze.
 
-W poniższej procedurze opisano sposób tworzenia klona z wykazu kopii zapasowych.  Alternatywną metodą inicjowania klona jest przechodzenie do **woluminów**, Wybieranie woluminu, a następnie kliknięcie prawym przyciskiem myszy w celu wywołaj menu kontekstowe i wybierz polecenie **Klonuj**.
+W poniższej procedurze opisano sposób tworzenia klona z wykazu kopii zapasowych.  
 
 Wykonaj następujące kroki, aby utworzyć klon woluminu z wykazu kopii zapasowych.
 

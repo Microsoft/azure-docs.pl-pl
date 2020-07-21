@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 02/20/2018
-ms.openlocfilehash: 9660e87f3ee4e1c1c6a270f14928fdd111664e66
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 51111d92e85c6ddbdfac85c333293c2af8b31fbe
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79480882"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86498970"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Network Performance Monitor rozwiązanie na platformie Azure
 
@@ -31,9 +32,9 @@ Network Performance Monitor oferuje trzy szerokie możliwości:
 
 * [Monitor ExpressRoute](network-performance-monitor-expressroute.md): monitorowanie kompleksowej łączności i wydajności między oddziałami i platformą Azure przy użyciu usługi Azure ExpressRoute.  
 
-Więcej informacji na temat różnych możliwości obsługiwanych przez [Network Performance Monitor](https://docs.microsoft.com/azure/networking/network-monitoring-overview) jest dostępnych w trybie online.
+Więcej informacji na temat różnych możliwości obsługiwanych przez [Network Performance Monitor](../../networking/network-monitoring-overview.md) jest dostępnych w trybie online.
  
-## <a name="supported-regions"></a> Obsługiwane regiony
+## <a name="supported-regions"></a>Obsługiwane regiony
 NPM może monitorować łączność między sieciami i aplikacjami w dowolnej części świata, z obszaru roboczego, który jest hostowany w jednym z następujących regionów:
 * Europa Północna
 * Europa Zachodnia
@@ -42,9 +43,9 @@ NPM może monitorować łączność między sieciami i aplikacjami w dowolnej cz
 * Zachodnie stany USA
 * Zachodnio-środkowe stany USA
 * Północno-środkowe stany USA
-* Południowo-środkowe stany USA
-* Środkowe stany USA
-* Wschodnie stany USA
+* South Central US
+* Central US
+* East US
 * Wschodnie stany USA 2
 * Zachodnie stany USA 2
 * Japonia Wschodnia
@@ -55,12 +56,12 @@ NPM może monitorować łączność między sieciami i aplikacjami w dowolnej cz
 * Południowe Zjednoczone Królestwo
 * Azja Wschodnia
 * Korea Środkowa
-* Indie Środkowe
+* Central India
 * Wirginia instytucji rządowych USA
 * Chiny Wschodnie 2
 
 
-Lista obsługiwanych regionów dla monitora ExpressRoute jest dostępna w [dokumentacji](https://docs.microsoft.com/azure/expressroute/how-to-npm?utm_swu=8117).
+Lista obsługiwanych regionów dla monitora ExpressRoute jest dostępna w [dokumentacji](../../expressroute/how-to-npm.md?utm_swu=8117).
 
 
 ## <a name="set-up-and-configure"></a>Skonfiguruj i skonfiguruj
@@ -255,9 +256,9 @@ Wszystkie dane, które są udostępniane graficznie za pomocą pulpitu nawigacyj
 
 ## <a name="alerts"></a>Alerty
 
-Network Performance Monitor używa funkcji alertów [Azure monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts).
+Network Performance Monitor używa funkcji alertów [Azure monitor](../platform/alerts-overview.md).
 
-Oznacza to, że wszystkie powiadomienia są zarządzane przy użyciu [grup akcji](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups).  
+Oznacza to, że wszystkie powiadomienia są zarządzane przy użyciu [grup akcji](../platform/action-groups.md).  
 
 Jeśli jesteś użytkownikiem NPM, tworzysz alert za pośrednictwem Log Analytics: 
 1. Zobaczysz link, który przekieruje Cię do Azure Portal. Kliknij go, aby uzyskać dostęp do portalu.
@@ -268,14 +269,14 @@ Jeśli jesteś użytkownikiem NPM, tworzysz alert za pośrednictwem Log Analytic
 Jeśli jesteś użytkownikiem NPM, tworzysz alert za pośrednictwem Azure Portal:  
 1. Możesz wybrać opcję bezpośredniego wprowadzania wiadomości e-mail lub można utworzyć alerty za pomocą grup akcji.
 2. W przypadku wybrania bezpośredniej wiadomości e-mail zostanie utworzona grupa akcji z grupą **akcji poczty E-mail npm** , a identyfikator e-mail zostanie dodany do tej grupy akcji.
-3. Jeśli zdecydujesz się użyć grup akcji, musisz wybrać wcześniej utworzoną grupę akcji. W [tym miejscu](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups#create-an-action-group-by-using-the-azure-portal) możesz dowiedzieć się, jak utworzyć grupę akcji. 
+3. Jeśli zdecydujesz się użyć grup akcji, musisz wybrać wcześniej utworzoną grupę akcji. W [tym miejscu](../platform/action-groups.md#create-an-action-group-by-using-the-azure-portal) możesz dowiedzieć się, jak utworzyć grupę akcji. 
 4. Po pomyślnym utworzeniu alertu możesz użyć linku Zarządzanie alertami w celu zarządzania alertami. 
 
 Za każdym razem, gdy tworzysz alert, NPM tworzy regułę alertu dziennika na podstawie zapytania w Azure Monitor. To zapytanie jest domyślnie wyzwalane co 5 minut. Usługa Azure monitor nie jest naliczana w przypadku pierwszych utworzonych reguł alertów dziennika 250, a wszystkie reguły alertów przekraczające limit alertów dziennika 250 są rozliczane zgodnie z [cennikiem na stronie Azure monitor cenowej](https://azure.microsoft.com/pricing/details/monitor/).
 Opłaty za powiadomienia są naliczone osobno zgodnie z [cennikiem za powiadomienia na stronie cennika Azure monitor](https://azure.microsoft.com/pricing/details/monitor/).
 
 
-## <a name="pricing"></a>Cennik
+## <a name="pricing"></a>Ceny
 
 Informacje o cenach są dostępne w [trybie online](network-performance-monitor-pricing-faq.md).
 

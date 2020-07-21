@@ -1,5 +1,5 @@
 ---
-title: Tworzenie, aktualizowanie statystyk
+title: Tworzenie i aktualizowanie statystyk w tabelach przy użyciu usługi Azure Synapse SQL
 description: Zalecenia i przykłady dotyczące tworzenia i aktualizowania statystyk optymalizacji zapytań w tabelach w puli SQL Synapse.
 services: synapse-analytics
 author: XiaoyuMSFT
@@ -11,12 +11,12 @@ ms.date: 05/09/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 257b1e26127186fce07e402e58f98660005a97fb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 15ba0d4b77461d77a2d0b89ecc9e411a105d49d2
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85800770"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86495639"
 ---
 # <a name="table-statistics-in-synapse-sql-pool"></a>Statystyka tabeli w puli SQL Synapse
 
@@ -220,7 +220,7 @@ Ta składnia używa wszystkich opcji domyślnych. Domyślnie podczas tworzenia s
 CREATE STATISTICS [statistics_name] ON [schema_name].[table_name]([column_name]);
 ```
 
-Przykład:
+Na przykład:
 
 ```sql
 CREATE STATISTICS col1_stats ON dbo.table1 (col1);
@@ -236,7 +236,7 @@ Aby pobrać pełną tabelę, użyj następującej składni:
 CREATE STATISTICS [statistics_name] ON [schema_name].[table_name]([column_name]) WITH FULLSCAN;
 ```
 
-Przykład:
+Na przykład:
 
 ```sql
 CREATE STATISTICS col1_stats ON dbo.table1 (col1) WITH FULLSCAN;
@@ -437,7 +437,7 @@ Aby zaktualizować konkretny obiekt Statystyczny, należy użyć następującej 
 UPDATE STATISTICS [schema_name].[table_name]([stat_name]);
 ```
 
-Przykład:
+Na przykład:
 
 ```sql
 UPDATE STATISTICS [dbo].[table1] ([stats_col1]);
@@ -453,7 +453,7 @@ Prostą metodą aktualizowania wszystkich obiektów statystyk w tabeli jest:
 UPDATE STATISTICS [schema_name].[table_name];
 ```
 
-Przykład:
+Na przykład:
 
 ```sql
 UPDATE STATISTICS dbo.table1;
@@ -539,7 +539,7 @@ AND     st.[user_created] = 1
 
 Polecenie DBCC SHOW_STATISTICS () pokazuje dane przechowywane w obiekcie statystyk. Te dane wchodzą w skład trzech części:
 
-- Header
+- Nagłówek
 - Wektor gęstości
 - Histogram
 
@@ -556,7 +556,7 @@ Ten prosty przykład przedstawia wszystkie trzy części obiektu statystyki:
 DBCC SHOW_STATISTICS([<schema_name>.<table_name>],<stats_name>)
 ```
 
-Przykład:
+Na przykład:
 
 ```sql
 DBCC SHOW_STATISTICS (dbo.table1, stats_col1);
@@ -570,7 +570,7 @@ Jeśli interesuje Cię tylko wyświetlanie określonych części, użyj `WITH` k
 DBCC SHOW_STATISTICS([<schema_name>.<table_name>],<stats_name>) WITH stat_header, histogram, density_vector
 ```
 
-Przykład:
+Na przykład:
 
 ```sql
 DBCC SHOW_STATISTICS (dbo.table1, stats_col1) WITH histogram, density_vector

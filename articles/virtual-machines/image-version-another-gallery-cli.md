@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 764fe98ad20aa29506b4fba723762124e24af245
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: f1e3598f2a805dfc2ebf92395db6b7bf6b0b147a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86224336"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86494687"
 ---
 # <a name="copy-an-image-from-another-gallery-using-the-azure-cli"></a>Kopiowanie obrazu z innej galerii przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -154,7 +154,7 @@ az sig image-version create \
 > [!NOTE]
 > Musisz poczekać na zakończenie kompilowania i replikowania wersji obrazu, aby można było użyć tego samego obrazu zarządzanego do utworzenia innej wersji obrazu.
 >
-> Możesz również przechowywać obraz w magazynie Premiun przez dodanie `--storage-account-type  premium_lrs` lub [nadmiarowy magazyn stref](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) przez dodanie `--storage-account-type  standard_zrs` go podczas tworzenia wersji obrazu.
+> Możesz również przechowywać obraz w magazynie Premiun przez dodanie `--storage-account-type  premium_lrs` lub [nadmiarowy magazyn stref](../storage/common/storage-redundancy.md) przez dodanie `--storage-account-type  standard_zrs` go podczas tworzenia wersji obrazu.
 >
 
 ## <a name="next-steps"></a>Następne kroki

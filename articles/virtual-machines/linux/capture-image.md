@@ -8,11 +8,12 @@ ms.topic: how-to
 ms.date: 10/08/2018
 ms.author: cynthn
 ms.custom: legacy
-ms.openlocfilehash: 54f82d0ba4b0c5de0b4e373416857d670d4bba53
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 26c8a8746fe748585f36e5282ad6e694cdcef1f6
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83723310"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86494466"
 ---
 # <a name="how-to-create-a-managed-image-of-a-virtual-machine-or-vhd"></a>Jak utworzyć zarządzany obraz maszyny wirtualnej lub wirtualnego dysku twardego
 
@@ -24,7 +25,7 @@ Aby utworzyć obraz zarządzany, należy usunąć informacje o koncie osobistym.
 
 Aby utworzyć kopię istniejącej maszyny wirtualnej z systemem Linux na potrzeby tworzenia kopii zapasowej lub debugowania albo przesłać wyspecjalizowany wirtualny dysk twardy z systemem Linux z lokalnej maszyny wirtualnej, zobacz temat [przekazywanie i Tworzenie maszyny wirtualnej z systemem Linux z niestandardowego obrazu dysku](upload-vhd.md).  
 
-Możesz użyć usługi **Azure VM Image Builder (publiczna wersja zapoznawcza)** , aby utworzyć niestandardowy obraz, nie trzeba uczyć się żadnych narzędzi ani skonfigurować potoków kompilacji, po prostu dostarczając konfigurację obrazu, a Konstruktor obrazów utworzy obraz. Aby uzyskać więcej informacji, zobacz [wprowadzenie z konstruktorem obrazów maszyn wirtualnych platformy Azure](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-overview).
+Możesz użyć usługi **Azure VM Image Builder (publiczna wersja zapoznawcza)** , aby utworzyć niestandardowy obraz, nie trzeba uczyć się żadnych narzędzi ani skonfigurować potoków kompilacji, po prostu dostarczając konfigurację obrazu, a Konstruktor obrazów utworzy obraz. Aby uzyskać więcej informacji, zobacz [wprowadzenie z konstruktorem obrazów maszyn wirtualnych platformy Azure](./image-builder-overview.md).
 
 Przed utworzeniem obrazu potrzebne są następujące elementy:
 
@@ -136,4 +137,4 @@ az vm show \
 ```
 
 ## <a name="next-steps"></a>Następne kroki
-Aby tworzyć, przechowywać i udostępniać obrazy na dużą skalę, zobacz [udostępnione Galerie obrazów](shared-images.md).
+Aby tworzyć, przechowywać i udostępniać obrazy na dużą skalę, zobacz [udostępnione Galerie obrazów](../shared-images-cli.md).

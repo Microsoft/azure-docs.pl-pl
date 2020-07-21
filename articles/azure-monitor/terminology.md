@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/08/2019
-ms.openlocfilehash: 0c5e1096b0780d2f9e50389f772e63344935012b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 819ef7e61045c0ed4205eeaf0094fec706b0b9da
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84691820"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86498614"
 ---
 # <a name="azure-monitor-naming-and-terminology-changes"></a>Azure Monitor nazewnictwo i terminologia
 Wprowadzono znaczące zmiany Azure Monitor ostatnio z różnymi usługami, które są konsolidowane w celu uproszczenia monitorowania dla klientów platformy Azure. W tym artykule opisano ostatnie zmiany nazwy i terminologii w dokumentacji Azure Monitor.
@@ -58,4 +59,4 @@ Pakiet Operations Management Suite (OMS) to zbiór następujących usług zarzą
 ## <a name="next-steps"></a>Następne kroki
 
 - Zapoznaj się [z omówieniem Azure monitor](overview.md) opisującym różne składniki i funkcje.
-- Dowiedz się więcej o [przejściu portalu pakietu OMS](../log-analytics/log-analytics-oms-portal-transition.md).
+- Dowiedz się więcej o [przejściu portalu pakietu OMS](./platform/oms-portal-transition.md).

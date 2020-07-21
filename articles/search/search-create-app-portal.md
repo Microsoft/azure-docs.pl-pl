@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 07/01/2020
-ms.openlocfilehash: 11dd12fce669d6b6a027eb182d5f9e6e493577ad
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: c6ab5c2cae2bb966c2b040b40dbf36e56a54411b
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85955696"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86496756"
 ---
 # <a name="quickstart-create-a-demo-app-in-the-portal-azure-cognitive-search"></a>Szybki Start: Tworzenie aplikacji demonstracyjnej w portalu (Azure Wyszukiwanie poznawcze)
 
@@ -31,7 +31,7 @@ Przed rozpoczęciem należy wykonać następujące czynności:
 
 + [Microsoft Edge (Najnowsza wersja)](https://www.microsoft.com/edge) lub Google Chrome.
 
-+ [Indeks wyszukiwania](search-create-index-portal.md) , który ma być używany jako podstawa wygenerowanej aplikacji. 
++ [Indeks wyszukiwania](search-what-is-an-index.md) , który ma być używany jako podstawa wygenerowanej aplikacji. 
 
   Ten przewodnik Szybki Start używa wbudowanego przykładowych danych i indeksu nieruchomości, ponieważ ma obrazy miniatur (Kreator obsługuje dodawanie obrazów do strony wyniki). Aby utworzyć indeks używany w tym ćwiczeniu, uruchom kreatora **importowania danych** , wybierając źródło danych *realestate-US-Sample* .
 
@@ -41,7 +41,7 @@ Gdy indeks jest gotowy do użycia, przejdź do następnego kroku.
 
 ## <a name="start-the-wizard"></a>Uruchom Kreatora
 
-1. Zaloguj się do [Azure Portal](https://portal.azure.com/) przy użyciu konta platformy Azure.
+1. Zaloguj się w [witrynie Azure Portal](https://portal.azure.com/) przy użyciu danych konta Azure.
 
 1. [Znajdź usługę wyszukiwania](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) i na stronie Przegląd w obszarze linki w środku strony wybierz pozycję **indeksy**. 
 
@@ -95,12 +95,12 @@ Poniższy zrzut ekranu przedstawia opcje w kreatorze, juxtaposed z renderowaną 
 
 Indeks podstawowy składa się z fikcyjnych, wygenerowanych danych, które zostały zduplikowane w dokumentach, a opisy czasami nie pasują do obrazu. Podczas tworzenia aplikacji na podstawie własnych indeksów można spodziewać się bardziej spójnego środowiska.
 
-![Uruchomienie aplikacji](media/search-create-app-portal/run-app.png)
+![Uruchamianie aplikacji](media/search-create-app-portal/run-app.png)
 
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Jeśli pracujesz w ramach własnej subskrypcji, dobrym pomysłem po zakończeniu projektu jest sprawdzenie, czy dalej potrzebujesz utworzonych zasobów. Nadal uruchomione zasoby mogą generować koszty. Zasoby możesz usuwać pojedynczo lub możesz usunąć grupę zasobów, aby usunąć cały ich zestaw.
+W przypadku pracy w ramach własnej subskrypcji warto sprawdzić po zakończeniu projektu, czy dalej potrzebuje się utworzonych zasobów. Uruchomione zasoby mogą generować koszty. Zasoby możesz usuwać pojedynczo lub jako grupę zasobów, usuwając cały zestaw zasobów.
 
 Zasoby można znaleźć w portalu i zarządzać nimi za pomocą linku **wszystkie zasoby** lub **grupy zasobów** w okienku nawigacji po lewej stronie.
 

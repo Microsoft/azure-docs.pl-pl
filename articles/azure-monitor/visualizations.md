@@ -6,13 +6,14 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/17/2020
-ms.openlocfilehash: 2da0cd2ede33abe8ebbe3616192349112fb24bae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0176454b38dfa88480e63fedfae175a63192eaee
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83797496"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86498597"
 ---
-# <a name="visualizing-data-from-azure-monitor"></a>Wizualizowanie danych z Azure Monitor
+# <a name="visualizing-data-from-azure-monitor"></a>Wizualizowanie danych z usługi Azure Monitor
 Ten artykuł zawiera podsumowanie dostępnych metod wizualizacji danych dziennika i metryk przechowywanych w Azure Monitor.
 
 Wizualizacje, takie jak wykresy i wykresy, mogą ułatwić analizowanie danych monitorowania w celu przechodzenia do szczegółów dotyczących problemów i identyfikowania wzorców. W zależności od używanego narzędzia możesz również mieć możliwość udostępniania wizualizacji innym użytkownikom wewnątrz i na zewnątrz organizacji.
@@ -39,6 +40,8 @@ Wizualizacje, takie jak wykresy i wykresy, mogą ułatwić analizowanie danych m
 [Pulpity nawigacyjne platformy Azure](../azure-portal/azure-portal-dashboards.md) są podstawową technologią nawigacyjną dla platformy Azure. Są one szczególnie przydatne w przypadku udostępniania pojedynczego okienka Glass przez infrastrukturę i usługi platformy Azure, co pozwala na szybkie identyfikowanie ważnych problemów.
 
 ![Pulpit nawigacyjny](media/visualizations/dashboard.png)
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4AslH]
 
 ### <a name="advantages"></a>Zalety
 - Głębokiej integracji z platformą Azure. Wizualizacje można przypinać do pulpitów nawigacyjnych z wielu stron platformy Azure, w tym Eksplorator metryk, Log Analytics i Application Insights.

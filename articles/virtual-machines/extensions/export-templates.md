@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/05/2016
 ms.author: akjosh
-ms.openlocfilehash: 4919ce9ecaa3dc4f621aa5658b44aa53fad0bbf3
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 529024256b8b3f6da7146787d3a37c59a13b5bd3
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86201030"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86494755"
 ---
 # <a name="exporting-resource-groups-that-contain-vm-extensions"></a>Eksportowanie grup zasobów zawierających rozszerzenia maszyn wirtualnych
 
@@ -137,7 +137,7 @@ Końcowy zasób rozszerzenia wygląda podobnie do następującego przykładu JSO
 }
 ```
 
-W przypadku używania parametrów szablonu do podania wartości właściwości należy je utworzyć. Podczas tworzenia parametrów szablonu dla wartości ustawień chronionych upewnij się, że używasz `SecureString` typu parametru, aby zabezpieczyć wartości poufne. Aby uzyskać więcej informacji na temat używania parametrów, zobacz [Tworzenie szablonów Azure Resource Manager](../../resource-group-authoring-templates.md).
+W przypadku używania parametrów szablonu do podania wartości właściwości należy je utworzyć. Podczas tworzenia parametrów szablonu dla wartości ustawień chronionych upewnij się, że używasz `SecureString` typu parametru, aby zabezpieczyć wartości poufne. Aby uzyskać więcej informacji na temat używania parametrów, zobacz [Tworzenie szablonów Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md).
 
 W przykładzie `IaasDiagnostic` rozszerzenia następujące parametry zostałyby utworzone w sekcji Parametry szablonu Menedżer zasobów.
 

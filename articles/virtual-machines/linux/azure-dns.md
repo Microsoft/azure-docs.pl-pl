@@ -6,12 +6,12 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 10/19/2016
 ms.author: rclaus
-ms.openlocfilehash: 1e53a6a5c024fe58eae00dcda785ff9622061654
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 41cf83a3d9c756d69df2e2e9777ebd8eb54d4d74
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86135312"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86494738"
 ---
 # <a name="dns-name-resolution-options-for-linux-virtual-machines-in-azure"></a>Opcje rozpoznawania nazw DNS dla maszyn wirtualnych z systemem Linux na platformie Azure
 System Azure domyślnie udostępnia rozpoznawanie nazw DNS dla wszystkich maszyn wirtualnych, które znajdują się w jednej sieci wirtualnej. Możesz zaimplementować własne rozwiązanie rozpoznawania nazw DNS, konfigurując własne usługi DNS na maszynach wirtualnych hostowanych przez platformę Azure. Poniższe scenariusze powinny pomóc w wyborze tego, który działa w przypadku danej sytuacji.
@@ -121,7 +121,7 @@ Przesyłanie dalej DNS umożliwia również rozpoznawanie nazw DNS między sieci
 
 W przypadku korzystania z rozpoznawania nazw udostępnianej przez platformę Azure, wewnętrzny sufiks DNS jest dostarczany dla każdej maszyny wirtualnej przy użyciu protokołu DHCP. W przypadku korzystania z własnego rozwiązania rozpoznawania nazw ten sufiks nie jest dostarczany do maszyn wirtualnych, ponieważ ten sufiks zakłóca inne architektury DNS. Aby odwołać się do maszyn przy użyciu nazwy FQDN lub skonfigurować sufiks na maszynach wirtualnych, można użyć programu PowerShell lub interfejsu API do określenia sufiksu:
 
-* W przypadku sieci wirtualnych zarządzanych przez Azure Resource Manager sufiks jest dostępny za pośrednictwem zasobu [karty interfejsu sieciowego](https://msdn.microsoft.com/library/azure/mt163668.aspx) . Możesz również uruchomić polecenie, `azure network public-ip show <resource group> <pip name>` Aby wyświetlić szczegóły publicznego adresu IP, w tym nazwę FQDN karty sieciowej.
+* W przypadku sieci wirtualnych zarządzanych przez Azure Resource Manager sufiks jest dostępny za pośrednictwem zasobu [karty interfejsu sieciowego](/rest/api/virtualnetwork/networkinterfaces) . Możesz również uruchomić polecenie, `azure network public-ip show <resource group> <pip name>` Aby wyświetlić szczegóły publicznego adresu IP, w tym nazwę FQDN karty sieciowej.
 
 Jeśli przekazywanie zapytań do platformy Azure nie odpowiada Twoim potrzebom, należy podać własne rozwiązanie DNS.  Rozwiązanie DNS musi:
 
@@ -131,6 +131,6 @@ Jeśli przekazywanie zapytań do platformy Azure nie odpowiada Twoim potrzebom, 
 * Zabezpieczanie przed dostępem z Internetu w celu ograniczenia zagrożeń powodowanych przez agentów zewnętrznych.
 
 > [!NOTE]
-> Aby uzyskać najlepszą wydajność, w przypadku używania maszyn wirtualnych na serwerach Azure DNS należy wyłączyć protokół IPv6 i przypisać [publiczny adres IP na poziomie wystąpienia](../../virtual-network/virtual-networks-instance-level-public-ip.md) do każdej maszyny wirtualnej serwera DNS.  
+> Aby uzyskać najlepszą wydajność, w przypadku używania maszyn wirtualnych na serwerach Azure DNS należy wyłączyć protokół IPv6 i przypisać [publiczny adres IP na poziomie wystąpienia](/previous-versions/azure/virtual-network/virtual-networks-instance-level-public-ip) do każdej maszyny wirtualnej serwera DNS.  
 >
 >

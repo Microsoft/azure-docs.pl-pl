@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/13/2017
-ms.openlocfilehash: 75c65cf9f76e711a3aeed764de8b92ed619bad2f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d52138f5b23a6a0ac8ff8c585e6aed0edd92eaf0
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77666947"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86499549"
 ---
 # <a name="plan-hyper-v-virtual-machine-capacity-with-the-capacity-and-performance-solution-deprecated"></a>Zaplanuj pojemność maszyny wirtualnej funkcji Hyper-V za pomocą rozwiązania Capacity and Performance (przestarzałe)
 
@@ -43,14 +44,14 @@ W poniższej tabeli opisano połączone źródła, które obsługuje to rozwiąz
 | [Agenci dla systemu Windows](../../azure-monitor/platform/agent-windows.md) | Tak | Rozwiązanie zbiera informacje o pojemności i wydajności z agentów systemu Windows. |
 | [Agenci dla systemu Linux](../../azure-monitor/learn/quick-collect-linux-computer.md) | Nie    | Rozwiązanie nie zbiera danych o pojemności i wydajności z bezpośrednich agentów systemu Linux.|
 | [Grupa zarządzania programu SCOM](../../azure-monitor/platform/om-agents.md) | Tak |Rozwiązanie zbiera dane o pojemności i wydajności z agentów w połączonej grupie zarządzania programu SCOM. Bezpośrednie połączenie z agentem programu SCOM do Log Analytics nie jest wymagane.|
-| [Konto usługi Azure Storage](../../azure-monitor/platform/collect-azure-metrics-logs.md) | Nie | Usługa Azure Storage nie obejmuje danych dotyczących pojemności i wydajności.|
+| [Konto usługi Azure Storage](../platform/resource-logs.md#send-to-log-analytics-workspace) | Nie | Usługa Azure Storage nie obejmuje danych dotyczących pojemności i wydajności.|
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 - Agenty systemu Windows lub Operations Manager muszą być zainstalowane na komputerach z systemem Windows Server 2012 lub nowszym, a nie maszyn wirtualnych.
 
 
-## <a name="configuration"></a>Konfigurowanie
+## <a name="configuration"></a>Konfiguracja
 
 Wykonaj następujące kroki, aby dodać rozwiązanie Capacity and Performance do obszaru roboczego.
 
@@ -108,7 +109,7 @@ Kliknij kafelek Capacity and Performance, aby otworzyć pulpit nawigacyjny Capac
 
 Produkcyjne środowiska obliczeniowe różnią się znacznie od jednej organizacji do innej. Ponadto obciążenia pojemności i wydajności mogą być zależne od sposobu działania maszyn wirtualnych i co należy wziąć pod uwagę. Konkretne procedury ułatwiające pomiar wydajności prawdopodobnie nie mają zastosowania w danym środowisku. W związku z tym bardziej uogólnione wskazówki dotyczące opisu są lepiej dopasowane do pomocy. Firma Microsoft publikuje różne artykuły ze wskazówkami dotyczącymi skryptów, które ułatwiają pomiar wydajności.
 
-Podsumowując, rozwiązanie zbiera dane pojemności i wydajności z różnych źródeł, w tym liczników wydajności. Użyj tej pojemności i danych wydajności, które są prezentowane na różnych urządzeniach w rozwiązaniu, a następnie Porównaj wyniki z wynikami [pomiaru wydajności w artykule dotyczącym funkcji Hyper-V](https://msdn.microsoft.com/library/cc768535.aspx) . Mimo że artykuł został opublikowany jakiś czas temu, metryki, zagadnienia i wytyczne są nadal ważne. Artykuł zawiera linki do innych przydatnych zasobów.
+Podsumowując, rozwiązanie zbiera dane pojemności i wydajności z różnych źródeł, w tym liczników wydajności. Użyj tej pojemności i danych wydajności, które są prezentowane na różnych urządzeniach w rozwiązaniu, a następnie Porównaj wyniki z wynikami [pomiaru wydajności w artykule dotyczącym funkcji Hyper-V](https://www.microsoft.com/en-us/download/details.aspx?id=56495) . Mimo że artykuł został opublikowany jakiś czas temu, metryki, zagadnienia i wytyczne są nadal ważne. Artykuł zawiera linki do innych przydatnych zasobów.
 
 
 ## <a name="sample-log-searches"></a>Przykładowe wyszukiwania dzienników

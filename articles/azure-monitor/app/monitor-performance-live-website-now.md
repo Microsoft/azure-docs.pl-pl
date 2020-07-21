@@ -3,17 +3,17 @@ title: Monitorowanie działającej aplikacji internetowej platformy ASP.NET za p
 description: Monitorowanie wydajności witryny sieci Web bez jej ponownego wdrażania. Współpracuje z usługą ASP.NET Web Apps hostowaną lokalnie lub na maszynach wirtualnych.
 ms.topic: conceptual
 ms.date: 08/26/2019
-ms.openlocfilehash: f4ce01ea8fc7b6bf1f294071f04e2bebce3e1d27
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 93b150b831a01989093fd916d17e31aee27beb3a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86166386"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86499532"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-codeless-attach"></a>Instrumentacja aplikacji sieci Web w środowisku uruchomieniowym z dołączaniem bez kodu Application Insights
 
 > [!IMPORTANT]
-> Monitor stanu nie jest już zalecany do użycia i **od 1 czerwca 2021** ta wersja monitora stanu nie będzie obsługiwana. Został on zastąpiony przez agenta Application Insights Azure Monitor (dawniej nazwany monitor stanu v2). Zapoznaj się z naszą dokumentacją wdrożeń [serwera lokalnego](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-overview) lub [wdrożenia zestawu skalowania maszyn wirtualnych platformy Azure](https://docs.microsoft.com/azure/azure-monitor/app/azure-vm-vmss-apps).
+> Monitor stanu nie jest już zalecany do użycia i **od 1 czerwca 2021** ta wersja monitora stanu nie będzie obsługiwana. Został on zastąpiony przez agenta Application Insights Azure Monitor (dawniej nazwany monitor stanu v2). Zapoznaj się z naszą dokumentacją wdrożeń [serwera lokalnego](./status-monitor-v2-overview.md) lub [wdrożenia zestawu skalowania maszyn wirtualnych platformy Azure](./azure-vm-vmss-apps.md).
 
 Możliwe jest instrumentowanie działającej aplikacji internetowej za pomocą usługi Azure Application Insights bez konieczności modyfikowania kodu ani jego ponownego wdrażania. Potrzebna jest subskrypcja platformy [Microsoft Azure](https://azure.com).
 
@@ -97,7 +97,7 @@ Oto kilka kroków, które można wykonać, aby upewnić się, że instalacja zak
   union * | summarize count() by cloud_RoleName, cloud_RoleInstance
   ```
 
-- Jeśli musisz potwierdzić, że Application Insights został pomyślnie dołączony, możesz uruchomić [uchwyt Sysinternals](https://docs.microsoft.com/sysinternals/downloads/handle) w oknie polecenia, aby potwierdzić, że applicationinsights.dll został załadowany przez usługi IIS.
+- Jeśli musisz potwierdzić, że Application Insights został pomyślnie dołączony, możesz uruchomić [uchwyt Sysinternals](/sysinternals/downloads/handle) w oknie polecenia, aby potwierdzić, że applicationinsights.dll został załadowany przez usługi IIS.
 
   ```console
   handle.exe /p w3wp.exe
@@ -145,7 +145,7 @@ Aby naprawić web.config:
 * Aby wyprowadzić pełne dzienniki, zmodyfikuj plik konfiguracji: `C:\Program Files\Microsoft Application Insights\Status Monitor\Microsoft.Diagnostics.Agent.StatusMonitor.exe.config` i Dodaj `<add key="TraceLevel" value="All" />` do `appsettings` .
 Następnie uruchom ponownie Monitor stanu.
 
-* Jako monitor stanu jest aplikacją platformy .NET, można również włączyć [śledzenie .NET, dodając odpowiednią diagnostykę do pliku konfiguracji](https://docs.microsoft.com/dotnet/framework/configure-apps/file-schema/trace-debug/system-diagnostics-element). Na przykład w niektórych scenariuszach może być przydatne, aby zobaczyć, co dzieje się na poziomie sieci przez [skonfigurowanie śledzenia sieci](https://docs.microsoft.com/dotnet/framework/network-programming/how-to-configure-network-tracing)
+* Jako monitor stanu jest aplikacją platformy .NET, można również włączyć [śledzenie .NET, dodając odpowiednią diagnostykę do pliku konfiguracji](/dotnet/framework/configure-apps/file-schema/trace-debug/system-diagnostics-element). Na przykład w niektórych scenariuszach może być przydatne, aby zobaczyć, co dzieje się na poziomie sieci przez [skonfigurowanie śledzenia sieci](/dotnet/framework/network-programming/how-to-configure-network-tracing)
 
 ### <a name="insufficient-permissions"></a>Niewystarczające uprawnienia
   
@@ -311,7 +311,7 @@ W przypadku aplikacji już instrumentowanych w czasie kompilacji:
 
 ## <a name="download-status-monitor"></a><a name="download"></a>Pobierz monitor stanu
 
-- Użyj nowego [modułu programu PowerShell](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-overview)
+- Użyj nowego [modułu programu PowerShell](./status-monitor-v2-overview.md)
 - Pobieranie i uruchamianie [instalatora Monitor stanu](https://go.microsoft.com/fwlink/?LinkId=506648)
 - Lub uruchom [Instalatora platformy sieci Web](https://www.microsoft.com/web/downloads/platform.aspx) i wyszukaj go, aby uzyskać Monitor stanu usługi Application Insights.
 
@@ -321,7 +321,7 @@ Wyświetlanie telemetrii:
 
 * [Eksplorowanie metryk](../../azure-monitor/platform/metrics-charts.md) w celu monitorowania wydajności i użycia
 * [Wyszukiwanie zdarzeń i dzienników][diagnostic] w celu diagnozowania problemów
-* [Analiza](../../azure-monitor/app/analytics.md) dla bardziej zaawansowanych zapytań
+* [Analiza](../log-query/log-query-overview.md) dla bardziej zaawansowanych zapytań
 
 Dodawanie kolejnych funkcji telemetrii:
 
@@ -336,6 +336,6 @@ Dodawanie kolejnych funkcji telemetrii:
 [client]: ../../azure-monitor/app/javascript.md
 [diagnostic]: ../../azure-monitor/app/diagnostic-search.md
 [greenbrown]: ../../azure-monitor/app/asp-net.md
-[qna]: ../../azure-monitor/app/troubleshoot-faq.md
+[qna]: ../faq.md
 [roles]: ../../azure-monitor/app/resources-roles-access-control.md
 [usage]: ../../azure-monitor/app/javascript.md

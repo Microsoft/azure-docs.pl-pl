@@ -1,5 +1,5 @@
 ---
-title: Udostępnianie i zabezpieczanie połączonej usługi w usłudze Azure Synapse Analytics
+title: Zabezpieczanie połączonej usługi
 description: Dowiedz się, jak zainicjować i zabezpieczyć połączoną usługę za pomocą zarządzanej sieci wirtualnej
 services: synapse-analytics
 author: acomet
@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 435c3fd6b1e6444fa3a31c68b4d74c2553d2e634
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7c7cf8ec7297b3c0ef855936becc3c06a5120a38
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81430554"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86496081"
 ---
 # <a name="securing-a-linked-service-with-private-links"></a>Zabezpieczanie połączonej usługi za pomocą linków prywatnych 
 
@@ -56,7 +56,7 @@ W przypadku, gdy testujesz powyższe połączenie, nie klikasz w nim hiperłącz
 1. Wybierz utworzony powyżej prywatny punkt końcowy. Można wyświetlić hiperłącze, które umożliwi zatwierdzenie prywatnego punktu końcowego na poziomie konta magazynu. *Alternatywą jest przejście bezpośrednio do konta magazynu Azure Portal i przejście do bloku **połączenia prywatnego punktu końcowego** .*
 1. Zaznacz prywatny punkt końcowy utworzony w Studio i wybierz pozycję **Zatwierdź**.
 1. Dodaj opis, a następnie kliknij przycisk **tak** .
-1. Wróć do Synapse Studio w sekcji **zarządzane sieci wirtualne** na karcie **Zarządzanie**.
+1. Wróć do Synapse Studio w sekcji **zarządzane sieci wirtualne** na karcie **Zarządzanie** .
 1. Zatwierdzenie zatwierdzenia dla prywatnego punktu końcowego powinno potrwać około 1 minuty.
 
 ## <a name="check-the-connection-works"></a>Sprawdź, czy połączenie działa

@@ -9,16 +9,19 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
-ms.date: 04/01/2020
+ms.date: 07/16/2020
 ms.author: aahi
-ms.openlocfilehash: 611ab503dfea44e8287e95cf607ce6af3b447d1f
-ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
+ms.openlocfilehash: a74b77ac59ece98f1a64839fd5000f4ab5d638f7
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83815795"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86497883"
 ---
 # <a name="install-and-run-face-containers-preview"></a>Instalowanie i uruchamianie kontenerów z systemem (wersja zapoznawcza)
+
+> [!IMPORTANT]
+> Osiągnięto limit użytkowników kontenera czołowego. Obecnie nie akceptujemy nowych aplikacji dla kontenera.
 
 Usługa Azure Cognitive Services twarz oferuje ustandaryzowany kontener systemu Linux dla platformy Docker, który wykrywa ludzkie twarze na obrazach. Identyfikuje także atrybuty, które obejmują dzielnice, takie jak nos i oczy, płeć, wiek i inne funkcje twarzy przewidziane dla maszyn. Oprócz wykrywania, twarz może sprawdzić, czy dwie twarze w tym samym obrazie lub różnych obrazach są takie same, przy użyciu oceny ufności. Twarz może również porównać twarze z bazą danych, aby sprawdzić, czy podobna lub identyczna twarz już istnieje. Może również organizować podobne twarze w grupy przy użyciu współużytkowanych cech wizualnych.
 
@@ -36,12 +39,6 @@ Przed użyciem kontenerów usługi Front Service należy spełnić następujące
 
 [!INCLUDE [Gathering required container parameters](../containers/includes/container-gathering-required-parameters.md)]
 
-## <a name="request-access-to-the-private-container-registry"></a>Zażądaj dostępu do rejestru kontenera prywatnego
-
-Wypełnij i prześlij [formularz żądania](https://aka.ms/cognitivegate) , aby zażądać dostępu do kontenera. 
-
-[!INCLUDE [Request access to private container registry](../../../includes/cognitive-services-containers-request-access.md)]
-
 ### <a name="the-host-computer"></a>Komputer-host
 
 [!INCLUDE [Host Computer requirements](../../../includes/cognitive-services-containers-host-computer.md)]
@@ -50,7 +47,7 @@ Wypełnij i prześlij [formularz żądania](https://aka.ms/cognitivegate) , aby 
 
 W poniższej tabeli opisano minimalną i zalecaną liczbę rdzeni procesora CPU oraz ilość pamięci do przydzielenia dla każdego kontenera usługi.
 
-| Kontener | Minimalne | Zalecane | Liczba transakcji na sekundę<br>(Minimum, maksimum)|
+| Kontener | Minimum | Zalecane | Liczba transakcji na sekundę<br>(Minimum, maksimum)|
 |-----------|---------|-------------|--|
 |Rozpoznawanie twarzy | 1 rdzeń, 2 GB pamięci | 1 rdzeń, 4 GB pamięci |10, 20|
 
@@ -111,11 +108,11 @@ Więcej [przykładów](./face-resource-container-config.md#example-docker-run-co
 [!INCLUDE [Running multiple containers on the same host](../../../includes/cognitive-services-containers-run-multiple-same-host.md)]
 
 
-## <a name="query-the-containers-prediction-endpoint"></a>Zbadaj punkt końcowy przewidywania kontenera
+## <a name="query-the-containers-prediction-endpoint"></a>Wykonywanie zapytania dotyczącego punktu końcowego przewidywania kontenera
 
-Kontener udostępnia interfejsy API punktu końcowego przewidywania zapytań. 
+Kontener udostępnia oparte na interfejsie REST interfejsy API punktu końcowego przewidywania zapytań. 
 
-Użyj hosta, `http://localhost:5000` , dla interfejsów API kontenerów.
+Użyj hosta `http://localhost:5000` dla interfejsów API kontenera.
 
 
 <!--  ## Validate container is running -->

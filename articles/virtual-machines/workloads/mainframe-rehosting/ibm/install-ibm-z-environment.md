@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 04/02/2019
 tags: ''
 keywords: ''
-ms.openlocfilehash: 67af4eae03b773fad9cf38964152c1fb9d623bd5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 55eb9a0bca3f142c1065f867cebd840cc7958b7e
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "72025942"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86499923"
 ---
 # <a name="install-ibm-zdt-devtest-environment-on-azure"></a>Zainstaluj środowisko IBM zD&w środowisku deweloperskim/testowym na platformie Azure
 
@@ -56,13 +56,13 @@ W tym artykule opisano sposób konfigurowania środowiska deweloperskiego i test
 
 ## <a name="create-the-base-image-and-connect"></a>Tworzenie obrazu podstawowego i nawiązywanie połączenia
 
-1. W Azure Portal [Utwórz maszynę wirtualną](/azure/virtual-machines/linux/quick-create-portal) z żądaną konfiguracją systemu operacyjnego. W tym artykule przyjęto założenie, że maszyna wirtualna B4ms (z 4 procesorów wirtualnych vCPU i 16 GB pamięci) uruchomiła system Ubuntu 16,04.
+1. W Azure Portal [Utwórz maszynę wirtualną](../../../linux/quick-create-portal.md) z żądaną konfiguracją systemu operacyjnego. W tym artykule przyjęto założenie, że maszyna wirtualna B4ms (z 4 procesorów wirtualnych vCPU i 16 GB pamięci) uruchomiła system Ubuntu 16,04.
 
 2. Po utworzeniu maszyny wirtualnej Otwórz porty przychodzące 22 dla SSH, 21 dla FTP i 9443 dla serwera sieci Web.
 
 3. Uzyskaj poświadczenia SSH wyświetlane w bloku **Przegląd** maszyny wirtualnej za pomocą przycisku **Połącz** . Wybierz kartę **SSH** i skopiuj polecenie SSH Logon do Schowka.
 
-4. Zaloguj się do [powłoki bash](/azure/cloud-shell/quickstart) z lokalnego komputera i Wklej polecenie. Będzie on w formacie **SSH \<user id\> \@ \<IP Address\> **. Gdy zostanie wyświetlony monit o podanie poświadczeń, wprowadź je w celu nawiązania połączenia z katalogiem macierzystym.
+4. Zaloguj się do [powłoki bash](../../../../cloud-shell/quickstart.md) z lokalnego komputera i Wklej polecenie. Będzie on w formacie **SSH \<user id\> \@ \<IP Address\> **. Gdy zostanie wyświetlony monit o podanie poświadczeń, wprowadź je w celu nawiązania połączenia z katalogiem macierzystym.
 
 ## <a name="copy-the-installation-file-to-the-server"></a>Kopiuj plik instalacyjny na serwer
 

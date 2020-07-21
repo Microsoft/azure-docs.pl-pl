@@ -7,11 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/15/2020
-ms.openlocfilehash: 4e4abdd5d5a9e3cddf00cf47d7388a57d0d4d6fa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5366166a31ee45c74c34b8af0e01da251bd7f7f0
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85807710"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86499226"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Azure Monitor często zadawane pytania
 
@@ -29,7 +30,7 @@ We wrześniu 2018 firma Microsoft połączona Azure Monitor, Log Analytics i App
 Funkcje Azure Monitor, które są automatycznie włączone, takie jak zbieranie metryk i dzienników aktywności, są udostępniane bezpłatnie. Istnieje koszt związany z innymi funkcjami, takimi jak kwerendy dzienników i alerty. Szczegółowe informacje o cenach można znaleźć na [stronie cennika Azure monitor](https://azure.microsoft.com/pricing/details/monitor/) .
 
 ### <a name="how-do-i-enable-azure-monitor"></a>Jak mogę włączyć Azure Monitor?
-Azure Monitor jest włączona, gdy tworzysz nową subskrypcję platformy Azure, a [metryki](platform/data-platform-metrics.md) [dzienników aktywności](platform/activity-logs-overview.md) i platformy są zbierane automatycznie. Tworzenie [ustawień diagnostycznych](platform/diagnostic-settings.md) w celu zbierania bardziej szczegółowych informacji na temat działania zasobów platformy Azure oraz dodawania [rozwiązań do monitorowania](insights/solutions.md) i [szczegółowych](insights/insights-overview.md) danych w celu zapewnienia dodatkowej analizy zebranych dane dla konkretnych usług. 
+Azure Monitor jest włączona, gdy tworzysz nową subskrypcję platformy Azure, a [metryki](platform/data-platform-metrics.md) [dzienników aktywności](./platform/platform-logs-overview.md) i platformy są zbierane automatycznie. Tworzenie [ustawień diagnostycznych](platform/diagnostic-settings.md) w celu zbierania bardziej szczegółowych informacji na temat działania zasobów platformy Azure oraz dodawania [rozwiązań do monitorowania](insights/solutions.md) i [szczegółowych](insights/insights-overview.md) danych w celu zapewnienia dodatkowej analizy zebranych dane dla konkretnych usług. 
 
 ### <a name="how-do-i-access-azure-monitor"></a>Jak mogę Azure Monitor dostępu?
 Dostęp do wszystkich funkcji Azure Monitor i danych z menu **monitor** w Azure Portal. Sekcja **monitorowanie** w menu dla różnych usług platformy Azure zapewnia dostęp do tych samych narzędzi z danymi filtrowanymi do określonego zasobu. Azure Monitor dane są również dostępne dla różnych scenariuszy przy użyciu interfejsu wiersza polecenia, programu PowerShell i API REST.
@@ -215,7 +216,7 @@ Projektant widoków jest dostępny tylko dla użytkowników przypisanych z upraw
 * [Aplikacje sieci Web na serwerze IIS na maszynie wirtualnej platformy Azure lub w zestawie skalowania maszyn wirtualnych platformy Azure](app/azure-vm-vmss-apps.md)
 * [Aplikacje sieci Web na serwerze IIS — lokalnie lub na maszynie wirtualnej](app/asp-net.md)
 * [Aplikacje internetowe w języku Java](app/java-get-started.md)
-* [Aplikacje Node.js](app/nodejs.md)
+* [Aplikacje środowiska Node.js](app/nodejs.md)
 * [Aplikacje sieci Web na platformie Azure](app/azure-web-apps.md)
 * [Cloud Services na platformie Azure](app/cloudservices.md)
 * [Serwery aplikacji działające w programie Docker](app/docker.md)
@@ -314,7 +315,7 @@ Wyszukujemy adres IP (IPv4 lub IPv6) klienta sieci Web za pomocą [GeoLite2](htt
 
 * Telemetria przeglądarki: Zbieramy adres IP nadawcy.
 * Dane telemetryczne serwera: moduł Application Insights zbiera adres IP klienta. Nie jest zbierane, jeśli `X-Forwarded-For` jest ustawiony.
-* Aby dowiedzieć się więcej o sposobie zbierania danych o adresie IP i geolokalizacji w Application Insights zapoznaj się z tym [artykułem](https://docs.microsoft.com/azure/azure-monitor/app/ip-collection).
+* Aby dowiedzieć się więcej o sposobie zbierania danych o adresie IP i geolokalizacji w Application Insights zapoznaj się z tym [artykułem](./app/ip-collection.md).
 
 
 Można skonfigurować, `ClientIpHeaderTelemetryInitializer` Aby przyjmować adres IP z innego nagłówka. W niektórych systemach jest to na przykład przenoszone przez serwer proxy, moduł równoważenia obciążenia lub sieć CDN do programu `X-Originating-IP` . [Dowiedz się więcej](https://apmtips.com/posts/2016-07-05-client-ip-address/).
@@ -327,7 +328,7 @@ Zapoznaj się z [przechowywaniem i prywatnością danych][data].
 
 ### <a name="what-happens-to-application-insights-telemetry-when-a-server-or-device-loses-connection-with-azure"></a>Co się stanie z danymi telemetrycznymi usługi Application Insight, gdy serwer lub urządzenie utraci połączenie z platformą Azure?
 
-Wszystkie nasze zestawy SDK, w tym zestaw SDK sieci Web, obejmują "niezawodny transport" lub "niezawodny transport". Gdy serwer lub urządzenie utraci połączenie z platformą Azure, dane telemetryczne są [przechowywane lokalnie w systemie plików](https://docs.microsoft.com/azure/azure-monitor/app/data-retention-privacy#does-the-sdk-create-temporary-local-storage) (zestawy SDK serwera) lub w magazynie sesji HTML5 (Web SDK). Zestaw SDK będzie okresowo ponawiać próbę wysłania tej telemetrii do momentu, gdy nasza usługa pozyskiwania uzna, że "nieodświeżone" (48 godzin w przypadku dzienników, 30 minut dla metryk). Nieodświeżona Telemetria zostanie porzucona. W niektórych przypadkach, na przykład gdy magazyn lokalny jest pełny, ponowienie próby nie nastąpi.
+Wszystkie nasze zestawy SDK, w tym zestaw SDK sieci Web, obejmują "niezawodny transport" lub "niezawodny transport". Gdy serwer lub urządzenie utraci połączenie z platformą Azure, dane telemetryczne są [przechowywane lokalnie w systemie plików](./app/data-retention-privacy.md#does-the-sdk-create-temporary-local-storage) (zestawy SDK serwera) lub w magazynie sesji HTML5 (Web SDK). Zestaw SDK będzie okresowo ponawiać próbę wysłania tej telemetrii do momentu, gdy nasza usługa pozyskiwania uzna, że "nieodświeżone" (48 godzin w przypadku dzienników, 30 minut dla metryk). Nieodświeżona Telemetria zostanie porzucona. W niektórych przypadkach, na przykład gdy magazyn lokalny jest pełny, ponowienie próby nie nastąpi.
 
 
 ### <a name="could-personal-data-be-sent-in-the-telemetry"></a>Czy dane osobowe mogą być wysyłane w ramach telemetrii?
@@ -409,7 +410,7 @@ Nie można skonfigurować raportu Eksploratora metryk ani skonfigurować eksport
 
 #### <a name="querying-the-telemetry"></a>Wykonywanie zapytania dotyczącego telemetrii
 
-Użyj [interfejsu API REST](https://dev.applicationinsights.io/) , aby uruchomić zapytania [analityczne](app/analytics.md) .
+Użyj [interfejsu API REST](https://dev.applicationinsights.io/) , aby uruchomić zapytania [analityczne](./log-query/log-query-overview.md) .
 
 ### <a name="how-can-i-set-an-alert-on-an-event"></a>Jak ustawić alert dla zdarzenia?
 
@@ -476,7 +477,7 @@ Twoja Brama powinna kierować ruch do adresu podstawowego tego punktu końcowego
 #### <a name="proxy-passthrough"></a>Przekazywanie serwera proxy
 
 Przekazywanie serwerów proxy można osiągnąć przez skonfigurowanie serwera proxy poziomu komputera lub aplikacji.
-Aby uzyskać więcej informacji, zobacz artykuł dotnet w witrynie [defaultProxy](https://docs.microsoft.com/dotnet/framework/configure-apps/file-schema/network/defaultproxy-element-network-settings).
+Aby uzyskać więcej informacji, zobacz artykuł dotnet w witrynie [defaultProxy](/dotnet/framework/configure-apps/file-schema/network/defaultproxy-element-network-settings).
  
  Przykład Web.config:
  ```xml
@@ -734,7 +735,7 @@ W tym stanie zostanie wyświetlony monit z opcją **Wypróbuj teraz** po otwarci
 ## <a name="next-steps"></a>Następne kroki
 Jeśli na pytanie nie ma odpowiedzi, możesz zapoznać się z następującymi forami, aby uzyskać dodatkowe pytania i odpowiedzi.
 
-- [Log Analytics](https://docs.microsoft.com/answers/topics/azure-monitor.html)
-- [Application Insights](https://docs.microsoft.com/answers/topics/azure-monitor.html)
+- [Log Analytics](/answers/topics/azure-monitor.html)
+- [Application Insights](/answers/topics/azure-monitor.html)
 
 Aby uzyskać ogólne informacje na temat Azure Monitor odwiedź [forum opinii](https://feedback.azure.com/forums/34192--general-feedback).

@@ -4,12 +4,12 @@ description: Dowiedz się więcej na temat skalowania w usłudze Azure Kubernete
 services: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
-ms.openlocfilehash: 41d4088a0942eb408d3d3c9eeb2d13ff38fc0362
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 1a14615e96d5be4fbc8994073d66677997281131
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86244518"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86499889"
 ---
 # <a name="scaling-options-for-applications-in-azure-kubernetes-service-aks"></a>Opcje skalowania aplikacji w usłudze Azure Kubernetes Service 
 
@@ -19,7 +19,7 @@ W tym artykule przedstawiono podstawowe pojęcia, które ułatwiają skalowanie 
 
 - [Skalowanie ręczne](#manually-scale-pods-or-nodes)
 - [Skalowanie w poziomie na pionie (HPA)](#horizontal-pod-autoscaler)
-- [Automatyczne skalowanie klastra](#cluster-autoscaler)
+- [Narzędzie do automatycznego skalowania klastra](#cluster-autoscaler)
 - [Integracja z usługą Azure Container Instance (ACI) z usługą AKS](#burst-to-azure-container-instances)
 
 ## <a name="manually-scale-pods-or-nodes"></a>Ręczne skalowanie z podziałów lub węzłów
@@ -48,7 +48,7 @@ Aby zminimalizować zdarzenia wyścigu, ustawiana jest wartość opóźnienia. T
 
 Obecnie nie można dostosowywać tych wartości cooldown z domyślnego.
 
-## <a name="cluster-autoscaler"></a>Automatyczne skalowanie klastra
+## <a name="cluster-autoscaler"></a>Narzędzie do automatycznego skalowania klastra
 
 Aby odpowiedzieć na zmieniające się zapotrzebowanie na żądanie, Kubernetes ma automatyczne skalowanie klastra, który dostosowuje liczbę węzłów na podstawie żądanych zasobów obliczeniowych w puli węzłów. Domyślnie Automatyczne skalowanie klastra sprawdza serwer interfejsu API metryk co 10 sekund dla wszystkich wymaganych zmian w liczniku węzłów. Jeśli automatyczne skalowanie klastra ustali, że wymagana jest zmiana, liczba węzłów w klastrze AKS zostaje odpowiednio zwiększona lub obniżona. Automatyczne skalowanie klastra współpracuje z klastrami AKS z włączoną funkcją RBAC, które działają w Kubernetes 1.10. x lub nowszym.
 
@@ -58,7 +58,7 @@ Automatyczne skalowanie klastra jest zwykle używane razem ze skalowaniem w pozi
 
 Aby rozpocząć pracę z automatycznym skalowaniem klastra w programie AKS, zobacz artykuł [Automatyczne skalowanie klastra na AKS][aks-cluster-autoscaler].
 
-### <a name="scale-up-events"></a>Skalowanie zdarzeń w górę
+### <a name="scale-out-events"></a>Skalowanie zdarzeń w poziomie
 
 Jeśli węzeł nie ma wystarczających zasobów obliczeniowych do uruchomienia żądanego elementu, to nie może postępować przez proces planowania. Nie można uruchomić programu pod warunkiem, że dodatkowe zasoby obliczeniowe nie są dostępne w ramach puli węzłów.
 
@@ -66,7 +66,7 @@ Gdy automatyczne skalowanie klastra zostanie powiadomione o tym, że nie można 
 
 Jeśli aplikacja wymaga szybkiego skalowania, niektóre zasobniki mogą pozostać w stanie oczekującym na zaplanowanie do momentu, aż dodatkowe węzły wdrożone przez automatyczne skalowanie klastra będą mogły akceptować zaplanowane zasobniki. W przypadku aplikacji, które mają duże wymagania dotyczące serii, można skalować z węzłami wirtualnymi i Azure Container Instances.
 
-### <a name="scale-down-events"></a>Skaluj zdarzenia w dół
+### <a name="scale-in-events"></a>Skalowanie w zdarzeniach
 
 Automatyczne skalowanie klastra monitoruje również stan planowania pod kątem węzłów, które nie otrzymały ostatnio nowych żądań planowania. Ten scenariusz wskazuje, że Pula węzłów ma więcej zasobów obliczeniowych niż jest wymagane, i liczbę węzłów można zmniejszyć.
 

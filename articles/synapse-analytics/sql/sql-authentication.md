@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: 280fea29b79db58d0974aaba961db9c7a7df3dad
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: a4b61b89921b41476ff1c2196502092809862a82
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045794"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86495503"
 ---
 # <a name="sql-authentication"></a>Uwierzytelnianie SQL
 
@@ -102,7 +102,7 @@ Aby utworzyć bazę danych, użytkownik musi być użytkownikiem opartym na SQL 
 
    W celu poprawy wydajności nazwy logowania (nazwy główne na poziomie serwera) są tymczasowo przechowywane w pamięci podręcznej na poziomie bazy danych. Aby odświeżyć pamięć podręczną uwierzytelniania, zobacz artykuł [DBCC FLUSHAUTHCACHE](/sql/t-sql/database-console-commands/dbcc-flushauthcache-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
 
-3. W `master` bazie danych Utwórz użytkownika przy użyciu instrukcji [Create User](/sql/t-sql/statements/create-user-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) . Użytkownik może być Azure Active Directory uwierzytelnienia zawartej bazy danych (Jeśli skonfigurowano środowisko do uwierzytelniania w usłudze Azure AD) lub użytkownika uwierzytelniania SQL Server zawartej bazy danych lub SQL Server użytkownika uwierzytelniania na podstawie logowania do SQL Server uwierzytelniania (utworzonego w poprzednim kroku). Przykładowe instrukcje:
+3. Utwórz użytkownika bazy danych za pomocą instrukcji [Create User](/sql/t-sql/statements/create-user-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) . Użytkownik może być Azure Active Directory uwierzytelnienia zawartej bazy danych (Jeśli skonfigurowano środowisko do uwierzytelniania w usłudze Azure AD) lub użytkownika uwierzytelniania SQL Server zawartej bazy danych lub SQL Server użytkownika uwierzytelniania na podstawie logowania do SQL Server uwierzytelniania (utworzonego w poprzednim kroku). Przykładowe instrukcje:
 
    ```sql
    CREATE USER [mike@contoso.com] FROM EXTERNAL PROVIDER; -- To create a user with Azure Active Directory
@@ -110,11 +110,11 @@ Aby utworzyć bazę danych, użytkownik musi być użytkownikiem opartym na SQL 
    CREATE USER Mary FROM LOGIN Mary;  -- To create a SQL Server user based on a SQL Server authentication login
    ```
 
-4. Dodaj nowego użytkownika do roli bazy danych **DBManager** w programie `master` przy użyciu instrukcji [ALTER role](/sql/t-sql/statements/alter-role-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) . Przykładowe instrukcje:
+4. Dodaj nowego użytkownika do roli bazy danych **DBManager** w programie `master` przy użyciu procedury [sp_addrolemember](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=azure-sqldw-latest) (Zwróć uwagę, że instrukcja [ALTER role](/sql/t-sql/statements/alter-role-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) nie jest obsługiwana w przypadku udostępniania SQL). Przykładowe instrukcje:
 
    ```sql
-   ALTER ROLE dbmanager ADD MEMBER Mary;
-   ALTER ROLE dbmanager ADD MEMBER [mike@contoso.com];
+   EXEC sp_addrolemember 'dbmanager', 'Mary'; 
+   EXEC sp_addrolemember 'dbmanager', 'mike@contoso.com]'; 
    ```
 
    > [!NOTE]
@@ -151,7 +151,7 @@ GRANT ALTER ANY USER TO Mary;
 
 Aby zapewnić dodatkowym użytkownikom pełną kontrolę nad bazą danych, nadaj im członkom **db_owner** stałą rolę bazy danych.
 
-W Azure SQL Database Użyj `ALTER ROLE` instrukcji.
+W Azure SQL Database lub Synapse bezserwerowym Użyj `ALTER ROLE` instrukcji.
 
 ```sql
 ALTER ROLE db_owner ADD MEMBER Mary;

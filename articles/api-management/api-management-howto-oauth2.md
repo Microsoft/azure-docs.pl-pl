@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: f4f5c5d9a77353f36119b77601b88f9dab01ccc0
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 7eb77b9ffae49c7d8d3e5612b685e5725829898f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86243617"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86499787"
 ---
 # <a name="how-to-authorize-developer-accounts-using-oauth-20-in-azure-api-management"></a>Jak autoryzować konta dewelopera przy użyciu protokołu OAuth 2,0 na platformie Azure API Management
 
@@ -50,7 +50,7 @@ W tym przewodniku pokazano, jak skonfigurować wystąpienie usługi API Manageme
     > [!NOTE]
     > Te pola służą do identyfikowania serwera autoryzacji OAuth 2,0 w ramach bieżącego wystąpienia usługi API Management i ich wartości nie pochodzą z serwera OAuth 2,0.
 
-3. Wprowadź **adres URL strony rejestracji klienta**. Na tej stronie można tworzyć konta i zarządzać nimi oraz zmieniać się w zależności od używanego dostawcy protokołu OAuth 2,0. **Adres URL strony rejestracji klienta** wskazuje na stronę, za pomocą której użytkownicy mogą tworzyć i konfigurować własne konta dla dostawców OAuth 2,0, którzy obsługują zarządzanie kontami użytkowników. Niektóre organizacje nie konfigurują ani nie używają tej funkcji, nawet jeśli obsługują ją dostawca OAuth 2,0. Jeśli dostawca OAuth 2,0 nie ma skonfigurowanych kont zarządzanie użytkownikami, wprowadź w tym miejscu zastępczy adres URL, na przykład adres URL firmy lub adres URL, taki jak `https://placeholder.contoso.com` .
+3. Wprowadź **adres URL strony rejestracji klienta**. Na tej stronie można tworzyć konta i zarządzać nimi oraz zmieniać się w zależności od używanego dostawcy protokołu OAuth 2,0. **Adres URL strony rejestracji klienta** wskazuje na stronę, za pomocą której użytkownicy mogą tworzyć i konfigurować własne konta dla dostawców OAuth 2,0, którzy obsługują zarządzanie kontami, na przykład `https://contoso.com/login` . Niektóre organizacje nie konfigurują ani nie używają tej funkcji, nawet jeśli obsługują ją dostawca OAuth 2,0. Jeśli dostawca OAuth 2,0 nie ma skonfigurowanych kont zarządzanie użytkownikami, wprowadź w tym miejscu zastępczy adres URL, na przykład adres URL firmy lub adres URL, taki jak `https://placeholder.contoso.com` .
 
     ![Nowy serwer OAuth 2,0](./media/api-management-howto-oauth2/oauth-02.png)
 
@@ -75,6 +75,11 @@ W tym przewodniku pokazano, jak skonfigurować wystąpienie usługi API Manageme
     Domyślnym ustawieniem dla **metod uwierzytelniania klienta** jest **podstawowa**, a **metoda wysyłania tokenu dostępu** jest **nagłówkiem autoryzacji**. Te wartości są konfigurowane w tej sekcji formularza wraz z **zakresem domyślnym**.
 
 6. Sekcja **poświadczenia klienta** zawiera **Identyfikator klienta** i **klucz tajny klienta**, które są uzyskiwane podczas procesu tworzenia i konfiguracji serwera OAuth 2,0. Po określeniu **identyfikatora klienta** i **klucza tajnego klienta** zostanie wygenerowany **redirect_uri** dla **kodu autoryzacji** . Ten identyfikator URI służy do konfigurowania adresu URL odpowiedzi w konfiguracji serwera OAuth 2,0.
+
+    W nowym portalu dla deweloperów sufiks URI ma postać:
+
+    - `/signin-oauth/code/callback/{authServerName}`w przypadku przepływu przyznawania kodu autoryzacji
+    - `/signin-oauth/implicit/callback`dla niejawnego przepływu dotacji
 
     ![Nowy serwer OAuth 2,0](./media/api-management-howto-oauth2/oauth-04.png)
 

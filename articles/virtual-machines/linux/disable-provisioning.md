@@ -9,18 +9,18 @@ ms.workload: infrastructure
 ms.date: 07/06/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: 133de199c240cbc4ea7246a29e65347d53c50545
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 2a17825d062496e6600966dc7c90b14749507e4d
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045760"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86494517"
 ---
 # <a name="disable-or-remove-the-linux-agent-from-vms-and-images"></a>Wyłączanie i usuwanie agenta systemu Linux z maszyn wirtualnych i obrazów
 
 Przed usunięciem agenta systemu Linux należy zrozumieć, jakie maszyny wirtualne nie będą mogły zostać wprowadzone po usunięciu agenta systemu Linux.
 
-[Rozszerzenia](https://docs.microsoft.com/azure/virtual-machines/extensions/overview) maszyny wirtualnej platformy Azure to małe aplikacje, które zapewniają konfigurację po wdrożeniu i zadania automatyzacji na maszynach wirtualnych platformy Azure, rozszerzenia są instalowane i zarządzane przez płaszczyznę kontroli systemu Azure. Jest to zadanie [agenta systemu Azure Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux) do przetwarzania poleceń rozszerzenia platformy i zapewnienia poprawnego stanu rozszerzenia w ramach maszyny wirtualnej.
+[Rozszerzenia](../extensions/overview.md) maszyny wirtualnej platformy Azure to małe aplikacje, które zapewniają konfigurację po wdrożeniu i zadania automatyzacji na maszynach wirtualnych platformy Azure, rozszerzenia są instalowane i zarządzane przez płaszczyznę kontroli systemu Azure. Jest to zadanie [agenta systemu Azure Linux](../extensions/agent-linux.md) do przetwarzania poleceń rozszerzenia platformy i zapewnienia poprawnego stanu rozszerzenia w ramach maszyny wirtualnej.
 
 Platforma Azure obsługuje wiele rozszerzeń, które przedziały od konfiguracji maszyny wirtualnej, monitorowania, zabezpieczeń i narzędzi. Istnieje duże wybór rozszerzeń pierwszej i innej firmy, przykłady kluczowych scenariuszy, w których rozszerzenia są używane dla:
 * Obsługa usług platformy Azure w ramach pierwszej firmy, takich jak Azure Backup, monitorowanie, szyfrowanie dysków, zabezpieczenia, replikacja lokacji i inne.
@@ -31,7 +31,7 @@ Platforma Azure obsługuje wiele rozszerzeń, które przedziały od konfiguracji
 
 ## <a name="disabling-extension-processing"></a>Wyłączanie przetwarzania rozszerzenia
 
-Istnieje kilka sposobów, aby wyłączyć przetwarzanie rozszerzeń, w zależności od potrzeb, ale przed kontynuowaniem **należy** usunąć wszystkie rozszerzenia wdrożone na maszynie wirtualnej, na przykład za pomocą polecenia AZ CLI, można [wyświetlić](https://docs.microsoft.com/cli/azure/vm/extension?view=azure-cli-latest#az-vm-extension-list) i [usunąć](https://docs.microsoft.com/cli/azure/vm/extension?view=azure-cli-latest#az-vm-extension-delete):
+Istnieje kilka sposobów, aby wyłączyć przetwarzanie rozszerzeń, w zależności od potrzeb, ale przed kontynuowaniem **należy** usunąć wszystkie rozszerzenia wdrożone na maszynie wirtualnej, na przykład za pomocą polecenia AZ CLI, można [wyświetlić](/cli/azure/vm/extension?view=azure-cli-latest#az-vm-extension-list) i [usunąć](/cli/azure/vm/extension?view=azure-cli-latest#az-vm-extension-delete):
 
 ```bash
 az vm extension delete -g MyResourceGroup --vm-name MyVm -n extension_name
@@ -155,7 +155,7 @@ Podczas tworzenia maszyny wirtualnej z obrazu bez agenta systemu Linux należy u
 > 
 > Jeśli nie wykonasz powyższych czynności, platforma podejmie próbę wysłania konfiguracji rozszerzenia i przekroczenia limitu czasu po 40min.
 
-Aby wdrożyć maszynę wirtualną z wyłączonymi rozszerzeniami, można użyć interfejsu wiersza polecenia platformy Azure z opcją [--enable-Agent](https://docs.microsoft.com/cli/azure/vm#az-vm-create).
+Aby wdrożyć maszynę wirtualną z wyłączonymi rozszerzeniami, można użyć interfejsu wiersza polecenia platformy Azure z opcją [--enable-Agent](/cli/azure/vm#az-vm-create).
 
 ```bash
 az vm create \

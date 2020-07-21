@@ -4,12 +4,12 @@ description: Dowiedz się, jak Agent MARS obsługuje scenariusze tworzenia kopii
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: 64f43f42fc23b1ca9591b6a49c3acce6c52c09d6
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 417fc385750ccab5c2f11f8160d9bbc85a013cde
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134972"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86497951"
 ---
 # <a name="about-the-microsoft-azure-recovery-services-mars-agent"></a>Informacje o agencie Microsoft Azure Recovery Services (MARS)
 
@@ -40,10 +40,10 @@ Agent MARS obsługuje następujące scenariusze przywracania:
 ## <a name="backup-process"></a>Proces tworzenia kopii zapasowej
 
 1. Z Azure Portal Utwórz [magazyn Recovery Services](install-mars-agent.md#create-a-recovery-services-vault), a następnie wybierz pliki, foldery i stan systemu z **celów tworzenia kopii zapasowych**.
-2. [Pobierz poświadczenia magazynu Recovery Services i instalatora agenta](https://docs.microsoft.com/azure/backup/install-mars-agent#download-the-mars-agent) na maszynę lokalną.
+2. [Pobierz poświadczenia magazynu Recovery Services i instalatora agenta](./install-mars-agent.md#download-the-mars-agent) na maszynę lokalną.
 
-3. [Zainstaluj agenta](https://docs.microsoft.com/azure/backup/install-mars-agent#install-and-register-the-agent) i użyj pobranych poświadczeń magazynu, aby zarejestrować maszynę w magazynie Recovery Services.
-4. Z poziomu konsoli agenta na kliencie [Skonfiguruj kopię zapasową](https://docs.microsoft.com/azure/backup/backup-windows-with-mars-agent#create-a-backup-policy) , aby określić, co ma być wykonywane w ramach kopii zapasowej (harmonogram), jak długo kopie zapasowe mają być przechowywane na platformie Azure (zasady przechowywania) i Rozpocznij ochronę.
+3. [Zainstaluj agenta](./install-mars-agent.md#install-and-register-the-agent) i użyj pobranych poświadczeń magazynu, aby zarejestrować maszynę w magazynie Recovery Services.
+4. Z poziomu konsoli agenta na kliencie [Skonfiguruj kopię zapasową](./backup-windows-with-mars-agent.md#create-a-backup-policy) , aby określić, co ma być wykonywane w ramach kopii zapasowej (harmonogram), jak długo kopie zapasowe mają być przechowywane na platformie Azure (zasady przechowywania) i Rozpocznij ochronę.
 
 ![Diagram agenta Azure Backup](./media/backup-try-azure-backup-in-10-mins/backup-process.png)
 
@@ -57,12 +57,12 @@ Agent MARS obsługuje następujące scenariusze przywracania:
 
 ### <a name="additional-scenarios"></a>Dodatkowe scenariusze
 
-- **Tworzenie kopii zapasowych określonych plików i folderów w usłudze Azure Virtual**Machines: podstawowa metoda tworzenia kopii zapasowych maszyn wirtualnych platformy Azure polega na użyciu rozszerzenia Azure Backup na maszynie wirtualnej. Rozszerzenie tworzy kopię zapasową całej maszyny wirtualnej. Jeśli chcesz utworzyć kopię zapasową określonych plików i folderów w ramach maszyny wirtualnej, możesz zainstalować agenta MARS na maszynach wirtualnych platformy Azure. Aby uzyskać więcej informacji, zobacz [Architektura: Wbudowana kopia zapasowa maszyny wirtualnej platformy Azure](https://docs.microsoft.com/azure/backup/backup-architecture#architecture-built-in-azure-vm-backup).
+- **Tworzenie kopii zapasowych określonych plików i folderów w usłudze Azure Virtual**Machines: podstawowa metoda tworzenia kopii zapasowych maszyn wirtualnych platformy Azure polega na użyciu rozszerzenia Azure Backup na maszynie wirtualnej. Rozszerzenie tworzy kopię zapasową całej maszyny wirtualnej. Jeśli chcesz utworzyć kopię zapasową określonych plików i folderów w ramach maszyny wirtualnej, możesz zainstalować agenta MARS na maszynach wirtualnych platformy Azure. Aby uzyskać więcej informacji, zobacz [Architektura: Wbudowana kopia zapasowa maszyny wirtualnej platformy Azure](./backup-architecture.md#architecture-built-in-azure-vm-backup).
 
 - **Rozmieszczanie w trybie offline**: wstępne pełne kopie zapasowe danych na platformie Azure zazwyczaj przesyłają duże ilości danych i wymagają większej przepustowości sieci. Kolejne kopie zapasowe przesyłają tylko dane różnicowe lub przyrostowe. Azure Backup kompresuje początkowe kopie zapasowe. W procesie umieszczania w *trybie offline*, Azure Backup mogą używać dysków do przekazywania skompresowanych danych początkowej kopii zapasowej w trybie offline do platformy Azure. Aby uzyskać więcej informacji, zobacz [Azure Backup w trybie offline — tworzenie kopii zapasowej przy użyciu Azure Data Box](offline-backup-azure-data-box.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Macierz obsługi agenta usługi MARS](https://docs.microsoft.com/azure/backup/backup-support-matrix-mars-agent)
+[Macierz obsługi agenta usługi MARS](./backup-support-matrix-mars-agent.md)
 
-[Agent MARS — często zadawane pytania](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq)
+[Agent MARS — często zadawane pytania](./backup-azure-file-folder-backup-faq.md)

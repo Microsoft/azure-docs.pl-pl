@@ -3,12 +3,12 @@ title: Tworzenie kopii zapasowych maszyn wirtualnych VMware przy użyciu Azure B
 description: W tym artykule dowiesz się, jak używać Azure Backup Server do tworzenia kopii zapasowych maszyn wirtualnych VMware działających na serwerze VMware vCenter/ESXi.
 ms.topic: conceptual
 ms.date: 05/24/2020
-ms.openlocfilehash: fed088a9c5eea461f93c844dcb0eead74761237e
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: c9868012698fcdf5a2352c289de85261b6899dc3
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86081064"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86497917"
 ---
 # <a name="back-up-vmware-vms-with-azure-backup-server"></a>Tworzenie kopii zapasowych maszyn wirtualnych VMware przy użyciu Azure Backup Server
 
@@ -24,7 +24,7 @@ W tym artykule wyjaśniono, jak:
 
 ## <a name="before-you-start"></a>Przed rozpoczęciem
 
-- Sprawdź, czy korzystasz z wersji programu vCenter/ESXi, która jest obsługiwana na potrzeby tworzenia kopii zapasowych. Zapoznaj się z macierzą pomocy technicznej [tutaj](https://docs.microsoft.com/azure/backup/backup-mabs-protection-matrix).
+- Sprawdź, czy korzystasz z wersji programu vCenter/ESXi, która jest obsługiwana na potrzeby tworzenia kopii zapasowych. Zapoznaj się z macierzą pomocy technicznej [tutaj](./backup-mabs-protection-matrix.md).
 - Upewnij się, że skonfigurowano Azure Backup Server. Jeśli jeszcze tego nie zrobiono, [zrób to](backup-azure-microsoft-azure-backup.md) przed rozpoczęciem. Należy uruchomić Azure Backup Server z najnowszymi aktualizacjami.
 - Upewnij się, że następujące porty sieciowe są otwarte:
   - TCP 443 między serwera usługi MAB i vCenter
@@ -41,7 +41,7 @@ Domyślnie Azure Backup Server komunikuje się z serwerami VMware za pośrednict
 - Ważne jest, aby zrozumieć, jak Azure Backup Server obsługuje kopie zapasowe.
   - Pierwszy krok Azure Backup Server Tworzenie kopii zapasowych danych na dysku lokalnym. Azure Backup Server używa puli magazynów, zestawu dysków i woluminów, na których Azure Backup Server są przechowywane punkty odzyskiwania dysku dla chronionych danych. Pula magazynów może być bezpośrednio dołączonym magazynem (DAS), siecią SAN Fiber Channel lub urządzeniem magazynującym iSCSI lub SAN. Należy upewnić się, że masz wystarczającą ilość miejsca dla lokalnej kopii zapasowej danych maszyny wirtualnej VMware.
   - Azure Backup Server następnie tworzy kopię zapasową z magazynu na dysku lokalnym na platformie Azure.
-  - [Uzyskaj pomoc](https://docs.microsoft.com/system-center/dpm/create-dpm-protection-groups?view=sc-dpm-1807#figure-out-how-much-storage-space-you-need) , aby ustalić ilość potrzebnego miejsca do magazynowania. Informacje dotyczą programu DPM, ale mogą być również używane dla Azure Backup Server.
+  - [Uzyskaj pomoc](/system-center/dpm/create-dpm-protection-groups#figure-out-how-much-storage-space-you-need) , aby ustalić ilość potrzebnego miejsca do magazynowania. Informacje dotyczą programu DPM, ale mogą być również używane dla Azure Backup Server.
 
 ### <a name="set-up-the-certificate"></a>Konfigurowanie certyfikatu
 

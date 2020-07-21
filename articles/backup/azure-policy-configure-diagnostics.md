@@ -3,20 +3,20 @@ title: Konfigurowanie ustawień diagnostyki magazynu w odpowiedniej skali
 description: Skonfiguruj ustawienia diagnostyki Log Analytics dla wszystkich magazynów w danym zakresie przy użyciu Azure Policy
 ms.topic: conceptual
 ms.date: 02/14/2020
-ms.openlocfilehash: e6ba8eb98ca1d6af9fc745d9baf3840ccd1ac224
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2400be15dcd46084e9a605076c00cf5c5ac92463
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82195710"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86498053"
 ---
 # <a name="configure-vault-diagnostics-settings-at-scale"></a>Konfigurowanie ustawień diagnostyki magazynu w odpowiedniej skali
 
-Rozwiązanie raportowania zapewniane przez Azure Backup wykorzystuje Log Analytics (LA). Aby dane z danego magazynu były wysyłane do LA, należy utworzyć dla tego magazynu [ustawienie diagnostyczne](https://docs.microsoft.com/azure/backup/backup-azure-diagnostic-events) .
+Rozwiązanie raportowania zapewniane przez Azure Backup wykorzystuje Log Analytics (LA). Aby dane z danego magazynu były wysyłane do LA, należy utworzyć dla tego magazynu [ustawienie diagnostyczne](./backup-azure-diagnostic-events.md) .
 
 Często ręczne dodanie ustawienia diagnostyki dla magazynu może być uciążliwym zadaniem. Ponadto wszystkie nowe magazyny tworzone również muszą mieć włączone ustawienia diagnostyczne, aby można było wyświetlać raporty dla tego magazynu.
 
-Aby uprościć tworzenie ustawień diagnostycznych na dużą skalę (z LA jako miejsce docelowe), Azure Backup zapewnia wbudowaną [Azure Policy](https://docs.microsoft.com/azure/governance/policy/). Ta zasada dodaje ustawienie diagnostyki LA do wszystkich magazynów w danej subskrypcji lub grupie zasobów. Poniższe sekcje zawierają instrukcje dotyczące korzystania z tych zasad.
+Aby uprościć tworzenie ustawień diagnostycznych na dużą skalę (z LA jako miejsce docelowe), Azure Backup zapewnia wbudowaną [Azure Policy](../governance/policy/index.yml). Ta zasada dodaje ustawienie diagnostyki LA do wszystkich magazynów w danej subskrypcji lub grupie zasobów. Poniższe sekcje zawierają instrukcje dotyczące korzystania z tych zasad.
 
 ## <a name="supported-scenarios"></a>Scenariusze obsługiwane
 
@@ -70,7 +70,7 @@ Zadanie korygowania jest stosowane do magazynów, które są niezgodne zgodnie z
 * Brak ustawienia diagnostyki dla magazynu.
 * Ustawienia diagnostyczne są obecne dla magazynu, ale żadne z tych ustawień nie ma **wszystkich** zdarzeń specyficznych dla zasobów, które zostały włączone przy użyciu La jako miejsca docelowego, i wybranego **zasobu** zaznaczonego w przełączniku.
 
-Nawet jeśli użytkownik ma magazyn z włączonym zdarzeniem AzureBackupReport w trybie AzureDiagnostics (który jest obsługiwany przez raporty kopii zapasowych [), zadanie](https://docs.microsoft.com/azure/backup/backup-azure-diagnostic-events#legacy-event)korygowania nadal będzie dotyczyło tego magazynu, ponieważ tryb specyficzny dla zasobów jest zalecanym sposobem tworzenia ustawień diagnostycznych.
+Nawet jeśli użytkownik ma magazyn z włączonym zdarzeniem AzureBackupReport w trybie AzureDiagnostics (który jest obsługiwany przez raporty kopii zapasowych [), zadanie](./backup-azure-diagnostic-events.md#legacy-event)korygowania nadal będzie dotyczyło tego magazynu, ponieważ tryb specyficzny dla zasobów jest zalecanym sposobem tworzenia ustawień diagnostycznych.
 
 Ponadto jeśli użytkownik ma magazyn z tylko podzbiorem sześciu zdarzeń specyficznych dla zasobów, zadanie korygowania będzie dotyczyło tego magazynu, ponieważ raporty kopii zapasowych będą działały zgodnie z oczekiwaniami tylko wtedy, gdy są włączone wszystkie sześć zdarzeń specyficznych dla zasobów.
 
@@ -84,6 +84,6 @@ Ponadto jeśli użytkownik ma magazyn z tylko podzbiorem sześciu zdarzeń specy
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Dowiedz się, jak używać raportów kopii zapasowych](https://docs.microsoft.com/azure/backup/configure-reports)
-* [Dowiedz się więcej o Azure Policy](https://docs.microsoft.com/azure/governance/policy/)
-* [Użyj Azure Policy, aby włączyć funkcję autotworzenia kopii zapasowych dla wszystkich maszyn wirtualnych w zakresie](https://docs.microsoft.com/azure/backup/backup-azure-auto-enable-backup)
+* [Dowiedz się, jak używać raportów kopii zapasowych](./configure-reports.md)
+* [Dowiedz się więcej o Azure Policy](../governance/policy/index.yml)
+* [Użyj Azure Policy, aby włączyć funkcję autotworzenia kopii zapasowych dla wszystkich maszyn wirtualnych w zakresie](./backup-azure-auto-enable-backup.md)

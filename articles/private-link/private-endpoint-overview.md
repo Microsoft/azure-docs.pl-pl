@@ -7,11 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: allensu
-ms.openlocfilehash: f4e5bbdc50d99eca774dc5b96657ac8bfdebca17
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c739c6483832c08a91f2a5318853bf48e5d41854
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85414151"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86496965"
 ---
 # <a name="what-is-azure-private-endpoint"></a>Co to jest prywatny punkt końcowy platformy Azure?
 
@@ -64,11 +65,11 @@ Zasób link prywatny jest docelowym miejscem docelowym danego prywatnego punktu 
 |**Azure Database for MySQL** | Microsoft. DBforMySQL/serwery    | Mójserwersql |
 |**Azure Database for MariaDB** | Microsoft. DBforMariaDB/serwery    | mariadbServer |
 |**Azure IoT Hub** | Microsoft. Devices/IotHubs    | iotHub |
-|**W usłudze Azure Key Vault** | Microsoft./magazyny kluczy    | magazyn |
+|**Usługa Azure Key Vault** | Microsoft./magazyny kluczy    | magazyn |
 |**Usługa Azure Kubernetes Service — interfejs API Kubernetes** | Microsoft. ContainerService/managedClusters    | managedCluster |
 |**Azure Search** | Microsoft. Search/searchService| searchService|  
 |**Azure Container Registry** | Microsoft. ContainerRegistry/rejestry    | registry |
-|**Azure App Configuration** | Microsoft. Appconfiguration/configurationStores    | Magazyn konfiguracji |
+|**Azure App Configuration** | Microsoft. Appconfiguration/configurationStores    | configurationStores |
 |**Azure Backup** | Microsoft. RecoveryServices/magazyny    | magazyn |
 |**Centrum zdarzeń Azure** | Microsoft. EventHub/przestrzenie nazw    | namespace |
 |**Azure Service Bus** | Microsoft. ServiceBus/przestrzenie nazw | namespace |
@@ -118,7 +119,7 @@ Aby uzyskać szczegółowe informacje o najlepszych rozwiązaniach i zaleceniach
 Poniższa tabela zawiera listę znanych ograniczeń dotyczących używania prywatnych punktów końcowych: 
 
 
-|Ograniczenie |Opis |Środki zaradcze  |
+|Ograniczenie |Opis |Ograniczanie ryzyka  |
 |---------|---------|---------|
 |Reguły sieciowej grupy zabezpieczeń (sieciowej grupy zabezpieczeń) i trasy zdefiniowane przez użytkownika nie mają zastosowania do prywatnego punktu końcowego    |SIECIOWEJ grupy zabezpieczeń nie jest obsługiwany w prywatnych punktach końcowych. W podsieciach zawierających prywatny punkt końcowy może być skojarzonych sieciowej grupy zabezpieczeń, więc reguły nie będą obowiązywać w przypadku ruchu przetwarzanego przez prywatny punkt końcowy. Aby wdrażać prywatne punkty końcowe w podsieci, należy [wyłączyć wymuszanie zasad sieciowych](disable-private-endpoint-network-policy.md) . SIECIOWEJ grupy zabezpieczeń jest nadal wymuszane dla innych obciążeń hostowanych w tej samej podsieci. Trasy w dowolnej podsieci klienta będą używać prefiksu/32, zmiana domyślnego zachowania routingu wymaga podobnego UDR  | Kontroluj ruch przy użyciu reguł sieciowej grupy zabezpieczeń dla ruchu wychodzącego na klientach źródłowych. Wdróż pojedyncze trasy z prefiksem/32, aby przesłonić prywatne trasy punktów końcowych. Dzienniki przepływu sieciowej grupy zabezpieczeń i informacje monitorowania dla połączeń wychodzących są nadal obsługiwane i mogą być używane        |
 

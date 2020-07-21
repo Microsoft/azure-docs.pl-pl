@@ -1,5 +1,5 @@
 ---
-title: Nadchodzące zmiany w regułach pozyskiwania i spłaszczania w Azure Time Series Insights | Microsoft Docs
+title: Nadchodzące zmiany w regułach pozyskiwania i spłaszczania w Azure Time Series Insights Gen2 | Microsoft Docs
 description: Zmiany reguły pozyskiwania
 ms.service: time-series-insights
 services: time-series-insights
@@ -10,18 +10,18 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 06/16/2020
 ms.custom: lyhughes
-ms.openlocfilehash: 067244aa40256e3cc76239343790974bc3c06481
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: f667ca5ad82182fcf40d5c1fbb325f2ea99a7e08
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85919040"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86495112"
 ---
 # <a name="upcoming-changes-to-the-json-flattening-and-escaping-rules-for-new-environments"></a>Nadchodzące zmiany reguł spłaszczania i ucieczki JSON dla nowych środowisk
 
-Te zmiany zostaną zastosowane do *nowego* środowiska Azure Time Series Insights tylko w przypadku środowisk z opcją płatność zgodnie z rzeczywistym użyciem. Te zmiany nie dotyczą środowisk jednostki SKU w warstwie Standardowa.
+**Te zmiany zostaną zastosowane do *nowo utworzonych* Azure Time Series Insights środowiska Gen2. Te zmiany nie dotyczą środowisk Gen1.**
 
-Środowisko Azure Time Series Insights tworzy dynamicznie kolumny magazynu, zgodnie z określonym zestawem konwencji nazewnictwa. W przypadku pozyskania zdarzenia zestaw reguł jest stosowany do nazw ładunku i właściwości JSON. Zmiany sposobu spłaszczania i przechowywania danych JSON zaczną obowiązywać w przypadku nowych środowisk Azure Time Series Insights z opcją płatność zgodnie z rzeczywistym użyciem w lipcu 2020. Ta zmiana ma wpływ na następujące sytuacje:
+Środowisko Azure Time Series Insights Gen2 tworzy dynamicznie kolumny magazynu zgodnie z określonym zestawem konwencji nazewnictwa. W przypadku pozyskania zdarzenia zestaw reguł jest stosowany do nazw ładunku i właściwości JSON. Zmiany sposobu spłaszczania i przechowywania danych JSON zaczną obowiązywać w przypadku nowych środowisk Azure Time Series Insights Gen2 w lipcu 2020. Ta zmiana ma wpływ na następujące sytuacje:
 
 * Jeśli ładunek JSON zawiera obiekty zagnieżdżone
 *  Jeśli ładunek JSON zawiera tablice
@@ -45,15 +45,16 @@ Tablice obiektów są zawsze spłaszczane, generując wiele zdarzeń | Jeśli ob
 
  #### <a name="if-your-payload-contains-nested-json-or-special-characters-and-you-automate-authoring-time-series-model-variable-expressions"></a>Jeśli ładunek zawiera zagnieżdżony kod JSON lub znaki specjalne i automatyzuje tworzenie wyrażeń zmiennych [modelu szeregów czasowych](.\time-series-insights-update-tsm.md)
 
-*  Zaktualizuj kod klienta wykonujący [TypesBatchPut](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/timeseriestypes/executebatch#typesbatchput) w celu dopasowania do nowych reguł pozyskiwania. Na przykład poprzednie [wyrażenie szeregów czasowych](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax) `"value": {"tsx": "$event.series_value.Double"}` należy zaktualizować do jednej z poniższych opcji:
+*  Zaktualizuj kod klienta wykonujący [TypesBatchPut](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriestypes/executebatch#typesbatchput) w celu dopasowania do nowych reguł pozyskiwania. Na przykład poprzednie [wyrażenie szeregów czasowych](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax) `"value": {"tsx": "$event.series_value.Double"}` należy zaktualizować do jednej z poniższych opcji:
     * `"value": {"tsx": "$event.series.value.Double"}`
     * `"value": {"tsx": "$event['series']['value'].Double"}`
 
 
-
 ## <a name="next-steps"></a>Następne kroki
 
-- Przeczytaj [Dodawanie obsługi dla długich typów danych](./time-series-insights-long-data-type.md).
+- Przeczytaj [Azure Time Series Insights Gen2 Storage i](./time-series-insights-update-storage-ingress.md)transfery danych przychodzących.
 
-- Przeczytaj [Azure Time Series Insights w wersji zapoznawczej magazynu i transferu danych](./time-series-insights-update-storage-ingress.md)przychodzących.
+- Dowiedz się więcej na temat wykonywania zapytań dotyczących danych za pomocą [interfejsów API zapytań szeregów czasowych](./concepts-query-overview.md).
+
+- Przeczytaj więcej na temat [nowej składni wyrażeń szeregów czasowych](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax).
 

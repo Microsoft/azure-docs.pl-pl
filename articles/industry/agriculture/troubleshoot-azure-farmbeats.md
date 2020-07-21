@@ -5,14 +5,14 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 6527ee8be64d57b42d7753c266a5c416ceeef589
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 110fef2dcb4c1581d49fcb776276ebd9c4ae2235
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86187714"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86497067"
 ---
-# <a name="troubleshoot"></a>Rozwiązywanie problemów
+# <a name="troubleshoot-azure-farmbeats"></a>Rozwiązywanie problemów z projektem Azure FarmBeats
 
 Ten artykuł zawiera rozwiązania typowych problemów z usługą Azure FarmBeats. Aby uzyskać dodatkową pomoc, skontaktuj się z naszym [forum pomocy technicznej](https://social.msdn.microsoft.com/Forums/home?forum=ProjectFarmBeats) lub Wyślij wiadomość e-mail na adres farmbeatssupport@microsoft.com .
 
@@ -58,8 +58,8 @@ Skontaktuj się z nami, podając następujące informacje:
 
 **Akcja naprawcza**
 
-1. Przejdź do grupy zasobów FarmBeats Datahub.
-2. Wybierz **centrum zdarzeń** (DatafeedEventHubNamespace), a następnie wyszukaj liczbę wiadomości przychodzących.
+1. Przejdź do grupy zasobów FarmBeats.
+2. Wybierz przestrzeń nazw **centrum zdarzeń** ("Sensor-partner-EH-przestrzeń nazw-XXXX"), kliknij pozycję "Event Hubs", a następnie wyszukaj liczbę komunikatów przychodzących w centrum zdarzeń przypisanym do partnera.
 3. Wykonaj jedną z następujących czynności:
 
    - Jeśli nie ma *żadnych komunikatów przychodzących*, skontaktuj się z partnerem urządzenia.  

@@ -3,17 +3,18 @@ title: Nietypowy wzrost w woluminie wyjątku — Application Insights platformy 
 description: Monitoruj wyjątki aplikacji z funkcją inteligentnego wykrywania w usłudze Azure Application Insights dla nietypowych wzorców w woluminie wyjątku.
 ms.topic: conceptual
 ms.date: 12/08/2017
-ms.openlocfilehash: a08fae4774a8afb9959f55ea3196cd1a45c33439
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 00b7a28a51f91c969b41d2ab85b611f6dde51396
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77671770"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86499430"
 ---
 # <a name="abnormal-rise-in-exception-volume-preview"></a>Nietypowy wzrost w woluminie wyjątku (wersja zapoznawcza)
 
 Application Insights automatycznie analizuje wyjątki zgłoszone w aplikacji i może ostrzec o nietypowych wzorcach w telemetrii wyjątku.
 
-Ta funkcja nie wymaga żadnych specjalnych ustawień, innych niż [Konfigurowanie raportowania wyjątków](https://docs.microsoft.com/azure/application-insights/app-insights-asp-net-exceptions#set-up-exception-reporting) dla aplikacji. Jest ona aktywna, gdy aplikacja generuje wystarczającą ilość danych telemetrycznych wyjątku.
+Ta funkcja nie wymaga żadnych specjalnych ustawień, innych niż [Konfigurowanie raportowania wyjątków](./asp-net-exceptions.md#set-up-exception-reporting) dla aplikacji. Jest ona aktywna, gdy aplikacja generuje wystarczającą ilość danych telemetrycznych wyjątku.
 
 ## <a name="when-would-i-get-this-type-of-smart-detection-notification"></a>Kiedy mam ten typ powiadomienia inteligentnego wykrywania?
 Ten typ powiadomienia może zostać wyświetlony, jeśli w aplikacji występuje nietypowy wzrost liczby wyjątków określonego typu w ciągu dnia, w porównaniu z linią bazową obliczoną w ciągu ostatnich siedmiu dni.

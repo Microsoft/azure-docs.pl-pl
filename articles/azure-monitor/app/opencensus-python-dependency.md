@@ -6,15 +6,16 @@ author: lzchen
 ms.author: lechen
 ms.date: 10/15/2019
 ms.custom: tracking-python
-ms.openlocfilehash: d12db3ab046d115b60b67a9c22bf4e885cd0ef02
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e99ea1d5a90455a4c470346fbbe5d1095c426e81
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84782572"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86499464"
 ---
 # <a name="track-dependencies-with-opencensus-python"></a>Śledzenie zależności przy użyciu języka Python OpenCensus
 
-Zależność jest składnikiem zewnętrznym, który jest wywoływany przez aplikację. Dane zależności są zbierane przy użyciu języka Python OpenCensus i różnych integracji. Dane są następnie wysyłane do Application Insights w obszarze Azure Monitor jako dane `dependencies` telemetryczne.
+Zależność to składnik zewnętrzny wywoływany przez aplikację. Dane zależności są zbierane przy użyciu języka Python OpenCensus i różnych integracji. Dane są następnie wysyłane do Application Insights w obszarze Azure Monitor jako dane `dependencies` telemetryczne.
 
 Najpierw Instrumentacja aplikacji w języku Python przy użyciu najnowszego [zestawu SDK języka Python OpenCensus](../../azure-monitor/app/opencensus-python.md).
 
@@ -85,7 +86,7 @@ conn.close()
 Śledź wychodzące żądania Django z `django` integracją OpenCensus.
 
 > [!NOTE]
-> Jedyne wychodzące żądania Django są wywołaniami wykonywanymi w bazie danych. W przypadku żądań wysyłanych do aplikacji Django zobacz [przychodzące żądania](https://docs.microsoft.com/azure/azure-monitor/app/opencensus-python-request#tracking-django-applications).
+> Jedyne wychodzące żądania Django są wywołaniami wykonywanymi w bazie danych. W przypadku żądań wysyłanych do aplikacji Django zobacz [przychodzące żądania](./opencensus-python-request.md#tracking-django-applications).
 
 Pobierz i zainstaluj `opencensus-ext-django` z programu [PyPI](https://pypi.org/project/opencensus-ext-django/) i Dodaj następujący wiersz do `MIDDLEWARE` sekcji w pliku Django `settings.py` .
 

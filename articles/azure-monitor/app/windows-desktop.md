@@ -3,11 +3,12 @@ title: Monitorowanie użycia i wydajności klasycznych aplikacji systemu Windows
 description: Analizowanie użycia i wydajności klasycznej aplikacji systemu Windows za pomocą usługi Application Insights.
 ms.topic: conceptual
 ms.date: 06/11/2020
-ms.openlocfilehash: 1b8909c47594ebd752035ca88b23d4b836345f88
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ddb602536e1b8bbc987c4ba366e2007163c814ec
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84718788"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86499192"
 ---
 # <a name="monitoring-usage-and-performance-in-classic-windows-desktop-apps"></a>Monitorowanie użycia i wydajności klasycznych aplikacji systemu Windows
 
@@ -72,9 +73,9 @@ using Microsoft.ApplicationInsights;
 
 Domyślnie ten zestaw SDK będzie zbierać i przechowywać nazwę komputera, który emituje dane telemetryczne.
 
-Nazwa komputera jest używana przez Application Insights [starszej warstwie cenowej przedsiębiorstwa (na węzeł)](https://docs.microsoft.com/azure/azure-monitor/app/pricing#legacy-enterprise-per-node-pricing-tier) na potrzeby rozliczeń wewnętrznych. Domyślnie jeśli używasz inicjatora telemetrii do przesłonięcia `telemetry.Context.Cloud.RoleInstance` , zostanie wysłana oddzielna właściwość, `ai.internal.nodeName` która będzie zawierać wartość Nazwa komputera. Ta wartość nie będzie przechowywana w ramach telemetrii Application Insights, ale jest używana wewnętrznie podczas pozyskiwania, aby zapewnić zgodność z poprzednimi wersjami ze starszym modelem rozliczania opartym na węzłach.
+Nazwa komputera jest używana przez Application Insights [starszej warstwie cenowej przedsiębiorstwa (na węzeł)](./pricing.md#legacy-enterprise-per-node-pricing-tier) na potrzeby rozliczeń wewnętrznych. Domyślnie jeśli używasz inicjatora telemetrii do przesłonięcia `telemetry.Context.Cloud.RoleInstance` , zostanie wysłana oddzielna właściwość, `ai.internal.nodeName` która będzie zawierać wartość Nazwa komputera. Ta wartość nie będzie przechowywana w ramach telemetrii Application Insights, ale jest używana wewnętrznie podczas pozyskiwania, aby zapewnić zgodność z poprzednimi wersjami ze starszym modelem rozliczania opartym na węzłach.
 
-Jeśli korzystasz z [starszej warstwy cenowej przedsiębiorstwa (na węzeł)](https://docs.microsoft.com/azure/azure-monitor/app/pricing#legacy-enterprise-per-node-pricing-tier) i po prostu zachodzi potrzeba zastąpienia magazynu nazwy komputera, użyj inicjatora telemetrii:
+Jeśli korzystasz z [starszej warstwy cenowej przedsiębiorstwa (na węzeł)](./pricing.md#legacy-enterprise-per-node-pricing-tier) i po prostu zachodzi potrzeba zastąpienia magazynu nazwy komputera, użyj inicjatora telemetrii:
 
 **Napisz niestandardowe TelemetryInitializer jako poniżej.**
 
@@ -115,7 +116,7 @@ Utwórz wystąpienie inicjatora w `Program.cs` `Main()` metodzie poniżej ustawi
 
 ## <a name="override-transmission-of-computer-name"></a>Zastąp transmisję nazwy komputera
 
-Jeśli nie jesteś w [starszej warstwie cenowej przedsiębiorstwa (na węzeł)](https://docs.microsoft.com/azure/azure-monitor/app/pricing#legacy-enterprise-per-node-pricing-tier) i chcesz całkowicie uniemożliwić wysyłanie danych telemetrycznych zawierających nazwę komputera, musisz użyć procesora telemetrii.
+Jeśli nie jesteś w [starszej warstwie cenowej przedsiębiorstwa (na węzeł)](./pricing.md#legacy-enterprise-per-node-pricing-tier) i chcesz całkowicie uniemożliwić wysyłanie danych telemetrycznych zawierających nazwę komputera, musisz użyć procesora telemetrii.
 
 ### <a name="telemetry-processor"></a>Procesor telemetrii
 
@@ -171,11 +172,10 @@ namespace WindowsFormsApp2
 ```
 
 > [!NOTE]
-> Można też używać technicznie procesora telemetrii, jak opisano powyżej, nawet jeśli korzystasz z [warstwy cenowej starszej wersji Enterprise (na węzeł)](https://docs.microsoft.com/azure/azure-monitor/app/pricing#legacy-enterprise-per-node-pricing-tier), spowoduje to powstanie potencjalnego rozliczania z powodu niemożności poprawnego rozróżnienia węzłów dla cen na węzeł.
+> Można też używać technicznie procesora telemetrii, jak opisano powyżej, nawet jeśli korzystasz z [warstwy cenowej starszej wersji Enterprise (na węzeł)](./pricing.md#legacy-enterprise-per-node-pricing-tier), spowoduje to powstanie potencjalnego rozliczania z powodu niemożności poprawnego rozróżnienia węzłów dla cen na węzeł.
 
 ## <a name="next-steps"></a>Następne kroki
 * [Tworzenie pulpitu nawigacyjnego](../../azure-monitor/app/overview-dashboard.md)
 * [Wyszukiwanie diagnostyczne](../../azure-monitor/app/diagnostic-search.md)
 * [Eksploruj metryki](../../azure-monitor/platform/metrics-charts.md)
-* [Pisanie zapytań analitycznych](../../azure-monitor/app/analytics.md)
-
+* [Pisanie zapytań analitycznych](../log-query/log-query-overview.md)

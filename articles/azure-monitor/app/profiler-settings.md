@@ -6,12 +6,12 @@ author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 6b6f98f3c7f540e00743ae27b532b24d2310453e
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 9d9cc377ead0c297e8334d34255bd2c7c7cd39fc
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86205719"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86499413"
 ---
 # <a name="configure-application-insights-profiler"></a>Konfigurowanie Application Insights Profiler
 
@@ -32,7 +32,7 @@ Spowoduje to otwarcie strony, która wygląda następująco:
 
 Strona **konfigurowanie Application Insights Profiler** zawiera następujące funkcje:
 
-| Cecha | Opis |
+| Cechy | Opis |
 |-|-|
 Profiluj teraz | Uruchamia sesje profilowania dla wszystkich aplikacji, które są połączone z tym wystąpieniem Application Insights.
 Wyzwalacze | Umożliwia skonfigurowanie wyzwalaczy, które powodują uruchomienie profilera. 
@@ -41,7 +41,7 @@ Ostatnie sesje profilowania | Wyświetla informacje o przeszłych sesjach profil
 ## <a name="profile-now"></a>Profiluj teraz
 Ta opcja umożliwia rozpoczęcie sesji profilowania na żądanie. Kliknięcie tego linku spowoduje rozpoczęcie przechwytywania profilu przez wszystkich agentów profilera wysyłających dane do tego wystąpienia Application Insights. Po upływie 5 do 10 minut sesja profilu zostanie wyświetlona na poniższej liście.
 
-Aby użytkownik mógł ręcznie wyzwolić sesję profilera, wymaga co najmniej dostępu "zapis" w roli dla składnika Application Insights. W większości przypadków ten dostęp jest uzyskiwany automatycznie i nie trzeba wykonywać żadnych dodatkowych czynności. Jeśli masz problemy, rola zakresu subskrypcji do dodania będzie rolą "Application Insights współautor składnika". [Zobacz więcej na temat kontroli dostępu do ról przy użyciu monitorowania platformy Azure](https://docs.microsoft.com/azure/azure-monitor/app/resources-roles-access-control).
+Aby użytkownik mógł ręcznie wyzwolić sesję profilera, wymaga co najmniej dostępu "zapis" w roli dla składnika Application Insights. W większości przypadków ten dostęp jest uzyskiwany automatycznie i nie trzeba wykonywać żadnych dodatkowych czynności. Jeśli masz problemy, rola zakresu subskrypcji do dodania będzie rolą "Application Insights współautor składnika". [Zobacz więcej na temat kontroli dostępu do ról przy użyciu monitorowania platformy Azure](./resources-roles-access-control.md).
 
 ## <a name="trigger-settings"></a>Ustawienia wyzwalacza
 ![Okno wysuwane ustawień wyzwalacza][trigger-settings-flyout]
@@ -63,7 +63,7 @@ Ta sekcja na stronie zawiera informacje o ostatnich sesjach profilowania. Sesja 
 Wyzwolone przez | Jak sesja została uruchomiona, przez wyzwalacz, profil teraz lub domyślne próbkowanie. 
 Nazwa aplikacji | Nazwa aplikacji, która została profilowana.
 Wystąpienie maszyny | Nazwa komputera, na którym uruchomiono agenta profilera.
-Znacznik czasu | Godzina przechwycenia profilu.
+Timestamp | Godzina przechwycenia profilu.
 Śledzenie | Liczba śladów, które zostały dołączone do poszczególnych żądań.
 CPU % | Procent użycia procesora CPU, który był używany podczas działania profilera.
 Rozmiar | Procent pamięci używanej podczas działania profilera.

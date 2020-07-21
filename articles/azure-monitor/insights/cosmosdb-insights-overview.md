@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/11/2020
-ms.openlocfilehash: 3fd4bcd13b4d92d2c6e61d10ae9e62996b5dfcf5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8043dfb7fdda972d4ede6798d07355936b23bf93
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84945498"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86498920"
 ---
 # <a name="explore-azure-monitor-for-azure-cosmos-db"></a>Eksploruj Azure Monitor dla Azure Cosmos DB
 
@@ -78,7 +78,7 @@ Wybierz pozycję **Błędy** w górnej części strony i zostanie otwarty fragme
 | `201 Created` | Operacja POST w celu utworzenia zasobu zakończyła się pomyślnie. |
 | `404 Not Found` | Operacja podejmuje próbę wykonania operacji na zasobie, który już nie istnieje. Na przykład zasób mógł już zostać usunięty. |
 
-Aby zapoznać się z pełną listą kodów stanu, zapoznaj się z [artykułem kod stanu HTTP Azure Cosmos DB](https://docs.microsoft.com/rest/api/cosmos-db/http-status-codes-for-cosmosdb).
+Aby zapoznać się z pełną listą kodów stanu, zapoznaj się z [artykułem kod stanu HTTP Azure Cosmos DB](/rest/api/cosmos-db/http-status-codes-for-cosmosdb).
 
 ### <a name="capacity"></a>Pojemność
 
@@ -98,7 +98,7 @@ Tak więc w poniższym przykładzie widzisz, że `eastus-billingint` jest on gł
 
 ## <a name="pin-export-and-expand"></a>Przypnij, Eksportuj i rozwiń
 
-Możesz przypiąć każdą z sekcji metryk do [pulpitu nawigacyjnego platformy Azure](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards) , wybierając ikonę pinezki w prawym górnym rogu sekcji.
+Możesz przypiąć każdą z sekcji metryk do [pulpitu nawigacyjnego platformy Azure](../../azure-portal/azure-portal-dashboards.md) , wybierając ikonę pinezki w prawym górnym rogu sekcji.
 
 ![Przykład numeru PIN sekcji Metryka na pulpit nawigacyjny](./media/cosmosdb-insights-overview/pin.png)
 
@@ -126,6 +126,6 @@ Wskazówki dotyczące rozwiązywania problemów można znaleźć w artykule doty
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Konfigurowanie [alertów metryk](../platform/alerts-metric.md) i [powiadomień o kondycji usług](../../service-health/alerts-activity-log-service-notifications.md) w celu skonfigurowania zautomatyzowanego alertu w celu uzyskania pomocy w wykrywaniu problemów.
+* Konfigurowanie [alertów metryk](../platform/alerts-metric.md) i [powiadomień o kondycji usług](../../service-health/alerts-activity-log-service-notifications-portal.md) w celu skonfigurowania zautomatyzowanego alertu w celu uzyskania pomocy w wykrywaniu problemów.
 
 * Dowiedz się, jakie scenariusze skoroszyty są przeznaczone do obsługi, jak tworzyć nowe i dostosowywać istniejące raporty, a inne dzięki przeglądowi [Tworzenie interaktywnych raportów przy użyciu skoroszytów Azure monitor](../platform/workbooks-overview.md).

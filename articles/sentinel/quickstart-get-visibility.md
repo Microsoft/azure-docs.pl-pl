@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc, fasttrack-edit
 ms.date: 09/23/2019
 ms.author: yelevin
-ms.openlocfilehash: 60e3529e68183488016e40211730412da8e3e0bb
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 83f83922b3bed19e98566002cbf9ad084ba66cb9
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85564612"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86496217"
 ---
 # <a name="quickstart-get-started-with-azure-sentinel"></a>Szybki Start: Rozpoczynanie pracy z platformą Azure — wskaźnikiem
 
@@ -91,23 +91,26 @@ Możesz utworzyć nowy skoroszyt od podstaw lub użyć wbudowanego skoroszytu ja
 
 Poniższe przykładowe zapytanie umożliwia porównanie trendów ruchu w tygodniach. Można łatwo przełączać dostawcę urządzenia i źródło danych, na których uruchomiono zapytanie. W tym przykładzie używamy SecurityEvent z systemu Windows, możesz przełączyć go do uruchamiania w usłudze Azure lub CommonSecurityLog na dowolnej innej zaporze.
 
-     |where DeviceVendor == "Palo Alto Networks":
-      // week over week query
-      SecurityEvent
-      | where TimeGenerated > ago(14d)
-      | summarize count() by bin(TimeGenerated, 1d)
-      | extend Week = iff(TimeGenerated>ago(7d), "This Week", "Last Week"), TimeGenerated = iff(TimeGenerated>ago(7d), TimeGenerated, TimeGenerated + 7d)
-
+```console
+ |where DeviceVendor == "Palo Alto Networks":
+  // week over week query
+  SecurityEvent
+  | where TimeGenerated > ago(14d)
+  | summarize count() by bin(TimeGenerated, 1d)
+  | extend Week = iff(TimeGenerated>ago(7d), "This Week", "Last Week"), TimeGenerated = iff(TimeGenerated>ago(7d), TimeGenerated, TimeGenerated + 7d)
+```
 
 Możesz chcieć utworzyć zapytanie, które zawiera dane z wielu źródeł. Można utworzyć zapytanie, które przeszukuje Azure Active Directory dzienniki inspekcji dla nowo utworzonych użytkowników, a następnie sprawdza dzienniki platformy Azure, aby sprawdzić, czy użytkownik rozpoczął wprowadzanie zmian przypisań ról w ciągu 24 godzin od utworzenia. Podejrzane działanie będzie widoczne na tym pulpicie nawigacyjnym:
 
-    AuditLogs
-    | where OperationName == "Add user"
-    | project AddedTime = TimeGenerated, user = tostring(TargetResources[0].userPrincipalName)
-    | join (AzureActivity
-    | where OperationName == "Create role assignment"
-    | project OperationName, RoleAssignmentTime = TimeGenerated, user = Caller) on user
-    | project-away user1
+```console
+AuditLogs
+| where OperationName == "Add user"
+| project AddedTime = TimeGenerated, user = tostring(TargetResources[0].userPrincipalName)
+| join (AzureActivity
+| where OperationName == "Create role assignment"
+| project OperationName, RoleAssignmentTime = TimeGenerated, user = Caller) on user
+| project-away user1
+```
 
 Możesz tworzyć różne skoroszyty w oparciu o rolę osoby, która przegląda dane i czego szukają. Na przykład można utworzyć skoroszyt dla administratora sieci, który zawiera dane zapory. Można również tworzyć skoroszyty na podstawie tego, jak często mają być przeglądane informacje, czy istnieją jakieś elementy, które mają być codziennie sprawdzane, i innych elementów, które mają zostać sprawdzone po godzinie, na przykład możesz chcieć zajrzeć do logowania za pomocą usługi Azure AD co godzinę, aby wyszukać anomalie. 
 

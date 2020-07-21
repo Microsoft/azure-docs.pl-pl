@@ -3,11 +3,12 @@ title: Konfigurowanie usługi Azure Red Hat OpenShift v4. x z Azure Monitor dla 
 description: W tym artykule opisano sposób konfigurowania monitorowania klastra Kubernetes przy użyciu Azure Monitor hostowanego na platformie Azure Red Hat OpenShift w wersji 4 lub nowszej.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 49097d96ecf58d7c5bf7d1a60ff01fc7182587c6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 91b5644c13ac560910703454c4052e223f958014
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85801482"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86499175"
 ---
 # <a name="configure-azure-red-hat-openshift-v4x-with-azure-monitor-for-containers"></a>Konfigurowanie usługi Azure Red Hat OpenShift v4. x z Azure Monitor dla kontenerów
 
@@ -19,7 +20,7 @@ Azure Monitor for Containers oferuje bogate środowisko monitorowania dla klastr
 
 Możesz włączyć Azure Monitor dla kontenerów dla jednego lub kilku istniejących wdrożeń systemu Azure Red Hat OpenShift v4. x przy użyciu obsługiwanych metod opisanych w tym artykule.
 
-W przypadku istniejącego klastra uruchom ten [skrypt bash w interfejsie wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/openshift?view=azure-cli-latest#az-openshift-create).
+W przypadku istniejącego klastra uruchom ten [skrypt bash w interfejsie wiersza polecenia platformy Azure](/cli/azure/openshift?view=azure-cli-latest#az-openshift-create).
 
 ## <a name="supported-and-unsupported-features"></a>Obsługiwane i nieobsługiwane funkcje
 
@@ -141,7 +142,7 @@ export azureAroV4ClusterResourceId=“/subscriptions/<subscriptionId>/resourceGr
 export kubeContext="<kubeContext name of your ARO v4 cluster>"
 ```
 
-Przykład:
+Na przykład:
 
 `bash enable-monitoring.sh --resource-id $azureAroV4ClusterResourceId --kube-context $kubeContext`
 
@@ -171,4 +172,4 @@ Widok wiele klastrów w Azure Monitor dla kontenerów wyróżnia klastry usługi
 
 - Aby wyrównać odpadków i analizować metryki Prometheus z klastra, zapoznaj się z tematem [Konfigurowanie wycinków metryk Prometheus](container-insights-prometheus-integration.md).
 
-- Aby dowiedzieć się, jak zatrzymać monitorowanie klastra przy użyciu Azure Monitor dla kontenerów, zobacz [Jak zatrzymać monitorowanie klastra Red Hat OpenShift platformy Azure](container-insights-optout-openshift.md).
+- Aby dowiedzieć się, jak zatrzymać monitorowanie klastra przy użyciu Azure Monitor dla kontenerów, zobacz [Jak zatrzymać monitorowanie klastra Red Hat OpenShift platformy Azure](./container-insights-optout-openshift-v3.md).

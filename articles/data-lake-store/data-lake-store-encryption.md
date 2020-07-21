@@ -8,12 +8,12 @@ ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: yagupta
-ms.openlocfilehash: a009f212bd8baaa353d602dc6090aeeccddd4936
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a187b31657ec2a67c306d817a75150d19a5cf9b6
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "60878446"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86497186"
 ---
 # <a name="encryption-of-data-in-azure-data-lake-storage-gen1"></a>Szyfrowanie danych w Azure Data Lake Storage Gen1
 
@@ -52,8 +52,8 @@ W obu trybach główny klucz szyfrowania jest zabezpieczony dzięki przechowywan
 
 Oto krótkie porównanie możliwości oferowanych przez dwa tryby zarządzania głównymi kluczami szyfrowania.
 
-|  | Klucze zarządzane przez usługę | Klucze zarządzane przez klienta |
-| --- | --- | --- |
+| Pytanie | Klucze zarządzane przez usługę | Klucze zarządzane przez klienta |
+| -------- | -------------------- | --------------------- |
 |W jaki sposób przechowywane są dane?|Są zawsze szyfrowane przed zapisaniem.|Są zawsze szyfrowane przed zapisaniem.|
 |Gdzie jest przechowywany główny klucz szyfrowania?|Key Vault|Key Vault|
 |Czy jakiekolwiek klucze szyfrowania są przechowywane poza usługą Key Vault? |Nie|Nie|

@@ -9,12 +9,12 @@ ms.subservice: overview
 ms.date: 04/15/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: 96bb624472aa2053599765d5bfedeb96339d0973
-ms.sourcegitcommit: 374d1533ea2f2d9d3f8b6e6a8e65c6a5cd4aea47
+ms.openlocfilehash: be124bdde4427113d56f44f0c1fa19c600bd768e
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85808050"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86496055"
 ---
 # <a name="what-is-azure-synapse-analytics-workspaces-preview"></a>Co to jest usługa Azure Synapse Analytics (obszary robocze w wersji zapoznawczej)?
 
@@ -40,7 +40,7 @@ Ponadto usługa Azure Synapse ułatwia tworzenie modeli predykcyjnych i zaawanso
 
 * Synapse SQL oferuje modele zasobów **bezserwerowych** i **aprowizacji** , oferując opcje zużycia i rozliczeń zgodnie z potrzebami. Aby zapewnić przewidywalną wydajność i koszt, pule pul rezerwują moc obliczeniową dla danych przechowywanych w tabelach SQL. W przypadku obciążeń nieplanowanych lub na rozerwanie Użyj bezserwerowego punktu końcowego, który jest zawsze dostępny.
 * Korzystanie z wbudowanych funkcji **przesyłania strumieniowego** w celu wywożenia danych ze źródeł danych w chmurze w tabelach SQL
-* Integrowanie AI z programem SQL przy użyciu modeli **uczenia maszynowego** do oceny danych za pomocą funkcji przewidywania T-SQL
+* Integrowanie AI z programem SQL przy użyciu modeli **uczenia maszynowego** do oceny danych za pomocą [funkcji przewidywania T-SQL](https://docs.microsoft.com/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest)
 
 ### <a name="industry-standard-apache-spark"></a>Apache Spark standardowa
 

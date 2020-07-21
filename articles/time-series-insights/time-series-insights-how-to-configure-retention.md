@@ -1,22 +1,23 @@
 ---
 title: Jak skonfigurować przechowywanie w środowisku — Azure Time Series Insights | Microsoft Docs
-description: Dowiedz się, jak skonfigurować przechowywanie w środowisku Azure Time Series Insightsu.
+description: Dowiedz się, jak skonfigurować przechowywanie w środowisku Azure Time Series Insights platformy Azure.
 ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
 ms.author: dpalled
-manager: cshankar
+manager: diviso
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 04/16/2020
+ms.date: 06/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: 524e47e5be142b720687ad48ee9407da23284bd4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9ee06501134515d9369e98e724e55a66f040fffa
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81605045"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86495129"
 ---
-# <a name="configuring-retention-in-time-series-insights"></a>Konfigurowanie przechowywania w Time Series Insights
+# <a name="configuring-retention-in-azure-time-series-insights-gen1"></a>Konfigurowanie przechowywania w Azure Time Series Insights Gen1
 
 W tym artykule opisano sposób konfigurowania zachowania **czasu przechowywania danych** i **limitu magazynowania** w Azure Time Series Insights.
 
@@ -24,18 +25,18 @@ W tym artykule opisano sposób konfigurowania zachowania **czasu przechowywania 
 
 Każde środowisko Azure Time Series Insights ma ustawienie służące do konfigurowania **czasu przechowywania danych**. Wartość obejmuje od 1 do 400 dni. Dane są usuwane w zależności od pojemności magazynu środowiska lub czasu trwania przechowywania (1-400), zależnie od tego, co nastąpi wcześniej.
 
-Każde środowisko Time Series Insights ma dodatkowe zachowanie podczas **przekroczenia limitu magazynowania**. To ustawienie steruje zachowaniem ruchu przychodzącego i przeczyszczania, gdy osiągnięto maksymalną pojemność środowiska. Istnieją dwa zachowania do wyboru:
+Każde środowisko Azure Time Series Insights ma dodatkowe zachowanie podczas **przekroczenia limitu magazynowania**. To ustawienie steruje zachowaniem ruchu przychodzącego i przeczyszczania, gdy osiągnięto maksymalną pojemność środowiska. Istnieją dwa zachowania do wyboru:
 
 - **Przeczyść stare dane** (ustawienie domyślne)
 - **Wstrzymaj ruch przychodzący**
 
-Aby uzyskać szczegółowe informacje dotyczące lepszego zrozumienia tych ustawień, przejrzyj [Informacje o przechowywaniu w Time Series Insights](time-series-insights-concepts-retention.md).  
+Aby uzyskać szczegółowe informacje dotyczące lepszego zrozumienia tych ustawień, przejrzyj [Informacje o przechowywaniu w Azure Time Series Insights](time-series-insights-concepts-retention.md).  
 
 ## <a name="configure-data-retention"></a>Konfigurowanie przechowywania danych
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
-1. Znajdź istniejące środowisko Time Series Insights. Wybierz pozycję **wszystkie zasoby** w menu po lewej stronie Azure Portal. Wybierz środowisko usługi Time Series Insights.
+1. Znajdź istniejące środowisko Azure Time Series Insights. Wybierz pozycję **wszystkie zasoby** w menu po lewej stronie Azure Portal. Wybierz środowisko Azure Time Series Insights.
 
 1. W obszarze **Ustawienia** wybierz pozycję **Konfiguracja magazynu**.
 
@@ -53,8 +54,8 @@ Aby uzyskać szczegółowe informacje dotyczące lepszego zrozumienia tych ustaw
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Aby uzyskać więcej informacji, zapoznaj się [z tematem przechowywanie w Time Series Insights](time-series-insights-concepts-retention.md).
+- Aby uzyskać więcej informacji, zapoznaj się [z tematem przechowywanie w Azure Time Series Insights](time-series-insights-concepts-retention.md).
 
-- Dowiedz się [, jak skalować środowisko Time Series Insights](time-series-insights-how-to-scale-your-environment.md).
+- Dowiedz się [, jak skalować środowisko Azure Time Series Insights](time-series-insights-how-to-scale-your-environment.md).
 
 - Dowiedz się więcej [na temat planowania środowiska](time-series-insights-environment-planning.md).

@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab
 ms.date: 03/17/2020
-ms.openlocfilehash: b5fad1e287ffca569546092893c4f1a6501a3b7b
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 6713a1fbbbbca0aa212461cc966b42aaf2daa47e
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86224421"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86498461"
 ---
 # <a name="azure-sql-managed-instance-frequently-asked-questions-faq"></a>Często zadawane pytania dotyczące wystąpienia zarządzanego usługi Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -66,11 +66,11 @@ Można rozważyć Migrowanie do innych wersji platformy Azure, które pasują do
 **Gdzie można przeprowadzić migrację, jeśli mam określone wymagania sprzętowe, takie jak większa ilość pamięci RAM, aby rdzeń wirtualny współczynnik lub większą liczbę procesorów CPU?**
 Możesz rozważyć przeprowadzenie migracji do [SQL Server na platformie Azure Virtual Machines](../virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md) lub [Azure SQL Database](../database/sql-database-paas-overview.md) zoptymalizowanej pod kątem pamięci/procesora.
 
-## <a name="known-issues--bugs"></a>Znane problemy & usterki
+## <a name="known-issues-and-defects"></a>Znane problemy i wady
 
-**Gdzie mogę znaleźć znane problemy i usterki?**
+**Gdzie mogę znaleźć znane problemy i wady?**
 
-Aby zapoznać się z usterkami i znanymi problemami, zobacz [znane problemy](../database/doc-changes-updates-release-notes.md#known-issues).
+Aby poznać wady i znane problemy, zobacz [znane problemy](../database/doc-changes-updates-release-notes.md#known-issues).
 
 ## <a name="new-features"></a>Nowe funkcje
 
@@ -127,7 +127,7 @@ Aby użyć innej strefy DNS zamiast domyślnego, na przykład *. contoso.com*:
 **Jak przeprowadzić migrację z Azure SQL Database jednej lub elastycznej puli do wystąpienia zarządzanego SQL?**
 
 Wystąpienie zarządzane oferuje te same poziomy wydajności dla wielkości zasobów obliczeniowych i magazynu, co inne opcje wdrażania Azure SQL Database. Jeśli chcesz skonsolidować dane w jednym wystąpieniu lub po prostu potrzebna jest funkcja obsługiwana wyłącznie w wystąpieniu zarządzanym, można migrować dane przy użyciu funkcji eksportu/importu (BACPAC). Poniżej przedstawiono inne sposoby rozpatrywania SQL Database migracji do wystąpienia zarządzanego SQL: 
-- Używanie [zewnętrznego źródła danych]()
+- Używanie [zewnętrznego źródła danych](https://techcommunity.microsoft.com/t5/azure-database-support-blog/lesson-learned-129-using-data-source-external-from-azure-sql/ba-p/1443210)
 - Korzystanie z [Sqlpackage](https://techcommunity.microsoft.com/t5/azure-database-support-blog/how-to-migrate-azure-sql-database-to-azure-sql-managed-instance/ba-p/369182)
 - Korzystanie z narzędzia [BCP](https://medium.com/azure-sqldb-managed-instance/migrate-from-azure-sql-managed-instance-using-bcp-674c92efdca7)
 
@@ -349,22 +349,7 @@ Aby zmniejszyć ryzyko związane z eksfiltracji danych, klienci są zalecani do 
 - Włącz [inspekcję SQL](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine)i Zintegruj ją z mechanizmami alertów.
 - Włącz [wykrywanie zagrożeń](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection) z poziomu zestawu [Advanced Data Security (AD)](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security) .
 
-
-## <a name="cost-saving-use-cases"></a>Oszczędnościowe przypadki użycia
-
-**Gdzie mogę znaleźć przypadki użycia i uzyskać oszczędności wynikające z wystąpienia zarządzanego SQL?**
-
-Analizy przypadków wystąpienia zarządzanego SQL:
-
-- [Komatsu](https://customers.microsoft.com/story/komatsu-australia-manufacturing-azure)
-- [KMD](https://customers.microsoft.com/en-ca/story/kmd-professional-services-azure-sql-database)
-- [PowerDETAILS](https://customers.microsoft.com/story/powerdetails-partner-professional-services-azure-sql-database-managed-instance)
-- [Allscripts](https://customers.microsoft.com/story/allscripts-partner-professional-services-azure)
-
-Aby lepiej zrozumieć korzyści, koszty i ryzyko związane z wdrażaniem wystąpienia zarządzanego usługi Azure SQL, istnieje również analiza Forrestera: [Całkowity wpływ na gospodarcze wystąpienia zarządzanego Microsoft Azure SQL Database](https://azure.microsoft.com/resources/forrester-tei-sql-database-managed-instance).
-
-
-## <a name="dns"></a>System DNS
+## <a name="dns"></a>DNS
 
 **Czy można skonfigurować niestandardowe DNS dla wystąpienia zarządzanego SQL?**
 
@@ -467,6 +452,19 @@ Możesz monitorować koszt magazynu kopii zapasowych za pośrednictwem witryny A
 **Jak mogę zoptymalizować koszty magazynu kopii zapasowych w wystąpieniu zarządzanym?**
 
 Aby zoptymalizować koszty magazynu kopii zapasowych, zobacz [precyzyjne dostrajanie kopii zapasowych w wystąpieniu zarządzanym SQL](https://techcommunity.microsoft.com/t5/azure-sql-database/fine-tuning-backup-storage-costs-on-managed-instance/ba-p/1390935).
+
+## <a name="cost-saving-use-cases"></a>Oszczędnościowe przypadki użycia
+
+**Gdzie mogę znaleźć przypadki użycia i uzyskać oszczędności wynikające z wystąpienia zarządzanego SQL?**
+
+Analizy przypadków wystąpienia zarządzanego SQL:
+
+- [Komatsu](https://customers.microsoft.com/story/komatsu-australia-manufacturing-azure)
+- [KMD](https://customers.microsoft.com/en-ca/story/kmd-professional-services-azure-sql-database)
+- [PowerDETAILS](https://customers.microsoft.com/story/powerdetails-partner-professional-services-azure-sql-database-managed-instance)
+- [Allscripts](https://customers.microsoft.com/story/allscripts-partner-professional-services-azure)
+
+Aby lepiej zrozumieć korzyści, koszty i ryzyko związane z wdrażaniem wystąpienia zarządzanego usługi Azure SQL, istnieje również analiza Forrestera: [Całkowity wpływ na gospodarcze wystąpienia zarządzanego Microsoft Azure SQL Database](https://azure.microsoft.com/resources/forrester-tei-sql-database-managed-instance).
 
 ## <a name="password-policy"></a>Zasady dotyczące haseł 
 

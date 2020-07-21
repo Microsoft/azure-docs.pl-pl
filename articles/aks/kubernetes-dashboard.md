@@ -6,12 +6,12 @@ author: mlearned
 ms.topic: article
 ms.date: 06/03/2020
 ms.author: mlearned
-ms.openlocfilehash: 1754e166cd5c5a3d7309bc8c6f6459cdd0852396
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 69e60c3e4ac91a5d0ca9a0245dc61f090c625c60
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84762908"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86499870"
 ---
 # <a name="access-the-kubernetes-web-dashboard-in-azure-kubernetes-service-aks"></a>Dostęp do pulpitu nawigacyjnego sieci Web Kubernetes w usłudze Azure Kubernetes Service (AKS)
 
@@ -28,7 +28,7 @@ Aby uzyskać więcej informacji na temat pulpitu nawigacyjnego Kubernetes, zobac
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 
-W krokach przedstawionych w tym dokumencie przyjęto założenie, że utworzono klaster AKS i nawiązano `kubectl` połączenie z klastrem. Jeśli musisz utworzyć klaster AKS, zapoznaj się z [przewodnikiem Szybki Start][aks-quickstart]dotyczącym AKS.
+W krokach przedstawionych w tym dokumencie przyjęto założenie, że utworzono klaster AKS i nawiązano `kubectl` połączenie z klastrem. Jeśli musisz utworzyć klaster AKS, zobacz [Szybki Start: Wdrażanie klastra usługi Azure Kubernetes Service przy użyciu interfejsu wiersza polecenia platformy Azure][aks-quickstart].
 
 Konieczne jest również zainstalowanie i skonfigurowanie interfejsu wiersza polecenia platformy Azure w wersji 2.6.0 lub nowszej. Uruchom polecenie  `az --version` , aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczne będzie przeprowadzenie instalacji lub uaktualnienia, zobacz  [Instalowanie interfejsu wiersza polecenia platformy Azure][install-azure-cli].
 

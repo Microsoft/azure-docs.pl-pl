@@ -1,5 +1,5 @@
 ---
-title: Tabele udostępnione metadanych usługi Azure Synapse Analytics
+title: Udostępnione tabele metadanych
 description: Usługa Azure Synapse Analytics oferuje współużytkowany model metadanych, w którym Tworzenie tabeli w Apache Spark będzie miało dostęp z poziomu usług SQL na żądanie (wersja zapoznawcza) i aparatów puli SQL bez duplikowania danych.
 services: sql-data-warehouse
 author: MikeRys
@@ -9,12 +9,12 @@ ms.subservice: metadata
 ms.date: 05/01/2020
 ms.author: mrys
 ms.reviewer: jrasnick
-ms.openlocfilehash: 257847a34821ad48d0491472cf7365932f7740c0
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
+ms.openlocfilehash: d9efafdbc3545bebb3b90b3f64c14f45d8be82e6
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85080791"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86496030"
 ---
 # <a name="azure-synapse-analytics-shared-metadata-tables"></a>Tabele udostępnione metadanych usługi Azure Synapse Analytics
 

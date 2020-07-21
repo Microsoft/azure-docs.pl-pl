@@ -11,18 +11,19 @@ ms.date: 04/30/2019
 ms.author: jrasnick
 ms.reviewer: rortloff
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 0c6fc0cdba4607bba55383f2662257322ef23aa2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b530b3a049f41a54ab98cc7d1454018cfc990f75
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85212245"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86495673"
 ---
-# <a name="get-started-with-transparent-data-encryption-tde"></a>Wprowadzenie do Transparent Data Encryption (TDE)
+# <a name="get-started-with-transparent-data-encryption-tde-in-azure-synapse-analytics"></a>Rozpoczynanie pracy z usługą Transparent Data Encryption (TDE) w usłudze Azure Synapse Analytics
 
 > [!div class="op_single_selector"]
 >
 > * [Przegląd zabezpieczeń](sql-data-warehouse-overview-manage-security.md)
-> * [Authentication](sql-data-warehouse-authentication.md)
+> * [Uwierzytelnianie](sql-data-warehouse-authentication.md)
 > * [Szyfrowanie (Portal)](sql-data-warehouse-encryption-tde.md)
 > * [Szyfrowanie (T-SQL)](sql-data-warehouse-encryption-tde-tsql.md)
 

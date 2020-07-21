@@ -7,48 +7,32 @@ manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: machine-learning
-ms.date: 02/05/2020
+ms.date: 07/15/2020
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 tag: azure-Synapse
-ms.openlocfilehash: 76a0e4660967dafec8e314fd681d05e694e562b1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9cf65b2fdeb7faa03b950593db86dd32a4ef91a7
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85368196"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86495742"
 ---
 # <a name="analyze-data-with-azure-machine-learning"></a>Analizowanie danych przy użyciu usługi Azure Machine Learning
-> [!div class="op_single_selector"]
-> * [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
-> * [Azure Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
-> * [Program Visual Studio](sql-data-warehouse-query-visual-studio.md)
-> * [sqlcmd](../sql/get-started-connect-sqlcmd.md) 
-> * [SSMS](sql-data-warehouse-query-ssms.md)
-> 
-> 
 
-Ten samouczek używa Azure Machine Learning do tworzenia predykcyjnego modelu uczenia maszynowego na podstawie danych przechowywanych w usłudze Azure Synapse. W szczególności ten samouczek omawia tworzenie ukierunkowanej kampanii marketingowej dla sklepu rowerowego Adventure Works przez prognozowanie prawdopodobieństwa zakupu roweru przez klienta.
-
-> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Integrating-Azure-Machine-Learning-with-Azure-SQL-Data-Warehouse/player]
-> 
-> 
+W tym samouczku do tworzenia predykcyjnego modelu uczenia maszynowego służy [Azure Machine Learning projektanta](https://docs.microsoft.com/azure/machine-learning/concept-designer) . Model jest oparty na danych przechowywanych w usłudze Azure Synapse. Scenariusz dla tego samouczka polega na przewidywaniu, czy klient może kupić rower, czy nie ma to firmy Adventure Works, sklepu rowerowego w celu utworzenia dostosowanej kampanii marketingowej.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
+
 Do wykonania kroków opisanych w tym samouczku potrzebne są:
 
-* Pula SQL wstępnie załadowana z przykładowymi danymi AdventureWorksDW. Aby to umożliwić, zobacz [Tworzenie puli SQL](create-data-warehouse-portal.md) i wybieranie do załadowania przykładowych danych. Jeśli masz już magazyn danych, ale bez przykładowych danych, możesz [ręcznie załadować przykładowe dane](load-data-from-azure-blob-storage-using-polybase.md).
+* Pula SQL wstępnie załadowana z przykładowymi danymi AdventureWorksDW. Aby zainicjować obsługę administracyjną tej puli SQL, zobacz [Tworzenie puli SQL](create-data-warehouse-portal.md) i wybieranie ładowania przykładowych danych. Jeśli masz już magazyn danych, ale nie masz przykładowych danych, możesz [ręcznie załadować przykładowe dane](load-data-from-azure-blob-storage-using-polybase.md).
+* obszar roboczy usługi Azure Machine Learning. Postępuj zgodnie z [tym samouczkiem](https://docs.microsoft.com/azure/machine-learning/how-to-manage-workspace) , aby utworzyć nowy.
 
-## <a name="1-get-the-data"></a>1. Pobierz dane
-Dane znajdują się w widoku dbo.vTargetMail w bazie danych AdventureWorksDW. Aby odczytać te dane:
+## <a name="get-the-data"></a>Pobieranie danych
 
-1. Zaloguj się do programu [Azure Machine Learning Studio](https://studio.azureml.net/) i kliknij eksperymenty.
-2. Kliknij pozycję **+ Nowy** w lewym dolnym rogu ekranu, a następnie wybierz pozycję **pusty eksperyment**.
-3. Wprowadź nazwę swojego eksperymentu: Targeted Marketing (Marketing docelowy).
-4. Przeciągnij moduł **Importuj dane** w obszarze **dane wejściowe i wyjściowe** z okienka moduły do kanwy.
-5. Określ szczegóły puli SQL w okienku właściwości.
-6. Określ **zapytanie** do bazy danych, aby odczytać potrzebne dane.
+Używane dane są w widoku dbo. vTargetMail w AdventureWorksDW. Aby korzystać ze sklepu datastore w tym samouczku, dane są najpierw eksportowane do konta Azure Data Lake Storage, ponieważ usługa Azure Synapse nie obsługuje obecnie zestawów danych. Azure Data Factory może służyć do eksportowania danych z magazynu danych w celu Azure Data Lake Storage za pomocą [działania kopiowania](https://docs.microsoft.com/azure/data-factory/copy-activity-overview). Użyj następującego zapytania do importowania:
 
 ```sql
 SELECT [CustomerKey]
@@ -70,66 +54,111 @@ SELECT [CustomerKey]
 FROM [dbo].[vTargetMail]
 ```
 
-Aby uruchomić eksperyment, kliknij pozycję **Run** (Uruchom) na kanwie eksperymentu.
+Gdy dane będą dostępne w Azure Data Lake Storage, magazyny danych w Azure Machine Learning są używane do [nawiązywania połączenia z usługami Azure Storage](https://docs.microsoft.com/azure/machine-learning/how-to-access-data). Postępuj zgodnie z poniższymi instrukcjami, aby utworzyć magazyn danych i odpowiadający mu element dataset:
 
-![Uruchamianie eksperymentu](./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img1-reader-new.png)
+1. Uruchom usługę Azure Machine Learning Studio w witrynie Azure Portal lub Zaloguj się w usłudze [Azure Machine Learning Studio](https://ml.azure.com/).
 
-Po pomyślnym wykonaniu eksperymentu kliknij port wyjściowy na dole modułu Reader (Czytnik) i wybierz opcję **Visualize** (Wizualizacja), aby wyświetlić zaimportowane danych.
+1. Kliknij pozycję **magazyny** danych w okienku po lewej stronie w sekcji **Zarządzanie** , a następnie kliknij pozycję **nowy magazyn**danych.
 
-![Wyświetlanie zaimportowanych danych](./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img3-readerdata-new.png)
+    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/datastores-tab.png" alt-text="Zrzut ekranu przedstawiający lewe okienko interfejsu Azure Machine Learning":::
 
-## <a name="2-clean-the-data"></a>2. Wyczyść dane
-Aby wyczyścić dane, usuń kilka kolumn, które nie są istotne dla modelu. W tym celu:
+1. Podaj nazwę magazynu danych, wybierz typ "Azure Blob Storage", podaj lokalizację i poświadczenia. Następnie kliknij pozycję **Utwórz**.
 
-1. Przeciągnij **pozycję Wybierz kolumny w zestawie danych** w obszarze **przekształcanie danych < manipulowanie** na kanwę. Połącz ten moduł z modułem **Importuj dane** .
-2. Kliknij pozycję **Launch column selector** (Uruchom selektor kolumn) w okienku Properties (Właściwości), aby wskazać kolumny do usunięcia.
+1. Następnie kliknij pozycję **zestawy danych** w okienku po lewej stronie w sekcji **elementy zawartości** . Wybierz pozycję **Utwórz zestaw danych** z opcją **z magazynu**danych.
 
-   ![Kolumny projektu](./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img4-projectcolumns-new.png)
-3. Wyklucz dwie kolumny: CustomerAlternateKey i GeographyKey.
+1. Określ nazwę zestawu danych i wybierz typ, który ma być **Tabelaryczny**. Następnie kliknij przycisk **dalej** , aby przejść do przodu.
 
-   ![Usuń zbędne kolumny](./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img5-columnselector-new.png)
+1. W **sekcji Wybierz lub Utwórz magazyn**danych wybierz opcję, która została **wcześniej utworzona**. Wybierz magazyn danych, który został utworzony wcześniej. Kliknij przycisk Dalej i określ ustawienia ścieżki i pliku. Upewnij się, że jako plik zawiera nagłówek kolumny.
 
-## <a name="3-build-the-model"></a>3. Kompiluj model
-Podzielimy dane w proporcji 80–20: 80% do trenowania tworzenia modelu uczenia maszynowego i 20% do testowania modelu. Będziemy korzystać z algorytmów "dwóch klas" dla tego problemu klasyfikacji binarnej.
+1. Na koniec kliknij pozycję **Utwórz** , aby utworzyć zestaw danych.
 
-1. Przeciągnij moduł **Split** (Podział) na kanwę.
-2. W okienku właściwości wprowadź 0,8 dla części wierszy w pierwszym wyjściowym zestawie danych.
+## <a name="configure-designer-experiment"></a>Konfigurowanie eksperymentu projektanta
 
-   ![Podział danych na zestaw szkoleniowy i zestaw testowy](./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img6-split-new.png)
-3. Przeciągnij moduł **Two-Class Boosted Decision Tree** (Dwuklasowe wzmocnione drzewo decyzyjne) na kanwę.
-4. Przeciągnij moduł **uczenie modelu** do kanwy i określ dane wejściowe, łącząc je z **Dwuklasowym drzewem decyzyjnym** (algorytm ml) i **Podziel** (dane w celu uczenia algorytmu). 
+Następnie wykonaj kroki opisane poniżej, aby skonfigurować projektanta:
 
-     ![Łączenie modułu Train Model (Model szkoleniowy)](./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img7-train-new.png)
-5. Następnie kliknij przycisk **Launch column selector** (Uruchom selektor kolumn) w okienku Properties (Właściwości). Wybierz kolumnę **BikeBuyer** (Nabywca roweru) jako kolumnę do prognozowania.
+1. Kliknij kartę **Projektant** w okienku po lewej stronie w sekcji **autor** .
 
-   ![Wybór kolumny do prognozowania](./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img8-traincolumnselector-new.png)
+1. Wybierz **łatwe w użyciu wstępnie skompilowane moduły** , aby utworzyć nowy potok.
 
-## <a name="4-score-the-model"></a>4. Ocena modelu
-Teraz przetestujemy działanie modelu na danych testowych. Porównamy wybrany algorytm z innym algorytmem, aby zobaczyć, który działa lepiej.
+1. W okienku ustawienia po prawej stronie Określ nazwę potoku.
+
+1. Ponadto Wybierz docelowy klaster obliczeniowy dla całego eksperymentu w obszarze Ustawienia do klastra, który został wcześniej zainicjowany. Zamknij okienko ustawienia.
+
+## <a name="import-the-data"></a>Importowanie danych
+
+1. Wybierz subtab **zestawy danych** w lewym okienku poniżej pola wyszukiwania.
+
+1. Przeciągnij utworzony wcześniej zestaw danych na kanwę.
+
+    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/import-dataset.png" alt-text="Zrzut ekranu modułu DataSet na kanwie.":::
+
+## <a name="clean-the-data"></a>Czyszczenie danych
+
+Aby wyczyścić dane, Porzuć kolumny, które nie są istotne dla modelu. Wykonaj następujące czynności:
+
+1. Wybierz **moduły** subtab w lewym okienku.
+
+1. Przeciągnij **pozycję Wybierz kolumny w zestawie danych** w obszarze **przekształcanie danych < manipulowanie** na kanwę. Połącz ten moduł z modułem **DataSet** .
+
+    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/select-columns-zoomed-in.png" alt-text="Zrzut ekranu modułu wyboru kolumny na kanwie." lightbox="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/select-columns-zoomed-out.png":::
+
+1. Kliknij moduł, aby otworzyć okienko właściwości. Kliknij pozycję Edytuj kolumnę, aby określić kolumny, które chcesz usunąć.
+
+1. Wyklucz dwie kolumny: CustomerAlternateKey i GeographyKey. Kliknij pozycję **Zapisz**
+
+    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/drop-columns.png" alt-text="Zrzut ekranu przedstawiający kolumny, które zostały porzucone.":::
+
+## <a name="build-the-model"></a>Tworzenie modelu
+
+Dane są podzielone na 80-20:80%, aby szkolić model uczenia maszynowego i 20% do testowania modelu. Algorytmy "dwie klasy" są używane w tym rozwiązaniu klasyfikacji binarnej.
+
+1. Przeciągnij moduł **Split Data (podział danych** ) na kanwę.
+
+1. W okienku właściwości wprowadź 0,8 dla **części wierszy w pierwszym wyjściowym zestawie danych**.
+
+    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/split-data.png" alt-text="Zrzut ekranu przedstawiający współczynnik podziału 0,8.":::
+
+1. Przeciągnij moduł **Two-Class Boosted Decision Tree** (Dwuklasowe wzmocnione drzewo decyzyjne) na kanwę.
+
+1. Przeciągnij moduł **uczenie modelu** do kanwy. Określ dane wejściowe, łącząc je z **Dwuklasowym drzewem decyzyjnym** (algorytm ml) i **dzieląc dane** (dane do uczenia algorytmu).
+
+1. W przypadku modelu uczenia model, w opcji **kolumna etykiety** w okienku właściwości wybierz pozycję Edytuj kolumnę. Wybierz kolumnę **BikeBuyer** jako kolumnę do przewidywania i wybierz pozycję **Zapisz**.
+
+    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/label-column.png" alt-text="Zrzut ekranu przedstawiający kolumnę Label, BikeBuyer, Selected.":::
+
+    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/train-model.png" alt-text="Zrzut ekranu przedstawiający moduł uczenia modelu połączony z dwuklasowym drzewem decyzyjnym i podziałem modułów danych.":::
+
+## <a name="score-the-model"></a>Ocena modelu
+
+Teraz Przetestuj, jak model wykonuje na danych testowych. Dwa różne algorytmy zostaną porównane, aby zobaczyć, który z nich wykonuje lepsze. Wykonaj następujące czynności:
 
 1. Przeciągnij moduł **modelu oceny** na kanwę i połącz go, aby **nauczyć model** i **podzielić moduły danych** .
 
-   ![Ocena modelu](./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img9-score-new.png)
-2. Przeciągnij moduł **Two-Class Bayes Point Machine** (Dwuklasowa maszyna punktu Bayesa) do kanwy eksperymentu. Porównamy działanie tego algorytmu z algorytmem Two-Class Boosted Decision Tree (Dwuklasowe wzmocnione drzewo decyzyjne).
-3. Skopiuj i wklej moduły Train Model (Model szkoleniowy) i Score Model (Model klasyfikacyjny) do kanwy.
-4. Przeciągnij moduł **Evaluate Model** (Ocena modelu) do kanwy, aby porównać oba algorytmy.
-5. **Uruchom** eksperyment.
+1. Przeciągnij **średnią bayesaą Perceptron** do kanwy eksperymentu. Porównano sposób wykonywania tego algorytmu w porównaniu z dwuklasowym drzewem decyzyjnym.
 
-   ![Uruchamianie eksperymentu](./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img10-evaluate-new.png)
-6. Kliknij port wyjściowy w dolnej części modułu Evaluate Model (Ocena modelu), a następnie kliknij pozycję Visualize (Wizualizacja).
+1. Skopiuj i wklej **model uczenia** modułów i **model oceny** na kanwie.
 
-   ![Wizualizacja wyników oceny](./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img11-evalresults-new.png)
+1. Przeciągnij moduł **Evaluate Model** (Ocena modelu) do kanwy, aby porównać oba algorytmy.
 
-Dostarczone metryki to krzywa ROC, diagram odwołań dokładności i krzywa podnoszenia. Na podstawie tych metryk możemy stwierdzić, że pierwszy model działa lepiej niż drugi. Aby zobaczyć, jaki jest pierwszy model przewidywany, kliknij port wyjściowy modelu oceny i kliknij polecenie Wizualizuj.
+1. Kliknij pozycję **Prześlij** , aby skonfigurować uruchomienie potoku.
 
-![Wizualizacja wyników klasyfikacji](./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img12-scoreresults-new.png)
+    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/algo-comparison-zoomed-in.png" alt-text="Zrzut ekranu przedstawiający wszystkie pozostałe moduły na kanwie." lightbox="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/algo-comparison-zoomed-out.png":::
 
-Zostaną wyświetlone dwie kolumny dodane do zestawu danych testowych.
+1. Po zakończeniu przebiegu kliknij prawym przyciskiem myszy moduł **oceny modelu** i kliknij polecenie **Wizualizuj wyniki oceny**.
+
+    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/result-visualize-zoomed-out.png" alt-text="Zrzut ekranu przedstawiający wyniki.":::
+
+Dostarczone metryki to krzywa ROC, diagram odwołań dokładności i krzywa podnoszenia. Przyjrzyj się tym metrykom, aby zobaczyć, że pierwszy model działa lepiej niż drugi. Aby dowiedzieć się, jaki jest pierwszy model przewidywany, kliknij prawym przyciskiem myszy moduł model oceny i kliknij polecenie Wizualizuj wynikowy zestaw danych, aby zobaczyć przewidywane wyniki.
+
+Zobaczysz dwie więcej kolumn dodanych do testu zestawu danych.
 
 * Scored Probabilities (Sklasyfikowane prawdopodobieństwo): prawdopodobieństwo, że klient jest nabywcą roweru.
 * Scored Labels (Sklasyfikowane etykiety): klasyfikacja dokonana przez model — nabywca roweru (1) lub nie (0). Ustawiony próg prawdopodobieństwa etykietowania wynosi 50% i można go dostosować.
 
-Porównując wartości w kolumnach BikeBuyer (Nabywca roweru) (rzeczywiste) oraz Scored Labels (Sklasyfikowane etykiety) (prognozowane), można określić prawidłowość działania modelu. Następnie możesz użyć tego modelu, aby dokonać prognoz dla nowych klientów i opublikować ten model jako usługę sieci Web lub zapisać wyniki z powrotem do usługi Azure Synapse.
+Porównaj kolumnę BikeBuyer (rzeczywista) z etykietami z oceną (przewidywania), aby zobaczyć, jak dobrze został wykonany model. Następnie można użyć tego modelu do prognozowania dla nowych klientów. Możesz [opublikować ten model jako usługę sieci Web](https://docs.microsoft.com/azure/machine-learning/tutorial-designer-automobile-price-deploy) lub zapisać wyniki z powrotem do usługi Azure Synapse.
 
 ## <a name="next-steps"></a>Następne kroki
-Aby dowiedzieć się więcej o tworzeniu predykcyjnych modeli uczenia maszynowego, zapoznaj się z artykułem [Wprowadzenie do usługi Machine Learning na platformie Azure](https://docs.microsoft.com/azure/machine-learning/overview-what-is-azure-ml).
+
+Aby dowiedzieć się więcej na temat Azure Machine Learning, zapoznaj się z artykułem [wprowadzenie do Machine Learning na platformie Azure](https://docs.microsoft.com/azure/machine-learning/overview-what-is-azure-ml).
+
+Dowiedz się więcej na temat wbudowanej oceny w hurtowni [danych.](/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest)

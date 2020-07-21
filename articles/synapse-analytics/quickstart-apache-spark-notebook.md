@@ -9,14 +9,14 @@ ms.service: synapse-analytics
 ms.subservice: spark
 ms.topic: quickstart
 ms.date: 04/15/2020
-ms.openlocfilehash: 1ec73c07d97a0e400e048e77ba6a30a6a12c0fc4
-ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
+ms.openlocfilehash: d89033a8d26c5ee71d505b85a4ebbe91b86d3e50
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85194913"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86496251"
 ---
-# <a name="quickstart-create-an-apache-spark-pool-preview-in-azure-synapse-analytics-using-web-tools"></a>Szybki Start: Tworzenie puli Apache Spark (wersja zapoznawcza) w usłudze Azure Synapse Analytics przy użyciu narzędzi sieci Web
+# <a name="quickstart-create-an-apache-spark-pool-in-azure-synapse-analytics-using-web-tools"></a>Szybki Start: Tworzenie puli Apache Spark w usłudze Azure Synapse Analytics przy użyciu narzędzi sieci Web
 
 W tym przewodniku szybki start dowiesz się, jak utworzyć pulę Apache Spark (wersja zapoznawcza) w usłudze Azure Synapse przy użyciu narzędzi sieci Web. Następnie dowiesz się, jak nawiązać połączenie z pulą Apache Spark i uruchamiać zapytania Spark SQL dotyczące plików i tabel. Platforma Apache Spark umożliwia szybką analizę danych i używanie klastrów obliczeniowych korzystających z funkcji przetwarzania w pamięci. Aby uzyskać informacje na temat platformy Spark w usłudze Azure Synapse, zobacz [Omówienie: Apache Spark na platformie Azure Synapse](./spark/apache-spark-overview.md).
 
@@ -35,7 +35,7 @@ Jeśli nie masz subskrypcji platformy Azure, [przed rozpoczęciem utwórz bezpł
 
 Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpłatne konto](https://azure.microsoft.com/free/).
 
 ## <a name="create-a-notebook"></a>Tworzenie notesu
 

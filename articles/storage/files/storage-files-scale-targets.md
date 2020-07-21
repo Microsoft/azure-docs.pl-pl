@@ -7,11 +7,12 @@ ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 46c46faf8f7ee52978ae5542ab7ebd72a41b8357
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fd04e92804a1d37afd8ee2cefb159c1e686748d4
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81536448"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86496183"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Cele dotyczące skalowalności i wydajności usługi Azure Files
 
@@ -73,15 +74,15 @@ W przypadku Azure File Sync wydajność ma kluczowe znaczenie w dwóch etapach:
 
 Aby ułatwić Planowanie wdrożenia dla każdego z etapów, poniżej przedstawiono wyniki zaobserwowane podczas wewnętrznego testowania w systemie z konfiguracją
 
-| Konfiguracja systemu |  |
+| Konfiguracja systemu | Szczegóły |
 |-|-|
 | Procesor CPU | 64 rdzeni wirtualnych z 64 MiB L3 pamięci podręcznej |
-| Memory (Pamięć) | 128 GiB |
+| Pamięć | 128 GiB |
 | Dysk | Dyski SAS z macierzą RAID 10 z zapasową pamięcią podręczną |
 | Sieć | Sieć 1 GB/s |
 | Obciążenie | Ogólnego przeznaczenia serwera plików|
 
-| Początkowe Inicjowanie obsługi po raz pierwszy  |  |
+| Początkowe Inicjowanie obsługi po raz pierwszy  | Szczegóły |
 |-|-|
 | Liczba obiektów | 25 000 000 obiektów |
 | Rozmiar zestawu danych| ~ 4,7 TiB |
@@ -91,7 +92,7 @@ Aby ułatwić Planowanie wdrożenia dla każdego z etapów, poniżej przedstawio
 
 * Po utworzeniu nowego punktu końcowego serwera Agent Azure File Sync nie pobiera żadnej zawartości pliku. Najpierw synchronizuje pełną przestrzeń nazw, a następnie wyzwala odwołanie w tle w celu pobrania plików, w całości lub, jeśli włączono obsługę warstw w chmurze, do zasad obsługi warstw w chmurze ustawionych w punkcie końcowym serwera.
 
-| Synchronizacja bieżąca  |   |
+| Synchronizacja bieżąca  | Szczegóły  |
 |-|--|
 | Liczba zsynchronizowanych obiektów| 125 000 obiektów (~ 1% zmian) |
 | Rozmiar zestawu danych| 50 GiB |
@@ -111,5 +112,5 @@ Ogólnie rzecz biorąc, należy pamiętać o kilku kwestiach:
 
 ## <a name="see-also"></a>Zobacz także
 
-- [Planowanie wdrażania usługi Pliki Azure](storage-files-planning.md)
+- [Planowanie wdrożenia usługi Azure Files](storage-files-planning.md)
 - [Planowanie wdrażania usługi Azure File Sync](storage-sync-files-planning.md)

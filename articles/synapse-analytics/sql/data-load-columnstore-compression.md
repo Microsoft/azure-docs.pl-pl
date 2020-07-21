@@ -1,5 +1,5 @@
 ---
-title: Poprawianie wydajności indeksu magazynu kolumn
+title: Zwiększenie wydajności indeksu magazynu kolumn (wersja zapoznawcza obszarów roboczych)
 description: Ogranicz wymagania dotyczące pamięci lub Zwiększ ilość dostępnej pamięci, aby zmaksymalizować liczbę wierszy, które są kompresowane przez indeks magazynu kolumn do poszczególnych grupy wierszy.
 services: synapse-analytics
 author: kevinvngo
@@ -11,14 +11,14 @@ ms.date: 04/15/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: f1f3667c088c5f7300317ea02ca19a72e4e62905
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c885bce5ca17d5919ec134d179f6009e91a969cc
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81431035"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86495486"
 ---
-# <a name="maximizing-rowgroup-quality-for-columnstore"></a>Maksymalizowanie jakości grupy wierszy dla magazynu kolumn
+# <a name="maximizing-rowgroup-quality-for-columnstore-index-performance"></a>Maksymalizowanie jakości grupy wierszy dla wydajności indeksu magazynu kolumn
 
 Jakość grupy wierszy jest określana na podstawie liczby wierszy w grupy wierszy. Zwiększenie dostępnej pamięci może zmaksymalizować liczbę wierszy, które są kompresowane przez indeks magazynu kolumn do poszczególnych grupy wierszy.  Użyj tych metod, aby zwiększyć szybkość kompresji i wydajność zapytań dla indeksów magazynu kolumn.
 

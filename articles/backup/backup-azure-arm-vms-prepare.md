@@ -3,11 +3,12 @@ title: Tworzenie kopii zapasowych maszyn wirtualnych platformy Azure w magazynie
 description: Zawiera opis sposobu tworzenia kopii zapasowych maszyn wirtualnych platformy Azure w magazynie Recovery Services przy użyciu Azure Backup
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.openlocfilehash: cba042efb08f121d4cd9fa5693edd69c827f1465
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 88e7be7e2238637f1e6d5ac84abebdca0b9e1674
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83727016"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86497934"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Tworzenie kopii zapasowych maszyn wirtualnych platformy Azure w magazynie Recovery Services
 
@@ -53,7 +54,7 @@ Ponadto istnieje kilka rzeczy, które mogą być konieczne w pewnych okolicznoś
     * Nazwa musi być unikalna w tej subskrypcji platformy Azure.
     * Może zawierać od 2 do 50 znaków.
     * Musi rozpoczynać się od litery i może zawierać tylko litery, cyfry i łączniki.
-5. Wybierz subskrypcję platformy Azure, grupę zasobów i region geograficzny, w którym ma zostać utworzony magazyn. Następnie kliknij przycisk **Utwórz**.
+5. Wybierz subskrypcję platformy Azure, grupę zasobów i region geograficzny, w którym ma zostać utworzony magazyn. Następnie kliknij pozycję **Utwórz**.
     * Utworzenie magazynu może chwilę potrwać.
     * Monitoruj powiadomienia o stanie w prawym górnym rogu portalu.
 
@@ -66,10 +67,10 @@ Po utworzeniu magazynu pojawi się on na liście magazyny Recovery Services. Je�
 
 ### <a name="modify-storage-replication"></a>Modyfikowanie replikacji magazynu
 
-Domyślnie magazyny korzystają z [magazynu geograficznie nadmiarowego (GRS)](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs).
+Domyślnie magazyny korzystają z [magazynu geograficznie nadmiarowego (GRS)](../storage/common/storage-redundancy.md).
 
 * Jeśli magazyn jest podstawowym mechanizmem tworzenia kopii zapasowych, zalecamy użycie GRS.
-* Dla tańszej opcji można użyć [magazynu lokalnie nadmiarowego (LRS)](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) .
+* Dla tańszej opcji można użyć [magazynu lokalnie nadmiarowego (LRS)](../storage/common/storage-redundancy.md?toc=/azure/storage/blobs/toc.json) .
 
 Zmodyfikuj typ replikacji magazynu w następujący sposób:
 
@@ -168,7 +169,7 @@ Zakończenie fazy **transferu danych do magazynu** może zająć wiele dni w zal
 
 Stan zadania może się różnić w zależności od następujących scenariuszy:
 
-**Snapshot** | **Transferowanie danych do magazynu** | **Stan zadania**
+**Zdjęcie** | **Transferowanie danych do magazynu** | **Stan zadania**
 --- | --- | ---
 Ukończone | W toku | W toku
 Ukończone | Pominięto | Ukończone
@@ -188,7 +189,7 @@ Azure Backup tworzenia kopii zapasowych maszyn wirtualnych platformy Azure przez
 **MASZYN** | **Szczegóły**
 --- | ---
 **Windows** | 1. [Pobierz i zainstaluj](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) plik msi agenta.<br/><br/> 2. Zainstaluj program z uprawnieniami administratora na komputerze.<br/><br/> 3. Sprawdź instalację. W *C:\WindowsAzure\Packages* na maszynie wirtualnej kliknij prawym przyciskiem ** **myszy pozycję  >  **Właściwości**WaAppAgent.exe. Na karcie **szczegóły** **Wersja produktu** powinna mieć wartość 2.6.1198.718 lub wyższą.<br/><br/> Jeśli aktualizujesz agenta, upewnij się, że nie są uruchomione żadne operacje tworzenia kopii zapasowej, a [następnie ponownie zainstaluj agenta](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409).
-**Linux** | Zainstaluj program przy użyciu KCO lub pakietu DEB z repozytorium pakietu dystrybucji. Jest to preferowana metoda instalowania i uaktualniania agenta systemu Linux platformy Azure. Wszyscy [pozatwierdzeni dostawcy dystrybucji](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) integrują pakiet agenta platformy Azure z systemem Linux z obrazami i repozytoriami. Agent jest dostępny w serwisie [GitHub](https://github.com/Azure/WALinuxAgent), ale nie zalecamy instalacji.<br/><br/> Jeśli aktualizujesz agenta, upewnij się, że nie są uruchomione żadne operacje tworzenia kopii zapasowej, i zaktualizuj pliki binarne.
+**Linux** | Zainstaluj program przy użyciu KCO lub pakietu DEB z repozytorium pakietu dystrybucji. Jest to preferowana metoda instalowania i uaktualniania agenta systemu Linux platformy Azure. Wszyscy [pozatwierdzeni dostawcy dystrybucji](../virtual-machines/linux/endorsed-distros.md) integrują pakiet agenta platformy Azure z systemem Linux z obrazami i repozytoriami. Agent jest dostępny w serwisie [GitHub](https://github.com/Azure/WALinuxAgent), ale nie zalecamy instalacji.<br/><br/> Jeśli aktualizujesz agenta, upewnij się, że nie są uruchomione żadne operacje tworzenia kopii zapasowej, i zaktualizuj pliki binarne.
 
 >[!NOTE]
 > **Azure Backup teraz obsługuje selektywne tworzenie kopii zapasowych i przywracanie dysków przy użyciu rozwiązania do tworzenia kopii zapasowych maszyny wirtualnej platformy Azure.**

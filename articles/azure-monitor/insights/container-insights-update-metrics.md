@@ -2,12 +2,13 @@
 title: Jak aktualizować Azure Monitor kontenerów dla metryk | Microsoft Docs
 description: W tym artykule opisano sposób aktualizowania Azure Monitor dla kontenerów w celu włączenia funkcji metryk niestandardowych, która obsługuje eksplorowanie i zgłaszanie alertów dotyczących zagregowanych metryk.
 ms.topic: conceptual
-ms.date: 06/01/2020
-ms.openlocfilehash: d299fc5e6b0c41188fac1fa19bb66387263c12e9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/17/2020
+ms.openlocfilehash: 78a6612e522accce8c934885a090e66a51850c97
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84298265"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86498988"
 ---
 # <a name="how-to-update-azure-monitor-for-containers-to-enable-metrics"></a>Jak zaktualizować usługę Azure Monitor dla kontenerów w celu włączenia metryk
 
@@ -19,23 +20,25 @@ Azure Monitor dla kontenerów wprowadza obsługę zbierania metryk z węzłów k
 
 Następujące metryki są włączone w ramach tej funkcji:
 
-| Przestrzeń nazw metryki | Metric | Opis |
+| Przestrzeń nazw metryki | Metryka | Opis |
 |------------------|--------|-------------|
-| Szczegółowe informacje. kontenery/węzły | cpuUsageMillicores, cpuUsagePercentage, memoryRssBytes, memoryRssPercentage, memoryWorkingSetBytes, memoryWorkingSetPercentage, nodesCount | Są to metryki *węzłów* i obejmują *hosta* jako wymiar, a także zawierają<br> Nazwa węzła jako wartość dla wymiaru *hosta* . |
-| Szczegółowe informacje. kontenery/zasobniki | podCount | Są to *metryki* poniżej i zawierają następujące elementy: Dimensions-ControllerName, Kubernetes Namespace, Name, faz. |
+| Szczegółowe informacje. kontenery/węzły | cpuUsageMillicores, cpuUsagePercentage, memoryRssBytes, memoryRssPercentage, memoryWorkingSetBytes, memoryWorkingSetPercentage, nodesCount, diskUsedPercentage, | Jako metryki *węzła* obejmują one *hosta* jako wymiar. Obejmują one również<br> Nazwa węzła jako wartość dla wymiaru *hosta* . |
+| Szczegółowe informacje. kontenery/zasobniki | podCount, completedJobsCount, restartingContainerCount, oomKilledContainerCount, podReadyPercentage | Jako *metryki* są to między innymi następujące: Dimensions-ControllerName, Kubernetes Namespace, Name, faz. |
+| Szczegółowe informacje. kontenery/kontenery | cpuExceededPercentage, memoryRssExceededPercentage, memoryWorkingSetExceededPercentage | |
 
-Aktualizowanie klastra w celu obsługi tych nowych funkcji można wykonać z poziomu Azure Portal, Azure PowerShell lub przy użyciu interfejsu wiersza polecenia platformy Azure. Za pomocą Azure PowerShell i interfejsu wiersza polecenia można włączyć tę opcję dla klastra lub dla wszystkich klastrów w ramach subskrypcji. Nowe wdrożenia programu AKS automatycznie uwzględniają tę zmianę konfiguracji i możliwości.
+Aby zapewnić obsługę tych nowych funkcji, w wersji znajduje się nowy Agent kontenerów w wersji **Microsoft/OMS: ciprod02212019**. Nowe wdrożenia programu AKS automatycznie uwzględniają tę zmianę konfiguracji i możliwości. Aktualizowanie klastra w celu obsługi tej funkcji można wykonać z poziomu Azure Portal, Azure PowerShell lub przy użyciu interfejsu wiersza polecenia platformy Azure. Przy użyciu Azure PowerShell i interfejsu wiersza polecenia. Możesz włączyć ten klaster lub wszystkie klastry w subskrypcji.
 
 Każdy proces przypisuje rolę **wydawcy metryk monitorowania** do jednostki usługi klastra lub do pliku MSI przypisanego użytkownikowi dla dodatku monitorowania, aby dane zbierane przez agenta mogły być publikowane w zasobach klastrów. Wydawca metryk monitorowania ma uprawnienia tylko do wypychania metryk do zasobu, nie może zmienić stanu, zaktualizować zasobu ani odczytać jakichkolwiek danych. Aby uzyskać więcej informacji na temat roli, zobacz [monitorowanie metryk rola wydawcy](../../role-based-access-control/built-in-roles.md#monitoring-metrics-publisher).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Przed rozpoczęciem Potwierdź następujące kwestie:
+Przed aktualizacją klastra Potwierdź następujące kwestie:
 
 * Metryki niestandardowe są dostępne tylko w ramach podzestawów regionów świadczenia usługi Azure. Lista obsługiwanych regionów jest udokumentowana [tutaj](../platform/metrics-custom-overview.md#supported-regions).
-* Musisz być członkiem roli **[właściciela](../../role-based-access-control/built-in-roles.md#owner)** w zasobie klastra AKS, aby włączyć kolekcję metryk wydajności niestandardowych węzła i pod. 
 
-Jeśli zdecydujesz się na korzystanie z interfejsu wiersza polecenia platformy Azure, musisz najpierw zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie. Wymagany jest interfejs wiersza polecenia platformy Azure w wersji 2.0.59 lub nowszej. Aby zidentyfikować swoją wersję, uruchom polecenie `az --version` . Jeśli konieczne jest zainstalowanie lub uaktualnienie interfejsu wiersza polecenia platformy Azure, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli). 
+* Musisz być członkiem roli **[właściciela](../../role-based-access-control/built-in-roles.md#owner)** w zasobie klastra AKS, aby włączyć kolekcję metryk wydajności niestandardowych węzła i pod.
+
+Jeśli zdecydujesz się na korzystanie z interfejsu wiersza polecenia platformy Azure, musisz najpierw zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie. Wymagany jest interfejs wiersza polecenia platformy Azure w wersji 2.0.59 lub nowszej. Aby zidentyfikować swoją wersję, uruchom polecenie `az --version` . Jeśli konieczne jest zainstalowanie lub uaktualnienie interfejsu wiersza polecenia platformy Azure, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
 
 ## <a name="upgrade-a-cluster-from-the-azure-portal"></a>Uaktualnianie klastra z Azure Portal
 
@@ -76,7 +79,7 @@ Wykonaj następujące kroki, aby zaktualizować konkretny klaster w ramach subsk
     az role assignment create --assignee <clientIdOfSPN> --scope <clusterResourceId> --role "Monitoring Metrics Publisher" 
     ```
 
-    Aby uzyskać wartość dla **clientIdOfSPNOrMsi**, możesz uruchomić polecenie, `az aks show` jak pokazano w poniższym przykładzie. Jeśli obiekt **servicePrincipalProfile** ma prawidłową wartość *ClientID* , można użyć tej wartości. W przeciwnym razie, jeśli jest ustawiona na *MSI*, należy przekazać ClientID z `addonProfiles.omsagent.identity.clientId` .
+    Aby uzyskać wartość dla **clientIdOfSPNOrMsi**, możesz uruchomić polecenie, `az aks show` jak pokazano w poniższym przykładzie. Jeśli obiekt **servicePrincipalProfile** ma prawidłową wartość *ClientID* , można go użyć. W przeciwnym razie, jeśli jest ustawiona na *MSI*, należy przekazać ClientID z `addonProfiles.omsagent.identity.clientId` .
 
     ```azurecli
     az login
@@ -121,4 +124,4 @@ Wykonaj następujące kroki, aby zaktualizować konkretny klaster przy użyciu A
 
 ## <a name="verify-update"></a>Weryfikuj aktualizację
 
-Po zainicjowaniu aktualizacji przy użyciu jednej z opisanych wcześniej metod można użyć Eksploratora metryk Azure Monitor i sprawdzić, czy w **przestrzeni nazw metryk** są wyświetlane **szczegółowe informacje** . Jeśli tak jest, oznacza to, że można rozpocząć konfigurowanie [alertów dotyczących metryk](../platform/alerts-metric.md) lub Przypinanie wykresów do [pulpitów nawigacyjnych](../../azure-portal/azure-portal-dashboards.md).  
+Po zainicjowaniu aktualizacji przy użyciu jednej z opisanych wcześniej metod można użyć Eksploratora metryk Azure Monitor i sprawdzić, czy w **przestrzeni nazw metryk** są wyświetlane **szczegółowe informacje** . Jeśli tak jest, możesz zacząć konfigurować [alerty metryczne](../platform/alerts-metric.md) lub przypinać wykresy do [pulpitów nawigacyjnych](../../azure-portal/azure-portal-dashboards.md).  

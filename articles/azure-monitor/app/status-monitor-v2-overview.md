@@ -5,20 +5,21 @@ ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 09/16/2019
-ms.openlocfilehash: 626a8c96fdc247db174e2cbcd2e5c99cec43d2ea
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6a51da4f4685d7d7b1c597d8a9b9dd78270f29b1
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81770965"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86499277"
 ---
 # <a name="deploy-azure-monitor-application-insights-agent-for-on-premises-servers"></a>Wdróż agenta Azure Monitor Application Insights dla serwerów lokalnych
 
 > [!IMPORTANT]
-> Te wskazówki są zalecane w przypadku wdrożeń Application Insights agenta lokalnych i nieopartych na platformie Azure w chmurze. Poniżej przedstawiono zalecane podejście do [wdrożeń maszyn wirtualnych platformy Azure i zestawu skalowania maszyn wirtualnych](https://docs.microsoft.com/azure/azure-monitor/app/azure-vm-vmss-apps).
+> Te wskazówki są zalecane w przypadku wdrożeń Application Insights agenta lokalnych i nieopartych na platformie Azure w chmurze. Poniżej przedstawiono zalecane podejście do [wdrożeń maszyn wirtualnych platformy Azure i zestawu skalowania maszyn wirtualnych](./azure-vm-vmss-apps.md).
 
 Agent Application Insights (wcześniej nazwany monitor stanu v2) to moduł programu PowerShell opublikowany w [Galeria programu PowerShell](https://www.powershellgallery.com/packages/Az.ApplicationMonitor).
-Zastępuje [Monitor stanu](https://docs.microsoft.com/azure/azure-monitor/app/monitor-performance-live-website-now).
-Dane telemetryczne są wysyłane do Azure Portal, w którym można [monitorować](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) aplikację.
+Zastępuje [Monitor stanu](./monitor-performance-live-website-now.md).
+Dane telemetryczne są wysyłane do Azure Portal, w którym można [monitorować](./app-insights-overview.md) aplikację.
 
 > [!NOTE]
 > Moduł obsługuje obecnie tylko instrumentację programu .NET Web Apps hostowaną z usługami IIS. Użyj zestawu SDK do Instrumentacji aplikacji ASP.NET Core, Java i Node.js.
@@ -35,21 +36,21 @@ Agent Application Insights znajduje się tutaj: https://www.powershellgallery.co
 - Zobacz [szczegółowe instrukcje](status-monitor-v2-detailed-instructions.md) dotyczące głębokiej szczegółowe na temat rozpoczynania pracy.
 
 ## <a name="powershell-api-reference"></a>Dokumentacja interfejsu API programu PowerShell
-- [Disable-ApplicationInsightsMonitoring](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-api-reference#disable-applicationinsightsmonitoring)
-- [Disable-InstrumentationEngine](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-api-reference#disable-instrumentationengine)
-- [Enable-ApplicationInsightsMonitoring](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-api-reference#enable-applicationinsightsmonitoring)
-- [Enable-InstrumentationEngine](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-api-reference#enable-instrumentationengine)
-- [Get-ApplicationInsightsMonitoringConfig](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-api-reference#get-applicationinsightsmonitoringconfig)
-- [Get-ApplicationInsightsMonitoringStatus](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-api-reference#get-applicationinsightsmonitoringstatus)
-- [Set-ApplicationInsightsMonitoringConfig](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-api-reference#set-applicationinsightsmonitoringconfig)
-- [Start-ApplicationInsightsMonitoringTrace](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-api-reference#start-applicationinsightsmonitoringtrace)
+- [Disable-ApplicationInsightsMonitoring](./status-monitor-v2-api-reference.md#disable-applicationinsightsmonitoring)
+- [Disable-InstrumentationEngine](./status-monitor-v2-api-reference.md#disable-instrumentationengine)
+- [Enable-ApplicationInsightsMonitoring](./status-monitor-v2-api-reference.md#enable-applicationinsightsmonitoring)
+- [Enable-InstrumentationEngine](./status-monitor-v2-api-reference.md#enable-instrumentationengine)
+- [Get-ApplicationInsightsMonitoringConfig](./status-monitor-v2-api-reference.md#get-applicationinsightsmonitoringconfig)
+- [Get-ApplicationInsightsMonitoringStatus](./status-monitor-v2-api-reference.md#get-applicationinsightsmonitoringstatus)
+- [Set-ApplicationInsightsMonitoringConfig](./status-monitor-v2-api-reference.md#set-applicationinsightsmonitoringconfig)
+- [Start-ApplicationInsightsMonitoringTrace](./status-monitor-v2-api-reference.md#start-applicationinsightsmonitoringtrace)
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 - [Rozwiązywanie problemów](status-monitor-v2-troubleshoot.md)
 - [Znane problemy](status-monitor-v2-troubleshoot.md#known-issues)
 
 
-## <a name="faq"></a>Często zadawane pytania
+## <a name="faq"></a>Najczęściej zadawane pytania
 
 - Czy Agent Application Insights obsługuje instalacje serwera proxy?
 
@@ -59,12 +60,12 @@ Każda z tych opcji została opisana w [szczegółowym instrukcji](status-monito
 
 - Czy monitor stanu v2 obsługuje ASP.NET Core aplikacje?
 
-  *Nie*. Aby uzyskać instrukcje dotyczące włączania monitorowania aplikacji ASP.NET Core, zobacz [Application Insights for ASP.NET Core Applications](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core). Nie trzeba instalować StatusMonitor dla aplikacji ASP.NET Core. Jest to prawdziwe, nawet jeśli aplikacja ASP.NET Core jest hostowana w usługach IIS.
+  *Nie*. Aby uzyskać instrukcje dotyczące włączania monitorowania aplikacji ASP.NET Core, zobacz [Application Insights for ASP.NET Core Applications](./asp-net-core.md). Nie trzeba instalować StatusMonitor dla aplikacji ASP.NET Core. Jest to prawdziwe, nawet jeśli aplikacja ASP.NET Core jest hostowana w usługach IIS.
 
 - Jak mogę sprawdzić, czy Włączanie zakończyło się pomyślnie?
 
-  - Polecenia cmdlet [Get-ApplicationInsightsMonitoringStatus](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-api-reference#get-applicationinsightsmonitoringstatus) można użyć do sprawdzenia, czy Włączanie powiodło się.
-  - Zalecamy używanie metryk na [żywo](https://docs.microsoft.com/azure/azure-monitor/app/live-stream) , aby szybko określić, czy aplikacja wysyła dane telemetryczne.
+  - Polecenia cmdlet [Get-ApplicationInsightsMonitoringStatus](./status-monitor-v2-api-reference.md#get-applicationinsightsmonitoringstatus) można użyć do sprawdzenia, czy Włączanie powiodło się.
+  - Zalecamy używanie metryk na [żywo](./live-stream.md) , aby szybko określić, czy aplikacja wysyła dane telemetryczne.
 
   - Możesz również użyć [log Analytics](../log-query/get-started-portal.md) , aby wyświetlić listę wszystkich ról w chmurze aktualnie wysyłających dane telemetryczne:
       ```Kusto
@@ -77,7 +78,7 @@ Wyświetlanie telemetrii:
 
 * [Poznaj metryki](../../azure-monitor/platform/metrics-charts.md) , aby monitorować wydajność i użycie.
 * [Wyszukaj zdarzenia i dzienniki](../../azure-monitor/app/diagnostic-search.md) , aby zdiagnozować problemy.
-* [Użyj analizy](../../azure-monitor/app/analytics.md) , aby uzyskać bardziej zaawansowane zapytania.
+* [Użyj analizy](../log-query/log-query-overview.md) , aby uzyskać bardziej zaawansowane zapytania.
 * [Tworzenie pulpitów nawigacyjnych](../../azure-monitor/app/overview-dashboard.md).
 
 Dodawanie kolejnych funkcji telemetrii:
@@ -85,4 +86,3 @@ Dodawanie kolejnych funkcji telemetrii:
 * [Tworzenie testów sieci Web](monitor-web-app-availability.md), aby upewnić się, że witryna pozostaje aktywna.
 * [Dodaj telemetrię klienta sieci Web](../../azure-monitor/app/javascript.md) , aby zobaczyć wyjątki z kodu strony sieci Web i włączyć wywołania śledzenia.
 * [Dodaj do kodu zestaw SDK Application Insights](../../azure-monitor/app/asp-net.md) , aby móc wstawiać wywołania śledzenia i rejestrowania.
-

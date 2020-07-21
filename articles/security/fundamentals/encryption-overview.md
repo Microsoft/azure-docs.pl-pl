@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/20/2018
+ms.date: 07/10/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 005932f4a4be9e4a7bae85a6b380c934de5e9874
-ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.openlocfilehash: 4990d696986336e52fec3e87f4c3ea0c7517d3f8
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86276536"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86496387"
 ---
 # <a name="azure-encryption-overview"></a>Omówienie szyfrowania na platformie Azure
 

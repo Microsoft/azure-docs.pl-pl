@@ -5,19 +5,20 @@ ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
 ms.author: dpalled
-manager: cshankar
+manager: diviso
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 02/11/2020
+ms.date: 06/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: dd7a74ff775e6e07d1c32ed198ff028765fce45d
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 589dd411e3d340eb8a0bf84b21a306cabd4bb362
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86037294"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86495078"
 ---
-# <a name="send-events-to-a-time-series-insights-environment-by-using-an-event-hub"></a>Wysyłanie zdarzeń do środowiska Time Series Insights przy użyciu centrum zdarzeń
+# <a name="send-events-to-a-azure-time-series-insights-gen1-environment-by-using-an-event-hub"></a>Wysyłanie zdarzeń do Azure Time Series Insights środowiska Gen1 przy użyciu centrum zdarzeń
 
 W tym artykule opisano sposób tworzenia i konfigurowania centrum zdarzeń w usłudze Azure Event Hubs. Opisano w nim również sposób uruchamiania przykładowej aplikacji w celu wypchnięcia zdarzeń do Azure Time Series Insights z Event Hubs. Jeśli masz istniejące centrum zdarzeń ze zdarzeniami w formacie JSON, Pomiń ten samouczek i Sprawdź środowisko w [Azure Time Series Insights](./time-series-insights-update-create-environment.md).
 
@@ -37,10 +38,10 @@ W tym artykule opisano sposób tworzenia i konfigurowania centrum zdarzeń w us�
 
     [![Tworzenie grupy odbiorców](media/send-events/add-event-hub-consumer-group.png)](media/send-events/add-event-hub-consumer-group.png#lightbox)
 
-1. Upewnij się, że utworzono grupę odbiorców, która jest używana wyłącznie przez źródło zdarzeń Time Series Insights.
+1. Upewnij się, że utworzono grupę odbiorców, która jest używana wyłącznie przez źródło zdarzeń Azure Time Series Insights.
 
     > [!IMPORTANT]
-    > Upewnij się, że ta grupa odbiorców nie jest używana przez żadną inną usługę, na przykład zadanie Azure Stream Analytics lub inne środowisko Time Series Insights. Jeśli grupa odbiorców jest używana przez inne usługi, operacje odczytu mają negatywny wpływ na to środowisko i dla innych usług. Jeśli używasz **$default** jako grupy konsumentów, inni czytelnicy mogą potencjalnie ponownie wykorzystać grupę odbiorców.
+    > Upewnij się, że ta grupa odbiorców nie jest używana przez żadną inną usługę, na przykład zadanie Azure Stream Analytics lub inne środowisko Azure Time Series Insights. Jeśli grupa odbiorców jest używana przez inne usługi, operacje odczytu mają negatywny wpływ na to środowisko i dla innych usług. Jeśli używasz **$default** jako grupy konsumentów, inni czytelnicy mogą potencjalnie ponownie wykorzystać grupę odbiorców.
 
 1. W menu w obszarze **Ustawienia**wybierz pozycję **zasady dostępu współdzielonego**, a następnie wybierz pozycję **Dodaj**.
 
@@ -52,11 +53,11 @@ W tym artykule opisano sposób tworzenia i konfigurowania centrum zdarzeń w us�
 
 1. W **obszarze**Zażądaj zaznacz pole wyboru **Wyślij** .
 
-## <a name="add-a-time-series-insights-instance"></a>Dodaj wystąpienie Time Series Insights
+## <a name="add-an-azure-time-series-insights-instance"></a>Dodaj wystąpienie Azure Time Series Insights
 
-Aktualizacja Time Series Insights używa wystąpień do dodawania danych kontekstowych do przychodzących danych telemetrycznych. Dane są przyłączone w czasie zapytania przy użyciu **identyfikatora szeregów czasowych**. **Identyfikator szeregów czasowych** dla przykładowego projektu Windmills, który jest używany w dalszej części tego artykułu `id` . Aby dowiedzieć się więcej o wystąpieniach usługi Time Series Insights i **identyfikatorze szeregów czasowych**, zobacz [modele szeregów czasowych](./concepts-model-overview.md).
+W Azure Time Series Insights generacji 2 można dodać dane kontekstowe do przychodzącej telemetrii przy użyciu modelu szeregów czasowych (TSM). W TSM Tagi lub sygnały są odwoływane jako *wystąpienia* i można przechowywać dane kontekstowe w *polach wystąpień.* Dane są przyłączone w czasie zapytania przy użyciu **identyfikatora szeregów czasowych**. **Identyfikator szeregów czasowych** dla przykładowego projektu Windmills, który jest używany w dalszej części tego artykułu `id` . Aby dowiedzieć się więcej o przechowywaniu danych w polach wystąpienia, zobacz Omówienie [modelu szeregów czasowych](./concepts-model-overview.md) .
 
-### <a name="create-a-time-series-insights-event-source"></a>Tworzenie źródła zdarzeń Time Series Insights
+### <a name="create-a-azure-time-series-insights-event-source"></a>Tworzenie źródła zdarzeń Azure Time Series Insights
 
 1. Jeśli nie utworzono źródła zdarzeń, wykonaj kroki, aby [utworzyć źródło zdarzenia](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-eventhub).
 
@@ -72,7 +73,7 @@ Aktualizacja Time Series Insights używa wystąpień do dodawania danych konteks
 
     [![Skopiuj wartość parametrów połączenia klucza podstawowego](media/send-events/configure-sample-code-connection-string.png)](media/send-events/configure-sample-code-connection-string.png#lightbox)
 
-1. Przejdź do witryny https://tsiclientsample.azurewebsites.net/windFarmGen.html. Adres URL tworzy i uruchamia symulowane urządzenia Windmill.
+1. Przejdź do adresu https://tsiclientsample.azurewebsites.net/windFarmGen.html. Adres URL tworzy i uruchamia symulowane urządzenia Windmill.
 1. W polu **Parametry połączenia centrum zdarzeń** na stronie sieci Web wklej parametry połączenia, które zostały skopiowane do [pola wejściowego Windmill](#push-events-to-windmills-sample).
   
     [![Wklej parametry połączenia klucza podstawowego w polu parametrów połączenia centrum zdarzeń](media/send-events/configure-wind-mill-sim.png)](media/send-events/configure-wind-mill-sim.png#lightbox)
@@ -80,7 +81,7 @@ Aktualizacja Time Series Insights używa wystąpień do dodawania danych konteks
 1. Wybierz **pozycję kliknij, aby rozpocząć**. 
 
     > [!TIP]
-    > Symulator Windmill tworzy również kod JSON, którego można użyć jako ładunku z [interfejsami API zapytań Time Series INSIGHTS ga](https://docs.microsoft.com/rest/api/time-series-insights/ga-query).
+    > Symulator Windmill tworzy również kod JSON, którego można użyć jako ładunku z [interfejsami API zapytań Azure Time Series INSIGHTS ga](https://docs.microsoft.com/rest/api/time-series-insights/ga-query).
 
     > [!NOTE]
     > Symulator będzie kontynuował wysyłanie danych, dopóki karta przeglądarki nie zostanie zamknięta.
@@ -197,11 +198,11 @@ Aktualizacja Time Series Insights używa wystąpień do dodawania danych konteks
 
     |location|manufacturer.name|manufacturer.location|events.id|events.timestamp|events.data.type|events.data.units|events.data.value|
     |---|---|---|---|---|---|---|---|
-    |WestUs|manufacturer1|EastUs|device1|2016-01-08T01:08:00Z|pressure|psi|108.09|
+    |WestUs|manufacturer1|EastUs|device1|2016-01-08T01:08:00Z|ciśnienie|psi|108.09|
     |WestUs|manufacturer1|EastUs|device2|2016-01-08T01:17:00Z|vibration|abs G|217.09|
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Wyświetl swoje środowisko](https://insights.timeseries.azure.com) w Eksploratorze Time Series Insights.
+- [Wyświetl swoje środowisko](https://insights.timeseries.azure.com) w Eksploratorze Azure Time Series Insights.
 
 - Przeczytaj więcej na temat [IoT Hub komunikatów urządzenia](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct)

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/04/2020
-ms.openlocfilehash: e97f607c17f746c3cb16a17b7f579a58d4914608
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 443112628edddf9c60cd6469f046b1a9e066dc82
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85553132"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86496421"
 ---
 # <a name="security-filters-for-trimming-results-in-azure-cognitive-search"></a>Filtry zabezpieczeń do przycinania wyników na platformie Azure Wyszukiwanie poznawcze
 
@@ -34,26 +34,29 @@ W tym artykule pokazano, jak wykonać filtrowanie zabezpieczeń, wykonując nast
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-W tym artykule przyjęto założenie, że masz [subskrypcję platformy Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F), [usługę Azure Wyszukiwanie poznawcze](https://docs.microsoft.com/azure/search/search-create-service-portal)i [indeks wyszukiwanie poznawcze platformy Azure](https://docs.microsoft.com/azure/search/search-create-index-portal).  
+W tym artykule przyjęto założenie, że masz [subskrypcję platformy Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F),[usługę wyszukiwanie poznawcze platformy Azure](search-create-service-portal.md)i [indeks](search-what-is-an-index.md).  
 
 ## <a name="create-security-field"></a>Utwórz pole zabezpieczeń
 
 Dokumenty muszą zawierać pole określające, które grupy mają dostęp. Te informacje staną się kryteriami filtrowania, względem których dokumenty są wybierane lub odrzucane z zestawu wyników zwróconego do wystawcy.
 Załóżmy, że mamy indeks zabezpieczonych plików, a każdy plik jest dostępny dla innego zestawu użytkowników.
+
 1. Dodaj pole `group_ids` (w tym miejscu możesz wybrać dowolną nazwę) `Collection(Edm.String)` . Upewnij się, że pole ma `filterable` atrybut ustawiony na `true` tak, aby wyniki wyszukiwania zostały odfiltrowane na podstawie dostępu użytkownika. Na przykład jeśli ustawisz `group_ids` pole na `["group_id1, group_id2"]` dla dokumentu z `file_name` "secured_file_b", tylko użytkownicy należący do identyfikatorów grup "group_id1" lub "group_id2" mają dostęp do odczytu do tego pliku.
+   
    Upewnij się, że `retrievable` atrybut pola jest ustawiony na `false` tak, aby nie był zwracany jako część żądania wyszukiwania.
+
 2. Dodaj także `file_id` `file_name` pola i dla przykładu.  
 
-```JSON
-{
-    "name": "securedfiles",  
-    "fields": [
-        {"name": "file_id", "type": "Edm.String", "key": true, "searchable": false, "sortable": false, "facetable": false},
-        {"name": "file_name", "type": "Edm.String"},
-        {"name": "group_ids", "type": "Collection(Edm.String)", "filterable": true, "retrievable": false}
-    ]
-}
-```
+    ```JSON
+    {
+        "name": "securedfiles",  
+        "fields": [
+            {"name": "file_id", "type": "Edm.String", "key": true, "searchable": false, "sortable": false, "facetable": false},
+            {"name": "file_name", "type": "Edm.String"},
+            {"name": "group_ids", "type": "Collection(Edm.String)", "filterable": true, "retrievable": false}
+        ]
+    }
+    ```
 
 ## <a name="pushing-data-into-your-index-using-the-rest-api"></a>Wypychanie danych do indeksu przy użyciu interfejsu API REST
   
@@ -149,7 +152,7 @@ Należy pobrać dokumenty z powrotem, gdzie `group_ids` zawiera "group_id1" lub 
  ]
 }
 ```
-## <a name="conclusion"></a>Podsumowanie
+## <a name="conclusion"></a>Wniosek
 
 W ten sposób można filtrować wyniki w oparciu o tożsamość użytkownika i funkcję Wyszukiwanie poznawcze platformy Azure `search.in()` . Za pomocą tej funkcji można przekazać identyfikatory zasad dla użytkownika żądającego, aby dopasować je do identyfikatorów podmiotu zabezpieczeń skojarzonych z każdym dokumentem docelowym. Gdy żądanie wyszukiwania jest obsługiwane, `search.in` Funkcja filtruje wyniki wyszukiwania, dla których żaden z podmiotów zabezpieczeń użytkownika nie ma dostępu do odczytu. Identyfikatory podmiotów mogą reprezentować elementy, takie jak grupy zabezpieczeń, role, a nawet własna tożsamość użytkownika.
  

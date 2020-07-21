@@ -14,17 +14,18 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/14/2017
 ms.author: mimckitt
-ms.openlocfilehash: 476241ad3d4077f2da0c513e3c989218701232ba
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 37a2724e28269d5f8b10d6ae7073aacc8272255b
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81255757"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86494772"
 ---
 # <a name="network-watcher-agent-virtual-machine-extension-for-linux"></a>Rozszerzenie agenta usługi Network Watcher dla maszyny wirtualnej dla systemu Linux
 
 ## <a name="overview"></a>Omówienie
 
-[Azure Network Watcher](/azure/network-watcher/) to usługa monitorowania wydajności sieci, diagnostyki i analizy, która umożliwia monitorowanie sieci platformy Azure. Rozszerzenie maszyny wirtualnej (VM) agenta Network Watcher jest wymagane dla niektórych funkcji Network Watcher na maszynach wirtualnych platformy Azure, takich jak przechwytywanie ruchu sieciowego na żądanie i inne zaawansowane funkcje.
+[Azure Network Watcher](../../network-watcher/index.yml) to usługa monitorowania wydajności sieci, diagnostyki i analizy, która umożliwia monitorowanie sieci platformy Azure. Rozszerzenie maszyny wirtualnej (VM) agenta Network Watcher jest wymagane dla niektórych funkcji Network Watcher na maszynach wirtualnych platformy Azure, takich jak przechwytywanie ruchu sieciowego na żądanie i inne zaawansowane funkcje.
 
 Ten artykuł zawiera szczegółowe informacje na temat obsługiwanych platform i opcji wdrażania rozszerzenia maszyny wirtualnej agenta Network Watcher dla systemu Linux. Instalacja agenta nie zakłóca działania lub wymaga ponownego uruchomienia maszyny wirtualnej. Rozszerzenie można wdrożyć na maszynach wirtualnych, które wdrażasz. Jeśli maszyna wirtualna jest wdrażana przez usługę platformy Azure, zapoznaj się z dokumentacją usługi, aby określić, czy zezwala ona na instalowanie rozszerzeń na maszynie wirtualnej.
 
@@ -48,7 +49,7 @@ Rozszerzenie agenta Network Watcher można skonfigurować dla następujących dy
 
 ### <a name="internet-connectivity"></a>Łączność z Internetem
 
-Niektóre funkcje agenta Network Watcher wymagają, aby maszyna wirtualna była połączona z Internetem. Bez możliwości nawiązywania połączeń wychodzących niektóre funkcje agenta Network Watcher mogą działać nieprawidłowo lub staną się niedostępne. Aby uzyskać więcej informacji na temat funkcji Network Watcher, które wymagają agenta, zapoznaj się z[dokumentacją Network Watcher](/azure/network-watcher/).
+Niektóre funkcje agenta Network Watcher wymagają, aby maszyna wirtualna była połączona z Internetem. Bez możliwości nawiązywania połączeń wychodzących niektóre funkcje agenta Network Watcher mogą działać nieprawidłowo lub staną się niedostępne. Aby uzyskać więcej informacji na temat funkcji Network Watcher, które wymagają agenta, zapoznaj się z[dokumentacją Network Watcher](../../network-watcher/index.yml).
 
 ## <a name="extension-schema"></a>Schemat rozszerzenia
 
@@ -118,4 +119,4 @@ az vm extension show --name NetworkWatcherAgentLinux --resource-group myResource
 
 ### <a name="support"></a>Pomoc techniczna
 
-Jeśli potrzebujesz więcej pomocy w dowolnym punkcie tego artykułu, możesz zapoznać się z [dokumentacją Network Watcher](/azure/network-watcher/)lub skontaktować się z ekspertami platformy Azure na [forach MSDN i Stack Overflow](https://azure.microsoft.com/support/forums/). Alternatywnie możesz zaplikować zdarzenie pomocy technicznej platformy Azure. Przejdź do [witryny pomocy technicznej systemu Azure](https://azure.microsoft.com/support/options/) i wybierz pozycję **Uzyskaj pomoc techniczną**. Aby uzyskać informacje o korzystaniu z pomocy technicznej platformy Azure, zobacz [często zadawane pytania dotyczące pomocy technicznej w Microsoft Azure](https://azure.microsoft.com/support/faq/).
+Jeśli potrzebujesz więcej pomocy w dowolnym punkcie tego artykułu, możesz zapoznać się z [dokumentacją Network Watcher](../../network-watcher/index.yml)lub skontaktować się z ekspertami platformy Azure na [forach MSDN i Stack Overflow](https://azure.microsoft.com/support/forums/). Alternatywnie możesz zaplikować zdarzenie pomocy technicznej platformy Azure. Przejdź do [witryny pomocy technicznej systemu Azure](https://azure.microsoft.com/support/options/) i wybierz pozycję **Uzyskaj pomoc techniczną**. Aby uzyskać informacje o korzystaniu z pomocy technicznej platformy Azure, zobacz [często zadawane pytania dotyczące pomocy technicznej w Microsoft Azure](https://azure.microsoft.com/support/faq/).

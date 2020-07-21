@@ -1,6 +1,6 @@
 ---
-title: Wykonywanie zapytania dotyczącego danych w wersji zapoznawczej — Azure Time Series Insights | Microsoft Docs
-description: Omówienie pojęć związanych z wykonywaniem zapytań dotyczących danych i interfejsu API REST protokołu HTTP w programie Azure Time Series Insights Preview.
+title: Wykonywanie zapytania dotyczącego danych — Azure Time Series Insights Gen2 | Microsoft Docs
+description: Omówienie pojęć związanych z wykonywaniem zapytań dotyczących danych i interfejsu API REST w Azure Time Series Insights Gen2.
 author: shreyasharmamsft
 ms.author: shresha
 manager: dpalled
@@ -8,28 +8,28 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 03/25/2020
+ms.date: 07/07/2020
 ms.custom: seodec18
-ms.openlocfilehash: b6da701081f13055aee3dc40eb3712f2ce2aec60
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: a4b969ecbc92df45021b4a9ec711960171d77d4e
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86050106"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86495299"
 ---
-# <a name="data-querying-in-azure-time-series-insights-preview"></a>Wykonywanie zapytań o dane w podglądzie Azure Time Series Insights
+# <a name="querying-data-from-azure-time-series-insights-gen2"></a>Wykonywanie zapytania dotyczącego danych z Azure Time Series Insights Gen2
 
-Azure Time Series Insights umożliwia wykonywanie zapytań dotyczących danych dotyczących zdarzeń i metadanych przechowywanych w środowisku za pośrednictwem publicznych interfejsów API. Te interfejsy API są również używane przez [eksploratora Time Series Insights](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-explorer).
+Azure Time Series Insights Gen2 umożliwia wykonywanie zapytań dotyczących danych dotyczących zdarzeń i metadanych przechowywanych w środowisku za pośrednictwem publicznych interfejsów API. Te interfejsy API są również używane przez [Azure Time Series Insights Eksploratora Gen2](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-explorer).
 
-Trzy podstawowe kategorie interfejsu API są dostępne w Time Series Insights:
+Trzy podstawowe kategorie interfejsu API są dostępne w Azure Time Series Insights Gen2:
 
-* **Interfejsy API środowiska**: te interfejsy API umożliwiają zapytania dotyczące środowiska Time Series Insightsowego. Mogą one służyć do zbierania listy środowisk, do których obiekt wywołujący ma dostęp i metadanych środowiska.
+* **Interfejsy API środowiska**: te interfejsy API umożliwiają zapytania dotyczące środowiska Azure Time Series Insights Gen2. Mogą one służyć do zbierania listy środowisk, do których obiekt wywołujący ma dostęp i metadanych środowiska.
 * **Interfejs szeregów czasowych (TSM-Q) API**: umożliwia tworzenie, odczytywanie, aktualizowanie i usuwanie (CRUD) operacji na metadanych przechowywanych w modelu szeregów czasowych środowiska. Mogą one służyć do uzyskiwania dostępu do wystąpień, typów i hierarchii oraz do ich edycji.
 * **Interfejsy API kwerendy szeregów czasowych (TSQ)**: umożliwiają pobieranie danych telemetrycznych lub zdarzeń, które są rejestrowane przez dostawcę źródłowego i umożliwiają wykonywanie obliczeń i agregacji danych przy użyciu zaawansowanych funkcji skalarnych i agregujących.
 
-Time Series Insights używa rozbudowanego języka wyrażeń opartego na ciągach, czyli [wyrażenia szeregów czasowych (TSX)](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax)dla obliczeń ekspresowych.
+Azure Time Series Insights Gen2 korzysta z zaawansowanego, opartego na ciągach języka wyrażeń, [wyrażenia szeregów czasowych (TSX)](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax), do obliczeń wyrażających w [zmiennych szeregów czasowych](./concepts-variables.md).
 
-## <a name="azure-time-series-insights-core-apis"></a>Podstawowe interfejsy API Azure Time Series Insights
+## <a name="azure-time-series-insights-gen2-apis-overview"></a>Omówienie interfejsów API Azure Time Series Insights Gen2
 
 Obsługiwane są następujące podstawowe interfejsy API.
 
@@ -38,8 +38,8 @@ Obsługiwane są następujące podstawowe interfejsy API.
 ## <a name="environment-apis"></a>Interfejsy API środowiska
 
 * [Interfejs API środowiska Get](https://docs.microsoft.com/rest/api/time-series-insights/management/environments/get)environments: zwraca listę środowisk, do których obiekt wywołujący ma autoryzację dostęp.
-* [Pobierz interfejs API dostępności środowisk](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/getavailability): Zwraca rozkład liczby zdarzeń przez sygnaturę czasową zdarzenia `$ts` . Ten interfejs API pomaga ustalić, czy w środowisku znajdują się jakieś zdarzenia, zwracając liczbę zdarzeń, które zostały podzielone na przedziały czasu (jeśli istnieją).
-* [Pobierz interfejs API schematu zdarzeń](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/geteventschema): zwraca metadane schematu zdarzenia dla danego zakresu wyszukiwania. Ten interfejs API pomaga pobrać wszystkie metadane i właściwości dostępne w schemacie dla danego przedziału wyszukiwania.
+* [Pobierz interfejs API dostępności środowisk](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/getavailability): Zwraca rozkład liczby zdarzeń przez sygnaturę czasową zdarzenia `$ts` . Ten interfejs API pomaga ustalić, czy w środowisku znajdują się jakieś zdarzenia, zwracając liczbę zdarzeń, które zostały podzielone na przedziały czasu (jeśli istnieją).
+* [Pobierz interfejs API schematu zdarzeń](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/geteventschema): zwraca metadane schematu zdarzenia dla danego zakresu wyszukiwania. Ten interfejs API pomaga pobrać wszystkie metadane i właściwości dostępne w schemacie dla danego przedziału wyszukiwania.
 
 ## <a name="time-series-model-query-tsm-q-apis"></a>Model szeregów czasowych — interfejsy API zapytań (TSM-Q)
 
@@ -49,25 +49,27 @@ Większość z tych interfejsów API obsługuje operację wykonywania wsadowego,
 * [Interfejs API](https://docs.microsoft.com/rest/api/time-series-insights/preview#types-api): włącza CRUD w typach szeregów czasowych i skojarzonych z nimi zmiennych.
 * [Interfejs API hierarchii](https://docs.microsoft.com/rest/api/time-series-insights/preview#hierarchies-api): włącza CRUD w hierarchiach szeregów czasowych i skojarzonych z nimi ścieżkach pól.
 * [Interfejs API wystąpień](https://docs.microsoft.com/rest/api/time-series-insights/preview#instances-api): włącza CRUD dla wystąpień szeregów czasowych i skojarzonych z nimi pól wystąpień. Ponadto interfejs API wystąpień obsługuje następujące operacje:
-  * [Wyszukiwanie](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/timeseriesinstances/search): Pobiera częściową listę trafień podczas wyszukiwania wystąpień szeregów czasowych na podstawie atrybutów wystąpienia.
-  * [Sugeruj](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/timeseriesinstances/suggest): wyszukuje i sugeruje częściową listę trafień podczas wyszukiwania wystąpień szeregów czasowych na podstawie atrybutów wystąpienia.
+  * [Wyszukiwanie](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriesinstances/search): Pobiera częściową listę trafień podczas wyszukiwania wystąpień szeregów czasowych na podstawie atrybutów wystąpienia.
+  * [Sugeruj](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriesinstances/suggest): wyszukuje i sugeruje częściową listę trafień podczas wyszukiwania wystąpień szeregów czasowych na podstawie atrybutów wystąpienia.
 
 ## <a name="time-series-query-tsq-apis"></a>Interfejsy API zapytań szeregów czasowych (TSQ)
 
-Te interfejsy API są dostępne we wszystkich sklepach w naszym rozwiązaniu magazynu wielowarstwowego w Time Series Insights. Parametry adresu URL zapytania służą do określania [typu magazynu](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/execute#uri-parameters) , na którym ma zostać wykonane zapytanie:
+Te interfejsy API są dostępne w ramach rozwiązania magazynu wielowarstwowego (grzane i zimne). Parametry adresu URL zapytania służą do określania [typu magazynu](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute#uri-parameters) , na którym ma zostać wykonane zapytanie:
 
-* [Interfejs API pobierania zdarzeń](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/execute#getevents): umożliwia wykonywanie zapytań i pobieranie zdarzeń nieprzetworzonych i skojarzonych sygnatur czasowych zdarzeń, które są rejestrowane w Time Series Insights od dostawcy źródłowego. Ten interfejs API umożliwia pobieranie nieprzetworzonych zdarzeń dla danego identyfikatora szeregów czasowych i zakresu wyszukiwania. Ten interfejs API obsługuje stronicowanie w celu pobrania kompletnego zestawu danych odpowiedzi dla wybranych danych wejściowych. 
+* [Interfejs API pobierania zdarzeń](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute#getevents): umożliwia wykonywanie zapytań i pobieranie zdarzeń nieprzetworzonych i skojarzonych sygnatur czasowych zdarzeń, które są rejestrowane w Azure Time Series Insights Gen2 od dostawcy źródłowego. Ten interfejs API umożliwia pobieranie nieprzetworzonych zdarzeń dla danego identyfikatora szeregów czasowych i zakresu wyszukiwania. Ten interfejs API obsługuje stronicowanie w celu pobrania kompletnego zestawu danych odpowiedzi dla wybranych danych wejściowych. 
 
-* [Pobierz interfejs API serii](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/execute#getseries): umożliwia wykonywanie zapytań i pobieranie wartości obliczanych oraz skojarzonych sygnatur czasowych zdarzeń przez stosowanie obliczeń zdefiniowanych przez zmienne w zdarzeniach nieprzetworzonych. Te zmienne można definiować w modelu szeregów czasowych lub w zapytaniu. Ten interfejs API obsługuje stronicowanie w celu pobrania kompletnego zestawu danych odpowiedzi dla wybranych danych wejściowych. 
+  > [!IMPORTANT]
+  > * W ramach [nadchodzących zmian zasad spłaszczania i ucieczki JSON](https://docs.microsoft.com/azure/time-series-insights/ingestion-rules-update)tablice będą przechowywane jako typ **dynamiczny** . Właściwości ładunku przechowywane jako ten typ są **dostępne tylko za pomocą interfejsu API pobierania zdarzeń**.
 
-* [Interfejs API serii agregujących](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/execute#aggregateseries): umożliwia wykonywanie zapytań i pobieranie zagregowanych wartości oraz skojarzonych sygnatur czasowych interwałów przez stosowanie obliczeń zdefiniowanych przez zmienne dla nieprzetworzonych zdarzeń. Te zmienne można definiować w modelu szeregów czasowych lub w zapytaniu. Ten interfejs API obsługuje stronicowanie w celu pobrania kompletnego zestawu danych odpowiedzi dla wybranych danych wejściowych. 
+* [Pobierz interfejs API serii](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute#getseries): umożliwia wykonywanie zapytań i pobieranie wartości obliczanych oraz skojarzonych sygnatur czasowych zdarzeń przez stosowanie obliczeń zdefiniowanych przez zmienne w zdarzeniach nieprzetworzonych. Te zmienne można definiować w modelu szeregów czasowych lub w zapytaniu. Ten interfejs API obsługuje stronicowanie w celu pobrania kompletnego zestawu danych odpowiedzi dla wybranych danych wejściowych. 
+
+* [Interfejs API serii agregujących](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute#aggregateseries): umożliwia wykonywanie zapytań i pobieranie zagregowanych wartości oraz skojarzonych sygnatur czasowych interwałów przez stosowanie obliczeń zdefiniowanych przez zmienne dla nieprzetworzonych zdarzeń. Te zmienne można definiować w modelu szeregów czasowych lub w zapytaniu. Ten interfejs API obsługuje stronicowanie w celu pobrania kompletnego zestawu danych odpowiedzi dla wybranych danych wejściowych. 
   
-  Dla określonego zakresu wyszukiwania i interwału ten interfejs API zwraca zagregowaną odpowiedź na zmienną dla każdego interwału dla identyfikatora szeregów czasowych. Liczba interwałów w zestawie danych odpowiedzi jest obliczana przez liczenie taktów epoki (liczbę milisekund, które upłynęły od systemu UNIX epoki 1 stycznia 1st, 1970) i dzielenie taktów przez rozmiar zakresu interwału określonego w zapytaniu.
+  Dla określonego przedziału wyszukiwania i interwału ten interfejs API zwraca zagregowaną odpowiedź na interwał dla każdej zmiennej dla identyfikatora szeregów czasowych. Liczba interwałów w zestawie danych odpowiedzi jest obliczana przez liczenie taktów epoki (liczbę milisekund, które upłynęły od systemu UNIX epoki 1 stycznia 1st, 1970) i dzielenie taktów przez rozmiar zakresu interwału określonego w zapytaniu.
 
   Sygnatury czasowe zwracane w zestawie odpowiedzi mają granice interwału po lewej stronie, a nie zdarzenia próbkowane z interwału. 
 
 ## <a name="next-steps"></a>Następne kroki
 
 - Przeczytaj więcej na temat różnych zmiennych, które można zdefiniować w [modelu szeregów czasowych](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-tsm).
-
-- Przeczytaj więcej na temat wykonywania zapytań dotyczących danych w [eksploratorze Time Series Insights](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-explorer).
+- Przeczytaj więcej na temat wykonywania zapytań dotyczących danych w [eksploratorze Azure Time Series Insights Gen2](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-explorer).

@@ -1,17 +1,17 @@
 ---
-title: Tworzenie wystąpienia pamięci podręcznej platformy Azure HPC
-description: Jak utworzyć wystąpienie pamięci podręcznej platformy Azure HPC
+title: Używanie zagregowanej przestrzeni nazw usługi Azure HPC cache
+description: Jak zaplanować wirtualną przestrzeń nazw dla pamięci podręcznej platformy Azure HPC
 author: ekpgh
 ms.service: hpc-cache
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/30/2019
-ms.author: rohogue
-ms.openlocfilehash: be09d8b903d63b9fb2b57f8b9b7486b02a60085c
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.author: v-erkel
+ms.openlocfilehash: c16d2f9e9c94603361d9a096f33d559105f2d28d
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045811"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86497033"
 ---
 # <a name="plan-the-aggregated-namespace"></a>Planowanie zagregowanej przestrzeni nazw
 
@@ -30,7 +30,7 @@ Rozważmy na przykład system, w którym wystąpienie pamięci podręcznej platf
 Dane szablonu są przechowywane w centrum danych, a informacje wymagające tego zadania są przechowywane w następujących podkatalogach:
 
 * */goldline/templates/acme2017/sku798*
-* */goldline/templates/acme2017/sku980* 
+* */goldline/templates/acme2017/sku980*
 
 System magazynu centrum danych ujawnia następujące eksporty:
 
@@ -52,10 +52,10 @@ Obiekt docelowy magazynu NFS może mieć wiele ścieżek przestrzeni nazw wirtua
 
 Ponieważ ścieżki źródłowe NFS są podkatalogami tego samego eksportu, należy zdefiniować wiele ścieżek przestrzeni nazw z tego samego miejsca docelowego magazynu.
 
-| Nazwa hosta docelowego magazynu  | Ścieżka eksportowania NFS      | Ścieżka podkatalogu | Ścieżka przestrzeni nazw    |
-|--------------------------|----------------------|-------------------|-------------------|
-| *Adres IP lub nazwa hosta* | /goldline/templates  | acme2017/sku798   | /templates/sku798 |
-| *Adres IP lub nazwa hosta* | /goldline/templates  | acme2017/sku980   | /templates/sku980 |
+| Nazwa hosta docelowego magazynu  | Ścieżka eksportowania NFS     | Ścieżka podkatalogu | Ścieżka przestrzeni nazw    |
+|--------------------------|---------------------|-------------------|-------------------|
+| *Adres IP lub nazwa hosta* | /goldline/templates | acme2017/sku798   | /templates/sku798 |
+| *Adres IP lub nazwa hosta* | /goldline/templates | acme2017/sku980   | /templates/sku980 |
 
 Aplikacja kliencka może zainstalować pamięć podręczną i łatwo uzyskać dostęp do zagregowanych ścieżek plików przestrzeni nazw, ``/source`` ``/templates/sku798`` i ``/templates/sku980`` .
 

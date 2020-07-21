@@ -12,11 +12,12 @@ ms.reviewer: douglasl
 manager: mflasko
 ms.custom: seo-lt-2019
 ms.date: 07/31/2019
-ms.openlocfilehash: 1d8261d05f59c7f40ba6b1e2d59d2b15ad56de95
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c3163d414e940d843489a34f319996b1b8ed6f4a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84424586"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86497417"
 ---
 # <a name="execute-ssis-packages-in-azure-from-ssdt"></a>Wykonywanie pakietów SSIS na platformie Azure z SSDT
 
@@ -81,6 +82,30 @@ W przypadku istniejących projektów usług SSIS można je włączyć na platfor
    ![Wybieranie pozycji Azure Storage](media/how-to-invoke-ssis-package-ssdt/ssis-in-adf-connection-wizard3.png)
 
 4. Kliknij przycisk **Połącz** , aby zakończyć połączenie.  Zostanie wyświetlone wybrane Azure-SSIS IR i konto usługi Azure Storage w węźle **połączone zasoby platformy Azure** w panelu Eksplorator rozwiązań SSDT.  Odświeżamy również stan Azure-SSIS IR, podczas gdy będzie można nim zarządzać, klikając prawym przyciskiem myszy węzeł, aby wyskakujące menu, a następnie wybierając element menu **Start\Stop\Manage** , który przeprowadzi Cię przez portal/aplikację w celu wykonania tej czynności.
+
+## <a name="assess-ssis-projectpackages-for-executions-in-azure"></a>Ocena project\packages SSIS na potrzeby wykonywania na platformie Azure
+### <a name="assess-ssis-project-or-package"></a>Ocena projektu SSIS lub pakietu
+Przed wykonaniem pakietów na platformie Azure możesz ocenić swój pakiet, aby ocenić, czy istnieje jakikolwiek potencjalny program do migracji lub informacje, których należy wiedzieć. 
+-  Można ocenić wszystkie pakiety w ramach projektu lub pojedynczego pakietu.
+
+   ![Oceń ](media/how-to-invoke-ssis-package-ssdt/ssdt-azure-assess-project.png)
+    ![ pakiet oceny projektu](media/how-to-invoke-ssis-package-ssdt/ssdt-azure-assess-package.png)
+
+-  Możesz uzyskać raport oceny, aby sprawdzić każdy problem z oceną, a każdy problem będzie miał szczegółowy opis i zalecenie. Możesz również wyeksportować raport oceny jako plik CSV. 
+
+   ![Oceń wynik projektu](media/how-to-invoke-ssis-package-ssdt/ssdt-azure-assess-project-result.png)
+
+### <a name="suppress-assessment-rule"></a>Pomiń regułę oceny
+Jeśli masz pewność, że niektóre reguły oceny nie zostały zastosowane do pakietu, możesz je pominąć. 
+-  Możesz bezpośrednio kliknąć link **Konfiguruj pomijanie reguły oceny** w raporcie oceny.
+
+   ![Ustawienia pomijania reguł oceny](media/how-to-invoke-ssis-package-ssdt/ssdt-azure-assessment-rule-suppression-settings.png)
+
+-  Można również skonfigurować za pomocą **ustawień z obsługą platformy Azure**.
+
+   ![Ustawienia z obsługą platformy Azure](media/how-to-invoke-ssis-package-ssdt/ssdt-azure-enabled-azure-enabled-setting.png)
+
+   ![Ustawienia pomijania reguł oceny za pomocą ustawień z obsługą platformy Azure](media/how-to-invoke-ssis-package-ssdt/ssdt-azure-assessment-rule-suppression-settings-via-azure-enabled-settings.png)
 
 ## <a name="execute-ssis-packages-in-azure"></a>Wykonywanie pakietów SSIS na platformie Azure
 ### <a name="azure-enabled-setting"></a>Ustawienie obsługujące platformę Azure
@@ -159,6 +184,9 @@ Aby przełączyć środowiska wykonywania pakietów z projektami z obsługą pla
 6. Wykonaj ten pakiet na platformie Azure. Możesz łatwo przełączyć środowisko z powrotem do lokalnego, przełączając bieżącą konfigurację programu Visual Studio.
 
    ![Przełącz konfigurację programu Visual Studio](media/how-to-invoke-ssis-package-ssdt/ssdt-azure-enabled-example-switch-configurations.png)
+
+## <a name="current-limitations"></a>Bieżące ograniczenia
+-  Ta funkcja SSDT nie obsługuje obecnie chmury krajowej.
 
 ## <a name="next-steps"></a>Następne kroki
 Po upewnieniu się, że pakiety na platformie Azure są zgodne z usługą SSDT, można je wdrożyć i uruchamiać jako działania pakietu SSIS w potokach ADF, zobacz [uruchamianie pakietów SSIS jako działania pakietu SSIS w potokach ADF](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity).

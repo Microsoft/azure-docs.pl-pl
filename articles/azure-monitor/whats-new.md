@@ -6,12 +6,12 @@ ms.topic: overview
 author: bwren
 ms.author: bwren
 ms.date: 07/08/2020
-ms.openlocfilehash: 4d061e7a105fc73f7f44c8336df82ff363ee6ded
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 192219a804365957e9eaa0577019ff18d75861bf
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86203751"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86498512"
 ---
 # <a name="whats-new-in-azure-monitor-documentation"></a>Co nowego w dokumentacji Azure Monitor?
 
@@ -67,21 +67,21 @@ Ten artykuł zawiera listę artykułów Azure Monitor, które są nowe lub zosta
 - [Wyślij dziennik aktywności platformy Azure do log Analytics obszaru roboczego przy użyciu szablonu Azure Resource Manager](learn/quick-collect-activity-log-arm.md) — nowy artykuł.
 
 #### <a name="new-and-updated-articles-from-restructure-and-consolidation-of-platform-log-content"></a>Nowe i zaktualizowane artykuły z przebudowy i konsolidacji zawartości dziennika platformy
-- [Archiwizuj dzienniki zasobów platformy Azure na koncie magazynu](platform/resource-logs-collect-storage.md)
+- [Archiwizuj dzienniki zasobów platformy Azure na koncie magazynu](./platform/resource-logs.md#send-to-azure-storage)
 - [Schemat zdarzeń dziennika aktywności platformy Azure](platform/activity-log-schema.md)
 - [Dziennik aktywności platformy Azure](platform/activity-log.md)
 - [Przykłady interfejsu wiersza polecenia Azure Monitor](samples/cli-samples.md)
 - [Przykłady programu Azure Monitor PowerShell](samples/powershell-samples.md)
 - [Przewodnik po interfejsie API REST usługi Azure Monitoring](platform/rest-api-walkthrough.md)
-- [Obsługiwane usługi i schematy dzienników zasobów platformy Azure](platform/diagnostic-logs-schema.md)
+- [Obsługiwane usługi i schematy dzienników zasobów platformy Azure](./platform/resource-logs-schema.md)
 - [Dzienniki zasobów platformy Azure](platform/resource-logs.md)
-- [Zbieranie i analizowanie dzienników aktywności platformy Azure w Azure Monitor](platform/activity-log-collect.md)
-- [Zbieranie dzienników zasobów platformy Azure w obszarze roboczym Log Analytics](platform/resource-logs-collect-workspace.md)
+- [Zbieranie i analizowanie dzienników aktywności platformy Azure w Azure Monitor](./platform/activity-log.md)
+- [Zbieranie dzienników zasobów platformy Azure w obszarze roboczym Log Analytics](./platform/resource-logs.md#send-to-log-analytics-workspace)
 - [Tworzenie ustawień diagnostycznych w celu wysyłania dzienników platformy i metryk do różnych miejsc docelowych](platform/diagnostic-settings.md)
-- [Eksportowanie dziennika aktywności platformy Azure](platform/activity-log-export.md)
+- [Eksportowanie dziennika aktywności platformy Azure](./platform/activity-log.md#legacy-collection-methods)
 - [Omówienie dzienników platformy Azure](platform/platform-logs-overview.md)
-- [Przesyłanie strumieniowe dzienników platformy Azure do centrum zdarzeń](platform/resource-logs-stream-event-hubs.md)
-- [Wyświetlanie zdarzeń dziennika aktywności platformy Azure w Azure Monitor](platform/activity-log-view.md)
+- [Przesyłanie strumieniowe dzienników platformy Azure do centrum zdarzeń](./platform/resource-logs.md#send-to-azure-event-hubs)
+- [Wyświetlanie zdarzeń dziennika aktywności platformy Azure w Azure Monitor](./platform/activity-log.md#view-the-activity-log)
 
 ### <a name="virtual-machines"></a>Maszyny wirtualne
 - [Włącz Azure monitor dla maszyn wirtualnych w Azure Portal](insights/vminsights-enable-single-vm.md) — zaktualizowano w celu uwzględnienia usługi Azure Arc.
@@ -155,7 +155,7 @@ Ten artykuł zawiera listę artykułów Azure Monitor, które są nowe lub zosta
 
 ### <a name="insights"></a>Insights
 - [Azure monitor dla usługi Azure cache for Redis (wersja zapoznawcza)](insights/redis-cache-insights-overview.md) — nowy artykuł.
-- [Monitoruj Key Vault z Azure monitor do Key Vault (wersja zapoznawcza)](insights/key-vaults-insights-overview.md) — nowy artykuł.
+- [Monitoruj Key Vault z Azure monitor do Key Vault (wersja zapoznawcza)](./insights/key-vault-insights-overview.md) — nowy artykuł.
 
 ### <a name="logs"></a>Dzienniki
 - [Utwórz & skonfiguruj log Analytics przy użyciu](platform/powershell-workspace-configuration.md) sekcji Rozwiązywanie problemów dodanej do programu PowerShell.
@@ -280,7 +280,7 @@ Ten artykuł zawiera listę artykułów Azure Monitor, które są nowe lub zosta
 
 ### <a name="platform-logs"></a>Dzienniki platformy
 
-- [Zbieraj i Analizuj dziennik aktywności platformy Azure w Azure monitor](platform/activity-log-collect.md) — Zapisz ponownie, aby lepiej wyjaśnić zbieranie dziennika aktywności z ustawieniami diagnostycznymi.
+- [Zbieraj i Analizuj dziennik aktywności platformy Azure w Azure monitor](./platform/activity-log.md) — Zapisz ponownie, aby lepiej wyjaśnić zbieranie dziennika aktywności z ustawieniami diagnostycznymi.
 
 ### <a name="virtual-machines"></a>Maszyny wirtualne
 
@@ -326,7 +326,7 @@ Wiele aktualizacji w ramach ponownego zapisywania zawartości rozszerzenia diagn
 
 #### <a name="azure-monitor-for-containers"></a>Usługa Azure Monitor dla kontenerów
 
-- [Integruj Azure Active Directory z usługą Azure Kubernetes Service](../aks/azure-ad-integration.md) — dodano uwagę na potrzeby tworzenia aplikacji klienckiej do obsługi klastra z obsługą RBAC w celu obsługi Azure monitor kontenerów.
+- [Integruj Azure Active Directory z usługą Azure Kubernetes Service](../aks/azure-ad-integration-cli.md) — dodano uwagę na potrzeby tworzenia aplikacji klienckiej do obsługi klastra z obsługą RBAC w celu obsługi Azure monitor kontenerów.
 
 #### <a name="azure-monitor-for-vms"></a>Usługa Azure Monitor dla maszyn wirtualnych
 
@@ -412,8 +412,8 @@ Wiele nowych artykułów do przewodnika po konwersji projektanta widoków na sko
 
 ### <a name="platform-logs"></a>Dzienniki platformy
 
-- [Zbierz dziennik aktywności platformy Azure z ustawieniami diagnostycznymi — Azure monitor](platform/diagnostic-settings-legacy.md) — dodatkowe informacje na temat zmienionych właściwości.
-- [Eksportowanie dziennika aktywności platformy Azure](platform/activity-log-export.md) — zaktualizowano w celu wprowadzenia zmian w interfejsie użytkownika. 
+- [Zbierz dziennik aktywności platformy Azure z ustawieniami diagnostycznymi — Azure monitor](./platform/activity-log.md) — dodatkowe informacje na temat zmienionych właściwości.
+- [Eksportowanie dziennika aktywności platformy Azure](./platform/activity-log.md#legacy-collection-methods) — zaktualizowano w celu wprowadzenia zmian w interfejsie użytkownika. 
 
 ## <a name="december-2019"></a>Grudzień 2019 r.
 
@@ -450,7 +450,7 @@ Wiele nowych artykułów do przewodnika po konwersji projektanta widoków na sko
 
 ### <a name="insights-and-solutions"></a>Szczegółowe informacje i rozwiązania
 
-- [Azure monitor for Containers — często zadawane pytania](insights/container-insights-faq.md) — pytanie dotyczące pól obrazu i nazwy.
+- [Azure monitor for Containers — często zadawane pytania](./faq.md) — pytanie dotyczące pól obrazu i nazwy.
 - [Azure SQL Analytics rozwiązanie w Azure monitor](insights/azure-sql.md) — zaktualizowana baza danych czeka na obsługę wystąpienia zarządzanego.
 - [Skonfiguruj Azure monitor dla ustawienia Dodawanie kolekcji danych agenta kontenerów](insights/container-insights-agent-config.md) dla enrich_container_logs.
 - [Skonfiguruj hybrydowe klastry Kubernetes za pomocą Azure monitor dla kontenerów](insights/container-insights-hybrid-setup.md) — Dodano sekcję rozwiązywania problemów.
@@ -474,19 +474,19 @@ Wiele nowych artykułów do przewodnika po konwersji projektanta widoków na sko
 
 Zaktualizowano wiele artykułów w ramach restrukturyzacji zawartości dla dzienników platformy w oparciu o nową funkcję konfigurowania dziennika aktywności przy użyciu ustawień diagnostycznych.
 
-- [Archiwizuj dzienniki zasobów platformy Azure na koncie magazynu](platform/resource-logs-collect-storage.md)
+- [Archiwizuj dzienniki zasobów platformy Azure na koncie magazynu](./platform/resource-logs.md#send-to-azure-storage)
 - [Schemat zdarzeń dziennika aktywności platformy Azure](platform/activity-log-schema.md)
 - [Limity usługi Azure Monitor](service-limits.md)
-- [Zbieranie i analizowanie dzienników aktywności platformy Azure w obszarze roboczym Log Analytics](platform/activity-log-collect.md)
-- [Zbierz dziennik aktywności platformy Azure przy użyciu ustawień diagnostycznych (wersja zapoznawcza) — Azure Monitor](platform/diagnostic-settings-legacy.md)
+- [Zbieranie i analizowanie dzienników aktywności platformy Azure w obszarze roboczym Log Analytics](./platform/activity-log.md)
+- [Zbierz dziennik aktywności platformy Azure przy użyciu ustawień diagnostycznych (wersja zapoznawcza) — Azure Monitor](./platform/activity-log.md)
 - [Zbieranie dzienników aktywności platformy Azure w obszarze roboczym Log Analytics w ramach dzierżawców platformy Azure](platform/activity-log-collect-tenants.md)
-- [Zbieranie dzienników zasobów platformy Azure w obszarze roboczym Log Analytics](platform/resource-logs-collect-workspace.md)
+- [Zbieranie dzienników zasobów platformy Azure w obszarze roboczym Log Analytics](./platform/resource-logs.md#send-to-log-analytics-workspace)
 - [Tworzenie ustawień diagnostycznych na platformie Azure przy użyciu szablonu Menedżer zasobów](platform/diagnostic-settings-template.md)
 - [Tworzenie ustawień diagnostycznych w celu zbierania dzienników i metryk na platformie Azure](platform/diagnostic-settings.md)
-- [Eksportowanie dziennika aktywności platformy Azure](platform/activity-log-export.md)
+- [Eksportowanie dziennika aktywności platformy Azure](./platform/activity-log.md#legacy-collection-methods)
 - [Omówienie dzienników platformy Azure](platform/platform-logs-overview.md)
 - [Przesyłanie strumieniowe danych monitorowania platformy Azure do centrum zdarzeń](platform/stream-monitoring-data-event-hubs.md)
-- [Przesyłanie strumieniowe dzienników platformy Azure do centrum zdarzeń](platform/resource-logs-stream-event-hubs.md)
+- [Przesyłanie strumieniowe dzienników platformy Azure do centrum zdarzeń](./platform/resource-logs.md#send-to-azure-event-hubs)
 
 ### <a name="quickstarts-and-tutorials"></a>Przewodniki Szybki start i samouczki
 
@@ -494,6 +494,6 @@ Zaktualizowano wiele artykułów w ramach restrukturyzacji zawartości dla dzien
 - [Zbierz dzienniki zasobów z zasobów platformy Azure i Analizuj je za pomocą Azure monitor](learn/tutorial-resource-logs.md) — nowy artykuł.
 - [Monitoruj zasób platformy Azure za pomocą Azure monitor](learn/quick-monitor-azure-resource.md) — nowy artykuł.
    
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 - Jeśli chcesz współtworzyć dokumentację Azure Monitor, zobacz [Przewodnik współautora dokumentów](/contribute/).

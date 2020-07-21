@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/30/2020
-ms.openlocfilehash: 4d89c64b7ceea730dab61ffe1254d838d219b785
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: 14f7b5546d30d98adf4a14408882c972687a2d71
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85971049"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86498801"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Rozwiązanie do zarządzania pakietem Office 365 na platformie Azure (wersja zapoznawcza)
 
@@ -228,7 +228,7 @@ Zostanie wyświetlony monit o podanie poświadczeń. Podaj poświadczenia dla ob
 
 ## <a name="data-collection"></a>Zbieranie danych
 
-Zebranie danych może potrwać kilka godzin. Po rozpoczęciu zbierania pakiet Office 365 wysyła [powiadomienie elementu webhook](https://msdn.microsoft.com/office-365/office-365-management-activity-api-reference#receiving-notifications) z szczegółowymi danymi do Azure monitor przy każdym utworzeniu rekordu. Ten rekord jest dostępny w Azure Monitor w ciągu kilku minut od momentu odebrania.
+Zebranie danych może potrwać kilka godzin. Po rozpoczęciu zbierania pakiet Office 365 wysyła [powiadomienie elementu webhook](/office/office-365-management-api/office-365-management-activity-api-reference#receiving-notifications) z szczegółowymi danymi do Azure monitor przy każdym utworzeniu rekordu. Ten rekord jest dostępny w Azure Monitor w ciągu kilku minut od momentu odebrania.
 
 ## <a name="using-the-solution"></a>Użycie rozwiązania
 
@@ -247,8 +247,8 @@ Na pulpicie nawigacyjnym znajdują się kolumny wymienione w poniższej tabeli. 
 |:--|:--|
 | Operacje | Zawiera informacje o aktywnych użytkownikach ze wszystkich monitorowanych subskrypcji pakietu Office 365. Zobaczysz również liczbę działań, które wystąpiły w czasie.
 | Exchange | Pokazuje podział działań programu Exchange Server, takich jak uprawnienie Dodawanie-Skrzynka pocztowa, lub ustawienie-Skrzynka pocztowa. |
-| SharePoint | Przedstawia najważniejsze działania wykonywane przez użytkowników w dokumentach programu SharePoint. Podczas przechodzenia do szczegółów z tego kafelka na stronie wyszukiwania są wyświetlane szczegółowe informacje o tych działaniach, takie jak dokument docelowy i lokalizacja tego działania. Na przykład dla zdarzenia, do którego jest uzyskiwany dostęp do pliku, będzie można wyświetlić dokument, do którego jest uzyskiwany dostęp, jego nazwę skojarzonego konta i adres IP. |
-| Usługa Azure Active Directory | Obejmuje działania najważniejszych użytkowników, takie jak resetowanie hasła użytkownika i logowania. Po przejściu do szczegółów będzie można zobaczyć szczegóły tych działań, jak w przypadku stanu wyniku. Jest to szczególnie przydatne, jeśli chcesz monitorować podejrzane działania na Azure Active Directory. |
+| Program SharePoint | Przedstawia najważniejsze działania wykonywane przez użytkowników w dokumentach programu SharePoint. Podczas przechodzenia do szczegółów z tego kafelka na stronie wyszukiwania są wyświetlane szczegółowe informacje o tych działaniach, takie jak dokument docelowy i lokalizacja tego działania. Na przykład dla zdarzenia, do którego jest uzyskiwany dostęp do pliku, będzie można wyświetlić dokument, do którego jest uzyskiwany dostęp, jego nazwę skojarzonego konta i adres IP. |
+| Azure Active Directory | Obejmuje działania najważniejszych użytkowników, takie jak resetowanie hasła użytkownika i logowania. Po przejściu do szczegółów będzie można zobaczyć szczegóły tych działań, jak w przypadku stanu wyniku. Jest to szczególnie przydatne, jeśli chcesz monitorować podejrzane działania na Azure Active Directory. |
 
 
 
@@ -265,14 +265,14 @@ Następujące właściwości są wspólne dla wszystkich rekordów pakietu Offic
 |:--- |:--- |
 | Typ | *Pakiet Office* |
 | ClientIP | Adres IP urządzenia, które było używane podczas zarejestrowania działania. Adres IP jest wyświetlany w formacie IPv4 lub IPv6. |
-| OfficeWorkload | Usługa Office 365, do której odwołuje się rekord.<br><br>Usługi azureactivedirectory<br>Exchange<br>SharePoint|
+| OfficeWorkload | Usługa Office 365, do której odwołuje się rekord.<br><br>Usługi azureactivedirectory<br>Exchange<br>Program SharePoint|
 | Operacja | Nazwa działania użytkownika lub administratora.  |
 | OrganizationId | Identyfikator GUID dzierżawy pakietu Office 365 w organizacji. Ta wartość będzie zawsze taka sama dla organizacji, niezależnie od usługi Office 365, w której występuje. |
 | RecordType | Typ wykonywanej operacji. |
 | ResultStatus | Wskazuje, czy akcja (określona we właściwości Operation) zakończyła się powodzeniem. Możliwe wartości to sukces, PartiallySucceeded lub niepowodzenie. W przypadku działania administracyjnego programu Exchange wartością jest true lub false. |
 | UserId | Nazwa UPN użytkownika, który wykonał akcję, która spowodowała zarejestrowanie rekordu; na przykład my_name@my_domain_name . Należy pamiętać, że rekordy dla działania wykonywanego przez konta systemu (takie jak SHAREPOINT\system lub systemowe NTAUTHORITY\SYSTEM) również są uwzględnione. | 
 | UserKey | Alternatywny identyfikator użytkownika zidentyfikowany we właściwości UserId.  Na przykład ta właściwość jest wypełniana unikatowym IDENTYFIKATORem (PUID) usługi Passport dla zdarzeń wykonywanych przez użytkowników w usługach SharePoint, OneDrive dla firm i Exchange. Ta właściwość może również określać taką samą wartość jak Właściwość UserID dla zdarzeń występujących w innych usługach i zdarzeń wykonywanych przez konta systemowe|
-| UserType | Typ użytkownika, który wykonał operację.<br><br>Administrator<br>Aplikacja<br>DcAdmin<br>Zwykłe<br>Zarezerwowano<br>ServicePrincipal<br>System |
+| UserType | Typ użytkownika, który wykonał operację.<br><br>Administrator<br>Aplikacja<br>DcAdmin<br>Zwykły<br>Zarezerwowany<br>ServicePrincipal<br>System |
 
 
 ### <a name="azure-active-directory-base"></a>Baza Azure Active Directory
@@ -301,7 +301,7 @@ Te rekordy są tworzone, gdy użytkownik Active Directory próbuje się zalogowa
 | `UserDomain` | Informacje o tożsamości dzierżawy (TII). | 
 
 
-### <a name="azure-active-directory"></a>Usługa Azure Active Directory
+### <a name="azure-active-directory"></a>Azure Active Directory
 
 Te rekordy są tworzone w przypadku wprowadzenia zmian lub uzupełnień do Azure Active Directory obiektów.
 
@@ -310,7 +310,7 @@ Te rekordy są tworzone w przypadku wprowadzenia zmian lub uzupełnień do Azure
 | OfficeWorkload | Usługi azureactivedirectory |
 | RecordType     | Usługi azureactivedirectory |
 | AADTarget | Użytkownik wykonał akcję (identyfikowaną przez właściwość operacji). |
-| Zewnętrzny | Nazwa główna użytkownika lub usługi, która wykonał akcję. |
+| Aktor | Nazwa główna użytkownika lub usługi, która wykonał akcję. |
 | ActorContextId | Identyfikator GUID organizacji, do której należy aktor. |
 | ActorIpAddress | Adres IP aktora w formacie adresu IPV4 lub IPV6. |
 | InterSystemsId | Identyfikator GUID, który śledzi akcje między składnikami w ramach usługi Office 365. |
@@ -413,8 +413,8 @@ Te właściwości są wspólne dla wszystkich rekordów programu SharePoint.
 
 | Właściwość | Opis |
 |:--- |:--- |
-| OfficeWorkload | SharePoint |
-| OfficeWorkload | SharePoint |
+| OfficeWorkload | Program SharePoint |
+| OfficeWorkload | Program SharePoint |
 | EventSource | Wskazuje, że zdarzenie wystąpiło w programie SharePoint. Możliwe wartości to SharePoint lub ObjectModel. |
 | ItemType | Typ obiektu, do którego uzyskano dostęp lub zmodyfikowany. Zobacz tabelę ItemType, aby uzyskać szczegółowe informacje na temat typów obiektów. |
 | MachineDomainInfo | Informacje o operacjach synchronizacji urządzeń. Te informacje są raportowane tylko wtedy, gdy znajdują się w żądaniu. |
@@ -430,8 +430,8 @@ Te rekordy są tworzone po wprowadzeniu zmian w konfiguracji programu SharePoint
 
 | Właściwość | Opis |
 |:--- |:--- |
-| OfficeWorkload | SharePoint |
-| OfficeWorkload | SharePoint |
+| OfficeWorkload | Program SharePoint |
+| OfficeWorkload | Program SharePoint |
 | CustomEvent | Opcjonalny ciąg dla zdarzeń niestandardowych. |
 | Event_Data |     Opcjonalny ładunek dla zdarzeń niestandardowych. |
 | ModifiedProperties | Właściwość jest uwzględniana dla zdarzeń administracyjnych, takich jak dodanie użytkownika jako członka lokacji lub grupy administratorów kolekcji witryn. Właściwość zawiera nazwę zmodyfikowanej właściwości (na przykład grupy administratorów lokacji), nową wartość zmodyfikowanej właściwości (takiego użytkownika, który został dodany jako administrator lokacji) i poprzednią wartość zmodyfikowanego obiektu. |
@@ -443,7 +443,7 @@ Te rekordy są tworzone w odpowiedzi na operacje na plikach w programie SharePoi
 
 | Właściwość | Opis |
 |:--- |:--- |
-| OfficeWorkload | SharePoint |
+| OfficeWorkload | Program SharePoint |
 | OfficeWorkload | SharePointFileOperation |
 | DestinationFileExtension | Rozszerzenie pliku, który jest kopiowany lub przenoszony. Ta właściwość jest wyświetlana tylko dla zdarzeń FileCopied i FileMoved. |
 | DestinationFileName | Nazwa pliku, który jest kopiowany lub przenoszony. Ta właściwość jest wyświetlana tylko dla zdarzeń FileCopied i FileMoved. |

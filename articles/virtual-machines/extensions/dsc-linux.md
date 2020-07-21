@@ -13,18 +13,19 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: robreed
-ms.openlocfilehash: 2f04b5ecb2019a77bbb38e97c3869cc0a9447955
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a33d74c01771c2b60ac8667a1494ebe80271a8ac
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84698516"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86494789"
 ---
 # <a name="dsc-extension-for-linux-microsoftostcextensionsdscforlinux"></a>Rozszerzenie DSC dla systemu Linux (Microsoft. OSTCExtensions. DSCForLinux)
 
 Konfiguracja żądanego stanu (DSC) to platforma zarządzania, za pomocą której można zarządzać infrastrukturą IT i platformą programistyczną przy użyciu konfiguracji jako kodu.
 
 > [!NOTE]
-> Rozszerzenie DSC dla systemu Linux i [rozszerzenie maszyny wirtualnej Azure monitor dla systemu Linux](/azure/virtual-machines/extensions/oms-linux) obecnie stanowią konflikt i nie są obsługiwane w konfiguracji równoległej. Nie używaj obu rozwiązań jednocześnie na tej samej maszynie wirtualnej.
+> Rozszerzenie DSC dla systemu Linux i [rozszerzenie maszyny wirtualnej Azure monitor dla systemu Linux](./oms-linux.md) obecnie stanowią konflikt i nie są obsługiwane w konfiguracji równoległej. Nie używaj obu rozwiązań jednocześnie na tej samej maszynie wirtualnej.
 
 Rozszerzenie DSCForLinux jest publikowane i obsługiwane przez firmę Microsoft. Rozszerzenie instaluje agenta OMI i DSC na maszynach wirtualnych platformy Azure. Rozszerzenie DSC może również wykonywać następujące czynności:
 
@@ -41,7 +42,7 @@ Rozszerzenie DSCForLinux jest publikowane i obsługiwane przez firmę Microsoft.
 
 ### <a name="operating-system"></a>System operacyjny
 
-Rozszerzenie DSC Linux obsługuje wszystkie [dystrybucje systemu Linux zatwierdzone na platformie Azure](/azure/virtual-machines/linux/endorsed-distros) z wyjątkiem:
+Rozszerzenie DSC Linux obsługuje wszystkie [dystrybucje systemu Linux zatwierdzone na platformie Azure](../linux/endorsed-distros.md) z wyjątkiem:
 
 | Dystrybucja | Wersja |
 |---|---|

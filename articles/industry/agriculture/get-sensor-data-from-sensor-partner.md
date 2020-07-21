@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 113ab07af8ada16c0779da510c5f5b1f1f5a290b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 707b432a4cb3918aa2dfbe460fc3cdcd53761bf1
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80398234"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86497084"
 ---
 # <a name="get-sensor-data-from-sensor-partners"></a>Pobierz dane czujnika z partnerów czujników
 
@@ -66,7 +66,13 @@ Wykonaj poniższe kroki, aby wygenerować powyższe informacje:
     cd  
     ```
 
-6. Uruchom następujące polecenie. Spowoduje to pobranie skryptu do katalogu macierzystego.
+6. Uruchom następujące polecenie. Spowoduje to połączenie uwierzytelnionego konta do użycia na potrzeby żądań usługi Azure AD
+
+    ```azurepowershell-interactive 
+    Connect-AzureAD
+    ```
+    
+7. Uruchom następujące polecenie. Spowoduje to pobranie skryptu do katalogu macierzystego.
 
     ```azurepowershell-interactive 
 
@@ -74,7 +80,7 @@ Wykonaj poniższe kroki, aby wygenerować powyższe informacje:
 
     ```
 
-7. Uruchom następujący skrypt. Skrypt monituje o podanie identyfikatora dzierżawy, który można uzyskać ze **Azure Active Directory**  >  strony**Przegląd** Azure Active Directory.
+8. Uruchom poniższy skrypt. Skrypt monituje o podanie identyfikatora dzierżawy, który można uzyskać ze **Azure Active Directory**  >  strony**Przegląd** Azure Active Directory.
 
     ```azurepowershell-interactive 
 
@@ -82,7 +88,7 @@ Wykonaj poniższe kroki, aby wygenerować powyższe informacje:
 
     ```
 
-8. Postępuj zgodnie z instrukcjami na ekranie, aby przechwycić wartości dla **punktów końcowych interfejsu API**, **identyfikatora dzierżawy**, **identyfikatora klienta**, **klucza tajnego klienta**i **parametrów połączenia centrum EventHub**.
+9. Postępuj zgodnie z instrukcjami na ekranie, aby przechwycić wartości dla **punktów końcowych interfejsu API**, **identyfikatora dzierżawy**, **identyfikatora klienta**, **klucza tajnego klienta**i **parametrów połączenia centrum EventHub**.
 
 ### <a name="integrate-device-data-by-using-the-generated-credentials"></a>Integrowanie danych urządzenia przy użyciu wygenerowanych poświadczeń
 

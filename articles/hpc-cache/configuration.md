@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 05/06/2020
 ms.author: v-erkel
-ms.openlocfilehash: 88aea7e58aacd9a630771948c6dbc6ed5712a674
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b01c4d896d5ec600e0fe22e3ca7b7816141776a4
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85505311"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86497203"
 ---
 # <a name="configure-additional-azure-hpc-cache-settings"></a>Skonfiguruj dodatkowe ustawienia pamięci podręcznej platformy Azure HPC
 
@@ -51,7 +51,7 @@ Po włączeniu elementu głównego squash użytkownicy root z klienta są automa
 
 Jeśli główny squash jest wyłączony, żądanie od użytkownika głównego klienta (UID 0) jest przenoszona do systemu magazynu w pamięci podręcznej systemu plików NFS jako element główny. Ta konfiguracja może umożliwić niewłaściwy dostęp do pliku.
 
-Ustawienie głównego squash w pamięci podręcznej może pomóc w zrekompensowaniu wymaganego ``no_root_squash`` Ustawienia w systemach nas, które są używane jako obiekty docelowe magazynu. (Dowiedz się więcej o [wymaganiach wstępnych dotyczących magazynu NFS](hpc-cache-prereqs.md#nfs-storage-requirements)). Może również zwiększyć bezpieczeństwo, gdy jest używany z obiektami docelowymi usługi Azure Blob Storage.
+Ustawienie głównego squash w pamięci podręcznej może pomóc w zrekompensowaniu wymaganego ``no_root_squash`` Ustawienia w systemach nas, które są używane jako obiekty docelowe magazynu. (Dowiedz się więcej o [wymaganiach wstępnych dotyczących magazynu NFS](hpc-cache-prerequisites.md#nfs-storage-requirements)). Może również zwiększyć bezpieczeństwo, gdy jest używany z obiektami docelowymi usługi Azure Blob Storage.
 
 Ustawieniem domyślnym jest **tak**. (Pamięć podręczna utworzona przed 2020 kwietnia może mieć ustawienie domyślne **nie**.)
 

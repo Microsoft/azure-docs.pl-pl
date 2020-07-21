@@ -1,14 +1,14 @@
 ---
 title: Najlepsze rozwiązania
 description: Poznaj najlepsze rozwiązania i przydatne porady dotyczące tworzenia rozwiązań Azure Batch.
-ms.date: 06/22/2020
+ms.date: 07/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: 7a66fb383195a7de347b5e6ce83ad89fa3706e96
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 32610f54cc41bd5d7feb965b9a82903acc23c33c
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85954153"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86497781"
 ---
 # <a name="azure-batch-best-practices"></a>Azure Batch najlepszych praktyk
 
@@ -146,6 +146,10 @@ Rozgałęzienia katalogów, czasami nazywane twardymi łączami katalogów, są 
 ### <a name="collect-the-batch-agent-logs"></a>Zbierz dzienniki agentów wsadowych
 
 Jeśli zauważysz problem związany z zachowaniem węzła lub zadań uruchomionych w węźle, Zbierz dzienniki agentów wsadowych przed cofnięciem przydziału danego węzła. Dzienniki agenta usługi Batch można zbierać przy użyciu interfejsu API przekazywania dzienników usług Batch. Te dzienniki mogą być dostarczane do firmy Microsoft jako część biletu pomocy technicznej i mogą pomóc w rozwiązywaniu problemów z rozwiązaniem.
+
+### <a name="manage-os-upgrades"></a>Zarządzanie uaktualnieniami systemu operacyjnego
+
+W przypadku kont usługi Batch w trybie subskrypcji użytkownika zautomatyzowane uaktualnienia systemu operacyjnego mogą przerwać postęp zadania, zwłaszcza jeśli zadania są długotrwałe. [Kompilowanie zadań idempotentne](#build-durable-tasks) może pomóc w zmniejszeniu błędów spowodowanych przez te przerwy. Zalecamy również [Planowanie uaktualnień obrazów systemu operacyjnego przez czas, w którym zadania nie są oczekiwane](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md#manually-trigger-os-image-upgrades).
 
 ## <a name="isolation-security"></a>Zabezpieczenia izolacji
 
