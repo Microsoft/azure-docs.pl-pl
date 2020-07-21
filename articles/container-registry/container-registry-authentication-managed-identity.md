@@ -3,12 +3,12 @@ title: Uwierzytelnianie przy użyciu tożsamości zarządzanej
 description: Zapewnianie dostępu do obrazów w prywatnym rejestrze kontenera przy użyciu przypisanej do użytkownika lub zarządzanej tożsamości platformy Azure przypisanej do systemu.
 ms.topic: article
 ms.date: 01/16/2019
-ms.openlocfilehash: d3a1f0f9c9e814cabaa205fbb0abf05333fd6daf
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: e5fd8ead989838c0ba74b42a9766bc63936379fa
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259092"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537905"
 ---
 # <a name="use-an-azure-managed-identity-to-authenticate-to-an-azure-container-registry"></a>Uwierzytelnianie w usłudze Azure Container Registry za pomocą tożsamości zarządzanej platformy Azure 
 
@@ -79,6 +79,7 @@ ssh azureuser@publicIpAddress
 Uruchom następujące polecenie, aby zainstalować platformę Docker na maszynie wirtualnej:
 
 ```bash
+sudo apt update
 sudo apt install docker.io -y
 ```
 

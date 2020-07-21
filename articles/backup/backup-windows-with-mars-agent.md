@@ -3,11 +3,12 @@ title: Tworzenie kopii zapasowych maszyn z systemem Windows przy użyciu agenta 
 description: Użyj agenta Microsoft Azure Recovery Services (MARS) do tworzenia kopii zapasowych maszyn z systemem Windows.
 ms.topic: conceptual
 ms.date: 03/03/2020
-ms.openlocfilehash: 4f0e605185be6db8629144e05f5f39309a3831ec
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 34fa0906ec63eb51d37c192f9dadddc57dbf1cdf
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85604849"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538636"
 ---
 # <a name="back-up-windows-server-files-and-folders-to-azure"></a>Tworzenie kopii zapasowych plików i folderów systemu Windows Server na platformie Azure
 
@@ -52,7 +53,7 @@ Aby utworzyć nowe zasady kopii zapasowych:
     ![Wybierz elementy do utworzenia kopii zapasowej](./media/backup-azure-manage-mars/selected-items-to-backup.png)
 
 1. Na stronie **Wybierz elementy do utworzenia kopii zapasowej** wybierz pozycję **dalej**.
-1. Na stronie **Określanie harmonogramu tworzenia kopii zapasowych** Określ, kiedy mają być wykonywane codziennie lub cotygodniowe kopie zapasowe. Następnie wybierz pozycję **Dalej**.
+1. Na stronie **Określanie harmonogramu tworzenia kopii zapasowych** Określ, kiedy mają być wykonywane codziennie lub cotygodniowe kopie zapasowe. Następnie wybierz przycisk **Dalej**.
 
     * Punkt odzyskiwania jest tworzony podczas tworzenia kopii zapasowej.
     * Liczba punktów odzyskiwania utworzonych w danym środowisku zależy od harmonogramu tworzenia kopii zapasowych.
@@ -64,7 +65,7 @@ Aby utworzyć nowe zasady kopii zapasowych:
 
         ![Konfigurowanie tygodniowego harmonogramu tworzenia kopii zapasowych](./media/backup-configure-vault/week-schedule.png)
 
-1. Na stronie **Wybierz zasady przechowywania** Określ, w jaki sposób mają być przechowywane historyczne kopie danych. Następnie wybierz pozycję **Dalej**.
+1. Na stronie **Wybierz zasady przechowywania** Określ, w jaki sposób mają być przechowywane historyczne kopie danych. Następnie wybierz przycisk **Dalej**.
 
     * Ustawienia przechowywania określają, które punkty odzyskiwania mają być przechowywane i jak długo mają być przechowywane.
     * W przypadku ustawienia przechowywania dziennego należy wskazać, że w określonym czasie przechowywania najnowszy punkt odzyskiwania zostanie zachowany przez określoną liczbę dni. Można też określić miesięczne zasady przechowywania, aby wskazać, że punkt odzyskiwania utworzony na 30. każdy miesiąc powinien być przechowywany przez 12 miesięcy.
@@ -103,7 +104,7 @@ Aby wykonać transfer w trybie offline:
 1. Zapisz dane kopii zapasowej w lokalizacji tymczasowej.
 1. Użyj narzędzia AzureOfflineBackupDiskPrep, aby skopiować dane z lokalizacji tymczasowej do co najmniej jednego dysku SATA.
 
-    Narzędzie tworzy zadanie importu platformy Azure. Aby uzyskać więcej informacji, zobacz [co to jest usługa Azure Import/Export](https://docs.microsoft.com/azure/storage/common/storage-import-export-service).
+    Narzędzie tworzy zadanie importu platformy Azure. Aby uzyskać więcej informacji, zobacz [co to jest usługa Azure Import/Export](../storage/common/storage-import-export-service.md).
 1. Wyślij dyski SATA do centrum danych platformy Azure.
 
     W centrum danych dane dysku są kopiowane na konto usługi Azure Storage. Azure Backup kopiuje dane z konta magazynu do magazynu, a przyrostowe kopie zapasowe są zaplanowane.
@@ -114,7 +115,7 @@ Aby uzyskać więcej informacji na temat umieszczania w trybie offline, zobacz [
 
 Można kontrolować sposób, w jaki Agent MARS używa przepustowości sieci przez włączenie ograniczania przepustowości sieci. Ograniczanie przepustowości jest przydatne, jeśli trzeba utworzyć kopię zapasową danych w godzinach pracy, ale chcesz kontrolować, ile przepustowości używa działanie tworzenia kopii zapasowej i przywracania.
 
-Funkcja ograniczania sieci w Azure Backup używa [Quality of Service (QoS)](https://docs.microsoft.com/windows-server/networking/technologies/qos/qos-policy-top) w lokalnym systemie operacyjnym.
+Funkcja ograniczania sieci w Azure Backup używa [Quality of Service (QoS)](/windows-server/networking/technologies/qos/qos-policy-top) w lokalnym systemie operacyjnym.
 
 Ograniczanie sieci dla kopii zapasowych jest dostępne w systemie Windows Server 2012 lub nowszym oraz w systemie Windows 8 i nowszych. Systemy operacyjne powinny mieć zainstalowane najnowsze dodatki Service Pack.
 

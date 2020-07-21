@@ -3,12 +3,12 @@ title: Pobieranie parametrów połączenia — Event Hubs platformy Azure | Micr
 description: Ten artykuł zawiera instrukcje dotyczące uzyskiwania parametrów połączenia, które mogą być używane przez klientów do łączenia się z usługą Azure Event Hubs.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 271d4dcc1f2fab08dc7f625ce36e021eda225b87
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5ae6c66ddbbf4b9946e7037e1a7723043bf60507
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85320497"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537194"
 ---
 # <a name="get-an-event-hubs-connection-string"></a>Pobierz parametry połączenia Event Hubs
 
@@ -73,5 +73,5 @@ Aby uzyskać więcej informacji na temat poleceń interfejsu wiersza polecenia p
 
 Następujące linki pozwalają dowiedzieć się więcej na temat usługi Event Hubs:
 
-* [Przegląd usługi Event Hubs](event-hubs-what-is-event-hubs.md)
+* [Przegląd usługi Event Hubs](./event-hubs-about.md)
 * [Tworzenie centrum zdarzeń](event-hubs-create.md)

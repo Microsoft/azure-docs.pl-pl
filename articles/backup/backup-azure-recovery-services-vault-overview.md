@@ -3,11 +3,12 @@ title: Omówienie magazynów usługi Recovery Services
 description: Omówienie i porównanie między magazynami Recovery Services i magazynami Azure Backup.
 ms.topic: conceptual
 ms.date: 08/10/2018
-ms.openlocfilehash: 798f49629ad1012e8cc9ac3ed43f5beddd6eefeb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 11a218badfab141c41430c3f48a5e930bfa1af8b
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84248910"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539044"
 ---
 # <a name="recovery-services-vaults-overview"></a>Przegląd magazynów usługi Recovery Services
 
@@ -35,9 +36,9 @@ Magazyny Recovery Services opierają się na Azure Resource Manager modelu platf
 
 Magazyn Recovery Services jest jednostką, która przechowuje kopie zapasowe i punkty odzyskiwania utworzone w czasie. Magazyn Recovery Services zawiera również zasady tworzenia kopii zapasowych, które są skojarzone z chronionymi maszynami wirtualnymi.
 
-Azure Backup automatycznie obsługuje magazyn dla magazynu. Zobacz, jak [można zmienić ustawienia magazynu](https://docs.microsoft.com/azure/backup/backup-create-rs-vault#set-storage-redundancy).
+Azure Backup automatycznie obsługuje magazyn dla magazynu. Zobacz, jak [można zmienić ustawienia magazynu](./backup-create-rs-vault.md#set-storage-redundancy).
 
-Aby dowiedzieć się więcej o nadmiarowości magazynu, zapoznaj się z tymi artykułami dotyczącymi nadmiarowości [geograficznej](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs) i [lokalnej](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs) .
+Aby dowiedzieć się więcej o nadmiarowości magazynu, zapoznaj się z tymi artykułami dotyczącymi nadmiarowości [geograficznej](../storage/common/storage-redundancy.md) i [lokalnej](../storage/common/storage-redundancy.md) .
 
 ## <a name="managing-your-recovery-services-vaults-in-the-portal"></a>Zarządzanie magazynami Recovery Services w portalu
 
@@ -61,7 +62,7 @@ Poniższe sekcje zawierają linki do artykułów, które wyjaśniają, jak używ
 ### <a name="back-up-data"></a>Tworzenie kopii zapasowej danych
 
 - [Tworzenie kopii zapasowej maszyny wirtualnej platformy Azure](backup-azure-vms-first-look-arm.md)
-- [Tworzenie kopii zapasowej systemu Windows Server lub stacji roboczej systemu Windows](backup-try-azure-backup-in-10-mins.md)
+- [Tworzenie kopii zapasowej systemu Windows Server lub stacji roboczej systemu Windows](./backup-windows-with-mars-agent.md)
 - [Tworzenie kopii zapasowych obciążeń programu DPM na platformie Azure](backup-azure-dpm-introduction.md)
 - [Przygotowanie do tworzenia kopii zapasowych obciążeń przy użyciu Azure Backup Server](backup-azure-microsoft-azure-backup.md)
 
@@ -81,9 +82,9 @@ Poniższe sekcje zawierają linki do artykułów, które wyjaśniają, jak używ
 
 ## <a name="azure-advisor"></a>Azure Advisor
 
-[Azure Advisor](https://docs.microsoft.com/azure/advisor/) to spersonalizowany konsultant ds. chmury, który pomaga zoptymalizować korzystanie z platformy Azure. Analizuje ona użycie platformy Azure i oferuje terminowe zalecenia ułatwiające optymalizację i zabezpieczenie wdrożeń. Zawiera zalecenia w czterech kategoriach: wysoka dostępność, bezpieczeństwo, wydajność i koszt.
+[Azure Advisor](../advisor/index.yml) to spersonalizowany konsultant ds. chmury, który pomaga zoptymalizować korzystanie z platformy Azure. Analizuje ona użycie platformy Azure i oferuje terminowe zalecenia ułatwiające optymalizację i zabezpieczenie wdrożeń. Zawiera zalecenia w czterech kategoriach: wysoka dostępność, bezpieczeństwo, wydajność i koszt.
 
-Azure Advisor zawiera co godzinę [zalecenia](https://docs.microsoft.com/azure/advisor/advisor-high-availability-recommendations#protect-your-virtual-machine-data-from-accidental-deletion) dotyczące maszyn wirtualnych, których kopie zapasowe nie są tworzone, dlatego nie można pominąć tworzenia kopii zapasowych ważnych maszyn wirtualnych. Możesz również kontrolować zalecenia, je.  Możesz kliknąć rekomendację i włączyć tworzenie kopii zapasowych na maszynach wirtualnych w wierszu, określając magazyn (w którym będą przechowywane kopie zapasowe) i zasady tworzenia kopii zapasowych (harmonogram tworzenia kopii zapasowych i ich przechowywania).
+Azure Advisor zawiera co godzinę [zalecenia](../advisor/advisor-high-availability-recommendations.md#protect-your-virtual-machine-data-from-accidental-deletion) dotyczące maszyn wirtualnych, których kopie zapasowe nie są tworzone, dlatego nie można pominąć tworzenia kopii zapasowych ważnych maszyn wirtualnych. Możesz również kontrolować zalecenia, je.  Możesz kliknąć rekomendację i włączyć tworzenie kopii zapasowych na maszynach wirtualnych w wierszu, określając magazyn (w którym będą przechowywane kopie zapasowe) i zasady tworzenia kopii zapasowych (harmonogram tworzenia kopii zapasowych i ich przechowywania).
 
 ![Azure Advisor](./media/backup-azure-recovery-services-vault-overview/azure-advisor.png)
 

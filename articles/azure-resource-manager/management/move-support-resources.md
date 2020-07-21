@@ -2,13 +2,13 @@
 title: Obsługa operacji przenoszenia według typu zasobu
 description: Wyświetla listę typów zasobów platformy Azure, które można przenieść do nowej grupy zasobów lub subskrypcji.
 ms.topic: conceptual
-ms.date: 06/15/2020
-ms.openlocfilehash: 785243676040fc86d42e3125684239ebe6da2061
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.date: 07/13/2020
+ms.openlocfilehash: 7b7f6f05c9cae80cffb64245a3fc8a6b0890d577
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134667"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539231"
 ---
 # <a name="move-operation-support-for-resources"></a>Obsługa operacji przenoszenia dla zasobów
 
@@ -85,7 +85,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > - [Microsoft. DBforPostgreSQL](#microsoftdbforpostgresql)
 > - [Microsoft. Deploymentmanager](#microsoftdeploymentmanager)
 > - [Microsoft. DesktopVirtualization](#microsoftdesktopvirtualization)
-> - [Microsoft. urządzenia](#microsoftdevices)
+> - [Microsoft.Devices](#microsoftdevices)
 > - [Microsoft. DevOps](#microsoftdevops)
 > - [Microsoft. DevSpaces](#microsoftdevspaces)
 > - [Microsoft. wspólny](#microsoftdevtestlab)
@@ -146,7 +146,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > - [Microsoft. OperationalInsights](#microsoftoperationalinsights)
 > - [Microsoft. OperationsManagement](#microsoftoperationsmanagement)
 > - [Microsoft. Komunikacja równorzędna](#microsoftpeering)
-> - [Microsoft.PolicyInsights](#microsoftpolicyinsights)
+> - [Microsoft. PolicyInsights](#microsoftpolicyinsights)
 > - [Microsoft. Portal](#microsoftportal)
 > - [Microsoft. PowerBI](#microsoftpowerbi)
 > - [Microsoft. PowerBIDedicated](#microsoftpowerbidedicated)
@@ -1395,7 +1395,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | operacje | Nie | Nie |
 > | obszary robocze | Tak | Tak |
 
-## <a name="microsoftdevices"></a>Microsoft. urządzenia
+## <a name="microsoftdevices"></a>Microsoft.Devices
 
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Grupa zasobów | Subskrypcja |
@@ -2188,7 +2188,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | Lokalizacje/użycia | Nie | Nie |
 > | Lokalizacje/validateresourceownership | Nie | Nie |
 > | Lokalizacje/virtualnetworkavailableendpointservices | Nie | Nie |
-> | natgateways | Tak | Tak |
+> | natgateways | Nie | Nie |
 > | networkexperimentprofiles | Nie | Nie |
 > | networkintentpolicies | Tak | Tak |
 > | networkinterfaces | Tak | Tak |
@@ -2322,7 +2322,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | peeringserviceproviders | Nie | Nie |
 > | peeringservices | Nie | Nie |
 
-## <a name="microsoftpolicyinsights"></a>Microsoft.PolicyInsights
+## <a name="microsoftpolicyinsights"></a>Microsoft. PolicyInsights
 
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Grupa zasobów | Subskrypcja |

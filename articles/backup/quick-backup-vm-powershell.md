@@ -5,16 +5,16 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 04/16/2019
 ms.custom: mvc
-ms.openlocfilehash: 8021ca553a1434c891bee911e85d351c61938594
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: fa190c670c5bdcae8bcb31d2b8d5d9bd011acae9
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74171957"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538585"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-powershell"></a>Tworzenie kopii zapasowej maszyny wirtualnej za pomocą programu PowerShell
 
-[Azure POWERSHELL AZ](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-1.4.0) module służy do tworzenia zasobów platformy Azure i zarządzania nimi z poziomu wiersza polecenia lub skryptów.
+[Azure POWERSHELL AZ](/powershell/azure/new-azureps-module-az) module służy do tworzenia zasobów platformy Azure i zarządzania nimi z poziomu wiersza polecenia lub skryptów.
 
 [Azure Backup](backup-overview.md) tworzyć kopie zapasowe maszyn i aplikacji lokalnych oraz maszyn wirtualnych platformy Azure. W tym artykule pokazano, jak utworzyć kopię zapasową maszyny wirtualnej platformy Azure za pomocą AZ module. Alternatywnie można utworzyć kopię zapasową maszyny wirtualnej przy użyciu [interfejsu wiersza polecenia platformy Azure](quick-backup-vm-cli.md)lub w [Azure Portal](quick-backup-vm-portal.md).
 
@@ -46,7 +46,7 @@ Podczas tworzenia magazynu:
 
 - W polu Grupa zasobów i lokalizacja określ grupę zasobów i lokalizację maszyny wirtualnej, dla której chcesz utworzyć kopię zapasową.
 - Jeśli użyto tego [przykładowego skryptu](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm.md?toc=%2fpowershell%2fmodule%2ftoc.json) do utworzenia maszyny wirtualnej, Grupa **zasobów jest grupą zasobów,** maszyna wirtualna to ***myVM**, a zasoby znajdują się w regionie **WestEurope** .
-- Azure Backup automatycznie obsługuje magazyn do przechowywania kopii zapasowych danych. Domyślnie magazyn używa [magazynu geograficznie nadmiarowego (GRS)](../storage/common/storage-redundancy-grs.md). Nadmiarowość geograficzna gwarantuje, że kopia zapasowa danych jest replikowana do pomocniczego regionu platformy Azure, a setki kilometrów od regionu podstawowego.
+- Azure Backup automatycznie obsługuje magazyn do przechowywania kopii zapasowych danych. Domyślnie magazyn używa [magazynu geograficznie nadmiarowego (GRS)](../storage/common/storage-redundancy.md). Nadmiarowość geograficzna gwarantuje, że kopia zapasowa danych jest replikowana do pomocniczego regionu platformy Azure, a setki kilometrów od regionu podstawowego.
 
 Teraz Utwórz magazyn:
 
@@ -66,7 +66,7 @@ Teraz Utwórz magazyn:
         -Name "myRecoveryServicesVault" | Set-AzRecoveryServicesVaultContext
     ```
 
-3. Zmień konfigurację nadmiarowości magazynu (LRS/GRS) magazynu za pomocą [opcji Set-AzRecoveryServicesBackupProperty](https://docs.microsoft.com/powershell/module/az.recoveryservices/Set-AzRecoveryServicesBackupProperty)w następujący sposób:
+3. Zmień konfigurację nadmiarowości magazynu (LRS/GRS) magazynu za pomocą [opcji Set-AzRecoveryServicesBackupProperty](/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperty)w następujący sposób:
 
     ```powershell
     Get-AzRecoveryServicesVault `

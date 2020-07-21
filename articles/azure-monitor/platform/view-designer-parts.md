@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/12/2018
-ms.openlocfilehash: 7dc4164cac1998a02ae62d7682f9630aa4faa619
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1e674bf157d55c9b5f7cf49e8df5e17acb99ee3a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77658561"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539401"
 ---
 # <a name="reference-guide-to-view-designer-visualization-parts-in-azure-monitor"></a>Przewodnik referencyjny do wyświetlania części wizualizacji projektanta w Azure Monitor
 Za pomocą projektanta widoków w Azure Monitor można utworzyć różne widoki niestandardowe w Azure Portal, które mogą ułatwić wizualizację danych w obszarze roboczym Log Analytics. Ten artykuł zawiera Przewodnik dotyczący ustawień części wizualizacji, które są dostępne w niestandardowych widokach.
@@ -30,7 +31,7 @@ Dostępne typy kafelków projektanta widoków są opisane w poniższej tabeli:
 | [Dwie liczby i lista](#two-numbers-and-list-part) |W nagłówku są wyświetlane dwie liczby, które pokazują liczbę rekordów z oddzielnych zapytań dzienników. Na liście wyświetlane są dziesięć najważniejszych wyników zapytania, z wykresem wskazującym wartość względną kolumny liczbowej lub zmiany w czasie. |
 | [Pierścień i lista](#donut-and-list-part) |Nagłówek Wyświetla pojedynczą liczbę, która podsumowuje kolumnę wartości w zapytaniu dziennika. Pierścień wyświetla graficznie wyniki trzech pierwszych rekordów. |
 | [Dwie osie czasu i lista](#two-timelines-and-list-part) |W nagłówku są wyświetlane wyniki dwóch zapytań dzienników w miarę upływu czasu jako wykresy kolumnowe, z objaśnieniem wyświetlającym jedną liczbę, która podsumowuje kolumnę wartości w zapytaniu dziennika. Na liście wyświetlane są dziesięć najważniejszych wyników zapytania, z wykresem wskazującym wartość względną kolumny liczbowej lub zmiany w czasie. |
-| [Informacje](#information-part) |W nagłówku jest wyświetlany statyczny tekst i opcjonalny link. Na liście jest wyświetlany jeden lub więcej elementów o statycznym tytule i tekście. |
+| [Informacyjny](#information-part) |W nagłówku jest wyświetlany statyczny tekst i opcjonalny link. Na liście jest wyświetlany jeden lub więcej elementów o statycznym tytule i tekście. |
 | [Wykres liniowy, objaśnienie i lista](#line-chart-callout-and-list-part) |W nagłówku jest wyświetlany wykres liniowy z wieloma seriami na podstawie zapytania dziennika w czasie i z objaśnieniem o wartości podsumowującej. Na liście wyświetlane są dziesięć najważniejszych wyników zapytania, z wykresem wskazującym wartość względną kolumny liczbowej lub zmiany w czasie. |
 | [Wykres liniowy i lista](#line-chart-and-list-part) |W nagłówku zostanie wyświetlony wykres liniowy z wieloma seriami na podstawie zapytania dziennika w czasie. Na liście wyświetlane są dziesięć najważniejszych wyników zapytania, z wykresem wskazującym wartość względną kolumny liczbowej lub zmiany w czasie. |
 | [Stos części wykresów liniowych](#stack-of-line-charts-part) |Wyświetla trzy oddzielne wykresy liniowe z wieloma seriami z kwerendy dziennika w czasie. |
@@ -128,7 +129,7 @@ Nagłówek Wyświetla pojedynczą liczbę, która podsumowuje kolumnę wartości
 | Nowa grupa |Wybierz ten link, aby utworzyć nową grupę w widoku, rozpoczynając od bieżącego widoku. |
 | Ikona |Plik obrazu, który jest wyświetlany obok wyniku w nagłówku. |
 | Ikona użycia |Wybierz ten link, aby wyświetlić ikonę. |
-| **Nagłówki** | |
+| **Nagłówek** | |
 | Tytuł |Tekst wyświetlany w górnej części nagłówka. |
 | Podtytuł |Tekst wyświetlany pod tytułem w górnej części nagłówka. |
 | **Pierścień** | |
@@ -200,10 +201,10 @@ W nagłówku jest wyświetlany statyczny tekst i opcjonalny link. Na liście jes
 | Tytuł grupy |Tekst wyświetlany w górnej części kafelka. |
 | Nowa grupa |Wybierz ten link, aby utworzyć nową grupę w widoku, rozpoczynając od bieżącego widoku. |
 | Kolor |Kolor tła nagłówka. |
-| **Nagłówki** | |
+| **Nagłówek** | |
 | Obraz |Plik obrazu, który jest wyświetlany w nagłówku. |
 | Etykieta |Tekst wyświetlany w nagłówku. |
-| **Nagłówki** |**> łącze** |
+| **Nagłówek** |**> łącze** |
 | Etykieta |Tekst łącza. |
 | Url |Adres URL łącza. |
 | **Elementy informacji** | |
@@ -222,7 +223,7 @@ W nagłówku jest wyświetlany wykres liniowy z wieloma seriami na podstawie zap
 | Nowa grupa |Wybierz ten link, aby utworzyć nową grupę w widoku, rozpoczynając od bieżącego widoku. |
 | Ikona |Plik obrazu, który jest wyświetlany obok wyniku w nagłówku. |
 | Ikona użycia |Wybierz ten link, aby wyświetlić ikonę. |
-| **Nagłówki** | |
+| **Nagłówek** | |
 | Tytuł |Tekst wyświetlany w górnej części nagłówka. |
 | Podtytuł |Tekst wyświetlany pod tytułem w górnej części nagłówka. |
 | **Wykres liniowy** | |
@@ -262,7 +263,7 @@ W nagłówku zostanie wyświetlony wykres liniowy z wieloma seriami na podstawie
 | Nowa grupa |Wybierz ten link, aby utworzyć nową grupę w widoku, rozpoczynając od bieżącego widoku. |
 | Ikona |Plik obrazu, który jest wyświetlany obok wyniku w nagłówku. |
 | Ikona użycia |Wybierz ten link, aby wyświetlić ikonę. |
-| **Nagłówki** | |
+| **Nagłówek** | |
 | Tytuł |Tekst wyświetlany w górnej części nagłówka. |
 | Podtytuł |Tekst wyświetlany pod tytułem w górnej części nagłówka. |
 | **Wykres liniowy** | |
@@ -317,7 +318,7 @@ Separator nazwy i wartości jest ogranicznikiem pojedynczego znaku, który ma by
 Rozważmy na przykład właściwość o nazwie *Location* , która zawiera wartości, takie jak *Redmond-Building 41* i *Bellevue-Building 12*. Można określić kreskę (-) dla separatora *nazwy i wartości oraz dla* nazwy. Takie podejście analizuje każdą wartość w dwie właściwości o nazwie *miasto* i *budynek*.
 
 ### <a name="click-through-navigation"></a><a name="click-through-navigation"></a>Nawigacja przez klikanie
-Nawigacja po kliknięciu definiuje, jaka akcja zostanie podjęta po kliknięciu nagłówka lub elementu listy w widoku.  Spowoduje to otwarcie zapytania w [log Analytics](../../azure-monitor/log-query/portals.md) lub uruchomienie innego widoku.
+Nawigacja po kliknięciu definiuje, jaka akcja zostanie podjęta po kliknięciu nagłówka lub elementu listy w widoku.  Spowoduje to otwarcie zapytania w [log Analytics](../log-query/log-query-overview.md) lub uruchomienie innego widoku.
 
 W poniższej tabeli opisano ustawienia nawigowania po kliknięciu.
 

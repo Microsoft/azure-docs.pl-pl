@@ -3,24 +3,24 @@ title: Zarządzanie kopiami zapasowymi udziałów plików platformy Azure za pom
 description: Dowiedz się, jak używać interfejsu wiersza polecenia platformy Azure do zarządzania udziałami plików platformy Azure i ich monitorowania za pomocą Azure Backup.
 ms.topic: conceptual
 ms.date: 01/15/2020
-ms.openlocfilehash: 06e1f29874085c3943a5207f36eff313dc670e88
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6b2a0b81793bcd7b5ca9fa2c4e4748d63daceadd
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82184116"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538619"
 ---
 # <a name="manage-azure-file-share-backups-with-the-azure-cli"></a>Zarządzanie kopiami zapasowymi udziałów plików platformy Azure za pomocą interfejsu wiersza polecenia platformy Azure
 
-Interfejs wiersza polecenia platformy Azure zapewnia obsługę systemu Azure w programie. To doskonałe narzędzie do tworzenia niestandardowych automatyzacji do korzystania z zasobów platformy Azure. W tym artykule opisano sposób wykonywania zadań związanych z zarządzaniem udziałami plików platformy Azure, których kopie zapasowe są tworzone przez [Azure Backup](https://docs.microsoft.com/azure/backup/backup-overview). Te kroki można również wykonać za pomocą [Azure Portal](https://portal.azure.com/).
+Interfejs wiersza polecenia platformy Azure zapewnia obsługę systemu Azure w programie. To doskonałe narzędzie do tworzenia niestandardowych automatyzacji do korzystania z zasobów platformy Azure. W tym artykule opisano sposób wykonywania zadań związanych z zarządzaniem udziałami plików platformy Azure, których kopie zapasowe są tworzone przez [Azure Backup](./backup-overview.md). Te kroki można również wykonać za pomocą [Azure Portal](https://portal.azure.com/).
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Aby zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, należy uruchomić interfejs wiersza polecenia platformy Azure w wersji 2.0.18 lub nowszej. Aby znaleźć wersję interfejsu wiersza polecenia, uruchom polecenie `az --version`. Jeśli konieczna będzie instalacja lub uaktualnienie interfejsu, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+Aby zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, należy uruchomić interfejs wiersza polecenia platformy Azure w wersji 2.0.18 lub nowszej. Aby znaleźć wersję interfejsu wiersza polecenia, uruchom polecenie `az --version`. Jeśli konieczna będzie instalacja lub uaktualnienie interfejsu, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-W tym artykule przyjęto założenie, że masz już kopię zapasową udziału plików platformy Azure, [Azure Backup](https://docs.microsoft.com/azure/backup/backup-overview). Jeśli go nie masz, zobacz Tworzenie kopii zapasowych [udziałów plików platformy Azure przy użyciu interfejsu wiersza polecenia](backup-afs-cli.md) w celu skonfigurowania usługi Backup dla udziałów plików. W tym artykule opisano użycie następujących zasobów:
+W tym artykule przyjęto założenie, że masz już kopię zapasową udziału plików platformy Azure, [Azure Backup](./backup-overview.md). Jeśli go nie masz, zobacz Tworzenie kopii zapasowych [udziałów plików platformy Azure przy użyciu interfejsu wiersza polecenia](backup-afs-cli.md) w celu skonfigurowania usługi Backup dla udziałów plików. W tym artykule opisano użycie następujących zasobów:
 
 * **Grupa zasobów**: *migracji pamięci*
 * **RecoveryServicesVault**: *azurefilesvault*
@@ -29,7 +29,7 @@ W tym artykule przyjęto założenie, że masz już kopię zapasową udziału pl
 
 ## <a name="monitor-jobs"></a>Monitorowanie zadań
 
-Gdy Wyzwalasz operacje tworzenia kopii zapasowej lub przywracania, usługa Backup tworzy zadanie śledzenia. Aby monitorować ukończone lub aktualnie uruchomione zadania, należy użyć polecenia [AZ Backup Job list](https://docs.microsoft.com/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-list) . Korzystając z interfejsu wiersza polecenia, można również [zawiesić aktualnie uruchomione zadanie](https://docs.microsoft.com/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-stop) lub [poczekać na zakończenie zadania](https://docs.microsoft.com/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-wait).
+Gdy Wyzwalasz operacje tworzenia kopii zapasowej lub przywracania, usługa Backup tworzy zadanie śledzenia. Aby monitorować ukończone lub aktualnie uruchomione zadania, należy użyć polecenia [AZ Backup Job list](/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-list) . Korzystając z interfejsu wiersza polecenia, można również [zawiesić aktualnie uruchomione zadanie](/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-stop) lub [poczekać na zakończenie zadania](/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-wait).
 
 Poniższy przykład przedstawia stan zadań tworzenia kopii zapasowych dla magazynu *azurefilesvault* Recovery Services:
 
@@ -94,13 +94,13 @@ az backup job list --resource-group azurefiles --vault-name azurefilesvault
 
 ## <a name="modify-policy"></a>Modyfikuj zasady
 
-Możesz zmodyfikować zasady tworzenia kopii zapasowej, aby zmienić częstotliwość tworzenia kopii zapasowych lub zakres przechowywania przy użyciu polecenia [AZ Backup Item Set-Policy](https://docs.microsoft.com/cli/azure/backup/item?view=azure-cli-latest#az-backup-item-set-policy).
+Możesz zmodyfikować zasady tworzenia kopii zapasowej, aby zmienić częstotliwość tworzenia kopii zapasowych lub zakres przechowywania przy użyciu polecenia [AZ Backup Item Set-Policy](/cli/azure/backup/item?view=azure-cli-latest#az-backup-item-set-policy).
 
 Aby zmienić zasady, Zdefiniuj następujące parametry:
 
-* **--Container-Name**: nazwa konta magazynu, w którym znajduje się udział plików. Aby pobrać **nazwę** lub **przyjazną nazwę** kontenera, użyj polecenia [AZ Backup Container list](https://docs.microsoft.com/cli/azure/backup/container?view=azure-cli-latest#az-backup-container-list) .
-* **--name**: nazwa udziału plików, dla którego chcesz zmienić zasady. Aby pobrać **nazwę** lub **przyjazną nazwę** elementu kopii zapasowej, użyj polecenia [AZ Backup Item list](https://docs.microsoft.com/cli/azure/backup/item?view=azure-cli-latest#az-backup-item-list) .
-* **--Policy-Name**: Nazwa zasad tworzenia kopii zapasowych, które chcesz ustawić dla udziału plików. Możesz użyć [AZ Backup Policy list](https://docs.microsoft.com/cli/azure/backup/policy?view=azure-cli-latest#az-backup-policy-list) , aby wyświetlić wszystkie zasady dla Twojego magazynu.
+* **--Container-Name**: nazwa konta magazynu, w którym znajduje się udział plików. Aby pobrać **nazwę** lub **przyjazną nazwę** kontenera, użyj polecenia [AZ Backup Container list](/cli/azure/backup/container?view=azure-cli-latest#az-backup-container-list) .
+* **--name**: nazwa udziału plików, dla którego chcesz zmienić zasady. Aby pobrać **nazwę** lub **przyjazną nazwę** elementu kopii zapasowej, użyj polecenia [AZ Backup Item list](/cli/azure/backup/item?view=azure-cli-latest#az-backup-item-list) .
+* **--Policy-Name**: Nazwa zasad tworzenia kopii zapasowych, które chcesz ustawić dla udziału plików. Możesz użyć [AZ Backup Policy list](/cli/azure/backup/policy?view=azure-cli-latest#az-backup-policy-list) , aby wyświetlić wszystkie zasady dla Twojego magazynu.
 
 W poniższym przykładzie ustawiono zasady tworzenia kopii zapasowych *schedule2* dla udziału plików *migracji pamięci* , które znajdują się na koncie magazynu *afsaccount* .
 
@@ -123,7 +123,7 @@ Name                                  ResourceGroup
 fec6f004-0e35-407f-9928-10a163f123e5  azurefiles
 ```
 
-Atrybut **name** w danych wyjściowych odpowiada nazwie zadania, które jest tworzone przez usługę kopii zapasowej dla operacji zmiany zasad. Aby śledzić stan zadania, użyj polecenia [AZ Backup Job show](https://docs.microsoft.com/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-show) cmdlet.
+Atrybut **name** w danych wyjściowych odpowiada nazwie zadania, które jest tworzone przez usługę kopii zapasowej dla operacji zmiany zasad. Aby śledzić stan zadania, użyj polecenia [AZ Backup Job show](/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-show) cmdlet.
 
 ## <a name="stop-protection-on-a-file-share"></a>Zatrzymywanie ochrony udziału plików
 
@@ -136,12 +136,12 @@ Może być kosztem związanym z opuszczeniem punktów odzyskiwania w magazynie, 
 
 Aby zatrzymać ochronę udziału plików, Zdefiniuj następujące parametry:
 
-* **--Container-Name**: nazwa konta magazynu, w którym znajduje się udział plików. Aby pobrać **nazwę** lub **przyjazną nazwę** kontenera, użyj polecenia [AZ Backup Container list](https://docs.microsoft.com/cli/azure/backup/container?view=azure-cli-latest#az-backup-container-list) .
-* **--Item-Name**: nazwa udziału plików, dla którego chcesz zatrzymać ochronę. Aby pobrać **nazwę** lub **przyjazną nazwę** elementu kopii zapasowej, użyj polecenia [AZ Backup Item list](https://docs.microsoft.com/cli/azure/backup/item?view=azure-cli-latest#az-backup-item-list) .
+* **--Container-Name**: nazwa konta magazynu, w którym znajduje się udział plików. Aby pobrać **nazwę** lub **przyjazną nazwę** kontenera, użyj polecenia [AZ Backup Container list](/cli/azure/backup/container?view=azure-cli-latest#az-backup-container-list) .
+* **--Item-Name**: nazwa udziału plików, dla którego chcesz zatrzymać ochronę. Aby pobrać **nazwę** lub **przyjazną nazwę** elementu kopii zapasowej, użyj polecenia [AZ Backup Item list](/cli/azure/backup/item?view=azure-cli-latest#az-backup-item-list) .
 
 ### <a name="stop-protection-and-retain-recovery-points"></a>Zatrzymywanie ochrony i zachowywanie punktów odzyskiwania
 
-Aby zatrzymać ochronę przy zachowaniu danych, należy użyć polecenia [AZ Backup Protection Disable](https://docs.microsoft.com/cli/azure/backup/protection?view=azure-cli-latest#az-backup-protection-disable) .
+Aby zatrzymać ochronę przy zachowaniu danych, należy użyć polecenia [AZ Backup Protection Disable](/cli/azure/backup/protection?view=azure-cli-latest#az-backup-protection-disable) .
 
 Poniższy przykład zatrzymuje ochronę udziału plików *migracji pamięci* , ale zachowuje wszystkie punkty odzyskiwania.
 
@@ -164,11 +164,11 @@ Name                                  ResourceGroup
 fec6f004-0e35-407f-9928-10a163f123e5  azurefiles
 ```
 
-Atrybut **name** w danych wyjściowych odpowiada nazwie zadania, które jest tworzone przez usługę kopii zapasowej dla operacji zatrzymania ochrony. Aby śledzić stan zadania, użyj polecenia [AZ Backup Job show](https://docs.microsoft.com/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-show) cmdlet.
+Atrybut **name** w danych wyjściowych odpowiada nazwie zadania, które jest tworzone przez usługę kopii zapasowej dla operacji zatrzymania ochrony. Aby śledzić stan zadania, użyj polecenia [AZ Backup Job show](/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-show) cmdlet.
 
 ### <a name="stop-protection-without-retaining-recovery-points"></a>Zatrzymaj ochronę bez zachowywania punktów odzyskiwania
 
-Aby zatrzymać ochronę bez zachowywania punktów odzyskiwania, użyj polecenia [AZ Backup Protection Disable](https://docs.microsoft.com/cli/azure/backup/protection?view=azure-cli-latest#az-backup-protection-disable) z opcją **delete-Backup-Data** ustawioną na **wartość true**.
+Aby zatrzymać ochronę bez zachowywania punktów odzyskiwania, użyj polecenia [AZ Backup Protection Disable](/cli/azure/backup/protection?view=azure-cli-latest#az-backup-protection-disable) z opcją **delete-Backup-Data** ustawioną na **wartość true**.
 
 Poniższy przykład zatrzymuje ochronę udziału plików *migracji pamięci* bez zachowywania punktów odzyskiwania.
 
@@ -191,11 +191,11 @@ Jeśli ochrona udziału plików platformy Azure została zatrzymana, ale zachowa
 
 Aby wznowić ochronę udziału plików, Zdefiniuj następujące parametry:
 
-* **--Container-Name**: nazwa konta magazynu, w którym znajduje się udział plików. Aby pobrać **nazwę** lub **przyjazną nazwę** kontenera, użyj polecenia [AZ Backup Container list](https://docs.microsoft.com/cli/azure/backup/container?view=azure-cli-latest#az-backup-container-list) .
-* **--Item-Name**: nazwa udziału plików, dla którego chcesz wznowić ochronę. Aby pobrać **nazwę** lub **przyjazną nazwę** elementu kopii zapasowej, użyj polecenia [AZ Backup Item list](https://docs.microsoft.com/cli/azure/backup/item?view=azure-cli-latest#az-backup-item-list) .
+* **--Container-Name**: nazwa konta magazynu, w którym znajduje się udział plików. Aby pobrać **nazwę** lub **przyjazną nazwę** kontenera, użyj polecenia [AZ Backup Container list](/cli/azure/backup/container?view=azure-cli-latest#az-backup-container-list) .
+* **--Item-Name**: nazwa udziału plików, dla którego chcesz wznowić ochronę. Aby pobrać **nazwę** lub **przyjazną nazwę** elementu kopii zapasowej, użyj polecenia [AZ Backup Item list](/cli/azure/backup/item?view=azure-cli-latest#az-backup-item-list) .
 * **--Policy-Name**: Nazwa zasad tworzenia kopii zapasowych, dla których chcesz wznowić ochronę udziału plików.
 
-W poniższym przykładzie użyto polecenia [AZ Backup Protection Resume](https://docs.microsoft.com/cli/azure/backup/protection?view=azure-cli-latest#az-backup-protection-resume) w celu wznowienia ochrony udziału plików *migracji pamięci* przy użyciu zasad tworzenia kopii zapasowych *schedule1* .
+W poniższym przykładzie użyto polecenia [AZ Backup Protection Resume](/cli/azure/backup/protection?view=azure-cli-latest#az-backup-protection-resume) w celu wznowienia ochrony udziału plików *migracji pamięci* przy użyciu zasad tworzenia kopii zapasowych *schedule1* .
 
 ```azurecli-interactive
 az backup protection resume --vault-name azurefilesvault --resource-group azurefiles --container-name "StorageContainer;Storage;AzureFiles;afsaccount” --item-name “AzureFileShare;azurefiles” --policy-name schedule2 --out table
@@ -216,15 +216,15 @@ Name                                  ResourceGroup
 75115ab0-43b0-4065-8698-55022a234b7f  azurefiles
 ```
 
-Atrybut **name** w danych wyjściowych odpowiada nazwie zadania, które jest tworzone przez usługę kopii zapasowej dla operacji wznawiania ochrony. Aby śledzić stan zadania, użyj polecenia [AZ Backup Job show](https://docs.microsoft.com/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-show) cmdlet.
+Atrybut **name** w danych wyjściowych odpowiada nazwie zadania, które jest tworzone przez usługę kopii zapasowej dla operacji wznawiania ochrony. Aby śledzić stan zadania, użyj polecenia [AZ Backup Job show](/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-show) cmdlet.
 
 ## <a name="unregister-a-storage-account"></a>Wyrejestrowywanie konta magazynu
 
 Jeśli chcesz chronić udziały plików na określonym koncie magazynu przy użyciu innego magazynu Recovery Services, najpierw [Zatrzymaj ochronę wszystkich udziałów plików](#stop-protection-on-a-file-share) na tym koncie magazynu. Następnie Wyrejestruj konto z magazynu Recovery Services obecnie używanego do ochrony.
 
-Musisz podać nazwę kontenera, aby wyrejestrować konto magazynu. Aby pobrać **nazwę** lub **przyjazną nazwę** kontenera, użyj polecenia [AZ Backup Container list](https://docs.microsoft.com/cli/azure/backup/container?view=azure-cli-latest#az-backup-container-list) .
+Musisz podać nazwę kontenera, aby wyrejestrować konto magazynu. Aby pobrać **nazwę** lub **przyjazną nazwę** kontenera, użyj polecenia [AZ Backup Container list](/cli/azure/backup/container?view=azure-cli-latest#az-backup-container-list) .
 
-Poniższy przykład wyrejestrowuje konto magazynu *afsaccount* z *azurefilesvault* za pomocą polecenia [AZ Backup Container Unregister](https://docs.microsoft.com/cli/azure/backup/container?view=azure-cli-latest#az-backup-container-unregister) .
+Poniższy przykład wyrejestrowuje konto magazynu *afsaccount* z *azurefilesvault* za pomocą polecenia [AZ Backup Container Unregister](/cli/azure/backup/container?view=azure-cli-latest#az-backup-container-unregister) .
 
 ```azurecli-interactive
 az backup container unregister --vault-name azurefilesvault --resource-group azurefiles --container-name "StorageContainer;Storage;AzureFiles;afsaccount" --out table

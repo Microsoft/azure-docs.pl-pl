@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: cherylmc
-ms.openlocfilehash: 9f44cbd9b735839640702970a65de239b36b3f30
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: a8f5aaa7b2a054aa31198779414387cebf0f0fbd
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86209807"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537041"
 ---
 # <a name="about-upgrading-expressroute-circuit-bandwidth"></a>Informacje o uaktualnianiu przepustowości obwodu ExpressRoute
 
@@ -34,7 +34,7 @@ Jeśli pojemność jest dostępna, można uaktualnić obwód przy użyciu nastę
 
 Jeśli partner ExpressRoute nie ma wystarczającej wydajności, należy utworzyć nowy obwód skonfigurowany do odpowiedniej przepustowości. W celu zapewnienia łączności nie należy usuwać starego obwodu do momentu, gdy nowo utworzony obwód nie zostanie zainicjowany, Komunikacja równorzędna została skonfigurowana i (w przypadku prywatnej komunikacji równorzędnej) obiekt połączenia z bramą sieci wirtualnej ExpressRoute został zainicjowany.
 
-Jeśli partner ExpressRoute nie ma wystarczającej dostępnej pojemności, musisz zażądać dodatkowej pojemności w odpowiedniej lokalizacji komunikacji równorzędnej. Po udostępnieniu nowej pojemności można wykonać czynności zawarte w artykułach z sekcji wydajność [obwodu uaktualnienia](#upgrade) w celu utworzenia nowego obwodu, skonfigurowania połączenia i usunięcia starego obwodu:
+Jeśli partner ExpressRoute nie ma wystarczającej dostępnej pojemności, musisz zażądać dodatkowej pojemności w odpowiedniej lokalizacji komunikacji równorzędnej. Po udostępnieniu nowej pojemności można wykonać czynności zawarte w artykułach z sekcji wydajność [obwodu uaktualnienia](#upgrade) w celu utworzenia nowego obwodu, skonfigurowania połączenia i usunięcia starego obwodu.
 
 
 ### <a name="insufficient-expressroute-direct-bandwidth"></a><a name="bandwidth"></a>Niewystarczająca przepustowość ExpressRoute Direct

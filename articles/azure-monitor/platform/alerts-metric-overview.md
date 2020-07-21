@@ -1,15 +1,15 @@
 ---
 title: Informacje o tym, jak alerty metryk działają w Azure Monitor.
 description: Zapoznaj się z informacjami o tym, co możesz zrobić z alertami metryk i jak działają w Azure Monitor.
-ms.date: 07/09/2020
+ms.date: 07/16/2020
 ms.topic: conceptual
 ms.subservice: alerts
-ms.openlocfilehash: cd8c28b2c26e8859eda1634d2441982336cdd460
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 05e25a67279786ef4679552503e577b1b1a382ea
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86187527"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539435"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Omówienie działania alertów metryk w usłudze Azure Monitor
 
@@ -119,6 +119,15 @@ Załóżmy, że masz aplikację sieci Web z wieloma wystąpieniami i nie wiesz, 
 Ta reguła monitoruje, czy średnie użycie procesora CPU w ciągu ostatnich 5 minut przekracza oczekiwane zachowanie dla każdego wystąpienia. Ta sama reguła pozwala monitorować wystąpienia w miarę ich występowania, nie trzeba ponownie modyfikować reguły alertu metryki. Każde wystąpienie uzyska próg, który pasuje do wzorca zachowania serii metryk i ciągle zmienia się w oparciu o nowe dane, aby zapewnić dokładniejszy próg. Podobnie jak przed, każde wystąpienie zostanie monitorowane pojedynczo i otrzymasz powiadomienia pojedynczo.
 
 Rosnące okresy zawracania i liczby naruszeń mogą również umożliwić filtrowanie alertów tylko w przypadku definicji znaczącego odchylenia. [Dowiedz się więcej o opcjach zaawansowanych progów dynamicznych](alerts-dynamic-thresholds.md#what-do-the-advanced-settings-in-dynamic-thresholds-mean).
+
+> [!NOTE]
+>
+> Zalecamy wybranie *stopnia szczegółowości agregacji (okres)* , który jest większy niż *częstotliwość obliczania*, aby zmniejszyć prawdopodobieństwo braku pierwszej oceny dodanej szeregu czasowego w następujących przypadkach:
+> - Reguła alertu metryki, która monitoruje wiele wymiarów — po dodaniu nowej kombinacji wartości wymiaru
+> - Reguła alertu metryki, która monitoruje wiele zasobów — po dodaniu nowego zasobu do zakresu
+> - Reguła alertu dotyczącego metryki, która monitoruje metrykę nieemitowaną ciągle (metrykę rozrzedzoną) — gdy Metryka jest emitowana po okresie dłuższym niż 24 godziny, w którym nie została wyemitowana
+
+
 
 ## <a name="monitoring-at-scale-using-metric-alerts-in-azure-monitor"></a>Monitorowanie na dużą skalę przy użyciu alertów metryk w Azure Monitor
 

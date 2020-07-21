@@ -6,12 +6,12 @@ author: renatosalas
 ms.author: regutier
 ms.date: 04/14/2020
 ms.reviewer: mbullwin
-ms.openlocfilehash: d84010fd62d753fafd7edffab833b203657f74c7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 50dcd3f438645c99e0ed3cfdded7a101ee5f1852
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85361942"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539860"
 ---
 # <a name="configure-bring-your-own-storage-byos-for-application-insights-profiler-and-snapshot-debugger"></a>Skonfiguruj własny magazyn (BYOS) dla Application Insights Profiler i Snapshot Debugger
 
@@ -21,9 +21,9 @@ W przypadku używania Application Insights Profiler lub Snapshot Debugger artefa
 W przypadku przenoszenia własnego magazynu te artefakty są przekazywane do konta magazynu, które kontrolujesz. Oznacza to, że steruje zasadami szyfrowania w czasie spoczynku, zasadami zarządzania okresem istnienia i dostępem do sieci. Użytkownik będzie jednak odpowiedzialny za koszty związane z tym kontem magazynu.
 
 > [!NOTE]
-> W przypadku włączenia linku prywatnego należy wprowadzić własny magazyn. Aby uzyskać więcej informacji na temat prywatnego linku do Application Insights, [Zobacz dokumentację.](https://docs.microsoft.com/azure/azure-monitor/platform/private-link-security)
+> W przypadku włączenia linku prywatnego należy wprowadzić własny magazyn. Aby uzyskać więcej informacji na temat prywatnego linku do Application Insights, [Zobacz dokumentację.](../platform/private-link-security.md)
 >
-> W przypadku włączenia kluczy zarządzanych przez klienta należy wprowadzić własny magazyn. Więcej informacji o kluczach zarządzanych przez klienta Application Insights można [znaleźć w dokumentacji.](https://docs.microsoft.com/azure/azure-monitor/platform/customer-managed-keys)
+> W przypadku włączenia kluczy zarządzanych przez klienta należy wprowadzić własny magazyn. Więcej informacji o kluczach zarządzanych przez klienta Application Insights można [znaleźć w dokumentacji.](../platform/customer-managed-keys.md)
 
 ## <a name="how-will-my-storage-account-be-accessed"></a>Jak będzie uzyskiwany dostęp do konta magazynu?
 1. Agenci działający w Virtual Machines lub App Service będą przekazywać artefakty (profile, migawki i symbole) do kontenerów obiektów BLOB na Twoim koncie. Ten proces obejmuje kontaktowanie się z usługą Application Insights Profiler lub Snapshot Debugger w celu uzyskania tokenu sygnatury dostępu współdzielonego do nowego obiektu BLOB na koncie magazynu.
@@ -60,7 +60,7 @@ Po dodaniu roli zostanie ona wyświetlona w sekcji "przydziały ról", jak pokaz
 _ ![ Rysunek 1,1](media/profiler-bring-your-own-storage/figure-11.png)_ 
  _rysunek 1,1_ 
 
-Jeśli używasz również linku prywatnego, musisz mieć jedną dodatkową konfigurację, aby zezwolić na połączenie z naszą zaufaną usługą firmy Microsoft z Virtual Network. Zapoznaj się z [dokumentacją zabezpieczeń sieci magazynu](https://docs.microsoft.com/azure/storage/common/storage-network-security#trusted-microsoft-services).
+Jeśli używasz również linku prywatnego, musisz mieć jedną dodatkową konfigurację, aby zezwolić na połączenie z naszą zaufaną usługą firmy Microsoft z Virtual Network. Zapoznaj się z [dokumentacją zabezpieczeń sieci magazynu](../../storage/common/storage-network-security.md#trusted-microsoft-services).
 
 ### <a name="link-your-storage-account-with-your-application-insights-resource"></a>Połącz swoje konto magazynu z zasobem Application Insights
 Aby skonfigurować BYOS na potrzeby diagnostyki na poziomie kodu (Profiler/debuger), dostępne są dwie opcje:
@@ -73,7 +73,7 @@ Aby skonfigurować BYOS na potrzeby diagnostyki na poziomie kodu (Profiler/debug
 
 1. Upewnij się, że zainstalowano AZ PowerShell 4.2.0 lub nowszy.
 
-    Aby zainstalować Azure PowerShell, zapoznaj się z [oficjalną dokumentacją Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
+    Aby zainstalować Azure PowerShell, zapoznaj się z [oficjalną dokumentacją Azure PowerShell](/powershell/azure/install-az-ps).
 
 1. Zainstaluj rozszerzenie programu Application Insights PowerShell.
     ```powershell
@@ -85,7 +85,7 @@ Aby skonfigurować BYOS na potrzeby diagnostyki na poziomie kodu (Profiler/debug
     Connect-AzAccount -Subscription "{subscription_id}"
     ```
 
-    Aby uzyskać więcej informacji na temat sposobu logowania, zapoznaj się z [dokumentacją Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount).
+    Aby uzyskać więcej informacji na temat sposobu logowania, zapoznaj się z [dokumentacją Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount).
 
 1. Usuń poprzednie konto magazynu połączone z zasobem Application Insights.
 
@@ -121,7 +121,7 @@ Aby skonfigurować BYOS na potrzeby diagnostyki na poziomie kodu (Profiler/debug
 
 1. Upewnij się, że zainstalowano interfejs wiersza polecenia platformy Azure.
 
-    Aby zainstalować interfejs wiersza polecenia platformy Azure, zapoznaj się z [oficjalną dokumentacją interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
+    Aby zainstalować interfejs wiersza polecenia platformy Azure, zapoznaj się z [oficjalną dokumentacją interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
 
 1. Zainstaluj rozszerzenie interfejsu wiersza polecenia Application Insights.
     ```powershell
@@ -152,7 +152,7 @@ Aby skonfigurować BYOS na potrzeby diagnostyki na poziomie kodu (Profiler/debug
     ```
 
     > [!NOTE]
-    > Aby przeprowadzić aktualizacje na połączonych kontach magazynu do zasobu Application Insights, zapoznaj się z [dokumentacją interfejsu wiersza polecenia Application Insights](https://docs.microsoft.com/cli/azure/ext/application-insights/monitor/app-insights/component/linked-storage).
+    > Aby przeprowadzić aktualizacje na połączonych kontach magazynu do zasobu Application Insights, zapoznaj się z [dokumentacją interfejsu wiersza polecenia Application Insights](/cli/azure/ext/application-insights/monitor/app-insights/component/linked-storage).
 
 #### <a name="configure-using-azure-resource-manager-template"></a>Konfigurowanie przy użyciu szablonu Azure Resource Manager
 

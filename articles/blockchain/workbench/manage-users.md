@@ -1,14 +1,15 @@
 ---
 title: Zarządzanie użytkownikami w usłudze Azure łańcucha bloków Workbench
 description: Jak zarządzać użytkownikami w usłudze Azure łańcucha bloków Workbench.
-ms.date: 05/09/2019
+ms.date: 07/15/2020
 ms.topic: how-to
-ms.reviewer: brendal
-ms.openlocfilehash: 78841ca830ae56f6c07f796bdde85f6a6ba9c921
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.reviewer: ravastra
+ms.openlocfilehash: 541d5b2fa3d1a0cd5c4beba65cfe5ff3bdc3124a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85212738"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538262"
 ---
 # <a name="manage-users-in-azure-blockchain-workbench"></a>Zarządzanie użytkownikami w usłudze Azure łańcucha bloków Workbench
 
@@ -24,14 +25,11 @@ Usługa Azure łańcucha bloków Workbench używa usługi Azure Active Directory
 
 Aby można było przypisywać aplikacje i role, użytkownicy programu łańcucha bloków Workbench muszą istnieć w dzierżawie usługi Azure AD. Aby dodać użytkowników do usługi Azure AD, wykonaj następujące czynności:
 
-1.  Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
-2.  Wybierz swoje konto w prawym górnym rogu i przejdź do dzierżawy usługi Azure AD skojarzonej z łańcucha bloków Workbench.
-3.  Wybierz **Azure Active Directory > użytkowników**. Zostanie wyświetlona lista użytkowników w katalogu.
-4.  Aby dodać użytkowników do katalogu, wybierz pozycję **nowy użytkownik**. W przypadku użytkowników zewnętrznych wybierz pozycję **nowy użytkownik-Gość**.
-
-    ![Nowy użytkownik](./media/manage-users/add-ad-user.png)
-
-5.  Wypełnij pola wymagane dla nowego użytkownika. Wybierz pozycję **Utwórz**.
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+1. Wybierz swoje konto w prawym górnym rogu i przejdź do dzierżawy usługi Azure AD skojarzonej z łańcucha bloków Workbench.
+1. Wybierz **Azure Active Directory > użytkowników**. Zostanie wyświetlona lista użytkowników w katalogu.
+1. Aby dodać użytkowników do katalogu, wybierz pozycję **nowy użytkownik**. W przypadku użytkowników zewnętrznych wybierz pozycję **nowy użytkownik-Gość**.
+1. Wypełnij pola wymagane dla nowego użytkownika. Wybierz pozycję **Utwórz**.
 
 Więcej informacji na temat zarządzania użytkownikami w usłudze Azure AD można znaleźć w dokumentacji usługi [Azure AD](../../active-directory/fundamentals/add-users-azure-active-directory.md) .
 
@@ -41,20 +39,21 @@ Po dodaniu użytkowników do katalogu następnym krokiem jest wybranie użytkown
 
 Aby dodać użytkowników do grupy **administratorów** w katalogu usługi Azure AD:
 
-1.  Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
-2.  Sprawdź, czy jesteś w dzierżawie usługi Azure AD skojarzonym z łańcucha bloków Workbench, wybierając swoje konto w prawym górnym rogu.
-3.  Wybierz pozycję **Azure Active Directory > aplikacje dla przedsiębiorstw**.
-4.  Wybierz aplikację kliencką usługi Azure AD dla łańcucha bloków Workbench
-    
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+1. Sprawdź, czy jesteś w dzierżawie usługi Azure AD skojarzonym z łańcucha bloków Workbench, wybierając swoje konto w prawym górnym rogu.
+1. Wybierz pozycję **Azure Active Directory > aplikacje dla przedsiębiorstw**.
+1. Zmień filtr listy rozwijanej **Typ aplikacji** na **wszystkie aplikacje** i wybierz pozycję **Zastosuj**.
+1. Wybierz aplikację kliencką usługi Azure AD dla usługi Azure łańcucha bloków Workbench
+
     ![Wszystkie rejestracje aplikacji dla przedsiębiorstw](./media/manage-users/select-blockchain-client-app.png)
 
-5.  Wybierz pozycję **Użytkownicy i grupy > Dodaj użytkownika**.
-6.  W okienku **Dodawanie przypisania** wybierz pozycję **Użytkownicy**. Wybierz lub Wyszukaj użytkownika, który ma zostać dodany jako administrator. Po zakończeniu **zaznaczania** kliknij przycisk Wybierz.
+1. Wybierz pozycję **Użytkownicy i grupy > Dodaj użytkownika**.
+1. W okienku **Dodawanie przypisania** wybierz pozycję **Użytkownicy**. Wybierz lub Wyszukaj użytkownika, który ma zostać dodany jako administrator. Po zakończeniu **zaznaczania** kliknij przycisk Wybierz.
 
     ![Dodaj przypisanie](./media/manage-users/add-user-assignment.png)
 
-9.  Sprawdź, czy **rola** jest ustawiona na **administratora**
-10. Wybierz opcję **Przypisz**. Dodani użytkownicy są wyświetlani na liście z przypisaną rolą administratora.
+1. Sprawdź, czy **rola** jest ustawiona na **administratora**
+1. Wybierz opcję **Przypisz**. Dodani użytkownicy są wyświetlani na liście z przypisaną rolą administratora.
 
     ![Użytkownicy aplikacji klienta łańcucha bloków](./media/manage-users/blockchain-admin-list.png)
 
@@ -68,7 +67,7 @@ Użyj aplikacji łańcucha bloków Workbench, aby zarządzać użytkownikami i o
 
     Elementy członkowskie są dodawane do poszczególnych aplikacji. Członkowie mogą mieć co najmniej jedną rolę aplikacji umożliwiającą inicjowanie kontraktów lub podejmowanie działań.
 
-2. Aby zarządzać członkami aplikacji, wybierz kafelek aplikacji w okienku **aplikacje** .
+1. Aby zarządzać członkami aplikacji, wybierz kafelek aplikacji w okienku **aplikacje** .
 
     Liczba członków skojarzonych z wybraną aplikacją zostanie odzwierciedlona na kafelku członkowie.
 
@@ -78,31 +77,31 @@ Użyj aplikacji łańcucha bloków Workbench, aby zarządzać użytkownikami i o
 #### <a name="add-member-to-application"></a>Dodawanie elementu członkowskiego do aplikacji
 
 1. Wybierz kafelek elementu członkowskiego, aby wyświetlić listę bieżących członków.
-2. Wybierz pozycję **Dodaj członków**.
+1. Wybierz pozycję **Dodaj członków**.
 
     ![Dodawanie członków](./media/manage-users/application-add-members.png)
 
-3. Wyszukaj nazwę użytkownika.  Na liście znajdują się tylko użytkownicy usługi Azure AD, którzy istnieją w dzierżawie usługi Blockchain Workbench. Jeśli użytkownik nie zostanie odnaleziony, należy [dodać użytkowników usługi Azure AD](#add-azure-ad-users).
+1. Wyszukaj nazwę użytkownika.  Na liście znajdują się tylko użytkownicy usługi Azure AD, którzy istnieją w dzierżawie usługi Blockchain Workbench. Jeśli użytkownik nie zostanie odnaleziony, należy [dodać użytkowników usługi Azure AD](#add-azure-ad-users).
 
     ![Dodawanie członków](./media/manage-users/find-user.png)
 
-4. Wybierz **rolę** z listy rozwijanej.
+1. Wybierz **rolę** z listy rozwijanej.
 
     ![Wybierz członków roli](./media/manage-users/application-select-role.png)
 
-5. Wybierz pozycję **Dodaj**, aby dodać członka ze skojarzoną rolą do aplikacji.
+1. Wybierz pozycję **Dodaj**, aby dodać członka ze skojarzoną rolą do aplikacji.
 
 #### <a name="remove-member-from-application"></a>Usuń członka z aplikacji
 
 1. Wybierz kafelek elementu członkowskiego, aby wyświetlić listę bieżących członków.
-2. Dla użytkownika, który chcesz usunąć, wybierz pozycję **Usuń** z listy rozwijanej rola.
+1. Dla użytkownika, który chcesz usunąć, wybierz pozycję **Usuń** z listy rozwijanej rola.
 
     ![Usuwanie członka](./media/manage-users/application-remove-member.png)
 
 #### <a name="change-or-add-role"></a>Zmień lub Dodaj rolę
 
 1. Wybierz kafelek elementu członkowskiego, aby wyświetlić listę bieżących członków.
-2. Dla użytkownika, który chcesz zmienić, kliknij listę rozwijaną i wybierz nową rolę.
+1. Dla użytkownika, który chcesz zmienić, kliknij listę rozwijaną i wybierz nową rolę.
 
     ![Zmiana roli](./media/manage-users/application-change-role.png)
 

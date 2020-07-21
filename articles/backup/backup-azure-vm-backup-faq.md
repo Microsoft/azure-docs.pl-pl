@@ -4,15 +4,16 @@ description: W tym artykule znajdują się odpowiedzi na często zadawane pytani
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.openlocfilehash: 5705b70dd210c336fc2baa4da07f96f2ad249f64
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 68f85b3d5da811f78ba398093db5a65ee5c49ab1
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82800655"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538772"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Często zadawane pytania — tworzenie kopii zapasowych maszyn wirtualnych platformy Azure
 
-Ten artykuł zawiera odpowiedzi na często zadawane pytania dotyczące tworzenia kopii zapasowych maszyn wirtualnych platformy Azure przy użyciu usługi [Azure Backup](backup-introduction-to-azure-backup.md) .
+Ten artykuł zawiera odpowiedzi na często zadawane pytania dotyczące tworzenia kopii zapasowych maszyn wirtualnych platformy Azure przy użyciu usługi [Azure Backup](./backup-overview.md) .
 
 ## <a name="backup"></a>Backup
 
@@ -82,7 +83,7 @@ Nie można wykonać migawek na dysku z obsługą WA. Jednak usługa Azure Backup
 
 Azure Backup nie może utworzyć kopii zapasowej dysku z obsługą WA, ale może go wykluczyć z kopii zapasowej. Jednak kopia zapasowa nie zapewni spójności bazy danych, ponieważ nie jest wykonywana kopia zapasowa informacji na dysku z obsługą WA. Można utworzyć kopię zapasową dysków przy użyciu tej konfiguracji, jeśli chcesz utworzyć kopię zapasową dysku systemu operacyjnego i utworzyć kopię zapasową dysków, które nie są włączone.
 
-Azure Backup udostępnia rozwiązanie do tworzenia kopii zapasowych dla SAP HANA baz danych z celem punktu odzyskiwania wynoszącym 15 minut. Jest BACKINT certyfikowany przez SAP, aby zapewnić natywną obsługę kopii zapasowych, wykorzystującą natywne interfejsy API SAP HANA. Dowiedz się więcej [o tworzeniu kopii zapasowych baz danych SAP HANA na maszynach wirtualnych platformy Azure](https://docs.microsoft.com/azure/backup/sap-hana-db-about).
+Azure Backup udostępnia rozwiązanie do tworzenia kopii zapasowych dla SAP HANA baz danych z celem punktu odzyskiwania wynoszącym 15 minut. Jest BACKINT certyfikowany przez SAP, aby zapewnić natywną obsługę kopii zapasowych, wykorzystującą natywne interfejsy API SAP HANA. Dowiedz się więcej [o tworzeniu kopii zapasowych baz danych SAP HANA na maszynach wirtualnych platformy Azure](./sap-hana-db-about.md).
 
 ### <a name="what-is-the-maximum-delay-i-can-expect-in-backup-start-time-from-the-scheduled-backup-time-i-have-set-in-my-vm-backup-policy"></a>Co to jest maksymalne opóźnienie, które może oczekiwać w czasie rozpoczęcia wykonywania kopii zapasowej z zaplanowanego czasu wykonywania kopii zapasowej ustawionej w ramach zasad kopii zapasowych maszyny wirtualnej?
 
@@ -128,7 +129,11 @@ Proces przywracania pozostaje taki sam. Jeśli punkt odzyskiwania znajduje się 
 
 [Dowiedz się więcej](backup-azure-vms-automation.md#restore-an-azure-vm) o tym, jak to zrobić w programie PowerShell.
 
-### <a name="can-i-restore-the-vm-thats-been-deleted"></a>Czy można przywrócić maszynę wirtualną, która została usunięta?
+### <a name="if-the-restore-fails-to-create-the-vm-what-happens-to-the-disks-included-in-the-restore"></a>Jeśli podczas przywracania nie można utworzyć maszyny wirtualnej, co się dzieje z dyskami uwzględnionymi w przywracaniu?
+
+W przypadku przywracania zarządzanej maszyny wirtualnej, nawet jeśli utworzenie maszyny wirtualnej nie powiedzie się, dyski nadal będą przywracane.
+
+### <a name="can-i-restore-a-vm-thats-been-deleted"></a>Czy można przywrócić maszynę wirtualną, która została usunięta?
 
 Tak. Nawet jeśli usuniesz maszynę wirtualną, możesz przejść do odpowiedniego elementu kopii zapasowej w magazynie i przywrócić go z punktu odzyskiwania.
 
@@ -142,13 +147,13 @@ Funkcja [natychmiastowego przywracania](backup-instant-restore-capability.md) u�
 
 ### <a name="what-happens-when-we-change-the-key-vault-settings-for-the-encrypted-vm"></a>Co się stanie w przypadku zmiany ustawień magazynu kluczy dla zaszyfrowanej maszyny wirtualnej?
 
-Po zmianie ustawień magazynu kluczy dla zaszyfrowanej maszyny wirtualnej kopie zapasowe będą nadal współpracują z nowym zestawem szczegółów. Jednak po przywróceniu z punktu odzyskiwania przed zmianą należy przywrócić klucze tajne w magazynie kluczy, aby można było utworzyć maszynę wirtualną. Więcej informacji znajduje się w tym [artykule](https://docs.microsoft.com/azure/backup/backup-azure-restore-key-secret).
+Po zmianie ustawień magazynu kluczy dla zaszyfrowanej maszyny wirtualnej kopie zapasowe będą nadal współpracują z nowym zestawem szczegółów. Jednak po przywróceniu z punktu odzyskiwania przed zmianą należy przywrócić klucze tajne w magazynie kluczy, aby można było utworzyć maszynę wirtualną. Więcej informacji znajduje się w tym [artykule](./backup-azure-restore-key-secret.md).
 
-Operacje, takie jak przechodzenie do trybu tajnego/klucza, nie wymagają tego kroku, a ten sam magazyn kluczy może być używany po przywróceniu.
+Operacje, takie jak odzyskiwanie awaryjne/klucze, nie wymagają tego kroku, a ten sam magazyn kluczy może być używany po przywróceniu.
 
 ### <a name="can-i-access-the-vm-once-restored-due-to-a-vm-having-broken-relationship-with-domain-controller"></a>Czy mogę uzyskać dostęp do maszyny wirtualnej po jej przywróceniu, ponieważ maszyna wirtualna ma przerwane relacje z kontrolerem domeny?
 
-Tak, można uzyskać dostęp do maszyny wirtualnej po jej przywróceniu, ponieważ maszyna wirtualna ma przerwane relacje z kontrolerem domeny. Aby uzyskać więcej informacji, zobacz ten [artykuł](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#post-restore-steps)
+Tak, można uzyskać dostęp do maszyny wirtualnej po jej przywróceniu, ponieważ maszyna wirtualna ma przerwane relacje z kontrolerem domeny. Aby uzyskać więcej informacji, zobacz ten [artykuł](./backup-azure-arm-restore-vms.md#post-restore-steps)
 
 ## <a name="manage-vm-backups"></a>Zarządzanie kopiami zapasowymi maszyn wirtualnych
 

@@ -3,12 +3,12 @@ title: Przenoszenie przestrzeni nazw platformy Azure Event Hubs do innego region
 description: W tym artykule pokazano, jak przenieść przestrzeń nazw platformy Azure Event Hubs z bieżącego regionu do innego regionu.
 ms.topic: how-to
 ms.date: 06/23/2020
-ms.openlocfilehash: a70397772d22a65046f87877deab6263d4b2104f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 51b02c34b0c28420a7e27da56b107ed3925a761b
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85312970"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537075"
 ---
 # <a name="move-an-azure-event-hubs-namespace-to-another-region"></a>Przenoszenie przestrzeni nazw Event Hubs platformy Azure do innego regionu
 Istnieją różne scenariusze, w których należy przenieść istniejącą przestrzeń nazw Event Hubs z jednego regionu do innego. Na przykład możesz chcieć utworzyć przestrzeń nazw o tej samej konfiguracji do testowania. Możesz również utworzyć pomocniczą przestrzeń nazw w innym regionie w ramach [planowania odzyskiwania po awarii](event-hubs-geo-dr.md#setup-and-failover-flow).
@@ -23,7 +23,7 @@ Istnieją różne scenariusze, w których należy przenieść istniejącą przes
 - Jeśli **Funkcja przechwytywania** została włączona dla centrów zdarzeń w przestrzeni nazw, przenieś ją do [usługi Azure Storage lub Azure Data Lake Store generacji 2](../storage/common/storage-account-move.md) lub [Azure Data Lake Store generacji 1](../data-lake-store/data-lake-store-migration-cross-region.md) przed przeniesieniem przestrzeni nazw Event Hubs. Możesz również przenieść grupę zasobów zawierającą przestrzenie nazw magazynu i Event Hubs do innego regionu, wykonując czynności podobne do tych opisanych w tym artykule. 
 - Jeśli przestrzeń nazw Event Hubs znajduje się w **klastrze Event Hubs**, przed wykonaniem kroków opisanych w tym artykule [Utwórz dedykowany klaster](event-hubs-dedicated-cluster-create-portal.md) w **regionie docelowym** . Możesz również użyć [szablonu szybkiego startu w usłudze GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/201-eventhubs-create-cluster-namespace-eventhub/) , aby utworzyć klaster Event Hubs. W szablonie Usuń część przestrzeni nazw pliku JSON, aby utworzyć tylko klaster. 
 
-## <a name="prepare"></a>Przygotowanie
+## <a name="prepare"></a>Przygotowywanie
 Aby rozpocząć, wyeksportuj szablon Menedżer zasobów. Ten szablon zawiera ustawienia opisujące przestrzeń nazw Event Hubs.
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
@@ -108,5 +108,5 @@ Aby usunąć Event Hubs przestrzeń nazw (źródłowa lub docelowa) przy użyciu
 W tym samouczku przeniesiono przestrzeń nazw Event Hubs platformy Azure z jednego regionu do innego i wyczyszczono zasoby źródłowe.  Aby dowiedzieć się więcej o przenoszeniu zasobów między regionami i odzyskiwaniem po awarii na platformie Azure, zobacz:
 
 
-- [Przenoszenie zasobów do nowej grupy zasobów lub subskrypcji](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)
-- [Przenoszenie maszyn wirtualnych platformy Azure do innego regionu](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-migrate)
+- [Przenoszenie zasobów do nowej grupy zasobów lub subskrypcji](../azure-resource-manager/management/move-resource-group-and-subscription.md)
+- [Przenoszenie maszyn wirtualnych platformy Azure do innego regionu](../site-recovery/azure-to-azure-tutorial-migrate.md)

@@ -3,11 +3,12 @@ title: Rozwiązywanie problemów z kopiami zapasowymi SQL Server Database
 description: Informacje dotyczące rozwiązywania problemów dotyczących tworzenia kopii zapasowych SQL Server baz danych działających na maszynach wirtualnych platformy Azure z Azure Backup.
 ms.topic: troubleshooting
 ms.date: 06/18/2019
-ms.openlocfilehash: a4397f0bfa50990a7ad8080579261ed4587c4958
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 879a7edab77bad9671bea51e0e496f3eca96ee81
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84247958"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538721"
 ---
 # <a name="troubleshoot-sql-server-database-backup-by-using-azure-backup"></a>Rozwiązywanie problemów z kopiami zapasowymi SQL Server Database przy użyciu Azure Backup
 
@@ -29,11 +30,11 @@ Podczas konfigurowania kopii zapasowej, jeśli maszyna wirtualna SQL i jej wyst�
 
 ### <a name="step-1-discovery-dbs-in-vms"></a>Krok 1. odnajdywanie baz danych na maszynach wirtualnych
 
-- Jeśli maszyna wirtualna nie znajduje się na liście odnalezionych maszyn wirtualnych i nie zarejestrowano jej do tworzenia kopii zapasowych SQL w innym magazynie, postępuj zgodnie z procedurami [odnajdywania SQL Server tworzenia kopii zapasowej](https://docs.microsoft.com/azure/backup/backup-sql-server-database-azure-vms#discover-sql-server-databases) .
+- Jeśli maszyna wirtualna nie znajduje się na liście odnalezionych maszyn wirtualnych i nie zarejestrowano jej do tworzenia kopii zapasowych SQL w innym magazynie, postępuj zgodnie z procedurami [odnajdywania SQL Server tworzenia kopii zapasowej](./backup-sql-server-database-azure-vms.md#discover-sql-server-databases) .
 
 ### <a name="step-2-configure-backup"></a>Krok 2. Konfigurowanie kopii zapasowej
 
-- Jeśli magazyn, w którym maszyna wirtualna SQL jest zarejestrowana w tym samym magazynie używanym do ochrony baz danych, wykonaj kroki [konfigurowania kopii zapasowej](https://docs.microsoft.com/azure/backup/backup-sql-server-database-azure-vms#configure-backup) .
+- Jeśli magazyn, w którym maszyna wirtualna SQL jest zarejestrowana w tym samym magazynie używanym do ochrony baz danych, wykonaj kroki [konfigurowania kopii zapasowej](./backup-sql-server-database-azure-vms.md#configure-backup) .
 
 Jeśli maszyna wirtualna SQL musi być zarejestrowana w nowym magazynie, należy wyrejestrować ją ze starego magazynu.  Wyrejestrowanie maszyny wirtualnej SQL z magazynu wymaga, aby wszystkie chronione źródła danych zostały zatrzymane, a następnie można usunąć dane kopii zapasowej. Usuwanie kopii zapasowej danych jest operacją niszczącą.  Po przejrzeniu i wykonaniu wszystkich środków zaradczych, aby wyrejestrować maszynę wirtualną SQL, Zarejestruj tę samą maszynę wirtualną w nowym magazynie i spróbuj ponownie wykonać operację tworzenia kopii zapasowej.
 
@@ -67,7 +68,7 @@ Czasami przypadkowe błędy mogą wystąpić podczas operacji wykonywania kopii 
 
 | Komunikat o błędzie | Możliwe przyczyny | Zalecana akcja |
 |---|---|---|
-| Ta baza danych SQL nie obsługuje żądanego typu kopii zapasowej. | Występuje, gdy model odzyskiwania bazy danych nie zezwala na żądany typ kopii zapasowej. Ten błąd może wystąpić w następujących sytuacjach: <br/><ul><li>Baza danych, która korzysta z modelu odzyskiwania prostego, nie zezwala na wykonywanie kopii zapasowych dziennika.</li><li>Różnice w kopiach zapasowych i dziennikach nie są dozwolone dla bazy danych Master.</li></ul>Aby uzyskać więcej informacji, zobacz dokumentację dotyczącą [modeli odzyskiwania SQL Server](https://docs.microsoft.com/sql/relational-databases/backup-restore/recovery-models-sql-server) . | Jeśli nie można utworzyć kopii zapasowej dziennika bazy danych w modelu odzyskiwania prostego, wypróbuj jedną z następujących opcji:<ul><li>Jeśli baza danych działa w trybie odzyskiwania prostego, wyłącz kopie zapasowe dzienników.</li><li>Skorzystaj z [dokumentacji SQL Server](https://docs.microsoft.com/sql/relational-databases/backup-restore/view-or-change-the-recovery-model-of-a-database-sql-server) , aby zmienić model odzyskiwania bazy danych na pełny lub zbiorczo zarejestrowany. </li><li> Jeśli nie chcesz zmieniać modelu odzyskiwania i masz standardowe zasady tworzenia kopii zapasowych wielu baz danych, których nie można zmienić, zignoruj błąd. Pełne i różnicowe kopie zapasowe będą działały zgodnie z harmonogramem. Kopie zapasowe dziennika zostaną pominięte, co jest oczekiwane w tym przypadku.</li></ul>Jeśli jest to baza danych Master i została skonfigurowana różnicowa lub kopia zapasowa dziennika, wykonaj jedną z następujących czynności:<ul><li>Użyj portalu, aby zmienić harmonogram zasad tworzenia kopii zapasowej bazy danych Master na pełny.</li><li>Jeśli masz standardowe zasady tworzenia kopii zapasowych wielu baz danych, których nie można zmienić, zignoruj błąd. Pełna kopia zapasowa będzie działała zgodnie z harmonogramem. Różnicowe kopie zapasowe lub dzienniki nie będą wykonywane, co jest oczekiwane w tym przypadku.</li></ul> |
+| Ta baza danych SQL nie obsługuje żądanego typu kopii zapasowej. | Występuje, gdy model odzyskiwania bazy danych nie zezwala na żądany typ kopii zapasowej. Ten błąd może wystąpić w następujących sytuacjach: <br/><ul><li>Baza danych, która korzysta z modelu odzyskiwania prostego, nie zezwala na wykonywanie kopii zapasowych dziennika.</li><li>Różnice w kopiach zapasowych i dziennikach nie są dozwolone dla bazy danych Master.</li></ul>Aby uzyskać więcej informacji, zobacz dokumentację dotyczącą [modeli odzyskiwania SQL Server](/sql/relational-databases/backup-restore/recovery-models-sql-server) . | Jeśli nie można utworzyć kopii zapasowej dziennika bazy danych w modelu odzyskiwania prostego, wypróbuj jedną z następujących opcji:<ul><li>Jeśli baza danych działa w trybie odzyskiwania prostego, wyłącz kopie zapasowe dzienników.</li><li>Skorzystaj z [dokumentacji SQL Server](/sql/relational-databases/backup-restore/view-or-change-the-recovery-model-of-a-database-sql-server) , aby zmienić model odzyskiwania bazy danych na pełny lub zbiorczo zarejestrowany. </li><li> Jeśli nie chcesz zmieniać modelu odzyskiwania i masz standardowe zasady tworzenia kopii zapasowych wielu baz danych, których nie można zmienić, zignoruj błąd. Pełne i różnicowe kopie zapasowe będą działały zgodnie z harmonogramem. Kopie zapasowe dziennika zostaną pominięte, co jest oczekiwane w tym przypadku.</li></ul>Jeśli jest to baza danych Master i została skonfigurowana różnicowa lub kopia zapasowa dziennika, wykonaj jedną z następujących czynności:<ul><li>Użyj portalu, aby zmienić harmonogram zasad tworzenia kopii zapasowej bazy danych Master na pełny.</li><li>Jeśli masz standardowe zasady tworzenia kopii zapasowych wielu baz danych, których nie można zmienić, zignoruj błąd. Pełna kopia zapasowa będzie działała zgodnie z harmonogramem. Różnicowe kopie zapasowe lub dzienniki nie będą wykonywane, co jest oczekiwane w tym przypadku.</li></ul> |
 | Operacja została anulowana, ponieważ w tej samej bazie danych była już uruchomiona operacja powodująca konflikt. | Zobacz [wpis w blogu dotyczący ograniczeń kopii zapasowych i przywracania](https://deep.data.blog/2008/12/30/concurrency-of-full-differential-and-log-backups-on-the-same-database/) , które są uruchamiane współbieżnie.| [Użyj SQL Server Management Studio (SSMS), aby monitorować zadania tworzenia kopii zapasowej](manage-monitor-sql-database-backup.md). Po niepowodzeniu operacji powodującej konflikt należy ponownie uruchomić operację.|
 
 ### <a name="usererrorsqlpodoesnotexist"></a>UserErrorSQLPODoesNotExist
@@ -86,7 +87,7 @@ Czasami przypadkowe błędy mogą wystąpić podczas operacji wykonywania kopii 
 
 | Komunikat o błędzie | Możliwe przyczyny | Zalecana akcja |
 |---|---|---|
-| Azure Backup nie może nawiązać połączenia z wystąpieniem programu SQL Server. | Azure Backup nie może nawiązać połączenia z wystąpieniem SQL Server. | Skorzystaj z dodatkowych szczegółów w menu błąd Azure Portal, aby zawęzić główne przyczyny. Zapoznaj się z artykułem [Rozwiązywanie problemów z usługą SQL Backup](https://docs.microsoft.com/sql/database-engine/configure-windows/troubleshoot-connecting-to-the-sql-server-database-engine) , aby naprawić błąd.<br/><ul><li>Jeśli domyślne ustawienia SQL nie zezwalają na połączenia zdalne, należy zmienić ustawienia. Zapoznaj się z następującymi artykułami, aby uzyskać informacje na temat zmiany ustawień:<ul><li>[MSSQLSERVER_-1](https://docs.microsoft.com/sql/relational-databases/errors-events/mssqlserver-1-database-engine-error?view=sql-server-ver15)</li><li>[MSSQLSERVER_2](/sql/relational-databases/errors-events/mssqlserver-2-database-engine-error)</li><li>[MSSQLSERVER_53](/sql/relational-databases/errors-events/mssqlserver-53-database-engine-error)</li></ul></li></ul><ul><li>Jeśli występują problemy z logowaniem, Skorzystaj z tych linków, aby je naprawić:<ul><li>[MSSQLSERVER_18456](/sql/relational-databases/errors-events/mssqlserver-18456-database-engine-error)</li><li>[MSSQLSERVER_18452](/sql/relational-databases/errors-events/mssqlserver-18452-database-engine-error)</li></ul></li></ul> |
+| Azure Backup nie może nawiązać połączenia z wystąpieniem programu SQL Server. | Azure Backup nie może nawiązać połączenia z wystąpieniem SQL Server. | Skorzystaj z dodatkowych szczegółów w menu błąd Azure Portal, aby zawęzić główne przyczyny. Zapoznaj się z artykułem [Rozwiązywanie problemów z usługą SQL Backup](/sql/database-engine/configure-windows/troubleshoot-connecting-to-the-sql-server-database-engine) , aby naprawić błąd.<br/><ul><li>Jeśli domyślne ustawienia SQL nie zezwalają na połączenia zdalne, należy zmienić ustawienia. Zapoznaj się z następującymi artykułami, aby uzyskać informacje na temat zmiany ustawień:<ul><li>[MSSQLSERVER_-1](/sql/relational-databases/errors-events/mssqlserver-1-database-engine-error)</li><li>[MSSQLSERVER_2](/sql/relational-databases/errors-events/mssqlserver-2-database-engine-error)</li><li>[MSSQLSERVER_53](/sql/relational-databases/errors-events/mssqlserver-53-database-engine-error)</li></ul></li></ul><ul><li>Jeśli występują problemy z logowaniem, Skorzystaj z tych linków, aby je naprawić:<ul><li>[MSSQLSERVER_18456](/sql/relational-databases/errors-events/mssqlserver-18456-database-engine-error)</li><li>[MSSQLSERVER_18452](/sql/relational-databases/errors-events/mssqlserver-18452-database-engine-error)</li></ul></li></ul> |
 
 ### <a name="usererrorparentfullbackupmissing"></a>UserErrorParentFullBackupMissing
 
@@ -98,7 +99,7 @@ Czasami przypadkowe błędy mogą wystąpić podczas operacji wykonywania kopii 
 
 | Komunikat o błędzie | Możliwe przyczyny | Zalecana akcja |
 |---|---|---|
-| Nie można wykonać kopii zapasowej, ponieważ dziennik transakcji dla źródła danych jest pełny. | Miejsce w dzienniku transakcyjnym bazy danych jest pełne. | Aby rozwiązać ten problem, zapoznaj się z [dokumentacją SQL Server](https://docs.microsoft.com/sql/relational-databases/errors-events/mssqlserver-9002-database-engine-error). |
+| Nie można wykonać kopii zapasowej, ponieważ dziennik transakcji dla źródła danych jest pełny. | Miejsce w dzienniku transakcyjnym bazy danych jest pełne. | Aby rozwiązać ten problem, zapoznaj się z [dokumentacją SQL Server](/sql/relational-databases/errors-events/mssqlserver-9002-database-engine-error). |
 
 ### <a name="usererrorcannotrestoreexistingdbwithoutforceoverwrite"></a>UserErrorCannotRestoreExistingDBWithoutForceOverwrite
 
@@ -110,7 +111,7 @@ Czasami przypadkowe błędy mogą wystąpić podczas operacji wykonywania kopii 
 
 | Komunikat o błędzie | Możliwe przyczyny | Zalecana akcja |
 |---|---|---|
-| Przywracanie nie powiodło się, ponieważ bazy danych nie można było przełączyć w tryb offline. | Gdy wykonujesz przywracanie, docelowa baza danych musi zostać przełączona w tryb offline. Azure Backup nie można przenieść tych danych do trybu offline. | Skorzystaj z dodatkowych szczegółów w menu błąd Azure Portal, aby zawęzić główne przyczyny. Aby uzyskać więcej informacji, zapoznaj się z [dokumentacją programu SQL Server](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-a-database-backup-using-ssms). |
+| Przywracanie nie powiodło się, ponieważ bazy danych nie można było przełączyć w tryb offline. | Gdy wykonujesz przywracanie, docelowa baza danych musi zostać przełączona w tryb offline. Azure Backup nie można przenieść tych danych do trybu offline. | Skorzystaj z dodatkowych szczegółów w menu błąd Azure Portal, aby zawęzić główne przyczyny. Aby uzyskać więcej informacji, zapoznaj się z [dokumentacją programu SQL Server](/sql/relational-databases/backup-restore/restore-a-database-backup-using-ssms). |
 
 ### <a name="usererrorcannotfindservercertificatewiththumbprint"></a>UserErrorCannotFindServerCertificateWithThumbprint
 
@@ -122,7 +123,7 @@ Czasami przypadkowe błędy mogą wystąpić podczas operacji wykonywania kopii 
 
 | Komunikat o błędzie | Możliwe przyczyny | Zalecana akcja |
 |---|---|---|
-| Kopia zapasowa dziennika używana do odzyskiwania zawiera zmiany zarejestrowane zbiorczo. Nie można jej użyć do zatrzymania w dowolnym momencie, zgodnie z wytycznymi dotyczącymi języka SQL. | Gdy baza danych jest w trybie odzyskiwania z rejestrowaniem zbiorczym, dane między transakcją zarejestrowaną zbiorczo a następną transakcją dziennika nie mogą zostać odzyskane. | Wybierz inny punkt w czasie do odzyskania. [Dowiedz się więcej](https://docs.microsoft.com/sql/relational-databases/backup-restore/recovery-models-sql-server?view=sql-server-ver15).
+| Kopia zapasowa dziennika używana do odzyskiwania zawiera zmiany zarejestrowane zbiorczo. Nie można jej użyć do zatrzymania w dowolnym momencie, zgodnie z wytycznymi dotyczącymi języka SQL. | Gdy baza danych jest w trybie odzyskiwania z rejestrowaniem zbiorczym, dane między transakcją zarejestrowaną zbiorczo a następną transakcją dziennika nie mogą zostać odzyskane. | Wybierz inny punkt w czasie do odzyskania. [Dowiedz się więcej](/sql/relational-databases/backup-restore/recovery-models-sql-server?view=sql-server-ver15).
 
 ### <a name="fabricsvcbackuppreferencecheckfailedusererror"></a>FabricSvcBackupPreferenceCheckFailedUserError
 
@@ -164,7 +165,7 @@ Operacja została zablokowana, ponieważ magazyn osiągnął limit maksymalny dl
 
 | Komunikat o błędzie | Możliwe przyczyny | Zalecana akcja |
 |---|---|---|
-Maszyna wirtualna nie może nawiązać kontaktu z usługą Azure Backup ze względu na problemy z łącznością z Internetem. | Maszyna wirtualna musi mieć łączność wychodzącą z usługą Azure Backup, Azure Storage lub Azure Active Directory Services.| — Jeśli używasz sieciowej grupy zabezpieczeń, aby ograniczyć łączność, należy użyć znacznika usługi AzureBackup w celu zezwalania na dostęp wychodzący do Azure Backup usługi Azure Backup Service, Azure Storage lub Azure Active Directory Services. Wykonaj następujące [kroki](https://docs.microsoft.com/azure/backup/backup-sql-server-database-azure-vms#allow-access-using-nsg-tags) , aby udzielić dostępu.<br>-Upewnij się, że usługa DNS rozwiązuje punkty końcowe platformy Azure.<br>-Sprawdź, czy maszyna wirtualna znajduje się za modułem równoważenia obciążenia blokującym dostęp do Internetu. Przypisując publiczny adres IP do maszyn wirtualnych, odnajdywanie będzie działało.<br>-Sprawdź, czy nie istnieje Zapora/program antywirusowy/serwer proxy, który blokuje wywołania powyższych trzech usług docelowych.
+Maszyna wirtualna nie może nawiązać kontaktu z usługą Azure Backup ze względu na problemy z łącznością z Internetem. | Maszyna wirtualna musi mieć łączność wychodzącą z usługą Azure Backup, Azure Storage lub Azure Active Directory Services.| — Jeśli używasz sieciowej grupy zabezpieczeń, aby ograniczyć łączność, należy użyć znacznika usługi AzureBackup w celu zezwalania na dostęp wychodzący do Azure Backup usługi Azure Backup Service, Azure Storage lub Azure Active Directory Services. Wykonaj następujące [kroki](./backup-sql-server-database-azure-vms.md#nsg-tags) , aby udzielić dostępu.<br>-Upewnij się, że usługa DNS rozwiązuje punkty końcowe platformy Azure.<br>-Sprawdź, czy maszyna wirtualna znajduje się za modułem równoważenia obciążenia blokującym dostęp do Internetu. Przypisując publiczny adres IP do maszyn wirtualnych, odnajdywanie będzie działało.<br>-Sprawdź, czy nie istnieje Zapora/program antywirusowy/serwer proxy, który blokuje wywołania powyższych trzech usług docelowych.
 
 ## <a name="re-registration-failures"></a>Błędy ponownej rejestracji
 
@@ -190,7 +191,7 @@ Te objawy mogą wystąpić z następujących powodów:
 - Maszyna wirtualna została usunięta, a inna maszyna wirtualna została utworzona o tej samej nazwie i w tej samej grupie zasobów co usunięta maszyna wirtualna.
 - Jeden z węzłów grupy dostępności nie otrzymał pełnej konfiguracji kopii zapasowej. Taka sytuacja może wystąpić, gdy grupa dostępności zostanie zarejestrowana w magazynie lub dodany nowy węzeł.
 
-W powyższych scenariuszach zalecamy wyzwolenie operacji ponownego zarejestrowania na maszynie wirtualnej. Zobacz [tutaj](https://docs.microsoft.com/azure/backup/backup-azure-sql-automation#enable-backup) , aby uzyskać instrukcje dotyczące wykonywania tego zadania w programie PowerShell.
+W powyższych scenariuszach zalecamy wyzwolenie operacji ponownego zarejestrowania na maszynie wirtualnej. Zobacz [tutaj](./backup-azure-sql-automation.md#enable-backup) , aby uzyskać instrukcje dotyczące wykonywania tego zadania w programie PowerShell.
 
 ## <a name="size-limit-for-files"></a>Limit rozmiaru plików
 
@@ -208,7 +209,7 @@ Teraz Rozmieść je w następującym formacie:
 [{"path":"<Location>","logicalName":"<LogicalName>","isDir":false},{"path":"<Location>","logicalName":"<LogicalName>","isDir":false}]}
 ```
 
-Przykład:
+Oto przykład:
 
 ```json
 [{"path":"F:\\Data\\TestDB12.mdf","logicalName":"TestDB12","isDir":false},{"path":"F:\\Log\\TestDB12_log.ldf","logicalName":"TestDB12_log","isDir":false}]}
@@ -237,7 +238,7 @@ Zawartość pliku powinna mieć następujący format:
 ]
 ```
 
-Przykład:
+Oto przykład:
 
 ```json
 [

@@ -7,23 +7,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 06/24/2020
+ms.date: 07/14/2020
 ms.author: aahi
-ms.openlocfilehash: a014628a9664e33aa855cc4fbf40979236d765f9
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: 6190653934dede1fa042beca8dbd2d7c06f43cfc
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85355611"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538024"
 ---
 # <a name="install-and-run-form-recognizer-containers-preview"></a>Instalowanie i uruchamianie kontenerów aparatów rozpoznawania formularzy (wersja zapoznawcza)
+
+[!INCLUDE [Form Recognizer containers limit](includes/container-limit.md)]
 
 Aparat rozpoznawania formularzy platformy Azure stosuje technologię uczenia maszynowego do identyfikowania i wyodrębniania par klucz-wartość oraz tabel z formularzy. Kojarzy wartości i wpisy tabeli z parami klucz-wartość, a następnie wyprowadza dane ze strukturą, które zawierają relacje w oryginalnym pliku. 
 
 Aby zmniejszyć złożoność i łatwo zintegrować niestandardowy model aparatu rozpoznawania formularzy w procesie automatyzacji przepływu pracy lub innej aplikacji, można wywołać model przy użyciu prostego interfejsu API REST. Potrzebne są tylko pięć dokumentów formularzy (lub jednej pustej postaci i dwóch wypełnionych formularzy), dzięki czemu można szybko uzyskać wyniki, dokładnie i dostosować je do określonej zawartości. Nie jest konieczna intensywna interwencja ręczna ani Obszerna wiedza naukowa o danych. Nie wymaga to etykietowania danych ani adnotacji danych.
-
-> [!IMPORTANT]
-> Kontenery aparatu rozpoznawania formularzy używają obecnie wersji 1,0 interfejsu API aparatu rozpoznawania. Możesz uzyskać dostęp do najnowszej wersji interfejsu API za pomocą usługi zarządzanej.
 
 | Funkcja | Funkcje |
 |----------|----------|
@@ -65,14 +64,6 @@ Ten klucz jest używany do uruchamiania kontenera i jest dostępny na stronie kl
 > [!IMPORTANT]
 > Te klucze subskrypcji są używane do uzyskiwania dostępu do interfejsu API usługi poznawczej. Nie udostępniaj kluczy. Przechowuj je bezpiecznie, na przykład przy użyciu Azure Key Vault. Zalecamy także regularne ponowne generowanie tych kluczy. Tylko jeden klucz jest wymagany do wywołania interfejsu API. Po ponownym wygenerowaniu pierwszego klucza można użyć drugiego klawisza w celu uzyskania ciągłego dostępu do usługi.
 
-## <a name="request-access-to-the-container-registry"></a>Zażądaj dostępu do rejestru kontenerów
-
-Wypełnij i prześlij [formularz żądania](https://aka.ms/cognitivegate) , aby zażądać dostępu do kontenera.
-
-[!INCLUDE [Request access to the container registry](../../../includes/cognitive-services-containers-request-access-only.md)]
-
-[!INCLUDE [Authenticate to the container registry](../../../includes/cognitive-services-containers-access-registry.md)]
-
 ## <a name="the-host-computer"></a>Komputer-host
 
 [!INCLUDE [Host Computer requirements](../../../includes/cognitive-services-containers-host-computer.md)]
@@ -81,7 +72,7 @@ Wypełnij i prześlij [formularz żądania](https://aka.ms/cognitivegate) , aby 
 
 Minimalna i zalecana liczba rdzeni procesora CPU i pamięci do przydzielenia dla każdego kontenera aparatu rozpoznawania formularzy są opisane w poniższej tabeli:
 
-| Kontener | Minimalne | Zalecane |
+| Kontener | Minimum | Zalecane |
 |-----------|---------|-------------|
 | Rozpoznawanie formularzy | 2 rdzeń, 4 GB pamięci | 4 rdzenie, 8 GB pamięci |
 | Rozpoznawanie tekstu | 1 rdzeń, 8 GB pamięci | 2 rdzenie, 8 GB pamięci |
@@ -248,9 +239,9 @@ services:
 > [!IMPORTANT]
 > `Eula` `Billing` `ApiKey` `FormRecognizer:ComputerVisionApiKey` Aby można było uruchomić kontener, należy określić,, i, a także `FormRecognizer:ComputerVisionEndpointUri` Opcje i. w przeciwnym razie kontener nie zostanie uruchomiony. Aby uzyskać więcej informacji, zobacz [rozliczenia](#billing).
 
-## <a name="query-the-containers-prediction-endpoint"></a>Zbadaj punkt końcowy przewidywania kontenera
+## <a name="query-the-containers-prediction-endpoint"></a>Wykonywanie zapytania dotyczącego punktu końcowego przewidywania kontenera
 
-|Kontener|Endpoint|
+|Kontener|Punkt końcowy|
 |--|--|
 |formularz-aparat rozpoznawania|http://localhost:5000
 

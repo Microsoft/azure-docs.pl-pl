@@ -5,15 +5,16 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/09/2020
-ms.openlocfilehash: 21f387a87224615ea6afbdce620c56e3ad2cc6ea
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3175e43a841334719de80f44a226b1c7b87690d9
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83210543"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86540115"
 ---
 # <a name="workspace-based-resource-changes-preview"></a>Zmiany zasobów na podstawie obszaru roboczego (wersja zapoznawcza)
 
-Przed wprowadzeniem [zasobów Application Insights opartych na obszarze roboczym](create-workspace-resource.md)Application Insights dane były przechowywane oddzielnie od innych danych dziennika w Azure monitor. Oba są oparte na platformie Azure Eksplorator danych i używają tego samego języka zapytań Kusto (KQL). Opisano to w [dziennikach w Azure monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-logs).
+Przed wprowadzeniem [zasobów Application Insights opartych na obszarze roboczym](create-workspace-resource.md)Application Insights dane były przechowywane oddzielnie od innych danych dziennika w Azure monitor. Oba są oparte na platformie Azure Eksplorator danych i używają tego samego języka zapytań Kusto (KQL). Opisano to w [dziennikach w Azure monitor](../platform/data-platform-logs.md).
 
 Za pomocą Application Insights danych zasobów opartych na obszarze roboczym są przechowywane w Log Analytics obszarze roboczym z innymi danymi monitorowania i danymi aplikacji. Upraszcza to konfigurację, co pozwala łatwiej analizować dane w wielu rozwiązaniach i korzystać z możliwości obszarów roboczych.
 
@@ -57,14 +58,14 @@ Starsza tabela: dostępność
 |client_Type|ciąg|ClientType|ciąg|
 |cloud_RoleInstance|ciąg|AppRoleInstance|ciąg|
 |cloud_RoleName|ciąg|AppRoleName|ciąg|
-|customDimensions|dynamiczna|Właściwości|Dynamiczny|
-|customMeasurements|dynamiczna|Miary|Dynamiczny|
-|czas trwania|liczba rzeczywista|Milisekundach)|liczba rzeczywista|
+|customDimensions|dynamic|Właściwości|Dynamiczny|
+|customMeasurements|dynamic|Miary|Dynamiczny|
+|czas trwania|liczba rzeczywista|DurationMs|liczba rzeczywista|
 |`id`|ciąg|`Id`|ciąg|
 |iKey|ciąg|IKey|ciąg|
 |itemCount|int|ItemCount|int|
 |Elementów|ciąg|\_Elementów|ciąg|
-|itemType|ciąg|Typ|String|
+|itemType|ciąg|Typ|String (ciąg)|
 |location|ciąg|Lokalizacja|ciąg|
 |message|ciąg|Komunikat|ciąg|
 |name|ciąg|Nazwa|ciąg|
@@ -76,7 +77,7 @@ Starsza tabela: dostępność
 |sdkVersion|ciąg|SdkVersion|ciąg|
 |session_Id|ciąg|SessionId|ciąg|
 |size|liczba rzeczywista|Rozmiar|liczba rzeczywista|
-|powodzenie|ciąg|Powodzenie|Wartość logiczna|
+|powodzenie|ciąg|Success|Wartość logiczna|
 |sygnatura czasowa|datetime|TimeGenerated|datetime|
 |user_AccountId|ciąg|UserAccountId|ciąg|
 |user_AuthenticatedId|ciąg|UserAuthenticatedId|ciąg|
@@ -101,8 +102,8 @@ Starsza tabela: browserTimings
 |client_Type|ciąg|ClientType|ciąg|
 |cloud_RoleInstance|ciąg|AppRoleInstance|ciąg|
 |cloud_RoleName|ciąg|AppRoleName|ciąg|
-|customDimensions|dynamiczna|Właściwości|Dynamiczny|
-|customMeasurements|dynamiczna|Miary|Dynamiczny|
+|customDimensions|dynamic|Właściwości|Dynamiczny|
+|customMeasurements|dynamic|Miary|Dynamiczny|
 |iKey|ciąg|IKey|ciąg|
 |itemCount|int|ItemCount|int|
 |Elementów|ciąg|\_Elementów|ciąg|
@@ -145,15 +146,15 @@ Starsza tabela: zależności
 |client_Type|ciąg|ClientType|ciąg|
 |cloud_RoleInstance|ciąg|AppRoleInstance|ciąg|
 |cloud_RoleName|ciąg|AppRoleName|ciąg|
-|customDimensions|dynamiczna|Właściwości|Dynamiczny|
-|customMeasurements|dynamiczna|Miary|Dynamiczny|
+|customDimensions|dynamic|Właściwości|Dynamiczny|
+|customMeasurements|dynamic|Miary|Dynamiczny|
 |dane|ciąg|Dane|ciąg|
-|czas trwania|liczba rzeczywista|Milisekundach)|liczba rzeczywista|
+|czas trwania|liczba rzeczywista|DurationMs|liczba rzeczywista|
 |`id`|ciąg|`Id`|ciąg|
 |iKey|ciąg|IKey|ciąg|
 |itemCount|int|ItemCount|int|
 |Elementów|ciąg|\_Elementów|ciąg|
-|itemType|ciąg|Typ|String|
+|itemType|ciąg|Typ|String (ciąg)|
 |name|ciąg|Nazwa|ciąg|
 |operation_Id|ciąg|OperationId|ciąg|
 |operation_Name|ciąg|OperationName|ciąg|
@@ -163,8 +164,8 @@ Starsza tabela: zależności
 |resultCode|ciąg|ResultCode|ciąg|
 |sdkVersion|ciąg|SdkVersion|ciąg|
 |session_Id|ciąg|SessionId|ciąg|
-|powodzenie|ciąg|Powodzenie|Wartość logiczna|
-|obiektów|ciąg|Środowisko docelowe|ciąg|
+|powodzenie|ciąg|Success|Wartość logiczna|
+|obiektów|ciąg|Cel|ciąg|
 |sygnatura czasowa|datetime|TimeGenerated|datetime|
 |typ|ciąg|DependencyType|ciąg|
 |user_AccountId|ciąg|UserAccountId|ciąg|
@@ -190,8 +191,8 @@ Starsza tabela: customEvents
 |client_Type|ciąg|ClientType|ciąg|
 |cloud_RoleInstance|ciąg|AppRoleInstance|ciąg|
 |cloud_RoleName|ciąg|AppRoleName|ciąg|
-|customDimensions|dynamiczna|Właściwości|Dynamiczny|
-|customMeasurements|dynamiczna|Miary|Dynamiczny|
+|customDimensions|dynamic|Właściwości|Dynamiczny|
+|customMeasurements|dynamic|Miary|Dynamiczny|
 |iKey|ciąg|IKey|ciąg|
 |itemCount|int|ItemCount|int|
 |Elementów|ciąg|\_Elementów|ciąg|
@@ -227,7 +228,7 @@ Starsza tabela: customMetrics
 |client_Type|ciąg|ClientType|ciąg|
 |cloud_RoleInstance|ciąg|AppRoleInstance|ciąg|
 |cloud_RoleName|ciąg|AppRoleName|ciąg|
-|customDimensions|dynamiczna|Właściwości|Dynamiczny|
+|customDimensions|dynamic|Właściwości|Dynamiczny|
 |iKey|ciąg|IKey|ciąg|
 |Elementów|ciąg|\_Elementów|ciąg|
 |itemType|ciąg|Typ|ciąg|
@@ -242,7 +243,7 @@ Starsza tabela: customMetrics
 |user_AccountId|ciąg|UserAccountId|ciąg|
 |user_AuthenticatedId|ciąg|UserAuthenticatedId|ciąg|
 |user_Id|ciąg|UserId|ciąg|
-|wartość|liczba rzeczywista|usunięte||
+|value|liczba rzeczywista|usunięte||
 |valueCount|int|ValueCount|int|
 |valueMax|liczba rzeczywista|ValueMax|liczba rzeczywista|
 |valueMin|liczba rzeczywista|ValueMin|liczba rzeczywista|
@@ -268,14 +269,14 @@ Starsza tabela: pageViews
 |client_Type|ciąg|ClientType|ciąg|
 |cloud_RoleInstance|ciąg|AppRoleInstance|ciąg|
 |cloud_RoleName|ciąg|AppRoleName|ciąg|
-|customDimensions|dynamiczna|Właściwości|Dynamiczny|
-|customMeasurements|dynamiczna|Miary|Dynamiczny|
-|czas trwania|liczba rzeczywista|Milisekundach)|liczba rzeczywista|
+|customDimensions|dynamic|Właściwości|Dynamiczny|
+|customMeasurements|dynamic|Miary|Dynamiczny|
+|czas trwania|liczba rzeczywista|DurationMs|liczba rzeczywista|
 |`id`|ciąg|`Id`|ciąg|
 |iKey|ciąg|IKey|ciąg|
 |itemCount|int|ItemCount|int|
 |Elementów|ciąg|\_Elementów|ciąg|
-|itemType|ciąg|Typ|String|
+|itemType|ciąg|Typ|String (ciąg)|
 |name|ciąg|Nazwa|ciąg|
 |operation_Id|ciąg|OperationId|ciąg|
 |operation_Name|ciąg|OperationName|ciąg|
@@ -311,7 +312,7 @@ Starsza tabela: Liczniki wydajności
 |cloud_RoleInstance|ciąg|AppRoleInstance|ciąg|
 |cloud_RoleName|ciąg|AppRoleName|ciąg|
 |counter|ciąg|usunięte||
-|customDimensions|dynamiczna|Właściwości|Dynamiczny|
+|customDimensions|dynamic|Właściwości|Dynamiczny|
 |iKey|ciąg|IKey|ciąg|
 |np|ciąg|Wystąpienie|ciąg|
 |Elementów|ciąg|\_Elementów|ciąg|
@@ -327,7 +328,7 @@ Starsza tabela: Liczniki wydajności
 |user_AccountId|ciąg|UserAccountId|ciąg|
 |user_AuthenticatedId|ciąg|UserAuthenticatedId|ciąg|
 |user_Id|ciąg|UserId|ciąg|
-|wartość|liczba rzeczywista|Wartość|liczba rzeczywista|
+|value|liczba rzeczywista|Wartość|liczba rzeczywista|
 
 ### <a name="apprequests"></a>AppRequests
 
@@ -348,27 +349,27 @@ Starsza tabela: żądania
 |client_Type|ciąg|ClientType|ciąg|
 |cloud_RoleInstance|ciąg|AppRoleInstance|ciąg|
 |cloud_RoleName|ciąg|AppRoleName|ciąg|
-|customDimensions|dynamiczna|Właściwości|Dynamiczny|
-|customMeasurements|dynamiczna|Miary|Dynamiczny|
-|czas trwania|liczba rzeczywista|Milisekundach)|Rzeczywiste|
-|`id`|ciąg|`Id`|String|
+|customDimensions|dynamic|Właściwości|Dynamiczny|
+|customMeasurements|dynamic|Miary|Dynamiczny|
+|czas trwania|liczba rzeczywista|DurationMs|Rzeczywiste|
+|`id`|ciąg|`Id`|String (ciąg)|
 |iKey|ciąg|IKey|ciąg|
 |itemCount|int|ItemCount|int|
 |Elementów|ciąg|\_Elementów|ciąg|
-|itemType|ciąg|Typ|String|
-|name|ciąg|Nazwa|String|
+|itemType|ciąg|Typ|String (ciąg)|
+|name|ciąg|Nazwa|String (ciąg)|
 |operation_Id|ciąg|OperationId|ciąg|
 |operation_Name|ciąg|OperationName|ciąg|
 |operation_ParentId|ciąg|OperationParentId|ciąg|
 |operation_SyntheticSource|ciąg|OperationSyntheticSource|ciąg|
-|performanceBucket|ciąg|PerformanceBucket|String|
-|resultCode|ciąg|ResultCode|String|
+|performanceBucket|ciąg|PerformanceBucket|String (ciąg)|
+|resultCode|ciąg|ResultCode|String (ciąg)|
 |sdkVersion|ciąg|SdkVersion|ciąg|
 |session_Id|ciąg|SessionId|ciąg|
-|source|string|Element źródłowy|String|
-|powodzenie|ciąg|Powodzenie|Wartość logiczna|
+|source|string|Element źródłowy|String (ciąg)|
+|powodzenie|ciąg|Success|Wartość logiczna|
 |sygnatura czasowa|datetime|TimeGenerated|datetime|
-|url|ciąg|Url|String|
+|url|ciąg|Url|String (ciąg)|
 |user_AccountId|ciąg|UserAccountId|ciąg|
 |user_AuthenticatedId|ciąg|UserAuthenticatedId|ciąg|
 |user_Id|ciąg|UserId|ciąg|
@@ -393,9 +394,9 @@ Starsza tabela: wyjątki
 |client_Type|ciąg|ClientType|ciąg|
 |cloud_RoleInstance|ciąg|AppRoleInstance|ciąg|
 |cloud_RoleName|ciąg|AppRoleName|ciąg|
-|customDimensions|dynamiczna|Właściwości|dynamiczna|
-|customMeasurements|dynamiczna|Miary|dynamiczna|
-|uzyskać|dynamiczna|Szczegóły|dynamiczna|
+|customDimensions|dynamic|Właściwości|dynamic|
+|customMeasurements|dynamic|Miary|dynamic|
+|uzyskać|dynamic|Szczegóły|dynamic|
 |handledAt|ciąg|HandledAt|ciąg|
 |iKey|ciąg|IKey|ciąg|
 |innermostAssembly|ciąg|InnermostAssembly|ciąg|
@@ -444,8 +445,8 @@ Starsza tabela: ślady
 |client_Type|ciąg|ClientType|ciąg|
 |cloud_RoleInstance|ciąg|AppRoleInstance|ciąg|
 |cloud_RoleName|ciąg|AppRoleName|ciąg|
-|customDimensions|dynamiczna|Właściwości|dynamiczna|
-|customMeasurements|dynamiczna|Miary|dynamiczna|
+|customDimensions|dynamic|Właściwości|dynamic|
+|customMeasurements|dynamic|Miary|dynamic|
 |iKey|ciąg|IKey|ciąg|
 |itemCount|int|ItemCount|int|
 |Elementów|ciąg|\_Elementów|ciąg|
@@ -466,4 +467,4 @@ Starsza tabela: ślady
 ## <a name="next-steps"></a>Następne kroki
 
 * [Eksploruj metryki](../../azure-monitor/platform/metrics-charts.md)
-* [Pisanie zapytań analitycznych](../../azure-monitor/app/analytics.md)
+* [Pisanie zapytań analitycznych](../log-query/log-query-overview.md)

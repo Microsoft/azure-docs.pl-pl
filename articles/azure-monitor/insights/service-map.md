@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/24/2019
-ms.openlocfilehash: 637db3a0749b5a0738b0ccc5136d26e435a03c7b
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: bfd25c2572e91c2984f2845e08941614fff65570
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86203123"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539775"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Korzystanie z rozwiązania Service Map na platformie Azure
 
@@ -241,7 +241,7 @@ Service Map integruje się z funkcją wyszukiwania w dziennikach, aby wyświetli
 
 ## <a name="service-desk-integration"></a>Integracja z obsługą techniczną
 
-Integracja Service Map z łącznik zarządzania usługami IT jest automatyczna, gdy oba rozwiązania zostały włączone i skonfigurowane w obszarze roboczym Log Analytics. Integracja w Service Map ma etykietę "Service Desk". Aby uzyskać więcej informacji, zobacz [centralne zarządzanie narzędzia ITSM elementami roboczymi przy użyciu Łącznik zarządzania usługami IT](https://docs.microsoft.com/azure/log-analytics/log-analytics-itsmc-overview).
+Integracja Service Map z łącznik zarządzania usługami IT jest automatyczna, gdy oba rozwiązania zostały włączone i skonfigurowane w obszarze roboczym Log Analytics. Integracja w Service Map ma etykietę "Service Desk". Aby uzyskać więcej informacji, zobacz [centralne zarządzanie narzędzia ITSM elementami roboczymi przy użyciu Łącznik zarządzania usługami IT](../platform/itsmc-overview.md).
 
 W okienku **usługi Machine Service** jest wyświetlane wszystkie zdarzenia zarządzania usługą IT dla wybranego serwera w wybranym zakresie czasu. Na serwerze zostanie wyświetlona ikona, jeśli istnieją bieżące elementy, a w okienku stanowiska usługi Machine Service znajduje się lista.
 
@@ -270,7 +270,7 @@ W okienku **wydajność komputera** są wyświetlane metryki wydajności standar
 
 ![Okienko wydajności maszyny](media/service-map/machine-performance.png)
 
-Aby wyświetlić dane dotyczące wydajności, może być konieczne [włączenie odpowiednich liczników wydajności log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources-performance-counters).  Liczniki, które chcesz włączyć:
+Aby wyświetlić dane dotyczące wydajności, może być konieczne [włączenie odpowiednich liczników wydajności log Analytics](../platform/data-sources-performance-counters.md).  Liczniki, które chcesz włączyć:
 
 W systemie Windows:
 - Procesor (*) \\ czas procesora (%)
@@ -540,7 +540,7 @@ let remoteMachines = remote | summarize by RemoteMachine;
 
 ## <a name="rest-api"></a>Interfejs API REST
 
-Wszystkie dane dotyczące serwera, procesu i zależności w Service Map są dostępne za pośrednictwem [interfejsu API REST Service map](https://docs.microsoft.com/rest/api/servicemap/).
+Wszystkie dane dotyczące serwera, procesu i zależności w Service Map są dostępne za pośrednictwem [interfejsu API REST Service map](/rest/api/servicemap/).
 
 ## <a name="diagnostic-and-usage-data"></a>Dane diagnostyczne i użycia
 

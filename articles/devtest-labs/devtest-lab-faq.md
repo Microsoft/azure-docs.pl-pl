@@ -2,13 +2,13 @@
 title: Azure DevTest Labs często zadawane pytania | Microsoft Docs
 description: Ten artykuł zawiera odpowiedzi na niektóre często zadawane pytania dotyczące Azure DevTest Labs.
 ms.topic: article
-ms.date: 06/26/2020
-ms.openlocfilehash: b687ae5c7b64239387dad7a51e124fa2f507f2b8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/17/2020
+ms.openlocfilehash: 707b66fadab482a31ac02f10460d581997931a0b
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85481667"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537494"
 ---
 # <a name="azure-devtest-labs-faq"></a>Azure DevTest Labs — często zadawane pytania
 Uzyskaj odpowiedzi na niektóre często zadawane pytania dotyczące Azure DevTest Labs.
@@ -200,7 +200,7 @@ Aby skopiować istniejące maszyny wirtualne do DevTest Labs:
 Tak, możesz dołączyć wiele dysków do maszyn wirtualnych.
 
 ### <a name="are-gen-2-images-supported-by-devtest-labs"></a>Czy są to obrazy generacji 2 obsługiwane przez DevTest Labs?
-Nie. Usługa DevTest Labs nie obsługuje [obrazów generacji 2](../virtual-machines/windows/generation-2.md). Jeśli dla obrazu są dostępne wersje generacji 1 i Gen 2, DevTest Labs wyświetla tylko wersję Gen 1 obrazu podczas tworzenia maszyny wirtualnej. Nie zobaczysz obrazu, jeśli dostępna jest tylko wersja 2 generacji. 
+Tak. Usługa DevTest Labs obsługuje [obrazy generacji 2](../virtual-machines/windows/generation-2.md). Jeśli jednak dla obrazu są dostępne wersje Gen 1 i Gen 2, DevTest Labs wyświetla tylko wersję Gen 1 obrazu podczas tworzenia maszyny wirtualnej. Obraz zostanie wyświetlony, jeśli dostępna jest tylko wersja 2 generacji. 
 
 ### <a name="if-i-want-to-use-a-windows-os-image-for-my-testing-do-i-have-to-purchase-an-msdn-subscription"></a>Jeśli chcę używać obrazu systemu operacyjnego Windows do testowania, czy muszę kupić subskrypcję MSDN?
 Aby użyć obrazów systemu operacyjnego klienta systemu Windows (systemu Windows 7 lub nowszej wersji) do programowania lub testowania na platformie Azure, wykonaj jedną z następujących czynności:
@@ -212,7 +212,7 @@ Aby uzyskać więcej informacji na temat środków na korzystanie z platformy Az
 
 
 ### <a name="how-do-i-automate-the-process-of-deleting-all-the-vms-in-my-lab"></a>Jak mogę zautomatyzować proces usuwania wszystkich maszyn wirtualnych w moim laboratorium?
-Jako właściciel laboratorium możesz usunąć maszyny wirtualne z laboratorium w Azure Portal. Możesz również usunąć wszystkie maszyny wirtualne w laboratorium przy użyciu skryptu programu PowerShell. W poniższym przykładzie w obszarze wartości, **Aby zmienić** komentarz Zmodyfikuj wartości parametrów. Można pobrać wartości identyfikatora subskrypcji, labResourceGroup i labName z okienka laboratorium w Azure Portal.
+Jako właściciel laboratorium możesz usunąć maszyny wirtualne z laboratorium w Azure Portal. Możesz również usunąć wszystkie maszyny wirtualne w laboratorium przy użyciu skryptu programu PowerShell. W poniższym przykładzie w obszarze wartości, **Aby zmienić** komentarz Zmodyfikuj wartości parametrów. Możesz pobrać `subscriptionId` `labResourceGroup` wartości, i `labName` z okienka laboratorium w Azure Portal.
 
 ```powershell
 # Delete all the VMs in a lab.
@@ -337,10 +337,10 @@ Poniższe wpisy w blogu oferują wskazówki i informacje dotyczące korzystania 
 
 W przypadku innych/Continuous dostarczanych (ciągłej integracji) łańcuchy narzędzi można osiągnąć te same scenariusze, wdrażając [szablony Azure Resource Manager](https://azure.microsoft.com/resources/templates/) przy użyciu [poleceń cmdlet Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md) i [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.DevTestLabs/). Możesz również używać [interfejsów API REST do DevTest Labs](https://aka.ms/dtlrestapis) , aby zintegrować je z łańcucha narzędzi.
 
-## <a name="networking"></a>Networking
+## <a name="networking"></a>Sieć
 
 ### <a name="when-should-i-create-a-new-virtual-network-for-my-devtest-labs-environment-vs-using-an-existing-virtual-network"></a>Kiedy należy utworzyć nową sieć wirtualną dla środowiska DevTest Labs a przy użyciu istniejącej sieci wirtualnej?
-Jeśli maszyny wirtualne muszą współdziałać z istniejącą infrastrukturą, rozważ użycie istniejącej sieci wirtualnej w środowisku usługi DevTest Labs. Jeśli używasz ExpressRoute, możesz zminimalizować ilość sieci wirtualnych/podsieci, aby nie dzielić przestrzeni adresowej IP, która jest przypisana do użycia w subskrypcjach.
+Jeśli maszyny wirtualne muszą współdziałać z istniejącą infrastrukturą, rozważ użycie istniejącej sieci wirtualnej w środowisku usługi DevTest Labs. Jeśli używasz ExpressRoute, możesz zminimalizować liczbę sieci wirtualnych/podsieci, aby nie było fragmentacji przestrzeni adresów IP, która jest przypisana do użycia w subskrypcjach.
 
 Rozważ użycie wzorca komunikacji równorzędnej sieci wirtualnej tutaj ([model](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)gwiazdy). Takie podejście umożliwia komunikację sieci wirtualnej/podsieci między subskrypcjami. W przeciwnym razie każde środowisko DevTest Labs może mieć własną sieć wirtualną.
 

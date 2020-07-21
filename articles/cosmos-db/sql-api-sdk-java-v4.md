@@ -8,11 +8,12 @@ ms.devlang: java
 ms.topic: reference
 ms.date: 05/20/2020
 ms.author: anfeldma
-ms.openlocfilehash: aa5e741d8578253b8b3e8e5c692873c39cec8f79
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ccc872b24c78fbdf6e55673f9d1f78efc0647895
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85412638"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537888"
 ---
 # <a name="azure-cosmos-db-java-sdk-v4-for-core-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Java SDK v4 for Core (SQL) API: informacje o wersji i zasoby
 > [!div class="op_single_selector"]
@@ -60,6 +61,17 @@ Azure Cosmos DB Java SDK v4 for Core (SQL) łączy asynchroniczny interfejs API 
 | **Azure Cosmos DB warsztatów i laboratoriów** |[Strona główna Cosmos DB warsztatów](https://aka.ms/cosmosworkshop)
 
 ## <a name="release-history"></a>Historia wersji
+
+### <a name="420-2020-07-14"></a>4.2.0 (2020-07-14)
+* Dodano interfejs API z włączoną obsługą rejestrowania skryptów do programu `CosmosStoredProcedureRequestOptions` .
+* Zaktualizowano `DirectConnectionConfig` wartość domyślną `idleEndpointTimeout` 1 godz, a wartość domyślna `connectTimeout` to 5 s.
+#### <a name="key-bug-fixes"></a>Poprawki klucza
+* Rozwiązano problem związany z `GatewayConnectionConfig` `idleConnectionTimeout` zastępowaniem `DirectConnectionConfig` `idleConnectionTimeout` .
+* Naprawiono `responseContinuationTokenLimitInKb` pobieranie i Ustawianie interfejsów API w programie `CosmosQueryRequestOptions` .
+* Rozwiązano problem związany z kwerendą i źródłem zmian podczas ponownego tworzenia kolekcji o tej samej nazwie.
+* Rozwiązano problem z najważniejszym zapytaniem zwracającym ClassCastException.
+* Rozwiązano problem z kolejnością order by Query zwracającej NullPointerException.
+* Rozwiązano problem podczas obsługi anulowanych żądań w trybie bezpośrednim, powodując wywoływanie reaktora `onErrorDropped` . 
 
 ### <a name="410-2020-06-25"></a>4.1.0 (2020-06-25)
 #### <a name="new-features"></a>Nowe funkcje
@@ -134,7 +146,7 @@ Azure Cosmos DB Java SDK v4 for Core (SQL) łączy asynchroniczny interfejs API 
 * `ChangeFeedProcessor`Poprawka błędu podczas synchronizowania aktualizacji dzierżawy w różnych wątkach.
 * Stały warunek wyścigu powodujący `ArrayIndexOutOfBound` wyjątek w StoreReader
 
-## <a name="faq"></a>Często zadawane pytania
+## <a name="faq"></a>Najczęściej zadawane pytania
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
 ## <a name="see-also"></a>Zobacz także

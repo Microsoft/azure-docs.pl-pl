@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2019
 ms.author: damaerte
-ms.openlocfilehash: 409e8667f03843ae1b1bad56f189ff17b29d549a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e7324bfec32368e952af8f24afabe893011454df
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85506569"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538177"
 ---
 # <a name="features--tools-for-azure-cloud-shell"></a>Funkcje & narzędzia dla Azure Cloud Shell
 
@@ -49,25 +49,25 @@ Dysk platformy Azure umożliwia łatwe odnajdowanie zasobów platformy Azure, ta
 Aby zarządzać tymi zasobami niezależnie od używanego dysku, można nadal używać znanych [poleceń cmdlet Azure PowerShell](https://docs.microsoft.com/powershell/azure) .
 Wszystkie zmiany wprowadzone w zasobach platformy Azure, które zostały wprowadzone bezpośrednio w Azure Portal lub za pomocą poleceń cmdlet Azure PowerShell, są odzwierciedlone na dysku platformy Azure.  `dir -Force`Aby odświeżyć zasoby, można uruchomić.
 
-![](media/features-powershell/azure-drive.png)
+![Zrzut ekranu przedstawiający Azure Cloud Shell zainicjowany i listę zasobów katalogu.](media/features-powershell/azure-drive.png)
 
 ### <a name="manage-exchange-online"></a>Zarządzanie usługą Exchange Online
 
 Program PowerShell w Cloud Shell zawiera prywatną kompilację modułu usługi Exchange Online.  Uruchom `Connect-EXOPSSession` polecenie, aby uzyskać polecenia cmdlet programu Exchange.
 
-![](media/features-powershell/exchangeonline.png)
+![Zrzut ekranu przedstawiający Azure Cloud Shell uruchamiania poleceń Connect-EXOPSSession i Get-User.](media/features-powershell/exchangeonline.png)
 
  Uruchom polecenie `Get-Command -Module tmp_*`
 > [!NOTE]
 > Nazwa modułu powinna rozpoczynać się od `tmp_` , jeśli zainstalowano moduły z tym samym prefiksem, zostaną również wyświetlone te polecenia cmdlet. 
 
-![](media/features-powershell/exchangeonlinecmdlets.png)
+![Zrzut ekranu przedstawiający Azure Cloud Shell uruchomienie polecenia Get-Command-module tmp_ *.](media/features-powershell/exchangeonlinecmdlets.png)
 
 ### <a name="deep-integration-with-open-source-tooling"></a>Ścisła integracja z narzędziami Open Source
 
 Cloud Shell obejmuje wstępnie skonfigurowane uwierzytelnianie dla narzędzi typu "open source", takich jak Terraform, rozwiązania ansible i Chef. Wypróbuj ją z przykładowych przewodników.
 
-## <a name="tools"></a>narzędzia
+## <a name="tools"></a>Narzędzia
 
 |Kategoria   |Nazwa   |
 |---|---|
@@ -76,7 +76,7 @@ Cloud Shell obejmuje wstępnie skonfigurowane uwierzytelnianie dla narzędzi typ
 |Edytory tekstu           |kod (Edytor Cloud Shell)<br> vim<br> nano<br> emacs    |
 |Kontrola źródła         |git                    |
 |Narzędzia kompilacji            |make<br> maven<br> npm<br> graczy         |
-|Containers             |[Docker Machine](https://github.com/docker/machine)<br> [Polecenia kubectl](https://kubernetes.io/docs/user-guide/kubectl-overview/)<br> [Helm](https://github.com/kubernetes/helm)<br> [INTERFEJS WIERSZA POLECENIA DC/OS](https://github.com/dcos/dcos-cli)         |
+|Kontenery             |[Docker Machine](https://github.com/docker/machine)<br> [Polecenia kubectl](https://kubernetes.io/docs/user-guide/kubectl-overview/)<br> [Helm](https://github.com/kubernetes/helm)<br> [INTERFEJS WIERSZA POLECENIA DC/OS](https://github.com/dcos/dcos-cli)         |
 |Bazy danych              |Klient MySQL<br> Klient PostgreSql<br> [Narzędzie sqlcmd](https://docs.microsoft.com/sql/tools/sqlcmd-utility)<br> [MSSQL-Scripter](https://github.com/Microsoft/sql-xplat-cli) |
 |Inne                  |Klient iPython<br> [Interfejs wiersza polecenia Cloud Foundry](https://github.com/cloudfoundry/cli)<br> [Terraform](https://www.terraform.io/docs/providers/azurerm/)<br> [Ansible](https://www.ansible.com/microsoft-azure)<br> [Chef — Specyfikacja](https://www.chef.io/inspec/)<br> [Puppet](https://puppet.com/docs/bolt/latest/bolt.html)<br> [HashiCorp Packer](https://www.packer.io/)<br> [Interfejs wiersza polecenia pakietu Office 365](https://pnp.github.io/office365-cli/)|
 
@@ -85,7 +85,7 @@ Cloud Shell obejmuje wstępnie skonfigurowane uwierzytelnianie dla narzędzi typ
 |Język   |Wersja   |
 |---|---|
 |.NET Core  |2.2.402       |
-|Przejdź         |1.9        |
+|Go         |1.9        |
 |Java       |1.8        |
 |Node.js    |8.16.0      |
 |PowerShell |[7.0.0](https://github.com/PowerShell/powershell/releases)       |

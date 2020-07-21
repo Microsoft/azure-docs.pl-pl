@@ -3,12 +3,12 @@ title: Dostępność i spójność — Event Hubs platformy Azure | Microsoft Do
 description: Jak zapewnić maksymalną ilość dostępności i spójność za pomocą usługi Azure Event Hubs przy użyciu partycji.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 497a6e7430c4e6f8e29f903294ca94a4cb23012b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 45ca5cc5790824d6c67a47a23691c6b0cae0b9f8
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85315774"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537211"
 ---
 # <a name="availability-and-consistency-in-event-hubs"></a>Availability and consistency in Event Hubs (Dostępność i spójność w usłudze Event Hubs)
 
@@ -141,5 +141,5 @@ Ten przykład wysyła zdarzenie do jednej z dostępnych partycji w centrum zdarz
 ## <a name="next-steps"></a>Następne kroki
 Następujące linki pozwalają dowiedzieć się więcej na temat usługi Event Hubs:
 
-* [Przegląd usługi Event Hubs](event-hubs-what-is-event-hubs.md)
+* [Przegląd usługi Event Hubs](./event-hubs-about.md)
 * [Tworzenie centrum zdarzeń](event-hubs-create.md)

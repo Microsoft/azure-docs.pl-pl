@@ -3,12 +3,12 @@ title: Często zadawane pytania — Azure Event Hubs | Microsoft Docs
 description: Ten artykuł zawiera listę często zadawanych pytań dotyczących usługi Azure Event Hubs i ich odpowiedzi.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 0094be0eef4595662477ef1c7914ae9f118b8e25
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bec50da97bc826eb1bd26452e8f69f5c11f2d65d
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85320587"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537184"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Event Hubs często zadawane pytania
 
@@ -33,7 +33,7 @@ Warstwa standardowa platformy Azure Event Hubs udostępnia funkcje wykraczające
 * Dłuższe przechowywanie zdarzeń
 * Dodatkowe połączenia obsługiwane przez brokera z opłatą za użycie nadwyżkowe za więcej niż uwzględniona liczba
 * Więcej niż jedna [Grupa odbiorców](event-hubs-features.md#consumer-groups)
-* [Przechwytywania](event-hubs-capture-overview.md)
+* [Przechwytywanie](event-hubs-capture-overview.md)
 * [Integracja Kafka](event-hubs-for-kafka-ecosystem-overview.md)
 
 Aby uzyskać więcej informacji na temat warstw cenowych, w tym Event Hubs — warstwa Dedykowana, zobacz [szczegóły cennika Event Hubs](https://azure.microsoft.com/pricing/details/event-hubs/).
@@ -208,7 +208,7 @@ Event Hubs jest zaprojektowana tak, aby zezwalała na pojedynczy czytnik partycj
 
 Jeśli jednak masz model, w którym aplikacja ma koligację z określoną partycją, zwiększenie liczby partycji może nie mieć żadnej korzyści. Aby uzyskać więcej informacji, zobacz [dostępność i spójność](event-hubs-availability-and-consistency.md).
 
-## <a name="pricing"></a>Cennik
+## <a name="pricing"></a>Ceny
 
 ### <a name="where-can-i-find-more-pricing-information"></a>Gdzie można znaleźć więcej informacji o cenach?
 
@@ -240,7 +240,7 @@ Przechwytywanie jest włączone, gdy dowolne centrum zdarzeń w przestrzeni nazw
 
 Funkcja przechwytywania korzysta z konta magazynu, które jest dostępne, gdy jest włączone w centrum zdarzeń. Ponieważ jest to Twoje konto magazynu, wszelkie zmiany tej konfiguracji są rozliczane w ramach subskrypcji platformy Azure.
 
-## <a name="quotas"></a>Przydziały
+## <a name="quotas"></a>Limity przydziału
 
 ### <a name="are-there-any-quotas-associated-with-event-hubs"></a>Czy istnieją przydziały skojarzone z Event Hubs?
 
@@ -261,7 +261,7 @@ Event Hubs obsługuje dwa typy [dzienników diagnostycznych](event-hubs-diagnost
 
 ### <a name="support-and-sla"></a>Pomoc techniczna i Umowa SLA
 
-Pomoc techniczna dla Event Hubs jest dostępna za pomocą strony pytań i odpowiedzi [Microsoft&pytań i odpowiedzi na Azure Service Bus](https://docs.microsoft.com/answers/topics/azure-service-bus.html). Pomoc dotycząca rozliczeń i subskrypcji jest świadczona bezpłatnie.
+Pomoc techniczna dla Event Hubs jest dostępna za pomocą strony pytań i odpowiedzi [Microsoft&pytań i odpowiedzi na Azure Service Bus](/answers/topics/azure-service-bus.html). Pomoc dotycząca rozliczeń i subskrypcji jest świadczona bezpłatnie.
 
 Aby dowiedzieć się więcej o umowie SLA, zobacz stronę [umowy dotyczące poziomu usług](https://azure.microsoft.com/support/legal/sla/) .
 
@@ -269,6 +269,6 @@ Aby dowiedzieć się więcej o umowie SLA, zobacz stronę [umowy dotyczące pozi
 
 Następujące linki pozwalają dowiedzieć się więcej na temat usługi Event Hubs:
 
-* [Przegląd usługi Event Hubs](event-hubs-what-is-event-hubs.md)
+* [Przegląd usługi Event Hubs](./event-hubs-about.md)
 * [Tworzenie centrum zdarzeń](event-hubs-create.md)
 * [Event Hubs autodostrajania](event-hubs-auto-inflate.md)

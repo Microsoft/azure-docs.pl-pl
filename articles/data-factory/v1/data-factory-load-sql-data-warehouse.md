@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 0bef6b5e87e7f0964989db371014c305b97f1d12
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3b5ce0cba68d4374d6a0403af28ec3f03920acf6
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81419310"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537602"
 ---
 # <a name="load-1-tb-into-azure-sql-data-warehouse-under-15-minutes-with-data-factory"></a>Załaduj 1 TB do Azure SQL Data Warehouse poniżej 15 minut z Data Factory
 > [!NOTE]
@@ -46,7 +46,7 @@ Ten artykuł zawiera instrukcje krok po kroku dotyczące przeniesienia danych do
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 * Azure Blob Storage: ten eksperyment używa platformy Azure Blob Storage (GRS) do przechowywania zestawu danych testów TPC-H.  Jeśli nie masz konta usługi Azure Storage, Dowiedz się, [jak utworzyć konto magazynu](../../storage/common/storage-account-create.md).
-* Dane [TPC-h](http://www.tpc.org/tpch/) : będziemy używać TPC-h jako zestawu danych testowych.  Aby to zrobić, należy użyć narzędzia `dbgen` TPC-H Toolkit, które pomaga wygenerować zestaw danych.  Możesz pobrać kod źródłowy `dbgen` z [narzędzi TPC](http://www.tpc.org/tpc_documents_current_versions/current_specifications.asp) i skompilować go samodzielnie lub pobrać skompilowany plik binarny z usługi [GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/TPCHTools).  Uruchom dbgen.exe z poniższymi poleceniami, aby wygenerować plik prosty o pojemności 1 TB na potrzeby `lineitem` rozmieszczenia tabel w 10 plikach:
+* Dane [TPC-h](http://www.tpc.org/tpch/) : będziemy używać TPC-h jako zestawu danych testowych.  Aby to zrobić, należy użyć narzędzia `dbgen` TPC-H Toolkit, które pomaga wygenerować zestaw danych.  Możesz pobrać kod źródłowy `dbgen` z [narzędzi TPC](http://www.tpc.org/tpc_documents_current_versions/current_specifications5.asp) i skompilować go samodzielnie lub pobrać skompilowany plik binarny z usługi [GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/TPCHTools).  Uruchom dbgen.exe z poniższymi poleceniami, aby wygenerować plik prosty o pojemności 1 TB na potrzeby `lineitem` rozmieszczenia tabel w 10 plikach:
 
   * `Dbgen -s 1000 -S **1** -C 10 -T L -v`
   * `Dbgen -s 1000 -S **2** -C 10 -T L -v`
@@ -117,7 +117,7 @@ Ten artykuł zawiera instrukcje krok po kroku dotyczące przeniesienia danych do
 
    1. Wprowadź **LoadIntoSQLDWDataFactory** dla **nazwy**.
        Nazwa fabryki danych Azure musi być globalnie unikatowa. Jeśli wystąpi błąd: **Nazwa fabryki danych "LoadIntoSQLDWDataFactory" jest niedostępna**, Zmień nazwę fabryki danych (np. yournameLoadIntoSQLDWDataFactory) i spróbuj utworzyć ją ponownie. Artykuł [Data Factory — Naming Rules](data-factory-naming-rules.md) (Fabryka danych — zasady nazewnictwa) zawiera zasady nazewnictwa artefaktów usługi Fabryka danych.  
-   2. Wybierz swoją **subskrypcję** platformy Azure.
+   2. Wybierz swoją **subskrypcję**platformy Azure.
    3. Wykonaj jedną z następujących czynności dotyczącą grupy zasobów:
       1. Wybierz pozycję **Użyj istniejącej**, aby wybrać istniejącą grupę zasobów.
       2. Wybierz pozycję **Utwórz nowy**, aby wprowadzić nazwę grupy zasobów.

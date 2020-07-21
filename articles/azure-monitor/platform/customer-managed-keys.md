@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 07/05/2020
-ms.openlocfilehash: 4fb593f303eea0f4866dc248412af2f261993e92
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: ad2e6a05fa8459d8e5a53d9bb8b8e08790a7d8ec
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170347"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539418"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Azure Monitor klucz zarządzany przez klienta 
 
@@ -21,17 +21,17 @@ Zalecamy przejrzenie [ograniczeń i ograniczeń](#limitationsandconstraints) pon
 
 ## <a name="customer-managed-key-cmk-overview"></a>Klucz zarządzany przez klienta (CMK) — Omówienie
 
-[Szyfrowanie w spoczynku](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest)   to typowe wymagania w zakresie ochrony prywatności i bezpieczeństwa w organizacjach.Możesz pozwolić, aby platforma Azure całkowicie zarządzała szyfrowaniem w stanie spoczynku, podczas gdy masz różne opcje, aby dokładnie zarządzać szyfrowaniem lub kluczami szyfrowania.
+[Szyfrowanie w spoczynku](../../security/fundamentals/encryption-atrest.md)   to typowe wymagania w zakresie ochrony prywatności i bezpieczeństwa w organizacjach.Możesz pozwolić, aby platforma Azure całkowicie zarządzała szyfrowaniem w stanie spoczynku, podczas gdy masz różne opcje, aby dokładnie zarządzać szyfrowaniem lub kluczami szyfrowania.
 
-Azure Monitor gwarantuje, że wszystkie dane i zapisane zapytania są szyfrowane przy użyciu kluczy zarządzanych przez firmę Microsoft (MMK). Azure Monitor udostępnia również opcję szyfrowania przy użyciu własnego klucza przechowywanego w [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview) i dostępnego przez magazyn przy użyciu uwierzytelniania [tożsamości zarządzanej](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) przypisanego przez system. Ten klucz (CMK) może być chroniony za pomocą [oprogramowania lub sprzętowego modułu HSM](https://docs.microsoft.com/azure/key-vault/key-vault-overview).
+Azure Monitor gwarantuje, że wszystkie dane i zapisane zapytania są szyfrowane przy użyciu kluczy zarządzanych przez firmę Microsoft (MMK). Azure Monitor udostępnia również opcję szyfrowania przy użyciu własnego klucza przechowywanego w [Azure Key Vault](../../key-vault/general/overview.md) i dostępnego przez magazyn przy użyciu uwierzytelniania [tożsamości zarządzanej](../../active-directory/managed-identities-azure-resources/overview.md) przypisanego przez system. Ten klucz (CMK) może być chroniony za pomocą [oprogramowania lub sprzętowego modułu HSM](../../key-vault/general/overview.md).
 
-Azure Monitor korzystania z szyfrowania jest taka sama jak w sposobie działania [szyfrowania usługi Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-service-encryption#about-azure-storage-encryption)   .
+Azure Monitor korzystania z szyfrowania jest taka sama jak w sposobie działania [szyfrowania usługi Azure Storage](../../storage/common/storage-service-encryption.md#about-azure-storage-encryption)   .
 
 CMK umożliwia kontrolowanie dostępu do danych i odwoływanie go w dowolnym momencie. Azure Monitor Storage zawsze uwzględnia zmiany w uprawnieniach klucza w ciągu godziny. Dane pozyskane w ciągu ostatnich 14 dni również są przechowywane w pamięci podręcznej (dysk SSD) w celu wydajnej operacji aparatu zapytań. Te dane pozostają zaszyfrowane przy użyciu kluczy firmy Microsoft bez względu na konfigurację CMK, ale kontrola nad danymi SSD jest zgodna z [odwołaniem klucza](#cmk-kek-revocation). Pracujemy nad zaszyfrowaniem danych SSD z CMK w drugiej połowie 2020.
 
 Funkcja CMK jest dostarczana w dedykowanych klastrach Log Analytics. Aby sprawdzić, czy w Twoim regionie jest wymagana pojemność, musisz wcześniej zezwolić na subskrypcję. Skontaktuj się z firmą Microsoft, aby uzyskać dostęp do subskrypcji przed rozpoczęciem konfigurowania usługi CMK.
 
- [Model cenowy klastrów log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#log-analytics-dedicated-clusters)   używa rezerwacji pojemności, rozpoczynając od 1000 GB/dzień.
+ [Model cenowy klastrów log Analytics](./manage-cost-storage.md#log-analytics-dedicated-clusters)   używa rezerwacji pojemności, rozpoczynając od 1000 GB/dzień.
 
 ## <a name="how-cmk-works-in-azure-monitor"></a>Jak działa CMK w Azure Monitor
 
@@ -42,7 +42,7 @@ Po CMK konfiguracji wszystkie dane pozyskiwane w obszarach roboczych skojarzonyc
 
 ![CMK — Omówienie](media/customer-managed-keys/cmk-overview.png)
 
-1. Usługa Key Vault
+1. Key Vault
 2. Log Analytics zasobu *klastra* mającego zarządzaną tożsamość z uprawnieniami do Key Vault — tożsamość jest propagowana do underlay dedykowanego log Analytics magazynu klastra
 3. Dedykowany klaster Log Analytics
 4. Obszary robocze skojarzone z zasobem *klastra* na potrzeby szyfrowania CMK
@@ -80,7 +80,7 @@ Procedura nie jest obsługiwana w Azure Portal i Inicjowanie obsługi administra
 > [!IMPORTANT]
 > Wszystkie żądania REST muszą zawierać Token autoryzacji okaziciela w nagłówku żądania.
 
-Przykład:
+Na przykład:
 
 ```rst
 GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/workspaces/<workspace-name>?api-version=2020-03-01-preview
@@ -91,7 +91,7 @@ Gdzie *eyJ0eXAiO....* reprezentuje token pełnej autoryzacji.
 
 Token można uzyskać, korzystając z jednej z następujących metod:
 
-1. Użyj metody [rejestracje aplikacji](https://docs.microsoft.com/graph/auth/auth-concepts#access-tokens) .
+1. Użyj metody [rejestracje aplikacji](/graph/auth/auth-concepts#access-tokens) .
 2. W witrynie Azure Portal
     1. Przejdź do Azure Portal w "narzędziu deweloperskim" (F12)
     1. Wyszukaj ciąg autoryzacji w obszarze "nagłówki żądania" w jednym z wystąpień "Batch? API-Version". Wygląda na to, że: "Authorization: Bearer eyJ0eXAiO...". 
@@ -185,15 +185,16 @@ Utwórz lub użyj Azure Key Vault już do wygenerowania lub zaimportuj klucz, kt
 
 ![Ustawienia ochrony usuwania nietrwałego i przeczyszczania](media/customer-managed-keys/soft-purge-protection.png)
 
-Te ustawienia są dostępne za pośrednictwem interfejsu wiersza polecenia i programu PowerShell:
-- [Usuwanie nietrwałe](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete)
-- [Przeczyść zabezpieczenia ochrony](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete#purge-protection) przed wymuszeniem usunięcia wpisu tajnego/magazynu nawet po usunięciu nietrwałego
+Te ustawienia można aktualizować za pomocą interfejsu wiersza polecenia i programu PowerShell:
+
+- [Usuwanie nietrwałe](../../key-vault/general/overview-soft-delete.md)
+- [Przeczyść zabezpieczenia ochrony](../../key-vault/general/overview-soft-delete.md#purge-protection) przed wymuszeniem usunięcia wpisu tajnego/magazynu nawet po usunięciu nietrwałego
 
 ### <a name="create-cluster-resource"></a>Utwórz zasób *klastra*
 
 Ten zasób jest używany jako połączenie tożsamości pośredniej między Key Vault i obszarami roboczymi Log Analytics. Po otrzymaniu potwierdzenia, że subskrypcje były dozwolone, utwórz zasób *klastra* log Analytics w regionie, w którym znajdują się obszary robocze.
 
-Podczas tworzenia zasobu *klastra* należy określić poziom *rezerwacji pojemności* (SKU). Poziom *rezerwacji pojemności* może należeć do zakresu od 1 000 do 2 000 GB dziennie i można go zaktualizować w krokach 100 w późniejszym czasie. Jeśli potrzebujesz poziomu rezerwacji pojemności większej niż 2 000 GB dziennie, skontaktuj się z nami pod adresem LAIngestionRate@microsoft.com . [Dowiedz się więcej](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#log-analytics-clusters)
+Podczas tworzenia zasobu *klastra* należy określić poziom *rezerwacji pojemności* (SKU). Poziom *rezerwacji pojemności* może należeć do zakresu od 1 000 do 2 000 GB dziennie i można go zaktualizować w krokach 100 w późniejszym czasie. Jeśli potrzebujesz poziomu rezerwacji pojemności większej niż 2 000 GB dziennie, skontaktuj się z nami pod adresem LAIngestionRate@microsoft.com . [Dowiedz się więcej](./manage-cost-storage.md#log-analytics-dedicated-clusters)
 
 Właściwość *rozliczenia* określa przypisanie rozliczeń dla zasobu *klastra* i jego danych:
 - *Klaster* (wartość domyślna) — koszty rezerwacji pojemności dla klastra są przypisywane do zasobu *klastra* .
@@ -210,7 +211,7 @@ Ta operacja jest asynchroniczna i może zostać ukończona.
 > 
 
 ```powershell
-New-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name" -Location "region-name" -SkuCapacity "daily-ingestion-gigabyte" 
+New-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name" -Location "region-name" -SkuCapacity daily-ingestion-gigabyte 
 ```
 
 ```rst
@@ -408,7 +409,7 @@ Content-type: application/json
 Pozyskiwane dane są przechowywane w postaci zaszyfrowanej przy użyciu klucza zarządzanego po operacji skojarzenia, co może potrwać do 90 minut. Stan skojarzenia obszaru roboczego można sprawdzić na dwa sposoby:
 
 1. Skopiuj wartość adresu URL platformy Azure-AsyncOperation z odpowiedzi i postępuj zgodnie ze [sprawdzaniem stanu operacji asynchronicznych](#asynchronous-operations-and-status-check).
-2. Wyślij [obszary robocze — Pobierz](https://docs.microsoft.com/rest/api/loganalytics/workspaces/get) żądanie i obserwuj odpowiedź, skojarzony obszar roboczy będzie miał clusterResourceId w obszarze "funkcje".
+2. Wyślij [obszary robocze — Pobierz](/rest/api/loganalytics/workspaces/get) żądanie i obserwuj odpowiedź, skojarzony obszar roboczy będzie miał clusterResourceId w obszarze "funkcje".
 
 ```rest
 GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalInsights/workspaces/<workspace-name>?api-version=2020-03-01-preview
@@ -468,13 +469,13 @@ Język zapytań używany w Log Analytics jest wyraźny i może zawierać poufne 
 > [!NOTE]
 > CMK dla zapytań używanych w skoroszytach i pulpitach nawigacyjnych platformy Azure nie są jeszcze obsługiwane. Te zapytania pozostają zaszyfrowane za pomocą klucza firmy Microsoft.  
 
-Gdy [przeniesiesz własny magazyn](https://docs.microsoft.com/azure/azure-monitor/platform/private-storage) (BYOS) i skojarzesz go z obszarem roboczym, usługa przekaże *zapisane zapytania wyszukiwania* i *alerty dziennika* do konta magazynu. Oznacza to, że można kontrolować konto magazynu i [zasady szyfrowania w trybie REST](https://docs.microsoft.com/azure/storage/common/encryption-customer-managed-keys) przy użyciu tego samego klucza, który jest używany do szyfrowania danych w klastrze log Analytics lub innego klucza. Użytkownik będzie jednak odpowiedzialny za koszty związane z tym kontem magazynu. 
+Gdy [przeniesiesz własny magazyn](./private-storage.md) (BYOS) i skojarzesz go z obszarem roboczym, usługa przekaże *zapisane zapytania wyszukiwania* i *alerty dziennika* do konta magazynu. Oznacza to, że można kontrolować konto magazynu i [zasady szyfrowania w trybie REST](../../storage/common/encryption-customer-managed-keys.md) przy użyciu tego samego klucza, który jest używany do szyfrowania danych w klastrze log Analytics lub innego klucza. Użytkownik będzie jednak odpowiedzialny za koszty związane z tym kontem magazynu. 
 
 **Uwagi przed ustawieniem CMK dla zapytań**
 * Musisz mieć uprawnienia do zapisu zarówno w obszarze roboczym, jak i koncie magazynu
 * Upewnij się, że utworzono konto magazynu w tym samym regionie, w którym znajduje się obszar roboczy Log Analytics.
 * *Zapisywanie wyszukiwań* w magazynie jest traktowane jako artefakty usługi i ich format może ulec zmianie
-* Istniejące *wyszukiwania zapisu* zostaną usunięte z obszaru roboczego. Skopiuj i *Zapisz wymagane wyszukiwania* przed konfiguracją. *Zapisane wyniki wyszukiwania* można wyświetlić przy użyciu [programu PowerShell](https://docs.microsoft.com/powershell/module/az.operationalinsights/Get-AzOperationalInsightsSavedSearch) .
+* Istniejące *wyszukiwania zapisu* zostaną usunięte z obszaru roboczego. Skopiuj i *Zapisz wymagane wyszukiwania* przed konfiguracją. *Zapisane wyniki wyszukiwania* można wyświetlić przy użyciu [programu PowerShell](/powershell/module/az.operationalinsights/get-azoperationalinsightssavedsearch) .
 * Historia zapytania nie jest obsługiwana i nie będzie można zobaczyć uruchomionych zapytań
 * Można skojarzyć jedno konto magazynu z obszarem roboczym na potrzeby zapisywania zapytań, ale można go użyć z zapytaniami *zapisanymi podczas wyszukiwania* i *alertów dziennika* .
 * Przypinanie do pulpitu nawigacyjnego nie jest obsługiwane
@@ -484,7 +485,7 @@ Gdy [przeniesiesz własny magazyn](https://docs.microsoft.com/azure/azure-monito
 Skojarz konto magazynu z *zapytaniem* do obszaru roboczego — *zapisane zapytania wyszukiwania* są zapisywane na koncie magazynu. 
 
 ```powershell
-$storageAccount.Id = Get-AzStorageAccount -ResourceGroupName "resource-group-name" -Name "resource-group-name"storage-account-name"resource-group-name"
+$storageAccount.Id = Get-AzStorageAccount -ResourceGroupName "resource-group-name" -Name "storage-account-name"
 New-AzOperationalInsightsLinkedStorageAccount -ResourceGroupName "resource-group-name" -WorkspaceName "workspace-name" -DataSourceType Query -StorageAccountIds $storageAccount.Id
 ```
 
@@ -511,7 +512,7 @@ Po zakończeniu konfiguracji wszystkie nowe *zapisane zapytania wyszukiwania* zo
 Kojarzenie konta magazynu na potrzeby *alertów* w obszarze roboczym — zapytania dotyczące *alertów dziennika* są zapisywane na koncie magazynu. 
 
 ```powershell
-$storageAccount.Id = Get-AzStorageAccount -ResourceGroupName "resource-group-name" -Name "resource-group-name"storage-account-name"resource-group-name"
+$storageAccount.Id = Get-AzStorageAccount -ResourceGroupName "resource-group-name" -Name "storage-account-name"
 New-AzOperationalInsightsLinkedStorageAccount -ResourceGroupName "resource-group-name" -WorkspaceName "workspace-name" -DataSourceType Alerts -StorageAccountIds $storageAccount.Id
 ```
 
@@ -659,7 +660,7 @@ Po zakończeniu konfiguracji wszystkie nowe zapytania o alerty zostaną zapisane
   Dane pozyskane po operacji usunięcia skojarzenia są przechowywane w magazynie Log Analytics, co może potrwać 90 minut. Stan nieskojarzenia obszaru roboczego można sprawdzić na dwa sposoby:
 
   1. Skopiuj wartość adresu URL platformy Azure-AsyncOperation z odpowiedzi i postępuj zgodnie ze [sprawdzaniem stanu operacji asynchronicznych](#asynchronous-operations-and-status-check).
-  2. Wyślij [obszary robocze — Pobierz](https://docs.microsoft.com/rest/api/loganalytics/workspaces/get) żądanie i obserwuj odpowiedź, nieskojarzone obszary robocze nie będą miały *clusterResourceId* w obszarze *funkcje*.
+  2. Wyślij [obszary robocze — Pobierz](/rest/api/loganalytics/workspaces/get) żądanie i obserwuj odpowiedź, nieskojarzone obszary robocze nie będą miały *clusterResourceId* w obszarze *funkcje*.
 
 - **Sprawdź stan powiązania obszaru roboczego**
   
@@ -694,26 +695,25 @@ Po zakończeniu konfiguracji wszystkie nowe zapytania o alerty zostaną zapisane
 
 ## <a name="limitationsandconstraints"></a>Ograniczenia i ograniczenia
 
--CMK jest obsługiwana w dedykowanym klastrze Log Analytics i jest odpowiednia dla klientów wysyłających 1 TB dziennie lub dłużej.
+- CMK jest obsługiwana w dedykowanym klastrze Log Analytics i jest odpowiednia dla klientów wysyłających 1 TB dziennie lub dłużej.
 
-— Maksymalna liczba zasobów *klastra*   na region i subskrypcja wynosi 2.
+- Maksymalna liczba zasobów *klastra* na region i subskrypcja wynosi 2.
 
-— Możesz skojarzyć obszar roboczy z zasobem *klastra*   , a następnie usunąć jego skojarzenie, jeśli CMK nie jest wymagany dla obszaru roboczego.Liczba skojarzeń obszaru roboczego w określonym obszarze roboczym w okresie 30 dni jest ograniczona do 2
+- Możesz skojarzyć obszar roboczy z zasobem *klastra* , a następnie usunąć jego skojarzenie, jeśli CMK nie jest wymagany dla obszaru roboczego. Liczba skojarzeń obszaru roboczego w określonym obszarze roboczym w okresie 30 dni jest ograniczona do 2
 
-— Skojarzenie obszaru *Cluster*roboczego z   zasobem klastra powinno być przeprowadzane dopiero po sprawdzeniu, czy zakończono inicjowanie obsługi klastra log Analytics.Dane wysyłane do obszaru roboczego przed ukończeniem zostaną usunięte i nie będzie można ich odzyskać.
+- Skojarzenie obszaru roboczego z zasobem *klastra* należy przeprowadzić dopiero po sprawdzeniu, czy zakończono Inicjowanie obsługi klastra log Analytics. Dane wysyłane do obszaru roboczego przed ukończeniem zostaną usunięte i nie będzie można ich odzyskać.
 
--CMK szyfrowanie ma zastosowanie do nowo wprowadzonych danych po      konfiguracji CMK.Dane pozyskiwane przed      konfiguracją CMK pozostają zaszyfrowane za pomocą klucza firmy Microsoft.Możesz wykonywać zapytania dotyczące danych pozyskiwanych      przed bezproblemową konfiguracją CMK i po niej.
+- Szyfrowanie CMK ma zastosowanie do nowo wprowadzonych danych po konfiguracji CMK. Dane pozyskiwane przed konfiguracją CMK pozostają zaszyfrowane za pomocą klucza firmy Microsoft. Możesz wykonywać zapytania dotyczące danych pozyskiwanych przed bezproblemową konfiguracją CMK i po niej.
 
--Azure Key Vault musi być skonfigurowany jako możliwy do odzyskania.Te właściwości nie są domyślnie włączone i należy je skonfigurować przy użyciu interfejsu wiersza polecenia lub programu PowerShell:
+- Azure Key Vault musi być skonfigurowany jako możliwy do odzyskania. Te właściwości nie są domyślnie włączone i należy je skonfigurować przy użyciu interfejsu wiersza polecenia lub programu PowerShell:<br>
+  - [Usuwanie nietrwałe](../../key-vault/general/overview-soft-delete.md)
+  - [Ochrona przed przeczyszczeniem](../../key-vault/general/overview-soft-delete.md#purge-protection) powinna być włączona, aby zabezpieczyć przed wymuszeniem usunięcia wpisu tajnego lub magazynu nawet po usunięciu nietrwałego.
 
-  - [Soft Delete](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete) 
- Usuwanie      nietrwałe musi być włączona    -  [Ochrona przed przeczyszczeniem](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete#purge-protection)   powinna być włączona, aby chronić przed usunięciem wpisu tajnego lub magazynu nawet po usunięciu nietrwałego.
+- Zasób *klastra* przeniesiony do innej grupy zasobów lub subskrypcji nie jest obecnie obsługiwany.
 
-- *Klaster*   przeniesienie zasobu do innej grupy zasobów lub subskrypcji      nie jest obecnie obsługiwane.
+- Azure Key Vault, zasób *klastra* i powiązane obszary robocze muszą znajdować się w tym samym regionie i w tej samej dzierżawie Azure Active Directory (Azure AD), ale mogą znajdować się w różnych subskrypcjach.
 
--Azure Key Vault, zasób *klastra*   i powiązane obszary robocze muszą znajdować się w tym samym regionie i w tej samej dzierżawie Azure Active Directory (Azure AD), ale mogą znajdować się w różnych subskrypcjach.
-
-— Skojarzenie obszaru roboczego z zasobem *klastra*zakończy   się niepowodzeniem, jeśli jest ono      skojarzone z innym *Cluster*   zasobem klastra
+- Skojarzenie obszaru roboczego z zasobem *klastra* zakończy się niepowodzeniem, jeśli jest ono skojarzone z innym zasobem *klastra*
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 
@@ -743,3 +743,41 @@ Po zakończeniu konfiguracji wszystkie nowe zapytania o alerty zostaną zapisane
   2. Wyślij żądanie GET do *klastra* lub obszaru roboczego i obserwuj odpowiedź. Na przykład, nieskojarzone obszary robocze nie będą miały *clusterResourceId* w obszarze *funkcje*.
 
 - Aby uzyskać pomoc techniczną i powiązana z kluczem zarządzanym przez klienta, Użyj kontaktów do firmy Microsoft.
+
+- Komunikaty o błędach
+  
+  Tworzenie zasobu *klastra* :
+  -  400 — Nazwa klastra jest nieprawidłowa. Nazwa klastra może zawierać znaki a-z, A-Z, 0-9 i długość 3-63.
+  -  400 — treść żądania ma wartość null lub ma zły format.
+  -  400 — Nazwa jednostki SKU jest nieprawidłowa. Ustaw nazwę jednostki SKU na capacityReservation.
+  -  400 — dostarczono pojemność, ale jednostka SKU nie jest capacityReservation. Ustaw nazwę jednostki SKU na capacityReservation.
+  -  400 — brak pojemności w jednostce SKU. Ustaw wartość pojemności na 1000 lub wyższą w krokach 100 (GB).
+  -  400 — pojemność jednostki SKU nie należy do zakresu. Należy ustawić minimalną 1000 i maksymalnie maksymalną dozwoloną pojemność, która jest dostępna w obszarze roboczym "użycie i szacowany koszt".
+  -  400 — pojemność jest zablokowana przez 30 dni. Zmniejszenie wydajności jest dozwolone przez 30 dni po aktualizacji.
+  -  400 — nie ustawiono jednostki SKU. Ustaw wartość w polu Nazwa jednostki SKU na capacityReservation i pojemność na 1000 lub wyższą w krokach 100 (GB).
+  -  400 — tożsamość ma wartość null lub jest pusta. Ustaw tożsamość z typem systemAssigned.
+  -  400 — KeyVaultProperties są ustawiane podczas tworzenia. Zaktualizuj KeyVaultProperties po utworzeniu klastra.
+  -  400 — nie można wykonać operacji teraz. Operacja asynchroniczna jest w stanie innym niż powodzenie. Klaster musi zakończyć swoją operację przed wykonaniem jakiejkolwiek operacji aktualizacji.
+
+  Aktualizacja zasobów *klastra*
+  -  400 — klaster jest w stanie usuwania. Operacja asynchroniczna jest w toku. Klaster musi zakończyć swoją operację przed wykonaniem jakiejkolwiek operacji aktualizacji.
+  -  400 — KeyVaultProperties nie jest pusty, ale ma zły format. Zobacz [aktualizacja identyfikatora klucza](#update-cluster-resource-with-key-identifier-details).
+  -  400 — nie można zweryfikować klucza w Key Vault. Może być spowodowany brakiem uprawnień lub gdy klucz nie istnieje. Upewnij się, że [ustawisz Zasady kluczy i dostępu](#grant-key-vault-permissions) w Key Vault.
+  -  400 — klucz nie jest możliwy do odzyskania. Key Vault musi być ustawiona na wartość unsoft-DELETE i przeczyszczania ochrony. Zobacz [dokumentację Key Vault](../../key-vault/general/overview-soft-delete.md)
+  -  400 — nie można wykonać operacji teraz. Poczekaj na zakończenie operacji asynchronicznej i spróbuj ponownie.
+  -  400 — klaster jest w stanie usuwania. Poczekaj na zakończenie operacji asynchronicznej i spróbuj ponownie.
+
+    Pobieranie zasobu *klastra* :
+    -  404 — nie odnaleziono klastra, klaster mógł zostać usunięty. Jeśli spróbujesz utworzyć klaster o tej nazwie i uzyskać konflikt, klaster jest w trakcie usuwania nietrwałego przez 14 dni. Można skontaktować się z pomocą techniczną, aby go odzyskać, lub użyć innej nazwy do utworzenia nowego klastra. 
+
+  Usuwanie zasobu *klastra*
+    -  409 — nie można usunąć klastra w stanie aprowizacji. Poczekaj na zakończenie operacji asynchronicznej i spróbuj ponownie.
+
+  Skojarzenie obszaru roboczego:
+  -  404 — nie znaleziono obszaru roboczego. Wybrany obszar roboczy nie istnieje lub został usunięty.
+  -  409--skojarzenie obszaru roboczego lub usuwanie skojarzenia w procesie.
+  -  400 — nie znaleziono klastra, określony klaster nie istnieje lub został usunięty. Jeśli spróbujesz utworzyć klaster o tej nazwie i uzyskać konflikt, klaster jest w trakcie usuwania nietrwałego przez 14 dni. Możesz skontaktować się z pomocą techniczną, aby ją odzyskać.
+
+  Usuwanie skojarzenia obszaru roboczego:
+  -  404 — nie znaleziono obszaru roboczego. Wybrany obszar roboczy nie istnieje lub został usunięty.
+  -  409--skojarzenie obszaru roboczego lub usuwanie skojarzenia w procesie.

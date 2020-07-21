@@ -8,24 +8,23 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
-ms.date: 04/01/2020
+ms.date: 07/16/2020
 ms.author: aahi
-ms.openlocfilehash: 4df5949e24e3fa59d37379c058a777c93dda2c44
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 5fbe316580cfa2ca280a2587536df037146e8d02
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80878372"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538126"
 ---
 # <a name="deploy-the-face-container-to-azure-container-instances"></a>Wdróż kontener programu Front-Azure Container Instances
+
+> [!IMPORTANT]
+> Osiągnięto limit użytkowników kontenera czołowego. Obecnie nie akceptujemy nowych aplikacji dla kontenera.
 
 Dowiedz się, jak wdrożyć kontener Cognitive Services [kroju](../face-how-to-install-containers.md) na platformie Azure [Container Instances](https://docs.microsoft.com/azure/container-instances/). Ta procedura pokazuje tworzenie zasobu platformy Azure. Następnie omówiono ściąganie skojarzonego obrazu kontenera. Na koniec wyróżnimy możliwość wykonywania aranżacji tych dwóch z przeglądarki. Korzystanie z kontenerów umożliwia przechodzenie przez deweloperów do zarządzania infrastrukturą, aby zamiast tego koncentrować się na tworzeniu aplikacji.
 
 [!INCLUDE [Prerequisites](../../containers/includes/container-preview-prerequisites.md)]
-
-## <a name="request-access-to-the-private-container-registry"></a>Zażądaj dostępu do rejestru kontenera prywatnego
-
-[!INCLUDE [Request access to private container registry](../../../../includes/cognitive-services-containers-request-access.md)]
 
 [!INCLUDE [Create a Cognitive Services Face resource](../includes/create-face-resource.md)]
 

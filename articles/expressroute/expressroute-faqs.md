@@ -7,11 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: jaredro
-ms.openlocfilehash: c9b109fe12b709649adaa05d62b3d1255605986e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8309c98e9ae45650f65fcd54676cc7655934039d
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84987309"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537126"
 ---
 # <a name="expressroute-faq"></a>Usługa ExpressRoute — często zadawane pytania
 
@@ -85,7 +86,7 @@ Jeśli obwód usługi ExpressRoute jest włączony dla komunikacji równorzędne
 
 * [Office 365](https://aka.ms/ExpressRouteOffice365)
 * Power BI — dostępne za pośrednictwem społeczności regionalnej platformy Azure, zobacz [tutaj](https://docs.microsoft.com/power-bi/service-admin-where-is-my-tenant-located) , jak sprawdzić region dzierżawy Power BI.
-* Usługa Azure Active Directory
+* Azure Active Directory
 * [Azure DevOps](https://blogs.msdn.microsoft.com/devops/2018/10/23/expressroute-for-azure-devops/) (społeczność usług globalnych platformy Azure)
 * Publiczne adresy IP platformy Azure dla IaaS (Virtual Machines, bram Virtual Network, modułów równoważenia obciążenia itp.)  
 * Obsługiwane są również większość innych usług platformy Azure. Skontaktuj się bezpośrednio z usługą, która ma zostać użyta, aby zweryfikować pomoc techniczną.
@@ -110,7 +111,7 @@ Firma Microsoft sprawdza, czy określone "anonsowane publiczne prefiksy" i "peer
 
 Jeśli zobaczysz komunikat "wymagana Walidacja", Zbierz dokumenty, które pokazują, że publiczne prefiksy są przypisane do organizacji przez jednostkę wymienioną jako właściciel prefiksów w rejestrze routingu i prześlij te dokumenty w celu ręcznej weryfikacji, otwierając bilet pomocy technicznej, jak pokazano poniżej.
 
-![](./media/expressroute-faqs/ticket-portal-msftpeering-prefix-validation.png)
+![Zrzut ekranu przedstawiający nowe żądanie obsługi (bilet pomocy technicznej) dotyczące "dowodu własności dla publicznych prefiksów".](./media/expressroute-faqs/ticket-portal-msftpeering-prefix-validation.png)
 
 ### <a name="is-dynamics-365-supported-on-expressroute"></a>Czy Dynamics 365 jest obsługiwany w ExpressRoute?
 
@@ -175,7 +176,7 @@ Musisz zaimplementować lokalny atrybut *preferencji* na routerach, aby upewnić
 
 Jeśli usługodawca może ustanowić dwa wirtualne obwody Ethernet za pośrednictwem połączenia fizycznego, potrzebne jest tylko jedno połączenie fizyczne. Połączenie fizyczne (na przykład Optical Fiber) zostało zakończone na urządzeniu warstwy 1 (L1) (Zobacz obraz). Dwa obwody wirtualne Ethernet są znakowane przy użyciu różnych identyfikatorów sieci VLAN, jeden dla obwodu podstawowego, a drugi dla elementu pomocniczego. Identyfikatory sieci VLAN znajdują się w zewnętrznym nagłówku 802.1 Q. Wewnętrzny nagłówek 802.1 Q (niepokazywany) jest mapowany na konkretną [domenę routingu ExpressRoute](expressroute-circuit-peerings.md).
 
-![](./media/expressroute-faqs/expressroute-p2p-ref-arch.png)
+![Diagram wyróżniający podstawowe i pomocnicze obwody wirtualne warstwy 1 (L1), które składają się na fizyczne połączenie między przełącznikami w witrynie klienta i lokalizacją ExpressRoute.](./media/expressroute-faqs/expressroute-p2p-ref-arch.png)
 
 ### <a name="can-i-extend-one-of-my-vlans-to-azure-using-expressroute"></a>Czy mogę rozłożyć jedną z moich sieci VLAN na platformę Azure przy użyciu usługi ExpressRoute?
 

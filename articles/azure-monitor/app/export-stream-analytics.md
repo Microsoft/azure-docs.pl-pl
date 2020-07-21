@@ -3,12 +3,12 @@ title: Eksportowanie za pomocą Stream Analytics z platformy Azure Application I
 description: Stream Analytics mogą w sposób ciągły przekształcać, filtrować i kierować dane eksportowane z Application Insights.
 ms.topic: conceptual
 ms.date: 01/08/2019
-ms.openlocfilehash: 71b19f0b49dec8f7176a53eeb656519c65f9c1d0
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 70f952dcd6f8d942ac272afed58a7fe0f47d8a6e
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86224523"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539962"
 ---
 # <a name="use-stream-analytics-to-process-exported-data-from-application-insights"></a>Użyj Stream Analytics, aby przetwarzać eksportowane dane z Application Insights
 [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) jest idealnym narzędziem do przetwarzania danych [wyeksportowanych z Application Insights](export-telemetry.md). Stream Analytics może pobierać dane z różnych źródeł. Może on przekształcać i filtrować dane, a następnie kierować je do różnych zlewów.
@@ -138,7 +138,7 @@ GROUP BY TumblingWindow(minute, 1), flat.ArrayValue.name
 
 * Eksport — dane wejściowe to alias przekazany do danych wejściowych strumienia
 * PBI-Output to zdefiniowany przez nas alias wyjściowy
-* Użyjemy klasy [OUTER APPLY](https://docs.microsoft.com/stream-analytics-query/apply-azure-stream-analytics) , ponieważ nazwa zdarzenia znajduje się w zagnieżdżonej tablicy JSON. Następnie wybierz pozycję wybiera nazwę zdarzenia wraz z liczbą wystąpień o tej nazwie w danym okresie. Klauzula [Group by](https://docs.microsoft.com/stream-analytics-query/group-by-azure-stream-analytics) Grupuje elementy w okresach o pojedynczej minucie.
+* Użyjemy klasy [OUTER APPLY](/stream-analytics-query/apply-azure-stream-analytics) , ponieważ nazwa zdarzenia znajduje się w zagnieżdżonej tablicy JSON. Następnie wybierz pozycję wybiera nazwę zdarzenia wraz z liczbą wystąpień o tej nazwie w danym okresie. Klauzula [Group by](/stream-analytics-query/group-by-azure-stream-analytics) Grupuje elementy w okresach o pojedynczej minucie.
 
 ### <a name="query-to-display-metric-values"></a>Zapytanie w celu wyświetlenia wartości metryk
 
@@ -212,4 +212,3 @@ Noam Ben Zeev pokazuje, jak przetwarzać eksportowane dane przy użyciu Stream A
 * [Eksport ciągły](export-telemetry.md)
 * [Szczegółowe informacje o modelu danych dla typów i wartości właściwości.](export-data-model.md)
 * [Application Insights](../../azure-monitor/app/app-insights-overview.md)
-

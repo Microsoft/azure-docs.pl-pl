@@ -3,11 +3,12 @@ title: Macierz obsługi dla agenta MARS
 description: Ten artykuł zawiera podsumowanie Azure Backup pomocy technicznej podczas tworzenia kopii zapasowej maszyn, na których jest uruchomiony agent Microsoft Azure Recovery Services (MARS).
 ms.date: 08/30/2019
 ms.topic: conceptual
-ms.openlocfilehash: 6085bc647c06b5907282460a2d8706b8549e1bc2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5ff9510dfa31bb947d50b1a91fb7f73c2d767471
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84709882"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538653"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>Macierz obsługi kopii zapasowej za pomocą agenta Microsoft Azure Recovery Services (MARS)
 
@@ -29,7 +30,7 @@ Opcje tworzenia kopii zapasowej zależą od tego, gdzie jest zainstalowany agent
 **Instalacja** | **Szczegóły**
 --- | ---
 Pobierz najnowszego agenta MARS | Możesz pobrać najnowszą wersję agenta z magazynu lub [pobrać ją bezpośrednio](https://aka.ms/azurebackup_agent).
-Instalowanie bezpośrednio na komputerze | Agenta MARS można zainstalować bezpośrednio na lokalnym serwerze Windows lub na maszynie wirtualnej z systemem Windows, na której działa dowolny z [obsługiwanych systemów operacyjnych](https://docs.microsoft.com/azure/backup/backup-support-matrix-mabs-dpm#supported-mabs-and-dpm-operating-systems).
+Instalowanie bezpośrednio na komputerze | Agenta MARS można zainstalować bezpośrednio na lokalnym serwerze Windows lub na maszynie wirtualnej z systemem Windows, na której działa dowolny z [obsługiwanych systemów operacyjnych](./backup-support-matrix-mabs-dpm.md#supported-mabs-and-dpm-operating-systems).
 Zainstaluj na serwerze kopii zapasowej | Po skonfigurowaniu programu DPM lub serwera usługi MAB na potrzeby tworzenia kopii zapasowych na platformie Azure należy pobrać i zainstalować agenta MARS na serwerze. Agenta programu można zainstalować w [obsługiwanych systemach operacyjnych](backup-support-matrix-mabs-dpm.md#supported-mabs-and-dpm-operating-systems) w macierzy obsługi serwera kopii zapasowych.
 
 > [!NOTE]
@@ -84,7 +85,7 @@ W przypadku komunikacji równorzędnej firmy Microsoft wybierz następujące us�
 - Region Microsoft Azure (zgodnie z lokalizacją magazynu Recovery Services)
 - Azure Storage (zgodnie z lokalizacją magazynu Recovery Services)
 
-Aby uzyskać więcej informacji, zobacz [wymagania dotyczące routingu ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-routing).
+Aby uzyskać więcej informacji, zobacz [wymagania dotyczące routingu ExpressRoute](../expressroute/expressroute-routing.md).
 
 >[!NOTE]
 >Publiczna Komunikacja równorzędna jest przestarzała dla nowych obwodów.
@@ -127,7 +128,7 @@ Następujące systemy operacyjne mają na koniec wsparcie i zdecydowanie zaleca 
 
 Jeśli istniejące zobowiązania uniemożliwiają uaktualnienie systemu operacyjnego, należy rozważyć Migrowanie serwerów z systemem Windows do maszyn wirtualnych platformy Azure i korzystanie z kopii zapasowych maszyn wirtualnych platformy Azure w celu kontynuowania ochrony. Odwiedź [stronę migracji tutaj](https://azure.microsoft.com/migration/windows-server/) , aby uzyskać więcej informacji na temat migrowania systemu Windows Server.
 
-W przypadku środowisk lokalnych lub hostowanych, w których nie można uaktualnić systemu operacyjnego ani migrować do platformy Azure, Aktywuj rozszerzone aktualizacje zabezpieczeń dla maszyn, aby nadal były chronione i obsługiwane. Należy zauważyć, że tylko określone wersje kwalifikują się do aktualizacji zabezpieczeń rozszerzonych. Odwiedź [stronę często zadawanych pytań](https://www.microsoft.com/cloud-platform/extended-security-updates) , aby dowiedzieć się więcej.
+W przypadku środowisk lokalnych lub hostowanych, w których nie można uaktualnić systemu operacyjnego ani migrować do platformy Azure, Aktywuj rozszerzone aktualizacje zabezpieczeń dla maszyn, aby nadal były chronione i obsługiwane. Należy zauważyć, że tylko określone wersje kwalifikują się do aktualizacji zabezpieczeń rozszerzonych. Odwiedź [stronę często zadawanych pytań](https://www.microsoft.com/windows-server/extended-security-updates) , aby dowiedzieć się więcej.
 
 | **System operacyjny**                                       | **Pliki/foldery** | **Stan systemu** | **Wymagania dotyczące oprogramowania/modułu**                           |
 | ------------------------------------------------------------ | ----------------- | ------------------ | ------------------------------------------------------------ |

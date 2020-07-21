@@ -3,11 +3,12 @@ title: Model danych dla zdarzeń diagnostyki Azure Backup
 description: Ten model danych znajduje się w odniesieniu do trybu specyficznego dla zasobu, który wysyła zdarzenia diagnostyczne do Log Analytics (LA).
 ms.topic: conceptual
 ms.date: 10/30/2019
-ms.openlocfilehash: af1e4159ff2794f8d4dd11480eb7f1789e034c06
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 46d40694da4eb025afc11da0f14b28691bf13bb8
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84484504"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538874"
 ---
 # <a name="data-model-for-azure-backup-diagnostics-events"></a>Model danych dla zdarzeń diagnostyki Azure Backup
 
@@ -54,7 +55,7 @@ Ta tabela zawiera informacje o podstawowych jednostkach kopii zapasowych, takich
 | ResourceGroupName                 | Tekst          | Grupa zasobów zasobu (na przykład magazyn Recovery Services) dla zbieranych danych |
 | SchemaVersion                     | Tekst          | To pole oznacza bieżącą wersję schematu, jest w **wersji 2** |
 | SecondaryBackupProtectionState    | Tekst          | Czy dla elementu kopii zapasowej jest włączona ochrona pomocnicza  |
-| Stan                             | Tekst          | Stan obiektu elementu kopii zapasowej. Na przykład aktywne, usunięte |
+| State                             | Tekst          | Stan obiektu elementu kopii zapasowej. Na przykład aktywne, usunięte |
 | StorageReplicationType            | Tekst          | Typ replikacji magazynu dla magazynu. Na przykład nadmiarowy |
 | SubscriptionId                    | Tekst          | Identyfikator subskrypcji zasobu (na przykład magazyn Recovery Services), dla którego zbierane są dane |
 | VaultName                         | Tekst          | Nazwa magazynu                                            |
@@ -87,7 +88,7 @@ Ta tabela zawiera szczegółowe informacje o polach związanych z alertami.
 | ProtectedContainerUniqueId     | Tekst          | Unikatowy identyfikator chronionego serwera skojarzony z alertem |
 | RecommendedAction              | Tekst          | Akcja zalecana w celu rozwiązania alertu                      |
 | SchemaVersion                  | Tekst          | Bieżąca wersja schematu, na przykład **v2**            |
-| Stan                          | Tekst          | Bieżący stan obiektu alertu, na przykład aktywny, usunięty |
+| State                          | Tekst          | Bieżący stan obiektu alertu, na przykład aktywny, usunięty |
 | StorageUniqueId                | Tekst          | Unikatowy identyfikator używany do identyfikowania jednostki magazynu                |
 | VaultUniqueId                  | Tekst          | Unikatowy identyfikator używany do identyfikowania magazynu związanego z alertem    |
 | SourceSystem                   | Tekst          | System źródłowy bieżących danych — Azure                    |
@@ -107,7 +108,7 @@ Ta tabela zawiera podstawowe pola powiązane z chronionymi wystąpieniami.
 | ProtectedContainerUniqueId     | Tekst          | Unikatowy identyfikator identyfikujący chroniony kontener, w którym jest uruchamiane zadanie |
 | ProtectedInstanceCount         | Tekst          | Liczba chronionych wystąpień dla skojarzonego elementu kopii zapasowej lub chronionego kontenera w tej dacie i godzinie |
 | SchemaVersion                  | Tekst          | Bieżąca wersja schematu, na przykład **v2**            |
-| Stan                          | Tekst          | Stan obiektu elementu kopii zapasowej, na przykład aktywny, usunięty |
+| State                          | Tekst          | Stan obiektu elementu kopii zapasowej, na przykład aktywny, usunięty |
 | VaultUniqueId                  | Tekst          | Unikatowy identyfikator chronionego magazynu skojarzonego z chronionym wystąpieniem |
 | SourceSystem                   | Tekst          | System źródłowy bieżących danych — Azure                    |
 
@@ -138,7 +139,7 @@ Ta tabela zawiera szczegółowe informacje o polach związanych z zadaniami.
 | RecoveryJobLocation            | Tekst          | Lokalizacja, w której zapisano odzyskiwany punkt odzyskiwania |
 | RecoveryLocationType           | Tekst          | Typ lokalizacji odzyskiwania                                |
 | SchemaVersion                  | Tekst          | Bieżąca wersja schematu, na przykład **v2**            |
-| Stan                          | Tekst          | Bieżący stan obiektu zadania, na przykład aktywny, usunięty |
+| State                          | Tekst          | Bieżący stan obiektu zadania, na przykład aktywny, usunięty |
 | VaultUniqueId                  | Tekst          | Unikatowy identyfikator chronionego magazynu skojarzonego z zadaniem |
 | SourceSystem                   | Tekst          | System źródłowy bieżących danych — Azure                    |
 
@@ -161,7 +162,7 @@ Ta tabela zawiera szczegółowe informacje dotyczące pól związanych z zasadam
 | DiffBackupDaysOfTheWeek         | Tekst           | Dni tygodnia różnicowych kopii zapasowych dla bazy danych SQL w usłudze Kopia zapasowa maszyny wirtualnej platformy Azure |
 | DiffBackupFormat                | Tekst           | Format różnicowych kopii zapasowych dla bazy danych SQL w kopii zapasowej maszyny wirtualnej platformy Azure   |
 | DiffBackupRetentionDuration     | Liczba dziesiętna | Czas przechowywania różnicowych kopii zapasowych dla bazy danych SQL w kopii zapasowej maszyny wirtualnej platformy Azure |
-| DiffBackupTime                  | Godzina           | Czas różnicowych kopii zapasowych bazy danych SQL w kopii zapasowej maszyny wirtualnej platformy Azure     |
+| DiffBackupTime                  | Czas           | Czas różnicowych kopii zapasowych bazy danych SQL w kopii zapasowej maszyny wirtualnej platformy Azure     |
 | LogBackupFrequency              | Liczba dziesiętna | Częstotliwość tworzenia kopii zapasowych dzienników dla bazy danych SQL                            |
 | LogBackupRetentionDuration      | Liczba dziesiętna | Czas przechowywania kopii zapasowych dziennika dla bazy danych SQL w kopii zapasowej maszyny wirtualnej platformy Azure |
 | MonthlyRetentionDaysOfTheMonth  | Tekst           | Tygodnie miesiąca w przypadku skonfigurowania miesięcznego przechowywania.  Na przykład, First, Last itd. |
@@ -176,7 +177,7 @@ Ta tabela zawiera szczegółowe informacje dotyczące pól związanych z zasadam
 | RetentionDuration               | Tekst           | Czas przechowywania skonfigurowanych kopii zapasowych                    |
 | Czas przechowywania                   | Tekst           | Typ przechowywania                                            |
 | SchemaVersion                   | Tekst           | To pole oznacza bieżącą wersję schematu, to **v2** |
-| Stan                           | Tekst           | Bieżący stan obiektu zasad. Na przykład aktywne, usunięte |
+| State                           | Tekst           | Bieżący stan obiektu zasad. Na przykład aktywne, usunięte |
 | SynchronisationFrequencyPerDay  | Liczbowy całkowity   | Liczba przypadków synchronizacji kopii zapasowej plików dla programu SC DPM i serwera usługi MAB |
 | VaultUniqueId                   | Tekst           | Unikatowy identyfikator magazynu, do którego należą te zasady          |
 | WeeklyRetentionDaysOfTheWeek    | Tekst           | Dni tygodnia wybrane do przechowywania tygodniowego               |
@@ -206,7 +207,7 @@ Ta tabela zawiera szczegółowe informacje o polach związanych z magazynem.
 | PreferredWorkloadOnVolume      | Tekst          | Obciążenie, dla którego ten wolumin jest preferowanym magazynem      |
 | ProtectedContainerUniqueId     | Tekst          | Unikatowy identyfikator chronionego kontenera skojarzonego z elementem kopii zapasowej |
 | SchemaVersion                  | Tekst          | Wersja schematu. Na przykład **v2**                   |
-| Stan                          | Tekst          | Stan obiektu elementu kopii zapasowej. Na przykład aktywne, usunięte |
+| State                          | Tekst          | Stan obiektu elementu kopii zapasowej. Na przykład aktywne, usunięte |
 | StorageAllocatedInMBs          | Liczba        | Rozmiar magazynu przydzielonego przez odpowiedni element kopii zapasowej w odpowiednim magazynie typu dysk |
 | StorageConsumedInMBs           | Liczba        | Rozmiar magazynu zużywanego przez odpowiedni element kopii zapasowej w odpowiednim magazynie |
 | StorageName                    | Tekst          | Nazwa jednostki magazynowej. Na przykład E:\                      |
@@ -219,5 +220,5 @@ Ta tabela zawiera szczegółowe informacje o polach związanych z magazynem.
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Dowiedz się, jak wysyłać dane diagnostyczne do Log Analytics](https://docs.microsoft.com/azure/backup/backup-azure-diagnostic-events)
-- [Dowiedz się, jak pisać zapytania w tabelach specyficznych dla zasobów](https://docs.microsoft.com/azure/backup/backup-azure-monitoring-use-azuremonitor#sample-kusto-queries)
+- [Dowiedz się, jak wysyłać dane diagnostyczne do Log Analytics](./backup-azure-diagnostic-events.md)
+- [Dowiedz się, jak pisać zapytania w tabelach specyficznych dla zasobów](./backup-azure-monitoring-use-azuremonitor.md#sample-kusto-queries)

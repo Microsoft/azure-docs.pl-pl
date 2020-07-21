@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 07/10/2020
+ms.date: 07/17/2020
 ms.author: victorh
-ms.openlocfilehash: 3174576201f0068191c2918b47fbd99eaa1ec182
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: b984bb581df54cba79a551dc870786ed228eaa43
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86232087"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536973"
 ---
 # <a name="azure-firewall-faq"></a>Często zadawane pytania dotyczące zapory platformy Azure
 
@@ -22,15 +22,7 @@ Azure Firewall to zarządzana, sieciowa usługa zabezpieczeń oparta na chmurze,
 
 ## <a name="what-capabilities-are-supported-in-azure-firewall"></a>Jakie możliwości są obsługiwane w zaporze platformy Azure?
 
-* Bezstanowa Zapora jako usługa
-* Wbudowana wysoka dostępność z nieograniczoną skalowalnością chmury
-* Filtrowanie według nazw FQDN
-* Tagi w pełni kwalifikowanych nazw domen
-* Reguły filtrowania ruchu sieciowego
-* Obsługa translacji adresów sieciowych źródła (SNAT) dla ruchu wychodzącego
-* Obsługa technologii DNAT dla ruchu przychodzącego
-* Centralne tworzenie, wymuszanie i rejestrowanie zasad łączności aplikacji i sieci w ramach subskrypcji platformy Azure i sieci wirtualnych
-* W pełni zintegrowane z Azure Monitor na potrzeby rejestrowania i analizy
+Aby dowiedzieć się więcej o funkcjach zapory platformy Azure, zobacz [funkcje zapory platformy Azure](features.md).
 
 ## <a name="what-is-the-typical-deployment-model-for-azure-firewall"></a>Jaki jest typowy model wdrażania dla zapory platformy Azure?
 

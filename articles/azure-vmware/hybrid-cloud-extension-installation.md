@@ -2,19 +2,19 @@
 title: Zainstaluj rozszerzenie chmury hybrydowej (HCX)
 description: Skonfiguruj rozwiązanie VMware hybrydowego Extension (HCX) dla chmury prywatnej dla rozwiązania Azure VMware (Automatyczna synchronizacja)
 ms.topic: how-to
-ms.date: 05/19/2020
-ms.openlocfilehash: 3037d12ebbb036098cfc00a42521513bc2df6170
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/15/2020
+ms.openlocfilehash: b897a44fb6811c4e3564c59a8ab2c064506f0a4f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85367550"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539163"
 ---
 # <a name="install-hcx-for-azure-vmware-solution"></a>Zainstaluj program HCX for Azure VMware Solution
 
 W tym artykule omówiono procedury konfigurowania rozwiązania VMWare hybrydowego Extension (HCX) dla chmury prywatnej (Automatyczna synchronizacja) rozwiązania VMWare. HCX umożliwia migrowanie obciążeń oprogramowania VMware do chmury oraz inne połączone Lokacje za pomocą różnych wbudowanych typów migracji obsługiwanych przez program HCX.
 
-HCX Advanced, instalacja domyślna obsługuje maksymalnie trzy Lokacje zewnętrzne. Jeśli wymagane są więcej niż trzy lokacje, klienci mają możliwość włączenia dodatku HCX Enterprise przez pomoc techniczną. Instalacja przedsiębiorstwa HCX obejmuje dodatkowe opłaty dla klientów po ogólnym udostępnieniu usługi, ale udostępnia [dodatkowe funkcje](https://cloud.vmware.com/community/2019/08/08/introducing-hcx-enterprise/).
+HCX Advanced, instalacja domyślna obsługuje maksymalnie trzy vCenter. Jeśli wymagane są więcej niż trzy, klienci mają możliwość włączenia dodatku HCX Enterprise przez pomoc techniczną. Instalacja przedsiębiorstwa HCX obejmuje dodatkowe opłaty dla klientów po ogólnym udostępnieniu usługi, ale udostępnia [dodatkowe funkcje](https://cloud.vmware.com/community/2019/08/08/introducing-hcx-enterprise/).
 
 
 [Przed rozpoczęciem](#before-you-begin)należy dokładnie zapoznać się z [wymaganiami dotyczącymi wersji oprogramowania](#software-version-requirements)i [wymaganiami wstępnymi](#prerequisites) . 
@@ -80,7 +80,7 @@ Składniki infrastruktury muszą mieć uruchomioną wymaganą wersję minimalną
 
     ![Przejrzyj szczegóły szablonu](./media/hybrid-cloud-extension-installation/configure-template.png)
 
-1. Zapoznaj się z postanowieniami licencyjnymi, a jeśli zgadzasz się, wybierz pozycję wymagane magazyn i sieć. Następnie wybierz pozycję **Dalej**.
+1. Zapoznaj się z postanowieniami licencyjnymi, a jeśli zgadzasz się, wybierz pozycję wymagane magazyn i sieć. Następnie wybierz przycisk **Dalej**.
 
 1. W obszarze **Dostosowywanie szablonu**wprowadź wszystkie wymagane informacje. 
 

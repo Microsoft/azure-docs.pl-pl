@@ -3,11 +3,12 @@ title: Tworzenie kopii zapasowych i odzyskiwanie maszyn wirtualnych platformy Az
 description: Zawiera opis sposobu tworzenia kopii zapasowych i odzyskiwania maszyn wirtualnych platformy Azure przy użyciu Azure Backup programu PowerShell
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: 4b869b24392fa597f752992fb65de46785117618
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7957253565658ca387502acb413bc3e6f9a1a3a4
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84234713"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538806"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>Tworzenie kopii zapasowej i przywracanie maszyn wirtualnych platformy Azure przy użyciu programu PowerShell
 
@@ -34,7 +35,7 @@ Hierarchia obiektów jest podsumowana na poniższym diagramie.
 
 ![Hierarchia obiektów Recovery Services](./media/backup-azure-vms-arm-automation/recovery-services-object-hierarchy.png)
 
-Zapoznaj się z dokumentacją [polecenia cmdlet](https://docs.microsoft.com/powershell/module/Az.RecoveryServices/?view=azps-1.4.0) **AZ. RecoveryServices** w bibliotece platformy Azure.
+Zapoznaj się z dokumentacją [polecenia cmdlet](/powershell/module/az.recoveryservices/) **AZ. RecoveryServices** w bibliotece platformy Azure.
 
 ## <a name="set-up-and-register"></a>Skonfiguruj i zarejestruj
 
@@ -42,7 +43,7 @@ Zapoznaj się z dokumentacją [polecenia cmdlet](https://docs.microsoft.com/powe
 
 Aby rozpocząć:
 
-1. [Pobierz najnowszą wersję programu PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps)
+1. [Pobierz najnowszą wersję programu PowerShell](/powershell/azure/install-az-ps)
 
 2. Znajdź Azure Backup polecenia cmdlet programu PowerShell, wpisując następujące polecenie:
 
@@ -65,7 +66,7 @@ Aby rozpocząć:
     Select-AzSubscription -SubscriptionName $SubscriptionName
     ```
 
-5. Jeśli używasz Azure Backup po raz pierwszy, musisz użyć polecenia cmdlet **[register-AzResourceProvider](https://docs.microsoft.com/powershell/module/az.resources/register-azresourceprovider)** , aby zarejestrować dostawcę usługi Azure Recovery Service w ramach subskrypcji.
+5. Jeśli używasz Azure Backup po raz pierwszy, musisz użyć polecenia cmdlet **[register-AzResourceProvider](/powershell/module/az.resources/register-azresourceprovider)** , aby zarejestrować dostawcę usługi Azure Recovery Service w ramach subskrypcji.
 
     ```powershell
     Register-AzResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
@@ -77,25 +78,25 @@ Aby rozpocząć:
     Get-AzResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
     ```
 
-    W danych wyjściowych polecenia **RegistrationState** należy zmienić na **zarejestrowane**. W przeciwnym razie po prostu uruchom ponownie polecenie cmdlet **[register-AzResourceProvider](https://docs.microsoft.com/powershell/module/az.resources/register-azresourceprovider)** .
+    W danych wyjściowych polecenia **RegistrationState** należy zmienić na **zarejestrowane**. W przeciwnym razie po prostu uruchom ponownie polecenie cmdlet **[register-AzResourceProvider](/powershell/module/az.resources/register-azresourceprovider)** .
 
 ## <a name="create-a-recovery-services-vault"></a>Tworzenie magazynu usługi Recovery Services
 
 Poniższe kroki umożliwiają utworzenie magazynu Recovery Services. Magazyn Recovery Services jest inny niż magazyn kopii zapasowych.
 
-1. Magazyn Recovery Services jest zasobem Menedżer zasobów, dlatego należy go umieścić w grupie zasobów. Możesz użyć istniejącej grupy zasobów lub utworzyć grupę zasobów za pomocą polecenia cmdlet **[New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup)** . Podczas tworzenia grupy zasobów Określ nazwę i lokalizację grupy zasobów.  
+1. Magazyn Recovery Services jest zasobem Menedżer zasobów, dlatego należy go umieścić w grupie zasobów. Możesz użyć istniejącej grupy zasobów lub utworzyć grupę zasobów za pomocą polecenia cmdlet **[New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup)** . Podczas tworzenia grupy zasobów Określ nazwę i lokalizację grupy zasobów.  
 
     ```powershell
     New-AzResourceGroup -Name "test-rg" -Location "West US"
     ```
 
-2. Użyj polecenia cmdlet [New-AzRecoveryServicesVault](https://docs.microsoft.com/powershell/module/az.recoveryservices/new-azrecoveryservicesvault?view=azps-1.4.0) , aby utworzyć magazyn Recovery Services. Należy określić tę samą lokalizację dla magazynu, która została użyta dla grupy zasobów.
+2. Użyj polecenia cmdlet [New-AzRecoveryServicesVault](/powershell/module/az.recoveryservices/new-azrecoveryservicesvault) , aby utworzyć magazyn Recovery Services. Należy określić tę samą lokalizację dla magazynu, która została użyta dla grupy zasobów.
 
     ```powershell
     New-AzRecoveryServicesVault -Name "testvault" -ResourceGroupName "test-rg" -Location "West US"
     ```
 
-3. Określ typ nadmiarowości magazynu do użycia; można użyć [magazynu lokalnie nadmiarowego (LRS)](../storage/common/storage-redundancy-lrs.md) lub [magazynu geograficznie nadmiarowego (GRS)](../storage/common/storage-redundancy-grs.md). W poniższym przykładzie pokazano opcję-BackupStorageRedundancy dla testvault jest ustawiona na wartość geomiarowa.
+3. Określ typ nadmiarowości magazynu do użycia; można użyć [magazynu lokalnie nadmiarowego (LRS)](../storage/common/storage-redundancy.md) lub [magazynu geograficznie nadmiarowego (GRS)](../storage/common/storage-redundancy.md). W poniższym przykładzie pokazano opcję-BackupStorageRedundancy dla testvault jest ustawiona na wartość geomiarowa.
 
     ```powershell
     $vault1 = Get-AzRecoveryServicesVault -Name "testvault"
@@ -109,7 +110,7 @@ Poniższe kroki umożliwiają utworzenie magazynu Recovery Services. Magazyn Rec
 
 ## <a name="view-the-vaults-in-a-subscription"></a>Wyświetlanie magazynów w ramach subskrypcji
 
-Aby wyświetlić wszystkie magazyny w subskrypcji, użyj polecenie [Get-AzRecoveryServicesVault](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesvault?view=azps-1.4.0):
+Aby wyświetlić wszystkie magazyny w subskrypcji, użyj polecenie [Get-AzRecoveryServicesVault](/powershell/module/az.recoveryservices/get-azrecoveryservicesvault):
 
 ```powershell
 Get-AzRecoveryServicesVault
@@ -133,7 +134,7 @@ Użyj magazynu Recovery Services, aby chronić maszyny wirtualne. Przed zastosow
 
 ### <a name="set-vault-context"></a>Ustaw kontekst magazynu
 
-Przed włączeniem ochrony na maszynie wirtualnej Użyj polecenie [Set-AzRecoveryServicesVaultContext](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesvaultcontext?view=azps-1.4.0) , aby ustawić kontekst magazynu. Po ustawieniu kontekst magazynu ma zastosowanie do wszystkich kolejnych poleceń cmdlet. Poniższy przykład ustawia kontekst magazynu dla magazynu, *testvault*.
+Przed włączeniem ochrony na maszynie wirtualnej Użyj polecenie [Set-AzRecoveryServicesVaultContext](/powershell/module/az.recoveryservices/set-azrecoveryservicesvaultcontext) , aby ustawić kontekst magazynu. Po ustawieniu kontekst magazynu ma zastosowanie do wszystkich kolejnych poleceń cmdlet. Poniższy przykład ustawia kontekst magazynu dla magazynu, *testvault*.
 
 ```powershell
 Get-AzRecoveryServicesVault -Name "testvault" -ResourceGroupName "Contoso-docs-rg" | Set-AzRecoveryServicesVaultContext
@@ -156,7 +157,7 @@ $targetVaultID = Get-AzRecoveryServicesVault -ResourceGroupName "Contoso-docs-rg
 
 ### <a name="modifying-storage-replication-settings"></a>Modyfikowanie ustawień replikacji magazynu
 
-Użyj polecenia [Set-AzRecoveryServicesBackupProperty](https://docs.microsoft.com/powershell/module/az.recoveryservices/Set-AzRecoveryServicesBackupProperty) , aby ustawić konfigurację replikacji magazynu dla magazynu na LRS/GRS
+Użyj polecenia [Set-AzRecoveryServicesBackupProperty](/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperty) , aby ustawić konfigurację replikacji magazynu dla magazynu na LRS/GRS
 
 ```powershell
 Set-AzRecoveryServicesBackupProperty -Vault $targetVault -BackupStorageRedundancy GeoRedundant/LocallyRedundant
@@ -169,7 +170,7 @@ Set-AzRecoveryServicesBackupProperty -Vault $targetVault -BackupStorageRedundanc
 
 Podczas tworzenia magazynu usługi Recovery Services jest on dostarczany z domyślnymi zasadami ochrony i przechowywania. Domyślne zasady ochrony wyzwalają zadanie tworzenia kopii zapasowej każdego dnia o określonej godzinie. Domyślne zasady przechowywania zachowują codzienny punkt odzyskiwania przez 30 dni. Możesz użyć domyślnych zasad, aby szybko chronić maszynę wirtualną i edytować zasady później z innymi szczegółami.
 
-Użyj **[Get-AzRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupprotectionpolicy)** , aby wyświetlić zasady ochrony dostępne w magazynie. Tego polecenia cmdlet można użyć w celu uzyskania określonych zasad lub wyświetlenia zasad skojarzonych z typem obciążenia. Poniższy przykład pobiera zasady dla typu obciążenia, AzureVM.
+Użyj **[Get-AzRecoveryServicesBackupProtectionPolicy](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupprotectionpolicy)** , aby wyświetlić zasady ochrony dostępne w magazynie. Tego polecenia cmdlet można użyć w celu uzyskania określonych zasad lub wyświetlenia zasad skojarzonych z typem obciążenia. Poniższy przykład pobiera zasady dla typu obciążenia, AzureVM.
 
 ```powershell
 Get-AzRecoveryServicesBackupProtectionPolicy -WorkloadType "AzureVM" -VaultId $targetVault.ID
@@ -190,9 +191,9 @@ DefaultPolicy        AzureVM            AzureVM              4/14/2016 5:00:00 P
 
 Zasady ochrony kopii zapasowej są skojarzone z co najmniej jedną zasadą przechowywania. Zasady przechowywania określają czas przechowywania punktu odzyskiwania przed jego usunięciem.
 
-* Użyj [Get-AzRecoveryServicesBackupRetentionPolicyObject](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupretentionpolicyobject) , aby wyświetlić domyślne zasady przechowywania.
-* Podobnie można użyć [Get-AzRecoveryServicesBackupSchedulePolicyObject](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupschedulepolicyobject) , aby uzyskać domyślne zasady harmonogramu.
-* Polecenie cmdlet [New-AzRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupprotectionpolicy) tworzy obiekt programu PowerShell, który zawiera informacje o zasadach kopii zapasowych.
+* Użyj [Get-AzRecoveryServicesBackupRetentionPolicyObject](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupretentionpolicyobject) , aby wyświetlić domyślne zasady przechowywania.
+* Podobnie można użyć [Get-AzRecoveryServicesBackupSchedulePolicyObject](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupschedulepolicyobject) , aby uzyskać domyślne zasady harmonogramu.
+* Polecenie cmdlet [New-AzRecoveryServicesBackupProtectionPolicy](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupprotectionpolicy) tworzy obiekt programu PowerShell, który zawiera informacje o zasadach kopii zapasowych.
 * Obiekty zasad harmonogramu i przechowywania są używane jako dane wejściowe do polecenia cmdlet New-AzRecoveryServicesBackupProtectionPolicy.
 
 Domyślnie w obiekcie zasad harmonogramu jest zdefiniowany czas rozpoczęcia. Użyj poniższego przykładu, aby zmienić godzinę rozpoczęcia na żądaną godzinę rozpoczęcia. Wymagana godzina rozpoczęcia powinna być również w formacie UTC. W poniższym przykładzie przyjęto założenie, że wymagany czas rozpoczęcia to 01:00 czasu UTC dla codziennych kopii zapasowych.
@@ -224,10 +225,10 @@ NewPolicy           AzureVM            AzureVM              4/24/2016 1:30:00 AM
 
 ### <a name="enable-protection"></a>Włączanie ochrony
 
-Po zdefiniowaniu zasad ochrony nadal należy włączyć zasady dla elementu. Aby włączyć ochronę, użyj [enable-AzRecoveryServicesBackupProtection](https://docs.microsoft.com/powershell/module/az.recoveryservices/enable-azrecoveryservicesbackupprotection) . Włączenie ochrony wymaga dwóch obiektów — elementu i zasad. Po skojarzeniu zasad z magazynem przepływ pracy tworzenia kopii zapasowej jest wyzwalany w czasie zdefiniowanym w harmonogramie zasad.
+Po zdefiniowaniu zasad ochrony nadal należy włączyć zasady dla elementu. Aby włączyć ochronę, użyj [enable-AzRecoveryServicesBackupProtection](/powershell/module/az.recoveryservices/enable-azrecoveryservicesbackupprotection) . Włączenie ochrony wymaga dwóch obiektów — elementu i zasad. Po skojarzeniu zasad z magazynem przepływ pracy tworzenia kopii zapasowej jest wyzwalany w czasie zdefiniowanym w harmonogramie zasad.
 
 > [!IMPORTANT]
-> Podczas używania PS do jednoczesnego włączania tworzenia kopii zapasowych dla wielu maszyn wirtualnych upewnij się, że z jednymi zasadami nie są skojarzone więcej niż 100 maszyn wirtualnych. Jest to [zalecane najlepsze rozwiązanie](https://docs.microsoft.com/azure/backup/backup-azure-vm-backup-faq#is-there-a-limit-on-number-of-vms-that-can-beassociated-with-a-same-backup-policy). Obecnie klient PS nie jest jawnie blokowany, jeśli istnieje więcej niż 100 maszyn wirtualnych, ale zaplanowano dodanie go do przyszłości.
+> Podczas używania PS do jednoczesnego włączania tworzenia kopii zapasowych dla wielu maszyn wirtualnych upewnij się, że z jednymi zasadami nie są skojarzone więcej niż 100 maszyn wirtualnych. Jest to [zalecane najlepsze rozwiązanie](./backup-azure-vm-backup-faq.md#is-there-a-limit-on-number-of-vms-that-can-beassociated-with-the-same-backup-policy). Obecnie klient PS nie jest jawnie blokowany, jeśli istnieje więcej niż 100 maszyn wirtualnych, ale zaplanowano dodanie go do przyszłości.
 
 W poniższych przykładach włączono ochronę dla elementu, V2VM, przy użyciu zasad, NewPolicy. Przykłady różnią się w zależności od tego, czy maszyna wirtualna jest zaszyfrowana, oraz jakiego typu szyfrowanie.
 
@@ -255,12 +256,12 @@ Enable-AzRecoveryServicesBackupProtection -Policy $pol -Name "V2VM" -ResourceGro
 ```
 
 > [!NOTE]
-> Jeśli używasz chmury Azure Government, użyj wartości ff281ffe-705c-4f53-9f37-a40e6f2c68f3 dla parametru ServicePrincipalName w poleceniu [Set-AzKeyVaultAccessPolicy](https://docs.microsoft.com/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) .
+> Jeśli używasz chmury Azure Government, użyj wartości ff281ffe-705c-4f53-9f37-a40e6f2c68f3 dla parametru ServicePrincipalName w poleceniu [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) .
 >
 
 ## <a name="monitoring-a-backup-job"></a>Monitorowanie zadania tworzenia kopii zapasowej
 
-Można monitorować długotrwałe operacje, takie jak zadania tworzenia kopii zapasowej, bez użycia Azure Portal. Aby uzyskać stan zadania w toku, należy użyć polecenia cmdlet [Get-AzRecoveryservicesBackupJob](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupjob) . To polecenie cmdlet pobiera zadania tworzenia kopii zapasowej dla określonego magazynu i ten magazyn jest określony w kontekście magazynu. Poniższy przykład pobiera stan zadania w toku jako tablicę i zapisuje stan w zmiennej $joblist.
+Można monitorować długotrwałe operacje, takie jak zadania tworzenia kopii zapasowej, bez użycia Azure Portal. Aby uzyskać stan zadania w toku, należy użyć polecenia cmdlet [Get-AzRecoveryservicesBackupJob](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupjob) . To polecenie cmdlet pobiera zadania tworzenia kopii zapasowej dla określonego magazynu i ten magazyn jest określony w kontekście magazynu. Poniższy przykład pobiera stan zadania w toku jako tablicę i zapisuje stan w zmiennej $joblist.
 
 ```powershell
 $joblist = Get-AzRecoveryservicesBackupJob –Status "InProgress" -VaultId $targetVault.ID
@@ -275,7 +276,7 @@ WorkloadName     Operation            Status               StartTime            
 V2VM             Backup               InProgress            4/23/2016                5:00:30 PM                cf4b3ef5-2fac-4c8e-a215-d2eba4124f27
 ```
 
-Zamiast sondowania tych zadań do zakończenia — nie jest to zbędny dodatkowy kod, użyj polecenia cmdlet [wait-AzRecoveryServicesBackupJob](https://docs.microsoft.com/powershell/module/az.recoveryservices/wait-azrecoveryservicesbackupjob) . To polecenie cmdlet wstrzymuje wykonywanie do momentu zakończenia zadania lub osiągnięcia określonej wartości limitu czasu.
+Zamiast sondowania tych zadań do zakończenia — nie jest to zbędny dodatkowy kod, użyj polecenia cmdlet [wait-AzRecoveryServicesBackupJob](/powershell/module/az.recoveryservices/wait-azrecoveryservicesbackupjob) . To polecenie cmdlet wstrzymuje wykonywanie do momentu zakończenia zadania lub osiągnięcia określonej wartości limitu czasu.
 
 ```powershell
 Wait-AzRecoveryServicesBackupJob -Job $joblist[0] -Timeout 43200 -VaultId $targetVault.ID
@@ -285,7 +286,7 @@ Wait-AzRecoveryServicesBackupJob -Job $joblist[0] -Timeout 43200 -VaultId $targe
 
 ### <a name="modify-a-protection-policy"></a>Modyfikowanie zasad ochrony
 
-Aby zmodyfikować zasady ochrony, użyj polecenie [Set-AzRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupprotectionpolicy) w celu zmodyfikowania obiektów SchedulePolicy lub RetentionPolicy.
+Aby zmodyfikować zasady ochrony, użyj polecenie [Set-AzRecoveryServicesBackupProtectionPolicy](/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupprotectionpolicy) w celu zmodyfikowania obiektów SchedulePolicy lub RetentionPolicy.
 
 #### <a name="modifying-scheduled-time"></a>Modyfikowanie zaplanowanego czasu
 
@@ -329,7 +330,7 @@ Wartość domyślna to 2, użytkownik może ustawić wartość minimalną 1 i ma
 > [!NOTE]
 > Z usługi Azure PS w wersji 3.7.0 lub nowszej można utworzyć i edytować grupę zasobów utworzoną na potrzeby przechowywania natychmiastowych migawek.
 
-Aby dowiedzieć się więcej o regułach tworzenia grupy zasobów i innych istotnych szczegółach, zapoznaj się z dokumentacją [Virtual Machines Azure Backup grupy zasobów](https://docs.microsoft.com/azure/backup/backup-during-vm-creation#azure-backup-resource-group-for-virtual-machines) .
+Aby dowiedzieć się więcej o regułach tworzenia grupy zasobów i innych istotnych szczegółach, zapoznaj się z dokumentacją [Virtual Machines Azure Backup grupy zasobów](./backup-during-vm-creation.md#azure-backup-resource-group-for-virtual-machines) .
 
 ```powershell
 $bkpPol = Get-AzureRmRecoveryServicesBackupProtectionPolicy -name "DefaultPolicyForVMs"
@@ -340,7 +341,7 @@ Set-AzureRmRecoveryServicesBackupProtectionPolicy -policy $bkpPol
 
 ### <a name="trigger-a-backup"></a>Wyzwalanie kopii zapasowej
 
-Aby wyzwolić zadanie tworzenia kopii zapasowej, użyj [Narzędzia Backup-AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/backup-azrecoveryservicesbackupitem) . Jeśli jest to początkowa kopia zapasowa, jest to pełna kopia zapasowa. Kolejne kopie zapasowe pobierają przyrostową kopię. W poniższym przykładzie kopia zapasowa maszyny wirtualnej ma być przechowywana przez 60 dni.
+Aby wyzwolić zadanie tworzenia kopii zapasowej, użyj [Narzędzia Backup-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/backup-azrecoveryservicesbackupitem) . Jeśli jest to początkowa kopia zapasowa, jest to pełna kopia zapasowa. Kolejne kopie zapasowe pobierają przyrostową kopię. W poniższym przykładzie kopia zapasowa maszyny wirtualnej ma być przechowywana przez 60 dni.
 
 ```powershell
 $namedContainer = Get-AzRecoveryServicesBackupContainer -ContainerType "AzureVM" -Status "Registered" -FriendlyName "V2VM" -VaultId $targetVault.ID
@@ -364,7 +365,7 @@ V2VM              Backup              InProgress          4/23/2016             
 
 ### <a name="change-policy-for-backup-items"></a>Zmień zasady dla elementów kopii zapasowej
 
-Użytkownik może zmodyfikować istniejące zasady lub zmienić zasady kopii zapasowej elementu z Policy1 na Policy2. Aby przełączyć zasady dla elementu kopii zapasowej, należy pobrać odpowiednie zasady i wykonać kopię zapasową, a następnie użyć polecenia [enable-AzRecoveryServices](https://docs.microsoft.com/powershell/module/az.recoveryservices/Enable-AzRecoveryServicesBackupProtection?view=azps-1.5.0) z elementem kopii zapasowej jako parametru.
+Użytkownik może zmodyfikować istniejące zasady lub zmienić zasady kopii zapasowej elementu z Policy1 na Policy2. Aby przełączyć zasady dla elementu kopii zapasowej, należy pobrać odpowiednie zasady i wykonać kopię zapasową, a następnie użyć polecenia [enable-AzRecoveryServices](/powershell/module/az.recoveryservices/enable-azrecoveryservicesbackupprotection) z elementem kopii zapasowej jako parametru.
 
 ````powershell
 $TargetPol1 = Get-AzRecoveryServicesBackupProtectionPolicy -Name <PolicyName> -VaultId $targetVault.ID
@@ -384,7 +385,7 @@ TestVM           ConfigureBackup      Completed            3/18/2019 8:00:21 PM 
 
 #### <a name="retain-data"></a>Zachowywanie danych
 
-Jeśli użytkownik chce zatrzymać ochronę, może użyć polecenia cmdlet [disable-AzRecoveryServicesBackupProtection](https://docs.microsoft.com/powershell/module/az.recoveryservices/Disable-AzRecoveryServicesBackupProtection?view=azps-1.5.0) PS. Spowoduje to zatrzymanie zaplanowanych kopii zapasowych, ale dane, których kopia zapasowa została utworzona, dopóki nie będzie teraz zachowywane.
+Jeśli użytkownik chce zatrzymać ochronę, może użyć polecenia cmdlet [disable-AzRecoveryServicesBackupProtection](/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupprotection) PS. Spowoduje to zatrzymanie zaplanowanych kopii zapasowych, ale dane, których kopia zapasowa została utworzona, dopóki nie będzie teraz zachowywane.
 
 ````powershell
 $bkpItem = Get-AzRecoveryServicesBackupItem -BackupManagementType AzureVM -WorkloadType AzureVM -Name "<backup item name>" -VaultId $targetVault.ID
@@ -412,7 +413,7 @@ Poniższa ilustracja przedstawia hierarchię obiektów od RecoveryServicesVault 
 
 ![Hierarchia obiektów Recovery Services wyświetlana BackupContainer](./media/backup-azure-vms-arm-automation/backuprecoverypoint-only.png)
 
-Aby przywrócić dane kopii zapasowej, zidentyfikuj element kopii zapasowej i punkt odzyskiwania, który zawiera dane punktu w czasie. Aby przywrócić dane z magazynu do konta, użyj [instrukcji RESTORE-AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem) .
+Aby przywrócić dane kopii zapasowej, zidentyfikuj element kopii zapasowej i punkt odzyskiwania, który zawiera dane punktu w czasie. Aby przywrócić dane z magazynu do konta, użyj [instrukcji RESTORE-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem) .
 
 Podstawowe kroki przywracania maszyny wirtualnej platformy Azure:
 
@@ -423,7 +424,7 @@ Podstawowe kroki przywracania maszyny wirtualnej platformy Azure:
 
 ### <a name="select-the-vm"></a>Wybierz maszynę wirtualną
 
-Aby uzyskać obiekt programu PowerShell, który identyfikuje właściwy element kopii zapasowej, Rozpocznij od kontenera w magazynie i pracuj w sposób określony w hierarchii obiektów. Aby wybrać kontener reprezentujący maszynę wirtualną, należy użyć polecenia cmdlet [Get-AzRecoveryServicesBackupContainer](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupcontainer) i potoku do polecenia cmdlet [Get-AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupitem) .
+Aby uzyskać obiekt programu PowerShell, który identyfikuje właściwy element kopii zapasowej, Rozpocznij od kontenera w magazynie i pracuj w sposób określony w hierarchii obiektów. Aby wybrać kontener reprezentujący maszynę wirtualną, należy użyć polecenia cmdlet [Get-AzRecoveryServicesBackupContainer](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupcontainer) i potoku do polecenia cmdlet [Get-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupitem) .
 
 ```powershell
 $namedContainer = Get-AzRecoveryServicesBackupContainer  -ContainerType "AzureVM" -Status "Registered" -FriendlyName "V2VM" -VaultId $targetVault.ID
@@ -432,7 +433,7 @@ $backupitem = Get-AzRecoveryServicesBackupItem -Container $namedContainer  -Work
 
 ### <a name="choose-a-recovery-point"></a>Wybierz punkt odzyskiwania
 
-Użyj polecenia cmdlet [Get-AzRecoveryServicesBackupRecoveryPoint](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackuprecoverypoint) , aby wyświetlić listę wszystkich punktów odzyskiwania dla elementu kopii zapasowej. Następnie wybierz punkt odzyskiwania do przywrócenia. Jeśli nie masz pewności, który punkt odzyskiwania ma być używany, dobrym sposobem jest wybranie najnowszego punktu RecoveryPointType = AppConsistent z listy.
+Użyj polecenia cmdlet [Get-AzRecoveryServicesBackupRecoveryPoint](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackuprecoverypoint) , aby wyświetlić listę wszystkich punktów odzyskiwania dla elementu kopii zapasowej. Następnie wybierz punkt odzyskiwania do przywrócenia. Jeśli nie masz pewności, który punkt odzyskiwania ma być używany, dobrym sposobem jest wybranie najnowszego punktu RecoveryPointType = AppConsistent z listy.
 
 W poniższym skrypcie zmienna **$RP**jest tablicą punktów odzyskiwania dla wybranego elementu kopii zapasowej w ciągu ostatnich siedmiu dni. Tablica jest posortowana w odwrotnej kolejności czasu z najnowszym punktem odzyskiwania pod indeksem 0. Użyj standardowego indeksowania tablicy programu PowerShell, aby wybrać punkt odzyskiwania. W przykładzie $rp [0] wybiera najnowszy punkt odzyskiwania.
 
@@ -461,7 +462,7 @@ BackupManagementType        : AzureVM
 
 ### <a name="restore-the-disks"></a>Przywracanie dysków
 
-Za pomocą polecenia cmdlet [Restore-AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem) Przywróć dane i konfigurację elementu kopii zapasowej w punkcie odzyskiwania. Po zidentyfikowaniu punktu odzyskiwania Użyj go jako wartości parametru **-RecoveryPoint** . W powyższym przykładzie **$RP [0]** był punktem odzyskiwania do użycia. W poniższym przykładowym kodzie **$RP [0]** jest punktem odzyskiwania używanym do przywracania dysku.
+Za pomocą polecenia cmdlet [Restore-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem) Przywróć dane i konfigurację elementu kopii zapasowej w punkcie odzyskiwania. Po zidentyfikowaniu punktu odzyskiwania Użyj go jako wartości parametru **-RecoveryPoint** . W powyższym przykładzie **$RP [0]** był punktem odzyskiwania do użycia. W poniższym przykładowym kodzie **$RP [0]** jest punktem odzyskiwania używanym do przywracania dysku.
 
 Aby przywrócić dyski i informacje o konfiguracji:
 
@@ -498,13 +499,13 @@ WorkloadName     Operation          Status               StartTime              
 V2VM              Restore           InProgress           4/23/2016 5:00:30 PM                        cf4b3ef5-2fac-4c8e-a215-d2eba4124f27
 ```
 
-Za pomocą polecenia cmdlet [wait-AzRecoveryServicesBackupJob](https://docs.microsoft.com/powershell/module/az.recoveryservices/wait-azrecoveryservicesbackupjob) Zaczekaj na zakończenie zadania przywracania.
+Za pomocą polecenia cmdlet [wait-AzRecoveryServicesBackupJob](/powershell/module/az.recoveryservices/wait-azrecoveryservicesbackupjob) Zaczekaj na zakończenie zadania przywracania.
 
 ```powershell
 Wait-AzRecoveryServicesBackupJob -Job $restorejob -Timeout 43200
 ```
 
-Po zakończeniu zadania przywracania należy użyć polecenia cmdlet [Get-AzRecoveryServicesBackupJobDetails](https://docs.microsoft.com/powershell/module/az.recoveryservices/wait-azrecoveryservicesbackupjob) , aby uzyskać szczegółowe informacje o operacji przywracania. Właściwość JobDetails ma informacje konieczne do odbudowania maszyny wirtualnej.
+Po zakończeniu zadania przywracania należy użyć polecenia cmdlet [Get-AzRecoveryServicesBackupJobDetails](/powershell/module/az.recoveryservices/wait-azrecoveryservicesbackupjob) , aby uzyskać szczegółowe informacje o operacji przywracania. Właściwość JobDetails ma informacje konieczne do odbudowania maszyny wirtualnej.
 
 ```powershell
 $restorejob = Get-AzRecoveryServicesBackupJob -Job $restorejob -VaultId $targetVault.ID
@@ -518,8 +519,8 @@ Po przywróceniu dysków przejdź do następnej sekcji, aby utworzyć maszynę w
 Aby zastąpić dyski i informacje o konfiguracji, wykonaj następujące czynności:
 
 * Krok 1. [przywracanie dysków](backup-azure-vms-automation.md#restore-the-disks)
-* Krok 2. [Odłączanie dysku danych przy użyciu programu PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/detach-disk#detach-a-data-disk-using-powershell)
-* Krok 3: [dołączanie dysku danych do maszyny wirtualnej z systemem Windows przy użyciu programu PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/attach-disk-ps)
+* Krok 2. [Odłączanie dysku danych przy użyciu programu PowerShell](../virtual-machines/windows/detach-disk.md#detach-a-data-disk-using-powershell)
+* Krok 3: [dołączanie dysku danych do maszyny wirtualnej z systemem Windows przy użyciu programu PowerShell](../virtual-machines/windows/attach-disk-ps.md)
 
 ## <a name="create-a-vm-from-restored-disks"></a>Tworzenie maszyny wirtualnej na podstawie przywróconych dysków
 
@@ -551,14 +552,14 @@ Szablon nie jest dostępny bezpośrednio, ponieważ znajduje się na koncie maga
     https://<storageAccountName.blob.core.windows.net>/<containerName>/<templateName>
     ```
 
-2. Następnie można wygenerować pełny adres URL, jak wyjaśniono [tutaj](https://docs.microsoft.com/azure/azure-resource-manager/templates/secure-template-with-sas-token?tabs=azure-powershell#provide-sas-token-during-deployment).
+2. Następnie można wygenerować pełny adres URL, jak wyjaśniono [tutaj](../azure-resource-manager/templates/secure-template-with-sas-token.md?tabs=azure-powershell#provide-sas-token-during-deployment).
 
     ```powershell
     Set-AzCurrentStorageAccount -Name $storageAccountName -ResourceGroupName <StorageAccount RG name>
     $templateBlobFullURI = New-AzStorageBlobSASToken -Container $containerName -Blob <templateName> -Permission r -FullUri
     ```
 
-3. Wdróż szablon, aby utworzyć nową maszynę wirtualną, jak wyjaśniono [tutaj](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy).
+3. Wdróż szablon, aby utworzyć nową maszynę wirtualną, jak wyjaśniono [tutaj](../azure-resource-manager/templates/deploy-powershell.md).
 
     ```powershell
     New-AzResourceGroupDeployment -Name ExampleDeployment ResourceGroupName ExampleResourceGroup -TemplateUri $templateBlobFullURI -storageAccountType Standard_GRS
@@ -812,7 +813,7 @@ Podstawowe kroki przywracania pliku z kopii zapasowej maszyny wirtualnej platfor
 
 ### <a name="select-the-vm"></a>Wybierz maszynę wirtualną
 
-Aby uzyskać obiekt programu PowerShell, który identyfikuje właściwy element kopii zapasowej, Rozpocznij od kontenera w magazynie i pracuj w sposób określony w hierarchii obiektów. Aby wybrać kontener reprezentujący maszynę wirtualną, należy użyć polecenia cmdlet [Get-AzRecoveryServicesBackupContainer](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupcontainer) i potoku do polecenia cmdlet [Get-AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupitem) .
+Aby uzyskać obiekt programu PowerShell, który identyfikuje właściwy element kopii zapasowej, Rozpocznij od kontenera w magazynie i pracuj w sposób określony w hierarchii obiektów. Aby wybrać kontener reprezentujący maszynę wirtualną, należy użyć polecenia cmdlet [Get-AzRecoveryServicesBackupContainer](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupcontainer) i potoku do polecenia cmdlet [Get-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupitem) .
 
 ```powershell
 $namedContainer = Get-AzRecoveryServicesBackupContainer  -ContainerType "AzureVM" -Status "Registered" -FriendlyName "V2VM" -VaultId $targetVault.ID
@@ -821,7 +822,7 @@ $backupitem = Get-AzRecoveryServicesBackupItem -Container $namedContainer  -Work
 
 ### <a name="choose-a-recovery-point"></a>Wybierz punkt odzyskiwania
 
-Użyj polecenia cmdlet [Get-AzRecoveryServicesBackupRecoveryPoint](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackuprecoverypoint) , aby wyświetlić listę wszystkich punktów odzyskiwania dla elementu kopii zapasowej. Następnie wybierz punkt odzyskiwania do przywrócenia. Jeśli nie masz pewności, który punkt odzyskiwania ma być używany, dobrym sposobem jest wybranie najnowszego punktu RecoveryPointType = AppConsistent z listy.
+Użyj polecenia cmdlet [Get-AzRecoveryServicesBackupRecoveryPoint](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackuprecoverypoint) , aby wyświetlić listę wszystkich punktów odzyskiwania dla elementu kopii zapasowej. Następnie wybierz punkt odzyskiwania do przywrócenia. Jeśli nie masz pewności, który punkt odzyskiwania ma być używany, dobrym sposobem jest wybranie najnowszego punktu RecoveryPointType = AppConsistent z listy.
 
 W poniższym skrypcie zmienna **$RP**jest tablicą punktów odzyskiwania dla wybranego elementu kopii zapasowej w ciągu ostatnich siedmiu dni. Tablica jest posortowana w odwrotnej kolejności czasu z najnowszym punktem odzyskiwania pod indeksem 0. Użyj standardowego indeksowania tablicy programu PowerShell, aby wybrać punkt odzyskiwania. W przykładzie $rp [0] wybiera najnowszy punkt odzyskiwania.
 
@@ -850,7 +851,7 @@ BackupManagementType        : AzureVM
 
 ### <a name="mount-the-disks-of-recovery-point"></a>Instalowanie dysków punktu odzyskiwania
 
-Użyj polecenia cmdlet [Get-AzRecoveryServicesBackupRPMountScript](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackuprpmountscript) , aby pobrać skrypt instalujący wszystkie dyski punktu odzyskiwania.
+Użyj polecenia cmdlet [Get-AzRecoveryServicesBackupRPMountScript](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackuprpmountscript) , aby pobrać skrypt instalujący wszystkie dyski punktu odzyskiwania.
 
 > [!NOTE]
 > Dyski są instalowane jako dołączone dyski iSCSI na komputerze, na którym skrypt jest uruchamiany. Instalowanie odbywa się natychmiast, a opłaty nie są naliczane.
@@ -873,7 +874,7 @@ Uruchom skrypt na komputerze, na którym chcesz odzyskać pliki. Aby wykonać sk
 
 ### <a name="unmount-the-disks"></a>Odinstalowywanie dysków
 
-Po skopiowaniu wymaganych plików Użyj polecenie [disable-AzRecoveryServicesBackupRPMountScript](https://docs.microsoft.com/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackuprpmountscript) , aby odinstalować dyski. Pamiętaj o odinstalowaniu dysków, aby uzyskać dostęp do plików z punktu odzyskiwania.
+Po skopiowaniu wymaganych plików Użyj polecenie [disable-AzRecoveryServicesBackupRPMountScript](/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackuprpmountscript) , aby odinstalować dyski. Pamiętaj o odinstalowaniu dysków, aby uzyskać dostęp do plików z punktu odzyskiwania.
 
 ```powershell
 Disable-AzRecoveryServicesBackupRPMountScript -RecoveryPoint $rp[0] -VaultId $targetVault.ID

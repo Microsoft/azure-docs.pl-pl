@@ -3,11 +3,12 @@ title: Tworzenie kopii zapasowej farmy programu SharePoint na Azure Stack
 description: Użyj Azure Backup Server, aby utworzyć kopię zapasową i przywrócić dane programu SharePoint w Azure Stack. Ten artykuł zawiera informacje dotyczące konfigurowania farmy programu SharePoint w taki sposób, aby wymagane dane mogły być przechowywane na platformie Azure. Chronione dane programu SharePoint można przywrócić z dysku lub z platformy Azure.
 ms.topic: conceptual
 ms.date: 06/07/2020
-ms.openlocfilehash: 8b9257c1d175c350df06f9421b31a9e7b8e2bb80
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bd94b24479631f9fbbe4070529d76fe6442faae2
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84657932"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538789"
 ---
 # <a name="back-up-a-sharepoint-farm-on-azure-stack"></a>Tworzenie kopii zapasowej farmy programu SharePoint na Azure Stack
 
@@ -19,7 +20,7 @@ Azure Backup for serwera usługi MAB obsługuje następujące scenariusze:
 
 | Obciążenie | Wersja | Wdrożenie programu SharePoint | Ochrona i odzyskiwanie |
 | --- | --- | --- | --- |
-| SharePoint |SharePoint 2016, SharePoint 2013, SharePoint 2010 |Program SharePoint wdrożony jako Azure Stacką maszynę wirtualną <br> -------------- <br> Program SQL AlwaysOn | Ochrona farmy programu SharePoint opcje odzyskiwania: Farma odzyskiwania, baza danych i plik lub element listy z punktów odzyskiwania dysku.  Odzyskiwanie farmy i bazy danych z punktów odzyskiwania platformy Azure. |
+| Program SharePoint |SharePoint 2016, SharePoint 2013, SharePoint 2010 |Program SharePoint wdrożony jako Azure Stacką maszynę wirtualną <br> -------------- <br> Program SQL AlwaysOn | Ochrona farmy programu SharePoint opcje odzyskiwania: Farma odzyskiwania, baza danych i plik lub element listy z punktów odzyskiwania dysku.  Odzyskiwanie farmy i bazy danych z punktów odzyskiwania platformy Azure. |
 
 ## <a name="before-you-start"></a>Przed rozpoczęciem
 
@@ -101,7 +102,7 @@ Aby utworzyć kopię zapasową farmy programu SharePoint, skonfiguruj ochronę p
 
 1. W obszarze **Określ zasady przechowywania danych online**możesz określić sposób zachowywania punktów odzyskiwania tworzonych na podstawie kopii zapasowych na dzień/tydzień/miesiąc/rok.
 
-1. W obszarze **Wybierz replikację online**Określ, jak będzie wykonywana początkowa pełna replikacja danych. Możesz wykonywać replikację za pośrednictwem sieci lub tworzyć kopie zapasowe offline (rozmieszczanie offline). W przypadku kopii zapasowych offline używana jest funkcja Azure Import. [Przeczytaj więcej](https://azure.microsoft.com/documentation/articles/backup-azure-backup-import-export/).
+1. W obszarze **Wybierz replikację online**Określ, jak będzie wykonywana początkowa pełna replikacja danych. Możesz wykonywać replikację za pośrednictwem sieci lub tworzyć kopie zapasowe offline (rozmieszczanie offline). W przypadku kopii zapasowych offline używana jest funkcja Azure Import. [Przeczytaj więcej](./backup-azure-backup-import-export.md).
 
 1. Na stronie **Podsumowanie** przejrzyj ustawienia. Po kliknięciu przycisku **Utwórz grupę**następuje Replikacja początkowa danych. Po zakończeniu stan grupy ochrony zostanie wyświetlony na stronie **stan** jako **OK** . Następnie odbywa się tworzenie kopii zapasowych zgodnie z ustawieniami grupy ochrony.
 

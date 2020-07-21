@@ -7,18 +7,18 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: mialdrid
-ms.openlocfilehash: c68ffd019937f902567c3deda8d879448dc082da
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e2c730906e8dcb31c3365259088240c74e416855
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85847035"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537024"
 ---
 # <a name="expressroute-circuits-and-peering"></a>ExpressRoute circuits and peering (Obwody usługi ExpressRoute i komunikacja równorzędna)
 
 Obwody usługi ExpressRoute łączą infrastrukturę lokalną z firmą Microsoft za pośrednictwem dostawcy łączności. Ten artykuł pomaga zrozumieć obwody usługi ExpressRoute i domeny routingu/komunikację równorzędną. Na poniższej ilustracji przedstawiono logiczną reprezentację łączności między siecią WAN i firmą Microsoft.
 
-![](./media/expressroute-circuit-peerings/expressroute-basic.png)
+![Diagram przedstawiający sposób, w jaki obwody usługi ExpressRoute łączą infrastrukturę lokalną z firmą Microsoft za pośrednictwem dostawcy łączności.](./media/expressroute-circuit-peerings/expressroute-basic.png)
 
 > [!IMPORTANT]
 > Publiczna Komunikacja równorzędna Azure jest przestarzała i nie jest dostępna dla nowych obwodów usługi ExpressRoute. Nowe obwody obsługują komunikację równorzędną firmy Microsoft i prywatną komunikację równorzędną.  
@@ -42,7 +42,7 @@ Domyślne przydziały i limity mają zastosowanie do każdego obwodu usługi Exp
 
 Obwód usługi ExpressRoute ma skojarzone wiele domen routingu/komunikacji równorzędnej: publiczna platforma Azure, usługa Azure Private oraz firma Microsoft. Każda Komunikacja równorzędna jest konfigurowana identycznie na parze routerów (w konfiguracji aktywne-aktywne lub do udostępniania obciążenia) w celu zapewnienia wysokiej dostępności. Usługi platformy Azure są podzielone na *publiczne* i *prywatne* platformy Azure, aby reprezentować schematy adresowania IP.
 
-![](./media/expressroute-circuit-peerings/expressroute-peerings.png)
+![Diagram przedstawiający sposób, w jaki usługa Azure Public, Private i Komunikacja równorzędna firmy Microsoft jest konfigurowana w obwodzie usługi ExpressRoute.](./media/expressroute-circuit-peerings/expressroute-peerings.png)
 
 ### <a name="azure-private-peering"></a><a name="privatepeering"></a>Prywatna komunikacja równorzędna Azure
 

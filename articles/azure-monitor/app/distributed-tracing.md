@@ -6,11 +6,12 @@ author: nikmd23
 ms.author: nimolnar
 ms.date: 09/17/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 83575aa7f9b63615f453e00bd06b00a5540b9a9e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9eb753981821a6b53d81b1d03e65abf68e0064dc
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80892261"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539996"
 ---
 # <a name="what-is-distributed-tracing"></a>Co to jest śledzenie rozproszone?
 
@@ -20,9 +21,9 @@ W przypadku architektur monolitycznych wykorzystamy do debugowania z stosów wyw
 
 Jest to miejsce, w którym nastąpi śledzenie rozproszone.  
 
-Śledzenie rozproszone to odpowiednik stosów wywołań dla nowoczesnych architektur chmury i mikrousług, z dodaniem profilera wydajności uproszczony w systemie. W Azure Monitor udostępniamy dwa środowiska do konsumowania dystrybuowanych danych śledzenia. Pierwszy to nasz widok [diagnostyki transakcji](https://docs.microsoft.com/azure/application-insights/app-insights-transaction-diagnostics) , który przypomina stos wywołań z wymiarem czasu dodanym w. Widok Diagnostyka transakcji umożliwia wgląd w jedną transakcję/żądanie i ułatwia znalezienie głównej przyczyny problemów z niezawodnością oraz wąskich gardeł wydajności na podstawie żądania.
+Śledzenie rozproszone to odpowiednik stosów wywołań dla nowoczesnych architektur chmury i mikrousług, z dodaniem profilera wydajności uproszczony w systemie. W Azure Monitor udostępniamy dwa środowiska do konsumowania dystrybuowanych danych śledzenia. Pierwszy to nasz widok [diagnostyki transakcji](./transaction-diagnostics.md) , który przypomina stos wywołań z wymiarem czasu dodanym w. Widok Diagnostyka transakcji umożliwia wgląd w jedną transakcję/żądanie i ułatwia znalezienie głównej przyczyny problemów z niezawodnością oraz wąskich gardeł wydajności na podstawie żądania.
 
-Azure Monitor oferuje również widok [mapy aplikacji](https://docs.microsoft.com/azure/application-insights/app-insights-app-map) , który agreguje wiele transakcji, aby pokazać widok topologiczny, w jaki sposób działają systemy, oraz obliczyć średnią wydajność i częstotliwość błędów. 
+Azure Monitor oferuje również widok [mapy aplikacji](./app-map.md) , który agreguje wiele transakcji, aby pokazać widok topologiczny, w jaki sposób działają systemy, oraz obliczyć średnią wydajność i częstotliwość błędów. 
 
 ## <a name="how-to-enable-distributed-tracing"></a>Jak włączyć śledzenie rozproszone
 
@@ -32,16 +33,16 @@ Włączenie śledzenia rozproszonego w ramach usług w aplikacji jest tak proste
 
 Application Insights agenci i/lub zestawy SDK dla platform .NET, .NET Core, Java, Node.js i JavaScript obsługują śledzenie rozproszone natywnie. Instrukcje dotyczące instalowania i konfigurowania każdego zestawu Application Insights SDK są dostępne poniżej:
 
-* [.NET](https://docs.microsoft.com/azure/application-insights/quick-monitor-portal)
-* [.NET Core](https://docs.microsoft.com/azure/application-insights/app-insights-dotnetcore-quick-start)
-* [Java](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent)
-* [Node.js](https://docs.microsoft.com/azure/application-insights/app-insights-nodejs-quick-start)
-* [JavaScript](https://docs.microsoft.com/azure/application-insights/app-insights-javascript)
+* [.NET](../learn/quick-monitor-portal.md)
+* [.NET Core](../learn/dotnetcore-quick-start.md)
+* [Java](./java-in-process-agent.md)
+* [Node.js](../learn/nodejs-quick-start.md)
+* [JavaScript](./javascript.md)
 * [Python](opencensus-python.md)
 
-Po zainstalowaniu i skonfigurowaniu odpowiedniego zestawu Application Insights SDK informacje o śledzeniu są automatycznie zbierane dla popularnych struktur, bibliotek i technologii przez automatyczne zbieranie zależności zestawu SDK. Pełną listę obsługiwanych technologii można znaleźć w dokumentacji dotyczącej [autozbierania zależności](https://docs.microsoft.com/azure/application-insights/auto-collect-dependencies).
+Po zainstalowaniu i skonfigurowaniu odpowiedniego zestawu Application Insights SDK informacje o śledzeniu są automatycznie zbierane dla popularnych struktur, bibliotek i technologii przez automatyczne zbieranie zależności zestawu SDK. Pełną listę obsługiwanych technologii można znaleźć w dokumentacji dotyczącej [autozbierania zależności](./auto-collect-dependencies.md).
 
- Ponadto jakakolwiek technologia może być śledzona ręcznie z wywołaniem [TrackDependency](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics) na [TelemetryClient](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics).
+ Ponadto jakakolwiek technologia może być śledzona ręcznie z wywołaniem [TrackDependency](./api-custom-events-metrics.md) na [TelemetryClient](./api-custom-events-metrics.md).
 
 ## <a name="enable-via-opencensus"></a>Włącz za pośrednictwem OpenCensus
 

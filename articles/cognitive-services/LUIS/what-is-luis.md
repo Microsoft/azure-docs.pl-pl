@@ -3,12 +3,12 @@ title: Co to jest usługa Language Understanding (LUIS)?
 description: Language Understanding (LUIS) to oparta na chmurze usługa interfejsu API, która stosuje dostosowane techniki analizy i uczenia maszynowego do wypowiedzi użytkownika w języku naturalnym, aby rozpoznać ich ogólne znaczenie i wydobyć istotne szczegółowe informacje.
 ms.topic: overview
 ms.date: 05/05/2020
-ms.openlocfilehash: 26e1dfd5a610be9470d05080ca1559eec47196ab
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 231a6580a6776b82173865744e9e8757c2fa08f1
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83675983"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538041"
 ---
 # <a name="what-is-language-understanding-luis"></a>Co to jest usługa Language Understanding (LUIS)?
 
@@ -53,7 +53,7 @@ Utwórz model przy użyciu interfejsów API [tworzenia](https://go.microsoft.com
 
 Tworzenie modelu w usłudze LUIS rozpoczyna się od kategorii intencji użytkownika o nazwie **[Intencje](luis-concept-intent.md)**. Każda intencja musi zawierać przykłady **[wypowiedzi](luis-concept-utterance.md)** użytkownika. Każdy wypowiedź może dostarczyć dane, które muszą zostać wyodrębnione.
 
-|Przykładowa wypowiedź użytkownika|Intencja|Wyodrębnione dane|
+|Przykładowa wypowiedź użytkownika|Zamiar|Wyodrębnione dane|
 |-----------|-----------|-----------|
 |`Book a flight to Seattle?`|BookFlight|Seattle|
 |`When does your store open?`|StoreHoursAndLocation|open|
@@ -61,7 +61,7 @@ Tworzenie modelu w usłudze LUIS rozpoczyna się od kategorii intencji użytkown
 
 ## <a name="query-prediction-endpoint"></a>Punkt końcowy przewidywania zapytania
 
-Gdy aplikacja zostanie przeszkolone i opublikowana w punkcie końcowym, aplikacja kliencka wysyła wyrażenia długości do [interfejsu API](https://go.microsoft.com/fwlink/?linkid=2092356) usługi przewidywania. Interfejs API stosuje aplikację do wypowiedź na potrzeby analizy i reaguje na wyniki prognozowania w formacie JSON.
+Gdy aplikacja zostanie przeszkolone i opublikowana w punkcie końcowym, aplikacja kliencka wysyła wyrażenia długości do [interfejsu API](https://go.microsoft.com/fwlink/?linkid=2092356) usługi przewidywania. Interfejs API stosuje model do wypowiedź na potrzeby analizy i reaguje na wyniki prognozowania w formacie JSON.
 
 Minimalna odpowiedź punktu końcowego w formacie JSON zawiera wypowiedź zapytania oraz najwyżej ocenioną intencję. Może również wyodrębnić dane, takie jak następująca jednostka **typu kontaktu** i ogólna tonacji.
 

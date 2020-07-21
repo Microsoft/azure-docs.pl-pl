@@ -4,11 +4,12 @@ description: Przegląd alertów na platformie Azure. Alerty, alerty klasyczne i 
 ms.subservice: alerts
 ms.topic: conceptual
 ms.date: 01/28/2018
-ms.openlocfilehash: e02c23623062f5cb3e4c597b0bb257b30aa9f44a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3c4432300319c02cd7b1e31dec566f6e65ea9580
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81769766"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539571"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Przegląd alertów na platformie Microsoft Azure 
 
@@ -67,7 +68,7 @@ Wcześniej Azure Monitor metryki, Application Insights, Log Analytics i Service 
 
 | **Źródło monitora** | **Typ sygnału**  | **Opis** |
 |-------------|----------------|-------------|
-| Kondycja usługi | Dziennik aktywności  | Nieobsługiwane. Zobacz [tworzenie alertów dziennika aktywności dla powiadomień dotyczących usług](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).  |
+| Kondycja usługi | Dziennik aktywności  | Nieobsługiwane. Zobacz [tworzenie alertów dziennika aktywności dla powiadomień dotyczących usług](../../service-health/alerts-activity-log-service-notifications-portal.md).  |
 | Application Insights | Testy dostępności sieci Web | Nieobsługiwane. Zobacz [alerty testu sieci Web](../../azure-monitor/app/monitor-web-app-availability.md). Dostępne dla każdej witryny sieci Web, która jest Instrumentacją do wysyłania danych do Application Insights. Otrzymuj powiadomienie, gdy dostępność lub czas odpowiedzi witryny sieci Web jest poniżej oczekiwań. |
 
 ## <a name="manage-alerts"></a>Zarządzanie alertami
@@ -77,9 +78,9 @@ Obsługiwane są następujące stany alertów.
 
 | Stan | Opis |
 |:---|:---|
-| Nowa | Problem został właśnie wykryty i nie został jeszcze zweryfikowany. |
+| Nowy | Problem został właśnie wykryty i nie został jeszcze zweryfikowany. |
 | Potwierdzony | Administrator sprawdził alert i rozpoczął jego pracę. |
-| Zamknięte | Problem został rozwiązany. Po zamknięciu alertu można go otworzyć ponownie, zmieniając go na inny stan. |
+| Zamknięty | Problem został rozwiązany. Po zamknięciu alertu można go otworzyć ponownie, zmieniając go na inny stan. |
 
 *Stan alertu* jest różny i niezależny od *warunku monitora*. Stan alertu jest ustawiany przez użytkownika. Warunek monitora jest ustawiany przez system. Po uruchomieniu alertu warunek monitora alertu jest ustawiany na wartość *wyzwolone*. Gdy podstawowy warunek, który spowodował wyczyszczenie alertu, zostanie ustawiony jako *rozwiązany*. Stan alertu nie jest zmieniany, dopóki użytkownik nie zmieni go. Dowiedz się [, jak zmienić stan alertów i grup inteligentnych](https://aka.ms/managing-alert-smart-group-states).
 
@@ -177,7 +178,7 @@ Strona szczegóły alertu zawiera następujące sekcje:
 
 ## <a name="role-based-access-control-rbac-for-your-alert-instances"></a>Kontrola dostępu oparta na rolach (RBAC) dla wystąpień alertów
 
-Użycie i Zarządzanie wystąpieniami alertów wymaga, aby użytkownik miał wbudowane role RBAC lub [czytelnik](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader) [monitorowania](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) . Role te są obsługiwane w dowolnym zakresie Azure Resource Manager od poziomu subskrypcji do szczegółowych przypisań na poziomie zasobów. Jeśli na przykład użytkownik ma tylko kontrolę dostępu współautora dla maszyny wirtualnej `ContosoVM1` , może używać tylko alertów, które zostały wygenerowane `ContosoVM1` .
+Użycie i Zarządzanie wystąpieniami alertów wymaga, aby użytkownik miał wbudowane role RBAC lub [czytelnik](../../role-based-access-control/built-in-roles.md#monitoring-reader) [monitorowania](../../role-based-access-control/built-in-roles.md#monitoring-contributor) . Role te są obsługiwane w dowolnym zakresie Azure Resource Manager od poziomu subskrypcji do szczegółowych przypisań na poziomie zasobów. Jeśli na przykład użytkownik ma tylko kontrolę dostępu współautora dla maszyny wirtualnej `ContosoVM1` , może używać tylko alertów, które zostały wygenerowane `ContosoVM1` .
 
 ## <a name="manage-your-alert-instances-programmatically"></a>Programowe Zarządzanie wystąpieniami alertów
 
@@ -211,9 +212,3 @@ Użyj [interfejsu API REST alert Management](https://aka.ms/alert-management-api
 - [Zarządzanie wystąpieniami alertów na platformie Azure](https://aka.ms/managing-alert-instances)
 - [Zarządzanie grupami inteligentnymi](https://aka.ms/managing-smart-groups)
 - [Dowiedz się więcej o cenniku usługi Azure Alerts](https://azure.microsoft.com/pricing/details/monitor/)
-
-
-
-
-
-

@@ -3,18 +3,18 @@ title: Omówienie funkcji — Azure Event Hubs | Microsoft Docs
 description: Ten artykuł zawiera szczegółowe informacje o funkcjach i terminologii Event Hubs platformy Azure.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 5b646c1a0730b046dd3e66a5d5324b659999f83a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 034983074ddc6faf324d70a18a9a49b8df659649
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85320710"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537313"
 ---
 # <a name="features-and-terminology-in-azure-event-hubs"></a>Funkcje i terminologia w usłudze Azure Event Hubs
 
-Azure Event Hubs to skalowalna usługa przetwarzania zdarzeń, która pobiera i przetwarza duże ilości zdarzeń i danych, z małymi opóźnieniami i wysoką niezawodnością. Zobacz [co to jest Event Hubs?](event-hubs-what-is-event-hubs.md) , aby zapoznać się z ogólnym omówieniem.
+Azure Event Hubs to skalowalna usługa przetwarzania zdarzeń, która pobiera i przetwarza duże ilości zdarzeń i danych, z małymi opóźnieniami i wysoką niezawodnością. Zobacz [co to jest Event Hubs?](./event-hubs-about.md) , aby zapoznać się z ogólnym omówieniem.
 
-W tym artykule opisano informacje zawarte w [artykule Omówienie](event-hubs-what-is-event-hubs.md)i przedstawiono techniczne i szczegółowe informacje dotyczące Event Hubs składników i funkcji.
+W tym artykule opisano informacje zawarte w [artykule Omówienie](./event-hubs-about.md)i przedstawiono techniczne i szczegółowe informacje dotyczące Event Hubs składników i funkcji.
 
 ## <a name="namespace"></a>Przestrzeń nazw
 Przestrzeń nazw Event Hubs zapewnia unikatowy kontener określania zakresu, do którego odwołuje się jego w [pełni kwalifikowana nazwa domeny](https://en.wikipedia.org/wiki/Fully_qualified_domain_name), w którym można utworzyć jeden lub więcej centrów zdarzeń lub tematów Kafka. 
@@ -33,7 +33,7 @@ Każda jednostka, która wysyła dane do centrum zdarzeń, jest producentem zdar
 
 ### <a name="publishing-an-event"></a>Publikowanie zdarzenia
 
-Można opublikować wydarzenie za pośrednictwem AMQP 1,0, Kafka 1,0 (lub nowszego) lub HTTPS. Event Hubs udostępnia [biblioteki i klasy klienta](event-hubs-dotnet-framework-api-overview.md) do publikowania zdarzeń w centrum zdarzeń z klientów platformy .NET. W przypadku innych środowisk uruchomieniowych i platform można używać dowolnego klienta protokołu AMQP 1.0, na przykład [Apache Qpid](https://qpid.apache.org/). Zdarzenia można publikować indywidualnie lub w partiach. Pojedyncza publikacja (wystąpienie danych zdarzeń) ma limit 1 MB, niezależnie od tego, czy jest to pojedyncze zdarzenie, czy partia. Publikowanie zdarzeń większych niż ten próg spowoduje wystąpienie błędu. Najlepszym rozwiązaniem dla wydawców jest nieznajomość partycji w centrum zdarzeń i określenie tylko *klucza partycji* (wprowadzone w następnej sekcji) lub tożsamości za pomocą ich tokenu sygnatury dostępu współdzielonego.
+Można opublikować wydarzenie za pośrednictwem AMQP 1,0, Kafka 1,0 (lub nowszego) lub HTTPS. Event Hubs udostępnia [biblioteki i klasy klienta](./event-hubs-dotnet-framework-getstarted-send.md) do publikowania zdarzeń w centrum zdarzeń z klientów platformy .NET. W przypadku innych środowisk uruchomieniowych i platform można używać dowolnego klienta protokołu AMQP 1.0, na przykład [Apache Qpid](https://qpid.apache.org/). Zdarzenia można publikować indywidualnie lub w partiach. Pojedyncza publikacja (wystąpienie danych zdarzeń) ma limit 1 MB, niezależnie od tego, czy jest to pojedyncze zdarzenie, czy partia. Publikowanie zdarzeń większych niż ten próg spowoduje wystąpienie błędu. Najlepszym rozwiązaniem dla wydawców jest nieznajomość partycji w centrum zdarzeń i określenie tylko *klucza partycji* (wprowadzone w następnej sekcji) lub tożsamości za pomocą ich tokenu sygnatury dostępu współdzielonego.
 
 Decyzja o korzystaniu z protokołu AMQP lub HTTPS jest specyficzna dla scenariusza użycia. Protokół AMQP wymaga ustanowienia trwałego gniazda dwukierunkowego oprócz protokołu TLS lub SSL/ TLS. AMQP dysponuje wyższymi kosztami sieci podczas inicjowania sesji, jednak protokół HTTPS wymaga dodatkowych obciążeń protokołu TLS dla każdego żądania. Protokół AMQP charakteryzują się wyższą wydajnością dla częstych wydawców.
 
@@ -101,7 +101,7 @@ Na poniższym rysunku przedstawiono architekturę przetwarzania strumienia usłu
 Jeśli czytnik rozłączy się od partycji, po swoim ponownym połączeniu rozpoczyna odczyt punktu kontrolnego, który został wcześniej przesłany przez ostatni czytnik tej partycji w danej grupie odbiorców. Po nawiązaniu połączenia z czytnikiem przekazuje przesunięcie do centrum zdarzeń, aby określić lokalizację, w której ma zostać rozpoczęte odczytywanie. W ten sposób można użyć procesu tworzenia punktów kontrolnych zarówno do oznaczenia zdarzeń jako „ukończone” przez aplikacje podrzędne, jak i zapewnienia odporności zdarzenia na pracę w trybie failover między czytnikami działającymi na różnych komputerach. Istnieje możliwość powrotu do starszych danych przez określenie niższego przesunięcia od tego procesu tworzenia punktów kontrolnych. Dzięki temu mechanizmowi tworzenie punktów kontrolnych zapewnia zarówno odporność na pracę w trybie failover, jak i powtarzanie strumienia zdarzeń.
 
 > [!NOTE]
-> Jeśli używasz platformy Azure Blob Storage jako magazynu punktów kontrolnych w środowisku obsługującym inną wersję zestawu SDK magazynu obiektów BLOB niż te, które są zwykle dostępne na platformie Azure, musisz użyć kodu, aby zmienić wersję interfejsu API usługi magazynu na określoną wersję obsługiwaną przez to środowisko. Na przykład jeśli używasz [Event Hubs w centrum Azure Stack w wersji 2002](https://docs.microsoft.com/azure-stack/user/event-hubs-overview), najwyższa dostępna wersja usługi Storage to wersja 2017-11-09. W takim przypadku należy użyć kodu, aby docelowa wersja interfejsu API usługi Storage do 2017-11-09. Aby zapoznać się z przykładem dotyczącym konkretnej wersji interfejsu API usługi Storage, zobacz następujące przykłady w witrynie GitHub: 
+> Jeśli używasz platformy Azure Blob Storage jako magazynu punktów kontrolnych w środowisku obsługującym inną wersję zestawu SDK magazynu obiektów BLOB niż te, które są zwykle dostępne na platformie Azure, musisz użyć kodu, aby zmienić wersję interfejsu API usługi magazynu na określoną wersję obsługiwaną przez to środowisko. Na przykład jeśli używasz [Event Hubs w centrum Azure Stack w wersji 2002](/azure-stack/user/event-hubs-overview), najwyższa dostępna wersja usługi Storage to wersja 2017-11-09. W takim przypadku należy użyć kodu, aby docelowa wersja interfejsu API usługi Storage do 2017-11-09. Aby zapoznać się z przykładem dotyczącym konkretnej wersji interfejsu API usługi Storage, zobacz następujące przykłady w witrynie GitHub: 
 > - [.NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples/Sample10_RunningWithDifferentStorageVersion.cs). 
 > - [Java](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs-checkpointstore-blob/src/samples/java/com/azure/messaging/eventhubs/checkpointstore/blob/)
 > - [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/javascript) lub [TypeScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/typescript)
@@ -113,7 +113,7 @@ Wszyscy klienci Event Hubs nawiązują połączenie za pośrednictwem sesji AMQP
 
 #### <a name="connect-to-a-partition"></a>Nawiązywanie połączenia z partycją
 
-W przypadku nawiązywania połączenia z partycjami często używany jest mechanizm dzierżawienia w celu koordynowania połączeń czytnika z określonymi partycjami. W ten sposób można dla każdej partycji w grupie odbiorców mieć tylko jeden aktywny czytnik. Tworzenie punktów kontrolnych, dzierżawienie i zarządzanie czytnikami są uproszczone przy użyciu klientów w ramach zestawów SDK Event Hubs, które pełnią rolę inteligentnych agentów konsumenckich. Są to:
+W przypadku nawiązywania połączenia z partycjami często używany jest mechanizm dzierżawienia w celu koordynowania połączeń czytnika z określonymi partycjami. W ten sposób można dla każdej partycji w grupie odbiorców mieć tylko jeden aktywny czytnik. Tworzenie punktów kontrolnych, dzierżawienie i zarządzanie czytnikami są uproszczone przy użyciu klientów w ramach zestawów SDK Event Hubs, które pełnią rolę inteligentnych agentów konsumenckich. Są one następujące:
 
 - [EventProcessorClient](/dotnet/api/azure.messaging.eventhubs.eventprocessorclient) dla platformy .NET
 - [EventProcessorClient](/java/api/com.azure.messaging.eventhubs.eventprocessorclient) dla języka Java

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 7c1f0c18fc8b867e16ce539a24839637e1d14379
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b7d62777f73a92768b1ede3fb9b7e0cb97951823
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85390792"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537520"
 ---
 # <a name="route-events-within-and-outside-of-azure-digital-twins"></a>Kierowanie zdarzeń w ramach i na zewnątrz usługi Azure Digital bliźniaczych reprezentacji
 
@@ -46,7 +46,7 @@ Alternatywnie komunikat o zdarzeniu zawiera również identyfikator sieci źród
 
 Zasób obliczeniowy wymaga również niezależnego ustanowienia uprawnień zabezpieczeń i dostępu.
 
-Aby zapoznać się z procesem konfigurowania funkcji platformy Azure w celu przetwarzania zdarzeń cyfrowych sznurów, zobacz [How to: set up a Azure Function for processing Data](how-to-create-azure-function.md).
+Aby zapoznać się z procesem konfigurowania funkcji platformy Azure w celu przetwarzania zdarzeń cyfrowych sznurów, zobacz [*How to: set up a Azure Function for processing Data*](how-to-create-azure-function.md).
 
 ## <a name="create-an-endpoint"></a>Tworzenie punktu końcowego
 
@@ -90,7 +90,7 @@ Różne typy zdarzeń w IoT Hub i Azure Digital bliźniaczych reprezentacji twor
 ## <a name="next-steps"></a>Następne kroki
 
 Zobacz jak skonfigurować trasę zdarzeń i zarządzać nią:
-* [Instrukcje: Zarządzanie punktami końcowymi i trasami](how-to-manage-routes.md)
+* [*Instrukcje: Zarządzanie punktami końcowymi i trasami*](how-to-manage-routes.md)
 
 Lub zapoznaj się z tematem jak używać Azure Functions do kierowania zdarzeń w usłudze Azure Digital bliźniaczych reprezentacji:
-* [Porada: Konfigurowanie funkcji platformy Azure do przetwarzania danych](how-to-create-azure-function.md)
+* [*Porada: Konfigurowanie funkcji platformy Azure do przetwarzania danych*](how-to-create-azure-function.md)

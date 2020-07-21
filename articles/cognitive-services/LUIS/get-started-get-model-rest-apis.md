@@ -1,5 +1,5 @@
 ---
-title: 'Szybki Start: pobieranie zamierzeń przy użyciu interfejsów API REST — LUIS'
+title: 'Szybki Start: zmiana modelu przy użyciu interfejsów API REST — LUIS'
 titleSuffix: Azure Cognitive Services
 description: W tym przewodniku szybki start interfejsu API REST Użyj dostępnej publicznej aplikacji LUIS, aby określić zamiar użytkownika z tekstu konwersacji.
 services: cognitive-services
@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 06/03/2020
 ms.author: diberry
 zone_pivot_groups: programming-languages-set-one
-ms.openlocfilehash: a4d84aa6dc24bc7d293200e20d60c5fe349a769d
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: cc3e0c66a018c46fcae76dea9b74735082e077aa
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84608574"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538109"
 ---
 # <a name="quickstart-change-model-with-rest-apis"></a>Szybki Start: zmiana modelu przy użyciu interfejsów API REST
 

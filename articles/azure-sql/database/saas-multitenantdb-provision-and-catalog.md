@@ -11,11 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/24/2018
-ms.openlocfilehash: 80c789f955b279e7771fe39c20087baa465b3293
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 88f1e40101b807e82eaf69be6c167cd4aa2e2831
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84042624"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539197"
 ---
 # <a name="provision-and-catalog-new-tenants-in-a-saas-application-using-a-sharded-multi-tenant-azure-sql-database"></a>Udostępnianie i katalogowanie nowych dzierżawców w aplikacji SaaS przy użyciu wielodostępnego podzielonej na fragmenty Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -29,7 +30,7 @@ Ten artykuł ma dwie główne części:
 - [Samouczek](#goto_1_tutorial) , w którym wyróżniono kod skryptu programu PowerShell, który wykonuje aprowizacji i katalogi.
   - W tym samouczku jest stosowana aplikacja Wingtip bilety SaaS, dostosowana do wzorca bazy danych podzielonej na fragmenty z wieloma dzierżawcami.
 
-<a name="goto_2_conceptual"/>
+<a name="goto_2_conceptual"></a>
 
 ## <a name="database-pattern"></a>Wzorzec bazy danych
 
@@ -110,7 +111,7 @@ Skrypty aprowizacji dzierżawców w tym samouczku obsługują oba z następując
 
 Dane dzierżawy są następnie inicjowane i zarejestrowane na mapie fragmentu wykazu. W przykładowej aplikacji bazy danych, które zawierają wiele dzierżawców, mają nazwę generyczną, taką jak *tenants1* lub *tenants2*. Do baz danych, które zawierają pojedynczą dzierżawę, nadano nazwę dzierżawy. Określone konwencje nazewnictwa w przykładzie nie stanowią krytycznej części wzorca, ponieważ użycie wykazu umożliwia przypisanie każdej nazwy do bazy danych.
 
-<a name="goto_1_tutorial"/>
+<a name="goto_1_tutorial"></a>
 
 ## <a name="tutorial-begins"></a>Początek samouczka
 
@@ -260,7 +261,7 @@ We wzorcu automatycznej aprowizacji dedykowana usługa aprowizacji jest używana
 
 Ten typ zautomatyzowanej usługi może być prosty lub skomplikowany. Na przykład Automatyzacja może obsłużyć obsługę w wielu lokalizacje geograficzneach i skonfigurować replikację geograficzną na potrzeby odzyskiwania po awarii. Ze wzorcem autoaprowizacji aplikacja kliencka lub skrypt wyśle żądanie aprowizacji do kolejki w celu przetworzenia przez usługę aprowizacji. Skrypt będzie następnie sondowany, aby wykryć zakończenie. Jeśli jest używane wstępne Inicjowanie obsługi, żądania byłyby obsługiwane szybko, podczas gdy usługa w tle zarządza zastępowaniem zastępujący bazy danych.
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 <!-- - Additional [tutorials that build upon the Wingtip SaaS application](../../sql-database/saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)-->
 - [Biblioteka kliencka Elastic Database](elastic-database-client-library.md)

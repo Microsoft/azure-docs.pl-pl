@@ -6,11 +6,12 @@ author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 664d6eb377185613a1a5670daf6747b482c79d9d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d63d932756495584b2870c597d3332077f8e86c9
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77671617"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539843"
 ---
 # <a name="profile-live-azure-service-fabric-applications-with-application-insights"></a>Profilowanie aplikacji Service Fabric platformy Azure przy użyciu Application Insights
 
@@ -25,9 +26,9 @@ Application Insights Profiler jest dołączona do Diagnostyka Azure. Rozszerzeni
 
 Aby skonfigurować środowisko, należy wykonać następujące czynności:
 
-1. Profiler obsługuje .NET Framework i .Net Core. Jeśli używasz .NET Framework, upewnij się, że używasz [.NET Framework 4.6.1](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) lub nowszego. Wystarczy upewnić się, że wdrożony system operacyjny jest w `Windows Server 2012 R2` wersji lub nowszej. Profiler obsługuje program .NET Core 2,1 i nowsze aplikacje.
+1. Profiler obsługuje .NET Framework i .Net Core. Jeśli używasz .NET Framework, upewnij się, że używasz [.NET Framework 4.6.1](/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) lub nowszego. Wystarczy upewnić się, że wdrożony system operacyjny jest w `Windows Server 2012 R2` wersji lub nowszej. Profiler obsługuje program .NET Core 2,1 i nowsze aplikacje.
 
-1. Wyszukaj rozszerzenie [Diagnostyka Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) w pliku szablonu wdrożenia.
+1. Wyszukaj rozszerzenie [Diagnostyka Azure](../platform/diagnostics-extension-overview.md) w pliku szablonu wdrożenia.
 
 1. Dodaj następującą `SinksConfig` sekcję jako element podrzędny `WadCfg` . Zastąp `ApplicationInsightsProfiler` wartość właściwości własnym kluczem instrumentacji Application Insights:  
 
@@ -42,7 +43,7 @@ Aby skonfigurować środowisko, należy wykonać następujące czynności:
       }
       ```
 
-      Aby uzyskać informacje na temat dodawania rozszerzenia diagnostyki do szablonu wdrożenia, zobacz [Używanie monitorowania i diagnostyki z maszyną wirtualną z systemem Windows i szablonami Azure Resource Manager](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-diagnostics-template?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+      Aby uzyskać informacje na temat dodawania rozszerzenia diagnostyki do szablonu wdrożenia, zobacz [Używanie monitorowania i diagnostyki z maszyną wirtualną z systemem Windows i szablonami Azure Resource Manager](../../virtual-machines/extensions/diagnostics-template.md?toc=/azure/virtual-machines/windows/toc.json).
 
 1. Wdróż klaster Service Fabric przy użyciu szablonu Azure Resource Manager.  
   Jeśli ustawienia są poprawne, Application Insights Profiler zostaną zainstalowane i włączone, gdy rozszerzenie Diagnostyka Azure zostanie zainstalowane. 

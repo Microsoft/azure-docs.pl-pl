@@ -1,5 +1,5 @@
 ---
-title: Środowiska obliczeniowe obsługiwane przez Azure Data Factory
+title: Środowiska obliczeniowe obsługiwane przez Azure Data Factory wersji 1
 description: Informacje o środowiskach obliczeniowych, których można użyć w potokach Azure Data Factory (takich jak usługa Azure HDInsight) do przekształcania lub przetwarzania danych.
 services: data-factory
 documentationcenter: ''
@@ -11,13 +11,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: cdb913434d7aab3ceadbbf19d7a95000abf6776c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 16e390f2c206cb1f81914bc02e15818282a54a5b
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84022014"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537568"
 ---
-# <a name="compute-environments-supported-by-azure-data-factory"></a>Środowiska obliczeniowe obsługiwane przez Azure Data Factory
+# <a name="compute-environments-supported-by-azure-data-factory-version-1"></a>Środowiska obliczeniowe obsługiwane przez Azure Data Factory wersji 1
 > [!NOTE]
 > Ten artykuł dotyczy wersji 1 usługi Azure Data Factory. Jeśli korzystasz z bieżącej wersji usługi Data Factory, zobacz [połączone usługi obliczeniowe w](../compute-linked-services.md)temacie.
 
@@ -288,13 +289,13 @@ Jeśli dopiero zaczynasz korzystać z usługi Batch:
 }
 ```
 
-Dla właściwości **AccountName** Dołącz wartość **. \<region name\> ** Nazwa konta w usłudze Batch. Przykład:
+Dla właściwości **AccountName** Dołącz wartość **. \<region name\> ** Nazwa konta w usłudze Batch. Na przykład:
 
 ```json
 "accountName": "mybatchaccount.eastus"
 ```
 
-Innym rozwiązaniem jest dostarczenie punktu końcowego **batchUri** . Przykład:
+Innym rozwiązaniem jest dostarczenie punktu końcowego **batchUri** . Na przykład:
 
 ```json
 "accountName": "adfteam",
@@ -329,7 +330,7 @@ Możesz utworzyć połączoną usługę Machine Learning, aby zarejestrować pun
 ```
 
 ### <a name="properties"></a>Właściwości
-| Właściwość   | Opis                              | Wymagany |
+| Właściwość   | Opis                              | Wymagane |
 | ---------- | ---------------------------------------- | -------- |
 | Typ       | Ustaw Właściwość Type na **Azure**. | Tak      |
 | mlEndpoint | Adres URL oceniania partii.                   | Tak      |

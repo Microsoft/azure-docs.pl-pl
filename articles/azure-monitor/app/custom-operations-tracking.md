@@ -4,12 +4,12 @@ description: Śledzenie operacji niestandardowych przy użyciu zestawu Azure App
 ms.topic: conceptual
 ms.date: 11/26/2019
 ms.reviewer: sergkanz
-ms.openlocfilehash: 316c1b7ea32f661b009bfee7a89cb7e5ed082f3b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 49c2ad44dab5e4f57db2f11c17c269289e56d2d5
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82690860"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86540047"
 ---
 # <a name="track-custom-operations-with-application-insights-net-sdk"></a>Śledzenie operacji niestandardowych przy użyciu zestawu SDK platformy Application Insights .NET
 
@@ -346,7 +346,7 @@ W przypadku usuwania komunikatów z Instrumentacji upewnij się, że ustawisz id
 
 ### <a name="dependency-types"></a>Typy zależności
 
-Application Insights używa typu zależności do dostosowywania środowiska interfejsu użytkownika. W przypadku kolejek rozpoznaje następujące typy `DependencyTelemetry` , które zwiększają [możliwości diagnostyki transakcji](/azure/azure-monitor/app/transaction-diagnostics):
+Application Insights używa typu zależności do dostosowywania środowiska interfejsu użytkownika. W przypadku kolejek rozpoznaje następujące typy `DependencyTelemetry` , które zwiększają [możliwości diagnostyki transakcji](./transaction-diagnostics.md):
 - `Azure queue`w przypadku kolejek usługi Azure Storage
 - `Azure Event Hubs`dla usługi Azure Event Hubs
 - `Azure Service Bus`dla Azure Service Bus
@@ -425,7 +425,7 @@ public async Task RunMyTaskAsync()
 
 Operacja usuwania powoduje zatrzymanie operacji, więc można ją wykonać, a nie wywołując `StopOperation` .
 
-*Ostrzeżenie*: w niektórych przypadkach wyjątek [niedozwolony](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/try-finally) może `finally` nie być wywoływany, więc operacje mogą nie być śledzone.
+*Ostrzeżenie*: w niektórych przypadkach wyjątek [niedozwolony](/dotnet/csharp/language-reference/keywords/try-finally) może `finally` nie być wywoływany, więc operacje mogą nie być śledzone.
 
 ### <a name="parallel-operations-processing-and-tracking"></a>Równoległe przetwarzanie operacji i śledzenie
 

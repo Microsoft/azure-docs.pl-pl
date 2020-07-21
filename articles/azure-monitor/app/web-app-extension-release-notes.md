@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: MS-jgol
 ms.author: jgol
 ms.date: 06/26/2020
-ms.openlocfilehash: 978cb7ece1f8b3e16815c1dc49e4983dc393cbfc
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: b9da3b0647d5abe60dd8f6cb21163ff21f07205b
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85937588"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539724"
 ---
 # <a name="release-notes-for-azure-web-app-extension-for-application-insights"></a>Informacje o wersji rozszerzenia aplikacji internetowej platformy Azure dla Application Insights
 
@@ -21,7 +21,7 @@ Ten artykuł zawiera informacje o wersjach rozszerzenia Web Apps platformy Azure
 ## <a name="frequently-asked-questions"></a>Często zadawane pytania
 
 - Jak sprawdzić, która wersja rozszerzenia jest obecnie włączona?
-    - Przejdź do witryny `https://<yoursitename>.scm.azurewebsites.net/ApplicationInsights`. Aby uzyskać więcej informacji [, zobacz Przewodnik rozwiązywania problemów krok po kroku dotyczący monitorowania na podstawie rozszerzeń i agentów](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps?tabs=net#troubleshooting) .
+    - Przejdź do adresu `https://<yoursitename>.scm.azurewebsites.net/ApplicationInsights`. Aby uzyskać więcej informacji [, zobacz Przewodnik rozwiązywania problemów krok po kroku dotyczący monitorowania na podstawie rozszerzeń i agentów](./azure-web-apps.md?tabs=net#troubleshooting) .
 
 - Co zrobić, jeśli używam prywatnych rozszerzeń?
     - Odinstaluj rozszerzenia lokacji prywatnych, ponieważ nie jest już obsługiwane.

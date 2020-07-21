@@ -9,11 +9,12 @@ ms.subservice: translator-text
 ms.date: 05/26/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 02e6d776dbb47ee8e30409f6b8adc5a61fc5fe52
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 5334168081ea18650bd6afd2411e076952e08749
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85958926"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537990"
 ---
 # <a name="migrate-hub-workspace-and-projects-to-custom-translator"></a>Migrowanie obszaru roboczego i projektów centrum do translatora niestandardowego
 
@@ -129,9 +130,9 @@ Jeśli chcesz uzyskać bardziej szczegółowy raport migracji o projektach, szko
 
 Ta tabela zawiera porównanie funkcji usługi Microsoft Translator Hub i translatora niestandardowego.
 
-|   | Koncentrator | Custom Translator |
-|:-----|:----:|:----:|
-|Stan funkcji dostosowywania    | Ogólna dostępność    | Ogólna dostępność |
+| Cechy | Koncentrator | Custom Translator |
+| ------- | :-: | :---------------: |
+| Stan funkcji dostosowywania    | Ogólna dostępność    | Ogólna dostępność |
 | Wersja interfejsu API tekstu    | Wersja 2     | Czytanie  |
 | Dostosowanie SMT    | Yes    | Nie |
 | Dostosowanie NMT    | Nie    | Yes |

@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 11/11/2019
 ms.author: diberry
-ms.openlocfilehash: 6d8088f537c4148f780c5f250eda3dcd5198f67f
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 1ecdbaa28cad633817497f4af2091b9e38ba7db2
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83683906"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538058"
 ---
 # <a name="patterns-improve-prediction-accuracy"></a>Wzorce poprawiają dokładność przewidywania
 Wzorce zostały zaprojektowane w celu poprawy dokładności, gdy kilka wyrażenia długości jest bardzo podobne.  Wzorzec umożliwia uzyskanie większej dokładności dla zamiaru bez udostępniania wielu wyrażenia długości.
@@ -41,7 +41,7 @@ Wzorce rozwiązują następujące sytuacje:
 ## <a name="patterns-are-not-a-guarantee-of-intent"></a>Wzorce nie są gwarancją zamiaru
 Wzorce korzystają z różnych technologii przewidywania. Ustawienie zamiaru dla szablonu wypowiedź w wzorcu nie jest gwarancją przewidywania intencji, ale jest to silny sygnał.
 
-<a name="patterns-do-not-improve-entity-detection"/></a>
+<a name="patterns-do-not-improve-entity-detection"></a>
 
 ## <a name="patterns-do-not-improve-machine-learning-entity-detection"></a>Wzorce nie poprawiają wykrywania jednostek uczenia maszynowego
 

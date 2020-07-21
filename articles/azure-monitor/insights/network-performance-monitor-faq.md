@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 10/12/2018
-ms.openlocfilehash: de1c6e91a6502e3a5e03dde69c5559445628d369
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: d85cd05ee6b40b6b660958330145ed0c61b1b0a3
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86184552"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539673"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>Rozwiązanie Network Performance Monitor — często zadawane pytania
 
@@ -19,11 +19,11 @@ ms.locfileid: "86184552"
 
 W tym artykule zapoznaj się z często zadawanymi pytaniami dotyczącymi Network Performance Monitor (NPM) na platformie Azure
 
-[Network Performance Monitor](/azure/networking/network-monitoring-overview) to rozwiązanie [hybrydowego monitorowania sieci](../../azure-monitor/insights/network-performance-monitor-performance-monitor.md) opartego na chmurze, które ułatwia monitorowanie wydajności sieci między różnymi punktami infrastruktury sieciowej. Pomaga również monitorować łączność sieciową z [punktami końcowymi usługi i aplikacji](../../azure-monitor/insights/network-performance-monitor-service-connectivity.md) oraz [monitorować wydajność usługi Azure ExpressRoute](../../azure-monitor/insights/network-performance-monitor-expressroute.md). 
+[Network Performance Monitor](../../networking/network-monitoring-overview.md) to rozwiązanie [hybrydowego monitorowania sieci](../../azure-monitor/insights/network-performance-monitor-performance-monitor.md) opartego na chmurze, które ułatwia monitorowanie wydajności sieci między różnymi punktami infrastruktury sieciowej. Pomaga również monitorować łączność sieciową z [punktami końcowymi usługi i aplikacji](../../azure-monitor/insights/network-performance-monitor-service-connectivity.md) oraz [monitorować wydajność usługi Azure ExpressRoute](../../azure-monitor/insights/network-performance-monitor-expressroute.md). 
 
 Network Performance Monitor wykrywa problemy z siecią, takie jak ruch blackholing, błędy routingu i problemy, które nie są w stanie wykryć konwencjonalnych metod monitorowania sieci. Rozwiązanie generuje alerty i powiadamia użytkownika, gdy nastąpi naruszenie progu związanego z połączeniem sieciowym. Ponadto gwarantuje ono szybkie wykrywanie problemów z wydajnością sieci i lokalizuje źródło problemu w określonym segmencie lub urządzeniu w sieci. 
 
-Więcej informacji na temat różnych możliwości obsługiwanych przez [Network Performance Monitor](https://docs.microsoft.com/azure/networking/network-monitoring-overview) jest dostępnych w trybie online.
+Więcej informacji na temat różnych możliwości obsługiwanych przez [Network Performance Monitor](../../networking/network-monitoring-overview.md) jest dostępnych w trybie online.
 
 ## <a name="set-up-and-configure-agents"></a>Konfigurowanie i konfigurowanie agentów
 
@@ -149,7 +149,7 @@ NetworkMonitoring
 NPM identyfikują adres IP i nazwę hosta odpowiednich przeskoków sieci (przełączniki, routery, serwery itp.) między źródłowym i docelowym adresem IP. Identyfikuje także opóźnienie między tymi zidentyfikowanymi przeskokami. Nie monitorują osobno tych bazowych przeskoków.
 
 ### <a name="can-npm-be-used-to-monitor-network-connectivity-between-azure-and-aws"></a>Czy NPM można użyć do monitorowania łączności sieciowej między platformą Azure i AWS?
-Tak. Aby uzyskać szczegółowe informacje, zobacz artykuł [monitorowanie sieci Azure, AWS i lokalnych](https://blogs.technet.microsoft.com/msoms/2016/08/30/monitor-on-premises-cloud-iaas-and-hybrid-networks-using-oms-network-performance-monitor/) .
+Tak. Aby uzyskać szczegółowe informacje, zobacz artykuł [monitorowanie sieci Azure, AWS i lokalnych](/archive/blogs/msoms/monitor-on-premises-cloud-iaas-and-hybrid-networks-using-oms-network-performance-monitor) .
 
 ### <a name="is-the-expressroute-bandwidth-usage-incoming-or-outgoing"></a>Czy użycie przepustowości ExpressRoute jest przychodzące lub wychodzące?
 Użycie przepustowości to całkowita przepustowość przychodząca i wychodząca. Jest on wyrażony w bitach na sekundę.
@@ -188,7 +188,7 @@ NPM może monitorować łączność między sieciami w dowolnej części świata
 NPM może monitorować łączność z usługami w dowolnej części świata z obszaru roboczego, który jest hostowany w jednym z [obsługiwanych regionów](../../azure-monitor/insights/network-performance-monitor.md#supported-regions)
 
 ### <a name="which-regions-are-supported-for-npms-expressroute-monitor"></a>Które regiony są obsługiwane przez Monitor ExpressRoute NPM?
-NPM może monitorować obwody usługi ExpressRoute znajdujące się w dowolnym regionie platformy Azure. Aby dołączyć do NPM, musisz mieć obszar roboczy Log Analytics, który musi być hostowany w jednym z [obsługiwanych regionów](/azure/expressroute/how-to-npm)
+NPM może monitorować obwody usługi ExpressRoute znajdujące się w dowolnym regionie platformy Azure. Aby dołączyć do NPM, musisz mieć obszar roboczy Log Analytics, który musi być hostowany w jednym z [obsługiwanych regionów](../../expressroute/how-to-npm.md)
 
 ## <a name="troubleshoot"></a>Rozwiązywanie problemów
 
@@ -231,7 +231,7 @@ Taka sytuacja może wystąpić, Jeśli Zapora hosta lub Zapora pośrednia (Zapor
 * Aby sprawdzić, czy Zapora hosta nie blokuje komunikacji na wymaganym porcie, Wyświetl stan kondycji węzłów źródłowych i docelowych z następującego widoku: Network Performance Monitor-> konfiguracja-> węzły. 
   Jeśli są w złej kondycji, Wyświetl instrukcje i wykonaj działania naprawcze. Jeśli węzły są w dobrej kondycji, przejdź do kroku b. poniżej.
 * Aby sprawdzić, czy pośrednia Zapora sieciowa lub usługa Azure sieciowej grupy zabezpieczeń nie blokuje komunikacji na wymaganym porcie, użyj narzędzia PsPing innej firmy, korzystając z poniższych instrukcji:
-  * Narzędzie psping jest dostępne do pobrania w [tym miejscu](https://technet.microsoft.com/sysinternals/psping.aspx) 
+  * Narzędzie psping jest dostępne do pobrania w [tym miejscu](/sysinternals/downloads/psping) 
   * Uruchom następujące polecenie w węźle źródłowym.
     * psping-n 15 \<destination node IPAddress\> :P ortnumber domyślnie używa portu 8084. Na wypadek, gdyby został on jawnie zmieniony przy użyciu skryptu EnableRules.ps1, wprowadź niestandardowy numer portu, którego używasz). To jest polecenie ping z maszyny Azure do lokalnego
 * Sprawdź, czy polecenia ping zostały wykonane pomyślnie. W przeciwnym razie wskazuje, że pośrednia Zapora sieciowa lub usługa Azure sieciowej grupy zabezpieczeń blokuje ruch na tym porcie.

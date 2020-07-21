@@ -3,16 +3,17 @@ title: Monitorowanie aplikacji platformy Docker na platformie Azure Application 
 description: Liczniki wydajności platformy Docker, zdarzenia i wyjątki mogą być wyświetlane na Application Insights wraz z danymi telemetrycznymi z aplikacji kontenerowych.
 ms.topic: conceptual
 ms.date: 03/14/2019
-ms.openlocfilehash: 5ff3d6a2b31425a3fb6857c8c6aed45f7ef18d64
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6af39db68c2020e578fe6fbd39870b2e00a16e07
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77669611"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539928"
 ---
 # <a name="monitor-docker-applications-in-application-insights-deprecated"></a>Monitorowanie aplikacji platformy Docker w Application Insights (przestarzałe)
 
 > [!NOTE]
-> To rozwiązanie jest przestarzałe. Aby dowiedzieć się więcej na temat naszych bieżących inwestycji w monitorowanie kontenerów, zalecamy wyewidencjonowanie [Azure monitor dla kontenerów](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview).
+> To rozwiązanie jest przestarzałe. Aby dowiedzieć się więcej na temat naszych bieżących inwestycji w monitorowanie kontenerów, zalecamy wyewidencjonowanie [Azure monitor dla kontenerów](../insights/container-insights-overview.md).
 
 Zdarzenia cyklu życia i liczniki wydajności z kontenerów [platformy Docker](https://www.docker.com/) mogą być przedstawiane na Application Insights. Zainstaluj [Application Insights](https://hub.docker.com/r/microsoft/applicationinsights/) obrazu w kontenerze na hoście, a następnie wyświetli liczniki wydajności dla hosta, a także inne obrazy.
 

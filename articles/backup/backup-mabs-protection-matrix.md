@@ -3,11 +3,12 @@ title: SERWERA usługi MAB (Azure Backup Server) v3 UR1 Protection Matrix
 description: Ten artykuł zawiera informacje o wszystkich obciążeniach, typach danych i instalacjach, które Azure Backup Server chronić.
 ms.date: 03/19/2020
 ms.topic: conceptual
-ms.openlocfilehash: f950c7be28a4ff0dd0caa12d1327c2a0e2ac4fc5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cfcb8fbf9f793cfbe11d2c25b3d2caa7018d0fd4
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84677325"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538738"
 ---
 # <a name="mabs-azure-backup-server-v3-ur1-protection-matrix"></a>SERWERA usługi MAB (Azure Backup Server) v3 UR1 Protection Matrix
 
@@ -40,7 +41,7 @@ Poniższe sekcje zawierają szczegółowe informacje na temat macierzy obsługi 
 | Serwery (64-bitowe)          | Windows Server 2008 R2 z dodatkiem SP1, Windows Server 2008 z dodatkiem SP2 (należy zainstalować [ramkę zarządzania systemu windows 4,0](https://www.microsoft.com/download/details.aspx?id=40855)) | Serwer fizyczny  <br><br>    Maszyna wirtualna z funkcją Hyper-V  <br><br>      Maszyna wirtualna VMware  <br><br>   Azure Stack | UR1 V3                            | Wolumin, udział, folder, plik, stan systemu/bez oprogramowania        |
 | SQL Server                | SQL Server 2019, 2017, 2016 i [obsługiwane](https://support.microsoft.com/lifecycle/search?alpha=SQL%20Server%202016)przez program sps, 2014 i obsługiwane przez niego [SPS](https://support.microsoft.com/lifecycle/search?alpha=SQL%20Server%202014) | Serwer fizyczny  <br><br>     Maszyna wirtualna z funkcją Hyper-V   <br><br>     Maszyna wirtualna VMware  <br><br>   Maszyna wirtualna platformy Azure (gdy obciążenie działa jako maszyna wirtualna platformy Azure)  <br><br>     Azure Stack | UR1 V3                            | Wszystkie scenariusze wdrażania: baza danych       <br><br>  SERWERA usługi MAB v3 UR1 obsługuje tworzenie kopii zapasowych baz danych SQL za pośrednictwem woluminów ReFS                  |
 | Exchange                   | Exchange 2019, 2016                                         | Serwer fizyczny   <br><br>   Maszyna wirtualna z funkcją Hyper-V  <br><br>      Maszyna wirtualna VMware  <br><br>   Azure Stack  <br><br>    Maszyna wirtualna platformy Azure (gdy obciążenie działa jako maszyna wirtualna platformy Azure) | UR1 V3                            | Ochrona (wszystkie scenariusze wdrażania): autonomiczny serwer programu Exchange, baza danych w grupie dostępności bazy danych (DAG)  <br><br>    Odzyskiwanie (wszystkie scenariusze wdrażania): skrzynka pocztowa, bazy danych skrzynek pocztowych w grupie DAG    <br><br>  Tworzenie kopii zapasowej programu Exchange za pośrednictwem systemu plików ReFS jest obsługiwane z serwera usługi MAB v3 UR1 |
-| SharePoint                 | SharePoint 2019, 2016 z najnowszymi programem SPs                       | Serwer fizyczny  <br><br>    Maszyna wirtualna z funkcją Hyper-V <br><br>    Maszyna wirtualna VMware  <br><br>   Maszyna wirtualna platformy Azure (gdy obciążenie działa jako maszyna wirtualna platformy Azure)   <br><br>   Azure Stack | UR1 V3                            | Ochrona (wszystkie scenariusze wdrażania): Farma, zawartość serwera frontonu sieci Web  <br><br>    Odzyskiwanie (wszystkie scenariusze wdrażania): Farma, baza danych, aplikacja sieci Web, plik lub element listy, wyszukiwanie programu SharePoint, serwer frontonu sieci Web  <br><br>    Ochrona farmy programu SharePoint korzystającej z funkcji AlwaysOn SQL Server 2012 dla baz danych zawartości nie jest obsługiwana. |
+| Program SharePoint                 | SharePoint 2019, 2016 z najnowszymi programem SPs                       | Serwer fizyczny  <br><br>    Maszyna wirtualna z funkcją Hyper-V <br><br>    Maszyna wirtualna VMware  <br><br>   Maszyna wirtualna platformy Azure (gdy obciążenie działa jako maszyna wirtualna platformy Azure)   <br><br>   Azure Stack | UR1 V3                            | Ochrona (wszystkie scenariusze wdrażania): Farma, zawartość serwera frontonu sieci Web  <br><br>    Odzyskiwanie (wszystkie scenariusze wdrażania): Farma, baza danych, aplikacja sieci Web, plik lub element listy, wyszukiwanie programu SharePoint, serwer frontonu sieci Web  <br><br>    Ochrona farmy programu SharePoint korzystającej z funkcji AlwaysOn SQL Server 2012 dla baz danych zawartości nie jest obsługiwana. |
 
 ## <a name="vm-backup"></a>Kopia zapasowa maszyny wirtualnej
 
@@ -53,7 +54,7 @@ Poniższe sekcje zawierają szczegółowe informacje na temat macierzy obsługi 
 
 | **Obciążenie** | **Wersja**                               | **Instalacja Azure Backup Server**                      | **Obsługiwane Azure Backup Server** | **Ochrona i odzyskiwanie**                                 |
 | ------------ | ----------------------------------------- | ------------------------------------------------------------ | ---------------------------------- | ------------------------------------------------------------ |
-| Linux        | System Linux uruchomiony jako gość funkcji Hyper-V lub VMware | Serwer fizyczny, lokalna maszyna wirtualna funkcji Hyper-V, maszyna wirtualna z systemem Windows w oprogramowaniu VMWare | UR1 V3                             | Funkcja Hyper-V musi być uruchomiona w systemie Windows Server 2012 R2 lub Windows Server 2016. Ochrona: Cała maszyna wirtualna   <br><br>   Odzyskiwanie: cała maszyna wirtualna   <br><br>    Obsługiwane są tylko migawki zgodne z plikami.    <br><br>   Aby zapoznać się z pełną listą obsługiwanych dystrybucji systemu Linux i wersji, zapoznaj się z artykułem [Linux na temat dystrybucji zatwierdzonym przez platformę Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros). |
+| Linux        | System Linux uruchomiony jako gość funkcji Hyper-V lub VMware | Serwer fizyczny, lokalna maszyna wirtualna funkcji Hyper-V, maszyna wirtualna z systemem Windows w oprogramowaniu VMWare | UR1 V3                             | Funkcja Hyper-V musi być uruchomiona w systemie Windows Server 2012 R2 lub Windows Server 2016. Ochrona: Cała maszyna wirtualna   <br><br>   Odzyskiwanie: cała maszyna wirtualna   <br><br>    Obsługiwane są tylko migawki zgodne z plikami.    <br><br>   Aby zapoznać się z pełną listą obsługiwanych dystrybucji systemu Linux i wersji, zapoznaj się z artykułem [Linux na temat dystrybucji zatwierdzonym przez platformę Azure](../virtual-machines/linux/endorsed-distros.md). |
 
 ## <a name="azure-expressroute-support"></a>Pomoc techniczna platformy Azure ExpressRoute
 
@@ -73,7 +74,7 @@ W przypadku komunikacji równorzędnej firmy Microsoft wybierz następujące us�
 * Region Microsoft Azure (zgodnie z lokalizacją magazynu Recovery Services)
 * Azure Storage (zgodnie z lokalizacją magazynu Recovery Services)
 
-Aby uzyskać więcej informacji, zobacz [wymagania dotyczące routingu ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-routing).
+Aby uzyskać więcej informacji, zobacz [wymagania dotyczące routingu ExpressRoute](../expressroute/expressroute-routing.md).
 
 >[!NOTE]
 >Publiczna Komunikacja równorzędna jest przestarzała dla nowych obwodów.

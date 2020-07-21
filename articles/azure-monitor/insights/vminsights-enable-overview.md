@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/25/2020
-ms.openlocfilehash: 261e5f17e787fd96697b06a9b338e74ea0409454
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 072f8fd44fa45648afd15cb40cba26bb427c7b56
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85507079"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539622"
 ---
 # <a name="enable-azure-monitor-for-vms-overview"></a>Włącz przegląd Azure Monitor dla maszyn wirtualnych
 
@@ -44,8 +44,8 @@ Azure Monitor dla maszyn wirtualnych obsługuje obszar roboczy Log Analytics w n
 - Zachodnio-środkowe stany USA
 - Zachodnie stany USA
 - Zachodnie stany USA 2
-- Południowo-środkowe stany USA
-- Wschodnie stany USA
+- South Central US
+- East US
 - Wschodnie stany USA 2
 - Środkowe stany USA
 - Północno-środkowe stany USA
@@ -57,8 +57,8 @@ Azure Monitor dla maszyn wirtualnych obsługuje obszar roboczy Log Analytics w n
 - Europa Zachodnia
 - Azja Wschodnia
 - Azja Południowo-Wschodnia
-- Indie Środkowe
-- Japonia Wschodnia
+- Central India
+- Japan East
 - Australia Wschodnia
 - Australia Południowo-Wschodnia
 
@@ -68,8 +68,8 @@ Azure Monitor dla maszyn wirtualnych obsługuje obszar roboczy Log Analytics w n
 
 Jeśli nie masz obszaru roboczego Log Analytics, możesz go utworzyć przy użyciu jednego z zasobów:
 * [Interfejs wiersza polecenia platformy Azure](../../azure-monitor/learn/quick-create-workspace-cli.md)
-* [Program PowerShell](../../azure-monitor/learn/quick-create-workspace-posh.md)
-* [Azure Portal](../../azure-monitor/learn/quick-create-workspace.md)
+* [Program PowerShell](../platform/powershell-workspace-configuration.md)
+* [Witryna Azure Portal](../../azure-monitor/learn/quick-create-workspace.md)
 * [Azure Resource Manager](../../azure-monitor/platform/template-workspace-configuration.md)
 
 Możesz również utworzyć obszar roboczy podczas włączania monitorowania dla jednej maszyny wirtualnej platformy Azure lub zestawu skalowania maszyn wirtualnych w Azure Portal.

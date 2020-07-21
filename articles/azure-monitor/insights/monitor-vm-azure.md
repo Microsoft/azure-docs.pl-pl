@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/05/2020
-ms.openlocfilehash: e38ae07aa032e4a828c9188fd78b112f4ff0d397
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9a96db0e9a834dcddbb5f247953fa1bbf0dc39ce
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84945396"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539707"
 ---
 # <a name="monitoring-azure-virtual-machines-with-azure-monitor"></a>Monitorowanie maszyn wirtualnych platformy Azure za pomocą Azure Monitor
 W tym artykule opisano, jak za pomocą Azure Monitor zbierać i analizować dane monitorowania z maszyn wirtualnych platformy Azure w celu utrzymania ich kondycji. Maszyny wirtualne mogą być monitorowane pod kątem dostępności i wydajności przy użyciu Azure Monitor jak dowolnego [innego zasobu platformy Azure](monitor-azure-resource.md), ale są unikatowe z innych zasobów, ponieważ konieczne jest również monitorowanie systemu operacyjnego i systemów gościa oraz obciążeń, które są w nim uruchomione. 
@@ -29,7 +29,7 @@ W tym artykule opisano, jak za pomocą Azure Monitor zbierać i analizować dane
 - Można utworzyć [Ustawienia diagnostyczne](../platform/diagnostic-settings.md) dla maszyny wirtualnej w celu wysyłania metryk platformy do innych miejsc docelowych, takich jak magazyn i centra zdarzeń, ale nie można skonfigurować tych ustawień diagnostycznych w Azure Portal. 
 
 ## <a name="monitoring-data"></a>Dane monitorowania
-Maszyny wirtualne na platformie Azure na platformie Azure generują [dzienniki](../platform/data-platform-logs.md) i [metryki](../platform/data-platform-metrics.md) przedstawiające Poniższy diagram.
+Maszyny wirtualne na platformie Azure generują [dzienniki](../platform/data-platform-logs.md) i [metryki](../platform/data-platform-metrics.md) , jak pokazano na poniższym diagramie.
 
 ![Omówienie](media/monitor-vm-azure/logs-metrics.png)
 
@@ -133,12 +133,12 @@ Po skonfigurowaniu kolekcji danych monitorowania dla maszyny wirtualnej masz wie
 | Opcja menu | Opis |
 |:---|:---|
 | Omówienie | Przedstawia [metryki platformy](../platform/data-platform-metrics.md) dla hosta maszyny wirtualnej. Kliknij wykres, aby korzystać z tych danych w [Eksploratorze metryk](../platform/metrics-getting-started.md). |
-| Dziennik aktywności | Wpisy [dziennika aktywności](../platform/activity-log-view.md) odfiltrowane dla bieżącej maszyny wirtualnej. |
+| Dziennik aktywności | Wpisy [dziennika aktywności](../platform/activity-log.md#view-the-activity-log) odfiltrowane dla bieżącej maszyny wirtualnej. |
 | Insights | Otwiera [Azure monitor dla maszyn wirtualnych](../insights/vminsights-overview.md) z mapą dla zaznaczonej bieżącej maszyny wirtualnej. |
 | Alerty | Wyświetla [alerty](../platform/alerts-overview.md) dla bieżącej maszyny wirtualnej.  |
 | Metryki | Otwórz [Eksploratora metryk](../platform/metrics-getting-started.md) z zakresem ustawionym na bieżącą maszynę wirtualną. |
 | Ustawienia diagnostyczne | Włącz i skonfiguruj [rozszerzenie diagnostyki](../platform/diagnostics-extension-overview.md) dla bieżącej maszyny wirtualnej. |
-| Zalecenia doradcy | Zalecenia dotyczące bieżącej maszyny wirtualnej z [Azure Advisor](/azure/advisor/). |
+| Zalecenia doradcy | Zalecenia dotyczące bieżącej maszyny wirtualnej z [Azure Advisor](../../advisor/index.yml). |
 | Dzienniki | Otwórz [log Analytics](../log-query/log-query-overview.md#what-is-log-analytics) z [zakresem](../log-query/scope.md) ustawionym na bieżącą maszynę wirtualną. |
 | Monitor połączeń | Otwórz [monitor połączeń Network Watcher](../../network-watcher/connection-monitor-preview.md) , aby monitorować połączenia między bieżącą maszyną wirtualną a innymi maszynami wirtualnymi. |
 
@@ -226,7 +226,7 @@ Event
 
 
 ## <a name="system-center-operations-manager"></a>System Center Operations Manager
-System Center Operations Manager (SCOM) zapewnia szczegółowe monitorowanie obciążeń na maszynach wirtualnych. Zapoznaj się z [przewodnikiem monitorowania chmury](https://docs.microsoft.com/azure/cloud-adoption-framework/manage/monitor/) , aby zapoznać się z porównaniem platform monitorowania i różnych strategii wdrażania.
+System Center Operations Manager (SCOM) zapewnia szczegółowe monitorowanie obciążeń na maszynach wirtualnych. Zapoznaj się z [przewodnikiem monitorowania chmury](/azure/cloud-adoption-framework/manage/monitor/) , aby zapoznać się z porównaniem platform monitorowania i różnych strategii wdrażania.
 
 Jeśli masz istniejące środowisko SCOM, które ma być używane, możesz je zintegrować z Azure Monitor, aby zapewnić dodatkową funkcjonalność. Agent Log Analytics używany przez Azure Monitor jest tym samym używany dla programu SCOM, aby monitorowane maszyny wirtualne mogły wysyłać dane do obu tych programów. Nadal musisz dodać agenta, aby Azure Monitor dla maszyn wirtualnych i skonfigurować obszar roboczy do zbierania dodatkowych danych, jak określono powyżej, ale maszyny wirtualne mogą nadal uruchamiać istniejące pakiety administracyjne w środowisku SCOM bez modyfikacji.
 
@@ -242,4 +242,3 @@ Zobacz [łączenie Operations Manager, aby Azure monitor](../platform/om-agents.
 
 * [Dowiedz się, jak analizować dane w dziennikach Azure Monitor przy użyciu zapytań dzienników.](../log-query/get-started-queries.md)
 * [Dowiedz się więcej o alertach korzystających z metryk i dzienników w Azure Monitor.](../platform/alerts-overview.md)
-

@@ -7,18 +7,18 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 06/26/2019
 ms.custom: mvc
-ms.openlocfilehash: 9aa19dfa0626ff0726911815addbb03945ee36f1
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e066ef1910373734d9a6607500e45e8a9ccc80b2
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82144850"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539758"
 ---
 # <a name="start-monitoring-your-aspnet-core-web-application"></a>Rozpoczynanie monitorowania aplikacji internetowej ASP.NET Core
 
 Usługa Azure Application Insights umożliwia łatwe monitorowanie dostępności, wydajności i użycia aplikacji internetowej. Pozwala też szybko identyfikować i diagnozować błędy w aplikacji bez oczekiwania na zgłoszenie ich przez użytkownika. 
 
-Ten przewodnik Szybki Start przeprowadzi Cię przez proces dodawania zestawu SDK Application Insights do istniejącej ASP.NET Core aplikacji sieci Web. Aby dowiedzieć się więcej o konfigurowaniu Application Insights bez wyewidencjonowania tego [artykułu](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core)przez program Visual Studio.
+Ten przewodnik Szybki Start przeprowadzi Cię przez proces dodawania zestawu SDK Application Insights do istniejącej ASP.NET Core aplikacji sieci Web. Aby dowiedzieć się więcej o konfigurowaniu Application Insights bez wyewidencjonowania tego [artykułu](../app/asp-net-core.md)przez program Visual Studio.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -42,10 +42,10 @@ Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
 Usługa Application Insights umożliwia zbieranie danych telemetrycznych z dowolnej aplikacji połączonej z Internetem, niezależnie od tego, czy jest to aplikacja lokalna czy aplikacja w chmurze. Aby rozpocząć wyświetlanie tych danych, wykonaj poniższe czynności.
 
-1. Wybierz pozycję **Utwórz zasób** > **Narzędzia** > deweloperskie**Application Insights**.
+1. Wybierz pozycję **Utwórz zasób**  >  **Narzędzia deweloperskie**  >  **Application Insights**.
 
    > [!NOTE]
-   >Jeśli tworzysz zasób Application Insights, możesz dowiedzieć się więcej, odwiedzając dokument [tworzenie Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource) .
+   >Jeśli tworzysz zasób Application Insights, możesz dowiedzieć się więcej, odwiedzając dokument [tworzenie Application Insights](../app/create-new-resource.md) .
 
     Zostanie wyświetlone okno konfiguracji. Wypełnij pola wejściowe, używając poniższej tabeli.
 
@@ -53,9 +53,9 @@ Usługa Application Insights umożliwia zbieranie danych telemetrycznych z dowol
    | ------------- |:-------------|:-----|
    | **Nazwa**      | Wartość unikatowa w skali globalnej | Nazwa identyfikująca monitorowaną aplikację |
    | **Grupa zasobów**     | myResourceGroup      | Nazwa nowej grupy zasobów, w której mają być hostowane dane usługi App Insights. istnieje możliwość utworzenia nowej lub użycia istniejącej grupy zasobów. |
-   | **Lokalizacja** | Wschodnie stany USA | Wybierz lokalizację w pobliżu Ciebie lub w pobliżu miejsca hostowania aplikacji |
+   | **Lokalizacja** | East US | Wybierz lokalizację w pobliżu Ciebie lub w pobliżu miejsca hostowania aplikacji |
 
-2. Kliknij przycisk **Utwórz**.
+2. Kliknij pozycję **Utwórz**.
 
 
 
@@ -69,9 +69,9 @@ Usługa Application Insights umożliwia zbieranie danych telemetrycznych z dowol
 
 3. Wybierz swoje konto i subskrypcję, > wybierz **istniejący zasób** utworzony w Azure Portal > kliknij pozycję **zarejestruj**.
 
-4. Wybierz **pozycję projekt** > **Zarządzanie** > **pakietami NuGet źródło pakietów: NuGet.org** > **zaktualizować** pakiety SDK Application Insights do najnowszej wersji stabilnej.
+4. Wybierz pozycję **projekt**  >  **Zarządzanie**  >  **pakietami NuGet źródło pakietów: NuGet.org**  >  **zaktualizować** pakiety SDK Application Insights do najnowszej wersji stabilnej.
 
-5. Wybierz pozycję **Debuguj** > **Uruchom bez debugowania** (Ctrl + F5), aby uruchomić aplikację
+5. Wybierz pozycję **Debuguj**  >  **Uruchom bez debugowania** (Ctrl + F5), aby uruchomić aplikację
 
     ![Menu Przegląd usługi Application Insights](./media/dotnetcore-quick-start/3debug.png)
 
@@ -88,7 +88,7 @@ Usługa Application Insights umożliwia zbieranie danych telemetrycznych z dowol
 
    ![Mapa aplikacji](./media/dotnetcore-quick-start/5appmap.png)
 
-3. Kliknij ![](./media/dotnetcore-quick-start/006.png) ikonę **Analiza aplikacji** widok ikona mapy aplikacji **w obszarze Analiza**. Spowoduje to otwarcie strony **Analiza usługi Application Insights**, która udostępnia zaawansowany język zapytań na potrzeby analizy wszystkich danych zbieranych przez usługę Application Insights. W tym przypadku jest generowane zapytanie, które renderuje liczbę żądań w formie wykresu. Możesz pisać własne zapytania do analizy innych danych.
+3. Kliknij ikonę **Analiza aplikacji** ![ Widok ikona mapy aplikacji ](./media/dotnetcore-quick-start/006.png) **w obszarze Analiza**. Spowoduje to otwarcie strony **Analiza usługi Application Insights**, która udostępnia zaawansowany język zapytań na potrzeby analizy wszystkich danych zbieranych przez usługę Application Insights. W tym przypadku jest generowane zapytanie, które renderuje liczbę żądań w formie wykresu. Możesz pisać własne zapytania do analizy innych danych.
 
    ![Wykres analizy żądań użytkowników w danym okresie](./media/dotnetcore-quick-start/6analytics.png)
 
@@ -100,7 +100,7 @@ Usługa Application Insights umożliwia zbieranie danych telemetrycznych z dowol
 
      ![Karta metryk: Średni wykres czasu ładowania strony przeglądarki](./media/dotnetcore-quick-start/8metrics.png)
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 Po zakończeniu testowania można usunąć grupę zasobów i wszystkie powiązane zasoby. W tym celu wykonaj poniższe kroki.
 
 > [!NOTE]
@@ -112,4 +112,4 @@ Po zakończeniu testowania można usunąć grupę zasobów i wszystkie powiązan
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Wyszukiwanie i diagnozowanie wyjątków w czasie wykonywania](https://docs.microsoft.com/azure/application-insights/app-insights-tutorial-runtime-exceptions)
+> [Wyszukiwanie i diagnozowanie wyjątków w czasie wykonywania](./tutorial-runtime-exceptions.md)

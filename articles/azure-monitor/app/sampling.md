@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 01/17/2020
 ms.reviewer: vitalyg
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 664e61697c1fb0c339a4c2caf8d0125a73e608c3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 28bbf9749375a4523237e840c217977853cd4ddd
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85319638"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539826"
 ---
 # <a name="sampling-in-application-insights"></a>Próbkowanie w usłudze Application Insights
 
@@ -21,7 +21,7 @@ Gdy liczba metryk jest prezentowana w portalu, zostaną one rozznormalizowane w 
 ## <a name="brief-summary"></a>Krótkie podsumowanie
 
 * Istnieją trzy różne typy próbkowania: próbkowanie adaptacyjne, próbkowanie o stałej szybkości i próbkowanie pozyskiwania.
-* Próbkowanie adaptacyjne jest domyślnie włączone we wszystkich najnowszych wersjach Application Insights ASP.NET i ASP.NET Core Software Development Kit (SDK). Jest on również używany przez [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview).
+* Próbkowanie adaptacyjne jest domyślnie włączone we wszystkich najnowszych wersjach Application Insights ASP.NET i ASP.NET Core Software Development Kit (SDK). Jest on również używany przez [Azure Functions](../../azure-functions/functions-overview.md).
 * Próbkowanie z ustaloną szybkością jest dostępne w ostatnich wersjach Application Insights zestawów SDK dla ASP.NET, ASP.NET Core, Java (zarówno dla agenta, jak i zestawu SDK), jak i języka Python.
 * Próbkowanie pozyskiwania działa w punkcie końcowym usługi Application Insights. Ma zastosowanie tylko wtedy, gdy nie są stosowane żadne inne próbki. Jeśli zestaw SDK próbkuje dane telemetryczne, pobieranie próbek pozyskiwania jest wyłączone.
 * W przypadku aplikacji sieci Web, Jeśli rejestrujesz zdarzenia niestandardowe i chcesz upewnić się, że zestaw zdarzeń jest przechowywany lub odrzucony, zdarzenia muszą mieć tę samą `OperationId` wartość.
@@ -36,6 +36,7 @@ W poniższej tabeli zestawiono typy próbkowania dostępne dla każdego zestawu 
 | ASP.NET Core | [Tak (domyślnie włączona)](#configuring-adaptive-sampling-for-aspnet-core-applications) | [Tak](#configuring-fixed-rate-sampling-for-aspnet-core-applications) | Tylko wtedy, gdy nie jest stosowane żadne inne próbkowanie |
 | Azure Functions | [Tak (domyślnie włączona)](#configuring-adaptive-sampling-for-azure-functions) | Nie | Tylko wtedy, gdy nie jest stosowane żadne inne próbkowanie |
 | Java | Nie | [Tak](#configuring-fixed-rate-sampling-for-java-applications) | Tylko wtedy, gdy nie jest stosowane żadne inne próbkowanie |
+| Node.JS | Nie | [Tak](./nodejs.md#sampling) | Tylko wtedy, gdy nie jest stosowane żadne inne próbkowanie
 | Python | Nie | [Tak](#configuring-fixed-rate-sampling-for-opencensus-python-applications) | Tylko wtedy, gdy nie jest stosowane żadne inne próbkowanie |
 | Wszystkie pozostałe | Nie | Nie | [Tak](#ingestion-sampling) |
 
@@ -209,7 +210,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, Telemetr
 
 ### <a name="configuring-adaptive-sampling-for-azure-functions"></a>Konfigurowanie próbkowania adaptacyjnego dla Azure Functions
 
-Postępuj zgodnie z instrukcjami wyświetlanymi na [tej stronie](https://docs.microsoft.com/azure/azure-functions/functions-monitoring#configure-sampling) , aby skonfigurować próbkowanie adaptacyjne dla aplikacji działających w Azure Functions.
+Postępuj zgodnie z instrukcjami wyświetlanymi na [tej stronie](../../azure-functions/functions-monitoring.md#configure-sampling) , aby skonfigurować próbkowanie adaptacyjne dla aplikacji działających w Azure Functions.
 
 ## <a name="fixed-rate-sampling"></a>Próbkowanie ustalonej stawki
 
@@ -481,7 +482,7 @@ Jeśli warunki używania innych form próbkowania nie mają zastosowania, zaleca
 
 ## <a name="knowing-whether-sampling-is-in-operation"></a>Znajomość tego, czy próbkowanie jest w działaniu
 
-Aby wykryć rzeczywistą częstotliwość próbkowania niezależnie od tego, gdzie została ona zastosowana, należy użyć [zapytania analitycznego](../../azure-monitor/app/analytics.md) , takiego jak:
+Aby wykryć rzeczywistą częstotliwość próbkowania niezależnie od tego, gdzie została ona zastosowana, należy użyć [zapytania analitycznego](../log-query/log-query-overview.md) , takiego jak:
 
 ```kusto
 union requests,dependencies,pageViews,browserTimings,exceptions,traces
@@ -586,4 +587,4 @@ Przed v 2.5.0 beta2 ASP.NET SDK i v 2.2.0-beta3 zestawu SDK ASP.NET Core, decyzj
 ## <a name="next-steps"></a>Następne kroki
 
 * [Filtrowanie](../../azure-monitor/app/api-filtering-sampling.md) może zapewnić bardziej rygorystyczną kontrolę nad tym, co wysyła zestaw SDK.
-* Zapoznaj się z artykułem dotyczącym sieci deweloperów [Optymalizacja danych telemetrycznych z Application Insights](https://msdn.microsoft.com/magazine/mt808502.aspx).
+* Zapoznaj się z artykułem dotyczącym sieci deweloperów [Optymalizacja danych telemetrycznych z Application Insights](/archive/msdn-magazine/2017/may/devops-optimize-telemetry-with-application-insights).

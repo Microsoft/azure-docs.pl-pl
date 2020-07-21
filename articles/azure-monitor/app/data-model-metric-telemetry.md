@@ -4,11 +4,12 @@ description: Application Insights model danych dla telemetrii metryki
 ms.topic: conceptual
 ms.date: 04/25/2017
 ms.reviewer: sergkanz
-ms.openlocfilehash: 3e4a1fc3de58b8e65ab9c7a288bdf3eb37e7bae0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 44f0b070a7c0da416002d9bf7e509d643a96dc7a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77671974"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86540013"
 ---
 # <a name="metric-telemetry-application-insights-data-model"></a>Telemetria metryki: Application Insights model danych
 
@@ -23,7 +24,7 @@ Metryka reprezentująca liczniki systemowe i procesów:
 | **Nazwa platformy .NET**             | **Nazwa niezależny od platformy** | **Nazwa interfejsu API REST** | **Opis**
 | ------------------------- | -------------------------- | ----------------- | ---------------- 
 | `\Processor(_Total)\% Processor Time` | Pracuj w toku... | [processorCpuPercentage](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FprocessorCpuPercentage) | Łączny czas procesora komputera
-| `\Memory\Available Bytes`                 | Pracuj w toku... | [memoryAvailableBytes](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FmemoryAvailableBytes) | Pokazuje ilość pamięci fizycznej (w bajtach), która jest dostępna dla procesów uruchomionych na komputerze. Jest on obliczany przez zsumowanie ilości miejsca na listach o wartości zero, wolnych i pamięci w stanie gotowości. Wolna pamięć jest gotowa do użycia; wartość zerowa pamięci składa się ze stron pamięci wypełnionej zerem, aby zapobiec wyświetlaniu przez późniejsze procesy danych używanych przez poprzedni proces; pamięć w stanie wstrzymania jest pamięcią, która została usunięta z zestawu roboczego procesu (jego pamięci fizycznej) w trasie do dysku, ale nadal jest dostępna do wywołania. Zobacz [Obiekt pamięci](https://msdn.microsoft.com/library/ms804008.aspx)
+| `\Memory\Available Bytes`                 | Pracuj w toku... | [memoryAvailableBytes](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FmemoryAvailableBytes) | Pokazuje ilość pamięci fizycznej (w bajtach), która jest dostępna dla procesów uruchomionych na komputerze. Jest on obliczany przez zsumowanie ilości miejsca na listach o wartości zero, wolnych i pamięci w stanie gotowości. Wolna pamięć jest gotowa do użycia; wartość zerowa pamięci składa się ze stron pamięci wypełnionej zerem, aby zapobiec wyświetlaniu przez późniejsze procesy danych używanych przez poprzedni proces; pamięć w stanie wstrzymania jest pamięcią, która została usunięta z zestawu roboczego procesu (jego pamięci fizycznej) w trasie do dysku, ale nadal jest dostępna do wywołania. Zobacz [Obiekt pamięci](/previous-versions/ms804008(v=msdn.10))
 | `\Process(??APP_WIN32_PROC??)\% Processor Time` | Pracuj w toku... | [processCpuPercentage](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FprocessCpuPercentage) | Procesor CPU procesu obsługującego aplikację
 | `\Process(??APP_WIN32_PROC??)\Private Bytes`      | Pracuj w toku... | [processPrivateBytes](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FprocessPrivateBytes) | pamięć używana przez proces obsługujący aplikację
 | `\Process(??APP_WIN32_PROC??)\IO Data Bytes/sec` | Pracuj w toku... | [processIOBytesPerSecond](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FprocessIOBytesPerSecond) | Liczba operacji we/wy wykonywanych przez proces obsługujący aplikację

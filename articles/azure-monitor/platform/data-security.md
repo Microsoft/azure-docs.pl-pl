@@ -6,15 +6,15 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/04/2019
-ms.openlocfilehash: 63d8d8d3701a9adca4bd01e6e061877f5d0bd245
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 540e824f301c402e1f65f6186b26ad1672e21d37
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80333358"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539350"
 ---
 # <a name="log-analytics-data-security"></a>Zabezpieczenia danych Log Analytics
-Ten dokument ma na celu dostarczenie informacji specyficznych dla Log Analytics, które są funkcją Azure Monitor, aby uzupełnić informacje o [Centrum zaufania Azure](../../security/fundamentals/trust-center.md).  
+Ten dokument ma na celu dostarczenie informacji specyficznych dla Log Analytics, które są funkcją Azure Monitor, aby uzupełnić informacje o [Centrum zaufania Azure](https://www.microsoft.com/en-us/trust-center?rtc=1).  
 
 W tym artykule wyjaśniono sposób zbierania, przetwarzania i zabezpieczania danych przez usługę Log Analytics. Za pomocą agentów można nawiązać połączenie z usługą sieci Web, używać System Center Operations Manager do zbierania danych operacyjnych lub pobierania danych z usługi Azure Diagnostics do użycia przez Log Analytics. 
 
@@ -42,9 +42,9 @@ Nie zalecamy jawnego ustawienia agenta do używania protokołu TLS 1,2, chyba ż
 |Platforma/język | Pomoc techniczna | Więcej informacji |
 | --- | --- | --- |
 |Linux | Dystrybucje systemu Linux zależą od [OpenSSL](https://www.openssl.org) obsługi TLS 1,2.  | Sprawdź [Dziennik zmian OpenSSL](https://www.openssl.org/news/changelog.html) , aby potwierdzić, że wersja OpenSSL jest obsługiwana.|
-| Windows 8,0 — 10 | Obsługiwane i domyślnie włączone. | , Aby upewnić się, że nadal używasz [ustawień domyślnych](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings).  |
-| Windows Server 2012 — 2016 | Obsługiwane i domyślnie włączone. | Aby potwierdzić, że nadal używasz [ustawień domyślnych](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) |
-| Windows 7 z dodatkiem SP1 i Windows Server 2008 R2 z dodatkiem SP1 | Obsługiwane, ale nie włączone domyślnie. | Aby uzyskać szczegółowe informacje na temat włączania, zobacz stronę [Ustawienia rejestru Transport Layer Security (TLS)](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) .  |
+| Windows 8,0 — 10 | Obsługiwane i domyślnie włączone. | , Aby upewnić się, że nadal używasz [ustawień domyślnych](/windows-server/security/tls/tls-registry-settings).  |
+| Windows Server 2012 — 2016 | Obsługiwane i domyślnie włączone. | Aby potwierdzić, że nadal używasz [ustawień domyślnych](/windows-server/security/tls/tls-registry-settings) |
+| Windows 7 z dodatkiem SP1 i Windows Server 2008 R2 z dodatkiem SP1 | Obsługiwane, ale nie włączone domyślnie. | Aby uzyskać szczegółowe informacje na temat włączania, zobacz stronę [Ustawienia rejestru Transport Layer Security (TLS)](/windows-server/security/tls/tls-registry-settings) .  |
 
 ## <a name="data-segregation"></a>Podział danych
 Po pozyskaniu danych przez usługę Log Analytics dane są przechowywane logicznie osobno dla każdego składnika w ramach usługi. Wszystkie dane są otagowane dla każdego obszaru roboczego. To tagowanie jest obecne przez cały cykl życia danych i jest wymuszane w każdej warstwie usługi. Dane są przechowywane w dedykowanej bazie danych w klastrze magazynu w wybranym regionie.
@@ -73,7 +73,7 @@ W poniższej tabeli przedstawiono przykłady typów danych:
 | Zdarzenie |EventId, EventOriginalID, BaseManagedEntityInternalId, RuleId, PublisherId, PublisherName, FullNumber, Number, Category, ChannelLevel, LoggingComputer, EventData, EventParameters, TimeGenerated, TimeAdded <br>**Uwaga:** Gdy zapisujesz zdarzenia z polami niestandardowymi w dzienniku zdarzeń systemu Windows, Log Analytics je gromadzić. |
 | Metadane |Identyfikatorze basemanagedentityid, upewnić, OrganizationalUnit, ActiveDirectoryObjectSid, PhysicalProcessors, networkname, IPAddress, ForestDNSName, NetbiosComputerName, VirtualMachineName, LastInventoryDate, HostServerNameIsVirtualMachine, adres IP, NetbiosDomainName, LogicalProcessors, DNSName, DisplayName, DomainDnsName, ActiveDirectorySite, PrincipalName, OffsetInMinuteFromGreenwichTime |
 | Wydajność |ObjectName, CounterName, PerfmonInstanceName, PerformanceDataId, PerformanceSourceInternalID, SampleValue, TimeSampled, TimeAdded |
-| Stan |StateChangeEventId, StateId, NewHealthState, OldHealthState, Context, TimeGenerated, TimeAdded, StateId2, identyfikatorze basemanagedentityid, elementu monitorid, HealthState, LastModified, LastGreenAlertGenerated, DatabaseTimeModified |
+| State |StateChangeEventId, StateId, NewHealthState, OldHealthState, Context, TimeGenerated, TimeAdded, StateId2, identyfikatorze basemanagedentityid, elementu monitorid, HealthState, LastModified, LastGreenAlertGenerated, DatabaseTimeModified |
 
 ## <a name="physical-security"></a>Zabezpieczenia fizyczne
 Usługa Log Analytics jest zarządzana przez personel firmy Microsoft, a wszystkie działania są rejestrowane i mogą być poddawane inspekcji. Log Analytics działa jako usługa platformy Azure i spełnia wszystkie wymagania dotyczące zgodności i zabezpieczeń platformy Azure. Szczegółowe informacje o zabezpieczeniach fizycznych zasobów platformy Azure można wyświetlić na stronie 18 [przeglądu zabezpieczeń Microsoft Azure](https://download.microsoft.com/download/6/0/2/6028B1AE-4AEE-46CE-9187-641DA97FC1EE/Windows%20Azure%20Security%20Overview%20v1.01.pdf). Prawa dostępu fizycznego do bezpiecznych obszarów są zmieniane w ciągu jednego dnia roboczego dla każdej osoby, która nie ma już odpowiedzialności za usługę Log Analytics, w tym transfer i zakończenie. Możesz zapoznać się z globalną infrastrukturą fizyczną używaną w [centrach danych firmy Microsoft](https://azure.microsoft.com/global-infrastructure/).
@@ -175,4 +175,3 @@ Aby uzyskać dostęp do obszaru roboczego Log Analytics, zaloguj się do Azure P
 * Dowiedz się, jak zbierać dane za pomocą Log Analytics dla maszyn wirtualnych platformy Azure po [rozszybkim samouczku maszyny wirtualnej platformy Azure](../../azure-monitor/learn/quick-collect-azurevm.md).  
 
 *  Jeśli chcesz zbierać dane z komputerów fizycznych lub wirtualnych z systemami Windows lub Linux w środowisku, zobacz [Przewodnik Szybki Start dla](../../azure-monitor/learn/quick-collect-linux-computer.md) komputerów z systemem Linux lub [Szybki Start dla komputerów z systemem Windows](../../azure-monitor/learn/quick-collect-windows-computer.md)
-

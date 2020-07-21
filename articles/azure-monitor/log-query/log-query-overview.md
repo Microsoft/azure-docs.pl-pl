@@ -6,17 +6,17 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/19/2019
-ms.openlocfilehash: 6cd2a28ddbe970385ff44deec2158c257937982e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7e8e2015e7d0798542ff0c80d8eb39461918ad67
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82591656"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539605"
 ---
 # <a name="overview-of-log-queries-in-azure-monitor"></a>Przegląd zapytań dzienników w Azure Monitor
 Zapytania dzienników ułatwiają całkowite wykorzystanie wartości danych zebranych w [dziennikach Azure monitor](../platform/data-platform-logs.md). Zaawansowany język zapytań umożliwia sprzęganie danych z wielu tabel, agregowanie dużych zestawów danych i wykonywanie złożonych operacji przy minimalnym kodzie. Niemal każde pytanie może być odpowiedzią i analizą wykonywaną, o ile dane pomocnicze zostały zebrane, i zrozumieć, jak utworzyć odpowiednie zapytanie.
 
-Niektóre funkcje w Azure Monitor, takie jak [szczegółowe informacje](../insights/insights-overview.md) i [rozwiązania](../insights/solutions-inventory.md) , przetwarzają dane dziennika bez udostępniania Cię do podstawowych zapytań. Aby w pełni wykorzystać inne funkcje Azure Monitor, należy zrozumieć, jak są konstruowane zapytania i jak można ich używać do interaktywnego analizowania danych w dziennikach Azure Monitor.
+Niektóre funkcje w Azure Monitor, takie jak [szczegółowe informacje](../insights/insights-overview.md) i [rozwiązania](../monitor-reference.md) , przetwarzają dane dziennika bez udostępniania Cię do podstawowych zapytań. Aby w pełni wykorzystać inne funkcje Azure Monitor, należy zrozumieć, jak są konstruowane zapytania i jak można ich używać do interaktywnego analizowania danych w dziennikach Azure Monitor.
 
 Skorzystaj z tego artykułu jako punktu wyjścia do uczenia się na temat zapytań dzienników w Azure Monitor. Odpowiedzi na często zadawane pytania i udostępniają linki do innej dokumentacji, która zapewnia dalsze szczegóły i lekcje.
 

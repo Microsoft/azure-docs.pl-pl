@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/28/2019
-ms.openlocfilehash: 3140c0de6fbe090e3d040202cd581c455f03b6d6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5984cbf8cf618a938ee85638d981f7867c6ec8b5
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77655260"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539367"
 ---
 # <a name="connect-configuration-manager-to-azure-monitor"></a>Połącz Configuration Manager z Azure Monitor
 Możesz połączyć środowisko Configuration Manager punktu końcowego firmy Microsoft w celu Azure Monitor synchronizacji danych kolekcji urządzeń i odwoływać się do tych kolekcji w Azure Monitor i Azure Automation.  
@@ -20,7 +21,7 @@ Możesz połączyć środowisko Configuration Manager punktu końcowego firmy Mi
 Azure Monitor obsługuje Configuration Manager Current Branch, wersja 1606 i nowsze.
 
 >[!NOTE]
->Funkcja łączenia Configuration Manager z obszarem roboczym Log Analytics jest opcjonalna i nie jest domyślnie włączona. Tę funkcję należy włączyć przed jej użyciem. Aby uzyskać więcej informacji, zobacz [Enable optional features from updates](https://docs.microsoft.com/configmgr/core/servers/manage/install-in-console-updates#bkmk_options).
+>Funkcja łączenia Configuration Manager z obszarem roboczym Log Analytics jest opcjonalna i nie jest domyślnie włączona. Tę funkcję należy włączyć przed jej użyciem. Aby uzyskać więcej informacji, zobacz [Enable optional features from updates](/configmgr/core/servers/manage/install-in-console-updates#bkmk_options).
 
 ## <a name="configuration-overview"></a>Przegląd konfiguracji
 
@@ -65,7 +66,7 @@ Zapoznaj się z artykułem [łączenie komputerów z systemem Windows w celu Azu
 ## <a name="connect-configuration-manager-to-log-analytics-workspace"></a>Łączenie Configuration Manager z Log Analytics obszarem roboczym
 
 >[!NOTE]
-> Aby można było dodać połączenie Log Analytics, środowisko Configuration Manager musi mieć skonfigurowany [punkt połączenia z usługą](https://docs.microsoft.com/configmgr/core/servers/deploy/configure/about-the-service-connection-point) dla trybu online.
+> Aby można było dodać połączenie Log Analytics, środowisko Configuration Manager musi mieć skonfigurowany [punkt połączenia z usługą](/configmgr/core/servers/deploy/configure/about-the-service-connection-point) dla trybu online.
 
 > [!NOTE]
 > Lokację najwyższego poziomu należy połączyć w hierarchii, aby Azure Monitor. Jeśli podłączysz autonomiczną lokację główną do Azure Monitor a następnie dodasz centralną lokację administracyjną do środowiska, musisz usunąć i ponownie utworzyć połączenie w ramach nowej hierarchii.
@@ -111,7 +112,7 @@ Zapoznaj się z artykułem [łączenie komputerów z systemem Windows w celu Azu
 
 9. Przejrzyj opcje na stronie **Potwierdź ustawienia** , a następnie wybierz pozycję **dalej** , aby rozpocząć tworzenie i Konfigurowanie połączenia.
 
-10. Po zakończeniu konfiguracji zostanie wyświetlona strona **ukończenie** . Wybierz pozycję **Zamknij**. 
+10. Po zakończeniu konfiguracji zostanie wyświetlona strona **ukończenie** . Wybierz pozycję **Close** (Zamknij). 
 
 Po połączeniu Configuration Manager z Azure Monitor, można dodawać lub usuwać kolekcje oraz wyświetlać właściwości połączenia.
 

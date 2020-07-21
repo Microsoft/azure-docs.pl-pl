@@ -7,11 +7,12 @@ ms.author: baanders
 ms.date: 05/25/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 53b20ded8e4b4a003beff1ef8489ecd9ff3451ac
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5272babf794529e5e9bd87a3c4a96e6df5758fb8
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84725305"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537466"
 ---
 # <a name="use-the-azure-digital-twins-cli"></a>Korzystanie z interfejsu wiersza polecenia usługi Azure Digital Twins
 
@@ -35,4 +36,4 @@ Oprócz ogólnego zarządzania wystąpieniem, interfejs wiersza polecenia jest r
 ## <a name="next-steps"></a>Następne kroki
 
 Aby zapoznać się z alternatywą dla poleceń interfejsu wiersza polecenia, zobacz jak zarządzać wystąpieniem usługi Azure Digital bliźniaczych reprezentacji przy użyciu interfejsów API i zestawów SDK:
-* [Instrukcje: korzystanie z interfejsów API i zestawów SDK Digital bliźniaczych reprezentacji na platformie Azure](how-to-use-apis-sdks.md)
+* [*Instrukcje: korzystanie z interfejsów API i zestawów SDK Digital bliźniaczych reprezentacji na platformie Azure*](how-to-use-apis-sdks.md)

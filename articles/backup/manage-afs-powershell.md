@@ -3,11 +3,12 @@ title: Zarządzanie kopiami zapasowymi udziałów plików platformy Azure przy u
 description: Dowiedz się, jak używać programu PowerShell do zarządzania udziałami plików platformy Azure i ich monitorować za pomocą usługi Azure Backup.
 ms.topic: conceptual
 ms.date: 1/27/2020
-ms.openlocfilehash: 6ee5fb92e4a66a9d6db66514f966c3650d3a4f13
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 889c9bb3ef087c700bbfc3a68959f2c5924bffda
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83201961"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538597"
 ---
 # <a name="manage-azure-file-share-backups-with-powershell"></a>Zarządzanie kopiami zapasowymi udziałów plików platformy Azure przy użyciu programu PowerShell
 
@@ -18,7 +19,7 @@ W tym artykule opisano, jak za pomocą usługi Azure PowerShell zarządzać udzi
 
 ## <a name="modify-the-protection-policy"></a>Modyfikowanie zasad ochrony
 
-Aby zmienić zasady służące do tworzenia kopii zapasowych udziału plików platformy Azure, użyj polecenie [enable-AzRecoveryServicesBackupProtection](https://docs.microsoft.com/powershell/module/az.recoveryservices/enable-azrecoveryservicesbackupprotection?view=azps-1.4.0). Określ odpowiedni element kopii zapasowej i nowe zasady tworzenia kopii zapasowych.
+Aby zmienić zasady służące do tworzenia kopii zapasowych udziału plików platformy Azure, użyj polecenie [enable-AzRecoveryServicesBackupProtection](/powershell/module/az.recoveryservices/enable-azrecoveryservicesbackupprotection). Określ odpowiedni element kopii zapasowej i nowe zasady tworzenia kopii zapasowych.
 
 Poniższy przykład zmienia zasady ochrony **testAzureFS** z **dailyafs** na **monthlyafs**.
 
@@ -31,7 +32,7 @@ Enable-AzRecoveryServicesBackupProtection -Item $afsBkpItem -Policy $monthlyafsP
 
 ## <a name="track-backup-and-restore-jobs"></a>Śledź zadania tworzenia kopii zapasowej i przywracania
 
-Operacje tworzenia kopii zapasowej i przywracania na żądanie zwracają zadanie wraz z IDENTYFIKATORem, jak pokazano w przypadku [uruchamiania kopii zapasowej na żądanie](backup-azure-afs-automation.md#trigger-an-on-demand-backup). Użyj polecenia cmdlet [Get-AzRecoveryServicesBackupJobDetails](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupjob?view=azps-1.4.0) , aby śledzić postęp zadania i szczegóły.
+Operacje tworzenia kopii zapasowej i przywracania na żądanie zwracają zadanie wraz z IDENTYFIKATORem, jak pokazano w przypadku [uruchamiania kopii zapasowej na żądanie](backup-azure-afs-automation.md#trigger-an-on-demand-backup). Użyj polecenia cmdlet [Get-AzRecoveryServicesBackupJobDetails](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupjob) , aby śledzić postęp zadania i szczegóły.
 
 ```powershell
 $job = Get-AzRecoveryServicesBackupJob -JobId 00000000-6c46-496e-980a-3740ccb2ad75 -VaultId $vaultID
@@ -70,7 +71,7 @@ W ramach magazynu mogą występować koszty związane z opuszczeniem punktów od
 
 ## <a name="stop-protection-and-retain-recovery-points"></a>Zatrzymywanie ochrony i zachowywanie punktów odzyskiwania
 
-Aby zatrzymać ochronę podczas zachowywania danych, należy użyć polecenia cmdlet [disable-AzRecoveryServicesBackupProtection](https://docs.microsoft.com/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupprotection?view=azps-3.3.0) .
+Aby zatrzymać ochronę podczas zachowywania danych, należy użyć polecenia cmdlet [disable-AzRecoveryServicesBackupProtection](/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupprotection) .
 
 Poniższy przykład zatrzymuje ochronę udziału plików *afsfileshare* , ale zachowuje wszystkie punkty odzyskiwania:
 
@@ -86,11 +87,11 @@ WorkloadName     Operation         Status         StartTime                 EndT
 afsfileshare     DisableBackup     Completed      1/26/2020 2:43:59 PM      1/26/2020 2:44:21 PM      98d9f8a1-54f2-4d85-8433-c32eafbd793f
 ```
 
-Atrybut ID zadania w danych wyjściowych odpowiada IDENTYFIKATORowi zadania zadania tworzonego przez usługę kopii zapasowej dla operacji "Zatrzymaj ochronę". Aby śledzić stan zadania, należy użyć polecenia cmdlet [Get-AzRecoveryServicesBackupJob](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupjob?view=azps-3.3.0) .
+Atrybut ID zadania w danych wyjściowych odpowiada IDENTYFIKATORowi zadania zadania tworzonego przez usługę kopii zapasowej dla operacji "Zatrzymaj ochronę". Aby śledzić stan zadania, należy użyć polecenia cmdlet [Get-AzRecoveryServicesBackupJob](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupjob) .
 
 ## <a name="stop-protection-without-retaining-recovery-points"></a>Zatrzymaj ochronę bez zachowywania punktów odzyskiwania
 
-Aby zatrzymać ochronę bez zachowywania punktów odzyskiwania, należy użyć polecenia cmdlet [disable-AzRecoveryServicesBackupProtection](https://docs.microsoft.com/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupprotection?view=azps-3.3.0) i dodać parametr **-RemoveRecoveryPoints** .
+Aby zatrzymać ochronę bez zachowywania punktów odzyskiwania, należy użyć polecenia cmdlet [disable-AzRecoveryServicesBackupProtection](/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupprotection) i dodać parametr **-RemoveRecoveryPoints** .
 
 Poniższy przykład zatrzymuje ochronę udziału plików *afsfileshare* bez zachowywania punktów odzyskiwania:
 

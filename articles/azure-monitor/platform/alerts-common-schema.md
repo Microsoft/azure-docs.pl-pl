@@ -4,11 +4,12 @@ description: Informacje o typowym schemacie alertów, dlaczego należy z nich ko
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 03/14/2019
-ms.openlocfilehash: 1445e8cf38b2694146fc8749ba5e77f2297de969
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: faf9975e2795623305583d061d1af7f5eb0cfbe0
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84710936"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539486"
 ---
 # <a name="common-alert-schema"></a>Typowe schematy alertów
 
@@ -33,7 +34,7 @@ Typowy schemat alertów będzie przede wszystkim używany w powiadomieniach o al
 | Akcja | Ulepszenia |
 |:---|:---|
 | SMS | Spójny szablon programu SMS dla wszystkich typów alertów. |
-| Poczta e-mail | Spójny i szczegółowy szablon wiadomości e-mail, który umożliwia błyskawiczne diagnozowanie problemów. Wbudowane głębokie łącza do wystąpienia alertów w portalu i zaatakowany zasób zapewniają możliwość szybkiego przejścia do procesu korygowania. |
+| E-mail | Spójny i szczegółowy szablon wiadomości e-mail, który umożliwia błyskawiczne diagnozowanie problemów. Wbudowane głębokie łącza do wystąpienia alertów w portalu i zaatakowany zasób zapewniają możliwość szybkiego przejścia do procesu korygowania. |
 | Element webhook/aplikacja logiki/funkcja Azure Function/Automation | Spójna struktura JSON dla wszystkich typów alertów, która umożliwia łatwe tworzenie integracji dla różnych typów alertów. |
 
 Nowy schemat umożliwi również bardziej zaawansowane środowisko korzystania z alertów w ramach zarówno Azure Portal, jak i aplikacja mobilna platformy Azure w przyszłości. 
@@ -51,8 +52,8 @@ Możesz wybrać lub zrezygnować ze wspólnego schematu alertu za pomocą grup a
 > 1. Następujące typy alertów obsługują domyślnie wspólny schemat (brak zgody na wymagane):
 >     * Alerty inteligentnego wykrywania
 > 1. Następujące typy alertów nie obsługują obecnie wspólnego schematu:
->     * Alerty wygenerowane przez [Azure monitor dla maszyn wirtualnych](https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-overview)
->     * Alerty wygenerowane przez [Azure Cost Management](https://docs.microsoft.com/azure/billing/billing-cost-management-budget-scenario)
+>     * Alerty wygenerowane przez [Azure monitor dla maszyn wirtualnych](../insights/vminsights-overview.md)
+>     * Alerty wygenerowane przez [Azure Cost Management](../../cost-management-billing/manage/cost-management-budget-scenario.md)
 
 ### <a name="through-the-azure-portal"></a>Za pomocą Azure Portal
 
@@ -63,9 +64,9 @@ Możesz wybrać lub zrezygnować ze wspólnego schematu alertu za pomocą grup a
 
 ### <a name="through-the-action-groups-rest-api"></a>Za pomocą interfejsu API REST grup akcji
 
-Możesz również użyć [interfejsu API grup akcji](https://docs.microsoft.com/rest/api/monitor/actiongroups) , aby zadecydować o wspólnym schemacie alertów. Podczas [tworzenia lub aktualizowania](https://docs.microsoft.com/rest/api/monitor/actiongroups/createorupdate) wywołania interfejsu API REST można ustawić flagę "useCommonAlertSchema" na wartość "true" (Aby zrezygnować z) lub "false" (wycofać) dla dowolnej z następujących akcji — wiadomości e-mail/elementu webhook/aplikacji logiki/elementu Runbook usługi Azure Function/Automation.
+Możesz również użyć [interfejsu API grup akcji](/rest/api/monitor/actiongroups) , aby zadecydować o wspólnym schemacie alertów. Podczas [tworzenia lub aktualizowania](/rest/api/monitor/actiongroups/createorupdate) wywołania interfejsu API REST można ustawić flagę "useCommonAlertSchema" na wartość "true" (Aby zrezygnować z) lub "false" (wycofać) dla dowolnej z następujących akcji — wiadomości e-mail/elementu webhook/aplikacji logiki/elementu Runbook usługi Azure Function/Automation.
 
-Na przykład następująca treść żądania utworzona w interfejsie API REST usługi [Create lub Update](https://docs.microsoft.com/rest/api/monitor/actiongroups/createorupdate) wykona następujące czynności:
+Na przykład następująca treść żądania utworzona w interfejsie API REST usługi [Create lub Update](/rest/api/monitor/actiongroups/createorupdate) wykona następujące czynności:
 
 * Włącz wspólny schemat alertów dla akcji poczty e-mail "Jan Nowak"
 * Wyłącz wspólny schemat alertów dla akcji poczty e-mail "adres e-mail w firmie Jan Kowalski"
@@ -120,7 +121,4 @@ Na przykład następująca treść żądania utworzona w interfejsie API REST us
 ## <a name="next-steps"></a>Następne kroki
 
 - [Definicje schematów typowych alertów dla elementów webhook/Logic Apps/Azure Functions/elementy Runbook usługi Automation.](https://aka.ms/commonAlertSchemaDefinitions)
-- [Dowiedz się, jak utworzyć aplikację logiki, która wykorzystuje wspólny schemat alertów do obsługi wszystkich alertów.](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-integrations) 
-
-
-
+- [Dowiedz się, jak utworzyć aplikację logiki, która wykorzystuje wspólny schemat alertów do obsługi wszystkich alertów.](./alerts-common-schema-integrations.md) 

@@ -3,11 +3,12 @@ title: Usuwanie nietrwałe dla Azure Backup
 description: Dowiedz się, jak używać funkcji zabezpieczeń w programie Azure Backup, aby tworzyć kopie zapasowe bardziej bezpieczne.
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: 2b0d7a00bce8dfa427958f6db6d7174b9d5f7a79
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 79df345858d89d032b826a0fa8b677195a785df2
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84116418"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538840"
 ---
 # <a name="soft-delete-for-azure-backup"></a>Usuwanie nietrwałe dla Azure Backup
 
@@ -28,7 +29,7 @@ Ten wykres przepływu przedstawia różne kroki i Stany elementu kopii zapasowej
 
 Usuwanie nietrwałe jest domyślnie włączone dla nowo utworzonych magazynów w celu ochrony danych kopii zapasowej przed przypadkowym lub złośliwym usunięciem.  Wyłączenie tej funkcji nie jest zalecane. Jedyną okolicznością, w której należy rozważyć wyłączenie usuwania nietrwałego, jest to, że planujesz przeniesienie chronionych elementów do nowego magazynu i nie będzie można odczekać 14 dni przed usunięciem i ponownym włączeniem ochrony (na przykład w środowisku testowym). Tylko właściciel magazynu może wyłączyć tę funkcję. Jeśli wyłączysz tę funkcję, wszystkie przyszłe usunięcia chronionych elementów spowodują natychmiastowe usunięcie, bez możliwości przywrócenia. Dane kopii zapasowej, które istnieją w stanie nietrwałego usunięcia przed wyłączeniem tej funkcji, pozostaną w stanie nietrwałego usunięcia przez 14 dni. Jeśli chcesz trwale usunąć te elementy natychmiast, musisz cofnąć ich usunięcie i usunąć je ponownie, aby trwale usunąć.
 
- Należy pamiętać, że po wyłączeniu usuwania nietrwałego funkcja ta jest wyłączona dla wszystkich typów obciążeń, w tym programu SQL Server i obciążeń SAP HANA. Na przykład po włączeniu [wersji zapoznawczej SQL Server/SAP HANA](https://docs.microsoft.com/azure/backup/soft-delete-sql-saphana-in-azure-vm#steps-to-enroll-in-preview) dla subskrypcji nie można wyłączyć usuwania nietrwałego tylko dla programu SQL Server lub SAP HANA baz danych, pozostawiając włączenie go dla maszyn wirtualnych w tym samym magazynie. Można utworzyć oddzielne magazyny dla szczegółowej kontroli.
+ Należy pamiętać, że po wyłączeniu usuwania nietrwałego funkcja ta jest wyłączona dla wszystkich typów obciążeń, w tym programu SQL Server i obciążeń SAP HANA. Na przykład po włączeniu [wersji zapoznawczej SQL Server/SAP HANA](./soft-delete-sql-saphana-in-azure-vm.md#steps-to-enroll-in-preview) dla subskrypcji nie można wyłączyć usuwania nietrwałego tylko dla programu SQL Server lub SAP HANA baz danych, pozostawiając włączenie go dla maszyn wirtualnych w tym samym magazynie. Można utworzyć oddzielne magazyny dla szczegółowej kontroli.
 
 ### <a name="disabling-soft-delete-using-azure-portal"></a>Wyłączanie usuwania nietrwałego przy użyciu Azure Portal
 
@@ -45,7 +46,7 @@ Aby wyłączyć usuwanie nietrwałe, wykonaj następujące kroki:
 > [!IMPORTANT]
 > Wersja AZ. RecoveryServices wymagana do użycia nietrwałego usuwania przy użyciu narzędzia Azure PS to minimalna 2.2.0. Użyj, ```Install-Module -Name Az.RecoveryServices -Force``` Aby uzyskać najnowszą wersję.
 
-Aby wyłączyć, użyj polecenia cmdlet [Set-AzRecoveryServicesVaultBackupProperty](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperty?view=azps-3.1.0) PS.
+Aby wyłączyć, użyj polecenia cmdlet [Set-AzRecoveryServicesVaultBackupProperty](/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperty) PS.
 
 ```powershell
 Set-AzRecoveryServicesVaultProperty -VaultId $myVaultID -SoftDeleteFeatureState Disable
@@ -86,11 +87,11 @@ Wykonaj następujące kroki:
 
 5. Wybierz pozycję **Usuń dane kopii zapasowej** , aby trwale usunąć dane kopii zapasowej.
 
-   ![Wybierz pozycję Usuń dane kopii zapasowej](https://docs.microsoft.com/azure/backup/media/backup-azure-manage-vms/delete-backup-buttom.png)
+   ![Wybierz pozycję Usuń dane kopii zapasowej](/azure/backup/media/backup-azure-manage-vms/delete-backup-buttom.png)
 
 6. Wpisz nazwę elementu kopii zapasowej, aby potwierdzić, że chcesz usunąć punkty odzyskiwania.
 
-   ![Wpisz nazwę elementu kopii zapasowej](https://docs.microsoft.com/azure/backup/media/backup-azure-manage-vms/delete-backup-data1.png)
+   ![Wpisz nazwę elementu kopii zapasowej](/azure/backup/media/backup-azure-manage-vms/delete-backup-data1.png)
 
 7. Aby usunąć dane kopii zapasowej dla elementu, wybierz pozycję **Usuń**. Komunikat z powiadomieniem informuje o tym, że dane kopii zapasowej zostały usunięte.
 

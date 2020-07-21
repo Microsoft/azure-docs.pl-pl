@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.author: yinhew
-ms.openlocfilehash: c4eb1419859d4a87e53371a266dcef52e632b6c8
-ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
+ms.openlocfilehash: e7bbedf253d6a64609179a8710fc9accd1f03818
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84636091"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537973"
 ---
 # <a name="speech-to-text-rest-api"></a>Interfejs API REST zamiany mowy na tekst
 
@@ -60,7 +60,7 @@ Te parametry mogą być zawarte w ciągu zapytania żądania REST.
 
 Ta tabela zawiera listę wymaganych i opcjonalnych nagłówków dla żądań zamiany mowy na tekst.
 
-|Header| Opis | Wymagane/opcjonalne |
+|Nagłówek| Opis | Wymagane/opcjonalne |
 |------|-------------|---------------------|
 | `Ocp-Apim-Subscription-Key` | Klucz subskrypcji usługi rozpoznawania mowy. | Ten nagłówek lub `Authorization` jest wymagany. |
 | `Authorization` | Token autoryzacji poprzedzony słowem `Bearer` . Aby uzyskać więcej informacji, zobacz [Authentication](#authentication) (Uwierzytelnianie). | Ten nagłówek lub `Ocp-Apim-Subscription-Key` jest wymagany. |
@@ -223,10 +223,10 @@ Obiekt na `NBest` liście może obejmować:
 | `ITN` | Forma odwrotna — znormalizowana ("kanoniczna") tekst rozpoznanego tekstu, z numerami telefonu, cyframi, skrótami ("Lekarz Kowalski" do "Dr Kowalski") i innymi przekształceniami. |
 | `MaskedITN` | Jeśli zażądano formularza ITN z zastosowanym maską wulgarności. |
 | `Display` | Formularz wyświetlania rozpoznanego tekstu z dodaną interpunkcją i wielką literą. Ten parametr jest taki sam, jak w `DisplayText` przypadku ustawienia format `simple` . |
-| `AccuracyScore` | Wynik wskazujący dokładność wymowy danego mowy. |
-| `FluencyScore` | Wynik wskazujący Fluency danej mowy. |
-| `CompletenessScore` | Wynik wskazujący kompletność danego mowy, obliczając stosunek wymawianych słów do całego danych wejściowych. |
-| `PronScore` | Ogólny wynik wskazujący jakość wymowy danego mowy. Jest on obliczany z `AccuracyScore` , `FluencyScore` i `CompletenessScore` z wag. |
+| `AccuracyScore` | Dokładność wymowy mowy. Dokładność wskazuje, jak blisko fonemów jest zgodny z wymowyeniem prezentera natywnego. Wynik dokładności wyrazu i pełnego tekstu jest agregowany z oceny dokładności poziomu fonem. |
+| `FluencyScore` | Fluency danego mowy. Fluency wskazuje, jak ściśle funkcja mowy dopasowuje ciche przerwy między wyrazami. |
+| `CompletenessScore` | Kompletność mowy, ustalona przez obliczenie współczynnika wymawianych wyrazów w odniesieniu do danych wejściowych tekstu. |
+| `PronScore` | Ogólny wynik wskazujący jakość wymowy danego mowy. Ta wartość jest agregowana `AccuracyScore` z `FluencyScore` i `CompletenessScore` wagi. |
 | `ErrorType` | Ta wartość wskazuje, czy słowo zostanie pominięte, wstawione lub nieprawidłowo wypowiadane, w porównaniu z `ReferenceText` . Możliwe wartości to `None` (brak błędu w tym wyrazie), `Omission` `Insertion` i `Mispronunciation` . |
 
 ## <a name="sample-responses"></a>Przykładowe odpowiedzi

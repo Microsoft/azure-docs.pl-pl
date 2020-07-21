@@ -3,12 +3,12 @@ title: Tworzenie kopii zapasowych i Przywracanie zaszyfrowanych maszyn wirtualny
 description: Opisuje sposób tworzenia kopii zapasowych i przywracania zaszyfrowanych maszyn wirtualnych platformy Azure przy użyciu usługi Azure Backup.
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.openlocfilehash: 0800a15b215b37ceb75abc0d6480331d642dc746
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1689ff89f15248f6771ccdce525cc136221e5577
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85124507"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538908"
 ---
 # <a name="back-up-and-restore-encrypted-azure-vm"></a>Tworzenie kopii zapasowej i przywracanie zaszyfrowanej maszyny wirtualnej platformy Azure
 
@@ -30,8 +30,8 @@ Azure Backup można tworzyć kopie zapasowe maszyn wirtualnych platformy Azure i
 **Niezarządzany** | Tak | Tak
 **Zarządzany**  | Tak | Tak
 
-- Dowiedz się więcej na temat [ADE](../security/azure-security-disk-encryption-overview.md), [Key Vault](../key-vault/general/overview.md)i [KEKs](https://docs.microsoft.com/azure/virtual-machine-scale-sets/disk-encryption-key-vault#set-up-a-key-encryption-key-kek).
-- Przeczytaj [często zadawane pytania](../security/azure-security-disk-encryption-faq.md) dotyczące szyfrowania dysków maszyn wirtualnych platformy Azure.
+- Dowiedz się więcej na temat [ADE](../security/fundamentals/azure-disk-encryption-vms-vmss.md), [Key Vault](../key-vault/general/overview.md)i [KEKs](../virtual-machine-scale-sets/disk-encryption-key-vault.md#set-up-a-key-encryption-key-kek).
+- Przeczytaj [często zadawane pytania](../security/fundamentals/azure-disk-encryption-vms-vmss.md) dotyczące szyfrowania dysków maszyn wirtualnych platformy Azure.
 
 ### <a name="limitations"></a>Ograniczenia
 
@@ -45,7 +45,7 @@ Azure Backup można tworzyć kopie zapasowe maszyn wirtualnych platformy Azure i
 
 Przed rozpoczęciem wykonaj następujące czynności:
 
-1. Upewnij się, że masz co najmniej jedną maszynę wirtualną z [systemem Windows](../security/azure-security-disk-encryption-windows.md) lub [Linux](../virtual-machines/linux/disk-encryption-overview.md) z włączonym ADE.
+1. Upewnij się, że masz co najmniej jedną maszynę wirtualną z [systemem Windows](../virtual-machines/linux/disk-encryption-overview.md) lub [Linux](../virtual-machines/linux/disk-encryption-overview.md) z włączonym ADE.
 2. [Przegląd macierzy obsługi](backup-support-matrix-iaas.md) kopii zapasowej maszyny wirtualnej platformy Azure
 3. [Utwórz](backup-azure-arm-vms-prepare.md#create-a-vault) magazyn kopii zapasowych Recovery Services, jeśli go nie masz.
 4. Jeśli włączysz szyfrowanie dla maszyn wirtualnych, które są już włączone dla kopii zapasowej, musisz po prostu podać kopię zapasową z uprawnieniami dostępu do Key Vault, aby kopie zapasowe mogły kontynuować działanie bez zakłóceń. [Dowiedz się więcej](#provide-permissions) o przypisywaniu tych uprawnień.

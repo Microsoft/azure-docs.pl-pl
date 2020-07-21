@@ -4,12 +4,12 @@ description: Omówienie wzorców integracji kontraktu inteligentnego w usłudze 
 ms.date: 11/20/2019
 ms.topic: conceptual
 ms.reviewer: mmercuri
-ms.openlocfilehash: 716255f5e71ec19b5b9c5a0a32740abc39f1a40b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dae63e16356e825d3be31380df1648749e59d8bd
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85254637"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538368"
 ---
 # <a name="smart-contract-integration-patterns"></a>Wzorce integracji kontraktów inteligentnych
 
@@ -134,7 +134,7 @@ Ten wzorzec jest zwykle implementowany przy użyciu następujących metod:
 -   Zmiana stanu jest określana jako zdarzenie dla użytkownika podrzędnego.
 -   Odbiorca podrzędny odbiera zdarzenie i wyzwala wykonywanie kodu zewnętrznego.
 
-![Kontrolka przejścia do procesu zewnętrznego](./media/integration-patterns/transition-external-process.png)
+![Na diagramie przedstawiono zmianę stanu w ramach kontraktu powodującego przejście zdarzenia do księgi rozproszonej. Łańcucha bloków Workbench następnie pobiera zdarzenie i publikuje je.](./media/integration-patterns/transition-external-process.png)
 
 #### <a name="return-of-control-from-the-smart-contract"></a>Powrót kontroli z kontraktu inteligentnego
 
@@ -142,7 +142,7 @@ W zależności od możliwości dostosowania systemu zewnętrznego może być mo�
 
 ##### <a name="direct-delivery-of-an-azure-blockchain-workbench-in-the-expected-format"></a>Bezpośrednie dostarczanie Workbench usługi Azure łańcucha bloków w oczekiwanym formacie
 
-![](./media/integration-patterns/direct-delivery.png)
+![Diagram przedstawia komunikat P z systemu zewnętrznego, który jest wybierany przez łańcucha bloków Workbench za pośrednictwem Service Bus. Łańcucha bloków Workbench następnie wysyła komunikat jako transakcję do księgi rozproszonej w imieniu agenta. Jest ona przenoszona do kontraktu, gdzie powoduje zmianę stanu.](./media/integration-patterns/direct-delivery.png)
 
 W tym modelu komunikacja z umową i późniejsza zmiana stanu odbywa się po poprzednim procesie, gdzie-
 

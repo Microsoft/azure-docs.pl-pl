@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/18/2018
-ms.openlocfilehash: 569731faffd97e816567af3f6ed1cf8cdf49f240
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7d8998b450613e097230d7692a8ad1990830993b
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83740454"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539333"
 ---
 # <a name="guidance-for-personal-data-stored-in-log-analytics-and-application-insights"></a>Wskazówki dotyczące danych osobowych przechowywanych w Log Analytics i Application Insights
 
@@ -66,8 +67,8 @@ Log Analytics to elastyczny magazyn, który jednocześnie określa schemat dla d
     | where timestamp > ago(1d)
     | project $table, timestamp, name, customDimensions 
     ```
-* *Dane znajdujące się w pamięci i w tranzycie*: Application Insights będą śledzić wyjątki, żądania, wywołania zależności i ślady. Dane prywatne mogą być często zbierane na poziomie kodu i wywołania HTTP. Przejrzyj tabele wyjątki, żądania, zależności i ślady, aby zidentyfikować takie dane. Użyj [inicjatorów telemetrii](https://docs.microsoft.com/azure/application-insights/app-insights-api-filtering-sampling) , gdy jest to możliwe, aby zasłaniać te dane.
-* *Przechwytywanie Snapshot Debugger*: funkcja [Snapshot Debugger](https://docs.microsoft.com/azure/application-insights/app-insights-snapshot-debugger) w Application Insights umożliwia zbieranie migawek debugowania za każdym razem, gdy wyjątek jest przechwytywany w wystąpieniu produkcyjnym aplikacji. Migawki będą uwidaczniać pełny ślad stosu prowadzący do wyjątków oraz wartości zmiennych lokalnych w każdym kroku stosu. Niestety, ta funkcja nie zezwala na selektywne usuwanie punktów przystawek ani dostęp programistyczny do danych w ramach migawki. W związku z tym, jeśli domyślna częstotliwość przechowywania migawek nie spełnia wymagań dotyczących zgodności, zaleca się wyłączenie tej funkcji.
+* *Dane znajdujące się w pamięci i w tranzycie*: Application Insights będą śledzić wyjątki, żądania, wywołania zależności i ślady. Dane prywatne mogą być często zbierane na poziomie kodu i wywołania HTTP. Przejrzyj tabele wyjątki, żądania, zależności i ślady, aby zidentyfikować takie dane. Użyj [inicjatorów telemetrii](../app/api-filtering-sampling.md) , gdy jest to możliwe, aby zasłaniać te dane.
+* *Przechwytywanie Snapshot Debugger*: funkcja [Snapshot Debugger](../app/snapshot-debugger.md) w Application Insights umożliwia zbieranie migawek debugowania za każdym razem, gdy wyjątek jest przechwytywany w wystąpieniu produkcyjnym aplikacji. Migawki będą uwidaczniać pełny ślad stosu prowadzący do wyjątków oraz wartości zmiennych lokalnych w każdym kroku stosu. Niestety, ta funkcja nie zezwala na selektywne usuwanie punktów przystawek ani dostęp programistyczny do danych w ramach migawki. W związku z tym, jeśli domyślna częstotliwość przechowywania migawek nie spełnia wymagań dotyczących zgodności, zaleca się wyłączenie tej funkcji.
 
 ## <a name="how-to-export-and-delete-private-data"></a>Jak eksportować i usuwać dane prywatne
 
@@ -100,8 +101,8 @@ Po przypisaniu roli Azure Resource Manager dostępne są dwie nowe ścieżki int
 
 #### <a name="log-data"></a>Dane dziennika
 
-* [Po przeczyszczeniu](https://docs.microsoft.com/rest/api/loganalytics/workspacepurge/purge) — pobiera parametry danych do usunięcia i zwraca identyfikator GUID odwołania 
-* Pobieranie stanu przeczyszczania — wywołanie po przeczyszczeniu zwróci nagłówek "x-MS-status-Location", który będzie zawierać adres URL, który można wywołać w celu określenia stanu interfejsu API przeczyszczania. Przykład:
+* [Po przeczyszczeniu](/rest/api/loganalytics/workspacepurge/purge) — pobiera parametry danych do usunięcia i zwraca identyfikator GUID odwołania 
+* Pobieranie stanu przeczyszczania — wywołanie po przeczyszczeniu zwróci nagłówek "x-MS-status-Location", który będzie zawierać adres URL, który można wywołać w celu określenia stanu interfejsu API przeczyszczania. Na przykład:
 
     ```
     x-ms-status-location: https://management.azure.com/subscriptions/[SubscriptionId]/resourceGroups/[ResourceGroupName]/providers/Microsoft.OperationalInsights/workspaces/[WorkspaceName]/operations/purge-[PurgeOperationId]?api-version=2015-03-20
@@ -112,8 +113,8 @@ Po przypisaniu roli Azure Resource Manager dostępne są dwie nowe ścieżki int
 
 #### <a name="application-data"></a>Dane aplikacji
 
-* [Po przeczyszczeniu](https://docs.microsoft.com/rest/api/application-insights/components/purge) — pobiera parametry danych do usunięcia i zwraca identyfikator GUID odwołania
-* Pobieranie stanu przeczyszczania — wywołanie po przeczyszczeniu zwróci nagłówek "x-MS-status-Location", który będzie zawierać adres URL, który można wywołać w celu określenia stanu interfejsu API przeczyszczania. Przykład:
+* [Po przeczyszczeniu](/rest/api/application-insights/components/purge) — pobiera parametry danych do usunięcia i zwraca identyfikator GUID odwołania
+* Pobieranie stanu przeczyszczania — wywołanie po przeczyszczeniu zwróci nagłówek "x-MS-status-Location", który będzie zawierać adres URL, który można wywołać w celu określenia stanu interfejsu API przeczyszczania. Na przykład:
 
    ```
    x-ms-status-location: https://management.azure.com/subscriptions/[SubscriptionId]/resourceGroups/[ResourceGroupName]/providers/microsoft.insights/components/[ComponentName]/operations/purge-[PurgeOperationId]?api-version=2015-05-01

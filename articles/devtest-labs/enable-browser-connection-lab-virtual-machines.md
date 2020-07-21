@@ -1,16 +1,16 @@
 ---
-title: Włącz połączenie przeglądarki na maszynach wirtualnych Azure DevTest Labs | Microsoft Docs
+title: Włącz połączenie przeglądarki na Azure DevTest Labs maszynach wirtualnych
 description: DevTest Labs teraz integrują się z usługą Azure bastionu, jako właściciel laboratorium można włączyć dostęp do wszystkich maszyn wirtualnych laboratorium za pomocą przeglądarki.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 23fb43fa7295006d8d3784d1dbb5d80c48411431
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2ff55aa033ee9a024c8bc89cc9d39bc8d3ad25da
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85484132"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537533"
 ---
-# <a name="enable-browser-connection-on-lab-virtual-machines"></a>Włącz połączenie przeglądarki na maszynach wirtualnych laboratorium 
+# <a name="enable-browser-connection-on-azure-devtest-labs-virtual-machines"></a>Włącz połączenie przeglądarki na Azure DevTest Labs maszynach wirtualnych 
 DevTest Labs integrują się z [usługą Azure bastionu](https://docs.microsoft.com/azure/bastion/), która umożliwia łączenie się z maszynami wirtualnymi za pomocą przeglądarki. Najpierw należy włączyć połączenie przeglądarki na maszynach wirtualnych laboratorium.
 
 Jako właściciel laboratorium można włączyć dostęp do wszystkich maszyn wirtualnych laboratorium za pomocą przeglądarki. Nie jest potrzebny dodatkowy klient, agent ani oprogramowanie. Usługa Azure bastionu zapewnia bezpieczną i bezproblemową łączność protokołu RDP/SSH z maszynami wirtualnymi bezpośrednio w Azure Portal za pośrednictwem protokołu TLS. Po nawiązaniu połączenia za pośrednictwem usługi Azure bastionu maszyny wirtualne nie potrzebują publicznego adresu IP. Aby uzyskać więcej informacji, zobacz [co to jest usługa Azure bastionu?](../bastion/bastion-overview.md)

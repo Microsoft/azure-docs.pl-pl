@@ -3,11 +3,12 @@ title: Automatyczne skalowanie jednostek przepływności — Event Hubs platform
 description: Włącz automatyczne podwyższenie poziomu w przestrzeni nazw, aby automatycznie skalować jednostki przepływności.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 382d407bde61a4ca24ab5833ea51d540c8904adc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1be564472011622b71b3066495748dfdbe6cc791
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85322550"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537245"
 ---
 # <a name="automatically-scale-up-azure-event-hubs-throughput-units"></a>Automatyczne skalowanie jednostek przepływności usługi Azure Event Hubs
 Azure Event Hubs to wysoce skalowalna platforma przesyłania strumieniowego danych. W związku z tym Event Hubs użycie często rośnie po rozpoczęciu korzystania z usługi. Takie użycie wymaga zwiększenia wstępnie [zdefiniowanych jednostek przepływności](event-hubs-scalability.md#throughput-units) do skalowania Event Hubs i obsłużenia większych szybkości transferu. Funkcja **automatycznego** rozszerzania Event Hubs automatycznie skaluje się w górę przez zwiększenie liczby jednostek przepływności w celu spełnienia wymagań dotyczących użycia. Zwiększenie jednostek przepływności uniemożliwia scenariusze ograniczania, w którym:
@@ -63,7 +64,7 @@ Możesz również włączyć funkcję autostartu i zmodyfikować jej ustawienia,
 
 ### <a name="enable-auto-inflate-using-an-azure-resource-manager-template"></a>Włącz funkcję autodostrajania przy użyciu szablonu Azure Resource Manager
 
-Podczas wdrażania szablonu Azure Resource Manager można włączyć funkcję autodostrajania. Na przykład ustaw `isAutoInflateEnabled` Właściwość na **true** , a następnie ustaw wartość `maximumThroughputUnits` 10. Przykład:
+Podczas wdrażania szablonu Azure Resource Manager można włączyć funkcję autodostrajania. Na przykład ustaw `isAutoInflateEnabled` Właściwość na **true** , a następnie ustaw wartość `maximumThroughputUnits` 10. Na przykład:
 
 ```json
 "resources": [
@@ -113,5 +114,4 @@ Aby uzyskać pełny szablon, zobacz [przestrzeń nazw Create Event Hubs i Włąc
 
 Następujące linki pozwalają dowiedzieć się więcej na temat usługi Event Hubs:
 
-* [Przegląd usługi Event Hubs](event-hubs-what-is-event-hubs.md)
-
+* [Przegląd usługi Event Hubs](./event-hubs-about.md)

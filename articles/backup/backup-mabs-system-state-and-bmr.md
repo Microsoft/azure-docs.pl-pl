@@ -3,12 +3,12 @@ title: System i ochrona przed odzyskiwaniem bez systemu operacyjnego
 description: Użyj Azure Backup Server, aby utworzyć kopię zapasową stanu systemu i zapewnić ochronę przed odzyskiwaniem od zera (BMR).
 ms.topic: conceptual
 ms.date: 05/15/2017
-ms.openlocfilehash: bab55ca607e0641ea0cc597de686f3abbb387598
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c5096158ca0e76ca03577347d8dd3e1419a33ca0
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82192369"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538704"
 ---
 # <a name="back-up-system-state-and-restore-to-bare-metal-by-using-azure-backup-server"></a>Tworzenie kopii zapasowej stanu systemu i przywracanie na komputerach bez systemu operacyjnego przy użyciu Azure Backup Server
 
@@ -26,18 +26,18 @@ Poniższa tabela zawiera podsumowanie informacji o tym, co można utworzyć i od
 |Backup|Problem|Odzyskaj z kopii zapasowej Azure Backup Server|Odzyskiwane z kopii zapasowej stanu systemu|BMR|
 |----------|---------|---------------------------|------------------------------------|-------|
 |**Dane pliku**<br /><br />Regularne tworzenie kopii zapasowej danych<br /><br />Kopia zapasowa stanu systemu/kompletnego stanu systemu|Utracone dane pliku|T|N|N|
-|**Dane pliku**<br /><br />Azure Backup Server kopii zapasowej danych plików<br /><br />Kopia zapasowa stanu systemu/kompletnego stanu systemu|Uszkodzony lub utracony system operacyjny|N|T|Tak|
+|**Dane pliku**<br /><br />Azure Backup Server kopii zapasowej danych plików<br /><br />Kopia zapasowa stanu systemu/kompletnego stanu systemu|Uszkodzony lub utracony system operacyjny|N|T|Y|
 |**Dane pliku**<br /><br />Azure Backup Server kopii zapasowej danych plików<br /><br />Kopia zapasowa stanu systemu/kompletnego stanu systemu|Utracony serwer (nienaruszone woluminy danych)|N|N|T|
 |**Dane pliku**<br /><br />Azure Backup Server kopii zapasowej danych plików<br /><br />Kopia zapasowa stanu systemu/kompletnego stanu systemu|Utracony serwer (utracone woluminy danych)|T|N|T<br /><br />BMR, a następnie regularne odzyskiwanie kopii zapasowej danych plików|
 |**Dane programu SharePoint**<br /><br />Azure Backup Server kopii zapasowej danych farmy<br /><br />Kopia zapasowa stanu systemu/kompletnego stanu systemu|Utracona witryna, listy, elementy listy, dokumenty|T|N|N|
-|**Dane programu SharePoint**<br /><br />Azure Backup Server kopii zapasowej danych farmy<br /><br />Kopia zapasowa stanu systemu/kompletnego stanu systemu|Uszkodzony lub utracony system operacyjny|N|T|Tak|
+|**Dane programu SharePoint**<br /><br />Azure Backup Server kopii zapasowej danych farmy<br /><br />Kopia zapasowa stanu systemu/kompletnego stanu systemu|Uszkodzony lub utracony system operacyjny|N|T|Y|
 |**Dane programu SharePoint**<br /><br />Azure Backup Server kopii zapasowej danych farmy<br /><br />Kopia zapasowa stanu systemu/kompletnego stanu systemu|Odzyskiwanie po awarii|N|N|N|
 |Windows Server 2012 R2 Hyper-V<br /><br />Azure Backup Server kopii zapasowej hosta lub gościa funkcji Hyper-V<br /><br />Kopia zapasowa stanu systemu/kompletnego stanu systemu hosta|Utracona maszyna wirtualna|T|N|N|
-|Funkcja Hyper-V<br /><br />Azure Backup Server kopii zapasowej hosta lub gościa funkcji Hyper-V<br /><br />Kopia zapasowa stanu systemu/kompletnego stanu systemu hosta|Uszkodzony lub utracony system operacyjny|N|T|Tak|
-|Funkcja Hyper-V<br /><br />Azure Backup Server kopii zapasowej hosta lub gościa funkcji Hyper-V<br /><br />Kopia zapasowa stanu systemu/kompletnego stanu systemu hosta|Utracony host funkcji Hyper-V (nieuszkodzone maszyny wirtualne)|N|N|T|
-|Funkcja Hyper-V<br /><br />Azure Backup Server kopii zapasowej hosta lub gościa funkcji Hyper-V<br /><br />Kopia zapasowa stanu systemu/kompletnego stanu systemu hosta|Utracony host funkcji Hyper-V (utracone maszyny wirtualne)|N|N|T<br /><br />BMR, po którym następuje regularne odzyskiwanie Azure Backup Server|
+|Hyper-V<br /><br />Azure Backup Server kopii zapasowej hosta lub gościa funkcji Hyper-V<br /><br />Kopia zapasowa stanu systemu/kompletnego stanu systemu hosta|Uszkodzony lub utracony system operacyjny|N|T|Y|
+|Hyper-V<br /><br />Azure Backup Server kopii zapasowej hosta lub gościa funkcji Hyper-V<br /><br />Kopia zapasowa stanu systemu/kompletnego stanu systemu hosta|Utracony host funkcji Hyper-V (nieuszkodzone maszyny wirtualne)|N|N|T|
+|Hyper-V<br /><br />Azure Backup Server kopii zapasowej hosta lub gościa funkcji Hyper-V<br /><br />Kopia zapasowa stanu systemu/kompletnego stanu systemu hosta|Utracony host funkcji Hyper-V (utracone maszyny wirtualne)|N|N|T<br /><br />BMR, po którym następuje regularne odzyskiwanie Azure Backup Server|
 |Program SQL Server/Exchange<br /><br />Kopia zapasowa aplikacji Azure Backup Server<br /><br />Kopia zapasowa stanu systemu/kompletnego stanu systemu|Utracone dane aplikacji|T|N|N|
-|Program SQL Server/Exchange<br /><br />Kopia zapasowa aplikacji Azure Backup Server<br /><br />Kopia zapasowa stanu systemu/kompletnego stanu systemu|Uszkodzony lub utracony system operacyjny|N|T|Tak|
+|Program SQL Server/Exchange<br /><br />Kopia zapasowa aplikacji Azure Backup Server<br /><br />Kopia zapasowa stanu systemu/kompletnego stanu systemu|Uszkodzony lub utracony system operacyjny|N|T|Y|
 |Program SQL Server/Exchange<br /><br />Kopia zapasowa aplikacji Azure Backup Server<br /><br />Kopia zapasowa stanu systemu/kompletnego stanu systemu|Utracony serwer (nieuszkodzone dzienniki transakcji i baz danych)|N|N|T|
 |Program SQL Server/Exchange<br /><br />Kopia zapasowa aplikacji Azure Backup Server<br /><br />Kopia zapasowa stanu systemu/kompletnego stanu systemu|Utracony serwer (utracone dzienniki transakcji i baz danych)|N|N|T<br /><br />Odzyskiwanie BMR, po którym następuje regularne odzyskiwanie Azure Backup Server|
 
@@ -98,12 +98,12 @@ Po zakończeniu tworzenia kopii zapasowej plik jest przesyłany do komputera ser
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 
 1. **Wdróż Azure Backup Server**. Sprawdź, czy serwer kopii zapasowej został poprawnie wdrożony. Aby uzyskać więcej informacji, zobacz:
-    * [Wymagania systemowe Azure Backup Server](https://docs.microsoft.com/system-center/dpm/install-dpm#setup-prerequisites)
+    * [Wymagania systemowe Azure Backup Server](/system-center/dpm/install-dpm#setup-prerequisites)
     * [Macierz ochrony serwera kopii zapasowych](backup-mabs-protection-matrix.md)
 
-1. **Skonfiguruj magazyn**. Dane kopii zapasowej można przechowywać na dysku, na taśmie i w chmurze przy użyciu platformy Azure. Aby uzyskać więcej informacji, zobacz [Przygotowywanie magazynu danych](https://docs.microsoft.com/system-center/dpm/plan-long-and-short-term-data-storage).
+1. **Skonfiguruj magazyn**. Dane kopii zapasowej można przechowywać na dysku, na taśmie i w chmurze przy użyciu platformy Azure. Aby uzyskać więcej informacji, zobacz [Przygotowywanie magazynu danych](/system-center/dpm/plan-long-and-short-term-data-storage).
 
-1. **Skonfiguruj agenta ochrony**. Zainstaluj agenta ochrony na komputerze, którego kopię zapasową chcesz utworzyć. Aby uzyskać więcej informacji, zobacz [wdrażanie agenta ochrony programu DPM](https://docs.microsoft.com/system-center/dpm/deploy-dpm-protection-agent).
+1. **Skonfiguruj agenta ochrony**. Zainstaluj agenta ochrony na komputerze, którego kopię zapasową chcesz utworzyć. Aby uzyskać więcej informacji, zobacz [wdrażanie agenta ochrony programu DPM](/system-center/dpm/deploy-dpm-protection-agent).
 
 ## <a name="back-up-system-state-and-bare-metal"></a>Tworzenie kopii zapasowej stanu systemu i kompletnego stanu systemu
 
@@ -115,7 +115,7 @@ Aby utworzyć kopię zapasową stanu systemu i bez systemu operacyjnego:
 
 1. Na stronie **Wybierz członków grupy** rozwiń komputer, a następnie wybierz pozycję **BMR** lub **stan systemu**.
 
-    Należy pamiętać, że nie można włączyć ochrony zarówno BMR, jak i stanu systemu na tym samym komputerze w różnych grupach. Ponadto w przypadku wybrania opcji BMR stan systemu jest automatycznie włączany. Aby uzyskać więcej informacji, zobacz [wdrażanie grup ochrony](https://docs.microsoft.com/system-center/dpm/create-dpm-protection-groups).
+    Należy pamiętać, że nie można włączyć ochrony zarówno BMR, jak i stanu systemu na tym samym komputerze w różnych grupach. Ponadto w przypadku wybrania opcji BMR stan systemu jest automatycznie włączany. Aby uzyskać więcej informacji, zobacz [wdrażanie grup ochrony](/system-center/dpm/create-dpm-protection-groups).
 
 1. Na stronie **Wybierz metodę ochrony danych** wybierz sposób obsługi krótkoterminowej kopii zapasowej i długoterminowej kopii zapasowej.
 
