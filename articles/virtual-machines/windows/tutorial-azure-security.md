@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 12/05/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 7c84c705da99bd6f04a6737a1c781b905cbeaad6
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c6afdae275b98a86eba14b920a6969c967c5a7db
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82100485"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86508240"
 ---
 # <a name="tutorial-use-azure-security-center-to-monitor-windows-virtual-machines"></a>Samouczek: monitorowanie maszyn wirtualnych z systemem Windows za pomocą usługi Azure Security Center
 
@@ -52,7 +52,7 @@ Następnie na wszystkich maszynach wirtualnych jest instalowany agent zbierania 
 
 ## <a name="set-up-a-security-policy"></a>Konfigurowanie zasad zabezpieczeń
 
-Zasady zabezpieczeń służą do definiowania elementów, dla których usługa Security Center zbiera dane i przygotowuje zalecenia. Różne zasady zabezpieczeń można stosować do różnych zestawów zasobów platformy Azure. Mimo że domyślnie zasoby platformy Azure są sprawdzane pod kątem wszystkich elementów zasad, można wyłączyć pojedyncze elementy zasad dla wszystkich zasobów platformy Azure lub dla grupy zasobów. Aby uzyskać szczegółowe informacje na temat zasad zabezpieczeń usługi Security Center, zobacz [Ustawianie zasad zabezpieczeń w usłudze Azure Security Center](../../security-center/security-center-policies.md). 
+Zasady zabezpieczeń służą do definiowania elementów, dla których usługa Security Center zbiera dane i przygotowuje zalecenia. Różne zasady zabezpieczeń można stosować do różnych zestawów zasobów platformy Azure. Mimo że domyślnie zasoby platformy Azure są sprawdzane pod kątem wszystkich elementów zasad, można wyłączyć pojedyncze elementy zasad dla wszystkich zasobów platformy Azure lub dla grupy zasobów. Aby uzyskać szczegółowe informacje na temat zasad zabezpieczeń usługi Security Center, zobacz [Ustawianie zasad zabezpieczeń w usłudze Azure Security Center](../../security-center/tutorial-security-policy.md). 
 
 Aby skonfigurować zasady zabezpieczeń dla całej subskrypcji:
 
@@ -105,7 +105,7 @@ Funkcja alertów zabezpieczeń wymaga podniesienia warstwy cenowej usługi Secur
 Aby zmienić warstwę cenową:  
 
 1. Na pulpicie nawigacyjnym usługi Security Center kliknij pozycję **Zasady zabezpieczeń**, a następnie wybierz swoją subskrypcję.
-2. Wybierz **warstwę cenową**.
+2. Wybierz pozycję **warstwa cenowa**.
 3. Wybierz pozycję **Standardowa**, a następnie kliknij przycisk **Zapisz** w górnej części bloku.
 
 

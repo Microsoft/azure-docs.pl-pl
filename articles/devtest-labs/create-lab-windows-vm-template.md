@@ -1,21 +1,22 @@
 ---
-title: Tworzenie laboratorium przy użyciu Azure DevTest Labs i szablonu Menedżer zasobów
-description: W tym samouczku utworzysz laboratorium w Azure DevTest Labs przy użyciu szablonu Azure Resource Manager. Administrator laboratorium konfiguruje laboratorium, tworzy maszyny wirtualne w laboratorium i konfiguruje zasady.
-ms.topic: tutorial
+title: Tworzenie laboratorium przy użyciu Azure DevTest Labs i szablonu Azure Resource Manager
+description: W tym przewodniku szybki start utworzysz laboratorium w Azure DevTest Labs przy użyciu szablonu Azure Resource Manager (szablon ARM). Administrator laboratorium konfiguruje laboratorium, tworzy maszyny wirtualne w laboratorium i konfiguruje zasady.
+ms.topic: quickstart
+ms.custom: subject-armqs
 ms.date: 06/26/2020
-ms.openlocfilehash: 22ba4ffeec22a45c07b096b0a754d08c8230dd8f
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.openlocfilehash: 8688b8265a8ca00a36a569ff4e067c9f36834c6d
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85476210"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537551"
 ---
-# <a name="tutorial-set-up-a-lab-by-using-azure-devtest-labs-resource-manager-template"></a>Samouczek: Konfigurowanie laboratorium przy użyciu Azure DevTest Labs (szablon Menedżer zasobów)
-W tym samouczku utworzysz laboratorium z maszyną wirtualną z systemem Windows Server 2019 Datacenter przy użyciu szablonu Azure Resource Manager. 
+# <a name="quickstart-set-up-a-lab-by-using-azure-devtest-labs-arm-template"></a>Szybki Start: Konfigurowanie laboratorium przy użyciu szablonu Azure DevTest Labs ARM
+W tym przewodniku szybki start utworzysz laboratorium z maszyną wirtualną z systemem Windows Server 2019 Datacenter przy użyciu szablonu Azure Resource Manager (ARM). 
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-W tym samouczku wykonasz następujące czynności:
+W tym przewodniku szybki start wykonasz następujące czynności:
 
 > [!div class="checklist"]
 > * Przegląd szablonu 
@@ -23,11 +24,13 @@ W tym samouczku wykonasz następujące czynności:
 > * Weryfikowanie szablonu
 > * Oczyszczanie zasobów
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
+Jeśli Twoje środowisko spełnia wymagania wstępne i masz doświadczenie w korzystaniu z szablonów ARM, wybierz przycisk **Wdróż na platformie Azure**. Szablon zostanie otwarty w witrynie Azure Portal.
+
+[![Wdrażanie na platformie Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-dtl-create-lab-windows-vm%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Brak.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpłatne konto](https://azure.microsoft.com/free/).
 
 ## <a name="review-the-template"></a>Przegląd szablonu
 
@@ -46,7 +49,7 @@ Aby znaleźć więcej przykładów szablonów, zobacz [Szablony szybkiego startu
 ## <a name="deploy-the-template"></a>Wdrożenie szablonu
 Aby automatycznie uruchomić wdrożenie, kliknij poniższy przycisk. 
 
-[![Wdrażanie na platformie Azure](./media/create-lab-windows-vm-template/deploy-button.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-dtl-create-lab-windows-vm%2Fazuredeploy.json)
+[![Wdrażanie na platformie Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-dtl-create-lab-windows-vm%2Fazuredeploy.json)
 
 1. Utwórz **nową grupę zasobów** , aby była łatwa do oczyszczenia później.
 1. Wybierz **lokalizację** grupy zasobów. 
@@ -59,7 +62,7 @@ Aby automatycznie uruchomić wdrożenie, kliknij poniższy przycisk.
 
     :::image type="content" source="./media/create-lab-windows-vm-template/deploy-template-page.png" alt-text="Strona wdrażania szablonu":::
 
-## <a name="verify-the-deployment"></a>Weryfikowanie wdrożenia
+## <a name="validate-the-deployment"></a>Weryfikowanie wdrożenia
 1. Wybierz pozycję **powiadomienia** u góry, aby wyświetlić stan wdrożenia, a następnie kliknij link **wdrażanie w toku** .
 
     :::image type="content" source="./media/create-lab-windows-vm-template/deployment-notification.png" alt-text="Powiadomienie dotyczące wdrożenia":::
@@ -76,7 +79,7 @@ Aby automatycznie uruchomić wdrożenie, kliknij poniższy przycisk.
     > [!IMPORTANT] 
     > Pozostaw Tę stronę otwartą i postępuj zgodnie z instrukcjami w następnej sekcji, aby wyczyścić zasoby, aby uniknąć ponoszenia kosztów związanych z uruchamianiem laboratorium i maszyną wirtualną na platformie Azure. Jeśli chcesz przejść do następnego samouczka, aby przetestować dostęp do maszyny wirtualnej w laboratorium, Oczyść zasoby po przejściu przez ten samouczek. 
 
-## <a name="cleanup-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 1. Najpierw usuń laboratorium, aby można było usunąć grupę zasobów. Nie będzie można usunąć grupy zasobów z laboratorium. Aby usunąć laboratorium, wybierz pozycję **Usuń** na pasku narzędzi. 
 
@@ -90,8 +93,7 @@ Aby automatycznie uruchomić wdrożenie, kliknij poniższy przycisk.
     :::image type="content" source="./media/create-lab-windows-vm-template/delete-resource-group-button.png" alt-text="Przycisk usuwania grupy zasobów":::
 
 ## <a name="next-steps"></a>Następne kroki
-W tym samouczku utworzono laboratorium z maszyną wirtualną. Aby dowiedzieć się, jak uzyskać dostęp do laboratorium, przejdź do następnego samouczka:
+W tym przewodniku szybki start utworzono laboratorium z maszyną wirtualną. Aby dowiedzieć się, jak uzyskać dostęp do laboratorium, przejdź do następnego samouczka:
 
 > [!div class="nextstepaction"]
 > [Samouczek: uzyskiwanie dostępu do laboratorium](tutorial-use-custom-lab.md)
-

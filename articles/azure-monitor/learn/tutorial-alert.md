@@ -7,12 +7,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 04/10/2019
 ms.custom: mvc
-ms.openlocfilehash: 7195de1cf58e5dd2e1d0b49b309f3afc718cca92
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 1c39bfdbcfb924505473b20b3d56a28d54c84f93
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77656266"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505877"
 ---
 # <a name="monitor-and-alert-on-application-health-with-azure-application-insights"></a>Monitorowanie kondycji aplikacji i wysyłanie powiązanych alertów za pomocą usługi Azure Application Insights
 
@@ -28,7 +28,7 @@ Omawiane kwestie:
 
 W celu ukończenia tego samouczka:
 
-Utwórz [zasób Application Insights](https://docs.microsoft.com/azure/azure-monitor/learn/dotnetcore-quick-start#enable-application-insights).
+Utwórz [zasób Application Insights](./dotnetcore-quick-start.md#enable-application-insights).
 
 ## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
@@ -56,7 +56,7 @@ Testy dostępności w usłudze Application Insights umożliwiają automatyczne t
 
     ![Edytuj alert](media/tutorial-alert/edit-alert-001.png)
 
-6. Ustawianie lokalizacji zakończonych niepowodzeniem na wartość większą lub równą 3. Utwórz [grupę akcji](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups) , aby skonfigurować, kto ma otrzymywać powiadomienia o naruszeniu progu alertu.
+6. Ustawianie lokalizacji zakończonych niepowodzeniem na wartość większą lub równą 3. Utwórz [grupę akcji](../platform/action-groups.md) , aby skonfigurować, kto ma otrzymywać powiadomienia o naruszeniu progu alertu.
 
     ![Zapisz interfejs użytkownika alertu](media/tutorial-alert/save-alert-001.png)
 

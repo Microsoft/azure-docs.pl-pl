@@ -6,12 +6,12 @@ ms.author: cshoe
 ms.service: azure-functions
 ms.topic: tutorial
 ms.date: 06/17/2020
-ms.openlocfilehash: 8e37876e0e9666097c3cf16589e64929c670b14a
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: eb3096cadc8197aeda9258bd3123c2eb760a44af
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85390282"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86540285"
 ---
 # <a name="tutorial-establish-azure-functions-private-site-access"></a>Samouczek: ustanawianie Azure Functions dostępu do lokacji prywatnej
 
@@ -68,7 +68,7 @@ Pierwszym krokiem w tym samouczku jest utworzenie nowej maszyny wirtualnej w sie
     | [_Grupa zasobów_](../azure-resource-manager/management/overview.md) | myResourceGroup | Wybierz grupę zasobów, aby zawierała wszystkie zasoby dla tego samouczka.  Korzystanie z tej samej grupy zasobów ułatwia czyszczenie zasobów po zakończeniu pracy z tym samouczkiem. |
     | _Nazwa maszyny wirtualnej_ | myVM | Nazwa maszyny wirtualnej musi być unikatowa w grupie zasobów |
     | [_Region_](https://azure.microsoft.com/regions/) | Prześlij Północno-środkowe stany USA | Wybierz region w sąsiedztwie lub w prawie funkcji do uzyskania dostępu. |
-    | _Publiczne porty wejściowe_ | Brak | Wybierz opcję **Brak** , aby upewnić się, że nie ma połączenia przychodzącego z maszyną wirtualną z Internetu. Dostęp zdalny do maszyny wirtualnej zostanie skonfigurowany za pośrednictwem usługi Azure bastionu. |
+    | _Publiczne porty ruchu przychodzącego_ | Brak | Wybierz opcję **Brak** , aby upewnić się, że nie ma połączenia przychodzącego z maszyną wirtualną z Internetu. Dostęp zdalny do maszyny wirtualnej zostanie skonfigurowany za pośrednictwem usługi Azure bastionu. |
 
 1. Wybierz kartę _Sieć_ i wybierz pozycję **Utwórz nową** , aby skonfigurować nową sieć wirtualną.
 
@@ -91,7 +91,7 @@ Pierwszym krokiem w tym samouczku jest utworzenie nowej maszyny wirtualnej w sie
 1. Na karcie _Sieć_ upewnij się, że dla _publicznego adresu IP_nie wybrano opcji **Brak** .
 1. Wybierz kartę _Zarządzanie_ , a następnie w obszarze _konto magazynu diagnostycznego_wybierz pozycję **Utwórz nowy** , aby utworzyć nowe konto magazynu.
 1. Pozostaw wartości domyślne dla sekcji _tożsamość_, _automatyczne zamykanie_i _kopia zapasowa_ .
-1. Wybierz pozycję _Przegląd + utwórz_. Po zakończeniu walidacji wybierz pozycję **Utwórz**. Proces tworzenia maszyny wirtualnej trwa kilka minut.
+1. Wybierz pozycję _Przeglądanie + tworzenie_. Po zakończeniu walidacji wybierz pozycję **Utwórz**. Proces tworzenia maszyny wirtualnej trwa kilka minut.
 
 ## <a name="configure-azure-bastion"></a>Konfigurowanie usługi Azure bastionu
 
@@ -108,9 +108,9 @@ Pierwszym krokiem w tym samouczku jest utworzenie nowej maszyny wirtualnej w sie
     | Ustawienie      | Sugerowana wartość  | Opis      |
     | ------------ | ---------------- | ---------------- |
     | _Nazwa_ | myBastion | Nazwa nowego zasobu bastionu |
-    | _Region_ | Północno-środkowe stany USA | Wybierz [region](https://azure.microsoft.com/regions/) w swojej okolicy lub w pobliżu innych usług, do których Twoje funkcje uzyskują dostęp. |
+    | _Region_ | Północno-środkowe stany USA | Wybierz [region](https://azure.microsoft.com/regions/) znajdujący się w sąsiedztwie lub w najbliższej usłudze dostęp do funkcji. |
     | _Sieć wirtualna_ | Moja resourceName — Sieć wirtualna | Sieć wirtualna, w której zostanie utworzony zasób bastionu |
-    | _Podsieci_ | AzureBastionSubnet | Podsieć w sieci wirtualnej, w której zostanie wdrożony nowy zasób hosta bastionu. Należy utworzyć podsieć przy użyciu wartości Name **AzureBastionSubnet**. Ta wartość pozwala platformie Azure wiedzieć, która podsieć, do której mają zostać wdrożone zasoby bastionu. Należy użyć podsieci o wartości co najmniej **/27** lub większej (/27,/26 itd.). |
+    | _Podsieć_ | AzureBastionSubnet | Podsieć w sieci wirtualnej, w której zostanie wdrożony nowy zasób hosta bastionu. Należy utworzyć podsieć przy użyciu wartości Name **AzureBastionSubnet**. Ta wartość pozwala platformie Azure wiedzieć, która podsieć, do której mają zostać wdrożone zasoby bastionu. Należy użyć podsieci o wartości co najmniej **/27** lub większej (/27,/26 itd.). |
 
     > [!NOTE]
     > Szczegółowe instrukcje krok po kroku dotyczące tworzenia zasobów usługi Azure bastionu można znaleźć w samouczku [Tworzenie hosta usługi Azure bastionu](../bastion/bastion-create-host-portal.md) .
@@ -139,21 +139,21 @@ Następnym krokiem jest utworzenie aplikacji funkcji na platformie Azure przy u�
     | Ustawienie      | Sugerowana wartość  | Opis      |
     | ------------ | ---------------- | ---------------- |
     | _Grupa zasobów_ | myResourceGroup | Wybierz grupę zasobów, aby zawierała wszystkie zasoby dla tego samouczka.  Korzystanie z tej samej grupy zasobów dla aplikacji funkcji i maszyny wirtualnej ułatwia czyszczenie zasobów po zakończeniu pracy z tym samouczkiem. |
-    | _Nazwa aplikacja funkcji_ | Nazwa unikatowa w skali globalnej | Nazwa identyfikująca nową aplikację funkcji. Prawidłowe znaki to a-z (bez uwzględniania wielkości liter), 0-9 i-. |
+    | _Nazwa aplikacji funkcji_ | Nazwa unikatowa w skali globalnej | Nazwa identyfikująca nową aplikację funkcji. Prawidłowe znaki to a-z (bez uwzględniania wielkości liter), 0-9 i-. |
     | _Publikowanie_ | Kod | Opcja publikowania plików kodu lub kontenera Docker. |
     | _Stos środowiska uruchomieniowego_ | Preferowany język | Wybierz środowisko uruchomieniowe, które obsługuje ulubiony język programowania funkcji. |
-    | _Region_ | Północno-środkowe stany USA | Wybierz [region](https://azure.microsoft.com/regions/) w swojej okolicy lub w pobliżu innych usług, do których Twoje funkcje uzyskują dostęp. |
+    | _Region_ | Północno-środkowe stany USA | Wybierz [region](https://azure.microsoft.com/regions/) znajdujący się w sąsiedztwie lub w najbliższej usłudze dostęp do funkcji. |
 
     Wybierz przycisk **Dalej: Hosting >** .
 1. W sekcji _hosting_ wybierz odpowiednie _konto magazynu_, _system operacyjny_i _Planowanie_ zgodnie z opisem w poniższej tabeli.
 
     | Ustawienie      | Sugerowana wartość  | Opis      |
     | ------------ | ---------------- | ---------------- |
-    | _Konto magazynu_ | Nazwa unikatowa w skali globalnej | Utwórz konto magazynu używane przez aplikację funkcji. Nazwy kont usługi Magazyn muszą mieć długość od 3 do 24 znaków i mogą zawierać tylko cyfry i małe litery. Możesz również użyć istniejącego konta, które musi spełniać [wymagania dotyczące konta magazynu](./functions-scale.md#storage-account-requirements). |
+    | _Konto magazynu_ | Nazwa unikatowa w skali globalnej | Utwórz konto magazynu używane przez aplikację funkcji. Nazwy kont usługi Storage muszą mieć długość od 3 do 24 znaków i mogą zawierać tylko cyfry i małe litery. Możesz również użyć istniejącego konta, które musi spełniać [wymagania dotyczące konta magazynu](./functions-scale.md#storage-account-requirements). |
     | _System operacyjny_ | Preferowany system operacyjny | System operacyjny jest wstępnie wybrany na podstawie wybranego stosu środowiska uruchomieniowego, ale w razie potrzeby można zmienić to ustawienie. |
     | _Planowanie_ | Zużycie | [Plan hostingu](./functions-scale.md) określa, jak aplikacja funkcji jest skalowana i jakie zasoby są dostępne dla każdego wystąpienia. |
 1. Wybierz pozycję **Przegląd + Utwórz** , aby przejrzeć wybrane opcje konfiguracji aplikacji.
-1. Wybierz pozycję **Utwórz**, aby zaaprowizować aplikację funkcji i wdrożyć ją.
+1. Wybierz pozycję **Utwórz**, aby zaaprowizować i wdrożyć aplikację funkcji.
 
 ## <a name="configure-access-restrictions"></a>Konfigurowanie ograniczeń dostępu
 
@@ -195,9 +195,9 @@ Następnym krokiem w tym samouczku jest utworzenie funkcji platformy Azure wyzwa
 1. Wykonaj jeden z następujących przewodników Szybki Start, aby utworzyć i wdrożyć aplikację Azure Functions.
 
     * [Visual Studio Code](./functions-create-first-function-vs-code.md)
-    * [Program Visual Studio](./functions-create-your-first-function-visual-studio.md)
+    * [Visual Studio](./functions-create-your-first-function-visual-studio.md)
     * [Wiersz polecenia](./functions-create-first-azure-function-azure-cli.md)
-    * [Maven (Java)](./functions-create-first-java-maven.md)
+    * [Maven (Java)](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-java&tabs=bash,browser)
 
 1. Podczas publikowania Azure Functions projektu wybierz zasób aplikacji funkcji, który został utworzony wcześniej w tym samouczku.
 1. Sprawdź, czy funkcja została wdrożona.

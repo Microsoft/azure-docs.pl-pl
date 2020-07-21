@@ -8,12 +8,12 @@ ms.author: maheff
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 05/05/2020
-ms.openlocfilehash: 25df5f37f8aef55bc025b579ec48a2fab7dd6b72
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
+ms.openlocfilehash: 0ad3e6dbb63d7c89919d6d341bd62c5d57960a43
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85080169"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86511657"
 ---
 # <a name="tutorial-ai-generated-searchable-content-from-azure-blobs-using-the-net-sdk"></a>Samouczek: wygenerowane przez program AI zawartość do przeszukiwania z obiektów blob platformy Azure przy użyciu zestawu .NET SDK
 
@@ -33,7 +33,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Otwórz [bezpł
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 + [Azure Storage](https://azure.microsoft.com/services/storage/)
-+ [Program Visual Studio](https://visualstudio.microsoft.com/downloads/)
++ [Visual Studio](https://visualstudio.microsoft.com/downloads/)
 + [Utwórz](search-create-service-portal.md) lub [Znajdź istniejącą usługę wyszukiwania](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) 
 
 > [!Note]
@@ -560,10 +560,13 @@ W tej sekcji zdefiniujesz schemat indeksu przez określenie pól do umieszczenia
 
 W tym ćwiczeniu są używane następujące pola i typy pól:
 
-| field-names: | `id`       | zawartość   | languageCode | keyPhrases         | organizations     |
-|--------------|----------|-------|----------|--------------------|-------------------|
-| field-types: | Edm.String|Edm.String| Edm.String| List<Edm.String>  | List<Edm.String>  |
-
+| Nazwy pól | Typy pól |
+| --- | --- |
+| identyfikator | Edm.String |
+| zawartość | Edm.String |
+| languageCode | Edm.String |
+| keyPhrases | List<Edm.String> |
+| organizations | List<Edm.String> |
 
 #### <a name="create-demoindex-class"></a>Utwórz klasę DemoIndex
 
@@ -897,7 +900,7 @@ Ponadto przedstawiono sposób testowania wyników i resetowania systemu na potrz
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Gdy Pracujesz w ramach własnej subskrypcji, na końcu projektu warto usunąć zasoby, które nie są już potrzebne. Nadal uruchomione zasoby mogą generować koszty. Zasoby możesz usuwać pojedynczo lub możesz usunąć grupę zasobów, aby usunąć cały ich zestaw.
+Gdy Pracujesz w ramach własnej subskrypcji, na końcu projektu warto usunąć zasoby, które nie są już potrzebne. Uruchomione zasoby mogą generować koszty. Zasoby możesz usuwać pojedynczo lub jako grupę zasobów, usuwając cały zestaw zasobów.
 
 Zasoby można znaleźć w portalu i zarządzać nimi za pomocą linku wszystkie zasoby lub grupy zasobów w okienku nawigacji po lewej stronie.
 

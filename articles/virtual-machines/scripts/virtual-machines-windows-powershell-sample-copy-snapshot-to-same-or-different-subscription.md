@@ -1,5 +1,5 @@
 ---
-title: Kopiowanie migawki dysku zarządzanego do subskrypcji — przykład programu PowerShell
+title: Migawka dysku zarządzanego do subskrypcji (Windows) — PowerShell
 description: Przykładowy skrypt programu Azure PowerShell — kopiowanie (przenoszenie) migawki dysku zarządzanego do tej samej lub innej subskrypcji
 services: virtual-machines-windows
 documentationcenter: storage
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 02/28/2019
 ms.author: ramankum
-ms.openlocfilehash: d5f110d8cf3324fa02a5b2e2500f743c57b1d229
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 0dadb4102a16d63b028e7202e2d7a94f135d06bb
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81452285"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86501070"
 ---
-# <a name="copy-snapshot-of-a-managed-disk-in-same-subscription-or-different-subscription-with-powershell"></a>Kopiowanie migawki dysku zarządzanego do tej samej lub innej subskrypcji przy użyciu programu PowerShell
+# <a name="copy-snapshot-of-a-managed-disk-in-same-subscription-or-different-subscription-with-powershell-windows"></a>Kopiowanie migawki dysku zarządzanego w ramach tej samej subskrypcji lub innej subskrypcji przy użyciu programu PowerShell (Windows)
 
 Ten skrypt kopiuje migawkę dysku zarządzanego do tej samej lub innej subskrypcji. Użyj tego skryptu w następujących scenariuszach:
 
@@ -44,8 +44,8 @@ Ten skrypt używa następujących poleceń w celu utworzenia migawki w subskrypc
 
 | Polecenie | Uwagi |
 |---|---|
-| [New-AzSnapshotConfig](https://docs.microsoft.com/powershell/module/az.compute/New-AzSnapshotConfig) | Tworzy konfigurację migawki, która służy do tworzenia migawki. Zawiera identyfikator zasobu migawki nadrzędnej oraz lokalizację, która jest taka sama jak lokalizacja migawki nadrzędnej.  |
-| [New-AzSnapshot](https://docs.microsoft.com/powershell/module/az.compute/new-azsnapshot) | Tworzy migawkę przy użyciu konfiguracji migawki, nazwy migawki i nazwy grupy zasobów przekazywanych jako parametry. |
+| [New-AzSnapshotConfig](/powershell/module/az.compute/new-azsnapshotconfig) | Tworzy konfigurację migawki, która służy do tworzenia migawki. Zawiera identyfikator zasobu migawki nadrzędnej oraz lokalizację, która jest taka sama jak lokalizacja migawki nadrzędnej.  |
+| [New-AzSnapshot](/powershell/module/az.compute/new-azsnapshot) | Tworzy migawkę przy użyciu konfiguracji migawki, nazwy migawki i nazwy grupy zasobów przekazywanych jako parametry. |
 
 ## <a name="next-steps"></a>Następne kroki
 

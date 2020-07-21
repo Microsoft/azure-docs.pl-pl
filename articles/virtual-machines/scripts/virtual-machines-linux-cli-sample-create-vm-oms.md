@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 02/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 211d81b2ceec985844ed7abf7b8fc4d3e30dcca5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 90b8e4273b44b46372f85f05ee48072a5e387a21
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81459937"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86501470"
 ---
 # <a name="monitor-a-vm-with-azure-monitor"></a>Monitorowanie maszyny wirtualnej za pomocą Azure Monitor
 
@@ -48,13 +48,13 @@ Ten skrypt zawiera następujące polecenia służące do tworzenia grupy zasobó
 
 | Polecenie | Uwagi |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group) | Tworzy grupę zasobów, w której są przechowywane wszystkie zasoby. |
-| [az vm create](https://docs.microsoft.com/cli/azure/vm) | Tworzy maszynę wirtualną i łączy ją z kartą sieciową, siecią wirtualną, podsiecią i sieciową grupą zabezpieczeń. To polecenie określa również obraz maszyny wirtualnej do użycia oraz poświadczenia administracyjne.  |
-| [azure vm extension set](https://docs.microsoft.com/cli/azure/vm/extension) | Uruchamia rozszerzenie maszyny wirtualnej względem maszyny wirtualnej. W takim przypadku rozszerzenie agenta Azure Monitor służy do instalowania agenta Log Analytics i rejestrowania maszyny wirtualnej w obszarze roboczym Log Analytics. |
-| [az group delete](https://docs.microsoft.com/cli/azure/vm/extension) | Usuwa grupę zasobów wraz ze wszystkimi zagnieżdżonymi zasobami. |
+| [az group create](/cli/azure/group) | Tworzy grupę zasobów, w której są przechowywane wszystkie zasoby. |
+| [az vm create](/cli/azure/vm) | Tworzy maszynę wirtualną i łączy ją z kartą sieciową, siecią wirtualną, podsiecią i sieciową grupą zabezpieczeń. To polecenie określa również obraz maszyny wirtualnej do użycia oraz poświadczenia administracyjne.  |
+| [azure vm extension set](/cli/azure/vm/extension) | Uruchamia rozszerzenie maszyny wirtualnej względem maszyny wirtualnej. W takim przypadku rozszerzenie agenta Azure Monitor służy do instalowania agenta Log Analytics i rejestrowania maszyny wirtualnej w obszarze roboczym Log Analytics. |
+| [az group delete](/cli/azure/vm/extension) | Usuwa grupę zasobów wraz ze wszystkimi zagnieżdżonymi zasobami. |
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji na temat interfejsu wiersza polecenia platformy Azure, zobacz [dokumentację interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure).
+Aby uzyskać więcej informacji na temat interfejsu wiersza polecenia platformy Azure, zobacz [dokumentację interfejsu wiersza polecenia platformy Azure](/cli/azure).
 
 Więcej przykładowych skryptów interfejsu wiersza polecenia maszyny wirtualnej można znaleźć w [dokumentacji dotyczącej maszyny wirtualnej platformy Azure z systemem Linux](../linux/cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

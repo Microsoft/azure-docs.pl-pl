@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 03/09/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: c7260730ccf94e909238c116cb77572463550ed9
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 18ceab0b7a16362ddefe841b8e5bc6c4b5bc5bf6
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81458561"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86501419"
 ---
 # <a name="create-a-vm-with-a-virtual-hard-disk"></a>Tworzenie maszyny wirtualnej przy użyciu wirtualnego dysku twardego
 
@@ -52,19 +52,19 @@ Ten skrypt zawiera następujące polecenia służące do tworzenia grupy zasobó
 
 | Polecenie | Uwagi |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group) | Tworzy grupę zasobów, w której są przechowywane wszystkie zasoby. |
-| [az storage account list](https://docs.microsoft.com/cli/azure/storage/account) | Wyświetla listę kont magazynu |
-| [az storage account check-name](https://docs.microsoft.com/cli/azure/storage/account) | Sprawdza, czy nazwa konta magazynu jest prawidłowa i czy już nie istnieje |
-| [az storage account keys list](https://docs.microsoft.com/cli/azure/storage/account/keys) | Wyświetla listę kluczy kont magazynu |
-| [az storage blob exists](https://docs.microsoft.com/cli/azure/storage/blob) | Sprawdza, czy obiekt blob istnieje |
-| [az storage container create](https://docs.microsoft.com/cli/azure/storage/container) | Tworzy kontener na koncie magazynu. |
-| [az storage blob upload](https://docs.microsoft.com/cli/azure/storage/blob) | Tworzy obiekt blob w kontenerze, przekazując dysk VHD. |
-| [az vm list](https://docs.microsoft.com/cli/azure/vm) | Używane z opcją `--query` w celu sprawdzenia, czy nazwa maszyny wirtualnej jest już w użyciu. | 
-| [az vm create](https://docs.microsoft.com/cli/azure/vm/availability-set) | Tworzy maszyny wirtualne. |
-| [az vm list-ip-addresses](https://docs.microsoft.com/cli/azure/vm#az-vm-list-ip-addresses) | Pobiera adres IP utworzonej maszyny wirtualnej. |
+| [az group create](/cli/azure/group) | Tworzy grupę zasobów, w której są przechowywane wszystkie zasoby. |
+| [az storage account list](/cli/azure/storage/account) | Wyświetla listę kont magazynu |
+| [az storage account check-name](/cli/azure/storage/account) | Sprawdza, czy nazwa konta magazynu jest prawidłowa i czy już nie istnieje |
+| [az storage account keys list](/cli/azure/storage/account/keys) | Wyświetla listę kluczy kont magazynu |
+| [az storage blob exists](/cli/azure/storage/blob) | Sprawdza, czy obiekt blob istnieje |
+| [az storage container create](/cli/azure/storage/container) | Tworzy kontener na koncie magazynu. |
+| [az storage blob upload](/cli/azure/storage/blob) | Tworzy obiekt blob w kontenerze, przekazując dysk VHD. |
+| [az vm list](/cli/azure/vm) | Używane z opcją `--query` w celu sprawdzenia, czy nazwa maszyny wirtualnej jest już w użyciu. | 
+| [az vm create](/cli/azure/vm/availability-set) | Tworzy maszyny wirtualne. |
+| [az vm list-ip-addresses](/cli/azure/vm#az-vm-list-ip-addresses) | Pobiera adres IP utworzonej maszyny wirtualnej. |
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji na temat interfejsu wiersza polecenia platformy Azure, zobacz [dokumentację interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure).
+Aby uzyskać więcej informacji na temat interfejsu wiersza polecenia platformy Azure, zobacz [dokumentację interfejsu wiersza polecenia platformy Azure](/cli/azure).
 
 Więcej przykładowych skryptów interfejsu wiersza polecenia maszyny wirtualnej można znaleźć w [dokumentacji dotyczącej maszyny wirtualnej platformy Azure z systemem Linux](../linux/cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

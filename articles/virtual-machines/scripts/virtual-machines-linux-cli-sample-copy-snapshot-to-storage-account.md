@@ -1,5 +1,5 @@
 ---
-title: Kopiowanie migawki do konta magazynu w innym regionie — przykład interfejsu wiersza polecenia
+title: Kopiowanie migawki do konta magazynu w innym regionie — przykład interfejsu wiersza polecenia systemu Linux
 description: Przykładowy skrypt interfejsu wiersza polecenia platformy Azure — eksportowanie/kopiowanie migawki jako dysku VHD na konto magazynu w tym samym lub innym regionie.
 services: virtual-machines-linux
 documentationcenter: storage
@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 05/19/2017
 ms.author: ramankum
 ms.custom: mvc,seodec18
-ms.openlocfilehash: 42a516f3c52d7548d08f72687e9f233620a39287
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 42785cdb6fd866ccf7eafbd802552ea9cb2c93a4
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81458621"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86509764"
 ---
 # <a name="exportcopy-a-snapshot-to-a-storage-account-in-different-region-with-cli"></a>Eksportowanie/kopiowanie migawki na konto magazynu w innym regionie przy użyciu interfejsu wiersza polecenia
 
@@ -42,8 +42,8 @@ Ten skrypt używa poniższych poleceń do generowania identyfikatora URI sygnatu
 
 | Polecenie | Uwagi |
 |---|---|
-| [az snapshot grant-access](https://docs.microsoft.com/cli/azure/snapshot) | Generuje sygnaturę dostępu współdzielonego tylko do odczytu, która jest używana do kopiowania odpowiedniego pliku VHD do konta magazynu lub pobierania go do środowiska lokalnego  |
-| [az storage blob copy start](https://docs.microsoft.com/cli/azure/storage/blob/copy) | Asynchronicznie kopiuje obiekt blob z jednego konta magazynu do innego |
+| [az snapshot grant-access](/cli/azure/snapshot) | Generuje sygnaturę dostępu współdzielonego tylko do odczytu, która jest używana do kopiowania odpowiedniego pliku VHD do konta magazynu lub pobierania go do środowiska lokalnego  |
+| [az storage blob copy start](/cli/azure/storage/blob/copy) | Asynchronicznie kopiuje obiekt blob z jednego konta magazynu do innego |
 
 ## <a name="next-steps"></a>Następne kroki
 
@@ -51,6 +51,6 @@ Ten skrypt używa poniższych poleceń do generowania identyfikatora URI sygnatu
 
 [Tworzenie maszyny wirtualnej na podstawie dysku zarządzanego](./virtual-machines-linux-cli-sample-create-vm-from-managed-os-disks.md?toc=%2fcli%2fmodule%2ftoc.json)
 
-Aby uzyskać więcej informacji na temat interfejsu wiersza polecenia platformy Azure, zobacz [dokumentację interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure).
+Aby uzyskać więcej informacji na temat interfejsu wiersza polecenia platformy Azure, zobacz [dokumentację interfejsu wiersza polecenia platformy Azure](/cli/azure).
 
 Więcej przykładowych skryptów interfejsu wiersza polecenia dysków zarządzanych i maszyny wirtualnej można znaleźć w [dokumentacji dotyczącej maszyny wirtualnej platformy Azure z systemem Linux](../linux/cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

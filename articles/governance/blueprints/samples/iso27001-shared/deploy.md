@@ -1,13 +1,14 @@
 ---
 title: Przykład wdrażania planu wspólnych usług ISO 27001
 description: Wdróż kroki dla przykładu planu usług udostępnionych ISO 27001, w tym szczegóły parametru artefaktu strategii.
-ms.date: 01/13/2020
+ms.date: 07/13/2020
 ms.topic: sample
-ms.openlocfilehash: 19e394f115c87c499f7839c6ef63921e68f4d357
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 0f2fa71e56deadba1188ab0fa69898c261861eb5
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86044706"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86521466"
 ---
 # <a name="deploy-the-iso-27001-shared-services-blueprint-sample"></a>Wdróż przykład strategii usług udostępnionych ISO 27001
 
@@ -61,7 +62,7 @@ Po pomyślnym **opublikowaniu**kopii przykładowej strategii można ją przypisa
 
 1. Podaj wartości parametrów dla przypisania planu:
 
-   - Informacje podstawowe
+   - Podstawy
 
      - **Subskrypcje**: Wybierz co najmniej jedną subskrypcję znajdującą się w grupie zarządzania, do której została zapisana kopia przykładu planu. W przypadku wybrania więcej niż jednej subskrypcji zostanie utworzone przypisanie dla każdego z nich przy użyciu wprowadzonych parametrów.
      - **Nazwa przypisania**: nazwa jest wstępnie wypełniona dla Ciebie na podstawie nazwy planu.
@@ -102,14 +103,14 @@ Poniższa tabela zawiera listę parametrów artefaktów strategii:
 
 |Nazwa artefaktu|Typ artefaktu|Nazwa parametru|Opis|
 |-|-|-|-|
-|\[Wersja zapoznawcza \] : wdrażanie log Analytics agenta dla systemu Linux VM Scale Sets (VMSS)|Przypisywanie zasad|Opcjonalnie: lista obrazów maszyn wirtualnych z obsługiwanym systemem operacyjnym Linux do dodania do zakresu|Obowiązkowe Wartość domyślna to _["Brak"]_.|
-|\[Wersja zapoznawcza \] : wdrażanie agenta log Analytics dla maszyn wirtualnych z systemem Linux|Przypisywanie zasad|Opcjonalnie: lista obrazów maszyn wirtualnych z obsługiwanym systemem operacyjnym Linux do dodania do zakresu|Obowiązkowe Wartość domyślna to _["Brak"]_.|
-|\[Wersja zapoznawcza \] : wdrażanie log Analytics agenta dla systemu Windows VM Scale Sets (VMSS)|Przypisywanie zasad|Opcjonalnie: lista obrazów maszyn wirtualnych z obsługiwanym systemem operacyjnym Windows do dodania do zakresu|Obowiązkowe Wartość domyślna to _["Brak"]_.|
-|\[Wersja zapoznawcza \] : wdrażanie agenta log Analytics dla maszyn wirtualnych z systemem Windows|Przypisywanie zasad|Opcjonalnie: lista obrazów maszyn wirtualnych z obsługiwanym systemem operacyjnym Windows do dodania do zakresu|Obowiązkowe Wartość domyślna to _["Brak"]_.|
-|Dozwolone typy zasobów|Przypisywanie zasad|Dozwolone typy zasobów|Lista typów zasobów, które mogą zostać wdrożone. Ta lista składa się ze wszystkich typów zasobów wdrożonych w usługach udostępnionych.|
-|Dozwolone jednostki SKU konta magazynu|Przypisywanie zasad|Dozwolone jednostki SKU magazynu|Lista dzienników diagnostycznych — dozwolone jednostki SKU konta magazynu. Wartość domyślna to _["Standard_LRS"]_.|
-|Dozwolone jednostki SKU maszyny wirtualnej|Przypisywanie zasad|Lista jednostek SKU maszyn wirtualnych, które mogą zostać wdrożone. Wartość domyślna to _["Standard_DS1_v2", "Standard_DS2_v2"]_.|
-|Inicjatywa strategii dla ISO 27001|Przypisywanie zasad|Typy zasobów do inspekcji dzienników diagnostycznych|Lista typów zasobów do inspekcji, jeśli nie włączono ustawienia dziennika diagnostycznego. Akceptowalne wartości można znaleźć Azure Monitor w obszarze [schematy dzienników diagnostycznych](../../../../azure-monitor/platform/resource-logs-schema.md#service-specific-schemas).|
+|\[Wersja zapoznawcza \] : wdrażanie log Analytics agenta dla systemu Linux VM Scale Sets (VMSS)|Przypisanie zasad|Opcjonalnie: lista obrazów maszyn wirtualnych z obsługiwanym systemem operacyjnym Linux do dodania do zakresu|Obowiązkowe Wartość domyślna to _["Brak"]_.|
+|\[Wersja zapoznawcza \] : wdrażanie agenta log Analytics dla maszyn wirtualnych z systemem Linux|Przypisanie zasad|Opcjonalnie: lista obrazów maszyn wirtualnych z obsługiwanym systemem operacyjnym Linux do dodania do zakresu|Obowiązkowe Wartość domyślna to _["Brak"]_.|
+|\[Wersja zapoznawcza \] : wdrażanie log Analytics agenta dla systemu Windows VM Scale Sets (VMSS)|Przypisanie zasad|Opcjonalnie: lista obrazów maszyn wirtualnych z obsługiwanym systemem operacyjnym Windows do dodania do zakresu|Obowiązkowe Wartość domyślna to _["Brak"]_.|
+|\[Wersja zapoznawcza \] : wdrażanie agenta log Analytics dla maszyn wirtualnych z systemem Windows|Przypisanie zasad|Opcjonalnie: lista obrazów maszyn wirtualnych z obsługiwanym systemem operacyjnym Windows do dodania do zakresu|Obowiązkowe Wartość domyślna to _["Brak"]_.|
+|Dozwolone typy zasobów|Przypisanie zasad|Dozwolone typy zasobów|Lista typów zasobów, które mogą zostać wdrożone. Ta lista składa się ze wszystkich typów zasobów wdrożonych w usługach udostępnionych.|
+|Dozwolone jednostki SKU konta magazynu|Przypisanie zasad|Dozwolone jednostki SKU magazynu|Lista dzienników diagnostycznych — dozwolone jednostki SKU konta magazynu. Wartość domyślna to _["Standard_LRS"]_.|
+|Dozwolone jednostki SKU maszyny wirtualnej|Przypisanie zasad|Lista jednostek SKU maszyn wirtualnych, które mogą zostać wdrożone. Wartość domyślna to _["Standard_DS1_v2", "Standard_DS2_v2"]_.|
+|Inicjatywa strategii dla ISO 27001|Przypisanie zasad|Typy zasobów do inspekcji dzienników diagnostycznych|Lista typów zasobów do inspekcji, jeśli nie włączono ustawienia dziennika diagnostycznego. Akceptowalne wartości można znaleźć Azure Monitor w obszarze [schematy dzienników diagnostycznych](../../../../azure-monitor/platform/resource-logs-schema.md#service-specific-schemas).|
 |Grupa zasobów Log Analytics|Grupa zasobów|Nazwa|**Zablokowany** — łączy **nazwę organizacji** z, `-sharedsvsc-log-rg` Aby uczynić grupę zasobów unikatową.|
 |Grupa zasobów Log Analytics|Grupa zasobów|Lokalizacja|**Zablokowany** — używa parametru strategii.|
 |Szablon Log Analytics|Szablon usługi Resource Manager|Warstwa usług|Ustawia warstwę obszaru roboczego Log Analytics. Wartość domyślna to _PerNode_.|

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 06/05/2017
 ms.author: ramankum
-ms.openlocfilehash: 540ad6e820a909f86b43d1957d8abb407a0606d8
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: da3b80dc2d313b38cc8e505c0e18586c26a7d5db
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81460342"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86501249"
 ---
 # <a name="exportcopy-managed-snapshots-as-vhd-to-a-storage-account-in-different-region-with-powershell"></a>Eksportowanie/kopiowanie zarządzanych migawek jako dysku VHD do konta magazynu w innym regionie przy użyciu programu PowerShell
 
@@ -41,9 +41,9 @@ Ten skrypt używa poniższych poleceń do generowania identyfikatora URI sygnatu
 
 | Polecenie | Uwagi |
 |---|---|
-| [Grant-AzSnapshotAccess](https://docs.microsoft.com/powershell/module/az.compute/New-AzDisk) | Generuje identyfikator URI sygnatury dostępu współdzielonego dla migawki używanej w celu skopiowania jej do konta magazynu. |
-| [New-AzureStorageContext](https://docs.microsoft.com/powershell/module/azure.storage/New-AzureStorageContext) | Tworzy kontekst konta magazynu przy użyciu nazwy konta i klucza. Ten kontekst umożliwia wykonywanie operacji odczytu/zapisu na koncie magazynu. |
-| [Start-AzureStorageBlobCopy](https://docs.microsoft.com/powershell/module/azure.storage/Start-AzureStorageBlobCopy) | Kopiuje odpowiedni wirtualny dysk twardy migawki na konto magazynu |
+| [Grant-AzSnapshotAccess](/powershell/module/az.compute/new-azdisk) | Generuje identyfikator URI sygnatury dostępu współdzielonego dla migawki używanej w celu skopiowania jej do konta magazynu. |
+| [New-AzureStorageContext](/powershell/module/azure.storage/new-azurestoragecontext) | Tworzy kontekst konta magazynu przy użyciu nazwy konta i klucza. Ten kontekst umożliwia wykonywanie operacji odczytu/zapisu na koncie magazynu. |
+| [Start-AzureStorageBlobCopy](/powershell/module/azure.storage/start-azurestorageblobcopy) | Kopiuje odpowiedni wirtualny dysk twardy migawki na konto magazynu |
 
 ## <a name="next-steps"></a>Następne kroki
 

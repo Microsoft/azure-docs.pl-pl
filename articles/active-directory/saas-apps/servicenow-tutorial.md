@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 06/19/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 41f42b053181f4115770cd9973621706b248baab
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: a09cc83259a6fbb07b8c88e1d8f82b720400c0d1
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86168307"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86507747"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-servicenow"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą usługi ServiceNow
 
@@ -43,6 +43,9 @@ Aby rozpocząć, potrzebne są następujące elementy:
 * W dzierżawie usługi ServiceNow musi być włączona wtyczka [Multiple Provider Single Sign On Plugin](https://wiki.servicenow.com/index.php?title=Multiple_Provider_Single_Sign-On#gsc.tab=0) (wtyczka logowania jednokrotnego u wielu dostawców). W tym celu można [przesłać żądanie obsługi](https://hi.service-now.com).
 * W przypadku konfiguracji automatycznej włącz wtyczkę wielu dostawców dla usługi ServiceNow.
 * Aby zainstalować klasyczną aplikację usługi ServiceNow (Mobile), przejdź do odpowiedniego magazynu i Wyszukaj aplikację klasyczną usługi ServiceNow. Następnie pobierz go.
+
+> [!NOTE]
+> Ta integracja jest również dostępna do użycia w środowisku chmury dla instytucji rządowych USA usługi Azure AD. Tę aplikację można znaleźć w galerii aplikacji w chmurze dla instytucji rządowych USA usługi Azure AD i skonfigurować ją w taki sam sposób, jak w przypadku chmury publicznej.
 
 ## <a name="scenario-description"></a>Opis scenariusza
 
@@ -101,8 +104,10 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
     c. W polu **adres URL odpowiedzi**wprowadź jeden z następujących adresów URL:
 
-    - `https://instancename.service-now.com/navpage.do`
-    - `https://instancename.service-now.com/customer.do`
+    | Adres URL odpowiedzi|
+    |----------|
+    | `https://instancename.service-now.com/navpage.do` |
+    | `https://instancename.service-now.com/customer.do` | 
 
     > [!NOTE]
     > To nie są rzeczywiste wartości. Należy zaktualizować te wartości przy użyciu rzeczywistego adresu URL logowania i identyfikatora, który jest wyjaśniony w dalszej części tego samouczka. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
@@ -171,8 +176,10 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
     c. W polu **adres URL odpowiedzi**wprowadź jeden z następujących adresów URL:
 
-    - `https://instancename.service-now.com/navpage.do`
-    - `https://instancename.service-now.com/customer.do`
+    | Adres URL odpowiedzi |
+    |-----------|
+    | `https://instancename.service-now.com/navpage.do` |
+    | `https://instancename.service-now.com/customer.do` |
 
     > [!NOTE]
     > To nie są rzeczywiste wartości. Należy zaktualizować te wartości przy użyciu rzeczywistego adresu URL logowania i identyfikatora, który jest wyjaśniony w dalszej części tego samouczka. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
@@ -475,7 +482,7 @@ Po wybraniu kafelka usługi ServiceNow w panelu dostępu należy automatycznie z
 
         ![Zrzut ekranu przedstawiający stronę główną aplikacji](./media/servicenow-tutorial/test02.png)
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 

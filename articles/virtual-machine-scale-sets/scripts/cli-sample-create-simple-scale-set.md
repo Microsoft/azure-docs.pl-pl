@@ -9,12 +9,12 @@ ms.subservice: cli
 ms.date: 06/25/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: c2c1ea09d10ee177a722a56f6825db0f37da7e9b
-ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
+ms.openlocfilehash: 1456301f1cc1da33835206e10dc1550ed8fcbbf2
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85374677"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86503068"
 ---
 # <a name="create-a-virtual-machine-scale-set-with-the-azure-cli"></a>Tworzenie zestawu skalowania maszyn wirtualnych przy użyciu interfejsu wiersza polecenia platformy Azure
 Ten skrypt umożliwia utworzenie zestawu skalowania maszyn wirtualnych platformy Azure z systemem operacyjnym Ubuntu i powiązanymi zasobami sieciowymi łącznie z modułem równoważenia obciążenia. Po uruchomieniu skryptu dostęp do wystąpień maszyn wirtualnych możesz uzyskać za pomocą protokołu SSH.
@@ -43,4 +43,4 @@ Ten skrypt zawiera następujące polecenia służące do tworzenia grupy zasobó
 | [az group delete](/cli/azure/ad/group) | Usuwa grupę zasobów wraz ze wszystkimi zagnieżdżonymi zasobami. |
 
 ## <a name="next-steps"></a>Następne kroki
-Aby uzyskać więcej informacji na temat interfejsu wiersza polecenia platformy Azure, zobacz [dokumentację interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/overview).
+Aby uzyskać więcej informacji na temat interfejsu wiersza polecenia platformy Azure, zobacz [dokumentację interfejsu wiersza polecenia platformy Azure](/cli/azure/overview).

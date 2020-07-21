@@ -6,12 +6,12 @@ ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 12/15/2019
-ms.openlocfilehash: d356042d65c419163de4951e64a635a22ea90e6d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: f2c780ffb7705575bf1bb5cabb6a09d9dabc0690
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78269188"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505843"
 ---
 # <a name="tutorial-collect-and-analyze-resource-logs-from-an-azure-resource"></a>Samouczek: zbieranie i analizowanie dzienników zasobów z zasobów platformy Azure
 
@@ -31,7 +31,7 @@ Do wykonania czynności w tym samouczku potrzebny jest zasób platformy Azure do
 
 
 ## <a name="log-in-to-azure"></a>Zaloguj się do platformy Azure.
-Zaloguj się do Azure Portal pod adresem [https://portal.azure.com](https://portal.azure.com).
+Zaloguj się do Azure Portal pod adresem [https://portal.azure.com](https://portal.azure.com) .
 
 
 ## <a name="create-a-workspace"></a>Tworzenie obszaru roboczego
@@ -86,7 +86,7 @@ Dane są pobierane z obszaru roboczego Log Analytics przy użyciu zapytania dzie
    
     ![Dzienniki](media/tutorial-resource-logs/logs.png)
 
-4. Usługa pokazana w przykładzie zapisuje dzienniki zasobów w tabeli **AzureDiagnostics** , ale inne usługi mogą zapisywać w innych tabelach. Zapoznaj się z [obsługiwanymi usługami, schematami i kategoriami dzienników zasobów platformy Azure](../platform/diagnostic-logs-schema.md) dla tabel używanych przez różne usługi platformy Azure.
+4. Usługa pokazana w przykładzie zapisuje dzienniki zasobów w tabeli **AzureDiagnostics** , ale inne usługi mogą zapisywać w innych tabelach. Zapoznaj się z [obsługiwanymi usługami, schematami i kategoriami dzienników zasobów platformy Azure](../platform/resource-logs-schema.md) dla tabel używanych przez różne usługi platformy Azure.
 
     > [!NOTE]
     > Wiele usług zapisuje dzienniki zasobów w tabeli AzureDiagnostics. Po rozpoczęciu Log Analytics z menu Azure Monitor, należy dodać `where` instrukcję z `ResourceProvider` kolumną, aby określić konkretną usługę. Po rozpoczęciu Log Analytics z menu zasobów zakres jest ustawiany na tylko rekordy z tego zasobu, więc ta kolumna nie jest wymagana. Zapoznaj się z dokumentacją usługi dla przykładowych zapytań.
@@ -104,4 +104,4 @@ Dane są pobierane z obszaru roboczego Log Analytics przy użyciu zapytania dzie
 Teraz, gdy wiesz już, jak zbierać dzienniki zasobów w obszarze roboczym Log Analytics, Ukończ samouczek dotyczący pisania zapytań dzienników w celu przeanalizowania tych danych.
 
 > [!div class="nextstepaction"]
-> [Wprowadzenie do zapytań dzienników w Azure Monitor](../log-query/get-started-queries.md)
+> [Wprowadzenie do zapytań dotyczących dzienników w usłudze Azure Monitor](../log-query/get-started-queries.md)

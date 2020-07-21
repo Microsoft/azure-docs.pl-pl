@@ -1,5 +1,5 @@
 ---
-title: Eksportuj/Kopiuj dysk VHD dysku zarządzanego do konta magazynu w innym regionie — przykład programu PowerShell
+title: Dysk zarządzany dysku VHD do konta innego regionu (Linux) — PowerShell
 description: Przykładowy skrypt programu Azure PowerShell — eksportowanie/kopiowanie wirtualnego dysku twardego dysku zarządzanego na konto magazynu w tym samym lub innym regionie
 services: virtual-machines-linux
 documentationcenter: storage
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/17/2018
 ms.author: ramankum
-ms.openlocfilehash: ad143bd94e1a8a556ca8f08b8377ecffdbd8b017
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 22ae5c86b6fa106bccfd436c362172a6e3c2245d
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81459737"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86501266"
 ---
-# <a name="exportcopy-the-vhd-of-a-managed-disk-to-a-storage-account-in-different-region-with-powershell"></a>Eksportowanie/kopiowanie wirtualnego dysku twardego dysku zarządzanego na konto magazynu w innym regionie przy użyciu programu PowerShell
+# <a name="exportcopy-the-vhd-of-a-managed-disk-to-a-storage-account-in-different-region-with-powershell-linux"></a>Eksportuj/Kopiuj dysk VHD dysku zarządzanego do konta magazynu w innym regionie przy użyciu programu PowerShell (Linux)
 
 Ten skrypt umożliwia wyeksportowanie wirtualnego dysku twardego dysku zarządzanego na konto magazynu w innym regionie. Najpierw generuje on identyfikator URI sygnatury dostępu współdzielonego dysku zarządzanego, a następnie używa go do skopiowania odpowiedniego wirtualnego dysku twardego na konto magazynu w innym regionie. Ten skrypt umożliwia kopiowanie dysków zarządzanych do innego regionu w celu zwiększenia liczby regionów.  
 
@@ -41,9 +41,9 @@ Ten skrypt generuje identyfikator URI sygnatury dostępu współdzielonego dysku
 
 | Polecenie | Uwagi |
 |---|---|
-| [Grant-AzDiskAccess](https://docs.microsoft.com/powershell/module/az.compute/grant-azdiskaccess) | Generuje identyfikator URI sygnatury dostępu współdzielonego dla dysku zarządzanego, który umożliwia skopiowanie odpowiedniego wirtualnego dysku twardego na konto magazynu. |
-| [New-AzureStorageContext](https://docs.microsoft.com/powershell/module/azure.storage/New-AzureStorageContext) | Tworzy kontekst konta magazynu przy użyciu nazwy konta i klucza. Ten kontekst umożliwia wykonywanie operacji odczytu/zapisu na koncie magazynu. |
-| [Start-AzureStorageBlobCopy](https://docs.microsoft.com/powershell/module/azure.storage/Start-AzureStorageBlobCopy) | Kopiuje odpowiedni wirtualny dysk twardy migawki na konto magazynu |
+| [Grant-AzDiskAccess](/powershell/module/az.compute/grant-azdiskaccess) | Generuje identyfikator URI sygnatury dostępu współdzielonego dla dysku zarządzanego, który umożliwia skopiowanie odpowiedniego wirtualnego dysku twardego na konto magazynu. |
+| [New-AzureStorageContext](/powershell/module/azure.storage/new-azurestoragecontext) | Tworzy kontekst konta magazynu przy użyciu nazwy konta i klucza. Ten kontekst umożliwia wykonywanie operacji odczytu/zapisu na koncie magazynu. |
+| [Start-AzureStorageBlobCopy](/powershell/module/azure.storage/start-azurestorageblobcopy) | Kopiuje odpowiedni wirtualny dysk twardy migawki na konto magazynu |
 
 ## <a name="next-steps"></a>Następne kroki
 

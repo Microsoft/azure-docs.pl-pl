@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 02/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: f15beeee2c5843506f0bf89b4c6d66d77826e152
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 0e5cabdf9c69ead9a2d7f497aceec183cf0be900
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81459894"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86509668"
 ---
 # <a name="troubleshoot-a-vms-operating-system-disk"></a>Rozwiązywanie problemów z dyskiem systemu operacyjnego maszyn wirtualnych
 
@@ -40,14 +40,14 @@ Ten skrypt zawiera następujące polecenia służące do tworzenia grupy zasobó
 
 | Polecenie | Uwagi |
 |---|---|
-| [az vm show](https://docs.microsoft.com/cli/azure/vm) | Wyświetla listę maszyn wirtualnych. W takim przypadku opcja zapytania służy do zwracania dysku systemu operacyjnego maszyny wirtualnej. Ta wartość jest następnie dodawana do nazwy zmiennej „uri”. |
-| [az vm delete](https://docs.microsoft.com/cli/azure/vm) | Usuwa maszynę wirtualną. |
-| [az vm create](https://docs.microsoft.com/cli/azure/vm) | Tworzy maszynę wirtualną.  |
-| [az vm disk attach](https://docs.microsoft.com/cli/azure/vm/disk) | Dołącza dysk do maszyny wirtualnej. |
-| [az vm list-ip-addresses](https://docs.microsoft.com/cli/azure/vm) | Zwraca adresy IP maszyny wirtualnej. |
+| [az vm show](/cli/azure/vm) | Wyświetla listę maszyn wirtualnych. W takim przypadku opcja zapytania służy do zwracania dysku systemu operacyjnego maszyny wirtualnej. Ta wartość jest następnie dodawana do nazwy zmiennej „uri”. |
+| [az vm delete](/cli/azure/vm) | Usuwa maszynę wirtualną. |
+| [az vm create](/cli/azure/vm) | Tworzy maszynę wirtualną.  |
+| [az vm disk attach](/cli/azure/vm/disk) | Dołącza dysk do maszyny wirtualnej. |
+| [az vm list-ip-addresses](/cli/azure/vm) | Zwraca adresy IP maszyny wirtualnej. |
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji na temat interfejsu wiersza polecenia platformy Azure, zobacz [dokumentację interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure).
+Aby uzyskać więcej informacji na temat interfejsu wiersza polecenia platformy Azure, zobacz [dokumentację interfejsu wiersza polecenia platformy Azure](/cli/azure).
 
 Więcej przykładowych skryptów interfejsu wiersza polecenia maszyny wirtualnej można znaleźć w [dokumentacji dotyczącej maszyny wirtualnej platformy Azure z systemem Linux](../linux/cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

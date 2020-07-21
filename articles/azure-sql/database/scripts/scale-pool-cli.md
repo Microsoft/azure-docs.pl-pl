@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 06/25/2019
-ms.openlocfilehash: 30862a85796fbe4373a88d80d9a6d26c8cf98901
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 01ccf7117cd17118941a00cc0480216bc436bc40
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84196738"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86514768"
 ---
 # <a name="use-the-azure-cli-to-scale-an-elastic-pool-in-azure-sql-database"></a>Używanie interfejsu wiersza polecenia platformy Azure do skalowania elastycznej puli w Azure SQL Database
 
@@ -48,7 +48,7 @@ az group delete --name $resource
 
 W tym skrypcie użyto następujących poleceń. Każde polecenie w tabeli stanowi link do dokumentacji polecenia.
 
-| | |
+| Polecenie | Opis |
 |---|---|
 | [az sql server](/cli/azure/sql/server) | Polecenia serwera. |
 | [AZ SQL DB](/cli/azure/sql/db) | Polecenia bazy danych. |

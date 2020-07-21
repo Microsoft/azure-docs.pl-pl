@@ -1,5 +1,5 @@
 ---
-title: Przykładowy skrypt programu Azure PowerShell — tworzenie maszyny wirtualnej z systemem Windows
+title: Przykładowy skrypt Azure PowerShell — tworzenie prostej maszyny wirtualnej z systemem Windows
 description: Przykładowy skrypt programu Azure PowerShell — tworzenie maszyny wirtualnej z systemem Windows
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 12/12/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 71cd1fb1e29783b4601c0a43746148b7fb9ebe47
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e76b0912a2862ecf49fb4b06e15285db50a0442a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81460821"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86509447"
 ---
 # <a name="create-a-virtual-machine-with-powershell"></a>Tworzenie maszyny wirtualnej za pomocą programu PowerShell
 
@@ -47,9 +47,9 @@ Ten skrypt używa następujących poleceń w celu utworzenia wdrożenia. Każda 
 
 | Polecenie | Uwagi |
 |---|---|
-| [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) | Tworzy grupę zasobów, w której są przechowywane wszystkie zasoby. |
-| [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) | Tworzy maszynę wirtualną i łączy ją z kartą sieciową, siecią wirtualną, podsiecią i sieciową grupą zabezpieczeń. To polecenie otwiera również port 80 i ustawia poświadczenia administracyjne. |
-|[Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Usuwa grupę zasobów i wszystkie zasoby w niej zawarte. |
+| [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Tworzy grupę zasobów, w której są przechowywane wszystkie zasoby. |
+| [New-AzVM](/powershell/module/az.compute/new-azvm) | Tworzy maszynę wirtualną i łączy ją z kartą sieciową, siecią wirtualną, podsiecią i sieciową grupą zabezpieczeń. To polecenie otwiera również port 80 i ustawia poświadczenia administracyjne. |
+|[Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Usuwa grupę zasobów i wszystkie zasoby w niej zawarte. |
 
 ## <a name="next-steps"></a>Następne kroki
 

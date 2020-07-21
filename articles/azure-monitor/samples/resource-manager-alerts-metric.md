@@ -1,18 +1,18 @@
 ---
-title: Tworzenie alertu metryki za pomocą szablonu usługi Resource Manager
-description: Dowiedz się, jak utworzyć alert dotyczący metryki przy użyciu szablonu Menedżer zasobów.
+title: Przykłady szablonów Menedżer zasobów dla alertów dotyczących metryk
+description: Ten artykuł zawiera przykładowe szablony Menedżer zasobów używane do tworzenia alertów metryk w programie Azure Monitor.
 author: bwren
 ms.author: bwren
 services: azure-monitor
 ms.topic: sample
 ms.date: 05/18/2020
 ms.subservice: alerts
-ms.openlocfilehash: 27d592a2702f9e2e8fda9094796cf2e37400621b
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: 793a4b3e8ea0dde2e4ad755cbff5a07a36c44cb9
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83854552"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86515380"
 ---
 # <a name="resource-manager-template-samples-for-metric-alert-rules-in-azure-monitor"></a>Przykłady szablonów Menedżer zasobów dla reguł alertów dotyczących metryk w programie Azure Monitor
 
@@ -20,7 +20,7 @@ W tym artykule przedstawiono przykłady użycia [szablonów Azure Resource Manag
 
 [!INCLUDE [azure-monitor-samples](../../../includes/azure-monitor-resource-manager-samples.md)]
 
-Aby uzyskać listę zasobów, których można używać z regułami alertów metryk, zobacz temat [obsługiwane zasoby dla alertów dotyczących metryk w Azure monitor](../platform/alerts-metric-near-real-time.md) . Informacje o schemacie i właściwościach reguły alertu są dostępne podczas [alertów dotyczących metryk — Tworzenie lub aktualizowanie](https://docs.microsoft.com/rest/api/monitor/metricalerts/createorupdate).
+Aby uzyskać listę zasobów, których można używać z regułami alertów metryk, zobacz temat [obsługiwane zasoby dla alertów dotyczących metryk w Azure monitor](../platform/alerts-metric-near-real-time.md) . Informacje o schemacie i właściwościach reguły alertu są dostępne podczas [alertów dotyczących metryk — Tworzenie lub aktualizowanie](/rest/api/monitor/metricalerts/createorupdate).
 
 > [!NOTE]
 > Szablon zasobu do tworzenia alertów metryk dla typu zasobu: obszar roboczy Azure Log Analytics (tj.) `Microsoft.OperationalInsights/workspaces` wymaga dodatkowych kroków. Aby uzyskać szczegółowe informacje, zobacz [alert dotyczący metryk dla dzienników zasobów](../../azure-monitor/platform/alerts-metric-logs.md#resource-template-for-metric-alerts-for-logs).
@@ -249,7 +249,7 @@ Poniższy przykład tworzy regułę alertu metryki przy użyciu jednego kryteriu
 Poniższy przykład tworzy regułę alertu metryki przy użyciu jednego kryterium i progu dynamicznego.
 
 ### <a name="template-file"></a>Plik szablonu
-Zapisz Poniższy kod JSON jako simpledynamicmetricalert. JSON na potrzeby tego przewodnika.
+Zapisz Poniższy kod JSON jako simpledynamicmetricalert.jsna potrzeby tego przewodnika.
 
 ```json
 {
@@ -1094,13 +1094,13 @@ Przykładowo kilka potencjalnych szeregów czasowych monitorowanych przez tę re
 
 Za pomocą poniższego szablonu można utworzyć bardziej zaawansowaną regułę alertu metryki statycznej progu dla metryki niestandardowej.
 
-Aby dowiedzieć się więcej na temat metryk niestandardowych w Azure Monitor, zobacz [metryki niestandardowe w Azure monitor](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-custom-overview).
+Aby dowiedzieć się więcej na temat metryk niestandardowych w Azure Monitor, zobacz [metryki niestandardowe w Azure monitor](../platform/metrics-custom-overview.md).
 
 Podczas tworzenia reguły alertu dla metryki niestandardowej należy określić zarówno nazwę metryki, jak i przestrzeń nazw metryki. Należy również upewnić się, że Metryka niestandardowa jest już raportowana, ponieważ nie można utworzyć reguły alertu na niestandardową metrykę, która jeszcze nie istnieje.
 
 ### <a name="template-file"></a>Plik szablonu
 
-Zapisz Poniższy kod JSON jako customstaticmetricalert. JSON na potrzeby tego przewodnika.
+Zapisz Poniższy kod JSON jako customstaticmetricalert.jsna potrzeby tego przewodnika.
 
 ```json
 {
@@ -1325,7 +1325,7 @@ Zapisz Poniższy kod JSON jako customstaticmetricalert. JSON na potrzeby tego pr
 
 >[!NOTE]
 >
-> Przestrzeń nazw metryki konkretnej metryki niestandardowej można znaleźć, [przeglądając niestandardowe metryki za pomocą Azure Portal](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-custom-overview#browse-your-custom-metrics-via-the-azure-portal)
+> Przestrzeń nazw metryki konkretnej metryki niestandardowej można znaleźć, [przeglądając niestandardowe metryki za pomocą Azure Portal](../platform/metrics-custom-overview.md#browse-your-custom-metrics-via-the-azure-portal)
 
 
 ## <a name="multiple-resources"></a>Wiele zasobów
@@ -1348,7 +1348,7 @@ W tej sekcji opisano Azure Resource Manager szablonów dla trzech scenariuszy s�
 
 Ten szablon spowoduje utworzenie reguły alertu metryki statycznej progowej, która monitoruje procentowe użycie procesora dla wszystkich maszyn wirtualnych (w jednym regionie świadczenia usługi Azure) w co najmniej jednej grupie zasobów.
 
-Zapisz Poniższy kod JSON jako wszystkie-VM-in-Resource-Group-static. JSON na potrzeby tego przewodnika.
+Zapisz Poniższy kod JSON jako all-vms-in-resource-group-static.jsna potrzeby tego przewodnika.
 
 ### <a name="template-file"></a>Plik szablonu
 

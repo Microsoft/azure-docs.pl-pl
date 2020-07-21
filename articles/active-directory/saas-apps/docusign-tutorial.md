@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 04/21/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b827c2e949502ad8bd19378a84ea89947929459d
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.openlocfilehash: 00c2825b78d0774d3c428978ba66c957130d3737
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82509367"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86499959"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-docusign"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą DocuSign
 
@@ -38,6 +38,9 @@ Aby rozpocząć, potrzebne są następujące elementy:
 
 * Subskrypcja usługi Azure AD. Jeśli nie masz subskrypcji, możesz uzyskać [bezpłatne konto](https://azure.microsoft.com/free/).
 * Subskrypcja usługi DocuSign, która jest włączona (Logowanie jednokrotne).
+
+> [!NOTE]
+> Ta integracja jest również dostępna do użycia w środowisku chmury dla instytucji rządowych USA usługi Azure AD. Tę aplikację można znaleźć w galerii aplikacji w chmurze dla instytucji rządowych USA usługi Azure AD i skonfigurować ją w taki sam sposób, jak w przypadku chmury publicznej.
 
 ## <a name="scenario-description"></a>Opis scenariusza
 
@@ -118,9 +121,9 @@ W tej sekcji utworzysz użytkownika testowego o nazwie B. Simon w Azure Portal.
 1. W górnej części ekranu wybierz pozycję **nowy użytkownik**.
 1. We właściwościach **użytkownika** wykonaj następujące kroki:
    1. W polu **Nazwa** wpisz **B. Simon**.  
-   1. W polu **Nazwa użytkownika** wprowadź `<username>@<companydomain>.<extension>`wartość. Na przykład: `B.Simon@contoso.com`.
+   1. W polu **Nazwa użytkownika** wprowadź wartość `<username>@<companydomain>.<extension>` . Na przykład: `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** , a następnie zanotuj wartość wyświetlaną w polu **hasło** .
-   1. Wybierz przycisk **Utwórz**.
+   1. Wybierz pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -192,13 +195,13 @@ W tej sekcji zostanie udzielony dostęp do usługi DocuSign. Simon, aby ten uży
 
     f. W przypadku **wysyłania żądania AuthN przez**, wybierz pozycję **post**.
 
-    g. W przypadku **wysyłania żądania wylogowania przez**program wybierz pozycję **Pobierz**.
+    przykład W przypadku **wysyłania żądania wylogowania przez**program wybierz pozycję **Pobierz**.
 
     h. W sekcji **Mapowanie atrybutów niestandardowych** wybierz pozycję **Dodaj nowe mapowanie**.
 
        ![Niestandardowy interfejs użytkownika mapowania atrybutów][62]
 
-    i. Wybierz pole, które chcesz zmapować do usługi Azure AD. W tym przykładzie **EmailAddress** jest mapowany na wartość `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`. To jest domyślna nazwa usługi w usłudze Azure AD dla żądania poczty e-mail. Wybierz pozycję **Zapisz**.
+    i. Wybierz pole, które chcesz zmapować do usługi Azure AD. W tym przykładzie **EmailAddress** jest mapowany na wartość `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` . To jest domyślna nazwa usługi w usłudze Azure AD dla żądania poczty e-mail. Wybierz pozycję **Zapisz**.
 
        ![Pola mapowania atrybutów niestandardowych][57]
 
@@ -223,7 +226,7 @@ W tej sekcji zostanie udzielony dostęp do usługi DocuSign. Simon, aby ten uży
        
        1. Skopiuj **adres URL logowania dostawcy usługi**, a następnie wklej go do pola **Zaloguj się w adresie URL** w sekcji **Podstawowa konfiguracja SAML** w Azure Portal. Na końcu **adresu URL logowania dostawcy usług** otrzymasz wartość IDPID.
 
-       1. Wybierz polecenie **Zamknij**.
+       1. Wybierz pozycję **Close** (Zamknij).
 
 ### <a name="create-docusign-test-user"></a>Utwórz użytkownika testowego DocuSign
 

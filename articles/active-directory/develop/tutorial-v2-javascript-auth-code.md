@@ -9,20 +9,17 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 05/19/2020
+ms.date: 07/17/2020
 ms.author: hahamil
 ms.custom: aaddev
-ms.openlocfilehash: 3e6f94c3b44cd3316a25c356dc5e33835f8c9337
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 4de555f823abe5414bf117a6709e67676571c833
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85553798"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518168"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-app-spa-using-auth-code-flow"></a>Samouczek: Logowanie użytkowników i wywoływanie interfejsu API Microsoft Graph z aplikacji jednostronicowej JavaScript (SPA) przy użyciu przepływu kodu uwierzytelniania
-
-> [!IMPORTANT]
-> Ta funkcja jest obecnie w wersji zapoznawczej. Wersje zapoznawcze są udostępniane pod warunkiem udzielenia zgody na [dodatkowe warunki użytkowania](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Niektóre aspekty tej funkcji mogą ulec zmianie przed ogólnym udostępnieniem.
 
 W tym samouczku pokazano, jak utworzyć aplikację jednostronicową języka JavaScript, która używa biblioteki Microsoft Authentication Library (MSAL) dla języka JavaScript 2.0 w celu:
 
@@ -336,7 +333,7 @@ Zmodyfikuj wartości w `msalConfig` sekcji zgodnie z opisem w tym miejscu:
   - Jeśli aplikacja obsługuje *konta w dowolnym katalogu organizacyjnym*, Zastąp tę wartość wartością `organizations` .
   - Jeśli aplikacja obsługuje *konta w dowolnym katalogu organizacyjnym i osobistych kontach Microsoft*, Zastąp tę wartość wartością `common` .
   - Aby ograniczyć obsługę *tylko do osobistych kont Microsoft*, Zastąp tę wartość wartością `consumers` .
-- Parametr `Enter_the_Redirect_Uri_Here` ma wartość `http://localhost:3000`.
+- `Enter_the_Redirect_Uri_Here` to `http://localhost:3000`.
 
 `authority`Wartość w *authConfig.js* powinna wyglądać podobnie do poniższego, jeśli używana jest globalna Chmura platformy Azure:
 
@@ -521,7 +518,7 @@ SPA, który został utworzony w tym samouczku, wywołuje `acquireTokenSilent` i/
 
 #### <a name="get-a-user-token-interactively"></a>Interaktywne pobieranie tokenu użytkownika
 
-Po wstępnym logowaniu aplikacja nie powinna prosić użytkowników o ponowne uwierzytelnienie za każdym razem, gdy potrzebują dostępu do chronionego zasobu (czyli do żądania tokenu). Aby uniemożliwić takie żądania ponownego uwierzytelniania, wywołaj polecenie `acquireTokenSilent` . Istnieją jednak sytuacje, w których konieczne może być wymuszenie współpracy użytkowników z punktem końcowym platformy tożsamości firmy Microsoft. Przykład:
+Po wstępnym logowaniu aplikacja nie powinna prosić użytkowników o ponowne uwierzytelnienie za każdym razem, gdy potrzebują dostępu do chronionego zasobu (czyli do żądania tokenu). Aby uniemożliwić takie żądania ponownego uwierzytelniania, wywołaj polecenie `acquireTokenSilent` . Istnieją jednak sytuacje, w których konieczne może być wymuszenie współpracy użytkowników z punktem końcowym platformy tożsamości firmy Microsoft. Na przykład:
 
 - Użytkownicy muszą ponownie wprowadzić swoje poświadczenia, ponieważ hasło wygasło.
 - Aplikacja żąda dostępu do zasobu i potrzebujesz zgody użytkownika.

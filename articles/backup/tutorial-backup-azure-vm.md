@@ -4,12 +4,12 @@ description: Ten samouczek zawiera szczegółowe instrukcje tworzenia kopii zapa
 ms.topic: tutorial
 ms.date: 03/05/2019
 ms.custom: mvc
-ms.openlocfilehash: 154238eae78ce44b9fc91058e58d9a11e254c0f9
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a0f6bd2bebb0961388d4f81663167d9e579958a2
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74171779"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86513221"
 ---
 # <a name="back-up-azure-vms-with-powershell"></a>Tworzenie kopii zapasowych maszyn wirtualnych platformy Azure za pomocą programu PowerShell
 
@@ -48,7 +48,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 [Magazyn Recovery Services](backup-azure-recovery-services-vault-overview.md) jest kontenerem logicznym, który przechowuje dane kopii zapasowej chronionych zasobów, takich jak maszyny wirtualne platformy Azure. Po uruchomieniu zadania tworzenia kopii zapasowej tworzy punkt odzyskiwania w magazynie Recovery Services. Następnie można użyć jednego z tych punktów odzyskiwania w celu przywrócenia danych do danego punktu w czasie.
 
 * W tym samouczku utworzysz magazyn w tej samej grupie zasobów i lokalizacji co maszyna wirtualna, dla której chcesz utworzyć kopię zapasową.
-* Azure Backup automatycznie obsługuje magazyn do przechowywania kopii zapasowych danych. Domyślnie magazyn używa [magazynu geograficznie nadmiarowego (GRS)](../storage/common/storage-redundancy-grs.md). Nadmiarowość geograficzna gwarantuje, że kopia zapasowa danych jest replikowana do pomocniczego regionu platformy Azure, a setki kilometrów od regionu podstawowego.
+* Azure Backup automatycznie obsługuje magazyn do przechowywania kopii zapasowych danych. Domyślnie magazyn używa [magazynu geograficznie nadmiarowego (GRS)](../storage/common/storage-redundancy.md). Nadmiarowość geograficzna gwarantuje, że kopia zapasowa danych jest replikowana do pomocniczego regionu platformy Azure, a setki kilometrów od regionu podstawowego.
 
 Utwórz magazyn w następujący sposób:
 

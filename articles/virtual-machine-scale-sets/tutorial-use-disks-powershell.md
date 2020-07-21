@@ -9,12 +9,12 @@ ms.subservice: disks
 ms.date: 03/27/2018
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: 5c82f087505c1634dd621252935c4017687340b2
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: b3b57cd2a2e5d5502f3865eddcdddfac67460dc7
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83198242"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86495037"
 ---
 # <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-azure-powershell"></a>Samouczek: tworzenie dysków i używanie ich z zestawem skalowania maszyn wirtualnych za pośrednictwem programu Azure PowerShell
 
@@ -22,12 +22,12 @@ Zestawy skalowania maszyn wirtualnych przechowują aplikacje, dane oraz systemy 
 
 > [!div class="checklist"]
 > * Dyski systemu operacyjnego i dyski tymczasowe
-> * Dyski z danymi
+> * Dyski danych
 > * Dyski w warstwie Standardowa i Premium
 > * Wydajność dysku
 > * Dołączanie i przygotowywanie dysków z danymi
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 [!INCLUDE [updated-for-az.md](../../includes/updated-for-az.md)]
 
@@ -44,12 +44,12 @@ Podczas tworzenia lub skalowania zestawu skalowania do każdego wystąpienia mas
 ### <a name="temporary-disk-sizes"></a>Rozmiary dysków tymczasowych
 | Typ | Typowe rozmiary | Maksymalny rozmiar dysku tymczasowego (GiB) |
 |----|----|----|
-| [Zastosowania ogólne](../virtual-machines/windows/sizes-general.md) | Seria A, B i D | 1600 |
-| [Optymalizacja pod kątem obliczeń](../virtual-machines/windows/sizes-compute.md) | Seria F | 576 |
-| [Optymalizacja pod kątem pamięci](../virtual-machines/windows/sizes-memory.md) | Seria D, E, G i M | 6144 |
-| [Optymalizacja pod kątem magazynu](../virtual-machines/windows/sizes-storage.md) | Seria L | 5630 |
-| [Procesor GPU](../virtual-machines/windows/sizes-gpu.md) | Seria N | 1440 |
-| [Wysoka wydajność](../virtual-machines/windows/sizes-hpc.md) | Seria A i H | 2000 |
+| [Ogólnego przeznaczenia](../virtual-machines/sizes-general.md) | Seria A, B i D | 1600 |
+| [Optymalizacja pod kątem obliczeń](../virtual-machines/sizes-compute.md) | Seria F | 576 |
+| [Optymalizacja pod kątem pamięci](../virtual-machines/sizes-memory.md) | Seria D, E, G i M | 6144 |
+| [Optymalizacja pod kątem magazynu](../virtual-machines/sizes-storage.md) | Seria L | 5630 |
+| [Procesor GPU](../virtual-machines/sizes-gpu.md) | Seria N | 1440 |
+| [Wysoka wydajność](../virtual-machines/sizes-hpc.md) | Seria A i H | 2000 |
 
 
 ## <a name="azure-data-disks"></a>Dyski z danymi platformy Azure
@@ -58,12 +58,12 @@ W przypadku konieczności instalowania aplikacji i przechowywania danych można 
 ### <a name="max-data-disks-per-vm"></a>Maksymalna liczba dysków z danymi na maszynę wirtualną
 | Typ | Typowe rozmiary | Maksymalna liczba dysków z danymi na maszynę wirtualną |
 |----|----|----|
-| [Zastosowania ogólne](../virtual-machines/windows/sizes-general.md) | Seria A, B i D | 64 |
-| [Optymalizacja pod kątem obliczeń](../virtual-machines/windows/sizes-compute.md) | Seria F | 64 |
-| [Optymalizacja pod kątem pamięci](../virtual-machines/windows/sizes-memory.md) | Seria D, E, G i M | 64 |
-| [Optymalizacja pod kątem magazynu](../virtual-machines/windows/sizes-storage.md) | Seria L | 64 |
-| [Procesor GPU](../virtual-machines/windows/sizes-gpu.md) | Seria N | 64 |
-| [Wysoka wydajność](../virtual-machines/windows/sizes-hpc.md) | Seria A i H | 64 |
+| [Ogólnego przeznaczenia](../virtual-machines/sizes-general.md) | Seria A, B i D | 64 |
+| [Optymalizacja pod kątem obliczeń](../virtual-machines/sizes-compute.md) | Seria F | 64 |
+| [Optymalizacja pod kątem pamięci](../virtual-machines/sizes-memory.md) | Seria D, E, G i M | 64 |
+| [Optymalizacja pod kątem magazynu](../virtual-machines/sizes-storage.md) | Seria L | 64 |
+| [Procesor GPU](../virtual-machines/sizes-gpu.md) | Seria N | 64 |
+| [Wysoka wydajność](../virtual-machines/sizes-hpc.md) | Seria A i H | 64 |
 
 
 ## <a name="vm-disk-types"></a>Typy dysków maszyny wirtualnej
@@ -135,7 +135,7 @@ Update-AzVmss `
 ## <a name="prepare-the-data-disks"></a>Przygotowywanie dysków z danymi
 Utworzone dyski, które zostały dołączone do wystąpień maszyn wirtualnych w zestawie skalowania, są niesformatowane. Należy je przygotować, zanim będzie można ich używać z danymi i aplikacjami. Aby przygotować dyski, musisz utworzyć partycję oraz system plików oraz je zainstalować.
 
-Aby zautomatyzować ten proces w wielu wystąpieniach maszyn wirtualnych w zestawie skalowania, możesz użyć rozszerzenia niestandardowego skryptu platformy Azure. To rozszerzenie może wykonywać skrypty lokalnie na poszczególnych wystąpieniach maszyn wirtualnych, na przykład w celu przygotowania dołączonych dysków z danymi. Aby uzyskać więcej informacji, zobacz [Omówienie niestandardowego rozszerzenia skryptu](../virtual-machines/windows/extensions-customscript.md).
+Aby zautomatyzować ten proces w wielu wystąpieniach maszyn wirtualnych w zestawie skalowania, możesz użyć rozszerzenia niestandardowego skryptu platformy Azure. To rozszerzenie może wykonywać skrypty lokalnie na poszczególnych wystąpieniach maszyn wirtualnych, na przykład w celu przygotowania dołączonych dysków z danymi. Aby uzyskać więcej informacji, zobacz [Omówienie niestandardowego rozszerzenia skryptu](../virtual-machines/extensions/custom-script-windows.md).
 
 
 W poniższym przykładzie za pomocą polecenia [Add-AzVmssExtension](/powershell/module/az.compute/Add-AzVmssExtension) na każdym wystąpieniu maszyny wirtualnej jest wykonywany skrypt z przykładowego repozytorium GitHub, który przygotowuje wszystkie dołączone, niesformatowane dyski z danymi:
@@ -297,7 +297,7 @@ Update-AzVmss `
 ```
 
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 Aby pozbyć się zestawu skalowania i dysków, usuń grupę zasobów wraz z całą zawartością za pomocą polecenia [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup). Parametr `-Force` potwierdza, że chcesz usunąć zasoby bez wyświetlania dodatkowego monitu. Parametr `-AsJob` zwraca kontrolę do wiersza polecenia bez oczekiwania na zakończenie operacji.
 
 ```azurepowershell-interactive
@@ -310,7 +310,7 @@ W tym samouczku omówiono tworzenie dysków i używanie ich z zestawami skalowan
 
 > [!div class="checklist"]
 > * Dyski systemu operacyjnego i dyski tymczasowe
-> * Dyski z danymi
+> * Dyski danych
 > * Dyski w warstwie Standardowa i Premium
 > * Wydajność dysku
 > * Dołączanie i przygotowywanie dysków z danymi

@@ -10,12 +10,12 @@ ms.workload: infrastructure
 ms.date: 12/04/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 80f7ba4a4493299d9d1795631401689f4619d873
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 5ae3f3dd31ad7a98a1b4a3d5ed00b568d1f8ed47
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84014631"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86508070"
 ---
 # <a name="tutorial-create-and-manage-azure-virtual-networks-for-windows-virtual-machines-with-azure-powershell"></a>Samouczek: tworzenie sieci wirtualnych platformy Azure i zarządzanie nimi za pomocą programu Azure PowerShell na maszynach wirtualnych z systemem Windows
 
@@ -59,13 +59,13 @@ Aby otworzyć usługę Cloud Shell, wybierz pozycję **Wypróbuj** w prawym gór
 
 W tym samouczku zostanie utworzona jedna sieć wirtualna z dwoma podsieciami. Zostanie utworzona podsieć frontonu do hostowania aplikacji internetowej oraz podsieć zaplecza do hostowania serwera bazy danych.
 
-Przed utworzeniem sieci wirtualnej należy utworzyć grupę zasobów za pomocą polecenia [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup). Poniższy przykład obejmuje tworzenie grupy zasobów o nazwie *myRGNetwork* w lokalizacji *EastUS*:
+Przed utworzeniem sieci wirtualnej należy utworzyć grupę zasobów za pomocą polecenia [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). Poniższy przykład obejmuje tworzenie grupy zasobów o nazwie *myRGNetwork* w lokalizacji *EastUS*:
 
 ```azurepowershell-interactive
 New-AzResourceGroup -ResourceGroupName myRGNetwork -Location EastUS
 ```
 
-Utwórz konfigurację podsieci o nazwie *myFrontendSubnet* za pomocą polecenia [New-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworksubnetconfig):
+Utwórz konfigurację podsieci o nazwie *myFrontendSubnet* za pomocą polecenia [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig):
 
 ```azurepowershell-interactive
 $frontendSubnet = New-AzVirtualNetworkSubnetConfig `
@@ -83,7 +83,7 @@ $backendSubnet = New-AzVirtualNetworkSubnetConfig `
 
 ## <a name="create-virtual-network"></a>Tworzenie sieci wirtualnej
 
-Utwórz sieć wirtualną o nazwie *myVNet* na podstawie konfiguracji *myFrontendSubnet* i *myBackendSubnet* za pomocą polecenia [New-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetwork):
+Utwórz sieć wirtualną o nazwie *myVNet* na podstawie konfiguracji *myFrontendSubnet* i *myBackendSubnet* za pomocą polecenia [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork):
 
 ```azurepowershell-interactive
 $vnet = New-AzVirtualNetwork `
@@ -102,7 +102,7 @@ Publiczny adres IP umożliwia dostęp do zasobów platformy Azure w Internecie. 
 
 Można też ustawić statyczną metodę alokacji, co gwarantuje, że adres IP pozostaje przydzielony do maszyny wirtualnej nawet wówczas, gdy jej przydział zostanie cofnięty. Jeśli używasz statycznego adresu IP, nie możesz określić samego adresu IP. Zamiast tego jest on przydzielany z puli dostępnych adresów.
 
-Na koniec utwórz publiczny adres IP o nazwie *myPublicIPAddress*, korzystając z polecenia [New-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/new-azpublicipaddress):
+Na koniec utwórz publiczny adres IP o nazwie *myPublicIPAddress*, korzystając z polecenia [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress):
 
 ```azurepowershell-interactive
 $pip = New-AzPublicIpAddress `
@@ -116,7 +116,7 @@ Możesz zmienić parametr -AllocationMethod na `Static`, aby przypisać statyczn
 
 ## <a name="create-a-front-end-vm"></a>Tworzenie maszyny wirtualnej frontonu
 
-Aby maszyna wirtualna mogła komunikować się w sieci wirtualnej, potrzebuje wirtualnego interfejsu sieciowego. Utwórz interfejs sieciowy za pomocą polecenia [New-AzNetworkInterface](https://docs.microsoft.com/powershell/module/az.network/new-aznetworkinterface):
+Aby maszyna wirtualna mogła komunikować się w sieci wirtualnej, potrzebuje wirtualnego interfejsu sieciowego. Utwórz interfejs sieciowy za pomocą polecenia [New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface):
 
 ```azurepowershell-interactive
 $frontendNic = New-AzNetworkInterface `
@@ -127,13 +127,13 @@ $frontendNic = New-AzNetworkInterface `
   -PublicIpAddressId $pip.Id
 ```
 
-Ustaw nazwę użytkownika i hasło potrzebne dla konta administratora na maszynie wirtualnej przy użyciu polecenia [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential). Te poświadczenia służą do nawiązywania połączenia z maszyną wirtualną w dodatkowych krokach:
+Ustaw nazwę użytkownika i hasło potrzebne dla konta administratora na maszynie wirtualnej przy użyciu polecenia [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential?view=powershell-5.1). Te poświadczenia służą do nawiązywania połączenia z maszyną wirtualną w dodatkowych krokach:
 
 ```azurepowershell-interactive
 $cred = Get-Credential
 ```
 
-Utwórz maszyny wirtualne za pomocą polecenia [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm).
+Utwórz maszyny wirtualne za pomocą polecenia [New-AzVM](/powershell/module/az.compute/new-azvm).
 
 ```azurepowershell-interactive
 New-AzVM `
@@ -163,7 +163,7 @@ Wszystkie sieciowe grupy zabezpieczeń zawierają zestaw reguł domyślnych. Reg
 
 ### <a name="create-network-security-groups"></a>Tworzenie sieciowych grup zabezpieczeń
 
-Utwórz regułę ruchu przychodzącego o nazwie *myFrontendNSGRule*, aby zezwolić na przychodzący ruch internetowy na maszynie *myFrontendVM* za pomocą polecenia [New-AzNetworkSecurityRuleConfig](https://docs.microsoft.com/powershell/module/az.network/new-aznetworksecurityruleconfig):
+Utwórz regułę ruchu przychodzącego o nazwie *myFrontendNSGRule*, aby zezwolić na przychodzący ruch internetowy na maszynie *myFrontendVM* za pomocą polecenia [New-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig):
 
 ```azurepowershell-interactive
 $nsgFrontendRule = New-AzNetworkSecurityRuleConfig `
@@ -193,7 +193,7 @@ $nsgBackendRule = New-AzNetworkSecurityRuleConfig `
   -Access Allow
 ```
 
-Dodaj sieciową grupę zabezpieczeń o nazwie *myFrontendNSG* przy użyciu polecenia [New-AzNetworkSecurityGroup](https://docs.microsoft.com/powershell/module/az.network/new-aznetworksecuritygroup):
+Dodaj sieciową grupę zabezpieczeń o nazwie *myFrontendNSG* przy użyciu polecenia [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup):
 
 ```azurepowershell-interactive
 $nsgFrontend = New-AzNetworkSecurityGroup `

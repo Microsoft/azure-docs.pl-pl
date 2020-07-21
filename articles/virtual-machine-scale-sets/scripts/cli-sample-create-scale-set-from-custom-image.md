@@ -9,12 +9,12 @@ ms.subservice: imaging
 ms.date: 03/27/2018
 ms.reviewer: cynthn
 ms.custom: akjosh
-ms.openlocfilehash: 91673f945104bd7b26d21b11ec3b710bac9db9cb
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: c0960d16fd5022d54804ae579d9154c540a17732
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83699909"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86494988"
 ---
 # <a name="create-a-virtual-machine-scale-set-from-a-custom-vm-image-with-the-azure-cli"></a>Tworzenie zestawu skalowania maszyn wirtualnych na podstawie niestandardowego obrazu maszyny wirtualnej przy użyciu interfejsu wiersza polecenia platformy Azure
 Ten skrypt tworzy zestaw skalowania maszyn wirtualnych, który używa niestandardowego obrazu maszyny wirtualnej jako źródła dla wystąpień maszyn wirtualnych.
@@ -43,4 +43,4 @@ Ten skrypt zawiera następujące polecenia służące do tworzenia grupy zasobó
 | [az group delete](/cli/azure/ad/group) | Usuwa grupę zasobów wraz ze wszystkimi zagnieżdżonymi zasobami. |
 
 ## <a name="next-steps"></a>Następne kroki
-Aby uzyskać więcej informacji na temat interfejsu wiersza polecenia platformy Azure, zobacz [dokumentację interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/overview).
+Aby uzyskać więcej informacji na temat interfejsu wiersza polecenia platformy Azure, zobacz [dokumentację interfejsu wiersza polecenia platformy Azure](/cli/azure/overview).

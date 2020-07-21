@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 050f95ac98ce1ab36dc4ca537db458e133581925
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 5caeb9ff5c289343e1869a55808bde7fbe035479
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83746043"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86517556"
 ---
 # <a name="tutorial-create-a-store-locator-by-using-azure-maps"></a>Samouczek: Tworzenie lokalizatora sklepu za pomocą Azure Maps
 
-Ten samouczek przeprowadzi Cię przez proces tworzenia prostego lokalizatora sklepów przy użyciu usługi Azure Maps. Lokalizatory sklepów są powszechne. Wiele koncepcji używanych w tego typu aplikacjach można stosować w wielu innych typach aplikacji. Oferowanie lokalizatora sklepów jest koniecznością dla większości firm prowadzących sprzedaż detaliczną bezpośrednio dla klientów. Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek przeprowadzi Cię przez proces tworzenia prostego lokalizatora sklepów przy użyciu usługi Azure Maps. Lokalizatory sklepów są powszechne. Wiele koncepcji używanych w tego typu aplikacjach można stosować w wielu innych typach aplikacji. Oferowanie lokalizatora sklepów jest koniecznością dla większości firm prowadzących sprzedaż detaliczną bezpośrednio dla klientów. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
     
 > [!div class="checklist"]
 > * Tworzenie nowej strony internetowej przy użyciu interfejsu API kontrolki mapy platformy Azure.
@@ -35,7 +35,7 @@ Przejdź dalej do [przykładu lokalizatora sklepów na żywo](https://azuremapsc
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby wykonać kroki opisane w tym samouczku, musisz najpierw utworzyć konto Azure Maps i uzyskać klucz podstawowy (klucz subskrypcji). Postępuj zgodnie z instrukcjami w temacie [Tworzenie konta](quick-demo-map-app.md#create-an-account-with-azure-maps) , aby utworzyć subskrypcję konta usługi Azure Maps z warstwą cenową S1, i wykonaj kroki opisane w sekcji [Pobieranie klucza podstawowego](quick-demo-map-app.md#get-the-primary-key-for-your-account) , aby uzyskać klucz podstawowy dla konta. Aby uzyskać więcej informacji na temat uwierzytelniania w Azure Maps, zobacz [Zarządzanie uwierzytelnianiem w programie Azure Maps](how-to-manage-authentication.md).
+Aby wykonać kroki opisane w tym samouczku, musisz najpierw utworzyć konto Azure Maps i uzyskać klucz podstawowy (klucz subskrypcji). Postępuj zgodnie z instrukcjami w temacie [Tworzenie konta](quick-demo-map-app.md#create-an-azure-maps-account) , aby utworzyć subskrypcję konta usługi Azure Maps z warstwą cenową S1, i wykonaj kroki opisane w sekcji [Pobieranie klucza podstawowego](quick-demo-map-app.md#get-the-primary-key-for-your-account) , aby uzyskać klucz podstawowy dla konta. Aby uzyskać więcej informacji na temat uwierzytelniania w Azure Maps, zobacz [Zarządzanie uwierzytelnianiem w programie Azure Maps](how-to-manage-authentication.md).
 
 ## <a name="design"></a>Projekt
 

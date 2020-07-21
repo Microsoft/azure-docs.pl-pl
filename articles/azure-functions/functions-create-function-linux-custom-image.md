@@ -5,18 +5,18 @@ ms.date: 03/30/2020
 ms.topic: tutorial
 ms.custom: mvc, tracking-python
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: bb9fc07c0c909f1fcec1644175c1dbac1e2bbb57
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 57468a4b4234809ca6293ca39ed54a3934f9a4fc
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84560917"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86506387"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-container"></a>Tworzenie funkcji w systemie Linux przy użyciu kontenera niestandardowego
 
 W tym samouczku utworzysz i wdrożono kod w celu Azure Functions jako niestandardowego kontenera Docker przy użyciu podstawowego obrazu systemu Linux. Obraz niestandardowy jest zazwyczaj używany, gdy funkcje wymagają określonej wersji językowej lub mają określoną zależność lub konfigurację, która nie jest dostarczana przez wbudowany obraz.
 
-Można również użyć domyślnego kontenera Azure App Service, zgodnie z opisem w temacie [Tworzenie pierwszej funkcji hostowanej w systemie Linux](functions-create-first-azure-function-azure-cli-linux.md). Obsługiwane obrazy podstawowe dla Azure Functions są dostępne w [repozytorium Azure Functions obrazów podstawowych](https://hub.docker.com/_/microsoft-azure-functions-base).
+Można również użyć domyślnego kontenera Azure App Service, zgodnie z opisem w temacie [Tworzenie pierwszej funkcji hostowanej w systemie Linux](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-python). Obsługiwane obrazy podstawowe dla Azure Functions są dostępne w [repozytorium Azure Functions obrazów podstawowych](https://hub.docker.com/_/microsoft-azure-functions-base).
 
 Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
@@ -121,7 +121,7 @@ cd fabrikam-functions
 ```
 ::: zone-end  
 ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python" 
-Dodaj funkcję do projektu za pomocą następującego polecenia, gdzie `--name` argument jest unikatową nazwą funkcji, a `--template` argument określa wyzwalacz funkcji. `func new`Utwórz podfolder pasujący do nazwy funkcji, która zawiera plik kodu odpowiedni dla wybranego języka projektu i plik konfiguracji o nazwie *Function. JSON*.
+Dodaj funkcję do projektu za pomocą następującego polecenia, gdzie `--name` argument jest unikatową nazwą funkcji, a `--template` argument określa wyzwalacz funkcji. `func new`Utwórz podfolder pasujący do nazwy funkcji, która zawiera plik kodu odpowiedni dla wybranego języka projektu i plik konfiguracji o nazwie *function.json*.
 
 ```
 func new --name HttpExample --template "HTTP trigger"
@@ -173,7 +173,7 @@ docker run -p 8080:80 -it <docker_id>/azurefunctionsimage:v1.0.0
 ```
 
 ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"  
-Gdy obraz jest uruchomiony w lokalnym kontenerze, Otwórz przeglądarkę do, w `http://localhost:8080` której powinien zostać wyświetlony obraz zastępczy poniżej. Obraz jest wyświetlany w tym momencie, ponieważ funkcja jest uruchomiona w kontenerze lokalnym, tak jak w przypadku platformy Azure, co oznacza, że jest chroniona przez klucz dostępu zdefiniowany w *funkcji Function. JSON* z `"authLevel": "function"` właściwością. Kontener nie został jeszcze opublikowany w aplikacji funkcji na platformie Azure, więc klucz nie jest jeszcze dostępny. Jeśli chcesz przeprowadzić test w odniesieniu do lokalnego kontenera, Zatrzymaj platformę Docker, Zmień właściwość autoryzacji na `"authLevel": "anonymous"` , Odbuduj obraz i ponownie uruchom platformę Docker. Następnie zresetuj `"authLevel": "function"` w pliku *Function. JSON*. Aby uzyskać więcej informacji, zobacz [klucze autoryzacji](functions-bindings-http-webhook-trigger.md#authorization-keys).
+Gdy obraz jest uruchomiony w lokalnym kontenerze, Otwórz przeglądarkę do, w `http://localhost:8080` której powinien zostać wyświetlony obraz zastępczy poniżej. Obraz jest wyświetlany w tym momencie, ponieważ funkcja jest uruchomiona w kontenerze lokalnym, tak jak w przypadku platformy Azure, co oznacza, że jest chroniona przez klucz dostępu zdefiniowany w *function.jsna* z `"authLevel": "function"` właściwością. Kontener nie został jeszcze opublikowany w aplikacji funkcji na platformie Azure, więc klucz nie jest jeszcze dostępny. Jeśli chcesz przeprowadzić test w odniesieniu do lokalnego kontenera, Zatrzymaj platformę Docker, Zmień właściwość autoryzacji na `"authLevel": "anonymous"` , Odbuduj obraz i ponownie uruchom platformę Docker. Następnie zresetuj `"authLevel": "function"` w *function.jsna*. Aby uzyskać więcej informacji, zobacz [klucze autoryzacji](functions-bindings-http-webhook-trigger.md#authorization-keys).
 
 ![Obraz zastępczy wskazujący, że kontener jest uruchomiony lokalnie](./media/functions-create-function-linux-custom-image/run-image-local-success.png)
 
@@ -289,7 +289,7 @@ Aplikacja funkcji na platformie Azure zarządza wykonywaniem funkcji w Twoim pla
 
 ## <a name="verify-your-functions-on-azure"></a>Weryfikowanie funkcji na platformie Azure
 
-W przypadku obrazu wdrożonego w aplikacji funkcji na platformie Azure można teraz wywołać funkcję za pomocą żądań HTTP. Ponieważ definicja *Function. JSON* zawiera właściwość `"authLevel": "function"` , należy najpierw uzyskać klucz dostępu (nazywany także "kluczem funkcji") i uwzględnić go jako parametr adresu URL w dowolnych żądaniach do punktu końcowego.
+W przypadku obrazu wdrożonego w aplikacji funkcji na platformie Azure można teraz wywołać funkcję za pomocą żądań HTTP. Ponieważ *function.jsw* definicji zawiera właściwość `"authLevel": "function"` , należy najpierw uzyskać klucz dostępu (nazywany także "kluczem funkcji") i uwzględnić go jako parametr adresu URL w dowolnych żądaniach do punktu końcowego.
 
 1. Pobierz adres URL funkcji z kluczem dostępu (funkcji) za pomocą Azure Portal lub przy użyciu interfejsu wiersza polecenia platformy Azure z `az rest` poleceniem).
 
@@ -409,9 +409,7 @@ Protokół SSH umożliwia bezpieczną komunikację między kontenerem i klientem
     FROM mcr.microsoft.com/azure-functions/node:2.0-appservice
     ```
     ::: zone-end
-
-    Różnice między obrazami podstawowymi opisano w [samouczku App Services — niestandardowe obrazy platformy Docker](../app-service/containers/tutorial-custom-docker-image.md#enable-ssh-connections).
-
+    
 1. Ponownie skompiluj obraz przy użyciu `docker build` polecenia, zastępując go `<docker_id>` identyfikatorem platformy Docker:
 
     ```
@@ -505,7 +503,7 @@ W przeglądarce Użyj tego samego adresu URL, co wcześniej, aby wywołać funkc
 
 [!INCLUDE [functions-add-output-binding-view-queue-cli](../../includes/functions-add-output-binding-view-queue-cli.md)]
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli chcesz kontynuować pracę z funkcją platformy Azure przy użyciu zasobów utworzonych w tym samouczku, możesz pozostawić wszystkie te zasoby na miejscu. Ze względu na to, że został utworzony plan Premium dla Azure Functions, ponosisz jeden lub dwa USD dziennie.
 

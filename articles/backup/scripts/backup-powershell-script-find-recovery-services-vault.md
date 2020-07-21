@@ -3,12 +3,12 @@ title: Skrypt programu PowerShell — Znajdowanie magazynu dla konta magazynu
 description: Dowiedz się, jak używać skryptu Azure PowerShell, aby znaleźć magazyn usługi Recovery Services, w którym zarejestrowano konto magazynu.
 ms.topic: sample
 ms.date: 1/28/2020
-ms.openlocfilehash: 786420ec8cef6516f7261c71b40641693efece07
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b343b2f93ed439188c5c0238bf108064f6e132c1
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76775361"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86513255"
 ---
 # <a name="powershell-script-to-find-the-recovery-services-vault-where-a-storage-account-is-registered"></a>Skrypt programu PowerShell umożliwiający znalezienie magazynu Recovery Services, w którym zarejestrowano konto magazynu
 
@@ -49,7 +49,7 @@ if(!$found)
 
 ## <a name="how-to-execute-the-script"></a>Jak wykonać skrypt
 
-1. Zapisz skrypt powyżej na swojej maszynie, podając wybraną nazwę. W tym przykładzie Zapisano go jako *FindRegisteredStorageAccount. ps1*.
+1. Zapisz skrypt powyżej na swojej maszynie, podając wybraną nazwę. W tym przykładzie Zapisano go jako *FindRegisteredStorageAccount.ps1*.
 2. Wykonaj skrypt, podając następujące parametry:
 
     * **-ResourceGroupName** — Grupa zasobów konta magazynu
@@ -72,4 +72,4 @@ Found Storage account afsaccount registered in vault: /subscriptions/ ef4ad5a7-c
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się [, jak tworzyć kopie zapasowe udziałów plików platformy Azure z Azure Portal](https://docs.microsoft.com/azure/backup/backup-afs)
+Dowiedz się [, jak tworzyć kopie zapasowe udziałów plików platformy Azure z Azure Portal](../backup-afs.md)

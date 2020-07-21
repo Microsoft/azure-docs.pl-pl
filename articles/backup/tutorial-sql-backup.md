@@ -3,12 +3,12 @@ title: Samouczek — Tworzenie kopii zapasowych baz danych SQL Server na platfor
 description: W tym samouczku dowiesz się, jak utworzyć kopię zapasową bazy danych SQL Server działającej na maszynie wirtualnej platformy Azure z magazynem Azure Backup Recovery Services.
 ms.topic: tutorial
 ms.date: 06/18/2019
-ms.openlocfilehash: f1d76fe0dfa428688714b8383c3974ac63195681
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e0f3ec8e9407c97f91a7f215a6a2734a254006d1
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81680732"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86513336"
 ---
 # <a name="back-up-a-sql-server-database-in-an-azure-vm"></a>Tworzenie kopii zapasowej bazy danych SQL Server na maszynie wirtualnej platformy Azure
 
@@ -40,7 +40,7 @@ Podczas wszystkich operacji maszyna wirtualna programu SQL Server musi mieć ł�
 
 Każda opcja ma zalety i wady
 
-**Zaznaczyć** | **Zalety** | **Wady**
+**Opcja** | **Zalety** | **Wady**
 --- | --- | ---
 Zezwolenie na zakresy adresów IP | Brak dodatkowych kosztów. | Skomplikowane zarządzanie, ponieważ zakresy adresów IP zmieniają się z upływem czasu. <br/><br/> Zapewnia dostęp do całej platformy Azure, nie tylko do usługi Azure Storage.
 Używanie serwera proxy HTTP   | Na serwerze jest dozwolona szczegółowa kontrola adresów URL magazynu. <br/><br/> Pojedynczy punkt dostępu do maszyn wirtualnych w Internecie. <br/><br/> Nie podlega zmianom adresów IP platformy Azure. | Dodatkowe koszty uruchamiania maszyny wirtualnej przy użyciu oprogramowania serwera proxy.
@@ -64,7 +64,7 @@ Unikaj następujących elementów w nazwach baz danych:
 * Zamykający nawias kwadratowy „]”
 * Nazwy baz danych zaczynające się od "F:\"
 
-Oferujemy aliasy nieobsługiwanych znaków tabel platformy Azure, ale zalecamy ich unikanie. [Dowiedz się więcej](https://docs.microsoft.com/rest/api/storageservices/Understanding-the-Table-Service-Data-Model).
+Oferujemy aliasy nieobsługiwanych znaków tabel platformy Azure, ale zalecamy ich unikanie. [Dowiedz się więcej](/rest/api/storageservices/understanding-the-table-service-data-model).
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
@@ -84,7 +84,7 @@ Odnajdź bazy danych uruchomione na maszynie wirtualnej.
 
     ![Wybieranie programu SQL Server na maszynie wirtualnej platformy Azure na potrzeby tworzenia kopii zapasowej](./media/backup-azure-sql-database/choose-sql-database-backup-goal.png)
 
-5. W obszarze > **maszyny wirtualne odnajdywanie** **celu wykonywania kopii zapasowych**wybierz pozycję **Rozpocznij odnajdywanie** w celu wyszukania niechronionych maszyn wirtualnych w subskrypcji. Może to trochę potrwać, zależnie od liczby niechronionych maszyn wirtualnych w subskrypcji.
+5. W obszarze maszyny wirtualne odnajdywanie **celu wykonywania kopii zapasowych**  >  **Discover DBs in VMs**wybierz pozycję **Rozpocznij odnajdywanie** w celu wyszukania niechronionych maszyn wirtualnych w subskrypcji. Może to trochę potrwać, zależnie od liczby niechronionych maszyn wirtualnych w subskrypcji.
 
    * Niechronione maszyny wirtualne powinny zostać wyświetlone na liście po odnalezieniu, uporządkowane według nazwy i grupy zasobów.
    * Jeśli którakolwiek maszyna wirtualna nie jest wyświetlana zgodnie z oczekiwaniami, sprawdź, czy jej kopie zapasowe są już tworzone w magazynie.
@@ -161,7 +161,7 @@ Zasady kopii zapasowych określają, kiedy są tworzone kopie zapasowe i jak dł
 
 Aby utworzyć nowe zasady kopii zapasowych:
 
-1. W magazynie kliknij pozycję >  **zasady tworzenia kopii zapasowych****Dodaj**.
+1. W magazynie kliknij pozycję **zasady tworzenia kopii zapasowych**  >  **Dodaj**.
 2. W menu **Dodaj** kliknij pozycję **SQL Server na maszynie wirtualnej platformy Azure** , aby zdefiniować typ zasad.
 
    ![Wybieranie typu nowych zasad kopii zapasowych](./media/backup-azure-sql-database/policy-type-details.png)

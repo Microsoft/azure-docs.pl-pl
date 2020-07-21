@@ -9,12 +9,12 @@ ms.reviewer: mihansen
 ms.author: cavoeg
 author: caitlinv39
 ms.date: 01/03/2020
-ms.openlocfilehash: 58e21e46edfe1d03d42bf2202bcf1f22282631a9
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 8414a84190659ff31596bc202d29fe45eefdc588
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "84872641"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536717"
 ---
 # <a name="client-application-registration"></a>Rejestracja aplikacji klienta
 W poprzednim samouczku wdrożono i skonfigurowano interfejs API platformy Azure dla usługi FHIR. Po skonfigurowaniu interfejsu API platformy Azure dla usługi FHIR zostanie zarejestrowana publiczna aplikacja kliencka. Możesz zapoznać się z pełnym [zarejestrowaniem publicznej aplikacji klienckiej](register-public-azure-ad-client-app.md) , aby uzyskać więcej informacji lub rozwiązać problemy, ale w tym samouczku zostały zwołane najważniejsze kroki.
@@ -23,22 +23,37 @@ W poprzednim samouczku wdrożono i skonfigurowano interfejs API platformy Azure 
 1. Wybierz pozycję **Rejestracja aplikacji**  -->  **Nowa rejestracja**
 1. Nazwij aplikację i skonfiguruj identyfikator URI przekierowania nahttps://www.getpostman.com/oauth2/callback
 
-
-![Rejestracja aplikacji klienta](media/tutorial-web-app/reg-public-app.png)
+   :::image type="content" source="media/tutorial-web-app/register-public-app.png" alt-text="Zrzut ekranu przedstawiający okienko Zarejestruj aplikację oraz przykładową nazwę aplikacji i adres URL przekierowania.":::
 
 ## <a name="client-application-settings"></a>Ustawienia aplikacji klienta
-Po zarejestrowaniu aplikacji klienckiej Skopiuj identyfikator aplikacji (klienta) ze strony przegląd. Ta wartość będzie potrzebna później podczas uzyskiwania dostępu do klienta.
 
-![Kopiuj identyfikator aplikacji](media/tutorial-web-app/app-id.png)
+Po zarejestrowaniu aplikacji klienckiej Skopiuj identyfikator aplikacji (klienta) i identyfikator dzierżawy ze strony przegląd. Te dwie wartości będą potrzebne później podczas uzyskiwania dostępu do klienta.
 
-Następnie ustaw odpowiednie opcje uwierzytelniania. Wybierz pozycję **uwierzytelnianie** po lewej stronie. Sprawdź pola **token dostępu** i **token identyfikatora** . Możesz również skonfigurować identyfikator URI przekierowania w przygotowaniu do tworzenia aplikacji sieci Web w czwartej części tego samouczka. W tym celu Dodaj https:// \< Web-App-NAME>. azurewebsites.NET do listy URI przekierowania. Jeśli wybierzesz inną nazwę w kroku, w którym [napiszesz aplikację sieci Web](tutorial-web-app-write-web-app.md), musisz wrócić i zaktualizować ją.
+:::image type="content" source="media/tutorial-web-app/client-id-tenant-id.png" alt-text="Zrzut ekranu przedstawiający okienko ustawienia aplikacji klienckiej z wyróżnionymi identyfikatorami aplikacji i katalogów.":::
 
-![Ustawienia uwierzytelniania aplikacji](media/tutorial-web-app/app-authentication.png)
+### <a name="connect-with-web-app"></a>Łączenie z aplikacją sieci Web
 
-Teraz, po skonfigurowaniu prawidłowego uwierzytelniania, Ustaw uprawnienia interfejsu API. 
-1. Wybierz pozycję **uprawnienia interfejsu API** i kliknij pozycję **Dodaj uprawnienie** .
-1. W obszarze interfejsy API, do których **używa Moja organizacja**, Wyszukaj interfejsy API usługi Azure opieki zdrowotnej
-1. Wybierz **user_impersonation** i kliknij przycisk **Dodaj uprawnienia**
+Jeśli [aplikacja sieci Web została zapisywana](tutorial-web-app-write-web-app.md) w celu nawiązania połączenia z interfejsem API platformy Azure dla usługi FHIR, należy również ustawić odpowiednie opcje uwierzytelniania. 
+
+1. W menu po lewej stronie w obszarze **Zarządzaj**wybierz pozycję **uwierzytelnianie**. 
+
+1. Aby dodać nową konfigurację platformy, wybierz pozycję **Sieć Web**.
+
+1. Skonfiguruj identyfikator URI przekierowania w przygotowaniu do tworzenia aplikacji sieci Web w czwartej części tego samouczka. Aby to zrobić, Dodaj `https://\<WEB-APP-NAME>.azurewebsites.net` do listy URI przekierowania. Jeśli wybierzesz inną nazwę w kroku, w którym [napiszesz aplikację sieci Web](tutorial-web-app-write-web-app.md), musisz wrócić i zaktualizować ją.
+
+1. Zaznacz pola wyboru **token dostępu** i **token identyfikatora** .
+
+   :::image type="content" source="media/tutorial-web-app/web-app-authentication.png" alt-text="Zrzut ekranu przedstawiający blok ustawień uwierzytelniania aplikacji z instrukcjami dodawania wyróżnionej platformy.":::
+
+## <a name="add-api-permissions"></a>Dodawanie uprawnień do interfejsu API
+
+Teraz, po skonfigurowaniu prawidłowego uwierzytelniania, Ustaw uprawnienia interfejsu API:
+
+1. Wybierz pozycję **uprawnienia interfejsu API** i kliknij pozycję **Dodaj uprawnienie**.
+1. W obszarze interfejsy API, które są **wykorzystywane przez moją organizację**, Wyszukaj interfejsy API usługi Azure opieki zdrowotnej.
+1. Wybierz **user_impersonation** i kliknij przycisk **Dodaj uprawnienia**.
+
+:::image type="content" source="media/tutorial-web-app/api-permissions.png" alt-text="Zrzut ekranu przedstawiający blok Dodawanie uprawnień interfejsu API z wyróżnionymi krokami dodawania uprawnień interfejsu API.":::
 
 ## <a name="next-steps"></a>Następne kroki
 Masz teraz publiczną aplikację kliencką. W następnym samouczku będziemy przeprowadzać testy i uzyskiwać dostęp do tej aplikacji za pomocą programu Poster.

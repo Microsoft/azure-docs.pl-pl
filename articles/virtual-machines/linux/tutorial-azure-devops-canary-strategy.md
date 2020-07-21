@@ -12,12 +12,12 @@ ms.workload: infrastructure
 ms.date: 4/10/2020
 ms.author: moala
 ms.custom: devops
-ms.openlocfilehash: e0fb26896b79fb23bb0f784c0f23aa3af0593c22
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.openlocfilehash: 22f36448a4246f7cc8c66b2c4f8051c835ed939a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82871859"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86510161"
 ---
 # <a name="tutorial---configure-the-canary-deployment-strategy-for-azure-linux-virtual-machines"></a>Samouczek — Konfigurowanie strategii wdrażania programu Kanaryjskie dla usługi Azure Linux Virtual Machines
 
@@ -29,7 +29,7 @@ W tym artykule przedstawiono sposób konfigurowania potoku ciągłej integracji/
 
 ### <a name="configure-cicd-on-virtual-machines"></a>Konfigurowanie ciągłej integracji/ciągłego wdrażania na maszynach wirtualnych
 
-Maszyny wirtualne można dodać jako obiekty docelowe do [grupy wdrożenia](https://docs.microsoft.com/azure/devops/pipelines/release/deployment-groups). Następnie można wskazać je na potrzeby aktualizacji wielomaszynowych. Po wdrożeniu na maszynach należy wyświetlić **historię wdrożenia** w ramach grupy wdrożenia. Ten widok umożliwia śledzenie z maszyny wirtualnej do potoku, a następnie do zatwierdzenia.
+Maszyny wirtualne można dodać jako obiekty docelowe do [grupy wdrożenia](/azure/devops/pipelines/release/deployment-groups). Następnie można wskazać je na potrzeby aktualizacji wielomaszynowych. Po wdrożeniu na maszynach należy wyświetlić **historię wdrożenia** w ramach grupy wdrożenia. Ten widok umożliwia śledzenie z maszyny wirtualnej do potoku, a następnie do zatwierdzenia.
 
 ### <a name="canary-deployments"></a>Wdrożenia Kanaryjskich
 
@@ -47,7 +47,7 @@ Korzystając z opcji ciągłego dostarczania, można skonfigurować wdrożenia p
    ![Panel ciągłego dostarczania](media/tutorial-devops-azure-pipelines-classic/azure-devops-rolling.png)
 
 1. Grupa wdrożenia to logiczny zestaw maszyn docelowych wdrożenia, które reprezentują środowiska fizyczne. Przykłady dla deweloperów, testów, przeprowadzających i produkcji. Można utworzyć nową grupę wdrożenia lub wybrać istniejącą.
-1. Wybierz potok kompilacji, który publikuje pakiet przeznaczony do wdrożenia na maszynie wirtualnej. Opublikowany pakiet powinien mieć skrypt wdrożenia o nazwie Deploy. ps1 lub deploy.sh w folderze deployscripts w folderze głównym pakietu. Potok uruchamia ten skrypt wdrożenia.
+1. Wybierz potok kompilacji, który publikuje pakiet przeznaczony do wdrożenia na maszynie wirtualnej. Opublikowany pakiet powinien mieć skrypt wdrożenia o nazwie deploy.ps1 lub deploy.sh w folderze deployscripts w folderze głównym pakietu. Potok uruchamia ten skrypt wdrożenia.
 1. W obszarze **strategia wdrażania**wybierz pozycję **Kanaryjskie**.
 1. Dodaj tag "Kanaryjskie" do maszyn wirtualnych, które będą częścią wdrożeń Kanaryjskich. Dodaj tag "prod" do maszyn wirtualnych, które są częścią wdrożeń wykonanych po pomyślnym wdrożeniu programu Kanaryjskie. Tagi ułatwiają kierowanie wyłącznie do maszyn wirtualnych, które mają określoną rolę.
 
@@ -67,7 +67,7 @@ Korzystając z opcji ciągłego dostarczania, można skonfigurować wdrożenia p
 
 1. Przed wznowieniem uruchomienia potoku upewnij się, że co najmniej jedna maszyna wirtualna jest oznaczona jako "prod". W trzeciej fazie potoku aplikacje są wdrażane tylko na tych maszynach wirtualnych, które mają tag "prod".
 
-1. Zadanie wykonaj wdrożenie skryptu domyślnie uruchamia skrypt wdrażania Deploy. ps1 lub deploy.sh. Skrypt znajduje się w folderze deployscripts w folderze głównym opublikowanego pakietu. Upewnij się, że wybrany potok kompilacji opublikuje wdrożenie w folderze głównym pakietu.
+1. Zadanie wykonaj wdrożenie skryptu domyślnie uruchamia skrypt wdrażania deploy.ps1 lub deploy.sh. Skrypt znajduje się w folderze deployscripts w folderze głównym opublikowanego pakietu. Upewnij się, że wybrany potok kompilacji opublikuje wdrożenie w folderze głównym pakietu.
 
    ![Okienko artefakty pokazujące deploy.sh w folderze deployscripts](media/tutorial-deployment-strategy/package.png)
 
@@ -85,7 +85,7 @@ Możesz szybko rozpocząć pracę z platformą Azure. Korzystając z Azure DevOp
 
 [Dowiedz się więcej](https://azure.microsoft.com/features/devops-projects/).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
-- [Wdrażanie na maszynach wirtualnych platformy Azure przy użyciu Azure DevOps Projects](https://docs.microsoft.com/azure/devops-project/azure-devops-project-vms)
-- [Implementowanie ciągłego wdrażania aplikacji w zestawie skalowania maszyn wirtualnych platformy Azure](https://docs.microsoft.com/azure/devops/pipelines/apps/cd/azure/deploy-azure-scaleset)
+- [Wdrażanie na maszynach wirtualnych platformy Azure przy użyciu Azure DevOps Projects](../../devops-project/azure-devops-project-vms.md)
+- [Implementowanie ciągłego wdrażania aplikacji w zestawie skalowania maszyn wirtualnych platformy Azure](/azure/devops/pipelines/apps/cd/azure/deploy-azure-scaleset)

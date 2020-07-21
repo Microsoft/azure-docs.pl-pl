@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 02/28/2020
 ms.author: gopalv
 ms.custom: tracking-python
-ms.openlocfilehash: 399a5bf40cff673f96aea46997bc639865619571
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: bbb784a1245ecc8d6f3d3aee45b729984568fc6c
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84560779"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86506097"
 ---
 # <a name="tutorial-deploy-a-pre-trained-image-classification-model-to-azure-functions-with-pytorch"></a>Samouczek: Wdrażanie wstępnie nauczonego modelu klasyfikacji obrazów do Azure Functions za pomocą PyTorch
 
@@ -104,18 +104,18 @@ W Azure Functions, projekt funkcji jest kontenerem dla jednej lub kilku poszczeg
     func init --worker-runtime python
     ```
 
-    Po zainicjowaniu folder *początkowy* zawiera różne pliki dla projektu, w tym pliki konfiguracji o nazwie [Local. Settings. JSON](functions-run-local.md#local-settings-file) i pliku [host. JSON](functions-host-json.md). Ponieważ *Local. Settings. JSON* może zawierać wpisy tajne pobrane z platformy Azure, plik jest domyślnie wykluczony z kontroli źródła w pliku *. gitignore* .
+    Po zainicjowaniu folder *początkowy* zawiera różne pliki dla projektu, w tym pliki konfiguracji o nazwie [local.settings.js](functions-run-local.md#local-settings-file) i [host.jswłączone](functions-host-json.md). Ponieważ *local.settings.json* może zawierać wpisy tajne pobrane z platformy Azure, plik jest domyślnie wykluczony z kontroli źródła w pliku *. gitignore* .
 
     > [!TIP]
     > Ponieważ projekt funkcji jest powiązany z określonym środowiskiem uruchomieniowym, wszystkie funkcje w projekcie muszą być zapisywane w tym samym języku.
 
-1. Dodaj funkcję do projektu za pomocą następującego polecenia, gdzie `--name` argument jest unikatową nazwą funkcji, a `--template` argument określa wyzwalacz funkcji. `func new`Utwórz podfolder pasujący do nazwy funkcji, która zawiera plik kodu odpowiedni dla wybranego języka projektu i plik konfiguracji o nazwie *Function. JSON*.
+1. Dodaj funkcję do projektu za pomocą następującego polecenia, gdzie `--name` argument jest unikatową nazwą funkcji, a `--template` argument określa wyzwalacz funkcji. `func new`Utwórz podfolder pasujący do nazwy funkcji, która zawiera plik kodu odpowiedni dla wybranego języka projektu i plik konfiguracji o nazwie *function.json*.
 
     ```
     func new --name classify --template "HTTP trigger"
     ```
 
-    To polecenie tworzy folder pasujący do nazwy funkcji, *klasyfikowanie*. W tym folderze są dwa pliki: * \_ \_ init \_ \_ . PR*, który zawiera kod funkcji i *Function. JSON*, który opisuje wyzwalacz funkcji i powiązania wejściowe i wyjściowe. Aby uzyskać szczegółowe informacje na temat zawartości tych plików, zobacz sekcję [Sprawdź zawartość pliku](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-python#optional-examine-the-file-contents) w przewodniku szybki start dla języka Python.
+    To polecenie tworzy folder pasujący do nazwy funkcji, *klasyfikowanie*. W tym folderze są dwa pliki: * \_ \_ init \_ \_ . PR*, który zawiera kod funkcji, i *function.json*, który opisuje wyzwalacz funkcji i powiązania wejściowe i wyjściowe. Aby uzyskać szczegółowe informacje na temat zawartości tych plików, zobacz sekcję [Sprawdź zawartość pliku](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-python#optional-examine-the-file-contents) w przewodniku szybki start dla języka Python.
 
 
 ## <a name="run-the-function-locally"></a>Lokalne uruchamianie funkcji
@@ -160,9 +160,9 @@ Aby zmodyfikować `classify` funkcję do klasyfikowania obrazu na podstawie jego
 
     ---
 
-1. Sprawdź, czy folder *klasyfikowanie* zawiera pliki o nazwach *Predict.py* i *Label. txt*. Jeśli nie, sprawdź, czy uruchomiono polecenie w folderze *Start* .
+1. Sprawdź, czy folder *klasyfikowanie* zawiera pliki o nazwach *Predict.py* i *labels.txt*. Jeśli nie, sprawdź, czy uruchomiono polecenie w folderze *Start* .
 
-1. Otwórz *menu Start/Requirements. txt* w edytorze tekstów i Dodaj zależności wymagane przez kod pomocnika, który powinien wyglądać następująco:
+1. Otwórz *menu Start/requirements.txt* w edytorze tekstów i Dodaj zależności wymagane przez kod pomocnika, który powinien wyglądać następująco:
 
     ```txt
     azure-functions
@@ -172,7 +172,7 @@ Aby zmodyfikować `classify` funkcję do klasyfikowania obrazu na podstawie jego
     torchvision==0.6.0+cpu
     ```
 
-1. Zapisz *wymagania. txt*, a następnie uruchom następujące polecenie z folderu *Start* , aby zainstalować zależności.
+1. Zapisz *requirements.txt*, a następnie uruchom następujące polecenie z folderu *Start* , aby zainstalować zależności.
 
 
     ```
@@ -254,7 +254,7 @@ Aby przetestować wywoływanie punktu końcowego funkcji z innej aplikacji sieci
 
     Jeśli przeglądarka zgłosi błąd podczas przesyłania adresu URL obrazu, sprawdź Terminal, w którym jest uruchomiona aplikacja funkcji. Jeśli zobaczysz błąd, na przykład "nie znaleziono modułu" PIL "", być może uruchomiono aplikację funkcji w folderze *startowym* bez wcześniejszego aktywowania środowiska wirtualnego utworzonego wcześniej. Jeśli nadal występują błędy, uruchom `pip install -r requirements.txt` ponownie z aktywowanym środowiskiem wirtualnym i Wyszukaj błędy.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Ponieważ w całości z tego samouczka działa lokalnie na komputerze, nie ma żadnych zasobów ani usług platformy Azure do oczyszczenia.
 

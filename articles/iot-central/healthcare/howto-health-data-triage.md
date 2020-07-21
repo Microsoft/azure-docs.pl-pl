@@ -8,18 +8,18 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: eliotgra
-ms.openlocfilehash: 99b27ec53d955079b5f73986408e698955c0969b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: ed06aef4d494fbdce5a07c5bc50bad9737ba5433
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77021648"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86497050"
 ---
 # <a name="tutorial-build-a-power-bi-provider-dashboard"></a>Samouczek: tworzenie pulpitu nawigacyjnego dostawcy Power BI
 
 
 
-Podczas tworzenia rozwiązania do monitorowania ciągłego pacjenta można także utworzyć pulpit nawigacyjny dla zespołu opieki szpitalowej, aby wizualizować dane pacjenta. W tym samouczku dowiesz się, jak Power BI utworzyć pulpit nawigacyjny przesyłania strumieniowego w czasie rzeczywistym przy użyciu szablonu aplikacji do monitorowania ciągłego pacjenta IoT Central.
+Podczas tworzenia rozwiązania do monitorowania ciągłego pacjenta można także utworzyć pulpit nawigacyjny dla zespołu opieki szpitalowej, aby wizualizować dane pacjenta. W tym samouczku dowiesz się, jak Power BI utworzyć pulpit nawigacyjny przesyłania strumieniowego w czasie rzeczywistym przy użyciu szablonu aplikacji do monitorowania ciągłego pacjenta IoT Central. Jeśli przypadek użycia nie wymaga dostępu do danych w czasie rzeczywistym, można użyć [pulpitu nawigacyjnego Power BI IoT Central](../core/howto-connect-powerbi.md), który ma uproszczony proces wdrażania. 
 
 >[!div class="mx-imgBorder"]
 >![Plik GIF pulpitu nawigacyjnego](media/dashboard-gif-3.gif)
@@ -80,8 +80,8 @@ Aby połączyć aplikację logiki z usługą Azure Event Hubs, możesz postępow
 |Parametr|Wartość|
 |---|---|
 |Typ zawartości|application/json|
-|Interval|3|
-|Częstotliwość|Sekunda|
+|Interwał|3|
+|Częstotliwość|Second|
 
 Po zakończeniu tego kroku projektant aplikacji logiki powinien wyglądać następująco:
 
@@ -144,7 +144,7 @@ Następnym krokiem będzie przeanalizować dane pochodzące z centrum zdarzeń w
     |Parametr|Wartość|
     |---|---|
     |Nazwa|Nazwa interfejsu|
-    |Typ|String|
+    |Typ|String (ciąg)|
 
     Wybierz pozycję **Zapisz**. 
 
@@ -197,7 +197,7 @@ Wybierz trzy kropki na górnym pasku nawigacyjnym, a następnie wybierz pozycję
 
 Wybierz typ kafelka, który chcesz dodać i dostosować swoją aplikację.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli nie chcesz nadal korzystać z tej aplikacji, Usuń zasoby, wykonując następujące czynności:
 

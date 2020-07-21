@@ -3,18 +3,18 @@ title: Przykładowy skrypt programu Azure PowerShell — konfigurowanie sieci VP
 description: Konfigurowanie sieci VPN typu lokacja-lokacja.
 services: vpn-gateway
 documentationcenter: vpn-gateway
-author: anzaman
+author: kumudD
 ms.service: vpn-gateway
 ms.devlang: powershell
 ms.topic: sample
 ms.date: 04/30/2018
 ms.author: alzam
-ms.openlocfilehash: 33a79461e1373657c366623e7ef5dbaf6aecf78f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 9960b701f3c9766ab8d51c8fa5e575c1bdc5d5c5
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "66113701"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86507543"
 ---
 # <a name="create-a-vpn-gateway-and-add-a-site-to-site-connection-using-powershell"></a>Tworzenie usługi VPN Gateway i dodawanie połączenia lokacja-lokacja za pomocą programu PowerShell
 
@@ -81,7 +81,7 @@ New-AzVirtualNetworkGatewayConnection -Name VNet1toSite1 -ResourceGroupName Test
  -ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
 ```
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Gdy utworzone zasoby nie będą już potrzebne, można je usunąć za pomocą polecenia [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup). Spowoduje to usunięcie grupy zasobów i wszystkich znajdujących się w niej zasobów.
 

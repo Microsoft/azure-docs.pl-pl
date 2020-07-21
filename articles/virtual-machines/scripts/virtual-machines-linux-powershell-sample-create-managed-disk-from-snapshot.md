@@ -1,5 +1,5 @@
 ---
-title: Tworzenie dysku zarządzanego na podstawie migawki — przykład programu PowerShell
+title: Tworzenie dysku zarządzanego na podstawie migawki (Linux) — przykład programu PowerShell
 description: Przykładowy skrypt programu Azure PowerShell — tworzenie dysku zarządzanego na podstawie migawki
 services: virtual-machines-linux
 documentationcenter: storage
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/05/2017
 ms.author: ramankum
-ms.openlocfilehash: 89ab1a388aa6497e559a1746ee8165ccd8cae1ef
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 2faa98ec21d260e6a7cbdf9eceba24baf4b13c61
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81459903"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86501163"
 ---
-# <a name="create-a-managed-disk-from-a-snapshot-with-powershell"></a>Tworzenie dysku zarządzanego na podstawie migawki przy użyciu programu PowerShell
+# <a name="create-a-managed-disk-from-a-snapshot-with-powershell-linux"></a>Tworzenie dysku zarządzanego na podstawie migawki przy użyciu programu PowerShell (Linux)
 
 Ten skrypt tworzy dysk zarządzany na podstawie migawki. Umożliwia on przywrócenie maszyny wirtualnej z migawek systemu operacyjnego i dysków danych. Twórz dyski zarządzane systemu operacyjnego i danych na podstawie odpowiednich migawek, a następnie utwórz nową maszynę wirtualną przez dołączenie dysków zarządzanych. Możesz również przywracać dyski z danymi istniejącej maszyny wirtualnej, dołączając dyski z danymi utworzone na podstawie migawek.
 
@@ -38,9 +38,9 @@ Ten skrypt używa poniższych poleceń w celu utworzenia dysku zarządzanego na 
 
 | Polecenie | Uwagi |
 |---|---|
-| [Get-AzSnapshot](https://docs.microsoft.com/powershell/module/az.compute/Get-AzSnapshot) | Pobiera właściwości migawki.  |
-| [New-AzDiskConfig](https://docs.microsoft.com/powershell/module/az.compute/New-AzDiskConfig) | Tworzy konfigurację dysku, która jest używana do tworzenia dysku. Zawiera ona identyfikator migawki nadrzędnej, lokalizację, która jest taka sama jak lokalizacja migawki nadrzędnej, oraz typ magazynu.  |
-| [New-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/New-AzDisk) | Tworzy dysk przy użyciu konfiguracji dysku, nazwy dysku i nazwy grupy zasobów, przekazanych jako parametry. |
+| [Get-AzSnapshot](/powershell/module/az.compute/get-azsnapshot) | Pobiera właściwości migawki.  |
+| [New-AzDiskConfig](/powershell/module/az.compute/new-azdiskconfig) | Tworzy konfigurację dysku, która jest używana do tworzenia dysku. Zawiera ona identyfikator migawki nadrzędnej, lokalizację, która jest taka sama jak lokalizacja migawki nadrzędnej, oraz typ magazynu.  |
+| [New-AzDisk](/powershell/module/az.compute/new-azdisk) | Tworzy dysk przy użyciu konfiguracji dysku, nazwy dysku i nazwy grupy zasobów, przekazanych jako parametry. |
 
 ## <a name="next-steps"></a>Następne kroki
 

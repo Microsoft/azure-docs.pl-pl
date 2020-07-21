@@ -10,14 +10,14 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: ranku
 ms.date: 04/09/2020
-ms.openlocfilehash: 5f3a73ed6c7843c13d35a91a75189fe9dd8d4dbd
-ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
+ms.openlocfilehash: 1665bc42578c189ed27208eb31cc4bdb2e27bbb9
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84628377"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536168"
 ---
-# <a name="tutorial-create-a-labeling-project-preview-for-multi-class-image-classification"></a>Samouczek: Tworzenie projektu etykietowania (wersja zapoznawcza) dla klasyfikacji obrazów wieloklasowych 
+# <a name="tutorial-create-a-labeling-project-for-multi-class-image-classification"></a>Samouczek: Tworzenie projektu etykietowania dla wieloklasowej klasyfikacji obrazów 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 W tym samouczku pokazano, jak zarządzać procesem etykietowania (nazywanymi również znakami oznakowania), które mają być używane jako dane do kompilowania modeli uczenia maszynowego. Etykietowanie danych w Azure Machine Learning jest w publicznej wersji zapoznawczej.
@@ -36,7 +36,7 @@ W tym samouczku będziesz używać obrazów kotów i psów.  Ponieważ każdy ob
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, Utwórz [bezpłatne konto](https://aka.ms/AMLFree).
+* Subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://aka.ms/AMLFree).
 
 ## <a name="create-a-workspace"></a>Tworzenie obszaru roboczego
 
@@ -102,7 +102,7 @@ Teraz, gdy masz dostęp do danych, które mają mieć etykietę, Utwórz projekt
 
 1. Użyj następujących danych wejściowych dla formularza **Create DataSet from datastore** :
 
-    1. W formularzu **podstawowe informacje** Dodaj nazwę. w tym miejscu będziemy używać **obrazów na potrzeby samouczka**.  Dodaj opis, jeśli chcesz.  Następnie wybierz pozycję **Dalej**.
+    1. W formularzu **podstawowe informacje** Dodaj nazwę. w tym miejscu będziemy używać **obrazów na potrzeby samouczka**.  Dodaj opis, jeśli chcesz.  Następnie wybierz przycisk **Dalej**.
     1. W formularzu **wyboru magazynu** danych Użyj listy rozwijanej, aby wybrać **wcześniej utworzony magazyn**danych, na przykład **tutorial_images (Azure Blob Storage)**
     1. Następnie w formularzu **wyboru magazynu** danych wybierz pozycję **Przeglądaj** , a następnie wybierz pozycję **wieloclass-DogsCats**.  Wybierz pozycję **Zapisz** , aby użyć **/MULTICLASS-DogsCats** jako ścieżki.
     1. Wybierz pozycję **dalej** , aby potwierdzić szczegóły, a następnie **Utwórz** , aby utworzyć zestaw danych.
@@ -128,9 +128,9 @@ Wybierz przycisk **Dalej**, aby kontynuować.
 
 1. Możesz również dodać Krótki opis zadania bezpośrednio w formularzu.  **Samouczek typu etykieta — koty & psy.**
 
-1. Wybierz pozycję **Dalej**.
+1. Wybierz przycisk **Dalej**.
 
-1. Na formularzu **etykiet z asystą ml** pozostaw niezaznaczone pole wyboru. Etykieta z asystą, wymaga większej ilości danych niż ta, która będzie używana w tym samouczku.
+1. Jeśli używasz obszaru roboczego przedsiębiorstwa, zobaczysz sekcję **zatytułowaną etykieta z asystą** .  Pozostaw niezaznaczone pole wyboru. Etykieta z asystą, wymaga większej ilości danych niż ta, która będzie używana w tym samouczku.
 
 1. Wybierz pozycję **Create project** (Utwórz projekt).
 
@@ -202,7 +202,7 @@ Etykiety obrazów można eksportować w [formacie Coco](http://cocodataset.org/#
 
 1. Po pomyślnym wyeksportowaniu etykiet wybierz pozycję **zestawy danych** po lewej stronie, aby wyświetlić wyniki.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 
 [!INCLUDE [aml-delete-resource-group](../../includes/aml-delete-resource-group.md)]

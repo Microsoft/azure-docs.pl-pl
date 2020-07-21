@@ -11,14 +11,14 @@ ms.topic: tutorial
 ms.custom: mvc, seodec18
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/11/2019
-ms.author: mbaldwin
-ms.openlocfilehash: c1a847a315a264591c0d003ff691d9938c2bf0f5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 07/14/2020
+ms.author: johndaw
+ms.openlocfilehash: e7958a722f7010d63794cacc072289030a72ed99
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79474428"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86512507"
 ---
 # <a name="tutorial--deploying-hsms-into-an-existing-virtual-network-using-powershell"></a>Samouczek: wdrażanie modułów HSM w istniejącej sieci wirtualnej przy użyciu programu PowerShell
 
@@ -62,13 +62,7 @@ Jak wspomniano powyżej, wszelkie działania związane z aprowizacją wymagają,
 Get-AzProviderFeature -ProviderNamespace Microsoft.HardwareSecurityModules -FeatureName AzureDedicatedHsm
 ```
 
-Poniższe polecenie weryfikuje funkcje sieciowe wymagane na potrzeby usługi dedykowanego modułu HSM.
-
-```powershell
-Get-AzProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowBaremetalServers
-```
-
-Oba polecenia powinny zwrócić stan „Zarejestrowano” (jak pokazano poniżej) przed przystąpieniem do dalszej pracy.  Jeśli konieczne jest zarejestrowanie się w celu korzystania z tej usługi, skontaktuj się z przedstawicielem firmy Microsoft.
+Polecenie powinno zwrócić stan "zarejestrowane" (jak pokazano poniżej) przed dalszym przeprowadzeniem dalszych działań.  Jeśli nie zarejestrowano Cię do tej usługi, skontaktuj się z przedstawicielem konto Microsoft.
 
 ![stan subskrypcji](media/tutorial-deploy-hsm-powershell/subscription-status.png)
 
@@ -217,7 +211,7 @@ Narzędzie SSH jest używane do nawiązywania połączenia z maszyną wirtualną
 `ssh adminuser@hsmlinuxvm.westus.cloudapp.azure.com`
 
 Używane hasło to hasło z pliku parametrów.
-Po zalogowaniu się do maszyny wirtualnej z systemem Linux możesz zalogować się do modułu HSM przy użyciu prywatnego adresu IP znalezionego w portalu \<dla prefiksu zasobu>hsm_vnic.
+Po zalogowaniu się do maszyny wirtualnej z systemem Linux możesz zalogować się do modułu HSM przy użyciu prywatnego adresu IP znalezionego w portalu dla zasobu \<prefix>hsm_vnic.
 
 ```powershell
 
@@ -267,6 +261,6 @@ Po wykonaniu kroków w tym samouczku zasoby dedykowanego modułu HSM zostaną za
 
 * [Wysoka dostępność](high-availability.md)
 * [Zabezpieczenia fizyczne](physical-security.md)
-* [Networking](networking.md)
+* [Sieć](networking.md)
 * [Monitorowanie](monitoring.md)
 * [Możliwości obsługi](supportability.md)

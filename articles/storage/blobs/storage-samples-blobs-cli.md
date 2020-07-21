@@ -7,21 +7,21 @@ ms.date: 06/13/2017
 ms.service: storage
 ms.subservice: blobs
 ms.topic: sample
-ms.openlocfilehash: 345710e1ade459d49602c18820d47826141e6f81
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: aa9dcc45656256e1f666bbf1b096c5c66b123b31
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "68721948"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86528506"
 ---
 # <a name="azure-cli-samples-for-azure-blob-storage"></a>Przykłady interfejsu wiersza polecenia platformy Azure dla usługi Azure Blob Storage
 
 Poniższa tabela zawiera linki do skryptów Bash skompilowanych za pomocą interfejsu wiersza polecenia platformy Azure, które umożliwiają utworzenie usługi Azure Storage i zarządzanie nią.
 
-| | |
+| Skrypt | Opis |
 |---|---|
 |**Konta magazynu**||
 | [Tworzenie konta magazynu i pobieranie/wymienianie kluczy dostępu](../scripts/storage-common-rotate-account-keys-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Umożliwia utworzenie konta usługi Azure Storage i pobranie oraz wymianę jego kluczy dostępu. |
-|**BLOB Storage**||
+|**Blob Storage**||
 | [Obliczanie łącznego rozmiaru kontenera w usłudze Blob Storage](../scripts/storage-blobs-container-calculate-size-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Umożliwia obliczenie łącznego rozmiaru wszystkich obiektów blob w kontenerze. |
 | [Usuwanie kontenerów mających określony prefiks](../scripts/storage-blobs-container-delete-by-prefix-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Umożliwia usunięcie kontenerów, których nazwa rozpoczyna się od określonego ciągu. |

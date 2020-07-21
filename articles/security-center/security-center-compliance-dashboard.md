@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/12/2019
 ms.author: memildin
-ms.openlocfilehash: 285245e499cfe8a5d7e365044c188191325e4267
-ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
+ms.openlocfilehash: a636acab42d14925f507568e8a9fff4693c8f71c
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84782861"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86519647"
 ---
 # <a name="tutorial-improve-your-regulatory-compliance"></a>Samouczek: ulepszanie zgodności z przepisami
 ---
@@ -35,7 +35,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpł
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby wypróbować funkcje omówione w tym samouczku, musisz korzystać ze standardowej warstwy cenowej usługi Security Center. Warstwę Standardowa usługi Security Center możesz wypróbować bezpłatnie.
+Aby przekroczyć funkcje omówione w tym samouczku, musisz mieć Security Center warstwy cenowej standardowa. Warstwę Standardowa usługi Security Center możesz wypróbować bezpłatnie.
 Aby dowiedzieć się więcej, zobacz [stronę z cennikiem](https://azure.microsoft.com/pricing/details/security-center/). Przewodnik szybkiego startu [Dołączanie subskrypcji platformy Azure do standardowej usługi Security Center](https://docs.microsoft.com/azure/security-center/security-center-get-started) przeprowadzi Cię przez procedurę uaktualniania do warstwy standardowej.
 
 ##  <a name="assess-your-regulatory-compliance"></a>Przeprowadzanie oceny zgodności z przepisami

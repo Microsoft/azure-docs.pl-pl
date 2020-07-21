@@ -9,12 +9,12 @@ ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
 ms.custom: akjosh
-ms.openlocfilehash: 5452d12ca12507e1583f52a9800859a2e3086d0c
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 8a0ee8565d22e935535bbe1e830d8399b2489f5c
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83684041"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86527527"
 ---
 # <a name="tutorial-create-and-use-a-custom-image-for-virtual-machine-scale-sets-with-azure-powershell"></a>Samouczek: tworzenie niestandardowego obrazu i używanie go dla zestawów skalowania maszyn wirtualnych za pośrednictwem programu Azure PowerShell
 
@@ -44,7 +44,7 @@ Aby otworzyć usługę Cloud Shell, wybierz pozycję **Wypróbuj** w prawym gór
 
 ## <a name="get-the-vm"></a>Pobierz maszynę wirtualną
 
-Możesz wyświetlić listę maszyn wirtualnych, które są dostępne w grupie zasobów za pomocą polecenia [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm). Jeśli znasz nazwę maszyny wirtualnej i grupę zasobów, możesz użyć jej ponownie, `Get-AzVM` Aby pobrać obiekt maszyny wirtualnej i zapisać go w zmiennej do użycia później. Ten przykład pobiera maszynę wirtualną o nazwie *sourceVM* z grupy zasobów "Grupa zasobów" i przypisuje ją do zmiennej *$VM*. 
+Możesz wyświetlić listę maszyn wirtualnych, które są dostępne w grupie zasobów za pomocą polecenia [Get-AzVM](/powershell/module/az.compute/get-azvm). Jeśli znasz nazwę maszyny wirtualnej i grupę zasobów, możesz użyć jej ponownie, `Get-AzVM` Aby pobrać obiekt maszyny wirtualnej i zapisać go w zmiennej do użycia później. Ten przykład pobiera maszynę wirtualną o nazwie *sourceVM* z grupy zasobów "Grupa zasobów" i przypisuje ją do zmiennej *$VM*. 
 
 ```azurepowershell-interactive
 $sourceVM = Get-AzVM `
@@ -53,7 +53,7 @@ $sourceVM = Get-AzVM `
 ```
 ## <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 
-Utwórz grupę zasobów za pomocą polecenia [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup).
+Utwórz grupę zasobów za pomocą polecenia [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup).
 
 Grupa zasobów platformy Azure to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure i zarządzania nimi. W poniższym przykładzie grupa zasobów o nazwie *myGalleryRG* jest tworzona w regionie *wschodnim* :
 
@@ -67,7 +67,7 @@ $resourceGroup = New-AzResourceGroup `
 
 Galeria obrazów jest podstawowym zasobem używanym do włączania udostępniania obrazu. Dozwolone znaki w nazwie galerii to wielkie lub małe litery, cyfry, kropki i kropki. Nazwa galerii nie może zawierać kresek. Nazwy galerii muszą być unikatowe w ramach subskrypcji. 
 
-Utwórz galerię obrazów przy użyciu polecenia [New-AzGallery](https://docs.microsoft.com/powershell/module/az.compute/new-azgallery). Poniższy przykład tworzy galerię o nazwie Moja *Gallery* w grupie zasobów *myGalleryRG* .
+Utwórz galerię obrazów przy użyciu polecenia [New-AzGallery](/powershell/module/az.compute/new-azgallery). Poniższy przykład tworzy galerię o nazwie Moja *Gallery* w grupie zasobów *myGalleryRG* .
 
 ```azurepowershell-interactive
 $gallery = New-AzGallery `
@@ -80,9 +80,9 @@ $gallery = New-AzGallery `
 
 ## <a name="create-an-image-definition"></a>Tworzenie definicji obrazu 
 
-Definicje obrazów tworzą logiczne grupowanie dla obrazów. Są one używane do zarządzania informacjami o wersjach obrazu, które są w nich tworzone. Nazwy definicji obrazów mogą składać się z wielkich lub małych liter, cyfr, kropek, kresek i kropek. Aby uzyskać więcej informacji na temat wartości, które można określić dla definicji obrazu, zobacz [definicje obrazu](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries#image-definitions).
+Definicje obrazów tworzą logiczne grupowanie dla obrazów. Są one używane do zarządzania informacjami o wersjach obrazu, które są w nich tworzone. Nazwy definicji obrazów mogą składać się z wielkich lub małych liter, cyfr, kropek, kresek i kropek. Aby uzyskać więcej informacji na temat wartości, które można określić dla definicji obrazu, zobacz [definicje obrazu](../virtual-machines/windows/shared-image-galleries.md#image-definitions).
 
-Utwórz definicję obrazu przy użyciu polecenia [New-AzGalleryImageDefinition](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion). W tym przykładzie obraz galerii ma nazwę *myGalleryImage* i jest tworzony dla obrazu specjalistycznego. 
+Utwórz definicję obrazu przy użyciu polecenia [New-AzGalleryImageDefinition](/powershell/module/az.compute/new-azgalleryimageversion). W tym przykładzie obraz galerii ma nazwę *myGalleryImage* i jest tworzony dla obrazu specjalistycznego. 
 
 ```azurepowershell-interactive
 $galleryImage = New-AzGalleryImageDefinition `
@@ -100,7 +100,7 @@ $galleryImage = New-AzGalleryImageDefinition `
 
 ## <a name="create-an-image-version"></a>Tworzenie wersji obrazu
 
-Utwórz wersję obrazu z maszyny wirtualnej przy użyciu polecenia [New-AzGalleryImageVersion](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion). 
+Utwórz wersję obrazu z maszyny wirtualnej przy użyciu polecenia [New-AzGalleryImageVersion](/powershell/module/az.compute/new-azgalleryimageversion). 
 
 Dozwolone znaki wersji obrazu to liczby i kropki. Liczba musi należeć do zakresu 32-bitowej liczby całkowitej. Format: *MajorVersion*. *MinorVersion*. *Poprawka*.
 
@@ -244,7 +244,7 @@ New-AzRoleAssignment `
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Gdy grupa zasobów i wszystkie pokrewne zasoby nie będą już potrzebne, można je usunąć za pomocą polecenia cmdlet [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) .
+Gdy grupa zasobów i wszystkie pokrewne zasoby nie będą już potrzebne, można je usunąć za pomocą polecenia cmdlet [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) .
 
 ```azurepowershell-interactive
 # Delete the gallery 
@@ -256,7 +256,7 @@ Remove-AzResourceGroup -Name myResoureceGroup
 
 ## <a name="azure-image-builder"></a>Konstruktor obrazów platformy Azure
 
-Platforma Azure oferuje również usługę, która jest oparta na pakiecie [Konstruktor obrazów maszyn wirtualnych platformy Azure](https://docs.microsoft.com/azure/virtual-machines/windows/image-builder-overview). Wystarczy opisać dostosowania w szablonie i obsłużyć Tworzenie obrazu. 
+Platforma Azure oferuje również usługę, która jest oparta na pakiecie [Konstruktor obrazów maszyn wirtualnych platformy Azure](../virtual-machines/windows/image-builder-overview.md). Wystarczy opisać dostosowania w szablonie i obsłużyć Tworzenie obrazu. 
 
 ## <a name="next-steps"></a>Następne kroki
 W tym samouczku omówiono tworzenie niestandardowego obrazu maszyny wirtualnej i używanie go z zestawami skalowania za pośrednictwem programu Azure PowerShell:

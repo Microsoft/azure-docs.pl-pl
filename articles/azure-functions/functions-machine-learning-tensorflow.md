@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 01/15/2020
 ms.author: antchu
 ms.custom: mvc, tracking-python
-ms.openlocfilehash: 44aa7bdcaa77ba0865f17e2781e2a0521afe16df
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 89b2fc9ffe05853e34670b6f33ed665240d59457
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84555426"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86540200"
 ---
 # <a name="tutorial-apply-machine-learning-models-in-azure-functions-with-python-and-tensorflow"></a>Samouczek: stosowanie modeli uczenia maszynowego w Azure Functions przy użyciu języka Python i TensorFlow
 
@@ -122,18 +122,18 @@ W Azure Functions, projekt funkcji jest kontenerem dla jednej lub kilku poszczeg
     func init --worker-runtime python
     ```
 
-    Po zainicjowaniu folder *początkowy* zawiera różne pliki dla projektu, w tym pliki konfiguracji o nazwie [Local. Settings. JSON](functions-run-local.md#local-settings-file) i pliku [host. JSON](functions-host-json.md). Ponieważ *Local. Settings. JSON* może zawierać wpisy tajne pobrane z platformy Azure, plik jest domyślnie wykluczony z kontroli źródła w pliku *. gitignore* .
+    Po zainicjowaniu folder *początkowy* zawiera różne pliki dla projektu, w tym pliki konfiguracji o nazwie [local.settings.js](functions-run-local.md#local-settings-file) i [host.jswłączone](functions-host-json.md). Ponieważ *local.settings.json* może zawierać wpisy tajne pobrane z platformy Azure, plik jest domyślnie wykluczony z kontroli źródła w pliku *. gitignore* .
 
     > [!TIP]
     > Ponieważ projekt funkcji jest powiązany z określonym środowiskiem uruchomieniowym, wszystkie funkcje w projekcie muszą być zapisywane w tym samym języku.
 
-1. Dodaj funkcję do projektu za pomocą następującego polecenia, gdzie `--name` argument jest unikatową nazwą funkcji, a `--template` argument określa wyzwalacz funkcji. `func new`Utwórz podfolder pasujący do nazwy funkcji, która zawiera plik kodu odpowiedni dla wybranego języka projektu i plik konfiguracji o nazwie *Function. JSON*.
+1. Dodaj funkcję do projektu za pomocą następującego polecenia, gdzie `--name` argument jest unikatową nazwą funkcji, a `--template` argument określa wyzwalacz funkcji. `func new`Utwórz podfolder pasujący do nazwy funkcji, która zawiera plik kodu odpowiedni dla wybranego języka projektu i plik konfiguracji o nazwie *function.json*.
 
     ```
     func new --name classify --template "HTTP trigger"
     ```
 
-    To polecenie tworzy folder pasujący do nazwy funkcji, *klasyfikowanie*. W tym folderze są dwa pliki: * \_ \_ init \_ \_ . PR*, który zawiera kod funkcji i *Function. JSON*, który opisuje wyzwalacz funkcji i powiązania wejściowe i wyjściowe. Aby uzyskać szczegółowe informacje na temat zawartości tych plików, zobacz sekcję [Sprawdź zawartość pliku](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-python#optional-examine-the-file-contents) w przewodniku szybki start dla języka Python.
+    To polecenie tworzy folder pasujący do nazwy funkcji, *klasyfikowanie*. W tym folderze są dwa pliki: * \_ \_ init \_ \_ . PR*, który zawiera kod funkcji, i *function.json*, który opisuje wyzwalacz funkcji i powiązania wejściowe i wyjściowe. Aby uzyskać szczegółowe informacje na temat zawartości tych plików, zobacz sekcję [Sprawdź zawartość pliku](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-python#optional-examine-the-file-contents) w przewodniku szybki start dla języka Python.
 
 
 ## <a name="run-the-function-locally"></a>Lokalne uruchamianie funkcji
@@ -180,7 +180,7 @@ Aby utworzyć własny model przy użyciu warstwy Bezpłatna Custom Vision Servic
     
     ---
     
-1. Sprawdź, czy folder *klasyfikowanie* zawiera pliki o nazwie *model. PB* i *Label. txt*. Jeśli nie, sprawdź, czy uruchomiono polecenie w folderze *Start* .
+1. Sprawdź, czy folder *klasyfikowanie* zawiera pliki o nazwach *model. PB* i *labels.txt*. Jeśli nie, sprawdź, czy uruchomiono polecenie w folderze *Start* .
 
 1. W folderze *Start* Uruchom następujące polecenie, aby skopiować plik z kodem pomocnika do folderu *klasyfikowanie* :
 
@@ -206,7 +206,7 @@ Aby utworzyć własny model przy użyciu warstwy Bezpłatna Custom Vision Servic
 
 1. Sprawdź, czy folder *klasyfikowanie* zawiera teraz plik o nazwie *Predict.py*.
 
-1. Otwórz *menu Start/Requirements. txt* w edytorze tekstów i Dodaj następujące zależności wymagane przez kod pomocnika:
+1. Otwórz *menu Start/requirements.txt* w edytorze tekstów i Dodaj następujące zależności wymagane przez kod pomocnika:
 
     ```txt
     tensorflow==1.14
@@ -214,7 +214,7 @@ Aby utworzyć własny model przy użyciu warstwy Bezpłatna Custom Vision Servic
     requests
     ```
     
-1. Zapisz *wymagania. txt*.
+1. Zapisz *requirements.txt*.
 
 1. Zainstaluj zależności, uruchamiając następujące polecenie w folderze *Start* . Instalacja może potrwać kilka minut, w tym czasie można kontynuować modyfikowanie funkcji w następnej sekcji.
 
@@ -302,7 +302,7 @@ Aby przetestować wywoływanie punktu końcowego funkcji z innej aplikacji sieci
 > [!NOTE]
 > Model zawsze klasyfikuje zawartość obrazu jako kot lub pies, bez względu na to, czy obraz zawiera jedną z domyślnych wartości Dog. Obrazy Tigers i Panthers, na przykład zwykle klasyfikowanie jako kot, ale obrazy słonie, marchew lub plany są klasyfikowane jako Dog.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Ponieważ w całości z tego samouczka działa lokalnie na komputerze, nie ma żadnych zasobów ani usług platformy Azure do oczyszczenia.
 

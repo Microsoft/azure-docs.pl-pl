@@ -1,5 +1,5 @@
 ---
-title: dołączanie pliku
+title: Plik dyrektywy include
 description: Plik dyrektywy include, który zawiera kod służący tworzenia projektu zaplecza interfejsu WebAPI platformy ASP.NET.
 services: notification-hubs
 author: spelluru
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/11/2019
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 6911f769b95967aac933dd9762263e7506aef4b5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3db9811322d27ab287fa568eeeffcb5f4d57bdf7
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77192738"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86530180"
 ---
 ## <a name="create-the-webapi-project"></a>Tworzenie projektu interfejsu WebAPI
 
@@ -30,7 +30,7 @@ Utwórz nowe zaplecze interfejsu WebAPI na platformie ASP.NET, wykonując nastę
 >
 >Aby to sprawdzić, uruchom program Visual Studio. W menu **Narzędzia** wybierz pozycję **rozszerzenia i aktualizacje**. Wyszukaj pozycję **Menedżer pakietów NuGet** w swojej wersji programu Visual Studio i sprawdź, czy masz najnowszą wersję. Jeśli nie używasz najnowszej wersji, odinstaluj ją i ponownie zainstaluj Menedżera pakietów NuGet.
 
-![][B4]
+![Zrzut ekranu przedstawiający okno dialogowe rozszerzenia i aktualizacje z wyróżnionym pakietem NuGet Manage for Visual Studios.][B4]
 
 > [!NOTE]
 > Upewnij się, że zainstalowano wdrożenie [zestawu Azure SDK](https://azure.microsoft.com/downloads/) dla programu Visual Studio dla witryny sieci Web.
@@ -396,7 +396,7 @@ Następnie wdrożysz tę aplikację w witrynie internetowej platformy Azure, aby
 
 5. Zanotuj wartość właściwości **Adres URL witryny** w sekcji **Podsumowanie**. Ten adres URL jest Twoim *punktem końcowym zaplecza* w dalszej części samouczka.
 
-6. Wybierz polecenie **Publikuj**.
+6. Kliknij pozycję **Opublikuj**.
 
 Po ukończeniu pracy z kreatorem aplikacja internetowa ASP.NET zostanie opublikowana na platformie Azure, a następnie otwarta w przeglądarce domyślnej.  Twoja aplikacja jest widoczna w usłudze Azure App Services.
 

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 06/25/2019
-ms.openlocfilehash: 85b78ad92997344ff6ea0f30da25205790d90eef
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 7da5e25624a0e3a323e60cdf91660b29f58f31d7
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84196774"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86514751"
 ---
 # <a name="use-the-azure-cli-to-move-a-database-in-sql-database-in-a-sql-elastic-pool"></a>Używanie interfejsu wiersza polecenia platformy Azure do przenoszenia bazy danych w SQL Database w elastycznej puli SQL
 
@@ -46,7 +46,7 @@ az group delete --name $resource
 
 W tym skrypcie użyto następujących poleceń. Każde polecenie w tabeli stanowi link do dokumentacji polecenia.
 
-| | |
+| Polecenie | Opis |
 |---|---|
 | [az sql server](/cli/azure/sql/server) | Polecenia serwera. |
 | [AZ SQL Elastic-Pools](/cli/azure/sql/elastic-pool) | Polecenia puli elastycznej. |

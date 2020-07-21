@@ -11,14 +11,14 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 07/16/2019
-ms.openlocfilehash: 1f6c178c1f8813300d3473ad3b788ecd7e7b573e
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: bf4e2b04c540ee5672bea6e097496ced5a0d622a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84115401"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86528880"
 ---
-# <a name="use-cli-to-add-an-azure-sql-managed-instance-to-a-failover-group"></a>Dodawanie wystąpienia zarządzanego Azure SQL do grupy trybu failover przy użyciu interfejsu wiersza polecenia
+# <a name="use-cli-to-create-an-azure-sql-managed-instance-to-a-failover-group"></a>Tworzenie wystąpienia zarządzanego usługi Azure SQL w grupie trybu failover przy użyciu interfejsu wiersza polecenia
 
 Ten przykład interfejsu wiersza polecenia platformy Azure tworzy dwa wystąpienia zarządzane, dodaje je do grupy trybu failover, a następnie testuje tryb failover z podstawowego wystąpienia zarządzanego do pomocniczego wystąpienia zarządzanego.
 
@@ -46,7 +46,7 @@ az group delete --name $resource
 
 W tym skrypcie użyto następujących poleceń. Każde polecenie w tabeli stanowi link do dokumentacji polecenia.
 
-| | |
+| Polecenie | Opis |
 |---|---|
 | [AZ Network VNET](/cli/azure/network/vnet) | Polecenia sieci wirtualnej.  |
 | [AZ Network VNET Subnet](/cli/azure/network/vnet/subnet) | Polecenia podsieci sieci wirtualnej. |

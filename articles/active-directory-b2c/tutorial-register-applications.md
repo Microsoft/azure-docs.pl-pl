@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: how-to
+ms.topic: tutorial
 ms.date: 04/10/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: a1af5fb7d0a1f8844016fcb6096e3a7ad9946f9f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2ac8baf0e2aa9555efb6d6b4f39787d9a7bf9508
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85384893"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86499906"
 ---
 # <a name="tutorial-register-a-web-application-in-azure-active-directory-b2c"></a>Samouczek: rejestrowanie aplikacji sieci Web w Azure Active Directory B2C
 
@@ -58,7 +58,7 @@ Aby zarejestrować aplikację w dzierżawie Azure AD B2C, możesz użyć naszego
     * W adresie URL odpowiedzi jest rozróżniana wielkość liter. Jego wielkość liter musi być zgodna z wielkością liter w ścieżce URL działającej aplikacji. Na przykład jeśli aplikacja zawiera jako część swojej ścieżki `.../abc/response-oidc` , nie należy określać jej `.../ABC/response-oidc` w adresie URL odpowiedzi. Ponieważ przeglądarka sieci Web traktuje ścieżki w miarę uwzględniania wielkości liter, pliki cookie skojarzone z programem `.../abc/response-oidc` mogą zostać wykluczone w przypadku przekierowania do niezgodnego z wielkością liter `.../ABC/response-oidc` adresów URL.
 
 1. W obszarze **uprawnienia**zaznacz pole wyboru *Udziel zgody na uprawnienia administratora do OpenID Connect i offline_access* .
-1. Wybierz pozycję **Zarejestruj**.
+1. Wybierz pozycję **Rejestruj**.
 
 Po zakończeniu rejestracji aplikacji Włącz przepływ niejawnego przydzielenia:
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: 3e0e220467c8c16deb413f6c70f236f6de67f980
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: 739e4fa45987f33b3a32503eaedf9aae74a7e000
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84142048"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86499998"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-policystat"></a>Samouczek: integracja Azure Active Directory z usługą PolicyStat
 
@@ -32,7 +32,7 @@ Integracja PolicyStat z usługą Azure AD zapewnia następujące korzyści:
 * Możesz zarządzać swoimi kontami w jednej centralnej lokalizacji — witrynie Azure Portal.
 
 Jeśli chcesz dowiedzieć się więcej na temat integracji aplikacji SaaS z usługą Azure AD, zobacz [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpłatne konto](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -40,6 +40,9 @@ Aby skonfigurować integrację usługi Azure AD z usługą PolicyStat, potrzebne
 
 * Subskrypcja usługi Azure AD. Jeśli nie masz środowiska usługi Azure AD, możesz skorzystać z miesięcznej wersji próbnej [tutaj](https://azure.microsoft.com/pricing/free-trial/)
 * Subskrypcja z włączonym logowaniem jednokrotnym w PolicyStat
+
+> [!NOTE]
+> Ta integracja jest również dostępna do użycia w środowisku chmury dla instytucji rządowych USA usługi Azure AD. Tę aplikację można znaleźć w galerii aplikacji w chmurze dla instytucji rządowych USA usługi Azure AD i skonfigurować ją w taki sam sposób, jak w przypadku chmury publicznej.
 
 ## <a name="scenario-description"></a>Opis scenariusza
 
@@ -143,7 +146,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą PolicyStat,
     
     f. Z listy **parametr 1** wpisz wartość atrybutu wyświetlaną dla tego wiersza.
 
-    g. Kliknij przycisk **Zapisz**.
+    przykład Kliknij pozycję **Zapisz**.
 
 7. W sekcji **Konfigurowanie PolicyStat** skopiuj odpowiednie adresy URL zgodnie z wymaganiami.
 
@@ -233,4 +236,4 @@ Po kliknięciu kafelka PolicyStat w panelu dostępu należy automatycznie zalogo
 
 - [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

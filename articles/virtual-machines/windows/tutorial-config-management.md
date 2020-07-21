@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.date: 12/05/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: ed36dc669c8b89ba4a2b7831c6eb6f8742e73730
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: cf01e4baf96e4403dae443fa6c98f74c571641a8
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82100417"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86508322"
 ---
 # <a name="tutorial-monitor-changes-and-update-a-windows-virtual-machine-in-azure"></a>Samouczek: monitorowanie zmian i aktualizowanie maszyny wirtualnej z systemem Windows na platformie Azure
 
@@ -31,19 +31,19 @@ Azure Cloud Shell to bezpłatna interaktywna powłoka, za pomocą której można
 
 Aby otworzyć blok kodu w Cloud Shell, po prostu wybierz opcję **Wypróbuj** w prawym górnym rogu tego bloku kodu.
 
-Możesz również otworzyć Cloud Shell na osobnej karcie przeglądarki, przechodząc do [https://shell.azure.com/powershell](https://shell.azure.com/powershell). Wybierz pozycję **Kopiuj** , aby skopiować bloki kodu, wklej je do karty Cloud Shell i wybierz klawisz ENTER, aby uruchomić kod.
+Możesz również otworzyć Cloud Shell na osobnej karcie przeglądarki, przechodząc do [https://shell.azure.com/powershell](https://shell.azure.com/powershell) . Wybierz pozycję **Kopiuj** , aby skopiować bloki kodu, wklej je do karty Cloud Shell i wybierz klawisz ENTER, aby uruchomić kod.
 
 ## <a name="create-a-virtual-machine"></a>Tworzenie maszyny wirtualnej
 
 Aby w tym samouczku móc skonfigurować monitorowanie i zarządzanie aktualizacjami na platformie Azure, konieczne jest posiadanie maszyny wirtualnej z systemem Windows na platformie Azure.
 
-Najpierw ustaw nazwę użytkownika i hasło administratora maszyny wirtualnej przy użyciu polecenia [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential):
+Najpierw ustaw nazwę użytkownika i hasło administratora maszyny wirtualnej przy użyciu polecenia [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential?view=powershell-5.1):
 
 ```azurepowershell-interactive
 $cred = Get-Credential
 ```
 
-Następnie utwórz maszynę wirtualną przy użyciu polecenie [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm). Poniższy przykład tworzy maszynę wirtualną o `myVM` nazwie w `East US` lokalizacji. Jeśli jeszcze nie istnieją, Grupa `myResourceGroupMonitor` zasobów i pomocnicze zasoby sieciowe są tworzone:
+Następnie utwórz maszynę wirtualną przy użyciu polecenie [New-AzVM](/powershell/module/az.compute/new-azvm). Poniższy przykład tworzy maszynę wirtualną o nazwie `myVM` w `East US` lokalizacji. Jeśli jeszcze nie istnieją, Grupa zasobów `myResourceGroupMonitor` i pomocnicze zasoby sieciowe są tworzone:
 
 ```azurepowershell-interactive
 New-AzVm `
@@ -76,7 +76,7 @@ Aby włączyć Update Management dla maszyny wirtualnej:
 
 Sprawdzanie poprawności jest wykonywane, aby określić, czy Update Management jest włączona dla tej maszyny wirtualnej. Sprawdzanie poprawności obejmuje sprawdzanie Log Analytics obszaru roboczego, dla połączonego konta usługi Automation oraz tego, czy rozwiązanie znajduje się w obszarze roboczym.
 
-Obszar roboczy [log Analytics](../../log-analytics/log-analytics-overview.md) służy do zbierania danych generowanych przez funkcje i usługi, takie jak Update Management. Obszar roboczy zawiera pojedynczą lokalizację do przeglądania i analizowania danych z wielu źródeł.
+Obszar roboczy [log Analytics](../../azure-monitor/log-query/log-query-overview.md) służy do zbierania danych generowanych przez funkcje i usługi, takie jak Update Management. Obszar roboczy zawiera pojedynczą lokalizację do przeglądania i analizowania danych z wielu źródeł.
 
 Aby wykonać dodatkowe akcje na maszynach wirtualnych, które wymagają aktualizacji, można użyć Azure Automation do uruchamiania elementów Runbook na maszynach wirtualnych. Takie czynności obejmują pobieranie lub stosowanie aktualizacji.
 
@@ -86,8 +86,8 @@ W oknie **włączanie Update Management** wybierz obszar roboczy log Analytics i
 
 Podczas dołączania automatycznie dodawane są następujące wymagania wstępne, które nie są spełnione:
 
-* [Log Analytics](../../log-analytics/log-analytics-overview.md) obszar roboczy
-* [Automatyzacja](../../automation/automation-offering-get-started.md)
+* [Log Analytics](../../azure-monitor/log-query/log-query-overview.md) obszar roboczy
+* [Automatyzacja](../../automation/index.yml)
 * [Hybrydowy proces roboczy elementu Runbook](../../automation/automation-hybrid-runbook-worker.md), który jest włączony na maszynie wirtualnej
 
 Po włączeniu rozwiązania zostanie otwarte okno **Zarządzanie aktualizacjami** . Skonfiguruj lokalizację, Log Analytics obszar roboczy i konto usługi Automation, a następnie wybierz pozycję **Włącz**. Jeśli te opcje są wyszarzone, inne rozwiązanie automatyzacji jest włączone dla maszyny wirtualnej, a w obszarze roboczym rozwiązania i koncie usługi Automation muszą być używane.

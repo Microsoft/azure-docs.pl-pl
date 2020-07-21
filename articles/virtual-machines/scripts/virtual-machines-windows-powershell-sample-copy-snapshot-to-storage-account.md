@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 06/05/2017
 ms.author: ramankum
-ms.openlocfilehash: 760b6ae2d791267053acdb1e216ab5daeab7c061
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 9b8510d3eb66cc63a0c9c660b34514a83a35d25c
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81459359"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86509584"
 ---
 # <a name="exportcopy-managed-snapshots-as-vhd-to-a-storage-account-in-different-region-with-powershell"></a>Eksportowanie/kopiowanie zarządzanych migawek jako dysku VHD do konta magazynu w innym regionie przy użyciu programu PowerShell
 
@@ -41,9 +41,9 @@ Ten skrypt używa poniższych poleceń do generowania identyfikatora URI sygnatu
 
 | Polecenie | Uwagi |
 |---|---|
-| [Grant-AzSnapshotAccess](https://docs.microsoft.com/powershell/module/az.compute/New-AzDisk) | Generuje identyfikator URI sygnatury dostępu współdzielonego dla migawki używanej w celu skopiowania jej do konta magazynu. |
-| [New-AzStorageContext](https://docs.microsoft.com/powershell/module/az.storage/new-azstoragecontext) | Tworzy kontekst konta magazynu przy użyciu nazwy konta i klucza. Ten kontekst umożliwia wykonywanie operacji odczytu/zapisu na koncie magazynu. |
-| [Start-AzStorageBlobCopy](https://docs.microsoft.com/powershell/module/az.storage/start-azstorageblobcopy) | Kopiuje odpowiedni wirtualny dysk twardy migawki na konto magazynu |
+| [Grant-AzSnapshotAccess](/powershell/module/az.compute/new-azdisk) | Generuje identyfikator URI sygnatury dostępu współdzielonego dla migawki używanej w celu skopiowania jej do konta magazynu. |
+| [New-AzStorageContext](/powershell/module/az.storage/new-azstoragecontext) | Tworzy kontekst konta magazynu przy użyciu nazwy konta i klucza. Ten kontekst umożliwia wykonywanie operacji odczytu/zapisu na koncie magazynu. |
+| [Start-AzStorageBlobCopy](/powershell/module/az.storage/start-azstorageblobcopy) | Kopiuje odpowiedni wirtualny dysk twardy migawki na konto magazynu |
 
 ## <a name="next-steps"></a>Następne kroki
 

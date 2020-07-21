@@ -7,12 +7,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/19/2017
 ms.custom: mvc
-ms.openlocfilehash: 91a0e4b052571a509ec7122e4440a8eaf58839be
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 317d5681ac3b09cb433cdc2bc3c83b6b1c8d37dc
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77670427"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86516366"
 ---
 # <a name="find-and-diagnose-run-time-exceptions-with-azure-application-insights"></a>Znajdowanie i diagnozowanie wyjątków czasu wykonywania za pomocą usługi Azure Application Insights
 
@@ -35,12 +35,12 @@ W celu ukończenia tego samouczka:
     - Tworzenie aplikacji na platformie ASP.NET i aplikacji internetowych
     - Tworzenie aplikacji na platformie Azure
 - Pobierz i zainstaluj rozszerzenie [Visual Studio Snapshot Debugger](https://aka.ms/snapshotdebugger).
-- Włącz rozszerzenie [Visual Studio Snapshot Debugger](https://docs.microsoft.com/azure/application-insights/app-insights-snapshot-debugger).
+- Włącz rozszerzenie [Visual Studio Snapshot Debugger](../app/snapshot-debugger.md).
 - Wdróż aplikację .NET na platformie Azure i [włącz zestaw Application Insights SDK](../../azure-monitor/app/asp-net.md). 
 - Samouczek śledzi identyfikowanie wyjątków w Twojej aplikacji, dlatego zmodyfikuj kod w środowisku deweloperskim lub testowym, aby wygenerować wyjątek. 
 
 ## <a name="log-in-to-azure"></a>Zaloguj się do platformy Azure.
-Zaloguj się do Azure Portal pod adresem [https://portal.azure.com](https://portal.azure.com).
+Zaloguj się do Azure Portal pod adresem [https://portal.azure.com](https://portal.azure.com) .
 
 
 ## <a name="analyze-failures"></a>Analizowanie błędów
@@ -95,7 +95,7 @@ Wszystkie dane zbierane przez usługę Application Insights są przechowywane w 
 
 1. Kliknij informacje CodeLens nad kodem, aby wyświetlić dane telemetryczne dostarczane przez usługę Application Insights.
 
-    ![Code](media/tutorial-runtime-exceptions/codelens.png)
+    ![Kod](media/tutorial-runtime-exceptions/codelens.png)
 
 1. Kliknij pozycję **Analiza wpływu**, aby otworzyć okno Application Insights — analiza.  Jest ono wypełnione kilkoma zapytaniami udostępniającymi szczegóły żądań zakończonych niepowodzeniem, takie jak użytkownicy, przeglądarki i regiony dotknięte niepowodzeniem.<br><br>![Analiza](media/tutorial-runtime-exceptions/analytics.png)<br>
 

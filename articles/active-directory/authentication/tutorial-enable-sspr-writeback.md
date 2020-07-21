@@ -5,24 +5,29 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
-ms.date: 04/24/2020
+ms.date: 07/13/2020
 ms.author: iainfou
 author: iainfoulds
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: a25fe090c88d2540bdf63cd6479d25b879090a38
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 70a73cb1f855840831f2e1107baa94dfd54868a5
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86202544"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518491"
 ---
 # <a name="tutorial-enable-azure-active-directory-self-service-password-reset-writeback-to-an-on-premises-environment"></a>Samouczek: Azure Active Directory Włączanie funkcji zapisywania zwrotnego do samoobsługowego resetowania haseł w środowisku lokalnym
 
 Dzięki usłudze Azure Active Directory (Azure AD) samoobsługowego resetowania hasła (SSPR) użytkownicy mogą zaktualizować swoje hasła lub odblokować swoje konto przy użyciu przeglądarki sieci Web. W środowisku hybrydowym, w którym usługa Azure AD jest połączona ze środowiskiem lokalnym Active Directory Domain Services (AD DS), ten scenariusz może spowodować, że hasła różnią się między tymi dwoma katalogami.
 
 Funkcję zapisywania zwrotnego haseł można użyć do synchronizowania zmian haseł w usłudze Azure AD z powrotem do środowiska lokalnego AD DS. Azure AD Connect zapewnia bezpieczny mechanizm wysyłania tych haseł z powrotem do istniejącego katalogu lokalnego z usługi Azure AD.
+
+> [!IMPORTANT]
+> W tym samouczku pokazano, jak włączyć funkcję samoobsługowego resetowania haseł do środowiska lokalnego. Jeśli jesteś użytkownikiem końcowym już zarejestrowanym do samoobsługowego resetowania hasła i chcesz wrócić do swojego konta, przejdź do strony https://aka.ms/sspr .
+>
+> Jeśli Twój zespół IT nie włączył możliwości resetowania własnego hasła, skontaktuj się z pomocą techniczną, aby uzyskać dodatkową pomoc.
 
 Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
@@ -35,7 +40,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 
 Do ukończenia tego samouczka potrzebne są następujące zasoby i uprawnienia:
 
-* Działająca dzierżawa usługi Azure AD z włączoną licencją z co najmniej Azure AD — wersja Premium P1 lub P2.
+* Działająca dzierżawa usługi Azure AD z włączoną licencją co najmniej Azure AD — wersja Premium P1.
     * W razie potrzeby [Utwórz je bezpłatnie](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
     * Aby uzyskać więcej informacji, zobacz [wymagania dotyczące licencjonowania usługi Azure AD SSPR](concept-sspr-licensing.md).
 * Konto z uprawnieniami *administratora globalnego* .
@@ -54,11 +59,9 @@ Aby poprawnie współpracować z funkcją zapisywania zwrotnego SSPR, konto okre
 * **Resetowanie hasła**
 * **Uprawnienia do zapisu** w`lockoutTime`
 * **Uprawnienia do zapisu** w`pwdLastSet`
-* **Rozszerzone prawa** dla "niewygasania hasła" na jednej z tych opcji:
-   * Obiekt główny *każdej domeny* w tym lesie
-   * Jednostki organizacyjne (OU) użytkownika, które mają być objęte zakresem dla SSPR
+* **Rozszerzone prawa** do "niewygasania hasła" w obiekcie głównym *poszczególnych domen* w tym lesie, jeśli nie zostały one jeszcze ustawione.
 
-Jeśli nie przypiszesz tych uprawnień, zapisywanie zwrotne zostanie prawidłowo skonfigurowane, ale użytkownicy napotykają błędy podczas zarządzania hasłami lokalnymi w chmurze. Do **tego obiektu i wszystkich obiektów zależnych,** które mają być wyświetlane, należy zastosować uprawnienia.  
+Jeśli te uprawnienia nie zostaną przypisane, zapisanie zwrotne może być prawidłowo skonfigurowane, ale użytkownicy napotykają błędy podczas zarządzania hasłami lokalnymi w chmurze. Do **tego obiektu i wszystkich obiektów zależnych,** które mają być wyświetlane, należy zastosować uprawnienia.  
 
 > [!TIP]
 >
@@ -74,7 +77,7 @@ Aby skonfigurować odpowiednie uprawnienia do zapisywania zwrotnego haseł, wyko
 1. Z listy rozwijanej **Zastosuj do** wybierz pozycję **obiekty podrzędne użytkownika**.
 1. W obszarze *uprawnienia*zaznacz pole wyboru dla następującej opcji:
     * **Resetowanie hasła**
-1. W obszarze *Właściwości*wybierz pola dla następujących opcji. Musisz przewijać listę, aby znaleźć te opcje, które można już ustawić domyślnie:
+1. W obszarze *Właściwości*wybierz pola dla następujących opcji. Przewiń listę, aby znaleźć te opcje, które mogą być już ustawione domyślnie:
     * **LockoutTime zapisu**
     * **PwdLastSet zapisu**
 
@@ -89,13 +92,13 @@ Zasady dotyczące haseł w lokalnym środowisku AD DS mogą uniemożliwiać popr
 W przypadku aktualizacji zasad grupy poczekaj na replikację zaktualizowanych zasad lub Użyj `gpupdate /force` polecenia.
 
 > [!Note]
-> Aby hasła były zmieniane natychmiast, zapisywanie zwrotne haseł musi mieć wartość 0. Jeśli jednak użytkownicy przestrzegają zasad lokalnych, a *minimalny wiek hasła* jest ustawiony na wartość większą od zera, zapisywanie zwrotne haseł będzie nadal działało po ocenie zasad lokalnych. 
+> Aby hasła były zmieniane natychmiast, zapisywanie zwrotne haseł musi mieć wartość 0. Jeśli jednak użytkownicy przestrzegają zasad lokalnych, a *minimalny wiek hasła* jest ustawiony na wartość większą od zera, zapisywanie zwrotne haseł nadal działa po obliczeniu zasad lokalnych.
 
 ## <a name="enable-password-writeback-in-azure-ad-connect"></a>Włącz funkcję zapisywania zwrotnego haseł w Azure AD Connect
 
 Jedną z opcji konfiguracji w Azure AD Connect jest zapisanie zwrotne haseł. Po włączeniu tej opcji zdarzenia zmiany hasła powodują Azure AD Connect synchronizacji zaktualizowanych poświadczeń z powrotem do środowiska lokalnego AD DS.
 
-Aby włączyć funkcję zapisywania zwrotnego do samoobsługowego resetowania hasła, należy najpierw włączyć opcję zapisywania zwrotnego w Azure AD Connect. Na serwerze Azure AD Connect wykonaj następujące czynności:
+Aby włączyć funkcję zapisywania zwrotnego SSPR, należy najpierw włączyć opcję zapisywania zwrotnego w Azure AD Connect. Na serwerze Azure AD Connect wykonaj następujące czynności:
 
 1. Zaloguj się do serwera Azure AD Connect i uruchom Kreatora konfiguracji **Azure AD Connect** .
 1. Na **stronie powitalnej** wybierz pozycję **Konfiguruj**.

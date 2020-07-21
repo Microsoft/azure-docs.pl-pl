@@ -10,12 +10,12 @@ ms.date: 05/04/2020
 ms.author: cynthn
 ms.custom: mvc
 ms.reviewer: akjosh
-ms.openlocfilehash: 0ea5c11254d8dba050fe63a4cd915240c8270dd1
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: bd4da23ed3f4b2dc92652493c77efbcbc0542066
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84324576"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86510127"
 ---
 # <a name="tutorial-create-a-custom-image-of-an-azure-vm-with-the-azure-cli"></a>Samouczek: tworzenie niestandardowego obrazu maszyny wirtualnej na platformie Azure za pomocą interfejsu wiersza polecenia platformy Azure
 
@@ -29,7 +29,7 @@ Obrazy niestandardowe są podobne do obrazów z platformy handlowej, ale tworzy 
 > * Udostępnianie galerii obrazów
 
 
-W tym samouczku jest używany interfejs wiersza polecenia w [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), który jest stale aktualizowany do najnowszej wersji. Aby otworzyć Cloud Shell, wybierz opcję **Wypróbuj** z góry dowolnego bloku kodu.
+W tym samouczku jest używany interfejs wiersza polecenia w [Azure Cloud Shell](../../cloud-shell/overview.md), który jest stale aktualizowany do najnowszej wersji. Aby otworzyć Cloud Shell, wybierz opcję **Wypróbuj** z góry dowolnego bloku kodu.
 
 Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten samouczek będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.4.0 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure]( /cli/azure/install-azure-cli).
 
@@ -90,11 +90,11 @@ Definicje obrazów tworzą logiczne grupowanie dla obrazów. Są one używane do
 
 Nazwy definicji obrazów mogą składać się z wielkich lub małych liter, cyfr, kropek, kresek i kropek. 
 
-Aby uzyskać więcej informacji na temat wartości, które można określić dla definicji obrazu, zobacz [definicje obrazu](https://docs.microsoft.com/azure/virtual-machines/linux/shared-image-galleries#image-definitions).
+Aby uzyskać więcej informacji na temat wartości, które można określić dla definicji obrazu, zobacz [definicje obrazu](./shared-image-galleries.md#image-definitions).
 
 Utwórz definicję obrazu w galerii za pomocą polecenia [AZ SIG Image-Definition Create](/cli/azure/sig/image-definition#az-sig-image-definition-create). 
 
-W tym przykładzie definicja obrazu ma nazwę *myImageDefinition*i jest dla [WYSPECJALIZOWANEGO](https://docs.microsoft.com/azure/virtual-machines/linux/shared-image-galleries#generalized-and-specialized-images) obrazu systemu operacyjnego Linux. 
+W tym przykładzie definicja obrazu ma nazwę *myImageDefinition*i jest dla [WYSPECJALIZOWANEGO](./shared-image-galleries.md#generalized-and-specialized-images) obrazu systemu operacyjnego Linux. 
 
 ```azurecli-interactive 
 az sig image-definition create \
@@ -134,7 +134,7 @@ az sig image-version create \
 > [!NOTE]
 > Musisz poczekać na zakończenie kompilowania i replikowania wersji obrazu, aby można było użyć tego samego obrazu zarządzanego do utworzenia innej wersji obrazu.
 >
-> Możesz również przechowywać obraz w magazynie Premiun przez dodanie `--storage-account-type  premium_lrs` lub [nadmiarowy magazyn stref](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) przez dodanie `--storage-account-type  standard_zrs` go podczas tworzenia wersji obrazu.
+> Możesz również przechowywać obraz w magazynie Premiun przez dodanie `--storage-account-type  premium_lrs` lub [nadmiarowy magazyn stref](../../storage/common/storage-redundancy.md) przez dodanie `--storage-account-type  standard_zrs` go podczas tworzenia wersji obrazu.
 >
 
  
@@ -176,11 +176,11 @@ az role assignment create \
    --scope <gallery ID>
 ```
 
-Aby uzyskać więcej informacji o sposobie udostępniania zasobów przy użyciu funkcji RBAC, zobacz [Zarządzanie dostępem przy użyciu funkcji RBAC i interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli).
+Aby uzyskać więcej informacji o sposobie udostępniania zasobów przy użyciu funkcji RBAC, zobacz [Zarządzanie dostępem przy użyciu funkcji RBAC i interfejsu wiersza polecenia platformy Azure](../../role-based-access-control/role-assignments-cli.md).
 
 ## <a name="azure-image-builder"></a>Konstruktor obrazów platformy Azure
 
-Platforma Azure oferuje również usługę, która jest oparta na pakiecie [Konstruktor obrazów maszyn wirtualnych platformy Azure](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-overview). Wystarczy opisać dostosowania w szablonie i obsłużyć Tworzenie obrazu. 
+Platforma Azure oferuje również usługę, która jest oparta na pakiecie [Konstruktor obrazów maszyn wirtualnych platformy Azure](./image-builder-overview.md). Wystarczy opisać dostosowania w szablonie i obsłużyć Tworzenie obrazu. 
 
 ## <a name="next-steps"></a>Następne kroki
 
@@ -197,4 +197,3 @@ Przejdź do następnego samouczka, aby dowiedzieć się więcej o maszynach wirt
 
 > [!div class="nextstepaction"]
 > [Tworzenie maszyn wirtualnych o wysokiej dostępności](tutorial-availability-sets.md)
-

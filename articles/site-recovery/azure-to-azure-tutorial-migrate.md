@@ -1,5 +1,5 @@
 ---
-title: Przenoszenie maszyn wirtualnych platformy Azure do innego regionu za pomocą Azure Site Recovery
+title: Przenoszenie maszyn wirtualnych IaaS platformy Azure do innego regionu za pomocą Azure Site Recovery
 description: Używanie usługi Azure Site Recovery do przenoszenia maszyn wirtualnych IaaS platformy Azure z jednego regionu świadczenia usługi Azure do innego.
 services: site-recovery
 author: rajani-janaki-ram
@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 09a00d2c6a889f396e5c18da29530c94a624568b
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 198e07b80788629030b621dd3c5e235a91baaba3
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134428"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518915"
 ---
 # <a name="move-azure-vms-to-another-region"></a>Przenoszenie maszyn wirtualnych platformy Azure do innego regionu
 
@@ -70,14 +70,14 @@ W tym samouczku wykonasz następujące czynności:
      > Azure Site Recovery automatycznie wykrywa i tworzy sieć wirtualną po włączeniu replikacji dla źródłowej maszyny wirtualnej. Możesz również wstępnie utworzyć sieć i przypisać ją do maszyny wirtualnej w przepływie użytkownika w celu włączenia replikacji. Jak wspomniano wcześniej, należy ręcznie utworzyć wszystkie inne zasoby w regionie docelowym.
 
     Aby utworzyć najczęściej używane zasoby sieciowe, które są odpowiednie dla Ciebie na podstawie konfiguracji źródłowej maszyny wirtualnej, zapoznaj się z następującą dokumentacją:
-    - [Grupy zabezpieczeń sieci](../virtual-network/manage-network-security-group.md)
+    - [Sieciowe grupy zabezpieczeń](../virtual-network/manage-network-security-group.md)
     - [Moduły równoważenia obciążenia](../load-balancer/index.yml)
     -  [Publiczny adres IP](../virtual-network/virtual-network-public-ip-address.md)
     - Wszystkie inne składniki sieci można znaleźć w dokumentacji dotyczącej [sieci](../index.yml?pivot=products&panel=network).
 
 
 
-## <a name="prepare"></a>Przygotowanie
+## <a name="prepare"></a>Przygotowywanie
 Poniższe kroki pokazują, jak przygotować maszynę wirtualną do przenoszenia przy użyciu Azure Site Recovery jako rozwiązanie. 
 
 ### <a name="create-the-vault-in-any-region-except-the-source-region"></a>Tworzenie magazynu w dowolnym regionie, z wyjątkiem regionu źródłowego
@@ -99,7 +99,7 @@ Site Recovery pobiera listę maszyn wirtualnych skojarzonych z subskrypcją i gr
 
 1. W następnym kroku Wybierz maszynę wirtualną, którą chcesz przenieść, a następnie wybierz pozycję **OK**.
 1. W obszarze **Ustawienia**wybierz pozycję **odzyskiwanie po awarii**.
-1. W obszarze Skonfiguruj region docelowy **odzyskiwania po awarii**  >  **Target region**wybierz region docelowy, do którego zostanie zreplikowana replikacja.
+1. W obszarze **Konfigurowanie odzyskiwania po awarii** > **Region docelowy** wybierz region docelowy, w którym maszyna będzie replikowana.
 1. Dla celów tego samouczka zaakceptuj inne ustawienia domyślne.
 1. Wybierz pozycję **Włącz replikację**. Ten krok umożliwia uruchomienie zadania w celu włączenia replikacji dla maszyny wirtualnej.
 

@@ -1,6 +1,6 @@
 ---
-title: Aktualizacje usługi puli hostów usług pulpitu wirtualnego systemu Windows — Azure
-description: Jak utworzyć pulę hostów weryfikacji do monitorowania aktualizacji usługi przed przeprowadzeniem aktualizacji do środowiska produkcyjnego.
+title: Aktualizacje usługi puli hostów usług pulpitu wirtualnego systemu Windows (2019) — Azure
+description: Dowiedz się, jak utworzyć pulę hostów weryfikacji, aby monitorować Aktualizacje usług przed przeprowadzeniem aktualizacji do środowiska produkcyjnego.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,14 +8,14 @@ ms.topic: tutorial
 ms.date: 05/27/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: fe6b047d10b8aef8faf81365cae940b05b3d798c
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 806c3396d9188ea6abc5f779a26d99247d802ebe
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84117739"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86527594"
 ---
-# <a name="tutorial-create-a-host-pool-to-validate-service-updates"></a>Samouczek: Tworzenie puli hostów w celu sprawdzenia poprawności aktualizacji usługi
+# <a name="tutorial-create-a-host-pool-to-validate-service-updates-fall-2019-release"></a>Samouczek: Tworzenie puli hostów w celu sprawdzenia poprawności aktualizacji usługi (jesień 2019 wydania)
 
 >[!IMPORTANT]
 >Ta zawartość dotyczy wersji 2019, która nie Azure Resource Manager obsługuje obiektów pulpitu wirtualnego systemu Windows. Jeśli próbujesz zarządzać Azure Resource Manager obiektami pulpitu wirtualnego systemu Windows wprowadzonymi w ramach aktualizacji wiosną 2020, zobacz [ten artykuł](../create-validation-host-pool.md).

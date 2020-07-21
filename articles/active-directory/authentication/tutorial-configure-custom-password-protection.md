@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
-ms.date: 02/27/2020
+ms.date: 07/13/2020
 ms.author: iainfou
 author: iainfoulds
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4abb15462689470c87e9cf5ba8d5be8af2e45bfd
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 642082b3fe23e0d007e21409062fe8e777728cc3
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78252845"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518543"
 ---
 # <a name="tutorial-configure-custom-banned-passwords-for-azure-active-directory-password-protection"></a>Samouczek: Konfigurowanie niestandardowych zakazanych haseł Azure Active Directory ochrony hasłem
 
@@ -36,12 +36,12 @@ Do ukończenia tego samouczka potrzebne są następujące zasoby i uprawnienia:
     * W razie potrzeby [Utwórz je bezpłatnie](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Konto z uprawnieniami *administratora globalnego* .
 * Użytkownik niebędący administratorem z hasłem znanym, takim jak *Użytkownik testowy*. W tym samouczku testujesz zdarzenie zmiany hasła przy użyciu tego konta.
-    * Jeśli musisz utworzyć użytkownika, zobacz [Szybki Start: Dodawanie nowych użytkowników do Azure Active Directory](../add-users-azure-active-directory.md).
+    * Jeśli musisz utworzyć użytkownika, zobacz [Szybki Start: Dodawanie nowych użytkowników do Azure Active Directory](../fundamentals/add-users-azure-active-directory.md).
     * Aby przetestować operację zmiany hasła przy użyciu zabronionego hasła, dzierżawa usługi Azure AD musi być skonfigurowana do samoobsługowego [resetowania hasła](tutorial-enable-sspr.md).
 
 ## <a name="what-are-banned-password-lists"></a>Co to są listy zabronionych haseł?
 
-Usługa Azure AD zawiera globalną listę wykluczonych haseł. Zawartość globalnej listy zakazanych haseł nie jest oparta na żadnym zewnętrznym źródle danych. Zamiast tego globalna lista wykluczonych haseł jest oparta na bieżących wynikach telemetrii i analizie zabezpieczeń usługi Azure AD. Gdy użytkownik lub administrator próbuje zmienić lub zresetować swoje poświadczenia, wymagane hasło jest sprawdzane na liście zakazanych haseł. Żądanie zmiany hasła nie powiedzie się, jeśli na liście globalnie zabronione hasła znajduje się dopasowanie.
+Usługa Azure AD zawiera globalną listę wykluczonych haseł. Zawartość globalnej listy zakazanych haseł nie jest oparta na żadnym zewnętrznym źródle danych. Zamiast tego globalna lista wykluczonych haseł jest oparta na bieżących wynikach telemetrii i analizie zabezpieczeń usługi Azure AD. Gdy użytkownik lub administrator próbuje zmienić lub zresetować swoje poświadczenia, wymagane hasło jest sprawdzane na liście zakazanych haseł. Żądanie zmiany hasła nie powiedzie się, jeśli na liście globalnie zabronione hasła znajduje się dopasowanie. Nie można edytować tej domyślnej listy zabronionych haseł.
 
 Aby zapewnić elastyczność, w jaki sposób hasła są dozwolone, można również zdefiniować niestandardową listę wykluczonych haseł. Niestandardowa lista wykluczonych haseł działa obok globalnej listy wykluczonych haseł w celu wymuszenia silnych haseł w organizacji. Warunki specyficzne dla organizacji można dodać do listy niestandardowych zakazanych haseł, takich jak następujące przykłady:
 
@@ -91,9 +91,9 @@ W przypadku środowiska hybrydowego można także [wdrożyć ochronę hasłem us
 Aby wyświetlić listę niestandardowych zakazanych haseł w akcji, spróbuj zmienić hasło na odmianę dodaną w poprzedniej sekcji. Gdy usługa Azure AD próbuje przetworzyć zmianę hasła, hasło jest dopasowywane do wpisu na liście niestandardowych zakazanych haseł. Zostanie wyświetlony komunikat o błędzie.
 
 > [!NOTE]
-> Aby użytkownik mógł zresetować swoje hasło w portalu internetowym, dzierżawa usługi Azure AD musi być skonfigurowana do samoobsługowego [resetowania hasła](tutorial-enable-sspr.md).
+> Aby użytkownik mógł zresetować swoje hasło w portalu internetowym, dzierżawa usługi Azure AD musi być skonfigurowana do samoobsługowego [resetowania hasła](tutorial-enable-sspr.md). W razie potrzeby użytkownik może zarejestrować się [w usłudze SSPR pod https://aka.ms/ssprsetup adresem ](https://aka.ms/ssprsetup).
 
-1. Przejdź do strony **Moje aplikacje** pod adresem [https://myapps.microsoft.com](https://myapps.microsoft.com).
+1. Przejdź do strony **Moje aplikacje** pod adresem [https://myapps.microsoft.com](https://myapps.microsoft.com) .
 1. W prawym górnym rogu wybierz swoją nazwę, a następnie wybierz pozycję **profil** z menu rozwijanego.
 
     ![Wybieranie profilu](media/tutorial-configure-custom-password-protection/myapps-profile.png)
@@ -104,7 +104,7 @@ Aby wyświetlić listę niestandardowych zakazanych haseł w akcji, spróbuj zmi
 
     ![Komunikat o błędzie wyświetlany podczas próby użycia hasła, które jest częścią listy niestandardowo zakazanych haseł](media/tutorial-configure-custom-password-protection/password-change-error.png)
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli nie chcesz już używać niestandardowej listy wykluczonych haseł skonfigurowanej w ramach tego samouczka, wykonaj następujące czynności:
 

@@ -10,12 +10,12 @@ ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: blobs
-ms.openlocfilehash: 21771fb1bb041dd2f09f5d82d9def4cfe91794f6
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+ms.openlocfilehash: 82131ab4e1f990af25c669131e20c789a0f74dcf
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84808394"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518661"
 ---
 # <a name="tutorial---encrypt-and-decrypt-blobs-using-azure-key-vault"></a>Samouczek — szyfrowanie i odszyfrowywanie obiektów BLOB za pomocą Azure Key Vault
 
@@ -50,7 +50,7 @@ Poniżej znajduje się krótki opis sposobu działania szyfrowania po stronie kl
 
 Aby kontynuować pracę z tym samouczkiem, należy wykonać następujące kroki opisane w samouczku [Szybki Start: Ustawianie i pobieranie wpisu tajnego z Azure Key Vault przy użyciu aplikacji sieci Web platformy .NET](../../key-vault/secrets/quick-create-net.md):
 
-* Tworzenie magazynu kluczy.
+* Utwórz magazyn kluczy.
 * Dodawanie klucza lub wpisu tajnego do magazynu kluczy.
 * Zarejestruj aplikację przy użyciu Azure Active Directory.
 * Autoryzuj aplikację do korzystania z klucza lub wpisu tajnego.
@@ -210,7 +210,7 @@ Sposób użycia klucza tajnego z szyfrowaniem po stronie klienta polega na użyc
 Oto przykład w programie PowerShell tworzenia wpisu tajnego w Key Vault, który może być używany jako SymmetricKey.
 Należy pamiętać, że twarda wartość, $key, jest tylko do celów demonstracyjnych. W swoim własnym kodzie chcesz wygenerować ten klucz.
 
-```csharp
+```powershell
 // Here we are making a 128-bit key so we have 16 characters.
 //     The characters are in the ASCII range of UTF8 so they are
 //    each 1 byte. 16 x 8 = 128.

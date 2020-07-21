@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 04/30/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: ac581b45f3aefe7a386f25c978bfc09adda4e39f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7964f96afc59464c28cabb9e1d5c7961fc765a3d
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81460481"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86501776"
 ---
 # <a name="tutorial-secure-a-web-server-on-a-linux-virtual-machine-in-azure-with-tlsssl-certificates-stored-in-key-vault"></a>Samouczek: Zabezpieczanie serwera sieci Web na maszynie wirtualnej z systemem Linux na platformie Azure przy użyciu certyfikatów TLS/SSL przechowywanych w Key Vault
 Aby zabezpieczyć serwery sieci Web, Transport Layer Security (TLS), wcześniej znany jako SSL (SSL), można użyć certyfikatu do szyfrowania ruchu w sieci Web. Te certyfikaty TLS/SSL mogą być przechowywane w Azure Key Vault i umożliwiają bezpieczne wdrażanie certyfikatów na maszynach wirtualnych z systemem Linux na platformie Azure. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
@@ -30,7 +30,7 @@ Aby zabezpieczyć serwery sieci Web, Transport Layer Security (TLS), wcześniej 
 > * Tworzenie maszyny wirtualnej i instalowanie serwera sieci Web NGINX
 > * Wsuń certyfikat do maszyny wirtualnej i skonfiguruj NGINX z powiązaniem TLS
 
-W tym samouczku jest używany interfejs wiersza polecenia w [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), który jest stale aktualizowany do najnowszej wersji. Aby otworzyć Cloud Shell, wybierz opcję **Wypróbuj** z góry dowolnego bloku kodu.
+W tym samouczku jest używany interfejs wiersza polecenia w [Azure Cloud Shell](../../cloud-shell/overview.md), który jest stale aktualizowany do najnowszej wersji. Aby otworzyć Cloud Shell, wybierz opcję **Wypróbuj** z góry dowolnego bloku kodu.
 
 Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten samouczek będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.0.30 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure]( /cli/azure/install-azure-cli).
 
@@ -48,7 +48,7 @@ Aby można było utworzyć usługę Key Vault i certyfikaty, utwórz grupę zaso
 az group create --name myResourceGroupSecureWeb --location eastus
 ```
 
-Następnie utwórz usługę Key Vault za pomocą polecenia [az keyvault create](/cli/azure/keyvault) i włącz ją do użycia podczas wdrażania maszyny wirtualnej. Każda usługa Key Vault wymaga unikatowej nazwy, która powinna zawierać tylko małe litery. Zastąp * \<mykeyvault>* w poniższym przykładzie własnym unikatowym identyfikatorem Key Vault:
+Następnie utwórz usługę Key Vault za pomocą polecenia [az keyvault create](/cli/azure/keyvault) i włącz ją do użycia podczas wdrażania maszyny wirtualnej. Każda usługa Key Vault wymaga unikatowej nazwy, która powinna zawierać tylko małe litery. Zamień *\<mykeyvault>* w poniższym przykładzie na własną unikatową nazwę Key Vault:
 
 ```azurecli-interactive 
 keyvault_name=<mykeyvault>
@@ -135,7 +135,7 @@ az vm open-port \
 
 
 ### <a name="test-the-secure-web-app"></a>Testowanie bezpiecznej aplikacji internetowej
-Teraz możesz otworzyć przeglądarkę internetową i wprowadzić wartość *https:\/\/\<publicIpAddress>* na pasku adresu. Podaj własny publiczny adres IP z procesu tworzenia maszyny wirtualnej. Jeśli został użyty certyfikat z podpisem własnym, zaakceptuj ostrzeżenie dotyczące zabezpieczeń:
+Teraz możesz otworzyć przeglądarkę internetową i wprowadzić *https: \/ \/ \<publicIpAddress> * na pasku adresu. Podaj własny publiczny adres IP z procesu tworzenia maszyny wirtualnej. Jeśli został użyty certyfikat z podpisem własnym, zaakceptuj ostrzeżenie dotyczące zabezpieczeń:
 
 ![Akceptowanie ostrzeżenia dotyczącego zabezpieczeń w przeglądarce sieci Web](./media/tutorial-secure-web-server/browser-warning.png)
 

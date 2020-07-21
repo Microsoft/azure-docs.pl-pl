@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 06/25/2019
-ms.openlocfilehash: de554f48297c228df9345a6e822096d05b85652f
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: cb8850adaf638aca3ed69c3939916e132f66062d
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84196876"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86504567"
 ---
 # <a name="use-the-azure-cli-to-create-a-single-database-and-configure-a-firewall-rule"></a>Tworzenie pojedynczej bazy danych i konfigurowanie reguły zapory przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -48,7 +48,7 @@ az group delete --name $resource
 
 W tym skrypcie użyto następujących poleceń. Każde polecenie w tabeli stanowi link do dokumentacji polecenia.
 
-| | |
+| Polecenie | Opis |
 |---|---|
 | [az sql server](/cli/azure/sql/server#az-sql-server-create) | Polecenia serwera |
 | [AZ SQL Server firewall](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-create) | Polecenia zapory serwera. |

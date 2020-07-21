@@ -1,16 +1,16 @@
 ---
-title: Uruchamianie równoległego obciążenia
+title: Uruchamianie równoległego obciążenia przy użyciu interfejsu API języka Python
 description: Samouczek — Równoległe przetwarzanie plików multimedialnych przy użyciu narzędzia ffmpeg w usłudze Azure Batch z zastosowaniem biblioteki klienta Batch Python
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 11/29/2018
 ms.custom: mvc, tracking-python
-ms.openlocfilehash: 63515012d10739bb018de34e040465fbe337aa02
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 1d9f84d90c8c06cd00999b0764419fdb1c4cbe95
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84561278"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86497900"
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-python-api"></a>Samouczek: uruchamianie równoległego obciążenia w usłudze Azure Batch przy użyciu interfejsu API Python
 
@@ -71,7 +71,7 @@ _STORAGE_ACCOUNT_NAME = 'mystorageaccount'
 _STORAGE_ACCOUNT_KEY = 'xxxxxxxxxxxxxxxxy4/xxxxxxxxxxxxxxxxfwpbIC5aAWA8wDu+AFXZB827Mt9lybZB1nUcQbQiUrkPtilK5BQ=='
 ```
 
-### <a name="run-the-app"></a>Uruchomienie aplikacji
+### <a name="run-the-app"></a>Uruchamianie aplikacji
 
 Aby uruchomić skrypt:
 
@@ -260,7 +260,7 @@ while datetime.datetime.now() < timeout_expiration:
 ...
 ```
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Po wykonaniu zadań podrzędnych aplikacja automatycznie usuwa utworzony wejściowy kontener magazynu, a opcjonalnie także pulę i zadanie usługi Batch. Dla obu klas [JobOperations](/python/api/azure-batch/azure.batch.operations.joboperations) i [PoolOperations](/python/api/azure-batch/azure.batch.operations.pooloperations) klienta BatchClient istnieją metody usuwania, które są wywoływane, jeśli potwierdzisz usunięcie. Mimo że nie są naliczane opłaty za same zadania i zadania podrzędne, są naliczane opłaty za węzły obliczeniowe. W związku z tym zaleca się przydzielanie pul stosownie do potrzeb. W przypadku usunięcia puli usuwane są również wszystkie dane wyjściowe zadań podrzędnych w węzłach. Pliki wejściowe i wyjściowe pozostają jednak na koncie magazynu.
 

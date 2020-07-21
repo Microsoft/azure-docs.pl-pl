@@ -1,13 +1,14 @@
 ---
 title: Wdróż & oficjalne przykłady planu NHS w Wielkiej Brytanii
 description: Wdróż kroki dla przykładów planów NHS publicznego i ZJEDNOCZONEgo Królestwa BRYTYJSKIego, w tym szczegóły parametrów artefaktu.
-ms.date: 05/08/2020
+ms.date: 07/13/2020
 ms.topic: sample
-ms.openlocfilehash: 2ac2d17c08b3f585f86d1b2d339c3c7cf52844ce
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: a4512eb982943664afc8217c5332e5e3b6e62fc1
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86037175"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86521449"
 ---
 # <a name="deploy-the-uk-official-and-uk-nhs-blueprint-samples"></a>Wdróż przykłady planów NHS z OFICJALNymi i ZJEDNOCZONYmi Królestwem Zjednoczonego Królestwa
 
@@ -61,7 +62,7 @@ Po pomyślnym **opublikowaniu**kopii przykładowej strategii można ją przypisa
 
 1. Podaj wartości parametrów dla przypisania planu:
 
-   - Informacje podstawowe
+   - Podstawy
 
      - **Subskrypcje**: Wybierz co najmniej jedną subskrypcję znajdującą się w grupie zarządzania, do której została zapisana kopia przykładu planu. W przypadku wybrania więcej niż jednej subskrypcji zostanie utworzone przypisanie dla każdego z nich przy użyciu wprowadzonych parametrów.
      - **Nazwa przypisania**: nazwa jest wstępnie wypełniona dla Ciebie na podstawie nazwy planu.
@@ -92,9 +93,9 @@ Poniższa tabela zawiera listę parametrów artefaktów strategii:
 
 Nazwa artefaktu|Typ artefaktu|Nazwa parametru|Opis|
 |-|-|-|-|
-|Inicjatywa dotycząca strategii dla NHS publicznego lub ZJEDNOCZONEgo Królestwa|Przypisywanie zasad |Typy zasobów służące do inspekcji dzienników diagnostycznych (zasady: inicjatywa z inicjatywy dla OFICJALNych lub BRYTYJSKIch NHS) |Lista typów zasobów do inspekcji, jeśli jest włączona opcja dziennik diagnostyczny.  Aby uzyskać akceptowalne wartości, zobacz [obsługiwane usługi, schematy i kategorie dla dzienników diagnostycznych platformy Azure](../../../../azure-monitor/platform/resource-logs-schema.md). |
-|\[Wersja zapoznawcza \] : wdrażanie agenta log Analytics dla maszyn wirtualnych z systemem Linux |Przypisywanie zasad |Opcjonalnie: lista obrazów maszyn wirtualnych z obsługiwanym systemem operacyjnym Linux do dodania do zakresu (zasady: \[ wersja zapoznawcza \] : wdrażanie log Analytics agenta dla maszyn wirtualnych z systemem Linux) |Obowiązkowe Wartość domyślna to _none_. Aby uzyskać więcej informacji, zobacz [Tworzenie obszaru roboczego log Analytics w Azure Portal](../../../../azure-monitor/learn/quick-create-workspace.md). |
-|\[Wersja zapoznawcza \] : wdrażanie agenta log Analytics dla maszyn wirtualnych z systemem Windows |Przypisywanie zasad |Opcjonalnie: lista obrazów maszyn wirtualnych z obsługiwanym systemem operacyjnym Windows do dodania do zakresu (zasady: \[ wersja zapoznawcza \] : wdrażanie log Analytics agenta dla maszyn wirtualnych z systemem Windows) |Obowiązkowe Wartość domyślna to _none_. Aby uzyskać więcej informacji, zobacz [Tworzenie obszaru roboczego log Analytics w Azure Portal](../../../../azure-monitor/learn/quick-create-workspace.md). |
+|Inicjatywa dotycząca strategii dla NHS publicznego lub ZJEDNOCZONEgo Królestwa|Przypisanie zasad |Typy zasobów służące do inspekcji dzienników diagnostycznych (zasady: inicjatywa z inicjatywy dla OFICJALNych lub BRYTYJSKIch NHS) |Lista typów zasobów do inspekcji, jeśli jest włączona opcja dziennik diagnostyczny.  Aby uzyskać akceptowalne wartości, zobacz [obsługiwane usługi, schematy i kategorie dla dzienników diagnostycznych platformy Azure](../../../../azure-monitor/platform/resource-logs-schema.md). |
+|\[Wersja zapoznawcza \] : wdrażanie agenta log Analytics dla maszyn wirtualnych z systemem Linux |Przypisanie zasad |Opcjonalnie: lista obrazów maszyn wirtualnych z obsługiwanym systemem operacyjnym Linux do dodania do zakresu (zasady: \[ wersja zapoznawcza \] : wdrażanie log Analytics agenta dla maszyn wirtualnych z systemem Linux) |Obowiązkowe Wartość domyślna to _none_. Aby uzyskać więcej informacji, zobacz [Tworzenie obszaru roboczego log Analytics w Azure Portal](../../../../azure-monitor/learn/quick-create-workspace.md). |
+|\[Wersja zapoznawcza \] : wdrażanie agenta log Analytics dla maszyn wirtualnych z systemem Windows |Przypisanie zasad |Opcjonalnie: lista obrazów maszyn wirtualnych z obsługiwanym systemem operacyjnym Windows do dodania do zakresu (zasady: \[ wersja zapoznawcza \] : wdrażanie log Analytics agenta dla maszyn wirtualnych z systemem Windows) |Obowiązkowe Wartość domyślna to _none_. Aby uzyskać więcej informacji, zobacz [Tworzenie obszaru roboczego log Analytics w Azure Portal](../../../../azure-monitor/learn/quick-create-workspace.md). |
 
 ## <a name="next-steps"></a>Następne kroki
 

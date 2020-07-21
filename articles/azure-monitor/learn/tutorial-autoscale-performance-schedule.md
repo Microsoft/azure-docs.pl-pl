@@ -8,12 +8,12 @@ ms.date: 12/11/2017
 ms.author: ancav
 ms.custom: mvc
 ms.subservice: autoscale
-ms.openlocfilehash: a4502a9ec7866d9b1ecb0f2aa2257e759fd417c8
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 9a069c4e63abd5307c123799d92e656294045a65
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81114688"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505860"
 ---
 # <a name="create-an-autoscale-setting-for--azure-resources-based-on-performance-data-or-a-schedule"></a>Tworzenie ustawienia automatycznego skalowania dla zasobów platformy Azure na podstawie danych wydajności lub harmonogramu
 
@@ -76,7 +76,7 @@ Kilka następnych kroków pomoże Ci w takim wypełnieniu ekranu automatycznego 
 
 6. Ustaw profil tak, aby powtarzał się od poniedziałku do piątku, od 09:00 do 18:00 czasu pacyficznego. To ustawienie powoduje, że profil jest aktywny i obowiązuje tylko od 9:00 do 18:00, od poniedziałku do piątku. W pozostałych godzinach ustawienie automatycznego skalowania korzysta z profilu „Domyślny”.
 
-## <a name="create-a-scale-out-rule"></a>Tworzenie reguły skalowania do wewnątrz
+## <a name="create-a-scale-out-rule"></a>Tworzenie reguły zwiększania skali w poziomie
 
 1. W profilu „Profil od poniedziałku do piątku”.
 
@@ -94,9 +94,9 @@ Kilka następnych kroków pomoże Ci w takim wypełnieniu ekranu automatycznego 
 
 Ta reguła zapewnia, że jeśli aplikacja internetowa odbierze więcej niż 10 żądań w czasie nie dłuższym niż 5 minut, do Twojego planu usługi App Service zostanie dodane jedno wystąpienie na potrzeby zarządzania obciążeniem.
 
-   ![Tworzenie reguły skalowania do wewnątrz](./media/tutorial-autoscale-performance-schedule/Scale-Out-Rule.png)
+   ![Tworzenie reguły zwiększania skali w poziomie](./media/tutorial-autoscale-performance-schedule/Scale-Out-Rule.png)
 
-## <a name="create-a-scale-in-rule"></a>Tworzenie reguły skalowania na zewnątrz
+## <a name="create-a-scale-in-rule"></a>Tworzenie reguły zmniejszania skali w poziomie
 Zaleca się, aby wraz z regułą skalowania do wewnątrz zawsze istniała reguła skalowania na zewnątrz. Jeśli istnieją obie reguły, zasoby nie będą nadmiernie aprowizowane. Nadmierna aprowizacja oznacza, że działa więcej wystąpień niż jest to konieczne do obsługi bieżącego obciążenia. 
 
 1. W profilu „Profil od poniedziałku do piątku”.
@@ -113,7 +113,7 @@ Zaleca się, aby wraz z regułą skalowania do wewnątrz zawsze istniała reguł
 
 7. Kliknij przycisk **Dodaj**.
 
-    ![Tworzenie reguły skalowania na zewnątrz](./media/tutorial-autoscale-performance-schedule/Scale-In-Rule.png)
+    ![Tworzenie reguły zmniejszania skali w poziomie](./media/tutorial-autoscale-performance-schedule/Scale-In-Rule.png)
 
 8. **Zapisz** ustawienie automatycznego skalowania.
 
@@ -159,7 +159,7 @@ Warunek skalowania na zewnątrz w ustawieniu automatycznego skalowania jest wyzw
 
     ![Widok akcji skalowania na zewnątrz](./media/tutorial-autoscale-performance-schedule/Scale-In-Chart.png)
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 1. W witrynie Azure Portal w menu po lewej stronie kliknij pozycję **Wszystkie zasoby**, a następnie wybierz aplikację internetową utworzoną w tym samouczku.
 
@@ -183,5 +183,4 @@ W tym samouczku zostały wykonane następujące czynności:
 Aby dowiedzieć się więcej na temat ustawień automatycznego skalowania, przejdź do [omówienia automatycznego skalowania](../../azure-monitor/platform/autoscale-overview.md).
 
 > [!div class="nextstepaction"]
-> [Archiwizuj dane monitorowania](tutorial-archive-data.md)
-
+> [Archiwizuj dane monitorowania](../platform/platform-logs-overview.md)

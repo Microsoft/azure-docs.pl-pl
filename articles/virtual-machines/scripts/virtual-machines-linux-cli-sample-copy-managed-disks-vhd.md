@@ -1,5 +1,5 @@
 ---
-title: Kopiowanie dysków zarządzanych do konta magazynu — przykład interfejsu wiersza polecenia
+title: Kopiowanie dysków zarządzanych do konta magazynu — przykład interfejsu wiersza polecenia systemu Linux
 description: Przykład interfejsu wiersza polecenia platformy Azure — Eksportuj lub skopiuj dyski zarządzane do konta magazynu.
 services: virtual-machines-linux
 documentationcenter: storage
@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 05/09/2019
 ms.author: ramankum
 ms.custom: mvc,seodec18
-ms.openlocfilehash: d841519aeedb4b85fb897b45fa09be6c62b1fa2a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e0939e452627cc9f624f7d96da1059b539fa5546
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81459988"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86509872"
 ---
 # <a name="exportcopy-a-managed-disk-to-a-storage-account-using-the-azure-cli"></a>Eksportowanie/kopiowanie dysków zarządzanych na konto magazynu przy użyciu wiersza polecenia platformy Azure
 
@@ -42,8 +42,8 @@ Ten skrypt generuje identyfikator URI sygnatury dostępu współdzielonego dysku
 
 | Polecenie | Uwagi |
 |---|---|
-| [az disk grant-access](https://docs.microsoft.com/cli/azure/disk?view=azure-cli-latest#az-disk-grant-access) | Generuje sygnaturę dostępu współdzielonego tylko do odczytu, która umożliwia skopiowanie odpowiedniego pliku wirtualnego dysku twardego na konto magazynu lub pobranie go do środowiska lokalnego  |
-| [az storage blob copy start](https://docs.microsoft.com/cli/azure/storage/blob/copy) | Asynchronicznie kopiuje obiekt blob z jednego konta magazynu do innego |
+| [az disk grant-access](/cli/azure/disk?view=azure-cli-latest#az-disk-grant-access) | Generuje sygnaturę dostępu współdzielonego tylko do odczytu, która umożliwia skopiowanie odpowiedniego pliku wirtualnego dysku twardego na konto magazynu lub pobranie go do środowiska lokalnego  |
+| [az storage blob copy start](/cli/azure/storage/blob/copy) | Asynchronicznie kopiuje obiekt blob z jednego konta magazynu do innego |
 
 ## <a name="next-steps"></a>Następne kroki
 
@@ -51,6 +51,6 @@ Ten skrypt generuje identyfikator URI sygnatury dostępu współdzielonego dysku
 
 [Tworzenie maszyny wirtualnej na podstawie dysku zarządzanego](./virtual-machines-linux-cli-sample-create-vm-from-managed-os-disks.md?toc=%2fcli%2fmodule%2ftoc.json)
 
-Aby uzyskać więcej informacji na temat interfejsu wiersza polecenia platformy Azure, zobacz [dokumentację interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure).
+Aby uzyskać więcej informacji na temat interfejsu wiersza polecenia platformy Azure, zobacz [dokumentację interfejsu wiersza polecenia platformy Azure](/cli/azure).
 
 Więcej przykładowych skryptów interfejsu wiersza polecenia dysków zarządzanych i maszyny wirtualnej można znaleźć w [dokumentacji dotyczącej maszyny wirtualnej platformy Azure z systemem Linux](../linux/cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

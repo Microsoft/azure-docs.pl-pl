@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 06/09/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 01c239c30b24ad110d71c43b31448a0f5b29574b
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
+ms.openlocfilehash: 0e249c512825dc4c36ff3f6355a4a774934ee4e9
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/14/2020
-ms.locfileid: "84762552"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86499940"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-bluejeans-for-azure-ad"></a>Samouczek: Azure Active Directory Integracja z logowaniem jednokrotnym (SSO) z usługą BlueJeans dla usługi Azure AD
 
@@ -38,6 +38,9 @@ Aby rozpocząć, potrzebne są następujące elementy:
 
 * Subskrypcja usługi Azure AD. Jeśli nie masz subskrypcji, możesz uzyskać [bezpłatne konto](https://azure.microsoft.com/free/).
 * BlueJeans dla subskrypcji z obsługą logowania jednokrotnego (SSO) usługi Azure AD.
+
+> [!NOTE]
+> Ta integracja jest również dostępna do użycia w środowisku chmury dla instytucji rządowych USA usługi Azure AD. Tę aplikację można znaleźć w galerii aplikacji w chmurze dla instytucji rządowych USA usługi Azure AD i skonfigurować ją w taki sam sposób, jak w przypadku chmury publicznej.
 
 ## <a name="scenario-description"></a>Opis scenariusza
 
@@ -214,7 +217,7 @@ Celem tej sekcji jest utworzenie użytkownika o nazwie B. Simon w BlueJeans dla 
 
     f. W polu tekstowym **Email Address** (Adres e-mail) wprowadź adres e-mail użytkownika, na przykład `b.simon\@contoso.com`.
 
-    g. W polu tekstowym **Utwórz BlueJeans dla spotkania usługi Azure AD** wpisz swój identyfikator spotkania.
+    przykład W polu tekstowym **Utwórz BlueJeans dla spotkania usługi Azure AD** wpisz swój identyfikator spotkania.
 
     h. W polu tekstowym **Pick a Moderator Passcode** (Wybierz kod dostępu moderatora) wprowadź kod dostępu.
 
@@ -233,7 +236,7 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 Po kliknięciu kafelka BlueJeans dla usługi Azure AD w panelu dostępu należy automatycznie zalogować się do BlueJeans usługi Azure AD, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 

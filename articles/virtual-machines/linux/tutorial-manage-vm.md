@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 03/23/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 8e559be82fc7c3d6b25b99319785d49e30f56287
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c233ef9cfb6ded6f3d4e96b893970d4282dfc22e
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81460005"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86526983"
 ---
 # <a name="tutorial-create-and-manage-linux-vms-with-the-azure-cli"></a>Samouczek: tworzenie maszyn wirtualnych z systemem Linux i zarządzanie nimi za pomocą interfejsu wiersza polecenia platformy Azure
 
@@ -32,13 +32,13 @@ Maszyny wirtualne platformy Azure oferują w pełni konfigurowalne i elastyczne 
 > * Zmienianie rozmiaru maszyny wirtualnej
 > * Wyświetlanie stanu maszyny wirtualnej i jego omówienie
 
-W tym samouczku jest używany interfejs wiersza polecenia w [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), który jest stale aktualizowany do najnowszej wersji. Aby otworzyć Cloud Shell, wybierz opcję **Wypróbuj** z góry dowolnego bloku kodu.
+W tym samouczku jest używany interfejs wiersza polecenia w [Azure Cloud Shell](../../cloud-shell/overview.md), który jest stale aktualizowany do najnowszej wersji. Aby otworzyć Cloud Shell, wybierz opcję **Wypróbuj** z góry dowolnego bloku kodu.
 
 Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten samouczek będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.0.30 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure]( /cli/azure/install-azure-cli).
 
 ## <a name="create-resource-group"></a>Tworzenie grupy zasobów
 
-Utwórz grupę zasobów za pomocą polecenia [az group create](https://docs.microsoft.com/cli/azure/group). 
+Utwórz grupę zasobów za pomocą polecenia [az group create](/cli/azure/group). 
 
 Grupa zasobów platformy Azure to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure i zarządzania nimi. Grupę zasobów należy utworzyć przed maszyną wirtualną. W tym przykładzie grupa zasobów o nazwie *myResourceGroupVM* zostanie utworzona w regionie *eastus*. 
 
@@ -50,7 +50,7 @@ Grupa zasobów jest określana podczas tworzenia lub modyfikowania maszyn wirtua
 
 ## <a name="create-virtual-machine"></a>Tworzenie maszyny wirtualnej
 
-Utwórz maszynę wirtualną za pomocą polecenia [az vm create](https://docs.microsoft.com/cli/azure/vm). 
+Utwórz maszynę wirtualną za pomocą polecenia [az vm create](/cli/azure/vm). 
 
 Podczas tworzenia maszyny wirtualnej masz dostęp do kilku opcji, takich jak obraz systemu operacyjnego, ustalanie rozmiaru dysku i poświadczenia administracyjne. W poniższym przykładzie zostanie utworzona maszyna wirtualna o nazwie *myVM*, na której działa system Ubuntu Server. Na maszynie wirtualnej zostanie utworzone konto użytkownika o nazwie *azureuser* i zostaną wygenerowane klucze SSH, jeśli nie istnieją w domyślnej lokalizacji kluczy (*~/.ssh*):
 
@@ -155,12 +155,12 @@ W poniższej tabeli przedstawiono kategorie rozmiarów podzielone według przypa
 
 | Typ                     | Typowe rozmiary           |    Opis       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
-| [Zastosowania ogólne](sizes-general.md)         |B, Dsv3, Dv3, DSv2, Dv2, Av2, DC| Zrównoważona moc procesora CPU w stosunku do pamięci. Opcja idealna w przypadku tworzenia i testowania, małych i średnich aplikacji oraz rozwiązań dotyczących danych.  |
-| [Optymalizacja pod kątem obliczeń](sizes-compute.md)   | Fsv2          | Duża moc procesora CPU w stosunku do pamięci. Opcja dobra w przypadku aplikacji o średnim ruchu, urządzeń sieciowych i procesów wsadowych.        |
-| [Optymalizacja pod kątem pamięci](sizes-memory.md)    | Esv3, EV3, M, DSv2, Dv2  | Duża ilość pamięci na rdzeń. Opcja bardzo dobra w przypadku relacyjnych baz danych, średnich i dużych pamięci podręcznych oraz analizowania w pamięci.                 |
-| [Optymalizacja pod kątem magazynu](sizes-storage.md)      | Lsv2, LS              | Wysoka przepływność dysku i duża liczba operacji we/wy. Opcja idealna w przypadku danych big data oraz baz danych SQL i NoSQL.                                                         |
-| [Procesor GPU](sizes-gpu.md)          | NV, NVv2, NC, NCv2, NCv3, ND            | Maszyny wirtualne wyspecjalizowane pod kątem intensywnego renderowania grafiki i edytowania materiałów wideo.       |
-| [Wysoka wydajność](sizes-hpc.md) | H        | Maszyny wirtualne z najbardziej wydajnymi procesorami CPU oraz, opcjonalnie, interfejsami sieciowymi zapewniającymi wysoką przepływność (RDMA). |
+| [Ogólnego przeznaczenia](../sizes-general.md)         |B, Dsv3, Dv3, DSv2, Dv2, Av2, DC| Zrównoważona moc procesora CPU w stosunku do pamięci. Opcja idealna w przypadku tworzenia i testowania, małych i średnich aplikacji oraz rozwiązań dotyczących danych.  |
+| [Optymalizacja pod kątem obliczeń](../sizes-compute.md)   | Fsv2          | Duża moc procesora CPU w stosunku do pamięci. Opcja dobra w przypadku aplikacji o średnim ruchu, urządzeń sieciowych i procesów wsadowych.        |
+| [Optymalizacja pod kątem pamięci](../sizes-memory.md)    | Esv3, EV3, M, DSv2, Dv2  | Duża ilość pamięci na rdzeń. Opcja bardzo dobra w przypadku relacyjnych baz danych, średnich i dużych pamięci podręcznych oraz analizowania w pamięci.                 |
+| [Optymalizacja pod kątem magazynu](../sizes-storage.md)      | Lsv2, LS              | Wysoka przepływność dysku i duża liczba operacji we/wy. Opcja idealna w przypadku danych big data oraz baz danych SQL i NoSQL.                                                         |
+| [Procesor GPU](../sizes-gpu.md)          | NV, NVv2, NC, NCv2, NCv3, ND            | Maszyny wirtualne wyspecjalizowane pod kątem intensywnego renderowania grafiki i edytowania materiałów wideo.       |
+| [Wysoka wydajność](../sizes-hpc.md) | H        | Maszyny wirtualne z najbardziej wydajnymi procesorami CPU oraz, opcjonalnie, interfejsami sieciowymi zapewniającymi wysoką przepływność (RDMA). |
 
 
 ### <a name="find-available-vm-sizes"></a>Wyszukiwanie dostępnych rozmiarów maszyn wirtualnych
@@ -254,7 +254,7 @@ Maszyna wirtualna platformy Azure może znajdować się w jednym z wielu stanów
 | Stan zasilania | Opis
 |----|----|
 | Uruchamianie | Wskazuje, że maszyna wirtualna jest uruchamiana. |
-| Działanie | Wskazuje, że maszyna wirtualna działa. |
+| Uruchomiono | Wskazuje, że maszyna wirtualna działa. |
 | Zatrzymywanie | Wskazuje, że maszyna wirtualna jest zatrzymywana. | 
 | Zatrzymano | Wskazuje, że maszyna wirtualna została zatrzymana. Opłaty za operacje obliczeniowe są także naliczane w przypadku maszyn wirtualnych w stanie Zatrzymano.  |
 | Cofanie przydziału | Wskazuje, że przydział maszyny wirtualnej jest cofany. |

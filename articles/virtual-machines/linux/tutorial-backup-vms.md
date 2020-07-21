@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 07/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: d233cba65d190178c500f78d4817e233ab46d780
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 9dcc1b6f6f3792682f81c0d37ef2046bd1840657
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81460074"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86527000"
 ---
 # <a name="tutorial-back-up-and-restore-files-for-linux-virtual-machines-in-azure"></a>Samouczek: tworzenie kopii zapasowych i przywracanie plików dla maszyn wirtualnych z systemem Linux na platformie Azure
 
@@ -34,7 +34,7 @@ Możesz chronić swoje dane, tworząc kopie zapasowe w regularnych odstępach cz
 
 Gdy usługa Azure Backup inicjuje kopię zapasową, wyzwala rozszerzenie kopii zapasowej, aby utworzyć migawkę punktu w czasie. Usługa Azure Backup używa rozszerzenia _VMSnapshotLinux_ w systemie Linux. Rozszerzenie jest instalowane podczas tworzenia pierwszej kopii zapasowej maszyny wirtualnej, jeśli maszyna wirtualna jest uruchomiona. Jeśli maszyna wirtualna nie jest uruchomiona, usługa Backup utworzy migawkę powiązanego magazynu (ponieważ gdy maszyna wirtualna jest zatrzymana, nie występują zapisy aplikacji).
 
-Domyślnie usługa Azure Backup tworzy kopię zapasową maszyny wirtualnej z systemem Linux spójną pod względem systemu plików, ale można ją skonfigurować do tworzenia [kopii zapasowej spójnej pod względem aplikacji przy użyciu struktury skryptów poprzedzających i skryptów używanych po utworzeniu kopii zapasowej](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent). Po utworzeniu migawki w usłudze Azure Backup dane są przesyłane do magazynu. Aby zmaksymalizować wydajność, usługa rozpoznaje i przesyła jedynie te bloki danych, które uległy zmianie od czasu utworzenia poprzedniej kopii zapasowej.
+Domyślnie usługa Azure Backup tworzy kopię zapasową maszyny wirtualnej z systemem Linux spójną pod względem systemu plików, ale można ją skonfigurować do tworzenia [kopii zapasowej spójnej pod względem aplikacji przy użyciu struktury skryptów poprzedzających i skryptów używanych po utworzeniu kopii zapasowej](../../backup/backup-azure-linux-app-consistent.md). Po utworzeniu migawki w usłudze Azure Backup dane są przesyłane do magazynu. Aby zmaksymalizować wydajność, usługa rozpoznaje i przesyła jedynie te bloki danych, które uległy zmianie od czasu utworzenia poprzedniej kopii zapasowej.
 
 Po ukończeniu przesyłania danych migawka jest usuwana, a utworzony zostaje punkt odzyskiwania.
 
@@ -88,7 +88,7 @@ W tym przykładzie przedstawiono sposób odzyskiwania domyślnej strony internet
 
     ![Domyślna strona internetowa serwera nginx](./media/tutorial-backup-vms/nginx-broken.png)
     
-1. Na komputerze lokalnym zaloguj się do witryny [Azure Portal](https://portal.azure.com/).
+1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com/) na komputerze lokalnym.
 6. W menu po lewej stronie wybierz pozycję **Maszyny wirtualne**. 
 7. Z listy wybierz maszynę wirtualną.
 8. W bloku maszyny wirtualnej w sekcji **Ustawienia** kliknij pozycję **Kopia zapasowa**. Zostanie otwarty blok **Kopia zapasowa**. 
@@ -171,4 +171,3 @@ Przejdź do następnego samouczka, aby uzyskać informacje o monitorowaniu maszy
 
 > [!div class="nextstepaction"]
 > [Zarządzanie maszynami wirtualnymi](tutorial-govern-resources.md)
-

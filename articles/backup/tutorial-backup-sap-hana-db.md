@@ -3,12 +3,12 @@ title: Samouczek — Tworzenie kopii zapasowych baz danych SAP HANA na maszynach
 description: W tym samouczku dowiesz się, jak utworzyć kopię zapasową SAP HANA baz danych działających na maszynie wirtualnej platformy Azure do magazynu Azure Backup Recovery Services.
 ms.topic: tutorial
 ms.date: 02/24/2020
-ms.openlocfilehash: 123f27a6e2114ed17cbb5e11b34202c17ba69a2d
-ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
+ms.openlocfilehash: 8f6fa00f65a99798ee105852a269247d717ad75d
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84770734"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86513272"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm"></a>Samouczek: Tworzenie kopii zapasowych baz danych SAP HANA na maszynie wirtualnej platformy Azure
 
@@ -23,7 +23,7 @@ W tym samouczku pokazano, jak utworzyć kopię zapasową SAP HANA baz danych dzi
 [Oto](sap-hana-backup-support-matrix.md#scenario-support) wszystkie scenariusze, które obecnie są obsługiwane.
 
 >[!NOTE]
->[Wprowadzenie](https://docs.microsoft.com/azure/backup/tutorial-backup-sap-hana-db) do usługi SAP HANA Backup Preview for RHEL (7,4, 7,6, 7,7 lub 8,1). Aby dalsze zapytania były zapisywane w firmie Microsoft [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com) .
+>[Wprowadzenie]() do usługi SAP HANA Backup Preview for RHEL (7,4, 7,6, 7,7 lub 8,1). Aby dalsze zapytania były zapisywane w firmie Microsoft [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com) .
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -53,13 +53,13 @@ Ta opcja zezwala na [zakresy adresów IP](https://www.microsoft.com/download/det
 
 ### <a name="allow-access-using-nsg-tags"></a>Zezwalaj na dostęp za pomocą tagów sieciowej grupy zabezpieczeń
 
-Jeśli używasz sieciowej grupy zabezpieczeń do ograniczenia łączności, należy użyć znacznika usługi AzureBackup w celu zezwalania na dostęp wychodzący do Azure Backup. Ponadto należy również zezwolić na łączność z uwierzytelnianiem i transferem danych przy użyciu [reguł](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) dla usług Azure AD i Azure Storage. Można to zrobić w Azure Portal lub za pomocą programu PowerShell.
+Jeśli używasz sieciowej grupy zabezpieczeń do ograniczenia łączności, należy użyć znacznika usługi AzureBackup w celu zezwalania na dostęp wychodzący do Azure Backup. Ponadto należy również zezwolić na łączność z uwierzytelnianiem i transferem danych przy użyciu [reguł](../virtual-network/security-overview.md#service-tags) dla usług Azure AD i Azure Storage. Można to zrobić w Azure Portal lub za pomocą programu PowerShell.
 
 Aby utworzyć regułę przy użyciu portalu:
 
   1. W obszarze **wszystkie usługi**przejdź do pozycji **sieciowe grupy zabezpieczeń** i wybierz grupę zabezpieczeń sieci.
   2. W obszarze **Ustawienia**wybierz pozycję **reguły zabezpieczeń dla ruchu wychodzącego** .
-  3. Wybierz pozycję **Dodaj**. Wprowadź wszystkie wymagane szczegóły dotyczące tworzenia nowej reguły zgodnie z opisem w [ustawieniach reguły zabezpieczeń](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group#security-rule-settings). Upewnij się, że opcja **miejsce docelowe** jest ustawiona na **tag usługi** i **znacznik usługi docelowej** jest ustawiony na **AzureBackup**.
+  3. Wybierz pozycję **Dodaj**. Wprowadź wszystkie wymagane szczegóły dotyczące tworzenia nowej reguły zgodnie z opisem w [ustawieniach reguły zabezpieczeń](../virtual-network/manage-network-security-group.md#security-rule-settings). Upewnij się, że opcja **miejsce docelowe** jest ustawiona na **tag usługi** i **znacznik usługi docelowej** jest ustawiony na **AzureBackup**.
   4. Kliknij przycisk **Dodaj**, aby zapisać nowo utworzoną regułę zabezpieczeń dla ruchu wychodzącego.
 
 Aby utworzyć regułę przy użyciu programu PowerShell:
@@ -85,13 +85,13 @@ Aby utworzyć regułę przy użyciu programu PowerShell:
  7. Zapisz sieciowej grupy zabezpieczeń<br/>
     `Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg`
 
-**Zezwalaj na dostęp za pomocą tagów zapory platformy Azure**. Jeśli używasz zapory platformy Azure, Utwórz regułę aplikacji przy użyciu [znacznika FQDN](https://docs.microsoft.com/azure/firewall/fqdn-tags)AzureBackup. Umożliwia to wychodzący dostęp do Azure Backup.
+**Zezwalaj na dostęp za pomocą tagów zapory platformy Azure**. Jeśli używasz zapory platformy Azure, Utwórz regułę aplikacji przy użyciu [znacznika FQDN](../firewall/fqdn-tags.md)AzureBackup. Umożliwia to wychodzący dostęp do Azure Backup.
 
 **Wdróż serwer proxy HTTP, aby kierować ruchem**. Podczas tworzenia kopii zapasowej bazy danych SAP HANA na maszynie wirtualnej platformy Azure rozszerzenie kopii zapasowej na maszynie wirtualnej używa interfejsów API HTTPS do wysyłania poleceń zarządzania do Azure Backup i danych do usługi Azure Storage. Rozszerzenie kopii zapasowej używa także usługi Azure AD do uwierzytelniania. Ruch rozszerzenia kopii zapasowej dla tych trzech usług należy kierować za pośrednictwem serwera proxy HTTP. Rozszerzenia są jedynym składnikiem skonfigurowanym do uzyskiwania dostępu do publicznego Internetu.
 
 Opcje łączności obejmują następujące zalety i wady:
 
-**Zaznaczyć** | **Zalety** | **Wady**
+**Opcja** | **Zalety** | **Wady**
 --- | --- | ---
 Zezwolenie na zakresy adresów IP | Brak dodatkowych kosztów | Skomplikowane do zarządzania, ponieważ zakresy adresów IP zmieniają się w czasie <br/><br/> Zapewnia dostęp do całości platformy Azure, a nie tylko usługi Azure Storage
 Użyj tagów usługi sieciowej grupy zabezpieczeń | Łatwiejsze zarządzanie, ponieważ zmiany zakresu są automatycznie scalane <br/><br/> Brak dodatkowych kosztów <br/><br/> | Może być używany tylko z sieciowych grup zabezpieczeń <br/><br/> Zapewnia dostęp do całej usługi
@@ -153,7 +153,7 @@ Aby utworzyć magazyn Usług odzyskiwania:
    * **Nazwa**: nazwa służy do identyfikowania magazynu usług Recovery Services i musi być unikatowa dla subskrypcji platformy Azure. Określ nazwę, która ma co najmniej dwa znaki, ale nie więcej niż 50 znaków. Nazwa musi rozpoczynać się od litery i zawierać tylko litery, cyfry i łączniki. W tym samouczku użyto nazwy **SAPHanaVault**.
    * **Subskrypcja**: wybierz subskrypcję do użycia. Jeśli jesteś członkiem tylko jednej subskrypcji, zobaczysz tę nazwę. Jeśli nie masz pewności, której subskrypcji użyć, Użyj domyślnej (sugerowanej) subskrypcji. Istnieje wiele opcji, które są dostępne tylko wtedy, gdy konto służbowe jest skojarzone z więcej niż jedną subskrypcją platformy Azure. W tym miejscu użyto subskrypcji **subskrypcji SAP HANA Solution Lab** .
    * **Grupa zasobów**: Użyj istniejącej grupy zasobów lub Utwórz nową. W tym miejscu użyto **SAPHANADemo**.<br>
-   Aby wyświetlić listę dostępnych grup zasobów w ramach subskrypcji, wybierz pozycję **Użyj istniejącej**, a następnie wybierz zasób z listy rozwijanej. Aby utworzyć nową grupę zasobów, wybierz pozycję **Utwórz nową** i wprowadź nazwę. Aby uzyskać pełne informacje na temat grup zasobów, zobacz [Azure Resource Manager przegląd](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
+   Aby wyświetlić listę dostępnych grup zasobów w ramach subskrypcji, wybierz pozycję **Użyj istniejącej**, a następnie wybierz zasób z listy rozwijanej. Aby utworzyć nową grupę zasobów, wybierz pozycję **Utwórz nową** i wprowadź nazwę. Aby uzyskać pełne informacje na temat grup zasobów, zobacz [Azure Resource Manager przegląd](../azure-resource-manager/management/overview.md).
    * **Lokalizacja**: Wybierz region geograficzny magazynu. Magazyn musi znajdować się w tym samym regionie co maszyna wirtualna, na której działa SAP HANA. Użyto **Wschodnie stany USA 2**.
 
 5. Wybierz pozycję **Recenzja + Utwórz**.

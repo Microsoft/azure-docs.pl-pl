@@ -7,11 +7,12 @@ ms.author: cschorm
 ms.date: 05/05/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: deb69f6ca8f1499f43c12d606434719571a1f400
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: b1039bb94626dec35eff040e023a84283d9d3a4a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027893"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537426"
 ---
 # <a name="coding-with-the-azure-digital-twins-apis"></a>Kodowanie za pomocą cyfrowych interfejsów API usługi Azure bliźniaczych reprezentacji
 
@@ -46,7 +47,7 @@ Spowoduje to utworzenie kilku plików znajdujących się w katalogu, w tym jeden
 Następnie Dodaj dwa niezbędne zależności do pracy z usługą Azure Digital bliźniaczych reprezentacji:
 
 ```cmd/sh
-dotnet add package Azure.DigitalTwins.Core --version 1.0.0-preview.2
+dotnet add package Azure.DigitalTwins.Core --version 1.0.0-preview.3
 dotnet add package Azure.identity
 ```
 
@@ -173,7 +174,7 @@ W katalogu, w którym został utworzony projekt, Utwórz nowy plik *JSON* o nazw
 > Jeśli używasz programu Visual Studio na potrzeby tego samouczka, możesz chcieć wybrać nowo utworzony plik JSON i ustawić właściwość *Kopiuj do katalogu wyjściowego* w Inspektorze właściwości, aby *skopiować w przypadku, gdy nowszy* lub *Kopiuj zawsze*. Umożliwi to programowi Visual Studio znalezienie pliku JSON z domyślną ścieżką podczas uruchamiania programu przy użyciu klawisza **F5** w pozostałej części tego samouczka.
 
 > [!TIP] 
-> Istnieje [przykład modułu sprawdzania poprawności](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator) języka niezależny od DTDL, którego można użyć do sprawdzenia dokumentów modelu, aby upewnić się, że DTDL jest prawidłowy. Jest ona oparta na bibliotece analizatora DTDL, którą można dowiedzieć się więcej na temat postanowień [: analizowanie i weryfikowanie modeli](how-to-use-parser.md).
+> Istnieje [przykład modułu sprawdzania poprawności](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator) języka niezależny od DTDL, którego można użyć do sprawdzenia dokumentów modelu, aby upewnić się, że DTDL jest prawidłowy. Jest ona oparta na bibliotece analizatora DTDL, którą można dowiedzieć się więcej na temat postanowień [*: analizowanie i weryfikowanie modeli*](how-to-use-parser.md).
 
 Następnie Dodaj więcej kodu do *program.cs* , aby przekazać model, który został właśnie utworzony w wystąpieniu usługi Azure Digital bliźniaczych reprezentacji.
 
@@ -184,7 +185,6 @@ using System.Threading.Tasks;
 using System.IO;
 using System.Collections.Generic;
 using Azure;
-using Azure.DigitalTwins.Core.Models;
 ```
 
 Następnie przygotuj się do użycia metod asynchronicznych w zestawie SDK usługi C#, zmieniając `Main` sygnaturę metody, aby umożliwić wykonywanie asynchroniczne. 
@@ -530,7 +530,7 @@ namespace minimal
 ```
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
  
-Wystąpienie używane w tym samouczku można ponownie wykorzystać w następnym samouczku, [samouczku: Eksplorowanie podstaw za pomocą przykładowej aplikacji klienckiej](tutorial-command-line-app.md). Jeśli planujesz przejść do następnego samouczka, możesz zachować tutaj skonfigurowane wystąpienie usługi Azure Digital bliźniaczych reprezentacji.
+Wystąpienie używane w tym samouczku można ponownie wykorzystać w następnym samouczku, [*samouczku: Eksplorowanie podstaw za pomocą przykładowej aplikacji klienckiej*](tutorial-command-line-app.md). Jeśli planujesz przejść do następnego samouczka, możesz zachować tutaj skonfigurowane wystąpienie usługi Azure Digital bliźniaczych reprezentacji.
  
 Jeśli zasoby utworzone w tym samouczku nie są już potrzebne, wykonaj następujące kroki, aby je usunąć.
 
@@ -560,8 +560,8 @@ W tym samouczku utworzysz aplikację kliencką programu .NET Console od podstaw.
 Przejdź do następnego samouczka, aby poznać czynności, które możesz wykonać za pomocą takiej przykładowej aplikacji klienckiej: 
 
 > [!div class="nextstepaction"]
-> [Samouczek: Eksplorowanie podstaw za pomocą przykładowej aplikacji klienckiej](tutorial-command-line-app.md)
+> [*Samouczek: Eksplorowanie podstaw za pomocą przykładowej aplikacji klienckiej*](tutorial-command-line-app.md)
 
 Możesz również dodać do kodu napisanego w tym samouczku, aby poznać więcej operacji zarządzania w artykułach z przewodnikiem lub zacząć od dokumentacji koncepcji, aby dowiedzieć się więcej o elementach, z którymi pracujesz w samouczku.
-* [Instrukcje: Zarządzanie modelami niestandardowymi](how-to-manage-model.md)
-* [Koncepcje: modele niestandardowe](concepts-models.md)
+* [*Instrukcje: Zarządzanie modelami niestandardowymi*](how-to-manage-model.md)
+* [*Koncepcje: modele niestandardowe*](concepts-models.md)

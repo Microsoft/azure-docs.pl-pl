@@ -11,12 +11,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 07/16/2019
-ms.openlocfilehash: e9efb4e222e74f97a4f3d88639b02a86a3a6d660
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: f196db537ef0a64d14930ed6bc67696ee4614c23
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84115432"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86528911"
 ---
 # <a name="use-cli-to-add-an-azure-sql-managed-instance-to-a-failover-group"></a>Dodawanie wystąpienia zarządzanego Azure SQL do grupy trybu failover przy użyciu interfejsu wiersza polecenia
 
@@ -46,7 +46,7 @@ az group delete --name $resource
 
 W tym skrypcie użyto następujących poleceń. Każde polecenie w tabeli stanowi link do dokumentacji polecenia.
 
-| | |
+| Polecenie | Opis |
 |---|---|
 | [AZ Network VNET](/cli/azure/network/vnet) | Polecenia sieci wirtualnej.  |
 | [AZ Network VNET Subnet](/cli/azure/network/vnet/subnet) | Polecenia podsieci sieci wirtualnej. |

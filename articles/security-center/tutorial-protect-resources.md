@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/03/2018
 ms.author: memildin
-ms.openlocfilehash: 0b28de7af16053093cd0108224188cdd615fce55
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 3e4404589e180be730579b8cbbfadd132502585a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80435517"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86529322"
 ---
 # <a name="tutorial-protect-your-resources-with-azure-security-center"></a>Samouczek: Ochrona zasobów przy użyciu usługi Azure Security Center
 Usługa Security Center ogranicza narażenia na zagrożenia poprzez zastosowanie kontroli dostępu i aplikacji w celu blokowania złośliwych działań. Dostęp do maszyn wirtualnych just-in-Time (JIT) zmniejsza narażenie na ataki przez umożliwienie trwałego dostępu do maszyn wirtualnych. Zamiast tego możesz zapewnić kontrolowany, monitorowany dostęp do maszyn wirtualnych tylko w razie potrzeby. Adaptacyjne kontrole aplikacji pomagają zabezpieczać maszyny wirtualne przed złośliwym oprogramowaniem poprzez kontrolowanie aplikacji, które mogą być uruchamiane na maszynach wirtualnych. Usługa Security Center analizuje procesy uruchomione na maszynie wirtualnej przy użyciu uczenia maszynowego i za pomocą tej analizy ułatwia zastosowanie listy reguł elementów dozwolonych.
@@ -31,7 +31,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 > * Konfigurowanie zasad kontroli aplikacji
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-Aby wypróbować funkcje omówione w tym samouczku, musisz korzystać ze standardowej warstwy cenowej usługi Security Center. Warstwę Standardowa usługi Security Center możesz wypróbować bezpłatnie. Aby dowiedzieć się więcej, zobacz [stronę z cennikiem](https://azure.microsoft.com/pricing/details/security-center/). Przewodnik szybkiego startu [Dołączanie subskrypcji platformy Azure do standardowej usługi Security Center](security-center-get-started.md) przeprowadzi Cię przez procedurę uaktualniania do warstwy standardowej.
+Aby przekroczyć funkcje omówione w tym samouczku, musisz mieć Security Center warstwy cenowej standardowa. Warstwę Standardowa usługi Security Center możesz wypróbować bezpłatnie. Aby dowiedzieć się więcej, zobacz [stronę z cennikiem](https://azure.microsoft.com/pricing/details/security-center/). Przewodnik szybkiego startu [Dołączanie subskrypcji platformy Azure do standardowej usługi Security Center](security-center-get-started.md) przeprowadzi Cię przez procedurę uaktualniania do warstwy standardowej.
 
 ## <a name="manage-vm-access"></a>Zarządzanie dostępem do maszyny wirtualnej
 Dostęp typu „ just in time” do maszyny wirtualnej może być używany do blokowania ruchu przychodzącego do maszyn wirtualnych platformy Azure w celu zmniejszenia narażenia na ataki przy zapewnieniu łatwego dostępu do maszyn wirtualnych na potrzeby łączenia się z nimi w razie potrzeby.
@@ -84,7 +84,7 @@ Funkcje adaptacyjnego sterowania aplikacjami ułatwiają zdefiniowanie zestawu a
 
    ![Zalecenia dotyczące kontroli aplikacji][4]
 
-3. Wybierz grupę zasobów, aby otworzyć opcję **Utwórz reguły sterowania aplikacjami**. W obszarze **Wybierz maszyny wirtualne** zapoznaj się z listą zalecanych maszyn wirtualnych i wyczyść zaznaczenie pól wyboru obok tych, do których nie ma być stosowane sterowanie aplikacjami. W obszarze **Wybierz procesy dla reguł umieszczania na białej liście** zapoznaj się z listą zalecanych aplikacji i wyczyść zaznaczenie pól wyboru obok tych, do których nie ma być stosowana ta funkcja. Lista zawiera:
+3. Wybierz grupę zasobów, aby otworzyć opcję **Utwórz reguły sterowania aplikacjami**. W obszarze **Wybierz maszyny wirtualne** zapoznaj się z listą zalecanych maszyn wirtualnych i wyczyść zaznaczenie pól wyboru obok tych, do których nie ma być stosowane sterowanie aplikacjami. W obszarze **Wybierz procesy dla reguł umieszczania na białej liście** zapoznaj się z listą zalecanych aplikacji i wyczyść zaznaczenie pól wyboru obok tych, do których nie ma być stosowana ta funkcja. Lista zawiera następujące pozycje:
 
    - **NAZWA**: pełna ścieżka aplikacji
    - **PROCESY**: ile aplikacji znajduje się w każdej ścieżce
@@ -93,13 +93,13 @@ Funkcje adaptacyjnego sterowania aplikacjami ułatwiają zdefiniowanie zestawu a
 
 4. Po wybraniu opcji wybierz przycisk **Utwórz**.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 Inne przewodniki szybkiego startu i samouczki w tej kolekcji bazują na tym przewodniku. Jeśli planujesz kontynuować pracę z kolejnymi przewodnikami Szybki Start i samouczkami, Kontynuuj uruchamianie warstwy Standardowa i Włącz automatyczną obsługę administracyjną. Jeśli nie zamierzasz kontynuować lub chcesz wrócić do warstwy bezpłatnej:
 
 1. Wróć do menu głównego usługi Security Center i wybierz pozycję **Zasady zabezpieczeń**.
 2. Wybierz subskrypcję lub zasady, którym chcesz przywrócić warstwę bezpłatną. Zostanie otwarte okno **Zasady zabezpieczeń**.
 3. W obszarze **SKŁADNIKI ZASAD** wybierz pozycję **Warstwa cenowa**.
-4. Wybierz pozycję **Bezpłatna**, aby zmienić subskrypcję z warstwy standardowej na warstwę bezpłatną.
+4. Wybierz opcję **bezpłatna** , aby zmienić subskrypcję z warstwy Standardowa na warstwę bezpłatna.
 5. Wybierz pozycję **Zapisz**.
 
 Jeśli chcesz wyłączyć automatyczną aprowizację:

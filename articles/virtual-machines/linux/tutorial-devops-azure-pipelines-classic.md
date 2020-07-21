@@ -12,12 +12,12 @@ ms.workload: infrastructure
 ms.date: 4/10/2020
 ms.author: moala
 ms.custom: devops
-ms.openlocfilehash: 28f093bc464a45862d3b253d628b7ae03810f81a
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.openlocfilehash: b8eec0d95144c012d3034e3f2c7c6e8adc921651
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82871236"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86510178"
 ---
 # <a name="tutorial---configure-the-rolling-deployment-strategy-for-azure-linux-virtual-machines"></a>Samouczek — Konfigurowanie strategii wdrażania stopniowego dla maszyn wirtualnych platformy Azure z systemem Linux
 
@@ -33,7 +33,7 @@ W tym artykule przedstawiono sposób konfigurowania potoku ciągłej integracji/
 
 ### <a name="configure-cicd-on-virtual-machines"></a>Konfigurowanie ciągłej integracji/ciągłego wdrażania na maszynach wirtualnych
 
-Maszyny wirtualne można dodać jako obiekty docelowe do [grupy wdrożenia](https://docs.microsoft.com/azure/devops/pipelines/release/deployment-groups). Następnie można wskazać je na potrzeby aktualizacji wielomaszynowych. Po wdrożeniu na maszynach należy wyświetlić **historię wdrożenia** w ramach grupy wdrożenia. Ten widok umożliwia śledzenie z maszyny wirtualnej do potoku, a następnie do zatwierdzenia.
+Maszyny wirtualne można dodać jako obiekty docelowe do [grupy wdrożenia](/azure/devops/pipelines/release/deployment-groups). Następnie można wskazać je na potrzeby aktualizacji wielomaszynowych. Po wdrożeniu na maszynach należy wyświetlić **historię wdrożenia** w ramach grupy wdrożenia. Ten widok umożliwia śledzenie z maszyny wirtualnej do potoku, a następnie do zatwierdzenia.
 
 ### <a name="rolling-deployments"></a>Wdrożenia stopniowe
 
@@ -51,7 +51,7 @@ Korzystając z opcji ciągłego dostarczania, można skonfigurować aktualizacje
    ![Panel ciągłego dostarczania](media/tutorial-devops-azure-pipelines-classic/azure-devops-rolling.png)
 
 1. Grupa wdrożenia to logiczny zestaw maszyn docelowych wdrożenia, które reprezentują środowiska fizyczne. Przykłady dla deweloperów, testów, przeprowadzających i produkcji. Można utworzyć nową grupę wdrożenia lub wybrać istniejącą.
-1. Wybierz potok kompilacji, który publikuje pakiet przeznaczony do wdrożenia na maszynie wirtualnej. Opublikowany pakiet powinien mieć skrypt wdrożenia o nazwie Deploy. ps1 lub deploy.sh w folderze deployscripts w folderze głównym pakietu. Potok uruchamia ten skrypt wdrożenia.
+1. Wybierz potok kompilacji, który publikuje pakiet przeznaczony do wdrożenia na maszynie wirtualnej. Opublikowany pakiet powinien mieć skrypt wdrożenia o nazwie deploy.ps1 lub deploy.sh w folderze deployscripts w folderze głównym pakietu. Potok uruchamia ten skrypt wdrożenia.
 1. W obszarze **strategia wdrażania**wybierz pozycję **stopniowe**.
 1. Opcjonalnie można oznaczyć każdą maszynę z jej rolą. Przykłady tagów "Web" i "DB". Tagi te ułatwiają kierowanie tylko do maszyn wirtualnych, które mają określoną rolę.
 1. Wybierz **przycisk OK** , aby skonfigurować potok ciągłego dostarczania.
@@ -72,7 +72,7 @@ Korzystając z opcji ciągłego dostarczania, można skonfigurować aktualizacje
 
 1. W okienku konfiguracji po prawej stronie można określić liczbę maszyn, które mają zostać wdrożone równolegle w każdej iteracji. Jeśli chcesz wdrożyć na wielu maszynach jednocześnie, możesz określić liczbę maszyn jako wartość procentową za pomocą suwaka.  
 
-1. Zadanie wykonaj wdrożenie skryptu domyślnie wykonuje skrypt wdrożenia Deploy. ps1 lub deploy.sh. Skrypt znajduje się w folderze deployscripts w folderze głównym opublikowanego pakietu.
+1. Zadanie wykonaj wdrożenie skryptu domyślnie wykonuje skrypt wdrażania deploy.ps1 lub deploy.sh. Skrypt znajduje się w folderze deployscripts w folderze głównym opublikowanego pakietu.
 
    ![Okienko artefakty pokazujące deploy.sh w folderze deployscripts](media/tutorial-deployment-strategy/package.png)
 
@@ -91,7 +91,7 @@ Możesz szybko rozpocząć pracę z platformą Azure. Korzystając z Azure DevOp
  
 [Dowiedz się więcej](https://azure.microsoft.com/features/devops-projects/).
  
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
-- [Wdrażanie na maszynach wirtualnych platformy Azure przy użyciu Azure DevOps Projects](https://docs.microsoft.com/azure/devops-project/azure-devops-project-vms)
-- [Implementowanie ciągłego wdrażania aplikacji w zestawie skalowania maszyn wirtualnych platformy Azure](https://docs.microsoft.com/azure/devops/pipelines/apps/cd/azure/deploy-azure-scaleset)
+- [Wdrażanie na maszynach wirtualnych platformy Azure przy użyciu Azure DevOps Projects](../../devops-project/azure-devops-project-vms.md)
+- [Implementowanie ciągłego wdrażania aplikacji w zestawie skalowania maszyn wirtualnych platformy Azure](/azure/devops/pipelines/apps/cd/azure/deploy-azure-scaleset)

@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: ramankum
 ms.custom: mvc
-ms.openlocfilehash: 1616466619c7c7627106c09de703d02a7c40d248
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 83f0ea094c26a1ff664ef27729731b77d987e7ec
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75458405"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86501504"
 ---
 # <a name="create-a-virtual-machine-using-an-existing-managed-os-disk-with-cli"></a>Tworzenie maszyny wirtualnej przy użyciu istniejącego zarządzanego dysku systemu operacyjnego za pomocą interfejsu wiersza polecenia
 
@@ -52,10 +52,10 @@ Ten skrypt używa następujących poleceń w celu uzyskania właściwości dysku
 
 | Polecenie | Uwagi |
 |---|---|
-| [az disk show](https://docs.microsoft.com/cli/azure/disk) | Pobiera właściwości dysku zarządzanego przy użyciu nazwy dysku i nazwy grupy zasobów. W celu dołączenia dysku zarządzanego do nowej maszyny wirtualnej jest używana właściwość Id |
-| [az vm create](https://docs.microsoft.com/cli/azure/vm) | Tworzy maszynę wirtualną przy użyciu zarządzanego dysku systemu operacyjnego. |
+| [az disk show](/cli/azure/disk) | Pobiera właściwości dysku zarządzanego przy użyciu nazwy dysku i nazwy grupy zasobów. W celu dołączenia dysku zarządzanego do nowej maszyny wirtualnej jest używana właściwość Id |
+| [az vm create](/cli/azure/vm) | Tworzy maszynę wirtualną przy użyciu zarządzanego dysku systemu operacyjnego. |
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji na temat interfejsu wiersza polecenia platformy Azure, zobacz [dokumentację interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure).
+Aby uzyskać więcej informacji na temat interfejsu wiersza polecenia platformy Azure, zobacz [dokumentację interfejsu wiersza polecenia platformy Azure](/cli/azure).
 
 Więcej przykładowych skryptów interfejsu wiersza polecenia maszyny wirtualnej można znaleźć w [dokumentacji dotyczącej maszyny wirtualnej platformy Azure z systemem Linux](../linux/cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

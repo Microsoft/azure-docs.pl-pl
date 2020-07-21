@@ -6,12 +6,12 @@ ms.topic: sample
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 07/08/2020
-ms.openlocfilehash: 82032c6a5ac8ec65265ffb44f896be6cea8fe4ce
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: d7a8a7b7fa75d7d9bb4dc45a3432370bac4cb4d6
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86210446"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86498648"
 ---
 # <a name="resource-manager-template-samples-for-creating-application-insights-resources"></a>Przykłady szablonów Menedżer zasobów do tworzenia zasobów Application Insights
 
@@ -21,7 +21,7 @@ Ten artykuł zawiera przykładowe [szablony Azure Resource Manager](../../azure-
 
 ## <a name="classic-application-insights-resource"></a>Zasób klasyczny Application Insights
 
-Poniższy przykład tworzy [zasób klasyczny Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource). 
+Poniższy przykład tworzy [zasób klasyczny Application Insights](../app/create-new-resource.md). 
 
 ### <a name="template-file"></a>Plik szablonu
 
@@ -107,7 +107,7 @@ Poniższy przykład tworzy [zasób klasyczny Application Insights](https://docs.
 
 ## <a name="workspace-based-application-insights-resource"></a>Zasób Application Insights oparty na obszarze roboczym 
 
-Poniższy przykład tworzy [zasób Application Insights oparty na obszarze roboczym](https://docs.microsoft.com/azure/azure-monitor/app/create-workspace-resource). Application Insights oparte na obszarze roboczym są obecnie dostępne w **wersji zapoznawczej**. 
+Poniższy przykład tworzy [zasób Application Insights oparty na obszarze roboczym](../app/create-workspace-resource.md). Application Insights oparte na obszarze roboczym są obecnie dostępne w **wersji zapoznawczej**. 
 
 
 ### <a name="template-file"></a>Plik szablonu

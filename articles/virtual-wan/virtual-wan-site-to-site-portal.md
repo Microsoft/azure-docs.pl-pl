@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 07/09/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my local site to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
-ms.openlocfilehash: 219551f2bba229fb627092548fe5c5f5ff8798b9
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: eceb9e4c8c839e4da333e005e879ea6094936092
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86220614"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86525181"
 ---
 # <a name="tutorial-create-a-site-to-site-connection-using-azure-virtual-wan"></a>Samouczek: tworzenie połączenia lokacja-lokacja przy użyciu usługi Azure Virtual WAN
 
@@ -51,21 +51,7 @@ Przed rozpoczęciem konfiguracji sprawdź, czy są spełnione następujące kryt
 
 ## <a name="create-a-virtual-wan"></a><a name="openvwan"></a>Tworzenie wirtualnej sieci WAN
 
-Przejdź w przeglądarce do witryny Azure Portal i zaloguj się przy użyciu konta platformy Azure.
-
-1. Przejdź do strony wirtualna sieć WAN. W portalu kliknij pozycję **+Utwórz zasób**. W polu wyszukiwania wpisz **wirtualną sieć WAN** i wybierz pozycję Wprowadź.
-2. Z wyników wybierz pozycję **wirtualna sieć WAN** . Na stronie wirtualna sieć WAN kliknij przycisk **Utwórz** , aby otworzyć stronę tworzenie sieci WAN.
-3. Na stronie **Tworzenie sieci WAN** na karcie **podstawowe** wypełnij następujące pola:
-
-   ![Wirtualna sieć WAN](./media/virtual-wan-site-to-site-portal/vwan.png)
-
-   * **Subskrypcja** — wybierz subskrypcję, która ma być używana.
-   * **Grupa zasobów** — Utwórz nową lub Użyj istniejącej.
-   * **Lokalizacja grupy zasobów** — wybierz lokalizację zasobu z listy rozwijanej. Sieć WAN to zasób globalny i nie znajduje się w konkretnym regionie. Konieczne jest jednak wybranie regionu, aby łatwiej zarządzać utworzonym zasobem sieci WAN i go lokalizować.
-   * **Nazwa** — wpisz nazwę, która ma zostać wywołana w sieci WAN.
-   * **Typ:** Podstawowa lub standardowa. W przypadku tworzenia podstawowej sieci WAN można utworzyć tylko podstawowe centrum. Centra podstawowe obsługują tylko połączenia sieci VPN typu lokacja-lokacja.
-4. Po zakończeniu wypełniania pól wybierz pozycję **Przegląd + Utwórz**.
-5. Po zakończeniu walidacji wybierz pozycję **Utwórz** , aby utworzyć wirtualną sieć WAN.
+[!INCLUDE [Create a virtual WAN](../../includes/virtual-wan-create-vwan-include.md)]
 
 ## <a name="create-a-hub"></a><a name="hub"></a>Tworzenie koncentratora
 

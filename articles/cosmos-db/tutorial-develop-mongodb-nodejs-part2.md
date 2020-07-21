@@ -10,12 +10,12 @@ ms.date: 12/26/2018
 ms.author: jopapa
 ms.custom: seodec18
 ms.reviewer: sngun
-ms.openlocfilehash: f9ce90a64ca038c99fe4ba63e66f7e5abbd196f6
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.openlocfilehash: a796ae32033dbc09b1f5b888ded9ea5e1f4c457e
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85119175"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86523489"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---create-a-nodejs-express-app"></a>Tworzenie aplikacji Angular przy użyciu interfejsu API usługi Azure Cosmos DB dla bazy danych MongoDB — tworzenie aplikacji Node.js Express
 
@@ -147,11 +147,11 @@ Dla tego samouczka wymagane są również następujące elementy:
 
 7. Zapisz wszystkie zmodyfikowane pliki. 
 
-8. W programie Visual Studio Code kliknij przycisk **Debug** (Debuguj) ![Ikona Debuguj w programie Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part2/debug-button.png), a następnie kliknij przycisk z kołem zębatym ![Przycisk z kołem zębatym w programie Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part2/gear-button.png). Nowy plik launch.json zostanie otwarty w programie Visual Studio Code.
+8. W Visual Studio Code kliknij przycisk **Debuguj** :::image type="icon" source="./media/tutorial-develop-mongodb-nodejs-part2/debug-button.png"::: , a następnie kliknij przycisk koła zębatego :::image type="icon" source="./media/tutorial-develop-mongodb-nodejs-part2/gear-button.png"::: . Nowy plik launch.json zostanie otwarty w programie Visual Studio Code. 
 
 8. W wierszu 11 pliku launch.json, zmień wartość `"${workspaceFolder}\\server"` na `"program": "${workspaceRoot}/src/server/index.js"` i zapisz plik.
 
-9. Kliknij przycisk **Rozpocznij debugowanie** przycisk ![Ikona Debuguj w programie Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part2/start-debugging-button.png) w celu uruchomienia aplikacji.
+9. Kliknij przycisk **Rozpocznij debugowanie** , :::image type="icon" source="./media/tutorial-develop-mongodb-nodejs-part2/start-debugging-button.png"::: Aby uruchomić aplikację.
 
     Aplikacja powinna działać bez błędów.
 

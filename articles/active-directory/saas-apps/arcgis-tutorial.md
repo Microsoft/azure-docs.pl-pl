@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 74cf0c1e055570df7702465df79dcdfbd8ea9e9f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 20b1de1b643a3cc0b3dbcf9d33c21924a7fe50e6
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74232095"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86500057"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-arcgis-online"></a>Samouczek: integracja Azure Active Directory z usługą ArcGIS Online
 
@@ -33,7 +33,7 @@ Integracja usługi ArcGIS Online z usługą Azure AD zapewnia następujące korz
 * Możesz zarządzać swoimi kontami w jednej centralnej lokalizacji — witrynie Azure Portal.
 
 Jeśli chcesz dowiedzieć się więcej na temat integracji aplikacji SaaS z usługą Azure AD, zobacz [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpłatne konto](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -41,6 +41,9 @@ Do skonfigurowania integracji usługi Azure AD z usługą ArcGIS Online potrzebn
 
 * Subskrypcja usługi Azure AD. Jeśli nie masz środowiska usługi Azure AD, możesz skorzystać z miesięcznej wersji próbnej [tutaj](https://azure.microsoft.com/pricing/free-trial/)
 * Subskrypcja usługi ArcGIS Online z obsługą logowania jednokrotnego
+
+> [!NOTE]
+> Ta integracja jest również dostępna do użycia w środowisku chmury dla instytucji rządowych USA usługi Azure AD. Tę aplikację można znaleźć w galerii aplikacji w chmurze dla instytucji rządowych USA usługi Azure AD i skonfigurować ją w taki sam sposób, jak w przypadku chmury publicznej.
 
 ## <a name="scenario-description"></a>Opis scenariusza
 
@@ -119,7 +122,7 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD z usługą ArcGIS Onli
 
 6. Aby zautomatyzować konfigurację w usłudze **ArcGIS Online**, musisz zainstalować **rozszerzenie przeglądarki do bezpiecznego logowania Moje aplikacje**, klikając pozycję **Zainstaluj rozszerzenie**.
 
-    ![image](./media/arcgis-tutorial/install_extension.png)
+    ![image (obraz)](./media/arcgis-tutorial/install_extension.png)
 
 7. Po dodaniu rozszerzenia do przeglądarki kliknij pozycję **Skonfiguruj aplikację ArcGIS Online**. Spowoduje to bezpośrednie przejście do aplikacji ArcGIS Online. W tym miejscu podaj poświadczenia administratora w celu zalogowania się do aplikacji ArcGIS Online. Rozszerzenie przeglądarki automatycznie skonfiguruje aplikację i zautomatyzuje kroki w sekcji **Konfigurowanie logowania jednokrotnego usługi ArcGIS Online**.
 
@@ -169,12 +172,12 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     a. W polu **Nazwa** wprowadź **BrittaSimon**.
   
-    b. W polu **Nazwa użytkownika** wpisz **brittasimon\@yourcompanydomain. Extension**  
+    b. W polu **Nazwa użytkownika** wpisz **brittasimon \@ yourcompanydomain. Extension**  
     Na przykład: BrittaSimon@contoso.com
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
-    d. Kliknij przycisk **Utwórz**.
+    d. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -245,5 +248,5 @@ Po kliknięciu kafelka ArcGIS Online w panelu dostępu powinno nastąpić automa
 
 - [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

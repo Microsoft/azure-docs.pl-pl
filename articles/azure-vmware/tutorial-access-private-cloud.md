@@ -3,12 +3,12 @@ title: Samouczek — informacje na temat uzyskiwania dostępu do chmury prywatne
 description: Dowiedz się, jak uzyskać dostęp do chmury prywatnej (Automatyczna synchronizacja) rozwiązania VMware
 ms.topic: tutorial
 ms.date: 05/04/2020
-ms.openlocfilehash: 332b1b01f05ca97b03264201384ee38ac266470f
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 32dc5c173789996d2559eda1153b1509e10e5984
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83873607"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86497968"
 ---
 # <a name="tutorial-learn-how-to-access-an-azure-vmware-solution-avs-private-cloud"></a>Samouczek: informacje o uzyskiwaniu dostępu do rozwiązania Azure VMware (Automatyczna synchronizacja) w chmurze prywatnej
 
@@ -16,7 +16,7 @@ W trakcie okresu zapoznawczego funkcja automatycznej synchronizacji nie pozwala 
 
 W tym samouczku utworzysz maszynę wirtualną z systemem Windows dla pola skoku w grupie zasobów utworzonej w poprzednim samouczku samouczka [: Konfigurowanie sieci dla swojej chmury prywatnej VMware na platformie Azure](tutorial-configure-networking.md) i logowanie do programu vCenter. Jest to maszyna wirtualna w tej samej sieci wirtualnej, która została utworzona, i zapewnia dostęp do programu vCenter i NSX Manager. 
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Tworzenie maszyny wirtualnej z systemem Windows do użycia w celu nawiązania połączenia z programem vCenter
@@ -35,15 +35,15 @@ Wprowadź wymagane informacje w polach, a następnie wybierz pozycję **Przeglą
 | **Subskrypcja** | Ta wartość jest już wypełniona z subskrypcją, do której należy Grupa zasobów. |
 | **Grupa zasobów** | Ta wartość jest już wypełniona dla bieżącej grupy zasobów. Powinna to być grupa zasobów utworzona w poprzednim samouczku. |
 | **Nazwa maszyny wirtualnej** | Wprowadź unikatową nazwę maszyny wirtualnej. |
-| **Okolicy** | Wybierz lokalizację geograficzną maszyny wirtualnej. |
+| **Region** | Wybierz lokalizację geograficzną maszyny wirtualnej. |
 | **Opcje dostępności** | Pozostaw wybraną wartość domyślną. |
-| **Image (Obraz)** | Wybierz obraz maszyny wirtualnej. |
+| **Obraz** | Wybierz obraz maszyny wirtualnej. |
 | **Rozmiar** | Pozostaw wartość domyślną rozmiar. |
 | **Typ uwierzytelniania**  | Wybierz pozycję **hasło**. |
-| **Uż** | Wprowadź nazwę użytkownika, aby zalogować się do maszyny wirtualnej. |
+| **Nazwa użytkownika** | Wprowadź nazwę użytkownika, aby zalogować się do maszyny wirtualnej. |
 | **Hasło** | Wprowadź hasło, aby zalogować się do maszyny wirtualnej. |
 | **Potwierdź hasło** | Wprowadź hasło, aby zalogować się do maszyny wirtualnej. |
-| **Publiczne porty wejściowe** | Wybierz pozycję **Brak**. W przypadku wybrania opcji Brak można użyć [dostępu JIT](../security-center/security-center-just-in-time.md#configure-jit-access-from-an-azure-vms-page-) , aby kontrolować dostęp do maszyny wirtualnej tylko wtedy, gdy chcesz uzyskać do niej dostęp.  |
+| **Publiczne porty ruchu przychodzącego** | Wybierz pozycję **Brak**. W przypadku wybrania opcji Brak można użyć [dostępu JIT](../security-center/security-center-just-in-time.md#jit-configure) , aby kontrolować dostęp do maszyny wirtualnej tylko wtedy, gdy chcesz uzyskać do niej dostęp.  |
 
 Po wprowadzeniu odpowiednich informacji kliknij przycisk **Przegląd + Utwórz**. Po zakończeniu walidacji wybierz pozycję **Utwórz** , aby rozpocząć proces tworzenia maszyny wirtualnej.
 
