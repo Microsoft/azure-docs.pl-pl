@@ -6,18 +6,18 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/13/2019
-ms.openlocfilehash: 92b6737f48d8d8704f461c9adac92284b323b05f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 62d16bc9ca6c4238ff7c6304c5e1964c2956c898
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85847396"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505299"
 ---
 # <a name="connect-operations-manager-to-azure-monitor"></a>Połącz Operations Manager z Azure Monitor
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-Aby zachować istniejące inwestycje w [System Center Operations Manager](https://docs.microsoft.com/system-center/scom/key-concepts?view=sc-om-1807) i korzystać z rozszerzonych możliwości z Azure monitor, możesz zintegrować Operations Manager z obszarem roboczym log Analytics. Dzięki temu można wykorzystać możliwości dzienników w Azure Monitor podczas kontynuowania korzystania z Operations Manager do:
+Aby zachować istniejące inwestycje w [System Center Operations Manager](/system-center/scom/key-concepts?view=sc-om-1807) i korzystać z rozszerzonych możliwości z Azure monitor, możesz zintegrować Operations Manager z obszarem roboczym log Analytics. Dzięki temu można wykorzystać możliwości dzienników w Azure Monitor podczas kontynuowania korzystania z Operations Manager do:
 
 * Monitorowanie kondycji usług IT za pomocą programu Operations Manager
 * Utrzymywanie integracji z rozwiązaniami ITSM obsługującymi zarządzanie zdarzeniami i problemami
@@ -47,11 +47,11 @@ Przed rozpoczęciem należy zapoznać się z następującymi wymaganiami.
     - Zachodnio-środkowe stany USA
     - Australia Południowo-Wschodnia
     - Europa Zachodnia
-    - Wschodnie stany USA
+    - East US
     - Azja Południowo-Wschodnia
-    - Japonia Wschodnia
+    - Japan East
     - Południowe Zjednoczone Królestwo
-    - Indie Środkowe
+    - Central India
     - Kanada Środkowa
     - Zachodnie stany USA 2
 
@@ -71,7 +71,7 @@ W poniższych informacjach przedstawiono informacje o konfiguracji serwera proxy
 
 |Zasób | Numer portu| Obejście inspekcji HTTP|  
 |---------|------|-----------------------|  
-|**Odczynnik**|||  
+|**Agent**|||  
 |\*.ods.opinsights.azure.com| 443 |Tak|  
 |\*.oms.opinsights.azure.com| 443|Tak|  
 |\*.blob.core.windows.net| 443|Tak|  
@@ -154,7 +154,7 @@ Jeśli serwer proxy wymaga uwierzytelnienia, wykonaj następujące kroki, aby sk
 1. Otwórz konsolę programu Operations Manager i wybierz obszar roboczy **Administracja**.
 1. W obszarze **Konfiguracja Uruchom jako** wybierz pozycję **Profile**.
 1. Otwórz profil **Serwer proxy profilu Uruchom jako usługi System Center Advisor**.
-1. W kreatorze profilu Uruchom jako kliknij przycisk Dodaj, aby użyć konta Uruchom jako. Możesz utworzyć [konto Uruchom jako](https://technet.microsoft.com/library/hh321655.aspx) lub użyć istniejącego konta. Konto to musi mieć wystarczające uprawnienia do komunikacji za pośrednictwem serwera proxy.
+1. W kreatorze profilu Uruchom jako kliknij przycisk Dodaj, aby użyć konta Uruchom jako. Możesz utworzyć [konto Uruchom jako](/previous-versions/system-center/system-center-2012-R2/hh321655(v=sc.12)) lub użyć istniejącego konta. Konto to musi mieć wystarczające uprawnienia do komunikacji za pośrednictwem serwera proxy.
 1. Aby ustawić konto do zarządzania, wybierz pozycję **Wybrana klasa, grupa lub obiekt**, kliknij polecenie **Wybierz...**, a następnie kliknij pozycję **Grupuj...** w celu otwarcie okna **Wyszukiwanie grup**.
 1. Wyszukaj **grupę serwerów monitorowania usługi Microsoft System Center Advisor**, a następnie ją wybierz. Po wybraniu grupy kliknij przycisk **OK**, aby zamknąć okno **Wyszukiwanie grup**.
 1. Kliknij przycisk **OK**, aby zamknąć okno **Dodawanie konta Uruchom jako**.
@@ -173,7 +173,7 @@ Po zakończeniu konfiguracji Operations Manager grupy zarządzania nawiązuje po
 * **Microsoft.SystemCenter. Advisor. MPUpdate** — aktualizuje podstawowe Azure monitor pakiety administracyjne. Ta reguła jest domyślnie uruchamiana co 12 godzin.
 * **Microsoft.SystemCenter.Advisor.Core.GetIntelligencePacksRule** — aktualizuje pakiety administracyjne rozwiązań, które zostały włączone w obszarze roboczym. Ta reguła jest domyślnie uruchamiana co pięć (5) minut.
 
-Te dwie reguły można przesłonić, aby zapobiec automatycznemu pobieraniu, wyłączając je lub modyfikując częstotliwość synchronizacji serwera zarządzania z Azure Monitor, aby określić, czy nowy pakiet administracyjny jest dostępny i czy powinien zostać pobrany. Wykonaj instrukcje [How to Override a Rule or Monitor](https://technet.microsoft.com/library/hh212869.aspx) (Jak przesłonić regułę lub monitor), aby zmodyfikować parametr **Frequency** (Częstotliwość) wartością w sekundach w celu zmiany harmonogramu synchronizacji lub parametr **Enabled** (Włączone) w celu wyłączenia reguł. Przesłonięcie dotyczy wszystkich obiektów klasy Operations Manager Management Group.
+Te dwie reguły można przesłonić, aby zapobiec automatycznemu pobieraniu, wyłączając je lub modyfikując częstotliwość synchronizacji serwera zarządzania z Azure Monitor, aby określić, czy nowy pakiet administracyjny jest dostępny i czy powinien zostać pobrany. Wykonaj instrukcje [How to Override a Rule or Monitor](/previous-versions/system-center/system-center-2012-R2/hh212869(v=sc.12)) (Jak przesłonić regułę lub monitor), aby zmodyfikować parametr **Frequency** (Częstotliwość) wartością w sekundach w celu zmiany harmonogramu synchronizacji lub parametr **Enabled** (Włączone) w celu wyłączenia reguł. Przesłonięcie dotyczy wszystkich obiektów klasy Operations Manager Management Group.
 
 Aby kontynuować proces kontroli zmian w celu kontrolowania wersji pakietów administracyjnych w produkcyjnej grupie zarządzania, można wyłączyć reguły i włączyć je w określonym czasie, jeśli są dozwolone aktualizacje. Jeśli w swoim środowisku masz grupę deweloperską lub grupę zarządzania kontroli jakości, która ma połączenie z Internetem, możesz skonfigurować tę grupę zarządzania za pomocą obszaru roboczego usługi Log Analytics do obsługi tego scenariusza. Dzięki temu można przeglądać i oceniać iteracyjne wersje pakietów administracyjnych Azure Monitor przed ich zwolnieniem do produkcyjnej grupy zarządzania.
 

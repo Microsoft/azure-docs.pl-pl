@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 43a5360965c13df3227ecbc0c716327346244ebd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 93b63450d65f55e96897f91a5c0c9fae1b0b47f8
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83653622"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86503289"
 ---
 # <a name="azure-advanced-threat-detection"></a>Zaawansowane wykrywanie zagrożeń na platformie Azure
 
@@ -170,7 +171,7 @@ Badacze otrzymują również informacje o analizie zagrożeń, które są wspó�
 
 -   **Azure SQL Database wykrywanie zagrożeń**: wykrywanie zagrożeń dla Azure SQL Database, które identyfikuje anomalie działania bazy danych, które wskazują nietypowe i potencjalnie szkodliwe próby uzyskania dostępu do baz danych lub ich wykorzystania.
 
-### <a name="behavioral-analytics"></a>Analiza behawioralna
+### <a name="behavioral-analytics"></a>Analiza zachowań
 
 Analiza behawioralna to metoda, która polega na analizie danych i porównywaniu ich z kolekcją znanych wzorców. Wzorce te nie są jednak prostymi sygnaturami. Określa się je za pośrednictwem złożonych algorytmów uczenia maszynowego, które są stosowane w przypadku wielkich zestawów danych.
 
@@ -339,14 +340,13 @@ Interfejs API wykrywania anomalii jest skutecznym i wydajnym rozwiązaniem dla s
 
 Organizacja może bezpieczniej przenieść się do chmury i jednocześnie utrzymać kontrolę nad danymi krytycznymi za pomocą narzędzi pomagających w ujawnianiu zasobów informatycznych niezatwierdzonych przez dział IT, ocenie ryzyka, egzekwowaniu zasad, badaniu działań i zatrzymywaniu zagrożeń.
 
-| | |
-|---|---|
+| Kategoria | Opis |
+| -------- | ----------- |
 | Odnajdź | Ujawniaj zasoby informatyczne niezatwierdzone przez dział IT za pomocą usługi Cloud App Security. Zyskaj widoczność przez odnajdywanie aplikacji, działań, użytkowników, danych i plików w Twoim środowisku chmury. Odnajduj aplikacje innych firm, które są połączone z Twoją chmurą.|
 |Zbadaj | Badaj aplikacje w chmurze, używając narzędzi śledczych dla chmury, aby z bliska przyjrzeć się ryzykownym aplikacjom, konkretnym użytkownikom i plikom w Twojej sieci. Znajduj wzorce w danych zebranych z chmury. Generuj raporty w celu monitorowania chmury. |
 | Kontrola | Ogranicz ryzyko przez skonfigurowanie zasad i alertów, aby osiągnąć maksymalną kontrolę ruchu sieciowego w chmurze. Użyj usługi Cloud App Security, aby przenieść użytkowników do bezpiecznych, alternatywnych, oficjalnie zaakceptowanych aplikacji w chmurze. |
 | Ochrona | Użyj Cloud App Security do zaakceptowania lub zabronienia działania aplikacji, wymuszania ochrony przed utratą danych, kontrolowania uprawnień i udostępniania oraz generowania niestandardowych raportów i alertów. |
 | Kontrola | Ogranicz ryzyko przez skonfigurowanie zasad i alertów, aby osiągnąć maksymalną kontrolę ruchu sieciowego w chmurze. Użyj usługi Cloud App Security, aby przenieść użytkowników do bezpiecznych, alternatywnych, oficjalnie zaakceptowanych aplikacji w chmurze. |
-| | |
 
 
 ![Diagram Cloud App Security](./media/threat-detection/azure-threat-detection-fig14.png)

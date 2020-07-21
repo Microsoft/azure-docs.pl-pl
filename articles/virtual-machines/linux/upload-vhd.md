@@ -14,12 +14,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 10/10/2019
 ms.author: cynthn
-ms.openlocfilehash: 3306647078c46a7c66b3d7b257b213c7a48e690d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 854421452228a54833da4b0f05669c6d5f1c842f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81460430"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86501742"
 ---
 # <a name="create-a-linux-vm-from-a-custom-disk-with-the-azure-cli"></a>Tworzenie maszyny wirtualnej z systemem Linux na podstawie dysku niestandardowego przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -40,10 +40,10 @@ Aby wykonać następujące kroki, potrzebne są:
 - Maszyna wirtualna z systemem Linux, która została przygotowana do użycia na platformie Azure. Sekcja [przygotowanie maszyny wirtualnej](#prepare-the-vm) w tym artykule zawiera informacje dotyczące sposobu znalezienia dystrybucji informacji dotyczących instalacji agenta systemu Linux (waagent), który jest wymagany do nawiązania połączenia z maszyną wirtualną przy użyciu protokołu SSH.
 - Plik VHD z istniejącej [dystrybucji systemu Linux zaświadczonej przez platformę Azure](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (lub Wyświetl [informacje dotyczące dystrybucji niepotwierdzonych](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)) na dysku wirtualnym w formacie VHD. Istnieje wiele narzędzi do utworzenia maszyny wirtualnej i wirtualnego dysku twardego:
   - Zainstaluj i skonfiguruj [QEMU](https://en.wikibooks.org/wiki/QEMU/Installing_QEMU) lub [KVM](https://www.linux-kvm.org/page/RunningKVM), pamiętając o użyciu dysku VHD jako formatu obrazu. W razie konieczności można [przekonwertować obraz](https://en.wikibooks.org/wiki/QEMU/Images#Converting_image_formats) za pomocą `qemu-img convert` .
-  - Można również użyć funkcji Hyper-V [w systemie Windows 10](https://msdn.microsoft.com/virtualization/hyperv_on_windows/quick_start/walkthrough_install) lub [Windows Server 2012/2012 R2](https://technet.microsoft.com/library/hh846766.aspx).
+  - Można również użyć funkcji Hyper-V [w systemie Windows 10](/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v) lub [Windows Server 2012/2012 R2](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh846766(v=ws.11)).
 
 > [!NOTE]
-> Nowszy format VHDX nie jest obsługiwany na platformie Azure. Podczas tworzenia maszyny wirtualnej Określ plik VHD jako format. W razie potrzeby można skonwertować dyski VHDX na dysk VHD przy użyciu narzędzia [QEMU-IMG Convert](https://en.wikibooks.org/wiki/QEMU/Images#Converting_image_formats) lub polecenia cmdlet [convert-VHD](https://technet.microsoft.com/library/hh848454.aspx) PowerShell. Platforma Azure nie obsługuje przekazywania dynamicznych dysków VHD, dlatego przed przekazaniem konieczne będzie przekonwertowanie takich dysków na statyczne wirtualne dyski twarde. Możesz użyć narzędzi, takich jak [Narzędzia wirtualnego dysku twardego platformy Azure](https://github.com/Microsoft/azure-vhd-utils-for-go) , aby przekonwertować dyski dynamiczne podczas procesu przekazywania ich do platformy Azure.
+> Nowszy format VHDX nie jest obsługiwany na platformie Azure. Podczas tworzenia maszyny wirtualnej Określ plik VHD jako format. W razie potrzeby można skonwertować dyski VHDX na dysk VHD przy użyciu narzędzia [QEMU-IMG Convert](https://en.wikibooks.org/wiki/QEMU/Images#Converting_image_formats) lub polecenia cmdlet [convert-VHD](/powershell/module/hyper-v/convert-vhd?view=win10-ps) PowerShell. Platforma Azure nie obsługuje przekazywania dynamicznych dysków VHD, dlatego przed przekazaniem konieczne będzie przekonwertowanie takich dysków na statyczne wirtualne dyski twarde. Możesz użyć narzędzi, takich jak [Narzędzia wirtualnego dysku twardego platformy Azure](https://github.com/Microsoft/azure-vhd-utils-for-go) , aby przekonwertować dyski dynamiczne podczas procesu przekazywania ich do platformy Azure.
 > 
 > 
 

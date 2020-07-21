@@ -9,11 +9,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: d05902f47dff3dd2f8a63ae240c0b8825a5c441f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 443751ee974dae3c426f36cbc262bc1a3af65bd0
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77658034"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86504941"
 ---
 # <a name="azure-monitor-workbook-visualizations"></a>Azure Monitor wizualizacje skoroszytu
 
@@ -50,7 +51,7 @@ Skoroszyty obsługują wykresy zarówno dla dzienników, jak i źródeł danych 
 1. Przełącz skoroszyt do trybu edycji, klikając element paska narzędzi **Edytowanie** .
 2. Użyj linku **Dodawanie zapytania** , aby dodać kontrolkę zapytania dziennika do skoroszytu.
 3. Wybierz typ zapytania jako **Dziennik**, typ zasobu (na przykład Application Insights) i zasoby, które mają być docelowe.
-4. Użyj edytora zapytań, aby wprowadzić [KQL](https://docs.microsoft.com/azure/kusto/query/) do analizy (na przykład trend żądań).
+4. Użyj edytora zapytań, aby wprowadzić [KQL](/azure/kusto/query/) do analizy (na przykład trend żądań).
 5. Ustaw wizualizację na jeden z: **obszar**, **pasek**, **pasek (kategorii)**, **linia**, **Wykres kołowy**, **punktowy**lub **czas**.
 6. W razie konieczności Ustaw inne parametry, takie jak zakres czasu, Wizualizacja, rozmiar, paleta kolorów i Legenda.
 
@@ -58,7 +59,7 @@ Skoroszyty obsługują wykresy zarówno dla dzienników, jak i źródeł danych 
 
 #### <a name="log-chart-parameters"></a>Parametry wykresu dziennika
 
-| Parametr | Objaśnienie | Przykład |
+| Parametr | Wyjaśnienie | Przykład |
 | ------------- |:-------------|:-------------|
 | `Query Type` | Typ zapytania do użycia | Dziennik, wykres zasobów platformy Azure itd. |
 | `Resource Type` | Typ zasobu docelowego | Application Insights, Log Analytics lub Azure — najpierw |
@@ -81,7 +82,7 @@ Skoroszyty obsługują wykresy zarówno dla dzienników, jak i źródeł danych 
 
 #### <a name="metric-chart-parameters"></a>Parametry wykresu metryki
 
-| Parametr | Objaśnienie | Przykład |
+| Parametr | Wyjaśnienie | Przykład |
 | ------------- |:-------------|:-------------|
 | `Resource Type` | Typ zasobu docelowego | Magazyn lub maszyna wirtualna. |
 | `Resources` | Zestaw zasobów, z którego ma zostać uzyskana wartość metryki | MyStorage1 |
@@ -188,7 +189,7 @@ W poniższym przykładzie przedstawiono wizualizacje metryk (rozmiar zestawu rob
 
 ### <a name="tree-settings"></a>Ustawienia drzewa
 
-| Ustawienie | Objaśnienie |
+| Ustawienie | Wyjaśnienie |
 |:------------- |:-------------|
 | `Id Field` | Unikatowy identyfikator każdego wiersza w siatce |
 | `Parent Id Field` | Identyfikator elementu nadrzędnego bieżącego wiersza |

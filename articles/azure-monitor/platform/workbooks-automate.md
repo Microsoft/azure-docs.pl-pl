@@ -9,11 +9,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/30/2020
 ms.author: mbullwin
-ms.openlocfilehash: 76ecc3ee17353ebd0bbead1bba959f85d521d0df
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e2463c2ea4044af0b20a1dee91b30870639dc7ce
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82982143"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86504924"
 ---
 # <a name="programmatically-manage-workbooks"></a>Programowe Zarządzanie skoroszytami
 
@@ -77,7 +78,7 @@ Istnieją dwa typy zasobów skoroszytów, które mogą być zarządzane programo
     }
     ```
 1. W `galleries` obiekcie Wypełnij `name` `category` wartości i. Więcej informacji o [parametrach](#parameters) znajduje się w następnej sekcji.
-2. Wdróż ten szablon Azure Resource Manager przy użyciu [Azure Portal](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-portal#deploy-resources-from-custom-template), [interfejsu wiersza polecenia](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-cli), [programu PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-powershell)itd.
+2. Wdróż ten szablon Azure Resource Manager przy użyciu [Azure Portal](../../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template), [interfejsu wiersza polecenia](../../azure-resource-manager/templates/deploy-cli.md), [programu PowerShell](../../azure-resource-manager/templates/deploy-powershell.md)itd.
 3. Otwórz Azure Portal i przejdź do galerii skoroszytów wybranego w szablonie Azure Resource Manager. W przykładzie szablonu przejdź do galerii skoroszytów Azure Monitor:
     1. Otwórz Azure Portal i przejdź do Azure Monitor
     2. Otwórz `Workbooks` z spisu treści
@@ -85,7 +86,7 @@ Istnieją dwa typy zasobów skoroszytów, które mogą być zarządzane programo
 
 ### <a name="parameters"></a>Parametry
 
-|Parametry                |Objaśnienie                                                                                             |
+|Parametry                |Wyjaśnienie                                                                                             |
 |:-------------------------|:-------------------------------------------------------------------------------------------------------|
 | `name`                   | Nazwa zasobu szablonu skoroszytu w Azure Resource Manager.                                  |
 |`type`                    | Zawsze Microsoft. Insights/workbooktemplates                                                            |
@@ -189,7 +190,7 @@ Ten szablon pokazuje, jak wdrożyć prosty skoroszyt wyświetlający "Hello worl
 
 ### <a name="template-parameters"></a>Parametry szablonu
 
-| Parametr | Objaśnienie |
+| Parametr | Wyjaśnienie |
 | :------------- |:-------------|
 | `workbookDisplayName` | Przyjazna nazwa skoroszytu, który jest używany w galerii lub zapisanej liście. Musi być unikatowa w zakresie grupy zasobów i źródła |
 | `workbookType` | Galeria, w której będzie pokazywany skoroszyt. Obsługiwane wartości to skoroszyt, `tsg` , Azure monitor itd. |
@@ -200,7 +201,7 @@ Ten szablon pokazuje, jak wdrożyć prosty skoroszyt wyświetlający "Hello worl
 | `serializedData` | Zawiera zawartość lub ładunek do użycia w skoroszycie. Pobieranie wartości przy użyciu szablonu Menedżer zasobów z poziomu interfejsu użytkownika skoroszytów |
 
 ### <a name="workbook-types"></a>Typy skoroszytów
-Typy skoroszytów określają, który typ galerii skoroszytów zostanie wyświetlony nowy wystąpienie skoroszytu. Dostępne opcje:
+Typy skoroszytów określają, który typ galerii skoroszytów zostanie wyświetlony nowy wystąpienie skoroszytu. Dostępne są następujące opcje:
 
 | Typ | Lokalizacja galerii |
 | :------------- |:-------------|

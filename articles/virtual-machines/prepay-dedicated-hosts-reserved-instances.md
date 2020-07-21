@@ -8,22 +8,23 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/28/2020
 ms.author: banders
-ms.openlocfilehash: a8531ec2a3284eac64cb900f2d95ec02b9ffdd45
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c3c4c4ea25a8f8057a5830ad2207bb674d9cc011
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84678090"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86501555"
 ---
-# <a name="save-costs-with-a-reserved-instance-of-azure-dedicated-hosts"></a>Oszczędność kosztów dzięki Zarezerwowanemu wystąpieniu dedykowanych hostów platformy Azure
+# <a name="save-costs-with-azure-dedicated-host-reservations"></a>Oszczędność kosztów dzięki dedykowanym zastrzeżeń hosta na platformie Azure
 
-Po zatwierdzeniu do zarezerwowanego wystąpienia dedykowanych hostów platformy Azure Możesz zaoszczędzić pieniądze. Rabat rezerwacji jest automatycznie stosowany do liczby uruchomionych dedykowanych hostów, które pasują do zakresu rezerwacji i atrybutów. Nie musisz przypisywać rezerwacji do dedykowanego hosta, aby uzyskać rabaty. Zakup wystąpienia zarezerwowanego obejmuje tylko część obliczeniową użycia i zawiera koszty licencjonowania oprogramowania. Zapoznaj się z [omówieniem dedykowanych hostów platformy Azure dla maszyn wirtualnych](https://docs.microsoft.com/azure/virtual-machines/windows/dedicated-hosts).
+Po zatwierdzeniu do zarezerwowanego wystąpienia dedykowanych hostów platformy Azure Możesz zaoszczędzić pieniądze. Rabat rezerwacji jest automatycznie stosowany do liczby uruchomionych dedykowanych hostów, które pasują do zakresu rezerwacji i atrybutów. Nie musisz przypisywać rezerwacji do dedykowanego hosta, aby uzyskać rabaty. Zakup wystąpienia zarezerwowanego obejmuje tylko część obliczeniową użycia i zawiera koszty licencjonowania oprogramowania. Zapoznaj się z [omówieniem dedykowanych hostów platformy Azure dla maszyn wirtualnych](./windows/dedicated-hosts.md).
 
 ## <a name="determine-the-right-dedicated-host-sku-before-you-buy"></a>Przed zakupem Określ odpowiednią dedykowaną jednostkę SKU hosta
 
 
 Przed zakupieniem rezerwacji należy określić dedykowanego hosta, którego potrzebujesz. Jednostka SKU jest definiowana dla dedykowanego hosta reprezentującego serię maszyn wirtualnych i typ. 
 
-Zacznij od przechodzenia przez obsługiwane rozmiary [maszyny wirtualnej z systemem Windows](https://docs.microsoft.com/azure/virtual-machines/windows/sizes) lub [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/sizes?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) , aby zidentyfikować serię maszyn wirtualnych.
+Zacznij od przechodzenia przez obsługiwane rozmiary [maszyny wirtualnej z systemem Windows](./windows/sizes.md) lub [Linux](./linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) , aby zidentyfikować serię maszyn wirtualnych.
 
 Następnie sprawdź, czy jest on obsługiwany na dedykowanych hostach platformy Azure. Na stronie [cennika dedykowanych hostów platformy Azure](https://aka.ms/ADHPricing) znajduje się kompletna lista jednostek SKU dedykowanych hostów, ich informacji o procesorach i różnych opcji cenowych (w tym wystąpień zarezerwowanych).
 
@@ -39,7 +40,7 @@ Rabaty rezerwacji nie mają zastosowania w przypadku następujących czynności:
 
 - **Chmury**   -Rezerwacje nie są dostępne do zakupu w regionach Niemcy i Chiny.
 
-- **Niewystarczające limity przydziału**   -Rezerwacja, która jest objęta zakresem jednej subskrypcji, musi mieć przydziały vCPU dostępne w subskrypcji dla nowego wystąpienia zarezerwowanego. Jeśli na przykład subskrypcja docelowa ma limit przydziału równy 10 procesorów wirtualnych vCPU dla serii DSv3, nie można zakupić dedykowanych hostów zastrzeżeń obsługujących tę serię. Sprawdzanie przydziału dla rezerwacji obejmuje maszyny wirtualne i hosty dedykowane już wdrożone w subskrypcji. Aby rozwiązać ten problem, można [utworzyć żądanie zwiększenia limitu przydziału](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request)   .
+- **Niewystarczające limity przydziału**   -Rezerwacja, która jest objęta zakresem jednej subskrypcji, musi mieć przydziały vCPU dostępne w subskrypcji dla nowego wystąpienia zarezerwowanego. Jeśli na przykład subskrypcja docelowa ma limit przydziału równy 10 procesorów wirtualnych vCPU dla serii DSv3, nie można zakupić dedykowanych hostów zastrzeżeń obsługujących tę serię. Sprawdzanie przydziału dla rezerwacji obejmuje maszyny wirtualne i hosty dedykowane już wdrożone w subskrypcji. Aby rozwiązać ten problem, można [utworzyć żądanie zwiększenia limitu przydziału](../azure-portal/supportability/resource-manager-core-quotas-request.md)   .
 
 - **Ograniczenia pojemności**   W rzadkich przypadkach platforma Azure ogranicza zakup nowych rezerwacji dla podzbioru dedykowanych jednostek SKU hosta z powodu niskiej wydajności w regionie.
 
@@ -47,7 +48,7 @@ Rabaty rezerwacji nie mają zastosowania w przypadku następujących czynności:
 
 Można zakupić zarezerwowane wystąpienie dedykowanego wystąpienia hosta platformy Azure w [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22VirtualMachines%22%7D).
 
-Płatność za rezerwację z [góry lub miesięczna płatność](https://docs.microsoft.com/azure/billing/billing-monthly-payments-reservations). Te wymagania dotyczą kupowania zastrzeżonego dedykowanego wystąpienia hosta:
+Płatność za rezerwację z [góry lub miesięczna płatność](../cost-management-billing/reservations/prepare-buy-reservation.md). Te wymagania dotyczą kupowania zastrzeżonego dedykowanego wystąpienia hosta:
 
 - Musisz mieć rolę właściciela dla co najmniej jednej subskrypcji EA lub subskrypcji z stawką płatność zgodnie z rzeczywistym użyciem.
 
@@ -74,19 +75,19 @@ Jeśli masz umowę EA, możesz użyć **opcji Dodaj więcej**,   Aby szybko do
 | Region              | Region świadczenia usługi Azure objęty rezerwacją.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | Dedykowany rozmiar hosta | Rozmiar dedykowanych wystąpień hosta.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 | Termin                | Jeden rok lub trzy lata.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| Liczba            | Liczba wystąpień zakupionych w ramach rezerwacji. Ilość to liczba uruchomionych dedykowanych wystąpień hosta, które mogą uzyskać rabat rozliczeń.                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| Ilość            | Liczba wystąpień zakupionych w ramach rezerwacji. Ilość to liczba uruchomionych dedykowanych wystąpień hosta, które mogą uzyskać rabat rozliczeń.                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 
 - Zakres pojedynczej **grupy zasobów**   — Stosuje rabat rezerwacji do zasobów pasujących tylko w wybranej grupie zasobów.
 
 - Zakres pojedynczej **subskrypcji**   — Stosuje rabat rezerwacji do pasujących zasobów w wybranej subskrypcji.
 
-- **Zakres udostępniony**   — Stosuje rabat rezerwacji do pasujących zasobów w uprawnionych subskrypcjach, które znajdują się w kontekście rozliczeń. W przypadku klientów z umowami EA kontekst rozliczania to rejestracja. W przypadku indywidualnych subskrypcji ze stawkami płatności zgodnie z rzeczywistym użyciem kontekst rozliczeń stanowią wszystkie kwalifikujące się subskrypcje utworzone przez administratora konta.
+- **Zakres udostępniony**   — Stosuje rabat rezerwacji do pasujących zasobów w uprawnionych subskrypcjach, które znajdują się w kontekście rozliczeń. W przypadku klientów z umowami EA kontekst rozliczania to rejestracja. W przypadku indywidualnych subskrypcji z płatnością zgodnie z rzeczywistym użyciem zakres rozliczeniowy to wszystkie kwalifikujące się subskrypcje utworzone przez administratora konta.
 
 ## <a name="usage-data-and-reservation-utilization"></a>Dane użycia i użycie rezerwacji
 
 Dane użycia mają wynikową cenę równą zero za użycie, którego dotyczy rabat rezerwacji. Można sprawdzić, które wystąpienie maszyny wirtualnej otrzymało rabat rezerwacji dla każdej rezerwacji.
 
-Aby uzyskać więcej informacji na temat sposobu wyświetlania rabatów rezerwacji w danych użycia, zobacz [Opis użycia usługi Azure Reservation na potrzeby rejestracji w przedsiębiorstwie](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage-ea),   Jeśli jesteś klientem z umową EA. Jeśli masz pojedynczą subskrypcję, zobacz [Opis użycia usługi Azure Reservation dla subskrypcji z opcją płatność zgodnie z rzeczywistym użyciem](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage).
+Aby uzyskać więcej informacji na temat sposobu wyświetlania rabatów rezerwacji w danych użycia, zobacz [Opis użycia usługi Azure Reservation na potrzeby rejestracji w przedsiębiorstwie](../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md),   Jeśli jesteś klientem z umową EA. Jeśli masz pojedynczą subskrypcję, zobacz [Opis użycia usługi Azure Reservation dla subskrypcji z opcją płatność zgodnie z rzeczywistym użyciem](../cost-management-billing/reservations/understand-reserved-instance-usage.md).
 
 ## <a name="change-a-reservation-after-purchase"></a>Zmiana rezerwacji po zakupie
 
@@ -104,9 +105,9 @@ Po zakupie nie można wprowadzać następujących typów zmian bezpośrednio:
 
 - Istniejący region rezerwacji
 
-- SKU
+- Jednostka SKU
 
-- Liczba
+- Ilość
 
 - Czas trwania
 
@@ -114,7 +115,7 @@ Istnieje jednak możliwość *wymiany*   rezerwacji, jeśli chcesz wprowadzić
 
 ## <a name="cancel-exchange-or-refund-reservations"></a>Anulowanie, wymiana lub zwrot rezerwacji
 
-Rezerwacje można anulować, wymieniać lub zwracać, jednak obowiązują przy tym pewne ograniczenia. Aby uzyskać więcej informacji, zobacz samoobsługowe [weksle i zwroty dla Azure Reservations](https://docs.microsoft.com/azure/billing/billing-azure-reservations-self-service-exchange-and-refund).
+Rezerwacje można anulować, wymieniać lub zwracać, jednak obowiązują przy tym pewne ograniczenia. Aby uzyskać więcej informacji, zobacz samoobsługowe [weksle i zwroty dla Azure Reservations](../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md).
 
 ## <a name="need-help-contact-us"></a>Potrzebujesz pomocy? Skontaktuj się z nami.
 
@@ -122,26 +123,24 @@ Jeśli masz pytania lub potrzebujesz pomocy,  [utwórz wniosek o pomoc technicz
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby dowiedzieć się, jak zarządzać rezerwacją, zobacz [zarządzanie Azure Reservations](https://docs.microsoft.com/azure/billing/billing-manage-reserved-vm-instance).
+Aby dowiedzieć się, jak zarządzać rezerwacją, zobacz [zarządzanie Azure Reservations](../cost-management-billing/reservations/manage-reserved-vm-instance.md).
 
 Aby dowiedzieć się więcej na temat rezerwacji platformy Azure, zobacz następujące artykuły:
 
-- [Co to są rezerwacje platformy Azure?](https://docs.microsoft.com/azure/billing/billing-save-compute-costs-reservations)
+- [Co to są rezerwacje platformy Azure?](../cost-management-billing/reservations/save-compute-costs-reservations.md)
 
-- [Using Azure Dedicated Hosts (Używanie hostów usługi Azure Dedicated Host)](https://docs.microsoft.com/azure/virtual-machines/windows/dedicated-hosts)
+- [Using Azure Dedicated Hosts (Używanie hostów usługi Azure Dedicated Host)](./windows/dedicated-hosts.md)
 
 - [Dedicated Hosts Pricing (Ceny hostów usługi Azure Dedicated Host)](https://azure.microsoft.com/pricing/details/virtual-machines/dedicated-host/)
 
-- [Zarządzanie rezerwacjami na platformie Azure](https://docs.microsoft.com/azure/billing/billing-manage-reserved-vm-instance)
+- [Zarządzanie rezerwacjami na platformie Azure](../cost-management-billing/reservations/manage-reserved-vm-instance.md)
 
-- [Jak jest stosowany rabat na rezerwacje](https://docs.microsoft.com/azure/billing/billing-understand-vm-reservation-charges)
+- [Jak jest stosowany rabat na rezerwacje](../cost-management-billing/manage/understand-vm-reservation-charges.md)
 
-- [Informacje na temat użycia wystąpień zarezerwowanych w przypadku subskrypcji z płatnością zgodnie z rzeczywistym użyciem](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage)
+- [Informacje na temat użycia wystąpień zarezerwowanych w przypadku subskrypcji z płatnością zgodnie z rzeczywistym użyciem](../cost-management-billing/reservations/understand-reserved-instance-usage.md)
 
-- [Understand reservation usage for your Enterprise enrollment (Informacje na temat użycia wystąpień zarezerwowanych w przypadku rejestracji Enterprise)](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage-ea)
+- [Understand reservation usage for your Enterprise enrollment (Informacje na temat użycia wystąpień zarezerwowanych w przypadku rejestracji Enterprise)](../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md)
 
-- [Koszty oprogramowania systemu Windows nieuwzględniane w przypadku wystąpień zarezerwowanych](https://docs.microsoft.com/azure/billing/billing-reserved-instance-windows-software-costs)
+- [Koszty oprogramowania systemu Windows nieuwzględniane w przypadku wystąpień zarezerwowanych](../cost-management-billing/reservations/reserved-instance-windows-software-costs.md)
 
-- [Azure Reservations in Partner Center Cloud Solution Provider (CSP) program](https://docs.microsoft.com/partner-center/azure-reservations) (Rezerwacje platformy Azure w programie Cloud Solution Provider w Centrum partnerskim)
-
-
+- [Azure Reservations in Partner Center Cloud Solution Provider (CSP) program](/partner-center/azure-reservations) (Rezerwacje platformy Azure w programie Cloud Solution Provider w Centrum partnerskim)

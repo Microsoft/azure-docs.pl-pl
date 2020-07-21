@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 06/22/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: 40d028ade5429c89ce40b718c90c601dfcb0e470
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: aa372d4e1b377ecdcbeb49b47f0f9a3a217ee7ad
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85308149"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86502184"
 ---
 # <a name="bringing-and-creating-linux-images-in-azure"></a>Przełączanie i tworzenie obrazów systemu Linux na platformie Azure
 
@@ -25,7 +25,7 @@ W tym artykule omówiono punkty i wymagania dotyczące podejmowania decyzji doty
 ## <a name="difference-between-managed-disks-and-images"></a>Różnica między dyskami zarządzanymi i obrazami
 
 
-System Azure umożliwia przeniesienie dysku VHD na platformę, użycie go jako [dysku zarządzanego](https://docs.microsoft.com/azure/virtual-machines/windows/faq-for-disks#managed-disks)lub użycie jako źródła obrazu. 
+System Azure umożliwia przeniesienie dysku VHD na platformę, użycie go jako [dysku zarządzanego](../windows/faq-for-disks.md#managed-disks)lub użycie jako źródła obrazu. 
 
 Azure Managed disks to pojedyncze wirtualne dyski twarde. Można albo utworzyć istniejący wirtualny dysk twardy i utworzyć na jego dysku zarządzanym. Maszyny wirtualne można tworzyć na podstawie dysków zarządzanych, dołączając dysk do maszyny wirtualnej, ale można używać dysku VHD tylko z jedną maszyną wirtualną. Nie możesz modyfikować żadnych właściwości systemu operacyjnego, platforma Azure podejmie próbę włączenia maszyny wirtualnej i uruchomienia jej przy użyciu tego dysku. 
 
@@ -49,16 +49,16 @@ Platforma Azure oferuje dwa główne typy obrazów, uogólnione i wyspecjalizowa
 Obraz uogólniony jest obrazem, który wymaga zakończenia instalacji przy pierwszym rozruchu. Na przykład podczas pierwszego rozruchu ustawiana jest nazwa hosta, użytkownik administracyjny i inne konfiguracje specyficzne dla maszyny wirtualnej. Jest to przydatne, gdy chcesz, aby obraz był wielokrotnie używany, i gdy chcesz przekazać parametry podczas tworzenia. Jeśli obraz uogólniony zawiera agenta platformy Azure, Agent przetworzy parametry i powraca do platformy, że początkowa konfiguracja została ukończona. Ten proces jest nazywany **aprowizacji**. 
 
 Inicjowanie obsługi wymaga, aby w obrazie znajdował się provisioner. Istnieją dwie aprowizacji:
-- [Agent systemu Linux platformy Azure](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux)
-- [Cloud-init](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init)
+- [Agent systemu Linux platformy Azure](../extensions/agent-linux.md)
+- [Cloud-init](./using-cloud-init.md)
 
-Są to [wymagania wstępne](https://docs.microsoft.com/azure/virtual-machines/linux/create-upload-generic) dotyczące tworzenia obrazu.
+Są to [wymagania wstępne](./create-upload-generic.md) dotyczące tworzenia obrazu.
 
 
 ### <a name="specialized-images"></a>Obrazy specjalne
 Są to obrazy, które są całkowicie skonfigurowane i nie wymagają maszyn wirtualnych i parametrów specjalnych, platforma przejdzie po prostu na maszynę wirtualną, musisz obsługiwać unikatowość w ramach maszyny wirtualnej, na przykład ustawienie nazwy hosta, aby uniknąć konfliktów DNS w tej samej sieci wirtualnej. 
 
-Agenci aprowizacji nie są zobowiązani do tych obrazów, ale mogą chcieć mieć możliwość obsługi rozszerzeń. Można zainstalować agenta systemu Linux, ale wyłączyć opcję aprowizacji. Mimo że nie jest potrzebny Agent aprowizacji, obraz musi spełniać [wymagania wstępne](https://docs.microsoft.com/azure/virtual-machines/linux/create-upload-generic) dotyczące obrazów platformy Azure.
+Agenci aprowizacji nie są zobowiązani do tych obrazów, ale mogą chcieć mieć możliwość obsługi rozszerzeń. Można zainstalować agenta systemu Linux, ale wyłączyć opcję aprowizacji. Mimo że nie jest potrzebny Agent aprowizacji, obraz musi spełniać [wymagania wstępne](./create-upload-generic.md) dotyczące obrazów platformy Azure.
 
 
 ## <a name="image-storage-options"></a>Opcje magazynu obrazu
@@ -94,13 +94,14 @@ Na wysokim poziomie utworzysz SIG i składa się z:
 
 ## <a name="hyper-v-generation"></a>Generowanie funkcji Hyper-V
 
-Platforma Azure obsługuje funkcję Hyper-V Generation 1 (Gen1) i generacja 2 (Gen2), Gen2 to najnowsza generacja i oferuje dodatkowe funkcje w zakresie Gen1. Na przykład: zwiększona pamięć, rozszerzenia programu Intel Software Guard (Intel SGX) i Zwirtualizowana Pamięć trwała (vPMEM). Maszyny wirtualne 2. generacji działające lokalnie mają pewne funkcje, które nie są jeszcze obsługiwane na platformie Azure. Aby uzyskać więcej informacji, zobacz sekcję funkcje i możliwości. Aby uzyskać więcej informacji, zobacz ten [artykuł](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2). Jeśli potrzebujesz dodatkowych funkcji, Utwórz obrazy Gen2.
+Platforma Azure obsługuje funkcję Hyper-V Generation 1 (Gen1) i generacja 2 (Gen2), Gen2 to najnowsza generacja i oferuje dodatkowe funkcje w zakresie Gen1. Na przykład: zwiększona pamięć, rozszerzenia programu Intel Software Guard (Intel SGX) i Zwirtualizowana Pamięć trwała (vPMEM). Maszyny wirtualne 2. generacji działające lokalnie mają pewne funkcje, które nie są jeszcze obsługiwane na platformie Azure. Aby uzyskać więcej informacji, zobacz sekcję funkcje i możliwości. Aby uzyskać więcej informacji, zobacz ten [artykuł](../windows/generation-2.md). Jeśli potrzebujesz dodatkowych funkcji, Utwórz obrazy Gen2.
 
-Jeśli nadal potrzebujesz utworzyć własny obraz, upewnij się, że spełnia on [wymagania wstępne obrazu](https://docs.microsoft.com/azure/virtual-machines/linux/create-upload-generic), i przekaż go do platformy Azure. Wymagania dotyczące dystrybucji:
+Jeśli nadal potrzebujesz utworzyć własny obraz, upewnij się, że spełnia on [wymagania wstępne obrazu](./create-upload-generic.md), i przekaż go do platformy Azure. Wymagania dotyczące dystrybucji:
 
 
-- [Dystrybucje oparte na CentOS](create-upload-centos.md)
+- [dystrybucje oparte na systemie CentOS](create-upload-centos.md)
 - [Debian Linux](debian-create-upload-vhd.md)
+- [Flatcar Container Linux](flatcar-create-upload-vhd.md)
 - [Oracle Linux](oracle-create-upload-vhd.md)
 - [Red Hat Enterprise Linux](redhat-create-upload-vhd.md)
 - [SLES i openSUSE](suse-create-upload-vhd.md)
@@ -110,6 +111,3 @@ Jeśli nadal potrzebujesz utworzyć własny obraz, upewnij się, że spełnia on
 ## <a name="next-steps"></a>Następne kroki
 
 Dowiedz się, jak utworzyć [udostępnioną galerię obrazów](tutorial-custom-images.md).
-
-
-

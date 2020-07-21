@@ -6,16 +6,17 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 02/14/2019
 ms.author: cynthn
-ms.openlocfilehash: 434a3ef8c9bc1738252d59a5dca5bec16d85e45e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a56ad3fd5999600dfc576f0a0e34ff7221267934
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78970303"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86502456"
 ---
 # <a name="get-started-with-docker-and-compose-to-define-and-run-a-multi-container-application-in-azure"></a>Wprowadzenie do platformy Docker i redagowanie w celu zdefiniowania i uruchomienia aplikacji wielokontenera na platformie Azure
 Dzięki [redagowaniu](https://github.com/docker/compose)można użyć prostego pliku tekstowego do zdefiniowania aplikacji składającej się z wielu kontenerów platformy Docker. Następnie można uruchomić aplikację w pojedynczym poleceniu, które wykonuje wszystkie czynności w celu wdrożenia określonego środowiska. Na przykład w tym artykule pokazano, jak szybko skonfigurować blog WordPress z bazą danych SQL zaplecza MariaDB na maszynie wirtualnej Ubuntu. Można również użyć opcji Zredaguj, aby skonfigurować bardziej złożone aplikacje.
 
-Ten artykuł został ostatnio przetestowany w dniu 2/14/2019 przy użyciu [Azure Cloud Shell](https://shell.azure.com/bash) i [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) w wersji 2.0.58.
+Ten artykuł został ostatnio przetestowany w dniu 2/14/2019 przy użyciu [Azure Cloud Shell](https://shell.azure.com/bash) i [interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli) w wersji 2.0.58.
 
 ## <a name="create-docker-host-with-azure-cli"></a>Tworzenie hosta Docker przy użyciu interfejsu wiersza polecenia platformy Azure
 Zainstaluj najnowszy [interfejs wiersza polecenia platformy Azure](/cli/azure/install-az-cli2) i zaloguj się na konto platformy Azure za pomocą polecenia [AZ login](/cli/azure/reference-index).
@@ -125,4 +126,3 @@ Teraz możesz połączyć się z platformą WordPress bezpośrednio na maszynie 
 * Zapoznaj się z [informacjami dotyczącymi](https://docs.docker.com/compose/) tworzenia i wdrażania aplikacji z wieloma kontenerami w [wierszu polecenia redagowania](https://docs.docker.com/compose/reference/) .
 * Aby wdrożyć maszynę wirtualną platformy Azure z platformą Docker i skonfigurować aplikację przy użyciu narzędzia do [tworzenia, użyj](https://azure.microsoft.com/documentation/templates/)szablonu Azure Resource Manager, własnego lub jednego z nich. Na przykład, [wdrażanie blogu WordPress z szablonem platformy Docker](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-wordpress-mysql) korzysta z platformy Docker i tworzenie, aby szybko wdrożyć platformę WordPress z zapleczem MySQL na maszynie wirtualnej Ubuntu.
 * Spróbuj zintegrować Docker Compose z klastrem Docker Swarm. Zapoznaj [się z tematem using with Swarm](https://docs.docker.com/compose/swarm/) for scenariusze.
-

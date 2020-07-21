@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 03/23/2020
 ms.author: ramkris
 ms.reviewer: sngun
-ms.openlocfilehash: 4bcd2349913c1823e80d46565dfa869d9efe955f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0ab95223d084436d1bf39ba557ec3b01c0b534d8
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85260665"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86503391"
 ---
 # <a name="use-the-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db"></a>Użycie zbiorczej biblioteki programu .NET do wykonywania operacji zbiorczych w Azure Cosmos DB
 
@@ -41,7 +41,7 @@ Obecnie Biblioteka wykonawców zbiorczych jest obsługiwana przez Azure Cosmos D
 
 Teraz przejdźmy do pracy z kodem, pobierając przykładową aplikację platformy .NET z usługi GitHub. Ta aplikacja wykonuje operacje zbiorcze na danych przechowywanych na koncie usługi Azure Cosmos. Aby sklonować aplikację, Otwórz wiersz polecenia, przejdź do katalogu, w którym chcesz go skopiować, a następnie uruchom następujące polecenie:
 
-```
+```bash
 git clone https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started.git
 ```
 

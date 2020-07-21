@@ -3,18 +3,18 @@ title: Przywracanie SAP HANA baz danych na maszynach wirtualnych platformy Azure
 description: W tym artykule opisano sposób przywracania SAP HANA baz danych uruchomionych w usłudze Azure Virtual Machines.
 ms.topic: conceptual
 ms.date: 11/7/2019
-ms.openlocfilehash: a3db88ca3c995c3c190da051dbf9df6ae5e29530
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: c62ea68683355fc703a5258e6e5fa0f3795f7e34
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85851441"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86503595"
 ---
 # <a name="restore-sap-hana-databases-on-azure-vms"></a>Przywracanie SAP HANA baz danych na maszynach wirtualnych platformy Azure
 
 W tym artykule opisano sposób przywracania SAP HANA baz danych uruchomionych na maszynie wirtualnej platformy Azure (VM), Azure Backup których kopia zapasowa została utworzona w magazynie Recovery Services. Przywracanie może służyć do tworzenia kopii danych dla scenariuszy deweloperskich/testowych lub powrotu do poprzedniego stanu.
 
-Aby uzyskać więcej informacji na temat tworzenia kopii zapasowych SAP HANA baz danych, zobacz [Tworzenie kopii zapasowych SAP HANA baz danych na maszynach wirtualnych platformy Azure](https://docs.microsoft.com/azure/backup/backup-azure-sap-hana-database).
+Aby uzyskać więcej informacji na temat tworzenia kopii zapasowych SAP HANA baz danych, zobacz [Tworzenie kopii zapasowych SAP HANA baz danych na maszynach wirtualnych platformy Azure](./backup-azure-sap-hana-database.md).
 
 ## <a name="restore-to-a-point-in-time-or-to-a-recovery-point"></a>Przywracanie do punktu w czasie lub do punktu odzyskiwania
 

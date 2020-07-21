@@ -9,11 +9,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: cc2cde7932f783f63ee2783f0589ce4f88f248a2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b5822c1af4f3bc5d9519af93054a01c3cdc82001
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77658106"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86504995"
 ---
 # <a name="workbook-resource-parameters"></a>Parametry zasobów skoroszytu
 
@@ -60,7 +61,7 @@ Wartości z funkcji wyboru zasobów mogą pochodzić z kontekstu skoroszytu, lis
 > [!NOTE]
 > Usługa Azure Resource Graph nie jest jeszcze dostępna we wszystkich chmurach. W przypadku wybrania tej metody upewnij się, że jest ona obsługiwana w chmurze docelowej.
 
-[Dokumentacja usługi Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/overview)
+[Dokumentacja usługi Azure Resource Graph](../../governance/resource-graph/overview.md)
 
 ## <a name="creating-a-resource-parameter--json-list"></a>Tworzenie parametru zasobu (lista JSON)
 1. Zacznij od pustego skoroszytu w trybie edycji.
@@ -99,7 +100,7 @@ Wartości z funkcji wyboru zasobów mogą pochodzić z kontekstu skoroszytu, lis
 > Takie podejście może służyć do powiązania zasobów z innymi kontrolkami, takimi jak metryki.
 
 ## <a name="resource-parameter-options"></a>Opcje parametrów zasobu
-| Parametr | Objaśnienie | Przykład |
+| Parametr | Wyjaśnienie | Przykład |
 | ------------- |:-------------|:-------------|
 | `{Applications}` | Wybrany identyfikator zasobu | _Identyfikator podrzędny/subscriptions/<> <grupy zasobów>/Providers/<typ zasobu>/acmeauthentication_ |
 | `{Applications:label}` | Etykieta wybranego zasobu | `acmefrontend` |

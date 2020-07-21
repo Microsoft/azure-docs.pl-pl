@@ -4,11 +4,12 @@ description: Wdrażaj Azure Monitor funkcje na dużą skalę przy użyciu Azure 
 ms.subservice: ''
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 4be403f8efc8e328548b6ef38b36be78a8fb96d7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fbfc0cafe83f53bd7cab2b93899e9c2cb02d52e3
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84678702"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505214"
 ---
 # <a name="deploy-azure-monitor-at-scale-using-azure-policy"></a>Wdróż Azure Monitor na dużą skalę przy użyciu Azure Policy
 Niektóre funkcje Azure Monitor są konfigurowane raz lub ograniczoną liczbę razy, inne muszą być powtórzone dla każdego zasobu, który ma być monitorowany. W tym artykule opisano metody używania Azure Policy do implementowania Azure Monitor na dużą skalę w celu zapewnienia spójnego i dokładnego monitorowania dla wszystkich zasobów platformy Azure.
@@ -30,7 +31,7 @@ Azure Policy składa się z obiektów w poniższej tabeli. Zobacz [Azure Policy 
 | Przypisanie | Definicja zasad lub inicjatywa nie zacznie obowiązywać, dopóki nie zostanie przypisana do zakresu. Na przykład Przypisz zasady do grupy zasobów, aby zastosować je do wszystkich zasobów utworzonych w tym zasobie, lub zastosować je do subskrypcji, aby zastosować je do wszystkich zasobów w tej subskrypcji.  Aby uzyskać więcej informacji, zobacz [Azure Policy struktury przypisywania](../../governance/policy/concepts/assignment-structure.md). |
 
 ## <a name="built-in-policy-definitions-for-azure-monitor"></a>Wbudowane definicje zasad dla Azure Monitor
-Azure Policy zawiera kilka wstępnie skompilowanych definicji związanych z Azure Monitor. Te definicje zasad można przypisać do istniejącej subskrypcji lub użyć ich jako podstawy do utworzenia własnych definicji niestandardowych. Aby zapoznać się z pełną listą wbudowanych polityka w kategorii **monitorowanie** , zobacz [Azure Policy wbudowane definicje zasad dla Azure monitor](../policy-samples.md).
+Azure Policy zawiera kilka wstępnie skompilowanych definicji związanych z Azure Monitor. Te definicje zasad można przypisać do istniejącej subskrypcji lub użyć ich jako podstawy do utworzenia własnych definicji niestandardowych. Aby zapoznać się z pełną listą wbudowanych polityka w kategorii **monitorowanie** , zobacz [Azure Policy wbudowane definicje zasad dla Azure monitor](../samples/policy-samples.md).
 
 Aby wyświetlić wbudowane definicje zasad związane z monitorowaniem, wykonaj następujące czynności:
 
@@ -59,7 +60,7 @@ W przypadku typów zasobów, które nie mają wbudowanych zasad, należy utworzy
 Skrypt [Create-AzDiagPolicy](https://www.powershellgallery.com/packages/Create-AzDiagPolicy) tworzy pliki zasad dla określonego typu zasobu, który można zainstalować przy użyciu programu PowerShell lub interfejsu wiersza polecenia. Aby utworzyć niestandardową definicję zasad dla ustawień diagnostycznych, należy wykonać czynności opisane w poniższej procedurze.
 
 
-1. Upewnij się, że zainstalowano [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps) .
+1. Upewnij się, że zainstalowano [Azure PowerShell](/powershell/azure/install-az-ps) .
 2. Zainstaluj skrypt za pomocą następującego polecenia:
   
     ```azurepowershell
@@ -112,7 +113,7 @@ Korzystając z parametrów inicjatywy, można określić obszar roboczy lub inne
 
 ![Parametry inicjatywy](media/deploy-scale/initiative-parameters.png)
 
-### <a name="remediation"></a>Korekty
+### <a name="remediation"></a>Korygowanie
 Inicjatywa będzie miała zastosowanie do każdej maszyny wirtualnej, która została utworzona. [Zadanie korygowania](../../governance/policy/how-to/remediate-resources.md) wdraża definicje zasad z inicjatywy do istniejących zasobów, dzięki czemu można utworzyć ustawienia diagnostyczne dla wszystkich już utworzonych zasobów. Podczas tworzenia przypisania przy użyciu Azure Portal istnieje możliwość utworzenia zadania korygowania w tym samym czasie. Zobacz [korygowanie niezgodnych zasobów Azure Policy](../../governance/policy/how-to/remediate-resources.md) , aby uzyskać szczegółowe informacje dotyczące korygowania.
 
 ![Korygowanie inicjatywy](media/deploy-scale/initiative-remediation.png)

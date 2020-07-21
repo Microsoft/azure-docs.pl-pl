@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 06c344130156ae5f72f6e65baa519c11adff2bae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 57eb005109b97a423f9218ee6a47ce5bb06c3853
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82186445"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505350"
 ---
 # <a name="collect-custom-metrics-for-a-linux-vm-with-the-influxdata-telegraf-agent"></a>Zbieranie niestandardowych metryk dla maszyny wirtualnej z systemem Linux za pomocą agenta InfluxData telegraf
 
@@ -25,7 +25,7 @@ Korzystając z Azure Monitor, można zbierać niestandardowe metryki za pośredn
  ![Omówienie agenta telegraficznego](./media/collect-custom-metrics-linux-telegraf/telegraf-agent-overview.png)
 
 > [!NOTE]  
-> Metryki niestandardowe nie są obsługiwane we wszystkich regionach. Obsługiwane regiony są wymienione [tutaj](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-custom-overview#supported-regions)
+> Metryki niestandardowe nie są obsługiwane we wszystkich regionach. Obsługiwane regiony są wymienione [tutaj](./metrics-custom-overview.md#supported-regions)
 
 ## <a name="send-custom-metrics"></a>Wysyłanie metryk niestandardowych 
 
@@ -111,7 +111,7 @@ Teraz agent będzie zbierać metryki z każdej z określonych wtyczek wejściowy
 
 ## <a name="plot-your-telegraf-metrics-in-the-azure-portal"></a>Wykreśl metryki telegraf w Azure Portal 
 
-1. Otwórz [witrynę Azure Portal](https://portal.azure.com). 
+1. Otwórz witrynę [Azure Portal](https://portal.azure.com). 
 
 1. Przejdź do karty nowy **monitor** . Następnie wybierz pozycję **metryki**.  
 
@@ -137,6 +137,3 @@ Gdy nie są już potrzebne, możesz usunąć grupę zasobów, maszynę wirtualn�
 
 ## <a name="next-steps"></a>Następne kroki
 - Dowiedz się więcej o [metrykach niestandardowych](metrics-custom-overview.md).
-
-
-

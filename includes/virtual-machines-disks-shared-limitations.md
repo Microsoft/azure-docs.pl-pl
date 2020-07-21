@@ -1,21 +1,21 @@
 ---
-title: dołączanie pliku
-description: dołączanie pliku
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 06/03/2020
+ms.date: 07/14/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: ce964ac197fbff64bbb7cc36e8c2bf762f93663f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d2cf7dbcd97c8f740447607eaf443bc3ea4a6733
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84337358"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86500608"
 ---
-W wersji zapoznawczej włączenie dysków udostępnionych jest możliwe tylko dla podzbioru typów dysków. Obecnie tylko Ultra disks i Premium dysków SSD mogą włączać dyski udostępnione. Każdy dysk zarządzany z włączonymi dyskami udostępnionymi podlega następującym ograniczeniom zorganizowanym według typu dysku:
+Włączenie dysków udostępnionych jest możliwe tylko dla podzbioru typów dysków. Obecnie tylko Ultra disks i Premium dysków SSD mogą włączać dyski udostępnione. Każdy dysk zarządzany z włączonymi dyskami udostępnionymi podlega następującym ograniczeniom zorganizowanym według typu dysku:
 
 ### <a name="ultra-disks"></a>Dyski w warstwie Ultra
 
@@ -23,17 +23,19 @@ Niezwykle dyski mają własną listę ograniczeń, niezwiązanych z dyskami udos
 
 Podczas udostępniania Ultra disks obowiązują następujące dodatkowe ograniczenia:
 
-- Obecnie ograniczona do Azure Resource Manager lub obsługi zestawu SDK.
+- Obecnie ograniczona do Azure Resource Manager lub obsługi zestawu SDK. 
 - Tylko dyski podstawowe mogą być używane z niektórymi wersjami klastra trybu failover systemu Windows Server, aby uzyskać szczegółowe informacje, zobacz [wymagania sprzętowe klastra trybu failover i opcje magazynu](https://docs.microsoft.com/windows-server/failover-clustering/clustering-requirements).
 
 ### <a name="premium-ssds"></a>Dyski SSD w warstwie Premium
 
 - Obecnie obsługiwane tylko w regionie zachodnie stany USA.
-- Wszystkie maszyny wirtualne, które udostępniają dysk, muszą być wdrożone w tych samych [grupach umieszczania sąsiedztwa](../articles/virtual-machines/windows/proximity-placement-groups.md).
+- Obecnie ograniczona do Azure Resource Manager lub obsługi zestawu SDK. 
 - Można ją włączyć tylko na dyskach danych, a nie na dyskach systemu operacyjnego.
+- Buforowanie hosta **tylko do odczytu** nie jest dostępne dla dysków SSD Premium z `maxShares>1` .
+- Nie można uzyskać dostępu do dysków w warstwie Premium dysków SSD z `maxShares>1` .
+- W przypadku używania zestawów dostępności i zestawów skalowania maszyn wirtualnych z dyskami udostępnionymi platformy Azure [wyrównanie domeny błędów magazynu](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability#use-managed-disks-for-vms-in-an-availability-set) z domeną błędów maszyny wirtualnej nie jest wymuszane dla udostępnionego dysku danych.
+- W przypadku korzystania z [grup umieszczania w sąsiedztwie (PPG)](../articles/virtual-machines/windows/proximity-placement-groups.md)wszystkie maszyny wirtualne, które udostępniają dysk, muszą być częścią tego samego PPGu.
 - Tylko dyski podstawowe mogą być używane z niektórymi wersjami klastra trybu failover systemu Windows Server, aby uzyskać szczegółowe informacje, zobacz [wymagania sprzętowe klastra trybu failover i opcje magazynu](https://docs.microsoft.com/windows-server/failover-clustering/clustering-requirements).
-- Buforowanie hosta tylko do odczytu nie jest dostępne dla dysków SSD Premium z `maxShares>1` .
-- Zestawy dostępności i zestawy skalowania maszyn wirtualnych mogą być używane tylko z `FaultDomainCount` ustawioną opcją 1.
 - Obsługa Azure Backup i Azure Site Recovery nie jest jeszcze dostępna.
 
-Jeśli chcesz próbować korzystać z dysków udostępnionych, [Utwórz konto w wersji zapoznawczej](https://aka.ms/AzureSharedDiskPreviewSignUp).
+Jeśli interesują Cię próby przeprowadzenia udostępniania dysków, [Utwórz konto w celu uzyskania dostępu](https://aka.ms/AzureSharedDiskGASignUp).

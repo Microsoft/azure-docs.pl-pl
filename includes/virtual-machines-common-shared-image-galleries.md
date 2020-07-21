@@ -7,12 +7,12 @@ ms.topic: include
 ms.date: 07/08/2020
 ms.author: akjosh
 ms.custom: include file
-ms.openlocfilehash: 2d0030549acdb55ce2be94534ec59bb07b11869d
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: c2dffe576bfb52981b331c02b3f24ec2507ec349
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86221644"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86501966"
 ---
 Udostępniona Galeria obrazów to usługa, która ułatwia tworzenie struktury i organizacji na całym obrazie. Udostępnione Galerie obrazów zapewniają następujące:
 
@@ -83,7 +83,7 @@ Wyspecjalizowane maszyny wirtualne nie przechodzący przez proces usuwania konkr
 
 ## <a name="regional-support"></a>Obsługa regionalna
 
-Wszystkie regiony publiczne mogą być regionami docelowymi, ale w celu replikowania do Australii Środkowej i Australii środkowej 2 trzeba mieć subskrypcję listy dozwolonych. Aby zażądać listy dozwolonych, przejdź do:https://azure.microsoft.com/global-infrastructure/australia/contact/
+Wszystkie regiony publiczne mogą być regionami docelowymi, ale w celu replikowania do Australii środkowe i Australii środkowej 2 należy dodać subskrypcję do listy dozwolonych. Aby zażądać dodania subskrypcji do listy dozwolonych, przejdź do:https://azure.microsoft.com/global-infrastructure/australia/contact/
 
 ## <a name="limits"></a>Limity 
 
@@ -123,7 +123,7 @@ Regiony, w których jest replikowana wersja udostępnionego obrazu, mogą zosta�
 
 ![Ilustracja przedstawiająca sposób replikowania obrazów](./media/shared-image-galleries/replication.png)
 
-## <a name="access"></a>Dostęp
+## <a name="access"></a>Access
 
 Jako Galeria obrazów udostępnionych, definicja obrazu i wersja obrazu są wszystkie zasoby, które można udostępniać przy użyciu wbudowanych kontrolek kontroli RBAC platformy Azure. Za pomocą RBAC można udostępniać te zasoby innym użytkownikom, podmiotom usługi i grupom. Możesz nawet udostępnić dostęp osobom spoza dzierżawy, w ramach której zostały utworzone. Gdy użytkownik ma dostęp do udostępnionej wersji obrazu, może wdrożyć maszynę wirtualną lub zestaw skalowania maszyn wirtualnych.  Oto macierz udostępniania, która pomaga zrozumieć, do czego użytkownik uzyskuje dostęp:
 

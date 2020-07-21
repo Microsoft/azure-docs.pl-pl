@@ -5,28 +5,28 @@ ms.subservice: metrics
 ms.topic: conceptual
 ms.date: 03/19/2018
 ms.custom: has-adal-ref
-ms.openlocfilehash: 602d11b20e50ec5ba56d0d9c1762292c07d0b67b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e25e85f811d1c5d854b471bf0417e75ab1686d72
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84945345"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505129"
 ---
 # <a name="azure-monitoring-rest-api-walkthrough"></a>Przewodnik po interfejsie API REST usługi Azure Monitoring
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-W tym artykule pokazano, jak przeprowadzić uwierzytelnianie, aby kod mógł korzystać z [interfejsu API REST monitorowania Microsoft Azure](https://docs.microsoft.com/rest/api/monitor/).
+W tym artykule pokazano, jak przeprowadzić uwierzytelnianie, aby kod mógł korzystać z [interfejsu API REST monitorowania Microsoft Azure](/rest/api/monitor/).
 
 Interfejs API Azure Monitor umożliwia programowe pobranie dostępnych domyślnych definicji metryk, stopnia szczegółowości i wartości metryk. Dane można zapisywać w osobnym magazynie danych, takim jak Azure SQL Database, Azure Cosmos DB lub Azure Data Lake. W razie konieczności można wykonać dodatkowe analizy.
 
-Oprócz pracy z różnymi punktami danych metryk, interfejs API monitora umożliwia również wyświetlanie listy reguł alertów, wyświetlanie dzienników aktywności i wiele innych. Aby zapoznać się z pełną listą dostępnych operacji, zobacz temat [Informacje o interfejsie API REST monitorowania Microsoft Azure](https://docs.microsoft.com/rest/api/monitor/).
+Oprócz pracy z różnymi punktami danych metryk, interfejs API monitora umożliwia również wyświetlanie listy reguł alertów, wyświetlanie dzienników aktywności i wiele innych. Aby zapoznać się z pełną listą dostępnych operacji, zobacz temat [Informacje o interfejsie API REST monitorowania Microsoft Azure](/rest/api/monitor/).
 
 ## <a name="authenticating-azure-monitor-requests"></a>Uwierzytelnianie Azure Monitor żądania
 
 Pierwszym krokiem jest uwierzytelnienie żądania.
 
-Wszystkie zadania wykonywane względem interfejsu API Azure Monitor korzystają z modelu uwierzytelniania Azure Resource Manager. W związku z tym wszystkie żądania muszą być uwierzytelniane za pomocą Azure Active Directory (Azure AD). Jednym z metod uwierzytelniania aplikacji klienckiej jest utworzenie jednostki usługi Azure AD i pobranie tokenu uwierzytelniania (JWT). Poniższy przykładowy skrypt demonstruje Tworzenie jednostki usługi Azure AD za pomocą programu PowerShell. Aby uzyskać bardziej szczegółowy przewodnik, zapoznaj się z dokumentacją dotyczącą [korzystania z programu Azure PowerShell, aby utworzyć jednostkę usługi w celu uzyskania dostępu do zasobów](https://docs.microsoft.com/powershell/azure/create-azure-service-principal-azureps). Istnieje również możliwość utworzenia jednostki [usługi za pośrednictwem Azure Portal](../../active-directory/develop/howto-create-service-principal-portal.md).
+Wszystkie zadania wykonywane względem interfejsu API Azure Monitor korzystają z modelu uwierzytelniania Azure Resource Manager. W związku z tym wszystkie żądania muszą być uwierzytelniane za pomocą Azure Active Directory (Azure AD). Jednym z metod uwierzytelniania aplikacji klienckiej jest utworzenie jednostki usługi Azure AD i pobranie tokenu uwierzytelniania (JWT). Poniższy przykładowy skrypt demonstruje Tworzenie jednostki usługi Azure AD za pomocą programu PowerShell. Aby uzyskać bardziej szczegółowy przewodnik, zapoznaj się z dokumentacją dotyczącą [korzystania z programu Azure PowerShell, aby utworzyć jednostkę usługi w celu uzyskania dostępu do zasobów](/powershell/azure/create-azure-service-principal-azureps). Istnieje również możliwość utworzenia jednostki [usługi za pośrednictwem Azure Portal](../../active-directory/develop/howto-create-service-principal-portal.md).
 
 ```powershell
 $subscriptionId = "{azure-subscription-id}"
@@ -85,13 +85,13 @@ Po uwierzytelnieniu zapytania można wykonywać w odniesieniu do interfejsu API 
 2. Pobieranie wartości metryk
 
 > [!NOTE]
-> Dodatkowe informacje o uwierzytelnianiu za pomocą interfejsu API REST platformy Azure można znaleźć w [dokumentacji interfejsu API REST platformy Azure](https://docs.microsoft.com/rest/api/azure/).
+> Dodatkowe informacje o uwierzytelnianiu za pomocą interfejsu API REST platformy Azure można znaleźć w [dokumentacji interfejsu API REST platformy Azure](/rest/api/azure/).
 >
 >
 
 ## <a name="retrieve-metric-definitions-multi-dimensional-api"></a>Pobieranie definicji metryk (wielowymiarowego interfejsu API)
 
-Użyj [interfejsu API REST definicji metryk Azure monitor](https://docs.microsoft.com/rest/api/monitor/metricdefinitions) , aby uzyskać dostęp do listy metryk, które są dostępne dla usługi.
+Użyj [interfejsu API REST definicji metryk Azure monitor](/rest/api/monitor/metricdefinitions) , aby uzyskać dostęp do listy metryk, które są dostępne dla usługi.
 
 **Metoda**: pobieranie
 
@@ -228,7 +228,7 @@ Utworzona treść odpowiedzi JSON będzie podobna do poniższego przykładu: (na
 
 ## <a name="retrieve-dimension-values-multi-dimensional-api"></a>Pobieranie wartości wymiarów (wielowymiarowy interfejs API)
 
-Po znalezieniu dostępnych definicji metryk może istnieć kilka metryk, które mają wymiary. Przed wykonaniem zapytania dotyczącego metryki możesz chcieć wykryć zakres wartości dla wymiaru. Na podstawie tych wartości wymiarów można następnie wybrać filtrowanie lub segmentację metryk na podstawie wartości wymiarów podczas zapytania o metryki.  Aby to osiągnąć, użyj [interfejsu API REST metryk Azure monitor](https://docs.microsoft.com/rest/api/monitor/metrics) .
+Po znalezieniu dostępnych definicji metryk może istnieć kilka metryk, które mają wymiary. Przed wykonaniem zapytania dotyczącego metryki możesz chcieć wykryć zakres wartości dla wymiaru. Na podstawie tych wartości wymiarów można następnie wybrać filtrowanie lub segmentację metryk na podstawie wartości wymiarów podczas zapytania o metryki.  Aby to osiągnąć, użyj [interfejsu API REST metryk Azure monitor](/rest/api/monitor/metrics) .
 
 Użyj nazwy metryki "value" (nie "localizedValue") dla żadnych żądań filtrowania. Jeśli nie określono żadnych filtrów, zwracana jest Metryka domyślna. Użycie tego interfejsu API pozwala tylko jednemu wymiarowi mieć filtr wieloznaczny.
 
@@ -301,7 +301,7 @@ Utworzona treść odpowiedzi JSON będzie podobna do poniższego przykładu:
 
 ## <a name="retrieve-metric-values-multi-dimensional-api"></a>Pobieranie wartości metryk (wielowymiarowego interfejsu API)
 
-Po znalezieniu dostępnych definicji metryk i możliwych wartości wymiarów można pobrać powiązane wartości metryk.  Aby to osiągnąć, użyj [interfejsu API REST metryk Azure monitor](https://docs.microsoft.com/rest/api/monitor/metrics) .
+Po znalezieniu dostępnych definicji metryk i możliwych wartości wymiarów można pobrać powiązane wartości metryk.  Aby to osiągnąć, użyj [interfejsu API REST metryk Azure monitor](/rest/api/monitor/metrics) .
 
 Użyj nazwy metryki "value" (nie "localizedValue") dla żadnych żądań filtrowania. Jeśli nie zostaną określone żadne filtry wymiaru, zwracana jest Metryka zagregowana. Jeśli zapytanie Metric zwraca wiele szeregów czasowych, można użyć parametrów zapytania "Top" i "OrderBy" do zwrócenia ograniczonej uporządkowanej listy elementów szeregów czasowych.
 
@@ -387,7 +387,7 @@ Utworzona treść odpowiedzi JSON będzie podobna do poniższego przykładu:
 
 ## <a name="retrieve-metric-definitions"></a>Pobierz definicje metryk
 
-Użyj [interfejsu API REST definicji metryk Azure monitor](https://msdn.microsoft.com/library/mt743621.aspx) , aby uzyskać dostęp do listy metryk, które są dostępne dla usługi.
+Użyj [interfejsu API REST definicji metryk Azure monitor](/rest/api/monitor/metricdefinitions) , aby uzyskać dostęp do listy metryk, które są dostępne dla usługi.
 
 **Metoda**: pobieranie
 
@@ -451,7 +451,7 @@ Utworzona treść odpowiedzi JSON będzie podobna do poniższego przykładu:
 }
 ```
 
-Aby uzyskać więcej informacji, zobacz [listę definicji metryk dla zasobu w dokumentacji interfejsu API REST Azure monitor](https://msdn.microsoft.com/library/azure/mt743621.aspx) .
+Aby uzyskać więcej informacji, zobacz [listę definicji metryk dla zasobu w dokumentacji interfejsu API REST Azure monitor](/rest/api/monitor/metricdefinitions) .
 
 ## <a name="retrieve-metric-values"></a>Pobierz wartości metryk
 
@@ -594,7 +594,7 @@ armclient GET /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups
 
 ## <a name="retrieve-the-resource-id"></a>Pobieranie identyfikatora zasobu
 
-Korzystanie z interfejsu API REST może pomóc zrozumieć dostępne definicje metryk, stopień szczegółowości i powiązane wartości. Te informacje są przydatne podczas korzystania z [biblioteki zarządzania systemu Azure](https://msdn.microsoft.com/library/azure/mt417623.aspx).
+Korzystanie z interfejsu API REST może pomóc zrozumieć dostępne definicje metryk, stopień szczegółowości i powiązane wartości. Te informacje są przydatne podczas korzystania z [biblioteki zarządzania systemu Azure](/previous-versions/azure/reference/mt417623(v=azure.100)).
 
 W przypadku poprzedniego kodu identyfikator zasobu, który ma być używany, to pełna ścieżka do żądanego zasobu platformy Azure. Na przykład, aby wykonać zapytanie dotyczące aplikacji sieci Web platformy Azure, identyfikator zasobu to:
 
@@ -705,7 +705,7 @@ Wynik powinien wyglądać podobnie do poniższego przykładu:
 
 ## <a name="retrieve-activity-log-data"></a>Pobieranie danych dziennika aktywności
 
-Oprócz definicji metryk i pokrewnych wartości można również użyć interfejsu API REST Azure Monitor, aby uzyskać dodatkowe interesujące informacje związane z zasobami platformy Azure. Przykładowo można wykonywać zapytania dotyczące danych [dziennika aktywności](https://msdn.microsoft.com/library/azure/dn931934.aspx) . Poniższe przykładowe żądania używają interfejsu API REST Azure Monitor do wysyłania zapytań do dziennika aktywności.
+Oprócz definicji metryk i pokrewnych wartości można również użyć interfejsu API REST Azure Monitor, aby uzyskać dodatkowe interesujące informacje związane z zasobami platformy Azure. Przykładowo można wykonywać zapytania dotyczące danych [dziennika aktywności](/rest/api/monitor/activitylogs) . Poniższe przykładowe żądania używają interfejsu API REST Azure Monitor do wysyłania zapytań do dziennika aktywności.
 
 Pobierz dzienniki aktywności z filtrem:
 
@@ -735,5 +735,5 @@ GET https://management.azure.com/subscriptions/089bd33f-d4ec-47fe-8ba5-0753aa5c5
 
 * Zapoznaj się z [omówieniem monitorowania](../../azure-monitor/overview.md).
 * Wyświetl [obsługiwane metryki przy użyciu Azure monitor](metrics-supported.md).
-* Przejrzyj [Informacje o interfejsie API REST monitorowania Microsoft Azure](https://msdn.microsoft.com/library/azure/dn931943.aspx).
-* Przejrzyj [bibliotekę zarządzania platformy Azure](https://msdn.microsoft.com/library/azure/mt417623.aspx).
+* Przejrzyj [Informacje o interfejsie API REST monitorowania Microsoft Azure](/rest/api/monitor/).
+* Przejrzyj [bibliotekę zarządzania platformy Azure](/previous-versions/azure/reference/mt417623(v=azure.100)).

@@ -8,21 +8,22 @@ ms.custom: REST
 ms.topic: article
 ms.date: 06/13/2018
 ms.author: routlaw
-ms.openlocfilehash: 07e91f3d9fd32f01db91415bfd90746cd1aef403
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1aa108d7f903ed791c534b2b88550eb8d022ef64
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78944752"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86502082"
 ---
 # <a name="get-virtual-machine-usage-metrics-using-the-rest-api"></a>Pobieranie metryk użycia maszyn wirtualnych przy użyciu interfejsu API REST
 
-Ten przykład pokazuje, jak pobrać użycie procesora dla [maszyny wirtualnej z systemem Linux](https://docs.microsoft.com/azure/virtual-machines/linux/monitor) przy użyciu [interfejsu API REST platformy Azure](/rest/api/azure/).
+Ten przykład pokazuje, jak pobrać użycie procesora dla maszyny wirtualnej z systemem Linux przy użyciu [interfejsu API REST platformy Azure](/rest/api/azure/).
 
 Kompletna dokumentacja referencyjna i dodatkowe przykłady dla interfejsu API REST są dostępne w temacie [Azure monitor REST](/rest/api/monitor). 
 
 ## <a name="build-the-request"></a>Tworzenie żądania
 
-Użyj następującego żądania GET, aby zebrać [procentową metrykę procesora CPU](/azure/monitoring-and-diagnostics/monitoring-supported-metrics#microsoftcomputevirtualmachines) z maszyny wirtualnej
+Użyj następującego żądania GET, aby zebrać [procentową metrykę procesora CPU](../../azure-monitor/platform/metrics-supported.md#microsoftcomputevirtualmachines) z maszyny wirtualnej
 
 ```http
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmname}/providers/microsoft.insights/metrics?api-version=2018-01-01&metricnames=Percentage%20CPU&timespan=2018-06-05T03:00:00Z/2018-06-07T03:00:00Z
@@ -41,10 +42,10 @@ Wymagane są następujące nagłówki:
 
 | Nazwa | Opis |
 | :--- | :---------- |
-| subscriptionId | Identyfikator subskrypcji, który identyfikuje subskrypcję platformy Azure. Jeśli masz wiele subskrypcji, zobacz [Praca z wieloma subskrypcjami](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest). |
+| subscriptionId | Identyfikator subskrypcji, który identyfikuje subskrypcję platformy Azure. Jeśli masz wiele subskrypcji, zobacz [Praca z wieloma subskrypcjami](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest). |
 | resourceGroupName | Nazwa grupy zasobów platformy Azure skojarzonej z zasobem. Tę wartość można uzyskać za pomocą interfejsu API Azure Resource Manager, interfejsu wiersza polecenia lub portalu. |
 | VMName | Nazwa maszyny wirtualnej platformy Azure. |
-| metricnames | Rozdzielana przecinkami lista prawidłowych [metryk Load Balancer](/azure/load-balancer/load-balancer-standard-diagnostics). |
+| metricnames | Rozdzielana przecinkami lista prawidłowych [metryk Load Balancer](../../load-balancer/load-balancer-standard-diagnostics.md). |
 | api-version | Wersja interfejsu API do użycia dla żądania.<br /><br /> Ten dokument obejmuje interfejs API-Version `2018-01-01` uwzględniony w powyższym adresie URL.  |
 | zakres czasu | Ciąg o następującym formacie `startDateTime_ISO/endDateTime_ISO` , który definiuje zakres czasu zwracanych metryk. Ten opcjonalny parametr ma ustawioną wartość zwracającą wartość dnia w przykładzie. |
 | &nbsp; | &nbsp; |

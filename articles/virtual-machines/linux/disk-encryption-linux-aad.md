@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: c1349052488cb520f5866b5b0d238a223f2ceb68
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 274dda338fca1dae1940dd4a0fe66df617195544
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86135096"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86502626"
 ---
 # <a name="enable-azure-disk-encryption-with-azure-ad-on-linux-vms-previous-release"></a>Włączanie Azure Disk Encryption z usługą Azure AD na maszynach wirtualnych z systemem Linux (poprzednia wersja)
 
@@ -209,7 +209,7 @@ Zalecamy instalację LVM-on-Crypt. We wszystkich poniższych przykładach Zastą
 - Dodaj dyski danych, które będą tworzyć maszyny wirtualne.
 - Sformatuj, zainstaluj i Dodaj te dyski do pliku fstab.
 
-    1. Sformatuj nowo dodany dysk. W tym miejscu używamy linków symbolicznych wygenerowanego przez platformę Azure. Korzystanie z programu linków symbolicznych pozwala uniknąć problemów związanych z zmianami nazw urządzeń. Aby uzyskać więcej informacji, zobacz [Rozwiązywanie problemów z nazwami urządzeń](troubleshoot-device-names-problems.md).
+    1. Sformatuj nowo dodany dysk. W tym miejscu używamy linków symbolicznych wygenerowanego przez platformę Azure. Korzystanie z programu linków symbolicznych pozwala uniknąć problemów związanych z zmianami nazw urządzeń. Aby uzyskać więcej informacji, zobacz [Rozwiązywanie problemów z nazwami urządzeń](../troubleshooting/troubleshoot-device-names-problems.md).
     
         ```console
         mkfs -t ext4 /dev/disk/azure/scsi1/lun0
@@ -265,7 +265,7 @@ New-AzVM -VM $VirtualMachine -ResourceGroupName "MyVirtualMachineResourceGroup"
 Nowy dysk danych można dodać za pomocą polecenia [AZ VM Disk Attach](add-disk.md) lub [przez Azure Portal](attach-disk-portal.md). Przed zaszyfrowaniem należy najpierw zainstalować nowo dołączony dysk danych. Musisz zażądać szyfrowania dysku danych, ponieważ dysk będzie bezużyteczny, gdy szyfrowanie jest w toku. 
 
 ### <a name="enable-encryption-on-a-newly-added-disk-with-the-azure-cli"></a>Włącz szyfrowanie na nowo dodanym dysku przy użyciu interfejsu wiersza polecenia platformy Azure
- Jeśli maszyna wirtualna została wcześniej zaszyfrowana przy użyciu "wszystkie", parametr--type Wszystkie obejmują zarówno system operacyjny, jak i dyski danych. Jeśli maszyna wirtualna została wcześniej zaszyfrowana przy użyciu typu woluminu "system operacyjny", należy zmienić parametr--type-to all, aby uwzględnić zarówno system operacyjny, jak i nowy dysk danych. Jeśli maszyna wirtualna została zaszyfrowana przy użyciu tylko typu woluminu "dane", dane te mogą pozostać w tym miejscu. Dodawanie i dołączanie nowego dysku z danymi do maszyny wirtualnej nie jest wystarczającym przygotowaniem do szyfrowania. Nowo dołączony dysk musi być również sformatowany i poprawnie zainstalowany na maszynie wirtualnej przed włączeniem szyfrowania. W systemie Linux dysk musi być zainstalowany w/etc/fstab z [trwałą nazwą urządzenia blokowego](troubleshoot-device-names-problems.md). 
+ Jeśli maszyna wirtualna została wcześniej zaszyfrowana przy użyciu "wszystkie", parametr--type Wszystkie obejmują zarówno system operacyjny, jak i dyski danych. Jeśli maszyna wirtualna została wcześniej zaszyfrowana przy użyciu typu woluminu "system operacyjny", należy zmienić parametr--type-to all, aby uwzględnić zarówno system operacyjny, jak i nowy dysk danych. Jeśli maszyna wirtualna została zaszyfrowana przy użyciu tylko typu woluminu "dane", dane te mogą pozostać w tym miejscu. Dodawanie i dołączanie nowego dysku z danymi do maszyny wirtualnej nie jest wystarczającym przygotowaniem do szyfrowania. Nowo dołączony dysk musi być również sformatowany i poprawnie zainstalowany na maszynie wirtualnej przed włączeniem szyfrowania. W systemie Linux dysk musi być zainstalowany w/etc/fstab z [trwałą nazwą urządzenia blokowego](../troubleshooting/troubleshoot-device-names-problems.md). 
 
 W przeciwieństwie do składni programu PowerShell interfejs wiersza polecenia nie wymaga podania unikatowej wersji sekwencji po włączeniu szyfrowania. Interfejs wiersza polecenia automatycznie generuje i używa własną unikatową wartość wersji sekwencji.
 

@@ -6,12 +6,12 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 05/24/2017
 ms.author: guybo
-ms.openlocfilehash: 1ad1a66d67be7aefe4d9a7acae993e8788cbb193
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 79e2bc04a32755413625b3fb4b2b4de2ad12ad7f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80066745"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86502711"
 ---
 # <a name="create-and-upload-an-openbsd-disk-image-to-azure"></a>Tworzenie i przekazywanie obrazu dysku OpenBSD na platformę Azure
 W tym artykule przedstawiono sposób tworzenia i przekazywania wirtualnego dysku twardego (VHD) zawierającego system operacyjny OpenBSD. Po przekazaniu można użyć go jako własnego obrazu do utworzenia maszyny wirtualnej na platformie Azure za pomocą interfejsu wiersza polecenia platformy Azure.
@@ -22,7 +22,7 @@ W tym artykule założono, że masz następujące elementy:
 
 * **Subskrypcja platformy Azure** — Jeśli nie masz konta, możesz ją utworzyć w zaledwie kilka minut. Jeśli masz subskrypcję MSDN, zobacz [comiesięczne środki na korzystanie z platformy Azure dla subskrybentów programu Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). W przeciwnym razie Dowiedz się, jak [utworzyć bezpłatne konto wersji próbnej](https://azure.microsoft.com/pricing/free-trial/).  
 * **Interfejs wiersza polecenia platformy Azure** — upewnij się, że zainstalowano najnowszy [interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli) i zalogowano się na koncie platformy Azure z usługą [AZ login](/cli/azure/reference-index).
-* **OpenBSD system operacyjny zainstalowany w pliku VHD** — na wirtualnym dysku twardym musi być zainstalowany obsługiwany system operacyjny OpenBSD ([6,6 w wersji amd64](https://ftp.openbsd.org/pub/OpenBSD/6.6/amd64/)). Istnieje wiele narzędzi do tworzenia plików VHD. Na przykład można użyć rozwiązania wirtualizacji, takiego jak funkcja Hyper-V, aby utworzyć plik VHD i zainstalować system operacyjny. Aby uzyskać instrukcje dotyczące sposobu instalowania i używania funkcji Hyper-V, zobacz [Instalowanie funkcji Hyper-v i Tworzenie maszyny wirtualnej](https://technet.microsoft.com/library/hh846766.aspx).
+* **OpenBSD system operacyjny zainstalowany w pliku VHD** — na wirtualnym dysku twardym musi być zainstalowany obsługiwany system operacyjny OpenBSD ([6,6 w wersji amd64](https://ftp.openbsd.org/pub/OpenBSD/6.6/amd64/)). Istnieje wiele narzędzi do tworzenia plików VHD. Na przykład można użyć rozwiązania wirtualizacji, takiego jak funkcja Hyper-V, aby utworzyć plik VHD i zainstalować system operacyjny. Aby uzyskać instrukcje dotyczące sposobu instalowania i używania funkcji Hyper-V, zobacz [Instalowanie funkcji Hyper-v i Tworzenie maszyny wirtualnej](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh846766(v=ws.11)).
 
 
 ## <a name="prepare-openbsd-image-for-azure"></a>Przygotuj obraz OpenBSD dla platformy Azure
@@ -87,7 +87,7 @@ Teraz możesz zamknąć maszynę wirtualną.
 
 
 ## <a name="prepare-the-vhd"></a>Przygotowywanie wirtualnego dysku twardego
-Format VHDX nie jest obsługiwany na platformie Azure, tylko **stałego dysku VHD**. Dysk można przekonwertować na stały format VHD przy użyciu Menedżera funkcji Hyper-V lub polecenia cmdlet [convert-VHD](https://technet.microsoft.com/itpro/powershell/windows/hyper-v/convert-vhd) programu PowerShell. Przykład jest następujący.
+Format VHDX nie jest obsługiwany na platformie Azure, tylko **stałego dysku VHD**. Dysk można przekonwertować na stały format VHD przy użyciu Menedżera funkcji Hyper-V lub polecenia cmdlet [convert-VHD](/powershell/module/hyper-v/convert-vhd?view=win10-ps) programu PowerShell. Przykład jest następujący.
 
 ```powershell
 Convert-VHD OpenBSD61.vhdx OpenBSD61.vhd -VHDType Fixed

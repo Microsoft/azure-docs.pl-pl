@@ -6,12 +6,12 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 06/06/2020
 ms.author: danis
-ms.openlocfilehash: c70a6049596aa38e9ae6118517fc471becbc1676
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 7a0d4d0a1c36f901ea38c5c73d3aa7a2cf49e02f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134628"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86502694"
 ---
 # <a name="prepare-an-ubuntu-virtual-machine-for-azure"></a>Przygotowywanie maszyny wirtualnej z systemem Ubuntu dla platformy Azure
 
@@ -22,7 +22,7 @@ Ubuntu teraz publikuje oficjalne wirtualne dyski twarde platformy Azure do pobra
 * Ubuntu 18.04/Bionic: [Bionic-Server-cloudimg-amd64. vmdk](https://cloud-images.ubuntu.com/bionic/current/bionic-server-cloudimg-amd64.vmdk)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-W tym artykule założono, że zainstalowano już Ubuntu Linux system operacyjny na wirtualnym dysku twardym. Istnieje wiele narzędzi do tworzenia plików VHD, na przykład rozwiązanie wirtualizacji, takie jak funkcja Hyper-V. Aby uzyskać instrukcje, zobacz [Instalowanie roli funkcji Hyper-V i Konfigurowanie maszyny wirtualnej](https://technet.microsoft.com/library/hh846766.aspx).
+W tym artykule założono, że zainstalowano już Ubuntu Linux system operacyjny na wirtualnym dysku twardym. Istnieje wiele narzędzi do tworzenia plików VHD, na przykład rozwiązanie wirtualizacji, takie jak funkcja Hyper-V. Aby uzyskać instrukcje, zobacz [Instalowanie roli funkcji Hyper-V i Konfigurowanie maszyny wirtualnej](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh846766(v=ws.11)).
 
 **Ubuntu uwagi dotyczące instalacji**
 
@@ -176,9 +176,8 @@ W tym artykule założono, że zainstalowano już Ubuntu Linux system operacyjny
 
 13. Kliknij **akcję-> wyłączyć** w Menedżerze funkcji Hyper-V.
 
-14. Na platformie Azure są akceptowane wirtualne dyski twarde o stałym rozmiarze. Jeśli dysk systemu operacyjnego maszyny wirtualnej nie ma dysku VHD o stałym rozmiarze, użyj `Convert-VHD` polecenia cmdlet programu PowerShell i określ `-VHDType Fixed` opcję. Zapoznaj się z dokumentami `Convert-VHD` tutaj: [convert-VHD](https://docs.microsoft.com/powershell/module/hyper-v/convert-vhd?view=win10-ps).
+14. Na platformie Azure są akceptowane wirtualne dyski twarde o stałym rozmiarze. Jeśli dysk systemu operacyjnego maszyny wirtualnej nie ma dysku VHD o stałym rozmiarze, użyj `Convert-VHD` polecenia cmdlet programu PowerShell i określ `-VHDType Fixed` opcję. Zapoznaj się z dokumentami `Convert-VHD` tutaj: [convert-VHD](/powershell/module/hyper-v/convert-vhd?view=win10-ps).
 
 
 ## <a name="next-steps"></a>Następne kroki
 Teraz możesz przystąpić do korzystania z Ubuntu Linux wirtualnego dysku twardego w celu utworzenia nowych maszyn wirtualnych na platformie Azure. Jeśli przekazujesz plik VHD na platformę Azure po raz pierwszy, zobacz [Tworzenie maszyny wirtualnej z systemem Linux z dysku niestandardowego](upload-vhd.md#option-1-upload-a-vhd).
-

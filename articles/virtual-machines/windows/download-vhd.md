@@ -9,12 +9,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 01/13/2019
 ms.author: cynthn
-ms.openlocfilehash: e87f2436f69abed4c0d0ee415226f99b52f2e804
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 20236ccf1ec8e1f8d8113f0597d37c20e2788987
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82085369"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86500433"
 ---
 # <a name="download-a-windows-vhd-from-azure"></a>Pobieranie wirtualnego dysku twardego systemu Windows z platformy Azure
 
@@ -22,7 +22,7 @@ W tym artykule dowiesz się, jak pobrać plik wirtualnego dysku twardego (VHD) s
 
 ## <a name="optional-generalize-the-vm"></a>Opcjonalne: Uogólnij maszynę wirtualną
 
-Jeśli chcesz użyć wirtualnego dysku twardego jako [obrazu](tutorial-custom-images.md) do tworzenia innych maszyn wirtualnych, użyj programu [Sysprep](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation) do uogólnienia systemu operacyjnego. 
+Jeśli chcesz użyć wirtualnego dysku twardego jako [obrazu](tutorial-custom-images.md) do tworzenia innych maszyn wirtualnych, użyj programu [Sysprep](/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation) do uogólnienia systemu operacyjnego. 
 
 Aby użyć wirtualnego dysku twardego jako obrazu do tworzenia innych maszyn wirtualnych, Uogólnij maszynę wirtualną.
 
@@ -45,7 +45,7 @@ Nie można pobrać wirtualnego dysku twardego z platformy Azure, jeśli jest on 
 
 ## <a name="generate-download-url"></a>Generuj adres URL pobierania
 
-Aby pobrać plik VHD, należy wygenerować adres URL [sygnatury dostępu współdzielonego (SAS)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) . Po wygenerowaniu adresu URL zostanie do niego przypisany czas wygaśnięcia.
+Aby pobrać plik VHD, należy wygenerować adres URL [sygnatury dostępu współdzielonego (SAS)](../../storage/common/storage-sas-overview.md?toc=/azure/virtual-machines/windows/toc.json) . Po wygenerowaniu adresu URL zostanie do niego przypisany czas wygaśnięcia.
 
 1. Na stronie maszyny wirtualnej kliknij pozycję **dyski** w menu po lewej stronie.
 1. Wybierz dysk systemu operacyjnego dla maszyny wirtualnej.
@@ -68,4 +68,3 @@ Aby pobrać plik VHD, należy wygenerować adres URL [sygnatury dostępu współ
 - Dowiedz się, jak [przekazać plik VHD na platformę Azure](upload-generalized-managed.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
 - [Utwórz dyski zarządzane na podstawie dysków niezarządzanych na koncie magazynu](attach-disk-ps.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 - [Zarządzanie dyskami platformy Azure za pomocą programu PowerShell](tutorial-manage-data-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-

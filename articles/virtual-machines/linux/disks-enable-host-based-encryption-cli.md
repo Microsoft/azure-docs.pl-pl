@@ -8,12 +8,12 @@ ms.date: 07/10/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 705f9f3055d40d23c9ec5e24cfccfc0c96e114a5
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: e0773515809ffdc50167a3cba1f767ac8635bcee
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86236132"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86502575"
 ---
 # <a name="enable-end-to-end-encryption-using-encryption-at-host---azure-cli"></a>Włącz kompleksowe szyfrowanie przy użyciu szyfrowania na hoście — interfejs wiersza polecenia platformy Azure
 
@@ -35,7 +35,7 @@ Rozmiary maszyn wirtualnych można również wyszukać programowo. Aby dowiedzie
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby można było używać szyfrowania na hoście dla maszyn wirtualnych lub zestawów skalowania maszyn wirtualnych, należy włączyć tę funkcję w ramach subskrypcji. Wyślij wiadomość e-mail do encryptionAtHost@microsoft . com z identyfikatorami subskrypcji, aby włączyć funkcję dla subskrypcji.
+Aby można było używać szyfrowania na hoście dla maszyn wirtualnych lub zestawów skalowania maszyn wirtualnych, należy włączyć tę funkcję w ramach subskrypcji. Wyślij wiadomość e-mail na adres encryptionAtHost@microsoft.com z identyfikatorami subskrypcji, aby włączyć funkcję dla subskrypcji.
 
 ### <a name="create-an-azure-key-vault-and-diskencryptionset"></a>Tworzenie Azure Key Vault i DiskEncryptionSet
 
@@ -77,7 +77,7 @@ az group deployment create -g <yourResourceGroupName> \
 
 Starsze rozmiary maszyn wirtualnych nie są obsługiwane. Listę obsługiwanych rozmiarów maszyn wirtualnych można znaleźć w:
 
-Wywoływanie [interfejsu API zasobów SKU](https://docs.microsoft.com/rest/api/compute/resourceskus/list) i sprawdzanie, czy `EncryptionAtHostSupported` możliwość jest ustawiona na **wartość true**.
+Wywoływanie [interfejsu API zasobów SKU](/rest/api/compute/resourceskus/list) i sprawdzanie, czy `EncryptionAtHostSupported` możliwość jest ustawiona na **wartość true**.
 
 ```json
     {
@@ -98,7 +98,7 @@ Wywoływanie [interfejsu API zasobów SKU](https://docs.microsoft.com/rest/api/c
     }
 ```
 
-Lub wywołując polecenie cmdlet [Get-AzComputeResourceSku](https://docs.microsoft.com/powershell/module/az.compute/get-azcomputeresourcesku?view=azps-3.8.0) programu PowerShell.
+Lub wywołując polecenie cmdlet [Get-AzComputeResourceSku](/powershell/module/az.compute/get-azcomputeresourcesku?view=azps-3.8.0) programu PowerShell.
 
 ```powershell
 $vmSizes=Get-AzComputeResourceSku | where{$_.ResourceType -eq 'virtualMachines' -and $_.Locations.Contains('CentralUSEUAP')} 

@@ -4,11 +4,12 @@ description: Dowiedz się, jak używać akcji skalowania automatycznego do wywo�
 ms.topic: conceptual
 ms.date: 04/03/2017
 ms.subservice: autoscale
-ms.openlocfilehash: c82b170bb3801bdc701ed84230db57f5691523ea
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3b1f13fd1ce8bedcbe58385d4cee321f1d1405df
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77120693"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505523"
 ---
 # <a name="use-autoscale-actions-to-send-email-and-webhook-alert-notifications-in-azure-monitor"></a>Użyj akcji skalowania automatycznego do wysyłania powiadomień o alertach poczty e-mail i elementów webhook w Azure Monitor
 W tym artykule pokazano, jak skonfigurować wyzwalacze, aby umożliwić wywoływanie określonych adresów URL sieci Web lub wysyłanie wiadomości e-mail na podstawie akcji skalowania automatycznego na platformie Azure.  
@@ -16,7 +17,7 @@ W tym artykule pokazano, jak skonfigurować wyzwalacze, aby umożliwić wywoływ
 ## <a name="webhooks"></a>Elementy webhook
 Elementy webhook umożliwiają kierowanie powiadomień o alertach platformy Azure do innych systemów na potrzeby powiadomień po zakończeniu przetwarzania lub niestandardowych. Na przykład, kierowanie alertu do usług, które mogą obsługiwać przychodzące żądanie sieci Web w celu wysyłania wiadomości SMS, rejestrowania usterek, powiadamiania zespołu przy użyciu usług rozmowy lub Messaging itp. Identyfikator URI elementu webhook musi być prawidłowym punktem końcowym HTTP lub HTTPS.
 
-## <a name="email"></a>Poczta e-mail
+## <a name="email"></a>E-mail
 Wiadomości e-mail można wysyłać na dowolny prawidłowy adres e-mail. Administratorzy i współadministratorzy subskrypcji, w której uruchomiona jest reguła, również będą powiadamiani.
 
 ## <a name="cloud-services-and-app-services"></a>Cloud Services i App Services
@@ -28,7 +29,7 @@ Możesz zdecydować się na podstawie Azure Portal dla Cloud Services i farm ser
 
 ## <a name="virtual-machine-scale-sets"></a>Zestawy skalowania maszyn wirtualnych
 W przypadku nowszych Virtual Machines utworzonych za pomocą Menedżer zasobów (zestawy skalowania maszyn wirtualnych) można je skonfigurować za pomocą interfejsu API REST, szablonów Menedżer zasobów, programu PowerShell i interfejsu wiersza polecenia. Interfejs portalu nie jest jeszcze dostępny.
-W przypadku korzystania z interfejsu API REST lub szablonu Menedżer zasobów należy uwzględnić w [autoscalesettings](https://docs.microsoft.com/azure/templates/microsoft.insights/2015-04-01/autoscalesettings) element Notifications z następującymi opcjami.
+W przypadku korzystania z interfejsu API REST lub szablonu Menedżer zasobów należy uwzględnić w [autoscalesettings](/azure/templates/microsoft.insights/2015-04-01/autoscalesettings) element Notifications z następującymi opcjami.
 
 ```
 "notifications": [
@@ -116,4 +117,3 @@ Po wygenerowaniu powiadomienia skalowania automatycznego następujące metadane 
 | oldCapacity |Tak |Bieżąca (stara) liczba wystąpień, gdy automatyczne skalowanie zajęło akcję skalowania |
 | newCapacity |Tak |Nowe wystąpienie, które automatycznie skaluje zasób do |
 | properties |Nie |Opcjonalny. Zestaw <klucza, wartości> par (na przykład <słownika, ciąg>). Pole właściwości jest opcjonalne. W niestandardowym interfejsie użytkownika lub przepływie pracy opartym na aplikacji logiki można wprowadzać klucze i wartości, które mogą być przesyłane przy użyciu ładunku. Alternatywny sposób przekazywania właściwości niestandardowych z powrotem do wychodzącego wywołania elementu webhook polega na użyciu samego identyfikatora URI elementu webhook (jako parametrów zapytania). |
-

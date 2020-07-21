@@ -11,11 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/04/2018
-ms.openlocfilehash: 65331136b5b137c44577fd09f3914e8869cc2dcb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1567d38f8e582c062aa024b40cf0ede1d8b691f6
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84042799"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86504338"
 ---
 # <a name="restore-a-single-tenant-with-a-database-per-tenant-saas-application"></a>Przywracanie pojedynczej dzierżawy za pomocą aplikacji SaaS dla dzierżawy
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -28,7 +29,7 @@ W tym samouczku przedstawiono dwa wzorce odzyskiwania danych:
 > * Przywracanie bazy danych do równoległej bazy danych (obok siebie).
 > * Przywracanie bazy danych w miejscu, zastępując istniejącą bazę danych.
 
-|||
+| Wzorce | Opis |
 |:--|:--|
 | Przywracanie do równoległej bazy danych | Ten wzorzec może służyć do wykonywania zadań, takich jak przegląd, Inspekcja i zgodność, aby umożliwić dzierżawcom inspekcję danych z wcześniejszego punktu. Bieżąca baza danych dzierżawy pozostaje w trybie online i nie ulega zmianie. |
 | Przywracanie w miejscu | Ten wzorzec jest zazwyczaj używany do odzyskiwania dzierżawy do wcześniejszego punktu, po Przypadkowe usunięcie lub uszkodzenie danych przez dzierżawcę. Oryginalna baza danych jest wyłączona i zastąpiona przywróconą bazą danych. |
@@ -133,7 +134,7 @@ W niniejszym samouczku zawarto informacje na temat wykonywania następujących c
 
 Wypróbuj samouczek dotyczący [zarządzania schematem bazy danych dzierżawy](saas-tenancy-schema-management.md) .
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * [Dodatkowe samouczki, które kompilują w aplikacji Wingtip SaaS](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
 * [Omówienie zagadnień dotyczących ciągłości działalności biznesowej zapewnianej przez usługę Azure SQL Database](business-continuity-high-availability-disaster-recover-hadr-overview.md)

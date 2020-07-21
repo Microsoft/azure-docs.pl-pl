@@ -7,11 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 562b1f80397c730b5ea72fe2cd4f3dfdaea1e3f3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9221a79eede36e0036d3ddaab64ee3baa07a33a6
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84235540"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86500858"
 ---
 # <a name="how-to-connect-and-sign-on-to-an-azure-virtual-machine-running-windows"></a>Jak nawiązać połączenie i zalogować się do maszyny wirtualnej platformy Azure z systemem Windows
 Korzystając z przycisku **Połącz** w witrynie Azure Portal, uruchomisz sesję pulpitu zdalnego z poziomu pulpitu systemu Windows. Najpierw Nawiąż połączenie z maszyną wirtualną, a następnie zaloguj się.
@@ -22,7 +23,7 @@ Aby nawiązać połączenie z maszyną wirtualną z systemem Windows z komputera
 1. Przejdź do [Azure Portal](https://portal.azure.com/) , aby nawiązać połączenie z maszyną wirtualną. Wyszukaj i wybierz pozycję **maszyny wirtualne**.
 2. Wybierz maszynę wirtualną z listy.
 3. Na początku strony maszyny wirtualnej wybierz pozycję **Połącz**.
-4. Na stronie **Połącz z maszyną wirtualną** wybierz pozycję **RDP**, a następnie wybierz odpowiedni **adres IP** i **numer portu**. W większości przypadków należy użyć domyślnego adresu IP i portu. Wybierz opcję **Pobierz plik RDP**. Jeśli maszyna wirtualna ma zestaw zasad just-in-Time, najpierw musisz wybrać przycisk **Żądaj dostępu** , aby zażądać dostępu, zanim będzie można pobrać plik RDP. Aby uzyskać więcej informacji na temat zasad just in Time, zobacz [Zarządzanie dostępem do maszyn wirtualnych przy użyciu zasad just in Time](../../security-center/security-center-just-in-time.md).
+4. Na stronie **Połącz z maszyną wirtualną** wybierz pozycję **RDP**, a następnie wybierz odpowiedni **adres IP** i **numer portu**. W większości przypadków należy użyć domyślnego adresu IP i portu. Wybierz pozycję **Pobierz plik RDP**. Jeśli maszyna wirtualna ma zestaw zasad just-in-Time, najpierw musisz wybrać przycisk **Żądaj dostępu** , aby zażądać dostępu, zanim będzie można pobrać plik RDP. Aby uzyskać więcej informacji na temat zasad just in Time, zobacz [Zarządzanie dostępem do maszyn wirtualnych przy użyciu zasad just in Time](../../security-center/security-center-just-in-time.md).
 5. Otwórz pobrany plik RDP i wybierz polecenie **Połącz**, gdy wyświetli się odpowiedni monit. Zostanie wyświetlone ostrzeżenie, że `.rdp` plik pochodzi od nieznanego wydawcy. Jest to oczekiwane zachowanie. W oknie **Podłączanie pulpitu zdalnego** wybierz pozycję **Połącz** , aby kontynuować.
    
     ![Zrzut ekranu przedstawiający ostrzeżenie o nieznanym wydawcy.](./media/connect-logon/rdp-warn.png)
@@ -62,5 +63,4 @@ Get-AzRemoteDesktopFile -ResourceGroupName "RgName" -Name "VmName" -LocalPath "C
 ```
 
 ## <a name="next-steps"></a>Następne kroki
-Jeśli masz problemy z połączeniem, zobacz [Rozwiązywanie problemów z połączeniami pulpit zdalny](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
-
+Jeśli masz problemy z połączeniem, zobacz [Rozwiązywanie problemów z połączeniami pulpit zdalny](../troubleshooting/troubleshoot-rdp-connection.md?toc=/azure/virtual-machines/windows/toc.json). 

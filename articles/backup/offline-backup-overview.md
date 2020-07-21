@@ -3,11 +3,13 @@ title: Przegląd kopii zapasowej offline
 description: Dowiedz się więcej o składnikach kopii zapasowej offline. Obejmują one kopie zapasowe offline na podstawie Azure Data Box i kopii zapasowej offline na podstawie usługi Azure Import/Export.
 ms.topic: conceptual
 ms.date: 1/28/2020
-ms.openlocfilehash: 84f79efe10f867b37d1e3bb21363be4b12156615
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: references_regions
+ms.openlocfilehash: c5e0f4e722e2dd15b7277a484af2a101844344e6
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84628343"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86503629"
 ---
 # <a name="overview-of-offline-backup"></a>Przegląd kopii zapasowej offline
 
@@ -43,7 +45,7 @@ Aby użyć kopii zapasowej offline w oparciu o Azure Data Box, zobacz [kopia zap
 
 ## <a name="offline-backup-based-on-the-azure-importexport-service"></a>Kopia zapasowa offline oparta na usłudze Azure Import/Export
 
-Ta opcja jest obsługiwana przez Microsoft Azure Backup Server (serwera usługi MAB), System Center Data Protection Manager (DPM) DPM-A i Agent MARS. Korzysta ona z [usługi Azure Import/Export](https://docs.microsoft.com/azure/storage/common/storage-import-export-service). Dane początkowej kopii zapasowej można przenieść na platformę Azure przy użyciu własnych dysków i łączników zgodnych z platformą Azure. Takie podejście wymaga udostępnienia tymczasowego magazynu znanego jako lokalizacja przejściowa i użycia wstępnie skompilowanych narzędzi do formatowania i kopiowania danych kopii zapasowej na dyski należące do klienta.
+Ta opcja jest obsługiwana przez Microsoft Azure Backup Server (serwera usługi MAB), System Center Data Protection Manager (DPM) DPM-A i Agent MARS. Korzysta ona z [usługi Azure Import/Export](../storage/common/storage-import-export-service.md). Dane początkowej kopii zapasowej można przenieść na platformę Azure przy użyciu własnych dysków i łączników zgodnych z platformą Azure. Takie podejście wymaga udostępnienia tymczasowego magazynu znanego jako lokalizacja przejściowa i użycia wstępnie skompilowanych narzędzi do formatowania i kopiowania danych kopii zapasowej na dyski należące do klienta.
 
 Poniżej przedstawiono architekturę opisującą przenoszenie danych kopii zapasowej za pomocą tej opcji.
 
@@ -57,9 +59,9 @@ Oto podsumowanie architektury:
 4. W centrum danych Azure dane na dyskach są kopiowane do konta usługi Azure Storage.
 5. Azure Backup kopiuje dane kopii zapasowej z konta magazynu do magazynu Recovery Services. Przyrostowe kopie zapasowe są zaplanowane.
 
-Aby użyć kopii zapasowej offline opartej na usłudze Azure Import/Export za pomocą agenta MARS, zobacz [przepływ pracy kopii zapasowej offline w Azure Backup](https://docs.microsoft.com/azure/backup/backup-azure-backup-import-export).
+Aby użyć kopii zapasowej offline opartej na usłudze Azure Import/Export za pomocą agenta MARS, zobacz [przepływ pracy kopii zapasowej offline w Azure Backup](./backup-azure-backup-import-export.md).
 
-Aby użyć tego samego programu wraz z serwera usługi MAB lub DPM-A, zobacz [przepływ pracy kopii zapasowej offline dla programu DPM i Azure Backup Server](https://docs.microsoft.com/azure/backup/backup-azure-backup-server-import-export).
+Aby użyć tego samego programu wraz z serwera usługi MAB lub DPM-A, zobacz [przepływ pracy kopii zapasowej offline dla programu DPM i Azure Backup Server](./backup-azure-backup-server-import-export.md).
 
 ## <a name="offline-backup-support-summary"></a>Podsumowanie obsługi kopii zapasowych w trybie offline
 
@@ -68,13 +70,13 @@ Poniższa tabela zawiera porównanie dwóch dostępnych opcji, dzięki czemu mo�
 | **Zagadnienie**                                            | **Kopia zapasowa offline oparta na Azure Data Box**                     | **Kopia zapasowa offline oparta na usłudze Azure Import/Export**                |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | Azure Backup modele wdrażania                              | Agent MARS (wersja zapoznawcza)                                              | Agent MARS, serwera usługi MAB, DPM-A                                           |
-| Maksymalna ilość danych kopii zapasowej na serwer (MARS) lub na grupę ochrony (serwera usługi MAB, DPM-A) | [Azure Data Box dysk](https://docs.microsoft.com/azure/databox/data-box-disk-overview) — 7,2 TB <br> [Azure Data Box](https://docs.microsoft.com/azure/databox/data-box-overview) – 80 TB       | 80 TB (do 10 dysków o pojemności 8 TB)                          |
-| Zabezpieczenia (dane, urządzenia i usługa)                           | [Data](https://docs.microsoft.com/azure/databox/data-box-security#data-box-data-protection) -AES 256-bit szyfrowany <br> Przypadek niezależny od [urządzenia](https://docs.microsoft.com/azure/databox/data-box-security#data-box-device-protection) , własnościowy interfejs oparty na poświadczeniach do kopiowania danych <br> [Usługa](https://docs.microsoft.com/azure/databox/data-box-security#data-box-service-protection) chroniona przez funkcje zabezpieczeń platformy Azure | Dane — szyfrowanie funkcją BitLocker                                 |
-| Tymczasowa lokalizacja tymczasowa aprowizacji                     | Niewymagane                                                | Większy niż lub równy szacowanemu rozmiarowi danych kopii zapasowej        |
-| Obsługiwane regiony                                           | [Azure Data Box regionów dysków](https://docs.microsoft.com/azure/databox/data-box-disk-overview#region-availability) <br> [Azure Data Box regiony](https://docs.microsoft.com/azure/databox/data-box-disk-overview#region-availability) | [Regiony usługi Azure Import/Export](https://docs.microsoft.com/azure/storage/common/storage-import-export-service#region-availability) |
+| Maksymalna ilość danych kopii zapasowej na serwer (MARS) lub na grupę ochrony (serwera usługi MAB, DPM-A) | [Azure Data Box dysk](../databox/data-box-disk-overview.md) — 7,2 TB <br> [Azure Data Box](../databox/data-box-overview.md) – 80 TB       | 80 TB (do 10 dysków o pojemności 8 TB)                          |
+| Zabezpieczenia (dane, urządzenia i usługa)                           | [Data](../databox/data-box-security.md#data-box-data-protection) -AES 256-bit szyfrowany <br> Przypadek niezależny od [urządzenia](../databox/data-box-security.md#data-box-device-protection) , własnościowy interfejs oparty na poświadczeniach do kopiowania danych <br> [Usługa](../databox/data-box-security.md#data-box-service-protection) chroniona przez funkcje zabezpieczeń platformy Azure | Dane — szyfrowanie funkcją BitLocker                                 |
+| Tymczasowa lokalizacja tymczasowa aprowizacji                     | Nie jest wymagana                                                | Większy niż lub równy szacowanemu rozmiarowi danych kopii zapasowej        |
+| Obsługiwane regiony                                           | [Azure Data Box regionów dysków](../databox/data-box-disk-overview.md#region-availability) <br> [Azure Data Box regiony](../databox/data-box-disk-overview.md#region-availability) | [Regiony usługi Azure Import/Export](../storage/common/storage-import-export-service.md#region-availability) |
 | Wysyłka między krajami                                     | Nieobsługiwane  <br>    Adres źródłowy i docelowy centrum danych platformy Azure muszą znajdować się w tym samym kraju/regionie * | Obsługiwane                                                    |
 | Przenoszenie logistyki (dostarczanie, transport, odbiór)           | W pełni zarządzane firmy Microsoft                                     | Zarządzane przez klienta                                            |
-| Cennik                                                      | [Cennik Azure Data Box](https://azure.microsoft.com/pricing/details/databox/) <br> [Azure Data Box ceny dysku](https://azure.microsoft.com/pricing/details/databox/disk/) | [Cennik usługi Azure Import/Export](https://azure.microsoft.com/pricing/details/storage-import-export/) |
+| Ceny                                                      | [Cennik Azure Data Box](https://azure.microsoft.com/pricing/details/databox/) <br> [Azure Data Box ceny dysku](https://azure.microsoft.com/pricing/details/databox/disk/) | [Cennik usługi Azure Import/Export](https://azure.microsoft.com/pricing/details/storage-import-export/) |
 
 * Jeśli kraj/region nie ma centrum danych platformy Azure, musisz dostarczyć dyski do centrum danych platformy Azure w innym kraju/regionie.
 

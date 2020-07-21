@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 7b671bb63934eec129e992c369ba8516c191c589
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 2ef54da76750617a77c4b2e117b694cb170ff752
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223571"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86502898"
 ---
 # <a name="migrate-from-a-managed-image-to-an-image-version-using-the-azure-cli"></a>Migrowanie z obrazu zarządzanego do wersji obrazu przy użyciu interfejsu wiersza polecenia platformy Azure
 Jeśli masz istniejący obraz zarządzany, który chcesz migrować do galerii obrazów udostępnionych, możesz utworzyć obraz udostępnionej galerii obrazów bezpośrednio z poziomu zarządzanego obrazu. Po przetestowaniu nowego obrazu można usunąć źródłowy obraz zarządzany. Możesz także przeprowadzić migrację z zarządzanego obrazu do udostępnionej galerii obrazów przy użyciu [programu PowerShell](image-version-managed-image-powershell.md).
@@ -40,7 +40,7 @@ Ponieważ obrazy zarządzane są zawsze uogólnione, utworzysz definicję obrazu
 
 Nazwy definicji obrazów mogą składać się z wielkich lub małych liter, cyfr, kropek, kresek i kropek. 
 
-Aby uzyskać więcej informacji na temat wartości, które można określić dla definicji obrazu, zobacz [definicje obrazu](https://docs.microsoft.com/azure/virtual-machines/linux/shared-image-galleries#image-definitions).
+Aby uzyskać więcej informacji na temat wartości, które można określić dla definicji obrazu, zobacz [definicje obrazu](./linux/shared-image-galleries.md#image-definitions).
 
 Utwórz definicję obrazu w galerii za pomocą polecenia [AZ SIG Image-Definition Create](/cli/azure/sig/image-definition#az-sig-image-definition-create).
 
@@ -92,7 +92,7 @@ az sig image-version create \
 > [!NOTE]
 > Musisz poczekać na zakończenie kompilowania i replikowania wersji obrazu, aby można było użyć tego samego obrazu zarządzanego do utworzenia innej wersji obrazu.
 >
-> Możesz również przechowywać wszystkie repliki wersji obrazu w [magazynie strefowo nadmiarowy](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) przez dodanie `--storage-account-type standard_zrs` podczas tworzenia wersji obrazu.
+> Możesz również przechowywać wszystkie repliki wersji obrazu w [magazynie strefowo nadmiarowy](../storage/common/storage-redundancy.md) przez dodanie `--storage-account-type standard_zrs` podczas tworzenia wersji obrazu.
 >
 
 ## <a name="next-steps"></a>Następne kroki

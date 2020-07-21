@@ -10,11 +10,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 11/09/2018
 ms.author: edprice
-ms.openlocfilehash: d8309a69c9c38610fa7bea3fee202a60d836980c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8aa2b936f97b037bdc62a01f607945ad270faa13
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78945054"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86502337"
 ---
 # <a name="ibm-db2-purescale-on-azure"></a>IBM DB2 pureScale na platformie Azure
 
@@ -66,7 +67,7 @@ W tej architekturze są uruchamiane warstwy aplikacji, magazynu i danych w usłu
 
 -   Klaster programu DB2 pureScale. Typ zasobów obliczeniowych, które są potrzebne na platformie Azure, zależy od konfiguracji. Ogólnie rzecz biorąc, można użyć dwóch metod:
 
-    -   Używaj sieci w stylu wielowęzłowym (HPC) o wysokiej wydajności, gdzie małe i średnie wystąpienia uzyskują dostęp do magazynu udostępnionego. W przypadku tego typu konfiguracji HPC [maszyny wirtualne](https://docs.microsoft.com/azure/virtual-machines/windows/sizes) z serii L zoptymalizowane pod kątem pamięci na platformie Azure zapewniają wymaganą moc obliczeniową.
+    -   Używaj sieci w stylu wielowęzłowym (HPC) o wysokiej wydajności, gdzie małe i średnie wystąpienia uzyskują dostęp do magazynu udostępnionego. W przypadku tego typu konfiguracji HPC [maszyny wirtualne](../windows/sizes.md) z serii L zoptymalizowane pod kątem pamięci na platformie Azure zapewniają wymaganą moc obliczeniową.
 
     -   Użyj mniejszej liczby wystąpień maszyn wirtualnych dla aparatów danych. W przypadku dużych wystąpień największe zoptymalizowane pod kątem pamięci maszyny wirtualne z [serii M](https://azure.microsoft.com/pricing/details/virtual-machines/series/) są idealnym rozwiązaniem w przypadku intensywnych obciążeń w pamięci. Może być konieczne użycie dedykowanego wystąpienia, w zależności od rozmiaru partycji logicznej (LPAR) używanej do uruchamiania bazy danych DB2.
 
@@ -95,11 +96,11 @@ Duży klaster programu DB2 pureScale może wymagać 200 terabajtów (TB) lub wi�
 
 Firma IBM zaleca sieci InfiniBand dla wszystkich członków w klastrze programu DB2 pureScale. Program DB2 pureScale używa również zdalnego bezpośredniego dostępu do pamięci (RDMA), jeśli jest dostępny dla CFs.
 
-Podczas instalacji należy utworzyć [grupę zasobów](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) platformy Azure w celu uwzględnienia wszystkich maszyn wirtualnych. Ogólnie rzecz biorąc, należy grupować zasoby na podstawie ich okresu istnienia i zarządzania nimi. Maszyny wirtualne w tej architekturze wymagają [przyspieszonej sieci](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/). Jest to funkcja platformy Azure, która zapewnia spójne, niezwykle niskie opóźnienia sieci za pośrednictwem wirtualizacji we/wy z jednym elementem głównym (SR-IOV) do maszyny wirtualnej.
+Podczas instalacji należy utworzyć [grupę zasobów](../../azure-resource-manager/management/overview.md) platformy Azure w celu uwzględnienia wszystkich maszyn wirtualnych. Ogólnie rzecz biorąc, należy grupować zasoby na podstawie ich okresu istnienia i zarządzania nimi. Maszyny wirtualne w tej architekturze wymagają [przyspieszonej sieci](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/). Jest to funkcja platformy Azure, która zapewnia spójne, niezwykle niskie opóźnienia sieci za pośrednictwem wirtualizacji we/wy z jednym elementem głównym (SR-IOV) do maszyny wirtualnej.
 
-Każda maszyna wirtualna platformy Azure jest wdrażana w sieci wirtualnej, która ma podsieci: Main, Gluster FS front end (gfsfe), Gluster FS back end (bfsbe), DB2 pureScale (db2be) i DB2 pureScale front end (db2fe). Skrypt instalacji tworzy również podstawowe [karty sieciowe](https://docs.microsoft.com/azure/virtual-machines/linux/multiple-nics) na maszynach wirtualnych w podsieci głównej.
+Każda maszyna wirtualna platformy Azure jest wdrażana w sieci wirtualnej, która ma podsieci: Main, Gluster FS front end (gfsfe), Gluster FS back end (bfsbe), DB2 pureScale (db2be) i DB2 pureScale front end (db2fe). Skrypt instalacji tworzy również podstawowe [karty sieciowe](./multiple-nics.md) na maszynach wirtualnych w podsieci głównej.
 
-Użyj [sieciowych grup zabezpieczeń](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) , aby ograniczyć ruch sieciowy w sieci wirtualnej i wyizolować podsieci.
+Użyj [sieciowych grup zabezpieczeń](../../virtual-network/virtual-network-vnet-plan-design-arm.md) , aby ograniczyć ruch sieciowy w sieci wirtualnej i wyizolować podsieci.
 
 Na platformie Azure usługa DB2 pureScale musi używać protokołu TCP/IP jako połączenia sieciowego dla magazynu.
 

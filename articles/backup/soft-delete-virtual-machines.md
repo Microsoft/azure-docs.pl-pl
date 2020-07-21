@@ -1,16 +1,17 @@
 ---
-title: Usuwanie nietrwałe dla maszyn wirtualnych
+title: Usuwanie nietrwałe maszyn wirtualnych
 description: Dowiedz się, jak usuwanie nietrwałe dla maszyn wirtualnych sprawia, że kopie zapasowe są bezpieczniejsze.
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: ba00b235ea70bcc2dabbd5a91a3f7003f9bbed49
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: references_regions
+ms.openlocfilehash: e447db2c3f862d2f577a9e7d8767946375abf4e0
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82765775"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86503544"
 ---
-# <a name="soft-delete-for-virtual-machines"></a>Usuwanie nietrwałe dla maszyn wirtualnych
+# <a name="soft-delete-for-virtual-machines"></a>Usuwanie nietrwałe maszyn wirtualnych
 
 Usuwanie nietrwałe dla maszyn wirtualnych chroni kopie zapasowe maszyn wirtualnych przed niezamierzonym usunięciem. Nawet po usunięciu kopii zapasowych są one zachowywane w stanie nietrwałego usunięcia przez 14 dodatkowych dni.
 
@@ -67,7 +68,7 @@ Jak opisano powyżej dla Azure Portal, sekwencja kroków jest taka sama, ale ró
 
 ### <a name="delete-the-backup-item-using-azure-powershell"></a>Usuń element kopii zapasowej za pomocą Azure PowerShell
 
-Usuń element kopii zapasowej za pomocą polecenia cmdlet [disable-AzRecoveryServicesBackupProtection](https://docs.microsoft.com/powershell/module/az.recoveryservices/Disable-AzRecoveryServicesBackupProtection?view=azps-1.5.0) PS.
+Usuń element kopii zapasowej za pomocą polecenia cmdlet [disable-AzRecoveryServicesBackupProtection](/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupprotection) PS.
 
 ```powershell
 Disable-AzRecoveryServicesBackupProtection -Item $myBkpItem -RemoveRecoveryPoints -VaultId $myVaultID -Force
@@ -94,7 +95,7 @@ VM;iaasvmcontainerv2;selfhostrg;AppVM1    AzureVM             iaasvmcontainerv2;
 $myBkpItem = Get-AzRecoveryServicesBackupItem -BackupManagementType AzureVM -WorkloadType AzureVM -VaultId $myVaultID -Name AppVM1
 ```
 
-Następnie wykonaj operację cofania usuwania przy użyciu polecenia cmdlet [Undo-AzRecoveryServicesBackupItemDeletion](https://docs.microsoft.com/powershell/module/az.recoveryservices/undo-azrecoveryservicesbackupitemdeletion?view=azps-3.1.0) PS.
+Następnie wykonaj operację cofania usuwania przy użyciu polecenia cmdlet [Undo-AzRecoveryServicesBackupItemDeletion](/powershell/module/az.recoveryservices/undo-azrecoveryservicesbackupitemdeletion) PS.
 
 ```powershell
 Undo-AzRecoveryServicesBackupItemDeletion -Item $myBKpItem -VaultId $myVaultID -Force
@@ -104,7 +105,7 @@ WorkloadName     Operation            Status               StartTime            
 AppVM1           Undelete             Completed            12/5/2019 12:47:28 PM     12/5/2019 12:47:40 PM     65311982-3755-46b5-8e53-c82ea4f0d2a2
 ```
 
-"DeleteState" elementu kopii zapasowej zostanie przywrócony do "NotDeleted". Jednak ochrona jest nadal zatrzymana. [Wznów tworzenie kopii zapasowej,](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#change-policy-for-backup-items) aby ponownie włączyć ochronę.
+"DeleteState" elementu kopii zapasowej zostanie przywrócony do "NotDeleted". Jednak ochrona jest nadal zatrzymana. [Wznów tworzenie kopii zapasowej,](./backup-azure-vms-automation.md#change-policy-for-backup-items) aby ponownie włączyć ochronę.
 
 ## <a name="soft-delete-for-vms-using-rest-api"></a>Usuwanie nietrwałe dla maszyn wirtualnych przy użyciu interfejsu API REST
 

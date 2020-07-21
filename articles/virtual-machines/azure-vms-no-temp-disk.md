@@ -7,11 +7,12 @@ ms.topic: article
 ms.author: brbell
 ms.reviewer: mimckitt
 ms.date: 06/15/2020
-ms.openlocfilehash: 413f53feedc4fee0877694e3f3a3a509c4d38001
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7ce816aba6bee36cd20eed6d31b0642dc8931e0b
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84783610"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86503034"
 ---
 # <a name="azure-vm-sizes-with-no-local-temporary-disk"></a>Rozmiary maszyn wirtualnych platformy Azure bez lokalnego dysku tymczasowego 
 Ten artykuł zawiera odpowiedzi na często zadawane pytania dotyczące rozmiarów maszyn wirtualnych platformy Azure, które nie mają lokalnego dysku tymczasowego (tj. bez lokalnego tymczasowego). Aby uzyskać więcej informacji o rozmiarach maszyn wirtualnych, zobacz [specyfikacje dla serii Dv4 i Dsv4 (ogólnego przeznaczenia obciążeń)](dv4-dsv4-series.md) lub [specyfikacji dla Ev4 i Esv4 (obciążenia zoptymalizowane pod kątem pamięci)](ev4-esv4-series.md).
@@ -22,7 +23,7 @@ Ten artykuł zawiera odpowiedzi na często zadawane pytania dotyczące rozmiaró
 ## <a name="what-does-no-local-temp-disk-mean"></a>Co oznacza brak lokalnego dysku tymczasowego? 
 Tradycyjnie mamy rozmiary maszyn wirtualnych (np. Standard_D2s_v3, Standard_E48_v3), które obejmują niewielki dysk lokalny (tj. dysk D:). Teraz przy użyciu nowych rozmiarów maszyn wirtualnych ten mały dysk lokalny już nie istnieje; można jednak nadal dołączać HDD w warstwie Standardowa, SSD w warstwie Premium lub SSD w warstwie Ultra.
 
-## <a name="what-if-i-still-want-local-temp-disk"></a>Co zrobić, jeśli nadal chcę mieć lokalny dysk tymczasowy?
+## <a name="what-if-i-still-want-a-local-temp-disk"></a>Co zrobić, jeśli nadal chcę mieć lokalny dysk tymczasowy?
 Jeśli obciążenie wymaga lokalnego dysku tymczasowego, dostępne są również nowe rozmiary maszyn wirtualnych [Ddv4 i Ddsv4](ddv4-ddsv4-series.md) lub [Edv4 i Edsv4](edv4-edsv4-series.md) . Te rozmiary oferują 50% większego dysku tymczasowego w porównaniu z poprzednimi wersjami v3.
 
 > [!NOTE]

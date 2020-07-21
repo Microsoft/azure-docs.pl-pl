@@ -8,11 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: 15118c9c3d2d1a528c62b539ab7bdd8f174c19de
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 49918335dc6855726e7d8de15c01a5f15280af08
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85080098"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86503221"
 ---
 # <a name="sentiment-cognitive-skill"></a>Umiejętność tonacji
 
@@ -35,7 +36,7 @@ Maksymalny rozmiar rekordu powinien składać się z 5000 znaków mierzonych prz
 
 W nazwach parametrów jest rozróżniana wielkość liter.
 
-| Nazwa parametru |                      |
+| Nazwa parametru | Opis |
 |----------------|----------------------|
 | `defaultLanguageCode` | obowiązkowe Kod języka, który ma zostać zastosowany do dokumentów, które nie określają jawnie języka. <br/> Zapoznaj się [z pełną listą obsługiwanych języków](../cognitive-services/text-analytics/text-analytics-supported-languages.md) |
 

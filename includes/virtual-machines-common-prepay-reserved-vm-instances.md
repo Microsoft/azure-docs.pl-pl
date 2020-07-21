@@ -3,13 +3,13 @@ author: yashesvi
 ms.author: banders
 ms.service: virtual-machines-windows
 ms.topic: include
-ms.date: 03/27/2020
-ms.openlocfilehash: d41affc55134ad34c325c12ab4a14f4013c58f9e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/15/2020
+ms.openlocfilehash: 2fda9c41efd4c6765681d98011d8fb890b09d19f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80371664"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86502059"
 ---
 Po zatwierdzeniu do wystąpienia zarezerwowanego maszyny wirtualnej platformy Azure Możesz zaoszczędzić pieniądze. Rabat rezerwacji jest automatycznie stosowany do liczby uruchomionych maszyn wirtualnych, które pasują do zakresu rezerwacji i atrybutów. Nie musisz przypisywać rezerwacji do maszyny wirtualnej, aby uzyskać rabaty. Zakup wystąpienia zarezerwowanego obejmuje tylko część obliczeniową użycia maszyny wirtualnej. W przypadku maszyn wirtualnych z systemem Windows licznik użycia jest podzielony na dwa oddzielne liczniki. Istnieje licznik obliczeniowy, który jest taki sam jak licznik systemu Linux i miernik adresów IP w systemie Windows. Opłaty, które zobaczysz po dokonaniu zakupu, dotyczą tylko kosztów obliczeń. Opłaty nie obejmują kosztów oprogramowania systemu Windows. Aby uzyskać więcej informacji o kosztach oprogramowania, zobacz [koszty oprogramowania nieuwzględnione w Azure Reserved VM Instances](../articles/cost-management-billing/reservations/reserved-instance-windows-software-costs.md).
 
@@ -97,12 +97,12 @@ Jeśli masz umowę EA, możesz użyć **opcji Dodaj więcej** , aby szybko doda�
 | Pole      | Opis|
 |------------|--------------|
 |Subskrypcja|Subskrypcja używana do płacenia za rezerwację. W przypadku metody płatności w ramach subskrypcji jest naliczana opłata za rezerwację. Typ subskrypcji musi być umową Enterprise Agreement (Numer oferty: MS-AZR-0017P lub MS-AZR-0148P) lub umowa klienta firmy Microsoft lub indywidualna subskrypcja z stawką płatność zgodnie z rzeczywistym użyciem (numery ofert: MS-AZR-0003P lub MS-AZR-0023P). Opłaty są naliczane od salda zobowiązania pieniężnego, jeśli są dostępne lub są naliczane jako nadwyżkowe. W przypadku subskrypcji z płatnością zgodnie z rzeczywistym użyciem opłaty są naliczane za kartę kredytową lub formę płatności faktury dla subskrypcji.|    
-|Zakres       |Zakres rezerwacji może obejmować jedną subskrypcję lub wiele subskrypcji (zakres udostępniony). W przypadku wybrania opcji: <ul><li>**Zakres pojedynczej grupy zasobów** — rabat na rezerwację jest stosowany do odpowiednich zasobów tylko w wybranej grupie zasobów.</li><li>**Zakres pojedynczej subskrypcji** — rabat na rezerwację jest stosowany do odpowiednich zasobów w wybranej subskrypcji.</li><li>**Zakres udostępniony** — rabat na rezerwację jest stosowany do odpowiednich zasobów w kwalifikujących się subskrypcjach w ramach kontekstu rozliczeń. W przypadku klientów z umowami EA kontekst rozliczania to rejestracja. W przypadku indywidualnych subskrypcji ze stawkami płatności zgodnie z rzeczywistym użyciem kontekst rozliczeń stanowią wszystkie kwalifikujące się subskrypcje utworzone przez administratora konta.</li></ul>|
+|Zakres       |Zakres rezerwacji może obejmować jedną subskrypcję lub wiele subskrypcji (zakres udostępniony). W przypadku wybrania opcji: <ul><li>**Zakres pojedynczej grupy zasobów** — rabat na rezerwację jest stosowany do odpowiednich zasobów tylko w wybranej grupie zasobów.</li><li>**Zakres pojedynczej subskrypcji** — rabat na rezerwację jest stosowany do odpowiednich zasobów w wybranej subskrypcji.</li><li>**Zakres udostępniony** — rabat na rezerwację jest stosowany do odpowiednich zasobów w kwalifikujących się subskrypcjach w ramach kontekstu rozliczeń. W przypadku klientów z umowami EA kontekst rozliczania to rejestracja. W przypadku indywidualnych subskrypcji z płatnością zgodnie z rzeczywistym użyciem zakres rozliczeniowy to wszystkie kwalifikujące się subskrypcje utworzone przez administratora konta.</li></ul>|
 |Region    |Region świadczenia usługi Azure objęty rezerwacją.|    
 |Rozmiar maszyny wirtualnej     |Rozmiar wystąpień maszyn wirtualnych.|
 |Optymalizuj pod kątem     |Domyślnie wybrana jest elastyczność rozmiaru wystąpienia maszyny wirtualnej. Kliknij pozycję **Ustawienia zaawansowane** , aby zmienić elastyczność rozmiaru wystąpienia, aby zastosować rabat rezerwacji do innych maszyn wirtualnych w tej samej [grupie rozmiarów maszyn wirtualnych](../articles/virtual-machines/windows/reserved-vm-instance-size-flexibility.md). Priorytet pojemności powoduje przydzielanie priorytetów pojemności centrum danych dla wdrożeń. Oferuje ona dodatkowe zaufanie do uruchamiania wystąpień maszyn wirtualnych, gdy ich potrzebujesz. Priorytet pojemności jest dostępny tylko wtedy, gdy zakresem rezerwacji jest pojedyncza subskrypcja. |
-|Okres        |Jeden rok lub trzy lata.|
-|Liczba    |Liczba wystąpień zakupionych w ramach rezerwacji. Ilość to liczba uruchomionych wystąpień maszyn wirtualnych, które mogą uzyskać rabat rozliczeń. Jeśli na przykład w regionie Wschodnie stany USA są uruchomione 10 Standard_D2 maszyn wirtualnych, należy określić liczbę jako 10, aby zmaksymalizować korzyść dla wszystkich uruchomionych maszyn wirtualnych. |
+|Termin        |Jeden rok lub trzy lata. Okres 5-letni jest dostępny tylko dla maszyn wirtualnych HBv2.|
+|Ilość    |Liczba wystąpień zakupionych w ramach rezerwacji. Ilość to liczba uruchomionych wystąpień maszyn wirtualnych, które mogą uzyskać rabat rozliczeń. Jeśli na przykład w regionie Wschodnie stany USA są uruchomione 10 Standard_D2 maszyn wirtualnych, należy określić liczbę jako 10, aby zmaksymalizować korzyść dla wszystkich uruchomionych maszyn wirtualnych. |
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2PjmT]
 
@@ -125,8 +125,8 @@ Można również podzielić rezerwację na mniejsze fragmenty i scalić już rez
 Po zakupie nie można wprowadzać następujących typów zmian bezpośrednio:
 
 - Istniejący region rezerwacji
-- SKU
-- Liczba
+- Jednostka SKU
+- Ilość
 - Czas trwania
 
 Istnieje jednak możliwość *wymiany* rezerwacji, jeśli chcesz wprowadzić zmiany.

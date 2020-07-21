@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: cynthn
-ms.openlocfilehash: 686a488934d20894298f7adc80470424a60b29b3
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: a21fbcd04c5916e686f13e375bc1854935d1c4fe
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86207642"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86500348"
 ---
 # <a name="frequently-asked-question-about-windows-virtual-machines"></a>Często zadawane pytania dotyczące Windows Virtual Machines
 W tym artykule opisano niektóre często zadawane pytania dotyczące maszyn wirtualnych z systemem Windows utworzonych na platformie Azure przy użyciu modelu wdrażania Menedżer zasobów. Aby uzyskać informacje na temat wersji systemu Linux tego tematu, zobacz [często zadawane pytania dotyczące Linux Virtual Machines](../linux/faq.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
@@ -32,7 +32,7 @@ Konta usługi Azure Storage mogą również udostępniać magazyn dla dysku syst
 ## <a name="how-can-i-access-my-virtual-machine"></a>Jak mogę uzyskać dostęp do mojej maszyny wirtualnej?
 Nawiąż połączenie zdalne przy użyciu Podłączanie pulpitu zdalnego (RDP) dla maszyny wirtualnej z systemem Windows. Aby uzyskać instrukcje, zobacz [jak nawiązać połączenie i zalogować się do maszyny wirtualnej platformy Azure z systemem Windows](connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Obsługiwane są maksymalnie dwa współbieżne połączenia, chyba że serwer jest skonfigurowany jako Host sesji Usługi pulpitu zdalnego.  
 
-Jeśli masz problemy z Pulpit zdalny, zobacz [Rozwiązywanie problemów pulpit zdalny połączeń z maszyną wirtualną platformy Azure](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)z systemem Windows. 
+Jeśli masz problemy z Pulpit zdalny, zobacz [Rozwiązywanie problemów pulpit zdalny połączeń z maszyną wirtualną platformy Azure](../troubleshooting/troubleshoot-rdp-connection.md?toc=/azure/virtual-machines/windows/toc.json)z systemem Windows. 
 
 Użytkownicy znający funkcję Hyper-V mogą szukać narzędzia podobnego do VMConnect. Platforma Azure nie oferuje podobnego narzędzia, ponieważ dostęp z konsoli do maszyny wirtualnej nie jest obsługiwany.
 

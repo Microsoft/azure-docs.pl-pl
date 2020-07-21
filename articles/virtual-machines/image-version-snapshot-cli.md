@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 06/30/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 585d3729a886f3a01dff6dcd9afdab63669c05b5
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: b5dcadd2381596509a3d2f512d0f4ebbbfbba893
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86225175"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86502881"
 ---
 # <a name="create-an-image-from-a-vhd-or-snapshot-in-a-shared-image-gallery-using-the-azure-cli"></a>Tworzenie obrazu z dysku VHD lub migawki w udostępnionej galerii obrazów przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -69,7 +69,7 @@ Definicje obrazów tworzą logiczne grupowanie dla obrazów. Są one używane do
 
 Podczas tworzenia definicji obrazu upewnij się, że zawiera on wszystkie prawidłowe informacje. W tym przykładzie zakładamy, że migawka lub wirtualny dysk twardy jest używany przez maszynę wirtualną, która nie została uogólniona. Jeśli wirtualny dysk twardy lub migawka zostały wykonane z uogólnionego systemu operacyjnego (po uruchomieniu programu Sysprep dla systemu Windows lub [waagent](https://github.com/Azure/WALinuxAgent) `-deprovision` lub `-deprovision+user` Linux), Zmień wartość `-OsState` na `generalized` . 
 
-Aby uzyskać więcej informacji na temat wartości, które można określić dla definicji obrazu, zobacz [definicje obrazu](https://docs.microsoft.com/azure/virtual-machines/linux/shared-image-galleries#image-definitions).
+Aby uzyskać więcej informacji na temat wartości, które można określić dla definicji obrazu, zobacz [definicje obrazu](./linux/shared-image-galleries.md#image-definitions).
 
 Utwórz definicję obrazu w galerii za pomocą polecenia [AZ SIG Image-Definition Create](/cli/azure/sig/image-definition#az-sig-image-definition-create).
 
@@ -120,7 +120,7 @@ Jeśli chcesz uwzględnić dyski danych w obrazie, musisz uwzględnić zarówno 
 > [!NOTE]
 > Musisz poczekać na zakończenie kompilowania i replikowania wersji obrazu, aby można było użyć tego samego obrazu zarządzanego do utworzenia innej wersji obrazu.
 >
-> Możesz również przechowywać wszystkie repliki wersji obrazu w [magazynie strefowo nadmiarowy](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) przez dodanie `--storage-account-type standard_zrs` podczas tworzenia wersji obrazu.
+> Możesz również przechowywać wszystkie repliki wersji obrazu w [magazynie strefowo nadmiarowy](../storage/common/storage-redundancy.md) przez dodanie `--storage-account-type standard_zrs` podczas tworzenia wersji obrazu.
 >
 
 ## <a name="next-steps"></a>Następne kroki

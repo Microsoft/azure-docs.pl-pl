@@ -8,12 +8,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 81dfac2a1623253a110833a96fddd1b41bd11b26
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4fc411d3833fcd47477e7e0fe11c6da9e2114143
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85390231"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86502031"
 ---
 # <a name="how-to-use-ssh-keys-with-windows-on-azure"></a>Jak używać kluczy SSH w systemie Windows na platformie Azure
 
@@ -26,7 +26,7 @@ W tym artykule opisano sposób generowania i używania kluczy *Secure Shell* (SS
 ## <a name="windows-packages-and-ssh-clients"></a>Pakiety systemu Windows i klienci SSH
 Za pomocą *klienta SSH*można nawiązać połączenie z maszynami wirtualnymi z systemem Linux i zarządzać nimi na platformie Azure. Komputery z systemem Linux lub macOS zazwyczaj mają pakiet poleceń SSH do generowania kluczy SSH i zarządzania nimi oraz do nawiązywania połączeń SSH. 
 
-Na komputerach z systemem Windows nie zawsze są zainstalowane porównywalne polecenia SSH. Najnowsze wersje systemu Windows 10 zapewniają [polecenia klienta OpenSSH](https://blogs.msdn.microsoft.com/commandline/2018/03/07/windows10v1803/) do tworzenia kluczy SSH i zarządzania nimi oraz nawiązywania połączeń SSH z wiersza polecenia. Najnowsze wersje systemu Windows 10 obejmują również [podsystem Windows dla systemu Linux](https://docs.microsoft.com/windows/wsl/about) do uruchamiania i uzyskiwania dostępu do narzędzi, takich jak klient SSH natywnie w ramach powłoki bash. 
+Na komputerach z systemem Windows nie zawsze są zainstalowane porównywalne polecenia SSH. Najnowsze wersje systemu Windows 10 zapewniają [polecenia klienta OpenSSH](https://devblogs.microsoft.com/commandline/windows10v1803/) do tworzenia kluczy SSH i zarządzania nimi oraz nawiązywania połączeń SSH z wiersza polecenia. Najnowsze wersje systemu Windows 10 obejmują również [podsystem Windows dla systemu Linux](/windows/wsl/about) do uruchamiania i uzyskiwania dostępu do narzędzi, takich jak klient SSH natywnie w ramach powłoki bash. 
 
 Inne typowe klienckie aplikacje SSH systemu Windows, które można zainstalować lokalnie, znajdują się w następujących pakietach:
 
@@ -123,4 +123,4 @@ Jeśli zainstalowano [pakiet pobierania pobrany](https://www.chiark.greenend.org
 
 * Możesz również użyć programu PowerShell w Azure Cloud Shell, aby generować klucze SSH i nawiązać połączenia SSH z maszynami wirtualnymi z systemem Linux. Zobacz [Przewodnik Szybki Start dla programu PowerShell](../../cloud-shell/quickstart-powershell.md#ssh).
 
-* Jeśli masz problemy z używaniem protokołu SSH do łączenia się z maszynami wirtualnymi z systemem Linux, zobacz [Rozwiązywanie problemów z połączeniami SSH z maszyną wirtualną platformy Azure](troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* Jeśli masz problemy z używaniem protokołu SSH do łączenia się z maszynami wirtualnymi z systemem Linux, zobacz [Rozwiązywanie problemów z połączeniami SSH z maszyną wirtualną platformy Azure](../troubleshooting/troubleshoot-ssh-connection.md?toc=/azure/virtual-machines/linux/toc.json)

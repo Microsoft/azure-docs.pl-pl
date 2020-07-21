@@ -9,12 +9,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: 17536f49e24da8c508da17c4c2ff5fb2f9bead62
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 4e5d4af74ab54479a49963369cb99dbc19fca848
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86200881"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505281"
 ---
 # <a name="logs-in-azure-monitor"></a>Dzienniki w usłudze Azure Monitor
 
@@ -41,10 +41,10 @@ W poniższej tabeli wymieniono różne sposoby używania dzienników w Azure Mon
 
 |  | Opis |
 |:---|:---|
-| **Analiza** | Użyj [log Analytics](../log-query/get-started-portal.md) w Azure Portal, aby napisać [zapytania dzienników](../log-query/log-query-overview.md) i interaktywnie przeanalizować dane dzienników przy użyciu zaawansowanego aparatu analizy Eksplorator danych.<br>Użyj [konsoli Application Insights Analytics](../app/analytics.md) w Azure Portal, aby napisać zapytania dziennika i interaktywnie przeanalizować dane dziennika z Application Insights. |
+| **Analiza** | Użyj [log Analytics](../log-query/get-started-portal.md) w Azure Portal, aby napisać [zapytania dzienników](../log-query/log-query-overview.md) i interaktywnie przeanalizować dane dzienników przy użyciu zaawansowanego aparatu analizy Eksplorator danych.<br>Użyj [konsoli Application Insights Analytics](../log-query/log-query-overview.md) w Azure Portal, aby napisać zapytania dziennika i interaktywnie przeanalizować dane dziennika z Application Insights. |
 | **Wizualizacja** | Przypnij wyniki zapytania jako tabele lub wykresy do [pulpitu nawigacyjnego platformy Azure](../../azure-portal/azure-portal-dashboards.md).<br>Utwórz [skoroszyt](../platform/workbooks-overview.md) , aby połączyć się z wieloma zestawami danych w raporcie interaktywnym. <br>Eksportuj wyniki zapytania, aby [Power BI](powerbi.md) do używania różnych wizualizacji i udostępniania użytkownikom spoza platformy Azure.<br>Eksportuj wyniki zapytania do [Grafana](grafana-plugin.md) , aby wykorzystać jego pulpit nawigacyjny i połączyć się z innymi źródłami danych.|
 | **Alert** | Skonfiguruj [regułę alertu dziennika](alerts-log.md) , która wysyła powiadomienie lub wykonuje [automatyczne działanie](action-groups.md) , gdy wyniki zapytania pasują do określonego wyniku.<br>Skonfiguruj [regułę alertu metryki](alerts-metric-logs.md) dla niektórych dzienników danych dziennika wyodrębnionych jako metryki. |
-| **Odczytać** | Uzyskiwanie dostępu do wyników zapytania dziennika z wiersza polecenia przy użyciu [interfejsu CLI platformy Azure](/cli/azure/ext/log-analytics/monitor/log-analytics).<br>Uzyskuj dostęp do wyników zapytania dziennika z wiersza polecenia przy użyciu [poleceń cmdlet programu PowerShell](https://docs.microsoft.com/powershell/module/az.operationalinsights).<br>Uzyskiwanie dostępu do wyników zapytania dziennika z aplikacji niestandardowej przy użyciu [interfejsu API REST](https://dev.loganalytics.io/). |
+| **Odczytać** | Uzyskiwanie dostępu do wyników zapytania dziennika z wiersza polecenia przy użyciu [interfejsu CLI platformy Azure](/cli/azure/ext/log-analytics/monitor/log-analytics).<br>Uzyskuj dostęp do wyników zapytania dziennika z wiersza polecenia przy użyciu [poleceń cmdlet programu PowerShell](/powershell/module/az.operationalinsights).<br>Uzyskiwanie dostępu do wyników zapytania dziennika z aplikacji niestandardowej przy użyciu [interfejsu API REST](https://dev.loganalytics.io/). |
 | **Eksportowanie** | Utwórz przepływ pracy w celu pobrania danych dziennika i skopiuj go do lokalizacji zewnętrznej przy użyciu [Logic Apps](~/articles/logic-apps/index.yml). |
 
 
@@ -58,11 +58,11 @@ Zapytania dziennika będą używać danych z obszaru roboczego Log Analytics lub
 ![Obszary robocze](media/data-platform-logs/workspaces.png)
 
 ## <a name="log-queries"></a>Rejestrowanie zapytań
-Dane w dziennikach Azure Monitor są pobierane za pomocą [zapytania dziennika](../log-query/log-query-overview.md) zapisanego w [języku zapytania Kusto](../log-query/get-started-queries.md), który umożliwia szybkie pobieranie, konsolidowanie i analizowanie zebranych danych. Użyj [log Analytics](../log-query/portals.md) do zapisywania i testowania zapytań dzienników w Azure Portal. Umożliwia interakcyjne korzystanie z wyników lub Przypinanie ich do pulpitu nawigacyjnego w celu wyświetlenia ich z innymi wizualizacjami.
+Dane w dziennikach Azure Monitor są pobierane za pomocą [zapytania dziennika](../log-query/log-query-overview.md) zapisanego w [języku zapytania Kusto](../log-query/get-started-queries.md), który umożliwia szybkie pobieranie, konsolidowanie i analizowanie zebranych danych. Użyj [log Analytics](../log-query/log-query-overview.md) do zapisywania i testowania zapytań dzienników w Azure Portal. Umożliwia interakcyjne korzystanie z wyników lub Przypinanie ich do pulpitu nawigacyjnego w celu wyświetlenia ich z innymi wizualizacjami.
 
 ![Log Analytics](media/data-platform-logs/log-analytics.png)
 
-Otwórz [log Analytics z Application Insights](../app/analytics.md) , aby analizować Application Insights dane.
+Otwórz [log Analytics z Application Insights](../log-query/log-query-overview.md) , aby analizować Application Insights dane.
 
 ![Analiza Application Insights](media/data-platform-logs/app-insights-analytics.png)
 
@@ -77,23 +77,23 @@ Azure Monitor może zbierać dane dzienników z różnych źródeł zarówno w r
 | Dane | Opis |
 |:---|:---|
 | Azure Active Directory dzienników inspekcji | Skonfigurowane przy użyciu ustawień diagnostycznych dla każdego katalogu. Zobacz [integrowanie dzienników usługi Azure AD z dziennikami Azure monitor](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md).  |
-| Dzienniki aktywności | Domyślnie przechowywane osobno i mogą być używane dla alertów niemal w czasie rzeczywistym. Zainstaluj rozwiązanie do analizy dzienników aktywności, aby zapisać w obszarze roboczym Log Analytics. Zobacz [zbieranie i analizowanie dzienników aktywności platformy Azure w log Analytics](activity-log-collect.md). |
+| Dzienniki aktywności | Domyślnie przechowywane osobno i mogą być używane dla alertów niemal w czasie rzeczywistym. Zainstaluj rozwiązanie do analizy dzienników aktywności, aby zapisać w obszarze roboczym Log Analytics. Zobacz [zbieranie i analizowanie dzienników aktywności platformy Azure w log Analytics](./activity-log.md). |
 
 ### <a name="azure-resources"></a>Zasoby platformy Azure
 
 | Dane | Opis |
 |:---|:---|
-| Diagnostyka zasobów | Skonfiguruj ustawienia diagnostyczne do zapisu w danych diagnostycznych, w tym metryki do obszaru roboczego Log Analytics. [Aby log Analytics, zobacz Przesyłanie strumieniowe dzienników zasobów platformy Azure](resource-logs-collect-workspace.md). |
-| Rozwiązania do monitorowania | Rozwiązania do monitorowania umożliwiają zapisywanie danych zbieranych do ich obszaru roboczego Log Analytics. Lista rozwiązań zawiera [szczegółowe informacje na temat zbierania danych dotyczących rozwiązań do zarządzania na platformie Azure](../insights/solutions-inventory.md) . Zobacz sekcję [monitorowanie rozwiązań w Azure monitor](../insights/solutions.md) , aby uzyskać szczegółowe informacje na temat instalowania i używania rozwiązań. |
-| Metryki | Wysyłaj metryki platformy dla Azure Monitor zasobów do Log Analytics obszaru roboczego, aby zachować dane dziennika przez dłuższy czas i wykonać nieskomplikowaną analizę z innymi typami danych przy użyciu [języka zapytań Kusto](/azure/kusto/query/). [Aby log Analytics, zobacz Przesyłanie strumieniowe dzienników zasobów platformy Azure](resource-logs-collect-storage.md). |
+| Diagnostyka zasobów | Skonfiguruj ustawienia diagnostyczne do zapisu w danych diagnostycznych, w tym metryki do obszaru roboczego Log Analytics. [Aby log Analytics, zobacz Przesyłanie strumieniowe dzienników zasobów platformy Azure](./resource-logs.md#send-to-log-analytics-workspace). |
+| Rozwiązania do monitorowania | Rozwiązania do monitorowania umożliwiają zapisywanie danych zbieranych do ich obszaru roboczego Log Analytics. Lista rozwiązań zawiera [szczegółowe informacje na temat zbierania danych dotyczących rozwiązań do zarządzania na platformie Azure](../monitor-reference.md) . Zobacz sekcję [monitorowanie rozwiązań w Azure monitor](../insights/solutions.md) , aby uzyskać szczegółowe informacje na temat instalowania i używania rozwiązań. |
+| Metryki | Wysyłaj metryki platformy dla Azure Monitor zasobów do Log Analytics obszaru roboczego, aby zachować dane dziennika przez dłuższy czas i wykonać nieskomplikowaną analizę z innymi typami danych przy użyciu [języka zapytań Kusto](/azure/kusto/query/). [Aby log Analytics, zobacz Przesyłanie strumieniowe dzienników zasobów platformy Azure](./resource-logs.md#send-to-azure-storage). |
 | Azure Table Storage | Zbieranie danych z usługi Azure Storage, w których niektóre zasoby platformy Azure zapisują dane monitorowania. Zapoznaj [się z tematem Używanie usługi Azure Blob Storage dla usług IIS i Azure Table Storage w przypadku zdarzeń z log Analytics](diagnostics-extension-logs.md). |
 
-### <a name="virtual-machines"></a>Maszyny wirtualne
+### <a name="virtual-machines"></a>Virtual Machines
 
 | Dane | Opis |
 |:---|:---|
 |  Źródła danych agentów | Źródła danych zbierane z agentów [systemu Windows](agent-windows.md) i [Linux](../learn/quick-collect-linux-computer.md) obejmują zdarzenia, dane dotyczące wydajności i dzienniki niestandardowe. Zobacz [źródła danych agentów w Azure monitor](data-sources.md) , aby uzyskać listę źródeł danych i szczegółów dotyczących konfiguracji. |
-| Rozwiązania do monitorowania | Rozwiązania do monitorowania umożliwiają zapisywanie danych zbieranych od agentów do ich obszaru roboczego Log Analytics. Lista rozwiązań zawiera [szczegółowe informacje na temat zbierania danych dotyczących rozwiązań do zarządzania na platformie Azure](../insights/solutions-inventory.md) . Zobacz sekcję [monitorowanie rozwiązań w Azure monitor](../insights/solutions.md) , aby uzyskać szczegółowe informacje na temat instalowania i używania rozwiązań. |
+| Rozwiązania do monitorowania | Rozwiązania do monitorowania umożliwiają zapisywanie danych zbieranych od agentów do ich obszaru roboczego Log Analytics. Lista rozwiązań zawiera [szczegółowe informacje na temat zbierania danych dotyczących rozwiązań do zarządzania na platformie Azure](../monitor-reference.md) . Zobacz sekcję [monitorowanie rozwiązań w Azure monitor](../insights/solutions.md) , aby uzyskać szczegółowe informacje na temat instalowania i używania rozwiązań. |
 | System Center Operations Manager | Połącz Operations Manager grupę zarządzania, aby Azure Monitor w celu zbierania danych dotyczących zdarzeń i wydajności z agentów lokalnych do dzienników. Aby uzyskać szczegółowe informacje na temat tej konfiguracji [, zobacz Connect Operations Manager, aby log Analytics](om-agents.md) . |
 
 
@@ -124,8 +124,8 @@ Azure Monitor może zbierać dane dzienników z różnych źródeł zarówno w r
 
 | Dane | Opis |
 |:---|:---|
-| Azure Security Center | [Azure Security Center](/azure/security-center/) przechowuje dane zbierane w log Analytics obszarze roboczym, gdzie można je analizować przy użyciu innych danych dziennika. Zobacz [zbieranie danych w Azure Security Center](../../security-center/security-center-enable-data-collection.md) , aby uzyskać szczegółowe informacje na temat konfiguracji obszaru roboczego. |
-| Azure Sentinel | [Wskaźnik platformy Azure](/azure/sentinel/) umożliwia przechowywanie danych ze źródeł danych w obszarze roboczym log Analytics. Zobacz [łączenie ze źródłami danych](/azure/sentinel/connect-data-sources).  |
+| Azure Security Center | [Azure Security Center](../../security-center/index.yml) przechowuje dane zbierane w log Analytics obszarze roboczym, gdzie można je analizować przy użyciu innych danych dziennika. Zobacz [zbieranie danych w Azure Security Center](../../security-center/security-center-enable-data-collection.md) , aby uzyskać szczegółowe informacje na temat konfiguracji obszaru roboczego. |
+| Azure Sentinel | [Wskaźnik platformy Azure](../../sentinel/index.yml) umożliwia przechowywanie danych ze źródeł danych w obszarze roboczym log Analytics. Zobacz [łączenie ze źródłami danych](../../sentinel/connect-data-sources.md).  |
 
 
 ## <a name="next-steps"></a>Następne kroki

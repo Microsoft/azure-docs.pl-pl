@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/09/2018
-ms.openlocfilehash: 96c64f6a0167b678f14bf0199069ecd6b4c8d57a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ac2b79046718fe45ad0dad0396b6f7653efbb779
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80055108"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505333"
 ---
 # <a name="create-a-data-pipeline-with-the-data-collector-api"></a>Tworzenie potoku danych za pomocą interfejsu API modułu zbierającego dane
 
@@ -43,7 +43,7 @@ W tym artykule nie opisano sposobu tworzenia danych ani [przekazywania ich do ko
 
 Podczas szczegółowej konfiguracji magazynu obiektów blob, aplikacji logiki lub funkcji platformy Azure nie ma w tym artykule szczegółowe instrukcje są dostępne na stronach określonych produktów.
 
-Aby monitorować ten potok, użyjemy Application Insights do monitorowania szczegółowych informacji o usłudze Azure Functions w [tym miejscu](../../azure-functions/functions-monitoring.md)i Azure monitor monitorowania w [tym miejscu szczegółów](../../logic-apps/logic-apps-monitor-your-logic-apps-oms.md)aplikacji logiki. 
+Aby monitorować ten potok, użyjemy Application Insights do monitorowania szczegółowych informacji o usłudze Azure Functions w [tym miejscu](../../azure-functions/functions-monitoring.md)i Azure monitor monitorowania w [tym miejscu szczegółów](../../logic-apps/monitor-logic-apps-log-analytics.md)aplikacji logiki. 
 
 ## <a name="setting-up-the-pipeline"></a>Konfigurowanie potoku
 Aby ustawić potok, najpierw upewnij się, że utworzono i skonfigurowano kontener obiektów BLOB. Podobnie upewnij się, że utworzono obszar roboczy Log Analytics, do którego chcesz wysłać dane.

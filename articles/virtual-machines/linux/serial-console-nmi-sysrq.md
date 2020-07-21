@@ -7,11 +7,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: 5541dec748f31818a0e9485fc0c56b7926ccaae7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0a9ced48295fa4c396ed6c72fe021ed1e1be484b
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81758490"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86501895"
 ---
 # <a name="use-serial-console-for-sysrq-and-nmi-calls"></a>Korzystanie z konsoli szeregowej w przypadku wywołań SysRq i NMI
 
@@ -22,11 +23,11 @@ Po dostarczeniu sekwencji SysRq Konfiguracja jądra będzie kontrolować sposób
 
 Konsoli szeregowej platformy Azure można użyć do wysyłania SysRq do maszyny wirtualnej platformy Azure przy użyciu ikony klawiatury na pasku poleceń przedstawionym poniżej.
 
-![](../media/virtual-machines-serial-console/virtual-machine-serial-console-command-menu.jpg)
+![Zrzut ekranu konsoli szeregowej platformy Azure. Ikona klawiatury zostanie wyróżniona, a jej menu jest widoczne. To menu zawiera element polecenia Send SysRq.](../media/virtual-machines-serial-console/virtual-machine-serial-console-command-menu.jpg)
 
 Wybranie polecenia "Wyślij SysRq polecenie" spowoduje otwarcie okna dialogowego, w którym będą dostępne typowe opcje SysRq lub zaakceptowania sekwencji poleceń SysRq wprowadzonych w oknie dialogowym.  Dzięki temu w serii SysRq można wykonywać operacje wysokiego poziomu, takie jak bezpieczny ponowny rozruch przy użyciu: `REISUB` .
 
-![](../media/virtual-machines-serial-console/virtual-machine-serial-console-sysreq_UI.png)
+![Zrzut ekranu przedstawiający okno dialogowe wysyłanie polecenia SysRq do gościa. Opcja wprowadzania poleceń jest zaznaczona, a pole polecenia zawiera REISUB.](../media/virtual-machines-serial-console/virtual-machine-serial-console-sysreq_UI.png)
 
 Nie można użyć polecenia SysRq na maszynach wirtualnych, które są zatrzymane lub których jądro jest w stanie innym niż odpowiada. (na przykład awaryjnego jądra).
 
@@ -95,7 +96,7 @@ Przerwanie z maską (NMI) zostało zaprojektowane w celu utworzenia sygnału, ż
 
 Konsola szeregowa może służyć do wysyłania NMI do maszyny wirtualnej platformy Azure przy użyciu ikony klawiatury na pasku poleceń przedstawionym poniżej. Po dostarczeniu NMI konfiguracja maszyny wirtualnej będzie kontrolować sposób reagowania systemu.  Systemy operacyjne Linux można skonfigurować w taki sposób, aby awaria i utworzyć zrzut pamięci system operacyjny odbiera NMI.
 
-![](../media/virtual-machines-serial-console/virtual-machine-serial-console-command-menu.jpg) <br>
+![Zrzut ekranu konsoli szeregowej. Ikona klawiatury zostanie wyróżniona, a jej menu jest widoczne. To menu zawiera pozycję Wyślij element przerwania bez maskowania.](../media/virtual-machines-serial-console/virtual-machine-serial-console-command-menu.jpg) <br>
 
 W przypadku systemów Linux, które obsługują sysctl do konfigurowania parametrów jądra, można włączyć awaryjnego podczas uzyskiwania tego NMI za pomocą następującego polecenia:
 1. Dodawanie tego wiersza do */etc/sysctl.conf* <br>
@@ -120,7 +121,7 @@ Aby uzyskać więcej informacji na temat konfiguracji jądra systemu Linux, w ty
 - [Zbieranie dzienników awarii](https://coreos.com/os/docs/latest/collecting-crash-logs.html)
 
 ## <a name="next-steps"></a>Następne kroki
-* Główna strona dokumentacji systemu Linux w konsoli szeregowej znajduje się [tutaj](serial-console.md).
+* Główna strona dokumentacji systemu Linux w konsoli szeregowej znajduje się [tutaj](../troubleshooting/serial-console-linux.md).
 * Używanie konsoli szeregowej do rozruchu w [grub i wprowadzania trybu pojedynczego użytkownika](serial-console-grub-single-user-mode.md)
-* Konsola szeregowa jest również dostępna dla maszyn wirtualnych z [systemem Windows](../windows/serial-console.md)
-* Dowiedz się więcej na temat [diagnostyki rozruchu](boot-diagnostics.md)
+* Konsola szeregowa jest również dostępna dla maszyn wirtualnych z [systemem Windows](../troubleshooting/serial-console-windows.md)
+* Dowiedz się więcej na temat [diagnostyki rozruchu](../troubleshooting/boot-diagnostics.md)

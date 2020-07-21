@@ -8,12 +8,12 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 6f34ffcf836eddedfb3962471ef3c777ba7880c5
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: d66ef8f142a72bfdea2dcf3eeb996b18173de04d
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86224222"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86502966"
 ---
 # <a name="key-vault-virtual-machine-extension-for-windows"></a>Key Vault rozszerzenie maszyny wirtualnej dla systemu Windows
 
@@ -71,7 +71,7 @@ Poniższy kod JSON przedstawia schemat rozszerzenia maszyny wirtualnej Key Vault
 > [!NOTE]
 > Adresy URL obserwowanych certyfikatów powinny mieć postać `https://myVaultName.vault.azure.net/secrets/myCertName` .
 > 
-> Wynika to z faktu, że `/secrets` ścieżka zwraca pełny certyfikat, w tym klucz prywatny, podczas gdy `/certificates` ścieżka nie jest. Więcej informacji o certyfikatach można znaleźć tutaj: [Key Vault Certificates](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates#key-vault-certificates)
+> Wynika to z faktu, że `/secrets` ścieżka zwraca pełny certyfikat, w tym klucz prywatny, podczas gdy `/certificates` ścieżka nie jest. Więcej informacji o certyfikatach można znaleźć tutaj: [Key Vault Certificates](../../key-vault/general/about-keys-secrets-certificates.md)
 
 > [!NOTE]
 > Właściwość "authenticationSettings" jest opcjonalna w scenariuszach, gdy maszyna wirtualna ma wiele przypisanych tożsamości.
@@ -82,15 +82,15 @@ Poniższy kod JSON przedstawia schemat rozszerzenia maszyny wirtualnej Key Vault
 
 | Nazwa | Wartość/przykład | Typ danych |
 | ---- | ---- | ---- |
-| apiVersion | 2019-07-01 | date |
+| apiVersion | 2019-07-01 | data |
 | publisher | Microsoft.Azure.KeyVault | ciąg |
 | typ | KeyVaultForWindows | ciąg |
 | typeHandlerVersion | 1.0 | int |
 | pollingIntervalInS | 3600 | ciąg |
 | certificateStoreName | MY | ciąg |
-| linkOnRenewal | fałsz | wartość logiczna |
+| linkOnRenewal | fałsz | boolean |
 | certificateStoreLocation  | LocalMachine | ciąg |
-| requiredInitialSync | true | wartość logiczna |
+| requiredInitialSync | true | boolean |
 | observedCertificates  | ["https://myvault.vault.azure.net/secrets/mycertificate"] | Tablica ciągów
 | msiEndpoint | http://169.254.169.254/metadata/identity | ciąg |
 | msiClientId | c7373ae5-91c2-4165-8ab6-7381d6e75619 | ciąg |

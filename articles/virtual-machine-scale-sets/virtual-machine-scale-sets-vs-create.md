@@ -9,11 +9,12 @@ ms.subservice: visual-studio
 ms.date: 09/09/2019
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: 826dc1858984508e54e160675dd10f6dfad88af8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2db281f1b3278e37deca8486971a7f7a83f85ccf
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83124367"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86503085"
 ---
 # <a name="how-to-create-a-virtual-machine-scale-set-with-visual-studio"></a>Jak utworzyć zestaw skalowania maszyn wirtualnych za pomocą programu Visual Studio
 
@@ -21,7 +22,7 @@ W tym artykule opisano sposób wdrażania zestawu skalowania maszyn wirtualnych 
 
 [Azure Virtual Machine Scale Sets](https://azure.microsoft.com/blog/azure-vm-scale-sets-public-preview/) to zasób obliczeniowy platformy Azure służący do wdrażania i zarządzania kolekcją podobnych maszyn wirtualnych z funkcją automatycznego skalowania i równoważenia obciążenia. Możesz inicjować i wdrażać Virtual Machine Scale Sets przy użyciu [szablonów Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates). Szablony Azure Resource Manager można wdrażać za pomocą interfejsu wiersza polecenia platformy Azure, programu PowerShell, REST i bezpośrednio z programu Visual Studio. Program Visual Studio udostępnia zestaw przykładowych szablonów, które można wdrożyć w ramach projektu wdrożenia grupy zasobów platformy Azure.
 
-Wdrożenia grup zasobów platformy Azure to sposób grupowania i publikowania zestawu powiązanych zasobów platformy Azure w ramach jednej operacji wdrażania. Aby uzyskać więcej informacji, zobacz [Tworzenie i wdrażanie grup zasobów platformy Azure za pomocą programu Visual Studio](../vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
+Wdrożenia grup zasobów platformy Azure to sposób grupowania i publikowania zestawu powiązanych zasobów platformy Azure w ramach jednej operacji wdrażania. Aby uzyskać więcej informacji, zobacz [Tworzenie i wdrażanie grup zasobów platformy Azure za pomocą programu Visual Studio](../azure-resource-manager/templates/create-visual-studio-deployment-project.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

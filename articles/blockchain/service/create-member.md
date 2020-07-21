@@ -1,15 +1,16 @@
 ---
 title: Tworzenie elementu członkowskiego usługi Azure łańcucha bloków — Azure Portal
 description: Utwórz członka usługi Azure łańcucha bloków dla konsorcjum łańcucha bloków przy użyciu Azure Portal.
-ms.date: 03/30/2020
+ms.date: 07/16/2020
 ms.topic: quickstart
 ms.reviewer: ravastra
-ms.openlocfilehash: 9fb013960da5b7cb8ba44f129eab73565f5b5362
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: references_regions
+ms.openlocfilehash: 5632c8a17c5ac25c8b4b436297d0dd5a0071df26
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82115248"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86503425"
 ---
 # <a name="quickstart-create-an-azure-blockchain-service-blockchain-member-using-the-azure-portal"></a>Szybki Start: Tworzenie członka usługi Azure łańcucha bloków Service łańcucha bloków przy użyciu Azure Portal
 
@@ -27,7 +28,7 @@ Członek usługi Azure łańcucha bloków to węzeł łańcucha bloków w sieci 
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 1. W lewym górnym rogu witryny Azure Portal wybierz pozycję **Utwórz zasób**.
-1. Wybierz pozycję **łańcucha bloków** > **Azure łańcucha bloków Service (wersja zapoznawcza)**.
+1. Wybierz pozycję **łańcucha bloków**  >  **Azure łańcucha bloków Service (wersja zapoznawcza)**.
 
     ![Utwórz usługę](./media/create-member/create-member.png)
 
@@ -35,12 +36,12 @@ Członek usługi Azure łańcucha bloków to węzeł łańcucha bloków w sieci 
     --------|------------
     Subskrypcja | Wybierz subskrypcję platformy Azure, która ma być używana dla usługi. Jeśli masz wiele subskrypcji, wybierz tę, w ramach której są naliczane opłaty za ten zasób.
     Grupa zasobów | Utwórz nową nazwę grupy zasobów lub wybierz istniejącą z subskrypcji.
-    Region | Wybierz region, w którym ma zostać utworzony element członkowski. Wszyscy członkowie konsorcjum muszą znajdować się w tej samej lokalizacji.
-    Protocol (Protokół) | Obecnie usługa Azure łańcucha bloków w wersji zapoznawczej obsługuje protokół kworum.
+    Region | Wybierz region, w którym ma zostać utworzony element członkowski. Wszyscy członkowie konsorcjum muszą znajdować się w tej samej lokalizacji. Funkcje mogą być niedostępne w niektórych regionach. Usługa Azure łańcucha bloków Data Manager jest dostępna w następujących regionach świadczenia usługi Azure: Wschodnie stany USA i Europa Zachodnia.
+    Protokół | Obecnie usługa Azure łańcucha bloków w wersji zapoznawczej obsługuje protokół kworum.
     Konsorcjum | W przypadku nowego konsorcjum wprowadź unikatową nazwę. W przypadku dołączania konsorcjum przy użyciu zaproszenia wybierz konsorcjum, do którego chcesz dołączyć. Aby uzyskać więcej informacji na temat konsorcjów, zobacz [Azure łańcucha bloków Service Consortium](consortium.md).
     Nazwa | Wybierz unikatową nazwę elementu członkowskiego usługi Azure łańcucha bloków. Nazwa elementu członkowskiego łańcucha bloków może zawierać tylko małe litery i cyfry. Pierwszy znak musi być literą. Wartość musi mieć długość od 2 do 20 znaków.
     Hasło konta elementu członkowskiego | Hasło konta elementu członkowskiego służy do szyfrowania klucza prywatnego dla konta Ethereum utworzonego dla elementu członkowskiego. Do zarządzania konsorcjum używasz konta elementu członkowskiego i hasła konta elementu członkowskiego.
-    Cennik | Konfiguracja węzła i koszt nowej usługi. Wybierz łącze **Zmień** , aby wybrać między warstwami **standardowa** i **podstawowa** . Skorzystaj z warstwy *podstawowa* na potrzeby tworzenia, testowania i sprawdzania poprawności koncepcji. Użyj warstwy *standardowa* dla wdrożeń klasy produkcyjnej. W przypadku korzystania z łańcucha bloków Data Manager lub wysyłania dużej liczby transakcji prywatnych należy również użyć warstwy *standardowa* . Zmiana warstwy cenowej między podstawowa i Standardowa po utworzeniu elementu członkowskiego nie jest obsługiwana.
+    Ceny | Konfiguracja węzła i koszt nowej usługi. Wybierz łącze **Zmień** , aby wybrać między warstwami **standardowa** i **podstawowa** . Skorzystaj z warstwy *podstawowa* na potrzeby tworzenia, testowania i sprawdzania poprawności koncepcji. Użyj warstwy *standardowa* dla wdrożeń klasy produkcyjnej. W przypadku korzystania z łańcucha bloków Data Manager lub wysyłania dużej liczby transakcji prywatnych należy również użyć warstwy *standardowa* . Zmiana warstwy cenowej między podstawowa i Standardowa po utworzeniu elementu członkowskiego nie jest obsługiwana.
     Hasło węzła | Hasło dla domyślnego węzła transakcji elementu członkowskiego. Użyj hasła uwierzytelniania podstawowego podczas nawiązywania połączenia z domyślnym punktem końcowym węzła transakcji elementu członkowskiego łańcucha bloków.
 
 1. Wybierz pozycję **Przegląd + Utwórz** , aby sprawdzić poprawność ustawień. Wybierz pozycję **Utwórz** , aby zainicjować obsługę administracyjną usługi. Inicjowanie obsługi trwa około 10 minut.
@@ -51,9 +52,9 @@ Wybierz pozycję **Przegląd**, aby wyświetlić podstawowe informacje o usłudz
 
 ![Przegląd składowej łańcucha bloków](./media/create-member/overview.png)
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Możesz użyć elementu członkowskiego utworzonego dla następnego przewodnika Szybki start lub samouczka. Gdy zasoby nie będą już potrzebne, można je usunąć przez usunięcie grupy `myResourceGroup` zasobów utworzonej dla przewodnika Szybki Start.
+Możesz użyć elementu członkowskiego utworzonego dla następnego przewodnika Szybki start lub samouczka. Gdy zasoby nie będą już potrzebne, można je usunąć przez usunięcie `myResourceGroup` grupy zasobów utworzonej dla przewodnika Szybki Start.
 
 Aby usunąć grupę zasobów:
 

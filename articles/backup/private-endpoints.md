@@ -3,16 +3,16 @@ title: Prywatne punkty końcowe
 description: Zapoznaj się z procesem tworzenia prywatnych punktów końcowych dla Azure Backup i scenariuszy, w których używanie prywatnych punktów końcowych pomaga zachować bezpieczeństwo zasobów.
 ms.topic: conceptual
 ms.date: 05/07/2020
-ms.openlocfilehash: 8ce767073e9acfe271e6e57f9e6d1237910b33e0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e9c8f142e9781946f572f6f3a744d8bc2736a3de
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85124259"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86503765"
 ---
 # <a name="private-endpoints-for-azure-backup"></a>Prywatne punkty końcowe dla Azure Backup
 
-Azure Backup pozwala na bezpieczne wykonywanie kopii zapasowych i przywracanie danych z magazynów Recovery Services przy użyciu [prywatnych punktów końcowych](https://docs.microsoft.com/azure/private-link/private-endpoint-overview). Prywatne punkty końcowe wykorzystują co najmniej jeden prywatny adres IP z sieci wirtualnej, efektywnie przenosząc usługę do sieci wirtualnej.
+Azure Backup pozwala na bezpieczne wykonywanie kopii zapasowych i przywracanie danych z magazynów Recovery Services przy użyciu [prywatnych punktów końcowych](../private-link/private-endpoint-overview.md). Prywatne punkty końcowe wykorzystują co najmniej jeden prywatny adres IP z sieci wirtualnej, efektywnie przenosząc usługę do sieci wirtualnej.
 
 Ten artykuł pomoże Ci zrozumieć proces tworzenia prywatnych punktów końcowych dla Azure Backup i scenariuszy, w których używanie prywatnych punktów końcowych pomaga zachować bezpieczeństwo zasobów.
 
@@ -45,7 +45,7 @@ W tej sekcji omówiono kroki związane z tworzeniem i używaniem prywatnych punk
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
-Zapoznaj się z [tą sekcją](#create-a-recovery-services-vault-using-the-azure-resource-manager-client) , aby dowiedzieć się, jak utworzyć magazyn przy użyciu klienta Azure Resource Manager. Spowoduje to utworzenie magazynu z już włączoną zarządzaną tożsamością. Więcej informacji na temat Recovery Services magazynów [znajdziesz tutaj](https://docs.microsoft.com/azure/backup/backup-azure-recovery-services-vault-overview).
+Zapoznaj się z [tą sekcją](#create-a-recovery-services-vault-using-the-azure-resource-manager-client) , aby dowiedzieć się, jak utworzyć magazyn przy użyciu klienta Azure Resource Manager. Spowoduje to utworzenie magazynu z już włączoną zarządzaną tożsamością. Więcej informacji na temat Recovery Services magazynów [znajdziesz tutaj](./backup-azure-recovery-services-vault-overview.md).
 
 ## <a name="enable-managed-identity-for-your-vault"></a>Włącz zarządzaną tożsamość magazynu
 
@@ -88,7 +88,7 @@ Istnieją dwie obowiązkowe strefy DNS, które należy utworzyć:
     - `privatelink.blob.core.windows.net`
     - `privatelink.queue.core.windows.net`
 
-    | **Strefa**                           | **Usługa** | **Szczegóły subskrypcji i grupy zasobów (RG)**                  |
+    | **Strefa**                           | **Usługi** | **Szczegóły subskrypcji i grupy zasobów (RG)**                  |
     | ---------------------------------- | ----------- | ------------------------------------------------------------ |
     | `privatelink.blob.core.windows.net`  | Obiekt blob        | **Subskrypcja**: taka sama jak w przypadku, gdy należy utworzyć prywatny punkt końcowy **RG**: RG sieci wirtualnej lub prywatnego punktu końcowego |
     | `privatelink.queue.core.windows.net` | Kolejka       | **RG**: RG sieci wirtualnej lub prywatnego punktu końcowego |
@@ -103,7 +103,7 @@ Klienci mogą wybrać integrację prywatnych punktów końcowych z prywatnymi st
 
 Jeśli chcesz utworzyć oddzielną prywatną strefę DNS na platformie Azure, możesz to zrobić przy użyciu tych samych kroków, które są używane do tworzenia obowiązkowych stref DNS. Szczegóły nazewnictwa i subskrypcji są udostępniane poniżej:
 
-| **Strefa**                                                     | **Usługa** | **Szczegóły subskrypcji i grupy zasobów**                  |
+| **Strefa**                                                     | **Usługi** | **Szczegóły subskrypcji i grupy zasobów**                  |
 | ------------------------------------------------------------ | ----------- | ------------------------------------------------------------ |
 | `privatelink.<geo>.backup.windowsazure.com`  <br><br>   **Uwaga**: Lokalizacja *geograficzna* odwołuje się do kodu regionu. Na przykład *wcus* i *ne* odpowiednio do regionu zachodnio-środkowe stany USA i Europa Północna. | Backup      | **Subskrypcja**: taka sama jak w przypadku, gdy należy utworzyć prywatny punkt końcowy **RG**: dowolny RG w ramach subskrypcji |
 
@@ -111,9 +111,9 @@ Zapoznaj się z [tą listą](https://download.microsoft.com/download/1/2/6/126a4
 
 W przypadku konwencji nazewnictwa adresów URL w regionach narodowych:
 
-- [Chiny](https://docs.microsoft.com/azure/china/resources-developer-guide#check-endpoints-in-azure)
-- [Niemcy](https://docs.microsoft.com/azure/germany/germany-developer-guide#endpoint-mapping)
-- [US Gov](https://docs.microsoft.com/azure/azure-government/documentation-government-developer-guide)
+- [Chinach](/azure/china/resources-developer-guide#check-endpoints-in-azure)
+- [Niemcy](../germany/germany-developer-guide.md#endpoint-mapping)
+- [US Gov](../azure-government/documentation-government-developer-guide.md)
 
 ### <a name="linking-private-dns-zones-with-your-virtual-network"></a>Łączenie prywatnych stref DNS z siecią wirtualną
 
@@ -495,7 +495,7 @@ $privateEndpoint = New-AzPrivateEndpoint `
 
 Należy utworzyć trzy prywatne strefy DNS i połączyć je z siecią wirtualną.
 
-| **Strefa**                                                     | **Usługa** |
+| **Strefa**                                                     | **Usługi** |
 | ------------------------------------------------------------ | ----------- |
 | `privatelink.<geo>.backup.windowsazure.com`      | Backup      |
 | `privatelink.blob.core.windows.net`                            | Obiekt blob        |

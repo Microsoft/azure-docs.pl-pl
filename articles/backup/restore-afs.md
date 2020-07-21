@@ -3,15 +3,16 @@ title: Przywracanie udziałów plików platformy Azure
 description: Dowiedz się, w jaki sposób używać Azure Portal do przywracania całego udziału plików lub określonych plików z punktu przywracania utworzonego przez Azure Backup.
 ms.topic: conceptual
 ms.date: 01/12/2020
-ms.openlocfilehash: 5668328637ae9b5a5dd3db02085a7f15de2a2456
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f0e232fcde12a0c035afa139e3043bfa52fbe714
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82980666"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86503646"
 ---
 # <a name="restore-azure-file-shares"></a>Przywracanie udziałów plików platformy Azure
 
-W tym artykule wyjaśniono, jak używać Azure Portal do przywracania całego udziału plików lub określonych plików z punktu przywracania utworzonego przez [Azure Backup](https://docs.microsoft.com/azure/backup/backup-overview).
+W tym artykule wyjaśniono, jak używać Azure Portal do przywracania całego udziału plików lub określonych plików z punktu przywracania utworzonego przez [Azure Backup](./backup-overview.md).
 
 W tym artykule dowiesz się, jak:
 

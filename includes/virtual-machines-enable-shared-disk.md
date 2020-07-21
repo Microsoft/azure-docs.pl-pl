@@ -1,23 +1,27 @@
 ---
-title: dołączanie pliku
-description: dołączanie pliku
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 04/08/2020
+ms.date: 07/14/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 0df74b82c847c9738d97d2001573666714c17672
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 29a90b94db5e6e5791361bad004efcf649e1950b
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81008356"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86500610"
 ---
 ## <a name="limitations"></a>Ograniczenia
 
 [!INCLUDE [virtual-machines-disks-shared-limitations](virtual-machines-disks-shared-limitations.md)]
+
+## <a name="supported-operating-systems"></a>Obsługiwane systemy operacyjne
+
+Dyski udostępnione obsługują kilka systemów operacyjnych. Zapoznaj się z sekcjami [systemu Windows](../articles/virtual-machines/windows/disks-shared.md#windows) i [Linux](../articles/virtual-machines/linux/disks-shared.md#linux) artykułu koncepcyjnego dla obsługiwanych systemów operacyjnych.
 
 ## <a name="disk-sizes"></a>Rozmiary dysków
 
@@ -32,6 +36,23 @@ Aby wdrożyć dysk zarządzany z włączoną funkcją udostępnionego dysku, uż
 > [!IMPORTANT]
 > Wartość `maxShares` można ustawić lub zmienić tylko wtedy, gdy dysk zostanie odinstalowany ze wszystkich maszyn wirtualnych. Sprawdź [rozmiary dysków](#disk-sizes) dla dozwolonych wartości dla `maxShares` .
 
+#### <a name="cli"></a>Interfejs wiersza polecenia
+```azurecli
+
+az disk create -g myResourceGroup -n mySharedDisk --size-gb 1024 -l westcentralus --sku PremiumSSD_LRS --max-shares 2
+
+```
+
+#### <a name="powershell"></a>PowerShell
+```azurepowershell-interactive
+
+$datadiskconfig = New-AzDiskConfig -Location 'WestCentralUS' -DiskSizeGB 1024 -AccountType PremiumSSD_LRS -CreateOption Empty
+
+New-AzDisk -ResourceGroupName 'myResourceGroup' -DiskName 'mySharedDisk' -Disk $datadiskconfig
+
+```
+
+#### <a name="azure-resource-manager"></a>Azure Resource Manager
 Przed użyciem następującego szablonu Zastąp `[parameters('dataDiskName')]` wartości, `[resourceGroup().location]` , `[parameters('dataDiskSizeGB')]` i `[parameters('maxShares')]` własnymi wartościami.
 
 ```json
@@ -75,13 +96,12 @@ Przed użyciem następującego szablonu Zastąp `[parameters('dataDiskName')]` w
 
 ### <a name="deploy-an-ultra-disk-as-a-shared-disk"></a>Wdróż dysk typu Ultra jako dysk udostępniony
 
-#### <a name="cli"></a>Interfejs wiersza polecenia
-
 Aby wdrożyć dysk zarządzany z włączoną funkcją udostępnionego dysku, należy zmienić `maxShares` parametr na wartość większą niż 1. Dzięki temu dysk jest współużytkowany na wielu maszynach wirtualnych.
 
 > [!IMPORTANT]
 > Wartość `maxShares` można ustawić lub zmienić tylko wtedy, gdy dysk zostanie odinstalowany ze wszystkich maszyn wirtualnych. Sprawdź [rozmiary dysków](#disk-sizes) dla dozwolonych wartości dla `maxShares` .
 
+#### <a name="cli"></a>Interfejs wiersza polecenia
 ```azurecli
 #Creating an Ultra shared Disk 
 az disk create -g rg1 -n clidisk --size-gb 1024 -l westus --sku UltraSSD_LRS --max-shares 5 --disk-iops-read-write 2000 --disk-mbps-read-write 200 --disk-iops-read-only 100 --disk-mbps-read-only 1
@@ -91,6 +111,15 @@ az disk update -g rg1 -n clidisk --disk-iops-read-write 3000 --disk-mbps-read-wr
 
 #Show shared disk properties:
 az disk show -g rg1 -n clidisk
+```
+
+#### <a name="powershell"></a>PowerShell
+```azurepowershell-interactive
+
+$datadiskconfig = New-AzDiskConfig -Location 'WestCentralUS' -DiskSizeGB 1024 -AccountType UltraSSD_LRS -CreateOption Empty -DiskIOPSReadWrite 2000 -DiskMBpsReadWrite 200 -DiskIOPSReadOnly 100 -DiskMBpsReadOnly 1
+
+New-AzDisk -ResourceGroupName 'myResourceGroup' -DiskName 'mySharedDisk' -Disk $datadiskconfig
+
 ```
 
 #### <a name="azure-resource-manager"></a>Azure Resource Manager
@@ -172,21 +201,12 @@ Przed użyciem następującego szablonu Zastąp wartości,,,,,, `[parameters('da
 
 Po wdrożeniu udostępnionego dysku za pomocą programu możesz `maxShares>1` zainstalować dysk na co najmniej jednej z maszyn wirtualnych.
 
-> [!IMPORTANT]
-> Wszystkie maszyny wirtualne, które udostępniają dysk, muszą być wdrożone w tej samej [grupie umieszczania sąsiedztwa](../articles/virtual-machines/windows/proximity-placement-groups.md).
-
 ```azurepowershell-interactive
 
 $resourceGroup = "myResourceGroup"
 $location = "WestCentralUS"
-$ppgName = "myPPG"
-$ppg = New-AzProximityPlacementGroup `
-   -Location $location `
-   -Name $ppgName `
-   -ResourceGroupName $resourceGroup `
-   -ProximityPlacementGroupType Standard
 
-$vm = New-AzVm -ResourceGroupName $resourceGroup -Name "myVM" -Location $location -VirtualNetworkName "myVnet" -SubnetName "mySubnet" -SecurityGroupName "myNetworkSecurityGroup" -PublicIpAddressName "myPublicIpAddress" -ProximityPlacementGroup $ppg.Id
+$vm = New-AzVm -ResourceGroupName $resourceGroup -Name "myVM" -Location $location -VirtualNetworkName "myVnet" -SubnetName "mySubnet" -SecurityGroupName "myNetworkSecurityGroup" -PublicIpAddressName "myPublicIpAddress"
 
 $dataDisk = Get-AzDisk -ResourceGroupName $resourceGroup -DiskName "mySharedDisk"
 
@@ -239,5 +259,3 @@ W przypadku korzystania z PR_RESERVE, PR_REGISTER_AND_IGNORE, PR_REGISTER_KEY, P
 
 
 ## <a name="next-steps"></a>Następne kroki
-
-Jeśli interesuje Cię próbę przeprowadzenia udostępniania dysków, [Utwórz konto w wersji zapoznawczej](https://aka.ms/AzureSharedDiskPreviewSignUp).

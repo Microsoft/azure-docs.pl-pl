@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/12/2020
-ms.openlocfilehash: c09d8d9fd2ef22aeaf791ae44d877a87033318cc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7baabe455128bf420a3c3e11ea83bb5357ed35c8
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83655922"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505163"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Łączenie produktów/usług ITSM za pomocą łącznika zarządzania usługami IT
 Ten artykuł zawiera informacje dotyczące sposobu konfigurowania połączenia między produktem narzędzia ITSM/usługą a łącznik zarządzania usługami IT (ITSMC) w Log Analytics, aby centralnie zarządzać elementami roboczymi. Aby uzyskać więcej informacji na temat ITSMC, zobacz [Omówienie](../../azure-monitor/platform/itsmc-overview.md).
@@ -38,7 +39,7 @@ Upewnij się, że zostały spełnione następujące wymagania wstępne:
 - Aplikacja sieci Web Service Manager (aplikacja sieci Web) została wdrożona i skonfigurowana. [Tutaj znajdziesz](#create-and-deploy-service-manager-web-app-service)informacje o aplikacji sieci Web.
 - Utworzono i skonfigurowano połączenie hybrydowe. Więcej informacji: [Skonfiguruj połączenie hybrydowe](#configure-the-hybrid-connection).
 - Obsługiwane wersje Service Manager: 2012 R2 lub 2016.
-- Rola użytkownika: [Zaawansowany operator](https://technet.microsoft.com/library/ff461054.aspx).
+- Rola użytkownika: [Zaawansowany operator](/previous-versions/system-center/service-manager-2010-sp1/ff461054(v=technet.10)).
 
 ### <a name="connection-procedure"></a>Procedura połączenia
 
@@ -200,7 +201,7 @@ Upewnij się, że zostały spełnione następujące wymagania wstępne:
 > Na koniec kliknij przycisk Aktualizuj.
 > 2) **Zalecamy ustanowienie wewnętrznej procedury w celu upewnienia się, że połączenie pozostanie aktywne:** Zgodnie z cykl życia tokenem odświeżania, aby odświeżyć token. Upewnij się, że po upływie limitu czasu wygaśnięcia token odświeżenia (kilka dni przed wygaśnięciem tokenu odświeżania cykl życia), należy wykonać następujące operacje:
 >
-> 1. [Ukończ proces synchronizacji ręcznej dla konfiguracji łącznika narzędzia ITSM](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-resync-servicenow)
+> 1. [Ukończ proces synchronizacji ręcznej dla konfiguracji łącznika narzędzia ITSM](./itsmc-resync-servicenow.md)
 > 2. Odwołaj się do starego tokenu odświeżania, ponieważ nie zaleca się zachowywania starych kluczy ze względów bezpieczeństwa. W bloku usługi ServiceNow Wyszukiwanie systemu OAuth w systemie niż SELECT Manage tokens. Wybierz stary token z listy zgodnie z nazwą i datą wygaśnięcia uwierzytelniania OAuth.
 > ![Definicja OAuth systemu ŚNIEGu](media/itsmc-connections/snow-system-oauth.png)
 > 3. Kliknij pozycję odwołaj dostęp, a nie na odwoływanie.
@@ -229,7 +230,7 @@ Aby utworzyć połączenie usługi ServiceNow, wykonaj czynności opisane w poni
 | --- | --- |
 | **Nazwa połączenia**   | Wpisz nazwę wystąpienia usługi ServiceNow, które chcesz połączyć z ITSMC.  Tej nazwy można użyć później w Log Analytics podczas konfigurowania elementów roboczych w tym narzędzia ITSM/widoku szczegółowej analizy dzienników. |
 | **Typ partnera**   | Wybierz pozycję **usługi ServiceNow**. |
-| **Uż**   | Wpisz nazwę użytkownika integracji utworzoną w aplikacji usługi ServiceNow, aby umożliwić obsługę połączenia z usługą ITSMC. Więcej informacji: [Utwórz rolę użytkownika aplikacji usługi ServiceNow](#create-integration-user-role-in-servicenow-app).|
+| **Nazwa użytkownika**   | Wpisz nazwę użytkownika integracji utworzoną w aplikacji usługi ServiceNow, aby umożliwić obsługę połączenia z usługą ITSMC. Więcej informacji: [Utwórz rolę użytkownika aplikacji usługi ServiceNow](#create-integration-user-role-in-servicenow-app).|
 | **Hasło**   | Wpisz hasło skojarzone z tą nazwą użytkownika. **Uwaga**: Nazwa użytkownika i hasło są używane do generowania tokenów uwierzytelniania i nie są przechowywane w żadnym miejscu w ramach usługi ITSMC.  |
 | **Adres URL serwera**   | Wpisz adres URL wystąpienia usługi ServiceNow, które chcesz połączyć z ITSMC. Adres URL powinien wskazywać obsługiwaną wersję SaaS z sufiksem ". servicenow.com".|
 | **Identyfikator klienta**   | Wpisz identyfikator klienta, który ma być używany na potrzeby uwierzytelniania OAuth2 wygenerowanego wcześniej.  Więcej informacji na temat generowania identyfikatora klienta i klucza tajnego: [konfiguracja uwierzytelniania OAuth](https://wiki.servicenow.com/index.php?title=OAuth_Setup). |
@@ -247,6 +248,10 @@ Aby utworzyć połączenie usługi ServiceNow, wykonaj czynności opisane w poni
 - Możesz tworzyć zdarzenia z alertów Log Analytics lub z rekordów dziennika lub z alertów platformy Azure w tym wystąpieniu usługi usługi ServiceNow.
 
 Dowiedz się więcej: [Utwórz narzędzia ITSM elementy robocze z alertów platformy Azure](../../azure-monitor/platform/itsmc-overview.md#create-itsm-work-items-from-azure-alerts).
+
+
+> [!NOTE]
+> W usługi ServiceNow obowiązuje limit szybkości dla żądań na godzinę. W celu skonfigurowania limitu Użyj tego ograniczenia przez zdefiniowanie "ograniczanie szybkości interfejsu API REST" w wystąpieniu usługi ServiceNow.
 
 ### <a name="create-integration-user-role-in-servicenow-app"></a>Tworzenie roli użytkownika integracji w aplikacji usługi ServiceNow
 
@@ -324,7 +329,7 @@ Aby utworzyć połączenie Provance, wykonaj czynności opisane w poniższej pro
 | --- | --- |
 | **Nazwa połączenia**   | Wpisz nazwę wystąpienia Provance, które chcesz połączyć z ITSMC.  Ta nazwa jest używana później podczas konfigurowania elementów roboczych w tym narzędzia ITSM/widoku szczegółowej analizy dzienników. |
 | **Typ partnera**   | Wybierz pozycję **Provance**. |
-| **Uż**   | Wpisz nazwę użytkownika, która może nawiązać połączenie z usługą ITSMC.    |
+| **Nazwa użytkownika**   | Wpisz nazwę użytkownika, która może nawiązać połączenie z usługą ITSMC.    |
 | **Hasło**   | Wpisz hasło skojarzone z tą nazwą użytkownika. **Uwaga:** Nazwa użytkownika i hasło są używane do generowania tokenów uwierzytelniania i nie są przechowywane w żadnym miejscu usługi ITSMC. _|
 | **Adres URL serwera**   | Wpisz adres URL wystąpienia Provance, które chcesz połączyć z ITSMC. |
 | **Identyfikator klienta**   | Wpisz identyfikator klienta, aby uwierzytelnić to połączenie, które zostało wygenerowane w wystąpieniu usługi Provance.  Więcej informacji na temat identyfikatora klienta można znaleźć w temacie [How to configure Active Directory Authentication](../../app-service/configure-authentication-provider-aad.md). |
@@ -375,7 +380,7 @@ Aby utworzyć połączenie Provance, wykonaj czynności opisane w poniższej pro
 | --- | --- |
 | **Nazwa połączenia**   | Wpisz nazwę wystąpienia Cherwell, które chcesz połączyć z ITSMC.  Ta nazwa jest używana później podczas konfigurowania elementów roboczych w tym narzędzia ITSM/widoku szczegółowej analizy dzienników. |
 | **Typ partnera**   | Wybierz pozycję **Cherwell.** |
-| **Uż**   | Wpisz nazwę użytkownika Cherwell, która może nawiązać połączenie z ITSMC. |
+| **Nazwa użytkownika**   | Wpisz nazwę użytkownika Cherwell, która może nawiązać połączenie z ITSMC. |
 | **Hasło**   | Wpisz hasło skojarzone z tą nazwą użytkownika. **Uwaga:** Nazwa użytkownika i hasło są używane do generowania tokenów uwierzytelniania i nie są przechowywane w żadnym miejscu w ramach usługi ITSMC.|
 | **Adres URL serwera**   | Wpisz adres URL wystąpienia Cherwell, które chcesz połączyć z ITSMC. |
 | **Identyfikator klienta**   | Wpisz identyfikator klienta, aby uwierzytelnić to połączenie, które zostało wygenerowane w wystąpieniu usługi Cherwell.   |

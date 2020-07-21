@@ -6,14 +6,15 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/04/2020
-ms.openlocfilehash: ce7edf4dd5ae52f3ea604fe4b8d88d1a29de5a69
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c6bd45324313ebc44bd4c59cd6f09e2eaab28d32
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84608370"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505146"
 ---
 # <a name="log-analytics-agent-overview"></a>Omówienie agenta Log Analytics
-Agent usługi Azure Log Analytics został opracowany z myślą o rozbudowanym zarządzaniu między maszynami wirtualnymi w każdej chmurze, maszynach lokalnych i tych monitorowanych przez [System Center Operations Manager](https://docs.microsoft.com/system-center/scom/). Agenci systemów Windows i Linux wysyłają zebrane dane z różnych źródeł do obszaru roboczego Log Analytics w Azure Monitor, a także do wszystkich unikatowych dzienników lub metryk zgodnie z definicją w rozwiązaniu monitorowania. Agent Log Analytics obsługuje także szczegółowe informacje i inne usługi w Azure Monitor, takie jak [Azure monitor dla maszyn wirtualnych](../insights/vminsights-enable-overview.md), [Azure Security Center](/azure/security-center/)i [Azure Automation](../../automation/automation-intro.md).
+Agent usługi Azure Log Analytics został opracowany z myślą o rozbudowanym zarządzaniu między maszynami wirtualnymi w każdej chmurze, maszynach lokalnych i tych monitorowanych przez [System Center Operations Manager](/system-center/scom/). Agenci systemów Windows i Linux wysyłają zebrane dane z różnych źródeł do obszaru roboczego Log Analytics w Azure Monitor, a także do wszystkich unikatowych dzienników lub metryk zgodnie z definicją w rozwiązaniu monitorowania. Agent Log Analytics obsługuje także szczegółowe informacje i inne usługi w Azure Monitor, takie jak [Azure monitor dla maszyn wirtualnych](../insights/vminsights-enable-overview.md), [Azure Security Center](../../security-center/index.yml)i [Azure Automation](../../automation/automation-intro.md).
 
 Ten artykuł zawiera szczegółowe omówienie wymagań dotyczących agenta, systemu i sieci oraz różnych metod wdrażania.
 
@@ -30,7 +31,7 @@ Kluczowe różnice, które należy wziąć pod uwagę:
 
 - Rozszerzenia Diagnostyka Azure można używać tylko z maszynami wirtualnymi platformy Azure. Agent Log Analytics może być używany z maszynami wirtualnymi platformy Azure, innymi chmurami i lokalnymi.
 - Diagnostyka Azure rozszerzenie wysyła dane do usługi Azure Storage, [Azure monitor metryk](data-platform-metrics.md) (tylko system Windows) i Event Hubs. Agent Log Analytics zbiera dane do [dzienników Azure monitor](data-platform-logs.md).
-- Agent Log Analytics jest wymagany w przypadku [rozwiązań](../monitor-reference.md#insights-and-core-solutions), [Azure monitor dla maszyn wirtualnych](../insights/vminsights-overview.md)i innych usług, takich jak [Azure Security Center](/azure/security-center/).
+- Agent Log Analytics jest wymagany w przypadku [rozwiązań](../monitor-reference.md#insights-and-core-solutions), [Azure monitor dla maszyn wirtualnych](../insights/vminsights-overview.md)i innych usług, takich jak [Azure Security Center](../../security-center/index.yml).
 
 ## <a name="costs"></a>Koszty
 Nie ma kosztu dla agenta Log Analytics, ale opłaty za dane pozyskiwane mogą być naliczane. Aby uzyskać szczegółowe informacje na temat cen zebranych w obszarze roboczym Log Analytics, zobacz [temat Zarządzanie użyciem i kosztami za pomocą dzienników Azure monitor](manage-cost-storage.md) .
@@ -41,7 +42,7 @@ Poniższa tabela zawiera listę typów danych, które można skonfigurować dla 
 | Źródło danych | Opis |
 | --- | --- |
 | [Dzienniki zdarzeń systemu Windows](data-sources-windows-events.md) | Informacje wysyłane do systemu rejestrowania zdarzeń systemu Windows. |
-| [Dziennik systemu](data-sources-syslog.md)                     | Informacje wysyłane do systemu rejestrowania zdarzeń w systemie Linux. |
+| [Syslog](data-sources-syslog.md)                     | Informacje wysyłane do systemu rejestrowania zdarzeń w systemie Linux. |
 | [Wydajność](data-sources-performance-counters.md)  | Wartości liczbowe mierzące wydajność różnych aspektów systemu operacyjnego i obciążeń. |
 | [Dzienniki usług IIS](data-sources-iis-logs.md)                 | Informacje o użyciu witryn sieci Web usług IIS działających w systemie operacyjnym gościa. |
 | [Niestandardowe dzienniki](data-sources-custom-logs.md)           | Zdarzenia z plików tekstowych na komputerach z systemem Windows i Linux. |
@@ -58,7 +59,7 @@ Korzystając z Log Analytics agentów do zbierania danych, należy zrozumieć na
 
 * Aby zbierać dane z agentów systemu Windows, można [skonfigurować każdego agenta w celu raportowania do co najmniej jednego obszaru roboczego](agent-windows.md), nawet gdy jest on raportowany do System Center Operations Manager grupy zarządzania. Agent systemu Windows może zgłosić do czterech obszarów roboczych.
 * Agent systemu Linux nie obsługuje wiele multihostingu i może być raportowany tylko do jednego obszaru roboczego.
-* Agent systemu Windows obsługuje [Standard FIPS 140](https://docs.microsoft.com/windows/security/threat-protection/fips-140-validation), a agent Linux nie obsługuje go.  
+* Agent systemu Windows obsługuje [Standard FIPS 140](/windows/security/threat-protection/fips-140-validation), a agent Linux nie obsługuje go.  
 
 Jeśli używasz System Center Operations Manager 2012 R2 lub nowszego:
 
@@ -124,7 +125,7 @@ Począwszy od wersji wydanej po 2018 sierpnia, wprowadzamy następujące zmiany 
 Plik wykonywalny python2 musi mieć alias "Python" przy użyciu następującego polecenia:
 
 ```
-alternatives --set python /usr/sbin/python2
+alternatives --set python `which python2`
 ```
 
 ### <a name="supported-distros"></a>Obsługiwane dystrybucje
@@ -192,7 +193,7 @@ W poniższej tabeli wymieniono informacje o konfiguracji serwera proxy i zapory,
 |*.blob.core.windows.net |port 443 |Wychodzący|Tak |
 |*.azure-automation.net |port 443 |Wychodzący|Tak |
 
-Informacje dotyczące zapory wymagane do Azure Government można znaleźć w temacie [Azure Government Management](../../azure-government/documentation-government-services-monitoringandmanagement.md#azure-monitor-logs). 
+Informacje dotyczące zapory wymagane do Azure Government można znaleźć w temacie [Azure Government Management](../../azure-government/compare-azure-government-global-azure.md#azure-monitor-logs). 
 
 Jeśli planujesz używać Azure Automation hybrydowego procesu roboczego elementu Runbook do nawiązywania połączenia z usługą Automation i zarejestrowania się z nią w celu używania elementów Runbook lub rozwiązań do zarządzania w danym środowisku, musi on mieć dostęp do numeru portu i adresów URL opisanych w temacie [Konfigurowanie sieci dla hybrydowego procesu roboczego elementu Runbook](../../automation/automation-hybrid-runbook-worker.md#network-planning). 
 

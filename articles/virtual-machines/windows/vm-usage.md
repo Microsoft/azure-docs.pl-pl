@@ -8,11 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 12/04/2017
 ms.author: memccror
-ms.openlocfilehash: 62880542e2cc4a93585011837b4cc962c8e79c0e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d480b9309c9028d8f55ab50c72a86889f320810b
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83773789"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86500119"
 ---
 # <a name="understanding-azure-virtual-machine-usage"></a>Informacje o użyciu maszyny wirtualnej platformy Azure
 Analizując dane użycia platformy Azure, można uzyskać zaawansowane informacje o zużyciu — szczegółowe informacje umożliwiające zarządzanie kosztami i alokację w całej organizacji. Ten dokument zawiera szczegółowe informacje o szczegółowe na temat użycia obliczeń na platformie Azure. Aby uzyskać więcej informacji na temat ogólnego użycia platformy Azure, przejdź do opisu [rachunku](../../cost-management-billing/understand/review-individual-bill.md).
@@ -74,7 +75,7 @@ Nazwa regionu wypełniana w polu Lokalizacja zasobu w szczegółach użycia ró�
 |    chinaeast             |    Chiny Wschodnie                            |
 |    chinanorth            |    Chiny Północne                           |
 |    eastasia              |    Azja Wschodnia                             |
-|    eastus                |    Wschodnie stany USA                               |
+|    eastus                |    East US                               |
 |    eastus2               |    Wschodnie stany USA 2                             |
 |    GermanyCentral        |    Niemcy środkowe                            |
 |    GermanyNortheast      |    DE północny                          |
@@ -84,7 +85,7 @@ Nazwa regionu wypełniana w polu Lokalizacja zasobu w szczegółach użycia ró�
 |    KoreaSouth            |    Korea Południowa                              |
 |    northcentralus        |    Północno-środkowe stany USA                      |
 |    northeurope           |    Europa Północna                          |
-|    southcentralus        |    Południowo-środkowe stany USA                      |
+|    southcentralus        |    South Central US                      |
 |    southeastasia         |    Azja Południowo-Wschodnia                        |
 |    SouthIndia            |    Indie Południowe                              |
 |    UKNorth               |    Północne stany USA                              |
@@ -137,10 +138,9 @@ Maszyny wirtualne z obsługą magazynu w warstwie Premium są rozliczane w taki 
 
 W interfejsach API są dostępne 3 lokalizacje, które mogą zwrócić system operacyjny działający na maszynie wirtualnej:
 
-1) W przypadku uruchamiania maszyn wirtualnych, które obejmują agenta gościa (wszystkie maszyny wirtualne z systemem Linux i większość maszyn wirtualnych systemu Windows) będzie wyświetlana nazwa systemu operacyjnego i wersja systemu operacyjnego w widoku wystąpień maszyn wirtualnych. Jest to dokładne przez cały czas, ale ze względu na fakt, że informacje pochodzą od agenta gościa, nie będą dostępne dla wszystkich maszyn wirtualnych. Dokumentacja interfejsu API w [tym miejscu](https://docs.microsoft.com/rest/api/compute/virtualmachines/instanceview#virtualmachineagentinstanceview).
-2) Maszyny wirtualne wdrożone z obrazu platformy będą zawierać szczegóły obrazu, które mogą wskazywać wersję systemu operacyjnego w nazwach wybranych w programie Publisher dla oferty lub jednostki SKU. Jednak są one wybrane przez program Publisher, więc nie ma żadnej gwarancji, że system operacyjny będzie wykrywalny w nazewnictwie. Dokumentacja interfejsu API w [tym miejscu](https://docs.microsoft.com/rest/api/compute/images/get#operatingsystemtypes).
-3) Każdy dysk systemu operacyjnego będzie miał określoną wartość systemu Windows lub Linux. Ta wartość jest dziedziczona z obrazu po utworzeniu dysku systemu operacyjnego na podstawie obrazu. Gdy dysk systemu operacyjnego jest bezpośrednio przekazywany do platformy, wartość systemu operacyjnego jest ustawiana podczas tworzenia dysku systemu operacyjnego. Ta wartość jest zawsze obecna, ale platforma Azure nie gwarantuje, że jest ona poprawna. Dokumentacja interfejsu API w [tym miejscu](https://docs.microsoft.com/rest/api/compute/virtualmachineimages/get#operatingsystemtypes).
+1) W przypadku uruchamiania maszyn wirtualnych, które obejmują agenta gościa (wszystkie maszyny wirtualne z systemem Linux i większość maszyn wirtualnych systemu Windows) będzie wyświetlana nazwa systemu operacyjnego i wersja systemu operacyjnego w widoku wystąpień maszyn wirtualnych. Jest to dokładne przez cały czas, ale ze względu na fakt, że informacje pochodzą od agenta gościa, nie będą dostępne dla wszystkich maszyn wirtualnych. Dokumentacja interfejsu API w [tym miejscu](/rest/api/compute/virtualmachines/instanceview#virtualmachineagentinstanceview).
+2) Maszyny wirtualne wdrożone z obrazu platformy będą zawierać szczegóły obrazu, które mogą wskazywać wersję systemu operacyjnego w nazwach wybranych w programie Publisher dla oferty lub jednostki SKU. Jednak są one wybrane przez program Publisher, więc nie ma żadnej gwarancji, że system operacyjny będzie wykrywalny w nazewnictwie. Dokumentacja interfejsu API w [tym miejscu](/rest/api/compute/images/get#operatingsystemtypes).
+3) Każdy dysk systemu operacyjnego będzie miał określoną wartość systemu Windows lub Linux. Ta wartość jest dziedziczona z obrazu po utworzeniu dysku systemu operacyjnego na podstawie obrazu. Gdy dysk systemu operacyjnego jest bezpośrednio przekazywany do platformy, wartość systemu operacyjnego jest ustawiana podczas tworzenia dysku systemu operacyjnego. Ta wartość jest zawsze obecna, ale platforma Azure nie gwarantuje, że jest ona poprawna. Dokumentacja interfejsu API w [tym miejscu](/rest/api/compute/virtualmachineimages/get#operatingsystemtypes).
 
 ## <a name="next-steps"></a>Następne kroki
 Aby dowiedzieć się więcej na temat szczegółowych informacji dotyczących użycia, zobacz [Opis rachunku na Microsoft Azure.](../../cost-management-billing/understand/review-individual-bill.md)
-

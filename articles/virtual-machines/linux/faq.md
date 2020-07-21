@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 05/08/2019
 ms.author: cynthn
-ms.openlocfilehash: cda729779c333064c91152e8427ce1a05227396e
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 09f34eec84deeaf76d62ae0aff881e53bf5dd13f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86201975"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86502405"
 ---
 # <a name="frequently-asked-question-about-linux-virtual-machines"></a>Często zadawane pytania dotyczące Linux Virtual Machines
 W tym artykule opisano niektóre często zadawane pytania dotyczące maszyn wirtualnych z systemem Linux utworzonych na platformie Azure przy użyciu modelu wdrażania Menedżer zasobów. Aby uzyskać informacje na temat wersji systemu Windows w tym temacie, zobacz [często zadawane pytania dotyczące Windows Virtual Machines](../windows/faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
@@ -30,7 +30,7 @@ Konta usługi Azure Storage mogą również udostępniać magazyn dla dysku syst
 ## <a name="how-can-i-access-my-virtual-machine"></a>Jak mogę uzyskać dostęp do mojej maszyny wirtualnej?
 Nawiąż połączenie zdalne, aby zalogować się do maszyny wirtualnej przy użyciu Secure Shell (SSH). Zapoznaj się z instrukcjami dotyczącymi sposobu nawiązywania połączenia [z systemem Windows](ssh-from-windows.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) lub [z systemów Linux i Mac](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Domyślnie protokół SSH umożliwia maksymalnie 10 równoczesnych połączeń. Możesz zwiększyć tę liczbę, edytując plik konfiguracji.
 
-Jeśli masz problemy, sprawdź [Rozwiązywanie problemów z połączeniami Secure Shell (SSH)](troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Jeśli masz problemy, sprawdź [Rozwiązywanie problemów z połączeniami Secure Shell (SSH)](../troubleshooting/troubleshoot-ssh-connection.md?toc=/azure/virtual-machines/linux/toc.json).
 
 ## <a name="can-i-use-the-temporary-disk-devsdb1-to-store-data"></a>Czy można używać dysku tymczasowego (/dev/sdb1) do przechowywania danych?
 Nie używaj dysku tymczasowego (/dev/sdb1) do przechowywania danych. Tylko w przypadku magazynu tymczasowego. Ryzyko utraty danych, których nie można odzyskać.

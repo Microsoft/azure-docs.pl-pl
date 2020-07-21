@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 46716cf5bd810225cbfc3b54d246917c9559f78f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0ff76ea3bd39f31880d0140e182ad99f293689e6
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85124466"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505367"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-classic-cloud-services"></a>Wysyłaj metryki systemu operacyjnego gościa do magazynu Azure Monitor metryk klasyczny Cloud Services 
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Dzięki [rozszerzeniu diagnostyki](diagnostics-extension-overview.md)Azure monitor można zbierać metryki i dzienniki z systemu operacyjnego gościa (systemu operacyjnego gościa) działającego w ramach maszyny wirtualnej, usługi w chmurze lub klastra Service Fabric. Rozszerzenie może wysyłać dane telemetryczne do [wielu różnych lokalizacji.](https://docs.microsoft.com/azure/monitoring/monitoring-data-collection?toc=/azure/azure-monitor/toc.json)
+Dzięki [rozszerzeniu diagnostyki](diagnostics-extension-overview.md)Azure monitor można zbierać metryki i dzienniki z systemu operacyjnego gościa (systemu operacyjnego gościa) działającego w ramach maszyny wirtualnej, usługi w chmurze lub klastra Service Fabric. Rozszerzenie może wysyłać dane telemetryczne do [wielu różnych lokalizacji.](./data-platform.md?toc=/azure/azure-monitor/toc.json)
 
 W tym artykule opisano proces wysyłania metryk wydajności systemu operacyjnego gościa dla klasycznej Cloud Services platformy Azure do magazynu metryk Azure Monitor. Począwszy od wersji Diagnostics 1,11, można pisać metryki bezpośrednio do magazynu metryk Azure Monitor, w którym są już zbierane metryki platformy standardowej. 
 
@@ -30,9 +30,9 @@ Proces przedstawiony w tym artykule działa tylko w przypadku liczników wydajno
 
 - Musisz być [administratorem usługi lub współadministratorem](../../cost-management-billing/manage/add-change-subscription-administrator.md) w ramach subskrypcji platformy Azure. 
 
-- Twoja subskrypcja musi być zarejestrowana w usłudze [Microsoft. Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services). 
+- Twoja subskrypcja musi być zarejestrowana w usłudze [Microsoft. Insights](../../azure-resource-manager/management/resource-providers-and-types.md). 
 
-- Musisz mieć zainstalowaną [Azure PowerShell](/powershell/azure) lub [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) .
+- Musisz mieć zainstalowaną [Azure PowerShell](/powershell/azure) lub [Azure Cloud Shell](../../cloud-shell/overview.md) .
 
 - Usługa w chmurze musi znajdować się w [regionie, który obsługuje metryki niestandardowe](metrics-custom-overview.md#supported-regions).
 
@@ -46,7 +46,7 @@ Proces przedstawiony w tym artykule działa tylko w przypadku liczników wydajno
 
 ## <a name="create-a-service-principal"></a>Tworzenie nazwy głównej usługi 
 
-Utwórz nazwę główną usługi w dzierżawie Azure Active Directory przy użyciu instrukcji w temacie [use Portal, aby utworzyć aplikację Azure Active Directory i nazwę główną usługi, która może uzyskiwać dostęp do zasobów](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal). Podczas przechodzenia przez ten proces należy pamiętać o następujących kwestiach: 
+Utwórz nazwę główną usługi w dzierżawie Azure Active Directory przy użyciu instrukcji w temacie [use Portal, aby utworzyć aplikację Azure Active Directory i nazwę główną usługi, która może uzyskiwać dostęp do zasobów](../../active-directory/develop/howto-create-service-principal-portal.md). Podczas przechodzenia przez ten proces należy pamiętać o następujących kwestiach: 
 
 - Adres URL logowania można umieścić w dowolnym adresie URL.  
 - Utwórz nowy klucz tajny klienta dla tej aplikacji.  
@@ -192,4 +192,3 @@ Możesz użyć funkcji filtrowania wymiarów i dzielenia, aby wyświetlić łąc
 ## <a name="next-steps"></a>Następne kroki
 
 - Dowiedz się więcej o [metrykach niestandardowych](metrics-custom-overview.md).
-

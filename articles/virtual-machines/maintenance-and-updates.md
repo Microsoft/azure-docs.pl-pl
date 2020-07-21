@@ -7,11 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 05/22/2020
 ms.author: shants
-ms.openlocfilehash: 3caf8b63cbd86338bbef653e9be9916907578627
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5dcf4ad7acb3becd2ca04407bc8e5b3ac45701f1
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84675883"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86501708"
 ---
 # <a name="maintenance-for-virtual-machines-in-azure"></a>Konserwacja maszyn wirtualnych na platformie Azure
 
@@ -76,7 +77,7 @@ Jeśli zdecydujesz się na zakończenie fazy zaplanowanej konserwacji, musisz wz
 
 #### <a name="paired-regions"></a>Sparowane regiony
 
-Każdy region platformy Azure jest sparowany z innym regionem w obrębie tego samego sąsiedztwa geograficznego. Razem tworzą one parę regionów. W fazie zaplanowanej konserwacji platforma Azure aktualizuje tylko maszyny wirtualne w jednym regionie pary regionów. Na przykład podczas aktualizacji maszyny wirtualnej w Północno-środkowe stany USA platforma Azure nie aktualizuje żadnej maszyny wirtualnej w regionie Południowo-środkowe stany USA w tym samym czasie. Inne regiony, takie jak Europa Północna, mogą być jednak w trakcie konserwacji w tym samym czasie, co region Wschodnie stany USA. Zrozumienie, jak działa para regionów, może pomóc w lepszym rozproszeniu maszyn wirtualnych między regionami. Aby uzyskać więcej informacji, zobacz [pary regionów platformy Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
+Każdy region platformy Azure jest sparowany z innym regionem w obrębie tego samego sąsiedztwa geograficznego. Razem tworzą one parę regionów. W fazie zaplanowanej konserwacji platforma Azure aktualizuje tylko maszyny wirtualne w jednym regionie pary regionów. Na przykład podczas aktualizacji maszyny wirtualnej w Północno-środkowe stany USA platforma Azure nie aktualizuje żadnej maszyny wirtualnej w regionie Południowo-środkowe stany USA w tym samym czasie. Inne regiony, takie jak Europa Północna, mogą być jednak w trakcie konserwacji w tym samym czasie, co region Wschodnie stany USA. Zrozumienie, jak działa para regionów, może pomóc w lepszym rozproszeniu maszyn wirtualnych między regionami. Aby uzyskać więcej informacji, zobacz [pary regionów platformy Azure](../best-practices-availability-paired-regions.md).
 
 #### <a name="availability-sets-and-scale-sets"></a>Zestawy dostępności i zestawy skalowania
 

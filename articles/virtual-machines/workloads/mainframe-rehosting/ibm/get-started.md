@@ -12,11 +12,12 @@ ms.topic: conceptual
 ms.date: 02/22/2019
 tags: ''
 keywords: ''
-ms.openlocfilehash: 13c83c53cdad719d6a4bed4cc1852b85d62082e8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e99685b4d1476ee527b9eb7f1332f6a6beece669
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "68834587"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86499976"
 ---
 # <a name="ibm-workloads-on-azure"></a>Obciążenia firmy IBM na platformie Azure
 
@@ -36,7 +37,7 @@ Dostępny jest obszerny ekosystem partnerów, który ułatwia Migrowanie system�
 
 **Następne kroki**
 
-- [Migracja komputera mainframe: mitów i fakty](https://docs.microsoft.com/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/myths-and-facts)
+- [Migracja komputera mainframe: mitów i fakty](/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/myths-and-facts)
 - [Zainstaluj środowisko IBM zD&w środowisku deweloperskim/testowym na platformie Azure](./install-ibm-z-environment.md)
 - [Konfigurowanie dystrybucji kontrolowanej przez deweloperów aplikacji (ADCD) w programie IBM zD&T v1](./demo.md)
-- [IBM DB2 pureScale na platformie Azure](https://docs.microsoft.com/azure/virtual-machines/linux/ibm-db2-purescale-azure)
+- [IBM DB2 pureScale na platformie Azure](../../../linux/ibm-db2-purescale-azure.md)

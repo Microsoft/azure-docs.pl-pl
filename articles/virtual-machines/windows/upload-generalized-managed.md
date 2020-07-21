@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 12/12/2019
 ms.author: cynthn
-ms.openlocfilehash: b0947d1cc4e53763c0f31444b8f3d27ba45b19a4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e9d8e48e393f006c05e0a17b80e6f8cfe7e1d6ea
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82096413"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86500280"
 ---
 # <a name="upload-a-generalized-vhd-and-use-it-to-create-new-vms-in-azure"></a>Przekazywanie uogólnionego dysku VHD i używanie go do tworzenia nowych maszyn wirtualnych na platformie Azure
 
@@ -28,9 +28,9 @@ Przykładowy skrypt zawiera [przykładowy skrypt służący do przekazywania wir
  
 ## <a name="generalize-the-source-vm-by-using-sysprep"></a>Uogólnij źródłową maszynę wirtualną przy użyciu programu Sysprep
 
-Jeśli jeszcze tego nie zrobiono, przed przekazaniem wirtualnego dysku twardego do platformy Azure należy wykonać polecenie Sysprep na maszynie wirtualnej. Narzędzie Sysprep między innymi usuwa wszystkie informacje osobiste związane z kontem i przygotowuje maszynę do używania jako obraz. Aby uzyskać szczegółowe informacje o programie Sysprep, zobacz [Omówienie programu Sysprep](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview).
+Jeśli jeszcze tego nie zrobiono, przed przekazaniem wirtualnego dysku twardego do platformy Azure należy wykonać polecenie Sysprep na maszynie wirtualnej. Narzędzie Sysprep między innymi usuwa wszystkie informacje osobiste związane z kontem i przygotowuje maszynę do używania jako obraz. Aby uzyskać szczegółowe informacje o programie Sysprep, zobacz [Omówienie programu Sysprep](/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview).
 
-Upewnij się, że role serwera uruchomione na komputerze są obsługiwane przez program Sysprep. Aby uzyskać więcej informacji, zobacz [Obsługa programu Sysprep dla ról serwera](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles).
+Upewnij się, że role serwera uruchomione na komputerze są obsługiwane przez program Sysprep. Aby uzyskać więcej informacji, zobacz [Obsługa programu Sysprep dla ról serwera](/windows-hardware/manufacture/desktop/sysprep-support-for-server-roles).
 
 > [!IMPORTANT]
 > Jeśli planujesz uruchomienie programu Sysprep przed przekazaniem wirtualnego dysku twardego do platformy Azure po raz pierwszy, upewnij się, że [maszyna wirtualna została przygotowana](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
@@ -53,7 +53,7 @@ Możesz teraz przekazać dysk VHD bezpośrednio do dysku zarządzanego. Aby uzys
 
 
 
-Po przekazaniu dysku VHD na dysk zarządzany należy użyć polecenie [Get-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/get-azdisk) , aby pobrać dysk zarządzany.
+Po przekazaniu dysku VHD na dysk zarządzany należy użyć polecenie [Get-AzDisk](/powershell/module/az.compute/get-azdisk) , aby pobrać dysk zarządzany.
 
 ```azurepowershell-interactive
 $disk = Get-AzDisk -ResourceGroupName 'myResourceGroup' -DiskName 'myDiskName'
@@ -113,4 +113,3 @@ New-AzVm `
 ## <a name="next-steps"></a>Następne kroki
 
 Zaloguj się do nowej maszyny wirtualnej. Aby uzyskać więcej informacji, zobacz [jak nawiązać połączenie i zalogować się do maszyny wirtualnej platformy Azure z systemem Windows](connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
-

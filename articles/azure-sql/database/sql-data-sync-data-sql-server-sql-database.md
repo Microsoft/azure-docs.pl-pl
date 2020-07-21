@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 08/20/2019
-ms.openlocfilehash: 80bc254aafa9c221fcaf724331928b7f30360eac
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 02207f8b5cf8628c3b2bbb72ab8d38ca9a4a5731
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85610850"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86504224"
 ---
 # <a name="what-is-sql-data-sync-for-azure"></a>Co to jest SQL Data Sync dla platformy Azure?
 
@@ -78,12 +78,12 @@ Synchronizacja danych nie jest preferowanym rozwiązaniem dla następujących sc
 
 ## <a name="compare-with-transactional-replication"></a>Porównanie z replikacją transakcyjną
 
-| | Synchronizacja danych | Replikacja transakcyjna |
+| Synchronizacja danych | Replikacja transakcyjna |
 |---|---|---|
 | Zalety | -Aktywne-aktywne wsparcie<br/>-Dwukierunkowe między środowiskiem lokalnym i Azure SQL Database | -Małe opóźnienia<br/>-Spójności transakcyjnej<br/>-Ponowne użycie istniejącej topologii po migracji <br/>— Obsługa wystąpienia zarządzanego usługi Azure SQL |
 | Wady | -5 min lub więcej opóźnień<br/>-Brak spójności transakcyjnej<br/>— Wyższy wpływ na wydajność | -Nie można opublikować z Azure SQL Database <br/>— Wysoki koszt konserwacji |
 
-## <a name="get-started"></a>Rozpoczęcie pracy 
+## <a name="get-started"></a>Wprowadzenie 
 
 ### <a name="set-up-data-sync-in-the-azure-portal"></a>Konfigurowanie synchronizacji danych w Azure Portal
 
@@ -148,7 +148,7 @@ Inicjowanie obsługi administracyjnej i cofanie aprowizacji podczas tworzenia gr
 
 #### <a name="unsupported-column-types"></a>Nieobsługiwane typy kolumn
 
-Synchronizacja danych nie może synchronizować kolumn tylko do odczytu lub generowanych przez system. Przykład:
+Synchronizacja danych nie może synchronizować kolumn tylko do odczytu lub generowanych przez system. Na przykład:
 
 - Kolumny obliczane.
 - Kolumny danych czasowych generowane przez system.
