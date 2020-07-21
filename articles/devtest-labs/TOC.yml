@@ -6,14 +6,15 @@
       href: devtest-lab-overview.md
     - name: Usługi Azure DevTest Labs i Lab Services
       href: lab-services-overview.md
+- name: Szybki start
+  items:
+    - name: Tworzenie laboratorium — szablon usługi ARM
+      displayName: Resource Manager
+      href: create-lab-windows-vm-template.md
 - name: Samouczki
   items:
     - name: Konfigurowanie laboratorium
-      items:
-        - name: Korzystanie z witryny Azure Portal
-          href: tutorial-create-custom-lab.md
-        - name: Używanie szablonu usługi Resource Manager
-          href: create-lab-windows-vm-template.md
+      href: tutorial-create-custom-lab.md
     - name: Dostęp do laboratorium
       href: tutorial-use-custom-lab.md
 - name: Samples
@@ -64,6 +65,10 @@
           href: devtest-lab-training-lab.md
         - name: Scenariusze używania możliwych do przejęcia maszyn wirtualnych
           href: devtest-lab-use-claim-capabilities.md
+    - name: Zabezpieczenia
+      items:
+        - name: Punkt odniesienia zabezpieczeń
+          href: security-baseline.md
 - name: Przewodniki z instrukcjami
   items:
     - name: Konfigurowanie laboratorium
@@ -122,18 +127,26 @@
           href: personal-data-delete-export.md
     - name: Korzystanie z maszyn wirtualnych w laboratorium
       items:
-        - name: Tworzenie maszyny wirtualnej — Azure Portal
-          href: devtest-lab-add-vm.md
-        - name: Tworzenie maszyny wirtualnej — Azure PowerShell
-          href: devtest-lab-vm-powershell.md
-        - name: Tworzenie maszyny wirtualnej — interfejs wiersza polecenia platformy Azure
-          href: devtest-lab-vmcli.md
-        - name: Tworzenie maszyny wirtualnej — szablon usługi Resource Manager
-          href: devtest-lab-use-resource-manager-template.md
-        - name: Tworzenie maszyny wirtualnej za pomocą obrazu z galerii obrazów udostępnionych
-          href: add-vm-use-shared-image.md
-        - name: Łączenie się z maszyną wirtualną za pomocą przeglądarki
-          href: connect-virtual-machine-through-browser.md
+        - name: Tworzenie maszyny wirtualnej
+          items:
+            - name: Azure Portal
+              href: devtest-lab-add-vm.md
+            - name: Azure PowerShell
+              href: devtest-lab-vm-powershell.md
+            - name: Interfejs wiersza polecenia platformy Azure
+              href: devtest-lab-vmcli.md
+            - name: Szablon usługi Resource Manager
+              href: devtest-lab-use-resource-manager-template.md
+            - name: Tworzenie maszyny wirtualnej za pomocą obrazu z galerii obrazów udostępnionych
+              href: add-vm-use-shared-image.md
+        - name: Łączenie z maszyną wirtualną
+          items:
+            - name: Nawiązywanie połączenia z maszyną wirtualną z systemem Windows
+              href: connect-windows-virtual-machine.md
+            - name: Nawiązywanie połączenia z maszyną wirtualną z systemem Linux
+              href: connect-linux-virtual-machine.md
+            - name: Łączenie się z maszyną wirtualną za pomocą przeglądarki
+              href: connect-virtual-machine-through-browser.md
         - name: Uruchamianie lub zatrzymywanie maszyn wirtualnych przy użyciu programu PowerShell lub interfejsu wiersza polecenia
           href: use-command-line-start-stop-virtual-machines.md
         - name: Ponowne uruchamianie maszyny wirtualnej
@@ -263,6 +276,12 @@
           href: troubleshoot-vm-environment-creation-failures.md
         - name: Rozwiązywanie problemów z artefaktami
           href: devtest-lab-troubleshoot-artifact-failure.md
+    - name: Monitorowanie
+      items:
+        - name: Wyświetlanie dzienników aktywności
+          href: activity-logs.md
+        - name: Tworzenie alertów dziennika aktywności
+          href: create-alerts.md
 - name: Dokumentacja
   items:
     - name: Interfejs wiersza polecenia

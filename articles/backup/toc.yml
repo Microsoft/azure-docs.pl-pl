@@ -323,11 +323,11 @@
               href: azure-policy-configure-diagnostics.md
         - name: PowerShell
           items:
-            - name: Maszyny wirtualne platformy Azure w witrynie Azure Portal
+            - name: Maszyny wirtualne platformy Azure
               href: backup-azure-vms-automation.md
-            - name: Program DPM w witrynie Azure Portal
+            - name: Program Data Protection Manager (DPM)
               href: backup-dpm-automation.md
-            - name: System Windows Server w witrynie Azure Portal
+            - name: System Windows Server korzystający z agenta MARS
               href: backup-client-automation.md
             - name: Kopie zapasowe baz danych SQL na maszynach wirtualnych platformy Azure
               href: backup-azure-sql-automation.md
@@ -422,7 +422,7 @@
     - name: Harmonogram działania dla platformy Azure
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Pytania i odpowiedzi Microsoft — strona pytania
-      href: 'https://docs.microsoft.com/answers/topics/azure-backup.html'
+      href: /answers/topics/azure-backup.html
     - name: Kalkulator cen
       href: azure-backup-pricing.md
     - name: Aktualizacje usług

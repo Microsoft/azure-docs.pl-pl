@@ -179,6 +179,8 @@
           href: azure-nfs-volume.md
         - name: Azure NetApp Files
           href: azure-netapp-files.md
+        - name: Korzystanie z usługi Azure Ultra Disks (wersja zapoznawcza)
+          href: use-ultra-disks.md
     - name: Konfigurowanie sieci
       items:
         - name: Tworzenie lub używanie istniejącej sieci wirtualnej
@@ -191,8 +193,6 @@
           href: internal-lb.md
         - name: Używanie modułu równoważenia obciążenia w warstwie Standardowa
           href: load-balancer-standard.md
-        - name: Używanie trasy zdefiniowanej przez użytkownika na potrzeby ruchu wychodzącego
-          href: egress-outboundtype.md
         - name: Używanie statycznego adresu IP
           href: static-ip.md
         - name: Ruch przychodzący
@@ -215,7 +215,13 @@
                 - name: Używanie statycznego publicznego adresu IP
                   href: ingress-static-ip.md
         - name: Ruch wychodzący
-          href: egress.md
+          items:
+            - name: Ograniczanie i kontrolowanie ruchu wychodzącego z klastra
+              href: limit-egress-traffic.md
+            - name: Używanie trasy zdefiniowanej przez użytkownika na potrzeby ruchu wychodzącego
+              href: egress-outboundtype.md
+            - name: Używanie podstawowego modułu równoważenia obciążenia i statycznego adresu IP
+              href: egress.md
         - name: Dostosowywanie serwera CoreDNS
           href: coredns-custom.md
     - name: Zabezpieczenia i uwierzytelnianie
@@ -238,13 +244,11 @@
           href: ../governance/policy/concepts/policy-for-kubernetes.md?toc=/azure/aks/toc.json
         - name: Aktualizowanie poświadczeń klastra
           href: update-credentials.md
-        - name: Ograniczanie i kontrolowanie ruchu wychodzącego z klastra
-          href: limit-egress-traffic.md
         - name: Włączanie integracji z usługą Azure Active Directory
           items:
-            - name: Usługa AAD zarządzana przez usługę AKS (wersja zapoznawcza)
+            - name: Usługa AAD zarządzana przez usługę AKS
               href: managed-aad.md
-            - name: Używanie interfejsu wiersza polecenia platformy Azure
+            - name: Integracja z usługą AAD (starsza wersja)
               href: azure-ad-integration-cli.md
         - name: Autoryzacja na platformie Kubernetes przy użyciu kontroli dostępu opartej na rolach platformy Azure (wersja zapoznawcza)
           href: manage-azure-rbac.md
@@ -291,8 +295,6 @@
       items:
         - name: Używanie procesu lokalnego w usłudze Kubernetes z programem Visual Studio Code (wersja zapoznawcza)
           href: ../dev-spaces/how-to/local-process-kubernetes-vs-code.md
-        - name: Używanie procesu lokalnego w usłudze Kubernetes z programem Visual Studio (wersja zapoznawcza)
-          href: ../dev-spaces/how-to/local-process-kubernetes-visual-studio.md
         - name: Instalowanie istniejących aplikacji za pomocą zestawu Helm
           href: kubernetes-helm.md
         - name: Korzystanie z usługi OpenFaaS
@@ -383,10 +385,10 @@
       href: 'https://azure.microsoft.com/pricing/details/container-service/'
     - name: Obsługa zasad
       href: support-policies.md
-    - name: Harmonogram działania
+    - name: Harmonogram działania dla platformy Azure
       href: 'https://azure.microsoft.com/roadmap/'
-    - name: Przekazywanie opinii dotyczących produktów
-      href: 'https://feedback.azure.com/forums/914020-azure-kubernetes-service-aks'
+    - name: Harmonogram działania dla usługi AKS
+      href: 'https://github.com/Azure/AKS/projects/1'
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-container-service'
     - name: Filmy wideo

@@ -13,20 +13,19 @@ ms.topic: sample
 ms.date: 10/31/2017
 ms.author: apimpm
 ms.custom: mvc
-ms.openlocfilehash: 252e7b8d13cf53a98ea1f25b207740c0e623f92c
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: b5b8c82aa420b62e3b6e68ee53352eb9f77988f2
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86242971"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86506693"
 ---
 # <a name="api-management-policy-samples"></a>Przykłady zasad usługi API Management
 
 [Zasady](../api-management-howto-policies.md) są zaawansowaną możliwością systemu, która pozwala wydawcy zmieniać zachowanie interfejsu API za pomocą konfiguracji. Zasady to zbiór instrukcji, które są wykonywane sekwencyjnie podczas żądania lub odpowiedzi interfejsu API. Poniższa tabela zawiera linki do przykładów i krótki opis każdego przykładu.
 
-|                                                                                                                                                                      |                                                                                                                                                                                                                             |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Zasady ruchu przychodzącego**                                                                                                                                                 |                                                                                                                                                                                                                             |
+| Zasady ruchu przychodzącego | Opis |
+| ---------------- | ----------- |
 | [Dodawanie nagłówka Forwarded w celu umożliwienia interfejsowi API zaplecza tworzenia odpowiednich adresów URL](./set-header-to-enable-backend-to-construct-urls.md) | Przedstawia sposób dodawania nagłówka Forwarded do żądania przychodzącego w celu umożliwienia interfejsowi API zaplecza tworzenia odpowiednich adresów URL.                                                                                                        |
 | [Dodawanie nagłówka zawierającego identyfikator korelacji](./add-correlation-id.md)                                                             | Przedstawia sposób dodawania nagłówka zawierającego identyfikator korelacji do żądania przychodzącego.                                                                                                                                        |
 | [Dodawanie możliwości do usługi zaplecza i buforowanie odpowiedzi](./cache-response.md)                                             | Pokazuje sposób dodawania możliwości do usługi zaplecza. Na przykład akceptowania nazwy miejsca zamiast współrzędnych geograficznych w interfejsie API prognozy pogody.                                                                    |
@@ -40,7 +39,7 @@ ms.locfileid: "86242971"
 | [Kierowanie żądania na podstawie rozmiaru jego treści](./route-requests-based-on-size.md)                                            | Przedstawia kierowanie żądań na podstawie rozmiaru ich treści.                                                                                                                                                       |
 | [Wysyłanie informacji o kontekście żądania do usługi zaplecza](./send-request-context-info-to-backend-service.md)                    | Pokazuje sposób wysyłania pewnych informacji dotyczących kontekstu do usługi zaplecza na potrzeby rejestrowania lub przetwarzania.                                                                                                                                |
 | [Ustawianie czasu trwania pamięci podręcznej odpowiedzi](./set-cache-duration.md)                                                                          | Pokazuje sposób ustawiania czasu trwania pamięci podręcznej odpowiedzi za pomocą wartości maxAge nagłówka Cache-Control wysyłanego przez zaplecze.                                                                                                             |
-| **Zasady ruchu wychodzącego**                                                                                                                                                |                                                                                                                                                                                                                             |
+| **Zasady ruchu wychodzącego** | **Opis** |
 | [Filtrowanie zawartości odpowiedzi](./filter-response-content.md)                                                                         | Przedstawia sposób filtrowania elementów danych w ładunku odpowiedzi na podstawie produktu skojarzonego z żądaniem.                                                                                                        |
-| **Zasady dla wystąpienia błędu**                                                                                                                                                |                                                                                                                                                                                                                             |
+| **Zasady dla wystąpienia błędu** | **Opis** |
 | [Rejestrowanie błędów w usłudze Stackify](./log-errors-to-stackify.md)                                                                           | Pokazuje sposób dodawania zasad rejestrowania błędów w celu wysyłania błędów do usługi Stackify na potrzeby rejestrowania.                                                                                                                                            |

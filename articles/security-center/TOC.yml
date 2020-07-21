@@ -1,6 +1,7 @@
 - name: Dokumentacja usługi Security Center
   href: index.yml
 - name: Omówienie
+  expanded: true
   items:
     - name: Informacje o usłudze Security Center
       href: security-center-intro.md
@@ -18,8 +19,11 @@
       href: recommendations-reference.md
     - name: Alerty zabezpieczeń i łańcuch eliminacji intencji
       href: alerts-reference.md
+    - name: Uprawnienia
+      href: security-center-permissions.md
+    - name: Cennik
+      href: security-center-pricing.md
 - name: Przewodniki Szybki start
-  expanded: true
   items:
     - name: Subskrypcje platformy Azure
       href: security-center-get-started.md
@@ -29,6 +33,12 @@
       href: quick-onboard-linux-computer.md
     - name: Maszyny wirtualne usługi Azure Stack
       href: quick-onboard-azure-stack.md
+    - name: Automatyzowanie dołączania przy użyciu programu PowerShell
+      href: security-center-powershell-onboarding.md
+    - name: Konfigurowanie zbierania danych
+      href: security-center-enable-data-collection.md
+    - name: Konfigurowanie powiadomień e-mail
+      href: security-center-provide-security-contact-details.md
 - name: Samouczki
   items:
     - name: Przewodnik dotyczący planowania i operacji
@@ -39,21 +49,36 @@
       href: tutorial-security-incident.md
     - name: Zwiększanie zgodności z przepisami
       href: security-center-compliance-dashboard.md
-- name: Samples
-  items:
-    - name: Elementy wbudowane usługi Azure Policy
-      displayName: 'samples, policies, definitions'
-      href: ./policy-samples.md
 - name: Pojęcia
   items:
-    - name: Wskaźnik bezpieczeństwa
-      href: secure-score-security-controls.md
-    - name: Uprawnienia
-      href: security-center-permissions.md
+    - name: 'Wskaźnik bezpieczeństwa, rekomendacje i zasady'
+      items:
+        - name: Wskaźnik bezpieczeństwa
+          href: secure-score-security-controls.md
+        - name: Omówienie rekomendacji dotyczących zabezpieczeń
+          href: security-center-recommendations.md
+        - name: Omówienie zasad zabezpieczeń
+          href: tutorial-security-policy.md
+        - name: Wbudowane zasady zabezpieczeń
+          href: security-center-policy-definitions.md
+        - name: Używanie zaleceń w celu ulepszania zabezpieczeń
+          href: security-center-using-recommendations.md
+    - name: Ochrona przed zagrożeniami i alerty zabezpieczeń
+      items:
+        - name: Omówienie ochrony przed zagrożeniami w centrum zabezpieczeń
+          href: threat-protection.md
+        - name: Omówienie alertów zabezpieczeń
+          href: security-center-alerts-overview.md
+        - name: Referencyjna lista alertów
+          href: alerts-reference.md
+        - name: Schematy alertów
+          href: alerts-schemas.md
+        - name: Omówienie zdarzeń dotyczących zabezpieczeń
+          href: security-center-alerts-cloud-smart.md
     - name: Bezpieczeństwo danych
       href: security-center-data-security.md
-    - name: Używanie zaleceń w celu ulepszania zabezpieczeń
-      href: security-center-using-recommendations.md
+    - name: Dostęp just in time do maszyny wirtualnej
+      href: just-in-time-explained.md
     - name: Zarządzanie wieloma dzierżawami
       href: security-center-cross-tenant-management.md
     - name: Zabezpieczenia kontenerów
@@ -64,32 +89,18 @@
           href: azure-container-registry-integration.md
         - name: Integracja z usługą Azure Kubernetes Service
           href: azure-kubernetes-service-integration.md
-    - name: Ochrona przed zagrożeniami i alerty zabezpieczeń
-      items:
-        - name: Ochrona przed zagrożeniami w usłudze Azure Security Center
-          href: threat-protection.md
-        - name: Omówienie alertów zabezpieczeń
-          href: security-center-alerts-overview.md
-        - name: Referencyjna lista alertów
-          href: alerts-reference.md
-        - name: Schematy alertów
-          href: alerts-schemas.md
-        - name: Zarządzanie alertami zabezpieczeń
-          href: security-center-managing-and-responding-alerts.md
-        - name: Reguły pomijania alertów zabezpieczeń
-          href: alerts-suppression-rules.md
-        - name: Zarządzanie zdarzeniami zabezpieczeń
-          href: security-center-incident.md
-        - name: Korelacja alertów inteligentnych w chmurze (zdarzenia)
-          href: security-center-alerts-cloud-smart.md
-        - name: Raporty na temat zagrożeń
-          href: security-center-threat-report.md
-        - name: Walidacja alertów (plik testowy EICAR)
-          href: security-center-alert-validation.md
 - name: Przewodniki z instrukcjami
   items:
     - name: Przechodzenie na zabezpieczenia zaawansowane
       href: security-center-onboarding.md
+    - name: Konfigurowanie zasad zabezpieczeń i standardów zgodności
+      items:
+        - name: Tworzenie niestandardowych zasad zabezpieczeń
+          href: custom-security-policies.md
+        - name: Zarządzanie zasadami przy użyciu interfejsu API REST usługi Azure Policy
+          href: configure-security-policy-azure-policy.md
+        - name: Wybieranie standardów dla pulpitu nawigacyjnego zgodności
+          href: update-regulatory-compliance-packages.md
     - name: Skanowanie maszyn wirtualnych pod kątem luk w zabezpieczeniach
       items:
         - name: Omówienie skanowania pod kątem luk w zabezpieczeniach
@@ -98,54 +109,28 @@
           href: built-in-vulnerability-assessment.md
         - name: Korzystanie ze skanerów zewnętrznych
           href: partner-vulnerability-assessment.md
-    - name: Monitorowanie kontenerów
-      href: monitor-container-security.md
-    - name: Ochrona serwerów za pomocą usługi Microsoft Defender ATP
-      href: security-center-wdatp.md
-    - name: Używanie zaawansowanych zabezpieczeń danych dla maszyn SQL
-      href: security-center-iaas-advanced-data.md
-    - name: Używanie usługi App Service do ochrony aplikacji
-      href: security-center-app-services.md
-    - name: Korzystanie z zasad zabezpieczeń
+    - name: Konfigurowanie ochrony przed zagrożeniami i obsługa alertów
       items:
-        - name: Omówienie zasad zabezpieczeń
-          href: tutorial-security-policy.md
-        - name: Korzystanie z wbudowanych zasad zabezpieczeń
-          href: security-center-policy-definitions.md
-        - name: Tworzenie niestandardowych zasad zabezpieczeń
-          href: custom-security-policies.md
-        - name: Zarządzanie zasadami przy użyciu interfejsu API REST usługi Azure Policy
-          href: configure-security-policy-azure-policy.md
-    - name: Wybieranie standardów dla pulpitu nawigacyjnego zgodności
-      href: update-regulatory-compliance-packages.md
-    - name: Dostosowywanie zasad ochrony informacji
-      href: security-center-info-protection-policy.md
-    - name: Zarządzanie rozwiązaniami zabezpieczeń
-      href: security-center-partner-integration.md
-    - name: Automatyzowanie dołączania przy użyciu programu PowerShell
-      href: security-center-powershell-onboarding.md
-    - name: Integracja z rozwiązaniem Windows Admin Center
-      href: windows-admin-center-integration.md
-    - name: Porównanie planów bazowych przy użyciu monitorowania integralności plików
-      href: security-center-file-integrity-monitoring-baselines.md
-    - name: Automatyzowanie odpowiedzi na alerty i zalecenia
-      href: workflow-automation.md
-    - name: Eksportowanie alertów i zaleceń
-      href: continuous-export.md
-    - name: Konfigurowanie zbierania danych
-      href: security-center-enable-data-collection.md
-    - name: Konfigurowanie zaawansowanej ochrony przed zagrożeniami dla usługi Azure Key Vault
-      href: advanced-threat-protection-key-vault.md
-    - name: Konfigurowanie powiadomień e-mail
-      href: security-center-provide-security-contact-details.md
-    - name: Cennik
-      href: security-center-pricing.md
-    - name: Uzyskiwanie wglądu w całą dzierżawę
-      href: security-center-management-groups.md
-    - name: Zalecenia dotyczące implementowania zabezpieczeń
+        - name: Zarządzanie alertami zabezpieczeń
+          href: security-center-managing-and-responding-alerts.md
+        - name: Tworzenie reguł pomijania alertów i zarządzanie nimi
+          href: alerts-suppression-rules.md
+        - name: Konfigurowanie zaawansowanej ochrony przed zagrożeniami dla usługi Azure Key Vault
+          href: advanced-threat-protection-key-vault.md
+        - name: Zarządzanie zdarzeniami zabezpieczeń
+          href: security-center-incident.md
+        - name: Generowanie raportów analizy zagrożeń
+          href: security-center-threat-report.md
+        - name: Weryfikowanie konfiguracji alertów (plik testowy EICAR)
+          href: security-center-alert-validation.md
+        - name: Używanie zaawansowanych zabezpieczeń danych dla bazy danych SQL na maszynach wirtualnych platformy Azure
+          href: security-center-iaas-advanced-data.md
+        - name: Automatyzowanie odpowiedzi na alerty
+          href: workflow-automation.md
+        - name: Eksportowanie alertów
+          href: continuous-export.md
+    - name: Stosowanie rekomendacji dotyczących zabezpieczeń w celu zwiększenia bezpieczeństwa
       items:
-        - name: Co to są zalecenia dotyczące zabezpieczeń
-          href: security-center-recommendations.md
         - name: Zalecenia dotyczące działań naprawczych
           href: security-center-remediate-recommendations.md
         - name: Zwiększanie poziomu bezpieczeństwa
@@ -160,8 +145,20 @@
           href: security-center-sql-service-recommendations.md
         - name: Ochrona tożsamości i dostępu
           href: security-center-identity-access.md
-        - name: Zarządzanie danymi użytkownika badań
-          href: security-center-investigation-user-data.md
+        - name: Automatyzowanie odpowiedzi na rekomendacje
+          href: workflow-automation.md
+        - name: Rekomendacje dotyczące eksportowania
+          href: continuous-export.md
+    - name: Integracja z innymi narzędziami i usługami
+      items:
+        - name: Integracja z rozwiązaniem Windows Admin Center
+          href: windows-admin-center-integration.md
+        - name: Chronienie aplikacji internetowych i interfejsów API w usłudze Azure App Service
+          href: security-center-app-services.md
+        - name: Integracja z usługą Microsoft Defender ATP
+          href: security-center-wdatp.md
+        - name: Integrowanie rozwiązań w zakresie zabezpieczeń i źródeł danych
+          href: security-center-partner-integration.md
     - name: Stosowanie zabezpieczeń chmury
       items:
         - name: Zarządzanie dostępem just in time
@@ -170,8 +167,18 @@
           href: security-center-adaptive-application.md
         - name: Monitorowanie integralności plików
           href: security-center-file-integrity-monitoring.md
+        - name: Porównanie planów bazowych przy użyciu monitorowania integralności plików
+          href: security-center-file-integrity-monitoring-baselines.md
         - name: Adaptacyjne wzmocnienie zabezpieczeń sieci
           href: security-center-adaptive-network-hardening.md
+    - name: Monitorowanie kontenerów
+      href: monitor-container-security.md
+    - name: Dostosowywanie zasad ochrony informacji
+      href: security-center-info-protection-policy.md
+    - name: Zarządzanie danymi użytkownika badań
+      href: security-center-investigation-user-data.md
+    - name: Uzyskiwanie wglądu w całą dzierżawę
+      href: security-center-management-groups.md
 - name: Dokumentacja
   items:
     - name: Interfejsy API REST
