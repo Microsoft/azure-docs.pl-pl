@@ -8,19 +8,20 @@ ms.date: 05/28/2020
 ms.author: rogarana
 ms.subservice: files
 services: storage
-ms.openlocfilehash: 6ee38dd6f9a2e254c57d6f79c09eee7bccfcd0aa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 11940a43438b72eb8a2e9391d56806744c4c27fc
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84204688"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86527816"
 ---
 # <a name="prevent-accidental-deletion-of-azure-file-shares"></a>Zapobiegaj przypadkowemu usunięciu udziałów plików platformy Azure
 
-Usługa Azure Storage oferuje teraz nietrwałe usuwanie udziałów plików (wersja zapoznawcza). Funkcja usuwania nietrwałego umożliwia odzyskanie danych w przypadku pomyłkowego usunięcia ich przez aplikację lub innego użytkownika konta magazynu.
+Usługa Azure Storage oferuje teraz nietrwałe usuwanie udziałów plików (wersja zapoznawcza). Funkcja usuwania nietrwałego umożliwia odzyskanie udziału plików, gdy zostanie on usunięty przez aplikację lub innego użytkownika konta magazynu.
 
 ## <a name="how-soft-delete-preview-works"></a>Jak działa usuwanie nietrwałe (wersja zapoznawcza)
 
-Po włączeniu usuwania nietrwałego dla udziałów plików platformy Azure, jeśli udział plików zostanie usunięty, przechodzi do nietrwałego stanu usuniętego, a nie na stałe wymazywanie. Można skonfigurować ilość czasu nietrwałego usuwania danych, zanim zostanie on trwale usunięty.
+Po włączeniu usuwania nietrwałego dla udziałów plików platformy Azure, jeśli udział plików zostanie usunięty, przechodzi do nietrwałego stanu usuniętego, a nie na stałe wymazywanie. Można skonfigurować ilość czasu nietrwałego usuwania danych, zanim zostanie on trwale usunięty, i Cofnij usunięcie udziału w dowolnym momencie w tym okresie przechowywania. Po cofnięciu usunięcia, udział i cała zawartość, łącznie z migawkami, zostaną przywrócone do stanu, w którym znajdował się przed usunięciem. Usuwanie nietrwałe działa tylko na poziomie udziału plików — poszczególne pliki, które są usuwane, nadal będą trwale wymazywane.
 
 Usuwanie nietrwałe można włączyć dla nowych lub istniejących udziałów plików. Usuwanie nietrwałe jest również zgodne z poprzednimi wersjami, więc nie musisz wprowadzać żadnych zmian w aplikacjach, aby korzystać z ochrony usuwania nietrwałego. 
 

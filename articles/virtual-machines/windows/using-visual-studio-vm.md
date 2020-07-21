@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: cathys
 keywords: visualstudio
-ms.openlocfilehash: ecec05da3904782199e68cfdca917a8c451edec6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f1da7dabfb562ea32697745460d92ed27089878c
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85105994"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86525538"
 ---
 # <a name="visual-studio-images-on-azure"></a>Obrazy programu Visual Studio na platformie Azure
 Korzystanie z programu Visual Studio we wstępnie skonfigurowanej maszynie wirtualnej platformy Azure jest szybkim i łatwym sposobem na przechodzenie od niczego do środowiska deweloperskiego. Obrazy systemu z różnymi konfiguracjami programu Visual Studio są dostępne w [portalu Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute?filters=virtual-machine-images%3Bmicrosoft%3Bwindows&page=1&subcategories=application-infrastructure).
@@ -23,7 +23,7 @@ Korzystanie z programu Visual Studio we wstępnie skonfigurowanej maszynie wirtu
 Dopiero zaczynasz korzystać z platformy Azure? [Utwórz bezpłatne konto platformy Azure](https://azure.microsoft.com/free).
 
 > [!NOTE]
-> Nie wszystkie subskrypcje mogą wdrażać obrazy systemu Windows 10. Aby uzyskać więcej informacji, zobacz [Korzystanie z klienta systemu Windows na platformie Azure na potrzeby scenariuszy tworzenia i testowania](https://docs.microsoft.com/azure/virtual-machines/windows/client-images)
+> Nie wszystkie subskrypcje mogą wdrażać obrazy systemu Windows 10. Aby uzyskać więcej informacji, zobacz [Korzystanie z klienta systemu Windows na platformie Azure na potrzeby scenariuszy tworzenia i testowania](./client-images.md)
 
 ## <a name="what-configurations-and-versions-are-available"></a>Jakie konfiguracje i wersje są dostępne?
 Obrazy dla najnowszych wersji głównych, Visual Studio 2019, Visual Studio 2017 i Visual Studio 2015 można znaleźć w witrynie Azure Marketplace.  Dla każdej wydanej wersji głównej zostanie wyświetlona oryginalna wersja "wydana do sieci Web" (RTW) i najnowsze zaktualizowane wersje.  Każda z tych wersji oferuje Visual Studio Enterprise i wersje społeczności programu Visual Studio.  Te obrazy są aktualizowane co najmniej co miesiąc w celu uwzględnienia najnowszych aktualizacji programu Visual Studio i systemu Windows.  Mimo że nazwy obrazów pozostają takie same, opis każdego obrazu obejmuje wersję zainstalowanego produktu i datę "od do obrazu".
@@ -77,9 +77,9 @@ Platforma Azure oferuje szeroką gamę rozmiarów maszyn wirtualnych. Ponieważ 
    * Standard_D2S_v2
    * Standardowa_D3_v2
     
-Aby uzyskać więcej informacji na temat najnowszych rozmiarów maszyn, zobacz [rozmiary maszyn wirtualnych z systemem Windows na platformie Azure](/azure/virtual-machines/windows/sizes).
+Aby uzyskać więcej informacji na temat najnowszych rozmiarów maszyn, zobacz [rozmiary maszyn wirtualnych z systemem Windows na platformie Azure](./sizes.md).
 
-Na platformie Azure możesz ponownie zrównoważyć początkowy wybór, zmieniając rozmiar maszyny wirtualnej. Można udostępnić nową maszynę wirtualną z bardziej odpowiednim rozmiarem lub zmienić rozmiar istniejącej maszyny wirtualnej na inny, podstawowy sprzęt. Aby uzyskać więcej informacji, zobacz [Zmienianie rozmiaru maszyny wirtualnej z systemem Windows](/azure/virtual-machines/windows/resize-vm).
+Na platformie Azure możesz ponownie zrównoważyć początkowy wybór, zmieniając rozmiar maszyny wirtualnej. Można udostępnić nową maszynę wirtualną z bardziej odpowiednim rozmiarem lub zmienić rozmiar istniejącej maszyny wirtualnej na inny, podstawowy sprzęt. Aby uzyskać więcej informacji, zobacz [Zmienianie rozmiaru maszyny wirtualnej z systemem Windows](./resize-vm.md).
 
 ## <a name="after-the-vm-is-running-whats-next"></a>Co dalej, gdy maszyna wirtualna jest uruchomiona?
 Program Visual Studio jest zgodny z modelem "Przenieś własną licencję" na platformie Azure. Podobnie jak w przypadku instalacji na sprzęcie zastrzeżonym, jeden z pierwszych kroków umożliwia Licencjonowanie instalacji programu Visual Studio. Aby odblokować program Visual Studio, należy:
@@ -96,7 +96,7 @@ Szybkie podsumowanie: Użyj narzędzia do przygotowywania systemu (Sysprep) i Za
 
 <img src="media/using-visual-studio-vm/capture-vm.png" alt="Capture an image through the Azure portal UI" style="border:3px solid Silver; display: block; margin: auto;"><center>*(Rysunek 1) Przechwyć obraz za pomocą interfejsu użytkownika Azure Portal.*</center>
 
-Aby uzyskać więcej informacji, zobacz [Tworzenie obrazu zarządzanego uogólnionej maszyny wirtualnej na platformie Azure](/azure/virtual-machines/windows/capture-image-resource).
+Aby uzyskać więcej informacji, zobacz [Tworzenie obrazu zarządzanego uogólnionej maszyny wirtualnej na platformie Azure](./capture-image-resource.md).
 
 > [!IMPORTANT]
 > Nie zapomnij użyć programu Sysprep, aby przygotować maszynę wirtualną. Jeśli ten krok zostanie pominięty, platforma Azure nie będzie mogła zainicjować obsługi administracyjnej maszyny wirtualnej na podstawie obrazu.

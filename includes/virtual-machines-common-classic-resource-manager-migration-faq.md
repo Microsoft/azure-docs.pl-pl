@@ -1,6 +1,6 @@
 ---
-title: dołączanie pliku
-description: dołączanie pliku
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: virtual-machines
 author: tanmaygore
 ms.service: virtual-machines
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/06/2020
 ms.author: tagore
 ms.custom: include file
-ms.openlocfilehash: fa97935c10b2a5df70c9babf031a889a9c1e9f34
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d05386f1dfbab28d5fe42d02b8e9be0f257afafd
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83837890"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86527216"
 ---
 ## <a name="what-is-the-time-required-for-migration"></a>Jaki jest czas wymagany do migracji?
 
@@ -29,7 +29,7 @@ Klient, który miał aktywną lub zatrzymaną maszynę wirtualną IaaS (klasyczn
 
 ## <a name="why-am-i-getting-an-error-stating-newclassicvmcreationnotallowedforsubscription"></a>Dlaczego otrzymuję komunikat o błędzie "NewClassicVMCreationNotAllowedForSubscription"?
 
-W ramach procesu wycofywania maszyny wirtualne IaaS (klasyczne) nie są już dostępne dla nowych klientów. Firma Microsoft zidentyfikowała Ciebie jako nowych klientów, dlatego nie jest autoryzowana operacja. Zdecydowanie zalecamy używanie [Virtual Machines platformy Azure przy użyciu usługi ARM](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-powershell). Jeśli nie możesz korzystać z maszyn wirtualnych platformy Azure przy użyciu usługi ARM, skontaktuj się z pomocą techniczną dla subskrypcji listy dozwolonych.
+W ramach procesu wycofywania maszyny wirtualne IaaS (klasyczne) nie są już dostępne dla nowych klientów. Firma Microsoft zidentyfikowała Ciebie jako nowych klientów, dlatego nie jest autoryzowana operacja. Zdecydowanie zalecamy używanie [Virtual Machines platformy Azure przy użyciu usługi ARM](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-powershell). Jeśli nie możesz korzystać z maszyn wirtualnych platformy Azure przy użyciu usługi ARM, skontaktuj się z pomocą techniczną, aby dodać subskrypcję do listy dozwolonych.
 
 ## <a name="does-this-migration-plan-affect-any-of-my-existing-services-or-applications-that-run-on-azure-virtual-machines"></a>Czy ten plan migracji wpływa na moje istniejące usługi lub aplikacje uruchomione na maszynach wirtualnych platformy Azure? 
 

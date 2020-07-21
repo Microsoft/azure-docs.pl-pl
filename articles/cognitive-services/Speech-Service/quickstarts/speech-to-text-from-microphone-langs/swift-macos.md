@@ -1,7 +1,7 @@
 ---
-title: 'Szybki Start: Rozpoznawanie mowy z mikrofonu, usługa SWIFT-mowę'
+title: 'Szybki Start: Rozpoznawanie mowy, usługa SWIFT-mowę (macOS)'
 titleSuffix: Azure Cognitive Services
-description: Dowiedz się, jak rozpoznać mowę w usłudze SWIFT w systemie macOS przy użyciu zestawu Speech SDK
+description: Dowiedz się, jak utworzyć aplikację do rozpoznawania mowy w języku SWIFT dla komputera macOS przy użyciu zestawu Speech SDK Cognitive Services.
 services: cognitive-services
 author: cbasoglu
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 06/25/2020
 ms.author: cbasoglu
-ms.openlocfilehash: 440addd017e7a819d9d3d02a8b77b9432b68b9af
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: 68947446d18ce1632b63ac3ba27311f648f3deea
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85391421"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86524118"
 ---
 # <a name="quickstart-recognize-speech-in-swift-on-macos-using-the-speech-sdk"></a>Szybki Start: Rozpoznawanie mowy w usłudze SWIFT w systemie macOS przy użyciu zestawu Speech SDK
 

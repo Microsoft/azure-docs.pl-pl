@@ -13,15 +13,16 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 09/18/2019
 ms.author: v-miegge
-ms.openlocfilehash: 176b0634fe2c7ee2f47162e439c4ea16bde77a8a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 53fd2332224d903c5a4b33563470cf3569f82b13
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75772622"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86526660"
 ---
 # <a name="troubleshoot-azure-virtual-machine-performance-on-linux-or-windows"></a>Rozwiązywanie problemów z wydajnością maszyny wirtualnej platformy Azure w systemie Linux lub Windows
 
-W tym artykule opisano ogólne Rozwiązywanie problemów z wydajnością maszyny wirtualnej za pośrednictwem monitorowania i poszanowania wąskich gardeł oraz możliwe Korygowanie problemów, które mogą wystąpić. Oprócz monitorowania można również użyć że program perfinsights, który może dostarczyć raport z zaleceniami dotyczącymi najlepszych rozwiązań i kluczowych wąskich gardeł wokół operacji we/wy/procesora/pamięci. Że program perfinsights jest dostępna dla maszyn wirtualnych z [systemami Windows](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfInsights) i [Linux](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfinsights-linux) na platformie Azure.
+W tym artykule opisano ogólne Rozwiązywanie problemów z wydajnością maszyny wirtualnej za pośrednictwem monitorowania i poszanowania wąskich gardeł oraz możliwe Korygowanie problemów, które mogą wystąpić. Oprócz monitorowania można również użyć że program perfinsights, który może dostarczyć raport z zaleceniami dotyczącymi najlepszych rozwiązań i kluczowych wąskich gardeł wokół operacji we/wy/procesora/pamięci. Że program perfinsights jest dostępna dla maszyn wirtualnych z [systemami Windows](./how-to-use-perfinsights.md) i [Linux](./how-to-use-perfinsights-linux.md) na platformie Azure.
 
 Ten artykuł przeprowadzi Cię przez proces monitorowania w celu zdiagnozowania wąskich gardeł wydajności.
 
@@ -29,7 +30,7 @@ Ten artykuł przeprowadzi Cię przez proces monitorowania w celu zdiagnozowania 
 
 ### <a name="azure-iaas-virtual-machine-monitoring"></a>Monitorowanie maszyn wirtualnych IAAS platformy Azure
 
-Aby monitorować maszynę wirtualną gościa, należy użyć monitorowania maszyn wirtualnych platformy Azure, które będzie powiadamiać o określonych warunkach zasobów wysokiego poziomu. Aby sprawdzić, czy włączono diagnostykę maszyny wirtualnej, zobacz [Omówienie dzienników zasobów platformy Azure](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-resource-logs). Jeśli zobaczysz następujące polecenie, najprawdopodobniej nie masz włączonej diagnostyki:
+Aby monitorować maszynę wirtualną gościa, należy użyć monitorowania maszyn wirtualnych platformy Azure, które będzie powiadamiać o określonych warunkach zasobów wysokiego poziomu. Aby sprawdzić, czy włączono diagnostykę maszyny wirtualnej, zobacz [Omówienie dzienników zasobów platformy Azure](../../azure-monitor/learn/tutorial-resource-logs.md). Jeśli zobaczysz następujące polecenie, najprawdopodobniej nie masz włączonej diagnostyki:
 
 ![Monitorowanie nie jest włączone](media/troubleshoot-performance-virtual-machine-linux-windows/1-virtual-machines-monitoring-not-enabled.png)
  
@@ -100,7 +101,7 @@ Aby określić, czy masz jakieś wąskie gardła zasobów, Przejrzyj dane. Jeśl
 
 ### <a name="cpu-observe-trends"></a>Trendy dotyczące procesora CPU
 
-Analizując problemy z wydajnością, weź pod uwagę trendy i zapoznaj się z nimi. W następnych sekcjach użyjemy wykresów monitorowania z portalu do wyświetlania trendów. Mogą być również przydatne w przypadku zachowań krzyżowego odwołujących się do różnic w tym samym okresie czasu. Aby dostosować wykresy, kliknij pozycję [Azure monitor Data Platform](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform).
+Analizując problemy z wydajnością, weź pod uwagę trendy i zapoznaj się z nimi. W następnych sekcjach użyjemy wykresów monitorowania z portalu do wyświetlania trendów. Mogą być również przydatne w przypadku zachowań krzyżowego odwołujących się do różnic w tym samym okresie czasu. Aby dostosować wykresy, kliknij pozycję [Azure monitor Data Platform](../../azure-monitor/platform/data-platform.md).
 
 Skok — skok może być powiązany z zaplanowanym zadaniem/znanym zdarzeniem. Jeśli możesz zidentyfikować zadanie, ustal, czy zadanie jest uruchamiane na wymaganym poziomie wydajności. W przypadku akceptowalnej wydajności może nie być konieczne zwiększenie ilości zasobów.
 
@@ -119,7 +120,7 @@ Jeśli aplikacja lub proces nie działa na poprawnym poziomie wydajności i widz
 
 Jeśli zwiększono maszynę wirtualną, a procesor CPU nadal działa 95%, ustal, czy to ustawienie zapewnia lepszą wydajność lub wyższą przepływność aplikacji do akceptowalnego poziomu. W przeciwnym razie Rozwiązywanie problemów z indywidualnym application\process.
 
-Możesz użyć że program perfinsights dla [systemu Windows](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfInsights) lub [Linux](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfinsights-linux) , aby przeanalizować, który proces zapewnia użycie procesora CPU. 
+Możesz użyć że program perfinsights dla [systemu Windows](./how-to-use-perfinsights.md) lub [Linux](./how-to-use-perfinsights-linux.md) , aby przeanalizować, który proces zapewnia użycie procesora CPU. 
 
 ## <a name="check-for-memory-bottleneck"></a>Sprawdzanie wąskiego gardła pamięci
 
@@ -150,13 +151,13 @@ Aby rozwiązać duże wykorzystanie pamięci, wykonaj dowolne z następujących 
 
 Jeśli po przeprowadzeniu uaktualnienia do większej maszyny wirtualnej okaże się, że nadal masz stały wzrost ciągły do 100%, zidentyfikuj aplikację/proces i rozwiązywanie problemów.
 
-Możesz użyć że program perfinsights dla [systemu Windows](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfInsights) lub [Linux](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfinsights-linux) , aby przeanalizować, który proces zwiększa zużycie pamięci. 
+Możesz użyć że program perfinsights dla [systemu Windows](./how-to-use-perfinsights.md) lub [Linux](./how-to-use-perfinsights-linux.md) , aby przeanalizować, który proces zwiększa zużycie pamięci. 
 
 ## <a name="check-for-disk-bottleneck"></a>Sprawdź, czy nie ma wąskiego gardła dysku
 
 Aby sprawdzić podsystem magazynowania dla maszyny wirtualnej, sprawdź diagnostykę na poziomie maszyny wirtualnej platformy Azure przy użyciu liczników w diagnostyce maszyny wirtualnej, a także diagnostyki konta magazynu.
 
-W przypadku rozwiązywania problemów związanych z maszyną wirtualną można użyć programu że program perfinsights dla [systemu Windows](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfInsights) lub [Linux](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfinsights-linux), który może pomóc w analizie, który proces prowadzi do operacji we/wy. 
+W przypadku rozwiązywania problemów związanych z maszyną wirtualną można użyć programu że program perfinsights dla [systemu Windows](./how-to-use-perfinsights.md) lub [Linux](./how-to-use-perfinsights-linux.md), który może pomóc w analizie, który proces prowadzi do operacji we/wy. 
 
 Należy pamiętać, że nie mamy liczników dla stref nadmiarowych i kont Premium Storage. W przypadku problemów związanych z tymi licznikami Zgłoś zgłoszenie do pomocy technicznej.
 
@@ -207,7 +208,7 @@ Aby ustalić, czy zbliżasz się do limitu liczby operacji we/wy, przejdź do di
 
 Dzięki nowym oferowanym dyskom w ramach magazynu w warstwie Standardowa przepustowość i limity przepływności mogą się różnić, ale łączny limit konta magazynu to 20000 IOPS (magazyn w warstwie Premium ma inne limity na poziomie konta lub dysku). Dowiedz się więcej o różnych ofertach dysków magazynu w warstwie Standardowa i limitach na dysku:
 
-* [Elementy docelowe skalowalności i wydajności dla dysków maszyn wirtualnych w systemie Windows](https://docs.microsoft.com/azure/virtual-machines/windows/disk-scalability-targets).
+* [Elementy docelowe skalowalności i wydajności dla dysków maszyn wirtualnych w systemie Windows](../windows/disk-scalability-targets.md).
 
 #### <a name="references"></a>Odwołania
 
@@ -223,19 +224,19 @@ Sprawdź limity przepływności wirtualnych dysków twardych dołączonych do ma
 
 Nowe oferty dysków w ramach magazynu w warstwie Standardowa mają różne liczby IOPS i limity przepływności (operacje we/wy nie są widoczne dla wirtualnego dysku twardego). Sprawdź dane, aby sprawdzić, czy są używane limity łącznej przepływności dysków VHD na poziomie maszyny wirtualnej przy użyciu odczytu i zapisu na dysku, a następnie Zoptymalizuj konfigurację magazynu maszyn wirtualnych w celu skalowania ostatnich limitów jednego dysku VHD. Dowiedz się więcej o różnych ofertach dysków magazynu w warstwie Standardowa i limitach na dysku:
 
-* [Elementy docelowe skalowalności i wydajności dla dysków maszyn wirtualnych w systemie Windows](https://docs.microsoft.com/azure/virtual-machines/windows/disk-scalability-targets).
+* [Elementy docelowe skalowalności i wydajności dla dysków maszyn wirtualnych w systemie Windows](../windows/disk-scalability-targets.md).
 
 ### <a name="high-disk-utilizationlatency-remediation"></a>Duże użycie dysku/korygowanie opóźnień
 
 Zmniejszenie opóźnienia klienta i zoptymalizowanie operacji we/wy maszyny wirtualnej w celu skalowania limitów ostatnich dysków VHD
 
-* [Optymalizacja operacji we/wy dla systemu Windows na platformie Azure](https://azure.microsoft.com/documentation/articles/virtual-machines-sql-server-performance-best-practices/)
+* [Optymalizacja operacji we/wy dla systemu Windows na platformie Azure](../../azure-sql/virtual-machines/windows/performance-guidelines-best-practices.md?toc=/azure/virtual-machines/windows/toc.json)
 
-* [Optymalizowanie operacji we/wy dla systemu Linux na platformie Azure](https://blogs.msdn.microsoft.com/igorpag/2014/10/23/azure-storage-secrets-and-linux-io-optimizations/)
+* [Optymalizowanie operacji we/wy dla systemu Linux na platformie Azure](/archive/blogs/igorpag/azure-storage-secrets-and-linux-io-optimizations)
 
 #### <a name="reduce-throttling"></a>Zmniejsz ograniczenie przepustowości
 
-W przypadku górnego limitu kont magazynu należy ponownie zrównoważyć wirtualne dyski twarde między kontami magazynu. Zapoznaj się z [celami skalowalności i wydajności usługi Azure Storage](https://azure.microsoft.com/documentation/articles/storage-scalability-targets/).
+W przypadku górnego limitu kont magazynu należy ponownie zrównoważyć wirtualne dyski twarde między kontami magazynu. Zapoznaj się z [celami skalowalności i wydajności usługi Azure Storage](../../storage/common/scalability-targets-standard-account.md).
 
 ### <a name="increase-throughput-and-reduce-latency"></a>Zwiększanie przepływności i zmniejszanie opóźnień
 
@@ -243,9 +244,9 @@ Jeśli masz poufną aplikację, która wymaga dużej przepływności, dokonaj mi
 
 W tych artykułach omówiono konkretne scenariusze:
 
-* [Migracja do usługi Azure Premium Storage](https://azure.microsoft.com/documentation/articles/storage-migration-to-premium-storage/)
+* [Migracja do usługi Azure Premium Storage](../windows/migrate-to-managed-disks.md)
 
-* [Korzystanie z usługi Azure Premium Storage z usługą SQL Server](https://azure.microsoft.com/documentation/articles/virtual-machines-sql-server-use-premium-storage/)
+* [Korzystanie z usługi Azure Premium Storage z usługą SQL Server](/previous-versions/azure/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-sql-server-premium-storage)
 
 ## <a name="next-steps"></a>Następne kroki
 

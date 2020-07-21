@@ -10,15 +10,16 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
-ms.openlocfilehash: 1cf6c7417aa86d47e59e08786e7807e32c175a25
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 08d32e4b7806ec53f48389b127ab34371271cf07
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81759578"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86527238"
 ---
 # <a name="configure-prerequisites"></a>Konfigurowanie wymagań wstępnych
 
-Przed rozpoczęciem korzystania z oferty portalu Marketplace w celu wdrożenia na platformie Azure klastra z OpenShift kontenerów 3,11 platformy Microsoft  Przeczytaj artykuł dotyczący [wymagań wstępnych OpenShift](https://docs.microsoft.com/azure/virtual-machines/linux/openshift-container-platform-3x-prerequisites) , aby uzyskać instrukcje dotyczące tworzenia klucza SSH (bez hasła), magazynu kluczy platformy Azure, wpisu tajnego magazynu kluczy i nazwy głównej usługi.
+Przed rozpoczęciem korzystania z oferty portalu Marketplace w celu wdrożenia na platformie Azure klastra z OpenShift kontenerów 3,11 platformy Microsoft  Przeczytaj artykuł dotyczący [wymagań wstępnych OpenShift](./openshift-container-platform-3x-prerequisites.md) , aby uzyskać instrukcje dotyczące tworzenia klucza SSH (bez hasła), magazynu kluczy platformy Azure, wpisu tajnego magazynu kluczy i nazwy głównej usługi.
 
  
 ## <a name="deploy-using-the-marketplace-offer"></a>Wdrażanie przy użyciu oferty Marketplace
@@ -52,7 +53,7 @@ Kliknij ofertę, aby wyświetlić szczegóły oferty. Aby wdrożyć tę ofertę,
    ![Strona tytułu oferty](media/openshift-marketplace-self-managed/ocp-titlepage.png)  
 <br>
 
-**Informacje podstawowe**
+**Podstawy**
 
 Aby uzyskać pomoc dotyczącą dowolnego z parametrów wejściowych, umieść kursor nad ***i*** obok nazwy parametru.
 

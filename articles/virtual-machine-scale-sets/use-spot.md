@@ -9,11 +9,12 @@ ms.subservice: spot
 ms.date: 03/25/2020
 ms.reviewer: jagaveer
 ms.custom: jagaveer
-ms.openlocfilehash: 756e0d62927b67d26ae75af90c64facfe9c92d31
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 70d7eb000ed2d50bc22bb005621ee7515e5a2a61
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84310567"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86527459"
 ---
 # <a name="azure-spot-vms-for-virtual-machine-scale-sets"></a>Maszyny wirtualne platformy Azure dla zestawów skalowania maszyn wirtualnych 
 
@@ -22,14 +23,14 @@ Korzystanie z usługi Azure spot w ramach zestawów skalowania pozwala korzysta�
 Ilość dostępnej pojemności może się różnić w zależności od rozmiaru, regionu, pory dnia i innych. Podczas wdrażania wystąpień obliczeniowych w zestawach skalowania platforma Azure przydzieli to wystąpienie tylko wtedy, gdy jest dostępna pojemność, ale dla tych wystąpień nie ma umowy SLA. Zestaw skalowania punktowego jest wdrażany w jednej domenie błędów i nie oferuje gwarancji wysokiej dostępności.
 
 
-## <a name="pricing"></a>Cennik
+## <a name="pricing"></a>Ceny
 
 Cennik wystąpień dodatkowych to zmienna, na podstawie regionu i jednostki SKU. Aby uzyskać więcej informacji, zobacz cennik dla systemów [Linux](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/linux/) i [Windows](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/windows/). 
 
 
 W przypadku zmiennych cenowych istnieje możliwość ustawienia maksymalnej ceny w dolarach amerykańskich (USD) przy użyciu maksymalnie 5 miejsc dziesiętnych. Na przykład wartość będzie `0.98765` Cena maksymalna $0,98765 USD za godzinę. Jeśli ustawisz maksymalną cenę `-1` , wystąpienie nie zostanie wykluczone w oparciu o cenę. Cena dla tego wystąpienia będzie aktualna cena za wystąpienie standardowe lub cena w przypadku wystąpienia standardowego, które kiedykolwiek jest mniejsze, o ile jest dostępna pojemność i przydział.
 
-## <a name="eviction-policy"></a>Zasady wykluczania
+## <a name="eviction-policy"></a>Zasady eksmisji
 
 Podczas tworzenia zestawów skalowania dodatkowego można ustawić zasady wykluczania na *Cofnij przydział* (domyślnie) lub *Usuń*. 
 
@@ -43,10 +44,10 @@ Użytkownicy mogą zrezygnować z otrzymywania powiadomień w ramach maszyny wir
 ## <a name="deploying-spot-vms-in-scale-sets"></a>Wdrażanie maszyn wirtualnych w zestawach skalowania
 
 *Aby wdrożyć*maszyny wirtualne do maszyn wirtualnych w zestawach skalowania, można ustawić flagę nowy *priorytet* . Wszystkie maszyny wirtualne w zestawie skalowania zostaną ustawione jako aktywne. Aby utworzyć zestaw skalowania z maszynami wirtualnymi, należy użyć jednej z następujących metod:
-- [Azure Portal](#portal)
+- [Witryna Azure Portal](#portal)
 - [Interfejs wiersza polecenia platformy Azure](#azure-cli)
 - [Azure PowerShell](#powershell)
-- [Szablony usługi Azure Resource Manager](#resource-manager-templates)
+- [Szablony Azure Resource Manager](#resource-manager-templates)
 
 ## <a name="portal"></a>Portal
 
@@ -100,7 +101,7 @@ W przypadku wdrożeń szablonów dodatkowych Użyj programu `"apiVersion": "2019
 
 Aby usunąć wystąpienie po jego wykluczenia, należy zmienić `evictionPolicy` parametr na `Delete` .
 
-## <a name="faq"></a>Często zadawane pytania
+## <a name="faq"></a>Najczęściej zadawane pytania
 
 **P:** Po utworzeniu, czy to wystąpienie jest takie samo jak standardowe wystąpienie?
 
@@ -114,12 +115,12 @@ Odp **.:** Zalecamy używanie standardowych maszyn wirtualnych zamiast maszyn wi
 
 **P:** Jak są zarządzane limity przydziału w miejscu?
 
-Odp **.:** Wystąpienia w miejscu i wystąpienia standardowe będą mieć oddzielne pule przydziałów. Przydział punktowy będzie współużytkowany między maszynami wirtualnymi i wystąpieniami zestawów skalowania. Aby uzyskać więcej informacji, zobacz [Azure subscription and service limits, quotas, and constraints (Limity, przydziały i ograniczenia usług i subskrypcji platformy Azure)](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits).
+Odp **.:** Wystąpienia w miejscu i wystąpienia standardowe będą mieć oddzielne pule przydziałów. Przydział punktowy będzie współużytkowany między maszynami wirtualnymi i wystąpieniami zestawów skalowania. Aby uzyskać więcej informacji, zobacz [Azure subscription and service limits, quotas, and constraints (Limity, przydziały i ograniczenia usług i subskrypcji platformy Azure)](../azure-resource-manager/management/azure-subscription-service-limits.md).
 
 
 **P:** Czy mogę zażądać dodatkowego przydziału na miejscu?
 
-Odp **.:** Tak, będzie można przesłać żądanie w celu zwiększenia limitu przydziału dla maszyn wirtualnych na miejscu za pośrednictwem [standardowego procesu żądania limitu przydziału](https://docs.microsoft.com/azure/azure-portal/supportability/per-vm-quota-requests).
+Odp **.:** Tak, będzie można przesłać żądanie w celu zwiększenia limitu przydziału dla maszyn wirtualnych na miejscu za pośrednictwem [standardowego procesu żądania limitu przydziału](../azure-portal/supportability/per-vm-quota-requests.md).
 
 
 **P:** Czy mogę przekonwertować istniejące zestawy skalowania na zestawy skalowania?
@@ -157,15 +158,15 @@ Odp **.:** Zapoznaj się z tabelą poniżej, aby uzyskać dostęp do dodatkowych
 |------------------------------|-----------------------------------|
 | Enterprise Agreement         | Tak                               |
 | Płatność zgodnie z rzeczywistym użyciem                | Tak                               |
-| Dostawca usług w chmurze (CSP) | [Skontaktuj się z partnerem](https://docs.microsoft.com/partner-center/azure-plan-get-started) |
-| Zalety                     | Niedostępne                     |
+| Dostawca usług w chmurze (CSP) | [Skontaktuj się z partnerem](/partner-center/azure-plan-get-started) |
+| Korzyści                     | Niedostępne                     |
 | Sponsorowan                    | Tak                               |
 | Bezpłatna wersja próbna                   | Niedostępne                     |
 
 
 **P:** Gdzie mogę publikować pytania?
 
-Odp **.:** Możesz ogłosić pytanie i oznaczyć je za pomocą `azure-spot` [elementu Q&a](https://docs.microsoft.com/answers/topics/azure-spot.html). 
+Odp **.:** Możesz ogłosić pytanie i oznaczyć je za pomocą `azure-spot` [elementu Q&a](/answers/topics/azure-spot.html). 
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -1,7 +1,7 @@
 ---
-title: 'Szybki Start: Rozpoznawanie mowy z mikrofonu, usługa "zamierz-C-Speech"'
+title: 'Szybki Start: Rozpoznawanie mowy, obiektyw-C-Speech Service (iOS)'
 titleSuffix: Azure Cognitive Services
-description: Dowiedz się, jak rozpoznawać mowę w celu języka C w systemie iOS przy użyciu zestawu Speech SDK
+description: Dowiedz się, jak utworzyć aplikację, aby rozpoznać mowę w języku C dla urządzenia z systemem iOS przy użyciu zestawu Speech SDK Cognitive Services.
 services: cognitive-services
 author: chlandsi
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 06/25/2020
 ms.author: chlandsi
-ms.openlocfilehash: c355071c4bbaff5ddb22b2db5fc4a3a0fdb561d4
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: ba12f258ce7b0db60d3e7343bf12ffc28e8548ab
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85391557"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86524288"
 ---
 # <a name="quickstart-recognize-speech-in-objective-c-on-ios-by-using-the-speech-sdk"></a>Szybki Start: Rozpoznawanie mowy w celu języka C w systemie iOS przy użyciu zestawu Speech SDK
 

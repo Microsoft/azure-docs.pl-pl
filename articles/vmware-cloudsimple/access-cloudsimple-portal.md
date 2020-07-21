@@ -8,11 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 91d3dd2eee6f771df23b72eae7a33122c42f1690
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fd2e5a4d057e1074c6cce0f374846bc9e0a64950
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81869331"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86525096"
 ---
 # <a name="access-the-vmware-solution-by-cloudsimple-portal-from-the-azure-portal"></a>Dostęp do rozwiązania VMware przez portal CloudSimple z poziomu Azure Portal
 
@@ -20,9 +21,9 @@ Logowanie jednokrotne jest obsługiwane w przypadku dostępu do portalu CloudSim
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 
-Użytkownicy z rolami wbudowanego **właściciela** i **współautor** mogą uzyskać dostęp do portalu CloudSimple.  Role należy skonfigurować w grupie zasobów, w której wdrożono usługę CloudSimple.  Role można także skonfigurować w obiekcie usługi CloudSimple.  Aby uzyskać więcej informacji na temat sprawdzania roli, zobacz artykuł [Wyświetlanie przypisań ról](https://docs.microsoft.com/azure/role-based-access-control/check-access) . Tylko użytkownicy z wbudowanymi rolami **właściciela** i **współautorów** mogą uzyskać dostęp do portalu CloudSimple.  Role muszą być skonfigurowane w ramach subskrypcji.  Aby uzyskać więcej informacji na temat sprawdzania roli, zobacz artykuł [Wyświetlanie przypisań ról](https://docs.microsoft.com/azure/role-based-access-control/check-access) .
+Użytkownicy z rolami wbudowanego **właściciela** i **współautor** mogą uzyskać dostęp do portalu CloudSimple.  Role należy skonfigurować w grupie zasobów, w której wdrożono usługę CloudSimple.  Role można także skonfigurować w obiekcie usługi CloudSimple.  Aby uzyskać więcej informacji na temat sprawdzania roli, zobacz artykuł [Wyświetlanie przypisań ról](../role-based-access-control/check-access.md) . Tylko użytkownicy z wbudowanymi rolami **właściciela** i **współautorów** mogą uzyskać dostęp do portalu CloudSimple.  Role muszą być skonfigurowane w ramach subskrypcji.  Aby uzyskać więcej informacji na temat sprawdzania roli, zobacz artykuł [Wyświetlanie przypisań ról](../role-based-access-control/check-access.md) .
 
-Jeśli używasz ról niestandardowych, rola powinna mieć dowolną z następujących operacji w ```Actions``` .  Aby uzyskać więcej informacji na temat ról niestandardowych, zobacz [role niestandardowe dla zasobów platformy Azure](https://docs.microsoft.com/azure/role-based-access-control/custom-roles).  Jeśli którakolwiek z operacji jest częścią ```NotActions``` , użytkownik nie może uzyskać dostępu do portalu CloudSimple.
+Jeśli używasz ról niestandardowych, rola powinna mieć dowolną z następujących operacji w ```Actions``` .  Aby uzyskać więcej informacji na temat ról niestandardowych, zobacz [role niestandardowe dla zasobów platformy Azure](../role-based-access-control/custom-roles.md).  Jeśli którakolwiek z operacji jest częścią ```NotActions``` , użytkownik nie może uzyskać dostępu do portalu CloudSimple.
 
 ```
 Microsoft.VMwareCloudSimple/*
@@ -70,5 +71,5 @@ Jeśli Twoje uprawnienia nie zezwalają na dostęp do portalu CloudSimple, skont
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Dowiedz się, jak [utworzyć chmurę prywatną](https://docs.microsoft.com/azure/vmware-cloudsimple/create-private-cloud/)
+* Dowiedz się, jak [utworzyć chmurę prywatną](./create-private-cloud.md)
 * Dowiedz się, jak [skonfigurować środowisko chmury prywatnej](quickstart-create-private-cloud.md)

@@ -14,11 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.date: 10/09/2019
 ms.author: v-six
-ms.openlocfilehash: 455cb1e0067217be6edcf665e8c07e8fcd684ab5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e26d4070bc9fabeb3467e7bdc805faad4e6646c3
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76842405"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86526507"
 ---
 # <a name="troubleshoot-linux-vm-starting-issues-due-to-file-system-errors"></a>Rozwiązywanie problemów z uruchamianiem maszyn wirtualnych z systemem Linux z powodu błędów systemu plików
 
@@ -74,7 +75,7 @@ System Linux ma kilka dostępnych sprawdzań systemu plików. Najczęstsze dla d
 
 ## <a name="resolution"></a>Rozwiązanie
 
-Aby rozwiązać ten problem, wykonaj rozruch maszyny wirtualnej w trybie awaryjnym przy użyciu [konsoli szeregowej](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-linux) i napraw system plików za pomocą tego narzędzia. Jeśli konsola szeregowa nie jest włączona na maszynie wirtualnej lub nie działa, zapoznaj się z sekcją [napraw maszynę wirtualną](#repair-the-vm-offline) w tym artykule.
+Aby rozwiązać ten problem, wykonaj rozruch maszyny wirtualnej w trybie awaryjnym przy użyciu [konsoli szeregowej](./serial-console-linux.md) i napraw system plików za pomocą tego narzędzia. Jeśli konsola szeregowa nie jest włączona na maszynie wirtualnej lub nie działa, zapoznaj się z sekcją [napraw maszynę wirtualną](#repair-the-vm-offline) w tym artykule.
 
 ## <a name="use-the-serial-console"></a>Korzystanie z konsoli szeregowej
 
@@ -82,8 +83,8 @@ Aby rozwiązać ten problem, wykonaj rozruch maszyny wirtualnej w trybie awaryjn
 
    > [!Note]
    > Aby uzyskać więcej informacji o korzystaniu z konsoli szeregowej dla systemu Linux, zobacz:
-   > * [Używanie konsoli szeregowej do uzyskiwania dostępu do GRUB i trybu jednego użytkownika](https://docs.microsoft.com/azure/virtual-machines/linux/serial-console-grub-single-user-mode)
-   > * [Korzystanie z konsoli szeregowej dla wywołań SysRq i NMI](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-nmi-sysrq)
+   > * [Używanie konsoli szeregowej do uzyskiwania dostępu do GRUB i trybu jednego użytkownika](../linux/serial-console-grub-single-user-mode.md)
+   > * [Korzystanie z konsoli szeregowej dla wywołań SysRq i NMI](./serial-console-nmi-sysrq.md)
 
 2. Wybierz przycisk ikona potęgi, a następnie wybierz pozycję Uruchom ponownie maszynę wirtualną. (Jeśli konsola szeregowa nie jest włączona lub nie jest prawidłowo połączona, nie zobaczysz przycisku).
 
@@ -133,7 +134,7 @@ Aby rozwiązać ten problem, wykonaj rozruch maszyny wirtualnej w trybie awaryjn
 
 ## <a name="repair-the-vm-offline"></a>Naprawianie maszyny wirtualnej w trybie offline
 
-1. Dołącz dysk systemowy maszyny wirtualnej jako dysk danych do maszyny wirtualnej odzyskiwania (dowolna działająca maszyna wirtualna z systemem Linux). W tym celu można użyć [poleceń interfejsu wiersza polecenia](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-recovery-disks-linux) lub można zautomatyzować Konfigurowanie maszyny wirtualnej odzyskiwania przy użyciu [poleceń naprawy maszyny wirtualnej](repair-linux-vm-using-azure-virtual-machine-repair-commands.md).
+1. Dołącz dysk systemowy maszyny wirtualnej jako dysk danych do maszyny wirtualnej odzyskiwania (dowolna działająca maszyna wirtualna z systemem Linux). W tym celu można użyć [poleceń interfejsu wiersza polecenia](./troubleshoot-recovery-disks-linux.md) lub można zautomatyzować Konfigurowanie maszyny wirtualnej odzyskiwania przy użyciu [poleceń naprawy maszyny wirtualnej](repair-linux-vm-using-azure-virtual-machine-repair-commands.md).
 
 2. Znajdź etykietę stacji dysku systemowego, który został podłączony. W takim przypadku Załóżmy, że etykieta dołączonego dysku systemowego to/dev/sdc1. Zastąp go odpowiednią wartością dla maszyny wirtualnej.
 
@@ -177,6 +178,5 @@ Aby rozwiązać ten problem, wykonaj rozruch maszyny wirtualnej w trybie awaryjn
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Rozwiązywanie problemów z maszyną wirtualną z systemem Linux przez dołączenie dysku systemu operacyjnego do maszyny wirtualnej odzyskiwania przy użyciu interfejsu wiersza 2,0 polecenia platformy Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-troubleshoot-recovery-disks)
-* [Dołączanie dysku danych do maszyny wirtualnej z systemem Linux przy użyciu portalu](https://docs.microsoft.com/azure/virtual-machines/linux/attach-disk-portal)
-
+* [Rozwiązywanie problemów z maszyną wirtualną z systemem Linux przez dołączenie dysku systemu operacyjnego do maszyny wirtualnej odzyskiwania przy użyciu interfejsu wiersza 2,0 polecenia platformy Azure](./troubleshoot-recovery-disks-linux.md)
+* [Dołączanie dysku danych do maszyny wirtualnej z systemem Linux przy użyciu portalu](../linux/attach-disk-portal.md)

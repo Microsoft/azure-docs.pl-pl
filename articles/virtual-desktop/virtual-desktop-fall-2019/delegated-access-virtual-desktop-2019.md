@@ -1,5 +1,5 @@
 ---
-title: Delegowany dostęp w programie Virtual Desktop systemu Windows — Azure
+title: Delegowany dostęp w pulpicie wirtualnym systemu Windows 2019 — Azure
 description: Jak delegować możliwości administracyjne w ramach wdrożenia pulpitu wirtualnego systemu Windows, łącznie z przykładami.
 services: virtual-desktop
 author: Heidilohr
@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 899e42e3b592ce1bc92d7d47578e10355b1c6de7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 91be20de49f549f3530e6c817906f1abf8f106b6
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82614436"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86527561"
 ---
-# <a name="delegated-access-in-windows-virtual-desktop"></a>Dostęp delegowany w usłudze Windows Virtual Desktop
+# <a name="delegated-access-in-windows-virtual-desktop-fall-2019"></a>Delegowany dostęp w klasycznym pulpicie systemu Windows pokrywa 2019
 
 >[!IMPORTANT]
 >Ta zawartość dotyczy wersji 2019, która nie Azure Resource Manager obsługuje obiektów pulpitu wirtualnego systemu Windows. Jeśli próbujesz zarządzać Azure Resource Manager obiektami pulpitu wirtualnego systemu Windows wprowadzonymi w ramach aktualizacji wiosną 2020, zobacz [ten artykuł](../delegated-access-virtual-desktop.md).
@@ -26,7 +26,7 @@ Dostęp delegowany pulpitu wirtualnego systemu Windows obsługuje następujące 
 
 * Podmiot zabezpieczeń
     * Użytkownicy
-    * Jednostki usługi
+    * Jednostki usług
 * Definicja roli
     * Wbudowane role
 * Zakres

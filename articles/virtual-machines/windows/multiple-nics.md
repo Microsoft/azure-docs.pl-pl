@@ -7,11 +7,12 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 09/26/2017
 ms.author: cynthn
-ms.openlocfilehash: 6651ae21694022be86d8db08737c609aed3df569
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2667ff571070b2e62dcfa4af6e202f1851aa3e80
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81870275"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86525776"
 ---
 # <a name="create-and-manage-a-windows-virtual-machine-that-has-multiple-nics"></a>Tworzenie maszyny wirtualnej z systemem Windows i zarządzanie nią z wieloma kartami sieciowymi
 Maszyny wirtualne na platformie Azure mogą mieć dołączone do nich wiele kart interfejsów sieci wirtualnej (nic). Typowym scenariuszem jest posiadanie różnych podsieci na potrzeby łączności frontonu i zaplecza. Można skojarzyć wiele kart sieciowych na maszynie wirtualnej z wieloma podsieciami, ale te podsieci muszą znajdować się w tej samej sieci wirtualnej (vNet). W tym artykule szczegółowo opisano sposób tworzenia maszyny wirtualnej, do której dołączono wiele kart sieciowych. Dowiesz się również, jak dodawać i usuwać karty sieciowe z istniejącej maszyny wirtualnej. Różne [rozmiary maszyn wirtualnych](sizes.md) obsługują różną liczbę kart sieciowych, dlatego należy odpowiednio zmienić rozmiar maszyny wirtualnej.
@@ -32,7 +33,7 @@ New-AzResourceGroup -Name "myResourceGroup" -Location "EastUS"
 ### <a name="create-virtual-network-and-subnets"></a>Tworzenie sieci wirtualnej i podsieci
 Typowy scenariusz polega na tym, że sieć wirtualna ma dwie lub więcej podsieci. Jedna podsieć może być dla ruchu frontonu, drugiego dla ruchu zaplecza. Aby nawiązać połączenie z obiema podsieciami, Użyj wielu kart sieciowych na maszynie wirtualnej.
 
-1. Zdefiniuj dwie podsieci sieci wirtualnej za pomocą [New-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworksubnetconfig). W poniższym przykładzie zdefiniowano podsieci dla *mySubnetFrontEnd* i *mySubnetBackEnd*:
+1. Zdefiniuj dwie podsieci sieci wirtualnej za pomocą [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig). W poniższym przykładzie zdefiniowano podsieci dla *mySubnetFrontEnd* i *mySubnetBackEnd*:
 
     ```powershell
     $mySubnetFrontEnd = New-AzVirtualNetworkSubnetConfig -Name "mySubnetFrontEnd" `
@@ -41,7 +42,7 @@ Typowy scenariusz polega na tym, że sieć wirtualna ma dwie lub więcej podsiec
         -AddressPrefix "192.168.2.0/24"
     ```
 
-2. Utwórz sieć wirtualną i podsieci przy użyciu [nowego AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetwork). Poniższy przykład tworzy sieć wirtualną o nazwie *myVnet*:
+2. Utwórz sieć wirtualną i podsieci przy użyciu [nowego AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork). Poniższy przykład tworzy sieć wirtualną o nazwie *myVnet*:
 
     ```powershell
     $myVnet = New-AzVirtualNetwork -ResourceGroupName "myResourceGroup" `
@@ -53,7 +54,7 @@ Typowy scenariusz polega na tym, że sieć wirtualna ma dwie lub więcej podsiec
 
 
 ### <a name="create-multiple-nics"></a>Tworzenie wielu kart sieciowych
-Utwórz dwie karty sieciowe za pomocą [New-AzNetworkInterface](https://docs.microsoft.com/powershell/module/az.network/new-aznetworkinterface). Dołącz jedną kartę sieciową do podsieci frontonu i jedną kartę sieciową do podsieci zaplecza. Poniższy przykład tworzy karty sieciowe o nazwach *myNic1* i *myNic2*:
+Utwórz dwie karty sieciowe za pomocą [New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface). Dołącz jedną kartę sieciową do podsieci frontonu i jedną kartę sieciową do podsieci zaplecza. Poniższy przykład tworzy karty sieciowe o nazwach *myNic1* i *myNic2*:
 
 ```powershell
 $frontEnd = $myVnet.Subnets|?{$_.Name -eq 'mySubnetFrontEnd'}
@@ -80,13 +81,13 @@ Teraz zacznij tworzyć konfigurację maszyny wirtualnej. Każdy rozmiar maszyny 
     $cred = Get-Credential
     ```
 
-2. Zdefiniuj swoją maszynę wirtualną za pomocą [New-AzVMConfig](https://docs.microsoft.com/powershell/module/az.compute/new-azvmconfig). Poniższy przykład definiuje maszynę wirtualną o nazwie *myVM* i używa rozmiaru maszyny wirtualnej, który obsługuje więcej niż dwie karty sieciowe (*Standard_DS3_v2*):
+2. Zdefiniuj swoją maszynę wirtualną za pomocą [New-AzVMConfig](/powershell/module/az.compute/new-azvmconfig). Poniższy przykład definiuje maszynę wirtualną o nazwie *myVM* i używa rozmiaru maszyny wirtualnej, który obsługuje więcej niż dwie karty sieciowe (*Standard_DS3_v2*):
 
     ```powershell
     $vmConfig = New-AzVMConfig -VMName "myVM" -VMSize "Standard_DS3_v2"
     ```
 
-3. Utwórz resztę konfiguracji maszyny wirtualnej za pomocą [opcji Set-AzVMOperatingSystem](https://docs.microsoft.com/powershell/module/az.compute/set-azvmoperatingsystem) i [Set-AzVMSourceImage](https://docs.microsoft.com/powershell/module/az.compute/set-azvmsourceimage). Poniższy przykład tworzy maszynę wirtualną z systemem Windows Server 2016:
+3. Utwórz resztę konfiguracji maszyny wirtualnej za pomocą [opcji Set-AzVMOperatingSystem](/powershell/module/az.compute/set-azvmoperatingsystem) i [Set-AzVMSourceImage](/powershell/module/az.compute/set-azvmsourceimage). Poniższy przykład tworzy maszynę wirtualną z systemem Windows Server 2016:
 
     ```powershell
     $vmConfig = Set-AzVMOperatingSystem -VM $vmConfig `
@@ -102,14 +103,14 @@ Teraz zacznij tworzyć konfigurację maszyny wirtualnej. Każdy rozmiar maszyny 
         -Version "latest"
    ```
 
-4. Dołącz dwie utworzone wcześniej karty sieciowe z [dodatkiem Add-AzVMNetworkInterface](https://docs.microsoft.com/powershell/module/az.compute/add-azvmnetworkinterface):
+4. Dołącz dwie utworzone wcześniej karty sieciowe z [dodatkiem Add-AzVMNetworkInterface](/powershell/module/az.compute/add-azvmnetworkinterface):
 
     ```powershell
     $vmConfig = Add-AzVMNetworkInterface -VM $vmConfig -Id $myNic1.Id -Primary
     $vmConfig = Add-AzVMNetworkInterface -VM $vmConfig -Id $myNic2.Id
     ```
 
-5. Utwórz maszynę wirtualną przy użyciu [nowego AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm):
+5. Utwórz maszynę wirtualną przy użyciu [nowego AzVM](/powershell/module/az.compute/new-azvm):
 
     ```powershell
     New-AzVM -VM $vmConfig -ResourceGroupName "myResourceGroup" -Location "EastUs"
@@ -120,19 +121,19 @@ Teraz zacznij tworzyć konfigurację maszyny wirtualnej. Każdy rozmiar maszyny 
 ## <a name="add-a-nic-to-an-existing-vm"></a>Dodawanie karty sieciowej do istniejącej maszyny wirtualnej
 Aby dodać wirtualną kartę sieciową do istniejącej maszyny wirtualnej, Cofnij przydział maszyny wirtualnej, Dodaj wirtualną kartę sieciową, a następnie uruchom maszynę wirtualną. Różne [rozmiary maszyn wirtualnych](sizes.md) obsługują różną liczbę kart sieciowych, dlatego należy odpowiednio zmienić rozmiar maszyny wirtualnej. W razie konieczności można [zmienić rozmiar maszyny wirtualnej](resize-vm.md).
 
-1. Cofnij przydział maszyny wirtualnej za pomocą [stop-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm). Poniższy przykład powoduje cofnięcie przydziału maszyny wirtualnej o nazwie *myVM* w liście *zasobów*:
+1. Cofnij przydział maszyny wirtualnej za pomocą [stop-AzVM](/powershell/module/az.compute/stop-azvm). Poniższy przykład powoduje cofnięcie przydziału maszyny wirtualnej o nazwie *myVM* w liście *zasobów*:
 
     ```powershell
     Stop-AzVM -Name "myVM" -ResourceGroupName "myResourceGroup"
     ```
 
-2. Pobierz istniejącą konfigurację maszyny wirtualnej za pomocą elementu [Get-AzVm](https://docs.microsoft.com/powershell/module/az.compute/get-azvm). Poniższy przykład pobiera informacje dotyczące maszyny wirtualnej o nazwie *myVM* w liście *zasobów*:
+2. Pobierz istniejącą konfigurację maszyny wirtualnej za pomocą elementu [Get-AzVm](/powershell/module/az.compute/get-azvm). Poniższy przykład pobiera informacje dotyczące maszyny wirtualnej o nazwie *myVM* w liście *zasobów*:
 
     ```powershell
     $vm = Get-AzVm -Name "myVM" -ResourceGroupName "myResourceGroup"
     ```
 
-3. Poniższy przykład tworzy wirtualną kartę sieciową z [nowym-AzNetworkInterface](https://docs.microsoft.com/powershell/module/az.network/new-aznetworkinterface) o nazwie *myNic3* , która jest dołączona do *mySubnetBackEnd*. Wirtualna karta sieciowa jest następnie dołączona do maszyny wirtualnej o nazwie *myVM* w usłudze *resourceName* z [dodatkiem Add-AzVMNetworkInterface](https://docs.microsoft.com/powershell/module/az.compute/add-azvmnetworkinterface):
+3. Poniższy przykład tworzy wirtualną kartę sieciową z [nowym-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface) o nazwie *myNic3* , która jest dołączona do *mySubnetBackEnd*. Wirtualna karta sieciowa jest następnie dołączona do maszyny wirtualnej o nazwie *myVM* w usłudze *resourceName* z [dodatkiem Add-AzVMNetworkInterface](/powershell/module/az.compute/add-azvmnetworkinterface):
 
     ```powershell
     # Get info for the back end subnet
@@ -165,7 +166,7 @@ Aby dodać wirtualną kartę sieciową do istniejącej maszyny wirtualnej, Cofni
     Update-AzVM -VM $vm -ResourceGroupName "myResourceGroup"
     ```
 
-4. Uruchom maszynę wirtualną przy użyciu [menu Start-AzVm](https://docs.microsoft.com/powershell/module/az.compute/start-azvm):
+4. Uruchom maszynę wirtualną przy użyciu [menu Start-AzVm](/powershell/module/az.compute/start-azvm):
 
     ```powershell
     Start-AzVM -ResourceGroupName "myResourceGroup" -Name "myVM"
@@ -176,19 +177,19 @@ Aby dodać wirtualną kartę sieciową do istniejącej maszyny wirtualnej, Cofni
 ## <a name="remove-a-nic-from-an-existing-vm"></a>Usuwanie karty sieciowej z istniejącej maszyny wirtualnej
 Aby usunąć wirtualną kartę sieciową z istniejącej maszyny wirtualnej, Cofnij przydział maszyny wirtualnej, Usuń wirtualną kartę sieciową, a następnie uruchom maszynę wirtualną.
 
-1. Cofnij przydział maszyny wirtualnej za pomocą [stop-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm). Poniższy przykład powoduje cofnięcie przydziału maszyny wirtualnej o nazwie *myVM* w liście *zasobów*:
+1. Cofnij przydział maszyny wirtualnej za pomocą [stop-AzVM](/powershell/module/az.compute/stop-azvm). Poniższy przykład powoduje cofnięcie przydziału maszyny wirtualnej o nazwie *myVM* w liście *zasobów*:
 
     ```powershell
     Stop-AzVM -Name "myVM" -ResourceGroupName "myResourceGroup"
     ```
 
-2. Pobierz istniejącą konfigurację maszyny wirtualnej za pomocą elementu [Get-AzVm](https://docs.microsoft.com/powershell/module/az.compute/get-azvm). Poniższy przykład pobiera informacje dotyczące maszyny wirtualnej o nazwie *myVM* w liście *zasobów*:
+2. Pobierz istniejącą konfigurację maszyny wirtualnej za pomocą elementu [Get-AzVm](/powershell/module/az.compute/get-azvm). Poniższy przykład pobiera informacje dotyczące maszyny wirtualnej o nazwie *myVM* w liście *zasobów*:
 
     ```powershell
     $vm = Get-AzVm -Name "myVM" -ResourceGroupName "myResourceGroup"
     ```
 
-3. Uzyskaj informacje dotyczące usuwania karty sieciowej za pomocą [Get-AzNetworkInterface](https://docs.microsoft.com/powershell/module/az.network/get-aznetworkinterface). Poniższy przykład pobiera informacje o *myNic3*:
+3. Uzyskaj informacje dotyczące usuwania karty sieciowej za pomocą [Get-AzNetworkInterface](/powershell/module/az.network/get-aznetworkinterface). Poniższy przykład pobiera informacje o *myNic3*:
 
     ```powershell
     # List existing NICs on the VM if you need to determine NIC name
@@ -197,14 +198,14 @@ Aby usunąć wirtualną kartę sieciową z istniejącej maszyny wirtualnej, Cofn
     $nicId = (Get-AzNetworkInterface -ResourceGroupName "myResourceGroup" -Name "myNic3").Id   
     ```
 
-4. Usuń kartę sieciową za pomocą polecenie [Remove-AzVMNetworkInterface](https://docs.microsoft.com/powershell/module/az.compute/remove-azvmnetworkinterface) , a następnie zaktualizuj maszynę wirtualną za pomocą polecenie [Update-AzVm](https://docs.microsoft.com/powershell/module/az.compute/update-azvm). Poniższy przykład usuwa *myNic3* jako uzyskany `$nicId` w poprzednim kroku:
+4. Usuń kartę sieciową za pomocą polecenie [Remove-AzVMNetworkInterface](/powershell/module/az.compute/remove-azvmnetworkinterface) , a następnie zaktualizuj maszynę wirtualną za pomocą polecenie [Update-AzVm](/powershell/module/az.compute/update-azvm). Poniższy przykład usuwa *myNic3* jako uzyskany `$nicId` w poprzednim kroku:
 
     ```powershell
     Remove-AzVMNetworkInterface -VM $vm -NetworkInterfaceIDs $nicId | `
         Update-AzVm -ResourceGroupName "myResourceGroup"
     ```   
 
-5. Uruchom maszynę wirtualną przy użyciu [menu Start-AzVm](https://docs.microsoft.com/powershell/module/az.compute/start-azvm):
+5. Uruchom maszynę wirtualną przy użyciu [menu Start-AzVm](/powershell/module/az.compute/start-azvm):
 
     ```powershell
     Start-AzVM -Name "myVM" -ResourceGroupName "myResourceGroup"
@@ -220,7 +221,7 @@ Szablony Azure Resource Manager umożliwiają tworzenie wielu wystąpień zasobu
 }
 ```
 
-Aby uzyskać więcej informacji, zobacz [Tworzenie wielu wystąpień przy *użyciu kopii*](../../resource-group-create-multiple.md). 
+Aby uzyskać więcej informacji, zobacz [Tworzenie wielu wystąpień przy *użyciu kopii*](../../azure-resource-manager/templates/copy-resources.md). 
 
 Można również użyć `copyIndex()` do dołączenia numeru do nazwy zasobu. Następnie można utworzyć *myNic1*, *MyNic2* i tak dalej. Poniższy kod przedstawia przykład dołączania wartości indeksu:
 
@@ -288,5 +289,3 @@ Platforma Azure przypisuje bramę domyślną do pierwszego (podstawowego) interf
 
 ## <a name="next-steps"></a>Następne kroki
 Sprawdź [rozmiary maszyn wirtualnych z systemem Windows](sizes.md) , gdy próbujesz utworzyć maszynę wirtualną z wieloma kartami sieciowymi. Zwróć uwagę na maksymalną liczbę kart sieciowych obsługiwanych przez poszczególne rozmiary maszyn wirtualnych. 
-
-

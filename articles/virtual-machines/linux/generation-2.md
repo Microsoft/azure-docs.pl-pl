@@ -7,11 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 02/11/2020
 ms.author: jushiman
-ms.openlocfilehash: 3336869a5f91613849cdccb67f9d804205148608
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e84d4d147490cd3b9d136f25a3707f5a74999f3f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83652513"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86527340"
 ---
 # <a name="support-for-generation-2-vms-on-azure"></a>Obsługa maszyn wirtualnych 2. generacji na platformie Azure
 
@@ -19,28 +20,28 @@ Obsługa maszyn wirtualnych 2. generacji jest teraz dostępna na platformie Azur
 
 Maszyny wirtualne generacji 2 obsługują kluczowe funkcje, które nie są obsługiwane przez maszyny wirtualne generacji 1. Te funkcje obejmują zwiększoną ilość pamięci, rozszerzenia funkcji ochrony oprogramowania firmy Intel (Intel SGX) i zwirtualizowaną pamięć trwałą (vPMEM). Maszyny wirtualne 2. generacji działające lokalnie mają pewne funkcje, które nie są jeszcze obsługiwane na platformie Azure. Aby uzyskać więcej informacji, zobacz sekcję [funkcje i możliwości](#features-and-capabilities) .
 
-Maszyny wirtualne generacji 2 wykorzystują nową architekturę rozruchową opartą na interfejsie UEFI zamiast architektury opartej na systemie BIOS używanej przez maszyny wirtualne generacji 1. W porównaniu z maszynami wirtualnymi generacji 1 maszyny wirtualne generacji 2 mogą mieć ulepszony czas rozruchu i instalacji. Aby zapoznać się z omówieniem maszyn wirtualnych 2. generacji i niektórych różnic między generacjami 1 i 2, zobacz temat [Tworzenie maszyny wirtualnej generacji 1 lub 2 w funkcji Hyper-V?](https://docs.microsoft.com/windows-server/virtualization/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).
+Maszyny wirtualne generacji 2 wykorzystują nową architekturę rozruchową opartą na interfejsie UEFI zamiast architektury opartej na systemie BIOS używanej przez maszyny wirtualne generacji 1. W porównaniu z maszynami wirtualnymi generacji 1 maszyny wirtualne generacji 2 mogą mieć ulepszony czas rozruchu i instalacji. Aby zapoznać się z omówieniem maszyn wirtualnych 2. generacji i niektórych różnic między generacjami 1 i 2, zobacz temat [Tworzenie maszyny wirtualnej generacji 1 lub 2 w funkcji Hyper-V?](/windows-server/virtualization/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).
 
 ## <a name="generation-2-vm-sizes"></a>Rozmiary maszyn wirtualnych generacji 2
 
 Maszyny wirtualne generacji 1 są obsługiwane przez wszystkie rozmiary maszyn wirtualnych na platformie Azure (z wyjątkiem maszyn wirtualnych z serii Mv2). Platforma Azure oferuje teraz obsługę generacji 2 dla następującej wybranej serii maszyn wirtualnych:
 
-* [Seria B](https://docs.microsoft.com/azure/virtual-machines/linux/b-series-burstable)
+* [Seria B](../sizes-b-series-burstable.md)
 * [Seria DCsv2](../dcv2-series.md)
 * Seria [DSv2](../dv2-dsv2-series.md) i [Dsv3](../dv3-dsv3-series.md)
 * [Seria Esv3](../ev3-esv3-series.md)
 * [Seria Fsv2](../fsv2-series.md)
-* [Seria GS](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-previous-gen#gs-series)
+* [Seria GS](../sizes-previous-gen.md#gs-series)
 * [Seria HB](../hb-series.md)
 * [Seria HC](../hc-series.md)
-* Seria [ls](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-previous-gen#ls-series) i seria [Lsv2](../lsv2-series.md)
+* Seria [ls](../sizes-previous-gen.md#ls-series) i seria [Lsv2](../lsv2-series.md)
 * [Seria M](../m-series.md)
 * [Mv2 — seria](../mv2-series.md)<sup>1</sup>
 * Seria [NCv2](../ncv2-series.md) i [Seria NCV3](../ncv3-series.md)
 * [Seria ND](../nd-series.md)
 * [Seria NVv3](../nvv3-series.md)
 
-<sup>1</sup> Mv2 — seria nie obsługuje obrazów maszyn wirtualnych generacji 1 i obsługuje tylko podzestaw obrazów generacji 2. Szczegóły można znaleźć w [dokumentacji Mv2](https://docs.microsoft.com/azure/virtual-machines/mv2-series) .
+<sup>1</sup> Mv2 — seria nie obsługuje obrazów maszyn wirtualnych generacji 1 i obsługuje tylko podzestaw obrazów generacji 2. Szczegóły można znaleźć w [dokumentacji Mv2](../mv2-series.md) .
 
 ## <a name="generation-2-vm-images-in-azure-marketplace"></a>Obrazy maszyn wirtualnych generacji 2 w witrynie Azure Marketplace
 
@@ -71,7 +72,7 @@ Platforma Azure nie obsługuje obecnie niektórych funkcji, które są obsługiw
 
 ### <a name="generation-1-vs-generation-2-features"></a>Funkcje generacji 1 a generacja 2
 
-| Cecha | Pierwsza generacja | Druga generacja |
+| Cechy | Pierwsza generacja | Druga generacja |
 |---------|--------------|--------------|
 | Rozruch             | PCAT         | UEFI |
 | Kontrolery dysków | IDE          | SCSI |
@@ -203,4 +204,4 @@ Można również tworzyć maszyny wirtualne 2. generacji przy użyciu zestawów 
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Dowiedz się więcej o [maszynach wirtualnych 2. generacji w funkcji Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).
+* Dowiedz się więcej o [maszynach wirtualnych 2. generacji w funkcji Hyper-V](/windows-server/virtualization/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).

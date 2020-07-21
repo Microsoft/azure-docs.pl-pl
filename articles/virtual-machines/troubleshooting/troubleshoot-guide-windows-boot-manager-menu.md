@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: troubleshooting
 ms.date: 03/26/2020
 ms.author: v-mibufo
-ms.openlocfilehash: 5d2fb62870e2c41af635627f5d692f08c67f8394
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2457952051f575306de46e3e8145cc26678a1ef8
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80373351"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86526543"
 ---
 # <a name="windows-vm-cannot-boot-due-to-windows-boot-manager"></a>Maszyna wirtualna z systemem Windows nie może zostać uruchomiona z powodu Menedżera rozruchu systemu Windows
 
@@ -29,7 +29,7 @@ W tym artykule przedstawiono procedurę rozwiązywania problemów, w których Me
 
 Maszyna wirtualna jest w stanie oczekiwania na monitowanie użytkownika i nie zostanie uruchomiona, chyba że zostanie ona przetestowana ręcznie.
 
-W przypadku korzystania z [diagnostyki rozruchu](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) w celu wyświetlenia zrzutu ekranu maszyny wirtualnej zobaczysz, że zrzut ekranu wyświetla Menedżera rozruchu systemu Windows z komunikatem *Wybierz system operacyjny do uruchomienia lub naciśnij klawisz Tab, aby wybrać narzędzie:*.
+W przypadku korzystania z [diagnostyki rozruchu](./boot-diagnostics.md) w celu wyświetlenia zrzutu ekranu maszyny wirtualnej zobaczysz, że zrzut ekranu wyświetla Menedżera rozruchu systemu Windows z komunikatem *Wybierz system operacyjny do uruchomienia lub naciśnij klawisz Tab, aby wybrać narzędzie:*.
 
 Rysunek 1.
  
@@ -53,7 +53,7 @@ Przegląd procesu:
 
 Jeśli masz dostęp do konsoli szeregowej, istnieją dwa sposoby przyspieszenia rozruchu. Zmniejsz czas oczekiwania *DISPLAYBOOTMENU* lub Usuń flagę całkowicie.
 
-1. Postępuj zgodnie z instrukcjami, aby uzyskać dostęp do konsoli programu [Azure serial Console dla systemu Windows](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-windows) .
+1. Postępuj zgodnie z instrukcjami, aby uzyskać dostęp do konsoli programu [Azure serial Console dla systemu Windows](./serial-console-windows.md) .
 
    > [!NOTE]
    > Jeśli nie możesz uzyskać dostępu do konsoli szeregowej, przejdź dalej, aby [utworzyć naprawczą maszynę wirtualną i uzyskać do niej dostęp](#create-and-access-a-repair-vm).
@@ -77,7 +77,7 @@ Jeśli masz dostęp do konsoli szeregowej, istnieją dwa sposoby przyspieszenia 
 
 ### <a name="create-and-access-a-repair-vm"></a>Tworzenie maszyny wirtualnej naprawy i uzyskiwanie do niej dostępu
 
-1. Wykonaj [kroki 1-3 poleceń naprawy maszyny wirtualnej](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands) , aby przygotować maszynę wirtualną naprawy.
+1. Wykonaj [kroki 1-3 poleceń naprawy maszyny wirtualnej](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md) , aby przygotować maszynę wirtualną naprawy.
 2. Użyj Podłączanie pulpitu zdalnego połączyć się z maszyną wirtualną naprawy.
 
 ### <a name="configure-for-faster-boot-time-on-a-repair-vm"></a>Konfigurowanie na potrzeby krótszego czasu rozruchu na naprawianej maszynie wirtualnej
@@ -154,4 +154,4 @@ Aby włączyć Zbieranie zrzutów pamięci i konsolę seryjną, uruchom następu
 
 ### <a name="rebuild-the-original-vm"></a>Odbuduj oryginalną maszynę wirtualną
 
-Aby ponownie połączyć maszynę wirtualną, użyj [kroku 5 poleceń naprawy maszyny wirtualnej](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) .
+Aby ponownie połączyć maszynę wirtualną, użyj [kroku 5 poleceń naprawy maszyny wirtualnej](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md#repair-process-example) .

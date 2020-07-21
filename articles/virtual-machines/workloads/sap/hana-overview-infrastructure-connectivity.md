@@ -13,11 +13,12 @@ ms.workload: infrastructure
 ms.date: 07/12/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cea89087742f1987f693b8bfb627bd71038a0c14
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 98ecb9ab208b6ead3944455b95f7fe6baa044d35
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77616923"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86525113"
 ---
 # <a name="sap-hana-large-instances-deployment"></a>Wdrożenie SAP HANA (duże wystąpienia) 
 
@@ -35,7 +36,7 @@ Firma Microsoft wymaga następujących informacji w celu wdrożenia jednostek du
 - Dla każdego regionu wdrożenia platformy Azure:
     - Zakres adresów IP/29 dla połączeń ER-P2P łączących sieci wirtualne platformy Azure z wystąpieniami programu HANA.
     - Blok CIDR/24, używany dla puli adresów IP serwera duże wystąpienia HANA.
-    - Opcjonalny w przypadku używania [ExpressRoute Global REACH](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach) do włączenia bezpośredniego routingu ze środowisk lokalnych do Hana jednostek wystąpienia dużych wystąpień lub routingu między jednostkami dużej instancji Hana w różnych regionach świadczenia usługi Azure należy zarezerwować inny zakres adresów IP/29. Ten konkretny zakres nie może nakładać się na żadne inne zdefiniowane wcześniej zakresy adresów IP.
+    - Opcjonalny w przypadku używania [ExpressRoute Global REACH](../../../expressroute/expressroute-global-reach.md) do włączenia bezpośredniego routingu ze środowisk lokalnych do Hana jednostek wystąpienia dużych wystąpień lub routingu między jednostkami dużej instancji Hana w różnych regionach świadczenia usługi Azure należy zarezerwować inny zakres adresów IP/29. Ten konkretny zakres nie może nakładać się na żadne inne zdefiniowane wcześniej zakresy adresów IP.
 - Wartości zakresu adresów IP używane w atrybucie przestrzeń adresów sieci wirtualnej dla każdej sieci wirtualnej platformy Azure, która łączy się z dużymi wystąpieniami HANA.
 - Dane dla każdego systemu dużego wystąpienia HANA:
   - Wymagana nazwa hosta, najlepiej z w pełni kwalifikowaną nazwą domeny.
@@ -52,4 +53,3 @@ Użyj następującej sekwencji, aby nawiązać połączenie z dużymi wystąpien
 1. [Łączenie maszyn wirtualnych platformy Azure z dużymi wystąpieniami HANA](hana-connect-azure-vm-large-instances.md)
 2. [Łączenie sieci wirtualnej z dużymi wystąpieniami platformy HANA ExpressRoute](hana-connect-vnet-express-route.md)
 3. [Dodatkowe wymagania dotyczące sieci (opcjonalnie)](hana-additional-network-requirements.md)
-

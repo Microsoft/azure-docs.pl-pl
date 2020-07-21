@@ -4,29 +4,24 @@ description: Wyjaśnia, jak używać wykazu kopii zapasowych usługi StorSimple 
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: timlt
-editor: ''
 ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: how-to
-ms.tgt_pltfrm: NA
-ms.workload: TBD
-ms.date: 05/23/2017
+ms.date: 07/15/2020
 ms.author: alkohli
-ms.openlocfilehash: 0f0be9609dfd00e8e5dc9919b20fc42ec91ce9eb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8783d5ce5596cdb4678c09b79c09797ef62cc9c9
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85514561"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86527833"
 ---
 # <a name="restore-a-storsimple-volume-from-a-backup-set"></a>Przywracanie woluminu StorSimple z zestawu kopii zapasowych
 
 ## <a name="overview"></a>Omówienie
 
 Ten samouczek zawiera opis operacji przywracania wykonanej na urządzeniu z serii StorSimple 8000 przy użyciu istniejącego zestawu kopii zapasowych. Użyj bloku **wykazu kopii zapasowych** , aby przywrócić wolumin z kopii zapasowej lokalnego lub w chmurze. Blok **wykazu kopii zapasowych** zawiera wszystkie zestawy kopii zapasowych, które są tworzone podczas wykonywania ręcznych lub zautomatyzowanych kopii zapasowych. Operacja przywracania z zestawu kopii zapasowych natychmiast przenosi wolumin w tryb online, gdy dane są pobierane w tle.
-
-Alternatywna metoda uruchomienia przywracania polega na przejściu do **urządzeń > [urządzenie] > woluminy**. W bloku **woluminy** Wybierz wolumin, kliknij prawym przyciskiem myszy, aby wywołać menu kontekstowe, a następnie wybierz pozycję **Przywróć**.
 
 ## <a name="before-you-restore"></a>Przed przystąpieniem do przywracania
 

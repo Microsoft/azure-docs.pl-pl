@@ -9,12 +9,12 @@ ms.subservice: autoscale
 ms.date: 06/30/2020
 ms.reviewer: jushiman
 ms.custom: avverma
-ms.openlocfilehash: 11207dceb29c779c081c140ee8cd362d8a217acf
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: dd042b28035b5e9a4b18041d6c1a81f77cfd4ea7
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85856751"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86527408"
 ---
 # <a name="overview-of-autoscale-with-azure-virtual-machine-scale-sets"></a>Omówienie autoskalowania w zestawach skalowania maszyn wirtualnych platformy Azure
 Zestaw skalowania maszyn wirtualnych platformy Azure może automatycznie zwiększać lub zmniejszać liczbę wystąpień maszyn wirtualnych, na których działa aplikacja. To automatyczne i elastyczne zachowanie zmniejsza obciążenie związane z zarządzaniem w celu monitorowania i optymalizowania wydajności aplikacji. Tworzysz reguły, które definiują akceptowalną wydajność dla pozytywnego środowiska klienta. Po spełnieniu tych zdefiniowanych progów reguły automatycznego skalowania podejmują działania w celu dostosowania pojemności zestawu skalowania. Możesz również zaplanować zdarzenia, aby automatycznie zwiększać lub zmniejszać pojemność zestawu skalowania w ustalonych odstępach czasu. Ten artykuł zawiera omówienie dostępnych metryk wydajności i działań, które mogą być wykonywane automatycznie.
@@ -73,7 +73,7 @@ Podczas tworzenia reguł skalowania automatycznego w celu monitorowania danej me
 | Typ agregacji |
 |------------------|
 | Średnia          |
-| Minimalne          |
+| Minimum          |
 | Maksimum          |
 | Łącznie            |
 | Last             |
@@ -137,6 +137,6 @@ Można tworzyć reguły automatycznego skalowania, które korzystają z metryk o
 
 W tym omówieniu szczegółowo opisano sposób używania reguł skalowania automatycznego w celu skalowania w poziomie i zwiększania lub zmniejszania *liczby* wystąpień maszyn wirtualnych w zestawie skalowania. Możesz również skalować w pionie, aby zwiększyć lub zmniejszyć *rozmiar*wystąpienia maszyny wirtualnej. Aby uzyskać więcej informacji, zobacz [pionowy Skalowanie automatyczne przy użyciu zestawów skalowania maszyn wirtualnych](virtual-machine-scale-sets-vertical-scale-reprovision.md).
 
-Aby uzyskać informacje na temat zarządzania wystąpieniami maszyn wirtualnych, zobacz [Zarządzanie zestawami skalowania maszyn wirtualnych za pomocą Azure PowerShell](virtual-machine-scale-sets-windows-manage.md).
+Aby uzyskać informacje na temat zarządzania wystąpieniami maszyn wirtualnych, zobacz [Zarządzanie zestawami skalowania maszyn wirtualnych za pomocą Azure PowerShell](./virtual-machine-scale-sets-manage-powershell.md).
 
-Aby dowiedzieć się, jak generować alerty podczas wyzwalacza reguł skalowania automatycznego, zobacz [Używanie akcji automatycznego skalowania do wysyłania powiadomień o alertach poczty e-mail i elementów webhook w Azure monitor](../azure-monitor/platform/autoscale-webhook-email.md). [Dzienników inspekcji można także używać do wysyłania powiadomień o alertach poczty e-mail i elementów webhook w programie Azure monitor](../monitoring-and-diagnostics/insights-auditlog-to-webhook-email.md).
+Aby dowiedzieć się, jak generować alerty podczas wyzwalacza reguł skalowania automatycznego, zobacz [Używanie akcji automatycznego skalowania do wysyłania powiadomień o alertach poczty e-mail i elementów webhook w Azure monitor](../azure-monitor/platform/autoscale-webhook-email.md). [Dzienników inspekcji można także używać do wysyłania powiadomień o alertach poczty e-mail i elementów webhook w programie Azure monitor](../azure-monitor/platform/alerts-log-webhook.md).

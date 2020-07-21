@@ -1,30 +1,30 @@
 ---
-title: Dokumentacja magazynu udziałów plików platformy Azure
+title: Informacje Azure Files
 description: Znajdź informacje dotyczące interfejsów API usługi Azure Storage, plików README i pakietów biblioteki klienta.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 06/02/2020
+ms.date: 07/14/2020
 ms.service: storage
 ms.topic: conceptual
 ms.reviewer: ripohane
-ms.openlocfilehash: ffe3777882cd857ffb776bbadb41da0fb88d994e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c5799b7ec9f6ecce1b9203345446b2d3240beb80
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84976527"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86527850"
 ---
-# <a name="azure-file-shares-storage-reference"></a>Dokumentacja magazynu udziałów plików platformy Azure
+# <a name="azure-files-reference"></a>Informacje Azure Files
 
-Znajdź informacje o interfejsie API magazynu udziałów plików platformy Azure, pakietach bibliotek, plikach Readme i artykułach rozpoczynających pracę.
+Znajdź informacje o interfejsie API Azure Files, pakietach bibliotek, plikach Readme i artykułach rozpoczynających pracę.
 
 ## <a name="net-client-libraries"></a>Biblioteki klienckie platformy .NET
 
-W poniższej tabeli wymieniono odwołania i przykładowe dokumenty dotyczące interfejsów API platformy .NET udziałów plików platformy Azure.
+W poniższej tabeli wymieniono informacje referencyjne i przykładowe dokumenty dotyczące Azure Files interfejsów API platformy .NET.
 
 |  Wersja  | Dokumentacja referencyjna | Pakiet | Szybki start |
 | :-------: | ----------------------- | ------- | ---------- |
-| 12. x | [Biblioteka klienta udziałów plików platformy Azure V12 dla platformy .NET](/dotnet/api/overview/azure/storage.files.shares-readme) | [Pakiet (NuGet)](https://www.nuget.org/packages/Azure.Storage.Files/) | &nbsp; |
+| 12. x | [V12 Azure Files biblioteki klienckiej dla platformy .NET](/dotnet/api/overview/azure/storage.files.shares-readme) | [Pakiet (NuGet)](https://www.nuget.org/packages/Azure.Storage.Files/) | &nbsp; |
 | 11. x | [Przestrzeń nazw Microsoft. Azure. Storage. File](/dotnet/api/microsoft.azure.storage.file) | [Pakiet (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Storage.File/) | [Tworzenie oprogramowania dla usługi Azure Files przy użyciu platformy .NET](/azure/storage/files/storage-dotnet-how-to-use-files) |
 
 ### <a name="storage-management"></a>Zarządzanie magazynem
@@ -45,11 +45,11 @@ W poniższej tabeli przedstawiono dokumentację referencyjną dla interfejsów A
 
 ## <a name="java-client-libraries"></a>Biblioteki klienckie Java
 
-W poniższej tabeli przedstawiono odwołania i przykładową dokumentację interfejsów API języka Java dla udziałów plików platformy Azure.
+W poniższej tabeli wymieniono informacje referencyjne i przykładowe dokumenty dotyczące Azure Files interfejsów API języka Java.
 
 |  Wersja  | Dokumentacja referencyjna | Pakiet | Szybki start |
 | :-------: | ----------------------- | ------- | ---------- |
-| 12. x | [Biblioteka kliencka udziału plików platformy Azure dla języka Java](/java/api/overview/azure/storage-file-share-readme) | [Pakiet (Maven)](https://mvnrepository.com/artifact/com.azure/azure-storage-file-share) | &nbsp; |
+| 12. x | [Azure Files Biblioteka kliencka dla języka Java](/java/api/overview/azure/storage-file-share-readme) | [Pakiet (Maven)](https://mvnrepository.com/artifact/com.azure/azure-storage-file-share) | &nbsp; |
 | 8.x | [com. Microsoft. Azure. Storage. File](/java/api/com.microsoft.azure.storage.file) | [Pakiet (Maven)](https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage) | [Develop for Azure Files with Java](/azure/storage/files/storage-java-how-to-use-file-storage) (Tworzenie oprogramowania dla usługi Azure Files przy użyciu języka Java) |
 
 ### <a name="storage-management"></a>Zarządzanie magazynem
@@ -62,7 +62,7 @@ W poniższej tabeli przedstawiono dokumentację referencyjną interfejsów API j
 
 ## <a name="python-client-libraries"></a>Biblioteki klienckie języka Python
 
-W poniższej tabeli przedstawiono odwołania i przykładową dokumentację interfejsów API języka Python dla udziałów plików platformy Azure.
+W poniższej tabeli wymieniono informacje referencyjne i przykładowe dokumenty dotyczące Azure Files interfejsów API języka Python.
 
 |  Wersja  | Dokumentacja referencyjna | Pakiet | Szybki start |
 | :-------: | ----------------------- | ------- | ---------- |
@@ -71,16 +71,16 @@ W poniższej tabeli przedstawiono odwołania i przykładową dokumentację inter
 
 ## <a name="javascript-client-libraries"></a>Biblioteki klienckie języka JavaScript
 
-W poniższej tabeli przedstawiono odwołania i przykładową dokumentację interfejsów API języka JavaScript dla udziałów plików platformy Azure.
+W poniższej tabeli wymieniono dokumentację referencyjną Azure Files interfejsów API języka JavaScript.
 
 |  Wersja  | Dokumentacja referencyjna | Pakiet | Szybki start |
 | :-------: | ----------------------- | ------- | ---------- |
-| 12. x | [Biblioteka kliencka udziału plików usługi Azure Storage dla języka JavaScript](/javascript/api/overview/azure/storage-file-share-readme) | [Pakiet (npm)](https://www.npmjs.com/package/@azure/storage-file-share) | [Przykłady](/javascript/api/overview/azure/storage-file-share-readme#examples) |
+| 12. x | [Azure Files Biblioteka kliencka dla języka JavaScript](/javascript/api/overview/azure/storage-file-share-readme) | [Pakiet (npm)](https://www.npmjs.com/package/@azure/storage-file-share) | [Przykłady](/javascript/api/overview/azure/storage-file-share-readme#examples) |
 | 10. x | [@azure/storage-file](/javascript/api/@azure/storage-file) | [Pakiet (npm)](https://www.npmjs.com/package/@azure/storage-file) | &nbsp; |
 
 ## <a name="rest-apis"></a>Interfejsy API REST
 
-W poniższej tabeli przedstawiono odwołania i przykładową dokumentację interfejsów API REST udziałów plików platformy Azure.
+Poniższa tabela zawiera listę referencyjną i przykładową dokumentację dla Azure Files interfejsów API REST.
 
 | Dokumentacja referencyjna | Omówienie |
 | ----------------------- | -------- |

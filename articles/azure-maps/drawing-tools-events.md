@@ -1,5 +1,5 @@
 ---
-title: Dodawanie paska narzędzi Rysowanie do mapy | Mapy Microsoft Azure
+title: Zdarzenia narzędzia do rysowania | Mapy Microsoft Azure
 description: W tym artykule dowiesz się, jak dodać pasek narzędzi Rysowanie do mapy przy użyciu zestawu Microsoft Azure Web SDK usługi Maps
 author: rbrundritt
 ms.author: richbrun
@@ -8,17 +8,18 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: d8509af7829910bdda8bba3d63553e83626fe784
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b5cbd5311c6070f59f8a5953d8b99789ab758c9c
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80804677"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86524611"
 ---
 # <a name="drawing-tool-events"></a>Zdarzenia narzędzia do rysowania
 
 W przypadku korzystania z narzędzi do rysowania na mapie warto reagować na niektóre zdarzenia, gdy użytkownik rysuje na mapie. W tej tabeli wymieniono wszystkie zdarzenia obsługiwane przez `DrawingManager` klasę.
 
-| Wydarzenie | Opis |
+| Zdarzenie | Opis |
 |-------|-------------|
 | `drawingchanged` | Uruchamiany, gdy dodaliśmy lub zmieniono dowolna Współrzędna kształtu. | 
 | `drawingchanging` | Uruchamiany, gdy zostanie wyświetlona Współrzędna podglądu dla kształtu. Na przykład to zdarzenie zostanie wyzwolone wiele razy, gdy Współrzędna zostanie przeciągnięta. | 

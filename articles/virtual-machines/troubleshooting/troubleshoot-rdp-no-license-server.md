@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/23/2018
 ms.author: genli
-ms.openlocfilehash: 154160f9a3fbd485ee6383bf3d5ff1c291520a75
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 276be92ea4c03b9ebeb3e13df69ce1b10328dcaf
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "71088523"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86526473"
 ---
 # <a name="remote-desktop-license-server-isnt-available-when-you-connect-to-an-azure-vm"></a>Serwer licencji Pulpit zdalny nie jest dostępny w przypadku łączenia się z maszyną wirtualną platformy Azure
 
@@ -122,7 +122,7 @@ Aby rozwiązać ten problem, wykonaj [kopię zapasową dysku systemu operacyjneg
        telnet <FQDN / IP License Server> 135
        ```
 
-3. Jeśli w środowisku nie ma Pulpit zdalny serwera licencji, możesz [zainstalować usługę roli licencjonowanie pulpit zdalny](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731765(v=ws.11)). Następnie [Skonfiguruj Licencjonowanie usług pulpitu zdalnego](https://techcommunity.microsoft.com/t5/Ask-The-Performance-Team/RD-Licensing-Configuration-on-Windows-Server-2012/ba-p/375383).
+3. Jeśli w środowisku nie ma Pulpit zdalny serwera licencji, możesz [zainstalować usługę roli licencjonowanie pulpit zdalny](/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/cc731765(v=ws.11)). Następnie [Skonfiguruj Licencjonowanie usług pulpitu zdalnego](https://techcommunity.microsoft.com/t5/Ask-The-Performance-Team/RD-Licensing-Configuration-on-Windows-Server-2012/ba-p/375383).
 
 4. Jeśli serwer licencji Pulpit zdalny jest skonfigurowany i jest w dobrej kondycji, upewnij się, że serwer licencji Pulpit zdalny został aktywowany z licencjami CAL.
 

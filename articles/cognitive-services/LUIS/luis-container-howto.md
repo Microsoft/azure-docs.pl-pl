@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: 8c5e384e85861cdced3ed6dbe60733128b499407
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 6a2208fac98d3cd8e4ddcea887d9b8cf30fb6482
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86039011"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86524509"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Instalowanie i uruchamianie kontenerów platformy Docker LUIS
 
@@ -53,9 +53,9 @@ Tworzenie interfejsów API dla spakowanych aplikacji:
 
 ### <a name="container-requirements-and-recommendations"></a>Wymagania i zalecenia dotyczące kontenera
 
-Ten kontener obsługuje minimalne i zalecane wartości ustawień:
+W poniższej tabeli wymieniono minimalne i zalecane wartości dla hosta kontenerów. Wymagania mogą ulec zmianie w zależności od ilości ruchu sieciowego.
 
-|Kontener| Minimalne | Zalecane | TPS<br>(Minimum, maksimum)|
+|Kontener| Minimum | Zalecane | TPS<br>(Minimum, maksimum)|
 |-----------|---------|-------------|--|
 |LUIS|1 rdzeń, 2 GB pamięci|1 rdzeń, 4 GB pamięci|20, 40|
 
@@ -108,7 +108,7 @@ Wejściowy katalog instalacji może jednocześnie zawierać modele **produkcyjne
 |Typ pakietu|Interfejs API punktu końcowego zapytania|Dostępność zapytania|Format nazwy pliku pakietu|
 |--|--|--|--|
 |Systemową|POBIERZ, OPUBLIKUJ|Tylko kontener|`{APP_ID}_v{APP_VERSION}.gz`|
-|Przygotowanie|POBIERZ, OPUBLIKUJ|Platforma Azure i kontener|`{APP_ID}_STAGING.gz`|
+|Podział na etapy|POBIERZ, OPUBLIKUJ|Platforma Azure i kontener|`{APP_ID}_STAGING.gz`|
 |Produkcja|POBIERZ, OPUBLIKUJ|Platforma Azure i kontener|`{APP_ID}_PRODUCTION.gz`|
 
 > [!IMPORTANT]
@@ -237,11 +237,11 @@ Więcej [przykładów](luis-container-configuration.md#example-docker-run-comman
 
 W kontenerze są dostępne zarówno wersje 2, jak i [v3](luis-migration-api-v3.md) interfejsu API.
 
-## <a name="query-the-containers-prediction-endpoint"></a>Zbadaj punkt końcowy przewidywania kontenera
+## <a name="query-the-containers-prediction-endpoint"></a>Wykonywanie zapytania dotyczącego punktu końcowego przewidywania kontenera
 
-Kontener udostępnia interfejsy API punktu końcowego przewidywania zapytań. Punkty końcowe dla opublikowanych aplikacji (przemieszczania lub produkcji) mają _różną_ trasę niż punkty końcowe dla aplikacji z wersjami.
+Kontener udostępnia oparte na interfejsie REST interfejsy API punktu końcowego przewidywania zapytań. Punkty końcowe dla opublikowanych aplikacji (przemieszczania lub produkcji) mają _różną_ trasę niż punkty końcowe dla aplikacji z wersjami.
 
-Użyj hosta, `http://localhost:5000` , dla interfejsów API kontenerów.
+Użyj hosta `http://localhost:5000` dla interfejsów API kontenera.
 
 # <a name="v3-prediction-endpoint"></a>[Punkt końcowy przewidywania v3](#tab/v3)
 
@@ -255,9 +255,9 @@ Parametry zapytania konfigurują sposób i wartość zwracaną w odpowiedzi na z
 |Parametr zapytania|Typ|Przeznaczenie|
 |--|--|--|
 |`query`|ciąg|Wypowiedź użytkownika.|
-|`verbose`|wartość logiczna|Wartość logiczna wskazująca, czy zwracać wszystkie metadane dla modeli predykcyjnych. Wartość domyślna to false.|
-|`log`|wartość logiczna|Rejestruje zapytania, które mogą być używane później w przypadku [aktywnej nauki](luis-how-to-review-endpoint-utterances.md). Wartość domyślna to false.|
-|`show-all-intents`|wartość logiczna|Wartość logiczna wskazująca, czy zwrócić wszystkie intencje lub górne przeznaczenie tylko do oceny. Wartość domyślna to false.|
+|`verbose`|boolean|Wartość logiczna wskazująca, czy zwracać wszystkie metadane dla modeli predykcyjnych. Wartość domyślna to false.|
+|`log`|boolean|Rejestruje zapytania, które mogą być używane później w przypadku [aktywnej nauki](luis-how-to-review-endpoint-utterances.md). Wartość domyślna to false.|
+|`show-all-intents`|boolean|Wartość logiczna wskazująca, czy zwrócić wszystkie intencje lub górne przeznaczenie tylko do oceny. Wartość domyślna to false.|
 
 # <a name="v2-prediction-endpoint"></a>[Punkt końcowy przewidywania wersji 2](#tab/v2)
 
@@ -272,9 +272,9 @@ Parametry zapytania konfigurują sposób i wartość zwracaną w odpowiedzi na z
 |--|--|--|
 |`q`|ciąg|Wypowiedź użytkownika.|
 |`timezoneOffset`|liczba|TimezoneOffset umożliwia [zmianę strefy czasowej](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) używanej przez wstępnie utworzoną jednostkę datetimeV2.|
-|`verbose`|wartość logiczna|Zwraca wszystkie intencje i ich wyniki po ustawieniu na wartość true. Wartość domyślna to false, która zwraca tylko najwyższy cel.|
-|`staging`|wartość logiczna|Zwraca zapytanie z wyników środowiska przejściowego, jeśli ma wartość true. |
-|`log`|wartość logiczna|Rejestruje zapytania, które mogą być używane później w przypadku [aktywnej nauki](luis-how-to-review-endpoint-utterances.md). Wartość domyślna to „true”.|
+|`verbose`|boolean|Zwraca wszystkie intencje i ich wyniki po ustawieniu na wartość true. Wartość domyślna to false, która zwraca tylko najwyższy cel.|
+|`staging`|boolean|Zwraca zapytanie z wyników środowiska przejściowego, jeśli ma wartość true. |
+|`log`|boolean|Rejestruje zapytania, które mogą być używane później w przypadku [aktywnej nauki](luis-how-to-review-endpoint-utterances.md). Wartość domyślna to „true”.|
 
 ***
 

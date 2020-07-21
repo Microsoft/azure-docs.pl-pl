@@ -4,14 +4,14 @@ description: Dowiedz się, jak przenosić App Service zasoby z jednego regionu d
 ms.topic: how-to
 ms.date: 02/27/2020
 ms.custom: subject-moving-resources
-ms.openlocfilehash: c19c18e8d9980b75acd9790dba712fbb6b2a4b1d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 87a2da31802a8b6858e875c23ef1dbd2d6d006bc
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84945481"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86524858"
 ---
-# <a name="move-an-app-service-app-to-another-region"></a>Przenoszenie aplikacji App Service do innego regionu
+# <a name="move-an-app-service-resource-to-another-region"></a>Przenoszenie zasobu App Service do innego regionu
 
 W tym artykule opisano sposób przenoszenia zasobów App Service do innego regionu platformy Azure. Możesz przenieść zasoby do innego regionu z kilku powodów. Na przykład w celu skorzystania z nowego regionu platformy Azure, wdrożenia funkcji lub usług dostępnych tylko w określonych regionach, spełnienia wymagań wewnętrznych zasad i zarządzania lub w odpowiedzi na wymagania dotyczące planowania pojemności.
 
@@ -25,9 +25,9 @@ Aby ułatwić kopiowanie aplikacji, można [sklonować poszczególne App Service
 - Upewnij się, że region docelowy obsługuje App Service i wszystkie powiązane usługi, których zasobów chcesz przenieść.
 <!-- - Domain bindings, certificates, and managed identities can't replicated using the **Export template** method. You must create them manually. -->
 
-## <a name="prepare"></a>Przygotowanie
+## <a name="prepare"></a>Przygotowywanie
 
-Zidentyfikuj wszystkie zasoby App Service, które są obecnie używane. Przykład:
+Zidentyfikuj wszystkie zasoby App Service, które są obecnie używane. Na przykład:
 
 - Aplikacje usługi App Service
 - [Plany usługi App Service](overview-hosting-plans.md)

@@ -14,11 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 11/24/2019
 ms.author: vilibert
-ms.openlocfilehash: 20d710f717a9dff26f46ac7a201a9b694f3fbe84
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c0041a835c02263f23c5cdc6f839756edfb070c1
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74684128"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86526881"
 ---
 # <a name="troubleshooting-a-linux-vm-when-there-is-no-access-to-the-azure-serial-console-and-the-disk-layout-is-using-lvm-logical-volume-manager"></a>Rozwiązywanie problemów z maszyną wirtualną z systemem Linux w przypadku braku dostępu do konsoli szeregowej platformy Azure, a układ dysku używa LVM (Menedżer woluminów logicznych)
 
@@ -28,7 +29,7 @@ Ten przewodnik rozwiązywania problemów jest pomocny w przypadku scenariuszy, w
 
 Utwórz migawkę powiązanej maszyny wirtualnej. 
 
-Migawka zostanie następnie dołączona do **ratowniczej** maszyny wirtualnej. Postępuj zgodnie z instrukcjami w [tym miejscu](https://docs.microsoft.com/azure/virtual-machines/linux/snapshot-copy-managed-disk#use-azure-portal) , aby zrobić **migawkę**.
+Migawka zostanie następnie dołączona do **ratowniczej** maszyny wirtualnej. Postępuj zgodnie z instrukcjami w [tym miejscu](../linux/snapshot-copy-managed-disk.md#use-azure-portal) , aby zrobić **migawkę**.
 
 ## <a name="create-a-rescue-vm"></a>Tworzenie ratowniczej maszyny wirtualnej
 Zwykle zalecana jest ratownicza maszyna wirtualna o tej samej lub podobnej wersji systemu operacyjnego. Użyj tego samego **regionu** i **grupy zasobów** maszyny wirtualnej, której to dotyczy
@@ -208,7 +209,7 @@ W razie konieczności Usuń lub Uaktualnij **jądro**
 
 
 ### <a name="example-3---enable-serial-console"></a>Przykład 3 — Włączanie konsoli szeregowej
-Jeśli nie można uzyskać dostępu do konsoli szeregowej platformy Azure, sprawdź parametry konfiguracji GRUB dla maszyny wirtualnej z systemem Linux i popraw je. Szczegółowe informacje można znaleźć [w tym dokumencie](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-grub-proactive-configuration)
+Jeśli nie można uzyskać dostępu do konsoli szeregowej platformy Azure, sprawdź parametry konfiguracji GRUB dla maszyny wirtualnej z systemem Linux i popraw je. Szczegółowe informacje można znaleźć [w tym dokumencie](./serial-console-grub-proactive-configuration.md)
 
 ### <a name="example-4---kernel-loading-with-problematic-lvm-swap-volume"></a>Przykład 4 — ładowanie jądra ze problematycznym woluminem wymiany LVM
 
@@ -273,4 +274,4 @@ Dowiedz się więcej o
 
  [Konsola szeregowa platformy Azure]( https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-linux)
 
-[Tryb pojedynczego użytkownika](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-grub-single-user-mode)
+[Tryb pojedynczego użytkownika](./serial-console-grub-single-user-mode.md)

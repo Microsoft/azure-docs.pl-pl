@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: troubleshooting
 ms.date: 05/07/2020
 ms.author: v-mibufo
-ms.openlocfilehash: 187098f557cb691e023abb282a265b11e975c544
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cbf2fe491e1fe0b553eab04ca7190da0413a3ba6
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84629262"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86526014"
 ---
 # <a name="vm-is-unresponsive-when-applying-group-policy-local-users-and-groups-policy"></a>Maszyna wirtualna nie odpowiada podczas stosowania zasady grupy zasad lokalnych użytkowników i grup
 
@@ -26,7 +27,7 @@ Ten artykuł zawiera kroki rozwiązywania problemów, gdy ekran ładowania nie o
 
 ## <a name="symptoms"></a>Objawy
 
-W przypadku korzystania z [diagnostyki rozruchu](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) w celu wyświetlenia zrzutu ekranu maszyny wirtualnej ekran jest zablokowany przy użyciu komunikatu: "stosowanie zasady grupy lokalnych użytkowników i grup zasad".
+W przypadku korzystania z [diagnostyki rozruchu](./boot-diagnostics.md) w celu wyświetlenia zrzutu ekranu maszyny wirtualnej ekran jest zablokowany przy użyciu komunikatu: "stosowanie zasady grupy lokalnych użytkowników i grup zasad".
 
 :::image type="content" source="media//unresponsive-vm-apply-group-policy/applying-group-policy-1.png" alt-text="Zrzut ekranu przedstawiający zastosowanie zasad zasady grupy lokalnych użytkowników i grup (Windows Server 2012 R2).":::
 
@@ -57,7 +58,7 @@ Oto problemy z zasadami:
 
 ### <a name="step-1-create-and-access-a-repair-vm"></a>Krok 1. Tworzenie naprawy maszyny wirtualnej i uzyskiwanie do niej dostępu
 
-1. Wykonaj [kroki 1-3 poleceń naprawy maszyny wirtualnej](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) , aby przygotować maszynę wirtualną naprawy.
+1. Wykonaj [kroki 1-3 poleceń naprawy maszyny wirtualnej](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md#repair-process-example) , aby przygotować maszynę wirtualną naprawy.
 2. Użyj Podłączanie pulpitu zdalnego, aby nawiązać połączenie z maszyną wirtualną naprawy.
 
 ### <a name="step-2-disable-the-policy"></a>Krok 2. wyłączenie zasad
@@ -139,7 +140,7 @@ Aby włączyć Zbieranie zrzutów pamięci i konsolę szeregową, uruchom nastę
 
 ### <a name="step-4-rebuild-the-vm"></a>Krok 4. ponowne kompilowanie maszyny wirtualnej
 
-Aby ponownie połączyć maszynę wirtualną, użyj [kroku 5 poleceń naprawy maszyny wirtualnej](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) .
+Aby ponownie połączyć maszynę wirtualną, użyj [kroku 5 poleceń naprawy maszyny wirtualnej](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md#repair-process-example) .
 
 Jeśli problem został rozwiązany, zasady są teraz wyłączone lokalnie. W przypadku stałego rozwiązania nie należy używać zasad CleanupProfiles na maszynach wirtualnych. Użyj innej metody do przeprowadzenia czyszczenia profilów.
 
@@ -149,4 +150,4 @@ Nie używaj tych zasad:
 
 ## <a name="next-steps"></a>Następne kroki
 
-Jeśli masz problemy z zastosowaniem Windows Update, zobacz, że [maszyna wirtualna nie odpowiada z błędem "C01A001D" podczas stosowania Windows Update](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/unresponsive-vm-apply-windows-update).
+Jeśli masz problemy z zastosowaniem Windows Update, zobacz, że [maszyna wirtualna nie odpowiada z błędem "C01A001D" podczas stosowania Windows Update](./unresponsive-vm-apply-windows-update.md).

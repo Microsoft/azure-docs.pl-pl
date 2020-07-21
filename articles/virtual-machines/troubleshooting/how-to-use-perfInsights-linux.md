@@ -13,11 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 7/10/2019
 ms.author: genli
-ms.openlocfilehash: 19b2fcaed2c80d4ca52ada9f9f0898479e73bcf2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 13e4c7a981124aba22dcb324d60e075d1d552bf8
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79266990"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86526804"
 ---
 # <a name="how-to-use-perfinsights"></a>Korzystanie z narzędzia PerfInsights
 
@@ -43,7 +44,7 @@ W tym scenariuszu są zbierane podstawowe informacje, takie jak Konfiguracja mag
 
 - Informacje o magazynie
 
-- Konfiguracja maszyny wirtualnej platformy Azure (zebrana przy użyciu [usługi azure instance Metadata Service](https://docs.microsoft.com/azure/virtual-machines/windows/instance-metadata-service))
+- Konfiguracja maszyny wirtualnej platformy Azure (zebrana przy użyciu [usługi azure instance Metadata Service](../windows/instance-metadata-service.md))
 
 - Lista uruchomionych procesów, dysku, pamięci i użycia procesora CPU
 
@@ -77,12 +78,12 @@ Zbierane są informacje o maszynie wirtualnej z systemem Linux, systemie operacy
   - Profilowanie przechwytywania użycia procesora CPU i procesów w 5-sekundowych interwałach
   - Profilowanie przechwytywania procesów użycia pamięci w przedziale czasu 5 sekund
 
-- Networking  
+- Sieć  
   - Lista kart sieciowych z statystykami kart
   - Tabela routingu sieciowego
   - Otwarte porty i stan
 
-- Magazyn
+- Storage
   - Lista zablokowanych urządzeń
   - Lista partycji
   - Lista punktów instalacji
@@ -108,7 +109,7 @@ Zbierane są informacje o maszynie wirtualnej z systemem Linux, systemie operacy
   - /etc/waagent.config
   - Dane wyjściowe journalctl z ostatnich pięciu dni
 
-- [Metadane wystąpienia maszyny wirtualnej platformy Azure](https://docs.microsoft.com/azure/virtual-machines/windows/instance-metadata-service)
+- [Metadane wystąpienia maszyny wirtualnej platformy Azure](../windows/instance-metadata-service.md)
 
 >[!Note]
 >[ `*` ] Informacje o magistrali PCI nie zostały jeszcze zebrane w ramach dystrybucji Debian i SLES

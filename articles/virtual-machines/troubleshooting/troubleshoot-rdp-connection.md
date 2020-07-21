@@ -15,11 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 03/23/2018
 ms.author: akjosh
-ms.openlocfilehash: c65161b6c0ffb0623260a9d896b10bf99eeeced2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a259217280be343f383372a066d4033368c2b651
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84235577"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86526699"
 ---
 # <a name="troubleshoot-remote-desktop-connections-to-an-azure-virtual-machine"></a>Rozwiązywanie problemów z połączeniami Pulpit zdalny z maszyną wirtualną platformy Azure
 Połączenie RDP (Remote Desktop Protocol) z maszyną wirtualną platformy Azure bazującą na systemie Windows może ulec awarii z wielu powodów, uniemożliwiając uzyskanie dostępu do maszyny wirtualnej. Ten problem może być związany z usługą pulpitu zdalnego na maszynie wirtualnej, połączeniem sieciowym lub klientem pulpitu zdalnego na komputerze hosta. Ten artykuł przeprowadzi Cię przez niektóre z najbardziej popularnych metod rozwiązywania problemów z połączeniem RDP. 
@@ -66,13 +67,13 @@ Po każdym kroku rozwiązywania problemów spróbuj ponownie nawiązać połącz
     Wybierz maszynę wirtualną w Azure Portal. Przewiń w dół okienko ustawienia do sekcji **Pomoc techniczna i rozwiązywanie problemów** w dolnej części listy. Kliknij przycisk **Resetuj hasło** . Ustaw **tryb** **resetowania tylko konfiguracji** , a następnie kliknij przycisk **Aktualizuj** :
    
     ![Zresetuj konfigurację RDP w Azure Portal](./media/troubleshoot-rdp-connection/reset-rdp.png)
-2. **Sprawdź reguły sieciowej grupy zabezpieczeń**. Użyj [weryfikacji przepływu IP](../../network-watcher/network-watcher-check-ip-flow-verify-portal.md) , aby potwierdzić, czy reguła w sieciowej grupie zabezpieczeń blokuje ruch do lub z maszyny wirtualnej. Możesz również przejrzeć obowiązujące zasady grupy zabezpieczeń, aby upewnić się, że przychodząca reguła sieciowej grupy zabezpieczeń "Zezwalaj" istnieje i ma priorytet dla portu RDP (domyślnie 3389). Aby uzyskać więcej informacji, zobacz Używanie obowiązujących [reguł zabezpieczeń w celu rozwiązywania problemów z przepływem ruchu maszyn wirtualnych](../../virtual-network/diagnose-network-traffic-filter-problem.md).
+2. **Sprawdź reguły sieciowej grupy zabezpieczeń**. Użyj [weryfikacji przepływu IP](../../network-watcher/diagnose-vm-network-traffic-filtering-problem.md) , aby potwierdzić, czy reguła w sieciowej grupie zabezpieczeń blokuje ruch do lub z maszyny wirtualnej. Możesz również przejrzeć obowiązujące zasady grupy zabezpieczeń, aby upewnić się, że przychodząca reguła sieciowej grupy zabezpieczeń "Zezwalaj" istnieje i ma priorytet dla portu RDP (domyślnie 3389). Aby uzyskać więcej informacji, zobacz Używanie obowiązujących [reguł zabezpieczeń w celu rozwiązywania problemów z przepływem ruchu maszyn wirtualnych](../../virtual-network/diagnose-network-traffic-filter-problem.md).
 
 3. **Przejrzyj diagnostykę rozruchu maszyn wirtualnych**. Ten krok rozwiązywania problemów przegląda dzienniki konsoli maszyny wirtualnej w celu ustalenia, czy maszyna wirtualna zgłasza problem. Nie wszystkie maszyny wirtualne mają włączoną diagnostykę rozruchu, więc ten krok rozwiązywania problemów może być opcjonalny.
    
     Określone kroki rozwiązywania problemów wykraczają poza zakres tego artykułu, ale mogą wskazywać szerszy problem wpływający na łączność z protokołem RDP. Aby uzyskać więcej informacji na temat przeglądania dzienników konsoli i zrzutu ekranu maszyny wirtualnej, zobacz [Diagnostyka rozruchu dla maszyn wirtualnych](boot-diagnostics.md).
 
-4. **Zresetuj kartę sieciową dla maszyny wirtualnej**. Aby uzyskać więcej informacji, zobacz [jak zresetować kartę sieciową dla maszyny wirtualnej platformy Azure z systemem Windows](../windows/reset-network-interface.md).
+4. **Zresetuj kartę sieciową dla maszyny wirtualnej**. Aby uzyskać więcej informacji, zobacz [jak zresetować kartę sieciową dla maszyny wirtualnej platformy Azure z systemem Windows](./reset-network-interface.md).
 5. **Sprawdź Resource Health maszyny wirtualnej**. Ten krok rozwiązywania problemów sprawdza, czy nie występują żadne znane problemy z platformą Azure, które mogą mieć wpływ na łączność z maszyną wirtualną.
    
     Wybierz maszynę wirtualną w Azure Portal. Przewiń w dół okienko ustawienia do sekcji **Pomoc techniczna i rozwiązywanie problemów** w dolnej części listy. Kliknij przycisk **kondycja zasobu** . Raporty maszyny wirtualnej w dobrej kondycji jako **dostępne**:
@@ -96,7 +97,7 @@ Po każdym kroku rozwiązywania problemów spróbuj ponownie nawiązać połącz
    
     Po zakończeniu tej operacji dane o dyskach tymczasowych zostaną utracone i zostaną zaktualizowane dynamiczne adresy IP skojarzone z maszyną wirtualną.
 
-9. **Sprawdź Routing**. Użyj funkcji [następnego przeskoku](../../network-watcher/network-watcher-check-next-hop-portal.md) Network Watcher, aby upewnić się, że trasa nie uniemożliwia kierowania ruchu do lub z maszyny wirtualnej. Możesz również przejrzeć obowiązujące trasy, aby zobaczyć wszystkie efektywne trasy dla interfejsu sieciowego. Aby uzyskać więcej informacji, zobacz [Korzystanie z efektywnych tras w celu rozwiązywania problemów z przepływem ruchu maszyn wirtualnych](../../virtual-network/diagnose-network-routing-problem.md).
+9. **Sprawdź Routing**. Użyj funkcji [następnego przeskoku](../../network-watcher/diagnose-vm-network-routing-problem.md) Network Watcher, aby upewnić się, że trasa nie uniemożliwia kierowania ruchu do lub z maszyny wirtualnej. Możesz również przejrzeć obowiązujące trasy, aby zobaczyć wszystkie efektywne trasy dla interfejsu sieciowego. Aby uzyskać więcej informacji, zobacz [Korzystanie z efektywnych tras w celu rozwiązywania problemów z przepływem ruchu maszyn wirtualnych](../../virtual-network/diagnose-network-routing-problem.md).
 
 10. Upewnij się, że Zapora lokalna lub Zapora na komputerze zezwala na ruch wychodzący TCP 3389 do platformy Azure.
 
@@ -108,7 +109,7 @@ Jeśli jeszcze tego nie zrobiono, [Zainstaluj i skonfiguruj najnowszą Azure Pow
 W poniższych przykładach użyto zmiennych, takich jak `myResourceGroup` , `myVM` , i `myVMAccessExtension` . Zastąp te nazwy zmiennych i lokalizacje własnymi wartościami.
 
 > [!NOTE]
-> Należy zresetować poświadczenia użytkownika i konfigurację protokołu RDP przy użyciu polecenia cmdlet [Set-AzVMAccessExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmaccessextension) programu PowerShell. W poniższych przykładach `myVMAccessExtension` to nazwa określona jako część procesu. Jeśli wcześniej pracowałeś z VMAccessAgent, możesz uzyskać nazwę istniejącego rozszerzenia za pomocą polecenia, `Get-AzVM -ResourceGroupName "myResourceGroup" -Name "myVM"` Aby sprawdzić właściwości maszyny wirtualnej. Aby wyświetlić nazwę, zapoznaj się z sekcją "rozszerzenia" w danych wyjściowych.
+> Należy zresetować poświadczenia użytkownika i konfigurację protokołu RDP przy użyciu polecenia cmdlet [Set-AzVMAccessExtension](/powershell/module/az.compute/set-azvmaccessextension) programu PowerShell. W poniższych przykładach `myVMAccessExtension` to nazwa określona jako część procesu. Jeśli wcześniej pracowałeś z VMAccessAgent, możesz uzyskać nazwę istniejącego rozszerzenia za pomocą polecenia, `Get-AzVM -ResourceGroupName "myResourceGroup" -Name "myVM"` Aby sprawdzić właściwości maszyny wirtualnej. Aby wyświetlić nazwę, zapoznaj się z sekcją "rozszerzenia" w danych wyjściowych.
 
 Po każdym kroku rozwiązywania problemów spróbuj ponownie nawiązać połączenie z maszyną wirtualną. Jeśli nadal nie można nawiązać połączenia, wypróbuj następny krok.
 
@@ -185,7 +186,7 @@ Po każdym kroku rozwiązywania problemów spróbuj ponownie nawiązać połącz
     Set-AzVM -Redeploy -ResourceGroupName "myResourceGroup" -Name "myVM"
     ```
 
-6. **Sprawdź Routing**. Użyj funkcji [następnego przeskoku](../../network-watcher/network-watcher-check-next-hop-portal.md) Network Watcher, aby upewnić się, że trasa nie uniemożliwia kierowania ruchu do lub z maszyny wirtualnej. Możesz również przejrzeć obowiązujące trasy, aby zobaczyć wszystkie efektywne trasy dla interfejsu sieciowego. Aby uzyskać więcej informacji, zobacz [Korzystanie z efektywnych tras w celu rozwiązywania problemów z przepływem ruchu maszyn wirtualnych](../../virtual-network/diagnose-network-routing-problem.md).
+6. **Sprawdź Routing**. Użyj funkcji [następnego przeskoku](../../network-watcher/diagnose-vm-network-routing-problem.md) Network Watcher, aby upewnić się, że trasa nie uniemożliwia kierowania ruchu do lub z maszyny wirtualnej. Możesz również przejrzeć obowiązujące trasy, aby zobaczyć wszystkie efektywne trasy dla interfejsu sieciowego. Aby uzyskać więcej informacji, zobacz [Korzystanie z efektywnych tras w celu rozwiązywania problemów z przepływem ruchu maszyn wirtualnych](../../virtual-network/diagnose-network-routing-problem.md).
 
 7. Upewnij się, że Zapora lokalna lub Zapora na komputerze zezwala na ruch wychodzący TCP 3389 do platformy Azure.
 
@@ -211,7 +212,7 @@ Po każdym kroku rozwiązywania problemów spróbuj ponownie nawiązać połącz
    
    ![Sprawdź, Cloud Services punkty końcowe w Azure Portal](./media/troubleshoot-rdp-connection/classic-verify-cloud-services-endpoints.png)
    
-   Jeśli nie masz punktu końcowego, który zezwala na ruch RDP, [Utwórz punkt końcowy Cloud Services](../windows/classic/setup-endpoints.md). Zezwalaj na TCP na port prywatny 3389.
+   Jeśli nie masz punktu końcowego, który zezwala na ruch RDP, [Utwórz punkt końcowy Cloud Services](/previous-versions/azure/virtual-machines/windows/classic/setup-endpoints). Zezwalaj na TCP na port prywatny 3389.
 3. **Przejrzyj diagnostykę rozruchu maszyn wirtualnych**. Ten krok rozwiązywania problemów przegląda dzienniki konsoli maszyny wirtualnej w celu ustalenia, czy maszyna wirtualna zgłasza problem. Nie wszystkie maszyny wirtualne mają włączoną diagnostykę rozruchu, więc ten krok rozwiązywania problemów może być opcjonalny.
    
     Określone kroki rozwiązywania problemów wykraczają poza zakres tego artykułu, ale mogą wskazywać szerszy problem wpływający na łączność z protokołem RDP. Aby uzyskać więcej informacji na temat przeglądania dzienników konsoli i zrzutu ekranu maszyny wirtualnej, zobacz [Diagnostyka rozruchu dla maszyn wirtualnych](https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/).
@@ -244,9 +245,7 @@ Podczas próby nawiązania połączenia z maszyną wirtualną za pośrednictwem 
 * [Błąd zabezpieczeń systemu Windows: Twoje poświadczenia nie działają](troubleshoot-specific-rdp-errors.md#wincred).
 * [Ten komputer nie może nawiązać połączenia z komputerem zdalnym](troubleshoot-specific-rdp-errors.md#rdpconnect).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 Jeśli żaden z tych błędów nie wystąpi i nadal nie można nawiązać połączenia z maszyną wirtualną za pośrednictwem Pulpit zdalny, przeczytaj szczegółowy [Przewodnik rozwiązywania problemów dotyczących pulpit zdalny](detailed-troubleshoot-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-* Aby uzyskać informacje na temat rozwiązywania problemów z dostępem do aplikacji uruchomionych na maszynie wirtualnej, zobacz [Rozwiązywanie problemów z dostępem do aplikacji uruchomionej na maszynie wirtualnej platformy Azure](../linux/troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-* Jeśli masz problemy z używaniem Secure Shell (SSH) do łączenia się z maszyną wirtualną z systemem Linux na platformie Azure, zobacz [Rozwiązywanie problemów z połączeniami SSH z maszyną wirtualną z systemem Linux na platformie Azure](../linux/troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-
-
+* Aby uzyskać informacje na temat rozwiązywania problemów z dostępem do aplikacji uruchomionych na maszynie wirtualnej, zobacz [Rozwiązywanie problemów z dostępem do aplikacji uruchomionej na maszynie wirtualnej platformy Azure](./troubleshoot-app-connection.md?toc=/azure/virtual-machines/linux/toc.json).
+* Jeśli masz problemy z używaniem Secure Shell (SSH) do łączenia się z maszyną wirtualną z systemem Linux na platformie Azure, zobacz [Rozwiązywanie problemów z połączeniami SSH z maszyną wirtualną z systemem Linux na platformie Azure](./troubleshoot-ssh-connection.md?toc=/azure/virtual-machines/linux/toc.json).

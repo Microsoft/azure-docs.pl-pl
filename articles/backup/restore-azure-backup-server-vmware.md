@@ -3,15 +3,16 @@ title: Przywracanie maszyn wirtualnych VMware przy użyciu usługi Azure Backup 
 description: Użyj Azure Backup Server (serwera usługi MAB), aby przywrócić maszyny wirtualne programu VMware działające na serwerze VMware vCenter/ESXi.
 ms.topic: conceptual
 ms.date: 08/18/2019
-ms.openlocfilehash: ab2fb4f8f79fa5a664f5cb0ba1bb537c1df658c2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d11b9259a44c32891f5fefa6f175681838927586
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77212350"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86524526"
 ---
 # <a name="restore-vmware-virtual-machines"></a>Przywróć maszyny wirtualne VMware
 
-W tym artykule wyjaśniono, jak używać Microsoft Azure Backup Server (serwera usługi MAB) do przywracania punktów odzyskiwania maszyn wirtualnych programu VMware. Aby zapoznać się z omówieniem dotyczącym korzystania z usługi serwera usługi MAB do odzyskiwania danych, zobacz [odzyskiwanie chronionych danych](https://docs.microsoft.com/azure/backup/backup-azure-alternate-dpm-server). W konsola administratora serwera usługi MAB istnieją dwa sposoby znajdowania odzyskiwalnych danych — wyszukiwanie i przeglądanie. Podczas odzyskiwania danych można lub nie chcieć przywracać danych ani maszyn wirtualnych do tej samej lokalizacji. Z tego powodu serwera usługi MAB obsługuje trzy opcje odzyskiwania kopii zapasowych maszyn wirtualnych VMware:
+W tym artykule wyjaśniono, jak używać Microsoft Azure Backup Server (serwera usługi MAB) do przywracania punktów odzyskiwania maszyn wirtualnych programu VMware. Aby zapoznać się z omówieniem dotyczącym korzystania z usługi serwera usługi MAB do odzyskiwania danych, zobacz [odzyskiwanie chronionych danych](./backup-azure-alternate-dpm-server.md). W konsola administratora serwera usługi MAB istnieją dwa sposoby znajdowania odzyskiwalnych danych — wyszukiwanie i przeglądanie. Podczas odzyskiwania danych można lub nie chcieć przywracać danych ani maszyn wirtualnych do tej samej lokalizacji. Z tego powodu serwera usługi MAB obsługuje trzy opcje odzyskiwania kopii zapasowych maszyn wirtualnych VMware:
 
 * **Odzyskiwanie do oryginalnej lokalizacji (OLR)** — umożliwia przywrócenie chronionej maszyny wirtualnej do jej oryginalnej lokalizacji przy użyciu funkcji OLR. Maszynę wirtualną można przywrócić do jej oryginalnej lokalizacji tylko wtedy, gdy nie dodano ani nie usunięto dysków, ponieważ wystąpiła kopia zapasowa. Jeśli dyski zostały dodane lub usunięte, musisz użyć odzyskiwania do lokalizacji alternatywnej.
 

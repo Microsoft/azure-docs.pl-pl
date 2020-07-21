@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.date: 12/13/2019
 ms.author: rogardle
 ms.custom: ''
-ms.openlocfilehash: 9125d8d2177b9bc40bb280f414cdfb2797ccf8fe
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: dd5e3cf8ce9e52768c28598a819a28ad1ec4413c
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86221616"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86525521"
 ---
 # <a name="reference-architectures-for-oracle-database-enterprise-edition-on-azure"></a>Architektury referencyjne dla Oracle Database Enterprise Edition na platformie Azure
 
@@ -37,13 +37,13 @@ Osiągnięcie wysokiej dostępności w chmurze jest ważną częścią planowani
 
 Oprócz natywnych narzędzi i ofert w chmurze firma Oracle udostępnia rozwiązania wysokiej dostępności, takie jak [Oracle Data Guard](https://docs.oracle.com/en/database/oracle/oracle-database/18/sbydb/introduction-to-oracle-data-guard-concepts.html#GUID-5E73667D-4A56-445E-911F-1E99092DD8D7), [Data Guard z FSFO](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/dgbkr/index.html), [fragmentowania](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/admin/sharding-overview.html)i [GoldenGate](https://www.oracle.com/middleware/technologies/goldengate.html) , które można skonfigurować na platformie Azure. Ten przewodnik obejmuje architektury referencyjne dla każdego z tych rozwiązań.
 
-Na koniec podczas migrowania lub tworzenia aplikacji dla chmury ważne jest, aby dostosować kod aplikacji w celu dodania wzorców w chmurze, takich jak [wzorzec ponawiania](https://docs.microsoft.com/azure/architecture/patterns/retry) i [wzorzec wyłącznika](https://docs.microsoft.com/azure/architecture/patterns/circuit-breaker). Dodatkowe wzorce zdefiniowane w [przewodniku wzorów projektowych chmury](https://docs.microsoft.com/azure/architecture/patterns/) mogą pomóc w większym odporności aplikacji.
+Na koniec podczas migrowania lub tworzenia aplikacji dla chmury ważne jest, aby dostosować kod aplikacji w celu dodania wzorców w chmurze, takich jak [wzorzec ponawiania](/azure/architecture/patterns/retry) i [wzorzec wyłącznika](/azure/architecture/patterns/circuit-breaker). Dodatkowe wzorce zdefiniowane w [przewodniku wzorów projektowych chmury](/azure/architecture/patterns/) mogą pomóc w większym odporności aplikacji.
 
 ### <a name="oracle-rac-in-the-cloud"></a>Oracle RAC w chmurze
 
 Oracle Real Application Cluster (RAC) to rozwiązanie zapewniane przez firmę Oracle, które ułatwia klientom osiąganie dużej przepływności przez wiele wystąpień uzyskujących dostęp do jednego magazynu bazy danych (współdzielony wzorzec architektury). Mimo że certyfikat RAC dla programu Oracle może być używany w środowisku lokalnym o wysokiej dostępności, nie można używać go w celu zapewnienia wysokiej dostępności w chmurze, ponieważ chroni on tylko przed awariami na poziomie wystąpienia, a nie z awariami na poziomie stojaków lub centrów danych. Z tego powodu firma Oracle zaleca użycie usługi Oracle Data Guard z bazą danych (w przypadku pojedynczego wystąpienia lub certyfikatu RAC) w celu zapewnienia wysokiej dostępności. Klienci zazwyczaj wymagają dużej umowy SLA na potrzeby uruchamiania aplikacji o znaczeniu strategicznym. Certyfikat Oracle RAC nie jest obecnie certyfikowany ani obsługiwany przez program Oracle na platformie Azure. Jednak platforma Azure oferuje funkcje, takie jak platforma Azure, oferuje Strefy dostępności i planowane okna obsługi, aby ułatwić ochronę przed awariami na poziomie wystąpienia. Oprócz tego klienci mogą korzystać z technologii takich jak Oracle Data Guard, Oracle GoldenGate i Oracle fragmentowania w celu zapewnienia wysokiej wydajności i odporności przez ochronę swoich baz danych przed awariami na poziomie stojaków oraz geograficznie-politycznych.
 
-W przypadku uruchamiania baz danych Oracle w wielu [strefach dostępności](https://docs.microsoft.com/azure/availability-zones/az-overview) w połączeniu z usługą Oracle Data Guard lub GoldenGate klienci mogą uzyskać umowę SLA na 99,99% czasu pracy. W regionach platformy Azure, w których strefy dostępności nie są jeszcze obecne, klienci mogą korzystać z [zestawów dostępności](https://docs.microsoft.com/azure/virtual-machines/linux/manage-availability#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) i uzyskać umowę SLA dotyczącą czasu działania wynoszącą 99,95% czasu.
+W przypadku uruchamiania baz danych Oracle w wielu [strefach dostępności](../../../availability-zones/az-overview.md) w połączeniu z usługą Oracle Data Guard lub GoldenGate klienci mogą uzyskać umowę SLA na 99,99% czasu pracy. W regionach platformy Azure, w których strefy dostępności nie są jeszcze obecne, klienci mogą korzystać z [zestawów dostępności](../../linux/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) i uzyskać umowę SLA dotyczącą czasu działania wynoszącą 99,95% czasu.
 
 >Uwaga: możesz mieć miejsce docelowe czasu pracy, które jest znacznie wyższe niż umowa SLA czasu działania świadczona przez firmę Microsoft.
 
@@ -51,7 +51,7 @@ W przypadku uruchamiania baz danych Oracle w wielu [strefach dostępności](http
 
 W przypadku hostowania aplikacji o znaczeniu krytycznym w chmurze ważne jest zaprojektowanie pod kątem wysokiej dostępności i odzyskiwania po awarii.
 
-W przypadku Oracle Database Enterprise Edition Funkcja Oracle Data Guard jest przydatną funkcją odzyskiwania po awarii. Można skonfigurować wystąpienie bazy danych w stanie wstrzymania w [sparowanym regionie platformy Azure](/azure/best-practices-availability-paired-regions) i skonfigurować tryb failover usługi Data Guard na potrzeby odzyskiwania po awarii. W przypadku utraty danych zero zaleca się wdrożenie wystąpienia funkcji synchronizacji danych Oracle Data Guard oprócz aktywnej usługi Data Guard. 
+W przypadku Oracle Database Enterprise Edition Funkcja Oracle Data Guard jest przydatną funkcją odzyskiwania po awarii. Można skonfigurować wystąpienie bazy danych w stanie wstrzymania w [sparowanym regionie platformy Azure](../../../best-practices-availability-paired-regions.md) i skonfigurować tryb failover usługi Data Guard na potrzeby odzyskiwania po awarii. W przypadku utraty danych zero zaleca się wdrożenie wystąpienia funkcji synchronizacji danych Oracle Data Guard oprócz aktywnej usługi Data Guard. 
 
 Rozważ skonfigurowanie wystąpienia funkcji ochrony danych o dużej synchronizacji w innej strefie dostępności niż podstawowa baza danych Oracle, jeśli aplikacja zezwala na opóźnienie (wymagane jest dokładne testowanie). Użyj **maksymalnego trybu dostępności** , aby skonfigurować synchroniczny transport plików ponownie do wystąpienia daleko synchronizacji. Te pliki są następnie przesyłane asynchronicznie do nieaktywnej bazy danych. 
 
@@ -79,7 +79,7 @@ Poniższy diagram przedstawia zalecaną architekturę korzystania z funkcji Orac
 
 ![Oracle Database używania stref dostępności z brokerem usługi Data Guard — FSFO](./media/oracle-reference-architecture/oracledb_dg_fsfo_az.png)
 
-Na powyższym diagramie system klienta uzyskuje dostęp do niestandardowej aplikacji z zapleczem firmy Oracle za pośrednictwem sieci Web. Fronton sieci Web jest skonfigurowany w usłudze równoważenia obciążenia. Fronton sieci Web tworzy połączenie z odpowiednim serwerem aplikacji w celu obsługi pracy. Serwer aplikacji wysyła zapytanie do podstawowej bazy danych Oracle. Baza danych Oracle została skonfigurowana przy użyciu [maszyny wirtualnej zoptymalizowanej pod kątem pamięci](../../../virtual-machines/windows/sizes-memory.md) z [ograniczeniami procesorów wirtualnych vCPU](../../../virtual-machines/windows/constrained-vcpu.md) , aby zaoszczędzić na kosztach licencjonowania i zwiększyć wydajność. Wiele dysków Premium lub Ultra (Managed Disks) jest używanych do zapewnienia wydajności i wysokiej dostępności.
+Na powyższym diagramie system klienta uzyskuje dostęp do niestandardowej aplikacji z zapleczem firmy Oracle za pośrednictwem sieci Web. Fronton sieci Web jest skonfigurowany w usłudze równoważenia obciążenia. Fronton sieci Web tworzy połączenie z odpowiednim serwerem aplikacji w celu obsługi pracy. Serwer aplikacji wysyła zapytanie do podstawowej bazy danych Oracle. Baza danych Oracle została skonfigurowana przy użyciu [maszyny wirtualnej zoptymalizowanej pod kątem pamięci](../../sizes-memory.md) z [ograniczeniami procesorów wirtualnych vCPU](../../../virtual-machines/windows/constrained-vcpu.md) , aby zaoszczędzić na kosztach licencjonowania i zwiększyć wydajność. Wiele dysków Premium lub Ultra (Managed Disks) jest używanych do zapewnienia wydajności i wysokiej dostępności.
 
 Bazy danych Oracle są umieszczane w wielu strefach dostępności w celu zapewnienia wysokiej dostępności. Każda strefa składa się z jednego lub więcej centrów danych, które są wyposażone w niezależną moc, chłodzenie i sieci. W celu zapewnienia odporności należy skonfigurować co najmniej trzy oddzielne strefy we wszystkich włączonych regionach. Fizyczne rozdzielenie stref dostępności w regionie chroni dane przed awariami centrum danych. Ponadto dwa obserwatory FSFO są konfigurowane w dwóch strefach dostępności w celu zainicjowania bazy danych i przełączenia jej w tryb failover w przypadku wystąpienia awarii. 
 
@@ -113,7 +113,7 @@ Na poniższym diagramie przedstawiono architekturę wykorzystującą funkcję Or
 
 GoldenGate umożliwia wymianę i manipulowanie danymi na poziomie transakcji wśród wielu platform heterogenicznych w całym przedsiębiorstwie. Przenosi ona zatwierdzone transakcje z integralnością transakcji i minimalnym obciążeniem istniejącej infrastruktury. Jej modularna architektura zapewnia elastyczność wyodrębniania i replikowania wybranych rekordów danych, zmian transakcyjnych i zmian w języku DDL (język definicji danych) w różnych topologiach.
 
-Program Oracle GoldenGate umożliwia skonfigurowanie bazy danych pod kątem wysokiej dostępności, zapewniając replikację dwukierunkową. Pozwala to na skonfigurowanie konfiguracji z **wieloma wzorcami** lub **aktywnym aktywnym**. Poniższy diagram jest zalecaną architekturą dla programu Oracle GoldenGate Active-Active Setup na platformie Azure. W poniższej architekturze baza danych Oracle została skonfigurowana przy użyciu [maszyny wirtualnej zoptymalizowanej pod kątem pamięci](../../../virtual-machines/windows/sizes-memory.md) z [ograniczeniami procesorów wirtualnych vCPU](../../../virtual-machines/windows/constrained-vcpu.md) , aby zaoszczędzić na kosztach licencjonowania i zwiększyć wydajność. Do wydajności i dostępności są używane wiele dysków w warstwie Premium lub Ultra (dyski zarządzane).
+Program Oracle GoldenGate umożliwia skonfigurowanie bazy danych pod kątem wysokiej dostępności, zapewniając replikację dwukierunkową. Pozwala to na skonfigurowanie konfiguracji z **wieloma wzorcami** lub **aktywnym aktywnym**. Poniższy diagram jest zalecaną architekturą dla programu Oracle GoldenGate Active-Active Setup na platformie Azure. W poniższej architekturze baza danych Oracle została skonfigurowana przy użyciu [maszyny wirtualnej zoptymalizowanej pod kątem pamięci](../../sizes-memory.md) z [ograniczeniami procesorów wirtualnych vCPU](../../../virtual-machines/windows/constrained-vcpu.md) , aby zaoszczędzić na kosztach licencjonowania i zwiększyć wydajność. Do wydajności i dostępności są używane wiele dysków w warstwie Premium lub Ultra (dyski zarządzane).
 
 ![Oracle Database używania stref dostępności z brokerem usługi Data Guard — FSFO](./media/oracle-reference-architecture/oracledb_gg_az.png)
 
@@ -215,7 +215,7 @@ Stosowanie poprawek do systemu operacyjnego maszyny wirtualnej może być zautom
 
 ## <a name="architecture-and-design-considerations"></a>Zagadnienia dotyczące architektury i projektowania
 
-- Rozważ użycie [maszyny wirtualnej zoptymalizowanej pod kątem pamięci](../../../virtual-machines/windows/sizes-memory.md) z [ograniczonym rdzeniem procesorów wirtualnych vCPU](../../../virtual-machines/windows/constrained-vcpu.md) dla maszyny wirtualnej Oracle Database, aby zaoszczędzić koszty licencjonowania i zwiększyć wydajność. Używaj wielu dysków Premium lub Ultra (Managed disks) w celu zapewnienia wydajności i dostępności.
+- Rozważ użycie [maszyny wirtualnej zoptymalizowanej pod kątem pamięci](../../sizes-memory.md) z [ograniczonym rdzeniem procesorów wirtualnych vCPU](../../../virtual-machines/windows/constrained-vcpu.md) dla maszyny wirtualnej Oracle Database, aby zaoszczędzić koszty licencjonowania i zwiększyć wydajność. Używaj wielu dysków Premium lub Ultra (Managed disks) w celu zapewnienia wydajności i dostępności.
 - W przypadku korzystania z dysków zarządzanych nazwa dysku/urządzenia może ulec zmianie przy ponownych uruchomieniach. Zaleca się użycie identyfikatora UUID urządzenia zamiast nazwy, aby upewnić się, że instalacje są zachowywane w ramach ponownych uruchomień. Więcej informacji można znaleźć [tutaj](../../../virtual-machines/linux/configure-raid.md#add-the-new-file-system-to-etcfstab).
 - Użyj stref dostępności, aby uzyskać wysoką dostępność w regionie.
 - Rozważ użycie dysków Ultra disks (jeśli jest dostępna) lub Premium dla bazy danych Oracle.

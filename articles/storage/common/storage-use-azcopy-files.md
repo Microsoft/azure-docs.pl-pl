@@ -7,13 +7,14 @@ ms.topic: how-to
 ms.date: 04/10/2020
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 6c621219bc424b7e0df6de286a066fd5b94af4a5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a836f4ce40f4d2e0871f99122d25bb6c6f346d05
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85514956"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86527884"
 ---
-# <a name="transfer-data-with-azcopy-and-file-storage"></a>Transferowanie danych za pomocą AzCopy i magazynu plików 
+# <a name="transfer-data-with-azcopy-and-file-storage"></a>Transferowanie danych za pomocą narzędzia AzCopy i magazynu plików 
 
 AzCopy to narzędzie wiersza polecenia, przy użyciu którego można kopiować obiekty blob lub pliki do lub z konta magazynu. Ten artykuł zawiera przykładowe polecenia, które współpracują z Azure Files.
 
@@ -22,7 +23,7 @@ Przed rozpoczęciem Zobacz artykuł [wprowadzenie do AzCopy](storage-use-azcopy-
 > [!TIP]
 > W przykładach w tym artykule zamieszczono argumenty Path z pojedynczymi cudzysłowami (' '). Używaj pojedynczych cudzysłowów we wszystkich powłokach poleceń z wyjątkiem powłoki poleceń systemu Windows (cmd.exe). Jeśli używasz powłoki poleceń systemu Windows (cmd.exe), argumenty ścieżki należy ująć w podwójne cudzysłowy ("") zamiast pojedynczego cudzysłowu ("").
 
-## <a name="create-file-shares"></a>Utwórz udziały plików
+## <a name="create-file-shares"></a>Tworzenie udziałów plików
 
 Możesz użyć [AzCopy](storage-ref-azcopy-make.md) Utwórz polecenie, aby utworzyć udział plików. W przykładzie w tej sekcji jest tworzony udział plików o nazwie `myfileshare` .
 
@@ -117,7 +118,7 @@ Można również wykluczyć pliki przy użyciu `--exclude-path` opcji. Aby dowie
 
 #### <a name="use-wildcard-characters"></a>Użyj symboli wieloznacznych
 
-Użyj polecenia [copy AzCopy](storage-ref-azcopy-copy.md) z `--include-pattern` opcją. Określ częściowe nazwy, które zawierają symbole wieloznaczne. Oddziel nazwy przy użyciu semicolin ( `;` ).
+Użyj polecenia [copy AzCopy](storage-ref-azcopy-copy.md) z `--include-pattern` opcją. Określ częściowe nazwy, które zawierają symbole wieloznaczne. Oddzielaj nazwy przy użyciu średnika ( `;` ).
 
 |    |     |
 |--------|-----------|
@@ -188,7 +189,7 @@ Możesz określić pełne nazwy plików lub użyć częściowych nazw z symbolam
 
 #### <a name="specify-multiple-complete-file-names"></a>Określ wiele pełnych nazw plików
 
-Użyj polecenia [copy AzCopy](storage-ref-azcopy-copy.md) z `--include-path` opcją. Oddziel poszczególne nazwy plików przy użyciu semicolin ( `;` ).
+Użyj polecenia [copy AzCopy](storage-ref-azcopy-copy.md) z `--include-path` opcją. Oddziel poszczególne nazwy plików przy użyciu średnika ( `;` ).
 
 |    |     |
 |--------|-----------|
@@ -201,7 +202,7 @@ Można również wykluczyć pliki przy użyciu `--exclude-path` opcji. Aby dowie
 
 #### <a name="use-wildcard-characters"></a>Użyj symboli wieloznacznych
 
-Użyj polecenia [copy AzCopy](storage-ref-azcopy-copy.md) z `--include-pattern` opcją. Określ częściowe nazwy, które zawierają symbole wieloznaczne. Oddziel nazwy przy użyciu semicolin ( `;` ).
+Użyj polecenia [copy AzCopy](storage-ref-azcopy-copy.md) z `--include-pattern` opcją. Określ częściowe nazwy, które zawierają symbole wieloznaczne. Oddzielaj nazwy przy użyciu średnika ( `;` ).
 
 |    |     |
 |--------|-----------|

@@ -12,11 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 12/19/2019
 ms.author: tibasham
-ms.openlocfilehash: f7e2b70b111cd195f688e236bf8f05b077acb000
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e5ab1262def78da4971ea6e5535f3ac915a38ec8
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84678770"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86526762"
 ---
 # <a name="azure-windows-vm-shutdown-is-stuck-on-restarting-shutting-down-or-stopping-services"></a>Zamykanie maszyny wirtualnej systemu Windows Azure jest wstrzymywane po "ponownym uruchomieniu", "zamykanie" lub "zatrzymywanie usług"
 
@@ -24,7 +25,7 @@ W tym artykule przedstawiono procedurę rozwiązywania problemów dotyczących "
 
 ## <a name="symptoms"></a>Objawy
 
-W przypadku korzystania z [diagnostyki rozruchu](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) w celu wyświetlenia zrzutu ekranu maszyny wirtualnej może pojawić się zrzut ekranu przedstawiający komunikat "ponowne uruchomienie", "zamykanie usługi" lub "zatrzymywanie usług".
+W przypadku korzystania z [diagnostyki rozruchu](./boot-diagnostics.md) w celu wyświetlenia zrzutu ekranu maszyny wirtualnej może pojawić się zrzut ekranu przedstawiający komunikat "ponowne uruchomienie", "zamykanie usługi" lub "zatrzymywanie usług".
 
 ![Ponowne uruchamianie, zamykanie i zatrzymywanie usług ekranu](./media/boot-error-troubleshooting-windows/restart-shut-down-stop-service.png)
  
@@ -40,7 +41,7 @@ System Windows używa procesu zamykania do wykonywania operacji konserwacyjnych 
 
 2. Odłącz dysk zawierający pliki, które są konieczne z działającej maszyny wirtualnej, a następnie Dołącz dysk do uszkodzonej maszyny wirtualnej. Wywołujemy ten dysk jako **Narzędzie**.
 
-Użyj [konsoli szeregowej](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-windows) , aby wykonać następujące czynności:
+Użyj [konsoli szeregowej](./serial-console-windows.md) , aby wykonać następujące czynności:
 
 1. Otwórz program PowerShell w środowisku administracyjnym i sprawdź, czy usługa przestanie reagować na zatrzymanie.
 
@@ -80,13 +81,13 @@ Jeśli problem nie zostanie rozwiązany po oczekiwaniu na zmiany w procesie, nal
 
 **Dołączanie dysku systemu operacyjnego do maszyny wirtualnej odzyskiwania**
 
-1. Utwórz migawkę dysku systemu operacyjnego z zaatakowaną maszyną wirtualną jako kopię zapasową. Aby uzyskać więcej informacji, zobacz [migawka dysku](https://docs.microsoft.com/azure/virtual-machines/windows/snapshot-copy-managed-disk).
+1. Utwórz migawkę dysku systemu operacyjnego z zaatakowaną maszyną wirtualną jako kopię zapasową. Aby uzyskać więcej informacji, zobacz [migawka dysku](../windows/snapshot-copy-managed-disk.md).
 
-2. [Dołącz dysk systemu operacyjnego do maszyny wirtualnej odzyskiwania](https://docs.microsoft.com/azure/virtual-machines/windows/troubleshoot-recovery-disks-portal).
+2. [Dołącz dysk systemu operacyjnego do maszyny wirtualnej odzyskiwania](./troubleshoot-recovery-disks-portal-windows.md).
 
 3. Pulpit zdalny do maszyny wirtualnej odzyskiwania.
 
-4. Jeśli dysk systemu operacyjnego jest zaszyfrowany, przed przejściem do następnego kroku należy wyłączyć szyfrowanie. Aby uzyskać więcej informacji, zobacz [odszyfrowywanie zaszyfrowanego dysku systemu operacyjnego na maszynie wirtualnej, której nie można uruchomić](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-bitlocker-boot-error#solution).
+4. Jeśli dysk systemu operacyjnego jest zaszyfrowany, przed przejściem do następnego kroku należy wyłączyć szyfrowanie. Aby uzyskać więcej informacji, zobacz [odszyfrowywanie zaszyfrowanego dysku systemu operacyjnego na maszynie wirtualnej, której nie można uruchomić](./troubleshoot-bitlocker-boot-error.md#solution).
 
 **Lokalizowanie pliku zrzutu i przesyłanie biletu pomocy technicznej**
 
@@ -141,7 +142,7 @@ Aby włączyć dziennik zrzutów i konsolę szeregową, uruchom następujący sk
    reg unload HKLM\BROKENSYSTEM
    ```
 
-5. [Odłącz dysk systemu operacyjnego, a następnie ponownie podłącz dysk systemu operacyjnego do maszyny wirtualnej, której to dotyczy](https://docs.microsoft.com/azure/virtual-machines/windows/troubleshoot-recovery-disks-portal).
+5. [Odłącz dysk systemu operacyjnego, a następnie ponownie podłącz dysk systemu operacyjnego do maszyny wirtualnej, której to dotyczy](./troubleshoot-recovery-disks-portal-windows.md).
 
 6. Uruchom maszynę wirtualną i uzyskaj dostęp do konsoli szeregowej.
 

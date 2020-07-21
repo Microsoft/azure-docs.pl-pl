@@ -6,11 +6,12 @@ ms.service: virtual-machines
 ms.topic: article
 ms.date: 05/31/2017
 ms.author: cynthn
-ms.openlocfilehash: f2dc43e1f07d449bf2f8ed39ce4523c99b551dae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6481bfe265786ca8b79f96bbcac7fe4d58076911
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77115616"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86525827"
 ---
 # <a name="what-if-an-azure-service-disruption-impacts-azure-vms"></a>Co się stało z zakłóceniem działania usługi platformy Azure na maszynach wirtualnych platformy Azure
 Firma Microsoft chce, aby upewnić się, że nasze usługi są zawsze dostępne dla Ciebie, gdy będą potrzebne. Siły wykraczające poza nasze kontrolki czasami wpływają na metody, które powodują nieplanowane zakłócenia usługi.
@@ -34,7 +35,7 @@ Jest to najlepsza opcja, jeśli nie skonfigurowano Azure Site Recovery, magazynu
 
 
 > [!NOTE]
-> Należy pamiętać, że nie masz żadnej kontroli nad tym procesem i nastąpi tylko w przypadku przerw w działaniu usługi. W związku z tym należy również korzystać z innych strategii tworzenia kopii zapasowych specyficznych dla aplikacji, aby osiągnąć najwyższy poziom dostępności. Aby uzyskać więcej informacji, zapoznaj się z sekcją dotyczącej [strategii danych dotyczących odzyskiwania po awarii](https://docs.microsoft.com/azure/architecture/reliability/disaster-recovery#disaster-recovery-plan).
+> Należy pamiętać, że nie masz żadnej kontroli nad tym procesem i nastąpi tylko w przypadku przerw w działaniu usługi. W związku z tym należy również korzystać z innych strategii tworzenia kopii zapasowych specyficznych dla aplikacji, aby osiągnąć najwyższy poziom dostępności. Aby uzyskać więcej informacji, zapoznaj się z sekcją dotyczącej [strategii danych dotyczących odzyskiwania po awarii](/azure/architecture/reliability/disaster-recovery#disaster-recovery-plan).
 >
 >
 
@@ -44,7 +45,7 @@ Jest to najlepsza opcja, jeśli nie skonfigurowano Azure Site Recovery, magazynu
 
 - Aby dowiedzieć się więcej o implementowaniu strategii odzyskiwania po awarii i wysokiej dostępności, zobacz [odzyskiwanie po awarii i wysoka dostępność dla aplikacji platformy Azure](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md).
 
-- Aby opracować szczegółowe informacje techniczne na temat możliwości platformy w chmurze, zobacz [Wskazówki techniczne dotyczące odporności na platformie Azure](/azure/data-lake-store/data-lake-store-disaster-recovery-guidance).
+- Aby opracować szczegółowe informacje techniczne na temat możliwości platformy w chmurze, zobacz [Wskazówki techniczne dotyczące odporności na platformie Azure](../data-lake-store/data-lake-store-disaster-recovery-guidance.md).
 
 
 - Jeśli instrukcje nie są jasne lub jeśli chcesz, aby firma Microsoft wykonał operacje w Twoim imieniu, skontaktuj się z [pomocą techniczną](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade).

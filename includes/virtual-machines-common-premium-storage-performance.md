@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/08/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: e10d1d5aa5b45c0ea0e31df4d5d847f8541838b9
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 60053f24aa4231f1100d0b00cb6cf70b851b1939
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86218212"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86526042"
 ---
 ## <a name="application-performance-indicators"></a>Wskaźniki wydajności aplikacji
 
@@ -138,7 +138,7 @@ Aby uzyskać więcej informacji o rozmiarach maszyn wirtualnych oraz o liczbie o
 Żądanie we/wy jest jednostką operacji wejścia/wyjścia, która będzie wykonywana przez aplikację. Zidentyfikowanie charakteru żądań we/wy, losowych lub sekwencyjnych, Odczyt, zapis, mały lub duży, pomoże określić wymagania dotyczące wydajności aplikacji. Ważne jest zrozumienie charakteru żądań we/wy, aby podejmować odpowiednie decyzje podczas projektowania infrastruktury aplikacji. System IOs musi być równomiernie dystrybuowany w celu osiągnięcia najlepszej możliwej wydajności.
 
 Rozmiar we/wy to jeden z ważniejszych czynników. Rozmiar we/wy to rozmiar żądania operacji wejścia/wyjścia wygenerowanego przez aplikację. Rozmiar we/wy ma znaczny wpływ na wydajność, szczególnie w przypadku operacji wejścia/wyjścia aplikacji. Poniższa formuła przedstawia relację między operacjami IOPS, rozmiarem we/wy i przepustowością/przepływność.  
-    ![](media/premium-storage-performance/image1.png)
+    ![Diagram pokazujący, że liczba operacji we/wy O rozmiarze P jest równa przepływności.](media/premium-storage-performance/image1.png)
 
 Niektóre aplikacje umożliwiają zmianę rozmiaru operacji we/wy, podczas gdy niektóre aplikacje nie są. Na przykład SQL Server określa optymalny rozmiar we/wy i nie zapewnia użytkownikom żadnych pokrętłów, aby je zmienić. Z drugiej strony firma Oracle udostępnia parametr o nazwie [ \_ DataBlock \_ size](https://docs.oracle.com/cd/B19306_01/server.102/b14211/iodesign.htm#i28815) , za pomocą którego można skonfigurować rozmiar żądania we/wy bazy danych.
 
@@ -371,15 +371,15 @@ Na przykład w SQL Server ustawienie wartości MAXDOP dla zapytania na "4" infor
 
 *Optymalna głębokość kolejki*  
 Bardzo wysoka wartość głębokości kolejki ma także wady. Jeśli wartość głębokości kolejki jest zbyt duża, aplikacja podejmie próbę przeprowadzić bardzo duże liczby operacji we/wy na sekundę. Jeśli aplikacja nie ma dysków trwałych z wystarczającą liczbą operacji we/wy aprowizacji, może to negatywnie wpłynąć na opóźnienia aplikacji. Poniższa formuła przedstawia relację między operacjami IOPS, opóźnienia i kolejki.  
-    ![](media/premium-storage-performance/image6.png)
+    ![Diagram pokazujący, że opóźnienie I czas opóźnienia są równe głębokości kolejki.](media/premium-storage-performance/image6.png)
 
 Nie należy konfigurować głębokości kolejki do żadnej wysokiej wartości, ale do optymalnej wartości, która może zapewnić wystarczającą liczbę IOPS dla aplikacji bez wpływu na opóźnienia. Na przykład jeśli opóźnienie aplikacji musi wynosić 1 milisekunda, Głębokość kolejki wymagana do osiągnięcia 5 000 operacji we/wy to głębokość kolejki = 5000 x 0,001 = 5.
 
 *Głębokość kolejki dla woluminu rozłożonego*  
 W przypadku woluminu rozłożonego należy zachować górną głębokość kolejki, taką jak każdy dysk ma zaszczytową głębokość kolejki. Rozważmy na przykład aplikację, która wypycha głębokość kolejki 2 i zawiera cztery dyski. Dwa żądania we/wy będą kierowane do dwóch dysków, a pozostałe dwa dyski będą bezczynne. W związku z tym Skonfiguruj głębokość kolejki w taki sposób, aby wszystkie dyski mogły być zajęte. W poniższej formule pokazano, jak określić głębokość kolejki woluminów rozłożonych.  
-    ![](media/premium-storage-performance/image7.png)
+    ![Diagram przedstawiający równanie Q D na dysk razy liczba kolumn na wolumin jest równa Q D woluminu rozłożonego.](media/premium-storage-performance/image7.png)
 
-## <a name="throttling"></a>Ograniczanie przepływności
+## <a name="throttling"></a>Dławienie
 
 Usługa Azure Premium Storage postanowił określoną liczbę operacji we/wy na sekundę i przepływności w zależności od wybranego rozmiaru maszyny wirtualnej i wybranego rozmiaru dysku. Gdy aplikacja próbuje zwiększyć liczbę operacji we/wy lub przepływności powyżej tych limitów, co może obsłużyć maszyna wirtualna lub dysk, Premium Storage będzie ograniczać ją. Te manifesty mają postać obniżonej wydajności aplikacji. Może to oznaczać większe opóźnienia, niższą przepływność lub mniejsze liczby operacji we/wy na sekundę. Jeśli Premium Storage nie jest ograniczana, aplikacja może zakończyć się niepowodzeniem, przekroczenie możliwości osiągania zasobów. Aby uniknąć problemów z wydajnością ze względu na ograniczenie przepustowości, zawsze Zapewnij odpowiednią ilość zasobów dla aplikacji. Weź pod uwagę to, co omówiono w sekcjach rozmiary maszyn wirtualnych i rozmiary dysków powyżej. Testy porównawcze to najlepszy sposób ustalania zasobów potrzebnych do hostowania aplikacji.
 

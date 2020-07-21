@@ -8,12 +8,12 @@ ms.date: 05/28/2020
 ms.author: rogarana
 ms.subservice: files
 services: storage
-ms.openlocfilehash: 84da8993bd1b0a61ef885d03f7c2bc80b92d47cb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f432c544d8632a548c397b63ffa8066f63424f67
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85510809"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86528387"
 ---
 # <a name="enable-soft-delete-on-azure-file-shares"></a>Włącz usuwanie nietrwałe w udziałach plików platformy Azure
 
@@ -33,7 +33,7 @@ W poniższych sekcjach pokazano, jak włączyć i użyć usuwania nietrwałego d
 
 # <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
-Aby włączyć usuwanie nietrwałe, należy zaktualizować właściwości usługi klienta pliku. Poniższy przykład włącza usuwanie nietrwałe dla wszystkich udziałów plików na koncie magazynu:
+Polecenia cmdlet usuwania nietrwałego są dostępne w wersji 2.1.1-Preview modułu AZ. Storage. Aby włączyć usuwanie nietrwałe, należy zaktualizować właściwości usługi klienta pliku. Poniższy przykład włącza usuwanie nietrwałe dla wszystkich udziałów plików na koncie magazynu:
 
 ```azurepowershell-interactive
 $rgName = "yourResourceGroupName"
@@ -70,7 +70,7 @@ Aby przywrócić nietrwały, usunięty udział plików:
 
 # <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
-Aby przywrócić nietrwały, usunięty udział plików, użyj następującego polecenia:
+Polecenia cmdlet usuwania nietrwałego są dostępne w wersji 2.1.1-Preview modułu AZ. Storage. Aby przywrócić nietrwały, usunięty udział plików, użyj następującego polecenia:
 
 ```azurepowershell-interactive
 Restore-AzRmStorageShare -ResourceGroupName $rgname -StorageAccountName $accountName -DeletedShareVersion 01D5E2783BDCDA97
@@ -91,7 +91,7 @@ Jeśli chcesz zatrzymać korzystanie z funkcji usuwania nietrwałego lub trwale 
 
 # <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
-Aby wyłączyć usuwanie nietrwałe na koncie magazynu, można użyć następującego polecenia:
+Polecenia cmdlet usuwania nietrwałego są dostępne w wersji 2.1.1-Preview modułu AZ. Storage. Aby wyłączyć usuwanie nietrwałe na koncie magazynu, można użyć następującego polecenia:
 
 ```azurepowershell-interactive
 Update-AzStorageFileServiceProperty -ResourceGroupName $rgName -StorageAccountName $accountName -EnableShareDeleteRetentionPolicy $false

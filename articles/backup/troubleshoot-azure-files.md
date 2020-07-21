@@ -3,12 +3,12 @@ title: Rozwiązywanie problemów z usługą Azure File Share
 description: W tym artykule znajdują się informacje dotyczące rozwiązywania problemów występujących podczas ochrony udziałów plików platformy Azure.
 ms.date: 02/10/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: d09c89433be17e16ad768e2d28305819146e6b5e
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 7b007a9ef893bb772929584eb3137c7a5200d756
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86079891"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86524492"
 ---
 # <a name="troubleshoot-problems-while-backing-up-azure-file-shares"></a>Rozwiązywanie problemów podczas tworzenia kopii zapasowych udziałów plików platformy Azure
 
@@ -57,6 +57,9 @@ W Azure Portal Otwórz **Vault**  >  konta magazynu**infrastruktury kopii zapaso
 >Magazyn usługi Recovery Services można usunąć tylko po wyrejestrowaniu wszystkich kont magazynu zarejestrowanych w magazynie.
 
 ## <a name="common-backup-or-restore-errors"></a>Typowe błędy tworzenia kopii zapasowej lub przywracania
+
+>[!NOTE]
+>Zapoznaj się z [tym dokumentem](./backup-rbac-rs-vault.md#minimum-role-requirements-for-the-azure-file-share-backup) , aby upewnić się, że masz wystarczające uprawnienia do wykonywania operacji tworzenia kopii zapasowej lub przywracania.
 
 ### <a name="filesharenotfound--operation-failed-as-the-file-share-is-not-found"></a>FileShareNotFound — operacja nie powiodła się, ponieważ nie odnaleziono udziału plików
 
@@ -313,7 +316,7 @@ Kod błędu: UserErrorBackupAFSInDeleteState
 
 Komunikat o błędzie: wykonywanie kopii zapasowej nie powiodło się, ponieważ skojarzony udział plików platformy Azure został trwale usunięty
 
-Sprawdź, czy kopia zapasowa udziału plików została trwale usunięta. Jeśli tak, Zatrzymaj tworzenie kopii zapasowej udziału plików, aby uniknąć błędów kopii zapasowych. Aby dowiedzieć się, jak zatrzymać ochronę, zobacz [Zatrzymywanie ochrony udziału plików platformy Azure](https://docs.microsoft.com/azure/backup/manage-afs-backup#stop-protection-on-a-file-share)
+Sprawdź, czy kopia zapasowa udziału plików została trwale usunięta. Jeśli tak, Zatrzymaj tworzenie kopii zapasowej udziału plików, aby uniknąć błędów kopii zapasowych. Aby dowiedzieć się, jak zatrzymać ochronę, zobacz [Zatrzymywanie ochrony udziału plików platformy Azure](./manage-afs-backup.md#stop-protection-on-a-file-share)
 
 ## <a name="next-steps"></a>Następne kroki
 

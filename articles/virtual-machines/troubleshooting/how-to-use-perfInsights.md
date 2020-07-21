@@ -13,14 +13,14 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 896e69bad9cd75b57ef2bf93048c332ef4d974c0
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 7abff8c33ea276b8b8aaeffd010d5f5e09440d9b
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86207705"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86526643"
 ---
-# <a name="how-to-use-perfinsights"></a>Korzystanie z narzędzia PerfInsights
+# <a name="how-to-use-perfinsights-in-azure"></a>Jak używać że program perfinsights na platformie Azure
 
 [Że program perfinsights](https://aka.ms/perfinsightsdownload) to narzędzie do samodzielnego rozwiązywania problemów, które zbiera i analizuje dane diagnostyczne i zawiera raport, który pomaga rozwiązywać problemy z wydajnością maszyn wirtualnych systemu Windows na platformie Azure. Że program perfinsights można uruchamiać na maszynach wirtualnych jako autonomiczne narzędzie, bezpośrednio z portalu przy użyciu [diagnostyki wydajności dla maszyn wirtualnych platformy Azure](performance-diagnostics.md)lub przez zainstalowanie [rozszerzenia maszyny wirtualnej usługi Diagnostyka wydajności Azure](performance-diagnostics-vm-extension.md).
 
@@ -65,7 +65,7 @@ W tym scenariuszu jest uruchamiany test testu porównawczego [Narzędzia diskspd
 
 ### <a name="performance-analysis"></a>Analiza wydajności
 
-W tym scenariuszu jest uruchamiany ślad [licznika wydajności](https://msdn.microsoft.com/library/windows/desktop/aa373083(v=vs.85).aspx) przy użyciu liczników określonych w RuleEngineConfig.jspliku. Jeśli maszyna wirtualna zostanie zidentyfikowana jako serwer z uruchomionym SQL Server, zostanie uruchomione śledzenie licznika wydajności. Robi to przy użyciu liczników znalezionych w RuleEngineConfig.jsna pliku. Ten scenariusz obejmuje również dane diagnostyki wydajności.
+W tym scenariuszu jest uruchamiany ślad [licznika wydajności](/windows/win32/perfctrs/performance-counters-portal) przy użyciu liczników określonych w RuleEngineConfig.jspliku. Jeśli maszyna wirtualna zostanie zidentyfikowana jako serwer z uruchomionym SQL Server, zostanie uruchomione śledzenie licznika wydajności. Robi to przy użyciu liczników znalezionych w RuleEngineConfig.jsna pliku. Ten scenariusz obejmuje również dane diagnostyki wydajności.
 
 ### <a name="azure-files-analysis"></a>Analiza Azure Files
 
@@ -300,7 +300,7 @@ Narzędzia diskspd to narzędzie do generowania generatora obciążenia magazynu
 
 ### <a name="xperf"></a>Xperf
 
-Xperf to narzędzie wiersza polecenia do przechwytywania śladów z zestawu narzędzi wydajności systemu Windows. Aby uzyskać więcej informacji, zobacz [Windows Performance Toolkit – Xperf](https://blogs.msdn.microsoft.com/ntdebugging/2008/04/03/windows-performance-toolkit-xperf/).
+Xperf to narzędzie wiersza polecenia do przechwytywania śladów z zestawu narzędzi wydajności systemu Windows. Aby uzyskać więcej informacji, zobacz [Windows Performance Toolkit – Xperf](/archive/blogs/ntdebugging/windows-performance-toolkit-xperf).
 
 ## <a name="next-steps"></a>Następne kroki
 
@@ -313,4 +313,3 @@ Poniższy zrzut ekranu przedstawia komunikat podobny do następującego:
 Postępuj zgodnie z instrukcjami wyświetlanymi w komunikacie, aby uzyskać dostęp do obszaru roboczego transferu plików. Aby zwiększyć bezpieczeństwo, należy zmienić hasło przy pierwszym użyciu.
 
 Po zalogowaniu się zostanie wyświetlone okno dialogowe umożliwiające przekazanie **PerformanceDiagnostics \_ rrrr-mm-dd \_hh-mm-ss-fff.zip** pliku, który został zebrany przez że program perfinsights.
-

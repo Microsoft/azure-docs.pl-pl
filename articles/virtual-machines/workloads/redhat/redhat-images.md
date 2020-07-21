@@ -1,5 +1,5 @@
 ---
-title: Red Hat Enterprise Linux obrazów na platformie Azure | Microsoft Docs
+title: Omówienie Red Hat Enterprise Linux obrazów na platformie Azure
 description: Dowiedz się więcej na temat Red Hat Enterprise Linux obrazów w Microsoft Azure.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/10/2020
 ms.author: alsin
-ms.openlocfilehash: f06c4304be67fbc2f3116375dae33b10228723a4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: de7ead8acd059d957673b2f063dd3d330cf473f5
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80239875"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86525504"
 ---
 # <a name="overview-of-red-hat-enterprise-linux-images"></a>Przegląd obrazów Red Hat Enterprise Linux
 
@@ -26,7 +26,7 @@ W tym artykule opisano dostępne obrazy Red Hat Enterprise Linux (RHEL) w witryn
 Aby uzyskać informacje na temat zasad pomocy technicznej systemu Red Hat dla wszystkich wersji programu RHEL, zobacz [Red Hat Enterprise Linux cyklu życia](https://access.redhat.com/support/policy/updates/errata). Aby uzyskać szczegółowe informacje o cenach, zobacz [Kalkulator cen platformy Azure](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
 
 >[!IMPORTANT]
-> Obecnie dostępne są obrazy RHEL w portalu Azure Marketplace — Obsługa własnych subskrypcji (BYOS) lub modeli licencjonowania z opcją płatność zgodnie z rzeczywistym użyciem. [Korzyści z używania hybrydowej platformy Azure](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing) i przełączanie dynamiczne między BYOS i licencjonowaniem zgodnie z rzeczywistym użyciem nie są obsługiwane. Aby przełączyć tryb licencjonowania, należy ponownie wdrożyć maszynę wirtualną z odpowiedniego obrazu.
+> Obecnie dostępne są obrazy RHEL w portalu Azure Marketplace — Obsługa własnych subskrypcji (BYOS) lub modeli licencjonowania z opcją płatność zgodnie z rzeczywistym użyciem. [Korzyści z używania hybrydowej platformy Azure](../../windows/hybrid-use-benefit-licensing.md) i przełączanie dynamiczne między BYOS i licencjonowaniem zgodnie z rzeczywistym użyciem nie są obsługiwane. Aby przełączyć tryb licencjonowania, należy ponownie wdrożyć maszynę wirtualną z odpowiedniego obrazu.
 
 >[!NOTE]
 > W przypadku dowolnego problemu związanego z obrazami RHEL w portalu Azure Marketplace należy uzyskać bilet pomocy technicznej w firmie Microsoft.
@@ -64,8 +64,8 @@ az vm create --name RhelVM --resource-group TestRG --image RedHat:RHEL:8-LVM:lat
 ```
 
 >[!NOTE]
-> Ogólnie porównanie wersji do określenia najnowszych jest zgodne z regułami [metody CompareTo](https://msdn.microsoft.com/library/a5ts8tb6.aspx).
-To porównanie wersji obrazu jest wykonywane przez porównanie wartości jako obiektu [wersji](https://docs.microsoft.com/dotnet/api/system.version.-ctor?view=netframework-4.8) , a nie ciągu.
+> Ogólnie porównanie wersji do określenia najnowszych jest zgodne z regułami [metody CompareTo](/dotnet/api/system.version.compareto?view=netcore-3.1#system_version_compareto_system_version_).
+To porównanie wersji obrazu jest wykonywane przez porównanie wartości jako obiektu [wersji](/dotnet/api/system.version.-ctor?view=netframework-4.8) , a nie ciągu.
 
 ## <a name="rhel-6-image-types"></a>RHEL 6 — typy obrazów
 
@@ -105,7 +105,7 @@ Szczegóły dotyczące typów obrazów RHEL 8 są poniżej.
 |Publisher | Oferta | Wartość jednostki SKU | Wersja | Szczegóły
 |----------|-------|------------|---------|--------
 |RedHat | RHEL | 8 | Połączone wartości RHEL wersja pomocnicza i Data opublikowania (na przykład 8.0.20191023) | Są to obrazy z RHEL 8 LVM na partycje połączone z standardowymi repozytoriami Red Hat.
-|RedHat | RHEL | 8 — Gen2 | Połączone wartości RHEL wersja pomocnicza i Data opublikowania (na przykład 8.0.20191024) | Są to obrazy z funkcją Hyper-V Generation 2 RHEL 8 LVM z obrazami podłączonymi do standardowych repozytoriów Red Hat. Aby uzyskać więcej informacji na temat maszyn wirtualnych 2. generacji na platformie Azure, zobacz [Obsługa maszyn wirtualnych 2. generacji na platformie Azure](https://docs.microsoft.com/azure/virtual-machines/linux/generation-2).
+|RedHat | RHEL | 8 — Gen2 | Połączone wartości RHEL wersja pomocnicza i Data opublikowania (na przykład 8.0.20191024) | Są to obrazy z funkcją Hyper-V Generation 2 RHEL 8 LVM z obrazami podłączonymi do standardowych repozytoriów Red Hat. Aby uzyskać więcej informacji na temat maszyn wirtualnych 2. generacji na platformie Azure, zobacz [Obsługa maszyn wirtualnych 2. generacji na platformie Azure](../../linux/generation-2.md).
 
 ## <a name="rhel-longer-support-add-ons"></a>RHEL dłużej obsługiwać Dodatki
 

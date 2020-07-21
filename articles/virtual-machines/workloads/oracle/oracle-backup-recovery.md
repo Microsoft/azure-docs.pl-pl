@@ -14,18 +14,18 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogardle
-ms.openlocfilehash: 5a491bf85546c982db126ef4d6260a46ca8bf88b
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 7f6b9ddfd5b25ea8482e0bbf5622fa16bc450662
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86224455"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86525606"
 ---
 # <a name="back-up-and-recover-an-oracle-database-12c-database-on-an-azure-linux-virtual-machine"></a>Tworzenie kopii zapasowej i odzyskiwanie bazy danych Oracle Database 12c na maszynie wirtualnej platformy Azure z systemem Linux
 
 Za pomocą interfejsu wiersza polecenia platformy Azure można tworzyć zasoby platformy Azure i zarządzać nimi w wierszu poleceń lub używać skryptów. W tym artykule używamy skryptów interfejsu wiersza polecenia platformy Azure do Oracle Database wdrażania bazy danych 12c Database z poziomu obrazu z galerii portalu Azure Marketplace.
 
-Przed rozpoczęciem upewnij się, że jest zainstalowany interfejs wiersza polecenia platformy Azure. Aby uzyskać więcej informacji, zobacz [Przewodnik instalacji interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Przed rozpoczęciem upewnij się, że jest zainstalowany interfejs wiersza polecenia platformy Azure. Aby uzyskać więcej informacji, zobacz [Przewodnik instalacji interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
 
 ## <a name="prepare-the-environment"></a>Przygotowywanie środowiska
 
@@ -33,7 +33,7 @@ Przed rozpoczęciem upewnij się, że jest zainstalowany interfejs wiersza polec
 
 *   Aby wykonać proces tworzenia kopii zapasowej i odzyskiwania, należy najpierw utworzyć maszynę wirtualną z systemem Linux, która ma zainstalowane wystąpienie Oracle Database 12c. Obraz portalu Marketplace używany do tworzenia maszyny wirtualnej nosi nazwę *Oracle: Oracle-Database-EE: 12.1.0.2: Najnowsze*.
 
-    Aby dowiedzieć się, jak utworzyć bazę danych Oracle, zobacz [Przewodnik Szybki Start dotyczący tworzenia bazy danych Oracle](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/oracle-database-quick-create).
+    Aby dowiedzieć się, jak utworzyć bazę danych Oracle, zobacz [Przewodnik Szybki Start dotyczący tworzenia bazy danych Oracle](./oracle-database-quick-create.md).
 
 
 ### <a name="step-2-connect-to-the-vm"></a>Krok 2. Nawiązywanie połączenia z maszyną wirtualną
@@ -572,6 +572,3 @@ az group delete --name myResourceGroup
 [Samouczek: Tworzenie maszyn wirtualnych o wysokiej dostępności](../../linux/create-cli-complete.md)
 
 [Eksplorowanie przykładów interfejsu wiersza polecenia platformy Azure wdrożenia maszyny wirtualnej](../../linux/cli-samples.md)
-
-
-

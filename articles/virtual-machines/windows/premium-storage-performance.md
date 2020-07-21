@@ -1,5 +1,5 @@
 ---
-title: 'Azure Premium Storage: projektowanie pod kątem wydajności na maszynach wirtualnych z systemem Windows | Microsoft Docs'
+title: Azure Premium Storage — projektowanie pod kątem wysokiej wydajności
 description: Projektuj aplikacje o wysokiej wydajności przy użyciu dysków zarządzanych w usłudze Azure Premium SSD. Premium Storage oferuje wysoką wydajność, obsługę dysków o niskich opóźnieniach dla obciążeń intensywnie korzystających z operacji we/wy działających na platformie Azure Virtual Machines.
 author: roygara
 ms.service: virtual-machines-windows
@@ -7,11 +7,12 @@ ms.topic: conceptual
 ms.date: 06/27/2017
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 06ac680ef48d9602f6e7487eb9ebecee9f3ae080
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 46c917a2d27f5efaa1e902db0d5da5375578b8b8
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84017611"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86526043"
 ---
 # <a name="azure-premium-storage-design-for-high-performance"></a>Azure Premium Storage: projektowanie pod kątem wysokiej wydajności
 [!INCLUDE [virtual-machines-common-premium-storage-introduction](../../../includes/virtual-machines-common-premium-storage-introduction.md)]

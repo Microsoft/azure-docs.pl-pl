@@ -14,19 +14,19 @@ ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
 ms.date: 8/20/2019
 ms.author: alsin
-ms.openlocfilehash: 61ae0ef92fe522a2a038a6076a5e0c0a10ee47b6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cad12a55332a6c7898f9709776c58d7dba8dd81a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80060689"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86526439"
 ---
 # <a name="common-errors-within-the-azure-serial-console"></a>Typowe błędy w konsoli szeregowej platformy Azure
 Istnieje zestaw znanych błędów w konsoli szeregowej platformy Azure. Jest to lista błędów i czynności zaradczych.
 
 ## <a name="common-errors"></a>Typowe błędy
 
-Błąd                             |   Środki zaradcze
+Błąd                             |   Ograniczanie ryzyka
 :---------------------------------|:--------------------------------------------|
 "Konsola szeregowa Azure wymaga włączenia diagnostyki rozruchu. Kliknij tutaj, aby skonfigurować diagnostykę rozruchu dla maszyny wirtualnej ". | Upewnij się, że maszyna wirtualna lub zestaw skalowania maszyn wirtualnych ma włączoną [diagnostykę rozruchu](boot-diagnostics.md) . Jeśli używasz konsoli szeregowej w wystąpieniu zestawu skalowania maszyn wirtualnych, upewnij się, że wystąpienie ma najnowszy model.
 "Konsola szeregowa platformy Azure wymaga, aby maszyna wirtualna była uruchomiona. Użyj przycisku Start powyżej, aby uruchomić maszynę wirtualną ".  | Wystąpienie maszyny wirtualnej lub zestawu skalowania maszyn wirtualnych musi znajdować się w stanie uruchomienia, aby można było uzyskać dostęp do konsoli szeregowej (nie można zatrzymać ani cofnąć przydziału maszyny wirtualnej). Upewnij się, że maszyna wirtualna lub wystąpienie zestawu skalowania maszyn wirtualnych jest uruchomione, i spróbuj ponownie.
@@ -40,7 +40,7 @@ Nie można określić grupy zasobów dla konta magazynu diagnostyki rozruchu * &
 Inicjowanie obsługi dla tej maszyny wirtualnej nie powiodło się. Upewnij się, że maszyna wirtualna jest w pełni wdrożona, i ponów próbę połączenia z konsolą szeregową. | Obsługa maszyny wirtualnej lub zestawu skalowania maszyn wirtualnych nadal może być niedostępna. Poczekaj chwilę i spróbuj ponownie.
 Gniazdo sieci Web jest zamknięte lub nie można go otworzyć. | Może być konieczne dodanie dostępu do zapory `*.console.azure.com` . Bardziej szczegółowym, ale dłuższym podejściem jest umożliwienie dostępu zapory do [zakresów adresów IP centrum danych Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653), które zmieniają się dość często.
 Konsola szeregowa nie działa z kontem magazynu przy użyciu Azure Data Lake Storage Gen2 z hierarchicznymi przestrzeniami nazw. | Jest to znany problem z hierarchicznymi przestrzeniami nazw. Aby rozwiązać problem, upewnij się, że konto magazynu diagnostyki rozruchu maszyny wirtualnej nie zostało utworzone przy użyciu Azure Data Lake Storage Gen2. Tę opcję można ustawić tylko podczas tworzenia konta magazynu. Może być konieczne utworzenie oddzielnego konta magazynu diagnostyki rozruchu bez Azure Data Lake Storage Gen2 włączenia tego problemu.
-Wystąpił błąd połączenia z konsolą szeregową z maszyną wirtualną: "zabronione" (SubscriptionNotEnabled) — niezdefiniowana nazwa subskrypcji, identyfikator \<subscription id> jest w nieobsługiwanym stanie | Ten problem może wystąpić, jeśli subskrypcja, w ramach której utworzono konto magazynu Cloud Shell, została wyłączona. Aby rozwiązać problem, uruchom Cloud Shell i [wykonaj kroki niezbędne](https://docs.microsoft.com/azure/cloud-shell/persisting-shell-storage#unmount-clouddrive-1) do ponownego udostępnienia zapasowego konta magazynu dla Cloud Shell w bieżącej subskrypcji.
+Wystąpił błąd połączenia z konsolą szeregową z maszyną wirtualną: "zabronione" (SubscriptionNotEnabled) — niezdefiniowana nazwa subskrypcji, identyfikator \<subscription id> jest w nieobsługiwanym stanie | Ten problem może wystąpić, jeśli subskrypcja, w ramach której utworzono konto magazynu Cloud Shell, została wyłączona. Aby rozwiązać problem, uruchom Cloud Shell i [wykonaj kroki niezbędne](../../cloud-shell/persisting-shell-storage.md#unmount-clouddrive-1) do ponownego udostępnienia zapasowego konta magazynu dla Cloud Shell w bieżącej subskrypcji.
 
 ## <a name="next-steps"></a>Następne kroki
 * Dowiedz się więcej o [usłudze Azure serial Console dla maszyn wirtualnych z systemem Linux](./serial-console-linux.md)

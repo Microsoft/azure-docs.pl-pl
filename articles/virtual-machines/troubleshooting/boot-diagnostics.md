@@ -10,11 +10,12 @@ ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: delhan
-ms.openlocfilehash: fe2427d008b49daa6222ca981994f0dc2fbea355
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 092d3893c3cc5473debf8f7d51f393751cfd82bf
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79476590"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86526823"
 ---
 # <a name="how-to-use-boot-diagnostics-to-troubleshoot-virtual-machines-in-azure"></a>Jak rozwiązywać problemy z maszynami wirtualnymi na platformie Azure przy użyciu diagnostyki rozruchu
 
@@ -95,5 +96,4 @@ Aby zmiana zaczęła obowiązywać, należy ponownie uruchomić maszynę wirtual
 
 ### <a name="enable-boot-diagnostics-using-the-azure-cli"></a>Włączanie diagnostyki rozruchu przy użyciu interfejsu wiersza polecenia platformy Azure
 
-Za pomocą interfejsu wiersza polecenia platformy Azure można włączyć diagnostykę rozruchu na istniejącej maszynie wirtualnej platformy Azure. Aby uzyskać więcej informacji, zobacz [AZ VM Boot-Diagnostics](
-https://docs.microsoft.com/cli/azure/vm/boot-diagnostics?view=azure-cli-latest).
+Za pomocą interfejsu wiersza polecenia platformy Azure można włączyć diagnostykę rozruchu na istniejącej maszynie wirtualnej platformy Azure. Aby uzyskać więcej informacji, zobacz [AZ VM Boot-Diagnostics](/cli/azure/vm/boot-diagnostics?view=azure-cli-latest).

@@ -9,11 +9,12 @@ ms.topic: article
 ms.workload: infrastructure
 ms.date: 10/23/2019
 ms.author: haroldw
-ms.openlocfilehash: 26b190515819378309c2b0705efdbc349ecccbe2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 244bea1aaf5457601ced9bac05c8dae43e5b9199
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81759512"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86527136"
 ---
 # <a name="common-prerequisites-for-deploying-openshift-container-platform-311-in-azure"></a>Wspólne wymagania wstępne dotyczące wdrażania OpenShift Container platform 3,11 na platformie Azure
 
@@ -83,7 +84,7 @@ ssh-keygen -f ~/.ssh/openshift_rsa -t rsa -N ''
 > [!NOTE]
 > Para kluczy SSH nie może mieć hasła lub hasło.
 
-Aby uzyskać więcej informacji na temat kluczy SSH w systemie Windows, zobacz [jak utworzyć klucze SSH w systemie Windows](/azure/virtual-machines/linux/ssh-from-windows). Pamiętaj, aby wyeksportować klucz prywatny w formacie OpenSSH.
+Aby uzyskać więcej informacji na temat kluczy SSH w systemie Windows, zobacz [jak utworzyć klucze SSH w systemie Windows](./ssh-from-windows.md). Pamiętaj, aby wyeksportować klucz prywatny w formacie OpenSSH.
 
 ## <a name="store-the-ssh-private-key-in-azure-key-vault"></a>Przechowuj klucz prywatny SSH w Azure Key Vault
 Wdrożenie OpenShift korzysta z utworzonego klucza SSH w celu zabezpieczenia dostępu do głównego serwera OpenShift. Aby umożliwić wdrożenie w celu bezpiecznego pobrania klucza SSH, Zapisz klucz w Key Vault przy użyciu następującego polecenia:
@@ -133,7 +134,7 @@ Zanotuj Właściwość appId i hasło zwrócone przez polecenie:
  > [!WARNING] 
  > Pamiętaj o zapisaniu bezpiecznego hasła, ponieważ nie będzie można ponownie pobrać tego hasła.
 
-Aby uzyskać więcej informacji o jednostkach usługi, zobacz [Tworzenie jednostki usługi platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest).
+Aby uzyskać więcej informacji o jednostkach usługi, zobacz [Tworzenie jednostki usługi platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest).
 
 ## <a name="prerequisites-applicable-only-to-resource-manager-template"></a>Wymagania wstępne dotyczące Menedżer zasobów szablonu
 

@@ -7,18 +7,18 @@ ms.topic: article
 ms.workload: infrastructure
 ms.date: 03/01/2019
 ms.author: cynthn
-ms.openlocfilehash: 6d476572ace6803dba6cd9cab97a55953be1d5f6
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: a9d68527a44d78a702e00d3b6ce910c2e9473dac
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86202265"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86527017"
 ---
-# <a name="azure-virtual-machine-powershell-samples"></a>Przykłady programu PowerShell dla maszyny wirtualnej platformy Azure
+# <a name="azure-virtual-machine-powershell-samples-for-creating-and-managing-linux-vms"></a>Przykłady programu PowerShell dla maszyn wirtualnych platformy Azure na potrzeby tworzenia maszyn wirtualnych z systemem Linux i zarządzania nimi
 
 Poniższa tabela zawiera linki do przykładów skryptów programu PowerShell, które umożliwiają tworzenie maszyn wirtualnych z systemem Linux i zarządzanie nimi.
 
-| Script | Opis |
+| Skrypt | Opis |
 |---|---|
 |**Tworzenie maszyn wirtualnych**||
 | [Tworzenie w pełni skonfigurowanej maszyny wirtualnej](./../scripts/virtual-machines-linux-powershell-sample-create-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Tworzy grupę zasobów, maszynę wirtualną i wszystkie powiązane zasoby.|

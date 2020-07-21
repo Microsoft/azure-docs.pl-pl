@@ -13,15 +13,16 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: guybo
-ms.openlocfilehash: e51eeb32ecd306986dc22d6bfa09ee95b8b87852
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a2edc8d0116778e292f0e44761100d3c1e9212ff
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84658697"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86527391"
 ---
 # <a name="endorsed-linux-distributions-on-azure"></a>Zatwierdzone dystrybucje systemu Linux na platformie Azure
 
-Partnerzy udostępniają obrazy systemu Linux w portalu Azure Marketplace. Firma Microsoft współpracuje z różnymi społecznościami systemu Linux w celu dodania jeszcze większej liczby wersji do listy rozpowszechnianych informacji. W przypadku dystrybucji, które nie są dostępne w portalu Marketplace, zawsze możesz przełączyć swój własny system Linux, postępując zgodnie z wytycznymi w obszarze [Tworzenie i przekazywanie wirtualnego dysku twardego zawierającego system operacyjny Linux](https://docs.microsoft.com/azure/virtual-machines/linux/create-upload-generic).
+Partnerzy udostępniają obrazy systemu Linux w portalu Azure Marketplace. Firma Microsoft współpracuje z różnymi społecznościami systemu Linux w celu dodania jeszcze większej liczby wersji do listy rozpowszechnianych informacji. W przypadku dystrybucji, które nie są dostępne w portalu Marketplace, zawsze możesz przełączyć swój własny system Linux, postępując zgodnie z wytycznymi w obszarze [Tworzenie i przekazywanie wirtualnego dysku twardego zawierającego system operacyjny Linux](./create-upload-generic.md).
 
 ## <a name="supported-distributions-and-versions"></a>Obsługiwane dystrybucje i wersje
 
@@ -35,17 +36,17 @@ Agent platformy Azure dla systemu Linux jest już wstępnie zainstalowany w obra
 | --- | --- | --- | --- |
 | CentOS przez oprogramowanie nieautoryzowane Wave |CentOS 6. x, 7. x, 8. x |CentOS 6,3: [pobieranie lis](https://www.microsoft.com/download/details.aspx?id=55106)<p>CentOS 6.4 +: w jądrze |Pakiet: w [repozytorium](http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/) w obszarze "WALinuxAgent" <br/>Kod źródłowy: [GitHub](https://github.com/Azure/WALinuxAgent) |
 | [CoreOS](https://coreos.com/docs/running-coreos/cloud-providers/azure/)<p> CoreOS jest teraz [koniec okresu](https://coreos.com/os/eol/) ważności z 26 maja 2020. |Nie jest już dostępne | | |
-| Debian według credativ |8. x, 9. x |W jądrze |Pakiet: w repozytorium w obszarze "waagent" <br/>Kod źródłowy: [GitHub](https://github.com/Azure/WALinuxAgent) |
-|Flatcar kontener systemu Linux przez Kinvolk| Stabilny, graniczny| | |
-| Oracle Linux przez firmę Oracle |6. x, 7. x, 8. x |W jądrze |Pakiet: w repozytorium w obszarze "WALinuxAgent" <br/>Kod źródłowy: [GitHub](https://go.microsoft.com/fwlink/p/?LinkID=250998) |
-| Red Hat Enterprise Linux przez Red Hat |6. x, 7. x, 8. x |W jądrze |Pakiet: w repozytorium w obszarze "WALinuxAgent" <br/>Kod źródłowy: [GitHub](https://github.com/Azure/WALinuxAgent) |
+| Debian według credativ |8.x, 9.x |W jądrze |Pakiet: w repozytorium w obszarze "waagent" <br/>Kod źródłowy: [GitHub](https://github.com/Azure/WALinuxAgent) |
+|Flatcar kontener systemu Linux przez Kinvolk| Stable, Edge| | |
+| Oracle Linux przez firmę Oracle |6.x, 7.x, 8.x |W jądrze |Pakiet: w repozytorium w obszarze "WALinuxAgent" <br/>Kod źródłowy: [GitHub](https://go.microsoft.com/fwlink/p/?LinkID=250998) |
+| Red Hat Enterprise Linux przez Red Hat |6.x, 7.x, 8.x |W jądrze |Pakiet: w repozytorium w obszarze "WALinuxAgent" <br/>Kod źródłowy: [GitHub](https://github.com/Azure/WALinuxAgent) |
 | SUSE Linux Enterprise przez SUSE |SLES/SLES dla oprogramowania SAP 11. x, 12. x, 15. x <br/> [Cykl życia obrazu chmury publicznej SUSE](https://www.suse.com/c/suse-public-cloud-image-life-cycle/) |W jądrze |Package<p> 11 w [chmurze: repozytorium narzędzi](https://build.opensuse.org/project/show/Cloud:Tools)<br>w przypadku 12 uwzględnionych w module "chmura publiczna" w obszarze "Python-Azure-Agent"<br/>Kod źródłowy: [GitHub](https://go.microsoft.com/fwlink/p/?LinkID=250998) |
-| openSUSE przez SUSE |openSUSE przestępny 15. x |W jądrze |Pakiet: w [chmurze: narzędzia](https://build.opensuse.org/project/show/Cloud:Tools) repozytorium w obszarze "Python-Azure-Agent" <br/>Kod źródłowy: [GitHub](https://github.com/Azure/WALinuxAgent) |
+| openSUSE przez SUSE |openSUSE Leap 15.x |W jądrze |Pakiet: w [chmurze: narzędzia](https://build.opensuse.org/project/show/Cloud:Tools) repozytorium w obszarze "Python-Azure-Agent" <br/>Kod źródłowy: [GitHub](https://github.com/Azure/WALinuxAgent) |
 | Ubuntu przez kanoniczny |Serwer Ubuntu i pakiet Pro. 16. x, 18. x, 20. x<p>Informacje o rozszerzonej obsłudze Ubuntu 12,04 i 14,04 można znaleźć tutaj: [Ubuntu Extended Security Maintenance](https://www.ubuntu.com/esm). |W jądrze |Pakiet: w repozytorium w obszarze "walinuxagent" <br/>Kod źródłowy: [GitHub](https://github.com/Azure/WALinuxAgent) |
 
 ## <a name="image-update-cadence"></a>Erze aktualizacji obrazów
 
-System Azure wymaga, aby wydawcy zatwierdzonych dystrybucji systemu Linux regularnie aktualizować swoje obrazy w portalu Azure Marketplace przy użyciu najnowszych poprawek i poprawek zabezpieczeń, co kwartał lub szybciej erze. Zaktualizowane obrazy w portalu Azure Marketplace są automatycznie dostępne dla klientów jako nowe wersje jednostki SKU obrazu. Więcej informacji o sposobach znajdowania obrazów systemu Linux: [Znajdowanie obrazów maszyn wirtualnych z systemem Linux w portalu Azure Marketplace](https://docs.microsoft.com/azure/virtual-machines/linux/cli-ps-findimage).
+System Azure wymaga, aby wydawcy zatwierdzonych dystrybucji systemu Linux regularnie aktualizować swoje obrazy w portalu Azure Marketplace przy użyciu najnowszych poprawek i poprawek zabezpieczeń, co kwartał lub szybciej erze. Zaktualizowane obrazy w portalu Azure Marketplace są automatycznie dostępne dla klientów jako nowe wersje jednostki SKU obrazu. Więcej informacji o sposobach znajdowania obrazów systemu Linux: [Znajdowanie obrazów maszyn wirtualnych z systemem Linux w portalu Azure Marketplace](./cli-ps-findimage.md).
 
 ## <a name="azure-tuned-kernels"></a>Jądra dostosowane do platformy Azure
 

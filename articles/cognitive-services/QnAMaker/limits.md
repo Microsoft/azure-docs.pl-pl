@@ -3,12 +3,12 @@ title: Limity i granice — QnA Maker
 description: QnA Maker ma limity meta dla części bazy wiedzy i usługi. Ważne jest, aby zachować bazę wiedzy w ramach tych limitów w celu testowania i publikowania.
 ms.topic: reference
 ms.date: 02/14/2020
-ms.openlocfilehash: 6a600bcb25bc524cda38d1e35a777d23d47b15c9
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: cce95574c8ffc245818b61e9843c5f7984de972f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85855563"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86524441"
 ---
 # <a name="qna-maker-knowledge-base-limits-and-boundaries"></a>Limity i granice bazy wiedzy QnA Maker
 
@@ -18,7 +18,7 @@ Podane poniżej limity QnA Maker są kombinacją [limitów warstwy cenowej platf
 
 Maksymalna liczba baz wiedzy zależy od [limitów warstwy wyszukiwanie poznawcze platformy Azure](../../search/search-limits-quotas-capacity.md).
 
-|**Warstwa usługi Azure Wyszukiwanie poznawcze** | **Bezpłatna** | **Podstawowe** |**S1** | **S2**| **S3** |**S3 (wysoka gęstość)**|
+|**Warstwa usługi Azure Wyszukiwanie poznawcze** | **Bezpłatna** | **Podstawowa** |**S1** | **S2**| **S3** |**S3 (wysoka gęstość)**|
 |---|---|---|---|---|---|----|
 |Dozwolona maksymalna liczba opublikowanych baz wiedzy|2|14|49|199|199|2 999|
 
@@ -61,7 +61,7 @@ Metadane są prezentowane jako para kluczowa: wartość, na przykład `product:w
 
 Maksymalna liczba pól metadanych na bazę wiedzy zależy od **[limitów warstwy wyszukiwanie poznawcze platformy Azure](../../search/search-limits-quotas-capacity.md)**.
 
-|**Warstwa usługi Azure Wyszukiwanie poznawcze** | **Bezpłatna** | **Podstawowe** |**S1** | **S2**| **S3** |**S3 (wysoka gęstość)**|
+|**Warstwa usługi Azure Wyszukiwanie poznawcze** | **Bezpłatna** | **Podstawowa** |**S1** | **S2**| **S3** |**S3 (wysoka gęstość)**|
 |---|---|---|---|---|---|----|
 |Maksymalna liczba pól metadanych na usługę QnA Maker (w ramach wszystkich artykułów bazy wiedzy)|1000|100 *|1000|1000|1000|1000|
 
@@ -79,7 +79,8 @@ W poniższej tabeli wymieniono długość i dopuszczalne znaki nazwy i wartości
 Ogólne limity zawartości w bazie wiedzy:
 * Długość tekstu odpowiedzi: 25 000
 * Długość tekstu pytania: 1 000
-* Długość tekstu klucza/wartości metadanych: 100
+* Długość tekstu klucza metadanych: 100
+* Długość tekstu wartości metadanych: 500
 * Obsługiwane znaki dla nazwy metadanych: alfabety, cyfry i`_`
 * Obsługiwane znaki dla wartości metadanych: wszystkie oprócz `:` i`|`
 * Długość nazwy pliku: 200

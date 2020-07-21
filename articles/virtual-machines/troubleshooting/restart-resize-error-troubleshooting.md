@@ -13,11 +13,12 @@ ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a6532558107463311c4225b9855bc4cd3f19eed9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 85acd8e26ca10730638332047a37d281358d205f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75965621"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86526558"
 ---
 # <a name="troubleshoot-deployment-issues-with-restarting-or-resizing-an-existing-windows-vm-in-azure"></a>Rozwiązywanie problemów z wdrożeniem przy ponownym uruchamianiu lub zmienianiu rozmiaru istniejącej maszyny wirtualnej z systemem Windows na platformie Azure
 Podczas próby uruchomienia zatrzymanej maszyny wirtualnej platformy Azure lub zmiany rozmiaru istniejącej maszyny wirtualnej platformy Azure Wystąpił błąd alokacji. Ten błąd jest wynikiem sytuacji, gdy klaster lub region nie ma dostępnych zasobów lub nie obsługuje żądanego rozmiaru maszyny wirtualnej.
@@ -29,7 +30,7 @@ Aby rozpocząć rozwiązywanie problemów, Zbierz dzienniki aktywności w celu z
 
 [Wyświetlanie operacji wdrażania](../../azure-resource-manager/templates/deployment-history.md)
 
-[Wyświetlanie dzienników aktywności w celu zarządzania zasobami platformy Azure](../../resource-group-audit.md)
+[Wyświetlanie dzienników aktywności w celu zarządzania zasobami platformy Azure](../../azure-resource-manager/management/view-activity-logs.md)
 
 ## <a name="issue-error-when-starting-a-stopped-vm"></a>Problem: błąd podczas uruchamiania zatrzymanej maszyny wirtualnej
 Podjęto próbę uruchomienia zatrzymanej maszyny wirtualnej, ale wystąpił błąd alokacji.
@@ -61,5 +62,4 @@ Podjęto próbę zmiany rozmiaru istniejącej maszyny wirtualnej, ale wystąpił
   3. Wybierz maszynę wirtualną o zmienionym rozmiarze, a następnie kliknij przycisk **Start**, a następnie uruchom wszystkie zatrzymane maszyny wirtualne.
 
 ## <a name="next-steps"></a>Następne kroki
-Jeśli wystąpią problemy podczas tworzenia nowej maszyny wirtualnej z systemem Windows na platformie Azure, zobacz [Rozwiązywanie problemów z wdrażaniem w przypadku tworzenia nowej maszyny wirtualnej z systemem Windows na platformie Azure](../windows/troubleshoot-deployment-new-vm.md).
-
+Jeśli wystąpią problemy podczas tworzenia nowej maszyny wirtualnej z systemem Windows na platformie Azure, zobacz [Rozwiązywanie problemów z wdrażaniem w przypadku tworzenia nowej maszyny wirtualnej z systemem Windows na platformie Azure](./troubleshoot-deployment-new-vm-windows.md).
