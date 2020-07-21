@@ -7,11 +7,12 @@ ms.subservice: disks
 ms.topic: how-to
 ms.date: 07/12/2018
 ms.author: rogarana
-ms.openlocfilehash: 6173f2f60f5dd0b2b06c415bbf55ed31bacbe8b7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7b5d2e82b439454ff33a263af7710fe79f246893
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84658196"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86508614"
 ---
 # <a name="convert-a-windows-virtual-machine-from-unmanaged-disks-to-managed-disks"></a>Konwertowanie dysków niezarządzanych maszyny wirtualnej z systemem Windows na dyski zarządzane
 
@@ -34,7 +35,7 @@ Jeśli masz istniejące maszyny wirtualne z systemem Windows, które korzystają
 ## <a name="convert-single-instance-vms"></a>Konwertowanie maszyn wirtualnych z pojedynczym wystąpieniem
 W tej sekcji opisano sposób konwersji maszyn wirtualnych platformy Azure z jednym wystąpieniem z dysków niezarządzanych na dyski zarządzane. (Jeśli maszyny wirtualne znajdują się w zestawie dostępności, zobacz następną sekcję). 
 
-1. Cofnij przydział maszyny wirtualnej za pomocą polecenia cmdlet [stop-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm) . Poniższy przykład powoduje cofnięcie przydziału maszyny wirtualnej o nazwie `myVM` w grupie zasobów o nazwie `myResourceGroup` : 
+1. Cofnij przydział maszyny wirtualnej za pomocą polecenia cmdlet [stop-AzVM](/powershell/module/az.compute/stop-azvm) . Poniższy przykład powoduje cofnięcie przydziału maszyny wirtualnej o nazwie `myVM` w grupie zasobów o nazwie `myResourceGroup` : 
 
    ```azurepowershell-interactive
    $rgName = "myResourceGroup"
@@ -42,7 +43,7 @@ W tej sekcji opisano sposób konwersji maszyn wirtualnych platformy Azure z jedn
    Stop-AzVM -ResourceGroupName $rgName -Name $vmName -Force
    ```
 
-2. Przekonwertuj maszynę wirtualną na dyski zarządzane za pomocą polecenia cmdlet [ConvertTo-AzVMManagedDisk](https://docs.microsoft.com/powershell/module/az.compute/convertto-azvmmanageddisk) . Poniższy proces konwertuje poprzednią maszynę wirtualną, w tym dysk systemu operacyjnego i wszystkie dyski danych, i uruchamia maszynę wirtualną:
+2. Przekonwertuj maszynę wirtualną na dyski zarządzane za pomocą polecenia cmdlet [ConvertTo-AzVMManagedDisk](/powershell/module/az.compute/convertto-azvmmanageddisk) . Poniższy proces konwertuje poprzednią maszynę wirtualną, w tym dysk systemu operacyjnego i wszystkie dyski danych, i uruchamia maszynę wirtualną:
 
    ```azurepowershell-interactive
    ConvertTo-AzVMManagedDisk -ResourceGroupName $rgName -VMName $vmName
@@ -54,7 +55,7 @@ W tej sekcji opisano sposób konwersji maszyn wirtualnych platformy Azure z jedn
 
 Jeśli maszyny wirtualne, które mają zostać przekonwertowane na dyski zarządzane, znajdują się w zestawie dostępności, należy najpierw skonwertować zestaw dostępności na zarządzany zestaw dostępności.
 
-1. Przekonwertuj zestaw dostępności za pomocą polecenia cmdlet [Update-AzAvailabilitySet](https://docs.microsoft.com/powershell/module/az.compute/update-azavailabilityset) . Poniższy przykład aktualizuje zestaw dostępności o nazwie `myAvailabilitySet` w grupie zasobów o nazwie `myResourceGroup` :
+1. Przekonwertuj zestaw dostępności za pomocą polecenia cmdlet [Update-AzAvailabilitySet](/powershell/module/az.compute/update-azavailabilityset) . Poniższy przykład aktualizuje zestaw dostępności o nazwie `myAvailabilitySet` w grupie zasobów o nazwie `myResourceGroup` :
 
    ```azurepowershell-interactive
    $rgName = 'myResourceGroup'
@@ -71,7 +72,7 @@ Jeśli maszyny wirtualne, które mają zostać przekonwertowane na dyski zarząd
    Update-AzAvailabilitySet -AvailabilitySet $avSet -Sku Aligned
    ```
 
-2. Cofnij przydział i przekonwertuj maszyny wirtualne w zestawie dostępności. Poniższy skrypt cofa alokację każdej maszyny wirtualnej za pomocą polecenia cmdlet [stop-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm) , konwertuje je za pomocą [ConvertTo-AzVMManagedDisk](https://docs.microsoft.com/powershell/module/az.compute/convertto-azvmmanageddisk)i ponownie uruchamia je w ramach procesu konwersji:
+2. Cofnij przydział i przekonwertuj maszyny wirtualne w zestawie dostępności. Poniższy skrypt cofa alokację każdej maszyny wirtualnej za pomocą polecenia cmdlet [stop-AzVM](/powershell/module/az.compute/stop-azvm) , konwertuje je za pomocą [ConvertTo-AzVMManagedDisk](/powershell/module/az.compute/convertto-azvmmanageddisk)i ponownie uruchamia je w ramach procesu konwersji:
 
    ```azurepowershell-interactive
    $avSet = Get-AzAvailabilitySet -ResourceGroupName $rgName -Name $avSetName
@@ -107,4 +108,3 @@ Maszyna wirtualna zostanie zatrzymana i uruchomiona ponownie po zakończeniu mig
 [Konwertuj dyski zarządzane w warstwie Standardowa na Premium](convert-disk-storage.md)
 
 Użyj kopii tylko do odczytu maszyny wirtualnej za pomocą [migawek](snapshot-copy-managed-disk.md).
-

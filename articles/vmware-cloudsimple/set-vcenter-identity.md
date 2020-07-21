@@ -8,11 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 5355e43ca6ac075e76a76ceb51be135cf4b62b0a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e040f42db195760cf40f6dbdf651826b544b65a4
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77564027"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86507577"
 ---
 # <a name="set-up-vcenter-identity-sources-to-use-active-directory"></a>Skonfiguruj źródła tożsamości vCenter do użycia Active Directory
 
@@ -60,7 +61,7 @@ Podczas konfigurowania domeny Active Directory należy skorzystać z informacji 
 | **Podstawowy adres URL serwera** | Serwer LDAP podstawowego kontrolera domeny dla domeny.<br><br>Użyj formatu  `ldap://hostname:port`   lub  `ldaps://hostname:port` . Port jest zazwyczaj 389 dla połączeń LDAP i 636 dla połączeń LDAPs. W przypadku Active Directory wdrożeń wielodomenowych, port jest zwykle 3268 dla LDAP i 3269 dla LDAPs.<br><br>Certyfikat, który ustanawia zaufanie dla punktu końcowego LDAPs serwera Active Directory, jest wymagany w przypadku użycia  `ldaps://`   w podstawowym lub pomocniczym adresie URL LDAP. |
 | **Adres URL serwera pomocniczego** | Adres serwera LDAP pomocniczego kontrolera domeny, który jest używany do pracy w trybie failover. |
 | **Wybieranie certyfikatu** | Jeśli chcesz używać LDAPs z serwerem LDAP Active Directory lub źródłem tożsamości serwera OpenLDAP, po wpisaniu  `ldaps://`   w polu tekstowym adresu URL zostanie wyświetlony przycisk Wybierz certyfikat. Pomocniczy adres URL nie jest wymagany. |
-| **Uż** | Identyfikator użytkownika w domenie, który ma minimalny dostęp tylko do odczytu do podstawowej nazwy wyróżniającej dla użytkowników i grup. |
+| **Nazwa użytkownika** | Identyfikator użytkownika w domenie, który ma minimalny dostęp tylko do odczytu do podstawowej nazwy wyróżniającej dla użytkowników i grup. |
 | **Hasło** | Hasło użytkownika, który jest określony przez nazwę użytkownika. |
 
 Jeśli masz informacje w poprzedniej tabeli, możesz dodać swoje Active Directory lokalne jako źródło tożsamości logowania jednokrotnego w programie vCenter.
@@ -79,7 +80,7 @@ Aby skonfigurować nowy las Active Directory i domenę, potrzebne są:
 * Co najmniej jedna maszyna wirtualna z systemem Microsoft Windows Server do użycia jako kontrolery domeny dla nowego lasu i domeny Active Directory.
 * Co najmniej jedna maszyna wirtualna, na której działa usługa DNS w celu rozpoznawania nazw.
 
-Aby uzyskać szczegółowe instrukcje, zobacz temat [Instalowanie nowego lasu systemu Windows Server 2012 Active Directory](https://docs.microsoft.com/windows-server/identity/ad-ds/deploy/install-a-new-windows-server-2012-active-directory-forest--level-200-) .
+Aby uzyskać szczegółowe instrukcje, zobacz temat [Instalowanie nowego lasu systemu Windows Server 2012 Active Directory](/windows-server/identity/ad-ds/deploy/install-a-new-windows-server-2012-active-directory-forest--level-200-) .
 
 > [!TIP]
 > Aby zapewnić wysoką dostępność usług, zalecamy skonfigurowanie wielu kontrolerów domeny i serwerów DNS.
@@ -93,7 +94,7 @@ Aby skonfigurować nową domenę Active Directory w istniejącym lesie Active Di
 * Połączenie sieci VPN typu lokacja-lokacja z lokalizacją lasu Active Directory.
 * Serwer DNS, aby rozpoznać nazwę istniejącego lasu Active Directory.
 
-Szczegółowe kroki można znaleźć w temacie [Install a New Windows Server 2012 Active Directory Child lub Tree Domain](https://docs.microsoft.com/windows-server/identity/ad-ds/deploy/install-a-new-windows-server-2012-active-directory-child-or-tree-domain--level-200-) .
+Szczegółowe kroki można znaleźć w temacie [Install a New Windows Server 2012 Active Directory Child lub Tree Domain](/windows-server/identity/ad-ds/deploy/install-a-new-windows-server-2012-active-directory-child-or-tree-domain--level-200-) .
 
 Po skonfigurowaniu domeny Active Directory można [dodać Źródło tożsamości w programie vCenter](#add-an-identity-source-on-vcenter) dla nowego Active Directory.
 
@@ -123,10 +124,10 @@ Po nawiązaniu połączenia sieciowego wykonaj kroki opisane w sekcji [Dodawanie
 
 6. Wybierz **Active Directory jako serwer LDAP** , a następnie kliknij przycisk **dalej**.
 
-    ![Usługa Active Directory](media/OnPremAD04.png)
+    ![Active Directory](media/OnPremAD04.png)
 
 7. Określ parametry źródła tożsamości dla danego środowiska, a następnie kliknij przycisk **dalej**.
 
-    ![Usługa Active Directory](media/OnPremAD05.png)
+    ![Active Directory](media/OnPremAD05.png)
 
 8. Przejrzyj ustawienia i kliknij przycisk **Zakończ**.

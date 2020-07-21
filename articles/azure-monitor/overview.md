@@ -6,12 +6,12 @@ ms.topic: overview
 author: bwren
 ms.author: bwren
 ms.date: 10/07/2019
-ms.openlocfilehash: 9a5c03664205676d53c083bddcfa6833ace641d2
-ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
+ms.openlocfilehash: 21d980bcaa73af6367908b2f24c0c856d6a6c8ad
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84457154"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505826"
 ---
 # <a name="azure-monitor-overview"></a>Omówienie usługi Azure Monitor
 
@@ -44,7 +44,7 @@ W przypadku wielu zasobów platformy Azure zobaczysz dane zebrane przez Azure Mo
 
 ![Metryki](media/overview/metrics.png)
 
-Dane dziennika zbierane przez Azure Monitor mogą być analizowane za pomocą [zapytań](log-query/log-query-overview.md) , aby szybko pobierać, konsolidować i analizować zebrane dane.  Możesz tworzyć i testować zapytania przy użyciu [log Analytics](log-query/portals.md) w Azure Portal, a następnie bezpośrednio analizować dane przy użyciu tych narzędzi lub zapisywać zapytania do użycia z [wizualizacjami](visualizations.md) lub [regułami alertów](platform/alerts-overview.md).
+Dane dziennika zbierane przez Azure Monitor mogą być analizowane za pomocą [zapytań](log-query/log-query-overview.md) , aby szybko pobierać, konsolidować i analizować zebrane dane.  Można tworzyć i testować zapytania przy użyciu [log Analytics](./log-query/log-query-overview.md) w Azure Portal, a następnie bezpośrednio analizować dane przy użyciu różnych narzędzi lub zapisywać zapytania do użycia z [wizualizacjami](visualizations.md) lub [regułami alertów](platform/alerts-overview.md).
 
 Azure Monitor używa wersji [języka zapytań Kusto](/azure/kusto/query/) używanej przez platformę Azure Eksplorator danych, która jest odpowiednia dla prostych zapytań dzienników, ale również zawiera zaawansowane funkcje, takie jak agregacje, sprzężenia i Inteligentna analiza. Możesz szybko poznać język zapytań przy użyciu [wielu lekcji](log-query/get-started-queries.md).  Specjalne instrukcje udostępniono dla użytkowników, którzy znają już [SQL](log-query/sql-cheatsheet.md) i [Splunk](log-query/splunk-cheatsheet.md).
 
@@ -56,7 +56,7 @@ Usługa Azure Monitor może zbierać dane z różnych źródeł. Monitorowanie d
 
 - **Dane monitorowania aplikacji**: dane dotyczące wydajności i funkcjonalności kodu, który zapisano, niezależnie od jego platformy.
 - **Dane monitorowania systemu operacyjnego gościa**: dane dotyczące systemu operacyjnego, w którym działa aplikacja. Może się to odbywać na platformie Azure, w innej chmurze lub lokalnie. 
-- **Dane monitorowania zasobów platformy Azure**: dane dotyczące operacji zasobu platformy Azure.
+- **Dane monitorowania zasobów platformy Azure**: Dane dotyczące działania zasobów platformy Azure.
 - **Dane monitorowania subskrypcji platformy Azure**: dane dotyczące operacji i zarządzania subskrypcją platformy Azure, a także dane dotyczące kondycji i działania samej platformy Azure. 
 - **Dane monitorowania dzierżawy platformy Azure**: dane dotyczące działania usług platformy Azure na poziomie dzierżawy, takie jak Azure Active Directory.
 
@@ -90,7 +90,7 @@ Dane monitorowania są przydatne tylko wtedy, gdy mogą zwiększyć widoczność
 ![Szczegółowe informacje o maszynie wirtualnej](media/overview/vm-insights.png)
 
 ### <a name="monitoring-solutions"></a>Rozwiązania do monitorowania
-[Rozwiązania do monitorowania](insights/solutions.md) w Azure monitor są spakowanymi zestawami logiki, które zapewniają wgląd w konkretną aplikację lub usługę. Obejmują one logikę zbierania danych monitorowania dla aplikacji lub usługi, [zapytania](log-query/log-query-overview.md) do analizy tych danych i [widoki](../log-analytics/log-analytics-view-designer.md) do wizualizacji. Rozwiązania do monitorowania są [dostępne od firmy Microsoft](insights/solutions-inventory.md) i partnerów w celu zapewnienia monitorowania różnych usług platformy Azure i innych aplikacji.
+[Rozwiązania do monitorowania](insights/solutions.md) w Azure monitor są spakowanymi zestawami logiki, które zapewniają wgląd w konkretną aplikację lub usługę. Obejmują one logikę zbierania danych monitorowania dla aplikacji lub usługi, [zapytania](log-query/log-query-overview.md) do analizy tych danych i [widoki](./platform/view-designer.md) do wizualizacji. Rozwiązania do monitorowania są [dostępne od firmy Microsoft](./monitor-reference.md) i partnerów w celu zapewnienia monitorowania różnych usług platformy Azure i innych aplikacji.
 
 ![Rozwiązania do monitorowania](media/overview/solutions-overview.png)
 
@@ -119,12 +119,12 @@ Funkcja automatycznego skalowania umożliwia korzystanie z odpowiedniej ilości 
 ![Pulpit nawigacyjny](media/overview/dashboard.png)
 
 ### <a name="views"></a>Widoki
-[Wyświetla](../log-analytics/log-analytics-view-designer.md) wizualne wizualizacje danych dzienników w Azure monitor.  Każdy widok zawiera pojedynczy kafelek, który przechodzi w dół do kombinacji wizualizacji, takich jak wykresy słupkowe i liniowe, oprócz list podsumowujących krytyczne dane.  Rozwiązania do monitorowania obejmują widoki, które podsumowują dane dla konkretnej aplikacji, i można tworzyć własne widoki do prezentowania danych z dowolnego zapytania dziennika. Podobnie jak w przypadku innych elementów w Azure Monitor, widoki mogą być dodawane do pulpitów nawigacyjnych platformy Azure.
+[Wyświetla](./platform/view-designer.md) wizualne wizualizacje danych dzienników w Azure monitor.  Każdy widok zawiera pojedynczy kafelek, który przechodzi w dół do kombinacji wizualizacji, takich jak wykresy słupkowe i liniowe, oprócz list podsumowujących krytyczne dane.  Rozwiązania do monitorowania obejmują widoki, które podsumowują dane dla konkretnej aplikacji, i można tworzyć własne widoki do prezentowania danych z dowolnego zapytania dziennika. Podobnie jak w przypadku innych elementów w Azure Monitor, widoki mogą być dodawane do pulpitów nawigacyjnych platformy Azure.
 
 ![Widok](media/overview/view.png)
 
 ### <a name="power-bi"></a>Power BI
-[Power BI](https://powerbi.microsoft.com) to usługa analizy biznesowej, która zapewnia interaktywne wizualizacje w różnych źródłach danych i jest skutecznym sposobem udostępniania danych innym osobom w organizacji i poza nią. Power BI można skonfigurować do [automatycznego importowania danych dziennika z Azure monitor](../log-analytics/log-analytics-powerbi.md) , aby skorzystać z tych dodatkowych wizualizacji.
+[Power BI](https://powerbi.microsoft.com) to usługa analizy biznesowej, która zapewnia interaktywne wizualizacje w różnych źródłach danych i jest skutecznym sposobem udostępniania danych innym osobom w organizacji i poza nią. Power BI można skonfigurować do [automatycznego importowania danych dziennika z Azure monitor](./platform/powerbi.md) , aby skorzystać z tych dodatkowych wizualizacji.
 
 
 ![Power BI](media/overview/power-bi.png)
@@ -134,7 +134,7 @@ Funkcja automatycznego skalowania umożliwia korzystanie z odpowiedniej ilości 
 Często wymaga się, aby zintegrować Azure Monitor z innymi systemami i tworzyć niestandardowe rozwiązania korzystające z danych monitorowania. Inne usługi platformy Azure współpracują z Azure Monitor w celu zapewnienia tej integracji.
 
 ### <a name="event-hub"></a>Centrum zdarzeń
-[Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs) to usługa przesyłania strumieniowego i usług pozyskiwania zdarzeń, która umożliwia przekształcanie i przechowywanie danych przy użyciu dowolnego dostawcy analiz w czasie rzeczywistym lub adapterów wsadowych/magazynowych. Użyj Event Hubs, aby [przesyłać strumieniowo dane Azure monitor](platform/stream-monitoring-data-event-hubs.md) do Siem i narzędzi do monitorowania partnerów.
+[Azure Event Hubs](../event-hubs/index.yml) to usługa przesyłania strumieniowego i usług pozyskiwania zdarzeń, która umożliwia przekształcanie i przechowywanie danych przy użyciu dowolnego dostawcy analiz w czasie rzeczywistym lub adapterów wsadowych/magazynowych. Użyj Event Hubs, aby [przesyłać strumieniowo dane Azure monitor](platform/stream-monitoring-data-event-hubs.md) do Siem i narzędzi do monitorowania partnerów.
 
 
 ### <a name="logic-apps"></a>Logic Apps
@@ -150,4 +150,4 @@ Dowiedz się więcej:
 * [Metryki i dzienniki](platform/data-platform.md) dla danych zbieranych przez Azure monitor.
 * [Źródła danych](platform/data-sources.md) , dla których różne składniki aplikacji wysyłają dane telemetryczne.
 * [Zapytania dzienników](log-query/log-query-overview.md) do analizowania zebranych danych.
-* [Najlepsze rozwiązania](https://docs.microsoft.com/azure/architecture/best-practices/monitoring) dotyczące monitorowania aplikacji i usług w chmurze.
+* [Najlepsze rozwiązania](/azure/architecture/best-practices/monitoring) dotyczące monitorowania aplikacji i usług w chmurze.

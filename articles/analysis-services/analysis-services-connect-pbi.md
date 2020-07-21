@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 4e75329444c2ddb9401f32bccea400d90b633294
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f79ff9af1272ca908c7a5ba35fbaa1e8bb87fc50
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85361527"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86506714"
 ---
 # <a name="connect-with-power-bi"></a>Łączenie z usługą Power BI
 
@@ -36,6 +36,9 @@ Po utworzeniu serwera na platformie Azure i wdrożeniu modelu tabelarycznego uż
     Obsługiwane są zarówno opcje **Connect Live** , jak i **Import** . Zaleca się jednak korzystanie z połączeń na żywo, ponieważ tryb importu ma pewne ograniczenia; w szczególności może to mieć wpływ na wydajność serwera podczas importowania. Ponadto, jeśli model ma być odświeżany w usługa Power BI, ustawienie Zezwalaj na **dostęp z Power BI** ma zastosowanie tylko w przypadku wybrania opcji **Połącz na żywo**.
 
 5. Jeśli zostanie wyświetlony monit, wprowadź poświadczenia logowania. 
+
+   > [!NOTE]
+   > Konta jednorazowego kodu dostępu (OTP) nie są obsługiwane. 
 
 6. W **Nawigatorze**rozwiń serwer, a następnie wybierz model lub perspektywę, z którą chcesz się połączyć, a następnie kliknij przycisk **Połącz**. Kliknij model lub perspektywę, aby wyświetlić wszystkie obiekty dla tego widoku.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: troubleshooting
 ms.date: 03/25/2020
 ms.author: v-mibufo
-ms.openlocfilehash: 9f0c6350b89dcfecefcadcc166f7af35abc4b128
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 16f6919577955bda5b04db26deb9fe78a467e364
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80300981"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86509039"
 ---
 # <a name="boot-error--this-is-not-a-bootable-disk"></a>Błąd rozruchu — to nie jest dysk rozruchowy
 
@@ -27,7 +27,7 @@ W tym artykule przedstawiono procedurę rozwiązywania problemów, w których dy
 
 ## <a name="symptoms"></a>Objawy
 
-W przypadku korzystania z [diagnostyki rozruchu](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) w celu wyświetlenia zrzutu ekranu maszyny wirtualnej zobaczysz, że zrzut ekranu wyświetla monit z komunikatem "nie jest to dysk rozruchowy. Włóż dyskietkę rozruchową i naciśnij dowolny klawisz, aby ponowić próbę... ".
+W przypadku korzystania z [diagnostyki rozruchu](./boot-diagnostics.md) w celu wyświetlenia zrzutu ekranu maszyny wirtualnej zobaczysz, że zrzut ekranu wyświetla monit z komunikatem "nie jest to dysk rozruchowy. Włóż dyskietkę rozruchową i naciśnij dowolny klawisz, aby ponowić próbę... ".
 
    Rysunek 1.
 
@@ -52,7 +52,7 @@ Ten komunikat o błędzie oznacza, że proces rozruchu systemu operacyjnego nie 
 
 ### <a name="create-and-access-a-repair-vm"></a>Tworzenie maszyny wirtualnej naprawy i uzyskiwanie do niej dostępu
 
-1. Wykonaj kroki 1-3 [poleceń naprawy maszyny wirtualnej](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands) , aby przygotować maszynę wirtualną naprawy.
+1. Wykonaj kroki 1-3 [poleceń naprawy maszyny wirtualnej](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md) , aby przygotować maszynę wirtualną naprawy.
 2. Korzystanie z Podłączanie pulpitu zdalnego łączenia się z maszyną wirtualną naprawy.
 
 ### <a name="set-partition-status-to-active"></a>Ustaw stan partycji na aktywny
@@ -148,4 +148,4 @@ Aby włączyć Zbieranie zrzutów pamięci i konsolę seryjną, uruchom następu
 
 ### <a name="rebuild-the-original-vm"></a>Odbuduj oryginalną maszynę wirtualną
 
-Aby ponownie połączyć maszynę wirtualną, użyj [kroku 5 poleceń naprawy maszyny wirtualnej](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) .
+Aby ponownie połączyć maszynę wirtualną, użyj [kroku 5 poleceń naprawy maszyny wirtualnej](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md#repair-process-example) .

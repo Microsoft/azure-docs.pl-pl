@@ -8,12 +8,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: bbd81730ea822381f1d0f0e15011fb4ed0c29e64
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: efb26260d0e1f59e78c8328de298c3d4d92c19d3
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84735918"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86509321"
 ---
 # <a name="gpu-optimized-virtual-machine-sizes"></a>Rozmiary maszyn wirtualnych zoptymalizowane pod kątem procesora GPU
 
@@ -31,11 +31,11 @@ Rozmiary maszyn wirtualnych zoptymalizowane pod kątem procesora GPU są wyspecj
 
 Aby skorzystać z możliwości procesora GPU maszyn wirtualnych z serii N, należy zainstalować sterowniki NVIDIA lub AMD GPU.
 
-- W przypadku maszyn wirtualnych, które są obsługiwane przez graficzne procesory NVIDIA, [rozszerzenie sterownika NVIDIA GPU](/azure/virtual-machines/extensions/hpccompute-gpu-windows) instaluje odpowiednie sterowniki NVIDIA CUDA lub siatki. Zainstaluj rozszerzenie lub Zarządzaj nim przy użyciu Azure Portal lub narzędzi, takich jak szablony Azure PowerShell lub Azure Resource Manager. Zapoznaj się z [dokumentacją rozszerzenia sterownika graficznego procesora NVIDIA](/azure/virtual-machines/extensions/hpccompute-gpu-windows) dla obsługiwanych systemów operacyjnych i kroków wdrażania. Aby uzyskać ogólne informacje o rozszerzeniach maszyn wirtualnych, zobacz [rozszerzenia i funkcje maszyny wirtualnej platformy Azure](/azure/virtual-machines/extensions/overview).
+- W przypadku maszyn wirtualnych, które są obsługiwane przez graficzne procesory NVIDIA, [rozszerzenie sterownika NVIDIA GPU](./extensions/hpccompute-gpu-windows.md) instaluje odpowiednie sterowniki NVIDIA CUDA lub siatki. Zainstaluj rozszerzenie lub Zarządzaj nim przy użyciu Azure Portal lub narzędzi, takich jak szablony Azure PowerShell lub Azure Resource Manager. Zapoznaj się z [dokumentacją rozszerzenia sterownika graficznego procesora NVIDIA](./extensions/hpccompute-gpu-windows.md) dla obsługiwanych systemów operacyjnych i kroków wdrażania. Aby uzyskać ogólne informacje o rozszerzeniach maszyn wirtualnych, zobacz [rozszerzenia i funkcje maszyny wirtualnej platformy Azure](./extensions/overview.md).
 
-   Alternatywnie możesz zainstalować sterowniki NVIDIA GPU ręcznie. Zobacz [Instalowanie sterowników NVIDIA GPU na maszynach wirtualnych serii n z systemem Windows](/azure/virtual-machines/windows/n-series-driver-setup) lub [Instalowanie sterowników NVIDIA GPU na maszynach wirtualnych serii n z systemem Linux](/azure/virtual-machines/linux/n-series-driver-setup) dla obsługiwanych systemów operacyjnych, sterowników, instalacji i kroków weryfikacji.
+   Alternatywnie możesz zainstalować sterowniki NVIDIA GPU ręcznie. Zobacz [Instalowanie sterowników NVIDIA GPU na maszynach wirtualnych serii n z systemem Windows](./windows/n-series-driver-setup.md) lub [Instalowanie sterowników NVIDIA GPU na maszynach wirtualnych serii n z systemem Linux](./linux/n-series-driver-setup.md) dla obsługiwanych systemów operacyjnych, sterowników, instalacji i kroków weryfikacji.
 
-- W przypadku maszyn wirtualnych, które są obsługiwane przez procesory GPU AMD, zobacz [Instalowanie sterowników AMD GPU na maszynach wirtualnych serii N z systemem Windows](/azure/virtual-machines/windows/n-series-amd-driver-setup) dla obsługiwanych systemów operacyjnych, sterowników, instalacji i kroków weryfikacyjnych.
+- W przypadku maszyn wirtualnych, które są obsługiwane przez procesory GPU AMD, zobacz [Instalowanie sterowników AMD GPU na maszynach wirtualnych serii N z systemem Windows](./windows/n-series-amd-driver-setup.md) dla obsługiwanych systemów operacyjnych, sterowników, instalacji i kroków weryfikacyjnych.
 
 ## <a name="deployment-considerations"></a>Zagadnienia dotyczące wdrażania
 
@@ -51,7 +51,7 @@ Aby skorzystać z możliwości procesora GPU maszyn wirtualnych z serii N, nale�
 
 ## <a name="other-sizes"></a>Inne rozmiary
 
-- [Zastosowania ogólne](sizes-general.md)
+- [Ogólnego przeznaczenia](sizes-general.md)
 - [Optymalizacja pod kątem obliczeń](sizes-compute.md)
 - [Obliczenia o wysokiej wydajności](sizes-hpc.md)
 - [Optymalizacja pod kątem pamięci](sizes-memory.md)

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 11/16/2019
 ms.author: absha
-ms.openlocfilehash: 7622ac319929548dd50a3af763b1b65ea8a36d2b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d33ec829e490ae45d38d33f5784126a71ae2d0aa
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85250234"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86506557"
 ---
 # <a name="how-an-application-gateway-works"></a>Jak działa Brama aplikacji
 
@@ -62,7 +62,7 @@ Brama aplikacji wstawia cztery dodatkowe nagłówki do wszystkich żądań przed
 
 Prawidłowe wartości x-Forwarded-Proto to HTTP lub HTTPS. X-forwardd-Port Określa port, do którego żądanie dotarło do bramy aplikacji. Nagłówek X-Original-host zawiera oryginalny nagłówek hosta, z którym nadeszło żądanie. Ten nagłówek jest przydatny w integracji z witryną sieci Web systemu Azure, w której nagłówek hosta przychodzącego jest modyfikowany przed skierowaniem ruchu do zaplecza. Jeśli koligacja sesji jest włączona jako opcja, dodaje plik cookie koligacji zarządzanej przez bramę.
 
-Można skonfigurować bramę aplikacji, aby modyfikować nagłówki przy użyciu ponownego [zapisywania nagłówków HTTP](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers) lub zmodyfikować ścieżkę URI przy użyciu ustawienia zastępowanie ścieżki. Jednak dopóki nie zostaną skonfigurowane, wszystkie żądania przychodzące są przekazywane do zaplecza.
+Można skonfigurować bramę aplikacji w celu modyfikowania nagłówków żądań i odpowiedzi oraz adresów URL przy użyciu opcji [Zapisz ponownie nagłówki i adres URL usługi http](rewrite-http-headers-url.md) lub zmodyfikować ścieżkę URI przy użyciu ustawienia przesłonięcia ścieżki. Jednak dopóki nie zostaną skonfigurowane, wszystkie żądania przychodzące są przekazywane do zaplecza.
 
 ## <a name="next-steps"></a>Następne kroki
 

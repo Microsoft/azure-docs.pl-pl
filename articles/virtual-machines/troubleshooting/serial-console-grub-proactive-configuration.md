@@ -14,11 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/10/2019
 ms.author: mimckitt
-ms.openlocfilehash: 6e6a8fddc61e05bc2e354d77c9e56c55e354a45b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3f4846947b18adb1d3f33f1d46482b5c02ee831e
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84309836"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86509158"
 ---
 # <a name="proactively-ensuring-you-have-access-to-grub-and-sysrq-could-save-you-lots-of-down-time"></a>Proaktywne zagwarantowanie, że masz dostęp do GRUB i sysrq mogą zaoszczędzić znaczną część czasu
 
@@ -36,11 +37,11 @@ Przyczyny przeprowadzenia odzyskiwania maszyny wirtualnej są różne i można j
    - Pliki konfiguracji zniekształcona SSHD
    - Konfiguracje sieci
 
- Wiele innych scenariuszy, jak [opisano tutaj](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-linux#common-scenarios-for-accessing-the-serial-console)
+ Wiele innych scenariuszy, jak [opisano tutaj](./serial-console-linux.md#common-scenarios-for-accessing-the-serial-console)
 
 Sprawdź, czy masz dostęp do GRUB i Konsola szeregowa na maszynach wirtualnych wdrożonych na platformie Azure. 
 
-Jeśli jesteś nowym w konsoli szeregowej, Skorzystaj z [tego linku](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-linux/).
+Jeśli jesteś nowym w konsoli szeregowej, Skorzystaj z [tego linku](./serial-console-linux.md).
 
 > [!TIP]
 > Przed wprowadzeniem zmian upewnij się, że są wykonywane kopie zapasowe plików
@@ -345,7 +346,7 @@ Menu GRUB powinno pojawić się na ekranie dla skonfigurowanego limitu czasu = 1
 ## <a name="suse"></a>Szło
 
 ## <a name="sles-12-sp1"></a>SLES 12 z dodatkiem SP1
-Użyj programu inicjującego YaST zgodnie z oficjalnymi [dokumentami](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-grub-single-user-mode#grub-access-in-suse-sles)
+Użyj programu inicjującego YaST zgodnie z oficjalnymi [dokumentami](./serial-console-grub-single-user-mode.md#grub-access-in-suse-sles)
 
 Lub Dodaj/Zmień, aby/etc/default/grub następujące parametry:
 
@@ -429,7 +430,7 @@ Uruchom ponownie maszynę wirtualną za pomocą
 Alternatywnie może być konieczne uzyskanie dostępu do maszyny wirtualnej w trybie jednego użytkownika lub trybu awaryjnego. Wybierz jądro, które chcesz uruchomić lub przerwać przy użyciu klawiszy strzałek.
 Wprowadź żądany tryb, dołączając słowo kluczowe **Single** lub **1** do wiersza rozruchowego jądra. W systemach RHEL można również dołączyć **Rd. Break**.
 
-Aby uzyskać więcej informacji na temat uzyskiwania dostępu do trybu pojedynczego użytkownika, zobacz [ten dokument](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-grub-single-user-mode#general-single-user-mode-access) . 
+Aby uzyskać więcej informacji na temat uzyskiwania dostępu do trybu pojedynczego użytkownika, zobacz [ten dokument](./serial-console-grub-single-user-mode.md#general-single-user-mode-access) . 
 
 
 ![single_user_ubuntu](./media/virtual-machines-serial-console/single-user-ubuntu.png)

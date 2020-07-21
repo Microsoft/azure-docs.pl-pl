@@ -5,11 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 07/08/2019
 ms.author: cshoe
-ms.openlocfilehash: 1688fe848beb62731391bf4399a0dabec5265320
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2dde784e2f67266b2f6c6ccd7da20f01546bbda7
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84697344"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86506489"
 ---
 # <a name="register-azure-functions-binding-extensions"></a>Rejestrowanie rozszerzeń powiązań Azure Functions
 
@@ -48,7 +49,7 @@ Aby użyć pakietów rozszerzeń, zaktualizuj *host.jsw* pliku, aby uwzględnić
 
 ## <a name="c-class-library-with-visual-studio"></a><a name="vs"></a>\#Biblioteka klas C z programem Visual Studio
 
-W programie **Visual Studio**można zainstalować pakiety z konsoli Menedżera pakietów za pomocą polecenia [install-package](https://docs.microsoft.com/nuget/tools/ps-ref-install-package) , jak pokazano w następującym przykładzie:
+W programie **Visual Studio**można zainstalować pakiety z konsoli Menedżera pakietów za pomocą polecenia [install-package](/nuget/tools/ps-ref-install-package) , jak pokazano w następującym przykładzie:
 
 ```powershell
 Install-Package Microsoft.Azure.WebJobs.Extensions.ServiceBus -Version <TARGET_VERSION>
@@ -62,7 +63,7 @@ Jeśli używasz `Install-Package` , aby odwołać się do powiązania, nie musis
 
 ## <a name="c-class-library-with-visual-studio-code"></a><a name="vs-code"></a>Biblioteka klas języka C# z Visual Studio Code
 
-W **Visual Studio Code**Zainstaluj pakiety dla projektu biblioteki klas C# z wiersza polecenia przy użyciu polecenia [dotnet add Package](https://docs.microsoft.com/dotnet/core/tools/dotnet-add-package) w interfejs wiersza polecenia platformy .NET Core. Poniższy przykład ilustruje sposób dodawania powiązania:
+W **Visual Studio Code**Zainstaluj pakiety dla projektu biblioteki klas C# z wiersza polecenia przy użyciu polecenia [dotnet add Package](/dotnet/core/tools/dotnet-add-package) w interfejs wiersza polecenia platformy .NET Core. Poniższy przykład ilustruje sposób dodawania powiązania:
 
 ```terminal
 dotnet add package Microsoft.Azure.WebJobs.Extensions.<BINDING_TYPE_NAME> --version <TARGET_VERSION>

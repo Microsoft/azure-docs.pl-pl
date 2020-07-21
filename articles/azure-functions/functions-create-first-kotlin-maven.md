@@ -6,12 +6,12 @@ ms.service: azure-functions
 ms.topic: quickstart
 ms.date: 03/25/2020
 ms.author: dglover
-ms.openlocfilehash: e4ac4f669d38f07d9fe4edbd600cc06f135fac03
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: d8abf6cdf8506dc491f4e026c9a61ac1391f6ea4
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80674104"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86506302"
 ---
 # <a name="quickstart-create-your-first-function-with-kotlin-and-maven"></a>Szybki Start: Tworzenie pierwszej funkcji za pomocą Kotlin i Maven
 
@@ -25,7 +25,7 @@ Aby opracowywać funkcje przy użyciu Kotlin, musisz mieć zainstalowane następ
 
 - Zestaw [Java Developer Kit](https://aka.ms/azure-jdks), wersja 8
 - Narzędzie [Apache Maven](https://maven.apache.org), wersja 3.0 lub nowsza
-- [Interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure)
+- [Interfejs wiersza polecenia platformy Azure](/cli/azure)
 - [Azure Functions Core Tools](./functions-run-local.md#v2) w wersji 2.6.666 lub nowszej
 
 > [!IMPORTANT]
@@ -43,9 +43,9 @@ mvn archetype:generate \
 ```
 
 > [!NOTE]
-> Jeśli występują problemy z uruchomieniem polecenia, należy zapoznać się z używaną `maven-archetype-plugin` wersją. Ponieważ uruchamiasz polecenie w pustym katalogu bez `.pom` pliku, może być podjęta próba użycia wtyczki starszej wersji od `~/.m2/repository/org/apache/maven/plugins/maven-archetype-plugin` , jeśli uaktualniono Maven ze starszej wersji. Jeśli tak, spróbuj usunąć `maven-archetype-plugin` katalog i ponownie uruchomić polecenie.
+> Jeśli występują problemy z uruchomieniem polecenia, należy zapoznać się z `maven-archetype-plugin` używaną wersją. Ponieważ uruchamiasz polecenie w pustym katalogu bez `.pom` pliku, może być podjęta próba użycia wtyczki starszej wersji od, `~/.m2/repository/org/apache/maven/plugins/maven-archetype-plugin` Jeśli uaktualniono Maven ze starszej wersji. Jeśli tak, spróbuj usunąć `maven-archetype-plugin` katalog i ponownie uruchomić polecenie.
 
-# <a name="powershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
 ```powershell
 mvn archetype:generate `
     "-DarchetypeGroupId=com.microsoft.azure" `
@@ -79,7 +79,7 @@ Poniższe identyfikatory `com.fabrikam.functions` i `fabrikam-functions` są uż
 [INFO] Parameter: artifactId, Value: fabrikam-function
 </pre>
 
-Narzędzie Maven utworzy pliki projektu w nowym folderze o nazwie podanej we właściwości _artifactId_. W tym przykładzie jest to `fabrikam-functions`. Gotowy do uruchomienia kod wygenerowany w projekcie jest prostą funkcją [wyzwalaną przez protokół HTTP](/azure/azure-functions/functions-bindings-http-webhook), która zwraca treść żądania:
+Narzędzie Maven utworzy pliki projektu w nowym folderze o nazwie podanej we właściwości _artifactId_. W tym przykładzie jest to `fabrikam-functions`. Gotowy do uruchomienia kod wygenerowany w projekcie jest prostą funkcją [wyzwalaną przez protokół HTTP](./functions-bindings-http-webhook.md), która zwraca treść żądania:
 
 ```kotlin
 class Function {
@@ -185,7 +185,7 @@ Po zakończeniu wdrażania zostanie wyświetlony adres URL umożliwiający uzysk
 Przetestuj działanie aplikacji funkcji na platformie Azure, używając programu `cURL`. Musisz zmienić adres URL z poniższego przykładu tak, aby był zgodny z adresem URL Twojej wdrożonej aplikacji funkcji uzyskanym w poprzednim kroku.
 
 > [!NOTE]
-> Upewnij się, że ustawiono **prawa dostępu** do `Anonymous`programu. Po wybraniu domyślnego poziomu programu `Function`wymagane jest zaprezentowanie [klucza funkcji](functions-bindings-http-webhook-trigger.md#authorization-keys) w żądaniach, aby uzyskać dostęp do punktu końcowego funkcji.
+> Upewnij się, że ustawiono **prawa dostępu** do programu `Anonymous` . Po wybraniu domyślnego poziomu programu `Function` wymagane jest zaprezentowanie [klucza funkcji](functions-bindings-http-webhook-trigger.md#authorization-keys) w żądaniach, aby uzyskać dostęp do punktu końcowego funkcji.
 
 ```
 curl -w '\n' https://fabrikam-function-20170920120101928.azurewebsites.net/api/HttpTrigger-Java -d AzureFunctions

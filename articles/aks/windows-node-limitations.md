@@ -5,12 +5,12 @@ description: Informacje o znanych ograniczeniach w przypadku uruchamiania pul w�
 services: container-service
 ms.topic: article
 ms.date: 05/28/2020
-ms.openlocfilehash: c420eb850313900d3726b93dd97f911a428d3560
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a86d6f0fe942a72a96c504a61d5030624f161cd5
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85339873"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86507016"
 ---
 # <a name="current-limitations-for-windows-server-node-pools-and-application-workloads-in-azure-kubernetes-service-aks"></a>Bieżące ograniczenia dotyczące pul węzłów systemu Windows Server i obciążeń aplikacji w usłudze Azure Kubernetes Service (AKS)
 
@@ -44,7 +44,11 @@ Węzły główne (płaszczyzna kontroli) w klastrze AKS są hostowane przez AKS 
 
 ## <a name="what-network-plug-ins-are-supported"></a>Jakie wtyczki sieciowe są obsługiwane?
 
-Klastry AKS z pulami węzłów systemu Windows muszą używać modelu sieci usługi Azure CNI (Advanced). Sieć korzystającą wtyczki kubenet (podstawowa) nie jest obsługiwana. Aby uzyskać więcej informacji na temat różnic między modelami sieci, zobacz [pojęcia dotyczące sieci dla aplikacji w AKS][azure-network-models]. — Model sieci usługi Azure CNI wymaga dodatkowego planowania i zagadnień związanych z zarządzaniem adresami IP. Aby uzyskać więcej informacji na temat planowania i implementowania usługi Azure CNI, zobacz [Konfigurowanie sieci Azure CNI w programie AKS][configure-azure-cni].
+Klastry AKS z pulami węzłów systemu Windows muszą używać modelu sieci usługi Azure CNI (Advanced). Sieć korzystającą wtyczki kubenet (podstawowa) nie jest obsługiwana. Aby uzyskać więcej informacji na temat różnic między modelami sieci, zobacz [pojęcia dotyczące sieci dla aplikacji w AKS][azure-network-models]. Model sieci usługi Azure CNI wymaga dodatkowego planowania i zagadnień związanych z zarządzaniem adresami IP. Aby uzyskać więcej informacji na temat planowania i implementowania usługi Azure CNI, zobacz [Konfigurowanie sieci Azure CNI w programie AKS][configure-azure-cni].
+
+## <a name="is-preserving-the-client-source-ip-supported"></a>Czy jest zachowywany obsługiwany adres IP źródła klienta?
+
+W tej chwili [zachowywanie adresu IP źródła klienta][client-source-ip] nie jest obsługiwane w węzłach systemu Windows.
 
 ## <a name="can-i-change-the-max--of-pods-per-node"></a>Czy mogę zmienić wartość maksymalną. liczba zasobników na węzeł?
 
@@ -103,6 +107,14 @@ Obsługa kont usług zarządzanych przez grupę (gMSA) nie jest obecnie dostępn
 
 Tak, jednak Azure Monitor jest w publicznej wersji zapoznawczej na potrzeby zbierania dzienników (stdout, stderr) i metryk z kontenerów systemu Windows. Można również dołączyć strumień strumieni strumienia stdout z kontenera systemu Windows.
 
+## <a name="are-there-any-limitations-on-the-number-of-services-on-a-cluster-with-windows-nodes"></a>Czy istnieją jakieś ograniczenia dotyczące liczby usług w klastrze z węzłami systemu Windows?
+
+Klaster z węzłami systemu Windows może mieć około 500 usług, zanim napotka wyczerpanie portów.
+
+## <a name="can-i-use-the-kubernetes-web-dashboard-with-windows-containers"></a>Czy mogę używać pulpitu nawigacyjnego sieci Web Kubernetes z kontenerami systemu Windows?
+
+Tak, możesz użyć [pulpitu nawigacyjnego sieci Web Kubernetes][kubernetes-dashboard] , aby uzyskać dostęp do informacji o kontenerach systemu Windows, ale w tej chwili nie można uruchomić *polecenia kubectl exec* w działającym kontenerze systemu Windows bezpośrednio z poziomu pulpitu nawigacyjnego Kubernetes sieci Web. Aby uzyskać więcej informacji na temat nawiązywania połączenia z działającym kontenerem systemu Windows, zobacz [Connect with RDP to Azure Kubernetes Service (AKS) węzły systemu Windows Server w celu przeprowadzenia konserwacji lub rozwiązywania problemów][windows-rdp].
+
 ## <a name="what-if-i-need-a-feature-which-is-not-supported"></a>Co zrobić, jeśli potrzebuję funkcji, która nie jest obsługiwana?
 
 Pracujemy nad udostępnieniem wszystkich funkcji potrzebnych do systemu Windows w AKS, ale jeśli wystąpią przerwy, projekt typu "open source", a [AKS-Engine][aks-engine] umożliwia łatwą i w pełni dostosowywalny sposób uruchamiania Kubernetes na platformie Azure, w tym pomocy technicznej systemu Windows. Zapoznaj się z naszym planem funkcji [AKS plan][aks-roadmap].
@@ -132,3 +144,6 @@ Aby rozpocząć pracę z kontenerami systemu Windows Server w programie AKS, nal
 [windows-container-compat]: /virtualization/windowscontainers/deploy-containers/version-compatibility?tabs=windows-server-2019%2Cwindows-10-1909
 [maximum-number-of-pods]: configure-azure-cni.md#maximum-pods-per-node
 [azure-monitor]: ../azure-monitor/insights/container-insights-overview.md#what-does-azure-monitor-for-containers-provide
+[client-source-ip]: concepts-network.md#ingress-controllers
+[kubernetes-dashboard]: kubernetes-dashboard.md
+[windows-rdp]: rdp.md

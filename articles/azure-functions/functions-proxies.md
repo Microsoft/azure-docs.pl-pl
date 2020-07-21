@@ -5,12 +5,12 @@ author: alexkarcher-msft
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: alkarche
-ms.openlocfilehash: 5e756258bb92d7def195959d909068e87e765c0f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d66c690c3a0ba638a92150c9aa1dbb0dc2a41268
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82562070"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86506166"
 ---
 # <a name="work-with-azure-functions-proxies"></a>Pracuj z serwery proxy usługi Azure Functions
 
@@ -89,7 +89,7 @@ Parametry odpowiedzi mogą służyć jako część modyfikacji odpowiedzi dla kl
 
 ### <a name="reference-application-settings"></a><a name="use-appsettings"></a>Ustawienia aplikacji referencyjnych
 
-Można także odwoływać się [do ustawień aplikacji zdefiniowanych dla aplikacji funkcji](https://docs.microsoft.com/azure/azure-functions/functions-how-to-use-azure-function-app-settings) , otaczając nazwę ustawienia ze znakami procentu (%).
+Można także odwoływać się [do ustawień aplikacji zdefiniowanych dla aplikacji funkcji](./functions-how-to-use-azure-function-app-settings.md) , otaczając nazwę ustawienia ze znakami procentu (%).
 
 Na przykład adres URL zaplecza *https://%ORDER_PROCESSING_HOST%/api/orders* "% ORDER_PROCESSING_HOST%" został zastąpiony wartością ustawienia ORDER_PROCESSING_HOST.
 
@@ -110,7 +110,7 @@ Całkowicie wyłącz ślady poprzez dodanie `"debug":false` do każdego określo
 
 ## <a name="advanced-configuration"></a>Konfiguracja zaawansowana
 
-Konfigurowane serwery proxy są przechowywane w *proxies.js* pliku, który znajduje się w katalogu głównym katalogu aplikacji funkcji. Możesz ręcznie edytować ten plik i wdrożyć go w ramach aplikacji, korzystając z dowolnej z [metod wdrażania](https://docs.microsoft.com/azure/azure-functions/functions-continuous-deployment) obsługiwanych przez funkcje. 
+Konfigurowane serwery proxy są przechowywane w *proxies.js* pliku, który znajduje się w katalogu głównym katalogu aplikacji funkcji. Możesz ręcznie edytować ten plik i wdrożyć go w ramach aplikacji, korzystając z dowolnej z [metod wdrażania](./functions-continuous-deployment.md) obsługiwanych przez funkcje. 
 
 > [!TIP] 
 > Jeśli nie skonfigurowano jednej z metod wdrażania, można również korzystać z *proxies.jsw* pliku w portalu. Przejdź do aplikacji funkcji, wybierz pozycję **funkcje platformy**, a następnie wybierz pozycję **Edytor usługi App Service**. Dzięki temu można wyświetlić całą strukturę plików aplikacji funkcji, a następnie wprowadzić zmiany.
@@ -243,8 +243,8 @@ Przykładowa konfiguracja może wyglądać następująco:
 > [!NOTE] 
 > W tym przykładzie treść odpowiedzi jest ustawiana bezpośrednio, więc żadna `backendUri` Właściwość nie jest wymagana. W przykładzie pokazano, jak można użyć serwery proxy usługi Azure Functions do tworzenia interfejsów API.
 
-[Azure Portal]: https://portal.azure.com
-[Wyzwalacze HTTP]: https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook
+[Witryna Azure Portal]: https://portal.azure.com
+[Wyzwalacze HTTP]: ./functions-bindings-http-webhook.md
 [Modify the back-end request]: #modify-backend-request
 [Modify the response]: #modify-response
 [Zdefiniuj obiekt requestOverrides]: #requestOverrides

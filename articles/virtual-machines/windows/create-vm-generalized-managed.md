@@ -7,11 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 09/17/2018
 ms.author: cynthn
-ms.openlocfilehash: a028d597c3eb2a1c66df0e40266c2822e5cd7aab
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0b4083bdc896ce2f78484fe4ab083b234c4c5d12
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83726965"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86508580"
 ---
 # <a name="create-a-vm-from-a-managed-image"></a>Tworzenie maszyny wirtualnej na podstawie zarządzanego obrazu
 
@@ -34,11 +35,11 @@ Jeden zarządzany obraz obsługuje maksymalnie 20 równoczesnych wdrożeń. Pró
 
 ## <a name="use-powershell"></a>Korzystanie z programu PowerShell
 
-Za pomocą programu PowerShell można utworzyć maszynę wirtualną na podstawie obrazu przy użyciu uproszczonego parametru ustawianego dla polecenia cmdlet [New-AzVm](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) . Obraz musi znajdować się w tej samej grupie zasobów, w której zostanie utworzona maszyna wirtualna.
+Za pomocą programu PowerShell można utworzyć maszynę wirtualną na podstawie obrazu przy użyciu uproszczonego parametru ustawianego dla polecenia cmdlet [New-AzVm](/powershell/module/az.compute/new-azvm) . Obraz musi znajdować się w tej samej grupie zasobów, w której zostanie utworzona maszyna wirtualna.
 
  
 
-Uproszczony zestaw parametrów dla [New-AzVm](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) wymaga podania nazwy, grupy zasobów i nazwy obrazu w celu utworzenia maszyny wirtualnej na podstawie obrazu. Funkcja New-AzVm będzie używać wartości parametru **-name** jako nazwy wszystkich zasobów, które tworzy automatycznie. W tym przykładzie udostępniamy bardziej szczegółowe nazwy dla każdego z zasobów, ale umożliwiają automatyczne tworzenie ich przez polecenie cmdlet. Możesz również utworzyć zasoby wcześniej, takie jak sieć wirtualna, i przekazać nazwę zasobu do polecenia cmdlet. Funkcja New-AzVm będzie używać istniejących zasobów, jeśli można je znaleźć według ich nazwy.
+Uproszczony zestaw parametrów dla [New-AzVm](/powershell/module/az.compute/new-azvm) wymaga podania nazwy, grupy zasobów i nazwy obrazu w celu utworzenia maszyny wirtualnej na podstawie obrazu. Funkcja New-AzVm będzie używać wartości parametru **-name** jako nazwy wszystkich zasobów, które tworzy automatycznie. W tym przykładzie udostępniamy bardziej szczegółowe nazwy dla każdego z zasobów, ale umożliwiają automatyczne tworzenie ich przez polecenie cmdlet. Możesz również utworzyć zasoby wcześniej, takie jak sieć wirtualna, i przekazać nazwę zasobu do polecenia cmdlet. Funkcja New-AzVm będzie używać istniejących zasobów, jeśli można je znaleźć według ich nazwy.
 
 Poniższy przykład tworzy maszynę wirtualną o nazwie *myVMFromImage*w grupie zasobów zasobu *webresources* z obrazu o nazwie Moja *obraz*. 
 
@@ -60,4 +61,3 @@ New-AzVm `
 
 ## <a name="next-steps"></a>Następne kroki
 [Tworzenie maszyn wirtualnych z systemem Windows i zarządzanie nimi za pomocą modułu Azure PowerShell](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-

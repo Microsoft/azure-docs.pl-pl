@@ -5,12 +5,12 @@ ms.assetid: b1e6bd58-48d1-4007-9d6c-53fd6db061e3
 ms.topic: quickstart
 ms.date: 04/22/2020
 ms.custom: mvc, devcenter, vs-azure, seodec18
-ms.openlocfilehash: b7566260786b6fcfa639f244e2eff0cc8304ed9e
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: d489ed9dbf9b8075951258e0841675877e11be38
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85205799"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86506795"
 ---
 # <a name="quickstart-create-an-aspnet-core-web-app-in-azure"></a>Szybki Start: Tworzenie aplikacji internetowej ASP.NET Core na platformie Azure
 
@@ -42,7 +42,7 @@ Utwórz ASP.NET Core aplikację sieci Web w programie Visual Studio, wykonując 
 
    ![Konfigurowanie projektu aplikacji sieci Web](./media/app-service-web-get-started-dotnet/configure-web-app-project.png)
 
-1. Możesz wdrożyć dowolny typ ASP.NET Core aplikacji sieci Web na platformie Azure, ale w tym przewodniku Szybki Start wybierz szablon **aplikacja sieci Web** . Upewnij się, że **uwierzytelnianie** jest ustawione na wartość **bez uwierzytelniania**i że żadna inna opcja nie jest zaznaczona. Następnie wybierz pozycję **Utwórz**.
+1. Możesz wdrożyć dowolny typ ASP.NET Core aplikacji sieci Web na platformie Azure, ale w tym przewodniku Szybki Start wybierz szablon **aplikacja sieci Web** . Upewnij się, że **uwierzytelnianie** jest ustawione na wartość **bez uwierzytelniania**i że żadna inna opcja nie jest zaznaczona. Następnie wybierz przycisk **Utwórz**.
 
    ![Tworzenie nowej aplikacji sieci Web ASP.NET Core](./media/app-service-web-get-started-dotnet/create-aspnet-core-web-app.png) 
    
@@ -153,3 +153,8 @@ Przejdź do następnego artykułu, aby dowiedzieć się, jak utworzyć aplikacj�
 
 > [!div class="nextstepaction"]
 > [Konfigurowanie aplikacji ASP.NET Core](configure-language-dotnetcore.md)
+
+Chcesz zoptymalizować i zapisać wydatki na chmurę?
+
+> [!div class="nextstepaction"]
+> [Rozpocznij analizowanie kosztów za pomocą Cost Management](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)

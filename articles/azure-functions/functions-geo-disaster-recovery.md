@@ -4,11 +4,12 @@ description: Jak używać regionów geograficznych w celu zapewnienia nadmiarowo
 ms.assetid: 9058fb2f-8a93-4036-a921-97a0772f503c
 ms.topic: conceptual
 ms.date: 08/29/2019
-ms.openlocfilehash: 481a716bd6ced5c304da41c70fdcfc687b76661d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 446a76b823ce3592a83d0c2f898041951361b47e
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79080228"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86506285"
 ---
 # <a name="azure-functions-geo-disaster-recovery"></a>Azure Functions geograficznie — odzyskiwanie po awarii
 
@@ -21,7 +22,7 @@ Azure Functions uruchamiane w określonym regionie.  Aby uzyskać większą dost
 * Aktywny/aktywny. Oba regiony są aktywne i pobierają zdarzenia (duplikowane lub obracane). Funkcja Active/Active jest zalecana dla funkcji HTTPS w połączeniu z usługami frontonu platformy Azure.
 * Aktywne/pasywne. Jeden region jest aktywny i otrzymuje zdarzenia, podczas gdy pomocniczy jest bezczynny.  Gdy jest wymagane przejście w tryb failover, region pomocniczy jest aktywowany i przetrwa przetwarzanie.  Jest to zalecane w przypadku funkcji innych niż HTTP, takich jak Service Bus i Event Hubs.
 
-Przeczytaj, jak [uruchamiać aplikacje w wielu regionach](https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/multi-region) , aby uzyskać więcej informacji na temat wdrożeń z wieloma regionami.
+Przeczytaj, jak [uruchamiać aplikacje w wielu regionach](/azure/architecture/reference-architectures/app-service-web-app/multi-region) , aby uzyskać więcej informacji na temat wdrożeń z wieloma regionami.
 
 ## <a name="activeactive-for-https-functions"></a>Aktywne/aktywne dla funkcji HTTPS
 

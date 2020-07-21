@@ -6,12 +6,12 @@ author: mlearned
 ms.topic: conceptual
 ms.date: 07/01/2020
 ms.author: mlearned
-ms.openlocfilehash: f957ee5293d2804298d4723ed3a763fabac9dc93
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: b3ad8fdce873b31c8ea6b1c8176ed41587b4b298
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86244535"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86507101"
 ---
 # <a name="security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks"></a>Pojęcia dotyczące zabezpieczeń aplikacji i klastrów w usłudze Azure Kubernetes Service (AKS)
 
@@ -54,9 +54,9 @@ Aby zapewnić magazyn, węzły używają usługi Azure Managed Disks. W przypadk
 
 ### <a name="compute-isolation"></a>Izolacja obliczeniowa
 
- Niektóre obciążenia mogą wymagać wysokiego stopnia odizolowania od innych obciążeń klientów ze względu na zgodność lub wymagania prawne. W przypadku tych obciążeń platforma Azure udostępnia [izolowane maszyny wirtualne](../virtual-machines/linux/isolation.md), które mogą być używane jako węzły agentów w klastrze AKS. Te izolowane maszyny wirtualne są izolowane do określonego typu sprzętu i przeznaczone dla jednego klienta. 
+ Niektóre obciążenia mogą wymagać wysokiego stopnia odizolowania od innych obciążeń klientów ze względu na zgodność lub wymagania prawne. W przypadku tych obciążeń platforma Azure udostępnia [izolowane maszyny wirtualne](../virtual-machines/isolation.md), które mogą być używane jako węzły agentów w klastrze AKS. Te izolowane maszyny wirtualne są izolowane do określonego typu sprzętu i przeznaczone dla jednego klienta. 
 
- Aby użyć tych odizolowanych maszyn wirtualnych z klastrem AKS, wybierz jedną z odizolowanych maszyn wirtualnych, które są wymienione w [tym miejscu](../virtual-machines/linux/isolation.md) jako **rozmiar węzła** podczas tworzenia klastra AKS lub dodania puli węzłów.
+ Aby użyć tych odizolowanych maszyn wirtualnych z klastrem AKS, wybierz jedną z odizolowanych maszyn wirtualnych, które są wymienione w [tym miejscu](../virtual-machines/isolation.md) jako **rozmiar węzła** podczas tworzenia klastra AKS lub dodania puli węzłów.
 
 
 ## <a name="cluster-upgrades"></a>Uaktualnienia klastra
@@ -81,6 +81,8 @@ W przypadku połączeń i zabezpieczeń z sieciami lokalnymi można wdrożyć kl
 ### <a name="azure-network-security-groups"></a>Sieciowe grupy zabezpieczeń platformy Azure
 
 Aby odfiltrować przepływ ruchu w sieciach wirtualnych, na platformie Azure są stosowane reguły sieciowej grupy zabezpieczeń. Te reguły definiują źródłowe i docelowe zakresy adresów IP, porty i protokoły, które są dozwolone lub odrzucane przez dostęp do zasobów. Tworzone są reguły domyślne, które zezwalają na ruch TLS do serwera interfejsu API Kubernetes. Podczas tworzenia usług przy użyciu modułów równoważenia obciążenia, mapowania portów lub tras transferu danych przychodzących program AKS automatycznie modyfikuje sieciowe grupy zabezpieczeń, aby ruch był odpowiednio przepływ.
+
+W przypadkach, gdy udostępniasz własną podsieć dla klastra AKS i chcesz zmodyfikować przepływ ruchu, nie należy modyfikować sieciowej grupy zabezpieczeń na poziomie podsieci zarządzanej przez AKS. Można utworzyć dodatkowe sieciowe grupy zabezpieczeń na poziomie podsieci w celu zmodyfikowania przepływu ruchu, o ile nie zakłócają one ruchu potrzebnego do zarządzania klastrem, takich jak dostęp do usługi równoważenia obciążenia, komunikacja z płaszczyzną kontroli i ruch wychodzący [.][aks-limit-egress-traffic]
 
 ### <a name="kubernetes-network-policy"></a>Zasady sieci Kubernetes
 
@@ -123,6 +125,7 @@ Aby uzyskać dodatkowe informacje na temat podstawowych pojęć związanych z Ku
 [aks-concepts-scale]: concepts-scale.md
 [aks-concepts-storage]: concepts-storage.md
 [aks-concepts-network]: concepts-network.md
+[aks-limit-egress-traffic]: limit-egress-traffic.md
 [cluster-isolation]: operator-best-practices-cluster-isolation.md
 [operator-best-practices-cluster-security]: operator-best-practices-cluster-security.md
 [developer-best-practices-pod-security]:developer-best-practices-pod-security.md

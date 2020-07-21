@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/01/2020
-ms.openlocfilehash: 83c33e6935de7c9ed9f1b2c9f97aa18dd6b10f01
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5d16c62c14ff6f24e519173b979e11d21d997927
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83199909"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505792"
 ---
 # <a name="perform-cross-resource-log-queries-in-azure-monitor"></a>Wykonywanie zapytań dotyczących dzienników wielu zasobów w Azure Monitor  
 
@@ -19,17 +20,17 @@ ms.locfileid: "83199909"
 
 Wcześniej z Azure Monitor można analizować dane tylko z poziomu bieżącego obszaru roboczego i ograniczyć możliwość wykonywania zapytań w wielu obszarach roboczych zdefiniowanych w ramach subskrypcji.  Ponadto można wyszukiwać tylko elementy telemetrii zebrane z aplikacji sieci Web, Application Insights bezpośrednio w Application Insights lub z programu Visual Studio. Jest to również wyzwanie do natywnej analizy danych operacyjnych i aplikacji.
 
-Teraz można wykonywać zapytania nie tylko w wielu obszarach roboczych Log Analytics, ale również dane z konkretnej aplikacji Application Insights w tej samej grupie zasobów, innej grupie zasobów lub innej subskrypcji. Umożliwia to wyświetlanie danych w całym systemie. Te typy zapytań można wykonywać tylko w [log Analytics](portals.md).
+Teraz można wykonywać zapytania nie tylko w wielu obszarach roboczych Log Analytics, ale również dane z konkretnej aplikacji Application Insights w tej samej grupie zasobów, innej grupie zasobów lub innej subskrypcji. Umożliwia to wyświetlanie danych w całym systemie. Te typy zapytań można wykonywać tylko w [log Analytics](./log-query-overview.md).
 
 ## <a name="cross-resource-query-limits"></a>Limity zapytania między zasobami 
 
 * Liczba zasobów Application Insights i Log Analytics obszarów roboczych, które można uwzględnić w pojedynczym zapytaniu, jest ograniczona do 100.
 * Zapytanie krzyżowe nie jest obsługiwane w projektancie widoków. Możesz utworzyć zapytanie w Log Analytics i przypiąć je do pulpitu nawigacyjnego platformy Azure, aby [wyświetlić wizualizację zapytania dziennika](../learn/tutorial-logs-dashboards.md). 
-* Zapytanie między zasobami w ramach alertów dziennika jest obsługiwane w nowym [interfejsie API scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules). Domyślnie Azure Monitor używa [starszego interfejsu API alertów log Analytics](../platform/api-alerts.md) na potrzeby tworzenia nowych reguł alertów dziennika z Azure Portal, chyba że zostanie przełączony w [STARSZEJ wersji interfejsu API alertów dziennika](../platform/alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api). Po przełączeniu nowy interfejs API zostanie ustawiony jako domyślny dla nowych reguł alertów w Azure Portal i umożliwia tworzenie reguł alertów dziennika zapytań dla wielu zasobów. Można tworzyć reguły alertów dziennika zapytań dla wielu zasobów bez przełączenia przy użyciu [szablonu Azure Resource Manager dla interfejsu API scheduledQueryRules](../platform/alerts-log.md#log-alert-with-cross-resource-query-using-azure-resource-template) — ale ta reguła alertu jest zarządzana, chociaż [interfejs API scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) , a nie z Azure Portal.
+* Zapytanie między zasobami w ramach alertów dziennika jest obsługiwane w nowym [interfejsie API scheduledQueryRules](/rest/api/monitor/scheduledqueryrules). Domyślnie Azure Monitor używa [starszego interfejsu API alertów log Analytics](../platform/api-alerts.md) na potrzeby tworzenia nowych reguł alertów dziennika z Azure Portal, chyba że zostanie przełączony w [STARSZEJ wersji interfejsu API alertów dziennika](../platform/alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api). Po przełączeniu nowy interfejs API zostanie ustawiony jako domyślny dla nowych reguł alertów w Azure Portal i umożliwia tworzenie reguł alertów dziennika zapytań dla wielu zasobów. Można tworzyć reguły alertów dziennika zapytań dla wielu zasobów bez przełączenia przy użyciu [szablonu Azure Resource Manager dla interfejsu API scheduledQueryRules](../platform/alerts-log.md#log-alert-with-cross-resource-query-using-azure-resource-template) — ale ta reguła alertu jest zarządzana, chociaż [interfejs API scheduledQueryRules](/rest/api/monitor/scheduledqueryrules) , a nie z Azure Portal.
 
 
 ## <a name="querying-across-log-analytics-workspaces-and-from-application-insights"></a>Wykonywanie zapytań w obszarach roboczych Log Analytics i z Application Insights
-Aby odwołać się do innego obszaru roboczego w zapytaniu, użyj identyfikatora [*obszaru roboczego*](https://docs.microsoft.com/azure/log-analytics/query-language/workspace-expression) i dla aplikacji z Application Insights Użyj identyfikatora [*aplikacji*](https://docs.microsoft.com/azure/log-analytics/query-language/app-expression) .  
+Aby odwołać się do innego obszaru roboczego w zapytaniu, użyj identyfikatora [*obszaru roboczego*](./workspace-expression.md) i dla aplikacji z Application Insights Użyj identyfikatora [*aplikacji*](./app-expression.md) .  
 
 ### <a name="identifying-workspace-resources"></a>Identyfikowanie zasobów obszaru roboczego
 Poniższe przykłady przedstawiają zapytania w obszarze roboczym Log Analytics, aby zwrócić podsumowania dzienników z tabeli aktualizacji w obszarze roboczym o nazwie *ContosoRetail*. 
@@ -54,7 +55,7 @@ Identyfikację obszaru roboczego można wykonać na jeden z kilku sposobów:
 
 * Identyfikator zasobu platformy Azure — unikatowa tożsamość obszaru roboczego zdefiniowana przez platformę Azure. Identyfikator zasobu jest używany, gdy nazwa zasobu jest niejednoznaczna.  W przypadku obszarów roboczych format: */subscriptions/subscriptionId/ResourceGroups/resourceGroup/Providers/Microsoft. OperationalInsights/Workspaces/ComponentName*.  
 
-    Przykład:
+    Na przykład:
     ``` 
     workspace("/subscriptions/e427519-5645-8x4e-1v67-3b84b59a1985/resourcegroups/ContosoAzureHQ/providers/Microsoft.OperationalInsights/workspaces/contosoretail-it").Update | count
     ```
@@ -85,7 +86,7 @@ Identyfikowanie aplikacji w Application Insights można wykonać za pomocą wyra
 
 * Identyfikator zasobu platformy Azure — zdefiniowana przez platformę Azure unikatowa tożsamość aplikacji. Identyfikator zasobu jest używany, gdy nazwa zasobu jest niejednoznaczna. Format to: */subscriptions/subscriptionId/ResourceGroups/resourceGroup/Providers/Microsoft. OperationalInsights/Components/ComponentName*.  
 
-    Przykład:
+    Na przykład:
     ```
     app("/subscriptions/b459b4f6-912x-46d5-9cb1-b43069212ab4/resourcegroups/Fabrikam/providers/microsoft.insights/components/fabrikamapp").requests | count
     ```

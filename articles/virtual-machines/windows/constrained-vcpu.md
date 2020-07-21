@@ -10,12 +10,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/09/2018
 ms.author: jonbeck
-ms.openlocfilehash: eeb43247253386d6dd58a4c35ef0cba15a991b9e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9ad1c3bfd7a7bb3dba36790d8dae0f503ba938c3
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82086202"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86508631"
 ---
 # <a name="constrained-vcpu-capable-vm-sizes"></a>Ograniczone rozmiary maszyn wirtualnych z ograniczeniami vCPU
 
@@ -24,12 +24,11 @@ ms.locfileid: "82086202"
 
 
 ## <a name="other-sizes"></a>Inne rozmiary
-- [Optymalizacja pod kątem obliczeń](../windows/sizes-compute.md)
-- [Optymalizacja pod kątem pamięci](sizes-memory.md)
-- [Optymalizacja pod kątem magazynu](sizes-storage.md)
-- [Procesor GPU](sizes-gpu.md)
-- [Obliczenia o wysokiej wydajności](sizes-hpc.md)
+- [Optymalizacja pod kątem obliczeń](../sizes-compute.md)
+- [Optymalizacja pod kątem pamięci](../sizes-memory.md)
+- [Optymalizacja pod kątem magazynu](../sizes-storage.md)
+- [Procesor GPU](../sizes-gpu.md)
+- [Obliczenia o wysokiej wydajności](../sizes-hpc.md)
 
 ## <a name="next-steps"></a>Następne kroki
-Dowiedz się więcej o tym, jak [usługa Azure COMPUTE units (ACU)](acu.md) może pomóc w porównaniu wydajności obliczeniowej w ramach jednostek SKU platformy Azure.
-
+Dowiedz się więcej o tym, jak [usługa Azure COMPUTE units (ACU)](../acu.md) może pomóc w porównaniu wydajności obliczeniowej w ramach jednostek SKU platformy Azure.

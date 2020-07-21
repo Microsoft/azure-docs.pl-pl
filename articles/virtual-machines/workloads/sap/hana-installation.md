@@ -13,11 +13,12 @@ ms.workload: infrastructure
 ms.date: 01/16/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4db072cf881c936db6721845e7823082388515b0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ae4a7dc400b347a963e07a8c696e7581e2dcd703
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83117125"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86507849"
 ---
 # <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>Jak zainstalować i skonfigurować SAP HANA (duże wystąpienia) na platformie Azure
 
@@ -41,11 +42,11 @@ Przed rozpoczęciem instalacji platformy HANA Sprawdź poprawność następując
 
 Po otrzymaniu przez firmę Microsoft jednostki dużego wystąpienia usługi HANA Sprawdź poprawność następujących ustawień i dostosuj je w razie potrzeby.
 
-**Pierwszy krok** po otrzymaniu dużego wystąpienia Hana i nawiązaniu dostępu i łączności z wystąpieniami polega na zaewidencjonowaniu Azure Portal niezależnie od tego, czy wystąpienia są wyświetlane z prawidłowymi jednostkami SKU i systemem operacyjnym. Przeczytaj [kontrolę nad dużymi wystąpieniami platformy Azure Hana za pomocą Azure Portal](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-li-portal) , aby uzyskać informacje niezbędne do przeprowadzenia kontroli.
+**Pierwszy krok** po otrzymaniu dużego wystąpienia Hana i nawiązaniu dostępu i łączności z wystąpieniami polega na zaewidencjonowaniu Azure Portal niezależnie od tego, czy wystąpienia są wyświetlane z prawidłowymi jednostkami SKU i systemem operacyjnym. Przeczytaj [kontrolę nad dużymi wystąpieniami platformy Azure Hana za pomocą Azure Portal](./hana-li-portal.md) , aby uzyskać informacje niezbędne do przeprowadzenia kontroli.
 
 **Drugi krok** po otrzymaniu dużego wystąpienia Hana i ustanowieniu dostępu i łączności z wystąpieniami polega na zarejestrowaniu systemu operacyjnego wystąpienia u dostawcy systemu operacyjnego. Ten krok obejmuje zarejestrowanie systemu operacyjnego SUSE Linux w wystąpieniu SUSE SMT, które zostało wdrożone na maszynie wirtualnej na platformie Azure. 
 
-Jednostka dużego wystąpienia HANA może połączyć się z tym wystąpieniem SMT. (Aby uzyskać więcej informacji, zobacz [jak skonfigurować serwer SMT w systemie SUSE Linux](hana-setup-smt.md)). Alternatywnie system operacyjny Red Hat musi być zarejestrowany w programie Red Hat Subscription Manager, z którym należy się połączyć. Aby uzyskać więcej informacji, zobacz uwagi w artykule [co to jest SAP HANA na platformie Azure (duże wystąpienia)?](https://docs.microsoft.com/azure/virtual-machines/linux/sap-hana-overview-architecture?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
+Jednostka dużego wystąpienia HANA może połączyć się z tym wystąpieniem SMT. (Aby uzyskać więcej informacji, zobacz [jak skonfigurować serwer SMT w systemie SUSE Linux](hana-setup-smt.md)). Alternatywnie system operacyjny Red Hat musi być zarejestrowany w programie Red Hat Subscription Manager, z którym należy się połączyć. Aby uzyskać więcej informacji, zobacz uwagi w artykule [co to jest SAP HANA na platformie Azure (duże wystąpienia)?](./hana-overview-architecture.md?toc=/azure/virtual-machines/linux/toc.json). 
 
 Ten krok jest niezbędny do zastosowania poprawek do systemu operacyjnego, który jest odpowiedzialny za klienta. W przypadku oprogramowania SUSE Znajdź dokumentację dotyczącą instalowania i konfigurowania elementu SMT na tej stronie o [instalacji SMT](https://www.suse.com/documentation/sles-12/book_smt/data/smt_installation.html).
 
@@ -123,17 +124,17 @@ W przypadku SAP HANA na platformie Azure (duże wystąpienia) synchronizacja cza
 W związku z tym należy skonfigurować oddzielny serwer czasu, który może być używany przez serwery aplikacji SAP działające na maszynach wirtualnych platformy Azure oraz wystąpienia bazy danych SAP HANA, które działają w dużych wystąpieniach HANA. Infrastruktura magazynu w sygnaturach dużych wystąpień jest synchronizowana z serwerami NTP.
 
 
-## <a name="networking"></a>Networking
+## <a name="networking"></a>Sieć
 Przyjęto założenie, że wykonano zalecenia dotyczące projektowania sieci wirtualnych platformy Azure oraz łączenia tych sieci wirtualnych z dużymi wystąpieniami HANA, zgodnie z opisem w następujących dokumentach:
 
-- [Omówienie i architektura SAP HANA (duże wystąpienie) na platformie Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture)
+- [Omówienie i architektura SAP HANA (duże wystąpienie) na platformie Azure](./hana-overview-architecture.md)
 - [Infrastruktura i łączność SAP HANA (duże wystąpienia) na platformie Azure](hana-overview-infrastructure-connectivity.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-Istnieją pewne szczegóły dotyczące sieci pojedynczych jednostek. Każda jednostka dużej instancji HANA ma dwa lub trzy adresy IP, które są przypisane do dwóch lub trzech portów kart sieciowych. Trzy adresy IP są używane w konfiguracjach skalowalnych w poziomie platformy HANA oraz w scenariuszu replikacji systemu HANA. Jeden z adresów IP przypisanych do karty sieciowej jednostki znajduje się poza pulą adresów IP serwera, która jest opisana w [SAP HANA (duże wystąpienia) omówienie i architektura na platformie Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture).
+Istnieją pewne szczegóły dotyczące sieci pojedynczych jednostek. Każda jednostka dużej instancji HANA ma dwa lub trzy adresy IP, które są przypisane do dwóch lub trzech portów kart sieciowych. Trzy adresy IP są używane w konfiguracjach skalowalnych w poziomie platformy HANA oraz w scenariuszu replikacji systemu HANA. Jeden z adresów IP przypisanych do karty sieciowej jednostki znajduje się poza pulą adresów IP serwera, która jest opisana w [SAP HANA (duże wystąpienia) omówienie i architektura na platformie Azure](./hana-overview-architecture.md).
 
 Aby uzyskać więcej informacji na temat informacji o architekturze sieci Ethernet dla architektury, zobacz [obsługiwane scenariusze](hana-supported-scenario.md)dotyczące usługi HLI.
 
-## <a name="storage"></a>Magazyn
+## <a name="storage"></a>Storage
 
 Układ magazynu dla SAP HANA na platformie Azure (duże wystąpienia) jest konfigurowany przez SAP HANA na platformie Azure `service management` za pomocą zalecanych wytycznych dotyczących protokołu SAP. Te wytyczne zostały udokumentowane w dokumencie [SAP HANA wymagania dotyczące magazynu](https://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html) . 
 
@@ -264,7 +265,3 @@ Zapoznaj się z [scenariuszami obsługiwanymi](hana-supported-scenario.md) przez
 
 
  
-
-
-
-

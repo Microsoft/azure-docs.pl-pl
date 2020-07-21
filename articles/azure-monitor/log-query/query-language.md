@@ -6,14 +6,14 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/11/2019
-ms.openlocfilehash: 6b81aba553fc775821c80631aa83bbb3e8ac63b5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1dda2df64dc116a950498aaf581ec39a86db72bb
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80631794"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505741"
 ---
-# <a name="azure-monitor-log-queries"></a>Azure Monitor zapytania dziennika
+# <a name="azure-monitor-log-queries"></a>Zapytania dzienników usługi Azure Monitor
 
 Dzienniki Azure Monitor są oparte na usłudze Azure Eksplorator danych, a Azure Monitor zapytania dzienników używają wersji tego samego języka zapytań Kusto. [Dokumentacja języka zapytań Kusto](/azure/kusto/query) zawiera wszystkie szczegóły dotyczące języka i powinna być podstawowym zasobem do pisania zapytań dziennika Azure monitor. Ta strona zawiera linki do innych zasobów na potrzeby uczenia się, jak pisać zapytania i różnice w Azure Monitor implementacji języka.
 
@@ -27,9 +27,9 @@ Dzienniki Azure Monitor są oparte na usłudze Azure Eksplorator danych, a Azure
 ## <a name="concepts"></a>Pojęcia
 
 - [Analizowanie danych dziennika w Azure monitor](../../azure-monitor/log-query/log-query-overview.md) zawiera krótkie omówienie zapytań dzienników i opisuje sposób, w jaki dane dzienników Azure monitor są strukturalne.
-- [Wyświetlanie i analizowanie danych dziennika w Azure monitor](../../azure-monitor/log-query/portals.md) wyjaśnia portale, w których tworzysz i uruchamiasz zapytania dzienników.
+- [Wyświetlanie i analizowanie danych dziennika w Azure monitor](./log-query-overview.md) wyjaśnia portale, w których tworzysz i uruchamiasz zapytania dzienników.
 
-## <a name="reference"></a>Odwołanie
+## <a name="reference"></a>Tematy pomocy
 
 - [Dokumentacja języka zapytań](/azure/kusto/query) to kompletna dokumentacja języka dla języka zapytań Kusto.
 - [Różnice w języku zapytań dziennika Azure monitor](data-explorer-difference.md) opisują różnice między wersjami języka zapytań Kusto.

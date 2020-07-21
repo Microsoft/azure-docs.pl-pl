@@ -5,11 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 12/20/2017
 ms.author: cshoe
-ms.openlocfilehash: ef746186717f3eb6bb93263c7f86c26606f65ea9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 290765b17cf34417176930dc9116309bdfd754c8
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84322519"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86506540"
 ---
 # <a name="microsoft-graph-bindings-for-azure-functions"></a>Microsoft Graph powiązania Azure Functions
 
@@ -58,7 +59,7 @@ Jeśli używasz programu Visual Studio, możesz pobrać rozszerzenia, instalują
 
 ### <a name="configuring-authentication--authorization"></a>Konfigurowanie uwierzytelniania/autoryzacji
 
-Powiązania opisane w tym artykule wymagają użycia tożsamości. Dzięki temu Microsoft Graph wymuszać uprawnienia i kontrolować interakcje. Tożsamość może być użytkownikiem, który uzyskuje dostęp do aplikacji lub samej aplikacji. Aby skonfigurować tę tożsamość, skonfiguruj [App Service uwierzytelnianie/autoryzacja](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization) przy użyciu Azure Active Directory. Należy również zażądać wszelkich uprawnień zasobów wymaganych przez funkcje.
+Powiązania opisane w tym artykule wymagają użycia tożsamości. Dzięki temu Microsoft Graph wymuszać uprawnienia i kontrolować interakcje. Tożsamość może być użytkownikiem, który uzyskuje dostęp do aplikacji lub samej aplikacji. Aby skonfigurować tę tożsamość, skonfiguruj [App Service uwierzytelnianie/autoryzacja](../app-service/overview-authentication-authorization.md) przy użyciu Azure Active Directory. Należy również zażądać wszelkich uprawnień zasobów wymaganych przez funkcje.
 
 > [!Note] 
 > Rozszerzenie Microsoft Graph obsługuje tylko uwierzytelnianie w usłudze Azure AD. Użytkownicy muszą zalogować się przy użyciu konta służbowego.
@@ -982,7 +983,7 @@ Elementy webhook umożliwiają reagowanie na zdarzenia w Microsoft Graph. Aby ob
 - [Powiązanie danych wejściowych subskrypcji elementu webhook](#webhook-input) umożliwia wyświetlenie listy istniejących subskrypcji i ich opcjonalne odświeżenie. Microsoft Graph
 - [Microsoft Graph powiązanie danych wyjściowych subskrypcji elementu webhook](#webhook-output) umożliwia tworzenie lub usuwanie subskrypcji elementu webhook.
 
-Powiązania same nie wymagają żadnych uprawnień usługi Azure AD, ale musisz zażądać uprawnień odpowiednich dla typu zasobu, do którego chcesz reagować. Aby uzyskać listę uprawnień wymaganych dla każdego typu zasobu, zobacz [uprawnienia do subskrypcji](https://docs.microsoft.com/graph/api/subscription-post-subscriptions?view=graph-rest-1.0).
+Powiązania same nie wymagają żadnych uprawnień usługi Azure AD, ale musisz zażądać uprawnień odpowiednich dla typu zasobu, do którego chcesz reagować. Aby uzyskać listę uprawnień wymaganych dla każdego typu zasobu, zobacz [uprawnienia do subskrypcji](/graph/api/subscription-post-subscriptions?view=graph-rest-1.0).
 
 Aby uzyskać więcej informacji na temat elementów webhook, zobacz [Praca z elementami webhook w Microsoft Graph].
 

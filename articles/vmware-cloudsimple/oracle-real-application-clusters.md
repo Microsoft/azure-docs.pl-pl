@@ -8,11 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: f657e18d7185d6b3c63ac8f1424da9d36d4189e9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2cc2f954f4255c00b7c3549ab5d33d71b240fb70
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82793044"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86507676"
 ---
 # <a name="optimize-your-cloudsimple-private-cloud-for-installing-oracle-rac"></a>Zoptymalizuj chmurę prywatną CloudSimple na potrzeby instalacji programu Oracle RAC
 
@@ -168,7 +169,7 @@ Aby wdrożyć klaster vSphere w chmurze prywatnej, wykonaj następujące czynno�
 
 Zasady sieci vSAN definiują błędy, aby tolerować i rozkładać dysku dla danych przechowywanych na dyskach maszyn wirtualnych.  Utworzone zasady magazynu należy zastosować na dyskach maszyn wirtualnych podczas tworzenia maszyny wirtualnej.
 
-1. [Zaloguj się do klienta vSphere](https://docs.microsoft.com/azure/vmware-cloudsimple/vcenter-access) w chmurze prywatnej.
+1. [Zaloguj się do klienta vSphere](./vcenter-access.md) w chmurze prywatnej.
 2. Z górnego menu wybierz pozycję **zasady i profile**.
 3. Z menu po lewej stronie wybierz pozycję **zasady magazynu maszyny wirtualnej** , a następnie wybierz pozycję **Utwórz zasady magazynu maszyny wirtualnej**.
 4. Wprowadź zrozumiałą nazwę zasad i kliknij przycisk **dalej**.

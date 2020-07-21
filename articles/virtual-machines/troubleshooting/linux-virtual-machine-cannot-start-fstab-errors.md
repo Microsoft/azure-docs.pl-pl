@@ -14,16 +14,16 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.date: 10/09/2019
 ms.author: v-six
-ms.openlocfilehash: daf3e3aaa95734c79e513c16e5d41aeb0bf894dc
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: cf27a842d37e96c82370e9b9b81763c8a5d1f7c9
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86135261"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86509056"
 ---
 # <a name="troubleshoot-linux-vm-starting-issues-due-to-fstab-errors"></a>Rozwiązywanie problemów z uruchamianiem maszyny wirtualnej systemu Linux z powodu błędów fstab
 
-Nie można nawiązać połączenia z maszyną wirtualną platformy Azure z systemem Linux przy użyciu połączenia Secure Shell (SSH). Po uruchomieniu funkcji [diagnostyki rozruchu](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) na [Azure Portal](https://portal.azure.com/)są wyświetlane wpisy dziennika podobne do następujących:
+Nie można nawiązać połączenia z maszyną wirtualną platformy Azure z systemem Linux przy użyciu połączenia Secure Shell (SSH). Po uruchomieniu funkcji [diagnostyki rozruchu](./boot-diagnostics.md) na [Azure Portal](https://portal.azure.com/)są wyświetlane wpisy dziennika podobne do następujących:
 
 ## <a name="examples"></a>Przykłady
 
@@ -106,8 +106,8 @@ Aby rozwiązać ten problem, uruchom maszynę wirtualną w trybie awaryjnym przy
 
 ### <a name="using-single-user-mode"></a>Korzystanie z trybu pojedynczego użytkownika
 
-1. Nawiąż połączenie z [konsolą szeregową](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-linux).
-2. Używanie konsoli szeregowej do przełączanie trybu jednego [użytkownika](https://docs.microsoft.com/azure/virtual-machines/linux/serial-console-grub-single-user-mode) w tryb jednego użytkownika
+1. Nawiąż połączenie z [konsolą szeregową](./serial-console-linux.md).
+2. Używanie konsoli szeregowej do przełączanie trybu jednego [użytkownika](../linux/serial-console-grub-single-user-mode.md) w tryb jednego użytkownika
 3. Po rozruchu maszyny wirtualnej w trybie jednego użytkownika. Użyj swojego ulubionego edytora tekstu, aby otworzyć plik fstab. 
 
    ```
@@ -140,7 +140,7 @@ Aby rozwiązać ten problem, uruchom maszynę wirtualną w trybie awaryjnym przy
 
 ### <a name="using-root-password"></a>Używanie hasła głównego
 
-1. Nawiąż połączenie z [konsolą szeregową](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-linux).
+1. Nawiąż połączenie z [konsolą szeregową](./serial-console-linux.md).
 2. Zaloguj się do systemu przy użyciu lokalnego użytkownika i hasła.
 
    > [!Note]
@@ -188,7 +188,7 @@ Aby rozwiązać ten problem, uruchom maszynę wirtualną w trybie awaryjnym przy
 
 ## <a name="repair-the-vm-offline"></a>Naprawianie maszyny wirtualnej w trybie offline
 
-1. Dołącz dysk systemowy maszyny wirtualnej jako dysk danych do maszyny wirtualnej odzyskiwania (dowolna działająca maszyna wirtualna z systemem Linux). W tym celu można użyć [poleceń interfejsu wiersza polecenia](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-recovery-disks-linux) lub można zautomatyzować Konfigurowanie maszyny wirtualnej odzyskiwania przy użyciu [poleceń naprawy maszyny wirtualnej](repair-linux-vm-using-azure-virtual-machine-repair-commands.md).
+1. Dołącz dysk systemowy maszyny wirtualnej jako dysk danych do maszyny wirtualnej odzyskiwania (dowolna działająca maszyna wirtualna z systemem Linux). W tym celu można użyć [poleceń interfejsu wiersza polecenia](./troubleshoot-recovery-disks-linux.md) lub można zautomatyzować Konfigurowanie maszyny wirtualnej odzyskiwania przy użyciu [poleceń naprawy maszyny wirtualnej](repair-linux-vm-using-azure-virtual-machine-repair-commands.md).
 
 2. Po zainstalowaniu dysku systemowego jako dysku danych na maszynie wirtualnej odzyskiwania należy wykonać kopię zapasową pliku fstab przed wprowadzeniem zmian, a następnie wykonać kolejne kroki, aby poprawić plik fstab.
 
@@ -217,7 +217,7 @@ Aby rozwiązać ten problem, uruchom maszynę wirtualną w trybie awaryjnym przy
    > * Pola w każdym wierszu są rozdzielone znakami tabulacji lub spacjami. Puste wiersze są ignorowane. Wiersze, które mają znak numeru (#), jako pierwszy znak to komentarze. Wiersze z komentarzem mogą pozostawać w pliku fstab, ale nie będą przetwarzane. Zaleca się, aby nie usuwać wierszy z fstab wierszy, które nie są już używane.
    > * Aby maszyna wirtualna mogła odzyskiwać i uruchamiać, partycje systemu plików powinny być jedynymi wymaganymi partycjami. Na maszynie wirtualnej mogą wystąpić błędy aplikacji dotyczące dodatkowych partycji z komentarzami. Jednak maszyna wirtualna powinna zostać uruchomiona bez dodatkowych partycji. Możesz później usunąć komentarz z komentarzy do wszystkich wierszy z komentarzem.
    > * Zalecamy zainstalowanie dysków danych na maszynach wirtualnych platformy Azure przy użyciu identyfikatora UUID partycji systemu plików. Na przykład uruchom następujące polecenie:``/dev/sdc1: LABEL="cloudimg-rootfs" UUID="<UUID>" TYPE="ext4" PARTUUID="<PartUUID>"``
-   > * Aby określić identyfikator UUID systemu plików, uruchom polecenie blkid. Aby uzyskać więcej informacji na temat składni, uruchom polecenie Man blkid. Należy zauważyć, że dysk, który ma zostać odzyskany, jest teraz instalowany na nowej maszynie wirtualnej. Mimo że identyfikatory UUID powinny być spójne, identyfikator partycji urządzeń (na przykład "/dev/sda1") różnią się w tej maszynie wirtualnej. Partycje systemu plików oryginalnego zakończonego niepowodzeniem maszyny wirtualnej, które znajdują się na dysku VHD niesystemowym, nie są dostępne dla maszyny wirtualnej odzyskiwania [przy użyciu poleceń interfejsu wiersza polecenia](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-recovery-disks-linux).
+   > * Aby określić identyfikator UUID systemu plików, uruchom polecenie blkid. Aby uzyskać więcej informacji na temat składni, uruchom polecenie Man blkid. Należy zauważyć, że dysk, który ma zostać odzyskany, jest teraz instalowany na nowej maszynie wirtualnej. Mimo że identyfikatory UUID powinny być spójne, identyfikator partycji urządzeń (na przykład "/dev/sda1") różnią się w tej maszynie wirtualnej. Partycje systemu plików oryginalnego zakończonego niepowodzeniem maszyny wirtualnej, które znajdują się na dysku VHD niesystemowym, nie są dostępne dla maszyny wirtualnej odzyskiwania [przy użyciu poleceń interfejsu wiersza polecenia](./troubleshoot-recovery-disks-linux.md).
    > * Opcja nofail pomaga upewnić się, że maszyna wirtualna jest uruchomiona, nawet jeśli system plików jest uszkodzony lub system plików nie istnieje podczas uruchamiania. Zalecamy użycie opcji nofail w pliku fstab, aby umożliwić uruchamianie kontynuuje po wystąpieniu błędów w partycjach, które nie są wymagane do uruchomienia maszyny wirtualnej.
 
 7. Zmień lub Dodaj komentarz do nieprawidłowych lub niepotrzebnych wierszy w pliku fstab, aby umożliwić prawidłowe uruchomienie maszyny wirtualnej.
@@ -240,5 +240,5 @@ Aby rozwiązać ten problem, uruchom maszynę wirtualną w trybie awaryjnym przy
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Rozwiązywanie problemów z maszyną wirtualną z systemem Linux przez dołączenie dysku systemu operacyjnego do maszyny wirtualnej odzyskiwania przy użyciu interfejsu wiersza 2,0 polecenia platformy Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-troubleshoot-recovery-disks)
-* [Rozwiązywanie problemów z maszyną wirtualną z systemem Linux przez dołączenie dysku systemu operacyjnego do maszyny wirtualnej odzyskiwania przy użyciu Azure Portal](https://docs.microsoft.com/azure/virtual-machines/linux/troubleshoot-recovery-disks-portal)
+* [Rozwiązywanie problemów z maszyną wirtualną z systemem Linux przez dołączenie dysku systemu operacyjnego do maszyny wirtualnej odzyskiwania przy użyciu interfejsu wiersza 2,0 polecenia platformy Azure](./troubleshoot-recovery-disks-linux.md)
+* [Rozwiązywanie problemów z maszyną wirtualną z systemem Linux przez dołączenie dysku systemu operacyjnego do maszyny wirtualnej odzyskiwania przy użyciu Azure Portal](./troubleshoot-recovery-disks-portal-linux.md)

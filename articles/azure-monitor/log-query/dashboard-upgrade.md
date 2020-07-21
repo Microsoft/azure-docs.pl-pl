@@ -6,12 +6,12 @@ ms.topic: article
 author: rboucher
 ms.author: robb
 ms.date: 07/01/2020
-ms.openlocfilehash: 6fb9f691afc8874b19ca4575408027357f07cc89
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f2824d46917536957839a5734a8d446da7a44ee9
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85833540"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505775"
 ---
 # <a name="upgrading-your-log-analytics-dashboard-visualizations"></a>Uaktualnianie wizualizacji pulpitu nawigacyjnego Log Analytics
 
@@ -25,7 +25,7 @@ Ta nowa technologia wizualizacji koncentruje się na sposobie tworzenia nowych i
 
 Pulpity nawigacyjne platformy Azure umożliwiają wizualizowanie stanu całego obszaru powierzchni platformy Azure. Są one przeznaczone do zapewnienia, że jedno z okienek szklanych jest ze statusem platformy Azure i ma wiele skrótów do typowych działań. 
 
-Aby uzyskać więcej informacji, zobacz [pulpity nawigacyjne platformy Azure](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards)
+Aby uzyskać więcej informacji, zobacz [pulpity nawigacyjne platformy Azure](../../azure-portal/azure-portal-dashboards.md)
 
 
 ## <a name="upgrading-log-analytics-dashboard-parts"></a>Uaktualnianie części pulpitu nawigacyjnego Log Analytics
@@ -62,13 +62,13 @@ Po uaktualnieniu wizualizacji należy ponownie opublikować pulpit nawigacyjny, 
 
 Gdy początkowy okres obowiązywania jest dłuższy, zespół Log Analytics uaktualni wszystkie pulpity nawigacyjne w systemie. Wyrównanie wszystkich pulpitów nawigacyjnych platformy Azure umożliwia zespołowi wprowadzanie większej liczby wizualizacji i ulepszeń w całej tablicy.
 
-## <a name="considerations"></a>Istotne zagadnienia
+## <a name="considerations"></a>Kwestie do rozważenia
 
 Wizualizacje Log Analytics przypięte do pulpitu nawigacyjnego mają konkretne zachowanie, które zostały zaprojektowane w celu zapewnienia optymalnego środowiska. Po przypięciu wizualizacji do pulpitu nawigacyjnego Przejrzyj następujące zagadnienia dotyczące projektowania.
 
 ### <a name="query-time-scope---30-day-limit"></a>Zakres czasu zapytania — 30-dniowy limit
 
-Pulpity nawigacyjne mogą zawierać wiele wizualizacji z wielu zapytań, ale zakres czasu dla pojedynczego przypiętego zapytania jest ograniczony do 30 dni. Pojedyncze zapytanie może być uruchamiane tylko w przedziale czasu mniejszym lub równym 30 dni. To ograniczenie ma na celu zapewnienie rozsądnego czasu ładowania pulpitu nawigacyjnego.
+Pulpity nawigacyjne mogą zawierać wiele wizualizacji z wielu zapytań, dlatego zakres czasu dla pojedynczego przypiętego zapytania jest ograniczony do 30 dni. Pojedyncze zapytanie może być uruchamiane tylko w przedziale czasu mniejszym lub równym 30 dni. To ograniczenie ma na celu zapewnienie rozsądnego czasu ładowania pulpitu nawigacyjnego.
 
 ### <a name="query-data-values---25-values-and-other-grouping"></a>Zapytanie wartości danych — 25 wartości i inne grupowanie
 

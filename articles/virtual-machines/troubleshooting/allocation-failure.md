@@ -12,11 +12,12 @@ ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.date: 04/13/2018
 ms.author: daberry
-ms.openlocfilehash: fdbf07fa51adf8151e80d230734ebe53d36b5390
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3766c31add02799c62bca7e9063e723e0a5b498e
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83124792"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86509362"
 ---
 # <a name="troubleshoot-allocation-failures-when-you-create-restart-or-resize-vms-in-azure"></a>Rozwiązywanie problemów związanych z błędami alokacji występującymi podczas tworzenia lub ponownego uruchamiania maszyn wirtualnych na platformie Azure bądź zmieniania ich rozmiaru
 
@@ -78,7 +79,7 @@ Jeśli używasz stref dostępności, wypróbuj inną strefę w regionie, która 
 
 Jeśli żądanie alokacji jest duże (więcej niż 500 rdzeni), zapoznaj się ze wskazówkami w poniższych sekcjach, aby podzielić żądanie na mniejsze wdrożenia.
 
-Spróbuj ponownie [wdrożyć maszynę wirtualną](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/redeploy-to-new-node-windows). Ponowne wdrożenie maszyny wirtualnej przydziela maszynę wirtualną do nowego klastra w regionie.
+Spróbuj ponownie [wdrożyć maszynę wirtualną](./redeploy-to-new-node-windows.md). Ponowne wdrożenie maszyny wirtualnej przydziela maszynę wirtualną do nowego klastra w regionie.
 
 ## <a name="allocation-failures-for-older-vm-sizes-av1-dv1-dsv1-d15v2-ds15v2-etc"></a>Błędy alokacji dla starszych rozmiarów maszyn wirtualnych (Av1, Dv1, DSv1, D15v2, DS15v2 itp.)
 
@@ -93,7 +94,7 @@ Gdy rozszerzamy infrastrukturę platformy Azure, wdrażamy sprzęt nowszej gener
 
 ## <a name="allocation-failures-for-large-deployments-more-than-500-cores"></a>Błędy alokacji dla dużych wdrożeń (ponad 500 rdzeni)
 
-Zmniejsz liczbę wystąpień żądanego rozmiaru maszyny wirtualnej, a następnie spróbuj ponownie wykonać operację wdrażania. Ponadto w przypadku większych wdrożeń warto oszacować [zestawy skalowania maszyn wirtualnych platformy Azure](https://docs.microsoft.com/azure/virtual-machine-scale-sets/). Liczba wystąpień maszyn wirtualnych może być automatycznie zwiększana lub zmniejszana w odpowiedzi na zapotrzebowanie lub zdefiniowany harmonogram i istnieje większa szansa sukcesu alokacji, ponieważ wdrożenia mogą być rozłożone w wielu klastrach. 
+Zmniejsz liczbę wystąpień żądanego rozmiaru maszyny wirtualnej, a następnie spróbuj ponownie wykonać operację wdrażania. Ponadto w przypadku większych wdrożeń warto oszacować [zestawy skalowania maszyn wirtualnych platformy Azure](../../virtual-machine-scale-sets/index.yml). Liczba wystąpień maszyn wirtualnych może być automatycznie zwiększana lub zmniejszana w odpowiedzi na zapotrzebowanie lub zdefiniowany harmonogram i istnieje większa szansa sukcesu alokacji, ponieważ wdrożenia mogą być rozłożone w wielu klastrach. 
 
 ## <a name="background-information"></a>Informacje ogólne
 ### <a name="how-allocation-works"></a>Jak działa alokacja
@@ -104,5 +105,3 @@ Serwery w centrach danych platformy Azure są partycjonowane na klastry. Przewa�
 Gdy żądanie alokacji jest przypięte do klastra, istnieje większa szansa, że nie można znaleźć bezpłatnych zasobów, ponieważ dostępna Pula zasobów jest mniejsza. Ponadto jeśli żądanie alokacji jest przypięte do klastra, ale żądany typ zasobu nie jest obsługiwany przez ten klaster, żądanie zakończy się niepowodzeniem, nawet jeśli klaster zawiera bezpłatne zasoby. Poniższy diagram 3 ilustruje przypadek, w którym przypięta alokacja nie powiedzie się, ponieważ jedyny klaster kandydujący nie ma bezpłatnych zasobów. Diagram 4 ilustruje przypadek, w którym przypięta alokacja nie powiedzie się, ponieważ jedyny klaster kandydujący nie obsługuje żądanego rozmiaru maszyny wirtualnej, nawet jeśli klaster ma bezpłatne zasoby.
 
 ![Niepowodzenie przypiętej alokacji](./media/virtual-machines-common-allocation-failure/Allocation2.png)
-
-

@@ -9,18 +9,18 @@ ms.subservice: autoscale
 ms.date: 06/25/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: c003d66f59f932d818740bdd378280049bbeb7d3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 37245711008442acd0379a35b393ac88c3775482
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85373883"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505540"
 ---
 # <a name="advanced-autoscale-configuration-using-resource-manager-templates-for-vm-scale-sets"></a>Zaawansowana konfiguracja automatycznego skalowania przy użyciu Menedżer zasobów szablonów dla VM Scale Sets
 Możesz skalować w poziomie i skalować w Virtual Machine Scale Sets na podstawie progów metryk wydajności, harmonogramu cyklicznego lub określonego dnia. Możesz również skonfigurować powiadomienia e-mail i elementy webhook dla akcji skalowania. W tym instruktażu przedstawiono przykład konfigurowania wszystkich tych obiektów przy użyciu szablonu Menedżer zasobów na zestawie skalowania maszyn wirtualnych.
 
 > [!NOTE]
-> W tym instruktażu wyjaśniono kroki VM Scale Sets, te same informacje dotyczą skalowania automatycznego [Cloud Services](https://azure.microsoft.com/services/cloud-services/), [App Service Web Apps](https://azure.microsoft.com/services/app-service/web/)i [API Management usług](https://docs.microsoft.com/azure/api-management/api-management-key-concepts) dla prostego ustawienia skalowania w poziomie w zestawie skalowania maszyn wirtualnych na podstawie prostej METRYKI wydajności, takiej jak procesor CPU, można znaleźć w dokumentach [systemu](../../virtual-machine-scale-sets/tutorial-autoscale-powershell.md) [Linux](../../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-cli.md) i Windows.
+> W tym instruktażu wyjaśniono kroki VM Scale Sets, te same informacje dotyczą skalowania automatycznego [Cloud Services](https://azure.microsoft.com/services/cloud-services/), [App Service Web Apps](https://azure.microsoft.com/services/app-service/web/)i [API Management usług](../../api-management/api-management-key-concepts.md) dla prostego ustawienia skalowania w poziomie w zestawie skalowania maszyn wirtualnych na podstawie prostej METRYKI wydajności, takiej jak procesor CPU, można znaleźć w dokumentach [systemu](../../virtual-machine-scale-sets/tutorial-autoscale-powershell.md) [Linux](../../virtual-machine-scale-sets/tutorial-autoscale-cli.md) i Windows.
 >
 >
 
@@ -195,7 +195,7 @@ W tym instruktażu użyjemy [Azure Resource Explorer](https://resources.azure.co
             }
           }
     ```
-    Aby poznać obsługiwane pola i ich wartości, zobacz [dokumentację interfejsu API REST skalowania automatycznego](https://msdn.microsoft.com/library/azure/dn931928.aspx). Teraz Twoje ustawienie skalowania automatycznego zawiera trzy profile opisane wcześniej.
+    Aby poznać obsługiwane pola i ich wartości, zobacz [dokumentację interfejsu API REST skalowania automatycznego](/rest/api/monitor/autoscalesettings). Teraz Twoje ustawienie skalowania automatycznego zawiera trzy profile opisane wcześniej.
 
 7. Na koniec zapoznaj się z sekcją **powiadomienia** skalowania automatycznego. Powiadomienia skalowania automatycznego umożliwiają wykonywanie trzech czynności w przypadku pomyślnego wyzwolenia skalowania w poziomie lub akcji.
    - Powiadom administratora i współadministratora subskrypcji
@@ -243,9 +243,9 @@ Skorzystaj z tych linków, aby dowiedzieć się więcej o automatycznym skalowan
 
 [Najlepsze rozwiązania dotyczące automatycznego skalowania na platformie Azure](autoscale-best-practices.md)
 
-[Zarządzanie automatycznym skalowaniem przy użyciu programu PowerShell](../../azure-monitor/platform/powershell-quickstart-samples.md#create-and-manage-autoscale-settings)
+[Zarządzanie automatycznym skalowaniem przy użyciu programu PowerShell](../samples/powershell-samples.md#create-and-manage-autoscale-settings)
 
-[Zarządzanie funkcją automatycznego skalowania przy użyciu interfejsu wiersza polecenia](cli-samples.md#autoscale)
+[Zarządzanie funkcją automatycznego skalowania przy użyciu interfejsu wiersza polecenia](../samples/cli-samples.md#autoscale)
 
 [Konfigurowanie elementu webhook & powiadomienia E-mail na potrzeby automatycznego skalowania](autoscale-webhook-email.md)
 

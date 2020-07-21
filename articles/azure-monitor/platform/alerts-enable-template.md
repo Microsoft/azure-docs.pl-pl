@@ -6,11 +6,12 @@ ms.author: robb
 ms.topic: conceptual
 ms.date: 03/09/2020
 ms.subservice: alerts
-ms.openlocfilehash: 5a868167f80aaa735e4fbeab32fd1d308dd6da1f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fef975c9822cd44b94074874621e1c87a60ed27d
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81114431"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505452"
 ---
 # <a name="create-a-classic-metric-alert-with-a-resource-manager-template"></a>Tworzenie klasycznego alertu metryki za pomocą szablonu usługi Resource Manager
 > [!WARNING]
@@ -175,7 +176,7 @@ Aby utworzyć alert przy użyciu szablonu Menedżer zasobów, utworzysz zasób t
 }
 ```
 
-Informacje o schemacie i właściwościach reguły alertu [są dostępne tutaj](https://msdn.microsoft.com/library/azure/dn933805.aspx).
+Informacje o schemacie i właściwościach reguły alertu [są dostępne tutaj](/rest/api/monitor/alertrules).
 
 ## <a name="resource-manager-template-for-a-resource-with-a-classic-metric-alert"></a>Menedżer zasobów szablon dla zasobu z alertem dotyczącym klasycznej metryki
 Alert dla szablonu Menedżer zasobów najczęściej jest przydatny podczas tworzenia alertu podczas tworzenia zasobu. Można na przykład upewnić się, że reguła "procesor% > 80" jest skonfigurowana przy każdym wdrożeniu maszyny wirtualnej. W tym celu należy dodać regułę alertu jako zasób w tablicy zasobów dla szablonu maszyny wirtualnej i dodać zależność przy użyciu `dependsOn` właściwości do identyfikatora zasobu maszyny wirtualnej. Oto pełny przykład tworzenia maszyny wirtualnej z systemem Windows i dodawania alertu, który powiadamia administratorów subskrypcji, gdy użycie procesora spadnie powyżej 80%.
@@ -401,4 +402,3 @@ Alert dla szablonu Menedżer zasobów najczęściej jest przydatny podczas tworz
 * [Przeczytaj więcej na temat alertów](alerts-overview.md)
 * [Dodawanie ustawień diagnostycznych](../../azure-monitor/platform/diagnostic-settings-template.md) do szablonu Menedżer zasobów
 * Aby poznać składnię i właściwości JSON, zobacz [Microsoft. Insights/alertrules](/azure/templates/microsoft.insights/alertrules) Template Reference.
-

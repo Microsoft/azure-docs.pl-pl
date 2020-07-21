@@ -4,11 +4,12 @@ description: Dowiedz się, jak opracowywać funkcje przy użyciu programu PowerS
 author: eamonoreilly
 ms.topic: conceptual
 ms.date: 04/22/2019
-ms.openlocfilehash: 41f977e7e7c23c2f49fd656461b7a3920802997e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8b8c84583bd80a7c3cbadde1caba231eed801c1f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84697276"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86506132"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Przewodnik dewelopera programu Azure Functions PowerShell
 
@@ -18,7 +19,7 @@ Funkcja PowerShell platformy Azure (funkcja) jest reprezentowana przez skrypt pr
 
 Podobnie jak w przypadku innych rodzajów funkcji, funkcja skryptu programu PowerShell przyjmuje parametry, które pasują do nazw wszystkich powiązań wejściowych zdefiniowanych w `function.json` pliku. `TriggerMetadata`Parametr jest również przekazywać, który zawiera dodatkowe informacje na temat wyzwalacza, który uruchomił funkcję.
 
-W tym artykule przyjęto założenie, że już odczytano [informacje dotyczące deweloperów Azure Functions](functions-reference.md). Należy również ukończyć funkcję [Szybki Start dla programu PowerShell](functions-create-first-function-powershell.md) , aby utworzyć pierwszą funkcję programu PowerShell.
+W tym artykule przyjęto założenie, że już odczytano [informacje dotyczące deweloperów Azure Functions](functions-reference.md). Należy również ukończyć funkcję [Szybki Start dla programu PowerShell](./functions-create-first-function-vs-code.md?pivots=programming-language-powershell) , aby utworzyć pierwszą funkcję programu PowerShell.
 
 ## <a name="folder-structure"></a>Struktura folderów
 
@@ -126,7 +127,7 @@ Poniżej podano prawidłowe parametry wywołania `Push-OutputBinding` :
 
 | Nazwa | Typ | Położenie | Opis |
 | ---- | ---- |  -------- | ----------- |
-| **`-Name`** | String | 1 | Nazwa powiązania danych wyjściowych, które chcesz ustawić. |
+| **`-Name`** | String (ciąg) | 1 | Nazwa powiązania danych wyjściowych, które chcesz ustawić. |
 | **`-Value`** | Obiekt | 2 | Wartość powiązania danych wyjściowych, które ma zostać ustawione, które jest akceptowane z potoku ByValue. |
 | **`-Clobber`** | SwitchParameter | Nazywany | Obowiązkowe Gdy jest określony, wymusza wartość ustawioną dla określonego powiązania danych wyjściowych. | 
 
@@ -233,7 +234,7 @@ Logowanie w funkcjach programu PowerShell działa jak regularne rejestrowanie pr
 | ------------- | -------------- |
 | Błąd | **`Write-Error`** |
 | Ostrzeżenie | **`Write-Warning`**  | 
-| Informacje | **`Write-Information`** <br/> **`Write-Host`** <br /> **`Write-Output`**      | Informacje | Zapisuje dane w dzienniku na poziomie _informacji_ . |
+| Informacyjny | **`Write-Information`** <br/> **`Write-Host`** <br /> **`Write-Output`**      | Informacyjny | Zapisuje dane w dzienniku na poziomie _informacji_ . |
 | Debugowanie | **`Write-Debug`** |
 | Ślad | **`Write-Progress`** <br /> **`Write-Verbose`** |
 
@@ -600,7 +601,7 @@ Skrypt jest uruchamiany na każdym wywołaniu. Unikaj używania `Install-Module`
 
 ## <a name="next-steps"></a>Następne kroki
 
-Więcej informacji zawierają następujące zasoby:
+Więcej informacji można znaleźć w następujących zasobach:
 
 * [Najlepsze rozwiązania dotyczące usługi Azure Functions](functions-best-practices.md)
 * [Dokumentacja usługi Azure Functions dla deweloperów](functions-reference.md)

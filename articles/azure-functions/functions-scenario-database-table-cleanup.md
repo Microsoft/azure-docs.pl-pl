@@ -4,16 +4,16 @@ description: Użyj Azure Functions, aby zaplanować zadanie, które łączy się
 ms.assetid: 076f5f95-f8d2-42c7-b7fd-6798856ba0bb
 ms.topic: conceptual
 ms.date: 10/02/2019
-ms.openlocfilehash: 974d9da9bb5782672603f1ae8c58742941899a14
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 29e90838d91de69af43ae9cf8ec0d99b534f66be
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85254280"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86506081"
 ---
 # <a name="use-azure-functions-to-connect-to-an-azure-sql-database"></a>Użyj Azure Functions, aby nawiązać połączenie z Azure SQL Database
 
-W tym artykule pokazano, jak za pomocą Azure Functions utworzyć zaplanowane zadanie, które nawiązuje połączenie z Azure SQL Database lub wystąpieniem zarządzanym usługi Azure SQL. Kod funkcji czyści wiersze w tabeli w bazie danych. Nowa funkcja języka C# jest tworzona na podstawie wstępnie zdefiniowanego szablonu wyzwalacza czasomierza w programie Visual Studio 2019. Aby obsłużyć ten scenariusz, należy również ustawić parametry połączenia bazy danych jako ustawienia aplikacji w aplikacji funkcji. W przypadku wystąpienia zarządzanego Azure SQL należy [włączyć publiczny punkt końcowy](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure) , aby można było nawiązać połączenie z Azure Functions. W tym scenariuszu jest stosowana operacja zbiorcza względem bazy danych. 
+W tym artykule pokazano, jak za pomocą Azure Functions utworzyć zaplanowane zadanie, które nawiązuje połączenie z Azure SQL Database lub wystąpieniem zarządzanym usługi Azure SQL. Kod funkcji czyści wiersze w tabeli w bazie danych. Nowa funkcja języka C# jest tworzona na podstawie wstępnie zdefiniowanego szablonu wyzwalacza czasomierza w programie Visual Studio 2019. Aby obsłużyć ten scenariusz, należy również ustawić parametry połączenia bazy danych jako ustawienia aplikacji w aplikacji funkcji. W przypadku wystąpienia zarządzanego Azure SQL należy [włączyć publiczny punkt końcowy](../azure-sql/managed-instance/public-endpoint-configure.md) , aby można było nawiązać połączenie z Azure Functions. W tym scenariuszu jest stosowana operacja zbiorcza względem bazy danych. 
 
 Jeśli jest to pierwsze środowisko pracy z funkcjami języka C#, należy przeczytać [informacje dotyczące deweloperów Azure Functions C#](functions-dotnet-class-library.md).
 
@@ -23,7 +23,7 @@ Jeśli jest to pierwsze środowisko pracy z funkcjami języka C#, należy przecz
 
 + W tym artykule przedstawiono polecenie języka Transact-SQL, które wykonuje operację oczyszczania zbiorczego w tabeli **SalesOrderHeader** w przykładowej bazie danych AdventureWorksLT. Aby utworzyć przykładową bazę danych AdventureWorksLT, wykonaj kroki opisane w artykule [Tworzenie bazy danych w Azure SQL Database przy użyciu Azure Portal](../azure-sql/database/single-database-create-quickstart.md).
 
-+ Należy dodać [regułę zapory na poziomie serwera](../sql-database/sql-database-get-started-portal-firewall.md) dla publicznego adresu IP komputera, który jest używany w tym przewodniku Szybki Start. Ta reguła jest wymagana, aby można było uzyskać dostęp do wystąpienia SQL Database z komputera lokalnego.  
++ Należy dodać [regułę zapory na poziomie serwera](../azure-sql/database/firewall-create-server-level-portal-quickstart.md) dla publicznego adresu IP komputera, który jest używany w tym przewodniku Szybki Start. Ta reguła jest wymagana, aby można było uzyskać dostęp do wystąpienia SQL Database z komputera lokalnego.  
 
 ## <a name="get-connection-information"></a>Pobieranie informacji o połączeniu
 

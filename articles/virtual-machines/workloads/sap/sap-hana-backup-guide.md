@@ -12,23 +12,24 @@ ums.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/01/2020
 ms.author: juergent
-ms.openlocfilehash: bb32350597059209e5baf01d53b0c59fdc2344f3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e1cfe7216c1b37812c482cfacbd5d1c3f155418f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78255206"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86507832"
 ---
 # <a name="backup-guide-for-sap-hana-on-azure-virtual-machines"></a>Przewodnik dotyczący tworzenia kopii zapasowych SAP HANA na platformie Azure Virtual Machines
 
-## <a name="getting-started"></a>Getting Started
+## <a name="getting-started"></a>Wprowadzenie
 
 Przewodnik tworzenia kopii zapasowych dla SAP HANA uruchomionych na maszynach wirtualnych platformy Azure zawiera tylko opis tematów dotyczących platformy Azure. Aby uzyskać ogólne SAP HANA elementów powiązanych z kopią zapasową, zapoznaj się z dokumentacją SAP HANA. Oczekujemy, że znasz zasady tworzenia kopii zapasowych bazy danych, przyczyny i motywacje mające na celu posiadanie solidnej strategii tworzenia kopii zapasowych, a informacje o wymaganiach firmy dotyczą procedury tworzenia kopii zapasowej, okresu przechowywania kopii zapasowych i procedury przywracania.
 
-SAP HANA jest oficjalnie obsługiwana w różnych typach maszyn wirtualnych platformy Azure, takich jak Azure M-Series. Aby zapoznać się z pełną listą SAP HANA certyfikowanych maszyn wirtualnych platformy Azure i jednostek usługi HANA o dużych wystąpieniach, zobacz [Znajdowanie certyfikowanych platform IaaS](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure). Microsoft Azure oferuje wiele jednostek, w których SAP HANA nie są uruchamiane na serwerach fizycznych. Ta usługa jest nazywana [dużymi wystąpieniami Hana](hana-overview-architecture.md). Ten przewodnik nie obejmuje procesów tworzenia kopii zapasowych i narzędzi dla dużych wystąpień platformy HANA. Jest jednak ograniczona do maszyn wirtualnych platformy Azure. Aby uzyskać szczegółowe informacje na temat procesów tworzenia kopii zapasowej/przywracania z dużymi wystąpieniami platformy HANA, przeczytaj artykuł. [kopia zapasowa i przywracanie](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-backup-restore)artykułu.
+SAP HANA jest oficjalnie obsługiwana w różnych typach maszyn wirtualnych platformy Azure, takich jak Azure M-Series. Aby zapoznać się z pełną listą SAP HANA certyfikowanych maszyn wirtualnych platformy Azure i jednostek usługi HANA o dużych wystąpieniach, zobacz [Znajdowanie certyfikowanych platform IaaS](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure). Microsoft Azure oferuje wiele jednostek, w których SAP HANA nie są uruchamiane na serwerach fizycznych. Ta usługa jest nazywana [dużymi wystąpieniami Hana](hana-overview-architecture.md). Ten przewodnik nie obejmuje procesów tworzenia kopii zapasowych i narzędzi dla dużych wystąpień platformy HANA. Jest jednak ograniczona do maszyn wirtualnych platformy Azure. Aby uzyskać szczegółowe informacje na temat procesów tworzenia kopii zapasowej/przywracania z dużymi wystąpieniami platformy HANA, przeczytaj artykuł. [kopia zapasowa i przywracanie](./hana-backup-restore.md)artykułu.
 
 Ten artykuł zawiera trzy możliwości tworzenia kopii zapasowych SAP HANA na maszynach wirtualnych platformy Azure:
 
-- Tworzenie kopii zapasowych HANA za poorednictwem [usług Azure Backup Services](https://docs.microsoft.com/azure/backup/backup-overview) 
+- Tworzenie kopii zapasowych HANA za poorednictwem [usług Azure Backup Services](../../../backup/backup-overview.md) 
 - Usługa HANA kopia zapasowa w systemie plików na maszynie wirtualnej z systemem Linux (zobacz [SAP HANA Azure Backup na poziomie pliku](sap-hana-backup-file-level.md))
 - Tworzenie kopii zapasowych HANA na podstawie migawek magazynu przy użyciu funkcji migawek obiektów BLOB usługi Azure Storage ręcznie lub Azure Backup usługi
 
@@ -36,18 +37,18 @@ Ten artykuł zawiera trzy możliwości tworzenia kopii zapasowych SAP HANA na ma
 SAP HANA oferuje interfejs API tworzenia kopii zapasowych, dzięki któremu narzędzia do tworzenia kopii zapasowych innych firm mogą integrować bezpośrednio z SAP HANA. Produkty takie jak usługa Azure Backup Service lub [CommVault](https://azure.microsoft.com/resources/protecting-sap-hana-in-azure/) używają tego własnościowego interfejsu do wyzwalania SAP HANA bazy danych lub wykonywania kopii zapasowych dziennika. 
 
 
-Informacje dotyczące sposobu, w jaki można znaleźć oprogramowanie SAP obsługiwane na platformie Azure, można znaleźć w artykule [co to oprogramowanie SAP jest obsługiwane dla wdrożeń platformy Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-supported-product-on-azure).
+Informacje dotyczące sposobu, w jaki można znaleźć oprogramowanie SAP obsługiwane na platformie Azure, można znaleźć w artykule [co to oprogramowanie SAP jest obsługiwane dla wdrożeń platformy Azure](./sap-supported-product-on-azure.md).
 
 ## <a name="azure-backup-service"></a>Usługa Azure Backup
 
 Pierwszy przedstawiony scenariusz jest scenariuszem, w którym usługa Azure Backup używa `backint` interfejsu SAP HANA do wykonywania kopii zapasowej przesyłania strumieniowego z bazy danych SAP HANA. Można też użyć bardziej ogólnej funkcji usługi Azure Backup, aby utworzyć migawkę dysku spójną dla aplikacji i przetransferować ją do usługi Azure Backup.
 
-Azure Backup integruje i jest certyfikowane jako rozwiązanie do tworzenia kopii zapasowych dla SAP HANA przy użyciu własnościowego interfejsu SAP HANA o nazwie [BACKINT](https://www.sap.com/dmc/exp/2013_09_adpd/enEN/#/d/solutions?id=8f3fd455-a2d7-4086-aa28-51d8870acaa5). Aby uzyskać więcej informacji na temat rozwiązania, jego możliwości i regionów świadczenia usługi Azure, w których są dostępne, zapoznaj się z artykułem [Obsługa macierzy tworzenia kopii zapasowych baz danych SAP HANA na maszynach wirtualnych platformy Azure](https://docs.microsoft.com/azure/backup/sap-hana-backup-support-matrix#scenario-support). Aby uzyskać szczegółowe informacje i zasady dotyczące usługi Azure Backup Service for HANA, przeczytaj artykuł [dotyczący SAP HANA kopii zapasowej bazy danych na maszynach wirtualnych platformy Azure](https://docs.microsoft.com/azure/backup/sap-hana-db-about). 
+Azure Backup integruje i jest certyfikowane jako rozwiązanie do tworzenia kopii zapasowych dla SAP HANA przy użyciu własnościowego interfejsu SAP HANA o nazwie [BACKINT](https://www.sap.com/dmc/exp/2013_09_adpd/enEN/#/d/solutions?id=8f3fd455-a2d7-4086-aa28-51d8870acaa5). Aby uzyskać więcej informacji na temat rozwiązania, jego możliwości i regionów świadczenia usługi Azure, w których są dostępne, zapoznaj się z artykułem [Obsługa macierzy tworzenia kopii zapasowych baz danych SAP HANA na maszynach wirtualnych platformy Azure](../../../backup/sap-hana-backup-support-matrix.md#scenario-support). Aby uzyskać szczegółowe informacje i zasady dotyczące usługi Azure Backup Service for HANA, przeczytaj artykuł [dotyczący SAP HANA kopii zapasowej bazy danych na maszynach wirtualnych platformy Azure](../../../backup/sap-hana-db-about.md). 
 
-Drugą możliwością wykorzystania usługi Azure Backup jest utworzenie kopii zapasowej spójnej na poziomie aplikacji przy użyciu migawek dysków usługi Azure Premium Storage. Inne certyfikowane magazyny platformy Azure, takie jak [Azure Ultra Disk](https://docs.microsoft.com/azure/virtual-machines/linux/disks-enable-ultra-ssd) i [Azure NetApp Files](https://azure.microsoft.com/services/netapp/) , nie obsługują tego rodzaju migawek za pomocą usługi Azure Backup. Odczytywanie następujących artykułów:
+Drugą możliwością wykorzystania usługi Azure Backup jest utworzenie kopii zapasowej spójnej na poziomie aplikacji przy użyciu migawek dysków usługi Azure Premium Storage. Inne certyfikowane magazyny platformy Azure, takie jak [Azure Ultra Disk](../../linux/disks-enable-ultra-ssd.md) i [Azure NetApp Files](https://azure.microsoft.com/services/netapp/) , nie obsługują tego rodzaju migawek za pomocą usługi Azure Backup. Odczytywanie następujących artykułów:
 
-- [Planowanie infrastruktury kopii zapasowych maszyny wirtualnej na platformie Azure](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction)
-- [Kopia zapasowa spójna na poziomie aplikacji maszyn wirtualnych platformy Azure z systemem Linux](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent) 
+- [Planowanie infrastruktury kopii zapasowych maszyny wirtualnej na platformie Azure](../../../backup/backup-azure-vms-introduction.md)
+- [Kopia zapasowa maszyn wirtualnych platformy Azure z systemem Linux spójna na poziomie aplikacji](../../../backup/backup-azure-linux-app-consistent.md) 
 
 Ta sekwencja działań okazuje się:
 
@@ -103,7 +104,7 @@ Informacje o sprawdzaniu spójności tabeli można także znaleźć w witrynie s
 
 SAP nie&#39;t nadać preferencjom tworzenia kopii zapasowych HANA i magazynu. Zawiera listę ich informatyków i wad, dlatego można określić, która z nich ma być używana w zależności od sytuacji i dostępnej technologii magazynowania (zobacz [Planowanie strategii tworzenia kopii zapasowych i odzyskiwania](https://help.sap.com/saphelp_hanaplatform/helpdata/en/ef/085cd5949c40b788bba8fd3c65743e/content.htm)).
 
-Na platformie Azure należy pamiętać, że funkcja migawek obiektów blob platformy Azure jest niedostępna&#39;t zapewnia spójność systemu plików na wielu dyskach (zobacz [Używanie migawek obiektów BLOB w programie PowerShell](https://blogs.msdn.microsoft.com/cie/2016/05/17/using-blob-snapshots-with-powershell/)). 
+Na platformie Azure należy pamiętać, że funkcja migawek obiektów blob platformy Azure jest niedostępna&#39;t zapewnia spójność systemu plików na wielu dyskach (zobacz [Używanie migawek obiektów BLOB w programie PowerShell](/archive/blogs/cie/using-blob-snapshots-with-powershell)). 
 
 Ponadto jeden z nich musi zrozumieć wpływ rozliczeń podczas pracy często z migawkami obiektów blob, zgodnie z opisem w tym artykule: zrozumienie, w [jaki sposób migawki naliczane są opłaty](/rest/api/storageservices/understanding-how-snapshots-accrue-charges)— jest&#39;t, tak jak w przypadku korzystania z usługi Azure Virtual Disks.
 

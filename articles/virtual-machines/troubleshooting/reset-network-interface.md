@@ -12,11 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 11/16/2018
 ms.author: genli
-ms.openlocfilehash: a8bd12d98b76d5848753987c4f7bcb76d4e2266d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b9a4cf8b9bbf88ae792f345d330503cb4698c430
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84706600"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86509231"
 ---
 # <a name="how-to-reset-network-interface-for-azure-windows-vm"></a>Jak zresetować interfejs sieciowy dla maszyny wirtualnej z systemem Windows na platformie Azure 
 
@@ -31,7 +32,7 @@ W tym artykule opisano sposób resetowania interfejsu sieciowego dla maszyny wir
 
 ### <a name="for-vms-deployed-in-resource-group-model"></a>W przypadku maszyn wirtualnych wdrożonych w modelu grupy zasobów
 
-1.  Przejdź do [Azure Portal](https://ms.portal.azure.com).
+1.  Przejdź do witryny [Azure Portal](https://ms.portal.azure.com).
 2.  Wybierz zaatakowaną maszynę wirtualną.
 3.  Wybierz pozycję **Sieć** , a następnie wybierz interfejs sieciowy maszyny wirtualnej.
 
@@ -46,7 +47,7 @@ W tym artykule opisano sposób resetowania interfejsu sieciowego dla maszyny wir
 
 #### <a name="use-azure-powershell"></a>Korzystanie z programu Azure PowerShell
 
-1. Upewnij się, że masz zainstalowaną [najnowszą Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
+1. Upewnij się, że masz zainstalowaną [najnowszą Azure PowerShell](/powershell/azure/overview)
 2. Otwórz sesję Azure PowerShell z podwyższonym poziomem uprawnień (Uruchom jako administrator). Uruchom następujące polecenia:
 
     ```powershell
@@ -77,7 +78,7 @@ Aby zresetować interfejs sieciowy, wykonaj następujące kroki:
 
 #### <a name="use-azure-portal"></a>Korzystanie z witryny Azure Portal
 
-1.  Przejdź do [Azure Portal]( https://ms.portal.azure.com).
+1.  Przejdź do witryny [Azure Portal]( https://ms.portal.azure.com).
 2.  Wybierz **Virtual Machines (klasyczny)**.
 3.  Wybierz zaatakowaną maszynę wirtualną.
 4.  Wybierz pozycję **adresy IP**.
@@ -89,7 +90,7 @@ Aby zresetować interfejs sieciowy, wykonaj następujące kroki:
 
 #### <a name="use-azure-powershell"></a>Korzystanie z programu Azure PowerShell
 
-1. Upewnij się, że masz zainstalowaną [najnowszą Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) .
+1. Upewnij się, że masz zainstalowaną [najnowszą Azure PowerShell](/powershell/azure/overview) .
 2. Otwórz sesję Azure PowerShell z podwyższonym poziomem uprawnień (Uruchom jako administrator). Uruchom następujące polecenia:
 
     ```powershell

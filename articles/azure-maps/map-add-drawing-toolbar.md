@@ -1,5 +1,5 @@
 ---
-title: Dodawanie paska narzędzi Rysowanie do mapy | Mapy Microsoft Azure
+title: Dodawanie paska narzędzi narzędzi do rysowania do mapowania | Mapy Microsoft Azure
 description: Jak dodać pasek narzędzi rysowania do mapy za pomocą Azure Maps Web SDK
 author: philmea
 ms.author: philmea
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: bebf1ddfbca3aec5a551193609381cf3510bc3ac
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 01ed3b82ea37b691b67e6d1bd33461bfc2338dd9
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80334500"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505911"
 ---
 # <a name="add-a-drawing-tools-toolbar-to-a-map"></a>Dodawanie paska narzędzi narzędzi do rysowania do mapy
 

@@ -12,12 +12,12 @@ ms.date: 06/29/2020
 tags: ''
 keywords: ''
 ms.service: multiple
-ms.openlocfilehash: 7647283444ba41a5d629ba8a26fc711a699cd78d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cc61d842550f82dc8b408ed5cd421af65d0e2be6
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85561107"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86507900"
 ---
 # <a name="install-micro-focus-enterprise-server-50-and-enterprise-developer-50-on-azure"></a>Instalowanie programu Micro Focus Enterprise Server 5,0 i Enterprise Developer 5,0 na platformie Azure
 
@@ -42,7 +42,7 @@ Przed rozpoczęciem sprawdź następujące wymagania wstępne:
     > [!Note]
     > Istnieje kilka opcji kontrolowania dostępu do maszyn wirtualnych:
     > -   Najlepszym rozwiązaniem jest skonfigurowanie [usługi Azure bastionu](https://azure.microsoft.com/services/azure-bastion/).
-    > -   Tunel [wirtualnej sieci prywatnej (VPN) typu lokacja-lokacja](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-tutorial-vpnconnection-powershell) .
+    > -   Tunel [wirtualnej sieci prywatnej (VPN) typu lokacja-lokacja](../../../../vpn-gateway/vpn-gateway-tutorial-vpnconnection-powershell.md) .
     > -   Maszyna wirtualna w serwera przesiadkowego.
 
 ## <a name="install-enterprise-server"></a>Instalowanie serwera Enterprise Server
@@ -125,8 +125,8 @@ Podczas ładowania dewelopera przedsiębiorstwa wdrożenie mikrofokusu i środow
 
 **Następne kroki**
 
--   [Konfigurowanie aplikacji BankDemo](https://docs.microsoft.com/azure/virtual-machines/workloads/mainframe-rehosting/microfocus/demo)
+-   [Konfigurowanie aplikacji BankDemo](./demo.md)
 
--   [Uruchamianie serwera korporacyjnego w kontenerach platformy Docker](https://docs.microsoft.com/azure/virtual-machines/workloads/mainframe-rehosting/microfocus/run-enterprise-server-container)
+-   [Uruchamianie serwera korporacyjnego w kontenerach platformy Docker](./run-enterprise-server-container.md)
 
--   [Migracja aplikacji komputerów mainframe](https://docs.microsoft.com/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/application-strategies)
+-   [Migracja aplikacji komputerów mainframe](/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/application-strategies)

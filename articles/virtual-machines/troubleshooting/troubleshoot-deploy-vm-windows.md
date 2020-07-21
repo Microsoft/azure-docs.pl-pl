@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: troubleshooting
 ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: 03804229221c2b1deb94f6c32a5be9defd304ff6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8ed567ee20835cfe076c9b06234f2cba23f3a8bd
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82628286"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86509131"
 ---
 # <a name="troubleshoot-deploying-windows-virtual-machine-issues-in-azure"></a>Rozwiązywanie problemów z wdrażaniem maszyny wirtualnej z systemem Windows na platformie Azure
 
@@ -70,7 +70,7 @@ Dla umowy Enterprise Agreement:
 
 • Przekaż niestandardową maszynę wirtualną i Wdróż ją przy użyciu szablonu Menedżer zasobów lub Azure PowerShell.
 
-Więcej informacji zawierają następujące zasoby:
+Więcej informacji można znaleźć w następujących zasobach:
 
  - [Omówienie korzyści z używania hybrydowej platformy Azure](https://azure.microsoft.com/pricing/hybrid-use-benefit/)
 
@@ -78,7 +78,7 @@ Więcej informacji zawierają następujące zasoby:
 
  - [Korzyść z używania hybrydowej platformy Azure dla systemu Windows Server i klienta systemu Windows](../windows/hybrid-use-benefit-licensing.md).
 
- - [Jak korzystać z korzyści z używania hybrydowego na platformie Azure](https://blogs.msdn.microsoft.com/azureedu/2016/04/13/how-can-i-use-the-hybrid-use-benefit-in-azure)
+ - [Jak korzystać z korzyści z używania hybrydowego na platformie Azure](/archive/blogs/azureedu/how-can-i-use-the-hybrid-use-benefit-in-azure)
 
 ## <a name="how-do-i-activate-my-monthly-credit-for-visual-studio-enterprise-bizspark"></a>Jak mogę Aktywuj moje miesięczne środki dla programu Visual Studio Enterprise (BizSpark)
 

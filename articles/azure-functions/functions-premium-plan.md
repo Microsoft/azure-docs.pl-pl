@@ -5,12 +5,13 @@ author: jeffhollan
 ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: jehollan
-ms.openlocfilehash: d59335c5c4ebd2688097539594f11ea349939eff
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: references_regions
+ms.openlocfilehash: 5ab506c57a78c67b33b888f1f50d83fe9813d0af
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85298518"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86506200"
 ---
 # <a name="azure-functions-premium-plan"></a>Plan Azure Functions Premium
 
@@ -90,7 +91,7 @@ az resource update -g <resource_group> -n <premium_plan_name> --set properties.m
 
 Podczas tworzenia lub skalowania planu można wybrać jeden z trzech rozmiarów wystąpień.  Opłaty zostaną naliczone za łączną liczbę rdzeni i zużywaną pamięć na sekundę.  Aplikacja może automatycznie skalować w poziomie do wielu wystąpień stosownie do potrzeb.  
 
-|SKU|Rdzenie|Memory (Pamięć)|Magazyn|
+|Jednostka SKU|Rdzenie|Pamięć|Storage|
 |--|--|--|--|
 |EP1|1|3,5 GB|250|
 |EP2|2|7GB|250|
@@ -113,21 +114,21 @@ Zapoznaj się z pełną regionalną dostępnością funkcji tutaj: [Azure.com](h
 |Australia Środkowa 2| 20 | Niedostępny |
 |Australia Wschodnia| 100 | 20 |
 |Australia Południowo-Wschodnia | 100 | 20 |
-|Brazylia Południowa| 60 | 20 |
+|Brazil South| 60 | 20 |
 |Kanada Środkowa| 100 | 20 |
 |Środkowe stany USA| 100 | 20 |
 |Azja Wschodnia| 100 | 20 |
-|Wschodnie stany USA | 100 | 20 |
+|East US | 100 | 20 |
 |Wschodnie stany USA 2| 100 | 20 |
 |Francja Środkowa| 100 | 20 |
 |Niemcy Środkowo-Zachodnie| 100 | Niedostępny |
-|Japonia Wschodnia| 100 | 20 |
+|Japan East| 100 | 20 |
 |Japonia Zachodnia| 100 | 20 |
 |Korea Środkowa| 100 | 20 |
 |Północno-środkowe stany USA| 100 | 20 |
 |Europa Północna| 100 | 20 |
 |Norwegia Wschodnia| 20 | 20 |
-|Południowo-środkowe stany USA| 100 | 20 |
+|South Central US| 100 | 20 |
 |Indie Południowe | 100 | Niedostępny |
 |Azja Południowo-Wschodnia| 100 | 20 |
 |Południowe Zjednoczone Królestwo| 100 | 20 |

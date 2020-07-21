@@ -5,11 +5,12 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 09/12/2019
 ms.author: cshoe
-ms.openlocfilehash: fe5efd2bf4c235688aad90ae37b54268d290540c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 93a12d40e876293eb587ffba865a1d3b1f5f4983
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84676135"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86506030"
 ---
 # <a name="azure-functions-reliable-event-processing"></a>Azure Functions przetwarzanie niezawodnego zdarzenia
 
@@ -69,7 +70,7 @@ Wprowadzenie do funkcji bibliotek obsługi błędów umożliwia zdefiniowanie po
 > [!NOTE]
 > [Polly](https://github.com/App-vNext/Polly) to przykład biblioteki odporności i obsługi błędów przejściowych dla aplikacji w języku C#.
 
-Podczas pracy z wstępnie zgodnymi bibliotekami klas języka C# [filtry wyjątków](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/try-catch) umożliwiają uruchamianie kodu przy każdym wystąpieniu nieobsługiwanego wyjątku.
+Podczas pracy z wstępnie zgodnymi bibliotekami klas języka C# [filtry wyjątków](/dotnet/csharp/language-reference/keywords/try-catch) umożliwiają uruchamianie kodu przy każdym wystąpieniu nieobsługiwanego wyjątku.
 
 Przykłady, które pokazują, jak używać filtrów wyjątków, są dostępne w repozytorium [zestawu SDK Azure WebJobs](https://github.com/Azure/azure-webjobs-sdk/wiki) .
 
@@ -126,7 +127,7 @@ Korzystając z tego podejścia, żadne komunikaty nie są tracone, wszystkie kom
 
 ## <a name="next-steps"></a>Następne kroki
 
-Więcej informacji zawierają następujące zasoby:
+Więcej informacji można znaleźć w następujących zasobach:
 
 - [Obsługa błędów Azure Functions](./functions-bindings-error-pages.md)
 - [Automatyzowanie zmiany rozmiaru przekazanych obrazów za pomocą usługi Event Grid](../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2Fazure%2Fazure-functions%2Ftoc.json&tabs=dotnet)

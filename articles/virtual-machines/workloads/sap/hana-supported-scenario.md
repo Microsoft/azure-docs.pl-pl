@@ -13,11 +13,12 @@ ms.workload: infrastructure
 ms.date: 11/26/2019
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 019f462d4264d19bcc4806d91223029a95f9d819
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b4946524768d0cff483feb4045a2cc5fba169a7a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77617179"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86507951"
 ---
 # <a name="supported-scenarios-for-hana-large-instances"></a>Obsługiwane scenariusze dla dużych wystąpień HANA
 W tym artykule opisano obsługiwane scenariusze i szczegóły architektury dla dużych wystąpień platformy HANA (HLI).
@@ -48,10 +49,10 @@ Projekt architektury pochodnej jest całkowicie z perspektywy infrastruktury i n
 
 W tym artykule opisano szczegółowe informacje o dwóch składnikach w poszczególnych obsługiwanych architekturach:
 
-- Ethernet
-- Magazyn
+- Sieć Ethernet
+- Storage
 
-### <a name="ethernet"></a>Ethernet
+### <a name="ethernet"></a>Sieć Ethernet
 
 Każdy serwer aprowizacji jest wstępnie skonfigurowany z zestawami interfejsów sieci Ethernet. Interfejsy Ethernet skonfigurowane w poszczególnych jednostkach programu HLI są podzielone na cztery typy:
 
@@ -95,7 +96,7 @@ W przypadku replikacji systemu HANA lub wdrożenia w poziomie platformy Hana kon
 - Sieć Ethernet "D" powinna być używana wyłącznie na potrzeby dostępu do urządzeń STONITH w Pacemaker. Ten interfejs jest wymagany w przypadku skonfigurowania replikacji systemu HANA i zapewnienia automatycznie przełączenia w tryb failover systemu operacyjnego przy użyciu urządzenia z systemem SBD.
 
 
-### <a name="storage"></a>Magazyn
+### <a name="storage"></a>Storage
 Magazyn jest wstępnie skonfigurowany na podstawie wybranej topologii. Rozmiary woluminów i punkty instalacji różnią się w zależności od liczby serwerów, liczby jednostek SKU i skonfigurowanej topologii. Aby uzyskać więcej informacji, przejrzyj wymagane scenariusze (w dalszej części tego artykułu). Jeśli potrzebujesz więcej miejsca w magazynie, możesz kupić je w przyrostach o pojemności 1 TB.
 
 >[!NOTE]
@@ -129,7 +130,7 @@ Ta topologia obsługuje jeden węzeł w konfiguracji skalowania z jednym identyf
 
 ![Pojedynczy węzeł z jednym identyfikatorem SID](media/hana-supported-scenario/Single-node-with-one-SID.png)
 
-### <a name="ethernet"></a>Ethernet
+### <a name="ethernet"></a>Sieć Ethernet
 Następujące interfejsy sieciowe są wstępnie skonfigurowane:
 
 | Interfejs logiczny karty sieciowej | Typ jednostki SKU | Nazwa przy użyciu systemu SUSE OS | Nazwa z systemem operacyjnym RHEL | Przypadek użycia|
@@ -143,7 +144,7 @@ Następujące interfejsy sieciowe są wstępnie skonfigurowane:
 | C | TYP II | określone\<tenantNo+1> | team0. Dzierżawca + 1 | Węzeł-Magazyn |
 | D | TYP II | określone\<tenantNo+3> | team0. Dzierżawca + 3 | Skonfigurowane, ale nie w użyciu |
 
-### <a name="storage"></a>Magazyn
+### <a name="storage"></a>Storage
 Następujące punkty instalacji są wstępnie skonfigurowane:
 
 | Punkt instalacji | Przypadek użycia | 
@@ -164,7 +165,7 @@ Ta topologia obsługuje jeden węzeł w konfiguracji skalowania z wieloma identy
 
 ![MCOS jednego węzła](media/hana-supported-scenario/single-node-mcos.png)
 
-### <a name="ethernet"></a>Ethernet
+### <a name="ethernet"></a>Sieć Ethernet
 Następujące interfejsy sieciowe są wstępnie skonfigurowane:
 
 | Interfejs logiczny karty sieciowej | Typ jednostki SKU | Nazwa przy użyciu systemu SUSE OS | Nazwa z systemem operacyjnym RHEL | Przypadek użycia|
@@ -178,7 +179,7 @@ Następujące interfejsy sieciowe są wstępnie skonfigurowane:
 | C | TYP II | określone\<tenantNo+1> | team0. Dzierżawca + 1 | Węzeł-Magazyn |
 | D | TYP II | określone\<tenantNo+3> | team0. Dzierżawca + 3 | Skonfigurowane, ale nie w użyciu |
 
-### <a name="storage"></a>Magazyn
+### <a name="storage"></a>Storage
 Następujące punkty instalacji są wstępnie skonfigurowane:
 
 | Punkt instalacji | Przypadek użycia | 
@@ -194,7 +195,7 @@ Następujące punkty instalacji są wstępnie skonfigurowane:
 
 ### <a name="key-considerations"></a>Najważniejsze zagadnienia
 - /usr/sap/SID jest linkiem symbolicznym do/hana/shared/SID.
-- Rozkład rozmiaru woluminu zależy od rozmiaru bazy danych w pamięci. Aby dowiedzieć się, jakie rozmiary bazy danych w pamięci są obsługiwane w środowisku z obsługą wiele identyfikatorów SID, zobacz [Omówienie i architektura](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture).
+- Rozkład rozmiaru woluminu zależy od rozmiaru bazy danych w pamięci. Aby dowiedzieć się, jakie rozmiary bazy danych w pamięci są obsługiwane w środowisku z obsługą wiele identyfikatorów SID, zobacz [Omówienie i architektura](./hana-overview-architecture.md).
 
 ## <a name="single-node-with-dr-using-storage-replication"></a>Pojedynczy węzeł z odzyskiwaniem po awarii przy użyciu replikacji magazynu
  
@@ -204,7 +205,7 @@ Ta topologia obsługuje jeden węzeł w konfiguracji skalowania z co najmniej je
 
 ![Pojedynczy węzeł z odzyskiwaniem po awarii przy użyciu replikacji magazynu](media/hana-supported-scenario/Single-node-with-dr.png)
 
-### <a name="ethernet"></a>Ethernet
+### <a name="ethernet"></a>Sieć Ethernet
 Następujące interfejsy sieciowe są wstępnie skonfigurowane:
 
 | Interfejs logiczny karty sieciowej | Typ jednostki SKU | Nazwa przy użyciu systemu SUSE OS | Nazwa z systemem operacyjnym RHEL | Przypadek użycia|
@@ -218,7 +219,7 @@ Następujące interfejsy sieciowe są wstępnie skonfigurowane:
 | C | TYP II | określone\<tenantNo+1> | team0. Dzierżawca + 1 | Węzeł-Magazyn |
 | D | TYP II | określone\<tenantNo+3> | team0. Dzierżawca + 3 | Skonfigurowane, ale nie w użyciu |
 
-### <a name="storage"></a>Magazyn
+### <a name="storage"></a>Storage
 Następujące punkty instalacji są wstępnie skonfigurowane:
 
 | Punkt instalacji | Przypadek użycia | 
@@ -231,9 +232,9 @@ Następujące punkty instalacji są wstępnie skonfigurowane:
 
 ### <a name="key-considerations"></a>Najważniejsze zagadnienia
 - /usr/sap/SID jest linkiem symbolicznym do/hana/shared/SID.
-- W przypadku MCOS: rozkład rozmiaru woluminu zależy od rozmiaru bazy danych w pamięci. Aby dowiedzieć się, jakie rozmiary bazy danych w pamięci są obsługiwane w środowisku z obsługą wiele identyfikatorów SID, zobacz [Omówienie i architektura](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture).
+- W przypadku MCOS: rozkład rozmiaru woluminu zależy od rozmiaru bazy danych w pamięci. Aby dowiedzieć się, jakie rozmiary bazy danych w pamięci są obsługiwane w środowisku z obsługą wiele identyfikatorów SID, zobacz [Omówienie i architektura](./hana-overview-architecture.md).
 - W lokacji odzyskiwania po awarii: woluminy i punkty instalacji są skonfigurowane (oznaczone jako "wymagane do instalacji platformy HANA") dla instalacji wystąpienia platformy HANA w jednostce. 
-- W witrynie DR: dane, kopie zapasowe dzienników i udostępnione woluminy (oznaczone jako "replikacja magazynu") są replikowane za pośrednictwem migawki z lokacji produkcyjnej. Te woluminy są instalowane tylko podczas pracy w trybie failover. Aby uzyskać więcej informacji, zobacz [procedura trybu failover odzyskiwania po awarii](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery).
+- W witrynie DR: dane, kopie zapasowe dzienników i udostępnione woluminy (oznaczone jako "replikacja magazynu") są replikowane za pośrednictwem migawki z lokacji produkcyjnej. Te woluminy są instalowane tylko podczas pracy w trybie failover. Aby uzyskać więcej informacji, zobacz [procedura trybu failover odzyskiwania po awarii](./hana-overview-high-availability-disaster-recovery.md).
 - Wolumin rozruchowy dla *klasy typu SKU I* jest replikowany do węzła Dr.
 
 
@@ -245,7 +246,7 @@ Ta topologia obsługuje jeden węzeł w konfiguracji skalowania z co najmniej je
 
 ![Pojedynczy węzeł z DR (Multipurpose) przy użyciu replikacji magazynu](media/hana-supported-scenario/single-node-with-dr-multipurpose.png)
 
-### <a name="ethernet"></a>Ethernet
+### <a name="ethernet"></a>Sieć Ethernet
 Następujące interfejsy sieciowe są wstępnie skonfigurowane:
 
 | Interfejs logiczny karty sieciowej | Typ jednostki SKU | Nazwa przy użyciu systemu SUSE OS | Nazwa z systemem operacyjnym RHEL | Przypadek użycia|
@@ -259,7 +260,7 @@ Następujące interfejsy sieciowe są wstępnie skonfigurowane:
 | C | TYP II | określone\<tenantNo+1> | team0. Dzierżawca + 1 | Węzeł-Magazyn |
 | D | TYP II | określone\<tenantNo+3> | team0. Dzierżawca + 3 | Skonfigurowane, ale nie w użyciu |
 
-### <a name="storage"></a>Magazyn
+### <a name="storage"></a>Storage
 Następujące punkty instalacji są wstępnie skonfigurowane:
 
 | Punkt instalacji | Przypadek użycia | 
@@ -280,9 +281,9 @@ Następujące punkty instalacji są wstępnie skonfigurowane:
 
 ### <a name="key-considerations"></a>Najważniejsze zagadnienia
 - /usr/sap/SID jest linkiem symbolicznym do/hana/shared/SID.
-- W przypadku MCOS: rozkład rozmiaru woluminu zależy od rozmiaru bazy danych w pamięci. Aby dowiedzieć się, jakie rozmiary bazy danych w pamięci są obsługiwane w środowisku z obsługą wiele identyfikatorów SID, zobacz [Omówienie i architektura](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture).
+- W przypadku MCOS: rozkład rozmiaru woluminu zależy od rozmiaru bazy danych w pamięci. Aby dowiedzieć się, jakie rozmiary bazy danych w pamięci są obsługiwane w środowisku z obsługą wiele identyfikatorów SID, zobacz [Omówienie i architektura](./hana-overview-architecture.md).
 - W lokacji odzyskiwania po awarii: woluminy i punkty instalacji są skonfigurowane (oznaczone jako "wymagane do instalacji platformy HANA") dla instalacji wystąpienia platformy HANA w jednostce. 
-- W witrynie DR: dane, kopie zapasowe dzienników i udostępnione woluminy (oznaczone jako "replikacja magazynu") są replikowane za pośrednictwem migawki z lokacji produkcyjnej. Te woluminy są instalowane tylko podczas pracy w trybie failover. Aby uzyskać więcej informacji, zobacz [procedura trybu failover odzyskiwania po awarii](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery). 
+- W witrynie DR: dane, kopie zapasowe dzienników i udostępnione woluminy (oznaczone jako "replikacja magazynu") są replikowane za pośrednictwem migawki z lokacji produkcyjnej. Te woluminy są instalowane tylko podczas pracy w trybie failover. Aby uzyskać więcej informacji, zobacz [procedura trybu failover odzyskiwania po awarii](./hana-overview-high-availability-disaster-recovery.md). 
 - W witrynie DR: dane, kopie zapasowe dzienników, dzienniki i udostępnione woluminy dla pytań i odpowiedzi (oznaczone jako "Instalacja wystąpienia usługi pytania") są konfigurowane na potrzeby instalacji wystąpienia usługi pytania i odpowiedzi.
 - Wolumin rozruchowy dla *klasy typu SKU I* jest replikowany do węzła Dr.
 
@@ -300,7 +301,7 @@ Ta topologia obsługuje dwa węzły w konfiguracji replikacji systemu HANA. Ta k
 
 
 
-### <a name="ethernet"></a>Ethernet
+### <a name="ethernet"></a>Sieć Ethernet
 Następujące interfejsy sieciowe są wstępnie skonfigurowane:
 
 | Interfejs logiczny karty sieciowej | Typ jednostki SKU | Nazwa przy użyciu systemu SUSE OS | Nazwa z systemem operacyjnym RHEL | Przypadek użycia|
@@ -314,7 +315,7 @@ Następujące interfejsy sieciowe są wstępnie skonfigurowane:
 | C | TYP II | określone\<tenantNo+1> | team0. Dzierżawca + 1 | Węzeł-Magazyn |
 | D | TYP II | określone\<tenantNo+3> | team0. Dzierżawca + 3 | Używane na potrzeby STONITH |
 
-### <a name="storage"></a>Magazyn
+### <a name="storage"></a>Storage
 Następujące punkty instalacji są wstępnie skonfigurowane:
 
 | Punkt instalacji | Przypadek użycia | 
@@ -332,7 +333,7 @@ Następujące punkty instalacji są wstępnie skonfigurowane:
 
 ### <a name="key-considerations"></a>Najważniejsze zagadnienia
 - /usr/sap/SID jest linkiem symbolicznym do/hana/shared/SID.
-- W przypadku MCOS: rozkład rozmiaru woluminu zależy od rozmiaru bazy danych w pamięci. Aby dowiedzieć się, jakie rozmiary bazy danych w pamięci są obsługiwane w środowisku z obsługą wiele identyfikatorów SID, zobacz [Omówienie i architektura](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture).
+- W przypadku MCOS: rozkład rozmiaru woluminu zależy od rozmiaru bazy danych w pamięci. Aby dowiedzieć się, jakie rozmiary bazy danych w pamięci są obsługiwane w środowisku z obsługą wiele identyfikatorów SID, zobacz [Omówienie i architektura](./hana-overview-architecture.md).
 - STONITH: SBD jest skonfigurowana dla Instalatora STONITH. Jednak użycie STONITH jest opcjonalne.
 
 
@@ -346,7 +347,7 @@ W diagramie wielomiarowy scenariusz jest przedstawiany w witrynie odzyskiwania p
 
 ![Wysoka dostępność dzięki replikacji HSR i DR z replikacją magazynu](media/hana-supported-scenario/HSR-with-DR.png)
 
-### <a name="ethernet"></a>Ethernet
+### <a name="ethernet"></a>Sieć Ethernet
 Następujące interfejsy sieciowe są wstępnie skonfigurowane:
 
 | Interfejs logiczny karty sieciowej | Typ jednostki SKU | Nazwa przy użyciu systemu SUSE OS | Nazwa z systemem operacyjnym RHEL | Przypadek użycia|
@@ -360,7 +361,7 @@ Następujące interfejsy sieciowe są wstępnie skonfigurowane:
 | C | TYP II | określone\<tenantNo+1> | team0. Dzierżawca + 1 | Węzeł-Magazyn |
 | D | TYP II | określone\<tenantNo+3> | team0. Dzierżawca + 3 | Używane na potrzeby STONITH |
 
-### <a name="storage"></a>Magazyn
+### <a name="storage"></a>Storage
 Następujące punkty instalacji są wstępnie skonfigurowane:
 
 | Punkt instalacji | Przypadek użycia | 
@@ -386,11 +387,11 @@ Następujące punkty instalacji są wstępnie skonfigurowane:
 
 ### <a name="key-considerations"></a>Najważniejsze zagadnienia
 - /usr/sap/SID jest linkiem symbolicznym do/hana/shared/SID.
-- W przypadku MCOS: rozkład rozmiaru woluminu zależy od rozmiaru bazy danych w pamięci. Aby dowiedzieć się, jakie rozmiary bazy danych w pamięci są obsługiwane w środowisku z obsługą wiele identyfikatorów SID, zobacz [Omówienie i architektura](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture).
+- W przypadku MCOS: rozkład rozmiaru woluminu zależy od rozmiaru bazy danych w pamięci. Aby dowiedzieć się, jakie rozmiary bazy danych w pamięci są obsługiwane w środowisku z obsługą wiele identyfikatorów SID, zobacz [Omówienie i architektura](./hana-overview-architecture.md).
 - STONITH: SBD jest skonfigurowana dla Instalatora STONITH. Jednak użycie STONITH jest opcjonalne.
 - W witrynie DR: *wymagane są dwa zestawy woluminów magazynu* dla replikacji węzłów podstawowych i pomocniczych.
 - W lokacji odzyskiwania po awarii: woluminy i punkty instalacji są skonfigurowane (oznaczone jako "wymagane do instalacji platformy HANA") dla instalacji wystąpienia platformy HANA w jednostce. 
-- W witrynie DR: dane, kopie zapasowe dzienników i udostępnione woluminy (oznaczone jako "replikacja magazynu") są replikowane za pośrednictwem migawki z lokacji produkcyjnej. Te woluminy są instalowane tylko podczas pracy w trybie failover. Aby uzyskać więcej informacji, zobacz [procedura trybu failover odzyskiwania po awarii](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery). 
+- W witrynie DR: dane, kopie zapasowe dzienników i udostępnione woluminy (oznaczone jako "replikacja magazynu") są replikowane za pośrednictwem migawki z lokacji produkcyjnej. Te woluminy są instalowane tylko podczas pracy w trybie failover. Aby uzyskać więcej informacji, zobacz [procedura trybu failover odzyskiwania po awarii](./hana-overview-high-availability-disaster-recovery.md). 
 - W witrynie DR: dane, kopie zapasowe dzienników, dzienniki i udostępnione woluminy dla pytań i odpowiedzi (oznaczone jako "Instalacja wystąpienia usługi pytania") są konfigurowane na potrzeby instalacji wystąpienia usługi pytania i odpowiedzi.
 - Wolumin rozruchowy dla *klasy typu SKU I* jest replikowany do węzła Dr.
 
@@ -405,7 +406,7 @@ Ta topologia obsługuje dwa węzły w konfiguracji automatycznej pracy awaryjnej
 
 ![Przełączenie w tryb failover hosta (1 + 1)](media/hana-supported-scenario/scaleup-with-standby.png)
 
-### <a name="ethernet"></a>Ethernet
+### <a name="ethernet"></a>Sieć Ethernet
 Następujące interfejsy sieciowe są wstępnie skonfigurowane:
 
 | Interfejs logiczny karty sieciowej | Typ jednostki SKU | Nazwa przy użyciu systemu SUSE OS | Nazwa z systemem operacyjnym RHEL | Przypadek użycia|
@@ -419,7 +420,7 @@ Następujące interfejsy sieciowe są wstępnie skonfigurowane:
 | C | TYP II | określone\<tenantNo+1> | team0. Dzierżawca + 1 | Węzeł-Magazyn |
 | D | TYP II | określone\<tenantNo+3> | team0. Dzierżawca + 3 | Skonfigurowane, ale nie w użyciu |
 
-### <a name="storage"></a>Magazyn
+### <a name="storage"></a>Storage
 Następujące punkty instalacji są wstępnie skonfigurowane:
 
 | Punkt instalacji | Przypadek użycia | 
@@ -446,7 +447,7 @@ Ta topologia obsługuje wiele węzłów w konfiguracji skalowania w poziomie. Is
 
 ![Skalowanie w poziomie przy użyciu rezerwy](media/hana-supported-scenario/scaleout-nm-standby.png)
 
-### <a name="ethernet"></a>Ethernet
+### <a name="ethernet"></a>Sieć Ethernet
 Następujące interfejsy sieciowe są wstępnie skonfigurowane:
 
 | Interfejs logiczny karty sieciowej | Typ jednostki SKU | Nazwa przy użyciu systemu SUSE OS | Nazwa z systemem operacyjnym RHEL | Przypadek użycia|
@@ -460,7 +461,7 @@ Następujące interfejsy sieciowe są wstępnie skonfigurowane:
 | C | TYP II | określone\<tenantNo+1> | team0. Dzierżawca + 1 | Węzeł-Magazyn |
 | D | TYP II | określone\<tenantNo+3> | team0. Dzierżawca + 3 | Skonfigurowane, ale nie w użyciu |
 
-### <a name="storage"></a>Magazyn
+### <a name="storage"></a>Storage
 Następujące punkty instalacji są wstępnie skonfigurowane:
 
 | Punkt instalacji | Przypadek użycia | 
@@ -482,7 +483,7 @@ Ta topologia obsługuje wiele węzłów w konfiguracji skalowania w poziomie. Is
 ![Skalowanie w poziomie bez rezerwy](media/hana-supported-scenario/scaleout-nm.png)
 
 
-### <a name="ethernet"></a>Ethernet
+### <a name="ethernet"></a>Sieć Ethernet
 Następujące interfejsy sieciowe są wstępnie skonfigurowane:
 
 | Interfejs logiczny karty sieciowej | Typ jednostki SKU | Nazwa przy użyciu systemu SUSE OS | Nazwa z systemem operacyjnym RHEL | Przypadek użycia|
@@ -496,7 +497,7 @@ Następujące interfejsy sieciowe są wstępnie skonfigurowane:
 | C | TYP II | określone\<tenantNo+1> | team0. Dzierżawca + 1 | Węzeł-Magazyn |
 | D | TYP II | określone\<tenantNo+3> | team0. Dzierżawca + 3 | Skonfigurowane, ale nie w użyciu |
 
-### <a name="storage"></a>Magazyn
+### <a name="storage"></a>Storage
 Następujące punkty instalacji są wstępnie skonfigurowane:
 
 | Punkt instalacji | Przypadek użycia | 
@@ -521,7 +522,7 @@ Ta topologia obsługuje wiele węzłów w skalowaniu w poziomie przy użyciu fun
 ![Skalowanie za pomocą odzyskiwania po awarii przy użyciu replikacji magazynu](media/hana-supported-scenario/scaleout-with-dr.png)
 
 
-### <a name="ethernet"></a>Ethernet
+### <a name="ethernet"></a>Sieć Ethernet
 Następujące interfejsy sieciowe są wstępnie skonfigurowane:
 
 | Interfejs logiczny karty sieciowej | Typ jednostki SKU | Nazwa przy użyciu systemu SUSE OS | Nazwa z systemem operacyjnym RHEL | Przypadek użycia|
@@ -535,7 +536,7 @@ Następujące interfejsy sieciowe są wstępnie skonfigurowane:
 | C | TYP II | określone\<tenantNo+1> | team0. Dzierżawca + 1 | Węzeł-Magazyn |
 | D | TYP II | określone\<tenantNo+3> | team0. Dzierżawca + 3 | Skonfigurowane, ale nie w użyciu |
 
-### <a name="storage"></a>Magazyn
+### <a name="storage"></a>Storage
 Następujące punkty instalacji są wstępnie skonfigurowane:
 
 | Punkt instalacji | Przypadek użycia | 
@@ -554,7 +555,7 @@ Następujące punkty instalacji są wstępnie skonfigurowane:
 ### <a name="key-considerations"></a>Najważniejsze zagadnienia
 - /usr/sap/SID jest linkiem symbolicznym do/hana/shared/SID.
 -  W lokacji odzyskiwania po awarii: woluminy i punkty instalacji są skonfigurowane (oznaczone jako "wymagane do instalacji platformy HANA") dla instalacji wystąpienia platformy HANA w jednostce. 
-- W witrynie DR: dane, kopie zapasowe dzienników i udostępnione woluminy (oznaczone jako "replikacja magazynu") są replikowane za pośrednictwem migawki z lokacji produkcyjnej. Te woluminy są instalowane tylko podczas pracy w trybie failover. Aby uzyskać więcej informacji, zobacz [procedura trybu failover odzyskiwania po awarii](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery). 
+- W witrynie DR: dane, kopie zapasowe dzienników i udostępnione woluminy (oznaczone jako "replikacja magazynu") są replikowane za pośrednictwem migawki z lokacji produkcyjnej. Te woluminy są instalowane tylko podczas pracy w trybie failover. Aby uzyskać więcej informacji, zobacz [procedura trybu failover odzyskiwania po awarii](./hana-overview-high-availability-disaster-recovery.md). 
 - Wolumin rozruchowy dla *klasy typu SKU I* jest replikowany do węzła Dr.
 
 
@@ -566,7 +567,7 @@ Ta topologia obsługuje jeden węzeł w konfiguracji skalowania z jednym identyf
 
 ![Pojedynczy węzeł z odzyskiwaniem po awarii przy użyciu HSR](media/hana-supported-scenario/single-node-hsr-dr-111.png)
 
-### <a name="ethernet"></a>Ethernet
+### <a name="ethernet"></a>Sieć Ethernet
 Następujące interfejsy sieciowe są wstępnie skonfigurowane:
 
 | Interfejs logiczny karty sieciowej | Typ jednostki SKU | Nazwa przy użyciu systemu SUSE OS | Nazwa z systemem operacyjnym RHEL | Przypadek użycia|
@@ -580,7 +581,7 @@ Następujące interfejsy sieciowe są wstępnie skonfigurowane:
 | C | TYP II | określone\<tenantNo+1> | team0. Dzierżawca + 1 | Węzeł-Magazyn |
 | D | TYP II | określone\<tenantNo+3> | team0. Dzierżawca + 3 | Skonfigurowane, ale nie w użyciu |
 
-### <a name="storage"></a>Magazyn
+### <a name="storage"></a>Storage
 Następujące punkty instalacji są wstępnie skonfigurowane na jednostkach HLI (podstawowa i DR):
 
 | Punkt instalacji | Przypadek użycia | 
@@ -593,9 +594,9 @@ Następujące punkty instalacji są wstępnie skonfigurowane na jednostkach HLI 
 
 ### <a name="key-considerations"></a>Najważniejsze zagadnienia
 - /usr/sap/SID jest linkiem symbolicznym do/hana/shared/SID.
-- W przypadku MCOS: rozkład rozmiaru woluminu zależy od rozmiaru bazy danych w pamięci. Aby dowiedzieć się, jakie rozmiary bazy danych w pamięci są obsługiwane w środowisku z obsługą wiele identyfikatorów SID, zobacz [Omówienie i architektura](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture).
+- W przypadku MCOS: rozkład rozmiaru woluminu zależy od rozmiaru bazy danych w pamięci. Aby dowiedzieć się, jakie rozmiary bazy danych w pamięci są obsługiwane w środowisku z obsługą wiele identyfikatorów SID, zobacz [Omówienie i architektura](./hana-overview-architecture.md).
 - Węzeł podstawowy jest synchronizowany z węzłem DR przy użyciu replikacji systemu HANA. 
-- [Global REACH](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach) służy do łączenia obwodów usługi ExpressRoute w celu nałożenia sieci prywatnej między sieciami regionalnymi.
+- [Global REACH](../../../expressroute/expressroute-global-reach.md) służy do łączenia obwodów usługi ExpressRoute w celu nałożenia sieci prywatnej między sieciami regionalnymi.
 
 
 
@@ -607,7 +608,7 @@ Następujące punkty instalacji są wstępnie skonfigurowane na jednostkach HLI 
 
 ![HSR z jednym węzłem do odzyskiwania po awarii (koszt zoptymalizowany)](media/hana-supported-scenario/single-node-hsr-dr-cost-optimized-121.png)
 
-### <a name="ethernet"></a>Ethernet
+### <a name="ethernet"></a>Sieć Ethernet
 Następujące interfejsy sieciowe są wstępnie skonfigurowane:
 
 | Interfejs logiczny karty sieciowej | Typ jednostki SKU | Nazwa przy użyciu systemu SUSE OS | Nazwa z systemem operacyjnym RHEL | Przypadek użycia|
@@ -621,7 +622,7 @@ Następujące interfejsy sieciowe są wstępnie skonfigurowane:
 | C | TYP II | określone\<tenantNo+1> | team0. Dzierżawca + 1 | Węzeł-Magazyn |
 | D | TYP II | określone\<tenantNo+3> | team0. Dzierżawca + 3 | Skonfigurowane, ale nie w użyciu |
 
-### <a name="storage"></a>Magazyn
+### <a name="storage"></a>Storage
 Następujące punkty instalacji są wstępnie skonfigurowane:
 
 | Punkt instalacji | Przypadek użycia | 
@@ -643,11 +644,11 @@ Następujące punkty instalacji są wstępnie skonfigurowane:
 
 ### <a name="key-considerations"></a>Najważniejsze zagadnienia
 - /usr/sap/SID jest linkiem symbolicznym do/hana/shared/SID.
-- W przypadku MCOS: rozkład rozmiaru woluminu zależy od rozmiaru bazy danych w pamięci. Aby dowiedzieć się, jakie rozmiary bazy danych w pamięci są obsługiwane w środowisku z obsługą wiele identyfikatorów SID, zobacz [Omówienie i architektura](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture).
+- W przypadku MCOS: rozkład rozmiaru woluminu zależy od rozmiaru bazy danych w pamięci. Aby dowiedzieć się, jakie rozmiary bazy danych w pamięci są obsługiwane w środowisku z obsługą wiele identyfikatorów SID, zobacz [Omówienie i architektura](./hana-overview-architecture.md).
 - W lokacji odzyskiwania po awarii: woluminy i punkty instalacji są skonfigurowane (oznaczone jako "wystąpienie produkcyjne w lokacji DR") dla instalacji wystąpienia platformy HANA w jednostce. 
 - W witrynie DR: dane, kopie zapasowe dzienników, dzienniki i udostępnione woluminy dla pytań i odpowiedzi (oznaczone jako "Instalacja wystąpienia usługi pytania") są konfigurowane na potrzeby instalacji wystąpienia usługi pytania i odpowiedzi.
 - Węzeł podstawowy jest synchronizowany z węzłem DR przy użyciu replikacji systemu HANA. 
-- [Global REACH](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach) służy do łączenia obwodów usługi ExpressRoute w celu nałożenia sieci prywatnej między sieciami regionalnymi.
+- [Global REACH](../../../expressroute/expressroute-global-reach.md) służy do łączenia obwodów usługi ExpressRoute w celu nałożenia sieci prywatnej między sieciami regionalnymi.
 
 ## <a name="high-availability-and-disaster-recovery-with-hsr"></a>Wysoka dostępność i odzyskiwanie po awarii za pomocą HSR 
  
@@ -657,7 +658,7 @@ Następujące punkty instalacji są wstępnie skonfigurowane:
 
 ![Wysoka dostępność i odzyskiwanie po awarii za pomocą HSR](media/hana-supported-scenario/hana-system-replication-dr-131.png)
 
-### <a name="ethernet"></a>Ethernet
+### <a name="ethernet"></a>Sieć Ethernet
 Następujące interfejsy sieciowe są wstępnie skonfigurowane:
 
 | Interfejs logiczny karty sieciowej | Typ jednostki SKU | Nazwa przy użyciu systemu SUSE OS | Nazwa z systemem operacyjnym RHEL | Przypadek użycia|
@@ -671,7 +672,7 @@ Następujące interfejsy sieciowe są wstępnie skonfigurowane:
 | C | TYP II | określone\<tenantNo+1> | team0. Dzierżawca + 1 | Węzeł-Magazyn |
 | D | TYP II | określone\<tenantNo+3> | team0. Dzierżawca + 3 | Skonfigurowane, ale nie w użyciu |
 
-### <a name="storage"></a>Magazyn
+### <a name="storage"></a>Storage
 Następujące punkty instalacji są wstępnie skonfigurowane:
 
 | Punkt instalacji | Przypadek użycia | 
@@ -692,7 +693,7 @@ Następujące punkty instalacji są wstępnie skonfigurowane:
 - /usr/sap/SID jest linkiem symbolicznym do/hana/shared/SID.
 - W witrynie DR: woluminy i punkty instalacji są skonfigurowane (oznaczone jako "produkcyjne DR instance") dla instalacji wystąpienia platformy HANA w jednostce. 
 - Węzeł lokacji głównej synchronizuje się z węzłem DR przy użyciu replikacji systemu HANA. 
-- [Global REACH](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach) służy do łączenia obwodów usługi ExpressRoute w celu nałożenia sieci prywatnej między sieciami regionalnymi.
+- [Global REACH](../../../expressroute/expressroute-global-reach.md) służy do łączenia obwodów usługi ExpressRoute w celu nałożenia sieci prywatnej między sieciami regionalnymi.
 
 ## <a name="high-availability-and-disaster-recovery-with-hsr-cost-optimized"></a>Wysoka dostępność i odzyskiwanie po awarii za pomocą HSR (zoptymalizowane pod kątem kosztów)
  
@@ -702,7 +703,7 @@ Następujące punkty instalacji są wstępnie skonfigurowane:
 
 ![Wysoka dostępność i odzyskiwanie po awarii za pomocą HSR (zoptymalizowane pod kątem kosztów)](media/hana-supported-scenario/hana-system-replication-dr-cost-optimized-141.png)
 
-### <a name="ethernet"></a>Ethernet
+### <a name="ethernet"></a>Sieć Ethernet
 Następujące interfejsy sieciowe są wstępnie skonfigurowane:
 
 | Interfejs logiczny karty sieciowej | Typ jednostki SKU | Nazwa przy użyciu systemu SUSE OS | Nazwa z systemem operacyjnym RHEL | Przypadek użycia|
@@ -716,7 +717,7 @@ Następujące interfejsy sieciowe są wstępnie skonfigurowane:
 | C | TYP II | określone\<tenantNo+1> | team0. Dzierżawca + 1 | Węzeł-Magazyn |
 | D | TYP II | określone\<tenantNo+3> | team0. Dzierżawca + 3 | Skonfigurowane, ale nie w użyciu |
 
-### <a name="storage"></a>Magazyn
+### <a name="storage"></a>Storage
 Następujące punkty instalacji są wstępnie skonfigurowane:
 
 | Punkt instalacji | Przypadek użycia | 
@@ -741,7 +742,7 @@ Następujące punkty instalacji są wstępnie skonfigurowane:
 - W witrynie DR: woluminy i punkty instalacji są skonfigurowane (oznaczone jako "produkcyjne DR instance") dla instalacji wystąpienia platformy HANA w jednostce. 
 - W witrynie DR: dane, kopie zapasowe dzienników, dzienniki i udostępnione woluminy dla pytań i odpowiedzi (oznaczone jako "Instalacja wystąpienia usługi pytania") są konfigurowane na potrzeby instalacji wystąpienia usługi pytania i odpowiedzi.
 - Węzeł lokacji głównej synchronizuje się z węzłem DR przy użyciu replikacji systemu HANA. 
-- [Global REACH](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach) służy do łączenia obwodów usługi ExpressRoute w celu nałożenia sieci prywatnej między sieciami regionalnymi.
+- [Global REACH](../../../expressroute/expressroute-global-reach.md) służy do łączenia obwodów usługi ExpressRoute w celu nałożenia sieci prywatnej między sieciami regionalnymi.
 
 ## <a name="scale-out-with-dr-using-hsr"></a>Skalowanie w poziomie za pomocą narzędzia DR using HSR
  
@@ -753,7 +754,7 @@ Ta topologia obsługuje wiele węzłów w skalowaniu w poziomie przy użyciu fun
 [![Skalowanie w poziomie za pomocą narzędzia Dr using HSR](media/hana-supported-scenario/scale-out-dr-hsr-151.png)](media/hana-supported-scenario/scale-out-dr-hsr-151.png#lightbox)
 
 
-### <a name="ethernet"></a>Ethernet
+### <a name="ethernet"></a>Sieć Ethernet
 Następujące interfejsy sieciowe są wstępnie skonfigurowane:
 
 | Interfejs logiczny karty sieciowej | Typ jednostki SKU | Nazwa przy użyciu systemu SUSE OS | Nazwa z systemem operacyjnym RHEL | Przypadek użycia|
@@ -767,7 +768,7 @@ Następujące interfejsy sieciowe są wstępnie skonfigurowane:
 | C | TYP II | określone\<tenantNo+1> | team0. Dzierżawca + 1 | Węzeł-Magazyn |
 | D | TYP II | określone\<tenantNo+3> | team0. Dzierżawca + 3 | Skonfigurowane, ale nie w użyciu |
 
-### <a name="storage"></a>Magazyn
+### <a name="storage"></a>Storage
 Następujące punkty instalacji są wstępnie skonfigurowane:
 
 | Punkt instalacji | Przypadek użycia | 
@@ -788,9 +789,9 @@ Następujące punkty instalacji są wstępnie skonfigurowane:
 - /usr/sap/SID jest linkiem symbolicznym do/hana/shared/SID.
 - W witrynie DR: woluminy i punkty instalacji są skonfigurowane na potrzeby instalacji wystąpienia platformy HANA w jednostce. 
 - Węzeł lokacji głównej synchronizuje się z węzłem DR przy użyciu replikacji systemu HANA. 
-- [Global REACH](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach) służy do łączenia obwodów usługi ExpressRoute w celu nałożenia sieci prywatnej między sieciami regionalnymi.
+- [Global REACH](../../../expressroute/expressroute-global-reach.md) służy do łączenia obwodów usługi ExpressRoute w celu nałożenia sieci prywatnej między sieciami regionalnymi.
 
 
 ## <a name="next-steps"></a>Następne kroki
-- [Infrastruktura i łączność z](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-infrastructure-connectivity) dużymi WYSTĄPIENIAmi Hana
-- [Wysoka dostępność i odzyskiwanie po awarii](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery) dla dużych wystąpień platformy Hana
+- [Infrastruktura i łączność z](./hana-overview-infrastructure-connectivity.md) dużymi WYSTĄPIENIAmi Hana
+- [Wysoka dostępność i odzyskiwanie po awarii](./hana-overview-high-availability-disaster-recovery.md) dla dużych wystąpień platformy Hana

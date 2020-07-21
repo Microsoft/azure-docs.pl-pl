@@ -3,18 +3,18 @@ title: Utwórz alerty Azure Advisor dla nowych zaleceń przy użyciu Azure Porta
 description: Utwórz alerty Azure Advisor dla nowego zalecenia
 ms.topic: article
 ms.date: 09/09/2019
-ms.openlocfilehash: 351d1faf0cb049babe1091aaac465ff975ab47cb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0b3984b82cd5265f4940cd88597ccb29d51e1118
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85568661"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86507220"
 ---
 # <a name="create-azure-advisor-alerts-on-new-recommendations-using-the-azure-portal"></a>Utwórz Azure Advisor alerty dotyczące nowych zaleceń przy użyciu Azure Portal 
 
 W tym artykule opisano sposób konfigurowania alertu dotyczącego nowych zaleceń z Azure Advisor przy użyciu Azure Portal. 
 
-Za każdym razem, gdy Azure Advisor wykryje nowe zalecenie dla jednego z zasobów, zdarzenie jest przechowywane w [dzienniku aktywności platformy Azure](https://docs.microsoft.com/azure/azure-monitor/platform/activity-logs-overview). Alerty dotyczące tych zdarzeń można skonfigurować w Azure Advisor przy użyciu funkcji tworzenia alertów specyficznych dla zalecenia. Możesz wybrać subskrypcję i opcjonalnie grupę zasobów, aby określić zasoby, dla których chcesz otrzymywać alerty. 
+Za każdym razem, gdy Azure Advisor wykryje nowe zalecenie dla jednego z zasobów, zdarzenie jest przechowywane w [dzienniku aktywności platformy Azure](../azure-monitor/platform/platform-logs-overview.md). Alerty dotyczące tych zdarzeń można skonfigurować w Azure Advisor przy użyciu funkcji tworzenia alertów specyficznych dla zalecenia. Możesz wybrać subskrypcję i opcjonalnie grupę zasobów, aby określić zasoby, dla których chcesz otrzymywać alerty. 
 
 Możesz również określić typy zaleceń, korzystając z następujących właściwości:
 
@@ -57,7 +57,7 @@ Aby dowiedzieć się więcej na temat grup akcji, zobacz [Tworzenie grup akcji i
 
     ![Grupa akcji alertu klasyfikatora](./media/advisor-alerts/create6.png)
 
-7. W sekcji **grupy akcji** wybierz pozycję **Dodaj istniejący** , aby użyć grupy akcji, która została już utworzona, lub wybierz pozycję **Utwórz nową** , aby skonfigurować nową [grupę akcji](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups). 
+7. W sekcji **grupy akcji** wybierz pozycję **Dodaj istniejący** , aby użyć grupy akcji, która została już utworzona, lub wybierz pozycję **Utwórz nową** , aby skonfigurować nową [grupę akcji](../azure-monitor/platform/action-groups.md). 
 
     ![Alert klasyfikatora — Dodawanie istniejących](./media/advisor-alerts/create7.png)
 

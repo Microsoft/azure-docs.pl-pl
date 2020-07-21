@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/26/2020
 ms.author: victorh
 ms.custom: references_regions
-ms.openlocfilehash: 578d674a197936c6222d4520893fdb1afa00161e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8db47cd94f508803964398f19353e79f3d93d92a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84982003"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86506574"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Często zadawane pytania dotyczące Application Gateway
 
@@ -166,7 +166,7 @@ Tak. Można skonfigurować opróżnianie połączenia w celu zmiany elementów c
 
 Tak.
 
-## <a name="configuration"></a>Konfigurowanie
+## <a name="configuration"></a>Konfiguracja
 
 ### <a name="is-application-gateway-always-deployed-in-a-virtual-network"></a>Czy Application Gateway jest zawsze wdrożona w sieci wirtualnej?
 
@@ -336,6 +336,58 @@ W przypadku wielu routingu opartych na domenach (opartych na hostach) można utw
 ### <a name="can-i-use-special-characters-in-my-pfx-file-password"></a>Czy mogę używać znaków specjalnych w haśle pliku PFX?
 
 Nie, używaj tylko znaków alfanumerycznych w haśle pliku PFX.
+
+### <a name="my-ev-certificate-is-issued-by-digicert-and-my-intermediate-certificate-has-been-revoked-how-do-i-renew-my-certificate-on-application-gateway"></a>Mój certyfikat EV został wystawiony przez DigiCert, a certyfikat pośredni został odwołany. Jak mogę odnowić certyfikatu na Application Gateway?
+
+Członkowie przeglądarki urzędu certyfikacji ostatnio opublikowały raporty zawierające szczegółowe informacje dotyczące wielu certyfikatów wystawionych przez dostawców urzędu certyfikacji, które są używane przez naszych klientów, firmę Microsoft i większą technologię, która była niezgodna ze standardami branżowymi dla publicznie zaufanych urzędów certyfikacji.Raporty dotyczące niezgodnych urzędów certyfikacji można znaleźć tutaj:  
+
+* [Usterka 1649951](https://bugzilla.mozilla.org/show_bug.cgi?id=1649951)
+* [Usterka 1650910](https://bugzilla.mozilla.org/show_bug.cgi?id=1650910)
+
+Zgodnie z wymaganiami dotyczącymi zgodności w branży dostawcy urzędu certyfikacji rozpoczęły odwoływanie niezgodnych urzędów certyfikacji i wystawiają zgodne urzędy certyfikacji, które wymagają od klientów ponownego wystawienia certyfikatów.Firma Microsoft ściśle współpracuje z tymi dostawcami, aby zminimalizować potencjalny wpływ na usługi platformy Azure, **jednak wystawione certyfikaty lub certyfikaty używane w scenariuszach "Przenieś własny certyfikat" (BYOC) nadal są zagrożone**.
+
+Aby sprawdzić, czy certyfikaty używane przez aplikację zostały odwołane do odwołania [DigiCert](https://knowledge.digicert.com/alerts/DigiCert-ICA-Replacement) oraz do [śledzenia odwołań certyfikatów](https://misissued.com/#revoked). Jeśli certyfikaty zostały odwołane lub zostaną odwołane, musisz zażądać nowych certyfikatów od dostawcy urzędu certyfikacji, który będzie używany w aplikacjach. Aby uniknąć przerwania dostępności aplikacji z powodu nieoczekiwanego odwołania certyfikatów lub zaktualizowania certyfikatu, który został odwołany, zapoznaj się z naszym wpisem w usłudze Azure Update, aby uzyskać linki do korygowania różnych usług platformy Azure, które obsługują usługę BYOC:https://azure.microsoft.com/updates/certificateauthorityrevocation/
+
+Aby uzyskać szczegółowe informacje dotyczące Application Gateway, zobacz poniżej.
+
+Jeśli używasz certyfikatu wystawionego przez jeden z odwołanych ICAs, dostępność aplikacji może zostać przerwana i w zależności od aplikacji może zostać wyświetlonych wiele komunikatów o błędach, w tym między innymi: 
+
+1.  Nieprawidłowy certyfikat/odwołany certyfikat
+2.  Przekroczono limit czasu połączenia
+3.  HTTP 502
+
+Aby uniknąć przerw w działaniu aplikacji z powodu tego problemu lub ponownie wydać urząd certyfikacji, który został odwołany, należy wykonać następujące czynności: 
+
+1.  Skontaktuj się z dostawcą certyfikatu w celu ponownego wystawienia certyfikatów
+2.  Po ich wydaniu zaktualizuj swoje certyfikaty na platformie Azure Application Gateway/WAF za pomocą pełnego [łańcucha zaufania](https://docs.microsoft.com/windows/win32/seccrypto/certificate-chains) (liścia, pośredniego, certyfikatu głównego). W zależności od tego, gdzie używasz certyfikatu, na odbiorniku lub ustawieniach protokołu HTTP Application Gateway wykonaj poniższe kroki, aby zaktualizować certyfikaty, i sprawdź, czy linki do dokumentacji zostały wymienione, aby uzyskać więcej informacji.
+3.  Zaktualizuj serwery aplikacji zaplecza, aby używały wystawionego certyfikatu. W zależności od używanego serwera wewnętrznej bazy danych kroki aktualizacji certyfikatu mogą się różnić. Zapoznaj się z dokumentacją dostawcy.
+
+Aby zaktualizować certyfikat w odbiorniku:
+
+1.  W [Azure Portal](https://portal.azure.com/)otwórz zasób Application Gateway
+2.  Otwórz ustawienia odbiornika skojarzone z Twoim certyfikatem
+3.  Kliknij pozycję "Odnów lub Edytuj wybrany certyfikat"
+4.  Przekaż nowy certyfikat PFX przy użyciu hasła, a następnie kliknij przycisk Zapisz.
+5.  Uzyskaj dostęp do witryny sieci Web i sprawdź, czy witryna działa zgodnie z oczekiwaniami, aby uzyskać więcej informacji, zapoznaj się z dokumentacją [tutaj](https://docs.microsoft.com/azure/application-gateway/renew-certificates).
+
+Jeśli odwołujesz się do certyfikatów z magazynu kluczy platformy Azure w odbiorniku Application Gateway, zalecamy wykonanie poniższych kroków w celu uzyskania szybkiej zmiany —
+
+1.  W [Azure Portal](https://portal.azure.com/)przejdź do ustawień magazynu kluczy platformy Azure, które zostały skojarzone z Application Gateway
+2.  Dodaj/zaimportuj ponownie wystawiony certyfikat w magazynie. Aby uzyskać więcej informacji na temat tego, [Zobacz dokumentację.](https://docs.microsoft.com/azure/key-vault/certificates/quick-create-portal)
+3.  Po zaimportowaniu certyfikatu przejdź do ustawień odbiornika Application Gateway i w obszarze "Wybierz certyfikat z Key Vault" kliknij listę rozwijaną "certyfikat" i wybierz niedawno dodany certyfikat.
+4.  Kliknij przycisk Zapisz, aby uzyskać więcej informacji na temat zakończenia protokołu TLS na Application Gateway z certyfikatami Key Vault, zapoznaj się z dokumentacją [tutaj](https://docs.microsoft.com/azure/application-gateway/key-vault-certs).
+
+
+Aby zaktualizować certyfikat w ustawieniach protokołu HTTP:
+
+W przypadku korzystania z jednostki SKU V1 usługi Application Gateway/WAF należy przekazać nowy certyfikat jako certyfikat uwierzytelniania zaplecza.
+1.  W [Azure Portal](https://portal.azure.com/)otwórz zasób Application Gateway
+2.  Otwórz ustawienia protokołu HTTP, które są skojarzone z certyfikatem
+3.  Kliknij pozycję "Dodaj certyfikat" i przekaż ponownie wystawiony certyfikat, a następnie kliknij przycisk Zapisz.
+4.  Stary certyfikat można usunąć później, klikając pozycję "...". przycisk opcji obok Starego certyfikatu i wybierz pozycję Usuń, a następnie kliknij przycisk Zapisz.
+Aby uzyskać więcej informacji, zapoznaj się z dokumentacją [tutaj](https://docs.microsoft.com/azure/application-gateway/end-to-end-ssl-portal#add-authenticationtrusted-root-certificates-of-back-end-servers).
+
+Jeśli używasz jednostki SKU w wersji 2 usługi Application Gateway/WAF, nie musisz przekazywać nowego certyfikatu w ustawieniach protokołu HTTP, ponieważ jednostka SKU w wersji 2 używa "zaufanych certyfikatów głównych" i nie trzeba wykonywać żadnych czynności w tym miejscu.
 
 ## <a name="configuration---ingress-controller-for-aks"></a>Konfiguracja — kontroler ruchu przychodzącego dla AKS
 

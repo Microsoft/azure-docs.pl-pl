@@ -17,7 +17,7 @@
       expanded: true
       items:
         - name: Visual Studio Code
-          href: /azure/azure-functions/functions-create-first-function-vs-code
+          href: ./functions-create-first-function-vs-code.md
         - name: Visual Studio
           href: functions-create-your-first-function-visual-studio.md
         - name: Wiersz polecenia
@@ -177,11 +177,11 @@
                 - name: Azure Portal
                   href: functions-create-first-azure-function.md
                 - name: Wiersz polecenia
-                  href: create-cli.md
+                  href: ./functions-create-first-azure-function-azure-cli.md
                 - name: Visual Studio
-                  href: create-visual-studio.md
+                  href: ./functions-create-your-first-function-visual-studio.md
                 - name: Visual Studio Code
-                  href: create-visual-studio-code.md
+                  href: ./functions-create-first-function-vs-code.md
                 - name: Języka Java w środowisku Gradle
                   href: functions-create-first-java-gradle.md
                 - name: Język Java w środowisku Eclipse
@@ -195,7 +195,7 @@
                 - name: Plan usługi App Service w systemie Linux
                   href: create-function-app-linux-app-service-plan.md
                 - name: Plan Zużycie w systemie Linux
-                  href: functions-create-first-azure-function-azure-cli-linux.md
+                  href: ./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-python
                 - name: Azure for Students Starter
                   href: functions-create-student-starter.md
             - name: Wyzwalacz usługi Azure Cosmos DB
@@ -211,13 +211,13 @@
             - name: Azure Cosmos DB — portal
               href: functions-integrate-store-unstructured-data-cosmosdb.md
             - name: Magazyn — Python
-              href: add-output-binding-storage-queue-python.md
+              href: ./functions-add-output-binding-storage-queue-cli.md?pivots=programming-language-python
             - name: Magazyn — portal
               href: functions-integrate-storage-queue-output-binding.md
             - name: Magazyn — Visual Studio Code
-              href: add-output-binding-storage-queue-vs-code.md
+              href: ./functions-add-output-binding-storage-queue-vs-code.md
             - name: Magazyn — Visual Studio
-              href: add-output-binding-storage-queue-vs.md
+              href: ./functions-add-output-binding-storage-queue-vs.md
             - name: Magazyn — Java
               href: functions-add-output-binding-storage-queue-java.md
         - name: Debugowanie i testowanie
@@ -316,7 +316,7 @@
             - name: Azure Cosmos DB — portal
               href: functions-integrate-store-unstructured-data-cosmosdb.md
             - name: Magazyn — Python
-              href: functions-add-output-binding-storage-queue-python.md
+              href: ./functions-add-output-binding-storage-queue-cli.md?pivots=programming-language-python
             - name: Magazyn — portal
               href: functions-integrate-storage-queue-output-binding.md
             - name: Magazyn — Visual Studio Code
@@ -326,9 +326,9 @@
         - name: Łączenie z usługą SQL Database
           href: functions-scenario-database-table-cleanup.md
         - name: Łączenie z siecią wirtualną
-          href: functions-create-vnet-old.md
+          href: ./functions-create-vnet.md
         - name: Tworzenie definicji interfejsu Open API 2.0
-          href: functions-api-definition-getting-started.md
+          href: ./functions-openapi-definition.md
         - name: Eksportowanie do usług PowerApps i Microsoft Flow
           href: app-service-export-api-to-powerapps-and-flow.md
         - name: Korzystanie z tożsamości zarządzanej
@@ -354,9 +354,9 @@
         - name: Azure PowerShell
           href: /powershell/module/az.functions
         - name: Java
-          href: 'https://docs.microsoft.com/java/api/overview/azure/functions/runtime?view=azure-java-stable'
+          href: /java/api/overview/azure/functions/runtime?view=azure-java-stable
         - name: Python
-          href: 'https://docs.microsoft.com/python/api/azure-functions/azure.functions?view=azure-python'
+          href: /python/api/azure-functions/azure.functions?view=azure-python
     - name: Dokumentacja ustawień aplikacji
       href: functions-app-settings.md
     - name: Wyzwalacze i powiązania
@@ -504,7 +504,7 @@
     - name: Rozwijanie umiejętności dzięki środowisku Microsoft Learn
       href: /learn/browse/?products=azure-functions
     - name: Wskazówki dotyczące architektury
-      href: 'https://docs.microsoft.com/azure/architecture/serverless-quest/serverless-overview'
+      href: /azure/architecture/serverless-quest/serverless-overview
     - name: Harmonogram działania dla platformy Azure
       href: 'https://azure.microsoft.com/roadmap/?category=compute'
     - name: Cennik
@@ -518,7 +518,7 @@
     - name: Filmy wideo
       href: 'https://www.youtube.com/c/AzureFunctions'
     - name: Pytania i odpowiedzi Microsoft — strona pytania
-      href: 'https://docs.microsoft.com/answers/topics/azure-functions.html'
+      href: /answers/topics/azure-functions.html
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-functions'
     - name: Twitter

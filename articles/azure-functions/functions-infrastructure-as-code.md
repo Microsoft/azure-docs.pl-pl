@@ -5,12 +5,12 @@ ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.custom: fasttrack-edit
-ms.openlocfilehash: b73b8418b202563ca7c4a73181b1b1b404db6ee2
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: e56c76583f601c2e13ab4a35c1fef2996d2e3e67
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170398"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86506234"
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Automatyzowanie wdrażania zasobów dla aplikacji funkcji w Azure Functions
 
@@ -309,7 +309,7 @@ Plan Premium oferuje takie same skalowanie jak w przypadku planu zużycia, ale o
 
 ### <a name="create-a-premium-plan"></a>Tworzenie planu Premium
 
-Plan Premium jest specjalnym typem zasobu "farma serwerów". Można go określić za pomocą albo `EP1` `EP2` lub `EP3` dla `Name` wartości właściwości w `sku` [obiekcie Description](https://docs.microsoft.com/azure/templates/microsoft.web/2018-02-01/serverfarms#skudescription-object).
+Plan Premium jest specjalnym typem zasobu "farma serwerów". Można go określić za pomocą albo `EP1` `EP2` lub `EP3` dla `Name` wartości właściwości w `sku` [obiekcie Description](/azure/templates/microsoft.web/2018-02-01/serverfarms#skudescription-object).
 
 ```json
 {
@@ -516,7 +516,7 @@ Aplikacje systemu Linux powinny również zawierać `linuxFxVersion` Właściwo�
 }
 ```
 
-W przypadku [wdrażania niestandardowego obrazu kontenera](./functions-create-function-linux-custom-image.md)należy określić go wraz z `linuxFxVersion` konfiguracją umożliwiającą ściąganie obrazu, jak w [Web App for Containers](/azure/app-service/containers). Ponadto ustaw wartość `WEBSITES_ENABLE_APP_SERVICE_STORAGE` `false` , ponieważ zawartość aplikacji znajduje się w kontenerze:
+W przypadku [wdrażania niestandardowego obrazu kontenera](./functions-create-function-linux-custom-image.md)należy określić go wraz z `linuxFxVersion` konfiguracją umożliwiającą ściąganie obrazu, jak w [Web App for Containers](../app-service/containers/index.yml). Ponadto ustaw wartość `WEBSITES_ENABLE_APP_SERVICE_STORAGE` `false` , ponieważ zawartość aplikacji znajduje się w kontenerze:
 
 ```json
 {

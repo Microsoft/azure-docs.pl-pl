@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: troubleshooting
 ms.date: 03/26/2020
 ms.author: v-mibufo
-ms.openlocfilehash: 9e4c4b9c809a626c71b4a7e9235d917b442be160
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c04f3b27c7214dcf821c7698796bfaea399b947d
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80373364"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86509107"
 ---
 # <a name="windows-stop-error---0x000000ef-critical-process-died"></a>Błąd zatrzymania systemu Windows — #0x000000EF "proces krytyczny padł"
 
@@ -27,13 +27,13 @@ W tym artykule przedstawiono kroki rozwiązywania problemów, w których proces 
 
 ## <a name="symptom"></a>Objaw
 
-W przypadku korzystania z [diagnostyki rozruchu](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) w celu wyświetlenia zrzutu ekranu maszyny wirtualnej zobaczysz, że zrzut ekranu wyświetla komunikat o błędzie *#0x000000EF* z *procesem krytycznym komunikat padł*.
+W przypadku korzystania z [diagnostyki rozruchu](./boot-diagnostics.md) w celu wyświetlenia zrzutu ekranu maszyny wirtualnej zobaczysz, że zrzut ekranu wyświetla komunikat o błędzie *#0x000000EF* z *procesem krytycznym komunikat padł*.
 
 !["Komputer napotkał problem i wymaga ponownego uruchomienia. Właśnie zbieramy pewne informacje o błędzie, a następnie można uruchomić ponownie. (ukończono # #%) Jeśli chcesz dowiedzieć się więcej, możesz przeszukać w trybie online w późniejszym czasie dla tego błędu: 0x000000EF "](media/troubleshoot-guide-critical-process-died/1.jpg)
 
 ## <a name="cause"></a>Przyczyna
 
-Zwykle jest to spowodowane tym, że krytyczny proces systemu zakończy się niepowodzeniem podczas rozruchu. Więcej informacji o problemach dotyczących procesów krytycznych można znaleźć w artykule "[sprawdzanie usterek 0xEF: CRITICAL_PROCESS_DIED](https://docs.microsoft.com/windows-hardware/drivers/debugger/bug-check-0xef--critical-process-died)".
+Zwykle jest to spowodowane tym, że krytyczny proces systemu zakończy się niepowodzeniem podczas rozruchu. Więcej informacji o problemach dotyczących procesów krytycznych można znaleźć w artykule "[sprawdzanie usterek 0xEF: CRITICAL_PROCESS_DIED](/windows-hardware/drivers/debugger/bug-check-0xef--critical-process-died)".
 
 ## <a name="solution"></a>Rozwiązanie
 
@@ -49,7 +49,7 @@ Zwykle jest to spowodowane tym, że krytyczny proces systemu zakończy się niep
 
 ### <a name="create-and-access-a-repair-vm"></a>Tworzenie maszyny wirtualnej naprawy i uzyskiwanie do niej dostępu
 
-1. Wykonaj [kroki 1-3 poleceń naprawy maszyny wirtualnej](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands) , aby przygotować maszynę wirtualną naprawy.
+1. Wykonaj [kroki 1-3 poleceń naprawy maszyny wirtualnej](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md) , aby przygotować maszynę wirtualną naprawy.
 2. Korzystanie z Podłączanie pulpitu zdalnego łączenia się z maszyną wirtualną naprawy.
 
 ### <a name="fix-any-os-corruption"></a>Napraw wszystkie uszkodzenia systemu operacyjnego
@@ -61,7 +61,7 @@ Zwykle jest to spowodowane tym, że krytyczny proces systemu zakończy się niep
 
    * Gdzie < dysk rozruchowy > jest woluminem rozruchowym maszyny wirtualnej naprawy (zazwyczaj "C:") i < uszkodzony dysk > będzie literą dysku dla dołączonego dysku z uszkodzonej maszyny wirtualnej. Zastąp znaki większe niż/mniejsze niż symbole, a także tekst zawarty w nich, np. "< tekst tutaj >" z odpowiednią literą.
 
-3. Następnie użyj [kroku 5 poleceń naprawy maszyny wirtualnej](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) , aby ponownie połączyć maszynę wirtualną i sprawdzić, czy maszyna wirtualna jest uruchamiana.
+3. Następnie użyj [kroku 5 poleceń naprawy maszyny wirtualnej](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md#repair-process-example) , aby ponownie połączyć maszynę wirtualną i sprawdzić, czy maszyna wirtualna jest uruchamiana.
 4. Jeśli maszyna wirtualna nadal nie jest uruchamiana, należy kontynuować zbieranie pliku zrzutu pamięci.
 
 ### <a name="collect-the-memory-dump-file"></a>Zbierz plik zrzutu pamięci
@@ -70,7 +70,7 @@ Jeśli problem będzie nadal występować po uruchomieniu programu SFC, analiza 
 
 ### <a name="attach-the-os-disk-to-a-new-repair-vm"></a>Dołącz dysk systemu operacyjnego do nowej maszyny wirtualnej naprawy
 
-1. Wykonaj [kroki 1-3 poleceń naprawy maszyny wirtualnej](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands) , aby przygotować nową maszynę wirtualną naprawy.
+1. Wykonaj [kroki 1-3 poleceń naprawy maszyny wirtualnej](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md) , aby przygotować nową maszynę wirtualną naprawy.
 2. Korzystanie z Podłączanie pulpitu zdalnego łączenia się z maszyną wirtualną naprawy.
 
 ### <a name="locate-the-dump-file-and-submit-a-support-ticket"></a>Lokalizowanie pliku zrzutu i przesyłanie biletu pomocy technicznej
@@ -128,4 +128,4 @@ Jeśli na dysku systemu operacyjnego nie ma wystarczającej ilości miejsca, nal
 
 ### <a name="rebuild-the-original-vm"></a>Odbuduj oryginalną maszynę wirtualną
 
-Aby ponownie połączyć maszynę wirtualną, użyj [kroku 5 poleceń naprawy maszyny wirtualnej](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) .
+Aby ponownie połączyć maszynę wirtualną, użyj [kroku 5 poleceń naprawy maszyny wirtualnej](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md#repair-process-example) .

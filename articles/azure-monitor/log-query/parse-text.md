@@ -6,14 +6,15 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 12/04/2018
-ms.openlocfilehash: d7a37d51c411488231205fd036f9a287f5206ce5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c76cf939959d198d2c28181295a695a65ae46af9
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77672450"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505707"
 ---
 # <a name="parse-text-data-in-azure-monitor-logs"></a>Analizowanie danych tekstowych w dziennikach Azure Monitor
-Niektóre dane dziennika zbierane przez Azure Monitor będą zawierać wiele informacji w jednej właściwości. Analizowanie tych danych w wielu właściwościach ułatwia korzystanie z nich w zapytaniach. Typowym przykładem jest [Dziennik niestandardowy](../../log-analytics/log-analytics-data-sources-custom-logs.md) , który zbiera cały wpis dziennika z wieloma wartościami w jednej właściwości. Tworząc osobne właściwości różnych wartości, można wyszukiwać i agregowania na każdej z nich.
+Niektóre dane dziennika zbierane przez Azure Monitor będą zawierać wiele informacji w jednej właściwości. Analizowanie tych danych w wielu właściwościach ułatwia korzystanie z nich w zapytaniach. Typowym przykładem jest [Dziennik niestandardowy](../platform/data-sources-custom-logs.md) , który zbiera cały wpis dziennika z wieloma wartościami w jednej właściwości. Tworząc osobne właściwości różnych wartości, można wyszukiwać i agregowania na każdej z nich.
 
 W tym artykule opisano różne opcje analizowania danych dziennika w Azure Monitor podczas pozyskiwania danych i pobierania ich w zapytaniu, porównując zalety każdej z nich.
 
@@ -22,7 +23,7 @@ W tym artykule opisano różne opcje analizowania danych dziennika w Azure Monit
 Dane można analizować w czasie pozyskiwania, gdy dane są zbierane lub w czasie wykonywania zapytania podczas analizowania danych za pomocą zapytania. Każda strategia ma unikatowe zalety, zgodnie z poniższym opisem.
 
 ### <a name="parse-data-at-collection-time"></a>Analizowanie danych w czasie zbierania
-Podczas analizowania danych w czasie zbierania można skonfigurować [niestandardowe pola](../../log-analytics/log-analytics-custom-fields.md) , które tworzą nowe właściwości w tabeli. Zapytania nie muszą zawierać żadnej logiki analizy i po prostu używają tych właściwości jako innych pól w tabeli.
+Podczas analizowania danych w czasie zbierania można skonfigurować [niestandardowe pola](../platform/custom-fields.md) , które tworzą nowe właściwości w tabeli. Zapytania nie muszą zawierać żadnej logiki analizy i po prostu używają tych właściwości jako innych pól w tabeli.
 
 Zalety tej metody:
 

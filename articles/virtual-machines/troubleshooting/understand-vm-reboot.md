@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: e94ffb3d34082745c3d7ca86cfda2b93c0ed08da
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 08fb794839adf9e8a986f53da00b4855e5535af5
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77919417"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86508869"
 ---
 # <a name="understand-a-system-reboot-for-azure-vm"></a>Opis ponownego uruchomienia systemu dla maszyny wirtualnej platformy Azure
 
@@ -33,7 +34,7 @@ Aby uzyskać więcej informacji na temat zestawów dostępności, zobacz [Zarzą
 
 ## <a name="resource-health-information"></a>Informacje Resource Health
 
-Azure Resource Health to usługa, która uwidacznia prawidłowość poszczególnych zasobów platformy Azure i zapewnia wskazówki umożliwiające podejmowanie problemów. W środowisku chmury, w którym nie można bezpośrednio uzyskać dostępu do serwerów lub elementów infrastruktury, celem Resource Health jest skrócenie czasu poświęcanego na rozwiązywanie problemów. W szczególności celem jest skrócenie czasu poświęcanego na ustalenie, czy katalog główny problemu występuje w aplikacji, czy też w ramach platformy Azure. Aby uzyskać więcej informacji, zobacz [Omówienie i używanie Resource Health](../../resource-health/resource-health-overview.md).
+Azure Resource Health to usługa, która uwidacznia prawidłowość poszczególnych zasobów platformy Azure i zapewnia wskazówki umożliwiające podejmowanie problemów. W środowisku chmury, w którym nie można bezpośrednio uzyskać dostępu do serwerów lub elementów infrastruktury, celem Resource Health jest skrócenie czasu poświęcanego na rozwiązywanie problemów. W szczególności celem jest skrócenie czasu poświęcanego na ustalenie, czy katalog główny problemu występuje w aplikacji, czy też w ramach platformy Azure. Aby uzyskać więcej informacji, zobacz [Omówienie i używanie Resource Health](../../service-health/resource-health-overview.md).
 
 ## <a name="actions-and-events-that-can-cause-the-vm-to-reboot"></a>Akcje i zdarzenia, które mogą spowodować ponowne uruchomienie maszyny wirtualnej
 
@@ -45,8 +46,8 @@ Jednak niektóre aktualizacje wymagają ponownego uruchomienia. W takich przypad
 
 Aby zrozumieć, jaka jest planowana konserwacja platformy Azure i jak może ona mieć wpływ na dostępność maszyn wirtualnych z systemem Linux, zobacz artykuły wymienione tutaj. Artykuły zawierają podstawowe informacje na temat procesu planowanej konserwacji platformy Azure oraz sposobu planowania tej konserwacji, aby jeszcze bardziej ograniczyć jej wpływ.
 
-- [Planowana konserwacja maszyn wirtualnych platformy Azure](../windows/planned-maintenance.md)
-- [How to schedule planned maintenance on Azure VMs (Jak zaplanować planowaną konserwację na maszynach wirtualnych platformy Azure)](../windows/classic/planned-maintenance-schedule.md)
+- [Planowana konserwacja maszyn wirtualnych platformy Azure](../maintenance-and-updates.md?bc=/azure/virtual-machines/windows/breadcrumb/toc.json&toc=/azure/virtual-machines/windows/toc.json)
+- [How to schedule planned maintenance on Azure VMs (Jak zaplanować planowaną konserwację na maszynach wirtualnych platformy Azure)](../maintenance-and-updates.md?bc=/azure/virtual-machines/windows/breadcrumb/toc.json&toc=/azure/virtual-machines/windows/toc.json)
 
 ### <a name="memory-preserving-updates"></a>Aktualizacje pozwalające zachować stan pamięci
 
@@ -71,7 +72,7 @@ Inne scenariusze, które zwykle powodują ponowne uruchomienie maszyny wirtualne
 
 ### <a name="azure-security-center-and-windows-update"></a>Azure Security Center i Windows Update
 
-Azure Security Center monitoruje codzienne maszyny wirtualne z systemami Windows i Linux pod kątem braku aktualizacji systemu operacyjnego. Security Center pobiera listę dostępnych aktualizacji zabezpieczeń i krytycznych z Windows Update lub Windows Server Update Services (WSUS), w zależności od tego, która usługa została skonfigurowana na maszynie wirtualnej z systemem Windows. Security Center również sprawdza najnowsze aktualizacje dla systemów Linux. Jeśli maszyna wirtualna nie ma aktualizacji systemu, Security Center zaleca zastosowanie aktualizacji systemu. Te aktualizacje systemu są kontrolowane przez Security Center w Azure Portal. Po zastosowaniu niektórych aktualizacji może być wymagane ponowne uruchomienie maszyny wirtualnej. Aby uzyskać więcej informacji, zobacz [stosowanie aktualizacji systemu w Azure Security Center](../../security-center/security-center-apply-system-updates.md).
+Azure Security Center monitoruje codzienne maszyny wirtualne z systemami Windows i Linux pod kątem braku aktualizacji systemu operacyjnego. Security Center pobiera listę dostępnych aktualizacji zabezpieczeń i krytycznych z Windows Update lub Windows Server Update Services (WSUS), w zależności od tego, która usługa została skonfigurowana na maszynie wirtualnej z systemem Windows. Security Center również sprawdza najnowsze aktualizacje dla systemów Linux. Jeśli maszyna wirtualna nie ma aktualizacji systemu, Security Center zaleca zastosowanie aktualizacji systemu. Te aktualizacje systemu są kontrolowane przez Security Center w Azure Portal. Po zastosowaniu niektórych aktualizacji może być wymagane ponowne uruchomienie maszyny wirtualnej. Aby uzyskać więcej informacji, zobacz [stosowanie aktualizacji systemu w Azure Security Center](../../security-center/security-center-virtual-machine-protection.md).
 
 Podobnie jak w przypadku serwerów lokalnych, platforma Azure nie wypychanie aktualizacji z Windows Update do maszyn wirtualnych z systemem Windows, ponieważ te maszyny mają być zarządzane przez ich użytkowników. Zaleca się jednak pozostawienie ustawienia Windows Update automatycznie włączone. Automatyczna instalacja aktualizacji z Windows Update może także spowodować, że ponowne uruchomienie nastąpi po zastosowaniu aktualizacji. Aby uzyskać więcej informacji, zobacz [Windows Update często zadawane pytania](https://support.microsoft.com/help/12373/windows-update-faq).
 
@@ -114,7 +115,7 @@ Czas trwania zamknięcia może być krótszy niż pięć minut, ale może być z
 
 **Przekraczanie limitów operacji we/wy**
 
-Maszyny wirtualne mogą być tymczasowo zamykane, gdy żądania we/wy są stale ograniczane, ponieważ liczba operacji we/wy na sekundę (IOPS) przekracza limity we/wy dysku. (Magazyn dyskowy w warstwie Standardowa jest ograniczony do 500 operacji we/wy na sekundę). Aby rozwiązać ten problem, należy użyć rozłożenia dysku lub skonfigurować miejsce do magazynowania w ramach maszyny wirtualnej gościa, w zależności od obciążenia. Aby uzyskać szczegółowe informacje, zobacz [Konfigurowanie maszyn wirtualnych platformy Azure pod kątem optymalnej wydajności magazynu](https://blogs.msdn.com/b/mast/archive/2014/10/14/configuring-azure-virtual-machines-for-optimal-storage-performance.aspx).
+Maszyny wirtualne mogą być tymczasowo zamykane, gdy żądania we/wy są stale ograniczane, ponieważ liczba operacji we/wy na sekundę (IOPS) przekracza limity we/wy dysku. (Magazyn dyskowy w warstwie Standardowa jest ograniczony do 500 operacji we/wy na sekundę). Aby rozwiązać ten problem, należy użyć rozłożenia dysku lub skonfigurować miejsce do magazynowania w ramach maszyny wirtualnej gościa, w zależności od obciążenia. 
 
 ### <a name="other-incidents"></a>Inne zdarzenia
 

@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 07/08/2020
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: 886e6cf237df94c056ec7c592e0b535327339871
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 019ae80020dafb54f2c06dd504797f21069914ae
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86243800"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86507067"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Supported Kubernetes versions in Azure Kubernetes Service (AKS) (Obsługiwane wersje rozwiązania Kubernetes w usłudze Azure Kubernetes Service)
 
@@ -131,11 +131,11 @@ Aby uzyskać historię wcześniejszych wersji, zobacz [tutaj](https://en.wikiped
 | 1,17  | Gru-09-19  | 19 stycznia   | 20 lipca  | 1,20 GA | 
 | 1,18  | Mar-23-20  | 20 maja   | 20 sierpnia  | 1,21 GA | 
 | 1,19  | Sie-04-20  | 20 sierpnia   | 20 list  | 1,22 GA | 
-| 1.20  | * Lis 20    | * Gru 21   | * Sty 21  | 1,23 GA | 
+| 1,20  | * Lis 20    | * Gru 20   | * Sty 21  | 1,23 GA | 
 
 \*Oczekiwanie na potwierdzenie daty wydania nadrzędnego.
 
-## <a name="faq"></a>Często zadawane pytania
+## <a name="faq"></a>Najczęściej zadawane pytania
 
 **Co się stanie, gdy użytkownik uaktualnia klaster Kubernetes z nieobsługiwaną wersją pomocniczą?**
 
@@ -181,4 +181,4 @@ Aby uzyskać informacje na temat uaktualniania klastra, zobacz [Uaktualnianie kl
 <!-- LINKS - Internal -->
 [aks-upgrade]: upgrade-cluster.md
 [az-aks-get-versions]: /cli/azure/aks#az-aks-get-versions
-[preview-terms]: /support/legal/preview-supplemental-terms
+[preview-terms]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
