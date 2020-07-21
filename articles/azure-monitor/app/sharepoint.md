@@ -3,15 +3,19 @@ title: Monitorowanie witryny programu SharePoint za pomocą usługi Application 
 description: Rozpocznij monitorowanie nowej aplikacji przy użyciu nowego klucza instrumentacji
 ms.topic: conceptual
 ms.date: 07/11/2018
-ms.openlocfilehash: b9b31a715b19d6c06cbddb91c0bd9279088c4447
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: a545a24b5a9af883200f25cc83486e3c5621bd78
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86221055"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86516893"
 ---
 # <a name="monitor-a-sharepoint-site-with-application-insights"></a>Monitorowanie witryny programu SharePoint za pomocą usługi Application Insights
+
 Usługa Azure Application Insights monitoruje dostępność, wydajność i użycie Twoich aplikacji. Tutaj dowiesz się, jak skonfigurować je dla witryny programu SharePoint.
+
+> [!NOTE]
+> Ze względu na kwestie bezpieczeństwa nie można bezpośrednio dodać skryptu opisanego w tym artykule do stron sieci Web w nowoczesnych interfejsie użytkownika programu SharePoint. Alternatywnie można użyć [programu SharePoint Framework (SPFx)](/sharepoint/dev/spfx/extensions/overview-extensions) , aby utworzyć niestandardowe rozszerzenie, którego można użyć do zainstalowania Application Insights w witrynach programu SharePoint. Aby dowiedzieć się więcej, zobacz [jak utworzyć rozwiązanie rozszerzenia SPFx z zainstalowaną funkcją AppInsights od podstaw](https://github.com/microsoft/ApplicationInsights-JS/tree/master/SPO#how-to-create-a-spfx-extension-solution-with-appinsights-installed-from-scratch) lub [wyświetlić przykład](https://github.com/microsoft/ApplicationInsights-JS/tree/master/SPO/AppInsightsExtensionSolutionSample). 
 
 ## <a name="create-an-application-insights-resource"></a>Tworzenie zasobu usługi Application Insights
 W witrynie [Azure Portal](https://portal.azure.com) utwórz nowy zasób usługi Application Insights. Wybierz ASP.NET jako typ aplikacji.
@@ -137,5 +141,3 @@ function onRequestFail(sender, args) {
 * [Usługa Application Insights](../../azure-monitor/app/app-insights-overview.md) dla innych typów aplikacji.
 
 <!--Link references-->
-
-

@@ -4,12 +4,12 @@ description: Otrzymywanie powiadomień za pośrednictwem wiadomości SMS, elemen
 ms.subservice: alerts
 ms.topic: conceptual
 ms.date: 09/17/2018
-ms.openlocfilehash: 1a932aba55ec9bd5d92c60338a3c1fc4bb481c1b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7ed73678e0df1e068782c2a094846132be58cfe2
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82137709"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86516128"
 ---
 # <a name="alerts-on-activity-log"></a>Alerty dotyczące dziennika aktywności
 
@@ -25,11 +25,11 @@ Zazwyczaj tworzysz alerty dziennika aktywności, aby otrzymywać powiadomienia, 
 * Określone operacje odbywają się na zasobach w ramach subskrypcji platformy Azure, często w zakresie określonych grup zasobów lub zasobów. Na przykład możesz chcieć otrzymywać powiadomienia, gdy dowolna maszyna wirtualna w myProductionResourceGroup zostanie usunięta. Możesz również otrzymywać powiadomienia o tym, czy nowe role są przypisane do użytkownika w ramach subskrypcji.
 * Wystąpił zdarzenie kondycji usługi. Zdarzenia dotyczące kondycji usługi obejmują powiadomienie o zdarzeniach dotyczących zdarzeń konserwacji, które dotyczą zasobów w ramach subskrypcji.
 
-Prostą analogową dla zrozumienie warunków, w których można tworzyć reguły alertów w dzienniku aktywności, jest Eksplorowanie lub filtrowanie zdarzeń za pośrednictwem [dziennika aktywności w Azure Portal](activity-log-view.md#azure-portal). W Dzienniku działania Azure Monitor jeden może odfiltrować lub znaleźć wymagane zdarzenie, a następnie utworzyć alert przy użyciu przycisku **Dodaj alert dziennika aktywności** .
+Prostą analogową dla zrozumienie warunków, w których można tworzyć reguły alertów w dzienniku aktywności, jest Eksplorowanie lub filtrowanie zdarzeń za pośrednictwem [dziennika aktywności w Azure Portal](./activity-log.md#view-the-activity-log). W Dzienniku działania Azure Monitor jeden może odfiltrować lub znaleźć wymagane zdarzenie, a następnie utworzyć alert przy użyciu przycisku **Dodaj alert dziennika aktywności** .
 
 W obu przypadkach alert dziennika aktywności jest monitorowany tylko dla zdarzeń w subskrypcji, w której jest tworzony alert.
 
-Alert dziennika aktywności można skonfigurować na podstawie dowolnej właściwości najwyższego poziomu w obiekcie JSON dla zdarzenia dziennika aktywności. Aby uzyskać więcej informacji, zobacz [Kategorie w dzienniku aktywności](activity-log-view.md#categories-in-the-activity-log). Aby dowiedzieć się więcej na temat zdarzeń usługi Service Health, zobacz [otrzymywanie alertów dziennika aktywności dla powiadomień dotyczących usług](alerts-activity-log-service-notifications.md). 
+Alert dziennika aktywności można skonfigurować na podstawie dowolnej właściwości najwyższego poziomu w obiekcie JSON dla zdarzenia dziennika aktywności. Aby uzyskać więcej informacji, zobacz [Kategorie w dzienniku aktywności](./activity-log.md#view-the-activity-log). Aby dowiedzieć się więcej na temat zdarzeń usługi Service Health, zobacz [otrzymywanie alertów dziennika aktywności dla powiadomień dotyczących usług](../../service-health/alerts-activity-log-service-notifications-portal.md). 
 
 Alerty dziennika aktywności mają kilka typowych opcji:
 
@@ -61,4 +61,4 @@ Aby dowiedzieć się więcej na temat grup akcji, zobacz [Tworzenie grup akcji i
 - Zapoznaj się [z omówieniem alertów](alerts-overview.md).
 - Dowiedz się więcej o [tworzeniu i modyfikowaniu alertów dziennika aktywności](alerts-activity-log.md).
 - Przejrzyj [schemat elementu webhook alertu dziennika aktywności](activity-log-alerts-webhook.md).
-- Dowiedz się więcej o [powiadomieniach o kondycji usługi](service-notifications.md).
+- Dowiedz się więcej o [powiadomieniach o kondycji usługi](../../service-health/service-notifications.md).

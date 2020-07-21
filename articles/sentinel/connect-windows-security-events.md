@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/22/2020
 ms.author: yelevin
-ms.openlocfilehash: 8da05da1b4aa9966b7743bc38b09d1c4b34c8cc8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6573237cbba8951bdd45c5b32c572b9af772ee5a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85555719"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86519270"
 ---
 # <a name="connect-windows-security-events"></a>Łączenie ze zdarzeniami zabezpieczeń systemu Windows 
 
@@ -79,7 +79,7 @@ Aby zebrać zdarzenia zabezpieczeń systemu Windows na platformie Azure — wska
 
 1. Wybierz zestaw zdarzeń ([wszystkie, typowe lub minimalne](#event-sets)), które chcesz przesłać strumieniowo.
 
-1. Kliknij przycisk **Update** (Aktualizuj).
+1. Kliknij pozycję **Aktualizuj**.
 
 1. Aby użyć odpowiedniego schematu w Log Analytics dla zdarzeń zabezpieczeń systemu Windows, wpisz `SecurityEvent` w oknie zapytania.
 
@@ -87,7 +87,29 @@ Aby zebrać zdarzenia zabezpieczeń systemu Windows na platformie Azure — wska
 
 Rozpoczęcie wyświetlania dzienników w Log Analytics może potrwać około 20 minut. 
 
+### <a name="configure-the-security-events-connector-for-anomalous-rdp-login-detection"></a>Konfigurowanie łącznika zdarzeń zabezpieczeń pod kątem nietypowego wykrywania logowania protokołu RDP
 
+> [!IMPORTANT]
+> Nietypowe wykrywanie logowania za pomocą protokołu RDP jest obecnie w publicznej wersji zapoznawczej.
+> Ta funkcja jest dostępna bez umowy dotyczącej poziomu usług i nie jest zalecana w przypadku obciążeń produkcyjnych.
+> Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+Wskaźnik na platformie Azure może zastosować Uczenie maszynowe (ML) do danych zdarzeń związanych z zabezpieczeniami, aby zidentyfikować nietypowe działanie logowania Remote Desktop Protocol (RDP). Scenariusze obejmują:
+
+- **Nietypowy IP** — adres IP rzadko lub nie został zaobserwowany w ciągu ostatnich 30 dni
+
+- **Nietypowa lokalizacja geograficzna** — adres IP, miasto, kraj i ASN są rzadko lub nigdy Nieobserwowane w ciągu ostatnich 30 dni
+
+- **Nowy użytkownik** — nowy użytkownik loguje się przy użyciu adresu IP i lokalizacji geograficznej, lub z których nie oczekuje się, że zostały one zaobserwowane na podstawie danych z 30-dniowych wcześniej.
+
+**Instrukcje dotyczące konfiguracji**
+
+1. Należy zebrać dane logowania do protokołu RDP (Identyfikator zdarzenia 4624) za pomocą łącznika danych **zdarzeń zabezpieczeń** . Upewnij się, że wybrano [zestaw zdarzeń](#event-sets) poza "Brak", aby przesłać strumieniowo do usługi Azure wskaźnikowej.
+
+1. W portalu Azure, kliknij pozycję **Analiza**, a następnie kliknij kartę **Szablony reguł** . Wybierz **(wersja zapoznawcza) regułę wykrywania nietypowej nazwy logowania protokołu RDP** i przesuń suwak **stanu** na wartość **włączone**.
+
+    > [!NOTE]
+    > Ponieważ algorytm uczenia maszynowego wymaga, aby dane były w trakcie tworzenia profilu linii bazowej zachowania użytkownika przez 30 dni, przed wykryciem zdarzeń można zebrać dane zdarzeń zabezpieczeń.
 
 ## <a name="next-steps"></a>Następne kroki
 W tym dokumencie przedstawiono sposób łączenia zdarzeń zabezpieczeń systemu Windows z wskaźnikiem kontrolnym platformy Azure. Aby dowiedzieć się więcej na temat platformy Azure, zobacz następujące artykuły:

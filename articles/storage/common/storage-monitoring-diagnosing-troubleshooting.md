@@ -9,11 +9,12 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring
-ms.openlocfilehash: 1137a51ab7feb5a6d18c7d137d957d8e779d170e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 94d952bcb0693941624199370de092a581d7479b
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85513376"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518593"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Monitorowanie, diagnozowanie i rozwiązywanie problemów z usługą Microsoft Azure Storage
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -78,7 +79,7 @@ Aby uzyskać szczegółowe informacje na temat kompleksowego rozwiązywania prob
 ## <a name="introduction"></a><a name="introduction"></a>Wprowadzenie
 W tym przewodniku pokazano, jak za pomocą funkcji, takich jak analityka magazynu platformy Azure, rejestrowanie po stronie klienta w bibliotece klienta usługi Azure Storage oraz inne narzędzia innych firm do identyfikowania, diagnozowania i rozwiązywania problemów związanych z usługą Azure Storage.
 
-![][1]
+![Diagram przedstawiający przepływ informacji między aplikacjami klienckimi i usługami Azure Storage.][1]
 
 Ten przewodnik jest przeznaczony głównie dla deweloperów Usługi online korzystających z usług Azure Storage i informatyków odpowiedzialnych za zarządzanie takimi Usługi online. Celem tego przewodnika są:
 
@@ -117,7 +118,7 @@ Należy stale monitorować aplikacje platformy Azure, aby upewnić się, że są
 
 Wykresy na poniższej ilustracji ilustrują sposób, w jaki przeciętny wpływ na metryki godzinowe może ukryć skoki w działaniu. Metryki godzinowe pojawiają się, aby pokazać stałą częstotliwość żądań, natomiast metryki minut ujawniają wahania, które naprawdę odbywają się.
 
-![][3]
+![Wykresy pokazujące, jak przeciętne występujące w przypadku metryk co godzinę mogą ukrywać skoki w działaniu.][3]
 
 W pozostałej części tej sekcji opisano metryki, które należy monitorować i dlaczego.
 
@@ -199,7 +200,7 @@ Użytkownicy Twojej aplikacji mogą powiadomić użytkownika o błędach raporto
 Przydatne dla zrozumienia kodów stanu i błędów związanych z magazynem są następujące zasoby:
 
 * [Typowe kody błędów interfejsu API REST](https://msdn.microsoft.com/library/azure/dd179357.aspx)
-* [Kody błędów usługi Blob Service](https://msdn.microsoft.com/library/azure/dd179439.aspx)
+* [Kody błędów usługi BLOB](https://msdn.microsoft.com/library/azure/dd179439.aspx)
 * [Kody błędów usługi kolejki](https://msdn.microsoft.com/library/azure/dd179446.aspx)
 * [Kody błędów usługi Table Service](https://msdn.microsoft.com/library/azure/dd179438.aspx)
 * [Kody błędów usługi plików](https://msdn.microsoft.com/library/azure/dn690119.aspx)
@@ -347,7 +348,7 @@ Czy problem odnosi się do dostępności jednego z usług magazynu?
 ### <a name="metrics-show-high-averagee2elatency-and-low-averageserverlatency"></a><a name="metrics-show-high-AverageE2ELatency-and-low-AverageServerLatency"></a>Metryki wskazują wysoką wartość AverageE2ELatency i niską wartość AverageServerLatency
 Na poniższej ilustracji [Azure Portal](https://portal.azure.com) narzędzia do monitorowania przedstawiono przykład, w którym **niską averagee2elatency** jest znacznie większa niż **wartość averageserverlatency**.
 
-![][4]
+![Ilustracja z Azure Portal, który pokazuje przykład, gdzie niską averagee2elatency jest znacznie wyższy niż wartość averageserverlatency.][4]
 
 Usługa magazynu oblicza tylko **niską averagee2elatency** metryk dla pomyślnych żądań i, w przeciwieństwie do **wartość averageserverlatency**, obejmuje czas wymagany przez klienta do wysłania danych i otrzymania potwierdzenia z usługi magazynu. W związku z tym różnica między **niską averagee2elatency** i **wartość averageserverlatency** może być spowodowana powolnej reakcji aplikacji klienckiej lub ze względu na warunki w sieci.
 
@@ -470,14 +471,14 @@ Jeśli aplikacja kliencka zgłasza błędy HTTP 403 (zabronione), prawdopodobną
 
 | Element źródłowy | Szczegółowość | Szczegółowość | Identyfikator żądania klienta | Tekst operacji |
 | --- | --- | --- | --- | --- |
-| Microsoft. Azure. Storage |Informacje |3 |85d077ab-... |Rozpoczynanie operacji przy użyciu lokalizacji podstawowej dla trybu lokalizacji PrimaryOnly. |
-| Microsoft. Azure. Storage |Informacje |3 |85d077ab-... |Uruchamianie żądania synchronicznego do<https://domemaildist.blob.core.windows.netazureimblobcontainer/blobCreatedViaSAS.txt?sv=2014-02-14&sr=c&si=mypolicy&sig=OFnd4Rd7z01fIvh%2BmcR6zbudIH2F5Ikm%2FyhNYZEmJNQ%3D&api-version=2014-02-14> |
-| Microsoft. Azure. Storage |Informacje |3 |85d077ab-... |Oczekiwanie na odpowiedź. |
+| Microsoft. Azure. Storage |Informacyjny |3 |85d077ab-... |Rozpoczynanie operacji przy użyciu lokalizacji podstawowej dla trybu lokalizacji PrimaryOnly. |
+| Microsoft. Azure. Storage |Informacyjny |3 |85d077ab-... |Uruchamianie żądania synchronicznego do<https://domemaildist.blob.core.windows.netazureimblobcontainer/blobCreatedViaSAS.txt?sv=2014-02-14&sr=c&si=mypolicy&sig=OFnd4Rd7z01fIvh%2BmcR6zbudIH2F5Ikm%2FyhNYZEmJNQ%3D&api-version=2014-02-14> |
+| Microsoft. Azure. Storage |Informacyjny |3 |85d077ab-... |Oczekiwanie na odpowiedź. |
 | Microsoft. Azure. Storage |Ostrzeżenie |2 |85d077ab-... |Zgłoszono wyjątek podczas oczekiwania na odpowiedź: serwer zdalny zwrócił błąd: (403) zabronione. |
-| Microsoft. Azure. Storage |Informacje |3 |85d077ab-... |Odebrano odpowiedź. Kod stanu = 403, identyfikator żądania = 9d67c64a-64ed-4b0d-9515-3b14bbcdc63d, Content-MD5 =, ETag =. |
+| Microsoft. Azure. Storage |Informacyjny |3 |85d077ab-... |Odebrano odpowiedź. Kod stanu = 403, identyfikator żądania = 9d67c64a-64ed-4b0d-9515-3b14bbcdc63d, Content-MD5 =, ETag =. |
 | Microsoft. Azure. Storage |Ostrzeżenie |2 |85d077ab-... |Zgłoszono wyjątek podczas operacji: serwer zdalny zwrócił błąd: (403) zabronione.. |
-| Microsoft. Azure. Storage |Informacje |3 |85d077ab-... |Sprawdzanie, czy operacja powinna być ponowiona. Liczba ponownych prób = 0, kod stanu HTTP = 403, wyjątek = serwer zdalny zwrócił błąd: (403) jest zabroniony. |
-| Microsoft. Azure. Storage |Informacje |3 |85d077ab-... |W następnej lokalizacji ustawiono wartość podstawowa, na podstawie trybu lokalizacji. |
+| Microsoft. Azure. Storage |Informacyjny |3 |85d077ab-... |Sprawdzanie, czy operacja powinna być ponowiona. Liczba ponownych prób = 0, kod stanu HTTP = 403, wyjątek = serwer zdalny zwrócił błąd: (403) jest zabroniony. |
+| Microsoft. Azure. Storage |Informacyjny |3 |85d077ab-... |W następnej lokalizacji ustawiono wartość podstawowa, na podstawie trybu lokalizacji. |
 | Microsoft. Azure. Storage |Błąd |1 |85d077ab-... |Zasady ponawiania nie umożliwiały ponowienia próby. Niepowodzenie z serwerem zdalnym zwróciło błąd: (403) zabronione. |
 
 W tym scenariuszu należy zbadać, dlaczego token sygnatury dostępu współdzielonego upływa przed wysłaniem przez klienta tokenu do serwera:
@@ -497,7 +498,7 @@ Jeśli aplikacja kliencka odbiera komunikat HTTP 404 (nie znaleziono) z serwera,
 * [Kod JavaScript po stronie klienta nie ma uprawnień dostępu do obiektu]
 * [Błąd sieci]
 
-#### <a name="the-client-or-another-process-previously-deleted-the-object"></a><a name="client-previously-deleted-the-object"></a>Klient lub inny proces wcześniej usunął obiekt
+#### <a name="the-client-or-another-process-previously-deleted-the-object"></a><a name="client-previously-deleted-the-object"></a>Klient lub inny proces usunął wcześniej obiekt
 W scenariuszach, w których klient próbuje odczytywać, aktualizować lub usuwać dane w usłudze Storage, zwykle jest to łatwe do zidentyfikowania w dziennikach po stronie serwera poprzedniej operacji, która usunęła dany obiekt z usługi magazynu. Często dane dziennika pokazują, że inny użytkownik lub proces usunął obiekt. W dzienniku rejestrowania magazynu po stronie serwera, kolumny Typ operacji i żądany-obiekt-klucz są wyświetlane, gdy klient usunął obiekt.
 
 W scenariuszu, w którym klient próbuje wstawić obiekt, może nie być od razu oczywisty powód, dla którego wynikiem jest odpowiedź HTTP 404 (nie znaleziono), ponieważ klient tworzy nowy obiekt. Jeśli jednak klient tworzy obiekt BLOB, musi mieć możliwość znalezienia kontenera obiektów blob, jeśli klient tworzy komunikat, musi mieć możliwość znalezienia kolejki, a jeśli klient dodaje wiersz, musi być w stanie znaleźć tabelę.
@@ -557,7 +558,7 @@ Wpisy dziennika:
 
 W tym przykładzie dziennik pokazuje, że klient nie opuszcza żądań z metody **metodę createifnotexists** (Identyfikator żądania e2d06d78...) z żądaniami z metody **UploadFromStream** (de8b1c3c-...). Ten przeplot jest spowodowany tym, że aplikacja kliencka wywołuje te metody asynchronicznie. Zmodyfikuj kod asynchroniczny w kliencie, aby upewnić się, że tworzy kontener przed podjęciem próby przekazania jakichkolwiek danych do obiektu BLOB w tym kontenerze. Najlepiej utworzyć wszystkie kontenery z wyprzedzeniem.
 
-#### <a name="a-shared-access-signature-sas-authorization-issue"></a><a name="SAS-authorization-issue"></a>Problem z autoryzacją sygnatury dostępu współdzielonego
+#### <a name="a-shared-access-signature-sas-authorization-issue"></a><a name="SAS-authorization-issue"></a>Problem z autoryzacją sygnatury dostępu współdzielonego (SAS)
 Jeśli aplikacja kliencka próbuje użyć klucza sygnatury dostępu współdzielonego, który nie zawiera wystarczających uprawnień do operacji, usługa magazynu zwróci komunikat HTTP 404 (nie znaleziono) do klienta. W tym samym czasie zostanie również wyświetlona wartość różna od zera dla **SASAuthorizationError** w metrykach.
 
 W poniższej tabeli przedstawiono przykładowy komunikat dziennika po stronie serwera z pliku dziennika rejestrowania magazynu:
@@ -627,7 +628,7 @@ Jeśli ten problem występuje często, należy zbadać, dlaczego klient nie otrz
 ### <a name="the-client-is-receiving-http-409-conflict-messages"></a><a name="the-client-is-receiving-409-messages"></a>Klient odbiera komunikaty HTTP 409 (konflikt)
 W poniższej tabeli przedstawiono wyodrębnienie z dziennika po stronie serwera dla dwóch operacji klienta: **DeleteIfExists** , a następnie bezpośrednio przez **metodę createifnotexists** przy użyciu tej samej nazwy kontenera obiektów BLOB. Każda operacja klienta powoduje wysłanie dwóch żądań wysyłanych do serwera, najpierw żądania **GetContainerProperties** , aby sprawdzić, czy kontener istnieje, a następnie żądania DeleteContainer **lub** . **DeleteContainer**
 
-| Znacznik czasu | Operacja | Wynik | Nazwa kontenera | Identyfikator żądania klienta |
+| Timestamp | Operacja | Wynik | Nazwa kontenera | Identyfikator żądania klienta |
 | --- | --- | --- | --- | --- |
 | 05:13.7167225 |GetContainerProperties |200 |mmcont |c9f52c89-... |
 | 05:13.8167325 |DeleteContainer |202 |mmcont |c9f52c89-... |
@@ -726,7 +727,7 @@ Po uruchomieniu programu programu Fiddler rozpocznie się przechwytywanie ruchu 
 
 Aby ograniczyć ilość ruchu przechwytywanego przez programu Fiddler, można użyć filtrów skonfigurowanych na karcie **filtry** . Poniższy zrzut ekranu przedstawia filtr, który przechwytuje tylko ruch wysyłany do punktu końcowego magazynu **contosoemaildist.Table.Core.Windows.NET** :
 
-![][5]
+![Zrzut ekranu pokazujący filtr, który przechwytuje tylko ruch wysyłany do punktu końcowego magazynu contosoemaildist.table.core.windows.net.][5]
 
 ### <a name="appendix-2-using-wireshark-to-capture-network-traffic"></a><a name="appendix-2"></a>Dodatek 2. Korzystanie z programu Wireshark do przechwytywania ruchu sieciowego
 [Wireshark](https://www.wireshark.org/) to Analizator protokołów sieciowych, który umożliwia wyświetlanie szczegółowych informacji o pakiecie dla szerokiego zakresu protokołów sieciowych.
@@ -738,18 +739,18 @@ Poniższa procedura przedstawia sposób przechwytywania szczegółowych informac
 3. Kliknij pozycję **Opcje przechwytywania**.
 4. Dodaj filtr do pola tekstowego **Filtr przechwytywania** . Na przykład **host contosoemaildist.Table.Core.Windows.NET** skonfiguruje program Wireshark do przechwytywania tylko pakietów wysyłanych do lub z punktu końcowego usługi Table Service na koncie magazynu **contosoemaildist** . Zapoznaj się z [pełną listą filtrów przechwytywania](https://wiki.wireshark.org/CaptureFilters).
 
-   ![][6]
+   ![Zrzut ekranu, który pokazuje, jak dodać filtr do pola tekstowego filtr przechwytywania.][6]
 5. Kliknij przycisk **Uruchom**. Program Wireshark przechwytuje teraz wszystkie pakiety wysyłane do lub z punktu końcowego usługi Table Service podczas korzystania z aplikacji klienckiej na komputerze lokalnym.
 6. Po zakończeniu w menu głównym kliknij polecenie **Przechwytuj** , a następnie **Zatrzymaj**.
 7. Aby zapisać przechwycone dane w pliku przechwytywania programu Wireshark, w menu głównym kliknij **plik** , a następnie **Zapisz**.
 
 W programie WireShark zostaną wyróżnione wszystkie błędy, które istnieją w oknie **packetlist** . Możesz również użyć okna **informacje specjalistyczne** ( **Analizuj**, a następnie uzyskać **Informacje o ekspertu**), aby wyświetlić podsumowanie błędów i ostrzeżeń.
 
-![][7]
+![Zrzut ekranu pokazujący okno informacji o ekspertach, w którym można wyświetlić podsumowanie błędów i ostrzeżeń.][7]
 
 Możesz również wyświetlić dane TCP, gdy warstwa aplikacji widzi ją, klikając prawym przyciskiem myszy dane TCP i wybierając pozycję **Śledź strumień TCP**. Jest to przydatne w przypadku przechwycenia zrzutu bez filtru przechwytywania. Aby uzyskać więcej informacji, zobacz [następujące strumienie TCP](https://www.wireshark.org/docs/wsug_html_chunked/ChAdvFollowTCPSection.html).
 
-![][8]
+![Zrzut ekranu pokazujący sposób wyświetlania danych TCP jako warstwy aplikacji.][8]
 
 > [!NOTE]
 > Więcej informacji o korzystaniu z programu Wireshark można znaleźć w [podręczniku użytkownicy programu Wireshark](https://www.wireshark.org/docs/wsug_html_chunked).
@@ -782,11 +783,11 @@ Oprócz korzystania ze śladu **serwera proxy sieci Web** programu Microsoft Mes
 
 Poniższy zrzut ekranu przedstawia przykład **lokalnego śledzenia warstwy linków** z niektórymi komunikatami **informacyjnymi** w kolumnie **DiagnosisTypes** . Kliknięcie ikony w kolumnie **DiagnosisTypes** pokazuje szczegóły komunikatu. W tym przykładzie serwer przesłali komunikat #305, ponieważ nie otrzymał potwierdzenia od klienta:
 
-![][9]
+![Zrzut ekranu pokazujący przykład lokalnego śledzenia warstwy łączy z niektórymi komunikatami informacyjnymi w kolumnie DiagnosisTypes][9]
 
 Podczas tworzenia sesji śledzenia w programie Microsoft Message Analyzer można określić filtry, aby zmniejszyć liczbę szumów w śladzie. Na stronie **przechwytywanie/śledzenie** , w której definiujesz śledzenie, kliknij link **Konfiguruj** obok pozycji **Microsoft-Windows-NDIS-PacketCapture**. Poniższy zrzut ekranu przedstawia konfigurację, która filtruje ruch TCP dla adresów IP trzech usług magazynu:
 
-![][10]
+![Zrzut ekranu pokazujący konfigurację, która filtruje ruch TCP dla adresów IP trzech usług magazynu.][10]
 
 Aby uzyskać więcej informacji na temat śledzenia warstwy linków lokalnych analizatora komunikatów firmy Microsoft, zobacz [Microsoft-PEF-NDIS-PacketCapture Provider](https://technet.microsoft.com/library/jj659264.aspx).
 

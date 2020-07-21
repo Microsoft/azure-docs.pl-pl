@@ -3,12 +3,12 @@ title: Jak zaprojektować wdrożenie Application Insights — jeden z wielu zaso
 description: Bezpośrednia Telemetria do różnych zasobów na potrzeby tworzenia, testowania i tworzenia sygnatur produkcji.
 ms.topic: conceptual
 ms.date: 05/11/2020
-ms.openlocfilehash: 53fe54d1e674a9d15cab5a3fac0c85f415e40260
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: ff301887aebf64d26d0fb391a8a16adefc8a3860
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86107431"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86516723"
 ---
 # <a name="how-many-application-insights-resources-should-i-deploy"></a>Ile zasobów Application Insights należy wdrożyć
 
@@ -35,7 +35,7 @@ Każdy zasób Application Insights jest dostarczany z metrykami, które są dost
 
 ### <a name="other-things-to-keep-in-mind"></a>Inne kwestie, na które należy pamiętać
 
--   Może być konieczne dodanie niestandardowego kodu w celu upewnienia się, że odpowiednie wartości są ustawione na atrybut [Cloud_RoleName](https://docs.microsoft.com/azure/azure-monitor/app/app-map?tabs=net#set-cloud-role-name) . Bez znaczących wartości ustawionych dla tego atrybutu *żadne* środowisko portalu nie będzie działało.
+-   Może być konieczne dodanie niestandardowego kodu w celu upewnienia się, że odpowiednie wartości są ustawione na atrybut [Cloud_RoleName](./app-map.md?tabs=net#set-cloud-role-name) . Bez znaczących wartości ustawionych dla tego atrybutu *żadne* środowisko portalu nie będzie działało.
 - W przypadku aplikacji Service Fabric i klasycznych usług Cloud Services zestaw SDK automatycznie odczytuje ze środowiska roli platformy Azure i ustawia te ustawienia. Dla wszystkich innych typów aplikacji prawdopodobnie trzeba będzie ją jawnie ustawić.
 -   Środowisko metryk na żywo nie obsługuje dzielenia według nazwy roli.
 
@@ -76,7 +76,7 @@ var appInsights = window.appInsights || function(config){ ...
 
 ## <a name="create-additional-application-insights-resources"></a>Tworzenie dodatkowych zasobów Application Insights
 
-Aby utworzyć zasób usługi Application Insights, postępuj zgodnie z [przewodnikiem tworzenia zasobów](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource).
+Aby utworzyć zasób usługi Application Insights, postępuj zgodnie z [przewodnikiem tworzenia zasobów](./create-new-resource.md).
 
 ### <a name="getting-the-instrumentation-key"></a>Pobieranie klucza Instrumentacji
 Klucz Instrumentacji identyfikuje utworzony zasób.

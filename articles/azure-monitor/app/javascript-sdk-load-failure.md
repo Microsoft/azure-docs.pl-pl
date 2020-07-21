@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: MSNev
 ms.author: newylie
 ms.date: 06/05/2020
-ms.openlocfilehash: dae6b40e7ec8a2bb6f635a6ffca4886ed09c1364
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: a76ed65ebc1c56232d4fa42c6df20f619fe14ca3
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86229537"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86517063"
 ---
 # <a name="troubleshooting-sdk-load-failure-for-javascript-web-apps"></a>Rozwiązywanie problemów z błędem ładowania zestawu SDK dla aplikacji sieci Web JavaScript
 
@@ -63,7 +63,7 @@ Ta sama wartość ma również zastosowanie w przypadku korzystania z zestawu SD
 
 Możesz również użyć [pakietów npm](#use-npm-packages-to-embed-the-application-insight-sdk) do osadzenia zestawu SDK Application Insights.
 
-Aby zminimalizować Sporadyczne awarie łączności sieciowej, wdrożono nagłówki kontroli pamięci podręcznej we wszystkich plikach CDN, dzięki czemu gdy przeglądarka użytkownika końcowego pobrała bieżącą wersję zestawu SDK, nie będzie musiała być pobierana ponownie, a przeglądarka użyje wcześniej uzyskanej kopii (zobacz [jak działa buforowanie](https://docs.microsoft.com/azure/cdn/cdn-how-caching-works)). Jeśli sprawdzanie pamięci podręcznej nie powiedzie się lub wystąpiło nowe wydanie, przeglądarka użytkownika końcowego będzie musiała pobrać zaktualizowaną wersję. W scenariuszu sprawdzania awarii może być widoczny poziom tła _"hałas"_ lub tymczasowy wzrost, gdy występuje Nowa wersja i jest on ogólnie dostępny (wdrożony w sieci CDN).
+Aby zminimalizować Sporadyczne awarie łączności sieciowej, wdrożono nagłówki kontroli pamięci podręcznej we wszystkich plikach CDN, dzięki czemu gdy przeglądarka użytkownika końcowego pobrała bieżącą wersję zestawu SDK, nie będzie musiała być pobierana ponownie, a przeglądarka użyje wcześniej uzyskanej kopii (zobacz [jak działa buforowanie](../../cdn/cdn-how-caching-works.md)). Jeśli sprawdzanie pamięci podręcznej nie powiedzie się lub wystąpiło nowe wydanie, przeglądarka użytkownika końcowego będzie musiała pobrać zaktualizowaną wersję. W scenariuszu sprawdzania awarii może być widoczny poziom tła _"hałas"_ lub tymczasowy wzrost, gdy występuje Nowa wersja i jest on ogólnie dostępny (wdrożony w sieci CDN).
  
 ## <a name="application-insights-cdn-outage"></a>Application Insights awaria usługi CDN
 

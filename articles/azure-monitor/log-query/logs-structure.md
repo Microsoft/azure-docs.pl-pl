@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/09/2020
-ms.openlocfilehash: 58724656dd407f09687b57d0ab034f3a1f808b76
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b4882ec9eb8b81ae27a1e8eed2e5b4349fbeac3f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83196290"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86516196"
 ---
 # <a name="structure-of-azure-monitor-logs"></a>Struktura dzienników Azure Monitor
 Możliwość szybkiego uzyskiwania wglądu w dane przy użyciu [zapytania dziennika](log-query-overview.md) jest zaawansowaną funkcją Azure monitor. Aby tworzyć wydajne i użyteczne zapytania, należy zapoznać się z podstawowymi pojęciami, takimi jak miejsce, w którym znajdują się dane i jak są one strukturalne. Ten artykuł zawiera podstawowe pojęcia, które należy wykonać, aby rozpocząć pracę.
@@ -28,7 +29,7 @@ Na poniższej ilustracji przedstawiono przykłady źródeł danych, które zapis
 ![Tabele](media/logs-structure/queries-tables.png)
 
 ## <a name="log-analytics-workspace"></a>Obszar roboczy usługi Log Analytics
-Wszystkie dane zbierane przez dzienniki Azure Monitor z wyjątkiem Application Insights są przechowywane w [log Analytics obszarze roboczym](../platform/manage-access.md). W zależności od konkretnych wymagań można utworzyć co najmniej jeden obszar roboczy. [Źródła danych](../platform/data-sources.md) , takie jak dzienniki aktywności i dzienniki zasobów, z zasobów platformy Azure, agentów na maszynach wirtualnych i danych z rozwiązań szczegółowych i monitorowania będą zapisywać dane do co najmniej jednego obszaru roboczego skonfigurowanego w ramach dołączania. Inne usługi, takie jak [Azure Security Center](/azure/security-center/) i [Azure](/azure/sentinel/) , wykorzystują również obszar roboczy log Analytics do przechowywania danych, dzięki czemu można je analizować przy użyciu zapytań dzienników oraz dane monitorowania z innych źródeł.
+Wszystkie dane zbierane przez dzienniki Azure Monitor z wyjątkiem Application Insights są przechowywane w [log Analytics obszarze roboczym](../platform/manage-access.md). W zależności od konkretnych wymagań można utworzyć co najmniej jeden obszar roboczy. [Źródła danych](../platform/data-sources.md) , takie jak dzienniki aktywności i dzienniki zasobów, z zasobów platformy Azure, agentów na maszynach wirtualnych i danych z rozwiązań szczegółowych i monitorowania będą zapisywać dane do co najmniej jednego obszaru roboczego skonfigurowanego w ramach dołączania. Inne usługi, takie jak [Azure Security Center](../../security-center/index.yml) i [Azure](../../sentinel/index.yml) , wykorzystują również obszar roboczy log Analytics do przechowywania danych, dzięki czemu można je analizować przy użyciu zapytań dzienników oraz dane monitorowania z innych źródeł.
 
 Różne rodzaje danych są przechowywane w różnych tabelach w obszarze roboczym, a każda tabela ma unikatowy zestaw właściwości. Standardowy zestaw tabel jest dodawany do obszaru roboczego, gdy zostanie utworzony, a nowe tabele są dodawane do różnych źródeł danych, rozwiązań i usług w miarę ich dołączania. Można również tworzyć tabele niestandardowe przy użyciu [interfejsu API modułu zbierającego dane](../platform/data-collector-api.md).
 
@@ -44,7 +45,7 @@ union withsource = table *
 | summarize count() by table
 | sort by table asc
 ```
-Zapoznaj się z dokumentacją dla każdego źródła danych, aby uzyskać szczegółowe informacje o utworzonych tabelach. Przykłady obejmują artykuły dotyczące [źródeł danych agentów](../platform/agent-data-sources.md), [dzienników zasobów](../platform/diagnostic-logs-schema.md)i [rozwiązań do monitorowania](../insights/solutions-inventory.md).
+Zapoznaj się z dokumentacją dla każdego źródła danych, aby uzyskać szczegółowe informacje o utworzonych tabelach. Przykłady obejmują artykuły dotyczące [źródeł danych agentów](../platform/agent-data-sources.md), [dzienników zasobów](../platform/resource-logs-schema.md)i [rozwiązań do monitorowania](../monitor-reference.md).
 
 ### <a name="workspace-permissions"></a>Uprawnienia obszaru roboczego
 Zapoznaj się z artykułem [projektowanie wdrożenia dzienników Azure monitor](../platform/design-logs-deployment.md) , aby poznać strategię kontroli dostępu i zalecenia dotyczące zapewnienia dostępu do danych w obszarze roboczym. Poza udzieleniem dostępu do samego obszaru roboczego można ograniczyć dostęp do poszczególnych tabel przy użyciu funkcji [RBAC na poziomie tabeli](../platform/manage-access.md#table-level-rbac).
@@ -87,5 +88,5 @@ Chociaż każda tabela w dziennikach Azure Monitor ma swój własny schemat, ist
 | _BilledSize   |            | Określa rozmiar w bajtach danych, które będą rozliczane. |
 
 ## <a name="next-steps"></a>Następne kroki
-- Dowiedz się więcej na temat używania [log Analytics do tworzenia i edytowania wyszukiwań w dziennikach](../log-query/portals.md).
+- Dowiedz się więcej na temat używania [log Analytics do tworzenia i edytowania wyszukiwań w dziennikach](./log-query-overview.md).
 - Zapoznaj się z [samouczkiem dotyczącym pisania zapytań](../log-query/get-started-queries.md) przy użyciu nowego języka zapytań.

@@ -16,12 +16,12 @@ ms.date: 06/25/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9bd19093034b4427d9e1b637a653a90e0568cddf
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 11d5c1bb133f0aea241fbc55f96ab5f8818e5ed6
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223928"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518117"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Wymagania wstępne dotyczące programu Azure AD Connect
 Ten temat zawiera opis wymagań wstępnych i wymagania sprzętowe Azure AD Connect.
@@ -34,7 +34,7 @@ Przed zainstalowaniem Azure AD Connect istnieje kilka rzeczy, które są potrzeb
   * [Azure Portal](https://portal.azure.com).
   * [Portal Office](https://portal.office.com).  
 * [Dodaj i sprawdź domenę](../active-directory-domains-add-azure-portal.md) , która ma być używana w usłudze Azure AD. Jeśli na przykład zamierzasz używać contoso.com dla użytkowników, upewnij się, że ta domena została zweryfikowana i nie tylko używasz domyślnej domeny contoso.onmicrosoft.com.
-* Dzierżawa usługi Azure AD zezwala na używanie domyślnych obiektów 50 000. Po zweryfikowaniu domeny limit zostaje zwiększony do obiektów 300 tysięcy pozycji. Jeśli potrzebujesz jeszcze więcej obiektów w usłudze Azure AD, musisz otworzyć zgłoszenie do pomocy technicznej, aby limit został jeszcze bardziej zwiększony. Jeśli potrzebujesz więcej niż 500 000 obiektów, potrzebna jest licencja, taka jak Office 365, Azure AD — wersja Podstawowa, Azure AD — wersja Premium lub Enterprise Mobility i Security.
+* Dzierżawa usługi Azure AD zezwala na używanie domyślnych obiektów 50 000. Po zweryfikowaniu domeny limit zostaje zwiększony do obiektów 300 tysięcy pozycji. Jeśli potrzebujesz jeszcze więcej obiektów w usłudze Azure AD, musisz otworzyć zgłoszenie do pomocy technicznej, aby limit został jeszcze bardziej zwiększony. Jeśli potrzebujesz więcej niż 500 000 obiektów, potrzebna jest licencja, taka jak Office 365, Azure AD — wersja Premium lub Enterprise Mobility and Security.
 
 ### <a name="prepare-your-on-premises-data"></a>Przygotowywanie danych lokalnych
 * Użyj [IdFix](https://support.office.com/article/Install-and-run-the-Office-365-IdFix-tool-f4bd2439-3e41-4169-99f6-3fabdfa326ac) , aby zidentyfikować błędy, takie jak duplikaty i problemy z formatowaniem w katalogu przed synchronizacją do usługi Azure AD i pakietu Office 365.
@@ -56,7 +56,7 @@ Aby dowiedzieć się więcej na temat zabezpieczania środowiska Active Director
 
 #### <a name="installation-prerequisites"></a>Wymagania wstępne instalacji 
 
-- Azure AD Connect musi być zainstalowany w domenie przyłączonej do systemu Windows Server 2012 lub nowszej. Zdecydowanie zaleca się, aby ten serwer był kontrolerem domeny. 
+- Azure AD Connect musi być zainstalowany w domenie przyłączonej do systemu Windows Server 2012 lub nowszej. 
 - Nie można zainstalować Azure AD Connect na małym lub systemie Windows Server Essentials przed 2019 (obsługiwany jest system Windows Server Essentials 2019). Na serwerze musi być używany system Windows Server Standard lub szybszy.  
 - Na serwerze Azure AD Connect musi być zainstalowany pełny graficzny interfejs użytkownika. Instalowanie Azure AD Connect w systemie Windows Server Core nie jest obsługiwane. 
 - Na serwerze Azure AD Connect nie może być włączona transkrypcja programu PowerShell zasady grupy, jeśli do zarządzania konfiguracją usług ADFS używasz Kreatora Azure AD Connect. Można włączyć transkrypcję programu PowerShell, jeśli używasz Kreatora Azure AD Connect do zarządzania konfiguracją synchronizacji. 
@@ -130,7 +130,7 @@ Firma Microsoft zaleca, aby zabezpieczyć serwer Azure AD Connect, aby zmniejszy
 Aby uzyskać więcej informacji, zobacz MSDN dotyczący [domyślnego elementu proxy](https://msdn.microsoft.com/library/kd3cf2ex.aspx).  
 Aby uzyskać więcej informacji w przypadku problemów z łącznością, zobacz [Rozwiązywanie problemów z łącznością](tshoot-connect-connectivity.md).
 
-### <a name="other"></a>Inni
+### <a name="other"></a>Inne
 * Opcjonalne: konto użytkownika testowego, aby zweryfikować synchronizację.
 
 ## <a name="component-prerequisites"></a>Wymagania wstępne dotyczące składników

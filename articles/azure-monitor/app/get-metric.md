@@ -7,11 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 04/28/2020
-ms.openlocfilehash: 94525ce901a89935c4ee7800ada44a9dff84b27a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7aacb951d449583c875c71f260957a9d3bc8c663
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82927908"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86517148"
 ---
 # <a name="custom-metric-collection-in-net-and-net-core"></a>Niestandardowa kolekcja metryk w oprogramowaniu .NET i .NET Core
 
@@ -21,7 +22,7 @@ Azure Monitor Application Insights .NET i .NET Core SDK mają dwie różne metod
 
 `TrackMetric()`wysyła pierwotne dane telemetryczne oznaczające metrykę. Wysłanie pojedynczego elementu telemetrii dla każdej wartości jest nieefektywne. `TrackMetric()`jest również nieefektywna pod względem wydajności, ponieważ każdy `TrackMetric(item)` przechodzi przez pełny zestaw SDK dla inicjatorów i procesorów telemetrycznych. W przeciwieństwie `TrackMetric()` `GetMetric()` do, obsługuje lokalną wstępną agregację dla Ciebie, a następnie przesyła tylko zagregowaną metrykę podsumowania w stałym interwale wynoszącym 1 minutę. Dlatego jeśli trzeba dokładnie monitorować pewną niestandardową metrykę na sekundę lub nawet w milisekundach, można to zrobić, jednocześnie tylko koszt ruchu magazynu i sieci jest monitorowany co minutę. Znacznie zmniejsza to ryzyko związane z ograniczaniem wydajności, ponieważ łączna liczba elementów telemetrycznych, które muszą zostać przesłane dla zagregowanej metryki, jest znacznie ograniczona.
 
-W Application Insights metryki niestandardowe zebrane za pośrednictwem `TrackMetric()` i `GetMetric()` nie podlegają [pobieraniu próbek](https://docs.microsoft.com/azure/azure-monitor/app/sampling). Próbkowanie ważnych metryk może prowadzić do scenariuszy, w których można było utworzyć alerty dotyczące tych metryk. Nigdy nie próbkuje metryk niestandardowych, zazwyczaj można mieć pewność, że w przypadku naruszenia progów alertów zostanie uruchomiony alert.  Jednak ze względu na to, że metryki niestandardowe nie są próbkowane, istnieją pewne potencjalne problemy.
+W Application Insights metryki niestandardowe zebrane za pośrednictwem `TrackMetric()` i `GetMetric()` nie podlegają [pobieraniu próbek](./sampling.md). Próbkowanie ważnych metryk może prowadzić do scenariuszy, w których można było utworzyć alerty dotyczące tych metryk. Nigdy nie próbkuje metryk niestandardowych, zazwyczaj można mieć pewność, że w przypadku naruszenia progów alertów zostanie uruchomiony alert.  Jednak ze względu na to, że metryki niestandardowe nie są próbkowane, istnieją pewne potencjalne problemy.
 
 Jeśli chcesz śledzić trendy w metryce co sekundę, lub nawet bardziej szczegółowy interwał, może to skutkować:
 
@@ -29,16 +30,16 @@ Jeśli chcesz śledzić trendy w metryce co sekundę, lub nawet bardziej szczeg�
 - Zwiększony koszt ruchu sieciowego/wydajności. (W niektórych scenariuszach może to być kosztem wydajności pieniężnej i aplikacji).
 - Ryzyko związane z ograniczaniem pozyskiwania. (Usługa Azure Monitor odrzuca punkty danych ("dławienia"), gdy aplikacja wysyła bardzo wysoką liczbę telemetrii w krótkim czasie.
 
-Ograniczanie przepustowości ma szczególne znaczenie w takich przypadkach, jak próbkowanie, ograniczanie przepustowości może prowadzić do nieodebranych alertów, ponieważ Warunek wyzwalający alert może wystąpić lokalnie, a następnie zostać porzucony w punkcie końcowym pozyskiwania z powodu zbyt dużej ilości danych. Dlatego nie zalecamy używania programów .NET i .NET Core, `TrackMetric()` chyba że zaimplementowano własną logikę agregacji lokalnej. Jeśli próbujesz śledzić każde wystąpienie zdarzenia występujące w danym okresie, może się okazać, że [`TrackEvent()`](https://docs.microsoft.com/azure/azure-monitor/app/api-custom-events-metrics#trackevent) jest to lepsza dopasowanie. Należy pamiętać, że w przeciwieństwie do metryk niestandardowych, zdarzenia niestandardowe podlegają próbkowaniu. Oczywiście można nadal używać `TrackMetric()` nawet bez konieczności pisania własnej wstępnej agregacji, ale jeśli tak, należy pamiętać o pułapek.
+Ograniczanie przepustowości ma szczególne znaczenie w takich przypadkach, jak próbkowanie, ograniczanie przepustowości może prowadzić do nieodebranych alertów, ponieważ Warunek wyzwalający alert może wystąpić lokalnie, a następnie zostać porzucony w punkcie końcowym pozyskiwania z powodu zbyt dużej ilości danych. Dlatego nie zalecamy używania programów .NET i .NET Core, `TrackMetric()` chyba że zaimplementowano własną logikę agregacji lokalnej. Jeśli próbujesz śledzić każde wystąpienie zdarzenia występujące w danym okresie, może się okazać, że [`TrackEvent()`](./api-custom-events-metrics.md#trackevent) jest to lepsza dopasowanie. Należy pamiętać, że w przeciwieństwie do metryk niestandardowych, zdarzenia niestandardowe podlegają próbkowaniu. Oczywiście można nadal używać `TrackMetric()` nawet bez konieczności pisania własnej wstępnej agregacji, ale jeśli tak, należy pamiętać o pułapek.
 
 Podsumowując `GetMetric()` jest zalecanym podejściem, ponieważ wykonuje wstępne agregacja, gromadzi wartości ze wszystkich wywołań śledzenia () i wysyła podsumowanie/agregację co minutę. Może to znacznie zmniejszyć koszty i obciążenie wydajności, wysyłając mniejszą liczbę punktów danych, zachowując jednocześnie wszystkie istotne informacje.
 
 > [!NOTE]
-> Tylko zestawy SDK .NET i .NET Core mają metodę GetMetric (). Jeśli używasz języka Java, możesz użyć [metryk Micrometer](https://docs.microsoft.com/azure/azure-monitor/app/micrometer-java) lub `TrackMetric()` . Dla języka Python można użyć [OpenCensus.](https://docs.microsoft.com/azure/azure-monitor/app/opencensus-python#metrics) destandards do wysyłania metryk niestandardowych. W przypadku języka JavaScript i Node.js nadal można korzystać z programu `TrackMetric()` , ale należy pamiętać o zastrzeżeniach, które zostały opisane w poprzedniej sekcji.
+> Tylko zestawy SDK .NET i .NET Core mają metodę GetMetric (). Jeśli używasz języka Java, możesz użyć [metryk Micrometer](./micrometer-java.md) lub `TrackMetric()` . Dla języka Python można użyć [OpenCensus.](./opencensus-python.md#metrics) destandards do wysyłania metryk niestandardowych. W przypadku języka JavaScript i Node.js nadal można korzystać z programu `TrackMetric()` , ale należy pamiętać o zastrzeżeniach, które zostały opisane w poprzedniej sekcji.
 
 ## <a name="getting-started-with-getmetric"></a>Wprowadzenie do GetMetric
 
-Nasze przykłady wykorzystują podstawową aplikację usługi roboczej .NET Core 3,1. Jeśli chcesz dokładnie replikować środowisko testowe, które było używane w tych przykładach, wykonaj kroki 1-6 w [artykule monitorowanie usługi procesu roboczego](https://docs.microsoft.com/azure/azure-monitor/app/worker-service#net-core-30-worker-service-application) , aby dodać Application Insights do szablonu projektu podstawowego usługi roboczej. Te pojęcia dotyczą wszystkich ogólnych aplikacji, w których można używać zestawu SDK, w tym aplikacji sieci Web i aplikacji konsolowych.
+Nasze przykłady wykorzystują podstawową aplikację usługi roboczej .NET Core 3,1. Jeśli chcesz dokładnie replikować środowisko testowe, które było używane w tych przykładach, wykonaj kroki 1-6 w [artykule monitorowanie usługi procesu roboczego](./worker-service.md#net-core-30-worker-service-application) , aby dodać Application Insights do szablonu projektu podstawowego usługi roboczej. Te pojęcia dotyczą wszystkich ogólnych aplikacji, w których można używać zestawu SDK, w tym aplikacji sieci Web i aplikacji konsolowych.
 
 ### <a name="sending-metrics"></a>Wysyłanie metryk
 
@@ -110,7 +111,7 @@ Jeśli sprawdzimy nasz zasób Application Insights w środowisku dzienników (an
 > [!NOTE]
 > Nieprzetworzony element telemetrii nie zawierał jawnej sumy właściwości/pola po pobraniu dla Ciebie nowej wartości. W tym przypadku zarówno `value` Właściwość, jak i `valueSum` reprezentuje to samo.
 
-Dostęp do danych telemetrycznych metryk niestandardowych można uzyskać również w sekcji [_metryki_](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-charts) portalu. Zarówno jako [Metryka oparta na dzienniku, jak i niestandardowa](pre-aggregated-metrics-log-metrics.md). (Poniższy zrzut ekranu przedstawia przykład opartego na dzienniku). ![Widok Eksploratora metryk](./media/get-metric/metrics-explorer.png)
+Dostęp do danych telemetrycznych metryk niestandardowych można uzyskać również w sekcji [_metryki_](../platform/metrics-charts.md) portalu. Zarówno jako [Metryka oparta na dzienniku, jak i niestandardowa](pre-aggregated-metrics-log-metrics.md). (Poniższy zrzut ekranu przedstawia przykład opartego na dzienniku). ![Widok Eksploratora metryk](./media/get-metric/metrics-explorer.png)
 
 ### <a name="caching-metric-reference-for-high-throughput-usage"></a>Odwołanie do pamięci podręcznej dla użycia o wysokiej przepływności
 
@@ -301,8 +302,8 @@ SeverityLevel.Error);
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Dowiedz się więcej ](https://docs.microsoft.com/azure/azure-monitor/app/worker-service)o monitorowaniu aplikacji usługi Worker.
-* Aby uzyskać więcej szczegółowych informacji na temat [metryk opartych na dzienniku i wstępnie agregowanych](https://docs.microsoft.com/azure/azure-monitor/app/pre-aggregated-metrics-log-metrics).
-* [Eksplorator metryk](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-getting-started)
+* [Dowiedz się więcej ](./worker-service.md)o monitorowaniu aplikacji usługi Worker.
+* Aby uzyskać więcej szczegółowych informacji na temat [metryk opartych na dzienniku i wstępnie agregowanych](./pre-aggregated-metrics-log-metrics.md).
+* [Eksplorator metryk](../platform/metrics-getting-started.md)
 * Jak włączyć Application Insights [aplikacji ASP.NET Core](asp-net-core.md)
 * Jak włączyć Application Insights dla [aplikacji ASP.NET](asp-net.md)

@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 03/24/2020
+ms.date: 07/20/2020
 ms.author: absha
-ms.openlocfilehash: 1e3ef1133628f0470ee92237abf20d3bb0a9e21a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0245a23e46770840295904685c913826950c0642
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85254671"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86517845"
 ---
 # <a name="application-gateway-configuration-overview"></a>Przegląd konfiguracji Application Gateway
 
@@ -146,7 +146,7 @@ Podczas tworzenia nowego odbiornika należy wybrać jedną z [ *podstawowych* i 
 
 - Jeśli chcesz, aby wszystkie żądania (dla dowolnej domeny) zostały zaakceptowane i przesłane dalej do pul zaplecza, wybierz pozycję podstawowa. Dowiedz się, [jak utworzyć bramę aplikacji z odbiornikiem podstawowym](https://docs.microsoft.com/azure/application-gateway/quick-create-portal).
 
-- Jeśli chcesz przekazywać żądania do różnych pul zaplecza na podstawie nagłówka *hosta* lub nazwy hosta, wybierz odbiornik wielu witryn, gdzie należy określić nazwę hosta zgodną z żądaniem przychodzącym. Jest to spowodowane tym, że Application Gateway opiera się na nagłówkach hosta HTTP 1,1 do hostowania więcej niż jednej witryny sieci Web na tym samym publicznym adresie IP i porcie.
+- Jeśli chcesz przekazywać żądania do różnych pul zaplecza na podstawie nazwy nagłówka *hosta* lub hosta, wybierz odbiornik wielu witryn, w którym należy określić nazwę hosta zgodną z żądaniem przychodzącym. Jest to spowodowane tym, że Application Gateway opiera się na nagłówkach hosta HTTP 1,1 do hostowania więcej niż jednej witryny sieci Web na tym samym publicznym adresie IP i porcie. Aby dowiedzieć się więcej, zobacz [hostowanie wielu witryn przy użyciu Application Gateway](multiple-site-overview.md).
 
 #### <a name="order-of-processing-listeners"></a>Kolejność przetwarzania odbiorników
 
@@ -279,12 +279,16 @@ Aby uzyskać więcej informacji na temat przekierowania, zobacz:
 - [Przekierowywanie ruchu do lokacji zewnętrznej przy użyciu programu PowerShell](redirect-external-site-powershell.md)
 - [Przekierowywanie ruchu do lokacji zewnętrznej przy użyciu interfejsu wiersza polecenia](redirect-external-site-cli.md)
 
-#### <a name="rewrite-the-http-header-setting"></a>Ponowne zapisywanie ustawienia nagłówka HTTP
+### <a name="rewrite-http-headers-and-url"></a>Zapisz ponownie nagłówki HTTP i adres URL
 
-To ustawienie powoduje dodanie, usunięcie lub aktualizację nagłówków żądań i odpowiedzi HTTP, podczas gdy pakiety żądań i odpowiedzi przechodzą między klientami a pulami zaplecza. Aby uzyskać więcej informacji, zobacz:
+Korzystając z reguł ponownego zapisywania, można dodawać, usuwać lub aktualizować żądania HTTP (S) i nagłówki odpowiedzi oraz ścieżkę URL i parametry ciągu zapytania jako pakiety żądań i odpowiedzi przenoszone między pulami klienta i zaplecza za pośrednictwem bramy aplikacji.
 
- - [Przegląd ponownego zapisywania nagłówków HTTP](rewrite-http-headers.md)
+W nagłówkach i parametrach adresu URL można ustawić wartości statyczne lub inne nagłówki i zmienne serwera. Pomaga to z ważnymi przypadkami użycia, takimi jak wyodrębnianie adresów IP klientów, usuwanie poufnych informacji o zapleczu, dodawanie dodatkowych zabezpieczeń i tak dalej.
+Aby uzyskać więcej informacji, zobacz:
+
+ - [Przegląd ponownego zapisywania nagłówków HTTP](rewrite-http-headers-url.md)
  - [Konfigurowanie ponownego zapisywania nagłówka HTTP](rewrite-http-headers-portal.md)
+ - [Skonfiguruj ponowne zapisywanie adresów URL](rewrite-url-portal.md)
 
 ## <a name="http-settings"></a>Ustawienia protokołu HTTP
 
@@ -357,7 +361,7 @@ To ustawienie kojarzy [niestandardową sondę](application-gateway-probe-overvie
 > [!NOTE]
 > Niestandardowa Sonda nie monitoruje kondycji puli zaplecza, chyba że odpowiednie ustawienie protokołu HTTP jest jawnie skojarzone z odbiornikiem.
 
-### <a name="pick-host-name-from-back-end-address"></a><a id="pick"/></a>Wybierz nazwę hosta z adresu zaplecza
+### <a name="pick-host-name-from-back-end-address"></a><a name="pick"></a>Wybierz nazwę hosta z adresu zaplecza
 
 Ta funkcja dynamicznie ustawia nagłówek *hosta* w żądaniu na nazwę hosta puli zaplecza. Używa adresu IP lub nazwy FQDN.
 

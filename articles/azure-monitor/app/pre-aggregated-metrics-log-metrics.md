@@ -6,11 +6,12 @@ author: vgorbenko
 ms.author: vitalyg
 ms.date: 09/18/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 30487eebed361e5b010df023a9b1a44f96590b14
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9aba1e5b469e04c6c6d047f78cd202a073e5a769
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81271084"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86516944"
 ---
 # <a name="log-based-and-pre-aggregated-metrics-in-application-insights"></a>Metryki oparte na dzienniku i metryki wstępnie zagregowane w usłudze Application Insights
 
@@ -22,14 +23,14 @@ Przede wszystkim model danych telemetrii monitorowania aplikacji w Application I
 
 Korzystanie z dzienników w celu zachowania kompletnego zestawu zdarzeń może przynieść dobrą wartość analityczną i diagnostykę. Na przykład można uzyskać dokładną liczbę żądań do określonego adresu URL z liczbą różnych użytkowników, którzy wykonali te wywołania. Można też uzyskać szczegółowe dane śledzenia diagnostyczne, w tym wyjątki i wywołania zależności dla każdej sesji użytkownika. Informacje tego typu mogą znacząco poprawić widoczność kondycji i użycia aplikacji, co pozwala skrócić czas potrzebny na zdiagnozowanie problemów z aplikacją.
 
-W tym samym czasie zbieranie kompletnego zestawu zdarzeń może być niepraktyczne (lub nawet niemożliwe) dla aplikacji generujących dużą ilość danych telemetrycznych. W sytuacjach, gdy ilość zdarzeń jest zbyt duża, Application Insights implementuje kilka technik redukcji woluminu telemetrii, takich jak [próbkowanie](https://docs.microsoft.com/azure/application-insights/app-insights-sampling) i [filtrowanie](https://docs.microsoft.com/azure/application-insights/app-insights-api-filtering-sampling) , które zmniejszają liczbę zebranych i przechowywanych zdarzeń. Niestety, zmniejszenie liczby przechowywanych zdarzeń również zmniejsza dokładność metryk, które w tle, muszą wykonywać agregacje czasu zapytania dla zdarzeń przechowywanych w dziennikach.
+W tym samym czasie zbieranie kompletnego zestawu zdarzeń może być niepraktyczne (lub nawet niemożliwe) dla aplikacji generujących dużą ilość danych telemetrycznych. W sytuacjach, gdy ilość zdarzeń jest zbyt duża, Application Insights implementuje kilka technik redukcji woluminu telemetrii, takich jak [próbkowanie](./sampling.md) i [filtrowanie](./api-filtering-sampling.md) , które zmniejszają liczbę zebranych i przechowywanych zdarzeń. Niestety, zmniejszenie liczby przechowywanych zdarzeń również zmniejsza dokładność metryk, które w tle, muszą wykonywać agregacje czasu zapytania dla zdarzeń przechowywanych w dziennikach.
 
 > [!NOTE]
 > W Application Insights metryki oparte na agregacji czasu zapytania i zdarzenia przechowywane w dziennikach są nazywane metrykami opartymi na dzienniku. Te metryki zwykle mają wiele wymiarów na podstawie właściwości zdarzenia, co sprawia, że są one przełożone na potrzeby analiz, ale dokładność tych metryk ma negatywny wpływ na próbkowanie i filtrowanie.
 
 ## <a name="pre-aggregated-metrics"></a>Metryki wstępnie zagregowane
 
-Oprócz metryk opartych na dziennikach w późnej 2018 zespół Application Insights wysłał publiczną wersję zapoznawczą metryk, które są przechowywane w wyspecjalizowanym repozytorium, które jest zoptymalizowane pod kątem szeregów czasowych. Nowe metryki nie są już przechowywane jako pojedyncze zdarzenia z wieloma właściwościami. Zamiast tego są one przechowywane jako seria czasowo agregowane i tylko z kluczowymi wymiarami. To sprawia, że nowe metryki przewyższają czas zapytania: pobieranie danych odbywa się znacznie szybciej i wymaga mniejszej mocy obliczeniowej. W związku z tym umożliwiają nowe scenariusze, takie jak [alerty niemal w czasie rzeczywistym na podstawie wymiarów metryk](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts), więcej odpowiedzi na [pulpity nawigacyjne](https://docs.microsoft.com/azure/azure-monitor/app/overview-dashboard)i inne.
+Oprócz metryk opartych na dziennikach w późnej 2018 zespół Application Insights wysłał publiczną wersję zapoznawczą metryk, które są przechowywane w wyspecjalizowanym repozytorium, które jest zoptymalizowane pod kątem szeregów czasowych. Nowe metryki nie są już przechowywane jako pojedyncze zdarzenia z wieloma właściwościami. Zamiast tego są one przechowywane jako seria czasowo agregowane i tylko z kluczowymi wymiarami. To sprawia, że nowe metryki przewyższają czas zapytania: pobieranie danych odbywa się znacznie szybciej i wymaga mniejszej mocy obliczeniowej. W związku z tym umożliwiają nowe scenariusze, takie jak [alerty niemal w czasie rzeczywistym na podstawie wymiarów metryk](../platform/alerts-metric-near-real-time.md), więcej odpowiedzi na [pulpity nawigacyjne](./overview-dashboard.md)i inne.
 
 > [!IMPORTANT]
 > Zarówno metryki oparte na dzienniku, jak i wstępnie zagregowane współistnieją w Application Insights. Aby odróżnić te dwa, w Application Insights środowisku użytkownika metryki wstępnie zagregowane są teraz nazywane "metrykami standardowymi (wersja zapoznawcza)", podczas gdy tradycyjne metryki ze zdarzeń zostały zmienione na "metryki oparte na dziennikach".
@@ -38,17 +39,17 @@ Nowsze zestawy SDK ([Application Insights 2,7](https://www.nuget.org/packages/Mi
 
 W przypadku zestawów SDK, które nie implementują wstępnej agregacji (to jest starsze wersje zestawów SDK Application Insights lub dla Instrumentacji przeglądarki), Application Insights zaplecza nadal wypełnia nowe metryki, agregowanie zdarzeń odebranych przez punkt końcowy zbierania zdarzeń Application Insights. Oznacza to, że chociaż nie korzystasz ze zmniejszonej ilości danych przesyłanych za pośrednictwem sieci, nadal możesz użyć wstępnie zagregowanych metryk i zapewnić lepszą wydajność i obsługę alertów w czasie rzeczywistym, korzystając z zestawów SDK, które nie agregują wstępnie metryk podczas zbierania.
 
-Warto zauważyć, że punkt końcowy kolekcji wstępnie agreguje zdarzenia przed pobraniem próbek, co oznacza, że [pobieranie próbek](https://docs.microsoft.com/azure/application-insights/app-insights-sampling) nie będzie miało wpływu na dokładność metryk przedzagregowanych, niezależnie od używanej wersji zestawu SDK z aplikacją.  
+Warto zauważyć, że punkt końcowy kolekcji wstępnie agreguje zdarzenia przed pobraniem próbek, co oznacza, że [pobieranie próbek](./sampling.md) nie będzie miało wpływu na dokładność metryk przedzagregowanych, niezależnie od używanej wersji zestawu SDK z aplikacją.  
 
 ## <a name="using-pre-aggregation-with-application-insights-custom-metrics"></a>Używanie wstępnej agregacji z niestandardowymi metrykami Application Insights
 
 Można użyć wstępnej agregacji z metrykami niestandardowymi. Dwie główne korzyści to możliwość konfiguracji i alertu na wymiarze metryki niestandardowej oraz zmniejszenia ilości danych wysyłanych z zestawu SDK do punktu końcowego kolekcji Application Insights.
 
-Istnieje kilka [sposobów wysyłania niestandardowych metryk z zestawu SDK Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics). Jeśli Twoja wersja zestawu SDK oferuje metody [GetMetric i TrackValue](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#getmetric) , jest to preferowany sposób wysyłania metryk niestandardowych, ponieważ w tym przypadku wstępne agregacja występuje w ramach zestawu SDK, nie tylko zmniejszenie ilości danych przechowywanych na platformie Azure, ale także ilości danych przesyłanych z zestawu sdk do Application Insights. W przeciwnym razie użyj metody [trackMetric](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackmetric) , która spowoduje wstępne agregowanie zdarzeń metryk podczas pozyskiwania danych.
+Istnieje kilka [sposobów wysyłania niestandardowych metryk z zestawu SDK Application Insights](./api-custom-events-metrics.md). Jeśli Twoja wersja zestawu SDK oferuje metody [GetMetric i TrackValue](./api-custom-events-metrics.md#getmetric) , jest to preferowany sposób wysyłania metryk niestandardowych, ponieważ w tym przypadku wstępne agregacja występuje w ramach zestawu SDK, nie tylko zmniejszenie ilości danych przechowywanych na platformie Azure, ale także ilości danych przesyłanych z zestawu sdk do Application Insights. W przeciwnym razie użyj metody [trackMetric](./api-custom-events-metrics.md#trackmetric) , która spowoduje wstępne agregowanie zdarzeń metryk podczas pozyskiwania danych.
 
 ## <a name="custom-metrics-dimensions-and-pre-aggregation"></a>Niestandardowe wymiary metryk i wstępne agregacja
 
-Wszystkie metryki wysyłane przy użyciu wywołań interfejsu API [trackMetric](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackmetric) lub [GetMetric i TrackValue](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#getmetric) są automatycznie przechowywane w magazynach dzienników i metryk. Jednak podczas gdy wersja metryki niestandardowej jest zawsze zachowywana wszystkie wymiary, wstępnie zagregowana wersja metryki jest domyślnie przechowywana bez wymiarów. Możesz włączyć zbieranie wymiarów niestandardowych metryk na karcie [użycie i szacowane koszty](https://docs.microsoft.com/azure/application-insights/app-insights-pricing) , zaznaczając opcję "Włącz alerty w niestandardowych wymiarach metryk": 
+Wszystkie metryki wysyłane przy użyciu wywołań interfejsu API [trackMetric](./api-custom-events-metrics.md#trackmetric) lub [GetMetric i TrackValue](./api-custom-events-metrics.md#getmetric) są automatycznie przechowywane w magazynach dzienników i metryk. Jednak podczas gdy wersja metryki niestandardowej jest zawsze zachowywana wszystkie wymiary, wstępnie zagregowana wersja metryki jest domyślnie przechowywana bez wymiarów. Możesz włączyć zbieranie wymiarów niestandardowych metryk na karcie [użycie i szacowane koszty](./pricing.md) , zaznaczając opcję "Włącz alerty w niestandardowych wymiarach metryk": 
 
 ![Użycie i szacowany koszt](./media/pre-aggregated-metrics-log-metrics/001-cost.png)
 
@@ -64,11 +65,11 @@ Korzystając z [Azure Monitor Eksplorator metryk](../platform/metrics-getting-st
 
 ## <a name="pricing-models-for-application-insights-metrics"></a>Modele cen dla metryk Application Insights
 
-Pozyskiwanie metryk do Application Insights, zarówno w przypadku dzienników, jak i wstępnie zagregowanych, spowoduje wygenerowanie kosztów na podstawie wielkości pozyskanych danych, zgodnie z opisem w [tym miejscu](https://docs.microsoft.com/azure/azure-monitor/app/pricing#pricing-model). Metryki niestandardowe, w tym wszystkie jej wymiary, są zawsze przechowywane w magazynie dzienników Application Insights. Ponadto wstępnie zagregowana wersja metryk niestandardowych (bez wymiarów) jest domyślnie przekazywana do magazynu metryk.
+Pozyskiwanie metryk do Application Insights, zarówno w przypadku dzienników, jak i wstępnie zagregowanych, spowoduje wygenerowanie kosztów na podstawie wielkości pozyskanych danych, zgodnie z opisem w [tym miejscu](./pricing.md#pricing-model). Metryki niestandardowe, w tym wszystkie jej wymiary, są zawsze przechowywane w magazynie dzienników Application Insights. Ponadto wstępnie zagregowana wersja metryk niestandardowych (bez wymiarów) jest domyślnie przekazywana do magazynu metryk.
 
 Wybranie opcji [Włącz alerty dla niestandardowych wymiarów metryk](#custom-metrics-dimensions-and-pre-aggregation) umożliwia przechowywanie wszystkich wymiarów wstępnie zagregowanych metryk w magazynie metryk, a także generowanie **dodatkowych** kosztów na podstawie [cen metryk niestandardowych](https://azure.microsoft.com/pricing/details/monitor/).
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Alerty niemal w czasie rzeczywistym](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts)
-* [GetMetric i TrackValue](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#getmetric)
+* [Alerty niemal w czasie rzeczywistym](../platform/alerts-metric-near-real-time.md)
+* [GetMetric i TrackValue](./api-custom-events-metrics.md#getmetric)

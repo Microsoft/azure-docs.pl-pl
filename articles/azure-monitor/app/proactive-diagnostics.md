@@ -3,11 +3,12 @@ title: Inteligentne wykrywanie na platformie Azure Application Insights | Micros
 description: Application Insights przeprowadza automatyczne głębokiej analizy danych telemetrycznych aplikacji i ostrzega o potencjalnych problemach.
 ms.topic: conceptual
 ms.date: 02/07/2019
-ms.openlocfilehash: b7fecf886515780858ecc503a29be3bd76b73c3f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ad6580a0a62d331a7851c47d71b46d3ea6c81468
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83700843"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86516876"
 ---
 # <a name="smart-detection-in-application-insights"></a>Wykrywanie inteligentne w usłudze Application Insights
  Inteligentne wykrywanie automatycznie ostrzega o potencjalnych problemach z wydajnością i anomaliach niepowodzeń w aplikacji sieci Web. Wykonuje proaktywnie analizę danych telemetrycznych wysyłanych przez aplikację do [Application Insights](../../azure-monitor/app/app-insights-overview.md). W przypadku nagłego wzrostu współczynnika błędów lub nietypowych wzorców wydajności klienta lub serwera zostanie wyświetlony alert. Ta funkcja nie wymaga konfiguracji. Działa, gdy aplikacja wysyła wystarczającą ilość danych telemetrycznych.
@@ -33,7 +34,7 @@ Inteligentne wykrywanie wykrywa różne problemy, takie jak:
 
 * [Anomalie wykrywania inteligentnego](../../azure-monitor/app/proactive-failure-diagnostics.md). Używamy uczenia maszynowego, aby ustawić oczekiwaną liczbę żądań zakończonych niepowodzeniem dla aplikacji, skorelowanie z obciążeniem i innymi czynnikami. Jeśli współczynnik błędów wykracza poza oczekiwaną kopertę, wyślemy alert.
 * [Wykrywanie inteligentne — anomalie wydajności](../../azure-monitor/app/proactive-performance-diagnostics.md). Otrzymuję powiadomienia, jeśli czas odpowiedzi operacji lub czasu trwania zależności jest wolniejszy w porównaniu do historycznej linii bazowej lub w przypadku zidentyfikowania nietypowego wzorca w czasie odpowiedzi lub w czasie ładowania strony.   
-* Ogólne degradacje i problemy, takie jak [spadek wydajności](https://docs.microsoft.com/azure/azure-monitor/app/proactive-trace-severity), [przeciek pamięci](https://docs.microsoft.com/azure/azure-monitor/app/proactive-potential-memory-leak), [nietypowy wzrost ilości](https://docs.microsoft.com/azure/azure-monitor/app/proactive-exception-volume) i [antywzorce zabezpieczeń](https://docs.microsoft.com/azure/azure-monitor/app/proactive-application-security-detection-pack).
+* Ogólne degradacje i problemy, takie jak [spadek wydajności](./proactive-trace-severity.md), [przeciek pamięci](./proactive-potential-memory-leak.md), [nietypowy wzrost ilości](./proactive-exception-volume.md) i [antywzorce zabezpieczeń](./proactive-application-security-detection-pack.md).
 
 (Linki pomocy w poszczególnych powiadomieniach przeprowadzą Cię do odpowiednich artykułów).
 
@@ -43,7 +44,7 @@ Wszystkie reguły inteligentnego wykrywania, z wyjątkiem reguł oznaczonych jak
 
 Konfigurowanie powiadomień e-mail dla konkretnej reguły wykrywania inteligentnego można wykonać, otwierając blok **Ustawienia** inteligentnego wykrywania i wybierając regułę, co spowoduje otwarcie bloku **Edytuj regułę** .
 
-Alternatywnie można zmienić konfigurację przy użyciu szablonów Azure Resource Manager. Aby uzyskać więcej informacji, [Zobacz temat zarządzanie Application Insights regułami wykrywania automatycznego przy użyciu szablonów Azure Resource Manager](https://docs.microsoft.com/azure/azure-monitor/app/proactive-arm-config) .
+Alternatywnie można zmienić konfigurację przy użyciu szablonów Azure Resource Manager. Aby uzyskać więcej informacji, [Zobacz temat zarządzanie Application Insights regułami wykrywania automatycznego przy użyciu szablonów Azure Resource Manager](./proactive-arm-config.md) .
 
 ## <a name="video"></a>Wideo
 
@@ -60,4 +61,3 @@ Inteligentne wykrywanie jest całkowicie automatyczne. Ale być może chcesz sko
 
 * [Ręcznie skonfigurowane alerty metryk](../../azure-monitor/platform/alerts-log.md)
 * [Testy dostępności sieci Web](../../azure-monitor/app/monitor-web-app-availability.md) 
-

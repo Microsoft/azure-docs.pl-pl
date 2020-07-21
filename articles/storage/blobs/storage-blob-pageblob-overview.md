@@ -9,12 +9,12 @@ ms.date: 06/15/2020
 ms.author: tamram
 ms.reviewer: wielriac
 ms.subservice: blobs
-ms.openlocfilehash: 2338c523c13b16b4a63ee9de0d966182e26c3286
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 447653cdcaeb1a0bbf891a26e8bc0af5ead87fdb
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223299"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518711"
 ---
 # <a name="overview-of-azure-page-blobs"></a>Omówienie obiektów BLOB na stronie platformy Azure
 
@@ -33,6 +33,10 @@ Usługi firmy Microsoft w pierwszej kolejności, takie jak Azure Site Recovery, 
 * Zarządzanie migawkami przyrostowymi ukierunkowanymi na aplikacje: aplikacje mogą korzystać z migawek obiektów blob i interfejsów API REST w celu zapisywania punktów kontrolnych aplikacji bez ponoszenia kosztów duplikowania danych. Usługa Azure Storage obsługuje migawki lokalne dla stronicowych obiektów blob, które nie wymagają kopiowania całego obiektu BLOB. Te publiczne interfejsy API migawek umożliwiają również dostęp do i kopiowanie różnic między migawkami.
 * Migracja na żywo aplikacji i danych z lokalizacji lokalnej do chmury: Skopiuj dane lokalne i Użyj interfejsów API REST, aby pisać bezpośrednio do obiektu BLOB na stronie platformy Azure, gdy na lokalnej maszynie wirtualnej nadal działa. Gdy obiekt docelowy zostanie przechwycony, możesz szybko przełączyć się do trybu failover na maszynie wirtualnej platformy Azure przy użyciu tych danych. W ten sposób można migrować maszyny wirtualne i dyski wirtualne z lokalizacji lokalnych do chmury z minimalnym przestojem, ponieważ migracja danych odbywa się w tle, a czas przestoju wymagany do przejścia w tryb failover będzie krótki (w minutach).
 * Dostęp współdzielony [oparty na SAS](../common/storage-sas-overview.md) , który umożliwia scenariusze, takie jak wiele czytników i pojedynczy moduł zapisu z obsługą kontroli współbieżności.
+
+## <a name="pricing"></a>Ceny
+
+Oba typy magazynów oferowane przez stronicowe obiekty blob mają własny model cen. Na stronie Premium obiekty blob są zgodne z modelem cen dla dysków zarządzanych, podczas gdy standardowe obiekty blob na stronie standardowej są rozliczane przy użyciu rozmiaru i każdej transakcji. Aby uzyskać więcej informacji, zobacz [stronę cennika obiektów BLOB strony platformy Azure](https://azure.microsoft.com/pricing/details/storage/page-blobs/).
 
 ## <a name="page-blob-features"></a>Cechy stronicowego obiektu blob
 

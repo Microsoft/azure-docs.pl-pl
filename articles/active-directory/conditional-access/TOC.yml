@@ -47,8 +47,6 @@
       href: controls.md
     - name: Migrowanie zasad klasycznych
       href: policy-migration.md
-    - name: Zasady ochrony punktu odniesienia
-      href: concept-baseline-protection.md
 - name: Przewodniki z instrukcjami
   expanded: true
   items:

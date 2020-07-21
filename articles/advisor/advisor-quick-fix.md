@@ -4,11 +4,12 @@ description: Wykonywanie korekty zbiorczej przy użyciu funkcji szybkiej naprawy
 ms.topic: article
 ms.date: 03/13/2020
 ms.author: sagupt
-ms.openlocfilehash: 3c3ac27f04aa516fbef1bfff30e3392659b58919
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ebd993733c1aca9cd4f7d92f0a75e22d68a87ffe
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79502492"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518066"
 ---
 # <a name="quick-fix-remediation-for-advisor"></a>Szybkie korygowanie poprawek dla klasyfikatora
 **Szybka poprawka** zapewnia szybszy i łatwiejszy sposób korygowania zaleceń dotyczących wielu zasobów. Zapewnia możliwość korygowania zbiorczego zasobów i pomaga zoptymalizować subskrypcje szybciej dzięki korygowaniu zasobów.
@@ -49,4 +50,4 @@ Aby uzyskać więcej informacji na temat zaleceń klasyfikatora, zobacz:
 * [Zalecenia dotyczące wydajności usługi Advisor](advisor-performance-recommendations.md)
 * [Zalecenia dotyczące zabezpieczeń usługi Advisor](advisor-security-recommendations.md)
 * [Zalecenia dotyczące doskonałości operacyjnej klasyfikatora](advisor-operational-excellence-recommendations.md)
-* [Interfejs API REST usługi Advisor](https://docs.microsoft.com/rest/api/advisor/)
+* [Interfejs API REST usługi Advisor](/rest/api/advisor/)

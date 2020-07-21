@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 02/25/2020
 ms.custom: mvc
-ms.openlocfilehash: c864a9cc5dd5658bcb3205ce2cbe4f6142cf45a1
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 70ffe0bb98e89babe2f5998ee66666dd5368f7f2
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86255493"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518049"
 ---
 # <a name="migrate-to-azure-kubernetes-service-aks"></a>Migrowanie do usługi Azure Kubernetes Service (AKS)
 
@@ -51,7 +51,7 @@ AKS to zarządzana usługa oferująca unikatowe możliwości o niższym obciąż
 
 Zalecamy używanie klastrów AKS, które są obsługiwane przez [Virtual Machine Scale Sets](../virtual-machine-scale-sets/index.yml) i [Usługa Load Balancer w warstwie Standardowa platformy Azure](./load-balancer-standard.md) , aby uzyskać funkcje takie [jak pule wielu węzłów](./use-multiple-node-pools.md), [strefy dostępności](../availability-zones/az-overview.md), [autoryzowane zakresy adresów IP](./api-server-authorized-ip-ranges.md), [Automatyczne skalowanie klastra](./cluster-autoscaler.md), [Azure Policy dla AKS](../governance/policy/concepts/policy-for-kubernetes.md)i inne nowe funkcje w miarę ich udostępnienia.
 
-Klastry AKS obsługiwane przez [zestawy dostępności maszyn wirtualnych](../virtual-machine-scale-sets/availability.md#availability-sets) nie obsługują wielu z tych funkcji.
+Klastry AKS obsługiwane przez [zestawy dostępności maszyn wirtualnych](../virtual-machines/availability.md#availability-sets) nie obsługują wielu z tych funkcji.
 
 W poniższym przykładzie jest tworzony klaster AKS z pulą jednego węzła, które są obsługiwane przez zestaw skalowania maszyn wirtualnych. Używa ona standardowego modułu równoważenia obciążenia. Włącza również automatyczne skalowanie klastra w puli węzłów klastra i ustawia co najmniej *1* i maksymalnie *3* węzły:
 

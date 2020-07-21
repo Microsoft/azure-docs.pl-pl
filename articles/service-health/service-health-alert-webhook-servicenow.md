@@ -3,12 +3,12 @@ title: Wysyłanie alertów usługi Azure Service Health z usługi ServiceNow
 description: Uzyskaj spersonalizowane powiadomienia o zdarzeniach kondycji usługi do wystąpienia usługi ServiceNow.
 ms.topic: conceptual
 ms.date: 06/10/2019
-ms.openlocfilehash: 5cd17af080714fdf2e9e5b168e72f975c8d3a3f6
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 96c181991fc962b08e777a55d891b881fc1bdba3
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86260207"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86519079"
 ---
 # <a name="send-azure-service-health-alerts-with-servicenow-using-webhooks"></a>Wysyłanie alertów usługi Azure Service Health za pomocą usługi ServiceNow przy użyciu elementów webhook
 
@@ -147,7 +147,7 @@ W tym artykule pokazano, jak zintegrować alerty usługi Azure Service Health z 
 
 ## <a name="create-an-alert-using-servicenow-in-the-azure-portal"></a>Tworzenie alertu przy użyciu usługi ServiceNow w Azure Portal
 ### <a name="for-a-new-action-group"></a>Dla nowej grupy akcji:
-1. Wykonaj kroki od 1 do 8 w [tym artykule](../azure-monitor/platform/alerts-activity-log-service-notifications.md) , aby utworzyć alert z nową grupą akcji.
+1. Wykonaj kroki od 1 do 8 w [tym artykule](./alerts-activity-log-service-notifications-portal.md) , aby utworzyć alert z nową grupą akcji.
 
 1. Zdefiniuj na liście **akcji**:
 
@@ -195,5 +195,5 @@ W tym artykule pokazano, jak zintegrować alerty usługi Azure Service Health z 
 ## <a name="next-steps"></a>Następne kroki
 - Dowiedz się, jak [skonfigurować powiadomienia elementu webhook dla istniejących systemów zarządzania problemami](service-health-alert-webhook-guide.md).
 - Przejrzyj [schemat elementu webhook alertu dziennika aktywności](../azure-monitor/platform/activity-log-alerts-webhook.md). 
-- Dowiedz się więcej o [powiadomieniach o kondycji usługi](../azure-monitor/platform/service-notifications.md).
+- Dowiedz się więcej o [powiadomieniach o kondycji usługi](./service-notifications.md).
 - Dowiedz się więcej na temat [grup akcji](../azure-monitor/platform/action-groups.md).

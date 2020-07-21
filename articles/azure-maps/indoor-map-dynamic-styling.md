@@ -8,11 +8,12 @@ ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 8c854a503e3c949be0165d9dda046e0169686c67
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a96a62d7bb93f0ede6b16008dc844ad7f1a8c8d2
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84434146"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86517301"
 ---
 # <a name="implement-dynamic-styling-for-creator-indoor-maps"></a>Zaimplementuj dynamiczne style dla map pomieszczeń dla twórców
 
@@ -20,7 +21,7 @@ ms.locfileid: "84434146"
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-1. [Tworzenie konta usługi Azure Maps](quick-demo-map-app.md#create-an-account-with-azure-maps)
+1. [Tworzenie konta usługi Azure Maps](quick-demo-map-app.md#create-an-azure-maps-account)
 2. [Uzyskaj podstawowy klucz subskrypcji](quick-demo-map-app.md#get-the-primary-key-for-your-account), nazywany także kluczem podstawowym lub kluczem subskrypcji.
 3. [Tworzenie zasobu twórcy](how-to-manage-creator.md)
 4. Pobierz [przykładowy pakiet rysowania](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
@@ -65,7 +66,7 @@ W następnej sekcji ustawimy *stan* zajętości pakietu Office `UNIT26` na `true
 
  Teraz będziemy aktualizować stan dwóch biur `UNIT26` i `UNIT27` :
 
-1. W aplikacji pocztowej wybierz pozycję **Nowy**. W oknie **Tworzenie nowego** okna wybierz pozycję **Żądaj**. Wprowadź **nazwę żądania** i wybierz kolekcję. Kliknij przycisk **Zapisz**
+1. W aplikacji pocztowej wybierz pozycję **Nowy**. W oknie **Tworzenie nowego** okna wybierz pozycję **Żądaj**. Wprowadź **nazwę żądania** i wybierz kolekcję. Kliknij pozycję **Zapisz**
 
 2. Użyj [interfejsu API Stany aktualizacji funkcji](https://docs.microsoft.com/rest/api/maps/featurestate/updatestatespreview) , aby zaktualizować stan. Przekaż identyfikator stateset i `UNIT26` jedną z dwóch jednostek. Dołącz swój klucz subskrypcji Azure Maps. Oto adres URL żądania **post** , aby zaktualizować stan:
 
@@ -123,7 +124,7 @@ Zobacz odwołania do interfejsów API wymienionych w tym artykule:
 > [Konwersja danych](creator-indoor-maps.md#convert-a-drawing-package)
 
 > [!div class="nextstepaction"]
-> [Dataset](creator-indoor-maps.md#datasets)
+> [Zestaw danych](creator-indoor-maps.md#datasets)
 
 > [!div class="nextstepaction"]
 > [Tileset](creator-indoor-maps.md#tilesets)

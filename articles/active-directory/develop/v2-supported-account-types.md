@@ -8,18 +8,18 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 07/14/2020
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: d19381094e027bd567ffc503d32f9212ef56a948
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 50a0859b58e2db0d3f644db01cfcde8c533b6871
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82583105"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518134"
 ---
-# <a name="supported-account-types"></a>Obsługiwane typy konta
+# <a name="supported-account-types"></a>Obsługiwane typy kont
 
 W tym artykule wyjaśniono, jakie typy kont (czasami nazywane *odbiorcami*) są obsługiwane w aplikacjach platformy tożsamości firmy Microsoft.
 
@@ -45,7 +45,6 @@ Niektórych typów kont nie można używać w przypadku niektórych przepływów
 - Aplikacje demonów mogą być używane tylko z organizacjami usługi Azure AD. Nie ma sensu, aby próbować używać aplikacji demona do manipulowania kontami osobistymi firmy Microsoft. Zgoda administratora nigdy nie zostanie przyznana.
 - Ze zintegrowanego przepływu uwierzytelniania systemu Windows można korzystać tylko z kontami służbowymi (w organizacji lub w dowolnej organizacji). Zintegrowane uwierzytelnianie systemu Windows działa z kontami domeny i wymaga przyłączenia komputerów do domeny lub przyłączenia do usługi Azure AD. Ten przepływ nie ma sensu dla osobistych kont Microsoft.
 - Nie można używać [poświadczeń hasła właściciela zasobu](./v2-oauth-ropc.md) (username/Password) z osobistymi kontami Microsoft. Osobiste konta Microsoft wymagają, aby użytkownik wyraził zgodę na dostęp do zasobów osobowych przy każdej sesji logowania. Dlatego to zachowanie nie jest zgodne z przepływami nieinteraktywnymi.
-- Przepływ kodu urządzenia nie działa z osobistymi kontami Microsoft.
 
 ## <a name="account-types-in-national-clouds"></a>Typy kont w chmurach narodowych
 

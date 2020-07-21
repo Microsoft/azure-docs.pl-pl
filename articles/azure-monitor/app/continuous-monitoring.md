@@ -3,12 +3,12 @@ title: Ciągłe monitorowanie potoku wydania usługi DevOps przy użyciu Azure P
 description: Zawiera instrukcje umożliwiające szybkie konfigurowanie ciągłego monitorowania za pomocą Application Insights
 ms.topic: conceptual
 ms.date: 05/01/2020
-ms.openlocfilehash: 0d47fb1eccdfcfc7b2719825575f06dc85e62452
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fd7cd6a107ed45adb60167a57661b60be5dc8212
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82652764"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86517131"
 ---
 # <a name="add-continuous-monitoring-to-your-release-pipeline"></a>Dodawanie ciągłego monitorowania do potoku wydania
 
@@ -101,4 +101,4 @@ W dziennikach wydań można zobaczyć zachowanie bramy wdrażania i inne kroki w
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji na temat Azure Pipelines, zobacz [dokumentację Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines).
+Aby uzyskać więcej informacji na temat Azure Pipelines, zobacz [dokumentację Azure Pipelines](/azure/devops/pipelines).

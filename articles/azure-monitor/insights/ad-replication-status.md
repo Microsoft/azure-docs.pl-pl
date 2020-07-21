@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/24/2018
-ms.openlocfilehash: 30b0c7c87f6d55586b931be1445b175ce58565d6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 65ced5021305dce15236ded59cf79a6578e7372a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80055900"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86516791"
 ---
 # <a name="monitor-active-directory-replication-status-with-azure-monitor"></a>Monitoruj Active Directory stan replikacji za pomocą Azure Monitor
 
@@ -62,7 +62,7 @@ W poniższej tabeli przedstawiono metody zbierania danych oraz inne szczegóły 
 
 [!INCLUDE [azure-monitor-solutions-overview-page](../../../includes/azure-monitor-solutions-overview-page.md)]
 
-Kafelek AD Replication Status Wyświetla liczbę aktualnie występujących błędów replikacji. **Błędy replikacji krytycznej** to błędy, które są co najmniej 75% [okresu istnienia reliktu](https://technet.microsoft.com/library/cc784932%28v=ws.10%29.aspx) dla lasu Active Directory.
+Kafelek AD Replication Status Wyświetla liczbę aktualnie występujących błędów replikacji. **Błędy replikacji krytycznej** to błędy, które są co najmniej 75% [okresu istnienia reliktu](/previous-versions/windows/it-pro/windows-server-2003/cc784932(v=ws.10)) dla lasu Active Directory.
 
 ![Kafelek AD Replication Status](./media/ad-replication-status/oms-ad-replication-tile.png)
 

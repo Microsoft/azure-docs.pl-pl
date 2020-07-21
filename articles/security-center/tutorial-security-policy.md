@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: c98ae7c95ac3fc186786612dd3d8d8bd55fa816f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 52488eb43377978d7f936ba0aa452cc872f8d899
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82024884"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86519358"
 ---
 # <a name="working-with-security-policies"></a>Praca z zasadami zabezpieczeń
 
@@ -32,7 +33,7 @@ Azure Security Center wykonuje zalecenia dotyczące zabezpieczeń w oparciu o wy
 
 Security Center oferuje następujące opcje pracy z zasadami zabezpieczeń:
 
-* **Wyświetlanie i edytowanie wbudowanych zasad domyślnych** — po włączeniu Security Center wbudowana inicjatywa o nazwie "domyślna wartość ASC" jest automatycznie przypisywana do wszystkich Security Center zarejestrowanych subskrypcji (warstwy Bezpłatna lub standardowa). Aby dostosować tę inicjatywę, możesz włączyć lub wyłączyć poszczególne zasady w ramach tego programu. Zapoznaj się z listą [wbudowanych zasad zabezpieczeń](security-center-policy-definitions.md) , aby poznać dostępne opcje.
+* **Wyświetlanie i edytowanie wbudowanych zasad domyślnych** — po włączeniu Security Center, wbudowana inicjatywa o nazwie "wartość domyślna" w wersji ASC zostanie automatycznie przypisana do wszystkich Security Center zarejestrowanych subskrypcji (warstwy cenowe bezpłatne lub standardowe). Aby dostosować tę inicjatywę, możesz włączyć lub wyłączyć poszczególne zasady w ramach tego programu. Zapoznaj się z listą [wbudowanych zasad zabezpieczeń](security-center-policy-definitions.md) , aby poznać dostępne opcje.
 
 * **Dodawanie własnych zasad niestandardowych** — Jeśli chcesz dostosować inicjatywy zabezpieczeń stosowane do subskrypcji, możesz to zrobić w ramach Security Center. Następnie otrzymasz zalecenia, jeśli maszyny nie będą zgodne z tworzonymi zasadami. Aby uzyskać instrukcje dotyczące tworzenia i przypisywania zasad niestandardowych, zobacz [Używanie niestandardowych zasad zabezpieczeń](custom-security-policies.md).
 
@@ -85,14 +86,18 @@ Aby wyświetlić zasady zabezpieczeń w usłudze Security Center:
 
 Zasady zabezpieczeń można edytować za pośrednictwem portalu Azure Policy przy użyciu interfejsu API REST lub środowiska Windows PowerShell.
 
-Usługa Security Center używa kontroli dostępu opartej na rolach udostępniającej wbudowane role, które można przypisać do użytkowników, grup i usług na platformie Azure. Gdy użytkownicy otworzą Security Center, zobaczą tylko te informacje, które są związane z zasobami, do których mają dostęp. Oznacza to, że użytkownicy mają przypisaną rolę *właściciela*, *współautora*lub *czytelnika* do subskrypcji zasobu. Podobnie jak te role, istnieją dwie konkretne role Security Center:
+Security Center korzysta z Access Control opartych na rolach (RBAC), które udostępnia wbudowane role, które można przypisać do użytkowników, grup i usług platformy Azure. Gdy użytkownicy otworzą Security Center, zobaczą tylko informacje związane z zasobami, do których mogą uzyskać dostęp. Oznacza to, że użytkownicy mają przypisaną rolę *właściciela*, *współautora*lub *czytelnika* do subskrypcji zasobu. Istnieją również dwie konkretne role Security Center:
 
-- **Czytelnik zabezpieczeń**: mieć uprawnienia do widoku Security Center, w tym zalecenia, alerty, zasady i kondycję, ale nie mogą wprowadzać zmian.
-- **Administrator zabezpieczeń**: mają takie same uprawnienia do wyświetlania jak *czytelnik zabezpieczeń*i mogą także aktualizować zasady zabezpieczeń i odrzucać zalecenia i alerty.
+- **Czytelnik zabezpieczeń**: ma uprawnienia do wyświetlania Security Center elementów, takich jak zalecenia, alerty, zasady i kondycja. Nie można wprowadzić zmian.
+- **Administrator zabezpieczeń**: ma takie same uprawnienia do wyświetlania jak *czytelnik zabezpieczeń*. Może także aktualizować zasady zabezpieczeń i odrzucać alerty.
 
 
-## <a name="disable-security-policies"></a>Wyłącz zasady zabezpieczeń
-Jeśli domyślne zasady zabezpieczeń generują rekomendację, która nie jest odpowiednia dla danego środowiska, można ją zatrzymać, wyłączając definicję zasad, która wysyła zalecenie.
+## <a name="disable-security-policies-and-disable-recommendations"></a>Wyłączanie zasad zabezpieczeń i wyłączanie zaleceń
+
+Gdy inicjatywa zabezpieczeń wyzwala zalecenie, które nie jest istotne dla danego środowiska, można zapobiec ponownemu wyświetlaniu tego zalecenia. Aby wyłączyć zalecenie, wyłącz określone zasady, które generują zalecenie.
+
+Zalecenie, które ma zostać wyłączone, nadal będzie wyświetlane, jeśli jest wymagane w przypadku normy stosowanej w przypadku zastosowania do narzędzi zgodności z przepisami Security Center. Nawet jeśli zasady zostały wyłączone w ramach inicjatywy wbudowanej, zasady obowiązujące w ramach inicjatywy w ramach normy wykonawczej nadal będą wyzwalać zalecenie, jeśli jest to niezbędne do zapewnienia zgodności. Nie można wyłączyć zasad z inicjatywy standardowych inicjatyw.
+
 Aby uzyskać więcej informacji na temat zaleceń, zobacz [Zarządzanie zaleceniami](security-center-recommendations.md)dotyczącymi zabezpieczeń.
 
 1. W Security Center z sekcji **zgodność zasad &** wybierz pozycję **zasady zabezpieczeń**.
@@ -124,7 +129,7 @@ Aby uzyskać więcej informacji na temat zaleceń, zobacz [Zarządzanie zaleceni
 
 
 ## <a name="next-steps"></a>Następne kroki
-W tym artykule przedstawiono informacje dotyczące zasad zabezpieczeń. Aby uzyskać powiązane informacje, zobacz następujące artykuły:
+W tym artykule wyjaśniono zasady zabezpieczeń. Aby uzyskać powiązane informacje, zobacz następujące artykuły:
 
 * Aby uzyskać instrukcje dotyczące sposobu ustawiania zasad przy użyciu programu PowerShell, zobacz [Szybki Start: Tworzenie przypisania zasad w celu zidentyfikowania niezgodnych zasobów przy użyciu modułu Azure PowerShell](../governance/policy/assign-policy-powershell.md)
 

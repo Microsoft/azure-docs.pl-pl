@@ -4,11 +4,12 @@ description: Pobierz okresowe podsumowanie Twoich aktywnych zaleceń
 ms.topic: article
 ms.date: 03/16/2020
 ms.author: sagupt
-ms.openlocfilehash: 98f1bfd42a486e005cd1e777a83f5b615a7c8304
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e446fca11e029e28e44ada884efd071f3142514c
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79502466"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518083"
 ---
 # <a name="configure-periodic-summary-for-recommendations"></a>Skonfiguruj okresowe Podsumowanie dla zaleceń
 
@@ -20,7 +21,7 @@ Skróty doradcze **rekomendacji** zapewniają łatwy i aktywny sposób, aby zach
 Środowisko tworzenia podsumowania **rekomendacji** pomaga skonfigurować podsumowanie. Dla konfiguracji można wybrać następujące parametry:
 1. Kategoria: mamy takie kategorie, jak koszt, wysoka dostępność, wydajność i doskonałości operacyjne. Ta funkcja nie jest jeszcze dostępna w przypadku zaleceń dotyczących zabezpieczeń.
 2. Częstotliwość Digest: częstotliwość dla powiadomień podsumowujących może być co tydzień, co dwa tygodnie i co miesiąc.
-3. Grupa akcji: możesz wybrać istniejącą grupę akcji lub utworzyć nową grupę akcji. Aby dowiedzieć się więcej na temat grup akcji, zobacz [Tworzenie grup akcji i zarządzanie nimi](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups).
+3. Grupa akcji: możesz wybrać istniejącą grupę akcji lub utworzyć nową grupę akcji. Aby dowiedzieć się więcej na temat grup akcji, zobacz [Tworzenie grup akcji i zarządzanie nimi](../azure-monitor/platform/action-groups.md).
 4. Język dla skrótu
 5. Nazwa skrócona zalecenia: można użyć ciągu przyjaznego dla użytkownika, aby lepiej śledzić i monitorować skróty.
 
@@ -43,7 +44,7 @@ Poniżej przedstawiono procedurę tworzenia **podsumowania rekomendacji:**
 
    ![Podaj warunki wejściowe podsumowania rekomendacji](./media/digest-2.png)
 
-* **Krok 5.** W sekcji **Grupa akcji** wybierz **grupę akcji** dla tego podsumowania. Więcej informacji można znaleźć tutaj — [Tworzenie grup akcji i zarządzanie nimi](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups)
+* **Krok 5.** W sekcji **Grupa akcji** wybierz **grupę akcji** dla tego podsumowania. Więcej informacji można znaleźć tutaj — [Tworzenie grup akcji i zarządzanie nimi](../azure-monitor/platform/action-groups.md)
 
    ![Podaj grupę akcji wejścia podsumowania rekomendacji](./media/digest-3.png)
 
@@ -59,4 +60,4 @@ Aby uzyskać więcej informacji na temat zaleceń klasyfikatora, zobacz:
 * [Zalecenia dotyczące wydajności usługi Advisor](advisor-performance-recommendations.md)
 * [Zalecenia dotyczące zabezpieczeń usługi Advisor](advisor-security-recommendations.md)
 * [Zalecenia dotyczące doskonałości operacyjnej klasyfikatora](advisor-operational-excellence-recommendations.md)
-* [Interfejs API REST usługi Advisor](https://docs.microsoft.com/rest/api/advisor/)
+* [Interfejs API REST usługi Advisor](/rest/api/advisor/)

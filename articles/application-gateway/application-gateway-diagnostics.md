@@ -8,11 +8,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/22/2019
 ms.author: victorh
-ms.openlocfilehash: 6829efa007e9e67866bdc0efbca4d095155c35e2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f752604b86634948954dd670d0b7f4edb5b3e2be
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82889701"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86517879"
 ---
 # <a name="back-end-health-and-diagnostic-logs-for-application-gateway"></a>Zapasowe dzienniki kondycji i diagnostyczne dla Application Gateway
 
@@ -155,7 +156,9 @@ Platforma Azure domyślnie generuje dziennik aktywności. Dzienniki są przechow
 
 ### <a name="access-log"></a>Dziennik dostępu
 
-Dziennik dostępu jest generowany tylko wtedy, gdy włączono go na każdym wystąpieniu Application Gateway, zgodnie z opisem w poprzednich krokach. Dane są przechowywane na koncie magazynu określonym podczas włączania rejestrowania. Każdy dostęp do Application Gateway jest rejestrowany w formacie JSON, jak pokazano w następującym przykładzie dla wersji 1:
+Dziennik dostępu jest generowany tylko wtedy, gdy włączono go na każdym wystąpieniu Application Gateway, zgodnie z opisem w poprzednich krokach. Dane są przechowywane na koncie magazynu określonym podczas włączania rejestrowania. Każdy dostęp do Application Gateway jest rejestrowany w formacie JSON, jak pokazano poniżej. 
+
+#### <a name="for-application-gateway-standard-and-waf-sku-v1"></a>Dla Application Gateway w wersji Standard i WAF (wersja 1)
 
 |Wartość  |Opis  |
 |---------|---------|
@@ -199,7 +202,7 @@ Dziennik dostępu jest generowany tylko wtedy, gdy włączono go na każdym wyst
     }
 }
 ```
-W przypadku Application Gateway i WAF v2 dzienniki zawierają nieco więcej informacji:
+#### <a name="for-application-gateway-and-waf-v2-sku"></a>Dla Application Gateway i WAF v2 SKU
 
 |Wartość  |Opis  |
 |---------|---------|
@@ -220,7 +223,10 @@ W przypadku Application Gateway i WAF v2 dzienniki zawierają nieco więcej info
 |serverRouted| Serwer zaplecza, do którego Brama aplikacji kieruje żądanie.|
 |serverStatus| Kod stanu HTTP serwera wewnętrznej bazy danych.|
 |serverResponseLatency| Opóźnienie odpowiedzi z serwera wewnętrznej bazy danych.|
-|host| Adres podany w nagłówku hosta żądania.|
+|host| Adres podany w nagłówku hosta żądania. W przypadku zapisania tego pola zawiera zaktualizowaną nazwę hosta|
+|originalRequestUriWithArgs| To pole zawiera pierwotny adres URL żądania |
+|requestUri| To pole zawiera adres URL po operacji ponownego zapisu na Application Gateway |
+|originalHost| To pole zawiera oryginalną nazwę hosta żądania
 ```json
 {
     "resourceId": "/SUBSCRIPTIONS/{subscriptionId}/RESOURCEGROUPS/PEERINGTEST/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/{applicationGatewayName}",
@@ -302,7 +308,7 @@ Dziennik zapory jest generowany tylko wtedy, gdy włączono go dla każdej bramy
 |Element rulesetversion     | Używana wersja zestawu reguł. Dostępne wartości to 2.2.9 i 3,0.     |
 |ruleId     | Identyfikator reguły zdarzenia wyzwalającego.        |
 |message     | Przyjazny dla użytkownika komunikat dla zdarzenia wyzwalającego. Więcej szczegółowych informacji znajduje się w sekcji Szczegóły.        |
-|action     |  Akcja podjęta na żądaniu. Dostępne wartości są dopasowywane i blokowane.      |
+|akcja     |  Akcja podjęta na żądaniu. Dostępne wartości są dopasowywane i blokowane.      |
 |lokacja     | Lokacja, dla której został wygenerowany dziennik. Obecnie tylko globalne są wyświetlane, ponieważ reguły są globalne.|
 |uzyskać     | Szczegóły zdarzenia wyzwalającego.        |
 |details. Message     | Opis reguły.        |

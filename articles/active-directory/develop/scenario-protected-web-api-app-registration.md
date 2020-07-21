@@ -9,14 +9,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 07/15/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 214d379525f2ee534415d713aa298ec858a84c92
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c1fab15cade2ce23e053bc73028e6420692c3d8a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81868844"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518278"
 ---
 # <a name="protected-web-api-app-registration"></a>Chroniony internetowy interfejs API: Rejestracja aplikacji
 
@@ -28,15 +29,15 @@ Aby zapoznać się z typowymi krokami rejestracji aplikacji, zobacz [Szybki Star
 
 Punkt końcowy platformy tożsamości firmy Microsoft może wystawiać tokeny 1.0 i tokeny v 2.0. Aby uzyskać więcej informacji na temat tych tokenów, zobacz [tokeny dostępu](access-tokens.md).
 
-Zaakceptowana wersja tokenu zależy od **obsługiwanej wartości typów kont** wybranych podczas tworzenia aplikacji.
+Wersja tokenu, która może być akceptowana przez interfejs API, zależy od **obsługiwanego wyboru typów kont** podczas tworzenia rejestracji aplikacji internetowego interfejsu api w Azure Portal.
 
-- Jeśli wartość **obsługiwanych typów kont** to **konta w dowolnym katalogu organizacyjnym i osobiste konta Microsoft (np. Skype, Xbox, Outlook.com)**, zaakceptowana wersja tokenu to v 2.0.
-- W przeciwnym razie zaakceptowana wersja tokenu to v 1.0.
+- Jeśli wartość **obsługiwanych typów kont** to **konta w dowolnym katalogu organizacyjnym i osobiste konta Microsoft (np. Skype, Xbox, Outlook.com)**, zaakceptowana wersja tokenu musi mieć wartość v 2.0.
+- W przeciwnym razie zaakceptowany token może być w wersji 1.0.
 
 Po utworzeniu aplikacji możesz określić lub zmienić zaakceptowaną wersję tokenu, wykonując następujące czynności:
 
 1. W Azure Portal wybierz aplikację, a następnie wybierz pozycję **manifest**.
-1. Znajdź właściwość **accessTokenAcceptedVersion** w manifeście. Wartość domyślna właściwości to 2.
+1. Znajdź właściwość **accessTokenAcceptedVersion** w manifeście.
 1. Wartość określa Azure Active Directory (Azure AD), która wersja tokenu akceptuje interfejs API sieci Web.
     - Jeśli wartość jest równa 2, internetowy interfejs API akceptuje tokeny v 2.0.
     - Jeśli wartość jest **równa null**, internetowy interfejs API akceptuje tokeny v 1.0.
@@ -51,7 +52,7 @@ Interfejsy API sieci Web nie muszą rejestrować identyfikatora URI przekierowan
 
 ## <a name="exposed-api"></a>Uwidoczniony interfejs API
 
-Inne ustawienia specyficzne dla interfejsów API sieci Web to uwidoczniony interfejs API i udostępniane zakresy.
+Inne ustawienia specyficzne dla interfejsów API sieci Web to uwidoczniony interfejs API oraz uwidocznione zakresy lub role aplikacji.
 
 ### <a name="application-id-uri-and-scopes"></a>Identyfikator URI i zakresy identyfikatora aplikacji
 
@@ -63,7 +64,7 @@ Podczas rejestracji aplikacji należy zdefiniować następujące parametry:
 - Co najmniej jeden zakres
 - Co najmniej jedna rola aplikacji
 
-Domyślnie Portal rejestracji aplikacji zaleca użycie identyfikatora URI zasobu `api://{clientId}` . Ten identyfikator URI jest unikatowy, ale nie jest możliwy do odczytania przez człowieka. Jeśli zmienisz identyfikator URI, upewnij się, że nowa wartość jest unikatowa.
+Domyślnie Portal rejestracji aplikacji zaleca użycie identyfikatora URI zasobu `api://{clientId}` . Ten identyfikator URI jest unikatowy, ale nie jest możliwy do odczytania przez człowieka. Jeśli zmienisz identyfikator URI, upewnij się, że nowa wartość jest unikatowa. Portal rejestracji aplikacji zapewni użycie [skonfigurowanej domeny wydawcy](howto-configure-publisher-domain.md)
 
 W przypadku aplikacji klienckich zakresy są wyświetlane jako uprawnienia *delegowane* i role aplikacji są wyświetlane jako *uprawnienia aplikacji* dla internetowego interfejsu API.
 
@@ -71,6 +72,8 @@ Zakresy są również wyświetlane w oknie zgody prezentowanym użytkownikom apl
 
 - Widziane przez użytkownika.
 - Jak widać Administrator dzierżawy, który może udzielić zgody administratora.
+
+Role aplikacji nie mogą być wysyłane przez użytkownika (ponieważ są używane przez aplikację, która wywołuje internetowy interfejs API w imieniu siebie). Administrator dzierżawy będzie musiał wyrazić zgodę na aplikacje klienckie interfejsu API sieci Web, który uwidacznia role aplikacji. Aby uzyskać szczegółowe informacje, zobacz [zgoda administratora](v2-admin-consent.md)
 
 ### <a name="exposing-delegated-permissions-scopes"></a>Uwidacznianie delegowanych uprawnień (zakresy)
 

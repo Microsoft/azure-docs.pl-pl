@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.author: memildin
-ms.openlocfilehash: be212de7a24b416ad4e5dc08998ba1147c6f3753
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: f7aca2820e599c4f3dad364f1ea14eadc634a548
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85855943"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86519718"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Zbieranie danych w usłudze Azure Security Center
 Security Center zbiera dane z maszyn wirtualnych platformy Azure, zestawów skalowania maszyn wirtualnych, kontenerów IaaS oraz innych niż platformy Azure (w tym komputerów lokalnych) do monitorowania luk w zabezpieczeniach i zagrożeń. Dane są zbierane przy użyciu agenta Log Analytics, który odczytuje różne konfiguracje związane z zabezpieczeniami i dzienniki zdarzeń z komputera i kopiuje dane do obszaru roboczego w celu przeprowadzenia analizy. Przykładami takich danych są: typ i wersja systemu operacyjnego, Dzienniki systemu operacyjnego (dzienniki zdarzeń systemu Windows), uruchomione procesy, Nazwa maszyny, adresy IP i zalogowany użytkownik.
@@ -78,7 +78,7 @@ Aby wybrać obszar roboczy utworzony przez Security Center:
 1. Security Center automatycznie włączy Security Center rozwiązanie w obszarze roboczym zgodnie z warstwą cenową ustawioną dla subskrypcji. 
 
 > [!NOTE]
-> Log Analytics warstwa cenowa obszarów roboczych utworzonych przez Security Center nie ma wpływu na rozliczenia Security Center. Rozliczenie usługi Security Center zawsze zależy od zasad zabezpieczeń usługi Security Center i rozwiązań zainstalowanych w obszarze roboczym. W przypadku warstwy Bezpłatna usługa Security Center w domyślnym obszarze roboczym udostępnia rozwiązanie *SecurityCenterFree*. W przypadku warstwy Standardowa usługa Security Center w domyślnym obszarze roboczym udostępnia rozwiązanie *Security*.
+> Log Analytics warstwa cenowa obszarów roboczych utworzonych przez Security Center nie ma wpływu na rozliczenia Security Center. Rozliczenie usługi Security Center zawsze zależy od zasad zabezpieczeń usługi Security Center i rozwiązań zainstalowanych w obszarze roboczym. W przypadku warstwy Bezpłatna usługa Security Center w domyślnym obszarze roboczym udostępnia rozwiązanie *SecurityCenterFree*. W przypadku warstwy Standard Security Center włącza rozwiązanie *zabezpieczeń* w domyślnym obszarze roboczym.
 > Przechowywanie danych w Log Analytics może wiązać się z dodatkowymi opłatami za przechowywanie danych. Aby uzyskać więcej informacji, odwiedź [stronę cennika](https://azure.microsoft.com/pricing/details/security-center/).
 
 Aby uzyskać więcej informacji na temat istniejących kont usługi log Analytics, zobacz [istniejących klientów usługi log Analytics](./faq-azure-monitor-logs.md).

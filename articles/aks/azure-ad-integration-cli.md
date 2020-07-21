@@ -1,25 +1,28 @@
 ---
-title: Integrowanie usługi Azure Active Directory z usługą Azure Kubernetes Service
-description: Dowiedz się, jak Azure Active Directory utworzyć klaster usługi Azure Kubernetes Service (AKS) przy użyciu interfejsu wiersza polecenia platformy Azure
+title: Integracja Azure Active Directory z usługą Azure Kubernetes Service (starsza wersja)
+description: Dowiedz się, jak za pomocą interfejsu wiersza polecenia platformy Azure utworzyć klaster usługi Azure Kubernetes Service (AKS) i Azure Active Directory go (starsza wersja)
 services: container-service
 author: TomGeske
 ms.topic: article
-ms.date: 07/08/2020
+ms.date: 07/20/2020
 ms.author: thomasge
-ms.openlocfilehash: 0bbaca733eb9c1fffbc5c6781b51429edd73fb46
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: dfc3a546f4845d5eb2e4e144b66b5d97e4a68829
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86252083"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518032"
 ---
-# <a name="integrate-azure-active-directory-with-azure-kubernetes-service-using-the-azure-cli"></a>Integrowanie Azure Active Directory z usługą Azure Kubernetes przy użyciu interfejsu wiersza polecenia platformy Azure
+# <a name="integrate-azure-active-directory-with-azure-kubernetes-service-using-the-azure-cli-legacy"></a>Integrowanie Azure Active Directory z usługą Azure Kubernetes przy użyciu interfejsu wiersza polecenia platformy Azure (starsza wersja)
 
 Usługę Azure Kubernetes Service (AKS) można skonfigurować do korzystania z Azure Active Directory (AD) do uwierzytelniania użytkowników. W tej konfiguracji można zalogować się do klastra AKS przy użyciu tokenu uwierzytelniania usługi Azure AD. Operatory klastra mogą również skonfigurować kontrolę dostępu opartą na rolach (RBAC) Kubernetes na podstawie tożsamości użytkownika lub członkostwa w grupie katalogów.
 
 W tym artykule pokazano, jak utworzyć wymagane składniki usługi Azure AD, a następnie wdrożyć klaster z obsługą usługi Azure AD i utworzyć podstawową rolę RBAC w klastrze AKS.
 
 Aby zapoznać się z kompletnym przykładowym skryptem używanym w tym artykule, zobacz [przykłady interfejsu wiersza polecenia platformy Azure — integracja AKS z usługą Azure AD][complete-script].
+
+> [!Important]
+> AKS ma nowe Ulepszone środowisko [usługi Azure AD zarządzane przez AKS][managed-aad] , które nie wymaga zarządzania aplikacją serwera lub klienta. Jeśli chcesz przeprowadzić migrację, postępuj zgodnie z instrukcjami znajdującymi się [tutaj][managed-aad-migrate].
 
 ## <a name="the-following-limitations-apply"></a>Obowiązują następujące ograniczenia:
 
@@ -280,3 +283,5 @@ Najlepsze rozwiązania dotyczące tożsamości i kontroli zasobów można znale�
 [rbac-authorization]: concepts-identity.md#kubernetes-role-based-access-controls-rbac
 [operator-best-practices-identity]: operator-best-practices-identity.md
 [azure-ad-rbac]: azure-ad-rbac.md
+[managed-aad]: managed-aad.md
+[managed-aad-migrate]: managed-aad.md#upgrading-to-aks-managed-azure-ad-integration

@@ -5,11 +5,12 @@ ms.topic: conceptual
 author: Dawgfan
 ms.author: mmcc
 ms.date: 09/20/2019
-ms.openlocfilehash: f198e4aac08039eb7aed8468e6adb45b5b0d67b4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4b3d489477a0ee0cc201d4383b5ed960de515c7d
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84464576"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86517114"
 ---
 # <a name="application-insights-for-web-pages"></a>Usługa Application Insights dla stron sieci Web
 
@@ -114,7 +115,7 @@ Dostępne opcje konfiguracji to
 
 ### <a name="sending-telemetry-to-the-azure-portal"></a>Wysyłanie danych telemetrycznych do Azure Portal
 
-Domyślnie Application Insights zestaw SDK języka JavaScript zbiera wiele elementów telemetrycznych, które są przydatne podczas określania kondycji aplikacji i środowiska użytkownika. Są to moduły:
+Domyślnie Application Insights zestaw SDK języka JavaScript zbiera wiele elementów telemetrycznych, które są przydatne podczas określania kondycji aplikacji i środowiska użytkownika. Należą do nich:
 
 - **Nieprzechwycone wyjątki** w aplikacji, w tym informacje o
     - Ślad stosu
@@ -149,7 +150,7 @@ appInsights.addTelemetryInitializer(() => false); // Nothing is sent after this 
 appInsights.trackTrace({message: 'this message will not be sent'}); // Not sent
 ```
 
-## <a name="configuration"></a>Konfigurowanie
+## <a name="configuration"></a>Konfiguracja
 Większość pól konfiguracji ma takie nazwy, że można je domyślnie określić jako FAŁSZ. Wszystkie pola są opcjonalne z wyjątkiem `instrumentationKey` .
 
 | Nazwa | Domyślne | Opis |
@@ -185,14 +186,14 @@ Większość pól konfiguracji ma takie nazwy, że można je domyślnie określi
 | isBeaconApiDisabled | true | Jeśli wartość jest równa false, zestaw SDK wyśle wszystkie dane telemetryczne za pomocą [interfejsu API sygnałów](https://www.w3.org/TR/beacon) |
 | onunloadDisableBeacon | fałsz | Wartość domyślna to false. gdy karta zostanie ZAMKNIĘTA, zestaw SDK wyśle wszystkie pozostałe dane telemetryczne za pomocą [interfejsu API sygnałów](https://www.w3.org/TR/beacon) |
 | sdkExtension | wartość null | Ustawia nazwę rozszerzenia zestawu SDK. Dozwolone są tylko znaki alfanumeryczne. Nazwa rozszerzenia jest dodawana jako prefiks do tagu "AI. Internal. sdkVersion" (na przykład "ext_javascript: 2.0.0"). Wartość domyślna to null. |
-| isBrowserLinkTrackingEnabled | fałsz | Wartość domyślna to false. Jeśli wartość jest równa true, zestaw SDK będzie śledził wszystkie żądania [linku do przeglądarki](https://docs.microsoft.com/aspnet/core/client-side/using-browserlink) . |
+| isBrowserLinkTrackingEnabled | fałsz | Wartość domyślna to false. Jeśli wartość jest równa true, zestaw SDK będzie śledził wszystkie żądania [linku do przeglądarki](/aspnet/core/client-side/using-browserlink) . |
 | appId | wartość null | Identyfikator AppId jest używany dla korelacji między zależnościami AJAX, które są wykonywane po stronie klienta z żądaniami po stronie serwera. Gdy interfejs API sygnałów jest włączony, nie można go użyć automatycznie, ale można ustawić go ręcznie w konfiguracji. Wartość domyślna to null |
 | enableCorsCorrelation | fałsz | Jeśli wartość jest równa true, zestaw SDK doda dwa nagłówki ("Request-ID" i "Request-context") do wszystkich żądań CORS do skorelowania wychodzących zależności AJAX z odpowiednimi żądaniami po stronie serwera. Wartość domyślna to false |
 | namePrefix | definicji | Opcjonalna wartość, która będzie używana jako przyrostkowa nazwa dla localStorage i nazwy pliku cookie.
 | enableAutoRouteTracking | fałsz | Automatyczne śledzenie zmian trasy w aplikacjach jednostronicowych (SPA). Jeśli wartość jest równa true, każda zmiana trasy wyśle nowy pageview do Application Insights. Zmiany trasy mieszania ( `example.com/foo#bar` ) są również rejestrowane jako nowe widoki stron.
 | enableRequestHeaderTracking | fałsz | W przypadku wartości true są śledzone nagłówki żądań dla programu AJAX &. wartość domyślna to false.
 | enableResponseHeaderTracking | fałsz | W przypadku wartości true są śledzone nagłówki odpowiedzi żądania pobrania & AJAX, wartość domyślna to false.
-| distributedTracingMode | `DistributedTracingModes.AI` | Ustawia tryb śledzenia rozproszonego. Jeśli ustawiono tryb AI_AND_W3C lub tryb W3C, nagłówki kontekstowe śledzenia W3C (traceparent/tracestate) zostaną wygenerowane i uwzględnione we wszystkich żądaniach wychodzących. AI_AND_W3C jest zapewniana pod kątem zgodności z poprzednimi wersjami Application Insights usługi Instrumentacji. Zobacz przykład [tutaj](https://docs.microsoft.com/azure/azure-monitor/app/correlation#enable-w3c-distributed-tracing-support-for-web-apps).
+| distributedTracingMode | `DistributedTracingModes.AI` | Ustawia tryb śledzenia rozproszonego. Jeśli ustawiono tryb AI_AND_W3C lub tryb W3C, nagłówki kontekstowe śledzenia W3C (traceparent/tracestate) zostaną wygenerowane i uwzględnione we wszystkich żądaniach wychodzących. AI_AND_W3C jest zapewniana pod kątem zgodności z poprzednimi wersjami Application Insights usługi Instrumentacji. Zobacz przykład [tutaj](./correlation.md#enable-w3c-distributed-tracing-support-for-web-apps).
 | enableAjaxErrorStatusText | fałsz | Wartość domyślna to false. W przypadku wartości true Uwzględnij tekst danych błędu odpowiedzi w zdarzeniu zależności dla żądań AJAX zakończonych niepowodzeniem.
 | enableAjaxPerfTracking | fałsz | Wartość domyślna to false. Flaga umożliwiająca wyszukiwanie i Dołączanie dodatkowego okna przeglądarki. czasy wydajności w raportowanych metrykach AJAX (XHR i Fetch) raportowane.
 | maxAjaxPerfLookupAttempts | 3 | Wartość domyślna to 3. Maksymalna liczba przypadków, w których należy szukać okna. chronometraż wydajności (jeśli jest dostępny), jest to wymagane, ponieważ nie wszystkie przeglądarki wypełniają okno. wydajność przed zgłoszeniem końca żądania XHR oraz żądania pobrania dodane po zakończeniu.
@@ -210,34 +211,34 @@ Obecnie oferujemy oddzielną [wtyczkę reakcji](#react-extensions), którą moż
 
 ## <a name="configuration-autotrackpagevisittime"></a>Konfiguracja: autoTrackPageVisitTime
 
-Przez ustawienie `autoTrackPageVisitTime: true` czas, przez jaki użytkownik spędza na każdej stronie, jest śledzony. Na każdym nowym PageView czas trwania, przez który użytkownik spędził na *poprzedniej* stronie, jest wysyłany jako [Metryka niestandardowa](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-custom-overview) o nazwie `PageVisitTime` . Ta Metryka niestandardowa jest wyświetlana w [Eksplorator metryk](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-getting-started) jako "Metryka oparta na dzienniku".
+Przez ustawienie `autoTrackPageVisitTime: true` czas, przez jaki użytkownik spędza na każdej stronie, jest śledzony. Na każdym nowym PageView czas trwania, przez który użytkownik spędził na *poprzedniej* stronie, jest wysyłany jako [Metryka niestandardowa](../platform/metrics-custom-overview.md) o nazwie `PageVisitTime` . Ta Metryka niestandardowa jest wyświetlana w [Eksplorator metryk](../platform/metrics-getting-started.md) jako "Metryka oparta na dzienniku".
 
 ## <a name="react-extensions"></a>Przereaguj rozszerzenia
 
 | Rozszerzenia |
 |---------------|
 | [React](https://github.com/microsoft/ApplicationInsights-JS/blob/17ef50442f73fd02a758fbd74134933d92607ecf/extensions/applicationinsights-react-js/README.md)|
-| [Zareaguj na natywny](https://github.com/microsoft/ApplicationInsights-JS/blob/17ef50442f73fd02a758fbd74134933d92607ecf/extensions/applicationinsights-react-native/README.md)|
+| [React Native](https://github.com/microsoft/ApplicationInsights-JS/blob/17ef50442f73fd02a758fbd74134933d92607ecf/extensions/applicationinsights-react-native/README.md)|
 
 ## <a name="explore-browserclient-side-data"></a>Eksplorowanie danych po stronie przeglądarki i klienta
 
 Dane przeglądarki/strony klienta można wyświetlać, przechodząc do **metryk** i dodając indywidualne metryki, które Cię interesują:
 
-![](./media/javascript/page-view-load-time.png)
+![Zrzut ekranu strony metryk w Application Insights pokazujący graficzne wyświetlanie danych metryk dla aplikacji sieci Web.](./media/javascript/page-view-load-time.png)
 
 Możesz również wyświetlać dane z zestawu SDK języka JavaScript za pomocą środowiska przeglądarki w portalu.
 
 Wybierz pozycję **przeglądarka** , a następnie wybierz pozycję **Błędy** lub **wydajność**.
 
-![](./media/javascript/browser.png)
+![Zrzut ekranu strony przeglądarki w Application Insights pokazujący, jak dodać błędy przeglądarki lub wydajność przeglądarki do metryk, które można wyświetlić dla aplikacji sieci Web.](./media/javascript/browser.png)
 
 ### <a name="performance"></a>Wydajność
 
-![](./media/javascript/performance-operations.png)
+![Zrzut ekranu przedstawiający stronę wydajności w Application Insights pokazujący wyświetlane graficznie metryki operacji dla aplikacji sieci Web.](./media/javascript/performance-operations.png)
 
 ### <a name="dependencies"></a>Zależności
 
-![](./media/javascript/performance-dependencies.png)
+![Zrzut ekranu strony wydajność w Application Insights pokazujący wyświetlane graficznie metryki zależności dla aplikacji sieci Web.](./media/javascript/performance-dependencies.png)
 
 ### <a name="analytics"></a>Analiza
 
@@ -270,7 +271,7 @@ Możesz połączyć zasób Application Insights z własnym kontenerem Blob Stora
 
 1. Wybierz element telemetrii wyjątku w Azure Portal, aby wyświetlić jego "kompleksowe" Szczegóły transakcji.
 2. Określ, które mapy źródłowe odpowiadają temu stosowi wywołań. Mapa źródłowa musi być zgodna z plikiem źródłowym ramki stosu, ale z sufiksem`.map`
-3. Przeciągnij i upuść mapy źródłowe na stos wywołań w Azure Portal![](https://i.imgur.com/Efue9nU.gif)
+3. Przeciągnij i upuść mapy źródłowe na stos wywołań w Azure Portal ![ animowany obraz pokazujący, jak przeciągać i upuszczać pliki map źródłowych z folderu kompilacji do okna stosu wywołań w Azure Portal.](https://i.imgur.com/Efue9nU.gif)
 
 ### <a name="application-insights-web-basic"></a>Application Insights Web Basic
 

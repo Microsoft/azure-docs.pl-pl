@@ -8,14 +8,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 10/30/2019
+ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev, tracking-python
-ms.openlocfilehash: 3a6f92022a4e26c84efc2d5f68c3aad8b4685d30
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 662520b9e31b4fe9a0925683fd0e661ce179e5b2
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84558789"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518151"
 ---
 # <a name="a-web-app-that-calls-web-apis-code-configuration"></a>Aplikacja sieci Web, która wywołuje interfejsy API sieci Web: Konfiguracja kodu
 
@@ -32,7 +33,7 @@ Następujące biblioteki w bibliotece Microsoft Authentication Library (MSAL) ob
 
 | Biblioteka MSAL | Opis |
 |--------------|-------------|
-| ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | Obsługa platform .NET Framework i .NET Core. Nieobsługiwane są platforma uniwersalna systemu Windows (platformy UWP), Xamarin. iOS i Xamarin. Android, ponieważ te platformy są używane do tworzenia publicznych aplikacji klienckich. W przypadku ASP.NET Core aplikacji sieci Web i interfejsów API sieci Web MSAL.NET jest hermetyzowana w bibliotece wyższego poziomu o nazwie Microsoft. Identity. Web|
+| ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | Obsługa platform .NET Framework i .NET Core. Nieobsługiwane są platforma uniwersalna systemu Windows (platformy UWP), Xamarin. iOS i Xamarin. Android, ponieważ te platformy są używane do tworzenia publicznych aplikacji klienckich. W przypadku ASP.NET Core aplikacji sieci Web i interfejsów API sieci Web MSAL.NET jest hermetyzowana w bibliotece wyższego poziomu o nazwie [Microsoft. Identity. Web](https://aka.ms/ms-identity-web)|
 | ![MSAL Python](media/sample-v2-code/logo_python.png) <br/> Biblioteka MSAL dla języka Python | Obsługa aplikacji sieci Web w języku Python. |
 | ![MSAL Java](media/sample-v2-code/logo_java.png) <br/> Biblioteka MSAL dla języka Java | Obsługa aplikacji sieci Web w języku Java. |
 
@@ -48,8 +49,8 @@ public void ConfigureServices(IServiceCollection services)
 {
     // more code here
 
-    services.AddSignIn(Configuration, "AzureAd")
-            .AddWebAppCallsProtectedWebApi(Configuration,
+    services.AddMicrosoftWebAppAuthentication(Configuration, "AzureAd")
+            .AddMicrosoftWebAppCallsdWebApi(Configuration,
                                            initialScopes: new string[] { "user.read" })
             .AddInMemoryTokenCaches();
 
@@ -90,7 +91,7 @@ Przykład umożliwia obecnie MSAL. Język Python tworzy adres URL kodu autoryzac
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-Microsoft. Identity. Web upraszcza kod przez ustawienie poprawnych ustawień połączenia OpenID Connect, subskrybowanie zdarzenia otrzymało kod i zrealizowanie kodu. Do zrealizowania kodu autoryzacji nie jest wymagany żaden dodatkowy kod.
+Microsoft. Identity. Web upraszcza kod przez ustawienie poprawnych ustawień połączenia OpenID Connect, subskrybowanie zdarzenia otrzymało kod i zrealizowanie kodu. Do zrealizowania kodu autoryzacji nie jest wymagany żaden dodatkowy kod. Aby uzyskać szczegółowe informacje o tym, jak to działa, zobacz [Microsoft. Identity. Web Code Source](https://github.com/AzureAD/microsoft-identity-web/blob/c29f1a7950b940208440bebf0bcb524a7d6bee22/src/Microsoft.Identity.Web/WebAppExtensions/WebAppCallsWebApiAuthenticationBuilderExtensions.cs#L140) .
 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 
@@ -271,8 +272,8 @@ Samouczek ASP.NET Core używa iniekcji zależności, aby umożliwić określenie
 
 ```csharp
 // Use a distributed token cache by adding:
-    services.AddSignIn(Configuration, "AzureAd")
-            .AddWebAppCallsProtectedWebApi(Configuration,
+    services.AddMicrosoftWebAppAuthentication(Configuration, "AzureAd")
+            .AddMicrosoftWebAppCallsWebApi(Configuration,
                                            initialScopes: new string[] { "user.read" })
             .AddDistributedTokenCaches();
 
@@ -296,7 +297,7 @@ services.AddDistributedSqlServerCache(options =>
 });
 ```
 
-Aby uzyskać szczegółowe informacje o dostawcach pamięci podręcznej tokenów, zobacz również [samouczki aplikacji sieci Web ASP.NET Core | Faza pamięci podręcznej tokenów](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-2-TokenCache) samouczka.
+Aby uzyskać szczegółowe informacje o dostawcach pamięci podręcznej tokenów, zobacz również artykuł Microsoft. Identity. Web App detail [Serialization](https://aka.ms/ms-id-web/token-cache-serialization) , a także [samouczki aplikacji sieci Web ASP.NET Core | Faza pamięci podręcznej tokenów](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-2-TokenCache) samouczka aplikacji sieci Web.
 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 

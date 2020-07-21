@@ -3,11 +3,12 @@ title: Tworzenie nowego zasobu usługi Azure Application Insights | Microsoft Do
 description: Ręcznie skonfiguruj Application Insights monitorowania dla nowej aplikacji na żywo.
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: 4d8979469ca83dfd6b81aab10191e8fbf36104ff
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cb47453140c7659ca2f5e6da2e40d9d78405f8e7
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83200662"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86517097"
 ---
 # <a name="create-an-application-insights-resource"></a>Tworzenie zasobu usługi Application Insights
 
@@ -27,11 +28,11 @@ Zaloguj się do [Azure Portal](https://portal.azure.com)i utwórz zasób Applica
    | ------------- |:-------------|:-----|
    | **Nazwa**      | `Unique value` | Nazwa identyfikująca monitorowaną aplikację. |
    | **Grupa zasobów**     | `myResourceGroup`      | Nazwa nowej lub istniejącej grupy zasobów do hostowania danych usługi App Insights. |
-   | **Okolicy** | `East US` | Wybierz lokalizację znajdującą się w sąsiedztwie lub w miejscu, w którym znajduje się aplikacja. |
+   | **Region** | `East US` | Wybierz lokalizację znajdującą się w sąsiedztwie lub w miejscu, w którym znajduje się aplikacja. |
    | **Tryb zasobów** | `Classic` lub `Workspace-based` | Zasoby oparte na obszarze roboczym są obecnie dostępne w publicznej wersji zapoznawczej i umożliwiają wysyłanie danych telemetrycznych Application Insights do wspólnego Log Analytics obszaru roboczego. Aby uzyskać więcej informacji, zobacz [artykuł dotyczący zasobów obszaru roboczego](create-workspace-resource.md).
 
 > [!NOTE]
-> Chociaż można używać tej samej nazwy zasobu w różnych grupach zasobów, może być korzystne użycie globalnie unikatowej nazwy. Może to być przydatne, jeśli planujesz [wykonywać zapytania między zasobami](https://docs.microsoft.com/azure/azure-monitor/log-query/cross-workspace-query#identifying-an-application) , ponieważ upraszczają one wymaganą składnię.
+> Chociaż można używać tej samej nazwy zasobu w różnych grupach zasobów, może być korzystne użycie globalnie unikatowej nazwy. Może to być przydatne, jeśli planujesz [wykonywać zapytania między zasobami](../log-query/cross-workspace-query.md#identifying-an-application) , ponieważ upraszczają one wymaganą składnię.
 
 Wprowadź odpowiednie wartości w wymaganych polach, a następnie wybierz pozycję **Przegląd + Utwórz**.
 
@@ -92,7 +93,7 @@ SamplingPercentage :
 TenantId           : {subid}
 ```
 
-Pełna Dokumentacja programu PowerShell dla tego polecenia cmdlet i Dowiedz się, jak pobrać klucz instrumentacji, zapoznaj się z [dokumentacją Azure PowerShell](https://docs.microsoft.com/powershell/module/az.applicationinsights/new-azapplicationinsights?view=azps-2.5.0).
+Pełna Dokumentacja programu PowerShell dla tego polecenia cmdlet i Dowiedz się, jak pobrać klucz instrumentacji, zapoznaj się z [dokumentacją Azure PowerShell](/powershell/module/az.applicationinsights/new-azapplicationinsights?view=azps-2.5.0).
 
 ### <a name="azure-cli-preview"></a>Interfejs wiersza polecenia platformy Azure (wersja zapoznawcza)
 
@@ -149,12 +150,12 @@ az monitor app-insights component create --app demoApp --location eastus --kind 
 }
 ```
 
-Aby zapoznać się z pełną dokumentacją interfejsu wiersza polecenia platformy Azure dotyczącymi tego poleceń i dowiedzieć się, jak pobrać klucz instrumentacji, zobacz [dokumentację interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/ext/application-insights/monitor/app-insights/component?view=azure-cli-latest#ext-application-insights-az-monitor-app-insights-component-create).
+Aby zapoznać się z pełną dokumentacją interfejsu wiersza polecenia platformy Azure dotyczącymi tego poleceń i dowiedzieć się, jak pobrać klucz instrumentacji, zobacz [dokumentację interfejsu wiersza polecenia platformy Azure](/cli/azure/ext/application-insights/monitor/app-insights/component?view=azure-cli-latest#ext-application-insights-az-monitor-app-insights-component-create).
 
 ## <a name="next-steps"></a>Następne kroki
 * [Wyszukiwanie diagnostyczne](../../azure-monitor/app/diagnostic-search.md)
 * [Eksploruj metryki](../../azure-monitor/platform/metrics-charts.md)
-* [Pisanie zapytań analitycznych](../../azure-monitor/app/analytics.md)
+* [Pisanie zapytań analitycznych](../log-query/log-query-overview.md)
 
 <!--Link references-->
 

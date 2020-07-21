@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/12/2020
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 77946694253ff0c1c6953d0b20836d3cb6733801
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: e6fb2f09200e42f7ad7781716bb83ab418134509
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86082305"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86516145"
 ---
 # <a name="azure-activity-log"></a>Dziennik aktywności platformy Azure
 Dziennik aktywności to [Dziennik platformy](platform-logs-overview.md) na platformie Azure, który zapewnia wgląd w zdarzenia na poziomie subskrypcji. Obejmuje to takie informacje, jak w przypadku zmodyfikowania zasobu lub uruchomienia maszyny wirtualnej. Dziennik aktywności można wyświetlić w Azure Portal lub pobrać wpisów przy użyciu programu PowerShell i interfejsu wiersza polecenia. Aby uzyskać dodatkowe funkcje, należy utworzyć ustawienie diagnostyczne służące do wysyłania dziennika aktywności do [dzienników Azure monitor](data-platform-logs.md), do usługi Azure Event Hubs do przekazywania poza platformę Azure lub do usługi Azure Storage w celu archiwizacji. Ten artykuł zawiera szczegółowe informacje na temat wyświetlania dziennika aktywności i wysyłania go do różnych miejsc docelowych.
@@ -43,9 +43,9 @@ Jeśli ze zdarzeniem są skojarzone jakiekolwiek zmiany, zostanie wyświetlona l
 ### <a name="other-methods-to-retrieve-activity-log-events"></a>Inne metody pobierania zdarzeń dziennika aktywności
 Możesz również uzyskać dostęp do zdarzeń dziennika aktywności przy użyciu poniższych metod.
 
-- Użyj polecenia cmdlet [Get-AzLog](https://docs.microsoft.com/powershell/module/az.monitor/get-azlog) , aby pobrać dziennik aktywności z programu PowerShell. Zobacz [przykłady Azure monitor programu PowerShell](../samples/powershell-samples.md#retrieve-activity-log).
-- Użyj polecenia [AZ monitor Activity-Log](https://docs.microsoft.com/cli/azure/monitor/activity-log) , aby pobrać dziennik aktywności z interfejsu CLI.  Zobacz [przykłady interfejsu wiersza polecenia Azure monitor](../samples/cli-samples.md#view-activity-log).
-- Użyj [interfejsu API REST Azure monitor](https://docs.microsoft.com/rest/api/monitor/) , aby pobrać dziennik aktywności z klienta Rest. 
+- Użyj polecenia cmdlet [Get-AzLog](/powershell/module/az.monitor/get-azlog) , aby pobrać dziennik aktywności z programu PowerShell. Zobacz [przykłady Azure monitor programu PowerShell](../samples/powershell-samples.md#retrieve-activity-log).
+- Użyj polecenia [AZ monitor Activity-Log](/cli/azure/monitor/activity-log) , aby pobrać dziennik aktywności z interfejsu CLI.  Zobacz [przykłady interfejsu wiersza polecenia Azure monitor](../samples/cli-samples.md#view-activity-log).
+- Użyj [interfejsu API REST Azure monitor](/rest/api/monitor/) , aby pobrać dziennik aktywności z klienta Rest. 
 
 
 ## <a name="send-to-log-analytics-workspace"></a>Wysyłanie do obszaru roboczego usługi Log Analytics
@@ -58,9 +58,9 @@ Możesz również uzyskać dostęp do zdarzeń dziennika aktywności przy użyci
 - Przechowywanie wpisów dziennika aktywności przez dłużej niż 90 dni.
 - Brak opłat za pozyskiwanie danych lub pobieranie danych dla danych dziennika aktywności przechowywanych w obszarze roboczym Log Analytics.
 
-[Utwórz ustawienie diagnostyczne](diagnostic-settings.md) , aby wysłać dziennik aktywności do obszaru roboczego log Analytics. Dziennik aktywności można wysłać z dowolnej pojedynczej subskrypcji do maksymalnie pięciu obszarów roboczych. Zbieranie dzienników między dzierżawcami wymaga [platformy Azure Lighthouse](/azure/lighthouse).
+[Utwórz ustawienie diagnostyczne](diagnostic-settings.md) , aby wysłać dziennik aktywności do obszaru roboczego log Analytics. Dziennik aktywności można wysłać z dowolnej pojedynczej subskrypcji do maksymalnie pięciu obszarów roboczych. Zbieranie dzienników między dzierżawcami wymaga [platformy Azure Lighthouse](../../lighthouse/index.yml).
 
-Dane dziennika aktywności w obszarze roboczym Log Analytics są przechowywane w tabeli o nazwie *Azure* , którą można pobrać z [zapytaniem dziennika](../log-query/log-query-overview.md) w [log Analytics](../log-query/get-started-portal.md). Struktura tej tabeli różni się w zależności od [kategorii wpisu dziennika](activity-log-schema.md). Aby uzyskać opis właściwości tabeli, zobacz [informacje dotyczące Azure monitor danych](https://docs.microsoft.com/azure/azure-monitor/reference/tables/azureactivity).
+Dane dziennika aktywności w obszarze roboczym Log Analytics są przechowywane w tabeli o nazwie *Azure* , którą można pobrać z [zapytaniem dziennika](../log-query/log-query-overview.md) w [log Analytics](../log-query/get-started-portal.md). Struktura tej tabeli różni się w zależności od [kategorii wpisu dziennika](activity-log-schema.md). Aby uzyskać opis właściwości tabeli, zobacz [informacje dotyczące Azure monitor danych](/azure/azure-monitor/reference/tables/azureactivity).
 
 Aby na przykład wyświetlić liczbę rekordów dziennika aktywności dla każdej kategorii, użyj poniższego zapytania.
 
@@ -248,7 +248,7 @@ Jeśli profil dziennika już istnieje, należy najpierw usunąć istniejący pro
     | Magazyn — identyfikator konta |Tak |Identyfikator zasobu konta magazynu, do którego mają zostać zapisane dzienniki aktywności. |
     | locations |Tak |Rozdzielana spacjami lista regionów, dla których chcesz zbierać zdarzenia dziennika aktywności. Możesz wyświetlić listę wszystkich regionów dla subskrypcji przy użyciu programu `az account list-locations --query [].name` . |
     | dni |Tak |Liczba dni przechowywania zdarzeń między 1 a 365. Wartość zerowa spowoduje przechowywanie dzienników w nieskończoność (w nieskończoność).  Jeśli wartość jest równa zero, wartość parametru enabled powinna być równa false. |
-    |enabled | Tak |Prawda lub fałsz.  Służy do włączania lub wyłączania zasad przechowywania.  W przypadku wartości true wartość parametru Days musi być większa niż 0.
+    |enabled | Tak |Prawda czy fałsz?  Służy do włączania lub wyłączania zasad przechowywania.  W przypadku wartości true wartość parametru Days musi być większa niż 0.
     | categories |Tak |Rozdzielana spacjami lista kategorii zdarzeń, które powinny być zbierane. Możliwe wartości to Write, DELETE i Action. |
 
 
@@ -281,7 +281,7 @@ Kolumny w poniższej tabeli zostały zaniechane w zaktualizowanym schemacie. Nad
 | ResourceProvider  | ResourceProviderValue  |
 
 > [!IMPORTANT]
-> W niektórych przypadkach wartości w tych kolumnach mogą być pisane wielkimi literami. Jeśli masz zapytanie zawierające te kolumny, należy użyć [operatora = ~](https://docs.microsoft.com/azure/kusto/query/datatypes-string-operators) do wykonania porównania bez uwzględniania wielkości liter.
+> W niektórych przypadkach wartości w tych kolumnach mogą być pisane wielkimi literami. Jeśli masz zapytanie zawierające te kolumny, należy użyć [operatora = ~](/azure/kusto/query/datatypes-string-operators) do wykonania porównania bez uwzględniania wielkości liter.
 
 Następująca kolumna została dodana do *usługi Azure* w zaktualizowanym schemacie:
 

@@ -4,12 +4,12 @@ description: W tym artykule opisano sposób konfigurowania widoku w czasie rzecz
 ms.topic: conceptual
 ms.date: 02/14/2019
 ms.custom: references_regions
-ms.openlocfilehash: 9d60836af350e9af99355db9a7cc140a949d1492
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cbd697f743d0d3369a8c35537ac2755ae5d3fc8c
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85337940"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86516468"
 ---
 # <a name="how-to-set-up-the-live-data-preview-feature"></a>Jak skonfigurować funkcję Live Data (wersja zapoznawcza)
 
@@ -19,7 +19,7 @@ Ta funkcja obsługuje następujące metody kontroli dostępu do dzienników, zda
 
 - AKS bez włączonej autoryzacji RBAC Kubernetes
 - AKS włączone z autoryzacją RBAC Kubernetes
-    - AKS skonfigurowany przy użyciu powiązania roli klastra ** [clusterMonitoringUser](https://docs.microsoft.com/rest/api/aks/managedclusters/listclustermonitoringusercredentials?view=azurermps-5.2.0)**
+    - AKS skonfigurowany przy użyciu powiązania roli klastra ** [clusterMonitoringUser](/rest/api/aks/managedclusters/listclustermonitoringusercredentials?view=azurermps-5.2.0)**
 - AKS włączone z logowaniem jednokrotnym opartym na protokole SAML Azure Active Directory (AD)
 
 Te instrukcje wymagają zarówno dostępu administracyjnego do klastra Kubernetes, jak i w przypadku konfigurowania do korzystania z Azure Active Directory (AD) do uwierzytelniania użytkowników, dostępu administracyjnego do usługi Azure AD.
@@ -108,7 +108,7 @@ Należy zmienić rejestrację klienta usługi Azure AD, aby umożliwić Azure Po
 Aby uzyskać więcej informacji na temat zaawansowanej konfiguracji zabezpieczeń w programie Kubernetes, zapoznaj się z [dokumentacją Kubernetes](https://kubernetes.io/docs/reference/access-authn-authz/rbac/).
 
 >[!NOTE]
->Jeśli tworzysz nowy klaster z obsługą kontroli dostępu do sieci, zobacz [integrowanie Azure Active Directory z usługą Azure Kubernetes](../../aks/azure-ad-integration.md) i postępuj zgodnie z instrukcjami, aby skonfigurować uwierzytelnianie w usłudze Azure AD. Podczas wykonywania kroków w celu utworzenia aplikacji klienckiej w tej sekcji wyróżniane są dwa adresy URL przekierowania, które należy utworzyć dla Azure Monitor kontenery pasujące do tych określonych w kroku 3 poniżej.
+>Jeśli tworzysz nowy klaster z obsługą kontroli dostępu do sieci, zobacz [integrowanie Azure Active Directory z usługą Azure Kubernetes](../../aks/azure-ad-integration-cli.md) i postępuj zgodnie z instrukcjami, aby skonfigurować uwierzytelnianie w usłudze Azure AD. Podczas wykonywania kroków w celu utworzenia aplikacji klienckiej w tej sekcji wyróżniane są dwa adresy URL przekierowania, które należy utworzyć dla Azure Monitor kontenery pasujące do tych określonych w kroku 3 poniżej.
 
 ### <a name="client-registration-reconfiguration"></a>Ponowna konfiguracja rejestracji klienta
 

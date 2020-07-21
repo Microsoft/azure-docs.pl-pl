@@ -4,16 +4,17 @@ description: Alerty klasyczne są przestarzałe. Alerty umożliwiają monitorowa
 ms.topic: conceptual
 ms.date: 05/19/2018
 ms.subservice: alerts
-ms.openlocfilehash: e9c269db870f582c176783a4654b5de251e24412
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7d120550d17dcac7410a259e131ad81feb0afdf9
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81114503"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86515958"
 ---
 # <a name="what-are-classic-alerts-in-microsoft-azure"></a>What are classic alerts in Microsoft Azure? (Czym są alerty klasyczne na platformie Microsoft Azure?)
 
 > [!NOTE]
-> W tym artykule opisano sposób tworzenia starszych klasycznych alertów dotyczących metryk. Azure Monitor teraz obsługuje [nowsze alerty metryk niemal w czasie rzeczywistym i nowe środowisko alertów](../../azure-monitor/platform/alerts-overview.md). Alerty klasyczne są [wycofywane](https://docs.microsoft.com/azure/azure-monitor/platform/monitoring-classic-retirement), mimo że nadal są ograniczone dla zasobów, które jeszcze nie obsługują nowych alertów. 
+> W tym artykule opisano sposób tworzenia starszych klasycznych alertów dotyczących metryk. Azure Monitor teraz obsługuje [nowsze alerty metryk niemal w czasie rzeczywistym i nowe środowisko alertów](../../azure-monitor/platform/alerts-overview.md). Alerty klasyczne są [wycofywane](./monitoring-classic-retirement.md), mimo że nadal są ograniczone dla zasobów, które jeszcze nie obsługują nowych alertów. 
 >
 
 Alerty umożliwiają konfigurowanie warunków dla danych i otrzymywanie powiadomień, gdy warunki są zgodne z najnowszymi danymi monitorowania.
@@ -88,7 +89,7 @@ Uzyskaj informacje na temat reguł alertów i skonfiguruj je przy użyciu:
 * Konfigurowanie [klasycznych alertów metryk za pośrednictwem Azure Portal](alerts-classic-portal.md)
 * Konfigurowanie [klasycznych alertów metryk programu PowerShell](alerts-classic-portal.md)
 * Konfigurowanie [klasycznego alertu metryki interfejsu wiersza polecenia (CLI)](alerts-classic-portal.md)
-* Konfigurowanie [klasycznych alertów metryk Azure monitor interfejs API REST](https://msdn.microsoft.com/library/azure/dn931945.aspx)
+* Konfigurowanie [klasycznych alertów metryk Azure monitor interfejs API REST](/rest/api/monitor/alertrules)
 * Dowiedz się więcej o [dzienniku aktywności](platform-logs-overview.md)
 * Konfigurowanie [alertów dziennika aktywności za pośrednictwem Azure Portal](activity-log-alerts.md)
 * Konfigurowanie [alertów dziennika aktywności za pośrednictwem Menedżer zasobów](alerts-activity-log.md)

@@ -4,12 +4,12 @@ description: Dowiedz się, jak skonfigurować szyfrowanie oparte na hoście w kl
 services: container-service
 ms.topic: article
 ms.date: 07/10/2020
-ms.openlocfilehash: 7b9d930d62d0acea30af9b5e7e12e43fa8fcd5da
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: d2b34d8c3090eb6ae3f1445ff1fc663d90367977
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86244314"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86517726"
 ---
 # <a name="host-based-encryption-on-azure-kubernetes-service-aks-preview"></a>Szyfrowanie oparte na hoście w usłudze Azure Kubernetes Service (AKS) (wersja zapoznawcza)
 
@@ -27,18 +27,18 @@ Tę funkcję można ustawić tylko podczas tworzenia klastra lub tworzenia puli 
 
 - Upewnij się, że jest `aks-preview` zainstalowany interfejs wiersza polecenia w wersji 0.4.55 lub nowszej
 - Upewnij się, że masz `EncryptionAtHost` flagę funkcji w obszarze `Microsoft.Compute` włączone.
-- Upewnij się, że masz `EncryptionAtHost` flagę funkcji w obszarze `Microsoft.ContainerService` włączone.
+- Upewnij się, że masz `EnableEncryptionAtHostPreview` flagę funkcji w obszarze `Microsoft.ContainerService` włączone.
 
 ### <a name="register-encryptionathost--preview-features"></a>Rejestrowanie `EncryptionAtHost` funkcji w wersji zapoznawczej
 
-Aby utworzyć klaster AKS, który korzysta z szyfrowania opartego na hoście, należy włączyć `EncryptionAtHost` flagę funkcji w subskrypcji.
+Aby utworzyć klaster AKS, który korzysta z szyfrowania opartego na hoście, należy włączyć `EnableEncryptionAtHostPreview` `EncryptionAtHost` flagi i funkcji w subskrypcji.
 
 Zarejestruj `EncryptionAtHost` flagę funkcji za pomocą polecenia [AZ Feature Register][az-feature-register] , jak pokazano w następującym przykładzie:
 
 ```azurecli-interactive
 az feature register --namespace "Microsoft.Compute" --name "EncryptionAtHost"
 
-az feature register --namespace "Microsoft.ContainerService"  --name "EncryptionAtHost"
+az feature register --namespace "Microsoft.ContainerService"  --name "EnableEncryptionAtHostPreview"
 ```
 
 Wyświetlenie stanu *rejestracji*może potrwać kilka minut. Stan rejestracji można sprawdzić za pomocą polecenia [AZ Feature list][az-feature-list] :
@@ -46,7 +46,7 @@ Wyświetlenie stanu *rejestracji*może potrwać kilka minut. Stan rejestracji mo
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.Compute/EncryptionAtHost')].{Name:name,State:properties.state}"
 
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/EncryptionAtHost')].{Name:name,State:properties.state}"
+az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/EnableEncryptionAtHostPreview')].{Name:name,State:properties.state}"
 ```
 
 Gdy wszystko będzie gotowe, Odśwież rejestrację `Microsoft.ContainerService` `Microsoft.Compute` dostawców i zasobów przy użyciu polecenia [AZ Provider Register][az-provider-register] :
@@ -58,12 +58,12 @@ az provider register --namespace Microsoft.ContainerService
 ```
 
 > [!IMPORTANT]
-> Funkcja AKS w wersji zapoznawczej to samoobsługowe uczestnictwo. Wersje zapoznawcze są udostępniane w postaci "AS-IS" i "jako dostępne" i są wyłączone z umów dotyczących poziomu usług i ograniczonej rękojmi. Wersje zapoznawcze AKS są częściowo objęte obsługą klienta w oparciu o najlepszy nakład pracy. W związku z tym te funkcje nie są przeznaczone do użytku produkcyjnego. Aby dowiedzieć się więcej, zobacz następujące artykuły pomocy technicznej:
+> Funkcja AKS w wersji zapoznawczej to samoobsługowe uczestnictwo. Wersje zapoznawcze są udostępniane w postaci "AS-IS" i "jako dostępne" i są wyłączone z umów dotyczących poziomu usług i ograniczonej rękojmi. Wersje zapoznawcze AKS są częściowo objęte obsługą klienta w oparciu o najlepszy nakład pracy. W związku z tym te funkcje nie są przeznaczone do użytku produkcyjnego. Dodatkowe informacje można znaleźć w następujących artykułach pomocy technicznej:
 >
 > - [Zasady pomocy technicznej AKS](support-policies.md)
 > - [Pomoc techniczna platformy Azure — często zadawane pytania](faq.md)
 
-### <a name="install-aks-preview-cli-extension"></a>Zainstaluj rozszerzenie interfejsu wiersza polecenia AKS-Preview
+### <a name="install-aks-preview-cli-extension"></a>Instalowanie rozszerzenia interfejsu wiersza polecenia aks-preview
 
 Aby utworzyć klaster AKS, który jest szyfrowany przy użyciu hosta, potrzebne jest najnowsze rozszerzenie wiersza polecenia *AKS-Preview* . Zainstaluj rozszerzenie interfejsu wiersza polecenia platformy Azure w *wersji zapoznawczej* przy użyciu poleceń [AZ Extension Add][az-extension-add] lub sprawdź, czy są dostępne aktualizacje za pomocą polecenia [AZ Extension Update][az-extension-update] :
 

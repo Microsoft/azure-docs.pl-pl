@@ -1,34 +1,34 @@
 ---
 title: Zapobiegaj Anonimowemu dostępowi do odczytu do kontenerów i obiektów BLOB
 titleSuffix: Azure Storage
-description: ''
+description: Dowiedz się, jak analizować anonimowe żądania na koncie magazynu oraz jak zapobiegać Anonimowemu dostępowi do całego konta magazynu lub dla danego kontenera.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/06/2020
+ms.date: 07/13/2020
 ms.author: tamram
 ms.reviewer: fryu
-ms.openlocfilehash: 90d7cd65bbc07524391f34fe0efce2b044664cef
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 24d726f7600c3ba80833640be8036bf0daa2c014
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86209934"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518728"
 ---
 # <a name="prevent-anonymous-public-read-access-to-containers-and-blobs"></a>Zapobiegaj Anonimowemu dostępowi do odczytu do kontenerów i obiektów BLOB
 
-Anonimowy publiczny dostęp do odczytu do kontenerów i obiektów BLOB w usłudze Azure Storage to wygodny sposób udostępniania danych, ale może również stanowić zagrożenie bezpieczeństwa. Ważne jest, aby w rozsądny sposób włączyć dostęp anonimowy i zrozumieć, jak oszacować anonimowy dostęp do danych. Złożoność operacyjna, błąd ludzki lub złośliwe ataki na dane, które są publicznie dostępne, mogą powodować kosztowne naliczanie danych. Firma Microsoft zaleca włączenie dostępu anonimowego tylko wtedy, gdy jest to konieczne w scenariuszu aplikacji.
+Anonimowy publiczny dostęp do odczytu do kontenerów i obiektów BLOB w usłudze Azure Storage to wygodny sposób udostępniania danych, ale może również stanowić zagrożenie bezpieczeństwa. Ważne jest, aby w rozsądny sposób zarządzać dostępem anonimowym i zrozumieć, jak oszacować anonimowy dostęp do danych. Złożoność operacyjna, błąd ludzki lub złośliwe ataki na dane, które są publicznie dostępne, mogą powodować kosztowne naliczanie danych. Firma Microsoft zaleca włączenie dostępu anonimowego tylko wtedy, gdy jest to konieczne w scenariuszu aplikacji.
 
-Domyślnie konto magazynu umożliwia użytkownikowi z odpowiednimi uprawnieniami do konfigurowania publicznego dostępu do kontenerów i obiektów BLOB. Tę funkcję można wyłączyć na poziomie konta magazynu, aby nie można było skonfigurować kontenerów i obiektów BLOB na koncie na potrzeby dostępu publicznego.
+Domyślnie użytkownik z odpowiednimi uprawnieniami może skonfigurować dostęp publiczny do kontenerów i obiektów BLOB. Możesz uniemożliwić dostęp publiczny na poziomie konta magazynu. Gdy nie zezwalasz na publiczny dostęp do obiektu BLOB dla konta magazynu, nie można skonfigurować kontenerów na koncie do dostępu publicznego. Wszystkie kontenery, które zostały już skonfigurowane do dostępu publicznego, nie będą już akceptować żądań anonimowych. Aby uzyskać więcej informacji, zobacz [Konfigurowanie anonimowego publicznego dostępu do odczytu dla kontenerów i obiektów BLOB](anonymous-read-access-configure.md).
 
 W tym artykule opisano, jak analizować anonimowe żądania na koncie magazynu oraz jak zapobiegać Anonimowemu dostępowi do całego konta magazynu lub dla danego kontenera.
 
 ## <a name="detect-anonymous-requests-from-client-applications"></a>Wykrywaj anonimowe żądania z aplikacji klienckich
 
-Wyłączenie publicznego dostępu do odczytu dla konta magazynu powoduje ryzyko odrzucenia żądań do kontenerów i obiektów blob, które są aktualnie skonfigurowane do dostępu publicznego. Wyłączenie dostępu publicznego dla konta magazynu zastępuje ustawienia dostępu publicznego dla wszystkich kontenerów na tym koncie magazynu. Gdy dostęp publiczny jest wyłączony dla konta magazynu, wszelkie przyszłe żądania anonimowe do tego konta będą kończyć się niepowodzeniem.
+Jeśli użytkownik nie zezwala na publiczny dostęp do odczytu dla konta magazynu, ryzyko odrzuca żądania do kontenerów i obiektów blob, które są aktualnie skonfigurowane do dostępu publicznego. Niezezwalanie na dostęp publiczny do konta magazynu zastępuje ustawienia dostępu publicznego dla wszystkich kontenerów na tym koncie magazynu. Gdy dostęp publiczny jest niedozwolony dla konta magazynu, wszelkie przyszłe żądania anonimowe do tego konta będą kończyć się niepowodzeniem.
 
-Aby zrozumieć, jak wyłączenie publicznego dostępu może mieć wpływ na aplikacje klienckie, firma Microsoft zaleca włączenie rejestrowania i metryk dla tego konta oraz analizowanie wzorców żądań anonimowych w przedziale czasu. Użyj metryk, aby określić liczbę żądań anonimowych do konta magazynu, a następnie użyj dzienników, aby określić, które kontenery są dostępne anonimowo.
+Aby zrozumieć, jak nie zezwalać na dostęp publiczny do aplikacji klienckich, firma Microsoft zaleca włączenie rejestrowania i metryk dla tego konta oraz analizowanie wzorców żądań anonimowych w przedziale czasu. Użyj metryk, aby określić liczbę żądań anonimowych do konta magazynu, a następnie użyj dzienników, aby określić, które kontenery są dostępne anonimowo.
 
 ### <a name="monitor-anonymous-requests-with-metrics-explorer"></a>Monitoruj anonimowe żądania za pomocą Eksplorator metryk
 
@@ -92,7 +92,7 @@ Aby uzyskać informacje na temat pól dostępnych w dziennikach usługi Azure St
 
 Dzienniki usługi Azure Storage w Azure Monitor obejmują typ autoryzacji, który został użyty do wysłania żądania do konta magazynu. W zapytaniu dziennika odfiltruj Właściwość **AuthenticationType** , aby wyświetlić anonimowe żądania.
 
-Aby pobrać dzienniki z ostatnich 7 dni dla żądań anonimowych względem usługi BLOB Storage, Otwórz obszar roboczy Log Analytics. Następnie wklej następujące zapytanie do nowego zapytania dziennika i uruchom je. Pamiętaj, aby zastąpić wartości symboli zastępczych w nawiasach własnymi wartościami:
+Aby pobrać dzienniki z ostatnich 7 dni dla żądań anonimowych względem usługi BLOB Storage, Otwórz obszar roboczy Log Analytics. Następnie wklej następujące zapytanie do nowego zapytania dziennika i uruchom je:
 
 ```kusto
 StorageBlobLogs
@@ -106,13 +106,13 @@ Możesz również skonfigurować regułę alertu na podstawie tego zapytania, ab
 
 Po przeprowadzeniu oceny żądań anonimowych do kontenerów i obiektów BLOB na koncie magazynu można podjąć działania w celu ograniczenia lub uniemożliwienia dostępu publicznego. Jeśli niektóre kontenery na koncie magazynu mogą być dostępne na potrzeby dostępu publicznego, można skonfigurować ustawienie dostępu publicznego dla każdego kontenera na koncie magazynu. Ta opcja zapewnia największą kontrolę nad dostępem publicznym. Aby uzyskać więcej informacji, zobacz [Ustawianie publicznego poziomu dostępu dla kontenera](anonymous-read-access-configure.md#set-the-public-access-level-for-a-container).
 
-W celu zwiększenia bezpieczeństwa można wyłączyć dostęp publiczny do całego konta magazynu. Ustawienie dostępu publicznego dla konta magazynu zastępuje poszczególne ustawienia kontenerów w ramach tego konta. Po wyłączeniu dostępu publicznego dla konta magazynu wszystkie kontenery, które są skonfigurowane do zezwalania na dostęp publiczny, nie są już anonimowo dostępne. Aby uzyskać więcej informacji, zobacz [Włączanie lub wyłączanie publicznego dostępu do odczytu dla konta magazynu](anonymous-read-access-configure.md#enable-or-disable-public-read-access-for-a-storage-account).
+W celu zwiększenia bezpieczeństwa można uniemożliwić dostęp publiczny do całego konta magazynu. Ustawienie dostępu publicznego dla konta magazynu zastępuje poszczególne ustawienia kontenerów w ramach tego konta. Jeśli nie zezwolisz na dostęp publiczny do konta magazynu, wszystkie kontenery, które są skonfigurowane do zezwalania na dostęp publiczny, nie będą już anonimowo dostępne. Aby uzyskać więcej informacji, zobacz [Zezwalaj lub nie Zezwalaj na publiczny dostęp do odczytu dla konta magazynu](anonymous-read-access-configure.md#allow-or-disallow-public-read-access-for-a-storage-account).
 
-Jeśli Twój scenariusz wymaga, aby niektóre kontenery były dostępne do publicznego dostępu, warto przystąpić do przenoszenia tych kontenerów i ich obiektów BLOB do kont magazynu, które są zarezerwowane dla dostępu publicznego. Następnie można wyłączyć dostęp publiczny do innych kont magazynu.
+Jeśli Twój scenariusz wymaga, aby niektóre kontenery były dostępne na potrzeby dostępu publicznego, może być zalecane przeniesienie tych kontenerów i ich obiektów BLOB do kont magazynu, które są zarezerwowane dla dostępu publicznego. Następnie można uniemożliwić dostęp publiczny do innych kont magazynu.
 
 ### <a name="verify-that-public-access-to-a-blob-is-not-permitted"></a>Sprawdź, czy publiczny dostęp do obiektu BLOB jest niedozwolony
 
-Aby sprawdzić, czy dostęp publiczny do określonego obiektu BLOB został odrzucony, możesz spróbować pobrać obiekt BLOB za pośrednictwem jego adresu URL. Jeśli pobieranie powiedzie się, obiekt BLOB jest nadal dostępny publicznie. Jeśli obiekt BLOB nie jest publicznie dostępny, ponieważ publiczny dostęp został wyłączony dla konta magazynu, zostanie wyświetlony komunikat o błędzie informujący o tym, że dostęp publiczny nie jest dozwolony na tym koncie magazynu.
+Aby sprawdzić, czy dostęp publiczny do określonego obiektu BLOB jest niedozwolony, możesz spróbować pobrać obiekt BLOB za pośrednictwem jego adresu URL. Jeśli pobieranie powiedzie się, obiekt BLOB jest nadal dostępny publicznie. Jeśli obiekt BLOB nie jest publicznie dostępny, ponieważ dostęp publiczny został niedozwolony dla konta magazynu, zostanie wyświetlony komunikat o błędzie informujący o tym, że dostęp publiczny nie jest dozwolony na tym koncie magazynu.
 
 Poniższy przykład pokazuje, jak za pomocą programu PowerShell próbować pobrać obiekt BLOB za pomocą adresu URL. Pamiętaj, aby zastąpić wartości symboli zastępczych w nawiasach własnymi wartościami:
 
@@ -124,7 +124,7 @@ Invoke-WebRequest -Uri $url -OutFile $downloadTo -ErrorAction Stop
 
 ### <a name="verify-that-modifying-the-containers-public-access-setting-is-not-permitted"></a>Sprawdź, czy modyfikowanie ustawienia dostępu publicznego kontenera nie jest dozwolone
 
-Aby sprawdzić, czy nie można zmodyfikować ustawienia dostępu publicznego kontenera po wyłączeniu dostępu publicznego dla konta magazynu, można spróbować zmodyfikować to ustawienie. Zmiana publicznego ustawienia dostępu kontenera zakończy się niepowodzeniem, jeśli dostęp publiczny jest wyłączony dla konta magazynu.
+Aby sprawdzić, czy nie można zmodyfikować ustawienia dostępu publicznego kontenera po niedozwolonym dostępie publicznym dla konta magazynu, możesz spróbować zmodyfikować to ustawienie. Zmiana publicznego ustawienia dostępu kontenera zakończy się niepowodzeniem, jeśli dostęp publiczny jest niedozwolony dla konta magazynu.
 
 Poniższy przykład pokazuje, jak za pomocą programu PowerShell próbować zmienić ustawienie dostępu publicznego kontenera. Pamiętaj, aby zastąpić wartości symboli zastępczych w nawiasach własnymi wartościami:
 
@@ -141,10 +141,10 @@ Set-AzStorageContainerAcl -Context $ctx -Container $containerName -Permission Bl
 
 ### <a name="verify-that-creating-a-container-with-public-access-enabled-is-not-permitted"></a>Upewnij się, że tworzenie kontenera z włączonym dostępem publicznym nie jest dozwolone
 
-Jeśli dostęp publiczny jest wyłączony dla konta magazynu, nie będziesz w stanie utworzyć nowego kontenera z włączonym dostępem publicznym. Aby to sprawdzić, możesz spróbować utworzyć kontener z włączonym dostępem publicznym.
+Jeśli dostęp publiczny jest niedozwolony dla konta magazynu, nie będziesz w stanie utworzyć nowego kontenera z włączonym dostępem publicznym. Aby to sprawdzić, możesz spróbować utworzyć kontener z włączonym dostępem publicznym.
 
 Poniższy przykład pokazuje, jak za pomocą programu PowerShell próbować utworzyć kontener z włączonym dostępem publicznym. Pamiętaj, aby zastąpić wartości symboli zastępczych w nawiasach własnymi wartościami:
- 
+
 ```powershell
 $rgName = "<resource-group>"
 $accountName = "<storage-account>"

@@ -10,11 +10,12 @@ ms.date: 06/22/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 9502194b2020723801469b511f46d3e806290ba5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 903560f5c0400a906918f0c17eafb2e1e09bdd30
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85213996"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518508"
 ---
 # <a name="azure-storage-redundancy"></a>Nadmiarowość usługi Azure Storage
 
@@ -60,9 +61,9 @@ W poniższej tabeli przedstawiono typy kont magazynu obsługujące ZRS, w który
 
 |    Typ konta magazynu    |    Obsługiwane regiony    |    Obsługiwane usługi    |
 |----------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------|
-|    Ogólnego przeznaczenia<sup>w wersji 2</sup>    | Azja Południowo-Wschodnia<br /> Australia Wschodnia<br /> Europa Północna<br />  Europa Zachodnia<br /> Francja Środkowa<br /> Japonia Wschodnia<br /> Północna Republika Południowej Afryki<br /> Południowe Zjednoczone Królestwo<br /> Środkowe stany USA<br /> Wschodnie stany USA<br /> Wschodnie stany USA 2<br /> Zachodnie stany USA 2    |    Blokowe obiekty blob<br /> Stronicowe obiekty blob<sup>2</sup><br /> Udziały plików (wersja standardowa)<br /> Tabele<br /> Kolejki<br /> |
-|    BlockBlobStorage<sup>1</sup>    | Azja Południowo-Wschodnia<br /> Europa Zachodnia<br /> Wschodnie stany USA    |    Blokuj tylko obiekty blob    |
-|    FileStorage    | Azja Południowo-Wschodnia<br /> Europa Zachodnia<br /> Wschodnie stany USA    |    Tylko Azure Files    |
+|    Ogólnego przeznaczenia<sup>w wersji 2</sup>    | Azja Południowo-Wschodnia<br /> Australia Wschodnia<br /> Europa Północna<br />  Europa Zachodnia<br /> Francja Środkowa<br /> Japan East<br /> Północna Republika Południowej Afryki<br /> Południowe Zjednoczone Królestwo<br /> Środkowe stany USA<br /> Wschodnie stany USA<br /> Wschodnie stany USA 2<br /> Zachodnie stany USA 2    |    Blokowe obiekty blob<br /> Stronicowe obiekty blob<sup>2</sup><br /> Udziały plików (wersja standardowa)<br /> Tabele<br /> Kolejki<br /> |
+|    BlockBlobStorage<sup>1</sup>    | Azja Południowo-Wschodnia<br /> Australia Wschodnia<br /> Europa Zachodnia<br /> Wschodnie stany USA    |    Blokuj tylko obiekty blob    |
+|    FileStorage    | Azja Południowo-Wschodnia<br /> Australia Wschodnia<br /> Europa Zachodnia<br /> Wschodnie stany USA    |    Tylko Azure Files    |
 
 <sup>1</sup> warstwa archiwum nie jest obecnie obsługiwana dla kont ZRS.<br />
 <sup>2</sup> konta magazynu zawierające dyski zarządzane przez platformę Azure dla maszyn wirtualnych zawsze używają LRS. W przypadku dysków niezarządzanych platformy Azure należy również użyć LRS. Istnieje możliwość utworzenia konta magazynu dla dysków niezarządzanych platformy Azure korzystających z GRS, ale nie jest to zalecane ze względu na potencjalne problemy ze spójnością w przypadku asynchronicznej replikacji geograficznej. Żadne dyski zarządzane ani niezarządzane nie obsługują ZRS ani GZRS. Aby uzyskać więcej informacji o dyskach zarządzanych, zobacz [Cennik usługi Azure Managed disks](https://azure.microsoft.com/pricing/details/managed-disks/).
@@ -108,7 +109,7 @@ GZRS i RA-GZRS są obsługiwane w następujących regionach:
 - Azja Południowo-Wschodnia
 - Europa Północna
 - Europa Zachodnia
-- Japonia Wschodnia
+- Japan East
 - Południowe Zjednoczone Królestwo
 - Środkowe stany USA
 - Wschodnie stany USA

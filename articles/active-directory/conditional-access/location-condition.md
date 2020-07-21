@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 7db7e64840d248b66a61ff310f9441800e1afc31
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 091555bac780f3abc7089d6214d0f9a8cfbf98cd
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85253226"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518440"
 ---
 # <a name="using-the-location-condition-in-a-conditional-access-policy"></a>Używanie warunku lokalizacji w zasadach dostępu warunkowego 
 
@@ -194,7 +194,7 @@ Gdy serwer proxy w chmurze jest na miejscu, można użyć zasad, które są uży
 
 ### <a name="api-support-and-powershell"></a>Obsługa interfejsu API i programu PowerShell
 
-Interfejs API i program PowerShell nie są jeszcze obsługiwane dla nazwanych lokalizacji.
+Dostępna jest wersja zapoznawcza interfejs API programu Graph dla nazwanych lokalizacji. Aby uzyskać więcej informacji, zobacz [interfejs API namedLocation](/graph/api/resources/namedlocation?view=graph-rest-beta).
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -11,11 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5350e728ad9c30a6e9258ce9c7615baf020473a8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6f1eae9cc067f8aa10ad49d70dfe0393f4bed6c5
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83995126"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518423"
 ---
 # <a name="conditional-access-block-access-by-location"></a>Dostęp warunkowy: Blokuj dostęp według lokalizacji
 
@@ -42,17 +43,15 @@ Więcej informacji o warunku lokalizacji w dostępie warunkowym można znaleźć
 1. Nadaj zasadom nazwę. Firma Microsoft zaleca, aby organizacje utworzyły znaczący Standard nazw swoich zasad.
 1. W obszarze **przypisania**wybierz pozycję **Użytkownicy i grupy**
    1. W obszarze **dołączanie**wybierz pozycję **Wszyscy użytkownicy**.
-   1. Wybierz pozycję **Gotowe**.
-1. W obszarze **aplikacje lub akcje w chmurze**  >  **Include**wybierz pozycję **wszystkie aplikacje w chmurze**, a następnie wybierz pozycję **gotowe**.
+1. W obszarze **aplikacje w chmurze lub akcje**  >  **Dołącz**i wybierz pozycję **wszystkie aplikacje w chmurze**.
 1. W **Conditions**obszarze  >  **Lokalizacja**warunków.
    1. Ustaw **wartość** **tak**
-   1. **Dołącz** **wybrane lokalizacje**
+   1. W obszarze **dołączanie**wybierz **wybrane lokalizacje**
    1. Wybierz zablokowaną lokalizację utworzoną dla swojej organizacji.
-   1. Kliknij **pozycję**  >  **gotowe**  >  **gotowe**.
-1. W obszarze **warunki**  >  **aplikacje klienckie (wersja zapoznawcza)** ustaw wartość opcji **Konfiguruj** na **tak**, a następnie wybierz pozycję **gotowe**.
-1. W obszarze blok **kontroli dostępu**  >  **Block**, a następnie wybierz pozycję **Wybierz**.
+   1. Kliknij pozycję **Wybierz**.
+1. W obszarze **kontroli dostępu** > wybierz pozycję **Blokuj dostęp**i wybierz pozycję **Wybierz**.
 1. Potwierdź ustawienia i ustaw opcję **Włącz zasady** na **włączone**.
-1. Wybierz pozycję **Utwórz** , aby utworzyć zasady.
+1. Wybierz pozycję **Utwórz** , aby utworzyć zasady dostępu warunkowego.
 
 ## <a name="next-steps"></a>Następne kroki
 

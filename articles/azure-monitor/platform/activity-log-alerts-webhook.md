@@ -4,11 +4,12 @@ description: Informacje o schemacie JSON, który jest publikowany w adresie URL 
 ms.topic: conceptual
 ms.date: 03/31/2017
 ms.subservice: alerts
-ms.openlocfilehash: c076b8dcea350f9ddd66977e89ce99b81f377b17
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1db12f352ec79a3112eada68d82279c9e0343a04
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77669050"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86516162"
 ---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>Elementy webhook dla alertów dziennika aktywności platformy Azure
 W ramach definicji grupy akcji można skonfigurować punkty końcowe elementu webhook, aby otrzymywać powiadomienia o alertach dziennika aktywności. Za pomocą elementów webhook można kierować te powiadomienia do innych systemów na potrzeby akcji wykonywanych po przetworzeniu lub w niestandardowym. W tym artykule przedstawiono sposób, w jaki zostanie wyświetlony ładunek dla wpisu HTTP dla elementu webhook.
@@ -56,7 +57,7 @@ Element webhook może opcjonalnie użyć autoryzacji opartej na tokenach na potr
 }
 ```
 
-### <a name="administrative"></a>Administracyjne
+### <a name="administrative"></a>Administracyjny
 
 ```json
 {
@@ -127,7 +128,7 @@ Element webhook może opcjonalnie użyć autoryzacji opartej na tokenach na potr
 }
 ```
 
-### <a name="recommendation"></a>Zalecenie
+### <a name="recommendation"></a>Rekomendacja
 
 ```json
 {
@@ -213,7 +214,7 @@ Element webhook może opcjonalnie użyć autoryzacji opartej na tokenach na potr
 }
 ```
 
-Aby uzyskać szczegółowe informacje dotyczące schematu alertów dziennika aktywności powiadomień o kondycji usługi, zobacz [powiadomienia dotyczące kondycji usługi](../../azure-monitor/platform/service-notifications.md). Ponadto Dowiedz się, jak [skonfigurować powiadomienia elementu webhook usługi Service Health z istniejącymi rozwiązaniami do zarządzania problemami](../../service-health/service-health-alert-webhook-guide.md).
+Aby uzyskać szczegółowe informacje dotyczące schematu alertów dziennika aktywności powiadomień o kondycji usługi, zobacz [powiadomienia dotyczące kondycji usługi](../../service-health/service-notifications.md). Ponadto Dowiedz się, jak [skonfigurować powiadomienia elementu webhook usługi Service Health z istniejącymi rozwiązaniami do zarządzania problemami](../../service-health/service-health-alert-webhook-guide.md).
 
 ### <a name="resourcehealth"></a>ResourceHealth
 
@@ -261,7 +262,7 @@ Aby uzyskać szczegółowe informacje dotyczące schematu alertów dziennika akt
 | warunektype |Zawsze "zdarzenie". |
 | name |Nazwa reguły alertu. |
 | identyfikator |Identyfikator zasobu alertu. |
-| description |Opis alertu ustawiany podczas tworzenia alertu. |
+| opis |Opis alertu ustawiany podczas tworzenia alertu. |
 | subscriptionId |Identyfikator subskrypcji platformy Azure. |
 | sygnatura czasowa |Godzina, o której zdarzenie zostało wygenerowane przez usługę platformy Azure, która przetworzyła żądanie. |
 | resourceId |Identyfikator zasobu zasobu, którego dotyczy problem. |
@@ -291,4 +292,3 @@ Szczegółowe informacje o schemacie wszystkich innych alertów dziennika aktywn
 * [Użyj aplikacji logiki, aby wysłać wiadomość SMS za pośrednictwem Twilio z alertu platformy Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app). Ten przykład dotyczy alertów metryk, ale można go zmodyfikować do pracy z alertem dziennika aktywności.
 * [Użyj aplikacji logiki do wysłania komunikatu o zapasach z alertu platformy Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app). Ten przykład dotyczy alertów metryk, ale można go zmodyfikować do pracy z alertem dziennika aktywności.
 * [Użyj aplikacji logiki, aby wysłać wiadomość do kolejki platformy Azure z poziomu alertu platformy Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app). Ten przykład dotyczy alertów metryk, ale można go zmodyfikować do pracy z alertem dziennika aktywności.
-

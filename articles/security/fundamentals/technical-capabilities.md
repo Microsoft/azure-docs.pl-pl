@@ -2,24 +2,20 @@
 title: Techniczne funkcje zabezpieczeń na platformie Azure — Microsoft Azure
 description: Wprowadzenie do usług zabezpieczeń na platformie Azure, które ułatwiają ochronę danych, zasobów i aplikacji w chmurze.
 services: security
-documentationcenter: na
-author: UnifyCloud
-manager: barbkess
-editor: TomSh
+author: terrylanfear
 ms.assetid: ''
 ms.service: security
 ms.subservice: security-fundamentals
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 05/31/2019
-ms.author: TomSh
-ms.openlocfilehash: 61afad1d9994fd703bd8df047d1861baddeae997
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/13/2020
+ms.author: terrylan
+ms.openlocfilehash: 29e6aa96ea1c435e4d734e80824e1cedcfe9a761
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76845345"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86519324"
 ---
 # <a name="azure-security-technical-capabilities"></a>Możliwości techniczne zabezpieczeń platformy Azure
 Ten artykuł zawiera wprowadzenie do usług zabezpieczeń na platformie Azure, które ułatwiają ochronę danych, zasobów i aplikacji w chmurze oraz zaspokajanie potrzeb firmy.
@@ -50,7 +46,7 @@ Microsoft Azure udostępnia usługi, które pomagają sprostać wymaganiom zwią
 
 Platforma Azure pomaga w ochronie danych firmowych i osobistych, umożliwiając Zarządzanie tożsamościami i poświadczeniami użytkowników oraz kontrolę dostępu.
 
-### <a name="azure-active-directory"></a>Usługa Azure Active Directory
+### <a name="azure-active-directory"></a>Azure Active Directory
 
 Rozwiązania do zarządzania tożsamościami i dostępem firmy Microsoft ułatwiają ochronę dostępu do aplikacji i zasobów w centrum danych firmy oraz w chmurze, co pozwala na dodatkowe poziomy weryfikacji, takie jak uwierzytelnianie wieloskładnikowe i zasady dostępu warunkowego. Monitorowanie podejrzanej aktywności przy użyciu zaawansowanych raportów zabezpieczeń, inspekcji i alertów umożliwia rozwiązywanie potencjalnych problemów z zabezpieczeniami. [Azure Active Directory — wersja Premium](../../active-directory/active-directory-whatis.md) zapewnia Logowanie jednokrotne do tysięcy aplikacji w chmurze i dostęp do aplikacji sieci Web uruchamianych lokalnie.
 
@@ -66,7 +62,7 @@ Zalety zabezpieczeń Azure Active Directory (Azure AD) obejmują:
 
 [Portal Azure Active Directory](https://aad.portal.azure.com/) jest dostępny w ramach Azure Portal. Z tego pulpitu nawigacyjnego można zapoznać się z omówieniem stanu organizacji oraz łatwo zarządzać dostępem do katalogu, użytkowników lub aplikacji.
 
-![Usługa Azure Active Directory](./media/technical-capabilities/azure-security-technical-capabilities-fig2.png)
+![Azure Active Directory](./media/technical-capabilities/azure-security-technical-capabilities-fig2.png)
 
 Poniżej przedstawiono podstawowe możliwości usługi Azure Identity Management:
 
@@ -169,77 +165,11 @@ Przy użyciu kontroli dostępu opartej na rolach można przeprowadzić segregowa
 Jednym z kluczy ochrony danych w chmurze jest uwzględnienie możliwych stanów, w których mogą wystąpić dane, oraz tego, jakie kontrolki są dostępne dla tego stanu. W przypadku najlepszych rozwiązań dotyczących zabezpieczeń i szyfrowania danych platformy Azure zalecenia dotyczą następujących stanów danych.
 
 - W spoczynku: obejmuje to wszystkie obiekty magazynu informacji, kontenery i typy, które znajdują się statycznie na nośniku fizycznym, jako dysk magnetyczny lub optyczny.
-
 - W tranzycie: w przypadku przesyłania danych między składnikami, lokalizacjami lub programami, takimi jak sieć, przez magistralę usług (od lokalnego do chmury i na odwrót, łącznie z połączeniami hybrydowymi, takimi jak ExpressRoute) lub w procesie wejścia/wyjścia, uważa się, że jest on ruchem.
 
 ### <a name="encryption-at-rest"></a>Szyfrowanie w spoczynku
 
-Aby uzyskać szyfrowanie w spoczynku, wykonaj następujące czynności:
-
-Aby zaszyfrować dane, należy obsłużyć co najmniej jeden z zalecanych modeli szyfrowania przedstawionych w poniższej tabeli.
-
-| Modele szyfrowania |  |  |  |
-| ----------------  | ----------------- | ----------------- | --------------- |
-| Szyfrowanie serwera | Szyfrowanie serwera | Szyfrowanie serwera | Szyfrowanie klienta
-| Szyfrowanie po stronie serwera przy użyciu kluczy zarządzanych przez usługę | Szyfrowanie po stronie serwera przy użyciu kluczy zarządzanych przez klienta w programie Azure Key Vault | Szyfrowanie po stronie serwera przy użyciu lokalnych kluczy zarządzanych przez klienta |
-| • Dostawcy zasobów platformy Azure wykonują operacje szyfrowania i odszyfrowywania <br> • Firma Microsoft zarządza kluczami <br>• Pełna funkcjonalność chmury | • Dostawcy zasobów platformy Azure wykonują operacje szyfrowania i odszyfrowywania<br>• Klucze kontroli klienta za pośrednictwem Azure Key Vault<br>• Pełna funkcjonalność chmury | • Dostawcy zasobów platformy Azure wykonują operacje szyfrowania i odszyfrowywania <br>• Klucze kontroli klienta w środowisku lokalnym <br> • Pełna funkcjonalność chmury| • Usługi platformy Azure nie mogą zobaczyć odszyfrowanych danych <br>• Klienci przechowują klucze lokalnie (lub w innych magazynach bezpiecznych). Klucze nie są dostępne dla usług platformy Azure <br>• Zmniejszona funkcjonalność chmury|
-
-### <a name="enabling-encryption-at-rest"></a>Włączanie szyfrowania w stanie spoczynku
-
-**Zidentyfikuj wszystkie lokalizacje danych przechowywanych**
-
-Celem szyfrowania w czasie spoczynku jest zaszyfrowanie wszystkich danych. Wykonanie tej operacji eliminuje możliwość braku ważnych danych lub wszystkich utrwalonych lokalizacji. Wylicz wszystkie dane przechowywane przez aplikację.
-
-> [!Note]
-> Nie tylko "dane aplikacji" lub "OSOBowe", ale wszelkie dane dotyczące aplikacji, w tym metadane konta (mapowania subskrypcji, informacje o kontrakcie, dane OSOBowe).
-
-Zastanów się, które sklepy są używane do przechowywania danych. Przykład:
-
-- Magazyn zewnętrzny (na przykład SQL Azure, baza danych dokumentów, HDInsight, Data Lake itd.)
-
-- Magazyn tymczasowy (dowolna lokalna pamięć podręczna obejmująca dane dzierżawy)
-
-- Pamięć podręczna w pamięci (może zostać umieszczona w pliku stronicowania).
-
-### <a name="leverage-the-existing-encryption-at-rest-support-in-azure"></a>Wykorzystanie istniejącego szyfrowania w obsłudze REST na platformie Azure
-
-W przypadku każdego używanego magazynu Skorzystaj z istniejącego szyfrowania w obsłudze Rest.
-
-- Azure Storage: zobacz [szyfrowanie usługi Storage platformy Azure, aby uzyskać dane w spoczynku](../../storage/common/storage-service-encryption.md),
-
-- SQL Azure: zobacz [transparent Data Encryption (TDE), SQL Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx)
-
-- Magazyn na dysku lokalnym & maszyny wirtualnej ([Azure Disk Encryption](../azure-security-disk-encryption-overview.md))
-
-W przypadku maszyn wirtualnych i magazynu lokalnego należy używać Azure Disk Encryption, jeśli są obsługiwane:
-
-#### <a name="iaas"></a>IaaS
-
-Usługi z maszynami wirtualnymi IaaS (system Windows lub Linux) powinni używać [Azure Disk Encryption](https://microsoft.sharepoint.com/teams/AzureSecurityCompliance/Security/SitePages/Azure%20Disk%20Encryption.aspx) do szyfrowania woluminów zawierających dane klientów.
-
-#### <a name="paas-v2"></a>PaaS v2
-
-Usługi uruchomione w PaaS v2 przy użyciu Service Fabric mogą używać usługi Azure Disk Encryption dla zestawu skalowania maszyn wirtualnych [VMSS] do szyfrowania maszyn wirtualnych PaaS v2.
-
-#### <a name="paas-v1"></a>PaaS v1
-
-Azure Disk Encryption obecnie nie jest obsługiwana w PaaS v1. W związku z tym należy użyć szyfrowania na poziomie aplikacji, aby zaszyfrować utrwalone dane.  Obejmuje to, ale nie jest ograniczone do, danych aplikacji, plików tymczasowych, dzienników i zrzutów awaryjnych.
-
-Większość usług powinna próbować korzystać z szyfrowania dostawcy zasobów magazynu. Niektóre usługi muszą wykonywać jawne szyfrowanie, na przykład wszelkie utrwalone klucze kluczy (certyfikaty, główne/główne) muszą być przechowywane w Key Vault.
-
-W przypadku obsługi szyfrowania po stronie usługi z kluczami zarządzanymi przez klienta należy zapewnić klientowi uzyskanie klucza do nas. Obsługiwane i zalecane metody, które należy wykonać dzięki integracji z Azure Key Vault (AKV). W takim przypadku klienci mogą dodawać klucze i zarządzać nimi w Azure Key Vault. Klient może dowiedzieć się, jak używać AKV za pośrednictwem [wprowadzenie z Key Vault](https://go.microsoft.com/fwlink/?linkid=521402).
-
-Aby zintegrować z Azure Key Vault, należy dodać kod, aby zażądać klucza z AKV, gdy jest to potrzebne do odszyfrowania.
-
-- Zobacz [Azure Key Vault — krok](https://blogs.technet.microsoft.com/kv/2015/06/02/azure-key-vault-step-by-step/) po kroku, aby uzyskać informacje na temat integracji z usługą AKV.
-
-Jeśli są obsługiwane klucze zarządzane przez klienta, należy podać środowisko użytkownika, aby klient mógł określić, który Key Vault (lub Key Vault identyfikator URI) do użycia.
-
-Ponieważ szyfrowanie w spoczynku obejmuje szyfrowanie danych hosta, infrastruktury i dzierżawy, utrata kluczy spowodowanych awarią systemu lub złośliwym działaniem może oznaczać, że wszystkie zaszyfrowane dane zostaną utracone. W związku z tym ważne jest, aby szyfrowanie w rozwiązaniu REST zostało rozbudowane, odporne na awarie systemu i złośliwe działanie.
-
-Usługi implementujące szyfrowanie w spoczynku są zwykle podatne na klucze szyfrowania lub dane, które nie są szyfrowane na dysku hosta (na przykład w pliku stronicowania systemu operacyjnego hosta). W związku z tym usługi muszą upewnić się, że wolumin hosta dla usług jest szyfrowany. Aby ułatwić takiemu zespołowi obliczeniowemu włączenie wdrożenia szyfrowania hosta, które używa [funkcji BitLocker](https://technet.microsoft.com/library/dn306081.aspx) NKP i rozszerzeń do usługi DCM i agenta do szyfrowania woluminu hosta.
-
-Większość usług jest implementowana na standardowych maszynach wirtualnych platformy Azure. Takie usługi powinny automatycznie pobierać [szyfrowanie hosta](../azure-security-disk-encryption-overview.md) podczas jego włączania. W przypadku usług uruchomionych w ramach szyfrowania hostów zarządzanych klastrów jest włączana automatycznie, gdy zostanie wycofany system Windows Server 2016.
+Szyfrowanie w spoczynku zostało szczegółowo omówione w temacie [szyfrowanie danych na platformie Azure](encryption-atrest.md).
 
 ### <a name="encryption-in-transit"></a>Szyfrowanie podczas przesyłania
 
@@ -409,7 +339,7 @@ Usługa [Azure Security Center](../../security-center/security-center-intro.md) 
 
 Centrum zabezpieczeń analizuje stan zabezpieczeń zasobów platformy Azure w celu identyfikowania potencjalnych luk w zabezpieczeniach. Lista zaleceń prowadzi użytkownika przez proces konfigurowania wymaganych elementów sterujących.
 
-Przykłady obejmują:
+Przykłady:
 
 - Inicjowanie ochrony przed złośliwym oprogramowaniem w celu identyfikacji i usuwania złośliwego oprogramowania
 

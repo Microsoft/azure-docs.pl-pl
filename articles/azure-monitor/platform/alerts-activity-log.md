@@ -4,12 +4,12 @@ description: Tworzenie alertów dziennika aktywności przy użyciu Azure Portal,
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 06/25/2019
-ms.openlocfilehash: 242192118d59f972cebe2837d74c34310cac74aa
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 5019c3111a6e04dd9b7ba6ecbb9f62c7969075ed
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86056263"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86516060"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-by-using-azure-monitor"></a>Tworzenie i wyświetlanie alertów dziennika aktywności oraz zarządzanie nimi za pomocą Azure Monitor  
 
@@ -20,7 +20,7 @@ Alerty dziennika aktywności są alertami, które są aktywowane w przypadku wys
 Te alerty dotyczą zasobów platformy Azure i można je utworzyć przy użyciu szablonu Azure Resource Manager. Można je także tworzyć, aktualizować lub usuwać w Azure Portal. Zazwyczaj tworzysz alerty dziennika aktywności, aby otrzymywać powiadomienia o wystąpieniu konkretnych zmian w zasobach w ramach subskrypcji platformy Azure. Alerty często są ograniczone do określonych grup zasobów lub zasobów. Na przykład możesz chcieć otrzymywać powiadomienia, gdy dowolna maszyna wirtualna w przykładowej grupie zasobów **myProductionResourceGroup** jest usuwana. Możesz również otrzymać powiadomienie, jeśli dowolna z nowych ról zostanie przypisana do użytkownika w ramach subskrypcji.
 
 > [!IMPORTANT]
-> Nie można utworzyć alertów dotyczących powiadomienia o kondycji usługi za pośrednictwem interfejsu dla tworzenia alertów dziennika aktywności. Aby dowiedzieć się więcej na temat tworzenia i używania powiadomień o kondycji usługi, zobacz [otrzymywanie alertów dziennika aktywności w powiadomieniach o kondycji usługi](alerts-activity-log-service-notifications.md).
+> Nie można utworzyć alertów dotyczących powiadomienia o kondycji usługi za pośrednictwem interfejsu dla tworzenia alertów dziennika aktywności. Aby dowiedzieć się więcej na temat tworzenia i używania powiadomień o kondycji usługi, zobacz [otrzymywanie alertów dziennika aktywności w powiadomieniach o kondycji usługi](../../service-health/alerts-activity-log-service-notifications-portal.md).
 
 Podczas tworzenia reguł alertów należy zapewnić następujące czynności:
 
@@ -28,6 +28,7 @@ Podczas tworzenia reguł alertów należy zapewnić następujące czynności:
 - Kryteria muszą być kategoriami poziomów, stan, obiekt wywołujący, Grupa zasobów, identyfikator zasobu lub typ zasobu, dla których skonfigurowano alert.
 - W pliku JSON konfiguracji alertów nie ma warunku "anyOf" ani warunków zagnieżdżonych. Zasadniczo tylko jeden warunek "allOf" jest dozwolony w przypadku braku dalszych warunków "allOf" lub "anyOf".
 - Jeśli kategoria ma wartość "administracyjne", musisz określić co najmniej jedno z powyższych kryteriów w alercie. Nie można utworzyć alertu, który jest uaktywniany za każdym razem, gdy zdarzenie jest tworzone w dziennikach aktywności.
+- Nie można tworzyć alertów dla zdarzeń w kategorii alertów dziennika aktywności.
 
 ## <a name="azure-portal"></a>Azure Portal
 
@@ -101,7 +102,7 @@ Wykonaj poniższą procedurę.
     Możesz włączyć, wyłączyć, edytować lub usunąć regułę. Dowiedz się więcej o sposobach zarządzania zasadami dziennika aktywności.
 
 
-Prostą analogową dla zrozumienie warunków, w których można tworzyć reguły alertów w dzienniku aktywności, jest Eksplorowanie lub filtrowanie zdarzeń za pośrednictwem [dziennika aktywności w Azure Portal](activity-log-view.md#azure-portal). Na ekranie **dziennika aktywności Azure monitor** można odfiltrować lub znaleźć niezbędne zdarzenie, a następnie utworzyć alert przy użyciu przycisku **Dodaj alert dziennika aktywności** . Następnie wykonaj kroki od 4 do 7, jak pokazano wcześniej.
+Prostą analogową dla zrozumienie warunków, w których można tworzyć reguły alertów w dzienniku aktywności, jest Eksplorowanie lub filtrowanie zdarzeń za pośrednictwem [dziennika aktywności w Azure Portal](./activity-log.md#view-the-activity-log). Na ekranie **dziennika aktywności Azure monitor** można odfiltrować lub znaleźć niezbędne zdarzenie, a następnie utworzyć alert przy użyciu przycisku **Dodaj alert dziennika aktywności** . Następnie wykonaj kroki od 4 do 7, jak pokazano wcześniej.
     
  ![Dodawanie alertu z dziennika aktywności](media/alerts-activity-log/add-activity-log.png)
     
@@ -218,7 +219,7 @@ Następujące pola są opcjami, których można użyć w szablonie Azure Resourc
 9. Substatus: zazwyczaj kod stanu HTTP odpowiadającego wywołania REST, ale może również zawierać inne ciągi opisujące podstan.   Na przykład: OK (kod stanu HTTP: 200), utworzony (kod stanu HTTP: 201), zaakceptowany (kod stanu HTTP: 202), brak zawartości (kod stanu HTTP: 204), złe żądanie (kod stanu HTTP: 400), nie znaleziono (kod stanu HTTP: 404), konflikt (kod stanu http: 409), wewnętrzny błąd serwera (kod stanu http: 500), Usługa niedostępna (kod stanu HTTP: 503), limit czasu bramy (kod stanu HTTP: 504).
 10. ResourceType: typ zasobu, którego dotyczy zdarzenie. Na przykład: Microsoft. resources/Deployments
 
-Przykład:
+Na przykład:
 
 ```json
 "condition": {
@@ -243,7 +244,7 @@ Więcej szczegółów na temat pól dziennika aktywności można znaleźć [tuta
 > Skonfigurowanie nowej reguły alertu dziennika aktywności może potrwać do 5 minut.
 
 ## <a name="rest-api"></a>Interfejs API REST 
-[Interfejs API alertów dziennika aktywności Azure monitor](https://docs.microsoft.com/rest/api/monitor/activitylogalerts) jest interfejsem API REST. Jest w pełni zgodna z interfejsem API REST Azure Resource Manager. Można go użyć za pośrednictwem programu PowerShell za pomocą polecenia cmdlet Menedżer zasobów lub interfejsu wiersza poleceń platformy Azure.
+[Interfejs API alertów dziennika aktywności Azure monitor](/rest/api/monitor/activitylogalerts) jest interfejsem API REST. Jest w pełni zgodna z interfejsem API REST Azure Resource Manager. Można go użyć za pośrednictwem programu PowerShell za pomocą polecenia cmdlet Menedżer zasobów lub interfejsu wiersza poleceń platformy Azure.
 
 ## <a name="powershell"></a>PowerShell
 
@@ -262,29 +263,29 @@ gdzie sampleActivityLogAlert.parameters.json zawiera wartości podane dla parame
 
 Alerty dziennika aktywności mają dostępne dedykowane polecenia cmdlet programu PowerShell:
 
-- [Set-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Set-AzActivityLogAlert): tworzy nowy Alert dziennika aktywności lub aktualizuje istniejący alert dziennika aktywności.
-- [Get-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Get-AzActivityLogAlert): Pobiera co najmniej jeden zasób alertu dziennika aktywności.
-- [Enable-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Enable-AzActivityLogAlert): włącza istniejący alert dziennika aktywności i ustawia jego Tagi.
-- [Disable-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Disable-AzActivityLogAlert): wyłącza istniejący alert dziennika aktywności i ustawia jego Tagi.
-- [Remove-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Remove-AzActivityLogAlert): usuwa alert dziennika aktywności.
+- [Set-AzActivityLogAlert](/powershell/module/az.monitor/set-azactivitylogalert): tworzy nowy Alert dziennika aktywności lub aktualizuje istniejący alert dziennika aktywności.
+- [Get-AzActivityLogAlert](/powershell/module/az.monitor/get-azactivitylogalert): Pobiera co najmniej jeden zasób alertu dziennika aktywności.
+- [Enable-AzActivityLogAlert](/powershell/module/az.monitor/enable-azactivitylogalert): włącza istniejący alert dziennika aktywności i ustawia jego Tagi.
+- [Disable-AzActivityLogAlert](/powershell/module/az.monitor/disable-azactivitylogalert): wyłącza istniejący alert dziennika aktywności i ustawia jego Tagi.
+- [Remove-AzActivityLogAlert](/powershell/module/az.monitor/remove-azactivitylogalert): usuwa alert dziennika aktywności.
 
 ## <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure
 
-Dedykowane polecenia platformy Azure w obszarze Ustaw [AZ monitor Activity-Log alert](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert) są dostępne do zarządzania regułami alertów dziennika aktywności.
+Dedykowane polecenia platformy Azure w obszarze Ustaw [AZ monitor Activity-Log alert](/cli/azure/monitor/activity-log/alert) są dostępne do zarządzania regułami alertów dziennika aktywności.
 
 Aby utworzyć nową regułę alertu dziennika aktywności, użyj następujących poleceń w następującej kolejności:
 
-1. [AZ monitor Activity-Log alert Create](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-create): Utwórz nowy zasób reguły alertu dziennika aktywności.
-1. [AZ monitor Activity-Log zakres alertu](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert/scope): Dodawanie zakresu dla utworzonej reguły alertu dziennika aktywności.
-1. [AZ monitor Activity-Log Action Alert-Group](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert/action-group): Dodaj grupę akcji do reguły alertu dziennika aktywności.
+1. [AZ monitor Activity-Log alert Create](/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-create): Utwórz nowy zasób reguły alertu dziennika aktywności.
+1. [AZ monitor Activity-Log zakres alertu](/cli/azure/monitor/activity-log/alert/scope): Dodawanie zakresu dla utworzonej reguły alertu dziennika aktywności.
+1. [AZ monitor Activity-Log Action Alert-Group](/cli/azure/monitor/activity-log/alert/action-group): Dodaj grupę akcji do reguły alertu dziennika aktywności.
 
-Aby pobrać jeden zasób reguły alertu dziennika aktywności, użyj polecenia [AZ monitor Activity-Log alert](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-show
-). Aby wyświetlić wszystkie zasoby reguły alertu dziennika aktywności w grupie zasobów, użyj polecenie [AZ monitor Activity-Log alert list](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-list).
-Zasoby reguły alertu dziennika aktywności można usunąć przy użyciu polecenia [AZ monitor Activity-Log alert Delete](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-delete).
+Aby pobrać jeden zasób reguły alertu dziennika aktywności, użyj polecenia [AZ monitor Activity-Log alert](/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-show
+). Aby wyświetlić wszystkie zasoby reguły alertu dziennika aktywności w grupie zasobów, użyj polecenie [AZ monitor Activity-Log alert list](/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-list).
+Zasoby reguły alertu dziennika aktywności można usunąć przy użyciu polecenia [AZ monitor Activity-Log alert Delete](/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-delete).
 
 ## <a name="next-steps"></a>Następne kroki
 
 - Informacje o [schemacie elementu webhook dla dzienników aktywności](../../azure-monitor/platform/activity-log-alerts-webhook.md).
 - Zapoznaj się z [omówieniem dzienników aktywności](../../azure-monitor/platform/activity-log-alerts.md).
 - Dowiedz się więcej na temat [grup akcji](../../azure-monitor/platform/action-groups.md).  
-- Dowiedz się więcej o [powiadomieniach o kondycji usługi](../../azure-monitor/platform/service-notifications.md).
+- Dowiedz się więcej o [powiadomieniach o kondycji usługi](../../service-health/service-notifications.md).

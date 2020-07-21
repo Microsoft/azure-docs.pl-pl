@@ -3,13 +3,14 @@ title: Diagnozowanie błędów i wyjątków za pomocą usługi Azure Application
 description: Przechwytuj wyjątki z aplikacji ASP.NET wraz z danymi telemetrycznymi żądania.
 ms.topic: conceptual
 ms.date: 07/11/2019
-ms.openlocfilehash: 9f24f09e7d2ef0a3e5f3a8f6546a9115118473ab
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4d298b3b8541590387995898b0b9f067e8130c3d
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80892346"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86517216"
 ---
-# <a name="diagnose-exceptions-in-your-web-apps-with-application-insights"></a>Diagnozowanie wyjątków w aplikacjach internetowych za pomocą usługi Application Insights
+# <a name="diagnose-exceptions-in-your-web-apps-with-application-insights"></a>Diagnozuj wyjątki w aplikacjach sieci Web za pomocą Application Insights
 Wyjątki w aplikacji sieci Web na żywo są zgłaszane przez [Application Insights](../../azure-monitor/app/app-insights-overview.md). Możliwe jest skorelowanie żądań zakończonych niepowodzeniem z wyjątkami i innymi zdarzeniami zarówno na kliencie, jak i na serwerze, dzięki czemu można szybko zdiagnozować przyczyny.
 
 ## <a name="set-up-exception-reporting"></a>Konfigurowanie raportowania wyjątków
@@ -18,7 +19,7 @@ Wyjątki w aplikacji sieci Web na żywo są zgłaszane przez [Application Insigh
   * Maszyna wirtualna platformy Azure i zestaw skalowania maszyn wirtualnych platformy Azure — aplikacje hostowane: Dodaj [rozszerzenie monitorowania aplikacji](../../azure-monitor/app/azure-vm-vmss-apps.md)
   * Zainstaluj [Application Insights zestaw SDK](../../azure-monitor/app/asp-net.md) w kodzie aplikacji lub
   * Serwery sieci Web usług IIS: Uruchom [agenta Application Insights](../../azure-monitor/app/monitor-performance-live-website-now.md); oraz
-  * Aplikacje sieci Web Java: Włączanie [agenta Java](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent)
+  * Aplikacje sieci Web Java: Włączanie [agenta Java](./java-in-process-agent.md)
 * Zainstaluj [fragment kodu JavaScript](../../azure-monitor/app/javascript.md) na stronach sieci Web, aby przechwycić wyjątki przeglądarki.
 * W niektórych strukturach aplikacji lub z niektórymi ustawieniami należy wykonać kilka dodatkowych kroków, aby przechwycić więcej wyjątków:
   * [Formularze sieci Web](#web-forms)
@@ -27,7 +28,7 @@ Wyjątki w aplikacji sieci Web na żywo są zgłaszane przez [Application Insigh
   * [Web API 2. *](#web-api-2x)
   * [WCF](#wcf)
 
-  Ten artykuł dotyczy głównie aplikacji .NET Framework z perspektywy przykładowego kodu. Niektóre metody, które działają dla .NET Framework są przestarzałe w zestaw .NET Core SDK. Zapoznaj się z [dokumentacją zestaw .NET Core SDK](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core) , jeśli masz aplikację .NET Core.
+  Ten artykuł dotyczy głównie aplikacji .NET Framework z perspektywy przykładowego kodu. Niektóre metody, które działają dla .NET Framework są przestarzałe w zestaw .NET Core SDK. Zapoznaj się z [dokumentacją zestaw .NET Core SDK](./asp-net-core.md) , jeśli masz aplikację .NET Core.
 
 ## <a name="diagnosing-exceptions-using-visual-studio"></a>Diagnozowanie wyjątków przy użyciu programu Visual Studio
 Otwórz rozwiązanie aplikacji w programie Visual Studio, aby pomóc w debugowaniu.
@@ -198,7 +199,7 @@ Ale jeśli masz aktywne przekierowania, Dodaj następujące wiersze do funkcji A
 ## <a name="mvc"></a>MVC
 Począwszy od Application Insights zestawu SDK sieci Web w wersji 2,6 (beta3 i nowszych), Application Insights zbiera Nieobsłużone wyjątki, które zostały automatycznie zgłoszone w metodach kontrolerów MVC 5. Jeśli wcześniej dodano niestandardową procedurę obsługi do śledzenia takich wyjątków (zgodnie z opisem w poniższych przykładach), można ją usunąć, aby zapobiec podwójnemu śledzeniu wyjątków.
 
-Istnieją różne przypadki, w których nie można obsłużyć filtrów wyjątków. Przykład:
+Istnieją różne przypadki, w których nie można obsłużyć filtrów wyjątków. Na przykład:
 
 * Wyjątki zgłoszone przez konstruktory kontrolerów.
 * Wyjątki zgłoszone przez programy obsługi komunikatów.
@@ -213,7 +214,7 @@ Nieobsłużone wyjątki pochodzące z kontrolerów zwykle powodują, że odpowie
 ### <a name="prior-versions-support"></a>Obsługa wcześniejszych wersji
 W przypadku używania MVC 4 (i wcześniejszych) Application Insights Web SDK 2,5 (i starszych) zapoznaj się z poniższymi przykładami, aby śledzić wyjątki.
 
-Jeśli konfiguracja [customErrors](https://msdn.microsoft.com/library/h0hfz6fc.aspx) ma wartość `Off` , wyjątki będą dostępne dla [modułu http](https://msdn.microsoft.com/library/ms178468.aspx) do zbierania. Jednak jeśli jest `RemoteOnly` (domyślnie) lub `On` , wyjątek zostanie wyczyszczony i nie będzie dostępny do Application Insights do automatycznego zbierania. Można to naprawić, zastępując [klasę System. Web. MVC. HandleErrorAttribute](https://msdn.microsoft.com/library/system.web.mvc.handleerrorattribute.aspx)i stosując przesłoniętą klasę, jak pokazano w różnych wersjach MVC poniżej ([Źródło GitHub](https://github.com/AppInsightsSamples/Mvc2UnhandledExceptions/blob/master/MVC2App/Controllers/AiHandleErrorAttribute.cs)):
+Jeśli konfiguracja [customErrors](/previous-versions/dotnet/netframework-4.0/h0hfz6fc(v=vs.100)) ma wartość `Off` , wyjątki będą dostępne dla [modułu http](/previous-versions/dotnet/netframework-3.0/ms178468(v=vs.85)) do zbierania. Jednak jeśli jest `RemoteOnly` (domyślnie) lub `On` , wyjątek zostanie wyczyszczony i nie będzie dostępny do Application Insights do automatycznego zbierania. Można to naprawić, zastępując [klasę System. Web. MVC. HandleErrorAttribute](/dotnet/api/system.web.mvc.handleerrorattribute?view=aspnet-mvc-5.2)i stosując przesłoniętą klasę, jak pokazano w różnych wersjach MVC poniżej ([Źródło GitHub](https://github.com/AppInsightsSamples/Mvc2UnhandledExceptions/blob/master/MVC2App/Controllers/AiHandleErrorAttribute.cs)):
 
 ```csharp
     using System;
@@ -290,7 +291,7 @@ Zarejestruj AiHandleErrorAttribute jako filtr globalny w FilterConfig.cs:
 ## <a name="web-api"></a>Interfejs API sieci Web
 Począwszy od Application Insights zestawu SDK sieci Web w wersji 2,6 (beta3 i nowszych), Application Insights zbiera Nieobsłużone wyjątki, które są automatycznie generowane w metodach kontrolera dla WebAPI 2 +. Jeśli wcześniej dodano niestandardową procedurę obsługi do śledzenia takich wyjątków (zgodnie z opisem w poniższych przykładach), można ją usunąć, aby zapobiec podwójnemu śledzeniu wyjątków.
 
-Istnieją różne przypadki, w których nie można obsłużyć filtrów wyjątków. Przykład:
+Istnieją różne przypadki, w których nie można obsłużyć filtrów wyjątków. Na przykład:
 
 * Wyjątki zgłoszone przez konstruktory kontrolerów.
 * Wyjątki zgłoszone przez programy obsługi komunikatów.

@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: bde0db179216426c4279e5b03b416a04176430bb
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 48c05bf7b4cbecb09ef3bb113832974bee4bc6b2
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86056790"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518779"
 ---
 # <a name="routes-in-azure-static-web-apps-preview"></a>Trasy w usłudze Azure static Web Apps Preview
 
@@ -37,9 +37,9 @@ W poniższej tabeli wymieniono odpowiednie lokalizacje umieszczania _routes.jsw_
 |Struktura/Biblioteka | Lokalizacja  |
 |---------|----------|
 | Angular | _stanu_   |
-| React   | _społeczeństwo_  |
-| Svelte  | _społeczeństwo_   |
-| VUE     | _społeczeństwo_ |
+| React   | _public_  |
+| Svelte  | _public_   |
+| VUE     | _public_ |
 
 ## <a name="defining-routes"></a>Definiowanie tras
 
@@ -295,7 +295,7 @@ W poniższych przykładach opisano, co się dzieje, gdy żądanie jest zgodne z 
 | _/unknown-folder_ | Obsługiwany jest plik _/custom-404.html_ . |
 | Pliki z `.custom` rozszerzeniem | Są obsługiwane za pomocą `text/html` typu MIME |
 
-- Wszystkie odpowiedzi zawierają `content-security-policy` nagłówki o wartości `default-src https: 'unsafe-eval' 'unsafe-inline'; object-src 'none'` .
+Wszystkie odpowiedzi zawierają `content-security-policy` nagłówki o wartości `default-src https: 'unsafe-eval' 'unsafe-inline'; object-src 'none'` .
 
 <sup>1</sup> reguły trasy dla funkcji API obsługują tylko [przekierowywanie](#redirects) i [Zabezpieczanie tras z rolami](#securing-routes-with-roles).
 

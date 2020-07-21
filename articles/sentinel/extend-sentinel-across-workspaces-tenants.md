@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/11/2020
 ms.author: yelevin
-ms.openlocfilehash: d76f8e2d750b8ab2d82e9424f929d8b8353ac25a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 596d0f4870d9331a332dfb81bd7d2d224964a593
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84816452"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86519017"
 ---
 # <a name="extend-azure-sentinel-across-workspaces-and-tenants"></a>Rozszerzanie usługi Azure Sentinel na obszary robocze i dzierżawy
 
@@ -34,10 +34,10 @@ W przypadku korzystania z jednego obszaru roboczego możesz uzyskać pełną kor
 | Jurysdykcja i zgodność z przepisami | Obszar roboczy jest powiązany z określonym regionem. Jeśli dane muszą być przechowywane w różnych [lokalizacje geograficzneach platformy Azure](https://azure.microsoft.com/global-infrastructure/geographies/) w celu spełnienia wymagań prawnych, należy podzielić je na osobne obszary robocze. |  |
 | Własność danych | Granice własności danych, na przykład przez podmioty zależne lub firmy stowarzyszone, są lepiej nakreślone przy użyciu oddzielnych obszarów roboczych. |  |
 | Wiele dzierżawców platformy Azure | Usługa Azure — wskaźnik wiedzy obsługuje zbieranie danych z zasobów firmy Microsoft i platformy Azure SaaS tylko w ramach Azure Active Directory własnej granicy dzierżawy usługi Azure AD. W związku z tym każda dzierżawa usługi Azure AD wymaga oddzielnego obszaru roboczego. |  |
-| Szczegółowa kontrola dostępu do danych | Aby uzyskać dostęp do niektórych danych zebranych przez wskaźnik na platformie Azure, organizacja może wymagać zezwolenia na różne grupy w organizacji lub poza nią. Przykład:<br><ul><li>Dostęp właścicieli zasobów do danych odnoszących się do ich zasobów</li><li>Regionalny lub Socy dostęp do danych istotnych dla ich części organizacji</li></ul> | Użycie kontroli [RBAC zasobów](https://techcommunity.microsoft.com/t5/azure-sentinel/controlling-access-to-azure-sentinel-data-resource-rbac/ba-p/1301463) lub [poziomu tabeli RBAC](https://techcommunity.microsoft.com/t5/azure-sentinel/table-level-rbac-in-azure-sentinel/ba-p/965043) |
+| Szczegółowa kontrola dostępu do danych | Aby uzyskać dostęp do niektórych danych zebranych przez wskaźnik na platformie Azure, organizacja może wymagać zezwolenia na różne grupy w organizacji lub poza nią. Na przykład:<br><ul><li>Dostęp właścicieli zasobów do danych odnoszących się do ich zasobów</li><li>Regionalny lub Socy dostęp do danych istotnych dla ich części organizacji</li></ul> | Użycie kontroli [RBAC zasobów](https://techcommunity.microsoft.com/t5/azure-sentinel/controlling-access-to-azure-sentinel-data-resource-rbac/ba-p/1301463) lub [poziomu tabeli RBAC](https://techcommunity.microsoft.com/t5/azure-sentinel/table-level-rbac-in-azure-sentinel/ba-p/965043) |
 | Ustawienia przechowywania szczegółowego | W przeszłości wiele obszarów roboczych była jedynym sposobem ustawiania różnych okresów przechowywania dla różnych typów danych. Nie jest to już potrzebne w wielu przypadkach dzięki wprowadzeniu ustawień przechowywania poziomu tabeli. | Korzystanie z [ustawień przechowywania na poziomie tabeli](https://techcommunity.microsoft.com/t5/azure-sentinel/new-per-data-type-retention-is-now-available-for-azure-sentinel/ba-p/917316) lub Automatyzowanie [usuwania danych](../azure-monitor/platform/personal-data-mgmt.md#how-to-export-and-delete-private-data) |
 | Podziel rozliczenia | Umieszczając obszary robocze w osobnych subskrypcjach, można je rozliczać na różne strony. | Raportowanie użycia i naliczanie krzyżowe |
-| Starsza architektura | Korzystanie z wielu obszarów roboczych może być wykonane z projektu historycznego, który uwzględnia ograniczenia lub najlepsze rozwiązania, które nie są już spełnione. Może to być również arbitralne wybranie projektu, które można zmodyfikować, aby lepiej uwzględnić platformę Azure.<br><br>Przykłady obejmują:<br><ul><li>Używanie domyślnego obszaru roboczego dla subskrypcji podczas wdrażania Azure Security Center</li><li>Konieczność stosowania szczegółowych ustawień kontroli dostępu lub przechowywania, dla których rozwiązania są stosunkowo nowe</li></ul> | Obszary robocze ponownej architektury |
+| Starsza architektura | Korzystanie z wielu obszarów roboczych może być wykonane z projektu historycznego, który uwzględnia ograniczenia lub najlepsze rozwiązania, które nie są już spełnione. Może to być również arbitralne wybranie projektu, które można zmodyfikować, aby lepiej uwzględnić platformę Azure.<br><br>Przykłady:<br><ul><li>Używanie domyślnego obszaru roboczego dla subskrypcji podczas wdrażania Azure Security Center</li><li>Konieczność stosowania szczegółowych ustawień kontroli dostępu lub przechowywania, dla których rozwiązania są stosunkowo nowe</li></ul> | Obszary robocze ponownej architektury |
 
 ### <a name="managed-security-service-provider-mssp"></a>Dostawca zarządzanej usługi zabezpieczeń (MSSP)
 
@@ -110,6 +110,12 @@ Skoroszyty mogą udostępniać zapytania między obszarami roboczymi w jednej z 
 | Interaktywnie Edytuj skoroszyt | Zaawansowany użytkownik modyfikuje istniejący skoroszyt może edytować w nim zapytania, wybierając docelowe obszary robocze przy użyciu selektora obszaru roboczego w edytorze. | Ta opcja umożliwia użytkownikowi zaawansowanemu łatwe modyfikowanie istniejących skoroszytów do pracy z wieloma obszarami roboczymi. |
 |
 
+### <a name="cross-workspace-hunting"></a>Polowa między obszarami roboczymi
+
+Wskaźnik "Azure" obejmuje wstępnie załadowane przykłady zapytań, które umożliwiają rozpoczęcie pracy i zapoznanie się z tabelami oraz językiem zapytań. Te wbudowane zapytania polowania są opracowywane przez badaczy zabezpieczeń firmy Microsoft w sposób ciągły, dodając nowe zapytania i dostrajając istniejące zapytania, aby zapewnić punkt wejścia do wyszukiwania nowych wykryć i zidentyfikować oznaki włamania, które mogły zostać usunięte przez narzędzia zabezpieczeń.  
+
+Możliwości polowania między obszarami roboczymi umożliwiają administratorom zagrożeń tworzenie nowych zapytań polowających lub dostosowywanie istniejących, aby uwzględnić wiele obszarów roboczych, przy użyciu operatora Union i wyrażenia Workspace (), jak pokazano powyżej.
+
 ## <a name="cross-workspace-management-using-automation"></a>Zarządzanie między obszarami roboczymi przy użyciu automatyzacji
 
 Aby skonfigurować wiele obszarów roboczych usługi Azure wskaźnikowych i zarządzać nimi, należy zautomatyzować korzystanie z interfejsu API zarządzania wskaźnikami platformy Azure. Aby uzyskać więcej informacji na temat automatyzowania wdrożenia zasobów usługi Azure wskaźnikowego, w tym reguł alertów, zapytań łowieckich, skoroszytów i elementy PlayBook, zobacz [rozszerzanie wskaźnikowego platformy Azure: interfejsy API, integracja i Automatyzacja zarządzania](https://techcommunity.microsoft.com/t5/azure-sentinel/extending-azure-sentinel-apis-integration-and-management/ba-p/1116885).
@@ -122,8 +128,6 @@ Zobacz również [wdrażanie platformy Azure i zarządzanie nią jako kodu](http
 Następujące funkcje nie są obsługiwane w różnych obszarach roboczych:
 
 - Zaplanowana reguła alertów nie może działać między obszarami roboczymi przy użyciu zapytania między obszarami roboczymi.
-
-- Zapytania polowania nie obsługują zapytań między obszarami roboczymi.
 
 ## <a name="managing-workspaces-across-tenants-using-azure-lighthouse"></a>Zarządzanie obszarami roboczymi w dzierżawach przy użyciu usługi Azure Lighthouse
 

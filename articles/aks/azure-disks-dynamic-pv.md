@@ -4,13 +4,13 @@ titleSuffix: Azure Kubernetes Service
 description: Dowiedz się, jak dynamicznie tworzyć wolumin trwały za pomocą dysków platformy Azure w usłudze Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 03/01/2019
-ms.openlocfilehash: 44741452f95995327914978bbfd5b0a49566faa5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/10/2020
+ms.openlocfilehash: 0e7bc057d756215b1aa155f0e227c75c99c8737c
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84751355"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518015"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-disks-in-azure-kubernetes-service-aks"></a>Dynamiczne tworzenie i używanie woluminu trwałego z dyskami platformy Azure w usłudze Azure Kubernetes Service (AKS)
 
@@ -31,14 +31,14 @@ Konieczne jest również zainstalowanie i skonfigurowanie interfejsu wiersza pol
 
 Klasa magazynu służy do definiowania sposobu, w jaki jednostka magazynowa jest tworzona dynamicznie z woluminem trwałym. Aby uzyskać więcej informacji na temat klas magazynu Kubernetes, zobacz [Kubernetes Storage Classes][kubernetes-storage-classes].
 
-Każdy klaster AKS obejmuje dwie wstępnie utworzone klasy magazynu skonfigurowane do pracy z dyskami platformy Azure:
+Każdy klaster AKS zawiera cztery wstępnie utworzone klasy magazynu, dwie z nich zostały skonfigurowane do pracy z dyskami platformy Azure:
 
-* *Domyślna* Klasa magazynu stanowi standardowy dysk platformy Azure.
-    * Usługa Storage w warstwie Standardowa jest obsługiwana przez HDD i zapewnia oszczędny magazyn przy jednoczesnym wykonywaniu. Dyski w warstwie Standardowa są idealnym rozwiązaniem dla ekonomicznego obciążenia związanego z tworzeniem i testowaniem.
+* *Domyślna* Klasa magazynu stanowi standardowy dysk SSD dysku platformy Azure.
+    * Usługa Storage w warstwie Standardowa jest obsługiwana przez standardową dysków SSD i zapewnia oszczędny magazyn przy jednoczesnym dostarczaniu niezawodnej wydajności. 
 * Klasa magazynu *Managed-Premium* udostępnia dysk platformy Azure w warstwie Premium.
     * Dyski w warstwie Premium są wspierane przez oparty na technologii SSD dysk o wysokiej wydajności i niskim opóźnieniu. Idealnie nadają się one dla maszyn wirtualnych z uruchomionym obciążeniem produkcyjnym. Jeśli węzły AKS w klastrze korzystają z magazynu Premium Storage, wybierz klasę *Managed-Premium* .
     
-Jeśli używasz jednej z domyślnych klas magazynu, nie możesz zaktualizować rozmiaru woluminu po utworzeniu klasy magazynu. Aby można było zaktualizować rozmiar woluminu po utworzeniu klasy magazynu, należy dodać wiersz `allowVolumeExpansion: true` do jednej z domyślnych klas magazynu lub utworzyć własną niestandardową klasę magazynu. Istniejącą klasę magazynu można edytować za pomocą `kubectl edit sc` polecenia. 
+Jeśli używasz jednej z domyślnych klas magazynu, nie możesz zaktualizować rozmiaru woluminu po utworzeniu klasy magazynu. Aby można było zaktualizować rozmiar woluminu po utworzeniu klasy magazynu, należy dodać wiersz `allowVolumeExpansion: true` do jednej z domyślnych klas magazynu lub utworzyć własną niestandardową klasę magazynu. Należy pamiętać, że nie jest obsługiwane zmniejszenie rozmiaru obwodu PVC (aby zapobiec utracie danych). Istniejącą klasę magazynu można edytować za pomocą `kubectl edit sc` polecenia. 
 
 Jeśli na przykład chcesz użyć dysku o rozmiarze 4 TiB, należy utworzyć klasę magazynu, która definiuje, `cachingmode: None` ponieważ [buforowanie dysków nie jest obsługiwane dla dysków 4 TIB i większych](../virtual-machines/windows/premium-storage-performance.md#disk-caching).
 
@@ -151,6 +151,9 @@ Events:
   Normal  SuccessfulMountVolume  1m    kubelet, aks-nodepool1-79590246-0  MountVolume.SetUp succeeded for volume "pvc-faf0f176-8b8d-11e8-923b-deb28c58d242"
 [...]
 ```
+
+## <a name="use-ultra-disks"></a>Korzystanie z Ultra disks
+Aby korzystać z Ultra Disk, zobacz [Korzystanie z Ultra disks w usłudze Azure Kubernetes Service (AKS)](use-ultra-disks.md).
 
 ## <a name="back-up-a-persistent-volume"></a>Tworzenie kopii zapasowej woluminu trwałego
 
@@ -284,3 +287,11 @@ Dowiedz się więcej o woluminach trwałych Kubernetes przy użyciu usługi Azur
 [operator-best-practices-storage]: operator-best-practices-storage.md
 [concepts-storage]: concepts-storage.md
 [storage-class-concepts]: concepts-storage.md#storage-classes
+[az-feature-register]: /cli/azure/feature#az-feature-register
+[az-feature-list]: /cli/azure/feature#az-feature-list
+[az-provider-register]: /cli/azure/provider#az-provider-register
+[az-extension-add]: /cli/azure/extension#az-extension-add
+[az-extension-update]: /cli/azure/extension#az-extension-update
+[az-feature-register]: /cli/azure/feature#az-feature-register
+[az-feature-list]: /cli/azure/feature#az-feature-list
+[az-provider-register]: /cli/azure/provider#az-provider-register

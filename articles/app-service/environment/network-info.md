@@ -4,15 +4,15 @@ description: Dowiedz się więcej o ruchu sieciowym ASE oraz o sposobie ustawian
 author: ccompy
 ms.assetid: 955a4d84-94ca-418d-aa79-b57a5eb8cb85
 ms.topic: article
-ms.date: 01/24/2020
+ms.date: 06/29/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 4aec7fa78292f224952dd2ae929d2b8bfd97ab9b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 10cb1149880c70d991dd5ab49acceab3283372a7
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80477691"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86517857"
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>Networking considerations for an App Service Environment (Zagadnienia dotyczące sieci w środowisku App Service Environment) #
 
@@ -53,7 +53,7 @@ W przypadku skalowania w górę lub w dół nowe role o odpowiednim rozmiarze s�
 
 Aby środowisko ASE mogło działać, środowisko ASE wymaga otwarcia następujących portów:
 
-| Użycie | Z | Do |
+| Zastosowanie | Źródło | Działanie |
 |-----|------|----|
 | Zarządzanie | Adresy zarządzania App Service | Podsieć środowiska ASE: 454, 455 |
 |  Komunikacja wewnętrzna ASE | Podsieć środowiska ASE: wszystkie porty | Podsieć środowiska ASE: wszystkie porty
@@ -69,7 +69,7 @@ W przypadku komunikacji między modułem równoważenia obciążenia platformy A
 
 Inne porty, z którymi należy się zapoznać, to porty aplikacji:
 
-| Użycie | Porty |
+| Zastosowanie | Porty |
 |----------|-------------|
 |  HTTP/HTTPS  | 80, 443 |
 |  FTP/FTPS    | 21, 990, 10001-10020 |
@@ -153,20 +153,22 @@ Sieciowych grup zabezpieczeń można skonfigurować za pomocą Azure Portal lub 
 Wymagane wpisy w sieciowej grupy zabezpieczeń, dla których środowisko ASE ma działać, mają na celu Zezwalanie na ruch:
 
 **Przychodzący**
-* ze znacznika usługi IP AppServiceManagement na portach 454 455
-* z modułu równoważenia obciążenia na porcie 16001
+* TCP ze znacznika usługi IP AppServiceManagement na portach 454 455
+* TCP z modułu równoważenia obciążenia na porcie 16001
 * z podsieci środowiska ASE do podsieci środowiska ASE na wszystkich portach
 
 **Wychodzący**
-* do wszystkich adresów IP na porcie 123
-* do wszystkich adresów IP na portach 80, 443
-* do tagu usługi IP AzureSQL na portach 1433
-* do wszystkich adresów IP na porcie 12000
+* UDP do wszystkich adresów IP na porcie 123
+* TCP do wszystkich adresów IP na portach 80, 443
+* TCP do znacznika usługi IP AzureSQL na portach 1433
+* TCP na wszystkie adresy IP na porcie 12000
 * do podsieci środowiska ASE na wszystkich portach
 
-Nie trzeba dodawać portu DNS, ponieważ reguły sieciowej grupy zabezpieczeń nie wpływają na ruch do systemu DNS. Te porty nie obejmują portów wymaganych przez aplikacje do pomyślnego użycia. Normalne porty dostępu do aplikacji są następujące:
+Te porty nie obejmują portów wymaganych przez aplikacje do pomyślnego użycia. Na przykład aplikacja może wymagać wywołania serwera MySQL na porcie 3306 port DNS, port 53, nie musi być dodany jako ruch do DNS nie ma wpływ na reguły sieciowej grupy zabezpieczeń. Protokół NTP (Network Time Protocol) na porcie 123 to protokół synchronizacji czasu używany przez system operacyjny. Punkty końcowe NTP nie są specyficzne dla App Services, mogą się różnić w zależności od systemu operacyjnego i nie znajdują się w dobrze zdefiniowanej liście adresów. Aby zapobiec problemom z synchronizacją czasu, należy zezwolić na ruch UDP do wszystkich adresów na porcie 123. Ruch wychodzący TCP do portu 12000 jest przeznaczony do obsługi i analizy systemu. Punkty końcowe są dynamiczne i nie znajdują się w dobrze zdefiniowanym zestawie adresów.
 
-| Użycie | Porty |
+Normalne porty dostępu do aplikacji są następujące:
+
+| Zastosowanie | Porty |
 |----------|-------------|
 |  HTTP/HTTPS  | 80, 443 |
 |  FTP/FTPS    | 21, 990, 10001-10020 |
