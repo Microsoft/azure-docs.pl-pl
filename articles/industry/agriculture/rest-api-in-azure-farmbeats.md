@@ -1,23 +1,20 @@
 ---
-title: Odwołania
-description: ''
+title: Interfejsy API usługi Azure FarmBeats
+description: Dowiedz się więcej na temat interfejsów API usługi Azure FarmBeats, które zapewniają firmom rolniczym interfejs RESTful ustandaryzowany z odpowiedziami opartymi na notacji JSON.
 author: sunasing
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: sunasing
-ms.openlocfilehash: c3a70ed905edfcf1dc60e0a12f50aca19060230f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f15bee7e802b04d04a3c87d7f84fc975b88bf260
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84488039"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536576"
 ---
-# <a name="references"></a>Odwołania
+# <a name="azure-farmbeats-apis"></a>Interfejsy API usługi Azure FarmBeats
 
-W tym artykule opisano interfejsy API usługi Azure FarmBeats.
-
-## <a name="rest-api"></a>Interfejs API REST
-
-Interfejsy API usługi Azure FarmBeats zapewniają firmy rolnicze ze standardowym interfejsem RESTful z odpowiedziami opartymi na notacji JSON, które ułatwiają korzystanie z możliwości usługi Azure FarmBeats, takich jak:
+W tym artykule opisano interfejsy API usługi Azure FarmBeats. Interfejsy API usługi Azure FarmBeats zapewniają firmy rolnicze ze standardowym interfejsem RESTful z odpowiedziami opartymi na notacji JSON, które ułatwiają korzystanie z możliwości usługi Azure FarmBeats, takich jak:
 
 - Interfejsy API umożliwiające uzyskiwanie danych z czujnika, aparatu, drona, pogody, satelity i nadzoru z terenu.
 - Normalizacja i contextualization danych między typowymi dostawcami danych.
@@ -26,7 +23,7 @@ Interfejsy API usługi Azure FarmBeats zapewniają firmy rolnicze ze standardowy
 - Automatycznie generowane zagregowane sekwencje czasu do szybkiego kompilowania modeli.
 - Zintegrowany aparat Azure Data Factory, aby łatwo tworzyć niestandardowe potoki przetwarzania danych.
 
-## <a name="application-development"></a>Opracowywanie aplikacji
+## <a name="application-development"></a>Projektowanie aplikacji
 
 Interfejsy API FarmBeats zawierają dokumentację techniczną struktury Swagger. Aby uzyskać informacje na temat wszystkich interfejsów API i odpowiadających im żądań lub odpowiedzi, zobacz [Swagger](https://aka.ms/FarmBeatsDatahubSwagger).
 
@@ -62,7 +59,7 @@ Aby wysłać żądanie do interfejsów API REST, kod klienta wymaga uwierzytelni
 
 Token dostępu musi być wysyłany w kolejnych żądaniach interfejsu API, w sekcji nagłówka, jako:
 
-```
+```http
 headers = {"Authorization": "Bearer " + **access_token**}
 ```
 
@@ -71,7 +68,7 @@ headers = {"Authorization": "Bearer " + **access_token**}
 Oto najczęstsze nagłówki żądań, które należy określić podczas wywołania interfejsu API do usługi Azure FarmBeats Datahub.
 
 
-**Nagłówki** | **Opis i przykład**
+**Nagłówek** | **Opis i przykład**
 --- | ---
 Content-Type  | Format żądania (Content-Type: Application/ <format> ). W przypadku interfejsów API usługi Azure FarmBeats Datahub format to JSON. Content-Type: Application/JSON
 Autoryzacja  | Określa token dostępu wymagany do wywołania interfejsu API. Autoryzacja: <tokenu dostępu>
@@ -112,7 +109,7 @@ Interfejsy API usługi Azure FarmBeats Datahub zwracają standardowe błędy HTT
 
  |Kod błędu             | Opis |
  |---                    | --- |
- |200                    | Powodzenie |
+ |200                    | Success |
  |201                    | Powodzenie tworzenia (post) |
  |400                    | Nieprawidłowe żądanie. Wystąpił błąd w żądaniu. |
  |401                    | Próby. Obiekt wywołujący interfejsu API nie ma autoryzacji do uzyskania dostępu do zasobu. |
@@ -152,7 +149,7 @@ Dostęp do interfejsów API platformy Azure FarmBeats można uzyskać za pomocą
     - Wprowadź nazwę.
     - Wybierz **konta tylko w tym katalogu organizacji (pojedynczy dzierżawca)**.
     - Użyj wartości domyślnych w pozostałych polach.
-    - Wybierz pozycję **Zarejestruj**.
+    - Wybierz pozycję **Rejestruj**.
 
 3. W okienku **Przegląd** nowych i istniejących aplikacji wykonaj następujące czynności:
 
@@ -181,6 +178,6 @@ Po wykonaniu powyższych kroków Rejestracja aplikacji (klienta) może wywołać
 
 Użyj tokenu dostępu, aby wysłać go w kolejnych żądaniach interfejsu API w sekcji nagłówka jako:
 
-```
+```http
 headers = {"Authorization": "Bearer " + **access_token**, "Content-Type" : "application/json" }
 ```

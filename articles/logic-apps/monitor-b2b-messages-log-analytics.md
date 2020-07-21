@@ -6,15 +6,16 @@ ms.suite: integration
 ms.reviewer: divswa, logicappspm
 ms.topic: article
 ms.date: 01/30/2020
-ms.openlocfilehash: e9ba5a516293eb72a715dc9d0df7db4d5a4ea3c5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5baa4d4d968adb25b5520ca91149970f5c5578e9
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76907983"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536273"
 ---
 # <a name="set-up-azure-monitor-logs-and-collect-diagnostics-data-for-b2b-messages-in-azure-logic-apps"></a>Konfigurowanie dzienników usługi Azure Monitor i zbieranie danych diagnostycznych dotyczących komunikatów B2B w usłudze Azure Logic Apps
 
-Po skonfigurowaniu komunikacji B2B między partnerami handlowymi na Twoim koncie integracji partnerzy mogą wymieniać komunikaty przy użyciu protokołów, takich jak AS2, X12 i EDIFACT. Aby sprawdzić, czy ta komunikacja działa w oczekiwany sposób, możesz skonfigurować [Azure monitor dzienników](../azure-monitor/platform/data-platform-logs.md) dla konta integracji. [Azure monitor](../azure-monitor/overview.md) ułatwia monitorowanie środowisk w chmurze i lokalnych, dzięki czemu można łatwiej zachować swoją dostępność i wydajność. Korzystając z dzienników Azure Monitor, można rejestrować i przechowywać dane dotyczące danych i zdarzeń środowiska uruchomieniowego, takich jak zdarzenia wyzwalania, zdarzenia uruchamiania i zdarzenia akcji w [obszarze roboczym log Analytics](../azure-monitor/platform/resource-logs-collect-workspace.md). W przypadku komunikatów, rejestrowanie zbiera również informacje takie jak:
+Po skonfigurowaniu komunikacji B2B między partnerami handlowymi na Twoim koncie integracji partnerzy mogą wymieniać komunikaty przy użyciu protokołów, takich jak AS2, X12 i EDIFACT. Aby sprawdzić, czy ta komunikacja działa w oczekiwany sposób, możesz skonfigurować [Azure monitor dzienników](../azure-monitor/platform/data-platform-logs.md) dla konta integracji. [Azure monitor](../azure-monitor/overview.md) ułatwia monitorowanie środowisk w chmurze i lokalnych, dzięki czemu można łatwiej zachować swoją dostępność i wydajność. Korzystając z dzienników Azure Monitor, można rejestrować i przechowywać dane dotyczące danych i zdarzeń środowiska uruchomieniowego, takich jak zdarzenia wyzwalania, zdarzenia uruchamiania i zdarzenia akcji w [obszarze roboczym log Analytics](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace). W przypadku komunikatów, rejestrowanie zbiera również informacje takie jak:
 
 * Liczba komunikatów i stan
 * Stan potwierdzeń
@@ -103,7 +104,7 @@ Rejestrowanie Azure Monitor można włączyć bezpośrednio z poziomu konta inte
 
    1. Po zakończeniu wybierz pozycję **Zapisz**.
 
-   Przykład: 
+   Na przykład: 
 
    ![Konfigurowanie dzienników Azure Monitor w celu zbierania danych diagnostycznych](./media/monitor-b2b-messages-log-analytics/send-diagnostics-data-log-analytics-workspace.png)
 
@@ -162,7 +163,7 @@ Po uruchomieniu aplikacji logiki można wyświetlić stan i dane dotyczące tych
 
    * To search results with prebuilt queries, select **Favorites**.
 
-   * Learn [how to build queries by adding filters](../logic-apps/create-monitoring-tracking-queries.md). Or learn more about [how to find data with log searches in Azure Monitor logs](../log-analytics/log-analytics-log-searches.md).
+   * Learn [how to build queries by adding filters](../logic-apps/create-monitoring-tracking-queries.md). Or learn more about [how to find data with log searches in Azure Monitor logs](../azure-monitor/log-query/log-query-overview.md).
 
    * To change query in the search box, update the query with the columns and values that you want to use as filters.
 -->
@@ -189,7 +190,7 @@ Poniżej przedstawiono opisy właściwości dla każdego komunikatu AS2.
 | **Kierunek** | Kierunek komunikatu AS2 |
 | **Identyfikator śledzenia** | Identyfikator, który jest skorelowany ze wszystkimi wyzwalaczami i akcjami w aplikacji logiki |
 | **Identyfikator komunikatu** | Identyfikator komunikatu AS2 z nagłówków wiadomości AS2 |
-| **Sygnatura czasowa** | Godzina przetworzenia komunikatu przez akcję AS2 |
+| **Timestamp** | Godzina przetworzenia komunikatu przez akcję AS2 |
 |||
 
 <!--
@@ -224,7 +225,7 @@ Poniżej przedstawiono opisy właściwości dla każdego komunikatu X12.
 | **Typ komunikatu** | Typ komunikatu EDI X12 |
 | **ICN** | Numer kontrolny wymiany komunikatu X12 |
 | **TSCN** | Numer kontrolny zestawu transakcji dla komunikatu X12 |
-| **Sygnatura czasowa** | Godzina przetworzenia komunikatu przez akcję X12 |
+| **Timestamp** | Godzina przetworzenia komunikatu przez akcję X12 |
 |||
 
 <!--
@@ -259,7 +260,7 @@ Poniżej przedstawiono opisy właściwości dla każdego komunikatu EDIFACT.
 | **Typ komunikatu** | Typ komunikatu EDIFACT |
 | **ICN** | Numer kontrolny wymiany komunikatu EDIFACT |
 | **TSCN** | Numer kontrolny zestawu transakcji dla komunikatu EDIFACT |
-| **Sygnatura czasowa** | Godzina przetworzenia komunikatu przez akcję EDIFACT |
+| **Timestamp** | Godzina przetworzenia komunikatu przez akcję EDIFACT |
 |||
 
 <!--

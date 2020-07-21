@@ -11,11 +11,12 @@ ms.date: 01/29/2018
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: b5682334bd3fb23fbbebed5fc8ece6d55e9c5652
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a1aab92bd192119f72bb057347f5a3ea2d980336
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81733240"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536854"
 ---
 # <a name="cloud-to-device-communications-guidance"></a>Wskazówki dotyczące komunikacji między chmurą i urządzeniem
 
@@ -31,12 +32,12 @@ IoT Hub udostępnia trzy opcje dla aplikacji urządzeń, które umożliwiają ud
 
 Poniżej przedstawiono szczegółowe porównanie różnych opcji komunikacji między chmurą i urządzeniem.
 
-|  | Metody bezpośrednie | Żądane właściwości sznurka | Komunikaty z chmury do urządzenia |
-| ---- | ------- | ---------- | ---- |
+| Kategorie | Metody bezpośrednie | Żądane właściwości sznurka | Komunikaty z chmury do urządzenia |
+| ---------- | -------------- | ------------------------- | ------------------------ |
 | Scenariusz | Polecenia, które wymagają natychmiastowego potwierdzenia, na przykład włączenie wentylatoru. | Długotrwałe polecenia przeznaczone do przełączenia urządzenia do określonego stanu. Na przykład ustaw interwał wysyłania danych telemetrycznych na 30 minut. | Powiadomienia jednokierunkowe do aplikacji urządzenia. |
 | Przepływ danych | Dwukierunkowo. Aplikacja urządzenia może od razu odpowiedzieć na metodę. Zaplecze rozwiązania odbiera wynik kontekstowy do żądania. | Jednokierunkowe. Aplikacja urządzenia odbiera powiadomienie ze zmianą właściwości. | Jednokierunkowe. Aplikacja urządzenia otrzymuje komunikat
 | Trwałość | Nie nawiązano połączenia z odłączonymi urządzeniami. Zaplecze rozwiązania zostaje powiadomione o tym, że urządzenie nie jest połączone. | Wartości właściwości są zachowywane w postaci dwuosiowej urządzenia. Urządzenie odczyta je przy następnym ponownym połączeniu. Wartości właściwości są możliwy do pobierania przy użyciu [języka zapytań IoT Hub](iot-hub-devguide-query-language.md). | Komunikaty mogą być przechowywane przez IoT Hub przez maksymalnie 48 godzin. |
-| Obiekty docelowe | Pojedyncze urządzenie używające **deviceId**lub wiele urządzeń korzystających z [zadań](iot-hub-devguide-jobs.md). | Pojedyncze urządzenie używające **deviceId**lub wiele urządzeń korzystających z [zadań](iot-hub-devguide-jobs.md). | Pojedyncze **urządzenie według identyfikator**urządzenia. |
+| Targets (Obiekty docelowe) | Pojedyncze urządzenie używające **deviceId**lub wiele urządzeń korzystających z [zadań](iot-hub-devguide-jobs.md). | Pojedyncze urządzenie używające **deviceId**lub wiele urządzeń korzystających z [zadań](iot-hub-devguide-jobs.md). | Pojedyncze **urządzenie według identyfikator**urządzenia. |
 | Rozmiar | Maksymalny rozmiar ładunku metody bezpośredniej to 128 KB. | Maksymalny rozmiar żądanych właściwości to 32 KB. | Do 64 KB komunikatów. |
 | Częstotliwość | Wysoka. Aby uzyskać więcej informacji, zobacz [limity IoT Hub](iot-hub-devguide-quotas-throttling.md). | Średnia. Aby uzyskać więcej informacji, zobacz [limity IoT Hub](iot-hub-devguide-quotas-throttling.md). | Niski. Aby uzyskać więcej informacji, zobacz [limity IoT Hub](iot-hub-devguide-quotas-throttling.md). |
 | Protokół | Dostępne za pomocą MQTT lub AMQP. | Dostępne za pomocą MQTT lub AMQP. | Dostępne we wszystkich protokołach. Urządzenie musi sondować przy użyciu protokołu HTTPS. |

@@ -46,8 +46,6 @@
               href: class-type-sql-server.md
             - name: Język Python i notesy Jupyter Notebook
               href: class-type-jupyter-notebook.md
-            - name: Tworzenie aplikacji mobilnych za pomocą programu Android Studio
-              href: class-type-mobile-dev-android-studio.md
             - name: Analiza danych big data
               href: class-type-big-data-analytics.md
             - name: MATLAB

@@ -7,13 +7,13 @@ author: tchristiani
 ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 06/24/2020
-ms.openlocfilehash: f802ec10410d0a412e29d9ad51bb409a5d099f31
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.date: 07/14/2020
+ms.openlocfilehash: 18204777a8e61b577b257b67cdd12bed1a5534fa
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85562544"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86529628"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-service-in-the-portal"></a>Szybki start: Tworzenie usługi Azure Cognitive Search w portalu
 
@@ -27,11 +27,11 @@ Preferujesz program PowerShell? Użyj [szablonu usługi](https://azure.microsoft
 
 ## <a name="before-you-start"></a>Przed rozpoczęciem
 
-Następujące właściwości usługi są rozwiązane w okresie istnienia usługi, a ich zmiana wymaga nowej usługi. Podczas tworzenia usługi należy wziąć pod uwagę, jak będzie ona używana:
+Następujące właściwości usługi są rozwiązane w okresie istnienia usługi — zmiana któregokolwiek z nich wymaga nowej usługi. Ze względu na to, że są stałe, należy wziąć pod uwagę skutki użycia podczas wypełniania każdej właściwości:
 
-* Nazwa (zapoznaj się z [tymi sugestiami](#name-the-service) dotyczącymi nazw usług)
-* Warstwa (bezpłatna, podstawowa, standardowa [ma wpływ na rozliczenia](search-sku-tier.md) i ustala limit w górę)
-* Region (Wybierz lokalizację, która ma powiązane usługi. Aby można było uzyskać integrację z usługą Cognitive Services lub Azure Machine Learning, należy wykonać wspólne lokalizowanie usług w tym samym regionie)
+* Nazwa usługi jest częścią punktu końcowego adresu URL ([Przejrzyj wskazówki](#name-the-service) dotyczące przydatnych nazw usług).
+* Warstwa usługi [ma wpływ na rozliczenia](search-sku-tier.md) i ustawia limit w górę dla pojemności.
+* Region usługi może ustalić dostępność niektórych scenariuszy. Jeśli interesujesz się wyszukiwaniem w bazie wiedzy i wzbogacaniem AI, potrzebujesz Cognitive Services i ewentualnie Azure Machine Learning w tym samym regionie, w którym znajduje się usługa Azure Wyszukiwanie poznawcze.
 
 ## <a name="subscribe-free-or-paid"></a>Subskrypcja (bezpłatna lub płatna)
 
@@ -41,7 +41,7 @@ Możesz również [aktywować korzyści dla subskrybentów MSDN](https://azure.m
 
 ## <a name="find-azure-cognitive-search"></a>Znajdź Wyszukiwanie poznawcze platformy Azure
 
-1. Zaloguj się do [portalu Azure](https://portal.azure.com/).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
 1. Kliknij znak plus („+ Utwórz zasób”) w lewym górnym rogu.
 

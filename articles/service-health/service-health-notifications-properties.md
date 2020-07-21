@@ -3,13 +3,14 @@ title: Co to są powiadomienia dotyczące usługi Azure Service Health?
 description: Powiadomienia o kondycji usługi umożliwiają wyświetlanie komunikatów kondycji usługi opublikowanych przez Microsoft Azure.
 ms.topic: conceptual
 ms.date: 4/12/2018
-ms.openlocfilehash: e40538ac98bbc7b79311d4fb0da7568d56a84e18
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4f2b4a0779d775ed5be5bfa28831cccc68c33caf
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77653972"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86529016"
 ---
-# <a name="view-service-health-notifications-by-using-the-azure-portal"></a>Wyświetlanie powiadomień dotyczących kondycji usługi za pomocą witryny Azure Portal
+# <a name="use-the-azure-portal-to-view-service-health-notifications"></a>Użyj Azure Portal, aby wyświetlić powiadomienia dotyczące kondycji usługi
 
 Powiadomienia o kondycji usługi są publikowane przez platformę Azure i zawierają informacje o zasobach w ramach subskrypcji. Te powiadomienia są podklasą zdarzeń dziennika aktywności i można je również znaleźć w dzienniku aktywności. Powiadomienia o kondycji usługi mogą być informacyjne lub funkcjonalne w zależności od klasy.
 

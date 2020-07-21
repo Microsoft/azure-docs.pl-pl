@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
 ms.reviewer: anilmur
-ms.openlocfilehash: 4767f7bb5ba02c838c0e21721e55a6564a14acd1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ca17ffdc2a54b25bbfd855834a366ed381a54678
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "69016656"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86530392"
 ---
 # <a name="comparison-of-azure-on-demand-media-encoders"></a>Porównanie koderów multimediów na żądanie na platformie Azure  
 
@@ -34,7 +34,7 @@ Poniższa tabela zawiera porównanie funkcji Media Encoder Standard (MES) i Medi
 |---|---|---|
 |Stosowanie logiki warunkowej podczas kodowania<br/>(na przykład jeśli dane wejściowe to HD, a następnie kodowanie 5,1 audio)|Nie|Yes|
 |Podpisy kodowane|Nie|[Tak](media-services-premium-workflow-encoder-formats.md#closed_captioning)|
-|[Korekcja głośności Dolby® Professional](https://www.dolby.com/us/en/technologies/dolby-professional-loudness-solutions.pdf)<br/> za pomocą™ analizy dialogu|Nie|Yes|
+|[&reg;Korekcja głośności Dolby Professional](https://professional.dolby.com/product/broadcast/vm600/)<br/> za pomocą analizy dialogu&trade;|Nie|Yes|
 |Usuwanie przeplotu, inverse telecine|Podstawowy|Jakość emisji|
 |Wykrywaj i usuwaj czarne obramowania <br/>(pillarboxes, letterboxes)|Nie|Yes|
 |Generowanie miniatur|[Tak](media-services-dotnet-generate-thumbnail-with-mes.md)|[Tak](media-services-media-encoder-premium-workflow-tutorials.md#thumbnails_to__multibitrate_MP4)|
@@ -52,7 +52,7 @@ Poniższa tabela zawiera porównanie funkcji Media Encoder Standard (MES) i Medi
 ## <a name="input-containerfile-formats"></a>Dane wejściowe w formacie kontenera/pliku
 | Formaty wejściowych kontenerów/plików | Usługa Media Encoder Standard | Przepływ pracy usługi Media Encoder w warstwie Premium |
 | --- | --- | --- |
-| Adobe® Flash® F4V |Tak |Tak |
+| Adobe &reg; Flash &reg; F4V |Tak |Tak |
 | MXF/SMPTE 377M |Tak |Tak |
 | GXF |Tak |Tak |
 | Strumienie transportowe MPEG-2 |Tak |Tak |
@@ -73,7 +73,7 @@ Poniższa tabela zawiera porównanie funkcji Media Encoder Standard (MES) i Medi
 | Avid DNxHD (w pliku MXF) |Tak |Tak |
 | DVCPro/DVCProHD (w pliku MXF) |Tak |Tak |
 | JPEG2000 |Tak |Tak |
-| MPEG-2 (do 422 profilu i wysokiego poziomu), w tym różne warianty, takie jak XDCAM, XDCAM HD, XDCAM IMX, CableLabs® i D10) |Maksymalnie profil 422 |Tak |
+| MPEG-2 (do 422 profilu i wysokiego poziomu), w tym różne warianty, takie jak XDCAM, XDCAM HD, XDCAM IMX, CableLabs &reg; i D10) |Maksymalnie profil 422 |Tak |
 | MPEG-1 |Tak |Tak |
 | Windows Media Video/VC-1 |Tak |Tak |
 | Canopus HQ/HQX |Nie |Nie |
@@ -91,9 +91,9 @@ Poniższa tabela zawiera porównanie funkcji Media Encoder Standard (MES) i Medi
 | Kodery-dekodery wejściowych danych audio | Usługa Media Encoder Standard | Przepływ pracy usługi Media Encoder w warstwie Premium |
 | --- | --- | --- |
 | AES (SMPTE 331M oraz 302M, AES3-2003) |Nie |Yes |
-| Dolby® E |Nie |Yes |
-| Dolby® Digital (AC3) |Nie |Yes |
-| Dolby® Digital Plus (E-AC3) |Nie |Yes |
+| Dolby &reg; E |Nie |Yes |
+| Dolby &reg; Digital (AC3) |Nie |Yes |
+| Dolby &reg; Digital Plus (E-AC3) |Nie |Yes |
 | AAC (AAC-LC, AAC-HE oraz AAC-HEv2; maksymalnie 5.1) |Tak |Tak |
 | MPEG Layer 2 |Tak |Tak |
 | MP3 (MPEG-1 Audio Layer 3) |Tak |Tak |
@@ -106,7 +106,7 @@ Poniższa tabela zawiera porównanie funkcji Media Encoder Standard (MES) i Medi
 ## <a name="output-containerfile-formats"></a>Pliki/kontenery wyjściowe
 | Pliki/kontenery wyjściowe | Usługa Media Encoder Standard | Przepływ pracy usługi Media Encoder w warstwie Premium |
 | --- | --- | --- |
-| Adobe® Flash® F4V |Nie |Yes |
+| Adobe &reg; Flash &reg; F4V |Nie |Yes |
 | MXF (OP1a, XDCAM i AS02) |Nie |Yes |
 | DPP (łącznie z AS11) |Nie |Yes |
 | GXF |Nie |Yes |
@@ -122,7 +122,7 @@ Poniższa tabela zawiera porównanie funkcji Media Encoder Standard (MES) i Medi
 | AVC (H. 264; 8-bitowy; maksymalnie wysoki profil, poziom 5,2; 4K Ultra HD; AVC — Intra) |Tylko 8 bitów 4:2:0 |Tak |
 | HEVC (H. 265; 8-bitowe i 10-bitowe;)  |Nie |Yes |
 | Avid DNxHD (w pliku MXF) |Nie |Yes |
-| MPEG-2 (do 422 profilu i wysokiego poziomu), w tym różne warianty, takie jak XDCAM, XDCAM HD, XDCAM IMX, CableLabs® i D10) |Nie |Yes |
+| MPEG-2 (do 422 profilu i wysokiego poziomu), w tym różne warianty, takie jak XDCAM, XDCAM HD, XDCAM IMX, CableLabs &reg; i D10) |Nie |Yes |
 | MPEG-1 |Nie |Yes |
 | Windows Media Video/VC-1 |Nie |Yes |
 | Tworzenie miniatur JPEG |Tak |Tak |
@@ -133,15 +133,15 @@ Poniższa tabela zawiera porównanie funkcji Media Encoder Standard (MES) i Medi
 | Wyjściowe kodery-dekoder audio | Usługa Media Encoder Standard | Przepływ pracy usługi Media Encoder w warstwie Premium |
 | --- | --- | --- |
 | AES (SMPTE 331M oraz 302M, AES3-2003) |Nie |Yes |
-| Dolby® Digital (AC3) |Nie |Yes |
-| Dolby® Digital Plus (E-AC3) do 7,1 |Nie |Yes |
+| Dolby &reg; Digital (AC3) |Nie |Yes |
+| Dolby &reg; Digital Plus (E-AC3) do 7,1 |Nie |Yes |
 | AAC (AAC-LC, AAC-HE oraz AAC-HEv2; maksymalnie 5.1) |Tak |Tak |
 | MPEG Layer 2 |Nie |Yes |
 | MP3 (MPEG-1 Audio Layer 3) |Nie |Yes |
 | Windows Media Audio |Nie |Yes |
 
 >[!NOTE]
->W przypadku kodowania do Dolby® Digital (AC3) dane wyjściowe mogą być zapisywane tylko w pliku MP4 ISO.
+>W przypadku kodowania do programu Dolby &reg; Digital (AC3) dane wyjściowe można zapisywać tylko w pliku MP4 ISO.
 
 ## <a name="media-services-learning-paths"></a>Ścieżki szkoleniowe dotyczące usługi Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

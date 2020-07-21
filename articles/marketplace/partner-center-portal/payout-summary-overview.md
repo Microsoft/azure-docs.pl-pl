@@ -1,18 +1,18 @@
 ---
 title: Przegląd podsumowania wypłaty — Azure Marketplace
 description: Podsumowanie wypłaty zawiera szczegółowe informacje o pieniędzy uzyskanych w ramach oferty. Pozwala on również wiedzieć, kiedy otrzymasz płatności i ile będziesz płacić.
-ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
+ms.service: marketplace
+ms.topic: article
 author: mingshen
 ms.author: mingshen
-ms.date: 04/24/2020
-ms.openlocfilehash: 29a8eb72814d865cb02bd632e084cec0cc06a1ff
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 07/14/2020
+ms.openlocfilehash: 087f7df8f8e3cc5e6e01ff023a88306d5fc4102d
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86118481"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86535964"
 ---
 # <a name="payout-summary-overview"></a>Omówienie podsumowania wypłat
 
@@ -42,19 +42,6 @@ Są to role i uprawnienia umożliwiające dostęp do raportu wypłaty:
 | Profil podatkowy | Może aktualizować | Brak dostępu | Brak dostępu | Brak dostępu | Może aktualizować | Brak dostępu |
 | Podsumowanie wypłaty | Może wyświetlać | Brak dostępu | Brak dostępu | Brak dostępu | Może wyświetlać | Brak dostępu  |
 | | | | | | | |
-
-## <a name="payout-report-differences"></a>Różnice w raportach wypłaty
-
-Poniżej przedstawiono różnice w raporcie wypłaty między portal Cloud Partner (stare) i centrum partnerskie (NOWOŚĆ):
-
-| Portal Cloud Partner | Centrum partnerskie |
-| --- | --- |
-| **Link**:https://cloudpartner.azure.com/ | **Link**: https://partner.microsoft.com/dashboard/payouts/reports/transactionhistory ihttps://partner.microsoft.com/dashboard/payouts/reports/incentivepayments |
-| **Nawigacja**: raportowanie wypłaty w usłudze Insights | **Nawigacja**: raportowanie wypłaty w centrum partnerskim — ikona wypłaty |
-| **Zakres**:<ul><li>Element Transaction na wiersz jest widoczny dla kolekcji w toku, zebranych i płatnych.</li><li>Raportowanie — pokazuje wszystkie elementy wiersza po utworzeniu zamówienia zakupu, w tym zbieranie w toku i rozliczanie w toku oraz stan kolekcji i elementy wierszy, które nie są jeszcze kwalifikujące się do płatności.</li></ul> | **Zakres**:<ul><li>Pokazuje elementy wiersza, gdy są one uznawane za kwalifikujące się zyski.</li><li>Klienci zwracają się najpierw do firmy Microsoft, a następnie dostawcy ISV mogą zobaczyć raport wypłaty.</li><li>Raport wypłaty nie będzie wyświetlał kolekcji w toku i rozliczeń w toku.</li></ul> |
-| **Transakcja nie jest gotowa do wypłaty**: rozliczanie w toku | **Transakcja nie jest gotowa do wypłaty**: Następna Szacowana płatność: stan wypłaty jest w stanie nieprzetworzonym. |
-| **Stan wypłaty**: brak | **Stan wypłaty**:<ul><li>Nieprzetworzone: pokrycie jest uprawnione do płatności.</li><li>Nadchodzące: zdobywanie zostanie wysłane do wydawcy w następnej miesięcznej wypłatie.</li><li>Wysłano: płatność została wysłana do Twojego banku.</li></ul> |
-| | |
 
 ## <a name="payment-schedules"></a>Harmonogramy płatności
 

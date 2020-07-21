@@ -3,14 +3,14 @@ title: Pulpit nawigacyjny zamówień Centrum partnerskiego w komercyjnej analizi
 description: Dowiedz się, jak uzyskać dostęp do raportów analitycznych zamówień oferowanych w portalu Marketplace w formacie graficznym i do pobrania.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
-ms.date: 12/11/2019
-ms.openlocfilehash: 4f5e18a2cebc309475c4fbcf84d7baaa28c6e61d
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.topic: article
+ms.date: 07/01/2020
+ms.openlocfilehash: fe1f64994d344ad9b23895823b846da62d895128
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86118362"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536134"
 ---
 # <a name="orders-dashboard-in-commercial-marketplace-analytics"></a>Pulpit nawigacyjny Zamówienia w analizie komercyjnej platformy handlowej
 
@@ -29,12 +29,9 @@ Aby uzyskać dostęp do **pulpitu nawigacyjnego Orders** w narzędziach do anali
 - [Zamówienia według położenia geograficznego](#orders-by-geography)
 - [Zamówienia według oferty](#orders-by-offers)
 - [Trend zamówień na lokację, a na stanowisko](#orders-trend-per-site-versus-per-seat)
-- [Zamówienia według jednostek SKU](#orders-by-skus)
+- [Zamówienia według planów](#orders-by-plans)
 - [Trend zamówień i siedzeń](#orders-and-seats-trend)
 - [Tabela szczegółów zamówienia](#order-details-table)
-
-> [!NOTE]
-> Istnieją różnice między sposobami wyświetlania raportów analizy w portal Cloud Partner (CPP) i nowym komercyjnym programie Marketplace w centrum partnerskim. Jednym z nich jest to, że informacje dostępne dla **sprzedającego** w programie CPP mają kartę **użycie zamówienia &** , która wyświetla dane dla ofert opartych na użyciu i nieopartych na użyciu. W centrum partnerskim strona **zamówienia** ma osobną kartę dla ofert SaaS.
 
 ## <a name="order-dashboard-details"></a>Szczegóły kolejności pulpitu nawigacyjnego
 
@@ -76,16 +73,16 @@ Wykres pierścieniowy **zamówienia według oferty** organizuje zamówienia (w t
 
 Wykres pierścieniowy na lokację, a dla każdego **stanowiska na kanapie** reprezentuje podział na SaaSą witryny i zamówienia SaaS zakupione przez klientów (ten wykres zawiera anulowane zamówienia). Wykres kolumnowy reprezentuje trend dla SaaS lokacji i zamówień SaaS zamówionych przez klientów (ten wykres zawiera anulowane zamówienia).
 
-### <a name="orders-by-skus"></a>Zamówienia według jednostek SKU
+### <a name="orders-by-plans"></a>Zamówienia według planów
 
-Wykres **Orders by SKU** reprezentuje trend zamówień na poziomie jednostki składowania (SKU) dla wszystkich ofert (obejmuje to zamówienia anulowane). Wykres pierścieniowy reprezentuje podział pierwszych pięciu zamówień SKU, a wykres kolumnowy reprezentuje trend zamówień dla pięciu głównych jednostek SKU.
+Wykres **order by Plans** reprezentuje trend zamówień na poziomie planu dla wszystkich ofert (obejmuje to zamówienia anulowane). Wykres pierścieniowy reprezentuje podział pierwszych pięciu zamówień planu, a wykres kolumnowy reprezentuje trend zamówień dla pierwszych pięciu planów.
 
 ### <a name="orders-and-seats-trend"></a>Trend zamówień i siedzeń
 
 Wykres **trendów zamówień i siedzeń** przedstawia najpopularniejsze oferty 50 o najwyższej liczbie zamówień. Są one wyświetlane na tablicy lidera i są posortowane według najwyższej liczby porządkowej i procentowej kolejności.
 
-- **Zamówienia według jednostek SKU**: wybierz ofertę, aby wyświetlić podział liczby zamówień dla pięciu głównych jednostek SKU na wykresie.
-- **Stanowiska według jednostek SKU**: miesięczny trend siedzeń dla pięciu pierwszych jednostek SKU. Jeśli wybrana oferta nie jest ofertą na stanowisko, na tym wykresie warstwowym nie będą widoczne żadne dane.
+- **Zamówienia według planów** — wybierz ofertę, aby wyświetlić podział liczby zamówień dla pierwszych pięciu planów na wykresie.
+- **Stanowiska według planu** — miesięczny trend siedzeń dla pięciu najważniejszych planów. Jeśli wybrana oferta nie jest ofertą na stanowisko, na tym wykresie warstwowym nie będą widoczne żadne dane.
 
 ### <a name="canceled-orders-by-offers"></a>Zamówienia anulowane według ofert
 

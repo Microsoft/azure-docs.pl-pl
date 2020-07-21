@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/02/2018
 ms.author: memildin
-ms.openlocfilehash: 3b7181550fd76f158ec04e9779f4301bd74484e1
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 72c0c33c973219a9701c8a7c8d45324681e14850
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80435974"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86529781"
 ---
 # <a name="quickstart-onboard-linux-computers-to-azure-security-center"></a>Szybki start: dołączanie komputerów z systemem Linux do usługi Azure Security Center
 Po dodaniu subskrypcji platformy Azure możesz włączyć Security Center dla zasobów systemu Linux działających poza platformą Azure, na przykład lokalnie lub w innych chmurach, udostępniając agenta. Agent jest nazywany agentem Log Analytics, ale jest również znany jako agent pakietu OMS.
@@ -33,13 +33,13 @@ Przed rozpoczęciem tego przewodnika Szybki Start musisz mieć Security Center w
 
 ## <a name="add-new-linux-computer"></a>Dodawanie nowego komputera z systemem Linux
 
-1. Zaloguj się do [Azure Portal](https://azure.microsoft.com/features/azure-portal/).
-2. W menu **Microsoft Azure** wybierz pozycję **Security Center**. Zostanie otwarte okno **Security Center — Przegląd**.
+1. Zaloguj się w witrynie [Azure Portal](https://azure.microsoft.com/features/azure-portal/).
+2. W menu **Microsoft Azure** wybierz pozycję **Security Center**. **Security Center — przegląd** zostanie otwarty.
 
    ![Security Center — Przegląd][2]
 
 3. W menu głównym usługi Security Center wybierz pozycję **Wprowadzenie**.
-4. Wybierz kartę **wprowadzenie** . ![Rozpoczynanie pracy][3]
+4. Wybierz kartę **wprowadzenie** . ![ Wprowadzenie][3]
 
 5. Kliknij przycisk **Konfiguruj** w obszarze **Dodaj nowe komputery spoza platformy Azure**, zostanie wyświetlona lista obszarów roboczych usługi Log Analytics. Jeśli ma to zastosowanie, lista zawiera domyślny obszar roboczy utworzony przez usługę Security Center po włączeniu automatycznej aprowizacji. Wybierz ten obszar roboczy lub inny obszar roboczy, którego chcesz użyć.
 
@@ -56,7 +56,7 @@ Przed rozpoczęciem tego przewodnika Szybki Start musisz mieć Security Center w
 
    ![Instalowanie agenta][5]
 
-Dzienniki dla agenta można znaleźć na stronie: *Identyfikator obszaru roboczego\</var/opt/Microsoft/omsagent/>/log/*
+Dzienniki dla agenta można znaleźć pod adresem: */var/opt/Microsoft/omsagent/ \<workspace id> /log/*
 
   ![Dzienniki agenta][6]
 
@@ -70,7 +70,7 @@ Teraz możesz monitorować maszyny wirtualne platformy Azure oraz komputery spoz
 
   ![icon2](./media/quick-onboard-linux-computer/security-center-monitoring-icon2.png) Maszyna wirtualna platformy Azure
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 Gdy nie jest już potrzebny, można usunąć agenta z komputera z systemem Linux.
 
 Aby usunąć agenta:

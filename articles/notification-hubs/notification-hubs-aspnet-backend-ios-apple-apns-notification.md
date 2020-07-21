@@ -14,12 +14,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 71d55471de6fc8681f19a56cd67bb9ba7390e026
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0f5bc9827919c18e327dc263384f0d4b6a01c5bc
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85248806"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86530181"
 ---
 # <a name="tutorial-send-push-notifications-to-specific-users-using-azure-notification-hubs"></a>Samouczek: wysyłanie powiadomień wypychanych do określonych użytkowników przy użyciu usługi Azure Notification Hubs
 
@@ -41,7 +41,7 @@ W tym samouczku wykonasz następujące kroki:
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 W tym samouczku przyjęto założenie, że utworzono i skonfigurowano centrum powiadomień zgodnie z opisem w temacie [wysyłanie powiadomień wypychanych do aplikacji systemu iOS przy użyciu usługi Azure Notification Hubs](ios-sdk-get-started.md). Ten samouczek jest również warunkiem wstępnym samouczka [bezpiecznego wypychania (iOS)](notification-hubs-aspnet-backend-ios-push-apple-apns-secure-notification.md) .
-Jeśli chcesz użyć Mobile Apps jako usługi wewnętrznej bazy danych, zapoznaj się z tematem [Mobile Apps wprowadzenie do wypychania](../app-service-mobile/app-service-mobile-ios-get-started-push.md).
+Jeśli chcesz użyć Mobile Apps jako usługi wewnętrznej bazy danych, zapoznaj się z tematem [Mobile Apps wprowadzenie do wypychania](/previous-versions/azure/app-service-mobile/app-service-mobile-ios-get-started-push).
 
 [!INCLUDE [notification-hubs-aspnet-backend-notifyusers](../../includes/notification-hubs-aspnet-backend-notifyusers.md)]
 

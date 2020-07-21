@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 07/08/2020
 ms.custom: seoapril2019, tracking-python
-ms.openlocfilehash: 57e1ecb080d816898b862951846b15a4b5709e38
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: ee116d668b9c351ecf5b130a39e418a3da8fc053
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86146550"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536389"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>Wdrażanie modeli za pomocą usługi Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -441,9 +441,9 @@ az ml model deploy -n myservice -m mymodel:1 --ic inferenceconfig.json
 
 W tym przykładzie konfiguracja określa następujące ustawienia:
 
-* Model wymaga języka Python.
-* [Skrypt wejścia](#script), który jest używany do obsługi żądań sieci Web wysyłanych do wdrożonej usługi.
-* Plik Conda, który opisuje pakiety języka Python, które są zbędne do wnioskowania.
+* Że model wymaga języka Python
+* [Skrypt wejścia](#script), który jest używany do obsługi żądań sieci Web wysyłanych do wdrożonej usługi
+* Plik Conda opisujący pakiety języka Python, które są zbędne do wnioskowania
 
 Aby uzyskać informacje na temat używania niestandardowego obrazu platformy Docker z konfiguracją wnioskowania, zobacz [jak wdrożyć model przy użyciu niestandardowego obrazu platformy Docker](how-to-deploy-custom-docker-image.md).
 
@@ -537,7 +537,7 @@ az ml model profile -g <resource-group-name> -w <workspace-name> --inference-con
 
 ## <a name="deploy-to-target"></a>Wdróż do celu
 
-Wdrożenie używa konfiguracji wdrożenia konfiguracji wnioskowania do wdrożenia modeli. Proces wdrażania jest podobny niezależnie od elementu docelowego obliczeń. Wdrażanie do AKS jest nieco inne, ponieważ należy podać odwołanie do klastra AKS.
+Wdrożenie używa konfiguracji wdrożenia konfiguracji wnioskowania do wdrożenia modeli. Proces wdrażania jest podobny niezależnie od elementu docelowego obliczeń. Wdrażanie w usłudze Azure Kubernetes Service (AKS) jest nieco inne, ponieważ należy podać odwołanie do klastra AKS.
 
 ### <a name="choose-a-compute-target"></a>Wybierz element docelowy obliczeń
 
@@ -559,7 +559,7 @@ Poniższa tabela zawiera przykład tworzenia konfiguracji wdrożenia dla każdeg
 
 | Docelowy zasób obliczeniowy | Przykład konfiguracji wdrożenia |
 | ----- | ----- |
-| Lokalny | `deployment_config = LocalWebservice.deploy_configuration(port=8890)` |
+| Lokalne | `deployment_config = LocalWebservice.deploy_configuration(port=8890)` |
 | Azure Container Instances | `deployment_config = AciWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)` |
 | Azure Kubernetes Service | `deployment_config = AksWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)` |
 
@@ -629,7 +629,7 @@ Zobacz [wdrażanie do Azure Container Instances](how-to-deploy-azure-container-i
 Zobacz [wdrażanie w usłudze Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md).
 
 ### <a name="ab-testing-controlled-rollout"></a>Testowanie A/B (kontrolowane wdrażanie)
-Aby uzyskać więcej informacji [, zobacz kontrolowane wprowadzanie modeli ml](how-to-deploy-azure-kubernetes-service.md#deploy-models-to-aks-using-controlled-rollout-preview) .
+Aby uzyskać więcej informacji, zobacz [kontrolowane Wdrażanie modeli ml](how-to-deploy-azure-kubernetes-service.md#deploy-models-to-aks-using-controlled-rollout-preview) , aby uzyskać więcej informacji.
 
 ## <a name="consume-web-services"></a>Korzystaj z usług sieci Web
 
@@ -878,7 +878,7 @@ Wdrożenie modelu bez kodu jest obecnie dostępne w wersji zapoznawczej i obsłu
 ### <a name="tensorflow-savedmodel-format"></a>Tensorflow SavedModel
 Modele Tensorflow muszą być zarejestrowane w **formacie SavedModel** do pracy z wdrożeniem modelu bez kodu.
 
-Zobacz [ten link](https://www.tensorflow.org/guide/saved_model) , aby uzyskać informacje na temat tworzenia SavedModel.
+[Ten link](https://www.tensorflow.org/guide/saved_model) zawiera informacje na temat tworzenia SavedModel.
 
 ```python
 from azureml.core import Model
@@ -914,6 +914,12 @@ service_name = 'onnx-mnist-service'
 service = Model.deploy(ws, service_name, [model])
 ```
 
+Aby wypróbować model, zobacz temat [Korzystanie z modelu Azure Machine Learning wdrożonego jako usługa sieci Web](https://docs.microsoft.com/azure/machine-learning/how-to-consume-web-service). Wiele projektów ONNX korzysta z plików protobuf, aby kompaktować dane szkoleniowe i weryfikacyjne, co może utrudnić znać format danych oczekiwany przez usługę. Jako deweloper modelu należy dokumentować dla deweloperów:
+
+* Format wejściowy (JSON lub binarny)
+* Kształt danych wejściowych i typ (na przykład tablica zmiennoprzecinkowa kształtu [100100, 3])
+* Informacje o domenie (na przykład dla obrazu, przestrzeń kolorów, kolejność składników i czy wartości są znormalizowane)
+
 Jeśli używasz Pytorch, [Eksportowanie modeli z Pytorch do ONNX](https://github.com/onnx/tutorials/blob/master/tutorials/PytorchOnnxExport.ipynb) zawiera szczegółowe informacje dotyczące konwersji i ograniczeń. 
 
 ### <a name="scikit-learn-models"></a>Scikit — uczenie modeli
@@ -939,7 +945,7 @@ service_name = 'my-sklearn-service'
 service = Model.deploy(ws, service_name, [model])
 ```
 
-Uwaga: modele, które obsługują predict_proba będą używać tej metody domyślnie. Aby zastąpić ten sposób, można zmodyfikować treść wpisu w następujący sposób:
+Uwaga: modele, które obsługują predict_proba, będą używać tej metody domyślnie. Aby zastąpić ten sposób, można zmodyfikować treść wpisu w następujący sposób:
 ```python
 import json
 
@@ -998,7 +1004,7 @@ package = Model.package(ws, [model], inference_config)
 package.wait_for_creation(show_output=True)
 ```
 
-Po utworzeniu pakietu można użyć `package.pull()` programu w celu ściągnięcia obrazu do lokalnego środowiska platformy Docker. W danych wyjściowych tego polecenia zostanie wyświetlona nazwa obrazu. Przykład: 
+Po utworzeniu pakietu można użyć `package.pull()` programu w celu ściągnięcia obrazu do lokalnego środowiska platformy Docker. W danych wyjściowych tego polecenia zostanie wyświetlona nazwa obrazu. Na przykład: 
 
 `Status: Downloaded newer image for myworkspacef78fd10.azurecr.io/package:20190822181338`. 
 

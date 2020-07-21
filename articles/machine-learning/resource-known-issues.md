@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: troubleshooting
 ms.custom: contperfq4
 ms.date: 03/31/2020
-ms.openlocfilehash: bc41152bb39b0f5022d51dbefe16e3d56107c457
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 56acddda2cf5ae2ef2a94353ec11c3ddf6990e1c
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223462"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536117"
 ---
 # <a name="known-issues-and-troubleshooting-in-azure-machine-learning"></a>Znane problemy i rozwiązywanie problemów w Azure Machine Learning
 
@@ -96,6 +96,22 @@ Czasami pomocne może być podanie informacji diagnostycznych podczas pytania o 
     ```bash
     automl_setup
     ```
+    
+* **Błąd: "Mark" podczas uruchamiania AutoML na lokalnym klastrze obliczeniowym lub Azure Databricks**
+
+    Jeśli nowe środowisko zostało utworzone po 10 czerwca 2020, przy użyciu zestawu SDK 1.7.0 lub starszego, szkolenie może zakończyć się niepowodzeniem z powodu aktualizacji pakietu cpuinfo. (W środowiskach utworzonych w dniu lub przed 10 czerwca 2020 nie ma to oddziaływać, ponieważ eksperymenty są uruchamiane w ramach obliczeń zdalnych, ponieważ są używane buforowane obrazy szkoleniowe). Aby obejść ten problem, wykonaj jedną z następujących czynności:
+    
+    * Zaktualizuj wersję zestawu SDK do wersji 1.8.0 lub nowszej (spowoduje to również obniżenie wersji z PR-cpuinfo do 5.0.0):
+    
+      ```bash
+      pip install --upgrade azureml-sdk[automl]
+      ```
+    
+    * Starsza wersja wersji pr-cpuinfo do 5.0.0:
+    
+      ```bash
+      pip install py-cpuinfo==5.0.0
+      ```
   
 * **Komunikat o błędzie: nie można odinstalować "PyYAML"**
 
@@ -146,6 +162,12 @@ Czasami pomocne może być podanie informacji diagnostycznych podczas pytania o 
 > Przeniesienie obszaru roboczego Azure Machine Learning do innej subskrypcji lub przeniesienie subskrypcji będącej właścicielem do nowej dzierżawy nie jest obsługiwane. Wykonanie tej operacji może spowodować błędy.
 
 * **Azure Portal**: Jeśli przejdziesz bezpośrednio do wyświetlania obszaru roboczego z linku udostępniania z zestawu SDK lub portalu, nie będzie możliwe wyświetlenie zwykłej strony **przeglądu** z informacjami o subskrypcji w rozszerzeniu. Nie będzie też możliwe przełączenie do innego obszaru roboczego. Jeśli zachodzi potrzeba wyświetlenia innego obszaru roboczego, przejdź bezpośrednio do [Azure Machine Learning Studio](https://ml.azure.com) i wyszukaj nazwę obszaru roboczego.
+
+* **Obsługiwane przeglądarki w portalu internetowym programu Azure Machine Learning Studio**: zalecamy użycie najnowszej przeglądarki zgodnej z systemem operacyjnym. Obsługiwane są następujące przeglądarki:
+  * Microsoft Edge (Nowa Microsoft Edge, Najnowsza wersja. Nie w starszej wersji programu Microsoft Edge)
+  * Safari (najnowsza wersja, tylko Mac)
+  * Chrome (najnowsza wersja)
+  * Firefox (najnowsza wersja)
 
 ## <a name="set-up-your-environment"></a>Konfigurowanie środowiska
 
@@ -217,9 +239,16 @@ Ograniczenia i znane problemy dotyczące monitorów dryfowania danych:
 
 ## <a name="azure-machine-learning-designer"></a>Projektant Azure Machine Learning
 
-Znane problemy:
+* **Długi czas przygotowania obliczeń:**
 
-* **Długi czas przygotowania obliczeń**: może to potrwać kilka minut, a nawet dłużej przy pierwszym połączeniu z lub utworzyć obiekt docelowy obliczeń. 
+Może to potrwać kilka minut, a nawet dłużej przy pierwszym połączeniu z lub utworzyć obiekt docelowy obliczeń. 
+
+Z modułu zbierającego dane modelu może upłynąć do (ale zazwyczaj mniej niż) 10 minut na dostarczenie danych na koncie usługi BLOB Storage. Poczekaj 10 minut, aby upewnić się, że poniższe komórki zostaną uruchomione.
+
+```python
+import time
+time.sleep(600)
+```
 
 ## <a name="train-models"></a>Szkolenie modeli
 

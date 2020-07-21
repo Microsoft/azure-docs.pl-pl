@@ -4,18 +4,20 @@ description: Interfejs API przejdź na żywo inicjuje proces oferty na żywo.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-ms.date: 04/08/2020
-ms.openlocfilehash: f356291662851172a3c6917b44891ce901546dfa
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+author: dsindona
+ms.author: dsindona
+ms.date: 07/14/2020
+ms.openlocfilehash: 5c5448a853447a0eacc8d974a5b00d5d1e8f4be2
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86115710"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86535947"
 ---
 # <a name="go-live"></a>Przejdź na żywo
 
 > [!NOTE]
-> Interfejsy API portal Cloud Partner są zintegrowane z centrum partnerskim i będą nadal działały po przeprowadzeniu migracji ofert do Centrum partnerskiego. W ramach integracji wprowadzono niewielkie zmiany. Przejrzyj zmiany wymienione w [Portal Cloud partner dokumentacja interfejsu API](./cloud-partner-portal-api-overview.md) , aby upewnić się, że kod będzie nadal działał po migracji do Centrum partnerskiego.
+> Interfejsy API portal Cloud Partner są zintegrowane z usługą i będą nadal działać w centrum partnerskim. Przejście wprowadza niewielkie zmiany. Przejrzyj zmiany wymienione w [dokumentacji interfejsu API Portal Cloud partner](./cloud-partner-portal-api-overview.md) , aby upewnić się, że kod będzie kontynuował pracę po przejściu do Centrum partnerskiego. Interfejsy API CPP powinny być używane tylko dla istniejących produktów, które zostały już zintegrowane przed przejściem do Centrum partnerskiego; nowe produkty powinny używać interfejsów API przekazywania Centrum partnerskiego.
 
 Ten interfejs API uruchamia proces wypychania aplikacji do środowiska produkcyjnego. Ta operacja jest zwykle długotrwała. To wywołanie używa listy wiadomości e-mail powiadomień z operacji [publikowania](./cloud-partner-portal-api-publish-offer.md) interfejsu API.
 
@@ -26,12 +28,12 @@ Ten interfejs API uruchamia proces wypychania aplikacji do środowiska produkcyj
 
 |  **Nazwa**      |   **Opis**                                                           | **Typ danych** |
 |  --------      |   ---------------                                                           | ------------- |
-| publisherId    | Identyfikator wydawcy dla oferty do pobrania, na przykład`contoso`       |  String       |
-| offerId        | Identyfikator oferty oferty do pobrania                                   |  String       |
+| publisherId    | Identyfikator wydawcy dla oferty do pobrania, na przykład`contoso`       |  String (ciąg)       |
+| offerId        | Identyfikator oferty oferty do pobrania                                   |  String (ciąg)       |
 | api-version    | Najnowsza wersja interfejsu API                                                   |  Data         |
 |  |  |  |
 
-## <a name="header"></a>Header
+## <a name="header"></a>Nagłówek
 ------
 
 |  **Nazwa**       |     **Wartość**       |

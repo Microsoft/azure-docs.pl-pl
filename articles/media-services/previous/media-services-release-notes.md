@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2019
 ms.author: juliako
-ms.openlocfilehash: 63b3def9c37f53ebf68642faf3f45cee6602bbe5
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: b25d6c33aa2bd50cbf96fb09f0de03354d24f2da
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86057300"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86530375"
 ---
 # <a name="azure-media-services-release-notes"></a>Informacje o wersji Azure Media Services
 
@@ -29,8 +29,8 @@ Te informacje o wersji Azure Media Services podsumowują zmiany z poprzednich we
 
 Chcemy poznać naszych klientów, aby móc skupić się na rozwiązywaniu problemów, które mają wpływ na Ciebie. Aby zgłosić problem lub zadawać pytania, Prześlij wpis na stronie [Azure Media Services MSDN forum]. 
 
-## <a name="known-issues"></a><a id="issues"/>Znane problemy
-### <a name="media-services-general-issues"></a><a id="general_issues"/>Problemy ogólne Media Services
+## <a name="known-issues"></a><a name="issues"></a>Znane problemy
+### <a name="media-services-general-issues"></a><a name="general_issues"></a>Problemy ogólne Media Services
 
 | Problem | Opis |
 | --- | --- |
@@ -43,7 +43,7 @@ Chcemy poznać naszych klientów, aby móc skupić się na rozwiązywaniu proble
 | Nie można serializować Media Services obiektów zestawu SDK platformy .NET. w związku z tym wynik nie współpracuje z usługą Azure cache for Redis. |Jeśli próbujesz serializować obiekt elementu zawartości zestawu SDK w celu dodania go do usługi Azure cache for Redis, zostanie zgłoszony wyjątek. |
 |Interfejs API REST reaguje na komunikat o błędzie informujący o tym, że nie można uzyskać dostępu do filtru przy użyciu tej wersji interfejsu API REST "podczas próby pobrania filtru na poziomie zasobu lub konta.|Filtr został utworzony lub zmodyfikowany przy użyciu nowszej wersji interfejsu API, która jest używana do próby pobrania filtru. Taka sytuacja może wystąpić, jeśli dwie wersje interfejsu API są używane przez kod lub narzędzia używane przez klienta.  Najlepszym rozwiązaniem jest uaktualnienie kodu lub narzędzi w celu użycia nowszych lub dwóch wersji interfejsu API.|
 
-## <a name="rest-api-version-history"></a><a id="rest_version_history"/>Historia wersji interfejsu API REST
+## <a name="rest-api-version-history"></a><a name="rest_version_history"></a>Historia wersji interfejsu API REST
 Informacje o historii wersji interfejsu API REST Media Services można znaleźć w [dokumentacji interfejsu API rest Azure Media Services].
 
 ## <a name="february-2020"></a>Luty 2020 r.
@@ -159,7 +159,7 @@ Aby uzyskać więcej informacji o tych właściwościach, zobacz [StreamingEndpo
 
  Teraz można użyć Media Services, aby uzyskać dostęp do danych telemetrycznych/metryk dla swoich usług. Korzystając z bieżącej wersji Media Services, można zbierać dane telemetryczne dotyczące kanału na żywo, punktu końcowego przesyłania strumieniowego i obiektów archiwum. Aby uzyskać więcej informacji, zobacz [Media Services telemetrii](media-services-telemetry-overview.md).
 
-## <a name="july-2016-release"></a><a id="july_changes16"/>Wydanie 2016 lipca
+## <a name="july-2016-release"></a><a name="july_changes16"></a>Wydanie 2016 lipca
 ### <a name="updates-to-the-manifest-file-ism-generated-by-encoding-tasks"></a>Aktualizacje pliku manifestu (*. ISM) generowane przez zadania kodowania
 Gdy zadanie kodowania jest przesyłane do Media Encoder Standard lub Media Encoder Premium, zadanie kodowania generuje [plik manifestu przesyłania strumieniowego](media-services-deliver-content-overview.md) (*. ISM) w wyjściowym elemencie zawartości. W najnowszej wersji usługi została zaktualizowana Składnia tego pliku manifestu przesyłania strumieniowego.
 
@@ -371,7 +371,7 @@ Metadane REST Media Services są teraz w wersji 2,7. Aby uzyskać więcej inform
 
 Zestaw Media Services SDK dla platformy .NET jest teraz w wersji 3.0.0.7
 
-### <a name="breaking-changes"></a><a id="sept_14_breaking_changes"></a>Zmiany powodujące niezgodność
+### <a name="breaking-changes"></a><a id="sept_14_breaking_changes"></a>Fundamentalne zmiany
 * Zmieniono nazwę pochodzenia na [StreamingEndpoint].
 * Zmiana została wprowadzona w domyślnym zachowaniu w przypadku używania Azure Portal do kodowania i publikowania plików MP4.
 

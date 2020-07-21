@@ -8,12 +8,12 @@ ms.date: 09/12/2018
 ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.openlocfilehash: edf669eb813240505cba8faef41e166785cc5b18
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: b0ab1e2e43210ecd7a61b7dffcb12d2c7c5c1c46
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86232070"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536610"
 ---
 # <a name="integrate-azure-time-series-insights-with-remote-monitoring"></a>Integrowanie usługi Azure Time Series Insights za pomocą zdalnego monitorowania
 
@@ -89,7 +89,7 @@ Utwórz nowe źródło zdarzenia w celu nawiązania połączenia z usługą IoT 
     | Ustawienie | Wartość |
     | ------- | ----- |
     | Nazwa źródła zdarzeń | Poniższy zrzut ekranu używa nazwy **contosorm-IoT-Hub**. Po wykonaniu tego kroku Użyj własnej unikatowej nazwy. |
-    | Źródło | **IoT Hub** |
+    | Element źródłowy | **IoT Hub** |
     | Opcja importu | **Korzystanie z IoT Hub z dostępnych subskrypcji** |
     | Identyfikator subskrypcji | Z listy rozwijanej wybierz subskrypcję platformy Azure. |
     | Nazwa Centrum IoT Hub | **contosorma57a6**. Użyj nazwy Centrum IoT Hub z rozwiązania do zdalnego monitorowania. |
@@ -244,7 +244,7 @@ Skonfiguruj środowisko `basic` wdrożenia zaktualizowanych mikrousług.
 
 Skonfiguruj środowisko `standard` wdrożenia dla zaktualizowanych Micro usług powyżej
 
-1. W wierszu polecenia Uruchom polecenie `kubectl proxy` . Aby uzyskać więcej informacji, zobacz [Uzyskiwanie dostępu do interfejsu API Kubernetes](https://kubernetes.io/docs/reference/access-authn-authz/).
+1. W wierszu polecenia Uruchom polecenie `kubectl proxy` . Aby uzyskać więcej informacji, zobacz [Uzyskiwanie dostępu do interfejsu API Kubernetes](https://kubernetes.io/docs/reference/access-authn-authz/#using-kubectl-to-start-a-proxy-server).
 
 1. Otwórz konsolę zarządzania Kubernetes.
 

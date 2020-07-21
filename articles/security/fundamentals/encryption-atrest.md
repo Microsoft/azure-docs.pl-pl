@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/07/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 1e08e758fbba911d3391794f5bab31aaf6a5fc73
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dd54c8f7e8a3784672f5364efc6f6b51186f911d
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81454683"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86529288"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Szyfrowanie danych platformy Azure — w spoczynku
 
@@ -61,7 +61,7 @@ Jak opisano wcześniej, celem szyfrowania w czasie spoczynku jest to, że dane u
 
 ![Składniki](./media/encryption-atrest/azure-security-encryption-atrest-fig1.png)
 
-### <a name="azure-key-vault"></a>W usłudze Azure Key Vault
+### <a name="azure-key-vault"></a>Azure Key Vault
 
 Lokalizacją przechowywania kluczy szyfrowania i kontroli dostępu do tych kluczy jest centralne szyfrowanie w modelu Rest. Klucze muszą być wysoce zabezpieczone, ale mogą być zarządzane przez określonych użytkowników i dostępne dla określonych usług. W przypadku usług Azure Azure Key Vault jest zalecanym rozwiązaniem magazynu kluczy i oferuje wspólne środowisko zarządzania w ramach usług. Klucze są przechowywane i zarządzane w magazynach kluczy, a dostęp do magazynu kluczy można udzielić użytkownikom lub usługom. Azure Key Vault obsługuje tworzenie kluczy lub importowanie kluczy klienta do użytku w scenariuszach z kluczami szyfrowania zarządzanymi przez klienta.
 
@@ -258,9 +258,8 @@ Szyfrowanie po stronie klienta Azure SQL Database danych jest obsługiwane za po
 
 #### <a name="encryption-model-and-key-management-table"></a>Model szyfrowania i tabela zarządzania kluczami
 
-|                                  |                    | **Model szyfrowania i zarządzanie kluczami** |                    |
+| Produkt, funkcja lub usługa | Po stronie serwera przy użyciu klucza zarządzanego przez usługę   | Po stronie serwera przy użyciu klucza zarządzanego przez klienta | Po stronie klienta przy użyciu klucza zarządzanego przez klienta  |
 |----------------------------------|--------------------|-----------------------------------------|--------------------|
-|                                  | **Po stronie serwera przy użyciu klucza zarządzanego przez usługę**     | **Po stronie serwera przy użyciu klucza zarządzanego przez klienta**             | **Po stronie klienta przy użyciu klucza zarządzanego przez klienta**      |
 | **Sztuczna inteligencja i uczenie maszynowe**      |                    |                    |                    |
 | Azure Cognitive Search           | Tak                | Tak                | -                  |
 | Azure Cognitive Services         | Tak                | Tak                | -                  |
@@ -290,7 +289,7 @@ Szyfrowanie po stronie klienta Azure SQL Database danych jest obsługiwane za po
 | Azure Kubernetes Service         | Tak                | Yes                | -                  |
 | Container Instances              | Tak                | Yes                | -                  |
 | Container Registry               | Tak                | Yes                | -                  |
-| **Obliczanie**                      |                    |                    |                    |
+| **Środowisko obliczeniowe**                      |                    |                    |                    |
 | Virtual Machines                 | Tak                | Tak, RSA 2048-bit  | -                  |
 | Zestaw skalowania maszyn wirtualnych        | Tak                | Tak, RSA 2048-bit  | -                  |
 | SAP HANA                         | Tak                | Tak, RSA 2048-bit  | -                  |
@@ -319,7 +318,7 @@ Szyfrowanie po stronie klienta Azure SQL Database danych jest obsługiwane za po
 | Azure Repos                      | Tak                | -                  | Tak                |
 | **Tożsamość**                     |                    |                    |                    |
 | Azure Active Directory           | Tak                | -                  | -                  |
-| Azure Active Directory Domain Services | Tak          | Tak, RSA 2048-bit  | -                  |
+| Usługi Azure Active Directory Domain Services | Tak          | Tak, RSA 2048-bit  | -                  |
 | **Integracja**                  |                    |                    |                    |
 | Service Bus                      | Tak                | Tak                | Tak                |
 | Event Grid                       | Tak                | -                  | -                  |
@@ -334,8 +333,8 @@ Szyfrowanie po stronie klienta Azure SQL Database danych jest obsługiwane za po
 | Media Services                   | Tak                | -                  | Tak                |
 | **Bezpieczeństwo**                     |                    |                    |                    |
 | Azure Security Center dla IoT    | Tak                | Tak                | -                  |
-| Usługa Azure Sentinel                   | Tak                | Tak                | -                  |
-| **Storage**                      |                    |                    |                    |
+| Azure Sentinel                   | Tak                | Tak                | -                  |
+| **Magazyn**                      |                    |                    |                    |
 | Blob Storage                     | Tak                | Tak, RSA 2048-bit  | Tak                |
 | Blob Storage Premium             | Tak                | Tak, RSA 2048-bit  | Tak                |
 | Disk Storage                     | Tak                | Tak                | -                  |
@@ -358,6 +357,6 @@ Szyfrowanie po stronie klienta Azure SQL Database danych jest obsługiwane za po
 
 \*\*Ta usługa obsługuje przechowywanie danych we własnym Key Vault, koncie magazynu lub innej usłudze utrwalania danych, która obsługuje już szyfrowanie po stronie serwera z kluczem zarządzanym przez klienta.
 
-## <a name="conclusion"></a>Podsumowanie
+## <a name="conclusion"></a>Wniosek
 
 Ochrona danych klienta przechowywanych w ramach usług platformy Azure ma najważniejsze znaczenie dla firmy Microsoft. Wszystkie usługi hostowane na platformie Azure są zobowiązane do zapewniania szyfrowania w opcjach Rest. Usługi platformy Azure obsługują klucze zarządzane przez usługę, klucze zarządzane przez klienta lub szyfrowanie po stronie klienta. Usługi platformy Azure w szerokim zakresie rozszerzają szyfrowanie w stanie spoczynku i w nadchodzących miesiącach są planowane nowe opcje dotyczące wersji zapoznawczej i ogólnej dostępności.

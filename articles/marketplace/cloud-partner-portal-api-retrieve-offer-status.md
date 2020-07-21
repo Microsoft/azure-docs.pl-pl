@@ -4,18 +4,20 @@ description: Interfejs API umożliwiający pobranie bieżącego stanu oferty.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-ms.date: 04/08/2020
-ms.openlocfilehash: 897c2517c3836e1c3940db02efae0e5d94667a65
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+author: dsindona
+ms.author: dsindona
+ms.date: 07/14/2020
+ms.openlocfilehash: 5652e7b6123a9836c574059e83101a073eea56ea
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86114078"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86535879"
 ---
 # <a name="retrieve-offer-status"></a>Pobieranie stanu oferty
 
 > [!NOTE]
-> Interfejsy API portal Cloud Partner są zintegrowane z centrum partnerskim i będą nadal działały po przeprowadzeniu migracji ofert do Centrum partnerskiego. W ramach integracji wprowadzono niewielkie zmiany. Przejrzyj zmiany wymienione w [Portal Cloud partner dokumentacja interfejsu API](./cloud-partner-portal-api-overview.md) , aby upewnić się, że kod będzie nadal działał po migracji do Centrum partnerskiego.
+> Interfejsy API portal Cloud Partner są zintegrowane z usługą i będą nadal działać w centrum partnerskim. Przejście wprowadza niewielkie zmiany. Przejrzyj zmiany wymienione w [dokumentacji interfejsu API Portal Cloud partner](./cloud-partner-portal-api-overview.md) , aby upewnić się, że kod będzie kontynuował pracę po przejściu do Centrum partnerskiego. Interfejsy API CPP powinny być używane tylko dla istniejących produktów, które zostały już zintegrowane przed przejściem do Centrum partnerskiego; nowe produkty powinny używać interfejsów API przekazywania Centrum partnerskiego.
 
 Pobiera bieżący stan oferty.
 
@@ -25,13 +27,12 @@ Pobiera bieżący stan oferty.
 
 |  **Nazwa**       |   **Opis**                            |  **Typ danych** |
 |  -------------  |  ------------------------------------------  |  ------------  |
-|  publisherId    | Identyfikator wydawcy, na przykład`Contoso`  |     String     |
-|  offerId        | Identyfikator GUID, który jednoznacznie identyfikuje ofertę      |     String     |
+|  publisherId    | Identyfikator wydawcy, na przykład`Contoso`  |     String (ciąg)     |
+|  offerId        | Identyfikator GUID, który jednoznacznie identyfikuje ofertę      |     String (ciąg)     |
 |  api-version    | Najnowsza wersja interfejsu API                        |     Data       |
 |  |  |
 
-
-## <a name="header"></a>Header
+## <a name="header"></a>Nagłówek
 
 
 |  Nazwa           |  Wartość               |
@@ -41,7 +42,6 @@ Pobiera bieżący stan oferty.
 |  |  |
 
 ## <a name="body-example"></a>Przykład treści
-
 
 ### <a name="response"></a>Odpowiedź
 
@@ -116,7 +116,6 @@ Pobiera bieżący stan oferty.
   }
 ```
 
-
 ### <a name="response-body-properties"></a>Właściwości treści odpowiedzi
 
 |  **Nazwa**             |    **Opis**                                                                             |
@@ -127,7 +126,7 @@ Pobiera bieżący stan oferty.
 |  estimatedTimeFrame   | Oszacowanie czasu, jaki mógłby wykonać ten krok, w przyjaznym formacie                       |
 |  identyfikator                   | Identyfikator kroku                                                                         |
 |  krokname             | Nazwa kroku                                                                               |
-|  description          | Opis kroku                                                                        |
+|  opis          | Opis kroku                                                                        |
 |  status               | Stan kroku. Aby uzyskać listę możliwych wartości, zobacz [Step status](#step-status) poniżej.    |
 |  z chmury do urządzenia             | Tablica komunikatów dotyczących kroku                                                          |
 |  processPercentage    | Procent wykonania kroku                                                              |
@@ -152,8 +151,8 @@ Pobiera bieżący stan oferty.
 |  NeverPublished              | Oferta nie została nigdy opublikowana.                          |
 |  NotStarted                  | Oferta jest nowa i nie została uruchomiona.                            |
 |  WaitingForPublisherReview   | Oferta oczekuje na zatwierdzenie przez wydawcę.                 |
-|  Działanie                     | Przesyłanie oferty jest przetwarzane.                     |
-|  Sukces                   | Przesyłanie oferty zostało zakończone.               |
+|  Uruchomiono                     | Przesyłanie oferty jest przetwarzane.                     |
+|  Powodzenie                   | Przesyłanie oferty zostało zakończone.               |
 |  Anulowane                    | Przesyłanie oferty zostało anulowane.                           |
 |  Niepowodzenie                      | Nie można przesłać oferty.                                 |
 |  |  |

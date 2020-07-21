@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: divswa, logicappspm
 ms.topic: article
 ms.date: 05/04/2020
-ms.openlocfilehash: c2a609266a77293a0e3a5cb9c973a6eb3f7f72a9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 69d018db26a42c331ff41d242eae54d6fcc43990
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82732006"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536255"
 ---
 # <a name="monitor-run-status-review-trigger-history-and-set-up-alerts-for-azure-logic-apps"></a>Monitoruj stan przebiegu, przejrzyj historię wyzwalacza i skonfiguruj alerty dla Azure Logic Apps
 
@@ -48,11 +48,11 @@ Za każdym razem, gdy wyzwalacz jest wyzwalany dla elementu lub zdarzenia, apara
 
    | Stan | Opis |
    |--------|-------------|
-   | **Anulowano** | Przepływ pracy został uruchomiony, ale Otrzymano żądanie anulowania |
+   | **Zerwan** | Przepływ pracy został uruchomiony, ale Otrzymano żądanie anulowania |
    | **Niepowodzenie** | Co najmniej jedna akcja nie powiodła się i nie skonfigurowano żadnych późniejszych akcji w przepływie pracy w celu obsługi niepowodzenia |
    | **Uruchomiono** | Przepływ pracy jest obecnie uruchomiony. <p>Ten stan może również występować w przypadku przepływów pracy z ograniczeniami lub z powodu bieżącego planu cenowego. Aby uzyskać więcej informacji, zobacz [limity akcji na stronie cennika](https://azure.microsoft.com/pricing/details/logic-apps/). W przypadku skonfigurowania [rejestrowania diagnostycznego](../logic-apps/monitor-logic-apps.md)można uzyskać informacje o wszelkich zdarzeniach związanych z ograniczeniami, które wystąpiły. |
-   | **Powiodło się** | Wszystkie akcje zostały wykonane pomyślnie. <p>**Uwaga**: Jeśli wystąpią jakiekolwiek błędy w określonej akcji, późniejsza akcja w przepływie pracy obsłuży ten błąd. |
-   | **Oczekiwanie** | Przepływ pracy nie został uruchomiony lub został wstrzymany, na przykład ze względu na wcześniejszy przepływ pracy, który nadal działa. |
+   | **Powodzenie** | Wszystkie akcje zostały wykonane pomyślnie. <p>**Uwaga**: Jeśli wystąpią jakiekolwiek błędy w określonej akcji, późniejsza akcja w przepływie pracy obsłuży ten błąd. |
+   | **Oczekujący** | Przepływ pracy nie został uruchomiony lub został wstrzymany, na przykład ze względu na wcześniejszy przepływ pracy, który nadal działa. |
    |||
 
 1. Aby zapoznać się z krokami i innymi informacjami dotyczącymi określonego uruchomienia, w obszarze **historia uruchamiania**wybierz ten przebieg.
@@ -71,7 +71,7 @@ Za każdym razem, gdy wyzwalacz jest wyzwalany dla elementu lub zdarzenia, apara
 
    ![Przejrzyj szczegółowe informacje o każdym kroku w przebiegu](./media/monitor-logic-apps/review-logic-app-run-details.png)
 
-   Można na przykład uzyskać Właściwość **identyfikatora korelacji** uruchomienia, która może być potrzebna [w przypadku Logic Apps](https://docs.microsoft.com/rest/api/logic).
+   Można na przykład uzyskać Właściwość **identyfikatora korelacji** uruchomienia, która może być potrzebna [w przypadku Logic Apps](/rest/api/logic).
 
 1. Aby uzyskać więcej informacji na temat określonego kroku, wybierz jedną z opcji:
 
@@ -120,7 +120,7 @@ Każdy przebieg aplikacji logiki rozpoczyna się od wyzwalacza. Historia wyzwala
    |--------|-------------|
    | **Niepowodzenie** | Wystąpił błąd. Aby przejrzeć wszystkie wygenerowane komunikaty o błędach dla wyzwalacza, wybierz tę próbę, a następnie wybierz pozycję dane **wyjściowe**. Na przykład mogą znajdować się dane wejściowe, które nie są prawidłowe. |
    | **Pominięto** | Wyzwalacz sprawdzał punkt końcowy, ale nie znalazł danych. |
-   | **Powiodło się** | Wyzwalacz sprawdzał punkt końcowy i znalazł dostępne dane. Zwykle pojawia się również stan "uruchomił" obok tego stanu. W przeciwnym razie definicja wyzwalacza może mieć warunek lub `SplitOn` polecenie, które nie zostały spełnione. <p>Ten stan może dotyczyć wyzwalacza ręcznego, wyzwalacza cyklu lub wyzwalacza sondowania. Wyzwalacz może zostać uruchomiony pomyślnie, ale uruchomienie może zakończyć się niepowodzeniem, gdy akcje generują nieobsłużone błędy. |
+   | **Powodzenie** | Wyzwalacz sprawdzał punkt końcowy i znalazł dostępne dane. Zwykle pojawia się również stan "uruchomił" obok tego stanu. W przeciwnym razie definicja wyzwalacza może mieć warunek lub `SplitOn` polecenie, które nie zostały spełnione. <p>Ten stan może dotyczyć wyzwalacza ręcznego, wyzwalacza cyklu lub wyzwalacza sondowania. Wyzwalacz może zostać uruchomiony pomyślnie, ale uruchomienie może zakończyć się niepowodzeniem, gdy akcje generują nieobsłużone błędy. |
    |||
 
    > [!TIP]
@@ -138,7 +138,7 @@ Każdy przebieg aplikacji logiki rozpoczyna się od wyzwalacza. Historia wyzwala
 
 ## <a name="set-up-monitoring-alerts"></a>Konfigurowanie alertów monitorowania
 
-Aby otrzymywać alerty w oparciu o konkretne metryki lub przekroczenia progów dla aplikacji logiki, skonfiguruj [alerty w Azure monitor](../azure-monitor/platform/alerts-overview.md). Dowiedz się więcej o [metrykach na platformie Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md). Aby skonfigurować alerty bez używania [Azure monitor](../log-analytics/log-analytics-overview.md), wykonaj następujące kroki.
+Aby otrzymywać alerty w oparciu o konkretne metryki lub przekroczenia progów dla aplikacji logiki, skonfiguruj [alerty w Azure monitor](../azure-monitor/platform/alerts-overview.md). Dowiedz się więcej o [metrykach na platformie Azure](../azure-monitor/platform/data-platform.md). Aby skonfigurować alerty bez używania [Azure monitor](../azure-monitor/log-query/log-query-overview.md), wykonaj następujące kroki.
 
 1. W menu aplikacji logiki w obszarze **monitorowanie**wybierz pozycję **alerty**  >  **Nowa reguła alertu**.
 

@@ -9,14 +9,14 @@ ms.service: iot-dps
 services: iot-dps
 manager: eliotgra
 ms.custom: mvc
-ms.openlocfilehash: aaa1a4423363255536db7d53a1f8f8fa9ba686ff
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 8b54f216850b77473ea8c272311e3f135f256518
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76941402"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536508"
 ---
-# <a name="quickstart-provision-a-simulated-device-with-symmetric-keys"></a>Szybki start: aprowizowanie urządzenia symulowanego przy użyciu kluczy symetrycznych
+# <a name="quickstart-provision-a-simulated-device-to-iot-hub-with-symmetric-keys"></a>Szybki Start: udostępnianie symulowanego urządzenia do IoT Hub z użyciem kluczy symetrycznych
 
 Z tego przewodnika Szybki start dowiesz się, jak utworzyć i uruchomić symulator urządzenia na maszynie deweloperskiej z systemem Windows. To symulowane urządzenie zostanie skonfigurowane do uwierzytelniania za pomocą wystąpienia usługi Device Provisioning Service (DPS) i przypisane do centrum IoT. Przykładowy kod z [Microsoft Azure zestaw SDK IoT dla języka Java](https://github.com/Azure/azure-iot-sdk-java) zostanie użyty do symulowania sekwencji rozruchu dla urządzenia inicjującego Inicjowanie obsługi administracyjnej. Urządzenie zostanie rozpoznane na podstawie rejestracji indywidualnej w wystąpieniu usługi DPS i przypisanej do centrum IoT.
 
@@ -141,7 +141,7 @@ W tej sekcji zostanie zaktualizowany przykładowy kod urządzenia w celu wysłan
 >
 
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli planujesz kontynuować pracę i eksplorowanie przykładowego klienta urządzenia, nie czyść zasobów utworzonych w tym przewodniku Szybki Start. Jeśli nie planujesz kontynuować pracy, wykonaj następujące kroki, aby usunąć wszystkie zasoby utworzone w ramach tego przewodnika Szybki Start.
 

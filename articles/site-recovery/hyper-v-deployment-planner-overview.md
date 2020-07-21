@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 3/13/2020
 ms.author: mayg
-ms.openlocfilehash: 3db3d619118be74ec1429ace70f580558c0a6c9d
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: e4f1931aab056306ac5e9f9e9ef402ca26ec2d19
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134357"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86528948"
 ---
 # <a name="about-the-azure-site-recovery-deployment-planner-for-hyper-v-disaster-recovery-to-azure"></a>Informacje o Planista wdrażania usługi Azure Site Recovery odzyskiwania po awarii funkcji Hyper-V na platformie Azure
 
@@ -70,7 +70,7 @@ Narzędzie udostępnia następujące szczegóły:
 
 ## <a name="support-matrix"></a>Tabela obsługi
 
-| | **Z programu VMware do platformy Azure** |**Z funkcji Hyper-V do platformy Azure**|**Azure–Azure**|**Z funkcji Hyper-V do lokacji dodatkowej**|**Z oprogramowania VMware do lokacji dodatkowej**
+|**Kategorie** | **Z programu VMware do platformy Azure** |**Z funkcji Hyper-V do platformy Azure**|**Azure–Azure**|**Z funkcji Hyper-V do lokacji dodatkowej**|**Z oprogramowania VMware do lokacji dodatkowej**
 --|--|--|--|--|--
 Obsługiwane scenariusze |Tak|Tak|Nie|Tak*|Nie
 Obsługiwana wersja | vCenter 6,7, 6,5, 6,0 lub 5,5| Windows Server 2016, Windows Server 2012 R2 | Nie dotyczy |Windows Server 2016, Windows Server 2012 R2|Nie dotyczy
@@ -90,19 +90,24 @@ W przypadku funkcji Hyper-V narzędzie obejmuje trzy główne etapy: pobieranie 
  |
 
 ## <a name="steps-to-add-servers-into-trustedhosts-list"></a>Procedura dodawania serwerów do listy TrustedHosts
-1.  Lista TrustedHosts maszyny wirtualnej, z której ma zostać wdrożone narzędzie, musi zawierać wszystkie hosty do profilowania. Aby dodać klienta do listy Trustedhosts, uruchom poniższe polecenie w programie PowerShell z podwyższonym poziomem uprawnień na maszynie wirtualnej. Maszyna wirtualna może korzystać z systemu Windows Server 2012 R2 lub Windows Server 2016. 
+1. Lista TrustedHosts maszyny wirtualnej, z której ma zostać wdrożone narzędzie, musi zawierać wszystkie hosty do profilowania. Aby dodać klienta do listy Trustedhosts, uruchom poniższe polecenie w programie PowerShell z podwyższonym poziomem uprawnień na maszynie wirtualnej. Maszyna wirtualna może korzystać z systemu Windows Server 2012 R2 lub Windows Server 2016. 
 
-            set-item wsman:\localhost\Client\TrustedHosts -value '<ComputerName>[,<ComputerName>]' -Concatenate
-
-1.  Każdy host funkcji Hyper-V, dla którego ma zostać przeprowadzone profilowanie, musi zawierać następujące elementy:
+   ```powershell
+   set-item wsman:\localhost\Client\TrustedHosts -value '<ComputerName>[,<ComputerName>]' -Concatenate
+   ```
+1. Każdy host funkcji Hyper-V, dla którego ma zostać przeprowadzone profilowanie, musi zawierać następujące elementy:
 
     a. Maszyna wirtualna, na której zostanie uruchomione narzędzie, na liście TrustedHosts. Uruchom poniższe polecenie w programie PowerShell z podwyższonym poziomem uprawnień na hoście funkcji Hyper-V.
 
-            set-item wsman:\localhost\Client\TrustedHosts -value '<ComputerName>[,<ComputerName>]' -Concatenate
+      ```powershell
+      set-item wsman:\localhost\Client\TrustedHosts -value '<ComputerName>[,<ComputerName>]' -Concatenate
+      ```
 
     b. Włączona komunikacja zdalna programu PowerShell.
 
-            Enable-PSRemoting -Force
+      ```powershell
+      Enable-PSRemoting -Force
+      ```
 
 ## <a name="download-and-extract-the-deployment-planner-tool"></a>Pobieranie i wyodrębnianie narzędzia planisty wdrażania
 

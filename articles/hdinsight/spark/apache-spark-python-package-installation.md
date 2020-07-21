@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020, tracking-python
 ms.date: 04/29/2020
-ms.openlocfilehash: 67dfc0b2da753f005c1723ff0cf3370ce288c6de
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 8c13dc43f4b7c66bd804fd9ec016f5e1a467bd8b
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86086623"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536769"
 ---
 # <a name="safely-manage-python-environment-on-azure-hdinsight-using-script-action"></a>Bezpieczne zarządzanie środowiskiem Python w usłudze Azure HDInsight za pomocą akcji skryptu
 
@@ -47,11 +47,11 @@ Istnieją dwa typy składników typu "open source", które są dostępne w usłu
 
 Klaster usługi HDInsight Spark jest tworzony z instalacją Anaconda. W klastrze są zainstalowane dwie instalacje języka Python, Anaconda Python 2,7 i Python 3,5. W poniższej tabeli przedstawiono domyślne ustawienia języka Python dla platformy Spark, usługi Livy i Jupyter.
 
-| |Python 2,7|Python 3,5|
+|Ustawienie |Python 2,7|Python 3,5|
 |----|----|----|
 |Ścieżka|/usr/bin/anaconda/bin|/usr/bin/anaconda/envs/py35/bin|
-|platforma Spark|Domyślnie ustawiona na 2,7|Nie dotyczy|
-|Livy|Domyślnie ustawiona na 2,7|Nie dotyczy|
+|Wersja platformy Spark|Domyślnie ustawiona na 2,7|Nie dotyczy|
+|Wersja usługi Livy|Domyślnie ustawiona na 2,7|Nie dotyczy|
 |Jupyter|Jądro PySpark|Jądro PySpark3|
 
 ## <a name="safely-install-external-python-packages"></a>Bezpieczne Instalowanie zewnętrznych pakietów języka Python

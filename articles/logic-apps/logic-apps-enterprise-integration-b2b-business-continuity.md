@@ -8,11 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 04/10/2017
-ms.openlocfilehash: 09b77862ad3379efeb8b3063a9d6c60b062ca2d7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3b618513965298889fb656750419dedd79729f7f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76905127"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536474"
 ---
 # <a name="set-up-cross-region-disaster-recovery-for-integration-accounts-in-azure-logic-apps"></a>Skonfiguruj odzyskiwanie po awarii między regionami dla kont integracji w programie Azure Logic Apps
 
@@ -59,7 +60,7 @@ Ciągłość działania w ramach konta integracji Logic Apps zapewnia pomoc tech
 
 W przypadku awarii, gdy region podstawowy nie jest dostępny w celu zapewnienia ciągłości działania, kieruj ruch do regionu pomocniczego. Region pomocniczy ułatwia firmie szybkie odzyskiwanie funkcji w celu spełnienia wymagań dotyczących punktu odzyskiwania/RTO uzgodnionego przez partnerów. Ponadto minimalizuje wysiłki w celu przełączenia w tryb failover z jednego regionu do innego. 
 
-Oczekiwane opóźnienie podczas kopiowania numerów kontrolnych z regionu podstawowego do regionu pomocniczego. Aby uniknąć wysyłania duplikatów wygenerowanych numerów kontrolek do partnerów w trakcie zdarzenia awarii, zalecenie polega na zwiększeniu liczby kontrolek w umowach dotyczących regionu pomocniczego za pomocą [poleceń cmdlet programu PowerShell](https://docs.microsoft.com/powershell/module/azurerm.logicapp/set-azurermintegrationaccountgeneratedicn?view=azurermps-6.13.0).
+Oczekiwane opóźnienie podczas kopiowania numerów kontrolnych z regionu podstawowego do regionu pomocniczego. Aby uniknąć wysyłania duplikatów wygenerowanych numerów kontrolek do partnerów w trakcie zdarzenia awarii, zalecenie polega na zwiększeniu liczby kontrolek w umowach dotyczących regionu pomocniczego za pomocą [poleceń cmdlet programu PowerShell](/powershell/module/azurerm.logicapp/set-azurermintegrationaccountgeneratedicn?view=azurermps-6.13.0).
 
 ## <a name="fall-back-to-a-primary-region-post-disaster-event"></a>Powracanie do zdarzenia po awarii w regionie podstawowym
 
@@ -67,7 +68,7 @@ Aby wrócić do regionu podstawowego, gdy jest dostępny, wykonaj następujące 
 
 1. Zatrzymaj akceptowanie komunikatów od partnerów w regionie pomocniczym.  
 
-2. Zwiększ wygenerowane numery kontrolne dla wszystkich umów regionu podstawowego za pomocą [poleceń cmdlet programu PowerShell](https://docs.microsoft.com/powershell/module/azurerm.logicapp/set-azurermintegrationaccountgeneratedicn?view=azurermps-6.13.0).  
+2. Zwiększ wygenerowane numery kontrolne dla wszystkich umów regionu podstawowego za pomocą [poleceń cmdlet programu PowerShell](/powershell/module/azurerm.logicapp/set-azurermintegrationaccountgeneratedicn?view=azurermps-6.13.0).  
 
 3. Kierowanie ruchu z regionu pomocniczego do regionu podstawowego.
 
@@ -240,4 +241,3 @@ Na podstawie przedziału czasowego stan środowiska wykonawczego jest replikowan
 ## <a name="next-steps"></a>Następne kroki
 
 [Monitorowanie komunikatów B2B przy użyciu dzienników usługi Azure Monitor](../logic-apps/monitor-b2b-messages-log-analytics.md)
-

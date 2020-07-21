@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 05/13/2020
 ms.custom: seoapril2019, seodec18
-ms.openlocfilehash: 8cfa7a7b251f2aa74230d8883a0335582387aa06
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 749a2366438bd1abfef4ca0cf2a195f23529d6a5
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85602520"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536304"
 ---
 # <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Jak działa Azure Machine Learning: architektura i koncepcje
 
@@ -44,6 +44,10 @@ Przepływ pracy modelu uczenia maszynowego jest zwykle następujący:
 
 Użyj tych narzędzi dla Azure Machine Learning:
 
+> [!IMPORTANT]
+> Narzędzia oznaczone poniżej (wersja zapoznawcza) są obecnie dostępne w publicznej wersji zapoznawczej.
+> Wersja zapoznawcza jest dostępna bez umowy dotyczącej poziomu usług i nie jest zalecana w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 +  Korzystanie z usługi w dowolnym środowisku języka Python z [zestawem SDK Azure Machine Learning dla języka Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
 + Korzystanie z usługi w dowolnym środowisku R z [zestawem SDK Azure Machine Learning dla języka r](https://azure.github.io/azureml-sdk-for-r/reference/index.html) (wersja zapoznawcza).
 + Automatyzuj działania uczenia maszynowego za pomocą [interfejsu wiersza polecenia Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/reference-azure-machine-learning-cli).
@@ -56,20 +60,20 @@ Użyj tych narzędzi dla Azure Machine Learning:
 ## <a name="glossary"></a>Słownik
 
 * [Działanie](#activities)
-* [Workspace](#workspaces)
+* [Obszary](#workspaces)
     * [Eksperymenty](#experiments)
         * [Uruchom](#runs) 
             * [Uruchom konfigurację](#run-configurations)
-            * [Snapshot](#snapshots)
+            * [Zdjęcie](#snapshots)
             * [Śledzenie git](#github-tracking-and-integration)
-            * [Rejestrować](#logging)
+            * [Rejestrowanie](#logging)
     * [Potoki uczenia maszynowego](#ml-pipelines)
     * [Modele](#models)
         * [Środowiska](#environments)
         * [Skrypt szkoleniowy](#training-scripts)
         * [Szacowania](#estimators)
-    * [Punktów końcowych](#endpoints)
-        * [Usługa sieci Web](#web-service-endpoint)
+    * [Punkty końcowe](#endpoints)
+        * [Usługa internetowa](#web-service-endpoint)
         * [Moduły IoT](#iot-module-endpoints)
     * [& magazynów danych](#datasets-and-datastores)
     * [Docelowe obiekty obliczeniowe](#compute-targets)

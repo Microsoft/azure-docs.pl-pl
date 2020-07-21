@@ -4,36 +4,34 @@ description: Interfejs API służący do pobierania podsumowującej listy ofert 
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-ms.date: 04/08/2020
-ms.openlocfilehash: ab5f09d0d81d8a6aa526576faea0b11a6536381a
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+author: dsindona
+ms.author: dsindona
+ms.date: 07/14/2020
+ms.openlocfilehash: 22d22feb3931f466647c2c4d94bdf924568f2dc5
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86113483"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86535896"
 ---
-<a name="retrieve-offers"></a>Pobieranie oferty
-===============
+# <a name="retrieve-offers"></a>Pobieranie oferty
 
 > [!NOTE]
-> Interfejsy API portal Cloud Partner są zintegrowane z centrum partnerskim i będą nadal działały po przeprowadzeniu migracji ofert do Centrum partnerskiego. W ramach integracji wprowadzono niewielkie zmiany. Przejrzyj zmiany wymienione w [Portal Cloud partner dokumentacja interfejsu API](./cloud-partner-portal-api-overview.md) , aby upewnić się, że kod będzie nadal działał po migracji do Centrum partnerskiego.
+> Interfejsy API portal Cloud Partner są zintegrowane z usługą i będą nadal działać w centrum partnerskim. Przejście wprowadza niewielkie zmiany. Przejrzyj zmiany wymienione w [dokumentacji interfejsu API Portal Cloud partner](./cloud-partner-portal-api-overview.md) , aby upewnić się, że kod będzie kontynuował pracę po przejściu do Centrum partnerskiego. Interfejsy API CPP powinny być używane tylko dla istniejących produktów, które zostały już zintegrowane przed przejściem do Centrum partnerskiego; nowe produkty powinny używać interfejsów API przekazywania Centrum partnerskiego.
 
 Pobiera podsumowującą listę ofert w przestrzeni nazw wydawcy.
 
  `GET https://cloudpartner.azure.com/api/publishers/<publisherId>/offers?api-version=2017-10-31`
 
-<a name="uri-parameters"></a>Parametry identyfikatora URI
---------------
+## <a name="uri-parameters"></a>Parametry identyfikatora URI
 
 | **Nazwa**         |  **Opis**                         |  **Typ danych** |
 | -------------    |  ------------------------------------    |  -----------   |
-|  publisherId     | Identyfikator wydawcy, na przykład`contoso` |   String    |
+|  publisherId     | Identyfikator wydawcy, na przykład`contoso` |   String (ciąg)    |
 |  api-version     | Najnowsza wersja interfejsu API                    |    Data        |
 |  |  |
 
-
-<a name="header"></a>Header
-------
+## <a name="header"></a>Nagłówek
 
 |  **Nazwa**        |         **Wartość**       |
 |  --------------- |       ----------------  |
@@ -41,9 +39,7 @@ Pobiera podsumowującą listę ofert w przestrzeni nazw wydawcy.
 |  Autoryzacja   | `Bearer YOUR_TOKEN`     |
 |  |  |
 
-
-<a name="body-example"></a>Przykład treści
-------------
+## <a name="body-example"></a>Przykład treści
 
 ### <a name="response"></a>Odpowiedź
 
@@ -77,7 +73,6 @@ Pobiera podsumowującą listę ofert w przestrzeni nazw wydawcy.
 |  changedTime    | Czas UTC ostatniej modyfikacji oferty                                                                              |
 |  |  |
 
-
 ### <a name="response-status-codes"></a>Kody stanu odpowiedzi
 
 | **Kod**  |  **Opis**                                                                                                   |
@@ -88,7 +83,6 @@ Pobiera podsumowującą listę ofert w przestrzeni nazw wydawcy.
 |  404      | `Not found`-Określona jednostka nie istnieje.                                                                 |
 |  |  |
 
-
 ### <a name="offer-status"></a>Stan oferty
 
 |  **Nazwa**                    | **Opis**                                  |
@@ -96,8 +90,8 @@ Pobiera podsumowującą listę ofert w przestrzeni nazw wydawcy.
 |  NeverPublished              | Oferta nie została nigdy opublikowana.                  |
 |  NotStarted                  | Oferta jest nowa, ale nie została uruchomiona.                 |
 |  WaitingForPublisherReview   | Oferta oczekuje na zatwierdzenie przez wydawcę.         |
-|  Działanie                     | Przesyłanie oferty jest przetwarzane.             |
-|  Sukces                   | Przesyłanie oferty zostało zakończone.       |
+|  Uruchomiono                     | Przesyłanie oferty jest przetwarzane.             |
+|  Powodzenie                   | Przesyłanie oferty zostało zakończone.       |
 |  Anulowane                    | Przesyłanie oferty zostało anulowane.                   |
 |  Niepowodzenie                      | Nie można przesłać oferty.                         |
 |  |  |

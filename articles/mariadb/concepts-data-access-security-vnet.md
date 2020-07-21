@@ -5,12 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 3/18/2020
-ms.openlocfilehash: 777febb86e6a1fa719b6a7d74c32defebcf3b58c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 7/17/2020
+ms.openlocfilehash: 4cfbc757b33c10ac559e7f8d6b62b9ccdaed404e
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85099817"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536100"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-mariadb"></a>Używanie reguł i punktów końcowych usługi dla sieci wirtualnej w przypadku usługi Azure Database for MariaDB
 
@@ -22,6 +23,8 @@ Aby utworzyć regułę sieci wirtualnej, musi być to [Sieć wirtualna][vm-virtu
 
 > [!NOTE]
 > Ta funkcja jest dostępna we wszystkich regionach platformy Azure, w których wdrożono Azure Database for MariaDB dla serwerów Ogólnego przeznaczenia i zoptymalizowanych pod kątem pamięci.
+
+Możesz również rozważyć użycie [prywatnego linku](concepts-data-access-security-private-link.md) dla połączeń. Link prywatny zapewnia prywatny adres IP w sieci wirtualnej dla serwera Azure Database for MariaDB.
 
 <a name="anch-terminology-and-description-82f"></a>
 
@@ -49,7 +52,7 @@ Reguła sieci wirtualnej instruuje serwer Azure Database for MariaDB, aby akcept
 
 Do momentu podjęcia działania maszyny wirtualne w podsieciach nie mogą komunikować się z serwerem Azure Database for MariaDB. Jedną z akcji, która ustanawia komunikację, jest utworzenie reguły sieci wirtualnej. Uzasadnienie wyboru podejścia reguły sieci wirtualnej wymaga dyskusji porównującej i kontrastowej obejmującej konkurencyjne opcje zabezpieczeń oferowane przez zaporę.
 
-### <a name="a-allow-access-to-azure-services"></a>A. Zezwalaj na dostęp do usług platformy Azure
+### <a name="a-allow-access-to-azure-services"></a>A. Zezwalanie na dostęp do usług platformy Azure
 
 W okienku zabezpieczenia połączenia jest dostępny przycisk **włączania/WYłączania** , który ma etykietę **Zezwalaj na dostęp do usług platformy Azure**. Ustawienie **on** umożliwia komunikację ze wszystkimi adresami IP platformy Azure i wszystkimi podsieciami platformy Azure. Te adresy IP lub podsieci platformy Azure mogą nie należeć do użytkownika. To **ustawienie jest** prawdopodobnie dłużej otwierane, niż chcesz, aby baza danych Azure Database for MariaDB. Funkcja reguły sieci wirtualnej oferuje znacznie bardziej precyzyjną kontrolę.
 
@@ -61,11 +64,6 @@ Możesz odzyskać opcję IP, uzyskując *statyczny* adres IP dla maszyny wirtual
 
 Jednak podejście ze statycznym adresem IP może być trudne do zarządzania i jest kosztowne, gdy jest wykonywane w odpowiedniej skali. Reguły sieci wirtualnej są łatwiejsze do ustanowienia i zarządzania.
 
-### <a name="c-cannot-yet-have-azure-database-for-mariadb-on-a-subnet-without-defining-a-service-endpoint"></a>C. Nie można jeszcze mieć Azure Database for MariaDB w podsieci bez definiowania punktu końcowego usługi
-
-Jeśli serwer **Microsoft. SQL** był węzłem w podsieci w sieci wirtualnej, wszystkie węzły w sieci wirtualnej mogą komunikować się z serwerem Azure Database for MariaDB. W takim przypadku maszyny wirtualne mogą komunikować się z Azure Database for MariaDB bez konieczności używania reguł sieci wirtualnej ani reguł adresów IP.
-
-Jednak od sierpnia 2018 usługa Azure Database for MariaDB nie należy jeszcze do usług, które mogą być bezpośrednio przypisane do podsieci.
 
 <a name="anch-details-about-vnet-rules-38q"></a>
 
@@ -118,6 +116,8 @@ W przypadku Azure Database for MariaDB funkcja reguł sieci wirtualnej ma nastę
 
 - Obsługa punktów końcowych usługi sieci wirtualnej jest obsługiwana tylko w przypadku serwerów Ogólnego przeznaczenia i zoptymalizowanych pod kątem pamięci.
 
+- Jeśli w podsieci jest włączona funkcja **Microsoft. SQL** , oznacza to, że do nawiązania połączenia mają być używane tylko reguły sieci wirtualnej. [Reguły zapory inne niż sieci wirtualnej](concepts-firewall-rules.md) w tej podsieci nie będą działały.
+
 - Na zaporze zakresy adresów IP dotyczą następujących elementów sieciowych, ale reguły sieci wirtualnej nie są:
     - [Wirtualna sieć prywatna (VPN) typu lokacja-lokacja (S2S)][vpn-gateway-indexmd-608y]
     - Lokalna za pośrednictwem [ExpressRoute][expressroute-indexmd-744v]
@@ -130,7 +130,7 @@ Aby umożliwić komunikację z obwodu do Azure Database for MariaDB, należy utw
 
 ## <a name="adding-a-vnet-firewall-rule-to-your-server-without-turning-on-vnet-service-endpoints"></a>Dodawanie reguły zapory sieci wirtualnej do serwera bez włączania punktów końcowych usługi sieci wirtualnej
 
-Tylko ustawienie reguły zapory nie pomaga zabezpieczyć serwera w sieci wirtualnej. Aby zabezpieczenia zaczęły obowiązywać, należy również włączyć punkty końcowe usługi **sieci** wirtualnej. Po włączeniu punktów końcowych usługi **w**usłudze Sieć wirtualna jest przestojem do momentu zakończenia przejścia z **trybu do trybu** **.** Jest to szczególnie prawdziwe w kontekście dużych sieci wirtualnych. Możesz użyć flagi **IgnoreMissingServiceEndpoint** , aby zmniejszyć lub wyeliminować przestoje podczas przejścia.
+Tylko ustawienie reguły zapory sieci wirtualnej nie pomaga zabezpieczyć serwera w sieci wirtualnej. Aby zabezpieczenia zaczęły obowiązywać, należy również włączyć punkty końcowe usługi **sieci** wirtualnej. Po włączeniu punktów końcowych usługi **w**usłudze Sieć wirtualna jest przestojem do momentu zakończenia przejścia z **trybu do trybu** **.** Jest to szczególnie prawdziwe w kontekście dużych sieci wirtualnych. Możesz użyć flagi **IgnoreMissingServiceEndpoint** , aby zmniejszyć lub wyeliminować przestoje podczas przejścia.
 
 Flagę **IgnoreMissingServiceEndpoint** można ustawić za pomocą interfejsu wiersza polecenia platformy Azure lub portalu.
 

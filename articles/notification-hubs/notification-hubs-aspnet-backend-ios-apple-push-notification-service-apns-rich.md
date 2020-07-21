@@ -16,12 +16,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 9da629929ca88f406dc503710477104be94c47e3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8ae4b984d0ce66dec2a32b3431301ed97fe2c3fd
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "71212191"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86530138"
 ---
 # <a name="azure-notification-hubs-rich-push"></a>Azure Notification Hubs rozbudowane wypychanie
 
@@ -31,7 +31,7 @@ Aby można było zaangażować użytkowników z błyskawiczną zawartością, ap
 
 Ten samouczek jest zgodny z systemem iOS 7 & 8.
 
-  ![][IOS1]
+  ![Trzy zrzuty ekranu: ekran aplikacji z przyciskiem Wyślij wypychanie, ekran startowy na urządzeniu i logo systemu Windows z przyciskiem wstecz.][IOS1]
 
 Na wysokim poziomie:
 
@@ -49,7 +49,7 @@ Na wysokim poziomie:
 3. Kliknij przycisk **Pokaż wszystkie pliki** w Eksplorator rozwiązań i kliknij prawym przyciskiem myszy folder do **uwzględnienia w projekcie**.
 4. Po wybraniu obrazu zmień jego akcję kompilacji w okno Właściwości na **zasób osadzony**.
 
-    ![][IOS2]
+    ![Zrzut ekranu przedstawiający Eksplorator rozwiązań. Plik obrazu jest zaznaczony, a w okienku właściwości osadzony zasób jest wyświetlany jako akcja kompilacji.][IOS2]
 5. W pliku `Notifications.cs` dodaj następującą instrukcję using:
 
     ```csharp
@@ -146,12 +146,12 @@ Po zmodyfikowaniu zaplecza aplikacji w celu wysłania tylko *identyfikatora* pow
 1. Otwórz projekt systemu iOS i Włącz zdalne powiadomienia, przechodząc do głównego obiektu docelowego aplikacji w sekcji **targets** .
 2. Kliknij pozycję **możliwości**, Włącz **tryb tła**i zaznacz pole wyboru **powiadomienia zdalne** .
 
-    ![][IOS3]
+    ![Zrzut ekranu przedstawiający projekt systemu iOS z ekranem możliwości. Tryby tła są włączone, a pole wyboru powiadomienia zdalne jest zaznaczone.][IOS3]
 3. Otwórz `Main.storyboard` program i upewnij się, że masz kontroler widoku (nazywany kontrolerem widoku głównego w tym samouczku) z samouczka [Powiadamiaj użytkownika](notification-hubs-aspnet-backend-ios-apple-apns-notification.md) .
 4. Dodaj **kontroler nawigacyjny** do scenorysu i przeciągnij go do kontrolera widoku głównego, aby był **widokiem głównym** nawigacji. Upewnij się, że jest wybrana wartość **kontroler widoku początkowego** w Inspektorze atrybutów tylko dla kontrolera nawigacji.
 5. Dodaj **kontroler widoku** do scenorysu i Dodaj **widok obrazu**. Ta strona zostanie wyświetlona, gdy zdecydują się, aby dowiedzieć się więcej, klikając powiadomienie. Scenorys powinien wyglądać następująco:
 
-    ![][IOS4]
+    ![Zrzut ekranu scenorysu. Widoczne są trzy ekrany aplikacji: Widok nawigacji, widok główny i widok obrazu.][IOS4]
 6. Kliknij **kontroler widoku głównego** w scenorysie i upewnij się, że **HomeViewController** jako jego **Klasa niestandardowa** i **Identyfikator scenorysu** w Inspektorze tożsamości.
 7. Wykonaj te same czynności dla kontrolera widoku obrazu jako **imageViewController**.
 8. Następnie utwórz nową klasę kontrolera widoku zatytułowaną **imageViewController** , aby obsługiwać interfejs użytkownika, który właśnie został utworzony.

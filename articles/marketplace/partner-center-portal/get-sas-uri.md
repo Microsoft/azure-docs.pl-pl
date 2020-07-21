@@ -3,22 +3,22 @@ title: Identyfikator URI sygnatury dostępu współdzielonego dla obrazów maszy
 description: Wygeneruj identyfikator URI sygnatury dostępu współdzielonego (SAS) dla wirtualnych dysków twardych (VHD) w witrynie Azure Marketplace.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
+ms.topic: article
 author: anbene
 ms.author: mingshen
-ms.date: 04/09/2020
-ms.openlocfilehash: 0fbd7aa42bf65ee0e553282b9961f1a9302b7903
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 07/14/2020
+ms.openlocfilehash: 569d9ce04422230c1d6b9ebb0957f01c320c5ba0
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121728"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536151"
 ---
 # <a name="get-shared-access-signature-uri-for-your-vm-image"></a>Uzyskiwanie identyfikatora URI sygnatury dostępu współdzielonego dla obrazu maszyny wirtualnej
 
 W tym artykule opisano sposób generowania Uniform Resource Identifier (SAS) sygnatury dostępu współdzielonego dla każdego wirtualnego dysku twardego (VHD).
 
-Podczas procesu publikowania należy podać identyfikator URI dla każdego wirtualnego dysku twardego skojarzonego z planami. Te plany były wcześniej nazywane jednostkami SKU lub magazynowaniem. Firma Microsoft potrzebuje dostępu do tych wirtualnych dysków twardych podczas procesu certyfikacji. Ten identyfikator URI zostanie wprowadzony na karcie **plany** w centrum partnerskim.
+Podczas procesu publikowania należy podać identyfikator URI dla każdego wirtualnego dysku twardego skojarzonego z planami (dawniej jednostki SKU). Firma Microsoft potrzebuje dostępu do tych wirtualnych dysków twardych podczas procesu certyfikacji. Ten identyfikator URI zostanie wprowadzony na karcie **plany** w centrum partnerskim.
 
 Podczas generowania identyfikatorów URI sygnatury dostępu współdzielonego dla wirtualnych dysków twardych wykonaj następujące wymagania:
 
@@ -110,7 +110,7 @@ Istnieją dwa popularne narzędzia służące do tworzenia adresu SAS (URL):
 
     `https://catech123.blob.core.windows.net/vhds/TestRGVM2.vhd?st=2018-05-06T07%3A00%3A00Z&se=2019-08-02T07%3A00%3A00Z&sp=rl&sv=2017-04-17&sr=c&sig=wnEw9RfVKeSmVgqDfsDvC9IHhis4x0fc9Hu%2FW4yvBxk%3D`
 
-Powtórz te kroki dla każdego wirtualnego dysku twardego w jednostkach SKU, które planujesz opublikować.
+Powtórz te kroki dla każdego wirtualnego dysku twardego w planach, które będą publikowane.
 
 ## <a name="verify-the-sas-uri"></a>Weryfikowanie identyfikatora URI sygnatury dostępu współdzielonego
 

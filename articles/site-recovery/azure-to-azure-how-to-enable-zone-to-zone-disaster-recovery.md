@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/28/2020
 ms.author: sideeksh
-ms.openlocfilehash: 1a522193e9e704dce967daeeef70f82a6c0b1378
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 723329022d748ee18a07fcaeaecc2aff0e5f707b
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86135718"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86528982"
 ---
 # <a name="enable-zone-to-zone-disaster-recovery-for-azure-virtual-machines"></a>Włącz odzyskiwanie strefy do strefy odzyskiwania po awarii dla maszyn wirtualnych platformy Azure
 
@@ -22,6 +22,7 @@ W tym artykule opisano sposób replikowania maszyn wirtualnych platformy Azure w
 >
 >- Site Recovery obecnie nie obsługuje planów odzyskiwania dla strefy do odzyskiwania danych po awarii za pośrednictwem portalu. Użyj programu PowerShell lub interfejsu API REST, aby skorzystać z planów odzyskiwania dla strefy do odzyskiwania po awarii strefy. 
 >- Obsługa odzyskiwania po awarii strefy do strefy jest obecnie ograniczona do dwóch regionów: Azja Południowo-Wschodnia i Południowe Zjednoczone Królestwo.  
+>- Site Recovery nie przenosi ani nie zapisuje danych klienta poza regionem, w którym jest wdrażany, gdy klient korzysta z strefy do odzyskiwania po awarii strefy. Klienci mogą wybrać magazyn Recovery Services z innego regionu, jeśli tak się wybierzesz. Magazyn Recovery Services zawiera metadane, ale nie dane rzeczywiste klienta.
 
 Usługa Site Recovery przyczynia się do zachowania ciągłości działania i odzyskiwania po awarii, dzięki czemu aplikacje biznesowe są wykonywane w trakcie planowanych i nieplanowanych przestojów. Jest to zalecana opcja odzyskiwania po awarii, aby zapewnić, że aplikacje będą działać w przypadku wystąpienia regionalnego.
 
@@ -65,7 +66,7 @@ Jak wspomniano powyżej, funkcja odzyskiwania po awarii strefy do strefy zmniejs
 
 Przed wdrożeniem strefy do odzyskiwania po awarii strefy dla maszyn wirtualnych należy upewnić się, że inne funkcje włączone na maszynie wirtualnej współdziałają ze strefą odzyskiwania po awarii strefy.
 
-|Cecha  | Instrukcja obsługi  |
+|Cechy  | Instrukcja obsługi  |
 |---------|---------|
 |Klasyczne maszyny wirtualne   |     Nieobsługiwane    |
 |Maszyny wirtualne ARM    |    Obsługiwane    |

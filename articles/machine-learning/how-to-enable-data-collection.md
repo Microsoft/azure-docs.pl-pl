@@ -1,31 +1,34 @@
 ---
 title: Zbieranie danych z modeli produkcyjnych
 titleSuffix: Azure Machine Learning
-description: Dowiedz się, jak zbierać dane modelu danych wejściowych Azure Machine Learning w usłudze Azure Blob Storage.
+description: Dowiedz się, jak zbierać dane ze wdrożonego modelu Azure Machine Learning
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.reviewer: laobri
+ms.reviewer: sgilley
 ms.author: copeters
 author: lostmygithubaccount
-ms.date: 11/12/2019
+ms.date: 07/14/2020
 ms.custom: seodec18
-ms.openlocfilehash: 75402c71316f7cc7d068c12a240f3123569a00ea
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d7e3aeba14373861d831056678576c52f6b2184f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84433000"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536329"
 ---
-# <a name="collect-data-for-models-in-production"></a>Zbieranie danych dla modeli w środowisku produkcyjnym
+# <a name="collect-data-from-models-in-production"></a>Zbieranie danych z modeli w środowisku produkcyjnym
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-W tym artykule pokazano, jak zbierać dane modelu wejściowego z Azure Machine Learning. Przedstawiono w nim również sposób wdrażania danych wejściowych w klastrze usługi Azure Kubernetes Service (AKS) i przechowywania danych wyjściowych w usłudze Azure Blob Storage.
+W tym artykule pokazano, jak zbierać dane z modelu Azure Machine Learning wdrożonego w klastrze usługi Azure Kubernetes Service (AKS). Zebrane dane są następnie przechowywane w usłudze Azure Blob Storage.
 
 Po włączeniu kolekcjonowania zbierane dane ułatwiają:
 
-* [Monitoruj dryfy danych](how-to-monitor-data-drift.md) w miarę wprowadzania danych produkcyjnych do modelu.
+* [Monitoruj dryfy danych](how-to-monitor-datasets.md) na zbieranych danych produkcyjnych.
+
+* Analizowanie zebranych danych przy użyciu [Power BI](#powerbi) lub [Azure Databricks](#databricks)
 
 * Podejmowanie lepszych decyzji o tym, kiedy należy ponownie przeprowadzić uczenie lub zoptymalizować model.
 
@@ -58,13 +61,13 @@ Dane wyjściowe są zapisywane w magazynie obiektów BLOB. Ponieważ dane są do
 
 - Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://aka.ms/AMLFree).
 
-- Musi być zainstalowany obszar roboczy uczenia AzureMachine, katalog lokalny zawierający Twoje skrypty oraz zestaw Azure Machine Learning SDK dla języka Python. Aby dowiedzieć się, jak je zainstalować, zobacz [jak skonfigurować środowisko programistyczne](how-to-configure-environment.md).
+- Należy zainstalować Azure Machine Learning obszar roboczy, katalog lokalny zawierający Twoje skrypty oraz zestaw Azure Machine Learning SDK dla języka Python. Aby dowiedzieć się, jak je zainstalować, zobacz [jak skonfigurować środowisko programistyczne](how-to-configure-environment.md).
 
 - Potrzebny jest szkolony model uczenia maszynowego do wdrożenia w usłudze AKS. Jeśli nie masz modelu, zapoznaj się z samouczkiem dotyczącym [modelu klasyfikacji obrazów szkolenia](tutorial-train-models-with-aml.md) .
 
 - Potrzebny jest klaster AKS. Aby uzyskać informacje na temat sposobu tworzenia i wdrażania ich w programie, zobacz artykuł [jak wdrożyć i gdzie](how-to-deploy-and-where.md).
 
-- [Skonfiguruj środowisko](how-to-configure-environment.md) i zainstaluj [zestaw SDK monitorowania Azure Machine Learning](https://aka.ms/aml-monitoring-sdk).
+- [Skonfiguruj środowisko](how-to-configure-environment.md) i zainstaluj [zestaw SDK monitorowania Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
 
 ## <a name="enable-data-collection"></a>Włączanie zbierania danych
 
@@ -74,7 +77,7 @@ Aby włączyć zbieranie danych, należy:
 
 1. Otwórz plik oceniania.
 
-1. Dodaj [następujący kod](https://aka.ms/aml-monitoring-sdk) na początku pliku:
+1. Dodaj następujący kod na początku pliku:
 
    ```python 
    from azureml.monitoring import ModelDataCollector
@@ -115,41 +118,10 @@ Aby włączyć zbieranie danych, należy:
 
 1. Aby utworzyć nowy obraz i wdrożyć model uczenia maszynowego, zobacz [jak wdrożyć i gdzie](how-to-deploy-and-where.md).
 
-Jeśli masz już usługę z zależnościami zainstalowanymi w pliku środowiska i plikiem oceniania, Włącz zbieranie danych, wykonując następujące czynności:
-
-1. Przejdź do [Azure Machine Learning](https://ml.azure.com).
-
-1. Otwórz obszar roboczy.
-
-1. Wybierz pozycję **wdrożenia**  >  **Wybierz pozycję**  >  **Edycja**usługi.
-
-   ![Edytowanie usługi](././media/how-to-enable-data-collection/EditService.PNG)
-
-1. W obszarze **Ustawienia zaawansowane**wybierz pozycję **Włącz Application Insights diagnostyki i zbierania danych**.
-
-1. Wybierz pozycję **Aktualizuj** , aby zastosować zmiany.
 
 ## <a name="disable-data-collection"></a>Wyłączanie zbierania danych
 
-Zbieranie danych można zatrzymać w dowolnym momencie. Aby wyłączyć zbieranie danych, użyj kodu Python lub Azure Machine Learning.
-
-### <a name="option-1---disable-data-collection-in-azure-machine-learning"></a>Opcja 1 — wyłączanie zbierania danych w Azure Machine Learning
-
-1. Zaloguj się do [Azure Machine Learning](https://ml.azure.com).
-
-1. Otwórz obszar roboczy.
-
-1. Wybierz pozycję **wdrożenia**  >  **Wybierz pozycję**  >  **Edycja**usługi.
-
-   [![Wybierz opcję edycji](././media/how-to-enable-data-collection/EditService.PNG)](./././media/how-to-enable-data-collection/EditService.PNG#lightbox)
-
-1. W obszarze **Ustawienia zaawansowane**wyczyść pole wyboru **Włącz Application Insights diagnostyki i zbierania danych**.
-
-1. Wybierz pozycję **Aktualizuj** , aby zastosować zmianę.
-
-Możesz również uzyskać dostęp do tych ustawień w obszarze roboczym w [Azure Machine Learning](https://ml.azure.com).
-
-### <a name="option-2---use-python-to-disable-data-collection"></a>Opcja 2 — Wyłączanie zbierania danych przy użyciu języka Python
+Zbieranie danych można zatrzymać w dowolnym momencie. Aby wyłączyć zbieranie danych, użyj kodu języka Python.
 
   ```python 
   ## replace <service_name> with the name of the web service
@@ -162,7 +134,7 @@ Możesz wybrać narzędzie preferencji do analizowania danych zbieranych w magaz
 
 ### <a name="quickly-access-your-blob-data"></a>Szybkie uzyskiwanie dostępu do danych obiektów BLOB
 
-1. Zaloguj się do [Azure Machine Learning](https://ml.azure.com).
+1. Zaloguj się do [Azure Portal](https://portal.azure.com).
 
 1. Otwórz obszar roboczy.
 
@@ -177,7 +149,7 @@ Możesz wybrać narzędzie preferencji do analizowania danych zbieranych w magaz
    # example: /modeldata/1a2b3c4d-5e6f-7g8h-9i10-j11k12l13m14/myresourcegrp/myWorkspace/aks-w-collv9/best_model/10/inputs/2018/12/31/data.csv
    ```
 
-### <a name="analyze-model-data-using-power-bi"></a>Analizowanie danych modelu za pomocą Power BI
+### <a name="analyze-model-data-using-power-bi"></a><a id="powerbi"></a>Analizowanie danych modelu za pomocą Power BI
 
 1. Pobierz i Otwórz [Power BI Desktop](https://www.powerbi.com).
 
@@ -213,7 +185,7 @@ Możesz wybrać narzędzie preferencji do analizowania danych zbieranych w magaz
 
 1. Zacznij tworzyć niestandardowe raporty dotyczące danych modelu.
 
-### <a name="analyze-model-data-using-azure-databricks"></a>Analizowanie danych modelu za pomocą Azure Databricks
+### <a name="analyze-model-data-using-azure-databricks"></a><a id="databricks"></a>Analizowanie danych modelu za pomocą Azure Databricks
 
 1. Utwórz [obszar roboczy Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal).
 
@@ -237,3 +209,7 @@ Możesz wybrać narzędzie preferencji do analizowania danych zbieranych w magaz
     [![Konfiguracja kostek](./media/how-to-enable-data-collection/dbsetup.png)](././media/how-to-enable-data-collection/dbsetup.png#lightbox)
 
 1. Postępuj zgodnie z instrukcjami szablonu, aby wyświetlić i przeanalizować dane.
+
+## <a name="next-steps"></a>Następne kroki
+
+[Wykrywaj dryf danych](how-to-monitor-datasets.md) zbieranych danych.

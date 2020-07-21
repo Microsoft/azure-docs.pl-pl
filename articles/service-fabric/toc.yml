@@ -143,6 +143,8 @@
           href: cluster-security-certificates.md
         - name: Zarządzanie certyfikatami w usłudze Service Fabric
           href: cluster-security-certificate-management.md
+        - name: Punkt odniesienia zabezpieczeń dla testu porównawczego zabezpieczeń platformy Azure
+          href: security-baseline.md
     - name: Terminologia
       href: service-fabric-technical-overview.md
     - name: Tworzenie aplikacji

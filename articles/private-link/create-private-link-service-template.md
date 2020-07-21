@@ -1,6 +1,6 @@
 ---
 title: Tworzenie prywatnej usługi linkowej w ramach prywatnego linku platformy Azure
-description: W tym przewodniku szybki start użyjesz szablonu Azure Resource Manager, aby utworzyć usługę łącza prywatnego.
+description: W tym przewodniku szybki start użyjesz szablonu Azure Resource Manager (szablon ARM) do utworzenia usługi linku prywatnego.
 services: private-link
 author: mblanco77
 ms.service: private-link
@@ -8,32 +8,34 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 05/29/2020
 ms.author: allensu
-ms.openlocfilehash: c9ed628501e8fa02b816a1564b91620404dfc379
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2a3c7245a4e6c69e87791ca3364ad588b82572c6
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84817616"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86529611"
 ---
-# <a name="quickstart-create-a-private-link-service-by-using-an-azure-resource-manager-template"></a>Szybki Start: Tworzenie usługi linku prywatnego przy użyciu szablonu Azure Resource Manager
+# <a name="quickstart-create-a-private-link-service-by-using-an-arm-template"></a>Szybki Start: Tworzenie usługi linku prywatnego przy użyciu szablonu ARM
 
-W tym przewodniku szybki start użyjesz szablonu Azure Resource Manager, aby utworzyć usługę łącza prywatnego.
+W tym przewodniku szybki start użyjesz szablonu Azure Resource Manager (szablon ARM) do utworzenia usługi linku prywatnego.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
 Możesz również ukończyć ten przewodnik Szybki Start przy użyciu [Azure Portal](create-private-link-service-portal.md), [Azure PowerShell](create-private-link-service-powershell.md)lub [interfejsu wiersza polecenia platformy Azure](create-private-link-service-cli.md).
 
-## <a name="prerequisite"></a>Wymaganie wstępne
+Jeśli Twoje środowisko spełnia wymagania wstępne i masz doświadczenie w korzystaniu z szablonów ARM, wybierz przycisk **Wdróż na platformie Azure**. Szablon zostanie otwarty w witrynie Azure Portal.
+
+[![Wdrażanie na platformie Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-privatelink-service%2Fazuredeploy.json)
+
+## <a name="prerequisites"></a>Wymagania wstępne
 
 Potrzebujesz konta platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## <a name="create-a-private-link-service"></a>Tworzenie usługi linku prywatnego
+## <a name="review-the-template"></a>Przegląd szablonu
 
 Ten szablon służy do tworzenia usługi linku prywatnego.
 
-### <a name="review-the-template"></a>Przegląd szablonu
-
-Szablon używany w tym przewodniku szybki start pochodzi z [szablonów szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/).
+Szablon używany w tym przewodniku Szybki start jest jednym z [szablonów szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/101-privatelink-service/).
 
 :::code language="json" source="~/quickstart-templates/101-privatelink-service/azuredeploy.json" range="001-432" highlight="263-289":::
 
@@ -48,13 +50,13 @@ W szablonie zdefiniowano wiele zasobów platformy Azure:
 - [**Microsoft. Network/adresów publicipaddress**](/azure/templates/microsoft.network/publicIpAddresses): Istnieją dwa publiczne adresy IP, po jednym dla każdej maszyny wirtualnej.
 - [**Microsoft. Network/privateendpoints**](/azure/templates/microsoft.network/privateendpoints): prywatny punkt końcowy do uzyskiwania dostępu do usługi.
 
-### <a name="deploy-the-template"></a>Wdrożenie szablonu
+## <a name="deploy-the-template"></a>Wdrożenie szablonu
 
-Poniżej przedstawiono sposób wdrażania szablonu Azure Resource Manager na platformie Azure:
+Poniżej przedstawiono sposób wdrażania szablonu ARM na platformie Azure:
 
 1. Aby zalogować się do platformy Azure i otworzyć szablon, wybierz pozycję **Wdróż na platformie Azure**. Ten szablon umożliwia utworzenie maszyny wirtualnej, standardowego modułu równoważenia obciążenia, usługi linku prywatnego, prywatnego punktu końcowego, sieci i maszyny wirtualnej do zweryfikowania.
 
-   [![Wdrażanie na platformie Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-private-endpoint-sql%2Fazuredeploy.json)
+   [![Wdrażanie na platformie Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-privatelink-service%2Fazuredeploy.json)
 
 2. Wybierz lub Utwórz grupę zasobów.
 3. Wpisz nazwę użytkownika i hasło administratora maszyny wirtualnej.
@@ -63,7 +65,7 @@ Poniżej przedstawiono sposób wdrażania szablonu Azure Resource Manager na pla
 ## <a name="validate-the-deployment"></a>Weryfikowanie wdrożenia
 
 > [!NOTE]
-> Szablon Azure Resource Manager generuje unikatową nazwę zasobu maszyny wirtualnej myConsumerVm<b>{unikatowy}</b> . Zastąp wygenerowaną wartość **{unikatowy}**.
+> Szablon ARM generuje unikatową nazwę zasobu maszyny wirtualnej myConsumerVm<b>{unikatowy}</b> . Zastąp wygenerowaną wartość **{unikatowy}**.
 
 ### <a name="connect-to-a-vm-from-the-internet"></a>Nawiązywanie połączenia z maszyną wirtualną z Internetu
 
@@ -73,7 +75,7 @@ Połącz się z maszyną wirtualną _myConsumerVm {unikatowym}_ z Internetu w na
 
 2.  Wybierz pozycję **Połącz**. Zostanie otwarte okno **łączenie z maszyną wirtualną** .
 
-3.  Wybierz opcję **Pobierz plik RDP**. Na platformie Azure zostanie utworzony plik Remote Desktop Protocol (_rdp_), który zostanie pobrany na komputer.
+3.  Wybierz pozycję **Pobierz plik RDP**. Na platformie Azure zostanie utworzony plik Remote Desktop Protocol (_rdp_), który zostanie pobrany na komputer.
 
 4.  Otwórz pobrany plik RDP.
 
@@ -95,7 +97,7 @@ Połącz się z maszyną wirtualną _myConsumerVm {unikatowym}_ z Internetu w na
 Poniżej przedstawiono sposób nawiązywania połączenia z usługą http z maszyny wirtualnej przy użyciu prywatnego punktu końcowego.
 
 1.  Przejdź do Pulpit zdalny _myConsumerVm {unikatowy}_.
-2.  Otwórz przeglądarkę i wprowadź adres prywatnego punktu końcowego: http://10.0.0.5/ .
+2.  Otwórz przeglądarkę i wprowadź adres prywatnego punktu końcowego: `http://10.0.0.5/` .
 3.  Zostanie wyświetlona domyślna strona usług IIS.
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów

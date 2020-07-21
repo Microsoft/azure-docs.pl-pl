@@ -7,32 +7,32 @@ ms.topic: article
 ms.date: 07/06/2020
 author: keferna
 ms.author: keferna
-ms.openlocfilehash: c954e3c685a795942f78bdb19b59ca817252d26b
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: c305a2513a5ace241fe697766b851cd2851e8b78
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86135527"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536088"
 ---
 # <a name="your-commercial-marketplace-benefits"></a>Twoje komercyjne korzyści z witryny Marketplace
 
-Opublikowano w witrynie Marketplace, teraz chcesz zobaczyć, że Twoja oferta zakończyła się pomyślnie. Firma Microsoft oferuje korzyści — sprzedaż, techniczne i Marketing — należy przyspieszyć rozwój oferty.
+Opublikowano do komercyjnego portalu Microsoft Marketplace. teraz chcesz zobaczyć, że Twoja oferta zakończyła się pomyślnie. Firma Microsoft oferuje korzyści — sprzedaż, techniczne i Marketing — należy przyspieszyć rozwój oferty.
 
-Gdy oferta będzie aktywna w witrynie Azure Marketplace lub AppSource, przejdź do [Centrum partnerskiego](https://partner.microsoft.com/dashboard/mpn/membership/benefits/commercialmarketplace) , aby uzyskać dostęp do odpowiednich korzyści marketingowych, handlowych i technicznych. Korzyści z witryny Marketplace są naliczane w oparciu o zaangażowanie i sprzedaż komercyjnej witryny Marketplace. Im więcej jest Ci zaangażowanych, tym więcej.
+Po zaoferowaniu oferty na żywo w witrynie Microsoft AppSource lub Azure Marketplace przejdź do [Centrum partnerskiego](https://partner.microsoft.com/dashboard/mpn/membership/benefits/commercialmarketplace) , aby uzyskać dostęp do odpowiednich korzyści marketingowych, handlowych i technicznych oraz aktywować je. Korzyści z witryny Marketplace są naliczane w oparciu o zaangażowanie i sprzedaż komercyjnej witryny Marketplace. Im więcej jest Ci zaangażowanych, tym więcej.
 
-## <a name="marketplace-rewards"></a>Nagrody dotyczące portalu Marketplace
+## <a name="marketplace-rewards"></a>Program Marketplace Rewards
 
-Korzyści z witryny Marketplace zaprojektowano w taki sposób, aby obsługiwały Twój określony etap wzrostu, rozpoczynając od działań mających świadomość, aby pomóc Ci w uzyskaniu pierwszego klienta. W ramach rozwoju portalu Marketplace można odblokować nowe korzyści zaprojektowane w celu ułatwienia konwersji klientów i zamykania transakcji. 
+Korzyści z witryny Marketplace zaprojektowano w taki sposób, aby obsługiwały Twój określony etap wzrostu, rozpoczynając od działań mających świadomość, aby pomóc Ci w uzyskaniu pierwszego klienta. W ramach komercyjnej witryny Marketplace można odblokować nowe korzyści, które ułatwiają konwertowanie klientów i zamykanie transakcji.
 
-Program tworzy zaawansowaną pętlę opinii: korzyści z poszczególnych etapów wzrostu zaprojektowano w celu przeprowadzenia kolejnego etapu, dzięki czemu możesz rozwijać swoją firmę dla klientów firmy Microsoft, w tym firmę Microsoft, a także za pośrednictwem kanału firmowego, korzystając z komercyjnej witryny Marketplace jako platformy. 
+Program tworzy zaawansowaną pętlę opinii: korzyści z poszczególnych etapów wzrostu zaprojektowano w celu przeprowadzenia kolejnego etapu, dzięki czemu możesz rozwijać swoją firmę dla klientów firmy Microsoft, w tym firmę Microsoft, a także za pośrednictwem kanału firmowego, korzystając z komercyjnej witryny Marketplace jako platformy.
 
 Twoje korzyści są zróżnicowane w zależności od tego, czy oferta jest [listą, wersją próbną czy Transact](determine-your-listing-type.md#choose-a-publishing-option).
 
-Skontaktujesz się z członkiem zespołu nagradzania, gdy oferta będzie aktywna, na podstawie uprawnień. 
+Skontaktujesz się z członkiem zespołu nagradzania, gdy oferta będzie aktywna, na podstawie uprawnień.
 
-W przypadku partnerów Transact, w miarę rozwoju rozliczanej sprzedaży za pomocą platformy Marketplace, możesz odblokować większe korzyści na warstwę. 
+W przypadku partnerów Transact w miarę rozwoju rozliczanej sprzedaży za pomocą komercyjnej platformy Marketplace możesz odblokować większe korzyści na warstwę.
 
-Minimalnym wymaganiem do opublikowania w sklepie w sklepie jest MPNID, dzięki czemu te korzyści są dostępne dla wszystkich partnerów, niezależnie od stanu kompetencji MPN lub typu partnera. Każdy partner jest uprawniony do rozwoju swojej firmy za pomocą portalu Marketplace jako platformy.
+Minimalnym wymaganiem do opublikowania w sklepie w sklepie jest MPNID, dzięki czemu te korzyści są dostępne dla wszystkich partnerów, niezależnie od stanu kompetencji MPN lub typu partnera. Każdy partner może rozwijać swoją firmę za pomocą komercyjnej witryny Marketplace jako platformy.
 
 Uzyskasz pomoc techniczną w zrozumieniu dostępnych zasobów i wdrażaniu najlepszych rozwiązań, które można także [samodzielnie przejrzeć](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/).
 
@@ -42,7 +42,7 @@ Wprowadzenie jest proste:
 
 1. Opublikuj ofertę w Microsoft AppSource lub witrynie Azure Marketplace.
 2. Przejdź do obszaru [korzyści z witryny Marketplace](https://partner.microsoft.com/en-us/dashboard/mpn/program/commercialmarketplace) w centrum partnerskim i wybierz pozycję **zarejestruj w programie nagrody Marketplace**.
-3. Aby aktywować korzyści dotyczące sprzedaży i marketingu, przypisz kontakt z firmą marketingową firmy. Ta osoba kontaktowa będzie otrzymywać uzupełniające informacje o programie Marketplace Rewards.
+3. Aby aktywować korzyści związane z sprzedażą i marketingiem, przypisz kontakt z działu marketingu firmy. Ta osoba kontaktowa będzie otrzymywać uzupełniające informacje o programie Marketplace Rewards.
 4. Aby dodać lub zaktualizować informacje kontaktowe dotyczące marketingu, przejdź do górnej części karty korzyści sprzedaży i marketingu na stronie nagrody w witrynie Marketplace, a następnie wybierz pozycję **Dodaj, zaktualizuj lub Zmień**.  Następnie wykonaj poniższe czynności:
 
     1. Wybierz użytkownika z listy. Jeśli użytkownik, którego chcesz przypisać, nie znajduje się na liście, możesz dodać nowych użytkowników w **ustawieniach konta**.
@@ -58,13 +58,13 @@ Wprowadzenie jest proste:
 >[!NOTE]
 >Jeśli Twoja oferta była aktywna przez ponad cztery tygodnie, a wiadomość nie została odebrana, skontaktuj się z Twoją organizacją, która jest właścicielem oferty, w centrum partnerskim. Powinny one mieć komunikację i następne kroki.<br><br>Jeśli nie możesz określić właściciela lub jeśli właściciel opuścił Twoją firmę, możesz zgłosić bilet pomocy technicznej w [pomocy i obsłudze technicznej](https://aka.ms/marketplacepublishersupport).
 
-Zakres działań dostępnych do rozwinięcia w miarę rozwoju ofert w portalu Marketplace. Wszystkie aukcje otrzymują podstawowe zalecenia dotyczące optymalizacji i promocję w ramach samodzielnego adresu e-mail zasobów i najlepszych rozwiązań.
+Zakres działań dostępnych do rozwinięcia w miarę rozwoju ofert w portalu komercyjnym. Wszystkie aukcje otrzymują podstawowe zalecenia dotyczące optymalizacji i promocję w ramach samodzielnego adresu e-mail zasobów i najlepszych rozwiązań.
 
 ## <a name="list-trial-and-consulting-benefits"></a>Lista, wersja próbna i korzyści z konsultacji
 
 W przypadku opublikowania wersji próbnej lub konsultacji dotyczącej koncepcji, implementacji lub warsztatu zostanie przypisany Menedżer zaangażowania przez trzy miesiące, który pomoże Ci w zaistnieniu planu "przejdź do rynku". Możesz powtórzyć to trzykrotne zaangażowanie przy każdym opublikowaniu nowej oferty, aby pomóc w uzyskaniu każdej nowej oferty.
 
-W poniższej tabeli zestawiono wymagania dotyczące uprawnień dla ofert list i wersji próbnych:
+W poniższej tabeli zestawiono wymagania dotyczące uprawnień dla ofert list, wersji próbnej i konsultingowej:
 
 ![Korzyści z wprowadzenia na rynek](./media/marketplace-publishers-guide/gtm-eligibility-requirements.png)
 
@@ -72,14 +72,14 @@ Szczegółowe opisy wszystkich tych korzyści można znaleźć na [talii program
 
 ## <a name="marketplace-rewards-for-transact-partners"></a>Nagrody w witrynie Marketplace dotyczące partnerów Transact
 
-Po przejściu na aktywną ofertę z możliwością zrealizowania w witrynie Azure Marketplace lub Microsoft AppSource można uzyskać dostęp do dodatkowych korzyści w miarę wzrostu rozliczonych transakcji sprzedaży lub miejsc sprzedawanych za pomocą komercyjnej witryny Marketplace. 
+Gdy będziesz korzystać z oferty transakcyjnej w Microsoft AppSource lub witrynie Azure Marketplace, możesz uzyskać dostęp do dodatkowych korzyści w miarę wzrostu rozliczeń transakcji sprzedaży lub miejsc sprzedawanych za pomocą komercyjnej witryny Marketplace.
 
 >[!NOTE]
->Próg sprzedanych miejsc dotyczy tylko aplikacji Microsoft 365 (SaaS aplikacje, które mają integrację z usługami Microsoft Teams, Office, Outlook lub SharePoint) i korzyści muszą zostać spełnione do 30 czerwca 2020.
+>Próg sprzedanych miejsc dotyczy tylko aplikacji Microsoft 365 (SaaS aplikacje, które mają integrację z usługami Microsoft Teams, Office, Outlook lub SharePoint) i korzyści muszą zostać spełnione do 30 czerwca 2021.
 
 Te korzyści są przeznaczone do obsługi działań marketingowych, handlowych i technicznych, a tym samym pomagają Ci uzyskać więcej odwiedzających, uzyskać więcej potencjalnych klientów i przekonwertować większą działalność.
 
-Wszyscy partnerzy, którzy posiadają ofertę na żywo, będą mogli korzystać z dedykowanego Menedżera zakontraktowań, aby wybierać działania najwyższej wartości dla portfela ofert w portalu Marketplace. To zaangażowanie jest Evergreen na ofertę, co oznacza, że możesz wybrać swoje działania i czas trwania tych działań, aby dostosować się do czasu, w którym te działania mają być wyrównane do szerszej strategii marketingowej i sprzedaży firmy. 
+Wszyscy partnerzy, którzy posiadają ofertę na żywo, mogą współpracować z dedykowanym menedżerem zaangażowania w celu wybrania działań najwyższej wartości dla portfela komercyjnych ofert w portalu Marketplace. To zaangażowanie jest Evergreen na ofertę, co oznacza, że możesz wybrać swoje działania i czas trwania tych działań, aby dostosować się do czasu, w którym te działania mają być wyrównane do szerszej strategii marketingowej i sprzedaży firmy. 
 
 ![Korzyści marketingowe](./media/marketplace-publishers-guide/marketing-benefit.png)
 
@@ -87,7 +87,7 @@ Wszyscy partnerzy, którzy posiadają ofertę na żywo, będą mogli korzystać 
 
 ![Korzyści techniczne](./media/marketplace-publishers-guide/technical-benefit.png)
 
-\*Próg sprzedanych miejsc dotyczy tylko aplikacji Microsoft 365 (SaaS aplikacje, które mają integrację z usługami Microsoft Teams, Office, Outlook lub SharePoint) i korzyści muszą zostać spełnione do 30 czerwca 2020.
+\*Próg sprzedanych miejsc dotyczy tylko aplikacji Microsoft 365 (SaaS aplikacje, które mają integrację z usługami Microsoft Teams, Office, Outlook lub SharePoint) i korzyści muszą zostać spełnione do 30 czerwca 2021.
 
 Szczegółowe opisy wszystkich tych korzyści można znaleźć na [talii programu w portalu Marketplace](https://aka.ms/marketplacerewards).
 
@@ -118,7 +118,9 @@ Transakcje, które są udowodnione jako fałszywe, nie będą wliczane do warstw
 
 ## <a name="next-steps"></a>Następne kroki
 
-Jeśli Twoja oferta została utworzona w [centrum partnerskim](https://partner.microsoft.com/dashboard/commercial-marketplace/overview), zaloguj się w celu utworzenia lub skonfigurowania oferty.
+Zaloguj się do [Centrum partnerskiego](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) , aby utworzyć lub skonfigurować ofertę.
+
+Aktywuj korzyści z tytułu witryny Marketplace w [centrum partnerskim](https://partner.microsoft.com/dashboard/commercial-marketplace/overview).
 
 Przejrzyj [zasoby samoobsługowe dostępne dla Ciebie](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/).
 
