@@ -1,0 +1,47 @@
+### YamlMime:Landing
+title: Dokumentacja usługi Azure Education Hub
+summary: Skorzystaj z usługi Education Hub, aby szybko i łatwo udostępnić uczniom całe niezbędne oprogramowanie, szkolenia i usługi platformy Azure, których potrzebują do biegłego posługiwania się chmurą.
+metadata:
+  title: Dokumentacja usługi Azure Education Hub
+  description: Skorzystaj z usługi Education Hub, aby szybko i łatwo udostępnić uczniom całe niezbędne oprogramowanie, szkolenia i usługi platformy Azure, których potrzebują do biegłego posługiwania się chmurą.
+  ms.service: azure-education .
+  ms.subservice: education-hub
+  ms.topic: landing-page
+  author: tfosmark
+  ms.author: rymend
+  ms.date: 07/14/2020
+  ms.openlocfilehash: be96b241c3ca784043ac3203fd1cb100b05178b8
+  ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+  ms.translationtype: HT
+  ms.contentlocale: pl-PL
+  ms.lasthandoff: 07/20/2020
+  ms.locfileid: "86540411"
+landingContent:
+- title: Education Hub
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Informacje o usłudze Education Hub
+      url: about-education-hub.md
+  - linkListType: quickstart
+    links:
+    - text: Korzystanie z usługi Education Hub
+      url: access-education-hub.md
+- title: Azure Dev Tools for Teaching
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Co to jest program Azure Dev Tools for Teaching?
+      url: ./azure-dev-tools-teaching/about-program.md
+  - linkListType: tutorial
+    links:
+    - text: Rejestrowanie się w programie Azure Dev Tools for Teaching
+      url: ./azure-dev-tools-teaching/enroll-renew-subscription.md
+    - text: Konfigurowanie dostępu
+      url: ./azure-dev-tools-teaching/set-up-access.md
+  - linkListType: how-to-guide
+    links:
+    - text: Jak zarządzać uczniami
+      url: ./azure-dev-tools-teaching/manage-students.md
+    - text: Jak pobierać oprogramowanie
+      url: ./azure-dev-tools-teaching/download-software.md

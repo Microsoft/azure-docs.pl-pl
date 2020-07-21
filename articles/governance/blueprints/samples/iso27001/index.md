@@ -1,14 +1,14 @@
 ---
 title: Omówienie przykładu strategii ISO 27001
 description: Omówienie przykładowej strategii ISO 27001. Ten przykład strategii pomaga klientom ocenić określone mechanizmy kontroli ISO 27001.
-ms.date: 01/13/2020
+ms.date: 07/13/2020
 ms.topic: sample
-ms.openlocfilehash: e61ccaea9903eb2aa050b0b49ea9cfe9b8c52d72
-ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+ms.openlocfilehash: 96156b592b7946a383b29ff701ac1f89a9e504fa
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/25/2020
-ms.locfileid: "75920580"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536803"
 ---
 # <a name="overview-of-the-iso-27001-blueprint-sample"></a>Omówienie przykładowej strategii ISO 27001
 
