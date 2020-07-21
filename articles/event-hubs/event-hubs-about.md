@@ -3,12 +3,12 @@ title: Co to jest usługa Azure Event Hubs? — usługa pozyskiwania danych big 
 description: Informacje na temat usługi Azure Event Hubs, usługi strumieniowego przesyłania danych big data, umożliwiającej pozyskiwanie milionów zdarzeń na sekundę.
 ms.topic: overview
 ms.date: 06/23/2020
-ms.openlocfilehash: 175f7e249e02d5c85dd38cf49821b2893de159a3
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: b442a7e0b10f3f882f12943c642ccdd6feef3114
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85314251"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86522112"
 ---
 # <a name="azure-event-hubs--a-big-data-streaming-platform-and-event-ingestion-service"></a>Usługa Azure Event Hubs — platforma przesyłania strumieniowego danych big data i usługa pozyskiwania zdarzeń
 Usługa Azure Event Hubs to platforma przesyłania strumieniowego danych big data i usługa pozyskiwania zdarzeń. Może odbierać i przetwarzać miliony zdarzeń na sekundę. Dane wysłane do centrum zdarzeń mogą zostać przekształcone i zmagazynowane przy użyciu dowolnego dostawcy analityki czasu rzeczywistego lub adapterów przetwarzania wsadowego/magazynowania.
@@ -44,7 +44,7 @@ Możesz pozyskiwać, buforować, przechowywać i przetwarzać strumień danych w
 
 Funkcja [Capture](event-hubs-capture-overview.md) umożliwia przechwytywanie danych niemal w czasie rzeczywistym do usługi [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/) lub [Azure Data Lake Storage](https://azure.microsoft.com/services/data-lake-store/)  na potrzeby przechowywania długoterminowego lub przetwarzania mikropartii. Jest to możliwe w ramach tego samego strumienia, który jest używany do analizy w czasie rzeczywistym. Przechwytywanie danych zdarzeń można szybko skonfigurować. Używanie go nie wiąże się z żadnymi kosztami administracyjnymi, a ponadto jest ono automatycznie skalowane za pomocą  [jednostek przepływności](event-hubs-scalability.md#throughput-units) usługi Event Hubs. Usługa Event Hubs pozwala Ci skoncentrować się na przetwarzaniu, a nie przechwytywaniu danych.
 
-Usługę Azure Event Hubs można również zintegrować z usługą [Azure Functions](/azure/azure-functions/) w celu uzyskania architektury bezserwerowej.
+Usługę Azure Event Hubs można również zintegrować z usługą [Azure Functions](../azure-functions/index.yml) w celu uzyskania architektury bezserwerowej.
 
 ## <a name="scalable"></a>Skalowalność
 
@@ -74,7 +74,7 @@ Event Hubs w centrum Azure Stack pozwala zrealizować scenariusze chmury hybrydo
 
 Wersje Event Hubs (w centrum Azure Stack i na platformie Azure) oferują wysoką dostępność funkcji. Ta parzystość oznacza zestawy SDK, przykłady, PowerShell, interfejsu wiersza polecenia i portale, które oferują podobne środowisko, z niewielkimi różnicami. 
 
-Event Hubs na stosie jest bezpłatny w publicznej wersji zapoznawczej. Aby uzyskać więcej informacji, zobacz [Event Hubs w centrum Azure Stack Omówienie](https://docs.microsoft.com/azure-stack/user/event-hubs-overview).
+Event Hubs na stosie jest bezpłatny w publicznej wersji zapoznawczej. Aby uzyskać więcej informacji, zobacz [Event Hubs w centrum Azure Stack Omówienie](/azure-stack/user/event-hubs-overview).
 
 
 ## <a name="next-steps"></a>Następne kroki
@@ -94,5 +94,3 @@ Więcej informacji na temat usługi Event Hubs zawierają następujące artykuł
 
 - [Event Hubs features overview (Omówienie funkcji usługi Event Hubs)](event-hubs-features.md)
 - [Często zadawane pytania](event-hubs-faq.md).
-
-

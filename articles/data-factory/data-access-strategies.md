@@ -8,11 +8,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/28/2020
-ms.openlocfilehash: 0b966b10c5bbc7bb90a4226d94dda8b75e25c3af
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 015feac819467cf60bfb2faab27af769fadc3cfa
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84247482"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86522877"
 ---
 # <a name="data-access-strategies"></a>Strategie dostępu do danych
 
@@ -21,6 +22,7 @@ ms.locfileid: "84247482"
 Istotnym celem zabezpieczeń organizacji jest ochrona swoich magazynów danych przed przypadkowym dostępem przez Internet. może to być magazyn danych lokalnych lub w chmurze/SaaS. 
 
 Zwykle magazyn danych w chmurze kontroluje dostęp przy użyciu poniższych mechanizmów:
+* Prywatne łącze z Virtual Network do prywatnych punktów końcowych z włączonymi źródłami danych
 * Reguły zapory ograniczające łączność przy użyciu adresu IP
 * Mechanizmy uwierzytelniania, które wymagają, aby użytkownicy udowadniali swoją tożsamość
 * Mechanizmy autoryzacji, które ograniczają użytkowników do określonych akcji i danych
@@ -29,12 +31,13 @@ Zwykle magazyn danych w chmurze kontroluje dostęp przy użyciu poniższych mech
 > [Wprowadzając zakres statycznego adresu IP](https://docs.microsoft.com/azure/data-factory/azure-integration-runtime-ip-addresses), możesz teraz zezwolić na listę zakresów adresów IP dla określonego regionu Azure Integration Runtime, aby upewnić się, że nie trzeba zezwalać na wszystkie adresy IP platformy Azure w magazynach danych w chmurze. W ten sposób można ograniczyć adresy IP, które mogą uzyskiwać dostęp do magazynów danych.
 
 > [!NOTE] 
-> Zakresy adresów IP są blokowane dla środowiska Azure Integration Runtime i są obecnie używane tylko w przypadku przenoszenia danych, potoków i działań zewnętrznych. Dataflows teraz nie używają tych zakresów adresów IP. 
+> Zakresy adresów IP są blokowane dla Azure Integration Runtime i są obecnie używane tylko w przypadku przenoszenia danych, potoku i działań zewnętrznych. Przepływy pracy i Azure Integration Runtime, które umożliwiają zarządzanie Virtual Network teraz nie używają tych zakresów adresów IP. 
 
 Ta czynność powinna działać w wielu scenariuszach. wiemy, że unikatowy statyczny adres IP dla środowiska Integration Runtime jest pożądany, ale nie będzie można użyć Azure Integration Runtime obecnie, który jest bezserwerowy. W razie potrzeby można zawsze skonfigurować samodzielny Integration Runtime i korzystać z niego przy użyciu statycznego adresu IP. 
 
 ## <a name="data-access-strategies-through-azure-data-factory"></a>Strategie dostępu do danych za poorednictwem Azure Data Factory
 
+* **[Link prywatny](https://docs.microsoft.com/azure/private-link/private-link-overview)** — można utworzyć Azure Integration Runtime w ramach Azure Data Factory zarządzanym Virtual Network i wykorzystać prywatne punkty końcowe do bezpiecznego łączenia się z obsługiwanymi magazynami danych. Ruch między zarządzanymi Virtual Networkami i źródłami danych porusza się w sieci szkieletowej firmy Microsoft i nie jest narażony na sieć publiczną.
 * **[Usługa zaufana](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)** — Magazyn Azure (Blob, ADLS Gen2) obsługuje konfigurację zapory, która umożliwia bezpieczne wybieranie zaufanych usług platformy Azure w celu bezpiecznego uzyskiwania dostępu do konta magazynu. Usługi zaufane wymuszają uwierzytelnianie tożsamości zarządzanej, co gwarantuje, że żadna inna Fabryka danych nie może połączyć się z tym magazynem, chyba że listy dozwolonych się to przy użyciu tożsamości zarządzanej. Więcej szczegółów można znaleźć w **[tym blogu](https://techcommunity.microsoft.com/t5/azure-data-factory/data-factory-is-now-a-trusted-service-in-azure-storage-and-azure/ba-p/964993)**. W związku z tym jest to niezwykle bezpieczne i zalecane. 
 * **Unikatowy statyczny adres IP** — należy skonfigurować własne środowisko Integration Runtime, aby uzyskać statyczny adres IP dla łączników Data Factory. Dzięki temu mechanizmowi można zablokować dostęp ze wszystkich innych adresów IP. 
 * **[Statyczny zakres adresów IP](https://docs.microsoft.com/azure/data-factory/azure-integration-runtime-ip-addresses)** — można użyć adresów IP Azure Integration Runtime, aby zezwolić na wyświetlanie listy w magazynie (wypowiedz S3, Salesforce itp.). Na pewno ogranicza adresy IP, które mogą łączyć się z magazynami danych, ale również opierają się na regułach uwierzytelniania/autoryzacji.
@@ -44,19 +47,19 @@ Ta czynność powinna działać w wielu scenariuszach. wiemy, że unikatowy stat
 Aby uzyskać więcej informacji na temat obsługiwanych mechanizmów zabezpieczeń sieci w magazynach danych w Azure Integration Runtime i samoobsługowe Integration Runtime, zobacz poniżej dwóch tabel.  
 * **Azure Integration Runtime**
 
-    | Magazyny danych                  | Obsługiwany mechanizm zabezpieczeń sieci w magazynach danych         | Usługa zaufana     | Statyczny zakres adresów IP | Tagi usługi | Zezwalaj na usługi platformy Azure |
-    |------------------------------|-------------------------------------------------------------|---------------------|-----------------|--------------|----------------------|
-    | Magazyny danych Azure PaaS       | Azure Cosmos DB                                             | -                   | Tak             | -            | Yes                  |
-    |                              | Azure Data Explorer                                         | -                   | Tak*            | Tak*         | -                    |
-    |                              | Azure Data Lake Gen1                                        | -                   | Tak             | -            | Yes                  |
-    |                              | Azure Database for MariaDB, MySQL, PostgreSQL               | -                   | Tak             | -            | Yes                  |
-    |                              | Azure File Storage                                          | -                   | Tak             | -            | .                    |
-    |                              | Azure Storage (blog, ADLS Gen2)                             | Tak (tylko uwierzytelnianie MSI) | Tak             | -            | .                    |
-    |                              | Azure SQL DB, SQL DW (Synapse Analytics), SQL ml          | -                   | Tak             | -            | Yes                  |
-    |                              | Azure Key Vault (na potrzeby pobierania kluczy tajnych/parametrów połączenia) | Tak                 | Yes             | -            | -                    |
-    | Inne magazyny danych PaaS/SaaS | AWS S3, SalesForce, Google Cloud Storage itd.            | -                   | Tak             | -            | -                    |
-    | Azure laaS                   | SQL Server, Oracle itd.                                  | -                   | Tak             | Yes          | -                    |
-    | Lokalna laaS              | SQL Server, Oracle itd.                                  | -                   | Tak             | -            | -                    |
+    | Magazyny danych                  | Obsługiwany mechanizm zabezpieczeń sieci w magazynach danych | Private Link     | Usługa zaufana     | Statyczny zakres adresów IP | Tagi usługi | Zezwalaj na usługi platformy Azure |
+    |------------------------------|-------------------------------------------------------------|---------------------|-----------------|--------------|----------------------|-----------------|
+    | Magazyny danych Azure PaaS       | Azure Cosmos DB                                     | Tak              | -                   | Yes             | -            | Yes                  |
+    |                              | Azure Data Explorer                                 | -                | -                   | Tak*            | Tak*         | -                    |
+    |                              | Azure Data Lake Gen1                                | -                | -                   | Tak             | -            | Yes                  |
+    |                              | Azure Database for MariaDB, MySQL, PostgreSQL       | -                | -                   | Tak             | -            | Yes                  |
+    |                              | Azure File Storage                                  | Tak              | -                   | Yes             | -            | .                    |
+    |                              | Azure Storage (BLOB, ADLS Gen2)                     | Tak              | Tak (tylko uwierzytelnianie MSI) | Tak             | -            | .                    |
+    |                              | Azure SQL DB, SQL DW (Synapse Analytics), SQL ml  | Tak (tylko usługa Azure SQL DB/DW)        | -                   | Tak             | -            | Yes                  |
+    |                              | Azure Key Vault (na potrzeby pobierania kluczy tajnych/parametrów połączenia) | tak      | Tak                 | Yes             | -            | -                    |
+    | Inne magazyny danych PaaS/SaaS | AWS S3, SalesForce, Google Cloud Storage itd.    | -                | -                   | Tak             | -            | -                    |
+    | Azure laaS                   | SQL Server, Oracle itd.                          | -                | -                   | Tak             | Yes          | -                    |
+    | Lokalna laaS              | SQL Server, Oracle itd.                          | -                | -                   | Tak             | -            | -                    |
     
     **Dotyczy tylko sytuacji, gdy usługa Azure Eksplorator danych jest wstrzykiwana przez sieć wirtualną i zakres adresów IP można zastosować do sieciowej grupy zabezpieczeń/zapory.* 
 
@@ -71,7 +74,7 @@ Aby uzyskać więcej informacji na temat obsługiwanych mechanizmów zabezpiecze
     |                                | Azure File Storage                                            | Tak       | -                   |
     |                                | Azure Storage (blog, ADLS Gen2)                             | Tak       | Tak (tylko uwierzytelnianie MSI) |
     |                                | Azure SQL DB, SQL DW (Synapse Analytics), SQL ml          | Tak       | -                   |
-    |                                | Azure Key Vault (na potrzeby pobierania kluczy tajnych/parametrów połączenia) | Tak       | Yes                 |
+    |                                | Azure Key Vault (na potrzeby pobierania kluczy tajnych/parametrów połączenia) | Yes       | Tak                 |
     | Inne magazyny danych PaaS/SaaS | AWS S3, SalesForce, Google Cloud Storage itd.              | Tak       | -                   |
     | Azure laaS                     | SQL Server, Oracle itd.                                  | Tak       | -                   |
     | Lokalna laaS              | SQL Server, Oracle itd.                                  | Tak       | -                   |    

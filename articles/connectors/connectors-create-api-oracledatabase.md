@@ -7,11 +7,12 @@ ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 05/20/2020
 tags: connectors
-ms.openlocfilehash: 3e1583abd5cca4ea1f961353eb84a4b93a997e51
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e7055964f9515189450fac5c993f6acda946bfd4
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83836281"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86524169"
 ---
 # <a name="get-started-with-the-oracle-database-connector"></a>Wprowadzenie do łącznika Oracle Database
 
@@ -57,30 +58,30 @@ W tym artykule pokazano, jak używać łącznika Oracle Database w aplikacji log
 
 2. Na początku aplikacji logiki Wybierz wyzwalacz **żądanie/odpowiedź-żądanie** : 
 
-    ![](./media/connectors-create-api-oracledatabase/request-trigger.png)
+    ![Okno dialogowe zawiera pole, aby przeszukać wszystkie wyzwalacze. Widoczny jest również pojedynczy wyzwalacz, "żądanie/odpowiedź-żądanie" z przyciskiem wyboru.](./media/connectors-create-api-oracledatabase/request-trigger.png)
 
 3. Wybierz pozycję **Zapisz**. Podczas zapisywania zostanie automatycznie wygenerowany adres URL żądania. 
 
 4. Wybierz pozycję **Nowy krok**, a następnie pozycję **Dodaj akcję**. Wpisz `oracle` , aby wyświetlić dostępne akcje: 
 
-    ![](./media/connectors-create-api-oracledatabase/oracledb-actions.png)
+    ![Pole wyszukiwania zawiera ciąg "Oracle". Wyszukiwanie tworzy jedno trafienie o nazwie "Oracle Database". Istnieje strona z kartami, jedna karta przedstawiająca "WYZWALACZe (0)", a druga — "akcje (6)". Zostanie wyświetlona sześć akcji. Pierwszy z nich to "Pobierz Podgląd wierszy".](./media/connectors-create-api-oracledatabase/oracledb-actions.png)
 
     > [!TIP]
     > Jest to również najszybszy sposób wyświetlania wyzwalaczy i akcji dostępnych dla każdego łącznika. Wpisz część nazwy łącznika, na przykład `oracle` . Projektant wyświetla wszystkie wyzwalacze i wszystkie akcje. 
 
 5. Wybierz jedną z akcji, na przykład **Oracle Database — Pobierz wiersz**. Wybierz pozycję **Połącz za pośrednictwem lokalnej bramy danych**. Wprowadź nazwę serwera Oracle, metodę uwierzytelniania, nazwę użytkownika, hasło, a następnie wybierz bramę:
 
-    ![](./media/connectors-create-api-oracledatabase/create-oracle-connection.png)
+    ![Okno dialogowe zatytułowane "Oracle Database-Get Row". Istnieje pole o nazwie "Połącz za pośrednictwem lokalnej bramy danych". Poniżej znajdują się pięć innych pól tekstowych.](./media/connectors-create-api-oracledatabase/create-oracle-connection.png)
 
 6. Po nawiązaniu połączenia wybierz tabelę z listy, a następnie wprowadź identyfikator wiersza w tabeli. Musisz znać identyfikator tabeli. Jeśli nie wiesz, skontaktuj się z administratorem usługi Oracle DB i Pobierz dane wyjściowe z programu `select * from yourTableName` . Zapewnia to informacje, które należy wykonać.
 
     W poniższym przykładzie dane zadania są zwracane z bazy danych kadr: 
 
-    ![](./media/connectors-create-api-oracledatabase/table-rowid.png)
+    ![Okno dialogowe zatytułowane "Pobierz wiersz (wersja zapoznawcza)" ma dwa pola tekstowe: "Nazwa tabeli", która zawiera "HRJOBS" i ma listę rozwijaną oraz "Identyfikator wiersza", który zawiera "SA_REP".](./media/connectors-create-api-oracledatabase/table-rowid.png)
 
-7. W tym następnym kroku można użyć dowolnego z innych łączników do skompilowania przepływu pracy. Jeśli chcesz przetestować pobieranie danych z programu Oracle, Wyślij do siebie wiadomość e-mail z danymi z programu Oracle przy użyciu jednego z łączników wysyłania wiadomości e-mail, takiego jak Office 365 Outlook. Użyj tokenów dynamicznych z tabeli Oracle, aby utworzyć `Subject` i `Body` wysłać wiadomość e-mail:
+7. W tym następnym kroku można użyć dowolnego z innych łączników do skompilowania przepływu pracy. Jeśli chcesz przetestować pobieranie danych z programu Oracle, Wyślij do siebie wiadomość e-mail z danymi z programu Oracle przy użyciu jednego z łączników wysyłania wiadomości e-mail, np. Office 365 Outlook. Użyj tokenów dynamicznych z tabeli Oracle, aby utworzyć `Subject` i `Body` wysłać wiadomość e-mail:
 
-    ![](./media/connectors-create-api-oracledatabase/oracle-send-email.png)
+    ![Istnieją dwa okna dialogowe. Pole "Wyślij wiadomość e-mail" zawiera pola, aby określić adres e-mail "treść", "podmiot" i "do". Okno dialogowe Dodawanie zawartości dynamicznej umożliwia wyszukiwanie zawartości dynamicznej w aplikacjach i usługach przepływu.](./media/connectors-create-api-oracledatabase/oracle-send-email.png)
 
 8. **Zapisz** aplikację logiki, a następnie wybierz pozycję **Uruchom**. Zamknij projektanta i przejrzyj historię uruchamiania dla stanu. Jeśli to się nie powiedzie, wybierz wiersz komunikatu z błędem. Zostanie otwarty projektant, który pokazuje, który krok nie powiódł się, a także informacje o błędzie. Jeśli się powiedzie, należy odebrać wiadomość e-mail z dodanymi informacjami.
 
@@ -89,11 +90,11 @@ W tym artykule pokazano, jak używać łącznika Oracle Database w aplikacji log
 
 * Chcesz monitorować #oraclego i umieścić tweety w bazie danych, aby można było wykonywać zapytania i używać ich w innych aplikacjach. W aplikacji logiki Dodaj `Twitter - When a new tweet is posted` wyzwalacz i wprowadź **#oracle** hasztagów. Następnie Dodaj `Oracle Database - Insert row` akcję i wybierz tabelę:
 
-    ![](./media/connectors-create-api-oracledatabase/twitter-oracledb.png)
+    ![W oknie dialogowym "po opublikowaniu nowego tweetu" zostanie wyświetlona opcja "baza danych programu" Oracle "jako tekst wyszukiwania i można określić częstotliwość sprawdzania. To okno dialogowe prowadzi do okna dialogowego "Oracle Database", które umożliwia wybranie akcji.](./media/connectors-create-api-oracledatabase/twitter-oracledb.png)
 
 * Komunikaty są wysyłane do kolejki Service Bus. Chcesz uzyskać te komunikaty i umieścić je w bazie danych. W aplikacji logiki Dodaj `Service Bus - when a message is received in a queue` wyzwalacz i wybierz kolejkę. Następnie Dodaj `Oracle Database - Insert row` akcję i wybierz tabelę:
 
-    ![](./media/connectors-create-api-oracledatabase/sbqueue-oracledb.png)
+    !["Po odebraniu komunikatu..." w oknie dialogowym są wyświetlane "zamówienia" jako "Nazwa kolejki" i można określić częstotliwość sprawdzania. To pole prowadzi do okna dialogowego "Wstaw wiersz (wersja zapoznawcza)", które umożliwia wybranie opcji "Nazwa tabeli".](./media/connectors-create-api-oracledatabase/sbqueue-oracledb.png)
 
 ## <a name="common-errors"></a>Typowe błędy
 

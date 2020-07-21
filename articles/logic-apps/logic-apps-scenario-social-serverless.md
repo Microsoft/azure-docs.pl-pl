@@ -8,11 +8,12 @@ ms.author: jehollan
 ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 03/15/2018
-ms.openlocfilehash: e300bf9c9aa0acf0bed6426eb73f690f9a38bd74
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2fae7d2526e6c95efe83ca8fa742a6d92457b897
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75980420"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86520753"
 ---
 # <a name="create-a-streaming-customer-insights-dashboard-with-azure-logic-apps-and-azure-functions"></a>Utwórz pulpit nawigacyjny usługi przesyłania strumieniowego na platformie Customer Insights zawierający Azure Logic Apps i Azure Functions
 
@@ -21,7 +22,7 @@ Platforma Azure oferuje narzędzia [bezserwerowe](https://azure.microsoft.com/so
 W przypadku tego rozwiązania są używane następujące kluczowe składniki platformy Azure dla aplikacji bezserwerowych: [Azure Functions](https://azure.microsoft.com/services/functions/) i [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/).
 Azure Logic Apps zapewnia bezserwerowy aparat przepływu pracy w chmurze, dzięki czemu można tworzyć aranżacje między składnikami bezserwerowymi i łączyć się z 200 usługami i interfejsami API. Azure Functions zapewnia serwerowe przetwarzanie danych w chmurze. To rozwiązanie używa Azure Functions do oflagowania tweetów klientów na podstawie wstępnie zdefiniowanych słów kluczowych.
 
-W tym scenariuszu utworzysz aplikację logiki, która wyzwala wyszukiwanie opinii klientów. Niektóre łączniki, które pomagają odpowiedzieć na Opinie klientów, obejmują Outlook.com, pakiet Office 365, badanie małp, serwis Twitter i [żądanie HTTP z formularza sieci Web](https://blogs.msdn.microsoft.com/logicapps/2017/01/30/calling-a-logic-app-from-an-html-form/). Utworzony przez Ciebie przepływ pracy monitoruje element hasztagów w serwisie Twitter.
+W tym scenariuszu utworzysz aplikację logiki, która wyzwala wyszukiwanie opinii klientów. Niektóre łączniki, które pomagają odpowiedzieć na Opinie klientów, obejmują Outlook.com, pakiet Office 365, badanie małp, serwis Twitter i [żądanie HTTP z formularza sieci Web](/archive/blogs/logicapps/calling-a-logic-app-from-an-html-form). Utworzony przez Ciebie przepływ pracy monitoruje element hasztagów w serwisie Twitter.
 
 Można [skompilować całe rozwiązanie w programie Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md) i [wdrożyć rozwiązanie przy użyciu szablonu Azure Resource Manager](../logic-apps/logic-apps-deploy-azure-resource-manager-templates.md). Aby zapoznać się ze sposobem tworzenia tego rozwiązania, [Obejrzyj to wideo w kanale 9](https://aka.ms/logicappsdemo). 
 
@@ -66,7 +67,7 @@ Możesz również utworzyć i funkcję platformy Azure, aby umożliwić wykonywa
 
 ## <a name="process-data-with-azure-functions"></a>Przetwarzanie danych za pomocą Azure Functions
 
-Przed utworzeniem funkcji Utwórz aplikację funkcji w ramach subskrypcji platformy Azure. Ponadto w celu bezpośredniego wywołania funkcji przez aplikację logiki funkcja musi mieć powiązanie wyzwalacza HTTP, na przykład użyć szablonu **HttpTrigger** . Dowiedz się [, jak utworzyć pierwszą aplikację funkcji i funkcję w Azure Portal](../azure-functions/functions-create-first-azure-function-azure-portal.md).
+Przed utworzeniem funkcji Utwórz aplikację funkcji w ramach subskrypcji platformy Azure. Ponadto w celu bezpośredniego wywołania funkcji przez aplikację logiki funkcja musi mieć powiązanie wyzwalacza HTTP, na przykład użyć szablonu **HttpTrigger** . Dowiedz się [, jak utworzyć pierwszą aplikację funkcji i funkcję w Azure Portal](../azure-functions/functions-create-first-azure-function.md).
 
 W tym scenariuszu tekst tweetu jest używany jako treść żądania dla funkcji platformy Azure. W kodzie funkcji Zdefiniuj logikę, która określa, czy tekst tweetu zawiera słowo kluczowe lub frazę. Zachowanie funkcji jako prostej lub złożonej w miarę potrzeb dla scenariusza.
 Na końcu funkcji Zwróć odpowiedź do aplikacji logiki z niektórymi danymi, na przykład prostą wartością logiczną, taką jak `containsKeyword` lub obiektem złożonym.

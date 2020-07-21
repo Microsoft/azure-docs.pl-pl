@@ -11,18 +11,19 @@ author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 12/12/2019
-ms.openlocfilehash: 25ce99d3dced3caf1ec4bcce13b062b28774642d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c56c7a0d6f0400811d085f60fd71fe72b88bf9ee
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84557485"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86520565"
 ---
 # <a name="deep-learning-and-ai-frameworks-for-the-azure-data-science-vm"></a>Głębokie uczenie i platformy AI dla Data Science VM platformy Azure
 Poniżej wymieniono platformy uczenia głębokiego na DSVM.
 
 ## <a name="caffe"></a>[Caffe](https://github.com/BVLC/caffe)
 
-|    |           |
+| Kategoria | Wartość |
 | ------------- | ------------- |
 | Obsługiwane wersje | |
 | Obsługiwane wersje DSVM      | Linux (Ubuntu)     |
@@ -31,7 +32,7 @@ Poniżej wymieniono platformy uczenia głębokiego na DSVM.
 
 ## <a name="caffe2"></a>[Caffe2](https://github.com/caffe2/caffe2)
 
-|    |           |
+| Kategoria | Wartość |
 | ------------- | ------------- |
 | Obsługiwane wersje | |
 | Obsługiwane wersje DSVM      | Linux (Ubuntu)     |
@@ -40,7 +41,7 @@ Poniżej wymieniono platformy uczenia głębokiego na DSVM.
 
 ## <a name="chainer"></a>[Chainer](https://chainer.org/)
 
-|    |           |
+| Kategoria | Wartość |
 | ------------- | ------------- |
 | Obsługiwane wersje | 5.2 |
 | Obsługiwane wersje DSVM      | Linux (Ubuntu)     |
@@ -49,7 +50,7 @@ Poniżej wymieniono platformy uczenia głębokiego na DSVM.
 
 ## <a name="cuda-cudnn-nvidia-driver"></a>[Sterownik CUDA, cuDNN, NVIDIA](https://developer.nvidia.com/cuda-toolkit)
 
-|    |           |
+| Kategoria | Wartość |
 | ------------- | ------------- |
 | Obsługiwane wersje | 10.0.130|
 | Obsługiwane wersje DSVM      | System Windows i Linux   |
@@ -59,7 +60,7 @@ Poniżej wymieniono platformy uczenia głębokiego na DSVM.
 
 ## <a name="horovod"></a>[Horovod](https://github.com/uber/horovod)
 
-|    |           |
+| Kategoria | Wartość |
 | ------------- | ------------- |
 | Obsługiwane wersje | 0.16.1|
 | Obsługiwane wersje DSVM      | Linux (Ubuntu)   |
@@ -68,16 +69,16 @@ Poniżej wymieniono platformy uczenia głębokiego na DSVM.
 
 ## <a name="keras"></a>[Keras](https://keras.io/)
 
-|    |           |
+| Kategoria | Wartość |
 | ------------- | ------------- |
 | Obsługiwane wersje | 2.2.4 |
 | Obsługiwane wersje DSVM      | System Windows i Linux   |
 | Jak jest on skonfigurowany/instalowany w DSVM?  | Keras jest zainstalowany w języku Python 3,6 w systemie Windows i w języku Python 3,5 w Linux |
 | Jak uruchomić go      | Aktywuj poprawne środowisko w terminalu, a następnie uruchom Język Python. |
 
-## <a name="microsoft-cognitive-toolkit-cntk"></a>[Zestaw narzędzi usług Microsoft Cognitive (CNTK)](https://docs.microsoft.com/cognitive-toolkit/)
+## <a name="microsoft-cognitive-toolkit-cntk"></a>[Microsoft Cognitive Toolkit (CNTK)](https://docs.microsoft.com/cognitive-toolkit/)
 
-|    |           |
+| Kategoria | Wartość |
 | ------------- | ------------- |
 | Obsługiwane wersje | 2.5.1 |
 | Obsługiwane wersje DSVM      | System Windows i Linux   |
@@ -85,7 +86,7 @@ Poniżej wymieniono platformy uczenia głębokiego na DSVM.
 | Jak uruchomić go      | Terminal: Aktywuj poprawne środowisko i uruchom Język Python. <br/>Jupyter: Połącz się z [Jupyter](provision-vm.md) lub [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-ubuntu-data-science-virtual-machine), a następnie otwórz katalog CNTK dla przykładów. |
 
 ## <a name="mxnet"></a>[MXNet](https://mxnet.apache.org/)
-|    |           |
+| Kategoria | Wartość |
 | ------------- | ------------- |
 | Obsługiwane wersje | 1.3.0 |
 | Obsługiwane wersje DSVM      | System Windows i Linux   |
@@ -94,7 +95,7 @@ Poniżej wymieniono platformy uczenia głębokiego na DSVM.
 
 ## <a name="mxnet-model-server"></a>[MXNet Model Server](https://github.com/awslabs/mxnet-model-server#quick-start)
 
-|    |           |
+| Kategoria | Wartość |
 | ------------- | ------------- |
 | Obsługiwane wersje | 1.0.1 |
 | Obsługiwane wersje DSVM      | System Windows i Linux   |
@@ -103,7 +104,7 @@ Poniżej wymieniono platformy uczenia głębokiego na DSVM.
 
 ## <a name="nvidia-system-management-interface-nvidia-smi"></a>[Interfejs zarządzania systemem NVidia (NVIDIA-SMI)](https://developer.nvidia.com/nvidia-system-management-interface)
 
-|    |           |
+| Kategoria | Wartość |
 | ------------- | ------------- |
 | Obsługiwane wersje |  |
 | Obsługiwane wersje DSVM      | System Windows i Linux   |
@@ -113,7 +114,7 @@ Poniżej wymieniono platformy uczenia głębokiego na DSVM.
 
 ## <a name="pytorch"></a>[PyTorch](https://pytorch.org/)
 
-|    |           |
+| Kategoria | Wartość |
 | ------------- | ------------- |
 | Obsługiwane wersje | 1.2.0 (Ubuntu 16,04, Windows 2016), 1.4.0 (Ubuntu 18,04, Windows 2019) |
 | Obsługiwane wersje DSVM      | Linux |
@@ -122,7 +123,7 @@ Poniżej wymieniono platformy uczenia głębokiego na DSVM.
 
 ## <a name="tensorflow"></a>[TensorFlow](https://www.tensorflow.org/)
 
-|    |           |
+| Kategoria | Wartość |
 | ------------- | ------------- |
 | Obsługiwane wersje | 1.13 |
 | Obsługiwane wersje DSVM      | Windows, Linux |
@@ -131,7 +132,7 @@ Poniżej wymieniono platformy uczenia głębokiego na DSVM.
 
 ## <a name="tensorflow-serving"></a>[TensorFlow Serving](https://www.tensorflow.org/serving/)
 
-|    |           |
+| Kategoria | Wartość |
 | ------------- | ------------- |
 | Obsługiwane wersje | 1.12 |
 | Obsługiwane wersje DSVM      | Linux |
@@ -141,7 +142,7 @@ Poniżej wymieniono platformy uczenia głębokiego na DSVM.
 
 ## <a name="theano"></a>[Theano](https://github.com/Theano/Theano)
 
-|    |           |
+| Kategoria | Wartość |
 | ------------- | ------------- |
 | Obsługiwane wersje | 1.0.3 |
 | Obsługiwane wersje DSVM      | Linux |

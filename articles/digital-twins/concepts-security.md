@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/18/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 0f1f9e17646c4432d9c1103b3c579fc6bb0d2f13
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0a1447e64b606170601e6df6a443f53e3132294d
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85833168"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86522265"
 ---
 # <a name="secure-azure-digital-twins-with-role-based-access-control"></a>Zabezpieczanie usługi Azure Digital bliźniaczych reprezentacji z kontrolą dostępu opartą na rolach
 
@@ -37,7 +37,7 @@ Krok autoryzacji wymaga, aby rola RBAC była przypisana do podmiotu zabezpiecze�
 
 Aby dowiedzieć się więcej o rolach i przypisaniach ról obsługiwanych na platformie Azure, zobacz [Omówienie różnych ról](../role-based-access-control/rbac-and-directory-admin-roles.md) w dokumentacji usługi Azure RBAC.
 
-### <a name="authentication-with-managed-identities"></a>Uwierzytelnianie z tożsamościami zarządzanymi
+### <a name="authentication-with-managed-identities"></a>Uwierzytelnianie za pomocą tożsamości zarządzanych
 
 [Zarządzane tożsamości dla zasobów platformy Azure](../active-directory/managed-identities-azure-resources/overview.md) to funkcja obejmująca wiele platform Azure, która umożliwia tworzenie bezpiecznej tożsamości skojarzonej z wdrożeniem, w którym działa kod aplikacji. Następnie można powiązać tę tożsamość z rolami kontroli dostępu, aby przyznać niestandardowe uprawnienia dostępu do określonych zasobów platformy Azure wymaganych przez aplikację.
 
@@ -58,7 +58,7 @@ Role można przypisywać na dwa sposoby:
 * za pośrednictwem okienka kontroli dostępu (IAM) dla usługi Azure Digital bliźniaczych reprezentacji w Azure Portal (zobacz [Dodawanie lub usuwanie przypisań ról przy użyciu funkcji RBAC platformy Azure i Azure Portal](../role-based-access-control/role-assignments-portal.md))
 * za pomocą poleceń interfejsu wiersza polecenia w celu dodania lub usunięcia roli
 
-Aby uzyskać bardziej szczegółowe instrukcje, jak to zrobić, wypróbuj w [samouczku Digital bliźniaczych reprezentacji na platformie Azure: łączenie kompleksowego rozwiązania](tutorial-end-to-end.md).
+Aby uzyskać bardziej szczegółowe instrukcje, jak to zrobić, wypróbuj w [samouczku Digital bliźniaczych reprezentacji na platformie Azure: *łączenie kompleksowego rozwiązania*](tutorial-end-to-end.md).
 
 ## <a name="permission-scopes"></a>Zakresy uprawnień
 
@@ -73,6 +73,6 @@ Na poniższej liście opisano poziomy, w których można ograniczyć dostęp do 
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Zobacz, jak wykonać te kroki, korzystając z przykładowej aplikacji klienckiej w poradach [: uwierzytelnianie aplikacji klienckiej](how-to-authenticate-client.md).
+* Zobacz, jak wykonać te kroki, korzystając z przykładowej aplikacji klienckiej w poradach [*: uwierzytelnianie aplikacji klienckiej*](how-to-authenticate-client.md).
 
 * Przeczytaj więcej [na temat RBAC na platformie Azure](../role-based-access-control/overview.md).

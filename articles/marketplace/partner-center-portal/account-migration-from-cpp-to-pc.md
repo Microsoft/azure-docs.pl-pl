@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: parthpandyaMSFT
 ms.author: parthp
 ms.date: 09/23/2019
-ms.openlocfilehash: 24ce0ff2fa5e0b023f2a0d6b92e657299518c044
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 723690c29cd6ce77d7615fc613e50740ef2a45c7
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86120504"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86520157"
 ---
 # <a name="how-to-migrate-your-account-from-cloud-partner-portal-to-partner-center"></a>Jak migrować konto z portal Cloud Partner do Centrum partnerskiego
 
@@ -27,7 +27,7 @@ Jeśli jesteś użytkownikiem z rolą właściciela w programie CPP dla danego k
 
 ### <a name="your-account-has-been-migrated-to-partner-center"></a>Twoje konto zostało zmigrowane do Centrum partnerskiego
 
-W przypadku wszystkich kont, które ukończyły migrację z programu CPP do Centrum partnerskiego, zarządzanie kontami odbywa się w centrum partnerskim. Zmiany, takie jak dodawanie/usuwanie użytkowników, zostaną zsynchronizowane z powrotem do programu CPP.
+Teraz możesz zarządzać kontem w centrum partnerskim. Zmiany, takie jak dodawanie/usuwanie użytkowników, zostaną zsynchronizowane z powrotem do programu CPP.
 
 ### <a name="you-have-not-yet-migrated-your-account-to-partner-center"></a>Twoje konto nie zostało jeszcze zmigrowane do Centrum partnerskiego
 
@@ -45,7 +45,7 @@ Kliknij transparent, aby rozpocząć proces migracji konta. Oczekiwane jest wpro
 
 ## <a name="publishers-moving-from-cpp"></a>Wydawcy przechodzą z CPP
 
-Jeśli Twoje konto zostało zmigrowane z [Portal Cloud partner (CPP)](https://cloudpartner.azure.com), nie musisz tworzyć nowego konta Centrum partnerskiego. Po zalogowaniu się do istniejącego konta CPP powinien zostać wyświetlony dostosowany link do nowego konta Centrum partnerskiego w wiadomości e-mail i powiadomienia banerowego.
+Jeśli Twoje konto zostało zmigrowane z przeglądarki CPP, nie musisz tworzyć nowego konta Centrum partnerskiego. Po zalogowaniu się do istniejącego konta CPP powinien zostać wyświetlony dostosowany link do nowego konta Centrum partnerskiego w wiadomości e-mail i powiadomienia banerowego.
 
 Po włączeniu nowego konta Centrum partnerskiego, odwiedzając ten dostosowany link, możesz wrócić do swojego konta, odwiedzając [komercyjny pulpit nawigacyjny Marketplace](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) w centrum partnerskim.
 

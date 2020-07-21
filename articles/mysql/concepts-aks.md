@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 3/18/2020
-ms.openlocfilehash: 9e020d34b6cfb8117ccff1114cc938c966126b77
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/14/2020
+ms.openlocfilehash: 712bf702ba355ec3b2ca6184c33da8489f8a178e
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79537282"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86519868"
 ---
 # <a name="connecting-azure-kubernetes-service-and-azure-database-for-mysql"></a>Łączenie usługi Azure Kubernetes i Azure Database for MySQL
 
@@ -40,12 +40,6 @@ Dane wyjściowe będą wygenerowanej grupy zasobów utworzonej przez AKSą zawie
 ```azurecli
 az network nic list --resource-group nodeResourceGroup -o table
 ```
-
-## <a name="open-service-broker-for-azure"></a>Open Service Broker for Azure 
-[Otwarte Service Broker dla systemu Azure](https://github.com/Azure/open-service-broker-azure/blob/master/README.md) (OSBA) umożliwia udostępnianie usług platformy Azure bezpośrednio z Kubernetes lub Cloud Foundry. Jest to [otwarta implementacja interfejsu API Service Broker](https://www.openservicebrokerapi.org/) dla platformy Azure.
-
-Za pomocą OSBA można utworzyć serwer Azure Database for MySQL i powiązać go z klastrem AKS przy użyciu języka natywnego Kubernetes. Dowiedz się więcej na temat używania OSBA i Azure Database for MySQL razem na [stronie usługi OSBA](https://github.com/Azure/open-service-broker-azure/blob/master/docs/modules/mysql.md)w serwisie GitHub. 
-
 
 
 ## <a name="next-steps"></a>Następne kroki

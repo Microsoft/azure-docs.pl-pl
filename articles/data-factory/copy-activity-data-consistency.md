@@ -11,46 +11,34 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 3/27/2020
 ms.author: yexu
-ms.openlocfilehash: a45c8ce820532d11f18758924dc3399818cb9158
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d52d172fa4cc435235079cd88999766df93bfdf0
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84610240"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86522911"
 ---
 #  <a name="data-consistency-verification-in-copy-activity-preview"></a>Weryfikacja spójności danych w działaniu kopiowania (wersja zapoznawcza)
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Po przeniesieniu danych ze źródła do magazynu docelowego, Azure Data Factory działanie kopiowania oferuje dodatkową weryfikację spójności danych, aby upewnić się, że dane nie zostały pomyślnie skopiowane do magazynu docelowego, ale również zweryfikowane jako zgodne z magazynem źródłowym i docelowym. Po znalezieniu niespójnych danych podczas przenoszenia danych można przerwać działanie kopiowania lub kontynuować kopiowanie reszty przez włączenie ustawienia odporności na uszkodzenia, aby pominąć niespójne dane. Pominięte nazwy obiektów można uzyskać, włączając ustawienie dziennika sesji w działaniu kopiowania. 
+Po przeniesieniu danych ze źródła do magazynu docelowego, Azure Data Factory działanie kopiowania oferuje dodatkową weryfikację spójności danych, aby upewnić się, że dane nie zostały pomyślnie skopiowane do magazynu docelowego, ale również zweryfikowane jako zgodne z magazynem źródłowym i docelowym. Po znalezieniu niespójnych plików podczas przenoszenia danych można przerwać działanie kopiowania lub kontynuować kopiowanie reszty przez włączenie ustawienia odporności na uszkodzenia, aby pominąć niespójne pliki. Pominięte nazwy plików można uzyskać, włączając ustawienie dziennika sesji w działaniu kopiowania. 
 
 > [!IMPORTANT]
 > Ta funkcja jest obecnie dostępna w wersji zapoznawczej z następującymi ograniczeniami, nad którymi aktywnie pracujemy:
->- Weryfikacja spójności danych jest dostępna tylko w przypadku kopiowania plików binarnych między magazynami opartymi na plikach z zachowaniem "PreserveHierarchy" w działaniu kopiowania. W przypadku kopiowania danych tabelarycznych Weryfikacja spójności danych nie jest jeszcze dostępna w działaniu kopiowania.
 >- Po włączeniu ustawienia dziennika sesji w działaniu kopiowania do rejestrowania niespójnych plików, kompletność pliku dziennika nie może być 100% gwarantowane, jeśli działanie kopiowania nie powiodło się.
 >- Dziennik sesji zawiera tylko niespójne pliki, w przypadku których pomyślnie skopiowane pliki nie są do tej pory rejestrowane.
 
-## <a name="supported-data-stores"></a>Obsługiwane magazyny danych
+## <a name="supported-data-stores-and-scenarios"></a>Obsługiwane magazyny danych i scenariusze
 
-### <a name="source-data-stores"></a>Źródłowe magazyny danych
-
--   [Azure Blob Storage](connector-azure-blob-storage.md)
--   [Usługa Azure Data Lake Storage 1. generacji](connector-azure-data-lake-store.md)
--   [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md)
--   [Azure File Storage](connector-azure-file-storage.md)
--   [Amazon S3](connector-amazon-simple-storage-service.md)
--   [System plików](connector-file-system.md)
--   [HDFS](connector-hdfs.md)
-
-### <a name="destination-data-stores"></a>Docelowe magazyny danych
-
--   [Azure Blob Storage](connector-azure-blob-storage.md)
--   [Usługa Azure Data Lake Storage 1. generacji](connector-azure-data-lake-store.md)
--   [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md)
--   [Azure File Storage](connector-azure-file-storage.md)
--   [System plików](connector-file-system.md)
+-   Weryfikacja spójności danych jest obsługiwana przez wszystkie łączniki z wyjątkiem FTP, sFTP i HTTP. 
+-   Weryfikacja spójności danych nie jest obsługiwana w scenariuszu kopiowania przemieszczania.
+-   Podczas kopiowania plików binarnych Weryfikacja spójności danych jest dostępna tylko wtedy, gdy w działaniu kopiowania ustawiono zachowanie "PreserveHierarchy".
+-   Podczas kopiowania wielu plików binarnych w działaniu pojedynczej kopii z włączoną weryfikacją spójności danych istnieje możliwość przerwania działania kopiowania lub kontynuowania kopiowania reszty przez włączenie ustawienia odporności na uszkodzenia w celu pominięcia niespójnych plików. 
+-   W przypadku kopiowania tabeli w działaniu pojedynczej kopii z włączoną weryfikacją spójności danych działanie kopiowania zakończy się niepowodzeniem, jeśli liczba wierszy odczytanych ze źródła jest różna od liczby wierszy skopiowanych do miejsca docelowego oraz liczby pominiętych wierszy, które były pomijane.
 
 
-## <a name="configuration"></a>Konfigurowanie
+## <a name="configuration"></a>Konfiguracja
 Poniższy przykład zawiera definicję JSON, aby włączyć weryfikację spójności danych w działaniu kopiowania: 
 
 ```json
@@ -84,16 +72,15 @@ Poniższy przykład zawiera definicję JSON, aby włączyć weryfikację spójno
 
 Właściwość | Opis | Dozwolone wartości | Wymagane
 -------- | ----------- | -------------- | -------- 
-validateDataConsistency | W przypadku ustawienia wartości true dla tej właściwości działanie Copy sprawdzi rozmiar pliku, lastModifiedDate i sumę kontrolną MD5 dla każdego obiektu skopiowanego ze źródła do magazynu docelowego, aby zapewnić spójność danych między magazynem źródłowym a docelowym. Należy pamiętać, że ta opcja będzie miała wpływ na wydajność kopiowania.  | Prawda<br/>False (domyślnie) | Nie
-dataInconsistency | Jeden z par klucz-wartość w zbiorze właściwości skipErrorFile, aby określić, czy chcesz pominąć niespójne dane.<br/> -True: chcesz skopiować resztę, pomijając niespójne dane.<br/> -False: chcesz przerwać działanie kopiowania po znalezieniu niespójnych danych.<br/>Należy pamiętać, że właściwość jest prawidłowa tylko po ustawieniu validateDataConsistency jako true.  | Prawda<br/>False (domyślnie) | Nie
-logStorageSettings | Grupa właściwości, które można określić, aby umożliwić dziennikowi sesji rejestrowanie pominiętych obiektów. | | Nie
+validateDataConsistency | Jeśli dla tej właściwości zostanie ustawiona wartość true, podczas kopiowania plików binarnych działanie Copy sprawdzi rozmiar pliku, lastModifiedDate i sumę kontrolną MD5 dla każdego pliku binarnego skopiowanego ze źródła do magazynu docelowego, aby zapewnić spójność danych między magazynem źródłowym a docelowym. Podczas kopiowania danych tabelarycznych działanie Copy sprawdzi całkowitą liczbę wierszy po zakończeniu zadania, aby upewnić się, że łączna liczba wierszy odczytanych ze źródła jest taka sama jak liczba wierszy skopiowanych do miejsca docelowego oraz liczba pominiętych wierszy, które zostały pominięci. Należy pamiętać, że ta opcja będzie miała wpływ na wydajność kopiowania.  | Prawda<br/>False (domyślnie) | Nie
+dataInconsistency | Jeden z par klucz-wartość w zbiorze właściwości skipErrorFile, aby określić, czy chcesz pominąć niespójne pliki. <br/> -True: chcesz skopiować resztę, pomijając niespójne pliki.<br/> -False: chcesz przerwać działanie kopiowania po znalezieniu niespójnego pliku.<br/>Należy pamiętać, że ta właściwość jest prawidłowa tylko w przypadku kopiowania plików binarnych i ustawiania validateDataConsistency jako true.  | Prawda<br/>False (domyślnie) | Nie
+logStorageSettings | Grupa właściwości, które można określić, aby umożliwić dziennikowi sesji rejestrowanie pominiętych plików. | | Nie
 linkedServiceName | Połączona usługa [systemu Azure Blob Storage](connector-azure-blob-storage.md#linked-service-properties) lub [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) do przechowywania plików dziennika sesji. | Nazwy `AzureBlobStorage` `AzureBlobFS` połączonych usług lub typów, które odnoszą się do wystąpienia używanego do przechowywania plików dziennika. | Nie
-ścieżka | Ścieżka do plików dziennika. | Określ ścieżkę, w której mają być przechowywane pliki dziennika. Jeśli nie podasz ścieżki, usługa utworzy dla Ciebie kontener. | Nie
+path | Ścieżka do plików dziennika. | Określ ścieżkę, w której mają być przechowywane pliki dziennika. Jeśli nie podasz ścieżki, usługa utworzy dla Ciebie kontener. | Nie
 
 >[!NOTE]
->- Spójność danych nie jest obsługiwana w scenariuszu kopiowania przemieszczania. 
->- Podczas kopiowania plików z, lub do obiektu blob platformy Azure lub Azure Data Lake Storage Gen2, usługa ADF jest zgodna z weryfikacją sum kontrolnych MD5 poziomu blokowego na podstawie [interfejsu API usługi Azure Blob](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions?view=azure-dotnet-legacy) i [interfejsu API Azure Data Lake Storage Gen2](https://docs.microsoft.com/rest/api/storageservices/datalakestoragegen2/path/update#request-headers) Jeśli ContentMD5 w plikach istnieje w obiekcie blob platformy Azure lub Azure Data Lake Storage Gen2 jako źródła danych, na AUTOMATYCZNYm przeczytaniu plików zostanie zweryfikowana suma kontrolna MD5 na poziomie pliku. Po skopiowaniu plików do obiektu blob platformy Azure lub Azure Data Lake Storage Gen2 jako miejsce docelowe danych usługa ADF zapisuje ContentMD5 do obiektu blob platformy Azure lub Azure Data Lake Storage Gen2, które mogą być dodatkowo używane przez aplikacje podrzędne do weryfikacji spójności danych.
->- Usługa ADF wykonuje weryfikację rozmiaru plików podczas kopiowania plików między dowolnymi magazynami magazynu.
+>- Podczas kopiowania plików binarnych z, lub do obiektu blob platformy Azure lub Azure Data Lake Storage Gen2, usługa ADF umożliwia weryfikację sum kontrolnych MD5 poziomu blokowego, wykorzystując [interfejs API obiektów blob platformy Azure](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions?view=azure-dotnet-legacy) i [interfejs API Azure Data Lake Storage Gen2](https://docs.microsoft.com/rest/api/storageservices/datalakestoragegen2/path/update#request-headers). Jeśli ContentMD5 w plikach istnieje w obiekcie blob platformy Azure lub Azure Data Lake Storage Gen2 jako źródła danych, na AUTOMATYCZNYm przeczytaniu plików zostanie zweryfikowana suma kontrolna MD5 na poziomie pliku. Po skopiowaniu plików do obiektu blob platformy Azure lub Azure Data Lake Storage Gen2 jako miejsce docelowe danych usługa ADF zapisuje ContentMD5 do obiektu blob platformy Azure lub Azure Data Lake Storage Gen2, które mogą być dodatkowo używane przez aplikacje podrzędne do weryfikacji spójności danych.
+>- W przypadku kopiowania plików binarnych między dowolnymi magazynami magazynów jest przeprowadzana weryfikacja rozmiaru pliku.
 
 ## <a name="monitoring"></a>Monitorowanie
 
@@ -137,7 +124,7 @@ Schemat pliku dziennika jest następujący:
 
 Kolumna | Opis 
 -------- | -----------  
-Znacznik czasu | Sygnatura czasowa, gdy moduł ADF pomija niespójne pliki.
+Timestamp | Sygnatura czasowa, gdy moduł ADF pomija niespójne pliki.
 Poziom | Poziom dziennika tego elementu. Będzie on wyświetlany na poziomie "ostrzeżenie" dla elementu pokazującego pomijanie plików.
 OperationName | Zachowanie działania kopiowania APD dla każdego pliku. Będzie to "FileSkip", aby określić plik do pominięcia.
 OperationItem | Nazwa pliku do pominięcia.

@@ -10,12 +10,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: ''
 manager: anandsub
-ms.openlocfilehash: 6a3b463196142691a59f625429953d1e82502f3d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6aaa02c2e14cfc31a11da260da38705ba064ba79
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85255538"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86523319"
 ---
 # <a name="configure-the-azure-ssis-integration-runtime-for-high-performance"></a>Konfigurowanie Azure-SSIS Integration Runtime na potrzeby wysokiej wydajności
 
@@ -104,11 +104,15 @@ Jeśli nie masz wielu pakietów do uruchomienia i chcesz szybko uruchamiać paki
 
 Te dane przedstawiają wykonywanie pojedynczego pakietu na jednym węźle procesu roboczego. Pakiet ładuje 3 000 000 rekordów z imionami i kolumnami nazwiska z usługi Azure Blob Storage, generuje kolumnę pełna nazwa i zapisuje rekordy, które mają pełną nazwę o długości przekraczającej 20 znaków na platformie Azure Blob Storage.
 
+Oś y to liczba pakietów, które ukończyły wykonywanie w ciągu godziny. Należy pamiętać, że jest to tylko wynik testu jednego pakietu zużywanego przez pamięć. Jeśli chcesz znać przepływność pakietu, zalecamy przeprowadzenie testu przez siebie.
+
 ![Szybkość wykonywania pakietu SSIS Integration Runtime](media/configure-azure-ssis-integration-runtime-performance/ssisir-execution-speedV2.png)
 
 ### <a name="configure-for-overall-throughput"></a>Konfigurowanie na potrzeby ogólnej przepływności
 
 Jeśli masz wiele pakietów do uruchomienia i masz największe znaczenie dla ogólnej przepływności, użyj informacji z poniższej tabeli, aby wybrać typ maszyny wirtualnej odpowiedni dla danego scenariusza.
+
+Oś y to liczba pakietów, które ukończyły wykonywanie w ciągu godziny. Należy pamiętać, że jest to tylko wynik testu jednego pakietu zużywanego przez pamięć. Jeśli chcesz znać przepływność pakietu, zalecamy przeprowadzenie testu przez siebie.
 
 ![W Integration Runtime SSIS maksymalna przepływność](media/configure-azure-ssis-integration-runtime-performance/ssisir-overall-throughputV2.png)
 

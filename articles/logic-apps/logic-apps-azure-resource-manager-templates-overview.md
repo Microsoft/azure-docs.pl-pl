@@ -6,11 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 07/25/2019
-ms.openlocfilehash: 7a99038f41043b899886c7161f9b12c77c807c4c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6a89eb16c8042efc86bb5cc8bd5fba7c821dc341
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81641827"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86520973"
 ---
 # <a name="overview-automate-deployment-for-azure-logic-apps-by-using-azure-resource-manager-templates"></a>Przegląd: Automatyzowanie wdrażania Azure Logic Apps przy użyciu szablonów Azure Resource Manager
 
@@ -38,7 +39,7 @@ Przykładowe szablony aplikacji logiki można znaleźć w następujących przyk�
 * [Pełny szablon](#full-example-template) , który jest używany w przykładach tego tematu
 * [Przykładowy szablon aplikacji logiki szybkiego startu](https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-create) w usłudze GitHub
 
-Informacje o zasobach szablonu specyficzne dla aplikacji logiki, kont integracji i artefaktów konta integracji można znaleźć w temacie [typy zasobów Microsoft. Logic](https://docs.microsoft.com/azure/templates/microsoft.logic/allversions).
+Informacje o zasobach szablonu specyficzne dla aplikacji logiki, kont integracji i artefaktów konta integracji można znaleźć w temacie [typy zasobów Microsoft. Logic](/azure/templates/microsoft.logic/allversions).
 
 <a name="template-structure"></a>
 
@@ -320,14 +321,14 @@ Poniżej znajdują się atrybuty specyficzne dla definicji zasobu aplikacji logi
 
 | Atrybut | Wymagany | Typ | Opis |
 |-----------|----------|------|-------------|
-| `state` | Tak | String | Stan aplikacji logiki przy wdrożeniu, gdzie `Enabled` oznacza, że aplikacja logiki działa i `Disabled` oznacza, że aplikacja logiki jest nieaktywna. Jeśli na przykład nie masz gotowości do działania aplikacji logiki, ale chcesz wdrożyć wersję roboczą, możesz użyć `Disabled` opcji. |
+| `state` | Tak | String (ciąg) | Stan aplikacji logiki przy wdrożeniu, gdzie `Enabled` oznacza, że aplikacja logiki działa i `Disabled` oznacza, że aplikacja logiki jest nieaktywna. Jeśli na przykład nie masz gotowości do działania aplikacji logiki, ale chcesz wdrożyć wersję roboczą, możesz użyć `Disabled` opcji. |
 | `integrationAccount` | Nie | Obiekt | Jeśli aplikacja logiki korzysta z konta integracji, które przechowuje artefakty dla scenariuszy biznes-to-Business (B2B), ten obiekt zawiera `id` atrybut, który określa identyfikator konta integracji. |
 | `definition` | Tak | Obiekt | Podstawowa definicja przepływu pracy aplikacji logiki, która jest tym samym obiektem, który pojawia się w widoku kodu i jest w pełni opisana w [dokumentacji schematu dotyczącej języka definicji przepływu pracy](../logic-apps/logic-apps-workflow-definition-language.md) . W tej definicji przepływu pracy `parameters` obiekt deklaruje parametry dla wartości, które mają być używane w środowisku uruchomieniowym aplikacji logiki. Aby uzyskać więcej informacji, zobacz [definicji i parametrów przepływu pracy](#workflow-definition-parameters). <p><p>Aby wyświetlić atrybuty w definicji przepływu pracy aplikacji logiki, przejdź od "Widok projektu" do "Widok kodu" w Azure Portal lub Visual Studio lub za pomocą narzędzia, takiego jak [Azure Resource Explorer](https://resources.azure.com). |
 | `parameters` | Nie | Obiekt | [Wartości parametrów definicji przepływu pracy](#workflow-definition-parameters) do użycia w środowisku uruchomieniowym aplikacji logiki. Definicje parametrów dla tych wartości są wyświetlane w [obiekcie parametrów definicji przepływu pracy](#workflow-definition-parameters). Ponadto, jeśli aplikacja logiki korzysta z [łączników zarządzanych](../connectors/apis-list.md) do uzyskiwania dostępu do innych usług i systemów, ten obiekt zawiera `$connections` obiekt, który ustawia wartości połączenia do użycia w czasie wykonywania. |
 | `accessControl` | Nie | Obiekt | Do określania atrybutów zabezpieczeń aplikacji logiki, takich jak ograniczanie dostępu do adresów IP do wyzwalaczy żądań lub uruchamianie historii danych wejściowych i wyjściowych. Aby uzyskać więcej informacji, zobacz [bezpieczny dostęp do usługi Logic Apps](../logic-apps/logic-apps-securing-a-logic-app.md). |
 ||||
 
-Informacje o zasobach szablonu specyficzne dla aplikacji logiki, kont integracji i artefaktów konta integracji można znaleźć w temacie [typy zasobów Microsoft. Logic](https://docs.microsoft.com/azure/templates/microsoft.logic/allversions).
+Informacje o zasobach szablonu specyficzne dla aplikacji logiki, kont integracji i artefaktów konta integracji można znaleźć w temacie [typy zasobów Microsoft. Logic](/azure/templates/microsoft.logic/allversions).
 
 <a name="workflow-definition-parameters"></a>
 
@@ -909,7 +910,7 @@ Oto przykład, który zawiera nazwę konta i klucz dostępu dla połączenia us�
 
 ### <a name="authenticate-connections"></a>Uwierzytelnianie połączeń
 
-Po wdrożeniu aplikacja logiki działa na całym końcu z prawidłowymi parametrami. Należy jednak nadal autoryzować wszystkie połączenia OAuth w celu wygenerowania prawidłowych tokenów dostępu do [uwierzytelniania poświadczeń](../active-directory/develop/authentication-scenarios.md). Aby uzyskać więcej informacji, zobacz [Autoryzuj połączenia OAuth](../logic-apps/logic-apps-deploy-azure-resource-manager-templates.md#authorize-oauth-connections).
+Po wdrożeniu aplikacja logiki działa na całym końcu z prawidłowymi parametrami. Należy jednak nadal autoryzować wszystkie połączenia OAuth w celu wygenerowania prawidłowych tokenów dostępu do [uwierzytelniania poświadczeń](../active-directory/develop/authentication-vs-authorization.md). Aby uzyskać więcej informacji, zobacz [Autoryzuj połączenia OAuth](../logic-apps/logic-apps-deploy-azure-resource-manager-templates.md#authorize-oauth-connections).
 
 Niektóre połączenia obsługują użycie jednostki [usługi](../active-directory/develop/app-objects-and-service-principals.md) Azure Active Directory (Azure AD) do autoryzacji połączeń dla aplikacji logiki, która jest [zarejestrowana w usłudze Azure AD](../active-directory/develop/quickstart-register-app.md). Na przykład ta definicja zasobu połączenia Azure Data Lake pokazuje, jak odwoływać się do parametrów szablonu, które obsługują informacje o jednostce usługi i jak szablon deklaruje następujące parametry:
 
@@ -1005,7 +1006,7 @@ Obiekt najwyższego poziomu szablonu `parameters` deklaruje następujące parame
 Aby uzyskać więcej informacji na temat pracy z jednostkami usługi, zobacz następujące tematy:
 
 * [Tworzenie jednostki usługi przy użyciu Azure Portal](../active-directory/develop/howto-create-service-principal-portal.md)
-* [Tworzenie jednostki usługi platformy Azure przy użyciu Azure PowerShell](https://docs.microsoft.com/powershell/azure/create-azure-service-principal-azureps)
+* [Tworzenie jednostki usługi platformy Azure przy użyciu Azure PowerShell](/powershell/azure/create-azure-service-principal-azureps)
 * [Tworzenie jednostki usługi z certyfikatem przy użyciu Azure PowerShell](../active-directory/develop/howto-authenticate-service-principal-powershell.md)
 
 <a name="parameter-references"></a>

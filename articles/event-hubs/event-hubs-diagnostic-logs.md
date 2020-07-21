@@ -3,11 +3,12 @@ title: Konfigurowanie dzienników diagnostycznych — centrum zdarzeń Azure | M
 description: Informacje na temat konfigurowania dzienników aktywności i dzienników diagnostycznych dla centrów zdarzeń na platformie Azure.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 976d8a7127438164c8b807b6f14d3ae877f44b65
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 65c3fc783506eae19c911eb035ebc51b2db19849
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85322464"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86521942"
 ---
 # <a name="set-up-diagnostic-logs-for-an-azure-event-hub"></a>Konfigurowanie dzienników diagnostycznych na potrzeby centrum zdarzeń platformy Azure
 
@@ -232,7 +233,7 @@ Plik JSON dziennika użytkownika klucza zarządzanego przez klienta zawiera elem
 
 
 ## <a name="next-steps"></a>Następne kroki
-- [Wprowadzenie do Event Hubs](event-hubs-what-is-event-hubs.md)
+- [Wprowadzenie do Event Hubs](./event-hubs-about.md)
 - [Przykłady Event Hubs](sdks.md)
 - Rozpoczynanie pracy z usługą Event Hubs
     - [.NET Core](get-started-dotnet-standard-send-v2.md)

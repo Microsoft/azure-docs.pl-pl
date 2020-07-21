@@ -7,16 +7,20 @@ ms.service: expressroute
 ms.topic: article
 ms.date: 06/28/2019
 ms.author: rambala
-ms.openlocfilehash: 4c3c6ae5fbdd91e6e44438be7fef2a3a91564a34
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: da90bbbce485616afdac5997576da99ac4d62c6f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74076679"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86521908"
 ---
 # <a name="designing-for-high-availability-with-expressroute"></a>Projektowanie pod kątem wysokiej dostępności dzięki ExpressRoute
 
 ExpressRoute jest przeznaczona do wysokiej dostępności w celu zapewnienia poufności łączności sieci prywatnej z zasobami firmy Microsoft. Innymi słowy, w ścieżce ExpressRoute w sieci firmy Microsoft nie ma single point of failure. Aby zmaksymalizować dostępność, segment klienta i usługodawcy obwodu usługi ExpressRoute powinien być również zaprojektowany w celu zapewnienia wysokiej dostępności. W tym artykule najpierw Przyjrzyjmy się zagadnieniom dotyczącym architektury sieci w przypadku tworzenia niezawodnej łączności sieciowej przy użyciu ExpressRoute, a następnie Przyjrzyjmy się funkcjom dostrajania, które pomogą Ci w zwiększeniu wysokiej dostępności obwodu usługi ExpressRoute.
 
+>[!NOTE]
+>Koncepcje opisane w tym artykule są równie stosowane, gdy obwód ExpressRoute jest tworzony w ramach wirtualnej sieci WAN lub poza nią.
+>
 
 ## <a name="architecture-considerations"></a>Zagadnienia dotyczące architektury
 

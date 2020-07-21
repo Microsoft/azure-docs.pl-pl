@@ -6,11 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 05/26/2017
-ms.openlocfilehash: 45b53b0e692a1272ba59719655c8d60c90fd6c96
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 01ddef37702cb4dedaefb3e94e488ef478f292c3
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83834496"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86520804"
 ---
 # <a name="create-custom-apis-you-can-call-from-azure-logic-apps"></a>Tworzenie niestandardowych interfejsów API, które można wywołać z Azure Logic Apps
 
@@ -53,8 +54,8 @@ Można również wyznaczyć zarejestrowane łączniki do certyfikacji firmy Micr
 Aby uzyskać więcej informacji na temat łączników niestandardowych, zobacz. 
 
 * [Przegląd łączników niestandardowych](../logic-apps/custom-connector-overview.md)
-* [Tworzenie łączników niestandardowych z interfejsów API sieci Web](../logic-apps/custom-connector-build-web-api-app-tutorial.md)
-* [Rejestrowanie łączników niestandardowych w Azure Logic Apps](../logic-apps/logic-apps-custom-connector-register.md)
+* [Tworzenie łączników niestandardowych z interfejsów API sieci Web](/connectors/custom-connectors/create-web-api-connector)
+* [Rejestrowanie łączników niestandardowych w Azure Logic Apps](/connectors/custom-connectors/)
 
 ## <a name="helpful-tools"></a>Przydatne narzędzia
 
@@ -227,7 +228,7 @@ Aby udostępnić niestandardowe interfejsy API wszystkim użytkownikom w Logic A
 
 * Aby uzyskać pomoc dotyczącą niestandardowych interfejsów API, skontaktuj się z pomocą techniczną [customapishelp@microsoft.com](mailto:customapishelp@microsoft.com) .
 
-* Pytania można znaleźć w witrynie [Microsoft Q&pytanie dotyczące Azure Logic Apps](https://docs.microsoft.com/answers/topics/azure-logic-apps.html).
+* Pytania można znaleźć w witrynie [Microsoft Q&pytanie dotyczące Azure Logic Apps](/answers/topics/azure-logic-apps.html).
 
 * Aby pomóc w ulepszaniu usługi Logic Apps, przesyłaj pomysły lub głosuj na nie w [witrynie opinii użytkowników usługi Logic Apps](https://aka.ms/logicapps-wish). 
 

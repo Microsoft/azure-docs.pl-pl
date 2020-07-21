@@ -8,11 +8,12 @@ ms.author: klam
 ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 07/25/2016
-ms.openlocfilehash: e2f65f1c52dc7dfb2e4e4bf66f5c7e82f4b802b8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ccc7df5bfac327fabf05f210764dbe10658b5015
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74792880"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86520719"
 ---
 # <a name="schema-updates-for-azure-logic-apps---june-1-2016"></a>Aktualizacje schematu dla Azure Logic Apps — 1 czerwca 2016
 
@@ -28,7 +29,7 @@ Aby uaktualnić Aplikacje logiki z 1 sierpnia 2015 schematu wersji zapoznawczej 
 
 ## <a name="scopes"></a>Zakresy
 
-Ten schemat zawiera zakresy, które umożliwiają grupowanie akcji ze sobą lub zagnieżdżanie akcji wewnątrz siebie. Na przykład warunek może zawierać inny warunek. Dowiedz się więcej o [składni zakresu](../logic-apps/logic-apps-loops-and-scopes.md)lub zapoznaj się z tym przykładem podstawowego zakresu:
+Ten schemat zawiera zakresy, które umożliwiają grupowanie akcji ze sobą lub zagnieżdżanie akcji wewnątrz siebie. Na przykład warunek może zawierać inny warunek. Dowiedz się więcej o [składni zakresu](./logic-apps-control-flow-loops.md)lub zapoznaj się z tym przykładem podstawowego zakresu:
 
 ```json
 {
@@ -54,7 +55,7 @@ Ten schemat zawiera zakresy, które umożliwiają grupowanie akcji ze sobą lub 
 
 ## <a name="conditions-and-loops-changes"></a>Warunki i pętle zmiany
 
-W poprzednich wersjach schematu warunki i pętle były parametrami skojarzonymi z pojedynczą akcją. Ten schemat dźwigu tego ograniczenia, więc warunki i pętle są teraz dostępne jako typy akcji. Dowiedz się więcej o [pętlach i zakresach](../logic-apps/logic-apps-loops-and-scopes.md), [warunkach](../logic-apps/logic-apps-control-flow-conditional-statement.md)lub przejrzyj ten podstawowy przykład, który pokazuje akcję warunku:
+W poprzednich wersjach schematu warunki i pętle były parametrami skojarzonymi z pojedynczą akcją. Ten schemat dźwigu tego ograniczenia, więc warunki i pętle są teraz dostępne jako typy akcji. Dowiedz się więcej o [pętlach i zakresach](./logic-apps-control-flow-loops.md), [warunkach](../logic-apps/logic-apps-control-flow-conditional-statement.md)lub przejrzyj ten podstawowy przykład, który pokazuje akcję warunku:
 
 ```json
 {
@@ -130,7 +131,7 @@ W uaktualnionej definicji Narzędzie to najlepiej sprawdza się w przypadku grup
 
 #### <a name="foreach-loop-with-condition"></a>Pętla "foreach" z warunkiem
 
-W nowym schemacie można użyć akcji filtru, aby replikować wzorzec, który używa pętli **for each** z jednym warunkiem dla każdego elementu. Jednak zmiana jest wykonywana automatycznie podczas uaktualniania. Warunek stanie się akcją filtru, która pojawia się przed pętlą **for each** , zwracając tylko tablicę elementów pasujących do warunku i przekazując tę tablicę do **każdej** akcji. Aby zapoznać się z przykładem, zobacz [pętle i zakresy](../logic-apps/logic-apps-loops-and-scopes.md).
+W nowym schemacie można użyć akcji filtru, aby replikować wzorzec, który używa pętli **for each** z jednym warunkiem dla każdego elementu. Jednak zmiana jest wykonywana automatycznie podczas uaktualniania. Warunek stanie się akcją filtru, która pojawia się przed pętlą **for each** , zwracając tylko tablicę elementów pasujących do warunku i przekazując tę tablicę do **każdej** akcji. Aby zapoznać się z przykładem, zobacz [pętle i zakresy](./logic-apps-control-flow-loops.md).
 
 ### <a name="resource-tags"></a>Tagi zasobów
 
@@ -152,7 +153,7 @@ Aby odfiltrować dużą tablicę w dół do mniejszego zestawu elementów, nowy 
 
 ### <a name="new-trackedproperties-for-actions"></a>Nowe "trackedProperties" dla akcji
 
-Akcje mogą teraz mieć dodatkową właściwość o nazwie `trackedProperties` , która jest elementem równorzędnym `runAfter` dla `type` właściwości i. Ten obiekt Określa pewne dane wejściowe lub wyjściowe akcji, które mają zostać dołączone do telemetrii diagnostyki platformy Azure, emitowane w ramach przepływu pracy. Przykład:
+Akcje mogą teraz mieć dodatkową właściwość o nazwie `trackedProperties` , która jest elementem równorzędnym `runAfter` dla `type` właściwości i. Ten obiekt Określa pewne dane wejściowe lub wyjściowe akcji, które mają zostać dołączone do telemetrii diagnostyki platformy Azure, emitowane w ramach przepływu pracy. Na przykład:
 
 ``` json
 {

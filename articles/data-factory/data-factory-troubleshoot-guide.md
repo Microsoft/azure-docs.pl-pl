@@ -8,11 +8,12 @@ ms.topic: troubleshooting
 ms.date: 8/26/2019
 ms.author: abnarain
 ms.reviewer: craigg
-ms.openlocfilehash: ac6081f02ad532b512ecca335b949eec71c060ff
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 568739ebdce632ae955da5e1cec12635c86af57c
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83836162"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86522860"
 ---
 # <a name="troubleshoot-azure-data-factory"></a>Rozwiązywanie problemów z usługą Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -122,6 +123,14 @@ W przypadku problemów z łącznikiem, takich jak napotkany błąd przy użyciu 
 - **Przyczyna**: komunikaty o błędach wskazują różne problemy, takie jak nieoczekiwany stan klastra lub określone działanie. Często nie jest wyświetlany żaden komunikat o błędzie.
 
 - **Zalecenie**: nie dotyczy
+
+### <a name="error-code-3208"></a>Kod błędu: 3208
+
+- **Komunikat**:`An error occurred while sending the request.`
+
+- **Przyczyna**: przerwano połączenie sieciowe z usługą datakosteks.
+
+- **Zalecenie**: Jeśli korzystasz z własnego środowiska Integration Runtime, upewnij się, że połączenie sieciowe jest niezawodne w węzłach Integration Runtime. Jeśli korzystasz z usługi Azure Integration Runtime, ponowna próba będzie zazwyczaj działać.
  
 ## <a name="azure-data-lake-analytics"></a>Azure Data Lake Analytics
 
@@ -201,7 +210,7 @@ Poniższa tabela dotyczy języka U-SQL.
 
    Jeśli rozwiązanie nie jest jasne, skontaktuj się z zespołem pomocy technicznej Data Lake Analytics i podaj adres URL (Universal Resource Locator), który zawiera nazwę konta i identyfikator zadania.
  
-## <a name="azure-functions"></a>Azure Functions
+## <a name="azure-functions"></a>Funkcje platformy Azure
 
 ### <a name="error-code-3602"></a>Kod błędu: 3602
 
@@ -626,7 +635,7 @@ Poniższa tabela ma zastosowanie do Azure Batch.
     1. Połącz się z aktywnym węzłem głównym, gdy serwer Ambari znajduje się w aktywnym węźle głównym przy użyciu protokołu SSH. 
     1. Uruchom ponownie aktywny węzeł główny.
 
-       Aby uzyskać więcej informacji, zapoznaj się z dokumentacją rozwiązywania problemów z usługą Azure HDInsight. Przykład:
+       Aby uzyskać więcej informacji, zapoznaj się z dokumentacją rozwiązywania problemów z usługą Azure HDInsight. Na przykład:
 
        * [Błąd 502 interfejsu użytkownika systemu Ambari](https://hdinsight.github.io/ambari/ambari-ui-502-error.html)
        * [RpcTimeoutException Apache Spark Thrift Server](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-troubleshoot-rpctimeoutexception)
@@ -1053,5 +1062,5 @@ Aby uzyskać więcej informacji dotyczących rozwiązywania problemów, wypróbu
 * [Żądania funkcji Data Factory](https://feedback.azure.com/forums/270578-data-factory)
 * [Forum Stack Overflow dla Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
 * [Informacje o usłudze Twitter dotyczące Data Factory](https://twitter.com/hashtag/DataFactory)
-* [Wideo na platformie Azure](https://azure.microsoft.com/resources/videos/index/)
+* [Wideo dotyczące platformy Azure](https://azure.microsoft.com/resources/videos/index/)
 * [Strona pytania&pytań i odpowiedzi](https://docs.microsoft.com/answers/topics/azure-data-factory.html)

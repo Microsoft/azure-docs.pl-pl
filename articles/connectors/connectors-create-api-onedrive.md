@@ -7,11 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/18/2016
 tags: connectors
-ms.openlocfilehash: edfbf090c3409d583cda6fd2c9957c37be5dfb7a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8dd54fec963b8f4775a8ade6277b071d62ca3850
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75378436"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86524214"
 ---
 # <a name="access-and-manage-files-in-onedrive-connector-by-using-azure-logic-apps"></a>Dostęp do plików w łączniku usługi OneDrive i zarządzanie nimi za pomocą Azure Logic Apps
 
@@ -39,11 +40,11 @@ Wyzwalacz to zdarzenie, którego można użyć do uruchomienia przepływu pracy 
 
 1. W Projektancie aplikacji logiki wpisz polecenie, `onedrive` Aby uzyskać listę wyzwalaczy:  
 
-   ![](./media/connectors-create-api-onedrive/onedrive-1.png)
+   ![Okno dialogowe zatytułowane "Pokaż interfejsy API zarządzane przez firmę Microsoft" zawiera pole zawierające wartość "OneDrive". Poniżej znajduje się lista czterech wyzwalaczy. Pierwszy z nich to "OneDrive — gdy tworzony jest plik". W drugim przypadku wybrano opcję "OneDrive — gdy plik zostanie zmodyfikowany".](./media/connectors-create-api-onedrive/onedrive-1.png)
 
 2. Wybierz **, kiedy plik zostanie zmodyfikowany**. Jeśli połączenie już istnieje, wybierz przycisk Pokaż selektor, aby wybrać folder.
 
-   ![](./media/connectors-create-api-onedrive/sample-folder.png)
+   ![Okno dialogowe zatytułowane "gdy plik zostanie zmodyfikowany" ma pole zatytułowane "FOLDER" ze skojarzonym przyciskiem przeglądania.](./media/connectors-create-api-onedrive/sample-folder.png)
 
    Jeśli zostanie wyświetlony monit o zalogowanie się, wprowadź szczegóły logowania, aby utworzyć połączenie. [Utwórz połączenie](connectors-create-api-onedrive.md#create-the-connection) w tym artykule, aby uzyskać listę kroków.
 
@@ -51,7 +52,7 @@ Wyzwalacz to zdarzenie, którego można użyć do uruchomienia przepływu pracy 
 
 3. Wybierz przycisk **Edytuj** i ustaw wartości parametrów **częstotliwość** i **Interwał** . Na przykład jeśli wyzwalacz ma sondować co 15 minut, należy ustawić **częstotliwość** na **minutę**i ustawić **Interwał** na **15**. 
 
-   ![](./media/connectors-create-api-onedrive/trigger-properties.png)
+   ![Okno dialogowe zatytułowane "Kiedy plik jest modyfikowany" pokazuje pięć pól z etykietą: "FOLDER", "częstotliwość", "interwał", "strefa CZASowa" i "godzina rozpoczęcia". Istnieją listy rozwijane dla pól "częstotliwość" i "strefa CZASowa".](./media/connectors-create-api-onedrive/trigger-properties.png)
 
 4. **Zapisz** zmiany (w lewym górnym rogu paska narzędzi). Aplikacja logiki jest zapisywana i może być automatycznie włączona.
 
@@ -61,23 +62,23 @@ Akcja jest operacją wykonywaną przez przepływ pracy zdefiniowany w aplikacji 
 
 1. Wybierz znak plus. Zobaczysz kilka opcji: **Dodaj akcję**, **Dodaj warunek**lub jedną z opcji **więcej** .
 
-   ![](./media/connectors-create-api-onedrive/add-action.png)
+   ![Zrzut ekranu przedstawia cztery przyciski: "+ nowy krok", "Dodaj akcję", "Dodaj warunek" i "... Więcej ".](./media/connectors-create-api-onedrive/add-action.png)
 
 2. Wybierz pozycję **Dodaj akcję**.
 
 3. W polu wyszukiwania wpisz, `onedrive` Aby wyświetlić listę wszystkich dostępnych akcji.
 
-   ![](./media/connectors-create-api-onedrive/onedrive-actions.png) 
+   ![Okno dialogowe zatytułowane "Pokaż interfejsy API zarządzane przez firmę Microsoft" zawiera pole zawierające wartość "OneDrive". Poniżej znajduje się lista ośmiu akcji. Pierwszy jest "OneDrive-Create File" i jest wybrany.](./media/connectors-create-api-onedrive/onedrive-actions.png) 
 
 4. W naszym przykładzie wybierz pozycję **OneDrive — Utwórz plik**. Jeśli połączenie już istnieje, wybierz **ścieżkę folderu** w celu umieszczenia pliku, wprowadź **nazwę pliku**i wybierz żądaną **zawartość pliku** :  
 
-   ![](./media/connectors-create-api-onedrive/sample-action.png)
+   ![Okno dialogowe zatytułowane "Utwórz plik" pokazuje trzy pola z etykietą "ścieżka folderu", "nazwa pliku" i "zawartość folderu". Obok pola "ścieżka folderu" znajduje się przycisk przeglądania katalogów.](./media/connectors-create-api-onedrive/sample-action.png)
 
    Jeśli zostanie wyświetlony monit o podanie informacji o połączeniu, wprowadź szczegóły, aby [utworzyć połączenie zgodnie z opisem](#create-the-connection) w tym temacie.
 
    W tym przykładzie utworzysz nowy plik w folderze usługi OneDrive. Możesz użyć danych wyjściowych z innego wyzwalacza, aby utworzyć plik usługi OneDrive. Na przykład Dodaj pakiet Office 365 Outlook *po nadejściu nowej wiadomości e-mail* . Następnie Dodaj akcję *Utwórz plik* w usłudze OneDrive, która używa pól załączniki i typ zawartości w instrukcji foreach, aby utworzyć nowy plik w usłudze OneDrive.
 
-   ![](./media/connectors-create-api-onedrive/foreach-action.png)
+   ![Okno dialogowe zatytułowane "dla każdego" ma pole z etykietą "Wybierz dane wyjściowe z poprzednich kroków", które zawierają "Załączniki". Istnieje okno dialogowe "Tworzenie pliku" z pozostałą częścią pola "for each" z polami z etykietą "ścieżka folderu", "nazwa pliku" i "zawartość plików". ](./media/connectors-create-api-onedrive/foreach-action.png)
 
 5. **Zapisz** zmiany (w lewym górnym rogu paska narzędzi). Aplikacja logiki jest zapisywana i może być automatycznie włączona.
 

@@ -4,18 +4,20 @@ description: Interfejs API umożliwiający pobranie wszystkich operacji z oferty
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-ms.date: 04/08/2020
-ms.openlocfilehash: c0611cb3cbc24e2b105cdef134e30a7c2fbdd445
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+author: dsindona
+ms.author: dsindona
+ms.date: 07/14/2020
+ms.openlocfilehash: 90ff7c4a85fd9e48ac3aa49ace99f43eb0244603
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86113466"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86520293"
 ---
 # <a name="retrieve-operations"></a>Pobieranie operacji
 
 > [!NOTE]
-> Interfejsy API portal Cloud Partner są zintegrowane z centrum partnerskim i będą nadal działały po przeprowadzeniu migracji ofert do Centrum partnerskiego. W ramach integracji wprowadzono niewielkie zmiany. Przejrzyj zmiany wymienione w [Portal Cloud partner dokumentacja interfejsu API](./cloud-partner-portal-api-overview.md) , aby upewnić się, że kod będzie nadal działał po migracji do Centrum partnerskiego.
+> Interfejsy API portal Cloud Partner są zintegrowane z usługą i będą nadal działać w centrum partnerskim. Przejście wprowadza niewielkie zmiany. Przejrzyj zmiany wymienione w [dokumentacji interfejsu API Portal Cloud partner](./cloud-partner-portal-api-overview.md) , aby upewnić się, że kod będzie kontynuował pracę po przejściu do Centrum partnerskiego. Interfejsy API CPP powinny być używane tylko dla istniejących produktów, które zostały już zintegrowane przed przejściem do Centrum partnerskiego; nowe produkty powinny używać interfejsów API przekazywania Centrum partnerskiego.
 
 Pobiera wszystkie operacje z oferty lub w celu uzyskania określonej operacji dla określonego operationId. Klient może użyć parametrów zapytania, aby odfiltrować uruchomione operacje.
 
@@ -27,26 +29,23 @@ Pobiera wszystkie operacje z oferty lub w celu uzyskania określonej operacji dl
 
 ```
 
-
 ## <a name="uri-parameters"></a>Parametry identyfikatora URI
 
 |  **Nazwa**          |      **Opis**                                                                                           | **Typ danych** |
 |  ----------------  |     --------------------------------------------------------------------------------------------------------   |  -----------  |
-|  publisherId       |  Identyfikator wydawcy, na przykład`Contoso`                                                                   |  String       |
-|  offerId           |  Identyfikator oferty                                                                                              |  String       |
+|  publisherId       |  Identyfikator wydawcy, na przykład`Contoso`                                                                   |  String (ciąg)       |
+|  offerId           |  Identyfikator oferty                                                                                              |  String (ciąg)       |
 |  operationId       |  Identyfikator GUID, który jednoznacznie identyfikuje operację na ofercie. OperationId może zostać pobrany za pomocą tego interfejsu API i jest również zwracany w nagłówku HTTP odpowiedzi dla dowolnej długotrwałej operacji, takiej jak interfejs API [oferty publikacji](./cloud-partner-portal-api-publish-offer.md) .  |   Guid (identyfikator GUID)   |
 |  api-version       | Najnowsza wersja interfejsu API |    Data      |
 |  |  |  |
 
-## <a name="header"></a>Header
-
+## <a name="header"></a>Nagłówek
 
 |  **Nazwa**          |  **Wartość**           |
 |  ---------------   | -------------------- |
 |  Content-Type      | `application/json`   |
 |  Autoryzacja     | `Bearer YOUR_TOKEN`  |
 |  |  |
-
 
 ## <a name="body-example"></a>Przykład treści
 
@@ -177,7 +176,7 @@ Pobiera wszystkie operacje z oferty lub w celu uzyskania określonej operacji dl
 |  createdDateTime             | UTC DateTime podczas tworzenia operacji                                                       |
 |  lastActionDateTime          | Data i godzina UTC ostatniej aktualizacji dla operacji                                       |
 |  status                      | Stan operacji `not started` \| `running` \| `failed` \| `completed` . W danym momencie może istnieć tylko jedna operacja `running` . |
-|  Błąd                       | Komunikat o błędzie dla operacji zakończonych niepowodzeniem                                                               |
+|  error                       | Komunikat o błędzie dla operacji zakończonych niepowodzeniem                                                               |
 |  |  |
 
 ### <a name="response-step-properties"></a>Właściwości kroku odpowiedzi
@@ -186,7 +185,7 @@ Pobiera wszystkie operacje z oferty lub w celu uzyskania określonej operacji dl
 |  --------------------        |  ------------------------------------------------------------------------------------------------ |
 | estimatedTimeFrame | Szacowany czas trwania tej operacji |
 | identyfikator | Unikatowy identyfikator procesu kroku |
-| description | Opis kroku |
+| opis | Opis kroku |
 | krokname | Przyjazna nazwa kroku |
 | status | Stan kroku, `notStarted` \| `running` \| `failed` albo \|`completed` |
 | z chmury do urządzenia | Wszystkie powiadomienia lub ostrzeżenia wystąpiły w trakcie tego kroku. Tablica ciągów |

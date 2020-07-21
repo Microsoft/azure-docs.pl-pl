@@ -2,14 +2,14 @@
 title: Zbieranie & analizowanie dzienników zasobów
 description: Dowiedz się, jak wysyłać dzienniki zasobów i dane zdarzeń z grup kontenerów w Azure Container Instances do dzienników Azure Monitor
 ms.topic: article
-ms.date: 07/02/2020
+ms.date: 07/13/2020
 ms.author: danlep
-ms.openlocfilehash: d9f3e844e9d82e540776cdcf821770929d238e3f
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: efd71d181059ab395aeec4da364110a42d2cccd3
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259617"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86524016"
 ---
 # <a name="container-group-and-instance-logging-with-azure-monitor-logs"></a>Rejestrowanie grup kontenerów i wystąpień przy użyciu dzienników Azure Monitor
 
@@ -38,11 +38,10 @@ Usługa Azure Container Instances wymaga uprawnień do wysyłania danych do obsz
 Aby uzyskać identyfikator obszaru roboczego analizy dzienników i klucz podstawowy:
 
 1. W witrynie Azure Portal przejdź do obszaru roboczego usługi Log Analytics
-1. W obszarze **Ustawienia**wybierz pozycję **Ustawienia zaawansowane** .
-1. Wybierz **połączone źródła**  >  **serwery z systemem Windows** (lub **serwery z systemem Linux**— identyfikator i klucze są takie same dla obu)
+1. W obszarze **Ustawienia**wybierz pozycję **Zarządzanie agentami** .
 1. Zwróć uwagę na następujące elementy:
-   * **IDENTYFIKATOR OBSZARU ROBOCZEGO**
-   * **KLUCZ PODSTAWOWY**
+   * **Identyfikator obszaru roboczego**
+   * **Klucz podstawowy**
 
 ## <a name="create-container-group"></a>Tworzenie grupy kontenerów
 
@@ -102,7 +101,9 @@ Zaraz po wykonaniu polecenia powinna pojawić się odpowiedź z usługi Azure za
 
 ## <a name="view-logs"></a>Wyświetlanie dzienników
 
-Po wdrożeniu grupy kontenerów, może upłynąć kilka minut (do 10), zanim pierwsze wpisy dziennika będą widoczne w witrynie Azure Portal. Aby wyświetlić dzienniki grupy kontenerów w `ContainerInstanceLog_CL` tabeli:
+Po wdrożeniu grupy kontenerów, może upłynąć kilka minut (do 10), zanim pierwsze wpisy dziennika będą widoczne w witrynie Azure Portal. 
+
+Aby wyświetlić dzienniki grupy kontenerów w `ContainerInstanceLog_CL` tabeli:
 
 1. W witrynie Azure Portal przejdź do obszaru roboczego usługi Log Analytics
 1. W obszarze **Ogólne**wybierz pozycję **dzienniki** .  

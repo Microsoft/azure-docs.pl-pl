@@ -3,12 +3,12 @@ title: Wdrażanie analizy filmów wideo na żywo na urządzeniu IoT Edge — Azu
 description: W tym artykule przedstawiono kroki, które ułatwią wdrożenie analizy wideo na żywo na urządzeniu IoT Edge. Można to zrobić na przykład, jeśli masz dostęp do lokalnej maszyny z systemem Linux i/lub wcześniej utworzono konto Azure Media Services.
 ms.topic: how-to
 ms.date: 04/27/2020
-ms.openlocfilehash: eaaa793bb5b84ac4ae352f242215b8d3e7d56cf1
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 415d22a47e6563e10a1880429537ab182d1ff7a5
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86026971"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86519902"
 ---
 # <a name="deploy-live-video-analytics-on-an-iot-edge-device"></a>Wdrażanie analizy filmów wideo na żywo na urządzeniu IoT Edge
 
@@ -24,7 +24,7 @@ W tym artykule przedstawiono kroki, które ułatwią wdrożenie analizy wideo na
 * [Install the Azure IoT Edge runtime on Debian-based Linux systems (Instalowanie środowiska uruchomieniowego usługi IoT Edge w systemach Linux opartych na rozwiązaniu Debian)](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux)
 * [Tworzenie konta usługi Azure Media Services](../latest/create-account-howto.md)
     * Użyj jednego z następujących regionów: Wschodnie stany USA 2, środkowe stany USA, Północno-środkowe stany USA, Japonia Wschodnia, zachodnie stany USA 2, zachodnio-środkowe stany USA, Kanada Wschodnia, Południowe Zjednoczone Królestwo, Francja środkowa, Francja Południowa, Szwajcaria Północna, Szwajcaria Zachodnia i Japonia Zachodnia.
-    * Zalecane jest użycie kont magazynu ogólnego przeznaczenia w wersji 2 (GPv2).
+    * Zalecane jest użycie kont magazynu ogólnego przeznaczenia w wersji 2 (GPv2)
 
 ## <a name="configuring-azure-resources-for-using-live-video-analytics"></a>Konfigurowanie zasobów platformy Azure do korzystania z analizy filmów wideo na żywo
 
@@ -34,7 +34,7 @@ Zobacz [Tworzenie roli niestandardowego Azure Resource Manager](create-custom-az
 
 ### <a name="set-up-a-premium-streaming-endpoint"></a>Konfigurowanie punktu końcowego przesyłania strumieniowego Premium
 
-Jeśli zamierzasz użyć usługi Live Video Analytics, aby nagrać wideo z chmurą, a następnie odtworzyć ją ponownie, należy zaktualizować usługę Media Service tak, aby korzystała z [punktu końcowego przesyłania strumieniowego Premium](../latest/streaming-endpoint-concept.md#types).  
+Jeśli zamierzasz korzystać z usługi Live Video Analytics do ciągłego rejestrowania wideo w chmurze, a następnie używać [interfejsów API zapytań](playback-recordings-how-to.md#query-api) przed ich odtworzeniem, Zalecamy zaktualizowanie usług multimedialnych do korzystania z [punktu końcowego przesyłania strumieniowego Premium](../latest/streaming-endpoint-concept.md#types).  
 
 Jest to opcjonalny krok. Aby to zrobić, możesz użyć tego polecenia platformy Azure:
 

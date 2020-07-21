@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: anbene
 ms.author: mingshen
 ms.date: 06/17/2020
-ms.openlocfilehash: f97692b604408437bc2ee457bb04ad9b855c7290
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 11deb9b8146924d1a493872219ad85556d13c405
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86119297"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86520276"
 ---
 # <a name="create-configure-and-publish-an-iot-edge-module-offer-in-azure-marketplace"></a>Tworzenie, Konfigurowanie i publikowanie oferty modułu IoT Edge w portalu Azure Marketplace
 
@@ -48,7 +48,7 @@ Wybierz pozycję **Utwórz** , aby wygenerować ofertę i kontynuować.
 
 Na stronie **Przegląd oferty** przedstawiono wizualną reprezentację kroków wymaganych do opublikowania oferty (zarówno ukończonej, jak i nadchodzącej) oraz czasu, w którym należy wykonać poszczególne kroki.
 
-Ta strona zawiera linki do wykonywania operacji na tej ofercie w zależności od dokonanego wyboru. Przykład:
+Ta strona zawiera linki do wykonywania operacji na tej ofercie w zależności od dokonanego wyboru. Na przykład:
 
 - Jeśli oferta jest ofertą typu wersja robocza, [Usuń wersję roboczą](update-existing-offer.md#delete-a-draft-offer))
 - Jeśli oferta jest aktywna [, Zatrzymaj sprzedawanie oferty](update-existing-offer.md#stop-selling-an-offer-or-plan))
@@ -286,17 +286,17 @@ Wybierz pozycję **Zapisz wersję roboczą** przed przejściem do następnej sek
 
 ### <a name="plan-overview"></a>Przegląd planu
 
-Na tej karcie można podać różne opcje planu w ramach tej samej oferty w centrum partnerskim. Te plany były wcześniej nazywane jednostkami SKU lub magazynowaniem. Plany mogą się różnić w zależności od tego, jakie chmury są dostępne, takich jak chmury globalne, chmury rządowe i obraz, do którego odwołuje się plan. Aby wystawić ofertę w portalu Marketplace, należy skonfigurować co najmniej jeden plan.
+Na tej karcie można podać różne opcje planu w ramach tej samej oferty w centrum partnerskim. Plany (dawniej nazywane jednostkami SKU) mogą różnić się od dostępnych chmur, takich jak chmury globalne, chmury rządowe i obraz, do którego odwołuje się plan. Aby wystawić ofertę w portalu Marketplace, należy skonfigurować co najmniej jeden plan.
 
 Po utworzeniu planów na karcie **Przegląd planu** jest wyświetlana wartość:
 
 - Nazwy planów
 - Model cen
-- Dostępność w chmurze (globalna lub rządowa)
+- Regiony platformy Azure (globalne lub rządowe)
 - Bieżący stan publikowania
 - Wszystkie dostępne akcje
 
-Akcje dostępne w omówieniu planu różnią się w zależności od bieżącego stanu planu. Obejmują one:
+Akcje dostępne w omówieniu planu różnią się w zależności od bieżącego stanu planu. Dostępne są następujące ustawienia:
 
 - **Usuń wersję roboczą**: Jeśli plan jest stanem wersja robocza.
 - **Zatrzymaj sprzedawanie planu**: Jeśli stan planu jest opublikowany na żywo.
@@ -329,7 +329,7 @@ Wybierz opcję [Azure Government](../../azure-government/documentation-governmen
 
 #### <a name="azure-government-certifications"></a>Certyfikaty Azure Government
 
-Ta opcja jest widoczna tylko wtedy, gdy **Azure Government** jest wybrana w obszarze **dostępność w chmurze**.
+Ta opcja jest widoczna tylko w przypadku wybrania **Azure Government** w obszarze **regiony platformy Azure**.
 
 Usługi Azure Government Services obsługują dane, które podlegają określonym przepisom i wymogom rządowym. Na przykład FedRAMP, NIST 800,171 (DIB), ITAR, IRS 1075, DoD P4 i CJIS. Aby zapewnić świadomość certyfikatów dla tych programów, możesz udostępnić do 100 linków opisujących certyfikaty. Mogą to być linki do Twoich aukcji bezpośrednio w programie lub do własnej witryny sieci Web. Te linki są widoczne tylko dla Azure Government klientów.
 
@@ -465,7 +465,7 @@ Na przykład, jeśli moduł wymaga powiązania portu, Zdefiniuj następujące op
 
 "HostConfig": {"PortBindings": {"5012/TCP": [{"HostPort": "5012"}]}
 
-## <a name="review-and-publish"></a>Przejrzyj i Opublikuj
+## <a name="review-and-publish"></a>Przeglądanie i publikowanie
 
 Po zakończeniu wszystkich wymaganych sekcji oferty możesz przesłać ją do przeglądu i publikacji.
 

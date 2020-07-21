@@ -1,5 +1,5 @@
 ---
-title: 'Regresja lasu decyzyjnego: odwołanie do modułu'
+title: 'Średnia Klasa Perceptron: odwołanie do modułu'
 titleSuffix: Azure Machine Learning
 description: Dowiedz się, jak utworzyć model uczenia maszynowego na podstawie średniego algorytmu Perceptron przy użyciu dwuklasowego modułu Perceptron w Azure Machine Learning.
 services: machine-learning
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
-ms.openlocfilehash: 53e40726a5745263ee2b3cb4ada8671bf65da963
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: daa0cfdedfe634acd2039cd4ec87606d30f7e76f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82137675"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86520582"
 ---
 # <a name="two-class-averaged-perceptron-module"></a>Moduł Perceptron o średniej klasie
 

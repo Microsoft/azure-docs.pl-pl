@@ -8,12 +8,12 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 09/24/2019
 ms.author: allensu
-ms.openlocfilehash: 2dff916bf005b307f27264ad7a17864fbba50872
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0484bc393ac97dc88fed5858f736f01fc41b507a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85367397"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86521069"
 ---
 # <a name="configure-load-balancing-and-outbound-rules-in-standard-load-balancer-by-using-the-azure-portal"></a>Konfigurowanie równoważenia obciążenia i reguł ruchu wychodzącego w usługa Load Balancer w warstwie Standardowa przy użyciu Azure Portal
 
@@ -44,8 +44,8 @@ W tej sekcji utworzysz moduł równoważenia obciążenia, który będzie równo
     | Grupa zasobów         | Wybierz pozycję **Utwórz nowy** i wpisz **myResourceGroupSLB** w polu tekstowym.|
     | Nazwa                   | **myLoadBalancer**                                   |
     | Region         | Wybierz pozycję **Europa Zachodnia**.                                        |
-    | Typ          | wybierz pozycję **Publiczny**.                                        |
-    | SKU           | Wybierz pozycję **Standardowy**. |
+    | Typ          | Wybierz pozycję **Publiczna**.                                        |
+    | Jednostka SKU           | Wybierz pozycję **Standardowy**. |
     | Publiczny adres IP | Wybierz pozycję**Utwórz nowy**. Jeśli masz istniejący publiczny adres IP, którego chcesz użyć, wybierz pozycję **Użyj istniejącej**.  Istniejący publiczny adres IP musi być **standardową** jednostką SKU.  Podstawowe publiczne adresy IP nie są zgodne ze **standardowym** modułem równoważenia obciążenia jednostki SKU.  |
     | Nazwa publicznego adresu IP              | Wpisz **myPublicIP** w polu tekstowym.|
     | Strefa dostępności | Wybierz pozycję **strefa nadmiarowa** , aby utworzyć odporną Load Balancer. Aby utworzyć strefę Load Balancer, wybierz określoną strefę z 1, 2 lub 3 |
@@ -84,7 +84,7 @@ Sonda kondycji służy do monitorowania stanu aplikacji. Sonda kondycji dodaje l
     | Nazwa | Wprowadź **myHealthProbe**. |
     | Protokół | Wybierz pozycję **http**. |
     | Port | Wprowadź **80**.|
-    | Interval | Wprowadź **15** dla liczby **interwałów** (w sekundach) między kolejnymi próbami sondowania. |
+    | Interwał | Wprowadź **15** dla liczby **interwałów** (w sekundach) między kolejnymi próbami sondowania. |
     | Próg złej kondycji | Wybierz **2** dla liczby **progów złej kondycji** lub kolejnych niepowodzeń sondy, które muszą wystąpić, zanim maszyna wirtualna zostanie uznana za złą.|
     | | |
 4. Wybierz przycisk **OK**.
@@ -109,12 +109,12 @@ W poniższej sekcji utworzysz:
     | Ustawienie | Wartość |
     | ------- | ----- |
     | Nazwa | Wprowadź **myHTTPRule**. |
-    | Protokół | wybierz pozycję **TCP**. |
+    | Protokół | Wybierz pozycję **TCP**. |
     | Port | Wprowadź **80**.|
     | Port zaplecza | Wprowadź **80**. |
     | Pula zaplecza | Wybierz pozycję **myBackendPool**.|
     | Sonda kondycji | Wybierz pozycję **myHealthProbe**. |
-    | Utwórz niejawne reguły wychodzące | Wybierz **nr**. Utworzymy reguły ruchu wychodzącego w dalszej części przy użyciu dedykowanego publicznego adresu IP. |
+    | Utwórz niejawne reguły wychodzące | Wybierz pozycję **Nie**. Utworzymy reguły ruchu wychodzącego w dalszej części przy użyciu dedykowanego publicznego adresu IP. |
 4. Pozostaw pozostałe wartości domyślne, a następnie wybierz przycisk **OK**.
 
 ## <a name="create-outbound-rule-configuration"></a>Utwórz konfigurację reguły ruchu wychodzącego
@@ -132,8 +132,8 @@ Reguły ruchu wychodzącego modułu równoważenia obciążenia Skonfiguruj wych
     | ------- | ----- |
     | Nazwa | Wprowadź **LoadBalancerFrontEndOutbound**. |
     | Wersja protokołu IP | Wybierz pozycję **IPv4**. |
-    | Typ adresu IP | Wybierz pozycję **adres IP**.|
-    | Publiczny adres IP | Wybierz pozycję**Utwórz nowy**. W polu **Dodaj publiczny adres IP**wprowadź **myPublicIPOutbound**.  Wybierz przycisk **OK**. |
+    | Typ adresu IP | Wybierz **adres IP** lub **prefiks IP**.|
+    | Publiczny adres IP | Wybierz pozycję**Utwórz nowy**. </br> W polu **Dodaj publiczny adres IP**wprowadź **myPublicIPOutbound**. </br> W przypadku używania prefiksu IP w obszarze **Dodawanie publicznego prefiksu adresu IP**wprowadź **myPublicIPPrefixOutbound**. Wybierz **rozmiar prefiksu** dla publicznego PREFIKSU adresu IP </br> Wybierz przycisk **OK**.  |
 
 4. Wybierz pozycję **Dodaj**.
 
@@ -157,7 +157,7 @@ Reguły ruchu wychodzącego modułu równoważenia obciążenia Skonfiguruj wych
     | ------- | ----- |
     | Nazwa | Wprowadź **myOutboundRule**. |
     | Adres IP frontonu | Wybierz pozycję **LoadBalancerFrontEndOutbound**. |
-    | Limit czasu bezczynności (minuty) | Przesuń suwak do * * 15 minut.|
+    | Limit czasu bezczynności (minuty) | Przesuń suwak do **15 minut**.|
     | Resetowanie protokołu TCP | Wybierz pozycję **Włączone**.|
     | Pula zaplecza | Wybierz **myBackendPoolOutbound** |
     | Alokacja portu — alokacja portu > | Wybierz pozycję **ręcznie wybierz liczbę portów wychodzących** |

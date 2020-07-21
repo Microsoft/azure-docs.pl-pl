@@ -8,11 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 03/13/2020
 ms.author: memildin
-ms.openlocfilehash: c30fef5c82f831365a11bcb14559b0914a9eda4c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7b0fbb7c4f680f9d732a63fff7b0b317c6cf1511
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84299948"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86519701"
 ---
 # <a name="export-security-alerts-and-recommendations"></a>Eksportowanie alertów zabezpieczeń i zaleceń
 
@@ -28,7 +29,6 @@ Za pomocą tych narzędzi możesz:
 
 
 
-
 ## <a name="availability"></a>Dostępność
 
 - Stan wydania: **ogólnie dostępny**
@@ -36,10 +36,7 @@ Za pomocą tych narzędzi możesz:
     - **Czytelnik** w subskrypcji zawierającej konfigurację eksportu
     - **Rola administratora zabezpieczeń** w grupie zasobów (lub **właściciela**)
     - Musi mieć również uprawnienia do zapisu dla zasobu docelowego
-- Połączeń 
-    - ✔ Chmury komercyjne
-    - ✔ US Gov
-    - ✘ Chiny gov, inne gov
+- Chmury: ✔ chmury komercyjne ✔ US Gov ✘ Chiny gov, inne gov
 
 
 ## <a name="setting-up-a-continuous-export"></a>Konfigurowanie eksportu ciągłego
@@ -142,5 +139,5 @@ W przypadku pokrewnego materiału zapoznaj się z następującą dokumentacją:
 
 - [Dokumentacja usługi Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/)
 - [Dokumentacja usługi Azure wskaźnikowego](https://docs.microsoft.com/azure/sentinel/)
-- [Dokumentacja Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/)
+- [Dokumentacja usługi Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/)
 - [Schematy automatyzacji przepływu pracy i typy danych eksportu ciągłego](https://aka.ms/ASCAutomationSchemas)

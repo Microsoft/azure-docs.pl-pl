@@ -1,9 +1,9 @@
 ---
-title: Azure Media Services kodowanie wysokiej dostępności
-description: Dowiedz się, jak przełączyć się w tryb failover na pomocnicze konto Media Services, jeśli wystąpi awaria lub niepowodzenie centrum danych.
+title: Wysoka dostępność dzięki Media Services i wideo na żądanie (VOD)
+description: Ten artykuł zawiera omówienie usług platformy Azure, których można użyć w celu ułatwienia wysokiej dostępności aplikacji VOD.
 services: media-services
 documentationcenter: ''
-author: juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
@@ -11,53 +11,77 @@ ms.subservice: ''
 ms.workload: ''
 ms.topic: article
 ms.custom: ''
-ms.date: 02/24/2020
-ms.author: juliako
-ms.openlocfilehash: afaa7545fbcbab016249e73a2247817310c5cdfc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/15/2020
+ms.author: inhenkel
+ms.openlocfilehash: 9be5aa48b140ee9eb43141d6699109ef12ebf949
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78934198"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86519988"
 ---
-# <a name="media-services-high-availability-encoding"></a>Media Services kodowanie wysokiej dostępności 
+# <a name="high-availability-with-media-services-and-video-on-demand-vod"></a>Wysoka dostępność dzięki Media Services i wideo na żądanie (VOD)
 
-Usługa kodowania Azure Media Services jest regionalną platformą przetwarzania wsadowego i nie jest obecnie przeznaczona do wysokiej dostępności w ramach jednego regionu. Usługa kodowania obecnie nie zapewnia natychmiastowej pracy awaryjnej usługi, jeśli istnieje regionalna awaria centrum danych lub niepowodzenie podstawowego składnika lub usług zależnych (takich jak Storage, SQL). W tym artykule opisano sposób wdrażania Media Services w celu utrzymania architektury wysokiej dostępności z trybem failover i zapewnienia optymalnej dostępności aplikacji.
+## <a name="high-availability-for-vod"></a>Wysoka dostępność dla VOD
 
-Postępując zgodnie z wytycznymi i najlepszymi rozwiązaniami opisanymi w artykule, należy obniżyć ryzyko błędów, opóźnień i skrócić czas odzyskiwania w przypadku wystąpienia awarii w jednym regionie.
+Istnieje Wzorzec projektowy o wysokiej dostępności o nazwie [geodes](https://docs.microsoft.com/azure/architecture/patterns/geodes) w dokumentacji architektury platformy Azure. Opisano w nim, jak duplikaty zasobów są wdrażane w różnych regionach geograficznych w celu zapewnienia skalowalności i odporności.  Korzystając z usług platformy Azure, można utworzyć taką architekturę, która będzie obejmować wiele zagadnień związanych z projektowaniem wysokiej dostępności, takich jak nadmiarowość, monitorowanie kondycji, równoważenie obciążenia i tworzenie kopii zapasowych i odzyskiwanie danych.  Jedna taka architektura została opisana poniżej ze szczegółowymi informacjami dotyczącymi każdej usługi używanej w rozwiązaniu, a także sposobem użycia poszczególnych usług w celu utworzenia architektury wysokiej dostępności dla aplikacji VOD.
 
-## <a name="how-to-build-a-cross-regional-encoding-system"></a>Jak utworzyć system kodowania między różnymi regionami
+### <a name="sample"></a>Przykład
 
-* [Utwórz](create-account-cli-how-to.md) co najmniej dwa konta Azure Media Services.
+Dostępna jest przykład, która umożliwia zapoznanie się z wysoką dostępnością dzięki Media Services i wideo na żądanie (VOD). Bardziej szczegółowo opisano, jak usługi są używane do scenariusza VOD.  Przykład nie jest przeznaczony do użycia w środowisku produkcyjnym w jego bieżącej postaci.  Uważnie zapoznaj się z przykładowym kodem i Readme, szczególnie w sekcji dotyczącej [trybów awarii](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/master/HighAvailabilityEncodingStreaming) przed ich integracją z aplikacją produkcyjną.  W produkcyjnej implementacji wysokiej dostępności dla wideo na żądanie (VOD) należy również uważnie przejrzeć strategię Content Delivery Network (CDN).  Zapoznaj się z [kodem w serwisie GitHub](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/master/HighAvailabilityEncodingStreaming).
 
-    Te dwa konta muszą znajdować się w różnych regionach. Aby uzyskać więcej informacji, zobacz [regiony, w których jest wdrażana usługa Azure Media Services](https://azure.microsoft.com/global-infrastructure/services/?products=media-services).
-* Przekaż multimedia do tego samego regionu, w którym planujesz przesłać zadanie. Aby uzyskać więcej informacji o sposobie uruchamiania kodowania, zobacz [Tworzenie danych wejściowych zadania z adresu URL https](job-input-from-http-how-to.md) lub [Tworzenie danych wejściowych zadania z pliku lokalnego](job-input-from-local-file-how-to.md).
+## <a name="overview-of-services"></a>Przegląd usług
 
-    Jeśli następnie trzeba ponownie przesłać [zadanie](transforms-jobs-concept.md) do innego regionu, możesz użyć JobInputHttp lub użyć polecenie [copy-BLOB](https://docs.microsoft.com/rest/api/storageservices/Copy-Blob) , aby skopiować dane z kontenera zasobów źródłowych do kontenera zasobów w regionie alternatywnym.
-* Subskrybuj wiadomości JobStateChange na poszczególnych kontach za pośrednictwem Azure Event Grid. Aby uzyskać więcej informacji, zobacz:
+Usługi używane w tej przykładowej architekturze obejmują:
 
-    * [Przykład analizy audio](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/master/AudioAnalytics/AudioAnalyzer) , który pokazuje, jak monitorować zadanie przy użyciu Azure Event Grid, w tym dodawania rezerwy w przypadku opóźnienia komunikatów Azure Event Grid z jakiegoś powodu.
-    * [Schematy Azure Event Grid dla zdarzeń Media Services](media-services-event-schemas.md)
-    * [Rejestrowanie zdarzeń za pośrednictwem Azure Portal lub interfejsu wiersza polecenia](reacting-to-media-services-events.md) (można go również uzyskać za pomocą zestawu SDK EventGrid Management)
-    * [Microsoft. Azure. EVENTGRID SDK](https://www.nuget.org/packages/Microsoft.Azure.EventGrid/) (który obsługuje zdarzenia Media Services natywnie).
+| Ikona | Nazwa | Opis |
+| :--: | ---- | ----------- |
+|![image (obraz)](media/media-services-high-availability-encoding/azure-media-services.svg)| Konto usługi Media Services | **Opis:**<br>Konto Media Services jest punktem początkowym do zarządzania, szyfrowania, kodowania, analizowania i przesyłania strumieniowego zawartości multimedialnej na platformie Azure. Jest ona skojarzona z zasobem konta usługi Azure Storage. Konto i wszystkie powiązane magazyny muszą znajdować się w tej samej subskrypcji platformy Azure.<br><br>**VOD:**<br>Są to usługi używane do kodowania i dostarczania zasobów wideo i audio.  Aby zapewnić wysoką dostępność, należy skonfigurować co najmniej dwa Media Services kont w innym regionie. [Dowiedz się więcej o Azure Media Services](media-services-overview.md). |
+|![image (obraz)](media/media-services-high-availability-encoding/storage-account.svg)| Konto magazynu | **Opis:**<br>Konto usługi Azure Storage zawiera wszystkie obiekty danych usługi Azure Storage: obiektów blob, plików, kolejek, tabel i dysków. Dane są dostępne z dowolnego miejsca na świecie za pośrednictwem protokołu HTTP lub HTTPS.<br><br>Każde konto Media Services w każdym regionie będzie miało konto magazynu w tym samym regionie.<br><br>**VOD:**<br>Dane wejściowe i wyjściowe można przechowywać na potrzeby przetwarzania VOD i przesyłania strumieniowego. [Dowiedz się więcej o usłudze Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-introduction). |
+|![image (obraz)](media/media-services-high-availability-encoding/storage-account-queue.svg)| Kolejka usługi Azure Storage | **Opis:**<br>Azure Queue Storage to usługa do przechowywania dużej liczby komunikatów, do której można uzyskać dostęp z dowolnego miejsca na świecie za pośrednictwem uwierzytelnionego połączenia za pomocą protokołu HTTP lub HTTPS.<br><br>**VOD:**<br>Kolejki mogą służyć do wysyłania i odbierania komunikatów w celu koordynowania działań między różnymi modułami. Przykład używa kolejki usługi Azure Storage, ale platforma Azure udostępnia inne typy kolejek, takich jak Service Bus i Service Fabric niezawodne kolejki, które mogą być lepiej dopasowane do Twoich potrzeb. [Dowiedz się więcej o usłudze Azure Queue](https://docs.microsoft.com/azure/storage/queues/storage-queues-introduction). |
+|![image (obraz)](media/media-services-high-availability-encoding/azure-cosmos-db.svg)| Azure Cosmos DB  | **Opis:**<br>Azure Cosmos DB to globalnie dystrybuowana, wielomodelowa usługa bazy danych firmy Microsoft, która niezależnie skaluje przepływność i magazyn w dowolnej liczbie regionów świadczenia usługi Azure na całym świecie.<br><br>**VOD:**<br>Tabele mogą służyć do przechowywania rekordów stanu wyjścia zadania oraz do śledzenia stanu kondycji każdego wystąpienia Media Services. Można także śledzić/rejestrować stan każdego wywołania interfejsu API Media Services. [Dowiedz się więcej o Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/introduction).  |
+|![image (obraz)](media/media-services-high-availability-encoding/managed-identity.svg)| Tożsamość zarządzana | **Opis:**<br>Tożsamość zarządzana to funkcja usługi Azure AD, która zapewnia automatyczną tożsamość zarządzaną w usłudze Azure AD. Może służyć do uwierzytelniania w dowolnej usłudze, która obsługuje uwierzytelnianie usługi Azure AD, w tym Key Vault, bez zapisywania poświadczeń w kodzie.<br><br>**VOD:**<br>Azure Functions może używać tożsamości zarządzanej do uwierzytelniania w Media Services wystąpieniach w celu nawiązania połączenia z Key Vault. [Dowiedz się więcej o tożsamości zarządzanej](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview). |
+|![image (obraz)](media/media-services-high-availability-encoding/key-vault.svg)| Key Vault | **Opis:**<br>Azure Key Vault może służyć do bezpiecznego przechowywania i ścisłego kontrolowania dostępu do tokenów, haseł, certyfikatów, kluczy interfejsu API i innych wpisów tajnych. Można go również użyć jako rozwiązania do zarządzania kluczami. Usługa Azure Key Vault ułatwia tworzenie i kontrolowanie kluczy szyfrowania używanych do szyfrowania danych. Może ona łatwo udostępniać i wdrażać publiczne i prywatne certyfikaty Transport Layer Security/SSL (TLS/SSL) do użycia z platformą Azure i zasobami podłączonymi wewnętrznie. Wpisy tajne i klucze mogą być chronione przez oprogramowanie lub FIPS 140-2 poziom 2 sprawdzony sprzętowych modułów zabezpieczeń.<br><br>**VOD:**<br>Key Vault można użyć do skonfigurowania zasad dostępu dla nazwy głównej usługi dla aplikacji.  Może służyć do przechowywania parametrów połączenia na kontach magazynu. Używamy Key Vault do przechowywania parametrów połączenia do kont magazynu i usługi Cosmos DB. Za pomocą Key Vault można również przechowywać ogólną konfigurację klastra. Dla każdego wystąpienia usługi multimedialnej można przechowywać Identyfikator subskrypcji, nazwę grupy zasobów i nazwę konta. Aby uzyskać więcej informacji, zobacz jak jest używany w przykładzie. [Dowiedz się więcej o Key Vault](https://docs.microsoft.com/azure/key-vault/general/overview). |
+|![image (obraz)](media/media-services-high-availability-encoding/function-app.svg)| Azure Functions | **Opis:**<br>Uruchamianie małych fragmentów kodu (nazywanych "funkcjami") bez obaw o infrastrukturę aplikacji z Azure Functions. [Dowiedz się więcej o Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview).<br><br>**VOD:**<br>Azure Functions może służyć do przechowywania modułów aplikacji VOD.  Moduły dla aplikacji VOD mogą obejmować:<br><br>**Moduł planowania zadań**<br>Moduł planowania zadań umożliwia przesyłanie nowych zadań do klastra Media Services (co najmniej dwa wystąpienia w różnych regionach). Będzie on śledzić stan kondycji każdego wystąpienia Media Services i przesłać nowe zadanie do następnego wystąpienia w dobrej kondycji.<br><br>**Moduł stanu zadania**<br>Moduł stanu zadania nasłuchuje zdarzeń wyjściowego stanu zadania pochodzących z usługi Azure Event Grid. Zdarzenia są przechowywane w magazynie zdarzeń, aby zminimalizować liczbę wywołań interfejsów API Media Services przez resztę modułów.<br><br>**Moduł kondycji wystąpienia**<br>Ten moduł śledzi przesłane zadania i określa stan kondycji dla każdego wystąpienia Media Services. Spowoduje to śledzenie ukończonych zadań, zakończonych niepowodzeniem zadań i zadań, które nigdy nie zostały zakończone.<br><br>**Moduł aprowizacji**<br>Ten moduł spowoduje udostępnienie przetworzonych zasobów. Spowoduje to skopiowanie danych zasobów do wszystkich wystąpień Media Services i skonfigurowanie usługi frontonu platformy Azure w celu zapewnienia, że zasoby mogą być przesyłane strumieniowo nawet wtedy, gdy niektóre wystąpienia Media Services niedostępne. Ponadto można skonfigurować lokalizatory przesyłania strumieniowego.<br><br>**Moduł weryfikacji zadania**<br>Ten moduł śledzi każde przesłane zadanie, ponownie przesyła zadania zakończone niepowodzeniem i przeprowadza czyszczenie danych zadania po pomyślnym zakończeniu zadania.  |
+|![image (obraz)](media/media-services-high-availability-encoding/application-service.svg)| App Service (i planowanie)  | **Opis:**<br>Azure App Service to usługa oparta na protokole HTTP do hostowania aplikacji sieci Web, interfejsów API REST i zaplecza mobilnego. Obsługuje platformę .NET, .NET Core, Java, Ruby, Node.js, PHP lub Python. Aplikacje są uruchamiane i skalowane w środowisku opartym na systemie Windows i Linux.<br><br>**VOD:**<br>Każdy moduł będzie hostowany przez App Service. [Dowiedz się więcej o App Service](https://docs.microsoft.com/azure/app-service/overview). |
+|![image (obraz)](media/media-services-high-availability-encoding/azure-front-door.svg)| Azure Front Door | **Opis:**<br>Drzwi frontonu platformy Azure służą do definiowania, zarządzania i monitorowania globalnego routingu ruchu internetowego przez optymalizację w celu uzyskania najlepszej wydajności i szybkiej globalnej pracy awaryjnej w celu zapewnienia wysokiej dostępności.<br><br>**VOD:**<br>Drzwi frontonu platformy Azure mogą służyć do kierowania ruchu do punktów końcowych przesyłania strumieniowego. [Dowiedz się więcej na temat zewnętrznych drzwi platformy Azure](https://docs.microsoft.com/azure/frontdoor/front-door-overview).  |
+|![image (obraz)](media/media-services-high-availability-encoding/event-grid-subscription.svg)| Azure Event Grid | **Opis:**<br>Utworzone dla architektur opartych na zdarzeniach, Event Grid ma wbudowaną obsługę zdarzeń pochodzących z usług platformy Azure, takich jak obiekty blob magazynu i grupy zasobów. Ma również obsługę niestandardowych zdarzeń tematu. Filtry mogą służyć do kierowania określonych zdarzeń do różnych punktów końcowych, multiemisji z wieloma punktami końcowymi i zapewnienia niezawodnego dostarczania zdarzeń. Maksymalizuje dostępność poprzez natywne rozmieszczenie w wielu domenach błędów w każdym regionie i w strefach dostępności.<br><br>**VOD:**<br>Event Grid może służyć do śledzenia wszystkich zdarzeń aplikacji i przechowywania ich w celu utrwalenia stanu zadania. [Dowiedz się więcej o Azure Event Grid](https://docs.microsoft.com/azure/event-grid/overview). |
+|![image (obraz)](media/media-services-high-availability-encoding/application-insights.svg)| Application Insights | **Opis:** <br>Application Insights, funkcja Azure Monitor, to rozszerzalna usługa zarządzania wydajnością aplikacji (APM) dla deweloperów i informatyków DevOps. Służy do monitorowania aplikacji na żywo. Wykrywa anomalie wydajności i zawiera narzędzia analityczne służące do diagnozowania problemów i zrozumienia, co użytkownicy robią z aplikacją. Usługa ta pomaga w ciągłym udoskonalaniu wydajności i użyteczności tworzonych rozwiązań.<br><br>**VOD:**<br>Wszystkie dzienniki mogą być wysyłane do Application Insights. Można zobaczyć, jakie wystąpienie przetworzy każde zadanie przez wyszukiwanie pomyślnie utworzonych komunikatów zadań. Może zawierać wszystkie przesłane metadane zadania, takie jak unikatowy identyfikator i informacje o nazwie wystąpienia. [Dowiedz się więcej o Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview). |
+## <a name="architecture"></a>Architektura
 
-    Możesz również wykorzystać zdarzenia Event Grid za pośrednictwem Azure Functions.
-* Podczas tworzenia [zadania](transforms-jobs-concept.md):
+Ten diagram wysokiego poziomu przedstawia architekturę podanej przykładu, aby rozpocząć pracę z wysoką dostępnością i usługami Media Services.
 
+[![Diagram ](media/media-services-high-availability-encoding/high-availability-architecture.svg) architektury High Level wideo na żądanie (VOD)](media/media-services-high-availability-encoding/high-availability-architecture.svg#lightbox)
+
+## <a name="best-practices"></a>Najlepsze rozwiązania
+
+### <a name="regions"></a>Regiony
+
+* [Utwórz](https://review.docs.microsoft.com/azure/media-services/latest/create-account-cli-how-to) co najmniej dwa konta Azure Media Services. Te dwa konta muszą znajdować się w różnych regionach. Aby uzyskać więcej informacji, zobacz [regiony, w których jest wdrażana usługa Azure Media Services](https://azure.microsoft.com/global-infrastructure/services/?products=media-services).
+* Przekaż multimedia do tego samego regionu, w którym planujesz przesłać zadanie. Aby uzyskać więcej informacji o sposobie uruchamiania kodowania, zobacz [Tworzenie danych wejściowych zadania z adresu URL https](https://review.docs.microsoft.com/azure/media-services/latest/job-input-from-http-how-to) lub [Tworzenie danych wejściowych zadania z pliku lokalnego](https://review.docs.microsoft.com/azure/media-services/latest/job-input-from-local-file-how-to).
+* Jeśli następnie trzeba ponownie przesłać [zadanie](https://review.docs.microsoft.com/azure/media-services/latest/transforms-jobs-concept) do innego regionu, można użyć `JobInputHttp` lub użyć, `Copy-Blob` Aby skopiować dane z kontenera zasobów źródłowych do kontenera zasobów w regionie alternatywnym.
+
+### <a name="monitoring"></a>Monitorowanie
+
+* Subskrybuj `JobStateChange` wiadomości na poszczególnych kontach za pośrednictwem Azure Event Grid.
+    * [Rejestrowanie zdarzeń](https://review.docs.microsoft.com/azure/media-services/latest/reacting-to-media-services-events) za pośrednictwem Azure Portal lub interfejsu wiersza polecenia (można go również uzyskać za pomocą zestawu SDK EventGrid Management)
+    * Użyj [zestawu SDK Microsoft. Azure. EventGrid](https://www.nuget.org/packages/Microsoft.Azure.EventGrid/) (który natywnie obsługuje zdarzenia Media Services).
+    * Możesz również wykorzystać zdarzenia Event Grid za pośrednictwem Azure Functions.
+
+    Więcej informacji:
+
+    * Zobacz [przykład analizy audio](https://review.docs.microsoft.com/azure/media-services/latest/transforms-jobs-concept) , który pokazuje, jak monitorować zadanie przy użyciu Azure Event Grid, w tym dodawanie rezerwy w przypadku opóźnienia komunikatów Azure Event Grid z jakiegoś powodu.
+    * Zapoznaj się ze [schematami Azure Event Grid Media Services zdarzeń](https://review.docs.microsoft.com/azure/media-services/latest/media-services-event-schemas).
+
+* Podczas tworzenia [zadania](https://review.docs.microsoft.com/azure/media-services/latest/transforms-jobs-concept):
     * Losowo wybierz konto z listy obecnie używanych kont (Ta lista będzie zazwyczaj zawierać oba konta, ale w przypadku wykrycia problemów może ono zawierać tylko jedno konto). Jeśli lista jest pusta, Zgłoś alert, aby operator mógł zbadać.
-    * Ogólne wskazówki to wymagana jedna [Jednostka zarezerwowana multimediów](media-reserved-units-cli-how-to.md) na [JobOutput](https://docs.microsoft.com/rest/api/media/jobs/create#joboutputasset) (chyba że używasz [VideoAnalyzerPreset](analyzing-video-audio-files-concept.md) , gdzie 3 jednostki zarezerwowane multimediów na JobOutput).
-    * Pobierz liczbę jednostek zarezerwowanych multimediów (MRUs) dla wybranego konta. Jeśli bieżąca liczba **jednostek zarezerwowanych multimediów** nie jest jeszcze wartością maksymalną, należy dodać liczbę MRUs wymaganych przez zadanie i zaktualizować usługę. Jeśli szybkość przesyłania zadań jest wysoka i często trwa badanie MRUs w celu znalezienia maksymalnego limitu, użyj rozproszonej pamięci podręcznej dla wartości z rozsądnym limitem czasu.
-    * Zachowaj liczbę zadań numerów porządkowych określających.
-
-* Gdy program obsługi JobStateChange pobiera powiadomienie o osiągnięciu zaplanowanego stanu zadania, należy zarejestrować czas wprowadzania stanu harmonogramu oraz używanego regionu/konta.
-* Gdy program obsługi JobStateChange pobiera powiadomienie, że zadanie osiągnęło stan przetwarzania, Oznacz rekord dla zadania jako przetwarzanie.
-* Gdy program obsługi JobStateChange pobiera powiadomienie, że zadanie osiągnęło stan zakończono/błąd/Anulowano, Oznacz rekord dla zadania jako końcowy i zmniejsz liczbę zadań numerów porządkowych określających. Pobierz liczbę jednostek zarezerwowanych multimediów dla wybranego konta i porównaj bieżący numer MRU z liczbą zadań numerów porządkowych określających. Jeśli liczba numerów porządkowych określających jest mniejsza niż liczba MRU, Zmniejsz ją i zaktualizuj usługę.
+    * Utwórz rekord, aby śledzić każde zadanie numerów porządkowych określających oraz używane region/konto.
+* Gdy `JobStateChange` program obsługi otrzyma powiadomienie o osiągnięciu zaplanowanego stanu zadania, należy zarejestrować czas wejścia w stan zaplanowany oraz używany region/konto.
+* Gdy `JobStateChange` program obsługi pobierze powiadomienie, że zadanie osiągnęło stan przetwarzania, Oznacz rekord dla zadania jako przetwarzanie i zanotuj czas, w którym wprowadza stan przetwarzania.
+* Gdy `JobStateChange` program obsługi pobierze powiadomienie, że zadanie osiągnęło stan końcowy (zakończono/zmieniono błąd/anulowano), Oznacz rekord dla zadania odpowiednio.
 * Oddzielny proces, który okresowo przegląda rekordy zadań
-    
-    * Jeśli masz zadania w stanie zaplanowanym, które nie zostały zaawansowane do stanu przetwarzania w rozsądnym czasie dla danego regionu, Usuń ten region z listy obecnie używanych kont.  W zależności od wymagań firmy można zdecydować, aby anulować te zadania od razu i ponownie przesłać je do innego regionu. Możesz też udostępnić im więcej czasu, aby przejść do następnego stanu.
-    * W zależności od liczby jednostek zarezerwowanych multimediów skonfigurowanych na koncie i szybkości przesyłania mogą istnieć również zadania w stanie umieszczonym w kolejce, gdy system nie został jeszcze pobrany do przetwarzania.  Jeśli lista zadań w stanie umieszczonych w kolejce rośnie poza akceptowalnym limitem w regionie, te zadania można anulować i przesłać do innego regionu.  Jednak może to być objaw braku wystarczającej liczby jednostek zarezerwowanych multimediów skonfigurowanych na koncie dla bieżącego obciążenia.  W razie potrzeby możesz zażądać wyższego przydziału jednostek zarezerwowanych multimediów w ramach pomocy technicznej systemu Azure.
-    * Jeśli region został usunięty z listy kont, Monitoruj go pod kątem odzyskiwania przed dodaniem go z powrotem do listy.  Kondycja regionalna może być monitorowana za pośrednictwem istniejących zadań w regionie (jeśli nie zostały anulowane i ponownie przesłane), przez dodanie konta z powrotem do listy po upływie okresu oraz przez operatorów monitorujących usługę Azure Communications o awarii, która może mieć wpływ na Azure Media Services.
-    
-Jeśli okaże się, że liczba MRU jest migotanie w górę i w dół, Przenieś logikę zmniejszania do zadania okresowego. Zapoznaj się z logiką przesyłania przed zadaniami Porównaj liczbę numerów porządkowych określających z bieżącą liczbą MRU, aby sprawdzić, czy wymaga ona aktualizacji MRUs.
+    * Jeśli masz zadania w stanie zaplanowanym, które nie zostały zaawansowane do stanu przetwarzania w rozsądnym czasie dla danego regionu, Usuń ten region z listy obecnie używanych kont. W zależności od wymagań firmy można zdecydować, aby anulować te zadania od razu i ponownie przesłać je do innego regionu. Możesz też udostępnić im więcej czasu, aby przejść do następnego stanu.
+    * Jeśli region został usunięty z listy kont, Monitoruj go pod kątem odzyskiwania przed dodaniem go z powrotem do listy. Kondycja regionalna może być monitorowana za pośrednictwem istniejących zadań w regionie (jeśli nie zostały anulowane i ponownie przesłane), przez dodanie konta z powrotem do listy po upływie okresu oraz przez operatorów monitorujących usługę Azure Communications o awarii, która może mieć wpływ na Azure Media Services.
 
 ## <a name="next-steps"></a>Następne kroki
 

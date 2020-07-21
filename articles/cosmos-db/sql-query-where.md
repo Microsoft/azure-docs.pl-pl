@@ -6,11 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/06/2020
 ms.author: tisande
-ms.openlocfilehash: 483a0533eafc81ef8698d260a753062ae074f6d4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ceffb203ccc2cca1ff6e1c53644cde955c2e0acb
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78898773"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86523506"
 ---
 # <a name="where-clause-in-azure-cosmos-db"></a>Klauzula WHERE w Azure Cosmos DB
 
@@ -72,9 +73,9 @@ Można użyć następujących obsługiwanych operatorów binarnych:
 |---------|---------|
 |Arytmetyczny | +,-,*,/,% |
 |Bitowy    | \|, &, ^, <<, >>, >>> (wypełnienie zerami, przesunięcie w prawo) |
-|Wartości logiczne    | AND, OR, NOT      |
+|Logiczny    | AND, OR, NOT      |
 |Porównanie | =, !=, &lt;, &gt;, &lt;=, &gt;=, <> |
-|String     |  \|\| (łączenie) |
+|String (ciąg)     |  \|\| (łączenie) |
 
 Następujące zapytania używają operatorów binarnych:
 
@@ -104,7 +105,7 @@ Można również użyć operatorów jednoargumentowych +,-, ~, a nie w zapytania
     WHERE (-c.grade = -5)  -- matching grades == 5
 ```
 
-Można również użyć odwołań do właściwości w zapytaniach. Na przykład `SELECT * FROM Families f WHERE f.isRegistered` zwraca element JSON zawierający Właściwość `isRegistered` o wartości równej `true` . Każda inna wartość, taka jak,,,,, `false` `null` `Undefined` `<number>` `<string>` `<object>` lub `<array>` , wyklucza element z wyniku.
+Można również użyć odwołań do właściwości w zapytaniach. Na przykład `SELECT * FROM Families f WHERE f.isRegistered` zwraca element JSON zawierający Właściwość `isRegistered` o wartości równej `true` . Każda inna wartość, taka jak,,,,, `false` `null` `Undefined` `<number>` `<string>` `<object>` lub `<array>` , wyklucza element z wyniku. Ponadto można użyć `IS_DEFINED` funkcji sprawdzania typu w celu wykonywania zapytań na podstawie obecności lub braku danej właściwości JSON. Na przykład `SELECT * FROM Families f WHERE NOT IS_DEFINED(f.isRegistered)` zwraca dowolny element JSON, który nie ma wartości dla `isRegistered` .
 
 ## <a name="next-steps"></a>Następne kroki
 

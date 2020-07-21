@@ -3,11 +3,12 @@ title: Konfigurowanie dostępu do rejestru publicznego
 description: Skonfiguruj reguły adresów IP, aby umożliwić dostęp do usługi Azure Container Registry z wybranych publicznych adresów IP lub zakresów adresów.
 ms.topic: article
 ms.date: 05/19/2020
-ms.openlocfilehash: dc0514fbe7d3e01914965cee5dc547172d4435a4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 967f27c05301ff339765706d0b3088ffcbaed1f2
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83702087"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86523829"
 ---
 # <a name="configure-public-ip-network-rules"></a>Konfigurowanie reguł sieci publicznych adresów IP
 
@@ -74,7 +75,7 @@ az acr update --name myContainerRegistry --public-network-enabled false
 ### <a name="disable-public-access---portal"></a>Wyłącz dostęp publiczny — Portal
 
 1. W portalu przejdź do rejestru kontenerów, a następnie wybierz pozycję **ustawienia > sieci**.
-1. Na karcie **dostęp publiczny** w obszarze **Zezwalaj na dostęp do sieci publicznej**wybierz pozycję **wyłączone**. Następnie wybierz pozycję **Zapisz**.
+1. Na karcie **dostęp publiczny** w obszarze **Zezwalaj na dostęp do sieci publicznej**wybierz pozycję **wyłączone**. Następnie wybierz przycisk **Zapisz**.
 
 ![Wyłącz dostęp publiczny][acr-access-disabled]
 
@@ -97,9 +98,16 @@ az acr update --name myContainerRegistry --public-network-enabled true
 ### <a name="restore-public-access---portal"></a>Przywracanie publicznego dostępu — Portal
 
 1. W portalu przejdź do rejestru kontenerów, a następnie wybierz pozycję **ustawienia > sieci**.
-1. Na karcie **dostęp publiczny** w obszarze **Zezwalaj na dostęp do sieci publicznej**wybierz pozycję **wszystkie sieci**. Następnie wybierz pozycję **Zapisz**.
+1. Na karcie **dostęp publiczny** w obszarze **Zezwalaj na dostęp do sieci publicznej**wybierz pozycję **wszystkie sieci**. Następnie wybierz przycisk **Zapisz**.
 
 ![Publiczny dostęp ze wszystkich sieci][acr-access-all-networks]
+
+## <a name="troubleshoot"></a>Rozwiązywanie problemów
+
+W przypadku ustawienia reguły sieci publicznej lub odmowy dostępu do rejestru próby zalogowania się do rejestru z niedozwolonej sieci publicznej zakończą się niepowodzeniem. Dostęp klienta za pośrednictwem serwera proxy HTTPS również zakończy się niepowodzeniem, jeśli nie ustawiono reguły dostępu dla serwera proxy. Zobaczysz komunikat o błędzie podobny do `Error response from daemon: login attempt failed with status: 403 Forbidden` lub `Looks like you don't have access to registry` .
+
+Te błędy mogą również wystąpić, jeśli używasz serwera proxy HTTPS, który jest dozwolony przez regułę dostępu do sieci, ale serwer proxy nie jest prawidłowo skonfigurowany w środowisku klienta. Upewnij się, że zarówno klient platformy Docker, jak i demon platformy Docker są skonfigurowane pod kątem zachowania serwera proxy. Aby uzyskać szczegółowe informacje, zobacz [serwer proxy HTTP/HTTPS](https://docs.docker.com/config/daemon/systemd/#httphttps-proxy) w dokumentacji platformy Docker.
+
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -8,14 +8,14 @@ ms.date: 05/05/2020
 ms.topic: conceptual
 ms.service: digital-twins
 services: digital-twins
-ms.openlocfilehash: 9822044de53f5f74df302e05e0e6c5cd06f3eb92
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 31da6a6b5375571f53cd7b478e957cc350ef591c
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84737159"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86522350"
 ---
-# <a name="summary-of-customer-data-request-features"></a>Podsumowanie funkcji żądania danych klienta
+# <a name="azure-digital-twins-customer-data-request-features"></a>Funkcje żądania danych klienta Digital bliźniaczych reprezentacji na platformie Azure
 
 Usługa Azure Digital bliźniaczych reprezentacji to platforma dewelopera służąca do tworzenia bezpiecznych reprezentacji cyfrowych w środowisku biznesowym. Reprezentacje są prowadzone przez dane stanu na żywo ze źródeł danych wybranych przez użytkowników.
 

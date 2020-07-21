@@ -7,12 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/30/2020
-ms.openlocfilehash: 1f65feee8806b0c8dc85e14cdcd6e2687e040456
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/14/2020
+ms.openlocfilehash: 00080322b4fa474e5095d40afb041134e1a85fe7
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84119223"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86519738"
 ---
 # <a name="choose-a-pricing-tier-for-azure-cognitive-search"></a>Wybierz warstwę cenową dla usługi Azure Wyszukiwanie poznawcze
 
@@ -22,14 +23,17 @@ Większość klientów zaczyna się od warstwy Bezpłatna, aby umożliwić jej o
 
 ## <a name="feature-availability-by-tier"></a>Dostępność funkcji według warstwy
 
-Prawie każda funkcja jest dostępna w każdej warstwie, w tym bezpłatna, ale funkcja lub przepływ pracy intensywnie korzystający z zasobów może nie współpracować prawidłowo, chyba że zapewnisz odpowiednią pojemność. Na przykład [wzbogacanie systemu AI](cognitive-search-concept-intro.md) ma długotrwałe umiejętności, które przekraczają limit czasu dla bezpłatnej usługi, chyba że zestaw danych jest mały.
-
 W poniższej tabeli opisano ograniczenia funkcji związanych z warstwą.
 
-| Cecha | Ograniczenia |
+| Cechy | Ograniczenia |
 |---------|-------------|
 | [indeksatorów](search-indexer-overview.md) | Indeksatory nie są dostępne w systemie S3 HD. |
+| [Wzbogacanie sztucznej inteligencji](search-security-manage-encryption-keys.md) | Działa w warstwie Bezpłatna, ale nie jest zalecana. |
 | [Klucze szyfrowania zarządzane przez klienta](search-security-manage-encryption-keys.md) | Niedostępne w warstwie Bezpłatna. |
+| [Dostęp do zapory IP](service-configure-firewall.md) | Niedostępne w warstwie Bezpłatna. |
+| [Integracja z prywatnym łączem platformy Azure](service-create-private-endpoint.md) | Niedostępne w warstwie Bezpłatna. |
+
+Większość funkcji jest dostępnych w każdej warstwie, w tym bezpłatna, ale funkcje intensywnie korzystające z zasobów mogą nie być dobrze, chyba że zapewnisz wystarczającą pojemność. Na przykład [wzbogacanie systemu AI](cognitive-search-concept-intro.md) ma długotrwałe umiejętności, które przekraczają limit czasu dla bezpłatnej usługi, chyba że zestaw danych jest mały.
 
 ## <a name="tiers-skus"></a>Warstwy (SKU)
 
@@ -56,10 +60,10 @@ Więcej informacji o różnych warstwach można znaleźć na [stronie cennika](h
 
 Rozwiązanie utworzone na platformie Azure Wyszukiwanie poznawcze może ponosić koszty w następujący sposób:
 
-+ Stały koszt usługi, uruchamianie 24x7, w minimalnej konfiguracji (jedna partycja i replika)
-+ Koszt przyrostowy podczas skalowania w górę (Dodaj repliki lub partycje)
++ Koszt samej usługi, z systemem 24x7, w minimalnej konfiguracji (jedna partycja i replika)
++ Dodawanie pojemności (repliki lub partycje)
 + Opłaty za przepustowość (wychodzący transfer danych) 
-+ Wyszukiwanie poznawcze (dołączanie Cognitive Services do wzbogacania AI lub korzystania z usługi Azure Storage w sklepie z bazami informacji)
++ Usługi dodatków, takie jak wzbogacanie AI (dołączanie Cognitive Services w umiejętności, które definiują przetwarzanie AI lub przy użyciu usługi Azure Storage dla sklepu z bazami danych) lub do wdrażania usług wyszukiwania w prywatnej sieci wirtualnej
 
 ### <a name="service-costs"></a>Koszty usług
 
@@ -71,7 +75,7 @@ W przypadku szacowania kosztów rozwiązania wyszukiwania należy pamiętać, ż
 
 ### <a name="bandwidth-charges"></a>Opłaty za przepustowość
 
-Korzystanie z [indeksatorów usługi Azure wyszukiwanie poznawcze](search-indexer-overview.md) może wpłynąć na rozliczenia w zależności od lokalizacji usług. Opłaty za wychodzące dane można wyeliminować całkowicie, jeśli utworzysz usługę Azure Wyszukiwanie poznawcze w tym samym regionie, w którym zawarto dane. Poniżej przedstawiono niektóre informacje na [stronie cennika dotyczące przepustowości](https://azure.microsoft.com/pricing/details/bandwidth/):
+Użycie [indeksatorów](search-indexer-overview.md) może mieć wpływ na rozliczenia w zależności od lokalizacji usług. Opłaty za wychodzące dane można wyeliminować całkowicie, jeśli utworzysz usługę Azure Wyszukiwanie poznawcze w tym samym regionie, w którym zawarto dane. Poniżej przedstawiono niektóre informacje na [stronie cennika dotyczące przepustowości](https://azure.microsoft.com/pricing/details/bandwidth/):
 
 + Firma Microsoft nie nalicza opłat za żadne dane przychodzące do żadnej usługi na platformie Azure ani za żadne dane wychodzące z usługi Azure Wyszukiwanie poznawcze.
 + W rozwiązaniach z obsługą wielousług nie jest naliczana opłata za dane przecinające sieć, gdy wszystkie usługi znajdują się w tym samym regionie.
@@ -107,7 +111,7 @@ Większość klientów uzyskuje zaledwie część całkowitej pojemności online
 
 ## <a name="how-to-manage-costs"></a>Jak zarządzać kosztami
 
-Poniższe sugestie mogą pomóc w minimalnym zachowaniu kosztów:
+Poniższe sugestie pomogą Ci obniżyć koszty lub skuteczniej zarządzać kosztami:
 
 + Utwórz wszystkie zasoby w tym samym regionie lub w możliwie najmniejszej liczbie regionów, aby zminimalizować lub wyeliminować opłaty za przepustowość.
 
@@ -140,7 +144,7 @@ Pojemność i koszty uruchomienia usługi są dostępne. Warstwy nakładają lim
 
 Wymagania biznesowe zwykle określają liczbę indeksów, które będą potrzebne. Na przykład może być potrzebny indeks globalny dla dużego repozytorium dokumentów. Lub może być potrzebne wiele indeksów opartych na regionie, aplikacji lub w trakcie pracy z firmą.
 
-Aby określić rozmiar indeksu, należy go [skompilować](search-create-index-portal.md). Jego rozmiar będzie oparty na zaimportowanych danych i konfiguracji indeksu, takich jak włączenie sugestii, filtrowanie i sortowanie. Aby uzyskać więcej informacji na temat wpływu konfiguracji na rozmiar, zobacz [Tworzenie podstawowego indeksu ](search-what-is-an-index.md).
+Aby określić rozmiar indeksu, należy go [skompilować](search-what-is-an-index.md). Jego rozmiar będzie oparty na zaimportowanych danych i konfiguracji indeksu, takich jak włączenie sugestii, filtrowanie i sortowanie.
 
 W przypadku wyszukiwania pełnotekstowego podstawowa struktura danych jest [odwrotną](https://en.wikipedia.org/wiki/Inverted_index) strukturą indeksu, która ma inne cechy niż dane źródłowe. W przypadku odwróconego indeksu rozmiar i złożoność są określane przez zawartość, a nie niekoniecznie ilość danych, które są do niego strumieniowo. Duże źródło danych o wysokiej nadmiarowości może spowodować zmniejszenie indeksu niż mniejszy zestaw danych, który zawiera wysoce zmienną zawartość. Jest to rzadko możliwe do wywnioskowania rozmiaru indeksu na podstawie rozmiaru oryginalnego zestawu danych.
 
@@ -154,7 +158,7 @@ Jednym z metod oszacowania wydajności jest rozpoczęcie od warstwy Bezpłatna. 
 
 + [Utwórz bezpłatną usługę](search-create-service-portal.md).
 + Przygotuj mały reprezentatywny zestaw danych.
-+ [Utwórz początkowy indeks w portalu](search-create-index-portal.md) i zanotuj jego rozmiar. Funkcje i atrybuty mają wpływ na magazyn. Na przykład dodanie sugestii (zapytania wyszukiwania jako typ) spowoduje zwiększenie wymagań dotyczących magazynu. Korzystając z tego samego zestawu danych, można spróbować utworzyć wiele wersji indeksu z różnymi atrybutami każdego pola, aby zobaczyć, jak różnią się wymagania dotyczące magazynu. Aby uzyskać więcej informacji, zobacz ["konsekwencje dotyczące magazynu" w temacie Tworzenie podstawowego indeksu](search-what-is-an-index.md#index-size).
++ [Utwórz początkowy indeks w portalu](search-get-started-portal.md) i zanotuj jego rozmiar. Funkcje i atrybuty mają wpływ na magazyn. Na przykład dodanie sugestii (zapytania wyszukiwania jako typ) spowoduje zwiększenie wymagań dotyczących magazynu. Korzystając z tego samego zestawu danych, można spróbować utworzyć wiele wersji indeksu z różnymi atrybutami każdego pola, aby zobaczyć, jak różnią się wymagania dotyczące magazynu. Aby uzyskać więcej informacji, zobacz ["konsekwencje dotyczące magazynu" w temacie Tworzenie podstawowego indeksu](search-what-is-an-index.md#index-size).
 
 Dzięki przybliżonemu szacunkowi możesz dwukrotnie określić wartość budżetu dla dwóch indeksów (rozwój i produkcja), a następnie wybrać odpowiednią warstwę.
 
@@ -170,7 +174,7 @@ Dedykowane zasoby mogą obsługiwać większe próbkowanie i czasy przetwarzania
     + Zacznij od o godzinie S2 lub nawet S3, Jeśli wiesz, że chcesz mieć indeksowanie dużej skali i ładowanie zapytań.
     + Zacznij od magazynu zoptymalizowanego pod kątem technologii L1 lub L2, jeśli indeksowanie dużej ilości danych jest stosunkowo niskie, podobnie jak w przypadku wewnętrznej aplikacji biznesowej.
 
-1. [Utwórz początkowy indeks](search-create-index-portal.md) , aby określić sposób, w jaki dane źródłowe są tłumaczone na indeks. Jest to jedyny sposób oszacowania rozmiaru indeksu.
+1. [Utwórz początkowy indeks](search-what-is-an-index.md) , aby określić sposób, w jaki dane źródłowe są tłumaczone na indeks. Jest to jedyny sposób oszacowania rozmiaru indeksu.
 
 1. [Monitoruj magazyn, limity usług, woluminy zapytań i opóźnienia](search-monitor-usage.md) w portalu. W portalu są wyświetlane zapytania na sekundę, ograniczone zapytania i opóźnienie wyszukiwania. Wszystkie te wartości mogą pomóc zdecydować, czy wybrano odpowiednią warstwę. 
 

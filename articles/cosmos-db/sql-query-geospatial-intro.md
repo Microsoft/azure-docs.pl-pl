@@ -6,11 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.author: tisande
-ms.openlocfilehash: 59c8b31dcc8594d2cafb2db7832e290b01026f60
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2bb7fd69073dbc960904e8f7b44459ed85e98cdb
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79367588"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86523523"
 ---
 # <a name="geospatial-and-geojson-location-data-in-azure-cosmos-db"></a>Dane lokalizacji geograficznej i GEOJSON w Azure Cosmos DB
 
@@ -20,9 +21,19 @@ Ten artykuł zawiera wprowadzenie do funkcji geoprzestrzennych w Azure Cosmos DB
 * Jak można badać dane geograficzne w Azure Cosmos DB w SQL i LINQ?
 * Jak mogę włączyć lub wyłączyć indeksowanie przestrzenne w Azure Cosmos DB?
 
+## <a name="spatial-data-use-cases"></a>Przypadki użycia danych przestrzennych
+
+Dane geograficzne często obejmują zapytania bliskości, na przykład "Znajdź wszystkie sklepy kawowe w pobliżu mojej bieżącej lokalizacji". Typowe przypadki użycia to:
+
+* Analiza geolokalizacyjna, prowadząca do określonych inicjatyw marketingowych.
+* Personalizacja oparta na lokalizacjach dla wielu branż, takich jak handel detaliczny i opieka medyczna.
+* Ulepszenie logistyczne dla optymalizacji transportowej.
+* Analiza ryzyka, szczególnie w przypadku ubezpieczeń i firm finansowych.
+* Świadomość sytuacji w przypadku alertów i powiadomień.
+
 ## <a name="introduction-to-spatial-data"></a>Wprowadzenie do danych przestrzennych
 
-Dane przestrzenne opisują położenie i kształt obiektów w miejscu. W większości aplikacji odpowiadają one obiektom na dane ziemi i danych geoprzestrzennych. Dane przestrzenne mogą służyć do reprezentowania lokalizacji osoby, miejsca zainteresowania lub granicy miasta lub Lake. Typowe przypadki użycia często obejmują zapytania bliskości, na przykład "Znajdź wszystkie sklepy kawowe w pobliżu mojej bieżącej lokalizacji".
+Dane przestrzenne opisują położenie i kształt obiektów w miejscu. W większości aplikacji odpowiadają one obiektom na dane ziemi i danych geoprzestrzennych. Dane przestrzenne mogą służyć do reprezentowania lokalizacji osoby, miejsca zainteresowania lub granicy miasta lub Lake.
 
 Interfejs API SQL Azure Cosmos DB obsługuje dwa typy danych przestrzennych: typ danych **geometrii** i typ danych **Geografia** .
 

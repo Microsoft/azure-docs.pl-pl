@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 05/26/2020
 ms.author: swmachan
-ms.openlocfilehash: 8fae863c03ccbc17e9ec6621e73ddf475f759569
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: fb907e0b9c923a77c6956723f6df397fabd84da8
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83996214"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86523982"
 ---
 # <a name="translator-v2-to-v3-migration"></a>Migracja z usługi Translator do wersji v3
 
@@ -49,8 +49,8 @@ Poniższa lista metod v2 i V3 identyfikuje metody v3 i interfejsy API, które b�
 | `GetLanguagesForTranslate`     | [Języki](reference/v3-0-languages.md)       |
 | `GetLanguagesForSpeak`      | [Usługa Microsoft Speech](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#text-to-speech)         |
 | `Speak`     | [Usługa Microsoft Speech](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech)          |
-| `Detect`     | [Wykrywanie](reference/v3-0-detect.md)         |
-| `DetectArray`     | [Wykrywanie](reference/v3-0-detect.md)         |
+| `Detect`     | [Powinny](reference/v3-0-detect.md)         |
+| `DetectArray`     | [Powinny](reference/v3-0-detect.md)         |
 | `AddTranslation`     | Funkcja nie jest już obsługiwana       |
 | `AddTranslationArray`    | Funkcja nie jest już obsługiwana          |
 | `BreakSentences`      | [BreakSentence](reference/v3-0-break-sentence.md)       |
@@ -116,10 +116,10 @@ Microsoft Translator v3 domyślnie używa tłumaczenia maszynowego neuronowych. 
 
 Translacja neuronowych z interfejsem API tekstu V3 nie obsługuje korzystania z standardowych kategorii (SMT, Speech, Tech, generalnn).
 
-| |Endpoint|    Zgodność procesora Rodo|    Korzystanie z centrum usługi translator|    Korzystanie z translatora niestandardowego (wersja zapoznawcza)|
-|:-----|:-----|:-----|:-----|:-----|
-|Translator — wersja 2|    api.microsofttranslator.com|    Nie    |Yes    |Nie|
-|Translator w wersji 3|    api.cognitive.microsofttranslator.com|    Yes|    Nie|    Yes|
+| Wersja | Punkt końcowy | Zgodność procesora Rodo | Korzystanie z centrum usługi translator | Korzystanie z translatora niestandardowego (wersja zapoznawcza) |
+| :------ | :------- | :------------------------ | :----------------- | :------------------------------ |
+|Translator — wersja 2|    api.microsofttranslator.com|    Nie    |Tak    |Nie|
+|Translator w wersji 3|    api.cognitive.microsofttranslator.com|    Tak|    Nie|    Tak|
 
 **Translator w wersji 3**
 * Jest ogólnie dostępna i w pełni obsługiwana.

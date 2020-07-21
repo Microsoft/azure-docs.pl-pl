@@ -13,13 +13,14 @@ ms.topic: article
 ms.date: 03/21/2019
 ms.author: kumud
 ms.reviewer: tyao
-ms.openlocfilehash: 98c86d839868eb0714c7106d5267d1c55e6e99d5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 48e2697cb4793f10e7694aa26e29c48a397fe3a5
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83739315"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86521602"
 ---
-# <a name="what-is-geo-filtering-on-a-domain-for-azure-front-door"></a>Co to jest filtrowanie geograficzne domeny w usłudze Azure Front Door?
+# <a name="geo-filtering-on-a-domain-for-azure-front-door"></a>Filtrowanie geograficzne w domenie dla drzwi frontonu platformy Azure
 
 Domyślnie drzwi frontonu platformy Azure reagują na żądania użytkowników, niezależnie od lokalizacji użytkownika wysyłającego żądanie. Jednak w niektórych przypadkach możesz chcieć ograniczyć dostęp do aplikacji sieci Web według kraju/regionu. Usługa Zapora aplikacji sieci Web (WAF) w przód drzwi umożliwia zdefiniowanie zasad przy użyciu niestandardowych reguł dostępu dla określonej ścieżki w punkcie końcowym, aby zezwolić na dostęp z określonych krajów/regionów lub go zablokować. 
 
@@ -175,7 +176,7 @@ Można skonfigurować zasady filtrowania geograficznego dla drzwi z przodu przy 
 | RU | Federacja Rosyjska|
 | RW | Rwanda|
 | SA | Arabia Saudyjska|
-| SD | Sudan|
+| Odchylenie standardowe | Sudan|
 | SE | Szwecja|
 | SG | Singapur|
 | SI | Słowenia|

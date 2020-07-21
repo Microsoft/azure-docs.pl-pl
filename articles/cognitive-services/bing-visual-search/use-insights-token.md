@@ -11,16 +11,24 @@ ms.topic: conceptual
 ms.date: 4/26/2019
 ms.author: scottwhi
 ms.custom: tracking-python
-ms.openlocfilehash: 733eec452501a829d0162b91aca9ece191d68914
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: fc589f53fc10e376479bf54ec408a95dac42db4d
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85611428"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86523965"
 ---
 # <a name="use-an-insights-token-to-get-insights-for-an-image"></a>Korzystanie z tokenu Insights w celu uzyskania szczegółowych informacji dotyczących obrazu
 
-Interfejs API wyszukiwania wizualnego Bing zwraca informacje o udostępnionym obrazie. Obraz można udostępnić przy użyciu adresu URL obrazu, tokenu szczegółowych informacji lub przez przekazanie obrazu. Aby uzyskać informacje o tych opcjach, zobacz [co to jest interfejs API wyszukiwania wizualnego Bing?](overview.md). W tym artykule pokazano, jak używać tokenu usługi Insights. Przykłady pokazujące sposób przekazywania obrazu w celu uzyskania szczegółowych informacji można znaleźć w przewodnikach szybki start ([C#](quickstarts/csharp.md)  |  [Java](quickstarts/java.md)  |  [Node.js](quickstarts/nodejs.md)  |  [Python](quickstarts/python.md)).
+Interfejs API wyszukiwania wizualnego Bing zwraca informacje o udostępnionym obrazie. Obraz można udostępnić przy użyciu adresu URL obrazu, tokenu szczegółowych informacji lub przez przekazanie obrazu. Aby uzyskać informacje o tych opcjach, zobacz [co to jest interfejs API wyszukiwania wizualnego Bing?](overview.md). W tym artykule pokazano, jak używać tokenu usługi Insights. Przykłady pokazujące sposób przekazywania obrazu w celu uzyskania szczegółowych informacji można znaleźć w przewodnikach szybki start:
+
+* ([C#](quickstarts/csharp.md)
+
+* [Java](quickstarts/java.md)
+
+* [Node.js](quickstarts/nodejs.md)
+
+* [Python](quickstarts/python.md)).
 
 W przypadku wysłania wyszukiwanie wizualne Bing tokenu lub adresu URL obrazu, poniżej przedstawiono dane formularza, które należy uwzględnić w treści wpisu. Dane formularza muszą zawierać `Content-Disposition` Nagłówek i należy ustawić jego `name` parametr na wartość "knowledgeRequest". Aby uzyskać szczegółowe informacje na temat `imageInfo` obiektu, zobacz żądanie:
 
@@ -59,7 +67,15 @@ Content-Disposition: form-data; name="knowledgeRequest"
 --boundary_1234-abcd--
 ```
 
-Aby zapoznać się z przykładami korzystającymi z tokenu usługi Insights, zobacz [C#](#use-with-c)  |  [Java](#use-with-java)  |  [Node.js](#use-with-nodejs)  |  [Python](#use-with-python).
+Aby zapoznać się z przykładami korzystającymi z tokenu usługi Insights, zobacz:
+
+* [C#](#use-with-c)
+
+* [Java](#use-with-java)
+
+* [Node.js](#use-with-nodejs)
+
+* [Python](#use-with-python)
 
 ## <a name="use-with-c"></a>Używanie z C #
 
@@ -77,7 +93,7 @@ Aby uruchomić tę aplikację, wykonaj następujące kroki:
 2. Zastąp zawartość Program.cs kodem pokazanym w tym przewodniku Szybki Start.
 3. Zastąp wartość elementu `accessKey` kluczem subskrypcji.
 4. Zastąp `insightsToken` wartość tokenem Insights z odpowiedzi/images/Search.
-5. Uruchom program.
+5. Uruchomisz program.
 
 ```csharp
 using System;
@@ -252,7 +268,7 @@ Aby uruchomić tę aplikację, wykonaj następujące kroki:
 2. Utwórz nowy projekt języka Java w ulubionym środowisku IDE lub edytorze.
 3. Dodaj kod podany w pliku o nazwie `VisualSearch.java`.
 4. Zastąp wartość elementu `subscriptionKey` kluczem subskrypcji.
-5. Uruchom program.
+5. Uruchomisz program.
 
 ```java
 package insightstoken;
@@ -376,7 +392,7 @@ Aby uruchomić tę aplikację, wykonaj następujące kroki:
    ```
 1. Utwórz plik o nazwie GetVisualInsights.js i dodaj do niego następujący kod.
 1. Zastąp wartość elementu `subscriptionKey` kluczem subskrypcji.
-1. Uruchom program.  
+1. Uruchomisz program.  
    ```
    node GetVisualInsights.js
    ```
@@ -431,7 +447,7 @@ Aby uruchomić tę aplikację, wykonaj następujące kroki:
 1. Utwórz nowy projekt języka Python przy użyciu ulubionego środowiska IDE lub edytora.
 2. Utwórz plik o nazwie visualsearch.py i dodaj kod przedstawiony w tym przewodniku Szybki start.
 3. Zastąp wartość elementu `SUBSCRIPTION_KEY` kluczem subskrypcji.
-4. Uruchom program.
+4. Uruchomisz program.
 
 ```python
 """Bing Visual Search example"""

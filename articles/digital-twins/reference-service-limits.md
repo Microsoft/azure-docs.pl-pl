@@ -7,11 +7,12 @@ ms.author: baanders
 ms.date: 05/05/2020
 ms.topic: article
 ms.service: digital-twins
-ms.openlocfilehash: 6b29937e53fd58886d770ec15c803fb814a155ae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 123090cad78af46e88e6493a47d04b97e448f62a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85391812"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86522333"
 ---
 # <a name="service-limits-in-public-preview"></a>Limity usługi w publicznej wersji zapoznawczej
 
@@ -29,4 +30,4 @@ Są to limity usługi Azure Digital bliźniaczych reprezentacji w publicznej wer
 ## <a name="next-steps"></a>Następne kroki
 
 Dowiedz się więcej o bieżącej wersji zapoznawczej usługi Azure Digital bliźniaczych reprezentacji w temacie Omówienie usługi:
-* [Omówienie: co to jest usługa Azure Digital bliźniaczych reprezentacji?](overview.md)
+* [*Omówienie: co to jest usługa Azure Digital bliźniaczych reprezentacji?*](overview.md)

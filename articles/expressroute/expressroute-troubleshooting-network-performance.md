@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 12/20/2017
 ms.author: jonor
 ms.custom: seodec18
-ms.openlocfilehash: 5390915436d38939b83a1599f8fb564cfbd11bdb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e882035af3ac0a086c58b4886fd6999970712df1
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84738247"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86521670"
 ---
 # <a name="troubleshooting-network-performance"></a>Rozwiązywanie problemów z wydajnością sieci
 ## <a name="overview"></a>Omówienie
@@ -53,7 +53,7 @@ Na powyższym diagramie po lewej stronie znajduje się sieć firmowa. W zależno
 
 Ze względu na złożoność tych trzech różnych środowisk sieciowych wysokiego poziomu, często najlepiej jest zacząć od krawędzi i próbować pokazać, gdzie wydajność jest dobra i gdzie ulega obniżeniu. Takie podejście może pomóc w zidentyfikowaniu domeny routingu problemu trzech, a następnie skoncentrowaniu się na tym konkretnym środowisku.
 
-## <a name="tools"></a>narzędzia
+## <a name="tools"></a>Narzędzia
 Większość problemów z siecią można analizować i izolować przy użyciu podstawowych narzędzi, takich jak ping i traceroute. Jest to rzadki przypadek, w którym należy przeanalizować pakiet, np. program Wireshark. Aby pomóc w rozwiązywaniu problemów, zestaw narzędzi Azure Connectivity Toolkit (AzureCT) został opracowany w celu umieszczenia niektórych z tych narzędzi w łatwym pakiecie. W przypadku testów wydajnościowych chcę używać iPerf i PSPing. iPerf to powszechnie używane narzędzie i działa w większości systemów operacyjnych. iPerf jest dobre dla podstawowych testów wydajności i jest dość łatwe w użyciu. PSPing to narzędzie ping opracowane przez program SysInternals. PSPing to prosty sposób na wykonywanie protokołu ICMP i poleceń ping protokołu TCP w jednym z nich. Oba te narzędzia są lekkie i są "zainstalowane" po prostu dodając polecenie ping do pliku do katalogu na hoście.
 
 Wszystkie te narzędzia i metody zostały zawinięte do modułu programu PowerShell (AzureCT), który można zainstalować i użyć.
@@ -160,7 +160,7 @@ Konfiguracja testu:
  - Obwód ExpressRoute 10Gbps Premium w lokalizacji zidentyfikowanej z włączonym prywatną usługą komunikacji równorzędnej.
  - Sieć wirtualna platformy Azure z bramą UltraPerformance w określonym regionie.
  - Maszyna wirtualna w DS5v2 z systemem Windows Server 2016 w sieci wirtualnej. Maszyna wirtualna nie została przyłączona do domeny, została utworzona na podstawie domyślnego obrazu platformy Azure (Brak optymalizacji lub dostosowania) z zainstalowanym programem AzureCT.
- - Wszystkie testy dotyczyły polecenia AzureCT Get-LinkPerformance z 5-minutowym testem obciążenia dla każdego z sześciu przebiegów testowych. Przykład:
+ - Wszystkie testy dotyczyły polecenia AzureCT Get-LinkPerformance z 5-minutowym testem obciążenia dla każdego z sześciu przebiegów testowych. Na przykład:
 
     ```powershell
     Get-LinkPerformance -RemoteHost 10.0.0.1 -TestSeconds 300
@@ -177,17 +177,16 @@ Konfiguracja testu:
 >
 >
 
-| | | | | | |
-|-|-|-|-|-|-|
-|ExpressRoute<br/>Lokalizacja|Azure<br/>Region|Szacowany<br/>Odległość (km)|Opóźnienie|1 sesja<br/>Przepustowość|Maksimum<br/>Przepustowość|
+| ExpressRoute<br/>Lokalizacja|Azure<br/>Region | Szacowany<br/>Odległość (km) | Opóźnienie|1 sesja<br/>Przepustowość | Maksimum<br/>Przepustowość |
+| ------------------------------------------ | --------------------------- |  - | - | - | - |
 | Seattle | Zachodnie stany USA 2        |    191 km |   5 ms | 262,0 MB/s |  3,74 Gbits/s |
 | Seattle | Zachodnie stany USA          |  1 094 km |  18 MS |  82,3 MB/s |  3,70 Gbits/s |
 | Seattle | Środkowe stany USA       |  2 357 km |  40 MS |  38,8 MB/s |  2,55 Gbits/s |
-| Seattle | Południowo-środkowe stany USA |  2 877 km |  51 MS |  30,6 MB/s |  2,49 Gbits/s |
+| Seattle | South Central US |  2 877 km |  51 MS |  30,6 MB/s |  2,49 Gbits/s |
 | Seattle | Północno-środkowe stany USA |  2 792 km |  55 MS |  27,7 MB/s |  2,19 Gbits/s |
 | Seattle | Wschodnie stany USA 2        |  3 769 km |  73 MS |  21,3 MB/s |  1,79 Gbits/s |
-| Seattle | Wschodnie stany USA          |  3 699 km |  74 MS |  21,1 MB/s |  1,78 Gbits/s |
-| Seattle | Japonia Wschodnia       |  7 705 km | 106 MS |  14,6 MB/s |  1,22 Gbits/s |
+| Seattle | East US          |  3 699 km |  74 MS |  21,1 MB/s |  1,78 Gbits/s |
+| Seattle | Japan East       |  7 705 km | 106 MS |  14,6 MB/s |  1,22 Gbits/s |
 | Seattle | Południowe Zjednoczone Królestwo         |  7 708 km | 146 MS |  10,6 MB/s |   896 MB/s |
 | Seattle | Europa Zachodnia      |  7 834 km | 153 MS |  10,2 MB/s |   761 MB/s |
 | Seattle | Australia Wschodnia   | 12 484 km | 165 MS |   9,4 MB/s |   794 MB/s |
