@@ -16,6 +16,8 @@
     - name: Wdrażanie wystąpienia kontenera — szablon usługi Resource Manager
       displayName: Resource Manager
       href: container-instances-quickstart-template.md
+    - name: Wdrażanie wystąpienia kontenera — interfejs wiersza polecenia platformy Docker
+      href: container-instances-quickstart-docker-cli.md
 - name: Samouczki
   items:
     - name: Tworzenie i wdrażanie obrazu kontenera
@@ -94,8 +96,10 @@
           href: container-instances-gpu.md
         - name: Włączanie punktu końcowego protokołu SSL w przyczepce
           href: container-instances-container-group-ssl.md
-        - name: Ujawnianie statycznego adresu IP
+        - name: Udostępnianie statycznego adresu IP za pomocą usługi App Gateway
           href: container-instances-application-gateway.md
+        - name: Używanie usługi Azure Firewall na potrzeby ruchu przychodzącego i wychodzącego
+          href: container-instances-egress-ip-address.md
     - name: Instalowanie woluminów danych
       items:
         - name: Udział plików platformy Azure

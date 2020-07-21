@@ -138,7 +138,11 @@
             - name: Tworzenie oferty Dynamics 365 for Customer Engagement & PowerApps
               href: ./partner-center-portal/create-new-customer-engagement-offer.md
             - name: Tworzenie oferty Dynamics 365 for Operations
-              href: ./partner-center-portal/create-new-operations-offer.md
+              items:
+                - name: Tworzenie oferty Dynamics 365 for Operations
+                  href: ./partner-center-portal/create-new-operations-offer.md
+                - name: Sprawdzanie poprawności funkcji
+                  href: ./dynamics-365-finance-operations-functional-validation.md
             - name: Tworzenie oferty Dynamics 365 Business Central
               href: ./partner-center-portal/create-new-business-central-offer.md
         - name: Oferty modułu usługi IoT Edge

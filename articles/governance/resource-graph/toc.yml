@@ -29,6 +29,9 @@
     - name: Uruchamianie pierwszego zapytania — język Python
       displayName: 'library, azure-mgmt, cli'
       href: ./first-query-python.md
+    - name: Uruchamianie pierwszego zapytania — Ruby
+      displayName: 'gem, azure-mgmt'
+      href: ./first-query-ruby.md
     - name: Uruchamianie pierwszego zapytania — interfejs REST
       displayName: 'armclient, postman'
       href: ./first-query-rest-api.md

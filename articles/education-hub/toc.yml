@@ -1,0 +1,56 @@
+- name: Dokumentacja usługi Azure Education Hub
+  href: ./index.yml
+- name: Omówienie
+  items:
+    - name: Co to jest usługa Education Hub?
+      href: about-education-hub.md
+- name: Przewodniki Szybki start
+  items:
+    - name: Uzyskiwanie dostępu do usługi Education Hub
+      href: access-education-hub.md
+    - name: Wprowadzenie do usługi Education Hub
+      href: get-started-education-hub.md
+    - name: Konfigurowanie kursu i tworzenie klasy
+      href: set-up-course-classroom.md
+- name: Przewodniki z instrukcjami
+  items:
+    - name: Zarządzanie grantem akademickim
+      href: hub-overview-page.md
+    - name: Tworzenie przypisania i przydzielanie środków
+      href: create-assignment-allocate-credit.md
+- name: Pomoc techniczna
+  items:
+    - name: Pomoc techniczna
+      href: educator-service-desk.md
+- name: Azure Dev Tools for Teaching
+  items:
+    - name: Omówienie
+      items:
+        - name: Co to jest program Azure Dev Tools for Teaching?
+          href: azure-dev-tools-teaching/about-program.md
+        - name: Azure for Students
+          href: azure-dev-tools-teaching/azure-students-program.md
+        - name: Azure for Students Starter
+          href: azure-dev-tools-teaching/azure-students-starter-program.md
+    - name: Przewodniki Szybki start
+      items:
+        - name: Rejestrowanie lub odnawianie subskrypcji
+          href: azure-dev-tools-teaching/enroll-renew-subscription.md
+        - name: Konfigurowanie dostępu
+          href: azure-dev-tools-teaching/set-up-access.md
+    - name: Przewodniki z instrukcjami
+      items:
+        - name: Jak zarządzać uczniami
+          href: azure-dev-tools-teaching/manage-students.md
+        - name: Jak pobierać oprogramowanie
+          href: azure-dev-tools-teaching/download-software.md
+    - name: Rozwiązywanie problemów
+      items:
+        - name: Błędy logowania
+          href: azure-dev-tools-teaching/troubleshoot-login.md
+- name: Zasoby
+  items:
+    - name: Często zadawane pytania
+      href: azure-dev-tools-teaching/program-faq.md
+    - name: Pomoc techniczna
+      href: azure-dev-tools-teaching/program-support.md
