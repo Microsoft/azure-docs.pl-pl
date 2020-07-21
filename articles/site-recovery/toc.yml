@@ -62,6 +62,8 @@
           href: tutorial-dr-drill-azure.md
         - name: Przełączenie do trybu failover na platformie Azure
           href: hyper-v-azure-failover-failback-tutorial.md
+        - name: Włączanie replikacji lokalnej z prywatnymi punktami końcowymi
+          href: ./hybrid-how-to-enable-replication-private-endpoints.md
     - name: Migracja na platformę Azure
       items:
         - name: Przygotowanie platformy Azure do replikacji lokalnej
@@ -186,6 +188,8 @@
               href: azure-to-azure-how-to-enable-replication-s2d-vms.md
             - name: Włączanie replikacji dodanego dysku
               href: azure-to-azure-enable-replication-added-disk.md
+            - name: Włączanie replikacji z prywatnymi punktami końcowymi
+              href: ./azure-to-azure-how-to-enable-replication-private-endpoints.md
             - name: Wykluczanie dysków
               href: azure-to-azure-exclude-disks.md
             - name: Ponowne włączanie ochrony maszyn wirtualnych platformy Azure po przełączeniu w tryb failover
@@ -242,6 +246,8 @@
               href: vmware-azure-set-up-target.md
             - name: Konfigurowanie ustawień replikacji
               href: vmware-azure-set-up-replication.md
+            - name: Włączanie replikacji lokalnej z prywatnymi punktami końcowymi
+              href: ./hybrid-how-to-enable-replication-private-endpoints.md
             - name: Wdrażanie usługi mobilności
               items:
                 - name: Omówienie i instalacja usługi mobilności
@@ -308,6 +314,8 @@
               href: physical-azure-set-up-source.md
             - name: Konfigurowanie środowiska docelowego
               href: vmware-azure-set-up-target.md
+            - name: Włączanie replikacji lokalnej z prywatnymi punktami końcowymi
+              href: ./hybrid-how-to-enable-replication-private-endpoints.md
             - name: Wdrażanie usługi mobilności
               items:
                 - name: Informacje o instalacji usługi mobilności

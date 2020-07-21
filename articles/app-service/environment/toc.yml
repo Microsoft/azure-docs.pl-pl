@@ -16,7 +16,7 @@
       href: app-service-app-service-environment-web-application-firewall.md
     - name: Konfigurowanie protokołu TLS
       href: app-service-app-service-environment-custom-settings.md
-- name: Przykłady
+- name: Samples
   items:
     - name: Interfejs wiersza polecenia platformy Azure
       href: ../samples-cli.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
@@ -46,6 +46,8 @@
       href: forced-tunnel-support.md
     - name: Integracja z zaporą
       href: firewall-integration.md
+    - name: Nadmiarowość stref
+      href: zone-redundancy.md
 - name: Dokumentacja
   items:
     - name: Adresy zarządzania
@@ -80,15 +82,15 @@
   items:
     - name: Harmonogram działania dla platformy Azure
       href: 'https://azure.microsoft.com/roadmap/'
-    - name: Ceny
+    - name: Cennik
       href: 'https://azure.microsoft.com/pricing/details/app-service/'
     - name: Informacje o limitach przydziału
-      href: '../../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits'
+      href: ../../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits
     - name: Aktualizacje usług
       href: 'https://azure.microsoft.com/updates/?product=app-service'
-    - name: Najlepsze praktyki
+    - name: Najlepsze rozwiązania
       href: ../app-service-best-practices.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
-    - name: Przykłady
+    - name: Samples
       href: 'https://azure.microsoft.com/resources/samples/?service=app-service'
     - name: Filmy wideo
       items:
