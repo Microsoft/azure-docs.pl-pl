@@ -3,24 +3,27 @@ title: Analizowanie kosztów platformy Azure za pomocą aplikacji usługi Power 
 description: W tym artykule wyjaśniono, jak zainstalować aplikację Azure Cost Management usługi Power BI i korzystać z niej.
 author: bandersmsft
 ms.author: banders
-ms.date: 06/16/2020
+ms.date: 07/13/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: benshy
-ms.openlocfilehash: 53340c72a6456b24b52cff6d7eda9d4a34db6564
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.openlocfilehash: bd5e2c999df180c80c58711a6428678b2bb4fefa
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84888203"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537922"
 ---
 # <a name="analyze-cost-with-the-azure-cost-management-power-bi-app-for-enterprise-agreements-ea"></a>Analizowanie kosztów za pomocą aplikacji Azure Cost Management usługi Power BI dla umów Enterprise Agreement (EA)
 
 W tym artykule wyjaśniono, jak zainstalować aplikację Azure Cost Management usługi Power BI i korzystać z niej. Aplikacja ułatwia analizowanie kosztów platformy Azure i zarządzanie nimi w usłudze Power BI. Za pomocą aplikacji możesz monitorować koszty i trendy użycia oraz znajdować możliwości optymalizacji kosztów w celu zmniejszenia wydatków.
 
-Aplikację pobiera się do programu Power BI Desktop. Można jej używać w takiej formie, w jakiej jest, albo dostosować do własnych potrzeb, rozszerzając domyślne filtry, widoki i wizualizacje. Następnie można w niej dołączyć dodatkowe dane w celu utworzenia niestandardowych raportów zapewniających wgląd w całość kosztów prowadzenia firmy.
+Można jej używać w takiej formie, w jakiej jest, albo dostosować do własnych potrzeb, rozszerzając domyślne filtry, widoki i wizualizacje. Następnie można w niej dołączyć dodatkowe dane w celu utworzenia niestandardowych raportów zapewniających wgląd w całość kosztów prowadzenia firmy.
 
 Aplikacja Azure Cost Management usługi Power BI obecnie obsługuje tylko klientów z umową [Enterprise Agreement](https://azure.microsoft.com/pricing/enterprise-agreement/).
+
+> [!NOTE]
+> Aplikacje szablonów usługi Power BI nie obsługują pobierania pliku PBIX.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

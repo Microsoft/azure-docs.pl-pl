@@ -7,12 +7,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 06/11/2020
 ms.author: banders
-ms.openlocfilehash: cd6e075448c68b6d2c65832d128e14c016c69c7c
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: 28080517a33f1bbf9bee3436493f178b60c0d161
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85601415"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86523608"
 ---
 # <a name="get-billing-ownership-of-azure-subscriptions-to-your-mpa-account"></a>Uzyskiwanie własności rozliczeń subskrypcji platformy Azure dla konta umowy partnerskiej firmy Microsoft
 
@@ -155,6 +155,12 @@ Niektóre żądania przeniesienia klientów mogą wymagać dodatkowego procesu w
 Katalog subskrypcji platformy Azure, które są przenoszone, musi być zgodny z katalogiem klienta wybranego podczas ustanawiania relacji z dostawcą usług w chmurze.
 
 Jeśli te dwa katalogi nie są zgodne, przeniesienie subskrypcji jest niemożliwe. Należy ustanowić nową relację z odsprzedawcą dostawcy usług w chmurze, wybierając katalog subskrypcji platformy Azure, lub zmienić katalog subskrypcji platformy Azure, aby był zgodny z katalogiem relacji klienta z dostawcą usług w chmurze. Aby uzyskać więcej informacji, zobacz [Kojarzenie istniejącej subskrypcji z katalogiem usługi Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-how-subscriptions-associated-directory#to-associate-an-existing-subscription-to-your-azure-ad-directory).
+
+### <a name="ea-subscription-in-the-non-orgnization-directory"></a>Subskrypcja EA w katalogu nienależącym do organizacji
+
+Subskrypcje EA z katalogów nienależących do organizacji mogą być przenoszone, o ile katalog ma relację odsprzedawcy z dostawcą usług w chmurze. Jeśli katalog nie ma relacji odsprzedawcy, należy upewnić się, że użytkownik z organizacji ma w katalogu uprawnienie *Administrator globalny* pozwalające akceptować relację partnera. Część z nazwą domeny w nazwie użytkownika musi być albo początkową domyślną nazwą domeny „[nazwa domeny]. onmicrosoft.com”, albo zweryfikowaną niestandardową nazwą domeny niefederacyjnej, taką jak „contoso.com”.  
+
+Aby dodać nowego użytkownika do katalogu, zobacz [przewodnik Szybki start: Dodawanie nowych użytkowników do usługi Azure Active Directory w celu dodania nowego użytkownika do katalogu usługi AAD](https://docs.microsoft.com/azure/active-directory/add-users-azure-active-directory).
 
 ## <a name="check-access-to-a-microsoft-partner-agreement"></a>Sprawdzanie dostępu do umowy partnerskiej firmy Microsoft
 
