@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: b5640a42c0fdcb0bd958011db28c19854b16a547
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 4e951b7eb2d3d5e49ab80af2604d5b44565dd25e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86252763"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87008544"
 ---
 # <a name="azure-security-baseline-for-api-management"></a>Podstawa zabezpieczeń platformy Azure dla API Management
 
@@ -640,7 +640,7 @@ W przypadku podstawowej platformy zarządzanej przez firmę Microsoft Firma Micr
 
 ### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4,6: korzystanie z usługi Azure RBAC do kontrolowania dostępu do zasobów
 
-**Wskazówki**: korzystanie z kontroli dostępu opartej na rolach w celu kontrolowania dostępu do usługi Azure API Management. Usługa Azure API Management opiera się na Access Control opartej na rolach (RBAC) na platformie Azure w celu umożliwienia szczegółowego zarządzania dostępem dla usług i jednostek API Management (na przykład interfejsów API i zasad).
+**Wskazówki**: korzystanie z kontroli dostępu opartej na rolach w celu kontrolowania dostępu do usługi Azure API Management. Usługa Azure API Management opiera się na kontroli dostępu opartej na rolach (Azure RBAC) na platformie Azure w celu umożliwienia szczegółowego zarządzania dostępem do API Management usług i jednostek (na przykład interfejsów API i zasad).
 
 * [Jak używać kontroli dostępu opartej na rolach w usłudze Azure API Management](./api-management-role-based-access-control.md)
 

@@ -3,19 +3,21 @@ title: Dokumentacja interfejsu API portal Cloud Partner — Microsoft Commercial
 description: Opis, wymagania wstępne do użycia oraz lista operacji interfejsu API portalu Marketplace.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
-ms.date: 04/08/2020
-ms.openlocfilehash: 56594b41bd0b771d0cb9a2f49611d9b6c6d393db
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.topic: reference
+author: dsindona
+ms.author: dsindona
+ms.date: 07/14/2020
+ms.openlocfilehash: 51c8b91ccf85087f965d632dee9296076aba0d86
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86113585"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87011962"
 ---
 # <a name="cloud-partner-portal-api-reference"></a>Dokumentacja interfejsu API portalu Cloud Partner
 
 > [!NOTE]
-> Interfejsy API portal Cloud Partner są zintegrowane z centrum partnerskim i będą nadal działały po przeprowadzeniu migracji ofert do Centrum partnerskiego. W ramach integracji wprowadzono niewielkie zmiany. Zapoznaj się ze [zmianami interfejsów API programu CPP](#changes-to-cpp-apis-after-the-migration-to-partner-center) wymienionymi w tym dokumencie, aby upewnić się, że kod będzie nadal działał po zakończeniu migracji do Centrum partnerskiego.
+> Interfejsy API portal Cloud Partner są zintegrowane z usługą i będą nadal działać w centrum partnerskim. Przejście wprowadza niewielkie zmiany. Przejrzyj [zmiany w interfejsie API programu CPP](#changes-to-cpp-apis-after-the-migration-to-partner-center) wymienione w tym dokumencie, aby upewnić się, że kod będzie kontynuował pracę po przejściu do Centrum partnerskiego. Interfejsy API CPP powinny być używane tylko dla istniejących produktów, które zostały już zintegrowane przed przejściem do Centrum partnerskiego; nowe produkty powinny używać interfejsów API przekazywania Centrum partnerskiego.
 
 Interfejsy API REST portal Cloud Partner umożliwiają pobieranie programistyczne i manipulowanie obciążeniami, ofertami i profilami wydawcy. Interfejsy API używają kontroli dostępu opartej na rolach (RBAC) do wymuszania prawidłowych uprawnień w czasie przetwarzania.
 

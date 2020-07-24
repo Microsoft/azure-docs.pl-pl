@@ -10,12 +10,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 12/12/2019
-ms.openlocfilehash: c48cf6a7a82e90d3c9d8dc4c35e37dfb944af99f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 42a595246f45b2c7423aaf77c95f17243cf8813c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80282685"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87012387"
 ---
 # <a name="development-tools-on-the-azure-data-science-virtual-machine"></a>Narzędzia programistyczne na platformie Azure Data Science Virtual Machine
 
@@ -23,9 +23,9 @@ Data Science Virtual Machine (DSVM) udostępnia kilka popularnych narzędzi w wy
 
 ## <a name="visual-studio-community-edition"></a>Visual Studio Community Edition
 
-|    |           |
+| Kategoria | Wartość |
 | ------------- | ------------- |
-| co to jest?   | Środowisko IDE ogólnego przeznaczenia      |
+| Co to?   | Środowisko IDE ogólnego przeznaczenia      |
 | Obsługiwane wersje DSVM      | Windows: Visual Studio 2017, Windows 2019: Visual Studio 2019      |
 | Typowe zastosowania      | Programowanie oprogramowania    |
 | Jak została skonfigurowana i zainstalowana na DSVM?      | Obciążenie analizy danych (narzędzia Python i R), obciążenie platformy Azure (Hadoop, Data Lake), Node.js, SQL Server narzędzia [Azure Machine Learning dla Visual Studio Code](https://github.com/Microsoft/vs-tools-for-ai)    |
@@ -37,9 +37,9 @@ Data Science Virtual Machine (DSVM) udostępnia kilka popularnych narzędzi w wy
 
 ## <a name="visual-studio-code"></a>Visual Studio Code 
 
-|    |           |
+| Kategoria | Wartość |
 | ------------- | ------------- |
-| co to jest?   | Środowisko IDE ogólnego przeznaczenia      |
+| Co to?   | Środowisko IDE ogólnego przeznaczenia      |
 | Obsługiwane wersje DSVM      | Windows, Linux     |
 | Typowe zastosowania      | Edytor kodu i integracja z usługą git   |
 | Jak używać i uruchamiać      | Skrót na pulpicie ( `C:\Program Files (x86)\Microsoft VS Code\Code.exe` ) w systemie Windows, skrót do pulpitu lub terminal ( `code` ) na platformie Linux    |
@@ -47,9 +47,9 @@ Data Science Virtual Machine (DSVM) udostępnia kilka popularnych narzędzi w wy
 
 ## <a name="rstudio-desktop"></a>RStudio Desktop
 
-|    |           |
+| Kategoria | Wartość |
 | ------------- | ------------- |
-| co to jest?   | Środowisko IDE klienta dla języka R   |
+| Co to?   | Środowisko IDE klienta dla języka R   |
 | Obsługiwane wersje DSVM      | Windows, Linux      |
 | Typowe zastosowania      |  Programowanie w języku R     |
 | Jak używać i uruchamiać      | Skrót na pulpicie ( `C:\Program Files\RStudio\bin\rstudio.exe` ) w systemie Windows, skrót na pulpicie ( `/usr/bin/rstudio` ) na komputerze z systemem Linux      |
@@ -57,10 +57,10 @@ Data Science Virtual Machine (DSVM) udostępnia kilka popularnych narzędzi w wy
 
 ## <a name="rstudio-server"></a>RStudio Server
 
-|    |           |
+| Kategoria | Wartość |
 | ------------- | ------------- |
-| co to jest?   | Środowisko IDE klienta dla języka R   |
-| co to jest?   | Środowisko IDE oparte na sieci Web dla języka R    |
+| Co to?   | Środowisko IDE klienta dla języka R   |
+| Co to?   | Środowisko IDE oparte na sieci Web dla języka R    |
 | Obsługiwane wersje DSVM      | Linux      |
 | Typowe zastosowania      |  Programowanie w języku R     |
 | Jak używać i uruchamiać      | Włącz usługę z _systemctl Enable RStudio-Server_, a następnie uruchom usługę przy użyciu _systemctl Start RStudio-Server_. Następnie zaloguj się do serwera RStudio przy użyciu protokołu http: \/ /Your-VM-IP: 8787.       |
@@ -68,9 +68,9 @@ Data Science Virtual Machine (DSVM) udostępnia kilka popularnych narzędzi w wy
 
 ## <a name="juno"></a>Juno 
 
-|    |           |
+| Kategoria | Wartość |
 | ------------- | ------------- |
-| co to jest?   | Środowisko IDE klienta dla języka Julia   |
+| Co to?   | Środowisko IDE klienta dla języka Julia   |
 | Obsługiwane wersje DSVM      | Windows, Linux      |
 | Typowe zastosowania      |  Programowanie Julia     |
 | Jak używać i uruchamiać      | Skrót na pulpicie ( `C:\JuliaPro-0.5.1.1\Juno.bat` ) w systemie Windows, skrót na pulpicie ( `/opt/JuliaPro-VERSION/Juno` ) na komputerze z systemem Linux      |
@@ -78,9 +78,9 @@ Data Science Virtual Machine (DSVM) udostępnia kilka popularnych narzędzi w wy
 
 ## <a name="pycharm"></a>Platformy PyCharm itd
 
-|    |           |
+| Kategoria | Wartość |
 | ------------- | ------------- |
-| co to jest?   | Środowisko IDE klienta dla języka Python    |
+| Co to?   | Środowisko IDE klienta dla języka Python    |
 | Obsługiwane wersje DSVM      | Windows 2019, Linux      |
 | Typowe zastosowania      |  Programowanie w języku Python     |
 | Jak używać i uruchamiać      | Skrót pulpitu ( `C:\Program Files\tk` ) w systemie Windows. Skrót na pulpicie ( `/usr/bin/pycharm` ) w systemie Linux      |

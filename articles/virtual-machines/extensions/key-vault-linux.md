@@ -8,12 +8,12 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: f209a8b1d7ba5ab4fc213e43d56c04aebc3bd410
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: d2deb59b5a10177b1a6e57046c013ec9dac0fb06
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86224268"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87010805"
 ---
 # <a name="key-vault-virtual-machine-extension-for-linux"></a>Key Vault rozszerzenie maszyny wirtualnej dla systemu Linux
 
@@ -71,7 +71,7 @@ Poniższy kod JSON przedstawia schemat rozszerzenia maszyny wirtualnej Key Vault
 > [!NOTE]
 > Adresy URL obserwowanych certyfikatów powinny mieć postać `https://myVaultName.vault.azure.net/secrets/myCertName` .
 > 
-> Wynika to z faktu, że `/secrets` ścieżka zwraca pełny certyfikat, w tym klucz prywatny, podczas gdy `/certificates` ścieżka nie jest. Więcej informacji o certyfikatach można znaleźć tutaj: [Key Vault Certificates](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates#key-vault-certificates)
+> Wynika to z faktu, że `/secrets` ścieżka zwraca pełny certyfikat, w tym klucz prywatny, podczas gdy `/certificates` ścieżka nie jest. Więcej informacji o certyfikatach można znaleźć tutaj: [Key Vault Certificates](../../key-vault/general/about-keys-secrets-certificates.md)
 
 > [!NOTE]
 > Właściwość "authenticationSettings" jest opcjonalna w scenariuszach, gdy maszyna wirtualna ma wiele przypisanych tożsamości.
@@ -82,15 +82,15 @@ Poniższy kod JSON przedstawia schemat rozszerzenia maszyny wirtualnej Key Vault
 
 | Nazwa | Wartość/przykład | Typ danych |
 | ---- | ---- | ---- |
-| apiVersion | 2019-07-01 | date |
+| apiVersion | 2019-07-01 | data |
 | publisher | Microsoft.Azure.KeyVault | ciąg |
 | typ | KeyVaultForLinux | ciąg |
 | typeHandlerVersion | 1.0 | int |
 | pollingIntervalInS | 3600 | ciąg |
 | certificateStoreName | Jest on ignorowany w systemie Linux | ciąg |
-| linkOnRenewal | fałsz | wartość logiczna |
+| linkOnRenewal | fałsz | boolean |
 | certificateStoreLocation  | /var/lib/waagent/Microsoft.Azure.KeyVault | ciąg |
-| requiredInitialSync | true | wartość logiczna |
+| requiredInitialSync | true | boolean |
 | observedCertificates  | ["https://myvault.vault.azure.net/secrets/mycertificate"] | Tablica ciągów
 | msiEndpoint | http://169.254.169.254/metadata/identity | ciąg |
 | msiClientId | c7373ae5-91c2-4165-8ab6-7381d6e75619 | ciąg |
@@ -204,12 +204,12 @@ Interfejsu wiersza polecenia platformy Azure można użyć do wdrożenia rozszer
 Należy pamiętać o następujących ograniczeniach/wymaganiach:
 - Ograniczenia Key Vault:
   - Musi istnieć w czasie wdrożenia 
-  - Zasady dostępu Key Vault mustbe ustawione dla tożsamości VM/VMSS przy użyciu tożsamości zarządzanej. Zobacz [udostępnianie uwierzytelniania Key Vault przy użyciu tożsamości zarządzanej](../../key-vault/managed-identity.md)
+  - Zasady dostępu Key Vault mustbe ustawione dla tożsamości VM/VMSS przy użyciu tożsamości zarządzanej. Zobacz [udostępnianie uwierzytelniania Key Vault przy użyciu tożsamości zarządzanej](../../key-vault/general/managed-identity.md)
 
 
 ## <a name="troubleshoot-and-support"></a>Rozwiązywanie problemów i pomoc techniczna
 
-### <a name="troubleshoot"></a>Rozwiązywanie problemów
+### <a name="troubleshoot"></a>Rozwiąż problemy
 
 Dane dotyczące stanu wdrożeń rozszerzeń można pobrać z Azure Portal i przy użyciu Azure PowerShell. Aby wyświetlić stan wdrożenia dla danej maszyny wirtualnej, uruchom następujące polecenie przy użyciu Azure PowerShell.
 

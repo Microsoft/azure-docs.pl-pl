@@ -8,11 +8,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 04/06/2018
 ms.author: johnkem
-ms.openlocfilehash: 1d38a3cac5525de6835bbb0f9873cbd0636d44a9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3fe4a70d2cf59f003c785740b55634d44863dc9c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81869672"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87009530"
 ---
 # <a name="azure-diagnostics-extension-for-windows-vms"></a>Diagnostyka Azure rozszerzenie dla maszyn wirtualnych z systemem Windows
 
@@ -36,7 +37,7 @@ Rozszerzenie Diagnostyka Azure wymaga, aby docelowa maszyna wirtualna była poł
 
 ## <a name="template-deployment"></a>Wdrażanie na podstawie szablonu
 
-Rozszerzenia maszyny wirtualnej platformy Azure można wdrażać za pomocą szablonów Azure Resource Manager. Schemat JSON opisany w poprzedniej sekcji można użyć w szablonie Azure Resource Manager, aby uruchomić rozszerzenie Diagnostyka Azure podczas wdrażania szablonu Azure Resource Manager. Zobacz [Używanie monitorowania i diagnostyki z maszynami wirtualnymi z systemem Windows i szablonami Azure Resource Manager](extensions-diagnostics-template.md).
+Rozszerzenia maszyny wirtualnej platformy Azure można wdrażać za pomocą szablonów Azure Resource Manager. Schemat JSON opisany w poprzedniej sekcji można użyć w szablonie Azure Resource Manager, aby uruchomić rozszerzenie Diagnostyka Azure podczas wdrażania szablonu Azure Resource Manager. Zobacz [Używanie monitorowania i diagnostyki z maszynami wirtualnymi z systemem Windows i szablonami Azure Resource Manager](../extensions/diagnostics-template.md).
 
 ## <a name="azure-cli-deployment"></a>Wdrożenie interfejsu wiersza polecenia platformy Azure
 
@@ -54,7 +55,7 @@ az vm extension set \
 
 ## <a name="powershell-deployment"></a>Wdrażanie programu PowerShell
 
-`Set-AzVMDiagnosticsExtension`Polecenia można użyć do dodania rozszerzenia Diagnostyka Azure do istniejącej maszyny wirtualnej. [Aby włączyć Diagnostyka Azure w maszynie wirtualnej z systemem Windows, zobacz również korzystanie z programu PowerShell](ps-extensions-diagnostics.md).
+`Set-AzVMDiagnosticsExtension`Polecenia można użyć do dodania rozszerzenia Diagnostyka Azure do istniejącej maszyny wirtualnej. [Aby włączyć Diagnostyka Azure w maszynie wirtualnej z systemem Windows, zobacz również korzystanie z programu PowerShell](../extensions/diagnostics-windows.md).
 
  
 
@@ -71,7 +72,7 @@ Set-AzVMDiagnosticsExtension -ResourceGroupName $vm_resourcegroup `
 
 ## <a name="troubleshoot-and-support"></a>Rozwiązywanie problemów i pomoc techniczna
 
-### <a name="troubleshoot"></a>Rozwiązywanie problemów
+### <a name="troubleshoot"></a>Rozwiąż problemy
 
 Dane dotyczące stanu wdrożeń rozszerzeń można pobrać z Azure Portal i przy użyciu interfejsu wiersza polecenia platformy Azure. Aby wyświetlić stan wdrożenia dla danej maszyny wirtualnej, uruchom następujące polecenie przy użyciu interfejsu wiersza polecenia platformy Azure.
 

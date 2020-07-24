@@ -10,11 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.openlocfilehash: ae1beeebfddfe250ae20a70c3e78ec32774218d4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2fc9a1a1c3a08f0530649ae64926c673e2d666e0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82996325"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87012692"
 ---
 # <a name="plan-and-manage-costs-for-azure-machine-learning"></a>Planowanie i zarządzanie kosztami Azure Machine Learning
 
@@ -80,7 +81,7 @@ Klastry AmlCompute są przeznaczone do skalowania dynamicznie na podstawie obci�
 
 Można również skonfigurować ilość czasu bezczynności węzła przed scaleniem w dół. Domyślnie czas bezczynności przed skalą w dół jest ustawiony na 120 sekund.
 
-+ W przypadku przeprowadzania mniej iteracyjnych eksperymentów należy skrócić ten czas, aby zaoszczędzić koszty. 
++ W przypadku przeprowadzania mniej iteracyjnych eksperymentów należy skrócić ten czas, aby zaoszczędzić koszty.
 + W przypadku przeprowadzania wysoko iteracyjnych eksperymentów deweloperskich i testowych może być konieczne zwiększenie czasu, aby nie płacić za stałe skalowanie w górę i w dół po każdej zmianie w skrypcie lub środowisku szkoleniowym.
 
 Klastry AmlCompute można skonfigurować w celu zmiany wymagań obciążeń w Azure Portal, przy użyciu [klasy zestawu SDK AmlCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py), [interfejsu wiersza polecenia AmlCompute](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/create?view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-create-amlcompute)z [interfejsami API REST](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable).
@@ -106,31 +107,13 @@ Oto kilka opcji, których dysponujesz:
 * W przypadku [dostrajania parametrów](how-to-tune-hyperparameters.md#early-termination)należy zdefiniować zasady wczesnego zakończenia na podstawie zasad Banditymi, średniego zatrzymywania zasad lub zasad wyboru obcinania. Aby dodatkowo kontrolować odchylenia parametrów, użyj parametrów takich jak `max_total_runs` lub `max_duration_minutes` .
 * Aby [zautomatyzować automatyczne Uczenie maszynowe](how-to-configure-auto-train.md#exit), ustaw podobne zasady kończenia przy użyciu `enable_early_stopping` flagi. Należy również użyć właściwości, takich jak `iteration_timeout_minutes` i, `experiment_timeout_minutes` Aby kontrolować maksymalny czas trwania przebiegu lub dla całego eksperymentu.
 
-## <a name="use-low-priority-vms"></a>Używanie maszyn wirtualnych o niskim priorytecie
+## <a name="use-low-priority-vms"></a><a id="low-pri-vm"></a>Korzystanie z maszyn wirtualnych o niskim priorytecie
 
 System Azure umożliwia korzystanie z nadmiarowej niewykorzystanej pojemności jako maszyn wirtualnych o niskim priorytecie w ramach zestawów skalowania maszyn wirtualnych, partii i usługi Machine Learning. Te przydziały są wstępnie emptible, ale mają obniżoną cenę w porównaniu do dedykowanych maszyn wirtualnych. Ogólnie rzecz biorąc, zalecamy korzystanie z maszyn wirtualnych o niskim priorytecie dla obciążeń wsadowych. Należy również użyć ich w przypadku, gdy przerwy są odzyskiwane za pomocą ponownych przesyłania (dla usługi Batch Inferencing) lub przez ponowne uruchomienie (w przypadku szkolenia głębokiego uczenia się z punktem kontrolnym).
 
 Maszyny wirtualne o niskim priorytecie mają jeden przydział oddzielny od dedykowanej wartości przydziału, która jest przez rodzinę maszyn wirtualnych. Dowiedz się [więcej na temat przydziałów AmlCompute](how-to-manage-quotas.md).
 
-Ustaw priorytet maszyny wirtualnej w dowolny z następujących sposobów:
-
-* W programie Studio wybierz pozycję **niski priorytet** podczas tworzenia maszyny wirtualnej.
-
-* Za pomocą zestawu SDK języka Python Ustaw `vm_priority` atrybut w konfiguracji aprowizacji.  
-
-    ```python
-    compute_config = AmlCompute.provisioning_configuration(vm_size='STANDARD_D2_V2',
-                                                               vm_priority='lowpriority',
-                                                               max_nodes=4)
-    ```
-
-* Korzystając z interfejsu wiersza polecenia, należy ustawić `vm-priority` :
-
-    ```azurecli-interactive
-    az ml computetarget create amlcompute --name lowpriocluster --vm-size Standard_NC6 --max-nodes 5 --vm-priority lowpriority
-    ```
-
- Maszyny wirtualne o niskim priorytecie nie działają w przypadku wystąpień obliczeniowych, ponieważ wymagają one obsługi interaktywnych środowisk notesu. 
+ Maszyny wirtualne o niskim priorytecie nie działają w przypadku wystąpień obliczeniowych, ponieważ wymagają one obsługi interaktywnych środowisk notesu.
 
 ## <a name="use-reserved-instances"></a>Użycie wystąpień zarezerwowanych
 
@@ -143,5 +126,5 @@ Azure Machine Learning COMPUTE obsługuje zarezerwowane wystąpienia. W przypadk
 
 Dowiedz się więcej:
 * [Zarządzanie i zwiększanie przydziałów zasobów](how-to-manage-quotas.md)
-* [Zarządzanie kosztami przy użyciu [analizy kosztów](../cost-management-billing/costs/quick-acm-cost-analysis.md).
+* [Zarządzanie kosztami przy użyciu analizy kosztów](../cost-management-billing/costs/quick-acm-cost-analysis.md).
 * [Azure Machine Learning obliczeń](how-to-set-up-training-targets.md#amlcompute).

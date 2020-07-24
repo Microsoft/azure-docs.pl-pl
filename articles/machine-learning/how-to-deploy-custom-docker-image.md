@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 06/17/2020
 ms.custom: tracking-python
-ms.openlocfilehash: 8ad3ec9f257289abab1c2d881a798a43a2c1d8ad
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aa55285a2447f9baadfc74782a46bcd6c68b545e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84976765"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87012284"
 ---
 # <a name="deploy-a-model-using-a-custom-docker-base-image"></a>Wdrażanie modelu przy użyciu niestandardowego obrazu platformy Docker
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -76,7 +76,7 @@ Informacje w tej sekcji założono, że używasz Azure Container Registry do prz
 
     * Ubuntu 16,04 lub nowszy.
     * Conda 4.5. # lub nowszej.
-    * Python 3.5. # lub 3.6. #.
+    * Python 3.5. #, 3.6. # lub 3.7. #.
 
 <a id="getname"></a>
 
@@ -191,7 +191,7 @@ Aby użyć obrazu niestandardowego, potrzebne są następujące informacje:
 
 Firma Microsoft udostępnia kilka obrazów platformy Docker w publicznie dostępnym repozytorium, które może być używane z krokami z tej sekcji:
 
-| Obraz | Opis |
+| Image (Obraz) | Opis |
 | ----- | ----- |
 | `mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda` | Obraz podstawowy dla Azure Machine Learning |
 | `mcr.microsoft.com/azureml/onnxruntime:latest` | Zawiera środowisko uruchomieniowe ONNX dla procesora CPU inferencing |

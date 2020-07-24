@@ -7,11 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 02/15/2019
 ms.author: cherylmc
-ms.openlocfilehash: 5477eea12ee41bae42365555e38aa95ca0faeb3a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 318656a779aa5ba2279f075fcc44589fe2039682
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84987101"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87009496"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-powershell"></a>Konfigurowanie połączenia bramy sieci VPN między sieciami wirtualnymi przy użyciu programu PowerShell
 
@@ -20,7 +21,7 @@ Ten artykuł pomoże Ci połączyć sieci wirtualne przy użyciu typu połączen
 Kroki podane w tym artykule mają zastosowanie do modelu wdrażania przy użyciu usługi Resource Manager i używania programu PowerShell. Tę konfigurację możesz również utworzyć przy użyciu innego narzędzia wdrażania lub modelu wdrażania, wybierając inną opcję z następującej listy:
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
+> * [Witryna Azure Portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 > * [Program PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
 > * [Interfejs wiersza polecenia platformy Azure](vpn-gateway-howto-vnet-vnet-cli.md)
 > * [Portal Azure (klasyczny)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
@@ -80,7 +81,7 @@ W tym ćwiczeniu możesz łączyć konfiguracje lub po prostu wybrać tę, któr
 
 * Ponieważ utworzenie bramy trwa do 45 minut, Azure Cloud Shell będzie okresowo przekroczyć limit czasu podczas tego ćwiczenia. Cloud Shell można uruchomić ponownie, klikając w lewym górnym rogu terminala. Pamiętaj, aby ponownie zadeklarować wszystkie zmienne po ponownym uruchomieniu terminalu.
 
-* Jeśli zamiast tego chcesz lokalnie zainstalować najnowszą wersję modułu Azure PowerShell, zobacz [jak zainstalować i skonfigurować Azure PowerShell](/powershell/azure/overview).
+* Jeśli zamiast tego chcesz lokalnie zainstalować najnowszą wersję modułu Azure PowerShell, zobacz [jak zainstalować i skonfigurować Azure PowerShell](/powershell/azure/).
 
 ### <a name="step-1---plan-your-ip-address-ranges"></a><a name="Step1"></a>Krok 1 — planowanie zakresów adresów IP
 
@@ -363,7 +364,7 @@ Ten krok należy wykonać w kontekście nowej subskrypcji. Tę część procedur
    ```azurepowershell-interactive
    Select-AzSubscription -SubscriptionName $Sub5
    ```
-3. Utwórz nową grupę zasobów.
+3. Tworzenie nowej grupy zasobów
 
    ```azurepowershell-interactive
    New-AzResourceGroup -Name $RG5 -Location $Location5

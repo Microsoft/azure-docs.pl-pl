@@ -15,11 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 03/09/2020
 ms.author: juliako
-ms.openlocfilehash: fd094e35ceaa718ec1b258d74106b39744cbd16f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 091a5d33e49e2abe811bf3cc250d04d69506165d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79087829"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87011638"
 ---
 # <a name="media-services-v2-vs-v3"></a>Media Services V2 a v3
 
@@ -27,7 +28,7 @@ W tym artykule opisano zmiany wprowadzone w Azure Media Services v3 i przedstawi
 
 ## <a name="general-changes-from-v2"></a>Ogólne zmiany z wersji 2
 
-* W przypadku zasobów utworzonych w wersji 3 Media Services obsługuje tylko [szyfrowanie magazynu po stronie serwera usługi Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-service-encryption).
+* W przypadku zasobów utworzonych w wersji 3 Media Services obsługuje tylko [szyfrowanie magazynu po stronie serwera usługi Azure Storage](../../storage/common/storage-service-encryption.md).
     * Można używać interfejsów API v3 z zasobami utworzonymi przy użyciu interfejsów API v2, które mają [szyfrowanie magazynu](../previous/media-services-rest-storage-encryption.md) (AES 256) zapewniane przez Media Services.
     * Nie można tworzyć nowych zasobów przy użyciu starszej wersji [szyfrowania pamięci](../previous/media-services-rest-storage-encryption.md) AES 256 z użyciem interfejsów API v3.
 * Właściwości [zasobu](assets-concept.md)w wersji 3 różnią się od v2, zobacz [jak mapa właściwości](#map-v3-asset-properties-to-v2).
@@ -87,11 +88,11 @@ Interfejs API v3 ma następujące luki w odniesieniu do interfejsu API w wersji 
 
 ### <a name="map-v3-asset-properties-to-v2"></a>Mapuj właściwości zasobu v3 do wersji 2
 
-W poniższej tabeli przedstawiono sposób, w jaki właściwości [zasobu](https://docs.microsoft.com/rest/api/media/assets/createorupdate#asset)w wersji v3 mapują się na właściwości zasobu w 2.
+W poniższej tabeli przedstawiono sposób, w jaki właściwości [zasobu](/rest/api/media/assets/createorupdate#asset)w wersji v3 mapują się na właściwości zasobu w 2.
 
 |Właściwości v3|Właściwości v2|
 |---|---|
-|`id`-(unikatowy) pełna ścieżka Azure Resource Manager, zobacz przykłady w elemencie [zawartości](https://docs.microsoft.com/rest/api/media/assets/createorupdate)||
+|`id`-(unikatowy) pełna ścieżka Azure Resource Manager, zobacz przykłady w elemencie [zawartości](/rest/api/media/assets/createorupdate)||
 |`name`-(unikatowy) zobacz [konwencje nazewnictwa](media-services-apis-overview.md#naming-conventions) ||
 |`alternateId`|`AlternateId`|
 |`assetId`|`Id`-(unikatowa) wartość zaczyna się od `nb:cid:UUID:` prefiksu.|
@@ -109,8 +110,8 @@ Aby chronić zasoby w spoczynku, zasoby powinny być szyfrowane przez szyfrowani
 |Opcja szyfrowania|Opis|Media Services v2|Media Services v3|
 |---|---|---|---|
 |Media Services szyfrowanie magazynu|Szyfrowanie AES-256, klucz zarządzany przez Media Services.|Obsługiwane<sup>(1)</sup>|Nieobsługiwane<sup>(2)</sup>|
-|[szyfrowanie usługi Storage danych magazynowanych](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)|Szyfrowanie po stronie serwera oferowane przez usługę Azure Storage, klucz zarządzany przez platformę Azure lub przez klienta.|Obsługiwane|Obsługiwane|
-|[Szyfrowanie po stronie klienta magazynu](https://docs.microsoft.com/azure/storage/common/storage-client-side-encryption)|Szyfrowanie po stronie klienta oferowane przez usługę Azure Storage, klucz zarządzany przez klienta w Key Vault.|Nieobsługiwane|Nieobsługiwane|
+|[szyfrowanie usługi Storage danych magazynowanych](../../storage/common/storage-service-encryption.md)|Szyfrowanie po stronie serwera oferowane przez usługę Azure Storage, klucz zarządzany przez platformę Azure lub przez klienta.|Obsługiwane|Obsługiwane|
+|[Szyfrowanie po stronie klienta magazynu](../../storage/common/storage-client-side-encryption.md)|Szyfrowanie po stronie klienta oferowane przez usługę Azure Storage, klucz zarządzany przez klienta w Key Vault.|Nieobsługiwane|Nieobsługiwane|
 
 <sup>1</sup> , gdy Media Services obsługuje obsługę zawartości w trybie Wyczyść/bez żadnej formy szyfrowania, nie jest to zalecane.
 

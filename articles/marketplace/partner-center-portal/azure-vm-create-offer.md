@@ -1,18 +1,18 @@
 ---
 title: Tworzenie oferty maszyny wirtualnej platformy Azure w witrynie Azure Marketplace
-description: Dowiedz się, jak utworzyć ofertę maszyny wirtualnej w witrynie Azure Marketplace z wymaganą jednostką SKU.
+description: Dowiedz się, jak utworzyć ofertę maszyny wirtualnej w witrynie Azure Marketplace przy użyciu wymaganego planu.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
+ms.topic: article
 author: emuench
 ms.author: mingshen
-ms.date: 06/17/2020
-ms.openlocfilehash: fe53de2c81f9e9df5fd9270951f943b0b3505f1e
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 07/17/2020
+ms.openlocfilehash: 6df1620f2d1097ac23e5dfa3903fefc74d13fa65
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86110984"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87012029"
 ---
 # <a name="create-an-azure-virtual-machine-offer-on-azure-marketplace"></a>Tworzenie oferty maszyny wirtualnej platformy Azure w witrynie Azure Marketplace
 
@@ -41,7 +41,7 @@ Jeśli jeszcze tego nie zrobiono, zapoznaj się z [przewodnikiem publikowania of
 - Samouczki
   - [Maszyny wirtualne z systemem Linux](../../virtual-machines/linux/tutorial-manage-vm.md)
   - [Maszyny wirtualne z systemem Windows](../../virtual-machines/windows/tutorial-manage-vm.md)
-- Przykłady
+- Samples
   - [Przykłady interfejsu wiersza polecenia platformy Azure dla maszyn wirtualnych z systemem Linux](../../virtual-machines/linux/cli-samples.md)
   - [Azure PowerShell dla maszyn wirtualnych z systemem Linux](../../virtual-machines/linux/powershell-samples.md)
   - [Przykłady interfejsu wiersza polecenia platformy Azure dla maszyn wirtualnych z systemem Windows](../../virtual-machines/windows/cli-samples.md)
@@ -286,7 +286,7 @@ Wybierz pozycję **Zapisz wersję roboczą** przed przejściem do następnej sek
 
 ## <a name="plan-overview"></a>Przegląd planu
 
-W ramach tej samej oferty w centrum partnerskim można udostępnić różne opcje planu. Te plany były wcześniej określane jako jednostki SKU. Oferta wymaga co najmniej jednego planu, który może się różnić w zależności od zysków odbiorców, regionu platformy Azure, funkcji lub obrazów maszyn wirtualnych.
+W ramach tej samej oferty w centrum partnerskim można udostępnić różne opcje planu. Oferta wymaga co najmniej jednego planu (dawniej nazywanego jednostką SKU), która może różnić się w zależności od zysków odbiorców, regionu platformy Azure, funkcji lub obrazów maszyn wirtualnych.
 
 Po utworzeniu planów wybierz kartę **Przegląd planu** , aby wyświetlić:
 
@@ -413,7 +413,6 @@ Każdy plan można zaprojektować jako widoczny dla wszystkich lub tylko do wybr
 >[!Note]
 >Oferty prywatne nie są obsługiwane w przypadku subskrypcji platformy Azure ustanowionych przez odsprzedawcę programu dostawcy rozwiązań w chmurze (CSP).
 
-
 #### <a name="hide-a-plan"></a>Ukrywanie planu
 
 Jeśli Twoja maszyna wirtualna ma być używana tylko pośrednio, gdy jest ona przywoływana przez inny szablon rozwiązania lub zarządzana aplikacja, zaznacz to pole wyboru, aby opublikować maszynę wirtualną, ale ukryć ją od klientów, którzy mogą bezpośrednio przeszukiwać lub przeglądać.
@@ -487,7 +486,7 @@ Dodatkowe zasoby dotyczące stacji testowych:
 
 Wybierz pozycję **Zapisz wersję roboczą** przed kontynuowaniem.
 
-## <a name="review-and-publish"></a>Przejrzyj i Opublikuj
+## <a name="review-and-publish"></a>Przeglądanie i publikowanie
 
 Po zakończeniu wszystkich wymaganych sekcji oferty możesz przesłać ją do przeglądu i publikacji.
 
@@ -516,10 +515,10 @@ Na stronie **Przegląd oferty** przedstawiono wizualną reprezentację kroków, 
 
 Ta strona zawiera także linki pomagające w pracy z ofertą, w zależności od jej stanu:
 
-- Jeśli oferta jest wersją roboczą: [Usuń wersję roboczą oferty](update-existing-offer.md#delete-a-draft-offer))
-- Jeśli oferta jest aktywna: [Zatrzymaj sprzedawanie oferty](update-existing-offer.md#stop-selling-an-offer-or-plan))
-- Jeśli oferta jest dostępna w wersji zapoznawczej: [Przejdź na żywo](publishing-status.md#publisher-approval))
-- Jeśli nie ukończono wylogowania wydawcy: [Anuluj publikowanie](update-existing-offer.md#cancel-publishing))
+- Jeśli oferta jest wersją roboczą: [Usuń wersję roboczą](update-existing-offer.md#delete-a-draft-offer)
+- Jeśli oferta jest aktywna: [Zatrzymaj sprzedawanie oferty](update-existing-offer.md#stop-selling-an-offer-or-plan)
+- Jeśli oferta jest dostępna w wersji zapoznawczej: [Przejdź na żywo](publishing-status.md#publisher-approval)
+- Jeśli nie ukończono wylogowania wydawcy: [Anuluj publikowanie](update-existing-offer.md#cancel-publishing)
 
 ## <a name="marketplace-examples"></a>Przykłady dla witryny Marketplace
 
@@ -530,7 +529,7 @@ Oto przykład sposobu wyświetlania informacji o ofercie w witrynie Azure Market
 #### <a name="call-out-descriptions"></a>Opisy połączeń
 
 1. Duże logo
-2. Price
+2. Cena
 3. Kategorie
 4. Warunki i postanowienia
 5. Adres zasad ochrony prywatności (link)

@@ -3,12 +3,12 @@ title: Analiza filmów wideo na żywo na temat terminologii usługi IoT EDG — 
 description: Ten artykuł zawiera omówienie analizy filmów wideo na żywo na IoT Edge terminologii.
 ms.topic: conceptual
 ms.date: 05/30/2020
-ms.openlocfilehash: 58f3d7b54fd0bd19e6bc0a057ef053bb2c74cd97
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5d4eff506b2a6f51b9803f827379b9ba0c2b2ff6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84816533"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87011502"
 ---
 # <a name="terminology"></a>Terminologia
 
@@ -18,7 +18,7 @@ Ten artykuł zawiera omówienie terminologii związanej z [analizą filmów wide
 
 Azure Media Services to platforma multimediów w chmurze, która umożliwia tworzenie rozwiązań multimedialnych. Więcej informacji na ten temat można znaleźć w dokumentacji [Azure Media Services](../latest/media-services-overview.md) .
 
-## <a name="asset"></a>Element zawartości
+## <a name="asset"></a>Zasób
 
 Element [zawartości](../latest/assets-concept.md) to jednostka w Azure Media Services, która mapuje do kontenera obiektów BLOB na koncie usługi Azure Storage, które jest dołączone do konta Media Services. Wszystkie pliki skojarzone z elementem zawartości są przechowywane jako obiekty blob w tym kontenerze, podczas gdy Media Services przechowuje metadane (na przykład nazwę, opis, czas utworzenia) skojarzoną z elementem zawartości.
 
@@ -26,7 +26,7 @@ Analiza filmów wideo na żywo na IoT Edge może tworzyć zasoby i/lub dodawać 
 
 ## <a name="streaming"></a>Przesyłanie strumieniowe
 
-Jeśli na urządzeniu przenośnym znajduje się Obejrzyj film wideo z usług takich jak Netflix, YouTube i inne, masz doświadczenie wideo dotyczące przesyłania strumieniowego. Odtwarzanie rozpoczyna się wkrótce po trafieniu "Play" (Jeśli masz wystarczającą przepustowość) i możesz poszukiwać z powrotem i z tyłu na osi czasu wideo. W przypadku przesyłania strumieniowego pomysłem jest dostarczenie tylko części wideo, która jest oglądana, i umożliwienie przeglądarce rozpoczęcia odtwarzania wideo, gdy dane są nadal przesyłane z serwera do klienta odtwarzania. W kontekście Azure Media Services [przesyłania strumieniowego](https://en.wikipedia.org/wiki/Streaming_media) odnosi się do procesu dostarczania nośnika z [Azure Media Services](https://docs.microsoft.com/azure/media-services/azure-media-player/azure-media-player-overview) do klienta przesyłania strumieniowego (na przykład Azure Media Player). Azure Media Services do przesyłania strumieniowego wideo do klientów za pomocą standardowych protokołów przesyłania strumieniowego opartych na protokole HTTP, takich jak [http Live Streaming (HLS)](https://developer.apple.com/streaming/) i [MPEG-kreska](https://dashif.org/about/). HLS jest obsługiwany przez Azure Media Player i odtwarzacze sieci Web, takie jak [JW Player](https://www.jwplayer.com/), [hls.js](https://github.com/video-dev/hls.js/), [VideoJS](https://videojs.com/), [Google Shaka Player](https://github.com/google/shaka-player)lub można je renderować natywnie w aplikacjach mobilnych za pomocą [Exoplayer](https://github.com/google/ExoPlayer) systemu Android i systemu [iOS.](https://developer.apple.com/av-foundation/) Polecenie MPEG-KRESKa jest podobnie obsługiwane przez Azure Media Player, [Znajdź listę klientów na tej stronie](https://dashif.org/clients/). 
+Jeśli na urządzeniu przenośnym znajduje się Obejrzyj film wideo z usług takich jak Netflix, YouTube i inne, masz doświadczenie wideo dotyczące przesyłania strumieniowego. Odtwarzanie rozpoczyna się wkrótce po trafieniu "Play" (Jeśli masz wystarczającą przepustowość) i możesz poszukiwać z powrotem i z tyłu na osi czasu wideo. W przypadku przesyłania strumieniowego pomysłem jest dostarczenie tylko części wideo, która jest oglądana, i umożliwienie przeglądarce rozpoczęcia odtwarzania wideo, gdy dane są nadal przesyłane z serwera do klienta odtwarzania. W kontekście Azure Media Services [przesyłania strumieniowego](https://en.wikipedia.org/wiki/Streaming_media) odnosi się do procesu dostarczania nośnika z [Azure Media Services](../azure-media-player/azure-media-player-overview.md) do klienta przesyłania strumieniowego (na przykład Azure Media Player). Azure Media Services do przesyłania strumieniowego wideo do klientów za pomocą standardowych protokołów przesyłania strumieniowego opartych na protokole HTTP, takich jak [http Live Streaming (HLS)](https://developer.apple.com/streaming/) i [MPEG-kreska](https://dashif.org/about/). HLS jest obsługiwany przez Azure Media Player i odtwarzacze sieci Web, takie jak [JW Player](https://www.jwplayer.com/), [hls.js](https://github.com/video-dev/hls.js/), [VideoJS](https://videojs.com/), [Google Shaka Player](https://github.com/google/shaka-player)lub można je renderować natywnie w aplikacjach mobilnych za pomocą [Exoplayer](https://github.com/google/ExoPlayer) systemu Android i systemu [iOS.](https://developer.apple.com/av-foundation/) Polecenie MPEG-KRESKa jest podobnie obsługiwane przez Azure Media Player, [Znajdź listę klientów na tej stronie](https://dashif.org/clients/). 
 
 Za pomocą [grafu multimediów](#media-graph)s do nagrywania wideo do zasobu w Azure Media Services można korzystać z funkcji przesyłania strumieniowego Media Services w celu dostarczania strumieni wideo w HLS i kreskowaniu. Więcej informacji na ten temat można znaleźć w artykule dotyczącym [odtwarzania wideo](video-playback-concept.md) .
 

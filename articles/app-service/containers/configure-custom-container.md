@@ -3,12 +3,12 @@ title: Konfigurowanie niestandardowego kontenera systemu Linux
 description: Informacje dotyczące konfigurowania niestandardowego kontenera systemu Linux w Azure App Service. W tym artykule przedstawiono najczęstsze zadania konfiguracyjne.
 ms.topic: article
 ms.date: 03/28/2019
-ms.openlocfilehash: 57281bedb34078dff6878d69be1bfe7f7300f545
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: df766c289ac9ece4c1dc1fbdc65d49ae1306a592
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84905803"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87008595"
 ---
 # <a name="configure-a-custom-linux-container-for-azure-app-service"></a>Konfigurowanie niestandardowego kontenera systemu Linux dla Azure App Service
 
@@ -18,7 +18,7 @@ Ten przewodnik zawiera najważniejsze pojęcia i instrukcje dotyczące kontenera
 
 ## <a name="configure-port-number"></a>Konfiguruj numer portu
 
-Serwer sieci Web w obrazie niestandardowym może używać portu innego niż 80. Poinformuj platformę Azure o porcie używanym przez kontener niestandardowy przy użyciu `WEBSITES_PORT` Ustawienia aplikacji. Na stronie usługi GitHub dotyczącej [przykładowego kodu w języku Python w tym samouczku](https://github.com/Azure-Samples/docker-django-webapp-linux) przedstawiono, co jest potrzebne, aby ustawić opcję `WEBSITES_PORT` na wartość _8000_. Można to zrobić, uruchamiając [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) polecenie w Cloud Shell. Przykład:
+Domyślnie App Service zakłada, że kontener niestandardowy nasłuchuje na porcie 80. Serwer sieci Web w obrazie niestandardowym może używać portu innego niż 80. Poinformuj platformę Azure o porcie używanym przez kontener niestandardowy przy użyciu `WEBSITES_PORT` Ustawienia aplikacji. Na stronie usługi GitHub dotyczącej [przykładowego kodu w języku Python w tym samouczku](https://github.com/Azure-Samples/docker-django-webapp-linux) przedstawiono, co jest potrzebne, aby ustawić opcję `WEBSITES_PORT` na wartość _8000_. Można to zrobić, uruchamiając [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) polecenie w Cloud Shell. Na przykład:
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group <resource-group-name> --name <app-name> --settings WEBSITES_PORT=8000
@@ -26,7 +26,7 @@ az webapp config appsettings set --resource-group <resource-group-name> --name <
 
 ## <a name="configure-environment-variables"></a>Konfigurowanie zmiennych środowiskowych
 
-Kontener niestandardowy może używać zmiennych środowiskowych, które muszą zostać dostarczone zewnętrznie. Można przekazać je za pomocą [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) polecenia w Cloud Shell. Przykład:
+Kontener niestandardowy może używać zmiennych środowiskowych, które muszą zostać dostarczone zewnętrznie. Można przekazać je za pomocą [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) polecenia w Cloud Shell. Na przykład:
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group <resource-group-name> --name <app-name> --settings WORDPRESS_DB_HOST="myownserver.mysql.database.azure.com"
@@ -40,7 +40,7 @@ Możesz użyć katalogu */Home* w systemie plików aplikacji, aby utrwalać plik
 
 Gdy trwały magazyn jest wyłączony, operacje zapisu w `/home` katalogu nie są utrwalane między ponownymi uruchomieniami aplikacji ani między wieloma wystąpieniami. Jedynym wyjątkiem jest `/home/LogFiles` katalog, który jest używany do przechowywania dzienników platformy Docker i kontenerów. Gdy magazyn trwały jest włączony, wszystkie operacje zapisu w `/home` katalogu są utrwalane i mogą być dostępne we wszystkich wystąpieniach aplikacji skalowanej w poziomie.
 
-Domyślnie magazyn trwały jest *włączony* , a ustawienie nie jest widoczne w ustawieniach aplikacji. Aby go wyłączyć, należy ustawić `WEBSITES_ENABLE_APP_SERVICE_STORAGE` ustawienie aplikacji przez uruchomienie [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) polecenia w Cloud Shell. Przykład:
+Domyślnie magazyn trwały jest *włączony* , a ustawienie nie jest widoczne w ustawieniach aplikacji. Aby go wyłączyć, należy ustawić `WEBSITES_ENABLE_APP_SERVICE_STORAGE` ustawienie aplikacji przez uruchomienie [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) polecenia w Cloud Shell. Na przykład:
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group <resource-group-name> --name <app-name> --settings WEBSITES_ENABLE_APP_SERVICE_STORAGE=false
@@ -112,7 +112,7 @@ az webapp config appsettings set --resource-group <resource-group-name> --name <
 
 W pliku *Docker-Compose. yml* zamapuj `volumes` opcję na `${WEBAPP_STORAGE_HOME}` . 
 
-`WEBAPP_STORAGE_HOME` to zmienna środowiskowa w usłudze App Service mapowana na magazyn trwały aplikacji. Przykład:
+`WEBAPP_STORAGE_HOME` to zmienna środowiskowa w usłudze App Service mapowana na magazyn trwały aplikacji. Na przykład:
 
 ```yaml
 wordpress:
@@ -138,7 +138,7 @@ Na poniższych listach przedstawiono obsługiwane i nieobsługiwane Docker Compo
 
 - command
 - entrypoint
-- environment
+- środowisko
 - image (obraz)
 - ports
 - restart

@@ -11,15 +11,15 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 06/19/2020
+ms.date: 07/20/2020
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: 4906ea7c3ed3486a4ce089f51916fb8322761fe9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 88856a16dbc197be29ddd88311063df4473a1e40
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85559553"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87007881"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Zarządzanie użyciem i kosztami za pomocą dzienników Azure Monitor    
 
@@ -80,7 +80,7 @@ Opłaty za Log Analytics są dodawane do rachunku na korzystanie z platformy Azu
 
 Platforma Azure oferuje bardzo przydatne funkcje w [Azure Cost Management i centrum rozliczeń](https://docs.microsoft.com/azure/cost-management/quick-acm-cost-analysis?toc=/azure/billing/TOC.json) . Na przykład funkcja "analiza kosztów" umożliwia wyświetlanie wydatków dotyczących zasobów platformy Azure. Najpierw Dodaj filtr "typ zasobu" (do Microsoft. operationalinsights/Workspace dla Log Analytics i Microsoft. operationalinsights/obszar roboczy dla klastrów Log Analytics) umożliwi śledzenie wydatków Log Analytics. Następnie dla opcji "Grupuj według" Wybierz "kategoria licznika" lub "licznik".  Należy zauważyć, że inne usługi, takie jak Azure Security Center i Azure — wskaźnik użytkowania, również rozliczają swoje użycie względem zasobów Log Analytics obszaru roboczego. Aby wyświetlić mapowanie do nazwy usługi, można wybrać widok tabeli zamiast wykresu. 
 
-Więcej informacji o użyciu można uzyskać, [pobierając użycie z Azure Portal](https://docs.microsoft.com/azure/billing/billing-download-azure-invoice-daily-usage-date#download-usage-in-azure-portal). W pobranym arkuszu kalkulacyjnym można zobaczyć użycie na zasób platformy Azure (np. Log Analytics obszar roboczy) dziennie. W tym arkuszu kalkulacyjnym programu Excel można znaleźć użycie z obszarów roboczych Log Analytics, wybierając najpierw filtrowanie w kolumnie "kategoria licznika", aby pokazać "Log Analytics", "szczegółowe informacje i analiza" (używane przez niektóre starsze warstwy cenowe) i "Azure Monitor" (używane przez warstwy cenowe rezerwacji zdolności produkcyjnych), a następnie Dodawanie filtru w kolumnie "identyfikator wystąpienia", która ma wartość "zawiera obszar roboczy" lub "zawiera klaster" (ten ostatni, aby uwzględnić użycie klastra Log Analytics). Użycie jest wyświetlane w kolumnie "zużyta ilość", a jednostka dla każdego wpisu jest pokazywana w kolumnie "jednostka miary".  Dostępne są więcej szczegółów, które ułatwiają [zrozumienie Microsoft Azure rachunku](https://docs.microsoft.com/azure/billing/billing-understand-your-bill). 
+Aby lepiej zrozumieć użycie, można [pobrać informacje o użyciu z witryny Azure Portal](https://docs.microsoft.com/azure/billing/billing-download-azure-invoice-daily-usage-date#download-usage-in-azure-portal). Pobrany arkusz kalkulacyjny zawiera dane o użyciu poszczególnych zasobów platformy Azure (np. obszaru roboczego usługi Log Analytics) na dzień. W tym arkuszu kalkulacyjnym programu Excel można znaleźć użycie z obszarów roboczych Log Analytics, wybierając najpierw filtrowanie w kolumnie "kategoria licznika", aby pokazać "Log Analytics", "szczegółowe informacje i analiza" (używane przez niektóre starsze warstwy cenowe) i "Azure Monitor" (używane przez warstwy cenowe rezerwacji zdolności produkcyjnych), a następnie Dodawanie filtru w kolumnie "identyfikator wystąpienia", która ma wartość "zawiera obszar roboczy" lub "zawiera klaster" (ten ostatni, aby uwzględnić użycie klastra Log Analytics). Użycie jest wyświetlane w kolumnie "zużyta ilość", a jednostka dla każdego wpisu jest pokazywana w kolumnie "jednostka miary".  Temat dotyczący [interpretacji rachunku za platformę Microsoft Azure](https://docs.microsoft.com/azure/billing/billing-understand-your-bill) zawiera więcej szczegółowych informacji. 
 
 ## <a name="changing-pricing-tier"></a>Zmienianie warstwy cenowej
 
@@ -100,12 +100,18 @@ Możesz również [ustawić warstwę cenową za pośrednictwem Azure Resource Ma
 
 Subskrypcje, w których wystąpiły obszary robocze Log Analytics lub Application Insights zasobów, przed 2 kwietnia 2018 lub połączone z Umowa Enterprise, które zostały uruchomione przed 1 lutego 2019, nadal będą miały dostęp do korzystania ze starszych warstw cenowych: **bezpłatna**, **autonomiczna (za GB)** i **na węzeł (OMS)**.  Obszary robocze w warstwie cenowej bezpłatna będą mieć dzienne pozyskiwanie danych ograniczone do 500 MB (z wyjątkiem typów danych zabezpieczeń zbieranych przez [Azure Security Center](https://docs.microsoft.com/azure/security-center/)), a przechowywanie danych jest ograniczone do 7 dni. Warstwa cenowa bezpłatna jest przeznaczona tylko do celów ewaluacyjnych. Obszary robocze w warstwach autonomicznych lub na węzeł są dostępne przez użytkownika w sposób konfigurowalny od 30 do 730 dni.
 
-Opłaty za warstwę cenową na węzeł na monitorowaną maszynę wirtualną (węzeł) mają stopień szczegółowości godzin. Dla każdego monitorowanego węzła obszar roboczy ma przydzieloną 500 MB danych dziennie, które nie są rozliczane. Ta alokacja jest agregowana na poziomie obszaru roboczego. Dane pozyskane powyżej zagregowanego dziennego przydziału danych są rozliczane za GB jako nadwyżkowe dane. Należy pamiętać, że na rachunku usługa zostanie **Insight and Analytics** do log Analytics użycie, jeśli obszar roboczy znajduje się w warstwie cenowej węzła na węzeł. 
+Użycie w ramach autonomicznej warstwy cenowej jest rozliczane przez pozyskiwany wolumin danych. Jest on raportowany w usłudze **log Analytics** i miernik ma nazwę "dane analizowane". 
+
+Opłaty za warstwę cenową na węzeł na monitorowaną maszynę wirtualną (węzeł) mają stopień szczegółowości godzin. Dla każdego monitorowanego węzła obszar roboczy ma przydzieloną 500 MB danych dziennie, które nie są rozliczane. Ta alokacja jest agregowana na poziomie obszaru roboczego. Dane pozyskane powyżej zagregowanego dziennego przydziału danych są rozliczane za GB jako nadwyżkowe dane. Należy pamiętać, że na rachunku usługa zostanie **Insight and Analytics** do log Analytics użycie, jeśli obszar roboczy znajduje się w warstwie cenowej węzła na węzeł. Użycie jest raportowane dla trzech liczników:
+
+1. Węzeł: jest to użycie dla liczby monitorowanych węzłów (maszyn wirtualnych) w jednostkach węzła * miesiące.
+2. Nadwyżka danych na węzeł: jest to liczba GB danych pobieranych z przekroczeniem zagregowanej alokacji danych.
+3. Dane uwzględnione na węzeł: to ilość danych uzyskanych w ramach zagregowanego przydziału danych. Ten licznik jest również używany, gdy obszar roboczy znajduje się w obszarze wszystkie warstwy cenowe, aby pokazać ilość danych objętych przez Azure Security Center.
 
 > [!TIP]
 > Jeśli Twój obszar roboczy ma dostęp do warstwy cenowej **węzła** , ale zastanawiasz się, czy w warstwie płatność zgodnie z rzeczywistym użyciem jest to tańsze, możesz [użyć poniższego zapytania](#evaluating-the-legacy-per-node-pricing-tier) , aby łatwo uzyskać zalecenie. 
 
-Obszary robocze utworzone przed kwietnia 2016 mogą również uzyskiwać dostęp do oryginalnych warstw cenowych **Standard** i **Premium** , które mają odpowiednio stałe okresy 30 i 365. Nie można tworzyć nowych obszarów roboczych w warstwach cenowych **standardowa** lub **Premium** , a jeśli obszar roboczy jest przenoszony z tych warstw, nie można go przenieść z powrotem.
+Obszary robocze utworzone przed kwietnia 2016 mogą również uzyskiwać dostęp do oryginalnych warstw cenowych **Standard** i **Premium** , które mają odpowiednio stałe okresy 30 i 365. Nie można tworzyć nowych obszarów roboczych w warstwach cenowych **standardowa** lub **Premium** , a jeśli obszar roboczy jest przenoszony z tych warstw, nie można go przenieść z powrotem. Liczniki pozyskiwania danych dla tych starszych warstw są nazywane "danymi analizowanymi".
 
 Istnieją także pewne zachowania między użyciem starszych warstw Log Analytics i sposobu rozliczania użycia dla [Azure Security Center](https://docs.microsoft.com/azure/security-center/). 
 
@@ -128,19 +134,19 @@ Aby ustawić domyślne przechowywanie dla obszaru roboczego,
  
 1. W Azure Portal w obszarze roboczym wybierz pozycję **użycie i szacowane koszty** w okienku po lewej stronie.
 2. Na stronie **Użycie i szacunkowe koszty** kliknij pozycję **Zarządzanie ilością danych** w górnej części strony.
-3. W okienku przesuń suwak, aby zwiększyć lub zmniejszyć liczbę dni, a następnie kliknij przycisk **OK**.  W przypadku korzystania z warstwy *bezpłatna* nie będzie można modyfikować okresu przechowywania danych i należy przeprowadzić uaktualnienie do warstwy płatnej w celu kontrolowania tego ustawienia.
+3. W okienku za pomocą suwaka zwiększ lub zmniejsz liczbę dni, a następnie kliknij przycisk **OK**.  W przypadku korzystania z warstwy *bezpłatna* nie będzie można modyfikować okresu przechowywania danych i należy przeprowadzić uaktualnienie do warstwy płatnej w celu kontrolowania tego ustawienia.
 
     ![Zmień ustawienie przechowywania danych obszaru roboczego](media/manage-cost-storage/manage-cost-change-retention-01.png)
 
-Gdy przechowywanie zostanie obniżone, istnieje kilka okresów prolongaty przed usunięciem najstarszych danych. 
-    
-Przechowywanie można również [ustawić za pośrednictwem Azure Resource Manager](https://docs.microsoft.com/azure/azure-monitor/platform/template-workspace-configuration#configure-a-log-analytics-workspace) przy użyciu `retentionInDays` parametru. Ponadto w przypadku ustawienia przechowywania danych na 30 dni można wyzwolić natychmiastowe przeczyszczanie starszych danych przy użyciu `immediatePurgeDataOn30Days` parametru, co może być przydatne w scenariuszach związanych ze zgodnością. Ta funkcja jest udostępniana tylko przez Azure Resource Manager. 
+W przypadku obniżenia poziomu przechowywania istnieje kilka okresów prolongaty przed usunięciem danych starszych niż nowe ustawienie przechowywania. 
 
+Przechowywanie można również [ustawić za pośrednictwem Azure Resource Manager](https://docs.microsoft.com/azure/azure-monitor/platform/template-workspace-configuration#configure-a-log-analytics-workspace) przy użyciu `retentionInDays` parametru. Po ustawieniu przechowywania danych na 30 dni można wyzwolić natychmiastowe przeczyszczanie starszych danych przy użyciu `immediatePurgeDataOn30Days` parametru (eliminując okres prolongaty kilku dni). Może to być przydatne w scenariuszach związanych ze zgodnością, w których bezpośrednie usuwanie danych jest konieczne. Ta funkcja natychmiastowego przeczyszczania jest dostępna tylko za pośrednictwem Azure Resource Manager. 
+
+Obszary robocze z 30-dniowym przechowywaniem mogą faktycznie zachować dane przez 31 dni. Jeśli jest to konieczne, aby dane były przechowywane przez 30 dni, użyj Azure Resource Manager, aby ustawić przechowywanie na 30 dni i z `immediatePurgeDataOn30Days` parametrem.  
 
 Dwa typy danych-- `Usage` i `AzureActivity` --są domyślnie przechowywane przez co najmniej 90 dni i nie są naliczane opłaty za korzystanie z tego 90go okresu przechowywania. Jeśli okres przechowywania obszaru roboczego zostanie zwiększony powyżej 90 dni, zachowywane są również te typy danych.  Te typy danych są również wolne od opłat za pozyskiwanie danych. 
 
 Typy danych z zasobów Application Insights opartych na obszarze roboczym (,,,,,,,, `AppAvailabilityResults` `AppBrowserTimings` `AppDependencies` `AppExceptions` `AppEvents` `AppMetrics` `AppPageViews` `AppPerformanceCounters` `AppRequests` `AppSystemEvents` i `AppTraces` ) również są przechowywane domyślnie przez 90 dni i nie są naliczane opłaty za korzystanie z tego 90ego okresu przechowywania. Ich przechowywanie można dostosować przy użyciu funkcji przechowywania danych według typu. 
-
 
 ### <a name="retention-by-data-type"></a>Przechowywanie według typu danych
 
@@ -189,14 +195,17 @@ armclient PUT /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/
 
 ## <a name="manage-your-maximum-daily-data-volume"></a>Zarządzanie maksymalnym dziennym woluminem danych
 
-Można skonfigurować dzienny limit i ograniczyć dzienne pozyskiwanie obszaru roboczego, ale należy zachować ostrożność, ponieważ cel nie powinien być osiągnięty w dziennym limicie.  W przeciwnym razie utracisz dane przez pozostałą część dnia, co może mieć wpływ na inne usługi i rozwiązania platformy Azure, których funkcjonalność może zależeć od aktualnych danych dostępnych w obszarze roboczym.  W efekcie można obserwować i otrzymywać alerty w przypadku, gdy ma to wpływ na warunki kondycji zasobów obsługujących usługi IT.  Dzienny limit jest przeznaczony do użycia jako sposób zarządzania nieoczekiwanym wzrostem ilości danych z zarządzanych zasobów i pozostania w limicie lub w przypadku ograniczenia nieplanowanych opłat dla obszaru roboczego.  
+Można skonfigurować dzienny limit i ograniczyć dzienne pozyskiwanie obszaru roboczego, ale należy zachować ostrożność, ponieważ cel nie powinien być osiągnięty w dziennym limicie.  W przeciwnym razie utracisz dane przez pozostałą część dnia, co może mieć wpływ na inne usługi i rozwiązania platformy Azure, których funkcjonalność może zależeć od aktualnych danych dostępnych w obszarze roboczym.  Ma to wpływ na możliwość obserwowania i otrzymywania alertów dotyczących kondycji zasobów obsługujących usługi IT.  Dzienny limit jest przeznaczony do użycia jako sposób zarządzania **nieoczekiwanym wzrostem** ilości danych z zarządzanych zasobów i pozostania w limicie lub w przypadku ograniczenia nieplanowanych opłat dla obszaru roboczego. Ustawianie dziennego limitu jest nieodpowiednie, aby był on spełniony każdego dnia w obszarze roboczym.
 
 W każdym obszarze roboczym dzienny limit został zastosowany w innej godzinie dnia. Godzina resetowania jest wyświetlana na stronie **dzienne zakończenie** (patrz poniżej). Nie można skonfigurować tej godziny resetowania. 
 
-Wkrótce po osiągnięciu dziennego limitu w pozostałej części dnia zostanie zatrzymana Kolekcja typów danych do rozliczenia. (Opóźnienie związane z zastosowaniem dziennego limitu oznacza, że zakończenie nie jest stosowane w dokładnie określonym poziomie dziennego limitu). Transparent ostrzegawczy pojawia się w górnej części strony dla wybranego obszaru roboczego Log Analytics, a zdarzenie operacji jest wysyłane do tabeli *operacji* w kategorii **LogManagement** . Zbieranie danych zostanie wznowione po upływie czasu resetowania określonego w obszarze *dzienny limit*. Zalecamy zdefiniowanie reguły alertu na podstawie tego zdarzenia operacji skonfigurowanego do powiadamiania o osiągnięciu dziennego limitu ilości danych. 
+Wkrótce po osiągnięciu dziennego limitu w pozostałej części dnia zostanie zatrzymana Kolekcja typów danych do rozliczenia. Opóźnienie związane z zastosowaniem dziennego limitu oznacza, że zakończenie nie jest stosowane w dokładnie określonym poziomie dziennego limitu. Transparent ostrzegawczy pojawia się w górnej części strony dla wybranego obszaru roboczego Log Analytics, a zdarzenie operacji jest wysyłane do tabeli *operacji* w kategorii **LogManagement** . Zbieranie danych zostanie wznowione po upływie czasu resetowania określonego w obszarze *dzienny limit*. Zalecamy zdefiniowanie reguły alertu na podstawie tego zdarzenia operacji skonfigurowanego do powiadamiania o osiągnięciu dziennego limitu ilości danych. 
+
+> [!NOTE]
+> Dzienny limit nie może zatrzymać zbierania danych zgodnie z dokładnością określonego poziomu, a niektóre nadmierne dane są oczekiwane, zwłaszcza jeśli obszar roboczy otrzymuje duże ilości danych.  
 
 > [!WARNING]
-> Dzienny limit nie zatrzymuje zbierania danych z tabeli wskaźnikowej platformy Azure ani Azure Security Center, z wyjątkiem obszarów roboczych, w których Azure Security Center został zainstalowany przed 19 czerwca 2017. 
+> Dzienny limit nie zatrzymuje zbierania danych z usługi Azure Sentinal lub Azure Security Center, z wyjątkiem obszarów roboczych, w których Azure Security Center został zainstalowany przed 19 czerwca 2017. 
 
 ### <a name="identify-what-daily-data-limit-to-define"></a>Określ dzienny limit danych do zdefiniowania
 
@@ -594,7 +603,7 @@ Jeśli korzystasz z starszej warstwy cenowej bezpłatnej i w ciągu dnia wyśles
 Operation | where OperationCategory == 'Data Collection Status'
 ```
 
-Gdy zbieranie danych zostanie zatrzymane, OperationStatus jest **ostrzeżeniem**. Po rozpoczęciu zbierania danych OperationStatus **powiodło**się. W poniższej tabeli opisano przyczyny zatrzymania zbierania danych oraz sugerowaną akcję wznowienia zbierania danych:  
+Jeśli zbieranie danych jest zatrzymane, stan OperationStatus ma wartość **Ostrzeżenie**. Jeśli zbieranie danych zostało rozpoczęte, stan OperationStatus ma wartość **Powodzenie**. W poniższej tabeli opisano przyczyny zatrzymania zbierania danych oraz sugerowaną akcję wznowienia zbierania danych:  
 
 |Zakończenie zbierania danych o przyczynie| Rozwiązanie| 
 |-----------------------|---------|

@@ -14,16 +14,17 @@ ms.topic: article
 ms.date: 09/22/2019
 ms.author: juliako
 ms.reviewer: adsolank
-ms.openlocfilehash: c24218dc116803ca0e0a1f166b7b54b24fc4d5ef
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d4589e2e923bf4068cc3a707c69f0304a1539745
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78163798"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87011553"
 ---
 # <a name="indexing-media-files-with-azure-media-indexer-2-preview"></a>Indeksowanie plików multimedialnych z Azure Media Indexer 2 wersja zapoznawcza
 
 > [!NOTE]
-> Procesor multimediów **Azure Media Indexer 2** zostanie wycofany. Aby uzyskać daty wycofania, zobacz temat ten [starszy składnik](legacy-components.md) . [Azure Media Services Video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) zastępuje ten starszy procesor nośnika. Aby uzyskać więcej informacji, zobacz [Migrowanie z Azure Media Indexer i Azure Media Indexer 2 do Azure Media Services Video Indexer](migrate-indexer-v1-v2.md).
+> Procesor multimediów **Azure Media Indexer 2** zostanie wycofany. Aby uzyskać daty wycofania, zobacz temat ten [starszy składnik](legacy-components.md) . [Azure Media Services Video Indexer](../video-indexer/index.yml) zastępuje ten starszy procesor nośnika. Aby uzyskać więcej informacji, zobacz [Migrowanie z Azure Media Indexer i Azure Media Indexer 2 do Azure Media Services Video Indexer](migrate-indexer-v1-v2.md).
 
 Procesor **Azure Media Indexer 2 (wersja zapoznawcza** ) umożliwia udostępnianie plików multimedialnych i zawartości, a także generowanie ścieżek napisów. W porównaniu do poprzedniej wersji [Azure Media Indexer](media-services-index-content.md), **Azure Media Indexer 2 wersja zapoznawcza** wykonuje szybsze indeksowanie i oferuje szersze wsparcie w zakresie języków. Obsługiwane języki to angielski, hiszpański, francuski, niemiecki, włoski, chiński (mandarynki, uproszczony), portugalski, arabski, rosyjski i japoński.
 
@@ -31,7 +32,7 @@ Pakiet MP **Azure Media Indexer 2 w wersji** zapoznawczej jest obecnie w wersji 
 
 W tym artykule przedstawiono sposób tworzenia zadań indeksowania przy użyciu **wersji Zapoznawczej Azure Media Indexer 2**.
 
-## <a name="considerations"></a>Istotne zagadnienia
+## <a name="considerations"></a>Zagadnienia do rozważenia
 
 Obowiązują następujące zastrzeżenia:
  
@@ -300,4 +301,3 @@ namespace IndexContent
 [Omówienie Azure Media Services Analytics](media-services-analytics-overview.md)
 
 [Demonstracje Azure Media Analytics](https://azuremedialabs.azurewebsites.net/demos/Analytics.html)
-

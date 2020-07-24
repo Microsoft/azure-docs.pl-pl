@@ -4,15 +4,16 @@ description: Monitorowanie złożonych topologii aplikacji za pomocą mapy aplik
 ms.topic: conceptual
 ms.date: 03/15/2019
 ms.reviewer: sdash
-ms.openlocfilehash: 7c5c9173704535b1e34ffde5867bd512e3e02ed8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1f9f19ea9370b9da3e69d871e8b53ccf7f64a6a5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80989531"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87008510"
 ---
 # <a name="application-map-triage-distributed-applications"></a>Mapa aplikacji: Klasyfikacja aplikacje rozproszone
 
-Mapa aplikacji pomaga w wykorzystaniu wąskich gardeł wydajności lub punktów awarii we wszystkich składnikach aplikacji rozproszonej. Każdy węzeł mapy reprezentuje składnik aplikacji lub jego zależności; i ma stan KPI kondycji i alertów. Możesz kliknąć opcję z dowolnego składnika, aby uzyskać bardziej szczegółową diagnostykę, taką jak zdarzenia Application Insights. Jeśli Twoja aplikacja korzysta z usług platformy Azure, możesz również kliknąć opcję do diagnostyki platformy Azure, na przykład SQL Database Advisor zalecenia.
+Mapa aplikacji pomaga dostrzec wąskie gardła wydajności oraz miejsca najczęstszych awarii we wszystkich składnikach aplikacji rozproszonej. Każdy węzeł mapy reprezentuje składnik aplikacji lub jego zależności; i ma stan KPI kondycji i alertów. Możesz kliknąć opcję z dowolnego składnika, aby uzyskać bardziej szczegółową diagnostykę, taką jak zdarzenia Application Insights. Jeśli Twoja aplikacja korzysta z usług platformy Azure, możesz również kliknąć opcję do diagnostyki platformy Azure, na przykład SQL Database Advisor zalecenia.
 
 ## <a name="what-is-a-component"></a>Co to jest składnik?
 
@@ -156,7 +157,7 @@ W przypadku aplikacji [ASP.NET Core](asp-net-core.md#adding-telemetryinitializer
 
 **Agent Java**
 
-W przypadku [agenta Java 3,0](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent) nazwa roli chmury jest ustawiona w następujący sposób:
+W przypadku [agenta Java 3,0](./java-in-process-agent.md) nazwa roli chmury jest ustawiona w następujący sposób:
 
 ```json
 {
@@ -258,15 +259,15 @@ Jeśli masz problemy z uzyskaniem działania mapy aplikacji zgodnie z oczekiwani
 
 1. Upewnij się, że używasz oficjalnie obsługiwanego zestawu SDK. Nieobsługiwane zestawy SDK/zestawy SDK społeczności mogą nie obsługiwać korelacji.
 
-    Zapoznaj się z tym [artykułem](https://docs.microsoft.com/azure/application-insights/app-insights-platforms) , aby zapoznać się z listą obsługiwanych zestawów SDK.
+    Aby uzyskać listę obsługiwanych zestawów SDK, zapoznaj się z tym [artykułem](./platforms.md).
 
 2. Uaktualnij wszystkie składniki do najnowszej wersji zestawu SDK.
 
-3. Jeśli używasz Azure Functions w języku C#, Uaktualnij do [funkcji w wersji 2](https://docs.microsoft.com/azure/azure-functions/functions-versions).
+3. Jeśli używasz Azure Functions w języku C#, Uaktualnij do [funkcji w wersji 2](../../azure-functions/functions-versions.md).
 
 4. Upewnij się, że [Nazwa roli w chmurze](#set-cloud-role-name) została prawidłowo skonfigurowana.
 
-5. Jeśli brakuje zależności, upewnij się, że znajduje się ona na liście [automatycznie zebranych zależności](https://docs.microsoft.com/azure/application-insights/auto-collect-dependencies). W przeciwnym razie możesz w dalszym ciągu śledzić ją ręcznie przy użyciu [wywołania zależności śledzenia](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackdependency).
+5. Jeśli brakuje zależności, upewnij się, że znajduje się ona na liście [automatycznie zebranych zależności](./auto-collect-dependencies.md). W przeciwnym razie możesz w dalszym ciągu śledzić ją ręcznie przy użyciu [wywołania zależności śledzenia](./api-custom-events-metrics.md#trackdependency).
 
 ### <a name="too-many-nodes-on-the-map"></a>Zbyt wiele węzłów na mapie
 
@@ -280,7 +281,7 @@ Aby rozwiązać ten problem, należy zmienić instrumentację, aby prawidłowo u
 
 * Typ zależności powinien reprezentować typ logiczny zależności. Na przykład, HTTP, SQL lub Azure Blob są typowymi typami zależności. Nie powinien zawierać unikatowych identyfikatorów.
 
-* W [powyższej sekcji](https://docs.microsoft.com/azure/azure-monitor/app/app-map#set-cloud-role-name)opisano przeznaczenie nazwy roli w chmurze.
+* W [powyższej sekcji](#set-cloud-role-name)opisano przeznaczenie nazwy roli w chmurze.
 
 ## <a name="portal-feedback"></a>Opinie portalu
 

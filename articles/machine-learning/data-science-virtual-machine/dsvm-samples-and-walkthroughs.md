@@ -10,11 +10,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: d064e940997d13e51be4fd38e9f678b778ce31f4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 98a1cd883867aa2f785b15f4c7ae4f2266a421ae
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74900051"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87012573"
 ---
 # <a name="samples-on-azure-data-science-virtual-machines"></a>Przykłady dotyczące Virtual Machines analizy danych na platformie Azure
 
@@ -24,7 +25,7 @@ Usługa Azure Data Science Virtual Machines (DSVMs) zawiera kompleksowy zestaw p
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby można było uruchomić te przykłady, musisz mieć zainicjowany Data Science Virtual Machine. Zobacz Przewodniki Szybki Start dla [systemu Windows](./provision-vm.md) i [Ubuntu](./dsvm-ubuntu-intro.md).
+Aby można było uruchomić te przykłady, trzeba mieć zainicjowaną [Ubuntu Data Science Virtual Machine](./dsvm-ubuntu-intro.md).
 
 ## <a name="available-samples"></a>Dostępne przykłady
 | Kategoria przykładów | Opis | Lokalizacje |
@@ -32,10 +33,10 @@ Aby można było uruchomić te przykłady, musisz mieć zainicjowany Data Scienc
 | Język R  | Przykłady ilustrują scenariusze, takie jak nawiązywanie połączenia z magazynami danych w chmurze opartymi na platformie Azure i porównywanie języka R i Microsoft Machine Learning Server typu open source. Wyjaśniono także, jak operacjonalizować modele na Microsoft Machine Learning Server i SQL Server. <br/> [Język R](#r-language) | <br/>`~notebooks` <br/> <br/> `~samples/MicrosoftR` <br/> <br/> `~samples/RSqlDemo` <br/> <br/> `~samples/SQLRServices`<br/> <br/>|
 | Język Python  | Przykłady wyjaśniają scenariusze, takie jak nawiązywanie połączenia z magazynami danych w chmurze opartymi na platformie Azure i jak korzystać z Azure Machine Learning.  <br/> [Język Python](#python-language) | <br/>`~notebooks` <br/><br/>|
 | Język Julia  | Zawiera szczegółowy opis wykreślania i uczenia głębokiego w Julia. Wyjaśniono również, jak wywoływać C i Python z Julia. <br/> [Język Julia](#julia-language) |<br/> W systemie Windows:<br/> `~notebooks/Julia_notebooks`<br/><br/> W systemie Linux:<br/> `~notebooks/julia`<br/><br/> |
-| Azure Machine Learning  | Ilustruje sposób tworzenia modeli uczenia maszynowego i uczenia głębokiego przy użyciu Machine Learning. Wdrażaj modele w dowolnym miejscu. Użyj zautomatyzowanej uczenia maszynowego i inteligentnego dostrajania parametrów. Należy również użyć zarządzania modelami i szkolenia rozproszonego. <br/> [Usługa Machine Learning](#azure-machine-learning) | <br/>`~notebooks/AzureML`<br/> <br/>|
+| Azure Machine Learning  | Ilustruje sposób tworzenia modeli uczenia maszynowego i uczenia głębokiego przy użyciu Machine Learning. Wdrażaj modele w dowolnym miejscu. Użyj zautomatyzowanej uczenia maszynowego i inteligentnego dostrajania parametrów. Należy również użyć zarządzania modelami i szkolenia rozproszonego. <br/> [Machine Learning](#azure-machine-learning) | <br/>`~notebooks/AzureML`<br/> <br/>|
 | Notesy PyTorch  | Przykłady głębokiej uczenia, które używają sieci neuronowych opartych na PyTorch. Notesy przedziały od początku do zaawansowanych scenariuszy.  <br/> [Notesy PyTorch](#pytorch) | <br/>`~notebooks/Deep_learning_frameworks/pytorch`<br/> <br/>|
 | TensorFlow  |  Wiele przykładów i technik sieci neuronowych zaimplementowanych przy użyciu platformy TensorFlow. <br/> [TensorFlow](#tensorflow) | <br/>`~notebooks/Deep_learning_frameworks/tensorflow`<br/><br/> |
-| Zestaw narzędzi usług Microsoft Cognitive <br/>   | Przykłady głębokiej uczenia opublikowane przez zespół Cognitive Toolkit w firmie Microsoft.  <br/> [Zestaw narzędzi usług Cognitive](#cntk) | <br/> `~notebooks/DeepLearningTools/CNTK/Tutorials`<br/><br/> W systemie Linux:<br/> `~notebooks/CNTK`<br/> <br/>|
+| Zestaw narzędzi usług Microsoft Cognitive <br/>   | Przykłady głębokiej uczenia opublikowane przez zespół Cognitive Toolkit w firmie Microsoft.  <br/> [Zestaw narzędzi Cognitive Toolkit](#cntk) | <br/> `~notebooks/DeepLearningTools/CNTK/Tutorials`<br/><br/> W systemie Linux:<br/> `~notebooks/CNTK`<br/> <br/>|
 | Caffe2 | Przykłady głębokiej uczenia, które używają sieci neuronowych opartych na Caffe2. Kilka notesów umożliwia zapoznanie się z programem Caffe2 i korzystanie z niego efektywnie. Przykłady obejmują przetwarzanie wstępne obrazu i tworzenie zestawu danych. Obejmują one również regresję i sposób korzystania z modeli. <br/> [Caffe2](#caffe2) | <br/>`~notebooks/Deep_learning_frameworks/caffe2`<br/><br/> |
 | H2O   | Przykłady bazujące na języku Python, które wykorzystują program H2O dla rzeczywistych scenariuszy problemów. <br/> [H2O](#h2o) | <br/>`~notebooks/h2o`<br/><br/> |
 | Język SparkML  | Przykłady korzystające z funkcji zestawu narzędzi Apache Spark MLLib za pomocą pySpark i MMLSpark: Microsoft Machine Learning dla Apache Spark na Apache Spark 2. x.  <br/> [Język SparkML](#sparkml) | <br/>`~notebooks/SparkML/pySpark`<br/>`~notebooks/MMLSpark`<br/><br/>  |

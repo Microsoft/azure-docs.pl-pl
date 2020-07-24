@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2019
 ms.author: juliako
-ms.openlocfilehash: f051d02ac06163cf1861ab6bfc6afd0dcbb0ad8a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7058160819c9b6ccc3f63511f86e930fcbfc413b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82559524"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87011655"
 ---
 # <a name="monitor-media-services-metrics-and-diagnostic-logs-via-azure-monitor"></a>Monitoruj Media Services metryki i dzienniki diagnostyczne za pośrednictwem Azure Monitor
 
@@ -58,7 +58,7 @@ Należy również sprawdzić [przydziały i limity kont](limits-quotas-constrain
 
 ### <a name="streaming-endpoint"></a>Punkt końcowy przesyłania strumieniowego
 
-Następujące metryki [punktów końcowych przesyłania strumieniowego](https://docs.microsoft.com/rest/api/media/streamingendpoints) Media Services są obsługiwane:
+Następujące metryki [punktów końcowych przesyłania strumieniowego](/rest/api/media/streamingendpoints) Media Services są obsługiwane:
 
 |Nazwa metryki|Nazwa wyświetlana|Opis|
 |---|---|---|

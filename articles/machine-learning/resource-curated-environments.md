@@ -10,16 +10,16 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 07/08/2020
-ms.openlocfilehash: 9d0964fb28451abe0a77276d6f9d605fcaac2514
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 72ccf2a765f50358635e4a803ed0b92e60bd7d19
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86156442"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87012216"
 ---
 # <a name="azure-machine-learning-curated-environments"></a>Azure Machine Learning środowiska nadzorowane
 
-W tym artykule wymieniono środowiska nadzorowane w Azure Machine Learning oraz pakiety i kanały, które są wstępnie zainstalowane w nich.
+W tym artykule wymieniono środowiska nadzorowane w Azure Machine Learning oraz pakiety i kanały, które są wstępnie zainstalowane w nich. Środowiska nadzorowane są udostępniane przez Azure Machine Learning i są domyślnie dostępne w obszarze roboczym. Są one obsługiwane przez buforowane obrazy platformy Docker, co zmniejsza koszt przygotowania i pozwala skrócić czas wdrażania. Korzystaj z tych środowisk, aby szybko rozpocząć pracę z różnymi platformami uczenia maszynowego.
 
 > [!NOTE]
 > Ta lista jest aktualizowana od czerwca 2020. Użyj zestawu SDK języka Python, aby uzyskać najbardziej zaktualizowaną listę. Aby uzyskać więcej informacji, zobacz [artykuł](./how-to-use-environments.md#use-a-curated-environment)dotyczący środowisk.

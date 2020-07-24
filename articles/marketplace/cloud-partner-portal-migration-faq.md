@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: anbene
 ms.author: mingshen
-ms.date: 06/29/2020
-ms.openlocfilehash: e708d9a32d63c306a2d1ee8d06b044652f108dde
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.date: 07/14/2020
+ms.openlocfilehash: eafa6c4911e934d391a380e5eb494ca8f7766959
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86231883"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87012063"
 ---
 # <a name="frequently-asked-questions-about-transitioning-from-the-cloud-partner-portal-to-partner-center"></a>Często zadawane pytania dotyczące przechodzenia z portal Cloud Partner do Centrum partnerskiego
 
@@ -30,7 +30,7 @@ Możesz kontynuować działalność w zwykły sposób w centrum partnerskim:
 | Nowe zakupy i wdrożenia | Brak zmian. Klienci mogą nadal kupić i wdrażać oferty bez przerw. |
 | Wypłaty | Wszystkie zakupy i wdrożenia będą nadal wynagradzane jako normalne. Dowiedz się więcej [na temat uzyskiwania płatności na rynku komercyjnym](partner-center-portal/get-paid.md). |
 | Integracje interfejsów API z istniejącymi [interfejsami api Portal Cloud partner](cloud-partner-portal-api-overview.md) | Istniejące interfejsy API portal Cloud Partner są nadal obsługiwane i Twoje istniejące integracji nadal działają. Dowiedz się więcej na temat [obsługiwanych Portal Cloud partner interfejsów API REST?](#are-the-cloud-partner-portal-rest-apis-still-supported) |
-| Analiza | Możesz kontynuować monitorowanie sprzedaży i ocenę wydajności oraz zoptymalizować oferty w komercyjnej witrynie Marketplace, wyświetlając analizę w centrum partnerskim. Dowiedz się więcej o [uzyskiwaniu dostępu do raportów analitycznych dla komercyjnego portalu Marketplace w centrum partnerskim](partner-center-portal/analytics.md). |
+| Analiza | Możesz kontynuować monitorowanie sprzedaży i ocenę wydajności oraz zoptymalizować oferty w komercyjnej witrynie Marketplace, wyświetlając analizę w centrum partnerskim. Istnieją różnice między sposobem wyświetlania raportów analizy w programie CPP i centrum partnerskim. Na przykład **Informacje o sprzedawcy** w programie CPP mają kartę **użycie & zamówienia** , która wyświetla dane dla ofert opartych na użyciu i nieopartych na użyciu, a w centrum partnerskim strona **Orders** ma osobną kartę dla ofert SaaS. Dowiedz się więcej o [uzyskiwaniu dostępu do raportów analitycznych dla komercyjnego portalu Marketplace w centrum partnerskim](partner-center-portal/analytics.md). |
 |||
 
 ## <a name="do-i-need-to-create-a-new-account-to-manage-my-offers-in-partner-center"></a>Czy muszę utworzyć nowe konto, aby zarządzać moimi ofertami w centrum partnerskim?
@@ -50,6 +50,19 @@ Poniżej znajdują się linki Centrum partnerskiego dla stron, które są częst
 | Strona historia | [https://cloudpartner.azure.com/#history](https://cloudpartner.azure.com/#history) | Funkcja History nie jest jeszcze obsługiwana w centrum partnerskim. |
 | Pulpit nawigacyjny usługi Insights | [https://cloudpartner.azure.com/#insights](https://cloudpartner.azure.com/#insights) | [https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary) |
 | Raport wypłaty | [https://cloudpartner.azure.com/#insights/payout](https://cloudpartner.azure.com/#insights/payout) | [https://partner.microsoft.com/dashboard/payouts/reports/incentivepayments](https://partner.microsoft.com/dashboard/payouts/reports/incentivepayments) |
+|||
+
+## <a name="payout-report-differences"></a>Różnice w raportach wypłaty
+
+Poniżej przedstawiono różnice w raporcie wypłaty między wycofanymi portal Cloud Partner i bieżącym centrum partnerskim:
+
+| Portal Cloud Partner | Centrum partnerskie |
+| --- | --- |
+| **Link**:https://cloudpartner.azure.com/ | **Link**: https://partner.microsoft.com/dashboard/payouts/reports/transactionhistory ihttps://partner.microsoft.com/dashboard/payouts/reports/incentivepayments |
+| **Nawigacja**: raportowanie wypłaty w usłudze Insights | **Nawigacja**: raportowanie wypłaty w centrum partnerskim — ikona wypłaty |
+| **Zakres**:<ul><li>Element Transaction na wiersz jest widoczny dla kolekcji w toku, zebranych i płatnych.</li><li>Raportowanie — pokazuje wszystkie elementy wiersza po utworzeniu zamówienia zakupu, w tym zbieranie w toku i rozliczanie w toku oraz stan kolekcji i elementy wierszy, które nie są jeszcze kwalifikujące się do płatności.</li></ul> | **Zakres**:<ul><li>Pokazuje elementy wiersza, gdy są one uznawane za kwalifikujące się zyski.</li><li>Klienci zwracają się najpierw do firmy Microsoft, a następnie dostawcy ISV mogą zobaczyć raport wypłaty.</li><li>Raport wypłaty nie będzie wyświetlał kolekcji w toku i rozliczeń w toku.</li></ul> |
+| **Transakcja nie jest gotowa do wypłaty**: rozliczanie w toku | **Transakcja nie jest gotowa do wypłaty**: Następna Szacowana płatność: stan wypłaty jest w stanie nieprzetworzonym. |
+| **Stan wypłaty**: brak | **Stan wypłaty**:<ul><li>Nieprzetworzone: pokrycie jest uprawnione do płatności.</li><li>Nadchodzące: zdobywanie zostanie wysłane do wydawcy w następnej miesięcznej wypłatie.</li><li>Wysłano: płatność została wysłana do Twojego banku.</li></ul> |
 |||
 
 ## <a name="what-about-offers-i-published-in-the-cloud-partner-portal"></a>Co o ofertach opublikowanych w portal Cloud Partner?
@@ -166,7 +179,7 @@ Możesz poprosić o [zaprzestanie sprzedaży oferty](partner-center-portal/updat
 
 Interfejsy API portal Cloud Partner są zintegrowane z centrum partnerskim i nadal będą działały. Przejście do Centrum partnerskiego wprowadza niewielkie zmiany. Zapoznaj się z tabelą poniżej, aby upewnić się, że kod będzie nadal działał w centrum partnerskim.
 
-| API <img src="" width=100px>| Zmień opis | Wpływ |
+| Interfejs API <img src="" width=100px>| Zmień opis | Wpływ |
 | --- | --- | --- |
 | Publikuj publikowanie, GoLive, Anuluj | W przypadku zmigrowanych ofert nagłówek odpowiedzi będzie miał inny format, ale będzie nadal działał w taki sam sposób, co oznacza ścieżkę względną do pobrania stanu operacji. | Podczas wysyłania dowolnego z odpowiednich żądań POST dla oferty nagłówek lokalizacji będzie miał jeden z dwóch formatów w zależności od stanu migracji oferty: <ul><li>Oferty bez migracji:`/api/operations/{PublisherId}${offerId}$2$preview?api-version=2017-10-31`</li><li>Zmigrowane oferty:`/api/publishers/{PublisherId}/offers/{offereId}/operations/408a4835-0000-1000-0000-000000000000?api-version=2017-10-31`</li></ul>|
 | Pobierz operację | W przypadku ofert, które wcześniej obsługiwały w odpowiedzi pole "notification-email", to pole będzie przestarzałe i nie będzie już zwracane dla zmigrowanych ofert. | W przypadku zmigrowanych ofert nie będą już wysyłane powiadomienia do listy wiadomości e-mail określonych w żądaniach. Zamiast tego usługa API zostanie wyrównuje z procesem powiadomień e-mail w centrum partnerskim w celu wysyłania wiadomości e-mail. W każdym przypadku powiadomienia o postępie operacji będą wysyłane na adres e-mail ustawiony w sekcji informacje kontaktowe sprzedawcy ustawień konta w centrum partnerskim.<br><br>Upewnij się, że adres e-mail jest ustawiony w sekcji informacje kontaktowe sprzedawcy w obszarze [Ustawienia konta](https://partner.microsoft.com/dashboard/account/management) w centrum partnerskim, aby otrzymywać powiadomienia. |

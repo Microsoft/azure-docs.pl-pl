@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/28/2018
-ms.openlocfilehash: 1b3ae6295a639c3d59643b106b920cb606572e0a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0bca809d6c25594c1c614f694e71e39a4f61e2a4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77670580"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87008187"
 ---
 # <a name="collect-iis-logs-in-azure-monitor"></a>Zbieranie dzienników usług IIS w Azure Monitor
 Internet Information Services (IIS) przechowuje aktywność użytkownika w plikach dziennika, które mogą być zbierane przez Azure Monitor i przechowywane jako [dane dziennika](data-platform.md).
@@ -18,7 +19,7 @@ Internet Information Services (IIS) przechowuje aktywność użytkownika w plika
 ![Dzienniki usług IIS](media/data-sources-iis-logs/overview.png)
 
 ## <a name="configuring-iis-logs"></a>Konfigurowanie dzienników usług IIS
-Azure Monitor zbiera wpisy z plików dziennika utworzonych przez usługi IIS, dlatego należy [skonfigurować usługi IIS do rejestrowania](https://technet.microsoft.com/library/hh831775.aspx).
+Azure Monitor zbiera wpisy z plików dziennika utworzonych przez usługi IIS, dlatego należy [skonfigurować usługi IIS do rejestrowania](/previous-versions/orphan-topics/ws.11/hh831775(v=ws.11)).
 
 Azure Monitor obsługuje tylko pliki dzienników usług IIS przechowywane w formacie W3C i nie obsługuje pól niestandardowych ani zaawansowanego rejestrowania usług IIS. Nie zbiera dzienników w formacie NCSA lub IIS.
 

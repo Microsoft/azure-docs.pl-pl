@@ -9,18 +9,18 @@ ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: caa8e928a10deb3d6d97e601c607074c09e0572e
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 681bd0aff909552531d682186d5b22dce5ef33f9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223520"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87010771"
 ---
 # <a name="preview-create-an-image-from-a-vm"></a>Wersja zapoznawcza: Tworzenie obrazu na podstawie maszyny wirtualnej
 
 Jeśli masz istniejącą maszynę wirtualną, która ma być używana do tworzenia wielu identycznych maszyn wirtualnych, możesz użyć tej maszyny wirtualnej do utworzenia obrazu w udostępnionej galerii obrazów przy użyciu Azure PowerShell. Możesz również utworzyć obraz z maszyny wirtualnej przy użyciu [interfejsu wiersza polecenia platformy Azure](image-version-vm-cli.md).
 
-Można przechwycić obraz z [wyspecjalizowanych i uogólnionych](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries#generalized-and-specialized-images) maszyn wirtualnych przy użyciu Azure PowerShell. 
+Można przechwycić obraz z [wyspecjalizowanych i uogólnionych](./windows/shared-image-galleries.md#generalized-and-specialized-images) maszyn wirtualnych przy użyciu Azure PowerShell. 
 
 Obrazy w galerii obrazów mają dwa składniki, które zostaną utworzone w tym przykładzie:
 - **Definicja obrazu** przenosi informacje o obrazie i wymaganiach dotyczących korzystania z niego. Obejmuje to zarówno system Windows, jak i Linux, wyspecjalizowane lub uogólnione informacje o wersji oraz minimalne i maksymalne wymagania dotyczące pamięci. Jest to definicja typu obrazu. 
@@ -54,7 +54,7 @@ $gallery = Get-AzGallery `
 
 ## <a name="get-the-vm"></a>Pobierz maszynę wirtualną
 
-Możesz wyświetlić listę maszyn wirtualnych, które są dostępne w grupie zasobów za pomocą polecenia [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm). Jeśli znasz nazwę maszyny wirtualnej i grupę zasobów, w której znajduje się, możesz użyć `Get-AzVM` jej ponownie, aby pobrać obiekt maszyny wirtualnej i zapisać go w zmiennej do użycia później. Ten przykład pobiera maszynę wirtualną o nazwie *sourceVM* z grupy zasobów "Grupa zasobów" i przypisuje ją do zmiennej *$sourceVm*. 
+Możesz wyświetlić listę maszyn wirtualnych, które są dostępne w grupie zasobów za pomocą polecenia [Get-AzVM](/powershell/module/az.compute/get-azvm). Jeśli znasz nazwę maszyny wirtualnej i grupę zasobów, w której znajduje się, możesz użyć `Get-AzVM` jej ponownie, aby pobrać obiekt maszyny wirtualnej i zapisać go w zmiennej do użycia później. Ten przykład pobiera maszynę wirtualną o nazwie *sourceVM* z grupy zasobów "Grupa zasobów" i przypisuje ją do zmiennej *$sourceVm*. 
 
 ```azurepowershell-interactive
 $sourceVm = Get-AzVM `
@@ -62,7 +62,7 @@ $sourceVm = Get-AzVM `
    -ResourceGroupName myResourceGroup
 ```
 
-Najlepszym rozwiązaniem jest stop\deallocate maszyny wirtualnej przed utworzeniem obrazu przy użyciu polecenia [stop-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm).
+Najlepszym rozwiązaniem jest stop\deallocate maszyny wirtualnej przed utworzeniem obrazu przy użyciu polecenia [stop-AzVM](/powershell/module/az.compute/stop-azvm).
 
 ```azurepowershell-interactive
 Stop-AzVM `
@@ -77,9 +77,9 @@ Definicje obrazów tworzą logiczne grupowanie dla obrazów. Są one używane do
 
 Podczas tworzenia definicji obrazu upewnij się, że zawiera on wszystkie prawidłowe informacje. W przypadku uogólnionej maszyny wirtualnej (przy użyciu programu Sysprep dla systemu Windows lub waagent-anulowania aprowizacji w systemie Linux) należy utworzyć definicję obrazu przy użyciu polecenia `-OsState generalized` . Jeśli maszyna wirtualna nie została uogólniona, Utwórz definicję obrazu za pomocą polecenia `-OsState specialized` .
 
-Aby uzyskać więcej informacji na temat wartości, które można określić dla definicji obrazu, zobacz [definicje obrazu](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries#image-definitions).
+Aby uzyskać więcej informacji na temat wartości, które można określić dla definicji obrazu, zobacz [definicje obrazu](./windows/shared-image-galleries.md#image-definitions).
 
-Utwórz definicję obrazu przy użyciu polecenia [New-AzGalleryImageDefinition](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion). 
+Utwórz definicję obrazu przy użyciu polecenia [New-AzGalleryImageDefinition](/powershell/module/az.compute/new-azgalleryimageversion). 
 
 W tym przykładzie definicja obrazu ma nazwę *myImageDefinition*i jest przeznaczona dla WYSPECJALIZOWANEJ maszyny wirtualnej z systemem Windows. Aby utworzyć definicję dla obrazów przy użyciu systemu Linux, użyj polecenia `-OsType Linux` . 
 
@@ -99,7 +99,7 @@ $imageDefinition = New-AzGalleryImageDefinition `
 
 ## <a name="create-an-image-version"></a>Tworzenie wersji obrazu
 
-Utwórz wersję obrazu przy użyciu polecenia [New-AzGalleryImageVersion](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion). 
+Utwórz wersję obrazu przy użyciu polecenia [New-AzGalleryImageVersion](/powershell/module/az.compute/new-azgalleryimageversion). 
 
 Dozwolone znaki wersji obrazu to liczby i kropki. Liczba musi należeć do zakresu 32-bitowej liczby całkowitej. Format: *MajorVersion*. *MinorVersion*. *Poprawka*.
 
@@ -133,7 +133,7 @@ $job.State
 > [!NOTE]
 > Musisz poczekać na zakończenie kompilowania i replikowania wersji obrazu, aby można było użyć tego samego obrazu zarządzanego do utworzenia innej wersji obrazu.
 >
-> Możesz również przechowywać obraz w magazynie Premiun przez dodanie `-StorageAccountType Premium_LRS` lub [nadmiarowy magazyn stref](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) przez dodanie `-StorageAccountType Standard_ZRS` go podczas tworzenia wersji obrazu.
+> Możesz również przechowywać obraz w magazynie Premiun przez dodanie `-StorageAccountType Premium_LRS` lub [nadmiarowy magazyn stref](../storage/common/storage-redundancy.md) przez dodanie `-StorageAccountType Standard_ZRS` go podczas tworzenia wersji obrazu.
 >
 
 ## <a name="next-steps"></a>Następne kroki

@@ -10,12 +10,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/02/2019
 ms.author: robreed
-ms.openlocfilehash: b85aab2491f4186cf4d6ee73144bc235a40cdeac
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5ab8d45c12d7b2c408328e306b1a6961cbe5272a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85478488"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87010941"
 ---
 # <a name="custom-script-extension-for-windows"></a>Rozszerzenie niestandardowego skryptu dla systemu Windows
 
@@ -123,11 +123,11 @@ Te elementy powinny być traktowane jako dane poufne i określone w konfiguracji
 
 | Nazwa | Wartość/przykład | Typ danych |
 | ---- | ---- | ---- |
-| apiVersion | 2015-06-15 | date |
+| apiVersion | 2015-06-15 | data |
 | publisher | Microsoft.Compute | ciąg |
 | typ | CustomScriptExtension | ciąg |
 | typeHandlerVersion | 1.10 | int |
-| fileUris (np.) | https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-windows/scripts/configure-music-app.ps1 | tablica |
+| fileUris (np.) | https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-windows/scripts/configure-music-app.ps1 | array |
 | Sygnatura czasowa (np.) | 123456789 | 32-bitowa liczba całkowita |
 | Sekcji commandtoexecute (np.) | PowerShell — ExecutionPolicy nieograniczony-plik configure-music-app.ps1 | ciąg |
 | storageAccountName (np.) | examplestorageacct | ciąg |
@@ -144,7 +144,7 @@ Te elementy powinny być traktowane jako dane poufne i określone w konfiguracji
 * `timestamp`(opcjonalnie, 32-bitową liczbę całkowitą) Użyj tego pola tylko do wyzwalania ponownego uruchomienia skryptu przez zmianę wartości tego pola.  Dopuszczalna jest dowolna wartość całkowita; musi on być inny niż Poprzednia wartość.
 * `storageAccountName`: (opcjonalnie, ciąg) nazwa konta magazynu. W przypadku określenia poświadczeń magazynu wszystkie `fileUris` muszą być adresami URL dla obiektów blob platformy Azure.
 * `storageAccountKey`: (opcjonalnie, String) klucz dostępu konta magazynu
-* `managedIdentity`: (opcjonalnie obiekt JSON) [zarządzana tożsamość](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) do pobierania plików
+* `managedIdentity`: (opcjonalnie obiekt JSON) [zarządzana tożsamość](../../active-directory/managed-identities-azure-resources/overview.md) do pobierania plików
   * `clientId`: (opcjonalnie, String) identyfikator klienta zarządzanej tożsamości
   * `objectId`: (opcjonalnie, String) identyfikator obiektu tożsamości zarządzanej
 
@@ -160,9 +160,9 @@ Ustawienia publiczne są wysyłane w postaci zwykłego tekstu do maszyny wirtual
 > [!NOTE]
 > Ta właściwość **musi** być określona tylko w ustawieniach chronionych.
 
-CustomScript (wersja 1,10 lub nowszy) obsługuje [tożsamość zarządzaną](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) do pobierania plików z adresów URL określonych w ustawieniu "fileUris". Umożliwia CustomScript dostęp do prywatnych obiektów blob lub kontenerów usługi Azure Storage bez konieczności przekazywania wpisów tajnych, takich jak tokeny SAS lub klucze kont magazynu.
+CustomScript (wersja 1,10 lub nowszy) obsługuje [tożsamość zarządzaną](../../active-directory/managed-identities-azure-resources/overview.md) do pobierania plików z adresów URL określonych w ustawieniu "fileUris". Umożliwia CustomScript dostęp do prywatnych obiektów blob lub kontenerów usługi Azure Storage bez konieczności przekazywania wpisów tajnych, takich jak tokeny SAS lub klucze kont magazynu.
 
-Aby można było użyć tej funkcji, użytkownik musi dodać tożsamość przypisaną przez [system](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#add-a-system-assigned-identity) lub [przypisanej do użytkownika](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#add-a-user-assigned-identity) do maszyny wirtualnej lub VMSS, gdzie oczekiwano CustomScript, i [przyznać zarządzanej tożsamości dostęp do kontenera lub obiektu BLOB usługi Azure Storage](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/tutorial-vm-windows-access-storage#grant-access).
+Aby można było użyć tej funkcji, użytkownik musi dodać tożsamość przypisaną przez [system](../../app-service/overview-managed-identity.md?tabs=dotnet#add-a-system-assigned-identity) lub [przypisanej do użytkownika](../../app-service/overview-managed-identity.md?tabs=dotnet#add-a-user-assigned-identity) do maszyny wirtualnej lub VMSS, gdzie oczekiwano CustomScript, i [przyznać zarządzanej tożsamości dostęp do kontenera lub obiektu BLOB usługi Azure Storage](../../active-directory/managed-identities-azure-resources/tutorial-vm-windows-access-storage.md#grant-access).
 
 Aby użyć tożsamości przypisanej do systemu na docelowej maszynie wirtualnej/VMSS, ustaw wartość pola "managedidentity" na pusty obiekt JSON. 
 
@@ -283,7 +283,7 @@ The response content cannot be parsed because the Internet Explorer engine is no
 ```
 ## <a name="virtual-machine-scale-sets"></a>Virtual Machine Scale Sets
 
-Aby wdrożyć rozszerzenie niestandardowego skryptu na zestawie skalowania, zobacz [Add-AzVmssExtension](https://docs.microsoft.com/powershell/module/az.compute/add-azvmssextension?view=azps-3.3.0)
+Aby wdrożyć rozszerzenie niestandardowego skryptu na zestawie skalowania, zobacz [Add-AzVmssExtension](/powershell/module/az.compute/add-azvmssextension?view=azps-3.3.0)
 
 ## <a name="classic-vms"></a>Klasyczne maszyny wirtualne
 
@@ -291,7 +291,7 @@ Aby wdrożyć rozszerzenie niestandardowego skryptu na zestawie skalowania, zoba
 
 Aby wdrożyć rozszerzenie niestandardowego skryptu na klasycznych maszynach wirtualnych, można użyć Azure Portal lub klasycznych poleceń cmdlet Azure PowerShell.
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Witryna Azure Portal
 
 Przejdź do klasycznego zasobu maszyny wirtualnej. W obszarze **Ustawienia**wybierz pozycję **rozszerzenia** .
 
@@ -301,7 +301,7 @@ Na stronie **rozszerzenie instalacji** wybierz lokalny plik programu PowerShell 
 
 ### <a name="powershell"></a>PowerShell
 
-Użyj polecenia cmdlet [Set-AzureVMCustomScriptExtension](/powershell/module/servicemanagement/azure/set-azurevmcustomscriptextension) , aby dodać rozszerzenie niestandardowego skryptu do istniejącej maszyny wirtualnej.
+Użyj polecenia cmdlet [Set-AzureVMCustomScriptExtension](/powershell/module/servicemanagement/azure.service/set-azurevmcustomscriptextension) , aby dodać rozszerzenie niestandardowego skryptu do istniejącej maszyny wirtualnej.
 
 ```powershell
 # define your file URI
@@ -319,7 +319,7 @@ $vm | Update-AzureVM
 
 ## <a name="troubleshoot-and-support"></a>Rozwiązywanie problemów i pomoc techniczna
 
-### <a name="troubleshoot"></a>Rozwiązywanie problemów
+### <a name="troubleshoot"></a>Rozwiąż problemy
 
 Dane dotyczące stanu wdrożeń rozszerzeń można pobrać z Azure Portal i przy użyciu modułu Azure PowerShell. Aby wyświetlić stan wdrożenia dla danej maszyny wirtualnej, uruchom następujące polecenie:
 
@@ -343,7 +343,7 @@ gdzie `<n>` jest dziesiętną liczbą całkowitą, która może ulec zmianie mi�
 
 Po wykonaniu `commandToExecute` polecenia rozszerzenie ustawia ten katalog (na przykład `...\Downloads\2` ) jako bieżący katalog roboczy. Ten proces umożliwia lokalizowanie plików pobranych za pośrednictwem właściwości przy użyciu ścieżek względnych `fileURIs` . Przykłady można znaleźć w poniższej tabeli.
 
-Ze względu na to, że absolutna ścieżka pobierania może się różnić w miarę upływu czasu, lepiej jest wybrać względne ścieżki skryptów/plików w `commandToExecute` ciągu, jeśli jest to możliwe. Przykład:
+Ze względu na to, że absolutna ścieżka pobierania może się różnić w miarę upływu czasu, lepiej jest wybrać względne ścieżki skryptów/plików w `commandToExecute` ciągu, jeśli jest to możliwe. Na przykład:
 
 ```json
 "commandToExecute": "powershell.exe . . . -File \"./scripts/myscript.ps1\""

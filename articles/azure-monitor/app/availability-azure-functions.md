@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/04/2020
-ms.openlocfilehash: 81040adf6cfbb8820ec7f306c7d614830e3a2613
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1808623821d71169ec35beab1d33d4eb2c32c189
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82791117"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87008408"
 ---
 # <a name="create-and-run-custom-availability-tests-using-azure-functions"></a>Tworzenie i uruchamianie niestandardowych testów dostępności przy użyciu Azure Functions
 
@@ -23,7 +23,7 @@ W tym artykule opisano sposób tworzenia funkcji platformy Azure z TrackAvailabi
 
 - Jeśli masz zasób Application Insights:
     - Domyślnie Azure Functions tworzy zasób Application Insights, ale jeśli chcesz użyć jednego z już utworzonych zasobów, musisz określić, że podczas tworzenia.
-    - Postępuj zgodnie z instrukcjami dotyczącymi sposobu [tworzenia zainicjowanych zasobów Azure Functions i czasomierza](https://docs.microsoft.com/azure/azure-functions/functions-create-scheduled-function) (Zatrzymaj przed oczyszczeniem) przy użyciu następujących opcji.
+    - Postępuj zgodnie z instrukcjami dotyczącymi sposobu [tworzenia zainicjowanych zasobów Azure Functions i czasomierza](../../azure-functions/functions-create-scheduled-function.md) (Zatrzymaj przed oczyszczeniem) przy użyciu następujących opcji.
         -  Wybierz kartę **monitorowanie** w górnej części strony.
 
             ![ Tworzenie aplikacji Azure Functions przy użyciu własnego zasobu usługi App Insights](media/availability-azure-functions/create-function-app.png)
@@ -35,7 +35,7 @@ W tym artykule opisano sposób tworzenia funkcji platformy Azure z TrackAvailabi
         - Wybieranie opcji **Recenzja + tworzenie**
 - Jeśli nie masz jeszcze utworzonego zasobu Application Insights dla funkcji wyzwalanej przez czasomierz:
     - Domyślnie podczas tworzenia aplikacji Azure Functions zostanie utworzony zasób Application Insights.
-    - Postępuj zgodnie z instrukcjami dotyczącymi sposobu [tworzenia zasobu Azure Functions i wyzwalanej funkcji timer](https://docs.microsoft.com/azure/azure-functions/functions-create-scheduled-function) (Zatrzymaj przed oczyszczeniem).
+    - Postępuj zgodnie z instrukcjami dotyczącymi sposobu [tworzenia zasobu Azure Functions i wyzwalanej funkcji timer](../../azure-functions/functions-create-scheduled-function.md) (Zatrzymaj przed oczyszczeniem).
 
 ## <a name="sample-code"></a>Przykładowy kod
 
@@ -45,7 +45,7 @@ Skopiuj poniższy kod do pliku Run. CSX (spowoduje to zastąpienie istniejącego
 >![Funkcja Run. CSX w Azure Portal](media/availability-azure-functions/runcsx.png)
 
 > [!NOTE]
-> Adres punktu końcowego, który ma być używany: `EndpointAddress= https://dc.services.visualstudio.com/v2/track` . Jeśli zasób nie znajduje się w regionie, takim jak Azure Government lub Chiny platformy Azure, w tym przypadku zapoznaj się z tym artykułem, aby zastąpić [domyślne punkty końcowe](https://docs.microsoft.com/azure/azure-monitor/app/custom-endpoints#regions-that-require-endpoint-modification) i wybrać odpowiedni punkt końcowy kanału telemetrii dla danego regionu.
+> Adres punktu końcowego, który ma być używany: `EndpointAddress= https://dc.services.visualstudio.com/v2/track` . Jeśli zasób nie znajduje się w regionie, takim jak Azure Government lub Chiny platformy Azure, w tym przypadku zapoznaj się z tym artykułem, aby zastąpić [domyślne punkty końcowe](./custom-endpoints.md#regions-that-require-endpoint-modification) i wybrać odpowiedni punkt końcowy kanału telemetrii dla danego regionu.
 
 ```C#
 #load "runAvailabilityTest.csx"

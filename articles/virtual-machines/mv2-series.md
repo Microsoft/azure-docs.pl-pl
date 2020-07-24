@@ -7,11 +7,12 @@ ms.subservice: sizes
 ms.topic: article
 ms.date: 04/07/2020
 ms.author: jushiman
-ms.openlocfilehash: 4576a8bdcb6077a9d5de20c52f99325fdcacc0f4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 21c28f3b6b498b162cbff276755b098c5ebba7c1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84673702"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87010482"
 ---
 # <a name="mv2-series"></a>Seria Mv2
 
@@ -27,7 +28,7 @@ Migracja na żywo: nieobsługiwane
 
 Aktualizacje z zachowaniem pamięci: nieobsługiwane
 
-Akcelerator zapisu: [obsługiwane](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator)
+Akcelerator zapisu: [obsługiwane](./windows/how-to-enable-write-accelerator.md)
 
 |Rozmiar | Procesor wirtualny | Pamięć: GiB | Magazyn tymczasowy (SSD): GiB | Maks. liczba dysków danych | Maksymalna przepływność magazynu buforowanego i tymczasowego: liczba operacji we/wy na sekundę / MB/s (rozmiar pamięci podręcznej w GiB) | Maksymalna przepływność niebuforowanych dysków: liczba operacji we/wy na sekundę / MB/s | Maksymalna liczba kart sieciowych/oczekiwana przepustowość sieci (MB/s) |
 |---|---|---|---|---|---|---|---|
@@ -49,7 +50,7 @@ Akcelerator zapisu: [obsługiwane](https://docs.microsoft.com/azure/virtual-mach
 
 ## <a name="other-sizes"></a>Inne rozmiary
 
-- [Zastosowania ogólne](sizes-general.md)
+- [Ogólnego przeznaczenia](sizes-general.md)
 - [Optymalizacja pod kątem pamięci](sizes-memory.md)
 - [Optymalizacja pod kątem magazynu](sizes-storage.md)
 - [Optymalizacja pod kątem procesora GPU](sizes-gpu.md)

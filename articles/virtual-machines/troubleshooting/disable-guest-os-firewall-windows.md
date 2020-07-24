@@ -14,11 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: 5d8aa456a6454dd511b7dcda5d3f74a739033356
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c0426c5359e4d82d0316613586b9298596d82605
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83774340"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87009768"
 ---
 # <a name="disable-the-guest-os-firewall-in-azure-vm"></a>Wyłączanie zapory systemu operacyjnego gościa na maszynie wirtualnej platformy Azure
 
@@ -73,7 +74,7 @@ Jeśli korzystasz z działającego agenta platformy Azure, możesz użyć [niest
 
 #### <a name="mitigation-3-pstools-commands"></a>Środki zaradcze 3: program PsTools polecenia
 
-1.  Na maszynie wirtualnej Rozwiązywanie problemów Pobierz [program PsTools](https://docs.microsoft.com/sysinternals/downloads/pstools).
+1.  Na maszynie wirtualnej Rozwiązywanie problemów Pobierz [program PsTools](/sysinternals/downloads/pstools).
 
 2.  Otwórz wystąpienie programu CMD, a następnie uzyskaj dostęp do maszyny wirtualnej za pomocą jej adresu DIP.
 

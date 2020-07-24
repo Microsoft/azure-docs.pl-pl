@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 06/16/2020
+ms.date: 07/16/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 9cb9f1a33c37487f4bfb1419d45d4e42a862d815
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ddf9a1309cb4f9156cec3aeb5d2ddd9d22cde485
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84888115"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87011452"
 ---
 # <a name="configure-object-replication-for-block-blobs-preview"></a>Konfiguruj replikację obiektów dla blokowych obiektów BLOB (wersja zapoznawcza)
 
@@ -36,7 +36,7 @@ Przed rozpoczęciem upewnij się, że zarejestrowano dla następujących wersji 
 - [Przechowywanie wersji obiektów BLOB (wersja zapoznawcza)](versioning-overview.md)
 - [Obsługa kanału informacyjnego zmiany w usłudze Azure Blob Storage (wersja zapoznawcza)](storage-blob-change-feed.md)
 
-# <a name="azure-portal"></a>[Azure Portal](#tab/portal)
+# <a name="azure-portal"></a>[Witryna Azure Portal](#tab/portal)
 
 Przed skonfigurowaniem replikacji obiektów w Azure Portal należy utworzyć kontenery źródłowe i docelowe na odpowiednich kontach magazynu, jeśli jeszcze nie istnieją. Ponadto włączono obsługę wersji obiektów blob i źródło zmian na koncie źródłowym i Włącz obsługę wersji obiektów BLOB na koncie docelowym.
 
@@ -52,7 +52,7 @@ Aby utworzyć zasady replikacji w Azure Portal, wykonaj następujące kroki:
 
     :::image type="content" source="media/object-replication-configure/configure-replication-policy.png" alt-text="Zrzut ekranu przedstawiający reguły replikacji w Azure Portal":::
 
-1. W razie potrzeby określ co najmniej jeden filtr, aby skopiować tylko obiekty blob, które pasują do wzorca prefiksu. Na przykład, jeśli określisz prefiks `b` , replikowane są tylko obiekty blob, których nazwa rozpoczyna się od tej litery. Jako część prefiksu można określić katalog wirtualny.
+1. W razie potrzeby określ co najmniej jeden filtr, aby skopiować tylko obiekty blob, które pasują do wzorca prefiksu. Na przykład, jeśli określisz prefiks `b` , replikowane są tylko obiekty blob, których nazwa rozpoczyna się od tej litery. Jako część prefiksu można określić katalog wirtualny. Ciąg prefiksu nie obsługuje symboli wieloznacznych.
 
     Na poniższej ilustracji przedstawiono filtry, które ograniczają, które obiekty blob są kopiowane w ramach reguły replikacji.
 
@@ -68,7 +68,7 @@ Aby utworzyć zasady replikacji w Azure Portal, wykonaj następujące kroki:
 
 # <a name="powershell"></a>[Program PowerShell](#tab/powershell)
 
-Aby utworzyć zasady replikacji przy użyciu programu PowerShell, najpierw Zainstaluj wersję [2.0.1 — wersja zapoznawcza](https://www.powershellgallery.com/packages/Az.Storage/2.0.1-preview) modułu programu PowerShell AZ. Storage. Wykonaj następujące kroki, aby zainstalować moduł w wersji zapoznawczej:
+Aby utworzyć zasady replikacji przy użyciu programu PowerShell, najpierw Zainstaluj wersję [2.0.1 — wersja zapoznawcza](https://www.powershellgallery.com/packages/Az.Storage/2.0.1-preview) lub nowszą w module programu PowerShell AZ. Storage. Wykonaj następujące kroki, aby zainstalować moduł w wersji zapoznawczej:
 
 1. Odinstaluj wszystkie poprzednie instalacje Azure PowerShell z systemu Windows za pomocą ustawienia **aplikacje & funkcje** w obszarze **Ustawienia**.
 
@@ -234,7 +234,7 @@ az storage account or-policy show --resource-group <resource-group> \
 
 Aby usunąć zasady replikacji i skojarzone z nimi reguły, użyj Azure Portal, PowerShell lub interfejsu wiersza polecenia.
 
-# <a name="azure-portal"></a>[Azure Portal](#tab/portal)
+# <a name="azure-portal"></a>[Witryna Azure Portal](#tab/portal)
 
 Aby usunąć zasady replikacji w Azure Portal, wykonaj następujące kroki:
 

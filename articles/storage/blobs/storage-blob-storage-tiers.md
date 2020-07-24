@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
-ms.openlocfilehash: 14e8b3e28115fb191760382ed2a9fbd5c5a04114
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: dc9e4e0a896677fd22baf33e7776e8158bd0bee6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85919917"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87011349"
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-access-tiers"></a>Usługa Azure Blob Storage: warstwy dostępu Gorąca, Chłodna i Archiwum
 
@@ -117,8 +117,8 @@ W poniższej tabeli przedstawiono porównanie magazynu obiektów BLOB wydajnośc
 
 |                                           | **Wydajność warstwy Premium**   | **Warstwa gorąca** | **Warstwa chłodna**       | **Warstwa Archiwum**  |
 | ----------------------------------------- | ------------------------- | ------------ | ------------------- | ----------------- |
-| **Dostępność**                          | 99,9%                     | 99,9%        | 99%                 | W trybie offline           |
-| **Dostępność** <br> **(odczyty RA-GRS)**  | Nie dotyczy                       | 99,99%       | 99,9%               | W trybie offline           |
+| **Dostępność**                          | 99,9%                     | 99,9%        | 99%                 | Tryb offline           |
+| **Dostępność** <br> **(odczyty RA-GRS)**  | Nie dotyczy                       | 99,99%       | 99,9%               | Tryb offline           |
 | **Opłaty za użycie**                         | Wyższe koszty magazynowania, niższy dostęp i koszt transakcji | Wyższe koszty magazynowania, niższy dostęp i koszty transakcji | Niższe koszty magazynowania, wyższego poziomu dostępu i kosztów transakcji | Najniższe koszty magazynowania, najwyższy poziom dostępu i koszty transakcji |
 | **Minimalny rozmiar obiektu**                   | Nie dotyczy                       | Nie dotyczy          | Nie dotyczy                 | Nie dotyczy               |
 | **Minimalny czas magazynowania**              | Nie dotyczy                       | Nie dotyczy          | 30 dni<sup>1</sup> | 180 dni
@@ -248,7 +248,7 @@ Warstwy dostępu gorąca i chłodna wraz z warstwami na poziomie obiektów BLOB 
 
 Obiekty blob w warstwie dostępu gorącą mają takie samo opóźnienie jak obiekty blob na kontach GPv1, GPv2 i BLOB Storage. Obiekty blob w warstwie dostępu chłodnego mają podobne opóźnienie (w milisekundach) jako obiekty blob na kontach GPv1, GPv2 i BLOB Storage. Obiekty blob w warstwie dostępu archiwizowania mają kilka godzin opóźnienia na kontach GPv1, GPv2 i BLOB Storage.
 
-Obiekty blob w warstwie dostępu chłodnego mają nieco niższy poziom dostępności usług (SLA) niż obiekty blob przechowywane w warstwie dostępu gorąca. Aby uzyskać więcej informacji, zobacz [Magazyn — umowa SLA](https://azure.microsoft.com/support/legal/sla/storage/v1_2/).
+Obiekty blob w warstwie dostępu chłodnego mają nieco niższy poziom dostępności usług (SLA) niż obiekty blob przechowywane w warstwie dostępu gorąca. Aby uzyskać więcej informacji, zobacz [Magazyn — umowa SLA](https://azure.microsoft.com/support/legal/sla/storage/v1_5/).
 
 **Czy operacje w warstwach Gorąca, Chłodna i Archiwum są takie same?**
 

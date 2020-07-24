@@ -4,19 +4,21 @@ description: Interfejs API służący do tworzenia nowej oferty lub aktualizowan
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-ms.date: 06/19/2020
-ms.openlocfilehash: 5104d11c1eaf9641f1d631db97dcca036308cd45
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+author: dsindona
+ms.author: dsindona
+ms.date: 07/14/2020
+ms.openlocfilehash: 249eb982ee701ea0a442121c02e55ad98e1f6fb9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86115727"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87011995"
 ---
 <a name="create-or-modify-an-offer"></a>Tworzenie lub modyfikowanie oferty
 =========================
 
 > [!NOTE]
-> Interfejsy API portal Cloud Partner są zintegrowane z centrum partnerskim i będą nadal działały po przeprowadzeniu migracji ofert do Centrum partnerskiego. W ramach integracji wprowadzono niewielkie zmiany. Przejrzyj zmiany wymienione w [Portal Cloud partner dokumentacja interfejsu API](./cloud-partner-portal-api-overview.md) , aby upewnić się, że kod będzie nadal działał po migracji do Centrum partnerskiego.
+> Interfejsy API portal Cloud Partner są zintegrowane z usługą i będą nadal działać w centrum partnerskim. Przejście wprowadza niewielkie zmiany. Przejrzyj zmiany wymienione w [dokumentacji interfejsu API Portal Cloud partner](./cloud-partner-portal-api-overview.md) , aby upewnić się, że kod będzie kontynuował pracę po przejściu do Centrum partnerskiego. Interfejsy API CPP powinny być używane tylko dla istniejących produktów, które zostały już zintegrowane przed przejściem do Centrum partnerskiego; nowe produkty powinny używać interfejsów API przekazywania Centrum partnerskiego.
 
 To wywołanie aktualizuje określoną ofertę w przestrzeni nazw wydawcy lub tworzy nową ofertę.
 
@@ -28,12 +30,12 @@ To wywołanie aktualizuje określoną ofertę w przestrzeni nazw wydawcy lub two
 
 |  **Nazwa**         |  **Opis**                      |  **Typ danych**  |
 |  --------         |  ----------------                     |  -------------  |
-| publisherId       |  Identyfikator wydawcy, na przykład`contoso` |   String |
-| offerId           |  Identyfikator oferty                     |   String        |
+| publisherId       |  Identyfikator wydawcy, na przykład`contoso` |   String (ciąg) |
+| offerId           |  Identyfikator oferty                     |   String (ciąg)        |
 | api-version       |  Najnowsza wersja interfejsu API            |   Data           |
 |  |  |  |
 
-<a name="header"></a>Header
+<a name="header"></a>Nagłówek
 ------
 
 |  **Nazwa**        |  **Wartość**               |
@@ -48,7 +50,7 @@ To wywołanie aktualizuje określoną ofertę w przestrzeni nazw wydawcy lub two
 
 Poniższy przykład tworzy ofertę z offerID `contosovirtualmachine` .
 
-### <a name="request"></a>Żądanie
+### <a name="request"></a>Request
 
 ``` json
   {

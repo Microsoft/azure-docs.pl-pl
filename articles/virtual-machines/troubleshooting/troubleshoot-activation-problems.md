@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 11/15/2018
 ms.author: genli
-ms.openlocfilehash: 44c86dae3c7df8293404c253b94164c37d574158
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8c89fcf22f669c97f2b17acce57c293eabcf96de
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84736938"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87009700"
 ---
 # <a name="troubleshoot-azure-windows-virtual-machine-activation-problems"></a>Rozwiązywanie problemów z aktywacją maszyny wirtualnej z systemem Windows na platformie Azure
 
@@ -46,9 +46,9 @@ Ogólnie problemy z aktywacją maszyn wirtualnych platformy Azure występują, g
 ## <a name="solution"></a>Rozwiązanie
 
 >[!NOTE]
->Jeśli używasz sieci VPN typu lokacja-lokacja i wymuszonego tunelowania, zobacz [Używanie niestandardowych tras platformy Azure, aby włączyć aktywację usługi KMS z wymuszonym tunelowaniem](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-forced-tunneling). 
+>Jeśli używasz sieci VPN typu lokacja-lokacja i wymuszonego tunelowania, zobacz [Używanie niestandardowych tras platformy Azure, aby włączyć aktywację usługi KMS z wymuszonym tunelowaniem](../../vpn-gateway/vpn-gateway-about-forced-tunneling.md). 
 >
->Jeśli używasz programu ExpressRoute i masz opublikowaną trasę domyślną, zobacz, [czy można zablokować łączność internetową z sieciami wirtualnymi podłączonymi do obwodów usługi ExpressRoute?](https://docs.microsoft.com/azure/expressroute/expressroute-faqs).
+>Jeśli używasz programu ExpressRoute i masz opublikowaną trasę domyślną, zobacz, [czy można zablokować łączność internetową z sieciami wirtualnymi podłączonymi do obwodów usługi ExpressRoute?](../../expressroute/expressroute-faqs.md).
 
 ### <a name="step-1-configure-the-appropriate-kms-client-setup-key"></a>Krok 1. Konfigurowanie odpowiedniego klucza instalacji klienta usługi KMS
 
@@ -61,7 +61,7 @@ W przypadku maszyny wirtualnej utworzonej na podstawie obrazu niestandardowego n
     cscript c:\windows\system32\slmgr.vbs /dlv
     ```
 
-2. Jeśli po wpisaniu **slmgr.vbs /dlv** zostanie wyświetlony kanał RETAIL, uruchom następujące polecenia, aby ustawić [klucz konfiguracji klienta usługi KMS](https://technet.microsoft.com/library/jj612867%28v=ws.11%29.aspx?f=255&MSPPError=-2147217396) dla używanej wersji systemu Windows Server i wymusić ponowienie próby aktywacji: 
+2. Jeśli po wpisaniu **slmgr.vbs /dlv** zostanie wyświetlony kanał RETAIL, uruchom następujące polecenia, aby ustawić [klucz konfiguracji klienta usługi KMS](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj612867(v=ws.11)?f=255&MSPPError=-2147217396) dla używanej wersji systemu Windows Server i wymusić ponowienie próby aktywacji: 
 
     ```
     cscript c:\windows\system32\slmgr.vbs /ipk <KMS client setup key>
@@ -77,7 +77,7 @@ W przypadku maszyny wirtualnej utworzonej na podstawie obrazu niestandardowego n
 
 ### <a name="step-2-verify-the-connectivity-between-the-vm-and-azure-kms-service"></a>Krok 2. Weryfikowanie łączności między maszyną wirtualną a usługą Azure KMS
 
-1. Pobierz i wyodrębnij narzędzie [PSping](https://docs.microsoft.com/sysinternals/downloads/psping) do folderu lokalnego na maszynie wirtualnej, która nie jest aktywowana. 
+1. Pobierz i wyodrębnij narzędzie [PSping](/sysinternals/downloads/psping) do folderu lokalnego na maszynie wirtualnej, która nie jest aktywowana. 
 
 2. Przejdź do menu Start, Wyszukaj w programie Windows PowerShell, kliknij prawym przyciskiem myszy program Windows PowerShell, a następnie wybierz polecenie Uruchom jako administrator.
 
@@ -102,7 +102,7 @@ W przypadku maszyny wirtualnej utworzonej na podstawie obrazu niestandardowego n
   
     Upewnij się również, że wychodzący ruch sieciowy do punktu końcowego usługi KMS z portem 1688 nie jest blokowany przez zaporę na maszynie wirtualnej.
 
-5. Sprawdź przy użyciu [Network Watcher następnym przeskokiem](https://docs.microsoft.com/azure/network-watcher/network-watcher-next-hop-overview) typ następnego przeskoku z maszyny wirtualnej, który ma być używany do docelowego adresu IP 23.102.135.246 (dla KMS.Core.Windows.NET) lub adres IP odpowiedniego punktu końcowego usługi KMS, który ma zastosowanie do Twojego regionu, to **Internet**.  Jeśli wynik to VirtualAppliance lub VirtualNetworkGateway, prawdopodobnie istnieje trasa domyślna.  Skontaktuj się z administratorem sieci i pracuj z nimi, aby określić poprawność działania.  Może to być [trasa niestandardowa](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/custom-routes-enable-kms-activation) , jeśli to rozwiązanie jest zgodne z zasadami organizacji.
+5. Sprawdź przy użyciu [Network Watcher następnym przeskokiem](../../network-watcher/network-watcher-next-hop-overview.md) typ następnego przeskoku z maszyny wirtualnej, który ma być używany do docelowego adresu IP 23.102.135.246 (dla KMS.Core.Windows.NET) lub adres IP odpowiedniego punktu końcowego usługi KMS, który ma zastosowanie do Twojego regionu, to **Internet**.  Jeśli wynik to VirtualAppliance lub VirtualNetworkGateway, prawdopodobnie istnieje trasa domyślna.  Skontaktuj się z administratorem sieci i pracuj z nimi, aby określić poprawność działania.  Może to być [trasa niestandardowa](./custom-routes-enable-kms-activation.md) , jeśli to rozwiązanie jest zgodne z zasadami organizacji.
 
 6. Po zweryfikowaniu pomyślnego połączenia z maszyną wirtualną kms.core.windows.net uruchom poniższe polecenie w wierszu programu Windows PowerShell z podwyższonym poziomem uprawnień. To polecenie podejmuje próbę aktywacji wiele razy.
 
@@ -130,7 +130,7 @@ Tak.
 ### <a name="what-happens-if-windows-activation-period-expires"></a>Co się stanie w przypadku wygaśnięcia okresu aktywacji systemu Windows? 
 
  
-Po wygaśnięciu okresu prolongaty, gdy system Windows nadal nie jest aktywowany, w systemie Windows Server 2008 R2 i nowszych wersjach systemu Windows zostaną wyświetlone dodatkowe powiadomienia dotyczące aktywowania. Tapeta pulpitu pozostaje czarna, a Windows Update zainstaluje tylko zabezpieczenia i aktualizacje krytyczne, ale nie aktualizacje opcjonalne. Zobacz sekcję powiadomienia w dolnej części strony [Warunki licencjonowania](https://technet.microsoft.com/library/ff793403.aspx) .   
+Po wygaśnięciu okresu prolongaty, gdy system Windows nadal nie jest aktywowany, w systemie Windows Server 2008 R2 i nowszych wersjach systemu Windows zostaną wyświetlone dodatkowe powiadomienia dotyczące aktywowania. Tapeta pulpitu pozostaje czarna, a Windows Update zainstaluje tylko zabezpieczenia i aktualizacje krytyczne, ale nie aktualizacje opcjonalne. Zobacz sekcję powiadomienia w dolnej części strony [Warunki licencjonowania](/previous-versions/tn-archive/ff793403(v=technet.10)) .   
 
 ## <a name="need-help-contact-support"></a>Potrzebujesz pomocy? Skontaktuj się z pomocą techniczną.
 

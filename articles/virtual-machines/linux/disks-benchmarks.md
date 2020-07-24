@@ -7,13 +7,14 @@ ms.date: 01/11/2019
 ms.topic: how-to
 ms.service: virtual-machines-linux
 ms.subservice: disks
-ms.openlocfilehash: a658bfc0815a03d0f6944d1c42eacdd04397458d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c1dfcad5a4fb6611543e6421e82889f239f14951
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84660890"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87010834"
 ---
-# <a name="benchmarking-a-disk"></a>Przeprowadzenie testu porównawczego dysku
+# <a name="benchmark-your-application-on-azure-disk-storage"></a>Test porównawczy aplikacji na Azure Disk Storage
 
 Testy porównawcze to proces symulowania różnych obciążeń w aplikacji i mierzenia wydajności aplikacji dla każdego obciążenia. Wykonaj kroki opisane w [artykule projektowanie pod kątem wysokiej wydajności](premium-storage-performance.md). Uruchamiając narzędzia do testów porównawczych na maszynach wirtualnych obsługujących aplikację, można określić poziomy wydajności, które mogą osiągnąć aplikacja Premium Storage. W tym artykule przedstawiono przykłady testów porównawczych standardowej maszyny wirtualnej DS14, która została zainicjowana przy użyciu dysków Premium Storage platformy Azure.
 

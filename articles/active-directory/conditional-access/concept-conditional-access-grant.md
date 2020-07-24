@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d1d30a32a58dd2385a214d813307c645c56afdc8
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 85beb04e39c5c47b9ee71ee96c2dff8910766ea3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86024463"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87009055"
 ---
 # <a name="conditional-access-grant"></a>Dostęp warunkowy: Udziel
 
@@ -81,7 +81,6 @@ To ustawienie dotyczy następujących aplikacji dla systemów iOS i Android:
 - Microsoft Edge
 - Microsoft Excel
 - Microsoft Flow
-- Microsoft Intune Managed Browser
 - Microsoft Invoicing
 - Microsoft Kaizala
 - Microsoft Launcher
@@ -123,9 +122,22 @@ Aby można było korzystać z tej kontroli dotacji, dostęp warunkowy wymaga zar
 To ustawienie dotyczy następujących aplikacji klienckich:
 
 - Microsoft Cortana
+- Microsoft Edge
+- Microsoft Excel
+- Microsoft Office
 - Microsoft OneDrive
+- Microsoft OneNote
 - Program Microsoft Outlook
 - Microsoft Planner
+- Microsoft Power BI
+- Microsoft PowerPoint
+- Microsoft SharePoint
+- Microsoft Word
+- Wiele linii dla usługi Intune
+- Dziewięć kalendarzy & poczty E-mail
+
+> [!NOTE]
+> Programy Microsoft usługi kaizala, Microsoft Skype dla firm i Microsoft Visio nie obsługują uprawnień do **żądania zasad ochrony aplikacji** . Jeśli te aplikacje są wymagane do działania, użyj wyłącznie **zatwierdzonych aplikacji** . Użycie klauzuli or między dwoma dotacjami nie będzie działało dla tych trzech aplikacji.
 
 **Uwagi**
 

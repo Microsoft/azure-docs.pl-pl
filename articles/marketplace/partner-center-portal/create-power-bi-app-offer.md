@@ -1,20 +1,20 @@
 ---
-title: Tworzenie oferty aplikacji Power BI w portalu komercyjnym firmy Microsoft
+title: Tworzenie oferty aplikacji Power BI w Microsoft AppSource
 description: Dowiedz się, jak utworzyć i opublikować ofertę Power BI aplikacji Microsoft AppSource.
 author: anbene
 ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 06/17/2020
-ms.openlocfilehash: 8a4ff5c5bce7774f805130f68d7418a73cb751f8
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.date: 07/22/2020
+ms.openlocfilehash: fa8c08f5d6f49b12306ea1f4bb82c07747622f48
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85980355"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87011944"
 ---
-# <a name="create-a-power-bi-app-for-microsoft-appsource"></a>Tworzenie aplikacji Power BI dla Microsoft AppSource
+# <a name="create-a-power-bi-app-offer"></a>Tworzenie oferty aplikacji Power BI
 
 W tym artykule opisano sposób tworzenia i publikowania oferty aplikacji Power BI w programie Microsoft [AppSource](https://appsource.microsoft.com/).
 
@@ -53,7 +53,7 @@ Wybierz pozycję **Utwórz** , aby wygenerować ofertę i kontynuować.
 
 Na tej stronie przedstawiono wizualną reprezentację kroków wymaganych do opublikowania oferty (zarówno ukończona, jak i nadchodząca) oraz czas, w którym należy wykonać poszczególne kroki.
 
-Zawiera ona linki do wykonywania operacji na tej ofercie w zależności od dokonanego wyboru. Przykład:
+Zawiera ona linki do wykonywania operacji na tej ofercie w zależności od dokonanego wyboru. Na przykład:
 
 - Jeśli oferta jest ofertą typu wersja robocza, [Usuń wersję roboczą](update-existing-offer.md#delete-a-draft-offer))
 - Jeśli oferta jest aktywna [, Zatrzymaj sprzedawanie oferty](update-existing-offer.md#stop-selling-an-offer-or-plan))
@@ -237,7 +237,7 @@ Podaj dodatkowe informacje na temat oferty, aby pomóc nam w jej sprawdzeniu. Te
 
 Opcjonalnie możesz dodać instrukcje (do 3 000 znaków), aby pomóc zespołowi ds. weryfikacji firmy Microsoft w konfigurowaniu, łączeniu i testowaniu aplikacji. Uwzględnij typowe ustawienia konfiguracji, konta, parametry lub inne informacje, których można użyć do testowania opcji Połącz dane. Te informacje są widoczne tylko dla zespołu weryfikacji i są używane tylko do celów weryfikacji.
 
-## <a name="review-and-publish"></a>Przejrzyj i Opublikuj
+## <a name="review-and-publish"></a>Przeglądanie i publikowanie
 
 Po zakończeniu wszystkich wymaganych sekcji oferty możesz przesłać swoją ofertę do przeglądu i publikacji.
 

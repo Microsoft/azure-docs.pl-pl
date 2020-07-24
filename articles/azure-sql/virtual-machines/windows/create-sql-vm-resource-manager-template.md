@@ -1,37 +1,41 @@
 ---
-title: Tworzenie maszyny wirtualnej SQL Server (szablon Azure Resource Manager)
-description: Dowiedz się, jak utworzyć SQL Server na maszynie wirtualnej platformy Azure przy użyciu szablonu Azure Resource Manager.
+title: Tworzenie maszyny wirtualnej SQL Server przy użyciu szablonu ARM
+description: Dowiedz się, jak utworzyć SQL Server na maszynie wirtualnej platformy Azure przy użyciu szablonu Azure Resource Manager (szablon ARM).
 author: MashaMSFT
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: mathoma
 ms.date: 06/29/2020
 ms.service: virtual-machines-sql
-ms.openlocfilehash: 8b165f640548f28e5d94e5a791c0fe8545df4d78
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 1b6f54c823f59bb654ac86f041eefe80af3eb5ea
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85852540"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87003869"
 ---
-# <a name="create-sql-server-vm-azure-resource-manager-template"></a>Tworzenie maszyny wirtualnej SQL Server (szablon Azure Resource Manager)
+# <a name="quickstart-create-sql-server-vm-using-an-arm-template"></a>Szybki Start: Tworzenie maszyny wirtualnej SQL Server przy użyciu szablonu ARM
 
-Ten szablon Azure Resource Manager służy do wdrażania SQL Server na maszynie wirtualnej platformy Azure. 
+Ten szablon Azure Resource Manager (szablon ARM) służy do wdrażania SQL Server na maszynie wirtualnej platformy Azure. 
 
 [!INCLUDE [About Azure Resource Manager](../../../../includes/resource-manager-quickstart-introduction.md)]
+
+Jeśli Twoje środowisko spełnia wymagania wstępne i masz doświadczenie w korzystaniu z szablonów ARM, wybierz przycisk **Wdróż na platformie Azure**. Szablon zostanie otwarty w witrynie Azure Portal.
+
+[![Wdrażanie na platformie Azure](../../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-sql-vm-new-storage%2fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Szablon SQL Server VM ARM wymaga następujących czynności:
 
-- Najnowsza wersja [interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) i/lub [programu PowerShell](/powershell/scripting/install/installing-powershell?view=powershell-7). 
+- Najnowsza wersja [interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli) i/lub [programu PowerShell](/powershell/scripting/install/installing-powershell). 
 - Wstępnie skonfigurowana [Grupa zasobów](../../../azure-resource-manager/management/manage-resource-groups-portal.md#create-resource-groups) z przygotowaną [siecią wirtualną](../../../virtual-network/quick-create-portal.md) i [podsiecią](../../../virtual-network/virtual-network-manage-subnet.md#add-a-subnet).
 - Subskrypcja platformy Azure. Jeśli nie masz subskrypcji, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 
 ## <a name="review-the-template"></a>Przegląd szablonu
 
-Szablon używany w tym przewodniku szybki start pochodzi z [szablonów szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/101-sql-vm-new-storage/).
+Szablon używany w tym przewodniku Szybki start jest jednym z [szablonów szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/101-sql-vm-new-storage/).
 
 :::code language="json" source="~/quickstart-templates/101-sql-vm-new-storage/azuredeploy.json" highlight="169-310":::
 
@@ -43,7 +47,7 @@ W szablonie zdefiniowano pięć zasobów platformy Azure:
 - [Microsoft. COMPUTE/virtualMachines](/azure/templates/microsoft.compute/virtualmachines): tworzy maszynę wirtualną na platformie Azure. 
 - [Microsoft. SqlVirtualMachine/SqlVirtualMachines](/azure/templates/microsoft.sqlvirtualmachine/sqlvirtualmachines): rejestruje maszynę wirtualną za pomocą dostawcy zasobów maszyny wirtualnej SQL. 
 
-Więcej SQL Server na temat szablonów maszyn wirtualnych platformy Azure można znaleźć w [galerii szablonów szybkiego startu](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Sqlvirtualmachine).
+Więcej SQL Server na temat szablonów maszyn wirtualnych platformy Azure można znaleźć w [galerii szablonów szybkiego startu](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Sqlvirtualmachine&pageNumber=1&sort=Popular).
 
 
 ## <a name="deploy-the-template"></a>Wdrożenie szablonu
@@ -73,7 +77,7 @@ Więcej SQL Server na temat szablonów maszyn wirtualnych platformy Azure można
     * **Ścieżka dziennika**: ścieżka do SQL Server plików dziennika. 
     * **Lokalizacja**: lokalizacja dla wszystkich zasobów, ta wartość powinna pozostać wartością domyślną `[resourceGroup().location]` . 
 
-3. Wybierz pozycję **Przegląd + utwórz**. Po pomyślnym wdrożeniu maszyny wirtualnej SQL Server otrzymujesz powiadomienie.
+3. Wybierz pozycję **Przeglądanie + tworzenie**. Po pomyślnym wdrożeniu maszyny wirtualnej SQL Server otrzymujesz powiadomienie.
 
 Szablon jest wdrażany za pomocą witryny Azure Portal. Oprócz Azure Portal można również używać Azure PowerShell, interfejsu wiersza polecenia platformy Azure i API REST. Aby poznać inne metody wdrażania, zobacz [wdrażanie szablonów](../../../azure-resource-manager/templates/deploy-powershell.md).
 
@@ -116,10 +120,10 @@ Write-Host "Press [ENTER] to continue..."
 Aby zapoznać się z samouczkiem krok po kroku, który przeprowadzi Cię przez proces tworzenia szablonu, zobacz:
 
 > [!div class="nextstepaction"]
-> [Samouczek: Tworzenie i wdrażanie pierwszego szablonu Azure Resource Manager](/azure/azure-resource-manager/templates/template-tutorial-create-first-template)
+> [Samouczek: Tworzenie i wdrażanie pierwszego szablonu ARM](/azure/azure-resource-manager/templates/template-tutorial-create-first-template)
 
 Aby poznać inne sposoby wdrażania SQL Server maszyny wirtualnej, zobacz: 
-- [Azure Portal](create-sql-vm-portal.md)
+- [Witryna Azure Portal](create-sql-vm-portal.md)
 - [Program PowerShell](create-sql-vm-powershell.md)
 
 Aby dowiedzieć się więcej, zobacz [omówienie SQL Server na maszynach wirtualnych platformy Azure](sql-server-on-azure-vm-iaas-what-is-overview.md).

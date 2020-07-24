@@ -11,11 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 04/07/2020
 ms.author: juliako
-ms.openlocfilehash: e54944c0c10fb773a4a3141c0d3fb6524f288ae2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 70499ad354e2fafaac99fe46c1838a0be2813943
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84987232"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87011689"
 ---
 # <a name="media-services-v3-frequently-asked-questions"></a>Media Services v3 — często zadawane pytania
 
@@ -45,7 +46,7 @@ Aby uzyskać szczegółowe informacje, zobacz [Skalowanie przetwarzania multimed
 
 ### <a name="what-is-the-recommended-method-to-process-videos"></a>Jaka jest zalecana metoda przetwarzania wideo?
 
-Za pomocą [transformacji](https://docs.microsoft.com/rest/api/media/transforms) można skonfigurować typowe zadania związane z kodowaniem lub analizowaniem filmów wideo. Każde przekształcenie opisuje przepis lub przepływ pracy zadań do przetwarzania plików wideo lub audio. [Zadanie](https://docs.microsoft.com/rest/api/media/jobs) to rzeczywiste żądanie Media Services, aby zastosować transformację do wejściowej zawartości wideo lub audio. Po utworzeniu przekształcenia można przesłać zadania za pomocą interfejsów API Media Services lub dowolnego z opublikowanych zestawów SDK. Aby uzyskać więcej informacji, zobacz [Przekształcenia i zadania](transforms-jobs-concept.md).
+Za pomocą [transformacji](/rest/api/media/transforms) można skonfigurować typowe zadania związane z kodowaniem lub analizowaniem filmów wideo. Każde przekształcenie opisuje przepis lub przepływ pracy zadań do przetwarzania plików wideo lub audio. [Zadanie](/rest/api/media/jobs) to rzeczywiste żądanie Media Services, aby zastosować transformację do wejściowej zawartości wideo lub audio. Po utworzeniu przekształcenia można przesłać zadania za pomocą interfejsów API Media Services lub dowolnego z opublikowanych zestawów SDK. Aby uzyskać więcej informacji, zobacz [Przekształcenia i zadania](transforms-jobs-concept.md).
 
 ### <a name="i-uploaded-encoded-and-published-a-video-why-wont-the-video-play-when-i-try-to-stream-it"></a>Wideo zostało przekazane, zakodowane i opublikowane. Dlaczego film wideo nie jest odtwarzany podczas próby przesyłania strumieniowego?
 
@@ -158,9 +159,9 @@ Obecnie można użyć [Azure Portal](https://portal.azure.com/) , aby:
 
 * Zarządzanie [zdarzeniami na żywo](live-events-outputs-concept.md) w Media Services v3. 
 * Wyświetl [zasoby](assets-concept.md)v3 (nie Zarządzaj). 
-* [Uzyskaj informacje na temat uzyskiwania dostępu do interfejsów API](access-api-portal.md). 
+* [Uzyskaj informacje na temat uzyskiwania dostępu do interfejsów API](./access-api-howto.md). 
 
-W przypadku wszystkich innych zadań zarządzania (na przykład [transformacji i zadań](transforms-jobs-concept.md) oraz [ochrony zawartości](content-protection-overview.md)) należy użyć [interfejsu API REST](https://docs.microsoft.com/rest/api/media/), interfejsu [wiersza polecenia platformy Azure](https://aka.ms/ams-v3-cli-ref)lub jednego z obsługiwanych [zestawów SDK](media-services-apis-overview.md#sdks).
+W przypadku wszystkich innych zadań zarządzania (na przykład [transformacji i zadań](transforms-jobs-concept.md) oraz [ochrony zawartości](content-protection-overview.md)) należy użyć [interfejsu API REST](/rest/api/media/), interfejsu [wiersza polecenia platformy Azure](https://aka.ms/ams-v3-cli-ref)lub jednego z obsługiwanych [zestawów SDK](media-services-apis-overview.md#sdks).
 
 ### <a name="is-there-an-assetfile-concept-in-v3"></a>Czy istnieje koncepcja AssetFile w wersji 3?
 
@@ -170,7 +171,7 @@ Aby uzyskać więcej informacji, zobacz [Migrowanie do Media Services v3](media-
 
 ### <a name="where-did-client-side-storage-encryption-go"></a>Gdzie działa szyfrowanie magazynu po stronie klienta?
 
-Zalecamy teraz korzystanie z szyfrowania magazynu po stronie serwera (domyślnie włączone). Aby uzyskać więcej informacji, zobacz [szyfrowanie usługi Storage platformy Azure dla danych przechowywanych w spoczynku](https://docs.microsoft.com/azure/storage/common/storage-service-encryption).
+Zalecamy teraz korzystanie z szyfrowania magazynu po stronie serwera (domyślnie włączone). Aby uzyskać więcej informacji, zobacz [szyfrowanie usługi Storage platformy Azure dla danych przechowywanych w spoczynku](../../storage/common/storage-service-encryption.md).
 
 ## <a name="offline-streaming"></a>Przesyłanie strumieniowe w trybie offline
 

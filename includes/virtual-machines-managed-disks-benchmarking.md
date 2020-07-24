@@ -1,6 +1,6 @@
 ---
-title: dołączanie pliku
-description: dołączanie pliku
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: virtual-machines
 author: roygara
 ms.service: virtual-machines
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/11/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: e5148ff9e92a2e550a3117356a4e77cbac8fc6f4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: da5811abec889bcc47d08878a0950df7f0983663
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "67673450"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87010833"
 ---
 *Rozgrzewanie pamięci podręcznej*  
 Dysk z pamięcią podręczną hosta w trybie tylko do odczytu może dać wyższą liczbę operacji we/wy na sekundę. Aby uzyskać maksymalną wydajność odczytu z pamięci podręcznej hosta, należy najpierw wykonać rozgrzewanie pamięci podręcznej tego dysku. Zapewnia to, że odczytywanie systemu IOs, które narzędzie testuje na woluminie CacheReads, rzeczywiście trafi pamięć podręczną, a nie dysk bezpośrednio. Liczba trafień w pamięci podręcznej powoduje dodatkowe IOPS z dysku z włączoną obsługą jednej pamięci podręcznej.
@@ -21,7 +21,7 @@ Dysk z pamięcią podręczną hosta w trybie tylko do odczytu może dać wyższ�
 > [!IMPORTANT]
 > Przed uruchomieniem testu porównawczego należy przeprowadzić rozgrzewanie pamięci podręcznej, za każdym razem, gdy maszyna wirtualna jest ponownie uruchamiana.
 
-## <a name="tools"></a>narzędzia
+## <a name="tools"></a>Narzędzia
 
 ### <a name="iometer"></a>Iometer
 
@@ -64,8 +64,8 @@ Wykonaj poniższe kroki, aby rozgrzać pamięć podręczną
 
    | Nazwa | Rozmiar żądania | Wybranych | Przeczytaj |
    | --- | --- | --- | --- |
-   | RandomWrites \_ MB |1 MB |100 |0 |
-   | RandomReads \_ MB |1 MB |100 |100 |
+   | RandomWrites \_ MB |1 MB |100 |0 |
+   | RandomReads \_ MB |1 MB |100 |100 |
 1. Uruchom test IOMeter, aby zainicjować dysk pamięci podręcznej z poniższymi parametrami. Użyj trzech wątków roboczych dla woluminu docelowego i głębokości kolejki 128. Ustaw czas trwania testu na 2 godziny na karcie "Konfiguracja testu".
 
    | Scenariusz | Wolumin docelowy | Nazwa | Czas trwania |
@@ -153,7 +153,7 @@ sudo fio --runtime 30 fiowrite.ini
 ```
 
 Podczas przebiegu testu można sprawdzić liczbę operacji we/wy zapisu, które są dostarczane przez maszynę wirtualną i dyski w warstwie Premium. Jak pokazano w poniższym przykładzie, maszyna wirtualna DS14 zapewnia maksymalny limit liczby operacji we/wy zapisu wynoszący 50 000 operacji wejścia/wyjścia na sekundę.  
-    ![Liczba dostarczanych dysków maszyn wirtualnych IOPS i Premium](../articles/virtual-machines/linux/media/premium-storage-performance/image11.png)
+    ![Liczba dostarczanych dysków maszyn wirtualnych IOPS i Premium.](../articles/virtual-machines/linux/media/premium-storage-performance/image11.png)
 
 #### <a name="maximum-read-iops"></a>Maksymalna liczba operacji we/wy odczytu
 
@@ -194,7 +194,7 @@ sudo fio --runtime 30 fioread.ini
 ```
 
 Podczas przebiegu testu można zobaczyć liczbę IOPS operacji odczytu, które są dostarczane przez maszynę wirtualną i dyski w warstwie Premium. Jak pokazano w poniższym przykładzie, maszyna wirtualna DS14 dostarcza ponad 64 000 operacji we/wy odczytu. Jest to kombinacja dysku i wydajności pamięci podręcznej.  
-    ![](../articles/virtual-machines/linux/media/premium-storage-performance/image12.png)
+    ![Zrzut ekranu przedstawiający liczbę dysków maszyn wirtualnych IOPS i Premium zapisu, które są dostarczane.](../articles/virtual-machines/linux/media/premium-storage-performance/image12.png)
 
 #### <a name="maximum-read-and-write-iops"></a>Maksymalna liczba operacji we/wy odczytu i zapisu
 

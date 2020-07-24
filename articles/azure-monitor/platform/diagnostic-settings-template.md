@@ -7,11 +7,12 @@ ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: a2569ca3f998030680bd7dbd872d71ccd372a25d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 73f2b3ea90cc94fa3411552c7b812fe53eb4dbbb
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77672433"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87008102"
 ---
 # <a name="create-diagnostic-setting-in-azure-using-a-resource-manager-template"></a>Tworzenie ustawień diagnostycznych na platformie Azure przy użyciu szablonu Menedżer zasobów
 [Ustawienia diagnostyczne](diagnostic-settings.md) w Azure monitor określają miejsce wysyłania [dzienników platformy](platform-logs-overview.md) zbieranych przez zasoby platformy Azure i platformę Azure, od których są one zależne. Ten artykuł zawiera szczegółowe informacje i przykłady dotyczące używania [szablonu Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) do tworzenia i konfigurowania ustawień diagnostycznych w celu zbierania dzienników platformy do różnych miejsc docelowych.
@@ -29,7 +30,7 @@ Aby uzyskać szczegółowe informacje, zobacz [wdrażanie zasobów za pomocą sz
 
 
 ## <a name="resource-logs"></a>Dzienniki zasobów
-W przypadku dzienników zasobów Dodaj zasób typu `<resource namespace>/providers/diagnosticSettings` do szablonu. Sekcja właściwości jest zgodna z formatem opisanym w [ustawieniach diagnostycznych — Tworzenie lub aktualizowanie](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings/createorupdate). Podaj `category` w `logs` sekcji dla każdej z kategorii ważnych dla zasobu, który chcesz zebrać. Dodaj `metrics` Właściwość, aby zbierać metryki zasobów do tych samych miejsc docelowych, jeśli [zasób obsługuje metryki](metrics-supported.md).
+W przypadku dzienników zasobów Dodaj zasób typu `<resource namespace>/providers/diagnosticSettings` do szablonu. Sekcja właściwości jest zgodna z formatem opisanym w [ustawieniach diagnostycznych — Tworzenie lub aktualizowanie](/rest/api/monitor/diagnosticsettings/createorupdate). Podaj `category` w `logs` sekcji dla każdej z kategorii ważnych dla zasobu, który chcesz zebrać. Dodaj `metrics` Właściwość, aby zbierać metryki zasobów do tych samych miejsc docelowych, jeśli [zasób obsługuje metryki](metrics-supported.md).
 
 Poniżej znajduje się szablon, który gromadzi informacje o kategorii dzienników zasobów dla określonego zasobu w obszarze roboczym Log Analytics, koncie magazynu i centrum zdarzeń.
 
@@ -143,7 +144,7 @@ Poniżej przedstawiono przykład, który tworzy ustawienia diagnostyczne dla ust
 ```
 
 ## <a name="activity-log"></a>Dziennik aktywności
-W przypadku dziennika aktywności platformy Azure Dodaj zasób typu `Microsoft.Insights/diagnosticSettings` . Dostępne kategorie są wymienione w [kategorii w dzienniku aktywności](activity-log-view.md#categories-in-the-activity-log). Poniżej znajduje się szablon służący do zbierania wszystkich kategorii dzienników aktywności do obszaru roboczego Log Analytics, konta magazynu i centrum zdarzeń.
+W przypadku dziennika aktywności platformy Azure Dodaj zasób typu `Microsoft.Insights/diagnosticSettings` . Dostępne kategorie są wymienione w [kategorii w dzienniku aktywności](./activity-log.md#view-the-activity-log). Poniżej znajduje się szablon służący do zbierania wszystkich kategorii dzienników aktywności do obszaru roboczego Log Analytics, konta magazynu i centrum zdarzeń.
 
 
 ```json

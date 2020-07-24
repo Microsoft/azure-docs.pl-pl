@@ -3,8 +3,8 @@ title: Konfiguracja żądanego stanu na platformie Azure — omówienie
 description: Dowiedz się, jak używać programu obsługi rozszerzeń Microsoft Azure dla konfiguracji żądanego stanu (DSC) programu PowerShell. Artykuł zawiera wymagania wstępne, architekturę i polecenia cmdlet.
 services: virtual-machines-windows
 documentationcenter: ''
-author: bobbytreed
-manager: carmonm
+author: mgoedtel
+manager: evansma
 editor: ''
 tags: azure-resource-manager
 keywords: DSC
@@ -13,14 +13,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: na
-ms.date: 05/02/2018
-ms.author: robreed
-ms.openlocfilehash: 82d268eedd73b8de670da93ad3a601b5e75e6444
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/13/2020
+ms.author: magoedte
+ms.openlocfilehash: edf1fce488bf3bb8aa107a295cf3488243775192
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82188539"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87010924"
 ---
 # <a name="introduction-to-the-azure-desired-state-configuration-extension-handler"></a>Wprowadzenie do procedury obsługi rozszerzenia Azure Desired State Configuration
 
@@ -59,7 +59,7 @@ Gdy rozszerzenie jest wywoływane po raz pierwszy, instaluje wersję programu WM
 - Jeśli zostanie określona właściwość **wmfVersion** , jest zainstalowana ta wersja programu WMF, chyba że ta wersja jest niezgodna z systemem operacyjnym maszyny wirtualnej.
 - Jeśli właściwość **wmfVersion** nie zostanie określona, zostanie zainstalowana najnowsza odpowiednia wersja programu WMF.
 
-Instalowanie pakietu WMF wymaga ponownego uruchomienia. Po ponownym uruchomieniu rozszerzenie pobiera plik zip, który jest określony we właściwości **modulesUrl** , jeśli został podany. Jeśli ta lokalizacja znajduje się w usłudze Azure Blob Storage, możesz określić token SAS we właściwości **sasToken** , aby uzyskać dostęp do pliku. Po pobraniu i rozpakowaniu pliku zip funkcja konfiguracji zdefiniowana w **configurationFunction** uruchamia się w celu wygenerowania plik mof ([Managed Object Format](https://docs.microsoft.com/windows/win32/wmisdk/managed-object-format--mof-)). Rozszerzenie zostanie uruchomione przy `Start-DscConfiguration -Force` użyciu wygenerowanego pliku MOF. Rozszerzenie przechwytuje dane wyjściowe i zapisuje je w kanale stanu platformy Azure.
+Instalowanie pakietu WMF wymaga ponownego uruchomienia. Po ponownym uruchomieniu rozszerzenie pobiera plik zip, który jest określony we właściwości **modulesUrl** , jeśli został podany. Jeśli ta lokalizacja znajduje się w usłudze Azure Blob Storage, możesz określić token SAS we właściwości **sasToken** , aby uzyskać dostęp do pliku. Po pobraniu i rozpakowaniu pliku zip funkcja konfiguracji zdefiniowana w **configurationFunction** uruchamia się w celu wygenerowania plik mof ([Managed Object Format](/windows/win32/wmisdk/managed-object-format--mof-)). Rozszerzenie zostanie uruchomione przy `Start-DscConfiguration -Force` użyciu wygenerowanego pliku MOF. Rozszerzenie przechwytuje dane wyjściowe i zapisuje je w kanale stanu platformy Azure.
 
 ### <a name="default-configuration-script"></a>Domyślny skrypt konfiguracji
 
@@ -81,7 +81,7 @@ Te informacje mogą być widoczne w Azure Portal lub można użyć programu Powe
 ```
 
 W polu Nazwa konfiguracji węzła upewnij się, że konfiguracja węzła istnieje w obszarze Konfiguracja stanu platformy Azure.  Jeśli tak nie jest, wdrożenie rozszerzenia zwróci błąd.  Upewnij się również, że używasz nazwy *konfiguracji węzła* , a nie konfiguracji.
-Konfiguracja jest definiowana w skrypcie, który jest używany [do kompilowania konfiguracji węzła (plik MOF)](https://docs.microsoft.com/azure/automation/automation-dsc-compile).
+Konfiguracja jest definiowana w skrypcie, który jest używany [do kompilowania konfiguracji węzła (plik MOF)](../../automation/automation-dsc-compile.md).
 Nazwa będzie zawsze konfiguracją, po której następuje okres `.` i albo `localhost` określona nazwa komputera.
 
 ## <a name="dsc-extension-in-resource-manager-templates"></a>Rozszerzenie DSC w szablonach Menedżer zasobów
@@ -188,11 +188,11 @@ Portal zbiera następujące dane wejściowe:
 
 - **Argumenty konfiguracji**: Jeśli funkcja konfiguracji przyjmuje argumenty, wprowadź je w tym miejscu w formacie **argumentName1 = wartość1, argumentName2 = wartość2**. Ten format jest innym formatem, w którym argumenty konfiguracji są akceptowane w poleceniach cmdlet programu PowerShell lub szablonach Menedżer zasobów.
 
-- **Plik PSD1 danych konfiguracji**: konfiguracja wymaga pliku danych konfiguracji w. PSD1, użyj tego pola, aby wybrać plik danych i przekazać go do magazynu obiektów BLOB użytkownika. Plik danych konfiguracji jest zabezpieczony przez token sygnatury dostępu współdzielonego w magazynie obiektów BLOB.
+- **Plik PSD1 danych konfiguracji**: Jeśli konfiguracja wymaga pliku danych konfiguracji w programie `.psd1` , należy użyć tego pola, aby wybrać plik danych i przekazać go do magazynu obiektów BLOB użytkownika. Plik danych konfiguracji jest zabezpieczony przez token sygnatury dostępu współdzielonego w magazynie obiektów BLOB.
 
 - **Wersja WMF**: określa wersję programu Windows Management Framework (WMF), która ma zostać zainstalowana na maszynie wirtualnej. Ustawienie tej właściwości na Najnowsza spowoduje zainstalowanie najnowszej wersji programu WMF. Obecnie jedyne możliwe wartości tej właściwości to 4,0, 5,0, 5,1 i najnowsze. Te możliwe wartości podlegają aktualizacjom. Wartość domyślna to **Najnowsza**.
 
-- **Zbieranie danych**: określa, czy rozszerzenie będzie zbierać dane telemetryczne. Aby uzyskać więcej informacji, zobacz [zbieranie danych rozszerzenia DSC platformy Azure](https://blogs.msdn.microsoft.com/powershell/2016/02/02/azure-dsc-extension-data-collection-2/).
+- **Zbieranie danych**: określa, czy rozszerzenie będzie zbierać dane telemetryczne. Aby uzyskać więcej informacji, zobacz [zbieranie danych rozszerzenia DSC platformy Azure](https://devblogs.microsoft.com/powershell/azure-dsc-extension-data-collection-2/).
 
 - **Wersja**: określa wersję rozszerzenia DSC do zainstalowania. Aby uzyskać informacje na temat wersji, zobacz [historia wersji rozszerzenia DSC](/powershell/scripting/dsc/getting-started/azuredscexthistory).
 
