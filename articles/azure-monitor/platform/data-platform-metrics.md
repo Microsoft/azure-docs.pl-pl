@@ -9,12 +9,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: 839347ce0a04cc1ca1bf16c68e0ccc36fcf0f7fc
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 2f82d5d4dcb29504abbfa6881fa825b6d8efce0d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86200803"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87049544"
 ---
 # <a name="metrics-in-azure-monitor"></a>Metryki w usłudze Azure Monitor
 
@@ -35,9 +35,9 @@ W poniższej tabeli wymieniono różne sposoby używania danych metryk w Azure M
 | **Wizualizacja** | Przypinanie wykresu z Eksploratora metryk do [pulpitu nawigacyjnego platformy Azure](../learn/tutorial-app-dashboards.md).<br>Utwórz [skoroszyt](../platform/workbooks-overview.md) , aby połączyć się z wieloma zestawami danych w raporcie interaktywnym. Eksportuj wyniki zapytania do [Grafana](grafana-plugin.md) , aby wykorzystać jego pulpit nawigacyjny i połączyć się z innymi źródłami danych. |
 | **Alert** | Skonfiguruj [regułę alertu metryki](alerts-metric.md) , która wysyła powiadomienie lub wykonuje [automatyczne działanie](action-groups.md) , gdy wartość metryki przekroczy próg. |
 | **Automatyzacja** |  Użyj funkcji [automatycznego skalowania](autoscale-overview.md) , aby zwiększyć lub zmniejszyć zasoby na podstawie wartości metryki przekraczającej próg. |
-| **Eksportowanie** | [Kierowanie metryk do dzienników](resource-logs-collect-storage.md) w celu analizowania danych w Azure monitor metryki wraz z danymi w dziennikach Azure monitor i przechowywanie wartości metryk przez dłużej niż 93 dni.<br>Metryki strumienia do [centrum zdarzeń](stream-monitoring-data-event-hubs.md) w celu kierowania ich do systemów zewnętrznych. |
-| **Odczytać** | Uzyskiwanie dostępu do wartości metryk z wiersza polecenia przy użyciu [poleceń cmdlet programu PowerShell](https://docs.microsoft.com/powershell/module/az.applicationinsights)<br>Dostęp do wartości metryk z aplikacji niestandardowej przy użyciu [interfejsu API REST](rest-api-walkthrough.md).<br>Uzyskaj dostęp do wartości metryk z wiersza polecenia przy użyciu [interfejsu CLI](/cli/azure/monitor/metrics). |
-| **Archive** | [Archiwizuj](..//learn/tutorial-archive-data.md) historię wydajności lub kondycji zasobu w celu zapewnienia zgodności, inspekcji lub raportowania w trybie offline. |
+| **Eksportowanie** | [Kierowanie metryk do dzienników](./resource-logs.md#send-to-azure-storage) w celu analizowania danych w Azure monitor metryki wraz z danymi w dziennikach Azure monitor i przechowywanie wartości metryk przez dłużej niż 93 dni.<br>Metryki strumienia do [centrum zdarzeń](stream-monitoring-data-event-hubs.md) w celu kierowania ich do systemów zewnętrznych. |
+| **Odczytać** | Uzyskiwanie dostępu do wartości metryk z wiersza polecenia przy użyciu [poleceń cmdlet programu PowerShell](/powershell/module/az.applicationinsights)<br>Dostęp do wartości metryk z aplikacji niestandardowej przy użyciu [interfejsu API REST](rest-api-walkthrough.md).<br>Uzyskaj dostęp do wartości metryk z wiersza polecenia przy użyciu [interfejsu CLI](/cli/azure/monitor/metrics). |
+| **Archiwum** | [Archiwizuj](./platform-logs-overview.md) historię wydajności lub kondycji zasobu w celu zapewnienia zgodności, inspekcji lub raportowania w trybie offline. |
 
 ## <a name="how-is-data-in-azure-monitor-metrics-structured"></a>Jak są zorganizowane dane w Azure Monitor metryki?
 Dane zbierane przez metryki Azure Monitor są przechowywane w bazie danych szeregów czasowych, która jest zoptymalizowana pod kątem analizowania danych z sygnaturami czasowymi. Każdy zestaw wartości metryk jest szeregiem czasowym o następujących właściwościach:
@@ -56,7 +56,7 @@ Poniższy przykład ilustruje dwa zestawy danych dla hipotetycznej metryki o naz
 
 ### <a name="network-throughput"></a>Przepływność sieci
 
-| Znacznik czasu     | Wartość metryki |
+| Timestamp     | Wartość metryki |
 | ------------- |:-------------|
 | 8/9/2017 8:14 | 1 331,8 KB/s |
 | 8/9/2017 8:15 | 1 141,4 KB/s |
@@ -66,7 +66,7 @@ Ta Metryka niewymiarowa może odpowiedzieć wyłącznie na podstawowe pytanie, t
 
 ### <a name="network-throughput--two-dimensions-ip-and-direction"></a>Przepływność sieci + dwa wymiary ("IP" i "kierunek")
 
-| Znacznik czasu     | Wymiar "IP"   | Wymiar "kierunek" | Wartość metryki|
+| Timestamp     | Wymiar "IP"   | Wymiar "kierunek" | Wartość metryki|
 | ------------- |:-----------------|:------------------- |:-----------|
 | 8/9/2017 8:14 | IP = "192.168.5.2" | Direction = "Send"    | 646,5 KB/s |
 | 8/9/2017 8:14 | IP = "192.168.5.2" | Direction = "Receive" | 420,1 KB/s |
@@ -108,7 +108,7 @@ W przypadku większości zasobów na platformie Azure metryki są przechowywane 
 
 
 > [!NOTE]
-> [Metryki platformy dla Azure Monitor zasobów można wysyłać do log Analytics obszaru roboczego](resource-logs-collect-storage.md) w celu uzyskania długoterminowych trendów.
+> [Metryki platformy dla Azure Monitor zasobów można wysyłać do log Analytics obszaru roboczego](./resource-logs.md#send-to-azure-storage) w celu uzyskania długoterminowych trendów.
 
 
 

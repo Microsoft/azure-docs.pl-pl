@@ -1,24 +1,24 @@
 ---
-title: Rejestracja łączona na potrzeby samoobsługowego resetowania hasła i usługi MFA — Azure Active Directory
-description: Rejestracja w usłudze Azure AD Multi-Factor Authentication i samoobsługowego resetowania hasła
+title: Połączona Rejestracja dla SSPR i Multi-Factor Authentication platformy Azure — Azure Active Directory
+description: Dowiedz się więcej na temat połączonego środowiska rejestracji dla Azure Active Directory, aby umożliwić użytkownikom rejestrowanie w usłudze Azure Multi-Factor Authentication i Samoobsługowe resetowanie hasła
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 04/15/2020
+ms.date: 07/14/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 87cec45ac3d7bf491278a4ba8520e8257fd0f6c1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b8ceb375eb9da853b4c89ffe278d3483f6a4fa72
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85550674"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87050954"
 ---
-# <a name="combined-security-information-registration-overview"></a>Przegląd rejestracji informacji o zabezpieczeniach
+# <a name="combined-security-information-registration-for-azure-active-directory-overview"></a>Rejestracja informacji o zabezpieczeniach dla Azure Active Directory przegląd
 
 Przed połączoną rejestracją użytkownicy zarejestrowali metody uwierzytelniania dla usługi Azure Multi-Factor Authentication i samoobsługowego resetowania hasła (SSPR). Ktoś został mylić, że podobne metody zostały użyte do Multi-Factor Authentication i SSPR, ale musiały zarejestrować się w przypadku obu funkcji. Teraz dzięki łącznej rejestracji użytkownicy mogą rejestrować się raz i korzystać z zalet zarówno Multi-Factor Authentication, jak i SSPR.
 
@@ -34,11 +34,13 @@ Przed włączeniem nowego środowiska zapoznaj się z dokumentacją zorientowan�
 Rejestracja informacji o zabezpieczeniach połączonej usługi Azure AD nie jest obecnie dostępna dla chmur narodowych, takich jak Azure USA, Azure (Niemcy) i Azure (Chiny).
 
 > [!IMPORTANT]
-> Nowe zachowanie będzie widoczne dla użytkowników, którzy są włączeni do wersji zapoznawczej i udoskonalonego środowiska rejestracji połączonej. Użytkownicy, którzy są włączeni do obu środowisk, będą widzieć tylko nowe środowisko my profilu. Nowy mój profil jest wyrównany do wyglądu i sposobu działania złożonej rejestracji oraz zapewnia bezproblemowe środowisko dla użytkowników. Użytkownicy mogą zobaczyć mój profil, przechodząc do [https://myprofile.microsoft.com](https://myprofile.microsoft.com) .
+> Użytkownicy, którzy są włączeni do zarówno oryginalnej wersji zapoznawczej, jak i udoskonalonego, połączonego środowiska rejestracji, zobaczą nowe zachowanie. Użytkownicy, którzy są włączeni do obu środowisk, zobaczą tylko nowe środowisko my profile. Nowy *mój profil* jest wyrównany do wyglądu i sposobu działania złożonej rejestracji oraz zapewnia bezproblemowe środowisko dla użytkowników. Użytkownicy mogą zobaczyć mój profil, przechodząc do [https://myprofile.microsoft.com](https://myprofile.microsoft.com) .
 >
-> Podczas próby uzyskania dostępu do opcji informacje zabezpieczające może wystąpić komunikat o błędzie. Na przykład "Niestety, nie możemy cię zalogować". W takim przypadku upewnij się, że nie masz żadnej konfiguracji ani obiektu zasad grupy, który blokuje pliki cookie innych firm w przeglądarce sieci Web.
+> Podczas próby uzyskania dostępu do opcji informacje zabezpieczające, na przykład "Niestety, nie możemy cię zalogować", może wystąpić komunikat o błędzie. Upewnij się, że nie masz żadnej konfiguracji ani obiektu zasad grupy, który blokuje pliki cookie innych firm w przeglądarce sieci Web.
 
-Moje strony profilów są zlokalizowane na podstawie ustawień języka komputera uzyskujących dostęp do strony. Firma Microsoft przechowuje najnowszy język używany w pamięci podręcznej przeglądarki, dlatego kolejne próby uzyskania dostępu do stron będą nadal renderowane w ostatnim używanym języku. W przypadku wyczyszczenia pamięci podręcznej strony zostaną ponownie renderowane. Jeśli chcesz wymusić określony język, możesz dodać `?lng=<language>` na końcu adresu URL, gdzie `<language>` jest kodem języka, który ma być renderowany.
+*Moje strony profilów* są zlokalizowane na podstawie ustawień języka komputera uzyskujących dostęp do strony. Firma Microsoft przechowuje najnowszy język używany w pamięci podręcznej przeglądarki, a następnie próbuje uzyskać dostęp do stron w dalszym ciągu w ostatnio używanym języku. Jeśli wyczyścisz pamięć podręczną, strony są ponownie renderowane.
+
+Jeśli chcesz wymusić określony język, możesz dodać `?lng=<language>` na końcu adresu URL, gdzie `<language>` jest kodem języka, który ma być renderowany.
 
 ![Konfigurowanie SSPR lub innych metod weryfikacji zabezpieczeń](media/howto-registration-mfa-sspr-combined/combined-security-info-my-profile.png)
 
@@ -54,7 +56,7 @@ Rejestracja łączona obsługuje następujące metody uwierzytelniania i akcje:
 | Telefon | Tak | Tak | Tak |
 | Alternatywny numer telefonu | Tak | Tak | Tak |
 | Telefon służbowy | Nie | Nie | Nie |
-| Poczta e-mail | Tak | Tak | Tak |
+| E-mail | Tak | Tak | Tak |
 | Pytania zabezpieczające | Yes | Nie | Yes |
 | Hasła aplikacji | Yes | Nie | Yes |
 | FIDO2 klucze zabezpieczeń<br />*Tryb zarządzany tylko ze strony z [informacjami o zabezpieczeniach](https://mysignins.microsoft.com/security-info)*| Tak | Tak | Tak |
@@ -69,7 +71,7 @@ Użytkownicy mogą ustawić jedną z następujących opcji jako domyślną metod
 - Połączenie telefoniczne.
 - Wiadomość SMS.
 
-W miarę jak będziemy nadal dodawać kolejne metody uwierzytelniania do usługi Azure AD, te metody będą dostępne w ramach rejestracji złożonej.
+W miarę jak będziemy nadal dodawać kolejne metody uwierzytelniania do usługi Azure AD, te metody są dostępne w ramach rejestracji złożonej.
 
 ## <a name="combined-registration-modes"></a>Połączone tryby rejestracji
 
@@ -78,36 +80,36 @@ Istnieją dwa tryby rejestracji połączonej: przerwanie i zarządzanie.
 - **Tryb przerwania** to środowisko podobne do kreatora prezentowane użytkownikom podczas rejestrowania lub odświeżania informacji zabezpieczających podczas logowania.
 - **Tryb zarządzania** jest częścią profilu użytkownika i umożliwia użytkownikom zarządzanie swoimi informacjami o zabezpieczeniach.
 
-Dla obu trybów użytkownicy, którzy wcześniej zarejestrowali metodę, która może zostać użyta do Multi-Factor Authentication będzie musiał wykonać Multi-Factor Authentication, zanim uzyskają dostęp do swoich informacji zabezpieczających. Użytkownicy muszą potwierdzić swoje informacje przed kontynuowaniem używania poprzednio zarejestrowanych metod. 
+Dla obu trybów użytkownicy, którzy wcześniej zarejestrowali metodę, która może być użyta do Multi-Factor Authentication musi wykonać Multi-Factor Authentication, zanim uzyskają dostęp do swoich informacji zabezpieczających. Użytkownicy muszą potwierdzić swoje informacje przed kontynuowaniem używania poprzednio zarejestrowanych metod. 
 
 ### <a name="interrupt-mode"></a>Tryb przerwania
 
 Rejestracja łączona uwzględnia zarówno zasady Multi-Factor Authentication, jak i SSPR, jeśli oba są włączone dla dzierżawy. Te zasady kontrolują, czy użytkownik jest przerywany do rejestracji podczas logowania i które metody są dostępne do rejestracji.
 
-Poniżej przedstawiono kilka scenariuszy, w których użytkownicy mogą zostać poproszeni o zarejestrowanie lub odświeżenie swoich informacji zabezpieczających:
+Poniżej przedstawiono przykładowe scenariusze, w których użytkownicy mogą zostać poproszeni o zarejestrowanie lub odświeżenie swoich informacji zabezpieczających:
 
-- Rejestracja Multi-Factor Authentication wymuszana przez ochronę tożsamości: użytkownicy są proszeni o zarejestrowanie się podczas logowania. Rejestrują metody Multi-Factor Authentication i metody SSPR (Jeśli użytkownik jest włączony dla SSPR).
-- Multi-Factor Authentication rejestracji wymuszane przez Multi-Factor Authentication poszczególnych użytkowników: użytkownicy są proszeni o zarejestrowanie się podczas logowania. Rejestrują metody Multi-Factor Authentication i metody SSPR (Jeśli użytkownik jest włączony dla SSPR).
-- Rejestracja Multi-Factor Authentication wymuszana przy użyciu dostępu warunkowego lub innych zasad: użytkownicy są proszeni o rejestrację, gdy używają zasobu wymagającego Multi-Factor Authentication. Rejestrują metody Multi-Factor Authentication i metody SSPR (Jeśli użytkownik jest włączony dla SSPR).
-- SSPR Rejestracja: użytkownicy są proszeni o zarejestrowanie się podczas logowania. Rejestrują tylko metody SSPR.
-- Wymuszone odświeżanie SSPR: użytkownicy muszą przeglądać informacje zabezpieczające w interwale ustawionym przez administratora. Użytkownicy są wyświetlani informacjami i mogą potwierdzić bieżące informacje lub wprowadzić zmiany w razie konieczności.
+- *Rejestracja Multi-Factor Authentication wymuszana przez ochronę tożsamości:* Użytkownicy są monitowani o zarejestrowanie się podczas logowania. Rejestrują metody Multi-Factor Authentication i metody SSPR (Jeśli użytkownik jest włączony dla SSPR).
+- *Rejestracja Multi-Factor Authentication wymuszana przez Multi-Factor Authentication poszczególnych użytkowników:* Użytkownicy są monitowani o zarejestrowanie się podczas logowania. Rejestrują metody Multi-Factor Authentication i metody SSPR (Jeśli użytkownik jest włączony dla SSPR).
+- *Rejestracja Multi-Factor Authentication wymuszana przy użyciu dostępu warunkowego lub innych zasad:* Użytkownicy są proszeni o rejestrację, gdy używają zasobu wymagającego Multi-Factor Authentication. Rejestrują metody Multi-Factor Authentication i metody SSPR (Jeśli użytkownik jest włączony dla SSPR).
+- *SSPR rejestracji:* Użytkownicy są monitowani o zarejestrowanie się podczas logowania. Rejestrują tylko metody SSPR.
+- *Wymuszone odświeżanie SSPR:* Użytkownicy muszą przejrzeć informacje zabezpieczające w interwale ustawionym przez administratora. Użytkownicy są wyświetlani informacjami i mogą potwierdzić bieżące informacje lub wprowadzić zmiany w razie konieczności.
 
 W przypadku wymuszania rejestracji użytkownicy są pokazani minimalną liczbę metod, które muszą być zgodne z zasadami Multi-Factor Authentication i SSPR, od najbezpieczniejszego do najmniej zabezpieczonego.
 
-Przykład:
+Rozważmy następujący przykładowy scenariusz:
 
 - Użytkownik jest włączony do SSPR. Zasady SSPR muszą mieć dwie metody resetowania i włączenia kodu aplikacji mobilnej, poczty e-mail i telefonu.
-   - Ten użytkownik jest wymagany do zarejestrowania dwóch metod.
-      - Użytkownik jest domyślnie pokazywany jako aplikacja uwierzytelniania i telefon.
-      - Użytkownik może zdecydować się na zarejestrowanie poczty e-mail zamiast aplikacji lub telefonu uwierzytelniania.
+- Ten użytkownik jest wymagany do zarejestrowania dwóch metod.
+   - Użytkownik jest domyślnie pokazywany jako aplikacja uwierzytelniania i telefon.
+   - Użytkownik może zdecydować się na zarejestrowanie poczty e-mail zamiast aplikacji lub telefonu uwierzytelniania.
 
-Ten schemat blokowy opisuje, które metody są wyświetlane użytkownikowi po przerwaniu rejestracji podczas logowania:
+Poniższy schemat blokowy opisuje, które metody są wyświetlane użytkownikowi po przerwaniu rejestracji podczas logowania:
 
 ![Schemat blokowy połączonych informacji zabezpieczających](media/concept-registration-mfa-sspr-combined/combined-security-info-flow-chart.png)
 
 Jeśli masz Multi-Factor Authentication i SSPR włączone, zalecamy wymuszenie rejestracji Multi-Factor Authentication.
 
-Jeśli zasady SSPR wymagają od użytkowników przeglądania ich informacji zabezpieczających w regularnych odstępach czasu, użytkownicy są przerywani podczas logowania i pokazują wszystkie zarejestrowane metody. Mogą oni potwierdzić bieżące informacje, jeśli są aktualne lub mogą wprowadzać zmiany, jeśli ich potrzebują. Użytkownicy muszą korzystać z uwierzytelniania wieloskładnikowego podczas uzyskiwania dostępu do tej strony.
+Jeśli zasady SSPR wymagają od użytkowników przeglądania ich informacji zabezpieczających w regularnych odstępach czasu, użytkownicy są przerywani podczas logowania i pokazują wszystkie zarejestrowane metody. Mogą oni potwierdzić bieżące informacje, jeśli są aktualne lub mogą wprowadzić zmiany, jeśli są one potrzebne. Użytkownicy muszą korzystać z uwierzytelniania wieloskładnikowego podczas uzyskiwania dostępu do tej strony.
 
 ### <a name="manage-mode"></a>Tryb zarządzania
 
@@ -125,7 +127,7 @@ Użytkownik nie skonfigurował wszystkich wymaganych informacji zabezpieczający
 
 Administrator nie wymusił rejestracji.
 
-Użytkownik, który jeszcze nie skonfigurował wszystkich wymaganych informacji zabezpieczających, przejdzie do programu [https://myprofile.microsoft.com](https://myprofile.microsoft.com) . Użytkownik wybiera **informacje zabezpieczające** w okienku po lewej stronie. W tym miejscu użytkownik zdecyduje się dodać metodę, wybiera dowolną z dostępnych metod i postępuje zgodnie z instrukcjami, aby skonfigurować tę metodę. Po zakończeniu użytkownik zobaczy metodę, która została właśnie skonfigurowana na stronie informacje zabezpieczające.
+Użytkownik, który jeszcze nie skonfigurował wszystkich wymaganych informacji zabezpieczających, przejdzie do programu [https://myprofile.microsoft.com](https://myprofile.microsoft.com) . Użytkownik wybiera **informacje zabezpieczające** w okienku po lewej stronie. W tym miejscu użytkownik zdecyduje się dodać metodę, wybiera dowolną z dostępnych metod i postępuje zgodnie z instrukcjami, aby skonfigurować tę metodę. Po zakończeniu użytkownik zobaczy metodę, która została skonfigurowana na stronie informacje zabezpieczające.
 
 ### <a name="delete-security-info-from-my-profile"></a>Usuń informacje zabezpieczające z mojego profilu
 

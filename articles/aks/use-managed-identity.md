@@ -2,16 +2,15 @@
 title: Korzystanie z tożsamości zarządzanych w usłudze Azure Kubernetes Service
 description: Dowiedz się, jak używać tożsamości zarządzanych w usłudze Azure Kubernetes Service (AKS)
 services: container-service
-author: mlearned
 ms.topic: article
-ms.date: 07/10/2020
-ms.author: mlearned
-ms.openlocfilehash: 95a303a4b6a83901560b26679bca920b9de4d3f4
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.date: 07/17/2020
+ms.author: thomasge
+ms.openlocfilehash: e96126d1516e8a1e20e6f6db9b3a448b94c71cd7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86250909"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87050604"
 ---
 # <a name="use-managed-identities-in-azure-kubernetes-service"></a>Korzystanie z tożsamości zarządzanych w usłudze Azure Kubernetes Service
 
@@ -27,10 +26,10 @@ Musisz mieć zainstalowany następujący zasób:
 
 ## <a name="limitations"></a>Ograniczenia
 
-* Korzystanie z własnych tożsamości zarządzanych nie jest obecnie obsługiwane.
 * Klastry AKS z tożsamościami zarządzanymi można włączać tylko podczas tworzenia klastra.
-* Istniejących klastrów AKS nie można zaktualizować ani uaktualnić, aby umożliwić zarządzanie tożsamościami.
+* Nie można migrować istniejących klastrów AKS do zarządzanych tożsamości.
 * W trakcie operacji **uaktualniania** klastra zarządzana tożsamość jest tymczasowo niedostępna.
+* Dzierżawcy przeniesie/Migruj zarządzane Klastry obsługujące tożsamość nie są obsługiwane.
 
 ## <a name="summary-of-managed-identities"></a>Podsumowanie tożsamości zarządzanych
 
@@ -38,7 +37,7 @@ AKS używa kilku zarządzanych tożsamości dla wbudowanych usług i dodatków.
 
 | Tożsamość                       | Nazwa    | Przypadek użycia | Uprawnienia domyślne | Korzystanie z własnej tożsamości
 |----------------------------|-----------|----------|
-| Płaszczyzna sterowania | niewidoczne | Używane przez AKS do zarządzania zasobami sieciowymi, np. tworzenia modułu równoważenia obciążenia dla ruchu przychodzącego, publicznego adresu IP itp.| Rola współautora dla grupy zasobów węzła | Nie jest obecnie obsługiwana.
+| Płaszczyzna sterowania | niewidoczne | Używane przez AKS do zarządzanych zasobów sieciowych, w tym usług równoważenia obciążenia i AKS zarządzanych adresów IP | Rola współautora dla grupy zasobów węzła | Wersja zapoznawcza
 | Kubelet | Nazwa klastra AKS — nieznanej obiektu agentpool | Uwierzytelnianie za pomocą Azure Container Registry (ACR) | Rola czytnika dla grupy zasobów węzła | Nie jest obecnie obsługiwana.
 | Dodatek | AzureNPM | Żadna tożsamość nie jest wymagana | Nie dotyczy | Nie
 | Dodatek | Monitorowanie sieci AzureCNI | Żadna tożsamość nie jest wymagana | Nie dotyczy | Nie
@@ -71,7 +70,7 @@ az aks create -g myResourceGroup -n myManagedCluster --enable-managed-identity
 
 Pomyślne utworzenie klastra przy użyciu tożsamości zarządzanych zawiera informacje o profilu głównej usługi:
 
-```json
+```output
 "servicePrincipalProfile": {
     "clientId": "msi"
   }
@@ -80,18 +79,20 @@ Pomyślne utworzenie klastra przy użyciu tożsamości zarządzanych zawiera inf
 Użyj następującego polecenia, aby zbadać identyfikator objectid tożsamości zarządzanej płaszczyzny kontroli:
 
 ```azurecli-interactive
-az aks show -g myResourceGroup -n MyManagedCluster --query "identity"
+az aks show -g myResourceGroup -n myManagedCluster --query "identity"
 ```
 
 Wynik powinien wyglądać następująco:
 
-```json
+```output
 {
   "principalId": "<object_id>",   
   "tenantId": "<tenant_id>",      
   "type": "SystemAssigned"                                 
 }
 ```
+
+Po utworzeniu klastra można wdrożyć obciążenia aplikacji w nowym klastrze i korzystać z niego w taki sam sposób, jak w przypadku klastrów AKS opartych na usłudze Service-Principal.
 
 > [!NOTE]
 > Aby utworzyć i korzystać z własnej sieci wirtualnej, statycznego adresu IP lub dołączonego dysku platformy Azure, na którym znajdują się zasoby poza grupą zasobów węzła roboczego, należy użyć PrincipalIDa przypisanej tożsamości zarządzanej przez system klastra w celu wykonania przypisania roli. Aby uzyskać więcej informacji na temat przypisywania ról, zobacz [delegowanie dostępu do innych zasobów platformy Azure](kubernetes-service-principal.md#delegate-access-to-other-azure-resources).
@@ -101,13 +102,115 @@ Wynik powinien wyglądać następująco:
 Na koniec Uzyskaj poświadczenia, aby uzyskać dostęp do klastra:
 
 ```azurecli-interactive
-az aks get-credentials --resource-group myResourceGroup --name MyManagedCluster
+az aks get-credentials --resource-group myResourceGroup --name myManagedCluster
 ```
 
-Klaster zostanie utworzony w ciągu kilku minut. Następnie można wdrożyć obciążenia aplikacji w nowym klastrze i korzystać z nich w taki sam sposób, jak w przypadku klastrów AKS opartych na głównej usłudze.
+## <a name="bring-your-own-control-plane-mi-preview"></a>Przesuwanie własnej płaszczyzny kontroli MI (wersja zapoznawcza)
+Tożsamość niestandardowej płaszczyzny kontroli umożliwia dostęp do istniejącej tożsamości przed utworzeniem klastra. Pozwala to na takie scenariusze, jak używanie niestandardowej sieci wirtualnej lub niepowiązanego typu UDR z tożsamością zarządzaną.
+
+> [!IMPORTANT]
+> Funkcje w wersji zapoznawczej AKS są dostępne w ramach samoobsługowego i samodzielnego wyboru. Wersje zapoznawcze są udostępniane w postaci "AS-IS" i "jako dostępne" i są wykluczone z umów dotyczących poziomu usług i ograniczonej rękojmi. Wersje zapoznawcze AKS są częściowo objęte obsługą klienta w oparciu o optymalny sposób. W związku z tym te funkcje nie są przeznaczone do użytku produkcyjnego. Aby uzyskać więcej informacji, zobacz następujące artykuły pomocy technicznej:
+>
+> - [Zasady pomocy technicznej AKS](support-policies.md)
+> - [Pomoc techniczna platformy Azure — często zadawane pytania](faq.md)
+
+Wymagane są następujące zasoby:
+- Interfejs wiersza polecenia platformy Azure w wersji 2.9.0 lub nowszej
+- Rozszerzenie AKS-Preview 0.4.57
+
+Ograniczenia dotyczące przesuwania własnej płaszczyzny kontroli MI (wersja zapoznawcza):
+* Azure Government nie jest obecnie obsługiwana.
+* Nie jest to obecnie obsługiwane.
+
+```azurecli-interactive
+az extension add --name aks-preview
+az extension list
+```
+
+```azurecli-interactive
+az extension update --name aks-preview
+az extension list
+```
+
+```azurecli-interactive
+az feature register --name UserAssignedIdentityPreview --namespace Microsoft.ContainerService
+```
+
+Wyświetlenie stanu jako **zarejestrowanego**może potrwać kilka minut. Stan rejestracji można sprawdzić za pomocą polecenia [AZ Feature list](/cli/azure/feature?view=azure-cli-latest#az-feature-list) :
+
+```azurecli-interactive
+az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/UserAssignedIdentityPreview')].{Name:name,State:properties.state}"
+```
+
+Gdy stan jest wyświetlany jako zarejestrowane, Odśwież rejestrację `Microsoft.ContainerService` dostawcy zasobów przy użyciu polecenia [AZ Provider Register](/cli/azure/provider?view=azure-cli-latest#az-provider-register) :
+
+```azurecli-interactive
+az provider register --namespace Microsoft.ContainerService
+```
+
+Jeśli nie masz jeszcze tożsamości zarządzanej, należy to zrobić i utworzyć ją na przykład za pomocą polecenia [AZ Identity CLI][az-identity-create].
+
+```azurecli-interactive
+az identity create --name myIdentity --resource-group myResourceGroup
+```
+Wynik powinien wyglądać następująco:
+
+```output
+{                                                                                                                                                                                 
+  "clientId": "<client-id>",
+  "clientSecretUrl": "<clientSecretUrl>",
+  "id": "/subscriptions/<subscriptionid>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myIdentity", 
+  "location": "westus2",
+  "name": "myIdentity",
+  "principalId": "<principalId>",
+  "resourceGroup": "myResourceGroup",                       
+  "tags": {},
+  "tenantId": "<tenant-id>>",
+  "type": "Microsoft.ManagedIdentity/userAssignedIdentities"
+}
+```
+
+Jeśli zarządzana tożsamość jest częścią subskrypcji, możesz użyć [polecenia AZ Identity CLI][az-identity-list] , aby wykonać zapytanie.  
+
+```azurecli-interactive
+az identity list --query "[].{Name:name, Id:id, Location:location}" -o table
+```
+
+Teraz można użyć następującego polecenia, aby utworzyć klaster z istniejącą tożsamością:
+
+```azurecli-interactive
+az aks create \
+    --resource-group myResourceGroup \
+    --name myManagedCluster \
+    --network-plugin azure \
+    --vnet-subnet-id <subnet-id> \
+    --docker-bridge-address 172.17.0.1/16 \
+    --dns-service-ip 10.2.0.10 \
+    --service-cidr 10.2.0.0/24 \
+    --enable-managed-identity \
+    --assign-identity <identity-id> \
+```
+
+Pomyślne utworzenie klastra przy użyciu tożsamości zarządzanych zawiera informacje o profilu Resourceidentity:
+
+```output
+ "identity": {
+   "principalId": null,
+   "tenantId": null,
+   "type": "UserAssigned",
+   "userAssignedIdentities": {
+     "/subscriptions/<subscriptionid>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myIdentity": {
+       "clientId": "<client-id>",
+       "principalId": "<principal-id>"
+     }
+   }
+ },
+```
 
 ## <a name="next-steps"></a>Następne kroki
 * Użyj [szablonów Azure Resource Manager (ARM)][aks-arm-template] , aby utworzyć Klastry obsługujące tożsamość zarządzaną.
 
 <!-- LINKS - external -->
 [aks-arm-template]: /azure/templates/microsoft.containerservice/managedclusters
+[az-identity-create]: https://docs.microsoft.com/cli/azure/identity?view=azure-cli-latest#az-identity-create
+[az-identity-list]: https://docs.microsoft.com/cli/azure/identity?view=azure-cli-latest#az-identity-list

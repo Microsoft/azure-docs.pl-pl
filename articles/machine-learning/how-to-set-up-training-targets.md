@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: how-to
 ms.date: 07/08/2020
 ms.custom: seodec18, tracking-python
-ms.openlocfilehash: c87812e665617f3ccfe48db3a0cca2ceac67f0bc
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 0f3682338c9373f3ba30c8b32ea5cf4132c18949
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86147445"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87048266"
 ---
 # <a name="set-up-and-use-compute-targets-for-model-training"></a>Skonfiguruj cele obliczeń i używaj ich do szkolenia modelu 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -98,12 +98,11 @@ Azure Machine Learning klaster obliczeniowy to infrastruktura obliczeniowa, któ
 
 Za pomocą obliczeń Azure Machine Learning można dystrybuować proces uczenia w klastrze procesorów CPU lub węzłów obliczeniowych procesora GPU w chmurze. Aby uzyskać więcej informacji o rozmiarach maszyn wirtualnych, które obejmują procesory GPU, zobacz [rozmiary maszyny wirtualnej zoptymalizowanej według procesora GPU](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu). 
 
-Azure Machine Learning COMPUTE ma limity domyślne, takie jak liczba rdzeni, które można przydzielić. Aby uzyskać więcej informacji, zobacz [Zarządzanie przydziałami zasobów platformy Azure i ich żądania](https://docs.microsoft.com/azure/machine-learning/how-to-manage-quotas).
+Azure Machine Learning COMPUTE ma limity domyślne, takie jak liczba rdzeni, które można przydzielić. Aby uzyskać więcej informacji, zobacz [Zarządzanie przydziałami zasobów platformy Azure i ich żądania](/how-to-manage-quotas.md).
 
-Możesz również użyć maszyn wirtualnych o niskim priorytecie do uruchamiania niektórych lub wszystkich obciążeń. Te maszyny wirtualne nie mają gwarantowanej dostępności i mogą być przeszukiwane w trakcie użytkowania. Zastępujące zadanie zostało ponownie uruchomione, a nie wznowione.  Maszyny wirtualne o niskim priorytecie mają obniżone stawki w porównaniu do normalnych maszyn wirtualnych, zobacz [Planowanie i zarządzanie kosztami](https://docs.microsoft.com/azure/machine-learning/concept-plan-manage-cost).
 
 > [!TIP]
-> Klastry mogą zwykle skalować do 100 węzłów, o ile masz wystarczające limity przydziału dla wymaganej liczby rdzeni. Domyślnie klastry są skonfigurowane z obsługą komunikacji między węzłami między węzłami klastra w celu obsługi zadań MPI na przykład. Można jednak skalować klastry do tysięcy węzłów przez po prostu [podnieść bilet pomocy technicznej](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)i zażądać dozwolonych subskrypcji lub obszaru roboczego lub określonego klastra w celu wyłączenia komunikacji między węzłami. 
+> Klastry mogą zwykle skalować do 100 węzłów, o ile masz wystarczające limity przydziału dla wymaganej liczby rdzeni. Domyślnie klastry są skonfigurowane z obsługą komunikacji między węzłami między węzłami klastra w celu obsługi zadań MPI na przykład. Można jednak skalować klastry do tysięcy węzłów, po prostu [zwiększając bilet pomocy technicznej](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)i żądając zezwolenia na wyświetlenie listy subskrypcji lub obszaru roboczego lub określonego klastra w celu wyłączenia komunikacji między węzłami. 
 
 Azure Machine Learning obliczeń można użyć ponownie w ramach przebiegów. Obliczenia mogą być współużytkowane z innymi użytkownikami w obszarze roboczym i zachowywane między działami, automatyczne skalowanie węzłów w górę lub w dół na podstawie liczby przesłanych przebiegów oraz max_nodes ustawionych w klastrze. Ustawienie min_nodes steruje minimalnymi dostępnymi węzłami.
 
@@ -118,14 +117,38 @@ Azure Machine Learning obliczeń można użyć ponownie w ramach przebiegów. Ob
 
    Podczas tworzenia Azure Machine Learning obliczeń można także skonfigurować kilka zaawansowanych właściwości. Właściwości umożliwiają tworzenie trwałego klastra o stałym rozmiarze lub w ramach istniejącej Virtual Network platformy Azure w ramach subskrypcji.  Aby uzyskać szczegółowe informacje, zobacz [klasę AmlCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py
     ) .
-    
-   Można też utworzyć i dołączyć trwały zasób obliczeniowy Azure Machine Learning w programie [Azure Machine Learning Studio](#portal-create).
 
+    Można też utworzyć i dołączyć trwały zasób obliczeniowy Azure Machine Learning w programie [Azure Machine Learning Studio](#portal-create).
+
+   
 1. **Konfiguracja**: Utwórz konfigurację uruchamiania dla trwałego elementu docelowego obliczeń.
 
    [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/amlcompute2.py?name=run_amlcompute)]
 
 Teraz, po dołączeniu obliczeń i skonfigurowaniu przebiegu, następnym krokiem jest [przesłanie tego przebiegu szkoleniowego](#submit).
+
+ ### <a name="lower-your-compute-cluster-cost"></a><a id="low-pri-vm"></a>Obniż koszt klastra obliczeniowego
+
+Możesz również użyć [maszyn wirtualnych o niskim priorytecie](concept-plan-manage-cost.md#low-pri-vm) do uruchamiania niektórych lub wszystkich obciążeń. Te maszyny wirtualne nie mają gwarantowanej dostępności i mogą być przeszukiwane w trakcie użytkowania. Zastępujące zadanie zostało ponownie uruchomione, a nie wznowione. 
+
+Użyj dowolnego z tych metod, aby określić maszynę wirtualną o niskim priorytecie:
+    
+* W programie Studio wybierz pozycję **niski priorytet** podczas tworzenia maszyny wirtualnej.
+    
+* Za pomocą zestawu SDK języka Python Ustaw `vm_priority` atrybut w konfiguracji aprowizacji.  
+    
+    ```python
+    compute_config = AmlCompute.provisioning_configuration(vm_size='STANDARD_D2_V2',
+                                                                vm_priority='lowpriority',
+                                                                max_nodes=4)
+    ```
+    
+* Korzystając z interfejsu wiersza polecenia, należy ustawić `vm-priority` :
+    
+    ```azurecli-interactive
+    az ml computetarget create amlcompute --name lowpriocluster --vm-size Standard_NC6 --max-nodes 5 --vm-priority lowpriority
+    ```
+
 
 
 ### <a name="azure-machine-learning-compute-instance"></a><a id="instance"></a>Wystąpienie obliczeniowe Azure Machine Learning

@@ -14,11 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/10/2020
 ms.author: alsin
-ms.openlocfilehash: af541faaf9529cec81c60cb1a879161d66e34a7e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 54d703b8a493610174f00844cd0736f65f3ee541
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84694386"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87052173"
 ---
 # <a name="red-hat-enterprise-linux-bring-your-own-subscription-gold-images-in-azure"></a>Red Hat Enterprise Linux Przenieś własne obrazy z subskrypcji na platformę Azure
 
@@ -68,7 +69,7 @@ Pozostała część tego dokumentu koncentruje się na metodzie interfejsu wiers
 
 ## <a name="use-the-red-hat-gold-images-from-the-azure-cli"></a>Korzystanie z obrazów Red Hat Gold z poziomu interfejsu wiersza polecenia platformy Azure
 
-Poniższe instrukcje przeprowadzą Cię przez proces wdrażania wstępnego dla maszyny wirtualnej RHEL przy użyciu interfejsu wiersza polecenia platformy Azure. W tych instrukcjach przyjęto założenie, że masz [zainstalowany interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Poniższe instrukcje przeprowadzą Cię przez proces wdrażania wstępnego dla maszyny wirtualnej RHEL przy użyciu interfejsu wiersza polecenia platformy Azure. W tych instrukcjach przyjęto założenie, że masz [zainstalowany interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
 
 >[!IMPORTANT]
 >Upewnij się, że używasz wszystkich małych liter w odwołaniach do wydawcy, oferty, planu i obrazu dla wszystkich poniższych poleceń.
@@ -199,7 +200,7 @@ Aby uzyskać instrukcje dotyczące stosowania Azure Disk Encryption, zobacz [Azu
 
     W takim przypadku skontaktuj się z firmą Microsoft lub Red Hat, aby włączyć subskrypcję.
 
-- Jeśli zmodyfikujesz migawkę z obrazu RHEL BYOS i spróbujesz opublikować ten obraz niestandardowy w [galerii obrazów udostępnionych](https://docs.microsoft.com/azure/virtual-machines/linux/shared-image-galleries), musisz podać informacje o planie zgodne z oryginalnym źródłem migawki. Na przykład polecenie może wyglądać następująco:
+- Jeśli zmodyfikujesz migawkę z obrazu RHEL BYOS i spróbujesz opublikować ten obraz niestandardowy w [galerii obrazów udostępnionych](../../linux/shared-image-galleries.md), musisz podać informacje o planie zgodne z oryginalnym źródłem migawki. Na przykład polecenie może wyglądać następująco:
 
     ```azurecli
     az vm create –image \

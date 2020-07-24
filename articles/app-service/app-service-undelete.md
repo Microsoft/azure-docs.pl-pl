@@ -5,12 +5,12 @@ author: btardif
 ms.author: byvinyal
 ms.date: 9/23/2019
 ms.topic: article
-ms.openlocfilehash: 94a5fd3ae1de0708f0e5550547f7ab2fc9f881cb
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: c3c79944aa4add0a32dbb584b13606e32e146a1a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86146228"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87050300"
 ---
 # <a name="restore-deleted-app-service-app-using-powershell"></a>Przywracanie usuniętej aplikacji usługi App Service przy użyciu programu PowerShell
 
@@ -58,7 +58,7 @@ Szczegółowe informacje obejmują:
 Gdy aplikacja, którą chcesz przywrócić, została zidentyfikowana, możesz ją przywrócić za pomocą polecenia `Restore-AzDeletedWebApp` .
 
 ```powershell
-Restore-AzDeletedWebApp -ResourceGroupName <my_rg> -Name <my_app> -TargetAppServicePlanName <my_asp>
+Restore-AzDeletedWebApp -TargetResourceGroupName <my_rg> -Name <my_app> -TargetAppServicePlanName <my_asp>
 ```
 > [!NOTE]
 > Gniazda wdrożenia nie są przywracane jako część aplikacji. Jeśli musisz przywrócić miejsce przejściowe, użyj `-Slot <slot-name>` flagi.
@@ -66,7 +66,7 @@ Restore-AzDeletedWebApp -ResourceGroupName <my_rg> -Name <my_app> -TargetAppServ
 
 Dane wejściowe polecenia są następujące:
 
-- **Grupa zasobów**: docelowa Grupa zasobów, w której zostanie przywrócona aplikacja
+- **Docelowa Grupa zasobów**: docelowa Grupa zasobów, w której aplikacja zostanie przywrócona
 - **Nazwa**: Nazwa aplikacji powinna być globalnie unikatowa.
 - **TargetAppServicePlanName**: plan App Service połączony z aplikacją
 

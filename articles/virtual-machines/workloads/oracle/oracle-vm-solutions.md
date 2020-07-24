@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/12/2020
 ms.author: rogardle
-ms.openlocfilehash: 363d26391c8ee40fb95a0b8fd92c4d94f1082b8d
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 2201cae66aae8c2d9d106871db0d4ebbd003f361
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86221531"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87052156"
 ---
 # <a name="oracle-vm-images-and-their-deployment-on-microsoft-azure"></a>Obrazy maszyn wirtualnych Oracle i ich wdrożenie na Microsoft Azure
 
@@ -107,12 +107,12 @@ Azure NetApp Files został zaprojektowany tak, aby spełniał podstawowe wymagan
 - Wysoka dostępność, wysoka trwałość i łatwość zarządzania na dużą skalę, zazwyczaj zapotrzebowanie na zadania o znaczeniu krytycznym dla przedsiębiorstw (na przykład SAP i Oracle)
 - Szybka i wydajna kopia zapasowa i odzyskiwanie, aby osiągnąć najbardziej agresywne umowy SLA RTO i RPO
 
-Te możliwości są możliwe, ponieważ Azure NetApp Files jest oparty na NetApp® ONTAP® wszystkie systemy Flash działające w środowisku centrum danych platformy Azure — jako usługa natywna platformy Azure. Wynikiem jest idealna technologia magazynu bazy danych, która może zostać zainicjowana i zużyta podobnie jak w przypadku innych opcji usługi Azure Storage. Więcej informacji na temat sposobu wdrażania i uzyskiwania dostępu do Azure NetApp Files woluminów NFS znajduje się w [dokumentacji Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/) . Zapoznaj się z tematem zalecenia dotyczące [najlepszych rozwiązań w programie Oracle na platformie Azure, korzystając z Azure NetApp Files](https://www.netapp.com/us/media/tr-4780.pdf) z najlepszymi rozwiązaniami dotyczącymi obsługi bazy Azure NetApp Files danych Oracle.
+Te możliwości są możliwe, ponieważ Azure NetApp Files jest oparty na NetApp® ONTAP® wszystkie systemy Flash działające w środowisku centrum danych platformy Azure — jako usługa natywna platformy Azure. Wynikiem jest idealna technologia magazynu bazy danych, która może zostać zainicjowana i zużyta podobnie jak w przypadku innych opcji usługi Azure Storage. Więcej informacji na temat sposobu wdrażania i uzyskiwania dostępu do Azure NetApp Files woluminów NFS znajduje się w [dokumentacji Azure NetApp Files](../../../azure-netapp-files/index.yml) . Zapoznaj się z tematem zalecenia dotyczące [najlepszych rozwiązań w programie Oracle na platformie Azure, korzystając z Azure NetApp Files](https://www.netapp.com/us/media/tr-4780.pdf) z najlepszymi rozwiązaniami dotyczącymi obsługi bazy Azure NetApp Files danych Oracle.
 
 ## <a name="licensing-oracle-database--software-on-azure"></a>Licencjonowanie Oracle Database & oprogramowania na platformie Azure
 
 Microsoft Azure to autoryzowane środowisko chmury do uruchamiania Oracle Database. Tabela czynników podstawowych firmy Oracle nie ma zastosowania w przypadku licencjonowania baz danych Oracle w chmurze. Zamiast tego podczas korzystania z maszyn wirtualnych z technologią Hyper-Threading dla baz danych w wersji Enterprise należy liczyć dwie procesorów wirtualnych vCPU jako równoważne jednej licencji procesora Oracle, jeśli jest włączona funkcja wielowątkowości (zgodnie z opisem w dokumencie zasad). Szczegóły zasad można znaleźć [tutaj](http://www.oracle.com/us/corporate/pricing/cloud-licensing-070579.pdf).
-Bazy danych Oracle zazwyczaj wymagają wyższych ilości pamięci i operacji we/wy. Z tego powodu zaleca się używanie [maszyn wirtualnych zoptymalizowanych pod kątem pamięci](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-memory) dla tych obciążeń. Aby jeszcze bardziej zoptymalizować obciążenia, Oracle Database zaleca się użycie [procesorów wirtualnych vcpuych rdzeni](https://docs.microsoft.com/azure/virtual-machines/linux/constrained-vcpu) , które wymagają dużej ilości pamięci, magazynu I przepustowości we/wy, ale nie dużej liczby rdzeni.
+Bazy danych Oracle zazwyczaj wymagają wyższych ilości pamięci i operacji we/wy. Z tego powodu zaleca się używanie [maszyn wirtualnych zoptymalizowanych pod kątem pamięci](../../sizes-memory.md) dla tych obciążeń. Aby jeszcze bardziej zoptymalizować obciążenia, Oracle Database zaleca się użycie [procesorów wirtualnych vcpuych rdzeni](../../linux/constrained-vcpu.md) , które wymagają dużej ilości pamięci, magazynu I przepustowości we/wy, ale nie dużej liczby rdzeni.
 
 W przypadku migrowania oprogramowania i obciążeń programu Oracle ze środowiska lokalnego do Microsoft Azure firma Oracle zapewnia mobilność licencji zgodnie z opisem w artykule [Oracle na platformie Azure — często zadawane pytania](https://www.oracle.com/cloud/technologies/oracle-azure-faq.html)
 

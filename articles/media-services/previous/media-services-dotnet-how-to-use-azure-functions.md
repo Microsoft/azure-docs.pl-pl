@@ -14,11 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 618acae10b874eb5ebd5b6da7fe081368528dbd8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 43e16d15c48471d75a7ab5ce23898f1161a60153
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84712500"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87052828"
 ---
 # <a name="develop-azure-functions-with-media-services"></a>Opracowywanie Azure Functions z Media Services
 
@@ -337,7 +338,7 @@ Aby przetestować funkcję, należy przekazać plik MP4 do kontenera **wejściow
 4. Naciśnij przycisk **Przekaż** i przejdź do pliku MP4, który chcesz przekazać.
 
 >[!NOTE]
-> W przypadku korzystania z wyzwalacza obiektu BLOB w planie zużycia może wystąpić maksymalnie 10 minut opóźnienia w przetwarzaniu nowych obiektów BLOB po przejściu aplikacji funkcji do trybu bezczynności. Po uruchomieniu aplikacji funkcji obiekty blob są przetwarzane natychmiast. Aby uzyskać więcej informacji, zobacz [wyzwalacze i powiązania usługi BLOB Storage](https://docs.microsoft.com/azure/azure-functions/functions-bindings-storage-blob).
+> W przypadku korzystania z wyzwalacza obiektu BLOB w planie zużycia może wystąpić maksymalnie 10 minut opóźnienia w przetwarzaniu nowych obiektów BLOB po przejściu aplikacji funkcji do trybu bezczynności. Po uruchomieniu aplikacji funkcji obiekty blob są przetwarzane natychmiast. Aby uzyskać więcej informacji, zobacz [wyzwalacze i powiązania usługi BLOB Storage](../../azure-functions/functions-bindings-storage-blob.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
@@ -349,4 +350,3 @@ Zobacz też temat [Używanie elementów webhook platformy Azure do monitorowania
 
 ## <a name="provide-feedback"></a>Wyraź opinię
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
-

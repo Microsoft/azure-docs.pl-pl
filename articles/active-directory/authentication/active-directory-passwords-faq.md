@@ -5,21 +5,22 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 04/15/2020
+ms.date: 07/20/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
-ms.reviewer: sahenry
+ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7997359fb29afc876b184b811e0409cfdbeb265a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2eff16e0d1aa242ed4ca8b427c7af8e8defa7804
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83826472"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87051303"
 ---
-# <a name="password-management-frequently-asked-questions"></a>Często zadawane pytania dotyczące zarządzania hasłami
+# <a name="self-service-password-reset-frequently-asked-questions"></a>Często zadawane pytania dotyczące samoobsługowego resetowania hasła
 
-Poniżej przedstawiono niektóre często zadawane pytania dotyczące operacji resetowania hasła.
+Poniżej przedstawiono niektóre często zadawane pytania dotyczące wszystkich zagadnień związanych z samoobsługowym resetowaniem haseł.
 
 Jeśli masz ogólne pytanie dotyczące Azure Active Directory (Azure AD) i samoobsługowego resetowania hasła (SSPR), które nie są tutaj dostępne, możesz poproś społeczność o pomoc na stronie pytań i odpowiedzi [Microsoft&pytań](https://docs.microsoft.com/answers/topics/azure-active-directory.html)i odpowiedzi na Azure Active Directory. Członkowie społeczności obejmują inżynierów, menedżerów produktów, MVP i innych specjalistów IT.
 
@@ -37,7 +38,7 @@ Często zadawane pytania są podzielone na następujące sekcje:
 
   > **Odpowiedź:** tak. Dopóki funkcja resetowania hasła jest włączona i jest licencjonowana, użytkownicy mogą przejść do portalu rejestracji resetowania haseł ( https://aka.ms/ssprsetup) Aby zarejestrować swoje informacje uwierzytelniania. Użytkownicy mogą również rejestrować się za pomocą panelu dostępu ( https://myapps.microsoft.com) . Aby zarejestrować się w panelu dostępu, należy wybrać swój obraz profilu, wybrać pozycję **profil**, a następnie wybrać opcję **zarejestruj do resetowania hasła** .
   >
-  >
+  > Po włączeniu [połączonej rejestracji](concept-registration-mfa-sspr-combined.md)użytkownicy mogą rejestrować się zarówno w SSPR, jak i na platformie Multi-Factor Authentication Azure.
 * **P: Jeśli włączam funkcję resetowania haseł dla grupy, a następnie zdecyduje się ją włączyć dla wszystkich użytkowników, wymagane jest ponowne zarejestrowanie?**
 
   > **Odpowiedź:** Nie. Użytkownicy, którzy wypełnili dane uwierzytelniania, nie muszą być ponownie rejestrowani.

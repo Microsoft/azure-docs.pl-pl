@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 902210f0ba6fc195cd219dd5a24e7098ed484d8f
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: b1a228e9d15a349f032291fb0678bdd0ad9d95b3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85855667"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87048854"
 ---
 # <a name="use-azure-powershell-to-create-an-hdinsight-cluster-with-azure-data-lake-storage-gen1-as-additional-storage"></a>Użyj Azure PowerShell, aby utworzyć klaster usługi HDInsight z Azure Data Lake Storage Gen1 (jako dodatkowy magazyn)
 
@@ -51,7 +51,7 @@ Skonfigurowanie usługi HDInsight do pracy z Data Lake Storage Gen1 przy użyciu
 Przed przystąpieniem do wykonania kroków opisanych w tym samouczku należy dysponować następującymi elementami:
 
 * **Subskrypcja platformy Azure**. Zobacz temat [Uzyskiwanie bezpłatnej wersji próbnej platformy Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Program Azure PowerShell 1.0 lub nowszy**. Zobacz artykuł [Instalowanie i konfigurowanie programu Azure PowerShell](/powershell/azure/overview).
+* **Program Azure PowerShell 1.0 lub nowszy**. Zobacz artykuł [Instalowanie i konfigurowanie programu Azure PowerShell](/powershell/azure/).
 * **Windows SDK**. Możesz je zainstalować, klikając [tutaj](https://dev.windows.com/en-us/downloads). Służy do tworzenia certyfikatu zabezpieczeń.
 * **Azure Active Directory nazwę główną usługi**. Kroki opisane w tym samouczku zawierają instrukcje dotyczące tworzenia nazwy głównej usługi w usłudze Azure AD. Jednak aby utworzyć jednostkę usługi, należy mieć uprawnienia administratora usługi Azure AD. Jeśli jesteś administratorem usługi Azure AD, możesz pominąć to wymaganie wstępne i kontynuować pracę z samouczkiem.
 

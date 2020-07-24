@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 05/19/2020
-ms.openlocfilehash: 676a0471ad4321f37cf6dd854d6d98083723f5de
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 8f827d3e983a50589975eca59808bd1471fe4810
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86116696"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87047595"
 ---
 # <a name="overview-of-the-commercial-marketplace-portal-in-partner-center"></a>Omówienie portalu komercyjnej witryny Marketplace w centrum partnerskim
 
@@ -28,9 +28,9 @@ Centrum partnerskie to centralne środowisko partnerskie firmy Microsoft. W przy
 
 ## <a name="migration-from-the-cloud-partner-portal"></a>Migracja z portal Cloud Partner
 
-Centrum partnerskie zwiększa integrację wszystkich aspektów naszej relacji z wydawcami oprogramowania. W ramach tej ewolucji przeprowadzono migrację wszystkich komercyjnych ofert w portalu Marketplace z [Portal Cloud partner](https://cloudpartner.azure.com/) do Centrum partnerskiego.
+Centrum partnerskie zwiększa integrację wszystkich aspektów naszej relacji z wydawcami oprogramowania. W ramach tej ewolucji zostały zmigrowane wszystkie komercyjne zarządzanie ofertami w witrynie Marketplace z portal Cloud Partner (CPP) do Centrum partnerskiego.
 
-Istniejący wydawcy, którzy wcześniej korzystali z portal Cloud Partner mogą znaleźć znane, ale udoskonalone i intuicyjne środowisko użytkownika w centrum partnerskim. Użytkownicy będą bezproblemowo kierowani do odpowiedniej lokalizacji. Nie ma to wpływu na klientów korzystających z tego uaktualnienia.
+Dotychczasowi wydawcy, którzy wcześniej korzystali z CPP, znajdą znane, ale udoskonalone i intuicyjne środowisko użytkownika w centrum partnerskim. Użytkownicy będą bezproblemowo kierowani do odpowiedniej lokalizacji. Nie ma to wpływu na klientów korzystających z tego uaktualnienia.
 
 ### <a name="improvements-on-publishing-and-offer-management-user-experience"></a>Ulepszenia dotyczące publikowania i oferowania środowiska użytkownika zarządzania
 

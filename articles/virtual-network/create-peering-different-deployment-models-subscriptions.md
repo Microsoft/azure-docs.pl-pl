@@ -13,11 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 06/25/2020
 ms.author: kumud
 ms.reviewer: anavin
-ms.openlocfilehash: 0f2bcb78b1a998c1b335a5757b832fbb1d3fc7fb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 88e576231e0231a105cd9ec303f63307b5eaff89
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85412502"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87051629"
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-and-subscriptions"></a>Tworzenie komunikacji równorzędnej sieci wirtualnej — różne modele wdrażania i subskrypcje
 
@@ -182,7 +183,7 @@ W tym samouczku są stosowane różne konta dla każdej subskrypcji. Jeśli uży
 
 W tym samouczku są stosowane różne konta dla każdej subskrypcji. Jeśli używasz konta z uprawnieniami do obu subskrypcji, możesz użyć tego samego konta dla wszystkich kroków, pominąć procedurę rejestrowania z platformy Azure i usunąć wiersze skryptu, które tworzą przypisania roli użytkownika. Zastąp UserA@azure.com i UserB@azure.com we wszystkich następujących skryptach nazwami użytkowników, których używasz do usera i UserB. 
 
-1. Zainstaluj najnowszą wersję środowiska PowerShell [platformy Azure](https://www.powershellgallery.com/packages/Azure) i [AZ](https://www.powershellgallery.com/packages/Az) modules. Jeśli jesteś nowym użytkownikiem programu Azure PowerShell, zobacz temat [Azure PowerShell overview (Omówienie programu Azure PowerShell)](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json).
+1. Zainstaluj najnowszą wersję środowiska PowerShell [platformy Azure](https://www.powershellgallery.com/packages/Azure) i [AZ](https://www.powershellgallery.com/packages/Az) modules. Jeśli jesteś nowym użytkownikiem programu Azure PowerShell, zobacz temat [Azure PowerShell overview (Omówienie programu Azure PowerShell)](/powershell/azure/?toc=%2fazure%2fvirtual-network%2ftoc.json).
 2. Rozpocznij sesję programu PowerShell.
 3. W programie PowerShell Zaloguj się do subskrypcji UserB jako UserB, wprowadzając `Add-AzureAccount` polecenie. Konto, za pomocą którego logujesz się, musi mieć uprawnienia niezbędne do utworzenia komunikacji równorzędnej sieci wirtualnej. Listę uprawnień można znaleźć w temacie [uprawnienia komunikacji równorzędnej sieci wirtualnych](virtual-network-manage-peering.md#permissions).
 4. Aby utworzyć sieć wirtualną (klasyczną) przy użyciu programu PowerShell, należy utworzyć nową lub zmodyfikować istniejący plik konfiguracji sieci. Dowiedz się [, jak eksportować, aktualizować i importować pliki konfiguracji sieci](virtual-networks-using-network-configuration-file.md). Plik powinien zawierać następujący element **VirtualNetworkSite** dla sieci wirtualnej używanej w tym samouczku:

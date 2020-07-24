@@ -10,11 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: juliako
-ms.openlocfilehash: af608dcfbb5d98cf3116de4e14dc12bf6facb97b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3b449f68b25fce19dc034d2a0db0ae5ce8a28ec7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76989913"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87047487"
 ---
 # <a name="animated-character-detection-preview"></a>Wykrywanie znaków animowanych (wersja zapoznawcza)
 
@@ -68,7 +69,7 @@ Wykonaj następujące kroki, aby nawiązać połączenie z Custom Vision kontem 
 
     * Klucz szkoleniowy (dla zasobu szkoleniowego)
     * Klucz predykcyjny (dla zasobu predykcyjnego)
-    * Endpoint 
+    * Punkt końcowy 
     * Identyfikator zasobu predykcyjnego
     
     > [!NOTE]
@@ -133,7 +134,7 @@ Wykonaj następujące kroki, aby nawiązać połączenie z Custom Vision kontem 
         ![Dostosowywanie modelu zawartości](./media/animated-characters-recognition/content-model-customization-tab.png)
 
      1. Po przeszkoleniu wszystkie filmy wideo, które będą indeksowane lub ponownego indeksowania przy użyciu tego modelu, będą rozpoznawać przeszkolone znaki. 
-    Płatne konta, które mają dostęp do konta Custom Vision, mogą zobaczyć modele i obrazy otagowane. Dowiedz się więcej o [ulepszaniu klasyfikatora w Custom Vision](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-improving-your-classifier).
+    Płatne konta, które mają dostęp do konta Custom Vision, mogą zobaczyć modele i obrazy otagowane. Dowiedz się więcej o [ulepszaniu klasyfikatora w Custom Vision](../../cognitive-services/custom-vision-service/getting-started-improving-your-classifier.md).
 
 1. Usuń animowany znak.
 
@@ -159,7 +160,7 @@ Wykonaj następujące kroki, aby nawiązać połączenie z Custom Vision kontem 
 1. Połącz konto Custom Vision.
 
     Jeśli masz konto płatne Video Indexer, musisz najpierw połączyć konto Custom Vision. <br/>
-    Jeśli nie masz już konta Custom Vision, utwórz je. Aby uzyskać więcej informacji, zobacz [Custom Vision](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/home).
+    Jeśli nie masz już konta Custom Vision, utwórz je. Aby uzyskać więcej informacji, zobacz [Custom Vision](../../cognitive-services/custom-vision-service/home.md).
 
     [Połącz konto Custom Vision przy użyciu interfejsu API](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Connect-Custom-Vision-Account?tags=&pattern=&groupBy=tag).
 1. Utwórz model animowanych znaków.

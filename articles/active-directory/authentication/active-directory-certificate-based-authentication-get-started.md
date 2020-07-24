@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: annaba
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: ca19ccb925721126f7e7d8495addd0794766f376
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 94955e27dcadb3acbea03926d6d1ed73e9c5c9ed
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86202870"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87051348"
 ---
 # <a name="get-started-with-certificate-based-authentication-in-azure-active-directory"></a>Wprowadzenie do uwierzytelniania opartego na certyfikacie w usłudze Azure Active Directory
 
@@ -93,7 +93,7 @@ Schemat urzędu certyfikacji wygląda następująco:
     }
 ```
 
-Konfiguracja programu umożliwia korzystanie z programu [Azure Active Directory PowerShell w wersji 2](/powershell/azure/install-adv2?view=azureadps-2.0):
+Konfiguracja programu umożliwia korzystanie z programu [Azure Active Directory PowerShell w wersji 2](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0):
 
 1. Uruchom program Windows PowerShell z uprawnieniami administratora.
 2. Zainstaluj moduł usługi Azure AD w wersji [2.0.0.33](https://www.powershellgallery.com/packages/AzureAD/2.0.0.33) lub nowszej.
@@ -104,7 +104,7 @@ Konfiguracja programu umożliwia korzystanie z programu [Azure Active Directory 
 
 Jako pierwszy krok konfiguracji należy nawiązać połączenie z dzierżawcą. Gdy tylko połączenie z dzierżawcą istnieje, możesz przejrzeć, dodać, usunąć i zmodyfikować zaufane urzędy certyfikacji, które są zdefiniowane w Twoim katalogu.
 
-### <a name="connect"></a>Połączenie
+### <a name="connect"></a>Połącz
 
 Aby nawiązać połączenie z dzierżawcą, użyj polecenia cmdlet [Connect-AzureAD](/powershell/module/azuread/connect-azuread?view=azureadps-2.0) :
 
@@ -122,7 +122,7 @@ Aby pobrać zaufane urzędy certyfikacji zdefiniowane w katalogu, należy użyć
 
 ### <a name="add"></a>Dodaj
 
-Aby utworzyć zaufany urząd certyfikacji, użyj polecenia cmdlet [New-AzureADTrustedCertificateAuthority](/azurepowershell/module/azuread/new-azureadtrustedcertificateauthority?view=azureadps-2.0) i ustaw poprawną wartość atrybutu **crlDistributionPoint** :
+Aby utworzyć zaufany urząd certyfikacji, użyj polecenia cmdlet [New-AzureADTrustedCertificateAuthority](/powershell/module/azuread/new-azureadtrustedcertificateauthority?view=azureadps-2.0) i ustaw poprawną wartość atrybutu **crlDistributionPoint** :
 
 ```azurepowershell
     $cert=Get-Content -Encoding byte "[LOCATION OF THE CER FILE]"

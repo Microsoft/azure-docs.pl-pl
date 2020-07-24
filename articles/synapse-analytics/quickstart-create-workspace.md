@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: pimorano
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: a069ee40c2db99b05e9620cf83c06c49cc9e29fc
-ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.openlocfilehash: da7f115224db10ad1d66e8ffe7b86e58e43ae866
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86274241"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87052452"
 ---
 # <a name="quickstart-create-a-synapse-workspace"></a>Szybki Start: Tworzenie obszaru roboczego Synapse
 
@@ -56,7 +56,7 @@ Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
     > [!IMPORTANT]
     > Obszar roboczy usługi Azure Synapse musi mieć możliwość odczytu i zapisu na wybranym koncie ADLS Gen2. Ponadto dla dowolnego konta magazynu, które można połączyć jako konto magazynu podstawowego, należy włączyć **hierarchiczną przestrzeń nazw** podczas tworzenia konta magazynu.
     >
-    > Poniżej pól wyboru ADLS Gen2 należy zauważyć, że zarządzana tożsamość obszaru roboczego zostanie przypisana do roli **współautor danych obiektów BLOB Storaqe** w wybranym Data Lake Storage Gen2 systemie plików, przyznając im pełny dostęp.
+    > Poniżej pól wyboru ADLS Gen2 należy zauważyć, że zarządzana tożsamość obszaru roboczego zostanie przypisana do roli **współautor danych obiektów blob magazynu** w wybranym Data Lake Storage Gen2 systemie plików, przyznając im pełny dostęp.
 
 4. Obowiązkowe Zmodyfikuj dowolną kartę **Ustawienia zabezpieczeń i sieci** :
 5. Obowiązkowe Dodaj dowolne Tagi na karcie **Tagi** .

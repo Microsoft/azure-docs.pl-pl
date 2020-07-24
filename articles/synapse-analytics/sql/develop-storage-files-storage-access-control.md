@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 06/11/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: b54545708d21c876fb85e1795b26c34eece005dd
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 5f3b5c60907260a0e868d491a4d55ea3624c2bce
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86255714"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87046795"
 ---
 # <a name="control-storage-account-access-for-sql-on-demand-preview"></a>Kontrola dostępu do konta magazynu dla programu SQL na żądanie (wersja zapoznawcza)
 
@@ -87,6 +87,11 @@ Można użyć następujących kombinacji typów autoryzacji i usługi Azure Stor
 | *Tożsamość zarządzana* | Obsługiwane      | Obsługiwane        | Obsługiwane     |
 | *Tożsamość użytkownika*    | Obsługiwane      | Obsługiwane        | Obsługiwane     |
 
+
+> [!IMPORTANT]
+> Podczas uzyskiwania dostępu do magazynu chronionego za pomocą zapory może być używana tylko tożsamość zarządzana. Musisz [zezwolić na zaufane usługi firmy Microsoft... ustawienie](../../storage/common/storage-network-security.md#trusted-microsoft-services) i jawne [przypisanie roli RBAC](../../storage/common/storage-auth-aad.md#assign-rbac-roles-for-access-rights) do [zarządzanej tożsamości przypisanej do systemu](../../active-directory/managed-identities-azure-resources/overview.md) dla tego wystąpienia zasobu. W takim przypadku zakres dostępu dla wystąpienia odpowiada roli RBAC przypisanej do zarządzanej tożsamości.
+>
+
 ## <a name="credentials"></a>Poświadczenia
 
 Aby wysłać zapytanie do pliku znajdującego się w usłudze Azure Storage, punkt końcowy SQL na żądanie musi mieć poświadczenie zawierające informacje o uwierzytelnianiu. Używane są dwa typy poświadczeń:
@@ -109,11 +114,7 @@ Aby można było korzystać z poświadczeń, użytkownik musi mieć `REFERENCES`
 GRANT REFERENCES ON CREDENTIAL::[storage_credential] TO [specific_user];
 ```
 
-Aby zapewnić bezproblemowe środowisko przekazywania usługi Azure AD, wszyscy użytkownicy będą domyślnie mieli prawo do korzystania z `UserIdentity` poświadczeń. Jest to realizowane przez automatyczne wykonanie następującej instrukcji podczas aprowizacji obszaru roboczego usługi Azure Synapse:
-
-```sql
-GRANT REFERENCES ON CREDENTIAL::[UserIdentity] TO [public];
-```
+Aby zapewnić bezproblemowe środowisko przekazywania usługi Azure AD, wszyscy użytkownicy będą domyślnie mieli prawo do korzystania z `UserIdentity` poświadczeń.
 
 ## <a name="server-scoped-credential"></a>Poświadczenie o zakresie serwera
 

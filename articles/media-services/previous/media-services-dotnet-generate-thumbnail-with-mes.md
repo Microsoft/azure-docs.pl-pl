@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 3c5e22c14d0df46ddac9a503f43df8d54c3c93d5
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: d9b4766b42704da8c81704822f263a6ddf46ce5a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85964757"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87052845"
 ---
 # <a name="how-to-generate-thumbnails-using-media-encoder-standard-with-net"></a>Generowanie miniatur przy użyciu usługi Media Encoder Standard za pomocą platformy .NET 
 
@@ -282,7 +282,7 @@ Zwróć uwagę na użycie makra {Solution} w nazwie pliku; wskazuje, że koder m
 Chociaż wszystkie powyższe przykłady zostały omówione w tym, jak można przesłać zadanie kodowania, które tworzy tylko obrazy, można także połączyć kodowanie wideo/audio z generowaniem miniatur. Poniższe ustawienia wstępne JSON i XML poinformują **Media Encoder Standard** o wygenerowaniu miniatury podczas kodowania.
 
 ### <a name="json-preset"></a><a id="json"></a>Ustawienia wstępne JSON
-Aby uzyskać informacje o schemacie, zobacz [ten](https://msdn.microsoft.com/library/mt269962.aspx) artykuł.
+Aby uzyskać informacje o schemacie, zobacz [ten](/azure/media-services/previous/media-services-mes-schema) artykuł.
 
 ```json
     {
@@ -347,7 +347,7 @@ Aby uzyskać informacje o schemacie, zobacz [ten](https://msdn.microsoft.com/lib
 ```
 
 ### <a name="xml-preset"></a><a id="xml"></a>Ustawienia wstępne XML
-Aby uzyskać informacje o schemacie, zobacz [ten](https://msdn.microsoft.com/library/mt269962.aspx) artykuł.
+Aby uzyskać informacje o schemacie, zobacz [ten](/azure/media-services/previous/media-services-mes-schema) artykuł.
 
 ```csharp
     <?xml version="1.0" encoding="utf-16"?>
@@ -548,7 +548,7 @@ namespace EncodeAndGenerateThumbnails
 }
 ```
 
-## <a name="considerations"></a>Istotne zagadnienia
+## <a name="considerations"></a>Zagadnienia do rozważenia
 Obowiązują następujące zastrzeżenia:
 
 * Użycie jawnych sygnatur czasowych dla elementu Start/Step/Range zakłada, że źródło danych wejściowych jest co najmniej 1 minutę.
@@ -576,4 +576,3 @@ Obowiązują następujące zastrzeżenia:
 
 ## <a name="see-also"></a>Zobacz też
 [Omówienie kodowania Media Services](media-services-encode-asset.md)
-

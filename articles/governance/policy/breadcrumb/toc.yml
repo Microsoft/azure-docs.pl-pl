@@ -15,3 +15,6 @@
         - name: Zasady
           tocHref: /azure/key-vault
           topicHref: /azure/governance/policy
+        - name: Zasady
+          tocHref: /azure/aks
+          topicHref: /azure/governance/policy

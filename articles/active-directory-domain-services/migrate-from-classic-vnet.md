@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 07/09/2020
 ms.author: iainfou
-ms.openlocfilehash: e2802445bbb80a4412787362a3ee9aaee4adcd40
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: f77d9cd72476f9f2c30ca22bb2296efe1fd6cf9d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223503"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87051678"
 ---
 # <a name="migrate-azure-active-directory-domain-services-from-the-classic-virtual-network-model-to-resource-manager"></a>Przeprowadź migrację Azure Active Directory Domain Services z modelu klasycznej sieci wirtualnej do Menedżer zasobów
 
@@ -145,7 +145,7 @@ Migracja do modelu wdrażania Menedżer zasobów i sieci wirtualnej jest podziel
 
 | Krok    | Wykonywane przez  | Szacowany czas  | Downtime (Przestoje)  | Czy wycofać/przywrócić? |
 |---------|--------------------|-----------------|-----------|-------------------|
-| [Krok 1 — aktualizowanie i lokalizowanie nowej sieci wirtualnej](#update-and-verify-virtual-network-settings) | Azure Portal | 15 minut | Brak wymaganego przestoju | Nie dotyczy |
+| [Krok 1 — aktualizowanie i lokalizowanie nowej sieci wirtualnej](#update-and-verify-virtual-network-settings) | Witryna Azure Portal | 15 minut | Brak wymaganego przestoju | Nie dotyczy |
 | [Krok 2. Przygotowanie domeny zarządzanej do migracji](#prepare-the-managed-domain-for-migration) | PowerShell | średnio 15 – 30 minut | Czas przestoju AD DS platformy Azure zostanie uruchomiony po zakończeniu tego polecenia. | Wycofaj i Przywróć dostępne. |
 | [Krok 3. przeniesienie domeny zarządzanej do istniejącej sieci wirtualnej](#migrate-the-managed-domain) | PowerShell | 1 – 3 godziny średnio | Po zakończeniu tego polecenia jest dostępny jeden kontroler domeny, przestoje zakończy się. | W przypadku niepowodzenia dostępne są zarówno wycofywanie (samoobsługowe) i przywracanie. |
 | [Krok 4. testowanie i oczekiwanie na replikę kontrolera domeny](#test-and-verify-connectivity-after-the-migration)| PowerShell i Azure Portal | 1 godzina lub więcej, w zależności od liczby testów | Oba kontrolery domeny są dostępne i powinny działać normalnie. | Nie dotyczy. Po pomyślnym przeprowadzeniu migracji pierwszej maszyny wirtualnej nie jest dostępna opcja wycofywania ani przywracania. |
@@ -335,7 +335,7 @@ Po przeprowadzeniu migracji domeny zarządzanej do modelu wdrażania Menedżer z
 <!-- INTERNAL LINKS -->
 [azure-bastion]: ../bastion/bastion-overview.md
 [network-considerations]: network-considerations.md
-[azure-powershell]: /powershell/azure/overview
+[azure-powershell]: /powershell/azure/
 [network-ports]: network-considerations.md#network-security-groups-and-required-ports
 [Connect-AzAccount]: /powershell/module/az.accounts/connect-azaccount
 [Set-AzContext]: /powershell/module/az.accounts/set-azcontext

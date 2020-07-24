@@ -11,11 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 2679bc8a9ddf9f748cd0e9d51e1534d120484d0c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 29190cee748db17caee32497de5512bee736bae0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84267942"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87047725"
 ---
 # <a name="how-to-identify-scenarios-and-plan-for-advanced-analytics-data-processing"></a>Identyfikowanie scenariuszy i planowanie zaawansowanego przetwarzania danych analizy
 
@@ -144,7 +145,7 @@ Istnieje wiele opcji języków, środowisk deweloperskich i narzędzi. Zapoznaj 
 
 ### <a name="what-tools-should-you-use-for-data-analysis"></a>Jakie narzędzia należy stosować do analizy danych?
 
-* [Microsoft Azure PowerShell](/powershell/azure/overview) — język skryptu używany do administrowania zasobami platformy Azure w języku skryptów
+* [Microsoft Azure PowerShell](/powershell/azure/) — język skryptu używany do administrowania zasobami platformy Azure w języku skryptów
 * [Azure Machine Learning Studio](../studio/what-is-ml-studio.md)
 * [Analiza obrotów](https://www.microsoft.com/sql-server/machinelearningserver)
 * [RStudio](https://www.rstudio.com)

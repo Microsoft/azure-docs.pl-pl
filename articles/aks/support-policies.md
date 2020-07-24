@@ -6,12 +6,12 @@ author: jnoller
 ms.topic: article
 ms.date: 01/24/2020
 ms.author: jenoller
-ms.openlocfilehash: ce014fc338ebfad18b91ba65b614ca0a380a3f7c
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: be80c0d5999ed06bcc505ec5737e7e416d28b981
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86243855"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87050694"
 ---
 # <a name="support-policies-for-azure-kubernetes-service"></a>Zasady pomocy technicznej dla usługi Azure Kubernetes Service
 
@@ -137,7 +137,7 @@ Mimo że klienci mogą zalogować się do i zmieniać węzły procesu roboczego,
 
 ## <a name="network-ports-access-and-nsgs"></a>Porty sieciowe, dostęp i sieciowych grup zabezpieczeń
 
-Jako usługa zarządzana AKS ma określone wymagania dotyczące sieci i łączności. Te wymagania są mniej elastyczne niż wymagania dotyczące normalnych składników IaaS. W AKS, operacje takie jak Dostosowywanie reguł sieciowej grupy zabezpieczeń, blokowanie określonego portu (na przykład przy użyciu reguł zapory blokujących port wychodzący 443), a adresy URL listy dozwolonych mogą sprawić, że klaster jest nieobsługiwany.
+Jako usługa zarządzana AKS ma określone wymagania dotyczące sieci i łączności. Te wymagania są mniej elastyczne niż wymagania dotyczące normalnych składników IaaS. W AKS, operacje, takie jak Dostosowywanie reguł sieciowej grupy zabezpieczeń, blokują określony port (na przykład przy użyciu reguł zapory blokujących port wychodzący 443), a Dodawanie adresów URL do listy dozwolonych może spowodować, że klaster jest nieobsługiwany.
 
 > [!NOTE]
 > Obecnie AKS nie pozwala na całkowite zablokowanie ruchu wyjściowego z klastra. Aby kontrolować listę adresów URL i portów, które mogą być używane przez klaster dla ruchu wychodzącego, zobacz [ograniczanie ruchu ruchowego](limit-egress-traffic.md).

@@ -10,11 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/12/2020
 ms.author: juliako
-ms.openlocfilehash: bb57af37308badcd3123af3348178aaac061f376
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d533735af340b23e8a79b6c5953df748a548609c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83652184"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87046968"
 ---
 # <a name="video-indexer-frequently-asked-questions"></a>Video Indexer często zadawane pytania
 
@@ -58,13 +59,13 @@ Nie, Video Indexer zapewnia integrację wielu modeli uczenia maszynowego w jedny
 
 ### <a name="what-media-formats-does-video-indexer-support"></a>Jakie formaty multimediów Video Indexer obsługiwać?
 
-Video Indexer obsługuje najpopularniejsze formaty multimediów. Aby uzyskać więcej informacji, zapoznaj się z listą [formatów standardowych Azure Media Encoder](https://docs.microsoft.com/azure/media-services/latest/media-encoder-standard-formats) .
+Video Indexer obsługuje najpopularniejsze formaty multimediów. Aby uzyskać więcej informacji, zapoznaj się z listą [formatów standardowych Azure Media Encoder](../latest/media-encoder-standard-formats.md) .
 
 ### <a name="how-do-i-upload-a-media-file-into-video-indexer-and-what-are-the-limitations"></a>Jak mogę przekazać plik multimedialny do Video Indexer i jakie są ograniczenia?
 
 W portalu opartym na sieci Web Video Indexer można przekazać plik multimedialny przy użyciu okna dialogowego przekazywania plików lub wskazując adres URL, który bezpośrednio hostuje plik źródłowy (zobacz [przykład](https://nimbuscdn-nimbuspm.streaming.mediaservices.windows.net/2b533311-b215-4409-80af-529c3e853622/Ignite-short.mp4)). Wszystkie adresy URL, które obsługują zawartość multimedialną przy użyciu elementu iFrame lub kodu osadzania, nie będą działały (zobacz [przykład](https://www.videoindexer.ai/accounts/7e1282e8-083c-46ab-8c20-84cae3dc289d/videos/5cfa29e152/?t=4.11)). 
 
-Aby uzyskać więcej informacji, zobacz ten [Przewodnik](https://docs.microsoft.com/azure/media-services/video-indexer/upload-index-videos).
+Aby uzyskać więcej informacji, zobacz ten [Przewodnik](./upload-index-videos.md).
 
 #### <a name="limitations"></a>Ograniczenia
 
@@ -75,7 +76,7 @@ Aby uzyskać pełną listę, zobacz temat [przekazywanie zagadnień i ogranicze�
 
 ### <a name="how-long-does-it-take-video-indexer-to-extract-insights-from-media"></a>Jak długo trwa Video Indexer w celu wyodrębnienia szczegółowych informacji z nośnika?
 
-Czas potrzebny na indeksowanie pliku wideo lub audio, zarówno przy użyciu interfejsu API Video Indexer, jak i interfejsu opartego na sieci Web Video Indexer, zależy od wielu parametrów, takich jak długość i jakość pliku, liczba szczegółowych informacji znalezionych w pliku, liczba dostępnych [jednostek zarezerwowanych](https://docs.microsoft.com/azure/media-services/previous/media-services-scale-media-processing-overview) oraz czy [punkt końcowy przesyłania strumieniowego](https://docs.microsoft.com/azure/media-services/previous/media-services-streaming-endpoints-overview) jest włączony. Zalecamy uruchomienie kilku plików testowych przy użyciu własnej zawartości i wypróbowanie lepszego pomysłu.
+Czas potrzebny na indeksowanie pliku wideo lub audio, zarówno przy użyciu interfejsu API Video Indexer, jak i interfejsu opartego na sieci Web Video Indexer, zależy od wielu parametrów, takich jak długość i jakość pliku, liczba szczegółowych informacji znalezionych w pliku, liczba dostępnych [jednostek zarezerwowanych](../previous/media-services-scale-media-processing-overview.md) oraz czy [punkt końcowy przesyłania strumieniowego](../previous/media-services-streaming-endpoints-overview.md) jest włączony. Zalecamy uruchomienie kilku plików testowych przy użyciu własnej zawartości i wypróbowanie lepszego pomysłu.
 
 ### <a name="can-i-create-customized-workflows-to-automate-processes-with-video-indexer"></a>Czy można tworzyć niestandardowe przepływy pracy do automatyzowania procesów z Video Indexer?
 

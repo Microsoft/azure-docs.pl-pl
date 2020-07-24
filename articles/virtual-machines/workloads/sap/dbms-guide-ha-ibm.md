@@ -14,11 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/06/2020
 ms.author: juergent
-ms.openlocfilehash: a9041b373c215ac226764b737ee3bf35b008e5db
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7d453fba37e62e8528ae7b4ea86d1604973b84a1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82978386"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87051991"
 ---
 # <a name="high-availability-of-ibm-db2-luw-on-azure-vms-on-suse-linux-enterprise-server-with-pacemaker"></a>Wysoka dostępność programu IBM DB2 LUW na maszynach wirtualnych platformy Azure na SUSE Linux Enterprise Server z Pacemaker
 
@@ -59,7 +60,7 @@ Przed rozpoczęciem instalacji zapoznaj się z następującymi informacjami i do
 | [IBM DB2 HADR Cluster R 10,5][db2-hadr-10.5] |
 
 ## <a name="overview"></a>Omówienie
-Aby zapewnić wysoką dostępność, program IBM DB2 LUW z HADR Cluster jest instalowany na co najmniej dwóch maszynach wirtualnych platformy Azure, które są wdrażane w [zestawie dostępności platformy Azure](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets) lub w różnych [strefy dostępności platformy Azureach](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-ha-availability-zones). 
+Aby zapewnić wysoką dostępność, program IBM DB2 LUW z HADR Cluster jest instalowany na co najmniej dwóch maszynach wirtualnych platformy Azure, które są wdrażane w [zestawie dostępności platformy Azure](../../windows/tutorial-availability-sets.md) lub w różnych [strefy dostępności platformy Azureach](./sap-ha-availability-zones.md). 
 
 Poniższa Grafika przedstawia konfigurację dwóch maszyn wirtualnych platformy Azure na serwerze bazy danych. Zarówno maszyny wirtualne platformy Azure z serwerem bazy danych mają podłączony własny magazyn, jak i są uruchomione. W HADR Cluster, jedno wystąpienie bazy danych na jednej z maszyn wirtualnych platformy Azure ma rolę wystąpienia podstawowego. Wszyscy klienci są połączeni z tym wystąpieniem podstawowym. Wszystkie zmiany transakcji bazy danych są utrwalane lokalnie w dzienniku transakcji programu DB2. Ponieważ rekordy dziennika transakcji są utrwalane lokalnie, rekordy są transferowane za pośrednictwem protokołu TCP/IP do wystąpienia bazy danych na drugim serwerze bazy danych, serwerze rezerwy lub wystąpieniu gotowości. Wystąpienie gotowości aktualizuje lokalną bazę danych, przechodząc do przodu przesłanych rekordów dziennika transakcji. W ten sposób serwer rezerwy jest zsynchronizowany z serwerem podstawowym.
 
@@ -109,7 +110,7 @@ Ukończ proces planowania przed wykonaniem wdrożenia. Planowanie kompiluje pods
 | Azure Load Balancer | Użycie Basic lub Standard (zalecane), port sondy dla bazy danych DB2 (nasze zalecenie 62500) **sonda-port**. |
 | Rozpoznawanie nazw| Jak rozpoznawanie nazw działa w środowisku. Usługa DNS jest zdecydowanie zalecana. Można użyć lokalnego pliku Hosts. |
     
-Aby uzyskać więcej informacji o systemie Linux Pacemaker na platformie Azure, zobacz [Konfigurowanie Pacemaker SUSE Linux Enterprise Server na platformie Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker).
+Aby uzyskać więcej informacji o systemie Linux Pacemaker na platformie Azure, zobacz [Konfigurowanie Pacemaker SUSE Linux Enterprise Server na platformie Azure](./high-availability-guide-suse-pacemaker.md).
 
 ## <a name="deployment-on-suse-linux"></a>Wdrażanie w systemie SUSE Linux
 
@@ -119,7 +120,7 @@ Agent zasobów dla programu IBM DB2 LUW jest zawarty w SUSE Linux Enterprise Ser
 Utwórz listę wszystkich nazw hostów, w tym nazw hostów wirtualnych, i zaktualizuj serwery DNS, aby umożliwić prawidłowemu adresowi IP rozpoznawanie nazw hostów. Jeśli serwer DNS nie istnieje lub nie można zaktualizować i utworzyć wpisów DNS, należy użyć lokalnych plików hosta poszczególnych maszyn wirtualnych, które uczestniczą w tym scenariuszu. Jeśli używasz wpisów plików hosta, upewnij się, że wpisy są stosowane do wszystkich maszyn wirtualnych w środowisku systemowym SAP. Zalecamy jednak korzystanie z systemu DNS, który najlepiej rozszerza się na platformę Azure
 
 
-### <a name="manual-deployment"></a>Wdrażanie ręczne
+### <a name="manual-deployment"></a>Wdrożenie ręczne
 
 Upewnij się, że wybrany system operacyjny jest obsługiwany przez firmę IBM/SAP dla programu IBM DB2 LUW. Lista obsługiwanych wersji systemu operacyjnego dla maszyn wirtualnych platformy Azure i wydań programu DB2 jest dostępna w programie SAP Note [1928533]. Lista wersji systemu operacyjnego przez poszczególne wersje bazy danych DB2 jest dostępna w macierzy dostępności produktu SAP. Zdecydowanie zalecamy co najmniej SLES 12 SP4 z powodu ulepszeń wydajności związanych z platformą Azure w tej lub nowszej wersji systemu SUSE Linux.
 
@@ -395,10 +396,10 @@ sudo crm configure property maintenance-mode=false</pre></code>
 
 
 ### <a name="configure-azure-load-balancer"></a>Konfigurowanie modułu Azure Load Balancer
-Aby skonfigurować Azure Load Balancer, zalecamy użycie [jednostki SKU usługa Load Balancer w warstwie Standardowa platformy Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview) , a następnie wykonanie następujących czynności:
+Aby skonfigurować Azure Load Balancer, zalecamy użycie [jednostki SKU usługa Load Balancer w warstwie Standardowa platformy Azure](../../../load-balancer/load-balancer-overview.md) , a następnie wykonanie następujących czynności:
 
 > [!NOTE]
-> Jednostka SKU usługa Load Balancer w warstwie Standardowa ma ograniczenia dostępu do publicznych adresów IP z węzłów znajdujących się pod Load Balancer. [Publiczna łączność z punktem końcowym firmy Virtual Machines przy użyciu usługi Azure usługa Load Balancer w warstwie Standardowa w scenariuszach wysokiej dostępności SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections) zawiera opis sposobów włączania tych węzłów w celu uzyskania dostępu do publicznych adresów IP
+> Jednostka SKU usługa Load Balancer w warstwie Standardowa ma ograniczenia dostępu do publicznych adresów IP z węzłów znajdujących się pod Load Balancer. [Publiczna łączność z punktem końcowym firmy Virtual Machines przy użyciu usługi Azure usługa Load Balancer w warstwie Standardowa w scenariuszach wysokiej dostępności SAP](./high-availability-guide-standard-load-balancer-outbound-connections.md) zawiera opis sposobów włączania tych węzłów w celu uzyskania dostępu do publicznych adresów IP
 
 1. Utwórz pulę adresów IP frontonu:
 
@@ -497,8 +498,8 @@ Zalecamy skonfigurowanie wspólnego udziału NFS, w którym dzienniki są zapisy
 Możesz użyć istniejących udziałów NFS o wysokiej dostępności do transportowania lub katalogu profilów. Aby uzyskać więcej informacji, zobacz:
 
 - [Wysoka dostępność systemu plików NFS na maszynach wirtualnych platformy Azure na SUSE Linux Enterprise Server][nfs-ha] 
-- [Wysoka dostępność dla oprogramowania SAP NetWeaver na maszynach wirtualnych platformy Azure na SUSE Linux Enterprise Server z Azure NetApp Files dla aplikacji SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files)
-- [Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-introduction) (aby utworzyć udziały NFS)
+- [Wysoka dostępność dla oprogramowania SAP NetWeaver na maszynach wirtualnych platformy Azure na SUSE Linux Enterprise Server z Azure NetApp Files dla aplikacji SAP](./high-availability-guide-suse-netapp-files.md)
+- [Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-introduction.md) (aby utworzyć udziały NFS)
 
 
 ## <a name="test-the-cluster-setup"></a>Testowanie konfiguracji klastra
@@ -878,8 +879,8 @@ stonith-sbd     (stonith:external/sbd): Started azibmdb02
      Slaves: [ azibmdb01 ]</code></pre>
 
 ## <a name="next-steps"></a>Następne kroki
-- [Architektura i scenariusze wysokiej dostępności dla oprogramowania SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-architecture-scenarios)
-- [Konfigurowanie Pacemaker SUSE Linux Enterprise Server na platformie Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker)
+- [Architektura i scenariusze wysokiej dostępności dla oprogramowania SAP NetWeaver](./sap-high-availability-architecture-scenarios.md)
+- [Konfigurowanie Pacemaker SUSE Linux Enterprise Server na platformie Azure](./high-availability-guide-suse-pacemaker.md)
 
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [2015553]:https://launchpad.support.sap.com/#/notes/2015553

@@ -13,18 +13,18 @@ ms.topic: article
 ms.date: 01/21/2020
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 7e4f1141a9d4bd58451782e8412063a22565556d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a9f9463cd1cac49e36ea52cafaf4d07f4e709ca7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80584531"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87053252"
 ---
 # <a name="filtering-ordering-and-paging-of-media-services-entities"></a>Filtrowanie, porządkowanie i stronicowanie jednostek Media Services
 
 W tym temacie omówiono opcje zapytania OData i obsługa podziału na strony dostępne podczas wyświetlania listy jednostek Azure Media Services v3.
 
-## <a name="considerations"></a>Istotne zagadnienia
+## <a name="considerations"></a>Zagadnienia do rozważenia
 
 * Właściwości jednostek, które są typu, `Datetime` są zawsze w formacie UTC.
 * Biały znak w ciągu zapytania powinien być kodowany przy użyciu adresu URL przed wysłaniem żądania.
@@ -45,7 +45,7 @@ Operatory zakresu:
 - `ge`: Sprawdź, czy pole jest *większe niż lub równe* wartości stałej.
 - `le`: Sprawdź, czy pole jest *mniejsze niż lub równe* wartości stałej.
 
-## <a name="filter"></a>Filtruj
+## <a name="filter"></a>Filtr
 
 Użyj `$filter` , aby podać parametr filtru OData, aby znaleźć tylko te obiekty, które Cię interesują.
 
@@ -156,36 +156,36 @@ client.Jobs.List(config.ResourceGroup, config.AccountName, VideoAnalyzerTransfor
 
 W poniższej tabeli przedstawiono sposób stosowania opcji filtrowania i porządkowania do różnych jednostek:
 
-|Nazwa jednostki|Nazwa właściwości|Filtruj|Zamówienie|
+|Nazwa jednostki|Nazwa właściwości|Filtr|Zamówienie|
 |---|---|---|---|
-|[Elementy zawartości](https://docs.microsoft.com/rest/api/media/assets/)|name|`eq`, `gt`, `lt`, `ge`, `le`|`asc` i `desc`|
+|[Elementy zawartości](/rest/api/media/assets/)|name|`eq`, `gt`, `lt`, `ge`, `le`|`asc` i `desc`|
 ||Właściwości. alternateId |`eq`||
 ||Właściwości. assetId |`eq`||
 ||Właściwości. utworzone| `eq`, `gt`, `lt`| `asc` i `desc`|
-|[Zasady kluczy zawartości](https://docs.microsoft.com/rest/api/media/contentkeypolicies)|name|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` i `desc`|
+|[Zasady kluczy zawartości](/rest/api/media/contentkeypolicies)|name|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` i `desc`|
 ||Właściwości. utworzone    |`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` i `desc`|
 ||Properties. Description    |`eq`, `ne`, `ge`, `le`, `gt`, `lt`||
 ||Właściwości. lastModified|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` i `desc`|
 ||Właściwości. policyId|`eq`, `ne`||
-|[Zadania](https://docs.microsoft.com/rest/api/media/jobs)| name  | `eq`            | `asc` i `desc`|
+|[Zadania](/rest/api/media/jobs)| name  | `eq`            | `asc` i `desc`|
 ||Properties. State        | `eq`, `ne`        |                         |
 ||Właściwości. utworzone      | `gt`, `ge`, `lt`, `le`| `asc` i `desc`|
 ||Właściwości. lastModified | `gt`, `ge`, `lt`, `le` | `asc` i `desc`| 
-|[Lokalizatory przesyłania strumieniowego](https://docs.microsoft.com/rest/api/media/streaminglocators)|name|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` i `desc`|
+|[Lokalizatory przesyłania strumieniowego](/rest/api/media/streaminglocators)|name|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` i `desc`|
 ||Właściwości. utworzone    |`eq`, `ne`, `ge`, `le`,  `gt`, `lt`|`asc` i `desc`|
 ||Właściwości. endTime    |`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` i `desc`|
-|[Zasady przesyłania strumieniowego](https://docs.microsoft.com/rest/api/media/streamingpolicies)|name|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` i `desc`|
+|[Zasady przesyłania strumieniowego](/rest/api/media/streamingpolicies)|name|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` i `desc`|
 ||Właściwości. utworzone    |`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` i `desc`|
-|[Przekształcenia](https://docs.microsoft.com/rest/api/media/transforms)| name | `eq`            | `asc` i `desc`|
+|[Przekształcenia](/rest/api/media/transforms)| name | `eq`            | `asc` i `desc`|
 || Właściwości. utworzone      | `gt`, `ge`, `lt`, `le`| `asc` i `desc`|
 || Właściwości. lastModified | `gt`, `ge`, `lt`, `le`| `asc` i `desc`|
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Wyświetl listę zasobów](https://docs.microsoft.com/rest/api/media/assets/list)
-* [Wyświetl listę zasad dotyczących kluczy zawartości](https://docs.microsoft.com/rest/api/media/contentkeypolicies/list)
-* [Wyświetl listę zadań](https://docs.microsoft.com/rest/api/media/jobs/list)
-* [Wyświetlanie listy zasad przesyłania strumieniowego](https://docs.microsoft.com/rest/api/media/streamingpolicies/list)
-* [Wyświetlanie listy lokalizatorów przesyłania strumieniowego](https://docs.microsoft.com/rest/api/media/streaminglocators/list)
+* [Wyświetl listę zasobów](/rest/api/media/assets/list)
+* [Wyświetl listę zasad dotyczących kluczy zawartości](/rest/api/media/contentkeypolicies/list)
+* [Wyświetl listę zadań](/rest/api/media/jobs/list)
+* [Wyświetlanie listy zasad przesyłania strumieniowego](/rest/api/media/streamingpolicies/list)
+* [Wyświetlanie listy lokalizatorów przesyłania strumieniowego](/rest/api/media/streaminglocators/list)
 * [Strumieniowe przesyłanie pliku](stream-files-dotnet-quickstart.md)
 * [Limity przydziału i ograniczenia](limits-quotas-constraints.md)

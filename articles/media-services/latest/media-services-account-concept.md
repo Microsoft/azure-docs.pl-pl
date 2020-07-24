@@ -11,11 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 07/08/2019
 ms.author: juliako
-ms.openlocfilehash: 08579f7ba952bb4ebcba1595508612affb852528
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 46f5644fb47b840f273ccab37da4f4743ad335f3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75980385"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87053114"
 ---
 # <a name="manage-azure-media-services-v3-accounts"></a>Zarządzaj kontami Azure Media Services v3
 
@@ -28,7 +29,7 @@ Jeśli musisz przenieść konto Media Services do nowej subskrypcji, musisz najp
 > [!NOTE]
 > Media Services v3 obsługuje model z obsługą wielu dzierżawców.
 
-### <a name="considerations"></a>Istotne zagadnienia
+### <a name="considerations"></a>Zagadnienia do rozważenia
 
 * Utwórz kopie zapasowe wszystkich danych na koncie przed migracją do innej subskrypcji.
 * Należy zatrzymać wszystkie punkty końcowe przesyłania strumieniowego i zasoby przesyłania strumieniowego na żywo. Użytkownicy nie będą mogli uzyskać dostępu do zawartości na czas trwania przenoszenia grupy zasobów. 
@@ -36,10 +37,10 @@ Jeśli musisz przenieść konto Media Services do nowej subskrypcji, musisz najp
 > [!IMPORTANT]
 > Nie uruchamiaj punktu końcowego przesyłania strumieniowego, dopóki przeniesienie nie zakończy się pomyślnie.
 
-### <a name="troubleshoot"></a>Rozwiązywanie problemów 
+### <a name="troubleshoot"></a>Rozwiąż problemy 
 
 Jeśli konto Media Services lub skojarzone konto usługi Azure Storage stanie się "Rozłączono" po przeniesieniu grupy zasobów, spróbuj obrócić klucze konta magazynu. Jeśli rotacja kluczy konta magazynu nie rozwiązuje stanu "odłączono" konta Media Services, należy wysłać nowe żądanie pomocy technicznej z menu "Pomoc techniczna i rozwiązywanie problemów" na koncie Media Services.  
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Tworzenie konta](create-account-cli-quickstart.md)
+[Tworzenie konta](./create-account-howto.md)

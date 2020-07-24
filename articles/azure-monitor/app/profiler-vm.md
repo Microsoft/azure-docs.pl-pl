@@ -6,11 +6,12 @@ author: cweining
 ms.author: cweining
 ms.date: 11/08/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 7c5dfe6ed08df01f78346c76fd5a35e7d64ab520
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8beb1d60ca8dcc18978ffeb523a7d63f90ca6c01
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77671583"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87049804"
 ---
 # <a name="profile-web-apps-running-on-an-azure-virtual-machine-or-a-virtual-machine-scale-set-by-using-application-insights-profiler"></a>Profilowanie aplikacji sieci Web działających na maszynie wirtualnej platformy Azure lub zestawu skalowania maszyn wirtualnych przy użyciu Application Insights Profiler
 
@@ -24,7 +25,7 @@ Możesz również wdrożyć usługę Azure Application Insights Profiler w ramac
 ## <a name="deploy-profiler-on-a-virtual-machine-or-a-virtual-machine-scale-set"></a>Wdróż Profiler na maszynie wirtualnej lub w zestawie skalowania maszyn wirtualnych
 W tym artykule pokazano, jak uzyskać Application Insights Profiler uruchomione na maszynie wirtualnej platformy Azure lub w zestawie skalowania maszyn wirtualnych platformy Azure. Profiler jest instalowany z rozszerzeniem Diagnostyka Azure dla maszyn wirtualnych. Skonfiguruj rozszerzenie w celu uruchomienia profilera i skompiluj zestaw Application Insights SDK w aplikacji.
 
-1. Dodaj zestaw Application Insights SDK do [aplikacji ASP.NET](https://docs.microsoft.com/azure/application-insights/app-insights-asp-net).
+1. Dodaj zestaw Application Insights SDK do [aplikacji ASP.NET](./asp-net.md).
 
    Aby wyświetlić profile dla swoich żądań, należy wysłać dane telemetryczne żądania do Application Insights.
 
@@ -71,7 +72,7 @@ W tym artykule pokazano, jak uzyskać Application Insights Profiler uruchomione 
     ```powershell
     Enable-WindowsOptionalFeature -FeatureName IIS-HttpTracing -Online -All
     ```  
-   b. Jeśli jest to problem, można użyć [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) , aby uruchomić następujące polecenie:  
+   b. Jeśli jest to problem, można użyć [interfejsu wiersza polecenia platformy Azure](/cli/azure/get-started-with-azure-cli) , aby uruchomić następujące polecenie:  
 
     ```powershell
     az vm run-command invoke -g MyResourceGroupName -n MyVirtualMachineName --command-id RunPowerShellScript --scripts "Enable-WindowsOptionalFeature -FeatureName IIS-HttpTracing -Online -All"

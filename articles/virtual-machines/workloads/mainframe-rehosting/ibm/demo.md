@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/22/2019
 tags: ''
 keywords: ''
-ms.openlocfilehash: 83f7f16d8406744a10451e8d488b7719845c525d
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: b2509539551b3991690e6d0313e069ae015eb892
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86135945"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87052410"
 ---
 # <a name="set-up-an-application-developers-controlled-distribution-adcd-in-ibm-zdt-v1"></a>Konfigurowanie dystrybucji kontrolowanej przez deweloperów aplikacji (ADCD) w programie IBM zD&T v1
 
@@ -72,7 +72,7 @@ Teraz, gdy masz pakiety, musisz przekazać je na maszynę wirtualną na platform
 
 2. Wybierz kartę **SSH** , a następnie skopiuj polecenie SSH do Schowka.
 
-3. Zaloguj się do maszyny wirtualnej przy użyciu swoich poświadczeń i wybranego [klienta SSH](/azure/virtual-machines/linux/use-remote-desktop) . W tej wersji demonstracyjnej są stosowane rozszerzenia Linux dla systemu Windows 10, które dodaje powłokę bash do wiersza polecenia systemu Windows. Tu działa również.
+3. Zaloguj się do maszyny wirtualnej przy użyciu swoich poświadczeń i wybranego [klienta SSH](../../../linux/use-remote-desktop.md) . W tej wersji demonstracyjnej są stosowane rozszerzenia Linux dla systemu Windows 10, które dodaje powłokę bash do wiersza polecenia systemu Windows. Tu działa również.
 
 4. Po zalogowaniu Utwórz katalog, aby przekazać pakiety firmy IBM. Należy pamiętać, że system Linux uwzględnia wielkość liter. Na przykład w tym pokazie założono, że pakiety są przekazywane do:
 
@@ -186,11 +186,11 @@ Obraz można teraz wdrożyć i będzie gotowy do zainstalowania przez emulator t
 
 Gratulacje! Teraz działa środowisko mainframe firmy IBM na platformie Azure.
 
-## <a name="learn-more"></a>Więcej tutaj
+## <a name="learn-more"></a>Dowiedz się więcej
 
-- [Migracja komputera mainframe: mitów i fakty](https://docs.microsoft.com/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/myths-and-facts)
-- [IBM DB2 pureScale na platformie Azure](https://docs.microsoft.com/azure/virtual-machines/linux/ibm-db2-purescale-azure)
-- [Rozwiązywanie problemów](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/)
+- [Migracja komputera mainframe: mitów i fakty](/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/myths-and-facts)
+- [IBM DB2 pureScale na platformie Azure](../../../linux/ibm-db2-purescale-azure.md)
+- [Rozwiązywanie problemów](../../../troubleshooting/index.yml)
 - [Sztuczna komputera mainframe do migracji na platformę Azure](https://azure.microsoft.com/resources/demystifying-mainframe-to-azure-migration/)
 
 <!-- INTERNAL LINKS -->

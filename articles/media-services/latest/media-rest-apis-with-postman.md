@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2019
 ms.author: juliako
-ms.openlocfilehash: 872dad95fc5b536c51e251612f40439da020a059
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 16c74e10e88d3f8eacd8f59222adbdb19be813ef
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75779641"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87053201"
 ---
 # <a name="configure-postman-for-media-services-v3-rest-api-calls"></a>Konfigurowanie programu Poster dla wywołań interfejsu API REST z Media Services v3
 
@@ -27,8 +28,8 @@ Przed rozpoczęciem opracowywania programu zapoznaj [się z tematem Programowani
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- [Utwórz konto Media Services](create-account-cli-how-to.md). Pamiętaj, aby zapamiętać nazwę grupy zasobów i nazwę konta Media Services. 
-- Uzyskaj informacje konieczne do [uzyskania dostępu do interfejsów API](access-api-cli-how-to.md)
+- [Utwórz konto Media Services](./create-account-howto.md). Pamiętaj, aby zapamiętać nazwę grupy zasobów i nazwę konta Media Services. 
+- Uzyskaj informacje konieczne do [uzyskania dostępu do interfejsów API](./access-api-howto.md)
 - Zainstaluj klienta REST programu [Postman](https://www.getpostman.com/), aby uruchomić interfejsy API REST przedstawione w niektórych samouczkach dotyczących AMS REST. 
 
     W przykładzie użyto programu **Postman**, ale odpowiednie będzie każde narzędzie REST. Inne alternatywy to: **Visual Studio Code** z wtyczką REST lub **Telerik programu Fiddler**. 
@@ -96,7 +97,7 @@ Przed rozpoczęciem manipulowania zasobami usługi AMS v3 musisz uzyskać i usta
 * Jeśli aplikacja nie powiedzie się z "HTTP 504: limit czasu bramy", upewnij się, że zmienna lokalizacji nie została jawnie ustawiona na wartość inną niż oczekiwana Lokalizacja konta Media Services. 
 * Jeśli zostanie wyświetlony komunikat o błędzie "nie znaleziono konta", upewnij się również, że właściwość Location w treści pliku JSON jest ustawiona na lokalizację, w której znajduje się konto Media Services. 
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 - [Przekazywanie plików na konto usługi Media Services — REST](upload-files-rest-how-to.md)
 - [Tworzenie filtrów za pomocą usługi Media Services — REST](filters-dynamic-manifest-rest-howto.md)
@@ -105,4 +106,4 @@ Przed rozpoczęciem manipulowania zasobami usługi AMS v3 musisz uzyskać i usta
 ## <a name="next-steps"></a>Następne kroki
 
 - [Przesyłaj strumieniowo pliki przy użyciu protokołu REST](stream-files-tutorial-with-rest.md).  
-- [Samouczek: kodowanie pliku zdalnego na podstawie adresu URL i strumieniowego wideo — REST](stream-files-tutorial-with-rest.md)
+- [Samouczek: Kodowanie pliku zdalnego na podstawie adresu URL i przesyłanie strumieniowe wideo — REST](stream-files-tutorial-with-rest.md)

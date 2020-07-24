@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/19/2019
 ms.author: johndeu
-ms.openlocfilehash: 30ca3bb86426b144fa6cbf5c63888d9546919ebf
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 6454bc863cb5fd628d581fff380c5ab61354f762
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85954693"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87053045"
 ---
 # <a name="smooth-streaming-protocol-ms-sstr-amendment-for-hevc"></a>Poprawka protokołu Smooth Streaming Protocol (MS-SSTR) dla HEVC 
 
@@ -64,7 +64,7 @@ Następujące terminy są specyficzne dla tego dokumentu:
 
 ### <a name="121-normative-references"></a>1.2.1 odwołania do normatywnych 
 
->  [MS-SSTR] *V20140502* protokołu Smooth Streaming[https://msdn.microsoft.com/library/ff469518.aspx](https://msdn.microsoft.com/library/ff469518.aspx)
+>  [MS-SSTR] *V20140502* protokołu Smooth Streaming[https://msdn.microsoft.com/library/ff469518.aspx](/openspecs/windows_protocols/ms-sstr/8383f27f-7efe-4c60-832a-387274457251)
 > 
 >   [ISO/IEC 14496-12] Międzynarodowa Organizacja Normalizacyjna "technologia informacyjna — kodowanie obiektów dźwięk-Visual — część 12: Format pliku multimediów ISO Base", ISO/IEC 14496-12:2014, wydanie 4 i sprostowanie 1, zmiany 1 & 2.
 >   <https://standards.iso.org/ittf/PubliclyAvailableStandards/c061988_ISO_IEC_14496-12_2012.zip>

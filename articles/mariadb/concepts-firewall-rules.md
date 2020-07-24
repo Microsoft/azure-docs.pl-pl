@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 3/18/2020
-ms.openlocfilehash: 743e3f50d747993250399493d97fc2becab19319
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 7/17/2020
+ms.openlocfilehash: 4b5898629c373e31d94ad09ca4af66de0428a7a2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79532046"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87047602"
 ---
 # <a name="azure-database-for-mariadb-server-firewall-rules"></a>Reguły zapory serwera Azure Database for MariaDB
 Zapory uniemożliwiają dostęp do serwera bazy danych do momentu określenia komputerów, które mają uprawnienia. Zapora przyznaje dostęp do serwera na podstawie źródłowego adresu IP każdego żądania.
@@ -67,6 +67,11 @@ Należy wziąć pod uwagę następujące kwestie, gdy dostęp do usługi Microso
    * Pobierz statyczne adresy IP dla komputerów klienckich, a następnie dodaj te adresy IP jako reguły zapory.
 
 * **Adres IP serwera wydaje się być publiczny:** Połączenia z serwerem Azure Database for MariaDB są kierowane za pomocą publicznie dostępnej bramy platformy Azure. Rzeczywisty adres IP serwera jest jednak chroniony przez zaporę. Aby uzyskać więcej informacji, zapoznaj się z [artykułem dotyczącym architektury łączności](concepts-connectivity-architecture.md). 
+
+* **Nie można nawiązać połączenia z zasobów platformy Azure z dozwolonym adresem IP:** Sprawdź, czy punkt końcowy usługi **Microsoft. SQL** jest włączony dla podsieci, z której nawiązujesz połączenie. Jeśli jest włączona funkcja **Microsoft. SQL** , oznacza to, że chcesz tylko używać [reguł punktu końcowego usługi sieci wirtualnej](concepts-data-access-security-vnet.md) w tej podsieci.
+
+   Na przykład, jeśli łączysz się z maszyny wirtualnej platformy Azure w podsieci z włączoną opcją **Microsoft. SQL** , ale nie ma odpowiedniej reguły sieci wirtualnej, może zostać wyświetlony następujący błąd:`FATAL: Client from Azure Virtual Networks is not allowed to access the server`
+
 
 ## <a name="next-steps"></a>Następne kroki
 - [Tworzenie reguł zapory Azure Database for MariaDB i zarządzanie nimi za pomocą Azure Portal](./howto-manage-firewall-portal.md)

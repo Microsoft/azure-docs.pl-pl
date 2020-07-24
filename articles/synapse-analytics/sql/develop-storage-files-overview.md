@@ -1,5 +1,5 @@
 ---
-title: Uzyskiwanie dostępu do plików w magazynie przy użyciu języka SQL na żądanie (wersja zapoznawcza) w programie Synapse SQL
+title: Dostęp do plików w magazynie w usłudze SQL na żądanie (wersja zapoznawcza)
 description: Opisuje wykonywanie zapytań dotyczących plików magazynu za pomocą zasobów SQL na żądanie (wersja zapoznawcza) w programie Synapse SQL.
 services: synapse-analytics
 author: azaricstefan
@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/19/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: f786e92ca99c4c1700d00adf396ba1127b66ea7c
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: d7f990b059346c4c782ca923e663997317c4df16
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86247102"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87046874"
 ---
 # <a name="accessing-external-storage-in-synapse-sql-on-demand"></a>Uzyskiwanie dostępu do magazynu zewnętrznego w programie Synapse SQL (na żądanie)
 
@@ -43,7 +43,7 @@ Użytkownik może uzyskać dostęp do magazynu przy użyciu następujących regu
 - Użytkownik usługi Azure AD — funkcja OPENROWSET będzie używać tożsamości elementu wywołującego usługi Azure AD do uzyskiwania dostępu do usługi Azure Storage lub dostępu do magazynu z dostępem anonimowym.
 - Użytkownik SQL — funkcja OPENROWSET będzie uzyskiwać dostęp do magazynu z dostępem anonimowym.
 
-Podmioty zabezpieczeń SQL mogą również używać funkcji OPENROWSET do bezpośredniego zapytania o pliki chronione za pomocą tokenów SAS lub zarządzanej tożsamości obszaru roboczego. Jeśli użytkownik SQL wykona tę funkcję, użytkownik zaawansowany z uprawnieniem ALTER ANY CREDENTIAL musi utworzyć poświadczenia z zakresem serwera, które pasują do adresu URL w funkcji (przy użyciu nazwy magazynu i kontenera) i udzielone uprawnienia do odwołań dla tego poświadczenia do obiektu wywołującego funkcji OPENROWSET:
+Podmioty zabezpieczeń SQL mogą również używać funkcji OPENROWSET do bezpośredniego zapytania o pliki chronione za pomocą tokenów SAS lub zarządzanej tożsamości obszaru roboczego. Jeśli użytkownik SQL wykona tę funkcję, użytkownik zaawansowany z `ALTER ANY CREDENTIAL` uprawnieniami musi utworzyć poświadczenia z zakresem serwera, które pasują do adresu URL w funkcji (przy użyciu nazwy magazynu i kontenera), a uprawnienia udzielane ODniesień dla tego poświadczenia do obiektu wywołującego funkcji OPENROWSET:
 
 ```sql
 EXECUTE AS somepoweruser
@@ -87,8 +87,8 @@ Poświadczenie o zakresie bazy danych określa, jak uzyskać dostęp do plików 
 Obiekt wywołujący musi mieć jedno z następujących uprawnień, aby wykonać funkcję OPENROWSET:
 
 - Jedno z uprawnień do wykonania funkcji OPENROWSET:
-  - Operacja ADMINISTRUJ ZBIORCZo umożliwia logowanie do wykonywania funkcji OPENROWSET.
-  - Operacja zarządzania ZBIORCZego bazy danych umożliwia użytkownikowi z zakresem bazy danych wykonywanie funkcji OPENROWSET.
+  - `ADMINISTER BULK OPERATIONS`umożliwia logowanie do wykonywania funkcji OPENROWSET.
+  - `ADMINISTER DATABASE BULK OPERATIONS`umożliwia użytkownikowi z zakresem bazy danych wykonywanie funkcji OPENROWSET.
 - Odwołuje się do poświadczenia w zakresie bazy danych do poświadczeń, do których odwołuje się zewnętrzne źródło danych
 
 #### <a name="accessing-anonymous-data-sources"></a>Uzyskiwanie dostępu do anonimowych źródeł danych
@@ -151,13 +151,13 @@ Poniższa tabela zawiera listę wymaganych uprawnień do operacji wymienionych p
 
 | Zapytanie | Wymagane uprawnienia|
 | --- | --- |
-| OPENROWSET (BULK) bez źródła danych | `ADMINISTER BULK ADMIN`, `ADMINISTER DATABASE BULK ADMIN` lub logowanie SQL musi zawierać poświadczenie odwołania:: \<URL> dla magazynu chronionego przez sygnaturę dostępu współdzielonego |
-| OPENROWSET (BULK) ze źródłem danych bez poświadczeń | `ADMINISTER BULK ADMIN`lub `ADMINISTER DATABASE BULK ADMIN` , |
-| OPENROWSET (BULK) z elementem DataSource z poświadczeniem | `ADMINISTER BULK ADMIN`, `ADMINISTER DATABASE BULK ADMIN` lub`REFERENCES DATABASE SCOPED CREDENTIAL` |
+| OPENROWSET (BULK) bez źródła danych | `ADMINISTER BULK OPERATIONS`, `ADMINISTER DATABASE BULK OPERATIONS` lub logowanie SQL musi zawierać poświadczenie odwołania:: \<URL> dla magazynu chronionego przez sygnaturę dostępu współdzielonego |
+| OPENROWSET (BULK) ze źródłem danych bez poświadczeń | `ADMINISTER BULK OPERATIONS`lub `ADMINISTER DATABASE BULK OPERATIONS` , |
+| OPENROWSET (BULK) z elementem DataSource z poświadczeniem | `REFERENCES DATABASE SCOPED CREDENTIAL`i jeden z `ADMINISTER BULK OPERATIONS` lub`ADMINISTER DATABASE BULK OPERATIONS` |
 | UTWÓRZ ZEWNĘTRZNE ŹRÓDŁO DANYCH | `ALTER ANY EXTERNAL DATA SOURCE` i `REFERENCES DATABASE SCOPED CREDENTIAL` |
 | TWORZENIE TABELI ZEWNĘTRZNEJ | `CREATE TABLE`, `ALTER ANY SCHEMA` , `ALTER ANY EXTERNAL FILE FORMAT` i`ALTER ANY EXTERNAL DATA SOURCE` |
 | WYBIERZ Z TABELI ZEWNĘTRZNEJ | `SELECT TABLE` i `REFERENCES DATABASE SCOPED CREDENTIAL` |
-| CETAS | Aby utworzyć tabelę, `CREATE TABLE` , `ALTER ANY SCHEMA` , `ALTER ANY DATA SOURCE` i `ALTER ANY EXTERNAL FILE FORMAT` . Aby odczytywać dane: `ADMIN BULK OPERATIONS` lub `REFERENCES CREDENTIAL` lub `SELECT TABLE` dla każdej tabeli/widoku/funkcji w programie Query + R/w pozwoleniu na magazyn |
+| CETAS | Aby utworzyć tabelę, `CREATE TABLE` , `ALTER ANY SCHEMA` , `ALTER ANY DATA SOURCE` i `ALTER ANY EXTERNAL FILE FORMAT` . Aby odczytywać dane: `ADMINISTER BULK OPERATIONS` lub `REFERENCES CREDENTIAL` lub `SELECT TABLE` dla każdej tabeli/widoku/funkcji w programie Query + R/w pozwoleniu na magazyn |
 
 ## <a name="next-steps"></a>Następne kroki
 

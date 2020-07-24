@@ -5,12 +5,13 @@ author: laurenhughes
 ms.author: lahugh
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 06/08/2020
-ms.openlocfilehash: 20379f6a1e87c7553d6567be5b50f22bbadb8db7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/13/2020
+ms.openlocfilehash: 13842512c7d983a70b32132b4a16be37ac0b2b54
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84514687"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87050725"
 ---
 # <a name="preview---azure-kubernetes-service-aks-node-image-upgrades"></a>Wersja zapoznawcza — uaktualnienia obrazów węzła usługi Azure Kubernetes Service (AKS)
 
@@ -36,7 +37,7 @@ Rejestracja może potrwać kilka minut. Aby sprawdzić, czy funkcja jest zarejes
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/NodeImageUpgradePreview')].{Name:name,State:properties.state}"
 ```
 
-W trakcie korzystania z wersji zapoznawczej potrzebne jest rozszerzenie wiersza polecenia *AKS-Preview* , aby można było użyć uaktualnienia obrazu węzła. Użyj polecenia [AZ Extension Add] [AZ-Extension-Add], a następnie sprawdź, czy są dostępne aktualizacje za pomocą polecenia [AZ Extension Update] [AZ-Extension-Update]:
+W trakcie korzystania z wersji zapoznawczej potrzebne jest rozszerzenie wiersza polecenia *AKS-Preview* , aby można było użyć uaktualnienia obrazu węzła. Użyj polecenia [AZ Extension Add][az-extension-add] , a następnie sprawdź, czy są dostępne aktualizacje za pomocą polecenia [AZ Extension Update][az-extension-update] :
 
 ```azurecli
 # Install the aks-preview extension
@@ -45,6 +46,12 @@ az extension add --name aks-preview
 # Update the extension to make sure you have the latest version installed
 az extension update --name aks-preview
 ```
+
+Gdy stan jest wyświetlany jako zarejestrowane, Odśwież rejestrację `Microsoft.ContainerService` dostawcy zasobów przy użyciu polecenia [AZ Provider Register](https://docs.microsoft.com/cli/azure/provider?view=azure-cli-latest#az-provider-register) :
+
+```azurecli
+az provider register --namespace Microsoft.ContainerService
+```  
 
 ## <a name="upgrade-all-nodes-in-all-node-pools"></a>Uaktualnij wszystkie węzły we wszystkich pulach węzłów
 
@@ -145,3 +152,5 @@ az aks nodepool show \
 [security-update]: node-updates-kured.md
 [use-multiple-node-pools]: use-multiple-node-pools.md
 [max-surge]: upgrade-cluster.md#customize-node-surge-upgrade-preview
+[az-extension-add]: /cli/azure/extension#az-extension-add
+[az-extension-update]: /cli/azure/extension#az-extension-update

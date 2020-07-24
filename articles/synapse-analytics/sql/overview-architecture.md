@@ -1,5 +1,5 @@
 ---
-title: Architektura SQL usługi Azure Synapse
+title: Architektura usługi
 description: Dowiedz się, jak usługa Azure Synapse SQL łączy masowe przetwarzanie równoległe (MPP) z usługą Azure Storage w celu uzyskania wysokiej wydajności i skalowalności.
 services: synapse-analytics
 author: mlee3gsd
@@ -10,11 +10,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: d073bc82b3a9e42e443caa5d3e7855fd4eb5b98b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9f2f3eee12bb8741f6d079f6f081a08f4e2db9b5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83658916"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87046869"
 ---
 # <a name="azure-synapse-sql-architecture"></a>Architektura SQL usługi Azure Synapse 
 
@@ -44,7 +45,7 @@ Dzięki rozdzieleniu magazynu i obliczeń użycie usługi Synapse SQL one może 
 
 * Zwiększ lub Zmniejsz moc obliczeniową w puli SQL (hurtowni danych) bez przeniesienia danych.
 * Wstrzymywać zasoby obliczeniowe bez wpływu na dane, płacąc tylko za przestrzeń dyskową.
-* Wznawiać moc obliczeniową w godzinach działania.
+* Wznawiać zasoby obliczeniowe w godzinach pracy.
 
 ## <a name="azure-storage"></a>Azure Storage
 

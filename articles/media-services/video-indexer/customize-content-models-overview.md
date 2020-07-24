@@ -9,16 +9,17 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
 ms.date: 06/26/2019
-ms.author: anzaman
-ms.openlocfilehash: 09e6fd8530ddb1745a92c6f31f4d5a5843a2ac10
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: kumud
+ms.openlocfilehash: 937a73847e867e826b3a577adf0c85184d7a93d0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76513171"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87047227"
 ---
 # <a name="customizing-content-models-in-video-indexer"></a>Dostosowywanie modeli zawartości w Video Indexer
 
-Video Indexer umożliwia dostosowanie niektórych modeli w celu dostosowania ich do określonego przypadku użycia. Modele te obejmują [marki](customize-brands-model-overview.md), [Język](customize-language-model-overview.md)i [osobę](customize-person-model-overview.md). Można łatwo dostosować te modele przy użyciu witryny sieci Web Video Indexer lub interfejsu API.
+Usługa Video Indexer umożliwia dostosowanie niektórych modeli w celu dostosowania ich do konkretnego przypadku użycia. Modele te obejmują [marki](customize-brands-model-overview.md), [Język](customize-language-model-overview.md)i [osobę](customize-person-model-overview.md). Można łatwo dostosować te modele przy użyciu interfejsu API lub witryny internetowej usługi Video Indexer.
 
 Ten artykuł zawiera łącza do artykułów, które wyjaśniają zalety poszczególnych typów dostosowań. Artykuł zawiera również linki do przewodników, które pokazują, jak można zaimplementować dostosowanie poszczególnych modeli.
 

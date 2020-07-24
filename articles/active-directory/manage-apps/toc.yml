@@ -38,48 +38,44 @@
       href: application-management-fundamentals.md
     - name: Typowe scenariusze zarządzania aplikacjami
       href: common-scenarios.md
-    - name: Aplikacje w chmurze i logowanie jednokrotne
+    - name: Planowanie integracji aplikacji w chmurze
       items:
-        - name: Planowanie integracji aplikacji w chmurze
-          items:
-            - name: Wprowadzenie do integracji aplikacji
-              href: plan-an-application-integration.md
-            - name: Planowanie wdrożenia przy użyciu panelu dostępu
-              href: access-panel-deployment-plan.md
-            - name: Wskazówki dla deweloperów
-              href: developer-guidance-for-integrating-applications.md
-        - name: Logowanie jednokrotne
-          items:
-            - name: Włączanie logowania jednokrotnego dla aplikacji wielodostępnej
-              href: isv-sso-content.md
-            - name: Tworzenie dzierżawy platformy Azure dla aplikacji wielodostępnej
-              href: isv-tenant-multi-tenant-app.md
-            - name: Wybieranie federacji wielodostępnej
-              href: isv-choose-multi-tenant-federation.md
-            - name: Tworzenie dokumentacji dla aplikacji wielodostępnej
-              href: isv-create-sso-documentation.md
-            - name: Planowanie wdrożenia logowania jednokrotnego
-              href: plan-sso-deployment.md
+        - name: Wprowadzenie do integracji aplikacji
+          href: plan-an-application-integration.md
+        - name: Planowanie wdrożenia przy użyciu panelu dostępu
+          href: access-panel-deployment-plan.md
+        - name: Wskazówki dla deweloperów
+          href: developer-guidance-for-integrating-applications.md
+    - name: Logowanie jednokrotne
+      items:
+        - name: Włączanie logowania jednokrotnego dla aplikacji wielodostępnej
+          href: isv-sso-content.md
+        - name: Tworzenie dzierżawy platformy Azure dla aplikacji wielodostępnej
+          href: isv-tenant-multi-tenant-app.md
+        - name: Wybieranie federacji wielodostępnej
+          href: isv-choose-multi-tenant-federation.md
+        - name: Tworzenie dokumentacji dla aplikacji wielodostępnej
+          href: isv-create-sso-documentation.md
+        - name: Planowanie wdrożenia logowania jednokrotnego
+          href: plan-sso-deployment.md
         - name: Logowanie jednokrotne jednym kliknięciem
-          items:
-            - name: Co to jest logowanie jednokrotne jednym kliknięciem
-              href: one-click-sso-tutorial.md
-        - name: Zabezpieczenia aplikacji
-          items:
-            - name: Opcje dostępu do aplikacji
-              href: what-is-access-management.md
-            - name: Opcje podpisywania certyfikatów
-              href: certificate-signing-options.md
-            - name: Zarządzanie certyfikatami
-              href: manage-certificates-for-federated-single-sign-on.md
-            - name: Ograniczenia dzierżawy
-              href: tenant-restrictions.md
-            - name: Konfigurowanie szyfrowania tokenu SAML
-              href: howto-saml-token-encryption.md
-            - name: Portale użytkowników końcowych
-              href: end-user-experiences.md
-    - name: Aplikacja w chmurze — widoczność i kontrola
-      href: cloud-app-security.md
+          href: one-click-sso-tutorial.md
+    - name: Zabezpieczenia aplikacji
+      items:
+        - name: Opcje dostępu do aplikacji
+          href: what-is-access-management.md
+        - name: Opcje podpisywania certyfikatów
+          href: certificate-signing-options.md
+        - name: Zarządzanie certyfikatami
+          href: manage-certificates-for-federated-single-sign-on.md
+        - name: Ograniczenia dzierżawy
+          href: tenant-restrictions.md
+        - name: Konfigurowanie szyfrowania tokenu SAML
+          href: howto-saml-token-encryption.md
+        - name: Portale użytkowników końcowych
+          href: end-user-experiences.md
+        - name: Aplikacja w chmurze — widoczność i kontrola
+          href: cloud-app-security.md
     - name: Serwer proxy aplikacji dla aplikacji lokalnych
       items:
         - name: Serwer proxy aplikacji

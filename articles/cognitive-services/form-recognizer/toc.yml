@@ -40,8 +40,6 @@
               href: quickstarts/python-layout.md
 - name: Samouczki
   items:
-    - name: Korzystanie z usługi Rozpoznawanie formularzy w usłudze Logic Apps
-      href: tutorial-form-recognizer-with-logic-apps.md
     - name: Korzystanie z usługi Rozpoznawanie formularzy w usłudze Cognitive Search
       href: 'https://docs.microsoft.com/azure/search/cognitive-search-custom-skill-form'
 - name: Przewodniki z instrukcjami
@@ -66,8 +64,6 @@
   items:
     - name: Interfejs API rozpoznawania formularzy w wersji 2.0
       href: 'https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm'
-    - name: Interfejs API rozpoznawania formularzy w wersji 1.0
-      href: 'https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api/operations/AnalyzeWithCustomModel'
     - name: Zestawy SDK
       items:
         - name: .NET
@@ -75,9 +71,9 @@
         - name: Python
           href: 'https://docs.microsoft.com/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer'
         - name: Java
-          href: 'https://docs.microsoft.com/java/api/overview/azure/formrecognizer'
+          href: 'https://docs.microsoft.com/java/api/overview/azure/ai-formrecognizer-readme-pre'
         - name: JavaScript
-          href: 'https://docs.microsoft.com/azure/cognitive-services/form-recognizer/'
+          href: 'https://docs.microsoft.com/javascript/api/overview/azure/ai-form-recognizer-readme-pre'
 - name: Zasoby
   items:
     - name: Ceny i limity

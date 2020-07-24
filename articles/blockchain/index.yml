@@ -11,12 +11,12 @@ metadata:
   author: PatAltimore
   ms.author: patricka
   ms.date: 10/23/2019
-  ms.openlocfilehash: 11c3c464de5efc9b38426fa7ea015f63b37a8b52
-  ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+  ms.openlocfilehash: 123d84cc29c1dce85cccf8c1bbb089bfbbbf7bf3
+  ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 05/31/2020
-  ms.locfileid: "84235513"
+  ms.lasthandoff: 07/23/2020
+  ms.locfileid: "87007667"
 productDirectory:
   items:
   - title: Usługa Azure Blockchain
@@ -93,7 +93,7 @@ additionalContent:
       url: https://marketplace.visualstudio.com/items?itemName=azblockchain.azure-blockchain
     - title: Łącznik łańcucha bloków dla sieci Ethereum
       summary: Używaj usług Azure Logic Apps, Microsoft Flow i Microsoft PowerApps, aby wykonywać akcje związane z inteligentnymi kontraktami, takie jak przesyłanie transakcji, odczytywanie stanu kontraktu i wyzwalanie przepływów przy aktualizacjach kontraktu.
-      url: https://docs.microsoft.com/connectors/blockchainethereum/
+      url: /connectors/blockchainethereum/
     - title: Przykłady kodu
       summary: Repozytorium GitHub z przykładami kodu pozwalającymi rozpocząć pracę.
       url: https://github.com/Azure-Samples/blockchain

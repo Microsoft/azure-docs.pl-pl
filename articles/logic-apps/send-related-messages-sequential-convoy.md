@@ -6,15 +6,16 @@ ms.suite: integration
 ms.reviewer: apseth, divswa, logicappspm
 ms.topic: conceptual
 ms.date: 05/29/2020
-ms.openlocfilehash: bd6b05489d13f835de4dce2aa3d885132285efca
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8c00d2e4f622bcfad7b2468013336f0d936e318c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84987613"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87048668"
 ---
 # <a name="send-related-messages-in-order-by-using-a-sequential-convoy-in-azure-logic-apps-with-azure-service-bus"></a>Wysyłaj powiązane komunikaty w kolejności przy użyciu konwoju sekwencyjnego w Azure Logic Apps z Azure Service Bus
 
-Gdy zachodzi potrzeba wysyłania skorelowanych komunikatów w określonej kolejności, można użyć [wzorca *sekwencyjnej konwoju* ](https://docs.microsoft.com/azure/architecture/patterns/sequential-convoy) podczas korzystania z [Azure Logic Apps](../logic-apps/logic-apps-overview.md) przy użyciu [łącznika Azure Service Bus](../connectors/connectors-create-api-servicebus.md). Skorelowane komunikaty mają właściwość definiującą relację między tymi komunikatami, na przykład identyfikator [sesji](../service-bus-messaging/message-sessions.md) w Service Bus.
+Gdy zachodzi potrzeba wysyłania skorelowanych komunikatów w określonej kolejności, można użyć [wzorca *sekwencyjnej konwoju* ](/azure/architecture/patterns/sequential-convoy) podczas korzystania z [Azure Logic Apps](../logic-apps/logic-apps-overview.md) przy użyciu [łącznika Azure Service Bus](../connectors/connectors-create-api-servicebus.md). Skorelowane komunikaty mają właściwość definiującą relację między tymi komunikatami, na przykład identyfikator [sesji](../service-bus-messaging/message-sessions.md) w Service Bus.
 
 Załóżmy na przykład, że masz 10 komunikatów dla sesji o nazwie "Session 1" i masz 5 komunikatów dla sesji o nazwie "Session 2", które są wysyłane do tej samej [kolejki Service Bus](../service-bus-messaging/service-bus-queues-topics-subscriptions.md). Można utworzyć aplikację logiki, która przetwarza komunikaty z kolejki, tak aby wszystkie komunikaty z "sesji 1" były obsługiwane przez pojedynczy przebieg wyzwalacza, a wszystkie komunikaty z "sesji 2" są obsługiwane przez następnego uruchomienia wyzwalacza.
 
@@ -28,7 +29,7 @@ W tym artykule pokazano, jak utworzyć aplikację logiki, która implementuje te
 
 Aby przejrzeć plik JSON tego szablonu, zobacz artykuł [GitHub: service-bus-sessions.json](https://github.com/Azure/logicapps/blob/master/templates/service-bus-sessions.json).
 
-Aby uzyskać więcej informacji, zobacz [wzorzec konwoju wzorca — wzorce projektowania architektury platformy Azure](https://docs.microsoft.com/azure/architecture/patterns/sequential-convoy).
+Aby uzyskać więcej informacji, zobacz [wzorzec konwoju wzorca — wzorce projektowania architektury platformy Azure](/azure/architecture/patterns/sequential-convoy).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -197,11 +198,11 @@ Aby podać wartości dla wyzwalacza i akcji w **skorelowanej dostawie w kolejno�
   | **Nazwa kolejki** | Tak | <*Nazwa kolejki*> | Nazwa utworzonej wcześniej kolejki Service Bus. W tym przykładzie zastosowano "Fabrikam-Service-Bus-queue". |
   | **Typ kolejki** | Tak | **Główną** | Twoja Kolejka Service Bus główna |
   | **Identyfikator sesji** | Tak | **Następne dostępne** | Ta opcja pobiera sesję dla każdego uruchomienia wyzwalacza na podstawie identyfikatora sesji z komunikatu w kolejce Service Bus. Sesja jest również zablokowana, tak aby żadna inna aplikacja logiki lub inny klient nie przetwarza komunikatów powiązanych z tą sesją. Kolejne akcje przepływu pracy przetwarzają wszystkie komunikaty, które są skojarzone z tą sesją, zgodnie z opisem w dalszej części tego artykułu. <p><p>Poniżej znajduje się więcej informacji na temat innych opcji **identyfikatora sesji** : <p>- **Brak**: opcja domyślna, która powoduje brak sesji i nie może być używana do implementowania wzorca sekwencyjnego konwoju. <p>- **Wprowadź wartość niestandardową**: Użyj tej opcji, jeśli znasz identyfikator sesji, który ma być używany, i zawsze chcesz uruchomić wyzwalacz dla tego identyfikatora sesji. <p>**Uwaga**: Łącznik Service Bus może zapisywać ograniczoną liczbę unikatowych sesji w czasie od Azure Service Bus do pamięci podręcznej łączników. Jeśli liczba sesji przekracza ten limit, stare sesje są usuwane z pamięci podręcznej. Aby uzyskać więcej informacji, zobacz [wiadomości programu Exchange w chmurze z Azure Logic Apps i Azure Service Bus](../connectors/connectors-create-api-servicebus.md#connector-reference). |
-  | **Dat** | Tak | <*Liczba interwałów*> | Liczba jednostek czasu między cyklami przed sprawdzeniem komunikatu. |
+  | **Interwał** | Tak | <*Liczba interwałów*> | Liczba jednostek czasu między cyklami przed sprawdzeniem komunikatu. |
   | **Częstotliwość** | Tak | **Sekunda**, **minuta**, **godzina**, **dzień**, **tydzień**lub **miesiąc** | Jednostka czasu, z której będzie korzystać cykl podczas sprawdzania komunikatu. <p>**Porada**: aby dodać **strefę czasową** lub **godzinę rozpoczęcia**, wybierz te właściwości z listy **Dodaj nowy parametr** . |
   |||||
 
-  Aby uzyskać więcej informacji o wyzwalaczach, zobacz [Service Bus — gdy w kolejce jest odbierany komunikat (blokada blokady)](https://docs.microsoft.com/connectors/servicebus/#when-a-message-is-received-in-a-queue-(peek-lock)). Wyzwalacz wyprowadza element [ServiceBusMessage](https://docs.microsoft.com/connectors/servicebus/#servicebusmessage).
+  Aby uzyskać więcej informacji o wyzwalaczach, zobacz [Service Bus — gdy w kolejce jest odbierany komunikat (blokada blokady)](/connectors/servicebus/#when-a-message-is-received-in-a-queue-(peek-lock)). Wyzwalacz wyprowadza element [ServiceBusMessage](/connectors/servicebus/#servicebusmessage).
 
 Po zainicjowaniu sesji przepływ pracy używa akcji **Inicjuj zmienną** do utworzenia zmiennej logicznej, która początkowo została ustawiona na `false` i wskazuje, kiedy są spełnione następujące warunki: 
 
@@ -421,4 +422,4 @@ Aby przetestować aplikację logiki, Wyślij komunikaty do kolejki Service Bus.
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Dowiedz się więcej na temat [wyzwalaczy i akcji łącznika Service Bus](https://docs.microsoft.com/connectors/servicebus/)
+* Dowiedz się więcej na temat [wyzwalaczy i akcji łącznika Service Bus](/connectors/servicebus/)

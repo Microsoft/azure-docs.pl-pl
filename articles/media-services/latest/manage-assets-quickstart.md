@@ -3,12 +3,12 @@ title: Przekazywanie, kodowanie i przesyłanie strumieniowe zawartości przy uż
 description: W tym przewodniku szybki start przedstawiono sposób użycia portalu do przekazywania, kodowania i przesyłania strumieniowego zawartości za pomocą Azure Media Services.
 ms.topic: quickstart
 ms.date: 06/08/2020
-ms.openlocfilehash: 374e8a22bf8fdcb14101bffc26f9d1b27480ce88
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: bab13b7b878f8992ac5523b9902054a42a3dc769
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86232478"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87053363"
 ---
 # <a name="quickstart-upload-encode-and-stream-content-with-portal"></a>Szybki Start: przekazywanie, kodowanie i przesyłanie strumieniowe zawartości za pomocą portalu
 
@@ -35,7 +35,7 @@ W tym przewodniku szybki start pokazano, jak używać Azure Portal do przekazywa
 
         Obecnie w przypadku korzystania z Azure Portal można wykonać następujące czynności: generowanie plików napisów TTML i WebVTT. Pliki w tych formatach mogą służyć do udostępniania plików audio i wideo osobom niepełnosprawnym. Możesz również wyodrębnić słowa kluczowe z zawartości.
 
-        Aby uzyskać bogate środowisko umożliwiające wyodrębnienie szczegółowych informacji z plików wideo i audio, Użyj ustawień wstępnych Media Services v3 (zgodnie z opisem w [samouczku: analizowanie wideo przy użyciu Media Services v3](analyze-videos-tutorial-with-api.md)). <br/>Jeśli potrzebujesz bardziej szczegółowych informacji, użyj [Video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) bezpośrednio.    
+        Aby uzyskać bogate środowisko umożliwiające wyodrębnienie szczegółowych informacji z plików wideo i audio, Użyj ustawień wstępnych Media Services v3 (zgodnie z opisem w [samouczku: analizowanie wideo przy użyciu Media Services v3](analyze-videos-tutorial-with-api.md)). <br/>Jeśli potrzebujesz bardziej szczegółowych informacji, użyj [Video Indexer](../video-indexer/index.yml) bezpośrednio.    
 * Po przetworzeniu zawartości możesz dostarczyć zawartość multimedialną do graczy klienckich. Aby umożliwić odtwarzanie filmów wideo w danych wyjściowych, należy utworzyć **lokalizator przesyłania strumieniowego**. Podczas tworzenia **lokalizatora przesyłania strumieniowego**należy określić **zasady przesyłania strumieniowego**. **Zasady przesyłania strumieniowego** umożliwiają definiowanie protokołów przesyłania strumieniowego i opcji szyfrowania (jeśli istnieją) dla **lokalizatorów przesyłania strumieniowego**.
     
     Ponownego

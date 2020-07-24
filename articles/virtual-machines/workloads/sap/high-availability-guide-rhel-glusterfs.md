@@ -14,11 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: radeltch
-ms.openlocfilehash: 388a2db2c888be541d89c5f4274bd38b37e4ca28
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e6b8708edeeb4b3b69dab82265d13db2a4c22e08
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77591918"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87051648"
 ---
 # <a name="glusterfs-on-azure-vms-on-red-hat-enterprise-linux-for-sap-netweaver"></a>System GlusterFS na maszynach wirtualnych platformy Azure z systemem Red Hat Enterprise Linux dla oprogramowania SAP NetWeaver
 
@@ -101,7 +102,7 @@ Możesz użyć jednego z szablonów szybkiego startu w usłudze GitHub, aby wdro
 
 ### <a name="deploy-linux-manually-via-azure-portal"></a>Ręczne wdrażanie systemu Linux za pośrednictwem Azure Portal
 
-Najpierw musisz utworzyć maszyny wirtualne dla tego klastra. Następnie należy utworzyć moduł równoważenia obciążenia i użyć maszyn wirtualnych w pulach zaplecza. Zalecamy użycie [standardowej usługi równoważenia obciążenia](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview).  
+Najpierw musisz utworzyć maszyny wirtualne dla tego klastra. Następnie należy utworzyć moduł równoważenia obciążenia i użyć maszyn wirtualnych w pulach zaplecza. Zalecamy użycie [standardowej usługi równoważenia obciążenia](../../../load-balancer/load-balancer-overview.md).  
 
 1. Tworzenie grupy zasobów
 1. Tworzenie sieci wirtualnej

@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
-ms.date: 07/01/2020
-ms.openlocfilehash: 998c286cb5faa9f29d8e4687260440c578b5622b
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 07/22/2020
+ms.openlocfilehash: 1a5b5ff535b2a0ca84831e8d4c42e80a72395b02
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86520667"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87048261"
 ---
 # <a name="reference-guide-to-using-functions-in-expressions-for-azure-logic-apps-and-power-automate"></a>Przewodnik referencyjny dotyczący używania funkcji w wyrażeniach dla Azure Logic Apps i automatyzacji
 
@@ -102,7 +102,7 @@ Do pracy z kolekcjami, ogólnie tablicami, ciągami i czasami słownikami można
 
 | Funkcja kolekcji | Zadanie |
 | ------------------- | ---- |
-| [zawiera](../logic-apps/workflow-definition-language-functions-reference.md#contains) | Sprawdź, czy kolekcja zawiera określony element. |
+| [wyświetlana](../logic-apps/workflow-definition-language-functions-reference.md#contains) | Sprawdź, czy kolekcja zawiera określony element. |
 | [puste](../logic-apps/workflow-definition-language-functions-reference.md#empty) | Sprawdź, czy kolekcja jest pusta. |
 | [pierwszego](../logic-apps/workflow-definition-language-functions-reference.md#first) | Zwróć pierwszy element z kolekcji. |
 | [część wspólną](../logic-apps/workflow-definition-language-functions-reference.md#intersection) | Zwróć kolekcję, która ma *tylko* wspólne elementy w określonej kolekcji. |
@@ -216,7 +216,7 @@ Aby uzyskać pełne informacje o każdej z tych funkcji, zobacz [alfabetyczną l
 | [min](../logic-apps/workflow-definition-language-functions-reference.md#min) | Zwróć najniższą wartość z zestawu liczb lub tablicy. |
 | [Funkcja](../logic-apps/workflow-definition-language-functions-reference.md#mod) | Zwróć resztę z dzielenia dwóch liczb. |
 | [mul](../logic-apps/workflow-definition-language-functions-reference.md#mul) | Zwróć produkt z mnożenia dwóch liczb. |
-| [rand](../logic-apps/workflow-definition-language-functions-reference.md#rand) | Zwraca losową liczbę całkowitą z podanego zakresu. |
+| [Rand](../logic-apps/workflow-definition-language-functions-reference.md#rand) | Zwraca losową liczbę całkowitą z podanego zakresu. |
 | [zakresu](../logic-apps/workflow-definition-language-functions-reference.md#range) | Zwróć tablicę liczb całkowitych, która zaczyna się od określonej liczby całkowitej. |
 | [Sub](../logic-apps/workflow-definition-language-functions-reference.md#sub) | Zwraca wynik odejmowania drugiej liczby od pierwszej liczby. |
 |||
@@ -1686,8 +1686,7 @@ I zwraca ten wynik:`"https://contoso.com"`
 
 ### <a name="div"></a>div
 
-Zwraca liczbę całkowitą z wyniku dzielenia dwóch liczb.
-Aby uzyskać resztę, zobacz [mod ()](#mod).
+Zwróć wynik dzielenia dwóch liczb. Aby uzyskać resztę, zobacz [mod ()](#mod).
 
 ```
 div(<dividend>, <divisor>)
@@ -1701,19 +1700,26 @@ div(<dividend>, <divisor>)
 
 | Wartość zwracana | Typ | Opis |
 | ------------ | ---- | ----------- |
-| <*wynik ilorazu*> | Integer | Wynik z wartości całkowitej dzielącej pierwszą liczbę przez drugą liczbę |
+| <*wynik ilorazu*> | Liczba całkowita lub zmiennoprzecinkowa | Wynik dzielenia pierwszej liczby przez drugą liczbę. Jeśli dzielną lub dzielnik ma typ float, wynik ma typ float. <p><p>**Uwaga**: Aby przekonwertować wynik zmiennoprzecinkowy na liczbę całkowitą, spróbuj [utworzyć i wywołać funkcję platformy Azure](../logic-apps/logic-apps-azure-functions.md) z poziomu aplikacji logiki. |
 ||||
 
-*Przykład*
+*Przykład 1*
 
-Oba przykłady dzielą pierwszą liczbę o drugą liczbę:
+Oba przykłady zwracają tę wartość za pomocą typu Integer:`2`
 
 ```
-div(10, 5)
-div(11, 5)
+div(10,5)
+div(11,5)
 ```
 
-I zwróć ten wynik:`2`
+*Przykład 2*
+
+Oba przykłady zwracają tę wartość z typem float:`2.2`
+
+```
+div(11,5.0)
+div(11.0,5)
+```
 
 <a name="encodeUriComponent"></a>
 

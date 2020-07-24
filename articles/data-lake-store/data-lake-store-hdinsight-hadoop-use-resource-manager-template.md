@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 593edecd2cc1bbdd3627430af41c64be4d6a022b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 33c54738b1ab3c90118c86bbf78bdcc3348658e0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85508643"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87048722"
 ---
 # <a name="create-an-hdinsight-cluster-with-azure-data-lake-storage-gen1-using-azure-resource-manager-template"></a>Tworzenie klastra usługi HDInsight z Azure Data Lake Storage Gen1 przy użyciu szablonu Azure Resource Manager
 > [!div class="op_single_selector"]
@@ -43,7 +43,7 @@ W tym artykule opisano obsługę klastra Hadoop z Data Lake Storage Gen1 jako do
 Przed przystąpieniem do wykonania kroków opisanych w tym samouczku należy dysponować następującymi elementami:
 
 * **Subskrypcja platformy Azure**. Zobacz temat [Uzyskiwanie bezpłatnej wersji próbnej platformy Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Program Azure PowerShell 1.0 lub nowszy**. Zobacz artykuł [Instalowanie i konfigurowanie programu Azure PowerShell](/powershell/azure/overview).
+* **Program Azure PowerShell 1.0 lub nowszy**. Zobacz artykuł [Instalowanie i konfigurowanie programu Azure PowerShell](/powershell/azure/).
 * **Azure Active Directory nazwę główną usługi**. Kroki opisane w tym samouczku zawierają instrukcje dotyczące tworzenia nazwy głównej usługi w usłudze Azure AD. Jednak aby utworzyć jednostkę usługi, należy mieć uprawnienia administratora usługi Azure AD. Jeśli jesteś administratorem usługi Azure AD, możesz pominąć to wymaganie wstępne i kontynuować pracę z samouczkiem.
 
     **Jeśli nie jesteś administratorem usługi Azure AD**, nie będziesz w stanie wykonać kroków wymaganych do utworzenia nazwy głównej usługi. W takim przypadku administrator usługi Azure AD musi najpierw utworzyć jednostkę usługi, aby można było utworzyć klaster HDInsight z Data Lake Storage Gen1. Ponadto należy utworzyć nazwę główną usługi przy użyciu certyfikatu, zgodnie z opisem w temacie [Tworzenie jednostki usługi z certyfikatem](../active-directory/develop/howto-authenticate-service-principal-powershell.md#create-service-principal-with-certificate-from-certificate-authority).
@@ -99,7 +99,7 @@ Aby uzyskać więcej informacji na temat korzystania z tego polecenia, zobacz [U
    SELECT * FROM vehicles LIMIT 10;
    ```
 
-   Powinny zostać wyświetlone dane wyjściowe podobne do następujących:
+   Wyświetlone dane wyjściowe powinny przypominać następujące dane:
 
    ```
    1,1,2014-09-14 00:00:03,46.81006,-92.08174,51,S,1

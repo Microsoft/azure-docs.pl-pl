@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: dannyevers
 ms.author: mingshen
 ms.date: 04/13/2020
-ms.openlocfilehash: aee2016b422dcf447dbae047c8a77ae93bf79ab7
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 5bed073799521498efe5302ab9af616dcdf9f9ab
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86107159"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87053569"
 ---
 # <a name="create-your-azure-virtual-machine-technical-assets"></a>Tworzenie zasobów technicznych maszyny wirtualnej platformy Azure
 
@@ -43,7 +43,7 @@ Projektowanie, kompilowanie i testowanie tych zasobów zabiera czas i wymaga zna
 
 Rozważ użycie jednego z następujących środowisk skryptów, aby ułatwić zarządzanie maszynami wirtualnymi i dyskami VHD:
 
-* [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
+* [Azure PowerShell](https://docs.microsoft.com/powershell/azure/)
 * [Interfejs wiersza polecenia platformy Azure](https://code.visualstudio.com/)
 
 Dodatkowo rozważ dodanie następujących narzędzi do środowiska deweloperskiego:
@@ -125,7 +125,7 @@ W tym artykule szczegółowo przedstawiono sposób korzystania z wbudowanej obs�
 
 Aby nawiązać połączenie z maszyną wirtualną z systemem Linux, musisz mieć klienta Secure Shell Protocol (SSH). W poniższych krokach [użyto bezpłatnego](https://www.ssh.com/ssh/putty/) terminala prywatnego.
 
-1. Przejdź do [Azure Portal](https://ms.portal.azure.com/).
+1. Przejdź do witryny [Azure Portal](https://ms.portal.azure.com/).
 2. Wyszukaj i wybierz pozycję **maszyny wirtualne**.
 3. Wybierz maszynę wirtualną, z którą chcesz nawiązać połączenie.
 4. Uruchom maszynę wirtualną, jeśli jeszcze nie działa.

@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 03/09/2020
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 79f2df0f94b212ea45c01c825b23f1dbb4cc40db
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6715014485b227713447ce5d552cf7ba79737845
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80582288"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87053214"
 ---
 # <a name="scaling-media-processing"></a>Skalowanie przetwarzania multimediów
 
@@ -37,7 +37,7 @@ Poniższa tabela ułatwia podejmowanie decyzji podczas wybierania różnych szyb
 | **S2**|Pojedyncza szybkość transmisji bitów i kodowanie wielu szybkości transmisji bitów.<br/>Normalne użycie zarówno dla kodowania SD, jak i HD.|Kodowanie z ustawieniem "wielokrotna H264 Single szybkość transmisji bitów 720" zajmuje około 6 minut.<br/><br/>Kodowanie za pomocą ustawienia "wielokrotna H264 o wielu szybkościach transmisji bitów" zajmuje około 12 minut.|
 | **S3**|Pojedyncza szybkość transmisji bitów i kodowanie wielu szybkości transmisji bitów.<br/>Pełne wideo o rozdzielczości HD i 4K. Czuły czasowo, szybsze kodowanie szybkością oferowaną.|Kodowanie z ustawieniem "wielokrotna H264 Single szybkość transmisji bitów 1080p" zajmuje około 3 minuty.<br/><br/>Kodowanie za pomocą ustawienia "wielokrotna H264 Multiple szybkość transmisji bitów 1080p" zajmuje około 8 minut.|
 
-## <a name="considerations"></a>Istotne zagadnienia
+## <a name="considerations"></a>Zagadnienia do rozważenia
 
 * W przypadku zadań analizy audio i analizy wideo, które są wyzwalane przez Media Services v3 lub Video Indexer, jest zdecydowanie zalecane.
 * W przypadku używania puli udostępnionej, czyli bez żadnych jednostek zarezerwowanych, zadania kodowania mają taką samą wydajność jak w przypadku S1 jednostek ru. Nie istnieje jednak Górna granica czasu, w którym zadania mogą być spędzane w stanie umieszczonym w kolejce, a w dowolnym momencie tylko jedno zadanie zostanie uruchomione.
@@ -49,7 +49,7 @@ W pozostałej części artykułu pokazano, jak używać [interfejsu wiersza pole
 
 ## <a name="prerequisites"></a>Wymagania wstępne 
 
-[Utwórz konto Media Services](create-account-cli-how-to.md).
+[Utwórz konto Media Services](./create-account-howto.md).
 
 [!INCLUDE [media-services-cli-instructions](../../../includes/media-services-cli-instructions.md)]
 
@@ -57,7 +57,7 @@ W pozostałej części artykułu pokazano, jak używać [interfejsu wiersza pole
 
 Uruchom polecenie `mru`.
 
-Następujące polecenie [AZ AMS Account MRU](https://docs.microsoft.com/cli/azure/ams/account/mru?view=azure-cli-latest) ustawia jednostki zarezerwowane multimediów na koncie "amsaccount" przy użyciu parametrów **Count** i **Type** .
+Następujące polecenie [AZ AMS Account MRU](/cli/azure/ams/account/mru?view=azure-cli-latest) ustawia jednostki zarezerwowane multimediów na koncie "amsaccount" przy użyciu parametrów **Count** i **Type** .
 
 ```azurecli
 az ams account mru set -n amsaccount -g amsResourceGroup --count 10 --type S3
@@ -71,7 +71,7 @@ Opłata jest naliczana na podstawie liczby minut, w ciągu których zainicjowano
 
 [Analizowanie wideo](analyze-videos-tutorial-with-api.md) 
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 * [Limity przydziału i ograniczenia](limits-quotas-constraints.md)
-* [Interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)
+* [Interfejs wiersza polecenia platformy Azure](/cli/azure/ams?view=azure-cli-latest)

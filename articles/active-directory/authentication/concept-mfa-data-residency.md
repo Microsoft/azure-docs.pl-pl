@@ -5,17 +5,18 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 04/13/2020
+ms.date: 07/14/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: sasubram
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2a75e9d5c8501274553edef36b475b2bd21b7875
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ee4b15311dfefecd9a533add9c5a028a9b7b22fd
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83738805"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87051169"
 ---
 # <a name="data-residency-and-customer-data-for-azure-multi-factor-authentication"></a>Dane dotyczące miejsca zamieszkania i klienta dla Multi-Factor Authentication platformy Azure
 

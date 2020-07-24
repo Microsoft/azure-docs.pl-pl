@@ -4,11 +4,12 @@ description: Migawki debugowania są automatycznie zbierane, gdy wyjątki są zg
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.reviewer: cweining
-ms.openlocfilehash: 18f43ba90157d71ec9488b6858fa9f41b2ee42a5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c920ab019d5d802ea862ab923297670da766a456
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84692023"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87049685"
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Debugowanie migawek wyjątków w aplikacjach .NET
 Gdy wystąpi wyjątek, można automatycznie zebrać migawkę debugowania z działającej aplikacji sieci Web. Migawka pokazuje stan kodu źródłowego i zmienne w momencie, gdy wyjątek został zgłoszony. Snapshot Debugger w [usłudze Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) monitoruje dane telemetryczne wyjątku z aplikacji sieci Web. Zbiera migawki na najważniejszych wyjątkach, aby uzyskać informacje potrzebne do diagnozowania problemów w środowisku produkcyjnym. Dołącz [pakiet NuGet modułu zbierającego migawki](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) do aplikacji i opcjonalnie Skonfiguruj parametry kolekcji w [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md). Migawki są wyświetlane na [wyjątkach](../../azure-monitor/app/asp-net-exceptions.md) w portalu Application Insights.
@@ -37,7 +38,7 @@ Jeśli włączono Snapshot Debugger, ale nie widzisz migawek, zapoznaj się [z n
 
 ## <a name="grant-permissions"></a>Udzielenie uprawnień
 
-Dostęp do migawek jest chroniony przez kontrolę dostępu opartą na rolach (RBAC). Aby przeprowadzić inspekcję migawki, należy najpierw dodać do niezbędnej roli właściciela subskrypcji.
+Dostęp do migawek jest chroniony przez kontrolę dostępu na podstawie ról (RBAC). Aby przeprowadzić inspekcję migawki, najpierw właściciel subskrypcji musi Cię dodać do niezbędnej roli.
 
 > [!NOTE]
 > Właściciele i współautorzy nie mają tej roli automatycznie. Jeśli chcesz wyświetlić migawki, muszą dodać siebie do roli.
@@ -45,7 +46,7 @@ Dostęp do migawek jest chroniony przez kontrolę dostępu opartą na rolach (RB
 Właściciele subskrypcji powinni przypisać `Application Insights Snapshot Debugger` rolę do użytkowników, którzy będą przeprowadzali inspekcję migawek. Tę rolę można przypisać do poszczególnych użytkowników lub grup według właścicieli subskrypcji dla docelowego zasobu Application Insights lub jego grupy zasobów lub subskrypcji.
 
 1. Przejdź do zasobu Application Insights w Azure Portal.
-1. Kliknij pozycję **Kontrola dostępu (IAM)** .
+1. Kliknij pozycję **Kontrola dostępu (IAM)**.
 1. Kliknij przycisk **+ Dodaj przypisanie roli** .
 1. Wybierz pozycję **Application Insights Snapshot Debugger** z listy rozwijanej **role** .
 1. Wyszukaj i wprowadź nazwę użytkownika, który ma zostać dodany.
@@ -88,7 +89,7 @@ Snapshot Collector jest implementowana jako [procesor Telemetria usługi Applica
 Za każdym razem, gdy aplikacja wywołuje element [trackexception](../../azure-monitor/app/asp-net-exceptions.md#exceptions), Snapshot Collector oblicza identyfikator problemu na podstawie typu zgłaszanego wyjątku i metody zgłaszania.
 Za każdym razem, gdy aplikacja wywołuje metodę Trackexception, licznik jest zwiększany dla odpowiedniego identyfikatora problemu. Gdy licznik osiągnie `ThresholdForSnapshotting` wartość, identyfikator problemu zostanie dodany do planu kolekcji.
 
-Snapshot Collector również monitoruje wyjątki, ponieważ są zgłaszane przez zasubskrybowanie zdarzenia [AppDomain. CurrentDomain —. FirstChanceException](https://docs.microsoft.com/dotnet/api/system.appdomain.firstchanceexception) . Gdy zdarzenie zostanie wyzwolone, identyfikator problemu wyjątku jest obliczany i porównywany z identyfikatorami problemów w planie kolekcji.
+Snapshot Collector również monitoruje wyjątki, ponieważ są zgłaszane przez zasubskrybowanie zdarzenia [AppDomain. CurrentDomain —. FirstChanceException](/dotnet/api/system.appdomain.firstchanceexception) . Gdy zdarzenie zostanie wyzwolone, identyfikator problemu wyjątku jest obliczany i porównywany z identyfikatorami problemów w planie kolekcji.
 Jeśli istnieje dopasowanie, tworzona jest migawka uruchomionego procesu. Do migawki jest przypisany unikatowy identyfikator, a wyjątek jest sygnaturą tego identyfikatora. Po powrocie procedury obsługi FirstChanceException, zgłoszony wyjątek jest przetwarzany jako normalny. Ostatecznie wyjątek osiągnie metodę Trackexception, a wraz z identyfikatorem migawki jest raportowany do Application Insights.
 
 Główny proces nadal działa i obsługuje ruch do użytkowników z małym zakłóceniem. W tym czasie migawka jest przekazana do procesu obiektu przekazującego migawek. Migawka obiektu przekazującego tworzy minizrzutu i przekazuje ją do Application Insights wraz z wszelkimi odpowiednimi plikami symboli (. pdb).
@@ -116,7 +117,7 @@ Wersja 15,2 (lub nowsza) programu Visual Studio 2017 publikuje symbole dla kompi
 W przypadku obliczeń na platformie Azure i innych typów upewnij się, że pliki symboli znajdują się w tym samym folderze głównej aplikacji. dll (zazwyczaj `wwwroot/bin` ) lub są dostępne w bieżącej ścieżce.
 
 > [!NOTE]
-> Więcej informacji o różnych opcjach symboli dostępnych można znaleźć w [dokumentacji programu Visual Studio](https://docs.microsoft.com/visualstudio/ide/reference/advanced-build-settings-dialog-box-csharp?view=vs-2019#output
+> Więcej informacji o różnych opcjach symboli dostępnych można znaleźć w [dokumentacji programu Visual Studio](/visualstudio/ide/reference/advanced-build-settings-dialog-box-csharp?view=vs-2019#output
 ). Aby uzyskać najlepsze wyniki, zalecamy użycie "Full", "Portable" lub "Embedded".
 
 ### <a name="optimized-builds"></a>Zoptymalizowane kompilacje
@@ -137,6 +138,6 @@ Włącz Snapshot Debugger Application Insights dla aplikacji:
 
 Poza Application Insights Snapshot Debugger:
  
-* [Ustaw punkty przyciągania w kodzie](https://docs.microsoft.com/visualstudio/debugger/debug-live-azure-applications) , aby uzyskać migawki bez oczekiwania na wyjątek.
+* [Ustaw punkty przyciągania w kodzie](/visualstudio/debugger/debug-live-azure-applications) , aby uzyskać migawki bez oczekiwania na wyjątek.
 * [Diagnozuj wyjątki w aplikacjach sieci Web](../../azure-monitor/app/asp-net-exceptions.md) wyjaśnia, jak zwiększyć liczbę wyjątków widocznych dla Application Insights.
 * [Inteligentne wykrywanie](../../azure-monitor/app/proactive-diagnostics.md) automatycznie wykrywa anomalie wydajności.

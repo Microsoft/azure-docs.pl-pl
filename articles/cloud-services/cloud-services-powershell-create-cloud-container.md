@@ -11,12 +11,12 @@ ms.tgt_pltfrm: powershell
 ms.workload: na
 ms.date: 11/18/2016
 ms.author: cawa
-ms.openlocfilehash: ef9d3c7c479df9c71a855f0a243b5b9d0da947d7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d40a5b64cc8018f45bf08158ce808b2baae27962
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "68359505"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87049092"
 ---
 # <a name="use-an-azure-powershell-command-to-create-an-empty-cloud-service-container"></a>Użyj Azure PowerShell polecenia, aby utworzyć pusty kontener usługi w chmurze
 
@@ -24,10 +24,10 @@ W tym artykule wyjaśniono, jak szybko utworzyć kontener Cloud Services przy u�
 
 1. Na stronie [pliki do pobrania Azure PowerShell](https://aka.ms/webpi-azps) Zainstaluj polecenie cmdlet Microsoft Azure PowerShell.
 2. Otwórz wiersz polecenia programu PowerShell.
-3. Aby się zalogować, użyj [dodatku Add-AzureAccount](/powershell/module/servicemanagement/azure/add-azureaccount?view=azuresmps-4.0.0) .
+3. Aby się zalogować, użyj [dodatku Add-AzureAccount](/powershell/module/servicemanagement/azure.service/add-azureaccount?view=azuresmps-4.0.0) .
 
    > [!NOTE]
-   > Dalsze instrukcje dotyczące instalowania Azure PowerShell polecenia cmdlet i nawiązywania połączenia z subskrypcją platformy Azure można znaleźć w [tematach Instalowanie i konfigurowanie Azure PowerShell](/powershell/azure/overview).
+   > Dalsze instrukcje dotyczące instalowania Azure PowerShell polecenia cmdlet i nawiązywania połączenia z subskrypcją platformy Azure można znaleźć w [tematach Instalowanie i konfigurowanie Azure PowerShell](/powershell/azure/).
    >
    >
 4. Użyj polecenia cmdlet **New-AzureService** , aby utworzyć pusty kontener usługi w chmurze platformy Azure.
@@ -51,5 +51,5 @@ Get-help New-AzureService
 
 ### <a name="next-steps"></a>Następne kroki
 
-* Aby zarządzać wdrożeniem usługi w chmurze, zobacz polecenia [Get-AzureService](/powershell/module/servicemanagement/azure/Get-AzureService?view=azuresmps-4.0.0), [Remove-AzureService](/powershell/module/servicemanagement/azure/Remove-AzureService?view=azuresmps-4.0.0)i [Set-AzureService](/powershell/module/servicemanagement/azure/set-azureservice?view=azuresmps-4.0.0) . Możesz również zapoznać się z artykułem [jak skonfigurować usługi w chmurze](cloud-services-how-to-configure-portal.md) pod kątem dalszych informacji.
+* Aby zarządzać wdrożeniem usługi w chmurze, zobacz polecenia [Get-AzureService](/powershell/module/servicemanagement/azure.service/Get-AzureService?view=azuresmps-4.0.0), [Remove-AzureService](/powershell/module/servicemanagement/azure.service/Remove-AzureService?view=azuresmps-4.0.0)i [Set-AzureService](/powershell/module/servicemanagement/azure.service/set-azureservice?view=azuresmps-4.0.0) . Możesz również zapoznać się z artykułem [jak skonfigurować usługi w chmurze](cloud-services-how-to-configure-portal.md) pod kątem dalszych informacji.
 * Aby opublikować projekt usługi w chmurze na platformie Azure, zapoznaj się z przykładowym kodem **PublishCloudService.ps1** z [zarchiwizowanego repozytorium usług Cloud Services](https://github.com/MicrosoftDocs/azure-cloud-services-files/tree/master/Scripts/cloud-services-continuous-delivery).

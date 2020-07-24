@@ -7,11 +7,13 @@ ms.topic: how-to
 ms.date: 06/09/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: ff012dc78f3981b6fb5fdbd8a5bde45083dd997b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: references_regions
+ms.openlocfilehash: 4844f3e34a6b49559affbb4d4ed7bc5b5e38e538
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84699434"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87050360"
 ---
 # <a name="move-analysis-services-to-a-different-region"></a>Przenieś Analysis Services do innego regionu
 
@@ -50,9 +52,9 @@ Przed przeniesieniem serwera do innego regionu zaleca się utworzenie planu szcz
 
 - **Konto usługi Azure Storage**: wymagane do przechowywania pliku kopii zapasowej. abf.
 - **SQL Server Management Studio (SSMS)**: wymagane do tworzenia kopii zapasowych i przywracania baz danych modeli.
-- **Azure PowerShell**. Wymagane tylko w przypadku wybrania tego zadania przy użyciu programu PowerShell.
+- Zainstalowanie programu **Azure PowerShell**. Wymagane tylko w przypadku wybrania tego zadania przy użyciu programu PowerShell.
 
-## <a name="prepare"></a>Przygotowanie
+## <a name="prepare"></a>Przygotowywanie
 
 ### <a name="backup-model-databases"></a>Tworzenie kopii zapasowych baz danych modelu
 
@@ -264,7 +266,7 @@ Opcjonalne: po przywróceniu bazy danych modelu przetwórz model i tabele, aby o
 
 2. Rozwiń węzeł **tabele**, kliknij prawym przyciskiem myszy tabelę. W **tabeli procesów**zaznacz opcję Wszystkie tabele, a następnie wybierz przycisk **OK**.
 
-## <a name="verify"></a>Weryfikuj
+## <a name="verify"></a>Weryfikacja
 
 1. W portalu przejdź do nowego serwera docelowego.
 

@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 06/23/2020
 ms.author: mimart
 ms.reviewer: arvinh
-ms.openlocfilehash: 78a56b6a848139c47d7934a47decb126afe00b7a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7799e873afb117481cebafd982df59a3267f4405
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85297532"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87051553"
 ---
 # <a name="on-demand-provisioning"></a>Inicjowanie obsługi na żądanie
 Inicjowanie obsługi na żądanie umożliwia udostępnianie Użytkownikowi aplikacji w ciągu kilku sekund. Można użyć możliwości, aby szybko rozwiązywać problemy z konfiguracją, sprawdzać poprawność określonych wyrażeń, filtrów zakresu testów i wiele innych. 
@@ -30,6 +30,8 @@ Inicjowanie obsługi na żądanie umożliwia udostępnianie Użytkownikowi aplik
 5. Kliknij pozycję **Zainicjuj obsługę na żądanie**.
 6. Wyszukaj użytkownika według imienia, imienia, nazwiska, nazwy wyświetlanej, nazwy głównej użytkownika lub poczty e-mail.
 7. Wybierz pozycję Udostępnij w dolnej części strony.
+
+:::image type="content" source="media/provision-on-demand/on-demand-provision-user.jpg" alt-text="Zainicjuj obsługę administracyjną na żądanie użytkownika.":::
 
 ## <a name="understanding-the-provisioning-steps"></a>Opis kroków aprowizacji
 Funkcja aprowizacji na żądanie próbuje wyświetlić kroki podejmowane przez usługę aprowizacji podczas aprowizacji użytkownika. Zwykle pięć kroków do aprowizacji użytkownika, a co najmniej jeden z poniższych kroków zostanie wyświetlony w środowisku udostępniania na żądanie.
@@ -88,6 +90,8 @@ Na stronach Wyświetl szczegóły są wyświetlane właściwości użytkowników
 ### <a name="step-5-perform-action"></a>Krok 5. wykonywanie akcji
 Na koniec usługa aprowizacji wykonuje akcję, taką jak tworzenie, aktualizowanie, usuwanie lub pomijanie użytkownika. 
 
+:::image type="content" source="media/provision-on-demand/success-on-demand-provision.jpg" alt-text="Pomyślne inicjowanie obsługi użytkownika.":::
+
 **Wyświetl szczegóły**
 
 Sekcja Wyświetl szczegóły zawiera atrybuty, które zostały zmodyfikowane w aplikacji docelowej. Reprezentuje końcowe dane wyjściowe działania usługi aprowizacji i wyeksportowane atrybuty. Jeśli ten krok zakończy się niepowodzeniem, wyświetlane atrybuty reprezentują atrybuty, które usługa aprowizacji próbowała zmodyfikować.  
@@ -102,11 +106,11 @@ Sekcja Wyświetl szczegóły zawiera atrybuty, które zostały zmodyfikowane w a
 **Jak długo trwa inicjowanie obsługi na żądanie?** Zwykle trwa mniej niż 30 sekund. 
 
 ## <a name="known-limitations"></a>Znane ograniczenia
-Dzisiaj istnieje kilka znanych ograniczeń. Po opublikowaniu w usłudze [UserVoice](https://aka.ms/appprovisioningfeaturerequest) będziemy mogli lepiej określić priorytety ulepszeń, które należy wprowadzić dalej. Należy pamiętać, że te ograniczenia są specyficzne dla możliwości aprowizacji na żądanie. Aby uzyskać szczegółowe informacje o tym, czy aplikacja obsługuje grupy aprowizacji, usunięcia itp., należy zapoznać się z samouczkiem dotyczącym aplikacji. 
+Dzisiaj istnieje kilka znanych ograniczeń. Opublikuj na [głos użytkownika](https://aka.ms/appprovisioningfeaturerequest) , aby lepiej określić priorytety ulepszeń, które należy wprowadzić dalej. Należy pamiętać, że te ograniczenia są specyficzne dla możliwości aprowizacji na żądanie. Aby uzyskać szczegółowe informacje o tym, czy aplikacja obsługuje grupy aprowizacji, usunięcia itp., należy zapoznać się z samouczkiem dotyczącym aplikacji. 
 
 * Aplikacje Workday, AWS i SuccessFactors nie obsługują aprowizacji na żądanie.
 * Inicjowanie obsługi administracyjnej grup i ról na żądanie nie jest obsługiwane.
-* Wyłączenie lub usunięcie użytkowników i grup nie jest obsługiwane.
+* Inicjowanie obsługi na żądanie obsługuje wyłączanie użytkowników, którzy zostali przypisani z aplikacji, ale nie obsługują wyłączania ani usuwania użytkowników, którzy zostali usunięci lub usunięci z Azure Active Directory (Ci użytkownicy nie będą wyświetlani podczas wyszukiwania użytkownika).
 
 ## <a name="next-steps"></a>Następne kroki
 

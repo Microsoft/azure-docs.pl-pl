@@ -13,16 +13,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: fa0cf5d698bc2186928e0db19be173ec725485e8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0eec42c0703e7158b478b8297848dc2ee6735cb8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80985936"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87047551"
 ---
 # <a name="scenarios-and-availability-of-media-services-features-across-datacenters"></a>Scenariusze i dostępność funkcji usługi Media Services w centrach danych
 
 > [!NOTE]
-> Do usługi Media Services w wersji 2 nie są już dodawane żadne nowe funkcje. <br/>Zapoznaj się z najnowszą wersją [Media Services wersja 3](https://docs.microsoft.com/azure/media-services/latest/). Zobacz też [wskazówki dotyczące migracji od wersji 2 do V3](../latest/migrate-from-v2-to-v3.md)
+> Do usługi Media Services w wersji 2 nie są już dodawane żadne nowe funkcje. <br/>Zapoznaj się z najnowszą wersją [Media Services wersja 3](../latest/index.yml). Zobacz też [wskazówki dotyczące migracji od wersji 2 do V3](../latest/migrate-from-v2-to-v3.md)
 
 Usługa Microsoft Azure Media Services (AMS) umożliwia bezpieczne przekazywanie, przechowywanie, kodowanie i tworzenie pakietów zawartości wideo lub audio na potrzeby transmisji strumieniowej na żądanie i na żywo do różnych klientów (np. odbiorników TV, komputerów i urządzeń przenośnych).
 
@@ -158,7 +159,7 @@ Klienci usługi AMS mogą skalować punkty końcowe przesyłania strumieniowego,
     >Jednostki zarezerwowane przekształcają wszystkie operacje przetwarzania multimediów do postaci równoległej, uwzględniając zadania Indeksowania za pomocą usługi Azure Media Indexer. Jednak w przeciwieństwie do kodowania zadania indeksowania nie są przetwarzane szybciej przy użyciu szybszych jednostek zarezerwowanych.
 
     Aby uzyskać więcej informacji, zobacz [Skalowanie przetwarzania multimediów](media-services-portal-scale-media-processing.md).
-* Możliwe jest także skalowanie konta usługi Media Services przez dodanie do niego kont magazynu. Pojemność każdego konta magazynu jest ograniczona do 500 TB. Aby rozszerzyć pojemność magazynu poza ograniczenia domyślne, można dołączyć wiele kont magazynu do jednego konta usługi Media Services. Aby uzyskać więcej informacji, zobacz temat [Zarządzanie kontami magazynu](meda-services-managing-multiple-storage-accounts.md).
+* Możliwe jest także skalowanie konta usługi Media Services przez dodanie do niego kont magazynu. Pojemność każdego konta magazynu jest ograniczona do 500 TB. Aby rozszerzyć pojemność magazynu poza ograniczenia domyślne, można dołączyć wiele kont magazynu do jednego konta usługi Media Services. Aby uzyskać więcej informacji, zobacz temat [Zarządzanie kontami magazynu](./media-services-managing-multiple-storage-accounts.md).
 
 ## <a name="availability-of-media-services-features-across-datacenters"></a><a id="availability"></a>Dostępność funkcji usługi Media Services w centrach danych
 
@@ -178,7 +179,7 @@ Klienci usługi Media Services mogą wybrać **Standardowy** punkt końcowy prze
 
 |Nazwa|Stan|Centra danych
 |---|---|---|
-|Standardowa (Standard)|Ogólna dostępność|Wszystko|
+|Standard|Ogólna dostępność|Wszystko|
 |Premium|Ogólna dostępność|Wszystko|
 
 ### <a name="live-encoding"></a>Kodowanie na żywo
@@ -224,7 +225,7 @@ Usługi Microsoft Azure Media Services umożliwiają zabezpieczenie multimediów
 
 |Szyfrowanie|Stan|Centra danych|
 |---|---|---| 
-|Magazyn|Ogólna dostępność|Wszystko|
+|Storage|Ogólna dostępność|Wszystko|
 |Klucze AES-128|Ogólna dostępność|Wszystko|
 |FairPlay|Ogólna dostępność|Wszystko|
 |PlayReady|Ogólna dostępność|Wszystko|
@@ -266,4 +267,3 @@ Przejrzyj ścieżki szkoleniowe dotyczące usługi Media Services.
 
 ## <a name="provide-feedback"></a>Wyraź opinię
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
-

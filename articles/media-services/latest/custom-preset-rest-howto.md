@@ -12,18 +12,18 @@ ms.topic: article
 ms.custom: ''
 ms.date: 05/14/2019
 ms.author: juliako
-ms.openlocfilehash: 30e22cb786e5dc2a667fe41ca8edf398cf0b7613
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4bd092dbee09a783dcbd6e36c82a70ff5decaf83
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "65761792"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87053325"
 ---
 # <a name="how-to-encode-with-a-custom-transform---rest"></a>Jak kodować przy użyciu niestandardowej transformacji
 
 Przy kodowaniu przy użyciu Azure Media Services można szybko rozpocząć pracę z jednym z zalecanych wbudowanych ustawień wstępnych, opartych na najlepszych rozwiązaniach branżowych, jak pokazano w samouczku [pliki przesyłania strumieniowego](stream-files-tutorial-with-rest.md#create-a-transform) . Możesz również utworzyć niestandardowe ustawienie wstępne, aby określić wymagania dotyczące określonego scenariusza lub urządzenia.
 
-## <a name="considerations"></a>Istotne zagadnienia
+## <a name="considerations"></a>Zagadnienia do rozważenia
 
 Podczas tworzenia niestandardowych ustawień wstępnych są stosowane następujące zagadnienia:
 
@@ -32,7 +32,7 @@ Podczas tworzenia niestandardowych ustawień wstępnych są stosowane następuj�
 
 ## <a name="prerequisites"></a>Wymagania wstępne 
 
-- [Utwórz konto Media Services](create-account-cli-how-to.md). <br/>Pamiętaj, aby zapamiętać nazwę grupy zasobów i nazwę konta Media Services. 
+- [Utwórz konto Media Services](./create-account-howto.md). <br/>Pamiętaj, aby zapamiętać nazwę grupy zasobów i nazwę konta Media Services. 
 - [Skonfiguruj funkcję publikowania dla Azure Media Services wywołań interfejsu API REST](media-rest-apis-with-postman.md).<br/>Pamiętaj, aby postępować zgodnie z ostatnim krokiem w temacie [pobieranie tokenu usługi Azure AD](media-rest-apis-with-postman.md#get-azure-ad-token). 
 
 ## <a name="define-a-custom-preset"></a>Definiowanie niestandardowego ustawienia wstępnego
@@ -133,7 +133,7 @@ W tym przykładzie najpierw dodamy warstwę AacAudio dla kodowania audio i dwóc
 
 ## <a name="create-a-new-transform"></a>Utwórz nowe przekształcenie  
 
-W tym przykładzie utworzysz **transformację** opartą na niestandardowym ustawieniu wstępnym zdefiniowanym wcześniej. Podczas tworzenia transformacji należy najpierw użyć opcji [Get](https://docs.microsoft.com/rest/api/media/transforms/get) do sprawdzenia, czy już istnieje. Jeśli transformacja istnieje, użyj jej ponownie. 
+W tym przykładzie utworzysz **transformację** opartą na niestandardowym ustawieniu wstępnym zdefiniowanym wcześniej. Podczas tworzenia transformacji należy najpierw użyć opcji [Get](/rest/api/media/transforms/get) do sprawdzenia, czy już istnieje. Jeśli transformacja istnieje, użyj jej ponownie. 
 
 W pobranej kolekcji programu Poster wybierz pozycję **transformacje i zadania** -> **Utwórz lub zaktualizuj transformację**.
 
@@ -151,4 +151,4 @@ Aby Media Services zastosować transformację do określonego wideo lub audio, n
 
 ## <a name="next-steps"></a>Następne kroki
 
-Zobacz [inne operacje REST](https://docs.microsoft.com/rest/api/media/)
+Zobacz [inne operacje REST](/rest/api/media/)

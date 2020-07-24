@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 03/07/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: b08509bed6b26cb56caebd4dc47fc3b7ac84ce27
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a8138f125c55e3b2d76cb680ea48366c5a3e05fd
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85117322"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87051524"
 ---
 # <a name="build-a-scim-endpoint-and-configure-user-provisioning-with-azure-ad"></a>Tworzenie punktu końcowego Standard scim i Konfigurowanie aprowizacji użytkowników przy użyciu usługi Azure AD
 
@@ -55,12 +55,12 @@ Każda aplikacja wymaga innych atrybutów do utworzenia użytkownika lub grupy. 
 |loginName|userName|userPrincipalName|
 |firstName|Nazwa. imię|givenName|
 |lastName|Nazwa. lastName|lastName|
-|workMail|Wiadomości e-mail [Type EQ "Work"]. Value|Mail|
+|workMail|Wiadomości e-mail [Type EQ "Work"]. Value|Poczta|
 |manager|manager|manager|
 |tag|urn: IETF: params: Standard scim: schematy: rozszerzenie: 2.0: CustomExtension: tag|extensionAttribute1|
 |status|aktywne|isSoftDeleted (obliczona wartość nie jest przechowywana na użytkowniku)|
 
-Schemat zdefiniowany powyżej zostałby przedstawiony przy użyciu ładunku JSON poniżej. Należy pamiętać, że oprócz atrybutów wymaganych dla aplikacji, reprezentacja JSON zawiera wymagane atrybuty "ID", "externalId" i "meta".
+Schemat zdefiniowany powyżej zostałby przedstawiony przy użyciu ładunku JSON poniżej. Należy pamiętać, że oprócz atrybutów wymaganych dla aplikacji, reprezentacja JSON zawiera wymagane `id` `externalId` atrybuty, i `meta` .
 
 ```json
 {
@@ -100,7 +100,7 @@ Następnie można użyć poniższej tabeli, aby zrozumieć, w jaki sposób atryb
 |IDPracownika|urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: employeeNumber|
 | Faks-numer telefonu |numer telefonu [typ EQ "Fax"]. wartość |
 | givenName |Nazwa. imię |
-| Stanowiska |tytuł |
+| Stanowiska |title |
 | mail (poczta) |wiadomości e-mail [Type EQ "Work"]. Value |
 | mailNickname |externalId |
 | manager |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Manager |
@@ -134,7 +134,7 @@ Istnieje kilka punktów końcowych zdefiniowanych w Standard scim RFC. Możesz r
 |/Group|Wykonywanie operacji CRUD na obiekcie grupy.|
 |/ServiceProviderConfig|Zawiera szczegółowe informacje na temat funkcji obsługiwanego standardu Standard scim, na przykład obsługiwanych zasobów i metody uwierzytelniania.|
 |/ResourceTypes|Określa metadane dotyczące poszczególnych zasobów|
-|/Schemas|Zestaw atrybutów obsługiwanych przez każdego klienta i dostawcę usług może się różnić. Chociaż jeden dostawca usług może zawierać "name", "title" i "e-mail", podczas gdy inny dostawca usług używa "name", "title" i "numerówek". Punkt końcowy schematów umożliwia odnajdywanie obsługiwanych atrybutów.|
+|/Schemas|Zestaw atrybutów obsługiwanych przez każdego klienta i dostawcę usług może się różnić. Jeden dostawca usług może obejmować `name` , `title` , i `emails` , podczas gdy inny dostawca usług używa `name` , `title` , i `phoneNumbers` . Punkt końcowy schematów umożliwia odnajdywanie obsługiwanych atrybutów.|
 |/Bulk|Operacje zbiorcze umożliwiają wykonywanie operacji na dużej kolekcji obiektów zasobów w ramach jednej operacji (np. aktualizacji członkostwa w dużej grupie).|
 
 
@@ -149,7 +149,7 @@ W [specyfikacji protokołu standard scim 2,0](http://www.simplecloud.info/#Speci
 * Obsługuje tworzenie użytkowników, a także grupy, zgodnie z sekcją [3,3 protokołu Standard scim](https://tools.ietf.org/html/rfc7644#section-3.3).  
 * Obsługuje modyfikowanie użytkowników lub grup przy użyciu żądań poprawek, zgodnie z [sekcją 3.5.2 protokołu Standard scim](https://tools.ietf.org/html/rfc7644#section-3.5.2).  
 * Obsługuje pobieranie znanego zasobu dla użytkownika lub grupy utworzonej wcześniej, zgodnie [z sekcją 1 protokołu Standard scim](https://tools.ietf.org/html/rfc7644#section-3.4.1).  
-* Obsługuje kwerendy użytkowników lub grup, zgodnie z sekcją [3.4.2 protokołu Standard scim](https://tools.ietf.org/html/rfc7644#section-3.4.2).  Domyślnie użytkownicy są pobierani przez ich i sprawdzani według `id` ich `username` , a `externalid` grupy są pytani przez `displayName` .  
+* Obsługuje kwerendy użytkowników lub grup, zgodnie z sekcją [3.4.2 protokołu Standard scim](https://tools.ietf.org/html/rfc7644#section-3.4.2).  Domyślnie użytkownicy są pobierani przez ich i sprawdzani według `id` ich `username` , a `externalId` grupy są pytani przez `displayName` .  
 * Obsługuje zapytania użytkownika według identyfikatora i Menedżera, zgodnie z sekcją 3.4.2 protokołu Standard scim.  
 * Obsługuje wykonywanie zapytań względem grup według identyfikatorów i elementów członkowskich, zgodnie z sekcją 3.4.2 protokołu Standard scim.  
 * Akceptuje pojedynczy token okaziciela na potrzeby uwierzytelniania i autoryzacji usługi Azure AD w aplikacji.
@@ -224,7 +224,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 
 #### <a name="create-user"></a>Utwórz użytkownika
 
-###### <a name="request"></a>Żądanie
+###### <a name="request"></a>Request
 
 *Opublikuj/users*
 ```json
@@ -282,7 +282,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 
 #### <a name="get-user"></a>Pobieranie użytkownika
 
-###### <a name="request"></a><a name="request-1"></a>Żądanie
+###### <a name="request"></a><a name="request-1"></a>Request
 *Pobierz/users/5d48a0a8e9f04aa38008* 
 
 ###### <a name="response-user-found"></a><a name="response-1"></a>Odpowiedź (znaleziono użytkownika)
@@ -312,7 +312,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 }
 ```
 
-###### <a name="request"></a>Żądanie
+###### <a name="request"></a>Request
 *Pobierz/users/5171a35d82074e068ce2* 
 
 ###### <a name="response-user-not-found-note-that-the-detail-is-not-required-only-status"></a>Odpowiedź (nie znaleziono użytkownika. Należy zauważyć, że szczegóły nie są wymagane, tylko stan.)
@@ -329,11 +329,11 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 
 #### <a name="get-user-by-query"></a>Pobierz użytkownika według zapytania
 
-##### <a name="request"></a><a name="request-2"></a>Żądanie
+##### <a name="request"></a><a name="request-2"></a>Request
 
 *POBRAĆ wartość/users? Filter = userName EQ "Test_User_dfeef4c5-5681 -4387-b016-bdf221e82081"*
 
-##### <a name="response"></a><a name="response-2"></a>Reakcji
+##### <a name="response"></a><a name="response-2"></a>Odpowiedź
 
 *HTTP/1.1 200 OK*
 ```json
@@ -370,11 +370,11 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 
 #### <a name="get-user-by-query---zero-results"></a>Pobierz użytkownika według zapytania — wyniki zerowe
 
-##### <a name="request"></a><a name="request-3"></a>Żądanie
+##### <a name="request"></a><a name="request-3"></a>Request
 
 *POBRAĆ wartość/users? Filter = userName EQ "nieistniejącego użytkownika"*
 
-##### <a name="response"></a><a name="response-3"></a>Reakcji
+##### <a name="response"></a><a name="response-3"></a>Odpowiedź
 
 *HTTP/1.1 200 OK*
 ```json
@@ -390,7 +390,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 
 #### <a name="update-user-multi-valued-properties"></a>Aktualizowanie użytkownika [właściwości wielowartościowe]
 
-##### <a name="request"></a><a name="request-4"></a>Żądanie
+##### <a name="request"></a><a name="request-4"></a>Request
 
 *Poprawka/users/6764549bef60420686bc HTTP/1.1*
 ```json
@@ -411,7 +411,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 }
 ```
 
-##### <a name="response"></a><a name="response-4"></a>Reakcji
+##### <a name="response"></a><a name="response-4"></a>Odpowiedź
 
 *HTTP/1.1 200 OK*
 ```json
@@ -441,7 +441,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 
 #### <a name="update-user-single-valued-properties"></a>Aktualizowanie użytkownika [właściwości pojedynczej wartości]
 
-##### <a name="request"></a><a name="request-5"></a>Żądanie
+##### <a name="request"></a><a name="request-5"></a>Request
 
 *Poprawka/users/5171a35d82074e068ce2 HTTP/1.1*
 ```json
@@ -455,7 +455,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 }
 ```
 
-##### <a name="response"></a><a name="response-5"></a>Reakcji
+##### <a name="response"></a><a name="response-5"></a>Odpowiedź
 
 *HTTP/1.1 200 OK*
 ```json
@@ -486,7 +486,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 
 ### <a name="disable-user"></a>Wyłączanie użytkownika
 
-##### <a name="request"></a><a name="request-14"></a>Żądanie
+##### <a name="request"></a><a name="request-14"></a>Request
 
 *Poprawka/users/5171a35d82074e068ce2 HTTP/1.1*
 ```json
@@ -504,7 +504,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 }
 ```
 
-##### <a name="response"></a><a name="response-14"></a>Reakcji
+##### <a name="response"></a><a name="response-14"></a>Odpowiedź
 
 ```json
 {
@@ -540,11 +540,11 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 ```
 #### <a name="delete-user"></a>Usuń użytkownika
 
-##### <a name="request"></a><a name="request-6"></a>Żądanie
+##### <a name="request"></a><a name="request-6"></a>Request
 
 *Usuń/users/5171a35d82074e068ce2 HTTP/1.1*
 
-##### <a name="response"></a><a name="response-6"></a>Reakcji
+##### <a name="response"></a><a name="response-6"></a>Odpowiedź
 
 *HTTP/1.1 204 Brak zawartości*
 
@@ -557,7 +557,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 
 #### <a name="create-group"></a>Tworzenie grupy
 
-##### <a name="request"></a><a name="request-7"></a>Żądanie
+##### <a name="request"></a><a name="request-7"></a>Request
 
 */Groups HTTP/1.1*
 ```json
@@ -571,7 +571,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 }
 ```
 
-##### <a name="response"></a><a name="response-7"></a>Reakcji
+##### <a name="response"></a><a name="response-7"></a>Odpowiedź
 
 *Utworzono protokół HTTP/1.1 201*
 ```json
@@ -592,11 +592,11 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 
 #### <a name="get-group"></a>Pobieranie grupy
 
-##### <a name="request"></a><a name="request-8"></a>Żądanie
+##### <a name="request"></a><a name="request-8"></a>Request
 
 *GET/Groups/40734ae655284ad3abcc? excludedAttributes = Members HTTP/1.1*
 
-##### <a name="response"></a><a name="response-8"></a>Reakcji
+##### <a name="response"></a><a name="response-8"></a>Odpowiedź
 *HTTP/1.1 200 OK*
 ```json
 {
@@ -614,10 +614,10 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 
 #### <a name="get-group-by-displayname"></a>Pobierz grupowanie według displayName
 
-##### <a name="request"></a><a name="request-9"></a>Żądanie
+##### <a name="request"></a><a name="request-9"></a>Request
 *GET/Groups? excludedAttributes = memberss&Filter = displayName EQ "displayName" HTTP/1.1*
 
-##### <a name="response"></a><a name="response-9"></a>Reakcji
+##### <a name="response"></a><a name="response-9"></a>Odpowiedź
 
 *HTTP/1.1 200 OK*
 ```json
@@ -643,7 +643,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 
 #### <a name="update-group-non-member-attributes"></a>Aktualizacja grupy [atrybuty niebędące elementami członkowskimi]
 
-##### <a name="request"></a><a name="request-10"></a>Żądanie
+##### <a name="request"></a><a name="request-10"></a>Request
 
 *Poprawka/Groups/fa2ce26709934589afc5 HTTP/1.1*
 ```json
@@ -657,13 +657,13 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 }
 ```
 
-##### <a name="response"></a><a name="response-10"></a>Reakcji
+##### <a name="response"></a><a name="response-10"></a>Odpowiedź
 
 *HTTP/1.1 204 Brak zawartości*
 
 ### <a name="update-group-add-members"></a>Grupa aktualizacji [Dodaj członków]
 
-##### <a name="request"></a><a name="request-11"></a>Żądanie
+##### <a name="request"></a><a name="request-11"></a>Request
 
 *Poprawka/Groups/a99962b9f99d4c4fac67 HTTP/1.1*
 ```json
@@ -680,13 +680,13 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 }
 ```
 
-##### <a name="response"></a><a name="response-11"></a>Reakcji
+##### <a name="response"></a><a name="response-11"></a>Odpowiedź
 
 *HTTP/1.1 204 Brak zawartości*
 
 #### <a name="update-group-remove-members"></a>Grupa aktualizacji [usuwanie członków]
 
-##### <a name="request"></a><a name="request-12"></a>Żądanie
+##### <a name="request"></a><a name="request-12"></a>Request
 
 *Poprawka/Groups/a99962b9f99d4c4fac67 HTTP/1.1*
 ```json
@@ -703,17 +703,17 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 }
 ```
 
-##### <a name="response"></a><a name="response-12"></a>Reakcji
+##### <a name="response"></a><a name="response-12"></a>Odpowiedź
 
 *HTTP/1.1 204 Brak zawartości*
 
 #### <a name="delete-group"></a>Usuń grupę
 
-##### <a name="request"></a><a name="request-13"></a>Żądanie
+##### <a name="request"></a><a name="request-13"></a>Request
 
 *Usuń/Groups/cdb1ce18f65944079d37 HTTP/1.1*
 
-##### <a name="response"></a><a name="response-13"></a>Reakcji
+##### <a name="response"></a><a name="response-13"></a>Odpowiedź
 
 *HTTP/1.1 204 Brak zawartości*
 
@@ -745,7 +745,7 @@ Minimalny pasek mechanizmów szyfrowania TLS 1,2:
 - TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
 
 ### <a name="ip-ranges"></a>Zakresy adresów IP
-Usługa Azure AD Provisioning może obecnie opperate pod dowolnym zakresem adresów IP platformy Azure. Trwa konsolidacja zestawu zakresów adresów IP, na których działa usługa. Ten dokument zostanie zaktualizowany po skonsolidowaniu listy zakresów adresów IP. 
+Usługa Azure AD Provisioning może obecnie działać w ramach dowolnego zakresu adresów IP platformy Azure. Trwa konsolidacja zestawu zakresów adresów IP, na których działa usługa. Ten dokument zostanie zaktualizowany po skonsolidowaniu listy zakresów adresów IP. 
 
 ## <a name="step-3-build-a-scim-endpoint"></a>Krok 3. Tworzenie punktu końcowego Standard scim
 
@@ -915,10 +915,10 @@ Wyślij żądanie GET do kontrolera tokenu w celu uzyskania prawidłowego tokenu
 
 ***Przykład 1. Wysyłanie zapytań do usługi pod kątem pasującego użytkownika***
 
-Azure Active Directory wysyła zapytanie do usługi dla użytkownika z wartością atrybutu externalId zgodną z wartością atrybutu mailNickname użytkownika w usłudze Azure AD. Zapytanie jest wyrażone jako żądanie protokołu HTTP (Hypertext Transfer Protocol), takie jak ten przykład, w którym jyoung jest próbka mailNickname użytkownika w Azure Active Directory.
+Azure Active Directory wysyła zapytanie do usługi dla użytkownika o `externalId` wartości atrybutu pasującej do wartości atrybutu mailNickName użytkownika w usłudze Azure AD. Zapytanie jest wyrażone jako żądanie protokołu HTTP (Hypertext Transfer Protocol), takie jak ten przykład, w którym jyoung jest próbka mailNickname użytkownika w Azure Active Directory.
 
 >[!NOTE]
-> Jest to tylko przykład. Nie wszyscy użytkownicy będą mieć atrybut mailNickname, a wartość użytkownika nie może być unikatowa w katalogu. Ponadto atrybut używany do dopasowywania (w tym przypadku jest externalId) można skonfigurować w [mapowaniu atrybutów usługi Azure AD](customize-application-attributes.md).
+> Jest to tylko przykład. Nie wszyscy użytkownicy będą mieć atrybut mailNickname, a wartość użytkownika nie może być unikatowa w katalogu. Ponadto atrybut używany do dopasowywania (w tym przypadku jest `externalId` ) można skonfigurować w [mapowaniu atrybutów usługi Azure AD](customize-application-attributes.md).
 
 ```
 GET https://.../scim/Users?filter=externalId eq jyoung HTTP/1.1
@@ -939,7 +939,7 @@ W przykładowym kodzie żądanie jest tłumaczone na wywołanie metody QueryAsyn
  Task<Resource[]> QueryAsync(IRequest<IQueryParameters> request);
 ```
 
-W zapytaniu przykładowym dla użytkownika mającego daną wartość atrybutu externalId wartości argumentów przekazanych do metody QueryAsync są następujące:
+W zapytaniu przykładowym dla użytkownika mającego daną wartość `externalId` atrybutu wartości argumentów przekazane do metody QueryAsync są następujące:
 
 * wejściowe. AlternateFilters. Count: 1
 * wejściowe. AlternateFilters. ElementAt (0). AttributePath: "externalId"
@@ -948,7 +948,7 @@ W zapytaniu przykładowym dla użytkownika mającego daną wartość atrybutu ex
 
 ***Przykład 2. Inicjowanie obsługi administracyjnej użytkownika***
 
-Jeśli odpowiedź na zapytanie do usługi sieci Web dla użytkownika z wartością atrybutu externalId, która pasuje do wartości atrybutu mailNickname użytkownika, nie zwróci żadnych użytkowników, a następnie Azure Active Directory żądania zainicjowania usługi dla użytkownika odpowiadającego temu, w Azure Active Directory.  Oto przykład tego żądania: 
+Jeśli odpowiedź na zapytanie do usługi sieci Web dla użytkownika o `externalId` wartości atrybutu, która pasuje do wartości atrybutu mailNickName użytkownika, nie zwróci żadnych użytkowników, a następnie Azure Active Directory żądania zainicjowania usługi przez użytkownika odpowiadającego danemu w Azure Active Directory.  Oto przykład tego żądania: 
 
 ```
  POST https://.../scim/Users HTTP/1.1
@@ -1191,7 +1191,7 @@ Specyfikacja Standard scim nie definiuje schematu specyficznego dla Standard sci
 |--|--|--|--|
 |Nazwa użytkownika i hasło (niezalecane lub obsługiwane przez usługę Azure AD)|Łatwa implementacja|Niezabezpieczone — [Twoje PA $ $Word nie ma znaczenia](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/your-pa-word-doesn-t-matter/ba-p/731984)|Obsługiwane w przypadku aplikacji galerii w przypadku wielkości liter. Nieobsługiwane w przypadku aplikacji innych niż Galeria.|
 |Token okaziciela o długim czasie życia|Tokeny długotrwałe nie wymagają obecności użytkownika. Administratorzy mogą łatwo używać podczas konfigurowania aprowizacji.|Tokeny długotrwałe mogą być trudne do udostępnienia administratorowi bez użycia niezabezpieczonych metod, takich jak poczta e-mail. |Obsługiwane w przypadku aplikacji Galeria i innych niż Galeria. |
-|Przyznanie kodu autoryzacji OAuth|Tokeny dostępu są znacznie krótsze niż hasła i mają mechanizm zautomatyzowanego odświeżania, który nie ma tokenów okaziciela o długim czasie trwania.  Rzeczywisty użytkownik musi być obecny podczas wstępnej autoryzacji, co umożliwia dodanie poziomu odpowiedzialności. |Wymaga, aby użytkownik był obecny. Jeśli użytkownik opuści organizację, token jest nieprawidłowy, a autoryzacja będzie musiała zostać ukończona ponownie.|Obsługiwane w przypadku aplikacji w galerii. Obsługa aplikacji innych niż Galeria jest w toku.|
+|Przyznanie kodu autoryzacji OAuth|Tokeny dostępu są znacznie krótsze niż hasła i mają mechanizm zautomatyzowanego odświeżania, który nie ma tokenów okaziciela o długim czasie trwania.  Rzeczywisty użytkownik musi być obecny podczas wstępnej autoryzacji, co umożliwia dodanie poziomu odpowiedzialności. |Wymaga, aby użytkownik był obecny. Jeśli użytkownik opuści organizację, token jest nieprawidłowy, a autoryzacja będzie musiała zostać ukończona ponownie.|Obsługiwane w przypadku aplikacji galerii, ale nie aplikacji innych niż Galeria. Obsługa niegalerii znajduje się w naszej zaległości.|
 |Przyznanie poświadczeń klienta OAuth|Tokeny dostępu są znacznie krótsze niż hasła i mają mechanizm zautomatyzowanego odświeżania, który nie ma tokenów okaziciela o długim czasie trwania. Zarówno kod autoryzacji przydzielenia, jak i poświadczenia klienta umożliwiają tworzenie tego samego typu tokenu dostępu, więc przechodzenie między tymi metodami jest niewidoczne dla interfejsu API.  Inicjowanie obsługi może być całkowicie zautomatyzowane i nowe tokeny mogą być wymagane w trybie dyskretnym bez interakcji z użytkownikiem. ||Nieobsługiwane w przypadku aplikacji Galeria i innych niż Galeria. Pomoc techniczna znajduje się w naszej zaległości.|
 
 > [!NOTE]

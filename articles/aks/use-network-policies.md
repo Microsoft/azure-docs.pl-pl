@@ -5,11 +5,12 @@ description: Dowiedz się, jak zabezpieczyć ruch przepływający do i z zasobni
 services: container-service
 ms.topic: article
 ms.date: 05/06/2019
-ms.openlocfilehash: 7e494c6ac89289a9b271d16b871b8a22e1ca9e6a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 598747c0d64db2ae62f740dca4c3e4141f2562f2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83683193"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87050488"
 ---
 # <a name="secure-traffic-between-pods-using-network-policies-in-azure-kubernetes-service-aks"></a>Zabezpieczanie ruchu między różnymi sieciami przy użyciu zasad sieciowych w usłudze Azure Kubernetes Service (AKS)
 
@@ -157,13 +158,13 @@ kubectl label namespace/development purpose=development
 Utwórz przykładowy przykład zaplecza z systemem NGINX. Tego zaplecza można użyć, aby symulować przykładową aplikację opartą na sieci Web zaplecza. Utwórz ten obszar w przestrzeni nazw *Development* i otwórz port *80* w celu obsługi ruchu w sieci Web. Oznacz element pod za pomocą *aplikacji App = webapp, role = zaplecza* , tak aby można było określić go przy użyciu zasad sieciowych w następnej sekcji:
 
 ```console
-kubectl run backend --image=nginx --labels app=webapp,role=backend --namespace development --expose --port 80 --generator=run-pod/v1
+kubectl run backend --image=nginx --labels app=webapp,role=backend --namespace development --expose --port 80
 ```
 
 Utwórz kolejną stronę pod i Dołącz sesję terminalową, aby sprawdzić, czy można pomyślnie uzyskać dostęp do domyślnej strony sieci Web NGINX:
 
 ```console
-kubectl run --rm -it --image=alpine network-policy --namespace development --generator=run-pod/v1
+kubectl run --rm -it --image=alpine network-policy --namespace development
 ```
 
 W wierszu polecenia powłoki Użyj, `wget` Aby potwierdzić, że możesz uzyskać dostęp do domyślnej strony sieci Web Nginx:
@@ -219,7 +220,7 @@ kubectl apply -f backend-policy.yaml
 Sprawdźmy, czy można ponownie użyć strony sieci Web NGINX na zapleczu. Utwórz inny test pod i Dołącz sesję terminala:
 
 ```console
-kubectl run --rm -it --image=alpine network-policy --namespace development --generator=run-pod/v1
+kubectl run --rm -it --image=alpine network-policy --namespace development
 ```
 
 W wierszu polecenia powłoki Użyj, `wget` Aby zobaczyć, czy można uzyskać dostęp do domyślnej strony sieci Web Nginx. Tym razem ustaw wartość limitu czasu na *2* sekundy. Zasady sieciowe blokują teraz cały ruch przychodzący, więc nie można załadować strony, jak pokazano w następującym przykładzie:
@@ -276,7 +277,7 @@ kubectl apply -f backend-policy.yaml
 Zaplanuj pod nazwą *App = webapp, role = fronton* i Dołącz sesję terminalową:
 
 ```console
-kubectl run --rm -it frontend --image=alpine --labels app=webapp,role=frontend --namespace development --generator=run-pod/v1
+kubectl run --rm -it frontend --image=alpine --labels app=webapp,role=frontend --namespace development
 ```
 
 W wierszu polecenia powłoki Użyj, `wget` Aby zobaczyć, czy można uzyskać dostęp do domyślnej strony sieci Web Nginx:
@@ -306,7 +307,7 @@ exit
 Zasady sieciowe zezwalają na ruch z aplikacji z nazwami oznaczonymi etykietą *App: webapp, role: fronton*, ale powinny odrzucać cały ruch. Przetestujmy, aby sprawdzić, czy inny pod bez etykiet nie może uzyskać dostępu do NGINX zaplecza pod. Utwórz inny test pod i Dołącz sesję terminala:
 
 ```console
-kubectl run --rm -it --image=alpine network-policy --namespace development --generator=run-pod/v1
+kubectl run --rm -it --image=alpine network-policy --namespace development
 ```
 
 W wierszu polecenia powłoki Użyj, `wget` Aby zobaczyć, czy można uzyskać dostęp do domyślnej strony sieci Web Nginx. Zasady sieciowe blokują ruch przychodzący, więc nie można załadować strony, jak pokazano w następującym przykładzie:
@@ -339,7 +340,7 @@ kubectl label namespace/production purpose=production
 Zaplanuj test pod w przestrzeni nazw *produkcyjny* , który jest oznaczony jako *App = webapp, role = fronton*. Dołącz sesję terminalową:
 
 ```console
-kubectl run --rm -it frontend --image=alpine --labels app=webapp,role=frontend --namespace production --generator=run-pod/v1
+kubectl run --rm -it frontend --image=alpine --labels app=webapp,role=frontend --namespace production
 ```
 
 W wierszu polecenia powłoki Użyj, `wget` Aby potwierdzić, że możesz uzyskać dostęp do domyślnej strony sieci Web Nginx:
@@ -403,7 +404,7 @@ kubectl apply -f backend-policy.yaml
 Zaplanuj inny element pod w przestrzeni nazw *produkcyjnej* i Dołącz sesję terminala:
 
 ```console
-kubectl run --rm -it frontend --image=alpine --labels app=webapp,role=frontend --namespace production --generator=run-pod/v1
+kubectl run --rm -it frontend --image=alpine --labels app=webapp,role=frontend --namespace production
 ```
 
 W wierszu polecenia powłoki Użyj, `wget` Aby zobaczyć, że zasady sieciowe odrzucają teraz ruch:
@@ -425,7 +426,7 @@ exit
 Mając odmowę ruchu z przestrzeni nazw *produkcyjnej* , Zaplanuj test na odwrocie w przestrzeni nazw *deweloperskiej* i Dołącz sesję terminala:
 
 ```console
-kubectl run --rm -it frontend --image=alpine --labels app=webapp,role=frontend --namespace development --generator=run-pod/v1
+kubectl run --rm -it frontend --image=alpine --labels app=webapp,role=frontend --namespace development
 ```
 
 W wierszu polecenia powłoki Użyj, `wget` Aby zobaczyć, że zasady sieciowe zezwalają na ruch:

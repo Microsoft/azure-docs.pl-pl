@@ -343,8 +343,6 @@
               href: msal-js-use-ie-browser.md
             - name: Znane problemy — IE i Microsoft Edge
               href: msal-js-known-issues-ie-edge-browsers.md
-            - name: Znane problemy — Safari
-              href: msal-js-known-issues-safari-browser.md
             - name: Obsługa błędów i wyjątków
               href: msal-handling-exceptions.md?tabs=javascript
             - name: Rejestrowanie
@@ -462,7 +460,7 @@
       items:
         - name: Omówienie
           href: authentication-national-cloud.md
-        - name: Authentication
+        - name: Uwierzytelnianie
           href: msal-national-cloud.md
     - name: Automatyczna aprowizacja użytkowników (SCIM)
       items:

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/26/2019
 ms.author: juliako
-ms.openlocfilehash: 9509a38dbe9655cd7f70096bc5f3283f35c190f0
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 085a186ffd98220257ad912ede93f43d339707f2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85956717"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87052926"
 ---
 # <a name="customizing-media-encoder-standard-presets"></a>Dostosowywanie ustawień wstępnych Media Encoder Standard  
 
@@ -30,7 +30,7 @@ W tym artykule pokazano, jak wykonać zaawansowane kodowanie za pomocą Media En
 W tym artykule pokazano, jak dostosować ustawienie wstępne, pobierając [wielokrotna H264 wiele szybkości transmisji bitów 720](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) i zmniejszając liczbę warstw. W artykule [dostosowanie Media Encoder Standard predefiniowane](media-services-advanced-encoding-with-mes.md) przedstawiono niestandardowe ustawienia wstępne, których można użyć do wykonywania zaawansowanych zadań kodowania.
 
 > [!NOTE]
-> Niestandardowych ustawień predefiniowanych opisanych w tym artykule nie można używać w transformacjech [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/) ani poleceń interfejsu wiersza polecenia. Aby uzyskać więcej informacji, zobacz [wskazówki dotyczące migracji od wersji 2 do V3](../latest/migrate-from-v2-to-v3.md) .
+> Niestandardowych ustawień predefiniowanych opisanych w tym artykule nie można używać w transformacjech [Media Services v3](../latest/index.yml) ani poleceń interfejsu wiersza polecenia. Aby uzyskać więcej informacji, zobacz [wskazówki dotyczące migracji od wersji 2 do V3](../latest/migrate-from-v2-to-v3.md) .
 
 ## <a name="customizing-a-mes-preset"></a><a id="customizing_presets"></a>Dostosowywanie ustawień wstępnych MES
 
@@ -266,7 +266,7 @@ namespace CustomizeMESPresests
 }
 ```
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 - [Jak kodować za pomocą przekształcenia niestandardowego przy użyciu interfejsu wiersza polecenia](../latest/custom-preset-cli-howto.md)
 - [Kodowanie przy użyciu usługi Media Services w wersji 3](../latest/encoding-concept.md)

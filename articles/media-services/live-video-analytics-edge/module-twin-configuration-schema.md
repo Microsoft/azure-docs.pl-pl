@@ -3,20 +3,21 @@ title: Schemat kodu JSON w module — platforma Azure
 description: W tym temacie opisano schemat kodu JSON w module dla analizy filmów wideo na żywo na IoT Edge.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: a342c59b35c7ebb4b6021163da76bdd3e0d449c3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8bd86bdc2c8de9ee586e785db2074fa772100420
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84266818"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87053063"
 ---
 # <a name="module-twin-json-schema"></a>Schemat JSON
 
-Bliźniaczych reprezentacji urządzeń to dokumenty JSON, które przechowują informacje o stanie urządzenia, w tym metadane, konfiguracje i warunki. Usługa Azure IoT Hub utrzymuje bliźniaczą reprezentację urządzenia dla każdego urządzenia połączonego z usługą IoT Hub. Szczegółowe wyjaśnienie można znaleźć [w temacie Omówienie i Używanie modułu bliźniaczych reprezentacji w IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-module-twins)
+Bliźniaczych reprezentacji urządzeń to dokumenty JSON, które przechowują informacje o stanie urządzenia, w tym metadane, konfiguracje i warunki. Usługa Azure IoT Hub utrzymuje bliźniaczą reprezentację urządzenia dla każdego urządzenia połączonego z usługą IoT Hub. Szczegółowe wyjaśnienie można znaleźć [w temacie Omówienie i Używanie modułu bliźniaczych reprezentacji w IoT Hub](../../iot-hub/iot-hub-devguide-module-twins.md)
 
 W tym temacie opisano schemat kodu JSON w module dla analizy filmów wideo na żywo na IoT Edge.
 
 > [!NOTE]
-> Aby uzyskać autoryzację w celu uzyskania dostępu do zasobów Media Services i interfejsu API Media Services, należy najpierw uwierzytelnić się. Aby uzyskać więcej informacji, zobacz [Uzyskiwanie dostępu do interfejsu API Azure Media Services](../latest/media-services-apis-overview.md#accessing-the-azure-media-services-api).
+> Aby uzyskać prawa dostępu do zasobów usługi Media Services i do interfejsu API usługi Media Services, należy się najpierw uwierzytelnić. Aby uzyskać więcej informacji, zobacz [Uzyskiwanie dostępu do interfejsu API Azure Media Services](../latest/media-services-apis-overview.md#accessing-the-azure-media-services-api).
 
 ## <a name="module-twin-properties"></a>Właściwości sznurka modułu
 
@@ -42,7 +43,7 @@ Usługa Analiza filmów wideo na żywo na IoT Edge uwidacznia następujące wła
 
 <sup>*</sup>MUSISZ podać certyfikat lub hasło jednostki usługi. 
 
-Właściwości dynamiczne można aktualizować bez ponownego uruchamiania modułu. Możesz uzyskać wartości dla kilku z tych właściwości, postępując zgodnie z instrukcjami w artykule [Uzyskiwanie dostępu do Media Services interfejsu API](../latest/access-api-cli-how-to.md) . 
+Właściwości dynamiczne można aktualizować bez ponownego uruchamiania modułu. Możesz uzyskać wartości dla kilku z tych właściwości, postępując zgodnie z instrukcjami w artykule [Uzyskiwanie dostępu do Media Services interfejsu API](../latest/access-api-howto.md) . 
 
 Zapoznaj się z artykułem dotyczącym [monitorowania i rejestrowania](monitoring-logging.md) , aby uzyskać więcej informacji na temat roli opcjonalnych ustawień diagnostycznych.
 

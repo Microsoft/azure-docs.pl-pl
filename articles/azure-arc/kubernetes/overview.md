@@ -9,12 +9,12 @@ ms.author: mlearned
 description: Ten artykuł zawiera omówienie Kubernetes z funkcją Azure Arc.
 keywords: Kubernetes, łuk, Azure, kontenery
 ms.custom: references_regions
-ms.openlocfilehash: 3960a0f0b6866a0a5d3476e841d29c6e5a89a238
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: 4f07c0e5e01648984514701cd4838f85478d86af
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84309938"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87050060"
 ---
 # <a name="what-is-azure-arc-enabled-kubernetes-preview"></a>Co to jest usługa Azure Arc — wersja zapoznawcza Kubernetes?
 
@@ -24,9 +24,8 @@ Aby połączyć klaster Kubernetes z platformą Azure, administrator klastra mus
 
 Usługa Azure Arc Kubernetes obsługuje standardową branżę protokołu SSL w celu zabezpieczania danych podczas przesyłania. Ponadto dane są przechowywane w postaci zaszyfrowanej w bazie danych Azure Cosmos DB, aby zapewnić poufność danych.
  
- > [!NOTE]
-> Kubernetes z funkcją Azure Arc jest w wersji zapoznawczej. Nie jest to zalecane w przypadku obciążeń produkcyjnych. 
-
+> [!NOTE]
+> Usługa Azure ARC z włączonym Kubernetes jest dostępna w wersji zapoznawczej. Nie jest to zalecane w przypadku obciążeń produkcyjnych.
 
 ## <a name="supported-scenarios"></a>Obsługiwane scenariusze 
 
@@ -40,13 +39,12 @@ Usługa Azure Arc w Kubernetes obsługuje następujące scenariusze:
 
 * Stosowanie zasad przy użyciu Azure Policy dla Kubernetes. 
 
- 
 ## <a name="supported-regions"></a>Obsługiwane regiony 
 
 Usługa Azure Kubernetes z włączoną obsługą Arc jest obecnie obsługiwana w następujących regionach: 
 
-* Wschodnie stany USA 
-* Europa Zachodnia 
+* East US 
+* West Europe 
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -1,5 +1,5 @@
 ---
-title: Red Hat Enterprise Linux obrazów na platformie Azure | Microsoft Docs
+title: Obrazy Red Hat Enterprise Linux dostępne na platformie Azure
 description: Dowiedz się więcej na temat Red Hat Enterprise Linux obrazów w Microsoft Azure
 services: virtual-machines-linux
 documentationcenter: ''
@@ -12,11 +12,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/16/2020
 ms.author: alsin
-ms.openlocfilehash: 089858c789bb11245e98f32047cabb4117ece904
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 01c9c4389e2c950fe68c8be171b4c50d3d6271c1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82838590"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87052028"
 ---
 # <a name="red-hat-enterprise-linux-rhel-images-available-in-azure"></a>Obrazy Red Hat Enterprise Linux (RHEL) dostępne na platformie Azure
 Platforma Azure oferuje różne obrazy RHEL dla różnych przypadków użycia.
@@ -30,7 +31,7 @@ Jest to lista obrazów RHEL dostępnych na platformie Azure. O ile nie określon
 > [!NOTE]
 > Obrazy RAW nie są już tworzone na korzyść obrazów LVM. LVM zapewnia kilka korzyści w porównaniu ze starszym schematem partycjonowania RAW (innym niż LVM), w tym znacznie bardziej elastyczne opcje zmiany rozmiarów partycji.
 
-Oferta| SKU | Partycjonowanie | Inicjowanie obsługi | Uwagi
+Oferta| Jednostka SKU | Partycjonowanie | Inicjowanie obsługi | Uwagi
 :----|:----|:-------------|:-------------|:-----
 RHEL          | 6.7      | SUROWCÓW    | Agent systemu Linux |
 |             | 6.8      | SUROWCÓW    | Agent systemu Linux |
@@ -54,10 +55,14 @@ RHEL          | 6.7      | SUROWCÓW    | Agent systemu Linux |
 |             | 78 – Gen2  | LVM    | Agent systemu Linux | Dołączone do zwykłych repozytoriów (EUS niedostępne dla RHEL 7,8)
 |             | 8 — LVM    | LVM    | Agent systemu Linux | Rodzina obrazów RHEL 8. x. Dołączone do zwykłych repozytoriów.
 |             | 8-LVM-Gen2| LVM    | Agent systemu Linux | Funkcja Hyper-V Generation 2-RHEL 8. x rodzina obrazów. Dołączone do zwykłych repozytoriów.
-|             | 8        | LVM    | Agent systemu Linux | Obrazy z RHEL 8,0
+|             | 8        | LVM    | Agent systemu Linux | Obrazy z RHEL 8,0.
 |             | 8 — Gen2   | LVM    | Agent systemu Linux | Obrazy funkcji Hyper-V Generation 2-RHEL 8,0.
-|             | 8.1      | LVM    | Agent systemu Linux | Obrazy z RHEL 8,1. Obecnie dołączone do zwykłych repozytoriów.
+|             | 8.1      | LVM    | Agent systemu Linux | Obrazy z RHEL 8,2. Obecnie dołączone do zwykłych repozytoriów.
 |             | 81gen2   | LVM    | Agent systemu Linux | Obrazy funkcji Hyper-V Generation 2-RHEL 8,1. Obecnie dołączone do zwykłych repozytoriów.
+|             | 8,1-Ci   | LVM    | Agent systemu Linux | RHEL 8,1 obrazów przy użyciu funkcji Cloud-init jako agenta aprowizacji. Obecnie dołączone do zwykłych repozytoriów.
+|             | 81-Ci-Gen2| LVM    | Agent systemu Linux | Funkcja Hyper-V Generation 2-RHEL 8,1 obrazów przy użyciu usługi Cloud-init jako agenta aprowizacji. Obecnie dołączone do zwykłych repozytoriów.
+|             | 8.2      | LVM    | Agent systemu Linux | Obrazy z RHEL 8,2. Obecnie dołączone do zwykłych repozytoriów.
+|             | 82gen2   | LVM    | Agent systemu Linux | Obrazy funkcji Hyper-V Generation 2-RHEL 8,1. Obecnie dołączone do zwykłych repozytoriów.
 RHEL — SAP      | 7.4      | LVM    | Agent systemu Linux | RHEL SAP HANA 7,4 i aplikacje biznesowe. Dołączenie do repozytoriów E4S spowoduje naliczenie wersji Premium dla SAP i RHEL, a także Podstawowa opłata obliczeniowa.
 |             | 74sap — Gen2| LVM    | Agent systemu Linux | RHEL SAP HANA 7,4 i aplikacje biznesowe. Obraz generacji 2. Dołączenie do repozytoriów E4S spowoduje naliczenie wersji Premium dla SAP i RHEL, a także Podstawowa opłata obliczeniowa.
 |             | 7,5       | LVM    | Agent systemu Linux | RHEL SAP HANA 7,5 i aplikacje biznesowe. Dołączenie do repozytoriów E4S spowoduje naliczenie wersji Premium dla SAP i RHEL, a także Podstawowa opłata obliczeniowa.
@@ -84,7 +89,8 @@ RHEL — BYOS     |RHEL — lvm74| LVM    | Agent systemu Linux | RHEL 7,4 BYOS 
 |             |RHEL — lvm75| LVM    | Agent systemu Linux | RHEL 7,5 BYOS obrazy, które nie są dołączone do żadnego źródła aktualizacji, nie będą naliczane opłaty za usługę RHEL Premium.
 |             |RHEL — lvm76| LVM    | Agent systemu Linux | RHEL 7,6 BYOS obrazy, które nie są dołączone do żadnego źródła aktualizacji, nie będą naliczane opłaty za usługę RHEL Premium.
 |             |RHEL — lvm77| LVM    | Agent systemu Linux | RHEL 7,7 BYOS obrazy, które nie są dołączone do żadnego źródła aktualizacji, nie będą naliczane opłaty za usługę RHEL Premium.
-|             |RHEL — lvm8 | LVM    | Agent systemu Linux | RHEL 8 BYOS obrazy (wersja pomocnicza RHEL jest wyświetlana w polu wartość wersji obrazu), nie są dołączane do żadnego źródła aktualizacji, nie nalicza opłat za usługę RHEL Premium.
+|             |RHEL — lvm8 | LVM    | Agent systemu Linux | RHEL 8,0 BYOS obrazy, które nie są dołączone do żadnego źródła aktualizacji, nie będą naliczane opłaty za usługę RHEL Premium.
+|             |RHEL — lvm81 | LVM    | Agent systemu Linux | RHEL 8,1 BYOS obrazy, które nie są dołączone do żadnego źródła aktualizacji, nie będą naliczane opłaty za usługę RHEL Premium.
 
 > [!NOTE]
 > Oferta produktu RHEL-SAP-HANA jest uważana za koniec życia przez firmę Red Hat. Istniejące wdrożenia będą nadal działały normalnie, ale Red Hat zaleca klientom Migrowanie z obrazów RHEL-SAP-HANA do obrazów RHEL-SAP-HA, które obejmują SAP HANA repozytoria, a także dodatek o wysokiej dostępności. Więcej informacji o ofertach rozwiązań w chmurze firmy Red Hat można znaleźć [tutaj](https://access.redhat.com/articles/3751271).

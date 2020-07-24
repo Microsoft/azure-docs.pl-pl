@@ -1,5 +1,5 @@
 ---
-title: Korzystanie z GitOps dla konfiguracji klastra z obsługą usługi Azure ARC (wersja zapoznawcza)
+title: Wdrażanie konfiguracji przy użyciu usługi GitOps w klastrze Kubernetes (wersja zapoznawcza)
 services: azure-arc
 ms.service: azure-arc
 ms.date: 05/19/2020
@@ -8,24 +8,24 @@ author: mlearned
 ms.author: mlearned
 description: Korzystanie z GitOps dla konfiguracji klastra z obsługą usługi Azure ARC (wersja zapoznawcza)
 keywords: GitOps, Kubernetes, K8s, Azure, ARC, Azure Kubernetes Service, kontenery
-ms.openlocfilehash: 890b35aac33a6fa207a71d76143997a1b93116bf
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: e25fdf3a51b3e9264c85707df31d3a4d107b25ea
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85856990"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87049970"
 ---
-# <a name="use-gitops-for-an-azure-arc-enabled--configuration-preview"></a>Korzystanie z GitOps dla konfiguracji z obsługą usługi Azure ARC (wersja zapoznawcza)
+# <a name="deploy-configurations-using-gitops-on-arc-enabled-kubernetes-cluster-preview"></a>Wdrażanie konfiguracji przy użyciu usługi GitOps w klastrze Kubernetes (wersja zapoznawcza)
 
-Ta architektura używa przepływu pracy GitOps do konfigurowania klastra i wdrażania aplikacji. Konfiguracja jest szczegółowo opisana w plikach. YAML i przechowywana w usłudze git. Agent obserwuje repozytorium Git pod kątem zmian i zastosuje je.  Ten sam Agent okresowo sprawdza, czy stan klastra jest zgodny z stanem zadeklarowanym w repozytorium git i zwraca klaster do żądanego stanu, jeśli wystąpią jakiekolwiek niezarządzane zmiany.
+GitOps to metoda deklarująca żądany stan konfiguracji Kubernetes (wdrożenia, przestrzenie nazw itd.) w repozytorium git, a następnie wdrożenie oparte na sondowanie i ściąganie tych konfiguracji w klastrze za pomocą operatora. Ten dokument obejmuje konfigurację takich przepływów pracy w klastrach Kubernetes z obsługą usługi Azure Arc.
 
-Połączenie między klastrem a jednym lub wieloma repozytoriami git jest śledzone w Azure Resource Manager jako `sourceControlConfiguration` zasób rozszerzenia. `sourceControlConfiguration`Właściwości zasobu przedstawiają miejsce i sposób przepływu zasobów Kubernetes z usługi git do klastra. `sourceControlConfiguration`Dane są przechowywane w postaci zaszyfrowanej w bazie danych CosmosDb w celu zapewnienia poufności danych.
+Połączenie między klastrem a jednym lub wieloma repozytoriami git jest śledzone w Azure Resource Manager jako `sourceControlConfiguration` zasób rozszerzenia. `sourceControlConfiguration`Właściwości zasobu przedstawiają miejsce i sposób przepływu zasobów Kubernetes z usługi git do klastra. `sourceControlConfiguration`Dane są przechowywane w postaci zaszyfrowanej w bazie danych Azure Cosmos DB w celu zapewnienia poufności danych.
 
-Usługa Azure Arc Kubernetes `config-agent` uruchomiona w klastrze jest odpowiedzialna za obserwowanie nowych lub zaktualizowanych `sourceControlConfiguration` zasobów i organizuje automatyczne dodawanie, aktualizowanie lub usuwanie linków repozytorium git.
-
-Te same wzorce mogą służyć do zarządzania większą kolekcją klastrów, które mogą być wdrażane w środowiskach heterogenicznych. Na przykład można mieć jedno repozytorium definiujące konfigurację bazową organizacji i zastosować je do dziesiątek klastrów Kubernetes jednocześnie.
+`config-agent`Działający w klastrze jest odpowiedzialny za obserwowanie nowych lub zaktualizowanych `sourceControlConfiguration` zasobów rozszerzeń w zasobie Kubernetes z włączoną funkcją Azure ARC, wdrożenie operatora strumieniowego w celu obejrzenia repozytorium git i propagowanie wszelkich aktualizacji wprowadzonych do programu `sourceControlConfiguration` . Istnieje również możliwość utworzenia wielu `sourceControlConfiguration` zasobów z `namespace` zakresem w tym samym klastrze Kubernetes z obsługą usługi Azure Arc w celu osiągnięcia wielu dzierżawców. W takim przypadku każdy operator może wdrażać tylko konfiguracje w odpowiedniej przestrzeni nazw.
 
 Repozytorium git może zawierać wszystkie prawidłowe zasoby Kubernetes, w tym przestrzenie nazw, ConfigMaps, wdrożenia, DaemonSets itd.  Może również zawierać wykresy Helm na potrzeby wdrażania aplikacji. Typowym zestawem scenariuszy jest definiowanie konfiguracji linii bazowej dla organizacji, która może obejmować typowe role i powiązania kontroli RBAC, agentów monitorowania lub rejestrowania lub usług obejmujących cały klaster.
+
+Ten sam wzorzec może służyć do zarządzania większą kolekcją klastrów, które mogą być wdrażane w środowiskach heterogenicznych. Na przykład można mieć jedno repozytorium definiujące konfigurację bazową organizacji i zastosować je do dziesiątek klastrów Kubernetes jednocześnie. [Usługa Azure Policy umożliwia automatyzację](use-azure-policy.md) tworzenia `sourceControlConfiguration` z określonym zestawem parametrów we wszystkich zasobach Kubernetes z obsługą usługi Azure Arc w ramach zakresu (subskrypcji lub grupy zasobów).
 
 Ten przewodnik wprowadzający przeprowadzi Cię przez proces stosowania zestawu konfiguracji z zakresem administratora klastra.
 
@@ -39,8 +39,8 @@ Przykładowe repozytorium jest strukturalne wokół osoby będącej operatorem k
  **wdrożenie:** `cluster-config/azure-vote` 
  **ConfigMap:**`team-a/endpoints`
 
-`config-agent`Sonduje platformę Azure pod kątem nowych lub zaktualizowanych `sourceControlConfiguration` co 30 sekund.  Jest to maksymalny czas na `config-agent` pobranie nowej lub zaktualizowanej konfiguracji przez program.
-W przypadku kojarzenia repozytorium prywatnego należy upewnić się, że wykonano również kroki opisane w temacie [Zastosuj konfigurację z prywatnego repozytorium git](#apply-configuration-from-a-private-git-repository) .
+`config-agent`Sonduje platformę Azure pod kątem nowych lub zaktualizowanych `sourceControlConfiguration` co 30 sekund, co jest maksymalny czas potrzebny `config-agent` na pobranie nowej lub zaktualizowanej konfiguracji.
+W przypadku kojarzenia repozytorium prywatnego z programem `sourceControlConfiguration` upewnij się, że wykonano również kroki opisane w temacie [Zastosuj konfigurację z prywatnego repozytorium git](#apply-configuration-from-a-private-git-repository).
 
 ### <a name="using-azure-cli"></a>Korzystanie z interfejsu wiersza polecenia platformy Azure
 
@@ -117,7 +117,7 @@ Te scenariusze są obsługiwane przez strumień, ale nie przez sourceControlConf
 
 Aby dostosować Tworzenie konfiguracji, poniżej przedstawiono kilka dodatkowych parametrów:
 
-`--enable-helm-operator`: *Opcjonalny* przełącznik umożliwiający włączenie obsługi wdrożeń wykresów Helm. Ta opcja jest domyślnie wyłączona.
+`--enable-helm-operator`: *Opcjonalny* przełącznik umożliwiający włączenie obsługi wdrożeń wykresów Helm.
 
 `--helm-operator-chart-values`: *Opcjonalne* wartości wykresu dla operatora Helm (jeśli włączone).  Na przykład '--Set Helm. Versions = v3 '.
 
@@ -125,7 +125,7 @@ Aby dostosować Tworzenie konfiguracji, poniżej przedstawiono kilka dodatkowych
 
 `--operator-namespace`: *Opcjonalna* nazwa przestrzeni nazw operatora. Wartość domyślna: "default"
 
-`--operator-params`: Parametry *opcjonalne* dla operatora. Musi być określona w cudzysłowie pojedynczym. Na przykład: ```--operator-params='--git-readonly --git-path=releases/prod' ```
+`--operator-params`: Parametry *opcjonalne* dla operatora. Musi być określona w cudzysłowie pojedynczym. Na przykład: ```--operator-params='--git-readonly --git-path=releases' ```
 
 Opcje obsługiwane w--operator-params
 
@@ -149,7 +149,10 @@ Opcje obsługiwane w--operator-params
    {"OperatorMessage":"Error: {failed to install chart from path [helm-operator] for release [<operatorInstanceName>-helm-<operatorNamespace>]: err [release name \"<operatorInstanceName>-helm-<operatorNamespace>\" exceeds max length of 53]} occurred while doing the operation : {Installing the operator} on the config","ClusterState":"Installing the operator"}
    ```
 
-Aby uzyskać więcej informacji, zobacz [dokumentację strumienia](https://aka.ms/FluxcdReadme).
+Aby uzyskać więcej informacji, zobacz [Dokumentacja strumienia](https://aka.ms/FluxcdReadme).
+
+> [!TIP]
+> Istnieje możliwość utworzenia sourceControlConfiguration na Azure Portal, a także na karcie **konfiguracje** w bloku zasobów Kubernetes z funkcją Azure Arc.
 
 ## <a name="validate-the-sourcecontrolconfiguration"></a>Weryfikowanie sourceControlConfiguration
 
@@ -206,7 +209,7 @@ Podczas procesu aprowizacji `sourceControlConfiguration` wystąpią pewne zmiany
 
 ## <a name="apply-configuration-from-a-private-git-repository"></a>Zastosuj konfigurację z prywatnego repozytorium git
 
-Jeśli używasz prywatnego repozytorium git, musisz wykonać jedno zadanie, aby zamknąć pętlę: musisz dodać klucz publiczny wygenerowany przez program `flux` jako **klucz wdrożenia** w repozytorium.
+Jeśli używasz prywatnego repozytorium git, musisz wykonać jedno zadanie, aby zamknąć pętlę: Dodaj klucz publiczny wygenerowany przez program `flux` jako **klucz wdrożenia** w repozytorium.
 
 **Pobieranie klucza publicznego przy użyciu interfejsu wiersza polecenia platformy Azure**
 
@@ -232,7 +235,7 @@ Command group 'k8sconfiguration' is in preview. It may be changed/removed in a f
 5. Wklej klucz publiczny (bez cudzysłowów)
 6. Kliknij pozycję **Dodaj klucz**
 
-Więcej informacji na temat zarządzania kluczami wdrażania można znaleźć w dokumentacji usługi GitHub.
+Zobacz dokumentację usługi GitHub, aby uzyskać więcej informacji na temat zarządzania tymi kluczami.
 
 **Jeśli używasz repozytorium usługi Azure DevOps, Dodaj klucz do kluczy SSH**
 
@@ -292,9 +295,11 @@ kubectl -n itops get all
 
 ## <a name="delete-a-configuration"></a>Usuń konfigurację
 
-Możesz usunąć `sourceControlConfiguration` za pomocą interfejsu wiersza polecenia platformy Azure lub Azure Portal.  Po zainicjowaniu polecenia Delete `sourceControlConfiguration` zasób zostanie natychmiast usunięty na platformie Azure, ale może upłynąć do 1 godziny w celu pełnego usunięcia skojarzonych obiektów z klastra (mamy element zaległości, aby go skrócić). Jeśli `sourceControlConfiguration` został utworzony z zakresem przestrzeni nazw, ta przestrzeń nazw nie zostanie usunięta z klastra (aby uniknąć przerywania innych zasobów, które mogły zostać utworzone w tej przestrzeni nazw).
+Usuń `sourceControlConfiguration` przy użyciu interfejsu wiersza polecenia platformy Azure lub Azure Portal.  Po zainicjowaniu polecenia Delete `sourceControlConfiguration` zasób zostanie natychmiast usunięty na platformie Azure, ale może upłynąć do 1 godziny w celu pełnego usunięcia skojarzonych obiektów z klastra (mamy element zaległości, aby skrócić ten czas zwłoki).
 
-Należy zauważyć, że wszelkie zmiany w klastrze, które były wynikiem wdrożeń z śledzonego repozytorium git, nie są usuwane po `sourceControlConfiguration` usunięciu.
+> [!NOTE]
+> Po utworzeniu sourceControlConfiguration z zakresem przestrzeni nazw istnieje możliwość, że użytkownicy z `edit` powiązaniem roli w przestrzeni nazw mogą wdrażać obciążenia w tej przestrzeni nazw. Gdy ten `sourceControlConfiguration` zakres przestrzeni nazw zostanie usunięty, przestrzeń nazw pozostaje nienaruszona i nie zostanie usunięta, aby uniknąć przerywania tych obciążeń.
+> Wszelkie zmiany w klastrze, które były wynikiem wdrożeń z śledzonego repozytorium git, nie są usuwane po `sourceControlConfiguration` usunięciu.
 
 ```console
 az k8sconfiguration delete --name '<config name>' -g '<resource group name>' --cluster-name '<cluster name>' --cluster-type connectedClusters
@@ -308,5 +313,5 @@ Command group 'k8sconfiguration' is in preview. It may be changed/removed in a f
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Używanie GitOps z Helm na potrzeby konfiguracji klastra](./use-gitops-with-helm.md)
+- [Użyj Helm z konfiguracją kontroli źródła](./use-gitops-with-helm.md)
 - [Zarządzanie konfiguracją klastra przy użyciu Azure Policy](./use-azure-policy.md)

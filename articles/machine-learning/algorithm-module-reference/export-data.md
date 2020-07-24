@@ -9,11 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
-ms.openlocfilehash: 807771fd4018c9666f059c965370ebc36d0105df
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 279ba2ca5b82d7bad5b55736179f92a0146bdc84
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79456305"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87048158"
 ---
 # <a name="export-data-module"></a>Eksportuj moduł danych
 
@@ -27,6 +28,7 @@ Ten moduł obsługuje eksportowanie danych do następujących usług danych w ch
 - Udział plików platformy Azure
 - Azure Data Lake
 - Azure Data Lake Gen2
+- Baza danych Azure SQL Database
 
 Przed wyeksportowaniem danych musisz najpierw zarejestrować magazyn danych w obszarze roboczym Azure Machine Learning. Aby uzyskać więcej informacji, zobacz [dostęp do danych w usługach Azure Storage](../how-to-access-data.md).
 

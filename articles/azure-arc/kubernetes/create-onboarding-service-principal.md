@@ -8,11 +8,12 @@ author: mlearned
 ms.author: mlearned
 description: 'Tworzenie jednostki usługi do dołączania z funkcją Azure Arc '
 keywords: Kubernetes, łuk, Azure, kontenery
-ms.openlocfilehash: 3c95c6bb85c7c1bc097b7751a560a658863c0afd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 02689dba32c8cc91e4a4a4de4dee98bc990b4dd6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83725605"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87050074"
 ---
 # <a name="create-an-azure-arc-enabled-onboarding-service-principal-preview"></a>Tworzenie głównej nazwy usługi z funkcją Azure Arc — wersja zapoznawcza
 
@@ -44,7 +45,7 @@ az ad sp create-for-RBAC --skip-assignment --name "https://azure-arc-for-k8s-onb
 
 ## <a name="assign-permissions"></a>Przypisywanie uprawnień
 
-Po utworzeniu nowej jednostki usługi Przypisz rolę "Azure Arc for Kubernetes Onboard" do nowo utworzonego podmiotu zabezpieczeń. Jest to wbudowana rola platformy Azure z ograniczonymi uprawnieniami, która umożliwia podmiotowi zabezpieczeń rejestrowanie klastrów na platformie Azure. Podmiot zabezpieczeń nie może aktualizować, usuwać ani modyfikować żadnych innych klastrów ani zasobów w ramach subskrypcji.
+Po utworzeniu nowej jednostki usługi Przypisz rolę "Kubernetes Cluster-Azure Arc dołączania" do nowo utworzonego podmiotu zabezpieczeń. Jest to wbudowana rola platformy Azure z ograniczonymi uprawnieniami, która umożliwia podmiotowi zabezpieczeń rejestrowanie klastrów na platformie Azure. Podmiot zabezpieczeń nie może aktualizować, usuwać ani modyfikować żadnych innych klastrów ani zasobów w ramach subskrypcji.
 
 Mając na względzie ograniczone możliwości, klienci mogą z łatwością korzystać z tego podmiotu do dołączania wielu klastrów.
 

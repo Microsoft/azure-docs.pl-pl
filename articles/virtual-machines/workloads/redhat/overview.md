@@ -9,12 +9,12 @@ ms.workload: infrastructure-services
 ms.topic: overview
 ms.date: 02/10/2020
 ms.author: alsin
-ms.openlocfilehash: 718447e1dbf597af4349eab0be78a2bb544dec90
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7394cb50010bddddf8f8eff4b4f04eaf4d3231b6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78970171"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87052111"
 ---
 # <a name="red-hat-workloads-on-azure"></a>Obciążenia Red Hat na platformie Azure
 
@@ -36,7 +36,7 @@ Możesz chcieć użyć obrazów z płatnością zgodnie z rzeczywistym użyciem,
 
 ### <a name="red-hat-gold-images"></a>Obrazy Red Hat Gold
 
-Platforma Azure oferuje również obrazy Red Hat Gold`rhel-byos`(). Te obrazy mogą być przydatne dla klientów, którzy mają istniejące subskrypcje Red Hat i chcą korzystać z nich na platformie Azure. Musisz włączyć istniejące subskrypcje Red Hat dla usługi Red Hat Cloud Access, aby móc używać ich na platformie Azure. Dostęp do tych obrazów jest udzielany automatycznie po włączeniu subskrypcji Red Hat w celu uzyskania dostępu do chmury i spełnienia wymagań dotyczących uprawnień. Dzięki tym obrazom klient może uniknąć podwójnego rozliczania, które mogą być naliczane z używania obrazów z płatnością zgodnie z rzeczywistym użyciem.
+Platforma Azure oferuje również obrazy Red Hat Gold ( `rhel-byos` ). Te obrazy mogą być przydatne dla klientów, którzy mają istniejące subskrypcje Red Hat i chcą korzystać z nich na platformie Azure. Musisz włączyć istniejące subskrypcje Red Hat dla usługi Red Hat Cloud Access, aby móc używać ich na platformie Azure. Dostęp do tych obrazów jest udzielany automatycznie po włączeniu subskrypcji Red Hat w celu uzyskania dostępu do chmury i spełnienia wymagań dotyczących uprawnień. Dzięki tym obrazom klient może uniknąć podwójnego rozliczania, które mogą być naliczane z używania obrazów z płatnością zgodnie z rzeczywistym użyciem.
 * Dowiedz się, jak [włączyć subskrypcję Red Hat dla dostępu do chmury przy użyciu platformy Azure](https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/con-enable-subs).
 * Dowiedz się [, jak znaleźć obrazy Red Hat Gold w Azure Portal, interfejsie wiersza polecenia platformy Azure lub w poleceniu cmdlet programu PowerShell](./byos.md).
 
@@ -45,7 +45,7 @@ Platforma Azure oferuje również obrazy Red Hat Gold`rhel-byos`(). Te obrazy mo
 
 ### <a name="generation-2-images"></a>Obrazy generacji 2
 
-Maszyny wirtualne generacji 2 zapewniają nowe funkcje w porównaniu z maszynami wirtualnymi generacji 1. Aby uzyskać więcej informacji, zobacz [dokumentację generacji 2](https://docs.microsoft.com/azure/virtual-machines/linux/generation-2). Różnica klucza z perspektywy obrazu RHEL polega na tym, że maszyny wirtualne 2. generacji używają interfejsu UEFI zamiast systemu BIOS. Używają one również tabeli partycji GUID (GPT) zamiast głównego rekordu rozruchowego (MBR) w czasie rozruchu. Użycie GPT pozwala na, między innymi, rozmiary dysków systemu operacyjnego o rozmiarze większym niż 2 TB. Ponadto [maszyny wirtualne z serii Mv2](../../mv2-series.md) są uruchamiane tylko na obrazach generacji 2.
+Maszyny wirtualne generacji 2 zapewniają nowe funkcje w porównaniu z maszynami wirtualnymi generacji 1. Aby uzyskać więcej informacji, zobacz [dokumentację generacji 2](../../linux/generation-2.md). Różnica klucza z perspektywy obrazu RHEL polega na tym, że maszyny wirtualne 2. generacji używają interfejsu UEFI zamiast systemu BIOS. Używają one również tabeli partycji GUID (GPT) zamiast głównego rekordu rozruchowego (MBR) w czasie rozruchu. Użycie GPT pozwala na, między innymi, rozmiary dysków systemu operacyjnego o rozmiarze większym niż 2 TB. Ponadto [maszyny wirtualne z serii Mv2](../../mv2-series.md) są uruchamiane tylko na obrazach generacji 2.
 
 Obrazy generacji RHEL 2 są dostępne w portalu Azure Marketplace. Poszukaj "Gen2" w jednostce SKU obrazu na liście wszystkich obrazów, które są wyświetlane podczas korzystania z interfejsu wiersza polecenia platformy Azure. Przejdź do karty **Zaawansowane** w procesie wdrażania maszyny wirtualnej, aby wdrożyć maszynę wirtualną generacji 2.
 
@@ -55,10 +55,10 @@ Platforma Azure udostępnia infrastrukturę aktualizacji Red Hat tylko dla maszy
 
 ### <a name="rhui-update-behavior"></a>Zachowanie aktualizacji RHUI
 
-Obrazy RHEL połączone z aktualizacją RHUI domyślnie do najnowszej wersji pomocniczej RHEL w przypadku `yum update` uruchomienia. Takie zachowanie oznacza, że maszyna wirtualna z systemem RHEL 7,4 może zostać uaktualniona do `yum update` RHEL 7,7, jeśli operacja zostanie uruchomiona na tym komputerze. To zachowanie jest zaprojektowane dla RHUI. Aby wyeliminować to zachowanie uaktualnienia, przełączać się od zwykłych repozytoriów RHEL do [rozszerzonych repozytoriów pomocy technicznej aktualizacji](./redhat-rhui.md#rhel-eus-and-version-locking-rhel-vms).
+Obrazy RHEL połączone z aktualizacją RHUI domyślnie do najnowszej wersji pomocniczej RHEL w przypadku `yum update` uruchomienia. Takie zachowanie oznacza, że maszyna wirtualna z systemem RHEL 7,4 może zostać uaktualniona do RHEL 7,7, jeśli `yum update` operacja zostanie uruchomiona na tym komputerze. To zachowanie jest zaprojektowane dla RHUI. Aby wyeliminować to zachowanie uaktualnienia, przełączać się od zwykłych repozytoriów RHEL do [rozszerzonych repozytoriów pomocy technicznej aktualizacji](./redhat-rhui.md#rhel-eus-and-version-locking-rhel-vms).
 
 ## <a name="next-steps"></a>Następne kroki
 
 * Dowiedz się więcej o [obrazach RHEL na platformie Azure](./redhat-images.md).
 * Dowiedz się więcej o [infrastrukturze aktualizacji Red Hat](./redhat-rhui.md).
-* Dowiedz się więcej na temat [oferty Red Hat`rhel-byos`Gold Image ()](./byos.md).
+* Dowiedz się więcej na temat [oferty Red Hat Gold Image ( `rhel-byos` )](./byos.md).

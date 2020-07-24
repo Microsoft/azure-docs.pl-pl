@@ -1,5 +1,5 @@
 ---
-title: Konfigurowanie reguł zapory adresów IP w usłudze Azure Synapse Analytics
+title: Konfigurowanie reguł zapory adresów IP
 description: Artykuł, który uczy się skonfigurować reguły zapory IP w usłudze Azure Synapse Analytics
 author: RonyMSFT
 ms.service: synapse-analytics
@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 255714fcf69a8ed72cf1f306e5aafabd49a199ca
-ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
+ms.openlocfilehash: a06b4e6ced437cc83fadfad000fa682264264874
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85194403"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87052414"
 ---
 # <a name="azure-synapse-analytics-ip-firewall-rules-preview"></a>Reguły zapory IP usługi Azure Synapse Analytics (wersja zapoznawcza)
 
@@ -49,4 +49,4 @@ Jeśli używasz domyślnego ustawienia zasad połączenia przekierowania, może 
 
 Tworzenie [obszaru roboczego usługi Azure Synapse](../quickstart-create-workspace.md)
 
-Tworzenie obszaru roboczego usługi Azure Synapse z [zarządzaną siecią wirtualną obszaru roboczego](./synapse-workspace-managed-vnet.md)
+Tworzenie obszaru roboczego usługi Azure Synapse z [zarządzanym obszarem roboczym Virtual Network](./synapse-workspace-managed-vnet.md)

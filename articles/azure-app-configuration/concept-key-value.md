@@ -6,12 +6,12 @@ ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 02/19/2020
-ms.openlocfilehash: b8f8bda52be63a4176411855dd9ff9919e9e31f5
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: 14ff1a00b40d956f369b1978f15f01f113c50270
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85856678"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87050146"
 ---
 # <a name="keys-and-values"></a>Klucze i wartości
 
@@ -77,7 +77,7 @@ Możesz użyć dowolnego znaku Unicode w etykietach z wyjątkiem dla `*` , `,` ,
 
 Każda wartość klucza jest unikatowo identyfikowana przez jego klucz oraz etykieta, która może być `null` . Należy wykonać zapytanie dotyczące magazynu konfiguracji aplikacji, aby uzyskać kluczowe wartości przez określenie wzorca. Magazyn konfiguracji aplikacji zwraca wszystkie wartości klucza, które pasują do wzorca i odpowiadające im wartości i atrybuty. Użyj następujących wzorców kluczy w wywołaniach interfejsu API REST do konfiguracji aplikacji:
 
-| Klucz | |
+| Klucz | Opis |
 |---|---|
 | Element `key` jest pomijany lub `key=*` | Pasuje do wszystkich kluczy |
 | `key=abc` | Dopasowuje dokładnie nazwę klucza **ABC** |
@@ -86,7 +86,7 @@ Każda wartość klucza jest unikatowo identyfikowana przez jego klucz oraz etyk
 
 Można też uwzględnić następujące wzorce etykiet:
 
-| Etykieta | |
+| Etykieta | Opis |
 |---|---|
 | Element `label` jest pomijany lub `label=*` | Dopasowuje dowolną etykietę, która obejmuje`null` |
 | `label=%00` | Dopasowuje `null` etykietę |

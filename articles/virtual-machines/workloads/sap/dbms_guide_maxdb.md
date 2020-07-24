@@ -15,11 +15,12 @@ ms.workload: infrastructure
 ms.date: 07/12/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5a7343bcf6ba4388beda118b242fa47d13baaa89
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 842ab7a1562c731e790ba03b2fd5acdc3987a90d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84022594"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87051964"
 ---
 # <a name="sap-maxdb-livecache-and-content-server-deployment-on-azure-vms"></a>Wdrażanie oprogramowania SAP MaxDB, liveCache i Content Server na maszynach wirtualnych platformy Azure
 
@@ -73,7 +74,7 @@ ms.locfileid: "84022594"
 
 [azure-cli]:../../../cli-install-nodejs.md
 [azure-portal]:https://portal.azure.com
-[azure-ps]:/powershell/azureps-cmdlets-docs
+[azure-ps]:/powershell/azure/
 [azure-quickstart-templates-github]:https://github.com/Azure/azure-quickstart-templates
 [azure-script-ps]:https://go.microsoft.com/fwlink/p/?LinkID=395017
 [azure-resource-manager/management/azure-subscription-service-limits]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
@@ -308,7 +309,7 @@ ms.locfileid: "84022594"
 
 
 
-W tym dokumencie omówiono kilka różnych obszarów, które należy wziąć pod uwagę podczas wdrażania MaxDB, liveCache i serwera zawartości na platformie Azure IaaS. Jako warunek wstępny do tego dokumentu należy przeczytać [zagadnienia dotyczące dokumentu dotyczące wdrożenia systemu azure Virtual Machines DBMS dotyczące obciążeń SAP](dbms_guide_general.md) oraz innych przewodników w [obciążeniu SAP w dokumentacji platformy Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started). 
+W tym dokumencie omówiono kilka różnych obszarów, które należy wziąć pod uwagę podczas wdrażania MaxDB, liveCache i serwera zawartości na platformie Azure IaaS. Jako warunek wstępny do tego dokumentu należy przeczytać [zagadnienia dotyczące dokumentu dotyczące wdrożenia systemu azure Virtual Machines DBMS dotyczące obciążeń SAP](dbms_guide_general.md) oraz innych przewodników w [obciążeniu SAP w dokumentacji platformy Azure](./get-started.md). 
 
 ## <a name="specifics-for-the-sap-maxdb-deployments-on-windows"></a>Specyficzne dla wdrożeń SAP MaxDB w systemie Windows
 ### <a name="sap-maxdb-version-support-on-azure"></a>Obsługa wersji SAP MaxDB na platformie Azure
@@ -328,7 +329,7 @@ Zaktualizowaną listę dokumentacji SAP MaxDB można znaleźć w następującej 
 
 ### <a name="sap-maxdb-configuration-guidelines-for-sap-installations-in-azure-vms"></a>Wskazówki dotyczące konfiguracji oprogramowania SAP MaxDB na maszynach wirtualnych platformy Azure
 #### <a name="storage-configuration"></a><a name="b48cfe3b-48e9-4f5b-a783-1d29155bd573"></a>Konfiguracja magazynu
-Najlepsze rozwiązania dotyczące usługi Azure Storage dla oprogramowania SAP MaxDB są zgodne z ogólnymi zaleceniami wymienionymi w rozdziale [Storage Structure The VM for RDBMS Deployments](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general#65fa79d6-a85f-47ee-890b-22e794f51a64).
+Najlepsze rozwiązania dotyczące usługi Azure Storage dla oprogramowania SAP MaxDB są zgodne z ogólnymi zaleceniami wymienionymi w rozdziale [Storage Structure The VM for RDBMS Deployments](./dbms_guide_general.md#65fa79d6-a85f-47ee-890b-22e794f51a64).
 
 > [!IMPORTANT]
 > Podobnie jak w przypadku innych baz danych, rozwiązanie SAP MaxDB ma także pliki danych i dziennika. Jednakże w przypadku oprogramowania SAP MaxDB w terminologii prawidłowy termin to "Volume" (nie "File"). Na przykład istnieją woluminy danych i woluminy dzienników SAP MaxDB. Nie należy mylić ich z woluminami dysków systemu operacyjnego. 
@@ -347,7 +348,7 @@ Krótko mówiąc:
 ![Konfiguracja referencyjna maszyny wirtualnej usługi Azure IaaS dla systemu SAP MaxDB DBMS](./media/dbms_maxdb_deployment_guide/Simple_disk_structure_maxdb.PNG)
 
 
-#### <a name="backup-and-restore"></a><a name="23c78d3b-ca5a-4e72-8a24-645d141a3f5d"></a>Tworzenie kopii zapasowej i przywracanie
+#### <a name="backup-and-restore"></a><a name="23c78d3b-ca5a-4e72-8a24-645d141a3f5d"></a>Wykonywanie kopii zapasowych i przywracanie
 Podczas wdrażania oprogramowania SAP MaxDB na platformie Azure należy zapoznać się z metodologią tworzenia kopii zapasowych. Nawet jeśli system nie jest systemem produkcyjnym, należy wykonać kopię zapasową bazy danych SAP hostowanej przez oprogramowanie SAP MaxDB. Ponieważ usługa Azure Storage przechowuje trzy obrazy, kopia zapasowa jest teraz mniej ważna pod względem ochrony systemu przed awariami magazynu i ważniejszymi błędami operacyjnymi i administracyjnymi. Podstawową przyczyną utrzymania odpowiedniego planu tworzenia kopii zapasowych i przywracania jest to, że można skompensować błędy logiczne lub ręczne, zapewniając możliwości odzyskiwania do punktu w czasie. W związku z tym celem jest użycie kopii zapasowych do przywrócenia bazy danych do określonego punktu w czasie lub użycie kopii zapasowych na platformie Azure do wypełniania innego systemu przez skopiowanie istniejącej bazy danych. 
 
 Tworzenie kopii zapasowej i przywracanie bazy danych na platformie Azure działa tak samo jak w przypadku systemów lokalnych, dlatego można użyć standardowych narzędzi do tworzenia kopii zapasowych SAP MaxDB i przywracania, które są opisane w jednym z dokumentów dokumentacji SAP MaxDB wymienionych w artykule SAP Uwaga [767598]. 
