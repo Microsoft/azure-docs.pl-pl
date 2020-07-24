@@ -7,12 +7,12 @@ ms.date: 10/09/2017
 ms.topic: how-to
 ms.service: virtual-machines-windows
 ms.workload: infrastructure
-ms.openlocfilehash: f448174842ffd3b7ba14104c30319933c680127d
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 03df7db13ebd3ebec407bb046cc735c835e01068
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86232325"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074243"
 ---
 # <a name="how-to-enable-nested-virtualization-in-an-azure-vm"></a>Jak włączyć wirtualizację zagnieżdżoną na maszynie wirtualnej platformy Azure
 
@@ -22,7 +22,7 @@ W tym artykule opisano Włączanie funkcji Hyper-V na maszynie wirtualnej platfo
 
 ## <a name="create-a-nesting-capable-azure-vm"></a>Tworzenie maszyny wirtualnej platformy Azure z możliwością zagnieżdżania
 
-Utwórz nową maszynę wirtualną platformy Azure z systemem Windows Server 2016. Aby uzyskać pełną listę rozmiarów maszyn wirtualnych obsługujących zagnieżdżanie, zapoznaj się z [artykułem dotyczącym jednostek obliczeniowych platformy Azure](acu.md).
+Utwórz nową maszynę wirtualną platformy Azure z systemem Windows Server 2016. Aby uzyskać pełną listę rozmiarów maszyn wirtualnych obsługujących zagnieżdżanie, zapoznaj się z [artykułem dotyczącym jednostek obliczeniowych platformy Azure](../acu.md).
 
 Należy pamiętać, aby wybrać rozmiar maszyny wirtualnej wystarczająco duży, aby obsługiwał wymagania maszyny wirtualnej gościa. W tym przykładzie używamy maszyny wirtualnej platformy Azure o rozmiarze D3_v3. 
 
@@ -30,7 +30,7 @@ W [tym miejscu](https://azure.microsoft.com/regions/services/)możesz zobaczyć 
 
 >[!NOTE]
 >
->Aby uzyskać szczegółowe instrukcje dotyczące tworzenia nowej maszyny wirtualnej, zobacz [Tworzenie maszyn wirtualnych z systemem Windows i zarządzanie nimi za pomocą modułu Azure PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-vm)
+>Aby uzyskać szczegółowe instrukcje dotyczące tworzenia nowej maszyny wirtualnej, zobacz [Tworzenie maszyn wirtualnych z systemem Windows i zarządzanie nimi za pomocą modułu Azure PowerShell](./tutorial-manage-vm.md)
     
 ## <a name="connect-to-your-azure-vm"></a>Nawiązywanie połączenia z maszyną wirtualną platformy Azure
 
@@ -181,4 +181,4 @@ W tym przykładzie zostanie użyty adres w zakresie 192.168.0.0/24.
 Na maszynie wirtualnej gościa Otwórz przeglądarkę i przejdź do strony sieci Web.
     ![GuestVM](./media/virtual-machines-nested-virtualization/guest-virtual-machine.png)
 
-Aby uzyskać instrukcje dotyczące włączania przezroczystych połączeń między maszynami wirtualnymi gościa i maszynami wirtualnymi platformy Azure, zapoznaj się z [dokumentem](https://docs.microsoft.com/virtualization/hyper-v-on-windows/user-guide/nested-virtualization)
+Aby uzyskać instrukcje dotyczące włączania przezroczystych połączeń między maszynami wirtualnymi gościa i maszynami wirtualnymi platformy Azure, zapoznaj się z [dokumentem](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization)

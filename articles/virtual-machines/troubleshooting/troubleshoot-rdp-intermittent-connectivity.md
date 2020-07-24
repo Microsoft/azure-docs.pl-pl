@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/24/2018
 ms.author: genli
-ms.openlocfilehash: eec52fb2342ee85932a6e24aa4cb292496beccad
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 60be7c234a0166331c35eb6528eae11bfbbf518f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86087303"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074316"
 ---
 # <a name="remote-desktop-disconnects-frequently-in-azure-vm"></a>Remote Desktop disconnects frequently in Azure VM (Pulpit zdalny często rozłącza się na maszynie wirtualnej platformy Azure)
 
@@ -95,7 +95,7 @@ Aby rozwiązać ten problem, należy użyć kontrolki serial lub [naprawić masz
 
 ### <a name="repair-the-vm-offline"></a>Naprawianie maszyny wirtualnej w trybie offline
 
-1. [Dołącz dysk systemu operacyjnego do maszyny wirtualnej odzyskiwania](../windows/troubleshoot-recovery-disks-portal.md).
+1. [Dołącz dysk systemu operacyjnego do maszyny wirtualnej odzyskiwania](./troubleshoot-recovery-disks-portal-windows.md).
 2. Po dołączeniu dysku systemu operacyjnego do maszyny wirtualnej odzyskiwania upewnij się, że dysk jest oznaczony jako **online** w konsoli Zarządzanie dyskami. Zanotuj literę dysku przypisaną do dołączonego dysku systemu operacyjnego.
 3. Na dołączonym dysku systemu operacyjnego przejdź do folderu **\Windows\System32\Config** . Skopiuj wszystkie pliki w tym folderze jako kopię zapasową, w przypadku gdy wymagane jest wycofanie.
 4. Uruchom Edytor rejestru (regedit.exe).
@@ -184,8 +184,3 @@ Aby rozwiązać ten problem, należy użyć kontrolki serial lub [naprawić masz
 
 ## <a name="need-help"></a>Potrzebujesz pomocy? 
 Skontaktuj się z pomocą techniczną. Jeśli nadal potrzebujesz pomocy, [skontaktuj się z pomocą techniczną](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade), aby szybko rozwiązać problem.
-
-
-
-
-

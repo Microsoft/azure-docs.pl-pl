@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: troubleshooting
 ms.date: 03/31/2020
 ms.author: v-mibufo
-ms.openlocfilehash: 16c8eed3377c2191b4345ec59ec1eba8be01369d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 76c3f729a8520c7bff7b49a1d2200d7950f8a9f4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80633959"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074301"
 ---
 # <a name="vm-is-unresponsive-with-c01a001d-error-when-applying-windows-update"></a>Maszyna wirtualna nie odpowiada z błędem "C01A001D" podczas stosowania Windows Update
 
@@ -27,7 +27,7 @@ Ten artykuł zawiera kroki rozwiązywania problemów, w których Windows Update 
 
 ## <a name="symptoms"></a>Objawy
 
-W przypadku wyświetlania zrzutu ekranu maszyny wirtualnej przy użyciu [diagnostyki rozruchu](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) jest wyświetlana Windows Update (KB) w toku, ale kończy się niepowodzeniem z kodem błędu: "C01A001D".
+W przypadku wyświetlania zrzutu ekranu maszyny wirtualnej przy użyciu [diagnostyki rozruchu](./boot-diagnostics.md) jest wyświetlana Windows Update (KB) w toku, ale kończy się niepowodzeniem z kodem błędu: "C01A001D".
 
 ![nieodpowiadający Windows Update](./media/unresponsive-vm-apply-windows-update/unresponsive-windows-update.png)
 
@@ -49,17 +49,17 @@ Nie można utworzyć pliku podstawowego w systemie plików. System operacyjny ni
 
 ### <a name="create-and-access-a-repair-vm"></a>Tworzenie maszyny wirtualnej naprawy i uzyskiwanie do niej dostępu
 
-1. Wykonaj [kroki 1-3 poleceń naprawy maszyny wirtualnej](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands) , aby przygotować maszynę wirtualną naprawy.
+1. Wykonaj [kroki 1-3 poleceń naprawy maszyny wirtualnej](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md) , aby przygotować maszynę wirtualną naprawy.
 2. Nawiąż połączenie z maszyną wirtualną naprawy przy użyciu Podłączanie pulpitu zdalnego.
 
 ### <a name="free-up-space-on-the-hard-disk"></a>Zwolnij miejsce na dysku twardym
 
 Jeśli dysk nie jest jeszcze 1 TB, należy zmienić jego rozmiar. Po 1 TB dysku należy przeprowadzić Oczyszczanie dysku i defragmentację dysku.
 
-1. Sprawdź, czy dysk jest pełny. Jeśli dysk jest poniżej 1 TB, [rozwiń go maksymalnie 1 TB przy użyciu programu PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/expand-os-disk?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json).
+1. Sprawdź, czy dysk jest pełny. Jeśli dysk jest poniżej 1 TB, [rozwiń go maksymalnie 1 TB przy użyciu programu PowerShell](../windows/expand-os-disk.md?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json).
 2. Po 1 TB dysku należy przeprowadzić Oczyszczanie dysku.
-    - [Odłącz dysk danych od uszkodzonej maszyny wirtualnej](https://docs.microsoft.com/azure/virtual-machines/windows/detach-disk).
-    - [Dołącz dysk danych do działającej maszyny wirtualnej](https://docs.microsoft.com/azure/virtual-machines/windows/attach-disk-ps#attach-an-existing-data-disk-to-a-vm).
+    - [Odłącz dysk danych od uszkodzonej maszyny wirtualnej](../windows/detach-disk.md).
+    - [Dołącz dysk danych do działającej maszyny wirtualnej](../windows/attach-disk-ps.md#attach-an-existing-data-disk-to-a-vm).
     - Za pomocą [Narzędzia do oczyszczania dysku](https://support.microsoft.com/help/4026616/windows-10-disk-cleanup) Zwolnij miejsce.
 3. Po zmianie rozmiarów i oczyszczeniu należy zdefragmentować dysk:
 
@@ -115,4 +115,4 @@ Jeśli dysk nie jest jeszcze 1 TB, należy zmienić jego rozmiar. Po 1 TB dysku 
 
 ### <a name="rebuild-the-vm"></a>Kompiluj ponownie maszynę wirtualną
 
-Aby ponownie połączyć maszynę wirtualną, użyj [kroku 5 poleceń naprawy maszyny wirtualnej](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) .
+Aby ponownie połączyć maszynę wirtualną, użyj [kroku 5 poleceń naprawy maszyny wirtualnej](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md#repair-process-example) .

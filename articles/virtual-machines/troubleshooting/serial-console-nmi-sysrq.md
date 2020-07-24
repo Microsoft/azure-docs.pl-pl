@@ -13,13 +13,14 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: 3ad68438f5fc015b6a9150d67485b90a095f1a4a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 545399e1d7941351ce861ac98d995d5e57006ea1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79250090"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074364"
 ---
-# <a name="use-serial-console-for-sysrq-and-nmi-calls"></a>Korzystanie z konsoli szeregowej w przypadku wywołań SysRq i NMI
+# <a name="use-the-azure-serial-console-for-sysrq-and-nmi-calls"></a>Korzystanie z konsoli szeregowej platformy Azure na potrzeby wywołań SysRq i NMI
 
 ## <a name="system-request-sysrq"></a>Żądanie systemowe (SysRq)
 SysRq to sekwencja kluczy zrozumiała dla jądra systemu operacyjnego Linux, która może wyzwalać zestaw wstępnie zdefiniowanych akcji. Te polecenia są często używane, gdy nie można przeprowadzić rozwiązywania problemów lub odzyskiwania maszyny wirtualnej za pomocą tradycyjnego administrowania (na przykład jeśli maszyna wirtualna nie odpowiada). Użycie funkcji SysRq usługi Azure serial Console spowoduje naśladowanie nacisku klawisza SysRq i znaków wprowadzonych na fizycznej klawiaturze.
@@ -28,11 +29,11 @@ Po dostarczeniu sekwencji SysRq Konfiguracja jądra będzie kontrolować sposób
 
 Konsoli szeregowej platformy Azure można użyć do wysyłania SysRq do maszyny wirtualnej platformy Azure przy użyciu ikony klawiatury na pasku poleceń przedstawionym poniżej.
 
-![](../media/virtual-machines-serial-console/virtual-machine-serial-console-command-menu.jpg)
+![Zrzut ekranu konsoli szeregowej platformy Azure. Ikona klawiatury zostanie wyróżniona, a jej menu jest widoczne. To menu zawiera element polecenia Send SysRq.](../media/virtual-machines-serial-console/virtual-machine-serial-console-command-menu.jpg)
 
 Wybranie polecenia "Wyślij SysRq polecenie" spowoduje otwarcie okna dialogowego, w którym będą dostępne typowe opcje SysRq lub zaakceptowania sekwencji poleceń SysRq wprowadzonych w oknie dialogowym.  Dzięki temu w serii SysRq można wykonywać operacje wysokiego poziomu, takie jak bezpieczny ponowny rozruch przy użyciu: `REISUB` .
 
-![](../media/virtual-machines-serial-console/virtual-machine-serial-console-sysreq_UI.png)
+![Zrzut ekranu przedstawiający okno dialogowe wysyłanie polecenia SysRq do gościa. Opcja wprowadzania poleceń jest zaznaczona, a pole polecenia zawiera REISUB.](../media/virtual-machines-serial-console/virtual-machine-serial-console-sysreq_UI.png)
 
 Nie można użyć polecenia SysRq na maszynach wirtualnych, które są zatrzymane lub których jądro jest w stanie innym niż odpowiada. (na przykład awaryjnego jądra).
 
@@ -101,7 +102,7 @@ Przerwanie z maską (NMI) zostało zaprojektowane w celu utworzenia sygnału, ż
 
 Konsola szeregowa może służyć do wysyłania NMI do maszyny wirtualnej platformy Azure przy użyciu ikony klawiatury na pasku poleceń przedstawionym poniżej. Po dostarczeniu NMI konfiguracja maszyny wirtualnej będzie kontrolować sposób reagowania systemu.  Systemy operacyjne Linux można skonfigurować w taki sposób, aby awaria i utworzyć zrzut pamięci system operacyjny odbiera NMI.
 
-![](../media/virtual-machines-serial-console/virtual-machine-serial-console-command-menu.jpg) <br>
+![Zrzut ekranu konsoli szeregowej. Ikona klawiatury zostanie wyróżniona, a jej menu jest widoczne. To menu zawiera pozycję Wyślij element przerwania bez maskowania.](../media/virtual-machines-serial-console/virtual-machine-serial-console-command-menu.jpg) <br>
 
 ### <a name="enable-nmi"></a>Włącz NMI
 W przypadku systemów Linux, które obsługują sysctl do konfigurowania parametrów jądra, można włączyć awaryjnego podczas uzyskiwania tego NMI za pomocą następującego polecenia:

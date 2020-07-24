@@ -8,11 +8,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 05/09/2016
 ms.author: markscu
-ms.openlocfilehash: d34481587fd48e2eddfd268c39f6bc4f7c4e0c76
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a3f3dbd74ef74f091ca923f8c09680c6913ac300
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81869416"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074229"
 ---
 # <a name="create-matlab-distributed-computing-server-clusters-on-azure-vms"></a>Tworzenie rozproszonych klastrów serwerów programu MATLAB na maszynach wirtualnych platformy Azure
 Za pomocą Microsoft Azure maszyny wirtualne można utworzyć jeden lub więcej klastrów serwerów rozproszonego przetwarzania w programie MATLAB do uruchamiania równoległych obciążeń programu MATLAB intensywnie korzystających z obliczeń. Zainstaluj oprogramowanie w programie MATLAB Distributed Computing Server na maszynie wirtualnej, aby użyć go jako obrazu podstawowego i użyć szablonu szybkiego startu platformy Azure lub skryptu Azure PowerShell (dostępnego w witrynie [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/matlab-cluster)) do wdrażania klastra i zarządzania nim. Po wdrożeniu Połącz się z klastrem w celu uruchomienia obciążeń.
@@ -24,7 +25,7 @@ Korzystając z usługi Azure Virtual Machines, można tworzyć w programie MATLA
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 * **Komputer kliencki** — komputer kliencki z systemem Windows musi komunikować się z platformą Azure i klastrem rozproszonego serwera przetwarzania danych programu MATLAB po wdrożeniu.
-* **Azure PowerShell** — zobacz [jak zainstalować i skonfigurować Azure PowerShell](/powershell/azure/overview) , aby zainstalować go na komputerze klienckim.
+* **Azure PowerShell** — zobacz [jak zainstalować i skonfigurować Azure PowerShell](/powershell/azure/) , aby zainstalować go na komputerze klienckim.
 * **Subskrypcja platformy Azure** — Jeśli nie masz subskrypcji, możesz utworzyć [bezpłatne konto](https://azure.microsoft.com/free/) w zaledwie kilka minut. W przypadku większych klastrów należy wziąć pod uwagę subskrypcję z płatność zgodnie z rzeczywistym użyciem lub inne opcje zakupu.
 * **limit przydziału procesorów wirtualnych vCPU** — może być konieczne zwiększenie limitu przydziału vCPU w celu wdrożenia dużego klastra lub więcej niż jednego klastra serwera rozproszonego przetwarzania danych programu MATLAB. Aby zwiększyć limit przydziału, [Otwórz bezpłatnie żądanie pomocy technicznej w trybie online](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) .
 * **MATLAB, Parallel Computing Toolbox i MATLAB Distributed Computing Server licenses** — skrypty zakładają, że [MathWorks hostowanego Menedżera licencji](https://www.mathworks.com/help/install/license-management.html) jest używany dla wszystkich licencji.  

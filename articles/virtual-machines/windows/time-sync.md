@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: cynthn
-ms.openlocfilehash: cd9a196e5f957782de91cff69c01fbfa5716369a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1717ebd5709c05e33e658d3798494324a702b1d9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82100502"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074047"
 ---
 # <a name="time-sync-for-windows-vms-in-azure"></a>Synchronizacja czasu dla maszyn wirtualnych z systemem Windows na platformie Azure
 
@@ -24,7 +24,7 @@ Platforma Azure jest teraz obsługiwana przez infrastrukturę z systemem Windows
 >[!NOTE]
 >Aby zapoznać się z krótkim omówieniem usługi czas systemu Windows, zapoznaj się z tym [ogólnym omówieniem wideo](https://aka.ms/WS2016TimeVideo).
 >
-> Aby uzyskać więcej informacji, zobacz [dokładny czas dla systemu Windows Server 2016](https://docs.microsoft.com/windows-server/networking/windows-time-service/accurate-time). 
+> Aby uzyskać więcej informacji, zobacz [dokładny czas dla systemu Windows Server 2016](/windows-server/networking/windows-time-service/accurate-time). 
 
 ## <a name="overview"></a>Omówienie
 
@@ -172,9 +172,7 @@ w32tm /dumpreg /subkey:Parameters | findstr /i "ntpserver"
 
 Poniżej znajdują się linki do dodatkowych informacji na temat synchronizacji czasu:
 
-- [Narzędzia usługi Czas systemu Windows i ustawienia](https://docs.microsoft.com/windows-server/networking/windows-time-service/Windows-Time-Service-Tools-and-Settings)
-- [Udoskonalenia systemu Windows Server 2016](https://docs.microsoft.com/windows-server/networking/windows-time-service/windows-server-2016-improvements)
-- [Dokładny czas dla systemu Windows Server 2016](https://docs.microsoft.com/windows-server/networking/windows-time-service/accurate-time)
-- [Obsługa granic w celu skonfigurowania usługi czas systemu Windows dla środowisk o wysokiej dokładności](https://docs.microsoft.com/windows-server/networking/windows-time-service/support-boundary)
-
-
+- [Narzędzia usługi Czas systemu Windows i ustawienia](/windows-server/networking/windows-time-service/windows-time-service-tools-and-settings)
+- [Udoskonalenia systemu Windows Server 2016](/windows-server/networking/windows-time-service/windows-server-2016-improvements)
+- [Dokładny czas dla systemu Windows Server 2016](/windows-server/networking/windows-time-service/accurate-time)
+- [Obsługa granic w celu skonfigurowania usługi czas systemu Windows dla środowisk o wysokiej dokładności](/windows-server/networking/windows-time-service/support-boundary)

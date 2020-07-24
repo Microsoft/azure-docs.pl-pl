@@ -13,11 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: changov
 ms.reviewer: vashan, rajraj
-ms.openlocfilehash: f5fbd80fc9a8e519cf8f49ab16d7e747c6a8171b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b1cc8a43423ecd33218948aaa001fc34877eac60
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76045361"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074278"
 ---
 # <a name="troubleshooting-api-throttling-errors"></a>Rozwiązywanie problemów dotyczących błędów ograniczania przepływności interfejsu API 
 
@@ -25,13 +26,13 @@ ms.locfileid: "76045361"
 
 ## <a name="throttling-by-azure-resource-manager-vs-resource-providers"></a>Ograniczanie przez Azure Resource Manager dostawców zasobów  
 
-Jako przód do platformy Azure Azure Resource Manager wykonuje uwierzytelnianie i sprawdzanie poprawności i ograniczanie wszystkich przychodzących żądań interfejsu API. W [tym miejscu](https://docs.microsoft.com/azure/azure-resource-manager/management/request-limits-and-throttling)opisano Azure Resource Manager limity szybkości wywołań i powiązane nagłówki HTTP odpowiedzi diagnostycznej.
+Jako przód do platformy Azure Azure Resource Manager wykonuje uwierzytelnianie i sprawdzanie poprawności i ograniczanie wszystkich przychodzących żądań interfejsu API. W [tym miejscu](../../azure-resource-manager/management/request-limits-and-throttling.md)opisano Azure Resource Manager limity szybkości wywołań i powiązane nagłówki HTTP odpowiedzi diagnostycznej.
  
 Gdy klient interfejsu API platformy Azure uzyska błąd ograniczania przepustowości, stan HTTP to 429 zbyt wiele żądań. Aby zrozumieć, czy ograniczenie żądania jest wykonywane przez Azure Resource Manager lub dostawcę zasobów, takich jak CRP, sprawdź, czy są to żądania `x-ms-ratelimit-remaining-subscription-reads` Get i for `x-ms-ratelimit-remaining-subscription-writes` Response dla żądań nieget. Jeśli pozostała liczba wywołań zbliża się do 0, osiągnięto ogólny limit wywołań dla subskrypcji zdefiniowany przez Azure Resource Manager. Działania wszystkich klientów subskrypcji są zliczane razem. W przeciwnym razie ograniczanie przepływności pochodzi od docelowego dostawcy zasobów (jeden adres `/providers/<RP>` URL żądania). 
 
 ## <a name="call-rate-informational-response-headers"></a>Nagłówki odpowiedzi informacyjnych o szybkości wywołania 
 
-| Header                            | Format wartości                           | Przykład                               | Opis                                                                                                                                                                                               |
+| Nagłówek                            | Format wartości                           | Przykład                               | Opis                                                                                                                                                                                               |
 |-----------------------------------|----------------------------------------|---------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | x-MS-ratelimit — pozostało-zasób |```<source RP>/<policy or bucket>;<count>```| Microsoft. COMPUTE/HighCostGet3Min; 159 | Pozostała liczba wywołań interfejsu API dla zasad ograniczania przepływności obejmujących zasobnik zasobów lub grupę operacji, w tym element docelowy tego żądania                                                                   |
 | x-ms-request-charge               | ```<count>```                             | 1                                     | Liczba wywołań "naliczona" dla tego żądania HTTP w kierunku limitu obowiązujących zasad. Zwykle jest to 1. Żądania usługi Batch, takie jak skalowanie zestawu skalowania maszyn wirtualnych, mogą obciążać wiele liczników. |
@@ -78,8 +79,8 @@ Jak pokazano powyżej, każdy błąd ograniczania przepustowości obejmuje `Retr
 
 ## <a name="api-call-rate-and-throttling-error-analyzer"></a>Analizator błędów dławienia i szybkości wywołań interfejsu API
 Wersja zapoznawcza funkcji rozwiązywania problemów jest dostępna dla interfejsu API dostawcy zasobów obliczeniowych. Te polecenia cmdlet programu PowerShell zapewniają dane statystyczne o szybkości żądania interfejsu API na czas dla naruszeń operacji i ograniczania przepustowości na grupę operacji (zasady):
--   [Export-AzLogAnalyticRequestRateByInterval](https://docs.microsoft.com/powershell/module/az.compute/export-azloganalyticrequestratebyinterval)
--   [Export-AzLogAnalyticThrottledRequest](https://docs.microsoft.com/powershell/module/az.compute/export-azloganalyticthrottledrequest)
+-   [Export-AzLogAnalyticRequestRateByInterval](/powershell/module/az.compute/export-azloganalyticrequestratebyinterval)
+-   [Export-AzLogAnalyticThrottledRequest](/powershell/module/az.compute/export-azloganalyticthrottledrequest)
 
 Statystyki wywołań interfejsu API mogą zapewniać doskonałe informacje o zachowaniu klientów subskrypcji i umożliwiają łatwą identyfikację wzorców wywołań, które powodują ograniczenie przepustowości.
 
@@ -99,4 +100,4 @@ Polecenia cmdlet programu PowerShell używają interfejsu API usługi REST, któ
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji na temat wskazówek dotyczących ponownych prób dla innych usług na platformie Azure, zobacz [wskazówki dotyczące ponawiania prób dla określonych usług](https://docs.microsoft.com/azure/architecture/best-practices/retry-service-specific)
+Aby uzyskać więcej informacji na temat wskazówek dotyczących ponownych prób dla innych usług na platformie Azure, zobacz [wskazówki dotyczące ponawiania prób dla określonych usług](/azure/architecture/best-practices/retry-service-specific)

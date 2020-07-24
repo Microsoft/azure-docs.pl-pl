@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 10/08/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 92957bd078c04a9bb7ac35f9d30f042a44e10764
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e5ecb99c7f64d81d57c5d6d2cb25967913a752b4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82100638"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074139"
 ---
 # <a name="create-a-snapshot"></a>Tworzenie migawki
 
@@ -37,7 +37,7 @@ Aby utworzyć migawkę, wykonaj następujące czynności:
 
 ## <a name="use-powershell"></a>Korzystanie z programu PowerShell
 
-Poniższe kroki pokazują, jak skopiować dysk VHD i utworzyć konfigurację migawki. Następnie można wykonać migawkę dysku za pomocą polecenia cmdlet [New-AzSnapshot](https://docs.microsoft.com/powershell/module/az.compute/new-azsnapshot) . 
+Poniższe kroki pokazują, jak skopiować dysk VHD i utworzyć konfigurację migawki. Następnie można wykonać migawkę dysku za pomocą polecenia cmdlet [New-AzSnapshot](/powershell/module/az.compute/new-azsnapshot) . 
 
  
 
@@ -53,18 +53,18 @@ Poniższe kroki pokazują, jak skopiować dysk VHD i utworzyć konfigurację mig
 2. Pobierz maszynę wirtualną:
 
    ```azurepowershell-interactive
-   $vm = get-azvm `
-   -ResourceGroupName $resourceGroupName 
-   -Name $vmName
+   $vm = Get-AzVM `
+       -ResourceGroupName $resourceGroupName `
+       -Name $vmName
    ```
 
 3. Utwórz konfigurację migawki. W tym przykładzie migawka jest dyskiem systemu operacyjnego:
 
    ```azurepowershell-interactive
-   $snapshot =  New-AzSnapshotConfig 
-   -SourceUri $vm.StorageProfile.OsDisk.ManagedDisk.Id 
-   -Location $location 
-   -CreateOption copy
+   $snapshot =  New-AzSnapshotConfig `
+       -SourceUri $vm.StorageProfile.OsDisk.ManagedDisk.Id `
+       -Location $location `
+       -CreateOption copy
    ```
    
    > [!NOTE]
@@ -73,10 +73,10 @@ Poniższe kroki pokazują, jak skopiować dysk VHD i utworzyć konfigurację mig
 4. Zrób migawkę:
 
    ```azurepowershell-interactive
-   New-AzSnapshot 
-   -Snapshot $snapshot 
-   -SnapshotName $snapshotName 
-   -ResourceGroupName $resourceGroupName 
+   New-AzSnapshot `
+       -Snapshot $snapshot `
+       -SnapshotName $snapshotName `
+       -ResourceGroupName $resourceGroupName 
    ```
 
 

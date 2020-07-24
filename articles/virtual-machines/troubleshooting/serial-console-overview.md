@@ -14,11 +14,12 @@ ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
 ms.date: 02/10/2020
 ms.author: alsin
-ms.openlocfilehash: 2b901c0d77b5bd550e7e98434cf1cba2a61e6bdb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 65679c900baaf0f98a21e4b1f6b1d350c4b945c4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83656485"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074335"
 ---
 # <a name="azure-serial-console"></a>Konsola szeregowa platformy Azure
 
@@ -33,7 +34,7 @@ Konsola szeregowa działa w taki sam sposób w przypadku maszyn wirtualnych i wy
 Aby uzyskać dostęp do konsoli szeregowej na maszynie wirtualnej lub wystąpieniu zestawu skalowania maszyn wirtualnych, potrzebne są następujące elementy:
 
 - Diagnostyka rozruchu musi być włączona dla maszyny wirtualnej
-- Konto użytkownika, które używa uwierzytelniania hasła, musi istnieć na maszynie wirtualnej. Można utworzyć użytkownika opartego na hasłach za pomocą funkcji [resetowania hasła](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) rozszerzenia dostępu do maszyny wirtualnej. Wybierz pozycję **zresetuj hasło** w sekcji **Pomoc techniczna i rozwiązywanie problemów** .
+- Konto użytkownika, które używa uwierzytelniania hasła, musi istnieć na maszynie wirtualnej. Można utworzyć użytkownika opartego na hasłach za pomocą funkcji [resetowania hasła](../extensions/vmaccess.md#reset-password) rozszerzenia dostępu do maszyny wirtualnej. Wybierz pozycję **zresetuj hasło** w sekcji **Pomoc techniczna i rozwiązywanie problemów** .
 - Konto platformy Azure z dostępem do konsoli szeregowej musi mieć [rolę współautora maszyny wirtualnej](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) zarówno dla maszyny wirtualnej, jak i konta magazynu [diagnostyki rozruchu](boot-diagnostics.md) .
 
 > [!NOTE]
@@ -44,7 +45,7 @@ Konsola szeregowa dla maszyn wirtualnych i zestawu skalowania maszyn wirtualnych
 
 ### <a name="serial-console-for-virtual-machines"></a>Konsola szeregowa dla Virtual Machines
 Konsola szeregowa dla maszyn wirtualnych jest tak prosta jak kliknięcie **konsola szeregowa** w sekcji **Pomoc techniczna i rozwiązywanie problemów** w Azure Portal.
-  1. Otwórz [witrynę Azure Portal](https://portal.azure.com).
+  1. Otwórz witrynę [Azure Portal](https://portal.azure.com).
 
   1. Przejdź do opcji **wszystkie zasoby** i wybierz maszynę wirtualną. Zostanie otwarta strona przegląd dla maszyny wirtualnej.
 
@@ -54,7 +55,7 @@ Konsola szeregowa dla maszyn wirtualnych jest tak prosta jak kliknięcie **konso
 
 ### <a name="serial-console-for-virtual-machine-scale-sets"></a>Konsola szeregowa dla Virtual Machine Scale Sets
 Konsola szeregowa jest dostępna dla zestawów skalowania maszyn wirtualnych, które są dostępne dla każdego wystąpienia w zestawie skalowania. Przed wyświetleniem przycisku **konsola szeregowa** należy przejść do poszczególnych wystąpień zestawu skalowania maszyn wirtualnych. Jeśli zestaw skalowania maszyn wirtualnych nie ma włączonej diagnostyki rozruchu, należy zaktualizować model zestawu skalowania maszyn wirtualnych, aby umożliwić diagnostykę rozruchu, a następnie uaktualnić wszystkie wystąpienia do nowego modelu w celu uzyskania dostępu do konsoli szeregowej.
-  1. Otwórz [witrynę Azure Portal](https://portal.azure.com).
+  1. Otwórz witrynę [Azure Portal](https://portal.azure.com).
 
   1. Przejdź do opcji **wszystkie zasoby** i wybierz zestaw skalowania maszyn wirtualnych. Zostanie otwarta strona przegląd zestawu skalowania maszyn wirtualnych.
 
@@ -68,7 +69,7 @@ Konsola szeregowa jest dostępna dla zestawów skalowania maszyn wirtualnych, kt
 
 
 ### <a name="tls-12-in-serial-console"></a>TLS 1,2 w konsoli szeregowej
-Konsola szeregowa używa protokołu TLS 1,2 na całej trasie, aby zabezpieczyć całą komunikację w ramach usługi. Konsola szeregowa jest zależna od konta magazynu diagnostyki rozruchu zarządzanego przez użytkownika, a protokół TLS 1,2 musi być skonfigurowany oddzielnie dla konta magazynu. Instrukcje w tym celu znajdują się [tutaj](https://docs.microsoft.com/azure/storage/common/storage-security-tls).
+Konsola szeregowa używa protokołu TLS 1,2 na całej trasie, aby zabezpieczyć całą komunikację w ramach usługi. Konsola szeregowa jest zależna od konta magazynu diagnostyki rozruchu zarządzanego przez użytkownika, a protokół TLS 1,2 musi być skonfigurowany oddzielnie dla konta magazynu. Instrukcje w tym celu znajdują się [tutaj](../../storage/common/transport-layer-security-configure-minimum-version.md).
 
 ## <a name="advanced-uses-for-serial-console"></a>Zaawansowane zastosowania konsoli szeregowej
 Poza dostępem konsoli do maszyny wirtualnej można również użyć konsoli szeregowej platformy Azure dla następujących zasobów:

@@ -3,12 +3,12 @@ title: Wdrażanie analizy filmów wideo na żywo na urządzeniu IoT Edge — Azu
 description: W tym artykule przedstawiono kroki, które ułatwią wdrożenie analizy wideo na żywo na urządzeniu IoT Edge. Można to zrobić na przykład, jeśli masz dostęp do lokalnej maszyny z systemem Linux i/lub wcześniej utworzono konto Azure Media Services.
 ms.topic: how-to
 ms.date: 04/27/2020
-ms.openlocfilehash: 415d22a47e6563e10a1880429537ab182d1ff7a5
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ea7a1026f42cd3d8745559bc195a89b7fbcb69a0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519902"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074449"
 ---
 # <a name="deploy-live-video-analytics-on-an-iot-edge-device"></a>Wdrażanie analizy filmów wideo na żywo na urządzeniu IoT Edge
 
@@ -18,10 +18,10 @@ W tym artykule przedstawiono kroki, które ułatwią wdrożenie analizy wideo na
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * Komputer z systemem Linux, który spełnia ograniczenia SPRZĘTowe/SW do analizy wideo na żywo
-* Subskrypcja platformy Azure, do której masz [uprawnienia właściciela](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner)
-* [Utwórz i skonfiguruj IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-create-through-portal)
-* [Zarejestruj urządzenie IoT Edge](https://docs.microsoft.com/azure/iot-edge/how-to-register-device)
-* [Install the Azure IoT Edge runtime on Debian-based Linux systems (Instalowanie środowiska uruchomieniowego usługi IoT Edge w systemach Linux opartych na rozwiązaniu Debian)](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux)
+* Subskrypcja platformy Azure, do której masz [uprawnienia właściciela](../../role-based-access-control/built-in-roles.md#owner)
+* [Utwórz i skonfiguruj IoT Hub](../../iot-hub/iot-hub-create-through-portal.md)
+* [Zarejestruj urządzenie IoT Edge](../../iot-edge/how-to-register-device.md)
+* [Install the Azure IoT Edge runtime on Debian-based Linux systems (Instalowanie środowiska uruchomieniowego usługi IoT Edge w systemach Linux opartych na rozwiązaniu Debian)](../../iot-edge/how-to-install-iot-edge-linux.md)
 * [Tworzenie konta usługi Azure Media Services](../latest/create-account-howto.md)
     * Użyj jednego z następujących regionów: Wschodnie stany USA 2, środkowe stany USA, Północno-środkowe stany USA, Japonia Wschodnia, zachodnie stany USA 2, zachodnio-środkowe stany USA, Kanada Wschodnia, Południowe Zjednoczone Królestwo, Francja środkowa, Francja Południowa, Szwajcaria Północna, Szwajcaria Zachodnia i Japonia Zachodnia.
     * Zalecane jest użycie kont magazynu ogólnego przeznaczenia w wersji 2 (GPv2)
@@ -225,7 +225,7 @@ Po utworzeniu wdrożenia powrócisz do IoT Edge stronie Centrum IoT Hub.
 2.  Sprawdź szczegóły urządzenia, aby sprawdzić, czy moduł usługi BLOB Storage jest wymieniony jako **określony we wdrożeniu i zgłoszony przez urządzenie**.
 
 Uruchomienie modułu na urządzeniu może potrwać kilka minut, a następnie zgłoszone z powrotem do IoT Hub. Odśwież stronę, aby zobaczyć zaktualizowany stan.
-Kod stanu: 200 — wartość OK oznacza, że [środowisko uruchomieniowe IoT Edge jest w](https://docs.microsoft.com/azure/iot-edge/iot-edge-runtime) dobrej kondycji i działa prawidłowo.
+Kod stanu: 200 — wartość OK oznacza, że [środowisko uruchomieniowe IoT Edge jest w](../../iot-edge/iot-edge-runtime.md) dobrej kondycji i działa prawidłowo.
 
 ![Stan](./media/deploy-iot-edge-device/status.png)
 

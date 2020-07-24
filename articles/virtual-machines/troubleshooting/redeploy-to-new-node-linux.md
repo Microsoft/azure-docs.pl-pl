@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 18e96f9463176b0fce04252492eea6dbede416c5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6b6abaf10f74b29685309ed5a24a5e6b9f261014
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79531111"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074445"
 ---
 # <a name="redeploy-linux-virtual-machine-to-new-azure-node"></a>Ponowne wdrażanie maszyny wirtualnej z systemem Linux w nowym węźle platformy Azure
 Jeśli napotykasz problemy z rozwiązywaniem problemów z protokołem SSH lub dostępem aplikacji do maszyny wirtualnej z systemem Linux na platformie Azure, możesz ponownie wdrożyć maszynę wirtualną. Po ponownym wdrożeniu maszyny wirtualnej jest ona przenoszona do nowego węzła w ramach infrastruktury platformy Azure, a następnie ponownie ją włącza. Wszystkie opcje konfiguracji i skojarzone zasoby są zachowywane. W tym artykule pokazano, jak ponownie wdrożyć maszynę wirtualną przy użyciu interfejsu wiersza polecenia platformy Azure lub Azure Portal.
@@ -41,7 +41,7 @@ az vm redeploy --resource-group myResourceGroup --name myVM
 [!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
 
 
-Zainstaluj [najnowszy klasyczny interfejs wiersza polecenia platformy Azure](../../cli-install-nodejs.md) i zaloguj się do konta platformy Azure. Upewnij się, że jesteś w trybie Menedżer zasobów ( `azure config mode arm` ).
+Zainstaluj [najnowszy klasyczny interfejs wiersza polecenia platformy Azure](/cli/azure/install-classic-cli) i zaloguj się do konta platformy Azure. Upewnij się, że jesteś w trybie Menedżer zasobów ( `azure config mode arm` ).
 
 Poniższy przykład ponownie wdraża maszynę wirtualną o nazwie *myVM* w grupie zasobów o nazwie Moja *zasobów*:
 
@@ -53,5 +53,3 @@ azure vm redeploy --resource-group myResourceGroup --vm-name myVM
 
 ## <a name="next-steps"></a>Następne kroki
 Jeśli masz problemy z nawiązywaniem połączenia z maszyną wirtualną, możesz znaleźć konkretną pomoc dotyczącą [rozwiązywania problemów z połączeniami SSH](troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) lub [szczegółowymi krokami rozwiązywania problemów SSH](detailed-troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Jeśli nie możesz uzyskać dostępu do aplikacji uruchomionej na maszynie wirtualnej, możesz również odczytać [problemy związane z rozwiązywaniem problemów z aplikacjami](troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-
-

@@ -9,11 +9,12 @@ ms.date: 05/18/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
 ms.custom: storage-accounts
-ms.openlocfilehash: fc2e2ff0edc09e613b1da0a503eff9d53ebcf7a9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d340e37cf64961971c03af8d08a669c27d758116
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84234626"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074201"
 ---
 # <a name="upload-a-generalized-vhd-to-azure-to-create-a-new-vm"></a>Przekaż uogólniony wirtualny dysk twardy do platformy Azure, aby utworzyć nową maszynę wirtualną
 
@@ -33,9 +34,9 @@ Uogólniony wirtualny dysk twardy otrzymał wszystkie informacje o koncie osobis
   * Uogólnianie maszyny wirtualnej za pomocą programu Sysprep
 
 ### <a name="generalize-a-windows-virtual-machine-using-sysprep"></a>Uogólnianie maszyny wirtualnej z systemem Windows przy użyciu programu Sysprep
-W tej sekcji pokazano, jak uogólnić maszynę wirtualną z systemem Windows w celu wykorzystania jej jako obrazu. Narzędzie Sysprep między innymi usuwa wszystkie informacje osobiste związane z kontem i przygotowuje maszynę do używania jako obraz. Aby uzyskać więcej informacji na temat narzędzia Sysprep, zobacz [Używanie narzędzia Sysprep: wprowadzenie](https://technet.microsoft.com/library/bb457073.aspx).
+W tej sekcji pokazano, jak uogólnić maszynę wirtualną z systemem Windows w celu wykorzystania jej jako obrazu. Narzędzie Sysprep między innymi usuwa wszystkie informacje osobiste związane z kontem i przygotowuje maszynę do używania jako obraz. Aby uzyskać więcej informacji na temat narzędzia Sysprep, zobacz [Używanie narzędzia Sysprep: wprowadzenie](/previous-versions/windows/it-pro/windows-xp/bb457073(v=technet.10)).
 
-Upewnij się, że role serwera uruchomione na komputerze są obsługiwane przez program Sysprep. Aby uzyskać więcej informacji, zobacz [Obsługa narzędzia Sysprep dla ról serwera](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)
+Upewnij się, że role serwera uruchomione na komputerze są obsługiwane przez program Sysprep. Aby uzyskać więcej informacji, zobacz [Obsługa narzędzia Sysprep dla ról serwera](/windows-hardware/manufacture/desktop/sysprep-support-for-server-roles)
 
 > [!IMPORTANT]
 > Jeśli używasz programu Sysprep przed przekazaniem wirtualnego dysku twardego do platformy Azure po raz pierwszy, upewnij się, że [maszyna wirtualna została przygotowana](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) przed uruchomieniem narzędzia Sysprep. 
@@ -62,7 +63,7 @@ Upewnij się, że role serwera uruchomione na komputerze są obsługiwane przez 
 Przekaż wirtualny dysk twardy do konta usługi Azure Storage.
 
 ### <a name="log-in-to-azure"></a>Zaloguj się do platformy Azure.
-Jeśli nie masz jeszcze zainstalowanego programu PowerShell w wersji 1,4 lub nowszej, zapoznaj [się z tematem Instalowanie i konfigurowanie Azure PowerShell](/powershell/azure/overview).
+Jeśli nie masz jeszcze zainstalowanego programu PowerShell w wersji 1,4 lub nowszej, zapoznaj [się z tematem Instalowanie i konfigurowanie Azure PowerShell](/powershell/azure/).
 
 1. Otwórz Azure PowerShell i zaloguj się na koncie platformy Azure. Zostanie otwarte okno podręczne, w którym można wprowadzić poświadczenia konta platformy Azure.
    
@@ -105,7 +106,7 @@ Jeśli musisz utworzyć konto magazynu, wykonaj następujące czynności:
     New-AzResourceGroup -Name myResourceGroup -Location "West US"
     ```
 
-2. Utwórz konto magazynu o nazwie **mojekontomagazynu** w tej grupie zasobów za pomocą polecenia cmdlet [New-AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageaccount) :
+2. Utwórz konto magazynu o nazwie **mojekontomagazynu** w tej grupie zasobów za pomocą polecenia cmdlet [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) :
    
     ```powershell
     New-AzStorageAccount -ResourceGroupName myResourceGroup -Name mystorageaccount -Location "West US" `
@@ -114,7 +115,7 @@ Jeśli musisz utworzyć konto magazynu, wykonaj następujące czynności:
  
 ### <a name="start-the-upload"></a>Rozpocznij przekazywanie 
 
-Użyj polecenia cmdlet [Add-AzVhd](https://docs.microsoft.com/powershell/module/az.compute/add-azvhd) , aby przekazać obraz do kontenera na koncie magazynu. Ten przykład przekazuje plik **myVHD. VHD** z `"C:\Users\Public\Documents\Virtual hard disks\"` do konta magazynu o nazwie **mojekontomagazynu** w grupie zasobów zasobu. **myResourceGroup** Plik zostanie umieszczony w kontenerze o nazwie Moja **kontener, a nowa** nazwa pliku będzie **myUploadedVHD. VHD**.
+Użyj polecenia cmdlet [Add-AzVhd](/powershell/module/az.compute/add-azvhd) , aby przekazać obraz do kontenera na koncie magazynu. Ten przykład przekazuje plik **myVHD. VHD** z `"C:\Users\Public\Documents\Virtual hard disks\"` do konta magazynu o nazwie **mojekontomagazynu** w grupie zasobów zasobu. **myResourceGroup** Plik zostanie umieszczony w kontenerze o nazwie Moja **kontener, a nowa** nazwa pliku będzie **myUploadedVHD. VHD**.
 
 ```powershell
 $rgName = "myResourceGroup"
@@ -141,7 +142,7 @@ C:\Users\Public\Doc...  https://mystorageaccount.blob.core.windows.net/mycontain
 W zależności od połączenia sieciowego i rozmiaru pliku VHD, wykonanie tego polecenia może potrwać trochę czasu.
 
 
-## <a name="create-a-new-vm"></a>Utworzenie nowej maszyny wirtualnej. 
+## <a name="create-a-new-vm"></a>Tworzenie nowej maszyny wirtualnej 
 
 Możesz teraz użyć przekazanego wirtualnego dysku twardego do utworzenia nowej maszyny wirtualnej. 
 
@@ -284,5 +285,3 @@ Po zakończeniu powinna zostać wyświetlona nowo utworzona maszyna wirtualna w 
 
 ## <a name="next-steps"></a>Następne kroki
 Aby zarządzać nową maszyną wirtualną za pomocą Azure PowerShell, zobacz [Zarządzanie maszynami wirtualnymi przy użyciu Azure Resource Manager i programu PowerShell](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-
-

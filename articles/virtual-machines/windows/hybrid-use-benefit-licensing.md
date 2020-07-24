@@ -7,11 +7,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 4/22/2018
 ms.author: xujing
-ms.openlocfilehash: f84d4fcd85f1e718f414e63bbe76fd29fa32427d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1c87c517a0013fa31ba63ef1f78677fe85f5d287
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81869564"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074268"
 ---
 # <a name="azure-hybrid-benefit-for-windows-server"></a>Korzyść użycia hybrydowego platformy Azure dla systemu Windows Server
 W przypadku klientów z programem Software Assurance Korzyść użycia hybrydowego platformy Azure dla systemu Windows Server umożliwia korzystanie z lokalnych licencji systemu Windows Server i uruchamianie maszyn wirtualnych z systemem Windows na platformie Azure przy niższych kosztach. Za pomocą Korzyść użycia hybrydowego platformy Azure dla systemu Windows Server można wdrożyć nowe maszyny wirtualne z systemem operacyjnym Windows. W tym artykule opisano procedurę wdrażania nowych maszyn wirtualnych przy użyciu programu Korzyść użycia hybrydowego platformy Azure dla systemu Windows Server i sposobu aktualizowania istniejących uruchomionych maszyn wirtualnych. Aby uzyskać więcej informacji na temat Korzyść użycia hybrydowego platformy Azure licencjonowania i oszczędności w systemie Windows Server, zobacz [stronę licencjonowanie korzyść użycia hybrydowego platformy Azure dla systemu Windows Server](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
@@ -64,8 +65,8 @@ az vm create \
     --license-type Windows_Server
 ```
 
-### <a name="template"></a>Szablon
-W szablonach Menedżer zasobów należy określić dodatkowy parametr `licenseType` . Aby dowiedzieć się więcej na temat [tworzenia szablonów Azure Resource Manager](../../resource-group-authoring-templates.md) , zobacz
+### <a name="template"></a>Template
+W szablonach Menedżer zasobów należy określić dodatkowy parametr `licenseType` . Aby dowiedzieć się więcej na temat [tworzenia szablonów Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) , zobacz
 ```json
 "properties": {
     "licenseType": "Windows_Server",
@@ -189,7 +190,7 @@ Możesz również dowiedzieć się więcej na temat [modyfikowania zestawu skalo
 ## <a name="next-steps"></a>Następne kroki
 - Przeczytaj więcej o [tym, jak zaoszczędzić pieniądze w korzyść użycia hybrydowego platformy Azure](https://azure.microsoft.com/pricing/hybrid-use-benefit/)
 - Przeczytaj więcej [na temat często zadawanych pytań dotyczących korzyść użycia hybrydowego platformy Azure](https://azure.microsoft.com/pricing/hybrid-use-benefit/faq/)
-- Dowiedz się więcej [na temat szczegółowych wskazówek dotyczących licencjonowania systemu Windows Server korzyść użycia hybrydowego platformy Azure](https://docs.microsoft.com/windows-server/get-started/azure-hybrid-benefit)
+- Dowiedz się więcej [na temat szczegółowych wskazówek dotyczących licencjonowania systemu Windows Server korzyść użycia hybrydowego platformy Azure](/windows-server/get-started/azure-hybrid-benefit)
 - Dowiedz się więcej [na temat korzyść użycia hybrydowego platformy Azure dla systemu Windows Server i Azure Site Recovery Migrowanie aplikacji na platformę Azure jeszcze bardziej opłacalne](https://azure.microsoft.com/blog/hybrid-use-benefit-migration-with-asr/)
-- Dowiedz się więcej o [systemie Windows 10 na platformie Azure z prawem hostingu](https://docs.microsoft.com/azure/virtual-machines/windows/windows-desktop-multitenant-hosting-deployment) wielodostępnego
+- Dowiedz się więcej o [systemie Windows 10 na platformie Azure z prawem hostingu](./windows-desktop-multitenant-hosting-deployment.md) wielodostępnego
 - Dowiedz się więcej o [korzystaniu z szablonów Menedżer zasobów](../../azure-resource-manager/management/overview.md)

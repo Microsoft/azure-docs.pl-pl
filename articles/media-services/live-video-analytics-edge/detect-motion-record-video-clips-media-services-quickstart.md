@@ -3,12 +3,12 @@ title: Wykrywaj ruch, nagrywaj wideo do Azure Media Services
 description: W tym przewodniku szybki start pokazano, jak używać analizy wideo na żywo na IoT Edge w celu wykrywania ruchu w strumieniu wideo na żywo i rejestrowania klipów wideo do Azure Media Services.
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: 0a81bebe7333266e1b70f97f8c712fccf392a464
-ms.sourcegitcommit: 1383842d1ea4044e1e90bd3ca8a7dc9f1b439a54
+ms.openlocfilehash: 24bf958c7a6af25d64d8c2884b9fa259c67e39c3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84817319"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074405"
 ---
 # <a name="quickstart-detect-motion-record-video-to-media-services"></a>Szybki Start: wykrywanie ruchu, nagrywanie wideo do Media Services
 
@@ -475,7 +475,7 @@ Teraz Wywołaj metodę GraphInstanceSet Direct z następującym ładunkiem:
 }
 ```
 
-. Weź pod uwagę następujące kwestie:
+Pamiętaj o następujących kwestiach:
 
 * Powyższy ładunek określa nazwę topologii wykresu (EVRtoAssetsOnMotionDetecion), dla której należy utworzyć wystąpienie grafu.
 * Ładunek zawiera wartość parametru dla elementu "rtspUrl", który nie ma wartości domyślnej w ładunku topologii.
@@ -655,7 +655,7 @@ Utworzone i aktywowane wystąpienie grafu używa węzła procesora wykrywania ru
 
 Zwróć uwagę na następujące właściwości w powyższych komunikatach
 
-* Każdy komunikat zawiera sekcję "treść" i sekcję "applicationProperties". Aby zrozumieć, co reprezentuje Ta sekcja, przeczytaj artykuł [Tworzenie i odczytywanie wiadomości IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct).
+* Każdy komunikat zawiera sekcję "treść" i sekcję "applicationProperties". Aby zrozumieć, co reprezentuje Ta sekcja, przeczytaj artykuł [Tworzenie i odczytywanie wiadomości IoT Hub](../../iot-hub/iot-hub-devguide-messages-construct.md).
 * Pierwszy komunikat jest zdarzeniem diagnostycznym, MediaSessionEstablished, że węzeł źródłowy RTSP (podmiot) mógł nawiązać połączenie z symulatorem RTSP i zaczyna odbierać (symulowane) kanały informacyjne na żywo.
 * "Podmiot" w applicationProperties odwołuje się do węzła w topologii grafu, z którego Wygenerowano komunikat. W takim przypadku komunikat pochodzi z węzła źródłowego RTSP.
 * "eventType" w applicationProperties wskazuje, że jest to zdarzenie diagnostyczne.
