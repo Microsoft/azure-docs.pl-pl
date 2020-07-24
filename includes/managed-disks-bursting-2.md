@@ -1,6 +1,6 @@
 ---
-title: dołączanie pliku
-description: dołączanie pliku
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: virtual-machines
 author: albecker1
 ms.service: virtual-machines
@@ -8,11 +8,12 @@ ms.topic: include
 ms.date: 04/27/2020
 ms.author: albecker1
 ms.custom: include file
-ms.openlocfilehash: 0b278841fc3693d79821d25caf7c9a208341dea1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cc0dd5e76227c0814659b74afc2ac46c8ca4de73
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85242090"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87102872"
 ---
 ## <a name="common-scenarios"></a>Typowe scenariusze
 Poniższe scenariusze mogą znacznie wzczerpać korzyści z rozszeregowania:
@@ -27,7 +28,7 @@ System przeciwstawny jest stosowany w taki sam sposób na poziomie maszyny wirtu
 
 ![Diagram zasobników serii](media/managed-disks-bursting/bucket-diagram.jpg)
 
-Na bieżąco z tym, w jaki sposób chcesz korzystać z 30 minut na rozerwanie. Można jej używać przez 30 minut po raz lub sporadycznie przez cały dzień. Gdy produkt zostanie wdrożony, jest gotowy do zapełnienia środków, a w przypadku wyczerpania kredytów trwa krócej niż dzień w celu ponownego zapełnienia środków. Można zbierać i poświęcać swoje kredyty na swoje rozliczanie według własnego uznania, a przedział 30-minutowy nie musi być zapełniony ponownie w ramach serii. Jednym ze sposobów na zanotowanie akumulacji seryjnej jest to, że jest to różne dla każdego zasobu, ponieważ jest ona oparta na nieużywanych operacjach IOPS i MB/s poniżej ich wartości wydajności. Oznacza to, że wyższe produkty bazowe wydajności mogą naliczać swoje ilości na rozerwanie szybciej niż niższe produkty bazowe. Na przykład dysk P1 z biegu jałowego bez aktywności spowoduje naliczenie 120 operacji we/wy na sekundę, podczas gdy dysk P20 naliczy 2 300 operacji we/wy na sekundę podczas fazy biegu.
+Na bieżąco z tym, w jaki sposób chcesz korzystać z 30 minut na rozerwanie. Można jej używać przez 30 minut po raz lub sporadycznie przez cały dzień. Gdy produkt zostanie wdrożony, jest gotowy z pełnymi środkami, a w przypadku wyczerpania kredytów trwa krócej niż dzień w celu ponownego zapełnienia środków w całości. Można zbierać i poświęcać swoje kredyty na swoje rozliczanie według własnego uznania, a przedział 30-minutowy nie musi być zapełniony ponownie w ramach serii. Jednym ze sposobów na zanotowanie akumulacji seryjnej jest to, że jest to różne dla każdego zasobu, ponieważ jest ona oparta na nieużywanych operacjach IOPS i MB/s poniżej ich wartości wydajności. Oznacza to, że wyższe produkty bazowe wydajności mogą naliczać swoje ilości na rozerwanie szybciej niż niższe produkty bazowe. Na przykład dysk P1 z biegu jałowego bez aktywności spowoduje naliczenie 120 operacji we/wy na sekundę, podczas gdy dysk P20 naliczy 2 300 operacji we/wy na sekundę podczas fazy biegu.
 
 ## <a name="bursting-states"></a>Stany rozrywające
 Istnieją trzy stany, w których zasób może być używany z włączonym rozruchem:

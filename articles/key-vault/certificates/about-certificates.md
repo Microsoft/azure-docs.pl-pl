@@ -10,14 +10,14 @@ ms.subservice: certificates
 ms.topic: overview
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 5e014634ecb251f05710de16daee30d72dae619e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 74007f5d10d58cf9680d4531304098cabe9b6d8b
+ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81685899"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87115666"
 ---
-# <a name="about-azure-key-vault-certificates"></a>Informacje o certyfikatach Azure Key Vault
+# <a name="about-azure-key-vault-certificates"></a>Informacje o certyfikatach usługi Azure Key Vault
 
 Obsługa certyfikatów Key Vault umożliwia zarządzanie certyfikatami x509 i następującymi zachowaniami:  
 
@@ -66,7 +66,7 @@ Istnieją dodatkowe atrybuty tylko do odczytu, które znajdują się w odpowiedz
 -   *NBF*: IntDate: zawiera wartość daty certyfikatu x509.  
 
 > [!Note] 
-> Jeśli certyfikat Key Vault wygaśnie, klucz z adresami i wpis tajny stają się nieobsługiwane.  
+> Jeśli certyfikat usługi Key Vault wygaśnie, adresowany klucz i wpis tajny przestaną działać.  
 
 ### <a name="tags"></a>Tagi
 
@@ -81,10 +81,10 @@ Zasady dotyczące certyfikatów zawierają informacje dotyczące sposobu tworzen
 
 Po utworzeniu certyfikatu Key Vault od podstaw należy podać zasady. Zasady określają sposób tworzenia tej wersji certyfikatu Key Vault lub następnej wersji certyfikatu Key Vault. Po ustanowieniu zasad nie jest to wymagane z kolejnymi operacjami tworzenia dla przyszłych wersji. Istnieje tylko jedno wystąpienie zasad dla wszystkich wersji certyfikatu Key Vault.  
 
-Na wysokim poziomie zasady certyfikatów zawierają następujące informacje:  
+Na wysokim poziomie zasady certyfikatów zawierają następujące informacje (ich definicje można znaleźć [tutaj](https://docs.microsoft.com/powershell/module/az.keyvault/set-azkeyvaultcertificatepolicy?view=azps-4.4.0)):  
 
 -   Właściwości certyfikatu x509: zawiera nazwę podmiotu, alternatywne nazwy podmiotu i inne właściwości używane do tworzenia żądania certyfikatu x509.  
--   Właściwości klucza: zawiera typ klucza, Długość klucza, możliwe do eksportowania i ponownie używane pola klucza. Te pola instruują Magazyn kluczy, aby utworzyć klucz.  
+-   Właściwości klucza: zawiera typ klucza, Długość klucza, możliwe do eksportu i pola ReuseKeyOnRenewal. Te pola instruują Magazyn kluczy, aby utworzyć klucz.  
 -   Właściwości klucza tajnego: zawiera właściwości tajne, takie jak typ zawartości klucza tajnego adresowanego do wygenerowania wartości klucza tajnego w celu pobierania certyfikatu jako klucza tajnego.  
 -   Akcje okresu istnienia: zawiera akcje okresu istnienia dla certyfikatu KV. Każda akcja okresu istnienia zawiera:  
 
@@ -150,7 +150,7 @@ Jeśli zasada certyfikatu jest ustawiona na automatyczne odnawianie, zostanie wy
 
 ## <a name="certificate-access-control"></a>Access Control certyfikatów
 
- Kontrola dostępu do certyfikatów jest zarządzana przez Key Vault i jest dostarczana przez Key Vault, które zawierają te certyfikaty. Zasady kontroli dostępu dla certyfikatów różnią się od zasad kontroli dostępu dla kluczy i wpisów tajnych w tym samym Key Vault. Użytkownicy mogą utworzyć jeden lub więcej magazynów w celu przechowywania certyfikatów, aby zachować scenariusz odpowiedniej segmentacji i zarządzania certyfikatami.  
+ Kontrola dostępu do certyfikatów jest zarządzana przez usługę Key Vault i jest dostarczana przez magazyn kluczy, który zawiera te certyfikaty. Zasady kontroli dostępu dla certyfikatów różnią się od zasad kontroli dostępu dla kluczy i wpisów tajnych w tym samym Key Vault. Użytkownicy mogą utworzyć jeden lub więcej magazynów w celu przechowywania certyfikatów, aby zachować scenariusz odpowiedniej segmentacji i zarządzania certyfikatami.  
 
  Następujące uprawnienia mogą być używane dla każdego podmiotu zabezpieczeń w pozycji kontrola dostępu do kluczy tajnych w magazynie kluczy i ściśle odzwierciedlają operacje dozwolone na obiekcie tajnym:  
 

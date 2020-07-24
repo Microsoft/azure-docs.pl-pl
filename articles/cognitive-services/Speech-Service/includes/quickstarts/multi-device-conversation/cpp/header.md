@@ -7,11 +7,11 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 01/15/2020
 ms.author: ralphe
-ms.openlocfilehash: 0f7cbdeef8b6721dcd91c6910a10c8f90441a1ee
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 1658f924d4c40fe58f5ee868d68ce021263e8b05
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76264557"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87102894"
 ---
-Jeśli wolisz przejść bezpośrednio do programu, Wyświetl lub Pobierz wszystkie [przykłady zestawu Speech SDK C++](https://aka.ms/speech/github-cpp) w serwisie GitHub. W przeciwnym razie Zacznijmy.
+Możesz wyświetlić lub pobrać wszystkie [przykłady dotyczące zestawu Speech SDK C++](https://aka.ms/speech/github-cpp) w serwisie GitHub. 

@@ -1,18 +1,19 @@
 ---
-title: Poziomy powiększenia i siatka kafelków | Mapy Microsoft Azure
+title: Poziomy powiększenia i siatka kafelków w Microsoft Azure Maps
 description: W tym artykule przedstawiono informacje na temat poziomów powiększenia i siatki kafelków w Microsoft Azure Maps.
-author: Philmea
-ms.author: philmea
-ms.date: 01/22/2020
+author: anastasia-ms
+ms.author: v-stharr
+ms.date: 07/14/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: ''
-ms.openlocfilehash: b7dde6e1a77cebd1e88cc574d99e781ab55f0934
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+manager: philmea
+ms.openlocfilehash: 9493ad21847cca230606ff1641c9ac02c3355f53
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83123908"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87093055"
 ---
 # <a name="zoom-levels-and-tile-grid"></a>Poziomy powiększenia i siatka kafelków
 
@@ -23,15 +24,11 @@ Azure Maps użyć układu współrzędnych rzutowania Merkatora (EPSG: 3857). Pr
 
 Aby zoptymalizować wydajność pobierania i wyświetlania mapy, mapa jest dzielona na kafelki kwadratowe. Kafelki z zestawu Azure Maps SDK mają rozmiar 512 x 512 pikseli dla map drogowych i mniejszą liczbę pikseli 256 x 256 w przypadku obrazów satelitarnych. Azure Maps udostępnia kafelki rastrowe i wektorowe dla 23 poziomów powiększenia, numerowane od 0 do 22. Na poziomie powiększenia 0 cały świat mieści się na jednym kafelku:
 
-<center>
-
-![Kafelek mapy światowej](./media/zoom-levels-and-tile-grid/world0.png)</center>
+:::image type="content" source="./media/zoom-levels-and-tile-grid/world0.png" alt-text="Kafelek mapy światowej":::
 
 Poziom powiększenia 1 używa czterech kafelków do renderowania świata: 2 x 2 kwadrat
 
-<center>
-
-![Układ kafelków mapy 2x2](media/zoom-levels-and-tile-grid/map-2x2-tile-layout.png)</center>
+:::image type="content" source="./media/zoom-levels-and-tile-grid/map-2x2-tile-layout.png" alt-text="Układ kafelków mapy 2x2":::
 
 Każdy dodatkowy poziom powiększenia — dzieli kafelki z poprzedniego, tworząc siatkę<sup>z 2 powiększenia x 2</sup> <sup>powiększenia</sup>. Poziom powiększenia 22 to siatka 2<sup>22</sup> x 2<sup>22</sup>lub 4 194 304 x 4 194 304 (łącznie z 17 592 186 044 416 kafelków).
 
@@ -79,11 +76,7 @@ var mapHeight = mapWidth;
 
 Ponieważ szerokość i wysokość mapy jest różna na każdym poziomie powiększenia, więc współrzędne pikseli. Piksel w lewym górnym rogu mapy zawsze ma współrzędne pikseli (0, 0). Piksel w prawym dolnym rogu mapy ma współrzędne pikseli *(szerokość-1, Wysokość-1)* lub odwołujące się do równań w poprzedniej sekcji *(tileSize \* 2<sup>zoom</sup>-1, tileSize \* 2<sup>zoom</sup>-1)*. Na przykład w przypadku używania kafelków z 512 kwadratowych na poziomie 2, współrzędne pikseli zakresu od (0, 0) do (2047, 2047), takie jak:
 
-<center>
-
-![Mapa pokazująca wymiary pikseli](media/zoom-levels-and-tile-grid/map-width-height.png)
-
-</center>
+:::image type="content" border="false" source="./media/zoom-levels-and-tile-grid/map-width-height.png" alt-text="Mapa pokazująca wymiary pikseli":::
 
 W stopniach i poziomach szczegółowości danego typu i długości geograficznej, współrzędne XY są obliczane w następujący sposób:
 
@@ -109,9 +102,7 @@ var numberOfTilesHigh = numberOfTilesWide;
 
 Każdy kafelek otrzymuje współrzędne XY względem zakresu od (0, 0) w lewym górnym rogu do *(2<sup>powiększenia</sup>— 1, 2<sup>powiększenie</sup>— 1)* w prawym dolnym rogu. Na przykład, na poziomie powiększenia 2, kafelek koordynuje zakres od (0, 0) do (7, 7) w następujący sposób:
 
-<center>
-
-![Mapa współrzędnych kafelka](media/zoom-levels-and-tile-grid/map-tiles-x-y-coordinates-7x7.png)</center>
+:::image type="content" border="false" source="./media/zoom-levels-and-tile-grid/map-tiles-x-y-coordinates-7x7.png" alt-text="Mapa współrzędnych kafelka":::
 
 Mając na siebie parę współrzędnych pikseli wykresu, można łatwo określić współrzędne XY kafelka na kafelku zawierającym ten piksel:
 
@@ -125,17 +116,13 @@ Kafelki są wywoływane przez poziom powiększenia. Współrzędne x i y odpowia
 
 Podczas określania stopnia powiększenia, który ma być używany, pamiętaj, że każda lokalizacja znajduje się w stałej pozycji na kafelku. W związku z tym liczba kafelków wymaganych do wyświetlenia danego expanse terytorium zależy od określonego położenia siatki powiększenia na mapie światowej. Na przykład jeśli dwa punkty 900 metrów od siebie, *może* minąć tylko trzy kafelki, aby wyświetlić trasę między nimi na poziomie powiększenia 17. Jeśli jednak punkt zachodni znajduje się po prawej stronie jego kafelka oraz punkt wschodni po lewej stronie jego kafelka, może on przyjmować cztery kafelki:
 
-<center>
-
-![Skalowanie pokazu powiększenia](media/zoom-levels-and-tile-grid/zoomdemo_scaled.png)</center>
+:::image type="content" border="false" source="./media/zoom-levels-and-tile-grid/zoomdemo_scaled.png" alt-text="Skalowanie pokazu powiększenia":::
 
 Po określeniu poziomu powiększenia można obliczyć wartości x i y. Lewy górny kafelek w każdej siatce powiększenia to x = 0, y = 0; prawy dolny kafelek to x = 2<sup>zoom-1</sup>, y = 2<sup>powiększenie-1</sup>.
 
 Oto siatka powiększenia dla poziomu powiększenia 1:
 
-<center>
-
-![Siatka powiększenia dla poziomu powiększenia 1](media/zoom-levels-and-tile-grid/api_x_y.png)</center>
+:::image type="content" border="false" source="./media/zoom-levels-and-tile-grid/api_x_y.png" alt-text="Siatka powiększenia dla poziomu powiększenia 1":::
 
 ## <a name="quadkey-indices"></a>Indeksy Quadkey
 
@@ -156,9 +143,7 @@ quadkey = 100111 (base 2) = 213 (base 4) = "213"
 
 `Qquadkeys`mają kilka interesujących właściwości. Po pierwsze długość `quadkey` (liczba cyfr) jest równa poziomowi powiększenia odpowiedniego kafelka. Po drugie, `quadkey` każdy kafelek zaczyna się od `quadkey` jego kafelka nadrzędnego (zawierający kafelek na poprzednim poziomie). Jak pokazano w poniższym przykładzie, kafelek 2 jest elementem nadrzędnym kafelków od 20 do 23:
 
-<center>
-
-![Piramida kafelka Quadkey](media/zoom-levels-and-tile-grid/quadkey-tile-pyramid.png)</center>
+:::image type="content" border="false" source="./media/zoom-levels-and-tile-grid/quadkey-tile-pyramid.png" alt-text="Piramida kafelka Quadkey":::
 
 Na koniec `quadkeys` Podaj jednowymiarowy klucz indeksu, który zwykle zachowuje bliskość kafelków w obszarze wykresu. Innymi słowy, dwa kafelki, które mają znajdujące się w pobliżu współrzędne XY `quadkeys` są zwykle blisko siebie. Jest to ważne w przypadku optymalizowania wydajności bazy danych, ponieważ sąsiadujące kafelki są często żądane w grupach i pożądane jest zachowywanie tych kafelków na tych samych blokach dysków, aby zminimalizować liczbę operacji odczytu z dysku.
 

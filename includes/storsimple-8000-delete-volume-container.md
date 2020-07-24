@@ -1,6 +1,6 @@
 ---
-title: dołączanie pliku
-description: dołączanie pliku
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: storsimple
 author: alkohli
 ms.service: storsimple
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/08/2018
 ms.author: alkohli
 ms.custom: include file
-ms.openlocfilehash: e683d17422321b780a1c01b3011292f2e2c631cb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 30bbd06e36ed1e03caa391165a8abc275f1899a7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "67183278"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87102867"
 ---
 Aby usunąć kontener woluminów, należy
  - Usuń woluminy w kontenerze woluminów. Jeśli kontener woluminów zawiera skojarzone woluminy, należy najpierw przełączyć te woluminy w tryb offline. Wykonaj kroki opisane w sekcji [Zrób wolumin w trybie offline](../articles/storsimple/storsimple-8000-manage-volumes-u2.md#take-a-volume-offline). Gdy woluminy są w trybie offline, można je usunąć. 
@@ -36,6 +36,6 @@ Gdy kontener woluminów nie ma skojarzonych woluminów, zasad kopii zapasowych i
 
 Lista kontenerów woluminów jest aktualizowana w celu odzwierciedlenia usuniętego kontenera woluminów.
 
-![](./media/storsimple-8000-delete-volume-container/deletevolumecontainer5.png)
+![Zrzut ekranu strony kontenera woluminów. Tabelaryczna lista kontenerów woluminów nie zawiera już usuniętego kontenera.](./media/storsimple-8000-delete-volume-container/deletevolumecontainer5.png)
 
 

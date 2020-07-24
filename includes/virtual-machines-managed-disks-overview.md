@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 04/24/2020
+ms.date: 07/17/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: c37c5a125bce23f8f2a813b5df4516323c2a2c12
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 2ef1fab7a6f32f45ee3047a24610085a2133a339
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83343450"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87102873"
 ---
 ## <a name="benefits-of-managed-disks"></a>Zalety dysków zarządzanych
 
@@ -45,22 +45,30 @@ Za pomocą [kontroli dostępu opartej na rolach (RBAC) platformy Azure](../artic
 
 ### <a name="upload-your-vhd"></a>Przekazywanie wirtualnego dysku twardego
 
- Przekazywanie bezpośrednie ułatwia przenoszenie dysku VHD na dysk zarządzany platformy Azure. Wcześniej musiałeś postępować zgodnie z większym procesem, który obejmuje przemieszczenie danych na koncie magazynu. Teraz jest mniej kroków. Łatwiejsze jest przekazywanie lokalnych maszyn wirtualnych na platformę Azure, przekazywanie ich do dużych dysków zarządzanych, a proces tworzenia kopii zapasowej i przywracania jest uproszczony. Zmniejsza to również koszty, umożliwiając przekazywanie danych do dysków zarządzanych bezpośrednio bez dołączania ich do maszyn wirtualnych. Możesz użyć bezpośredniego przekazywania, aby przekazać wirtualne dyski twarde o rozmiarze do 32 TiB.
+Przekazywanie bezpośrednie ułatwia przenoszenie dysku VHD na dysk zarządzany platformy Azure. Wcześniej musiałeś postępować zgodnie z większym procesem, który obejmuje przemieszczenie danych na koncie magazynu. Teraz jest mniej kroków. Łatwiejsze jest przekazywanie lokalnych maszyn wirtualnych na platformę Azure, przekazywanie ich do dużych dysków zarządzanych, a proces tworzenia kopii zapasowej i przywracania jest uproszczony. Zmniejsza to również koszty, umożliwiając przekazywanie danych do dysków zarządzanych bezpośrednio bez dołączania ich do maszyn wirtualnych. Możesz użyć bezpośredniego przekazywania, aby przekazać wirtualne dyski twarde o rozmiarze do 32 TiB.
 
- Aby dowiedzieć się, jak przenieść dysk VHD na platformę Azure, zapoznaj się z artykułami [interfejsu wiersza polecenia](../articles/virtual-machines/linux/disks-upload-vhd-to-managed-disk-cli.md) lub [programu PowerShell](../articles/virtual-machines/windows/disks-upload-vhd-to-managed-disk-powershell.md) .
+Aby dowiedzieć się, jak przenieść dysk VHD na platformę Azure, zapoznaj się z artykułami [interfejsu wiersza polecenia](../articles/virtual-machines/linux/disks-upload-vhd-to-managed-disk-cli.md) lub [programu PowerShell](../articles/virtual-machines/windows/disks-upload-vhd-to-managed-disk-powershell.md) .
 
-## <a name="encryption"></a>Szyfrowanie
+## <a name="security"></a>Zabezpieczenia
+
+### <a name="private-links"></a>Linki prywatne
+
+Usługi Managed disks obsługują używanie prywatnych linków do importowania lub eksportowania wewnętrznego dysku zarządzanego do sieci. Linki prywatne umożliwiają generowanie identyfikatora URI sygnatury dostępu współdzielonego (SAS) powiązanego z niedołączonymi dyskami zarządzanymi i migawkami, których można użyć do eksportowania danych do innych regionów na potrzeby rozszerzania regionalnego, odzyskiwania po awarii i analizy śledczej. Możesz również użyć identyfikatora URI sygnatury dostępu współdzielonego, aby bezpośrednio przekazać dysk VHD do pustego dysku z lokalnego. Teraz możesz skorzystać z [prywatnych linków](../articles/private-link/private-link-overview.md) , aby ograniczyć eksport i import dysków zarządzanych, tak aby mogły one wystąpić tylko w ramach sieci wirtualnej platformy Azure. Linki prywatne umożliwiają zapewnienie, że dane są przesyłane tylko w ramach bezpiecznej sieci szkieletowej firmy Microsoft.
+
+Aby dowiedzieć się, jak włączyć linki prywatne do importowania lub eksportowania dysku zarządzanego, zapoznaj się z artykułami dotyczącymi [interfejsu wiersza polecenia](../articles/virtual-machines/linux/disks-export-import-private-links-cli.md) lub [portalu](../articles/virtual-machines/disks-enable-private-links-for-import-export-portal.md) .
+
+### <a name="encryption"></a>Szyfrowanie
 
 Dyski zarządzane oferują dwa różne rodzaje szyfrowania. Pierwszy jest szyfrowanie po stronie serwera (SSE), które jest wykonywane przez usługę magazynu. Druga z nich to Azure Disk Encryption (ADE), którą można włączyć na dyskach systemu operacyjnego i danych dla maszyn wirtualnych.
 
-### <a name="server-side-encryption"></a>Szyfrowanie po stronie serwera
+#### <a name="server-side-encryption"></a>Szyfrowanie po stronie serwera
 
-[Szyfrowanie po stronie serwera platformy Azure](../articles/virtual-machines/windows/disk-encryption.md) zapewnia szyfrowanie w czasie spoczynku i zabezpiecza dane zgodnie z zobowiązaniami dotyczącymi bezpieczeństwa i zgodności w organizacji. Szyfrowanie po stronie serwera jest domyślnie włączone dla wszystkich dysków zarządzanych, migawek i obrazów we wszystkich regionach, w których są dostępne usługi Managed Disks. (Dyski tymczasowe, z drugiej strony, nie są szyfrowane przez szyfrowanie usługi Storage; zobacz [role dysków: dyski tymczasowe](#temporary-disk)).
+Szyfrowanie po stronie serwera zapewnia szyfrowanie w spoczynku i zabezpiecza dane zgodnie z zobowiązaniami dotyczącymi bezpieczeństwa i zgodności w organizacji. Szyfrowanie po stronie serwera jest domyślnie włączone dla wszystkich dysków zarządzanych, migawek i obrazów we wszystkich regionach, w których są dostępne usługi Managed Disks. (Dyski tymczasowe, z drugiej strony, nie są szyfrowane za pomocą szyfrowania po stronie serwera, o ile nie zostanie włączone szyfrowanie na hoście; zapoznaj się z tematem [role dysków: dyski tymczasowe](#temporary-disk)).
 
-Możesz zezwolić na platformę Azure do zarządzania kluczami, które są kluczami zarządzanymi przez platformę, lub samodzielnie zarządzać kluczami. są to klucze zarządzane przez klienta. Aby uzyskać więcej informacji, odwiedź [stronę Managed disks często zadawanych pytań](../articles/virtual-machines/windows/faq-for-disks.md#managed-disks-and-storage-service-encryption) .
+Możesz zezwolić na platformę Azure do zarządzania kluczami, które są kluczami zarządzanymi przez platformę, lub samodzielnie zarządzać kluczami. są to klucze zarządzane przez klienta. Aby uzyskać szczegółowe informacje, odwiedź stronę dotyczącą [szyfrowania Azure Disk Storage po stronie serwera](../articles/virtual-machines/windows/disk-encryption.md) .
 
 
-### <a name="azure-disk-encryption"></a>Usługa Azure Disk Encryption
+#### <a name="azure-disk-encryption"></a>Usługa Azure Disk Encryption
 
 Azure Disk Encryption pozwala na szyfrowanie dysków systemu operacyjnego i danych używanych przez maszynę wirtualną IaaS. To szyfrowanie obejmuje dyski zarządzane. W przypadku systemu Windows dyski są szyfrowane przy użyciu standardowej technologii szyfrowania funkcji BitLocker. W przypadku systemu Linux dyski są szyfrowane przy użyciu technologii DM-Crypt. Proces szyfrowania jest zintegrowany z usługą Azure Key Vault, aby umożliwić kontrolowanie kluczy szyfrowania dysków i zarządzanie nimi. Aby uzyskać więcej informacji, zobacz [Azure Disk Encryption dla maszyn wirtualnych](../articles/virtual-machines/linux/disk-encryption-overview.md) z systemem Linux lub [Azure Disk Encryption dla maszyn wirtualnych z systemem Windows](../articles/virtual-machines/windows/disk-encryption-overview.md).
 
@@ -82,9 +90,9 @@ Ten dysk ma maksymalną pojemność wynoszącą 2 048 GiB.
 
 ### <a name="temporary-disk"></a>Dysk tymczasowy
 
-Każda maszyna wirtualna zawiera dysk tymczasowy, który nie jest dyskiem zarządzanym. Dysk tymczasowy zapewnia krótkoterminowe przechowywanie aplikacji i procesów. jest to przeznaczone tylko do przechowywania danych, takich jak pliki strony lub wymiany. Dane na dysku tymczasowym mogą zostać utracone podczas zdarzenia [konserwacji](../articles/virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#understand-vm-reboots---maintenance-vs-downtime) lub w przypadku [ponownego wdrożenia maszyny wirtualnej](../articles/virtual-machines/troubleshooting/redeploy-to-new-node-windows.md?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json). Podczas pomyślnego standardowego ponownego uruchomienia maszyny wirtualnej dane na dysku tymczasowym będą utrwalane.  
+Każda maszyna wirtualna zawiera dysk tymczasowy, który nie jest dyskiem zarządzanym. Dysk tymczasowy zapewnia krótkoterminowe przechowywanie aplikacji i procesów. jest to przeznaczone tylko do przechowywania danych, takich jak pliki strony lub wymiany. Dane na dysku tymczasowym mogą zostać utracone podczas [zdarzenia konserwacji](../articles/virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#understand-vm-reboots---maintenance-vs-downtime) lub po ponownym [wdrożeniu maszyny wirtualnej](../articles/virtual-machines/troubleshooting/redeploy-to-new-node-windows.md?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json). Podczas pomyślnego standardowego ponownego uruchomienia maszyny wirtualnej dane na dysku tymczasowym będą utrwalane.  
 
-Na maszynach wirtualnych z systemem Linux na platformie Azure dysk tymczasowy jest zazwyczaj/dev/sdb i na maszynach wirtualnych systemu Windows dysk tymczasowy jest D: domyślnie. Dysk tymczasowy nie jest szyfrowany przez szyfrowanie po stronie serwera (zobacz [szyfrowanie](#encryption)).
+Na maszynach wirtualnych z systemem Linux na platformie Azure dysk tymczasowy jest zazwyczaj/dev/sdb i na maszynach wirtualnych systemu Windows dysk tymczasowy jest D: domyślnie. Dysk tymczasowy nie jest szyfrowany przez szyfrowanie po stronie serwera, chyba że zostanie włączone szyfrowanie na hoście.
 
 ## <a name="managed-disk-snapshots"></a>Migawki dysków zarządzanych
 

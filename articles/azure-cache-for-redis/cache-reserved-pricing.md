@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 02/20/2020
-ms.openlocfilehash: 8af8db6b6853d6b8cbd4ba1105f05ebb9bcf771b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c4ea8db464c7cae57b80837ced9f8886a8b3cf4a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84974844"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87093021"
 ---
 # <a name="prepay-for-azure-cache-for-redis-compute-resources-with-reserved-capacity"></a>Przedpłata za usługę Azure cache dla zasobów obliczeniowych Redis z zarezerwowaną pojemnością
 
@@ -32,7 +32,7 @@ Aby uzyskać szczegółowe informacje dotyczące sposobu, w jaki Klienci korpora
 
 Rozmiar rezerwacji powinien opierać się na łącznej ilości pamięci używanej przez istniejącą lub natychmiastowo wdrożoną pamięć podręczną w określonym regionie i korzystając z tej samej warstwy usług.
 
-Załóżmy na przykład, że korzystasz z dwóch pamięci podręcznych — jeden w 13 GB, a drugi przy 26 GB. Wymagana jest co najmniej jeden rok. Ponadto Załóżmy, że planujesz skalować istniejące pamięci podręczne o wielkości 13 GB do 26 GB przez miesiąc, aby zaspokoić zapotrzebowanie sezonowe, a następnie przeskalować je ponownie. W takim przypadku można zakupić 1 pamięć podręczną P1 i 1 P2 pamięci podręcznej lub 3. Otrzymasz rabat na łączną ilość pamięci podręcznej, która jest rezerwowana, niezależnie od tego, jak ta kwota jest przypisana w pamięci podręcznej.
+Załóżmy na przykład, że korzystasz z dwóch pamięci podręcznych — jeden w 13 GB, a drugi przy 26 GB. Wymagana jest co najmniej jeden rok. Ponadto Załóżmy, że planujesz skalować istniejące pamięci podręczne o wielkości 13 GB do 26 GB przez miesiąc, aby zaspokoić zapotrzebowanie sezonowe, a następnie przeskalować je ponownie. W takim przypadku można zakupić 1-krotną pamięć podręczną i 1 pamięć podręczną P3 lub 3 P2 pamięci podręcznej w rezerwacji jednorocznej, aby zmaksymalizować oszczędności. Otrzymasz rabat na łączną ilość pamięci podręcznej, która jest rezerwowana, niezależnie od tego, jak ta kwota jest przypisana w pamięci podręcznej.
 
 
 ## <a name="buy-azure-cache-for-redis-reserved-capacity"></a>Kupowanie pamięci podręcznej platformy Azure pod kątem zarezerwowanej pojemności Redis
@@ -55,7 +55,7 @@ W poniższej tabeli opisano wymagane pola.
 | Region | Region świadczenia usługi Azure, który jest objęty pamięcią podręczną platformy Azure na potrzeby rezerwacji zarezerwowanej pojemności Redis.
 | Warstwa cenowa | Warstwa usługi dla serwerów Redis w pamięci podręcznej platformy Azure.
 | Termin | Jeden rok lub trzy lata
-| Liczba | Ilość zasobów obliczeniowych zakupionych w pamięci podręcznej platformy Azure na potrzeby rezerwacji zarezerwowanej pojemności Redis. Ilość to liczba pamięci podręcznych w wybranym regionie platformy Azure i w warstwie usług, które są zarezerwowane i uzyskają rabat na rozliczenia. Na przykład w przypadku uruchamiania lub planowania uruchamiania pamięci podręcznej platformy Azure dla serwerów Redis o całkowitej pojemności pamięci podręcznej wynoszącej 26 GB w regionie Wschodnie stany USA należy określić liczbę jako 26, aby zmaksymalizować korzyść dla wszystkich pamięci podręcznych.
+| Ilość | Ilość zasobów obliczeniowych zakupionych w pamięci podręcznej platformy Azure na potrzeby rezerwacji zarezerwowanej pojemności Redis. Ilość to liczba pamięci podręcznych w wybranym regionie platformy Azure i w warstwie usług, które są zarezerwowane i uzyskają rabat na rozliczenia. Na przykład w przypadku uruchamiania lub planowania uruchamiania pamięci podręcznej platformy Azure dla serwerów Redis z łączną pojemnością pamięci podręcznej wynoszącą 26 GB w regionie Wschodnie stany USA należy określić liczbę zapewniającą równowartość 26 GB, aby zmaksymalizować korzyść dla wszystkich pamięci podręcznych. Może to być 1 P3 lub 2 pamięci podręcznych.
 
 ## <a name="cancel-exchange-or-refund-reservations"></a>Anulowanie, wymiana lub zwrot rezerwacji
 

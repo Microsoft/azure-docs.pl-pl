@@ -3,28 +3,40 @@ ms.service: logic-apps
 ms.topic: include
 author: ecfan
 ms.author: estfan
-ms.date: 11/03/2016
-ms.openlocfilehash: 3a0cb48e7fe5f3eef101f644e4f72fcfa2689d6e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/21/2020
+ms.openlocfilehash: 06a503e800309d8689735417931820d9f16a6e75
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74789458"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87102879"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Konto w [usłudze OneDrive](https://OneDrive.com) 
+* Konto [usługi OneDrive dla firm](https://OneDrive.com) 
 
-Aby można było korzystać z konta usługi OneDrive dla firm w aplikacji logiki, należy autoryzować aplikację logiki w celu nawiązania połączenia z kontem usługi OneDrive dla firm. Na szczęście można to łatwo zrobić w aplikacji logiki w witrynie Azure Portal. 
+Aby można było korzystać z konta usługi OneDrive dla firm z usługą Logic Apps, należy autoryzować Logic Apps do nawiązania połączenia z kontem usługi OneDrive dla firm w Azure Portal.
 
-Poniżej przedstawiono procedurę autoryzacji aplikacji logiki w celu nawiązania połączenia z kontem usługi OneDrive dla firm:
+Wykonaj następujące kroki, aby autoryzować Logic Apps do nawiązywania połączenia z kontem usługi OneDrive dla firm:  
 
-1. Aby utworzyć połączenie z usługą OneDrive dla firm, w Projektancie aplikacji logiki wybierz pozycję **Pokaż interfejsy API zarządzane przez firmę Microsoft** na liście rozwijanej, a następnie w polu wyszukiwania wprowadź wartość *OneDrive dla firm* . Wybierz wyzwalacz lub akcję, której chcesz użyć:  
-   ![](./media/connectors-create-api-onedriveforbusiness/onedriveforbusiness-1.png)
-2. Jeśli wcześniej nie utworzono żadnych połączeń z usługą OneDrive dla firm, otrzymasz monit o podanie poświadczeń usługi OneDrive dla firm. Te poświadczenia będą używane do autoryzacji aplikacji logiki do nawiązywania połączenia i uzyskiwania dostępu do danych konta usługi OneDrive dla firm:  
-   ![](./media/connectors-create-api-onedriveforbusiness/onedriveforbusiness-2.png)
-3. Podaj nazwę użytkownika i hasło usługi OneDrive dla firm, aby autoryzować aplikację logiki:  
-   ![](./media/connectors-create-api-onedriveforbusiness/onedriveforbusiness-3.png)   
-4. Zwróć uwagę, że połączenie zostało utworzone i teraz możesz kontynuować wykonywanie innych czynności w aplikacji logiki:  
-   ![](./media/connectors-create-api-onedriveforbusiness/onedriveforbusiness-4.png)   
+1. Zaloguj się w witrynie Azure Portal. 
 
+1. W obszarze **usługi platformy Azure**wybierz pozycję **Logic Apps**. Następnie wybierz z listy nazwę aplikacji logiki.
+
+1. W menu aplikacji logiki wybierz pozycję **Projektant aplikacji logiki** w obszarze **Narzędzia programistyczne**.
+
+1. W projektancie Logic Apps zaznacz opcję **Pokaż interfejsy API zarządzane przez firmę Microsoft** na liście rozwijanej, a następnie w polu wyszukiwania wprowadź wartość *OneDrive dla firm* . Wybierz wyzwalacz lub akcję do użycia:  
+
+   ![Zrzut ekranu projektanta Logic Apps, pokazujący wyzwalacz cyklu z akcjami interfejsu API usługi OneDrive dla firm.](./media/connectors-create-api-onedriveforbusiness/onedriveforbusiness-1.png)
+
+2. Jeśli wcześniej nie utworzono żadnych połączeń z usługą OneDrive dla firm, postępuj zgodnie z monitem o podanie poświadczeń usługi OneDrive dla firm. Te poświadczenia służą do autoryzowania aplikacji logiki do uzyskiwania dostępu do danych konta usługi OneDrive dla firm:  
+
+   ![Zrzut ekranu programu Logic Apps Designer z wyświetlonym monitem logowania dla usługi OneDrive dla firm.](./media/connectors-create-api-onedriveforbusiness/onedriveforbusiness-2.png)
+
+3. Podaj nazwę użytkownika i hasło do usługi OneDrive dla firm, aby autoryzować aplikację logiki:  
+
+   ![Zrzut ekranu strony logowania do usługi OneDrive dla firm, w której wyświetlany jest monit logowania.](./media/connectors-create-api-onedriveforbusiness/onedriveforbusiness-3.png)   
+
+4. Połączenie jest teraz wymienione w kroku. Wybierz pozycję Zapisz, a następnie Kontynuuj tworzenie aplikacji logiki. 
+
+   ![Zrzut ekranu programu Logic Apps Designer z wyświetlonym wyzwalaczem z połączeniem z usługą OneDrive dla firm.](./media/connectors-create-api-onedriveforbusiness/onedriveforbusiness-4.png)   

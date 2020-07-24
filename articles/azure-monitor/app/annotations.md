@@ -3,15 +3,16 @@ title: Adnotacje wydania dla Application Insights | Microsoft Docs
 description: Dodaj znaczniki wdrożenia lub kompilacji do wykresów Eksploratora metryk w Application Insights.
 ms.topic: conceptual
 ms.date: 07/01/2019
-ms.openlocfilehash: 0ad773ca6a7102ac718d43dfbbf6a4f834e681a0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8f6ffed8ae2039ec36ec8bd86518e6b359da65ec
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81010735"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87093038"
 ---
 # <a name="annotations-on-metric-charts-in-application-insights"></a>Adnotacje na wykresach metryk w Application Insights
 
-Adnotacje pokazują, gdzie wdrożono nową kompilację lub inne istotne zdarzenia. Adnotacje ułatwiają sprawdzenie, czy zmiany miały wpływ na wydajność aplikacji. Mogą być tworzone automatycznie przez system kompilacji [Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/tasks/) . Możesz również utworzyć adnotacje, aby oflagować dowolne wydarzenie, tworząc je za pomocą programu PowerShell.
+Adnotacje pokazują, gdzie wdrożono nową kompilację lub inne istotne zdarzenia. Adnotacje ułatwiają sprawdzenie, czy zmiany miały wpływ na wydajność aplikacji. Mogą być tworzone automatycznie przez system kompilacji [Azure Pipelines](/azure/devops/pipelines/tasks/) . Możesz również utworzyć adnotacje, aby oflagować dowolne wydarzenie, tworząc je za pomocą programu PowerShell.
 
 ## <a name="release-annotations-with-azure-pipelines-build"></a>Adnotacje wersji z kompilacją Azure Pipelines
 

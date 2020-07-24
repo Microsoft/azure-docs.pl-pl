@@ -8,14 +8,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 05/12/2020
+ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: de5c478ac6641fe5b1e342c063d134f70084b2ef
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: be43b74e7128f9b250d25f8bdb2642c6f7b41d2a
+ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85201450"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87115542"
 ---
 # <a name="request-an-access-token-in-azure-active-directory-b2c"></a>Żądanie tokenu dostępu w Azure Active Directory B2C
 

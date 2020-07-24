@@ -7,12 +7,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 01/15/2020
 ms.author: ralphe
-ms.openlocfilehash: 11ee22be1de22bfc4206aeb7f4a27449bd70c2bb
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: ecff6b6d7034e8e00c95ddd65d157f95a53afc45
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76264543"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87102893"
 ---
-Jeśli wolisz przejść bezpośrednio do programu, Wyświetl lub Pobierz wszystkie [przykłady w języku C# zestawu Speech SDK](https://aka.ms/speech/github-csharp) w witrynie GitHub. W przeciwnym razie Zacznijmy.
+Możesz wyświetlić lub pobrać wszystkie [przykłady w języku C# zestawu Speech SDK](https://aka.ms/speech/github-csharp) w witrynie GitHub. 
 

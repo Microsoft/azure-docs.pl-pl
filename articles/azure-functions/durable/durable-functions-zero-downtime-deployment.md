@@ -6,16 +6,16 @@ ms.topic: conceptual
 ms.date: 10/10/2019
 ms.author: azfuncdf
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 45f87898f7da432e5bdd09061e74c33a1a8fe41b
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 11bbc30179cc27f4799b1fd2869cb312dfa34473
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86165706"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87093072"
 ---
 # <a name="zero-downtime-deployment-for-durable-functions"></a>Wdrożenie bez przestojów dla Durable Functions
 
-[Model niezawodnego wykonywania](durable-functions-checkpointing-and-replay.md) Durable Functions wymaga deterministycznia aranżacji, co tworzy dodatkowe wyzwanie do uwzględnienia podczas wdrażania aktualizacji. Gdy wdrożenie zawiera zmiany sygnatury funkcji działania lub logiki programu Orchestrator, wystąpienia aranżacji w locie kończą się niepowodzeniem. Ta sytuacja dotyczy szczególnie problemów z wystąpieniami długotrwałych aranżacji, które mogą reprezentować godziny lub dni pracy.
+[Model niezawodnego wykonywania](./durable-functions-orchestrations.md) Durable Functions wymaga deterministycznia aranżacji, co tworzy dodatkowe wyzwanie do uwzględnienia podczas wdrażania aktualizacji. Gdy wdrożenie zawiera zmiany sygnatury funkcji działania lub logiki programu Orchestrator, wystąpienia aranżacji w locie kończą się niepowodzeniem. Ta sytuacja dotyczy szczególnie problemów z wystąpieniami długotrwałych aranżacji, które mogą reprezentować godziny lub dni pracy.
 
 Aby zapobiec wystąpieniu tych błędów, dostępne są dwie opcje: 
 - Opóźnij wdrożenie, dopóki nie zostaną ukończone wszystkie uruchomione wystąpienia aranżacji.
@@ -25,11 +25,11 @@ Poniższy wykres zawiera porównanie trzech głównych strategii w celu osiągni
 
 | Strategia |  Kiedy stosować | Zalety | Wady |
 | -------- | ------------ | ---- | ---- |
-| [Przechowywanie wersji](#versioning) |  Aplikacje, które nie są często spotykanymi [zmianami.](durable-functions-versioning.md) | Łatwość zaimplementowania. |  Zwiększony rozmiar aplikacji funkcji w pamięci i liczbie funkcji.<br/>Duplikowanie kodu. |
+| [Obsługa wersji](#versioning) |  Aplikacje, które nie są często spotykanymi [zmianami.](durable-functions-versioning.md) | Łatwość zaimplementowania. |  Zwiększony rozmiar aplikacji funkcji w pamięci i liczbie funkcji.<br/>Duplikowanie kodu. |
 | [Sprawdzanie stanu z miejscem](#status-check-with-slot) | System, który nie ma długotrwałych aranżacji trwających dłużej niż 24 godziny lub często nakładających się aranżacji. | Prosta baza kodu.<br/>Nie wymaga dodatkowego zarządzania aplikacjami funkcji. | Wymaga dodatkowego konta magazynu lub zarządzania centrum zadań.<br/>Wymaga okresu czasu, gdy nie są uruchomione żadne aranżacje. |
 | [Routing aplikacji](#application-routing) | System, który nie ma okresów czasu, gdy aranżacje nie działają, takich jak okresy czasowe z aranżacjami w ciągu ostatnich 24 godzin lub z często nakładającymi się aranżacjami. | Obsługuje nowe wersje systemów z ciągle uruchomionymi aranżacjami, które mają istotne zmiany. | Wymaga inteligentnego routera aplikacji.<br/>Można maksymalnie przekroczyć liczbę aplikacji funkcji dozwolonych przez twoją subskrypcję. Wartość domyślna to 100. |
 
-## <a name="versioning"></a>Przechowywanie wersji
+## <a name="versioning"></a>Obsługa wersji
 
 Zdefiniuj nowe wersje funkcji i pozostaw stare wersje w aplikacji funkcji. Jak widać na diagramie, wersja funkcji stanie się częścią nazwy. Ze względu na to, że poprzednie wersje funkcji są zachowywane, wystąpienia aranżacji w locie mogą nadal odwoływać się do nich. Tymczasem żądania nowych wystąpień aranżacji wywołują najnowszą wersję, którą funkcja klienta aranżacji może odwoływać się z poziomu aplikacji.
 
@@ -52,7 +52,7 @@ Aby skonfigurować ten scenariusz, należy wykonać poniższą procedurę.
 
 1. Dla każdego gniazda należy ustawić [ustawienie aplikacji AzureWebJobsStorage](../functions-app-settings.md#azurewebjobsstorage) na parametry połączenia dla konta magazynu udostępnionego. Te parametry połączenia konta magazynu są używane przez środowisko uruchomieniowe Azure Functions. To konto jest używane przez środowisko uruchomieniowe Azure Functions i zarządza kluczami funkcji.
 
-1. Dla każdego miejsca Utwórz nowe ustawienie aplikacji, na przykład `DurableManagementStorage` . Ustaw jej wartość na parametry połączenia różnych kont magazynu. Te konta magazynu są używane przez rozszerzenie Durable Functions do [niezawodnego wykonywania](durable-functions-checkpointing-and-replay.md). Użyj oddzielnego konta magazynu dla każdego miejsca. Nie oznaczaj tego ustawienia jako ustawienia miejsca wdrożenia.
+1. Dla każdego miejsca Utwórz nowe ustawienie aplikacji, na przykład `DurableManagementStorage` . Ustaw jej wartość na parametry połączenia różnych kont magazynu. Te konta magazynu są używane przez rozszerzenie Durable Functions do [niezawodnego wykonywania](./durable-functions-orchestrations.md). Użyj oddzielnego konta magazynu dla każdego miejsca. Nie oznaczaj tego ustawienia jako ustawienia miejsca wdrożenia.
 
 1. Whost.jsaplikacji funkcji w [sekcji durableTask pliku](durable-functions-bindings.md#hostjson-settings)Określ `azureStorageConnectionStringName` jako nazwę ustawienia aplikacji utworzonego w kroku 3.
 
@@ -172,4 +172,3 @@ Aby uzyskać więcej informacji, zobacz [Zarządzanie wystąpieniami w Durable F
 
 > [!div class="nextstepaction"]
 > [Durable Functions wersji](durable-functions-versioning.md)
-
