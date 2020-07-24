@@ -14,11 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b91eb361d4bcae304734817ee7f57141d6f06415
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bd060972e562759fcc1071f2c6549578bd3d4ed9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84727861"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87015718"
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>Polecenia cmdlet usługi Azure Active Directory służące do konfigurowania ustawień grupy
 
@@ -31,7 +32,7 @@ Aby uzyskać więcej informacji na temat zapobiegania tworzeniu grup zabezpiecze
 
 Ustawienia grup pakietu Office 365 są konfigurowane przy użyciu obiektu Settings i obiektu SettingsTemplate. Początkowo nie widzisz żadnych obiektów Settings w katalogu, ponieważ katalog jest skonfigurowany z ustawieniami domyślnymi. Aby zmienić ustawienia domyślne, należy utworzyć nowy obiekt ustawień przy użyciu szablonu ustawień. Szablony ustawień są definiowane przez firmę Microsoft. Istnieje kilka różnych szablonów ustawień. Aby skonfigurować ustawienia grupy pakietu Office 365 dla katalogu, należy użyć szablonu o nazwie "Group. Unified". Aby skonfigurować ustawienia grupy pakietu Office 365 dla pojedynczej grupy, użyj szablonu o nazwie "Group. Unified. Guest". Ten szablon służy do zarządzania dostępem gościa do grupy programu Office 365. 
 
-Polecenia cmdlet są częścią modułu Azure Active Directory PowerShell V2. Aby uzyskać instrukcje dotyczące pobierania i instalowania modułu na komputerze, zapoznaj się z artykułem [Azure Active Directory programu PowerShell w wersji 2](https://docs.microsoft.com/powershell/azuread/). Wersję 2 modułu można zainstalować z [Galerii programu PowerShell](https://www.powershellgallery.com/packages/AzureAD/).
+Polecenia cmdlet są częścią modułu Azure Active Directory PowerShell V2. Aby uzyskać instrukcje dotyczące pobierania i instalowania modułu na komputerze, zapoznaj się z artykułem [Azure Active Directory programu PowerShell w wersji 2](https://docs.microsoft.com/powershell/azure/active-directory/overview). Wersję 2 modułu można zainstalować z [Galerii programu PowerShell](https://www.powershellgallery.com/packages/AzureAD/).
 
 ## <a name="install-powershell-cmdlets"></a>Instalowanie poleceń cmdlet programu PowerShell
 
@@ -318,9 +319,9 @@ Ten krok powoduje usunięcie ustawień na poziomie katalogu, które mają zastos
    ```
 
 ## <a name="cmdlet-syntax-reference"></a>Dokumentacja składni poleceń cmdlet
-Więcej Azure Active Directory dokumentacji programu PowerShell można znaleźć w [Azure Active Directory poleceniach cmdlet](/powershell/azure/install-adv2?view=azureadps-2.0).
+Więcej Azure Active Directory dokumentacji programu PowerShell można znaleźć w [Azure Active Directory poleceniach cmdlet](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0).
 
-## <a name="additional-reading"></a>Dodatkowy odczyt
+## <a name="additional-reading"></a>Materiały uzupełniające
 
 * [Zarządzanie dostępem do zasobów za pomocą grup Azure Active Directory](../fundamentals/active-directory-manage-groups.md)
 * [Integrowanie tożsamości lokalnych z usługą Azure Active Directory](../hybrid/whatis-hybrid-identity.md)

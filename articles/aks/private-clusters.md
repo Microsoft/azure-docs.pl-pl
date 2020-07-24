@@ -3,19 +3,26 @@ title: Tworzenie prywatnego klastra usługi Azure Kubernetes Service
 description: Dowiedz się, jak utworzyć prywatny klaster usługi Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 6/18/2020
-ms.openlocfilehash: c788f2009bdc771bcdde20d1c3dbe9eafdbcffcb
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.date: 7/17/2020
+ms.openlocfilehash: 10cbd58807c213418a88b42887cdb76868eac34e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86244229"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87015653"
 ---
 # <a name="create-a-private-azure-kubernetes-service-cluster"></a>Tworzenie prywatnego klastra usługi Azure Kubernetes Service
 
-W klastrze prywatnym płaszczyzna kontroli lub serwer interfejsu API ma wewnętrzne adresy IP, które są zdefiniowane w [alokacji RFC1918-Address dla prywatnych Internetu](https://tools.ietf.org/html/rfc1918) dokumentów. Za pomocą klastra prywatnego można zapewnić, że ruch sieciowy między serwerem interfejsu API i pulami węzłów pozostanie tylko w sieci prywatnej.
+W klastrze prywatnym płaszczyzna kontroli lub serwer interfejsu API ma wewnętrzne adresy IP, które są zdefiniowane w [alokacji RFC1918-Address dla prywatnych Internetu](https://tools.ietf.org/html/rfc1918) dokumentów. Za pomocą klastra prywatnego można zapewnić, że ruch sieciowy między serwerem interfejsu API a pulami węzłów pozostanie tylko w sieci prywatnej.
 
 Płaszczyzna kontroli lub serwer interfejsu API znajduje się w subskrypcji platformy Azure zarządzanej przez usługę Azure Kubernetes Service (AKS). Klaster klienta lub Pula węzłów znajduje się w subskrypcji klienta. Serwer i Pula węzłów mogą komunikować się ze sobą za pomocą [usługi Azure Private link][private-link-service] w sieci wirtualnej serwera interfejsu API i prywatnego punktu końcowego, który jest udostępniany w podsieci klastra AKS klienta.
+
+## <a name="region-availability"></a>Dostępność w danym regionie
+
+Klaster prywatny jest dostępny w regionach publicznych, w których [AKS jest obsługiwany](https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service).
+
+* Nie jest to obecnie obsługiwane.
+* US Gov Teksas nie jest obecnie obsługiwana z powodu braku obsługi linku prywatnego.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -69,7 +76,7 @@ Najłatwiej jest utworzyć maszynę wirtualną w tej samej sieci wirtualnej, co 
 
 ## <a name="virtual-network-peering"></a>Komunikacja równorzędna sieci wirtualnych
 
-Jak wspomniano, Komunikacja równorzędna sieci wirtualnej jest jednym ze sposobów uzyskiwania dostępu do klastra prywatnego. Aby można było użyć komunikacji równorzędnej sieci wirtualnej, należy skonfigurować łącze między siecią wirtualną i prywatną strefą DNS.
+Jak wspomniano, Komunikacja równorzędna sieci wirtualnej jest jednym ze sposobów uzyskiwania dostępu do klastra prywatnego. Aby użyć komunikacji równorzędnej sieci wirtualnej, musisz skonfigurować łącze między siecią wirtualną i prywatną strefą DNS.
     
 1. Przejdź do grupy zasobów węzła w Azure Portal.  
 2. Wybierz prywatną strefę DNS.   
