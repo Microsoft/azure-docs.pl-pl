@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/17/2020
-ms.openlocfilehash: 37e6b2986f76529b5f3b2edc69f50259485df0b4
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: f87c3665f558b3185e95b0ad0aa18a883439a221
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86087014"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87006521"
 ---
 # <a name="configure-outbound-network-traffic-for-azure-hdinsight-clusters-using-firewall"></a>Konfigurowanie wychodzącego ruchu sieciowego dla klastrów usługi Azure HDInsight przy użyciu zapory
 
@@ -75,7 +75,7 @@ Utwórz kolekcję reguł aplikacji, która umożliwia klastrowi wysyłanie i odb
 
     **Sekcja docelowych nazw FQDN**
 
-    | Nazwa | Adresy źródłowe | `Protocol:Port` | Docelowe nazwy FQDN | Uwagi |
+    | Nazwa | Adresy źródłowe | Protokół: Port | Docelowe nazwy FQDN | Uwagi |
     | --- | --- | --- | --- | --- |
     | Rule_2 | * | https: 443 | login.windows.net | Zezwala na działanie logowania systemu Windows |
     | Rule_3 | * | https: 443 | login.microsoftonline.com | Zezwala na działanie logowania systemu Windows |
@@ -139,7 +139,7 @@ Aby na przykład skonfigurować tabelę tras dla klastra utworzonego w regionie 
 
 1. W nowej trasie przejdź do **ustawień**  >  **trasy**  >  **+ Dodaj**. Dodaj następujące trasy:
 
-| Nazwa trasy | Prefiks adresu | Typ następnego skoku | Adres następnego skoku |
+| Nazwa trasy | Prefiks adresu | Typ następnego przeskoku | Adres następnego skoku |
 |---|---|---|---|
 | 168.61.49.99 | 168.61.49.99/32 | Internet | Nie dotyczy |
 | 23.99.5.239 | 23.99.5.239/32 | Internet | Nie dotyczy |
@@ -157,7 +157,7 @@ Ukończ konfigurację tabeli tras:
 
 1. Na ekranie **Skojarz podsieć** wybierz sieć wirtualną, w której został utworzony klaster. I **podsieć** użyta dla klastra usługi HDInsight.
 
-1. Kliknij przycisk **OK**.
+1. Wybierz przycisk **OK**.
 
 ## <a name="edge-node-or-custom-application-traffic"></a>Ruch graniczny węzła lub aplikacji niestandardowej
 

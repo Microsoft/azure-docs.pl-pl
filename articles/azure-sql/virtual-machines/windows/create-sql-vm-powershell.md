@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 12/21/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 2c5ef71059fd3ba96299624818a13ebe1ae0929b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2a25625e085ee07a2dc036fd40f70e6b0376b42a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84737856"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87003886"
 ---
 # <a name="how-to-use-azure-powershell-to-provision-sql-server-on-azure-virtual-machines"></a>Jak za pomocą Azure PowerShell zainicjować obsługę administracyjną SQL Server na platformie Azure Virtual Machines
 
@@ -152,7 +152,7 @@ New-AzResourceGroup -Name $ResourceGroupName -Location $Location
 
 ## <a name="create-a-storage-account"></a>Tworzenie konta magazynu
 
-Maszyna wirtualna wymaga zasobów magazynu dla dysku systemu operacyjnego oraz plików danych i dzienników SQL Server. Dla uproszczenia utworzysz pojedynczy dysk dla obu tych dysków. Później możesz dołączyć dodatkowe dyski przy użyciu polecenia cmdlet [Add-Azure Disk](https://docs.microsoft.com/powershell/module/servicemanagement/azure/add-azuredisk) , aby umieścić dane SQL Server i pliki dziennika na dedykowanych dyskach. Użyj polecenia cmdlet [New-AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageaccount) , aby utworzyć konto magazynu w warstwie Standardowa w nowej grupie zasobów. Określ zmienne, które wcześniej zainicjowano dla nazwy konta magazynu, nazwy jednostki SKU magazynu i lokalizacji.
+Maszyna wirtualna wymaga zasobów magazynu dla dysku systemu operacyjnego oraz plików danych i dzienników SQL Server. Dla uproszczenia utworzysz pojedynczy dysk dla obu tych dysków. Później możesz dołączyć dodatkowe dyski przy użyciu polecenia cmdlet [Add-Azure Disk](/powershell/module/servicemanagement/azure.service/add-azuredisk) , aby umieścić dane SQL Server i pliki dziennika na dedykowanych dyskach. Użyj polecenia cmdlet [New-AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageaccount) , aby utworzyć konto magazynu w warstwie Standardowa w nowej grupie zasobów. Określ zmienne, które wcześniej zainicjowano dla nazwy konta magazynu, nazwy jednostki SKU magazynu i lokalizacji.
 
 Uruchom to polecenie cmdlet, aby utworzyć nowe konto magazynu.
 
@@ -351,7 +351,7 @@ $VirtualMachine = Set-AzVMSourceImage -VM $VirtualMachine `
 Po zakończeniu kroków konfiguracji można utworzyć maszynę wirtualną. Użyj polecenia cmdlet [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) , aby utworzyć maszynę wirtualną przy użyciu zdefiniowanych zmiennych.
 
 > [!TIP]
-> Tworzenie maszyny wirtualnej może potrwać kilka minut.
+> Uruchomienie maszyny wirtualnej może potrwać kilka minut.
 
 Uruchom to polecenie cmdlet, aby utworzyć maszynę wirtualną.
 

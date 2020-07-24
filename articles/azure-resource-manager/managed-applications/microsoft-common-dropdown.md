@@ -3,45 +3,74 @@ title: Element interfejsu użytkownika listy rozwijanej
 description: Opisuje element interfejsu użytkownika Microsoft. Common. DropDown dla Azure Portal. Użyj, aby wybrać dostępne opcje podczas wdrażania aplikacji zarządzanej.
 author: tfitzmac
 ms.topic: conceptual
-ms.date: 06/27/2018
+ms.date: 07/14/2020
 ms.author: tomfitz
-ms.openlocfilehash: a09f9695c18f368a585dbcd0d1e654dee4adfa03
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f5eac1d331bd439ad4066d1dea1b9aa950fcce60
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75652387"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87004497"
 ---
 # <a name="microsoftcommondropdown-ui-element"></a>Microsoft. Common. DropDown — element interfejsu użytkownika
 
-Kontrolka wyboru z listą rozwijaną.
+Kontrolka wyboru z listą rozwijaną. Można zezwolić na wybór tylko jednego elementu lub wielu elementów. Opcjonalnie można również dołączyć opis do elementów.
 
 ## <a name="ui-sample"></a>Przykładowy interfejs użytkownika
 
-![Microsoft.Common.DropDown](./media/managed-application-elements/microsoft.common.dropdown.png)
+Element DropDown zawiera różne opcje, które określają jego wygląd w portalu.
+
+Gdy tylko jeden element jest dozwolony do zaznaczania, formant jest wyświetlany jako:
+
+:::image type="content" source="./media/managed-application-elements/microsoft-common-dropdown-1.png" alt-text="Microsoft. Common. DropDown — pojedynczy wybór":::
+
+Po uwzględnieniu opisów kontrolka jest wyświetlana jako:
+
+:::image type="content" source="./media/managed-application-elements/microsoft-common-dropdown-2.png" alt-text="Microsoft. Common. DropDown — pojedynczy wybór z opisami":::
+
+W przypadku włączenia wyboru wielu elementów kontrolka dodaje opcję **Zaznacz wszystko** i zawiera pola wyboru umożliwiające wybranie więcej niż jednego elementu:
+
+:::image type="content" source="./media/managed-application-elements/microsoft-common-dropdown-3.png" alt-text="Microsoft. Common. DropDown — wybór wiele":::
+
+Opisy można dołączać z włączoną opcją wyboru wiele.
+
+:::image type="content" source="./media/managed-application-elements/microsoft-common-dropdown-4.png" alt-text="Microsoft. Common. DropDown — wybór wieloznaczny z opisami":::
+
+Po włączeniu filtrowania kontrolka zawiera pole tekstowe służące do dodawania wartości filtrowania.
+
+:::image type="content" source="./media/managed-application-elements/microsoft-common-dropdown-5.png" alt-text="Microsoft. Common. DropDown — wybór wieloznaczny z opisami":::
 
 ## <a name="schema"></a>Schemat
 
 ```json
 {
-  "name": "element1",
-  "type": "Microsoft.Common.DropDown",
-  "label": "Example drop down",
-  "defaultValue": "Value two",
-  "toolTip": "",
-  "constraints": {
-    "allowedValues": [
-      {
-        "label": "Value one",
-        "value": "one"
-      },
-      {
-        "label": "Value two",
-        "value": "two"
-      }
-    ],
-    "required": true
-  },
-  "visible": true
+    "name": "element1",
+    "type": "Microsoft.Common.DropDown",
+    "label": "Example drop down",
+    "defaultValue": "Value two",
+    "toolTip": "",
+    "multiselect": true,  
+    "selectAll": true,  
+    "filter": true,  
+    "filterPlaceholder": "Filter items ...",  
+    "multiLine": true,  
+    "defaultDescription": "A value for selection",  
+    "constraints": {
+        "allowedValues": [
+            {
+                "label": "Value one",
+                "description": "The value to select for option 1.",
+                "value": "one"
+            },
+            {
+                "label": "Value two",
+                "description": "The value to select for option 2.",
+                "value": "two"
+            }
+        ],
+        "required": true
+    },
+    "visible": true
 }
 ```
 
@@ -53,10 +82,14 @@ Kontrolka wyboru z listą rozwijaną.
 
 ## <a name="remarks"></a>Uwagi
 
+- Użyj `multiselect` , aby określić, czy użytkownicy mogą wybrać więcej niż jeden element.
+- Domyślnie `selectAll` jest `true` włączona funkcja zaznaczania.
+- `filter`Właściwość umożliwia użytkownikom wyszukiwanie w obrębie długiej listy opcji.
 - Etykieta `constraints.allowedValues` jest wyświetlany tekst dla elementu, a jego wartość jest wartością wyjściową elementu, gdy jest zaznaczone.
 - Jeśli jest określony, wartość domyślna musi być etykietą obecną w `constraints.allowedValues` . Jeśli nie zostanie określony, pierwszy element w `constraints.allowedValues` jest zaznaczony. Wartość domyślna to **null**.
 - `constraints.allowedValues`musi zawierać co najmniej jeden element.
 - Aby emulować wartość, która nie jest wymagana, Dodaj element z etykietą i wartością `""` (pusty ciąg) do `constraints.allowedValues` .
+- `defaultDescription`Właściwość jest używana dla elementów, które nie mają opisu.
 
 ## <a name="next-steps"></a>Następne kroki
 

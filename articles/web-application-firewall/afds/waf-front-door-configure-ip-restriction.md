@@ -7,12 +7,12 @@ ms.service: web-application-firewall
 ms.topic: article
 ms.date: 03/26/2020
 ms.author: tyao
-ms.openlocfilehash: 077f127648688b25d45b433fa2bc94ee011b3f2d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f41dc688996b2431060a3cde209ca1ed4a21fe8c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80336110"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87005620"
 ---
 # <a name="configure-an-ip-restriction-rule-with-a-web-application-firewall-for-azure-front-door"></a>Konfigurowanie reguły ograniczeń adresów IP za pomocą zapory aplikacji sieci Web dla drzwi frontonu platformy Azure
 
@@ -37,7 +37,7 @@ Utwórz profil z przodu platformy Azure, postępując zgodnie z instrukcjami opi
    |Ustawienie  |Wartość  |
    |---------|---------|
    |Zasady dla     |Globalne WAF (tylne drzwi)|
-   |Subskrypcja     |Wybieranie subskrypcji|
+   |Subskrypcja     |Wybierz swoją subskrypcję|
    |Grupa zasobów     |Wybierz grupę zasobów, w której znajduje się przód.|
    |Nazwa zasady     |Wpisz nazwę zasad|
    |Stan zasad     |Enabled (Włączony)|
@@ -68,7 +68,7 @@ Utwórz profil z przodu platformy Azure, postępując zgodnie z instrukcjami opi
 6. Wybierz pozycję **Dalej: skojarzenie**.
 7. Wybierz pozycję **Dodaj hosta frontonu**.
 8. W obszarze **host frontonu**wybierz hosta frontonu i wybierz pozycję **Dodaj**.
-9. Wybierz pozycję **Przegląd + utwórz**.
+9. Wybierz pozycję **Przeglądanie + tworzenie**.
 10. Po zakończeniu walidacji zasad wybierz pozycję **Utwórz**.
 
 ### <a name="test-your-waf-policy"></a>Testowanie zasad WAF
@@ -168,7 +168,7 @@ Przed rozpoczęciem konfigurowania zasad ograniczeń adresów IP Skonfiguruj śr
 #### <a name="set-up-your-powershell-environment"></a>Konfigurowanie środowiska programu PowerShell
 Azure PowerShell zawiera zestaw poleceń cmdlet, które używają modelu [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) do zarządzania zasobami platformy Azure.
 
-Możesz zainstalować program [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) w maszynie lokalnej i używać go w dowolnej sesji programu PowerShell. Postępuj zgodnie z instrukcjami na stronie, aby zalogować się do programu PowerShell przy użyciu poświadczeń platformy Azure, a następnie zainstaluj moduł AZ module.
+Możesz zainstalować program [Azure PowerShell](https://docs.microsoft.com/powershell/azure/) w maszynie lokalnej i używać go w dowolnej sesji programu PowerShell. Postępuj zgodnie z instrukcjami na stronie, aby zalogować się do programu PowerShell przy użyciu poświadczeń platformy Azure, a następnie zainstaluj moduł AZ module.
 
 1. Połącz się z platformą Azure przy użyciu następującego polecenia, a następnie zaloguj się przy użyciu interaktywnego okna dialogowego.
     ```

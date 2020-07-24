@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 05/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0c8863615446f8b14043cd7bd13e529b7efa1e46
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 2fe6cbdbcb0cf5b5c28d34f2059a2b070b059566
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86186201"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87004753"
 ---
 # <a name="forward-azure-automation-job-data-to-azure-monitor-logs"></a>Przekazywanie danych zadania usługi Azure Automation do dzienników usługi Azure Monitor
 
@@ -28,7 +28,7 @@ Azure Automation może wysyłać strumienie zadań elementu Runbook i zadań do 
 
 Aby rozpocząć wysyłanie dzienników usługi Automation do dzienników Azure Monitor, potrzebne są:
 
-* Najnowsza wersja [Azure PowerShell](/powershell/azureps-cmdlets-docs/).
+* Najnowsza wersja [Azure PowerShell](/powershell/azure/).
 * Obszar roboczy usługi Log Analytics. Aby uzyskać więcej informacji, zobacz Rozpoczynanie [pracy z dziennikami Azure monitor](../azure-monitor/overview.md).
 * Identyfikator zasobu dla konta Azure Automation.
 
@@ -67,7 +67,7 @@ Azure Automation Diagnostics Utwórz dwa typy rekordów w dziennikach Azure Moni
 | Caller_s |Obiekt wywołujący, który zainicjował operację. Możliwe wartości to adres e-mail lub system w przypadku zaplanowanych zadań. |
 | Tenant_g | Identyfikator GUID, który identyfikuje dzierżawcę dla obiektu wywołującego. |
 | JobId_g |Identyfikator GUID, który identyfikuje zadanie elementu Runbook. |
-| Result |Stan zadania elementu Runbook. Możliwe wartości:<br>-Nowe<br>-Utworzono<br>— Uruchomione<br>— Zatrzymane<br>— Wstrzymane<br>— Nie powiodło się<br>— Ukończono |
+| ResultType |Stan zadania elementu Runbook. Możliwe wartości:<br>-Nowe<br>-Utworzono<br>— Uruchomione<br>— Zatrzymane<br>— Wstrzymane<br>— Nie powiodło się<br>— Ukończono |
 | Kategoria | Klasyfikacja typu danych. W przypadku usługi Automation wartością jest JobLogs. |
 | OperationName | Typ operacji wykonywanej na platformie Azure. W przypadku usługi Automation wartością jest zadanie. |
 | Zasób | Nazwa konta usługi Automation |
@@ -89,7 +89,7 @@ Azure Automation Diagnostics Utwórz dwa typy rekordów w dziennikach Azure Moni
 | StreamType_s |Typ strumienia zadania. Możliwe wartości:<br>— Postęp<br>— Dane wyjściowe<br>— Ostrzeżenie<br>— Błąd<br>— Debugowanie<br>— Pełne |
 | Tenant_g | Identyfikator GUID, który identyfikuje dzierżawcę dla obiektu wywołującego. |
 | JobId_g |Identyfikator GUID, który identyfikuje zadanie elementu Runbook. |
-| Result |Stan zadania elementu Runbook. Możliwe wartości:<br>— W toku |
+| ResultType |Stan zadania elementu Runbook. Możliwe wartości:<br>— W toku |
 | Kategoria | Klasyfikacja typu danych. W przypadku usługi Automation wartością jest JobStreams. |
 | OperationName | Typ operacji wykonywanej na platformie Azure. W przypadku usługi Automation wartością jest zadanie. |
 | Zasób | Nazwa konta usługi Automation. |

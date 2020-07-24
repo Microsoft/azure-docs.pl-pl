@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 11/16/2018
 ms.author: genli
-ms.openlocfilehash: b9a4cf8b9bbf88ae792f345d330503cb4698c430
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 6c4e507df0f112934979d4e59778b667743cf623
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86509231"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87005960"
 ---
 # <a name="how-to-reset-network-interface-for-azure-windows-vm"></a>Jak zresetować interfejs sieciowy dla maszyny wirtualnej z systemem Windows na platformie Azure 
 
@@ -47,7 +47,7 @@ W tym artykule opisano sposób resetowania interfejsu sieciowego dla maszyny wir
 
 #### <a name="use-azure-powershell"></a>Korzystanie z programu Azure PowerShell
 
-1. Upewnij się, że masz zainstalowaną [najnowszą Azure PowerShell](/powershell/azure/overview)
+1. Upewnij się, że masz zainstalowaną [najnowszą Azure PowerShell](/powershell/azure/)
 2. Otwórz sesję Azure PowerShell z podwyższonym poziomem uprawnień (Uruchom jako administrator). Uruchom następujące polecenia:
 
     ```powershell
@@ -90,7 +90,7 @@ Aby zresetować interfejs sieciowy, wykonaj następujące kroki:
 
 #### <a name="use-azure-powershell"></a>Korzystanie z programu Azure PowerShell
 
-1. Upewnij się, że masz zainstalowaną [najnowszą Azure PowerShell](/powershell/azure/overview) .
+1. Upewnij się, że masz zainstalowaną [najnowszą Azure PowerShell](/powershell/azure/) .
 2. Otwórz sesję Azure PowerShell z podwyższonym poziomem uprawnień (Uruchom jako administrator). Uruchom następujące polecenia:
 
     ```powershell

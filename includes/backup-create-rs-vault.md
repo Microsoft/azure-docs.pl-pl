@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 10/18/2018
 ms.author: dacurwin
 ms.custom: include file
-ms.openlocfilehash: c0f717e26534151585a51badf4bb1fe1ba58eb00
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: 8586d90631e8d38fa020ff9dab3f626aaedb2760
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85970533"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87003829"
 ---
 ## <a name="create-a-recovery-services-vault"></a>Tworzenie magazynu usługi Recovery Services
 
@@ -51,6 +51,10 @@ Aby utworzyć magazyn Recovery Services, wykonaj następujące kroki.
       > Jeśli nie masz pewności co do lokalizacji źródła danych, Zamknij okno dialogowe. Przejdź do listy zasobów w portalu. Jeśli masz źródła danych w wielu regionach, Utwórz magazyn Recovery Services dla każdego regionu. Utwórz magazyn w pierwszej lokalizacji przed utworzeniem magazynu dla innej lokalizacji. Nie ma potrzeby określania kont magazynu do przechowywania danych kopii zapasowej. Magazyn Recovery Services i Azure Backup obsłużyć automatyczne.
       >
       >
+
+1. Po podania wartości wybierz pozycję **Przegląd + Utwórz**.
+
+    ![Tworzenie magazynu Recovery Services](./media/backup-create-rs-vault/review-and-create.png)
 
 1. Gdy wszystko będzie gotowe do utworzenia magazynu Recovery Services, wybierz pozycję **Utwórz**.
 

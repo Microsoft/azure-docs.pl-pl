@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
-ms.openlocfilehash: 4f02d92e6264a05ed2cb4021adb5ae6312f58a85
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 4778ea7781d181a89e7a6b2d6c4ad5d474e9b5c9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86146645"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87005943"
 ---
 # <a name="azure-serial-console-for-windows"></a>Konsola szeregowa platformy Azure dla systemu Windows
 
@@ -38,7 +38,7 @@ Aby uzyskać dokumentację konsoli szeregowej dla systemu Linux, zobacz [Azure s
 
 - Twoje konto używające konsoli szeregowej musi mieć [rolę współautora maszyny wirtualnej](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) dla maszyny wirtualnej i konta magazynu [diagnostyki rozruchu](boot-diagnostics.md) .
 
-- Maszyna wirtualna lub wystąpienie zestawu skalowania maszyn wirtualnych muszą mieć użytkownika opartego na hasłach. Można go utworzyć za pomocą funkcji [resetowania hasła](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) rozszerzenia dostępu do maszyny wirtualnej. Wybierz pozycję **zresetuj hasło** w sekcji **Pomoc techniczna i rozwiązywanie problemów** .
+- Maszyna wirtualna lub wystąpienie zestawu skalowania maszyn wirtualnych muszą mieć użytkownika opartego na hasłach. Można go utworzyć za pomocą funkcji [resetowania hasła](../extensions/vmaccess.md#reset-password) rozszerzenia dostępu do maszyny wirtualnej. Wybierz pozycję **zresetuj hasło** w sekcji **Pomoc techniczna i rozwiązywanie problemów** .
 
 * Maszyna wirtualna dla wystąpienia zestawu skalowania maszyn wirtualnych musi mieć włączoną [diagnostykę rozruchu](boot-diagnostics.md) .
 
@@ -50,7 +50,7 @@ Aby uzyskać dokumentację konsoli szeregowej dla systemu Linux, zobacz [Azure s
 > Jeśli nie widzisz niczego w konsoli szeregowej, upewnij się, że Diagnostyka rozruchu jest włączona na maszynie wirtualnej lub w zestawie skalowania maszyn wirtualnych.
 
 ### <a name="enable-the-serial-console-in-custom-or-older-images"></a>Włączanie konsoli szeregowej w obrazach niestandardowych lub starszych
-Nowsze obrazy systemu Windows Server na platformie Azure mają domyślnie włączoną [specjalną konsolę administracyjną](https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) . Konsola SAC jest obsługiwana w wersjach systemu Windows Server, ale nie jest dostępna w wersjach klienta (na przykład Windows 10, Windows 8 lub Windows 7).
+Nowsze obrazy systemu Windows Server na platformie Azure mają domyślnie włączoną [specjalną konsolę administracyjną](/previous-versions/windows/it-pro/windows-server-2003/cc787940(v=ws.10)) . Konsola SAC jest obsługiwana w wersjach systemu Windows Server, ale nie jest dostępna w wersjach klienta (na przykład Windows 10, Windows 8 lub Windows 7).
 
 W przypadku starszych obrazów systemu Windows Server (utworzonych przed 2018 lutego) można automatycznie włączyć konsolę szeregową za pomocą funkcji polecenia uruchamiania Azure Portal. W Azure Portal wybierz pozycję **Uruchom polecenie**, a następnie wybierz polecenie o nazwie **EnableEMS** z listy.
 
@@ -76,11 +76,11 @@ W razie konieczności można również włączyć funkcję SAC w trybie offline:
 
 #### <a name="how-do-i-know-if-sac-is-enabled"></a>Jak mogę sprawdzić, czy konsola SAC jest włączona?
 
-Jeśli [konsola SAC](https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) nie jest włączona, konsola szeregowa nie będzie wyświetlać monitu dotyczącego konsoli SAC. W niektórych przypadkach są wyświetlane informacje o kondycji maszyny wirtualnej, a w innych przypadkach są puste. Jeśli używasz obrazu systemu Windows Server utworzonego przed lutym 2018, prawdopodobnie nie zostanie włączona konsola SAC.
+Jeśli [konsola SAC](/previous-versions/windows/it-pro/windows-server-2003/cc787940(v=ws.10)) nie jest włączona, konsola szeregowa nie będzie wyświetlać monitu dotyczącego konsoli SAC. W niektórych przypadkach są wyświetlane informacje o kondycji maszyny wirtualnej, a w innych przypadkach są puste. Jeśli używasz obrazu systemu Windows Server utworzonego przed lutym 2018, prawdopodobnie nie zostanie włączona konsola SAC.
 
 ### <a name="enable-the-windows-boot-menu-in-the-serial-console"></a>Włączanie menu rozruchu systemu Windows w konsoli szeregowej
 
-Jeśli konieczne jest włączenie wyświetlanych w konsoli szeregowej wierszy modułu ładującego rozruchu systemu Windows, można dodać do danych konfiguracji rozruchu następujące dodatkowe opcje. Aby uzyskać więcej informacji, zobacz [bcdedit](https://docs.microsoft.com/windows-hardware/drivers/devtest/bcdedit--set).
+Jeśli konieczne jest włączenie wyświetlanych w konsoli szeregowej wierszy modułu ładującego rozruchu systemu Windows, można dodać do danych konfiguracji rozruchu następujące dodatkowe opcje. Aby uzyskać więcej informacji, zobacz [bcdedit](/windows-hardware/drivers/devtest/bcdedit--set).
 
 1. Połącz się z maszyną wirtualną z systemem Windows lub wystąpieniem zestawu skalowania maszyn wirtualnych za pomocą Pulpit zdalny.
 
@@ -126,7 +126,7 @@ Aby uzyskać informacje na temat konfigurowania systemu Windows w celu utworzeni
 Klucze funkcji są włączone do użycia w konsoli szeregowej na maszynach wirtualnych z systemem Windows. F8 na liście rozwijanej konsoli szeregowej zapewnia wygodę do łatwego wprowadzenia menu Zaawansowane ustawienia rozruchu, ale konsola szeregowa jest zgodna ze wszystkimi innymi kluczami funkcji. **Fn**  +  W zależności od komputera, z którego korzystasz z konsoli szeregowej, może być konieczne naciśnięcie klawisza Fn**F1** (lub F2, F3 itp.).
 
 ### <a name="use-wsl-in-serial-console"></a>Używanie WSL w konsoli szeregowej
-Podsystem Windows dla systemu Linux (WSL) został włączony dla systemu Windows Server 2019 lub nowszego, dlatego można włączyć WSL do użycia w konsoli szeregowej, jeśli jest uruchomiony system Windows Server 2019 lub nowszy. Może to być korzystne w przypadku użytkowników, którzy mają również znajomość poleceń systemu Linux. Instrukcje dotyczące włączania WSL dla systemu Windows Server znajdują się w [przewodniku instalacji](https://docs.microsoft.com/windows/wsl/install-on-server).
+Podsystem Windows dla systemu Linux (WSL) został włączony dla systemu Windows Server 2019 lub nowszego, dlatego można włączyć WSL do użycia w konsoli szeregowej, jeśli jest uruchomiony system Windows Server 2019 lub nowszy. Może to być korzystne w przypadku użytkowników, którzy mają również znajomość poleceń systemu Linux. Instrukcje dotyczące włączania WSL dla systemu Windows Server znajdują się w [przewodniku instalacji](/windows/wsl/install-on-server).
 
 ### <a name="restart-your-windows-vmvirtual-machine-scale-set-instance-within-serial-console"></a>Ponowne uruchamianie wystąpienia maszyny wirtualnej z systemem Windows/zestawu skalowania maszyn wirtualnych w konsoli szeregowej
 Możesz zainicjować ponowne uruchomienie w konsoli szeregowej, przechodząc do przycisku energia, a następnie klikając pozycję "Uruchom ponownie maszynę wirtualną". Spowoduje to zainicjowanie ponownego uruchomienia maszyny wirtualnej, a w Azure Portal zostanie wyświetlone powiadomienie dotyczące ponownego uruchomienia.
@@ -147,7 +147,7 @@ Dostęp do konsoli szeregowej jest ograniczony do użytkowników, którzy mają 
 Wszystkie dane wysyłane z powrotem i do przodu są szyfrowane w sieci.
 
 ### <a name="audit-logs"></a>Dzienniki inspekcji
-Wszystkie prawa dostępu do konsoli szeregowej są obecnie rejestrowane w dziennikach [diagnostyki rozruchu](https://docs.microsoft.com/azure/virtual-machines/linux/boot-diagnostics) maszyny wirtualnej. Dostęp do tych dzienników są własnością i są kontrolowane przez administratora maszyny wirtualnej platformy Azure.
+Wszystkie prawa dostępu do konsoli szeregowej są obecnie rejestrowane w dziennikach [diagnostyki rozruchu](./boot-diagnostics.md) maszyny wirtualnej. Dostęp do tych dzienników są własnością i są kontrolowane przez administratora maszyny wirtualnej platformy Azure.
 
 > [!CAUTION]
 > Żadne hasła dostępu do konsoli nie są rejestrowane. Jeśli jednak polecenia są uruchamiane w konsoli programu, zawierają hasła lub dane wyjściowe, wpisy tajne, nazwy użytkowników lub jakakolwiek inna forma informacji osobistych (dane osobowe), zostaną one zapisane w dziennikach diagnostyki rozruchu maszyny wirtualnej. Są one zapisywane wraz ze wszystkimi innymi widocznymi tekstami w ramach implementacji funkcji przewijania wstecz konsoli szeregowej. Te dzienniki są cykliczne i tylko osoby z uprawnieniami do odczytu dla konta magazynu diagnostyki mają do nich dostęp. Zaleca się jednak stosowanie Pulpit zdalny dla wszystkich elementów, które mogą zawierać tajemnice i/lub dane OSOBowe.
@@ -161,7 +161,7 @@ Jeśli użytkownik jest połączony z konsolą szeregową, a inny użytkownik po
 ## <a name="accessibility"></a>Ułatwienia dostępu
 Ułatwienia dostępu to kluczowy fokus dla konsoli szeregowej platformy Azure. W tym celu upewnimy się, że konsola szeregowa jest dostępna dla osób z upośledzeniem programu Vision lub którzy mają słabą słuch, a także osoby, które mogą nie być w stanie korzystać z myszy.
 
-### <a name="keyboard-navigation"></a>Nawigacja przy użyciu klawiatury
+### <a name="keyboard-navigation"></a>Nawigacja za pomocą klawiatury
 Użyj klawisza **Tab** na klawiaturze, aby przejść do interfejsu konsoli szeregowej z Azure Portal. Twoja lokalizacja zostanie wyróżniona na ekranie. Aby opuścić fokus okna konsoli szeregowej, naciśnij klawisz **Ctrl** + **F6** na klawiaturze.
 
 ### <a name="use-the-serial-console-with-a-screen-reader"></a>Korzystanie z konsoli szeregowej z czytnikiem ekranu
@@ -173,7 +173,7 @@ Scenariusz          | Akcje w konsoli szeregowej
 :------------------|:-----------------------------------------
 Nieprawidłowe reguły zapory | Uzyskaj dostęp do konsoli szeregowej i napraw reguły zapory systemu Windows.
 Uszkodzenie/sprawdzenie systemu plików | Uzyskaj dostęp do konsoli szeregowej i Odzyskaj system plików.
-Problemy z konfiguracją RDP | Dostęp do konsoli szeregowej i zmiana ustawień. Aby uzyskać więcej informacji, zobacz [dokumentację protokołu RDP](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-allow-access).
+Problemy z konfiguracją RDP | Dostęp do konsoli szeregowej i zmiana ustawień. Aby uzyskać więcej informacji, zobacz [dokumentację protokołu RDP](/windows-server/remote/remote-desktop-services/clients/remote-desktop-allow-access).
 System blokowania sieci | Uzyskaj dostęp do konsoli szeregowej z Azure Portal, aby zarządzać systemem. Niektóre polecenia sieciowe są wymienione w [poleceniach systemu Windows: cmd i PowerShell](serial-console-cmd-ps-commands.md).
 Korzystanie z programu inicjującego | Uzyskiwanie dostępu do danych BCD za pomocą konsoli szeregowej. Aby uzyskać więcej informacji, zobacz [Włączanie menu rozruchu systemu Windows w konsoli szeregowej](#enable-the-windows-boot-menu-in-the-serial-console).
 

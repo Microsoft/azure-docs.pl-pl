@@ -10,21 +10,74 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 6/12/2020
+ms.date: 7/21/2020
 ms.author: yohaddad
-ms.openlocfilehash: 6cde6470a8e533879de72307b8f00c70f9f165a1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 04e75d108b9f518311ad19b2f9027dd0ad7e9e88
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84737465"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87002883"
 ---
 # <a name="azure-guest-os"></a>System operacyjny gościa platformy Azure
 W poniższych tabelach przedstawiono aktualizacje firmy Microsoft Security Response Center (MSRC) zastosowane do systemu operacyjnego gościa platformy Azure. Przeszukaj ten artykuł, aby ustalić, czy dana aktualizacja dotyczy systemu operacyjnego gościa, którego używasz. Aktualizacje są zawsze przenoszone dla określonej [rodziny][family-explain] , w której zostały wprowadzone.
 
+## <a name="july-2020-guest-os"></a>OS systemu operacyjnego gościa 2020
+>[!NOTE]
+>System operacyjny gościa w lipcu jest obecnie wdrażany na maszynach wirtualnych usługi w chmurze skonfigurowanych do aktualizacji automatycznych. Po zakończeniu wprowadzania ta wersja zostanie udostępniona do ręcznego aktualizowania za pomocą plików Azure Portal i konfiguracji. W systemie operacyjnym gościa w kwietniu uwzględniono następujące poprawki. Ta lista może ulec zmianie.
+
+
+| Kategoria produktu | Nadrzędny artykuł bazy wiedzy | Opis luki w zabezpieczeniach | System operacyjny gościa | Data wprowadzenia po raz pierwszy |
+| --- | --- | --- | --- | --- |
+|  Rel 20-07 |  [4565479]  |  Internet Explorer | 2,100, 3,87, 4,80 | 14 lipca 2020 |
+|  Rel 20-07 |  [4565511]  |  Najnowsza aktualizacja zbiorcza (LCU) | 5,45 | 14 lipca 2020 |
+|  Rel 20-07 |  [4558998]  |  Najnowsza aktualizacja zbiorcza (LCU) | 6,21 | 14 lipca 2020 |
+|  Rel 20-07 |  [4565524]  |  Zestawienie miesięczne | 2,100 | 14 lipca 2020 |
+|  Rel 20-07 |  [4565616]  |  Zestawienie miesięczne | 2,100 | 16 lipca 2020 |
+|  Rel 20-07 |  [4565354]  |  Obsługa aktualizacji stosu | 2,100 | 14 lipca 2020 |
+|  Rel 20-07 |  [4565612]  |  Zestawienie miesięczne | 2,100 | 14 lipca 2020 |
+|  Rel 20-07 |  [4565615]  |  Zestawienie miesięczne | 3,87 | 14 lipca 2020 |
+|  Rel 20-07 |  [4566426]  |  Obsługa aktualizacji stosu | 3,87 | 14 lipca 2020 |
+|  Rel 20-07 |  [4565537]  |  Zestawienie miesięczne | 3,87 | 14 lipca 2020 |
+|  Rel 20-07 |  [4565610]  |  Zestawienie miesięczne | 3,87 | 14 lipca 2020 |
+|  Rel 20-07 |  [4565541]  |  Zestawienie miesięczne | 4,80 | 14 lipca 2020 |
+|  Rel 20-07 |  [4566425]  |  Obsługa aktualizacji stosu | 4,80 | 14 lipca 2020 |
+|  Rel 20-07 |  [4565614]  |  Zestawienie miesięczne | 4,80 | 14 lipca 2020 |
+|  Rel 20-07 |  [4565613]  |  Zestawienie miesięczne | 4,80 | 14 lipca 2020 |
+|  Rel 20-07 |  [4565912]  |  Obsługa aktualizacji stosu | 5,45 | 14 lipca 2020 |
+|  Rel 20-07 |  [4565628]  |  Zestawienie miesięczne | 5,45 | 14 lipca 2020 |
+|  Rel 20-07 |  [4494175]  |  Włączenia mikrokodu | 5,45 | 25 lutego 2020 |
+|  Rel 20-07 |  [4565632]  |  Zestawienie miesięczne | 6,21 | 14 lipca 2020 |
+|  Rel 20-07 |  [4558997]  |  Obsługa aktualizacji stosu | 6,21 | 14 lipca 2020 |
+|  Rel 20-07 |  [4494174]  |  Włączenia mikrokodu | 6,21 | 25 lutego 2020 |
+
+
+[4565479]: https://support.microsoft.com/kb/4565479
+[4565511]: https://support.microsoft.com/kb/4565511
+[4558998]: https://support.microsoft.com/kb/4558998
+[4565524]: https://support.microsoft.com/kb/4565524
+[4565616]: https://support.microsoft.com/kb/4565616
+[4565354]: https://support.microsoft.com/kb/4565354
+[4565612]: https://support.microsoft.com/kb/4565612
+[4565615]: https://support.microsoft.com/kb/4565615
+[4566426]: https://support.microsoft.com/kb/4566426
+[4565537]: https://support.microsoft.com/kb/4565537
+[4565610]: https://support.microsoft.com/kb/4565610
+[4565541]: https://support.microsoft.com/kb/4565541
+[4566425]: https://support.microsoft.com/kb/4566425
+[4565614]: https://support.microsoft.com/kb/4565614
+[4565613]: https://support.microsoft.com/kb/4565613
+[4565912]: https://support.microsoft.com/kb/4565912
+[4565628]: https://support.microsoft.com/kb/4565628
+[4494175]: https://support.microsoft.com/kb/4494175
+[4565632]: https://support.microsoft.com/kb/4565632
+[4558997]: https://support.microsoft.com/kb/4558997
+[4494174]: https://support.microsoft.com/kb/4494174
+
+
 ## <a name="june-2020-guest-os"></a>OS systemu operacyjnego gościa 2020
-">[!NOTE]
->System operacyjny gościa w czerwcu jest obecnie wdrażany na maszynach wirtualnych usługi w chmurze skonfigurowanych do aktualizacji automatycznych. Po zakończeniu wprowadzania ta wersja zostanie udostępniona do ręcznego aktualizowania za pomocą plików Azure Portal i konfiguracji. W systemie operacyjnym gościa w kwietniu uwzględniono następujące poprawki. Ta lista może ulec zmianie ".
+>[!NOTE]
+>System operacyjny gościa w czerwcu jest obecnie wdrażany na maszynach wirtualnych usługi w chmurze skonfigurowanych do aktualizacji automatycznych. Po zakończeniu wprowadzania ta wersja zostanie udostępniona do ręcznego aktualizowania za pomocą plików Azure Portal i konfiguracji. W systemie operacyjnym gościa w kwietniu uwzględniono następujące poprawki. Ta lista może ulec zmianie.
 
 
 | Kategoria produktu | Nadrzędny artykuł bazy wiedzy | Opis luki w zabezpieczeniach | System operacyjny gościa | Data wprowadzenia po raz pierwszy |

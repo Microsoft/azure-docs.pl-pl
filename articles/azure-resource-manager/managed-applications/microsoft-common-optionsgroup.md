@@ -3,21 +3,25 @@ title: Options — element interfejsu użytkownika
 description: Opisuje element interfejsu użytkownika Microsoft. Common. options dla Azure Portal. Umożliwia użytkownikom wybór opcji dostępnych podczas wdrażania aplikacji zarządzanej.
 author: tfitzmac
 ms.topic: conceptual
-ms.date: 06/27/2018
+ms.date: 07/09/2020
 ms.author: tomfitz
-ms.openlocfilehash: c1da0b0082bfe046adf9596a10397e9063c888be
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aa73b4cbded98291a14792a7151df9fdfb885b53
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75652348"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87004198"
 ---
 # <a name="microsoftcommonoptionsgroup-ui-element"></a>Microsoft. Common. options — element interfejsu użytkownika
 
-Kontrolka wyboru z wierszem dostępnych opcji.
+Kontrolka w obszarze Opcje umożliwia użytkownikom wybranie jednej opcji z co najmniej dwóch opcji. Użytkownik może wybrać tylko jedną opcję.
+
+> [!NOTE]
+> W przeszłości ten formant renderuje opcje w poziomie. Teraz formant przedstawia opcje w pionie jako przyciski radiowe.
 
 ## <a name="ui-sample"></a>Przykładowy interfejs użytkownika
 
-![Microsoft.Common.OptionsGroup](./media/managed-application-elements/microsoft.common.optionsgroup.png)
+:::image type="content" source="./media/managed-application-elements/microsoft-common-optionsgroup-2.png" alt-text="Microsoft.Common.OptionsGroup":::
 
 ## <a name="schema"></a>Schemat
 

@@ -7,18 +7,18 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 06/01/2018
 ms.author: cynthn
-ms.openlocfilehash: 59d1bf08c0680d222710b55c6d6bdb4d5745da56
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 843a51ca04ae4256ed21912268443595a5f36083
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82084519"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87005722"
 ---
 # <a name="move-a-windows-vm-from-amazon-web-services-aws-to-an-azure-virtual-machine"></a>Przenoszenie maszyny wirtualnej z systemem Windows z Amazon Web Services (AWS) na maszynę wirtualną platformy Azure
 
 Jeśli oceniasz maszyny wirtualne platformy Azure do hostowania obciążeń, możesz wyeksportować istniejące Amazon Web Services (AWS) EC2 wystąpienie maszyny wirtualnej systemu Windows, a następnie przekazać wirtualny dysk twardy (VHD) do platformy Azure. Po przekazaniu wirtualnego dysku twardego można utworzyć nową maszynę wirtualną na platformie Azure na podstawie wirtualnego dysku twardego. 
 
-W tym artykule omówiono przeniesienie pojedynczej maszyny wirtualnej z AWS na platformę Azure. Jeśli chcesz przenieść maszyny wirtualne z AWS na platformę Azure w odpowiedniej skali, zobacz [Migrowanie maszyn wirtualnych w Amazon Web Services (AWS) na platformę Azure z Azure Site Recovery](../../site-recovery/site-recovery-migrate-aws-to-azure.md).
+W tym artykule omówiono przeniesienie pojedynczej maszyny wirtualnej z AWS na platformę Azure. Jeśli chcesz przenieść maszyny wirtualne z AWS na platformę Azure w odpowiedniej skali, zobacz [Migrowanie maszyn wirtualnych w Amazon Web Services (AWS) na platformę Azure z Azure Site Recovery](../../site-recovery/migrate-tutorial-aws-azure.md).
 
 ## <a name="prepare-the-vm"></a>Przygotowywanie maszyny wirtualnej 
  

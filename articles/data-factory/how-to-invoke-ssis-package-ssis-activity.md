@@ -13,13 +13,13 @@ author: swinarko
 ms.reviewer: douglasl
 manager: mflasko
 ms.custom: seo-lt-2019
-ms.date: 07/09/2020
-ms.openlocfilehash: 172a2ae863714b54e052819df93f872385b9c77a
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.date: 07/20/2020
+ms.openlocfilehash: 2f8706fa8b272075ec64e2d36475509732914acf
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86183345"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87003221"
 ---
 # <a name="run-an-ssis-package-with-the-execute-ssis-package-activity-in-azure-data-factory"></a>Uruchamianie pakietu SSIS za pomocą działania Wykonaj pakiet SSIS w usłudze Azure Data Factory
 
@@ -57,7 +57,7 @@ W tym kroku użyjesz interfejsu użytkownika Data Factory lub aplikacji w celu u
 
 Na karcie **Ogólne** działania wykonaj pakiet SSIS wykonaj następujące czynności.
 
-   ![Ustawianie właściwości na karcie Ogólne](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-general.png)
+![Ustawianie właściwości na karcie Ogólne](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-general.png)
 
    1. W polu **Nazwa**wprowadź nazwę działania Uruchom pakiet usług SSIS.
 
@@ -77,7 +77,7 @@ Na karcie **Ogólne** działania wykonaj pakiet SSIS wykonaj następujące czynn
 
 Na karcie **Ustawienia** działania wykonaj pakiet SSIS wykonaj następujące czynności.
 
-   ![Ustawianie właściwości na karcie Ustawienia — automatyczne](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings.png)
+![Ustawianie właściwości na karcie Ustawienia — automatyczne](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings.png)
 
    1. W obszarze **Azure-SSIS IR**wybierz wyznaczono Azure-SSIS IR, aby uruchomić działanie wykonywania pakietu SSIS.
 
@@ -103,13 +103,13 @@ Na karcie **Ustawienia** działania wykonaj pakiet SSIS wykonaj następujące cz
 
    1. Jeśli Azure-SSIS IR nie jest uruchomiona lub jest zaznaczone pole wyboru **wpisy ręczne** , wprowadź swoje ścieżki pakietu i środowiska z SSISDB bezpośrednio w następujących formatach: `<folder name>/<project name>/<package name>.dtsx` i `<folder name>/<environment name>` .
 
-   ![Ustawianie właściwości na karcie Ustawienia — ręczne](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings2.png)
+      ![Ustawianie właściwości na karcie Ustawienia — ręczne](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings2.png)
 
 ##### <a name="package-location-file-system-package"></a>Lokalizacja pakietu: system plików (pakiet)
 
 **System plików (pakiet)** , ponieważ lokalizacja pakietu jest automatycznie wybierana, jeśli Azure-SSIS IR została zainicjowana bez SSISDB lub możesz wybrać ją samodzielnie. Jeśli jest wybrana, wykonaj następujące czynności.
 
-   ![Ustawianie właściwości na karcie Ustawienia system plików (pakiet)](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings3.png)
+![Ustawianie właściwości na karcie Ustawienia system plików (pakiet)](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings3.png)
    
    1. Określ pakiet do uruchomienia, podając ścieżkę Universal Naming Convention (UNC) do pliku pakietu (z `.dtsx` ) w polu **ścieżka pakietu** . Możesz przeglądać i wybierać pakiet, wybierając pozycję **Przeglądaj magazyn plików** lub ręcznie wprowadzić jego ścieżkę. Jeśli na przykład przechowujesz swój pakiet w Azure Files, jego ścieżka to `\\<storage account name>.file.core.windows.net\<file share name>\<package name>.dtsx` . 
    
@@ -133,13 +133,13 @@ Na karcie **Ustawienia** działania wykonaj pakiet SSIS wykonaj następujące cz
    
    1. Określ poświadczenia, aby uzyskać dostęp do folderu dziennika. Jeśli wcześniej wprowadzono wartości poświadczeń dostępu do pakietu (patrz powyżej), można użyć ich ponownie, zaznaczając pole wyboru **poświadczenia dostępu do pakietu** . W przeciwnym razie wprowadź wartości poświadczeń dostępu do rejestrowania w polach **domena**, **Nazwa użytkownika**i **hasło** . Jeśli na przykład przechowujesz dzienniki w Azure Files, domena ma `Azure` nazwę, `<storage account name>` a hasło to `<storage account key>` . Alternatywnie możesz użyć wpisów tajnych przechowywanych w Azure Key Vault jako ich wartości (Zobacz powyżej).
    
-   We wszystkich wyżej wymienionych ścieżkach UNC w pełni kwalifikowana nazwa pliku musi być krótsza niż 260 znaków. Nazwa katalogu musi być krótsza niż 248 znaków.
+We wszystkich wyżej wymienionych ścieżkach UNC w pełni kwalifikowana nazwa pliku musi być krótsza niż 260 znaków. Nazwa katalogu musi być krótsza niż 248 znaków.
 
 ##### <a name="package-location-file-system-project"></a>Lokalizacja pakietu: system plików (projekt)
 
 W przypadku wybrania opcji **system plików (projekt)** jako lokalizacji pakietu wykonaj następujące czynności.
 
-   ![Ustawianie właściwości na karcie Ustawienia system plików (projekt)](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings4.png)
+![Ustawianie właściwości na karcie Ustawienia system plików (projekt)](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings4.png)
 
    1. Określ pakiet do uruchomienia, podając ścieżkę UNC do pliku projektu (z `.ispac` ) w polu **ścieżka projektu** i plik pakietu (z `.dtsx` ) z projektu w polu **Nazwa pakietu** . Możesz przeglądać i wybierać projekt, wybierając pozycję **Przeglądaj magazyn plików** lub ręcznie wprowadzić jego ścieżkę. Na przykład, Jeśli przechowujesz projekt w Azure Files, jego ścieżka to `\\<storage account name>.file.core.windows.net\<file share name>\<project name>.ispac` .
 
@@ -161,19 +161,19 @@ W przypadku wybrania opcji **system plików (projekt)** jako lokalizacji pakietu
    
    1. Określ poświadczenia, aby uzyskać dostęp do folderu dziennika. Jeśli wcześniej wprowadzono wartości poświadczeń dostępu do pakietu (patrz powyżej), można użyć ich ponownie, zaznaczając pole wyboru **poświadczenia dostępu do pakietu** . W przeciwnym razie wprowadź wartości poświadczeń dostępu do rejestrowania w polach **domena**, **Nazwa użytkownika**i **hasło** . Jeśli na przykład przechowujesz dzienniki w Azure Files, domena ma `Azure` nazwę, `<storage account name>` a hasło to `<storage account key>` . Alternatywnie możesz użyć wpisów tajnych przechowywanych w Azure Key Vault jako ich wartości (Zobacz powyżej).
    
-   We wszystkich wyżej wymienionych ścieżkach UNC w pełni kwalifikowana nazwa pliku musi być krótsza niż 260 znaków. Nazwa katalogu musi być krótsza niż 248 znaków.
+We wszystkich wyżej wymienionych ścieżkach UNC w pełni kwalifikowana nazwa pliku musi być krótsza niż 260 znaków. Nazwa katalogu musi być krótsza niż 248 znaków.
 
 ##### <a name="package-location-embedded-package"></a>Lokalizacja pakietu: osadzony pakiet
 
 W przypadku wybrania opcji **pakiet osadzony** jako lokalizacji pakietu wykonaj następujące czynności.
 
-   ![Ustawianie właściwości na karcie Ustawienia — pakiet osadzony](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings5.png)
+![Ustawianie właściwości na karcie Ustawienia — pakiet osadzony](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings5.png)
 
-   1. Przeciągnij i upuść pakiet, aby uruchomić lub **przekazać** go z folderu plików do podanego pola. Pakiet zostanie automatycznie skompresowany i osadzony w ładunku aktywności. Po osadzeniu można **pobrać** pakiet później do edycji. Możesz również **Sparametryzuj** osadzony pakiet, przypisując go do parametru potoku, który może być używany w wielu działaniach, a tym samym zoptymalizować rozmiar ładunku potoku. 
+   1. Przeciągnij i upuść plik pakietu (z `.dtsx` ) lub **Przekaż** go z folderu plików do dostarczonego pola. Pakiet zostanie automatycznie skompresowany i osadzony w ładunku aktywności. Po osadzeniu można **pobrać** pakiet później do edycji. Możesz również **Sparametryzuj** osadzony pakiet, przypisując go do parametru potoku, który może być używany w wielu działaniach, a tym samym zoptymalizować rozmiar ładunku potoku. Osadzanie plików projektu (z `.ispac` ) nie jest obecnie obsługiwane, więc nie można użyć parametrów SSIS/menedżerów połączeń z zakresem na poziomie projektu w pakietach osadzonych.
    
-   1. Jeśli osadzony pakiet nie jest szyfrowany i wykryjesz w nim zadanie wykonaj pakiet, zostanie zaznaczone pole wyboru **Wykonaj zadanie wykonania pakietu** , a odpowiednie pakiety podrzędne z odwołaniami do systemu plików zostaną automatycznie dodane. 
+   1. Jeśli osadzony pakiet nie jest szyfrowany i wykryjemy użycie zadania Execute Package (EPT), pole wyboru **Wykonaj zadanie pakietu** zostanie automatycznie zaznaczone, a pakiety podrzędne, do których odwołuje się ścieżka systemu plików, zostaną automatycznie dodane, więc można je również osadzić.
    
-      Jeśli nie można wykryć użycia zadania wykonaj pakiet, musisz ręcznie zaznaczyć pole wyboru **Wykonaj zadanie pakietu** i dodać odpowiednie pakiety podrzędne wraz z ich systemem plików, do których można je również osadzić. Jeśli pakiety podrzędne używają odwołań SQL Server, upewnij się, że SQL Server jest dostępny w Azure-SSIS IR.  Użycie odwołań projektu dla pakietów podrzędnych nie jest obecnie obsługiwane.
+      Jeśli nie można wykryć używania EPT, należy ręcznie zaznaczyć pole wyboru **Wykonaj zadanie pakietu** i dodać pakiety podrzędne, do których odwołuje się ścieżka systemu plików, aby można je było również osadzić. Jeśli pakiety podrzędne są przechowywane w bazie danych SQL Server Database (MSDB), nie można ich osadzić, dlatego należy się upewnić, że Azure-SSIS IR mogą uzyskać dostęp do bazy MSDB w celu pobrania ich przy użyciu SQL Server odwołań. Osadzanie plików projektu (z `.ispac` ) nie jest obecnie obsługiwane, więc nie można używać odwołań opartych na projekcie dla pakietów podrzędnych.
    
    1. Jeśli podczas tworzenia pakietu za pośrednictwem SSDT użyto poziomu ochrony **EncryptAllWithPassword** lub **EncryptSensitiveWithPassword** , wprowadź wartość hasła w polu **hasło szyfrowania** . 
    
@@ -189,13 +189,13 @@ W przypadku wybrania opcji **pakiet osadzony** jako lokalizacji pakietu wykonaj 
    
    1. Określ poświadczenia, aby uzyskać dostęp do folderu dziennika, wprowadzając ich wartości w polach **domena**, **Nazwa użytkownika**i **hasło** . Jeśli na przykład przechowujesz dzienniki w Azure Files, domena ma `Azure` nazwę, `<storage account name>` a hasło to `<storage account key>` . Alternatywnie możesz użyć wpisów tajnych przechowywanych w Azure Key Vault jako ich wartości (Zobacz powyżej).
    
-   We wszystkich wyżej wymienionych ścieżkach UNC w pełni kwalifikowana nazwa pliku musi być krótsza niż 260 znaków. Nazwa katalogu musi być krótsza niż 248 znaków.
+We wszystkich wyżej wymienionych ścieżkach UNC w pełni kwalifikowana nazwa pliku musi być krótsza niż 260 znaków. Nazwa katalogu musi być krótsza niż 248 znaków.
 
 ##### <a name="package-location-package-store"></a>Lokalizacja pakietu: Magazyn pakietów
 
 W przypadku wybrania opcji **Magazyn pakietów** jako lokalizacji pakietu wykonaj następujące czynności.
 
-   ![Ustawianie właściwości na karcie Ustawienia — magazyn pakietów](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings6.png)
+![Ustawianie właściwości na karcie Ustawienia — magazyn pakietów](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings6.png)
    
    1. W obszarze **Nazwa magazynu pakietów**wybierz istniejący magazyn pakietów, który jest dołączony do Azure-SSIS IR.
 
@@ -221,49 +221,73 @@ W przypadku wybrania opcji **Magazyn pakietów** jako lokalizacji pakietu wykona
    
    1. Określ poświadczenia, aby uzyskać dostęp do folderu dziennika, wprowadzając ich wartości w polach **domena**, **Nazwa użytkownika**i **hasło** . Jeśli na przykład przechowujesz dzienniki w Azure Files, domena ma `Azure` nazwę, `<storage account name>` a hasło to `<storage account key>` . Alternatywnie możesz użyć wpisów tajnych przechowywanych w Azure Key Vault jako ich wartości (Zobacz powyżej).
    
-   We wszystkich wyżej wymienionych ścieżkach UNC w pełni kwalifikowana nazwa pliku musi być krótsza niż 260 znaków. Nazwa katalogu musi być krótsza niż 248 znaków.
+We wszystkich wyżej wymienionych ścieżkach UNC w pełni kwalifikowana nazwa pliku musi być krótsza niż 260 znaków. Nazwa katalogu musi być krótsza niż 248 znaków.
 
 #### <a name="ssis-parameters-tab"></a>Karta parametrów SSIS
 
 Na karcie **parametry programu SSIS** działania wykonaj pakiet SSIS wykonaj następujące czynności.
 
-   ![Ustawianie właściwości na karcie Parametry SSIS](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-ssis-parameters.png)
+![Ustawianie właściwości na karcie Parametry SSIS](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-ssis-parameters.png)
 
    1. Jeśli Azure-SSIS IR jest uruchomiony, **SSISDB** jest wybrane jako lokalizacja pakietu, a pole wyboru **wpisy ręczne** na karcie **Ustawienia** jest wyczyszczone, istniejące parametry usług SSIS w wybranym projekcie i pakiecie z SSISDB są wyświetlane, aby przypisać do nich wartości. W przeciwnym razie możesz wprowadzić je pojedynczo, aby przypisać do nich wartości ręcznie. Upewnij się, że istnieją i zostały poprawnie wprowadzone w celu pomyślnego wykonania pakietu. 
    
    1. Jeśli został użyty poziom ochrony **EncryptSensitiveWithUserKey** podczas tworzenia pakietu za pośrednictwem SSDT i **system plików (pakiet)**, **system plików (projekt)**, **osadzony pakiet**lub **Magazyn pakietów** jest wybrany jako lokalizacja pakietu, należy również ponownie wprowadzić poufne parametry, aby przypisać do nich wartości na tej karcie. 
    
-   W przypadku przypisywania wartości do parametrów można dodać zawartość dynamiczną przy użyciu wyrażeń, funkcji, Data Factory zmiennych systemowych Data Factory i parametrów potoku lub zmiennych.
+W przypadku przypisywania wartości do parametrów można dodać zawartość dynamiczną przy użyciu wyrażeń, funkcji, Data Factory zmiennych systemowych Data Factory i parametrów potoku lub zmiennych.
 
-   Alternatywnie możesz użyć wpisów tajnych przechowywanych w Azure Key Vault jako ich wartości. Aby to zrobić, zaznacz pole wyboru **Magazyn kluczy platformy Azure** obok nich. Wybierz lub edytuj istniejącą połączoną usługę magazynu kluczy lub Utwórz nową. Następnie wybierz nazwę i wersję wpisu tajnego dla swojej wartości. Podczas tworzenia lub edytowania połączonej usługi magazynu kluczy możesz wybrać lub edytować istniejący magazyn kluczy lub utworzyć nowy. Upewnij się, że Data Factory zarządzana tożsamość do magazynu kluczy, jeśli jeszcze tego nie zrobiono. Wpis tajny można również wprowadzić bezpośrednio w następującym formacie: `<key vault linked service name>/<secret name>/<secret version>` . 
+Alternatywnie możesz użyć wpisów tajnych przechowywanych w Azure Key Vault jako ich wartości. Aby to zrobić, zaznacz pole wyboru **Magazyn kluczy platformy Azure** obok nich. Wybierz lub edytuj istniejącą połączoną usługę magazynu kluczy lub Utwórz nową. Następnie wybierz nazwę i wersję wpisu tajnego dla swojej wartości. Podczas tworzenia lub edytowania połączonej usługi magazynu kluczy możesz wybrać lub edytować istniejący magazyn kluczy lub utworzyć nowy. Upewnij się, że Data Factory zarządzana tożsamość do magazynu kluczy, jeśli jeszcze tego nie zrobiono. Wpis tajny można również wprowadzić bezpośrednio w następującym formacie: `<key vault linked service name>/<secret name>/<secret version>` . 
 
 #### <a name="connection-managers-tab"></a>Karta menedżerowie połączeń
 
 Na karcie **Menedżer połączeń** w działaniu wykonaj pakiet SSIS wykonaj następujące czynności.
 
-   ![Ustawianie właściwości na karcie menedżerów połączeń](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-connection-managers.png)
+![Ustawianie właściwości na karcie menedżerów połączeń](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-connection-managers.png)
 
    1. Jeśli Azure-SSIS IR jest uruchomiony, **SSISDB** jest wybrane jako lokalizacja pakietu, a pole wyboru **wpisy ręczne** na karcie **Ustawienia** zostanie wyczyszczone, istniejące Menedżery połączeń w wybranym projekcie i pakiet z SSISDB są wyświetlane, aby przypisać wartości do ich właściwości. W przeciwnym razie możesz wprowadzić je pojedynczo, aby przypisać wartości do swoich właściwości ręcznie. Upewnij się, że istnieją i zostały poprawnie wprowadzone w celu pomyślnego wykonania pakietu. 
    
-   1. Jeśli używasz poziomu ochrony **EncryptSensitiveWithUserKey** podczas tworzenia pakietu za pośrednictwem usługi SSDT i **system plików (pakiet)**, **system plików (projekt)**, **osadzony pakiet**lub **Magazyn pakietów** jest wybrany jako lokalizacja pakietu, należy również ponownie wprowadzić poufne właściwości Menedżera połączeń, aby przypisać do nich wartości na tej karcie. 
-   
-   W przypadku przypisywania wartości do właściwości Menedżera połączeń można dodać zawartość dynamiczną przy użyciu wyrażeń, funkcji, Data Factory zmiennych systemowych Data Factory i parametrów potoku lub zmiennych. 
+      Możesz uzyskać prawidłowy **zakres**, **nazwę**i nazwy **Właściwości** dla dowolnego Menedżera połączeń, otwierając pakiet, który zawiera go w SSDT. Po otwarciu pakietu wybierz odpowiedniego Menedżera połączeń, aby wyświetlić nazwy i wartości wszystkich właściwości w oknie **Właściwości** SSDT. Korzystając z tych informacji, można zastąpić wartości właściwości Menedżera połączeń w czasie wykonywania. 
 
-   Alternatywnie możesz użyć wpisów tajnych przechowywanych w Azure Key Vault jako ich wartości. Aby to zrobić, zaznacz pole wyboru **Magazyn kluczy platformy Azure** obok nich. Wybierz lub edytuj istniejącą połączoną usługę magazynu kluczy lub Utwórz nową. Następnie wybierz nazwę i wersję wpisu tajnego dla swojej wartości. Podczas tworzenia lub edytowania połączonej usługi magazynu kluczy możesz wybrać lub edytować istniejący magazyn kluczy lub utworzyć nowy. Upewnij się, że Data Factory zarządzana tożsamość do magazynu kluczy, jeśli jeszcze tego nie zrobiono. Wpis tajny można również wprowadzić bezpośrednio w następującym formacie: `<key vault linked service name>/<secret name>/<secret version>` . 
+      ![Pobierz właściwości Menedżera połączeń z SSDT](media/how-to-invoke-ssis-package-ssis-activity/ssdt-connection-manager-properties.png)
+
+      Na przykład bez modyfikowania oryginalnego pakietu w programie SSDT można przekształcić swoje lokalne przepływy danych działające w SQL Server na przepływy danych w chmurze działające w usłudze SSIS IR w usłudze ADF, zastępując wartości właściwości **ConnectByProxy**, **ConnectionString**i **ConnectUsingManagedIdentity** w istniejących menedżerach połączeń w czasie wykonywania.
+      
+      Te zastąpienia w czasie wykonywania mogą włączać samodzielne środowisko IR (SHIR) jako serwer proxy dla usług SSIS IR podczas uzyskiwania dostępu do danych lokalnych, zobacz [Konfigurowanie SHIR jako proxy dla usług SSIS IR](https://docs.microsoft.com/azure/data-factory/self-hosted-integration-runtime-proxy-ssis)i Azure SQL Database/połączenia wystąpienia zarządzanego przy użyciu najnowszego sterownika MSOLEDBSQL, który z kolei Włącza uwierzytelnianie usługi Azure Active Directory (AAD) za [pomocą tożsamości](https://docs.microsoft.com/sql/integration-services/connection-manager/ole-db-connection-manager?view=sql-server-ver15#managed-identities-for-azure-resources-authentication)zarządzanej usługi ADF.
+
+      ![Ustawianie właściwości z SSDT na karcie menedżerów połączeń](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-connection-managers2.png)
+   
+   1. Jeśli używasz poziomu ochrony **EncryptSensitiveWithUserKey** podczas tworzenia pakietu za pośrednictwem usługi SSDT i **system plików (pakiet)**, **system plików (projekt)**, **osadzony pakiet**lub **Magazyn pakietów** jest wybrany jako lokalizacja pakietu, należy również ponownie wprowadzić poufne właściwości Menedżera połączeń, aby przypisać do nich wartości na tej karcie. 
+
+W przypadku przypisywania wartości do właściwości Menedżera połączeń można dodać zawartość dynamiczną przy użyciu wyrażeń, funkcji, Data Factory zmiennych systemowych Data Factory i parametrów potoku lub zmiennych. 
+
+Alternatywnie możesz użyć wpisów tajnych przechowywanych w Azure Key Vault jako ich wartości. Aby to zrobić, zaznacz pole wyboru **Magazyn kluczy platformy Azure** obok nich. Wybierz lub edytuj istniejącą połączoną usługę magazynu kluczy lub Utwórz nową. Następnie wybierz nazwę i wersję wpisu tajnego dla swojej wartości. Podczas tworzenia lub edytowania połączonej usługi magazynu kluczy możesz wybrać lub edytować istniejący magazyn kluczy lub utworzyć nowy. Upewnij się, że Data Factory zarządzana tożsamość do magazynu kluczy, jeśli jeszcze tego nie zrobiono. Wpis tajny można również wprowadzić bezpośrednio w następującym formacie: `<key vault linked service name>/<secret name>/<secret version>` . 
 
 #### <a name="property-overrides-tab"></a>Karta zastąpień właściwości
 
 Na karcie **Zastępowanie właściwości** działania wykonaj pakiet SSIS wykonaj następujące czynności.
 
-   ![Ustawianie właściwości na karcie Zastępowanie właściwości](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-property-overrides.png)
+![Ustawianie właściwości na karcie Zastępowanie właściwości](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-property-overrides.png)
 
    1. Wprowadź ścieżki istniejących właściwości w wybranym pakiecie po jednym przez jedną, aby ręcznie przypisać do nich wartości. Upewnij się, że istnieją i zostały poprawnie wprowadzone w celu pomyślnego wykonania pakietu. Na przykład aby zastąpić wartość zmiennej użytkownika, wprowadź jej ścieżkę w następującym formacie: `\Package.Variables[User::<variable name>].Value` . 
+
+      Możesz uzyskać poprawną **ścieżkę właściwości** dla dowolnej właściwości pakietu, otwierając pakiet, który zawiera go w SSDT. Po otwarciu pakietu zaznacz właściwość przepływ sterowania i **konfiguracje** w oknie **Właściwości** SSDT. Następnie wybierz przycisk wielokropka (**...**) obok właściwości **konfiguracje** , aby otworzyć **organizatora konfiguracje pakietów** , która jest zwykle używana do [tworzenia konfiguracji pakietów w modelu wdrażania pakietów](https://docs.microsoft.com/sql/integration-services/create-package-configurations?view=sql-server-2014). 
+
+      ![Pobierz właściwości pakietu z właściwości SSDT-Configurations](media/how-to-invoke-ssis-package-ssis-activity/ssdt-package-properties.png)
+
+      W oknie Kreator **konfiguracji pakietu**zaznacz pole wyboru **Włącz konfiguracje pakietów** i przycisk **Dodaj...** , aby otworzyć **Kreatora konfiguracji pakietu**. 
+      
+      W **Kreatorze konfiguracji pakietu**wybierz element **pliku konfiguracji XML** w menu rozwijanym **Typ konfiguracji** i przycisk **Określ ustawienia konfiguracji bezpośrednio** , wprowadź nazwę pliku konfiguracji, a następnie wybierz przycisk **dalej >** . 
+
+      ![Pobieranie właściwości pakietu z SSDT — Organizator konfiguracji](media/how-to-invoke-ssis-package-ssis-activity/ssdt-package-properties2.png)
+
+      Na koniec wybierz właściwości pakietu, których ścieżkę chcesz uzyskać, i przycisk **dalej >** .  Teraz możesz zobaczyć, skopiować & wkleić żądane ścieżki właściwości pakietu i zapisać je w pliku konfiguracji. Korzystając z tych informacji, można zastąpić wartości właściwości pakietu w czasie wykonywania. 
+
+      ![Pobieranie właściwości pakietu z SSDT-Configuration Wizard](media/how-to-invoke-ssis-package-ssis-activity/ssdt-package-properties3.png)
    
    1. Jeśli został użyty poziom ochrony **EncryptSensitiveWithUserKey** podczas tworzenia pakietu za pośrednictwem SSDT i **system plików (pakiet)**, **system plików (projekt)**, **osadzony**pakiet lub **Magazyn pakietów** jest wybrany jako lokalizacja pakietu, należy również ponownie wprowadzić właściwości poufnego pakietu, aby przypisać do nich wartości na tej karcie. 
    
-   W przypadku przypisywania wartości do właściwości pakietu można dodać zawartość dynamiczną przy użyciu wyrażeń, funkcji, Data Factory zmiennych systemowych Data Factory i parametrów potoku lub zmiennych.
+W przypadku przypisywania wartości do właściwości pakietu można dodać zawartość dynamiczną przy użyciu wyrażeń, funkcji, Data Factory zmiennych systemowych Data Factory i parametrów potoku lub zmiennych.
 
-   Wartości przypisane do plików konfiguracji i na karcie **Parametry usług SSIS** można zastąpić przy użyciu kart **menedżerów połączeń** lub **zastąpień właściwości** . Wartości przypisane na karcie **menedżerów połączeń** mogą być również zastępowane przy użyciu karty **zastąpień właściwości** .
+Wartości przypisane do plików konfiguracji i na karcie **Parametry usług SSIS** można zastąpić przy użyciu kart **menedżerów połączeń** lub **zastąpień właściwości** . Wartości przypisane na karcie **menedżerów połączeń** mogą być również zastępowane przy użyciu karty **zastąpień właściwości** .
 
 Aby sprawdzić poprawność konfiguracji potoku, wybierz pozycję **Weryfikuj** na pasku narzędzi. Aby zamknąć **raport weryfikacji potoku**, wybierz opcję **>>** .
 

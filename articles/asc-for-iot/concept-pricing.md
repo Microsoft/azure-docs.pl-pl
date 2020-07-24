@@ -15,18 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/27/2019
 ms.author: mlottner
-ms.openlocfilehash: fe117cf8d05ba3392b71858acf94d1fc88c1a527
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 98afd1eb1f8a73c2d6dd3f293a07cdb70780d238
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81311560"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87004770"
 ---
 # <a name="pricing-and-associated-costs"></a>Cennik i powiązane koszty
 
 W tym artykule wyjaśniono Azure Security Center modelu cen usługi IoT, podsumowano wszystkie powiązane koszty i wyjaśniono, jak zarządzać nimi.
 
-## <a name="pricing"></a>Ceny
+## <a name="pricing"></a>Cennik
 
 Model cen usługi IoT Azure Security Center obejmuje dwie części, a opłaty są naliczane po [włączeniu](quickstart-onboard-iot-hub.md) IoT Hub w Azure Security Center dla IoT:
 
@@ -50,11 +50,11 @@ Aby zmienić ustawienia:
 
 1. W obszarze **zabezpieczenia**kliknij pozycję **Przegląd**.
 
-1. Kliknij przycisk **Ustawienia**.
+1. Kliknij polecenie **Ustawienia**.
 
 Poniższa tabela zawiera podsumowanie powiązanych kosztów i implikacje poszczególnych opcji.
 
-|     | Użycie | Komentarz |
+| Opcja | Użycie | Komentarz |
 | --- | --- | --- |
 | **Magazyn Log Analytics** |  |
 | Zalecenia i alerty dotyczące urządzeń| Zalecenia dotyczące zabezpieczeń i alerty wygenerowane przez usługę | Nieopcjonalne |
@@ -73,7 +73,7 @@ Poniższa tabela zawiera podsumowanie powiązanych kosztów i implikacje poszcze
 | | Szczegóły dotyczące postępowania z [alertami](concept-security-alerts.md) i [zaleceniami](concept-recommendations.md) nie są dostępne |
 |
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 - Uzyskiwanie dostępu do [danych pierwotnych zabezpieczeń](how-to-security-data-access.md)
 - [Badanie urządzenia](how-to-investigate-device.md)

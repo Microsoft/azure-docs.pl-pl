@@ -3,32 +3,35 @@ title: CreateUiDefinition.jsw pliku dla okienka portalu
 description: Opisuje sposób tworzenia definicji interfejsu użytkownika dla Azure Portal. Używane podczas definiowania Azure Managed Applications.
 author: tfitzmac
 ms.topic: conceptual
-ms.date: 08/06/2019
+ms.date: 07/14/2020
 ms.author: tomfitz
-ms.openlocfilehash: 2956c76f5bec353639b39228b982db21b6932deb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4ee489e8b596adf0767856e3358c9bdcb17fbb6a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80294888"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87004373"
 ---
 # <a name="createuidefinitionjson-for-azure-managed-applications-create-experience"></a>Plik CreateUiDefinition.json dla środowiska tworzenia aplikacji zarządzanej platformy Azure
 
-W tym dokumencie przedstawiono podstawowe koncepcje **createUiDefinition.jsw** pliku, który Azure Portal używany do definiowania interfejsu użytkownika podczas tworzenia zarządzanej aplikacji.
+W tym dokumencie przedstawiono podstawowe koncepcje **createUiDefinition.js** pliku. Azure Portal używa tego pliku do definiowania interfejsu użytkownika podczas tworzenia zarządzanej aplikacji.
 
 Szablon jest następujący:
 
 ```json
 {
-   "$schema": "https://schema.management.azure.com/schemas/0.1.2-preview/CreateUIDefinition.MultiVm.json#",
-   "handler": "Microsoft.Azure.CreateUIDef",
-   "version": "0.1.2-preview",
-   "parameters": {
-      "basics": [ ],
-      "steps": [ ],
-      "outputs": { },
-      "resourceTypes": [ ]
-   }
+    "$schema": "https://schema.management.azure.com/schemas/0.1.2-preview/CreateUIDefinition.MultiVm.json#",
+    "handler": "Microsoft.Azure.CreateUIDef",
+    "version": "0.1.2-preview",
+    "parameters": {
+        "config": {
+            "basics": { }
+        },
+        "basics": [ ],
+        "steps": [ ],
+        "outputs": { },
+        "resourceTypes": [ ]
+    }
 }
 ```
 
@@ -40,19 +43,105 @@ CreateUiDefinition zawsze zawiera trzy właściwości:
 
 Program obsługi powinien zawsze mieć wartość `Microsoft.Azure.CreateUIDef` , a Najnowsza obsługiwana wersja to `0.1.2-preview` .
 
-Schemat właściwości Parameters zależy od kombinacji określonej procedury obsługi i wersji. W przypadku aplikacji zarządzanych obsługiwane właściwości to `basics` , `steps` i `outputs` . Właściwości podstawowe i kroki zawierają [elementy](create-uidefinition-elements.md) , takie jak pola tekstowe i listy rozwijane, do wyświetlenia w Azure Portal. Właściwość Outputs służy do mapowania wartości wyjściowych określonych elementów na parametry szablonu wdrażania Azure Resource Manager.
+Schemat właściwości Parameters zależy od kombinacji określonej procedury obsługi i wersji. W przypadku aplikacji zarządzanych obsługiwane właściwości to `basics` ,, `steps` `outputs` i `config` . Właściwości podstawowe i kroki zawierają [elementy](create-uidefinition-elements.md) , takie jak pola tekstowe i listy rozwijane, do wyświetlenia w Azure Portal. Właściwość Outputs służy do mapowania wartości wyjściowych określonych elementów na parametry szablonu Azure Resource Manager. Można używać `config` tylko wtedy, gdy zachodzi potrzeba przesłonięcia domyślnego zachowania `basics` kroku.
 
 Włączenie `$schema` jest zalecane, ale opcjonalne. Jeśli jest określona, wartość `version` musi być zgodna z wersją w `$schema` identyfikatorze URI.
 
 Możesz użyć edytora JSON do utworzenia createUiDefinition, a następnie przetestowania go w [piaskownicy createUiDefinition](https://portal.azure.com/?feature.customPortal=false&#blade/Microsoft_Azure_CreateUIDef/SandboxBlade) w celu uzyskania podglądu. Aby uzyskać więcej informacji na temat piaskownicy, zobacz [testowanie interfejsu portalu dla Azure Managed Applications](test-createuidefinition.md).
 
-## <a name="basics"></a>Informacje podstawowe
+## <a name="basics"></a>Podstawy
 
-Podstawowe to pierwszy krok generowany, gdy Azure Portal przeanalizuje plik. Oprócz wyświetlania elementów określonych w programie Portal wprowadza `basics` elementy dla użytkowników, aby wybrać subskrypcję, grupę zasobów i lokalizację wdrożenia. Jeśli to możliwe, elementy, które wykonują zapytania dotyczące parametrów obejmujących całe wdrożenie, takie jak nazwa klastra lub poświadczenia administratora, powinny przejść w tym kroku.
+**Podstawowy** krok to pierwszy krok generowany, gdy Azure Portal przeanalizuje plik. Domyślnie krok podstawowe umożliwia użytkownikom wybranie subskrypcji, grupy zasobów i lokalizacji wdrożenia.
+
+:::image type="content" source="./media/create-uidefinition-overview/basics.png" alt-text="Domyślne podstawy":::
+
+W tej sekcji możesz dodać więcej elementów. Jeśli to możliwe, należy dodać elementy, które wykonują zapytania dotyczące parametrów obejmujących całe wdrożenie, takich jak nazwa klastra lub poświadczenia administratora.
+
+Poniższy przykład pokazuje pole tekstowe, które zostało dodane do elementów domyślnych.
+
+```json
+"basics": [
+    {
+        "name": "textBox1",
+        "type": "Microsoft.Common.TextBox",
+        "label": "Textbox on basics",
+        "defaultValue": "my text value",
+        "toolTip": "",
+        "visible": true
+    }
+]
+```
+
+## <a name="config"></a>Config
+
+Należy określić element config, gdy zachodzi potrzeba zastąpienia domyślnego zachowania dla podstawowych kroków. W poniższym przykładzie przedstawiono dostępne właściwości.
+
+```json
+"config": {  
+    "basics": {  
+        "description": "Customized description with **markdown**, see [more](https://www.microsoft.com).",
+        "subscription": {
+            "constraints": {
+                "validations": [
+                    {
+                        "isValid": "[expression for checking]",
+                        "message": "Please select a valid subscription."
+                    },
+                    {
+                        "permission": "<Resource Provider>/<Action>",
+                        "message": "Must have correct permission to complete this step."
+                    }
+                ]
+            },
+            "resourceProviders": [ "<Resource Provider>" ]
+        },
+        "resourceGroup": {
+            "constraints": {
+                "validations": [
+                    {
+                        "isValid": "[expression for checking]",
+                        "message": "Please select a valid resource group."
+                    }
+                ]
+            },
+            "allowExisting": true
+        },
+        "location": {  
+            "label": "Custom label for location",  
+            "toolTip": "provide a useful tooltip",  
+            "resourceTypes": [ "Microsoft.Compute/virtualMachines" ],
+            "allowedValues": [ "eastus", "westus2" ],  
+            "visible": true  
+        }  
+    }  
+},  
+```
+
+W przypadku programu `description` Podaj ciąg z obsługą promocji, który opisuje zasób. Obsługiwane jest formatowanie wielowierszowe i łącza.
+
+Dla programu `location` Określ właściwości kontrolki lokalizacji, która ma zostać przesłonięta. Wszystkie właściwości, które nie zostały zastąpione, są ustawiane na wartości domyślne. `resourceTypes`akceptuje tablicę ciągów zawierających w pełni kwalifikowane nazwy typów zasobów. Opcje lokalizacji są ograniczone tylko do regionów, które obsługują typy zasobów.  `allowedValues`   akceptuje tablicę ciągów regionów. Tylko te regiony pojawiają się na liście rozwijanej.Można ustawić zarówno `allowedValues`   , jak i  `resourceTypes` . Wynikiem jest przecięcie obu list. Na koniec `visible` Właściwość może służyć warunkowo lub całkowicie wyłączyć listę rozwijaną lokalizacji.  
+
+`subscription`Elementy i `resourceGroup` umożliwiają określenie dodatkowych walidacji. Składnia służąca do określania walidacji jest taka sama jak niestandardowe sprawdzanie poprawności dla [pola tekstowego](microsoft-common-textbox.md). Możesz również określić `permission` walidacje dla subskrypcji lub grupy zasobów.  
+
+Kontrola subskrypcji akceptuje listę przestrzeni nazw dostawcy zasobów. Na przykład można określić **Microsoft. COMPUTE**. Wyświetla komunikat o błędzie, gdy użytkownik wybierze subskrypcję, która nie obsługuje dostawcy zasobów. Ten błąd występuje, gdy dostawca zasobów nie jest zarejestrowany w ramach tej subskrypcji, a użytkownik nie ma uprawnienia do rejestrowania dostawcy zasobów.  
+
+Dla kontrolki Grupa zasobów jest opcja `allowExisting` . Gdy `true` Użytkownicy mogą wybrać grupy zasobów, które mają już zasoby. Ta flaga jest najbardziej stosowana do szablonów rozwiązań, w których domyślne zachowanie zezwala użytkownikom na wybór nowej lub pustej grupy zasobów. W większości innych scenariuszy określenie tej właściwości nie jest konieczne.  
 
 ## <a name="steps"></a>Kroki
 
-Właściwość kroków może zawierać zero lub więcej dodatkowych kroków, które mają być wyświetlane po podstawach, z których każdy zawiera jeden lub więcej elementów. Rozważ dodanie kroków na rolę lub warstwę wdrażanej aplikacji. Na przykład Dodaj krok dla danych wejściowych węzła głównego i krok dla węzłów procesu roboczego w klastrze.
+Właściwość kroki zawiera zero lub więcej dodatkowych kroków do wyświetlenia po stronie podstawy. Każdy krok zawiera jeden lub więcej elementów. Rozważ dodanie kroków na rolę lub warstwę wdrażanej aplikacji. Na przykład Dodaj krok dla danych wejściowych węzła głównego i krok dla węzłów procesu roboczego w klastrze.
+
+```json
+"steps": [
+    {
+        "name": "demoConfig",
+        "label": "Configuration settings",
+        "elements": [
+          ui-elements-needed-to-create-the-instance
+        ]
+    }
+]
+```
 
 ## <a name="outputs"></a>Dane wyjściowe
 
@@ -80,9 +169,9 @@ Aby odfiltrować dostępne lokalizacje tylko do tych lokalizacji, które obsług
     "handler": "Microsoft.Azure.CreateUIDef",
     "version": "0.1.2-preview",
     "parameters": {
-      "resourceTypes": ["Microsoft.Compute/disks"],
-      "basics": [
-        ...
+        "resourceTypes": ["Microsoft.Compute/disks"],
+        "basics": [
+          ...
 ```  
 
 ## <a name="functions"></a>Funkcje

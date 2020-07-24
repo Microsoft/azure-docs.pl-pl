@@ -8,18 +8,18 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/29/2020
-ms.openlocfilehash: fc14c3bd069162c390c09fddbfe9169b90bf66ce
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: a9d419052f000b220c993109e45d371398607275
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86086011"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87006454"
 ---
 # <a name="scale-azure-hdinsight-clusters"></a>Skalowanie klastrów usługi Azure HDInsight
 
 Usługa HDInsight zapewnia elastyczność z opcjami umożliwiającymi skalowanie w górę i w dół liczby węzłów procesu roboczego w klastrach. Elastyczność pozwala zmniejszyć klaster po godzinach lub w weekendy. I rozwijać je podczas szczytowego zapotrzebowania na działalność biznesową.
 
-Skaluj klaster przed okresowym przetwarzaniem wsadowym, aby klaster miał odpowiednie zasoby. Po zakończeniu przetwarzania i przejściu w dół klaster usługi HDInsight jest skalowany w dół do mniejszej liczby węzłów procesu roboczego.
+Skaluj klaster przed okresowym przetwarzaniem wsadowym, aby klaster miał odpowiednie zasoby.  Po zakończeniu przetwarzania i przejściu w dół klaster usługi HDInsight jest skalowany w dół do mniejszej liczby węzłów procesu roboczego.
 
 Klaster można skalować ręcznie przy użyciu jednej z metod opisanych poniżej. Możesz również użyć opcji [skalowania](hdinsight-autoscale-clusters.md) automatycznego, aby automatycznie skalować w górę i w dół w odpowiedzi na określone metryki.
 
@@ -36,7 +36,7 @@ Firma Microsoft udostępnia następujące narzędzia do skalowania klastrów:
 |[Moduł AzureRM programu PowerShell](https://docs.microsoft.com/powershell/azure/azurerm) |[`Set-AzureRmHDInsightClusterSize`](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/set-azurermhdinsightclustersize) `-ClusterName CLUSTERNAME -TargetInstanceCount NEWSIZE`|
 |[Interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) | [`az hdinsight resize`](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-resize) `--resource-group RESOURCEGROUP --name CLUSTERNAME --workernode-count NEWSIZE`|
 |[Klasyczny interfejs wiersza polecenia platformy Azure](hdinsight-administer-use-command-line.md)|`azure hdinsight cluster resize CLUSTERNAME NEWSIZE` |
-|[Azure Portal](https://portal.azure.com)|Otwórz okienko klastra usługi HDInsight, wybierz pozycję **rozmiar klastra** w menu po lewej stronie, a następnie w okienku rozmiar klastra wpisz liczbę węzłów procesu roboczego i wybierz pozycję Zapisz.|  
+|[Witryna Azure Portal](https://portal.azure.com)|Otwórz okienko klastra usługi HDInsight, wybierz pozycję **rozmiar klastra** w menu po lewej stronie, a następnie w okienku rozmiar klastra wpisz liczbę węzłów procesu roboczego i wybierz pozycję Zapisz.|  
 
 ![Azure Portal skalowanie — opcja klastra](./media/hdinsight-scaling-best-practices/azure-portal-settings-nodes.png)
 
@@ -107,6 +107,14 @@ Wpływ zmiany liczby węzłów danych różni się w zależności od typu klastr
 
     Należy ponownie zrównoważyć repliki partycji po przeprowadzeniu operacji skalowania. Aby uzyskać więcej informacji, zobacz [wysoka dostępność danych w dokumencie Apache Kafka w usłudze HDInsight](./kafka/apache-kafka-high-availability.md) .
 
+* Apache Hive LLAP
+
+    Po skalowaniu do `N` węzłów procesu roboczego Usługa HDInsight automatycznie ustawi następujące konfiguracje i ponownie uruchomi gałąź.
+
+  * Maksymalna łączna liczba współbieżnych zapytań:`hive.server2.tez.sessions.per.default.queue = min(N, 32)`
+  * Liczba węzłów używanych przez LLAP Hive:`num_llap_nodes  = N`
+  * Liczba węzłów do uruchomienia demona Hive LLAP:`num_llap_nodes_for_llap_daemons = N`
+
 ## <a name="how-to-safely-scale-down-a-cluster"></a>Jak bezpiecznie skalować klaster
 
 ### <a name="scale-down-a-cluster-with-running-jobs"></a>Skalowanie w dół klastra z uruchomionymi zadaniami
@@ -138,7 +146,7 @@ Aby ręcznie skasować tę uruchomioną aplikację, wykonaj następujące polece
 yarn application -kill <application_id>
 ```
 
-Przykład:
+Na przykład:
 
 ```bash
 yarn application -kill "application_1499348398273_0003"

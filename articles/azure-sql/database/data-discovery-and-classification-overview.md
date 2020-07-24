@@ -1,5 +1,5 @@
 ---
-title: Odnajdowanie i klasyfikacja danych
+title: Odnajdywanie i klasyfikacja danych
 description: Funkcja odnajdywania danych & Klasyfikacja dla Azure SQL Database, wystąpienia zarządzanego usługi Azure SQL i usługi Azure Synapse Analytics
 services: sql-database
 ms.service: sql-db-mi
@@ -13,14 +13,14 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 04/28/2020
 tags: azure-synapse
-ms.openlocfilehash: 8e04cb87895f00e1ee992745c43a884596bd8398
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 3f1f284255d1c0e77779c175951eaf33d3e56067
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85987269"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87004107"
 ---
-# <a name="data-discovery--classification"></a>Odnajdowanie i klasyfikacja danych
+# <a name="data-discovery--classification"></a>Odnajdywanie i klasyfikacja danych
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
 Klasyfikacja & odnajdywania danych jest wbudowana w Azure SQL Database, wystąpienie zarządzane Azure SQL i usługa Azure Synapse Analytics. Zapewnia zaawansowane funkcje odnajdywania, klasyfikowania, etykietowania i raportowania poufnych danych w bazach danych.
@@ -77,7 +77,7 @@ Po zdefiniowaniu zasad w całej organizacji można kontynuować klasyfikowanie p
 > [!NOTE]
 > Poniższy przykład używa Azure SQL Database, ale należy wybrać odpowiedni produkt, dla którego chcesz skonfigurować klasyfikację & odnajdywania danych.
 
-1. Przejdź do [Azure Portal](https://portal.azure.com).
+1. Przejdź do witryny [Azure Portal](https://portal.azure.com).
 
 2. Przejdź do pozycji **Zaawansowane zabezpieczenia danych** w obszarze nagłówek **zabezpieczenia** w okienku Azure SQL Database. Wybierz pozycję **Zaawansowane zabezpieczenia danych**, a następnie wybierz kartę **Klasyfikacja danych &** .
 
@@ -117,7 +117,7 @@ Po zdefiniowaniu zasad w całej organizacji można kontynuować klasyfikowanie p
 
 ## <a name="audit-access-to-sensitive-data"></a><a id="audit-sensitive-data"></a>Inspekcja dostępu do poufnych danych
 
-Ważnym aspektem modelu ochrony informacji jest możliwość monitorowania dostępu do poufnych danych. [Inspekcja usługi Azure SQL](../../azure-sql/database/auditing-overview.md) została ulepszona w celu uwzględnienia nowego pola w dzienniku inspekcji o nazwie `data_sensitivity_information` . To pole służy do rejestrowania klasyfikacji czułości (etykiet) danych zwróconych przez zapytanie. Przykład:
+Ważnym aspektem modelu ochrony informacji jest możliwość monitorowania dostępu do poufnych danych. [Inspekcja usługi Azure SQL](../../azure-sql/database/auditing-overview.md) została ulepszona w celu uwzględnienia nowego pola w dzienniku inspekcji o nazwie `data_sensitivity_information` . To pole służy do rejestrowania klasyfikacji czułości (etykiet) danych zwróconych przez zapytanie. Oto przykład:
 
 ![Dziennik inspekcji](./media/data-discovery-and-classification-overview/11_data_classification_audit_log.png)
 
@@ -137,7 +137,7 @@ Te wbudowane role mogą modyfikować klasyfikację danych bazy danych:
 - Współautor
 - Menedżer zabezpieczeń SQL
 
-Dowiedz się więcej o uprawnieniach opartych na rolach w [ramach RBAC dla zasobów platformy Azure](https://docs.microsoft.com/azure/role-based-access-control/overview).
+Dowiedz się więcej na temat uprawnień opartych na rolach w [usłudze Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview).
 
 ## <a name="manage-classifications"></a><a id="manage-classification"></a>Zarządzaj klasyfikacjami
 

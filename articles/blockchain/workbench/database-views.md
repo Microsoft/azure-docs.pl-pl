@@ -4,15 +4,16 @@ description: Omówienie dostępnych widoków bazy danych SQL usługi Azure łań
 ms.date: 09/05/2019
 ms.topic: article
 ms.reviewer: mmercuri
-ms.openlocfilehash: 585084b4c85c48533bdad96d4f99813ef2e418b4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e715bd2297c1e051ae92b15d73c945c9e80c3d94
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74325991"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87003325"
 ---
 # <a name="azure-blockchain-workbench-database-views"></a>Widoki bazy danych usługi Azure łańcucha bloków Workbench
 
-Usługa Azure łańcucha bloków Workbench w wersji zapoznawczej dostarcza dane z rozproszonych ksiąg do bazy danych usług SQL DB w *łańcuchu* . Baza danych między łańcuchami umożliwia korzystanie z programu SQL i istniejących narzędzi, takich jak [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017), w celu współdziałania z danymi łańcucha bloków.
+Usługa Azure łańcucha bloków Workbench w wersji zapoznawczej dostarcza dane z rozproszonych ksiąg do bazy danych usług SQL DB w *łańcuchu* . Baza danych między łańcuchami umożliwia korzystanie z programu SQL i istniejących narzędzi, takich jak [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017), w celu współdziałania z danymi łańcucha bloków.
 
 Usługa Azure łańcucha bloków Workbench udostępnia zestaw widoków bazy danych, które zapewniają dostęp do danych, które będą pomocne podczas wykonywania zapytań. Te widoki są silnie nieznormalizowane, aby ułatwić szybkie rozpoczęcie tworzenia raportów, analiz i w inny sposób korzystać z danych łańcucha bloków z istniejących narzędzi i bez konieczności ponownego uczenia się personelu bazy danych.
 
@@ -291,9 +292,9 @@ Ten widok zawiera szczegółowe informacje o członkach konsorcjum, które są u
 | ID                 | int           | Nie          | Unikatowy identyfikator użytkownika |
 | ExternalID         | nvarchar (255) | Nie          | Identyfikator zewnętrzny użytkownika. Domyślnie ten identyfikator jest identyfikatorem GUID reprezentującym identyfikator Azure Active Directory użytkownika. |
 | ProvisioningStatus | int           | Nie          |Identyfikuje bieżący stan procesu aprowizacji dla użytkownika. Możliwe wartości: <br />0 — użytkownik został utworzony przez interfejs API<br />1 — klucz został skojarzony z użytkownikiem w bazie danych<br />2 — użytkownik jest w pełni zainicjowany |
-| FirstName          | nvarchar (50)  | Tak         | Imię użytkownika |
-| LastName           | nvarchar (50)  | Tak         | Nazwisko użytkownika |
-| EmailAddress       | nvarchar (255) | Tak         | Adres e-mail użytkownika |
+| FirstName (Imię)          | nvarchar (50)  | Tak         | Imię użytkownika |
+| LastName (Nazwisko)           | nvarchar (50)  | Tak         | Nazwisko użytkownika |
+| EmailAddress (Adres e-mail)       | nvarchar (255) | Tak         | Adres e-mail użytkownika |
 
 ## <a name="vwworkflow"></a>vwWorkflow
 

@@ -12,12 +12,12 @@ author: dalechen
 ms.author: ninarn
 ms.reviewer: carlrab, vanto
 ms.date: 01/14/2020
-ms.openlocfilehash: acc61cefbc9d89f11eae5b6549add57871035ddb
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 0b28fa788e7b35e94482104d807c228db21f49b4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86078973"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87003920"
 ---
 # <a name="troubleshoot-transient-connection-errors-in-sql-database-and-sql-managed-instance"></a>Rozwiązywanie problemów z błędami połączeń przejściowych w SQL Database i wystąpieniu zarządzanym SQL
 
@@ -148,8 +148,8 @@ Na przykład, jeśli liczba jest równa 3, a interwał jest równy 10 sekund, pr
 
 Parametry **ConnectRetryCount** i **ConnectRetryInterval** pozwalają obiektowi **SQLConnect** ponowić operację łączenia bez podania lub bothering programu, takiego jak zwracanie kontroli do programu. Ponawianie prób może wystąpić w następujących sytuacjach:
 
-- wywołanie metody mySqlConnection. Open
-- mySqlConnection.Exewywołanie metody urocze
+- Wywołanie metody SqlConnection. Open
+- SqlConnection.Exewywołanie metody urocze
 
 Istnieje element subtlety. Jeśli wystąpi błąd przejściowy podczas wykonywania *zapytania* , obiekt **SqlConnection** nie spróbuje wykonać operacji Connect. Nie powoduje to ponowienia próby wykonania zapytania. Jednak element **SqlConnection** bardzo szybko sprawdza połączenie przed wysłaniem zapytania do wykonania. Jeśli szybkie sprawdzenie wykryje problem z połączeniem, program **SQLConnect** próbuje wykonać operację łączenia. Jeśli ponowna próba powiodła się, zapytanie jest wysyłane do wykonania.
 

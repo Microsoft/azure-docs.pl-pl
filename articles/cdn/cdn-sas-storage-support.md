@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 06/21/2018
 ms.author: allensu
-ms.openlocfilehash: c1deffe36df081908294d3c7fe58a17c8a454687
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 702ea4e76f1fb13a3c7935f131da4ef11d369813
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84887051"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87003002"
 ---
 # <a name="using-azure-cdn-with-sas"></a>Używanie Azure CDN z sygnaturą dostępu współdzielonego
 
@@ -39,7 +39,7 @@ Po wygenerowaniu tokenu SAS można uzyskać dostęp do pliku magazynu obiektów 
 
 `https://<account name>.blob.core.windows.net/<container>/<file>?sv=<SAS token>`
  
-Przykład:
+Na przykład:
  ```
 https://democdnstorage1.blob.core.windows.net/container1/demo.jpg?sv=2017-07-29&ss=b&srt=co&sp=r&se=2038-01-02T21:30:49Z&st=2018-01-02T13:30:49Z&spr=https&sig=QehoetQFWUEd1lhU5iOMGrHBmE727xYAbKJl5ohSiWI%3D
 ```
@@ -60,7 +60,7 @@ Ta opcja jest najprostszym i używa jednego tokenu sygnatury dostępu współdzi
    
    Otrzymany adres URL punktu końcowego usługi CDN ma następujący format:`https://<endpoint hostname>.azureedge.net/<container>/<file>?sv=<SAS token>`
 
-   Przykład:   
+   Na przykład:   
    ```
    https://demoendpoint.azureedge.net/container1/demo.jpg/?sv=2017-07-29&ss=b&srt=c&sp=r&se=2027-12-19T17:35:58Z&st=2017-12-19T09:35:58Z&spr=https&sig=kquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D
    ```
@@ -81,7 +81,8 @@ Ta opcja jest dostępna tylko dla **Azure CDN Premium z profilów Verizon** . Za
    
    Źródło:   
    `(container1\/.*)`
-   
+
+
    Miejsce docelowe:   
    ```
    $1?sv=2017-07-29&ss=b&srt=c&sp=r&se=2027-12-19T17:35:58Z&st=2017-12-19T09:35:58Z&spr=https&sig=kquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D
@@ -91,7 +92,7 @@ Ta opcja jest dostępna tylko dla **Azure CDN Premium z profilów Verizon** . Za
 
 2. Gdy Nowa reguła stanie się aktywna, każdy może uzyskać dostęp do plików w określonym kontenerze w punkcie końcowym usługi CDN, niezależnie od tego, czy używali tokenu SAS w adresie URL. Oto format:`https://<endpoint hostname>.azureedge.net/<container>/<file>`
  
-   Przykład:   
+   Na przykład:   
    `https://sasstoragedemo.azureedge.net/container1/demo.jpg`
        
 
@@ -106,7 +107,7 @@ Aby można było korzystać z uwierzytelniania Azure CDN tokenów zabezpieczają
    Adres URL punktu końcowego tokenu zabezpieczającego ma następujący format:   
    `https://<endpoint hostname>.azureedge.net/<container>/<file>?<security_token>`
  
-   Przykład:   
+   Na przykład:   
    ```
    https://sasstoragedemo.azureedge.net/container1/demo.jpg?a4fbc3710fd3449a7c99986bkquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D
    ```

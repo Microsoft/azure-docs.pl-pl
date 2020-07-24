@@ -7,11 +7,12 @@ ms.topic: how-to
 ms.date: 10/16/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 6f16784d89d1f3edec491d5c7ae312dbd46212f1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6be91be4d1189fb99ffa39ec96d555d4534cdb2b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84658137"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87005739"
 ---
 # <a name="attach-a-data-disk-to-a-windows-vm-with-powershell"></a>Dołączanie dysku danych do maszyny wirtualnej z systemem Windows przy użyciu programu PowerShell
 
@@ -20,9 +21,9 @@ W tym artykule opisano sposób dołączania nowych i istniejących dysków do ma
 Najpierw zapoznaj się z następującymi wskazówkami:
 
 * Rozmiar maszyny wirtualnej kontroluje liczbę dysków z danymi, które można dołączyć. Aby uzyskać więcej informacji, zobacz [rozmiary maszyn wirtualnych](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-* Aby korzystać z dysków SSD Premium, musisz mieć [Typ maszyny wirtualnej z obsługą magazynu w warstwie Premium](sizes-memory.md), np. maszynę wirtualną z serii DS lub GS.
+* Aby korzystać z dysków SSD Premium, musisz mieć [Typ maszyny wirtualnej z obsługą magazynu w warstwie Premium](../sizes-memory.md), np. maszynę wirtualną z serii DS lub GS.
 
-W tym artykule jest używany program PowerShell w [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), który jest stale aktualizowany do najnowszej wersji. Aby otworzyć Cloud Shell, wybierz opcję **Wypróbuj** z góry dowolnego bloku kodu.
+W tym artykule jest używany program PowerShell w [Azure Cloud Shell](../../cloud-shell/overview.md), który jest stale aktualizowany do najnowszej wersji. Aby otworzyć Cloud Shell, wybierz opcję **Wypróbuj** z góry dowolnego bloku kodu.
 
 ## <a name="add-an-empty-data-disk-to-a-virtual-machine"></a>Dodawanie pustego dysku danych do maszyny wirtualnej
 
@@ -48,7 +49,7 @@ Update-AzVM -VM $vm -ResourceGroupName $rgName
 
 ### <a name="using-managed-disks-in-an-availability-zone"></a>Używanie dysków zarządzanych w strefie dostępności
 
-Aby utworzyć dysk w strefie dostępności, użyj polecenie [New-AzDiskConfig](https://docs.microsoft.com/powershell/module/az.compute/new-azdiskconfig) z `-Zone` parametrem. Poniższy przykład tworzy dysk w strefie *1*.
+Aby utworzyć dysk w strefie dostępności, użyj polecenie [New-AzDiskConfig](/powershell/module/az.compute/new-azdiskconfig) z `-Zone` parametrem. Poniższy przykład tworzy dysk w strefie *1*.
 
 ```powershell
 $rgName = 'myResourceGroup'
@@ -68,7 +69,7 @@ Update-AzVM -VM $vm -ResourceGroupName $rgName
 
 ### <a name="initialize-the-disk"></a>Inicjowanie dysku
 
-Po dodaniu pustego dysku musisz go zainicjować. Aby zainicjować dysk, możesz zalogować się do maszyny wirtualnej i użyć przystawki Zarządzanie dyskami. Jeśli włączono usługę [WinRM](https://docs.microsoft.com/windows/desktop/WinRM/portal) i certyfikat na maszynie wirtualnej podczas jej tworzenia, możesz użyć zdalnego programu PowerShell, aby zainicjować dysk. Można również użyć niestandardowego rozszerzenia skryptu:
+Po dodaniu pustego dysku musisz go zainicjować. Aby zainicjować dysk, możesz zalogować się do maszyny wirtualnej i użyć przystawki Zarządzanie dyskami. Jeśli włączono usługę [WinRM](/windows/desktop/winrm/portal) i certyfikat na maszynie wirtualnej podczas jej tworzenia, możesz użyć zdalnego programu PowerShell, aby zainicjować dysk. Można również użyć niestandardowego rozszerzenia skryptu:
 
 ```azurepowershell-interactive
     $location = "location-name"

@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/04/2019
+ms.date: 07/17/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 4297ee64742b81e86eb8b85c0a6c405fac07d67f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 79807e8e0f798a73063576a00b8d0c32cdfe5a4b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85386168"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87005348"
 ---
 # <a name="set-redirect-urls-to-b2clogincom-for-azure-active-directory-b2c"></a>Ustaw adresy URL przekierowania na b2clogin.com dla Azure Active Directory B2C
 
@@ -58,7 +58,7 @@ Istnieją dwa formaty, których można użyć w odniesieniu do adresów URL prze
 https://{your-tenant-name}.b2clogin.com/{your-tenant-id}/oauth2/authresp
 ```
 
-Druga opcja używa nazwy domeny dzierżawy w postaci `your-tenant-name.onmicrosoft.com` . Przykład:
+Druga opcja używa nazwy domeny dzierżawy w postaci `your-tenant-name.onmicrosoft.com` . Na przykład:
 
 ```
 https://{your-tenant-name}.b2clogin.com/{your-tenant-name}.onmicrosoft.com/oauth2/authresp
@@ -89,24 +89,42 @@ Aby przeprowadzić migrację interfejsów API usługi Azure API Management chron
 
 ## <a name="microsoft-authentication-library-msal"></a>Biblioteka uwierzytelniania firmy Microsoft (MSAL)
 
-### <a name="validateauthority-property"></a>Właściwość ValidateAuthority
+### <a name="msalnet-validateauthority-property"></a>Właściwość MSAL.NET ValidateAuthority
 
-Jeśli używasz programu [MSAL.NET][msal-dotnet] v2 lub starszego, ustaw właściwość **ValidateAuthority** na `false` Tworzenie wystąpienia klienta, aby umożliwić przekierowywanie do *b2clogin.com*. To ustawienie nie jest wymagane w przypadku wersji MSAL.NET v3 i nowszych.
+Jeśli używasz programu [MSAL.NET][msal-dotnet] v2 lub starszego, ustaw właściwość **ValidateAuthority** na `false` Tworzenie wystąpienia klienta, aby umożliwić przekierowywanie do *b2clogin.com*. Ustawienie tej wartości `false` nie jest wymagane dla MSAL.NET v3 i nowszych.
 
 ```csharp
 ConfidentialClientApplication client = new ConfidentialClientApplication(...); // Can also be PublicClientApplication
 client.ValidateAuthority = false; // MSAL.NET v2 and earlier **ONLY**
 ```
 
-Jeśli używasz [MSAL na potrzeby języka JavaScript][msal-js]:
+### <a name="msal-for-javascript-validateauthority-property"></a>MSAL dla właściwości validateAuthority języka JavaScript
+
+Jeśli używasz [MSAL for JavaScript][msal-js] v 1.2.2 lub starszej wersji, ustaw właściwość **validateAuthority** na `false` .
 
 ```JavaScript
+// MSAL.js v1.2.2 and earlier
 this.clientApplication = new UserAgentApplication(
   env.auth.clientId,
   env.auth.loginAuthority,
   this.authCallback.bind(this),
   {
-    validateAuthority: false
+    validateAuthority: false // Required in MSAL.js v1.2.2 and earlier **ONLY**
+  }
+);
+```
+
+Jeśli ustawisz `validateAuthority: true` w MSAL.js 1.3.0 + (wartość domyślna), należy również określić prawidłowy Wystawca tokenu z `knownAuthorities` :
+
+```JavaScript
+// MSAL.js v1.3.0+
+this.clientApplication = new UserAgentApplication(
+  env.auth.clientId,
+  env.auth.loginAuthority,
+  this.authCallback.bind(this),
+  {
+    validateAuthority: true, // Supported in MSAL.js v1.3.0+
+    knownAuthorities: ['tenant-name.b2clogin.com'] // Required if validateAuthority: true
   }
 );
 ```

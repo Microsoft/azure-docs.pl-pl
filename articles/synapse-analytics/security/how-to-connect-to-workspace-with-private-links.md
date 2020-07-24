@@ -1,5 +1,5 @@
 ---
-title: Nawiązywanie połączenia z obszarem roboczym usługi Azure Synapse za pomocą linków prywatnych
+title: Nawiązywanie połączenia z obszarem roboczym usługi Synapse przy użyciu linków prywatnych
 description: W tym artykule opisano sposób nawiązywania połączenia z obszarem roboczym usługi Azure Synapse za pomocą linków prywatnych
 author: RonyMSFT
 ms.service: synapse-analytics
@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 0f2e01390a1ddd179e50523a8b5748994524a52e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 17636bf993df5105093ca690e36db22493a2472e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85193876"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87005977"
 ---
 # <a name="connect-to-your-azure-synapse-workspace-using-private-links-preview"></a>Nawiązywanie połączenia z obszarem roboczym usługi Azure Synapse za pomocą linków prywatnych (wersja zapoznawcza)
 
@@ -47,7 +47,7 @@ Wybierz pozycję **Dalej: konfiguracja>** , aby przejść do następnej części
 
 Na karcie **Konfiguracja** wybierz **sieć wirtualną** i **podsieć** , w której ma zostać utworzony prywatny punkt końcowy. Należy również utworzyć rekord DNS, który jest mapowany na prywatny punkt końcowy.
 
-Wybierz opcję **tak** dla **integracji z prywatną strefą DNS** , aby zintegrować prywatny punkt końcowy z prywatną strefą DNS. Jeśli nie masz prywatnej strefy DNS skojarzonej z siecią wirtualną, zostanie utworzona nowa prywatna strefa DNS. Wybierz pozycję **Przegląd + Utwórz** po zakończeniu.
+Wybierz opcję **tak** dla **integracji z prywatną strefą DNS** , aby zintegrować prywatny punkt końcowy z prywatną strefą DNS. Jeśli nie masz skojarzonej ze swoim Microsoft Azure Virtual Network prywatnej strefy DNS, zostanie utworzona nowa prywatna strefa DNS. Wybierz pozycję **Przegląd + Utwórz** po zakończeniu.
 
 ![Wybierz szczegóły subskrypcji i regionu](./media/how-to-connect-to-workspace-with-private-links/private-endpoint-4.png)
 
@@ -57,7 +57,7 @@ Po zakończeniu wdrażania Otwórz obszar roboczy usługi Azure Synapse w obszar
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej o sieci [wirtualnej zarządzanej przestrzeni roboczej](./synapse-workspace-managed-vnet.md)
+Dowiedz się więcej o [zarządzanym obszarze roboczym Virtual Network](./synapse-workspace-managed-vnet.md)
 
 Dowiedz się więcej o [zarządzanych prywatnych punktach końcowych](./synapse-workspace-managed-private-endpoints.md)
 

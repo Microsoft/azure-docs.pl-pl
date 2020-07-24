@@ -14,11 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 06/26/2020
 ms.author: v-mibufo
-ms.openlocfilehash: 67064cf694445acf8472b958660133c2f2d31db9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 33b4c59e14301e496d0eddafa7bdfdf201b7aa29
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85660951"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87005909"
 ---
 # <a name="windows-stop-error---status-no-memory"></a>Błąd zatrzymania systemu Windows — stan braku pamięci
 
@@ -26,7 +27,7 @@ W tym artykule przedstawiono kroki rozwiązywania problemów z niepowodzeniem ur
 
 ## <a name="symptom"></a>Objaw
 
-W przypadku korzystania z [diagnostyki rozruchu](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) w celu wyświetlenia zrzutu ekranu maszyny wirtualnej (VM) zobaczysz, że zrzut ekranu wyświetla kod błędu: `0xC0000017` . W zależności od używanej wersji systemu Windows można zobaczyć ten kod w **Menedżerze rozruchu systemu Windows** lub na **ekranie odzyskiwania**.
+W przypadku korzystania z [diagnostyki rozruchu](./boot-diagnostics.md) w celu wyświetlenia zrzutu ekranu maszyny wirtualnej (VM) zobaczysz, że zrzut ekranu wyświetla kod błędu: `0xC0000017` . W zależności od używanej wersji systemu Windows można zobaczyć ten kod w **Menedżerze rozruchu systemu Windows** lub na **ekranie odzyskiwania**.
 
    **Menedżer rozruchu systemu Windows**
 
@@ -56,7 +57,7 @@ Dysk systemu operacyjnego jest pełny, zbyt pofragmentowany lub system operacyjn
 
 ### <a name="create-and-access-a-repair-vm"></a>Tworzenie maszyny wirtualnej naprawy i uzyskiwanie do niej dostępu
 
-1. Wykonaj [kroki 1-3 poleceń naprawy maszyny wirtualnej](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands) , aby przygotować maszynę wirtualną naprawy.
+1. Wykonaj [kroki 1-3 poleceń naprawy maszyny wirtualnej](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md) , aby przygotować maszynę wirtualną naprawy.
 1. Korzystanie z Podłączanie pulpitu zdalnego łączenia się z maszyną wirtualną naprawy.
 
 ### <a name="for-generation-2-vms-assign-a-letter-to-the-extensible-firmware-interface-efi-partition"></a>W przypadku maszyn wirtualnych 2. generacji Przypisz literę do partycji Extensible Firmware Interface (EFI):
@@ -93,7 +94,7 @@ Jeśli używasz maszyny wirtualnej generacji 2, partycja EFI dołączonego dysku
 Po dołączeniu uszkodzonego dysku do maszyny wirtualnej naprawy należy sprawdzić, czy system operacyjny na tym dysku ma wystarczającą ilość miejsca do prawidłowego działania. 
 
 1. Sprawdź, czy dysk jest zapełniony przez kliknięcie prawym przyciskiem myszy dysku podłączonego dysku i wybranie pozycji **Właściwości**.
-1. Jeśli dysk ma **mniej niż 300 MB wolnego miejsca**, [rozwiń go maksymalnie 1 TB przy użyciu programu PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/expand-os-disk).
+1. Jeśli dysk ma **mniej niż 300 MB wolnego miejsca**, [rozwiń go maksymalnie 1 TB przy użyciu programu PowerShell](../windows/expand-os-disk.md).
 1. Gdy rozmiar dysku wynosi **1 TB**, należy przeprowadzić Oczyszczanie dysku. Możesz użyć narzędzia do [oczyszczania dysku](https://support.microsoft.com/help/4026616/windows-10-disk-cleanup) , aby zwolnić miejsce.
 1. Otwórz wystąpienie wiersza polecenia z podwyższonym poziomem uprawnień (Uruchom jako administrator) i wykonaj defragmentację na dysku:
 
@@ -222,4 +223,4 @@ Aby włączyć Zbieranie zrzutów pamięci i konsolę seryjną, uruchom następu
    
 ### <a name="rebuild-the-vm"></a>Kompiluj ponownie maszynę wirtualną
 
-Aby skompilować ponownie maszynę wirtualną, użyj [kroku 5 poleceń naprawy maszyny wirtualnej](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) .
+Aby skompilować ponownie maszynę wirtualną, użyj [kroku 5 poleceń naprawy maszyny wirtualnej](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md#repair-process-example) .

@@ -15,15 +15,15 @@ ms.workload: NA
 ms.date: 07/25/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 16a5e0bb3e50e3a90951572e8d2847d379c1b114
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4e544d135883d0c936b3f23b3e50e385268c992c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80297641"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87006300"
 ---
 # <a name="deploy-storsimple-virtual-array---set-up-as-file-server-via-azure-portal"></a>Wdróż wirtualną macierz StorSimple — Skonfiguruj jako serwer plików za pośrednictwem Azure Portal
-![](./media/storsimple-virtual-array-deploy3-fs-setup/fileserver4.png)
+![Diagram przedstawiający kroki wymagane do wdrożenia macierzy wirtualnej. Pierwsza część trzeciego kroku ma ustawioną etykietę jako serwer plików i jest wyróżniona.](./media/storsimple-virtual-array-deploy3-fs-setup/fileserver4.png)
 
 ## <a name="introduction"></a>Wprowadzenie
 
@@ -51,16 +51,16 @@ Wykonaj następujące instrukcje krok po kroku, aby skonfigurować i skonfigurow
    
    Użyj adresu URL połączenia zanotowanego w poprzednim kroku. Zostanie wyświetlony komunikat o błędzie z informacją, że wystąpił problem z certyfikatem zabezpieczeń witryny sieci Web. Kliknij przycisk **Kontynuuj na tej stronie sieci Web**.
    
-   ![](./media/storsimple-virtual-array-deploy3-fs-setup/image2.png)
+   ![Zrzut ekranu przedstawiający okno przeglądarki zgłaszający problem z certyfikatem zabezpieczeń. Widoczne są dwa linki — jeden dla witryny sieci Web i jeden dla strony głównej użytkownika.](./media/storsimple-virtual-array-deploy3-fs-setup/image2.png)
 2. Zaloguj się do internetowego interfejsu użytkownika macierzy wirtualnej jako **StorSimpleAdmin**. Wprowadź hasło administratora urządzenia zmienione w kroku 3: Uruchom macierz wirtualną w obszarze [StorSimple macierzy wirtualnej w funkcji Hyper-V](storsimple-virtual-array-deploy2-provision-hyperv.md) lub w [celu udostępnienia StorSimpleej macierzy wirtualnej w oprogramowaniu VMware](storsimple-virtual-array-deploy2-provision-vmware.md).
    
-   ![](./media/storsimple-virtual-array-deploy3-fs-setup/image3.png)
+   ![Zrzut ekranu przedstawiający stronę logowania StorSimple. Nazwa użytkownika StorSimpleAdmin jest widoczna, a pole hasła jest wypełniane nieokreślonymi znakami.](./media/storsimple-virtual-array-deploy3-fs-setup/image3.png)
 3. Nastąpi przekierowanie do strony **głównej** . Ta strona zawiera opis różnych ustawień wymaganych do skonfigurowania i zarejestrowania macierzy wirtualnej przy użyciu usługi StorSimple Menedżer urządzeń. Ustawienia **sieci**, **Ustawienia serwera proxy sieci Web**i **Ustawienia czasu** są opcjonalne. Jedyne wymagane ustawienia to **Ustawienia urządzenia** i **Ustawienia chmury**.
    
-   ![](./media/storsimple-virtual-array-deploy3-fs-setup/image4.png)
+   ![Zrzut ekranu strony głównej. Tekst wskazuje, że urządzenie nie jest skonfigurowane. Widoczne są linki do kilku różnych typów ustawień.](./media/storsimple-virtual-array-deploy3-fs-setup/image4.png)
 4. Na stronie **Ustawienia sieci** w obszarze **interfejsy sieciowe**zostaną automatycznie skonfigurowane dane 0. Każdy interfejs sieciowy jest domyślnie ustawiany w celu automatycznego uzyskiwania adresu IP (DHCP). W związku z tym adres IP, podsieć i Brama są automatycznie przypisywane (dla protokołów IPv4 i IPv6).
    
-   ![](./media/storsimple-virtual-array-deploy3-fs-setup/image5.png)
+   ![Zrzut ekranu przedstawiający stronę ustawień sieciowych z adresami IP skonfigurowanymi dla różnych wersji protokołu internetowego.](./media/storsimple-virtual-array-deploy3-fs-setup/image5.png)
    
    Jeśli podczas aprowizacji urządzenia dodano więcej niż jeden interfejs sieciowy, można je skonfigurować w tym miejscu. Należy pamiętać, że interfejs sieciowy można skonfigurować tylko jako IPv4 lub jako IPv4 i IPv6. Tylko konfiguracje protokołu IPv6 nie są obsługiwane.
 5. Serwery DNS są wymagane, ponieważ są używane, gdy urządzenie próbuje skontaktować się z dostawcami usług magazynu w chmurze lub rozpoznać urządzenie według nazwy, jeśli jest ono skonfigurowane jako serwer plików. Na stronie **Ustawienia sieciowe** w obszarze **serwery DNS**:
@@ -70,15 +70,15 @@ Wykonaj następujące instrukcje krok po kroku, aby skonfigurować i skonfigurow
 6. Na stronie **Ustawienia urządzenia** :
    
    1. Przypisz unikatową **nazwę** do urządzenia. Nazwa może składać się z 1-15 znaków i może zawierać litery, cyfry i łączniki.
-   2. Kliknij ikonę **serwer plików** ![](./media/storsimple-virtual-array-deploy3-fs-setup/image6.png) dla tworzonego **typu** urządzenia. Serwer plików umożliwi tworzenie folderów udostępnionych.
+   2. Kliknij ikonę **serwer plików** :::image type="icon" source="./media/storsimple-virtual-array-deploy3-fs-setup/image6.png"::: dla tworzonego **typu** urządzenia. Serwer plików umożliwi tworzenie folderów udostępnionych.
    3. Ponieważ urządzenie jest serwerem plików, należy przyłączyć urządzenie do domeny. Wprowadź **nazwę domeny**.
-   4. Kliknij przycisk **Zastosuj**.
+   4. Kliknij pozycję **Zastosuj**.
 7. Zostanie wyświetlone okno dialogowe. Wprowadź poświadczenia domeny w określonym formacie. Kliknij ikonę zaznaczania. Poświadczenia domeny zostały zweryfikowane. Jeśli poświadczenia są nieprawidłowe, zostanie wyświetlony komunikat o błędzie.
    
-   ![](./media/storsimple-virtual-array-deploy3-fs-setup/image7.png)
-8. Kliknij przycisk **Zastosuj**. Spowoduje to zastosowanie i zweryfikowanie ustawień urządzenia.
+   ![Zrzut ekranu przedstawiający okno dialogowe z wypełnioną nazwą użytkownika i hasłem.](./media/storsimple-virtual-array-deploy3-fs-setup/image7.png)
+8. Kliknij pozycję **Zastosuj**. Spowoduje to zastosowanie i zweryfikowanie ustawień urządzenia.
    
-   ![](./media/storsimple-virtual-array-deploy3-fs-setup/image8.png)
+   ![Zrzut ekranu przedstawiający stronę Ustawienia urządzenia. Nazwa urządzenia i nazwa domeny zostały wypełnione.](./media/storsimple-virtual-array-deploy3-fs-setup/image8.png)
    
    > [!NOTE]
    > Upewnij się, że tablica wirtualna ma własną jednostkę organizacyjną (OU) dla Active Directory i nie są do niej stosowane obiekty zasad grupy (GPO) ani dziedziczone. Zasady grupy mogą instalować aplikacje, takie jak oprogramowanie antywirusowe, w macierzy wirtualnej StorSimple. Instalowanie dodatkowego oprogramowania nie jest obsługiwane i może prowadzić do uszkodzenia danych. 
@@ -86,24 +86,24 @@ Wykonaj następujące instrukcje krok po kroku, aby skonfigurować i skonfigurow
    > 
 9. (Opcjonalnie) skonfiguruj serwer proxy sieci Web. Konfiguracja serwera proxy sieci Web jest opcjonalna, jednak warto wiedzieć, że w przypadku korzystania z serwera proxy sieci Web można go skonfigurować tylko w tym miejscu.
    
-   ![](./media/storsimple-virtual-array-deploy3-fs-setup/image9.png)
+   ![Zrzut ekranu strony ustawień serwera proxy sieci Web. Opcja Włącz serwer proxy sieci Web jest wyłączona, a uwierzytelnianie jest ustawione na wartość Brak. Nie ustawiono żadnych innych wartości.](./media/storsimple-virtual-array-deploy3-fs-setup/image9.png)
    
    Na stronie **serwer proxy sieci Web** :
    
    1. Podaj **adres URL serwera proxy sieci Web** w tym formacie: *http:// &lt; host — adres IP lub nazwa FQDN &gt; :P numer*portu. Należy zauważyć, że adresy URL HTTPS nie są obsługiwane.
    2. Określ **uwierzytelnianie** jako **podstawowa** lub **Brak**.
    3. W przypadku korzystania z uwierzytelniania należy również podać **nazwę użytkownika** i **hasło**.
-   4. Kliknij przycisk **Zastosuj**. Spowoduje to zweryfikowanie i zastosowanie skonfigurowanych ustawień serwera proxy sieci Web.
+   4. Kliknij pozycję **Zastosuj**. Spowoduje to zweryfikowanie i zastosowanie skonfigurowanych ustawień serwera proxy sieci Web.
 10. (Opcjonalnie) skonfiguruj ustawienia czasu dla urządzenia, takie jak strefa czasowa i serwery NTP serwerów głównych i dodatkowych. Serwery NTP są wymagane, ponieważ urządzenie musi synchronizować czas, aby można było uwierzytelnić się z dostawcami usług w chmurze.
     
-    ![](./media/storsimple-virtual-array-deploy3-fs-setup/image10.png)
+    ![Zrzut ekranu przedstawiający stronę Ustawienia czasu. Na serwerze znajduje się strefa czasowa i podstawowy N T P. Pomocniczy serwer N T P jest pusty.](./media/storsimple-virtual-array-deploy3-fs-setup/image10.png)
     
     Na stronie **Ustawienia czasu** :
     
     1. Z listy rozwijanej wybierz **strefę czasową** na podstawie lokalizacji geograficznej, w której jest wdrażane urządzenie. Domyślna strefa czasowa urządzenia to PST. Wszystkie zaplanowane operacje urządzenia będą wykonywane w ramach tej strefy czasowej.
     2. Określ **podstawowy serwer NTP** dla urządzenia lub Zaakceptuj wartość domyślną Time.Windows.com. Upewnij się, że sieć zezwala na ruch NTP z centrum danych do Internetu.
     3. Opcjonalnie można określić **pomocniczy serwer NTP** dla urządzenia.
-    4. Kliknij przycisk **Zastosuj**. Spowoduje to zweryfikowanie i zastosowanie skonfigurowanych ustawień czasu.
+    4. Kliknij pozycję **Zastosuj**. Spowoduje to zweryfikowanie i zastosowanie skonfigurowanych ustawień czasu.
 11. Skonfiguruj ustawienia chmury dla urządzenia. W tym kroku zakończysz konfigurację urządzenia lokalnego, a następnie zarejestrujesz urządzenie w usłudze StorSimple Menedżer urządzeń.
     
     1. Wprowadź **klucz rejestracji usługi** , który został uzyskany w [kroku 2: Pobierz klucz rejestracji usługi](storsimple-virtual-array-deploy1-portal-prep.md#step-2-get-the-service-registration-key) dla macierzy wirtualnej StorSimple.
@@ -112,10 +112,10 @@ Wykonaj następujące instrukcje krok po kroku, aby skonfigurować i skonfigurow
        Jeśli nie jest to pierwsze urządzenie, które jest zarejestrowana w ramach tej usługi, musisz podać klucz szyfrowania danych usługi. Aby uzyskać więcej informacji, zobacz Pobieranie [klucza szyfrowania danych usługi](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key) w lokalnym interfejsie użytkownika sieci Web.
     3. Kliknij pozycję **Zarejestruj**. Spowoduje to ponowne uruchomienie urządzenia. Przed pomyślnym zarejestrowaniem urządzenia może być konieczne odczekanie przez 2-3 minut. Po ponownym uruchomieniu urządzenia nastąpi przekierowanie do strony logowania.
        
-       ![](./media/storsimple-virtual-array-deploy3-fs-setup/image13.png)
+       ![Zrzut ekranu strony ustawień chmury. Pola klucz rejestracji i klucz szyfrowania są wypełniane, ale wartości są redagowane.](./media/storsimple-virtual-array-deploy3-fs-setup/image13.png)
 12. Wróć do witryny Azure Portal. Przejdź do obszaru **wszystkie zasoby**i Wyszukaj usługę StorSimple Menedżer urządzeń.
     
-    ![](./media/storsimple-virtual-array-deploy3-fs-setup/searchdevicemanagerservice1.png) 
+    ![Zrzut ekranu przedstawiający stronę wszystkie zasoby Azure Portal. Zostanie wyróżniona usługa Menedżer urządzeń.](./media/storsimple-virtual-array-deploy3-fs-setup/searchdevicemanagerservice1.png) 
 13. Na liście filtrowane wybierz usługę StorSimple Menedżer urządzeń a następnie przejdź do opcji **zarządzanie > urządzeń**. W bloku **urządzenia** Sprawdź, czy urządzenie pomyślnie nawiązał połączenie z usługą i czy ma stan **gotowe do skonfigurowania**.
     
     ![Konfigurowanie serwera plików](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs2m.png)
@@ -203,12 +203,12 @@ Wykonaj poniższe czynności w witrynie [Azure Portal](https://portal.azure.com/
 Teraz musisz nawiązać połączenie z co najmniej jednym udziałem utworzonym w poprzednim kroku. Wykonaj te kroki na hoście z systemem Windows Server połączonym z wirtualną tablicą StorSimple.
 
 #### <a name="to-connect-to-the-share"></a>Aby nawiązać połączenie z udziałem
-1. Naciśnij klawisze ![](./media/storsimple-virtual-array-deploy3-fs-setup/image22.png) + R. W oknie uruchamiania Określ *&#92;&#92;&lt; &gt; nazwę serwera plików* jako ścieżkę, zastępując *nazwę serwera plików* nazwą urządzenia przypisaną do serwera plików. Kliknij przycisk **OK**.
+1. Naciśnij klawisze :::image type="icon" source="./media/storsimple-virtual-array-deploy3-fs-setup/image22.png"::: + R. W oknie uruchamiania Określ *&#92;&#92;&lt; &gt; nazwę serwera plików* jako ścieżkę, zastępując *nazwę serwera plików* nazwą urządzenia przypisaną do serwera plików. Kliknij przycisk **OK**.
    
-   ![](./media/storsimple-virtual-array-deploy3-fs-setup/image23.png)
+   ![Zrzut ekranu przedstawiający okno dialogowe Uruchamianie. Pole Otwórz jest wypełnione ścieżką prowadzącą do serwera plików.](./media/storsimple-virtual-array-deploy3-fs-setup/image23.png)
 2. Spowoduje to otwarcie Eksploratora plików. Teraz utworzone przez Ciebie udziały powinny być widoczne jako foldery. Wybierz i kliknij dwukrotnie udział (folder) w celu wyświetlenia jego zawartości.
    
-   ![](./media/storsimple-virtual-array-deploy3-fs-setup/image24.png)
+   ![Zrzut ekranu Eksploratora plików. Widoczne są różne foldery reprezentujące nowo utworzone udziały.](./media/storsimple-virtual-array-deploy3-fs-setup/image24.png)
 3. Teraz możesz dodawać pliki do tych udziałów i tworzyć kopie zapasowe.
 
 ## <a name="next-steps"></a>Następne kroki
