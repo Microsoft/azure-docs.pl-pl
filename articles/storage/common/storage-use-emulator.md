@@ -1,21 +1,25 @@
 ---
-title: Korzystanie z emulatora usługi Azure Storage do programowania i testowania | Microsoft Docs
+title: Korzystanie z emulatora usługi Azure Storage na potrzeby tworzenia i testowania
 description: Emulator usługi Azure Storage udostępnia bezpłatne lokalne środowisko programistyczne na potrzeby tworzenia i testowania aplikacji usługi Azure Storage.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 08/21/2019
+ms.date: 07/16/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: how-to
-ms.openlocfilehash: eb13dbb7e4cfbbb1b2ea42ea1753e7615df03a7d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dd179160ad6796da40a5b98e89a10999ad0445d1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85512176"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87070541"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>Korzystanie z emulatora usługi Azure Storage na potrzeby tworzenia i testowania
 
 Emulator magazynu Microsoft Azure jest narzędziem, które emuluje usługi obiektów blob, kolejek i tabel platformy Azure na potrzeby lokalnego tworzenia. Możesz testować swoją aplikację w usłudze Storage lokalnie bez tworzenia subskrypcji platformy Azure lub ponoszenia kosztów. Gdy aplikacja działa w emulatorze, przejdź do korzystania z konta usługi Azure Storage w chmurze.
+
+> [!IMPORTANT]
+> Emulator usługi Azure Storage nie jest już aktywnie opracowywany. [**Azurite**](storage-use-azurite.md) to platforma emulatora magazynu do przodu. Azurite zastępuje emulator usługi Azure Storage. Azurite będzie nadal aktualizowana w celu obsługi najnowszych wersji interfejsów API usługi Azure Storage. Aby uzyskać więcej informacji, zobacz [**Używanie emulatora azurite na potrzeby tworzenia lokalnych magazynów platformy Azure**](storage-use-azurite.md).
 
 ## <a name="get-the-storage-emulator"></a>Pobierz emulator magazynu
 
@@ -74,7 +78,7 @@ Za pomocą narzędzia wiersza polecenia emulatora magazynu można zainicjować e
 
    `AzureStorageEmulator.exe init /server .`
 
-   Można też użyć poniższego polecenia, które ponownie inicjuje bazę danych do domyślnego wystąpienia LocalDB:
+   Można też użyć poniższego polecenia, które inicjuje bazę danych do domyślnego wystąpienia LocalDB:
 
    `AzureStorageEmulator.exe init /forceCreate`
 
@@ -327,3 +331,7 @@ W emulatorze nie ma żadnych różnic związanych z magazynem kolejek.
 * Oceń międzyplatformową, obsługiwaną przez społeczność [azurite](https://github.com/azure/azurite)emulator magazynu Open Source. 
 * [Przykłady usługi Azure Storage korzystające z platformy .NET](../storage-samples-dotnet.md) zawierają linki do kilku przykładów kodu, których można użyć podczas tworzenia aplikacji.
 * [Eksplorator usługi Microsoft Azure Storage](https://storageexplorer.com) można użyć do pracy z zasobami na koncie magazynu w chmurze i w emulatorze magazynu.
+
+## <a name="see-also"></a>Zobacz też
+
+* [Lokalne programowanie usługi Azure Storage za pomocą azurite, zestawów SDK platformy Azure i Eksplorator usługi Azure Storage](https://blog.jongallant.com/2020/04/local-azure-storage-development-with-azurite-azuresdks-storage-explorer/)
