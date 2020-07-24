@@ -1,6 +1,6 @@
 ---
-title: Monitorowanie uruchomionych potoków Azure Synapse Studio (wersja zapoznawcza)
-description: Użyj usługi Azure Synapse Studio do monitorowania przebiegów potoku obszaru roboczego.
+title: Monitorowanie uruchomień potoków przy użyciu programu Synapse Studio
+description: Użyj programu Synapse Studio do monitorowania uruchomień potoku obszaru roboczego.
 services: synapse-analytics
 author: matt1883
 ms.service: synapse-analytics
@@ -9,22 +9,22 @@ ms.subservice: monitoring
 ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: mahi
-ms.openlocfilehash: 16400d7f292ad5844add3d4a5fc019e84bd27127
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 385b06dd7756c3bebf6557f9ea0b518473a37d49
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85194896"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075894"
 ---
-# <a name="use-azure-synapse-studio-to-monitor-your-workspace-pipeline-runs"></a>Monitorowanie uruchomień potoku obszaru roboczego za pomocą usługi Azure Synapse Studio
+# <a name="use-synapse-studio-to-monitor-your-workspace-pipeline-runs"></a>Monitorowanie uruchomień potoku obszaru roboczego za pomocą programu Synapse Studio
 
-Usługa Azure Synapse Analytics umożliwia tworzenie złożonych potoków, które mogą zautomatyzować i zorganizować przenoszenie danych, Przekształcanie danych i działania obliczeniowe w ramach rozwiązania. Możesz tworzyć i monitorować te potoki przy użyciu usługi Azure Synapse Studio (wersja zapoznawcza).
+Usługa Azure Synapse Analytics umożliwia tworzenie złożonych potoków, które mogą zautomatyzować i zorganizować przenoszenie danych, Przekształcanie danych i działania obliczeniowe w ramach rozwiązania. Możesz tworzyć i monitorować te potoki przy użyciu programu Synapse Studio (wersja zapoznawcza).
 
 W tym artykule wyjaśniono, jak monitorować uruchomienia potoków, co pozwala na śledzenie najnowszego stanu, problemów i postępu potoku.
 
 ## <a name="access-the-list-of-pipeline-runs"></a>Dostęp do listy uruchomień potoku
 
-Aby wyświetlić listę uruchomień potoków w obszarze roboczym, najpierw [Otwórz usługę Azure Synapse Studio](https://web.azuresynapse.net/) i wybierz swój obszar roboczy.
+Aby wyświetlić listę uruchomień potoków w obszarze roboczym, najpierw [Otwórz program Synapse Studio](https://web.azuresynapse.net/) i wybierz obszar roboczy.
 
 ![Logowanie do obszaru roboczego](./media/common/login-workspace.png)
 

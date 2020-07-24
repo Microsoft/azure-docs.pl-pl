@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: allensu
-ms.openlocfilehash: c739c6483832c08a91f2a5318853bf48e5d41854
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: d61527a7a57c82c0e1485ef249306618def9a57c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86496965"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077946"
 ---
 # <a name="what-is-azure-private-endpoint"></a>Co to jest prywatny punkt końcowy platformy Azure?
 
@@ -78,6 +78,13 @@ Zasób link prywatny jest docelowym miejscem docelowym danego prywatnego punktu 
 |**Azure Event Grid** | Microsoft. EventGrid/domeny    | domena |
 |**Azure webapps** | Microsoft. Web/witryny    | lokacje |
 |**Azure Machine Learning** | Microsoft. MachineLearningServices/obszary robocze    | obszar roboczy |
+|**SignalR** | Microsoft. SignalRService/sygnalizujący    | signalR |
+|**Azure Monitor** | Microsoft. Insights/privateLinkScopes    | azuremonitor |
+|**Cognitive Services** | (Microsoft. CognitiveServices/accounts    | account |
+|**Azure File Sync** | Microsoft. StorageSync/storageSyncServices    | AFS |
+    
+  
+
   
  
 ## <a name="network-security-of-private-endpoints"></a>Zabezpieczenia sieciowe prywatnych punktów końcowych 

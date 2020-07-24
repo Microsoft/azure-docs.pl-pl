@@ -7,16 +7,17 @@ ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: 001dfbc78c0027249143e933684523d47af383d1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 45b18352d88877a5d611f203d87da83fd0d58c6b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79096782"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077128"
 ---
 # <a name="prepare-for-format-change-to-azure-monitor-platform-logs-archived-to-a-storage-account"></a>Przygotuj się do zmiany formatu Azure Monitor dzienników platformy zarchiwizowanych na koncie magazynu
 
 > [!WARNING]
-> W przypadku wysyłania [dzienników zasobów platformy Azure lub metryk do konta magazynu przy użyciu ustawień diagnostycznych](resource-logs-collect-storage.md) lub [dzienników aktywności do konta magazynu przy użyciu profilów dzienników](resource-logs-collect-storage.md), format danych w ramach konta magazynu zmieni się na wiersz JSON na lis. 1, 2018. Poniższe instrukcje opisują wpływ i sposobu aktualizowania narzędzi do obsługi nowego formatu.
+> W przypadku wysyłania [dzienników zasobów platformy Azure lub metryk do konta magazynu przy użyciu ustawień diagnostycznych](./resource-logs.md#send-to-azure-storage) lub [dzienników aktywności do konta magazynu przy użyciu profilów dzienników](./resource-logs.md#send-to-azure-storage), format danych w ramach konta magazynu zmieni się na wiersz JSON na lis. 1, 2018. Poniższe instrukcje opisują wpływ i sposobu aktualizowania narzędzi do obsługi nowego formatu.
 >
 
 ## <a name="what-changed"></a>Co zostało zmienione
@@ -28,9 +29,9 @@ Azure Monitor oferuje możliwość wysyłania dzienników zasobów i dzienników
 * Ustawienie ustawienia diagnostycznego między wcześniejszą i 1 listopada, które będzie w dalszym ciągu emitować dane w bieżącym formacie do 1 listopada.
 * Ta zmiana nastąpiła jednocześnie we wszystkich regionach chmury publicznej. Ta zmiana nie będzie jeszcze wykonywana w Microsoft Azure obsługiwane przez firmę 21Vianet, platformę Azure (Niemcy) ani chmurę Azure Government.
 * Ta zmiana ma wpływ na następujące typy danych:
-  * [Dzienniki zasobów platformy Azure](archive-diagnostic-logs.md) ([zobacz Lista zasobów tutaj](diagnostic-logs-schema.md))
+  * [Dzienniki zasobów platformy Azure](./resource-logs.md#send-to-azure-storage) ([zobacz Lista zasobów tutaj](./resource-logs-schema.md))
   * [Metryki zasobów platformy Azure eksportowane przez ustawienia diagnostyczne](diagnostic-settings.md)
-  * [Dane dziennika aktywności platformy Azure eksportowane przez profile dziennika](activity-log-collect.md)
+  * [Dane dziennika aktywności platformy Azure eksportowane przez profile dziennika](./activity-log.md)
 * Ta zmiana nie ma wpływu na:
   * Dzienniki przepływu sieci
   * Dzienniki usługi platformy Azure nie zostały jeszcze udostępnione za pomocą Azure Monitor (na przykład dzienniki zasobów Azure App Service, dzienniki analizy magazynu)
@@ -122,7 +123,7 @@ Nowy format używa [wierszy JSON](http://jsonlines.org/), gdzie każde zdarzenie
 {"time": "2016-01-05T01:33:56.5264523Z","resourceId": "/SUBSCRIPTIONS/361DA5D4-A47A-4C79-AFDD-XXXXXXXXXXXX/RESOURCEGROUPS/CONTOSOGROUP/PROVIDERS/MICROSOFT.KEYVAULT/VAULTS/CONTOSOKEYVAULT","operationName": "VaultGet","operationVersion": "2015-06-01","category": "AuditEvent","resultType": "Success","resultSignature": "OK","resultDescription": "","durationMs": "83","callerIpAddress": "104.40.82.76","correlationId": "","identity": {"claim": {"http://schemas.microsoft.com/identity/claims/objectidentifier": "d9da5048-2737-4770-bd64-XXXXXXXXXXXX","http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn": "live.com#username@outlook.com","appid": "1950a258-227b-4e31-a9cf-XXXXXXXXXXXX"}},"properties": {"clientInfo": "azure-resource-manager/2.0","requestUri": "https://control-prod-wus.vaultcore.azure.net/subscriptions/361da5d4-a47a-4c79-afdd-XXXXXXXXXXXX/resourcegroups/contosoresourcegroup/providers/Microsoft.KeyVault/vaults/contosokeyvault?api-version=2015-06-01","id": "https://contosokeyvault.vault.azure.net/","httpStatusCode": 200}}
 ```
 
-Ten nowy format umożliwia Azure Monitor wypychania plików dziennika przy użyciu [dołączanych obiektów BLOB](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-append-blobs), co jest bardziej wydajne w przypadku ciągłego dołączania nowych danych zdarzeń.
+Ten nowy format umożliwia Azure Monitor wypychania plików dziennika przy użyciu [dołączanych obiektów BLOB](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-append-blobs), co jest bardziej wydajne w przypadku ciągłego dołączania nowych danych zdarzeń.
 
 ## <a name="how-to-update"></a>Jak zaktualizować
 
@@ -132,6 +133,5 @@ Narzędzia niestandardowe należy zaktualizować w taki sposób, aby obsługiwa�
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Informacje o [archiwizowaniu dzienników zasobów zasobów na koncie magazynu](./../../azure-monitor/platform/archive-diagnostic-logs.md)
-* Informacje [na temat archiwizowania danych dziennika aktywności na koncie magazynu](./../../azure-monitor/platform/archive-activity-log.md)
-
+* Informacje o [archiwizowaniu dzienników zasobów zasobów na koncie magazynu](./resource-logs.md#send-to-azure-storage)
+* Informacje [na temat archiwizowania danych dziennika aktywności na koncie magazynu](./activity-log.md#legacy-collection-methods)

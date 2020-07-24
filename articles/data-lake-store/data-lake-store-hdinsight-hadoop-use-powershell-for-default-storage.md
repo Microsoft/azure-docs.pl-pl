@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 053ee85318d8ac9ccd5fb8b63fb44df966d34821
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: f7c41dc11e7321d6fb9e6f8c030eb74b586a1b3e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85855052"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075027"
 ---
 # <a name="create-hdinsight-clusters-with-azure-data-lake-storage-gen1-as-default-storage-by-using-powershell"></a>Tworzenie klastrów usługi HDInsight z Azure Data Lake Storage Gen1 jako magazyn domyślny przy użyciu programu PowerShell
 
@@ -38,7 +38,7 @@ Aby skonfigurować usługi HDInsight do pracy z Data Lake Storage Gen1 przy uży
 Przed rozpoczęciem pracy z tym samouczkiem upewnij się, że spełniasz następujące wymagania:
 
 * **Subskrypcja platformy Azure**: Przejdź do [bezpłatnej wersji próbnej platformy Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Azure PowerShell 1,0 lub więcej**: zobacz [jak zainstalować i skonfigurować program PowerShell](/powershell/azure/overview).
+* **Azure PowerShell 1,0 lub więcej**: zobacz [jak zainstalować i skonfigurować program PowerShell](/powershell/azure/).
 * **Windows Software Development Kit (SDK)**: aby zainstalować Windows SDK, przejdź do [sekcji pliki do pobrania i narzędzia dla systemu Windows 10](https://dev.windows.com/downloads). Zestaw SDK służy do tworzenia certyfikatu zabezpieczeń.
 * **Azure Active Directory Nazwa główna usługi**: w tym samouczku opisano sposób tworzenia nazwy głównej usługi w usłudze Azure Active Directory (Azure AD). Jednak aby utworzyć nazwę główną usługi, musisz być administratorem usługi Azure AD. Jeśli jesteś administratorem, możesz pominąć to wymaganie wstępne i przejść do samouczka.
 
@@ -281,7 +281,7 @@ hdfs dfs -ls adl:///
 
 Możesz również użyć `hdfs dfs -put` polecenia, aby przekazać pliki do Data Lake Storage Gen1, a następnie użyć `hdfs dfs -ls` do sprawdzenia, czy pliki zostały pomyślnie przekazane.
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 * [Używanie Data Lake Storage Gen1 z klastrami usługi Azure HDInsight](../hdinsight/hdinsight-hadoop-use-data-lake-store.md)
 * [Azure Portal: Tworzenie klastra usługi HDInsight do użycia Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md)
 

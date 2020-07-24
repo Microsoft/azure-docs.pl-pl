@@ -10,12 +10,12 @@ ms.service: storage
 ms.subservice: common
 services: storage
 tags: ''
-ms.openlocfilehash: 28d7f6a9fa5d128783f2eb1dfcbcb75775cc499e
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: efae9cd2a73bf6df89007ac313ca6dfe6efe6ddd
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86113109"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075944"
 ---
 # <a name="troubleshoot-latency-using-storage-analytics-logs"></a>Rozwiązywanie problemów z opóźnieniami przy użyciu dzienników Analityki magazynu
 
@@ -97,7 +97,7 @@ W poniższych krokach pokazano, jak identyfikować i rozwiązywać problemy z op
 
    Poniższa tabela zawiera informacje o dużym czasie opóźnienia i stanem żądania wyniki:
 
-   |   |Stanem żądania =<br>Powodzenie|Stanem żądania =<br>SYGNATUR NetworkError|Zalecenie|
+   | Typ obiektu BLOB |Stanem żądania =<br>Powodzenie|Stanem żądania =<br>SYGNATUR NetworkError|Rekomendacja|
    |---|---|---|---|
    |GetBlob|Tak|Nie|[**Operacja GetBlob:** Stanem żądania = sukces](#getblob-operation-requeststatus--success)|
    |GetBlob|Nie|Tak|[**Operacja GetBlob:** Stanem żądania = (SAS) NetworkError](#getblob-operation-requeststatus--sasnetworkerror)|

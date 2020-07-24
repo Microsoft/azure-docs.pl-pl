@@ -12,12 +12,12 @@ ms.reviewer: jrasnick
 manager: craigg
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: 6af05a6c17253a2032f493a7d2cd6254dafd352c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4873c1c998f62b6180df73a04852704665a4125d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85831424"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075824"
 ---
 # <a name="azure-synapse-analytics-release-notes"></a>Informacje o wersji usługi Azure Synapse Analytics
 
@@ -28,7 +28,6 @@ W tym artykule przedstawiono podsumowanie nowych funkcji i ulepszeń w ostatnich
 W miarę jak nowe funkcje są wdrażane we wszystkich regionach, należy sprawdzić wersję wdrożoną dla danego wystąpienia i najnowsze informacje o dostępności funkcji. Aby sprawdzić wersję, Połącz się z pulą SQL za pośrednictwem SQL Server Management Studio (SSMS) i Uruchom, `SELECT @@VERSION;` Aby zwrócić bieżącą wersję. Użyj tej wersji, aby potwierdzić, która wersja została zastosowana do puli SQL. Data w danych wyjściowych identyfikuje miesiąc dla wersji zastosowanej do puli SQL. Dotyczy to tylko ulepszeń na poziomie usług. 
 
 W przypadku ulepszeń narzędzi upewnij się, że w notatce wersji jest zainstalowana prawidłowa wersja. 
-
 
 > [!NOTE]
 > Nazwa produktu zwracana przez polecenie SELECT @ @VERSION zmieni się z Microsoft Azure SQL Data Warehouse na Microsoft Azure Synapse Analytics. Przed wprowadzeniem zmian wyślemy zaawansowane powiadomienie. Ta zmiana jest odpowiednia dla klientów, którzy analizują nazwę produktu z wyniku SELECT @ @VERSION w kodzie aplikacji. Aby uniknąć zmian w kodzie aplikacji ze względu na oznaczenie produktu, Użyj tych poleceń, aby wysłać zapytanie do SERVERPROPERTY o nazwie i wersji produktu bazy danych: w celu zwrócenia numeru wersji XX. X. XXXXX. X (bez nazwy produktu) Użyj tego polecenia:
@@ -42,11 +41,13 @@ W przypadku ulepszeń narzędzi upewnij się, że w notatce wersji jest zainstal
 > ```
 
 ## <a name="july-2020"></a>Lipiec 2020 r.
+
 | Ulepszenia usługi | Szczegóły |
 | --- | --- |
 |**Szyfrowanie na poziomie kolumny (publiczna wersja zapoznawcza)**|Ochrona poufnych informacji w Synapse usługi SQL Data Warehouse przez zastosowanie szyfrowania symetrycznego do kolumny danych przy użyciu języka Transact-SQL. Szyfrowanie na poziomie kolumny ma wbudowane funkcje, których można użyć do szyfrowania danych przy użyciu kluczy symetrycznych, które są dodatkowo chronione za pomocą certyfikatu, hasła, klucza symetrycznego lub klucza asymetrycznego. Aby uzyskać więcej informacji, zapoznaj się z artykułem [szyfrowanie kolumny danych](/sql/relational-databases/security/encryption/encrypt-a-column-of-data?view=azure-sqldw-latest).|
 |**Obsługa poziomu zgodności (GA)**|W tej wersji użytkownicy mogą teraz ustawiać poziom zgodności bazy danych w celu uzyskania zachowań języka Transact-SQL i przetwarzania zapytań dla określonej wersji aparatu SQL Synapse. Aby uzyskać więcej informacji, zobacz sekcję [sys. database_scoped_configurations](/sql/relational-databases/system-catalog-views/sys-database-scoped-configurations-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) i [ALTER DATABASE scoped Configuration](/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).|
 |**Zabezpieczenia na poziomie wiersza**|Ta wersja zawiera ulepszenia operacji aktualizowania i usuwania w wierszach z wymuszeniem zabezpieczenia na poziomie wiersza. W tej wersji operacje aktualizowania i usuwania z funkcjami wewnętrznymi, takimi jak "is_rolemember", zakończą się pomyślnie, jeśli wewnętrznie nie odwołuje się do żadnej kolumny w tabeli docelowej DML. Przed tym ulepszeniem te operacje nie powiodły się z powodu ograniczenia w podstawowych operacjach DML.|
+|**DBCC SHRINKDATABASE (GA)**|Teraz można zmniejszyć rozmiar plików danych i dziennika w określonej bazie danych. Aby uzyskać więcej informacji, zapoznaj się z [dokumentacją](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql?view=sql-server-ver15).|
 
 ## <a name="may-2020"></a>Maj 2020 r.
 
@@ -87,7 +88,7 @@ W przypadku ulepszeń narzędzi upewnij się, że w notatce wersji jest zainstal
 |**Metryki portal zarządzania obciążenia (wersja zapoznawcza)**|Dzięki wykorzystaniu [izolacji obciążeń](sql-data-warehouse-workload-isolation.md) w przypadku wersji zapoznawczej w tej ostatniej październiku użytkownicy mogą utworzyć własne [grupy obciążeń](/sql/t-sql/statements/create-workload-group-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) w celu wydajnego zarządzania zasobami systemu i upewnić się, że umowy SLA biznesowe są spełnione.  W ramach ogólnych ulepszeń [zarządzania obciążeniami](sql-data-warehouse-workload-management.md) dla usługi Azure Synapse Analytics dostępne są nowe [metryki monitorowania zarządzania obciążeniami](sql-data-warehouse-workload-management-portal-monitor.md) .</br> </br> Monitorowanie obciążenia ma teraz więcej szczegółowych informacji o następujących metrykach: </br> — Procent zasobu zakończenia  </br> -Efektywny minimalny procent zasobów </br> — Aktywne zapytania grupy obciążenia </br> -Alokacja grupy obciążeń według maksymalnego procentu zasobów </br> -Alokacja grup obciążeń według procentu systemu </br> -Limity czasu zapytania grupy obciążeń </br> — Zakolejkowane zapytania grupy obciążenia </br></br> Te metryki służą do identyfikowania [wąskich gardeł grup obciążeń](sql-data-warehouse-workload-management-portal-monitor.md#workload-group-bottleneck) lub grup obciążeń, które są skonfigurowane z [izolacją niewykorzystywanego obciążenia](sql-data-warehouse-workload-management-portal-monitor.md#underutilized-workload-isolation).  Te metryki mogą być używane w Azure Portal, które umożliwiają dzielenie według grupy obciążeń.  Przefiltruj i przypnij ulubione wykresy do pulpitu nawigacyjnego, aby szybko uzyskać dostęp do szczegółowych informacji.|
 |**Metryki monitorowania portalu**| Następujące metryki zostały dodane do portalu w celu monitorowania ogólnej aktywności zapytania: </br> -Aktywne zapytania </br> — Kolejkowane zapytania </br> </br>Te metryki są opisane wraz z istniejącymi metrykami w [dokumentacji monitorowania użycia zasobów i działania zapytań](sql-data-warehouse-concept-resource-utilization-query-activity.md).|
 
-## <a name="october-2019"></a>Październik 2019 r.
+## <a name="october-2019"></a>Październik 2019 r.
 
 | Ulepszenia usługi | Szczegóły |
 | --- | --- |
@@ -101,7 +102,7 @@ W przypadku ulepszeń narzędzi upewnij się, że w notatce wersji jest zainstal
 |**Uporządkowany klastrowany indeks magazynu kolumn (GA)**|Magazynu kolumn to kluczowy czynnik służący do przechowywania i wydajnego wykonywania zapytań dotyczących dużych ilości danych. Uporządkowane klastrowane indeksy magazynu kolumn umożliwiają dalsze Optymalizowanie wykonywania zapytań przez włączenie wydajnej eliminacji segmentów.Aby uzyskać więcej informacji, zobacz [dostrajanie wydajności z uporządkowanym klastrowanym indeksem magazynu kolumn](performance-tuning-ordered-cci.md).|
 |**Buforowanie zestawu wyników (GA)**|Gdy buforowanie zestawu wyników jest włączone, wyniki zapytania są automatycznie zapisywane w pamięci podręcznej w bazie danych użytkownika do powtarzanego użycia. Dzięki temu kolejne wykonania zapytania będą uzyskiwać wyniki bezpośrednio z utrwalonej pamięci podręcznej, więc ponowne obliczenie nie jest konieczne. Buforowanie zestawu wyników zwiększa wydajność zapytań i zmniejsza użycie zasobów obliczeniowych. Ponadto zapytania korzystające z zbuforowanego zestawu wyników nie używają żadnych miejsc współbieżności, więc nie są wliczane do istniejących limitów współbieżności. W celu zapewnienia bezpieczeństwa użytkownicy mogą uzyskiwać dostęp do buforowanych wyników tylko wtedy, gdy mają one takie same uprawnienia dostępu do danych, jak użytkownicy tworzący buforowane wyniki. Aby uzyskać więcej informacji, zobacz [dostrajanie wydajności z buforowaniem zestawu wyników](performance-tuning-result-set-caching.md). Dotyczy wersji 10.0.10783.0 lub nowszej.|
 
-## <a name="september-2019"></a>Wrzesień 2019
+## <a name="september-2019"></a>Wrzesień 2019 r.
 
 | Ulepszenia usługi | Szczegóły |
 | --- | --- |
@@ -112,7 +113,7 @@ W przypadku ulepszeń narzędzi upewnij się, że w notatce wersji jest zainstal
 |**Wykonaj jako (Transact-SQL)**| [Wykonaj jako](/sql/t-sql/statements/execute-as-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) Obsługa języka T-SQL jest teraz dostępna, umożliwiając klientom Ustawianie kontekstu wykonywania sesji dla określonego użytkownika.|
 |**Dodatkowa obsługa języka T-SQL**|Obszar powierzchniowy języka T-SQL dla Synapse SQL został rozszerzony w celu uwzględnienia obsługi: </br> - [FORMAT (Transact-SQL)](/sql/t-sql/functions/format-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)</br> - [TRY_PARSE (Transact-SQL)](/sql/t-sql/functions/try-parse-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)</br> - [TRY_CAST (Transact-SQL)](/sql/t-sql/functions/try-cast-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)</br> - [TRY_CONVERT (Transact-SQL)](/sql/t-sql/functions/try-convert-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)</br> - [sys. user_token (Transact-SQL)](/sql//relational-databases/system-catalog-views/sys-user-token-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)|
 
-## <a name="july-2019"></a>Lipiec 2019
+## <a name="july-2019"></a>Lipiec 2019 r.
 
 | Ulepszenia usługi | Szczegóły |
 | --- | --- |
@@ -132,7 +133,7 @@ W przypadku ulepszeń narzędzi upewnij się, że w notatce wersji jest zainstal
 |**Buforowanie zestawu wyników (wersja zapoznawcza)**|Buforowanie zestawu wyników umożliwia błyskawiczny czas odpowiedzi na zapytania przy skróceniu czasu uzyskiwania wglądu w dane analityków biznesowych i raportowania. Aby uzyskać więcej informacji, zobacz:</br> - [ALTER DATABASE (Transact-SQL)](/sql/t-sql/statements/alter-database-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)</br> - [Opcje ALTER DATABASE SET (Transact SQL)](/sql/t-sql/statements/alter-database-transact-sql-set-options?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)</br> - [Ustaw BUFOROWANIE zestawu wyników (Transact-SQL)](/sql/t-sql/statements/set-result-set-caching-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)</br> - [SET — instrukcja (Transact-SQL)](/sql/t-sql/statements/set-statements-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)</br> - [sys. databases (Transact-SQL)](/sql/relational-databases/system-catalog-views/sys-databases-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)|
 |**Uporządkowany klastrowany indeks magazynu kolumn (wersja zapoznawcza)**|Magazynu kolumn to kluczowy czynnik służący do przechowywania i wydajnego wykonywania zapytań dotyczących dużych ilości danych. Dla każdej tabeli dzieli dane przychodzące na grupy wierszy, a każda kolumna grupy wierszy tworzy segment na dysku.  Uporządkowane klastrowane indeksy magazynu kolumn umożliwiają dalsze Optymalizowanie wykonywania zapytań przez włączenie wydajnej eliminacji segmentów.Aby uzyskać więcej informacji, zobacz:</br> -  [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)</br> -  [Utwórz indeks magazynu kolumn (Transact-SQL)](/sql/t-sql/statements/create-columnstore-index-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).|
 
-## <a name="march-2019"></a>Marzec 2019
+## <a name="march-2019"></a>Marzec 2019 r.
 
 | Ulepszenia usługi | Szczegóły |
 | --- | --- |
@@ -150,7 +151,7 @@ W przypadku ulepszeń narzędzi upewnij się, że w notatce wersji jest zainstal
 | --- | --- |
 | | |
 
-## <a name="january-2019"></a>Styczeń 2019
+## <a name="january-2019"></a>Styczeń 2019 r.
 
 ### <a name="service-improvements"></a>Ulepszenia usługi
 
@@ -168,7 +169,7 @@ W przypadku ulepszeń narzędzi upewnij się, że w notatce wersji jest zainstal
 |brak | |
 | | |
 
-## <a name="december-2018"></a>Grudzień 2018
+## <a name="december-2018"></a>Grudzień 2018 r.
 
 ### <a name="service-improvements"></a>Ulepszenia usługi
 
@@ -180,7 +181,7 @@ W przypadku ulepszeń narzędzi upewnij się, że w notatce wersji jest zainstal
 |**Scalanie w tle magazynu kolumn**|Domyślnie dane SQL Azure są przechowywane w formacie kolumnowym z mikropartycjami o nazwie [RowGroups](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md). Czasami, ze względu na ograniczone ilości pamięci przy kompilacji indeksu lub czasie ładowania danych, RowGroups może być kompresowany z mniejszym niż optymalnym rozmiarem 1 000 000 wierszy. RowGroups mogą być również pofragmentowane ze względu na usunięcia. Mały lub pofragmentowany RowGroups powoduje zwiększenie zużycia pamięci, a także niewydajne wykonywanie zapytań. W tej wersji zadanie konserwacji w tle magazynu kolumn Scala małe skompresowane RowGroups w celu utworzenia większego RowGroups w celu lepszego wykorzystania pamięci i przyspieszenia wykonywania zapytań.
 | | |
 
-## <a name="october-2018"></a>Październik 2018
+## <a name="october-2018"></a>Październik 2018 r.
 
 ### <a name="service-improvements"></a>Ulepszenia usługi
 

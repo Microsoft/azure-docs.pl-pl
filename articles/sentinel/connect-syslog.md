@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
-ms.openlocfilehash: 65c4e5d9e0752379541063c8a80a4316196ad7c3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 38e47469723d767561dd778b8f175780ab181fd4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85565370"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87076254"
 ---
 # <a name="connect-your-external-solution-using-syslog"></a>Łączenie rozwiązania zewnętrznego przy użyciu dziennika systemowego
 
@@ -87,14 +87,16 @@ Wskaźnik "Azure" może stosować Uczenie maszynowe (ML) do danych dziennika sys
  
 To wykrywanie wymaga określonej konfiguracji łącznika danych dziennika systemowego: 
 
-1. W przypadku kroku 5 w poprzedniej procedurze upewnij się, że zarówno **uwierzytelnianie** , jak i **authpriv** są wybrane jako urządzenia do monitorowania. Zachowaj ustawienia domyślne opcji ważności, aby były zaznaczone. Przykład:
+1. W przypadku kroku 5 w poprzedniej procedurze upewnij się, że zarówno **uwierzytelnianie** , jak i **authpriv** są wybrane jako urządzenia do monitorowania. Zachowaj ustawienia domyślne opcji ważności, aby były zaznaczone. Na przykład:
     
     > [!div class="mx-imgBorder"]
     > ![Urządzenia wymagane do wykrycia nietypowego logowania SSH](./media/connect-syslog/facilities-ssh-detection.png)
 
 2. Zezwalaj na zbieranie informacji dziennika systemu wystarczająco długo. Następnie przejdź do okna badanie **wskaźnikowe platformy Azure**i skopiuj i wklej następujące zapytanie:
     
-        Syslog |  where Facility in ("authpriv","auth")| extend c = extract( "Accepted\\s(publickey|password|keyboard-interactive/pam)\\sfor ([^\\s]+)",1,SyslogMessage)| where isnotempty(c) | count 
+    ```console
+    Syslog |  where Facility in ("authpriv","auth")| extend c = extract( "Accepted\\s(publickey|password|keyboard-interactive/pam)\\sfor ([^\\s]+)",1,SyslogMessage)| where isnotempty(c) | count 
+    ```
     
     W razie potrzeby zmień **zakres czasu** , a następnie wybierz pozycję **Uruchom**.
     

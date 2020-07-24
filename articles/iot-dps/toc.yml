@@ -99,6 +99,8 @@
       href: concepts-security.md
     - name: Obsługa protokołu TLS
       href: tls-support.md
+    - name: Obsługa sieci wirtualnych
+      href: virtual-network-support.md
     - name: Usługa
       href: concepts-service.md
     - name: Informacje o adresach IP programu DPS

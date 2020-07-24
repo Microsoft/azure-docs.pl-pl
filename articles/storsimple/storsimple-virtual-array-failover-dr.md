@@ -15,11 +15,12 @@ ms.workload: NA
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b864cc8bc0e5d39967a2307bd98bda082b6cfd5e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 05f31993b7491dbfb0bff46c8fd2362b6bab0d4e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85515222"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077780"
 ---
 # <a name="disaster-recovery-and-device-failover-for-your-storsimple-virtual-array-via-azure-portal"></a>Disaster recovery and device failover for your StorSimple Virtual Array via Azure portal (Odzyskiwane po awarii i przełączanie urządzenia w tryb failover dla macierzy wirtualnej StorSimple w witrynie Azure Portal)
 
@@ -121,12 +122,12 @@ Wykonaj następujące kroki, aby przywrócić urządzenie do docelowego urządze
 
 5. W bloku **dezaktywacji** zostanie wyświetlony monit o potwierdzenie. Dezaktywacja urządzenia jest *stałym* procesem, którego nie można cofnąć. Przypomnisz również, że udziały/woluminy zostaną przełączone do trybu offline na hoście. Wpisz nazwę urządzenia, aby potwierdzić, a następnie kliknij pozycję **Dezaktywuj**.
    
-    ![](./media/storsimple-virtual-array-failover-dr/failover1.png)
+    ![Zrzut ekranu bloku dezaktywacji. Pole Nazwa urządzenia jest wypełnione, a przycisk Dezaktywuj jest wyróżniony.](./media/storsimple-virtual-array-failover-dr/failover1.png)
 6. Zostanie rozpoczęta dezaktywacja. Po pomyślnym zakończeniu dezaktywacji otrzymasz powiadomienie.
    
-    ![](./media/storsimple-virtual-array-failover-dr/failover2.png)
+    ![Zrzut ekranu przedstawiający pasek postępu wskazujący, że urządzenie jest dezaktywowane.](./media/storsimple-virtual-array-failover-dr/failover2.png)
 7. Na stronie urządzenia stan urządzenia zostanie teraz zmieniony na **zdezaktywowane**.
-    ![](./media/storsimple-virtual-array-failover-dr/failover3.png)
+    ![Zrzut ekranu przedstawiający stronę urządzeń. Zostaną wyświetlone właściwości dezaktywowanego urządzenia, w tym stan, który jest wymieniony jako zdezaktywowany.](./media/storsimple-virtual-array-failover-dr/failover3.png)
 8. W bloku **urządzenia** wybierz i kliknij dezaktywowane urządzenie źródłowe w celu przełączenia w tryb failover. 
 9. W bloku **pulpitu nawigacyjnego urządzenia** kliknij pozycję **tryb failover**. 
 10. W bloku **Praca** awaryjna urządzenia wykonaj następujące czynności:
@@ -139,22 +140,22 @@ Wykonaj następujące kroki, aby przywrócić urządzenie do docelowego urządze
 
     4. Kliknij pozycję **tryb failover**.
     
-        ![](./media/storsimple-virtual-array-failover-dr/failover4.png)
+        ![Zrzut ekranu przedstawiający blok przełączenia w tryb failover z wypełnionym urządzeniem źródłowym i docelowym, opcja zaznaczona i wyróżniony przycisk Przełącz do trybu failover.](./media/storsimple-virtual-array-failover-dr/failover4.png)
 11. Zadanie trybu failover jest inicjowane i otrzymujesz powiadomienie. Przejdź do pozycji **urządzenia > zadania** , aby monitorować tryb failover.
     
-     ![](./media/storsimple-virtual-array-failover-dr/failover5.png)
+     ![Zrzut ekranu przedstawiający pasek postępu wskazujący, że urządzenie jest w trybie failover.](./media/storsimple-virtual-array-failover-dr/failover5.png)
 12. W bloku **zadania** zostanie wyświetlone zadanie trybu failover utworzone dla urządzenia źródłowego. To zadanie wykonuje pretesty odzyskiwania po awarii.
     
-    ![](./media/storsimple-virtual-array-failover-dr/failover6.png)
+    ![Zrzut ekranu przedstawiający pomyślne uruchomienie zadania trybu failover.](./media/storsimple-virtual-array-failover-dr/failover6.png)
     
      Po pomyślnym sprawdzeniu przez program DR zadania trybu failover spowodują zduplikowanie zadań przywracania dla każdego udziału/woluminu, który istnieje na urządzeniu źródłowym.
     
-    ![](./media/storsimple-virtual-array-failover-dr/failover7.png)
+    ![Zrzut ekranu przedstawiający szczegóły zadania trybu failover, takie jak stan, urządzenie i czas trwania.](./media/storsimple-virtual-array-failover-dr/failover7.png)
 13. Po zakończeniu pracy w trybie failover przejdź do bloku **urządzenia** .
     
     1. Wybierz i kliknij urządzenie StorSimple, które było używane jako urządzenie docelowe dla procesu przełączania do trybu failover.
     2. Przejdź do pozycji **ustawienia > zarządzanie > udziały** (lub **woluminy** , jeśli serwer iSCSI). W bloku **udziały** można wyświetlić wszystkie udziały (woluminy) ze starego urządzenia.
-        ![](./media/storsimple-virtual-array-failover-dr/failover9.png)
+        ![Zrzut ekranu przedstawiający blok urządzeń. Urządzenie docelowe jest wyświetlane ze stanem online.](./media/storsimple-virtual-array-failover-dr/failover9.png)
 14. Należy [utworzyć alias DNS](https://support.microsoft.com/kb/168322) , aby wszystkie aplikacje, które próbują nawiązać połączenie, mogły zostać przekierowane do nowego urządzenia.
 
 ## <a name="errors-during-dr"></a>Błędy podczas odzyskiwania po awarii

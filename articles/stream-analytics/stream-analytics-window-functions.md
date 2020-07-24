@@ -6,12 +6,13 @@ ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 06/11/2019
-ms.openlocfilehash: 872eec62e7a629d76533aa6c9906cbdb64c32236
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/10/2020
+ms.openlocfilehash: fd741a9401a3936ec02939562e8e85046e829d31
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80745561"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075926"
 ---
 # <a name="introduction-to-stream-analytics-windowing-functions"></a>Wprowadzenie do funkcji okna Stream Analytics
 
@@ -34,7 +35,8 @@ Funkcje okien powtarzanych powodują przeskoki w czasie do przodu o stały okres
 ![Stream Analytics okno przeskoku](media/stream-analytics-window-functions/stream-analytics-window-functions-hopping-intro.png)
 
 ## <a name="sliding-window"></a>Okno przewijania
-Funkcje okna przesuwanego, w przeciwieństwie do systemu Windows wirowania lub przeskoku, tworzą dane wyjściowe **tylko** wtedy, gdy wystąpi zdarzenie. Każde okno będzie miało co najmniej jedno zdarzenie, a okno jest stale przenoszone do przodu o ε (Epsilon). Podobnie jak w przypadku okien powtarzanych, zdarzenia mogą należeć do więcej niż jednego okna przewijania.
+
+Okna przewijania, w przeciwieństwie do okien wirowania lub przeskoku, zdarzenia wyjściowe tylko dla punktów w czasie, gdy zawartość okna rzeczywiście ulega zmianie. Innymi słowy, gdy zdarzenie wchodzi lub opuszcza okno. Każde okno ma co najmniej jedno zdarzenie, takie jak w przypadku systemu Windows przeskoku, zdarzenia mogą należeć do więcej niż jednego przedziału ruchomego
 
 ![Stream Analytics przesuwanego okna](media/stream-analytics-window-functions/stream-analytics-window-functions-sliding-intro.png)
 
@@ -49,6 +51,11 @@ Jeśli zdarzenia będą wykonywane w określonym limicie czasu, okno sesji będz
 
 Po podaniu klucza partycji zdarzenia są pogrupowane w oknie klucz i sesja są stosowane niezależnie do poszczególnych grup. Partycjonowanie jest przydatne w przypadku, gdy potrzebne są różne okna sesji dla różnych użytkowników lub urządzeń.
 
+## <a name="snapshot-window"></a>Okno migawki
+
+Tworzenie migawek zdarzeń grup systemu Windows, które mają taką samą sygnaturę czasową. W przeciwieństwie do innych typów okien, które wymagają określonej funkcji okna (takiej jak [SessionWindow ()](https://docs.microsoft.com/stream-analytics-query/session-window-azure-stream-analytics), można zastosować okno migawki przez dodanie elementu System. timestamp () do klauzuli Group by.
+
+![Okno migawki Stream Analytics](media/stream-analytics-window-functions/snapshot.png)
 
 ## <a name="next-steps"></a>Następne kroki
 * [Wprowadzenie do Azure Stream Analytics](stream-analytics-introduction.md)

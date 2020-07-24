@@ -4,15 +4,15 @@ description: Dowiedz się więcej o obsługiwanych funkcjach i składni interfej
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: overview
-ms.date: 01/15/2020
+ms.date: 07/15/2020
 author: sivethe
 ms.author: sivethe
-ms.openlocfilehash: 92c94b08602fb32ccebf6115306a5000665affe2
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: bd59b27b5af92d7aa90851c592ba4de495e41283
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84171705"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87076834"
 ---
 # <a name="azure-cosmos-dbs-api-for-mongodb-36-version-supported-features-and-syntax"></a>Interfejs API usługi Azure Cosmos DB dla bazy danych MongoDB (wersja 3.6): obsługiwane funkcje i składnia
 
@@ -36,7 +36,7 @@ Interfejs API usługi Azure Cosmos DB dla bazy danych MongoDB obsługuje następ
 
 |Polecenie  |Obsługiwane |
 |---------|---------|
-|delete | Tak |
+|usunięcie | Tak |
 |find | Tak     |
 |findAndModify | Tak  |
 |getLastError|   Tak |
@@ -103,7 +103,7 @@ Interfejs API usługi Azure Cosmos DB dla bazy danych MongoDB obsługuje następ
 |listCommands     |  Nie       |
 |profilera     |  Nie       |
 |serverStatus     |  Nie       |
-|top     |    Nie     |
+|top (pierwsze)     |    Nie     |
 |whatsmyuri     |   Tak      |
 
 <a name="aggregation-pipeline"></a>
@@ -340,7 +340,7 @@ Interfejs API usługi Azure Cosmos DB dla bazy danych MongoDB obsługuje następ
 |Data    |Tak    |
 |Null    |Tak    |
 |32-bitowa liczba całkowita (int)    |Tak    |
-|Znacznik czasu    |Tak    |
+|Timestamp    |Tak    |
 |64-bitowa liczba całkowita (Long)    |Tak    |
 |MinKey    |Tak    |
 |MaxKey    |Tak    |
@@ -504,7 +504,7 @@ $polygon |  Tak |
 
 |Polecenie  |Obsługiwane |
 |---------|---------|
-|Cursor. batchSize ()    |    Tak|
+|cursor.batchSize ()    |    Tak|
 |Cursor. Close ()    |Tak|
 |Cursor. IsClosed ()|        Tak|
 |Cursor. Collation ()|    Nie|
@@ -542,7 +542,32 @@ W przypadku używania operacji `findOneAndUpdate` obsługiwane są operacje sort
 
 ## <a name="unique-indexes"></a>Indeksy unikatowe
 
-Unikatowe indeksy zapewniają, że określone pole nie ma zduplikowanych wartości we wszystkich dokumentach w kolekcji, podobnie jak w przypadku domyślnego klucza "_id". Indeksy niestandardowe można tworzyć w Cosmos DB przy użyciu polecenia CREATE INDEX, łącznie z ograniczeniem "Unique".
+[Unikatowe indeksy](mongodb-indexing.md#unique-indexes) zapewniają, że określone pole nie ma zduplikowanych wartości we wszystkich dokumentach w kolekcji, podobnie jak w przypadku domyślnego klucza "_id". Można utworzyć unikatowe indeksy w Cosmos DB przy użyciu `createIndex` polecenia z `unique` parametrem ograniczenia:
+
+```javascript
+globaldb:PRIMARY> db.coll.createIndex( { "amount" : 1 }, {unique:true} )
+{
+        "_t" : "CreateIndexesResponse",
+        "ok" : 1,
+        "createdCollectionAutomatically" : false,
+        "numIndexesBefore" : 1,
+        "numIndexesAfter" : 4
+}
+```
+
+## <a name="compound-indexes"></a>Indeksy złożone
+
+[Indeksy złożone](mongodb-indexing.md#compound-indexes-mongodb-server-version-36) zapewniają sposób tworzenia indeksu dla grup pól dla maksymalnie 8 pól. Ten typ indeksu różni się od natywnych indeksów złożonych MongoDB. W Azure Cosmos DB indeksy złożone są używane do sortowania operacji, które są stosowane do wielu pól. Aby utworzyć indeks złożony, należy określić więcej niż jedną właściwość jako parametr:
+
+```javascript
+globaldb:PRIMARY> db.coll.createIndex({"amount": 1, "other":1})
+{
+        "createdCollectionAutomatically" : false, 
+        "numIndexesBefore" : 1,
+        "numIndexesAfter" : 2,
+        "ok" : 1
+}
+```
 
 ## <a name="time-to-live-ttl"></a>Czas wygaśnięcia (TTL)
 

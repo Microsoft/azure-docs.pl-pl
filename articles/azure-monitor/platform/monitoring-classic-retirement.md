@@ -7,11 +7,12 @@ ms.topic: conceptual
 ms.date: 2/7/2019
 ms.author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: dec4d6824644cabf8b1872da207b8554fee0b3d3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5dc603a890a112cf475e6ceafb79145dec5a56ea
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77659479"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077225"
 ---
 # <a name="unified-alerting--monitoring-in-azure-monitor-replaces-classic-alerting--monitoring"></a>Ujednolicone & monitorowania alertów w Azure Monitor zastępują klasyczne alerty & monitorowania
 
@@ -27,7 +28,7 @@ Dzięki nowej platformie monitorowania i wysyłania alertów platformy Azure zos
 Zachęcamy do rozpoczęcia i ponownego utworzenia alertów na nowej platformie. W przypadku klientów, którzy mają dużą liczbę alertów, wdrażamy [w fazach](alerts-understand-migration.md#rollout-phases), czyli [dobrowolne narzędzie do migracji](alerts-using-migration-tool.md) , które przenosi istniejące alerty klasyczne do nowego systemu alertów, bez zakłócania ani dodawania kosztów.
 
 > [!IMPORTANT]
-> Klasyczne reguły alertów utworzone w dzienniku aktywności nie będą przestarzałe ani zmigrowane. Dostęp do wszystkich klasycznych reguł alertów utworzonych w dzienniku aktywności można uzyskać, korzystając z nowych alertów Azure Monitor. Aby uzyskać więcej informacji, zobacz [Tworzenie i wyświetlanie alertów dziennika aktywności oraz zarządzanie nimi za pomocą Azure monitor](../../azure-monitor/platform/alerts-activity-log.md). Podobnie można uzyskać dostęp do alertów dotyczących Service Health i używać ich w przypadku, gdy pochodzi z nowej sekcji Service Health. Aby uzyskać szczegółowe informacje, zobacz [alerty dotyczące powiadomień o kondycji usługi](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).
+> Klasyczne reguły alertów utworzone w dzienniku aktywności nie będą przestarzałe ani zmigrowane. Dostęp do wszystkich klasycznych reguł alertów utworzonych w dzienniku aktywności można uzyskać, korzystając z nowych alertów Azure Monitor. Aby uzyskać więcej informacji, zobacz [Tworzenie i wyświetlanie alertów dziennika aktywności oraz zarządzanie nimi za pomocą Azure monitor](../../azure-monitor/platform/alerts-activity-log.md). Podobnie można uzyskać dostęp do alertów dotyczących Service Health i używać ich w przypadku, gdy pochodzi z nowej sekcji Service Health. Aby uzyskać szczegółowe informacje, zobacz [alerty dotyczące powiadomień o kondycji usługi](../../service-health/alerts-activity-log-service-notifications-portal.md).
 
 ## <a name="unified-metrics-and-alerts-in-application-insights"></a>Ujednolicone metryki i alerty w Application Insights
 
@@ -38,7 +39,7 @@ Nowe ujednolicone monitorowanie i alerty dla Application Insights obejmie:
 - **Metryki platformy Application Insights** , które udostępniają popularne wstępnie skompilowane metryki z Application Insights produktu. Aby uzyskać więcej informacji, zobacz ten artykuł dotyczący używania [metryk platformy dla Application Insights w przypadku nowych Azure monitor](../../azure-monitor/app/pre-aggregated-metrics-log-metrics.md#pre-aggregated-metrics).
 - **Application Insights dostępność i testowanie sieci Web** — dzięki czemu można ocenić czas odpowiedzi i dostępność aplikacji lub serwera sieci Web. Aby uzyskać więcej informacji, zapoznaj się z artykułem dotyczącym korzystania z [testów dostępności i alertów dotyczących Application Insights na nowych Azure monitor](../../azure-monitor/app/monitor-web-app-availability.md).
 - **Application Insights metryki niestandardowych** — pozwalające definiować i emitować własne metryki dotyczące monitorowania i alertów. Aby uzyskać więcej informacji, zobacz ten artykuł dotyczący używania [metryki niestandardowej na potrzeby Application Insights na nowych Azure monitor](../../azure-monitor/app/pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation).
-- **Anomalie niepowodzeń Application Insights (część wykrywania inteligentnego)** — które automatycznie powiadamia, gdy aplikacja sieci Web napotyka nietypowy wzrost liczby nieudanych żądań HTTP lub wywołań zależności. Aby uzyskać więcej informacji, zobacz ten artykuł dotyczący używania [anomalii wykrywania Smart Detection](https://docs.microsoft.com/azure/azure-monitor/app/proactive-failure-diagnostics).
+- **Anomalie niepowodzeń Application Insights (część wykrywania inteligentnego)** — które automatycznie powiadamia, gdy aplikacja sieci Web napotyka nietypowy wzrost liczby nieudanych żądań HTTP lub wywołań zależności. Aby uzyskać więcej informacji, zobacz ten artykuł dotyczący używania [anomalii wykrywania Smart Detection](../app/proactive-failure-diagnostics.md).
 
 ## <a name="unified-metrics-and-alerts-for-other-azure-resources"></a>Ujednolicone metryki i alerty dla innych zasobów platformy Azure
 
@@ -53,11 +54,11 @@ Nowsze metryki dla zasobów platformy Azure są dostępne jako:
 Jak wspomniano wcześniej, klasyczna platforma monitorowania i zgłaszania alertów, która jest obecnie używana z [sekcji alertów (klasycznej)](../../azure-monitor/platform/alerts-classic.overview.md) Azure Portal zostanie wycofana w ciągu najbliższych miesięcy, ponieważ zostały zastąpione przez nowszy system.
 Starsze klasyczne monitorowanie i alerty zostaną wycofane z dniem 31 sierpnia 2019; Dołączanie do zamykania powiązanych interfejsów API, Azure Portal interfejsu i usług. W tym celu funkcje te będą przestarzałe:
 
-- Starsze (klasyczne) metryki i alerty dla zasobów platformy Azure, które są obecnie dostępne za pośrednictwem [sekcji alertów (klasyczne)](../../azure-monitor/platform/alerts-classic.overview.md) w Azure Portal; dostępne jako [Microsoft. Insights/alertrules](https://docs.microsoft.com/rest/api/monitor/alertrules) Resource
-- Starsza (klasyczna) platforma i metryki niestandardowe dla Application Insights, a także alerty dla nich, które są obecnie dostępne za pośrednictwem [sekcji alerty (klasyczne)](../../azure-monitor/platform/alerts-classic.overview.md) w Azure Portal i dostępne jako [Microsoft. Insights/alertrules](https://docs.microsoft.com/rest/api/monitor/alertrules) Resource
+- Starsze (klasyczne) metryki i alerty dla zasobów platformy Azure, które są obecnie dostępne za pośrednictwem [sekcji alertów (klasyczne)](../../azure-monitor/platform/alerts-classic.overview.md) w Azure Portal; dostępne jako [Microsoft. Insights/alertrules](/rest/api/monitor/alertrules) Resource
+- Starsza (klasyczna) platforma i metryki niestandardowe dla Application Insights, a także alerty dla nich, które są obecnie dostępne za pośrednictwem [sekcji alerty (klasyczne)](../../azure-monitor/platform/alerts-classic.overview.md) w Azure Portal i dostępne jako [Microsoft. Insights/alertrules](/rest/api/monitor/alertrules) Resource
 - Stan starszej wersji (klasycznej) alert anomalii o niepowodzeń jest obecnie dostępny jako [Inteligentne wykrywanie wewnątrz Application Insights](../../azure-monitor/app/proactive-diagnostics.md) w Azure Portal; z alertami skonfigurowanymi w [sekcji alerty (klasyczne)](../../azure-monitor/platform/alerts-classic.overview.md) w Azure Portal
 
-Wszystkie klasyczne systemy monitorowania i powiadamiania, w tym odpowiednie dla [interfejsu API](https://msdn.microsoft.com/library/azure/dn931945.aspx), [programu PowerShell](../../azure-monitor/platform/alerts-classic-portal.md), [interfejsu wiersza polecenia](../../azure-monitor/platform/alerts-classic-portal.md), [strony Azure Portal](../../azure-monitor/platform/alerts-classic-portal.md)i [szablonu zasobów](../../azure-monitor/platform/alerts-enable-template.md) , pozostaną dostępne do końca sierpnia 2019. 
+Wszystkie klasyczne systemy monitorowania i powiadamiania, w tym odpowiednie dla [interfejsu API](/rest/api/monitor/alertrules), [programu PowerShell](../../azure-monitor/platform/alerts-classic-portal.md), [interfejsu wiersza polecenia](../../azure-monitor/platform/alerts-classic-portal.md), [strony Azure Portal](../../azure-monitor/platform/alerts-classic-portal.md)i [szablonu zasobów](../../azure-monitor/platform/alerts-enable-template.md) , pozostaną dostępne do końca sierpnia 2019. 
 
 Na koniec sierpnia 2019 w Azure Monitor:
 

@@ -1,20 +1,20 @@
 ---
-title: Data Lake Analytics podstawy zabezpieczeń dla usługi Azure Security Baseline
+title: Podstawa zabezpieczeń platformy Azure dla Data Lake Analytics
 description: Linia bazowa zabezpieczeń Data Lake Analytics zawiera wskazówki i zasoby dotyczące procedur związanych z wdrażaniem zaleceń dotyczących zabezpieczeń określonych w teście zabezpieczeń platformy Azure.
 author: msmbaldwin
 ms.service: data-lake-analytics
 ms.topic: conceptual
-ms.date: 07/13/2020
+ms.date: 07/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 5e6d5beaad5080bf3081d5f68722623fb62d6c8a
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: cb93fa266111a0f60a139d7b76a149ba81b486e9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86532089"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075075"
 ---
-# <a name="data-lake-analytics-security-baseline-for-azure-security-benchmark"></a>Data Lake Analytics podstawy zabezpieczeń dla usługi Azure Security Baseline
+# <a name="azure-security-baseline-for-data-lake-analytics"></a>Podstawa zabezpieczeń platformy Azure dla Data Lake Analytics
 
 Podstawą zabezpieczeń platformy Azure dla Data Lake Analytics są zalecenia, które pomogą ulepszyć stan bezpieczeństwa wdrożenia.
 

@@ -1,5 +1,5 @@
 ---
-title: Funkcje — LUIS
+title: Ulepszanie listy wyrazów LUIS za pomocą funkcji
 titleSuffix: Azure Cognitive Services
 description: Użyj Language Understanding (LUIS), aby dodać funkcje aplikacji, które mogą ulepszyć wykrywanie lub przewidywania intencji i jednostek, które są kategoriami i wzorcami
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/17/2020
 ms.author: diberry
-ms.openlocfilehash: 7d9f1e520ab5c96b9c5288383324b165a4cd74f0
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 25698fe2b05cbfb564e441e488bfa93221a9618a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84344445"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075210"
 ---
 # <a name="use-features-to-boost-signal-of-word-list"></a>Korzystaj z funkcji, aby zwiększyć liczbę sygnałów listy wyrazów
 
@@ -43,7 +43,7 @@ Zapoznaj się z [pojęciami](luis-concept-feature.md) , aby zrozumieć, kiedy i 
 
 1. Lista fraz może dotyczyć całej aplikacji z ustawieniem **globalnym** lub określonym modelem (intencją lub jednostką). Jeśli tworzysz listę fraz, jako _funkcję_ z intencją lub jednostką, przełącznik nie jest ustawiany dla elementu Global. W takim przypadku znaczenie przełącznika polega na tym, że funkcja jest lokalna tylko dla tego modelu, w związku z czym _nie jest globalna_ dla aplikacji.
 
-1. Wybierz pozycję **Done** (Gotowe). Nowa funkcja zostanie dodana do strony **funkcje** w sieci.
+1. Kliknij **Gotowe**. Nowa funkcja zostanie dodana do strony **funkcje** w sieci.
 
 <a name="edit-phrase-list"></a>
 <a name="delete-phrase-list"></a>

@@ -2,16 +2,17 @@
 title: 'Azure VPN Gateway: Konfigurowanie alertów dotyczących zdarzeń dziennika zasobów diagnostycznych'
 description: Kroki konfigurowania alertów dotyczących zdarzeń dziennika zasobów diagnostycznych VPN Gateway
 services: vpn-gateway
-author: anzaman
+author: kumudD
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 06/12/2019
 ms.author: alzam
-ms.openlocfilehash: 3417d2b6e105626bceb992db088a4d0113aa798f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 21fcebf6667eb1bc7741dfb4ba268af42567d58e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84983091"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075590"
 ---
 # <a name="set-up-alerts-on-resource-log-events-from-vpn-gateway"></a>Konfigurowanie alertów dotyczących zdarzeń dzienników zasobów z VPN Gateway
 

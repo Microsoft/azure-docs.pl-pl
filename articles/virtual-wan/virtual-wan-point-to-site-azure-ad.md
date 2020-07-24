@@ -2,17 +2,17 @@
 title: 'Konfigurowanie uwierzytelniania usługi Azure AD dla połączenia sieci VPN użytkownika: wirtualna sieć WAN'
 description: Dowiedz się, jak skonfigurować uwierzytelnianie Azure Active Directory dla sieci VPN użytkownika.
 services: virtual-wan
-author: anzaman
+author: kumudD
 ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 03/17/2020
 ms.author: alzam
-ms.openlocfilehash: dd80724d62c71fdec81965fb4aa6a07a6233a288
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2028cae4908214db28de2545f02f5f2997eeb8af
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84753961"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077474"
 ---
 # <a name="configure-azure-active-directory-authentication-for-user-vpn"></a>Konfigurowanie uwierzytelniania Azure Active Directory dla sieci VPN użytkownika
 
@@ -44,7 +44,7 @@ Przed rozpoczęciem konfiguracji sprawdź, czy są spełnione następujące kryt
 
 * Uzyskaj zakres adresów IP w regionie koncentratora. Centrum jest siecią wirtualną, która jest tworzona i używana przez wirtualną sieć WAN. Zakres adresów określony dla centrum nie może pokrywać się z żadną z istniejących sieci wirtualnych, z którymi się łączysz. Nie może również pokrywać się z zakresami adresów, z którymi łączysz się lokalnie. Jeśli nie znasz zakresów adresów IP znajdujących się w konfiguracji sieci lokalnej, koordynuj się z osobą, która może podać te szczegóły.
 
-* Jeśli nie masz subskrypcji platformy Azure, Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="create-a-virtual-wan"></a><a name="wan"></a>Tworzenie wirtualnej sieci WAN
 
@@ -78,7 +78,7 @@ Przejdź w przeglądarce do witryny [Azure Portal](https://portal.azure.com) i z
    **Prywatna przestrzeń adresowa centrum** — zakres adresów centrum w notacji CIDR.
 
    ![nowa lokacja](media/virtual-wan-point-to-site-azure-ad/hub2.jpg)  
-3. Kliknij pozycję **Przegląd + utwórz**.
+3. Kliknij pozycję **Przejrzyj i utwórz**.
 4. Na stronie **Walidacja została przeniesiona** kliknij przycisk **Utwórz**.
 
 ## <a name="create-a-new-p2s-configuration"></a><a name="site"></a>Utwórz nową konfigurację P2S
@@ -158,11 +158,11 @@ Użyj tego [linku](https://www.microsoft.com/p/azure-vpn-client-preview/9np355qt
 
 1. Wybierz wielokropek (...) obok profilu klienta, który chcesz usunąć. Następnie wybierz pozycję **Usuń**.
 
-    ![delete](./media/virtual-wan-point-to-site-azure-ad/delete/delete1.jpg)
+    ![usunięcie](./media/virtual-wan-point-to-site-azure-ad/delete/delete1.jpg)
 
 2. Wybierz pozycję **Usuń** , aby usunąć.
 
-    ![delete](./media/virtual-wan-point-to-site-azure-ad/delete/delete2.jpg)
+    ![usunięcie](./media/virtual-wan-point-to-site-azure-ad/delete/delete2.jpg)
 
 #### <a name="diagnose-connection-issues"></a><a name="diagnose"></a>Diagnozuj problemy z połączeniem
 

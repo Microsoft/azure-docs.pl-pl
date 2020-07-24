@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: ae352ead9e3ba6980c82ea48dca3db872b8d1e6d
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: de152a636d8751616744887a521b2f94bbd386a1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86043448"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077756"
 ---
 # <a name="management-net-sdk-set-up-and-run-analytics-jobs-using-the-azure-stream-analytics-api-for-net"></a>Zestaw SDK zarządzania .NET: Konfigurowanie i uruchamianie zadań analitycznych za pomocą interfejsu API Azure Stream Analytics dla platformy .NET
 Informacje na temat konfigurowania i uruchamiania zadań analitycznych przy użyciu interfejsu API Stream Analytics dla platformy .NET przy użyciu zestawu .NET SDK zarządzania. Skonfiguruj projekt, twórz źródła danych wejściowych i wyjściowych, przekształcenia oraz zadania uruchamiania i zatrzymywania. W przypadku zadań analitycznych można przesyłać strumieniowo dane z magazynu obiektów blob lub z centrum zdarzeń.
@@ -30,7 +30,7 @@ Przed rozpoczęciem pracy z tym artykułem należy spełnić następujące wymag
 
 * Zainstaluj program Visual Studio 2019 lub 2015.
 * Pobierz i zainstaluj zestaw [Azure .NET SDK](https://azure.microsoft.com/downloads/).
-* Utwórz grupę zasobów platformy Azure w ramach subskrypcji. Poniższy przykład to przykładowy skrypt Azure PowerShell. Aby uzyskać Azure PowerShell informacji, zobacz [Instalowanie i konfigurowanie Azure PowerShell](/powershell/azure/overview);  
+* Utwórz grupę zasobów platformy Azure w ramach subskrypcji. Poniższy przykład to przykładowy skrypt Azure PowerShell. Aby uzyskać Azure PowerShell informacji, zobacz [Instalowanie i konfigurowanie Azure PowerShell](/powershell/azure/);  
 
    ```powershell
    # Log in to your Azure account

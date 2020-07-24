@@ -6,11 +6,13 @@ ms.author: barbkess
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 01/20/2019
-ms.openlocfilehash: 4a836ae195674556c486592a421c188f7c40e3f0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-java
+ms.openlocfilehash: 433cd9e7b8cfe69ce5008366db884659cccbc149
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84484346"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87076016"
 ---
 # <a name="authenticate-azure-spring-cloud-with-key-vault-in-github-actions"></a>Uwierzytelnianie chmury Azure wiosennej za pomocą Key Vault w akcjach GitHub
 Magazyn kluczy jest bezpiecznym miejscem do przechowywania kluczy. Użytkownicy przedsiębiorstwa muszą przechowywać poświadczenia dla środowisk CI/CD w zakresie, który kontroluje. Klucz pobierania poświadczeń w magazynie kluczy powinien być ograniczony do zakresu zasobów.  Ma dostęp tylko do zakresu magazynu kluczy, a nie całego zakresu platformy Azure. Jest to klucz, który może jedynie otworzyć silne pole nie jest kluczem głównym, który może otwierać wszystkie drzwi w budynku. Jest to sposób, aby uzyskać klucz z innym kluczem, który jest przydatny w przepływie pracy CICD. 

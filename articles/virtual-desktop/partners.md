@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 06/12/2020
+ms.date: 07/17/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: a0853266e4fda4393ba49fb740755e6b8bd03cf5
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: d78de3d8e7fadc4b6760fef85fb4b850cc25111e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86038059"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075739"
 ---
 # <a name="windows-virtual-desktop-partner-integrations"></a>Integracja z partnerem pulpitu wirtualnego systemu Windows
 
@@ -48,7 +48,22 @@ Technologia 10ZiG przy użyciu sprzętu i oprogramowania z możliwością obniż
 
 10ZiG's na świecie liderów w wąskich i zerowych urządzeniach punktu końcowego klienta oraz oprogramowaniu do zarządzania dla pulpitów wirtualnych to exemplified, jak działają dla swoich klientów. Jego sprzęt zubożony jest dostarczany z Thoughtfully skonstruowanych funkcji i opcji korzyści, dzięki którym klienci otrzymują odpowiednie urządzenia klienckie w zależności od potrzeb. 10ZiG dostosowuje swoje urządzenia do środowiska klienta z klientami opartymi na systemie Windows i Linux, które zapewniają najlepszą możliwą wydajność na pulpitach wirtualnych, zarówno wewnątrz, jak i poza chmurą.
 
-- [Przejdź do witryny sieci Web partnera](https://www.10zig.com/).
+- [Przejdź do witryny sieci Web partnera](https://www.10zig.com/about/microsoft-wvd).
+
+## <a name="automai"></a>Automai
+
+![Logo Automai](./media/partners/automai.png)
+
+Możesz użyć platformy zautomatyzowanej automatyzacji Automai do testowania kluczowych procesów firmy w środowisku pulpitu wirtualnego systemu Windows przed rozpoczęciem wdrażania.
+
+Korzystając z narzędzia ScenarioBuilder Automai i aparatu przepływu pracy opartego na graficznym interfejsie użytkownika, zespoły IT mogą rejestrować rzeczywiste przepływy pracy użytkowników końcowych i automatycznie przetłumaczać je na skrypty. Automai następnie używa botów uruchomionych procesów z poszczególnych komputerów stacjonarnych do emulowania aktywności użytkownika końcowego w symulacji i raportowania wyników. Znacznie upraszcza to procesy testowania, dzięki czemu administratorzy IT mogą testować nawet najbardziej złożone scenariusze.
+
+Gdy wszystko będzie gotowe do uruchomienia, możesz użyć wszystkich skryptów przepływu pracy utworzonych do testowania obciążenia w celu ciągłego monitorowania wydajności w środowisku produkcyjnym. Automai botów może wykonywać więcej niż tylko monitorowanie dostępności. Botów może również przetestować przepływy pracy użytkowników końcowych z kluczowych lokalizacji, pobierając zrzuty ekranu i zbierając raporty o błędach w czasie rzeczywistym. Prowadzi to do bardziej aktywnej metody rozwiązania problemu z poprawkami dla aplikacji klasycznych systemu Windows.
+
+Automai umożliwia korzystanie z tych samych skryptów do testowania wydajności, testowania funkcjonalnego, monitorowania wydajności, a nawet automatyzacji procesów zautomatyzowanych, wszystkich na jednej platformie.
+
+- [Zobacz Krótki opis wspólnego rozwiązania](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4B76N).
+- [Przejdź do witryny sieci Web partnera](https://www.automai.com/wvd-testing-monitoring?hs_preview=EyZXkOWu-30742040580).
 
 ## <a name="cloudhouse"></a>Cloudhouse
 
@@ -112,6 +127,17 @@ Unikatowy, swobodny Licencjonowanie punktów końcowych klientów systemu ekran 
 
 - [Zobacz Krótki opis wspólnego rozwiązania](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4yqY8).
 - [Przejdź do strony partnerskiej](https://www.ekransystem.com/product/supported-platforms/windows-virtual-desktop-monitoring).
+
+## <a name="fabulatech"></a>FabulaTech
+
+![Logo FabulaTech](./media/partners/fabulatech.png)
+
+FabulaTech bezproblemowo integruje się z klientami pulpitu wirtualnego systemu Windows. Po zainstalowaniu oprogramowanie FabulaTech automatycznie rozpoczyna pracę po nawiązaniu połączenia z pulpitem zdalnym.
+
+Gdy użytkownik loguje się do swojego pulpitu wirtualnego, oprogramowanie FabulaTech tworzy urządzenie wirtualne. Można na przykład utworzyć wirtualną kamerę internetową, skaner lub czytnik odcisku palca. Wszystkie aplikacje uruchomione w sesji zdalnej mogą uzyskać dostęp do urządzenia wirtualnego, tak jakby były urządzeniem fizycznym. Można skonfigurować urządzenie wirtualne na pulpicie wirtualnym systemu Windows przy użyciu menu ikony paska zadań, co oznacza, że można również użyć tego rozwiązania na zubożonych klientach. Na początku cała komunikacja odbywa się za pośrednictwem istniejącego połączenia pulpitu zdalnego, co oznacza, że Zapora została skonfigurowana. Wszystko działa od razu.
+
+- [Zobacz Krótki opis wspólnego rozwiązania](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4B4zO).
+- [Przejdź do witryny sieci Web partnera](https://www.fabulatech.com/partners/microsoft-windows-virtual-desktop/).
 
 ## <a name="flexxible-it"></a>Flexxible
 
@@ -274,7 +300,7 @@ Rimo3 oferuje łatwą w użyciu, skalowalną, zautomatyzowaną platformę testow
 
 ![logo sepago](./media/partners/sepago.png)
 
-sepago został utworzony w 2002 przez cztery znajomych w Kolonii. Dzisiaj, sepago to konsultacje dotyczące zarządzania działem IT z stale rosnącą liczbą sepagists, z lokalizacjami w ciągu Niemiec w Kolonii, Monachium i Hamburg. sepago są ekspertami dotyczącymi zautomatyzowanej aprowizacji aplikacji, wirtualizacji, rozwiązań w chmurze i bezpieczeństwa IT. sepago obsługuje średnie i duże firmy w sposób umożliwiający transformację cyfrową i zapewniają użytkownikom bezpieczną i wydajną pracę.
+sepago został utworzony w 2002 przez cztery znajomych w Kolonii. Dzisiaj, sepago to konsultacje dotyczące zarządzania działem IT z stale rosnącą liczbą sepagists, z lokalizacjami w ciągu Niemiec w Kolonii, Monachium i Hamburg. sepago są ekspertami dotyczącymi zautomatyzowanej aprowizacji aplikacji, wirtualizacji, rozwiązań w chmurze i bezpieczeństwa IT. sepago obsługuje średnie i duże firmy w sposób umożliwiający transformację cyfrową i zapewnia, że użytkownicy będą mogli bezpiecznie i wydajnie korzystać z programu.
 
 sepago innowacje i rozwój laboratoryjne kompilują inteligentne rozwiązania przy użyciu technologii danych Big Data i AI. Rozwiązania te koncentrują się na ulepszaniu działalności biznesowej, środowisku użytkownika i administrowaniu produktami partnerskimi, takimi jak pulpit wirtualny systemu Windows.
 

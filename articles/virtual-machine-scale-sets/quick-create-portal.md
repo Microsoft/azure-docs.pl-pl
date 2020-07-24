@@ -9,11 +9,12 @@ ms.subservice: ''
 ms.date: 06/30/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: 3a607f03bf238b1b05a91c772a7ac77a79574515
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 33f7f407c1df45131b0ebb5b14e8fcad2626bffd
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027226"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077543"
 ---
 # <a name="quickstart-create-a-virtual-machine-scale-set-in-the-azure-portal"></a>Szybki start: tworzenie zestawu skalowania maszyn wirtualnych w witrynie Azure Portal
 
@@ -40,11 +41,12 @@ Najpierw utwórz publiczną usługa Load Balancer w warstwie Standardowa przy u�
     | Grupa zasobów | Wybierz pozycję **Utwórz nowy** i wpisz *myVMSSResourceGroup* w polu tekstowym.|
     | Nazwa           | *myLoadBalancer*         |
     | Region         | Wybierz pozycję **Wschodnie stany USA**.       |
-    | Typ          | wybierz pozycję **Publiczny**.       |
-    | SKU           | Wybierz pozycję **Standardowy**.       |
+    | Typ          | Wybierz pozycję **Publiczna**.       |
+    | Jednostka SKU           | Wybierz pozycję **Standardowy**.       |
     | Publiczny adres IP | Wybierz pozycję**Utwórz nowy**. |
-    | Nazwa publicznego adresu IP  | *MyPip*   |
-    | Przypisanie| Static |
+    | Nazwa publicznego adresu IP  | *myPip*   |
+    | Przypisanie| Statyczny |
+    | Strefa dostępności | Wybierz pozycję **Strefowo nadmiarowa**. |
 
 1. Gdy skończysz, wybierz pozycję **Przegląd + Utwórz** . 
 1. Po przeprowadzeniu walidacji wybierz pozycję **Utwórz**. 
@@ -54,11 +56,11 @@ Najpierw utwórz publiczną usługa Load Balancer w warstwie Standardowa przy u�
 ## <a name="create-virtual-machine-scale-set"></a>Tworzenie zestawu skalowania maszyn wirtualnych
 Możesz wdrożyć zestaw skalowania z obrazu systemu Windows Server lub obrazu systemu Linux, takiego jak RHEL, CentOS, Ubuntu i SLES.
 
-1. Wpisz **zestaw skalowania** w polu wyszukiwania. W wynikach w obszarze **Marketplace**wybierz pozycję **zestawy skalowania maszyn wirtualnych**. Zostanie otwarta strona **Tworzenie zestawu skalowania maszyn wirtualnych** . 
+1. Wpisz **zestaw skalowania** w polu wyszukiwania. W wynikach w obszarze **Marketplace**wybierz pozycję **zestawy skalowania maszyn wirtualnych**. Wybierz pozycję **Utwórz** na stronie **zestawy skalowania maszyn wirtualnych** , która spowoduje otwarcie strony **Tworzenie zestawu skalowania maszyn wirtualnych** . 
 1. Na karcie **Podstawowe**, w obszarze **Szczegóły projektu**, upewnij się, że wybrano poprawną subskrypcję, a następnie wybierz opcję **Utwórz nową** grupę zasobów. Wpisz *myVMSSResourceGroup* jako nazwę, a następnie wybierz przycisk **OK** . 
 1. Wpisz *myScaleSet* jako nazwę zestawu skalowania.
 1. W obszarze **region**wybierz region blisko Twojego obszaru.
-1. Pozostaw wartość domyślną **zestawu skalowania maszyn wirtualnych** dla programu **Orchestrator**.
+1. Pozostaw wartość domyślną **zestawu skalowania maszyn wirtualnych** dla **trybu aranżacji**.
 1. Wybierz obraz z witryny Marketplace dla **obrazu**. W tym przykładzie wybrano *Ubuntu Server 18,04 LTS*.
 1. Wprowadź żądaną nazwę użytkownika, a następnie wybierz typ uwierzytelniania, który preferujesz.
    - **Hasło** musi mieć długość co najmniej 12 znaków i spełniać trzy z czterech następujących wymagań dotyczących złożoności: jedna mała litera, jedna wielka litera, jedna cyfra i jeden znak specjalny. Aby uzyskać więcej informacji, zobacz [wymagania dotyczące nazwy użytkownika i hasła](../virtual-machines/windows/faq.md#what-are-the-username-requirements-when-creating-a-vm).

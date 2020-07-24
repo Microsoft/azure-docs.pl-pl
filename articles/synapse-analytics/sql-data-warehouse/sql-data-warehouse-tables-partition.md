@@ -11,11 +11,12 @@ ms.date: 03/18/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: f7c7358dc405b3db2b3f014bb99a96fa56580314
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a77bb5211d13f9b0566f4226163918a5310287bd
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85213928"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075723"
 ---
 # <a name="partitioning-tables-in-synapse-sql-pool"></a>Partycjonowanie tabel w puli SQL Synapse
 
@@ -31,21 +32,33 @@ Partycjonowanie może korzystać z konserwacji danych i wydajności zapytań. Ni
 
 Główną zaletą partycjonowania w puli SQL Synapse jest poprawa wydajności i wydajności ładowania danych przy użyciu usuwania partycji, przełączania i scalania. W większości przypadków dane są partycjonowane w kolumnie dat, która jest ściśle związana z kolejnością, w której dane są ładowane do bazy danych. Jedną z największych korzyści wynikających z używania partycji do obsługi danych w celu uniknięcia rejestrowania transakcji. Podczas gdy po prostu Wstawianie, aktualizowanie lub usuwanie danych może być najbardziej prostym podejściem, przy użyciu partycjonowania podczas procesu ładowania może znacznie poprawić wydajność.
 
-Przełączanie partycji może służyć do szybkiego usuwania lub zastępowania sekcji tabeli.  Na przykład tabela faktów sprzedaży może zawierać tylko dane dla ostatnich 36 miesięcy. Na koniec każdego miesiąca z tabeli jest usuwany najstarszy miesiąc danych sprzedaży.  Te dane można usunąć za pomocą instrukcji DELETE w celu usunięcia danych z najstarszego miesiąca. Jednak usunięcie dużej ilości danych wiersz po wierszu z instrukcją DELETE może zająć zbyt dużo czasu, a także utworzyć ryzyko związane z dużymi transakcjami, które trwają do wycofania, jeśli wystąpił problem. Najlepszym rozwiązaniem jest porzucenie najstarszej partycji danych. Jeśli usunięcie pojedynczych wierszy może zająć kilka godzin, usunięcie całej partycji może potrwać kilka sekund.
+Przełączanie partycji może służyć do szybkiego usuwania lub zastępowania sekcji tabeli.  Na przykład tabela faktów sprzedaży może zawierać tylko dane dla ostatnich 36 miesięcy. Na koniec każdego miesiąca z tabeli jest usuwany najstarszy miesiąc danych sprzedaży.  Te dane można usunąć za pomocą instrukcji DELETE w celu usunięcia danych z najstarszego miesiąca. 
+
+Jednak usunięcie dużej ilości danych wiersz po wierszu z instrukcją DELETE może zająć zbyt dużo czasu, a także utworzyć ryzyko związane z dużymi transakcjami, które trwają do wycofania, jeśli wystąpił problem. Najlepszym rozwiązaniem jest porzucenie najstarszej partycji danych. Jeśli usunięcie pojedynczych wierszy może zająć kilka godzin, usunięcie całej partycji może potrwać kilka sekund.
 
 ### <a name="benefits-to-queries"></a>Zalety zapytań
 
-Partycjonowanie może być również używane w celu zwiększenia wydajności zapytań. Zapytanie, które stosuje filtr do danych partycjonowanych, może ograniczyć skanowanie tylko do partycji kwalifikujących. Ta metoda filtrowania umożliwia uniknięcie pełnego skanowania tabeli i skanowanie mniejszego podzestawu danych. Wprowadzając klastrowane indeksy magazynu kolumn, korzyści wynikające z wydajności eliminacji predykatu są mniej korzystne, ale w niektórych przypadkach może być korzystne dla zapytań. Na przykład jeśli tabela faktów sprzedaży jest podzielona na 36 miesięcy przy użyciu pola Data sprzedaży, kwerendy filtrujące datę sprzedaży mogą pominąć wyszukiwanie w partycjach, które nie są zgodne z filtrem.
+Partycjonowanie może być również używane w celu zwiększenia wydajności zapytań. Zapytanie, które stosuje filtr do danych partycjonowanych, może ograniczyć skanowanie tylko do partycji kwalifikujących. Ta metoda filtrowania umożliwia uniknięcie pełnego skanowania tabeli i skanowanie mniejszego podzestawu danych. Wprowadzając klastrowane indeksy magazynu kolumn, korzyści wynikające z wydajności eliminacji predykatu są mniej korzystne, ale w niektórych przypadkach może być korzystne dla zapytań. 
+
+Na przykład jeśli tabela faktów sprzedaży jest podzielona na 36 miesięcy przy użyciu pola Data sprzedaży, kwerendy filtrujące datę sprzedaży mogą pominąć wyszukiwanie w partycjach, które nie są zgodne z filtrem.
 
 ## <a name="sizing-partitions"></a>Ustalanie wielkości partycji
 
-Podczas partycjonowania można użyć w celu zwiększenia wydajności niektórych scenariuszy, ale utworzenie tabeli z **zbyt dużą liczbą** partycji może obniżyć wydajność w pewnych okolicznościach.  Te problemy są szczególnie prawdziwe w przypadku klastrowanych tabel magazynu kolumn. Aby partycjonowanie było pomocne, należy zrozumieć, kiedy należy używać partycjonowania i liczby partycji do utworzenia. Nie ma żadnej twardej szybkiej reguły, jak wiele partycji jest zbyt wiele, zależy od danych i liczby przechowywanych jednocześnie partycji. Pomyślne schematy partycjonowania zazwyczaj mają dziesiątki do setek partycji, a nie tysięcy.
+Podczas partycjonowania można użyć w celu zwiększenia wydajności niektórych scenariuszy, ale utworzenie tabeli z **zbyt dużą liczbą** partycji może obniżyć wydajność w pewnych okolicznościach.  Te problemy są szczególnie prawdziwe w przypadku klastrowanych tabel magazynu kolumn. 
 
-Podczas tworzenia partycji w **klastrowanych tabelach magazynu kolumn** należy wziąć pod uwagę liczbę wierszy należących do każdej partycji. Aby zapewnić optymalną kompresję i wydajność klastrowanych tabel magazynu kolumn, wymagany jest co najmniej 1 000 000 wierszy na dystrybucję i partycję. Przed utworzeniem partycji Synapse jest już dzielona przez pulę SQL na 60 rozproszonych baz danych. Każde partycjonowanie dodawane do tabeli jest uzupełnieniem dystrybucji utworzonych w tle. Korzystając z tego przykładu, jeśli tabela faktów sprzedaży zawiera 36 partycji miesięcznych i że Pula SQL Synapse ma dystrybucje 60, tabela faktów sprzedaży powinna zawierać 60 000 000 wierszy miesięcznie lub 2 100 000 000 wierszy, gdy wypełniono wszystkie miesiące. Jeśli tabela zawiera mniej niż zalecaną minimalną liczbę wierszy na partycję, rozważ użycie mniejszej liczby partycji w celu zwiększenia liczby wierszy na partycję. Aby uzyskać więcej informacji, zobacz artykuł dotyczący [indeksowania](sql-data-warehouse-tables-index.md) , w tym kwerendy, które mogą ocenić jakość indeksów magazynu kolumn klastra.
+Aby partycjonowanie było pomocne, należy zrozumieć, kiedy należy używać partycjonowania i liczby partycji do utworzenia. Nie ma żadnej twardej szybkiej reguły, jak wiele partycji jest zbyt wiele, zależy od danych i liczby przechowywanych jednocześnie partycji. Pomyślne schematy partycjonowania zazwyczaj mają dziesiątki do setek partycji, a nie tysięcy.
+
+Podczas tworzenia partycji w **klastrowanych tabelach magazynu kolumn** należy wziąć pod uwagę liczbę wierszy należących do każdej partycji. Aby zapewnić optymalną kompresję i wydajność klastrowanych tabel magazynu kolumn, wymagany jest co najmniej 1 000 000 wierszy na dystrybucję i partycję. Przed utworzeniem partycji Synapse jest już dzielona przez pulę SQL na 60 rozproszonych baz danych. 
+
+Każde partycjonowanie dodawane do tabeli jest uzupełnieniem dystrybucji utworzonych w tle. Korzystając z tego przykładu, jeśli tabela faktów sprzedaży zawiera 36 partycji miesięcznych i że Pula SQL Synapse ma dystrybucje 60, tabela faktów sprzedaży powinna zawierać 60 000 000 wierszy miesięcznie lub 2 100 000 000 wierszy, gdy wypełniono wszystkie miesiące. Jeśli tabela zawiera mniej niż zalecaną minimalną liczbę wierszy na partycję, rozważ użycie mniejszej liczby partycji w celu zwiększenia liczby wierszy na partycję. 
+
+Aby uzyskać więcej informacji, zobacz artykuł dotyczący [indeksowania](sql-data-warehouse-tables-index.md) , w tym kwerendy, które mogą ocenić jakość indeksów magazynu kolumn klastra.
 
 ## <a name="syntax-differences-from-sql-server"></a>Różnice składniowe z SQL Server
 
-Synapse Pool SQL wprowadza sposób definiowania partycji, które są prostsze niż SQL Server. Funkcje i schematy partycjonowania nie są używane w puli Synapse SQL, ponieważ znajdują się w SQL Server. Zamiast tego należy tylko określić kolumnę partycjonowaną i punkty graniczne. Chociaż składnia partycjonowania może się nieco różnić od SQL Server, podstawowe koncepcje są takie same. SQL Server i Synapse puli SQL obsługują jedną kolumnę partycji na tabelę, która może być partycją z zakresem. Aby dowiedzieć się więcej na temat partycjonowania, zobacz [partycjonowane tabele i indeksy](/sql/relational-databases/partitions/partitioned-tables-and-indexes?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
+Synapse Pool SQL wprowadza sposób definiowania partycji, które są prostsze niż SQL Server. Funkcje i schematy partycjonowania nie są używane w puli Synapse SQL, ponieważ znajdują się w SQL Server. Zamiast tego należy tylko określić kolumnę partycjonowaną i punkty graniczne. 
+
+Chociaż składnia partycjonowania może się nieco różnić od SQL Server, podstawowe koncepcje są takie same. SQL Server i Synapse puli SQL obsługują jedną kolumnę partycji na tabelę, która może być partycją z zakresem. Aby dowiedzieć się więcej na temat partycjonowania, zobacz [partycjonowane tabele i indeksy](/sql/relational-databases/partitions/partitioned-tables-and-indexes?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 Poniższy przykład używa instrukcji [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) , aby podzielić tabelę FactInternetSales na kolumnę OrderDateKey:
 
@@ -236,7 +249,11 @@ UPDATE STATISTICS [dbo].[FactInternetSales];
 
 ### <a name="load-new-data-into-partitions-that-contain-data-in-one-step"></a>Ładowanie nowych danych do partycji zawierających dane w jednym kroku
 
-Ładowanie danych do partycji z przełączaniem do partycji jest wygodnym sposobem przemieszczania nowych danych w tabeli, która nie jest widoczna dla użytkowników przełączenia w nowych danych.  Może to być trudne w przypadku zajętych systemów, aby zaradzić sobie z zablokowaniem zawartości skojarzonej z przełączeniem partycji.  Aby wyczyścić istniejące dane w partycji, należy `ALTER TABLE` użyć do przełączenia danych.  Następnie `ALTER TABLE` do przełączenia nowych danych jest wymagane inne.  W puli SQL Synapse `TRUNCATE_TARGET` opcja jest obsługiwana w `ALTER TABLE` poleceniu.  `TRUNCATE_TARGET` `ALTER TABLE` Polecenie zastępuje istniejące dane w partycji nowymi danymi.  Poniżej znajduje się przykład, który używa `CTAS` do tworzenia nowej tabeli z istniejącymi danymi, wstawiania nowych danych, a następnie przełączania wszystkich danych z powrotem do tabeli docelowej, zastępując istniejące dane.
+Ładowanie danych do partycji z przełączaniem do partycji jest wygodnym sposobem na umieszczenie nowych danych w tabeli, która nie jest widoczna dla użytkowników.  Może to być trudne w przypadku zajętych systemów, aby zaradzić sobie z zablokowaniem zawartości skojarzonej z przełączeniem partycji.  
+
+Aby wyczyścić istniejące dane w partycji, należy `ALTER TABLE` użyć do przełączenia danych.  Następnie `ALTER TABLE` do przełączenia nowych danych jest wymagane inne.  
+
+W puli SQL Synapse `TRUNCATE_TARGET` opcja jest obsługiwana w `ALTER TABLE` poleceniu.  `TRUNCATE_TARGET` `ALTER TABLE` Polecenie zastępuje istniejące dane w partycji nowymi danymi.  Poniżej znajduje się przykład, za pomocą którego `CTAS` można utworzyć nową tabelę z istniejącymi danymi, wstawia nowe dane, a następnie przełącza wszystkie dane z powrotem do tabeli docelowej, zastępując istniejące dane.
 
 ```sql
 CREATE TABLE [dbo].[FactInternetSales_NewSales]

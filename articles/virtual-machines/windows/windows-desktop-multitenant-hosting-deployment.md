@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 1/24/2018
 ms.author: xujing
-ms.openlocfilehash: c85eef1a5d035e23c7e63632ac92c21440b15cae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 40b5f4ee0c30e38c6cd5bd01c724ed783921670d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82101556"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077425"
 ---
 # <a name="how-to-deploy-windows-10-on-azure-with-multitenant-hosting-rights"></a>Jak wdrożyć system Windows 10 na platformie Azure z wielodostępnymi prawami hostingu 
 W przypadku klientów z systemem Windows 10 Enterprise E3/E5 na użytkownika lub dostęp do pulpitu wirtualnego systemu Windows dla użytkownika (licencje subskrypcyjne użytkownika lub licencje subskrypcyjne użytkownika), wielodostępne prawa hostingu dla systemu Windows 10 umożliwiają przenoszenie licencji systemu Windows 10 do chmury i uruchamianie systemu Windows 10 Virtual Machines na platformie Azure bez płacenia za inną licencję. Aby uzyskać więcej informacji, zobacz [Obsługa wielu dzierżawców dla systemu Windows 10](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx).
@@ -55,7 +55,7 @@ Więcej informacji:
 
 
 ## <a name="deploying-windows-10-with-multitenant-hosting-rights"></a>Wdrażanie systemu Windows 10 z wielodostępnymi prawami hostingu
-Upewnij się, że [zainstalowano i skonfigurowano najnowszą Azure PowerShell](/powershell/azure/overview). Po przygotowaniu wirtualnego dysku twardego Przekaż wirtualny dysk twardy do konta usługi Azure Storage za pomocą `Add-AzVhd` polecenia cmdlet w następujący sposób:
+Upewnij się, że [zainstalowano i skonfigurowano najnowszą Azure PowerShell](/powershell/azure/). Po przygotowaniu wirtualnego dysku twardego Przekaż wirtualny dysk twardy do konta usługi Azure Storage za pomocą `Add-AzVhd` polecenia cmdlet w następujący sposób:
 
 ```powershell
 Add-AzVhd -ResourceGroupName "myResourceGroup" -LocalFilePath "C:\Path\To\myvhd.vhd" `
@@ -63,7 +63,7 @@ Add-AzVhd -ResourceGroupName "myResourceGroup" -LocalFilePath "C:\Path\To\myvhd.
 ```
 
 
-**Wdrażanie przy użyciu wdrożenia szablonu Azure Resource Manager** W szablonach Menedżer zasobów można określić dodatkowy parametr dla `licenseType` . Więcej informacji na temat [tworzenia szablonów Azure Resource Manager](../../resource-group-authoring-templates.md). Po przekazaniu wirtualnego dysku twardego na platformę Azure Edytuj szablon Menedżer zasobów, aby uwzględnić typ licencji w ramach dostawcy obliczeń i wdrożyć szablon w zwykły sposób:
+**Wdrażanie przy użyciu wdrożenia szablonu Azure Resource Manager** W szablonach Menedżer zasobów można określić dodatkowy parametr dla `licenseType` . Więcej informacji na temat [tworzenia szablonów Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md). Po przekazaniu wirtualnego dysku twardego na platformę Azure Edytuj szablon Menedżer zasobów, aby uwzględnić typ licencji w ramach dostawcy obliczeń i wdrożyć szablon w zwykły sposób:
 ```json
 "properties": {
     "licenseType": "Windows_Client",
@@ -106,7 +106,5 @@ LicenseType              :
 >
 
 ## <a name="next-steps"></a>Następne kroki
-- Dowiedz się więcej o [konfigurowaniu VDA dla systemu Windows 10](https://docs.microsoft.com/windows/deployment/vda-subscription-activation)
+- Dowiedz się więcej o [konfigurowaniu VDA dla systemu Windows 10](/windows/deployment/vda-subscription-activation)
 - Dowiedz się więcej o [hostingu wielu dzierżawców dla systemu Windows 10](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx)
-
-

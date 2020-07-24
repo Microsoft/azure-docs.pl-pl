@@ -1,5 +1,5 @@
 ---
-title: Automatyczne skalowanie wystąpień usługi Azure Synapse Apache Spark
+title: Automatyczne skalowanie wystąpień Apache Spark
 description: Automatyczne skalowanie wystąpień Apache Spark przy użyciu funkcji automatycznego skalowania usługi Azure Synapse
 author: euangMS
 ms.author: euang
@@ -9,12 +9,12 @@ ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: spark
 ms.date: 03/31/2020
-ms.openlocfilehash: 86e9b7425c8c75495a17b66af710d2c55e6e59ca
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7c6278d24e52159424c3e346b2382c93f4ab8160
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85194284"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075804"
 ---
 # <a name="automatically-scale-azure-synapse-analytics-apache-spark-pools"></a>Automatyczne skalowanie pul Apache Spark usługi Azure Synapse Analytics
 
@@ -24,7 +24,7 @@ Apache Spark funkcji automatycznego skalowania puli usługi Azure Synapse Analyt
 
 Automatyczne skalowanie w sposób ciągły monitoruje wystąpienie platformy Spark i zbiera następujące metryki:
 
-|Metric|Opis|
+|Metryka|Opis|
 |---|---|
 |Łączny czas oczekiwania na procesor|Łączna liczba rdzeni wymaganych do rozpoczęcia wykonywania wszystkich oczekujących węzłów.|
 |Całkowita liczba oczekujących pamięci|Całkowita ilość pamięci (w MB) wymagana do uruchomienia wszystkich oczekujących węzłów.|

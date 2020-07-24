@@ -11,12 +11,12 @@ ms.date: 07/12/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 2b7e980f2ffd31bd10b481fe4fc8e0617c40717a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3c8d78c164cefbab03d9d3fa783c75ded9773d38
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85205088"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075811"
 ---
 # <a name="geo-restore-for-sql-pool"></a>Przywracanie geograficzne dla puli SQL
 
@@ -36,7 +36,7 @@ Aby przywrócić z geograficznej kopii zapasowej, należy użyć polecenia cmdle
 > Można wykonać przywracanie geograficzne do Gen2! W tym celu należy określić Gen2 serviceobiektywname (np. wartości DW1000**c**) jako opcjonalny parametr.
 >
 
-1. Przed rozpoczęciem upewnij się, że [zainstalowano Azure PowerShell](/powershell/azure/overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
+1. Przed rozpoczęciem upewnij się, że [zainstalowano Azure PowerShell](/powershell/azure/?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 2. Otwórz program PowerShell.
 3. Połącz się z kontem platformy Azure i Wyświetl listę wszystkich subskrypcji skojarzonych z Twoim kontem.
 4. Wybierz subskrypcję zawierającą magazyn danych, który ma zostać przywrócony.
@@ -77,7 +77,7 @@ Odzyskana baza danych będzie TDE, jeśli źródłowa baza danych jest włączon
 Wykonaj kroki opisane poniżej, aby przywrócić pulę SQL z kopii zapasowej geograficznej:
 
 1. Zaloguj się do konta [Azure Portal](https://portal.azure.com/) .
-2. Kliknij pozycję **+ Utwórz zasób**.
+2. Kliknij pozycję **+Utwórz zasób**.
 
    ![Nowy magazyn DW](./media/sql-data-warehouse-restore-from-geo-backup/georestore-new.png)
 
@@ -87,9 +87,9 @@ Wykonaj kroki opisane poniżej, aby przywrócić pulę SQL z kopii zapasowej geo
 
 4. Wprowadź informacje wymagane na karcie **podstawowe** i kliknij przycisk **Dalej: Ustawienia dodatkowe**.
 
-   ![Informacje podstawowe](./media/sql-data-warehouse-restore-from-geo-backup/georestore-dw-1.png)
+   ![Podstawy](./media/sql-data-warehouse-restore-from-geo-backup/georestore-dw-1.png)
 
-5. W polu **Użyj istniejącego parametru danych** wybierz pozycję **kopia zapasowa** , a następnie wybierz odpowiednią kopię zapasową z opcji przewijania w dół. Kliknij przycisk **Przegląd + Utwórz**.
+5. W polu **Użyj istniejącego parametru danych** wybierz pozycję **kopia zapasowa** , a następnie wybierz odpowiednią kopię zapasową z opcji przewijania w dół. Kliknij pozycję **Przejrzyj i utwórz**.
 
    ![kopia zapasowa](./media/sql-data-warehouse-restore-from-geo-backup/georestore-select.png)
 

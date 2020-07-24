@@ -11,11 +11,12 @@ ms.date: 04/09/2020
 ms.author: kevin
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 4dc054d26f0cb64a8f7faf2ffa4b2b688562f404
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 334d37ad36336d1aa737894482fd8f66e929c822
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85213554"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077692"
 ---
 # <a name="monitoring-resource-utilization-and-query-activity-in-azure-synapse-analytics"></a>Monitorowanie działania użycia zasobów i zapytań w usłudze Azure Synapse Analytics
 
@@ -41,9 +42,6 @@ Następujące metryki są dostępne w Azure Portal dla programu SQL Synapse. Te 
 | Procent trafień w pamięci podręcznej    | (trafienia w pamięci podręcznej/chybień w pamięci podręcznej) * 100, gdzie trafienia pamięci podręcznej jest sumą wszystkich trafień segmentów magazynu kolumn w lokalnej pamięci podręcznej dysków SSD i Chybienia pamięci podręcznej to segmenty magazynu kolumn chybień w lokalnej pamięci | Średnia, minimum, maksimum    |
 | Procent użycia pamięci podręcznej   | (użyta pamięć podręczna/pojemność pamięci podręcznej) * 100 gdzie używana pamięć podręczna jest sumą wszystkich bajtów w lokalnej pamięci podręcznej SSD między wszystkimi węzłami i pojemnością pamięci podręcznej jest sumą pojemności magazynu lokalnej pamięci podręcznej SSD dla wszystkich węzłów | Średnia, minimum, maksimum    |
 | Procent lokalnej bazy danych tempdb | Użycie lokalnej bazy danych tempdb we wszystkich węzłach obliczeniowych — wartości są emitowane co pięć minut. | Średnia, minimum, maksimum    |
-| Rozmiar magazynu danych (GB) | Łączny rozmiar bazy danych. Obejmuje to użycie, zarezerwowane i przydzielone miejsce. Przydzieloną przestrzeń jest utrzymywana, aby baza danych mogła zoptymalizować wydajność zapytań i ładowania. | Suma |
-| Rozmiar odzyskiwania po awarii (GB) | Łączny rozmiar geograficznej kopii zapasowej wykonany co 24 godziny | Suma |
-| Rozmiar magazynu migawek (GB) | Łączny rozmiar migawek wykonanych w celu zapewnienia punktów przywracania bazy danych. Obejmuje to zautomatyzowane i zdefiniowane przez użytkownika migawki. | Suma |
 
 Zagadnienia, które należy wziąć pod uwagę podczas przeglądania metryk i ustawień alertów:
 

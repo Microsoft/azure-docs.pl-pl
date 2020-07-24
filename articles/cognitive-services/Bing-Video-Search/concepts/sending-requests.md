@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 12/03/2019
 ms.author: aahi
 ms.openlocfilehash: b27aa1409d543c157069d2701c49ef54a097e552
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79220293"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075213"
 ---
 # <a name="sending-search-requests-to-the-bing-video-search-api"></a>Wysyłanie żądań wyszukiwania do interfejsu API wyszukiwania wideo Bing
 
@@ -37,7 +37,7 @@ Aby uzyskać wyniki wyszukiwania wideo, należy wysłać żądanie GET do nastę
 https://api.cognitive.microsoft.com/bing/v7.0/videos/search
 ```
    
-Żądanie musi używać protokołu HTTPS.
+Żądanie musi korzystać z protokołu HTTPS.
 
 Zalecamy, aby wszystkie żądania pochodziły z serwera. Dystrybuowanie klucza w ramach aplikacji klienckiej dostarcza więcej okazji do przejęcia go przez złośliwy kod innych firm. Ponadto wykonywanie wywołań z serwera zapewnia jeden punkt uaktualniania dla przyszłych wersji interfejsu API.
 

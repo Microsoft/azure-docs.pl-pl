@@ -2,16 +2,17 @@
 title: Konfigurowanie alertów w usłudze Azure VPN Gateway metryki
 description: Kroki konfigurowania alertów na VPN Gateway metryki
 services: vpn-gateway
-author: anzaman
+author: kumudD
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 04/22/2019
 ms.author: alzam
-ms.openlocfilehash: ce9ab972d961a9193c3aa568878f9c93ccdcf6b1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c2c44720853500ad6a9a4af1c8d93d6c8bc3eea2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84988012"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075530"
 ---
 # <a name="set-up-alerts-on-vpn-gateway-metrics"></a>Konfigurowanie alertów dotyczących metryk VPN Gateway
 
@@ -20,16 +21,16 @@ Ten artykuł ułatwia Konfigurowanie alertów dotyczących usługi Azure VPN Gat
 
 |**Metryka**   | **Jednostka** | **Poziom szczegółowości** | **Opis** | 
 |---       | ---        | ---       | ---            | ---       |
-|**AverageBandwidth**| Bajty/s  | 5 minut| Średnie wykorzystanie łącznej przepustowości wszystkich połączeń między lokacjami w bramie.     |
+|**AverageBandwidth**| Bajty/s  | 5 min| Średnie wykorzystanie łącznej przepustowości wszystkich połączeń między lokacjami w bramie.     |
 |**P2SBandwidth**| Bajty/s  | 1 minuta  | Średnie wykorzystanie przepustowości połączonej wszystkich połączeń punkt-lokacja na bramie.    |
 |**P2SConnectionCount**| Liczba  | 1 minuta  | Liczba połączeń punkt-lokacja na bramie.   |
-|**TunnelAverageBandwidth** | Bajty/s    | 5 minut  | Średnie wykorzystanie przepustowości przez tunele utworzone na bramie. |
-|**TunnelEgressBytes** | Bajty | 5 minut | Ruch wychodzący w tunelach utworzonych na bramie.   |
-|**TunnelEgressPackets** | Liczba | 5 minut | Liczba wychodzących pakietów w tunelach utworzonych na bramie.   |
-|**TunnelEgressPacketDropTSMismatch** | Liczba | 5 minut | Liczba pakietów wychodzących usuniętych w tunelach spowodowanych przez niezgodność selektora ruchu. |
-|**TunnelIngressBytes** | Bajty | 5 minut | Ruch przychodzący w tunelach utworzonych na bramie.   |
-|**TunnelIngressPackets** | Liczba | 5 minut | Liczba pakietów przychodzących w tunelach utworzonych na bramie.   |
-|**TunnelIngressPacketDropTSMismatch** | Liczba | 5 minut | Liczba pakietów przychodzących porzuconych na tunelach spowodowanych przez niezgodność selektora ruchu. |
+|**TunnelAverageBandwidth** | Bajty/s    | 5 min  | Średnie wykorzystanie przepustowości przez tunele utworzone na bramie. |
+|**TunnelEgressBytes** | Bajty | 5 min | Ruch wychodzący w tunelach utworzonych na bramie.   |
+|**TunnelEgressPackets** | Liczba | 5 min | Liczba wychodzących pakietów w tunelach utworzonych na bramie.   |
+|**TunnelEgressPacketDropTSMismatch** | Liczba | 5 min | Liczba pakietów wychodzących usuniętych w tunelach spowodowanych przez niezgodność selektora ruchu. |
+|**TunnelIngressBytes** | Bajty | 5 min | Ruch przychodzący w tunelach utworzonych na bramie.   |
+|**TunnelIngressPackets** | Liczba | 5 min | Liczba pakietów przychodzących w tunelach utworzonych na bramie.   |
+|**TunnelIngressPacketDropTSMismatch** | Liczba | 5 min | Liczba pakietów przychodzących porzuconych na tunelach spowodowanych przez niezgodność selektora ruchu. |
 
 
 ## <a name="set-up-azure-monitor-alerts-based-on-metrics-by-using-the-azure-portal"></a><a name="setup"></a>Konfigurowanie alertów Azure Monitor w oparciu o metryki przy użyciu Azure Portal

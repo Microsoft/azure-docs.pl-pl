@@ -6,12 +6,12 @@ ms.author: nikiest
 ms.topic: conceptual
 ms.date: 05/20/2020
 ms.subservice: ''
-ms.openlocfilehash: 14ecd1a35f8aae8365b7c7dc458712acdb894e62
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6045fa475b3bb112afee9ceacd8d6b136087feab
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85602588"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077183"
 ---
 # <a name="use-azure-private-link-to-securely-connect-networks-to-azure-monitor"></a>Użyj prywatnego linku platformy Azure, aby bezpiecznie połączyć sieci z Azure Monitor
 
@@ -70,6 +70,23 @@ Na przykład jeśli wewnętrzne sieci wirtualne VNet1 i VNet2 powinny łączyć 
 
 ![Diagram topologii AMPLS B](./media/private-link-security/ampls-topology-b-1.png)
 
+### <a name="consider-limits"></a>Uwzględnij limity
+
+Istnieje szereg ograniczeń, które należy wziąć pod uwagę podczas planowania konfiguracji linku prywatnego:
+
+* Sieć wirtualna może łączyć się tylko z 1 AMPLS obiektem. Oznacza to, że obiekt AMPLS musi zapewnić dostęp do wszystkich zasobów Azure Monitor, do których sieć wirtualna powinna mieć dostęp.
+* Zasób Azure Monitor (składnik obszaru roboczego lub Application Insights) może łączyć się z 5 AMPLSs.
+* Obiekt AMPLS może jednocześnie łączyć się z 20 Azure Monitor zasobami.
+* Obiekt AMPLS może łączyć się z 10 prywatnymi punktami końcowymi.
+
+W poniższej topologii:
+* Każda sieć wirtualna nawiązuje połączenie z 1 AMPLS obiektem, dlatego nie może nawiązać połączenia z innymi AMPLSs.
+* AMPLS B nawiązuje połączenie z 2 sieci wirtualnych: przy użyciu 2/10 z możliwych połączeń prywatnych punktów końcowych.
+* AMPLS nawiązuje połączenie z 2 obszarami roboczymi i 1 składnik usługi Application Insight: przy użyciu 3/20 możliwych zasobów Azure Monitor.
+* Obszar roboczy 2 nawiązuje połączenie z AMPLS a i AMPLS B: przy użyciu 2/5 możliwych połączeń AMPLS.
+
+![Diagram limitów AMPLS](./media/private-link-security/ampls-limits.png)
+
 ## <a name="example-connection"></a>Przykładowe połączenie
 
 Zacznij od utworzenia zasobu zakresu prywatnego linku Azure Monitor.
@@ -81,7 +98,7 @@ Zacznij od utworzenia zasobu zakresu prywatnego linku Azure Monitor.
 2. Kliknij przycisk **Utwórz**.
 3. Wybierz subskrypcję i grupę zasobów.
 4. Nadaj nazwę AMPLS. Najlepiej użyć nazwy, która jest jednoznaczne i granicą zabezpieczeń, której zakres będzie używany, aby ktoś nie pomógł przypadkowo przerwać granic zabezpieczeń sieci. Na przykład "AppServerProdTelem".
-5. Kliknij przycisk **Przegląd + Utwórz**. 
+5. Kliknij pozycję **Przejrzyj i utwórz**. 
 
    ![Utwórz Azure Monitor zakres linków prywatnych](./media/private-link-security/ampls-create-1d.png)
 
@@ -125,7 +142,7 @@ Teraz, gdy masz zasoby połączone z AMPLS, Utwórz prywatny punkt końcowy, aby
  
    b.    Wybierz opcję **tak** dla **integracji z prywatną strefą DNS**i zezwól na automatyczne tworzenie nowej strefy prywatna strefa DNS. Rzeczywiste strefy DNS mogą się różnić od tego, co pokazano na poniższym zrzucie ekranu. 
  
-   c.    Kliknij pozycję **Przegląd + utwórz**.
+   c.    Kliknij pozycję **Przejrzyj i utwórz**.
  
    d.    Zezwalaj na weryfikację. 
  
@@ -137,13 +154,13 @@ Utworzono nowy prywatny punkt końcowy, który jest połączony z tym Azure Moni
 
 ## <a name="configure-log-analytics"></a>Konfigurowanie Log Analytics
 
-Przejdź do witryny Azure Portal. W Azure Monitor Log Analytics zasobów obszaru roboczego jest to **izolacja sieciowa** elementu menu po lewej stronie. W tym menu można kontrolować dwa różne stany. 
+Przejdź do witryny Azure Portal. W obszarze Log Analytics zasobów obszaru roboczego istnieje **izolacja sieciowa** elementu menu po lewej stronie. W tym menu można kontrolować dwa różne stany. 
 
 ![Izolacja sieci LA](./media/private-link-security/ampls-log-analytics-lan-network-isolation-6.png)
 
 Najpierw można połączyć ten zasób Log Analytics z dowolnymi Azure Monitor prywatnymi zakresami łączy, do których masz dostęp. Kliknij przycisk **Dodaj** i wybierz prywatny zakres linków Azure monitor.  Kliknij przycisk **Zastosuj** , aby nawiązać połączenie. Wszystkie połączone zakresy są wyświetlane na tym ekranie. Utworzenie tego połączenia zezwala na dostęp do tego obszaru roboczego przez ruch sieciowy podłączonych sieci wirtualnych. Nawiązywanie połączenia ma ten sam skutek, co połączenie z zakresem, tak jak w przypadku [łączenia Azure Monitor zasobów](#connect-azure-monitor-resources).  
 
-Następnie można kontrolować sposób, w jaki można uzyskać dostęp do tego zasobu spoza zakresów linków prywatnych wymienionych powyżej. Jeśli ustawisz opcję **Zezwalaj na dostęp do sieci publicznej na potrzeby** pozyskiwania na **nie**, maszyny spoza połączonych zakresów nie mogą przekazywać danych do tego obszaru roboczego. Jeśli ustawisz opcję **Zezwalaj na dostęp do sieci publicznej dla zapytań** na wartość **nie**, wówczas maszyny spoza zakresów nie mogą uzyskać dostępu do danych w tym obszarze roboczym. Te dane obejmują dostęp do skoroszytów, pulpitów nawigacyjnych, zapytań dotyczących środowiska klienta opartego na interfejsie API, szczegółowych informacji w Azure Portal i nie tylko. Środowiska działające poza Azure Portal, które zużywają Log Analytics dane, muszą być uruchamiane w ramach prywatnej sieci wirtualnej.
+Następnie można kontrolować sposób, w jaki można uzyskać dostęp do tego zasobu spoza zakresów linków prywatnych wymienionych powyżej. Jeśli ustawisz opcję **Zezwalaj na dostęp do sieci publicznej na potrzeby** pozyskiwania na **nie**, maszyny spoza połączonych zakresów nie mogą przekazywać danych do tego obszaru roboczego. Jeśli ustawisz opcję **Zezwalaj na dostęp do sieci publicznej dla zapytań** na wartość **nie**, wówczas maszyny spoza zakresów nie mogą uzyskać dostępu do danych w tym obszarze roboczym. Te dane obejmują dostęp do skoroszytów, pulpitów nawigacyjnych, zapytań dotyczących środowiska klienta opartego na interfejsie API, szczegółowych informacji w Azure Portal i nie tylko. Środowiska działające poza Azure Portal i że zapytanie Log Analytics dane muszą być uruchomione w prywatnej sieci wirtualnej.
 
 Ograniczanie dostępu w ten sposób ma zastosowanie tylko do danych w obszarze roboczym. Zmiany konfiguracji, w tym Włączanie lub wyłączanie ustawień dostępu, są zarządzane przez Azure Resource Manager. Ogranicz dostęp do Menedżer zasobów przy użyciu odpowiednich ról, uprawnień, kontroli sieci i inspekcji. Aby uzyskać więcej informacji, zobacz [Azure monitor role, uprawnienia i zabezpieczenia](roles-permissions-security.md).
 
@@ -162,26 +179,26 @@ Następnie można kontrolować sposób, w jaki można uzyskać dostęp do tego z
 
 Należy zauważyć, że środowiska użycia poza portalem również muszą być uruchomione w ramach prywatnej sieci wirtualnej, która obejmuje monitorowane obciążenia. 
 
-Do prywatnego linku należy dodać zasoby obsługujące monitorowane obciążenia. [W tym](https://docs.microsoft.com/azure/app-service/networking/private-endpoint) artykule opisano, jak to zrobić dla App Services.
+Do prywatnego linku należy dodać zasoby obsługujące monitorowane obciążenia. [W tym](../../app-service/networking/private-endpoint.md) artykule opisano, jak to zrobić dla App Services.
 
 Ograniczanie dostępu w ten sposób dotyczy tylko danych w zasobie Application Insights. Zmiany konfiguracji, w tym Włączanie lub wyłączanie ustawień dostępu, są zarządzane przez Azure Resource Manager. Zamiast tego należy ograniczyć dostęp do Menedżer zasobów przy użyciu odpowiednich ról, uprawnień, kontroli sieci i inspekcji. Aby uzyskać więcej informacji, zobacz [Azure monitor role, uprawnienia i zabezpieczenia](roles-permissions-security.md).
 
 > [!NOTE]
 > Aby w pełni zabezpieczyć Application Insights oparte na obszarze roboczym, musisz zablokować zarówno dostęp do zasobu Application Insights, jak i bazowego obszaru roboczego Log Analytics.
 >
-> Diagnostyka na poziomie kodu (Profiler/debuger) wymaga podania własnego konta magazynu do obsługi linku prywatnego. Tutaj znajduje się [Dokumentacja](https://docs.microsoft.com/azure/azure-monitor/app/profiler-bring-your-own-storage) umożliwiająca wykonanie tej czynności.
+> Diagnostyka na poziomie kodu (Profiler/debuger) wymaga podania własnego konta magazynu do obsługi linku prywatnego. Tutaj znajduje się [Dokumentacja](../app/profiler-bring-your-own-storage.md) umożliwiająca wykonanie tej czynności.
 
 ## <a name="use-apis-and-command-line"></a>Korzystanie z interfejsów API i wiersza polecenia
 
 Proces opisany wcześniej można zautomatyzować za pomocą szablonów Azure Resource Manager i interfejsów wiersza polecenia.
 
-Aby utworzyć prywatne zakresy łączy i zarządzać nimi, użyj polecenie [AZ monitor Private-Scope](https://docs.microsoft.com/cli/azure/monitor/private-link-scope?view=azure-cli-latest). Za pomocą tego polecenia można tworzyć zakresy, kojarzyć Log Analytics obszary robocze i składniki Application Insights oraz dodawać/usuwać/zatwierdzać prywatne punkty końcowe.
+Aby utworzyć prywatne zakresy łączy i zarządzać nimi, użyj polecenie [AZ monitor Private-Scope](/cli/azure/monitor/private-link-scope?view=azure-cli-latest). Za pomocą tego polecenia można tworzyć zakresy, kojarzyć Log Analytics obszary robocze i składniki Application Insights oraz dodawać/usuwać/zatwierdzać prywatne punkty końcowe.
 
-Aby zarządzać dostępem do sieci, użyj flag `[--ingestion-access {Disabled, Enabled}]` i `[--query-access {Disabled, Enabled}]` na [log Analytics obszarach roboczych](https://docs.microsoft.com/cli/azure/monitor/log-analytics/workspace?view=azure-cli-latest) lub [składników Application Insights](https://docs.microsoft.com/cli/azure/ext/application-insights/monitor/app-insights/component?view=azure-cli-latest).
+Aby zarządzać dostępem do sieci, użyj flag `[--ingestion-access {Disabled, Enabled}]` i `[--query-access {Disabled, Enabled}]` na [log Analytics obszarach roboczych](/cli/azure/monitor/log-analytics/workspace?view=azure-cli-latest) lub [składników Application Insights](/cli/azure/ext/application-insights/monitor/app-insights/component?view=azure-cli-latest).
 
 ## <a name="collect-custom-logs-over-private-link"></a>Zbierz niestandardowe dzienniki za pośrednictwem prywatnego linku
 
-Konta magazynu są używane w procesie pozyskiwania dzienników niestandardowych. Domyślnie są używane konta magazynu zarządzane przez usługę. Jednak w przypadku linków prywatnych można korzystać z własnych kont magazynu i kojarzyć je z obszarami roboczymi Log Analytics. Zobacz więcej szczegółowych informacji na temat konfigurowania takich kont przy użyciu [wiersza polecenia](https://docs.microsoft.com/cli/azure/monitor/log-analytics/workspace/linked-storage?view=azure-cli-latest).
+Konta magazynu są używane w procesie pozyskiwania dzienników niestandardowych. Domyślnie są używane konta magazynu zarządzane przez usługę. Jednak w przypadku linków prywatnych można korzystać z własnych kont magazynu i kojarzyć je z obszarami roboczymi Log Analytics. Zobacz więcej szczegółowych informacji na temat konfigurowania takich kont przy użyciu [wiersza polecenia](/cli/azure/monitor/log-analytics/workspace/linked-storage?view=azure-cli-latest).
 
 Aby uzyskać więcej informacji na temat przełączania własnych kont magazynu, zobacz [konta magazynu należące do klienta na potrzeby](private-storage.md) pozyskiwania dziennika
 
@@ -189,7 +206,7 @@ Aby uzyskać więcej informacji na temat przełączania własnych kont magazynu,
 
 ### <a name="agents"></a>Agenci
 
-Najnowsze wersje agentów systemów Windows i Linux muszą być używane w sieciach prywatnych w celu włączenia bezpiecznego pozyskiwania danych telemetrycznych do Log Analytics obszarów roboczych. Starsze wersje nie mogą przekazywać danych monitorowania w sieci prywatnej.
+Najnowsze wersje agentów systemów Windows i Linux muszą być używane w sieciach prywatnych w celu umożliwienia bezpiecznego pozyskiwania Log Analytics obszarów roboczych. Starsze wersje nie mogą przekazywać danych monitorowania w sieci prywatnej.
 
 **Agent usługi Log Analytics dla systemu Windows**
 
@@ -204,13 +221,13 @@ $ sudo /opt/microsoft/omsagent/bin/omsadmin.sh -X
 $ sudo /opt/microsoft/omsagent/bin/omsadmin.sh -w <workspace id> -s <workspace key>
 ```
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Witryna Azure Portal
 
 Aby korzystać z środowisk Azure Monitor Portal, takich jak Application Insights i Log Analytics, należy zezwolić na dostęp rozszerzeń Azure Portal i Azure Monitor w sieciach prywatnych. Dodaj do zapory [znaczniki usługi](../../firewall/service-tags.md) **usługi azureactivedirectory**, **AzureResourceManager**, **AzureFrontDoor. FirstParty**i **AzureFrontDoor** .
 
 ### <a name="programmatic-access"></a>Dostęp programowy
 
-Aby użyć interfejsu API REST, interfejsu [wiersza polecenia](https://docs.microsoft.com/cli/azure/monitor?view=azure-cli-latest) lub programu PowerShell z Azure monitor w sieciach prywatnych, należy dodać do zapory [Tagi usług](https://docs.microsoft.com/azure/virtual-network/service-tags-overview)  **usługi azureactivedirectory** i **AzureResourceManager** .
+Aby użyć interfejsu API REST, interfejsu [wiersza polecenia](/cli/azure/monitor?view=azure-cli-latest) lub programu PowerShell z Azure monitor w sieciach prywatnych, należy dodać do zapory [Tagi usług](../../virtual-network/service-tags-overview.md)  **usługi azureactivedirectory** i **AzureResourceManager** .
 
 Dodanie tych tagów umożliwia wykonywanie akcji, takich jak wykonywanie zapytań dotyczących danych dzienników, tworzenie i zarządzanie obszarami roboczymi Log Analytics i składnikami AI.
 

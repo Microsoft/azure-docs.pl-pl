@@ -5,12 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 04/03/2018
 ms.author: srrengar
-ms.openlocfilehash: ff13f8301274ebfc8b31dcbe01ef2a0fe6cd6fcc
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: bcb9ca9e73c0898dc778202eca036a5ae92bebf8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86247816"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87076131"
 ---
 # <a name="event-aggregation-and-collection-using-windows-azure-diagnostics"></a>Agregacja i zbieranie zdarzeń przy użyciu Diagnostyka Azure systemu Windows
 > [!div class="op_single_selector"]
@@ -30,8 +30,8 @@ Jednym ze sposobów przekazywania i zbierania dzienników jest użycie rozszerze
 W tym artykule są używane następujące narzędzia:
 
 * [Azure Resource Manager](../azure-resource-manager/management/overview.md)
-* [Azure PowerShell](/powershell/azure/overview)
-* [Szablon Azure Resource Manager](../virtual-machines/extensions/diagnostics-template.md?toc=/azure/virtual-machines/windows/toc.json)
+* [Azure PowerShell](/powershell/azure/)
+* [Szablon usługi Azure Resource Manager](../virtual-machines/extensions/diagnostics-template.md?toc=/azure/virtual-machines/windows/toc.json)
 
 ## <a name="service-fabric-platform-events"></a>Zdarzenia platformy Service Fabric
 Service Fabric konfiguruje kilka gotowych [kanałów rejestrowania](service-fabric-diagnostics-event-generation-infra.md), których następujące kanały są wstępnie skonfigurowane z rozszerzeniem, aby wysyłać dane monitorowania i diagnostyki do tabeli magazynu lub w innym miejscu:

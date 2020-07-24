@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/28/2018
+ms.date: 07/10/2020
 ms.author: terrylan
-ms.openlocfilehash: d723e60afe543808c88b1ae040e2979412ff324c
-ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.openlocfilehash: 4f3b4b5e26c8feab44a01d3714c194eee0fc98e9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86273476"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87076297"
 ---
 # <a name="azure-customer-data-protection"></a>Ochrona danych klienta platformy Azure   
 Domyślnie odmowa dostępu do danych klienta przez operacje firmy Microsoft i personel pomocy technicznej. W przypadku przyznania dostępu do danych związanych z działem pomocy technicznej jest on przyznawany tylko przy użyciu modelu just-in-Time (JIT), korzystając z zasad, które są poddawane inspekcji, i zbadane się zgodnie z naszymi zasadami zgodności i zasad zachowania poufności informacji.  Wymagania dotyczące kontroli dostępu są określane przez następujące zasady zabezpieczeń platformy Azure:

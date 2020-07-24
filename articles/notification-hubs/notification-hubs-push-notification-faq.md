@@ -15,12 +15,12 @@ ms.date: 11/13/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 11/13/2019
-ms.openlocfilehash: 0fe4ae76645ec2a0ae8aae93b9db987ece9a45b9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 85ebb7f5ac52f4eea25f9e6f1a2b1b5ac6f4caa5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85255130"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077920"
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Powiadomienia wypychane za pomocą usługi Azure Notification Hubs: często zadawane pytania
 
@@ -138,7 +138,7 @@ Rejestracje z zaplecza aplikacji są przydatne, gdy konieczne jest uwierzytelnie
 
 ### <a name="what-is-the-push-notification-delivery-security-model"></a>Co to jest model zabezpieczeń dostarczania powiadomień wypychanych?
 
-Usługa Azure Notification Hubs korzysta z modelu zabezpieczeń opartego na [sygnaturach dostępu współdzielonego](../storage/common/storage-dotnet-shared-access-signature-part-1.md). Możesz użyć tokenów sygnatury dostępu współdzielonego na poziomie głównego obszaru nazw lub na poziomie centrum powiadomień. Tokeny sygnatury dostępu współdzielonego można ustawić tak, aby były zgodne z różnymi regułami autoryzacji, na przykład w celu wysłania uprawnień do wiadomości lub nasłuchiwania uprawnień do powiadomień. Aby uzyskać więcej informacji, zobacz dokument [model zabezpieczeń Notification Hubs] .
+Usługa Azure Notification Hubs korzysta z modelu zabezpieczeń opartego na [sygnaturach dostępu współdzielonego](../storage/common/storage-sas-overview.md). Możesz użyć tokenów sygnatury dostępu współdzielonego na poziomie głównego obszaru nazw lub na poziomie centrum powiadomień. Tokeny sygnatury dostępu współdzielonego można ustawić tak, aby były zgodne z różnymi regułami autoryzacji, na przykład w celu wysłania uprawnień do wiadomości lub nasłuchiwania uprawnień do powiadomień. Aby uzyskać więcej informacji, zobacz dokument [model zabezpieczeń Notification Hubs] .
 
 ### <a name="how-should-i-handle-sensitive-payload-in-push-notifications"></a>Jak należy obsługiwać poufne ładunki w powiadomieniach wypychanych?
 
@@ -200,18 +200,18 @@ Możesz również programowo uzyskać dostęp do metryk. Aby uzyskać więcej in
 > [!NOTE]
 > Pomyślne powiadomienia oznaczają, że powiadomienia wypychane zostały dostarczone do zewnętrznego PNS (na przykład APN dla systemów iOS i macOS lub FCM dla urządzeń z systemem Android). Jest odpowiedzialny za PNS do dostarczania powiadomień do urządzeń docelowych. Zazwyczaj PNS nie ujawnia metryk dostarczania podmiotom trzecim.  
 
-[Azure Portal]: https://portal.azure.com
+[Witryna Azure Portal]: https://portal.azure.com
 [Cennik Notification Hubs]: https://azure.microsoft.com/pricing/details/notification-hubs/
 [Notification Hubs SLA]: https://azure.microsoft.com/support/legal/sla/
-[Interfejsy API REST Notification Hubs]: https://msdn.microsoft.com/library/azure/dn530746.aspx
+[Interfejsy API REST Notification Hubs]: /previous-versions/azure/reference/dn530746(v=azure.100)
 [Mobile Services Pricing]: https://azure.microsoft.com/pricing/details/mobile-services/
-[Wskazówki dotyczące rejestracji zaplecza]: https://msdn.microsoft.com/library/azure/dn743807.aspx
-[Wskazówki dotyczące rejestracji zaplecza 2]: https://msdn.microsoft.com/library/azure/dn530747.aspx
-[Model zabezpieczeń Notification Hubs]: https://msdn.microsoft.com/library/azure/dn495373.aspx
-[Samouczek bezpiecznego wypychania Notification Hubs]: https://azure.microsoft.com/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/
-[Rozwiązywanie problemów Notification Hubs]: https://azure.microsoft.com/documentation/articles/notification-hubs-diagnosing/
+[Wskazówki dotyczące rejestracji zaplecza]: /previous-versions/azure/azure-services/dn743807(v=azure.100)
+[Wskazówki dotyczące rejestracji zaplecza 2]: /previous-versions/azure/azure-services/dn530747(v=azure.100)
+[Model zabezpieczeń Notification Hubs]: /previous-versions/azure/azure-services/dn495373(v=azure.100)
+[Samouczek bezpiecznego wypychania Notification Hubs]: ./notification-hubs-aspnet-backend-ios-push-apple-apns-secure-notification.md
+[Rozwiązywanie problemów Notification Hubs]: ./notification-hubs-push-notification-fixer.md
 [Metryki Notification Hubs]: ../azure-monitor/platform/metrics-supported.md#microsoftnotificationhubsnamespacesnotificationhubs
-[Eksportowanie/Importowanie rejestracji]: https://docs.microsoft.com/azure/notification-hubs/export-modify-registrations-bulk
-[Azure Portal]: https://portal.azure.com
+[Eksportowanie/Importowanie rejestracji]: ./export-modify-registrations-bulk.md
+[Witryna Azure Portal]: https://portal.azure.com
 [complete samples]: https://github.com/Azure/azure-notificationhubs-samples
 [App Service Pricing]: https://azure.microsoft.com/pricing/details/app-service/

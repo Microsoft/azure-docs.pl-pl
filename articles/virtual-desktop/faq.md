@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 07/13/2020
+ms.date: 07/22/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: b7ab9e63bfe92967eca22b60dceec0de882768a6
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 721f9c623255b964e38da1c0f4b7bbf72d0c721d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86532459"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075630"
 ---
 # <a name="windows-virtual-desktop-faq"></a>Pulpit wirtualny systemu Windows — często zadawane pytania
 
@@ -121,7 +121,7 @@ W poniższej tabeli przedstawiono przykład sposobu, w jaki wszystkie zasoby mus
 | Zasób | Wymaganie |
 |---|---|
 | Stałe operacje we/wy stanu | 10 |
-| Logowanie/logowanie IOPS | 5 |
+| Logowanie/logowanie IOPS | 50 |
 
 Przykład w tej tabeli jest pojedynczy użytkownik, ale może służyć do oceny wymagań dotyczących łącznej liczby użytkowników w danym środowisku. Na przykład potrzeba około 1 000 operacji we/wy dla użytkowników 100 i około 5 000 operacji we/wy podczas logowania i wylogowywania.
 

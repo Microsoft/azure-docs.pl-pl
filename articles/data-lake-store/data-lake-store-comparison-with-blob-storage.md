@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: twooley
-ms.openlocfilehash: 3565af1f3e0a002cf3852faef9c2853ff88d46e9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9ab1e2ed4aeace0ec98cb358f32a07f64c3dfea2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82691721"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075052"
 ---
 # <a name="comparing-azure-data-lake-storage-gen1-and-azure-blob-storage"></a>Porównanie Azure Data Lake Storage Gen1 i platformy Azure Blob Storage
 
@@ -19,8 +19,8 @@ ms.locfileid: "82691721"
 
 W tabeli w tym artykule zestawiono różnice między Azure Data Lake Storage Gen1 i Blob Storage platformy Azure, a także kluczowe aspekty przetwarzania danych Big Data. Azure Blob Storage to ogólny cel, skalowalny magazyn obiektów przeznaczony dla szerokiej gamy scenariuszy magazynowych. Azure Data Lake Storage Gen1 to repozytorium skalowania funkcji Hyper-Skala, które jest zoptymalizowane pod kątem obciążeń związanych z analizą danych Big Data.
 
-|  | Azure Data Lake Storage Gen1 | Azure Blob Storage |
-| --- | --- | --- |
+| Kategoria | Usługa Azure Data Lake Storage 1. generacji | Azure Blob Storage |
+| -------- | ---------------------------- | ------------------ |
 | Przeznaczenie |Zoptymalizowany magazyn dla obciążeń analizy danych Big Data |Magazyn obiektów ogólnego przeznaczenia dla wielu różnych scenariuszy magazynowania, w tym analizy danych Big Data |
 | Przypadki użycia |Batch, Interactive, Stream Analytics i uczenie maszynowe, takie jak pliki dziennika, dane IoT, kliknij strumienie, duże zestawy danych |Dowolny typ danych tekstowych lub binarnych, takich jak zaplecze aplikacji, dane kopii zapasowej, magazyn multimediów do przesyłania strumieniowego i dane ogólne ogólnego przeznaczenia. Dodatkowo pełna obsługa obciążeń analitycznych; Batch, Interactive, Stream Analytics i uczenie maszynowe, takie jak pliki dziennika, dane IoT, kliknij strumienie, duże zestawy danych |
 | Kluczowe pojęcia |Konto Data Lake Storage Gen1 zawiera foldery, które z kolei zawierają dane przechowywane jako pliki |Konto magazynu ma kontenery, które z kolei mają dane w postaci obiektów BLOB |
@@ -40,6 +40,6 @@ W tabeli w tym artykule zestawiono różnice między Azure Data Lake Storage Gen
 | Nadmiarowość geograficzna |Lokalnie nadmiarowy (wiele kopii danych w jednym regionie platformy Azure) |Lokalnie nadmiarowy (LRS), strefy nadmiarowe (ZRS), globalnie nadmiarowy (GRS), dostęp do odczytu globalnie nadmiarowy (RA-GRS). Aby uzyskać więcej informacji, zobacz [tutaj](../storage/common/storage-redundancy.md) . |
 | Stan usługi |Ogólnie dostępne |Ogólnie dostępne |
 | Dostępność regionalna |Zobacz [tutaj](https://azure.microsoft.com/regions/#services) |Dostępne we wszystkich regionach świadczenia usługi Azure |
-| Price |Zobacz [Cennik](https://azure.microsoft.com/pricing/details/data-lake-store/) |Zobacz [Cennik](https://azure.microsoft.com/pricing/details/storage/) |
+| Cena |Zobacz [Cennik](https://azure.microsoft.com/pricing/details/data-lake-store/) |Zobacz [Cennik](https://azure.microsoft.com/pricing/details/storage/) |
 
 

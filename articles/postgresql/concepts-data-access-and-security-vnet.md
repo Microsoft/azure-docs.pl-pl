@@ -5,12 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 5/6/2019
-ms.openlocfilehash: bee705e33267a765c1fb5300c0bfe2d04ff2015d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/17/2020
+ms.openlocfilehash: f473a4621c6b2214717b5036eae5abeaa564fb72
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85099653"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87076618"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-postgresql---single-server"></a>Używanie punktów końcowych usługi Virtual Network i reguł dla Azure Database for PostgreSQL-pojedynczego serwera
 
@@ -24,8 +25,9 @@ Aby utworzyć regułę sieci wirtualnej, musi być to [Sieć wirtualna][vm-virtu
 > Ta funkcja jest dostępna we wszystkich regionach chmury publicznej platformy Azure, w której wdrożono Azure Database for PostgreSQL dla serwerów Ogólnego przeznaczenia i zoptymalizowanych pod kątem pamięci.
 > W przypadku komunikacji równorzędnej sieci wirtualnych, jeśli ruch odbywa się za pomocą wspólnej bramy sieci wirtualnej z punktami końcowymi usługi i powinien przepływać do elementu równorzędnego, Utwórz regułę listy ACL/sieci wirtualnej, aby umożliwić usłudze Azure Virtual Machines w sieci wirtualnej bramy dostęp do serwera Azure Database for PostgreSQL.
 
-<a name="anch-terminology-and-description-82f" />
+Możesz również rozważyć użycie [prywatnego linku](concepts-data-access-and-security-private-link.md) dla połączeń. Link prywatny zapewnia prywatny adres IP w sieci wirtualnej dla serwera Azure Database for PostgreSQL.
 
+<a name="anch-terminology-and-description-82f"></a>
 ## <a name="terminology-and-description"></a>Terminologia i opis
 
 **Sieć wirtualna:** Możesz mieć sieci wirtualne skojarzone z subskrypcją platformy Azure.
@@ -38,19 +40,13 @@ Aby utworzyć regułę sieci wirtualnej, musi być to [Sieć wirtualna][vm-virtu
 
 Reguła sieci wirtualnej instruuje serwer Azure Database for PostgreSQL, aby akceptował komunikację z każdego węzła znajdującego się w podsieci.
 
-
-
-
-
-
-
 <a name="anch-details-about-vnet-rules-38q"></a>
 
 ## <a name="benefits-of-a-virtual-network-rule"></a>Zalety reguły sieci wirtualnej
 
 Do momentu podjęcia działania maszyny wirtualne w podsieciach nie mogą komunikować się z serwerem Azure Database for PostgreSQL. Jedną z akcji, która ustanawia komunikację, jest utworzenie reguły sieci wirtualnej. Uzasadnienie wyboru podejścia reguły sieci wirtualnej wymaga dyskusji porównującej i kontrastowej obejmującej konkurencyjne opcje zabezpieczeń oferowane przez zaporę.
 
-### <a name="a-allow-access-to-azure-services"></a>A. Zezwalaj na dostęp do usług platformy Azure
+### <a name="a-allow-access-to-azure-services"></a>A. Zezwalanie na dostęp do usług platformy Azure
 
 W okienku zabezpieczenia połączenia jest dostępny przycisk **włączania/WYłączania** , który ma etykietę **Zezwalaj na dostęp do usług platformy Azure**. Ustawienie **on** umożliwia komunikację ze wszystkimi adresami IP platformy Azure i wszystkimi podsieciami platformy Azure. Te adresy IP lub podsieci platformy Azure mogą nie należeć do użytkownika. To **ustawienie jest** prawdopodobnie dłużej otwierane, niż chcesz, aby baza danych Azure Database for PostgreSQL. Funkcja reguły sieci wirtualnej oferuje znacznie bardziej precyzyjną kontrolę.
 
@@ -62,11 +58,6 @@ Możesz odzyskać opcję IP, uzyskując *statyczny* adres IP dla maszyny wirtual
 
 Jednak podejście ze statycznym adresem IP może być trudne do zarządzania i jest kosztowne, gdy jest wykonywane w odpowiedniej skali. Reguły sieci wirtualnej są łatwiejsze do ustanowienia i zarządzania.
 
-### <a name="c-cannot-yet-have-azure-database-for-postgresql-on-a-subnet-without-defining-a-service-endpoint"></a>C. Nie można jeszcze mieć Azure Database for PostgreSQL w podsieci bez definiowania punktu końcowego usługi
-
-Jeśli serwer **Microsoft. SQL** był węzłem w podsieci w sieci wirtualnej, wszystkie węzły w sieci wirtualnej mogą komunikować się z serwerem Azure Database for PostgreSQL. W takim przypadku maszyny wirtualne mogą komunikować się z Azure Database for PostgreSQL bez konieczności używania reguł sieci wirtualnej ani reguł adresów IP.
-
-Jednak od sierpnia 2018 usługa Azure Database for PostgreSQL nie należy jeszcze do usług, które mogą być bezpośrednio przypisane do podsieci.
 
 <a name="anch-details-about-vnet-rules-38q"></a>
 
@@ -119,6 +110,8 @@ W przypadku Azure Database for PostgreSQL funkcja reguł sieci wirtualnej ma nas
 
 - Obsługa punktów końcowych usługi sieci wirtualnej jest obsługiwana tylko w przypadku serwerów Ogólnego przeznaczenia i zoptymalizowanych pod kątem pamięci.
 
+- Jeśli w podsieci jest włączona funkcja **Microsoft. SQL** , oznacza to, że do nawiązania połączenia mają być używane tylko reguły sieci wirtualnej. [Reguły zapory inne niż sieci wirtualnej](concepts-firewall-rules.md) w tej podsieci nie będą działały.
+
 - Na zaporze zakresy adresów IP dotyczą następujących elementów sieciowych, ale reguły sieci wirtualnej nie są:
     - [Wirtualna sieć prywatna (VPN) typu lokacja-lokacja (S2S)][vpn-gateway-indexmd-608y]
     - Lokalna za pośrednictwem [ExpressRoute][expressroute-indexmd-744v]
@@ -131,7 +124,7 @@ Aby umożliwić komunikację z obwodu do Azure Database for PostgreSQL, należy 
 
 ## <a name="adding-a-vnet-firewall-rule-to-your-server-without-turning-on-vnet-service-endpoints"></a>Dodawanie reguły zapory sieci wirtualnej do serwera bez włączania punktów końcowych usługi sieci wirtualnej
 
-Tylko ustawienie reguły zapory nie pomaga zabezpieczyć serwera w sieci wirtualnej. Aby zabezpieczenia zaczęły obowiązywać, należy również włączyć punkty końcowe usługi **sieci** wirtualnej. Po włączeniu punktów końcowych usługi **w**usłudze Sieć wirtualna jest przestojem do momentu zakończenia przejścia z **trybu do trybu** **.** Jest to szczególnie prawdziwe w kontekście dużych sieci wirtualnych. Możesz użyć flagi **IgnoreMissingServiceEndpoint** , aby zmniejszyć lub wyeliminować przestoje podczas przejścia.
+Tylko ustawienie reguły zapory sieci wirtualnej nie pomaga zabezpieczyć serwera w sieci wirtualnej. Aby zabezpieczenia zaczęły obowiązywać, należy również włączyć punkty końcowe usługi **sieci** wirtualnej. Po włączeniu punktów końcowych usługi **w**usłudze Sieć wirtualna jest przestojem do momentu zakończenia przejścia z **trybu do trybu** **.** Jest to szczególnie prawdziwe w kontekście dużych sieci wirtualnych. Możesz użyć flagi **IgnoreMissingServiceEndpoint** , aby zmniejszyć lub wyeliminować przestoje podczas przejścia.
 
 Flagę **IgnoreMissingServiceEndpoint** można ustawić za pomocą interfejsu wiersza polecenia platformy Azure lub portalu.
 

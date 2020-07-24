@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 03/24/2020
-ms.openlocfilehash: ec2aa5b1492534908adb55544623110242717609
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/13/2020
+ms.openlocfilehash: d83dcc5c86f2dfed5f588738e7799dd708333da1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81416671"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87076775"
 ---
 # <a name="copy-data-from-and-to-salesforce-service-cloud-by-using-azure-data-factory"></a>Skopiuj dane z i do chmury usługi Salesforce przy użyciu Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -50,9 +50,9 @@ Usługi Salesforce mają limity dla obu żądań interfejsu API i współbieżny
 - Jeśli liczba współbieżnych żądań przekracza limit, nastąpi ograniczenie i zobaczysz błędy losowe.
 - Jeśli łączna liczba żądań przekracza limit, konto usługi Salesforce jest blokowane przez 24 godziny.
 
-W obu scenariuszach może być również wyświetlany komunikat o błędzie "REQUEST_LIMIT_EXCEEDED". Aby uzyskać więcej informacji, zobacz sekcję "limity żądań interfejsu API" w obszarze [limity deweloperów usługi Salesforce](https://resources.docs.salesforce.com/200/20/en-us/sfdc/pdf/salesforce_app_limits_cheatsheet.pdf).
+W obu scenariuszach może być również wyświetlany komunikat o błędzie "REQUEST_LIMIT_EXCEEDED". Aby uzyskać więcej informacji, zobacz sekcję "limity żądań interfejsu API" w obszarze [limity deweloperów usługi Salesforce](https://developer.salesforce.com/docs/atlas.en-us.218.0.salesforce_app_limits_cheatsheet.meta/salesforce_app_limits_cheatsheet/salesforce_app_limits_platform_api.htm).
 
-## <a name="get-started"></a>Wprowadzenie
+## <a name="get-started"></a>Rozpoczęcie pracy
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -303,7 +303,7 @@ Po określeniu zapytania SOQL lub SQL należy zwrócić uwagę na różnice w fo
 * **Przykład SOQL**:`SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= @{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-ddTHH:mm:ssZ')} AND LastModifiedDate < @{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-ddTHH:mm:ssZ')}`
 * **Przykład SQL**:`SELECT * FROM Account WHERE LastModifiedDate >= {ts'@{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-dd HH:mm:ss')}'} AND LastModifiedDate < {ts'@{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-dd HH:mm:ss')}'}`
 
-### <a name="error-of-malformed_querytruncated"></a>Błąd MALFORMED_QUERY: obcięty
+### <a name="error-of-malformed_query-truncated"></a>Błąd MALFORMED_QUERY: obcięty
 
 Jeśli wystąpi błąd "MALFORMED_QUERY: obcięty", zazwyczaj jest to spowodowane tym, że masz kolumnę typu JunctionIdList w danych, a Salesforce ma ograniczenia dotyczące obsługi takich danych o dużej liczbie wierszy. Aby wyeliminować problem, spróbuj wykluczyć kolumnę JunctionIdList lub ograniczyć liczbę wierszy do skopiowania (można podzielić na wiele uruchomień działania kopiowania).
 
@@ -313,25 +313,25 @@ Podczas kopiowania danych z chmury usługi Salesforce następujące mapowania s�
 
 | Typ danych w chmurze usługi Salesforce | Data Factory typ danych pośrednich |
 |:--- |:--- |
-| Numer Autokorekty |String |
-| Pole wyboru |Boolean |
+| Numer Autokorekty |String (ciąg) |
+| Pole wyboru |Boolean (wartość logiczna) |
 | Waluta |Wartość dziesiętna |
 | Data |DateTime |
 | Data/godzina |DateTime |
-| Poczta e-mail |String |
-| Identyfikator |String |
-| Relacja odnośnika |String |
-| Lista wyboru z wybórem |String |
+| E-mail |String (ciąg) |
+| ID |String (ciąg) |
+| Relacja odnośnika |String (ciąg) |
+| Lista wyboru z wybórem |String (ciąg) |
 | Liczba |Wartość dziesiętna |
 | Procent |Wartość dziesiętna |
-| Telefon |String |
-| Lista wyboru |String |
-| Tekst |String |
-| Obszar tekstu |String |
-| Obszar tekstowy (Long) |String |
-| Obszar tekstowy (rozbudowany) |String |
-| Tekst (zaszyfrowany) |String |
-| Adres URL |String |
+| Telefon |String (ciąg) |
+| Lista wyboru |String (ciąg) |
+| Tekst |String (ciąg) |
+| Obszar tekstu |String (ciąg) |
+| Obszar tekstowy (Long) |String (ciąg) |
+| Obszar tekstowy (rozbudowany) |String (ciąg) |
+| Tekst (zaszyfrowany) |String (ciąg) |
+| Adres URL |String (ciąg) |
 
 ## <a name="lookup-activity-properties"></a>Właściwości działania Lookup
 

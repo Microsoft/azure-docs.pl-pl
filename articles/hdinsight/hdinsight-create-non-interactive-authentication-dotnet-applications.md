@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/23/2019
-ms.openlocfilehash: 48a5c192051d8e715deb7e354827ff4cd4152bcd
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 5be217cd2afbb95c4c02a958c1299db599c349d0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86077885"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074773"
 ---
 # <a name="create-a-non-interactive-authentication-net-hdinsight-application"></a>Tworzenie aplikacji usługi HDInsight platformy .NET z uwierzytelnianiem nieinterakcyjnym
 
@@ -123,4 +123,4 @@ Przypisywanie [roli](../role-based-access-control/built-in-roles.md)do aplikacji
 
 * [Utwórz Azure Active Directory aplikację i nazwę główną usługi w Azure Portal](../active-directory/develop/howto-create-service-principal-portal.md).
 * Dowiedz się, jak [uwierzytelniać jednostkę usługi za pomocą Azure Resource Manager](../active-directory/develop/howto-authenticate-service-principal-powershell.md).
-* Dowiedz się więcej o [Access Control opartej na rolach (RBAC) na platformie Azure](../role-based-access-control/role-assignments-portal.md).
+* Dowiedz się więcej [na temat kontroli dostępu opartej na rolach (Azure RBAC)](../role-based-access-control/role-assignments-portal.md).

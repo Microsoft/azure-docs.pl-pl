@@ -5,15 +5,15 @@ services: virtual-desktop
 author: heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 07/10/2020
+ms.date: 07/15/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 9b1bdfc326ff217e68785d823b4af046af3241b7
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 9f7a3b51afa11562123a280da8634e100a22e6b6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86225182"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075618"
 ---
 # <a name="safe-url-list"></a>Lista bezpiecznych adresów URL
 
@@ -33,6 +33,7 @@ Maszyny wirtualne platformy Azure tworzone dla pulpitu wirtualnego systemu Windo
 |catalogartifact.azureedge.net|443|Azure Marketplace|AzureCloud|
 |kms.core.windows.net|1688|Aktywacja systemu Windows|Internet|
 |wvdportalstorageblob.blob.core.windows.net|443|Obsługa Azure Portal|AzureCloud|
+| 169.254.169.254 | 80 | [Punkt końcowy usługi metadanych wystąpienia platformy Azure](../virtual-machines/windows/instance-metadata-service.md) | Nie dotyczy |
 
 >[!IMPORTANT]
 >Pulpit wirtualny systemu Windows obsługuje teraz tag FQDN. Aby uzyskać więcej informacji, zobacz [Korzystanie z zapory platformy Azure do ochrony wdrożeń pulpitów wirtualnych systemu Windows](../firewall/protect-windows-virtual-desktop.md).
@@ -59,8 +60,8 @@ W poniższej tabeli przedstawiono opcjonalne adresy URL, do których maszyny wir
 >Należy użyć symbolu wieloznacznego (*) dla adresów URL związanych z ruchem usługi. Jeśli wolisz używać * w przypadku ruchu związanego z agentem, Oto jak znaleźć adresy URL bez symboli wieloznacznych:
 >
 >1. Zarejestruj maszyny wirtualne w puli hostów systemu Windows Virtual Desktop.
->2. Otwórz **Podgląd zdarzeń**, a następnie przejdź do pozycji **Dzienniki systemu Windows**  >  **Application**  >  **WVD-Agent** i Wyszukaj zdarzenie o identyfikatorze 3702.
->3. Dozwolonych adresy URL Znalezione w obszarze zdarzenia o IDENTYFIKATORze 3702. Adresy URL pod IDENTYFIKATORem zdarzenia 3702 są specyficzne dla regionu. Należy powtórzyć proces odblokowywania przy użyciu odpowiednich adresów URL dla każdego regionu, w którym mają zostać wdrożone maszyny wirtualne.
+>2. Otwórz **Podgląd zdarzeń**, a następnie przejdź do pozycji **Dzienniki systemu Windows**  >  **Application**  >  **WVD-Agent** i Wyszukaj zdarzenie o identyfikatorze 3701.
+>3. Dozwolonych adresy URL Znalezione w obszarze zdarzenia o IDENTYFIKATORze 3701. Adresy URL pod IDENTYFIKATORem zdarzenia 3701 są specyficzne dla regionu. Należy powtórzyć proces odblokowywania przy użyciu odpowiednich adresów URL dla każdego regionu, w którym mają zostać wdrożone maszyny wirtualne.
 
 ## <a name="remote-desktop-clients"></a>Klienci usług pulpitu zdalnego
 

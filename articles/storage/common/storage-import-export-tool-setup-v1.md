@@ -8,14 +8,14 @@ ms.topic: how-to
 ms.date: 01/15/2017
 ms.author: twooley
 ms.subservice: common
-ms.openlocfilehash: bd74caf391fcf1538bf920f41638b23672b47015
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ca74e3aea8a847344c75ca7167c46675e1339459
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85512221"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077820"
 ---
-# <a name="setting-up-the-azure-importexport-tool"></a>Konfigurowanie narzędzia Azure Import/Export
+# <a name="setting-up-the-azure-importexport-tool-v1"></a>Konfigurowanie narzędzia Azure Import/Export w wersji 1
 Narzędzie Microsoft Azure Import/Export to narzędzie do przygotowywania i naprawiania dysku, które może być używane z usługą Microsoft Azure Import/Export. Za pomocą tego narzędzia można korzystać z następujących funkcji:  
 
 -   Przed utworzeniem zadania importowania można użyć tego narzędzia do skopiowania danych na dyski twarde, które mają być dostarczane do centrum danych systemu Windows Azure.  

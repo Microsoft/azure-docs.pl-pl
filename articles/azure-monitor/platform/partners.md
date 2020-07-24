@@ -4,11 +4,12 @@ description: Dowiedz się więcej o partnerach Azure Monitor i sposobach ich int
 ms.subservice: ''
 ms.topic: conceptual
 ms.date: 05/29/2020
-ms.openlocfilehash: be309bf6caeb716fee86e4542363f5554b4568fb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f40d38d182e1a8c233b15f711fd557a5d72e8f30
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84248975"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077326"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Azure Monitor integracje partnerów
 
@@ -137,7 +138,7 @@ LogRhythm, lider w NextGen firewall SIEM, umożliwia organizacjom z sześciu kon
 
 **Mostka operacji** mikrofokusu automatycznie monitoruje wszystkie hybrydowe zasoby IT — dowolne urządzenie, system operacyjny, baza danych, aplikacja lub usługa, niezależnie od tego, gdzie działa, i stosuje AIOps do wszystkich typów danych — zdarzeń, metryk, dzienników i zależności. Zapewnia ona unikatową kombinację jakości monitorowania usług, w połączeniu z kompleksową analizą kondycji aplikacji i oferuje kompleksowe monitorowanie wydajności i dostępności usług Microsoft Azure. Program Operations Bridge umożliwia klientom dostarczanie pojedynczego okienka ze szkła, dostępnego na dowolnym urządzeniu z przeglądarką, zarówno w celu zrozumienia firmy, jak i udziałowców IT.
 
-Więcej tutaj
+Dowiedz się więcej
 - [Przegląd zestawu OB](https://www.microfocus.com/products/operations-bridge-suite/overview)
 - [Pobieranie](https://marketplace.microfocus.com/itom/content/obm-management-pack-for-microsoft-azure)
 - [SiteScope](https://docs.microfocus.com/itom/SiteScope:2019.05/MSAzureMonitor) -SiteScope to składnik pakietu Operations Bridge Suite.
@@ -269,8 +270,8 @@ Platforma turbonomic zapewnia automatyzację obciążeń dla chmur hybrydowych p
 
 - [Dowiedz się więcej o Azure Monitor](../../azure-monitor/overview.md)
 - [Uzyskiwanie dostępu do metryk przy użyciu interfejsu API REST](rest-api-walkthrough.md)
-- [Przesyłanie strumieniowe dziennika aktywności do usługi innej niż firmy Microsoft](../../azure-monitor/platform/activity-logs-stream-event-hubs.md)
-- [Przesyłanie strumieniowe dzienników zasobów do usługi innej niż firmy Microsoft](../../azure-monitor/platform/resource-logs-stream-event-hubs.md)
+- [Przesyłanie strumieniowe dziennika aktywności do usługi innej niż firmy Microsoft](./activity-log.md#legacy-collection-methods)
+- [Przesyłanie strumieniowe dzienników zasobów do usługi innej niż firmy Microsoft](./resource-logs.md#send-to-azure-event-hubs)
 
 
 
@@ -301,4 +302,3 @@ Platforma turbonomic zapewnia automatyzację obciążeń dla chmur hybrydowych p
 [splunk-doc]: https://github.com/Microsoft/AzureMonitorAddonForSplunk/wiki/Azure-Monitor-Addon-For-Splunk "Dokumentacja Splunk."
 [sumologic-doc]: https://www.sumologic.com/azure "Dokumentacja SumoLogic."
 [turbonomic-doc]: https://turbonomic.com/ "Platforma turbonomic wprowadzenie."
-

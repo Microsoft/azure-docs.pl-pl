@@ -1,5 +1,5 @@
 ---
-title: 'SSMS: łączenie i wykonywanie zapytań w Synapse SQL'
+title: Nawiązywanie połączenia z usługą Synapse SQL z programem SQL Server Management Studio (SSMS)
 description: Użyj SQL Server Management Studio (SSMS), aby nawiązać połączenie z usługą SQL Synapse i wysyłać do niej zapytania Synapse.
 services: synapse-analytics
 author: azaricstefan
@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 72006879c7181a8cefe56248215099eeb784d816
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: dc467eebbd7346777765af7143d13c76627ab648
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83658252"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077713"
 ---
 # <a name="connect-to-synapse-sql-with-sql-server-management-studio-ssms"></a>Nawiązywanie połączenia z usługą Synapse SQL z programem SQL Server Management Studio (SSMS)
 > [!div class="op_single_selector"]
@@ -75,7 +75,7 @@ Aby nawiązać połączenie z usługą SQL Synapse przy użyciu usługi SQL na �
    * **Nazwa serwera**: wprowadź wcześniej zidentyfikowaną **nazwę serwera** .
    * **Uwierzytelnianie**: Wybierz typ uwierzytelniania, na przykład **uwierzytelnianie SQL Server** lub **uwierzytelnianie zintegrowane Active Directory**:
    * **Nazwa użytkownika** i **hasło**: Wprowadź nazwę użytkownika i hasło w przypadku wybrania powyżej SQL Server uwierzytelniania.
-   * Kliknij pozycję **Połącz**.
+   * Kliknij przycisk **Podłącz**.
 
 4. W celach poznawczych rozwiń węzeł serwera Azure SQL. Możesz przejrzeć skojarzone z serwerem bazy danych. Rozwiń *demonstrację* , aby zobaczyć zawartość w przykładowej bazie danych.
    

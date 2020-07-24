@@ -5,16 +5,17 @@ ms.topic: conceptual
 author: MS-jgol
 ms.author: jgol
 ms.date: 05/13/2020
-ms.openlocfilehash: 76f9f922697ef6be6c959ea7f9bafd0872dba6ff
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 52bd6d2a98e5126ff2463de1ef99da03ca555567
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83773768"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075311"
 ---
 # <a name="zero-instrumentation-application-monitoring-for-kubernetes---azure-monitor-application-insights"></a>Zero monitorowania aplikacji Instrumentacji dla Kubernetes Azure Monitor Application Insights
 
 > [!IMPORTANT]
->  Obecnie można włączyć monitorowanie aplikacji Java działających w systemie Kubernetes bez Instrumentacji kodu — Użyj [autonomicznego agenta Java](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent). Chociaż rozwiązanie do bezproblemowego włączania monitorowania aplikacji działa w innych językach, użyj zestawów SDK do monitorowania aplikacji działających w AKS: [ASP.NET Core](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core), [ASP.NET](https://docs.microsoft.com/azure/azure-monitor/app/asp-net), [Node.js](https://docs.microsoft.com/azure/azure-monitor/app/nodejs), [JavaScript](https://docs.microsoft.com/azure/azure-monitor/app/javascript)i [Python](https://docs.microsoft.com/azure/azure-monitor/app/opencensus-python).
+>  Obecnie można włączyć monitorowanie aplikacji Java działających w systemie Kubernetes bez Instrumentacji kodu — Użyj [autonomicznego agenta Java](./java-in-process-agent.md). Chociaż rozwiązanie do bezproblemowego włączania monitorowania aplikacji działa w innych językach, użyj zestawów SDK do monitorowania aplikacji działających w AKS: [ASP.NET Core](./asp-net-core.md), [ASP.NET](./asp-net.md), [Node.js](./nodejs.md), [JavaScript](./javascript.md)i [Python](./opencensus-python.md).
 
 ## <a name="application-monitoring-without-instrumenting-the-code"></a>Monitorowanie aplikacji bez Instrumentacji kodu
 Obecnie tylko język Java umożliwia włączenie monitorowania aplikacji bez Instrumentacji kodu. Aby monitorować aplikacje w innych językach, użyj zestawów SDK. 
@@ -22,18 +23,18 @@ Obecnie tylko język Java umożliwia włączenie monitorowania aplikacji bez Ins
 ## <a name="java"></a>Java
 Po włączeniu Agent Java będzie automatycznie zbierać wiele żądań, zależności, dzienniki i metryki z najczęściej używanych bibliotek i struktur.
 
-Postępuj zgodnie [ze szczegółowymi instrukcjami](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent) , aby monitorować aplikacje Java działające w aplikacjach Kubernetes, a także inne środowiska. 
+Postępuj zgodnie [ze szczegółowymi instrukcjami](./java-in-process-agent.md) , aby monitorować aplikacje Java działające w aplikacjach Kubernetes, a także inne środowiska. 
 
 ## <a name="other-languages"></a>Inne języki
 
 W przypadku aplikacji w innych językach zalecamy korzystanie z zestawów SDK:
-* [ASP.NET Core](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core)
-* [ASP.NET](https://docs.microsoft.com/azure/azure-monitor/app/asp-net)
-* [Node.js](https://docs.microsoft.com/azure/azure-monitor/app/nodejs) 
-* [JavaScript](https://docs.microsoft.com/azure/azure-monitor/app/javascript)
-* [Python](https://docs.microsoft.com/azure/azure-monitor/app/opencensus-python)
+* [ASP.NET Core](./asp-net-core.md)
+* [ASP.NET](./asp-net.md)
+* [Node.js](./nodejs.md) 
+* [JavaScript](./javascript.md)
+* [Python](./opencensus-python.md)
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Dowiedz się więcej o [Azure monitor](https://docs.microsoft.com/azure/azure-monitor/overview) i [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview)
-* Zapoznaj się z omówieniem [rozproszonego śledzenia](https://docs.microsoft.com/azure/azure-monitor/app/distributed-tracing) i zobacz, jakie [Mapowanie aplikacji](https://docs.microsoft.com/azure/azure-monitor/app/app-map?tabs=net) może być dla Twojej firmy
+* Dowiedz się więcej o [Azure monitor](../overview.md) i [Application Insights](./app-insights-overview.md)
+* Zapoznaj się z omówieniem [rozproszonego śledzenia](./distributed-tracing.md) i zobacz, jakie [Mapowanie aplikacji](./app-map.md?tabs=net) może być dla Twojej firmy

@@ -1,5 +1,5 @@
 ---
-title: Łączenie alertów programu Orca z platformą Azure — wskaźnikiem Microsoft Docs
+title: Łączenie alertów zabezpieczeń programu Orca z platformą Azure Microsoft Docs
 description: Dowiedz się, jak połączyć dane alertów zabezpieczeń programu Orca z platformą Azure, aby wyświetlić pulpity nawigacyjne, utworzyć niestandardowe alerty i poprawić badanie.
 services: sentinel
 documentationcenter: na
@@ -14,14 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2020
 ms.author: yelevin
-ms.openlocfilehash: 1f2f67281079142f0c4fe4985738dc48332a107d
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 735f4b447d7258a9b444f3b75a6537dec20b1307
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86532262"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87076275"
 ---
-# <a name="connect-your-orca-alerts-to-azure-sentinel"></a>Łączenie alertów programu Orca z platformą Azure — wskaźnikiem 
+# <a name="connect-your-orca-security-alerts-to-azure-sentinel"></a>Połącz alerty zabezpieczeń programu Orca z usługą Azure wskaźnikiem 
+
+> [!IMPORTANT]
+> Łącznik alertów zabezpieczeń programu Orca w usłudze Azure wskaźnikowej jest obecnie w publicznej wersji zapoznawczej.
+> Ta funkcja jest dostępna bez umowy dotyczącej poziomu usług i nie jest zalecana w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Łącznik alertów zabezpieczeń programu Orca umożliwia łatwe przełączenie alertów zabezpieczeń programu [Orca](https://orca.security/) do usługi Azure wskaźnikowych, aby można było wyświetlać je w skoroszytach, używać ich do tworzenia niestandardowych alertów i uwzględniania ich w celu usprawnienia badania. Integracja z alertami zabezpieczeń programu Orca i wskaźnikiem na platformie Azure oznacza korzystanie z interfejsu API REST.
 

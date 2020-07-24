@@ -6,11 +6,13 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: brendm
-ms.openlocfilehash: 81ca6b2c365b0dd8a249a337f51d78516cb2cc61
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-java
+ms.openlocfilehash: 6af23f566e8768dd1213095402b7af029d494476
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83657195"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87076038"
 ---
 # <a name="azure-spring-cloud-disaster-recovery"></a>Odzyskiwanie po awarii w chmurze z platformy Azure
 
@@ -41,8 +43,8 @@ W dwóch różnych regionach (Wschodnie stany USA i Europa Zachodnia) będą pot
 
 | Nazwa usługi | Lokalizacja | Aplikacja |
 |--|--|--|
-| Service — przykład-a | Wschodnie stany USA | Brama/uwierzytelnianie-usługa/konto — usługa |
-| Service-Sample-b | Europa Zachodnia | Brama/uwierzytelnianie-usługa/konto — usługa |
+| Service — przykład-a | East US | Brama/uwierzytelnianie-usługa/konto — usługa |
+| Service-Sample-b | West Europe | Brama/uwierzytelnianie-usługa/konto — usługa |
 
 2. Skonfiguruj domenę niestandardową dla usługi, postępując zgodnie z [dokumentem domena niestandardowa](spring-cloud-tutorial-custom-domain.md) , aby skonfigurować domenę niestandardową dla tych dwóch istniejących wystąpień usługi. Po pomyślnym skonfigurowaniu oba wystąpienia usługi zostaną powiązane z domeną niestandardową: bcdr-test.contoso.com
 
@@ -52,7 +54,7 @@ Oto profil Menedżera ruchu:
 * Traffic Manager nazwę DNS:`http://asc-bcdr.trafficmanager.net`
 * Profile punktów końcowych: 
 
-| Profil | Typ | Środowisko docelowe | Priorytet | Niestandardowe ustawienia nagłówka |
+| Profil | Typ | Cel | Priorytet | Niestandardowe ustawienia nagłówka |
 |--|--|--|--|--|
 | Punkt końcowy profilu | Zewnętrzny punkt końcowy | service-sample-a.asc-test.net | 1 | Host: bcdr-test.contoso.com |
 | Profil punktu końcowego B | Zewnętrzny punkt końcowy | service-sample-b.asc-test.net | 2 | Host: bcdr-test.contoso.com |

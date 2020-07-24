@@ -8,11 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 674ca8bea110d60557d1e50e7b68c9c3f7a92bf2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f90f5f4298fcca77e293965ddd377598bcfd1930
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77564588"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077307"
 ---
 # <a name="use-azure-ad-as-an-identity-provider-for-vcenter-on-cloudsimple-private-cloud"></a>Użyj usługi Azure AD jako dostawcy tożsamości dla programu vCenter w chmurze prywatnej CloudSimple
 
@@ -45,7 +46,7 @@ Przed rozpoczęciem będziesz potrzebować dostępu do subskrypcji platformy Azu
 > [!NOTE]
 > Jeśli masz już usługę Azure AD, możesz pominąć tę sekcję.
 
-1. Skonfiguruj usługę Azure AD w ramach subskrypcji zgodnie z opisem w [dokumentacji usługi Azure AD](../active-directory/fundamentals/get-started-azure-ad.md).
+1. Skonfiguruj usługę Azure AD w ramach subskrypcji zgodnie z opisem w [dokumentacji usługi Azure AD](../active-directory/fundamentals/active-directory-whatis.md).
 2. Włącz Azure Active Directory — wersja Premium w ramach subskrypcji zgodnie z opisem w temacie [Rejestrowanie się](../active-directory/fundamentals/active-directory-get-started-premium.md)w usłudze Azure Active Directory — wersja Premium.
 3. Skonfiguruj niestandardową nazwę domeny i sprawdź niestandardową nazwę domeny zgodnie z opisem w polu [Dodaj niestandardową nazwę domeny do Azure Active Directory](../active-directory/fundamentals/add-custom-domain.md).
     1. Skonfiguruj rekord DNS w rejestratorze domeny z informacjami podanymi na platformie Azure.
@@ -58,17 +59,17 @@ Opcjonalnie można skonfigurować inne funkcje usługi Azure AD.  Nie są one wy
 > [!NOTE]
 > Jest to ważny krok do włączenia usługi Azure AD jako źródła tożsamości dla serwera vCenter.  Aby uniknąć problemów, należy się upewnić, że wszystkie kroki są wykonywane poprawnie.
 
-1. Włącz usługi domenowe Azure AD zgodnie z opisem w temacie [Włączanie usług domenowych Azure Active Directory przy użyciu Azure Portal](../active-directory-domain-services/active-directory-ds-getting-started.md).
-2. Skonfiguruj sieć, która będzie używana przez usługi domenowe Azure AD, zgodnie z opisem w temacie [włączanie Azure Active Directory Domain Services przy użyciu Azure Portal](../active-directory-domain-services/active-directory-ds-getting-started-network.md).
-3. Skonfiguruj grupę administratorów do zarządzania Azure AD Domain Services zgodnie z opisem w temacie [włączanie Azure Active Directory Domain Services przy użyciu Azure Portal](../active-directory-domain-services/active-directory-ds-getting-started-admingroup.md).
-4. Zaktualizuj ustawienia DNS dla Azure AD Domain Services zgodnie z opisem w artykule [włączanie Azure Active Directory Domain Services](../active-directory-domain-services/active-directory-ds-getting-started-dns.md).  Jeśli chcesz nawiązać połączenie z usługą AD za pośrednictwem Internetu, skonfiguruj rekord DNS dla publicznego adresu IP usług domenowych Azure AD na nazwę domeny.
-5. Włącz synchronizację skrótów haseł dla użytkowników.  Ten krok umożliwia synchronizację skrótów haseł wymaganych przez program NT LAN Manager (NTLM) i uwierzytelnianie Kerberos do Azure AD Domain Services. Po skonfigurowaniu synchronizacji skrótów haseł użytkownik może zalogować się do domeny zarządzanej przy użyciu poświadczeń firmowych. Zobacz [Włączanie synchronizacji skrótów haseł, aby Azure Active Directory Domain Services](../active-directory-domain-services/active-directory-ds-getting-started-password-sync.md).
+1. Włącz usługi domenowe Azure AD zgodnie z opisem w temacie [Włączanie usług domenowych Azure Active Directory przy użyciu Azure Portal](../active-directory-domain-services/tutorial-create-instance.md).
+2. Skonfiguruj sieć, która będzie używana przez usługi domenowe Azure AD, zgodnie z opisem w temacie [włączanie Azure Active Directory Domain Services przy użyciu Azure Portal](../active-directory-domain-services/tutorial-create-instance.md).
+3. Skonfiguruj grupę administratorów do zarządzania Azure AD Domain Services zgodnie z opisem w temacie [włączanie Azure Active Directory Domain Services przy użyciu Azure Portal](../active-directory-domain-services/tutorial-create-instance.md).
+4. Zaktualizuj ustawienia DNS dla Azure AD Domain Services zgodnie z opisem w artykule [włączanie Azure Active Directory Domain Services](../active-directory-domain-services/tutorial-create-instance.md).  Jeśli chcesz nawiązać połączenie z usługą AD za pośrednictwem Internetu, skonfiguruj rekord DNS dla publicznego adresu IP usług domenowych Azure AD na nazwę domeny.
+5. Włącz synchronizację skrótów haseł dla użytkowników.  Ten krok umożliwia synchronizację skrótów haseł wymaganych przez program NT LAN Manager (NTLM) i uwierzytelnianie Kerberos do Azure AD Domain Services. Po skonfigurowaniu synchronizacji skrótów haseł użytkownik może zalogować się do domeny zarządzanej przy użyciu poświadczeń firmowych. Zobacz [Włączanie synchronizacji skrótów haseł, aby Azure Active Directory Domain Services](../active-directory-domain-services/tutorial-create-instance.md).
     1. Jeśli istnieją użytkownicy tylko w chmurze, muszą zmienić hasło przy użyciu <a href="http://myapps.microsoft.com/" target="_blank">panelu dostępu usługi Azure AD</a> , aby zapewnić, że skróty haseł są przechowywane w formacie wymaganym przez protokół NTLM lub Kerberos.  Postępuj zgodnie z instrukcjami w temacie [Włączanie synchronizacji skrótów haseł do domeny zarządzanej dla kont użytkowników tylko w chmurze](../active-directory-domain-services/tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds).  Ten krok należy wykonać dla poszczególnych użytkowników i każdego nowego użytkownika, który został utworzony w katalogu usługi Azure AD za pomocą poleceń cmdlet programu PowerShell Azure Portal lub Azure AD. Użytkownicy, którzy potrzebują dostępu do usług domenowych Azure AD, muszą użyć <a href="http://myapps.microsoft.com/" target="_blank">panelu dostępu usługi Azure AD</a> i uzyskać dostęp do swojego profilu, aby zmienić hasło.
 
         > [!NOTE]
         > Jeśli organizacja ma konta użytkowników tylko w chmurze, wszyscy użytkownicy, którzy muszą korzystać z usług Azure Active Directory Domain Services, muszą zmienić swoje hasła. Konto użytkownika tylko w chmurze to konto, które zostało utworzone w katalogu usługi Azure AD przy użyciu witryny Azure Portal lub poleceń cmdlet programu Azure AD PowerShell. Takie konta użytkownika nie są synchronizowane z poziomu katalogu lokalnego.
 
-    2. Jeśli synchronizujesz hasła z lokalnej usługi Active Directory, wykonaj kroki opisane w [dokumentacji Active Directory](../active-directory-domain-services/active-directory-ds-getting-started-password-sync-synced-tenant.md).
+    2. Jeśli synchronizujesz hasła z lokalnej usługi Active Directory, wykonaj kroki opisane w [dokumentacji Active Directory](../active-directory-domain-services/tutorial-configure-password-hash-sync.md).
 
 6.  Skonfiguruj bezpieczny protokół LDAP na Azure Active Directory Domain Services zgodnie z opisem w temacie [Konfigurowanie bezpiecznego protokołu LDAP (LDAPS) dla domeny zarządzanej Azure AD Domain Services](../active-directory-domain-services/tutorial-configure-ldaps.md).
     1. Przekaż certyfikat do użycia przez bezpieczny protokół LDAP zgodnie z opisem w temacie [dotyczącym platformy Azure uzyskaj certyfikat dla bezpiecznego protokołu LDAP](../active-directory-domain-services/tutorial-configure-ldaps.md#create-a-certificate-for-secure-ldap).  CloudSimple zaleca użycie podpisanego certyfikatu wystawionego przez urząd certyfikacji, aby upewnić się, że program vCenter może ufać certyfikatowi.
@@ -92,7 +93,7 @@ Opcjonalnie można skonfigurować inne funkcje usługi Azure AD.  Nie są one wy
     | **Podstawowy adres URL serwera** | Serwer LDAP podstawowego kontrolera domeny dla domeny.<br><br>Użyj formatu  `ldaps://hostname:port` . Port jest zazwyczaj 636 dla połączeń LDAPs. <br><br>Certyfikat, który ustanawia zaufanie dla punktu końcowego LDAPs serwera Active Directory, jest wymagany w przypadku użycia  `ldaps://`   w podstawowym lub pomocniczym adresie URL LDAP. |
     | **Adres URL serwera pomocniczego** | Adres serwera LDAP pomocniczego kontrolera domeny, który jest używany do pracy w trybie failover. |
     | **Wybieranie certyfikatu** | Jeśli chcesz używać LDAPs z serwerem LDAP Active Directory lub źródłem tożsamości serwera OpenLDAP, po wpisaniu  `ldaps://`   w polu tekstowym adresu URL zostanie wyświetlony przycisk Wybierz certyfikat. Pomocniczy adres URL nie jest wymagany. |
-    | **Uż** | Identyfikator użytkownika w domenie, który ma minimalny dostęp tylko do odczytu do podstawowej nazwy wyróżniającej dla użytkowników i grup. |
+    | **Nazwa użytkownika** | Identyfikator użytkownika w domenie, który ma minimalny dostęp tylko do odczytu do podstawowej nazwy wyróżniającej dla użytkowników i grup. |
     | **Hasło** | Hasło użytkownika, który jest określony przez nazwę użytkownika. |
 
 3. Zaloguj się do prywatnej chmury programu vCenter po eskalacji uprawnień.

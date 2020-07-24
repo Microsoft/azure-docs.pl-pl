@@ -8,11 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: c3c34ea9e32e100d5756a3930ce9d0147363e379
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 7ea1995b6d1232b3e4c6371313e5b3d45bdbb756
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027877"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075401"
 ---
 # <a name="use-creator-to-create-indoor-maps"></a>Tworzenie map wewnętrznych przy użyciu kreatora
 
@@ -31,7 +32,7 @@ W tym samouczku pokazano, jak utworzyć mapy wewnętrzne. W tym samouczku dowies
 
 Aby utworzyć mapy wewnętrzne:
 
-1. [Utwórz konto Azure Maps](quick-demo-map-app.md#create-an-account-with-azure-maps)
+1. [Utwórz konto Azure Maps](quick-demo-map-app.md#create-an-azure-maps-account)
 2. [Uzyskaj podstawowy klucz subskrypcji](quick-demo-map-app.md#get-the-primary-key-for-your-account), nazywany także kluczem podstawowym lub kluczem subskrypcji.
 3. [Tworzenie zasobu twórcy](how-to-manage-creator.md)
 4. Pobierz [przykładowy pakiet rysowania](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
@@ -51,7 +52,7 @@ Interfejs API przekazywania danych to długotrwała transakcja implementująca w
 
 2. Aby utworzyć żądanie, wybierz pozycję **nowe** ponownie. W oknie **Tworzenie nowego** okna wybierz pozycję **Żądaj**. Wprowadź **nazwę żądania** dla żądania. Wybierz kolekcję utworzoną w poprzednim kroku, a następnie wybierz pozycję **Zapisz**.
 
-3. Wybierz metodę **post** http na karcie Konstruktor i wprowadź następujący adres URL, aby przekazać pakiet rysowania do usługi Azure Maps. W przypadku tego żądania i innych żądań wymienionych w tym artykule Zastąp `<Azure-Maps-Primary-Subscription-key>` klucz subskrypcji podstawowym.
+3. Wybierz metodę **post** http na karcie Konstruktor i wprowadź następujący adres URL, aby przekazać pakiet rysowania do usługi Azure Maps. W przypadku tego żądania i innych żądań wymienionych w tym artykule Zastąp `{Azure-Maps-Primary-Subscription-key}` klucz subskrypcji podstawowym.
 
     ```http
     https://atlas.microsoft.com/mapData/upload?api-version=1.0&dataFormat=zip&subscription-key={Azure-Maps-Primary-Subscription-key}
@@ -66,7 +67,7 @@ Interfejs API przekazywania danych to długotrwała transakcja implementująca w
 6. Aby sprawdzić stan wywołania interfejsu API, Utwórz żądanie **Get** http na stronie `status URL` . Musisz dołączyć podstawowy klucz subskrypcji do adresu URL na potrzeby uwierzytelniania. Żądanie **Get** powinno wyglądać następująco:
 
     ```http
-    https://atlas.microsoft.com/mapData/operations/{operationId}?api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}
+    https://atlas.microsoft.com/mapData/operations/<operationId>?api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
 7. Pomyślne zakończenie żądania **Get** http spowoduje zwrócenie elementu `resourceLocation` . `resourceLocation`Zawiera unikatowy `udid` dla przekazanej zawartości. Opcjonalnie możesz użyć `resourceLocation` adresu URL, aby pobrać metadane z tego zasobu w następnym kroku.
@@ -156,7 +157,7 @@ Przykładowy pakiet rysowania powinien zostać skonwertowany bez błędów lub o
 
 Zestaw danych to zbiór funkcji mapy, takich jak budynki, poziomy i pokoje. Aby utworzyć zestaw danych, użyj [interfejsu API tworzenia zestawu danych](https://docs.microsoft.com/rest/api/maps/dataset/createpreview). Interfejs API tworzenia zestawu danych przyjmuje `conversionId` dla przekonwertowanego pakietu rysowania i zwraca `datasetId` z utworzonego zestawu danych. Poniższe kroki pokazują, jak utworzyć zestaw danych.
 
-1. W aplikacji pocztowej wybierz pozycję **Nowy**. W oknie **Tworzenie nowego** okna wybierz pozycję **Żądaj**. Wprowadź **nazwę żądania** i wybierz kolekcję. Kliknij przycisk **Zapisz**
+1. W aplikacji pocztowej wybierz pozycję **Nowy**. W oknie **Tworzenie nowego** okna wybierz pozycję **Żądaj**. Wprowadź **nazwę żądania** i wybierz kolekcję. Kliknij pozycję **Zapisz**
 
 2. Wprowadź żądanie **post** do [zestawu danych Utwórz interfejs API](https://docs.microsoft.com/rest/api/maps/dataset/createpreview) , aby utworzyć nowy zestaw danych. Przed przesłaniem żądania Dołącz zarówno klucz subskrypcji, jak i `conversionId` `conversionId` uzyskany podczas procesu konwersji w kroku 5.  Żądanie powinno wyglądać następująco:
 
@@ -169,7 +170,7 @@ Zestaw danych to zbiór funkcji mapy, takich jak budynki, poziomy i pokoje. Aby 
 4. Utwórz żądanie **Get** w usłudze, `statusURL` Aby uzyskać `datasetId` . Dołącz podstawowy klucz subskrypcji Azure Maps na potrzeby uwierzytelniania. Żądanie powinno wyglądać następująco:
 
     ```http
-    https://atlas.microsoft.com/dataset/operations/{operationId}?api-version=1.0&subscription-key=<Azure-Maps-Primary-Subscription-key>
+    https://atlas.microsoft.com/dataset/operations/<operationId>?api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
 5. Po pomyślnym zakończeniu żądania **Get** http nagłówek odpowiedzi będzie zawierać `datasetId` dla utworzonego zestawu danych. Skopiuj `datasetId` . Musisz użyć `datasetId` elementu, aby utworzyć tileset.
@@ -187,7 +188,7 @@ Zestaw danych to zbiór funkcji mapy, takich jak budynki, poziomy i pokoje. Aby 
 
 Tileset to zbiór kafelków wektorowych, które są renderowane na mapie. Tilesets są tworzone na podstawie istniejących zestawów danych. Jednak tileset jest niezależny od zestawu danych, z którego pochodzi. Jeśli zestaw danych zostanie usunięty, tileset będzie nadal istnieć. Aby utworzyć tileset, wykonaj następujące czynności:
 
-1. W aplikacji pocztowej wybierz pozycję **Nowy**. W oknie **Tworzenie nowego** okna wybierz pozycję **Żądaj**. Wprowadź **nazwę żądania** i wybierz kolekcję. Kliknij przycisk **Zapisz**
+1. W aplikacji pocztowej wybierz pozycję **Nowy**. W oknie **Tworzenie nowego** okna wybierz pozycję **Żądaj**. Wprowadź **nazwę żądania** i wybierz kolekcję. Kliknij pozycję **Zapisz**
 
 2. Utwórz żądanie **post** na karcie Konstruktor. Adres URL żądania powinien wyglądać następująco:
 
@@ -198,7 +199,7 @@ Tileset to zbiór kafelków wektorowych, które są renderowane na mapie. Tilese
 3. Utwórz żądanie **Get** w `statusURL` tileset. Dołącz podstawowy klucz subskrypcji Azure Maps na potrzeby uwierzytelniania. Żądanie powinno wyglądać następująco:
 
    ```http
-    https://atlas.microsoft.com/tileset/operations/{operationId}?api-version=1.0&subscription-key=<Azure-Maps-Primary-Subscription-key>
+    https://atlas.microsoft.com/tileset/operations/<operationId>?api-version=1.0&subscription-key=<Azure-Maps-Primary-Subscription-key>
     ```
 
 4. Po pomyślnym zakończeniu żądania **Get** http nagłówek odpowiedzi będzie zawierać `tilesetId` dla utworzonego tileset. Skopiuj `tilesetId` .
@@ -216,7 +217,7 @@ Tileset to zbiór kafelków wektorowych, które są renderowane na mapie. Tilese
 
  Do zestawów danych można wykonywać zapytania przy użyciu [interfejsu API WFS](https://docs.microsoft.com/rest/api/maps/wfs). Za pomocą interfejsu API WFS można wykonywać zapytania dotyczące kolekcji funkcji, określonej kolekcji lub konkretnej funkcji z **identyfikatorem**funkcji. **Identyfikator** funkcji jednoznacznie identyfikuje funkcję w zestawie danych. Jest on używany na przykład w celu określenia, który stan funkcji należy zaktualizować w danym stateset.
 
-1. W aplikacji pocztowej wybierz pozycję **Nowy**. W oknie **Tworzenie nowego** okna wybierz pozycję **Żądaj**. Wprowadź **nazwę żądania** i wybierz kolekcję. Kliknij przycisk **Zapisz**
+1. W aplikacji pocztowej wybierz pozycję **Nowy**. W oknie **Tworzenie nowego** okna wybierz pozycję **Żądaj**. Wprowadź **nazwę żądania** i wybierz kolekcję. Kliknij pozycję **Zapisz**
 
 2. Utwórz żądanie **Get** , aby wyświetlić listę kolekcji w zestawie danych. Zamień `<dataset-id>` na swoje `datasetId` . Użyj Azure Maps klucza podstawowego zamiast symbolu zastępczego. Żądanie powinno wyglądać następująco:
 
@@ -292,7 +293,7 @@ Tileset to zbiór kafelków wektorowych, które są renderowane na mapie. Tilese
 
 ## <a name="create-a-feature-stateset"></a>Tworzenie funkcji stateset
 
-1. W aplikacji pocztowej wybierz pozycję **Nowy**. W oknie **Tworzenie nowego** okna wybierz pozycję **Żądaj**. Wprowadź **nazwę żądania** i wybierz kolekcję. Kliknij przycisk **Zapisz**
+1. W aplikacji pocztowej wybierz pozycję **Nowy**. W oknie **Tworzenie nowego** okna wybierz pozycję **Żądaj**. Wprowadź **nazwę żądania** i wybierz kolekcję. Kliknij pozycję **Zapisz**
 
 2. Wprowadź żądanie **post** do [interfejsu API tworzenia Stateset](https://docs.microsoft.com/rest/api/maps/featurestate/createstatesetpreview). Użyj `datasetId` zestawu danych, który zawiera stan, który chcesz zmodyfikować. Żądanie powinno wyglądać następująco:
 
@@ -424,7 +425,7 @@ Dowiedz się więcej na temat różnych Azure Maps usług omówionych w tym arty
 > [Konwersja danych](creator-indoor-maps.md#convert-a-drawing-package)
 
 > [!div class="nextstepaction"]
-> [Dataset](creator-indoor-maps.md#datasets)
+> [Zestaw danych](creator-indoor-maps.md#datasets)
 
 > [!div class="nextstepaction"]
 > [Tileset](creator-indoor-maps.md#tilesets)

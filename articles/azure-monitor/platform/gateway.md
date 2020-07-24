@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 12/24/2019
-ms.openlocfilehash: a92e96a835f24ac54fa55b05086a35b9a91d609e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 550b4fb7ba17d911618e0b60d16c0a9f9d1f2cfa
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80298334"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077273"
 ---
 # <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway-in-azure-monitor"></a>Łączenie komputerów bez dostępu do Internetu przy użyciu bramy Log Analytics w programie Azure Monitor
 
@@ -136,12 +136,12 @@ Aby zainstalować bramę przy użyciu Kreatora instalacji, wykonaj następujące
 
    b. Jeśli serwer, na którym zainstalowano bramę, musi komunikować się za pomocą serwera proxy, wprowadź adres serwera proxy, pod którym Brama musi nawiązać połączenie. Na przykład wprowadź `http://myorgname.corp.contoso.com:80`.  Jeśli to pole pozostanie puste, Brama będzie podejmować próby nawiązania bezpośredniego połączenia z Internetem.  Jeśli serwer proxy wymaga uwierzytelnienia, wprowadź nazwę użytkownika i hasło.
 
-   c. Wybierz pozycję **Dalej**.
+   c. Wybierz pozycję **Next** (Dalej).
 
    ![Zrzut ekranu przedstawiający konfigurację serwera proxy bramy](./media/gateway/gateway-wizard02.png)
 
 1. Jeśli nie masz włączonej Microsoft Update, zostanie wyświetlona strona Microsoft Update i będzie można ją włączyć. Wybierz pozycję, a następnie kliknij przycisk **dalej**. W przeciwnym razie przejdź do następnego kroku.
-1. Na stronie **folder docelowy** pozostaw folder domyślny C:\Program Files\OMS Gateway lub wprowadź lokalizację, w której chcesz zainstalować bramę. Następnie wybierz pozycję **Dalej**.
+1. Na stronie **folder docelowy** pozostaw folder domyślny C:\Program Files\OMS Gateway lub wprowadź lokalizację, w której chcesz zainstalować bramę. Następnie wybierz przycisk **Dalej**.
 1. Na stronie **gotowy do instalacji** wybierz pozycję **Zainstaluj**. Jeśli Kontrola konta użytkownika żąda uprawnień do instalacji, wybierz pozycję **tak**.
 1. Po zakończeniu instalacji wybierz pozycję **Zakończ**. Aby sprawdzić, czy usługa jest uruchomiona, Otwórz przystawkę Services. msc i sprawdź, czy **brama pakietu OMS** jest wyświetlana na liście usług i czy jej stan jest **uruchomiony**.
 
@@ -149,7 +149,7 @@ Aby zainstalować bramę przy użyciu Kreatora instalacji, wykonaj następujące
 
 ## <a name="install-the-log-analytics-gateway-using-the-command-line"></a>Instalowanie bramy Log Analytics przy użyciu wiersza polecenia
 
-Pobrany plik dla bramy to pakiet Instalator Windows obsługujący instalację dyskretną z poziomu wiersza polecenia lub innej metody zautomatyzowanej. Jeśli nie znasz standardowych opcji wiersza polecenia dla Instalator Windows, zobacz [Opcje wiersza polecenia](https://docs.microsoft.com/windows/desktop/Msi/command-line-options).
+Pobrany plik dla bramy to pakiet Instalator Windows obsługujący instalację dyskretną z poziomu wiersza polecenia lub innej metody zautomatyzowanej. Jeśli nie znasz standardowych opcji wiersza polecenia dla Instalator Windows, zobacz [Opcje wiersza polecenia](/windows/desktop/msi/command-line-options).
  
 W poniższej tabeli przedstawiono parametry obsługiwane przez Instalatora.
 
@@ -185,11 +185,11 @@ Po zakończeniu instalacji można potwierdzić, że ustawienia są akceptowane (
 
 ## <a name="configure-network-load-balancing"></a>Konfigurowanie równoważenia obciążenia sieciowego
 
-Bramę można skonfigurować pod kątem wysokiej dostępności przy użyciu funkcji równoważenia obciążenia sieciowego (NLB), korzystając z usługi równoważenia obciążenia sieciowego firmy Microsoft [(NLB)](https://docs.microsoft.com/windows-server/networking/technologies/network-load-balancing), [Azure Load Balancer](../../load-balancer/load-balancer-overview.md)lub sprzętowych modułów równoważenia obciążenia. Moduł równoważenia obciążenia zarządza ruchem przez przekierowanie żądanych połączeń z agentów Log Analytics lub serwerów zarządzania Operations Manager między swoimi węzłami. Jeśli jeden serwer bramy ulegnie awarii, ruch jest przekierowywany do innych węzłów.
+Bramę można skonfigurować pod kątem wysokiej dostępności przy użyciu funkcji równoważenia obciążenia sieciowego (NLB), korzystając z usługi równoważenia obciążenia sieciowego firmy Microsoft [(NLB)](/windows-server/networking/technologies/network-load-balancing), [Azure Load Balancer](../../load-balancer/load-balancer-overview.md)lub sprzętowych modułów równoważenia obciążenia. Moduł równoważenia obciążenia zarządza ruchem przez przekierowanie żądanych połączeń z agentów Log Analytics lub serwerów zarządzania Operations Manager między swoimi węzłami. Jeśli jeden serwer bramy ulegnie awarii, ruch jest przekierowywany do innych węzłów.
 
 ### <a name="microsoft-network-load-balancing"></a>Równoważenie obciążenia sieciowego firmy Microsoft
 
-Aby dowiedzieć się, jak projektować i wdrażać klaster równoważenia obciążenia sieciowego systemu Windows Server 2016, zobacz [równoważenie obciążenia sieciowego](https://docs.microsoft.com/windows-server/networking/technologies/network-load-balancing). Poniższe kroki opisują sposób konfigurowania klastra równoważenia obciążenia sieciowego firmy Microsoft.  
+Aby dowiedzieć się, jak projektować i wdrażać klaster równoważenia obciążenia sieciowego systemu Windows Server 2016, zobacz [równoważenie obciążenia sieciowego](/windows-server/networking/technologies/network-load-balancing). Poniższe kroki opisują sposób konfigurowania klastra równoważenia obciążenia sieciowego firmy Microsoft.  
 
 1. Zaloguj się na serwerze z systemem Windows, który jest członkiem klastra równoważenia obciążenia sieciowego przy użyciu konta administracyjnego.  
 2. Otwórz Menedżera równoważenia obciążenia sieciowego w Menedżer serwera, kliknij przycisk **Narzędzia**, a następnie kliknij pozycję **Menedżer równoważenia obciążenia sieciowego**.
@@ -350,7 +350,7 @@ Aby zbierać zdarzenia zarejestrowane przez bramę, należy zainstalować agenta
 
 W poniższej tabeli przedstawiono identyfikatory i opisy zdarzeń dotyczących zdarzeń dziennika bramy Log Analytics.
 
-| **ID** | **Opis** |
+| **#C1** | **Opis** |
 | --- | --- |
 | 400 |Dowolny błąd aplikacji, który nie ma określonego identyfikatora. |
 | 401 |Nieprawidłowa konfiguracja. Na przykład, listenPort = "text" zamiast liczby całkowitej. |

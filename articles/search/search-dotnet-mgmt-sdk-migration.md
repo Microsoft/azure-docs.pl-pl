@@ -8,13 +8,13 @@ ms.author: brjohnst
 ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 07/01/2020
-ms.openlocfilehash: 436c2620b83513a2b814e050b2ae6407930b082d
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.date: 07/08/2020
+ms.openlocfilehash: 5f6a198445f9c9bd8e02cd8b6df3405431263e0b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86232053"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87076414"
 ---
 # <a name="upgrading-versions-of-the-azure-search-net-management-sdk"></a>Uaktualnianie wersji Azure Search .NET Management SDK
 
@@ -46,15 +46,15 @@ Wersja 3,0 dodaje prywatną ochronę punktu końcowego przez ograniczenie dostę
 
 ### <a name="new-apis"></a>Nowe interfejsy API
 
-| API | Kategoria| Szczegóły |
+| Interfejs API | Kategoria| Szczegóły |
 |-----|--------|------------------|
 | [NetworkRuleSet](https://docs.microsoft.com/rest/api/searchmanagement/services/createorupdate#networkruleset) | Zapora IP | Ogranicz dostęp do punktu końcowego usługi do listy dozwolonych adresów IP. Zobacz [Konfigurowanie zapory IP](service-configure-firewall.md) dla koncepcji i instrukcje dotyczące portalu. |
-| [Zasób udostępnionego linku prywatnego](https://docs.microsoft.com/rest/api/searchmanagement/sharedprivatelinkresources) | Link prywatny | Utwórz współużytkowany zasób linku prywatnego, który będzie używany przez usługę wyszukiwania.  |
-| [Połączenia prywatnego punktu końcowego](https://docs.microsoft.com/rest/api/searchmanagement/privateendpointconnections) | Link prywatny | Ustanów połączenia z usługą wyszukiwania i zarządzaj nimi za pomocą prywatnego punktu końcowego. Zobacz [Tworzenie prywatnego punktu końcowego](service-create-private-endpoint.md) dla pojęć i instrukcji dotyczących portalu.|
-| [Prywatne zasoby linku](https://docs.microsoft.com/rest/api/searchmanagement/privatelinkresources/) | Link prywatny | W przypadku usługi wyszukiwania z połączeniem prywatnego punktu końcowego Uzyskaj listę wszystkich usług używanych w tej samej sieci wirtualnej. Jeśli rozwiązanie wyszukiwania obejmuje indeksatory ściągające ze źródeł danych platformy Azure (Azure Storage, Cosmos DB, Azure SQL) lub używają Cognitive Services lub Key Vault, wszystkie te zasoby powinny mieć punkty końcowe w sieci wirtualnej, a ten interfejs API powinien zwrócić listę. |
-| [PublicNetworkAccess](https://docs.microsoft.com/rest/api/searchmanagement/services/createorupdate#publicnetworkaccess)| Link prywatny | Jest to właściwość podczas tworzenia lub aktualizacji żądań obsługi. Po wyłączeniu link prywatny jest jedynym modalnym dostępem. |
+| [Zasób udostępnionego linku prywatnego](https://docs.microsoft.com/rest/api/searchmanagement/sharedprivatelinkresources) | Private Link | Utwórz współużytkowany zasób linku prywatnego, który będzie używany przez usługę wyszukiwania.  |
+| [Połączenia prywatnego punktu końcowego](https://docs.microsoft.com/rest/api/searchmanagement/privateendpointconnections) | Private Link | Ustanów połączenia z usługą wyszukiwania i zarządzaj nimi za pomocą prywatnego punktu końcowego. Zobacz [Tworzenie prywatnego punktu końcowego](service-create-private-endpoint.md) dla pojęć i instrukcji dotyczących portalu.|
+| [Prywatne zasoby linku](https://docs.microsoft.com/rest/api/searchmanagement/privatelinkresources/) | Private Link | W przypadku usługi wyszukiwania z połączeniem prywatnego punktu końcowego Uzyskaj listę wszystkich usług używanych w tej samej sieci wirtualnej. Jeśli rozwiązanie wyszukiwania obejmuje indeksatory ściągające ze źródeł danych platformy Azure (Azure Storage, Cosmos DB, Azure SQL) lub używają Cognitive Services lub Key Vault, wszystkie te zasoby powinny mieć punkty końcowe w sieci wirtualnej, a ten interfejs API powinien zwrócić listę. |
+| [PublicNetworkAccess](https://docs.microsoft.com/rest/api/searchmanagement/services/createorupdate#publicnetworkaccess)| Private Link | Jest to właściwość podczas tworzenia lub aktualizacji żądań obsługi. Po wyłączeniu link prywatny jest jedynym modalnym dostępem. |
 
-### <a name="breaking-changes"></a>Zmiany powodujące niezgodność
+### <a name="breaking-changes"></a>Fundamentalne zmiany
 
 Nie można już używać funkcji GET na [liście kluczy zapytań](https://docs.microsoft.com/rest/api/searchmanagement/querykeys/listbysearchservice) . W poprzednich wersjach można było użyć opcji GET lub POST, w tej wersji i we wszystkich wersjach przenoszonych do przodu, obsługiwane są tylko pozycje POST. 
 

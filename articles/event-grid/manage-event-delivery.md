@@ -2,19 +2,22 @@
 title: Utracony komunikat i zasady ponawiania — Azure Event Grid
 description: Opisuje sposób dostosowywania opcji dostarczania zdarzeń dla Event Grid. Ustaw miejsce docelowe utraconych wiadomości, a następnie określ, jak długo ma być ponawiane dostarczanie.
 ms.topic: conceptual
-ms.date: 07/07/2020
-ms.openlocfilehash: 88e782eb7dafc10956120bdae870aa2eb58778a5
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 07/20/2020
+ms.openlocfilehash: 2ff1d05899fb74583489649154ffa062e857cb95
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86105510"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074886"
 ---
 # <a name="dead-letter-and-retry-policies"></a>Utracony i ponawianie zasad
 
 Podczas tworzenia subskrypcji zdarzeń można dostosować ustawienia dostarczania zdarzeń. W tym artykule opisano sposób konfigurowania martwej lokalizacji i dostosowywania ustawień ponownych prób. Aby uzyskać informacje o tych funkcjach, zobacz [Event Grid dostarczania komunikatów i ponów próbę](delivery-and-retry.md).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+> [!NOTE]
+> Aby dowiedzieć się więcej na temat dostarczania komunikatów, ponawiania prób i utraconych wiadomości, zobacz artykuł [dotyczący pojęć: Event Grid dostarczania komunikatów i ponów próbę]().
 
 ## <a name="set-dead-letter-location"></a>Ustaw lokalizację wiadomości utraconych
 
@@ -95,7 +98,8 @@ az eventgrid event-subscription create \
   --max-delivery-attempts 18
 ```
 
-Po ustawieniu obu tych opcji `event-ttl` i `max-deliver-attempts` , Event Grid używa pierwszej do wygaśnięcia, aby określić, kiedy należy zatrzymać dostarczanie zdarzeń.
+> [!NOTE]
+> Po ustawieniu obu tych opcji `event-ttl` i `max-deliver-attempts` , Event Grid używa pierwszej do wygaśnięcia, aby określić, kiedy należy zatrzymać dostarczanie zdarzeń. Na przykład jeśli ustawisz 30 minut jako czas wygaśnięcia (TTL) i 10 maksymalnej liczby prób dostarczenia. Gdy zdarzenie nie zostanie dostarczone po 30 minutach (lub) nie zostanie dostarczone po 10 próbach, w zależności od tego, gdy wystąpi pierwsze, zdarzenie zostanie utracone.  
 
 ### <a name="powershell"></a>PowerShell
 
@@ -123,7 +127,8 @@ New-AzEventGridSubscription `
   -MaxDeliveryAttempt 18
 ```
 
-Po ustawieniu obu tych opcji `EventTtl` i `MaxDeliveryAttempt` , Event Grid używa pierwszej do wygaśnięcia, aby określić, kiedy należy zatrzymać dostarczanie zdarzeń.
+> [!NOTE]
+> Po ustawieniu obu tych opcji `event-ttl` i `max-deliver-attempts` , Event Grid używa pierwszej do wygaśnięcia, aby określić, kiedy należy zatrzymać dostarczanie zdarzeń. Na przykład jeśli ustawisz 30 minut jako czas wygaśnięcia (TTL) i 10 maksymalnej liczby prób dostarczenia. Gdy zdarzenie nie zostanie dostarczone po 30 minutach (lub) nie zostanie dostarczone po 10 próbach, w zależności od tego, gdy wystąpi pierwsze, zdarzenie zostanie utracone.  
 
 ## <a name="next-steps"></a>Następne kroki
 

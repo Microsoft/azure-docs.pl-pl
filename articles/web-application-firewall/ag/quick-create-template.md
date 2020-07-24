@@ -1,39 +1,41 @@
 ---
-title: 'Szybki Start: Tworzenie usługi Azure WAF V2 na Application Gateway — Menedżer zasobów szablon'
+title: 'Szybki Start: Tworzenie usługi Azure WAF V2 na Application Gateway — Azure Resource Manager szablon'
 titleSuffix: Azure Application Gateway
-description: Dowiedz się, jak za pomocą szablonu Menedżer zasobów utworzyć zaporę aplikacji sieci Web w wersji 2 na platformie Azure Application Gateway.
+description: Dowiedz się, jak używać szablonu Azure Resource Manager (szablon ARM) do tworzenia zapory aplikacji sieci Web V2 na platformie Azure Application Gateway.
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
 ms.topic: quickstart
 ms.date: 04/02/2020
 ms.author: victorh
-ms.openlocfilehash: 6759071e73adfd3af4ac780da6db3a0e6e967ea1
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 081bab0cd930d90ca0d359461e4a41b15ba4911b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81617976"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075511"
 ---
-# <a name="quickstart-create-an-azure-waf-v2-on-application-gateway---resource-manager-template"></a>Szybki Start: Tworzenie usługi Azure WAF V2 na Application Gateway — Menedżer zasobów szablon
+# <a name="quickstart-create-an-azure-waf-v2-on-application-gateway-using-an-arm-template"></a>Szybki Start: Tworzenie usługi Azure WAF V2 na Application Gateway przy użyciu szablonu ARM
 
-W tym przewodniku szybki start użyjesz szablonu Menedżer zasobów, aby utworzyć zaporę aplikacji sieci Web platformy Azure w wersji 2 na Application Gateway.
+W tym przewodniku szybki start użyjesz szablonu Azure Resource Manager (szablon ARM), aby utworzyć zaporę aplikacji sieci Web platformy Azure w wersji 2 na Application Gateway.
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
+Jeśli Twoje środowisko spełnia wymagania wstępne i masz doświadczenie w korzystaniu z szablonów ARM, wybierz przycisk **Wdróż na platformie Azure**. Szablon zostanie otwarty w witrynie Azure Portal.
+
+[![Wdrażanie na platformie Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fag-docs-wafv2%2Fazuredeploy.json)
+
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 - Konto platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## <a name="create-a-web-application-firewall"></a>Tworzenie zapory aplikacji sieci Web
+## <a name="review-the-template"></a>Przegląd szablonu
 
 Ten szablon tworzy prostą zaporę aplikacji sieci Web V2 na platformie Azure Application Gateway. Obejmuje on publiczny adres IP frontonu IP, ustawienia protokołu HTTP, regułę z odbiornikiem podstawowym na porcie 80 i pulę zaplecza. Zostanie utworzona zasada WAF z regułą niestandardową, która blokuje ruch do puli zaplecza na podstawie typu dopasowania adresu IP.
 
-### <a name="review-the-template"></a>Zapoznaj się z szablonem
-
-Szablon używany w tym przewodniku szybki start pochodzi z [szablonów szybkiego startu platformy Azure](https://github.com/Azure/azure-quickstart-templates/blob/master/ag-docs-wafv2/azuredeploy.json)
+Szablon używany w tym przewodniku Szybki start jest jednym z [szablonów szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/ag-docs-wafv2/).
 
 :::code language="json" source="~/quickstart-templates/ag-docs-wafv2/azuredeploy.json" range="001-404" highlight="314-358":::
 
@@ -48,9 +50,9 @@ W szablonie zdefiniowano wiele zasobów platformy Azure:
 - [**Microsoft. Network/networkInterfaces**](/azure/templates/microsoft.network/networkinterfaces) : dwie dla maszyn wirtualnych
 - [**Microsoft. COMPUTE/virtualMachine/Extensions**](/azure/templates/microsoft.compute/virtualmachines/extensions) : Aby skonfigurować usługi IIS i strony sieci Web
 
-### <a name="deploy-the-template"></a>Wdrożenie szablonu
+## <a name="deploy-the-template"></a>Wdrożenie szablonu
 
-Wdróż szablon Menedżer zasobów na platformie Azure:
+Wdróż szablon ARM na platformie Azure:
 
 1. Wybierz pozycję **Wdróż na platformie Azure** , aby zalogować się do platformy Azure i otworzyć szablon. Ten szablon umożliwia utworzenie bramy aplikacji, infrastruktury sieciowej i dwóch maszyn wirtualnych w puli zaplecza z uruchomionymi usługami IIS.
 
@@ -61,11 +63,11 @@ Wdróż szablon Menedżer zasobów na platformie Azure:
 
 ## <a name="validate-the-deployment"></a>Weryfikowanie wdrożenia
 
-Chociaż usługi IIS nie są wymagane do utworzenia bramy aplikacji, są zainstalowane na serwerach wewnętrznej bazy danych, aby sprawdzić, czy platforma Azure pomyślnie utworzyła WAF V2 na bramie aplikacji. 
+Chociaż usługi IIS nie są wymagane do utworzenia bramy aplikacji, są zainstalowane na serwerach wewnętrznej bazy danych, aby sprawdzić, czy platforma Azure pomyślnie utworzyła WAF V2 na bramie aplikacji.
 
 Użyj usług do przetestowania bramy aplikacji:
 
-1. Na stronie **przeglądowej** Znajdź publiczny adres IP bramy aplikacji. ![Zarejestruj publiczny adres](../../application-gateway/media/application-gateway-create-gateway-portal/application-gateway-record-ag-address.png) IP bramy aplikacji lub, wybierz pozycję **wszystkie zasoby**, wpisz *myAGPublicIPAddress* w polu wyszukiwania, a następnie wybierz go w wynikach wyszukiwania. Platforma Azure wyświetla publiczny adres IP na stronie **Omówienie**.
+1. Na stronie **przeglądowej** Znajdź publiczny adres IP bramy aplikacji. ![ Zarejestruj publiczny adres IP bramy aplikacji ](../../application-gateway/media/application-gateway-create-gateway-portal/application-gateway-record-ag-address.png) lub, wybierz pozycję **wszystkie zasoby**, wpisz *myAGPublicIPAddress* w polu wyszukiwania, a następnie wybierz go w wynikach wyszukiwania. Platforma Azure wyświetla publiczny adres IP na stronie **Omówienie**.
 2. Skopiuj publiczny adres IP, a następnie wklej go na pasku adresu przeglądarki, aby przeglądać ten adres IP.
 3. Sprawdź odpowiedź. Odpowiedź z **Niedozwolonym 403** sprawdza, czy WAF został pomyślnie utworzony i blokuje połączenia z pulą zaplecza.
 4. Zmień regułę niestandardową, aby **zezwalać na ruch**.
@@ -83,7 +85,7 @@ Użyj usług do przetestowania bramy aplikacji:
 
    Wielokrotnie Odświeżaj przeglądarkę i powinny być widoczne połączenia zarówno myVM1, jak i myVM2.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Gdy nie potrzebujesz już zasobów utworzonych przy użyciu bramy aplikacji, Usuń grupę zasobów. Spowoduje to usunięcie bramy aplikacji i wszystkich powiązanych zasobów.
 

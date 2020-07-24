@@ -4,15 +4,15 @@ description: Informacje na temat przesyłania strumieniowego dzienników zasobó
 author: bwren
 services: azure-monitor
 ms.topic: conceptual
-ms.date: 12/18/2019
+ms.date: 07/17/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 492aae69895d62c784d15cd77405d0c52ec13e3e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6a7b24de860b543778d7e6ceabc95d10bf7c44c2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84947068"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077065"
 ---
 # <a name="azure-resource-logs"></a>Dzienniki zasobów platformy Azure
 Dzienniki zasobów platformy Azure to [dzienniki platformy](platform-logs-overview.md) , które zapewniają wgląd w operacje wykonywane w ramach zasobu platformy Azure. Zawartość dzienników zasobów zależy od usługi platformy Azure i typu zasobu. Dzienniki zasobów nie są domyślnie zbierane. Musisz utworzyć ustawienia diagnostyczne dla każdego zasobu platformy Azure, aby wysłać dzienniki zasobów do obszaru roboczego Log Analytics, który ma być używany z [dziennikami Azure monitor](data-platform-logs.md), usługa Azure Event Hubs do przesyłania dalej poza platformą Azure lub do usługi Azure Storage w celu archiwizacji.
@@ -85,17 +85,15 @@ W powyższym przykładzie powstaje trzy tabele:
 
 
 ### <a name="select-the-collection-mode"></a>Wybierz tryb kolekcji
-Większość zasobów platformy Azure będzie zapisywać dane w obszarze roboczym w trybie **diagnostycznym platformy Azure** lub na **konkretnym poziomie zasobów** bez konieczności wyboru. Zapoznaj się z [dokumentacją dla każdej usługi](diagnostic-logs-schema.md) , aby uzyskać szczegółowe informacje na temat używanego trybu. Wszystkie usługi platformy Azure ostatecznie będą korzystać z trybu specyficznego dla zasobów. W ramach tego przejścia niektóre zasoby umożliwią wybranie trybu w ustawieniu diagnostyki. Określ tryb specyficzny dla zasobów dla nowych ustawień diagnostycznych, ponieważ ułatwia to zarządzanie danymi i może ułatwić uniknięcie złożonych migracji w późniejszym czasie.
+Większość zasobów platformy Azure będzie zapisywać dane w obszarze roboczym w trybie **diagnostycznym platformy Azure** lub na **konkretnym poziomie zasobów** bez konieczności wyboru. Zapoznaj się z [dokumentacją dla każdej usługi](./resource-logs-schema.md) , aby uzyskać szczegółowe informacje na temat używanego trybu. Wszystkie usługi platformy Azure ostatecznie będą korzystać z trybu specyficznego dla zasobów. W ramach tego przejścia niektóre zasoby umożliwią wybranie trybu w ustawieniu diagnostyki. Określ tryb specyficzny dla zasobów dla nowych ustawień diagnostycznych, ponieważ ułatwia to zarządzanie danymi i może ułatwić uniknięcie złożonych migracji w późniejszym czasie.
   
    ![Selektor trybu ustawień diagnostycznych](media/resource-logs-collect-workspace/diagnostic-settings-mode-selector.png)
 
-
-
-
 > [!NOTE]
-> Obecnie można wybrać tylko **diagnostykę platformy Azure** i tryb **specyficzny dla zasobów** podczas konfigurowania ustawień diagnostycznych w Azure Portal. W przypadku skonfigurowania ustawienia za pomocą interfejsu wiersza polecenia, programu PowerShell lub API REST będzie on domyślnie używany jako **Diagnostyka platformy Azure**.
+> Aby zapoznać się z przykładem ustawienia trybu kolekcji przy użyciu szablonu usługi Resource Manager, zobacz [przykłady Menedżer zasobów szablonów dla ustawień diagnostycznych w Azure monitor](../samples/resource-manager-diagnostic-settings.md#diagnostic-setting-for-recovery-services-vault).
 
-Istniejące ustawienie diagnostyczne można zmodyfikować z trybem specyficznym dla zasobów. W takim przypadku dane, które zostały już zebrane, pozostaną w tabeli _AzureDiagnostics_ , dopóki nie zostanie usunięte zgodnie z ustawieniami przechowywania dla obszaru roboczego. Nowe dane zostaną zebrane w dedykowanej tabeli. Użyj operatora [Union](https://docs.microsoft.com/azure/kusto/query/unionoperator) do wykonywania zapytań dotyczących danych w obu tabelach.
+
+Istniejące ustawienie diagnostyczne można zmodyfikować z trybem specyficznym dla zasobów. W takim przypadku dane, które zostały już zebrane, pozostaną w tabeli _AzureDiagnostics_ , dopóki nie zostanie usunięte zgodnie z ustawieniami przechowywania dla obszaru roboczego. Nowe dane zostaną zebrane w dedykowanej tabeli. Użyj operatora [Union](/azure/kusto/query/unionoperator) do wykonywania zapytań dotyczących danych w obu tabelach.
 
 Przejdź do blogu [aktualizacji platformy Azure](https://azure.microsoft.com/updates/) , aby poznać anonse dotyczące usług platformy Azure obsługujących tryb specyficzny dla zasobów.
 
@@ -191,7 +189,7 @@ insights-logs-networksecuritygrouprulecounter/resourceId=/SUBSCRIPTIONS/00000000
 
 Każdy obiekt blob PT1H.json zawiera obiekt blob JSON ze zdarzeniami, które wystąpiły w ciągu godziny określonej w adresie URL obiektu blob (na przykład h = 12). Zdarzenia występujące w danej chwili są na bieżąco dołączane do pliku PT1H.json. Wartość minuta (m = 00) jest zawsze równa 00, ponieważ zdarzenia dziennika zasobów są podzielone na pojedyncze obiekty blob na godzinę.
 
-W PT1H.jsw pliku każde zdarzenie jest przechowywane w następującym formacie. Spowoduje to użycie wspólnego schematu najwyższego poziomu, ale będzie unikatowy dla każdej usługi platformy Azure zgodnie z opisem w [schemacie dzienniki zasobów](diagnostic-logs-schema.md).
+W PT1H.jsw pliku każde zdarzenie jest przechowywane w następującym formacie. Spowoduje to użycie wspólnego schematu najwyższego poziomu, ale będzie unikatowy dla każdej usługi platformy Azure zgodnie z opisem w [schemacie dzienniki zasobów](./resource-logs-schema.md).
 
 ``` JSON
 {"time": "2016-07-01T00:00:37.2040000Z","systemId": "46cdbb41-cb9c-4f3d-a5b4-1d458d827ff1","category": "NetworkSecurityGroupRuleCounter","resourceId": "/SUBSCRIPTIONS/s1id1234-5679-0123-4567-890123456789/RESOURCEGROUPS/TESTRESOURCEGROUP/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/TESTNSG","operationName": "NetworkSecurityGroupCounters","properties": {"vnetResourceGuid": "{12345678-9012-3456-7890-123456789012}","subnetPrefix": "10.3.0.0/24","macAddress": "000123456789","ruleName": "/subscriptions/ s1id1234-5679-0123-4567-890123456789/resourceGroups/testresourcegroup/providers/Microsoft.Network/networkSecurityGroups/testnsg/securityRules/default-allow-rdp","direction": "In","type": "allow","matchedConnections": 1988}}

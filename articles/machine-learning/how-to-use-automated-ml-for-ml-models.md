@@ -10,18 +10,23 @@ ms.author: nibaccam
 author: aniththa
 manager: cgronlun
 ms.reviewer: nibaccam
-ms.date: 05/20/2020
-ms.openlocfilehash: 9871d2ef46a4bbcaa0de7a2aee7d2c91f2bfefab
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/10/2020
+ms.openlocfilehash: ac5357d0f8ba03943af14d7dd4ce6928b20db128
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85831917"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074598"
 ---
 # <a name="create-review-and-deploy-automated-machine-learning-models-with-azure-machine-learning"></a>Twórz, Przeglądaj i wdrażaj automatyczne modele uczenia maszynowego za pomocą Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
-W tym artykule dowiesz się, jak tworzyć, eksplorować i wdrażać zautomatyzowane modele uczenia maszynowego bez jednego wiersza kodu w interfejsie Azure Machine Learning Studio. Automatyczne Uczenie maszynowe to proces, w którym jest wybierany najlepszy algorytm uczenia maszynowego dla konkretnych danych. Ten proces umożliwia szybkie generowanie modeli uczenia maszynowego. [Dowiedz się więcej o automatycznym uczeniu maszynowym](concept-automated-ml.md).
+W tym artykule dowiesz się, jak tworzyć, eksplorować i wdrażać zautomatyzowane modele uczenia maszynowego bez pojedynczego wiersza kodu w Azure Machine Learning Studio.
+
+>[!IMPORTANT]
+> Automatyczne środowisko pracy w usłudze Azure Machine Learning Studio jest w wersji zapoznawczej. Niektóre funkcje mogą nie być obsługiwane lub mieć ograniczone możliwości.
+
+ Automatyczne Uczenie maszynowe to proces, w którym jest wybierany najlepszy algorytm uczenia maszynowego dla konkretnych danych. Ten proces umożliwia szybkie generowanie modeli uczenia maszynowego. [Dowiedz się więcej o automatycznym uczeniu maszynowym](concept-automated-ml.md).
  
 Aby zapoznać się z kompleksowym przykładem, wypróbuj [Samouczek dotyczący tworzenia modelu klasyfikacji przy użyciu zautomatyzowanego interfejsu ML Azure Machine Learning](tutorial-first-experiment-automated-ml.md). 
 
@@ -51,18 +56,22 @@ W przeciwnym razie zostanie wyświetlona lista ostatnich zautomatyzowanych ekspe
 
 1. Wybierz pozycję **+ Nowy zautomatyzowany przebieg** i wypełnij formularz.
 
-1. Wybierz zestaw danych z kontenera magazynu lub Utwórz nowy zestaw danych. Zestawy danych mogą być tworzone na podstawie plików lokalnych, adresów URL sieci Web, magazynów danych lub otwartych zestawów danych platformy Azure. 
+1. Wybierz zestaw danych z kontenera magazynu lub Utwórz nowy zestaw danych. Zestawy danych mogą być tworzone na podstawie plików lokalnych, adresów URL sieci Web, magazynów danych lub otwartych zestawów danych platformy Azure. Dowiedz się więcej o [tworzeniu zestawu danych](how-to-create-register-datasets.md).  
 
     >[!Important]
     > Wymagania dotyczące danych szkoleniowych:
     >* Dane muszą być w formie tabelarycznej.
     >* Wartość, która ma zostać przewidywalna (kolumna docelowa), musi być obecna w danych.
 
-    1. Aby utworzyć nowy zestaw danych z pliku na komputerze lokalnym, wybierz pozycję **Przeglądaj** , a następnie wybierz plik. 
+    1. Aby utworzyć nowy zestaw danych z pliku na komputerze lokalnym, wybierz pozycję **+ Utwórz zestaw danych** , a następnie wybierz pozycję **z pliku lokalnego**. 
 
-    1. Nadaj zestawowi danych unikatową nazwę i podaj opcjonalny opis. 
+    1. W **podstawowym formularzu informacji** nadaj zestawowi danych unikatową nazwę i podaj opcjonalny opis. 
 
     1. Wybierz pozycję **dalej** , aby otworzyć **formularz magazyn danych i wybór pliku**. Na tym formularzu wybierasz miejsce przekazania zestawu danych; domyślny kontener magazynu, który jest automatycznie tworzony razem z obszarem roboczym, lub wybierz kontener magazynu, który ma być używany do eksperymentu. 
+    
+        1. Jeśli dane znajdują się za siecią wirtualną, należy włączyć funkcję **pomijania walidacji** , aby upewnić się, że obszar roboczy ma dostęp do danych. Dowiedz się więcej o [izolacji sieci i prywatności](how-to-enable-virtual-network.md#machine-learning-studio). 
+    
+    1. Wybierz pozycję **Przeglądaj** , aby przekazać plik danych dla zestawu danych. 
 
     1. Przejrzyj **Ustawienia i Podgląd** w formularzu pod kątem dokładności. Formularz jest inteligentnie wypełniany na podstawie typu pliku. 
 
@@ -74,7 +83,7 @@ W przeciwnym razie zostanie wyświetlona lista ostatnich zautomatyzowanych ekspe
         Nagłówki kolumn| Wskazuje, w jaki sposób nagłówki zestawu danych (jeśli istnieją) będą traktowane.
         Pomiń wiersze | Wskazuje, ile (jeśli istnieją) wiersze są pomijane w zestawie danych.
     
-        Wybierz pozycję **Dalej**.
+        Wybierz przycisk **Dalej**.
 
     1. Formularz **schematu** jest inteligentnie wypełniany na podstawie opcji wybranych w formularzu **Ustawienia i Podgląd** . W tym miejscu należy skonfigurować typ danych dla każdej kolumny, sprawdzić nazwy kolumn i wybrać kolumny, które **nie mają być dołączone** do eksperymentu. 
             
@@ -82,7 +91,7 @@ W przeciwnym razie zostanie wyświetlona lista ostatnich zautomatyzowanych ekspe
 
     1. Formularz **Potwierdź szczegóły** to podsumowanie informacji poprzednio wypełnionych w **podstawowych informacjach** i ustawieniach oraz w formularzach **wersji zapoznawczej** . Istnieje również możliwość utworzenia profilu danych dla zestawu danych przy użyciu obliczeń z włączoną obsługą profilowania. Dowiedz się więcej na temat [profilowania danych](#profile).
 
-        Wybierz pozycję **Dalej**.
+        Wybierz przycisk **Dalej**.
 1. Wybierz nowo utworzony zestaw danych, gdy zostanie wyświetlony. Możliwe jest również wyświetlanie podglądu zestawu danych i przykładowych statystyk. 
 
 1. W formularzu **Konfigurowanie przebiegu** wprowadź unikatową nazwę eksperymentu.
@@ -96,32 +105,37 @@ W przeciwnym razie zostanie wyświetlona lista ostatnich zautomatyzowanych ekspe
     Pole|Opis
     ---|---
     Nazwa obliczeniowa| Wprowadź unikatową nazwę identyfikującą kontekst obliczeniowy.
+    Priorytet maszyny wirtualnej| Maszyny wirtualne o niskim priorytecie są tańsze, ale nie gwarantują węzłów obliczeniowych. 
+    Typ maszyny wirtualnej| Wybierz procesor CPU lub GPU dla typu maszyny wirtualnej.
     Rozmiar maszyny wirtualnej| Wybierz rozmiar maszyny wirtualnej dla obliczenia.
-    Minimalna/Maksymalna liczba węzłów (w ustawieniach zaawansowanych)| Aby profilować dane, musisz określić co najmniej jeden węzeł. Wprowadź maksymalną liczbę węzłów dla obliczeń. Wartość domyślna to 6 węzłów na potrzeby obliczeń AML.
+    Minimalna/Maksymalna liczba węzłów| Aby profilować dane, musisz określić co najmniej jeden węzeł. Wprowadź maksymalną liczbę węzłów dla obliczeń. Wartość domyślna to 6 węzłów na potrzeby obliczeń AML.
+    Ustawienia zaawansowane | Te ustawienia umożliwiają skonfigurowanie dla eksperymentu konta użytkownika i istniejącej sieci wirtualnej. 
     
     Wybierz pozycję **Utwórz**. Tworzenie nowego obliczenia może potrwać kilka minut.
 
     >[!NOTE]
     > Nazwa obliczeniowa wskazuje, czy w przypadku obliczeń, które zostały wybrane/utworzone, *włączono profilowanie*. (Szczegółowe informacje znajdują się w sekcji [Profilowanie danych](#profile) ).
 
-    Wybierz pozycję **Dalej**.
+    Wybierz przycisk **Dalej**.
 
 1. W formularzu **Typ zadania i ustawienia** wybierz typ zadania: Klasyfikacja, regresja lub prognozowanie. Aby uzyskać więcej informacji, zobacz [obsługiwane typy zadań](concept-automated-ml.md#when-to-use-automl-classify-regression--forecast) .
 
-    1. W przypadku klasyfikacji można również włączyć uczenie głębokie, które jest używane dla featurizations tekstu.
+    1. W przypadku **klasyfikacji**można również włączyć uczenie głębokie, które jest używane dla featurizations tekstu.
 
-    1. W przypadku prognozowania:
-        1. Wybierz kolumnę czasu: Ta kolumna zawiera dane czasu, które mają być używane.
+    1. Do **prognozowania** można, 
+    
+        1. Włącz uczenie głębokie
+    
+        1. Wybierz *kolumnę czasu*: Ta kolumna zawiera dane czasu, które mają być używane.
 
-        1. Wybierz horyzont prognoz: wskaż, ile jednostek czasu (min/godzina/dni/tygodnie/miesiące/lata) będzie można przewidzieć na przyszłość. Dalszy model jest wymagany do przewidywania w przyszłości, tym mniej dokładne stanie się. [Dowiedz się więcej o prognozowaniu i prognozowaniu horyzontu](how-to-auto-train-forecast.md).
+        1. Wybierz *horyzont prognoz*: wskaż, ile jednostek czasu (min/godzina/dni/tygodnie/miesiące/lata) będzie można przewidzieć na przyszłość. Dalszy model jest wymagany do przewidywania w przyszłości, tym mniej dokładne stanie się. [Dowiedz się więcej o prognozowaniu i prognozowaniu horyzontu](how-to-auto-train-forecast.md).
 
 1. Obowiązkowe Wyświetl ustawienia konfiguracji dodawania: dodatkowe ustawienia, których można użyć w celu lepszego kontrolowania zadania szkoleniowego. W przeciwnym razie wartości domyślne są stosowane na podstawie wyboru eksperymentu i danych. 
 
     Dodatkowe konfiguracje|Opis
     ------|------
     Metryka podstawowa| Główna Metryka używana do oceniania modelu. [Dowiedz się więcej o metrykach modelu](how-to-configure-auto-train.md#explore-model-metrics).
-    Automatyczne cechowania| Wybierz, aby włączyć lub wyłączyć cechowania wykonane przez automatyczne Uczenie maszynowe. Automatyczna cechowania obejmuje automatyczne czyszczenie danych, przygotowanie i transformację do generowania funkcji syntetycznych. Nieobsługiwane w przypadku typu zadania prognozowanie szeregów czasowych. [Dowiedz się więcej o cechowania](how-to-configure-auto-features.md#featurization). 
-    Wyjaśnij najlepszy model | Wybierz, aby włączyć lub wyłączyć, aby pokazać wyjaśnienie zalecanego najlepszego modelu
+    Wyjaśnij najlepszy model | Wybierz, aby włączyć lub wyłączyć, aby pokazać wyjaśnienie zalecanego najlepszego modelu.
     Zablokowany algorytm| Wybierz algorytmy, które mają zostać wykluczone z zadania szkoleniowego.
     Kryterium zakończenia| Po spełnieniu któregokolwiek z tych kryteriów zadanie szkolenia zostanie zatrzymane. <br> *Czas zadania szkoleniowego (godz.)*: jak długo zezwolić na uruchomienie zadania szkoleniowego. <br> *Próg wyniku metryki*: minimalny wynik metryki dla wszystkich potoków. Dzięki temu w przypadku zdefiniowania metryki docelowej, która ma zostać osiągnięta, nie poświęcasz więcej czasu na zadanie szkoleniowe niż to konieczne.
     Walidacja| Wybierz jedną z opcji krzyżowego sprawdzania poprawności, która ma zostać użyta w zadaniu szkoleniowym. [Dowiedz się więcej na temat krzyżowego sprawdzania poprawności](how-to-configure-cross-validation-data-splits.md#prerequisites).
@@ -142,7 +156,7 @@ Możesz uzyskać szeroką gamę statystyk podsumowujących dla zestawu danych, a
 
 Statystyka|Opis
 ------|------
-Cecha| Nazwa sumowanej kolumny.
+Cechy| Nazwa sumowanej kolumny.
 Profil| Wizualizacja w wierszu oparta na wywnioskowanym typie. Na przykład ciągi, wartości logiczne i daty będą mieć liczby wartości, podczas gdy miejsca dziesiętne (liczbowe) mają przybliżone histogramy. Pozwala to na szybkie zrozumienie dystrybucji danych.
 Dystrybucja typów| Liczba wartości w wierszu dla typów w kolumnie. Wartości null są własnym typem, więc Wizualizacja jest przydatna do wykrywania nieparzystych lub brakujących wartości.
 Typ|Wywnioskowany typ kolumny. Możliwe wartości to: ciągi, wartości logiczne, daty i miejsca dziesiętne.
@@ -153,7 +167,7 @@ Liczba niebrakujących| Liczba wpisów w kolumnie, których nie ma. Puste ciągi
 Quantiles| Przybliżone wartości dla każdego quantileu, aby zapewnić rozkład danych.
 Średnia| Średnia arytmetyczna kolumny lub jej średnia.
 Odchylenie standardowe| Pomiar wielkości rozproszenia lub zmienności danych tej kolumny.
-Wariancja| Mierzona, jak daleko odłożenie danych z tej kolumny pochodzi z wartości średniej. 
+Variance (Wariancja)| Mierzona, jak daleko odłożenie danych z tej kolumny pochodzi z wartości średniej. 
 Skośność| Mierzona, jak różne dane tej kolumny pochodzą z rozkładu normalnego.
 Kurtoza| Mierzona, jak silnie naśladowanie danych tej kolumny jest porównywane z rozkładem normalnym.
 
@@ -185,7 +199,7 @@ Karta **Modele** zawiera listę utworzonych modeli uporządkowaną według wynik
 
 ### <a name="view-training-run-details"></a>Wyświetl szczegóły przebiegu szkoleniowego
 
-Przejdź do szczegółów dowolnego z zakończonych modeli, aby zobaczyć szczegóły przebiegu szkoleniowego, takie jak uruchamianie metryk na karcie **Szczegóły modelu** lub na wykresach wydajności na karcie **wizualizacje** . [Dowiedz się więcej na temat wykresów](how-to-understand-automated-ml.md).
+Przejdź do szczegółów dowolnego z zakończonych modeli, aby zobaczyć szczegóły przebiegu szkoleniowego, na przykład podsumowanie modelu na karcie **model** lub wykresy metryk wydajności na karcie **metryki** . [Dowiedz się więcej na temat wykresów](how-to-understand-automated-ml.md).
 
 [![Szczegóły iteracji](media/how-to-use-automated-ml-for-ml-models/iteration-details.png)](media/how-to-use-automated-ml-for-ml-models/iteration-details-expanded.png)
 
@@ -197,9 +211,14 @@ Automatyczna ML pomaga wdrożyć model bez pisania kodu:
 
 1. Istnieje kilka opcji wdrażania. 
 
-    + Opcja 1: Aby wdrożyć najlepszy model (zgodnie ze zdefiniowanymi kryteriami metryki), wybierz przycisk **Wdróż najlepszy model** na karcie **szczegóły** .
+    + Opcja 1: wdrożenie najlepszego modelu zgodnie ze zdefiniowanymi kryteriami metryki. 
+        1. Po zakończeniu eksperymentu przejdź do strony nadrzędnej uruchomienia, wybierając pozycję **Uruchom 1** w górnej części ekranu. 
+        1.  Wybierz model z listy w sekcji **najlepsze podsumowanie modelu** . 
+        1. Wybierz pozycję **Wdróż** w lewym górnym rogu okna. 
 
-    + Opcja 2: Aby wdrożyć określoną iterację modelu z tego eksperymentu, przejdź do szczegółów modelu, aby otworzyć kartę **Szczegóły modelu** i wybierz pozycję **Wdróż model**.
+    + Opcja 2: Aby wdrożyć określoną iterację modelu z tego eksperymentu.
+        1. Wybierz żądany model z karty **modele**
+        1. Wybierz pozycję **Wdróż** w lewym górnym rogu okna.
 
 1. Wypełnij okienko **Wdróż model** .
 
@@ -218,7 +237,7 @@ Automatyczna ML pomaga wdrożyć model bez pisania kodu:
     Menu *Zaawansowane* oferuje domyślne funkcje wdrażania, takie jak [gromadzenie danych](how-to-enable-app-insights.md) i ustawienia wykorzystania zasobów. Jeśli chcesz przesłonić te ustawienia domyślne, zrób to w menu.
 
 1. Wybierz pozycję **Wdróż**. Wdrożenie może potrwać około 20 minut.
-    Po rozpoczęciu wdrożenia zostanie wyświetlona karta **Szczegóły modelu** . Postęp wdrażania można znaleźć w sekcji **wdrażanie stanu** okienka **Właściwości** . 
+    Po rozpoczęciu wdrożenia zostanie wyświetlona karta **Podsumowanie modelu** . Zobacz postęp wdrażania w sekcji **wdrażanie stanu** . 
 
 Teraz masz działającą usługę sieci Web do generowania prognoz! Możesz przetestować przewidywania, wykonując zapytania dotyczące usługi, korzystając z [Power BI wbudowanej Azure Machine Learning obsługi](how-to-consume-web-service.md#consume-the-service-from-power-bi).
 

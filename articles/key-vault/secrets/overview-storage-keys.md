@@ -9,12 +9,12 @@ author: msmbaldwin
 ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/18/2019
-ms.openlocfilehash: 58f41742519effc3959a3868345ed77c64db6341
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e8f8a333c880850b239fbaba1ea405b94a1460e8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85508507"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87076733"
 ---
 # <a name="manage-storage-account-keys-with-key-vault-and-the-azure-cli"></a>Zarządzanie kluczami konta magazynu przy użyciu Key Vault i interfejsu wiersza polecenia platformy Azure
 
@@ -90,7 +90,7 @@ az keyvault set-policy --name <YourKeyVaultName> --upn user@domain.com --storage
 Należy pamiętać, że uprawnienia dla kont magazynu nie są dostępne na stronie "zasady dostępu" konta magazynu w Azure Portal.
 ### <a name="create-a-key-vault-managed-storage-account"></a>Tworzenie konta magazynu zarządzanego Key Vault
 
- Utwórz konto magazynu zarządzanego przez usługę Key Vault przy użyciu interfejsu wiersza polecenia platformy Azure AZ datamagazyn [Storage](/cli/azure/keyvault/storage?view=azure-cli-latest#az-keyvault-storage-add) polecenie. Ustaw okres regeneracji wynoszący 90 dni. Po 90 dniach Key Vault ponownie generuje `key1` i zamienia klucz aktywny z `key2` na `key1` . `key1`jest następnie oznaczany jako klucz aktywny. Podaj następujące wartości parametrów polecenia:
+ Utwórz konto magazynu zarządzanego przez usługę Key Vault przy użyciu interfejsu wiersza polecenia platformy Azure AZ datamagazyn [Storage](/cli/azure/keyvault/storage?view=azure-cli-latest#az-keyvault-storage-add) polecenie. Ustaw okres regeneracji wynoszący 90 dni. Gdy czas ma być obracany, Magazyn kluczy generuje ponownie klucz, który nie jest aktywny, a następnie ustawia nowo utworzony klucz jako aktywny. Tylko jeden z kluczy jest używany do wystawiania tokenów SAS w dowolnym momencie, jest to klucz aktywny. Podaj następujące wartości parametrów polecenia:
 
 - `--vault-name`: Przekaż nazwę magazynu kluczy. Aby znaleźć nazwę magazynu kluczy, użyj polecenia [AZ Key list](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-list) .
 - `-n`: Przekaż nazwę konta magazynu. Aby znaleźć nazwę konta magazynu, użyj polecenia [AZ Storage account list](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-list) usługi Azure CLI.

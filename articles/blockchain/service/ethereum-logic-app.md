@@ -4,16 +4,16 @@ description: Użyj łącznika łańcucha bloków Ethereum z Azure Logic Apps, ab
 ms.date: 10/14/2019
 ms.topic: how-to
 ms.reviewer: chrisseg
-ms.openlocfilehash: c7b45134e8b5c3e33e5d05d59c006abe103e5bda
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 61dbda7cd7f486c7a8d838084875b34803833502
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85200736"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077034"
 ---
 # <a name="use-the-ethereum-blockchain-connector-with-azure-logic-apps"></a>Używanie łącznika Ethereum łańcucha bloków z Azure Logic Apps
 
-Użyj [łącznika łańcucha bloków Ethereum](https://docs.microsoft.com/connectors/blockchainethereum/) z [Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/) , aby wykonywać inteligentne akcje kontraktowe i odpowiadać na zdarzenia inteligentnego kontraktu. Załóżmy na przykład, że chcesz utworzyć mikrousługi opartej na protokole REST, która zwraca informacje z księgi łańcucha bloków. Za pomocą aplikacji logiki można akceptować żądania HTTP, które wysyłają zapytania do informacji przechowywanych w księdze łańcucha bloków.
+Użyj [łącznika łańcucha bloków Ethereum](/connectors/blockchainethereum/) z [Azure Logic Apps](../../logic-apps/index.yml) , aby wykonywać inteligentne akcje kontraktowe i odpowiadać na zdarzenia inteligentnego kontraktu. Załóżmy na przykład, że chcesz utworzyć mikrousługi opartej na protokole REST, która zwraca informacje z księgi łańcucha bloków. Za pomocą aplikacji logiki można akceptować żądania HTTP, które wysyłają zapytania do informacji przechowywanych w księdze łańcucha bloków.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

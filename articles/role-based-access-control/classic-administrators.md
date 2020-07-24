@@ -14,11 +14,12 @@ ms.workload: identity
 ms.date: 01/22/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 298ec15700537f2368ef33ead267e85f5f22bfd7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 76b41e25a95f23b66edfbd4715037074537221f9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84791796"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87076445"
 ---
 # <a name="azure-classic-subscription-administrators"></a>Klasyczni administratorzy subskrypcji platformy Azure
 
@@ -29,7 +30,7 @@ W tym artykule opisano, jak dodać lub zmienić role administratora współadmin
 ## <a name="add-a-co-administrator"></a>Dodawanie współadministratora
 
 > [!TIP]
-> Wystarczy dodać współadministratora, jeśli użytkownik musi zarządzać klasycznymi wdrożeniami platformy Azure przy użyciu [modułu Azure Service Management PowerShell](https://docs.microsoft.com/powershell/module/servicemanagement/azure). Jeśli użytkownik używa tylko Azure Portal do zarządzania zasobami klasycznymi, nie trzeba dodawać administratora klasycznego dla użytkownika.
+> Wystarczy dodać współadministratora, jeśli użytkownik musi zarządzać klasycznymi wdrożeniami platformy Azure przy użyciu [modułu Azure Service Management PowerShell](/powershell/module/servicemanagement/azure.service). Jeśli użytkownik używa tylko Azure Portal do zarządzania zasobami klasycznymi, nie trzeba dodawać administratora klasycznego dla użytkownika.
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com) jako administrator usługi lub współadministrator.
 
@@ -37,7 +38,7 @@ W tym artykule opisano, jak dodać lub zmienić role administratora współadmin
 
     Współadministratory mogą być przypisani tylko w zakresie subskrypcji.
 
-1. Kliknij pozycję **Kontrola dostępu (IAM)** .
+1. Kliknij pozycję **Kontrola dostępu (IAM)**.
 
 1. Kliknij kartę **klasyczne Administratorzy** .
 
@@ -82,13 +83,13 @@ Aby uzyskać informacje, które porównują użytkowników i użytkowników-Goś
 
 1. Otwórz blok [Subskrypcje](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) i wybierz subskrypcję.
 
-1. Kliknij pozycję **Kontrola dostępu (IAM)** .
+1. Kliknij pozycję **Kontrola dostępu (IAM)**.
 
 1. Kliknij kartę **klasyczne Administratorzy** .
 
 1. Dodaj znacznik wyboru obok administratora współpracującego, który chcesz usunąć.
 
-1. Kliknij pozycję **Usuń**.
+1. Kliknij przycisk **Usuń**.
 
 1. W wyświetlonym oknie komunikatu kliknij przycisk **tak**.
 

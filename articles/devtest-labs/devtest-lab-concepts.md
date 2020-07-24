@@ -3,12 +3,12 @@ title: Koncepcje dotyczące DevTest Labs | Microsoft Docs
 description: Zapoznaj się z podstawowymi pojęciami dotyczącymi usługi DevTest Labs oraz możliwością tworzenia i monitorowania maszyn wirtualnych platformy Azure oraz zarządzania nimi
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: b6e845acb34a398af52392b3a90b9213a9945dd2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8f82f0484caf23d20092318b5bc2a32b0e6b1f1d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85482755"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074962"
 ---
 # <a name="devtest-labs-concepts"></a>DevTest Labs — pojęcia
 ## <a name="overview"></a>Omówienie
@@ -56,7 +56,7 @@ Zasady pomagają w kontrolowaniu kosztów w laboratorium. Można na przykład ut
 Cap to mechanizm minimalizowania strat w laboratorium. Na przykład można ustawić limit, aby ograniczyć liczbę maszyn wirtualnych, które mogą być tworzone dla poszczególnych użytkowników lub w środowisku laboratoryjnym.
 
 ## <a name="security-levels"></a>Poziomy zabezpieczeń
-Dostęp zabezpieczeń jest określany przez Access Control oparte na rolach (RBAC) na platformie Azure. Aby zrozumieć, jak działa dostęp, ułatwia zrozumienie różnic między uprawnieniami, rolą i zakresem zdefiniowanym przez RBAC.
+Dostęp zabezpieczeń jest określany przez kontrolę dostępu opartą na rolach (Azure RBAC). Aby zrozumieć, jak działa dostęp, ułatwia zrozumienie różnic między uprawnieniami, rolą i zakresem zdefiniowanym przez RBAC.
 
 * Uprawnienie — uprawnienie to zdefiniowany dostęp do określonej akcji (np. dostęp do odczytu do wszystkich maszyn wirtualnych).
 * Rola — rola to zestaw uprawnień, które mogą być pogrupowane i przypisywane do użytkownika. Na przykład rola *właściciela subskrypcji* ma dostęp do wszystkich zasobów w ramach subskrypcji.

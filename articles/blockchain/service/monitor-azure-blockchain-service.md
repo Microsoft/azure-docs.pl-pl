@@ -4,11 +4,12 @@ description: Monitorowanie usługi Azure łańcucha bloków za pomocą Azure Mon
 ms.date: 01/08/2020
 ms.topic: how-to
 ms.reviewer: v-umha
-ms.openlocfilehash: 9d5b3cb02f6e4cd0804dc7fb15a4eacc8370bb99
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7300a5dcfb0150e6182636dcb71bacfa68c787db
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85214047"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87076921"
 ---
 # <a name="monitor-azure-blockchain-service-through-azure-monitor"></a>Monitoruj usługę Azure łańcucha bloków za pomocą Azure Monitor  
 
@@ -16,20 +17,20 @@ Klienci, którzy uruchamiają scenariusze łańcucha bloków klasy produkcyjnej 
 
 ## <a name="what-is-azure-monitor"></a>Co to jest Azure Monitor?
 
-Usługa Azure łańcucha bloków tworzy dane monitorowania za pomocą Azure Monitor, który jest pełną usługą monitorowania stosu na platformie Azure, która oferuje pełny zestaw funkcji do monitorowania zasobów platformy Azure. Aby uzyskać więcej informacji na temat Azure Monitor, zobacz [monitorowanie zasobów platformy Azure przy użyciu Azure monitor](https://docs.microsoft.com/azure/azure-monitor/insights/monitor-azure-resource).
+Usługa Azure łańcucha bloków tworzy dane monitorowania za pomocą Azure Monitor, który jest pełną usługą monitorowania stosu na platformie Azure, która oferuje pełny zestaw funkcji do monitorowania zasobów platformy Azure. Aby uzyskać więcej informacji na temat Azure Monitor, zobacz [monitorowanie zasobów platformy Azure przy użyciu Azure monitor](../../azure-monitor/insights/monitor-azure-resource.md).
  
 
 Poniższe sekcje dotyczą tego artykułu, opisując szczegółowe dane zebrane z usługi Azure łańcucha bloków Service i dostarczając przykłady konfigurowania zbierania danych i analizowania tych danych przy użyciu narzędzi platformy Azure.
 
 ## <a name="monitor-data-collected-from-azure-blockchain-service"></a>Monitoruj dane zebrane z usługi Azure łańcucha bloków Service  
 
-Usługa Azure łańcucha bloków gromadzi dane monitorowania tego samego rodzaju jak inne zasoby platformy Azure, które są opisane w temacie [monitorowanie danych](https://docs.microsoft.com/azure/azure-monitor/insights/monitor-azure-resource#monitoring-data) z zasobów platformy Azure. Aby uzyskać szczegółowe informacje o dziennikach i metrykach utworzonych przez usługę Azure łańcucha bloków, zobacz artykuł [monitorowanie usługi Azure łańcucha bloków Data Reference](#monitor-azure-blockchain-service-data-reference) .
+Usługa Azure łańcucha bloków gromadzi dane monitorowania tego samego rodzaju jak inne zasoby platformy Azure, które są opisane w temacie [monitorowanie danych](../../azure-monitor/insights/monitor-azure-resource.md#monitoring-data) z zasobów platformy Azure. Aby uzyskać szczegółowe informacje o dziennikach i metrykach utworzonych przez usługę Azure łańcucha bloków, zobacz artykuł [monitorowanie usługi Azure łańcucha bloków Data Reference](#monitor-azure-blockchain-service-data-reference) .
 
 Strona przegląd w Azure Portal dla każdego zasobu elementu członkowskiego usługi Azure łańcucha bloków zawiera krótki widok transakcji, w tym żądania obsługiwane i przetworzone bloki. Niektóre z tych danych są zbierane automatycznie i dostępne do analizy po utworzeniu zasobu elementu członkowskiego usługi Azure łańcucha bloków, podczas gdy można włączyć dodatkowe zbieranie danych z dodatkową konfiguracją.
 
 ## <a name="diagnostic-settings"></a>Ustawienia diagnostyczne  
 
-Metryki platformy i dziennik aktywności są zbierane automatycznie, ale należy utworzyć ustawienie diagnostyczne, aby zbierać dzienniki zasobów lub przesyłać je dalej poza Azure Monitor. Zobacz [Tworzenie ustawień diagnostycznych, aby zbierać dzienniki platformy i metryki na platformie Azure](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings) w celu uzyskania szczegółowego procesu tworzenia ustawień diagnostycznych przy użyciu Azure Portal, interfejsu wiersza polecenia lub programu PowerShell.
+Metryki platformy i dziennik aktywności są zbierane automatycznie, ale należy utworzyć ustawienie diagnostyczne, aby zbierać dzienniki zasobów lub przesyłać je dalej poza Azure Monitor. Zobacz [Tworzenie ustawień diagnostycznych, aby zbierać dzienniki platformy i metryki na platformie Azure](../../azure-monitor/platform/diagnostic-settings.md) w celu uzyskania szczegółowego procesu tworzenia ustawień diagnostycznych przy użyciu Azure Portal, interfejsu wiersza polecenia lub programu PowerShell.
 
 Podczas tworzenia ustawienia diagnostycznego należy określić, które kategorie dzienników mają być zbierane. Poniżej wymieniono kategorie usługi Azure łańcucha bloków Service.
 
@@ -41,13 +42,13 @@ Podczas tworzenia ustawienia diagnostycznego należy określić, które kategori
 
 ## <a name="analyze-metric-data"></a>Analizowanie danych metryki  
 
-Metryki dla usługi Azure łańcucha bloków Service można analizować za pomocą Eksploratora metryk, przejdź do karty metryki w obszarze monitorowanie w bloku zasoby ABS. Zobacz Rozpoczynanie [pracy z usługą Azure Eksplorator metryk](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-getting-started) , aby uzyskać szczegółowe informacje na temat korzystania z narzędzia. Kompletne metryki dla usługi Azure łańcucha bloków są wymienione w obszarze nazw metryki usługi Azure łańcucha bloków Service w warstwie Standardowa.
+Metryki dla usługi Azure łańcucha bloków Service można analizować za pomocą Eksploratora metryk, przejdź do karty metryki w obszarze monitorowanie w bloku zasoby ABS. Zobacz Rozpoczynanie [pracy z usługą Azure Eksplorator metryk](../../azure-monitor/platform/metrics-getting-started.md) , aby uzyskać szczegółowe informacje na temat korzystania z narzędzia. Kompletne metryki dla usługi Azure łańcucha bloków są wymienione w obszarze nazw metryki usługi Azure łańcucha bloków Service w warstwie Standardowa.
 
 Wymiaru **węzła** można użyć podczas dodawania filtru lub dzielenia metryk, co zasadniczo zapewnia wartości metryk dla węzłów transakcji i węzłów modułu sprawdzania poprawności elementu członkowskiego ABS.
 
 ## <a name="analyze-log-data"></a>Analizowanie danych dzienników
 
-Poniżej przedstawiono niektóre zapytania, które można wprowadzić na pasku przeszukiwania dzienników, aby ułatwić monitorowanie członków usługi Azure łańcucha bloków. Te zapytania działają w [nowym języku](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview).
+Poniżej przedstawiono niektóre zapytania, które można wprowadzić na pasku przeszukiwania dzienników, aby ułatwić monitorowanie członków usługi Azure łańcucha bloków. Te zapytania działają w [nowym języku](../../azure-monitor/log-query/log-query-overview.md).
 
 Aby zbadać warunki błędu w dziennikach aplikacji łańcucha bloków, użyj poniższego zapytania:
 
@@ -73,7 +74,7 @@ Ten artykuł zawiera informacje dotyczące danych dzienników i metryk zbieranyc
 
 ### <a name="resource-logs"></a>Dzienniki zasobów
 
-Wszystkie dzienniki zasobów udostępniają wspólny schemat najwyższego poziomu z kilkoma unikatowymi właściwościami specyficznymi dla usługi łańcucha bloków. Można zapoznać się z artykułem [schemat dzienników zasobów najwyższego poziomu](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-schema#top-level-resource-logs-schema), szczegółowe informacje o określonych właściwościach usługi Azure łańcucha bloków.  
+Wszystkie dzienniki zasobów udostępniają wspólny schemat najwyższego poziomu z kilkoma unikatowymi właściwościami specyficznymi dla usługi łańcucha bloków. Można zapoznać się z artykułem [schemat dzienników zasobów najwyższego poziomu](../../azure-monitor/platform/resource-logs-schema.md#top-level-common-schema), szczegółowe informacje o określonych właściwościach usługi Azure łańcucha bloków.  
 
 W poniższej tabeli wymieniono właściwości dzienników serwera proxy usługi Azure łańcucha bloków, które są zbierane w dziennikach Azure Monitor lub usłudze Azure Storage.  
 
@@ -94,7 +95,7 @@ W poniższej tabeli wymieniono właściwości dzienników serwera proxy usługi 
 | RequestMethodName | Wywoływana metoda HTTP, możliwe wartości w tym miejscu są UMIESZCZAne w celu utworzenia elementu członkowskiego, pobieranie do pobrania szczegółów istniejącego elementu członkowskiego, usuwanie elementu członkowskiego usuwania, poprawka do aktualizacji elementu członkowskiego.   |
 | BlockchainMemberName  | Nazwa członka usługi łańcucha bloków platformy Azure podana przez użytkownika.  |
 | Konsorcjum | Nazwa konsorcjum podana przez użytkownika.   |
-| Remote  | Adres IP klienta, z którego pochodzi żądanie.  |
+| Zdalne  | Adres IP klienta, z którego pochodzi żądanie.  |
 | RequestSize  | Rozmiar żądania w bajtach.  |
 | RequestTime  | Czas trwania żądania (w milisekundach).|
 
@@ -123,7 +124,7 @@ W poniższej tabeli wymieniono właściwości dzienników aplikacji Azure łańc
 
 W poniższych tabelach przedstawiono metryki platformy zebrane dla usługi Azure łańcucha bloków Service. Wszystkie metryki są przechowywane w obszarze nazw metryki **usługi Azure łańcucha bloków Service** w warstwie Standardowa.
 
-Listę wszystkich Azure Monitor obsługiwanych metryk (w tym usługi Azure łańcucha bloków Service) można znaleźć w temacie [Azure monitor Supported Metrics](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported).
+Listę wszystkich Azure Monitor obsługiwanych metryk (w tym usługi Azure łańcucha bloków Service) można znaleźć w temacie [Azure monitor Supported Metrics](../../azure-monitor/platform/metrics-supported.md).
 
 ### <a name="blockchain-metrics"></a>Metryki łańcucha bloków
 
@@ -168,4 +169,4 @@ W poniższej tabeli przedstawiono metryki wydajności, które są zbierane dla k
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej o [łańcucha bloków Data Manager](https://docs.microsoft.com/azure/blockchain/service/data-manager) do przechwytywania i przekształcania danych łańcucha bloków w Azure Event Grid.
+Dowiedz się więcej o [łańcucha bloków Data Manager](./data-manager.md) do przechwytywania i przekształcania danych łańcucha bloków w Azure Event Grid.

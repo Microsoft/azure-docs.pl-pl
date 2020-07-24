@@ -11,11 +11,12 @@ ms.date: 01/29/2018
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: b984ee7ed662bf089e7bcb6fc7e948fb61ed1209
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b86610910ed532e737720bb3b83e773596987aba
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81733214"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074675"
 ---
 # <a name="device-to-cloud-communications-guidance"></a>Wskazówki dotyczące komunikacji między urządzeniami i chmurą
 
@@ -31,7 +32,7 @@ W przypadku wysyłania informacji z aplikacji urządzenia do zaplecza rozwiązan
 
 Poniżej przedstawiono szczegółowe porównanie różnych opcji komunikacji między urządzeniami i chmurą.
 
-|  | Komunikaty z urządzenia do chmury | Raportowane właściwości przędzy urządzenia | Operacje przekazywania plików |
+| Czynnik | Komunikaty z urządzenia do chmury | Raportowane właściwości przędzy urządzenia | Operacje przekazywania plików |
 | ---- | ------- | ---------- | ---- |
 | Scenariusz | Szeregi i alerty telemetrii czasowej. Na przykład wsadowe dane czujników 256-KB są wysyłane co 5 minut. | Dostępne możliwości i warunki. Na przykład bieżący tryb łączności urządzenia, taki jak sieć komórkowa lub Wi-Fi. Synchronizacja długotrwałych przepływów pracy, takich jak konfiguracja i aktualizacje oprogramowania. | Pliki multimedialne. Duże (zazwyczaj skompresowane) partie danych telemetrycznych. |
 | Magazynowanie i pobieranie | Tymczasowo przechowywane przez IoT Hub, do 7 dni. Tylko Odczyt sekwencyjny. | Przechowywane przez IoT Hub w bliźniaczych urządzeniach. Pobieranie przy użyciu [języka zapytań IoT Hub](iot-hub-devguide-query-language.md). | Przechowywane na koncie usługi Azure Storage dostarczonego przez użytkownika. |

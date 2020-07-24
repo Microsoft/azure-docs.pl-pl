@@ -12,11 +12,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: amverma
-ms.openlocfilehash: a4cd74c9c85ee7413cde9f0fb4cf3ffb54c9b3d0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7110f3417937b623260983a9d94e9e6834fc8fc9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76906745"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077381"
 ---
 # <a name="hc-series-virtual-machine-overview"></a>Omówienie maszyny wirtualnej z serii HC
 
@@ -43,7 +44,7 @@ Na poniższym diagramie przedstawiono rozdzielenie rdzeni zarezerwowanych dla fu
 | Rdzenie                            | 44 (HT wyłączone)                 |
 | Procesor CPU                              | Intel Xeon Platinum 8168 *        |
 | Częstotliwość procesora (AVX)          | 3,7 GHz (pojedyncze rdzeń), 2.7-3.4 GHz (wszystkie rdzenie) |
-| Memory (Pamięć)                           | 8 GB/rdzeń (łącznie 352)            |
+| Pamięć                           | 8 GB/rdzeń (łącznie 352)            |
 | Dysk lokalny                       | Interfejsu NVMe 700 GB                      |
 | InfiniBand                       | 100 GB EDR Mellanox ConnectX-5 * * |
 | Sieć                          | 50 GB sieci Ethernet (z 40 GB użytecznych) Azure Second gen SmartNIC * * * |
@@ -62,6 +63,6 @@ Na poniższym diagramie przedstawiono rozdzielenie rdzeni zarezerwowanych dla fu
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Dowiedz się więcej o rozmiarach maszyn wirtualnych HPC dla systemów [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-hpc) i [Windows](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-hpc) na platformie Azure.
+* Dowiedz się więcej o rozmiarach maszyn wirtualnych HPC dla systemów [Linux](../../sizes-hpc.md) i [Windows](../../sizes-hpc.md) na platformie Azure.
 
-* Dowiedz się więcej o [HPC](https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/) na platformie Azure.
+* Dowiedz się więcej o [HPC](/azure/architecture/topics/high-performance-computing/) na platformie Azure.

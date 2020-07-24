@@ -7,11 +7,12 @@ ms.date: 05/05/2020
 ms.topic: how-to
 ms.service: virtual-machines-windows
 ms.subservice: imaging
-ms.openlocfilehash: 65e8818e19ac5ad20bb87fd8eb27a4c36c2839cf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0db618d63964c6f271f9a14b91849e704cfd7820
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83656674"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077520"
 ---
 # <a name="preview-create-a-windows-image-and-distribute-it-to-a-shared-image-gallery"></a>Wersja zapoznawcza: Tworzenie obrazu systemu Windows i dystrybuowanie go do galerii obrazów udostępnionych 
 
@@ -23,7 +24,7 @@ W celu rozesłania obrazu do galerii obrazów udostępnionych szablon używa [sh
 
 Usługa Azure Image Builder automatycznie uruchamia program Sysprep w celu uogólnienia obrazu. jest to ogólne polecenie programu Sysprep, które można [przesłonić](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#vms-created-from-aib-images-do-not-create-successfully) w razie potrzeby. 
 
-Dowiedzieć się, ile razy są dostosowywane warstwy. Można uruchomić polecenie Sysprep do 8 razy w pojedynczym obrazie systemu Windows. Po uruchomieniu programu Sysprep 8 należy ponownie utworzyć obraz systemu Windows. Aby uzyskać więcej informacji, zobacz [limity czasu, w którym można uruchomić program Sysprep](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation#limits-on-how-many-times-you-can-run-sysprep). 
+Dowiedzieć się, ile razy są dostosowywane warstwy. Można uruchomić polecenie Sysprep do 8 razy w pojedynczym obrazie systemu Windows. Po uruchomieniu programu Sysprep 8 należy ponownie utworzyć obraz systemu Windows. Aby uzyskać więcej informacji, zobacz [limity czasu, w którym można uruchomić program Sysprep](/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation#limits-on-how-many-times-you-can-run-sysprep). 
 
 > [!IMPORTANT]
 > Usługa Azure Image Builder jest obecnie dostępna w publicznej wersji zapoznawczej.
@@ -97,7 +98,7 @@ New-AzResourceGroup `
 
 
 ## <a name="create-a-user-assigned-identity-and-set-permissions-on-the-resource-group"></a>Tworzenie tożsamości przypisanej do użytkownika i Ustawianie uprawnień do grupy zasobów
-Konstruktor obrazów będzie używał podanej [tożsamości użytkownika](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell) w celu dodania obrazu do galerii udostępnionych obrazów systemu Azure (SIG). W tym przykładzie utworzysz definicję roli platformy Azure, która zawiera szczegółowe akcje do wykonania dystrybucji obrazu do SIG. Definicja roli zostanie następnie przypisana do tożsamości użytkownika.
+Konstruktor obrazów będzie używał podanej [tożsamości użytkownika](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md) w celu dodania obrazu do galerii udostępnionych obrazów systemu Azure (SIG). W tym przykładzie utworzysz definicję roli platformy Azure, która zawiera szczegółowe akcje do wykonania dystrybucji obrazu do SIG. Definicja roli zostanie następnie przypisana do tożsamości użytkownika.
 
 ```powershell
 # setup role def names, these need to be unique

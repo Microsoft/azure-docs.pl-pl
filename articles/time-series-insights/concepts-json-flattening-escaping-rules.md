@@ -1,6 +1,6 @@
 ---
-title: Reguły spłaszczania i ucieczki JSON — Azure Time Series Insights | Microsoft Docs
-description: Informacje na temat sposobu spłaszczania, ucieczki i obsługi tablic w kodzie JSON w Azure Time Series Insights.
+title: Reguły spłaszczania i ucieczki JSON — Azure Time Series Insights Gen2 | Microsoft Docs
+description: Informacje na temat sposobu spłaszczania, ucieczki i obsługi tablicowej JSON w Azure Time Series Insights Gen2.
 author: lyrana
 ms.author: lyhughes
 manager: deepakpalled
@@ -8,19 +8,18 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 06/04/2020
-ms.custom: seodec18
-ms.openlocfilehash: 45eeebcc092513a0344acaff52c31c2cebfb377c
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.date: 07/07/2020
+ms.openlocfilehash: d33b9b4cb50c1be7b316aad2a736bfd6fb074833
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86049985"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075685"
 ---
 # <a name="ingestion-rules"></a>Reguły pozyskiwania
 ### <a name="json-flattening-escaping-and-array-handling"></a>Spłaszczanie JSON, ucieczki i obsługa tablic
 
-Środowisko Azure Time Series Insights będzie dynamicznie tworzyć kolumny magazynu ciepłego i zimnego, zgodnie z określonym zestawem konwencji nazewnictwa. W przypadku pozyskania zdarzenia zestaw reguł jest stosowany do nazw ładunku i właściwości JSON. Obejmują one anulowanie niektórych znaków specjalnych i spłaszczonie zagnieżdżonych obiektów JSON. Ważne jest, aby poznać te reguły, aby zrozumieć, w jaki sposób kształt JSON będzie miał wpływ na sposób przechowywania i wykonywania zapytań dotyczących zdarzeń. Pełna lista reguł znajduje się w poniższej tabeli. Przykłady & B pokazują również, jak można efektywnie wsadowo wiele szeregów czasowych w tablicy.
+Azure Time Series Insights środowisko Gen2 będzie dynamicznie tworzyć kolumny magazynu ciepłego i zimnego, zgodnie z określonym zestawem konwencji nazewnictwa. W przypadku pozyskania zdarzenia zestaw reguł jest stosowany do nazw ładunku i właściwości JSON. Obejmują one anulowanie niektórych znaków specjalnych i spłaszczonie zagnieżdżonych obiektów JSON. Ważne jest, aby poznać te reguły, aby zrozumieć, w jaki sposób kształt JSON będzie miał wpływ na sposób przechowywania i wykonywania zapytań dotyczących zdarzeń. Pełna lista reguł znajduje się w poniższej tabeli. Przykłady & B pokazują również, jak można efektywnie wsadowo wiele szeregów czasowych w tablicy.
 
 > [!IMPORTANT]
 >
@@ -28,8 +27,8 @@ ms.locfileid: "86049985"
 
 | Reguła | Przykładowy kod JSON |Nazwa kolumny w magazynie |
 |---|---|---|
-| Typ danych TSI jest dołączany na końcu nazwy kolumny jako "_ \<dataType\> " | ```"type": "Accumulated Heat"``` | type_string |
-| [Właściwość sygnatury czasowej](concepts-streaming-ingestion-event-sources.md#event-source-timestamp) źródła zdarzeń zostanie zapisana w TSI jako "sygnatura czasowa" w magazynie i wartość przechowywana w formacie UTC. Możesz dostosować właściwość sygnatury czasowej źródła zdarzeń, aby spełniała potrzeby rozwiązania, ale nazwa kolumny w magazynie ciepłego i zimnego to "timestamp". Inne właściwości JSON typu DateTime, które nie są sygnaturą czasową źródła zdarzenia, zostaną zapisane z "_datetime" w nazwie kolumny, jak wspomniano w powyższej regule.  | ```"ts": "2020-03-19 14:40:38.318"``` | sygnatura czasowa |
+| Typ danych Azure Time Series Insights Gen2 jest dołączany na końcu nazwy kolumny jako "_ \<dataType\> " | ```"type": "Accumulated Heat"``` | type_string |
+| [Właściwość sygnatury czasowej](concepts-streaming-ingestion-event-sources.md#event-source-timestamp) źródła zdarzeń zostanie zapisana w Azure Time Series Insights Gen2 jako "timestamp" w magazynie i wartość przechowywana w formacie UTC. Możesz dostosować właściwość sygnatury czasowej źródła zdarzeń, aby spełniała potrzeby rozwiązania, ale nazwa kolumny w magazynie ciepłego i zimnego to "timestamp". Inne właściwości JSON typu DateTime, które nie są sygnaturą czasową źródła zdarzenia, zostaną zapisane z "_datetime" w nazwie kolumny, jak wspomniano w powyższej regule.  | ```"ts": "2020-03-19 14:40:38.318"``` | sygnatura czasowa |
 | Nazwy właściwości JSON, które zawierają znaki specjalne. [\ i "są wyprowadzane przy użyciu [" i "]  |  ```"id.wasp": "6A3090FD337DE6B"``` | ["ID. Wasp"] _string |
 | W obrębie ["i"] istnieje dodatkowe anulowanie apostrofów i ukośników odwrotnych. Pojedynczy cytat zostanie zapisany jako ", a ukośnik odwrotny zostanie zapisany jako\\\ | ```"Foo's Law Value": "17.139999389648"``` | [" \' Wartość ustawy" foo s "] _double |
 | Zagnieżdżone obiekty JSON są spłaszczone z kropką jako separatorem. Obsługiwane jest zagnieżdżanie do 10 poziomów. |  ```"series": {"value" : 316 }``` | Seria. value_long |
@@ -186,4 +185,4 @@ Powyższa konfiguracja i ładunek spowodują utworzenie trzech kolumn i jednego 
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Zapoznaj się z [ograniczeniami przepływności](concepts-streaming-throughput-limitations.md) środowiska
+* Zapoznaj się z [ograniczeniami przepływności](./concepts-streaming-ingress-throughput-limits.md) środowiska

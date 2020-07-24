@@ -1,14 +1,14 @@
 ---
-title: Funkcje — LUIS
+title: Funkcje uczenia maszynowego z LUIS
 description: Dodaj funkcje do modelu języka, aby przedstawić wskazówki dotyczące sposobu rozpoznawania danych wejściowych, które mają być oznaczone etykietami lub klasyfikacją.
 ms.topic: conceptual
 ms.date: 06/10/2020
-ms.openlocfilehash: fbf39382e418bef9a7d39886076a4100a26ce3e7
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: 02a6fd27dbe22a40b29b47515edec5506d3b2075
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85362462"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075176"
 ---
 # <a name="machine-learning-features"></a>Funkcje uczenia maszynowego
 
@@ -200,7 +200,7 @@ Załóżmy, że firma tylko napływa wyłącznie do ograniczonego zestawu krajó
 
 |Nazwa kanoniczna|Synonimy|
 |--|--|
-|Stany Zjednoczone|U.S.<br>U. S. A<br>USA<br>Stany Zjednoczone<br>0|
+|Stany Zjednoczone|U.S.<br>U. S. A<br>USA<br>USA<br>0|
 
 Aplikacja kliencka, taka jak rozmowa bot, może zadawać pytania dotyczące monitu, aby pomóc. Dzięki temu Klient może zrozumieć, że wybór kraju/regionu jest ograniczony i *wymagany*.
 

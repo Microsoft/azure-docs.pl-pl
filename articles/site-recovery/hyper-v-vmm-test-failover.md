@@ -7,11 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: 0363911574a076b13cb72591fb2564364e096c76
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0b6055cdf930c93ba096a21ebc0b74c204540a79
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84710681"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87076077"
 ---
 # <a name="run-a-dr-drill-for-hyper-v-vms-to-a-secondary-site"></a>Wykonaj drążenie odzyskiwania po awarii dla maszyn wirtualnych funkcji Hyper-V do lokacji dodatkowej
 
@@ -102,17 +103,17 @@ Przygotuj serwer DNS dla testowej pracy w trybie failover w następujący sposó
 * **DHCP**: Jeśli maszyny wirtualne korzystają z protokołu DHCP, na testowanym serwerze DHCP należy zaktualizować adres IP testowego DNS. Jeśli używasz typu sieci wirtualizacji sieci systemu Windows, serwer programu VMM działa jako serwer DHCP. W związku z tym adres IP DNS powinien zostać zaktualizowany w sieci testowej pracy w trybie failover. W takim przypadku maszyny wirtualne rejestrują się na odpowiednim serwerze DNS.
 * **Adres statyczny**: Jeśli maszyny wirtualne używają statycznego adresu IP, należy zaktualizować adres IP testowego serwera DNS w sieci testowej pracy w trybie failover. Może być konieczne zaktualizowanie systemu DNS przy użyciu adresu IP testowanych maszyn wirtualnych. W tym celu można użyć następującego przykładowego skryptu:
 
-        Param(
-        [string]$Zone,
-        [string]$name,
-        [string]$IP
-        )
-        $Record = Get-DnsServerResourceRecord -ZoneName $zone -Name $name
-        $newrecord = $record.clone()
-        $newrecord.RecordData[0].IPv4Address  =  $IP
-        Set-DnsServerResourceRecord -zonename $zone -OldInputObject $record -NewInputObject $Newrecord
-
-
+  ```powershell
+  Param(
+  [string]$Zone,
+  [string]$name,
+  [string]$IP
+  )
+  $Record = Get-DnsServerResourceRecord -ZoneName $zone -Name $name
+  $newrecord = $record.clone()
+  $newrecord.RecordData[0].IPv4Address  =  $IP
+  Set-DnsServerResourceRecord -zonename $zone -OldInputObject $record -NewInputObject $Newrecord
+  ```
 
 ## <a name="run-a-test-failover"></a>Wykonywanie próby przejścia w tryb failover
 

@@ -1,5 +1,5 @@
 ---
-title: Co to jest dedykowany moduł HSM? — Dedykowany moduł HSM platformy Azure | Microsoft Docs
+title: Rozwiązywanie problemów dedykowanego modułu HSM — dedykowany moduł HSM platformy Azure | Microsoft Docs
 description: Omówienie dedykowanego modułu HSM platformy Azure udostępniającego funkcje magazynu kluczy na platformie Azure, który spełnia wymogi certyfikatu FIPS 140-2 poziom 3
 services: dedicated-hsm
 author: msmbaldwin
@@ -13,14 +13,14 @@ ms.topic: overview
 ms.custom: mvc, seodec18
 ms.date: 12/07/2018
 ms.author: mbaldwin
-ms.openlocfilehash: 80a215363a319b9ee082bd6c5e5f8004fc5b715b
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: c398049cfe1d5ec2ee090d4fabf8008803efecb1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85209576"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074994"
 ---
-# <a name="troubleshooting"></a>Rozwiązywanie problemów
+# <a name="troubleshooting-the-azure-dedicated-hsm-service"></a>Rozwiązywanie problemów z usługą dedykowanego modułu HSM platformy Azure
 
 Dedykowana usługa HSM platformy Azure ma dwa różne zestawy reguł. Po pierwsze Rejestracja i wdrożenie na platformie Azure urządzeń HSM z ich podstawowymi składnikami sieciowymi. Na koniec konfiguracja urządzeń HSM w przygotowaniu do użycia/integracji z danym obciążeniem lub aplikacją. Mimo że urządzenia HSM sieci firmy Thales Luna są takie same na platformie Azure, jak w przypadku zakupu bezpośrednio od firmy Thales, fakt, że jest to zasób na platformie Azure, tworzy pewne unikatowe uwagi. Te zagadnienia i wszelkie wynikłe rozwiązania dotyczące rozwiązywania problemów oraz najlepsze rozwiązania są udokumentowane w tym miejscu, aby zapewnić wysoką widoczność i dostęp do krytycznych informacji. Gdy usługa jest używana, ostateczne informacje są dostępne za pośrednictwem żądań pomocy technicznej bezpośrednio do firmy Microsoft lub firmy Thales. 
 
@@ -100,7 +100,7 @@ Podczas inicjowania modułu HSM bezpieczne przechowywanie poświadczeń. Poświa
 
 Dostarczenie nieprawidłowych poświadczeń do sprzętowych modułów zabezpieczeń może mieć konsekwencje destrukcyjne. Poniżej przedstawiono domyślne zachowania ról modułu HSM.
 
-| Rola | Próg (liczba prób) | Wynik zbyt dużej liczby nieudanych prób logowania | Odzyskiwanie |
+| Rola | Próg (liczba prób) | Wynik zbyt dużej liczby nieudanych prób logowania | Odzyskiwania |
 |--|--|--|--|
 | MODUŁ HSM | 3 |  Moduł HSM jest zerowy (wszystkie tożsamości obiektów HSM i wszystkie partycje zostaną usunięte)  |  Moduł HSM musi zostać ponownie zainicjowany. Zawartość można przywrócić z kopii zapasowych. | 
 | Podziel na partycje | 10 |  Partycja ma wartość zero. |  Partycja musi zostać zainicjowana ponownie. Zawartość można przywrócić z kopii zapasowej. |  

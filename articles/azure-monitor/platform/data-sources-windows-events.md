@@ -7,10 +7,11 @@ author: bwren
 ms.author: bwren
 ms.date: 11/28/2018
 ms.openlocfilehash: aa34196233ce4037ef6fa49b782b9aa958f7632d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79274686"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075260"
 ---
 # <a name="windows-event-log-data-sources-in-azure-monitor"></a>Źródła danych dziennika zdarzeń systemu Windows w Azure Monitor
 Dzienniki zdarzeń systemu Windows to jedno z najpopularniejszych [źródeł danych](agent-data-sources.md) do zbierania danych przy użyciu agentów systemu Windows, ponieważ wiele aplikacji zapisuje w dzienniku zdarzeń systemu Windows.  Można zbierać zdarzenia z dzienników standardowych, takich jak system i aplikacja, oprócz określania dzienników niestandardowych utworzonych przez aplikacje, które mają być monitorowane.
@@ -54,14 +55,14 @@ Rekordy zdarzeń systemu Windows mają typ **zdarzenia** i mają właściwości 
 | Element źródłowy |Źródło zdarzenia. |
 | SourceSystem |Typ agenta, z którego zostały zebrane zdarzenia. <br> OpsManager — Agent systemu Windows, bezpośrednie połączenie lub Operations Manager zarządzany <br> Linux — Wszyscy agenci systemu Linux  <br> AzureStorage — Diagnostyka Azure |
 | TimeGenerated |Data i godzina utworzenia zdarzenia w systemie Windows. |
-| UserName |Nazwa użytkownika konta, które zarejestrowało zdarzenie. |
+| Nazwa użytkownika |Nazwa użytkownika konta, które zarejestrowało zdarzenie. |
 
 ## <a name="log-queries-with-windows-events"></a>Rejestruj zapytania ze zdarzeniami systemu Windows
 W poniższej tabeli przedstawiono różne przykłady zapytań dzienników, które pobierają rekordy zdarzeń systemu Windows.
 
 | Zapytanie | Opis |
 |:---|:---|
-| Wydarzenie |Wszystkie zdarzenia systemu Windows. |
+| Zdarzenie |Wszystkie zdarzenia systemu Windows. |
 | &#124; zdarzeń, gdzie EventLevelName = = "Error" |Wszystkie zdarzenia systemu Windows o ważności błędu. |
 | Licznik podsumowania &#124; zdarzeń () według źródła |Liczba zdarzeń systemu Windows według źródła. |
 | &#124; zdarzeń, gdzie EventLevelName = = "Error" &#124; Sumuj liczbę () według źródła |Liczba zdarzeń błędów systemu Windows według źródła. |

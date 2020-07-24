@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/15/2017
 ms.author: matd
-ms.openlocfilehash: 87885d9b476582fcce53b8b960d24093693af4ec
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 34c66c3d5739fdc23323a302e3bedfb1b6301d86
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85509391"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077909"
 ---
 # <a name="storsimple-as-a-backup-target-with-netbackup"></a>StorSimple jako miejsce docelowe kopii zapasowej za pomocą NetBackup
 
@@ -304,7 +304,7 @@ Oto przykład harmonogramu rotacji GFS przez cztery tygodnie, co miesiąc i rok:
 |---|---|---|
 | Co tydzień (tygodnie 1-4) | Sobota | Poniedziałek — piątek |
 | Co miesiąc  | Sobota  |   |
-| Roczne | Sobota  |   |
+| Rocznie | Sobota  |   |
 
 ## <a name="assigning-storsimple-volumes-to-a-netbackup-backup-job"></a>Przypisywanie woluminów StorSimple do zadania tworzenia kopii zapasowej NetBackup
 
@@ -328,7 +328,7 @@ W poniższej kolejności przyjęto założenie, że NetBackup i host docelowy s�
 
    ![Konsola administracyjna NetBackup, wybierz typ zasad](./media/storsimple-configure-backup-target-using-netbackup/nbimage9.png)
 
-5. Wybierz hosta, zaznacz pole wyboru **Wykryj system operacyjny klienta** , a następnie wybierz pozycję **Dodaj**. Wybierz pozycję **Dalej**.
+5. Wybierz hosta, zaznacz pole wyboru **Wykryj system operacyjny klienta** , a następnie wybierz pozycję **Dodaj**. Wybierz przycisk **Dalej**.
 
    ![Konsola administracyjna NetBackup, lista klientów w nowych zasadach](./media/storsimple-configure-backup-target-using-netbackup/nbimage10.png)
 
@@ -415,7 +415,7 @@ W poniższej tabeli przedstawiono sposób konfigurowania kopii zapasowych do uru
 | Tydzień 3 | StorSimple tygodni 2-4 |   |   |   |   |   |
 | Tydzień 4 | StorSimple tygodni 2-4 |   |   |   |   |   |
 | Co miesiąc | StorSimple miesięcznie |   |   |   |   |   |
-| Roczne | StorSimple rocznie  |   |   |   |   |   |
+| Rocznie | StorSimple rocznie  |   |   |   |   |   |
 
 
 ## <a name="assign-storsimple-volumes-to-a-netbackup-archive-and-duplication-job"></a>Przypisywanie woluminów StorSimple do archiwum NetBackup i zadania duplikowania
@@ -507,7 +507,7 @@ W poniższej sekcji opisano, jak utworzyć krótki skrypt do uruchamiania i usuw
 
 ### <a name="to-start-or-delete-a-cloud-snapshot"></a>Aby rozpocząć lub usunąć migawkę w chmurze
 
-1. [Zainstalowanie programu Azure PowerShell](/powershell/azure/overview).
+1. [Zainstalowanie programu Azure PowerShell](/powershell/azure/).
 2. Pobierz i skonfiguruj [Manage-CloudSnapshots.ps1](https://github.com/anoobbacker/storsimpledevicemgmttools/blob/master/Manage-CloudSnapshots.ps1) skrypt programu PowerShell.
 3. Na serwerze, na którym działa skrypt, uruchom program PowerShell jako administrator. Upewnij się, że skrypt został uruchomiony za pomocą programu, `-WhatIf $true` Aby zobaczyć, jakie zmiany wprowadzi skrypt. Po zakończeniu walidacji zakończono pomyślnie `-WhatIf $false` . Uruchom następujące polecenie:
    ```powershell

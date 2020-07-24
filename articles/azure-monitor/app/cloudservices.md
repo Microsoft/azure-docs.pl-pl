@@ -3,14 +3,15 @@ title: Application Insights dla usług Azure Cloud Services | Microsoft Docs
 description: Skutecznie monitoruj role sieci Web i procesu roboczego za pomocą usługi Application Insights
 ms.topic: conceptual
 ms.date: 09/05/2018
-ms.openlocfilehash: 17813d17a1c40caac5587e37e279be6376992b90
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bf75bb145a3b0d7c861d3c92af972b39de11bcdf
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81537597"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075417"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Application Insights dla usług Azure Cloud Services
-[Application Insights][start] mogą monitorować [aplikacje usługi w chmurze platformy Azure](https://azure.microsoft.com/services/cloud-services/) pod kątem dostępności, wydajności, błędów i użycia przez połączenie danych z zestawów sdk Application Insights z danymi [Diagnostyka Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) z usług w chmurze. Dzięki uzyskiwanym opiniom dotyczącym wydajności i skuteczności aplikacji możesz dokonać opartych na informacjach wyborów dotyczących kierunku projektu w każdym cyklu życia.
+[Application Insights][start] mogą monitorować [aplikacje usługi w chmurze platformy Azure](https://azure.microsoft.com/services/cloud-services/) pod kątem dostępności, wydajności, błędów i użycia przez połączenie danych z zestawów sdk Application Insights z danymi [Diagnostyka Azure](../platform/diagnostics-extension-overview.md) z usług w chmurze. Dzięki uzyskiwanym opiniom dotyczącym wydajności i skuteczności aplikacji możesz dokonać opartych na informacjach wyborów dotyczących kierunku projektu w każdym cyklu życia.
 
 ![Pulpit nawigacyjny przeglądu](./media/cloudservices/overview-graphs.png)
 
@@ -30,7 +31,7 @@ Ta opcja służy do przyrządowania aplikacji w czasie wykonywania, która zapew
 
 Jeśli ta opcja jest wymagana, wszystko jest gotowe. 
 
-W następnych krokach są [wyświetlane metryki z aplikacji](../../azure-monitor/platform/metrics-charts.md), [wykonywanie zapytań dotyczących danych za pomocą analizy](../../azure-monitor/app/analytics.md). 
+W następnych krokach są [wyświetlane metryki z aplikacji](../../azure-monitor/platform/metrics-charts.md), [wykonywanie zapytań dotyczących danych za pomocą analizy](../log-query/log-query-overview.md). 
 
 Aby monitorować wydajność w przeglądarce, możesz również skonfigurować [testy dostępności](../../azure-monitor/app/monitor-web-app-availability.md) i [dodać kod do stron sieci Web](../../azure-monitor/app/javascript.md).
 
@@ -131,7 +132,7 @@ W programie Visual Studio skonfiguruj zestaw SDK usługi Application Insights dl
 
 Ten krok jest wymagany tylko wtedy, gdy chcesz przechwytywać pełne zapytania SQL na .NET Framework. 
 
-1. W oknie `\*.csdef` Dodawanie [zadania uruchamiania](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks) dla każdej roli podobnej do 
+1. W oknie `\*.csdef` Dodawanie [zadania uruchamiania](../../cloud-services/cloud-services-startup-tasks.md) dla każdej roli podobnej do 
 
     ```xml
     <Startup>
@@ -177,7 +178,7 @@ Jeśli nie ma żadnych danych, wykonaj następujące czynności:
 Aby uzyskać więcej informacji, zobacz temat [Rozwiązywanie problemów][qna].
 
 ## <a name="view-azure-diagnostics-events"></a>Wyświetlanie zdarzeń Diagnostyka Azure
-[Diagnostyka Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) informacje można znaleźć w Application Insights w następujących lokalizacjach:
+[Diagnostyka Azure](../platform/diagnostics-extension-overview.md) informacje można znaleźć w Application Insights w następujących lokalizacjach:
 
 * Liczniki wydajności są wyświetlane jako metryki niestandardowe. 
 * Dzienniki zdarzeń systemu Windows są wyświetlane jako ślady i zdarzenia niestandardowe.
@@ -258,7 +259,7 @@ Aby zapoznać się z ogólnym obrazem systemu, można wyświetlić wykresy monit
 
 Jeśli system używa innych usług platformy Azure, takich jak Stream Analytics, należy również uwzględnić ich wykresy monitorowania. 
 
-Jeśli masz klienta aplikacji mobilnej, użyj pakietu [App Center](../../azure-monitor/learn/mobile-center-quickstart.md). Utwórz zapytania w pozycji [Analiza](../../azure-monitor/app/analytics.md), aby wyświetlić liczby zdarzeń i przypiąć je do pulpitu nawigacyjnego.
+Jeśli masz klienta aplikacji mobilnej, użyj pakietu [App Center](../../azure-monitor/learn/mobile-center-quickstart.md). Utwórz zapytania w pozycji [Analiza](../log-query/log-query-overview.md), aby wyświetlić liczby zdarzeń i przypiąć je do pulpitu nawigacyjnego.
 
 ## <a name="example"></a>Przykład
 [Przykład](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService) monitoruje usługę mającą rolę sieci Web i dwie role procesów roboczych.
@@ -283,6 +284,6 @@ Czy to kompilacja dla .NET 4.6? Platforma .NET 4,6 nie jest automatycznie obsłu
 [diagnostic]: ../../azure-monitor/app/diagnostic-search.md
 [netlogs]: ../../azure-monitor/app/asp-net-trace-logs.md
 [portal]: https://portal.azure.com/
-[qna]: ../../azure-monitor/app/troubleshoot-faq.md
+[qna]: ../faq.md
 [redfield]: ../../azure-monitor/app/monitor-performance-live-website-now.md
-[start]: ../../azure-monitor/app/app-insights-overview.md 
+[start]: ../../azure-monitor/app/app-insights-overview.md

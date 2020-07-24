@@ -1,15 +1,16 @@
 ---
 title: Wdrażanie usługi Azure łańcucha bloków Workbench w wersji zapoznawczej
 description: Jak wdrożyć usługę Azure łańcucha bloków Workbench w wersji zapoznawczej
-ms.date: 01/08/2020
+ms.date: 07/16/2020
 ms.topic: how-to
-ms.reviewer: brendal
-ms.openlocfilehash: aaef42f715c9f4fa2550f4a2468b42c5077af14c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.reviewer: ravastra
+ms.custom: references_regions
+ms.openlocfilehash: b46a35b45a51d0cc76942c4ca142c4c7792a28b4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85210778"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077025"
 ---
 # <a name="deploy-azure-blockchain-workbench-preview"></a>Wdrażanie usługi Azure łańcucha bloków Workbench w wersji zapoznawczej
 
@@ -26,7 +27,7 @@ Aby uzyskać więcej informacji na temat składników łańcucha bloków Workben
 * Plan App Service (standardowa)
 * Application Insights
 * Event Grid
-* W usłudze Azure Key Vault
+* Azure Key Vault
 * Service Bus
 * SQL Database (standardowa S0)
 * Konto usługi Azure Storage (standardowa LRS)
@@ -45,7 +46,7 @@ Koszt usługi łańcucha bloków Workbench to zagregowany koszt podstawowych us�
 Usługa Azure łańcucha bloków Workbench wymaga konfiguracji usługi Azure AD i rejestracji aplikacji. Przed wdrożeniem można [ręcznie określić konfiguracje](#azure-ad-configuration) usługi Azure AD lub uruchomić wdrożenie skryptu. W przypadku ponownego wdrażania programu łańcucha bloków Workbench, zobacz [Konfiguracja usługi Azure AD](#azure-ad-configuration) , aby zweryfikować konfigurację usługi Azure AD.
 
 > [!IMPORTANT]
-> Workbench nie musi być wdrożona w tej samej dzierżawie, która jest używana do rejestrowania aplikacji usługi Azure AD. Workbench należy wdrożyć w dzierżawie, w której masz wystarczające uprawnienia do wdrażania zasobów. Aby uzyskać więcej informacji o dzierżawach usługi Azure AD, zobacz [jak uzyskać dzierżawę Active Directory](../../active-directory/develop/quickstart-create-new-tenant.md) i [zintegrować aplikacje z Azure Active Directory](../../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md).
+> Workbench nie musi być wdrożona w tej samej dzierżawie, która jest używana do rejestrowania aplikacji usługi Azure AD. Workbench należy wdrożyć w dzierżawie, w której masz wystarczające uprawnienia do wdrażania zasobów. Aby uzyskać więcej informacji o dzierżawach usługi Azure AD, zobacz [jak uzyskać dzierżawę Active Directory](../../active-directory/develop/quickstart-create-new-tenant.md) i [zintegrować aplikacje z Azure Active Directory](../../active-directory/develop/quickstart-register-app.md).
 
 ## <a name="deploy-blockchain-workbench"></a>Wdróż łańcucha bloków Workbench
 
@@ -64,9 +65,9 @@ Po zakończeniu kroków wstępnych można przystąpić do wdrożenia łańcucha 
     | Nazwa użytkownika maszyny wirtualnej | Nazwa użytkownika jest używana jako administrator dla wszystkich maszyn wirtualnych. |
     | Typ uwierzytelniania | Wybierz, jeśli chcesz użyć hasła lub klucza w celu nawiązania połączenia z maszynami wirtualnymi. |
     | Hasło | Hasło służy do łączenia się z maszynami wirtualnymi. |
-    | Protokół SSH | Użyj klucza publicznego RSA w formacie jednowierszowym rozpoczynającym się od **protokołu SSH-RSA** lub użyj wielowierszowego formatu PEM. Klucze SSH można generować przy użyciu `ssh-keygen` systemu Linux i OS X lub przy użyciu usługi PuTTYGen w systemie Windows. Więcej informacji na temat kluczy SSH znajduje się w temacie [jak używać kluczy SSH w systemie Windows na platformie Azure](../../virtual-machines/linux/ssh-from-windows.md). |
+    | SSH | Użyj klucza publicznego RSA w formacie jednowierszowym rozpoczynającym się od **protokołu SSH-RSA** lub użyj wielowierszowego formatu PEM. Klucze SSH można generować przy użyciu `ssh-keygen` systemu Linux i OS X lub przy użyciu usługi PuTTYGen w systemie Windows. Więcej informacji na temat kluczy SSH znajduje się w temacie [jak używać kluczy SSH w systemie Windows na platformie Azure](../../virtual-machines/linux/ssh-from-windows.md). |
     | Baza danych i hasło łańcucha bloków | Określ hasło, które ma być używane na potrzeby dostępu do bazy danych utworzonej w ramach wdrożenia. Hasło musi spełniać trzy z czterech następujących wymagań: długość musi należeć do zakresu od 12 & 72 znaków, 1 małe litery, 1 wielkie litery, 1 cyfra i 1 znak specjalny, który nie jest znakiem numeru (#), procent (%), przecinek (,), gwiazdka (), cudzysłów ( \` ), podwójny cudzysłów ("), apostrof (), kreska () i semicolumn (;) |
-    | Region wdrożenia | Określ, gdzie mają zostać wdrożone zasoby łańcucha bloków Workbench. Aby zapewnić najlepszą dostępność, powinno to być zgodne z ustawieniem **Lokalizacja** . |
+    | Region wdrożenia | Określ, gdzie mają zostać wdrożone zasoby łańcucha bloków Workbench. Aby zapewnić najlepszą dostępność, powinno to być zgodne z ustawieniem lokalizacja **regionu** . Nie wszystkie regiony są dostępne w trakcie okresu zapoznawczego. Funkcje mogą być niedostępne w niektórych regionach. Usługa Azure łańcucha bloków Data Manager jest dostępna w następujących regionach świadczenia usługi Azure: Wschodnie stany USA i Europa Zachodnia.|
     | Subskrypcja | Określ subskrypcję platformy Azure, której chcesz użyć dla danego wdrożenia. |
     | Grupy zasobów | Utwórz nową grupę zasobów, wybierając pozycję **Utwórz nową** i określić unikatową nazwę grupy zasobów. |
     | Lokalizacja | Określ region, w którym ma zostać wdrożona struktura. |
@@ -106,7 +107,7 @@ Po zakończeniu kroków wstępnych można przystąpić do wdrożenia łańcucha 
      | Ustawienia usługi Azure Active Directory | Wybierz pozycję **Dodaj później**.</br>Uwaga: w przypadku wybrania opcji [wstępnego skonfigurowania usługi Azure AD](#azure-ad-configuration) lub ponownego wdrożenia wybierz opcję *dodania teraz*. |
      | Wybór maszyny wirtualnej | Wybierz preferowaną wydajność magazynu i rozmiar maszyny wirtualnej dla sieci łańcucha bloków. Wybierz mniejszy rozmiar maszyny wirtualnej, na przykład *standardowa DS1 v2* , jeśli masz subskrypcję z niskimi limitami usług, takimi jak platforma Azure w warstwie Bezpłatna. |
 
-1. Wybierz **przycisk OK** , aby zakończyć ustawienia zaawansowane.
+1. Wybierz pozycję **Przegląd + Utwórz** , aby zakończyć ustawienia zaawansowane.
 
 1. Przejrzyj podsumowanie, aby sprawdzić, czy parametry są dokładne.
 
@@ -181,7 +182,7 @@ Wdrożenie łańcucha bloków Workbench wymaga rejestracji aplikacji usługi Azu
 1. Wybierz swoje konto w prawym górnym rogu i przejdź do odpowiedniej dzierżawy usługi Azure AD. Dzierżawa powinna być dzierżawą subskrypcji administratora subskrypcji, w której wdrożono usługę Azure łańcucha bloków Workbench i masz wystarczające uprawnienia do rejestrowania aplikacji.
 1. W okienku nawigacji po lewej stronie wybierz usługę **Azure Active Directory**. Wybierz pozycję **rejestracje aplikacji**  >  **Nowa rejestracja**.
 
-    ![Rejestrowanie aplikacji](media/deploy/app-registration.png)
+    ![Rejestracja aplikacji](media/deploy/app-registration.png)
 
 1. Podaj **nazwę** wyświetlaną i wybierz **konta w tym katalogu organizacji**.
 
@@ -281,7 +282,7 @@ Po wdrożeniu usługi Azure łańcucha bloków Workbench należy skonfigurować 
 1. Sprawdź, czy jesteś w dzierżawie, w której zarejestrowano aplikację kliencką usługi Azure AD.
 1. W okienku nawigacji po lewej stronie wybierz usługę **Azure Active Directory**. Wybierz pozycję **Rejestracje aplikacji**.
 1. Wybierz aplikację kliencką usługi Azure AD, która została zarejestrowana w sekcji wymagania wstępne.
-1. Wybierz pozycję **uwierzytelnianie**.
+1. Wybierz pozycję **Uwierzytelnianie**.
 1. Określ główny adres URL sieci Web wdrożenia usługi Azure łańcucha bloków Workbench, który został pobrany w sekcji [adresu URL sieci Web łańcucha bloków Workbench](#blockchain-workbench-web-url) . Adres URL odpowiedzi jest poprzedzony prefiksem `https://` . Na przykład: `https://myblockchain2-7v75.azurewebsites.net`
 
     ![Adresy URL odpowiedzi uwierzytelniania](media/deploy/configure-reply-url.png)

@@ -3,12 +3,12 @@ title: Tworzenie kopii zapasowej udziału plików platformy Azure przy użyciu p
 description: W tym artykule dowiesz się, jak utworzyć kopię zapasową udziału plików Azure Files przy użyciu usługi Azure Backup i programu PowerShell.
 ms.topic: conceptual
 ms.date: 08/20/2019
-ms.openlocfilehash: 18c03eda9d9daca3a0fa536843e32f7fc3158287
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: 948931764769bc967b88e7942b7e8384b0f93dff
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85971032"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87076996"
 ---
 # <a name="back-up-an-azure-file-share-by-using-powershell"></a>Tworzenie kopii zapasowej udziału plików platformy Azure przy użyciu programu PowerShell
 
@@ -89,13 +89,13 @@ Magazyn Recovery Services jest zasobem Menedżer zasobów, dlatego należy umie�
 
 Wykonaj następujące kroki, aby utworzyć magazyn Recovery Services:
 
-1. Jeśli nie masz istniejącej grupy zasobów, Utwórz nową przy użyciu polecenia cmdlet [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup?view=azps-1.4.0) . W tym przykładzie utworzysz grupę zasobów w regionie zachodnie stany USA:
+1. Jeśli nie masz istniejącej grupy zasobów, Utwórz nową przy użyciu polecenia cmdlet [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) . W tym przykładzie utworzysz grupę zasobów w regionie zachodnie stany USA:
 
    ```powershell
    New-AzResourceGroup -Name "test-rg" -Location "West US"
    ```
 
-1. Użyj polecenia cmdlet [New-AzRecoveryServicesVault](https://docs.microsoft.com/powershell/module/az.recoveryservices/New-AzRecoveryServicesVault?view=azps-1.4.0) , aby utworzyć magazyn. Określ tę samą lokalizację dla magazynu, który został użyty dla grupy zasobów.
+1. Użyj polecenia cmdlet [New-AzRecoveryServicesVault](/powershell/module/az.recoveryservices/new-azrecoveryservicesvault) , aby utworzyć magazyn. Określ tę samą lokalizację dla magazynu, który został użyty dla grupy zasobów.
 
     ```powershell
     New-AzRecoveryServicesVault -Name "testvault" -ResourceGroupName "test-rg" -Location "West US"
@@ -103,7 +103,7 @@ Wykonaj następujące kroki, aby utworzyć magazyn Recovery Services:
 
 ### <a name="view-the-vaults-in-a-subscription"></a>Wyświetlanie magazynów w ramach subskrypcji
 
-Aby wyświetlić wszystkie magazyny w subskrypcji, użyj polecenie [Get-AzRecoveryServicesVault](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesvault?view=azps-1.4.0):
+Aby wyświetlić wszystkie magazyny w subskrypcji, użyj polecenie [Get-AzRecoveryServicesVault](/powershell/module/az.recoveryservices/get-azrecoveryservicesvault):
 
 ```powershell
 Get-AzRecoveryServicesVault
@@ -127,7 +127,7 @@ Zapisz obiekt magazynu w zmiennej i ustaw kontekst magazynu.
 
 Wiele Azure Backup poleceń cmdlet wymaga obiektu magazynu Recovery Services jako danych wejściowych, dlatego warto przechowywać obiekt magazynu w zmiennej.
 
-Kontekst magazynu to typ danych chronionych w magazynie. Ustaw go za pomocą polecenia [Set-AzRecoveryServicesVaultContext](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesvaultcontext?view=azps-1.4.0). Po ustawieniu kontekstu ma zastosowanie do wszystkich kolejnych poleceń cmdlet.
+Kontekst magazynu to typ danych chronionych w magazynie. Ustaw go za pomocą polecenia [Set-AzRecoveryServicesVaultContext](/powershell/module/az.recoveryservices/set-azrecoveryservicesvaultcontext). Po ustawieniu kontekstu ma zastosowanie do wszystkich kolejnych poleceń cmdlet.
 
 Poniższy przykład ustawia kontekst magazynu dla **testvault**:
 
@@ -152,9 +152,9 @@ Zasady tworzenia kopii zapasowej są skojarzone z co najmniej jedną zasadą prz
 
 Oto kilka poleceń cmdlet dla zasad tworzenia kopii zapasowych:
 
-* Wyświetl domyślne przechowywanie zasad kopii zapasowych za pomocą polecenia [Get-AzRecoveryServicesBackupRetentionPolicyObject](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupretentionpolicyobject?view=azps-1.4.0).
-* Wyświetlanie domyślnego harmonogramu zasad tworzenia kopii zapasowych za pomocą polecenia [Get-AzRecoveryServicesBackupSchedulePolicyObject](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupschedulepolicyobject?view=azps-1.4.0).
-* Utwórz nowe zasady kopii zapasowej za pomocą polecenia [New-AzRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupprotectionpolicy?view=azps-1.4.0). Należy wprowadzić obiekty zasad harmonogramu i przechowywania jako dane wejściowe.
+* Wyświetl domyślne przechowywanie zasad kopii zapasowych za pomocą polecenia [Get-AzRecoveryServicesBackupRetentionPolicyObject](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupretentionpolicyobject).
+* Wyświetlanie domyślnego harmonogramu zasad tworzenia kopii zapasowych za pomocą polecenia [Get-AzRecoveryServicesBackupSchedulePolicyObject](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupschedulepolicyobject).
+* Utwórz nowe zasady kopii zapasowej za pomocą polecenia [New-AzRecoveryServicesBackupProtectionPolicy](/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupprotectionpolicy). Należy wprowadzić obiekty zasad harmonogramu i przechowywania jako dane wejściowe.
 
 Domyślnie w obiekcie zasad harmonogramu jest zdefiniowany czas rozpoczęcia. Użyj poniższego przykładu, aby zmienić godzinę rozpoczęcia na żądaną godzinę rozpoczęcia. Wymagana godzina rozpoczęcia powinna być w formacie UTC (Universal Coordinated Time). W przykładzie przyjęto założenie, że żądany czas rozpoczęcia to 01:00 czasu UTC dla codziennych kopii zapasowych.
 
@@ -190,7 +190,7 @@ Po zdefiniowaniu zasad tworzenia kopii zapasowych można włączyć ochronę udz
 
 ### <a name="retrieve-a-backup-policy"></a>Pobieranie zasad kopii zapasowych
 
-Należy pobrać odpowiedni obiekt zasad przy użyciu polecenia [Get-AzRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupprotectionpolicy?view=azps-1.4.0). To polecenie cmdlet służy do wyświetlania zasad skojarzonych z typem obciążenia lub do uzyskiwania określonych zasad.
+Należy pobrać odpowiedni obiekt zasad przy użyciu polecenia [Get-AzRecoveryServicesBackupProtectionPolicy](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupprotectionpolicy). To polecenie cmdlet służy do wyświetlania zasad skojarzonych z typem obciążenia lub do uzyskiwania określonych zasad.
 
 #### <a name="retrieve-a-policy-for-a-workload-type"></a>Pobieranie zasad dla typu obciążenia
 
@@ -221,7 +221,7 @@ $afsPol =  Get-AzRecoveryServicesBackupProtectionPolicy -Name "dailyafs"
 
 ### <a name="enable-protection-and-apply-the-policy"></a>Włączanie ochrony i stosowanie zasad
 
-Włącz ochronę za pomocą polecenia [enable-AzRecoveryServicesBackupProtection](https://docs.microsoft.com/powershell/module/az.recoveryservices/enable-azrecoveryservicesbackupprotection?view=azps-1.4.0). Po skojarzeniu zasad z magazynem kopie zapasowe są wyzwalane zgodnie z harmonogramem zasad.
+Włącz ochronę za pomocą polecenia [enable-AzRecoveryServicesBackupProtection](/powershell/module/az.recoveryservices/enable-azrecoveryservicesbackupprotection). Po skojarzeniu zasad z magazynem kopie zapasowe są wyzwalane zgodnie z harmonogramem zasad.
 
 Poniższy przykład umożliwia ochronę udziału plików platformy Azure **testAzureFileShare** na koncie magazynu **testStorageAcct**przy użyciu zasad **dailyafs**:
 
@@ -237,7 +237,7 @@ WorkloadName       Operation            Status                 StartTime        
 testAzureFS       ConfigureBackup      Completed            11/12/2018 2:15:26 PM     11/12/2018 2:16:11 PM     ec7d4f1d-40bd-46a4-9edb-3193c41f6bf6
 ```
 
-Aby uzyskać więcej informacji na temat pobierania listy udziałów plików dla konta magazynu, zobacz [ten artykuł](https://docs.microsoft.com/powershell/module/az.storage/get-azstorageshare?view=azps-4.3.0).
+Aby uzyskać więcej informacji na temat pobierania listy udziałów plików dla konta magazynu, zobacz [ten artykuł](/powershell/module/az.storage/get-azstorageshare).
 
 ## <a name="important-notice-backup-item-identification"></a>Ważna Uwaga: Identyfikacja elementu kopii zapasowej
 
@@ -262,7 +262,7 @@ Zalecamy, aby wyświetlić listę elementów, a następnie pobrać ich unikatow�
 
 ## <a name="trigger-an-on-demand-backup"></a>Wyzwalanie kopii zapasowej na żądanie
 
-Użyj [Narzędzia Backup-AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/backup-azrecoveryservicesbackupitem?view=azps-1.4.0) , aby uruchomić kopię zapasową na żądanie dla chronionego udziału plików platformy Azure:
+Użyj [Narzędzia Backup-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/backup-azrecoveryservicesbackupitem) , aby uruchomić kopię zapasową na żądanie dla chronionego udziału plików platformy Azure:
 
 1. Pobierz konto magazynu z kontenera w magazynie, który przechowuje dane kopii zapasowej za pomocą polecenia [Get-AzRecoveryServicesBackupContainer](/powershell/module/az.recoveryservices/get-Azrecoveryservicesbackupcontainer).
 2. Aby rozpocząć zadanie tworzenia kopii zapasowej, Uzyskaj informacje o udziale plików platformy Azure za pomocą polecenia [Get-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupItem).

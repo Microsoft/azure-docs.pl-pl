@@ -11,13 +11,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 10/25/2019
-ms.openlocfilehash: 1a5a2682198f9ce9f5cb39f21e244c723ca513d9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/17/2020
+ms.openlocfilehash: 1f0fb1ee8580c0c7f6eb30228b65e0a3780ef0a8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81416648"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87076797"
 ---
 # <a name="copy-data-from-salesforce-marketing-cloud-using-azure-data-factory"></a>Kopiowanie danych z chmury marketingowej usług Salesforce przy użyciu Azure Data Factory
 
@@ -34,7 +34,7 @@ Ten łącznik usługi Salesforce Marketing Cloud jest obsługiwany dla następuj
 
 Dane z chmury marketingowej usługi Salesforce można kopiować do dowolnego obsługiwanego magazynu danych ujścia. Listę magazynów danych obsługiwanych jako źródła/ujścia przez działanie kopiowania można znaleźć w tabeli [obsługiwane magazyny danych](copy-activity-overview.md#supported-data-stores-and-formats) .
 
-Łącznik usługi Salesforce Marketing Cloud obsługuje uwierzytelnianie OAuth 2. Jest on oparty na bazie [interfejsu API REST usługi Salesforce Marketing Cloud](https://developer.salesforce.com/docs/atlas.en-us.mc-apis.meta/mc-apis/index-api.htm).
+Łącznik usługi Salesforce Marketing Cloud obsługuje uwierzytelnianie OAuth 2 i obsługuje zarówno starsze, jak i rozszerzone typy pakietów. Łącznik jest oparty na [interfejsie API REST usługi Salesforce Marketing Cloud](https://developer.salesforce.com/docs/atlas.en-us.mc-apis.meta/mc-apis/index-api.htm).
 
 >[!NOTE]
 >Ten łącznik nie obsługuje pobierania obiektów niestandardowych ani niestandardowych rozszerzeń danych.
@@ -52,13 +52,17 @@ Następujące właściwości są obsługiwane dla połączonej usługi Salesforc
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
 | typ | Właściwość Type musi mieć wartość: **SalesforceMarketingCloud** | Tak |
+| connectionProperties | Grupa właściwości, która definiuje sposób nawiązywania połączenia z chmurą marketingową usługi Salesforce. | Tak |
+| ***W obszarze `connectionProperties` :*** | | |
+| authenticationType | Określa metodę uwierzytelniania, która ma być używana. Dozwolone wartości to `Enhanced sts OAuth 2.0` lub `OAuth_2.0` .<br><br>Starsza wersja chmury marketingowej usługi Salesforce obsługuje tylko `OAuth_2.0` , a jednocześnie rozszerzane potrzeby pakietu `Enhanced sts OAuth 2.0` . <br>Od 1 sierpnia 2019 w chmurze marketingowej usługi Salesforce została usunięta możliwość tworzenia starszych pakietów. Wszystkie nowe pakiety są udoskonalonymi pakietami. | Tak |
+| host | W przypadku pakietu rozszerzonego host powinien być [poddomeną](https://developer.salesforce.com/docs/atlas.en-us.mc-apis.meta/mc-apis/your-subdomain-tenant-specific-endpoints.htm) , która jest reprezentowana przez 28-znakowy ciąg zaczynający się od liter "MC", np. `mc563885gzs27c5t9-63k636ttgm` . <br>Dla starszego pakietu, określ `www.exacttargetapis.com` . | Tak |
 | clientId | Identyfikator klienta skojarzony z aplikacją usługi Salesforce Marketing Cloud.  | Tak |
-| clientSecret | Wpis tajny klienta skojarzony z aplikacją usługi Salesforce Marketing Cloud. Możesz oznaczyć to pole jako element SecureString, aby bezpiecznie przechowywać go w podajniku APD, lub przechowywać hasło w Azure Key Vault i wypróbować działanie Copy APD z tego miejsca podczas kopiowania danych — Dowiedz się więcej z [poświadczeń sklepu w Key Vault](store-credentials-in-key-vault.md). | Tak |
+| clientSecret | Wpis tajny klienta skojarzony z aplikacją usługi Salesforce Marketing Cloud. Możesz oznaczyć to pole jako element SecureString, aby bezpiecznie przechowywać go w podajniku APD, lub przechowywać wpis tajny w Azure Key Vault i umożliwić odjęcie działania kopiowania ADF z tego miejsca podczas kopiowania danych — Dowiedz się więcej z [poświadczeń sklepu w Key Vault](store-credentials-in-key-vault.md). | Tak |
 | useEncryptedEndpoints | Określa, czy punkty końcowe źródła danych są szyfrowane przy użyciu protokołu HTTPS. Wartością domyślną jest true.  | Nie |
 | useHostVerification | Określa, czy nazwa hosta ma być wymagana w certyfikacie serwera, aby odpowiadała nazwie hosta serwera podczas łączenia się za pośrednictwem protokołu TLS. Wartością domyślną jest true.  | Nie |
 | usePeerVerification | Określa, czy należy zweryfikować tożsamość serwera podczas łączenia za pośrednictwem protokołu TLS. Wartością domyślną jest true.  | Nie |
 
-**Przykład:**
+**Przykład: użycie rozszerzonego uwierzytelniania usługi STS OAuth 2 dla pakietu rozszerzonego** 
 
 ```json
 {
@@ -66,14 +70,66 @@ Następujące właściwości są obsługiwane dla połączonej usługi Salesforc
     "properties": {
         "type": "SalesforceMarketingCloud",
         "typeProperties": {
-            "clientId" : "<clientId>",
+            "connectionProperties": {
+                "host": "<subdomain e.g. mc563885gzs27c5t9-63k636ttgm>",
+                "authenticationType": "Enhanced sts OAuth 2.0",
+                "clientId": "<clientId>",
+                "clientSecret": {
+                     "type": "SecureString",
+                     "value": "<clientSecret>"
+                },
+                "useEncryptedEndpoints": true,
+                "useHostVerification": true,
+                "usePeerVerification": true
+            }
+        }
+    }
+}
+
+```
+
+**Przykład: używanie uwierzytelniania OAuth 2 dla starszego pakietu** 
+
+```json
+{
+    "name": "SalesforceMarketingCloudLinkedService",
+    "properties": {
+        "type": "SalesforceMarketingCloud",
+        "typeProperties": {
+            "connectionProperties": {
+                "host": "www.exacttargetapis.com",
+                "authenticationType": "OAuth_2.0",
+                "clientId": "<clientId>",
+                "clientSecret": {
+                     "type": "SecureString",
+                     "value": "<clientSecret>"
+                },
+                "useEncryptedEndpoints": true,
+                "useHostVerification": true,
+                "usePeerVerification": true
+            }
+        }
+    }
+}
+
+```
+
+Jeśli używasz połączonej usługi w chmurze marketingowej w usłudze Salesforce z następującym ładunkiem, nadal jest ona obsługiwana w stanie takim, w jakim będziesz mieć możliwość korzystania z nowego, co spowoduje dodanie ulepszonego wsparcia pakietu.
+
+```json
+{
+    "name": "SalesforceMarketingCloudLinkedService",
+    "properties": {
+        "type": "SalesforceMarketingCloud",
+        "typeProperties": {
+            "clientId": "<clientId>",
             "clientSecret": {
                  "type": "SecureString",
                  "value": "<clientSecret>"
             },
-            "useEncryptedEndpoints" : true,
-            "useHostVerification" : true,
-            "usePeerVerification" : true
+            "useEncryptedEndpoints": true,
+            "useHostVerification": true,
+            "usePeerVerification": true
         }
     }
 }

@@ -1,6 +1,6 @@
 ---
-title: Analiza dzienników diagnostyki usług pulpitu wirtualnego systemu Windows — Azure
-description: Jak używać usługi log Analytics z funkcją diagnostyki pulpitu wirtualnego systemu Windows.
+title: Analiza dzienników diagnostyki usług pulpitu wirtualnego systemu Windows (jesień 2019) — Azure
+description: Dowiedz się, jak używać usługi log Analytics z funkcją diagnostyki systemu Windows Virtual Desktop (jesień 2019 Release).
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,14 +8,14 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: beb48b90afd54b044eb6d0ceaff32b53ebfcdc34
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c4c59268f63252813c7e08608d5d8ee499b11f53
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85205972"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077610"
 ---
-# <a name="use-log-analytics-for-the-diagnostics-feature"></a>Użyj Log Analytics dla funkcji diagnostyki
+# <a name="use-log-analytics-for-the-diagnostics-feature-fall-2019-release"></a>Użyj Log Analytics dla funkcji diagnostyki (jesień 2019 wydania)
 
 >[!IMPORTANT]
 >Ta zawartość dotyczy wersji 2019, która nie Azure Resource Manager obsługuje obiektów pulpitu wirtualnego systemu Windows. Jeśli próbujesz zarządzać Azure Resource Manager obiektami pulpitu wirtualnego systemu Windows wprowadzonymi w ramach aktualizacji wiosną 2020, zobacz [ten artykuł](../diagnostics-log-analytics.md).
