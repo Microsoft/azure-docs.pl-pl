@@ -1,19 +1,20 @@
 ---
-title: Linia bazowa zabezpieczeń Synapse Analytics dla usługi Azure Security Baseline
+title: Podstawowa usługa Azure Security Synapse Analytics
 description: Linia bazowa zabezpieczeń Synapse Analytics zawiera wskazówki i zasoby dotyczące procedur związanych z wdrażaniem zaleceń dotyczących zabezpieczeń określonych w teście zabezpieczeń platformy Azure.
 author: msmbaldwin
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.date: 07/02/2020
+ms.date: 07/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 4b40bdeb6f60aafea760c6c6e3e0b0f99b419614
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 34453dacd763b8b6a2bff3d977a7bc9b2ab78ca9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86040660"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089332"
 ---
-# <a name="synapse-analytics-security-baseline-for-azure-security-benchmark"></a>Linia bazowa zabezpieczeń Synapse Analytics dla usługi Azure Security Baseline
+# <a name="azure-security-baseline-for-synapse-analytics"></a>Podstawowa usługa Azure Security Synapse Analytics
 
 Podstawowa baza danych zabezpieczeń Azure dla usługi Synapse Analytics zawiera zalecenia, które pomogą ulepszyć zabezpieczenia stan wdrożenia.
 
@@ -27,9 +28,9 @@ Aby uzyskać więcej informacji, zobacz [podstawy zabezpieczeń platformy Azure 
 
 ### <a name="11-protect-azure-resources-within-virtual-networks"></a>1,1: Ochrona zasobów platformy Azure w ramach sieci wirtualnych
 
-**Wskazówki**: bezpieczny Azure SQL Database do sieci wirtualnej za pośrednictwem prywatnego linku. Link prywatny platformy Azure umożliwia dostęp do usług Azure PaaS Services za pośrednictwem prywatnego punktu końcowego w sieci wirtualnej. Ruch między siecią wirtualną a usługą porusza się w sieci szkieletowej firmy Microsoft.
+**Wskazówki**: zabezpiecz swoje SQL Server platformy Azure w sieci wirtualnej za pośrednictwem prywatnego linku. Link prywatny platformy Azure umożliwia dostęp do usług Azure PaaS Services za pośrednictwem prywatnego punktu końcowego w sieci wirtualnej. Ruch między siecią wirtualną a usługą porusza się w sieci szkieletowej firmy Microsoft.
 
-Alternatywnie, w przypadku nawiązywania połączenia z pulą SQL Synapse, Zawęź zakres wychodzących połączeń do SQL Database przy użyciu sieciowej grupy zabezpieczeń. Wyłącz cały ruch usługi platformy Azure do SQL Database za pośrednictwem publicznego punktu końcowego przez ustawienie opcji Zezwalaj na wyłączanie usług platformy Azure. Upewnij się, że żadne publiczne adresy IP nie są dozwolone w regułach zapory.
+Alternatywnie, w przypadku nawiązywania połączenia z pulą SQL Synapse, należy zawęzić zakres połączeń wychodzących do bazy danych SQL przy użyciu sieciowej grupy zabezpieczeń. Wyłącz cały ruch usługi platformy Azure do bazy danych SQL za pośrednictwem publicznego punktu końcowego przez ustawienie opcji Zezwalaj na wyłączanie usług platformy Azure. Upewnij się, że żadne publiczne adresy IP nie są dozwolone w regułach zapory.
 
 * [Opis linku prywatnego platformy Azure](https://docs.microsoft.com/azure/private-link/private-link-overview)
 
@@ -43,7 +44,7 @@ Alternatywnie, w przypadku nawiązywania połączenia z pulą SQL Synapse, Zawę
 
 **Odpowiedzialność**: klient
 
-### <a name="12-monitor-and-log-the-configuration-and-traffic-of-virtual-networks-subnets-and-nics"></a>1,2: Monitoruj i Rejestruj konfigurację oraz ruch sieci wirtualnych, podsieci i kart sieciowych
+### <a name="12-monitor-and-log-the-configuration-and-traffic-of-virtual-networks-subnets-and-network-interfaces"></a>1,2: Monitoruj i Rejestruj konfigurację oraz ruch sieci wirtualnych, podsieci i interfejsów sieciowych
 
 **Wskazówki**: podczas nawiązywania połączenia z pulą SQL usługi Azure Synapse i włączonych dzienników przepływów sieciowych grup zabezpieczeń (sieciowej grupy zabezpieczeń), Wyślij dzienniki do konta usługi Azure Storage w celu przeprowadzenia inspekcji ruchu.
 
@@ -69,7 +70,7 @@ Możesz również wysłać dzienniki przepływu sieciowej grupy zabezpieczeń do
 
 **Odpowiedzialność**: nie dotyczy
 
-### <a name="14-deny-communications-with-known-malicious-ip-addresses"></a>1,4: odmowa komunikacji ze znanymi złośliwymi adresami IP
+### <a name="14-deny-communications-with-known-malicious-ip-addresses"></a>1,4: odmowa komunikacji ze znanymi niezłośliwymi adresami IP
 
 **Wskazówki**: używanie zaawansowanej ochrony przed zagrożeniami (ATP) dla usługi Azure Synapse SQL. ATP wykrywa nietypowe działania wskazujące nietypowe i potencjalnie szkodliwe próby uzyskania dostępu do baz danych lub ich wykorzystania i może wyzwolić różne alerty, takie jak "potencjalna iniekcja SQL" i "dostęp z nietypowej lokalizacji". ATP jest częścią oferty Advanced Data Security (ADS) i jest dostępna i zarządzana za pośrednictwem centralnego portalu SQL ADS.
 
@@ -123,7 +124,7 @@ Włącz Standard DDoS Protection w sieciach wirtualnych skojarzonych z usługą 
 
 **Wskazówki**: Użyj tagów usługi sieci wirtualnej, aby zdefiniować kontrolę dostępu do sieci dla sieciowych grup zabezpieczeń lub zapory platformy Azure. Podczas tworzenia reguł zabezpieczeń można użyć tagów usługi zamiast konkretnych adresów IP. Określając nazwę tagu usługi (np. ApiManagement) w odpowiednim polu źródłowym lub docelowym reguły, można zezwolić na ruch dla odpowiedniej usługi lub go odrzucić. Firma Microsoft zarządza prefiksami adresów, które obejmują tag usługi, i automatycznie aktualizuje tag usługi jako adresy.
 
-W przypadku korzystania z punktu końcowego usługi dla puli SQL usługi Azure Synapse wymagane jest wychodzące do Azure SQL Database publicznych adresów IP: grupy zabezpieczeń sieci (sieciowych grup zabezpieczeń) muszą być otwarte dla Azure SQL Database adresów IP, aby umożliwić łączność. Można to zrobić za pomocą tagów usługi sieciowej grupy zabezpieczeń dla Azure SQL Database.
+W przypadku korzystania z punktu końcowego usługi dla puli SQL usługi Azure Synapse wymagane jest wychodzące publiczne adresy IP w usłudze Azure SQL Database: aby Azure SQL Database adresy IP, należy otworzyć grupy zabezpieczeń sieci (sieciowych grup zabezpieczeń). Można to zrobić za pomocą tagów usługi sieciowej grupy zabezpieczeń dla Azure SQL Database.
 
 * [Opis tagów usługi z punktami końcowymi usługi dla Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview#limitations)
 
@@ -135,7 +136,7 @@ W przypadku korzystania z punktu końcowego usługi dla puli SQL usługi Azure S
 
 ### <a name="19-maintain-standard-security-configurations-for-network-devices"></a>1,9: Obsługa standardowych konfiguracji zabezpieczeń dla urządzeń sieciowych
 
-**Wskazówki**: Definiowanie i implementowanie konfiguracji zabezpieczeń sieci dla zasobów związanych z pulą SQL przy użyciu Azure Policy. Możesz użyć przestrzeni nazw "Microsoft. SQL", aby zdefiniować niestandardowe definicje zasad lub użyć dowolnych wbudowanych definicji zasad zaprojektowanych na potrzeby ochrony sieci Azure SQL Database/serwera. Przykładem odpowiednich wbudowanych zasad zabezpieczeń sieci dla serwera Azure SQL Database powinna być: "SQL Server powinna używać punktu końcowego usługi sieci wirtualnej".
+**Wskazówki**: Definiowanie i implementowanie konfiguracji zabezpieczeń sieci dla zasobów związanych z pulą SQL przy użyciu Azure Policy. Możesz użyć przestrzeni nazw "Microsoft. SQL", aby zdefiniować niestandardowe definicje zasad lub użyć dowolnych wbudowanych definicji zasad przeznaczonych dla ochrony sieci usługi Azure SQL Database/serwera. Przykładem odpowiednich wbudowanych zasad zabezpieczeń sieci dla serwera Azure SQL Database powinna być: "SQL Server powinna używać punktu końcowego usługi sieci wirtualnej".
 
 Korzystając z planów platformy Azure, można uprościć wdrożenia platformy Azure na dużą skalę przez pakowanie kluczowych artefaktów środowiska, takich jak szablony zarządzania zasobami platformy Azure, kontrola dostępu oparta na rolach (RBAC) i zasady, w ramach jednej definicji planu. Łatwo stosuj plan do nowych subskrypcji i środowisk, a następnie dostosuj kontrolę i zarządzanie przy użyciu wersji.
 
@@ -359,7 +360,7 @@ Aby zidentyfikować konta administratorów dla bazy danych, Otwórz Azure Portal
 
 **Odpowiedzialność**: klient
 
-### <a name="34-use-single-sign-on-sso-with-azure-active-directory"></a>3,4: Korzystaj z logowania jednokrotnego (SSO) z usługą Azure Active Directory
+### <a name="34-use-azure-active-directory-single-sign-on-sso"></a>3,4: Użyj Azure Active Directory logowania jednokrotnego (SSO)
 
 **Wskazówki**: Użyj rejestracji aplikacji platformy Azure (nazwy głównej usługi), aby pobrać token, który może służyć do współpracy z magazynem danych na płaszczyźnie kontroli (Azure Portal) za pośrednictwem wywołań interfejsu API.
 
@@ -373,7 +374,7 @@ Aby zidentyfikować konta administratorów dla bazy danych, Otwórz Azure Portal
 
 **Odpowiedzialność**: klient
 
-### <a name="35-use-multi-factor-authentication-for-all-azure-active-directory-based-access"></a>3,5: Użyj uwierzytelniania wieloskładnikowego, aby uzyskać dostęp oparty na Azure Active Directory
+### <a name="35-use-multi-factor-authentication-for-all-azure-active-directory-based-access"></a>3,5: Użyj uwierzytelniania wieloskładnikowego dla wszystkich Azure Active Directory dostępu opartego na usłudze
 
 **Wskazówki**: Włączanie Azure Active Directory (AD) Multi-Factor Authentication (MFA) i postępuj zgodnie z zaleceniami dotyczącymi zarządzania tożsamościami i dostępem Azure Security Center.
 
@@ -387,7 +388,7 @@ Aby zidentyfikować konta administratorów dla bazy danych, Otwórz Azure Portal
 
 **Odpowiedzialność**: klient
 
-### <a name="36-use-dedicated-machines-privileged-access-workstations-for-all-administrative-tasks"></a>3,6: Używaj dedykowanych maszyn (uprzywilejowany dostęp do stacji roboczych) dla wszystkich zadań administracyjnych
+### <a name="36-use-secure-azure-managed-workstations-for-administrative-tasks"></a>3,6: Korzystaj z bezpiecznych stacji roboczych zarządzanych przez platformę Azure na potrzeby zadań administracyjnych
 
 **Wskazówki**: Użyj stacji roboczej dostępu uprzywilejowanego (dostępem uprzywilejowanym) z usługą Multi-Factor Authentication (MFA) skonfigurowaną w celu logowania się i konfigurowania zasobów platformy Azure.
 
@@ -475,7 +476,7 @@ W przypadku korzystania z uwierzytelniania SQL należy utworzyć użytkowników 
 
 **Odpowiedzialność**: klient
 
-### <a name="312-alert-on-account-login-behavior-deviation"></a>3,12: odchylenia zachowania podczas logowania do konta
+### <a name="312-alert-on-account-sign-in-behavior-deviation"></a>3,12: odchylenia zachowania alertu dotyczącego logowania na koncie
 
 **Wskazówki**: Użyj funkcji ochrony tożsamości i wykrywania ryzyka Azure Active Directory (Azure AD), aby skonfigurować automatyczne odpowiedzi na wykryte podejrzane działania związane z tożsamościami użytkowników. Ponadto możesz dołączać dane do platformy Azure, aby kontynuować badanie.
 
@@ -583,7 +584,7 @@ Ponadto można skonfigurować zasady dynamicznego maskowania danych (DDM) w Azur
 
 ### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4,6: stosowanie kontroli dostępu opartej na rolach w celu kontrolowania dostępu do zasobów
 
-**Wskazówki**: Użyj kontroli dostępu opartej na ROLACH (RBAC) na platformie Azure, aby zarządzać dostępem do Azure SQL Database w puli SQL Synapse.
+**Wskazówki**: Użyj kontroli dostępu opartej na ROLACH (RBAC) na platformie Azure, aby zarządzać dostępem do baz danych Azure SQL Database w puli SQL Synapse.
 
 Autoryzacja jest kontrolowana za pomocą członkostw roli bazy danych konta użytkownika i uprawnień na poziomie obiektów. Zalecanym najlepszym rozwiązaniem jest przyznanie użytkownikom minimalnych niezbędnych uprawnień.
 
@@ -609,7 +610,7 @@ Autoryzacja jest kontrolowana za pomocą członkostw roli bazy danych konta uży
 
 ### <a name="48-encrypt-sensitive-information-at-rest"></a>4,8: Szyfruj poufne informacje w spoczynku
 
-**Wskazówki**: przezroczyste szyfrowanie danych (TDE) pomaga chronić usługę Azure Synapse SQL przed zagrożeniem złośliwego działania w trybie offline przez szyfrowanie danych przechowywanych w spoczynku. Ta technologia w czasie rzeczywistym szyfruje i odszyfrowuje magazynowaną bazę danych, skojarzone kopie zapasowe i pliki dzienników transakcji bez konieczności wprowadzania jakichkolwiek zmian w aplikacji. Na platformie Azure domyślne ustawienie dla TDE polega na tym, że klucz szyfrowania danych jest chroniony przez wbudowany certyfikat serwera. Alternatywnie można korzystać z TDE zarządzanych przez klienta, nazywanego również Bring Your Own Key (BYOK) dla TDE. W tym scenariuszu funkcja ochrony TDE, która szyfruje plik szyfrowania danych, jest kluczem asymetrycznym zarządzanym przez klienta, który jest przechowywany w Azure Key Vault należącym do klienta i zarządzanym (zewnętrznym systemie zarządzania kluczami opartymi na chmurze platformy Azure) i nigdy nie opuszcza magazynu kluczy.
+**Wskazówki**: przezroczyste szyfrowanie danych (TDE) pomaga chronić usługę Azure Synapse SQL przed zagrożeniem złośliwego działania w trybie offline przez szyfrowanie danych przechowywanych w spoczynku. Ta technologia w czasie rzeczywistym szyfruje i odszyfrowuje magazynowaną bazę danych, skojarzone kopie zapasowe i pliki dzienników transakcji bez konieczności dokonywania jakichkolwiek zmian w aplikacji. Na platformie Azure domyślne ustawienie dla TDE polega na tym, że klucz szyfrowania danych jest chroniony przez wbudowany certyfikat serwera. Alternatywnie można korzystać z TDE zarządzanych przez klienta, nazywanego również Bring Your Own Key (BYOK) dla TDE. W tym scenariuszu funkcja ochrony TDE, która szyfruje plik szyfrowania danych, jest kluczem asymetrycznym zarządzanym przez klienta, który jest przechowywany w Azure Key Vault należącym do klienta i zarządzanym (zewnętrznym systemie zarządzania kluczami opartymi na chmurze platformy Azure) i nigdy nie opuszcza magazynu kluczy.
 
 * [Informacje o przezroczystym szyfrowaniu danych zarządzanym przez usługę](https://docs.microsoft.com/azure/azure-sql/database/transparent-data-encryption-tde-overview?tabs=azure-portal)
 
@@ -641,9 +642,9 @@ Ponadto można skonfigurować alerty dla baz danych w puli usługi SQL Synapse p
 
 ### <a name="51-run-automated-vulnerability-scanning-tools"></a>5,1: uruchamianie narzędzi do skanowania automatycznych luk w zabezpieczeniach
 
-**Wskazówki**: Włącz zaawansowane zabezpieczenia danych i postępuj zgodnie z zaleceniami Azure Security Center na temat przeprowadzania oceny luk w zabezpieczeniach na SQL Database.
+**Wskazówki**: Włącz zaawansowane zabezpieczenia danych i postępuj zgodnie z zaleceniami Azure Security Center na temat przeprowadzania ocen luk w zabezpieczeniach w bazach danych Azure SQL Database.
 
-* [Jak uruchomić oceny luk w zabezpieczeniach na Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-vulnerability-assessment)
+* [Jak uruchomić oceny luk w zabezpieczeniach w bazach danych Azure SQL](https://docs.microsoft.com/azure/sql-database/sql-vulnerability-assessment)
 
 * [Jak włączyć zaawansowane zabezpieczenia danych](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security)
 
@@ -737,7 +738,7 @@ Mimo że klasyczne zasoby platformy Azure mogą zostać odnalezione za pośredni
 
 **Odpowiedzialność**: klient
 
-### <a name="64-define-and-maintain-an-inventory-of-approved-azure-resources"></a>6,4: Definiowanie i obsługa spisu zatwierdzonych zasobów platformy Azure
+### <a name="64-define-and-maintain-inventory-of-approved-azure-resources"></a>6,4: Definiowanie i konserwowanie spisu zatwierdzonych zasobów platformy Azure
 
 **Wskazówki**: Definiowanie listy zatwierdzonych zasobów platformy Azure związanych z pulą SQL Synapse.
 
@@ -845,8 +846,7 @@ Użyj grafu zasobów platformy Azure, aby wykonywać zapytania/odnajdywać zasob
 
 ### <a name="71-establish-secure-configurations-for-all-azure-resources"></a>7,1: Ustanów bezpieczne konfiguracje dla wszystkich zasobów platformy Azure
 
-**Wskazówki**: Użyj aliasów Azure Policy w przestrzeni nazw "Microsoft. SQL", aby utworzyć niestandardowe zasady inspekcji lub wymuszania konfiguracji zasobów związanych z pulą SQL Synapse. Możesz również używać wbudowanych definicji zasad dla baz danych platformy Azure, takich jak:
-
+**Wskazówki**: Użyj aliasów Azure Policy w przestrzeni nazw "Microsoft. SQL", aby utworzyć niestandardowe zasady inspekcji lub wymuszania konfiguracji zasobów związanych z pulą SQL Synapse. Możesz również korzystać z wbudowanych definicji zasad usługi Azure Database/Server, takich jak:
 - Wdrażanie wykrywania zagrożeń na serwerach SQL
 - SQL Server powinien używać punktu końcowego usługi sieci wirtualnej
 
@@ -1010,7 +1010,7 @@ Wstępnie Skanuj zawartość przekazywaną do zasobów platformy Azure, które n
 
 *Aby uzyskać więcej informacji, zobacz [Kontrola zabezpieczeń: odzyskiwanie danych](/azure/security/benchmarks/security-control-data-recovery).*
 
-### <a name="91-ensure-regular-automated-back-ups"></a>9,1: Zapewnij regularne zautomatyzowane przywracanie awaryjne
+### <a name="91-ensure-regular-automated-back-ups"></a>9,1: zapewnianie regularnych zautomatyzowanych kopii zapasowych
 
 **Wskazówki**: migawki puli SQL Synapse są automatycznie podejmowane przez cały dzień tworzenia punktów przywracania dostępnych przez siedem dni. Nie można zmienić tego okresu przechowywania. Pula SQL obsługuje osiem godzin cel punktu odzyskiwania (RPO). Magazyn danych można przywrócić w regionie podstawowym z jednej z migawek wykonanych w ciągu ostatnich siedmiu dni. Należy zauważyć, że w razie potrzeby można także ręcznie wyzwolić migawki.
 

@@ -8,11 +8,12 @@ ms.topic: article
 ms.date: 06/22/2017
 ms.author: cynthn
 ms.custom: tracking-python
-ms.openlocfilehash: b5f8b0e8f22a476ad379b55275d79c2874966852
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 92b6d8c6cd59f82439beec24c003aac6673014e7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84551979"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088329"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-python"></a>Tworzenie maszyn wirtualnych z systemem Windows i zarządzanie nimi na platformie Azure przy użyciu języka Python
 
@@ -31,7 +32,7 @@ Wykonanie tych kroków trwa około 20 minut.
 
 ## <a name="create-a-visual-studio-project"></a>Tworzenie projektu programu Visual Studio
 
-1. Jeśli jeszcze tego nie zrobiono, zainstaluj [program Visual Studio](https://docs.microsoft.com/visualstudio/install/install-visual-studio). Wybierz pozycję Programowanie w języku **Python** na stronie obciążenia, a następnie kliknij przycisk **Zainstaluj**. Podsumowanie zawiera automatycznie wybrane dla Ciebie środowisko **Python 3 64-bit (3.6.0)** . Jeśli masz już zainstalowany program Visual Studio, możesz dodać obciążenie języka Python za pomocą programu Visual Studio.
+1. Jeśli jeszcze tego nie zrobiono, zainstaluj [program Visual Studio](/visualstudio/install/install-visual-studio). Wybierz pozycję Programowanie w języku **Python** na stronie obciążenia, a następnie kliknij przycisk **Zainstaluj**. Podsumowanie zawiera automatycznie wybrane dla Ciebie środowisko **Python 3 64-bit (3.6.0)** . Jeśli masz już zainstalowany program Visual Studio, możesz dodać obciążenie języka Python za pomocą programu Visual Studio.
 2. Po zainstalowaniu i uruchomieniu programu Visual Studio kliknij pozycję **plik**  >  **Nowy**  >  **projekt**.
 3. Kliknij kolejno pozycje **Szablony**  >  **Python**  >  **aplikacja**Python, wprowadź *myPythonProject* jako nazwę projektu, wybierz lokalizację projektu, a następnie kliknij przycisk **OK**.
 
@@ -565,6 +566,5 @@ Ze względu na to, że opłaty są naliczone za zasoby używane na platformie Az
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Jeśli wystąpiły problemy ze wdrożeniem, następnym krokiem jest zapoznaj się z [tematem Rozwiązywanie problemów z wdrożeniami grup zasobów za pomocą Azure Portal](../../resource-manager-troubleshoot-deployments-portal.md)
-- Dowiedz się więcej o [bibliotece języka Python platformy Azure](https://docs.microsoft.com/python/api/overview/azure/?view=azure-python)
-
+- Jeśli wystąpiły problemy ze wdrożeniem, następnym krokiem jest zapoznaj się z [tematem Rozwiązywanie problemów z wdrożeniami grup zasobów za pomocą Azure Portal](../../azure-resource-manager/templates/deployment-history.md)
+- Dowiedz się więcej o [bibliotece języka Python platformy Azure](/python/api/overview/azure/?view=azure-python)

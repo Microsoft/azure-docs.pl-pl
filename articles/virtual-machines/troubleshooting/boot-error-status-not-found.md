@@ -14,11 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 05/11/2020
 ms.author: v-miegge
-ms.openlocfilehash: 817f9e362e639cbb8f0cc79607c376c0e8216ec7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3677d67f55cfccdc80245b2ec870ffa76b0a1940
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83664991"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088669"
 ---
 # <a name="troubleshoot-windows-boot-manager-error----0xc0000225-status-not-found"></a>Rozwiązywanie problemów z błędem Menedżera rozruchu systemu Windows-0xC0000225 "nie znaleziono stanu"
  
@@ -26,7 +27,7 @@ W tym artykule przedstawiono procedurę rozwiązywania problemów w przypadku wy
 
 ## <a name="symptoms"></a>Objawy
 
-W przypadku korzystania z [diagnostyki rozruchu](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) w celu wyświetlenia zrzutu ekranu maszyny wirtualnej zostanie wyświetlony komunikat o błędzie nie można uruchomić systemu Windows z kodem stanu *0xc0000225*.
+W przypadku korzystania z [diagnostyki rozruchu](./boot-diagnostics.md) w celu wyświetlenia zrzutu ekranu maszyny wirtualnej zostanie wyświetlony komunikat o błędzie nie można uruchomić systemu Windows z kodem stanu *0xc0000225*.
 
 Plik skojarzony z tym kodem błędu zostanie poinformowany o krokach, które należy podjąć w celu rozwiązania problemu. Zlokalizuj tekst sekcji **:** sekcja, aby określić odpowiedni sposób działania.
 
@@ -89,7 +90,7 @@ Uszkodzenie gałęzi rejestru może być spowodowane:
 
 ### <a name="create-and-access-a-repair-vm"></a>Tworzenie maszyny wirtualnej naprawy i uzyskiwanie do niej dostępu
 
-1. Wykonaj kroki 1-3 [poleceń naprawy maszyny wirtualnej](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands) , aby przygotować maszynę wirtualną naprawy.
+1. Wykonaj kroki 1-3 [poleceń naprawy maszyny wirtualnej](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md) , aby przygotować maszynę wirtualną naprawy.
 1. Korzystając z Podłączanie pulpitu zdalnego, Połącz się z maszyną wirtualną naprawy.
 
 ### <a name="select-a-solution"></a>Wybierz rozwiązanie
@@ -177,7 +178,7 @@ Jeśli ta kolekcja informacji zawiera błąd, w którym nie ma pliku **\boot\bcd
          sel disk <DISK #>
          ```
 
-         Na poniższej ilustracji przedstawiono wyniki tworzenia listy i wybierania dysku. Dysk 0 (127 GB | Online), dysk 1 (32 GB | Online) i Disk 2 (127 GB | Online) są wyświetlane z wybranym dyskiem 2 przy użyciu polecenia `sel disk 2` .
+         Na poniższej ilustracji przedstawiono wyniki tworzenia listy i wybierania dysku. Dysk 0 (127 GB/online), dysk 1 (32 GB/online) i dysk 2 (127 GB/online) są wyświetlane z wybranym dyskiem 2 przy użyciu polecenia `sel disk 2` .
 
          ![Wyniki listy, a następnie wybranie dysku. Dysk 0 (127 GB | Online), dysk 1 (32 GB | Online) i Disk 2 (127 GB | Online) są wyświetlane z wybranym dyskiem 2.](./media/troubleshoot-boot-error-status-not-found/9.png)
 
@@ -188,7 +189,7 @@ Jeśli ta kolekcja informacji zawiera błąd, w którym nie ma pliku **\boot\bcd
          sel partition <PARTITION #>
          ```
 
-         Na poniższej ilustracji przedstawiono wyniki listy i wyboru partycji. Partycja 1 (zarezerwowana | 16 MB), partycja 2 (system | 100 MB) i partycja 3 (podstawowa | 126 GB) są wymienione na liście z wybraną partycją 2 za pomocą polecenia `sel part 2` .
+         Na poniższej ilustracji przedstawiono wyniki listy i wyboru partycji. Partycja 1 (zarezerwowana/16 MB), partycja 2 (system/100 MB) i partycja 3 (podstawowa/126 GB) są wyświetlane z partycją 2 wybraną przy użyciu polecenia `sel part 2` .
 
          ![Wyniki listy, a następnie wybrania partycji. Partycja 1 (zarezerwowana | 16 MB), partycja 2 (system | 100 MB) i partycja 3 (podstawowa | 126 GB) są wyświetlane z wybraną partycją 2.](./media/troubleshoot-boot-error-status-not-found/10.png)
 
@@ -302,4 +303,4 @@ Błąd **pliku rejestru** ma rozwiązanie, ale konieczne będzie [utworzenie bil
    
 ### <a name="rebuild-the-vm"></a>Kompiluj ponownie maszynę wirtualną
 
-Aby skompilować ponownie maszynę wirtualną, użyj [kroku 5 poleceń naprawy maszyny wirtualnej](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) .
+Aby skompilować ponownie maszynę wirtualną, użyj [kroku 5 poleceń naprawy maszyny wirtualnej](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md#repair-process-example) .

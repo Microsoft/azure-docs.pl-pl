@@ -9,11 +9,12 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring
-ms.openlocfilehash: 5613453667e3bb278f4da22ebed4502def70235b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b4bb17fce7be7aeff2a6978177106201e4c80aee
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83675905"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087275"
 ---
 # <a name="azure-storage-analytics-metrics-classic"></a>Metryki analityka magazynu platformy Azure (klasyczne)
 
@@ -145,18 +146,16 @@ W sekcji **monitorowanie (klasycznej)** okienka menu konta magazynu w Azure Port
 
 Jeśli chcesz pobrać metryki dla magazynu długoterminowego lub przeanalizować je lokalnie, musisz użyć narzędzia lub napisać kod w celu odczytania tabel. Należy pobrać metryki minut na potrzeby analizy. Tabele nie są wyświetlane w przypadku wyświetlenia listy wszystkich tabel na koncie magazynu, ale możesz uzyskać do nich dostęp bezpośrednio według nazwy. Wiele narzędzi do przeglądania magazynu jest świadomych tych tabel i umożliwia ich bezpośrednie wyświetlanie. Aby uzyskać listę dostępnych narzędzi, zobacz [narzędzia klienckie usługi Azure Storage](/azure/storage/storage-explorers).
 
-||||  
+|Metryki|Nazwy tabel|Uwagi| 
 |-|-|-|  
-|**Metryki**|**Nazwy tabel**|**Uwagi**|  
 |Metryki godzinowe|$MetricsHourPrimaryTransactionsBlob<br /><br /> $MetricsHourPrimaryTransactionsTable<br /><br /> $MetricsHourPrimaryTransactionsQueue<br /><br /> $MetricsHourPrimaryTransactionsFile|W wersjach wcześniejszych niż 15 sierpnia 2013 te tabele były znane jako:<br /><br /> $MetricsTransactionsBlob<br /><br /> $MetricsTransactionsTable<br /><br /> $MetricsTransactionsQueue<br /><br /> Metryki dla usługi plików są dostępne począwszy od wersji 5 kwietnia 2015.|  
 |Metryki minut|$MetricsMinutePrimaryTransactionsBlob<br /><br /> $MetricsMinutePrimaryTransactionsTable<br /><br /> $MetricsMinutePrimaryTransactionsQueue<br /><br /> $MetricsMinutePrimaryTransactionsFile|Można ją włączyć tylko przy użyciu programu PowerShell lub programowo.<br /><br /> Metryki dla usługi plików są dostępne począwszy od wersji 5 kwietnia 2015.|  
 |Pojemność|$MetricsCapacityBlob|Tylko Blob service.|  
 
 Aby uzyskać szczegółowe informacje o schematach dla tych tabel, zobacz [analityka magazynu metryk tabeli schematu](/rest/api/storageservices/storage-analytics-metrics-table-schema). Następujące przykładowe wiersze zawierają tylko podzbiór dostępnych kolumn, ale ilustrują pewne ważne funkcje, które umożliwiają zapisanie tych metryk przez metryki magazynu:  
 
-||||||||||||  
+|PartitionKey|RowKey|Timestamp|TotalRequests|TotalBillableRequests|TotalIngress|TotalEgress|Dostępność|AverageE2ELatency|AverageServerLatency|PercentSuccess| 
 |-|-|-|-|-|-|-|-|-|-|-|  
-|**PartitionKey**|**RowKey**|**Sygnatura czasowa**|**TotalRequests**|**TotalBillableRequests**|**TotalIngress**|**TotalEgress**|**Dostępność**|**AverageE2ELatency**|**AverageServerLatency**|**PercentSuccess**|  
 |20140522T1100|Użytkownicy Całą|2014-05-22T11:01:16.7650250 Z|7|7|4003|46801|100|104,4286|6,857143|100|  
 |20140522T1100|Użytkownicy QueryEntities|2014-05-22T11:01:16.7640250 Z|5|5|2694|45951|100|143,8|7,8|100|  
 |20140522T1100|Użytkownicy QueryEntity|2014-05-22T11:01:16.7650250 Z|1|1|538|633|100|3|3|100|  

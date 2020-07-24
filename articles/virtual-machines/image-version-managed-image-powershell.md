@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 7e59ee029b1705f6f789812b870de96bbb74a6e5
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 23556d6c0d64c6b6351d09ac1a658da0e5a4dd68
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223554"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088839"
 ---
 # <a name="migrate-from-a-managed-image-to-a-shared-image-gallery-image"></a>Migrowanie z obrazu zarządzanego do obrazu z galerii udostępnionych obrazów
 
@@ -54,9 +54,9 @@ Definicje obrazów tworzą logiczne grupowanie dla obrazów. Są one używane do
 
 Podczas tworzenia definicji obrazu upewnij się, że zawiera on wszystkie prawidłowe informacje. Ponieważ zarządzane obrazy są zawsze uogólnione, należy ustawić `-OsState generalized` . 
 
-Aby uzyskać więcej informacji na temat wartości, które można określić dla definicji obrazu, zobacz [definicje obrazu](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries#image-definitions).
+Aby uzyskać więcej informacji na temat wartości, które można określić dla definicji obrazu, zobacz [definicje obrazu](./windows/shared-image-galleries.md#image-definitions).
 
-Utwórz definicję obrazu przy użyciu polecenia [New-AzGalleryImageDefinition](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion). W tym przykładzie definicja obrazu ma nazwę *myImageDefinition*i ma na celu uogólniony system operacyjny Windows. Aby utworzyć definicję dla obrazów przy użyciu systemu operacyjnego Linux, użyj polecenia `-OsType Linux` . 
+Utwórz definicję obrazu przy użyciu polecenia [New-AzGalleryImageDefinition](/powershell/module/az.compute/new-azgalleryimageversion). W tym przykładzie definicja obrazu ma nazwę *myImageDefinition*i ma na celu uogólniony system operacyjny Windows. Aby utworzyć definicję dla obrazów przy użyciu systemu operacyjnego Linux, użyj polecenia `-OsType Linux` . 
 
 ```azurepowershell-interactive
 $imageDefinition = New-AzGalleryImageDefinition `
@@ -73,7 +73,7 @@ $imageDefinition = New-AzGalleryImageDefinition `
 
 ## <a name="get-the-managed-image"></a>Pobierz obraz zarządzany
 
-Możesz wyświetlić listę obrazów dostępnych w grupie zasobów za pomocą polecenia [Get-AzImage](https://docs.microsoft.com/powershell/module/az.compute/get-azimage). Gdy znasz nazwę obrazu i grupę zasobów, w której znajduje się, możesz ponownie użyć, `Get-AzImage` Aby pobrać obiekt obrazu i zapisać go w zmiennej do użycia później. Ten przykład pobiera obraz *o nazwie NazwaMojejZmiennej* z grupy zasobów "Grupa zasobów" i przypisuje go do zmiennej *$managedImage*. 
+Możesz wyświetlić listę obrazów dostępnych w grupie zasobów za pomocą polecenia [Get-AzImage](/powershell/module/az.compute/get-azimage). Gdy znasz nazwę obrazu i grupę zasobów, w której znajduje się, możesz ponownie użyć, `Get-AzImage` Aby pobrać obiekt obrazu i zapisać go w zmiennej do użycia później. Ten przykład pobiera obraz *o nazwie NazwaMojejZmiennej* z grupy zasobów "Grupa zasobów" i przypisuje go do zmiennej *$managedImage*. 
 
 ```azurepowershell-interactive
 $managedImage = Get-AzImage `
@@ -84,7 +84,7 @@ $managedImage = Get-AzImage `
 
 ## <a name="create-an-image-version"></a>Tworzenie wersji obrazu
 
-Utwórz wersję obrazu z zarządzanego obrazu przy użyciu polecenia [New-AzGalleryImageVersion](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion). 
+Utwórz wersję obrazu z zarządzanego obrazu przy użyciu polecenia [New-AzGalleryImageVersion](/powershell/module/az.compute/new-azgalleryimageversion). 
 
 Dozwolone znaki wersji obrazu to liczby i kropki. Liczba musi należeć do zakresu 32-bitowej liczby całkowitej. Format: *MajorVersion*. *MinorVersion*. *Poprawka*.
 
@@ -117,7 +117,7 @@ $job.State
 > [!NOTE]
 > Musisz poczekać na zakończenie kompilowania i replikowania wersji obrazu, aby można było użyć tego samego obrazu zarządzanego do utworzenia innej wersji obrazu. 
 >
-> Możesz również przechowywać obraz w magazynie Premiun przez dodanie `-StorageAccountType Premium_LRS` lub [nadmiarowy magazyn stref](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) przez dodanie `-StorageAccountType Standard_ZRS` go podczas tworzenia wersji obrazu.
+> Możesz również przechowywać obraz w magazynie Premiun przez dodanie `-StorageAccountType Premium_LRS` lub [nadmiarowy magazyn stref](../storage/common/storage-redundancy.md) przez dodanie `-StorageAccountType Standard_ZRS` go podczas tworzenia wersji obrazu.
 >
 
 ## <a name="delete-the-managed-image"></a>Usuń obraz zarządzany

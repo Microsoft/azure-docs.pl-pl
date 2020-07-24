@@ -3,8 +3,8 @@ title: 'Samouczek: Migrowanie PostgreSQL do Azure Database for PostgreSQL online
 titleSuffix: Azure Database Migration Service
 description: Dowiedz się, jak przeprowadzić migrację online z PostgreSQL lokalnego do Azure Database for PostgreSQL przy użyciu Azure Database Migration Service za pośrednictwem interfejsu wiersza polecenia.
 services: dms
-author: HJToland3
-ms.author: jtoland
+author: arunkumarthiags
+ms.author: arthiaga
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 04/11/2020
-ms.openlocfilehash: e8f79512e132ff4632c067b23ad6e80a76b8d4cf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e6a39a7967c061a90e75d717402cf63da15b06b3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81113885"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087632"
 ---
 # <a name="tutorial-migrate-postgresql-to-azure-db-for-postgresql-online-using-dms-via-the-azure-cli"></a>Samouczek: Migrowanie PostgreSQL do usługi Azure DB for PostgreSQL online za pomocą usługi DMS za pośrednictwem interfejsu wiersza polecenia platformy Azure
 
@@ -29,7 +30,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 > * Tworzenie wystąpienia usługi Azure Database Migration Service.
 > * Tworzenie projektu migracji za pomocą usługi Azure Database Migration Service.
 > * Uruchamianie migracji.
-> * Monitorowanie migracji.
+> * Monitoruj migrację.
 
 > [!NOTE]
 > Użycie Azure Database Migration Service do przeprowadzenia migracji w trybie online wymaga utworzenia wystąpienia na podstawie warstwy cenowej Premium. Szyfrujemy dysk, aby zapobiec kradzieży danych podczas procesu migracji.
@@ -107,7 +108,7 @@ Aby utworzyć wszystkie obiekty bazy danych, takie jak schematy tabel, indeksy o
     psql -h hostname -U db_username -d db_name < your_schema.sql 
     ```
 
-    Przykład:
+    Na przykład:
 
     ```
     psql -h mypgserver-20170401.postgres.database.azure.com  -U postgres -d dvdrental < dvdrentalSchema.sql
@@ -229,7 +230,7 @@ Aby utworzyć wszystkie obiekty bazy danych, takie jak schematy tabel, indeksy o
     az network nic list -g <ResourceGroupName>--query '[].ipConfigurations | [].privateIpAddress'
     ```
 
-    Przykład:
+    Na przykład:
 
     ```azurecli
     az network nic list -g PostgresDemo --query '[].ipConfigurations | [].privateIpAddress'
@@ -475,7 +476,7 @@ Aby upewnić się, że wszystkie dane zostały przechwycone, przeprowadź weryfi
     az dms project task cutover -h
     ```
 
-    Przykład:
+    Na przykład:
 
     ```azurecli
     az dms project task cutover --service-name PostgresCLI --project-name PGMigration --resource-group PostgresDemo --name Runnowtask  --object-name Inventory

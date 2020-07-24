@@ -3,8 +3,8 @@ title: 'Samouczek: Migrowanie bazy danych MySQL online do Azure Database for MyS
 titleSuffix: Azure Database Migration Service
 description: Dowiedz się, jak przeprowadzić migrację w trybie online z lokalnego programu MySQL do Azure Database for MySQL przy użyciu Azure Database Migration Service.
 services: dms
-author: HJToland3
-ms.author: jtoland
+author: arunkumarthiags
+ms.author: arthiaga
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 01/08/2020
-ms.openlocfilehash: e9fc2913a526e01ea5279c476e3deab779db88c1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2ea351fb6b88a020a466849181fed0381baa7f04
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84609237"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087751"
 ---
 # <a name="tutorial-migrate-mysql-to-azure-database-for-mysql-online-using-dms"></a>Samouczek: migrowanie programu MySQL do usługi Azure Database for MySQL w trybie online przy użyciu usługi DMS
 
@@ -29,7 +30,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 > * Utwórz wystąpienie usługi Azure Database Migration Service.
 > * Utwórz projekt migracji przy użyciu Azure Database Migration Service.
 > * Uruchamianie migracji.
-> * Monitorowanie migracji.
+> * Monitoruj migrację.
 
 > [!NOTE]
 > Użycie Azure Database Migration Service do przeprowadzenia migracji w trybie online wymaga utworzenia wystąpienia na podstawie warstwy cenowej Premium.
@@ -99,7 +100,7 @@ Przy założeniu, że masz przykładową bazę danych programu MySQL **Employees
 mysqldump -h [servername] -u [username] -p[password] --databases [db name] --no-data > [schema file path]
 ```
 
-Przykład:
+Na przykład:
 
 ```
 mysqldump -h 10.10.123.123 -u root -p --databases employees --no-data > d:\employees.sql
@@ -111,7 +112,7 @@ Aby zaimportować schemat do docelowej usługi Azure Database for MySQL, uruchom
 mysql.exe -h [servername] -u [username] -p[password] [database]< [schema file path]
  ```
 
-Przykład:
+Na przykład:
 
 ```
 mysql.exe -h shausample.mysql.database.azure.com -u dms@shausample -p employees < d:\employees.sql
@@ -138,6 +139,11 @@ SET group_concat_max_len = 8192;
  ```
 
 Uruchom docelowy klucz obcy (znajduje się w drugiej kolumnie) w wyniku zapytania w celu usunięcia klucza obcego.
+
+> [!NOTE]
+> Usługa Azure DMS nie obsługuje akcji referencyjnej CASCADE, która pomaga automatycznie usuwać lub aktualizować pasujący wiersz w tabeli podrzędnej po usunięciu lub zaktualizowaniu wiersza w tabeli nadrzędnej. Aby uzyskać więcej informacji, zobacz sekcję działania referencyjne w temacie [ograniczenia klucza obcego](https://dev.mysql.com/doc/refman/8.0/en/create-table-foreign-keys.html)artykułu.
+> Usługa Azure DMS wymaga porzucenia ograniczeń klucza obcego na docelowym serwerze bazy danych podczas początkowego ładowania danych i nie można używać akcji referencyjnych. Jeśli obciążenie zależy od aktualizowania powiązanej tabeli podrzędnej za pomocą tej akcji referencyjnej, zalecamy wykonanie [zrzutu i przywrócenie](https://docs.microsoft.com/azure/mysql/concepts-migrate-dump-restore) zamiast tego. 
+
 
 > [!IMPORTANT]
 > W przypadku importowania danych przy użyciu kopii zapasowej Usuń polecenia tworzenia definicji ręcznie lub za pomocą polecenia--Skip-define przy wykonywaniu mysqldump. ZDEFINIOWAnie wymaga uprawnień do tworzenia i jest ograniczone w Azure Database for MySQL.

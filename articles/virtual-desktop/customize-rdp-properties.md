@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 06/19/2020
+ms.date: 07/20/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: c666a11f8d5e13d022309eddab16edb6aab76381
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 5fb992edea38c3dff9beffab1f131d3e7a6fdbf6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86527765"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087224"
 ---
 # <a name="customize-remote-desktop-protocol-rdp-properties-for-a-host-pool"></a>Dostosowywanie właściwości Remote Desktop Protocol (RDP) dla puli hostów
 
@@ -30,18 +30,6 @@ Zobacz [obsługiwane ustawienia plików RDP](https://docs.microsoft.com/windows-
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Przed rozpoczęciem postępuj zgodnie z instrukcjami w temacie [Konfigurowanie modułu PowerShell pulpitu wirtualnego systemu Windows](powershell-module.md) w celu skonfigurowania modułu programu PowerShell i zalogowania się na platformie Azure.
-
-## <a name="default-rdp-properties"></a>Domyślne właściwości protokołu RDP
-
-Domyślnie publikowane pliki RDP zawierają następujące właściwości:
-
-|Właściwości RDP | Komputery stacjonarne | Aplikacje usługi RemoteApp |
-|---|---| --- |
-| Tryb z obsługą kilku monitorów | Enabled (Włączony) | Nie dotyczy |
-| Przekierowania dysków włączone | Dyski, schowek, drukarki, porty COM, urządzenia USB i karty inteligentne| Dyski, schowek i drukarki |
-| Tryb zdalny audio | Odtwórz lokalnie | Odtwórz lokalnie |
-
-Wszystkie właściwości niestandardowe zdefiniowane dla puli hostów przesłonią te wartości domyślne.
 
 ## <a name="configure-rdp-properties-in-the-azure-portal"></a>Konfigurowanie właściwości RDP w Azure Portal
 

@@ -8,12 +8,12 @@ ms.date: 07/10/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: a13c17b2fcd6a42947b2f7d97f087735a5b18204
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 6cb6235c5c1a34cb3f48d315adee565591bb72c4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86236031"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088465"
 ---
 # <a name="enable-end-to-end-encryption-using-encryption-at-host---azure-powershell"></a>Włącz kompleksowe szyfrowanie przy użyciu szyfrowania na hoście-Azure PowerShell
 
@@ -86,7 +86,7 @@ New-AzResourceGroupDeployment -ResourceGroupName <yourResourceGroupName> `
 
 Starsze rozmiary maszyn wirtualnych nie są obsługiwane. Listę obsługiwanych rozmiarów maszyn wirtualnych można znaleźć w:
 
-Wywoływanie [interfejsu API zasobów SKU](https://docs.microsoft.com/rest/api/compute/resourceskus/list) i sprawdzanie, czy `EncryptionAtHostSupported` możliwość jest ustawiona na **wartość true**.
+Wywoływanie [interfejsu API zasobów SKU](/rest/api/compute/resourceskus/list) i sprawdzanie, czy `EncryptionAtHostSupported` możliwość jest ustawiona na **wartość true**.
 
 ```json
     {
@@ -107,7 +107,7 @@ Wywoływanie [interfejsu API zasobów SKU](https://docs.microsoft.com/rest/api/c
     }
 ```
 
-Lub wywołując polecenie cmdlet [Get-AzComputeResourceSku](https://docs.microsoft.com/powershell/module/az.compute/get-azcomputeresourcesku?view=azps-3.8.0) programu PowerShell.
+Lub wywołując polecenie cmdlet [Get-AzComputeResourceSku](/powershell/module/az.compute/get-azcomputeresourcesku?view=azps-3.8.0) programu PowerShell.
 
 ```powershell
 $vmSizes=Get-AzComputeResourceSku | where{$_.ResourceType -eq 'virtualMachines' -and $_.Locations.Contains('CentralUSEUAP')} 

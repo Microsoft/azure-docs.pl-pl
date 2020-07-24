@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 08/23/2019
 ms.author: genli
 ms.custom: has-adal-ref
-ms.openlocfilehash: e0e0d9bfe46a473210b89701b5a8c56e999771d3
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 23523a3618ad31e34a81152e48d4ee0f606e5aac
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86132955"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088534"
 ---
 # <a name="bitlocker-boot-errors-on-an-azure-vm"></a>Błędy rozruchu funkcji BitLocker na maszynie wirtualnej platformy Azure
 
@@ -28,7 +28,7 @@ ms.locfileid: "86132955"
 
 ## <a name="symptom"></a>Objaw
 
- Nie uruchomiono maszyny wirtualnej z systemem Windows. Po sprawdzeniu zrzutów ekranu w oknie [Diagnostyka rozruchu](../windows/boot-diagnostics.md) zostanie wyświetlony jeden z następujących komunikatów o błędach:
+ Nie uruchomiono maszyny wirtualnej z systemem Windows. Po sprawdzeniu zrzutów ekranu w oknie [Diagnostyka rozruchu](./boot-diagnostics.md) zostanie wyświetlony jeden z następujących komunikatów o błędach:
 
 - Podłącz sterownik USB, który ma klucz funkcji BitLocker
 
@@ -48,7 +48,7 @@ Aby rozwiązać ten problem, Zatrzymaj i Cofnij przydział maszyny wirtualnej, a
 Jeśli ta metoda nie rozwiąże problemu, wykonaj następujące kroki, aby ręcznie przywrócić plik klucz szyfrowania bloków:
 
 1. Utwórz migawkę dysku systemowego, której dotyczy dana maszyna wirtualna, jako kopię zapasową. Aby uzyskać więcej informacji, zobacz [migawka dysku](../windows/snapshot-copy-managed-disk.md).
-2. [Dołącz dysk systemowy do maszyny wirtualnej odzyskiwania](troubleshoot-recovery-disks-portal-windows.md). Aby uruchomić polecenie [manage-bde](https://docs.microsoft.com/windows-server/administration/windows-commands/manage-bde) w kroku 7, funkcja **szyfrowanie dysków funkcją BitLocker** musi być włączona na maszynie wirtualnej odzyskiwania.
+2. [Dołącz dysk systemowy do maszyny wirtualnej odzyskiwania](troubleshoot-recovery-disks-portal-windows.md). Aby uruchomić polecenie [manage-bde](/windows-server/administration/windows-commands/manage-bde) w kroku 7, funkcja **szyfrowanie dysków funkcją BitLocker** musi być włączona na maszynie wirtualnej odzyskiwania.
 
     Po dołączeniu dysku zarządzanego może zostać wyświetlony komunikat o błędzie "zawiera ustawienia szyfrowania i w związku z tym nie można go użyć jako dysku danych". W takiej sytuacji uruchom następujący skrypt, aby spróbować ponownie dołączyć dysk:
 
@@ -70,7 +70,7 @@ Jeśli ta metoda nie rozwiąże problemu, wykonaj następujące kroki, aby ręcz
     ```
      Nie można dołączyć dysku zarządzanego do maszyny wirtualnej, która została przywrócona z obrazu obiektu BLOB.
 
-3. Po dołączeniu dysku należy nawiązać połączenie pulpitu zdalnego z maszyną wirtualną odzyskiwania, aby można było uruchamiać niektóre skrypty Azure PowerShell. Upewnij się, że masz zainstalowaną [najnowszą wersję Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) na maszynie wirtualnej odzyskiwania.
+3. Po dołączeniu dysku należy nawiązać połączenie pulpitu zdalnego z maszyną wirtualną odzyskiwania, aby można było uruchamiać niektóre skrypty Azure PowerShell. Upewnij się, że masz zainstalowaną [najnowszą wersję Azure PowerShell](/powershell/azure/) na maszynie wirtualnej odzyskiwania.
 
 4. Otwórz sesję Azure PowerShell z podwyższonym poziomem uprawnień (Uruchom jako administrator). Uruchom następujące polecenia, aby zalogować się do subskrypcji platformy Azure:
 

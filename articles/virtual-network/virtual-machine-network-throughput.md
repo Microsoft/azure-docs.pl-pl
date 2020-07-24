@@ -15,11 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 4/26/2019
 ms.author: steveesp
 ms.reviewer: kumud, mareat
-ms.openlocfilehash: 47f58b25b082784177910d14ab95d8d242fda71a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1cbec961f6249ebd59324dca1745bfd9e77f5388
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84696004"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088176"
 ---
 # <a name="virtual-machine-network-bandwidth"></a>Przepustowość sieci maszyny wirtualnej
 
@@ -55,8 +56,8 @@ Transfer danych między punktami końcowymi wymaga utworzenia kilku przepływów
 
 Obecnie stos sieci platformy Azure obsługuje 250 000 łączne przepływy sieciowe z dobrą wydajnością dla maszyn wirtualnych z ponad 8 rdzeniami procesora i łącznym przepływem, dzięki czemu maszyny wirtualne mają mniej niż 8 rdzeni procesora. Dzięki temu ograniczenie wydajności sieci jest bezpieczne dla dodatkowych przepływów, aż do ostatecznego limitu całkowitej liczby przepływów 500 000, 250 000 ruchu przychodzącego i 250 000 wychodzącego, po którym są porzucane dodatkowe przepływy.
 
-||Maszyny wirtualne z <8 rdzeni procesora CPU|Maszyny wirtualne z 8 rdzeniami procesora CPU|
-|---|---|---|
+| Poziom wydajności | Maszyny wirtualne z <8 rdzeni procesora CPU | Maszyny wirtualne z 8 rdzeniami procesora CPU |
+| ----------------- | --------------------- | --------------------- |
 |<b>Dobra wydajność</b>|Przepływy 100 000 |Przepływy 250 000|
 |<b>Wydajność obniżona</b>|Powyżej przepływy 100 000|Powyżej przepływy 250 000|
 |<b>Limit przepływu</b>|Przepływy 500 000|Przepływy 500 000|

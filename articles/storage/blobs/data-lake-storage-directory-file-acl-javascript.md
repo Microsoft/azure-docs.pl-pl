@@ -8,12 +8,12 @@ ms.author: normesta
 ms.topic: how-to
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
-ms.openlocfilehash: c774d3f56eaf666a31ff73f433a3b4a5a363ce2f
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 506d9cd9581172d6eb1f36921ab96e8731ea3803
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86142496"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089434"
 ---
 # <a name="use-javascript-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Używanie języka JavaScript do zarządzania katalogami, plikami i listami ACL w Azure Data Lake Storage Gen2
 
@@ -219,6 +219,8 @@ async function ManageDirectoryACLs(fileSystemClient) {
 }
 ```
 
+Możesz również uzyskać i ustawić listę kontroli dostępu dla katalogu głównego kontenera. Aby uzyskać katalog główny, należy przekazać pusty ciąg ( `/` ) do metody **DataLakeFileSystemClient. getDirectoryClient** .
+
 ## <a name="upload-a-file-to-a-directory"></a>Przekaż plik do katalogu
 
 Najpierw Odczytaj plik. Ten przykład używa modułu Node.js `fs` . Następnie Utwórz odwołanie do pliku w katalogu docelowym, tworząc wystąpienie **FileClient** , a następnie wywołując metodę **FileClient. Create** . Przekaż plik, wywołując metodę **FileClient. Append** . Upewnij się, że ukończono przekazywanie, wywołując metodę **FileClient. Flush** .
@@ -358,7 +360,7 @@ async function ListFilesInDirectory(fileSystemClient) {
 }
 ```
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 * [Pakiet (Menedżer pakietów węzła)](https://www.npmjs.com/package/@azure/storage-file-datalake)
 * [Samples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-file-datalake/samples)

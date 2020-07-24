@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/06/2020
 ms.author: victorh
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: 4caed3f330dd3e50fe2652a2cd33c0e4249f2fd9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0a82a35f1736aa7908928cbca3397cbe9c705e5b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85254348"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088110"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-v2"></a>Skalowanie automatyczne i strefowo nadmiarowa brama aplikacji (wersja 2) 
 
@@ -148,7 +148,7 @@ Jednak utworzenie nowego wystąpienia może zająć trochę czasu (około sześ�
 
 Poniższa tabela zawiera porównanie funkcji dostępnych w poszczególnych jednostkach SKU.
 
-|                                                   | jednostka SKU w wersji 1   | jednostka SKU v2   |
+| Cechy                                           | jednostka SKU w wersji 1   | jednostka SKU v2   |
 | ------------------------------------------------- | -------- | -------- |
 | Skalowanie automatyczne                                       |          | &#x2713; |
 | Nadmiarowość stref                                   |          | &#x2713; |

@@ -1,18 +1,18 @@
 ---
 title: Logowanie do maszyny wirtualnej z systemem Linux przy użyciu poświadczeń Azure Active Directory
 description: Dowiedz się, jak utworzyć i skonfigurować maszynę wirtualną z systemem Linux, aby zalogować się przy użyciu uwierzytelniania Azure Active Directory.
-author: iainfoulds
+author: SanDeo-MSFT
 ms.service: virtual-machines-linux
 ms.topic: article
 ms.workload: infrastructure
 ms.date: 08/29/2019
-ms.author: iainfou
-ms.openlocfilehash: c5275a979cbffe7fb6600978487454ac11cd2002
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.author: sandeo
+ms.openlocfilehash: 89b89d30de46727f4d5b52a236a4b0133e663bb9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86510433"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088771"
 ---
 # <a name="preview-log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication"></a>Wersja zapoznawcza: Logowanie do maszyny wirtualnej z systemem Linux na platformie Azure przy użyciu uwierzytelniania Azure Active Directory
 
@@ -113,7 +113,7 @@ az vm extension set \
 
 ## <a name="configure-role-assignments-for-the-vm"></a>Konfigurowanie przypisań ról dla maszyny wirtualnej
 
-Zasady Access Control oparte na rolach (RBAC) na platformie Azure określają, kto może logować się do maszyny wirtualnej. Do autoryzacji logowania maszyn wirtualnych służą dwie role RBAC:
+Zasady kontroli dostępu opartej na rolach (RBAC) na platformie Azure określają, kto może logować się do maszyny wirtualnej. Do autoryzacji logowania maszyn wirtualnych służą dwie role RBAC:
 
 - **Logowanie administratora maszyny wirtualnej**: Użytkownicy z przypisaną tą rolą mogą logować się do maszyny wirtualnej platformy Azure z uprawnieniami administratora systemu Windows lub użytkownika root w systemie Linux.
 - **Logowanie użytkownika maszyny wirtualnej**: Użytkownicy z przypisaną rolą mogą logować się do maszyny wirtualnej platformy Azure przy użyciu zwykłych uprawnień użytkownika.

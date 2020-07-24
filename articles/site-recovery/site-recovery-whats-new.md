@@ -3,12 +3,12 @@ title: Co nowego w Azure Site Recovery
 description: Zawiera podsumowanie nowych funkcji i najnowszych aktualizacji usługi Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 06/01/2020
-ms.openlocfilehash: 3017be90e84441ad84c6a5a9d54498028388dffe
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 4e3153ae611f368f66b045a69bab23ca0a52a033
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206398"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089519"
 ---
 # <a name="whats-new-in-site-recovery"></a>Co nowego w usłudze Site Recovery
 
@@ -22,7 +22,8 @@ W przypadku składników Site Recovery obsługiwane są wersje N-4, gdzie N to n
 
 **Aktualizowanie** |  **Ujednolicona konfiguracja** | **Komórki jajowe serwera konfiguracji** | **Agent usługi mobilności** | **Dostawca Site Recovery** | **Agent Recovery Services**
 --- | --- | --- | --- | --- | ---
-[Pakiet zbiorczy 47](https://support.microsoft.com/help/4570609/) | 9.34.5634.1 | 5.1.6100.0 | 9.34.5634.1 | 5.1.6100.0 | 2.0.9183.0
+[Pakiet zbiorczy 48](https://support.microsoft.com/help/4573888/) | 9.35.5659.1 | 5.1.6200.0 | 9.35.5659.1 | 5.1.6200.0 | 2.0.9186.0
+[Pakiet zbiorczy 47](https://support.microsoft.com/help/4570609/) | 9.34.5634.1 | 5.1.6100.0 | 9.34.5634.1 | 5.1.6100.0 | Maszyny z funkcją Hyper-v — 2.0.9183.0 <br> Maszyny VMware — 2.0.9177.0
 [Pakiet zbiorczy 46](https://support.microsoft.com/help/4564347/) | 9.33.5598.1 | 5.1.5900.0 | 9.33.5598.1 | 5.1.5900.0 | 2.0.9175.0
 [Pakiet zbiorczy 45](https://support.microsoft.com/help/4550047/) | 9.32.5487.1 | 5.1.5400.0 | 9.32.5487.1 | 5.1.5400.0 | 2.0.9165.0
 [Pakiet zbiorczy 43](https://support.microsoft.com/help/4537047/) | 9.31.5449.1 | 5.1.5300.0 | 9.31.5449.1 | 5.1.5300.0 | 2.0.9165.0
@@ -34,6 +35,18 @@ W przypadku składników Site Recovery obsługiwane są wersje N-4, gdzie N to n
 > Pakiet zbiorczy aktualizacji 44 nie jest wyświetlany w tabeli, ponieważ nie zawiera on aktualizacji dostawców Site Recovery i agentów.
 
 ## <a name="updates-july-2020"></a>Aktualizacje (lipiec 2020)
+
+### <a name="update-rollup-48"></a>Pakiet zbiorczy aktualizacji 48
+
+[Pakiet zbiorczy aktualizacji 48](https://support.microsoft.com/help/4573888/update-rollup-48-for-azure-site-recovery) udostępnia następujące aktualizacje:
+
+**Aktualizowanie** | **Szczegóły**
+--- | ---
+**Dostawcy i agenci** | Aktualizacje Site Recovery agentów i dostawców zgodnie z opisem w zestawie zbiorczym.
+**Rozwiązywanie poprawek/ulepszeń** | Szereg poprawek i ulepszeń, które opisano szczegółowo w pakiecie zbiorczym.
+
+> [!NOTE]
+> Pakiet zbiorczy aktualizacji 48 ma znany problem dotyczący włączania replikacji dla maszyn z systemem Linux zaszyfrowanych przy użyciu systemu ADE. [Dowiedz się więcej](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-troubleshoot-errors#enable-protection-failed-as-the-installer-is-unable-to-find-the--root-disk-error-code-151137).
 
 ### <a name="update-rollup-47"></a>Pakiet zbiorczy aktualizacji 47
 

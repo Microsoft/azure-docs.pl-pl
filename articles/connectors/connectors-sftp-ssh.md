@@ -6,14 +6,14 @@ ms.suite: integration
 author: divyaswarnkar
 ms.reviewer: estfan, logicappspm
 ms.topic: article
-ms.date: 06/17/2020
+ms.date: 07/20/2020
 tags: connectors
-ms.openlocfilehash: c2f3af4b0e2fafdd95798b412f37ed20204cd42f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a277c6205dfb9dfa04565fb3ebcb3da589669764
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84807750"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087887"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-ssh-and-azure-logic-apps"></a>Monitorowanie i tworzenie plików SFTP oraz zarządzanie nimi za pomocą protokołu SSH i usługi Azure Logic Apps
 
@@ -23,6 +23,7 @@ Aby zautomatyzować zadania, które monitorują, tworzą, wysyłają i odbieraj�
 > Łącznik SFTP-SSH aktualnie nie obsługuje tych serwerów SFTP:
 > 
 > * IBM datapowershell
+> * MessageWay
 > * OpenText Secure MFT
 > * OpenText GXS
 
@@ -136,7 +137,7 @@ Jeśli klucz prywatny jest w formacie pobierania, który używa rozszerzenia naz
 
    `puttygen <path-to-private-key-file-in-PuTTY-format> -O private-openssh -o <path-to-private-key-file-in-OpenSSH-format>`
 
-   Przykład:
+   Na przykład:
 
    `puttygen /tmp/sftp/my-private-key-putty.ppk -O private-openssh -o /tmp/sftp/my-private-key-openssh.pem`
 
@@ -156,7 +157,7 @@ Jeśli klucz prywatny jest w formacie pobierania, który używa rozszerzenia naz
 
 1. Zapisz plik klucza prywatnego z `.pem` rozszerzeniem nazwy pliku.
 
-## <a name="considerations"></a>Istotne zagadnienia
+## <a name="considerations"></a>Zagadnienia do rozważenia
 
 W tej sekcji opisano zagadnienia dotyczące wyzwalaczy i akcji tego łącznika.
 

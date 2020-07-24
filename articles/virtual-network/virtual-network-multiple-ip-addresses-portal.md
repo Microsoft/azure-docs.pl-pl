@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/30/2016
 ms.author: allensu
-ms.openlocfilehash: 6118763bf76795e30e862826f8f5b847f3382a5c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9cec3e3ad4934ce368baa44984d252dc981d5d81
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84687977"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088210"
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-the-azure-portal"></a>Przypisywanie wielu adresów IP do maszyn wirtualnych przy użyciu Azure Portal
 
@@ -29,7 +30,7 @@ ms.locfileid: "84687977"
 
 ## <a name="create-a-vm-with-multiple-ip-addresses"></a><a name = "create"></a>Tworzenie maszyny wirtualnej z wieloma adresami IP
 
-Jeśli chcesz utworzyć maszynę wirtualną z wieloma adresami IP lub statycznym prywatnym adresem IP, musisz ją utworzyć przy użyciu programu PowerShell lub interfejsu wiersza polecenia platformy Azure. Aby dowiedzieć się, jak to zrobić, kliknij pozycję Opcje programu PowerShell lub interfejsu wiersza polecenia w górnej części tego artykułu. Można utworzyć maszynę wirtualną z jednym dynamicznym prywatnym adresem IP i (opcjonalnie) pojedynczym publicznym adresem IP. Skorzystaj z portalu, wykonując czynności opisane w artykule [Tworzenie maszyny wirtualnej z systemem Windows](../virtual-machines/virtual-machines-windows-hero-tutorial.md) lub [Tworzenie maszyny wirtualnej z systemem Linux](../virtual-machines/linux/quick-create-portal.md) . Po utworzeniu maszyny wirtualnej można zmienić typ adresu IP z dynamicznego na statyczny i dodać dodatkowe adresy IP przy użyciu portalu, wykonując czynności opisane w sekcji [Dodawanie adresów IP do maszyny wirtualnej](#add) w tym artykule.
+Jeśli chcesz utworzyć maszynę wirtualną z wieloma adresami IP lub statycznym prywatnym adresem IP, musisz ją utworzyć przy użyciu programu PowerShell lub interfejsu wiersza polecenia platformy Azure. Aby dowiedzieć się, jak to zrobić, kliknij pozycję Opcje programu PowerShell lub interfejsu wiersza polecenia w górnej części tego artykułu. Można utworzyć maszynę wirtualną z jednym dynamicznym prywatnym adresem IP i (opcjonalnie) pojedynczym publicznym adresem IP. Skorzystaj z portalu, wykonując czynności opisane w artykule [Tworzenie maszyny wirtualnej z systemem Windows](../virtual-machines/windows/quick-create-portal.md) lub [Tworzenie maszyny wirtualnej z systemem Linux](../virtual-machines/linux/quick-create-portal.md) . Po utworzeniu maszyny wirtualnej można zmienić typ adresu IP z dynamicznego na statyczny i dodać dodatkowe adresy IP przy użyciu portalu, wykonując czynności opisane w sekcji [Dodawanie adresów IP do maszyny wirtualnej](#add) w tym artykule.
 
 ## <a name="add-ip-addresses-to-a-vm"></a><a name="add"></a>Dodawanie adresów IP do maszyny wirtualnej
 

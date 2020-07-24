@@ -3,8 +3,8 @@ title: 'Samouczek: Migrowanie usług RDS PostgreSQL online do Azure Database for
 titleSuffix: Azure Database Migration Service
 description: Dowiedz się, jak przeprowadzić migrację online z usług RDS PostgreSQL do Azure Database for PostgreSQL przy użyciu Azure Database Migration Service.
 services: dms
-author: HJToland3
-ms.author: jtoland
+author: arunkumarthiags
+ms.author: arthiaga
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 04/11/2020
-ms.openlocfilehash: be6f0cd734d31f43557b49f8e9314e925b383899
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 725b466a42e1e232d35bd7bd70c8943a254b026f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81113946"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087700"
 ---
 # <a name="tutorial-migrate-rds-postgresql-to-azure-db-for-postgresql-online-using-dms"></a>Samouczek: Migrowanie usług RDS PostgreSQL do usługi Azure DB for PostgreSQL online przy użyciu systemu DMS
 
@@ -29,7 +30,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 > * Utwórz wystąpienie usługi Azure Database Migration Service.
 > * Utwórz projekt migracji przy użyciu Azure Database Migration Service.
 > * Uruchamianie migracji.
-> * Monitorowanie migracji.
+> * Monitoruj migrację.
 > * Przeprowadź migrację uruchomienie produkcyjne.
 
 > [!NOTE]
@@ -99,7 +100,7 @@ Do ukończenia tego samouczka niezbędne są następujące elementy:
     psql -h hostname -U db_username -d db_name < your_schema.sql
     ```
 
-    Przykład:
+    Na przykład:
 
     ```
     psql -h mypgserver-20170401.postgres.database.azure.com  -U postgres -d dvdrental < dvdrentalSchema.sql
@@ -157,7 +158,7 @@ Do ukończenia tego samouczka niezbędne są następujące elementy:
 
     ![Rejestrowanie dostawcy zasobów](media/tutorial-rds-postgresql-server-azure-db-for-postgresql-online/portal-register-resource-provider.png)
 
-## <a name="create-an-instance-of-azure-database-migration-service"></a>Utwórz wystąpienie Azure Database Migration Service
+## <a name="create-an-instance-of-azure-database-migration-service"></a>Tworzenie wystąpienia usługi Azure Database Migration Service
 
 1. W witrynie Azure Portal wybierz pozycję + **Utwórz zasób**, wyszukaj usługę Azure Database Migration Service, a następnie wybierz usługę **Azure Database Migration Service** na liście rozwijanej.
 

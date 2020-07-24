@@ -7,13 +7,14 @@ ms.service: firewall
 ms.topic: article
 ms.date: 04/10/2020
 ms.author: victorh
-ms.openlocfilehash: 93677b3e473ab825665fed5590ac345a8cfcc300
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 84110e749dac9267e994385aa5f6d05e3ba224a6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81113447"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087547"
 ---
-# <a name="azure-firewall-rule-processing-logic"></a>Logika przetwarzania reguł usługi Azure Firewall
+# <a name="configure-azure-firewall-rules"></a>Konfigurowanie reguł zapory platformy Azure
 Reguły translatora adresów sieciowych, reguły sieci i aplikacje można skonfigurować w zaporze platformy Azure. Kolekcje reguł są przetwarzane zgodnie z typem reguły w kolejności priorytetów, niższymi liczbami od 100 do 65 000. Nazwa kolekcji reguł może zawierać tylko litery, cyfry, podkreślenia, kropki lub łączniki. Musi zaczynać się literą lub cyfrą oraz kończyć się literą, cyfrą lub podkreśleniem. Maksymalna długość nazwy to 80 znaków.
 
 Najlepiej wstępnie umieścić numery priorytetów kolekcji reguł w przyrostach 100 (100, 200, 300 itd.), aby w razie potrzeby dodać więcej kolekcji reguł.

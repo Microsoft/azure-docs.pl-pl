@@ -5,14 +5,14 @@ services: application-gateway
 author: abshamsft
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 02/20/2019
+ms.date: 07/20/2020
 ms.author: absha
-ms.openlocfilehash: 798137a74f22824dbfec9653bff327d3a0a1f3b4
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 20d43666919f8528c25735592c2727601af10bbb
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86186762"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088091"
 ---
 # <a name="application-gateway-components"></a>Application gateway components (Składniki usługi Application Gateway)
 
@@ -69,13 +69,13 @@ Istnieją dwa typy odbiorników:
 
 - **Podstawowa**. Ten typ odbiornika nasłuchuje w pojedynczej lokacji domeny, gdzie ma pojedyncze mapowanie DNS na adres IP bramy aplikacji. Ta konfiguracja odbiornika jest wymagana w przypadku hostowania pojedynczej lokacji za bramą aplikacji.
 
-- **Wiele witryn**. Ta konfiguracja odbiornika jest wymagana podczas konfigurowania więcej niż jednej aplikacji sieci Web w tym samym wystąpieniu bramy aplikacji. Umożliwia skonfigurowanie bardziej wydajnej topologii dla wdrożeń przez dodanie do 100 witryn sieci Web do jednej bramy aplikacji. Każdą witrynę sieci Web można skierować do jej puli zaplecza. Na przykład trzy poddomeny, abc.contoso.com, xyz.contoso.com i pqr.contoso.com, wskazują adres IP bramy aplikacji. Utworzysz trzy odbiorniki z wieloma lokacjami i skonfigurujesz każdy odbiornik dla odpowiedniego ustawienia portu i protokołu.
+- **Wiele witryn**. Ta konfiguracja odbiornika jest wymagana, gdy chcesz skonfigurować Routing na podstawie nazwy hosta lub nazwy domeny dla więcej niż jednej aplikacji sieci Web w tej samej bramie aplikacji. Umożliwia skonfigurowanie bardziej wydajnej topologii dla wdrożeń przez dodanie do 100 witryn sieci Web do jednej bramy aplikacji. Każdą witrynę sieci Web można skierować do jej puli zaplecza. Na przykład trzy domeny, contoso.com, fabrikam.com i adatum.com wskazują adres IP bramy aplikacji. Utworzysz trzy [odbiorniki z wieloma lokacjami](multiple-site-overview.md) i skonfigurujesz każdy odbiornik dla odpowiedniego ustawienia portu i protokołu. 
 
-    Aby uzyskać więcej informacji, zobacz [hosting z wieloma lokacjami](application-gateway-web-app-overview.md).
+    Można również zdefiniować symbole wielolokacjowe i maksymalnie 5 nazw hostów na odbiornik. Aby dowiedzieć się więcej, zobacz [symbole wieloznaczne nazw hostów w odbiorniku (wersja zapoznawcza)](multiple-site-overview.md#wildcard-host-names-in-listener-preview).
 
-Po utworzeniu odbiornika należy skojarzyć go z regułą routingu żądania. Ta reguła określa, w jaki sposób żądanie otrzymane na odbiorniku powinno być kierowane do zaplecza.
+    Aby uzyskać więcej informacji na temat konfigurowania odbiornika z wieloma lokacjami, zobacz [hostowanie wielu witryn w Application Gateway przy użyciu Azure Portal](create-multiple-sites-portal.md).
 
-Application Gateway przetwarza odbiorniki w [pokazanej kolejności](configuration-overview.md#order-of-processing-listeners).
+Po utworzeniu odbiornika należy skojarzyć go z regułą routingu żądania. Ta reguła określa, w jaki sposób żądanie otrzymane na odbiorniku powinno być kierowane do zaplecza. Reguła routingu żądań zawiera również pulę zaplecza, do której należy się kierować, oraz ustawienie protokołu HTTP, w którym są wymienione port zaplecza, protokół itp.
 
 ## <a name="request-routing-rules"></a>Reguły routingu żądań
 
@@ -99,13 +99,13 @@ Możesz wybrać miejsce docelowe przekierowania jako inny odbiornik (co może po
 
 Aby uzyskać więcej informacji, zobacz [przekierowywanie ruchu na bramie aplikacji](redirect-overview.md).
 
-### <a name="rewrite-http-headers"></a>Ponowne zapisywanie nagłówków HTTP
+### <a name="rewrite-http-headers-and-url"></a>Zapisz ponownie nagłówki HTTP i adres URL
 
-Korzystając z reguł routingu żądań, można dodawać, usuwać lub aktualizować żądania HTTP (S) i nagłówki odpowiedzi jako pakiety żądań i odpowiedzi przenoszone między klientami a pulami zaplecza za pośrednictwem bramy aplikacji.
+Korzystając z reguł ponownego zapisywania, można dodawać, usuwać lub aktualizować żądania HTTP (S) i nagłówki odpowiedzi oraz ścieżkę URL i parametry ciągu zapytania jako pakiety żądań i odpowiedzi przenoszone między pulami klienta i zaplecza za pośrednictwem bramy aplikacji.
 
-Nagłówki mogą być ustawione na wartości statyczne lub inne nagłówki i zmienne serwera. Pomaga to z ważnymi przypadkami użycia, takimi jak wyodrębnianie adresów IP klientów, usuwanie poufnych informacji o zapleczu, dodawanie dodatkowych zabezpieczeń i tak dalej.
+W nagłówkach i parametrach adresu URL można ustawić wartości statyczne lub inne nagłówki i zmienne serwera. Pomaga to z ważnymi przypadkami użycia, takimi jak wyodrębnianie adresów IP klientów, usuwanie poufnych informacji o zapleczu, dodawanie dodatkowych zabezpieczeń i tak dalej.
 
-Aby uzyskać więcej informacji, zobacz [Zapisywanie nagłówków HTTP na bramie aplikacji](rewrite-http-headers.md).
+Aby uzyskać więcej informacji, zobacz [Zapisywanie nagłówków HTTP i adresów URL na bramie aplikacji](rewrite-http-headers-url.md).
 
 ## <a name="http-settings"></a>Ustawienia protokołu HTTP
 

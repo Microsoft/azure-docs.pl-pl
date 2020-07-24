@@ -5,12 +5,12 @@ ms.topic: quickstart
 ms.date: 07/10/2019
 ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: da50fb9f331e91089bb6bf0fb373cab8045639f0
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 934b679813323fe144f935811eb613ab68b561db
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86260515"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089621"
 ---
 # <a name="quickstart-deploy-windows-containers-to-service-fabric"></a>Szybki start: wdrażanie kontenerów systemu Windows do usługi Service Fabric
 
@@ -86,7 +86,7 @@ Ponadto w pliku *ApplicationManifest.xml* zmień wartość ustawienia **Password
 
 Następujący przykładowy skrypt tworzy klaster usługi Service Fabric z pięcioma węzłami zabezpieczony za pomocą certyfikatu X.509. Polecenie tworzy certyfikat z podpisem własnym i przekazuje go do nowego magazynu kluczy. Certyfikat jest też kopiowany do katalogu lokalnego. Dowiedz się więcej na temat tworzenia klastra przy użyciu tego skryptu w temacie [Tworzenie klastra usługi Service Fabric](scripts/service-fabric-powershell-create-secure-cluster-cert.md).
 
-W razie potrzeby zainstaluj program Azure PowerShell przy użyciu instrukcji dostępnych w [przewodniku programu Azure PowerShell](/powershell/azure/overview).
+W razie potrzeby zainstaluj program Azure PowerShell przy użyciu instrukcji dostępnych w [przewodniku programu Azure PowerShell](/powershell/azure/).
 
 Przed uruchomieniem poniższego skryptu programu PowerShell uruchom polecenie `Connect-AzAccount` w celu utworzenia połączenia z platformą Azure.
 

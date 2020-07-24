@@ -6,22 +6,22 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/06/2020
+ms.date: 07/16/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 26faad0bb8aeb8dff693eea4cb9d47e0df1814b4
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 30e8bd7fda08795ecc1aa78b0d2507e7c915ad0d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027340"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087258"
 ---
 # <a name="configure-azure-storage-connection-strings"></a>Konfiguracja parametrów połączenia usługi Azure Storage
 
 Parametry połączenia zawierają informacje o autoryzacji wymagane przez aplikację do uzyskiwania dostępu do danych na koncie usługi Azure Storage w środowisku uruchomieniowym przy użyciu autoryzacji klucza współużytkowanego. Parametry połączenia można skonfigurować w taki sposób, aby:
 
-* Nawiązywanie połączenia z emulatorem usługi Azure Storage.
+* Nawiąż połączenie z emulatorem magazynu azurite.
 * Uzyskaj dostęp do konta magazynu na platformie Azure.
 * Dostęp do określonych zasobów na platformie Azure za pośrednictwem sygnatury dostępu współdzielonego (SAS).
 
@@ -37,15 +37,15 @@ Aplikacja musi uzyskać dostęp do parametrów połączenia w czasie wykonywania
 * Aplikacja działająca na komputerze stacjonarnym lub na urządzeniu może przechowywać parametry połączenia w pliku **app.config** lub **web.config** . Dodaj parametry połączenia do sekcji **AppSettings** w tych plikach.
 * W aplikacji uruchomionej w usłudze w chmurze platformy Azure można przechowywać parametry połączenia w [pliku schematu konfiguracji usługi platformy Azure (cscfg)](https://msdn.microsoft.com/library/ee758710.aspx). Dodaj parametry połączenia do sekcji **ConfigurationSettings** w pliku konfiguracji usługi.
 
-Przechowywanie parametrów połączenia w pliku konfiguracji ułatwia aktualizowanie parametrów połączenia w celu przełączania się między emulatorem magazynu a kontem usługi Azure Storage w chmurze. Wystarczy edytować parametry połączenia, aby wskazywały na środowisko docelowe.
+Przechowywanie parametrów połączenia w pliku konfiguracji ułatwia aktualizowanie parametrów połączenia w celu przełączania się między [emulatorem magazynu azurite](../common/storage-use-azurite.md) a kontem usługi Azure Storage w chmurze. Wystarczy edytować parametry połączenia, aby wskazywały na środowisko docelowe.
 
 Możesz użyć [Configuration Manager Microsoft Azure](https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/) , aby uzyskać dostęp do parametrów połączenia w czasie wykonywania, niezależnie od miejsca, w którym działa aplikacja.
 
-## <a name="configure-a-connection-string-for-the-storage-emulator"></a>Konfigurowanie parametrów połączenia dla emulatora magazynu
+## <a name="configure-a-connection-string-for-azurite"></a>Konfigurowanie parametrów połączenia dla azurite
 
 [!INCLUDE [storage-emulator-connection-string-include](../../../includes/storage-emulator-connection-string-include.md)]
 
-Aby uzyskać więcej informacji na temat emulatora magazynu, zobacz [Używanie emulatora usługi Azure Storage do programowania i testowania](storage-use-emulator.md).
+Aby uzyskać więcej informacji na temat azurite, zobacz [Używanie emulatora azurite na potrzeby tworzenia lokalnych magazynów platformy Azure](../common/storage-use-azurite.md).
 
 ## <a name="configure-a-connection-string-for-an-azure-storage-account"></a>Konfigurowanie parametrów połączenia dla konta usługi Azure Storage
 
@@ -140,6 +140,6 @@ EndpointSuffix=core.chinacloudapi.cn;
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Korzystanie z emulatora usługi Azure Storage na potrzeby tworzenia i testowania](storage-use-emulator.md)
+* [Korzystanie z emulatora azurite na potrzeby tworzenia lokalnych magazynów platformy Azure](../common/storage-use-azurite.md)
 * [Eksploratory usługi Azure Storage](storage-explorers.md)
 * [Używanie sygnatur dostępu współdzielonego (SAS)](storage-sas-overview.md)

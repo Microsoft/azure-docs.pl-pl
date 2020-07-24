@@ -7,19 +7,19 @@ ms.topic: how-to
 ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 8f668844951a2416b25d1649721fc005a0d70b75
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0270cebec21ca10327a86ea5efebef9a52455930
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85509850"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089349"
 ---
 # <a name="use-azure-files-with-linux"></a>Używanie usługi Azure Files z systemem Linux
 [Azure Files](storage-files-introduction.md) to łatwy w użyciu system plików w chmurze firmy Microsoft. Udziały plików platformy Azure można instalować w dystrybucjach systemu Linux przy użyciu [klienta jądra SMB](https://wiki.samba.org/index.php/LinuxCIFS). W tym artykule przedstawiono dwa sposoby instalowania udziału plików platformy Azure: na żądanie z `mount` poleceniem i przy rozruchu, tworząc wpis w `/etc/fstab` .
 
 Zalecanym sposobem instalowania udziału plików platformy Azure w systemie Linux jest użycie protokołu SMB 3,0. Domyślnie Azure Files wymaga szyfrowania podczas przesyłania, które jest obsługiwane tylko przez protokół SMB 3,0. Azure Files obsługuje również protokół SMB 2,1, który nie obsługuje szyfrowania podczas przesyłania, ale nie może instalować udziałów plików platformy Azure z użyciem protokołu SMB 2,1 z innego regionu platformy Azure lub lokalnego ze względów bezpieczeństwa. O ile aplikacja nie wymaga protokołu SMB 2,1, z jakiegoś powodu większość popularnych, ostatnio wydanych dystrybucji systemu Linux obsługuje protokół SMB 3,0:  
 
-| | SMB 2.1 <br>(Instalacja na maszynach wirtualnych w ramach tego samego regionu platformy Azure) | SMB 3.0 <br>(Instalacje z poziomu lokalnego i obejmującego wiele regionów) |
+| Dystrybucja systemu Linux | SMB 2.1 <br>(Instalacja na maszynach wirtualnych w ramach tego samego regionu platformy Azure) | SMB 3.0 <br>(Instalacje z poziomu lokalnego i obejmującego wiele regionów) |
 | --- | :---: | :---: |
 | Ubuntu | 14.04 + | 16.04 + |
 | Red Hat Enterprise Linux (RHEL) | 7 + | 7.5 + |
@@ -323,6 +323,6 @@ cat /sys/module/cifs/parameters/disable_legacy_dialects
 ## <a name="next-steps"></a>Następne kroki
 Poniższe linki umożliwiają uzyskanie dodatkowych informacji na temat usługi Azure Files:
 
-* [Planowanie wdrażania usługi Pliki Azure](storage-files-planning.md)
+* [Planowanie wdrożenia usługi Azure Files](storage-files-planning.md)
 * [Często zadawane pytania](../storage-files-faq.md)
 * [Rozwiązywanie problemów](storage-troubleshoot-linux-file-connection-problems.md)

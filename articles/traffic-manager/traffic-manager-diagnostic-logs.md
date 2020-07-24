@@ -10,11 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/25/2019
 ms.author: rohink
-ms.openlocfilehash: d84c4a9af366e9032604aef5531742eb790bb571
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 09c04d727e42f88bb376a59d66a23688e16abb13
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84711684"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089060"
 ---
 # <a name="enable-resource-logging-in-azure-traffic-manager"></a>Włącz rejestrowanie zasobów na platformie Azure Traffic Manager
 
@@ -67,11 +68,10 @@ Wszystkie dzienniki zasobów dostępne za pomocą Azure Monitor współdzielą w
 
 W poniższej tabeli przedstawiono schemat dzienników specyficzny dla zasobu profilu usługi Azure Traffic Manager.
 
-|||||
+|Nazwa pola|Typ pola|Definicja|Przykład|
 |----|----|---|---|
-|**Nazwa pola**|**Typ pola**|**Definicja**|**Przykład**|
-|Nazwapunktukoncowego|String|Nazwa punktu końcowego Traffic Manager, którego stan kondycji jest rejestrowany.|*myPrimaryEndpoint*|
-|Stan|String|Stan kondycji punktu końcowego Traffic Manager, który był sondowany. Stan może być w **górę** lub **w dół**.|**W górę**|
+|Nazwapunktukoncowego|String (ciąg)|Nazwa punktu końcowego Traffic Manager, którego stan kondycji jest rejestrowany.|*myPrimaryEndpoint*|
+|Stan|String (ciąg)|Stan kondycji punktu końcowego Traffic Manager, który był sondowany. Stan może być w **górę** lub **w dół**.|**W górę**|
 |||||
 
 ## <a name="next-steps"></a>Następne kroki

@@ -12,12 +12,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
 ms.date: 03/27/2020
-ms.openlocfilehash: f5ef4c701cab8b9e94f89607bf643699e95ccad0
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: d8da5bb32836ff50240bf6b781227fde8839be5c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85984904"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088006"
 ---
 # <a name="configure-and-manage-azure-ad-authentication-with-azure-sql"></a>Konfigurowanie uwierzytelniania usługi Azure AD i zarządzanie nim za pomocą usługi Azure SQL
 
@@ -48,7 +48,7 @@ Aby uzyskać więcej informacji na temat tożsamości i konfiguracji hybrydowej 
 
 Utwórz wystąpienie usługi Azure AD i wypełnij je użytkownikami i grupami. Usługa Azure AD może być początkową domeną zarządzaną usługi Azure AD. Usługa Azure AD może być również lokalnym Active Directory Domain Servicesm federacyjnym z usługą Azure AD.
 
-Aby uzyskać więcej informacji, zobacz tematy [Integrating your on-premises identities with Azure Active Directory](../../active-directory/hybrid/whatis-hybrid-identity.md) (Integrowanie tożsamości lokalnych z usługą Azure Active Directory), [Dodawanie niestandardowej nazwy domeny do usługi Azure AD](../../active-directory/fundamentals/add-custom-domain.md), [Microsoft Azure now supports federation with Windows Server Active Directory](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/) (Platforma Microsoft Azure obsługuje teraz federację z usługą Windows Servder Active Directory), [Administering your Azure AD directory](../../active-directory/fundamentals/active-directory-whatis.md) (Administrowanie katalogiem usługi Azure AD), [Manage Azure AD using Windows PowerShell](/powershell/azure/overview) (Zarządzanie usługą Azure AD przy użyciu programu Windows PowerShell) i [Hybrid Identity Required Ports and Protocols](../../active-directory/hybrid/reference-connect-ports.md) (Wymagane porty i protokoły tożsamości hybrydowych).
+Aby uzyskać więcej informacji, zobacz tematy [Integrating your on-premises identities with Azure Active Directory](../../active-directory/hybrid/whatis-hybrid-identity.md) (Integrowanie tożsamości lokalnych z usługą Azure Active Directory), [Dodawanie niestandardowej nazwy domeny do usługi Azure AD](../../active-directory/fundamentals/add-custom-domain.md), [Microsoft Azure now supports federation with Windows Server Active Directory](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/) (Platforma Microsoft Azure obsługuje teraz federację z usługą Windows Servder Active Directory), [Administering your Azure AD directory](../../active-directory/fundamentals/active-directory-whatis.md) (Administrowanie katalogiem usługi Azure AD), [Manage Azure AD using Windows PowerShell](/powershell/azure/) (Zarządzanie usługą Azure AD przy użyciu programu Windows PowerShell) i [Hybrid Identity Required Ports and Protocols](../../active-directory/hybrid/reference-connect-ports.md) (Wymagane porty i protokoły tożsamości hybrydowych).
 
 ## <a name="associate-or-add-an-azure-subscription-to-azure-active-directory"></a>Kojarzenie lub dodawanie subskrypcji platformy Azure do usługi Azure Active Directory
 
@@ -75,7 +75,7 @@ W przypadku korzystania z Azure Active Directory z replikacją geograficzną adm
 
 Wystąpienie zarządzane SQL wymaga uprawnień do odczytu usługi Azure AD w celu pomyślnego wykonania zadań, takich jak uwierzytelnianie użytkowników za pomocą przynależności do grupy zabezpieczeń lub tworzenie nowych użytkowników. Aby to umożliwić, należy przyznać uprawnienia wystąpienia zarządzanego SQL do odczytu usługi Azure AD. Można to zrobić przy użyciu Azure Portal lub programu PowerShell.
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Witryna Azure Portal
 
 Aby udzielić uprawnienia do odczytu wystąpienia zarządzanego usługi SQL AD przy użyciu Azure Portal, zaloguj się jako Administrator globalny/firmowy w usłudze Azure AD i wykonaj następujące kroki:
 
@@ -176,7 +176,7 @@ else {
 
 # <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
-Aby uruchomić polecenia cmdlet programu PowerShell, należy zainstalować i uruchomić Azure PowerShell. Aby uzyskać szczegółowe informacje, zobacz temat [Instalowanie i konfigurowanie programu Azure PowerShell](/powershell/azure/overview).
+Aby uruchomić polecenia cmdlet programu PowerShell, należy zainstalować i uruchomić Azure PowerShell. Aby uzyskać szczegółowe informacje, zobacz temat [Instalowanie i konfigurowanie programu Azure PowerShell](/powershell/azure/).
 
 > [!IMPORTANT]
 > Moduł programu PowerShell Azure Resource Manager (RM) nadal jest obsługiwany przez wystąpienie zarządzane usługi Azure SQL, ale wszystkie przyszłe Programowanie dla modułu AZ. SQL. Moduł AzureRM będzie nadal otrzymywać poprawki błędów do co najmniej grudnia 2020.  Argumenty poleceń polecenia AZ module i w modułach AzureRm są zasadniczo identyczne. Aby uzyskać więcej informacji o zgodności, zobacz [wprowadzenie do nowego Azure PowerShell AZ module](/powershell/azure/new-azureps-module-az).
@@ -234,7 +234,7 @@ Aby uzyskać więcej informacji na temat poleceń interfejsu wiersza polecenia, 
 
 W poniższych dwóch procedurach pokazano, jak udostępnić administratorowi Azure Active Directory serwera w Azure Portal i przy użyciu programu PowerShell.
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Witryna Azure Portal
 
 1. W witrynie [Azure Portal](https://portal.azure.com/) w prawym górnym rogu wybierz swoje połączenia, aby wyświetlić listę rozwijaną możliwych usług Active Directory. Wybierz odpowiednią usługę Active Directory jako domyślną usługę Azure AD. Ten krok łączy Active Directory skojarzone z subskrypcją z serwerem, upewniając się, że ta sama subskrypcja jest używana zarówno w przypadku usługi Azure AD, jak i serwera.
 
@@ -272,7 +272,7 @@ Aby później usunąć administratora, w górnej części strony **administrator
 
 # <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
-Aby uruchomić polecenia cmdlet programu PowerShell, należy zainstalować i uruchomić Azure PowerShell. Aby uzyskać szczegółowe informacje, zobacz temat [Instalowanie i konfigurowanie programu Azure PowerShell](/powershell/azure/overview). Aby zainicjować obsługę administracyjną administratora usługi Azure AD, wykonaj następujące polecenia Azure PowerShell:
+Aby uruchomić polecenia cmdlet programu PowerShell, należy zainstalować i uruchomić Azure PowerShell. Aby uzyskać szczegółowe informacje, zobacz temat [Instalowanie i konfigurowanie programu Azure PowerShell](/powershell/azure/). Aby zainicjować obsługę administracyjną administratora usługi Azure AD, wykonaj następujące polecenia Azure PowerShell:
 
 - Connect-AzAccount
 - SELECT-AzSubscription

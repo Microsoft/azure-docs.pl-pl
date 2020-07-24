@@ -2,13 +2,13 @@
 title: Metryki Azure Service Bus w Azure Monitor | Microsoft Docs
 description: W tym artykule wyjaśniono, jak używać Azure Monitor do monitorowania jednostek Service Bus (kolejek, tematów i subskrypcji).
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: 57b791e67157908447956a14fae99545843f3bc0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/15/2020
+ms.openlocfilehash: c4bf33fc7aa21be150a1ee0d6c65df84a391565e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85340282"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089689"
 ---
 # <a name="azure-service-bus-metrics-in-azure-monitor"></a>Metryki Azure Service Bus w Azure Monitor
 
@@ -29,11 +29,11 @@ Metryki są domyślnie włączone i można uzyskać dostęp do najnowszych danyc
 
 Można monitorować metryki w czasie w [Azure Portal](https://portal.azure.com). Poniższy przykład pokazuje, jak wyświetlić pomyślne żądania i żądania przychodzące na poziomie konta:
 
-![][1]
+![Zrzut ekranu przedstawiający stronę monitor-metryki (wersja zapoznawcza) w Azure Portal.][1]
 
 Możesz również uzyskać dostęp do metryk bezpośrednio za pośrednictwem przestrzeni nazw. Aby to zrobić, wybierz przestrzeń nazw, a następnie kliknij pozycję **metryki**. Aby wyświetlić metryki odfiltrowane do zakresu jednostki, wybierz jednostkę, a następnie kliknij pozycję **metryki**.
 
-![][2]
+![Zrzut ekranu przedstawiający stronę monitor-metryki (wersja zapoznawcza) przefiltrowaną do zakresu jednostki.][2]
 
 W przypadku metryk obsługujących wymiary należy filtrować według żądanej wartości wymiaru.
 
@@ -56,11 +56,11 @@ Zlicza żądania operacji na danych i zarządzania.
 
 | Nazwa metryki | Opis |
 | ------------------- | ----------------- |
-| Żądania przychodzące| Liczba żądań wysyłanych do usługi Service Bus w określonym przedziale czasu. <br/><br/> Jednostka: liczba <br/> Typ agregacji: łącznie <br/> Wymiar: EntityName|
-|Żądania pomyślne|Liczba pomyślnych żądań do usługi Service Bus w określonym przedziale czasu.<br/><br/> Jednostka: liczba <br/> Typ agregacji: łącznie <br/> Wymiar: EntityName|
-|Błędy serwera|Liczba żądań, które nie zostały przetworzone z powodu błędu w usłudze Service Bus w określonym przedziale czasu.<br/><br/> Jednostka: liczba <br/> Typ agregacji: łącznie <br/> Wymiar: EntityName|
-|Błędy użytkowników (zobacz następującą podsekcję)|Liczba żądań, które nie zostały przetworzone z powodu błędów użytkowników w określonym przedziale czasu.<br/><br/> Jednostka: liczba <br/> Typ agregacji: łącznie <br/> Wymiar: EntityName|
-|Ograniczone żądania|Liczba żądań, które zostały ograniczone, ponieważ przekroczono użycie.<br/><br/> Jednostka: liczba <br/> Typ agregacji: łącznie <br/> Wymiar: EntityName|
+| Żądania przychodzące| Liczba żądań wysyłanych do usługi Service Bus w określonym przedziale czasu. <br/><br/> Jednostka: liczba <br/> Typ agregacji: łącznie <br/> Wymiar: Nazwa jednostki|
+|Żądania pomyślne|Liczba pomyślnych żądań do usługi Service Bus w określonym przedziale czasu.<br/><br/> Jednostka: liczba <br/> Typ agregacji: łącznie <br/> Wymiar: Nazwa jednostki|
+|Błędy serwera|Liczba żądań, które nie zostały przetworzone z powodu błędu w usłudze Service Bus w określonym przedziale czasu.<br/><br/> Jednostka: liczba <br/> Typ agregacji: łącznie <br/> Wymiar: Nazwa jednostki|
+|Błędy użytkowników (zobacz następującą podsekcję)|Liczba żądań, które nie zostały przetworzone z powodu błędów użytkowników w określonym przedziale czasu.<br/><br/> Jednostka: liczba <br/> Typ agregacji: łącznie <br/> Wymiar: Nazwa jednostki|
+|Ograniczone żądania|Liczba żądań, które zostały ograniczone, ponieważ przekroczono użycie.<br/><br/> Jednostka: liczba <br/> Typ agregacji: łącznie <br/> Wymiar: Nazwa jednostki|
 
 ### <a name="user-errors"></a>Błędy użytkownika
 
@@ -74,12 +74,13 @@ Następujące dwa typy błędów są klasyfikowane jako błędy użytkownika:
 
 | Nazwa metryki | Opis |
 | ------------------- | ----------------- |
-|Komunikaty przychodzące|Liczba zdarzeń lub komunikatów wysłanych do Service Bus w określonym przedziale czasu.<br/><br/> Jednostka: liczba <br/> Typ agregacji: łącznie <br/> Wymiar: EntityName|
-|Komunikaty wychodzące|Liczba zdarzeń lub komunikatów odebranych z Service Bus w określonym przedziale czasu.<br/><br/> Jednostka: liczba <br/> Typ agregacji: łącznie <br/> Wymiar: EntityName|
-| Komunikaty| Liczba komunikatów w kolejce/temacie. <br/><br/> Jednostka: liczba <br/> Typ agregacji: Średnia <br/> Wymiar: EntityName |
-| ActiveMessages| Liczba aktywnych komunikatów w kolejce/temacie. <br/><br/> Jednostka: liczba <br/> Typ agregacji: Średnia <br/> Wymiar: EntityName |
-| Wiadomości utracone| Liczba utraconych wiadomości w kolejce/temacie. <br/><br/> Jednostka: liczba <br/> Typ agregacji: Średnia <br/>Wymiar: EntityName |
-| Zaplanowane wiadomości| Liczba zaplanowanych komunikatów w kolejce/temacie. <br/><br/> Jednostka: liczba <br/> Typ agregacji: Średnia  <br/> Wymiar: EntityName |
+|Komunikaty przychodzące|Liczba zdarzeń lub komunikatów wysłanych do Service Bus w określonym przedziale czasu.<br/><br/> Jednostka: liczba <br/> Typ agregacji: łącznie <br/> Wymiar: Nazwa jednostki|
+|Komunikaty wychodzące|Liczba zdarzeń lub komunikatów odebranych z Service Bus w określonym przedziale czasu.<br/><br/> Jednostka: liczba <br/> Typ agregacji: łącznie <br/> Wymiar: Nazwa jednostki|
+| Komunikaty| Liczba komunikatów w kolejce/temacie. <br/><br/> Jednostka: liczba <br/> Typ agregacji: Średnia <br/> Wymiar: Nazwa jednostki |
+| Aktywne komunikaty| Liczba aktywnych komunikatów w kolejce/temacie. <br/><br/> Jednostka: liczba <br/> Typ agregacji: Średnia <br/> Wymiar: Nazwa jednostki |
+| Wiadomości utracone| Liczba utraconych wiadomości w kolejce/temacie. <br/><br/> Jednostka: liczba <br/> Typ agregacji: Średnia <br/>Wymiar: Nazwa jednostki |
+| Zaplanowane wiadomości| Liczba zaplanowanych komunikatów w kolejce/temacie. <br/><br/> Jednostka: liczba <br/> Typ agregacji: Średnia  <br/> Wymiar: Nazwa jednostki |
+| Rozmiar | Rozmiar jednostki (kolejki lub tematu) w bajtach. <br/><br/>Jednostka: liczba <br/>Typ agregacji: Średnia <br/>Wymiar: Nazwa jednostki | 
 
 > [!NOTE]
 > Wartości dla następujących metryk są wartościami punktu w czasie. Komunikaty przychodzące, które były używane natychmiast po tym punkcie w czasie, mogą nie być odzwierciedlone w tych metrykach. 
@@ -92,9 +93,9 @@ Następujące dwa typy błędów są klasyfikowane jako błędy użytkownika:
 
 | Nazwa metryki | Opis |
 | ------------------- | ----------------- |
-|Aktywne połączenia|Liczba aktywnych połączeń w przestrzeni nazw, jak również w jednostce.<br/><br/> Jednostka: liczba <br/> Typ agregacji: łącznie <br/> Wymiar: EntityName|
-|Otwarte połączenia |Liczba otwartych połączeń.<br/><br/> Jednostka: liczba <br/> Typ agregacji: łącznie <br/> Wymiar: EntityName|
-|Połączenia zamknięte |Liczba zamkniętych połączeń.<br/><br/> Jednostka: liczba <br/> Typ agregacji: łącznie <br/> Wymiar: EntityName|
+|Aktywne połączenia|Liczba aktywnych połączeń w przestrzeni nazw, jak również w jednostce.<br/><br/> Jednostka: liczba <br/> Typ agregacji: łącznie <br/> Wymiar: Nazwa jednostki|
+|Otwarte połączenia |Liczba otwartych połączeń.<br/><br/> Jednostka: liczba <br/> Typ agregacji: łącznie <br/> Wymiar: Nazwa jednostki|
+|Połączenia zamknięte |Liczba zamkniętych połączeń.<br/><br/> Jednostka: liczba <br/> Typ agregacji: łącznie <br/> Wymiar: Nazwa jednostki|
 
 ## <a name="resource-usage-metrics"></a>Metryki użycia zasobów
 
@@ -107,8 +108,8 @@ Następujące dwa typy błędów są klasyfikowane jako błędy użytkownika:
 
 | Nazwa metryki | Opis |
 | ------------------- | ----------------- |
-|Użycie procesora CPU na przestrzeń nazw|Procent użycia procesora w przestrzeni nazw.<br/><br/> Jednostka: procent <br/> Typ agregacji: maksimum <br/> Wymiar: EntityName|
-|Użycie rozmiaru pamięci na przestrzeń nazw|Procent użycia pamięci w przestrzeni nazw.<br/><br/> Jednostka: procent <br/> Typ agregacji: maksimum <br/> Wymiar: EntityName|
+|Użycie procesora CPU na przestrzeń nazw|Procent użycia procesora w przestrzeni nazw.<br/><br/> Jednostka: procent <br/> Typ agregacji: maksimum <br/> Wymiar: Nazwa jednostki|
+|Użycie rozmiaru pamięci na przestrzeń nazw|Procent użycia pamięci w przestrzeni nazw.<br/><br/> Jednostka: procent <br/> Typ agregacji: maksimum <br/> Wymiar: Nazwa jednostki|
 
 ## <a name="metrics-dimensions"></a>Wymiary metryk
 
@@ -116,7 +117,7 @@ Azure Service Bus obsługuje następujące wymiary dla metryk w Azure Monitor. D
 
 |Nazwa wymiaru|Opis|
 | ------------------- | ----------------- |
-|EntityName| Service Bus obsługuje jednostki obsługi komunikatów w przestrzeni nazw.|
+|Nazwa jednostki| Service Bus obsługuje jednostki obsługi komunikatów w przestrzeni nazw.|
 
 ## <a name="set-up-alerts-on-metrics"></a>Konfigurowanie alertów dotyczących metryk
 
@@ -127,7 +128,7 @@ Azure Service Bus obsługuje następujące wymiary dla metryk w Azure Monitor. D
     1. Wybierz **Service Bus przestrzenie nazw** dla pola **Filtr według typu zasobu** . 
     2. Wybierz subskrypcję dla pola **Filtruj według subskrypcji** .
     3. Wybierz z listy **przestrzeń nazw usługi Service Bus** . 
-    4. Wybierz pozycję **Gotowe**. 
+    4. Kliknij **Gotowe**. 
     
         ![Wybierz przestrzeń nazw](./media/service-bus-metrics-azure-monitor/select-namespace.png)
 1. Wybierz pozycję **Dodaj kryteria**i wykonaj następujące czynności na stronie **Konfigurowanie logiki sygnałów** :
@@ -138,7 +139,7 @@ Azure Service Bus obsługuje następujące wymiary dla metryk w Azure Monitor. D
     1. Wybierz opcję **większe niż** w przypadku **warunku**.
     2. Wybierz pozycję **Suma** dla **agregacji czasu**. 
     3. Wprowadź wartość **5** w obszarze **próg**. 
-    4. Wybierz pozycję **Gotowe**.    
+    4. Kliknij **Gotowe**.    
 
         ![Określ warunek](./media/service-bus-metrics-azure-monitor/specify-condition.png)    
 1. Na stronie **Tworzenie reguły** rozwiń pozycję **Zdefiniuj szczegóły alertu**i wykonaj następujące czynności:

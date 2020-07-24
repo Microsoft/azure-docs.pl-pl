@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/28/2020
 ms.author: memildin
-ms.openlocfilehash: 4487d1452611b269eec756cdbc76e8e55c466cd2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 882f8ab7e4f55809759f3a94fd04fb2c410fe188
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85801142"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089723"
 ---
 # <a name="upgrade-to-standard-tier-for-enhanced-security"></a>Uaktualnij do warstwy Standardowa w celu uzyskania zwiększonych zabezpieczeń
 
@@ -42,7 +42,7 @@ Aby uzyskać warstwę standardową:
 
 1. Wybierz pozycję **Cennik ustawienia &** w menu głównym **Security Center** .
 2. Wybierz subskrypcję, którą chcesz uaktualnić do wersji Standard.
-3. Wybierz **warstwę cenową**.
+3. Wybierz pozycję **warstwa cenowa**.
 4. Wybierz pozycję **standardowa** , aby przeprowadzić uaktualnienie.
 5. Kliknij pozycję **Zapisz**.
 

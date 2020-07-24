@@ -8,11 +8,12 @@ ms.devlang: java
 ms.topic: reference
 ms.date: 06/03/2020
 ms.author: anfeldma
-ms.openlocfilehash: 520f64cbe768f2fcbd4603d1fb038bc349cd01db
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9e82e2c9c319696bc34f73ce24ee6ed12951ac77
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85391982"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087819"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Java SDK dla interfejsu API SQL: informacje o wersji i zasoby
 > [!div class="op_single_selector"]
@@ -46,7 +47,7 @@ Jest to oryginalny Azure Cosmos DB synchronizacji zestawu Java SDK V2 dla interf
 |**Samouczek aplikacji sieci Web**|[Tworzenie aplikacji sieci Web za pomocą Azure Cosmos DB](sql-api-java-application.md)|
 |**Minimalne obsługiwane środowisko uruchomieniowe**|[Java Development Kit (JDK) 7 +](/java/azure/jdk/?view=azure-java-stable)|
 
-## <a name="release-notes"></a>Informacje o wersji
+## <a name="release-notes"></a>Uwagi do wersji
 
 ### <a name="251"></a><a name="2.5.1"></a>2.5.1
 * Rozwiązuje problem z pamięcią podręczną partycji głównej w zapytaniu documentcollection.
@@ -114,7 +115,7 @@ Jest to oryginalny Azure Cosmos DB synchronizacji zestawu Java SDK V2 dla interf
 ### <a name="1164"></a><a name="1.16.4"></a>1.16.4
 * Naprawiono usterkę w zakresach kluczy partycji odczytu dla zapytania.
 
-### <a name="1163"></a><a name="1.16.3"/>1.16.3
+### <a name="1163"></a><a name="1.16.3"></a>1.16.3
 * Rozwiązano błąd podczas ustawiania rozmiaru nagłówka tokenu kontynuacji w trybie DirectHttps.
 
 ### <a name="1162"></a><a name="1.16.2"></a>1.16.2
@@ -333,6 +334,6 @@ Każde żądanie Cosmos DB za pomocą wycofanego zestawu SDK zostanie odrzucone 
 ## <a name="faq"></a>Często zadawane pytania
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 Aby dowiedzieć się więcej na temat Cosmos DB, zobacz stronę usługi [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) .
 

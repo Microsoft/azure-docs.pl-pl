@@ -1,5 +1,5 @@
 ---
-title: Konfigurowanie procesora GPU dla pulpitu wirtualnego systemu Windows — Azure
+title: Konfigurowanie procesora GPU dla pulpitów wirtualnych systemu Windows 2019 — Azure
 description: Jak włączyć procesor GPU w szybszym wyrenderowaniu i kodowaniu na pulpicie wirtualnym systemu Windows.
 services: virtual-desktop
 author: gundarev
@@ -7,14 +7,14 @@ ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: denisgun
-ms.openlocfilehash: 33bc63887b73adaf570b385d2a289fcd97ff1632
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bbb0985e309601562587f3f1b26427f46a4a8987
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85206108"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087173"
 ---
-# <a name="configure-graphics-processing-unit-gpu-acceleration-for-windows-virtual-desktop"></a>Skonfiguruj przyspieszenie procesora graficznego (GPU) dla pulpitu wirtualnego systemu Windows
+# <a name="configure-graphics-processing-unit-gpu-acceleration-for-windows-virtual-desktop-fall-2019"></a>Konfigurowanie przyspieszenia procesora graficznego (GPU) dla pulpitu wirtualnego systemu Windows 2019
 
 >[!IMPORTANT]
 >Ta zawartość dotyczy wersji 2019, która nie Azure Resource Manager obsługuje obiektów pulpitu wirtualnego systemu Windows. Jeśli próbujesz zarządzać Azure Resource Manager obiektami pulpitu wirtualnego systemu Windows wprowadzonymi w ramach aktualizacji wiosną 2020, zobacz [ten artykuł](../configure-vm-gpu.md).

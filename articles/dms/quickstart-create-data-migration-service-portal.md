@@ -11,13 +11,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: quickstart
-ms.date: 01/08/2020
-ms.openlocfilehash: 7d27d67cfa46eb4554f6ca3d66df76e393b18da0
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.date: 07/21/2020
+ms.openlocfilehash: 0dd150909a56aafdd2005f2d68a12d32a1e8fae4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84187541"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087785"
 ---
 # <a name="quickstart-create-an-instance-of-the-azure-database-migration-service-by-using-the-azure-portal"></a>Szybki start: tworzenie wystąpienia usługi Azure Database Migration Service przy użyciu witryny Azure Portal
 
@@ -30,6 +30,9 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpł
 Otwórz przeglądarkę internetową, przejdź do witryny [Microsoft Azure Portal](https://portal.azure.com/), a następnie wprowadź swoje poświadczenia, aby zalogować się w portalu.
 
 Widok domyślny to pulpit nawigacyjny usług.
+
+> [!NOTE]
+> Można utworzyć maksymalnie 10 wystąpień usługi DMS na subskrypcję. Jeśli potrzebujesz większej liczby wystąpień, Utwórz bilet pomocy technicznej.
 
 ## <a name="register-the-resource-provider"></a>Rejestrowanie dostawcy zasobów
 
@@ -53,7 +56,7 @@ Przed utworzeniem pierwszego wystąpienia usługi Database Migration Service zar
 
     - Wybierz **nazwę usługi** , która jest dopamiętana i unikatowa, aby zidentyfikować wystąpienie Azure Database Migration Service.
     - Wybierz **subskrypcję** platformy Azure, w której chcesz utworzyć wystąpienie.
-    - Wybierz istniejącą **grupę zasobów** lub utwórz nową.
+    - Wybierz istniejącą **grupę zasobów** lub Utwórz nową.
     - Wybierz pozycję **Lokalizacja** położoną najbliżej Twojego serwera źródłowego lub docelowego.
     - Wybierz istniejącą **sieć wirtualną** lub utwórz ją.
 
@@ -71,7 +74,7 @@ Przed utworzeniem pierwszego wystąpienia usługi Database Migration Service zar
 
     ![Utworzono usługę migracji](media/quickstart-create-data-migration-service-portal/dms-service-created.png)
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Możesz wyczyścić zasoby utworzone w tym przewodniku Szybki start, usuwając [grupę zasobów platformy Azure](../azure-resource-manager/management/overview.md). Aby usunąć grupę zasobów, przejdź do utworzonego wystąpienia usługi Azure Database Migration Service. Wybierz nazwę w obszarze **Grupa zasobów**, a następnie wybierz pozycję **Usuń grupę zasobów**. Ta akcja spowoduje usunięcie wszystkich zasobów w grupie zasobów, a także usunięcie samej grupy.
 

@@ -1,5 +1,5 @@
 ---
-title: Tworzenie niestandardowej sondy przy użyciu programu PowerShell — Application Gateway platformy Azure
+title: Tworzenie niestandardowej sondy przy użyciu klasycznego modelu wdrażania — Application Gateway platformy Azure
 description: Dowiedz się, jak utworzyć niestandardową sondę dla Application Gateway przy użyciu programu PowerShell w klasycznym modelu wdrażania
 services: application-gateway
 author: vhorne
@@ -7,17 +7,17 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: victorh
-ms.openlocfilehash: 3a555fff758fdd1f4ddff60c7828a3e44af008ce
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1445d1418bde6d5d15e365c59ceb56e7661faccb
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84807290"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088074"
 ---
 # <a name="create-a-custom-probe-for-azure-application-gateway-classic-by-using-powershell"></a>Tworzenie niestandardowej sondy dla platformy Azure Application Gateway (klasyczny) przy użyciu programu PowerShell
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](application-gateway-create-probe-portal.md)
+> * [Witryna Azure Portal](application-gateway-create-probe-portal.md)
 > * [Azure Resource Manager — program PowerShell](application-gateway-create-probe-ps.md)
 > * [Klasyczny portal Azure — program PowerShell](application-gateway-create-probe-classic-ps.md)
 
@@ -145,7 +145,7 @@ Parametry konfiguracji są następujące:
 |**Nazwa** |Nazwa odwołania dla sondy niestandardowej. |
 | **Protokół** | Używany protokół (możliwe wartości to HTTP lub HTTPS).|
 | **Host** i **ścieżka** | Pełna ścieżka URL, która jest wywoływana przez bramę aplikacji w celu określenia kondycji wystąpienia. Na przykład jeśli masz witrynę sieci Web http: \/ /contoso.com/, można skonfigurować niestandardową sondę dla "http: \/ /contoso.com/Path/custompath.htm", aby testy sondy miały POMYŚLNE odpowiedzi HTTP.|
-| **Dat** | Konfiguruje testy interwału sondowania w sekundach.|
+| **Interwał** | Konfiguruje testy interwału sondowania w sekundach.|
 | **Limit czasu** | Określa limit czasu sondy dla sprawdzania odpowiedzi HTTP.|
 | **UnhealthyThreshold** | Liczba nieprawidłowych odpowiedzi HTTP wymaganych do oflagowania wystąpienia zaplecza jako *złej kondycji*.|
 

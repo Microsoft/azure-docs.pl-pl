@@ -3,16 +3,16 @@ title: Tworzenie centrum zdarzeń z włączoną funkcją Capture — Azure Event
 description: Tworzenie przestrzeni nazw usługi Azure Event Hubs z jednym centrum zdarzeń i włączanie funkcji przechwytywania przy użyciu szablonu usługi Azure Resource Manager
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 51b654635fa7e06901a257c930e04bff3ea86cf8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7308d951cf48d8123df050bdf58772ec914aac3e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85315696"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087598"
 ---
 # <a name="create-a-namespace-with-event-hub-and-enable-capture-using-a-template"></a>Tworzenie przestrzeni nazw w centrum zdarzeń i włączanie przechwytywania przy użyciu szablonu
 
-W tym artykule przedstawiono sposób używania szablonu usługi Azure Resource Manager umożliwiającego utworzenie przestrzeni nazw usługi [Event Hubs](event-hubs-what-is-event-hubs.md) z jednym wystąpieniem centrum zdarzeń oraz włączenie [funkcji przechwytywania](event-hubs-capture-overview.md) w tym centrum zdarzeń. W tym artykule opisano, jak wskazać wdrażane zasoby oraz jak podać parametry realizacji wdrożenia. Można użyć tego szablonu na potrzeby własnych wdrożeń lub dostosować go do konkretnych potrzeb.
+W tym artykule przedstawiono sposób używania szablonu usługi Azure Resource Manager umożliwiającego utworzenie przestrzeni nazw usługi [Event Hubs](./event-hubs-about.md) z jednym wystąpieniem centrum zdarzeń oraz włączenie [funkcji przechwytywania](event-hubs-capture-overview.md) w tym centrum zdarzeń. W tym artykule opisano, jak wskazać wdrażane zasoby oraz jak podać parametry realizacji wdrożenia. Można użyć tego szablonu na potrzeby własnych wdrożeń lub dostosować go do konkretnych potrzeb.
 
 W tym artykule pokazano też, jak przechwytywać zdarzenia w obiektach Azure Storage Blob lub w magazynie Azure Data Lake Store zależnie od wybranej lokalizacji docelowej.
 
@@ -418,7 +418,7 @@ Funkcję przechwytywania usługi Event Hubs można również skonfigurować za p
 
 Następujące linki pozwalają dowiedzieć się więcej na temat usługi Event Hubs:
 
-* [Przegląd usługi Event Hubs](event-hubs-what-is-event-hubs.md)
+* [Przegląd usługi Event Hubs](./event-hubs-about.md)
 * [Tworzenie centrum zdarzeń](event-hubs-create.md)
 * [Event Hubs — często zadawane pytania](event-hubs-faq.md)
 

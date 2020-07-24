@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 04/15/2020
 ms.author: gsilva
-ms.openlocfilehash: 2dc7b0447a97cdafc88d2cee4612aba22c1e0eea
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 582553675284e88e4707812b1f6b459a4e67f14a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84975796"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088193"
 ---
 # <a name="create-a-windows-vm-with-accelerated-networking-using-azure-powershell"></a>Tworzenie maszyny wirtualnej z systemem Windows za pomocą przyspieszonej sieci przy użyciu Azure PowerShell
 
@@ -41,7 +41,7 @@ Dzięki przyspieszonej sieci ruch sieciowy dociera do interfejsu sieciowego masz
 
 Zalety przyspieszonej sieci mają zastosowanie tylko do maszyny wirtualnej, na której ta funkcja jest włączona. Aby uzyskać najlepsze wyniki, Włącz tę funkcję na co najmniej dwóch maszynach wirtualnych podłączonych do tej samej sieci wirtualnej platformy Azure. Podczas komunikowania się między sieciami wirtualnymi lub łączenia lokalnego ta funkcja ma minimalny wpływ na ogólne opóźnienia.
 
-## <a name="benefits"></a>Zalety
+## <a name="benefits"></a>Korzyści
 
 - **Mniejsze opóźnienia/wyższe pakiety na sekundę (PPS)**: usunięcie przełącznika wirtualnego ze ścieżki danych powoduje usunięcie pakietów czasu poświęcanych przez hosta w celu przetworzenia zasad. Zwiększa również liczbę pakietów, które można przetworzyć w ramach maszyny wirtualnej.
 
@@ -63,7 +63,7 @@ Następujące dystrybucje są obsługiwane bezpośrednio z galerii platformy Azu
 
 Przyspieszona sieć jest obsługiwana w większości ogólnego przeznaczenia i o rozmiarach wystąpień zoptymalizowanych pod kątem obliczeń przy użyciu co najmniej dwóch procesorów wirtualnych (procesorów wirtualnych vCPU).  Obsługiwane są następujące serie: Dv2/DSv2 i F/FS.
 
-W wystąpieniach, które obsługują wielowątkowość, przyspieszona sieć jest obsługiwana w wystąpieniach maszyn wirtualnych z co najmniej czterema procesorów wirtualnych vCPU. Obsługiwane są następujące serie: D/Dsv3, D/Dsv4, E/Esv3, EA/Easv4, Fsv2, Lsv2, MS/MMS i MS/Mmsv2.
+W wystąpieniach, które obsługują wielowątkowość, przyspieszona sieć jest obsługiwana w wystąpieniach maszyn wirtualnych z co najmniej czterema procesorów wirtualnych vCPU. Obsługiwane są następujące serie: D/Dsv3, D/Dsv4, da/Dasv4, E/Esv3, EA/Easv4, Fsv2, Lsv2, MS/MMS i MS/Mmsv2.
 
 Aby uzyskać więcej informacji na temat wystąpień maszyn wirtualnych, zobacz [rozmiary maszyn wirtualnych z systemem Windows na platformie Azure](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 

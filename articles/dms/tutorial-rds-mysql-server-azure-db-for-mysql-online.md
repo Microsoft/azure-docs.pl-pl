@@ -3,8 +3,8 @@ title: 'Samouczek: Migrowanie usług RDS MySQL online do Azure Database for MySQ
 titleSuffix: Azure Database Migration Service
 description: Dowiedz się, jak przeprowadzić migrację w trybie online z usług RDS MySQL do Azure Database for MySQL przy użyciu Azure Database Migration Service.
 services: dms
-author: HJToland3
-ms.author: jtoland
+author: arunkumarthiags
+ms.author: arthiaga
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
@@ -12,13 +12,14 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 06/09/2020
-ms.openlocfilehash: 8cfe8d1a87b8b52c21927696101704bd01b7641a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c0c62cf28c9e9368e80982fa7c5badeb79d40ae4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84609254"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087734"
 ---
-# <a name="tutorial-migrate-rds-mysql-to-azure-database-for-mysql-online-using-dms"></a>Samouczek: Migrowanie usług RDS MySQL do Azure Database for MySQL online przy użyciu usługi DMS
+# <a name="tutorial-migrate-rds-mysql-to-azure-database-for-mysql-online-using-dms"></a>Samouczek: Migrowanie bazy danych RDS MySQL do usługi Azure Database for MySQL w trybie online przy użyciu usługi DMS
 
 Za pomocą Azure Database Migration Service można migrować bazy danych z wystąpienia programu RDS MySQL do [Azure Database for MySQL](https://docs.microsoft.com/azure/mysql/) , gdy źródłowa baza danych pozostanie w trybie online podczas migracji. Innymi słowy, migracja może zostać osiągnięta przy minimalnym przestoju aplikacji. W tym samouczku przeprowadzisz migrację przykładowej bazy danych **Employees** z wystąpienia programu RDS MySQL do Azure Database for MySQL przy użyciu działania migracji w trybie online w programie Azure Database Migration Service.
 
@@ -29,7 +30,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 > * Utwórz wystąpienie usługi Azure Database Migration Service.
 > * Utwórz projekt migracji przy użyciu Azure Database Migration Service.
 > * Uruchamianie migracji.
-> * Monitorowanie migracji.
+> * Monitoruj migrację.
 
 > [!NOTE]
 > Użycie Azure Database Migration Service do przeprowadzenia migracji w trybie online wymaga utworzenia wystąpienia na podstawie warstwy cenowej Premium. Więcej informacji znajduje się na stronie [cennika](https://azure.microsoft.com/pricing/details/database-migration/) usługi Azure Database Migration Service.
@@ -122,6 +123,10 @@ Do ukończenia tego samouczka niezbędne są następujące elementy:
 
 4. Uruchom klucz obcy (który jest drugą kolumną) w wyniku zapytania, aby porzucić klucz obcy.
 
+> [!NOTE]
+> Usługa Azure DMS nie obsługuje akcji referencyjnej CASCADE, która pomaga automatycznie usuwać lub aktualizować pasujący wiersz w tabeli podrzędnej po usunięciu lub zaktualizowaniu wiersza w tabeli nadrzędnej. Aby uzyskać więcej informacji, zobacz sekcję działania referencyjne w temacie [ograniczenia klucza obcego](https://dev.mysql.com/doc/refman/8.0/en/create-table-foreign-keys.html)artykułu.
+> Usługa Azure DMS wymaga porzucenia ograniczeń klucza obcego na docelowym serwerze bazy danych podczas początkowego ładowania danych i nie można używać akcji referencyjnych. Jeśli obciążenie zależy od aktualizowania powiązanej tabeli podrzędnej za pomocą tej akcji referencyjnej, zalecamy wykonanie [zrzutu i przywrócenie](https://docs.microsoft.com/azure/mysql/concepts-migrate-dump-restore) zamiast tego. 
+
 5. Jeśli w danych są Wyzwalacze (INSERT lub Update Trigger), spowoduje to wymuszenie integralności danych w miejscu docelowym przed replikowaniem danych ze źródła. Zalecane jest, aby wyłączyć wyzwalacze we wszystkich tabelach w *miejscu docelowym* podczas migracji, a następnie włączyć Wyzwalacze po zakończeniu migracji.
 
     Aby wyłączyć Wyzwalacze w docelowej bazie danych:
@@ -147,7 +152,7 @@ Do ukończenia tego samouczka niezbędne są następujące elementy:
 
     ![Rejestrowanie dostawcy zasobów](media/tutorial-rds-mysql-server-azure-db-for-mysql-online/portal-register-resource-provider.png)
 
-## <a name="create-an-instance-of-azure-database-migration-service"></a>Utwórz wystąpienie Azure Database Migration Service
+## <a name="create-an-instance-of-azure-database-migration-service"></a>Tworzenie wystąpienia usługi Azure Database Migration Service
 
 1. W witrynie Azure Portal wybierz pozycję + **Utwórz zasób**, wyszukaj usługę Azure Database Migration Service, a następnie wybierz usługę **Azure Database Migration Service** na liście rozwijanej.
 

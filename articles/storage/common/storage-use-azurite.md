@@ -1,22 +1,22 @@
 ---
 title: Korzystanie z emulatora azurite na potrzeby tworzenia lokalnych magazynów platformy Azure
-description: Emulator typu open source azurite (wersja zapoznawcza) udostępnia bezpłatne środowisko lokalne do testowania aplikacji usługi Azure Storage.
+description: Emulator typu open source azurite udostępnia bezpłatne środowisko lokalne do testowania aplikacji usługi Azure Storage.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 05/01/2020
+ms.date: 07/15/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: how-to
-ms.openlocfilehash: af846b0c203934468b7f6282234819142093286f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c850fccf5a86df4c35ce4db53b5b40d5e8588210
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85512147"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089417"
 ---
-# <a name="use-the-azurite-emulator-for-local-azure-storage-development-and-testing-preview"></a>Korzystanie z emulatora azurite na potrzeby programowania i testowania lokalnego magazynu platformy Azure (wersja zapoznawcza)
+# <a name="use-the-azurite-emulator-for-local-azure-storage-development"></a>Korzystanie z emulatora azurite na potrzeby tworzenia lokalnych magazynów platformy Azure
 
-Azurite w wersji 3,2 Emulator typu Open Source (wersja zapoznawcza) zawiera bezpłatne środowisko lokalne do testowania aplikacji magazynu obiektów blob platformy Azure i kolejek. Gdy aplikacja działa lokalnie, przejdź do korzystania z konta usługi Azure Storage w chmurze. Emulator zapewnia obsługę wielu platform w systemach Windows, Linux i macOS. Azurite v3 obsługuje interfejsy API zaimplementowane przez Blob service platformy Azure.
+Emulator typu open source azurite udostępnia bezpłatne środowisko lokalne do testowania aplikacji magazynu obiektów blob platformy Azure i usługi Queue. Gdy aplikacja działa lokalnie, przejdź do korzystania z konta usługi Azure Storage w chmurze. Emulator zapewnia obsługę wielu platform w systemach Windows, Linux i macOS.
 
 Azurite to przyszła platforma emulatora magazynu. Azurite zastępuje [emulator usługi Azure Storage](storage-use-emulator.md). Azurite będzie nadal aktualizowana w celu obsługi najnowszych wersji interfejsów API usługi Azure Storage.
 
@@ -34,8 +34,6 @@ W obszarze Visual Studio Code Wybierz okienko **rozszerzenia** i wyszukaj ciąg 
 ![Portal Visual Studio Code rozszerzenia Marketplace](media/storage-use-azurite/azurite-vs-code-extension.png)
 
 Możesz również przejść do [Visual Studio Code rynku rozszerzenia](https://marketplace.visualstudio.com/items?itemName=Azurite.azurite) w przeglądarce. Wybierz przycisk **Zainstaluj** , aby otworzyć Visual Studio Code i przejdź bezpośrednio do strony rozszerzenia azurite.
-
-Możesz szybko uruchomić lub zamknąć azurite na pasku stanu Visual Studio Code. Kliknij pozycję **[azurite BLOB Service]** lub **[usługa kolejki azurite]**.
 
 Rozszerzenie obsługuje następujące polecenia Visual Studio Code. Aby otworzyć paletę poleceń, naciśnij klawisz F1 w Visual Studio Code. 
 
@@ -67,6 +65,7 @@ Obsługiwane są następujące ustawienia:
    - **Azurite: Host kolejki** — punkt końcowy nasłuchiwania usługa kolejki. Ustawieniem domyślnym jest 127.0.0.1.
    - **Azurite: Port kolejki** — port nasłuchujący usługa kolejki. Domyślnym portem jest 10001.
    - **Azurite: tryb dyskretny** powoduje wyłączenie dziennika dostępu. Wartość domyślna to **fałsz**.
+   - **Azurite: Pomiń sprawdzanie wersji interfejsu API** — Pomiń sprawdzanie wersji interfejsu API żądania. Wartość domyślna to **fałsz**.
 
 ## <a name="install-and-run-azurite-by-using-npm"></a>Instalowanie i uruchamianie azurite za pomocą NPM
 
@@ -311,6 +310,15 @@ azurite --oauth basic --cert path/server.pem --key path/key.pem
 
 Azurite obsługuje uwierzytelnianie podstawowe przez określenie `basic` parametru `--oauth` przełącznika. Azurite będzie wykonywać uwierzytelnianie podstawowe, takie jak Weryfikowanie przychodzącego tokenu okaziciela, sprawdzanie wystawcy, odbiorców i wygasanie. Azurite nie sprawdza podpisu ani uprawnień tokenu.
 
+### <a name="skip-api-version-check"></a>Pomiń sprawdzanie wersji interfejsu API
+
+**Opcjonalne** — podczas uruchamiania, azurite sprawdza, czy żądana wersja interfejsu API jest prawidłowa. Następujące polecenie pomija Sprawdzanie wersji interfejsu API:
+
+```console
+azurite --skipApiVersionCheck
+```
+
+
 ## <a name="authorization-for-tools-and-sdks"></a>Autoryzacja narzędzi i zestawów SDK
 
 Łączenie się z usługą azurite z zestawów SDK lub narzędzi usługi Azure Storage, takich jak [Eksplorator usługi Azure Storage](https://azure.microsoft.com/features/storage-explorer/), przy użyciu dowolnej strategii uwierzytelniania. Wymagane jest uwierzytelnianie. Azurite obsługuje autoryzację z uwierzytelnianiem OAuth, kluczem współdzielonym i sygnaturami dostępu współdzielonego (SAS). Azurite obsługuje również dostęp anonimowy do kontenerów publicznych.
@@ -353,7 +361,7 @@ Azurite odświeża niestandardowe nazwy kont i klucze ze zmiennej środowiskowej
 > [!NOTE]
 > Domyślne `devstoreaccount1` konto magazynu jest wyłączone podczas ustawiania niestandardowych kont magazynu.
 
-### <a name="connection-strings"></a>Parametry połączeń
+### <a name="connection-strings"></a>Parametry połączenia
 
 Najprostszym sposobem nawiązywania połączenia z usługą azurite z poziomu aplikacji jest skonfigurowanie parametrów połączenia w pliku konfiguracji aplikacji, który odwołuje się do skrótu *UseDevelopmentStorage = true*. Oto przykład parametrów połączenia w pliku *app.config* :
 
@@ -490,7 +498,7 @@ Wykonaj następujące kroki, aby dodać azurite HTTPS do Eksplorator usługi Sto
 1. Wybierz **załączony & lokalny**
 1. Kliknij prawym przyciskiem myszy pozycję **konta magazynu** i wybierz pozycję **Połącz z usługą Azure Storage**.
 1. Wybierz opcję **Użyj parametrów połączenia**
-1. Wybierz pozycję **Dalej**.
+1. Wybierz przycisk **Dalej**.
 1. Wprowadź wartość w polu **Nazwa wyświetlana** .
 1. Wprowadź [Parametry połączenia HTTPS](#https-connection-strings) z poprzedniej sekcji tego dokumentu
 1. Wybierz pozycję **Dalej**

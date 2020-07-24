@@ -1,5 +1,5 @@
 ---
-title: Optymalizowanie zadań platformy Spark pod kątem wydajności w usłudze Azure Synapse Analytics
+title: Optymalizowanie zadań platformy Spark pod kątem wydajności
 description: Ten artykuł zawiera wprowadzenie do Apache Spark usługi Azure Synapse Analytics i różnych koncepcji.
 services: synapse-analytics
 author: euangMS
@@ -9,16 +9,16 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: a4d95e57e3b72f8338da5c88f4ddfd57f66014cb
-ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
+ms.openlocfilehash: 89040057798ec4c909cac584ed96c187e79b5581
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85194862"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089264"
 ---
 # <a name="optimize-apache-spark-jobs-preview-in-azure-synapse-analytics"></a>Optymalizowanie Apache Spark zadań (wersja zapoznawcza) w usłudze Azure Synapse Analytics
 
-Dowiedz się, jak zoptymalizować konfigurację klastra [Apache Spark](https://spark.apache.org/) dla określonego obciążenia.  Najczęstszym wyzwaniem jest wykorzystanie pamięci z powodu nieprawidłowych konfiguracji (szczególnie programów wykonujących niewłaściwe rozmiary), długotrwałych operacji i zadań, które powodują operacje kartezjańskiego. Można przyspieszyć zadania z odpowiednimi buforowaniem i zezwalać na [pochylenie danych](#optimize-joins-and-shuffles). Aby uzyskać najlepszą wydajność, Monitoruj i sprawdzaj długotrwałe i czasochłonne wykonywanie zadań platformy Spark.
+Dowiedz się, jak zoptymalizować konfigurację klastra [Apache Spark](https://spark.apache.org/) dla określonego obciążenia.  Najczęstszym wyzwaniem jest wykorzystanie pamięci spowodowane niewłaściwą konfiguracją (zwłaszcza funkcji wykonawczych o nieprawidłowym rozmiarze), długotrwałymi operacjami i zadaniami, których wynikiem są działania kartezjańskie. Można przyspieszyć zadania z odpowiednimi buforowaniem i zezwalać na [pochylenie danych](#optimize-joins-and-shuffles). Aby uzyskać najlepszą wydajność, Monitoruj i sprawdzaj długotrwałe i czasochłonne wykonywanie zadań platformy Spark.
 
 W poniższych sekcjach opisano typowe optymalizacje i rekomendacje zadań platformy Spark.
 
@@ -41,7 +41,7 @@ Starsze wersje platformy Spark używają odporne do danych abstrakcyjnych, Spark
   * Dodaje narzuty serializacji/deserializacji.
   * Duże obciążenie GC.
   * Przerywa generowanie kodu w całym etapie.
-* **Odporne**
+* **RDD**
   * Nie musisz używać odporne, chyba że trzeba utworzyć nową niestandardową RDD.
   * Brak optymalizacji zapytania za poorednictwem katalizatora.
   * Brak generowania kodu w całości.
@@ -54,7 +54,7 @@ Platforma Spark obsługuje wiele formatów, takich jak CSV, JSON, XML, Parquet, 
 
 Najlepszym formatem wydajności jest Parquet z *kompresją przyciągania*, która jest wartością domyślną w platformie Spark 2. x. Parquet przechowuje dane w formacie kolumnowym i jest wysoce zoptymalizowany w Spark. Ponadto *kompresja przyciągania* może spowodować zwiększenie ilości plików niż w przypadku kompresji gzip. Ze względu na podzieloną naturę tych plików, będą one w szybszym czasie.
 
-## <a name="use-the-cache"></a>Użyj pamięci podręcznej
+## <a name="use-the-cache"></a>Korzystanie z pamięci podręcznej
 
 Platforma Spark zapewnia własne natywne mechanizmy buforowania, które mogą być używane przez różne metody, takie jak `.persist()` , `.cache()` , i `CACHE TABLE` . Natywne buforowanie jest efektywne w przypadku małych zestawów danych oraz potoków ETL, w których należy buforować pośrednie wyniki. Jednak natywne buforowanie Spark nie działa prawidłowo z partycjonowaniem, ponieważ w pamięci podręcznej tabela nie zachowuje danych partycjonowania.
 
@@ -89,7 +89,7 @@ Zadania platformy Spark są dystrybuowane, więc odpowiednia Serializacja danych
 * Wartością domyślną jest Serializacja języka Java.
 * Serializacja Kryo jest w nowszym formacie i może powodować szybsze i bardziej kompaktowe serializacji niż w przypadku języka Java.  Kryo wymaga zarejestrowania klas w programie i nie obsługuje jeszcze wszystkich typów możliwych do serializacji.
 
-## <a name="use-bucketing"></a>Używanie zasobników
+## <a name="use-bucketing"></a>Korzystanie z zasobników
 
 Przepełnianie jest podobne do partycjonowania danych, ale każdy zasobnik może przechowywać zestaw wartości kolumn, a nie tylko jeden. Przedziały dobrze sprawdzają się w przypadku partycjonowania na dużą liczbę (w milionach lub więcej) wartości, takich jak identyfikatory produktów. Zasobnik jest określany przez mieszanie klucza zasobnika wiersza. Tabele z przedziałów oferują unikatowe optymalizacje, ponieważ przechowują metadane dotyczące ich przedziałów i sortowania.
 
@@ -101,7 +101,7 @@ Niektóre zaawansowane funkcje zasobników to:
 
 Można używać partycjonowania i tworzenia pakietów jednocześnie.
 
-## <a name="optimize-joins-and-shuffles"></a>Optymalizuj sprzężenia i Losuj
+## <a name="optimize-joins-and-shuffles"></a>Optymalizowanie sprzężeń i odczytów losowych
 
 Jeśli masz wolne zadania w sprzężeniu lub losowo, przyczyną jest prawdopodobnie *pochylenie danych*, czyli asymetrii w danych zadania. Na przykład zadanie mapy może trwać 20 sekund, ale uruchomione jest zadanie, w którym dane są przyłączone lub przetworzone w postaci przełączenia. Aby naprawić pochylenie danych, należy pozbyć się całego klucza lub użyć *odizolowanej soli* tylko dla pewnego podzestawu kluczy. Jeśli używasz izolowanej soli, należy dodatkowo przefiltrować, aby odizolować podzbiór kluczy solonych w sprzężeniu mapy. Kolejną opcją jest wprowadzenie kolumny przedziału i wstępnego agregacji w zasobnikach.
 
@@ -162,7 +162,7 @@ Monitoruj wydajność zapytań pod kątem wartości odstających lub innych prob
 
 Na przykład należy mieć co najmniej dwa razy więcej zadań jako liczbę rdzeni wykonawców w aplikacji. Możesz również włączyć spekulacyjne wykonywanie zadań za pomocą `conf: spark.speculation = true` .
 
-## <a name="optimize-job-execution"></a>Optymalizuj wykonywanie zadania
+## <a name="optimize-job-execution"></a>Optymalizowanie wykonywania zadań
 
 * Pamięć podręczna w razie potrzeby, na przykład w przypadku używania danych dwa razy, należy ją buforować.
 * Emituj zmienne do wszystkich wykonawców. Zmienne są serializowane tylko raz, co powoduje szybsze wyszukiwanie.

@@ -9,13 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 03/25/2020
+ms.date: 07/15/2020
 ms.author: jingwang
-ms.openlocfilehash: 74210864332319dabb16eda865da9dc9793e3dbd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a6092395929f4990010e2212f28a5962cfe1c7e7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84187671"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087848"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Działanie kopiowania w Azure Data Factory
 
@@ -182,7 +183,7 @@ Zobacz [Mapowanie schematu i typu danych,](copy-activity-schema-and-type-mapping
 
 ## <a name="add-additional-columns-during-copy"></a>Dodaj dodatkowe kolumny podczas kopiowania
 
-Oprócz kopiowania danych ze źródłowego magazynu danych do ujścia, można również skonfigurować program, aby dodać do niego dodatkowe kolumny danych. Przykład:
+Oprócz kopiowania danych ze źródłowego magazynu danych do ujścia, można również skonfigurować program, aby dodać do niego dodatkowe kolumny danych. Na przykład:
 
 - Podczas kopiowania z lokalizacji źródłowej plików należy przechowywać względną ścieżkę pliku jako dodatkową kolumnę do śledzenia, z którego pliku pochodzą dane.
 - Dodaj kolumnę z wyrażeniem ADF, aby dołączyć zmienne systemowe ADF, takie jak nazwa potoku/identyfikator potoku, lub przechowywać inną wartość dynamiczną z danych wyjściowych działania nadrzędnego.
@@ -239,6 +240,22 @@ Aby programowo skonfigurować go, Dodaj `additionalColumns` Właściwość w źr
     }
 ]
 ```
+
+## <a name="auto-create-sink-tables"></a>Utwórz ponownie tabele ujścia
+
+W przypadku kopiowania danych do usługi SQL Database/Azure Synapse Analytics, jeśli tabela docelowa nie istnieje, działanie kopiowania obsługuje automatyczne tworzenie go na podstawie danych źródłowych. Ma ona na celu ułatwienie szybkiego rozpoczęcia ładowania danych oraz ocenę usługi SQL Database/Azure Synapse Analytics. Po pozyskaniu danych można przejrzeć i dostosować schemat tabeli ujścia zgodnie z potrzebami.
+
+Ta funkcja jest obsługiwana podczas kopiowania danych z dowolnego źródła do następujących magazynów danych ujścia. Możesz znaleźć opcję w *interfejsie użytkownika tworzenia ADF* *— >-* > *opcji tabeli* — > *automatycznego tworzenia tabeli*lub za pośrednictwem `tableOption` właściwości w ładunku ujścia działania kopiowania.
+
+- [Azure SQL Database](connector-azure-sql-database.md)
+- [Azure SQL Database wystąpienie zarządzane](connector-azure-sql-managed-instance.md)
+- [Azure Synapse Analytics (dawniej Azure SQL Data Warehouse)](connector-azure-sql-data-warehouse.md)
+- [SQL Server](connector-sql-server.md)
+
+![Tworzenie tabel ujścia](media/copy-activity-overview/create-sink-table.png)
+
+> [!NOTE]
+> Obecnie Autotworzenie tabeli nie jest obsługiwane, gdy jest włączona [kopia przygotowana](copy-activity-performance-features.md#staged-copy) .
 
 ## <a name="fault-tolerance"></a>Odporność na uszkodzenia
 

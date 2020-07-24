@@ -70,6 +70,8 @@
           href: diagnostics-log-analytics-2019.md
     - name: Publikowanie wbudowanych aplikacji
       href: publish-apps-2019.md
+    - name: Konfiguracja usługi Azure Multi-Factor Authentication
+      href: ../set-up-mfa.md
 - name: Pojęcia
   items:
     - name: Środowisko usługi Windows Virtual Desktop

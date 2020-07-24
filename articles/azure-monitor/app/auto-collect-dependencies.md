@@ -5,15 +5,16 @@ ms.topic: reference
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/06/2020
-ms.openlocfilehash: 21e98ee9dc59e7520fb715f1146e492b9198f883
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ba7830cc1c0a3e6a563b4343b37ec07f7d508af4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82891609"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087989"
 ---
 # <a name="dependency-auto-collection"></a>Automatyczne zbieranie zależności
 
-Poniżej znajduje się obecnie obsługiwana Lista wywołań zależności, które są automatycznie wykrywane jako zależności bez konieczności wprowadzania jakichkolwiek dodatkowych modyfikacji w kodzie aplikacji. Te zależności są wizualizowane w Application Insights [mapy aplikacji](https://docs.microsoft.com/azure/application-insights/app-insights-app-map) i [diagnostyki transakcji](https://docs.microsoft.com/azure/application-insights/app-insights-transaction-diagnostics) . Jeśli zależność nie znajduje się na poniższej liście, nadal możesz ją ręcznie śledzić przy użyciu [wywołania zależności śledzenia](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackdependency).
+Poniżej znajduje się obecnie obsługiwana Lista wywołań zależności, które są automatycznie wykrywane jako zależności bez konieczności wprowadzania jakichkolwiek dodatkowych modyfikacji w kodzie aplikacji. Te zależności są wizualizowane w Application Insights [mapy aplikacji](./app-map.md) i [diagnostyki transakcji](./transaction-diagnostics.md) . Jeśli zależność nie znajduje się na poniższej liście, nadal możesz ją ręcznie śledzić przy użyciu [wywołania zależności śledzenia](./api-custom-events-metrics.md#trackdependency).
 
 ## <a name="net"></a>.NET
 
@@ -61,7 +62,7 @@ Poniżej znajduje się obecnie obsługiwana Lista wywołań zależności, które
 
 > [!NOTE]
 > * Z wyjątkiem obsługi programu Reactive Programs.
-> <br>† Wymaga instalacji [agenta JVM](https://docs.microsoft.com/azure/application-insights/app-insights-java-agent#install-the-application-insights-agent-for-java).
+> <br>† Wymaga instalacji [agenta JVM](./java-agent.md#install-the-application-insights-agent-for-java).
 
 ## <a name="nodejs"></a>Node.js
 

@@ -3,8 +3,8 @@ title: 'Samouczek: Migrowanie SQL Server online do wystąpienia zarządzanego SQ
 titleSuffix: Azure Database Migration Service
 description: Dowiedz się, jak przeprowadzić migrację w trybie online z SQL Server do wystąpienia zarządzanego usługi Azure SQL przy użyciu Azure Database Migration Service.
 services: dms
-author: HJToland3
-ms.author: jtoland
+author: pochiraju
+ms.author: rajpo
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 01/10/2020
-ms.openlocfilehash: 3d462fa0fa2afe5937c60985938c8268991dfa41
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 4bd6c3dc1f3cd1ef553efc6ac3cd3c4e558afc97
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86084226"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087666"
 ---
 # <a name="tutorial-migrate-sql-server-to-an-azure-sql-managed-instance-online-using-dms"></a>Samouczek: Migrowanie SQL Server do wystąpienia zarządzanego Azure SQL w trybie online za pomocą usługi DMS
 
@@ -30,7 +30,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 >
 > * Utwórz wystąpienie usługi Azure Database Migration Service.
 > * Utwórz projekt migracji i Rozpocznij migrację w trybie online przy użyciu Azure Database Migration Service.
-> * Monitorowanie migracji.
+> * Monitoruj migrację.
 > * Wykonaj uruchomienie produkcyjne migracji, gdy wszystko będzie gotowe.
 
 > [!IMPORTANT]
@@ -88,6 +88,9 @@ Do ukończenia tego samouczka niezbędne są następujące elementy:
   > Azure Database Migration Service wymaga uprawnienia współautor w subskrypcji dla określonego identyfikatora aplikacji. Alternatywnie można utworzyć niestandardowe role, które przyznają określone uprawnienia, które są wymagane przez Azure Database Migration Service. Instrukcje krok po kroku dotyczące korzystania z ról niestandardowych można znaleźć w artykule [role niestandardowe dla SQL Server do migracji w trybie online wystąpienia zarządzanego SQL](https://docs.microsoft.com/azure/dms/resource-custom-roles-sql-db-managed-instance).
 
 * Utworzenie lub zanotowanie konta usługi Azure Storage w **standardowej warstwie wydajności**, które umożliwia usłudze DMS przekazanie plików kopii zapasowej bazy danych i użycie ich do migrowania bazy danych.  Upewnij się, że utworzono konto usługi Azure Storage w tym samym regionie, w którym jest tworzone wystąpienie Azure Database Migration Service.
+
+  > [!NOTE]
+  > Podczas migrowania bazy danych chronionej przez [transparent Data Encryption](https://docs.microsoft.com/azure/azure-sql/database/transparent-data-encryption-tde-overview) do wystąpienia zarządzanego przy użyciu migracji w trybie online przed przywróceniem bazy danych należy zmigrować odpowiedni certyfikat z wystąpienia lokalnego lub maszyny SQL Server wirtualnej platformy Azure. Aby uzyskać szczegółowe instrukcje, zobacz [Migrowanie certyfikatu TDE do wystąpienia zarządzanego](https://docs.microsoft.com/azure/azure-sql/database/transparent-data-encryption-tde-overview).
 
 ## <a name="register-the-microsoftdatamigration-resource-provider"></a>Rejestrowanie dostawcy zasobów Microsoft.DataMigration
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: aa662dfbd98be5ec16a30e690f28196ca3868390
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: 35fd95272530ed31f8ee197679e9368ca74ebef1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85855897"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089672"
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Najlepsze rozwiązania dotyczące zabezpieczeń usługi Azure Identity Management i kontroli dostępu
 
@@ -216,7 +216,7 @@ Za pomocą [RBAC](/azure/role-based-access-control/overview) można przypisywać
 * **Grupa zarządzania segmentacją** dla zespołów z ograniczonym zakresem (zazwyczaj ze względu na przepisy prawne lub inne granice organizacyjne)
 
 **Najlepsze rozwiązanie**: Przyznaj odpowiednie uprawnienia zespołom ds. zabezpieczeń, którzy mają bezpośrednie obowiązki operacyjne.
-**Szczegóły**: Zapoznaj się z wbudowanymi rolami RBAC dla odpowiedniego przypisania roli. Jeśli wbudowane role nie są zgodne z konkretnymi potrzebami organizacji, można utworzyć [Niestandardowe role dla zasobów platformy Azure](/azure/role-based-access-control/custom-roles). Podobnie jak w przypadku ról wbudowanych, można przypisywać niestandardowe role do użytkowników, grup i jednostek usługi w ramach subskrypcji, grupy zasobów i zakresów zasobów.
+**Szczegóły**: Zapoznaj się z wbudowanymi rolami RBAC dla odpowiedniego przypisania roli. Jeśli wbudowane role nie są zgodne z konkretnymi potrzebami organizacji, możesz utworzyć [role niestandardowe platformy Azure](/azure/role-based-access-control/custom-roles). Podobnie jak w przypadku ról wbudowanych, można przypisywać niestandardowe role do użytkowników, grup i jednostek usługi w ramach subskrypcji, grupy zasobów i zakresów zasobów.
 
 **Najlepsze rozwiązania**: przyznaj Azure Security Center dostęp do ról zabezpieczeń, które ich potrzebują. Security Center umożliwia zespołom ds. zabezpieczeń szybkie identyfikowanie i korygowanie zagrożeń.
 **Szczegóły**: Dodaj zespoły zabezpieczeń z tymi potrzebami do roli [administratora zabezpieczeń](/azure/role-based-access-control/built-in-roles#security-admin) RBAC, aby można było wyświetlać zasady zabezpieczeń, wyświetlać Stany zabezpieczeń, edytować zasady zabezpieczeń, wyświetlać alerty i zalecenia oraz odrzucać alerty i zalecenia. W tym celu można użyć głównej grupy zarządzania lub grupy zarządzania segmentu w zależności od zakresu obowiązków.

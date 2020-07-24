@@ -4,17 +4,17 @@ description: Zapoznaj się z bieżącą listą akcji obsługiwanych przez link S
 services: synapse-analytics
 author: ArnoMicrosoft
 ms.service: synapse-analytics
-ms.topic: quickstart
+ms.topic: conceptual
 ms.subservice: synapse-link
 ms.date: 04/21/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: c9f6a61dfa688980fa6400a2fa93ab8862798750
-ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
+ms.openlocfilehash: 7fbc7b1cb8119a6ee9403bf0139380aa5dcd0613
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85194777"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089128"
 ---
 # <a name="azure-synapse-link-preview-for-azure-cosmos-db-supported-features"></a>Link usługi Azure Synapse (wersja zapoznawcza) dla Azure Cosmos DB obsługiwanych funkcji
 
@@ -33,9 +33,9 @@ Można nawiązać połączenie z kontenerem Azure Cosmos DB bez włączania link
 
 | Kategoria              | Opis |[Spark](https://docs.microsoft.com/azure/synapse-analytics/sql/on-demand-workspace-overview) | [Bezserwerowy SQL](https://docs.microsoft.com/azure/synapse-analytics/sql/on-demand-workspace-overview) |
 | -------------------- | ----------------------------------------------------------- |----------------------------------------------------------- | ----------------------------------------------------------- | ----------------------------------------------------------- |
-| **Obsługa czasu wykonywania** |Obsługa odczytu lub zapisu przez usługę Azure Synapse w czasie wykonywania| ✓ | [Skontaktuj się z nami](mailto:AskSynapse@microsoft.com?subject=[Enable%20Preview%20Feature]%20SQL%20serverless%20for%20Cosmos%20DB)|
+| **Obsługa czasu wykonywania** |Obsługa odczytu lub zapisu przez usługę Azure Synapse w czasie wykonywania| ✓ | [Kontakt z nami](mailto:AskSynapse@microsoft.com?subject=[Enable%20Preview%20Feature]%20SQL%20serverless%20for%20Cosmos%20DB)|
 | **Obsługa interfejsu API Azure Cosmos DB** |Obsługa interfejsu API jako linku Synapse| SQL/MongoDB | SQL/MongoDB |
-| **Obiekt**  |Obiekty takie jak tabela, która może być utworzona, wskazująca bezpośrednio na kontener Azure Cosmos DB| Widok, tabela | Widok |
+| **Stream**  |Obiekty takie jak tabela, która może być utworzona, wskazująca bezpośrednio na kontener Azure Cosmos DB| Widok, tabela | Widok |
 | **Odczyt**    |Odczytywanie danych z kontenera Azure Cosmos DB| OLTP/HTAP | HTAP  |
 | **Prawem**   |Zapisywanie danych z czasu wykonywania do kontenera Azure Cosmos DB| OLTP | nie dotyczy |
 

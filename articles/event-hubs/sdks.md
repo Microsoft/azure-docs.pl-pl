@@ -3,12 +3,12 @@ title: Azure Event Hubs — zestawy SDK klienta | Microsoft Docs
 description: Ten artykuł zawiera informacje dotyczące zestawów SDK klienta dla platformy Azure Event Hubs.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 4c3557556500f2a536e20331bd3d05d84f608f0b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2b75a66197b152425198b94a68ac77e392cb4c0e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85312555"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087564"
 ---
 # <a name="azure-event-hubs---client-sdks"></a>Azure Event Hubs — zestawy SDK klienta
 Ten artykuł zawiera następujące informacje dotyczące zestawów SDK obsługiwanych przez usługę Azure Event Hubs: 
@@ -33,7 +33,7 @@ W poniższej tabeli opisano wszystkie aktualnie dostępne klientów środowiska 
 |        | [Azure-eventhub-checkpointstoreblob-AIO](https://pypi.org/project/azure-eventhub-checkpointstoreblob-aio/) | <ul><li>[Lokalizacja usługi GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/eventhub/azure-eventhub-checkpointstoreblob-aio)</li><li>[Samouczek](get-started-python-send-v2.md)</li></ul> |
 | JavaScript | [Azure/Event-Hubs](https://www.npmjs.com/package/@azure/event-hubs) | <ul><li>[Lokalizacja usługi GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/eventhub/event-hubs)</li><li>[Samouczek](get-started-node-send-v2.md)</li></ul> |
 |            | [Azure/eventhubs — checkpointstore — obiekt BLOB](https://www.npmjs.com/package/@azure/eventhubs-checkpointstore-blob) | <ul><li>[Lokalizacja usługi GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/eventhub/eventhubs-checkpointstore-blob)</li><li>[Samouczek](get-started-node-send-v2.md)</li></ul> |
-| Przejdź | [Azure-Event-Hubs — przejdź](https://github.com/Azure/azure-event-hubs-go) | <ul><li>[Lokalizacja usługi GitHub](https://github.com/Azure/azure-event-hubs-go)</li><li>[Samouczek](event-hubs-go-get-started-send.md)</li></ul> |
+| Go | [Azure-Event-Hubs — przejdź](https://github.com/Azure/azure-event-hubs-go) | <ul><li>[Lokalizacja usługi GitHub](https://github.com/Azure/azure-event-hubs-go)</li><li>[Samouczek](event-hubs-go-get-started-send.md)</li></ul> |
 | C | [Azure-Event-Hubs-c](https://github.com/Azure/azure-event-hubs-c) | <ul><li>[Lokalizacja usługi GitHub](https://github.com/Azure/azure-event-hubs-c)</li><li>[Samouczek](event-hubs-c-getstarted-send.md)</li></ul> |
 
 ## <a name="management-sdks"></a>Zestawy SDK zarządzania
@@ -48,6 +48,6 @@ W poniższej tabeli wymieniono wszystkie aktualnie dostępne biblioteki specyfic
 
 Następujące linki pozwalają dowiedzieć się więcej na temat usługi Event Hubs:
 
-* [Przegląd usługi Event Hubs](event-hubs-what-is-event-hubs.md)
+* [Przegląd usługi Event Hubs](./event-hubs-about.md)
 * [Tworzenie centrum zdarzeń](event-hubs-create.md)
 * [Event Hubs — często zadawane pytania](event-hubs-faq.md)

@@ -3,8 +3,8 @@ title: 'Samouczek: Migrowanie PostgreSQL do usługi Azure DB dla PostgreSQL onli
 titleSuffix: Azure Database Migration Service
 description: Dowiedz się, jak przeprowadzić migrację online z PostgreSQL lokalnego do Azure Database for PostgreSQL przy użyciu Azure Database Migration Service za pośrednictwem Azure Portal.
 services: dms
-author: HJToland3
-ms.author: jtoland
+author: arunkumarthiags
+ms.author: arthiaga
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 04/11/2020
-ms.openlocfilehash: e01cc1c07d720c4743a03b5001e640f8b851dd5c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9ccbd22a44f0dfb05e425bff45cdc18803391812
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81114003"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087649"
 ---
 # <a name="tutorial-migrate-postgresql-to-azure-db-for-postgresql-online-using-dms-via-the-azure-portal"></a>Samouczek: Migrowanie PostgreSQL do usługi Azure DB dla PostgreSQL online przy użyciu systemu DMS za pośrednictwem Azure Portal
 
@@ -29,7 +30,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 > * Utwórz wystąpienie usługi Azure Database Migration Service.
 > * Utwórz projekt migracji w Azure Database Migration Service.
 > * Uruchamianie migracji.
-> * Monitorowanie migracji.
+> * Monitoruj migrację.
 > * Przeprowadź migrację uruchomienie produkcyjne.
 
 > [!NOTE]
@@ -103,7 +104,7 @@ Aby utworzyć wszystkie obiekty bazy danych, takie jak schematy tabel, indeksy o
     psql -h hostname -U db_username -d db_name < your_schema.sql
     ```
 
-    Przykład:
+    Na przykład:
 
     ```
     psql -h mypgserver-20170401.postgres.database.azure.com  -U postgres -d dvdrental citus < dvdrentalSchema.sql

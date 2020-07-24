@@ -1,5 +1,5 @@
 ---
-title: Co to jest Apache Spark w usłudze Azure Synapse Analytics?
+title: Co to jest Apache Spark
 description: Ten artykuł zawiera wprowadzenie do Apache Spark usługi Azure Synapse Analytics i różnych scenariuszy, w których można używać platformy Spark.
 services: synapse-analytics
 author: euangMS
@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: 0a9a89b6ff3d0e2d3987d4b4281b9e4e1605475f
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.openlocfilehash: 0fce972b6b0ceb426ab4b08ab26e664d068af16f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85476788"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089281"
 ---
 # <a name="what-is-apache-spark-in-azure-synapse-analytics"></a>Co to jest Apache Spark w usłudze Azure Synapse Analytics
 
@@ -32,11 +32,11 @@ Apache Spark zapewnia elementy podstawowe do przetwarzania klastrów w pamięci.
 
 Pule Spark w usłudze Azure Synapse oferują w pełni zarządzaną usługę Spark. Zalety tworzenia puli platformy Spark w usłudze Synapse Analytics są wymienione tutaj.
 
-| Cecha | Opis |
+| Cechy | Opis |
 | --- | --- |
 | Szybkość i wydajność |Wystąpienia platformy Spark zaczynają się około 2 minut przez mniej niż 60 węzłów i około 5 minut przez więcej niż 60 węzłów. Wystąpienie jest zamykane, domyślnie 5 minut od ostatniego wykonanego zadania, chyba że jest ono utrzymywane przez połączenie notesu. |
 | Łatwość tworzenia |Nową pulę platformy Spark można utworzyć na platformie Azure Synapse w ciągu kilku minut, korzystając z zestawu SDK Azure Portal, Azure PowerShell lub Synapse Analytics. Zobacz Rozpoczynanie [pracy z pulami platformy Spark w Synapse Analytics](../quickstart-create-apache-spark-pool-studio.md). |
-| Łatwość obsługi |Synapse Analytics zawiera niestandardowy Notes pochodzący z [nteract](https://nteract.io/). Można ich używać do interakcyjnego przetwarzania danych i wizualizacji.|
+| Łatwość użycia |Synapse Analytics zawiera niestandardowy Notes pochodzący z [nteract](https://nteract.io/). Można ich używać do interakcyjnego przetwarzania danych i wizualizacji.|
 | Interfejsy API REST |Platforma Spark w Synapse Analytics obejmuje platformę [Apache usługi Livy](https://github.com/cloudera/hue/tree/master/apps/spark/java#welcome-to-livy-the-rest-spark-server), oparty na interfejsie API REST serwer zadań platformy Spark do zdalnego przesyłania i monitorowania zadań. |
 | Obsługa Azure Data Lake Storage generacji 2| Pule Spark w usłudze Azure Synapse mogą Azure Data Lake Storage używać generacji 2 oraz magazynu obiektów BLOB. Aby uzyskać więcej informacji o usłudze Data Lake Storage, zobacz temat [Przegląd usługi Azure Data Lake Storage](../../data-lake-store/data-lake-store-overview.md). |
 | Integracja ze zintegrowanymi środowiskami projektowymi innych firm | Usługa Azure Synapse udostępnia wtyczkę IDE dla [JetBrains "IntelliJ"](https://www.jetbrains.com/idea/) , która jest przydatna do tworzenia i przesyłania aplikacji do puli platformy Spark. |
@@ -70,7 +70,7 @@ Pule Spark w usłudze Synapse Analytics umożliwiają korzystanie z następując
 
 Apache Spark zawiera wiele funkcji języka do obsługi przygotowania i przetwarzania dużych ilości danych, dzięki czemu może być bardziej cenne i zużywane przez inne usługi w ramach analizy Synapse. Jest to możliwe za pośrednictwem wielu języków (C#, Scala, PySpark, Spark SQL) i dostarczonych bibliotek do przetwarzania i łączności.
 
-### <a name="machine-learning"></a>Usługa Machine Learning
+### <a name="machine-learning"></a>Machine Learning
 
 Apache Spark to [MLlib](https://spark.apache.org/mllib/), biblioteka uczenia maszynowego oparta na platformie Spark, która może być używana z puli platformy Spark w usłudze Synapse Analytics. Pule Spark w usłudze Synapse Analytics obejmują również Anaconda, dystrybucję języka Python z wieloma pakietami do nauki o danych, w tym uczenia maszynowego. W połączeniu z wbudowaną obsługą notesów masz środowisko do tworzenia aplikacji do uczenia maszynowego.
 

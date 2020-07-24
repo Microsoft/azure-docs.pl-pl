@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 08/14/2019
 ms.author: chrimo
-ms.openlocfilehash: c60303d2306ca167a4d90b0cc27c1d265f2e2db8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 53e70fbb1321f33849073bbd6b2176f5d88a1f8b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85204425"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089001"
 ---
 # <a name="apply-windows-license-to-session-host-virtual-machines"></a>Zastosuj licencję systemu Windows na maszyny wirtualne hosta sesji
 
@@ -27,7 +27,7 @@ Istnieje kilka sposobów używania licencji pulpitu wirtualnego systemu Windows:
 - Możesz zastosować licencję do istniejącej maszyny wirtualnej hosta sesji. Aby to zrobić, najpierw postępuj zgodnie z instrukcjami w temacie [Tworzenie puli hostów przy użyciu programu PowerShell](./create-host-pools-powershell.md) , aby utworzyć pulę hostów i skojarzone maszyny wirtualne, a następnie wróć do tego artykułu, aby dowiedzieć się, jak zastosować licencję.
 
 ## <a name="apply-a-windows-license-to-a-session-host-vm"></a>Stosowanie licencji systemu Windows na maszynę wirtualną hosta sesji
-Upewnij się, że [zainstalowano i skonfigurowano najnowszą Azure PowerShell](/powershell/azure/overview). Uruchom następujące polecenie cmdlet programu PowerShell, aby zastosować licencję systemu Windows:
+Upewnij się, że [zainstalowano i skonfigurowano najnowszą Azure PowerShell](/powershell/azure/). Uruchom następujące polecenie cmdlet programu PowerShell, aby zastosować licencję systemu Windows:
 
 ```powershell
 $vm = Get-AzVM -ResourceGroup <resourceGroupName> -Name <vmName>

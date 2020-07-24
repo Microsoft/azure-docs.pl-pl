@@ -1,5 +1,5 @@
 ---
-title: Łączenie się z usługą SQL Synapse i tworzenie zapytań w programie Visual Studio i SSDT
+title: Łączenie i wykonywanie zapytań w programie SQL Synapse w programie Visual Studio i SSDT
 description: Za pomocą programu Visual Studio Zbadaj pulę SQL przy użyciu usługi Azure Synapse Analytics.
 services: synapse analytics
 author: azaricstefan
@@ -9,18 +9,18 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 3f98a9d6dd79ba1da1a3be1e9e187ed4e8eca8ee
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 93c975bbbc69a43f1bd47bd4b1e7b857338ac1c0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85962990"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089247"
 ---
 # <a name="connect-to-synapse-sql-with-visual-studio-and-ssdt"></a>Nawiązywanie połączenia z usługą Synapse SQL za pomocą programu Visual Studio i SSDT
 > [!div class="op_single_selector"]
 > * [Azure Data Studio](get-started-azure-data-studio.md)
 > * [Power BI](get-started-power-bi-professional.md)
-> * [Program Visual Studio](get-started-visual-studio.md)
+> * [Visual Studio](get-started-visual-studio.md)
 > * [sqlcmd](get-started-connect-sqlcmd.md) 
 > * [SSMS](get-started-ssms.md)
 > 
@@ -53,7 +53,7 @@ Aby skorzystać z tego samouczka, należy dysponować następującymi składnika
    * **Nazwa serwera**: wprowadź wcześniej zidentyfikowaną **nazwę serwera** .
    * **Uwierzytelnianie**: wybierz opcję **uwierzytelnianie SQL Server** lub **Active Directory uwierzytelnianie zintegrowane**:
    * **Nazwa użytkownika** i **hasło**: Wprowadź nazwę użytkownika i hasło w przypadku wybrania powyżej SQL Server uwierzytelniania.
-   * Kliknij pozycję **Połącz**.
+   * Kliknij przycisk **Podłącz**.
 5. W celach poznawczych rozwiń węzeł serwera Azure SQL. Możesz przejrzeć skojarzone z serwerem bazy danych. Rozwiń węzeł AdventureWorksDW, aby zobaczyć tabele w przykładowej bazie danych.
    
     ![Poznawanie bazy danych AdventureWorksDW](./media/get-started-visual-studio/explore-sample.png)

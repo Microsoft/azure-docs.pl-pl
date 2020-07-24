@@ -14,14 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2020
 ms.author: yelevin
-ms.openlocfilehash: ed4f2d769dbda3dec7b353fddfd1e5e0f3d00f9b
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: c8af1c32607e5fc7bf548b40069e18923c666303
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86532172"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089655"
 ---
 # <a name="connect-your-infoblox-nios-to-azure-sentinel"></a>Połącz swoje Infoblox NIOS z platformą Azure — wskaźnikiem
+
+> [!IMPORTANT]
+> Łącznik danych Infoblox NIOS w usłudze Azure Wskaźnikowanie jest obecnie w publicznej wersji zapoznawczej.
+> Ta funkcja jest dostępna bez umowy dotyczącej poziomu usług i nie jest zalecana w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 W tym artykule wyjaśniono, jak połączyć [urządzenie z systemem operacyjnym Infoblox (Nios) tożsamości sieci](https://www.infoblox.com/glossary/network-identity-operating-system-nios/) z platformą Azure. Łącznik danych Infoblox NIOS umożliwia łatwe łączenie dzienników Infoblox z platformą Azure, w celu wyświetlania pulpitów nawigacyjnych, tworzenia niestandardowych alertów i ulepszania badania. Integracja między programem Infoblox NIOS i platformą Azure ze wskaźnikami korzysta z dziennika systemowego.
 

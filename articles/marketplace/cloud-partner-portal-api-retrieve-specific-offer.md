@@ -4,19 +4,20 @@ description: Interfejs API umożliwiający pobranie określonej oferty w przestr
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-ms.date: 06/19/2020
-ms.openlocfilehash: a4bbe133d8b223bf717597467336eb486f432380
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+author: dsindona
+ms.author: dsindona
+ms.date: 07/14/2020
+ms.openlocfilehash: bf64645f672e54849064d86f9250a62efeac8d66
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86115540"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087411"
 ---
-<a name="retrieve-a-specific-offer"></a>Pobierz konkretną ofertę
-=========================
+# <a name="retrieve-a-specific-offer"></a>Pobierz konkretną ofertę
 
 > [!NOTE]
-> Interfejsy API portal Cloud Partner są zintegrowane z centrum partnerskim i będą nadal działały po przeprowadzeniu migracji ofert do Centrum partnerskiego. W ramach integracji wprowadzono niewielkie zmiany. Przejrzyj zmiany wymienione w [Portal Cloud partner dokumentacja interfejsu API](./cloud-partner-portal-api-overview.md) , aby upewnić się, że kod będzie nadal działał po migracji do Centrum partnerskiego.
+> Interfejsy API portal Cloud Partner są zintegrowane z usługą i będą nadal działać w centrum partnerskim. Przejście wprowadza niewielkie zmiany. Przejrzyj zmiany wymienione w [dokumentacji interfejsu API Portal Cloud partner](./cloud-partner-portal-api-overview.md) , aby upewnić się, że kod będzie kontynuował pracę po przejściu do Centrum partnerskiego. Interfejsy API CPP powinny być używane tylko dla istniejących produktów, które zostały już zintegrowane przed przejściem do Centrum partnerskiego; nowe produkty powinny używać interfejsów API przekazywania Centrum partnerskiego.
 
 Pobiera określoną ofertę w przestrzeni nazw wydawcy.  
 
@@ -34,23 +35,18 @@ Możesz również pobrać określoną wersję oferty lub pobrać ofertę w gniaz
 
 ```
 
-
-<a name="uri-parameters"></a>Parametry identyfikatora URI
---------------
-
+## <a name="uri-parameters"></a>Parametry identyfikatora URI
 
 | **Nazwa**    | **Opis**                                                                          | **Typ danych** |
 |-------------|------------------------------------------------------------------------------------------|---------------|
-| publisherId | publisherId. Na przykład contoso                                                        | String        |
-| offerId     | Identyfikator GUID, który jednoznacznie identyfikuje ofertę.                                                 | String        |
+| publisherId | publisherId. Na przykład contoso                                                        | String (ciąg)        |
+| offerId     | Identyfikator GUID, który jednoznacznie identyfikuje ofertę.                                                 | String (ciąg)        |
 | version     | Wersja pobranej oferty. Domyślnie pobierana jest Najnowsza wersja oferty. | Integer       |
 | slotId      | Gniazdo, z którego ma zostać pobrana oferta, może być jedną z:      <br/>  - `Draft`(domyślnie) Pobiera wersję oferty aktualnie w wersji roboczej.  <br/>  -  `Preview`Pobiera wersję oferty aktualnie w wersji zapoznawczej.     <br/>  -  `Production`Pobiera wersję oferty aktualnie w środowisku produkcyjnym.          |      enum |
 | api-version | Najnowsza wersja interfejsu API                                                                    | Data          |
 |  |  |  |
 
-
-<a name="header"></a>Header
-------
+## <a name="header"></a>Nagłówek
 
 |  **Nazwa**          |   **Wartość**            |
 |  ---------------   |  --------------        |
@@ -58,9 +54,7 @@ Możesz również pobrać określoną wersję oferty lub pobrać ofertę w gniaz
 |  Autoryzacja     | `Bearer YOUR_TOKEN`    |
 |  |  |
 
-
-<a name="body-example"></a>Przykład treści
-------------
+## <a name="body-example"></a>Przykład treści
 
 ### <a name="response"></a>Odpowiedź
 
@@ -175,7 +169,6 @@ Możesz również pobrać określoną wersję oferty lub pobrać ofertę w gniaz
 }
 ```
 
-
 ### <a name="response-body-properties"></a>Właściwości treści odpowiedzi
 
 |  **Nazwa**       |   **Opis**                                                                                                               |
@@ -183,12 +176,11 @@ Możesz również pobrać określoną wersję oferty lub pobrać ofertę w gniaz
 |  offerTypeId    | Identyfikuje typ oferty                                                                                                    |
 |  publisherId    | Unikatowy identyfikator wydawcy                                                                                              |
 |  status         | Stan oferty. Aby uzyskać listę możliwych wartości, zobacz temat [status oferty](#offer-status) poniżej.                                  |
-|  Identyfikator             | Identyfikator GUID, który jednoznacznie identyfikuje ofertę                                                                                         |
+|  Id             | Identyfikator GUID, który jednoznacznie identyfikuje ofertę                                                                                         |
 |  version        | Bieżąca wersja oferty. Nie można zmodyfikować właściwości Version przez klienta. Zwiększa się po każdej publikacji.    |
 |  definicja     | Rzeczywista definicja obciążenia                                                                                               |
 |  changedTime    | Data i godzina UTC ostatniej modyfikacji oferty                                                                                   |
 |  |  |
-
 
 ### <a name="response-status-codes"></a>Kody stanu odpowiedzi
 
@@ -200,7 +192,6 @@ Możesz również pobrać określoną wersję oferty lub pobrać ofertę w gniaz
 |  404      | `Not found`-Określona jednostka nie istnieje. Klient powinien sprawdzić publisherId, offerId i wersję (jeśli jest określona).      |
 |  |  |
 
-
 ### <a name="offer-status"></a>Stan oferty
 
 |  **Nazwa**                   |   **Opis**                             |
@@ -208,8 +199,8 @@ Możesz również pobrać określoną wersję oferty lub pobrać ofertę w gniaz
 |  NeverPublished             | Oferta nie została nigdy opublikowana.               |
 |  NotStarted                 | Oferta jest nowa, ale nie została uruchomiona.              |
 |  WaitingForPublisherReview  | Oferta oczekuje na zatwierdzenie przez wydawcę.      |
-|  Działanie                    | Przesyłanie oferty jest przetwarzane.          |
-|  Sukces                  | Przesyłanie oferty zostało zakończone.    |
+|  Uruchomiono                    | Przesyłanie oferty jest przetwarzane.          |
+|  Powodzenie                  | Przesyłanie oferty zostało zakończone.    |
 |  Anulowane                   | Przesyłanie oferty zostało anulowane.                |
 |  Niepowodzenie                     | Nie można przesłać oferty.                      |
 |  |  |

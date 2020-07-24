@@ -3,12 +3,12 @@ title: Przegląd Service Health | Microsoft Docs
 description: Spersonalizowane informacje o tym, w jaki sposób aplikacje platformy Azure wpływają na bieżące i przyszłe problemy z usługą i konserwację platformy Azure.
 ms.topic: conceptual
 ms.date: 05/10/2019
-ms.openlocfilehash: bc1d07fdbba6da3540336438973fb1cfbb0c356b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2f2f0c8bf2cf4fe5beae7d48b198a23edba4e9ae
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85563420"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089604"
 ---
 # <a name="service-health-overview"></a>Przegląd Service Health
 
@@ -68,7 +68,7 @@ Filtruj Service Health, aby wyświetlić krytyczne subskrypcje, regiony i typy z
 
 ## <a name="configure-service-health-alerts"></a>Konfigurowanie alertów dotyczących kondycji usługi
 
-Service Health integruje się z Azure Monitor, aby ostrzec użytkownika za pośrednictwem wiadomości e-mail, wiadomości SMS i powiadomień elementu webhook w przypadku, gdy mają wpływ zasoby o krytycznym znaczeniu dla firmy. Skonfiguruj alert dziennika aktywności dla odpowiedniego zdarzenia kondycji usługi. Kierowanie tego alertu do odpowiednich osób w organizacji za pomocą grup akcji. Aby uzyskać więcej informacji, zobacz [Konfigurowanie alertów dla Service Health](../azure-monitor/platform/alerts-activity-log-service-notifications.md)
+Service Health integruje się z Azure Monitor, aby ostrzec użytkownika za pośrednictwem wiadomości e-mail, wiadomości SMS i powiadomień elementu webhook w przypadku, gdy mają wpływ zasoby o krytycznym znaczeniu dla firmy. Skonfiguruj alert dziennika aktywności dla odpowiedniego zdarzenia kondycji usługi. Kierowanie tego alertu do odpowiednich osób w organizacji za pomocą grup akcji. Aby uzyskać więcej informacji, zobacz [Konfigurowanie alertów dla Service Health](./alerts-activity-log-service-notifications-portal.md)
 
 >[!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2OaXt]
 

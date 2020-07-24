@@ -1,15 +1,15 @@
 ---
 title: Obsługiwane Azure Resource Manager typy zasobów
 description: Podaj listę typów zasobów Azure Resource Manager obsługiwanych przez usługę Azure Resource Graph i historię zmian.
-ms.date: 06/04/2020
+ms.date: 07/16/2020
 ms.topic: reference
 ms.custom: generated
-ms.openlocfilehash: 7a1890c8decb6f918ecacee99764e45817e3d38a
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: 8ea8dff157437dd37ad178b1580eddb9d218559d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85970573"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087530"
 ---
 # <a name="azure-resource-graph-table-and-resource-type-reference"></a>Informacje o tabeli i typie zasobów usługi Azure Resource Graph
 
@@ -19,6 +19,7 @@ Wykres zasobów platformy Azure obsługuje następujące **typy zasobów** [Azur
 
 - Microsoft. Advisor/konfiguracje
 - Microsoft. Advisor/zalecenia
+- Microsoft. Advisor/zalecenia/pominięcia
 - Microsoft. Advisor/tłumienie
 
 ## <a name="alertsmanagementresources"></a>alertsmanagementresources

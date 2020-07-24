@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: rohink
-ms.openlocfilehash: af19586807bf676f1f449f7402b364a054721eec
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: e9d995a69a4fc54d6f001ced7503a9138d737dbc
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86187595"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089043"
 ---
 # <a name="using-powershell-to-manage-traffic-manager"></a>Zarządzanie Traffic Manager przy użyciu programu PowerShell
 
@@ -38,7 +38,7 @@ Każdy profil Traffic Manager jest reprezentowany przez zasób typu "TrafficMana
 
 Te instrukcje używają Microsoft Azure PowerShell. W poniższym artykule wyjaśniono, jak zainstalować i skonfigurować Azure PowerShell.
 
-* [How to install and configure Azure PowerShell](/powershell/azure/overview)
+* [How to install and configure Azure PowerShell](/powershell/azure/)
 
 W przykładach w tym artykule założono, że masz istniejącą grupę zasobów. Grupę zasobów można utworzyć przy użyciu następującego polecenia:
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/01/2018
 ms.author: delhan
-ms.openlocfilehash: 03356c0b4a93f4befdbc529523e58642137a8887
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cc1ad3104596cc7ad4bb48f88e4c8312bc833371
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80420818"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088567"
 ---
 # <a name="troubleshoot-authentication-errors-when-you-use-rdp-to-connect-to-azure-vm"></a>Rozwiązywanie problemów z uwierzytelnianiem podczas używania protokołu RDP w celu połączenia z maszyną wirtualną platformy Azure
 
@@ -276,8 +276,8 @@ Uruchom ponownie maszynę wirtualną, aby zmiany wprowadzone w rejestrze zaczę�
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Metoda SetEncryptionLevel klasy Win32_TSGeneralSetting](https://docs.microsoft.com/windows/desktop/TermServ/win32-tsgeneralsetting-setencryptionlevel)
+[Metoda SetEncryptionLevel klasy Win32_TSGeneralSetting](/windows/desktop/termserv/win32-tsgeneralsetting-setencryptionlevel)
 
-[Konfigurowanie uwierzytelniania serwera i poziomów szyfrowania](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc770833(v=ws.11))
+[Konfigurowanie uwierzytelniania serwera i poziomów szyfrowania](/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/cc770833(v=ws.11))
 
-[Klasa Win32_TSGeneralSetting](https://docs.microsoft.com/windows/desktop/TermServ/win32-tsgeneralsetting)
+[Klasa Win32_TSGeneralSetting](/windows/desktop/termserv/win32-tsgeneralsetting)

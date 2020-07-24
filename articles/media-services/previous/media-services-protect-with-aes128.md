@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: c55d8201d00daedaf87f270f365573040d799fba
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 143583cf11da7687ae99121a2893be1c54810add
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86058201"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087372"
 ---
 # <a name="use-aes-128-dynamic-encryption-and-the-key-delivery-service"></a>Używanie dynamicznego szyfrowania AES-128 i usługi dostarczania kluczy
 > [!div class="op_single_selector"]
@@ -29,11 +29,11 @@ ms.locfileid: "86058201"
 >  
 
 > [!NOTE]
-> Do usługi Media Services w wersji 2 nie są już dodawane żadne nowe funkcje. <br/>Zapoznaj się z najnowszą wersją [Media Services wersja 3](https://docs.microsoft.com/azure/media-services/latest/). Zobacz też [wskazówki dotyczące migracji od wersji 2 do V3](../latest/migrate-from-v2-to-v3.md)
+> Do usługi Media Services w wersji 2 nie są już dodawane żadne nowe funkcje. <br/>Zapoznaj się z najnowszą wersją [Media Services wersja 3](../latest/index.yml). Zobacz też [wskazówki dotyczące migracji od wersji 2 do V3](../latest/migrate-from-v2-to-v3.md)
 
 Za pomocą Media Services można dostarczyć HTTP Live Streaming (HLS) i Smooth Streaming zaszyfrowanych za pomocą algorytmu AES przy użyciu kluczy szyfrowania 128-bitowych. Media Services zapewnia również usługę dostarczania kluczy, która dostarcza klucze szyfrowania do autoryzowanych użytkowników. Jeśli chcesz, aby Media Services szyfrowanie zasobu, skojarz klucz szyfrowania z zasobem, a także Skonfiguruj zasady autoryzacji dla klucza. Gdy gracz prosi o przesłanie strumienia, Media Services używa określonego klucza do dynamicznego szyfrowania zawartości przy użyciu szyfrowania AES. Aby odszyfrować strumień, odtwarzacz żąda klucza z usługi dostarczania kluczy. Aby określić, czy użytkownik ma uprawnienia do uzyskiwania klucza, usługa szacuje zasady autoryzacji określone dla klucza.
 
-Usługa Media Services obsługuje wiele sposobów uwierzytelniania użytkowników, którzy tworzą żądania klucza. Zasady autoryzacji klucza zawartości mogą mieć jedno lub więcej ograniczeń: ograniczenia otwarte lub ograniczenia tokenu. Zasadom ograniczenia tokenu musi towarzyszyć token wystawiony przez usługę tokenu zabezpieczającego (STS). Usługa Media Services obsługuje następujące formaty tokenów: [prosty token sieci Web](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2) (SWT) i [token sieci Web JSON](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_3) (JWT). Aby uzyskać więcej informacji, zobacz [Konfigurowanie zasad autoryzacji klucza zawartości](media-services-protect-with-aes128.md#configure_key_auth_policy).
+Usługa Media Services obsługuje wiele sposobów uwierzytelniania użytkowników, którzy tworzą żądania klucza. Zasady autoryzacji klucza zawartości mogą mieć jedno lub więcej ograniczeń: ograniczenia otwarte lub ograniczenia tokenu. Zasadom ograniczenia tokenu musi towarzyszyć token wystawiony przez usługę tokenu zabezpieczającego (STS). Usługa Media Services obsługuje następujące formaty tokenów: [prosty token sieci Web](/previous-versions/azure/azure-services/gg185950(v=azure.100)#BKMK_2) (SWT) i [token sieci Web JSON](/previous-versions/azure/azure-services/gg185950(v=azure.100)#BKMK_3) (JWT). Aby uzyskać więcej informacji, zobacz [Konfigurowanie zasad autoryzacji klucza zawartości](media-services-protect-with-aes128.md#configure_key_auth_policy).
 
 Aby móc skorzystać z szyfrowania dynamicznego, należy posiadać element zawartości zawierający zestaw plików MP4 o różnych szybkościach transmisji bitów lub pliki źródłowe Smooth Streaming o różnych szybkościach transmisji bitów. Należy również skonfigurować zasady dostarczania dla zasobu (opisane w dalszej części tego artykułu). Następnie na podstawie formatu określonego w adresie URL przesyłanego strumienia serwer przesyłania strumieniowego na żądanie zapewnia, że strumień jest dostarczany za pomocą wybranego protokołu. W związku z tym należy przechowywać i płacisz tylko za pliki w jednym formacie magazynu. Usługa Media Services tworzy i udostępnia właściwą odpowiedź na podstawie żądań klienta.
 
@@ -250,7 +250,7 @@ Poniższy kod przedstawia sposób wysyłania żądania do usługi dostarczania k
     <add key="Audience" value="urn:test"/>
     ```
 
-### <a name="example"></a><a id="example"></a>Przyklad
+### <a name="example"></a><a id="example"></a>Przykład
 
 Zastąp kod w pliku Program.cs kodem przedstawionym w tej sekcji.
  

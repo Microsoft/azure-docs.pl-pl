@@ -3,8 +3,8 @@ title: 'Samouczek: Migrowanie bazy danych Oracle online do Azure Database for Po
 titleSuffix: Azure Database Migration Service
 description: Dowiedz się, jak przeprowadzić migrację online z programu Oracle lokalnie lub na maszynach wirtualnych do Azure Database for PostgreSQL przy użyciu Azure Database Migration Service.
 services: dms
-author: HJToland3
-ms.author: jtoland
+author: arunkumarthiags
+ms.author: arthiaga
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 01/24/2020
-ms.openlocfilehash: 956523e2b51795a4bc97c653dab8b408b06061f4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 37bf610d1ecc6a05e8dd142ff3d72dd9ed72e51f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78255566"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087768"
 ---
 # <a name="tutorial-migrate-oracle-to-azure-database-for-postgresql-online-using-dms-preview"></a>Samouczek: Migrowanie bazy danych Oracle do Azure Database for PostgreSQL online przy użyciu usługi DMS (wersja zapoznawcza)
 
@@ -30,7 +31,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 > * Utwórz wystąpienie usługi Azure Database Migration Service.
 > * Utwórz projekt migracji przy użyciu Azure Database Migration Service.
 > * Uruchamianie migracji.
-> * Monitorowanie migracji.
+> * Monitoruj migrację.
 
 > [!NOTE]
 > Użycie Azure Database Migration Service do przeprowadzenia migracji w trybie online wymaga utworzenia wystąpienia na podstawie warstwy cenowej Premium.
@@ -185,7 +186,7 @@ Aby wyeksportować wszystkie obiekty bazy danych w plikach. SQL, można uruchomi
 psql -f [FILENAME] -h [AzurePostgreConnection] -p 5432 -U [AzurePostgreUser] -d database 
 ```
 
-Przykład:
+Na przykład:
 
 ```
 psql -f %namespace%\schema\sequences\sequence.sql -h server1-server.postgres.database.azure.com -p 5432 -U username@server1-server -d database
@@ -238,7 +239,7 @@ Aby rozpocząć:
 
     Jeśli nazwa schematu w źródle Oracle i pasuje do tego w Azure Database for PostgreSQL, wówczas Azure Database Migration Service *tworzy schemat tabeli przy użyciu tego samego przypadku jak w elemencie docelowym*.
 
-    Przykład:
+    Na przykład:
 
     | Źródłowy schemat programu Oracle | Docelowa baza danych PostgreSQL. schemat | Usługa DMS utworzyła schemat. tabela. kolumna |
     | ------------- | ------------- | ------------- |

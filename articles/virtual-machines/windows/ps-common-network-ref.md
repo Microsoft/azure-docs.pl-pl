@@ -7,18 +7,18 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 07/17/2017
 ms.author: cynthn
-ms.openlocfilehash: 5d1787b5bfc2939dca23c6898d89130aa3fcb170
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: b4d6b20e63c42616aad0f8776fae159a0f2aa455
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86525759"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088380"
 ---
 # <a name="common-powershell-commands-for-azure-virtual-networks"></a>Typowe polecenia programu PowerShell dla usługi Azure Virtual Networks
 
 Jeśli chcesz utworzyć maszynę wirtualną, musisz utworzyć [sieć wirtualną](../../virtual-network/virtual-networks-overview.md) lub zapoznać się z istniejącą siecią wirtualną, w której można dodać maszynę wirtualną. Zazwyczaj podczas tworzenia maszyny wirtualnej należy rozważyć utworzenie zasobów opisanych w tym artykule.
 
-Zobacz [How to install and configure Azure PowerShell](/powershell/azure/overview) (Jak zainstalować i skonfigurować program Azure PowerShell), aby uzyskać informacje na temat instalowania najnowszej wersji programu Azure PowerShell, wybierania subskrypcji i logowania się do konta.
+Zobacz [How to install and configure Azure PowerShell](/powershell/azure/) (Jak zainstalować i skonfigurować program Azure PowerShell), aby uzyskać informacje na temat instalowania najnowszej wersji programu Azure PowerShell, wybierania subskrypcji i logowania się do konta.
 
 Niektóre zmienne mogą być przydatne w przypadku uruchamiania więcej niż jednego polecenia w tym artykule:
 

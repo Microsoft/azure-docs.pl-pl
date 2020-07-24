@@ -7,15 +7,15 @@ ms.topic: article
 ms.author: brbell
 ms.reviewer: mimckitt
 ms.date: 06/15/2020
-ms.openlocfilehash: 7ce816aba6bee36cd20eed6d31b0642dc8931e0b
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 502883a0c4eb36be9e89ba8693f4d32ba7f16ebd
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86503034"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088873"
 ---
 # <a name="azure-vm-sizes-with-no-local-temporary-disk"></a>Rozmiary maszyn wirtualnych platformy Azure bez lokalnego dysku tymczasowego 
-Ten artykuł zawiera odpowiedzi na często zadawane pytania dotyczące rozmiarów maszyn wirtualnych platformy Azure, które nie mają lokalnego dysku tymczasowego (tj. bez lokalnego tymczasowego). Aby uzyskać więcej informacji o rozmiarach maszyn wirtualnych, zobacz [specyfikacje dla serii Dv4 i Dsv4 (ogólnego przeznaczenia obciążeń)](dv4-dsv4-series.md) lub [specyfikacji dla Ev4 i Esv4 (obciążenia zoptymalizowane pod kątem pamięci)](ev4-esv4-series.md).
+Ten artykuł zawiera odpowiedzi na często zadawane pytania dotyczące rozmiarów maszyn wirtualnych platformy Azure, które nie mają lokalnego dysku tymczasowego (tj. braku lokalnego dysku tymczasowego). Aby uzyskać więcej informacji o rozmiarach maszyn wirtualnych, zobacz [specyfikacje dla serii Dv4 i Dsv4 (ogólnego przeznaczenia obciążeń)](dv4-dsv4-series.md) lub [specyfikacji dla Ev4 i Esv4 (obciążenia zoptymalizowane pod kątem pamięci)](ev4-esv4-series.md).
 
 > [!IMPORTANT]
 > Rozmiary maszyn wirtualnych z serii Dv4, Dsv4, Ev4 i Esv4 są teraz dostępne w publicznej wersji zapoznawczej. Aby zarejestrować się w publicznej wersji zapoznawczej, Wypełnij ten [formularz](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR_Y3toRKxchLjARedqtguBRURE1ZSkdDUzg1VzJDN0cwWUlKTkcyUlo5Mi4u). 

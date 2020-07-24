@@ -9,12 +9,12 @@ ms.subservice: blobs
 ms.topic: quickstart
 ms.date: 03/31/2020
 ms.author: tamram
-ms.openlocfilehash: bca04317acf589e8bae46f086c6c79dfc82152a8
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: d84867e598110c5d9a59b477d92a2c8e021358db
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82176655"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087370"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-with-powershell"></a>Szybki Start: przekazywanie, pobieranie i wyświetlanie listy obiektów BLOB za pomocą programu PowerShell
 
@@ -49,7 +49,7 @@ Usługa Blob Storage obsługuje blokowe, uzupełnialne i stronicowe obiekty blob
 
 Aby przekazać plik do blokowego obiektu blob, pobierz odwołanie do kontenera i uzyskaj odwołanie do blokowego obiektu blob w tym kontenerze. Po uzyskaniu odwołania do obiektu blob możesz przekazać do niego dane przy użyciu polecenia [Set-AzStorageBlobContent](/powershell/module/az.storage/set-azstorageblobcontent). Ta operacja tworzy obiekt blob, jeśli nie istnieje, lub zastępuje obiekt blob, jeśli istnieje.
 
-Poniższe przykłady umożliwiają przekazanie *przekazanie image001. jpg* i *Image002. png* z folderu *D\\: _TestImages* na dysku lokalnym do utworzonego kontenera.
+Poniższe przykłady umożliwiają przekazanie *Image001.jpg* i *Image002.png* z folderu *D: \\ _TestImages* na dysku lokalnym do utworzonego kontenera.
 
 ```powershell
 # upload a file
@@ -63,6 +63,12 @@ Set-AzStorageBlobContent -File "D:\_TestImages\Image002.png" `
   -Container $containerName `
   -Blob "Image002.png" `
   -Context $ctx
+
+# upload a file to a folder
+Set-AzStorageBlobContent -File "D:\_TestImages\foldername\Image003.jpg" `
+  -Container $containerName `
+  -Blob "Foldername/Image003.jpg" `
+  -Context $ctx 
 ```
 
 Przed kontynuowaniem można przesłać dowolną liczbę plików.
@@ -79,7 +85,7 @@ Get-AzStorageBlob -Container $ContainerName -Context $ctx | select Name
 
 Pobierz obiekty blob na swój dysk twardy. Dla każdego obiektu blob, który chcesz pobrać, określ nazwę i wywołaj polecenie [Get-AzStorageBlobContent](/powershell/module/az.storage/get-azstorageblobcontent), aby pobrać obiekt blob.
 
-Ten przykład umożliwia pobranie obiektów BLOB do *D\\: _TestImages \downloads* na dysku lokalnym. 
+Ten przykład umożliwia pobranie obiektów BLOB do *D: \\ _TestImages \downloads* na dysku lokalnym. 
 
 ```powershell
 # download first blob
@@ -106,7 +112,7 @@ azcopy login
 azcopy copy 'C:\myDirectory\myTextFile.txt' 'https://mystorageaccount.blob.core.windows.net/mycontainer/myTextFile.txt'
 ```
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Usuń wszystkie utworzone zasoby. Najprostszym sposobem usunięcia elementów zawartości jest usunięcie grupy zasobów. Usunięcie grupy zasobów spowoduje także usunięcie wszystkich zasobów uwzględnionych w tej grupie. W poniższym przykładzie usunięcie grupy zasobów powoduje usunięcie konta magazynu i samej grupy zasobów.
 

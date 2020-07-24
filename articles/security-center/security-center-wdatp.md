@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/07/2020
 ms.author: memildin
-ms.openlocfilehash: d394f0bb72f353e65c48a564fa7187364eae8121
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: f8ed7dc2caf3ad471ea7d4bb2fc8213114aad109
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85970811"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089706"
 ---
 # <a name="microsoft-defender-advanced-threat-protection-with-azure-security-center"></a>Zaawansowana ochrona przed zagrożeniami w usłudze Microsoft Defender przy użyciu Azure Security Center
 
@@ -59,8 +59,9 @@ Po skonfigurowaniu nie można zmienić lokalizacji, w której są przechowywane 
 
 Aby dołączać serwery do Security Center, kliknij przycisk **Przejdź do Azure Security Center do** dołączania serwerów z usługi Microsoft Defender ATP Server dołączanie.
 
-1. W obszarze **Onboarding** dołączania wybierz lub Utwórz obszar roboczy, w którym mają zostać zapisane dane. <br>
-2. Jeśli nie widzisz wszystkich obszarów roboczych, może to być spowodowane brakiem uprawnień, upewnij się, że obszar roboczy jest ustawiony na warstwę Standardowa usługi Azure Security. Aby uzyskać więcej informacji, zobacz [uaktualnianie do warstwy standardowa Security Center w celu zwiększenia bezpieczeństwa](security-center-pricing.md).
+1. W obszarze **Onboarding** dołączania wybierz lub Utwórz obszar roboczy, w którym mają zostać zapisane dane.
+
+2. Jeśli nie widzisz wszystkich obszarów roboczych, może to być spowodowane brakiem uprawnień, upewnij się, że obszar roboczy jest ustawiony na warstwę cenową usługi Azure Security Standard. Aby uzyskać więcej informacji, zobacz [uaktualnianie do warstwy standardowa Security Center w celu zwiększenia bezpieczeństwa](security-center-pricing.md).
     
 3. Wybierz pozycję **Dodaj serwery** , aby wyświetlić instrukcje dotyczące instalowania agenta log Analytics. 
 

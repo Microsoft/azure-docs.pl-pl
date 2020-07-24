@@ -3,12 +3,12 @@ title: Azure Event Grid dostarczania i ponów próbę
 description: Opisuje, w jaki sposób Azure Event Grid dostarcza zdarzenia i jak obsługuje niedostarczone komunikaty.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: e565bbc8592dc2818e3573672e6e3035c3c8983a
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: fe7574d7e17b1763afb2292c15007dd87b056ef1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86113840"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087615"
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Event Grid dostarczania komunikatów i ponów próbę
 
@@ -57,7 +57,7 @@ Event Grid czeka 30 sekund na odpowiedź po dostarczeniu komunikatu. Po 30 sekun
 - 10 sekund
 - 30 sekund
 - 1 minuta
-- 5 minut
+- 5 min
 - 10 minut
 - 30 minut
 - 1 godzina
@@ -78,8 +78,12 @@ W przypadku niepowodzeń dostarczania punktów końcowych Event Grid zacznie op�
 Celem opóźnionej dostawy jest ochrona punktów końcowych w złej kondycji oraz systemu Event Grid. Bez wycofywania i opóźnień dostarczania w przypadku punktów końcowych w złej kondycji, Event Grid zasady ponawiania prób i możliwości woluminów mogą łatwo zapychać system.
 
 ## <a name="dead-letter-events"></a>Zdarzenia utraconych wiadomości
+Gdy Event Grid nie może dostarczyć zdarzenia w określonym czasie lub po próbie dostarczenia zdarzenia przez określoną liczbę razy, może wysłać niedostarczone zdarzenie do konta magazynu. Ten proces jest znany jako **utracony**. Event Grid martwych liter zdarzenia po spełnieniu **jednego z następujących** warunków. 
 
-Gdy Event Grid nie można dostarczyć zdarzenia, może wysłać niedostarczone zdarzenie do konta magazynu. Ten proces jest znany jako utracony. Domyślnie Event Grid nie powoduje wyłączenia utraconych wiadomości. Aby je włączyć, należy określić konto magazynu do przechowywania niedostarczonych zdarzeń podczas tworzenia subskrypcji zdarzeń. Zdarzenia z tego konta magazynu są ściągane, aby można było rozpoznać dostawy.
+- Zdarzenie nie jest dostarczane w okresie czasu wygaśnięcia
+- Liczba prób dostarczenia zdarzenia przekroczyła limit.
+
+Jeśli spełniony jest dowolny z warunków, zdarzenie zostanie porzucone lub utracone.  Domyślnie Event Grid nie powoduje wyłączenia utraconych wiadomości. Aby je włączyć, należy określić konto magazynu do przechowywania niedostarczonych zdarzeń podczas tworzenia subskrypcji zdarzeń. Zdarzenia z tego konta magazynu są ściągane, aby można było rozpoznać dostawy.
 
 Event Grid wysyła zdarzenie do lokalizacji utraconych, gdy nastąpi próba wszystkich ponownych prób. Jeśli Event Grid otrzymuje kod odpowiedzi 400 (złe żądanie) lub 413 (żądanie jest zbyt duże), natychmiast wysyła zdarzenie do punktu końcowego utraconych wiadomości. Te kody odpowiedzi wskazują, że dostarczenie zdarzenia nigdy nie powiedzie się.
 
@@ -112,7 +116,7 @@ Wszystkie inne kody, które nie znajdują się w powyższym zestawie (200-204), 
 | Kod stanu | Zachowanie przy ponowieniu próby |
 | ------------|----------------|
 | 400 Nieprawidłowe żądanie | Ponów próbę po 5 minutach lub więcej (Utracono wiadomości natychmiast, jeśli konfiguracja utraconych wiadomości) |
-| 401 — nieautoryzowane | Ponów próbę po 5 minutach lub dłużej |
+| 401 Brak autoryzacji | Ponów próbę po 5 minutach lub dłużej |
 | 403 Zabronione | Ponów próbę po 5 minutach lub dłużej |
 | 404 — Nie znaleziono | Ponów próbę po 5 minutach lub dłużej |
 | 408 — limit czasu żądania | Ponów próbę po 2 minutach lub więcej |

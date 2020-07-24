@@ -1,5 +1,5 @@
 ---
-title: Użycie zasobów SQL Synapse Analytics
+title: Synapse użycie zasobów SQL
 description: Dowiedz się więcej na temat modeli zużycia SQL Synapse w usłudze Azure Synapse Analytics.
 services: synapse analytics
 author: vvasic-msft
@@ -8,14 +8,14 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: b81f1e49b2209d0a236f1fb453bb7fe679bb3608
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 364f1676740106d57e61f94beaec53682656ef40
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84112753"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089196"
 ---
-# <a name="azure-synapse-analytics-sql-resource-consumption"></a>Użycie zasobów SQL usługi Azure Synapse Analytics
+# <a name="synapse-sql-resource-consumption"></a>Synapse użycie zasobów SQL
 
 W tym artykule opisano modele użycia zasobów Synapse SQL (wersja zapoznawcza).
 
@@ -45,7 +45,7 @@ Zwiększanie jednostek dwu:
 - Zwiększa liczbę czytników i autorów dla operacji ładowania bazowego
 - Zwiększa maksymalną liczbę współbieżnych zapytań i miejsc współbieżności.
 
-### <a name="service-level-objective"></a>Cel poziomu usług
+### <a name="service-level-objective"></a>Service Level Objective
 
 Cel poziomu usługi (SLO) to ustawienie skalowalności określające koszt i poziom wydajności magazynu danych. Poziomy usługi dla Gen2 są mierzone w jednostkach obliczeniowych magazynu danych (cDWU), na przykład DW2000c. Poziomy usługi Gen1 są mierzone w jednostek dwu, na przykład DW2000.
 
@@ -120,7 +120,7 @@ JOIN    sys.databases                     AS db ON ds.database_id = db.database_
 
 ### <a name="change-data-warehouse-units"></a>Zmień jednostki magazynu danych
 
-#### <a name="azure-portal"></a>Azure Portal
+#### <a name="azure-portal"></a>Witryna Azure Portal
 
 Aby zmienić jednostek dwu:
 
@@ -128,7 +128,7 @@ Aby zmienić jednostek dwu:
 
 2. W obszarze **skalowanie**przesuń suwak w lewo lub w prawo, aby zmienić ustawienie jednostek dwu.
 
-3. Kliknij przycisk **Zapisz**. Zostanie wyświetlony komunikat z potwierdzeniem. Kliknij pozycję **tak**, aby potwierdzić, lub **nie**, aby anulować.
+3. Kliknij pozycję **Zapisz**. Zostanie wyświetlony komunikat z potwierdzeniem. Kliknij pozycję **tak**, aby potwierdzić, lub **nie**, aby anulować.
 
 #### <a name="powershell"></a>PowerShell
 

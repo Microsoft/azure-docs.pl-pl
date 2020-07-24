@@ -4,10 +4,11 @@ description: Więcej informacji na temat trybu failover i niepowodzenia w Azure 
 ms.topic: conceptual
 ms.date: 12/24/2019
 ms.openlocfilehash: d9b54f3c452212e12419a5ffd67b116c8660308d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79281810"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089536"
 ---
 # <a name="about-on-premises-disaster-recovery-failoverfailback"></a>Informacje o lokalnym przejściu w tryb failover i powrotu po awarii
 
@@ -53,7 +54,7 @@ Aby nawiązać połączenie z maszynami wirtualnymi platformy Azure utworzonymi 
 
 Site Recovery udostępnia różne opcje trybu failover.
 
-**Tryb failover** | **Szczegóły** | **Odzyskiwanie** | **Przepływ pracy**
+**Tryb failover** | **Szczegóły** | **Odzyskiwania** | **Przepływ pracy**
 --- | --- | --- | ---
 **Testowanie pracy w trybie failover** | Służy do przeprowadzania przechodzenia do szczegółów, który weryfikuje strategię BCDR bez utraty danych ani przestojów.| Tworzy kopię maszyny wirtualnej na platformie Azure bez wpływu na bieżącą replikację ani w środowisku produkcyjnym. | 1. Uruchom test pracy w trybie failover na jednej maszynie wirtualnej lub na wielu maszynach wirtualnych w planie odzyskiwania.<br/><br/> 2. Wybierz punkt odzyskiwania do użycia w testowaniu pracy w trybie failover.<br/><br/> 3. Wybierz sieć platformy Azure, w której zostanie umieszczona maszyna wirtualna platformy Azure po jej utworzeniu po przejściu do trybu failover. Sieć jest używana tylko na potrzeby testu pracy w trybie failover.<br/><br/> 4. Sprawdź, czy przechodzenie do szczegółów zadziałało zgodnie z oczekiwaniami. Site Recovery automatycznie czyści maszyny wirtualne utworzone na platformie Azure podczas przechodzenia do szczegółów.
 **Planowana praca w trybie failover — funkcja Hyper-V**  | Zwykle używany do planowanych przestojów.<br/><br/> Źródłowe maszyny wirtualne są zamykane. Najnowsze dane są synchronizowane przed zainicjowaniem trybu failover. | Zero utraty danych dla planowanego przepływu pracy. | 1. Zaplanuj okno obsługi przestoju i Powiadom użytkowników.<br/><br/> 2. Korzystaj z aplikacji dla użytkowników w trybie offline.<br/><br/> 3. zainicjuj planowaną pracę w trybie failover przy użyciu najnowszego punktu odzyskiwania. Tryb failover nie jest uruchamiany, jeśli maszyna nie jest wyłączana lub występują błędy.<br/><br/> 4. po przejściu do trybu failover Sprawdź, czy replika maszyny wirtualnej platformy Azure jest aktywna na platformie Azure.<br/><br/> 5. Zatwierdź pracę w trybie failover, aby zakończyć. Akcja Zatwierdź usuwa wszystkie punkty odzyskiwania.

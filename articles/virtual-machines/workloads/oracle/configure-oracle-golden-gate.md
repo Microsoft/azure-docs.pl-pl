@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogardle
-ms.openlocfilehash: 60d06fa4cf6d116f9c802cda544a356e469755b5
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 5ed99fd6a16743846033313fcf13702f69f3e728
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223078"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088363"
 ---
 # <a name="implement-oracle-golden-gate-on-an-azure-linux-vm"></a>Implementowanie bramy Oracle na maszynie wirtualnej platformy Azure z systemem Linux 
 
@@ -27,7 +27,7 @@ Interfejs wiersza polecenia platformy Azure umożliwia tworzenie zasobów Azure 
 
 W tym dokumencie przedstawiono krok po kroku, jak utworzyć, zainstalować i skonfigurować program Oracle na maszynie wirtualnej na platformie Azure. W tym samouczku dwie maszyny wirtualne są skonfigurowane w zestawie dostępności w jednym regionie. Ten sam samouczek może służyć do konfigurowania bramy OracleGolden dla maszyn wirtualnych w różnych Strefy dostępności w jednym regionie świadczenia usługi Azure lub w przypadku instalacji maszyn wirtualnych w dwóch różnych regionach.
 
-Przed rozpoczęciem upewnij się, że interfejs wiersza polecenia platformy Azure został zainstalowany. Aby uzyskać więcej informacji, zobacz [Azure CLI installation guide](https://docs.microsoft.com/cli/azure/install-azure-cli) (Przewodnik instalacji interfejsu wiersza polecenia platformy Azure).
+Przed rozpoczęciem upewnij się, że interfejs wiersza polecenia platformy Azure został zainstalowany. Aby uzyskać więcej informacji, zobacz [Azure CLI installation guide](/cli/azure/install-azure-cli) (Przewodnik instalacji interfejsu wiersza polecenia platformy Azure).
 
 ## <a name="prepare-the-environment"></a>Przygotowywanie środowiska
 
@@ -68,7 +68,7 @@ az group create --name myResourceGroup --location westus
 
 ### <a name="create-an-availability-set"></a>Tworzenie zestawu dostępności
 
-Poniższy krok jest opcjonalny, ale zalecany. Aby uzyskać więcej informacji, zobacz [Przewodnik po zestawach dostępności platformy Azure](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines).
+Poniższy krok jest opcjonalny, ale zalecany. Aby uzyskać więcej informacji, zobacz [Przewodnik po zestawach dostępności platformy Azure](../../windows/infrastructure-example.md).
 
 ```azurecli
 az vm availability-set create \

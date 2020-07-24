@@ -8,11 +8,12 @@ ms.topic: article
 ms.date: 07/10/2017
 ms.author: cynthn
 ms.custom: storage accounts
-ms.openlocfilehash: 7ec9b670f8b2eb1731511deb1d01cfc7db55054f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dcc7c69809ae623606bd091821c5f2fc661f6c8b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81758570"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088754"
 ---
 # <a name="upload-and-create-a-linux-vm-from-custom-disk-with-the-azure-cli"></a>Przekazywanie i Tworzenie maszyny wirtualnej z systemem Linux z dysku niestandardowego przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -78,10 +79,10 @@ Aby wykonać następujące kroki, potrzebne są:
 
 * **System operacyjny Linux zainstalowany w pliku VHD** — zainstaluj [dystrybucję systemu Linux z zatwierdzona przez platformę Azure](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (lub zapoznaj się z [informacjami dotyczącymi niezatwierdzonych dystrybucji](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)) do dysku wirtualnego w formacie VHD. Istnieje wiele narzędzi do utworzenia maszyny wirtualnej i wirtualnego dysku twardego:
   * Zainstaluj i skonfiguruj [QEMU](https://en.wikibooks.org/wiki/QEMU/Installing_QEMU) lub [KVM](https://www.linux-kvm.org/page/RunningKVM), pamiętając o użyciu dysku VHD jako formatu obrazu. W razie konieczności można [skonwertować obraz](https://en.wikibooks.org/wiki/QEMU/Images#Converting_image_formats) przy użyciu polecenia `qemu-img convert` .
-  * Można również użyć funkcji Hyper-V [w systemie Windows 10](https://msdn.microsoft.com/virtualization/hyperv_on_windows/quick_start/walkthrough_install) lub [Windows Server 2012/2012 R2](https://technet.microsoft.com/library/hh846766.aspx).
+  * Można również użyć funkcji Hyper-V [w systemie Windows 10](/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v) lub [Windows Server 2012/2012 R2](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh846766(v=ws.11)).
 
 > [!NOTE]
-> Nowszy format VHDX nie jest obsługiwany na platformie Azure. Podczas tworzenia maszyny wirtualnej Określ plik VHD jako format. W razie potrzeby można skonwertować dyski VHDX na dysk VHD przy użyciu [`qemu-img convert`](https://en.wikibooks.org/wiki/QEMU/Images#Converting_image_formats) polecenia cmdlet programu lub programu [`Convert-VHD`](https://technet.microsoft.com/library/hh848454.aspx) PowerShell. Ponadto platforma Azure nie obsługuje przekazywania dynamicznych dysków VHD, dlatego przed przekazaniem należy przekonwertować takie dyski na statyczne wirtualne dyski twarde. Możesz użyć narzędzi, takich jak [Narzędzia wirtualnego dysku twardego platformy Azure](https://github.com/Microsoft/azure-vhd-utils-for-go) , aby przekonwertować dyski dynamiczne podczas procesu przekazywania na platformę Azure.
+> Nowszy format VHDX nie jest obsługiwany na platformie Azure. Podczas tworzenia maszyny wirtualnej Określ plik VHD jako format. W razie potrzeby można skonwertować dyski VHDX na dysk VHD przy użyciu [`qemu-img convert`](https://en.wikibooks.org/wiki/QEMU/Images#Converting_image_formats) polecenia cmdlet programu lub programu [`Convert-VHD`](/powershell/module/hyper-v/convert-vhd?view=win10-ps) PowerShell. Ponadto platforma Azure nie obsługuje przekazywania dynamicznych dysków VHD, dlatego przed przekazaniem należy przekonwertować takie dyski na statyczne wirtualne dyski twarde. Możesz użyć narzędzi, takich jak [Narzędzia wirtualnego dysku twardego platformy Azure](https://github.com/Microsoft/azure-vhd-utils-for-go) , aby przekonwertować dyski dynamiczne podczas procesu przekazywania na platformę Azure.
 > 
 > 
 
@@ -236,4 +237,3 @@ az group deployment create --resource-group myNewResourceGroup \
 
 ## <a name="next-steps"></a>Następne kroki
 Po przygotowaniu i przekazaniu niestandardowego dysku wirtualnego możesz przeczytać więcej na temat [używania Menedżer zasobów i szablonów](../../azure-resource-manager/management/overview.md). Możesz również [dodać dysk z danymi](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) do nowych maszyn wirtualnych. Jeśli masz aplikacje uruchomione na maszynach wirtualnych, do których musisz uzyskać dostęp, pamiętaj, aby [otworzyć porty i punkty końcowe](nsg-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-

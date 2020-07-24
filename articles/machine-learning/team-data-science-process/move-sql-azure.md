@@ -11,11 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 99e637099e54698e9d6eabb14920251a9d4a81f5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1f1120c78ef2a634c079705c85170d9742eabd1f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84194396"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087428"
 ---
 # <a name="move-data-to-an-azure-sql-database-for-azure-machine-learning"></a>Przenoszenie danych do usługi Azure SQL Database dla usługi Azure Machine Learning
 
@@ -36,7 +37,7 @@ Procedury opisane w tym miejscu wymagają:
 * **Subskrypcja platformy Azure**. Jeśli nie masz subskrypcji, możesz zarejestrować się, aby uzyskać dostęp do [bezpłatnej wersji próbnej](https://azure.microsoft.com/pricing/free-trial/).
 * **Konto usługi Azure Storage**. Używasz konta usługi Azure Storage do przechowywania danych w tym samouczku. Jeśli nie masz konta usługi Azure Storage, zobacz artykuł [Tworzenie konta magazynu](../../storage/common/storage-account-create.md) . Po utworzeniu konta magazynu należy uzyskać klucz konta używany do uzyskiwania dostępu do magazynu. Zobacz [Zarządzanie kluczami dostępu do konta magazynu](../../storage/common/storage-account-keys-manage.md).
 * Dostęp do **Azure SQL Database**. Jeśli konieczne jest skonfigurowanie Azure SQL Database, [wprowadzenie z Microsoft Azure SQL Database](../../sql-database/sql-database-get-started.md) zawiera informacje na temat udostępniania nowego wystąpienia Azure SQL Database.
-* Zainstalowano i skonfigurowano **Azure PowerShell** lokalnie. Aby uzyskać instrukcje, zobacz [How to Install and configure Azure PowerShell](/powershell/azure/overview).
+* Zainstalowano i skonfigurowano **Azure PowerShell** lokalnie. Aby uzyskać instrukcje, zobacz [How to Install and configure Azure PowerShell](/powershell/azure/).
 
 **Dane**: procesy migracji są przedstawiane za pomocą [zestawu danych NYC taksówki](https://chriswhong.com/open-data/foil_nyc_taxi/). Zestaw danych NYC taksówki zawiera informacje na temat danych o podróży i ich Targi i jest dostępny w usłudze Azure Blob Storage: [NYCe dane z taksówką](https://www.andresmh.com/nyctaxitrips/). Przykład i opis tych plików znajdują się w [opisie zestawu danych NYC taksówki](sql-walkthrough.md#dataset).
 

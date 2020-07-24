@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.date: 06/01/2020
 ms.author: ericrad
 ms.reviewer: mimckitt
-ms.openlocfilehash: ba06350a564990899a593714a1f49d1e00ea544a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f91b5879922fc473ff1e46f817b3d649b1b30a9c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85262110"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088737"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-linux-vms"></a>Azure Metadata Service: Scheduled Events dla maszyn wirtualnych z systemem Linux
 
@@ -39,7 +39,7 @@ Dzięki Scheduled Events aplikacja może wykryć, kiedy nastąpi konserwacja, i 
 
 Scheduled Events udostępnia zdarzenia w następujących przypadkach użycia:
 
-- [Konserwacja inicjowana przez platformę](https://docs.microsoft.com/azure/virtual-machines/linux/maintenance-and-updates) (na przykład ponowne uruchomienie maszyny wirtualnej, migracja na żywo lub zachowywanie pamięci na potrzeby hosta)
+- [Konserwacja inicjowana przez platformę](../maintenance-and-updates.md?bc=/azure/virtual-machines/linux/breadcrumb/toc.json&toc=/azure/virtual-machines/linux/toc.json) (na przykład ponowne uruchomienie maszyny wirtualnej, migracja na żywo lub zachowywanie pamięci na potrzeby hosta)
 - Maszyna wirtualna jest uruchomiona na [obniżyć wydajności sprzętu hosta](https://azure.microsoft.com/blog/find-out-when-your-virtual-machine-hardware-is-degraded-with-scheduled-events) , który przewiduje niepowodzenie wkrótce
 - Konserwacja inicjowana przez użytkownika (na przykład użytkownik uruchamia ponownie lub wdraża maszynę wirtualną)
 - Wykluczanie wystąpień [maszyn wirtualnych](spot-vms.md) i [zestawów skalowania](../../virtual-machine-scale-sets/use-spot.md) .
@@ -73,7 +73,7 @@ Jeśli maszyna wirtualna nie zostanie utworzona w ramach Virtual Network, domyś
 ### <a name="version-and-region-availability"></a>Dostępność wersji i regionu
 Usługa Scheduled Events jest w wersji. Wersje są obowiązkowe; Bieżąca wersja to `2019-01-01` .
 
-| Wersja | Typ wydania | Regiony | Informacje o wersji | 
+| Wersja | Typ wydania | Regiony | Uwagi do wersji | 
 | - | - | - | - | 
 | 2019-08-01 | Ogólna dostępność | Wszystko | <li> Dodano obsługę elementu EventSource |
 | 2019-04-01 | Ogólna dostępność | Wszystko | <li> Dodano obsługę opisu zdarzenia |
@@ -147,10 +147,10 @@ Każde zdarzenie ma zaplanowaną minimalną ilość czasu w przyszłości w opar
 |Typ zdarzenia  | Minimalny komunikat |
 | - | - |
 | Funkcja| 15 minut |
-| Ponowne uruchamianie | 15 minut |
+| Ponowny rozruch | 15 minut |
 | Ponowne wdrożenie | 10 minut |
 | Stępują | 30 sekund |
-| Terminate | [Użytkownik konfigurowalny](../../virtual-machine-scale-sets/virtual-machine-scale-sets-terminate-notification.md#enable-terminate-notifications): od 5 do 15 minut |
+| Zakończ | [Użytkownik konfigurowalny](../../virtual-machine-scale-sets/virtual-machine-scale-sets-terminate-notification.md#enable-terminate-notifications): od 5 do 15 minut |
 
 > [!NOTE] 
 > W niektórych przypadkach platforma Azure może przewidzieć awarię hosta z powodu nieprawidłowego sprzętu i podejmuje próbę ograniczenia zakłócenia usługi przez zaplanowanie migracji. Na maszynach wirtualnych, których to dotyczy, zostanie odebrane zaplanowane zdarzenie `NotBefore` , które jest zwykle kilka dni w przyszłości. Rzeczywisty czas zależy od przewidywanej oceny ryzyka niepowodzeń. Platforma Azure podejmuje próbę wydawania z wyprzedzeniem 7 dni, ale rzeczywisty czas jest różny i może być mniejszy, jeśli przewidywane jest, że nastąpi bezpośrednie awaria sprzętu. Aby zminimalizować ryzyko dla usługi na wypadek awarii sprzętu przed migracją zainicjowaną przez system, zalecamy, aby szybko wdrożyć maszynę wirtualną jak najszybciej.
@@ -189,7 +189,7 @@ import json
 import socket
 import urllib2
 
-metadata_url = "http://169.254.169.254/metadata/scheduledevents?api-version=2019-01-01"
+metadata_url = "http://169.254.169.254/metadata/scheduledevents?api-version=2019-08-01"
 this_host = socket.gethostname()
 
 
@@ -233,4 +233,4 @@ if __name__ == '__main__':
 - Obejrzyj [Scheduled Events w piątek](https://channel9.msdn.com/Shows/Azure-Friday/Using-Azure-Scheduled-Events-to-Prepare-for-VM-Maintenance) z systemem Azure, aby wyświetlić pokaz. 
 - Zapoznaj się z przykładami kodu Scheduled Events w [metadanych wystąpienia platformy Azure Scheduled Events repozytorium GitHub](https://github.com/Azure-Samples/virtual-machines-scheduled-events-discover-endpoint-for-non-vnet-vm).
 - Przeczytaj więcej na temat interfejsów API, które są dostępne w [instance Metadata Service](instance-metadata-service.md).
-- Informacje o [planowanej konserwacji maszyn wirtualnych z systemem Linux na platformie Azure](planned-maintenance.md).
+- Informacje o [planowanej konserwacji maszyn wirtualnych z systemem Linux na platformie Azure](../maintenance-and-updates.md?bc=/azure/virtual-machines/linux/breadcrumb/toc.json&toc=/azure/virtual-machines/linux/toc.json).

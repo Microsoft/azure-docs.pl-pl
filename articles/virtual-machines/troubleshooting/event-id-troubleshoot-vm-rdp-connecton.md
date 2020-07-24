@@ -14,11 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/01/2018
 ms.author: delhan
-ms.openlocfilehash: d569bf454a62272a5c60cc92abc0f24715218894
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 507cd6cfe9f251dbc304b579d634ff986b001264
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85958399"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088601"
 ---
 # <a name="troubleshoot-azure-vm-rdp-connection-issues-by-event-id"></a>Rozwiązywanie problemów z połączeniem RDP maszyny wirtualnej platformy Azure według identyfikatora zdarzenia 
 
@@ -289,13 +290,12 @@ Aby rozwiązać ten problem, należy zainstalować ponownie rolę Podłączanie 
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Zdarzenia Schannel](https://technet.microsoft.com/library/dn786445(v=ws.11).aspx)
+[Zdarzenia Schannel](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn786445(v=ws.11))
 
-[Omówienie techniczne dostawcy obsługi zabezpieczeń Schannel](https://technet.microsoft.com/library/dn786429(v=ws.11).aspx)
+[Omówienie techniczne dostawcy obsługi zabezpieczeń Schannel](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn786429(v=ws.11))
 
-[Protokół RDP kończy się niepowodzeniem z IDENTYFIKATORem zdarzenia 1058 & zdarzenie 36870 z certyfikatem hosta sesji Pulpit zdalny & komunikacją protokołu SSL](https://blogs.technet.microsoft.com/askperf/2014/10/22/rdp-fails-with-event-id-1058-event-36870-with-remote-desktop-session-host-certificate-ssl-communication/)
+[Protokół RDP kończy się niepowodzeniem z IDENTYFIKATORem zdarzenia 1058 & zdarzenie 36870 z certyfikatem hosta sesji Pulpit zdalny & komunikacją protokołu SSL](https://techcommunity.microsoft.com/t5/ask-the-performance-team/bg-p/AskPerf)
 
-[Schannel 36872 lub Schannel 36870 na kontrolerze domeny](https://blogs.technet.microsoft.com/instan/2009/01/05/schannel-36872-or-schannel-36870-on-a-domain-controller/)
+[Schannel 36872 lub Schannel 36870 na kontrolerze domeny](/archive/blogs/instan/schannel-36872-or-schannel-36870-on-a-domain-controller)
 
-[Identyfikator zdarzenia 1058 — Usługi pulpitu zdalnego uwierzytelniania i szyfrowania](https://technet.microsoft.com/library/ee890862(v=ws.10).aspx)
-
+[Identyfikator zdarzenia 1058 — Usługi pulpitu zdalnego uwierzytelniania i szyfrowania](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee890862(v=ws.10))
