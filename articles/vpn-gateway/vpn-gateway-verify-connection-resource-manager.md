@@ -7,11 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 05/16/2017
 ms.author: cherylmc
-ms.openlocfilehash: 93a7c0bb15c17b6939d6d53018e4fed84b1ae020
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 38015d62077350e0e6f6ed8e7a43f748db58d213
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84984569"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086990"
 ---
 # <a name="verify-a-vpn-gateway-connection"></a>Weryfikowanie połączenia VPN Gateway
 
@@ -23,7 +24,7 @@ W tym artykule opisano sposób weryfikacji połączenia bramy sieci VPN dla mode
 
 ## <a name="powershell"></a>PowerShell
 
-Aby sprawdzić połączenie bramy sieci VPN dla Menedżer zasobów modelu wdrażania przy użyciu programu PowerShell, zainstaluj najnowszą wersję [Azure Resource Manager poleceń cmdlet programu PowerShell](/powershell/azure/overview).
+Aby sprawdzić połączenie bramy sieci VPN dla Menedżer zasobów modelu wdrażania przy użyciu programu PowerShell, zainstaluj najnowszą wersję [Azure Resource Manager poleceń cmdlet programu PowerShell](/powershell/azure/).
 
 [!INCLUDE [PowerShell](../../includes/vpn-gateway-verify-connection-ps-rm-include.md)]
 
@@ -46,4 +47,4 @@ Aby sprawdzić połączenie bramy sieci VPN dla klasycznego modelu wdrażania pr
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Do sieci wirtualnych można dodać maszyny wirtualne. Kroki opisano w sekcji [Tworzenie maszyny wirtualnej](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* Do sieci wirtualnych można dodać maszyny wirtualne. Kroki opisano w sekcji [Tworzenie maszyny wirtualnej](../virtual-machines/windows/quick-create-portal.md).

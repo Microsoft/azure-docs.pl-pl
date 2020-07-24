@@ -1,6 +1,6 @@
 ---
-title: Windows Virtual Desktop PowerShell — Azure
-description: Jak rozwiązywać problemy z programem PowerShell podczas konfigurowania środowiska dzierżawy pulpitu wirtualnego systemu Windows.
+title: Windows Virtual Desktop PowerShell (jesień 2019) — Azure
+description: Jak rozwiązywać problemy z programem PowerShell podczas konfigurowania środowiska dzierżawy pulpitu wirtualnego systemu Windows (w wersji 2019).
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,14 +8,14 @@ ms.topic: troubleshooting
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: de3933b1686b433a720e78d89bd3e50c0ce5e5dd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3171cc54de57b70a18a3f1b9ee3317cf29f79d4b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82615502"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87085813"
 ---
-# <a name="windows-virtual-desktop-powershell"></a>Program PowerShell dla usługi Windows Virtual Desktop
+# <a name="windows-virtual-desktop-powershell-fall-2019-release"></a>Program PowerShell dla pulpitu wirtualnego systemu Windows (2019 wydania)
 
 >[!IMPORTANT]
 >Ta zawartość dotyczy wersji 2019, która nie Azure Resource Manager obsługuje obiektów pulpitu wirtualnego systemu Windows. Jeśli próbujesz zarządzać Azure Resource Manager obiektami pulpitu wirtualnego systemu Windows wprowadzonymi w ramach aktualizacji wiosną 2020, zobacz [ten artykuł](../troubleshoot-powershell.md).

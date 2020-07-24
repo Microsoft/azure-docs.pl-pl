@@ -13,11 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 3/2/2020
 ms.author: rohink
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 32ef66c0a6d585e785fccb038a2b499c7f7f66db
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cf630f6028248d799a3953d25db27a2150602586
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84204773"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087015"
 ---
 # <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Rozpoznawanie nazw dla zasobów w sieciach wirtualnych platformy Azure
 
@@ -69,7 +70,7 @@ Rozpoznawanie nazw udostępniane przez platformę Azure obejmuje następujące f
 * Można użyć rozpoznawania nazw między maszynami wirtualnymi w sieciach wirtualnych, które używają Azure Resource Manager modelu wdrażania, bez konieczności używania nazwy FQDN. Sieci wirtualne w klasycznym modelu wdrażania wymagają nazwy FQDN podczas rozpoznawania nazw w różnych usługach w chmurze. 
 * Można użyć nazw hostów, które najlepiej opisują Twoje wdrożenia, zamiast korzystać z automatycznie generowanych nazw.
 
-### <a name="considerations"></a>Istotne zagadnienia
+### <a name="considerations"></a>Zagadnienia do rozważenia
 
 Kwestie, które należy wziąć pod uwagę podczas korzystania z rozpoznawania nazw udostępnianej przez platformę Azure:
 * Nie można zmodyfikować sufiksu DNS utworzonego przez platformę Azure.
@@ -176,7 +177,7 @@ W przypadku korzystania z rozpoznawania nazw udostępnianej przez platformę Azu
 W razie potrzeby można określić wewnętrzny sufiks DNS przy użyciu programu PowerShell lub interfejsu API:
 
 * W przypadku sieci wirtualnych w Azure Resource Manager modele wdrażania sufiks jest dostępny za pośrednictwem interfejsu [API REST interfejsu sieciowego](https://docs.microsoft.com/rest/api/virtualnetwork/networkinterfaces), polecenia cmdlet programu PowerShell [Get-AzNetworkInterface](/powershell/module/az.network/get-aznetworkinterface) i polecenia [AZ Network nic show](/cli/azure/network/nic#az-network-nic-show) Azure CLI.
-* W klasycznych modelach wdrażania sufiks jest dostępny za pośrednictwem wywołania [interfejsu API pobierania](https://msdn.microsoft.com/library/azure/ee460804.aspx) lub polecenia cmdlet [Get-AzureVM-Debug](/powershell/module/servicemanagement/azure/get-azurevm) .
+* W klasycznych modelach wdrażania sufiks jest dostępny za pośrednictwem wywołania [interfejsu API pobierania](https://msdn.microsoft.com/library/azure/ee460804.aspx) lub polecenia cmdlet [Get-AzureVM-Debug](/powershell/module/servicemanagement/azure.service/get-azurevm) .
 
 Jeśli przekazywanie zapytań do platformy Azure nie odpowiada Twoim potrzebom, należy podać własne rozwiązanie DNS. Rozwiązanie DNS musi:
 
@@ -214,7 +215,7 @@ W przypadku korzystania z modelu wdrażania Azure Resource Manager można okreś
 > [!NOTE]
 > Jeśli wybierzesz niestandardowy serwer DNS dla sieci wirtualnej, musisz określić co najmniej jeden adres IP serwera DNS. w przeciwnym razie Sieć wirtualna zignoruje konfigurację i użyje usługi DNS udostępnionej przez platformę Azure.
 
-W przypadku korzystania z klasycznego modelu wdrażania można określić serwery DNS dla sieci wirtualnej w Azure Portal lub w [pliku konfiguracji sieci](https://msdn.microsoft.com/library/azure/jj157100). W przypadku usług Cloud Services serwery DNS można określić za pomocą [pliku konfiguracji usługi](https://msdn.microsoft.com/library/azure/ee758710) lub programu PowerShell z poleceniem [New-AzureVM](/powershell/module/servicemanagement/azure/new-azurevm).
+W przypadku korzystania z klasycznego modelu wdrażania można określić serwery DNS dla sieci wirtualnej w Azure Portal lub w [pliku konfiguracji sieci](https://msdn.microsoft.com/library/azure/jj157100). W przypadku usług Cloud Services serwery DNS można określić za pomocą [pliku konfiguracji usługi](https://msdn.microsoft.com/library/azure/ee758710) lub programu PowerShell z poleceniem [New-AzureVM](/powershell/module/servicemanagement/azure.service/new-azurevm).
 
 > [!NOTE]
 > W przypadku zmiany ustawień DNS dla sieci wirtualnej lub maszyny wirtualnej, która została już wdrożona, aby nowe ustawienia DNS zaczęły obowiązywać, należy przeprowadzić odnowienie dzierżawy DHCP na wszystkich maszynach wirtualnych, których dotyczy ta sieć wirtualna. W przypadku maszyn wirtualnych z systemem operacyjnym Windows można to zrobić, wpisując je `ipconfig /renew` bezpośrednio na maszynie wirtualnej. Kroki różnią się w zależności od systemu operacyjnego. Zapoznaj się z odpowiednią dokumentacją dla danego typu systemu operacyjnego.

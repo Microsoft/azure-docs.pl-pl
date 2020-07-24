@@ -7,17 +7,18 @@ ms.date: 05/02/2019
 ms.topic: how-to
 ms.service: virtual-machines-linux
 ms.subservice: imaging
-ms.openlocfilehash: 0c0e688c628d553c8b732081f1a8b8debff8846e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 79349f9da45a623581c40276c8e69d490c1dd253
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82930662"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87085558"
 ---
 # <a name="create-an-image-and-use-a-user-assigned-managed-identity-to-access-files-in-azure-storage"></a>Tworzenie obrazu i używanie tożsamości zarządzanej przypisanej przez użytkownika w celu uzyskiwania dostępu do plików w usłudze Azure Storage 
 
 Usługa Azure Image Builder obsługuje używanie skryptów lub kopiowanie plików z wielu lokalizacji, takich jak GitHub i Azure Storage itp. Aby można było korzystać z nich, muszą one mieć dostęp zewnętrznie do programu Azure Image Builder, ale obiekty blob usługi Azure Storage mogą być chronione przy użyciu tokenów SAS.
 
-W tym artykule pokazano, jak utworzyć dostosowany obraz przy użyciu konstruktora obrazów maszyn wirtualnych platformy Azure, w którym usługa będzie korzystać z [tożsamości zarządzanej przypisanej przez użytkownika](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) w celu uzyskiwania dostępu do plików w usłudze Azure Storage w celu dostosowania obrazu, bez konieczności udostępnienia publicznie plików lub skonfigurowania tokenów SAS.
+W tym artykule pokazano, jak utworzyć dostosowany obraz przy użyciu konstruktora obrazów maszyn wirtualnych platformy Azure, w którym usługa będzie korzystać z [tożsamości zarządzanej przypisanej przez użytkownika](../../active-directory/managed-identities-azure-resources/overview.md) w celu uzyskiwania dostępu do plików w usłudze Azure Storage w celu dostosowania obrazu, bez konieczności udostępnienia publicznie plików lub skonfigurowania tokenów SAS.
 
 W poniższym przykładzie utworzysz dwie grupy zasobów, jedna zostanie użyta w przypadku obrazu niestandardowego, a druga będzie hostować konto usługi Azure Storage, które zawiera plik skryptu. Symuluje to realne scenariusze, w których mogą występować artefakty kompilacji lub pliki obrazów na różnych kontach magazynu poza konstruktorem obrazów. Utworzysz tożsamość przypisaną przez użytkownika, a następnie przyznasz te uprawnienia do odczytu pliku skryptu, ale nie ustawisz publicznego dostępu do tego pliku. Następnie użyjesz konfiguratora powłoki do pobrania i uruchomienia tego skryptu z konta magazynu.
 
@@ -94,7 +95,7 @@ az group create -n $strResourceGroup -l $location
 
 Utwórz tożsamość przypisaną przez użytkownika i Ustaw uprawnienia do grupy zasobów.
 
-Konstruktor obrazów będzie używał podanej [tożsamości użytkownika](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm#user-assigned-managed-identity) w celu dodania obrazu do grupy zasobów. W tym przykładzie utworzysz definicję roli platformy Azure, która zawiera szczegółowe akcje do wykonania dystrybucji obrazu. Definicja roli zostanie następnie przypisana do tożsamości użytkownika.
+Konstruktor obrazów będzie używał podanej [tożsamości użytkownika](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md#user-assigned-managed-identity) w celu dodania obrazu do grupy zasobów. W tym przykładzie utworzysz definicję roli platformy Azure, która zawiera szczegółowe akcje do wykonania dystrybucji obrazu. Definicja roli zostanie następnie przypisana do tożsamości użytkownika.
 
 ```console
 # create user assigned identity for image builder to access the storage account where the script is located

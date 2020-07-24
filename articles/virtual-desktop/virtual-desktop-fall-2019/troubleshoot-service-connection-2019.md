@@ -1,5 +1,5 @@
 ---
-title: Rozwiązywanie problemów z połączeniem usługi Windows Virtual Desktop — Azure
+title: Rozwiązywanie problemów z połączeniem usługi Windows Virtual Desktop 2019 — Azure
 description: Jak rozwiązywać problemy podczas konfigurowania połączeń klienta w środowisku dzierżawy pulpitu wirtualnego systemu Windows.
 services: virtual-desktop
 author: Heidilohr
@@ -8,13 +8,14 @@ ms.topic: troubleshooting
 ms.date: 05/20/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 356506224a0273eeea65f0f901fbc79c338498d2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ad5e740a2874d398f3947fe755024bedc897ec73
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83743600"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87085796"
 ---
-# <a name="windows-virtual-desktop-service-connections"></a>Połączenia usługi pulpitu wirtualnego systemu Windows
+# <a name="troubleshoot-windows-virtual-desktop-service-connections"></a>Rozwiązywanie problemów z połączeniami usługi pulpitu wirtualnego systemu Windows
 
 >[!IMPORTANT]
 >Ta zawartość dotyczy wersji 2019, która nie Azure Resource Manager obsługuje obiektów pulpitu wirtualnego systemu Windows. Jeśli próbujesz zarządzać Azure Resource Manager obiektami pulpitu wirtualnego systemu Windows wprowadzonymi w ramach aktualizacji wiosną 2020, zobacz [ten artykuł](../troubleshoot-service-connection.md).

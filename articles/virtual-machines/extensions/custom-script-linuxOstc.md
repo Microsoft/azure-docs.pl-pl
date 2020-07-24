@@ -1,5 +1,5 @@
 ---
-title: Uruchamianie skryptów niestandardowych na maszynach wirtualnych z systemem Linux na platformie Azure
+title: Uruchamianie niestandardowego rozszerzenia skryptu w wersji 1 (przestarzałe) na maszynach wirtualnych z systemem Linux na platformie Azure
 description: Automatyzowanie zadań konfiguracyjnych maszyn wirtualnych z systemem Linux przy użyciu rozszerzenia niestandardowego skryptu v1
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: danis
-ms.openlocfilehash: 1ca20f2c8cda84c241391f67ac542faa4a1f5ecd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1fe915fd58f60e4ad5b1e28b51911678ef2f866c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82594716"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87085711"
 ---
 # <a name="use-the-azure-custom-script-extension-version-1-with-linux-virtual-machines"></a>Korzystanie z rozszerzenia niestandardowego skryptu platformy Azure w wersji 1 z maszynami wirtualnymi z systemem Linux
 
@@ -120,13 +120,13 @@ Te elementy powinny być traktowane jako dane poufne i określone w konfiguracji
 
 | Nazwa | Wartość/przykład | Typ danych |
 | ---- | ---- | ---- |
-| apiVersion | 2015-06-15 | date |
+| apiVersion | 2015-06-15 | data |
 | publisher | Microsoft. OSTCExtensions | ciąg |
 | typ | CustomScriptForLinux | ciąg |
 | typeHandlerVersion | 1.5 | int |
-| fileUris (np.) | `https://github.com/MyProject/Archive/MyPythonScript.py` | tablica |
+| fileUris (np.) | `https://github.com/MyProject/Archive/MyPythonScript.py` | array |
 | Sekcji commandtoexecute (np.) | MyPythonScript.py Python\<my-param1\> | ciąg |
-| enableInternalDNSCheck | true | wartość logiczna |
+| enableInternalDNSCheck | true | boolean |
 | storageAccountName (np.) | examplestorageacct | ciąg |
 | storageAccountKey (np.) | TmJK/1N3AbAZ3q/+ hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg = = | ciąg |
 

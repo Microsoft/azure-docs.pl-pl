@@ -1,20 +1,20 @@
 ---
 title: QnA Maker szyfrowanie danych magazynowanych
 titleSuffix: Azure Cognitive Services
-description: QnA Maker szyfrowanie danych magazynowanych.
+description: Firma Microsoft oferuje klucze szyfrowania zarządzane przez firmę Microsoft, a także umożliwia zarządzanie subskrypcjami Cognitive Services przy użyciu własnych kluczy nazywanych kluczami zarządzanymi przez klienta (CMK). W tym artykule opisano szyfrowanie danych przechowywane dla QnA Maker i sposób włączania usługi CMK oraz zarządzania nią.
 author: erindormier
 manager: venkyv
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 03/13/2020
+ms.date: 07/10/2020
 ms.author: egeaney
-ms.openlocfilehash: 99c21ece202f8d9867045d506574dd7718bd455e
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 1ca0dda046329e95c649540fd42f96ca43838c85
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83653665"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086709"
 ---
 # <a name="qna-maker-encryption-of-data-at-rest"></a>QnA Maker szyfrowanie danych magazynowanych
 

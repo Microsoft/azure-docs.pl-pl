@@ -3,12 +3,12 @@ title: Często zadawane pytania dotyczące odzyskiwania po awarii oprogramowania
 description: Uzyskaj odpowiedzi na często zadawane pytania dotyczące odzyskiwania po awarii lokalnych maszyn wirtualnych VMware na platformę Azure przy użyciu Azure Site Recovery.
 ms.date: 11/14/2019
 ms.topic: conceptual
-ms.openlocfilehash: a523df21caca2a6def4274542979e9963345384b
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 603dc77e6f2a53abb1d65688ced77e58297b8ab5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86135170"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086153"
 ---
 # <a name="common-questions-about-vmware-to-azure-replication"></a>Typowe pytania dotyczące replikacji z programu VMware do platformy Azure
 
@@ -182,6 +182,10 @@ Nie. Zmiana programu VMware vCenter lub migracji będzie miała wpływ na trwaj�
 
 Nie, Site Recovery nie obsługuje replikacji do usługi Azure Storage w sieciach wirtualnych.
 
+### <a name="what-is-the-frequency-of-generation-of-crash-consistent-recovery-points"></a>Jaka jest częstotliwość generowania punktów odzyskiwania spójnych na poziomie awarii?
+
+Site Recovery generuje punkty odzyskiwania spójne z awarią co 5 minut.
+
 ## <a name="component-upgrade"></a>Uaktualnienie składnika
 
 ### <a name="my-version-of-the-mobility-services-agent-or-configuration-server-is-old-and-my-upgrade-failed-what-do-i-do"></a>Moja wersja agenta lub serwera konfiguracji usługi mobilności jest stara, a uaktualnienie nie powiodło się. Co mam zrobić?
@@ -306,7 +310,7 @@ Począwszy od [wersji 9,24](service-updates-how-to.md#links-to-currently-support
 
 Konfigurując więcej niż jeden serwer przetwarzania, projekt zapewnia elastyczność przenoszenia chronionych maszyn z serwera przetwarzania w złej kondycji na serwer przetwarzania. Przenoszenie komputera z jednego serwera przetwarzania do innego musi być inicjowane jawnie lub ręcznie poprzez zdefiniowane tutaj kroki: [przenoszenie maszyn wirtualnych między serwerami przetwarzania](vmware-azure-manage-process-server.md#move-vms-to-balance-the-process-server-load).
 
-## <a name="failover-and-failback"></a>Praca w trybie failover i powrót po awarii
+## <a name="failover-and-failback"></a>Przechodzenie w tryb failover i powrót po awarii
 
 ### <a name="can-i-use-the-on-premises-process-server-for-failback"></a>Czy można użyć lokalnego serwera przetwarzania do powrotu po awarii?
 

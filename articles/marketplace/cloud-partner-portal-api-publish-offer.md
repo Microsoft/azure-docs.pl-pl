@@ -4,18 +4,20 @@ description: Interfejs API umożliwiający opublikowanie określonej oferty.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-ms.date: 04/08/2020
-ms.openlocfilehash: e3bc420a60c514e704a6caa38acee155b4981552
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+author: dsindona
+ms.author: dsindona
+ms.date: 07/14/2020
+ms.openlocfilehash: 1dede788242f858468c00e9f30f70ebdbe60cd1b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86115591"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086408"
 ---
 # <a name="publish-an-offer"></a>Publikowanie oferty
 
 > [!NOTE]
-> Interfejsy API portal Cloud Partner są zintegrowane z centrum partnerskim i będą nadal działały po przeprowadzeniu migracji ofert do Centrum partnerskiego. W ramach integracji wprowadzono niewielkie zmiany. Przejrzyj zmiany wymienione w [Portal Cloud partner dokumentacja interfejsu API](./cloud-partner-portal-api-overview.md) , aby upewnić się, że kod będzie nadal działał po migracji do Centrum partnerskiego.
+> Interfejsy API portal Cloud Partner są zintegrowane z usługą i będą nadal działać w centrum partnerskim. Przejście wprowadza niewielkie zmiany. Przejrzyj zmiany wymienione w [dokumentacji interfejsu API Portal Cloud partner](./cloud-partner-portal-api-overview.md) , aby upewnić się, że kod będzie kontynuował pracę po przejściu do Centrum partnerskiego. Interfejsy API CPP powinny być używane tylko dla istniejących produktów, które zostały już zintegrowane przed przejściem do Centrum partnerskiego; nowe produkty powinny używać interfejsów API przekazywania Centrum partnerskiego.
 
 Uruchamia proces publikowania dla określonej oferty. To wywołanie jest długotrwałą operacją.
 
@@ -26,12 +28,12 @@ Uruchamia proces publikowania dla określonej oferty. To wywołanie jest długot
 
 |  **Nazwa**      |    **Opis**                               |  **Typ danych** |
 |  ------------- |  ------------------------------------            |   -----------  |
-|  publisherId   | Identyfikator wydawcy, na przykład`contoso`      |   String       |
-|  offerId       | Identyfikator oferty                                 |   String       |
+|  publisherId   | Identyfikator wydawcy, na przykład`contoso`      |   String (ciąg)       |
+|  offerId       | Identyfikator oferty                                 |   String (ciąg)       |
 |  api-version   | Najnowsza wersja interfejsu API                        |   Data         |
 |  |  |
 
-## <a name="header"></a>Header
+## <a name="header"></a>Nagłówek
 ------
 
 |  **Nazwa**        |    **Wartość**          |
@@ -44,7 +46,7 @@ Uruchamia proces publikowania dla określonej oferty. To wywołanie jest długot
 ## <a name="body-example"></a>Przykład treści
 ------------
 
-### <a name="request"></a>Żądanie
+### <a name="request"></a>Request
 
 ``` json
   { 
@@ -62,7 +64,6 @@ Uruchamia proces publikowania dla określonej oferty. To wywołanie jest długot
 |  powiadomienie — wiadomości e-mail    | Rozdzielana przecinkami lista adresów e-mail, które mają być powiadamiane o postępie operacji publikowania. |
 |  |  |
 
-
 ### <a name="response"></a>Odpowiedź
 
 #### <a name="migrated-offers"></a>Zmigrowane oferty
@@ -73,14 +74,12 @@ Uruchamia proces publikowania dla określonej oferty. To wywołanie jest długot
 
 `Location: /api/operations/contoso$contoso-offer$2$preview?api-version=2017-10-31`
 
-
 ### <a name="response-header"></a>Nagłówek odpowiedzi
 
 |  **Nazwa**             |    **Wartość**                                                                 |
 |  -------------------- | ---------------------------------------------------------------------------- |
 | Lokalizacja    | Ścieżka względna do pobrania stanu tej operacji     |
 |  |  |
-
 
 ### <a name="response-status-codes"></a>Kody stanu odpowiedzi
 

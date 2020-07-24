@@ -6,12 +6,13 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 11/04/2019
 ms.author: brendm
-ms.openlocfilehash: f374e0611b887e2a2c787569d9fe58bc1a5c84e9
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.custom: devx-track-java
+ms.openlocfilehash: 9ae6524dc1d53580d0dc7de1179ccf9db8cebc61
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82594070"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086136"
 ---
 # <a name="quickstart-launch-an-azure-spring-cloud-app-using-the-maven-plug-in"></a>Szybki Start: uruchamianie aplikacji w chmurze ze sprężyną na platformie Azure przy użyciu wtyczki Maven
 
@@ -47,9 +48,9 @@ Aby ukończyć ten przewodnik Szybki start:
 1. Podaj **szczegóły projektu** dla przykładowej aplikacji w następujący sposób:
 
     1. Wybierz **subskrypcję** , z którą aplikacja zostanie skojarzona.
-    1. Wybierz lub Utwórz grupę zasobów dla aplikacji. Zalecamy utworzenie nowej grupy zasobów.  W poniższym przykładzie pokazano nową grupę zasobów o nazwie `myspringservice`.
-    1. Podaj nazwę nowej usługi w chmurze Azure wiosennej.  Nazwa musi mieć długość od 4 do 32 znaków i może zawierać tylko małe litery, cyfry i łączniki. Pierwszy znak nazwy usługi musi być literą, a ostatni znak musi być literą lub cyfrą.  Usługa w poniższym przykładzie ma nazwę `contosospringcloud`.
-    1. Wybierz lokalizację aplikacji z dostępnych opcji.  W tym przykładzie wybieramy `East US`.
+    1. Wybierz lub Utwórz grupę zasobów dla aplikacji. Zalecamy utworzenie nowej grupy zasobów.  W poniższym przykładzie pokazano nową grupę zasobów o nazwie `myspringservice` .
+    1. Podaj nazwę nowej usługi w chmurze Azure wiosennej.  Nazwa musi mieć długość od 4 do 32 znaków i może zawierać tylko małe litery, cyfry i łączniki. Pierwszy znak nazwy usługi musi być literą, a ostatni znak musi być literą lub cyfrą.  Usługa w poniższym przykładzie ma nazwę `contosospringcloud` .
+    1. Wybierz lokalizację aplikacji z dostępnych opcji.  W tym przykładzie wybieramy `East US` .
     1. Wybierz pozycję **Przegląd + Utwórz** , aby przejrzeć Podsumowanie nowej usługi.  Jeśli wszystko wygląda poprawnie, wybierz pozycję **Utwórz**.
 
     > [!div class="mx-imgBorder"]
@@ -63,7 +64,7 @@ Wdrożenie usługi wymaga około 5 minut. Po wdrożeniu usługi wybierz pozycję
 ## <a name="set-up-your-configuration-server"></a>Konfigurowanie serwera konfiguracji
 
 1. Na stronie **Przegląd** usługi wybierz opcję **serwer konfiguracji**.
-1. W sekcji **repozytorium domyślne** ustaw wartość **Identyfikator URI** na **https://github.com/Azure-Samples/piggymetrics-config**, a następnie wybierz pozycję **Zastosuj** , aby zapisać zmiany.
+1. W sekcji **repozytorium domyślne** ustaw wartość **Identyfikator URI** na **https://github.com/Azure-Samples/piggymetrics-config** , a następnie wybierz pozycję **Zastosuj** , aby zapisać zmiany.
 
     > [!div class="mx-imgBorder"]
     > ![Definiowanie i stosowanie ustawień konfiguracji](media/maven-qs-apply-config.jpg)
@@ -96,7 +97,7 @@ Wdrożenie usługi wymaga około 5 minut. Po wdrożeniu usługi wybierz pozycję
     mvn com.microsoft.azure:azure-spring-cloud-maven-plugin:1.1.0:config
     ```
 
-    a. Wybierz moduły `gateway`,`auth-service`i. `account-service`
+    a. Wybierz moduły `gateway` , `auth-service` i `account-service` .
 
     b. Wybierz subskrypcję i klaster usługi w chmurze Azure wiosennej.
 
@@ -120,7 +121,7 @@ Wdrożenie usługi wymaga około 5 minut. Po wdrożeniu usługi wybierz pozycję
 W tym przewodniku szybki start wdrożono aplikację w chmurze ze sprężyną z repozytorium Maven. Aby dowiedzieć się więcej na temat chmury Azure wiosennej, przejdź do samouczka dotyczącego przygotowywania aplikacji do wdrożenia.
 
 > [!div class="nextstepaction"]
-> [Przygotowywanie aplikacji w chmurze Azure wiosny do wdrożenia](spring-cloud-tutorial-prepare-app-deployment.md)
-> [Dowiedz się więcej o wtyczkach Maven dla platformy Azure](https://github.com/microsoft/azure-maven-plugins)
+> [Przygotowywanie aplikacji w chmurze platformy Azure pod kątem wdrożenia](spring-cloud-tutorial-prepare-app-deployment.md) 
+>  [Dowiedz się więcej o wtyczkach Maven dla platformy Azure](https://github.com/microsoft/azure-maven-plugins)
 
 Więcej przykładów można znaleźć w witrynie GitHub: [przykłady chmur usługi Azure wiosennej](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/tree/master/service-binding-cosmosdb-sql).

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/15/2019
 ms.author: rajanaki
-ms.openlocfilehash: b9d333467864f67bc357314830ff885af4232ba0
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 79c129fee6d0339eed752abe94059fa566859bc0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86133198"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086187"
 ---
 # <a name="deprecation-of-site-recovery-data-encryption-feature"></a>Przestarzałe funkcje szyfrowania danych Site Recovery
 
@@ -22,14 +22,14 @@ W tym dokumencie opisano szczegóły dotyczące wycofania i akcji korygowania, k
 ## <a name="deprecation-information"></a>Informacje o zaniechaniu
 
 
-Funkcja szyfrowanie danych Site Recovery była dostępna dla klientów chroniących maszyny wirtualne funkcji Hyper-V w celu zapewnienia ochrony replikowanych danych przed zagrożeniami bezpieczeństwa. Ta funkcja zostanie zaniechana **30 grudnia 2019**. Jest ona zastępowana przez bardziej zaawansowane [szyfrowanie w funkcji REST](https://azure.microsoft.com/blog/azure-site-recovery-encryption-at-rest/) , która używa [szyfrowanie usługi Storage](../storage/common/storage-service-encryption.md) (SSE). W przypadku używania instrukcji SSE dane są szyfrowane przed utrwalaniem magazynu i odszyfrowywane podczas pobierania, a po przejściu do trybu failover na platformie Azure maszyny wirtualne będą uruchamiane z zaszyfrowanego konta magazynu, co pozwala na udoskonalony cel czasu odzyskiwania (RTO).
+Funkcja szyfrowanie danych Site Recovery była dostępna dla klientów chroniących maszyny wirtualne funkcji Hyper-V w celu zapewnienia ochrony replikowanych danych przed zagrożeniami bezpieczeństwa. Ta funkcja zostanie zaniechana **30 kwietnia 2022**. Jest ona zastępowana przez bardziej zaawansowane [szyfrowanie w funkcji REST](https://azure.microsoft.com/blog/azure-site-recovery-encryption-at-rest/) , która używa [szyfrowanie usługi Storage](../storage/common/storage-service-encryption.md) (SSE). W przypadku używania instrukcji SSE dane są szyfrowane przed utrwalaniem magazynu i odszyfrowywane podczas pobierania, a po przejściu do trybu failover na platformie Azure maszyny wirtualne będą uruchamiane z zaszyfrowanego konta magazynu, co pozwala na udoskonalony cel czasu odzyskiwania (RTO).
 
 Zwróć uwagę na to, że jeśli jesteś istniejącym klientem korzystającym z tej funkcji, otrzymasz komunikat z informacjami o wycofaniu i procedurami naprawczymi. 
 
 
 ## <a name="what-are-the-implications"></a>Jakie są implikacje?
 
-Po **30 grudnia 2019**wszystkie maszyny wirtualne, które nadal korzystają z wycofywanej funkcji szyfrowania, nie będą mogły wykonywać trybu failover. 
+Po **30 kwietnia 2022**wszystkie maszyny wirtualne, które nadal korzystają z wycofywanej funkcji szyfrowania, nie będą mogły wykonywać trybu failover. 
 
 ## <a name="required-action"></a>Wymagana akcja
 Aby kontynuować pomyślne operacje przełączania do trybu failover, wykonaj czynności opisane poniżej:
@@ -44,4 +44,3 @@ Po zakończeniu replikacji początkowej na konta magazynu z włączoną obsług�
 
 ## <a name="next-steps"></a>Następne kroki
 Zaplanuj wykonywanie kroków zaradczych i wykonaj je najwcześniej. Jeśli masz jakieś zapytania dotyczące tego wycofania, skontaktuj się z pomoc techniczna firmy Microsoft. Aby dowiedzieć się więcej na temat scenariusza funkcji Hyper-V do platformy Azure, zobacz [tutaj](hyper-v-vmm-architecture.md).
-

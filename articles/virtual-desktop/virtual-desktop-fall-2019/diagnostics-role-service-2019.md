@@ -1,5 +1,5 @@
 ---
-title: Problemy dotyczące diagnostyki pulpitu wirtualnego systemu Windows — Azure
+title: Problemy dotyczące diagnostyki pulpitu wirtualnego systemu Windows — jesień 2019 — Azure
 description: Jak zdiagnozować problemy przy użyciu funkcji diagnostyki pulpitu wirtualnego systemu Windows.
 services: virtual-desktop
 author: Heidilohr
@@ -8,11 +8,12 @@ ms.topic: conceptual
 ms.date: 05/13/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: b1822f6a5bf0d3ac4217a43978dfcc739044e812
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0aad1c780c6695c771d3cfea04509acde65c051e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84235565"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87085864"
 ---
 # <a name="identify-and-diagnose-issues"></a>Identyfikowanie i diagnozowanie problemów
 

@@ -14,11 +14,12 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.reviewer: anilmur
-ms.openlocfilehash: e2ccce13e4ef09426d0f3a02dcbce2f330b0ead8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f34e3a3d1e0245180ce923fc3ec7353ab1a176be
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84712296"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086357"
 ---
 # <a name="media-encoder-standard-formats-and-codecs"></a>Formaty i kodeki narzędzia Media Encoder Standard
 
@@ -38,7 +39,7 @@ Ten dokument zawiera listę najpopularniejszych formatów importu i eksportu pli
 | Windows Media Video (WMV)/ASF (wmv, asf) |Tak |
 | AVI (nieskompresowany 8-bitowy/10-bitowy) (avi) |Tak |
 | MP4 (mp4, m4a, m4v)/ISMV (isma, ismv) |Tak |
-| [Microsoft Digital Video Recording (DVR-MS)](https://msdn.microsoft.com/library/windows/desktop/dd692984) (dvr-ms) |Tak |
+| [Microsoft Digital Video Recording (DVR-MS)](/previous-versions/windows/desktop/mstv/about-the-dvr-ms-file-format) (dvr-ms) |Tak |
 | Matroska/WebM (mkv) |Tak |
 | WAVE/WAV (wav) |Tak |
 | QuickTime (mov) |Tak |
@@ -111,8 +112,7 @@ W poniższej tabeli wymieniono kodery-dekoder i formaty plików, które są obs�
 ## <a name="provide-feedback"></a>Wyraź opinię
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 [Kodowanie zawartości na żądanie za pomocą Azure Media Services](media-services-encode-asset.md)
 
 [Jak kodować przy użyciu Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-standard.md)
-

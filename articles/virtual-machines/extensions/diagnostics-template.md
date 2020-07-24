@@ -15,11 +15,12 @@ ms.topic: article
 ms.date: 05/31/2017
 ms.author: mimckitt
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d100f054da5f82bc4dea51e054a28cca07f5de7b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9d14ddf297afc68fd4e17795c4106271bc026c5a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81258834"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87085677"
 ---
 # <a name="use-monitoring-and-diagnostics-with-a-windows-vm-and-azure-resource-manager-templates"></a>Używanie monitorowania i diagnostyki z MASZYNami wirtualnymi z systemem Windows i szablonami Azure Resource Manager
 Rozszerzenie Diagnostyka Azure zapewnia możliwości monitorowania i diagnostyki na maszynie wirtualnej platformy Azure opartej na systemie Windows. Te możliwości można włączyć na maszynie wirtualnej, dołączając rozszerzenie jako część szablonu Azure Resource Manager. Zobacz [Tworzenie szablonów Azure Resource Manager z rozszerzeniami maszyn wirtualnych](../windows/template-description.md#extensions) , aby uzyskać więcej informacji na temat dołączania dowolnego rozszerzenia w ramach szablonu maszyny wirtualnej. W tym artykule opisano sposób dodawania rozszerzenia Diagnostyka Azure do szablonu maszyny wirtualnej z systemem Windows.  
@@ -61,7 +62,7 @@ W przypadku prostej maszyny wirtualnej opartej na Menedżer zasobów Dodaj konfi
 ]
 ```
 
-Inną wspólną Konwencją jest dodanie konfiguracji rozszerzenia w węźle zasobów głównych szablonu zamiast definiowania go w węźle zasoby maszyny wirtualnej. W tym podejściu należy jawnie określić hierarchiczną relację między rozszerzeniem i maszyną wirtualną z wartościami *nazw* i *typów* . Przykład: 
+Inną wspólną Konwencją jest dodanie konfiguracji rozszerzenia w węźle zasobów głównych szablonu zamiast definiowania go w węźle zasoby maszyny wirtualnej. W tym podejściu należy jawnie określić hierarchiczną relację między rozszerzeniem i maszyną wirtualną z wartościami *nazw* i *typów* . Na przykład: 
 
 ```json
 "name": "[concat(variables('vmName'),'Microsoft.Insights.VMDiagnosticsSettings')]",
@@ -78,7 +79,7 @@ Wartość właściwości *Nazwa* może służyć do odwoływania się do rozszer
 
 *TypeHandlerVersion* określa wersję rozszerzenia, którego chcesz użyć. Ustawienie wersji pomocniczej *włączoną flagą autoupgrademinorversion* na **true** gwarantuje, że otrzymasz najnowszą wersję pomocniczą rozszerzenia, które jest dostępne. Zdecydowanie zaleca się, aby zawsze ustawić *włączoną flagą autoupgrademinorversion* na **wartość true** , aby zawsze używać najnowszego rozszerzenia diagnostyki ze wszystkimi nowymi funkcjami i poprawkami błędów. 
 
-Element *Settings* zawiera właściwości konfiguracji dla rozszerzenia, które można ustawić i odczytywać z rozszerzenia (czasami nazywanego konfiguracją publiczną). Właściwość *xmlcfg* zawiera konfigurację opartą na języku XML dla dzienników diagnostycznych, liczników wydajności itp., które są zbierane przez agenta diagnostyki. Aby uzyskać więcej informacji na temat schematu XML, zobacz [Schemat konfiguracji diagnostyki](https://msdn.microsoft.com/library/azure/dn782207.aspx) . Typowym celem jest przechowywanie rzeczywistej konfiguracji XML jako zmiennej w szablonie Azure Resource Manager, a następnie łączenie i kodowanie Base64 w celu ustawienia wartości dla *xmlcfg*. Zapoznaj się z sekcją dotyczącą [zmiennych konfiguracyjnych diagnostyki](#diagnostics-configuration-variables) , aby dowiedzieć się więcej o sposobie przechowywania kodu XML w zmiennych. Właściwość *storageAccount* określa nazwę konta magazynu, do którego są przesyłane dane diagnostyczne. 
+Element *Settings* zawiera właściwości konfiguracji dla rozszerzenia, które można ustawić i odczytywać z rozszerzenia (czasami nazywanego konfiguracją publiczną). Właściwość *xmlcfg* zawiera konfigurację opartą na języku XML dla dzienników diagnostycznych, liczników wydajności itp., które są zbierane przez agenta diagnostyki. Aby uzyskać więcej informacji na temat schematu XML, zobacz [Schemat konfiguracji diagnostyki](/azure/azure-monitor/platform/diagnostics-extension-schema-windows) . Typowym celem jest przechowywanie rzeczywistej konfiguracji XML jako zmiennej w szablonie Azure Resource Manager, a następnie łączenie i kodowanie Base64 w celu ustawienia wartości dla *xmlcfg*. Zapoznaj się z sekcją dotyczącą [zmiennych konfiguracyjnych diagnostyki](#diagnostics-configuration-variables) , aby dowiedzieć się więcej o sposobie przechowywania kodu XML w zmiennych. Właściwość *storageAccount* określa nazwę konta magazynu, do którego są przesyłane dane diagnostyczne. 
 
 Można ustawić właściwości w *protectedSettings* (czasami określane jako Konfiguracja prywatna), ale nie można ich odczytywać po ustawieniu. Charakter tylko do zapisu *protectedSettings* ułatwia przechowywanie wpisów tajnych, takich jak klucz konta magazynu, w którym zapisywane są dane diagnostyczne.    
 
@@ -116,7 +117,7 @@ Poprzedni fragment kodu JSON rozszerzenia diagnostyki definiuje zmienną *Accoun
 
 Właściwość *xmlcfg* rozszerzenia diagnostyki jest definiowana przy użyciu wielu zmiennych połączonych ze sobą. Wartości tych zmiennych są w formacie XML, aby podczas ustawiania zmiennych JSON musiały zostać prawidłowo zmienione.
 
-W poniższym przykładzie opisano kod XML konfiguracji diagnostyki, który zbiera standardowe liczniki wydajności na poziomie systemu wraz z niektórymi dziennikami zdarzeń systemu Windows i dzienników infrastruktury diagnostyki. Został on zmieniony i poprawnie sformatowany, aby można było bezpośrednio wkleić konfigurację do sekcji zmiennych szablonu. Zobacz [Schemat konfiguracji diagnostyki](https://msdn.microsoft.com/library/azure/dn782207.aspx) , aby uzyskać bardziej czytelny przykład pliku XML konfiguracji.
+W poniższym przykładzie opisano kod XML konfiguracji diagnostyki, który zbiera standardowe liczniki wydajności na poziomie systemu wraz z niektórymi dziennikami zdarzeń systemu Windows i dzienników infrastruktury diagnostyki. Został on zmieniony i poprawnie sformatowany, aby można było bezpośrednio wkleić konfigurację do sekcji zmiennych szablonu. Zobacz [Schemat konfiguracji diagnostyki](/azure/azure-monitor/platform/diagnostics-extension-schema-windows) , aby uzyskać bardziej czytelny przykład pliku XML konfiguracji.
 
 ```json
 "wadlogs": "<WadCfg> <DiagnosticMonitorConfiguration overallQuotaInMB=\"4096\" xmlns=\"http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration\"> <DiagnosticInfrastructureLogs scheduledTransferLogLevelFilter=\"Error\"/> <WindowsEventLog scheduledTransferPeriod=\"PT1M\" > <DataSource name=\"Application!*[System[(Level = 1 or Level = 2)]]\" /> <DataSource name=\"Security!*[System[(Level = 1 or Level = 2)]]\" /> <DataSource name=\"System!*[System[(Level = 1 or Level = 2)]]\" /></WindowsEventLog>",
@@ -178,4 +179,4 @@ Każda tabela WADMetrics zawiera następujące kolumny:
 ## <a name="next-steps"></a>Następne kroki
 * Aby zapoznać się z kompletnym przykładowym szablonem maszyny wirtualnej z systemem Windows z rozszerzeniem Diagnostics, zobacz [201-VM-monitoring-Diagnostics-Extension](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-monitoring-diagnostics-extension)   
 * Wdrażanie szablonu Azure Resource Manager przy użyciu [Azure PowerShell](../windows/ps-template.md) lub [wiersza polecenia platformy Azure](../linux/create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* Dowiedz się więcej na temat [tworzenia szablonów Azure Resource Manager](../../resource-group-authoring-templates.md)
+* Dowiedz się więcej na temat [tworzenia szablonów Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md)

@@ -1,5 +1,5 @@
 ---
-title: Nawiązywanie połączenia z pulpitem wirtualnym systemu Windows z macOS — Azure
+title: Łączenie z pulpitem wirtualnym systemu Windows spada 2019 z macOS — Azure
 description: Jak nawiązać połączenie z pulpitem wirtualnym systemu Windows przy użyciu klienta macOS.
 services: virtual-desktop
 author: heidilohr
@@ -8,11 +8,12 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 024a1ab1a7fef58bd5fd8f9e7e0fc743a4ecee71
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1d8f9e3a5f4c529e3574be7dbeae8bd385f85367
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85213163"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087111"
 ---
 # <a name="connect-with-the-macos-client"></a>Nawiązywanie połączenia z klientem systemu macOS
 

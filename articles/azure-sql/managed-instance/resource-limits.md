@@ -12,12 +12,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
 ms.date: 02/25/2020
-ms.openlocfilehash: 013433d60b9f3e7f251f8d80d7b9b8f24b2395b3
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: faa338e32577e713472601fde52e038a685b7826
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206187"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086833"
 ---
 # <a name="overview-of-azure-sql-managed-instance-resource-limits"></a>Omówienie limitów zasobów wystąpienia zarządzanego usługi Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -128,7 +128,7 @@ Wystąpienie zarządzane SQL obecnie obsługuje wdrażanie tylko w następujący
 ## <a name="regional-resource-limitations"></a>Ograniczenia zasobów regionalnych
 
 > [!Note]
-> Aby uzyskać najnowsze informacje o dostępności regionów dla subskrypcji, należy najpierw zapoznać się z [oficjalnym wpisem w blogu COVID-19](https://aka.ms/sqlcapacity).
+> Aby uzyskać najnowsze informacje o dostępności regionów dla subskrypcji, najpierw [zaznacz region](https://aka.ms/sqlcapacity).
 
 Obsługiwane typy subskrypcji mogą zawierać ograniczoną liczbę zasobów na region. Wystąpienie zarządzane SQL ma dwa domyślne limity dla regionu platformy Azure (które można zwiększyć na żądanie, tworząc specjalne [żądanie pomocy technicznej w Azure Portal w](../database/quota-increase-request.md) zależności od typu subskrypcji:
 

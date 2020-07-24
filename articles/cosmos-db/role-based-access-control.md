@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/03/2020
 ms.author: mjbrown
-ms.openlocfilehash: cbb97dd260e5aee53595afc24e577ce08334e2b2
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 858e185a0e4fa406fb4645475673acc13a0d37f3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027022"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086677"
 ---
 # <a name="role-based-access-control-in-azure-cosmos-db"></a>Kontrola dostępu oparta na rolach w usłudze Azure Cosmos DB
 
@@ -41,14 +41,14 @@ Okienko **kontroli dostępu (IAM)** w Azure Portal służy do konfigurowania kon
 
 Oprócz wbudowanych ról użytkownicy mogą również tworzyć [role niestandardowe](../role-based-access-control/custom-roles.md) na platformie Azure i stosować te role do jednostek usługi we wszystkich subskrypcjach w ramach dzierżawy Active Directory. Role niestandardowe zapewniają użytkownikom sposób tworzenia definicji ról RBAC z niestandardowym zestawem operacji dostawcy zasobów. Aby dowiedzieć się, które operacje są dostępne do tworzenia ról niestandardowych dla Azure Cosmos DB Zobacz, [Azure Cosmos DB operacje dostawcy zasobów](../role-based-access-control/resource-provider-operations.md#microsoftdocumentdb)
 
-## <a name="preventing-changes-from-cosmos-sdk"></a>Uniemożliwianie zmian z zestawu SDK Cosmos
+## <a name="preventing-changes-from-the-azure-cosmos-db-sdks"></a><a id="prevent-sdk-changes"></a>Uniemożliwianie zmian z zestawów SDK Azure Cosmos DB
+
+Dostawcę zasobów Azure Cosmos DB można zablokować, aby zapobiec wprowadzeniu zmian w zasobach z klienta nawiązującego połączenie przy użyciu kluczy konta (czyli aplikacji łączących się za pośrednictwem zestawu Azure Cosmos SDK). Obejmuje to również zmiany wprowadzone w Azure Portal. Ta funkcja może być pożądana dla użytkowników, którzy chcą mieć wyższe stopnie kontroli i zarządzania w środowiskach produkcyjnych. Uniemożliwianie zmian z zestawu SDK włącza również funkcje, takie jak blokady zasobów i dzienniki diagnostyczne dla operacji na płaszczyźnie kontroli. Klienci łączący się z Azure Cosmos DB SDK nie będą mogli zmieniać żadnej właściwości dla kont, baz danych, kontenerów i przepływności usługi Azure Cosmos. Nie ma to wpływu na operacje dotyczące odczytywania i zapisywania danych w kontenerach Cosmos.
+
+Gdy ta funkcja jest włączona, zmiany dowolnego zasobu mogą zostać wykonane tylko przez użytkownika z odpowiednią rolą RBAC i Azure Active Directory poświadczenia, w tym tożsamości usługi zarządzanej.
 
 > [!WARNING]
-> Włączenie tej funkcji może mieć niebezpieczny wpływ na aplikację. Przed włączeniem tej funkcji należy uważnie przeczytać.
-
-Dostawcę zasobów Azure Cosmos DB można zablokować, aby zapobiec wprowadzeniu zmian w zasobach z dowolnego klienta nawiązującego połączenie przy użyciu kluczy konta (tj. aplikacji łączących się za pośrednictwem zestawu SDK Cosmos). Obejmuje to również zmiany wprowadzone w Azure Portal. Może to być pożądane w przypadku użytkowników, którzy chcą korzystać z wyższych stopni kontroli i zarządzania środowiskami produkcyjnymi oraz włączać funkcje takie jak blokady zasobów, a także włączać dzienniki diagnostyczne dla operacji płaszczyzny kontroli. Klienci łączący się za pośrednictwem Cosmos DB SDK nie będą mogli zmieniać żadnej właściwości dla kont Cosmos, baz danych, kontenerów i przepływności. Nie ma to wpływu na operacje dotyczące odczytywania i zapisywania danych w kontenerach Cosmos.
-
-Po ustawieniu zmiany w dowolnym zasobie mogą zostać wykonane tylko przez użytkownika z właściwą rolą RBAC i Azure Active Directory poświadczenia, w tym tożsamości usługi zarządzanej.
+> Włączenie tej funkcji może mieć wpływ na aplikację. Upewnij się, że rozumiesz wpływ przed jego włączeniem.
 
 ### <a name="check-list-before-enabling"></a>Sprawdź listę przed włączeniem
 
@@ -56,7 +56,7 @@ To ustawienie uniemożliwi wszelkie zmiany dowolnego zasobu Cosmos z dowolnego k
 
 - Wszelkie zmiany konta Cosmos, w tym wszelkie właściwości, lub Dodawanie lub usuwanie regionów.
 
-- Tworzenie, usuwanie zasobów podrzędnych, takich jak bazy danych i kontenery. Obejmuje to zasoby dla innych interfejsów API, takich jak Cassandra, MongoDB, Gremlin i Table.
+- Tworzenie, usuwanie zasobów podrzędnych, takich jak bazy danych i kontenery. Obejmuje to zasoby dla innych interfejsów API, takich jak Cassandra, MongoDB, Gremlin i zasoby tabeli.
 
 - Aktualizowanie przepływności dla zasobów bazy danych lub na poziomie kontenera.
 
@@ -64,11 +64,11 @@ To ustawienie uniemożliwi wszelkie zmiany dowolnego zasobu Cosmos z dowolnego k
 
 - Modyfikowanie procedur składowanych, wyzwalaczy lub funkcji zdefiniowanych przez użytkownika.
 
-Jeśli aplikacje (lub Użytkownicy za pośrednictwem Azure Portal) wykonują dowolne z tych akcji, muszą zostać zmigrowane w celu ich uruchomienia za pomocą [szablonów ARM](manage-sql-with-resource-manager.md), [programu PowerShell](manage-with-powershell.md), [interfejsu wiersza polecenia platformy Azure](manage-with-cli.md) [lub](/rest/api/cosmos-db-resource-provider/) [biblioteki zarządzania platformy Azure](https://github.com/Azure-Samples/cosmos-management-net). Należy pamiętać, że zarządzanie platformą Azure jest dostępne w [wielu językach](https://docs.microsoft.com/azure/?product=featured#languages-and-tools).
+Jeśli aplikacje (lub Użytkownicy za pośrednictwem Azure Portal) wykonują dowolne z tych akcji, muszą zostać zmigrowane, aby można je było uruchamiać za pomocą [szablonów ARM](manage-sql-with-resource-manager.md), [programu PowerShell](manage-with-powershell.md), [interfejsu wiersza polecenia platformy Azure](manage-with-cli.md), REST lub [biblioteki zarządzania platformy Azure](https://github.com/Azure-Samples/cosmos-management-net). Należy pamiętać, że zarządzanie platformą Azure jest dostępne w [wielu językach](https://docs.microsoft.com/azure/?product=featured#languages-and-tools).
 
 ### <a name="set-via-arm-template"></a>Ustawianie za pomocą szablonu ARM
 
-Aby ustawić tę właściwość przy użyciu szablonu ARM, zaktualizuj istniejący szablon lub wyeksportuj nowy szablon dla bieżącego wdrożenia, a następnie Dołącz `"disableKeyBasedMetadataWriteAccess": true` do właściwości zasobów databaseAccounts. Poniżej znajduje się podstawowy przykład szablonu Azure Resource Manager z tym ustawieniem właściwości.
+Aby ustawić tę właściwość przy użyciu szablonu ARM, zaktualizuj istniejący szablon lub wyeksportuj nowy szablon dla bieżącego wdrożenia, a następnie Dołącz `"disableKeyBasedMetadataWriteAccess": true` do właściwości `databaseAccounts` zasobów. Poniżej znajduje się podstawowy przykład szablonu Azure Resource Manager z tym ustawieniem właściwości.
 
 ```json
 {
@@ -93,7 +93,7 @@ Aby ustawić tę właściwość przy użyciu szablonu ARM, zaktualizuj istnieją
 
 ### <a name="set-via-azure-cli"></a>Ustawianie za pośrednictwem interfejsu wiersza polecenia platformy Azure
 
-Aby włączyć korzystanie z interfejsu wiersza polecenia platformy Azure, użyj poniższego polecenie:
+Aby włączyć korzystanie z interfejsu wiersza polecenia platformy Azure, użyj poniższego przykładu:
 
 ```azurecli-interactive
 az cosmosdb update  --name [CosmosDBAccountName] --resource-group [ResourceGroupName]  --disable-key-based-metadata-write-access true
@@ -111,5 +111,5 @@ Update-AzCosmosDBAccount -ResourceGroupName [ResourceGroupName] -Name [CosmosDBA
 ## <a name="next-steps"></a>Następne kroki
 
 - [Co to jest kontrola dostępu oparta na rolach (Azure RBAC)](../role-based-access-control/overview.md)
-- [Niestandardowe role dla zasobów platformy Azure](../role-based-access-control/custom-roles.md)
+- [Role niestandardowe platformy Azure](../role-based-access-control/custom-roles.md)
 - [Operacje dostawcy zasobów Azure Cosmos DB](../role-based-access-control/resource-provider-operations.md#microsoftdocumentdb)

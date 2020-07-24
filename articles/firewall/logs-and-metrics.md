@@ -5,13 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 01/22/2020
+ms.date: 07/21/2020
 ms.author: victorh
-ms.openlocfilehash: 89c6700d5df3bcef1332121c3cf7d8f720fe054c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9d0a46135e5f763e6253540fe62d63cb59026ccb
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76315035"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086595"
 ---
 # <a name="azure-firewall-logs-and-metrics"></a>Dzienniki i metryki usługi Azure Firewall
 
@@ -98,9 +99,13 @@ Następujące metryki są dostępne dla zapory platformy Azure:
 
     Jednostka: liczba
 
-- **Przetworzone dane** — ilość danych przechodzących przez zaporę.
+- **Przetworzone dane** — suma danych przechodzących przez zaporę w danym przedziale czasu.
 
     Jednostka: bajty
+
+- **Przepływność** — szybkość danych przechodzących przez zaporę na sekundę.
+
+    Jednostka: bity na sekundę
 
 - **Stan kondycji zapory** — wskazuje na kondycję zapory na podstawie dostępności portu.
 

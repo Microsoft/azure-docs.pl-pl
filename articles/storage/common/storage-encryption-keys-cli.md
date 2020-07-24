@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/02/2020
+ms.date: 07/13/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: d2390cbf41f9a93515f994040a287d69f0036168
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d6fa4bbaf9b37c93ef4efbe405087c39395df63d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85506207"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086017"
 ---
 # <a name="configure-customer-managed-keys-with-azure-key-vault-by-using-azure-cli"></a>Konfigurowanie kluczy zarządzanych przez klienta za pomocą Azure Key Vault przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -30,6 +30,7 @@ Aby włączyć klucze zarządzane przez klienta dla konta magazynu, należy najp
 Aby przypisać tożsamość zarządzaną za pomocą interfejsu wiersza polecenia platformy Azure, wywołaj polecenie [AZ Storage account Update](/cli/azure/storage/account#az-storage-account-update). Pamiętaj, aby zastąpić wartości zastępcze w nawiasach własnymi wartościami.
 
 ```azurecli-interactive
+az login
 az account set --subscription <subscription-id>
 
 az storage account update \
@@ -90,9 +91,33 @@ Szyfrowanie za pomocą usługi Azure Storage obsługuje klucze RSA i RSA-HSM o r
 
 ## <a name="configure-encryption-with-customer-managed-keys"></a>Konfigurowanie szyfrowania przy użyciu kluczy zarządzanych przez klienta
 
-Domyślnie szyfrowanie usługi Azure Storage używa kluczy zarządzanych przez firmę Microsoft. Skonfiguruj konto usługi Azure Storage dla kluczy zarządzanych przez klienta i określ klucz, który ma zostać skojarzony z kontem magazynu.
+Domyślnie szyfrowanie usługi Azure Storage używa kluczy zarządzanych przez firmę Microsoft. W tym kroku Skonfiguruj konto usługi Azure Storage do używania kluczy zarządzanych przez klienta z usługą Azure Key Vault, a następnie określ klucz, który ma zostać skojarzony z kontem magazynu.
 
-Aby zaktualizować ustawienia szyfrowania konta magazynu, wywołaj polecenie [AZ Storage account Update](/cli/azure/storage/account#az-storage-account-update), jak pokazano w poniższym przykładzie. Uwzględnij `--encryption-key-source` parametr i ustaw go na, aby `Microsoft.Keyvault` włączyć klucze zarządzane przez klienta dla konta magazynu. Przykładem jest również zapytanie dotyczące identyfikatora URI magazynu kluczy i najnowszej wersji klucza, obie wartości są konieczne do skojarzenia klucza z kontem magazynu. Pamiętaj, aby zastąpić wartości zastępcze w nawiasach własnymi wartościami.
+Podczas konfigurowania szyfrowania przy użyciu kluczy zarządzanych przez klienta można automatycznie obrócić klucz używany do szyfrowania, gdy wersja zostanie zmieniona w skojarzonym magazynie kluczy. Alternatywnie można jawnie określić wersję klucza do użycia podczas szyfrowania, dopóki wersja klucza nie zostanie zaktualizowana ręcznie.
+
+### <a name="configure-encryption-for-automatic-rotation-of-customer-managed-keys"></a>Konfigurowanie szyfrowania na potrzeby automatycznego rotacji kluczy zarządzanych przez klienta
+
+Aby skonfigurować szyfrowanie automatycznego rotacji kluczy zarządzanych przez klienta, zainstaluj [interfejs wiersza polecenia platformy Azure w wersji 2.4.0](/cli/azure/release-notes-azure-cli#april-21-2020) lub nowszej. Aby uzyskać więcej informacji, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/azure/install-azure-cli).
+
+Aby automatycznie obrócić klucze zarządzane przez klienta, należy pominąć wersję klucza podczas konfigurowania kluczy zarządzanych przez klienta dla konta magazynu. Wywołaj [AZ Storage account Update](/cli/azure/storage/account#az-storage-account-update) , aby zaktualizować ustawienia szyfrowania konta magazynu, jak pokazano w poniższym przykładzie. Dołącz `--encryption-key-source` parametr i ustaw go, aby `Microsoft.Keyvault` włączyć klucze zarządzane przez klienta dla konta. Pamiętaj, aby zastąpić wartości zastępcze w nawiasach własnymi wartościami.
+
+```azurecli-interactive
+key_vault_uri=$(az keyvault show \
+    --name <key-vault> \
+    --resource-group <resource_group> \
+    --query properties.vaultUri \
+    --output tsv)
+az storage account update
+    --name <storage-account> \
+    --resource-group <resource_group> \
+    --encryption-key-name <key> \
+    --encryption-key-source Microsoft.Keyvault \
+    --encryption-key-vault $key_vault_uri
+```
+
+### <a name="configure-encryption-for-manual-rotation-of-key-versions"></a>Konfigurowanie szyfrowania do ręcznego rotacji wersji kluczowych
+
+Aby jawnie określić wersję klucza do użycia na potrzeby szyfrowania, należy podać wersję klucza podczas konfigurowania szyfrowania przy użyciu kluczy zarządzanych przez klienta dla konta magazynu. Wywołaj [AZ Storage account Update](/cli/azure/storage/account#az-storage-account-update) , aby zaktualizować ustawienia szyfrowania konta magazynu, jak pokazano w poniższym przykładzie. Dołącz `--encryption-key-source` parametr i ustaw go, aby `Microsoft.Keyvault` włączyć klucze zarządzane przez klienta dla konta. Pamiętaj, aby zastąpić wartości zastępcze w nawiasach własnymi wartościami.
 
 ```azurecli-interactive
 key_vault_uri=$(az keyvault show \
@@ -114,9 +139,7 @@ az storage account update
     --encryption-key-vault $key_vault_uri
 ```
 
-## <a name="update-the-key-version"></a>Zaktualizuj wersję klucza
-
-Podczas tworzenia nowej wersji klucza należy zaktualizować konto magazynu, aby używało nowej wersji. Najpierw należy wykonać zapytanie dotyczące identyfikatora URI magazynu kluczy przez wywołanie [AZ Key magazyn show](/cli/azure/keyvault#az-keyvault-show)i dla wersji klucza przez wywołanie [AZ Key magazynu list-Versions](/cli/azure/keyvault/key#az-keyvault-key-list-versions). Następnie Wywołaj [AZ Storage account Update](/cli/azure/storage/account#az-storage-account-update) , aby zaktualizować ustawienia szyfrowania konta magazynu, aby użyć nowej wersji klucza, jak pokazano w poprzedniej sekcji.
+Po ręcznym obróceniu wersji klucza należy zaktualizować ustawienia szyfrowania konta magazynu, aby użyć nowej wersji. Najpierw należy wykonać zapytanie dotyczące identyfikatora URI magazynu kluczy przez wywołanie [AZ Key magazyn show](/cli/azure/keyvault#az-keyvault-show)i dla wersji klucza przez wywołanie [AZ Key magazynu list-Versions](/cli/azure/keyvault/key#az-keyvault-key-list-versions). Następnie Wywołaj [AZ Storage account Update](/cli/azure/storage/account#az-storage-account-update) , aby zaktualizować ustawienia szyfrowania konta magazynu, aby użyć nowej wersji klucza, jak pokazano w poprzednim przykładzie.
 
 ## <a name="use-a-different-key"></a>Użyj innego klucza
 
@@ -124,7 +147,7 @@ Aby zmienić klucz używany do szyfrowania usługi Azure Storage, wywołaj polec
 
 ## <a name="revoke-customer-managed-keys"></a>Odwołaj klucze zarządzane przez klienta
 
-Jeśli uważasz, że klucz mógł zostać naruszony, możesz odwołać klucze zarządzane przez klienta, usuwając zasady dostępu do magazynu kluczy. Aby odwołać klucz zarządzany przez klienta, wywołaj polecenie [AZ Key Delete-Policy](/cli/azure/keyvault#az-keyvault-delete-policy) , jak pokazano w poniższym przykładzie. Pamiętaj, aby zastąpić wartości symboli zastępczych w nawiasach własnymi wartościami i użyć zmiennych zdefiniowanych w poprzednich przykładach.
+Klucze zarządzane przez klienta można odwołać przez usunięcie zasad dostępu magazynu kluczy. Aby odwołać klucz zarządzany przez klienta, wywołaj polecenie [AZ Key Delete-Policy](/cli/azure/keyvault#az-keyvault-delete-policy) , jak pokazano w poniższym przykładzie. Pamiętaj, aby zastąpić wartości symboli zastępczych w nawiasach własnymi wartościami i użyć zmiennych zdefiniowanych w poprzednich przykładach.
 
 ```azurecli-interactive
 az keyvault delete-policy \

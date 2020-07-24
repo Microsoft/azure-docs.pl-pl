@@ -8,11 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 02/13/2020
-ms.openlocfilehash: 104975e6424ed96d43434a588997957033c31d93
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1839cfe0f7295af583b7bd5397957a223e888d3e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77560358"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086510"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-azure-powershell"></a>Zarządzanie klastrami Apache Hadoop w usłudze HDInsight przy użyciu Azure PowerShell
 
@@ -26,7 +27,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpł
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Program PowerShell [AZ module](https://docs.microsoft.com/powershell/azure/overview) został zainstalowany.
+Program PowerShell [AZ module](https://docs.microsoft.com/powershell/azure/) został zainstalowany.
 
 ## <a name="create-clusters"></a>Tworzenie klastrów
 

@@ -6,14 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 05/05/2020
+ms.date: 07/15/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 0e24bcb54fd26d4a3d983681b3348ef736b277cf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7ff0bb6d593a199bd249441cf484d1f0580774ac
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82884347"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086051"
 ---
 # <a name="enable-and-manage-blob-versioning"></a>Włączanie obsługi wersji obiektów blob i zarządzanie nimi
 
@@ -21,7 +22,7 @@ W dowolnym momencie możesz włączyć lub wyłączyć obsługę wersji obiektó
 
 ## <a name="enable-blob-versioning"></a>Włączanie obsługi wersji obiektów blob
 
-# <a name="azure-portal"></a>[Azure Portal](#tab/portal)
+# <a name="azure-portal"></a>[Witryna Azure Portal](#tab/portal)
 
 Aby włączyć obsługę wersji obiektów BLOB w Azure Portal:
 
@@ -67,7 +68,7 @@ Aby uzyskać więcej informacji na temat wdrażania zasobów przy użyciu szablo
 
 ## <a name="modify-a-blob-to-trigger-a-new-version"></a>Modyfikowanie obiektu BLOB w celu wyzwolenia nowej wersji
 
-Poniższy przykład kodu pokazuje, jak wyzwolić Tworzenie nowej wersji za pomocą biblioteki klienckiej usługi Azure Storage dla programu .NET w wersji 12. Przed uruchomieniem tego przykładu upewnij się, że włączono obsługę wersji dla konta magazynu.
+Poniższy przykład kodu pokazuje, jak wyzwolić Tworzenie nowej wersji za pomocą biblioteki klienta usługi Azure Storage dla platformy .NET w wersji [12.5.0-Preview. 5](https://www.nuget.org/packages/Azure.Storage.Blobs/12.5.0-preview.5) lub nowszej. Przed uruchomieniem tego przykładu upewnij się, że włączono obsługę wersji dla konta magazynu.
 
 Przykład tworzy blokowy obiekt BLOB, a następnie aktualizuje metadane obiektu BLOB. Aktualizacja metadanych obiektu BLOB wyzwala Tworzenie nowej wersji. Przykład Pobiera wersję początkową i bieżącą wersję oraz pokazuje, że tylko bieżąca wersja zawiera metadane.
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mingshen
 ms.author: mingshen
 ms.date: 06/17/2020
-ms.openlocfilehash: cea4a43724629793123098084098299e3915be7c
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: c659bbe3e5f5645bb42b3a9c94a5e5fb7ebe75f0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86109677"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086476"
 ---
 # <a name="create-an-azure-container-offer-in-azure-marketplace"></a>Tworzenie oferty kontenera platformy Azure w portalu Azure Marketplace
 
@@ -50,7 +50,7 @@ Wybierz pozycję **Utwórz** , aby wygenerować ofertę i kontynuować.
 
 Na stronie **Przegląd oferty** przedstawiono wizualną reprezentację kroków wymaganych do opublikowania oferty (zarówno ukończonej, jak i nadchodzącej) oraz czasu, w którym należy wykonać poszczególne kroki.
 
-Ta strona zawiera różne linki w zależności od bieżącego stanu oferty. Przykład:
+Ta strona zawiera różne linki w zależności od bieżącego stanu oferty. Na przykład:
 
 - Jeśli oferta jest ofertą typu wersja robocza, [Usuń wersję roboczą](update-existing-offer.md#delete-a-draft-offer)
 - Jeśli oferta jest aktywna [, Zatrzymaj sprzedawanie oferty](update-existing-offer.md#stop-selling-an-offer-or-plan)
@@ -250,17 +250,17 @@ Wybierz pozycję **Zapisz wersję roboczą** przed kontynuowaniem.
 
 ### <a name="plan-overview"></a>Przegląd planu
 
-Na tej karcie można podać różne opcje planu w ramach tej samej oferty. Te plany były wcześniej nazywane jednostkami SKU lub magazynowaniem. Plany mogą się różnić w zależności od tego, jakie chmury są dostępne, takich jak chmury globalne, chmury rządowe i obraz, do którego odwołuje się plan. Aby wystawić ofertę w komercyjnej witrynie Marketplace, należy skonfigurować co najmniej jeden plan.
+Na tej karcie można podać różne opcje planu w ramach tej samej oferty. Plany (dawniej nazywane jednostkami SKU) mogą różnić się od dostępnych chmur, takich jak chmury globalne, chmury rządowe i obraz, do którego odwołuje się plan. Aby wystawić ofertę w komercyjnej witrynie Marketplace, należy skonfigurować co najmniej jeden plan.
 
 Po utworzeniu planów na karcie **Przegląd planu** jest wyświetlana wartość:
 
 - Nazwy planów
 - Model cen
-- Dostępność w chmurze (globalna lub rządowa)
+- Regiony platformy Azure (globalne lub rządowe)
 - Bieżący stan publikowania
 - Wszystkie dostępne akcje
 
-Akcje dostępne w omówieniu planu różnią się w zależności od bieżącego stanu planu. Obejmują one:
+Akcje dostępne w omówieniu planu różnią się w zależności od bieżącego stanu planu. Dostępne są następujące ustawienia:
 
 - **Usuń wersję roboczą** — Jeśli plan jest stanem wersja robocza.
 - **Zatrzymaj sprzedawanie planu** — Jeśli stan planu jest opublikowany na żywo.
@@ -293,7 +293,7 @@ Przed [opublikowaniem](../../azure-government/documentation-government-manage-ma
 
 #### <a name="azure-government-certifications"></a>Certyfikaty Azure Government
 
-Tę opcję można zobaczyć tylko w przypadku wybrania **Azure Government** w obszarze **dostępność chmury**.
+Tę opcję można zobaczyć tylko w przypadku wybrania **Azure Government** w obszarze **regiony platformy Azure**.
 
 Usługi Azure Government Services obsługują dane, które podlegają określonym przepisom i wymogom rządowym. Na przykład FedRAMP, NIST 800,171 (DIB), ITAR, IRS 1075, DoD P4 i CJIS.
 
@@ -382,7 +382,7 @@ Wszystkie Tagi manifestu (z wyjątkiem najnowszego tagu) muszą zaczynać się o
 > [!NOTE]
 > Pamiętaj, aby dodać tag testowy do obrazu, aby można było zidentyfikować obraz podczas testowania.
 
-## <a name="review-and-publish"></a>Przejrzyj i Opublikuj
+## <a name="review-and-publish"></a>Przeglądanie i publikowanie
 
 Po zakończeniu wszystkich wymaganych sekcji oferty możesz przesłać ją do przeglądu i publikacji.
 

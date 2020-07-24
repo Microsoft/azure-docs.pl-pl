@@ -7,11 +7,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 09/13/2017
 ms.author: mimckitt
-ms.openlocfilehash: 0825a29b45ea701315a57ff5248731e64e29de32
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c7ca47e0fbb9acbac67f2cc9af6e1e7555690046
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81261639"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87085609"
 ---
 # <a name="introduction-to-freebsd-on-azure"></a>Wprowadzenie do systemu FreeBSD na platformie Azure
 Ten artykuł zawiera omówienie uruchamiania maszyny wirtualnej FreeBSD na platformie Azure.
@@ -30,7 +31,7 @@ Agent jest odpowiedzialny za komunikację między maszyną wirtualną FreeBSD i 
 Tak jak w przypadku przyszłych wersji FreeBSD, strategia ma być aktualna i najnowsze wersje są dostępne wkrótce po ich opublikowaniu przez zespół inżynierów wydawniczych FreeBSD.
 
 ### <a name="create-a-freebsd-vm-through-azure-cli-on-freebsd"></a>Tworzenie maszyny wirtualnej FreeBSD za pomocą interfejsu wiersza polecenia platformy Azure na platformie FreeBSD
-Najpierw należy zainstalować [interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) , chociaż następujące polecenie na komputerze FreeBSD.
+Najpierw należy zainstalować [interfejs wiersza polecenia platformy Azure](/cli/azure/get-started-with-azure-cli) , chociaż następujące polecenie na komputerze FreeBSD.
 
 ```bash 
 curl -L https://aka.ms/InstallAzureCli | bash

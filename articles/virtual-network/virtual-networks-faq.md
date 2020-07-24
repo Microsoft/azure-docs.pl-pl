@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/26/2020
 ms.author: kumud
-ms.openlocfilehash: 5d32c130205420ef8f20d7ce8cb97f9a2595e978
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 0f277661ab61e7292fbb81d96c26c7d48c6d03ef
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86232206"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087054"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Często zadawane pytania dotyczące sieci wirtualnych platformy Azure
 
@@ -44,7 +44,7 @@ Tak. Możesz użyć sieci wirtualnej bez łączenia jej z Twoim lokalem. Można 
 ### <a name="can-i-perform-wan-optimization-between-vnets-or-a-vnet-and-my-on-premises-data-center"></a>Czy mogę przeprowadzić optymalizację sieci WAN między sieci wirtualnychą a siecią wirtualną i lokalnym centrum danych?
 Tak. [Wirtualne urządzenie sieciowe optymalizacji sieci WAN](https://azuremarketplace.microsoft.com/en-us/marketplace/?term=wan%20optimization) można wdrożyć od kilku dostawców za pośrednictwem portalu Azure Marketplace.
 
-## <a name="configuration"></a>Konfiguracja
+## <a name="configuration"></a>Konfigurowanie
 
 ### <a name="what-tools-do-i-use-to-create-a-vnet"></a>Jakie narzędzia są używane do tworzenia sieci wirtualnej?
 Aby utworzyć lub skonfigurować sieć wirtualną, można użyć następujących narzędzi:
@@ -236,7 +236,7 @@ Tak. Interfejsów API REST można używać dla sieci wirtualnych w ramach [Azure
 ### <a name="is-there-tooling-support-for-vnets"></a>Czy istnieją narzędzia obsługujące sieci wirtualnych?
 Tak. Dowiedz się więcej o korzystaniu z programu:
 - Azure Portal wdrażania sieci wirtualnych za pomocą [Azure Resource Manager](manage-virtual-network.md#create-a-virtual-network) i [klasycznych](virtual-networks-create-vnet-classic-pportal.md) modeli wdrażania.
-- Program PowerShell do zarządzania usługą sieci wirtualnych wdrożoną za pomocą [Menedżer zasobów](/powershell/module/az.network) i [klasycznych](/powershell/module/servicemanagement/azure/?view=azuresmps-3.7.0) modeli wdrażania.
+- Program PowerShell do zarządzania usługą sieci wirtualnych wdrożoną za pomocą [Menedżer zasobów](/powershell/module/az.network) i [klasycznych](/powershell/module/servicemanagement/azure.service/?view=azuresmps-3.7.0) modeli wdrażania.
 - Interfejs wiersza polecenia (CLI) platformy Azure do wdrażania sieci wirtualnych wdrożonych w ramach [Menedżer zasobów](/cli/azure/network/vnet) i [klasycznych](../virtual-machines/azure-cli-arm-commands.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-resources) modeli wdrażania oraz zarządzania nimi.  
 
 ## <a name="vnet-peering"></a>Komunikacja równorzędna sieci wirtualnych
@@ -252,7 +252,7 @@ Jeśli dwie sieci wirtualne w dwóch różnych regionach są połączone za pomo
 Poniższe zasoby mogą korzystać z podstawowych modułów równoważenia obciążenia, co oznacza, że nie można uzyskać dostępu do nich za pośrednictwem adresu IP frontonu Load Balancer w ramach globalnej komunikacji równorzędnej sieci wirtualnej. Można jednak użyć globalnej komunikacji równorzędnej sieci wirtualnej, aby uzyskać dostęp do zasobów bezpośrednio za pomocą prywatnych adresów IP, jeśli jest to dozwolone. 
 - Maszyny wirtualne za podstawowymi usługami równoważenia obciążenia
 - Zestawy skalowania maszyn wirtualnych z podstawowymi usługami równoważenia obciążenia 
-- Redis Cache 
+- Pamięć podręczna Redis 
 - Jednostka SKU Application Gateway (v1)
 - Service Fabric
 - SQL — MI

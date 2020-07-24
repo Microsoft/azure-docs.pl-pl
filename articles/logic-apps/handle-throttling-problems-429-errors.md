@@ -6,11 +6,12 @@ ms.suite: integration
 ms.reviewer: deli, logicappspm
 ms.topic: conceptual
 ms.date: 04/13/2020
-ms.openlocfilehash: fbfd52065bc0522668488492de2181f252f86a4e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 495847d31682aff64fed3c81b1d5d68cf67dfd38
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81272682"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086443"
 ---
 # <a name="handle-throttling-problems-429---too-many-requests-errors-in-azure-logic-apps"></a>Obsłuż problemy związane z ograniczaniem (429-"zbyt wiele żądań") w Azure Logic Apps
 
@@ -76,7 +77,7 @@ Aby obsłużyć ograniczenie przepustowości na tym poziomie, dostępne są nast
 
 ## <a name="connector-throttling"></a>Ograniczanie łącznika
 
-Każdy Łącznik ma własne limity ograniczania przepustowości, które można znaleźć na stronie dokumentacji technicznej łącznika. Na przykład [łącznik Azure Service Bus](https://docs.microsoft.com/connectors/servicebus/) ma limit ograniczania, który zezwala na 6 000 wywołań na minutę, podczas gdy łącznik SQL Server ma [limity ograniczania, które różnią się w zależności od typu operacji](https://docs.microsoft.com/connectors/sql/).
+Każdy Łącznik ma własne limity ograniczania przepustowości, które można znaleźć na stronie dokumentacji technicznej łącznika. Na przykład [łącznik Azure Service Bus](/connectors/servicebus/) ma limit ograniczania, który zezwala na 6 000 wywołań na minutę, podczas gdy łącznik SQL Server ma [limity ograniczania, które różnią się w zależności od typu operacji](/connectors/sql/).
 
 Niektóre wyzwalacze i akcje, takie jak HTTP, mają ["zasady ponawiania"](../logic-apps/logic-apps-exception-handling.md#retry-policies) , które można dostosować na podstawie [limitów zasad ponawiania](../logic-apps/logic-apps-limits-and-config.md#retry-policy-limits) w celu zaimplementowania obsługi wyjątków. Te zasady określają, czy i jak często wyzwalacz lub akcja ponawiają żądanie, gdy oryginalne żądanie zakończy się niepowodzeniem lub przekroczy limit czasu, a wynikiem jest odpowiedź 408, 429 lub 5xx. W związku z tym, gdy ograniczanie zostanie rozpoczęte i zwróci błąd 429, Logic Apps następuje zgodnie z zasadami ponawiania, jeśli są obsługiwane.
 

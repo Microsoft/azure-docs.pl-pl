@@ -5,21 +5,21 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 7/10/2020
+ms.date: 7/14/2020
 ms.author: raynew
-ms.openlocfilehash: b7551ec01e3401c0636b47a25d83173b6322d06e
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 465b0ca3fdc5dd96b03ec7ab53bf453c4cdc083d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86219882"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086170"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Macierz obsługi odzyskiwania po awarii lokalnych maszyn wirtualnych funkcji Hyper-V na platformie Azure
 
-
 W tym artykule zestawiono obsługiwane składniki i ustawienia odzyskiwania po awarii lokalnych maszyn wirtualnych funkcji Hyper-V na platformie Azure przy użyciu [Azure Site Recovery](site-recovery-overview.md).
 
-
+>[!NOTE]
+> Site Recovery nie przenosi ani nie zapisuje danych klienta poza regionem docelowym, w którym Konfiguracja odzyskiwania po awarii została skonfigurowana dla maszyn źródłowych. Klienci mogą wybrać magazyn Recovery Services z innego regionu, jeśli tak się wybierzesz. Magazyn Recovery Services zawiera metadane, ale nie dane rzeczywiste klienta.
 
 ## <a name="supported-scenarios"></a>Obsługiwane scenariusze
 
@@ -73,6 +73,7 @@ Sieć VMNETWORK gościa: statyczny adres IP (system Windows) | Tak | Tak
 Sieć VMNETWORK gościa: statyczny adres IP (Linux) | Nie | Nie
 Sieć VMNETWORK gościa: wiele kart sieciowych | Tak | Tak
 Serwer proxy HTTPS | Nie | Nie
+Prywatny dostęp do połączenia z usługą Site Recovery | Tak. [Dowiedz się więcej](hybrid-how-to-enable-replication-private-endpoints.md). | Tak. [Dowiedz się więcej](hybrid-how-to-enable-replication-private-endpoints.md).
 
 
 

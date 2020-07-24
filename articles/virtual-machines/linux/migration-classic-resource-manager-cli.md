@@ -8,19 +8,19 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 02/06/2020
 ms.author: tagore
-ms.openlocfilehash: a5a9ace105e56d9db61470c35f665954812c3825
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 92543383ad530242eab59387e658e7b9d137f328
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134254"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87085507"
 ---
 # <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-azure-cli"></a>Migrowanie zasobów rozwiązania IaaS z modelu klasycznego do modelu opartego na usłudze Azure Resource Manager przy użyciu interfejsu wiersza polecenia
 
 > [!IMPORTANT]
-> Dzisiaj około 90% maszyn wirtualnych IaaS korzysta z [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/). Od 28 lutego 2020, klasyczne maszyny wirtualne są przestarzałe i zostaną w pełni wycofane z 1 marca 2023. [Dowiedz się więcej]( https://aka.ms/classicvmretirement) o tym zaniechaniu i [sposobach jego działania](https://docs.microsoft.com/azure/virtual-machines/classic-vm-deprecation#how-does-this-affect-me).
+> Dzisiaj około 90% maszyn wirtualnych IaaS korzysta z [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/). Od 28 lutego 2020, klasyczne maszyny wirtualne są przestarzałe i zostaną w pełni wycofane z 1 marca 2023. [Dowiedz się więcej]( https://aka.ms/classicvmretirement) o tym zaniechaniu i [sposobach jego działania](../classic-vm-deprecation.md#how-does-this-affect-me).
 
-W tych krokach pokazano, jak za pomocą poleceń interfejsu wiersza polecenia (CLI) platformy Azure przeprowadzić migrację zasobów infrastruktury jako usługi (IaaS) z klasycznego modelu wdrażania do modelu wdrażania Azure Resource Manager. Artykuł wymaga [klasycznego interfejsu wiersza polecenia platformy Azure](../../cli-install-nodejs.md). Ponieważ interfejs wiersza polecenia platformy Azure ma zastosowanie tylko do zasobów Azure Resource Manager, nie można go użyć do tej migracji.
+W tych krokach pokazano, jak za pomocą poleceń interfejsu wiersza polecenia (CLI) platformy Azure przeprowadzić migrację zasobów infrastruktury jako usługi (IaaS) z klasycznego modelu wdrażania do modelu wdrażania Azure Resource Manager. Artykuł wymaga [klasycznego interfejsu wiersza polecenia platformy Azure](/cli/azure/install-classic-cli). Ponieważ interfejs wiersza polecenia platformy Azure ma zastosowanie tylko do zasobów Azure Resource Manager, nie można go użyć do tej migracji.
 
 > [!NOTE]
 > Wszystkie operacje opisane w tym miejscu to idempotentne. Jeśli wystąpi problem inny niż nieobsługiwana funkcja lub błąd konfiguracji, zalecamy ponowną próbę wykonania operacji przygotowywania, przerwania lub zatwierdzania. Platforma spróbuje wykonać akcję ponownie.
@@ -46,7 +46,7 @@ Poniżej przedstawiono kilka najlepszych rozwiązań, które zalecamy podczas sz
 > 
 
 ## <a name="step-2-set-your-subscription-and-register-the-provider"></a>Krok 2. Ustawianie subskrypcji i rejestrowanie dostawcy
-W przypadku scenariuszy migracji należy skonfigurować środowisko dla klasycznego i Menedżer zasobów. [Zainstaluj interfejs wiersza polecenia platformy Azure](../../cli-install-nodejs.md) i [Wybierz swoją subskrypcję](/cli/azure/authenticate-azure-cli).
+W przypadku scenariuszy migracji należy skonfigurować środowisko dla klasycznego i Menedżer zasobów. [Zainstaluj interfejs wiersza polecenia platformy Azure](/cli/azure/install-classic-cli) i [Wybierz swoją subskrypcję](/cli/azure/authenticate-azure-cli).
 
 Zaloguj się do swojego konta.
 

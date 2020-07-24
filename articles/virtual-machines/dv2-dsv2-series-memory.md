@@ -7,11 +7,12 @@ ms.subservice: sizes
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 7dbc1f111225ecbe40329594479a8469f8bd8418
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 12c6246af59172b303cebd2d3344469f88ce1966
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84694712"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87085745"
 ---
 # <a name="memory-optimized-dv2-and-dsv2-series"></a>Zoptymalizowane pod kątem pamięci Dv2 i Dsv2
 
@@ -26,6 +27,10 @@ ACU: 210–250
 Premium Storage: nieobsługiwane
 
 Buforowanie Premium Storage: nieobsługiwane
+
+Migracja na żywo: obsługiwane
+
+Aktualizacje z zachowaniem pamięci: obsługiwane
 
 | Rozmiar | Procesor wirtualny | Pamięć: GiB | Magazyn tymczasowy (SSD): GiB | Maksymalna przepływność magazynu: IOPS/Odczyt MB/s/zapis MB/s | Maksymalna liczba dysków danych/przepływność: IOPS | Maksymalna liczba kart sieciowych/oczekiwana przepustowość sieci (MB/s) |
 |---|---|---|---|---|---|---|
@@ -48,6 +53,10 @@ Premium Storage: obsługiwane
 
 Buforowanie Premium Storage: obsługiwane
 
+Migracja na żywo: obsługiwane
+
+Aktualizacje z zachowaniem pamięci: obsługiwane
+
 | Rozmiar | Procesor wirtualny | Pamięć: GiB | Magazyn tymczasowy (SSD): GiB | Maks. liczba dysków danych | Maksymalna przepływność magazynu w pamięci podręcznej i temp: IOPS/MB/s (rozmiar pamięci podręcznej w GiB) | Maksymalna przepływność dysku w pamięci podręcznej: liczba operacji we/wy na sekundę | Maksymalna liczba kart sieciowych/oczekiwana przepustowość sieci (MB/s) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_DS11_v2 <sup>3</sup> | 2  | 14  | 28  | 8  | 8000/64 (72)    | 6400/96   | 2/1500  |
@@ -65,7 +74,7 @@ dostępne są <sup>3</sup> ograniczone rozmiary rdzeni.
 
 ## <a name="other-sizes"></a>Inne rozmiary
 
-- [Zastosowania ogólne](sizes-general.md)
+- [Ogólnego przeznaczenia](sizes-general.md)
 - [Optymalizacja pod kątem pamięci](sizes-memory.md)
 - [Optymalizacja pod kątem magazynu](sizes-storage.md)
 - [Optymalizacja pod kątem procesora GPU](sizes-gpu.md)

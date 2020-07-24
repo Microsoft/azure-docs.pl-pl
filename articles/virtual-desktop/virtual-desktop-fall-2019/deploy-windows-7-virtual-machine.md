@@ -1,5 +1,5 @@
 ---
-title: Wdrażanie pulpitu wirtualnego systemu Windows w systemie Windows 7 — Azure
+title: Wdrażanie pulpitu wirtualnego systemu Windows w systemie Windows 7 2019 — Azure
 description: Jak skonfigurować i wdrożyć maszynę wirtualną z systemem Windows 7 na pulpicie wirtualnym systemu Windows.
 services: virtual-desktop
 author: Heidilohr
@@ -8,14 +8,14 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 92ab8e006ab7fef3c7e856cc34467b4510055174
-ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.openlocfilehash: 3d8ce67f129844c09a93b29c8100fe28096c520c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86275890"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87085881"
 ---
-# <a name="deploy-a-windows-7-virtual-machine-on-windows-virtual-desktop"></a>Wdrażanie maszyny wirtualnej z systemem Windows 7 w usłudze Windows Virtual Desktop
+# <a name="deploy-a-windows-7-virtual-machine-on-windows-virtual-desktop---fall-2019"></a>Wdrażanie maszyny wirtualnej z systemem Windows 7 na pulpicie wirtualnym systemu Windows — jesień 2019
 
 >[!IMPORTANT]
 >Ta zawartość dotyczy wersji 2019, która nie Azure Resource Manager obsługuje obiektów pulpitu wirtualnego systemu Windows. Jeśli próbujesz zarządzać Azure Resource Manager obiektami pulpitu wirtualnego systemu Windows wprowadzonymi w ramach aktualizacji wiosną 2020, zobacz [ten artykuł](../deploy-windows-7-virtual-machine.md).

@@ -2,13 +2,13 @@
 title: Łączenie szablonów do wdrożenia
 description: Opisuje, jak używać połączonych szablonów w szablonie Azure Resource Manager, aby utworzyć modularne rozwiązanie szablonów. Pokazuje, jak przekazać wartości parametrów, określić plik parametrów i dynamicznie tworzone adresy URL.
 ms.topic: conceptual
-ms.date: 06/26/2020
-ms.openlocfilehash: 6b28268a522dde4fe16ccf9d0d01738c3b6a9b5d
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.date: 07/21/2020
+ms.openlocfilehash: 40da2443828a07f2171922fcc6d8976d464d0ad4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170653"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086816"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Używanie połączonych i zagnieżdżonych szablonów podczas wdrażania zasobów platformy Azure
 
@@ -315,6 +315,11 @@ W przypadku odwoływania się do połączonego szablonu wartość `uri` nie moż
 > Można odwoływać się do szablonów przy użyciu parametrów, które ostatecznie rozwiązują się do elementu, który używa **protokołu HTTP** lub **https**, na przykład przy użyciu tego `_artifactsLocation` parametru, takiego jak:`"uri": "[concat(parameters('_artifactsLocation'), '/shared/os-disk-parts-md.json', parameters('_artifactsLocationSasToken'))]",`
 
 Menedżer zasobów musi mieć możliwość uzyskania dostępu do szablonu. Jedną z opcji jest umieszczenie powiązanego szablonu na koncie magazynu i użycie identyfikatora URI dla tego elementu.
+
+[Specyfikacje szablonu](./template-specs.md) (obecnie w prywatnej wersji zapoznawczej) umożliwiają udostępnianie szablonów ARM innym użytkownikom w organizacji. Specyfikacje szablonów mogą być również używane do pakowania szablonu głównego i jego połączonych szablonów. Aby uzyskać więcej informacji, zobacz:
+
+- [Samouczek: Tworzenie specyfikacji szablonu z połączonymi szablonami](./template-specs-create-linked.md).
+- [Samouczek: wdrażanie specyfikacji szablonu jako połączonego szablonu](./template-specs-deploy-linked-template.md).
 
 ### <a name="parameters-for-linked-template"></a>Parametry połączonego szablonu
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: JnHs
 ms.author: jenhayes
 ms.date: 07/07/2020
-ms.openlocfilehash: 70f0dbff2530b11e92bd0b0cc55ad92a8679ebe9
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 3bb663dcdf007bf77d1b9f2b46af532774af22e1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121796"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086391"
 ---
 # <a name="create-a-managed-service-offer"></a>Tworzenie oferty usługi zarządzanej
 
@@ -177,7 +177,7 @@ Wybierz pozycję **Zapisz wersję roboczą** przed kontynuowaniem.
 
 ## <a name="plan-overview"></a>Przegląd planu
 
-Każda oferta musi mieć co najmniej jeden plan (czasami określany jako jednostki SKU). Możesz dodać wiele planów, aby obsługiwać różne zestawy funkcji w różnych cenach lub dostosować konkretny plan dla ograniczonej liczby odbiorców określonych klientów. Klienci mogą przeglądać plany, które są dostępne dla nich w ramach oferty nadrzędnej.
+Każda oferta musi mieć jeden lub więcej planów (dawniej nazywanych jednostkami SKU). Możesz dodać wiele planów, aby obsługiwać różne zestawy funkcji w różnych cenach lub dostosować konkretny plan dla ograniczonej liczby odbiorców określonych klientów. Klienci mogą przeglądać plany, które są dostępne dla nich w ramach oferty nadrzędnej.
 
 Na stronie **Przegląd planu** wybierz pozycję **+ Utwórz nowy plan**. Następnie wprowadź **identyfikator planu** i **nazwę planu**. Obie te wartości mogą zawierać tylko małe znaki alfanumeryczne, łączniki i podkreślenia, maksymalnie 50 znaków. Te wartości mogą być widoczne dla klientów i nie można ich zmienić po opublikowaniu oferty.
 
@@ -242,7 +242,7 @@ Po zakończeniu wszystkich sekcji planu możesz wybrać pozycję **+ Utwórz now
 
 Wybierz pozycję **Zapisz wersję roboczą** przed kontynuowaniem.
 
-## <a name="publish"></a>Publikowanie
+## <a name="publish"></a>Opublikuj
 
 ### <a name="submit-offer-to-preview"></a>Prześlij ofertę do wersji zapoznawczej
 

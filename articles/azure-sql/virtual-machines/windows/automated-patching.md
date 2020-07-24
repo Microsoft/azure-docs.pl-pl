@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 03/07/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: f1f564a36a3f0103832bc81bbbc65d2818c03143
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 822d74c6f080a1bb1e5e5af38bdf2c221af16d52
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86232014"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086765"
 ---
 # <a name="automated-patching-for-sql-server-on-azure-virtual-machines-resource-manager"></a>Automatyczne stosowanie poprawek dla SQL Server w usłudze Azure Virtual Machines (Menedżer zasobów)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -51,7 +51,7 @@ Aby używać zautomatyzowanej poprawki, należy wziąć pod uwagę następujące
 
 **Azure PowerShell**:
 
-* [Zainstaluj najnowsze polecenia Azure PowerShell](/powershell/azure/overview) , jeśli planujesz skonfigurować automatyczne stosowanie poprawek za pomocą programu PowerShell.
+* [Zainstaluj najnowsze polecenia Azure PowerShell](/powershell/azure/) , jeśli planujesz skonfigurować automatyczne stosowanie poprawek za pomocą programu PowerShell.
 
 [!INCLUDE [updated-for-az.md](../../../../includes/updated-for-az.md)]
 
@@ -69,7 +69,7 @@ W poniższej tabeli opisano opcje, które można skonfigurować do automatyczneg
 | **Harmonogram obsługi** |Codzienne, poniedziałek, wtorek, środa, czwartek, piątek, Sobota, niedziela |Harmonogram pobierania i instalowania aktualizacji systemu Windows, SQL Server i Microsoft dla maszyny wirtualnej. |
 | **Godzina rozpoczęcia konserwacji** |0-24 |Godzina rozpoczęcia aktualizowania maszyny wirtualnej. |
 | **Czas trwania okna obsługi** |30-180 |Liczba minut, przez jaką można ukończyć pobieranie i instalowanie aktualizacji. |
-| **Kategoria poprawek** |Ważny | Kategoria aktualizacji systemu Windows do pobrania i zainstalowania.|
+| **Kategoria poprawek** |Ważne | Kategoria aktualizacji systemu Windows do pobrania i zainstalowania.|
 
 ## <a name="configure-in-the-azure-portal"></a>Skonfiguruj w Azure Portal
 Za pomocą Azure Portal można skonfigurować automatyczne stosowanie poprawek podczas aprowizacji lub istniejących maszyn wirtualnych.

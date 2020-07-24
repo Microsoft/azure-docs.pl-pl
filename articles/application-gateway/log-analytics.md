@@ -8,14 +8,14 @@ ms.service: application-gateway
 ms.topic: troubleshooting
 ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: 072640f5ba34b2782f75bbe4169567ade823f406
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 88e360c5630c24dd997f72bda3fc4a480264763d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84806690"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086918"
 ---
-# <a name="use-log-analytics-to-examine-application-gateway-web-application-firewall-logs"></a>Używanie usługi Log Analytics do badania dzienników zapory aplikacji internetowej usługi Application Gateway
+# <a name="use-log-analytics-to-examine-application-gateway-web-application-firewall-waf-logs"></a>Używanie Log Analytics do badania dzienników Application Gateway zapory aplikacji sieci Web (WAF)
 
 Po uruchomieniu Application Gateway WAF można włączyć dzienniki, aby sprawdzić, co dzieje się z każdym żądaniem. Dzienniki zapory dają wgląd w to, co WAF ocenia, dopasowuje i blokuje. Za pomocą Log Analytics można przeanalizować dane znajdujące się w dziennikach zapory, aby dać jeszcze więcej szczegółowych informacji. Aby uzyskać więcej informacji na temat tworzenia obszaru roboczego Log Analytics, zobacz [tworzenie log Analytics obszaru roboczego w Azure Portal](../azure-monitor/learn/quick-create-workspace.md). Aby uzyskać więcej informacji o zapytaniach dziennika, zobacz [Omówienie zapytań dzienników w Azure monitor](../azure-monitor/log-query/log-query-overview.md).
 

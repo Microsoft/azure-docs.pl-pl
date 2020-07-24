@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/27/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 7a138308b48a24a78c55bdc0105379e31482456d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9ceb58182b34a4eccbed0dc1cdd1c351ae7868da
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85209389"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87085915"
 ---
 # <a name="use-log-analytics-for-the-diagnostics-feature"></a>Użyj Log Analytics dla funkcji diagnostyki
 
@@ -96,7 +96,7 @@ Możesz uzyskać dostęp do Log Analytics obszarów roboczych na Azure Portal lu
 
 ### <a name="access-log-analytics-on-a-log-analytics-workspace"></a>Log Analytics dostępu do Log Analytics obszaru roboczego
 
-1. Zaloguj się do witryny Azure Portal.
+1. Zaloguj się w witrynie Azure Portal.
 
 2. Wyszukaj **log Analytics obszar roboczy**.
 
@@ -133,52 +133,16 @@ Log Analytics tylko raporty w tych Stanach pośrednich dla działań związanych
 
 ## <a name="example-queries"></a>Przykładowe zapytania
 
-Poniższe przykładowe zapytania pokazują, jak funkcja diagnostyki generuje raport dla najbardziej częstych działań w systemie.
+Dostęp do przykładowych zapytań za pomocą interfejsu użytkownika Log Analytics Azure Monitor:
+1. Przejdź do obszaru roboczego Log Analytics, a następnie wybierz pozycję **dzienniki**. Przykładowy interfejs użytkownika zapytania jest wyświetlany automatycznie.
+1. Zmień filtr na **kategorię**.
+1. Wybierz pozycję **pulpit wirtualny systemu Windows** , aby przejrzeć dostępne zapytania.
+1. Wybierz pozycję **Uruchom** , aby uruchomić wybrane zapytanie. 
 
-Aby uzyskać listę połączeń wykonanych przez użytkowników, uruchom następujące polecenie cmdlet:
+Dowiedz się więcej o interfejsie przykładowego zapytania w [zapisanych zapytaniach w Azure Monitor Log Analytics](../azure-monitor/log-query/saved-queries.md).
 
-```kusto
-WVDConnections
-| project-away TenantId,SourceSystem
-| summarize arg_max(TimeGenerated, *), StartTime =  min(iff(State== 'Started', TimeGenerated , datetime(null) )), ConnectTime = min(iff(State== 'Connected', TimeGenerated , datetime(null) ))   by CorrelationId
-| join kind=leftouter (
-    WVDErrors
-    |summarize Errors=makelist(pack('Code', Code, 'CodeSymbolic', CodeSymbolic, 'Time', TimeGenerated, 'Message', Message ,'ServiceError', ServiceError, 'Source', Source)) by CorrelationId
-    ) on CorrelationId
-| join kind=leftouter (
-   WVDCheckpoints
-   | summarize Checkpoints=makelist(pack('Time', TimeGenerated, 'Name', Name, 'Parameters', Parameters, 'Source', Source)) by CorrelationId
-   | mv-apply Checkpoints on
-    (
-        order by todatetime(Checkpoints['Time']) asc
-        | summarize Checkpoints=makelist(Checkpoints)
-    )
-   ) on CorrelationId
-| project-away CorrelationId1, CorrelationId2
-| order by  TimeGenerated desc
-```
+Poniższa lista zapytań umożliwia przejrzenie informacji o połączeniu lub problemów dla pojedynczego użytkownika. Można uruchamiać te zapytania w [Edytorze zapytań log Analytics](../azure-monitor/log-query/get-started-portal.md#write-and-run-basic-queries). Dla każdego zapytania Zastąp `userupn` nazwę UPN użytkownika, który chcesz wyszukać.
 
-Aby wyświetlić źródło danych dla użytkowników:
-
-```kusto
-WVDFeeds
-| project-away TenantId,SourceSystem
-| join kind=leftouter (
-    WVDErrors
-    |summarize Errors=makelist(pack('Code', Code, 'CodeSymbolic', CodeSymbolic, 'Time', TimeGenerated, 'Message', Message ,'ServiceError', ServiceError, 'Source', Source)) by CorrelationId
-    ) on CorrelationId
-| join kind=leftouter (
-   WVDCheckpoints
-   | summarize Checkpoints=makelist(pack('Time', TimeGenerated, 'Name', Name, 'Parameters', Parameters, 'Source', Source)) by CorrelationId
-   | mv-apply Checkpoints on
-    (
-        order by todatetime(Checkpoints['Time']) asc
-        | summarize Checkpoints=makelist(Checkpoints)
-    )
-   ) on CorrelationId
-| project-away CorrelationId1, CorrelationId2
-| order by  TimeGenerated desc
-```
 
 Aby znaleźć wszystkie połączenia dla pojedynczego użytkownika:
 
@@ -199,7 +163,6 @@ WVDConnections
 |sort by TimeGenerated asc, CorrelationId
 |summarize dcount(CorrelationId) by bin(TimeGenerated, 1d)
 ```
-
 
 Aby wyszukać czas trwania sesji według użytkownika:
 
@@ -224,7 +187,7 @@ WVDErrors
 |take 100
 ```
 
-Aby dowiedzieć się, czy wystąpił konkretny błąd:
+Aby dowiedzieć się, czy wystąpił konkretny błąd dla innych użytkowników:
 
 ```kusto
 WVDErrors
@@ -232,27 +195,7 @@ WVDErrors
 | summarize count(UserName) by CodeSymbolic
 ```
 
-Aby znaleźć wystąpienie błędu dla wszystkich użytkowników:
 
-```kusto
-WVDErrors
-| where ServiceError =="false"
-| summarize usercount = count(UserName) by CodeSymbolic
-| sort by usercount desc
-| render barchart
-```
-
-Aby wykonać zapytania dotyczące otwartych przez użytkowników aplikacji, uruchom następujące zapytanie:
-
-```kusto
-WVDCheckpoints
-| where TimeGenerated > ago(7d)
-| where Name == "LaunchExecutable"
-| extend App = parse_json(Parameters).filename
-| summarize Usage=count(UserName) by tostring(App)
-| sort by Usage desc
-| render columnchart
-```
 >[!NOTE]
 >- Gdy użytkownik otworzy pełny pulpit, jego użycie aplikacji w sesji nie będzie śledzone jako punkty kontrolne w tabeli WVDCheckpoints.
 >- Kolumna ResourcesAlias w tabeli WVDConnections wskazuje, czy użytkownik nawiązał połączenie z pełnym pulpitem lub opublikowaną aplikacją. W kolumnie jest wyświetlana tylko pierwsza aplikacja otwarta podczas połączenia. Wszystkie opublikowane aplikacje otwierane przez użytkownika są śledzone w WVDCheckpoints.

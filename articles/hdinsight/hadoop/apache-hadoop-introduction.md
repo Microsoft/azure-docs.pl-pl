@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: overview
 ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.date: 02/27/2020
-ms.openlocfilehash: 2dc9d5d154c8128e0744e8dd9f08dec6e52381a4
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 5e5f02b1684e56496778ab677aa9dc46e7dcd9aa
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86205305"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086527"
 ---
 # <a name="what-is-apache-hadoop-in-azure-hdinsight"></a>Co to jest Apache Hadoop w usłudze Azure HDInsight?
 
@@ -48,7 +48,7 @@ Języki lub struktury oparte na języku Java i wirtualna maszyna Java mogą być
 
 Przesyłanie strumieniowe w usłudze Hadoop komunikuje się z mapowaniem i zmniejszeniem za pośrednictwem STDIN i STDOUT. Mapowanie i zmniejszenie danych są odczytywane wierszowo z STDIN i zapisywane dane wyjściowe do STDOUT. Każdy wiersz odczytywany lub emitowany przez mapowanie i zmniejszenie musi być w formacie pary klucz/wartość, rozdzielony znakiem tabulacji:
 
-`[key]/t[value]`
+`[key]\t[value]`
 
 Aby uzyskać więcej informacji, zobacz Usługa [przesyłania strumieniowego Hadoop](https://hadoop.apache.org/docs/current/hadoop-streaming/HadoopStreaming.html).
 
@@ -56,6 +56,6 @@ Przykłady korzystania z przesyłania strumieniowego Hadoop za pomocą usługi H
 
 * [Opracowywanie zadań MapReduce języka C#](apache-hadoop-dotnet-csharp-mapreduce-streaming.md)
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 * [Tworzenie klastra Apache Hadoop w usłudze HDInsight](apache-hadoop-linux-create-cluster-get-started-portal.md)

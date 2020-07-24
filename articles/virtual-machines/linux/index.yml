@@ -10,12 +10,12 @@ metadata:
   author: cynthn
   ms.author: cynthn
   ms.date: 09/19/2019
-  ms.openlocfilehash: 12c3447bc7e46e45d05711e1b0c7a59f8d8d0218
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.openlocfilehash: 5155b6196c6a7337877b8464775e179fb4aebb9f
+  ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "77115829"
+  ms.lasthandoff: 07/23/2020
+  ms.locfileid: "87085524"
 landingContent:
 - title: Najnowsze funkcje
   linkLists:
@@ -27,33 +27,33 @@ landingContent:
       url: dedicated-hosts.md
     - text: Grupy umieszczania w pobliżu
       url: proximity-placement-groups.md
-- title: Wprowadzenie
+- title: Rozpoczęcie pracy
   linkLists:
   - linkListType: quickstart
     links:
     - text: Interfejs wiersza polecenia platformy Azure
-      url: https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-quick-create-cli
-    - text: Portalu Azure
-      url: https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-quick-create-portal
+      url: ./quick-create-cli.md
+    - text: Witryna Azure Portal
+      url: ./quick-create-portal.md
     - text: Azure PowerShell
-      url: https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-quick-create-powershell
+      url: ./quick-create-powershell.md
 - title: Przewodniki krok po kroku
   linkLists:
   - linkListType: tutorial
     links:
     - text: Tworzenie maszyn wirtualnych z systemem Linux i zarządzanie nimi
-      url: /azure/virtual-machines/linux/tutorial-manage-vm
+      url: ./tutorial-manage-vm.md
     - text: Dyski maszyn wirtualnych
-      url: /azure/virtual-machines/linux/tutorial-manage-disks
+      url: ./tutorial-manage-disks.md
     - text: Automatyzowanie konfiguracji maszyn wirtualnych
-      url: /azure/virtual-machines/linux/tutorial-automate-vm-deployment
+      url: ./tutorial-automate-vm-deployment.md
     - text: Tworzenie niestandardowych obrazów maszyn wirtualnych
-      url: /azure/virtual-machines/linux/tutorial-custom-images
+      url: ./tutorial-custom-images.md
     - text: Zarządzanie maszynami wirtualnymi przy użyciu sieci wirtualnych
-      url: /azure/virtual-machines/linux/tutorial-virtual-network
+      url: ./tutorial-virtual-network.md
 - title: Samodzielne szkolenie
   linkLists:
   - linkListType: learn
     links:
     - text: " Tworzenie maszyny wirtualnej z systemem Linux na platformie Azure"
-      url: https://docs.microsoft.com/learn/modules/create-linux-virtual-machine-in-azure/
+      url: /learn/modules/create-linux-virtual-machine-in-azure/

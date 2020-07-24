@@ -7,12 +7,12 @@ manager: rochakm
 ms.topic: article
 ms.date: 1/10/2020
 ms.author: sutalasi
-ms.openlocfilehash: d7a2d21dcd8c9474bdf068d7940e497333f35115
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: a4f7d330db9a4a0d9b435ebe7527e55e37c254e2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86130214"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086221"
 ---
 # <a name="set-up-disaster-recovery-of-hyper-v-vms-to-a-secondary-site-by-using-powershell-resource-manager"></a>Konfigurowanie odzyskiwania po awarii maszyn wirtualnych funkcji Hyper-V w lokacji dodatkowej przy użyciu programu PowerShell (Menedżer zasobów)
 
@@ -47,8 +47,8 @@ Przygotuj Virtual Machine Manager w następujący sposób:
 
 Upewnij się, że masz Azure PowerShell gotowy do użycia:
 
-- Jeśli używasz już programu PowerShell, Uaktualnij go do wersji 0.8.10 lub nowszej. [Dowiedz się więcej](/powershell/azureps-cmdlets-docs) na temat sposobu konfigurowania programu PowerShell.
-- Po skonfigurowaniu i skonfigurowaniu programu PowerShell Przejrzyj [polecenia cmdlet usługi](/powershell/azure/overview).
+- Jeśli używasz już programu PowerShell, Uaktualnij go do wersji 0.8.10 lub nowszej. [Dowiedz się więcej](/powershell/azure/) na temat sposobu konfigurowania programu PowerShell.
+- Po skonfigurowaniu i skonfigurowaniu programu PowerShell Przejrzyj [polecenia cmdlet usługi](/powershell/azure/).
 - Aby dowiedzieć się więcej na temat używania wartości parametrów, danych wejściowych i wyjść w programie PowerShell, Przeczytaj przewodnik [wprowadzenie](/powershell/azure/get-started-azureps) .
 
 ## <a name="set-up-a-subscription"></a>Konfigurowanie subskrypcji

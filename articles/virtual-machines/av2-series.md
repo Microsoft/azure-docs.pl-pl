@@ -7,11 +7,12 @@ ms.subservice: sizes
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 7d2064ec89e107aa219f34520f71ed8704bb7aeb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1b5b77bb9bdf679fe0fd8bf73966dd45acc80155
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84676934"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87085779"
 ---
 # <a name="av2-series"></a>Seria Av2
 
@@ -27,26 +28,32 @@ Migracja na żywo: obsługiwane
 
 Aktualizacje z zachowaniem pamięci: obsługiwane
 
-| Rozmiar | Procesor wirtualny | Pamięć: GiB | Magazyn tymczasowy (SSD): GiB | Maksymalna przepływność magazynu: IOPS/Odczyt MB/s/zapis MB/s | Maksymalna liczba dysków danych/przepływność: IOPS | Maksymalna liczba kart sieciowych/oczekiwana przepustowość sieci (MB/s) |
-|---|---|---|---|---|---|---|
-| Standardowa_A1_v2  | 1 | 2  | 10 | 1000/20/10  | 2/2x500   | 2/250  |
-| Standardowa_A2_v2  | 2 | 4  | 20 | 2000/40/20  | 4/4x500   | 2/500  |
-| Standardowa_A4_v2  | 4 | 8  | 40 | 4000/80/40  | 8/8x500   | 4/1000 |
-| Standardowa_A8_v2  | 8 | 16 | 80 | 8000/160/80 | 16/16x500 | 8/2000 |
-| Standardowa_A2m_v2 | 2 | 16 | 20 | 2000/40/20  | 4/4x500   | 2/500  |
-| Standardowa_A4m_v2 | 4 | 32 | 40 | 4000/80/40  | 8/8x500   | 4/1000 |
-| Standardowa_A8m_v2 | 8 | 64 | 80 | 8000/160/80 | 16/16x500 | 8/2000 |
+Kalkulator cen i informacje o dostępności regionu: <a href="https://azure.microsoft.com/en-us/pricing/calculator/">Kalkulator cen</a>
+
+| Rozmiar | Procesor wirtualny | Pamięć: GiB | Magazyn tymczasowy (SSD): GiB | Maksymalna przepływność magazynu: IOPS/Odczyt MB/s/zapis MB/s | Maksymalna liczba dysków danych/przepływność: IOPS | Maksymalna liczba kart sieciowych | Oczekiwana przepustowość sieci (MB/s)
+|---|---|---|---|---|---|---|---|
+| Standardowa_A1_v2  | 1 | 2  | 10 | 1000/20/10  | 2/2x500   | 2 | 250  |
+| Standardowa_A2_v2  | 2 | 4  | 20 | 2000/40/20  | 4/4x500   | 2 | 500  |
+| Standardowa_A4_v2  | 4 | 8  | 40 | 4000/80/40  | 8/8x500   | 4 | 1000 |
+| Standardowa_A8_v2  | 8 | 16 | 80 | 8000/160/80 | 16/16x500 | 8 | 2000 |
+| Standardowa_A2m_v2 | 2 | 16 | 20 | 2000/40/20  | 4/4x500   | 2 | 500  |
+| Standardowa_A4m_v2 | 4 | 32 | 40 | 4000/80/40  | 8/8x500   | 4 | 1000 |
+| Standardowa_A8m_v2 | 8 | 64 | 80 | 8000/160/80 | 16/16x500 | 8 | 2000 |
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 
-## <a name="other-sizes"></a>Inne rozmiary
+## <a name="other-sizes-and-information"></a>Inne rozmiary i informacje
 
-- [Zastosowania ogólne](sizes-general.md)
+- [Ogólnego przeznaczenia](sizes-general.md)
 - [Optymalizacja pod kątem pamięci](sizes-memory.md)
 - [Optymalizacja pod kątem magazynu](sizes-storage.md)
 - [Optymalizacja pod kątem procesora GPU](sizes-gpu.md)
 - [Obliczenia o wysokiej wydajności](sizes-hpc.md)
 - [Poprzednie generacje](sizes-previous-gen.md)
+
+Kalkulator cen i informacje o dostępności regionu: <a href="https://azure.microsoft.com/en-us/pricing/calculator/">Kalkulator cen</a>
+
+Więcej informacji na temat typów dysków: <a href="https://docs.microsoft.com/en-us/azure/virtual-machines/linux/disks-types#ultra-ssd-preview/">typy dysków</a>
 
 ## <a name="next-steps"></a>Następne kroki
 

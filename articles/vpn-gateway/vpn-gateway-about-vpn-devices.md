@@ -5,13 +5,14 @@ services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 01/10/2020
+ms.date: 07/13/2020
 ms.author: yushwang
-ms.openlocfilehash: dd73c6a388cde55db5437442492d53768eb03866
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 86f040ab4735276e77d537f65130ae125c4757e6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84343153"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086952"
 ---
 # <a name="about-vpn-devices-and-ipsecike-parameters-for-site-to-site-vpn-gateway-connections"></a>Informacje na temat urządzeń sieci VPN i parametrów protokołu IPsec/IKE dla połączeń bramy VPN typu lokacja-lokacja
 
@@ -38,6 +39,7 @@ Aby skonfigurować urządzenie sieci VPN, zapoznaj się z linkami odpowiadający
 | ---                | ---                  | ---                   | ---            | ---           |
 | A10 Networks, Inc. |Thunder CFW           |ACOS 4.1.1             |Niezgodne  |[Przewodnik po konfiguracji](https://www.a10networks.com/wp-content/uploads/A10-DG-16161-EN.pdf)|
 | Allied Telesis     |Routery sieci VPN z serii AR |Seria AR 5.4.7 +               | [Przewodnik po konfiguracji](https://www.alliedtelesis.com/documents/how-to/configure/site-to-site-vpn-between-azure-and-ar-series-router) |[Przewodnik po konfiguracji](https://www.alliedtelesis.com/documents/how-to/configure/site-to-site-vpn-between-azure-and-ar-series-router)|
+| Arista | Router CloudEOS | vEOS 4.24.0 FX | (nie przetestowano) | [Przewodnik po konfiguracji](https://www.arista.com/en/cg-veos-router/veos-router-cloudeos-ipsec-connectivity-to-azure-virtual-network-gateway) |
 | Barracuda Networks, Inc. |Barracuda CloudGen Firewall |PolicyBased: 5.4.3<br>RouteBased: 6.2.0 |[Przewodnik po konfiguracji](https://campus.barracuda.com/product/cloudgenfirewall/doc/79462887/how-to-configure-an-ikev1-ipsec-site-to-site-vpn-to-the-static-microsoft-azure-vpn-gateway/) |[Przewodnik po konfiguracji](https://campus.barracuda.com/product/cloudgenfirewall/doc/79462889/how-to-configure-bgp-over-ikev2-ipsec-site-to-site-vpn-to-an-azure-vpn-gateway/) |
 | Check Point |Security Gateway |80.10 r |[Przewodnik po konfiguracji](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) |[Przewodnik po konfiguracji](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) |
 | Cisco              |ASA       |8.3<br>8.4+ (IKEv2*) |Obsługiwane |[Przewodnik konfiguracji *](https://www.cisco.com/c/en/us/support/docs/security/adaptive-security-appliance-asa-software/214109-configure-asa-ipsec-vti-connection-to-az.html) |
@@ -151,7 +153,7 @@ W poniższej tabeli znajduje się lista ofert skojarzeń zabezpieczeń protokoł
 
 #### <a name="azure-gateway-as-initiator"></a>Brama Azure jako inicjator
 
-|-  |**Szyfrowanie**|**Authentication**|**Grupa PFS**|
+|-  |**Szyfrowanie**|**Uwierzytelnianie**|**Grupa PFS**|
 |---| ---          |---               |---          |
 | 1 |GCM AES256    |GCM (AES256)      |Brak         |
 | 2 |AES256        |SHA1              |Brak         |
@@ -162,7 +164,7 @@ W poniższej tabeli znajduje się lista ofert skojarzeń zabezpieczeń protokoł
 
 #### <a name="azure-gateway-as-responder"></a>Brama Azure jako obiekt odpowiadający
 
-|-  |**Szyfrowanie**|**Authentication**|**Grupa PFS**|
+|-  |**Szyfrowanie**|**Uwierzytelnianie**|**Grupa PFS**|
 |---| ---          | ---              |---          |
 | 1 |GCM AES256    |GCM (AES256)      |Brak         |
 | 2 |AES256        |SHA1              |Brak         |
