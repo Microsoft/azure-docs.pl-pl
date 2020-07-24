@@ -3,12 +3,12 @@ title: Rozwiązywanie problemów z łącznością — Event Hubs platformy Azure
 description: Ten artykuł zawiera informacje dotyczące rozwiązywania problemów z łącznością z usługą Azure Event Hubs.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 15c93873a25e70b0f9a88fc5ea621b90d58e7581
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b85c0895d1c8f165f494d29013adea014187dd23
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85322386"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87039331"
 ---
 # <a name="troubleshoot-connectivity-issues---azure-event-hubs"></a>Rozwiązywanie problemów z łącznością — Event Hubs platformy Azure
 Istnieją różne przyczyny, dla których aplikacje klienckie nie mogą połączyć się z centrum zdarzeń. Problemy z łącznością mogą być stałe lub przejściowe. Jeśli problem występuje cały czas (trwały), możesz chcieć sprawdzić parametry połączenia, ustawienia zapory w organizacji, ustawienia zapory protokołu IP, ustawienia zabezpieczeń sieci (punkty końcowe usługi, prywatne punkty końcowe itp.) i inne. W przypadku problemów przejściowych należy uaktualnić do najnowszej wersji zestawu SDK, uruchamiać polecenia służące do sprawdzania porzuconych pakietów i uzyskiwania śladów sieci, które mogą pomóc w rozwiązywaniu problemów. 
@@ -48,7 +48,7 @@ telnet <yournamespacename>.servicebus.windows.net 5671
 ```
 
 ### <a name="verify-that-ip-addresses-are-allowed-in-your-corporate-firewall"></a>Sprawdź, czy adresy IP są dozwolone w zaporze firmowej
-Podczas pracy z platformą Azure czasami trzeba zezwolić na określone zakresy adresów IP lub adresy URL w firmowej zaporze lub serwerze proxy, aby uzyskać dostęp do wszystkich usług platformy Azure, których używasz lub których próbujesz użyć. Sprawdź, czy ruch jest dozwolony dla adresów IP używanych przez Event Hubs. Adresy IP używane przez platformę Azure Event Hubs: zobacz [zakresy adresów IP platformy Azure i Tagi usług — usługa Public Cloud](https://www.microsoft.com/download/details.aspx?id=56519) and [Service Tag — EventHub](network-security.md#service-tags).
+Podczas pracy z platformą Azure czasami trzeba zezwolić na określone zakresy adresów IP lub adresy URL w firmowej zaporze lub serwerze proxy, aby uzyskać dostęp do wszystkich usług platformy Azure, których używasz lub których próbujesz użyć. Sprawdź, czy ruch jest dozwolony dla adresów IP używanych przez Event Hubs. Adresy IP używane przez usługę Azure Event Hubs: zobacz [zakres adresów IP platformy Azure i Tagi usług — chmura publiczna](https://www.microsoft.com/download/details.aspx?id=56519).
 
 Sprawdź również, czy adres IP dla przestrzeni nazw jest dozwolony. Aby znaleźć odpowiednie adresy IP w celu zezwolenia na połączenia, wykonaj następujące kroki:
 
@@ -75,13 +75,16 @@ Jeśli używasz nadmiarowości strefy dla przestrzeni nazw, musisz wykonać kilk
     ```
 3. Uruchom polecenie nslookup dla każdego z sufiksów S1, S2 i S3, aby uzyskać adresy IP wszystkich trzech wystąpień uruchomionych w trzech strefach dostępności. 
 
+### <a name="verify-that-azureeventgrid-service-tag-is-allowed-in-your-network-security-groups"></a>Sprawdź, czy w sieciowej grupie zabezpieczeń jest dozwolony tag usługi AzureEventGrid
+Jeśli aplikacja działa w podsieci i istnieje skojarzona sieciowa Grupa zabezpieczeń, sprawdź, czy jest dozwolony ruch wychodzący z Internetu, czy też jest dostępny tag usługi AzureEventGrid. Zobacz [Tagi usługi sieci wirtualnej](../virtual-network/service-tags-overview.md) i Wyszukaj `EventHub` .
+
 ### <a name="check-if-the-application-needs-to-be-running-in-a-specific-subnet-of-a-vnet"></a>Sprawdź, czy aplikacja musi być uruchomiona w określonej podsieci sieci wirtualnej
 Upewnij się, że aplikacja działa w podsieci sieci wirtualnej, która ma dostęp do przestrzeni nazw. Jeśli tak nie jest, uruchom aplikację w podsieci, która ma dostęp do przestrzeni nazw lub Dodaj adres IP komputera, na którym aplikacja jest uruchomiona, do [zapory IP](event-hubs-ip-filtering.md). 
 
 Podczas tworzenia punktu końcowego usługi sieci wirtualnej dla przestrzeni nazw centrum zdarzeń przestrzeń nazw akceptuje tylko ruch z podsieci powiązanej z punktem końcowym usługi. Wystąpił wyjątek dotyczący tego zachowania. Można dodać określone adresy IP w zaporze IP, aby umożliwić dostęp do publicznego punktu końcowego centrum zdarzeń. Aby uzyskać więcej informacji, zobacz [punkty końcowe usługi sieciowej](event-hubs-service-endpoints.md).
 
 ### <a name="check-the-ip-firewall-settings-for-your-namespace"></a>Sprawdź ustawienia zapory adresu IP dla swojej przestrzeni nazw
-Sprawdź, czy adres IP komputera, na którym uruchomiona jest aplikacja, nie jest blokowany przez zaporę protokołu IP.  
+Sprawdź, czy publiczny adres IP komputera, na którym uruchomiona jest aplikacja, nie jest blokowany przez zaporę protokołu IP.  
 
 Domyślnie obszary nazw Event Hubs są dostępne z Internetu, o ile żądanie zawiera prawidłowe uwierzytelnianie i autoryzację. Za pomocą zapory IP można ograniczyć ją do tylko zestawu adresów IPv4 lub zakresów adresów IPv4 w notacji [CIDR (bez klas routingu między domenami)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) .
 
@@ -108,9 +111,9 @@ Włącz dzienniki diagnostyczne dla [zdarzeń połączeń sieci wirtualnej Event
 ### <a name="check-if-the-namespace-can-be-accessed-using-only-a-private-endpoint"></a>Sprawdź, czy można uzyskać dostęp do przestrzeni nazw tylko przy użyciu prywatnego punktu końcowego
 Jeśli przestrzeń nazw Event Hubs jest skonfigurowana tak, aby była dostępna tylko za pośrednictwem prywatnego punktu końcowego, upewnij się, że aplikacja kliencka uzyskuje dostęp do przestrzeni nazw za pośrednictwem prywatnego punktu końcowego. 
 
-[Usługa link prywatny platformy Azure](../private-link/private-link-overview.md) umożliwia dostęp do usługi Azure Event Hubs za pośrednictwem **prywatnego punktu końcowego** w sieci wirtualnej. Prywatny punkt końcowy to interfejs sieciowy, który nawiązuje połączenie prywatnie i bezpiecznie z usługą obsługiwanej przez link prywatny platformy Azure. Prywatny punkt końcowy używa prywatnego adresu IP z sieci wirtualnej, co skutecznie doprowadza usługę do sieci wirtualnej. Cały ruch do usługi może być kierowany przez prywatny punkt końcowy, dlatego nie są konieczne żadne bramy, urządzenia NAT, połączenia ExpressRoute lub sieci VPN ani publiczne adresy IP. Ruch między siecią wirtualną a usługą odbywa się za pośrednictwem sieci szkieletowej firmy Microsoft, eliminując ekspozycję z publicznego Internetu. Można nawiązać połączenie z wystąpieniem zasobu platformy Azure, zapewniając najwyższy poziom szczegółowości kontroli dostępu.
+[Usługa link prywatny platformy Azure](../private-link/private-link-overview.md) umożliwia dostęp do usługi Azure Event Hubs za pośrednictwem **prywatnego punktu końcowego** w sieci wirtualnej. Prywatny punkt końcowy to interfejs sieciowy, który nawiązuje połączenie prywatnie i bezpiecznie z usługą obsługiwanej przez link prywatny platformy Azure. Prywatny punkt końcowy używa prywatnego adresu IP z sieci wirtualnej, efektywnie przenosząc usługę do sieci wirtualnej. Cały ruch do usługi może być kierowany przez prywatny punkt końcowy, dlatego nie są konieczne żadne bramy, urządzenia NAT, połączenia ExpressRoute lub sieci VPN ani publiczne adresy IP. Ruch między siecią wirtualną a usługą odbywa się za pośrednictwem sieci szkieletowej firmy Microsoft, eliminując ekspozycję z publicznego Internetu. Można nawiązać połączenie z wystąpieniem zasobu platformy Azure, zapewniając najwyższy poziom szczegółowości kontroli dostępu.
 
-Aby uzyskać więcej informacji, zobacz [Konfigurowanie prywatnych punktów końcowych](private-link-service.md). 
+Aby uzyskać więcej informacji, zobacz [Konfigurowanie prywatnych punktów końcowych](private-link-service.md). Aby potwierdzić, że jest używany prywatny punkt końcowy, zobacz sekcję **Weryfikowanie działania połączenia prywatnego punktu końcowego** . 
 
 ### <a name="troubleshoot-network-related-issues"></a>Rozwiązywanie problemów związanych z siecią
 Aby rozwiązać problemy związane z siecią przy użyciu Event Hubs, wykonaj następujące kroki: 
@@ -160,7 +163,7 @@ Przejściowe problemy z łącznością mogą wystąpić z powodu uaktualnień i 
 - Aplikacje mogą być odłączone od usługi przez kilka sekund.
 - Żądania mogą mieć na chwilę ograniczenie przepustowości.
 
-Jeśli kod aplikacji korzysta z zestawu SDK, zasady ponawiania są już wbudowane i aktywne. Aplikacja będzie się łączyć ponownie bez znaczącego wpływu na aplikację/przepływ pracy. W przeciwnym razie spróbuj ponownie nawiązać połączenie z usługą po kilku minutach, aby sprawdzić, czy problemy nie znikną. 
+Jeśli kod aplikacji korzysta z zestawu SDK, zasady ponawiania są już wbudowane i aktywne. Aplikacja będzie się łączyć ponownie bez znaczącego wpływu na aplikację/przepływ pracy. Przechwycenie tych błędów przejściowych, tworzenie kopii zapasowych i ponawianie próby wywołania zapewni, że kod jest odporny na te problemy przejściowe.
 
 ## <a name="next-steps"></a>Następne kroki
 Zobacz następujące artykuły:

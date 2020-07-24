@@ -7,11 +7,12 @@ ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 9a7aa512c636f700cf9c6d990814d9367007c942
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 76f73df01b34cb20be48aefa3b5b3a6392a35b8b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83125778"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87045194"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-by-using-an-azure-resource-manager-template-for-a-windows-virtual-machine-scale-set"></a>Wysyłanie metryk systemu operacyjnego gościa do Azure Monitor magazynu metryk przy użyciu szablonu Azure Resource Manager dla zestawu skalowania maszyn wirtualnych z systemem Windows
 
@@ -25,9 +26,9 @@ Jeśli jesteś nowym szablonem Menedżer zasobów, Dowiedz się więcej na temat
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Twoja subskrypcja musi być zarejestrowana w usłudze [Microsoft. Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services). 
+- Twoja subskrypcja musi być zarejestrowana w usłudze [Microsoft. Insights](../../azure-resource-manager/management/resource-providers-and-types.md). 
 
-- Musisz mieć zainstalowaną [Azure PowerShell](/powershell/azure) lub można użyć [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview). 
+- Musisz mieć zainstalowaną [Azure PowerShell](/powershell/azure) lub można użyć [Azure Cloud Shell](../../cloud-shell/overview.md). 
 
 - Zasób maszyny wirtualnej musi znajdować się w [regionie, który obsługuje metryki niestandardowe](metrics-custom-overview.md#supported-regions).
 
@@ -270,7 +271,7 @@ Aby wdrożyć szablon Menedżer zasobów, użyj Azure PowerShell:
 
 ## <a name="chart-your-metrics"></a>Tworzenie wykresów metryk 
 
-1. Zaloguj się do witryny Azure Portal. 
+1. Zaloguj się w witrynie Azure Portal. 
 
 1. W menu po lewej stronie wybierz pozycję **monitorowanie**. 
 
@@ -292,5 +293,3 @@ Następnie można również użyć wymiarów tej metryki do wykresu dla określo
 
 ## <a name="next-steps"></a>Następne kroki
 - Dowiedz się więcej o [metrykach niestandardowych](metrics-custom-overview.md).
-
-

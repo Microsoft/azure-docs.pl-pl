@@ -6,11 +6,12 @@ ms.author: harelbr
 ms.topic: conceptual
 ms.date: 03/13/2020
 ms.subservice: alerts
-ms.openlocfilehash: cefccd08ea66638f08f00e280fe2704444a7f916
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b535cda8fe7d98748eb0657a599a61ed1f8549d2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79369390"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87045370"
 ---
 # <a name="create-view-and-manage-metric-alerts-using-azure-monitor"></a>Tworzenie i wyświetlanie alertów metryk oraz zarządzanie nimi w usłudze Azure Monitor
 
@@ -89,7 +90,7 @@ Reguły alertów dotyczących metryk można wyświetlać i zarządzać nimi za p
 
 ## <a name="with-azure-cli"></a>Z interfejsem wiersza polecenia platformy Azure
 
-Poprzednie sekcje opisują sposób tworzenia i wyświetlania reguł alertów dotyczących metryk oraz zarządzania nimi przy użyciu Azure Portal. W tej sekcji opisano, jak wykonać to samo przy użyciu wieloplatformowego [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest). Najszybszym sposobem na rozpoczęcie korzystania z interfejsu wiersza polecenia platformy Azure jest [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview?view=azure-cli-latest). W tym artykule będziemy używać Cloud Shell.
+Poprzednie sekcje opisują sposób tworzenia i wyświetlania reguł alertów dotyczących metryk oraz zarządzania nimi przy użyciu Azure Portal. W tej sekcji opisano, jak wykonać to samo przy użyciu wieloplatformowego [interfejsu wiersza polecenia platformy Azure](/cli/azure/get-started-with-azure-cli?view=azure-cli-latest). Najszybszym sposobem na rozpoczęcie korzystania z interfejsu wiersza polecenia platformy Azure jest [Azure Cloud Shell](../../cloud-shell/overview.md?view=azure-cli-latest). W tym artykule będziemy używać Cloud Shell.
 
 1. Przejdź do Azure Portal, kliknij pozycję **Cloud Shell**.
 
@@ -139,4 +140,3 @@ Poprzednie sekcje opisują sposób tworzenia i wyświetlania reguł alertów dot
 - [Informacje o działaniu alertów dotyczących metryk](alerts-metric-overview.md).
 - [Informacje o tym, jak działają Alerty metryczne z warunkiem progów dynamicznych](alerts-dynamic-thresholds.md).
 - [Informacje o schemacie elementu webhook dla alertów dotyczących metryk](../../azure-monitor/platform/alerts-metric-near-real-time.md#payload-schema)
-

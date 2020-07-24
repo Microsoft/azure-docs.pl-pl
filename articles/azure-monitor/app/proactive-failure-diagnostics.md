@@ -4,12 +4,12 @@ description: Ostrzega o nietypowych zmianach w przypadku żądań zakończonych 
 ms.topic: conceptual
 ms.date: 12/18/2018
 ms.reviewer: yalavi
-ms.openlocfilehash: 35c1769672e11cd7d1ec2f628b9d763dc8b90ac3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 27cf38a1cfcf8a9f87582ab3e78b48e78f3c63c2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85254790"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87045800"
 ---
 # <a name="smart-detection---failure-anomalies"></a>Wykrywanie inteligentne — anomalie błędów
 [Application Insights](../../azure-monitor/app/app-insights-overview.md) automatycznie alarmuje użytkownika w czasie niemal rzeczywistym, jeśli aplikacja sieci Web napotyka nietypowy wzrost liczby żądań zakończonych niepowodzeniem. Wykrywa nietypowy wzrost liczby żądań HTTP lub wywołań zależności zgłaszanych jako zakończone niepowodzeniem. W przypadku żądań żądania zakończone niepowodzeniem zazwyczaj mają kody odpowiedzi 400 lub wyższe. Aby ułatwić Klasyfikacja i zdiagnozowanie problemu, analiza charakterystyk błędów i powiązanych danych aplikacji znajduje się w szczegółach alertu. Istnieją także linki do portalu Application Insights w celu przeprowadzenia dalszej diagnostyki. Ta funkcja nie wymaga konfigurowania ani konfiguracji, ponieważ używa algorytmów uczenia maszynowego do przewidywania normalnego współczynnika niepowodzeń.
@@ -61,13 +61,13 @@ Alerty są wyzwalane przez swój własny algorytm uczenia maszynowego, dlatego n
 
 ## <a name="configure-alerts"></a>Konfigurowanie alertów
 
-Regułę alertu inteligentnego wykrywania można wyłączyć z poziomu portalu lub za pomocą Azure Resource Manager ([Zobacz przykład szablonu](https://docs.microsoft.com/azure/azure-monitor/app/proactive-arm-config)).
+Regułę alertu inteligentnego wykrywania można wyłączyć z poziomu portalu lub za pomocą Azure Resource Manager ([Zobacz przykład szablonu](./proactive-arm-config.md)).
 
-Ta reguła alertu jest tworzona za pomocą skojarzonej [grupy akcji](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups) o nazwie "Application Insights Smart Detection", która zawiera akcje poczty e-mail i elementu webhook, i można ją rozszerzyć, aby wyzwolić dodatkowe akcje po uruchomieniu alertu.
+Ta reguła alertu jest tworzona za pomocą skojarzonej [grupy akcji](../platform/action-groups.md) o nazwie "Application Insights Smart Detection", która zawiera akcje poczty e-mail i elementu webhook, i można ją rozszerzyć, aby wyzwolić dodatkowe akcje po uruchomieniu alertu.
 
 > [!NOTE]
-> Powiadomienia e-mail wysyłane z tej reguły alertów są teraz domyślnie wysyłane do użytkowników skojarzonych z czytnikiem monitorowania subskrypcji i monitorowaniem ról współautor. Więcej informacji na ten temat można znaleźć [tutaj](https://docs.microsoft.com/azure/azure-monitor/app/proactive-email-notification).
-> Powiadomienia wysyłane z tej reguły alertu są zgodne ze [wspólnym schematem alertów](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema).
+> Powiadomienia e-mail wysyłane z tej reguły alertów są teraz domyślnie wysyłane do użytkowników skojarzonych z czytnikiem monitorowania subskrypcji i monitorowaniem ról współautor. Więcej informacji na ten temat można znaleźć [tutaj](./proactive-email-notification.md).
+> Powiadomienia wysyłane z tej reguły alertu są zgodne ze [wspólnym schematem alertów](../platform/alerts-common-schema.md).
 >
 
 Otwórz stronę alerty. Reguły alertów o anomalii błędów są uwzględniane wraz z alertami, które zostały ustawione ręcznie, i można sprawdzić, czy jest ona aktualnie w stanie alertu.
@@ -348,7 +348,7 @@ Inteligentne wykrywanie anomalii o awarii uzupełnia inne podobne, ale odrębne 
 
 *Niektóre alerty dotyczą znanych problemów i nie chcę ich otrzymywać.*
 
-* Można użyć funkcji pomijania [reguł akcji alertów](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-action-rules) .
+* Można użyć funkcji pomijania [reguł akcji alertów](../platform/alerts-action-rules.md) .
 
 ## <a name="next-steps"></a>Następne kroki
 Te narzędzia diagnostyczne ułatwiają inspekcję danych w aplikacji:

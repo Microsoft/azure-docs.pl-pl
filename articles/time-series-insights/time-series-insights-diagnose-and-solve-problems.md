@@ -5,26 +5,26 @@ ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
 ms.author: dpalled
-manager: cshankar
+manager: diviso
 ms.reviewer: v-mamcge
 ms.workload: big-data
 ms.topic: troubleshooting
-ms.date: 02/04/2020
+ms.date: 06/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: 4d9efa1ebf1a3e3b146c4f45b0e84047562141cd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0630e4dfcfc01e5c20fa6fcc3a516dbea6f6f53b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82192718"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87046453"
 ---
-# <a name="diagnose-and-solve-issues-in-your-time-series-insights-environment"></a>Diagnozowanie i rozwiązywanie problemów w środowisku Time Series Insights
+# <a name="diagnose-and-solve-issues-in-your-azure-time-series-insights-gen1-environment"></a>Diagnozowanie i rozwiązywanie problemów w Azure Time Series Insights środowisku Gen1
 
 W tym artykule opisano problemy, które mogą wystąpić w środowisku Azure Time Series Insightsu. Artykuł zawiera potencjalne przyczyny i rozwiązania do rozwiązania.
 
 ## <a name="video"></a>Wideo
 
-### <a name="learn-about-common-time-series-insights-challenges-and-mitigationsbr"></a>Poznaj typowe wyzwania Time Series Insights i środki zaradcze</br>
+### <a name="learn-about-common-azure-time-series-insights-challenges-and-mitigationsbr"></a>Poznaj typowe wyzwania Azure Time Series Insights i środki zaradcze</br>
 
 > [!VIDEO https://www.youtube.com/embed/7U0SwxAVSKw]
 
@@ -46,13 +46,13 @@ Azure Time Series Insights obsługuje tylko dane JSON. Aby zapoznać się z przy
 
    [![Uprawnienia do nasłuchiwania centrum zdarzeń](media/diagnose-and-solve-problems/eventhub-listen-permissions.png)](media/diagnose-and-solve-problems/eventhub-listen-permissions.png#lightbox)
 
-### <a name="cause-c-the-provided-consumer-group-isnt-exclusive-to-time-series-insights"></a>Przyczyna C: poświadczona Grupa odbiorców nie ma na wyłączność Time Series Insights
+### <a name="cause-c-the-provided-consumer-group-isnt-exclusive-to-azure-time-series-insights"></a>Przyczyna C: poświadczona Grupa odbiorców nie ma na wyłączność Azure Time Series Insights
 
-Po zarejestrowaniu Centrum IoT Hub lub centrum zdarzeń należy ustawić grupę odbiorców, która ma być używana do odczytywania danych. *Nie można udostępnić*tej grupy odbiorców. Jeśli grupa konsumentów jest udostępniona, podstawowe Centrum IoT lub centrum zdarzeń automatycznie i losowo rozłącza jednego z nich. Podaj unikatową grupę odbiorców, w której ma zostać odczytana Time Series Insights.
+Po zarejestrowaniu Centrum IoT Hub lub centrum zdarzeń należy ustawić grupę odbiorców, która ma być używana do odczytywania danych. *Nie można udostępnić*tej grupy odbiorców. Jeśli grupa konsumentów jest udostępniona, podstawowe Centrum IoT lub centrum zdarzeń automatycznie i losowo rozłącza jednego z nich. Podaj unikatową grupę odbiorców, w której ma zostać odczytana Azure Time Series Insights.
 
 ### <a name="cause-d-the-environment-has-just-been-provisioned"></a>Przyczyna D: środowisko zostało właśnie zainicjowane
 
-Dane zostaną wyświetlone w Eksploratorze Time Series Insights w ciągu kilku minut od momentu utworzenia środowiska i jego danych.
+Dane zostaną wyświetlone w Eksploratorze Azure Time Series Insights w ciągu kilku minut od momentu utworzenia środowiska i jego danych.
 
 ## <a name="problem-some-data-is-shown-but-data-is-missing"></a>Problem: wyświetlane są pewne dane, ale brakuje danych
 
@@ -60,25 +60,25 @@ Gdy dane pojawiają się tylko częściowo i wydaje się, że dane są opóźnio
 
 ### <a name="cause-a-your-environment-is-being-throttled"></a>Przyczyna: środowisko jest ograniczane
 
-[Ograniczanie](time-series-insights-environment-mitigate-latency.md) jest typowym problemem, gdy środowiska są inicjowane po utworzeniu źródła zdarzeń zawierającego dane. Usługa Azure IoT Hub i usługi Azure Events Hub przechowują dane przez maksymalnie siedem dni. Time Series Insights zawsze zaczyna się od najstarszego zdarzenia w źródle zdarzeń (pierwszy na początku, w pierwszej kolejności lub *FIFO*).
+[Ograniczanie](time-series-insights-environment-mitigate-latency.md) jest typowym problemem, gdy środowiska są inicjowane po utworzeniu źródła zdarzeń zawierającego dane. Usługa Azure IoT Hub i usługi Azure Events Hub przechowują dane przez maksymalnie siedem dni. Azure Time Series Insights zawsze zaczyna się od najstarszego zdarzenia w źródle zdarzeń (pierwszy na początku, w pierwszej kolejności lub *FIFO*).
 
-Jeśli na przykład w źródle zdarzeń znajdują się zdarzenia 5 000 000 w przypadku łączenia się ze środowiskiem S1 (Single-Unit Time Series Insights), Time Series Insights odczytuje około 1 000 000 zdarzeń dziennie. Może wyglądać tak, jak Time Series Insights występuje pięć dni opóźnienia. Jednak dzieje się tak, że środowisko jest ograniczane.
+Jeśli na przykład w źródle zdarzeń znajdują się zdarzenia 5 000 000 w przypadku łączenia się ze środowiskiem S1 (Single-Unit Azure Time Series Insights), Azure Time Series Insights odczytuje około 1 000 000 zdarzeń dziennie. Może wyglądać tak, jak Azure Time Series Insights występuje pięć dni opóźnienia. Jednak dzieje się tak, że środowisko jest ograniczane.
 
 Jeśli masz stare zdarzenia w źródle zdarzeń, możesz przyejść do ograniczania na jeden z dwóch sposobów:
 
-- Zmień limity przechowywania źródła zdarzeń, aby pomóc w usunięciu starych zdarzeń, które nie mają być wyświetlane w Time Series Insights.
-- Zapewnij większy rozmiar środowiska (liczbę jednostek), aby zwiększyć przepływność starych zdarzeń. W poprzednim przykładzie, jeśli zwiększy się to samo środowisko S1 do pięciu jednostek przez jeden dzień, środowisko powinno przechwycić w ciągu dnia. Jeśli produkcja zdarzeń o stałym stanie wynosi 1 000 000 lub mniej zdarzeń dziennie, można zmniejszyć wydajność zdarzenia do jednej jednostki po Time Series Insights przechwycić.
+- Zmień limity przechowywania źródła zdarzeń, aby pomóc w usunięciu starych zdarzeń, które nie mają być wyświetlane w Azure Time Series Insights.
+- Zapewnij większy rozmiar środowiska (liczbę jednostek), aby zwiększyć przepływność starych zdarzeń. W poprzednim przykładzie, jeśli zwiększy się to samo środowisko S1 do pięciu jednostek przez jeden dzień, środowisko powinno przechwycić w ciągu dnia. Jeśli produkcja zdarzeń o stałym stanie wynosi 1 000 000 lub mniej zdarzeń dziennie, można zmniejszyć wydajność zdarzenia do jednej jednostki po Azure Time Series Insights przechwycić.
 
 Limit wymuszonego ograniczania jest oparty na typie i pojemności jednostki SKU środowiska. Wszystkie źródła zdarzeń w środowisku współużytkują tę pojemność. Jeśli źródło zdarzeń dla Centrum IoT Hub lub centrum zdarzeń wypycha dane poza wymuszonymi limitami, nastąpi ograniczenie przepustowości i opóźnienia.
 
-Na poniższej ilustracji przedstawiono środowisko Time Series Insights, które ma jednostkę SKU S1 i pojemność 3. Może on przypadać na 3 000 000 zdarzeń dziennie.
+Na poniższej ilustracji przedstawiono środowisko Azure Time Series Insights, które ma jednostkę SKU S1 i pojemność 3. Może on przypadać na 3 000 000 zdarzeń dziennie.
 
 [![Pojemność środowiska](media/diagnose-and-solve-problems/environment-sku-current-capacity.png)](media/diagnose-and-solve-problems/environment-sku-current-capacity.png#lightbox)
 
 Wyobraź sobie środowisko, które pozyskuje komunikaty z centrum zdarzeń. Ma dzienny współczynnik ruchu przychodzącego dotyczący około 67 000 komunikatów. Ta częstotliwość tłumaczy na około 46 komunikatów co minutę.
 
-* Jeśli każdy komunikat centrum zdarzeń zostanie spłaszczony do pojedynczego zdarzenia Time Series Insights, ograniczenie nie wystąpi.
-* Jeśli każdy komunikat centrum zdarzeń zostanie spłaszczony do 100 zdarzeń Time Series Insights, zdarzenia 4 600 należy pozyskać co minutę.
+* Jeśli każdy komunikat centrum zdarzeń zostanie spłaszczony do pojedynczego zdarzenia Azure Time Series Insights, ograniczenie nie wystąpi.
+* Jeśli każdy komunikat centrum zdarzeń zostanie spłaszczony do 100 zdarzeń Azure Time Series Insights, zdarzenia 4 600 należy pozyskać co minutę.
 
 Środowisko jednostki SKU S1 o pojemności 3 może przypadać tylko 2 100 zdarzeń co minutę (1 000 000 zdarzeń dziennie = 700 zdarzeń na minutę w trzech jednostkach = 2 100 zdarzeń na minutę).
 
@@ -86,7 +86,7 @@ Aby uzyskać ogólne omówienie sposobu działania logiki spłaszczania, zobacz 
 
 #### <a name="recommended-resolutions-for-excessive-throttling"></a>Zalecane rozwiązania do nadmiernego ograniczania przepustowości
 
-Aby rozwiązać zwłokę, Zwiększ pojemność jednostki SKU środowiska. Aby uzyskać więcej informacji, zobacz [skalowanie środowiska Time Series Insights](time-series-insights-how-to-scale-your-environment.md).
+Aby rozwiązać zwłokę, Zwiększ pojemność jednostki SKU środowiska. Aby uzyskać więcej informacji, zobacz [skalowanie środowiska Azure Time Series Insights](time-series-insights-how-to-scale-your-environment.md).
 
 ### <a name="cause-b-initial-ingestion-of-historical-data-slows-ingress"></a>Przyczyna B: początkowe pozyskiwanie danych historycznych spowalnia ruch przychodzący
 
@@ -96,19 +96,19 @@ Jeśli połączysz istniejące źródło zdarzeń, prawdopodobnie Centrum IoT lu
 
 Aby rozwiązać zwłokę:
 
-1. Zwiększ pojemność jednostki SKU do maksymalnej dozwolonej wartości (10, w tym przypadku). Po zwiększeniu wydajności proces transferu danych przychodzących rozpocznie się znacznie szybciej. Opłata jest naliczana za zwiększoną pojemność. Aby wizualizować, jak szybko przechwytuje, możesz wyświetlić wykres dostępności w [Eksploratorze Time Series Insights](https://insights.timeseries.azure.com).
+1. Zwiększ pojemność jednostki SKU do maksymalnej dozwolonej wartości (10, w tym przypadku). Po zwiększeniu wydajności proces transferu danych przychodzących rozpocznie się znacznie szybciej. Opłata jest naliczana za zwiększoną pojemność. Aby wizualizować, jak szybko przechwytuje, możesz wyświetlić wykres dostępności w [Eksploratorze Azure Time Series Insights](https://insights.timeseries.azure.com).
 
 2. Gdy zwłoka zostanie przechwycona, Zmniejsz pojemność jednostki SKU do normalnej stawki za transfer danych przychodzących.
 
 ## <a name="problem-data-was-showing-previously-but-is-no-longer-showing"></a>Problem: dane były wyświetlane wcześniej, ale nie są już wyświetlane
 
-Jeśli Time Series Insights nie pobiera już danych, ale Zdarzenia nadal są przesyłane strumieniowo do centrum IoT Hub lub centrum zdarzeń, weź pod uwagę tę potencjalną przyczynę.
+Jeśli Azure Time Series Insights nie pobiera już danych, ale Zdarzenia nadal są przesyłane strumieniowo do centrum IoT Hub lub centrum zdarzeń, weź pod uwagę tę potencjalną przyczynę.
 
 ### <a name="cause-a-your-hub-access-key-was-regenerated-and-your-environment-needs-to-be-updated"></a>Przyczyna: klucz dostępu centrum został wygenerowany ponownie, a Twoje środowisko wymaga aktualizacji
 
-Ten problem występuje, gdy klucz podany podczas tworzenia źródła zdarzenia nie jest już prawidłowy. W centrum zobaczysz dane telemetryczne, ale w Time Series Insights nie odebrano komunikatów przychodzących. Jeśli nie masz pewności, czy klucz został wygenerowany ponownie, możesz przeszukać dziennik aktywności centrum zdarzeń pod kątem "Tworzenie lub aktualizowanie reguł autoryzacji przestrzeni nazw". W przypadku usługi IoT Hub Wyszukaj ciąg "Tworzenie lub aktualizowanie zasobu IotHub".
+Ten problem występuje, gdy klucz podany podczas tworzenia źródła zdarzenia nie jest już prawidłowy. W centrum zobaczysz dane telemetryczne, ale w Azure Time Series Insights nie odebrano komunikatów przychodzących. Jeśli nie masz pewności, czy klucz został wygenerowany ponownie, możesz przeszukać dziennik aktywności centrum zdarzeń pod kątem "Tworzenie lub aktualizowanie reguł autoryzacji przestrzeni nazw". W przypadku usługi IoT Hub Wyszukaj ciąg "Tworzenie lub aktualizowanie zasobu IotHub".
 
-Aby zaktualizować środowisko Time Series Insights przy użyciu nowego klucza, Otwórz zasób centrum w Azure Portal i skopiuj nowy klucz. Przejdź do zasobu Time Series Insights i wybierz pozycję **źródła zdarzeń**:
+Aby zaktualizować środowisko Azure Time Series Insights przy użyciu nowego klucza, Otwórz zasób centrum w Azure Portal i skopiuj nowy klucz. Przejdź do zasobu Azure Time Series Insights i wybierz pozycję **źródła zdarzeń**:
 
    [![Wybierz źródła zdarzeń](media/diagnose-and-solve-problems/update-hub-key-step-1.png)](media/diagnose-and-solve-problems/update-hub-key-step-1.png#lightbox)
 
@@ -122,18 +122,18 @@ Upewnij się, że wartość właściwości timestamp, która pochodzi ze źród�
 
 Należy pamiętać, że w nazwie właściwości sygnatury czasowej rozróżniana jest wielkość liter.
 
-Najprostszym sposobem, aby upewnić się, że nazwa właściwości sygnatury czasowej została przechwycona i działa prawidłowo, to użycie Eksploratora Time Series Insights. W Eksploratorze Time Series Insights przy użyciu wykresu Wybierz okres czasu po wprowadzeniu nazwy właściwości sygnatury czasowej. Kliknij prawym przyciskiem myszy zaznaczenie, a następnie wybierz polecenie **Eksploruj zdarzenia**.
+Najprostszym sposobem, aby upewnić się, że nazwa właściwości sygnatury czasowej została przechwycona i działa prawidłowo, to użycie Eksploratora Azure Time Series Insights. W Eksploratorze Azure Time Series Insights przy użyciu wykresu Wybierz okres czasu po wprowadzeniu nazwy właściwości sygnatury czasowej. Kliknij prawym przyciskiem myszy zaznaczenie, a następnie wybierz polecenie **Eksploruj zdarzenia**.
 
 Pierwszy nagłówek kolumny powinien być nazwą właściwości sygnatury czasowej. Obok **sygnatury czasowej**wyrazu zostanie wyświetlona wartość **($TS)** .
 
 Następujące wartości nie będą wyświetlane:
 
-- *(ABC)*: wskazuje, że Time Series Insights odczytuje wartości danych jako ciągi.
-- *Ikona kalendarza*: wskazuje, że Time Series Insights odczytuje wartości danych jako wartości DateTime.
-- *#*: Wskazuje, że Time Series Insights odczytuje wartości danych jako liczby całkowite.
+- *(ABC)*: wskazuje, że Azure Time Series Insights odczytuje wartości danych jako ciągi.
+- *Ikona kalendarza*: wskazuje, że Azure Time Series Insights odczytuje wartości danych jako wartości DateTime.
+- *#*: Wskazuje, że Azure Time Series Insights odczytuje wartości danych jako liczby całkowite.
 
 ## <a name="next-steps"></a>Następne kroki
 
 - Przeczytaj [, jak ograniczyć opóźnienia w Azure Time Series Insights](time-series-insights-environment-mitigate-latency.md).
 
-- Dowiedz się [, jak skalować środowisko Time Series Insights](time-series-insights-how-to-scale-your-environment.md).
+- Dowiedz się [, jak skalować środowisko Azure Time Series Insights](time-series-insights-how-to-scale-your-environment.md).

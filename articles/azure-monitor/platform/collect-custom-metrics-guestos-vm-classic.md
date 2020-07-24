@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: ''
-ms.openlocfilehash: 7656b60c31e7da7841f9afb723167eb061fe3401
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 87277c0c61f6d63e453386724dd472d2663e3148
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85124549"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87045207"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metrics-database-for-a-windows-virtual-machine-classic"></a>Wysyłanie metryk systemu operacyjnego gościa do bazy danych metryk Azure Monitor dla maszyny wirtualnej z systemem Windows (wersja klasyczna)
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-[Rozszerzenie diagnostyki](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) Azure monitor (znane jako "funkcji wad" lub "Diagnostyka") umożliwia zbieranie metryk i dzienników z systemu operacyjnego gościa (system operacyjny gościa) działającego w ramach maszyny wirtualnej, usługi w chmurze lub klastra Service Fabric. Rozszerzenie może wysyłać dane telemetryczne do [wielu różnych lokalizacji.](https://docs.microsoft.com/azure/monitoring/monitoring-data-collection?toc=/azure/azure-monitor/toc.json)
+[Rozszerzenie diagnostyki](./diagnostics-extension-overview.md) Azure monitor (znane jako "funkcji wad" lub "Diagnostyka") umożliwia zbieranie metryk i dzienników z systemu operacyjnego gościa (system operacyjny gościa) działającego w ramach maszyny wirtualnej, usługi w chmurze lub klastra Service Fabric. Rozszerzenie może wysyłać dane telemetryczne do [wielu różnych lokalizacji.](./data-platform.md?toc=/azure/azure-monitor/toc.json)
 
 W tym artykule opisano proces wysyłania metryk wydajności systemu operacyjnego gościa dla maszyny wirtualnej z systemem Windows (klasyczny) do bazy danych metryk Azure Monitor. Począwszy od wersji Diagnostics 1,11, można pisać metryki bezpośrednio do magazynu metryk Azure Monitor, w którym są już zbierane metryki platformy standardowej. 
 
@@ -30,9 +30,9 @@ Proces przedstawiony w tym artykule działa tylko w przypadku klasycznych maszyn
 
 - Musisz być [administratorem usługi lub współadministratorem](../../cost-management-billing/manage/add-change-subscription-administrator.md) w ramach subskrypcji platformy Azure. 
 
-- Twoja subskrypcja musi być zarejestrowana w usłudze [Microsoft. Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services). 
+- Twoja subskrypcja musi być zarejestrowana w usłudze [Microsoft. Insights](../../azure-resource-manager/management/resource-providers-and-types.md). 
 
-- Musisz mieć zainstalowaną [Azure PowerShell](/powershell/azure) lub [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) .
+- Musisz mieć zainstalowaną [Azure PowerShell](/powershell/azure) lub [Azure Cloud Shell](../../cloud-shell/overview.md) .
 
 - Zasób maszyny wirtualnej musi znajdować się w [regionie, który obsługuje metryki niestandardowe](metrics-custom-overview.md#supported-regions).
 
@@ -204,4 +204,3 @@ Nadaj tej aplikacji uprawnienia do monitorowania wydawcy metryk do zasobu, dla k
 
 ## <a name="next-steps"></a>Następne kroki
 - Dowiedz się więcej o [metrykach niestandardowych](metrics-custom-overview.md).
-

@@ -5,23 +5,24 @@ ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
 ms.author: dpalled
-manager: cshankar
+manager: diviso
 ms.reviewer: jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 05/05/2020
-ms.custom: seodec18~~~~
-ms.openlocfilehash: 010f7b908ceb9c8d07208db1312d8af8d4e27051
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 06/30/2020
+ms.custom: seodec18
+ms.openlocfilehash: 2503a58f7d5fe05240f374fabbe2bf88d34dcf6c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82838522"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87046633"
 ---
-# <a name="create-a-reference-data-set-for-your-time-series-insights-environment-using-the-azure-portal"></a>Utwórz zestaw danych referencyjnych dla środowiska Time Series Insights przy użyciu Azure Portal
+# <a name="create-a-reference-data-set-for-your-azure-time-series-insights-gen1-environment-using-the-azure-portal"></a>Utwórz zestaw danych referencyjnych dla środowiska Azure Time Series Insights Gen1 przy użyciu Azure Portal
 
 W tym artykule opisano sposób dodawania zestawu danych referencyjnych do środowiska Azure Time Series Insightsowego. Dane referencyjne są przydatne do łączenia się z danymi źródłowymi w celu rozszerzenia wartości.
 
-Zestaw danych referencyjnych to kolekcja elementów, które rozszerzają zdarzenia ze źródła zdarzenia. Time Series Insights aparat transferu danych przychodzących łączy każde zdarzenie ze źródła zdarzeń z odpowiednim wierszem danych w zestawie danych referencyjnych. To rozszerzone zdarzenie jest następnie dostępne dla zapytania. To sprzężenie jest oparte na kolumnach kluczy podstawowych zdefiniowanych w zestawie danych referencyjnych.
+Zestaw danych referencyjnych to kolekcja elementów, które rozszerzają zdarzenia ze źródła zdarzenia. Azure Time Series Insights aparat transferu danych przychodzących łączy każde zdarzenie ze źródła zdarzeń z odpowiednim wierszem danych w zestawie danych referencyjnych. To rozszerzone zdarzenie jest następnie dostępne dla zapytania. To sprzężenie jest oparte na kolumnach kluczy podstawowych zdefiniowanych w zestawie danych referencyjnych.
 
 Dane referencyjne nie są przyłączone wstecz. W takim przypadku tylko bieżące i przyszłe dane przychodzące są dopasowywane i dołączane do zestawu dat odwołania po jego skonfigurowaniu i przekazaniu.
 
@@ -35,15 +36,15 @@ Dane referencyjne nie są przyłączone wstecz. W takim przypadku tylko bieżąc
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
-1. Znajdź istniejące środowisko Azure Time Series Insights. Wybierz pozycję **wszystkie zasoby** w menu po lewej stronie Azure Portal. Wybierz środowisko usługi Time Series Insights.
+1. Znajdź istniejące środowisko Azure Time Series Insights. Wybierz pozycję **wszystkie zasoby** w menu po lewej stronie Azure Portal. Wybierz środowisko Azure Time Series Insights.
 
-1. Wybierz stronę **Przegląd** . Rozwiń sekcję **podstawowe** informacje w górnej części strony, aby znaleźć **adres URL Eksploratora Time Series Insights** i otworzyć link.  
+1. Wybierz stronę **Overview** (Przegląd). Rozwiń sekcję **podstawowe** informacje w górnej części strony, aby znaleźć **adres URL Eksploratora Time Series Insights** i otworzyć link.  
 
    [![Rozwiń sekcję podstawowe informacje](media/add-reference-data-set/essentials.png)](media/add-reference-data-set/essentials.png#lightbox)
 
-   Wyświetl Eksploratora dla środowiska Time Series Insightsowego.
+   Wyświetl Eksploratora dla środowiska Azure Time Series Insightsowego.
 
-1. Rozwiń selektor środowiska w Eksploratorze Time Series Insights. Wybierz aktywne środowisko. Wybierz ikonę dane referencyjne w prawym górnym rogu strony Eksploratora.
+1. Rozwiń selektor środowiska w Eksploratorze Azure Time Series Insights. Wybierz aktywne środowisko. Wybierz ikonę dane referencyjne w prawym górnym rogu strony Eksploratora.
 
    [![Dodaj dane referencyjne](media/add-reference-data-set/tsi-select-environment-and-data-icons.png)](media/add-reference-data-set/tsi-select-environment-and-data-icons.png#lightbox)
 

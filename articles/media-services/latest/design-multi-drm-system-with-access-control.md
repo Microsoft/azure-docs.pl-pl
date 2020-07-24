@@ -14,11 +14,12 @@ ms.topic: article
 ms.date: 12/21/2018
 ms.author: willzhan
 ms.custom: seodec18
-ms.openlocfilehash: 3d02c335f6e950300a7ced36643e6276c3d8d16a
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 79f06bd5d6af05e334faf4e1f6d8cd3e358f89ba
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85957379"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87039195"
 ---
 # <a name="design-of-a-multi-drm-content-protection-system-with-access-control"></a>Projektowanie systemu ochrony zawartości przy użyciu technologii multi-DRM z kontrolą dostępu 
 
@@ -132,12 +133,12 @@ W poniższej tabeli przedstawiono mapowanie.
 
 | **Blok konstrukcyjny** | **Technologia** |
 | --- | --- |
-| **Odtwarzacz** |[Azure Media Player](https://azure.microsoft.com/services/media-services/media-player/) |
+| **Zawodnik** |[Azure Media Player](https://azure.microsoft.com/services/media-services/media-player/) |
 | **Dostawca tożsamości (dostawcy tożsamości)** |Azure Active Directory (Azure AD) |
 | **Usługa Secure Token Service (STS)** |Azure AD |
 | **Przepływ pracy ochrony DRM** |Azure Media Services ochronę dynamiczną |
 | **Dostarczanie licencji DRM** |* Media Services dostarczania licencji (PlayReady, Widevine, FairPlay) <br/>* Axinom serwera licencji <br/>* Niestandardowy serwer licencji PlayReady |
-| **Origin** |Azure Media Services punkt końcowy przesyłania strumieniowego |
+| **Źródł** |Azure Media Services punkt końcowy przesyłania strumieniowego |
 | **Zarządzanie kluczami** |Niewymagane dla implementacji odwołania |
 | **Zarządzanie zawartością** |Aplikacja konsolowa w języku C# |
 
@@ -213,7 +214,7 @@ Aby uzyskać więcej informacji, zobacz [uwierzytelnianie tokenu JWT w Azure Med
 Aby uzyskać informacje na temat usługi Azure AD:
 
 * Informacje dla deweloperów można znaleźć w [przewodniku dewelopera Azure Active Directory](../../active-directory/develop/v2-overview.md).
-* Informacje o administratorze można znaleźć w temacie [administrowanie katalogiem dzierżawy usługi Azure AD](../../active-directory/fundamentals/active-directory-administer.md).
+* Informacje o administratorze można znaleźć w temacie [administrowanie katalogiem dzierżawy usługi Azure AD](../../active-directory/fundamentals/active-directory-whatis.md).
 
 ### <a name="some-issues-in-implementation"></a>Niektóre problemy w implementacji
 

@@ -4,11 +4,12 @@ description: Application Insights przeprowadza inteligentnej analizy telemetrii 
 ms.topic: conceptual
 ms.date: 05/04/2017
 ms.reviewer: antonfr
-ms.openlocfilehash: 22c1eeb00372b9b3c67d6a87f2300225a071438e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5152a3deb73c7069655ff016fbfc03f6b9cee16d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84016852"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87045795"
 ---
 # <a name="smart-detection---performance-anomalies"></a>Wykrywanie inteligentne — anomalie wydajności
 
@@ -33,7 +34,7 @@ Nie, powiadomienie nie oznacza, że w aplikacji występuje problem. To po prostu
 
 ## <a name="how-do-i-fix-it"></a>Jak go naprawić?
 
-Powiadomienia obejmują informacje diagnostyczne. Przykład:
+Powiadomienia obejmują informacje diagnostyczne. Oto przykład:
 
 
 ![Oto przykład wykrywania pogorszenia czasu odpowiedzi serwera](media/proactive-performance-diagnostics/server_response_time_degradation.png)
@@ -48,7 +49,7 @@ Powiadomienia obejmują informacje diagnostyczne. Przykład:
 
 ## <a name="configure-email-notifications"></a>Konfigurowanie powiadomień e-mail
 
-Powiadomienia inteligentnego wykrywania są domyślnie włączone i wysyłane do tych, którzy mają [kontrolę](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader) dostępu [współautora i monitorowania](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) do subskrypcji, w której znajduje się zasób Application Insights. Aby to zmienić, kliknij pozycję **Konfiguruj** w powiadomieniu e-mail lub Otwórz ustawienia inteligentnego wykrywania w Application Insights. 
+Powiadomienia inteligentnego wykrywania są domyślnie włączone i wysyłane do tych, którzy mają [kontrolę](../../role-based-access-control/built-in-roles.md#monitoring-reader) dostępu [współautora i monitorowania](../../role-based-access-control/built-in-roles.md#monitoring-contributor) do subskrypcji, w której znajduje się zasób Application Insights. Aby to zmienić, kliknij pozycję **Konfiguruj** w powiadomieniu e-mail lub Otwórz ustawienia inteligentnego wykrywania w Application Insights. 
   
   ![Ustawienia inteligentnego wykrywania](media/proactive-performance-diagnostics/smart_detection_configuration.png)
   
@@ -69,12 +70,12 @@ Wiadomości e-mail dotyczące anomalii dotyczących wydajności wykrywania intel
 * *Czy mogę utworzyć własne reguły wykrywania anomalii lub dostosować istniejące reguły?*
 
   * Jeszcze nie, ale możesz:
-    * [Skonfiguruj alerty](/azure/azure-monitor/platform/alerts-log) informujące o przekroczeniu progu przez metrykę.
+    * [Skonfiguruj alerty](../platform/alerts-log.md) informujące o przekroczeniu progu przez metrykę.
     * [Wyeksportuj dane telemetryczne](../../azure-monitor/app/export-telemetry.md) do [bazy danych](../../azure-monitor/app/code-sample-export-sql-stream-analytics.md) lub [do Power BI](../../azure-monitor/app/export-power-bi.md ), gdzie możesz ją przeanalizować.
 * *Jak często przeprowadzana jest analiza?*
 
   * Przeprowadzamy analizę codziennie na danych telemetrycznych od poprzedniego dnia (pełny dzień w strefie czasowej UTC).
-* *Czy te zastępują [alerty metryk](/azure/azure-monitor/platform/alerts-log)?*
+* *Czy te zastępują [alerty metryk](../platform/alerts-log.md)?*
   * Nie.  Nie zobowiązujemy się do wykrywania wszystkich zachowań, które mogą być rozważane nietypowe.
 
 
@@ -175,9 +176,9 @@ Te narzędzia diagnostyczne ułatwiają inspekcję danych telemetrycznych z apli
 * [Profiler](profiler.md) 
 * [Debuger migawek](../../azure-monitor/app/snapshot-debugger.md)
 * [Analiza](../../azure-monitor/log-query/get-started-portal.md)
-* [Inteligentna diagnostyka analityczna](../../azure-monitor/app/analytics.md)
+* [Inteligentna diagnostyka analityczna](../log-query/log-query-overview.md)
 
 Inteligentne wykrywanie są całkowicie automatyczne. Ale być może chcesz skonfigurować więcej alertów?
 
-* [Ręcznie skonfigurowane alerty metryk](/azure/azure-monitor/platform/alerts-log)
+* [Ręcznie skonfigurowane alerty metryk](../platform/alerts-log.md)
 * [Testy dostępności sieci Web](../../azure-monitor/app/monitor-web-app-availability.md)

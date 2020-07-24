@@ -3,11 +3,12 @@ title: Odtwarzanie wideo — Azure
 description: Symbol zastępczy
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: 1fc65a00b2aa1e82c5585583ee9e0ccb97e5168f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 17b1f93c18dfb013916c4c0d3756fb97a73e2675
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84260932"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87042973"
 ---
 # <a name="video-playback"></a>Odtwarzanie wideo 
 
@@ -45,7 +46,7 @@ Zgodnie z opisem w [zlewce plików programu Media Graph](media-graph-concept.md#
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/)
+[Azure IoT Edge](../../iot-edge/index.yml)
 <!--
 ## Next steps
 

@@ -5,20 +5,21 @@ ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
 ms.author: dpalled
-manager: cshankar
+manager: diviso
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: troubleshooting
-ms.date: 01/21/2020
+ms.date: 06/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: 2812b535c7aef7987db7106bfa6b07e15a1b61c7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9fa47c81aede9de5d083f16f9e1705f687ad39a4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81263390"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87046430"
 ---
-# <a name="monitor-and-mitigate-throttling-to-reduce-latency-in-azure-time-series-insights"></a>Monitorowanie i ograniczanie ograniczania przepustowości w celu zmniejszenia opóźnień w Azure Time Series Insights
+# <a name="monitor-and-mitigate-throttling-to-reduce-latency-in-azure-time-series-insights-gen1"></a>Monitorowanie i ograniczanie ograniczania przepustowości w celu zmniejszenia opóźnień w Azure Time Series Insights Gen1
 
 Gdy ilość danych przychodzących przekroczy konfigurację środowiska, może wystąpić opóźnienie lub ograniczenie w Azure Time Series Insights.
 
@@ -26,14 +27,14 @@ Można uniknąć opóźnień i ograniczania przepustowości przez prawidłowe sk
 
 Najprawdopodobniej napotkasz opóźnienia i ograniczanie przepustowości, gdy:
 
-- Dodaj źródło zdarzenia, które zawiera stare dane, które mogą przekroczyć przydzieloną stawkę za ruch przychodzący (Time Series Insights będzie musiał wychwycić).
+- Dodaj źródło zdarzenia, które zawiera stare dane, które mogą przekroczyć przydzieloną stawkę za ruch przychodzący (Azure Time Series Insights będzie musiał wychwycić).
 - Dodaj więcej źródeł zdarzeń do środowiska, co spowodowało skok z dodatkowych zdarzeń (co może przekroczyć pojemność środowiska).
-- Wypchnij duże ilości zdarzeń historycznych do źródła zdarzeń, co spowodowało zwłokę (Time Series Insights będzie konieczne przechwycenie).
+- Wypchnij duże ilości zdarzeń historycznych do źródła zdarzeń, co spowodowało zwłokę (Azure Time Series Insights będzie konieczne przechwycenie).
 - Dołącz dane referencyjne do telemetrii, co skutkuje większym rozmiarem zdarzenia. Maksymalny dozwolony rozmiar pakietu to 32 KB; pakiety danych o rozmiarze większym niż 32 KB są obcinane.
 
 ## <a name="video"></a>Wideo
 
-### <a name="learn-about-time-series-insights-data-ingress-behavior-and-how-to-plan-for-itbr"></a>Dowiedz się więcej na temat Time Series Insights zachowania związanego z transferem danych przychodzących i sposobu ich planowania.</br>
+### <a name="learn-about-azure-time-series-insights-data-ingress-behavior-and-how-to-plan-for-itbr"></a>Dowiedz się więcej na temat Azure Time Series Insights zachowania związanego z transferem danych przychodzących i sposobu ich planowania.</br>
 
 > [!VIDEO https://www.youtube.com/embed/npeZLAd9lxo]
 
@@ -41,9 +42,9 @@ Najprawdopodobniej napotkasz opóźnienia i ograniczanie przepustowości, gdy:
 
 Alerty mogą ułatwić diagnozowanie i łagodzenie problemów opóźnienia występujących w danym środowisku.
 
-1. W Azure Portal Wybierz środowisko Time Series Insights. Następnie wybierz pozycję **alerty**.
+1. W Azure Portal Wybierz środowisko Azure Time Series Insights. Następnie wybierz pozycję **alerty**.
 
-   [![Dodawanie alertu do środowiska Time Series Insights](media/environment-mitigate-latency/mitigate-latency-add-alert.png)](media/environment-mitigate-latency/mitigate-latency-add-alert.png#lightbox)
+   [![Dodawanie alertu do środowiska Azure Time Series Insights](media/environment-mitigate-latency/mitigate-latency-add-alert.png)](media/environment-mitigate-latency/mitigate-latency-add-alert.png#lightbox)
 
 1. Wybierz pozycję **+ Nowa reguła alertu**. Zostanie wyświetlony panel **Utwórz regułę** . Wybierz pozycję **Dodaj** w obszarze **warunek**.
 
@@ -55,7 +56,7 @@ Alerty mogą ułatwić diagnozowanie i łagodzenie problemów opóźnienia wyst�
 
    W tym miejscu możesz skonfigurować alerty przy użyciu następujących warunków:
 
-   |Metric  |Opis  |
+   |Metryka  |Opis  |
    |---------|---------|
    |**Bajty odebrane z ruchu przychodzącego**     | Liczba nieprzetworzonych bajtów odczytanych ze źródeł zdarzeń. Licznik nieprzetworzony zazwyczaj zawiera nazwę właściwości i wartość.  |  
    |**Odebrano nieprawidłowe komunikaty dotyczące transferu danych przychodzących**     | Liczba nieprawidłowych komunikatów odczytywanych ze wszystkich Event Hubs platformy Azure lub źródeł zdarzeń platformy Azure IoT Hub.      |
@@ -65,7 +66,7 @@ Alerty mogą ułatwić diagnozowanie i łagodzenie problemów opóźnienia wyst�
    |**Zwłoka czasu odbierania komunikatu przychodzącego**   |  Różnica w sekundach między upływem czasu, w którym komunikat jest przełączany w źródle zdarzenia i czas przetwarzania w danych wejściowych.      |
    |**Opóźnienie liczby komunikatów odebranych** przez ruch przychodzący   |  Różnica między numerem sekwencyjnym ostatnio zarejestrowanego komunikatu w partycji źródłowej zdarzenia i numerem sekwencyjnym komunikatu przetwarzanego w ramach ruchu przychodzącego.      |
 
-   Wybierz pozycję **Gotowe**.
+   Kliknij **Gotowe**.
 
 1. Po skonfigurowaniu żądanej logiki sygnałów Przejrzyj wybraną regułę alertów wizualnie.
 
@@ -73,7 +74,7 @@ Alerty mogą ułatwić diagnozowanie i łagodzenie problemów opóźnienia wyst�
 
 ## <a name="throttling-and-ingress-management"></a>Ograniczanie i zarządzanie ruchem przychodzącym
 
-* W przypadku ograniczenia przepustowości zostanie zarejestrowana wartość *opóźnienia czasu komunikatu przychodzącego* informującego o tym, ile sekund w środowisku usługi Time Series Insights jest rzeczywisty czas, jaki komunikat trafi do źródła zdarzenia (z wyłączeniem czasu indeksowania w ramach APPX). 30-60 sekund).  
+* W przypadku ograniczenia przepustowości zostanie zarejestrowana wartość *opóźnienia czasu komunikatu przychodzącego informującego* o liczbie Azure Time Series Insights sekund, po upływie których komunikat trafi do źródła zdarzenia (z wyłączeniem czasu indeksowania modułu APPX). 30-60 sekund).  
 
   *Opóźnienie liczby przychodzących komunikatów* przychodzących powinno również mieć wartość, co pozwala określić liczbę komunikatów znajdujących się za Ciebie.  Najprostszym sposobem na przezwyciężenie jest zwiększenie pojemności środowiska do rozmiaru, który umożliwi pokonanie różnic.  
 
@@ -83,7 +84,7 @@ Alerty mogą ułatwić diagnozowanie i łagodzenie problemów opóźnienia wyst�
 
   Na przykład jeśli masz trzy jednostki S1 z obsługą administracyjną (lub 2100 zdarzeń na minutę), możesz ustawić alert dotyczący **zdarzeń** związanych z transferem danych przychodzących dla zdarzeń >= 1900 przez 2 godziny. W przypadku ciągłego przekraczania tego progu, w związku z czym wyzwalany jest alert, jest to najkorzystniej obsługiwane.  
 
-* Jeśli podejrzewasz, że masz ograniczenie przepustowości, możesz porównać **odebrane komunikaty przychodzące** z komunikatami egressed źródła zdarzeń.  Jeśli ruch przychodzący do centrum zdarzeń jest większy niż **odebrane komunikaty**transferu danych przychodzących, prawdopodobnie Time Series Insights są ograniczone.
+* Jeśli podejrzewasz, że masz ograniczenie przepustowości, możesz porównać **odebrane komunikaty przychodzące** z komunikatami egressed źródła zdarzeń.  Jeśli ruch przychodzący do centrum zdarzeń jest większy niż **odebrane komunikaty**transferu danych przychodzących, prawdopodobnie Azure Time Series Insights są ograniczone.
 
 ## <a name="improving-performance"></a>Poprawianie wydajności
 
@@ -93,6 +94,6 @@ Można uniknąć opóźnień i ograniczania przepustowości przez prawidłowe sk
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Przeczytaj informacje o [diagnozowaniu i rozwiązywaniu problemów w środowisku Time Series Insightsu](time-series-insights-diagnose-and-solve-problems.md).
+- Przeczytaj informacje o [diagnozowaniu i rozwiązywaniu problemów w środowisku Azure Time Series Insightsu](time-series-insights-diagnose-and-solve-problems.md).
 
-- Dowiedz się [, jak skalować środowisko Time Series Insights](time-series-insights-how-to-scale-your-environment.md).
+- Dowiedz się [, jak skalować środowisko Azure Time Series Insights](time-series-insights-how-to-scale-your-environment.md).

@@ -10,12 +10,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 04/28/2020
 ms.custom: azure-synapse, sqldbrb=1
-ms.openlocfilehash: 4f5ad6fd0444c40d95bf4c2f1105959bde07245d
-ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.openlocfilehash: 24c3ec1ee16123cef0c4e2bd230bfdb66915fc9f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86276315"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87040584"
 ---
 # <a name="auditing-for-azure-sql-database-and-azure-synapse-analytics"></a>Inspekcja Azure SQL Database i usługi Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -79,6 +79,9 @@ Inspekcję dla różnych typów akcji i grup akcji można skonfigurować przy u�
 Azure SQL Database i usługa Azure Synapse Audit przechowuje 4000 znaków danych dla pól znaków w rekordzie inspekcji. Gdy **instrukcja** lub **data_sensitivity_information** wartości zwracane z akcji objętej inspekcją zawierają więcej niż 4000 znaków, wszystkie dane spoza pierwszych 4000 znaków będą **obcinane i nieobjęte inspekcją**.
 W poniższej sekcji opisano konfigurację inspekcji przy użyciu Azure Portal.
 
+  > [!NOTE]
+  > Włączanie inspekcji wstrzymanej puli SQL Synapse nie jest możliwe. Aby włączyć inspekcję, Cofnij wstrzymanie puli SQL Synapse. Dowiedz się więcej o [puli SQL Synapse](https://docs.microsoft.com/azure/synapse-analytics/sql/best-practices-sql-pool).
+
 1. Przejdź do witryny [Azure Portal](https://portal.azure.com).
 2. Przejdź do opcji **Inspekcja** pod nagłówkiem zabezpieczenia w okienku **bazy danych SQL** lub **SQL Server** .
 3. Jeśli wolisz skonfigurować zasady inspekcji serwera, możesz wybrać łącze **Wyświetl ustawienia serwera** na stronie Inspekcja bazy danych. Następnie można wyświetlić lub zmodyfikować ustawienia inspekcji serwera. Zasady inspekcji serwera dotyczą wszystkich istniejących i nowo utworzonych baz danych na tym serwerze.
@@ -119,10 +122,6 @@ Aby skonfigurować zapisywanie dzienników inspekcji do obszaru roboczego Log An
 Aby uzyskać więcej informacji na temat obszarów roboczych dzienników Azure Monitor, zobacz [projektowanie Azure monitor dzienników wdrożenia](https://docs.microsoft.com/azure/azure-monitor/platform/design-logs-deployment)
    
 ### <a name="audit-to-event-hub-destination"></a><a id="audit-event-hub-destination"></a>Inspekcja w miejscu docelowym centrum zdarzeń
-
-> [!WARNING]
-> Włączenie inspekcji na serwerze, który ma pulę SQL Database, **powoduje, że pula SQL Database zostaje wznowiona i ponownie wstrzymana** , co może spowodować naliczenie opłat.
-> Włączanie inspekcji wstrzymanej puli SQL Database nie jest możliwe. Aby ją włączyć, Cofnij wstrzymanie puli SQL Database.
 
 Aby skonfigurować zapisywanie dzienników inspekcji do centrum zdarzeń, wybierz pozycję **centrum zdarzeń (wersja zapoznawcza)** i Otwórz **szczegóły centrum zdarzeń**. Wybierz centrum zdarzeń, w którym będą zapisywane dzienniki, a następnie kliknij przycisk **OK**. Upewnij się, że centrum zdarzeń znajduje się w tym samym regionie, w którym znajduje się baza danych i serwer.
 

@@ -1,6 +1,6 @@
 ---
-title: Równoważenie obciążenia puli hostów usług pulpitu wirtualnego systemu Windows — Azure
-description: Metody równoważenia obciążenia puli hostów dla środowiska pulpitu wirtualnego systemu Windows.
+title: Równoważenie obciążenia puli hostów usług pulpitu wirtualnego systemu Windows (2019) — Azure
+description: Informacje o metodach równoważenia obciążenia puli hostów dla środowiska pulpitu wirtualnego systemu Windows (w wersji 2019).
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: e2bfbd580d0e114cf4a135879340745107183b6a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 50819fc6b1e13aeb1c0eddf306ecdfbe8147a44f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82614813"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87046273"
 ---
-# <a name="host-pool-load-balancing-methods"></a>Metody równoważenia obciążenia puli hostów
+# <a name="host-pool-load-balancing-methods-fall-2019-release"></a>Metody równoważenia obciążenia puli hostów (jesień 2019 wydania)
 
 >[!IMPORTANT]
 >Ta zawartość dotyczy wersji 2019, która nie Azure Resource Manager obsługuje obiektów pulpitu wirtualnego systemu Windows. Jeśli próbujesz zarządzać Azure Resource Manager obiektami pulpitu wirtualnego systemu Windows wprowadzonymi w ramach aktualizacji wiosną 2020, zobacz [ten artykuł](../host-pool-load-balancing.md).

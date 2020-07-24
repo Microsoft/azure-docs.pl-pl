@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/24/2020
 ms.author: cshoe
 ms.custom: tracking-python
-ms.openlocfilehash: 5e41f5d2189cce19dab3e0b48943ef0568ddedb8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2c3e872dee06ac4fa0c8c37ce8fb77bd34dc78bc
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85807013"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87041864"
 ---
 # <a name="azure-cosmos-db-input-binding-for-azure-functions-2x-and-higher"></a>Azure Cosmos DB powiązania danych wejściowych dla Azure Functions 2. x i wyższych
 
@@ -296,7 +296,7 @@ namespace CosmosDBSamplesV2
 Poniższy przykład pokazuje [funkcję języka C#](functions-dotnet-class-library.md) , która pobiera listę dokumentów. Funkcja jest wyzwalana przez żądanie HTTP. Kod używa `DocumentClient` wystąpienia dostarczonego przez powiązanie Azure Cosmos DB, aby odczytać listę dokumentów. `DocumentClient`Wystąpienie może być również używane na potrzeby operacji zapisu.
 
 > [!NOTE]
-> Aby ułatwić testowanie, można również użyć interfejsu [IDocumentClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.idocumentclient?view=azure-dotnet) .
+> Aby ułatwić testowanie, można również użyć interfejsu [IDocumentClient](/dotnet/api/microsoft.azure.documents.idocumentclient?view=azure-dotnet) .
 
 ```cs
 using Microsoft.AspNetCore.Http;
@@ -1420,7 +1420,7 @@ Atrybuty nie są obsługiwane przez język Python.
 
 # <a name="java"></a>[Java](#tab/java)
 
-W [bibliotece środowiska uruchomieniowego usługi Java Functions](https://docs.microsoft.com/java/api/overview/azure/functions/runtime)Użyj `@CosmosDBOutput` adnotacji w parametrach, które zapisują w Cosmos DB. Typ parametru adnotacji powinien mieć wartość `OutputBinding<T>` , gdzie `T` jest natywnym typem Java lub Pojo.
+W [bibliotece środowiska uruchomieniowego usługi Java Functions](/java/api/overview/azure/functions/runtime)Użyj `@CosmosDBOutput` adnotacji w parametrach, które zapisują w Cosmos DB. Typ parametru adnotacji powinien mieć wartość `OutputBinding<T>` , gdzie `T` jest natywnym typem Java lub Pojo.
 
 ---
 
@@ -1435,7 +1435,7 @@ W poniższej tabeli objaśniono właściwości konfiguracji powiązań, które z
 |**Nazwij**     | nie dotyczy | Nazwa parametru powiązania, który reprezentuje dokument w funkcji.  |
 |**Bazy** |**DatabaseName** |Baza danych zawierająca dokument.        |
 |**CollectionName** |**CollectionName** | Nazwa kolekcji zawierającej dokument. |
-|**#c1**    | **#C1** | Identyfikator dokumentu do pobrania. Ta właściwość obsługuje [wyrażenia powiązań](./functions-bindings-expressions-patterns.md). Nie ustawiaj jednocześnie `id` właściwości i **sqlQuery** . Jeśli nie ustawisz żadnej z nich, cała kolekcja zostanie pobrana. |
+|**id**    | **#C1** | Identyfikator dokumentu do pobrania. Ta właściwość obsługuje [wyrażenia powiązań](./functions-bindings-expressions-patterns.md). Nie ustawiaj jednocześnie `id` właściwości i **sqlQuery** . Jeśli nie ustawisz żadnej z nich, cała kolekcja zostanie pobrana. |
 |**sqlQuery**  |**SqlQuery**  | Azure Cosmos DB zapytanie SQL używane do pobierania wielu dokumentów. Właściwość obsługuje powiązania środowiska uruchomieniowego, jak w tym przykładzie: `SELECT * FROM c where c.departmentId = {departmentId}` . Nie ustawiaj `id` właściwości i `sqlQuery` . Jeśli nie ustawisz żadnej z nich, cała kolekcja zostanie pobrana.|
 |**connectionStringSetting**     |**ConnectionStringSetting**|Nazwa ustawienia aplikacji zawierającego Azure Cosmos DB parametry połączenia. |
 |**partitionKey**|**PartitionKey**|Określa wartość klucza partycji dla wyszukiwania. Może zawierać parametry powiązania. Jest to wymagane w przypadku wyszukiwań w kolekcjach [partycjonowanych](../cosmos-db/partition-data.md#logical-partitions) .|
@@ -1463,7 +1463,7 @@ Dane są udostępniane funkcji za pośrednictwem `DocumentList` parametru. Zmian
 
 # <a name="java"></a>[Java](#tab/java)
 
-W [bibliotece środowiska uruchomieniowego usługi Java Functions](https://docs.microsoft.com/java/api/overview/azure/functions/runtime) [@CosmosDBInput](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.cosmosdbinput) adnotacja ujawnia Cosmos DB danych do funkcji. Tej adnotacji można używać w przypadku natywnych typów Java, Pojo lub wartości null przy użyciu `Optional<T>` .
+W [bibliotece środowiska uruchomieniowego usługi Java Functions](/java/api/overview/azure/functions/runtime) [@CosmosDBInput](/java/api/com.microsoft.azure.functions.annotation.cosmosdbinput) adnotacja ujawnia Cosmos DB danych do funkcji. Tej adnotacji można używać w przypadku natywnych typów Java, Pojo lub wartości null przy użyciu `Optional<T>` .
 
 ---
 

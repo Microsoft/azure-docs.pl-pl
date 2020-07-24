@@ -5,12 +5,12 @@ author: neilpeterson
 ms.date: 04/17/2020
 ms.topic: quickstart
 ms.author: nepeters
-ms.openlocfilehash: d36f8a9a8650b504da206e884d9be8e43e1becdb
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 06e7d3f291d32cecdcbf4d1f22ff9976d8970109
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86058150"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87040525"
 ---
 # <a name="quickstart-create-azure-resource-manager-templates-with-visual-studio-code"></a>Szybki Start: Tworzenie szablonów Azure Resource Manager przy użyciu Visual Studio Code
 
@@ -18,7 +18,7 @@ Azure Resource Manager narzędzia dla Visual Studio Code zapewniają obsługę j
 
 Aby ukończyć ten przewodnik Szybki Start, musisz [Visual Studio Code](https://code.visualstudio.com/)z zainstalowanym [rozszerzeniem narzędzi Azure Resource Manager Tools](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools) . Wymagany jest również [interfejs wiersza polecenia platformy Azure](/cli/azure/?view=azure-cli-latest) lub [moduł Azure PowerShell](/powershell/azure/new-azureps-module-az?view=azps-3.7.0) zainstalowany i uwierzytelniony.
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpłatne konto](https://azure.microsoft.com/free/).
 
 ## <a name="create-an-arm-template"></a>Tworzenie szablonu ARM
 
@@ -102,7 +102,7 @@ Wybierz `New`  >  `All Parameters` > wybierz nazwę i lokalizację pliku paramet
 
 Ta akcja tworzy nowy plik parametrów i mapuje go z szablonem, z którego został utworzony. Podczas zaznaczania szablonu można zobaczyć i zmodyfikować bieżące mapowanie pliku szablonu/parametru na pasku stanu Visual Studio Code.
 
-![](./media/quickstart-create-templates-use-visual-studio-code/16.png)
+![Obraz przedstawiający mapowanie pliku szablonu/parametru na pasku stanu Visual Studio Code.](./media/quickstart-create-templates-use-visual-studio-code/16.png)
 
 Teraz, gdy plik parametrów został zmapowany do szablonu, rozszerzenie weryfikuje jednocześnie szablon i plik parametrów. Aby wyświetlić tę weryfikację w ćwiczeniach, Dodaj wartość dwuznakową do `storageAccountName` parametru w pliku parametrów i Zapisz plik.
 

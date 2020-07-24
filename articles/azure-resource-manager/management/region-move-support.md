@@ -4,13 +4,14 @@ description: Wyświetla listę typów zasobów platformy Azure, które mogą by�
 author: rayne-wiselman
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 05/31/2020
+ms.date: 07/21/2020
 ms.author: raynew
-ms.openlocfilehash: 0510df504c8de70cfb6a486f394db6da65dbfce2
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 70f981f2763dd36f0f417faec6c81e168e9856e7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86057691"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87040963"
 ---
 # <a name="support-for-moving-azure-resources-across-regions"></a>Obsługa przemieszczania zasobów platformy Azure między regionami
 
@@ -70,7 +71,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > - [Microsoft. DBforMySQL](#microsoftdbformysql)
 > - [Microsoft. DBforPostgreSQL](#microsoftdbforpostgresql)
 > - [Microsoft. Deploymentmanager](#microsoftdeploymentmanager)
-> - [Microsoft. urządzenia](#microsoftdevices)
+> - [Microsoft.Devices](#microsoftdevices)
 > - [Microsoft. DevSpaces](#microsoftdevspaces)
 > - [Microsoft. wspólny](#microsoftdevtestlab)
 > - [Microsoft.DocumentDB](#microsoftdocumentdb)
@@ -542,14 +543,14 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Przeniesienie regionu | 
 > | ------------- | ----------- |
-> | serwerem | Jeśli usługa jest obsługiwana z magazynem geograficznie nadmiarowym, można użyć przywracania geograficznego do przywrócenia w innych regionach. [Dowiedz się więcej](../../mariadb/concepts-business-continuity.md#recover-from-an-azure-regional-data-center-outage)
+> | serwerem | Aby przenieść istniejący serwer, można użyć repliki odczytu między regionami. [Dowiedz się więcej](../../postgresql/howto-move-regions-portal.md).<br/><br/> Jeśli usługa jest obsługiwana z magazynem geograficznie nadmiarowym, można użyć przywracania geograficznego do przywrócenia w innych regionach. [Dowiedz się więcej](../../mariadb/concepts-business-continuity.md#recover-from-an-azure-regional-data-center-outage).
 
 ## <a name="microsoftdbformysql"></a>Microsoft. DBforMySQL
 
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Przeniesienie regionu | 
 > | ------------- | ----------- |
-> | serwerem | Nie |  
+> | serwerem | Aby przenieść istniejący serwer, można użyć repliki odczytu między regionami. [Dowiedz się więcej](../../mysql/howto-move-regions-portal.md).
 
 ## <a name="microsoftdbforpostgresql"></a>Microsoft. DBforPostgreSQL
 
@@ -557,7 +558,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | Typ zasobu | Przeniesienie regionu | 
 > | ------------- | ----------- |
 > | servergroups | Nie | 
-> | serwerem | Nie |  
+> | serwerem | Aby przenieść istniejący serwer, można użyć repliki odczytu między regionami. [Dowiedz się więcej](../../postgresql/howto-move-regions-portal.md).
 > | serversv2 | Nie | 
 
 ## <a name="microsoftdeploymentmanager"></a>Microsoft. Deploymentmanager
@@ -572,7 +573,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | servicetopologie/usługi/serviceunits | Nie | 
 > | kroki | Nie | 
 
-## <a name="microsoftdevices"></a>Microsoft. urządzenia
+## <a name="microsoftdevices"></a>Microsoft.Devices
 
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Przeniesienie regionu | 
@@ -717,7 +718,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | checknameavailability |  Nie.<br/><br/> IoT Central współpracuje z lokalizacje geograficzneą, a nie regionami.
 > | ziół | Nie
 
-## <a name="microsoftiothub"></a>Microsoft. IoTHub
+## <a name="microsoftiothub"></a>Microsoft.IoTHub
 
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Przeniesienie regionu | 

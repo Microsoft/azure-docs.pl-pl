@@ -12,16 +12,16 @@ ms.date: 06/29/2020
 tags: ''
 keywords: ''
 ms.service: multiple
-ms.openlocfilehash: 900e76fff3e5ccf88fa1e25ebea97f26e406a358
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6780942d922f885c7afebd8e64f4f28654c3800e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85610374"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87042543"
 ---
 # <a name="deploy-micro-focus-enterprise-server-50-to-aks"></a>Wdrażanie programu Micro Focus Enterprise Server 5,0 do AKS
 
-W innym [artykule](https://docs.microsoft.com/azure/virtual-machines/workloads/mainframe-rehosting/microfocus/run-enterprise-server-container)opisano procedurę uruchamiania programu Micro Focus Enterprise Server 5,0 w kontenerze platformy Docker. Jak widać w tym celu, chcę pokazać, jak to zrobić jeszcze jeden krok, i wdrożyć ten obraz platformy Docker utworzony w usłudze Azure Kubernetes Service (AKS).
+W innym [artykule](./run-enterprise-server-container.md)opisano procedurę uruchamiania programu Micro Focus Enterprise Server 5,0 w kontenerze platformy Docker. Jak widać w tym celu, chcę pokazać, jak to zrobić jeszcze jeden krok, i wdrożyć ten obraz platformy Docker utworzony w usłudze Azure Kubernetes Service (AKS).
 
 Usługa Azure Kubernetes to zarządzana usługa Orchestration oparta na Kubernetes. Umożliwia wdrażanie, skalowanie i Zarządzanie kontenerami platformy Docker (oraz innymi aplikacjami opartymi na kontenerach) w klastrze hostów kontenerów.
 

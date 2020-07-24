@@ -13,18 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: 8e1aeaf105ce371e965b433ac78e2b257f4bc18b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9d73c280e3f5639b11e0d07b9ef2f775f48cd3c3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81682046"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87038492"
 ---
 # <a name="access-the-azure-media-services-api-with-azure-ad-authentication"></a>Uzyskiwanie dostępu do interfejsu API usługi Azure Media Services przy użyciu uwierzytelniania usługi Azure AD.  
 
 > [!NOTE]
-> Do usługi Media Services w wersji 2 nie są już dodawane żadne nowe funkcje. <br/>Zapoznaj się z najnowszą wersją [Media Services wersja 3](https://docs.microsoft.com/azure/media-services/latest/). Zobacz też [wskazówki dotyczące migracji od wersji 2 do V3](../latest/migrate-from-v2-to-v3.md)
+> Do usługi Media Services w wersji 2 nie są już dodawane żadne nowe funkcje. <br/>Zapoznaj się z najnowszą wersją [Media Services wersja 3](../latest/index.yml). Zobacz też [wskazówki dotyczące migracji od wersji 2 do V3](../latest/migrate-from-v2-to-v3.md)
 
-Interfejs API Azure Media Services jest interfejsem API RESTful. Można jej używać do wykonywania operacji na zasobach multimedialnych przy użyciu interfejsu API REST lub z dostępnych zestawów SDK klienta. Azure Media Services oferuje zestaw SDK klienta Media Services dla Microsoft .NET. Aby uzyskać autoryzację w celu uzyskania dostępu do zasobów Media Services i interfejsu API Media Services, należy najpierw uwierzytelnić się. 
+Interfejs API Azure Media Services jest interfejsem API RESTful. Można jej używać do wykonywania operacji na zasobach multimedialnych przy użyciu interfejsu API REST lub z dostępnych zestawów SDK klienta. Azure Media Services oferuje zestaw SDK klienta Media Services dla Microsoft .NET. Aby uzyskać prawa dostępu do zasobów usługi Media Services i do interfejsu API usługi Media Services, należy się najpierw uwierzytelnić. 
 
 Media Services obsługuje [uwierzytelnianie oparte na Azure Active Directory (Azure AD)](../../active-directory/fundamentals/active-directory-whatis.md). Usługa Azure Media REST wymaga, aby użytkownik lub aplikacja, która wykonuje żądania interfejsu API REST, miała rolę **współautor** lub **właściciela** , aby uzyskać dostęp do zasobów. Aby uzyskać więcej informacji, zobacz [Rozpoczynanie pracy z Access Controlami opartymi na rolach w Azure Portal](../../role-based-access-control/overview.md).  
 
@@ -46,7 +47,7 @@ Nieautoryzowane żądania kończą się niepowodzeniem z kodem stanu 401. Jeśli
 W przypadku korzystania z uwierzytelniania usługi Azure AD z usługą Azure Media Services dostępne są dwie opcje uwierzytelniania:
 
 - **Uwierzytelnianie użytkownika**. Uwierzytelnij osobę, która korzysta z aplikacji, aby korzystać z zasobów Media Services. Aplikacja interaktywna powinna najpierw monitować użytkownika o podanie poświadczeń użytkownika. Przykładem jest aplikacja konsoli zarządzania używana przez autoryzowanych użytkowników do monitorowania zadań kodowania lub przesyłania strumieniowego na żywo. 
-- **Uwierzytelnianie nazwy głównej usługi**. Uwierzytelnianie usługi. Aplikacje, które często używają tej metody uwierzytelniania, to aplikacje, które uruchamiają usługi demonów, usługi warstwy środkowej lub zaplanowane zadania. Przykłady to aplikacje sieci Web, aplikacje funkcji, Aplikacje logiki, interfejs API i mikrousługi.
+- **Uwierzytelnianie nazwy głównej usługi**. Uwierzytelnianie usługi. Aplikacje, które często korzystają z tej metody uwierzytelniania, to aplikacje uruchamiające usługi demonów, usługi warstwy środkowej lub zaplanowane zadania. Przykłady to aplikacje sieci Web, aplikacje funkcji, Aplikacje logiki, interfejs API i mikrousługi.
 
 ### <a name="user-authentication"></a>Uwierzytelnianie użytkowników 
 
@@ -148,12 +149,11 @@ Rozwiązanie: aby żądanie REST Media Services powiodło się, użytkownik wywo
 
 Poniższe artykuły zawierają omówienia pojęć związanych z uwierzytelnianiem w usłudze Azure AD: 
 
-- [Scenariusze uwierzytelniania rozwiązywane przez usługę Azure AD](../../active-directory/develop/authentication-scenarios.md)
-- [Dodawanie, aktualizowanie lub usuwanie aplikacji w usłudze Azure AD](../../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md)
+- [Scenariusze uwierzytelniania rozwiązywane przez usługę Azure AD](../../active-directory/develop/authentication-vs-authorization.md)
+- [Dodawanie, aktualizowanie lub usuwanie aplikacji w usłudze Azure AD](../../active-directory/develop/quickstart-register-app.md)
 - [Konfigurowanie Access Control opartego na rolach i zarządzanie nimi przy użyciu programu PowerShell](../../role-based-access-control/role-assignments-powershell.md)
 
 ## <a name="next-steps"></a>Następne kroki
 
 * Użyj Azure Portal, aby [uzyskać dostęp do uwierzytelniania usługi Azure AD w celu korzystania z interfejsu API Azure Media Services](media-services-portal-get-started-with-aad.md).
 * Użyj uwierzytelniania usługi Azure AD, aby [uzyskać dostęp do interfejsu API Azure Media Services przy użyciu platformy .NET](media-services-dotnet-get-started-with-aad.md).
-

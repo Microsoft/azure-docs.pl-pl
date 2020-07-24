@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/07/2020
 ms.author: juliako
-ms.openlocfilehash: 8cd79ffc619a74d3f339fe88daad89d21f230510
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 35816c693589c5a45d51e5bd093d908b68f9c0d4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85964264"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87043272"
 ---
 # <a name="media-services-v3-with-widevine-license-template-overview"></a>Omówienie szablonu licencji Media Services v3 with Widevine
 
@@ -112,7 +112,7 @@ Każda wartość content_key_specs musi być określona dla wszystkich ścieżek
 
 ## <a name="configure-your-widevine-license-with-net"></a>Konfigurowanie licencji Widevine przy użyciu platformy .NET 
 
-Media Services udostępnia klasę, która umożliwia skonfigurowanie licencji Widevine. Aby utworzyć licencję, Przekaż kod JSON do [WidevineTemplate](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.contentkeypolicywidevineconfiguration.widevinetemplate?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_ContentKeyPolicyWidevineConfiguration_WidevineTemplate).
+Media Services udostępnia klasę, która umożliwia skonfigurowanie licencji Widevine. Aby utworzyć licencję, Przekaż kod JSON do [WidevineTemplate](/dotnet/api/microsoft.azure.management.media.models.contentkeypolicywidevineconfiguration.widevinetemplate?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_ContentKeyPolicyWidevineConfiguration_WidevineTemplate).
 
 Aby skonfigurować szablon, można:
 
@@ -258,7 +258,7 @@ public class WidevineTemplate
 
 #### <a name="configure-the-license"></a>Skonfiguruj licencję
 
-Użyj klas zdefiniowanych w poprzedniej sekcji, aby utworzyć kod JSON, który jest używany do konfigurowania [WidevineTemplate](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.contentkeypolicywidevineconfiguration.widevinetemplate?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_ContentKeyPolicyWidevineConfiguration_WidevineTemplate):
+Użyj klas zdefiniowanych w poprzedniej sekcji, aby utworzyć kod JSON, który jest używany do konfigurowania [WidevineTemplate](/dotnet/api/microsoft.azure.management.media.models.contentkeypolicywidevineconfiguration.widevinetemplate?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_ContentKeyPolicyWidevineConfiguration_WidevineTemplate):
 
 ```csharp
 private static ContentKeyPolicyWidevineConfiguration ConfigureWidevineLicenseTempate()

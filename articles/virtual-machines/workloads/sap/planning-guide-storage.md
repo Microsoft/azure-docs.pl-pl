@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 06/23/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1e64624865a314a7487a7ce474c1e5e56e3d9277
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 65fbd84a6fa4b03db9f5dfce81eeba23aceebbc9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85363006"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87042303"
 ---
 # <a name="azure-storage-types-for-sap-workload"></a>Typy usługi Azure Storage dla obciążeń SAP
 Platforma Azure ma wiele typów magazynów, które różnią się znacznie w zależności od możliwości, przepływności, opóźnień i cen. Niektóre typy magazynów nie są lub są ograniczone do użycia w scenariuszach SAP. Niektóre typy magazynów platformy Azure są dobrze dopasowane lub zoptymalizowane pod kątem określonych scenariuszy obciążeń SAP. Szczególnie w przypadku SAP HANA niektóre typy magazynów platformy Azure uzyskały certyfikat do użycia z SAP HANA. W tym dokumencie przechodzą różne typy magazynów i opisano ich możliwości i użyteczność przy użyciu obciążeń SAP i składników SAP.
@@ -32,11 +32,11 @@ Uwagi dotyczące jednostek używanych w tym artykule. Dostawcy chmury publicznej
 
 Microsoft Azure Storage HDD w warstwie Standardowa, SSD w warstwie Standardowa, Azure Premium Storage i Ultra Disk przechowuj podstawowy wirtualny dysk twardy (z systemem operacyjnym) i dyskami z danymi dołączonymi do maszyny wirtualnej w trzech kopiach na trzech różnych węzłach magazynu. Przechodzenie w tryb failover do innej repliki i wypełnianie nowej repliki w przypadku awarii węzła magazynu jest niewidoczne. W wyniku tej nadmiarowości **nie** jest wymagane użycie żadnego rodzaju warstwy nadmiarowości magazynu na wielu dyskach platformy Azure. Ten fakt nosi nazwę magazynu lokalnego nadmiarowego (LRS). LRS jest wartością domyślną dla tego typu magazynu na platformie Azure. [Azure NetApp Files](https://azure.microsoft.com/services/netapp/) zapewnia wystarczającą nadmiarowość do osiągnięcia tego samego umowy SLA, co w przypadku innych natywnych magazynów platformy Azure.
 
-Istnieje kilka metod nadmiarowości, które zostały opisane w artykule [Replikacja usługi Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-redundancy?toc=%2fazure%2fstorage%2fqueues%2ftoc.json) , która ma zastosowanie do niektórych różnych typów magazynów platformy Azure. 
+Istnieje kilka metod nadmiarowości, które zostały opisane w artykule [Replikacja usługi Azure Storage](../../../storage/common/storage-redundancy.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json) , która ma zastosowanie do niektórych różnych typów magazynów platformy Azure. 
 
 ### <a name="azure-managed-disks"></a>Azure Managed disks
 
-Dyski zarządzane są typu zasobów w Azure Resource Manager, które mogą być używane zamiast wirtualnych dysków twardych przechowywanych na kontach usługi Azure Storage. Managed Disks automatycznie wyrównać z [zestaw dostępności] [Virtual-Machines-Manage-Availability] maszyny wirtualnej, do której są dołączone, i w związku z tym zwiększyć dostępność maszyny wirtualnej i usługi, które są uruchomione na maszynie wirtualnej. Aby uzyskać więcej informacji, zapoznaj się z [artykułem Omówienie](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview).
+Dyski zarządzane są typu zasobów w Azure Resource Manager, które mogą być używane zamiast wirtualnych dysków twardych przechowywanych na kontach usługi Azure Storage. Managed Disks automatycznie wyrównać z [zestaw dostępności] [Virtual-Machines-Manage-Availability] maszyny wirtualnej, do której są dołączone, i w związku z tym zwiększyć dostępność maszyny wirtualnej i usługi, które są uruchomione na maszynie wirtualnej. Aby uzyskać więcej informacji, zapoznaj się z [artykułem Omówienie](../../windows/managed-disks-overview.md).
 
 W poniższym przykładzie przedstawiono zalety korzystania z dysków zarządzanych:
 
@@ -61,9 +61,9 @@ Utrwalany magazyn jest wymagany w obciążeniu SAP w różnych składnikach stos
 - Udziały plików lub dyski udostępnione, które zawierają Globalny katalog transportu dla NetWeaver lub S/4HANA. Zawartość tych udziałów jest używana przez oprogramowanie działające na wielu maszynach wirtualnych lub służy do tworzenia scenariuszy klastra trybu failover o wysokiej dostępności
 - Katalog/sapmnt lub typowe udziały plików dla procesów EDI lub podobnych. Zawartość tych udziałów jest używana przez oprogramowanie działające na wielu maszynach wirtualnych lub służy do tworzenia scenariuszy klastra trybu failover o wysokiej dostępności
 
-W następnych sekcjach omówiono różne typy magazynów platformy Azure i ich użyteczność dla obciążeń SAP, które mają zastosowanie do powyższych trzech scenariuszy. Ogólna Kategoryzacja, w jaki sposób należy używać różnych typów magazynu platformy Azure, jest udokumentowana w artykule [jakie typy dysków są dostępne na platformie Azure?](https://docs.microsoft.com/azure/virtual-machines/linux/disks-types). Zalecenia dotyczące korzystania z różnych typów usługi Azure Storage dla obciążeń SAP nie będą się różnić w znacznym zakresie.
+W następnych sekcjach omówiono różne typy magazynów platformy Azure i ich użyteczność dla obciążeń SAP, które dotyczą czterech powyższych scenariuszy. Ogólna Kategoryzacja, w jaki sposób należy używać różnych typów magazynu platformy Azure, jest udokumentowana w artykule [jakie typy dysków są dostępne na platformie Azure?](../../linux/disks-types.md). Zalecenia dotyczące korzystania z różnych typów usługi Azure Storage dla obciążeń SAP nie będą się różnić w znacznym zakresie.
 
-Aby uzyskać informacje na temat ograniczeń dotyczących obsługi typów magazynu platformy Azure dla warstwy oprogramowania SAP NetWeaver/4HANA, zapoznaj się z [uwagami dotyczącymi obsługi sap 2015553](https://launchpad.support.sap.com/#/notes/2015553) w przypadku SAP HANA certyfikowane i obsługiwane typy usługi Azure Storage przeczytaj artykuł [SAP HANA konfiguracje magazynu maszyn wirtualnych platformy Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage).
+Aby uzyskać informacje na temat ograniczeń dotyczących obsługi typów magazynu platformy Azure dla warstwy oprogramowania SAP NetWeaver/4HANA, zapoznaj się z [uwagami dotyczącymi obsługi sap 2015553](https://launchpad.support.sap.com/#/notes/2015553) w przypadku SAP HANA certyfikowane i obsługiwane typy usługi Azure Storage przeczytaj artykuł [SAP HANA konfiguracje magazynu maszyn wirtualnych platformy Azure](./hana-vm-operations-storage.md).
 
 Sekcje opisujące różne typy magazynów platformy Azure zapewniają więcej informacji o ograniczeniach i możliwościach korzystających z obsługiwanego magazynu SAP. 
 
@@ -84,7 +84,7 @@ Przed przejściem do szczegółów prezentujemy podsumowanie i zalecenia, które
 | Woluminy dziennika systemu DBMS z rodziną maszyn wirtualnych non-M/Mv2 | nieobsługiwane | odpowiednie ograniczenia (inne niż produkcyjne) | odpowiednie dla do średniego obciążenia | zalecane | nieobsługiwane |
 
 
-<sup>1</sup> dzięki użyciu [usługi Azure akcelerator zapisu](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator) dla rodzin maszyn wirtualnych M/Mv2 dla woluminów dziennika dziennika/ponownego wykonywania <sup>2</sup> i ANF wymaga/Hana/Data, a także/Hana/log do ANF 
+<sup>1</sup> dzięki użyciu [usługi Azure akcelerator zapisu](../../windows/how-to-enable-write-accelerator.md) dla rodzin maszyn wirtualnych M/Mv2 dla woluminów dziennika dziennika/ponownego wykonywania <sup>2</sup> i ANF wymaga/Hana/Data, a także/Hana/log do ANF 
 
 Właściwości, których można oczekiwać od różnych typów magazynów, takich jak:
 
@@ -101,7 +101,7 @@ Właściwości, których można oczekiwać od różnych typów magazynów, takic
 | Nadmiarowość geograficzna | nie dla dysków zarządzanych | nie dla dysków zarządzanych | nie | nie | nie |
 
 
-<sup>1</sup> z użyciem [Akcelerator zapisu platformy Azure](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator) dla rodzin maszyn wirtualnych M/Mv2 dla woluminów dziennika dziennika/ponownego wykonywania
+<sup>1</sup> z użyciem [Akcelerator zapisu platformy Azure](../../windows/how-to-enable-write-accelerator.md) dla rodzin maszyn wirtualnych M/Mv2 dla woluminów dziennika dziennika/ponownego wykonywania
 
 <sup>2</sup> koszty zależą od aprowizacji operacji we/wy na sekundę
 
@@ -123,7 +123,7 @@ Magazyn SSD systemu Azure w warstwie Premium został wprowadzony w celu zapewnie
 * Umowy SLA dla operacji we/wy na sekundę
 * Mniej zmienności w opóźnieniu we/wy
 
-Ten typ magazynu dotyczy obciążeń systemu DBMS, ruchu magazynu, który wymaga niskich jednocyfrowych opóźnień, a umowy SLA w przypadku operacji we/wy na sekundę w przypadku usługi Azure Premium Storage nie jest rzeczywistym woluminem danych przechowywanym na tych dyskach, ale z kategorią rozmiaru dysku, niezależnie od ilości danych przechowywanych na dysku. Można również tworzyć dyski w magazynie w warstwie Premium, które nie są bezpośrednio mapowane do kategorii rozmiaru przedstawionych w artykule [SSD w warstwie Premium](https://docs.microsoft.com/azure/virtual-machines/linux/disks-types#premium-ssd). Wnioski z tego artykułu są następujące:
+Ten typ magazynu dotyczy obciążeń systemu DBMS, ruchu magazynu, który wymaga niskich jednocyfrowych opóźnień, a umowy SLA w przypadku operacji we/wy na sekundę w przypadku usługi Azure Premium Storage nie jest rzeczywistym woluminem danych przechowywanym na tych dyskach, ale z kategorią rozmiaru dysku, niezależnie od ilości danych przechowywanych na dysku. Można również tworzyć dyski w magazynie w warstwie Premium, które nie są bezpośrednio mapowane do kategorii rozmiaru przedstawionych w artykule [SSD w warstwie Premium](../../linux/disks-types.md#premium-ssd). Wnioski z tego artykułu są następujące:
 
 - Magazyn jest zorganizowany w zakresach. Na przykład dysk w zakresie 513 GiB do 1024 GiB może mieć te same możliwości i te same miesięczne koszty
 - Liczba operacji we/wy na sekundę nie jest śledzona liniowo w kategoriach rozmiaru. Mniejsze dyski poniżej 32 GiB mają wyższą szybkość operacji we/wy na GiB. W przypadku dysków poza 32 GiB do 1024 GiB szybkość operacji we/wy na GiB wynosi od 4-5 IOPS na GiB. W przypadku większych dysków o pojemności do 32 767 GiB szybkość operacji we/wy na GiB jest mniejsza niż 1
@@ -137,7 +137,7 @@ Macierz możliwości dla obciążeń SAP wygląda następująco:
 | Możliwość| Komentarz| Notatki/linki | 
 | --- | --- | --- | 
 | Podstawowy dysk twardy systemu operacyjnego | wiek | Wszystkie systemy |
-| Dysk z danymi | wiek | Wszystkie systemy — [specjalnie dla SAP HANA](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator) |
+| Dysk danych | wiek | Wszystkie systemy — [specjalnie dla SAP HANA](../../windows/how-to-enable-write-accelerator.md) |
 | Globalny katalog transportu SAP | TAK | [Obsługiwane](https://launchpad.support.sap.com/#/notes/2015553) |
 | Sapmnt SAP | wiek | Wszystkie systemy |
 | Magazyn kopii zapasowych | wiek | do krótkoterminowego przechowywania kopii zapasowych |
@@ -146,15 +146,15 @@ Macierz możliwości dla obciążeń SAP wygląda następująco:
 | Opóźnienie | średnio do średnika | - |
 | UMOWA SLA DLA OPERACJI IOPS | TAK | - |
 | Wydajność operacji we/wy na sekundę | Średni liniowy w nawiasach klamrowych  | [Cennik dysku zarządzanego](https://azure.microsoft.com/pricing/details/managed-disks/) |
-| Maksymalna liczba operacji we/wy na dysk | 20 000 [zależnie od rozmiaru dysku](https://azure.microsoft.com/pricing/details/managed-disks/) | Uwzględnij również [limity maszyn wirtualnych](https://docs.microsoft.com/azure/virtual-machines/linux/sizes) |
+| Maksymalna liczba operacji we/wy na dysk | 20 000 [zależnie od rozmiaru dysku](https://azure.microsoft.com/pricing/details/managed-disks/) | Uwzględnij również [limity maszyn wirtualnych](../../linux/sizes.md) |
 | Umowa SLA dotycząca przepływności | TAK | - |
 | Przepływność liniowa do pojemności | Średni liniowy w nawiasach klamrowych | [Cennik dysku zarządzanego](https://azure.microsoft.com/pricing/details/managed-disks/) |
-| HANA certyfikowane | TAK | [specjalnie dla SAP HANA](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator) |
+| HANA certyfikowane | TAK | [specjalnie dla SAP HANA](../../windows/how-to-enable-write-accelerator.md) |
 | Możliwe migawki dysków | TAK | - |
-| Możliwe Azure Backup migawek maszyn wirtualnych | TAK | z wyjątkiem dysków [Akcelerator zapisu](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator) w pamięci podręcznej  |
+| Możliwe Azure Backup migawek maszyn wirtualnych | TAK | z wyjątkiem dysków [Akcelerator zapisu](../../windows/how-to-enable-write-accelerator.md) w pamięci podręcznej  |
 | Koszty | ŚREDNIOOKRESOW | - |
 
-Usługa Azure Premium Storage nie spełnia SAP HANA kluczowych wskaźników wydajności magazynu, które są dostępne w usłudze Azure Premium Storage. Aby spełnić kluczowe wskaźniki wydajności magazynu dla SAP HANA zapisów w dzienniku, należy użyć buforowania akcelerator zapisu platformy Azure zgodnie z opisem w artykule [włączanie akcelerator zapisu](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator). Na platformie Azure akcelerator zapisu wszystkie inne systemy DBMS do zapisu w dziennikach transakcji i ponownego wykonywania operacji zapisywania dzienników. W związku z tym zaleca się używanie go we wszystkich wdrożeniach SAP DBMS. W przypadku SAP HANA użycie usługi Azure akcelerator zapisu w połączeniu z usługą Azure Premium Storage jest obowiązkowe.
+Usługa Azure Premium Storage nie spełnia SAP HANA kluczowych wskaźników wydajności magazynu, które są dostępne w usłudze Azure Premium Storage. Aby spełnić kluczowe wskaźniki wydajności magazynu dla SAP HANA zapisów w dzienniku, należy użyć buforowania akcelerator zapisu platformy Azure zgodnie z opisem w artykule [włączanie akcelerator zapisu](../../windows/how-to-enable-write-accelerator.md). Na platformie Azure akcelerator zapisu wszystkie inne systemy DBMS do zapisu w dziennikach transakcji i ponownego wykonywania operacji zapisywania dzienników. W związku z tym zaleca się używanie go we wszystkich wdrożeniach SAP DBMS. W przypadku SAP HANA użycie usługi Azure akcelerator zapisu w połączeniu z usługą Azure Premium Storage jest obowiązkowe.
 
 
 
@@ -162,7 +162,7 @@ Usługa Azure Premium Storage nie spełnia SAP HANA kluczowych wskaźników wyda
 
 
 ### <a name="azure-burst-functionality-for-premium-storage"></a>Azure w warstwie Premium Storage
-W przypadku dysków usługi Azure Premium Storage o rozmiarze mniejszym lub równym 512 GiB jest oferowana funkcja pojemności. Dokładny sposób działania tworzenia [serii dysków w artykule.](https://docs.microsoft.com/azure/virtual-machines/linux/disk-bursting) Po przeczytaniu artykułu rozumiesz koncepcję naliczania liczby operacji we/wy i przepływności w czasie, gdy obciążenie wejścia/wyjścia jest poniżej wartości nominalnych IOPS i przepływności dysków (Aby uzyskać szczegółowe informacje na temat nominalnej przepływności, zobacz [Cennik dysku zarządzanego](https://azure.microsoft.com/pricing/details/managed-disks/)). Nastąpi naliczanie różnic między bieżącym użyciem a wartością nominalną dysku. Liczby serii są ograniczone do maksymalnie 30 minut.
+W przypadku dysków usługi Azure Premium Storage o rozmiarze mniejszym lub równym 512 GiB jest oferowana funkcja pojemności. Dokładny sposób działania tworzenia [serii dysków w artykule.](../../linux/disk-bursting.md) Po przeczytaniu artykułu rozumiesz koncepcję naliczania liczby operacji we/wy i przepływności w czasie, gdy obciążenie wejścia/wyjścia jest poniżej wartości nominalnych IOPS i przepływności dysków (Aby uzyskać szczegółowe informacje na temat nominalnej przepływności, zobacz [Cennik dysku zarządzanego](https://azure.microsoft.com/pricing/details/managed-disks/)). Nastąpi naliczanie różnic między bieżącym użyciem a wartością nominalną dysku. Liczby serii są ograniczone do maksymalnie 30 minut.
 
 Idealnymi przypadkami, w których można zaplanować tę funkcję, jest prawdopodobnie woluminy lub dyski zawierające pliki danych dla różnych systemów DBMS. Obciążenie we/wy oczekiwane na te woluminy, zwłaszcza w przypadku systemów z małym i średnim zakresem, powinny wyglądać następująco:
 
@@ -184,8 +184,8 @@ Dyski platformy Azure w warstwie Ultra oferują magazyn danych na dysku z wysok�
 Podczas tworzenia dysku można zdefiniować trzy wymiary:
 
 - Pojemność dysku. Zakresy są z przedziału od 4 GiB do 65 536 GiB
-- Zainicjowano obsługę operacji we/wy na dysku. Różne wartości maksymalne mają zastosowanie do pojemności dysku. Zapoznaj się z artykułem [Ultra Disk](https://docs.microsoft.com/azure/virtual-machines/linux/disks-types#ultra-disk) , aby uzyskać więcej szczegółów
-- Zainicjowana przepustowość magazynu. Inna przepustowość Maksymalna jest zależna od pojemności dysku. Zapoznaj się z artykułem [Ultra Disk](https://docs.microsoft.com/azure/virtual-machines/linux/disks-types#ultra-disk) , aby uzyskać więcej szczegółów
+- Zainicjowano obsługę operacji we/wy na dysku. Różne wartości maksymalne mają zastosowanie do pojemności dysku. Zapoznaj się z artykułem [Ultra Disk](../../linux/disks-types.md#ultra-disk) , aby uzyskać więcej szczegółów
+- Zainicjowana przepustowość magazynu. Inna przepustowość Maksymalna jest zależna od pojemności dysku. Zapoznaj się z artykułem [Ultra Disk](../../linux/disks-types.md#ultra-disk) , aby uzyskać więcej szczegółów
 
 Koszt pojedynczego dysku jest określany przez trzy wymiary, które można zdefiniować osobno dla poszczególnych dysków. 
 
@@ -195,7 +195,7 @@ Macierz możliwości dla obciążeń SAP wygląda następująco:
 | Możliwość| Komentarz| Notatki/linki | 
 | --- | --- | --- | 
 | Podstawowy dysk twardy systemu operacyjnego | nie działa | - |
-| Dysk z danymi | wiek | Wszystkie systemy  |
+| Dysk danych | wiek | Wszystkie systemy  |
 | Globalny katalog transportu SAP | TAK | [Obsługiwane](https://launchpad.support.sap.com/#/notes/2015553) |
 | Sapmnt SAP | wiek | Wszystkie systemy |
 | Magazyn kopii zapasowych | wiek | do krótkoterminowego przechowywania kopii zapasowych |
@@ -218,7 +218,7 @@ Macierz możliwości dla obciążeń SAP wygląda następująco:
 
 
 ## <a name="azure-netapp-files-anf"></a>Pliki NetApp platformy Azure (ANF)
-[Azure NetApp Files](https://azure.microsoft.com/services/netapp/) jest wynikiem współpracy między firmą Microsoft i NetAppą w celu zapewnienia wysokiej wydajności NATYWNYCH plików NFS i udziałów SMB platformy Azure. Nacisk ma na celu zapewnienie dużej przepustowości i magazynu o małym opóźnieniu, który umożliwia scenariusze wdrażania systemu DBMS, a jednocześnie pozwala na obsługę typowych funkcji operacyjnych magazynu NetApp za pośrednictwem platformy Azure. Udziały NFS/SMB są oferowane na trzech różnych poziomach usługi, które różnią się w zależności od przepływności magazynu i ceny. Poziomy usług są udokumentowane w artykule [poziomy usługi Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-service-levels). W przypadku różnych typów obciążeń SAP zalecane są następujące poziomy usług:
+[Azure NetApp Files](https://azure.microsoft.com/services/netapp/) jest wynikiem współpracy między firmą Microsoft i NetAppą w celu zapewnienia wysokiej wydajności NATYWNYCH plików NFS i udziałów SMB platformy Azure. Nacisk ma na celu zapewnienie dużej przepustowości i magazynu o małym opóźnieniu, który umożliwia scenariusze wdrażania systemu DBMS, a jednocześnie pozwala na obsługę typowych funkcji operacyjnych magazynu NetApp za pośrednictwem platformy Azure. Udziały NFS/SMB są oferowane na trzech różnych poziomach usługi, które różnią się w zależności od przepływności magazynu i ceny. Poziomy usług są udokumentowane w artykule [poziomy usługi Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-service-levels.md). W przypadku różnych typów obciążeń SAP zalecane są następujące poziomy usług:
 
 - Obciążenie systemu SAP DBMS: wydajność, najlepiej Ultra
 - SAPMNT: wydajność, najlepiej Ultra
@@ -231,10 +231,10 @@ Magazyn ANF jest obecnie obsługiwany w kilku scenariuszach obciążeń SAP:
 
 - Udostępnianie udziałów SMB lub NFS dla globalnego katalogu transportowego SAP
 - Udział sapmnt w scenariuszach wysokiej dostępności, zgodnie z opisem w:
-    - [Wysoka dostępność dla oprogramowania SAP NetWeaver na maszynach wirtualnych platformy Azure w systemie Windows z Azure NetApp Files (SMB) dla aplikacji SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-windows-netapp-files-smb)
-    - [Wysoka dostępność dla oprogramowania SAP NetWeaver na maszynach wirtualnych platformy Azure na SUSE Linux Enterprise Server z Azure NetApp Files dla aplikacji SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files)
-    - [Platforma Azure Virtual Machines wysoka dostępność dla oprogramowania SAP NetWeaver na Red Hat Enterprise Linux z Azure NetApp Files dla aplikacji SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-netapp-files)
-- SAP HANA wdrożenia przy użyciu udziałów NFS v 4.1 dla woluminów/Hana/Data i/Hana/log oraz woluminów NFS v 4.1 lub NFS v3 dla woluminów/Hana/Shared, zgodnie z opisem w artykule [SAP HANA konfiguracje magazynu maszyn wirtualnych platformy Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage)
+    - [Wysoka dostępność dla oprogramowania SAP NetWeaver na maszynach wirtualnych platformy Azure w systemie Windows z Azure NetApp Files (SMB) dla aplikacji SAP](./high-availability-guide-windows-netapp-files-smb.md)
+    - [Wysoka dostępność dla oprogramowania SAP NetWeaver na maszynach wirtualnych platformy Azure na SUSE Linux Enterprise Server z Azure NetApp Files dla aplikacji SAP](./high-availability-guide-suse-netapp-files.md)
+    - [Platforma Azure Virtual Machines wysoka dostępność dla oprogramowania SAP NetWeaver na Red Hat Enterprise Linux z Azure NetApp Files dla aplikacji SAP](./high-availability-guide-rhel-netapp-files.md)
+- SAP HANA wdrożenia przy użyciu udziałów NFS v 4.1 dla woluminów/Hana/Data i/Hana/log oraz woluminów NFS v 4.1 lub NFS v3 dla woluminów/Hana/Shared, zgodnie z opisem w artykule [SAP HANA konfiguracje magazynu maszyn wirtualnych platformy Azure](./hana-vm-operations-storage.md)
 
 > [!NOTE]
 > Żadne inne obciążenia systemu DBMS nie są obsługiwane w przypadku udziałów opartych na Azure NetApp Filesach NFS i SMB. Aktualizacje i zmiany zostaną podane w przypadku zmiany.
@@ -250,7 +250,7 @@ Macierz możliwości dla obciążeń SAP wygląda następująco:
 | Możliwość| Komentarz| Notatki/linki | 
 | --- | --- | --- | 
 | Podstawowy dysk twardy systemu operacyjnego | nie działa | - |
-| Dysk z danymi | wiek | Tylko SAP HANA  |
+| Dysk danych | wiek | Tylko SAP HANA  |
 | Globalny katalog transportu SAP | TAK | Protokół SMB i system plików NFS |
 | Sapmnt SAP | wiek | Wszystkie systemy SMB (tylko Windows) lub NFS (tylko system Linux) |
 | Magazyn kopii zapasowych | wiek | - |
@@ -258,9 +258,9 @@ Macierz możliwości dla obciążeń SAP wygląda następująco:
 | Odporność | LRS | Brak GRS lub ZRS dostępnych dla dysków |
 | Opóźnienie | bardzo niski | - |
 | UMOWA SLA DLA OPERACJI IOPS | TAK | - |
-| Wydajność operacji we/wy na sekundę | ściśle liniowe  | Zależne od [poziomu usługi](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-service-levels) |
+| Wydajność operacji we/wy na sekundę | ściśle liniowe  | Zależne od [poziomu usługi](../../../azure-netapp-files/azure-netapp-files-service-levels.md) |
 | Umowa SLA dotycząca przepływności | TAK | - |
-| Przepływność liniowa do pojemności | Średni liniowy w nawiasach klamrowych | Zależne od [poziomu usługi](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-service-levels) |
+| Przepływność liniowa do pojemności | Średni liniowy w nawiasach klamrowych | Zależne od [poziomu usługi](../../../azure-netapp-files/azure-netapp-files-service-levels.md) |
 | HANA certyfikowane | TAK | - |
 | Możliwe migawki dysków | TAK | - |
 | Możliwe Azure Backup migawek maszyn wirtualnych | NO | - |
@@ -283,7 +283,7 @@ W porównaniu z magazynem dysków twardych platformy Azure w warstwie Standardow
 | Możliwość| Komentarz| Notatki/linki | 
 | --- | --- | --- | 
 | Podstawowy dysk twardy systemu operacyjnego | ograniczone odpowiednie | Systemy nieprodukcyjne |
-| Dysk z danymi | ograniczone odpowiednie | Niektóre systemy nieprodukcyjne z niskimi żądaniami IOPS i opóźnieniami |
+| Dysk danych | ograniczone odpowiednie | Niektóre systemy nieprodukcyjne z niskimi żądaniami IOPS i opóźnieniami |
 | Globalny katalog transportu SAP | NO | [Nieobsługiwany](https://launchpad.support.sap.com/#/notes/2015553) |
 | Sapmnt SAP | ograniczone odpowiednie | Systemy nieprodukcyjne |
 | Magazyn kopii zapasowych | wiek | - |
@@ -310,7 +310,7 @@ Magazyn HDD w warstwie Standardowa platformy Azure był jedynym typem magazynu, 
 | Możliwość| Komentarz| Notatki/linki | 
 | --- | --- | --- | 
 | Podstawowy dysk twardy systemu operacyjnego | nieodpowiednie | - |
-| Dysk z danymi | nieodpowiednie | - |
+| Dysk danych | nieodpowiednie | - |
 | Globalny katalog transportu SAP | NO | [Nieobsługiwany](https://launchpad.support.sap.com/#/notes/2015553) |
 | Sapmnt SAP | NO | Nieobsługiwane |
 | Magazyn kopii zapasowych | wiek | - |
@@ -335,11 +335,11 @@ W przeciwieństwie do scenariuszy lokalnych wybrany typ wybranej maszyny wirtual
 
 | Typ magazynu| Linux | Windows | Komentarze |
 | --- | --- | --- | --- |
-| Dysk HDD w warstwie Standardowa | [Rozmiary maszyn wirtualnych z systemem Linux na platformie Azure](https://docs.microsoft.com/azure/virtual-machines/linux/sizes) | [Rozmiary maszyn wirtualnych z systemem Windows na platformie Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes) | Trudne do dotknięcia limity magazynu dla średnich lub dużych maszyn wirtualnych |
-| Dysk SSD w warstwie Standardowa | [Rozmiary maszyn wirtualnych z systemem Linux na platformie Azure](https://docs.microsoft.com/azure/virtual-machines/linux/sizes) | [Rozmiary maszyn wirtualnych z systemem Windows na platformie Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes) | Trudne do dotknięcia limity magazynu dla średnich lub dużych maszyn wirtualnych |
-| Premium Storage | [Rozmiary maszyn wirtualnych z systemem Linux na platformie Azure](https://docs.microsoft.com/azure/virtual-machines/linux/sizes) | [Rozmiary maszyn wirtualnych z systemem Windows na platformie Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes) | Łatwe osiąganie limitów liczby operacji we/wy na sekundę oraz przepływności maszyn wirtualnych z konfiguracją magazynu |
-| Magazyn Ultra Disk | [Rozmiary maszyn wirtualnych z systemem Linux na platformie Azure](https://docs.microsoft.com/azure/virtual-machines/linux/sizes) | [Rozmiary maszyn wirtualnych z systemem Windows na platformie Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes) | Łatwe osiąganie limitów liczby operacji we/wy na sekundę oraz przepływności maszyn wirtualnych z konfiguracją magazynu |
-| Azure NetApp Files | [Rozmiary maszyn wirtualnych z systemem Linux na platformie Azure](https://docs.microsoft.com/azure/virtual-machines/linux/sizes) | [Rozmiary maszyn wirtualnych z systemem Windows na platformie Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes) | Ruch magazynu wykorzystuje przepustowość sieci, a nie przepustowość magazynu! |
+| Dysk HDD w warstwie Standardowa | [Rozmiary maszyn wirtualnych z systemem Linux na platformie Azure](../../linux/sizes.md) | [Rozmiary maszyn wirtualnych z systemem Windows na platformie Azure](../../windows/sizes.md) | Trudne do dotknięcia limity magazynu dla średnich lub dużych maszyn wirtualnych |
+| Dysk SSD w warstwie Standardowa | [Rozmiary maszyn wirtualnych z systemem Linux na platformie Azure](../../linux/sizes.md) | [Rozmiary maszyn wirtualnych z systemem Windows na platformie Azure](../../windows/sizes.md) | Trudne do dotknięcia limity magazynu dla średnich lub dużych maszyn wirtualnych |
+| Premium Storage | [Rozmiary maszyn wirtualnych z systemem Linux na platformie Azure](../../linux/sizes.md) | [Rozmiary maszyn wirtualnych z systemem Windows na platformie Azure](../../windows/sizes.md) | Łatwe osiąganie limitów liczby operacji we/wy na sekundę oraz przepływności maszyn wirtualnych z konfiguracją magazynu |
+| Magazyn Ultra Disk | [Rozmiary maszyn wirtualnych z systemem Linux na platformie Azure](../../linux/sizes.md) | [Rozmiary maszyn wirtualnych z systemem Windows na platformie Azure](../../windows/sizes.md) | Łatwe osiąganie limitów liczby operacji we/wy na sekundę oraz przepływności maszyn wirtualnych z konfiguracją magazynu |
+| Azure NetApp Files | [Rozmiary maszyn wirtualnych z systemem Linux na platformie Azure](../../linux/sizes.md) | [Rozmiary maszyn wirtualnych z systemem Windows na platformie Azure](../../windows/sizes.md) | Ruch magazynu wykorzystuje przepustowość sieci, a nie przepustowość magazynu! |
 
 Zgodnie z ograniczeniami można zauważyć, że:
 
@@ -352,7 +352,7 @@ W przypadku dużych maszyn wirtualnych platformy Azure w cyklu życia systemu SA
 
 
 ## <a name="striping-or-not-striping"></a>Rozłożenie lub bez rozłożenia
-Utworzenie zestawu rozłożonego z wielu dysków platformy Azure w jednym większym woluminie umożliwia gromadzenie operacji we/wy i przepływności poszczególnych dysków w jednym woluminie. Jest ona używana tylko w przypadku usługi Azure Standard Storage i Azure Premium Storage. Azure Ultra Disk, w której można skonfigurować przepływność i operacje we/wy niezależnie od pojemności dysku, nie wymagają użycia zestawów paskowych. Woluminów udostępnionych opartych na systemie plików NFS lub SMB nie można rozmieścić. Ze względu na nieliniową naturę przepływności i liczby operacji we/wy na platformie Azure Premium możesz udostępnić mniejszą pojemność z użyciem tej samej liczby operacji we/wy na sekundę, co w przypadku dużych dysków usługi Azure Premium Storage. Jest to metoda osiągnięcia wyższej przepływności lub liczby operacji we/wy przy niższych kosztach przy użyciu usługi Azure Premium Storage. Przykład:
+Utworzenie zestawu rozłożonego z wielu dysków platformy Azure w jednym większym woluminie umożliwia gromadzenie operacji we/wy i przepływności poszczególnych dysków w jednym woluminie. Jest ona używana tylko w przypadku usługi Azure Standard Storage i Azure Premium Storage. Azure Ultra Disk, w której można skonfigurować przepływność i operacje we/wy niezależnie od pojemności dysku, nie wymagają użycia zestawów paskowych. Woluminów udostępnionych opartych na systemie plików NFS lub SMB nie można rozmieścić. Ze względu na nieliniową naturę przepływności i liczby operacji we/wy na platformie Azure Premium możesz udostępnić mniejszą pojemność z użyciem tej samej liczby operacji we/wy na sekundę, co w przypadku dużych dysków usługi Azure Premium Storage. Jest to metoda osiągnięcia wyższej przepływności lub liczby operacji we/wy przy niższych kosztach przy użyciu usługi Azure Premium Storage. Na przykład:
 
 - Rozłożenie na dwa dyski usługi P15 Premium Storage zapewnia przepływność 
 - 250 MiB/s. Taki wolumin będzie miał pojemność 512 GiB. Jeśli chcesz mieć pojedynczy dysk zapewniający przepustowość 250 MiB na sekundę, należy wybrać dysk P40 o pojemności 2 TiB. 
@@ -365,7 +365,7 @@ Należy przestrzegać kilku reguł:
 
 Rozłożenie na kilka mniejszych dysków jest najlepszym sposobem osiągnięcia dobrego kosztu/wydajności przy użyciu usługi Azure Premium Storage. Należy zrozumieć, że rozmieszczenie obejmuje pewne dodatkowe obciążenie i zarządzanie.
 
-Aby zapoznać się z konkretnymi zaleceniami dotyczącymi rozmiaru paska, zapoznaj się z dokumentacją dla różnych systemów DBMS, na przykład [SAP HANA konfiguracjami magazynu maszyn wirtualnych platformy Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage).
+Aby zapoznać się z konkretnymi zaleceniami dotyczącymi rozmiaru paska, zapoznaj się z dokumentacją dla różnych systemów DBMS, na przykład [SAP HANA konfiguracjami magazynu maszyn wirtualnych platformy Azure](./hana-vm-operations-storage.md).
 
 
 
@@ -373,6 +373,6 @@ Aby zapoznać się z konkretnymi zaleceniami dotyczącymi rozmiaru paska, zapozn
 ## <a name="next-steps"></a>Następne kroki
 Zapoznaj się z artykułami:
 
-- [Zagadnienia dotyczące wdrażania systemu Azure Virtual Machines DBMS dla obciążeń SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general)
-- [Konfiguracje magazynu maszyn wirtualnych platformy Azure SAP HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage)
+- [Zagadnienia dotyczące wdrażania systemu Azure Virtual Machines DBMS dla obciążeń SAP](./dbms_guide_general.md)
+- [Konfiguracje magazynu maszyn wirtualnych platformy Azure SAP HANA](./hana-vm-operations-storage.md)
  

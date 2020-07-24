@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 04/20/2020
 ms.author: juliako
-ms.openlocfilehash: 40a2510fcb6fd5fe51cebc702604e2d09df7b061
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 56c6b3732d0a77580c27f6cc8720b414e8e49d23
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84982173"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87038991"
 ---
 # <a name="azure-media-services-v3-documentation-updates"></a>Aktualizacje dokumentacji Azure Media Services v3
 
@@ -26,7 +26,7 @@ W tym artykule omówiono najnowsze aktualizacje dokumentacji programu Media Serv
 
 ## <a name="june-2020"></a>Czerwiec 2020 r.
 
-* Wersja zapoznawcza usługi Analiza filmów wideo na żywo na IoT Edge powiodła się. Szczegółowe informacje znajdują się w dokumentacji [dotyczącej analizy filmów wideo na żywo w IoT Edge](https://docs.microsoft.com/azure/media-services/live-video-analytics-edge/) .
+* Wersja zapoznawcza usługi Analiza filmów wideo na żywo na IoT Edge powiodła się. Szczegółowe informacje znajdują się w dokumentacji [dotyczącej analizy filmów wideo na żywo w IoT Edge](../live-video-analytics-edge/index.yml) .
 * Nowe Przewodniki Szybki Start:
 
     * [Przekazywanie, kodowanie i przesyłanie strumieniowe zawartości za pomocą portalu](manage-assets-quickstart.md)

@@ -13,28 +13,29 @@ ms.topic: article
 ms.date: 10/21/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 7ea74c85af062ce00dbccf8a486ce39cbd524bb0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 703c08cd5a884c8bfdd027b4ecf457c9e954a2dc
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85515059"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87043412"
 ---
-# <a name="develop-with-media-services-v3-apis"></a>Programowanie przy użyciu interfejsów API Media Services v3
+# <a name="develop-with-media-services-v3-apis"></a>Programowanie przy użyciu interfejsu API usługi Media Services w wersji 3
 
-Programista może używać Media Services [interfejsów API REST](https://docs.microsoft.com/rest/api/media/) lub bibliotek klienckich, które umożliwiają współpracę z interfejsem API REST w celu łatwego tworzenia, zarządzania i obsługi niestandardowych przepływów pracy w multimediach. Interfejs API [Media Services v3](https://aka.ms/ams-v3-rest-sdk) jest oparty na specyfikacji openapi (znanej wcześniej jako Swagger).
+Programista może używać Media Services [interfejsów API REST](/rest/api/media/) lub bibliotek klienckich, które umożliwiają współpracę z interfejsem API REST w celu łatwego tworzenia, zarządzania i obsługi niestandardowych przepływów pracy w multimediach. Interfejs API [Media Services v3](https://aka.ms/ams-v3-rest-sdk) jest oparty na specyfikacji openapi (znanej wcześniej jako Swagger).
 
 W tym artykule omówiono reguły dotyczące jednostek i interfejsów API podczas opracowywania programu z Media Services v3.
 
-## <a name="accessing-the-azure-media-services-api"></a>Uzyskiwanie dostępu do interfejsu API Azure Media Services
+## <a name="accessing-the-azure-media-services-api"></a>Uzyskiwanie dostępu do interfejsu API usługi Azure Media Services
 
-Aby uzyskać autoryzację w celu uzyskania dostępu do zasobów Media Services i interfejsu API Media Services, należy najpierw uwierzytelnić się. Media Services obsługuje uwierzytelnianie [oparte na Azure Active Directory (Azure AD)](../../active-directory/fundamentals/active-directory-whatis.md) . Dostępne są dwie typowe opcje uwierzytelniania:
+Aby uzyskać prawa dostępu do zasobów usługi Media Services i do interfejsu API usługi Media Services, należy się najpierw uwierzytelnić. Usługa Media Services obsługuje uwierzytelnianie [oparte na usłudze Azure Active Directory (Azure AD)](../../active-directory/fundamentals/active-directory-whatis.md). Dostępne są dwie typowe opcje uwierzytelniania:
  
-* **Uwierzytelnianie jednostki usługi**: używane do uwierzytelniania usługi (na przykład: aplikacje sieci Web, aplikacje funkcji, Aplikacje logiki, interfejs API i mikrousługi). Aplikacje, które często używają tej metody uwierzytelniania, to aplikacje, które uruchamiają usługi demonów, usługi warstwy środkowej lub zaplanowane zadania. Na przykład w przypadku aplikacji sieci Web zawsze powinna być warstwą średnią, która łączy się z Media Services za pomocą nazwy głównej usługi.
-* **Uwierzytelnianie użytkownika**: służy do uwierzytelniania osoby korzystającej z aplikacji w celu współdziałania z zasobami Media Services. Aplikacja interakcyjna powinna najpierw monitować użytkownika o podanie poświadczeń użytkownika. Przykładem jest aplikacja konsoli zarządzania używana przez autoryzowanych użytkowników do monitorowania zadań kodowania lub przesyłania strumieniowego na żywo.
+* **Uwierzytelnianie jednostki usługi**: Służy do uwierzytelniania usług (na przykład: aplikacji internetowych, aplikacji funkcji, aplikacji logiki, interfejsu API i mikrousług). Aplikacje, które często korzystają z tej metody uwierzytelniania, to aplikacje uruchamiające usługi demonów, usługi warstwy środkowej lub zaplanowane zadania. Na przykład w przypadku aplikacji sieci Web zawsze powinna być warstwą średnią, która łączy się z Media Services za pomocą nazwy głównej usługi.
+* **Uwierzytelnianie użytkowników**: Służy do uwierzytelniania osoby korzystającej z aplikacji w celu współdziałania z zasobami usługi Media Services. Aplikacja interaktywna powinna najpierw monitować użytkownika o podanie poświadczeń. Przykładem jest aplikacja konsoli zarządzania używana przez autoryzowanych użytkowników do monitorowania zadań kodowania lub przesyłania strumieniowego na żywo.
 
-Interfejs API Media Services wymaga, aby użytkownik lub aplikacja wykonująca żądania interfejsu API REST mieli dostęp do zasobu konta Media Services i korzystała z roli **współautor** lub **właściciela** . Dostęp do interfejsu API można uzyskać przy użyciu roli **czytelnik** , ale będą dostępne tylko operacje **Get** lub **list** .Aby uzyskać więcej informacji, zobacz [Kontrola dostępu oparta na rolach dla kont Media Services](rbac-overview.md).
+Interfejs API usługi Media Services wymaga, aby użytkownik lub aplikacja wykonująca żądania interfejsu API REST mieli dostęp do zasobu konta usługi Media Services i korzystali z roli **Współautor** lub **Właściciel**. Dostęp do interfejsu API można uzyskać, korzystając z roli **Czytelnik**, ale w takiej sytuacji dostępne będą tylko operacje **Get** i **List**.Aby uzyskać więcej informacji, zobacz [Kontrola dostępu oparta na rolach dla kont usługi Media Services](rbac-overview.md).
 
-Zamiast tworzyć jednostkę usługi, należy rozważyć użycie zarządzanych tożsamości dla zasobów platformy Azure w celu uzyskania dostępu do interfejsu API Media Services za pośrednictwem Azure Resource Manager. Aby dowiedzieć się więcej na temat tożsamości zarządzanych dla zasobów platformy Azure, zobacz [co to jest tożsamość zarządzana dla zasobów platformy Azure](../../active-directory/managed-identities-azure-resources/overview.md).
+Zamiast tworzyć jednostkę usługi, należy rozważyć użycie tożsamości zarządzanych na potrzeby zasobów platformy Azure w celu uzyskania dostępu do interfejsu API usługi Media Services za pośrednictwem usługi Azure Resource Manager. Aby uzyskać więcej informacji na temat tożsamości zarządzanych na potrzeby zasobów platformy Azure, zobacz [Czym są tożsamości zarządzane dla zasobów platformy Azure](../../active-directory/managed-identities-azure-resources/overview.md).
 
 ### <a name="azure-ad-service-principal"></a>Nazwa główna usługi Azure AD
 
@@ -53,7 +54,7 @@ Na poniższej ilustracji liczba reprezentuje przepływ żądań w kolejności ch
    * Identyfikator URI zasobu dla Media Services REST.
    * Wartości aplikacji usługi Azure AD: identyfikator klienta i klucz tajny klienta.
 
-   Aby uzyskać wszystkie konieczne wartości, zobacz [Access Azure Media Services API](access-api-cli-how-to.md).
+   Aby uzyskać wszystkie konieczne wartości, zobacz [Access Azure Media Services API](./access-api-howto.md).
 
 2. Token dostępu usługi Azure AD jest wysyłany do warstwy środkowej.
 4. Warstwa środkowa wysyła żądanie do interfejsu API REST usługi Azure Media przy użyciu tokenu usługi Azure AD.
@@ -79,36 +80,36 @@ Aby uzyskać więcej informacji na temat nazewnictwa Azure Resource Manager, zob
 
 ### <a name="names-of-filesblobs-within-an-asset"></a>Nazwy plików/obiektów BLOB w obrębie elementu zawartości
 
-Nazwy plików/obiektów BLOB w obrębie elementu zawartości muszą spełniać zarówno [wymagania dotyczące nazw obiektów BLOB](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata) , jak i [wymagania dotyczące nazw NTFS](https://docs.microsoft.com/windows/win32/fileio/naming-a-file). Przyczyną tych wymagań jest możliwość skopiowania plików z magazynu obiektów BLOB do lokalnego dysku NTFS w celu przetworzenia.
+Nazwy plików/obiektów BLOB w obrębie elementu zawartości muszą spełniać zarówno [wymagania dotyczące nazw obiektów BLOB](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata) , jak i [wymagania dotyczące nazw NTFS](/windows/win32/fileio/naming-a-file). Przyczyną tych wymagań jest możliwość skopiowania plików z magazynu obiektów BLOB do lokalnego dysku NTFS w celu przetworzenia.
 
 ## <a name="long-running-operations"></a>Długotrwałe operacje
 
 Operacje oznaczone za pomocą `x-ms-long-running-operation` w Azure Media Services [pliku struktury Swagger](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01/streamingservice.json) są długotrwałymi operacjami. 
 
-Aby uzyskać szczegółowe informacje o sposobie śledzenia asynchronicznych operacji platformy Azure, zobacz [asynchroniczne operacje](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations#monitor-status-of-operation).
+Aby uzyskać szczegółowe informacje o sposobie śledzenia asynchronicznych operacji platformy Azure, zobacz [asynchroniczne operacje](../../azure-resource-manager/management/async-operations.md#monitor-status-of-operation).
 
 Media Services ma następujące długotrwałe operacje:
 
-* [Utwórz zdarzenia na żywo](https://docs.microsoft.com/rest/api/media/liveevents/create)
-* [Aktualizowanie wydarzeń na żywo](https://docs.microsoft.com/rest/api/media/liveevents/update)
-* [Usuń wydarzenie na żywo](https://docs.microsoft.com/rest/api/media/liveevents/delete)
-* [Uruchom wydarzenie na żywo](https://docs.microsoft.com/rest/api/media/liveevents/start)
-* [Zatrzymaj LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents/stop)
+* [Utwórz zdarzenia na żywo](/rest/api/media/liveevents/create)
+* [Aktualizowanie wydarzeń na żywo](/rest/api/media/liveevents/update)
+* [Usuń wydarzenie na żywo](/rest/api/media/liveevents/delete)
+* [Uruchom wydarzenie na żywo](/rest/api/media/liveevents/start)
+* [Zatrzymaj LiveEvent](/rest/api/media/liveevents/stop)
 
   Użyj `removeOutputsOnStop` parametru, aby usunąć wszystkie skojarzone wyjście na żywo podczas zatrzymywania zdarzenia.  
-* [Resetuj LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents/reset)
-* [Utwórz LiveOutput](https://docs.microsoft.com/rest/api/media/liveevents/create)
-* [Usuń LiveOutput](https://docs.microsoft.com/rest/api/media/liveevents/delete)
-* [Utwórz StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints/create)
-* [Aktualizacja StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints/update)
-* [Usuń StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints/delete)
-* [Uruchom StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints/start)
-* [Zatrzymaj StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints/stop)
-* [Skalowanie StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints/scale)
+* [Resetuj LiveEvent](/rest/api/media/liveevents/reset)
+* [Utwórz LiveOutput](/rest/api/media/liveevents/create)
+* [Usuń LiveOutput](/rest/api/media/liveevents/delete)
+* [Utwórz StreamingEndpoint](/rest/api/media/streamingendpoints/create)
+* [Aktualizacja StreamingEndpoint](/rest/api/media/streamingendpoints/update)
+* [Usuń StreamingEndpoint](/rest/api/media/streamingendpoints/delete)
+* [Uruchom StreamingEndpoint](/rest/api/media/streamingendpoints/start)
+* [Zatrzymaj StreamingEndpoint](/rest/api/media/streamingendpoints/stop)
+* [Skalowanie StreamingEndpoint](/rest/api/media/streamingendpoints/scale)
 
 Po pomyślnym wysłaniu długiej operacji otrzymasz komunikat "202 zaakceptował" i musi on być sondowany o uzupełnianie operacji przy użyciu zwróconego identyfikatora operacji.
 
-W artykule [śledzenie asynchronicznych operacji na platformie Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations) wyjaśniono, jak śledzić stan asynchronicznych operacji platformy Azure za pomocą wartości zwracanych w odpowiedzi.
+W artykule [śledzenie asynchronicznych operacji na platformie Azure](../../azure-resource-manager/management/async-operations.md) wyjaśniono, jak śledzić stan asynchronicznych operacji platformy Azure za pomocą wartości zwracanych w odpowiedzi.
 
 Tylko jedna długotrwała operacja jest obsługiwana dla danego zdarzenia na żywo lub dowolnego skojarzonego z nim wyjścia na żywo. Po uruchomieniu należy wykonać długotrwałą operację przed rozpoczęciem kolejnej długotrwałej operacji na tym samym LiveEvent lub wszystkich skojarzonych danych wyjściowych na żywo. W przypadku wydarzeń na żywo z wieloma wyjściami dynamicznymi musisz oczekiwać na ukończenie długotrwałej operacji na jednym z danych wyjściowych na żywo przed wyzwoleniem długotrwałej operacji na innych danych wyjściowych na żywo. 
 
@@ -126,7 +127,7 @@ Tylko jedna długotrwała operacja jest obsługiwana dla danego zdarzenia na ży
 |[Zestaw SDK dla języka Go](https://aka.ms/ams-v3-go-sdk) |[Dokumentacja języka Go](https://aka.ms/ams-v3-go-ref)|
 |[Zestaw SDK dla języka Ruby](https://aka.ms/ams-v3-ruby-sdk)||
 
-### <a name="see-also"></a>Zobacz także
+### <a name="see-also"></a>Zobacz też
 
 - [EventGrid .NET SDK zawierający zdarzenia usługi Media Service](https://www.nuget.org/packages/Microsoft.Azure.EventGrid/)
 - [Definicje zdarzeń Media Services](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/eventgrid/data-plane/Microsoft.Media/stable/2018-01-01/MediaServices.json)
@@ -145,9 +146,9 @@ Zobacz [filtrowanie, porządkowanie, stronicowanie jednostek Azure Media Service
 
 Zapoznaj się z artykułem [community Azure Media Services](media-services-community.md) , aby zobaczyć różne sposoby zadawania pytań, przekazać Opinie i uzyskać aktualizacje dotyczące Media Services.
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
-Aby uzyskać wszystkie konieczne wartości, zobacz [Access Azure Media Services API](access-api-cli-how-to.md).
+Aby uzyskać wszystkie konieczne wartości, zobacz [Access Azure Media Services API](./access-api-howto.md).
 
 ## <a name="next-steps"></a>Następne kroki
 

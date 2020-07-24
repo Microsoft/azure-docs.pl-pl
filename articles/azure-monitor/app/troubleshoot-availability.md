@@ -6,12 +6,12 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 04/28/2020
 ms.reviewer: sdash
-ms.openlocfilehash: 8f03099cf2890882a1c1d4ba9d69fcb64d0db600
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8544ad292d9e8982e236566fb53189c70922232c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82233962"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87041385"
 ---
 # <a name="troubleshooting"></a>Rozwiązywanie problemów
 
@@ -35,7 +35,7 @@ Ten artykuł pomoże w rozwiązywaniu typowych problemów, które mogą wystąpi
 |----|---------|
 |Próba nawiązania połączenia nie powiodła się, ponieważ połączona Strona nie odpowiedziała prawidłowo po upływie czasu  | Agenci testowi w określonych lokalizacjach są blokowane przez zaporę.|
 |    |Przekierowywanie określonych adresów IP odbywa się za pośrednictwem usług równoważenia obciążenia, menedżerów ruchu geograficznego, trasy usługi Azure Express. 
-|    |W przypadku korzystania z usługi Azure ExpressRoute istnieją scenariusze, w których można porzucić pakiety w przypadkach, gdy [występuje Routing asymetryczny](https://docs.microsoft.com/azure/expressroute/expressroute-asymmetric-routing).|
+|    |W przypadku korzystania z usługi Azure ExpressRoute istnieją scenariusze, w których można porzucić pakiety w przypadkach, gdy [występuje Routing asymetryczny](../../expressroute/expressroute-asymmetric-routing.md).|
 
 ## <a name="test-failure-with-a-protocol-violation-error"></a>Niepowodzenie testu z powodu błędu naruszenia protokołu
 
@@ -66,11 +66,11 @@ Sprawdź konfigurację klasycznych alertów, aby potwierdzić, że poczta e-mail
 
 ### <a name="i-did-not-receive-the-webhook-notification"></a>Nie otrzymałem powiadomienia elementu webhook?
 
-Upewnij się, że aplikacja otrzymująca powiadomienie elementu webhook jest dostępna i pomyślnie przetwarza żądania elementu webhook. Aby uzyskać więcej informacji, zobacz [ten](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-alerts-unified-log-webhook) temat.
+Upewnij się, że aplikacja otrzymująca powiadomienie elementu webhook jest dostępna i pomyślnie przetwarza żądania elementu webhook. Aby uzyskać więcej informacji, zobacz [ten](../platform/alerts-log-webhook.md) temat.
 
 ### <a name="i-am-getting--403-forbidden-errors-what-does-this-mean"></a>Otrzymuję błędy dotyczące niedostępności do 403. co to znaczy?
 
-Ten błąd wskazuje, że należy dodać wyjątki zapory, aby umożliwić agentom dostępności testowanie docelowego adresu URL. Aby uzyskać pełną listę adresów IP agentów do zezwalania, zapoznaj się z [artykułem dotyczącym wyjątku IP](https://docs.microsoft.com/azure/azure-monitor/app/ip-addresses#availability-tests).
+Ten błąd wskazuje, że należy dodać wyjątki zapory, aby umożliwić agentom dostępności testowanie docelowego adresu URL. Aby uzyskać pełną listę adresów IP agentów do zezwalania, zapoznaj się z [artykułem dotyczącym wyjątku IP](./ip-addresses.md#availability-tests).
 
 ### <a name="intermittent-test-failure-with-a-protocol-violation-error"></a>Sporadyczne niepowodzenia testu z błędem naruszenia protokołu
 
@@ -97,7 +97,7 @@ Te dwa terminy mogą być używane zamiennie. Testy dostępności to bardziej og
    Istnieją dwa możliwe rozwiązania:
 
    * Skonfiguruj zaporę, aby zezwolić na żądania przychodzące z [adresów IP naszych agentów testów sieci Web](../../azure-monitor/app/ip-addresses.md).
-   * Napisz własny kod do okresowego testowania wewnętrznego serwera. Uruchom kod jako proces w tle na serwerze testowym za zaporą. Proces testowania może wysyłać wyniki do usługi Application Insights za pomocą interfejsu API [TrackAvailability()](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability) w podstawowym zestawie SDK. Wymaga to, aby serwer testowy miał dostęp do połączeń wychodzących punktu końcowego pozyskiwania usługi Application Insights, ale stanowi to dużo mniejsze zagrożenie bezpieczeństwa niż alternatywne dopuszczenie żądań przychodzących. Wyniki pojawią się w blokach testów dostępności sieci Web, ale środowisko zostanie nieco uproszczone od tego, co jest dostępne dla testów utworzonych za pośrednictwem portalu. Niestandardowe testy dostępności będą również wyświetlane jako wyniki dostępności w obszarze Analiza, wyszukiwanie i metryki.
+   * Napisz własny kod do okresowego testowania wewnętrznego serwera. Uruchom kod jako proces w tle na serwerze testowym za zaporą. Proces testowania może wysyłać wyniki do usługi Application Insights za pomocą interfejsu API [TrackAvailability()](/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability) w podstawowym zestawie SDK. Wymaga to, aby serwer testowy miał dostęp do połączeń wychodzących punktu końcowego pozyskiwania usługi Application Insights, ale stanowi to dużo mniejsze zagrożenie bezpieczeństwa niż alternatywne dopuszczenie żądań przychodzących. Wyniki pojawią się w blokach testów dostępności sieci Web, ale środowisko zostanie nieco uproszczone od tego, co jest dostępne dla testów utworzonych za pośrednictwem portalu. Niestandardowe testy dostępności będą również wyświetlane jako wyniki dostępności w obszarze Analiza, wyszukiwanie i metryki.
 
 ### <a name="uploading-a-multi-step-web-test-fails"></a>Przekazywanie wieloetapowego testu sieci web kończy się niepowodzeniem.
 

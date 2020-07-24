@@ -1,5 +1,5 @@
 ---
-title: Ocenianie modelu obrazów
+title: Korzystanie z modułu modelu obrazu oceny
 titleSuffix: Azure Machine Learning
 description: Dowiedz się, jak używać modułu modelu obrazu wynikowego w Azure Machine Learning do generowania prognoz przy użyciu przeszkolonego modelu obrazu.
 services: machine-learning
@@ -9,11 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 05/26/2020
-ms.openlocfilehash: 021572aef673cf88f7744a0a210ef794c739448b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b949603b3e6ee51311f9c54f3e1326217f00c82d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84450717"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87039121"
 ---
 # <a name="score-image-model"></a>Ocenianie modelu obrazów
 

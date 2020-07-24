@@ -14,11 +14,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 04/08/2020
 ms.author: juliako
-ms.openlocfilehash: 8eca95f9fca47fca4d54bacbab35f3a0ffc3ba31
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c41538acdb8ed94ee4995ad8d5f5e4cebb2e14d6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81010583"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87043447"
 ---
 # <a name="live-events-and-live-outputs-in-media-services"></a>Zdarzenia na żywo i wyjście na żywo w Media Services
 
@@ -29,11 +30,11 @@ Azure Media Services pozwala na dostarczanie na żywo wydarzeń klientom w chmur
 
 ## <a name="live-events"></a>Wydarzenia na żywo
 
-[Wydarzenia na żywo](https://docs.microsoft.com/rest/api/media/liveevents) odpowiadają za pozyskiwanie i przetwarzanie strumieni wideo na żywo. Podczas tworzenia zdarzenia na żywo tworzony jest podstawowy i pomocniczy punkt końcowy wejścia, którego można użyć do wysłania sygnału na żywo ze zdalnego kodera. Zdalny koder na żywo wysyła strumieniowe źródło danych do tego wejściowego punktu końcowego przy użyciu protokołu [RTMP](https://www.adobe.com/devnet/rtmp.html) lub [Smooth Streaming](https://msdn.microsoft.com/library/ff469518.aspx) (fragmentacja-MP4). W przypadku protokołu pozyskiwania RTMP zawartość może być wysyłana w postaci zwykłej ( `rtmp://` ) lub bezpiecznie zaszyfrowanej w sieci ( `rtmps://` ). W przypadku protokołu pozyskiwania Smooth Streaming obsługiwane schematy adresów URL to `http://` lub `https://` .  
+[Wydarzenia na żywo](/rest/api/media/liveevents) odpowiadają za pozyskiwanie i przetwarzanie strumieni wideo na żywo. Podczas tworzenia zdarzenia na żywo tworzony jest podstawowy i pomocniczy punkt końcowy wejścia, którego można użyć do wysłania sygnału na żywo ze zdalnego kodera. Zdalny koder na żywo wysyła strumieniowe źródło danych do tego wejściowego punktu końcowego przy użyciu protokołu [RTMP](https://www.adobe.com/devnet/rtmp.html) lub [Smooth Streaming](/openspecs/windows_protocols/ms-sstr/8383f27f-7efe-4c60-832a-387274457251) (fragmentacja-MP4). W przypadku protokołu pozyskiwania RTMP zawartość może być wysyłana w postaci zwykłej ( `rtmp://` ) lub bezpiecznie zaszyfrowanej w sieci ( `rtmps://` ). W przypadku protokołu pozyskiwania Smooth Streaming obsługiwane schematy adresów URL to `http://` lub `https://` .  
 
 ## <a name="live-event-types"></a>Typy zdarzeń na żywo
 
-[Wydarzenie na żywo](https://docs.microsoft.com/rest/api/media/liveevents) można ustawić na *przekazywanie* (lokalny koder na żywo wysyła strumień o wielokrotnej szybkości transmisji bitów) lub *kodowanie na żywo* (lokalny koder na żywo wysyła strumień o pojedynczej szybkości transmisji bitów). Typy są ustawiane podczas tworzenia przy użyciu [LiveEventEncodingType](https://docs.microsoft.com/rest/api/media/liveevents/create#liveeventencodingtype):
+[Wydarzenie na żywo](/rest/api/media/liveevents) można ustawić na *przekazywanie* (lokalny koder na żywo wysyła strumień o wielokrotnej szybkości transmisji bitów) lub *kodowanie na żywo* (lokalny koder na żywo wysyła strumień o pojedynczej szybkości transmisji bitów). Typy są ustawiane podczas tworzenia przy użyciu [LiveEventEncodingType](/rest/api/media/liveevents/create#liveeventencodingtype):
 
 * **LiveEventEncodingType. None**: lokalny koder na żywo wysyła strumień o wielokrotnej szybkości transmisji bitów. Pozyskiwany strumień przeszedł przez wydarzenie na żywo bez dalszej obróbki. Nazywana również trybem przekazywania.
 * **LiveEventEncodingType. Standard**: lokalny koder na żywo wysyła strumień o pojedynczej szybkości transmisji bitów do zdarzenia na żywo, a Media Services tworzy wiele strumieni szybkości transmisji bitów. Jeśli kanał informacyjny udziału ma rozdzielczość 720 lub wyższą, ustawienie wstępne **Default720p** będzie kodować zestaw par rozdzielczości/szybkości transmisji bitów.
@@ -86,7 +87,7 @@ Podczas tworzenia zdarzenia na żywo można określić następujące opcje:
 ### <a name="naming-rules"></a>Reguły nazewnictwa
 
 * Maksymalna Nazwa zdarzenia na żywo to 32 znaków.
-* Nazwa powinna być zgodna z tym wzorcem [wyrażenia regularnego](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference) : `^[a-zA-Z0-9]+(-*[a-zA-Z0-9])*$` .
+* Nazwa powinna być zgodna z tym wzorcem [wyrażenia regularnego](/dotnet/standard/base-types/regular-expression-language-quick-reference) : `^[a-zA-Z0-9]+(-*[a-zA-Z0-9])*$` .
 
 Zobacz również [konwencje nazewnictwa punktów końcowych przesyłania strumieniowego](streaming-endpoint-concept.md#naming-convention).
 
@@ -123,9 +124,9 @@ Możesz użyć znaczących lub nieznaczących adresów URL.
 
     |Język|Włącz adres URL znaczącym|Określanie tokenu dostępu|
     |---|---|---|
-    |REST|[Właściwości. vanityUrl](https://docs.microsoft.com/rest/api/media/liveevents/create#liveevent)|[LiveEventInput. accessToken](https://docs.microsoft.com/rest/api/media/liveevents/create#liveeventinput)|
-    |Interfejs wiersza polecenia|[--znaczącym-URL](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest#az-ams-live-event-create)|[--token dostępu](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest#optional-parameters)|
-    |.NET|[LiveEvent.VanityUrl](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveevent.vanityurl?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_LiveEvent_VanityUrl)|[LiveEventInput. AccessToken](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveeventinput.accesstoken?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_LiveEventInput_AccessToken)|
+    |REST|[Właściwości. vanityUrl](/rest/api/media/liveevents/create#liveevent)|[LiveEventInput. accessToken](/rest/api/media/liveevents/create#liveeventinput)|
+    |Interfejs wiersza polecenia|[--znaczącym-URL](/cli/azure/ams/live-event?view=azure-cli-latest#az-ams-live-event-create)|[--token dostępu](/cli/azure/ams/live-event?view=azure-cli-latest#optional-parameters)|
+    |.NET|[LiveEvent.VanityUrl](/dotnet/api/microsoft.azure.management.media.models.liveevent.vanityurl?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_LiveEvent_VanityUrl)|[LiveEventInput. AccessToken](/dotnet/api/microsoft.azure.management.media.models.liveeventinput.accesstoken?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_LiveEventInput_AccessToken)|
     
 ### <a name="live-ingest-url-naming-rules"></a>Reguły nazewnictwa adresów URL pozyskiwania na żywo
 
@@ -163,7 +164,7 @@ Możesz użyć znaczących lub nieznaczących adresów URL.
 
 ## <a name="live-event-preview-url"></a>Adres URL podglądu zdarzenia na żywo
 
-Gdy wydarzenie na żywo zacznie otrzymywać strumieniowe źródło danych, można użyć jego punktu końcowego w wersji zapoznawczej, aby wyświetlić podgląd i sprawdzić, czy otrzymujesz strumień na żywo przed dalszej publikacji. Po sprawdzeniu, czy strumień wersji zapoznawczej jest dobry, możesz użyć zdarzenia na żywo, aby udostępnić strumień na żywo na potrzeby dostarczania przez jeden lub więcej (wstępnie utworzony) punktów końcowych przesyłania strumieniowego. Aby to osiągnąć, Utwórz nowe [dane wyjściowe](https://docs.microsoft.com/rest/api/media/liveoutputs) na żywo dla zdarzenia na żywo.
+Gdy wydarzenie na żywo zacznie otrzymywać strumieniowe źródło danych, można użyć jego punktu końcowego w wersji zapoznawczej, aby wyświetlić podgląd i sprawdzić, czy otrzymujesz strumień na żywo przed dalszej publikacji. Po sprawdzeniu, czy strumień wersji zapoznawczej jest dobry, możesz użyć zdarzenia na żywo, aby udostępnić strumień na żywo na potrzeby dostarczania przez jeden lub więcej (wstępnie utworzony) punktów końcowych przesyłania strumieniowego. Aby to osiągnąć, Utwórz nowe [dane wyjściowe](/rest/api/media/liveoutputs) na żywo dla zdarzenia na żywo.
 
 > [!IMPORTANT]
 > Przed kontynuowaniem upewnij się, że wideo przepływa do adresu URL wersji zapoznawczej.
@@ -174,7 +175,7 @@ Aby uzyskać szczegółowe informacje, zobacz [długotrwałe operacje](media-ser
 
 ## <a name="live-outputs"></a>Dane wyjściowe na żywo
 
-Gdy strumień przepływa do zdarzenia na żywo, możesz rozpocząć zdarzenie przesyłania strumieniowego, tworząc element [zawartości](https://docs.microsoft.com/rest/api/media/assets), [dane wyjściowe](https://docs.microsoft.com/rest/api/media/liveoutputs)i [lokalizator przesyłania strumieniowego](https://docs.microsoft.com/rest/api/media/streaminglocators). Na żywo wyjście będzie archiwizować strumień i udostępnić je osobom oglądającym za pomocą [punktu końcowego przesyłania strumieniowego](https://docs.microsoft.com/rest/api/media/streamingendpoints).  
+Gdy strumień przepływa do zdarzenia na żywo, możesz rozpocząć zdarzenie przesyłania strumieniowego, tworząc element [zawartości](/rest/api/media/assets), [dane wyjściowe](/rest/api/media/liveoutputs)i [lokalizator przesyłania strumieniowego](/rest/api/media/streaminglocators). Na żywo wyjście będzie archiwizować strumień i udostępnić je osobom oglądającym za pomocą [punktu końcowego przesyłania strumieniowego](/rest/api/media/streamingendpoints).  
 
 Aby uzyskać szczegółowe informacje na temat danych wyjściowych na żywo, zobacz [Korzystanie z funkcji DVR w chmurze](live-event-cloud-dvr.md).
 

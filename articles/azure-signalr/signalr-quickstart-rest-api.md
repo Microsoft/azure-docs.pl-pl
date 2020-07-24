@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: quickstart
 ms.date: 11/13/2019
 ms.author: zhshang
-ms.openlocfilehash: 70053fbc47a5ba85e7bb18ab762868973d014beb
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 707547cb39487111e2e9353de7e82c2409638324
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80548127"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87045012"
 ---
 # <a name="quickstart-broadcast-real-time-messages-from-console-app"></a>Szybki start: tworzenie przekazów komunikatów w czasie rzeczywistym z poziomu aplikacji konsolowej
 
@@ -97,7 +97,7 @@ dotnet run -- client <ClientName> -c "<ConnectionString>" -h <HubName>
 
 Możesz uruchomić polecenie `dotnet user-secrets set Azure:SignalR:ConnectionString "<ConnectionString>"` w katalogu głównym przykładu. Wtedy opcja `-c "<ConnectionString>"` nie jest już potrzebna.
 
-## <a name="usage"></a>Sposób użycia
+## <a name="usage"></a>Użycie
 
 Po uruchomieniu serwera użyj tego polecenia, aby wysłać komunikat:
 
@@ -122,11 +122,11 @@ W poniższej tabeli przedstawiono wszystkie wersje interfejsów API REST obsług
 Wersja | Interfejs API stanu | Drzwi | Określona wersja
 --- | --- | --- | ---
 `1.0-preview` | Dostępne | 5002 | [Swagger](https://github.com/Azure/azure-signalr/tree/dev/docs/swagger/v1-preview.json)
-`1.0` | Dostępne | Standardowa | [Swagger](https://github.com/Azure/azure-signalr/tree/dev/docs/swagger/v1.json)
+`1.0` | Dostępne | Standard | [Swagger](https://github.com/Azure/azure-signalr/tree/dev/docs/swagger/v1.json)
 
 Lista dostępnych interfejsów API dla każdej konkretnej wersji znajduje się na poniższej liście.
 
-Interfejs API | `1.0-preview` | `1.0`
+Interfejs API | 1,0 — wersja zapoznawcza | 1.0
 --- | --- | ---
 [Rozgłoś do wszystkich](#broadcast) | **&#x2713;** | **&#x2713;**
 [Rozgłoś do grupy](#broadcast-group) | **&#x2713;** | **&#x2713;**
@@ -141,7 +141,7 @@ Wyślij do niektórych użytkowników | **&#x2713;** (przestarzałe) | `N / A`
 [Dodawanie połączenia z grupą](#add-connection-to-group) | `N / A` | **&#x2713;**
 [Usuwanie połączenia z grupy](#remove-connection-from-group) | `N / A` | **&#x2713;**
 [Zamykanie połączenia klienta](#close-connection) | `N / A` | **&#x2713;**
-[Service Health](#service-health) | `N / A` | **&#x2713;**
+[Kondycja usługi](#service-health) | `N / A` | **&#x2713;**
 
 <a name="broadcast"> </a>
 ### <a name="broadcast-to-everyone"></a>Rozgłoś do wszystkich
@@ -242,7 +242,7 @@ Wersja interfejsu API | Metoda HTTP interfejsu API | Adres URL żądania
 Kod stanu odpowiedzi | Opis
 ---|---
 `200` | Dobre usługi
-`503` | Usługa jest niedostępna
+`5xx` | Błąd usługi
 
 [!INCLUDE [Cleanup](includes/signalr-quickstart-cleanup.md)]
 

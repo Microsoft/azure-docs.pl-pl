@@ -8,11 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.author: memildin
-ms.openlocfilehash: 76bf38c9d15e977b39922fdfbc7d30f533707cda
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5f558aaa367d156a8a4fa8633f113c6480236f5b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85801380"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87038618"
 ---
 # <a name="monitor-the-security-of-your-containers"></a>Monitorowanie zabezpieczeń kontenerów
 
@@ -35,13 +36,11 @@ Na tej stronie wyjaśniono, jak korzystać z funkcji zabezpieczeń kontenerów o
 
 1. Aby wyzwolić skanowanie obrazu, wypchnij go do rejestru. 
 
-    Po zakończeniu skanowania (zwykle po około 10 minutach) ustalenia są dostępne w Security Center zaleceniach.
-    
+    Po zakończeniu skanowania (zwykle po około 2 minutach, ale może to być maksymalnie 15 minut), ustalenia są dostępne jako Security Center zalecenia:
 
 1. Aby wyświetlić wyniki, przejdź do strony **zalecenia** . W przypadku znalezienia problemów zobaczysz następujące zalecenie:
 
     ![Zalecenie dotyczące korygowania problemów ](media/monitor-container-security/acr-finding.png)
-
 
 1. Wybierz zalecenie. 
     Zostanie otwarta strona szczegóły rekomendacji z dodatkowymi informacjami. Te informacje obejmują listę rejestrów z zagrożonymi obrazami ("zasoby objęte problemem") oraz czynności zaradcze. 

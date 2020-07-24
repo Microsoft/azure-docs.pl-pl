@@ -13,23 +13,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
-ms.openlocfilehash: dc39ef8f3d72b2b8fc5aa55aacb2e2503b052023
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1ca1b8b453be433f7db428f3b256677b9945ce40
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82160226"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87038906"
 ---
 # <a name="azure-media-services-concepts"></a>Koncepcje Azure Media Services 
 
 > [!NOTE]
-> Do usługi Media Services w wersji 2 nie są już dodawane żadne nowe funkcje. <br/>Zapoznaj się z najnowszą wersją [Media Services wersja 3](https://docs.microsoft.com/azure/media-services/latest/). Zobacz też [wskazówki dotyczące migracji od wersji 2 do V3](../latest/migrate-from-v2-to-v3.md)
+> Do usługi Media Services w wersji 2 nie są już dodawane żadne nowe funkcje. <br/>Zapoznaj się z najnowszą wersją [Media Services wersja 3](../latest/index.yml). Zobacz też [wskazówki dotyczące migracji od wersji 2 do V3](../latest/migrate-from-v2-to-v3.md)
 
 Ten temat zawiera omówienie najważniejszych koncepcji Media Services.
 
-## <a name="assets-and-storage"></a><a id="assets"/>Zasoby i magazyn
+## <a name="assets-and-storage"></a><a name="assets"></a>Zasoby i magazyn
 ### <a name="assets"></a>Elementy zawartości
-Element [zawartości](https://docs.microsoft.com/rest/api/media/operations/asset) zawiera pliki cyfrowe (w tym wideo, audio, obrazy, kolekcje miniatur, ścieżki tekstowe i pliki napisów) oraz metadane dotyczące tych plików. Po przekazaniu plików cyfrowych do elementu zawartości mogą one być używane w przepływach pracy kodowania Media Services i przesyłania strumieniowego.
+Element [zawartości](/rest/api/media/operations/asset) zawiera pliki cyfrowe (w tym wideo, audio, obrazy, kolekcje miniatur, ścieżki tekstowe i pliki napisów) oraz metadane dotyczące tych plików. Po przekazaniu plików cyfrowych do elementu zawartości mogą one być używane w przepływach pracy kodowania Media Services i przesyłania strumieniowego.
 
 Zasób jest mapowany do kontenera obiektów BLOB na koncie usługi Azure Storage, a pliki w elemencie zawartości są przechowywane jako blokowe obiekty blob w tym kontenerze. Stronicowe obiekty blob nie są obsługiwane przez Azure Media Services.
 
@@ -39,7 +39,7 @@ Podczas decydowania o zawartości multimedialnej, która ma zostać przekazana i
 * Element zawartości nie powinien zawierać wielu wersji ani edycji pliku audiowizualnego. Przykładem nieprawidłowego użycia zasobu będzie próba zapisania więcej niż jednego odcinka TV, anonsu lub wielu kątów kamery z jednej produkcji w obrębie elementu zawartości. Przechowywanie wielu plików lub zmian w pliku audiowizualnym w elemencie zawartości może spowodować problemy z przesyłaniem zadań kodowania, przesyłaniem strumieniowym i zabezpieczeniem dostarczania zasobów później w przepływie pracy.  
 
 ### <a name="asset-file"></a>Plik zasobów
-[AssetFile](https://docs.microsoft.com/rest/api/media/operations/assetfile) reprezentuje rzeczywisty plik wideo lub audio, który jest przechowywany w kontenerze obiektów BLOB. Plik zasobów jest zawsze skojarzony z zasobem, a zasób może zawierać jeden lub wiele plików. Zadanie kodera Media Services nie powiedzie się, jeśli obiekt pliku zasobów nie jest skojarzony z plikiem cyfrowym w kontenerze obiektów BLOB.
+[AssetFile](/rest/api/media/operations/assetfile) reprezentuje rzeczywisty plik wideo lub audio, który jest przechowywany w kontenerze obiektów BLOB. Plik zasobów jest zawsze skojarzony z zasobem, a zasób może zawierać jeden lub wiele plików. Zadanie kodera Media Services nie powiedzie się, jeśli obiekt pliku zasobów nie jest skojarzony z plikiem cyfrowym w kontenerze obiektów BLOB.
 
 Wystąpienie **AssetFile** i rzeczywisty plik multimedialny są dwa odrębne obiekty. Wystąpienie AssetFile zawiera metadane dotyczące pliku nośnika, natomiast plik multimedialny zawiera rzeczywistą zawartość multimedialną.
 
@@ -62,7 +62,7 @@ Aby można było dostarczyć zasób zaszyfrowanego magazynu, należy skonfigurow
 **EnvelopeEncryptionProtected** — Użyj tej opcji, jeśli chcesz chronić (lub przekazywać już chronione) http Live Streaming (HLS) zaszyfrowaną przy użyciu Advanced Encryption Standard (AES). Jeśli przekazujesz HLS już szyfrowany przy użyciu algorytmu AES, musi on być zaszyfrowany przez Menedżera transformacji.
 
 ### <a name="access-policy"></a>Zasady dostępu
-[AccessPolicy](https://docs.microsoft.com/rest/api/media/operations/accesspolicy) definiuje uprawnienia (takie jak Odczyt, zapis i lista) oraz czas trwania dostępu do elementu zawartości. Zwykle obiekt AccessPolicy można przekazać do lokalizatora, który będzie następnie używany do uzyskiwania dostępu do plików znajdujących się w elemencie zawartości.
+[AccessPolicy](/rest/api/media/operations/accesspolicy) definiuje uprawnienia (takie jak Odczyt, zapis i lista) oraz czas trwania dostępu do elementu zawartości. Zwykle obiekt AccessPolicy można przekazać do lokalizatora, który będzie następnie używany do uzyskiwania dostępu do plików znajdujących się w elemencie zawartości.
 
 >[!NOTE]
 >Limit różnych zasad usługi AMS wynosi 1 000 000 (na przykład zasad lokalizatorów lub ContentKeyAuthorizationPolicy). Należy używać tego samego identyfikatora zasad, jeśli zawsze są używane uprawnienia dotyczące tych samych dni lub tego samego dostępu, na przykład dla lokalizatorów przeznaczonych do długotrwałego stosowania (nieprzekazywanych zasad). Aby uzyskać więcej informacji, zobacz [ten](media-services-dotnet-manage-entities.md#limit-access-policies) temat.
@@ -75,8 +75,8 @@ Kontener obiektów BLOB zawiera grupowanie zestawu obiektów BLOB. Kontenery obi
 > 
 > 
 
-### <a name="locators"></a><a id="locators"/>Lokalizatory
-[Lokalizator](https://docs.microsoft.com/rest/api/media/operations/locator)s udostępnia punkt wejścia, aby uzyskać dostęp do plików znajdujących się w elemencie zawartości. Zasady dostępu są używane do definiowania uprawnień i czasu trwania, do którego klient ma dostęp do danego elementu zawartości. Lokalizatory mogą mieć relację wiele do jednego z zasadami dostępu, dzięki czemu różne lokalizatory mogą podawać różne czasy rozpoczęcia i typy połączeń różnym klientom przy użyciu tych samych ustawień uprawnień i czasu trwania. Jednak ze względu na ograniczenie zasad dostępu współdzielonego ustawione przez usługi Azure Storage nie można jednocześnie mieć więcej niż pięciu unikatowych lokalizatorów skojarzonych z danym elementem zawartości. 
+### <a name="locators"></a><a name="locators"></a>Lokalizatory
+[Lokalizator](/rest/api/media/operations/locator)s udostępnia punkt wejścia, aby uzyskać dostęp do plików znajdujących się w elemencie zawartości. Zasady dostępu są używane do definiowania uprawnień i czasu trwania, do którego klient ma dostęp do danego elementu zawartości. Lokalizatory mogą mieć relację wiele do jednego z zasadami dostępu, dzięki czemu różne lokalizatory mogą podawać różne czasy rozpoczęcia i typy połączeń różnym klientom przy użyciu tych samych ustawień uprawnień i czasu trwania. Jednak ze względu na ograniczenie zasad dostępu współdzielonego ustawione przez usługi Azure Storage nie można jednocześnie mieć więcej niż pięciu unikatowych lokalizatorów skojarzonych z danym elementem zawartości. 
 
 Media Services obsługuje dwa typy lokalizatorów: OnDemandOrigin Locators, używany do przesyłania strumieniowego multimediów (na przykład MPEG PAUZy, HLS lub Smooth Streaming) lub progresywnego pobierania lokalizatorów adresów URL multimediów i sygnatur dostępu współdzielonego, służących do przekazywania lub pobierania plików multimedialnych to\from Azure Storage. 
 
@@ -84,12 +84,12 @@ Media Services obsługuje dwa typy lokalizatorów: OnDemandOrigin Locators, uży
 >Uprawnienia do listy (AccessPermissions. list) nie należy używać podczas tworzenia lokalizatora OnDemandOrigin. 
 
 ### <a name="storage-account"></a>Konto magazynu
-Cały dostęp do usługi Azure Storage odbywa się za pomocą konta magazynu. Konto usługi multimediów może być skojarzone z co najmniej jednym kontem magazynu. Konto może zawierać nieograniczoną liczbę kontenerów, pod warunkiem, że ich łączny rozmiar jest objęty 500 TB na konto magazynu.  Media Services udostępnia narzędzia poziomu zestawu SDK umożliwiające zarządzanie wieloma kontami magazynu i równoważenie obciążenia dystrybucji zasobów podczas przekazywania ich do tych kont na podstawie metryk lub dystrybucji losowej. Aby uzyskać więcej informacji, zobacz Praca z [usługą Azure Storage](https://msdn.microsoft.com/library/azure/dn767951.aspx). 
+Cały dostęp do usługi Azure Storage odbywa się za pomocą konta magazynu. Konto usługi multimediów może być skojarzone z co najmniej jednym kontem magazynu. Konto może zawierać nieograniczoną liczbę kontenerów, pod warunkiem, że ich łączny rozmiar jest objęty 500 TB na konto magazynu.  Media Services udostępnia narzędzia poziomu zestawu SDK umożliwiające zarządzanie wieloma kontami magazynu i równoważenie obciążenia dystrybucji zasobów podczas przekazywania ich do tych kont na podstawie metryk lub dystrybucji losowej. Aby uzyskać więcej informacji, zobacz Praca z [usługą Azure Storage](/previous-versions/azure/dn767951(v=azure.100)). 
 
 ## <a name="jobs-and-tasks"></a>Zadania
-[Zadanie](https://docs.microsoft.com/rest/api/media/operations/job) jest zwykle używane do przetwarzania (na przykład indeksowania lub kodowania) jednej prezentacji audio/wideo. Jeśli przetwarzasz wiele filmów wideo, Utwórz zadanie dla każdego wideo, które ma zostać zakodowane.
+[Zadanie](/rest/api/media/operations/job) jest zwykle używane do przetwarzania (na przykład indeksowania lub kodowania) jednej prezentacji audio/wideo. Jeśli przetwarzasz wiele filmów wideo, Utwórz zadanie dla każdego wideo, które ma zostać zakodowane.
 
-Zadanie zawiera metadane dotyczące przetwarzania, które ma zostać wykonane. Każde zadanie zawiera co najmniej jedno [zadanie](https://docs.microsoft.com/rest/api/media/operations/task)s określające zadanie przetwarzania niepodzielnego, jego zasoby wejściowe, zasoby wyjściowe, procesor multimediów i powiązane z nim ustawienia. Zadania w ramach zadania mogą być łańcucha ze sobą, gdzie element zawartości wyjściowej jednego zadania jest podawany jako zasób wejściowy do następnego zadania. W ten sposób jedno zadanie może zawierać wszystkie procesy wymagane do prezentacji multimedialnej.
+Zadanie zawiera metadane dotyczące przetwarzania, które ma zostać wykonane. Każde zadanie zawiera co najmniej jedno [zadanie](/rest/api/media/operations/task)s określające zadanie przetwarzania niepodzielnego, jego zasoby wejściowe, zasoby wyjściowe, procesor multimediów i powiązane z nim ustawienia. Zadania w ramach zadania mogą być łańcucha ze sobą, gdzie element zawartości wyjściowej jednego zadania jest podawany jako zasób wejściowy do następnego zadania. W ten sposób jedno zadanie może zawierać wszystkie procesy wymagane do prezentacji multimedialnej.
 
 ## <a name="encoding"></a><a id="encoding"></a>Encoding
 Azure Media Services udostępnia wiele opcji kodowania multimediów w chmurze.
@@ -115,14 +115,14 @@ W Azure Media Services kanał reprezentuje potok służący do przetwarzania zaw
 * Strumień o pojedynczej szybkości transmisji bitów (w jednym z następujących formatów: RTMP lub Smooth Streaming (fragmentacja MP4)) jest wysyłany do kanału, w którym włączono obsługę kodowania na żywo z Media Services. Kanał wykonuje następnie kodowanie na żywo przychodzącego strumienia o pojedynczej szybkości transmisji bitów do postaci strumienia wideo o różnych szybkościach transmisji bitów (adaptacyjnej szybkości transmisji bitów). Po odebraniu żądania usługa Media Services dostarcza strumień do klientów.
 
 ### <a name="channel"></a>Kanał
-W Media Services [kanał](https://docs.microsoft.com/rest/api/media/operations/channel)s jest odpowiedzialny za przetwarzanie zawartości przesyłania strumieniowego na żywo. Kanał udostępnia wejściowy punkt końcowy (adres URL pozyskiwania), który następnie można przekazać do transkodera na żywo. Kanał odbiera strumienie danych wejściowych na żywo z transkodera dynamicznego i udostępnia je do przesyłania strumieniowego za pośrednictwem co najmniej jednego StreamingEndpointsu. Kanały udostępniają również punkt końcowy (wersja zapoznawcza) służący do wyświetlania podglądu i weryfikowania strumienia przed dalszem przetwarzaniem i dostarczaniem.
+W Media Services [kanał](/rest/api/media/operations/channel)s jest odpowiedzialny za przetwarzanie zawartości przesyłania strumieniowego na żywo. Kanał udostępnia wejściowy punkt końcowy (adres URL pozyskiwania), który następnie można przekazać do transkodera na żywo. Kanał odbiera strumienie danych wejściowych na żywo z transkodera dynamicznego i udostępnia je do przesyłania strumieniowego za pośrednictwem co najmniej jednego StreamingEndpointsu. Kanały udostępniają również punkt końcowy (wersja zapoznawcza) służący do wyświetlania podglądu i weryfikowania strumienia przed dalszem przetwarzaniem i dostarczaniem.
 
 Podczas tworzenia kanału można uzyskać adres URL pozyskiwania i adres URL wersji zapoznawczej. Aby uzyskać te adresy URL, kanał nie musi znajdować się w stanie uruchomienia. Gdy wszystko będzie gotowe do rozpoczęcia wypychania danych z transkodera na żywo do kanału, należy uruchomić kanał. Gdy transkoder na żywo zacznie pozyskiwanie danych, można wyświetlić podgląd strumienia.
 
 Każde konto Media Services może zawierać wiele kanałów, wiele programów i wiele StreamingEndpoints. W zależności od potrzeb dotyczących przepustowości i zabezpieczeń usługi StreamingEndpoint Services mogą być dedykowane dla jednego lub kilku kanałów. Każdy StreamingEndpoint może pobierać z dowolnego kanału.
 
 ### <a name="program-event"></a>Program (zdarzenie)
-[Program (Event)](https://docs.microsoft.com/rest/api/media/operations/program) umożliwia kontrolowanie publikowania i przechowywania segmentów w strumieniu na żywo. Kanały zarządzają programami (zdarzenia). Relacja kanału i programu jest podobna do tradycyjnego nośnika, gdzie kanał ma stały strumień zawartości, a program jest objęty zakresem pewnego czasu zdarzenia w tym kanale.
+[Program (Event)](/rest/api/media/operations/program) umożliwia kontrolowanie publikowania i przechowywania segmentów w strumieniu na żywo. Kanały zarządzają programami (zdarzenia). Relacja kanału i programu jest podobna do tradycyjnego nośnika, gdzie kanał ma stały strumień zawartości, a program jest objęty zakresem pewnego czasu zdarzenia w tym kanale.
 Możesz określić liczbę godzin, przez którą ma zostać zachowana zarejestrowana zawartość dla programu, ustawiając właściwość **ArchiveWindowLength** . Ta wartość musi mieścić się w zakresie od 5 minut do maksymalnie 25 godzin.
 
 ArchiveWindowLength określa również maksymalną ilość czasu, jaką klienci mogą odszukać w czasie z bieżącej pozycji na żywo. Programy mogą być transmitowane w określonym czasie, ale zawartość, która wykracza poza długość okna, jest stale odrzucana. Wartość tej właściwości określa również, jak długie mogą być manifesty na kliencie.
@@ -160,7 +160,7 @@ Aby uzyskać więcej informacji, zobacz następujące artykuły:
 - [Ochrona za pomocą oprogramowania PlayReady/Widevine](media-services-protect-with-playready-widevine.md)
 
 ## <a name="delivering"></a>Wykonania
-### <a name="dynamic-packaging"></a><a id="dynamic_packaging"/>Dynamiczne tworzenie pakietów
+### <a name="dynamic-packaging"></a><a name="dynamic_packaging"></a>Dynamiczne tworzenie pakietów
 Podczas pracy z Media Services zaleca się zakodowanie plików Mezzanine do zestawu MP4 o adaptacyjnej szybkości transmisji bitów, a następnie przekonwertowanie zestawu na żądany format przy użyciu [dynamicznego tworzenia pakietów](media-services-dynamic-packaging-overview.md).
 
 ### <a name="streaming-endpoint"></a>Punkt końcowy przesyłania strumieniowego
@@ -180,7 +180,7 @@ Domyślnie można mieć maksymalnie 2 punkty końcowe przesyłania strumienioweg
 Opłaty są naliczane tylko wtedy, gdy StreamingEndpoint jest w stanie uruchomienia.
 
 ### <a name="asset-delivery-policy"></a>Zasady dostarczania zasobów
-Jednym z kroków w przepływie pracy Media Services dostarczania zawartości jest skonfigurowanie [zasad dostarczania dla zasobów](https://docs.microsoft.com/rest/api/media/operations/assetdeliverypolicy), które mają być przesyłane strumieniowo. Zasady dostarczania elementów zawartości mówią, Media Services jak chcesz, aby zasób został dostarczony: w jakim protokole przesyłania strumieniowego powinien być dynamicznie spakowany pakiet zawartości (na przykład MPEG PAUZy, HLS, Smooth Streaming lub wszystkie), czy chcesz dynamicznie szyfrować element zawartości i jak (koperta lub typowe szyfrowanie).
+Jednym z kroków w przepływie pracy Media Services dostarczania zawartości jest skonfigurowanie [zasad dostarczania dla zasobów](/rest/api/media/operations/assetdeliverypolicy), które mają być przesyłane strumieniowo. Zasady dostarczania elementów zawartości mówią, Media Services jak chcesz, aby zasób został dostarczony: w jakim protokole przesyłania strumieniowego powinien być dynamicznie spakowany pakiet zawartości (na przykład MPEG PAUZy, HLS, Smooth Streaming lub wszystkie), czy chcesz dynamicznie szyfrować element zawartości i jak (koperta lub typowe szyfrowanie).
 
 Jeśli do przesyłania strumieniowego zasobów jest zaszyfrowana składowa, serwer przesyłania strumieniowego usunie szyfrowanie magazynu i strumieniuje zawartość przy użyciu określonych zasad dostarczania. Na przykład, aby dostarczyć zasób szyfrowany przy użyciu klucza szyfrowania Advanced Encryption Standard (AES), ustaw typ zasad na DynamicEnvelopeEncryption. Aby usunąć szyfrowanie magazynu i przesłać strumieniowo element zawartości, ustaw dla opcji Typ zasad wartość NoDynamicEncryption.
 
@@ -237,4 +237,3 @@ http: \/ /testendpoint-testaccount.Streaming.MediaServices.Windows.NET/fecebb23-
 
 ## <a name="provide-feedback"></a>Wyraź opinię
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
-

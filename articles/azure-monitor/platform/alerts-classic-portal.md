@@ -5,11 +5,12 @@ author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
 ms.date: 09/18/2018
-ms.openlocfilehash: e635c243a887690fb1f7a5dcd017c1130d74a747
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 97c1819d665e6964343e853249a0d22aa07c3588
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81114577"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87045590"
 ---
 # <a name="create-view-and-manage-classic-metric-alerts-using-azure-monitor"></a>Twórz i wyświetlaj klasyczne alerty metryk i zarządzaj nimi za pomocą Azure Monitor
 
@@ -51,7 +52,7 @@ Po utworzeniu alertu można go wybrać i wykonać jedną z następujących czynn
 
 ## <a name="with-azure-cli"></a>Z interfejsem wiersza polecenia platformy Azure
 
-Poprzednie sekcje opisują sposób tworzenia, wyświetlania i zarządzania regułami alertów dotyczących metryk przy użyciu Azure Portal. W tej sekcji opisano, jak wykonać to samo przy użyciu wieloplatformowego [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest). Najszybszym sposobem na rozpoczęcie korzystania z interfejsu wiersza polecenia platformy Azure jest [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview?view=azure-cli-latest).
+Poprzednie sekcje opisują sposób tworzenia, wyświetlania i zarządzania regułami alertów dotyczących metryk przy użyciu Azure Portal. W tej sekcji opisano, jak wykonać to samo przy użyciu wieloplatformowego [interfejsu wiersza polecenia platformy Azure](/cli/azure/get-started-with-azure-cli?view=azure-cli-latest). Najszybszym sposobem na rozpoczęcie korzystania z interfejsu wiersza polecenia platformy Azure jest [Azure Cloud Shell](../../cloud-shell/overview.md?view=azure-cli-latest).
 
 ### <a name="get-all-classic-metric-alert-rules-in-a-resource-group"></a>Pobierz wszystkie reguły alertu dotyczącego klasycznej metryki w grupie zasobów
 
@@ -87,7 +88,7 @@ az monitor alert delete --name <alert name> --resource-group <group name>
 
 W tych sekcjach pokazano, jak za pomocą poleceń programu PowerShell tworzyć i wyświetlać alerty metryk klasycznej oraz zarządzać nimi. Przykłady w tym artykule ilustrują, jak można użyć poleceń cmdlet Azure Monitor dla klasycznych alertów dotyczących metryk.
 
-1. Jeśli jeszcze tego nie zrobiono, skonfiguruj program PowerShell do uruchamiania na komputerze. Aby uzyskać więcej informacji, zobacz [jak zainstalować i skonfigurować program PowerShell](/powershell/azure/overview). Możesz również przejrzeć całą listę Azure Monitor poleceń cmdlet programu PowerShell w [Azure monitor polecenia cmdlet (Insights)](https://docs.microsoft.com/powershell/module/az.applicationinsights).
+1. Jeśli jeszcze tego nie zrobiono, skonfiguruj program PowerShell do uruchamiania na komputerze. Aby uzyskać więcej informacji, zobacz [jak zainstalować i skonfigurować program PowerShell](/powershell/azure/). Możesz również przejrzeć całą listę Azure Monitor poleceń cmdlet programu PowerShell w [Azure monitor polecenia cmdlet (Insights)](/powershell/module/az.applicationinsights).
 
 2. Najpierw Zaloguj się do subskrypcji platformy Azure.
 

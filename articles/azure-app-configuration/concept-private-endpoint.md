@@ -7,12 +7,12 @@ ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 3/12/2020
 ms.author: lcozzens
-ms.openlocfilehash: bbf2039ad695f332b69bd5429ff527a4a2534e26
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 3ec2a0e38f3bead5fbab8a119099bb5bbc3ded2e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86026988"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87042126"
 ---
 # <a name="using-private-endpoints-for-azure-app-configuration"></a>Używanie prywatnych punktów końcowych dla konfiguracji aplikacji platformy Azure
 
@@ -22,9 +22,6 @@ Używanie prywatnych punktów końcowych dla magazynu konfiguracji aplikacji poz
 - Zabezpiecz szczegóły konfiguracji aplikacji, konfigurując zaporę do blokowania wszystkich połączeń z konfiguracją aplikacji w publicznym punkcie końcowym.
 - Zwiększ bezpieczeństwo sieci wirtualnej (VNet), zapewniając, że dane nie są wyprowadzane przez sieć wirtualną.
 - Bezpiecznie łącz się z magazynem konfiguracji aplikacji z sieci lokalnych, które łączą się z siecią wirtualną przy użyciu [sieci VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) lub [Usługa expressroutes](../expressroute/expressroute-locations.md) z prywatną komunikację równorzędną.
-
-> [!NOTE]
-> Funkcja prywatnego punktu końcowego jest teraz ogólnie dostępna we wszystkich regionach *z wyjątkiem* Indii środkowej. W regionie **Indie Środkowe** usługa Azure App Configuration oferuje prywatne punkty końcowe jako publiczną wersję zapoznawczą. Oferty publicznej wersji zapoznawczej umożliwiają klientom eksperymentowanie z nowymi funkcjami przed ich oficjalną wersją.  Funkcje i usługi publicznej wersji zapoznawczej nie są przeznaczone do użytku produkcyjnego.
 
 ## <a name="conceptual-overview"></a>Omówienie pojęć
 

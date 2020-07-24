@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/08/2020
 ms.author: jingwang
-ms.openlocfilehash: 46108ed06659d234907c6eaa6841dc18022c73bf
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: a937548c9318d98e8832720706626b74167d32d9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86144157"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87044389"
 ---
 # <a name="excel-format-in-azure-data-factory"></a>Format programu Excel w Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -35,8 +35,9 @@ Aby uzyskać pełną listę sekcji i właściwości dostępnych do definiowania 
 | range            | Zakres komórek w danym arkuszu, aby zlokalizować selektywne dane, np. `A3:H5` tabelę od A3 do H5, `A3` (tabelę rozpoczynającą się od komórki A3), `A3:A3` (pojedyncza komórka). Jeśli nie zostanie określony, ADF odczytuje z całego arkusza jako tabelę. | Nie       |
 | firstRowAsHeader | Określa, czy pierwszy wiersz danego arkusza/zakresu ma być traktowany jak wiersz nagłówka z nazwami kolumn.<br>Dozwolone wartości to **true** i **false** (wartość domyślna). | Nie       |
 | nullValue        | Określa reprezentację ciągu wartości null. <br>Wartość domyślna to **pusty ciąg**. | Nie       |
-| compressionCodec | Koder-dekoder kompresji używany do odczytywania plików programu Excel. <br>Dozwolone wartości to **bzip2**, **gzip**, **Wklęśnięcie**, **ZipDeflate**, **przyciąganie**lub **lz4**. Wartość domyślna nie jest skompresowana. <br>Działanie kopiowania w **tej chwili nie** obsługuje "przyciągania" & "lz4", a przepływ danych mapowania nie obsługuje "ZipDeflate". <br>**Uwaga** w przypadku używania działania kopiowania do dekompresowania plików **ZipDeflate** i zapisywania w magazynie danych ujścia opartych na plikach pliki są wyodrębniane do folderu: `<path specified in dataset>/<folder named as source zip file>/` . | Nie       |
-| compressionLevel | Współczynnik kompresji. <br>Dozwolone wartości to **optymalne** lub **najszybszy**.<br>- **Najszybsze:** Operacja kompresji powinna zostać ukończona tak szybko, jak to możliwe, nawet jeśli plik nie jest optymalnie kompresowany.<br>- **Optymalnie**: operacja kompresji powinna być optymalnie skompresowana, nawet jeśli operacja trwa dłużej. Aby uzyskać więcej informacji, zobacz temat [poziom kompresji](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) . | Nie       |
+| kompresja | Grupa właściwości do konfigurowania kompresji plików. Skonfiguruj tę sekcję, jeśli chcesz przeprowadzić kompresję/dekompresowanie podczas wykonywania działania. | Nie |
+| typ<br/>(*w `compression` obszarze *) | Koder-dekoder kompresji używany do odczytu/zapisu plików JSON. <br>Dozwolone wartości to **bzip2**, **gzip**, **Wklęśnięcie**, **ZipDeflate**, **przyciąganie**lub **lz4**. do użycia podczas zapisywania pliku. Wartość domyślna nie jest skompresowana.<br>Działanie kopiowania w **tej chwili nie** obsługuje "przyciągania" & "lz4", a przepływ danych mapowania nie obsługuje "ZipDeflate".<br>**Uwaga** w przypadku używania działania kopiowania do dekompresowania plików **ZipDeflate** i zapisywania w magazynie danych ujścia opartych na plikach pliki są wyodrębniane do folderu: `<path specified in dataset>/<folder named as source zip file>/` . | Nie.  |
+| poziom<br/>(*w `compression` obszarze *) | Współczynnik kompresji. <br>Dozwolone wartości to **optymalne** lub **najszybszy**.<br>- **Najszybsze:** Operacja kompresji powinna zostać ukończona tak szybko, jak to możliwe, nawet jeśli plik nie jest optymalnie kompresowany.<br>- **Optymalnie**: operacja kompresji powinna być optymalnie skompresowana, nawet jeśli operacja trwa dłużej. Aby uzyskać więcej informacji, zobacz temat [poziom kompresji](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) . | Nie       |
 
 Poniżej znajduje się przykład zestawu danych programu Excel na platformie Azure Blob Storage:
 
@@ -108,11 +109,11 @@ Poniższa tabela zawiera listę właściwości obsługiwanych przez źródło pr
 | Nazwa                      | Opis                                                  | Wymagane | Dozwolone wartości                                            | Właściwość skryptu przepływu danych         |
 | ------------------------- | ------------------------------------------------------------ | -------- | --------------------------------------------------------- | --------------------------------- |
 | Ścieżki symboli wieloznacznych           | Wszystkie pliki zgodne ze ścieżką wieloznaczną zostaną przetworzone. Zastępuje folder i ścieżkę pliku ustawioną w zestawie danych. | nie       | Ciąg []                                                  | wildcardPaths                     |
-| Ścieżka katalogu głównego partycji       | W przypadku danych plików podzielonych na partycje można wprowadzić ścieżkę katalogu głównego partycji, aby odczytywać foldery partycjonowane jako kolumny | nie       | String                                                    | partitionRootPath                 |
+| Ścieżka katalogu głównego partycji       | W przypadku danych plików podzielonych na partycje można wprowadzić ścieżkę katalogu głównego partycji, aby odczytywać foldery partycjonowane jako kolumny | nie       | String (ciąg)                                                    | partitionRootPath                 |
 | Lista plików             | Czy źródło wskazuje plik tekstowy, który zawiera listę plików do przetworzenia | nie       | `true` lub `false`                                         | fileList                          |
-| Kolumna do przechowywania nazwy pliku | Utwórz nową kolumnę o nazwie i ścieżce pliku źródłowego       | nie       | String                                                    | rowUrlColumn                      |
+| Kolumna do przechowywania nazwy pliku | Utwórz nową kolumnę o nazwie i ścieżce pliku źródłowego       | nie       | String (ciąg)                                                    | rowUrlColumn                      |
 | Po zakończeniu          | Usuń lub Przenieś pliki po przetworzeniu. Ścieżka pliku zaczyna się od katalogu głównego kontenera | nie       | Usuń: `true` lub`false` <br> Przenieś`['<from>', '<to>']` | purgeFiles <br> moveFiles         |
-| Filtruj według ostatniej modyfikacji   | Wybierz filtrowanie plików na podstawie czasu ich ostatniej modyfikacji | nie       | Znacznik czasu                                                 | modifiedAfter <br> modifiedBefore |
+| Filtruj według ostatniej modyfikacji   | Wybierz filtrowanie plików na podstawie czasu ich ostatniej modyfikacji | nie       | Timestamp                                                 | modifiedAfter <br> modifiedBefore |
 
 ### <a name="source-example"></a>Przykład źródła
 

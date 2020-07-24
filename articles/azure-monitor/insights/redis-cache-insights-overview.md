@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/21/2020
-ms.openlocfilehash: 469b402c694bcfae5a826c03ea35dbef2c365148
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 70bf39011761bcf59c8270ecdcc0542e326aef42
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84945413"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87045858"
 ---
 # <a name="explore-azure-monitor-for-azure-cache-for-redis-preview"></a>Eksploruj Azure Monitor dla usługi Azure cache for Redis (wersja zapoznawcza)
 
@@ -120,7 +120,7 @@ Po wybraniu opcji **Błędy** w górnej części strony zostanie otwarta tabela 
 
 ### <a name="metric-definitions"></a>Definicje metryk
 
-Aby zapoznać się z pełną listą definicji metryk, które tworzą te skoroszyty, zapoznaj się z [artykułem na temat dostępnych metryk i interwałów raportowania](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-how-to-monitor#available-metrics-and-reporting-intervals).
+Aby zapoznać się z pełną listą definicji metryk, które tworzą te skoroszyty, zapoznaj się z [artykułem na temat dostępnych metryk i interwałów raportowania](../../azure-cache-for-redis/cache-how-to-monitor.md#available-metrics-and-reporting-intervals).
 
 ## <a name="view-from-an-azure-cache-for-redis-resource"></a>Wyświetl z pamięci podręcznej platformy Azure dla zasobu Redis
 
@@ -156,7 +156,7 @@ Wybranie dowolnej z innych kart dotyczących **wydajności** lub **operacji** po
 
 ## <a name="pin-export-and-expand"></a>Przypnij, Eksportuj i rozwiń
 
-Aby przypiąć każdą sekcję metryki do [pulpitu nawigacyjnego platformy Azure](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards), wybierz symbol pinezki w prawym górnym rogu sekcji.
+Aby przypiąć każdą sekcję metryki do [pulpitu nawigacyjnego platformy Azure](../../azure-portal/azure-portal-dashboards.md), wybierz symbol pinezki w prawym górnym rogu sekcji.
 
 ![Sekcja metryki z wyróżnionym symbolem pinezki](./media/cosmosdb-insights-overview/pin.png)
 
@@ -186,6 +186,6 @@ Wskazówki dotyczące rozwiązywania problemów można znaleźć w artykule doty
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Skonfiguruj [alerty metryk](../platform/alerts-metric.md) i [powiadomienia dotyczące kondycji usługi](../../service-health/alerts-activity-log-service-notifications.md) , aby skonfigurować automatyczne alerty, które ułatwiają wykrywanie problemów.
+* Skonfiguruj [alerty metryk](../platform/alerts-metric.md) i [powiadomienia dotyczące kondycji usługi](../../service-health/alerts-activity-log-service-notifications-portal.md) , aby skonfigurować automatyczne alerty, które ułatwiają wykrywanie problemów.
 
 * Zapoznaj się z scenariuszami obsługiwanymi przez skoroszyty, sposobami tworzenia lub dostosowywania raportów oraz innymi przez przeglądanie raportów [interaktywnych przy użyciu skoroszytów Azure monitor](../platform/workbooks-overview.md).

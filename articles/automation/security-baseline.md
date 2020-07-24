@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 88f06bd30c97f857cd5a81068322a95c480a7b34
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 3b86c249630f7bfa5c2d319577c66d750b0f6268
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86187425"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87045907"
 ---
 # <a name="azure-security-baseline-for-automation"></a>Podstawa zabezpieczeń platformy Azure dla usługi Automation
 
@@ -918,7 +918,7 @@ W przypadku korzystania z funkcji hybrydowego procesu roboczego elementu Runbook
 
 * [Zrozumienie Azure Policy efektów](../governance/policy/concepts/effects.md)
 
-* [Wdróż konto usługi Automation przy użyciu szablonu Azure Resource Manager](./automation-create-account-template.md#deploy-the-template)
+* [Wdróż konto usługi Automation przy użyciu szablonu Azure Resource Manager](./quickstart-create-automation-account-template.md#deploy-the-template)
 
 * [Przykładowe Azure Policy wbudowane dla Azure Automation](./policy-samples.md)
 
@@ -1064,7 +1064,7 @@ W przypadku korzystania z funkcji hybrydowego procesu roboczego elementu Runbook
 
 **Wskazówki**: Implementuj skaner poświadczeń, aby identyfikować poświadczenia w kodzie. Skaner poświadczeń zachęca również do przemieszczania odnalezionych poświadczeń do bardziej bezpiecznych lokalizacji, takich jak Azure Key Vault.
 
-* [Jak skonfigurować skaner poświadczeń](https://secdevtools.azurewebsites.net/helpcredscan.htm)
+* [Jak skonfigurować skaner poświadczeń](https://secdevtools.azurewebsites.net/helpcredscan.html)
 
 **Monitorowanie Azure Security Center**: obecnie niedostępna
 
@@ -1124,7 +1124,7 @@ Użyj funkcji integracji kontroli źródła, aby zapewnić aktualność element�
 
 * [Azure Resource Manager dokumentacja szablonu dla Azure Automation zasobów](/azure/templates/microsoft.automation/allversions)
 
-* [Tworzenie konta usługi Automation przy użyciu szablonu Azure Resource Manager](./automation-create-account-template.md)
+* [Tworzenie konta usługi Automation przy użyciu szablonu Azure Resource Manager](./quickstart-create-automation-account-template.md)
 
 * [Eksport jednego i kilku zasobów do szablonu w Azure Portal](../azure-resource-manager/templates/export-template-portal.md)
 
@@ -1150,7 +1150,7 @@ Użyj funkcji integracji kontroli źródła, aby zapewnić aktualność element�
 
 * [Azure Resource Manager dokumentacja szablonu dla Azure Automation zasobów](/azure/templates/microsoft.automation/allversions)
 
-* [Tworzenie konta usługi Automation przy użyciu szablonu Azure Resource Manager](./automation-create-account-template.md)
+* [Tworzenie konta usługi Automation przy użyciu szablonu Azure Resource Manager](./quickstart-create-automation-account-template.md)
 
 * [Eksport jednego i kilku zasobów do szablonu w Azure Portal](../azure-resource-manager/templates/export-template-portal.md)
 

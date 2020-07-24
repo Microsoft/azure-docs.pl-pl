@@ -15,34 +15,34 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/19/2020
 ms.author: juergent
-ms.openlocfilehash: e017e082472e7a4a2fab6a2845e52d3dc7acc460
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ec63d08b164a3ed767a7622a9829beaf73e65ef3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80123348"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87042318"
 ---
 # <a name="installation-of-sap-hana-on-azure-virtual-machines"></a>Instalacja SAP HANA na maszynach wirtualnych platformy Azure
 ## <a name="introduction"></a>Wprowadzenie
 Ten przewodnik pomaga wskazać odpowiednie zasoby w celu pomyślnego wdrożenia platformy HANA w usłudze Azure Virtual Machines. Ten przewodnik ma na celu wskazanie zasobów dokumentacji, które należy sprawdzić przed zainstalowaniem SAP HANA na maszynie wirtualnej platformy Azure. Dzięki temu można wykonać odpowiednie kroki, aby zakończyć z obsługiwaną konfiguracją SAP HANA na maszynach wirtualnych platformy Azure.  
 
 > [!NOTE]
-> W tym przewodniku opisano wdrożenia SAP HANA na maszynach wirtualnych platformy Azure. Aby uzyskać informacje na temat sposobu wdrażania SAP HANA w dużych wystąpieniach platformy HANA, zobacz [jak zainstalować i skonfigurować SAP HANA (duże wystąpienia) na platformie Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-installation).
+> W tym przewodniku opisano wdrożenia SAP HANA na maszynach wirtualnych platformy Azure. Aby uzyskać informacje na temat sposobu wdrażania SAP HANA w dużych wystąpieniach platformy HANA, zobacz [jak zainstalować i skonfigurować SAP HANA (duże wystąpienia) na platformie Azure](./hana-installation.md).
  
 ## <a name="prerequisites"></a>Wymagania wstępne
 W tym przewodniku przyjęto również założenie, że znasz:
 * SAP HANA i SAP NetWeaver oraz sposób instalacji lokalnych.
 * Jak zainstalować i obsługiwać wystąpienia aplikacji SAP HANA i SAP na platformie Azure.
 * Koncepcje i procedury opisane w:
-   * Planowanie wdrożenia oprogramowania SAP na platformie Azure, w tym usługi Azure Virtual Network Planning i Azure Storage. Zobacz temat [SAP NetWeaver na platformie Virtual Machines Azure — przewodnik planowania i implementacji](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide)
-   * Zasady wdrażania i sposoby wdrażania maszyn wirtualnych na platformie Azure. Zobacz [wdrożenie usługi Azure Virtual Machines dla oprogramowania SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/deployment-guide)
-   * Pojęcia dotyczące wysokiej dostępności SAP HANA zgodnie z opisem w [SAP HANA wysokiej dostępności dla maszyn wirtualnych platformy Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-availability-overview)
+   * Planowanie wdrożenia oprogramowania SAP na platformie Azure, w tym usługi Azure Virtual Network Planning i Azure Storage. Zobacz temat [SAP NetWeaver na platformie Virtual Machines Azure — przewodnik planowania i implementacji](./planning-guide.md)
+   * Zasady wdrażania i sposoby wdrażania maszyn wirtualnych na platformie Azure. Zobacz [wdrożenie usługi Azure Virtual Machines dla oprogramowania SAP](./deployment-guide.md)
+   * Pojęcia dotyczące wysokiej dostępności SAP HANA zgodnie z opisem w [SAP HANA wysokiej dostępności dla maszyn wirtualnych platformy Azure](./sap-hana-availability-overview.md)
 
 ## <a name="step-by-step-before-deploying"></a>Krok po kroku przed wdrożeniem
 W tej sekcji przedstawiono różne czynności, które należy wykonać przed rozpoczęciem instalacji SAP HANA na maszynie wirtualnej platformy Azure. Zamówienie jest wyliczane i należy je stosować jako Wyliczenie:
 
-1. Nie wszystkie możliwe scenariusze wdrażania są obsługiwane na platformie Azure. W związku z tym należy sprawdzić dokument [obciążenie SAP na maszynach wirtualnych platformy Azure obsługiwane scenariusze](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-planning-supported-configurations) dla scenariusza, w którym myślisz o wdrożeniu SAP HANA. Jeśli scenariusza nie ma na liście, należy założyć, że nie został przetestowany i w związku z tym nie jest obsługiwany.
-2. Przy założeniu, że masz niezbędny pomysł na wymagania dotyczące pamięci dla wdrożenia SAP HANA, musisz znaleźć dopasowaną maszynę wirtualną platformy Azure. Nie wszystkie maszyny wirtualne certyfikowane dla oprogramowania SAP NetWeaver, zgodnie z opisem w temacie [Pomoc techniczna sap #1928533](https://launchpad.support.sap.com/#/notes/1928533), są SAP HANA certyfikowane. Źródłem prawdy dla SAP HANA certyfikowane maszyny wirtualne platformy Azure jest witryna internetowa [SAP HANA katalogu sprzętu](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure). Jednostki zaczynające się od **S** to jednostki [dużych wystąpień usługi Hana](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) , a nie maszyny wirtualne platformy Azure.
+1. Nie wszystkie możliwe scenariusze wdrażania są obsługiwane na platformie Azure. W związku z tym należy sprawdzić dokument [obciążenie SAP na maszynach wirtualnych platformy Azure obsługiwane scenariusze](./sap-planning-supported-configurations.md) dla scenariusza, w którym myślisz o wdrożeniu SAP HANA. Jeśli scenariusza nie ma na liście, należy założyć, że nie został przetestowany i w związku z tym nie jest obsługiwany.
+2. Przy założeniu, że masz niezbędny pomysł na wymagania dotyczące pamięci dla wdrożenia SAP HANA, musisz znaleźć dopasowaną maszynę wirtualną platformy Azure. Nie wszystkie maszyny wirtualne certyfikowane dla oprogramowania SAP NetWeaver, zgodnie z opisem w temacie [Pomoc techniczna sap #1928533](https://launchpad.support.sap.com/#/notes/1928533), są SAP HANA certyfikowane. Źródłem prawdy dla SAP HANA certyfikowane maszyny wirtualne platformy Azure jest witryna internetowa [SAP HANA katalogu sprzętu](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure). Jednostki zaczynające się od **S** to jednostki [dużych wystąpień usługi Hana](./hana-overview-architecture.md) , a nie maszyny wirtualne platformy Azure.
 3. Różne typy maszyn wirtualnych platformy Azure mają różne minimalne wersje systemu operacyjnego w systemie SUSE Linux lub Red Hat Linux. W witrynie sieci Web [SAP HANA Katalog sprzętu](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure)kliknij wpis na liście SAP HANA jednostek certyfikowanych, aby uzyskać szczegółowe dane tej jednostki. Oprócz obsługiwanego obciążenia platformy HANA wersje systemu operacyjnego obsługiwane przez te jednostki dla SAP HANA są wymienione na liście
 4. W przypadku wersji systemu operacyjnego należy wziąć pod uwagę pewne minimalne wersje jądra. Te minimalne wersje zostały udokumentowane w tych informacjach o pomocy technicznej SAP:
     - [Uwaga dotycząca pomocy technicznej SAP #2814271 SAP HANA kopia zapasowa kończy się niepowodzeniem na platformie Azure z błędem Checksum](https://launchpad.support.sap.com/#/notes/2814271)
@@ -57,7 +57,7 @@ W tej fazie należy wykonać kroki wdrażania maszyn wirtualnych w celu zainstal
 
 1. Wybierz obraz podstawowy z galerii platformy Azure. Jeśli chcesz utworzyć własny obraz systemu operacyjnego dla SAP HANA, musisz znać wszystkie pakiety, które są niezbędne do pomyślnej instalacji SAP HANA. W przeciwnym razie zalecamy korzystanie z obrazów SUSE i Red Hat dla oprogramowania SAP lub SAP HANA z galerii obrazów systemu Azure. Obrazy te zawierają pakiety niezbędne do pomyślnej instalacji platformy HANA. W oparciu o umowę dotyczącą pomocy technicznej z dostawcą systemu operacyjnego musisz wybrać obraz, na którym będziesz mieć własną licencję. Lub wybierz obraz systemu operacyjnego, który zawiera pomoc techniczną
 2. W przypadku wybrania obrazu systemu operacyjnego gościa, który wymaga wprowadzenia własnej licencji, należy zarejestrować obraz systemu operacyjnego w ramach subskrypcji, aby można było pobrać i zastosować najnowsze poprawki. Ten krok powoduje wymaganie publicznego dostępu do Internetu. Dopóki nie skonfigurujesz prywatnego wystąpienia programu, na przykład serwera z liczbą SMT na platformie Azure.
-3. Zdecyduj, jak konfiguracja sieci maszyny wirtualnej. Więcej informacji można znaleźć w dokumencie [SAP HANA konfiguracje i operacje infrastruktury na platformie Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations). Należy pamiętać, że nie ma limitów przepustowości sieci, które można przypisać do wirtualnych kart sieciowych na platformie Azure. W związku z tym jedynym celem kierowania ruchu przez różne vNICs opiera się na zagadnieniach związanych z bezpieczeństwem. Firma Microsoft ufa, aby znaleźć kompromis z obsługą systemu między złożonością routingu ruchu przez wiele vNICs i wymagania wymuszane przez aspekty zabezpieczeń.
+3. Zdecyduj, jak konfiguracja sieci maszyny wirtualnej. Więcej informacji można znaleźć w dokumencie [SAP HANA konfiguracje i operacje infrastruktury na platformie Azure](./hana-vm-operations.md). Należy pamiętać, że nie ma limitów przepustowości sieci, które można przypisać do wirtualnych kart sieciowych na platformie Azure. W związku z tym jedynym celem kierowania ruchu przez różne vNICs opiera się na zagadnieniach związanych z bezpieczeństwem. Firma Microsoft ufa, aby znaleźć kompromis z obsługą systemu między złożonością routingu ruchu przez wiele vNICs i wymagania wymuszane przez aspekty zabezpieczeń.
 3. Zastosowanie najnowszych poprawek do systemu operacyjnego po wdrożeniu i zarejestrowaniu maszyny wirtualnej. Zarejestrowana w ramach własnej subskrypcji. Lub w przypadku wybrania obrazu, który obejmuje obsługę systemu operacyjnego, maszyna wirtualna powinna mieć dostęp do poprawek. 
 4. Zastosuj dostosowania niezbędne do SAP HANA. Te dostosowania są wymienione w następujących uwagach dotyczących obsługi SAP:
 
@@ -71,8 +71,8 @@ W tej fazie należy wykonać kroki wdrażania maszyn wirtualnych w celu zainstal
     -  [Uwaga dotycząca pomocy technicznej SAP #2455582-Linux: uruchamianie aplikacji SAP skompilowanych w serwisie 4. x](https://launchpad.support.sap.com/#/notes/0002455582)
     -  [Uwaga dotycząca pomocy technicznej SAP #2382421 — Optymalizacja konfiguracji sieci na poziomie platformy HANA i systemu operacyjnego](https://launchpad.support.sap.com/#/notes/2382421)
 
-1. Wybierz typ magazynu platformy Azure dla SAP HANA. W tym kroku należy podjąć decyzję o układzie magazynu na potrzeby instalacji SAP HANA. Zamierzasz korzystać z dołączonych dysków platformy Azure lub natywnych udziałów systemu plików NFS platformy Azure. Typy magazynów platformy Azure, które lub obsługiwane i kombinacje różnych typów magazynu platformy Azure, które mogą być używane, są udokumentowane w [SAP HANA konfiguracjach magazynu maszyn wirtualnych platformy Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage). Wykonaj konfiguracje udokumentowane jako punkt wyjścia. W przypadku systemów nieprodukcyjnych może istnieć możliwość skonfigurowania mniejszej przepływności lub liczby operacji we/wy na sekundę. W celach produkcyjnych może zajść potrzeba skonfigurowania nieco większej przepływności i liczby operacji we/wy na sekundę.
-2. Upewnij się, że skonfigurowano [usługę Azure akcelerator zapisu](https://docs.microsoft.com/azure/virtual-machines/linux/how-to-enable-write-accelerator) dla woluminów, które zawierają dzienniki transakcji DBMS, lub wykonaj dzienniki ponownie w przypadku używania maszyn wirtualnych serii M lub Mv2. Należy pamiętać o ograniczeniach dla akcelerator zapisu zgodnie z opisem.
+1. Wybierz typ magazynu platformy Azure dla SAP HANA. W tym kroku należy podjąć decyzję o układzie magazynu na potrzeby instalacji SAP HANA. Zamierzasz korzystać z dołączonych dysków platformy Azure lub natywnych udziałów systemu plików NFS platformy Azure. Typy magazynów platformy Azure, które lub obsługiwane i kombinacje różnych typów magazynu platformy Azure, które mogą być używane, są udokumentowane w [SAP HANA konfiguracjach magazynu maszyn wirtualnych platformy Azure](./hana-vm-operations-storage.md). Wykonaj konfiguracje udokumentowane jako punkt wyjścia. W przypadku systemów nieprodukcyjnych może istnieć możliwość skonfigurowania mniejszej przepływności lub liczby operacji we/wy na sekundę. W celach produkcyjnych może zajść potrzeba skonfigurowania nieco większej przepływności i liczby operacji we/wy na sekundę.
+2. Upewnij się, że skonfigurowano [usługę Azure akcelerator zapisu](../../linux/how-to-enable-write-accelerator.md) dla woluminów, które zawierają dzienniki transakcji DBMS, lub wykonaj dzienniki ponownie w przypadku używania maszyn wirtualnych serii M lub Mv2. Należy pamiętać o ograniczeniach dla akcelerator zapisu zgodnie z opisem.
 2. Sprawdź, czy na wdrożonych maszynach wirtualnych jest włączona funkcja [przyspieszonej sieci platformy Azure](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/) .
 
 > [!NOTE]
@@ -84,26 +84,21 @@ Jedną z specyficznych dla platformy Azure jest instalacja rozszerzenia maszyny 
 -  W przypadku [oprogramowania SAP Note 2191498](https://launchpad.support.sap.com/#/notes/2191498/E) omówiono ulepszone monitorowanie SAP z maszynami wirtualnymi z systemem Linux na platformie Azure 
 -  [Uwaga dotycząca oprogramowania SAP 1102124](https://launchpad.support.sap.com/#/notes/1102124/E) Omówienie informacji o SAPOSCOL w systemie Linux 
 -  W przypadku [oprogramowania SAP uwaga 2178632](https://launchpad.support.sap.com/#/notes/2178632/E) omówiono metryki monitorowania kluczy dla oprogramowania SAP na Microsoft Azure
--  [Wdrożenie Virtual Machines platformy Azure dla oprogramowania SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/deployment-guide#d98edcd3-f2a1-49f7-b26a-07448ceb60ca)
+-  [Wdrożenie Virtual Machines platformy Azure dla oprogramowania SAP NetWeaver](./deployment-guide.md#d98edcd3-f2a1-49f7-b26a-07448ceb60ca)
 
 ## <a name="sap-hana-installation"></a>Instalacja SAP HANA
 Po wdrożeniu maszyn wirtualnych platformy Azure oraz zarejestrowanym i skonfigurowanym systemem operacyjnym można zainstalować SAP HANA zgodnie z instalacją SAP. Aby uzyskać dostęp do tej dokumentacji, Zacznij od tego, co jest przydatne w przypadku tego typu zasobów witryny SAP Web [Hana](https://www.sap.com/products/hana/implementation/resources.html)
 
-Aby uzyskać SAP HANA konfiguracje skalowalne w poziomie przy użyciu bezpośrednio dołączonych dysków z platformą Azure Premium Storage lub Ultra Disk, przeczytaj informacje w dokumencie [SAP HANA konfiguracje i operacje infrastruktury na platformie Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations#configuring-azure-infrastructure-for-sap-hana-scale-out)
+Aby uzyskać SAP HANA konfiguracje skalowalne w poziomie przy użyciu bezpośrednio dołączonych dysków z platformą Azure Premium Storage lub Ultra Disk, przeczytaj informacje w dokumencie [SAP HANA konfiguracje i operacje infrastruktury na platformie Azure](./hana-vm-operations.md#configuring-azure-infrastructure-for-sap-hana-scale-out)
 
 
 ## <a name="additional-resources-for-sap-hana-backup"></a>Dodatkowe zasoby dla SAP HANA kopii zapasowej
 Aby uzyskać informacje na temat tworzenia kopii zapasowych baz danych SAP HANA na maszynach wirtualnych platformy Azure, zobacz:
-* [Przewodnik dotyczący tworzenia kopii zapasowych SAP HANA na platformie Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-guide)
-* [SAP HANA Azure Backup na poziomie pliku](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-file-level)
+* [Przewodnik dotyczący tworzenia kopii zapasowych SAP HANA na platformie Azure Virtual Machines](./sap-hana-backup-guide.md)
+* [SAP HANA Azure Backup na poziomie pliku](./sap-hana-backup-file-level.md)
 
 ## <a name="next-steps"></a>Następne kroki
 Zapoznaj się z dokumentacją:
 
-- [Konfiguracje infrastruktury SAP HANA i operacje na platformie Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations)
-- [Konfiguracje magazynu maszyn wirtualnych platformy Azure SAP HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage)
-
-
-
-
-
+- [Konfiguracje infrastruktury SAP HANA i operacje na platformie Azure](./hana-vm-operations.md)
+- [Konfiguracje magazynu maszyn wirtualnych platformy Azure SAP HANA](./hana-vm-operations-storage.md)

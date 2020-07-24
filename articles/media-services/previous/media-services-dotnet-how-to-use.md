@@ -14,17 +14,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: ebdc0aaf1242a79770fafb7bee015115084f1068
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 3e4d56698ed14ec260838f3ecbec91d58945e4ca
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86077959"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87042939"
 ---
 # <a name="media-services-development-with-net"></a>Programowanie Media Services przy użyciu platformy .NET 
 
 > [!NOTE]
-> Do usługi Media Services w wersji 2 nie są już dodawane żadne nowe funkcje. <br/>Zapoznaj się z najnowszą wersją [Media Services wersja 3](https://docs.microsoft.com/azure/media-services/latest/). Zobacz też [wskazówki dotyczące migracji od wersji 2 do V3](../latest/migrate-from-v2-to-v3.md)
+> Do usługi Media Services w wersji 2 nie są już dodawane żadne nowe funkcje. <br/>Zapoznaj się z najnowszą wersją [Media Services wersja 3](../latest/index.yml). Zobacz też [wskazówki dotyczące migracji od wersji 2 do V3](../latest/migrate-from-v2-to-v3.md)
 
 W tym artykule omówiono sposób rozpoczynania opracowywania aplikacji Media Services przy użyciu platformy .NET.
 
@@ -34,7 +34,7 @@ Biblioteka **Azure Media Services zestawu SDK platformy .NET** umożliwia progra
 * Konto usługi Media Services w nowej lub istniejącej subskrypcji platformy Azure. Zapoznaj się z artykułem [jak utworzyć konto Media Services](media-services-portal-create-account.md).
 * Systemy operacyjne: Windows 10, Windows 7, Windows 2008 R2 lub Windows 8.
 * .NET Framework 4,5 lub nowszy.
-* Program Visual Studio.
+* Programu Visual Studio.
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Tworzenie i konfigurowanie projektu programu Visual Studio
 W tej sekcji pokazano, jak utworzyć projekt w programie Visual Studio i skonfigurować go do tworzenia Media Services.  W takim przypadku projekt jest aplikacją konsolową dla systemu Windows w języku C#, ale te same kroki konfiguracji mają zastosowanie do innych typów projektów, które można utworzyć dla Media Services aplikacji (na przykład aplikacja Windows Forms lub aplikacja sieci Web ASP.NET).
@@ -143,4 +143,3 @@ Teraz [możesz nawiązać połączenie z interfejsem API usługi AMS](media-serv
 
 ## <a name="provide-feedback"></a>Wyraź opinię
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
-

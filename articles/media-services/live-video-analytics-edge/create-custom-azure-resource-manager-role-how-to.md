@@ -3,15 +3,16 @@ title: Utwórz niestandardową rolę Azure Resource Manager i przypisz ją do je
 description: Ten artykuł zawiera wskazówki dotyczące tworzenia niestandardowej roli Azure Resource Manager i przypisywania jej do jednostki usługi na potrzeby analizy filmów wideo na żywo na IoT Edge przy użyciu interfejsu wiersza polecenia platformy Azure.
 ms.topic: how-to
 ms.date: 05/27/2020
-ms.openlocfilehash: be317ac1e86fd38c72b87734909004a64dc2938b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: eb4c9a1f90ab50f7070184fc9a394d9e6edb833a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84261170"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87043169"
 ---
 # <a name="create-custom-azure-resource-manager-role-and-assign-to-service-principal"></a>Utwórz niestandardową rolę Azure Resource Manager i przypisz ją do nazwy głównej usługi
 
-Analiza wideo na żywo w wystąpieniu modułu IoT Edge wymaga aktywnego konta Azure Media Services do prawidłowego działania. Relacja między dynamicznym analizowaniem filmów wideo w module IoT Edge i kontem usługi Azure Media Service została ustanowiona za pośrednictwem zestawu właściwości sznurka modułu. Jedną z tych właściwości sznurów jest nazwa [główna usługi](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object) , która umożliwia wystąpienie modułu komunikowanie się z i wyzwalanie niezbędnych operacji na koncie Media Services. Aby zminimalizować potencjalne niewłaściwe i/lub przypadkowe narażenie na dane z urządzenia brzegowego, ta jednostka usługi powinna mieć najmniejszą liczbę uprawnień.
+Analiza wideo na żywo w wystąpieniu modułu IoT Edge wymaga aktywnego konta Azure Media Services do prawidłowego działania. Relacja między dynamicznym analizowaniem filmów wideo w module IoT Edge i kontem usługi Azure Media Service została ustanowiona za pośrednictwem zestawu właściwości sznurka modułu. Jedną z tych właściwości sznurów jest nazwa [główna usługi](../../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) , która umożliwia wystąpienie modułu komunikowanie się z i wyzwalanie niezbędnych operacji na koncie Media Services. Aby zminimalizować potencjalne niewłaściwe i/lub przypadkowe narażenie na dane z urządzenia brzegowego, ta jednostka usługi powinna mieć najmniejszą liczbę uprawnień.
 
 W tym artykule przedstawiono procedurę tworzenia niestandardowej roli Azure Resource Manager z Azure Cloud Shell, która jest używana do tworzenia nazwy głównej usługi.
 
@@ -22,7 +23,7 @@ Wymagania wstępne dotyczące tego artykułu są następujące:
 * Subskrypcja platformy Azure z subskrypcją właściciela.
 * Azure Active Directory z uprawnieniami do tworzenia aplikacji i przypisywania jednostki usługi do roli.
 
-Najłatwiejszym sposobem sprawdzenia, czy Twoje konto ma odpowiednie uprawnienia, jest skorzystanie z portalu. Zobacz [Sprawdzanie wymaganego uprawnienia](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions).
+Najłatwiejszym sposobem sprawdzenia, czy Twoje konto ma odpowiednie uprawnienia, jest skorzystanie z portalu. Zobacz [Sprawdzanie wymaganego uprawnienia](../../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app).
 
 ## <a name="overview"></a>Omówienie  
 
@@ -48,7 +49,7 @@ Jeśli nie masz konta usługi multimediów, wykonaj następujące kroki, aby go 
     ```
     az account set --subscription " <yourSubscriptionName or yourSubscriptionId>"
     ```
-1. Utwórz [grupę zasobów](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-create) i [konto magazynu](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create).
+1. Utwórz [grupę zasobów](/cli/azure/group?view=azure-cli-latest#az-group-create) i [konto magazynu](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create).
 1. Teraz Utwórz konto usługi Azure Media Service przy użyciu następującego szablonu polecenia w Cloud Shell:
 
     ```
@@ -84,8 +85,8 @@ To polecenie generuje odpowiedź w następujący sposób:
 ```
 1. Dane wyjściowe dla jednostki usługi z uwierzytelnianiem przy użyciu hasła zawierają klucz hasła, który w tym przypadku jest parametrem "AadSecret". 
 
-    Upewnij się, że skopiujesz tę wartość — nie można jej pobrać. Jeśli zapomnisz hasła, [Zresetuj poświadczenia nazwy głównej usługi](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest#reset-credentials).
-1. Identyfikator appId i klucz dzierżawy są wyświetlane odpowiednio w danych wyjściowych jako "AadClientId" i "AadTenantId". Są one używane w uwierzytelnianiu nazwy głównej usługi. Zapisz ich wartości, ale można je pobrać w dowolnym momencie za pomocą [AZ AD Sp list](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-list).
+    Upewnij się, że skopiujesz tę wartość — nie można jej pobrać. Jeśli zapomnisz hasła, [Zresetuj poświadczenia nazwy głównej usługi](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest#reset-credentials).
+1. Identyfikator appId i klucz dzierżawy są wyświetlane odpowiednio w danych wyjściowych jako "AadClientId" i "AadTenantId". Są one używane w uwierzytelnianiu nazwy głównej usługi. Zapisz ich wartości, ale można je pobrać w dowolnym momencie za pomocą [AZ AD Sp list](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-list).
 
 ### <a name="create-a-custom-role-definition"></a>Utwórz niestandardową definicję roli  
 
@@ -170,7 +171,7 @@ Powyższe polecenie spowoduje wydrukowanie identyfikatora obiektu nazwy główne
 “objectId” : “<yourObjectId>”,
 ```
 
-Użyj [polecenia AZ role przypisanie Create](https://docs.microsoft.com/cli/azure/role/assignment?view=azure-cli-latest#az-role-assignment-create) , aby połączyć rolę niestandardową z jednostką usługi:
+Użyj [polecenia AZ role przypisanie Create](/cli/azure/role/assignment?view=azure-cli-latest#az-role-assignment-create) , aby połączyć rolę niestandardową z jednostką usługi:
 
 ```
 az role assignment create --role “LVAEdge User” --assignee-object-id < objectId>    

@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: overview
 ms.date: 04/17/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 627dfee81cb10e4e442b3cefb10d786d87d5c81d
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
+ms.openlocfilehash: cb8a29c5d2eff46eecb2cf977bfb492f28731e68
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/10/2020
-ms.locfileid: "83005889"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87043635"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>Informacje o kluczach, wpisach tajnych i certyfikatach
 
@@ -46,7 +46,7 @@ Zapoznaj się ze specyfikacją JOSE dla odpowiednich typów danych dla kluczy, s
 
 Obiekty przechowywane w Key Vault są używane w wersji za każdym razem, gdy zostanie utworzone nowe wystąpienie obiektu. Każda wersja ma przypisany unikatowy identyfikator i adres URL. Gdy obiekt jest tworzony, otrzymuje unikatowy identyfikator wersji i jest oznaczony jako bieżąca wersja obiektu. Utworzenie nowego wystąpienia o tej samej nazwie obiektu daje nowemu obiektowi unikatowy identyfikator wersji, powodując, że staje się on bieżącą wersją.  
 
-Obiekty w Key Vault mogą być rozwiązywane przez specifing wersję lub przez pominięcie wersji dla operacji w bieżącej wersji obiektu. Na przykład, jeśli klucz o nazwie `MasterKey`, wykonywanie operacji bez specifing wersji powoduje, że system używa najnowszej dostępnej wersji. Wykonywanie operacji z identyfikatorem specyficznym dla wersji powoduje, że system używa tej konkretnej wersji obiektu.  
+Obiekty w Key Vault mogą być rozwiązywane przez specifing wersję lub przez pominięcie wersji dla operacji w bieżącej wersji obiektu. Na przykład, jeśli klucz o nazwie `MasterKey` , wykonywanie operacji bez specifing wersji powoduje, że system używa najnowszej dostępnej wersji. Wykonywanie operacji z identyfikatorem specyficznym dla wersji powoduje, że system używa tej konkretnej wersji obiektu.  
 
 Obiekty są jednoznacznie identyfikowane w Key Vault przy użyciu adresu URL. Żadne dwa obiekty w systemie nie mają tego samego adresu URL, niezależnie od lokalizacji geograficznej. Pełny adres URL do obiektu jest nazywany identyfikatorem obiektu. Adres URL składa się z prefiksu, który identyfikuje Key Vault, typ obiektu, nazwę obiektu dostarczoną przez użytkownika i wersję obiektu. Nazwa obiektu nie uwzględnia wielkości liter i jest niezmienna. Identyfikatory, które nie zawierają wersji obiektu, są określane jako identyfikatory podstawowe.  
 
@@ -58,12 +58,12 @@ Identyfikator obiektu ma następujący format ogólny:
 
 Gdzie:  
 
-|||  
+| Element | Opis |  
 |-|-|  
 |`keyvault-name`|Nazwa magazynu kluczy w usłudze Microsoft Azure Key Vault.<br /><br /> Nazwy Key Vault są wybrane przez użytkownika i są unikatowe globalnie.<br /><br /> Nazwa Key Vault musi być ciągiem znaków 3-24, zawierającym tylko 0-9, a-z, A-Z i-.|  
 |`object-type`|Typ obiektu, "Keys", "Secret" lub "Certificates".|  
-|`object-name`|A `object-name` to nazwa podana przez użytkownika dla i musi być unikatowa w obrębie Key Vault. Nazwa musi być ciągiem znaków 1-127, rozpoczynając od litery i zawierającą tylko 0-9, a-z, A-Z, i-.|  
-|`object-version`|`object-version` Jest wygenerowanym przez system 32 identyfikatorem ciągu znaków, który jest opcjonalnie używany do adresowania unikatowej wersji obiektu.|  
+|`object-name`|`object-name`A to nazwa podana przez użytkownika dla i musi być unikatowa w obrębie Key Vault. Nazwa musi być ciągiem znaków 1-127, rozpoczynając od litery i zawierającą tylko 0-9, a-z, A-Z, i-.|  
+|`object-version`|`object-version`Jest wygenerowanym przez system 32 identyfikatorem ciągu znaków, który jest opcjonalnie używany do adresowania unikatowej wersji obiektu.|  
 
 ## <a name="next-steps"></a>Następne kroki
 

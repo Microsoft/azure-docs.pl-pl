@@ -3,11 +3,12 @@ title: Ciągłe nagrywanie wideo — Azure
 description: Stałe nagrywanie wideo (CVR) odnosi się do procesu ciągłego rejestrowania wideo ze źródła wideo. W tym temacie omówiono, co to jest CVR.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: 9a785125d4cfb2324224f4676e1d429342ec325c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 76af97fe1398421f5f37cfca32127d926ce56bac
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84261247"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87043306"
 ---
 # <a name="continuous-video-recording"></a>Ciągłe nagrywanie wideo  
 
@@ -33,7 +34,7 @@ Analiza filmów wideo na żywo w systemie IoT Edge obsługuje mniej niż idealne
     "localMediaCacheMaximumSizeMiB": "2048",
     "localMediaCachePath": "/var/lib/azuremediaservices/tmp/",
 ```
-Te dwie właściwości odnoszą się do odpornego na nagrania (obie są również wymagane właściwości dla węzła ujścia zasobów). Właściwość localMediaCachePath informuje ujścia zasobów o konieczności użycia tej ścieżki folderu do buforowania danych nośnika przed przekazaniem ich do elementu zawartości. Ten artykuł zawiera informacje o [tym](https://docs.microsoft.com/azure/iot-edge/how-to-access-host-storage-from-module) , jak moduł Edge może korzystać z lokalnego magazynu urządzenia. Właściwość localMediaCacheMaximumSizeMiB definiuje ilość miejsca na dysku, które może być używane przez ujścia zasobów jako pamięć podręczną (1 MiB = 1024 * 1024 bajtów). 
+Te dwie właściwości odnoszą się do odpornego na nagrania (obie są również wymagane właściwości dla węzła ujścia zasobów). Właściwość localMediaCachePath informuje ujścia zasobów o konieczności użycia tej ścieżki folderu do buforowania danych nośnika przed przekazaniem ich do elementu zawartości. Ten artykuł zawiera informacje o [tym](../../iot-edge/how-to-access-host-storage-from-module.md) , jak moduł Edge może korzystać z lokalnego magazynu urządzenia. Właściwość localMediaCacheMaximumSizeMiB definiuje ilość miejsca na dysku, które może być używane przez ujścia zasobów jako pamięć podręczną (1 MiB = 1024 * 1024 bajtów). 
 
 Jeśli moduł graniczny utraci łączność przez bardzo długi czas, a zawartość przechowywana w folderze pamięci podręcznej osiągnie wartość localMediaCacheMaximumSizeMiB, ujścia zasobów zacznie odrzucać dane z pamięci podręcznej, rozpoczynając od najstarszych danych. Na przykład jeśli urządzenie utraciło łączność w od 10:00, a pamięć podręczna osiągnie limit maksymalny w 18:00, obiekt ujścia zasobów zacznie usuwać dane zarejestrowane w od 10:00. 
 
@@ -51,7 +52,7 @@ Właściwość segmentLength gwarantuje, że moduł Edge przekaże wideo maksyma
 >Zapoznaj się z [tym](playback-recordings-how-to.md) artykułem, aby uzyskać efekt segmentLength podczas odtwarzania.
 
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 * [Nagrywanie wideo oparte na zdarzeniach](event-based-video-recording-concept.md)
 * [Odtwarzanie zarejestrowanej zawartości](video-playback-concept.md)

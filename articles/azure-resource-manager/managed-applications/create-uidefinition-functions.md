@@ -3,819 +3,125 @@ title: Tworzenie funkcji definicji interfejsu użytkownika
 description: Opisuje funkcje, które mają być używane podczas konstruowania definicji interfejsu użytkownika dla Azure Managed Applications
 author: tfitzmac
 ms.topic: conceptual
-ms.date: 10/12/2017
+ms.date: 07/13/2020
 ms.author: tomfitz
-ms.openlocfilehash: a93f4ff2ddc0737692de9e5619cf7a7521936224
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e4255f0d42e28a72ad55d9b7f81d0dc49b2950cb
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82980817"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87041000"
 ---
 # <a name="createuidefinition-functions"></a>Funkcje CreateUiDefinition
-Ta sekcja zawiera sygnatury dla wszystkich obsługiwanych funkcji CreateUiDefinition.
 
-Aby użyć funkcji, należy ująć wywołanie z nawiasami kwadratowymi. Przykład:
+Ten artykuł zawiera omówienie obsługiwanych funkcji programu CreateUiDefinition.
+
+## <a name="function-syntax"></a>Składnia funkcji
+
+Aby użyć funkcji, należy ująć wywołanie z nawiasami kwadratowymi. Na przykład:
 
 ```json
 "[function()]"
 ```
 
-Ciągi i inne funkcje mogą być przywoływane jako parametry dla funkcji, ale ciągi muszą być ujęte w apostrofy. Przykład:
+Ciągi i inne funkcje mogą być przywoływane jako parametry dla funkcji, ale ciągi muszą być ujęte w apostrofy. Na przykład:
 
 ```json
-"[fn1(fn2(), 'foobar')]"
+"[fn1(fn2(), 'demo text')]"
 ```
 
-Jeśli ma to zastosowanie, można odwoływać się do właściwości danych wyjściowych funkcji przy użyciu operatora kropki. Przykład:
+Jeśli ma to zastosowanie, można odwoływać się do właściwości danych wyjściowych funkcji przy użyciu operatora kropki. Na przykład:
 
 ```json
 "[func().prop1]"
 ```
 
-## <a name="referencing-functions"></a>Funkcje odwołujące
-Te funkcje mogą być używane do odwoływania się do danych wyjściowych z właściwości lub kontekstu CreateUiDefinition.
-
-### <a name="basics"></a>nazwie
-Zwraca wartości wyjściowe elementu, który jest zdefiniowany w kroku podstawowe.
-
-Poniższy przykład zwraca dane wyjściowe elementu o nazwie `foo` w kroku podstawowe:
-
-```json
-"[basics('foo')]"
-```
-
-### <a name="steps"></a>kroki
-Zwraca wartości wyjściowe elementu, który jest zdefiniowany w określonym kroku. Aby uzyskać wartości wyjściowe elementów w kroku podstawowe, należy `basics()` zamiast tego użyć.
-
-Poniższy przykład zwraca dane wyjściowe elementu o nazwie `bar` w kroku o nazwie `foo` :
-
-```json
-"[steps('foo').bar]"
-```
-
-### <a name="location"></a>location
-Zwraca lokalizację wybraną w kroku podstawowe lub w bieżącym kontekście.
-
-Poniższy przykład może zwrócić `"westus"` :
-
-```json
-"[location()]"
-```
-
-## <a name="string-functions"></a>Funkcje ciągów
-Tych funkcji można używać tylko z ciągami JSON.
-
-### <a name="concat"></a>concat
-Łączy jeden lub więcej ciągów.
-
-Na przykład, jeśli wartość wyjściowa elementu `element1` if `"bar"` , wówczas ten przykład zwraca ciąg `"foobar!"` :
-
-```json
-"[concat('foo', steps('step1').element1, '!')]"
-```
-
-### <a name="substring"></a>podciąg
-Zwraca podciąg określonego ciągu. Podciąg zaczyna się od określonego indeksu i ma określoną długość.
-
-Poniższy przykład zwraca `"ftw"` :
-
-```json
-"[substring('azure-ftw!!!1one', 6, 3)]"
-```
-
-### <a name="replace"></a>Zastąp
-Zwraca ciąg, w którym wszystkie wystąpienia określonego ciągu w bieżącym ciągu są zastępowane innym ciągiem.
-
-Poniższy przykład zwraca `"Everything is awesome!"` :
-
-```json
-"[replace('Everything is terrible!', 'terrible', 'awesome')]"
-```
-
-### <a name="guid"></a>guid
-Generuje unikatowy ciąg globalny (GUID).
-
-Poniższy przykład może zwrócić `"c7bc8bdc-7252-4a82-ba53-7c468679a511"` :
-
-```json
-"[guid()]"
-```
-
-### <a name="tolower"></a>toLower
-Zwraca ciąg przekonwertowany na małe litery.
-
-Poniższy przykład zwraca `"foobar"` :
-
-```json
-"[toLower('FOOBAR')]"
-```
-
-### <a name="toupper"></a>toUpper
-Zwraca ciąg przekonwertowany na wielkie litery.
-
-Poniższy przykład zwraca `"FOOBAR"` :
-
-```json
-"[toUpper('foobar')]"
-```
-
 ## <a name="collection-functions"></a>Funkcje kolekcji
+
 Te funkcje mogą być używane z kolekcjami, takimi jak ciągi JSON, tablice i obiekty.
 
-### <a name="contains"></a>zawiera
-Zwraca `true` Jeśli ciąg zawiera określony podciąg, tablica zawiera określoną wartość lub obiekt zawiera określony klucz.
-
-#### <a name="example-1-string"></a>Przykład 1: ciąg
-Poniższy przykład zwraca `true` :
-
-```json
-"[contains('foobar', 'foo')]"
-```
-
-#### <a name="example-2-array"></a>Przykład 2: tablica
-Przyjmij `element1` wartość Returns `[1, 2, 3]` . Poniższy przykład zwraca `false` :
-
-```json
-"[contains(steps('foo').element1, 4)]"
-```
-
-#### <a name="example-3-object"></a>Przykład 3: obiekt
-Przyjmij `element1` zwrot:
-
-```json
-{
-  "key1": "foobar",
-  "key2": "raboof"
-}
-```
-
-Poniższy przykład zwraca `true` :
-
-```json
-"[contains(steps('foo').element1, 'key1')]"
-```
-
-### <a name="length"></a>length
-Zwraca liczbę znaków w ciągu, liczbę wartości w tablicy lub liczbę kluczy w obiekcie.
-
-#### <a name="example-1-string"></a>Przykład 1: ciąg
-Poniższy przykład zwraca `6` :
-
-```json
-"[length('foobar')]"
-```
-
-#### <a name="example-2-array"></a>Przykład 2: tablica
-Przyjmij `element1` wartość Returns `[1, 2, 3]` . Poniższy przykład zwraca `3` :
-
-```json
-"[length(steps('foo').element1)]"
-```
-
-#### <a name="example-3-object"></a>Przykład 3: obiekt
-Przyjmij `element1` zwrot:
-
-```json
-{
-  "key1": "foobar",
-  "key2": "raboof"
-}
-```
-
-Poniższy przykład zwraca `2` :
-
-```json
-"[length(steps('foo').element1)]"
-```
-
-### <a name="empty"></a>puste
-Zwraca `true` czy ciąg, tablica lub obiekt ma wartość null lub jest pusty.
-
-#### <a name="example-1-string"></a>Przykład 1: ciąg
-Poniższy przykład zwraca `true` :
-
-```json
-"[empty('')]"
-```
-
-#### <a name="example-2-array"></a>Przykład 2: tablica
-Przyjmij `element1` wartość Returns `[1, 2, 3]` . Poniższy przykład zwraca `false` :
-
-```json
-"[empty(steps('foo').element1)]"
-```
-
-#### <a name="example-3-object"></a>Przykład 3: obiekt
-Przyjmij `element1` zwrot:
-
-```json
-{
-  "key1": "foobar",
-  "key2": "raboof"
-}
-```
-
-Poniższy przykład zwraca `false` :
-
-```json
-"[empty(steps('foo').element1)]"
-```
-
-#### <a name="example-4-null-and-undefined"></a>Przykład 4: null i undefined
-Przyjmij `element1` `null` lub niezdefiniowane. Poniższy przykład zwraca `true` :
-
-```json
-"[empty(steps('foo').element1)]"
-```
-
-### <a name="first"></a>pierwszego
-Zwraca pierwszy znak określonego ciągu; Pierwsza wartość określonej tablicy; lub pierwszy klucz i wartość określonego obiektu.
-
-#### <a name="example-1-string"></a>Przykład 1: ciąg
-Poniższy przykład zwraca `"f"` :
-
-```json
-"[first('foobar')]"
-```
-
-#### <a name="example-2-array"></a>Przykład 2: tablica
-Przyjmij `element1` wartość Returns `[1, 2, 3]` . Poniższy przykład zwraca `1` :
-
-```json
-"[first(steps('foo').element1)]"
-```
-
-#### <a name="example-3-object"></a>Przykład 3: obiekt
-Przyjmij `element1` zwrot:
-
-```json
-{
-  "key1": "foobar",
-  "key2": "raboof"
-}
-```
-Poniższy przykład zwraca `{"key1": "foobar"}` :
-
-```json
-"[first(steps('foo').element1)]"
-```
-
-### <a name="last"></a>ostatni
-Zwraca ostatni znak określonego ciągu, ostatnią wartość określonej tablicy lub ostatni klucz i wartość określonego obiektu.
-
-#### <a name="example-1-string"></a>Przykład 1: ciąg
-Poniższy przykład zwraca `"r"` :
-
-```json
-"[last('foobar')]"
-```
-
-#### <a name="example-2-array"></a>Przykład 2: tablica
-Przyjmij `element1` wartość Returns `[1, 2, 3]` . Poniższy przykład zwraca `2` :
-
-```json
-"[last(steps('foo').element1)]"
-```
-
-#### <a name="example-3-object"></a>Przykład 3: obiekt
-Przyjmij `element1` zwrot:
-
-```json
-{
-  "key1": "foobar",
-  "key2": "raboof"
-}
-```
-
-Poniższy przykład zwraca `{"key2": "raboof"}` :
-
-```json
-"[last(steps('foo').element1)]"
-```
-
-### <a name="take"></a>czasochłonn
-Zwraca określoną liczbę znaków sąsiadujących od początku ciągu, określoną liczbę ciągłych wartości od początku tablicy lub określoną liczbę ciągłych kluczy i wartości z początku obiektu.
-
-#### <a name="example-1-string"></a>Przykład 1: ciąg
-Poniższy przykład zwraca `"foo"` :
-
-```json
-"[take('foobar', 3)]"
-```
-
-#### <a name="example-2-array"></a>Przykład 2: tablica
-Przyjmij `element1` wartość Returns `[1, 2, 3]` . Poniższy przykład zwraca `[1, 2]` :
-
-```json
-"[take(steps('foo').element1, 2)]"
-```
-
-#### <a name="example-3-object"></a>Przykład 3: obiekt
-Przyjmij `element1` zwrot:
-
-```json
-{
-  "key1": "foobar",
-  "key2": "raboof"
-}
-```
-
-Poniższy przykład zwraca `{"key1": "foobar"}` :
-
-```json
-"[take(steps('foo').element1, 1)]"
-```
-
-### <a name="skip"></a>Pomiń
-Pomija określoną liczbę elementów w kolekcji, a następnie zwraca pozostałe elementy.
-
-#### <a name="example-1-string"></a>Przykład 1: ciąg
-Poniższy przykład zwraca `"bar"` :
-
-```json
-"[skip('foobar', 3)]"
-```
-
-#### <a name="example-2-array"></a>Przykład 2: tablica
-Przyjmij `element1` wartość Returns `[1, 2, 3]` . Poniższy przykład zwraca `[3]` :
-
-```json
-"[skip(steps('foo').element1, 2)]"
-```
-
-#### <a name="example-3-object"></a>Przykład 3: obiekt
-Przyjmij `element1` zwrot:
-
-```json
-{
-  "key1": "foobar",
-  "key2": "raboof"
-}
-```
-Poniższy przykład zwraca `{"key2": "raboof"}` :
-
-```json
-"[skip(steps('foo').element1, 1)]"
-```
-
-## <a name="logical-functions"></a>Funkcje logiczne
-Te funkcje mogą być używane w warunkach. Niektóre funkcje mogą nie obsługiwać wszystkich typów danych JSON.
-
-### <a name="equals"></a>równa się
-Zwraca `true` czy oba parametry mają ten sam typ i wartość. Ta funkcja obsługuje wszystkie typy danych JSON.
-
-Poniższy przykład zwraca `true` :
-
-```json
-"[equals(0, 0)]"
-```
-
-Poniższy przykład zwraca `true` :
-
-```json
-"[equals('foo', 'foo')]"
-```
-
-Poniższy przykład zwraca `false` :
-
-```json
-"[equals('abc', ['a', 'b', 'c'])]"
-```
-
-### <a name="less"></a>less
-Zwraca wartość `true` , jeśli pierwszy parametr jest ściśle mniejszy niż drugi parametr. Ta funkcja obsługuje parametry tylko typu Number i String.
-
-Poniższy przykład zwraca `true` :
-
-```json
-"[less(1, 2)]"
-```
-
-Poniższy przykład zwraca `false` :
-
-```json
-"[less('9', '10')]"
-```
-
-### <a name="lessorequals"></a>lessOrEquals
-Zwraca wartość `true` , jeśli pierwszy parametr jest mniejszy lub równy drugiemu parametrowi. Ta funkcja obsługuje parametry tylko typu Number i String.
-
-Poniższy przykład zwraca `true` :
-
-```json
-"[lessOrEquals(2, 2)]"
-```
-
-### <a name="greater"></a>greater
-Zwraca wartość `true` , jeśli pierwszy parametr jest ściśle większy niż drugi parametr. Ta funkcja obsługuje parametry tylko typu Number i String.
-
-Poniższy przykład zwraca `false` :
-
-```json
-"[greater(1, 2)]"
-```
-
-Poniższy przykład zwraca `true` :
-
-```json
-"[greater('9', '10')]"
-```
-
-### <a name="greaterorequals"></a>greaterOrEquals
-Zwraca wartość `true` , jeśli pierwszy parametr jest większy lub równy drugiemu parametrowi. Ta funkcja obsługuje parametry tylko typu Number i String.
-
-Poniższy przykład zwraca `true` :
-
-```json
-"[greaterOrEquals(2, 2)]"
-```
-
-### <a name="and"></a>oraz
-Zwraca wartość `true` , jeśli wszystkie parametry mają być szacowane do `true` . Ta funkcja obsługuje co najmniej dwa parametry typu Boolean.
-
-Poniższy przykład zwraca `true` :
-
-```json
-"[and(equals(0, 0), equals('foo', 'foo'), less(1, 2))]"
-```
-
-Poniższy przykład zwraca `false` :
-
-```json
-"[and(equals(0, 0), greater(1, 2))]"
-```
-
-### <a name="or"></a>lub
-Zwraca wartość `true` , jeśli co najmniej jeden z parametrów ma wartość `true` . Ta funkcja obsługuje co najmniej dwa parametry typu Boolean.
-
-Poniższy przykład zwraca `true` :
-
-```json
-"[or(equals(0, 0), equals('foo', 'foo'), less(1, 2))]"
-```
-
-Poniższy przykład zwraca `true` :
-
-```json
-"[or(equals(0, 0), greater(1, 2))]"
-```
-
-### <a name="not"></a>not
-Zwraca wartość `true` , jeśli parametr ma wartość `false` . Ta funkcja obsługuje tylko parametry typu Boolean.
-
-Poniższy przykład zwraca `true` :
-
-```json
-"[not(false)]"
-```
-
-Poniższy przykład zwraca `false` :
-
-```json
-"[not(equals(0, 0))]"
-```
-
-### <a name="coalesce"></a>łączonych
-Zwraca wartość pierwszego niezerowego parametru. Ta funkcja obsługuje wszystkie typy danych JSON.
-
-Przyjmij `element1` i nie `element2` są zdefiniowane. Poniższy przykład zwraca `"foobar"` :
-
-```json
-"[coalesce(steps('foo').element1, steps('foo').element2, 'foobar')]"
-```
-
-Ta funkcja jest szczególnie przydatna w kontekście opcjonalnego wywołania, które następuje z powodu akcji użytkownika po załadowaniu strony. Przykładem jest to, że ograniczenia wprowadzone dla jednego pola w interfejsie użytkownika zależą od aktualnie wybranej wartości innego, **początkowo niewidocznego** pola. W takim przypadku `coalesce()` można użyć, aby zezwolić funkcji na składniowo, w czasie ładowania strony, podczas gdy użytkownik współdziała z polem.
-
-Należy to rozważyć `DropDown` , co umożliwia użytkownikowi wybór spośród kilku różnych typów baz danych:
-
-```
-{
-    "name": "databaseType",
-    "type": "Microsoft.Common.DropDown",
-    "label": "Choose database type",
-    "toolTip": "Choose database type",
-    "defaultValue": "Oracle Database",
-    "visible": "[bool(steps('section_database').connectToDatabase)]"
-    "constraints": {
-        "allowedValues": [
-            {
-                "label": "Azure Database for PostgreSQL",
-                "value": "postgresql"
-            },
-            {
-                "label": "Oracle Database",
-                "value": "oracle"
-            },
-            {
-                "label": "Azure SQL",
-                "value": "sqlserver"
-            }
-        ],
-        "required": true
-    },
-```
-
-Aby warunkować akcję innego pola dla aktualnie wybranej wartości tego pola, użyj `coalesce()` , jak pokazano poniżej:
-
-```
-"regex": "[concat('^jdbc:', coalesce(steps('section_database').databaseConnectionInfo.databaseType, ''), '.*$')]",
-```
-
-Jest to konieczne, ponieważ `databaseType` początkowo nie jest widoczny i w związku z tym nie ma wartości. Powoduje to, że całe wyrażenie nie zostanie prawidłowo obliczone.
+* [wyświetlana](create-ui-definition-collection-functions.md#contains)
+* [puste](create-ui-definition-collection-functions.md#empty)
+* [filtru](create-ui-definition-collection-functions.md#filter)
+* [pierwszego](create-ui-definition-collection-functions.md#first)
+* [ostatniego](create-ui-definition-collection-functions.md#last)
+* [Długość](create-ui-definition-collection-functions.md#length)
+* [zmapować](create-ui-definition-collection-functions.md#map)
+* [Skocz](create-ui-definition-collection-functions.md#skip)
+* [podziału](create-ui-definition-collection-functions.md#split)
+* [take (pobierz)](create-ui-definition-collection-functions.md#take)
 
 ## <a name="conversion-functions"></a>Funkcje konwersji
+
 Te funkcje mogą służyć do konwertowania wartości między typami danych JSON a kodowaniem.
 
-### <a name="int"></a>int
-Konwertuje parametr na liczbę całkowitą. Ta funkcja obsługuje parametry typu Number i String.
-
-Poniższy przykład zwraca `1` :
-
-```json
-"[int('1')]"
-```
-
-Poniższy przykład zwraca `2` :
-
-```json
-"[int(2.9)]"
-```
-
-### <a name="float"></a>float
-Konwertuje parametr na zmiennoprzecinkową. Ta funkcja obsługuje parametry typu Number i String.
-
-Poniższy przykład zwraca `1.0` :
-
-```json
-"[float('1.0')]"
-```
-
-Poniższy przykład zwraca `2.9` :
-
-```json
-"[float(2.9)]"
-```
-
-### <a name="string"></a>ciąg
-Konwertuje parametr na ciąg. Ta funkcja obsługuje parametry wszystkich typów danych JSON.
-
-Poniższy przykład zwraca `"1"` :
-
-```json
-"[string(1)]"
-```
-
-Poniższy przykład zwraca `"2.9"` :
-
-```json
-"[string(2.9)]"
-```
-
-Poniższy przykład zwraca `"[1,2,3]"` :
-
-```json
-"[string([1,2,3])]"
-```
-
-Poniższy przykład zwraca `"{"foo":"bar"}"` :
-
-```json
-"[string({\"foo\":\"bar\"})]"
-```
-
-### <a name="bool"></a>bool
-Konwertuje parametr na wartość logiczną. Ta funkcja obsługuje parametry typu Number, String i Boolean. Podobne do wartości logicznych w języku JavaScript, dowolnej wartości z wyjątkiem `0` lub `'false'` zwraca `true` .
-
-Poniższy przykład zwraca `true` :
-
-```json
-"[bool(1)]"
-```
-
-Poniższy przykład zwraca `false` :
-
-```json
-"[bool(0)]"
-```
-
-Poniższy przykład zwraca `true` :
-
-```json
-"[bool(true)]"
-```
-
-Poniższy przykład zwraca `true` :
-
-```json
-"[bool('true')]"
-```
-
-### <a name="parse"></a>parse
-Konwertuje parametr na typ natywny. Innymi słowy, ta funkcja jest odwrotnością `string()` . Ta funkcja obsługuje tylko parametry typu String.
-
-Poniższy przykład zwraca `1` :
-
-```json
-"[parse('1')]"
-```
-
-Poniższy przykład zwraca `true` :
-
-```json
-"[parse('true')]"
-```
-
-Poniższy przykład zwraca `[1,2,3]` :
-
-```json
-"[parse('[1,2,3]')]"
-```
-
-Poniższy przykład zwraca `{"foo":"bar"}` :
-
-```json
-"[parse('{\"foo\":\"bar\"}')]"
-```
-
-### <a name="encodebase64"></a>encodeBase64
-Koduje parametr do zakodowanego ciągu Base-64. Ta funkcja obsługuje tylko parametry typu String.
-
-Poniższy przykład zwraca `"Zm9vYmFy"` :
-
-```json
-"[encodeBase64('foobar')]"
-```
-
-### <a name="decodebase64"></a>decodeBase64
-Dekoduje parametr z zakodowanego ciągu Base-64. Ta funkcja obsługuje tylko parametry typu String.
-
-Poniższy przykład zwraca `"foobar"` :
-
-```json
-"[decodeBase64('Zm9vYmFy')]"
-```
-
-### <a name="encodeuricomponent"></a>encodeURIComponent —
-Koduje parametr na ciąg zakodowany w adresie URL. Ta funkcja obsługuje tylko parametry typu String.
-
-Poniższy przykład zwraca `"https%3A%2F%2Fportal.azure.com%2F"` :
-
-```json
-"[encodeUriComponent('https://portal.azure.com/')]"
-```
-
-### <a name="decodeuricomponent"></a>decodeUriComponent
-Dekoduje parametr z ciągu zakodowanego w adresie URL. Ta funkcja obsługuje tylko parametry typu String.
-
-Poniższy przykład zwraca `"https://portal.azure.com/"` :
-
-```json
-"[decodeUriComponent('https%3A%2F%2Fportal.azure.com%2F')]"
-```
-
-## <a name="math-functions"></a>Funkcje matematyczne
-### <a name="add"></a>add
-Dodaje dwie liczby i zwraca wynik.
-
-Poniższy przykład zwraca `3` :
-
-```json
-"[add(1, 2)]"
-```
-
-### <a name="sub"></a>Sub
-Odejmuje drugą liczbę od pierwszej liczby i zwraca wynik.
-
-Poniższy przykład zwraca `1` :
-
-```json
-"[sub(3, 2)]"
-```
-
-### <a name="mul"></a>mul
-Mnoży dwie liczby i zwraca wynik.
-
-Poniższy przykład zwraca `6` :
-
-```json
-"[mul(2, 3)]"
-```
-
-### <a name="div"></a>div
-Dzieli pierwszą liczbę przez drugą liczbę i zwraca wynik. Wynik jest zawsze liczbą całkowitą.
-
-Poniższy przykład zwraca `2` :
-
-```json
-"[div(6, 3)]"
-```
-
-### <a name="mod"></a>Funkcja
-Dzieli pierwszą liczbę przez drugą liczbę i zwraca resztę.
-
-Poniższy przykład zwraca `0` :
-
-```json
-"[mod(6, 3)]"
-```
-
-Poniższy przykład zwraca `2` :
-
-```json
-"[mod(6, 4)]"
-```
-
-### <a name="min"></a>min
-Zwraca małe z dwóch liczb.
-
-Poniższy przykład zwraca `1` :
-
-```json
-"[min(1, 2)]"
-```
-
-### <a name="max"></a>max
-Zwraca większą liczbę dwóch liczb.
-
-Poniższy przykład zwraca `2` :
-
-```json
-"[max(1, 2)]"
-```
-
-### <a name="range"></a>range
-Generuje sekwencję liczb całkowitych w określonym zakresie.
-
-Poniższy przykład zwraca `[1,2,3]` :
-
-```json
-"[range(1, 3)]"
-```
-
-### <a name="rand"></a>rand
-Zwraca losową liczbę całkowitą znajdującą się w określonym zakresie. Ta funkcja nie generuje kryptograficznie zabezpieczonych liczb losowych.
-
-Poniższy przykład może zwrócić `42` :
-
-```json
-"[rand(-100, 100)]"
-```
-
-### <a name="floor"></a>wykładzin
-Zwraca największą liczbę całkowitą mniejszą lub równą podanej liczbie.
-
-Poniższy przykład zwraca `3` :
-
-```json
-"[floor(3.14)]"
-```
-
-### <a name="ceil"></a>CEIL —
-Zwraca największą liczbę całkowitą większą lub równą podanej liczbie.
-
-Poniższy przykład zwraca `4` :
-
-```json
-"[ceil(3.14)]"
-```
+* [bool](create-ui-definition-conversion-functions.md#bool)
+* [decodeBase64](create-ui-definition-conversion-functions.md#decodebase64)
+* [decodeUriComponent](create-ui-definition-conversion-functions.md#decodeuricomponent)
+* [encodeBase64](create-ui-definition-conversion-functions.md#encodebase64)
+* [encodeURIComponent —](create-ui-definition-conversion-functions.md#encodeuricomponent)
+* [float](create-ui-definition-conversion-functions.md#float)
+* [int](create-ui-definition-conversion-functions.md#int)
+* [przetwarzania](create-ui-definition-conversion-functions.md#parse)
+* [parametry](create-ui-definition-conversion-functions.md#string)
 
 ## <a name="date-functions"></a>Funkcje daty
-### <a name="utcnow"></a>utcNow
-Zwraca ciąg w formacie ISO 8601 bieżącej daty i godziny na komputerze lokalnym.
 
-Poniższy przykład może zwrócić `"1990-12-31T23:59:59.000Z"` :
+* [addgodz.](create-ui-definition-date-functions.md#addhours)
+* [addminut](create-ui-definition-date-functions.md#addminutes)
+* [AddSeconds](create-ui-definition-date-functions.md#addseconds)
+* [utcNow](create-ui-definition-date-functions.md#utcnow)
 
-```json
-"[utcNow()]"
-```
+## <a name="logical-functions"></a>Funkcje logiczne
 
-### <a name="addseconds"></a>AddSeconds
-Dodaje całkowitą liczbę sekund do określonej sygnatury czasowej.
+Te funkcje mogą być używane w warunkach. Niektóre funkcje mogą nie obsługiwać wszystkich typów danych JSON.
 
-Poniższy przykład zwraca `"1991-01-01T00:00:00.000Z"` :
+* [oraz](create-ui-definition-logical-functions.md#and)
+* [łączonych](create-ui-definition-logical-functions.md#coalesce)
+* [ubiegł](create-ui-definition-logical-functions.md#equals)
+* [greater](create-ui-definition-logical-functions.md#greater)
+* [greaterOrEquals](create-ui-definition-logical-functions.md#greaterorequals)
+* [if](create-ui-definition-logical-functions.md#if)
+* [wcześniejsz](create-ui-definition-logical-functions.md#less)
+* [lessOrEquals](create-ui-definition-logical-functions.md#lessorequals)
+* [not](create-ui-definition-logical-functions.md#not)
+* [lub](create-ui-definition-logical-functions.md#or)
 
-```json
-"[addSeconds('1990-12-31T23:59:60Z', 1)]"
-```
+## <a name="math-functions"></a>Funkcje matematyczne
 
-### <a name="addminutes"></a>addminut
-Dodaje całkowitą liczbę minut do określonej sygnatury czasowej.
+* [add](create-ui-definition-math-functions.md#add)
+* [CEIL —](create-ui-definition-math-functions.md#ceil)
+* [div](create-ui-definition-math-functions.md#div)
+* [wykładzin](create-ui-definition-math-functions.md#floor)
+* [Maksymalny](create-ui-definition-math-functions.md#max)
+* [min](create-ui-definition-math-functions.md#min)
+* [Funkcja](create-ui-definition-math-functions.md#mod)
+* [mul](create-ui-definition-math-functions.md#mul)
+* [Rand](create-ui-definition-math-functions.md#rand)
+* [zakresu](create-ui-definition-math-functions.md#range)
+* [Sub](create-ui-definition-math-functions.md#sub)
 
-Poniższy przykład zwraca `"1991-01-01T00:00:59.000Z"` :
+## <a name="referencing-functions"></a>Funkcje odwołujące
 
-```json
-"[addMinutes('1990-12-31T23:59:59Z', 1)]"
-```
+* [nazwie](create-ui-definition-referencing-functions.md#basics)
+* [przeniesienie](create-ui-definition-referencing-functions.md#location)
+* [resourceGroup](create-ui-definition-referencing-functions.md#resourcegroup)
+* [czynnooci](create-ui-definition-referencing-functions.md#steps)
+* [ramach](create-ui-definition-referencing-functions.md#subscription)
 
-### <a name="addhours"></a>addgodz.
-Dodaje całkowitą liczbę godzin do określonej sygnatury czasowej.
+## <a name="string-functions"></a>Funkcje ciągów
 
-Poniższy przykład zwraca `"1991-01-01T00:59:59.000Z"` :
-
-```json
-"[addHours('1990-12-31T23:59:59Z', 1)]"
-```
+* [Concat](create-ui-definition-string-functions.md#concat)
+* [endsWith](create-ui-definition-string-functions.md#endswith)
+* [guid](create-ui-definition-string-functions.md#guid)
+* [indexOf](create-ui-definition-string-functions.md#indexof)
+* [lastIndexOf](create-ui-definition-string-functions.md#lastindexof)
+* [stępować](create-ui-definition-string-functions.md#replace)
+* [startsWith](create-ui-definition-string-functions.md#startswith)
+* [podciąg](create-ui-definition-string-functions.md#substring)
+* [toLower](create-ui-definition-string-functions.md#tolower)
+* [toUpper](create-ui-definition-string-functions.md#toupper)
 
 ## <a name="next-steps"></a>Następne kroki
-* Aby zapoznać się z wprowadzeniem do Azure Resource Manager, zobacz [Azure Resource Manager omówienie](../management/overview.md).
 
+* Aby zapoznać się z wprowadzeniem do Azure Resource Manager, zobacz [Azure Resource Manager omówienie](../management/overview.md).

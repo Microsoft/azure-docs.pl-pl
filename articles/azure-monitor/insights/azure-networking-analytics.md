@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/21/2018
-ms.openlocfilehash: 1084be9a63e023257326de824ea200dcc1be74d9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 96df96fd6145d1c6e58eb5dfc672ec324da75202
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83684649"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87041600"
 ---
 # <a name="azure-networking-monitoring-solutions-in-azure-monitor"></a>Rozwiązania do monitorowania sieci platformy Azure w Azure Monitor
 
@@ -23,18 +24,18 @@ Azure Monitor oferuje następujące rozwiązania do monitorowania sieci:
     * Dzienniki usługi Azure Application Gateway
     * Metryki usługi Azure Application Gateway
 * Rozwiązania do monitorowania i inspekcji aktywności sieciowej w sieci w chmurze
-    * [Analiza ruchu](https://docs.microsoft.com/azure/networking/network-monitoring-overview#traffic-analytics) 
+    * [Analiza ruchu](../../networking/network-monitoring-overview.md#traffic-analytics) 
     * Azure Network Security Group Analytics
 
 ## <a name="network-performance-monitor-npm"></a>Network Performance Monitor (NPM)
 
-Rozwiązanie do zarządzania [Network Performance Monitor](https://docs.microsoft.com/azure/networking/network-monitoring-overview) to rozwiązanie do monitorowania sieci, które monitoruje kondycję, dostępność i osiągalność sieci.  Służy do monitorowania łączności między:
+Rozwiązanie do zarządzania [Network Performance Monitor](../../networking/network-monitoring-overview.md) to rozwiązanie do monitorowania sieci, które monitoruje kondycję, dostępność i osiągalność sieci.  Służy do monitorowania łączności między:
 
 * Chmura publiczna i lokalna
 * Centra danych i lokalizacje użytkowników (biura oddziałów)
 * Podsieci obsługujące różne warstwy wielowarstwowej aplikacji.
 
-Aby uzyskać więcej informacji, zobacz [Network Performance Monitor](https://docs.microsoft.com/azure/networking/network-monitoring-overview).
+Aby uzyskać więcej informacji, zobacz [Network Performance Monitor](../../networking/network-monitoring-overview.md).
 
 ## <a name="azure-application-gateway-and-network-security-group-analytics"></a>Azure Application Gateway i sieciowa analiza grup zabezpieczeń
 Aby korzystać z rozwiązań:

@@ -1,5 +1,5 @@
 ---
-title: Współpracuj z urządzeniem usługi IoT Plug and Play w wersji zapoznawczej podłączonym do rozwiązania Azure IoT | Microsoft Docs
+title: Korzystanie z urządzenia z usługą IoT Plug and Play Preview połączonego z rozwiązaniem — C# | Microsoft Docs
 description: Użyj języka C# (.NET), aby nawiązać połączenie z urządzeniem usługi IoT Plug and Play w wersji zapoznawczej i korzystać z niego, które jest połączone z rozwiązaniem Azure IoT.
 author: dominicbetts
 ms.author: dobett
@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: 0953f68839217c1c75eb86f8399ce023f3863ab4
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 226acdda94eb88825d60e35d48bfdd476ad1339c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76963975"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87044087"
 ---
 # <a name="quickstart-interact-with-an-iot-plug-and-play-preview-device-thats-connected-to-your-solution-c"></a>Szybki Start: współdziałanie z urządzeniem IoT Plug and Play w wersji zapoznawczej, które jest połączone z rozwiązaniem (C#)
 
@@ -95,7 +95,7 @@ W tym przewodniku szybki start użyjesz przykładowego rozwiązania IoT w język
     dotnet run
     ```
 
-1. W danych wyjściowych terminalu _usług_ przewiń do `environmentalSensor` składnika. Zobaczysz, że `state` właściwość, która służy do wskazywania, czy urządzenie jest w trybie online, zostało zgłoszone jako _prawdziwe_:
+1. W danych wyjściowych terminalu _usług_ przewiń do `environmentalSensor` składnika. Zobaczysz, że `state` Właściwość, która służy do wskazywania, czy urządzenie jest w trybie online, zostało zgłoszone jako _prawdziwe_:
 
     ```JSON
     "environmentalSensor": {

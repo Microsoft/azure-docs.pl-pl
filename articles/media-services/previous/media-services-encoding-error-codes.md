@@ -14,20 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 5c038f0be31acea52c2ef07d43f0dbaf3434a371
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b40bc8521755fae08e851e5b324979d5798e3dcd
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "64709531"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87042859"
 ---
 # <a name="encoding-error-codes"></a>Kody błędów kodowania
 
-Poniższa tabela zawiera listę kodów błędów, które mogą zostać zwrócone w przypadku wystąpienia błędu podczas wykonywania zadania kodowania.  Aby uzyskać szczegółowe informacje o błędach w kodzie .NET, należy użyć klasy [ErrorDetails](https://msdn.microsoft.com/library/microsoft.windowsazure.mediaservices.client.errordetail.aspx) . Aby uzyskać szczegółowe informacje o błędach w kodzie REST, użyj interfejsu API REST [ErrorDetail](https://msdn.microsoft.com/library/jj853026.aspx) .
+Poniższa tabela zawiera listę kodów błędów, które mogą zostać zwrócone w przypadku wystąpienia błędu podczas wykonywania zadania kodowania.  Aby uzyskać szczegółowe informacje o błędach w kodzie .NET, należy użyć klasy [ErrorDetails](/previous-versions/azure/jj126075(v=azure.100)) . Aby uzyskać szczegółowe informacje o błędach w kodzie REST, użyj interfejsu API REST [ErrorDetail](/rest/api/media/operations/errordetail) .
 
 | ErrorDetail. Code | Możliwe przyczyny błędu |
 | --- | --- |
-| Nieznane |Nieznany błąd podczas wykonywania zadania |
+| Nieznany |Nieznany błąd podczas wykonywania zadania |
 | ErrorDownloadingInputAssetMalformedContent |Kategoria błędów obejmująca błędy podczas pobierania wejściowego zasobu, takie jak nieprawidłowe nazwy plików, pliki o zerowej długości, niepoprawne formaty itd. |
 | ErrorDownloadingInputAssetServiceFailure |Kategoria błędów obejmująca problemy po stronie usługi — na przykład błędy sieci lub magazynu podczas pobierania. |
 | ErrorParsingConfiguration |Kategoria błędów, w której zadanie \<see cref="MediaTask.PrivateData"/> (Konfiguracja) jest nieprawidłowe, na przykład konfiguracja nie jest prawidłowym ustawieniem wstępnym systemu lub zawiera nieprawidłowe dane XML. |

@@ -2,12 +2,13 @@
 title: Tryby wdrażania
 description: Opisuje, w jaki sposób należy określić, czy ma być używany pełny czy przyrostowy tryb wdrażania z Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 01/17/2020
-ms.openlocfilehash: 1077d92f076797fb03c4fe750b353e2306f9b6de
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/22/2020
+ms.openlocfilehash: f20f41e989e1a994b7806aecf6e7cee5a4c27014
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79460249"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87040430"
 ---
 # <a name="azure-resource-manager-deployment-modes"></a>Azure Resource Manager tryby wdrażania
 
@@ -20,6 +21,9 @@ Domyślnym trybem jest przyrostowy.
 ## <a name="complete-mode"></a>Tryb kompletny
 
 W trybie kompletnym Menedżer zasobów **usuwa** zasoby, które istnieją w grupie zasobów, ale nie są określone w szablonie.
+
+> [!NOTE]
+> Zawsze używaj [operacji działania warunkowego](template-deploy-what-if.md) przed wdrożeniem szablonu w trybie kompletnym. Co oznacza, które zasoby zostaną utworzone, usunięte lub zmodyfikowane. Użyj co do tego, aby uniknąć przypadkowego usunięcia zasobów.
 
 Jeśli szablon zawiera zasób, który nie został wdrożony, ponieważ [warunek](conditional-resource-deployment.md) ma wartość false, wynik zależy od używanej wersji interfejsu API REST do wdrożenia szablonu. W przypadku używania wersji wcześniejszej niż 2019-05-10 zasób nie zostanie **usunięty**. W przypadku 2019-05-10 lub nowszych zasób **jest usuwany**. Najnowsze wersje Azure PowerShell i interfejsu wiersza polecenia platformy Azure usuwają zasób.
 
@@ -49,6 +53,8 @@ W trybie przyrostowym Menedżer zasobów **opuszcza niezmienione** zasoby, któr
 
 > [!NOTE]
 > Po ponownym wdrożeniu istniejącego zasobu w trybie przyrostowym zostaną ponownie zastosowane wszystkie właściwości. **Właściwości nie są dodawane przyrostowo**. Typowy nieporozumienia polega na tym, że właściwości, które nie są określone w szablonie, pozostaną bez zmian. Jeśli nie określisz pewnych właściwości, Menedżer zasobów interpretuje wdrożenie, zastępując te wartości. Właściwości, które nie znajdują się w szablonie, są resetowane do wartości domyślnych. Określ wszystkie wartości inne niż domyślne dla zasobu, a nie tylko te, które są aktualizowane. Definicja zasobu w szablonie zawsze zawiera końcowy stan zasobu. Nie może reprezentować częściowej aktualizacji istniejącego zasobu.
+>
+> W rzadkich przypadkach właściwości określone dla zasobu są faktycznie implementowane jako zasób podrzędny. Na przykład w przypadku podania wartości konfiguracyjnych lokacji dla aplikacji sieci Web te wartości są implementowane w podrzędnym typie zasobu `Microsoft.Web/sites/config` . Jeśli ponownie wdrożono aplikację sieci Web i określisz pusty obiekt dla wartości konfiguracji lokacji, zasób podrzędny nie zostanie zaktualizowany. Jeśli jednak podano nowe wartości konfiguracji lokacji, zostanie zaktualizowany podrzędny typ zasobu.
 
 ## <a name="example-result"></a>Przykładowy wynik
 

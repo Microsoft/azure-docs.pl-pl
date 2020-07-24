@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: conceptual
 ms.date: 04/06/2020
-ms.openlocfilehash: d420f244b0d1e5ccf9a7aaa78c10f613cdbad38f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1e844934852f3eb45f665a67bbdb7087a8ba0202
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85564275"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87039163"
 ---
 # <a name="move-logic-app-resources-to-other-azure-resource-groups-regions-or-subscriptions"></a>Przenoszenie zasobów aplikacji logiki do innych grup zasobów platformy Azure, regionów lub subskrypcji
 
@@ -94,7 +94,7 @@ Niektóre zasoby platformy Azure, takie jak zasoby lokalnej bramy danych na plat
 
 Na przykład aby połączyć aplikację logiki z kontem integracji, oba zasoby muszą znajdować się w tym samym regionie. W scenariuszach takich jak odzyskiwanie awaryjne zwykle mają być używane konta integracji, które mają taką samą konfigurację i artefakty. W innych scenariuszach mogą być potrzebne konta integracji z różnymi konfiguracjami i artefaktami.
 
-Łączniki niestandardowe w Azure Logic Apps są widoczne dla autorów i użytkowników, którzy mają tę samą subskrypcję platformy Azure i tę samą dzierżawę Azure Active Directory. Te łączniki są dostępne w tym samym regionie, w którym są wdrażane aplikacje logiki. Aby uzyskać więcej informacji, zobacz [Share custom connectors in your organization (Udostępnianie łączników niestandardowych w organizacji)](https://docs.microsoft.com/connectors/custom-connectors/share).
+Łączniki niestandardowe w Azure Logic Apps są widoczne dla autorów i użytkowników, którzy mają tę samą subskrypcję platformy Azure i tę samą dzierżawę Azure Active Directory. Te łączniki są dostępne w tym samym regionie, w którym są wdrażane aplikacje logiki. Aby uzyskać więcej informacji, zobacz [Share custom connectors in your organization (Udostępnianie łączników niestandardowych w organizacji)](/connectors/custom-connectors/share).
 
 Szablon pobrany z programu Visual Studio zawiera tylko definicje zasobów dla aplikacji logiki i jej połączeń. Jeśli więc aplikacja logiki korzysta z innych zasobów, na przykład konta integracji i artefaktów B2B, takich jak partnerzy, umowy i schematy, należy wyeksportować szablon tego konta integracji przy użyciu Azure Portal. Ten szablon zawiera definicje zasobów dla konta integracji i artefaktów. Jednak szablon nie jest w pełni sparametryzowane. Dlatego należy ręcznie Sparametryzuj wartości, których chcesz użyć do wdrożenia.
 

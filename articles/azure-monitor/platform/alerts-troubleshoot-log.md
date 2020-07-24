@@ -6,18 +6,18 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 10/29/2018
-ms.openlocfilehash: 7be1c350af6c9bb84669b45a9bc8a1d9dd808133
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: b8edbbc397a56f4fcf5b3ae070f04ca61659d98d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86165638"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87045348"
 ---
 # <a name="troubleshoot-log-alerts-in-azure-monitor"></a>Rozwiązywanie problemów z alertami dzienników w Azure Monitor  
 
 W tym artykule opisano sposób rozwiązywania typowych problemów z alertami dzienników w Azure Monitor. Zawiera również rozwiązania typowych problemów z funkcjonalnością i konfiguracją alertów dzienników.
 
-Termin *alerty dziennika* opisuje reguły, które są uruchamiane na podstawie zapytania dziennika w [obszarze roboczym usługi Azure log Analytics](../learn/tutorial-viewdata.md) lub na [platformie Azure Application Insights](../../azure-monitor/app/analytics.md). Dowiedz się więcej o funkcjach, terminologii i typach w [alertach dzienników w Azure monitor](../platform/alerts-unified-log.md).
+Termin *alerty dziennika* opisuje reguły, które są uruchamiane na podstawie zapytania dziennika w [obszarze roboczym usługi Azure log Analytics](../log-query/get-started-portal.md) lub na [platformie Azure Application Insights](../log-query/log-query-overview.md). Dowiedz się więcej o funkcjach, terminologii i typach w [alertach dzienników w Azure monitor](../platform/alerts-unified-log.md).
 
 > [!NOTE]
 > W tym artykule nie są brane pod uwagę przypadki, w których Azure Portal pokazuje wyzwalaną regułę alertu, a powiadomienie nie jest wykonywane przez skojarzoną grupę akcji. W takich przypadkach zapoznaj się z tematem szczegóły w temacie [Tworzenie i zarządzanie grupami akcji w Azure Portal](../platform/action-groups.md).
@@ -28,7 +28,7 @@ Poniżej przedstawiono niektóre typowe przyczyny, dla których stan skonfigurow
 
 ### <a name="data-ingestion-time-for-logs"></a>Czas pozyskiwania danych dzienników
 
-Alert dziennika okresowo uruchamia zapytanie na podstawie [log Analytics](../learn/tutorial-viewdata.md) lub [Application Insights](../../azure-monitor/app/analytics.md). Ponieważ Azure Monitor przetwarza wiele terabajtów danych z tysięcy klientów z różnych źródeł na całym świecie, usługa jest podatna na różne opóźnienia czasu. Aby uzyskać więcej informacji, zobacz czas pozyskiwania [danych w dziennikach Azure monitor](../platform/data-ingestion-time.md).
+Alert dziennika okresowo uruchamia zapytanie na podstawie [log Analytics](../log-query/get-started-portal.md) lub [Application Insights](../log-query/log-query-overview.md). Ponieważ Azure Monitor przetwarza wiele terabajtów danych z tysięcy klientów z różnych źródeł na całym świecie, usługa jest podatna na różne opóźnienia czasu. Aby uzyskać więcej informacji, zobacz czas pozyskiwania [danych w dziennikach Azure monitor](../platform/data-ingestion-time.md).
 
 Aby wyeliminować opóźnienia, system czeka i ponawia próbę zapytania o alert wiele razy, jeśli znalezienie wymaganych danych nie zostało jeszcze odebrane. System ma ustawiony wykładniczy czas oczekiwania. Alert dziennika jest wyzwalany dopiero po udostępnieniu danych, więc opóźnienie może być spowodowane spowolnieniem pozyskiwania danych dziennika.
 
@@ -99,7 +99,7 @@ W zapytaniu analitycznym jest udostępniana logika dla alertów dzienników. Zap
 
 ![Zapytanie do wykonania](media/alert-log-troubleshoot/LogAlertPreview.png)
 
-**Zapytanie, które ma zostać wykonane** , jest uruchamiane przez usługę alertów dziennika. Jeśli chcesz zrozumieć, jakie dane wyjściowe zapytania o Alert mogą występować przed utworzeniem alertu, możesz uruchomić określone zapytanie i przedział czasu za pośrednictwem [portalu analizy](../log-query/portals.md) lub [interfejsu API analizy](https://docs.microsoft.com/rest/api/loganalytics/).
+**Zapytanie, które ma zostać wykonane** , jest uruchamiane przez usługę alertów dziennika. Jeśli chcesz zrozumieć, jakie dane wyjściowe zapytania o Alert mogą występować przed utworzeniem alertu, możesz uruchomić określone zapytanie i przedział czasu za pośrednictwem [portalu analizy](../log-query/log-query-overview.md) lub [interfejsu API analizy](/rest/api/loganalytics/).
 
 ## <a name="log-alert-was-disabled"></a>Alert dziennika został wyłączony
 
@@ -181,15 +181,48 @@ Każda reguła alertu dziennika utworzona w Azure Monitor w ramach swojej konfig
 - Zapytanie jest zapisywana do [uruchomienia dla wielu zasobów](../log-query/cross-workspace-query.md). I co najmniej jeden z określonych zasobów już nie istnieje.
 - Skonfigurowany alert dotyczący [dziennika typu pomiaru metryki](../../azure-monitor/platform/alerts-unified-log.md#metric-measurement-alert-rules) nie jest zgodny z normami składni
 - Nie przekazano przepływu danych do platformy analitycznej. [Wykonanie zapytania powoduje błąd,](https://dev.loganalytics.io/documentation/Using-the-API/Errors) ponieważ nie ma danych dla podanego zapytania.
-- Zmiany w [języku zapytań](https://docs.microsoft.com/azure/kusto/query/) zawierają poprawiony format poleceń i funkcji. Dlatego zapytanie podane wcześniej w regule alertu nie jest już prawidłowe.
+- Zmiany w [języku zapytań](/azure/kusto/query/) zawierają poprawiony format poleceń i funkcji. Dlatego zapytanie podane wcześniej w regule alertu nie jest już prawidłowe.
 
 [Azure Advisor](../../advisor/advisor-overview.md) ostrzega o tym zachowaniu. Zostanie dodane zalecenie dotyczące konkretnej reguły alertu dziennika na Azure Advisor, w kategorii wysoka dostępność z średnim wpływem oraz opis "Napraw regułę alertu dziennika w celu zapewnienia monitorowania".
 
 > [!NOTE]
 > Jeśli zapytanie alertu w regule alertu dziennika nie zostanie usunięte po podaniu przez Azure Advisor zalecenia przez siedem dni, Azure Monitor spowoduje wyłączenie alertu dziennika i upewnienie się, że nie są one rozliczane niepotrzebnie, gdy zasada nie będzie działać ciągle przez okres o zmiennym rozmiarze (7 dni). Dokładny czas, w którym Azure Monitor wyłączyć regułę alertu dziennika, można znaleźć, szukając zdarzenia w [dzienniku aktywności platformy Azure](../../azure-resource-manager/management/view-activity-logs.md).
 
+## <a name="alert-rule-quota-was-reached"></a>Osiągnięto limit przydziału reguły alertów
+
+Liczba reguł alertów przeszukiwania dzienników na subskrypcję i zasób podlega limitom przydziału opisanym [tutaj](https://docs.microsoft.com/azure/azure-monitor/service-limits).
+
+### <a name="recommended-steps"></a>Zalecane kroki
+    
+Jeśli osiągnięto limit przydziału, następujące kroki mogą pomóc w rozwiązaniu problemu.
+
+1. Spróbuj usunąć lub wyłączyć reguły alertów przeszukiwania dzienników, które nie są już używane.
+2. Aby zwiększyć limit przydziału, utwórz wniosek o pomoc techniczną i podaj następujące informacje:
+
+    - Identyfikatory subskrypcji, dla których trzeba zwiększyć limity przydziału
+    - Przyczyna zwiększenia limitu przydziału
+    - Typ zasobu dla zwiększenia przydziału: **log Analytics**, **Application Insights** danych.
+    - Żądany limit przydziału
+
+
+### <a name="to-check-the-current-usage-of-new-log-alert-rules"></a>Aby sprawdzić bieżące użycie nowych reguł alertów dziennika
+    
+#### <a name="from-the-azure-portal"></a>Z witryny Azure Portal
+
+1. Otwórz ekran *Alerty* i kliknij pozycję *Zarządzaj regułami alertów*
+2. Filtruj do odpowiedniej subskrypcji przy użyciu kontrolki listy rozwijanej *Subskrypcja*
+3. Pamiętaj, aby nie filtrować do określonej grupy zasobów, typu zasobu ani zasobu
+4. W kontrolce listy rozwijanej *Typ sygnału* wybierz pozycję "przeszukiwanie dzienników".
+5. Sprawdź, czy kontrolka listy rozwijanej *Stan* ma wartość „Włączono”
+6. Łączna liczba reguł alertów przeszukiwania dzienników zostanie wyświetlonych powyżej listy reguł
+
+#### <a name="from-api"></a>Za pomocą interfejsu API
+
+- PowerShell- [Get-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/get-azscheduledqueryrule?view=azps-3.7.0)
+- Interfejs API REST — [lista według subskrypcji](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/listbysubscription)
+
 ## <a name="next-steps"></a>Następne kroki
 
 - Dowiedz się więcej [na temat alertów dziennika na platformie Azure](../platform/alerts-unified-log.md).
-- Dowiedz się więcej o [Application Insights](../../azure-monitor/app/analytics.md).
+- Dowiedz się więcej o [Application Insights](../log-query/log-query-overview.md).
 - Dowiedz się więcej o [zapytaniach dziennika](../log-query/log-query-overview.md).

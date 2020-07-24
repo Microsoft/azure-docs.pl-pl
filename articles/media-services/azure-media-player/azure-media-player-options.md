@@ -6,11 +6,12 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: reference
 ms.date: 04/20/2020
-ms.openlocfilehash: e26215115b4c4484e5e05a2fd94a4d2c6680a4d0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9ab79a60f55fad6a45fadb6bf8890d2879caac62
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81727166"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87043575"
 ---
 # <a name="options"></a>Opcje #
 
@@ -62,7 +63,7 @@ Atrybut width ustawia szerokość ekranu wideo.
 
 `<video width="640" ...>` lub `{ "width": 640 }`
 
-### <a name="height"></a>height ###
+### <a name="height"></a>wysokość ###
 
 Atrybut Height Ustawia wysokość wyświetlania wideo.
 
@@ -100,7 +101,7 @@ Ustawienie tej opcji na true elementu wideo spowoduje pełną szerokość konten
 `<video ... data-setup='{"playbackSpeed": {"enabled": true}}'>`
 
 
-Inne właściwości `playbackSpeed` Ustawienia są nadawane przez obiekt [PlaybackSpeedOptions](https://docs.microsoft.com/javascript/api/azuremediaplayer/amp.player.playbackspeedoptions) .
+Inne właściwości `playbackSpeed` Ustawienia są nadawane przez obiekt [PlaybackSpeedOptions](/javascript/api/azuremediaplayer/amp.player.playbackspeedoptions) .
 
 Przykład ustawiania opcji szybkości odtwarzania w języku JavaScript:
 

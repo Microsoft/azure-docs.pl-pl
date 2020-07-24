@@ -7,12 +7,12 @@ author: danimir
 ms.author: danil
 ms.date: 02/21/2020
 ms.reviewer: carlrab
-ms.openlocfilehash: bb9bc847944a4228a7b583e21d0aa957f1910a29
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 7e5f7bd9ec3cc9a66adb8743ce2a56d8b2ead204
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86087184"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87041550"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Monitoruj Azure SQL Database przy użyciu Azure SQL Analytics (wersja zapoznawcza)
 
@@ -34,7 +34,7 @@ Azure SQL Analytics to rozwiązanie do monitorowania tylko w chmurze obsługują
 | Połączone źródło | Obsługiwane | Opis |
 | --- | --- | --- |
 | [Ustawienia diagnostyki](../platform/diagnostic-settings.md) | **Tak** | Dane dotyczące metryk i dzienników usługi Azure są wysyłane do dzienników Azure Monitor bezpośrednio przez platformę Azure. |
-| [Konto usługi Azure Storage](../platform/collect-azure-metrics-logs.md) | Nie | Azure Monitor nie odczytuje danych z konta magazynu. |
+| [Konto usługi Azure Storage](../platform/resource-logs.md#send-to-log-analytics-workspace) | Nie | Azure Monitor nie odczytuje danych z konta magazynu. |
 | [Agenci dla systemu Windows](../platform/agent-windows.md) | Nie | Bezpośredni agenci systemu Windows nie są używani przez Azure SQL Analytics. |
 | [Agenci dla systemu Linux](../learn/quick-collect-linux-computer.md) | Nie | Agenci bezpośredniego systemu Linux nie są używani przez Azure SQL Analytics. |
 | [Grupa zarządzania programu System Center Operations Manager](../platform/om-agents.md) | Nie | Połączenie bezpośrednie od agenta Operations Manager do Azure Monitor nie jest używane przez Azure SQL Analytics. |
@@ -47,7 +47,7 @@ W poniższej tabeli przedstawiono opcje obsługiwane przez dwie wersje pulpitu n
 | --- | ------- | ----- | ----- |
 | Zasób według typu | Perspektywa, która zlicza wszystkie monitorowane zasoby. | Tak | Tak |
 | Insights | Zapewnia hierarchiczne przechodzenie do szczegółów w Intelligent Insights wydajności. | Tak | Tak |
-| Errors | Zawiera hierarchiczne przechodzenie do szczegółów błędów SQL, które wystąpiły w bazach danych. | Tak | Tak |
+| błędy | Zawiera hierarchiczne przechodzenie do szczegółów błędów SQL, które wystąpiły w bazach danych. | Tak | Tak |
 | Limity czasu | Zawiera hierarchiczne przekroczenia limitów czasu SQL, które wystąpiły w bazach danych. | Yes | Nie |
 | Bloki | Zawiera hierarchiczne przechodzenie do szczegółów w blokach SQL, które wystąpiły w bazach danych. | Yes | Nie |
 | Oczekiwanie na bazę danych | Zawiera hierarchiczne przechodzenie do szczegółów na poziomie bazy danych. Zawiera podsumowanie łącznego czasu oczekiwania i czasu oczekiwania na typ oczekiwania. |Yes | Nie |

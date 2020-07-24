@@ -15,11 +15,12 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: anilmur
 ms.reviewer: juliako
-ms.openlocfilehash: 6210d6ee4877c6ba84178340cf0a6610e402da31
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8d103e6a0f7a47aadce524325e58fbb7069a1e13
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81641102"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87042812"
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Transmisja strumieniowa na żywo korzystająca z usługi Azure Media Services do tworzenia strumieni o różnej szybkości transmisji bitów
 
@@ -70,7 +71,7 @@ W poniższej tabeli przedstawiono sposób, w jaki Stany kanałów mapują się d
 | Stan kanału | Wskaźniki interfejsu użytkownika portalu | Czy jest to rozliczenia? |
 | --- | --- | --- |
 | Uruchamianie |Uruchamianie |Nie (stan przejściowy) |
-| Działanie |Gotowe (brak uruchomionych programów)<br/>lub<br/>Przesyłanie strumieniowe (co najmniej jeden uruchomiony program) |TAK |
+| Uruchomiono |Gotowe (brak uruchomionych programów)<br/>lub<br/>Przesyłanie strumieniowe (co najmniej jeden uruchomiony program) |TAK |
 | Zatrzymywanie |Zatrzymywanie |Nie (stan przejściowy) |
 | Zatrzymano |Zatrzymano |Nie |
 
@@ -174,7 +175,7 @@ Można zdefiniować adresy IP, które mogą publikować wideo w tym kanale. Dozw
 Jeśli adresy IP nie zostaną określone i brakuje definicji reguły, to żaden adres IP nie będzie dozwolony. Aby zezwolić na jakikolwiek adres IP, utwórz regułę i ustaw wartość 0.0.0.0/0.
 
 ## <a name="channel-preview"></a>Podgląd kanału
-### <a name="preview-urls"></a>Podgląd adresów URL
+### <a name="preview-urls"></a>Adresy URL podglądu
 Kanały zapewniają punkt końcowy (wersja zapoznawcza), który służy do wyświetlania podglądu i weryfikowania strumienia przed dalszem przetwarzaniem i dostarczaniem.
 
 Możesz uzyskać adres URL wersji zapoznawczej podczas tworzenia kanału. Aby uzyskać adres URL, kanał nie musi znajdować się w stanie **uruchomionym** .
@@ -216,14 +217,14 @@ Określa ustawienie wstępne, które ma być używane przez koder na żywo w ram
 
 #### <a name="output-video-stream"></a>Wyjściowy strumień wideo
 
-| Multimedia | impulsów | Właściwość Height | MaxFPS | Profil | Nazwa strumienia wyjściowego |
+| Multimedia | Width | Height | MaxFPS | Profil | Nazwa strumienia wyjściowego |
 | --- | --- | --- | --- | --- | --- |
-| 3500 |1280 |720 |30 |Wysoki |Video_1280x720_3500kbps |
-| 2200 |960 |540 |30 |Wysoki |Video_960x540_2200kbps |
-| 1350 |704 |396 |30 |Wysoki |Video_704x396_1350kbps |
-| 850 |512 |288 |30 |Wysoki |Video_512x288_850kbps |
-| 550 |384 |216 |30 |Wysoki |Video_384x216_550kbps |
-| 200 |340 |192 |30 |Wysoki |Video_340x192_200kbps |
+| 3500 |1280 |720 |30 |Wys. |Video_1280x720_3500kbps |
+| 2200 |960 |540 |30 |Wys. |Video_960x540_2200kbps |
+| 1350 |704 |396 |30 |Wys. |Video_704x396_1350kbps |
+| 850 |512 |288 |30 |Wys. |Video_512x288_850kbps |
+| 550 |384 |216 |30 |Wys. |Video_384x216_550kbps |
+| 200 |340 |192 |30 |Wys. |Video_340x192_200kbps |
 
 #### <a name="output-audio-stream"></a>Wyjściowy strumień audio
 
@@ -312,7 +313,7 @@ W poniższej tabeli przedstawiono sposób, w jaki Stany kanałów mapują się d
 | Stan kanału | Wskaźniki interfejsu użytkownika portalu | Rozliczane? |
 | --- | --- | --- |
 | Uruchamianie |Uruchamianie |Nie (stan przejściowy) |
-| Działanie |Gotowe (brak uruchomionych programów)<br/>lub<br/>Przesyłanie strumieniowe (co najmniej jeden uruchomiony program) |Tak |
+| Uruchomiono |Gotowe (brak uruchomionych programów)<br/>lub<br/>Przesyłanie strumieniowe (co najmniej jeden uruchomiony program) |Tak |
 | Zatrzymywanie |Zatrzymywanie |Nie (stan przejściowy) |
 | Zatrzymano |Zatrzymano |Nie |
 
@@ -321,7 +322,7 @@ W poniższej tabeli przedstawiono sposób, w jaki Stany kanałów mapują się d
 > 
 > 
 
-## <a name="considerations"></a><a id="Considerations"></a>Istotne zagadnienia
+## <a name="considerations"></a><a id="Considerations"></a>Zagadnienia do rozważenia
 * W przypadku kanału **standardowego** typu kodowania w przypadku utraty źródła danych wejściowych/kanału informacyjnego, jest on kompensowany przez zastępowanie źródłowego wideo/audio błędem i wysunięciem. Kanał będzie w dalszym ciągu emitować do momentu wznowienia kanału wejścia/wyjścia. Zalecamy, aby kanał na żywo nie pozostawał w stanie dłuższym niż 2 godziny. Po tym momencie zachowanie kanału na potrzeby ponownego połączenia danych wejściowych nie jest gwarantowane, ani nie jest zachowaniem w odpowiedzi na polecenie resetowania. Należy zatrzymać kanał, usunąć go i utworzyć nowy.
 * Nie można zmienić protokołu wejściowego, gdy kanał lub skojarzone z nim programy są uruchomione. Jeśli potrzebujesz różnych protokołów, utwórz osobny kanał dla każdego protokołu wejściowego.
 * Za każdym razem, gdy ponownie konfigurujesz koder na żywo, wywołaj metodę **resetowania** kanału. Przed zresetowaniem kanału należy zatrzymać program. Po zresetowaniu kanału należy ponownie uruchomić program.
@@ -359,11 +360,10 @@ Przejrzyj ścieżki szkoleniowe dotyczące usługi Media Services.
 
 [Tworzenie kanałów wykonujących kodowanie na żywo z pojedynczej szybkości transmisji bitów do strumienia z adaptacyjną szybkością transmisji bitów przy użyciu zestawu .NET SDK](media-services-dotnet-creating-live-encoder-enabled-channel.md)
 
-[Zarządzanie kanałami przy użyciu interfejsu API REST](https://docs.microsoft.com/rest/api/media/operations/channel)
+[Zarządzanie kanałami przy użyciu interfejsu API REST](/rest/api/media/operations/channel)
 
 [Koncepcje Media Services](media-services-concepts.md)
 
 [Azure Media Services pofragmentowana Specyfikacja pozyskiwania na żywo w formacie MP4](../media-services-fmp4-live-ingest-overview.md)
 
 [live-overview]: ./media/media-services-manage-live-encoder-enabled-channels/media-services-live-streaming-new.png
-

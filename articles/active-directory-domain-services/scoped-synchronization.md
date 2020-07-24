@@ -11,11 +11,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 03/31/2020
 ms.author: iainfou
-ms.openlocfilehash: 5f2c823b0932db42876be6ab04ebcd82783729aa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 097c894594987e92038beeaf4b17a3e67538fdad
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84734425"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87046061"
 ---
 # <a name="configure-scoped-synchronization-from-azure-ad-to-azure-active-directory-domain-services"></a>Konfigurowanie synchronizacji z zakresem z usługi Azure AD do Azure Active Directory Domain Services
 
@@ -39,11 +40,11 @@ W poniższej tabeli opisano sposób używania synchronizacji w zakresie:
 
 Użyj Azure Portal lub PowerShell, aby skonfigurować ustawienia synchronizacji z zakresem:
 
-| Akcja | | |
-|--|--|--|
-| Tworzenie domeny zarządzanej i Konfigurowanie synchronizacji w zakresie | [Azure Portal](#enable-scoped-synchronization-using-the-azure-portal) | [Program PowerShell](#enable-scoped-synchronization-using-powershell) |
-| Modyfikuj synchronizację w zakresie | [Azure Portal](#modify-scoped-synchronization-using-the-azure-portal) | [Program PowerShell](#modify-scoped-synchronization-using-powershell) |
-| Wyłącz synchronizację z zakresem | [Azure Portal](#disable-scoped-synchronization-using-the-azure-portal) | [Program PowerShell](#disable-scoped-synchronization-using-powershell) |
+| Akcja | Zastosowanie<br>Witryna Azure Portal | Zastosowanie<br>PowerShell |
+| ------ | ------------------- | ----------------- |
+| Tworzenie domeny zarządzanej i Konfigurowanie synchronizacji w zakresie | [Witryna Azure Portal](#enable-scoped-synchronization-using-the-azure-portal) | [Program PowerShell](#enable-scoped-synchronization-using-powershell) |
+| Modyfikuj synchronizację w zakresie | [Witryna Azure Portal](#modify-scoped-synchronization-using-the-azure-portal) | [Program PowerShell](#modify-scoped-synchronization-using-powershell) |
+| Wyłącz synchronizację z zakresem | [Witryna Azure Portal](#disable-scoped-synchronization-using-the-azure-portal) | [Program PowerShell](#disable-scoped-synchronization-using-powershell) |
 
 > [!WARNING]
 > Zmiana zakresu synchronizacji powoduje, że zarządzana domena ponownie zsynchronizuje wszystkie dane. Obowiązują następujące zastrzeżenia:

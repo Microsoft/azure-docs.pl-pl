@@ -15,16 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: b6c6fccd473ae57139c0b46bf32dc9468a4ba1a8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fa68c842495725c73a6a4b5629d38fb9c12a819f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74901277"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87038736"
 ---
 # <a name="manage-streaming-endpoints-with-net-sdk"></a>Zarządzanie punktami końcowymi przesyłania strumieniowego za pomocą zestawu .NET SDK  
 
 >[!NOTE]
->Zapoznaj się z artykułem [Przegląd](media-services-streaming-endpoints-overview.md) . Sprawdź również [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint).
+>Zapoznaj się z artykułem [Przegląd](media-services-streaming-endpoints-overview.md) . Sprawdź również [StreamingEndpoint](/rest/api/media/operations/streamingendpoint).
 
 W tym artykule przedstawiono sposób wykonywania następujących zadań przy użyciu zestawu SDK programu Azure Media Services .NET:
 
@@ -149,4 +150,3 @@ Przejrzyj ścieżki szkoleniowe dotyczące usługi Media Services.
 
 ## <a name="provide-feedback"></a>Wyraź opinię
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
-

@@ -4,12 +4,12 @@ description: Dowiedz się, jak utworzyć pierwszy szablon Azure Resource Manager
 ms.devlang: java
 ms.date: 08/01/2019
 ms.topic: conceptual
-ms.openlocfilehash: fa09fbe8d239bbe10c0762d3aad7e19df23a9044
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: bce3d8ff2662ff62e1493cb26d797619b65c2762
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86057453"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87040733"
 ---
 # <a name="create-and-deploy-arm-templates-by-using-the-intellij-idea"></a>Tworzenie i wdrażanie szablonów ARM przy użyciu POMYSŁu IntelliJ
 
@@ -19,7 +19,7 @@ Dowiedz się, jak wdrożyć szablon Azure Resource Manager (ARM) na platformie A
 
 Po ukończeniu tego samouczka zostanie wdrożone konto usługi Azure Storage. Ten sam proces umożliwia wdrażanie innych zasobów platformy Azure.
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpłatne konto](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -27,7 +27,7 @@ Aby ukończyć pracę z tym artykułem, potrzebne są następujące zasoby:
 
 * Zainstalowane środowisko [IntelliJ IDEA](https://www.jetbrains.com/idea/download/) w wersji Ultimate Edition lub Community Edition
 * Zainstalowany zestaw narzędzi [Azure Toolkit for IntelliJ](https://plugins.jetbrains.com/plugin/8053). Aby uzyskać więcej informacji, zobacz [Przewodnik po zarządzaniu wtyczkami platformy IntelliJ](https://www.jetbrains.com/help/idea/managing-plugins.html)
-* Należy [być zalogowanym](/java/azure/intellij/azure-toolkit-for-intellij-sign-in-instructions) do konta platformy Azure dla zestawu narzędzi Azure Toolkit for IntelliJ
+* Należy [być zalogowanym](/azure/developer/java/toolkit-for-intellij/sign-in-instructions) do konta platformy Azure dla zestawu narzędzi Azure Toolkit for IntelliJ
 
 ## <a name="deploy-a-quickstart-template"></a>Wdróż szablon szybkiego startu
 

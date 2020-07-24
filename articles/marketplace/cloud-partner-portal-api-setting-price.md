@@ -3,26 +3,25 @@ title: Cennik ofert dla maszyn wirtualnych — Azure Marketplace
 description: W tym artykule opisano trzy metody określania cen ofert maszyn wirtualnych.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
-ms.date: 04/08/2020
-ms.openlocfilehash: b3d38c59d4c79e908aeef857164603a2a5160e05
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.topic: reference
+author: dsindona
+ms.author: dsindona
+ms.date: 07/14/2020
+ms.openlocfilehash: 8d6dcd7f3f86e111cfb17fb08c4faadac1552b94
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86115506"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87039125"
 ---
-<a name="pricing-for-virtual-machine-offers"></a>Cennik ofert maszyn wirtualnych
-==================================
+# <a name="pricing-for-virtual-machine-offers"></a>Cennik ofert maszyn wirtualnych
 
 > [!NOTE]
-> Interfejsy API portal Cloud Partner są zintegrowane z centrum partnerskim i będą nadal działały po przeprowadzeniu migracji ofert do Centrum partnerskiego. W ramach integracji wprowadzono niewielkie zmiany. Przejrzyj zmiany wymienione w [Portal Cloud partner dokumentacja interfejsu API](./cloud-partner-portal-api-overview.md) , aby upewnić się, że kod będzie nadal działał po migracji do Centrum partnerskiego.
+> Interfejsy API portal Cloud Partner są zintegrowane z usługą i będą nadal działać w centrum partnerskim. Przejście wprowadza niewielkie zmiany. Przejrzyj zmiany wymienione w [dokumentacji interfejsu API Portal Cloud partner](./cloud-partner-portal-api-overview.md) , aby upewnić się, że kod będzie kontynuował pracę po przejściu do Centrum partnerskiego. Interfejsy API CPP powinny być używane tylko dla istniejących produktów, które zostały już zintegrowane przed przejściem do Centrum partnerskiego; nowe produkty powinny używać interfejsów API przekazywania Centrum partnerskiego.
 
 Istnieją trzy sposoby określania cen dla ofert maszyn wirtualnych: niestandardowe ceny podstawowe, ceny za podstawowe i Cennik arkusza kalkulacyjnego.
 
-
-<a name="customized-core-pricing"></a>Dostosowane ceny podstawowe
------------------------
+## <a name="customized-core-pricing"></a>Dostosowane ceny podstawowe
 
 Cennik jest specyficzny dla każdej kombinacji regionów i podstawowych. Każdy region na liście Sprzedaj musi być określony w sekcji **virtualMachinePricing** / **regionPrices** definicji.  Użyj poprawnych kodów walut dla każdego [regionu](#regions) w żądaniu.  Poniższy przykład ilustruje następujące wymagania:
 
@@ -66,9 +65,7 @@ Cennik jest specyficzny dla każdej kombinacji regionów i podstawowych. Każdy 
      }
 ```
 
-
-<a name="per-core-pricing"></a>Cennik na rdzeń
-----------------
+## <a name="per-core-pricing"></a>Cennik na rdzeń
 
 W takim przypadku wydawcy określają jedną cenę w USD dla swojej jednostki SKU, a wszystkie inne ceny są generowane automatycznie. Cena za rdzeń jest określona w **pojedynczym** parametrze żądania.
 
@@ -84,9 +81,7 @@ W takim przypadku wydawcy określają jedną cenę w USD dla swojej jednostki SK
      }
 ```
 
-
-<a name="spreadsheet-pricing"></a>Cennik arkusza kalkulacyjnego
--------------------
+## <a name="spreadsheet-pricing"></a>Cennik arkusza kalkulacyjnego
 
 Wydawca może również przekazać swój arkusz cen do tymczasowej lokalizacji przechowywania, a następnie dołączyć identyfikator URI w żądaniu, jak inne artefakty plików. Arkusz kalkulacyjny zostanie następnie przekazany, przetłumaczony w celu oszacowania określonego harmonogramu cen, a wreszcie aktualizuje ofertę przy użyciu informacji o cenach. Kolejne żądania GET dla oferty zwracają identyfikator URI arkusza kalkulacyjnego oraz ocenione ceny dla regionu.
 
@@ -101,18 +96,15 @@ Wydawca może również przekazać swój arkusz cen do tymczasowej lokalizacji p
      }
 ```
 
-<a name="new-core-sizes-added-on-722019"></a>Nowe rozmiary podstawowe dodane do 7/2/2019
----------------------------
+## <a name="new-core-sizes-added-on-722019"></a>Nowe rozmiary podstawowe dodane do 7/2/2019
 
 Wydawca maszyn wirtualnych został powiadomiony 2 lipca 2019 o dodawaniu nowych cen dla nowych rozmiarów maszyn wirtualnych platformy Azure (na podstawie liczby rdzeni).  Nowe ceny są dla wielkości rdzeni 10, 44, 48, 60, 120, 208 i 416.  W przypadku istniejącej maszyny wirtualnej nowe ceny dla tych rozmiarów rdzeni zostały automatycznie obliczone na podstawie bieżących cen.  Wydawcy mają do 1 sierpnia 2019 w celu przejrzenia dodatkowych cen i wprowadzenia wymaganych zmian.  Po tej dacie, jeśli nie została jeszcze ponownie opublikowana przez wydawcę, automatycznie obliczone ceny dla tych nowych rozmiarów podstawowych zaczną obowiązywać.
 
-
-<a name="regions"></a>Regiony
--------
+## <a name="regions"></a>Regiony
 
 W poniższej tabeli przedstawiono różne regiony, które można określić dla dostosowywanych podstawowych cen i ich kodów walutowych.
 
-| **Okolicy** | **Nazwa**             | **Kod waluty** |
+| **Region** | **Nazwa**             | **Kod waluty** |
 |------------|----------------------|-------------------|
 | DZ         | Algieria              | DZD               |
 | AR         | Argentyna            | ARS               |

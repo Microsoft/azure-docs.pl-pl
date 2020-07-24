@@ -7,12 +7,12 @@ ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 05/20/2020
 tags: connectors
-ms.openlocfilehash: e7055964f9515189450fac5c993f6acda946bfd4
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: f4bca70fbec5cf847a6bb5c0b97ed3496d6c2f8c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86524169"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87039996"
 ---
 # <a name="get-started-with-the-oracle-database-connector"></a>Wprowadzenie do łącznika Oracle Database
 
@@ -77,7 +77,7 @@ W tym artykule pokazano, jak używać łącznika Oracle Database w aplikacji log
 
     W poniższym przykładzie dane zadania są zwracane z bazy danych kadr: 
 
-    ![Okno dialogowe zatytułowane "Pobierz wiersz (wersja zapoznawcza)" ma dwa pola tekstowe: "Nazwa tabeli", która zawiera "HRJOBS" i ma listę rozwijaną oraz "Identyfikator wiersza", który zawiera "SA_REP".](./media/connectors-create-api-oracledatabase/table-rowid.png)
+    ![Okno dialogowe zatytułowane "Pobierz wiersz (wersja zapoznawcza)" ma dwa pola tekstowe: "Nazwa tabeli", która zawiera "H R JOBS" i ma listę rozwijaną oraz "wiersz i d", który zawiera "S A-REP".](./media/connectors-create-api-oracledatabase/table-rowid.png)
 
 7. W tym następnym kroku można użyć dowolnego z innych łączników do skompilowania przepływu pracy. Jeśli chcesz przetestować pobieranie danych z programu Oracle, Wyślij do siebie wiadomość e-mail z danymi z programu Oracle przy użyciu jednego z łączników wysyłania wiadomości e-mail, np. Office 365 Outlook. Użyj tokenów dynamicznych z tabeli Oracle, aby utworzyć `Subject` i `Body` wysłać wiadomość e-mail:
 

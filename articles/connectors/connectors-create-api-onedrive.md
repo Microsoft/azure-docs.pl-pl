@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/18/2016
 tags: connectors
-ms.openlocfilehash: 8dd54fec963b8f4775a8ade6277b071d62ca3850
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 9fe4988b5499943f4b11ec5d640209ceb68e84ec
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86524214"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87040246"
 ---
 # <a name="access-and-manage-files-in-onedrive-connector-by-using-azure-logic-apps"></a>Dostęp do plików w łączniku usługi OneDrive i zarządzanie nimi za pomocą Azure Logic Apps
 
@@ -40,7 +40,7 @@ Wyzwalacz to zdarzenie, którego można użyć do uruchomienia przepływu pracy 
 
 1. W Projektancie aplikacji logiki wpisz polecenie, `onedrive` Aby uzyskać listę wyzwalaczy:  
 
-   ![Okno dialogowe zatytułowane "Pokaż interfejsy API zarządzane przez firmę Microsoft" zawiera pole zawierające wartość "OneDrive". Poniżej znajduje się lista czterech wyzwalaczy. Pierwszy z nich to "OneDrive — gdy tworzony jest plik". W drugim przypadku wybrano opcję "OneDrive — gdy plik zostanie zmodyfikowany".](./media/connectors-create-api-onedrive/onedrive-1.png)
+   ![W oknie dialogowym zatytułowanym "Pokaż, że firma Microsoft zarządza A P" ma pole zawierające wartość "OneDrive". Poniżej znajduje się lista czterech wyzwalaczy. Pierwszy z nich to "OneDrive — gdy tworzony jest plik". W drugim przypadku wybrano opcję "OneDrive — gdy plik zostanie zmodyfikowany".](./media/connectors-create-api-onedrive/onedrive-1.png)
 
 2. Wybierz **, kiedy plik zostanie zmodyfikowany**. Jeśli połączenie już istnieje, wybierz przycisk Pokaż selektor, aby wybrać folder.
 
@@ -68,7 +68,7 @@ Akcja jest operacją wykonywaną przez przepływ pracy zdefiniowany w aplikacji 
 
 3. W polu wyszukiwania wpisz, `onedrive` Aby wyświetlić listę wszystkich dostępnych akcji.
 
-   ![Okno dialogowe zatytułowane "Pokaż interfejsy API zarządzane przez firmę Microsoft" zawiera pole zawierające wartość "OneDrive". Poniżej znajduje się lista ośmiu akcji. Pierwszy jest "OneDrive-Create File" i jest wybrany.](./media/connectors-create-api-onedrive/onedrive-actions.png) 
+   ![W oknie dialogowym zatytułowanym "Pokaż, że firma Microsoft zarządza A P" ma pole zawierające wartość "OneDrive". Poniżej znajduje się lista ośmiu akcji. Pierwszy jest "OneDrive-Create File" i jest wybrany.](./media/connectors-create-api-onedrive/onedrive-actions.png) 
 
 4. W naszym przykładzie wybierz pozycję **OneDrive — Utwórz plik**. Jeśli połączenie już istnieje, wybierz **ścieżkę folderu** w celu umieszczenia pliku, wprowadź **nazwę pliku**i wybierz żądaną **zawartość pliku** :  
 

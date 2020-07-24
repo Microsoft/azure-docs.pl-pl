@@ -6,11 +6,12 @@ ms.author: ofmanor
 ms.topic: reference
 ms.date: 03/16/2020
 ms.subservice: alerts
-ms.openlocfilehash: 3e9eb9d0910e4c0e00e57eac80c09910f214db6a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c3eed095d87d1e1fa1f210b360822ceefdbe0521
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84300777"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87045250"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-alerts"></a>Rozwiązywanie problemów z alertami Azure Monitor
 
@@ -240,13 +241,13 @@ Jeśli wystąpił błąd podczas próby utworzenia, zaktualizowania lub usunięc
 
 1. **Czy pojawił się błąd uprawnień?**  
 
-    Należy mieć [wbudowaną rolę współautora monitorowania](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor)lub określone uprawnienia związane z regułami akcji i alertami.
+    Należy mieć [wbudowaną rolę współautora monitorowania](../../role-based-access-control/built-in-roles.md#monitoring-contributor)lub określone uprawnienia związane z regułami akcji i alertami.
 
 1. **Czy zweryfikowano parametry reguły akcji?**  
 
-    Zapoznaj się z [dokumentacją reguły akcji](alerts-action-rules.md)lub z [akcją programu PowerShell Set-AzActionRule](https://docs.microsoft.com/powershell/module/az.alertsmanagement/Set-AzActionRule?view=azps-3.5.0) . 
+    Zapoznaj się z [dokumentacją reguły akcji](alerts-action-rules.md)lub z [akcją programu PowerShell Set-AzActionRule](/powershell/module/az.alertsmanagement/set-azactionrule?view=azps-3.5.0) . 
 
 
 ## <a name="next-steps"></a>Następne kroki
-- Jeśli używasz alertu dziennika, zobacz również [Rozwiązywanie problemów z alertami dzienników](alert-log-troubleshoot.md).
+- Jeśli używasz alertu dziennika, zobacz również [Rozwiązywanie problemów z alertami dzienników](./alerts-troubleshoot-log.md).
 - Wróć do [Azure Portal](https://portal.azure.com) , aby sprawdzić, czy problem został rozwiązany z powyższymi wskazówkami 

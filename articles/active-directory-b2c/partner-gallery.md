@@ -11,16 +11,16 @@ ms.topic: how-to
 ms.date: 06/08/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 765deda747d46a9ee5b6913c192fa1a43c56d35d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2336916f7d47b38a12ee0418353a249b5eaa3801
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85385907"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87042440"
 ---
 # <a name="azure-active-directory-b2c-partners"></a>Partnerzy Azure Active Directory B2C
 
-Nasza sieć partnerskia rozszerza możliwości rozwiązania, które ułatwiają tworzenie bezproblemowe środowiska użytkownika końcowego. Za pomocą Azure AD B2C można zintegrować z partnerami, aby włączyć metody uwierzytelniania wieloskładnikowego, włączyć bezpieczne uwierzytelnianie klienta (SCA), przeprowadzić Access Control oparte na rolach i zwalczać oszustwo poprzez weryfikację tożsamości i sprawdzanie poprawności. Skorzystaj z naszych szczegółowych wskazówek, aby dowiedzieć się, jak zintegrować aplikacje z partnerami wymienionymi poniżej.
+Nasza sieć partnerskia rozszerza możliwości rozwiązania, które ułatwiają tworzenie bezproblemowe środowiska użytkownika końcowego. Za pomocą Azure AD B2C można zintegrować z partnerami, aby włączyć metody uwierzytelniania wieloskładnikowego, włączyć bezpieczne uwierzytelnianie klienta (SCA), przeprowadzić Access Control oparte na rolach i zwalczać oszustwo poprzez weryfikację tożsamości i sprawdzanie poprawności. Skorzystaj z naszych szczegółowych przykładów, aby dowiedzieć się, jak zintegrować aplikacje z partnerami wymienionymi poniżej.
 
 >[!NOTE]
 >[Witryna społeczności Azure Active Directory B2C w serwisie GitHub](https://azure-ad-b2c.github.io/azureadb2ccommunity.io/) udostępnia także przykładowe zasady niestandardowe społeczności.
@@ -30,8 +30,10 @@ Nasza sieć partnerskia rozszerza możliwości rozwiązania, które ułatwiają 
 | Partner | Wskazówki dotyczące opisu i integracji  |
 | :--- | :--- |
 | ![znaku](./media/partner-gallery/arkose-logo.png) | [Arkose Labs](./partner-arkose-labs.md) to dostawca rozwiązań zapobiegania oszustwom, który pomaga organizacjom chronić przed atakami bot, atakami polegającymi na przejęciu kont i nieuczciwych otwartych kontach.
+| ![znaku](./media/partner-gallery/experian-logo.png) | [Experian](./partner-experian.md) jest weryfikacją tożsamości i dostawcą sprawdzającym, który przeprowadza ocenę ryzyka na podstawie atrybutów użytkownika w celu zapobiegania oszustwom.|
 | ![znaku](./media/partner-gallery/idology-logo.png) | [IDology](./partner-idology.md) to weryfikacja tożsamości i dostawca weryfikacji z rozwiązaniami weryfikacji identyfikatora, rozwiązaniami zapobiegania oszustwom, rozwiązaniami zgodności i innymi.|
 | ![znaku](./media/partner-gallery/itsme-logo.png) | [itsme](./partner-itsme.md) to elektroniczne rozwiązanie do identyfikacji, uwierzytelniania i usług zaufania (eiDAS), które umożliwia użytkownikom bezpieczne logowanie bez czytników kart, haseł, uwierzytelniania dwuskładnikowego i wielu kodów PIN. |
+| ![znaku](./media/partner-gallery/lexisnexis-logo.png) | [LexisNexis](./partner-lexisnexis.md) jest dostawcą profilowania i weryfikacji tożsamości, który weryfikuje tożsamość użytkownika i zapewnia kompleksową ocenę ryzyka opartą na urządzeniu użytkownika. |
 | ![znaku](./media/partner-gallery/trusona-logo.png) | Integracja [Trusona](./partner-trusona.md) pomaga w bezpiecznym logowaniu i umożliwia uwierzytelnianie bez hasła, uwierzytelnianie wieloskładnikowe i skanowanie licencji cyfrowych.|
 | ![znaku](./media/partner-gallery/twilio-logo.png) | [Twilio Sprawdź, czy aplikacja](./partner-twilio.md) udostępnia wiele rozwiązań umożliwiających uwierzytelnianie wieloskładnikowe (MFA) za pośrednictwem hasła jednorazowego (OTP) usługi SMS, oparte na czasie hasło jednorazowe (TOTP) i powiadomienia wypychane oraz zgodność z wymaganiami SCA dla dyrektywy usług płatniczych 2 (PSD2).|
 | ![znaku](./media/partner-gallery/typingdna-logo.png) | [TypingDNA](./partner-typingdna.md) to weryfikacja tożsamości i dostawca weryfikacji na podstawie wzorca wpisywania przez użytkownika, zapewnia rozwiązania do weryfikacji identyfikatorów, które wymuszają uwierzytelnianie wieloskładnikowe i pomagają zachować zgodność z wymaganiami SCAymi dotyczącymi usług płatniczych 2 (PSD2). |

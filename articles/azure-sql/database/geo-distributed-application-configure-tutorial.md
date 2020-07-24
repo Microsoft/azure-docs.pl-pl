@@ -11,11 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: 523fd3103585865a969f6463b3dc41fe362b9130
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e76ccc83be8f269cb14826b5e3e8873d4c7c427a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84324729"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87045029"
 ---
 # <a name="tutorial-implement-a-geo-distributed-database-azure-sql-database"></a>Samouczek: implementowanie rozproszonej geograficznie bazy danych (Azure SQL Database)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -28,7 +29,7 @@ Skonfiguruj bazę danych w SQL Database i aplikacji klienckiej w celu przełącz
 > - Uruchamianie aplikacji języka Java w celu wykonywania zapytań do bazy danych w SQL Database
 > - Testowanie pracy w trybie failover
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpłatne konto](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -39,7 +40,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpł
 
 Aby ukończyć ten samouczek, upewnij się, że zainstalowano następujące elementy:
 
-- [Azure PowerShell](/powershell/azureps-cmdlets-docs)
+- [Azure PowerShell](/powershell/azure/)
 - Pojedyncza baza danych w Azure SQL Database. Aby utworzyć jedno użycie,
   - [Witryna Azure Portal](single-database-create-quickstart.md)
   - [Interfejs wiersza polecenia platformy Azure](az-cli-script-samples-content-guide.md)

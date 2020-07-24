@@ -3,20 +3,26 @@ title: Dokumentacja dla deweloperów Java dla Azure Functions
 description: Dowiedz się, jak opracowywać funkcje przy użyciu języka Java.
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.openlocfilehash: 339615ac99f231fd293a7ea15c853d43da8f998a
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: f1c2c3a3b6c28813cc9ecd9eb794e26e1e60d5e2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86057606"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87041543"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Przewodnik dewelopera Azure Functions Java
 
-Środowisko uruchomieniowe Azure Functions obsługuje środowisko [Java SE 8 LTS (Zulu 8.31.0.2-JRE 8.0.181-win_x64)](https://repos.azul.com/azure-only/zulu/packages/zulu-8/8u181/). Ten przewodnik zawiera informacje na temat złożonego pisania Azure Functions przy użyciu języka Java.
+Ten przewodnik zawiera szczegółowe informacje ułatwiające pomyślne rozwinięcie Azure Functions przy użyciu języka Java.
 
-Podobnie jak w przypadku innych języków, aplikacja funkcji może mieć jedną lub więcej funkcji. Funkcja języka Java to `public` Metoda, która jest zadekoracyjna adnotacją `@FunctionName` . Ta metoda definiuje wpis dla funkcji języka Java i musi być unikatowa w konkretnym pakiecie. Jeden aplikacja funkcji zapisany w języku Java może mieć wiele klas z adnotacjami z wieloma metodami publicznymi `@FunctionName` .
+Jeśli jesteś deweloperem języka Java, jeśli jesteś nowym do Azure Functions, rozważ pierwsze czytanie jednego z następujących artykułów:
 
-W tym artykule przyjęto założenie, że już odczytano [informacje dotyczące deweloperów Azure Functions](functions-reference.md). Należy również wykonać jedną z następujących funkcji przewodnika Szybki Start: [Tworzenie pierwszej funkcji Java przy użyciu Visual Studio Code](/azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-java) lub [Tworzenie pierwszej funkcji języka Java z poziomu wiersza polecenia przy użyciu Maven](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-java).
+| Wprowadzenie | Pojęcia| 
+| -- | -- |  
+| <ul><li>[Funkcja języka Java używająca Visual Studio Code](/azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-java)</li><li>[Funkcja Java/Maven z terminalem/wierszem polecenia](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-java)</li><li>[Funkcja języka Java używająca Gradle](functions-create-first-java-gradle.md)</li><li>[Funkcja języka Java wykorzystująca przezaćmienie](functions-create-maven-eclipse.md)</li><li>[Funkcja języka Java używająca POMYSŁu IntelliJ](functions-create-maven-intellij.md)</li></ul> | <ul><li>[Przewodnik dla deweloperów](functions-reference.md)</li><li>[Opcje hostingu](functions-scale.md)</li><li>[&nbsp;Zagadnienia dotyczące wydajności](functions-best-practices.md)</li></ul> |
+
+## <a name="java-function-basics"></a>Podstawowe funkcje języka Java
+
+Funkcja języka Java to `public` Metoda, która jest zadekoracyjna adnotacją `@FunctionName` . Ta metoda definiuje wpis dla funkcji języka Java i musi być unikatowa w konkretnym pakiecie. Pakiet może zawierać wiele klas z wieloma metodami publicznymi z adnotacją `@FunctionName` . Pojedynczy pakiet jest wdrażany w aplikacji funkcji na platformie Azure. W przypadku uruchamiania na platformie Azure aplikacja funkcji udostępnia kontekst wdrażania, wykonywania i zarządzania dla poszczególnych funkcji języka Java.
 
 ## <a name="programming-model"></a>Model programowania 
 
@@ -48,7 +54,7 @@ mvn archetype:generate \
     -DarchetypeArtifactId=azure-functions-archetype 
 ```
 
-Aby rozpocząć korzystanie z tego Archetype, zobacz [Przewodnik Szybki Start dla języka Java](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-java). 
+Aby rozpocząć korzystanie z tego Archetype, zobacz [Przewodnik Szybki Start dla języka Java](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-java). 
 
 ## <a name="folder-structure"></a>Struktura folderów
 
@@ -87,7 +93,7 @@ W projekcie można umieścić więcej niż jedną funkcję. Unikaj umieszczania 
 Użyj adnotacji języka Java zawartych w pakiecie [com. Microsoft. Azure. Functions. Annotation. *](/java/api/com.microsoft.azure.functions.annotation) , aby powiązać dane wejściowe i wyjściowe z metodami. Aby uzyskać więcej informacji, zobacz [dokumenty referencyjne języka Java](/java/api/com.microsoft.azure.functions.annotation).
 
 > [!IMPORTANT] 
-> Należy skonfigurować konto usługi Azure Storage w [local.settings.jsna](/azure/azure-functions/functions-run-local#local-settings-file) potrzeby lokalnego uruchamiania usługi Azure Blob Storage, Azure queue storage lub Azure Table Storage.
+> Należy skonfigurować konto usługi Azure Storage w [local.settings.jsna](./functions-run-local.md#local-settings-file) potrzeby lokalnego uruchamiania usługi Azure Blob Storage, Azure queue storage lub Azure Table Storage.
 
 Przykład:
 
@@ -125,9 +131,58 @@ Poniżej przedstawiono wygenerowane `function.json` przez [platformę Azure-Func
 
 ```
 
+## <a name="java-versions"></a>Wersje Java
+
+_Obsługa języka Java 11 jest obecnie w wersji zapoznawczej_
+
+Wersja języka Java używana podczas tworzenia aplikacji funkcji, na której działają funkcje na platformie Azure, jest określona w pliku pom.xml. Maven Archetype aktualnie generuje pom.xml dla języka Java 8, który można zmienić przed opublikowaniem. Wersja języka Java w pom.xml powinna być zgodna z wersją, w której aplikacja została opracowana lokalnie i przetestowana. 
+
+### <a name="supported-versions"></a>Obsługiwane wersje
+
+W poniższej tabeli przedstawiono bieżące obsługiwane wersje języka Java dla każdej wersji głównej środowiska uruchomieniowego funkcji, według systemu operacyjnego:
+
+| Wersja funkcji | Wersje Java (Windows) | Wersje Java (Linux) |
+| ----- | ----- | --- |
+| wersji | 11 (wersja zapoznawcza)<br/>0,8<sup>\*</sup> | 11 (wersja zapoznawcza)<br/>8 |
+| 2.x | 8 | nie dotyczy |
+
+<sup>\*</sup>Jest to bieżąca wartość domyślna pom.xml wygenerowanej przez Maven Archetype.
+
+### <a name="specify-the-deployment-version"></a>Określ wersję wdrożenia
+
+Obecnie Maven Archetype generuje pom.xml, który jest przeznaczony dla języka Java 8. Następujące elementy w pom.xml muszą zostać zaktualizowane, aby można było utworzyć aplikację funkcji, w której działa środowisko Java 11.
+
+| Element |  Wartość Java 8 | Wartość Java 11 | Opis |
+| ---- | ---- | ---- | --- |
+| **`Java.version`** | 1.8 | 11 | Wersja języka Java używana przez Maven-kompilator-plugin. |
+| **`JavaVersion`** | 8 | 11 | Wersja języka Java hostowana przez aplikację funkcji na platformie Azure. |
+
+W poniższych przykładach przedstawiono ustawienia dla języka Java 8 w odpowiednich sekcjach pom.xml pliku:
+
+#### `Java.version`
+:::code language="xml" source="~/functions-quickstart-java/functions-add-output-binding-storage-queue/pom.xml" range="12-19" highlight="14":::
+
+#### `JavaVersion`
+:::code language="xml" source="~/functions-quickstart-java/functions-add-output-binding-storage-queue/pom.xml" range="77-85" highlight="80":::
+
+> [!IMPORTANT]
+> Zmienna środowiskowa JAVA_HOME musi być poprawnie ustawiona dla katalogu JDK, który jest używany podczas kompilowania kodu przy użyciu Maven. Upewnij się, że wersja JDK jest co najmniej równa wartości `Java.version` Ustawienia. 
+
+### <a name="specify-the-deployment-os"></a>Określ system operacyjny wdrożenia
+
+Maven umożliwia również określenie systemu operacyjnego, w którym aplikacja funkcji działa na platformie Azure. Użyj `os` elementu, aby wybrać system operacyjny. 
+
+| Element |  Windows | Linux | Docker |
+| ---- | ---- | ---- | --- |
+| **`os`** | windows | System | Docker |
+
+Poniższy przykład przedstawia ustawienia systemu operacyjnego w `runtime` sekcji pliku pom.xml:
+
+:::code language="xml" source="~/functions-quickstart-java/functions-add-output-binding-storage-queue/pom.xml" range="77-85" highlight="79":::
+ 
 ## <a name="jdk-runtime-availability-and-support"></a>Dostępność i obsługa środowiska uruchomieniowego JDK 
 
-W przypadku lokalnego opracowywania aplikacji funkcji Java Pobierz i użyj programu [Azul Zulu Enterprise for Azure](https://assets.azul.com/files/Zulu-for-Azure-FAQ.pdf) Java 8 zestawy JDK z [systemów Azul](https://www.azul.com/downloads/azure-only/zulu/). Azure Functions korzysta z Azul środowiska uruchomieniowego Java 8 JDK podczas wdrażania aplikacji funkcji w chmurze.
+W przypadku lokalnego opracowywania aplikacji funkcji Java Pobierz odpowiednie oprogramowanie [Azul Zulu Enterprise for Azure](https://assets.azul.com/files/Zulu-for-Azure-FAQ.pdf) Java zestawy JDK z [systemów Azul](https://www.azul.com/downloads/azure-only/zulu/)i używaj go. Azure Functions używa środowiska uruchomieniowego języka Java JDK Azul podczas wdrażania aplikacji funkcji w chmurze.
 
 [Pomoc techniczna systemu Azure](https://azure.microsoft.com/support/) dotycząca problemów z aplikacjami zestawy JDK i funkcji jest dostępna z [zakwalifikowanym planem pomocy technicznej](https://azure.microsoft.com/support/plans/).
 
@@ -146,7 +201,7 @@ W ustawieniu aplikacji o nazwie można podać dodatkowe argumenty `JAVA_OPTS` . 
 > [!IMPORTANT]  
 > W planie zużycia należy również dodać ustawienie WEBSITE_USE_PLACEHOLDER z wartością 0, aby dostosowanie działało. To ustawienie powoduje zwiększenie czasu zimnego uruchamiania funkcji języka Java.
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Witryna Azure Portal
 
 W [Azure Portal](https://portal.azure.com)Użyj [karty Ustawienia aplikacji](functions-how-to-use-azure-function-app-settings.md#settings) , aby dodać `JAVA_OPTS` ustawienie.
 
@@ -327,14 +382,14 @@ Wywołujesz tę funkcję na wywołaniu HttpRequest. Zapisuje wiele wartości do 
 
  Są one zdefiniowane w `azure-functions-java-library` . Są to typy pomocnika do pracy z funkcjami HttpTrigger.
 
-| Typ wyspecjalizowany      |       Środowisko docelowe        | Typowy sposób użycia                  |
+| Typ wyspecjalizowany      |       Cel        | Typowy sposób użycia                  |
 | --------------------- | :-----------------: | ------------------------------ |
 | `HttpRequestMessage<T>`  |    Wyzwalacz HTTP     | Pobiera metodę, nagłówki lub zapytania |
 | `HttpResponseMessage` | Powiązanie danych wyjściowych HTTP | Zwraca stan inny niż 200   |
 
 ## <a name="metadata"></a>Metadane
 
-Niektóre wyzwalacze wysyłają [metadane wyzwalacza](/azure/azure-functions/functions-triggers-bindings) wraz z danymi wejściowymi. Możesz użyć adnotacji `@BindingName` do powiązania z metadanymi wyzwalacza.
+Niektóre wyzwalacze wysyłają [metadane wyzwalacza](./functions-triggers-bindings.md) wraz z danymi wejściowymi. Możesz użyć adnotacji `@BindingName` do powiązania z metadanymi wyzwalacza.
 
 
 ```Java

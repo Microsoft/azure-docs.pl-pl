@@ -7,12 +7,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/09/2020
 ms.author: daperlov
-ms.openlocfilehash: 74c2e738153b1afa5c90f4769b6d9b0e982af363
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: e9df7b00a384859fb29577be0ad05da233683f46
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86225275"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87044526"
 ---
 # <a name="delta-format-in-azure-data-factory"></a>Format Delta w Azure Data Factory
 
@@ -22,6 +22,8 @@ W tym artykule opisano sposób kopiowania danych do i z usługi Delta Lake przec
 
 > [!NOTE]
 > Łącznik formatu Delta na potrzeby mapowania przepływów danych jest obecnie dostępny jako publiczna wersja zapoznawcza.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4ALTs]
 
 ## <a name="mapping-data-flow-properties"></a>Mapowanie właściwości przepływu danych
 
@@ -34,10 +36,10 @@ Poniższa tabela zawiera listę właściwości obsługiwanych przez źródło r�
 | Nazwa | Opis | Wymagane | Dozwolone wartości | Właściwość skryptu przepływu danych |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | Format | Format musi być`delta` | tak | `delta` | format |
-| System plików | Kontener/system plików delty Lake | tak | String | Wymagany |
-| Ścieżka folderu | Bezpośrednia różnica w usłudze Data Lake | tak | String | folderPath |
+| System plików | Kontener/system plików delty Lake | tak | String (ciąg) | Wymagany |
+| Ścieżka folderu | Bezpośrednia różnica w usłudze Data Lake | tak | String (ciąg) | folderPath |
 | Typ kompresji | Typ kompresji tabeli różnicowej | nie | `bzip2`<br>`gzip`<br>`deflate`<br>`ZipDeflate`<br>`snappy`<br>`lz4` | CompressionType |
-| Poziom kompresji | Zdecyduj, czy kompresja kończy się tak szybko, jak to możliwe, czy plik powinien być optymalnie kompresowany. | wymagane, jeśli `compressedType` jest określony. | compressionLevel |
+| Poziom kompresji | Zdecyduj, czy kompresja kończy się tak szybko, jak to możliwe, czy plik powinien być optymalnie kompresowany. | wymagane, jeśli `compressedType` jest określony. | `Optimal` lub `Fastest` | compressionLevel |
 | Czas podróży | Zdecyduj, czy chcesz utworzyć zapytanie do starszej migawki tabeli różnicowej | nie | Zapytanie według sygnatury czasowej: sygnatura czasowa <br> Zapytanie według wersji: liczba całkowita | timestampAsOf <br> versionAsOf |
 
 #### <a name="import-schema"></a>Importuj schemat
@@ -70,10 +72,10 @@ Poniższa tabela zawiera listę właściwości obsługiwanych przez ujścia ró�
 | Nazwa | Opis | Wymagane | Dozwolone wartości | Właściwość skryptu przepływu danych |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | Format | Format musi być`delta` | tak | `delta` | format |
-| System plików | Kontener/system plików delty Lake | tak | String | Wymagany |
-| Ścieżka folderu | Bezpośrednia różnica w usłudze Data Lake | tak | String | folderPath |
+| System plików | Kontener/system plików delty Lake | tak | String (ciąg) | Wymagany |
+| Ścieżka folderu | Bezpośrednia różnica w usłudze Data Lake | tak | String (ciąg) | folderPath |
 | Typ kompresji | Typ kompresji tabeli różnicowej | nie | `bzip2`<br>`gzip`<br>`deflate`<br>`ZipDeflate`<br>`snappy`<br>`lz4` | CompressionType |
-| Poziom kompresji | Zdecyduj, czy kompresja kończy się tak szybko, jak to możliwe, czy plik powinien być optymalnie kompresowany. | wymagane, jeśli `compressedType` jest określony. | compressionLevel |
+| Poziom kompresji | Zdecyduj, czy kompresja kończy się tak szybko, jak to możliwe, czy plik powinien być optymalnie kompresowany. | wymagane, jeśli `compressedType` jest określony. | `Optimal` lub `Fastest` | compressionLevel |
 | Vacuum | Określ próg przechowywania w godzinach dla starszych wersji tabeli. Wartość 0 lub mniej wartością domyślną jest 30 dni | tak | Integer | ciśnienie |
 | Update — Metoda | Określ, które operacje aktualizacji są dozwolone w ramach delty Lake. W przypadku metod, które nie są wstawiane, do oznaczania wierszy wymagane jest przekształcenie poprzedzające zmianę wiersza. | tak | `true` lub `false` | usuwaln <br> wstawialny <br> aktualizowalne <br> upsertable |
 

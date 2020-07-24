@@ -7,11 +7,12 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 09/19/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 06bdedf1dac92a2010718ffd3eb5c6e43bb51e6c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bf8ea45f37e421d70a68c4a6e138f5203e92d78f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83798119"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87045775"
 ---
 # <a name="monitor-resource-groups-with-azure-monitor-preview"></a>Monitorowanie grup zasobów przy użyciu Azure Monitor (wersja zapoznawcza)
 
@@ -45,10 +46,10 @@ Strona szczegółowe informacje o grupie zasobów zawiera kilka innych narzędzi
 
    |         |          |
    | ---------------- |:-----|
-   | [**Alerty**](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts)      |  Wyświetlaj i twórz Alerty oraz zarządzaj nimi. |
-   | [**Metryki**](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics) | Wizualizowanie i Eksplorowanie danych opartych na metrykach.    |
-   | [**Dzienniki aktywności**](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) | Zdarzenia poziomu subskrypcji, które wystąpiły na platformie Azure.  |
-   | [**Mapa aplikacji**](https://docs.microsoft.com/azure/application-insights/app-insights-app-map) | Przejdź do topologii aplikacji rozproszonej, aby zidentyfikować wąskie gardła wydajności lub punkty awarii. |
+   | [**Alerty**](../platform/alerts-overview.md)      |  Wyświetlaj i twórz Alerty oraz zarządzaj nimi. |
+   | [**Metryki**](../platform/data-platform.md) | Wizualizowanie i Eksplorowanie danych opartych na metrykach.    |
+   | [**Dzienniki aktywności**](../platform/platform-logs-overview.md) | Zdarzenia poziomu subskrypcji, które wystąpiły na platformie Azure.  |
+   | [**Mapa aplikacji**](../app/app-map.md) | Przejdź do topologii aplikacji rozproszonej, aby zidentyfikować wąskie gardła wydajności lub punkty awarii. |
 
 ## <a name="failures-and-performance"></a>Awarie i wydajność
 
@@ -116,6 +117,6 @@ Azure Monitor grupy zasobów bazują na systemie zarządzania alertami Azure Mon
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Azure Monitor skoroszyty](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview)
-- [Azure Resource Health](https://docs.microsoft.com/azure/service-health/resource-health-overview)
-- [Alerty Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts)
+- [Azure Monitor skoroszyty](../platform/workbooks-overview.md)
+- [Azure Resource Health](../../service-health/resource-health-overview.md)
+- [Alerty usługi Azure Monitor](../platform/alerts-overview.md)

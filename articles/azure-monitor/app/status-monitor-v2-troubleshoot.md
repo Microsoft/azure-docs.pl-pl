@@ -5,11 +5,12 @@ ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
-ms.openlocfilehash: 9bb22b12a7b3e972ff144bd121db4288801e2488
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 07b5ae99b98c6c6bbf4dc903cd1b583eb655a825
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81732950"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87041399"
 ---
 # <a name="troubleshooting-application-insights-agent-formerly-named-status-monitor-v2"></a>Rozwiązywanie problemów z agentem Application Insights (dawniej nazwany monitor stanu v2)
 
@@ -54,7 +55,7 @@ Możesz użyć narzędzi do rozwiązywania problemów, aby zobaczyć zachowanie 
 
 ### <a name="conflict-with-iis-shared-configuration"></a>Konflikt z udostępnioną konfiguracją usług IIS
 
-Jeśli masz klaster serwerów sieci Web, być może używasz [konfiguracji udostępnionej](https://docs.microsoft.com/iis/web-hosting/configuring-servers-in-the-windows-web-platform/shared-configuration_211).
+Jeśli masz klaster serwerów sieci Web, być może używasz [konfiguracji udostępnionej](/iis/web-hosting/configuring-servers-in-the-windows-web-platform/shared-configuration_211).
 Nie można wstrzyknąć modułu HttpModule do tej konfiguracji udostępnionej.
 Uruchom polecenie Enable na każdym serwerze sieci Web, aby zainstalować bibliotekę DLL w poszczególnych serwerach GAC.
 

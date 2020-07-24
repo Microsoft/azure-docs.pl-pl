@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
 ms.reviewer: anilmur
-ms.openlocfilehash: ca17ffdc2a54b25bbfd855834a366ed381a54678
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: f42361df438a434548b3bc9394c007ef8d4c6eb0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86530392"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87038974"
 ---
 # <a name="comparison-of-azure-on-demand-media-encoders"></a>Porównanie koderów multimediów na żądanie na platformie Azure  
 
@@ -62,7 +62,7 @@ Poniższa tabela zawiera porównanie funkcji Media Encoder Standard (MES) i Medi
 | AVI (nieskompresowany 8bit/10bit) |Tak |Tak |
 | 3GPP/3GPP2 |Yes |Nie |
 | Smooth Streaming format pliku (PIFF 1,3) |Yes |Nie |
-| [Cyfrowe nagrywanie wideo firmy Microsoft (DVR-MS)](https://msdn.microsoft.com/library/windows/desktop/dd692984) |Yes |Nie |
+| [Cyfrowe nagrywanie wideo firmy Microsoft (DVR-MS)](/previous-versions/windows/desktop/mstv/about-the-dvr-ms-file-format) |Yes |Nie |
 | Matroska/WebM |Yes |Nie |
 | QuickTime (mov) |Yes |Nie |
 

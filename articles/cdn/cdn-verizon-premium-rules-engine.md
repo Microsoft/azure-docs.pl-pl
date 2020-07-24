@@ -7,12 +7,12 @@ ms.service: azure-cdn
 ms.topic: how-to
 ms.date: 05/31/2019
 ms.author: allensu
-ms.openlocfilehash: 3c61407b2a0c9d0423d1f856101400771e27d846
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a49912bc2275e478d657f06587c4ddc830210d3a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84887419"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87040220"
 ---
 # <a name="override-http-behavior-using-the-azure-cdn-from-verizon-premium-rules-engine"></a>Przesłoń zachowanie protokołu HTTP przy użyciu Azure CDN z aparatu reguł Verizon Premium
 
@@ -55,7 +55,7 @@ Aby uzyskać dostęp do aparatu reguł, musisz najpierw wybrać pozycję **Zarz�
     ![Opcje nowej reguły sieci CDN](./media/cdn-rules-engine/cdn-new-rule.png)
    
    > [!IMPORTANT]
-   > Kolejność, w której są wymienione wiele reguł, ma wpływ na sposób ich obsługi. Kolejna reguła może zastąpić akcje określone przez poprzednią regułę.
+   > Kolejność, w której są wymienione wiele reguł, ma wpływ na sposób ich obsługi. Kolejna reguła może zastąpić akcje określone przez poprzednią regułę. Na przykład jeśli masz regułę, która zezwala na dostęp do zasobu na podstawie właściwości żądania i reguły, która odmówi dostępu do wszystkich żądań, druga reguła zastępuje pierwszy z nich. Reguły przesłonią wcześniejsze reguły tylko wtedy, gdy współpracują z tymi samymi właściwościami.
    >
 
 3. Wprowadź nazwę w polu tekstowym **Nazwa/opis** .
@@ -93,7 +93,7 @@ Aby uzyskać dostęp do aparatu reguł, musisz najpierw wybrać pozycję **Zarz�
    >
    >
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 - [Przegląd Azure CDN](cdn-overview.md)
 - [Dokumentacja aparatu reguł](cdn-verizon-premium-rules-engine-reference.md)

@@ -12,15 +12,16 @@ ms.topic: article
 ms.date: 04/29/2020
 ms.author: juliako
 ms.custom: ''
-ms.openlocfilehash: 57a8d308955719be0d84b87fb3a23c6f510c2836
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3669919a8ddf4ffcbcf0d3e7e060c62f4c8df1c6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84234896"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87039146"
 ---
 # <a name="use-the-content-aware-encoding-preset-to-find-the-optimal-bitrate-value-for-a-given-resolution"></a>Użyj ustawienia wstępnego kodowania obsługującego zawartość, aby znaleźć optymalną szybkość transmisji bitów dla danego rozwiązania
 
-Aby przygotować zawartość do dostarczenia przez [szybkość przesyłania strumieniowego z adaptacyjną szybkością transmisji bitów](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming), należy zakodować wideo przy użyciu wielu szybkości transmisji bitów (wysokiej lub niskiej). Zapewnia to płynne obniżenie jakości, ponieważ zmniejsza się szybkość transmisji bitów, więc jest to rozdzielczość wideo. Takie wiele kodowania bitów korzysta z tak zwanej drabinki kodowania — tabeli rozdzielczości i szybkości transmisji bitów, zapoznaj się z Media Services [wbudowanych ustawień wstępnych kodowania](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#encodernamedpreset).
+Aby przygotować zawartość do dostarczenia przez [szybkość przesyłania strumieniowego z adaptacyjną szybkością transmisji bitów](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming), należy zakodować wideo przy użyciu wielu szybkości transmisji bitów (wysokiej lub niskiej). Zapewnia to płynne obniżenie jakości, ponieważ zmniejsza się szybkość transmisji bitów, więc jest to rozdzielczość wideo. Takie wiele kodowania bitów korzysta z tak zwanej drabinki kodowania — tabeli rozdzielczości i szybkości transmisji bitów, zapoznaj się z Media Services [wbudowanych ustawień wstępnych kodowania](/rest/api/media/transforms/createorupdate#encodernamedpreset).
 
 Należy pamiętać o przetwarzanej zawartości i dostosowaniu i dostosowywaniu drabiny kodowania do złożoności poszczególnych filmów wideo. W każdej rozdzielczości istnieje szybkość transmisji bitów, która nie jest Perceptive — koder działa z optymalną szybkością transmisji bitów. Następnym poziomem optymalizacji jest wybranie rozwiązań opartych na zawartości — na przykład wideo prezentacji programu PowerPoint nie jest korzystne w przypadku przechodzenia poniżej 720. Następnie można wykonać zadanie kodera w celu zoptymalizowania ustawień dla każdego zrzutu w filmie wideo. 
 
@@ -81,7 +82,7 @@ TransformOutput[] output = new TransformOutput[]
 ## <a name="next-steps"></a>Następne kroki
 
 * [Samouczek: przekazywanie, kodowanie i przesyłanie strumieniowe filmów wideo z Media Services v3](stream-files-tutorial-with-api.md)
-* [Samouczek: kodowanie pliku zdalnego na podstawie adresu URL i strumieniowego wideo — REST](stream-files-tutorial-with-rest.md)
+* [Samouczek: Kodowanie pliku zdalnego na podstawie adresu URL i przesyłanie strumieniowe wideo — REST](stream-files-tutorial-with-rest.md)
 * [Samouczek: kodowanie pliku zdalnego na podstawie adresu URL i strumieniowego wideo — interfejs wiersza polecenia](stream-files-cli-quickstart.md)
 * [Samouczek: kodowanie pliku zdalnego na podstawie adresu URL i strumieniowego wideo — .NET](stream-files-dotnet-quickstart.md)
 * [Samouczek: kodowanie pliku zdalnego na podstawie adresu URL i strumieniowego wideo — Node.js](stream-files-nodejs-quickstart.md)

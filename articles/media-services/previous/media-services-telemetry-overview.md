@@ -14,17 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: e2cbb36158722a47518f575b391340b5e25bd908
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 52b737e88e13c59d260da73c6fa37a1088cb91d5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74895775"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87038470"
 ---
 # <a name="azure-media-services-telemetry"></a>Dane telemetryczne Azure Media Services  
 
 
 > [!NOTE]
-> Do usługi Media Services w wersji 2 nie są już dodawane żadne nowe funkcje. <br/>Zapoznaj się z najnowszą wersją [Media Services wersja 3](https://docs.microsoft.com/azure/media-services/latest/). Zobacz też [wskazówki dotyczące migracji od wersji 2 do V3](../latest/migrate-from-v2-to-v3.md)
+> Do usługi Media Services w wersji 2 nie są już dodawane żadne nowe funkcje. <br/>Zapoznaj się z najnowszą wersją [Media Services wersja 3](../latest/index.yml). Zobacz też [wskazówki dotyczące migracji od wersji 2 do V3](../latest/migrate-from-v2-to-v3.md)
 
 Azure Media Services (AMS) umożliwia dostęp do danych telemetrycznych/metryk dla swoich usług. Bieżąca wersja usługi AMS pozwala zbierać dane telemetryczne dotyczące jednostek **kanału**na żywo, **StreamingEndpoint**i **archiwum** na żywo. 
 
@@ -50,7 +51,7 @@ Dane telemetryczne są zapisywane w tabeli usługi Azure Storage na koncie magaz
 
 Dane telemetryczne można wykorzystać w jeden z następujących sposobów:
 
-- Odczytaj dane bezpośrednio z usługi Azure Table Storage (np. przy użyciu zestawu SDK magazynu). Opis tabel magazynu telemetrii znajduje się w temacie Korzystanie z **informacji telemetrycznych** w [tym](https://msdn.microsoft.com/library/mt742089.aspx) temacie.
+- Odczytaj dane bezpośrednio z usługi Azure Table Storage (np. przy użyciu zestawu SDK magazynu). Opis tabel magazynu telemetrii znajduje się w temacie Korzystanie z **informacji telemetrycznych** w [tym](/previous-versions/azure/mt742089(v=azure.100)) temacie.
 
 Lub
 
@@ -77,7 +78,7 @@ Właściwość|Wartość|Przykłady/uwagi
 ---|---|---
 PartitionKey|{Account ID} _ {identyfikator jednostki}|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66<br/<br/>Identyfikator konta jest uwzględniany w kluczu partycji, aby uprościć przepływy pracy, w których wiele kont Media Services zapisuje się na tym samym koncie magazynu.
 RowKey|{s do północy} _ {wartość losowa}|01688_00199<br/><br/>Klucz wiersza rozpoczyna się od liczby sekund do północy, aby zezwolić na pierwsze n kwerend w stylu w ramach partycji. Aby uzyskać więcej informacji, zobacz [ten](../../cosmos-db/table-storage-design-guide.md#log-tail-pattern) artykuł. 
-Znacznik czasu|Data/godzina|Autosygnatura czasowa z tabeli platformy Azure 2016 – 09-09T22:43:42.241 Z
+Timestamp|Data/godzina|Autosygnatura czasowa z tabeli platformy Azure 2016 – 09-09T22:43:42.241 Z
 Typ|Typ jednostki dostarczającej dane telemetryczne|Kanał/StreamingEndpoint/Archiwum<br/><br/>Typ zdarzenia to tylko wartość ciągu.
 Nazwa|Nazwa zdarzenia telemetrii|ChannelHeartbeat/StreamingEndpointRequestLog
 ObservedTime|Czas wystąpienia zdarzenia telemetrii (UTC)|2016 – 09-09T22:42:36.924 Z<br/><br/>Zaobserwowany czas jest dostarczany przez jednostkę wysyłającą dane telemetryczne (na przykład kanał). Mogą występować problemy z synchronizacją między składnikami, dzięki czemu ta wartość jest przybliżona
@@ -98,7 +99,7 @@ Właściwość|Wartość|Przykłady
 ---|---|---
 PartitionKey|PartitionKey|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66
 RowKey|RowKey|01688_00199
-Znacznik czasu|Znacznik czasu|Autosygnatura czasowa z tabeli platformy Azure 2016 – 09-09T22:43:42.241 Z
+Timestamp|Timestamp|Autosygnatura czasowa z tabeli platformy Azure 2016 – 09-09T22:43:42.241 Z
 Typ|Typ|StreamingEndpoint
 Nazwa|Nazwa|StreamingEndpointRequestLog
 ObservedTime|ObservedTime|2016 – 09-09T22:42:36.924 Z
@@ -117,7 +118,7 @@ Właściwość|Wartość|Przykłady/uwagi
 ---|---|---
 PartitionKey|PartitionKey|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66
 RowKey|RowKey|01688_00199
-Znacznik czasu|Znacznik czasu|Autosygnatura czasowa z tabeli platformy Azure 2016 – 09-09T22:43:42.241 Z
+Timestamp|Timestamp|Autosygnatura czasowa z tabeli platformy Azure 2016 – 09-09T22:43:42.241 Z
 Typ|Typ|Kanał
 Nazwa|Nazwa|ChannelHeartbeat
 ObservedTime|ObservedTime|2016 – 09-09T22:42:36.924 Z
@@ -142,7 +143,7 @@ Właściwość|Wartość|Przykłady/uwagi
 ---|---|---
 PartitionKey|PartitionKey|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66
 RowKey|RowKey|01688_00199
-Znacznik czasu|Znacznik czasu|Autosygnatura czasowa z tabeli platformy Azure 2016 – 09-09T22:43:42.241 Z
+Timestamp|Timestamp|Autosygnatura czasowa z tabeli platformy Azure 2016 – 09-09T22:43:42.241 Z
 Typ|Typ|Archiwum
 Nazwa|Nazwa|ArchiveHeartbeat
 ObservedTime|ObservedTime|2016 – 09-09T22:42:36.924 Z

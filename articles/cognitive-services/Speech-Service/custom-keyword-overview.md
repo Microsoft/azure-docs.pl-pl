@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: hasshah
-ms.openlocfilehash: 0a6df626f9567b51a8371c17004b454f9c5b4597
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 60bcdac0d7e19c424b007980294898638814d586
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83202050"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87044869"
 ---
 # <a name="what-is-a-keyword"></a>Co to jest słowo kluczowe?
 
@@ -25,7 +25,7 @@ Słowo kluczowe jest słowem lub krótką frazą umożliwiającą produktowi akt
 
 Za pomocą funkcji dostosowywania, wydajności i integracji niestandardowego słowa kluczowego można dostosować aktywację głosu, aby najlepiej odpowiadała potrzebom użytkownika i użytkownikom.
 
-| Funkcja | Opis |
+| Cechy | Opis |
 |----------|----------|
 | Dostosowywanie słowa kluczowego | Jako rozszerzenie marki, słowo kluczowe wzmacnia udział, który został skompilowany przez klientów. Portal niestandardowych słów kluczowych w programie Speech Studio umożliwia określenie dowolnego wyrazu lub krótkiej frazy, która najlepiej reprezentuje swoją markę. Możesz dodatkowo personalizować słowo kluczowe, wybierając odpowiednie wymowy, które będą honorowane przez wygenerowany model słów kluczowych.
 | Weryfikacja słowa kluczowego | Gdy słowo kluczowe o wysokim poziomie pewności jest wykrywane lokalnie, dźwięk jest wysyłany do chmury w celu dalszej weryfikacji, że użytkownik wypowiedział słowo kluczowe. Weryfikacja słowa kluczowego stanowi dodatkową warstwę zabezpieczeń, skracając wpływ nieprawidłowego wykrywania lokalnego i ochrony prywatności użytkowników.
@@ -33,10 +33,13 @@ Za pomocą funkcji dostosowywania, wydajności i integracji niestandardowego sł
 
 ## <a name="get-started-with-custom-keywords"></a>Wprowadzenie do niestandardowych słów kluczowych
 
-* Samouczek: jak [utworzyć niestandardowe słowo kluczowe przy użyciu programu Speech Studio](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk-create-kws)
-* Samouczek: jak [głosować i aktywować produkt za pomocą zestawu Speech SDK przy użyciu języka C#](tutorial-voice-enable-your-bot-speech-sdk.md)
-* Szybki Start: [rozpoznawanie słów kluczowych przy użyciu zestawu Speech SDK na platforma uniwersalna systemu Windows przy użyciu języka C#](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp/uwp/keyword-recognizer)
-* Szybki Start: [rozpoznawanie słów kluczowych za pomocą zestawu Speech SDK w systemie Android przy użyciu języka Java](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/java/android/keyword-recognizer)
+* Zapoznaj się z [niestandardowymi słowami kluczowymi](custom-keyword-basics.md) dotyczącymi podstawowych zastosowań i wzorców projektu.
+* Jak [głosować produkt za pomocą zestawu Speech SDK przy użyciu języka C#](tutorial-voice-enable-your-bot-speech-sdk.md)
+
+## <a name="see-samples-on-github"></a>Zobacz przykłady w witrynie GitHub
+
+* [Rozpoznawanie słów kluczowych przy użyciu zestawu Speech SDK na platforma uniwersalna systemu Windows przy użyciu języka C #](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp/uwp/keyword-recognizer)
+* [Rozpoznawanie słów kluczowych za pomocą zestawu Speech SDK w systemie Android przy użyciu języka Java](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/java/android/keyword-recognizer)
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -12,11 +12,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 06/02/2020
 ms.author: juliako
-ms.openlocfilehash: 5bd4c9aa3fde9e3fa596ce5a18b892edfab60af5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d7667f7c5194762b227c3cddd5bea5ed9d50a96e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84325069"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87042626"
 ---
 # <a name="azure-media-services-video-indexer-release-notes"></a>Informacje o wersji Azure Media Services Video Indexer
 
@@ -28,6 +29,18 @@ Aby zachować aktualność najnowszych zmian, ten artykuł zawiera informacje na
 * Znane problemy
 * Poprawki błędów
 * Funkcje uznane za przestarzałe
+
+## <a name="june-2020"></a>Czerwiec 2020 r.
+
+### <a name="search-by-topics"></a>Wyszukaj według tematów
+
+Teraz możesz użyć interfejsu API wyszukiwania do wyszukiwania filmów wideo z określonymi tematami (tylko interfejsy API).
+
+Tematy są dodawane jako część `textScope` parametru opcjonalnego. Aby uzyskać szczegółowe informacje, zobacz [interfejs API](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Search-Videos) .  
+
+### <a name="labels-enhancement"></a>Ulepszanie etykiet
+
+Etykieta moduł tagujący została uaktualniona i teraz zawiera więcej etykiet wizualizacji, które można zidentyfikować.
 
 ## <a name="may-2020"></a>Maj 2020 r.
 
@@ -147,13 +160,13 @@ Kod stanu 409 będzie teraz zwracany przez [ponowne indeksowanie wideo](https://
     
     W przypadku przekazywania wideo zamieniono polecenie zh-HANS na zh-CN, obie są obsługiwane, ale zaleca się, aby Metoda zh-CN była zalecana i bardziej dokładna.
     
-## <a name="october-2019"></a>Październik 2019 r.
+## <a name="october-2019"></a>Październik 2019 r.
  
 * Wyszukaj animowane znaki w galerii
 
     W przypadku indeksowania animowanych znaków można teraz wyszukiwać je w postaci szpaltowej wideo na koncie. Aby uzyskać więcej informacji, zobacz [rozpoznawanie znaków animowanych](animated-characters-recognition.md).
 
-## <a name="september-2019"></a>Wrzesień 2019
+## <a name="september-2019"></a>Wrzesień 2019 r.
  
 Wiele zaliczek zapowiedziano w IBC 2019:
  
@@ -162,7 +175,7 @@ Wiele zaliczek zapowiedziano w IBC 2019:
     Możliwość wykrywania grup AD rozpoznaje znaki w animowanej zawartości, poprzez integrację z niestandardową wizją. Aby uzyskać więcej informacji, zobacz [wykrywanie znaków animowanych](animated-characters-recognition.md).
 * Identyfikacja w wielu językach (publiczna wersja zapoznawcza)
 
-    Wykrywaj segmenty w wielu językach w ścieżce audio i twórz na ich podstawie wielojęzyczne transkrypcje. Wstępna pomoc techniczna: angielski, hiszpański, niemiecki i francuski. Aby uzyskać więcej informacji, zobacz [Automatyczne identyfikowanie i transkrypcja zawartości w wielu językach](multi-language-identification-transcription.md).
+    Wykrywaj segmenty w wielu językach w ścieżce audio i twórz na ich podstawie wielojęzyczne transkrypcje. Wstępna pomoc techniczna: angielski, hiszpański, niemiecki i francuski. Aby uzyskać więcej informacji, zobacz [Automatyczne identyfikowanie i transkrybowanie zawartości w wielu językach](multi-language-identification-transcription.md).
 * Wyodrębnianie jednostek nazwanych dla osób i lokalizacji
 
     Wyodrębnianie marek, lokalizacji i osób z mowy i tekstu wizualnego za pośrednictwem przetwarzania języka naturalnego (NLP).
@@ -173,7 +186,7 @@ Wiele zaliczek zapowiedziano w IBC 2019:
     
     Temat inferencing model obsługuje teraz bardziej szczegółowy stopień szczegółowości taksonomii IPTC. Przeczytaj wszystkie szczegółowe informacje o [Azure Media Services nowych innowacyjności opartych na AI](https://azure.microsoft.com/blog/azure-media-services-new-ai-powered-innovation/).
 
-## <a name="august-2019"></a>Sierpień 2019 r.
+## <a name="august-2019"></a>Sierpień 2019 r.
  
 ### <a name="video-indexer-deployed-in-uk-south"></a>Video Indexer wdrożony w programie Południowe Zjednoczone Królestwo
 
@@ -210,7 +223,7 @@ Obsługa ciągu zapytania URL o 4096 (zamiast 2048) na indeksowaniu wideo.
 
 Projekty można teraz tworzyć w oparciu o wideo indeksowane w różnych językach (tylko interfejsy API).
 
-## <a name="july-2019"></a>Lipiec 2019
+## <a name="july-2019"></a>Lipiec 2019 r.
 
 ### <a name="editor-as-a-widget"></a>Edytor jako widżet
 

@@ -1,5 +1,5 @@
 ---
-title: Zarządzana Sieć wirtualna w usłudze Azure Synapse Analytics
+title: Zarządzana Sieć wirtualna
 description: Artykuł objaśniający zarządzaną sieć wirtualną w usłudze Azure Synapse Analytics
 author: RonyMSFT
 ms.service: synapse-analytics
@@ -8,54 +8,54 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: b46ce6f6164479853bc762cb1ca45d67f7f80930
-ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
+ms.openlocfilehash: 06b535b25df19e5062d16184f4469d9e9253b9c0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85194369"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87042612"
 ---
 # <a name="azure-synapse-analytics-managed-virtual-network-preview"></a>Virtual Network zarządzane przez usługę Azure Synapse Analytics (wersja zapoznawcza)
 
 W tym artykule opisano Virtual Network zarządzane w usłudze Azure Synapse Analytics.
 
-## <a name="managed-workspace-vnet"></a>Sieć wirtualna zarządzanego obszaru roboczego
+## <a name="managed-workspace-virtual-network"></a>Virtual Network zarządzanego obszaru roboczego
 
-Podczas tworzenia obszaru roboczego usługi Azure Synapse możesz wybrać opcję skojarzenia jej z siecią wirtualną. Sieć wirtualna skojarzona z obszarem roboczym jest zarządzana przez usługę Azure Synapse. Ta sieć wirtualna jest nazywana siecią *wirtualną obszaru roboczego*.
+Podczas tworzenia obszaru roboczego usługi Azure Synapse możesz wybrać opcję skojarzenia jej z Microsoft Azure Virtual Network. Virtual Network skojarzona z obszarem roboczym jest zarządzana przez usługę Azure Synapse. Ta Virtual Network jest nazywana *zarządzanym Virtual Network obszaru roboczego*.
 
-Sieć wirtualna zarządzanego obszaru roboczego zapewnia wartość na cztery sposoby:
+Zarządzany obszar roboczy Virtual Network zapewnia wartość na cztery sposoby:
 
-- Za pomocą sieci wirtualnej zarządzanej przestrzeni roboczej można odciążyć obciążenie związane z zarządzaniem siecią wirtualną do usługi Azure Synapse.
-- Nie musisz konfigurować reguł sieciowej grupy zabezpieczeń dla ruchu przychodzącego we własnych sieci wirtualnychach, aby umożliwić usłudze Azure Synapse Management ruch w celu wejścia do sieci wirtualnej. Błąd konfiguracji tych reguł sieciowej grupy zabezpieczeń powoduje przerwanie działania usługi dla klientów.
+- Za pomocą zarządzanego obszaru roboczego Virtual Network można odciążyć obciążenie zarządzaniem Virtual Network do usługi Azure Synapse.
+- Nie musisz konfigurować reguł sieciowej grupy zabezpieczeń dla ruchu przychodzącego w własnych sieciach wirtualnych, aby umożliwić usłudze Azure Synapse Management ruch w celu wprowadzenia Virtual Network. Błąd konfiguracji tych reguł sieciowej grupy zabezpieczeń powoduje przerwanie działania usługi dla klientów.
 - Nie musisz tworzyć podsieci dla klastrów Spark opartych na szczytowym obciążeniu.
-- Sieć wirtualna zarządzanego obszaru roboczego wraz z zarządzanymi prywatnymi punktami końcowymi chroni przed eksfiltracji danych. Zarządzane prywatne punkty końcowe można tworzyć tylko w obszarze roboczym, z którym skojarzona jest sieć wirtualna z zarządzanym obszarem roboczym.
+- Zarządzane Virtual Network obszarów roboczych wraz z zarządzanymi prywatnymi punktami końcowymi chronią się przed eksfiltracji danych. Zarządzane prywatne punkty końcowe można tworzyć tylko w obszarze roboczym, z którym jest skojarzony Virtual Network zarządzany obszar roboczy.
 
-Tworzenie obszaru roboczego z zarządzaną siecią wirtualną obszaru roboczego skojarzonego z nim zapewnia, że obszar roboczy jest odizolowany od innych obszarów roboczych. Usługa Azure Synapse oferuje różne możliwości analityczne w obszarze roboczym: integrację danych, Apache Spark, pulę SQL i SQL na żądanie.
+Tworzenie obszaru roboczego z zarządzanym Virtual Network obszarem roboczym zapewnia, że obszar roboczy jest odizolowany od innych obszarów roboczych. Usługa Azure Synapse oferuje różne możliwości analityczne w obszarze roboczym: integrację danych, Apache Spark, pulę SQL i SQL na żądanie.
 
-Jeśli obszar roboczy ma zarządzaną sieć wirtualną, w niej są wdrażane zasoby integracji danych i platformy Spark. Sieć wirtualna zarządzanego obszaru roboczego zapewnia także izolację na poziomie użytkownika dla działań platformy Spark, ponieważ każdy klaster Spark znajduje się w jego własnej podsieci.
+Jeśli obszar roboczy ma zarządzaną przestrzeń roboczą Virtual Network, zostanie w niej wdrożona integracja danych i zasoby platformy Spark. Zarządzany obszar roboczy Virtual Network również zapewnia izolację poziomu użytkownika dla działań platformy Spark, ponieważ każdy klaster Spark znajduje się w jego własnej podsieci.
 
-Pula SQL i SQL na żądanie są funkcjami wielodostępnymi i dlatego znajdują się poza zarządzaną siecią wirtualną obszaru roboczego. Komunikacja wewnątrz obszaru roboczego z pulą SQL i SQL na żądanie używają prywatnych linków platformy Azure. Te linki prywatne są tworzone automatycznie podczas tworzenia obszaru roboczego z skojarzoną z nim siecią wirtualną z zarządzanym obszarem roboczym.
+Pula SQL i SQL na żądanie są funkcjami wielodostępnymi, a tym samym znajdują się poza zarządzanym obszarem roboczym Virtual Network. Komunikacja wewnątrz obszaru roboczego z pulą SQL i SQL na żądanie używają prywatnych linków platformy Azure. Te linki prywatne są tworzone automatycznie podczas tworzenia obszaru roboczego z zarządzanym obszarem roboczym, Virtual Network skojarzonym z nim.
 
 >[!IMPORTANT]
->Nie można zmienić tej konfiguracji obszaru roboczego po utworzeniu obszaru roboczego. Na przykład nie można zmienić konfiguracji obszaru roboczego, do którego nie skojarzono sieci wirtualnej zarządzanej przestrzeni roboczej i skojarzyć z nim sieć wirtualną. Analogicznie nie można zmienić konfiguracji obszaru roboczego z zarządzaną siecią wirtualną obszaru roboczego, a następnie usunąć jego skojarzenie z siecią wirtualną.
+>Nie można zmienić tej konfiguracji obszaru roboczego po utworzeniu obszaru roboczego. Na przykład nie można zmienić konfiguracji obszaru roboczego, do którego nie skojarzono Virtual Networkego obszaru roboczego, i skojarzyć z nim Virtual Network. Podobnie nie można zmienić konfiguracji obszaru roboczego z zarządzanym obszarem roboczym, Virtual Network skojarzonym z nim i usunąć skojarzenia Virtual Network z nim.
 
-## <a name="create-an-azure-synapse-workspace-with-a-managed-workspace-vnet"></a>Tworzenie obszaru roboczego usługi Azure Synapse z zarządzaną siecią wirtualną obszaru roboczego
+## <a name="create-an-azure-synapse-workspace-with-a-managed-workspace-virtual-network"></a>Tworzenie obszaru roboczego usługi Azure Synapse z zarządzanym obszarem roboczym Virtual Network
 
 Jeśli jeszcze tego nie zrobiono, zarejestruj dostawcę zasobów sieciowych. Rejestracja dostawcy zasobów umożliwia skonfigurowanie subskrypcji do pracy z dostawcą zasobów. Po [zarejestrowaniu](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types)wybierz pozycję *Microsoft. Network* z listy dostawców zasobów.
 
-Aby utworzyć obszar roboczy usługi Azure Synapse z skojarzoną z nią zarządzaną siecią wirtualną, wybierz kartę **zabezpieczenia i sieć** w Azure Portal a następnie zaznacz pole wyboru **Włącz zarządzane sieci wirtualne** .
+Aby utworzyć obszar roboczy usługi Azure Synapse z zarządzanym obszarem roboczym, z którym jest skojarzony Virtual Network, wybierz kartę **zabezpieczenia i sieć** w Azure Portal i zaznacz pole wyboru **Włącz zarządzane sieci wirtualne** .
 
-Jeśli pole wyboru nie zostanie zaznaczone, do obszaru roboczego nie będzie skojarzona Sieć wirtualna.
+Jeśli pole wyboru nie zostanie zaznaczone, obszar roboczy nie będzie z nim skojarzony Virtual Network.
 
 >[!IMPORTANT]
->Linków prywatnych można używać tylko w obszarze roboczym z zarządzaną siecią wirtualną obszaru roboczego.
+>Linków prywatnych można używać tylko w obszarze roboczym z zarządzanym obszarem roboczym Virtual Network.
 
-![Włączanie zarządzanej sieci wirtualnej obszaru roboczego](./media/synapse-workspace-managed-vnet/enable-managed-vnet-1.png)
+![Włącz zarządzaną Virtual Network obszaru roboczego](./media/synapse-workspace-managed-vnet/enable-managed-vnet-1.png)
 
 >[!NOTE]
->Cały ruch wychodzący z sieci wirtualnej zarządzanego obszaru roboczego poza zarządzanymi prywatnymi punktami końcowymi zostanie zablokowany w przyszłości. Zaleca się utworzenie zarządzanych prywatnych punktów końcowych w celu nawiązania połączenia ze wszystkimi źródłami danych platformy Azure spoza obszaru roboczego. 
+>Cały ruch wychodzący z zarządzanego obszaru roboczego Virtual Network poza zarządzanymi prywatnymi punktami końcowymi zostanie zablokowany w przyszłości. Zaleca się utworzenie zarządzanych prywatnych punktów końcowych w celu nawiązania połączenia ze wszystkimi źródłami danych platformy Azure spoza obszaru roboczego. 
 
-Możesz sprawdzić, czy obszar roboczy usługi Azure Synapse jest skojarzony z zarządzaną siecią wirtualną obszaru roboczego, wybierając pozycję **Przegląd** z Azure Portal.
+Możesz sprawdzić, czy obszar roboczy usługi Azure Synapse jest skojarzony z zarządzanym Virtual Network obszarem roboczym, wybierając pozycję **Przegląd** z Azure Portal.
 
 ![Omówienie obszaru roboczego w Azure Portal](./media/synapse-workspace-managed-vnet/enable-managed-vnet-2.png)
 

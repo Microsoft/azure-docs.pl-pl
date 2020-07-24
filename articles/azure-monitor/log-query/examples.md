@@ -6,16 +6,17 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/16/2020
-ms.openlocfilehash: 18cd74ac9298b7dd058de2b224f677ec0d8f2d64
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 736daa8a09a8f08721c7b7d9c20f012f274b384a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79480287"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87045523"
 ---
 # <a name="azure-monitor-log-query-examples"></a>Przykłady zapytań w dzienniku Azure Monitor
 Ten artykuł zawiera różne przykłady [zapytań](log-query-overview.md) używających [języka zapytań Kusto](/azure/kusto/query/) do pobierania różnych typów danych dziennika z Azure monitor. Różne metody służą do konsolidowania i analizowania danych, dzięki czemu można używać tych przykładów do identyfikowania różnych strategii, których można użyć do własnych wymagań.  
 
-Aby uzyskać szczegółowe informacje o różnych słowach kluczowych używanych w tych przykładach, zobacz [Dokumentacja języka Kusto](https://docs.microsoft.com/azure/kusto/query/) . Zapoznaj się z lekcji, aby [utworzyć zapytania](get-started-queries.md) , jeśli jesteś nowym Azure monitor.
+Aby uzyskać szczegółowe informacje o różnych słowach kluczowych używanych w tych przykładach, zobacz [Dokumentacja języka Kusto](/azure/kusto/query/) . Zapoznaj się z lekcji, aby [utworzyć zapytania](get-started-queries.md) , jeśli jesteś nowym Azure monitor.
 
 ## <a name="events"></a>Zdarzenia
 
@@ -374,7 +375,7 @@ suspicious_users_that_later_logged_in
 
 ## <a name="usage"></a>Użycie
 
-`Usage`Typ danych może służyć do śledzenia ilości danych pozyskiwanych według rozwiązania lub typu danych. Istnieją inne techniki analizowania pozyskiwanych woluminów danych według [komputera](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#data-volume-by-computer) lub [subskrypcji platformy Azure, grupy zasobów lub zasobu](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#data-volume-by-azure-resource-resource-group-or-subscription).
+`Usage`Typ danych może służyć do śledzenia ilości danych pozyskiwanych według rozwiązania lub typu danych. Istnieją inne techniki analizowania pozyskiwanych woluminów danych według [komputera](../platform/manage-cost-storage.md#data-volume-by-computer) lub [subskrypcji platformy Azure, grupy zasobów lub zasobu](../platform/manage-cost-storage.md#data-volume-by-azure-resource-resource-group-or-subscription).
 
 #### <a name="data-volume-by-solution"></a>Ilość danych wg rozwiązania
 

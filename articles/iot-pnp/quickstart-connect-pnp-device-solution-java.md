@@ -1,5 +1,5 @@
 ---
-title: Współpracuj z urządzeniem usługi IoT Plug and Play w wersji zapoznawczej podłączonym do rozwiązania Azure IoT | Microsoft Docs
+title: Korzystanie z urządzenia z usługą IoT Plug and Play Preview połączonego z rozwiązaniem — Java | Microsoft Docs
 description: Użyj języka Java, aby nawiązać połączenie z urządzeniem usługi IoT Plug and Play w wersji zapoznawczej i korzystać z niego, które jest połączone z rozwiązaniem Azure IoT.
 author: dominicbetts
 ms.author: dobett
@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: 53812e68fe397b81f29869565e0e4a0640a9ef23
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 43136e1a09cc771f39b92a83ca4c452fc1276091
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76964638"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87044039"
 ---
 # <a name="quickstart-interact-with-an-iot-plug-and-play-preview-device-thats-connected-to-your-solution-java"></a>Szybki Start: współdziałanie z urządzeniem IoT Plug and Play w wersji zapoznawczej, które jest połączone z rozwiązaniem (Java)
 
@@ -88,7 +88,7 @@ W tym przewodniku szybki start użyjesz przykładowego rozwiązania IoT w język
 
 ### <a name="read-a-property"></a>Odczytaj Właściwość
 
-1. Po podłączeniu _urządzenia_ do terminalu jeden z komunikatów wyjściowych był następujący komunikat informujący o jego stanie online. `state` Właściwość, która służy do wskazywania, czy urządzenie jest w trybie online, jest _prawdziwe_:
+1. Po podłączeniu _urządzenia_ do terminalu jeden z komunikatów wyjściowych był następujący komunikat informujący o jego stanie online. `state`Właściwość, która służy do wskazywania, czy urządzenie jest w trybie online, jest _prawdziwe_:
 
     ```cmd/sh
     State of environmental sensor was set to true
@@ -100,7 +100,7 @@ W tym przewodniku szybki start użyjesz przykładowego rozwiązania IoT w język
     java -jar get-digital-twin/target/get-digital-twin-with-deps.jar
     ```
 
-1. W danych wyjściowych terminalu _usług_ przewiń do `environmentalSensor` składnika. Zobaczysz, że `state` właściwość została zgłoszona jako _prawda_:
+1. W danych wyjściowych terminalu _usług_ przewiń do `environmentalSensor` składnika. Zobaczysz, że `state` Właściwość została zgłoszona jako _prawda_:
     ```JSON
     "environmentalSensor" : {
       "name" : "environmentalSensor",

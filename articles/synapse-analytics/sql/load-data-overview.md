@@ -1,5 +1,5 @@
 ---
-title: Zamiast ETL, projekt ELT dla puli SQL Synapse | Microsoft Docs
+title: Projektowanie strategii ładowania danych podstawowych dla puli SQL
 description: Zamiast ETL Zaprojektuj proces wyodrębniania, ładowania i przekształcania (ELT) na potrzeby ładowania danych lub puli SQL.
 services: synapse-analytics
 author: kevinvngo
@@ -10,16 +10,16 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 49ffb848dbcbed72776a5d767bb4b4872978af20
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: ca1f535c7f2d949e1f71a06ba9efab2818ee0201
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85965578"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87046784"
 ---
 # <a name="designing-a-polybase-data-loading-strategy-for-azure-synapse-sql-pool"></a>Projektowanie strategii ładowania danych bazowych dla puli SQL Synapse platformy Azure
 
-Tradycyjne magazyny danych SMP używają procesu wyodrębniania, przekształcania i ładowania (ETL) do ładowania danych. Usługa Azure SQL Pool to architektura wysoce równoległego przetwarzania (MPP), która korzysta z skalowalności i elastyczności zasobów obliczeniowych i magazynu. Wykorzystanie procesu wyodrębniania, ładowania i przekształcania (ELT) może korzystać z funkcji MPP i wyeliminować zasoby konieczne do przekształcenia danych przed ich załadowaniem.
+Tradycyjne magazyny danych SMP używają procesu wyodrębniania, transformacji i ładowania (ETL) do ładowania danych. Usługa Azure SQL Pool to architektura wysoce równoległego przetwarzania (MPP), która korzysta z skalowalności i elastyczności zasobów obliczeniowych i magazynu. Korzystanie z procesu wyodrębniania, ładowania i przekształcania (ELT) może korzystać z funkcji MPP i wyeliminować zasoby konieczne do przekształcenia danych przed ich załadowaniem.
 
 Chociaż Pula SQL obsługuje wiele metod ładowania, w tym opcje inne niż podstawowe, takie jak BCP i SQL docelowa elementu BulkCopy API, najszybszym i najbardziej skalowalnym sposobem ładowania danych jest użycie bazy.  Baza kodu jest technologią, która uzyskuje dostęp do danych zewnętrznych przechowywanych w usłudze Azure Blob Storage lub Azure Data Lake Store za pośrednictwem języka T-SQL.
 
@@ -58,7 +58,7 @@ Jeśli eksportujesz z SQL Server, możesz użyć [narzędzia wiersza polecenia B
 |       smallint        |                           smallint                           |
 |          int          |                             int                              |
 |        bigint         |                            bigint                            |
-|        wartość logiczna        |                             bit                              |
+|        boolean        |                             bit                              |
 |        double         |                            float                             |
 |         float         |                             liczba rzeczywista                             |
 |        double         |                            pieniędzy                             |
@@ -69,12 +69,12 @@ Jeśli eksportujesz z SQL Server, możesz użyć [narzędzia wiersza polecenia B
 |        ciąg         |                           varchar                            |
 |        binarny         |                            binarny                            |
 |        binarny         |                          varbinary                           |
-|       sygnatura czasowa       |                             date                             |
+|       sygnatura czasowa       |                             data                             |
 |       sygnatura czasowa       |                        smalldatetime                         |
 |       sygnatura czasowa       |                          datetime2                           |
 |       sygnatura czasowa       |                           datetime                           |
 |       sygnatura czasowa       |                             time                             |
-|       date            |                             date                             |
+|       data            |                             data                             |
 |        decimal        |                            decimal                           |
 
 ## <a name="2-land-the-data-into-azure-blob-storage-or-azure-data-lake-store"></a>2. wyląduj dane do usługi Azure Blob Storage lub Azure Data Lake Store
@@ -95,7 +95,7 @@ Może być konieczne przygotowanie i oczyszczenie danych na koncie magazynu prze
 
 Przed załadowaniem danych należy zdefiniować tabele zewnętrzne w magazynie danych. Baza danych używa tabel zewnętrznych w celu definiowania i uzyskiwania dostępu do nich w usłudze Azure Storage. Tabela zewnętrzna jest podobna do widoku bazy danych. Tabela zewnętrzna zawiera schemat tabeli i wskazuje dane przechowywane poza magazynem danych.
 
-Definiowanie tabel zewnętrznych obejmuje określenie źródła danych, formatu plików tekstowych i definicji tabeli. Oto tematy dotyczące składni języka T-SQL, które będą potrzebne:
+Definiowanie tabel zewnętrznych obejmuje określenie źródła danych, formatu plików tekstowych i definicji tabeli. Poniżej przedstawiono tematy składni języka T-SQL, które będą potrzebne:
 
 - [UTWÓRZ ZEWNĘTRZNE ŹRÓDŁO DANYCH](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
 - [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
