@@ -12,11 +12,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sashan, carlrab
 ms.date: 08/27/2019
-ms.openlocfilehash: f1bf8eff4a6f518fc24c87c5fbd24984ef8f8b29
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ad0079a0a48178f1e662e2fdf1daa685ae768857
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84718890"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87024197"
 ---
 # <a name="tutorial-add-sql-managed-instance-to-a-failover-group"></a>Samouczek: dodawanie wystąpienia zarządzanego SQL do grupy trybu failover
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -46,7 +47,7 @@ Aby ukończyć kroki tego samouczka, upewnij się, że dysponujesz następujący
 Aby ukończyć ten samouczek, upewnij się, że masz następujące elementy:
 
 - Subskrypcja platformy Azure. [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) , jeśli jeszcze go nie masz.
-- [Azure PowerShell](/powershell/azureps-cmdlets-docs)
+- [Azure PowerShell](/powershell/azure/)
 
 ---
 
@@ -430,8 +431,8 @@ Aby utworzyć sieć wirtualną, wykonaj następujące kroki:
     | **Nazwa** |  Nazwa sieci wirtualnej, która ma być używana przez pomocnicze wystąpienie zarządzane, na przykład `vnet-sql-mi-secondary` . |
     | **Przestrzeń adresowa** | Przestrzeń adresowa sieci wirtualnej, na przykład `10.128.0.0/16` . | 
     | **Subskrypcja** | Subskrypcja, w której znajduje się główne wystąpienie zarządzane i Grupa zasobów. |
-    | **Okolicy** | Lokalizacja, w której zostanie wdrożone pomocnicze wystąpienie zarządzane. |
-    | **Podsieci** | Nazwa podsieci. `default`jest dostarczany domyślnie. |
+    | **Region** | Lokalizacja, w której zostanie wdrożone pomocnicze wystąpienie zarządzane. |
+    | **Podsieć** | Nazwa podsieci. `default`jest dostarczany domyślnie. |
     | **Zakres adresów**| Zakres adresów dla podsieci. Ta wartość musi być inna niż zakres adresów podsieci używany przez sieć wirtualną głównego wystąpienia zarządzanego, na przykład `10.128.0.0/24` .  |
     | &nbsp; | &nbsp; |
 
@@ -469,7 +470,7 @@ Utwórz pomocnicze wystąpienie zarządzane przy użyciu Azure Portal.
     | **Subskrypcja** |  Subskrypcja, w której znajduje się główne wystąpienie zarządzane. |
     | **Grupa zasobów**| Grupa zasobów, w której znajduje się podstawowe wystąpienie zarządzane. |
     | **Nazwa wystąpienia zarządzanego SQL** | Nazwa nowego pomocniczego wystąpienia zarządzanego, na przykład `sql-mi-secondary` .  | 
-    | **Okolicy**| Lokalizacja pomocniczego wystąpienia zarządzanego.  |
+    | **Region**| Lokalizacja pomocniczego wystąpienia zarządzanego.  |
     | **Logowanie administratora wystąpienia zarządzanego SQL** | Nazwa logowania, która ma być używana dla nowego pomocniczego wystąpienia zarządzanego, na przykład `azureuser` . |
     | **Hasło** | Złożone hasło, które będzie używane przez nazwę logowania administratora dla nowego wystąpienia zarządzanego.  |
     | &nbsp; | &nbsp; |
@@ -762,7 +763,7 @@ Utwórz bramę dla sieci wirtualnej głównego wystąpienia zarządzanego przy u
     | --- | --- |
     | **Subskrypcja** |  Subskrypcja, w której znajduje się główne wystąpienie zarządzane. |
     | **Nazwa** | Nazwa bramy sieci wirtualnej, na przykład `primary-mi-gateway` . | 
-    | **Okolicy** | Region, w którym znajduje się główne wystąpienie zarządzane. |
+    | **Region** | Region, w którym znajduje się główne wystąpienie zarządzane. |
     | **Typ bramy** | wybierz pozycję **VPN**. |
     | **Typ sieci VPN** | wybierz pozycję **Oparte na trasach**. |
     | **SKU**| Pozostaw wartość domyślną `VpnGw1` . |
@@ -844,7 +845,7 @@ Korzystając z Azure Portal, powtórz kroki opisane w poprzedniej sekcji, aby ut
    | --- | --- |
    | **Subskrypcja** |  Subskrypcja, w której znajduje się pomocnicze wystąpienie zarządzane. |
    | **Nazwa** | Nazwa bramy sieci wirtualnej, na przykład `secondary-mi-gateway` . | 
-   | **Okolicy** | Region, w którym znajduje się pomocnicze wystąpienie zarządzane. |
+   | **Region** | Region, w którym znajduje się pomocnicze wystąpienie zarządzane. |
    | **Typ bramy** | wybierz pozycję **VPN**. |
    | **Typ sieci VPN** | wybierz pozycję **Oparte na trasach**. |
    | **SKU**| Pozostaw wartość domyślną `VpnGw1` . |

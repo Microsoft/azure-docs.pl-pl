@@ -9,11 +9,12 @@ ms.subservice: security
 ms.date: 09/05/2019
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: 030e2c23d68a3fbbc96dd7591583cb27b650d011
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4480ad425d9a3953fd5779f99d27b5b6b037e61e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83200011"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87029420"
 ---
 # <a name="security-controls-for-azure-virtual-machine-scale-sets"></a>Kontrolki zabezpieczeń dla usługi Azure Virtual Machine Scale Sets
 
@@ -28,13 +29,13 @@ W tym artykule opisano mechanizmy kontroli zabezpieczeń wbudowane w usługę Az
 | Obsługa punktów końcowych usługi| Tak | |
 | Obsługa iniekcji sieci wirtualnej| Tak | |
 | Izolacja sieci i obsługa zapór| Tak |  |
-| Obsługa tunelowania wymuszonego| Tak | Zobacz [Konfigurowanie wymuszonego tunelowania przy użyciu Azure Resource Manager model wdrażania](/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm). |
+| Obsługa tunelowania wymuszonego| Tak | Zobacz [Konfigurowanie wymuszonego tunelowania przy użyciu Azure Resource Manager model wdrażania](../vpn-gateway/vpn-gateway-forced-tunneling-rm.md). |
 
 ## <a name="monitoring--logging"></a>Monitorowanie rejestrowania &
 
 | Kontrola zabezpieczeń | Tak/Nie | Uwagi|
 |---|---|--|
-| Pomoc techniczna dotycząca monitorowania platformy Azure (log Analytics, App Insights itp.)| Tak | Zobacz [monitorowanie i aktualizowanie maszyny wirtualnej z systemem Linux na platformie Azure](/azure/virtual-machines/linux/tutorial-monitoring) oraz [monitorowanie i aktualizowanie maszyny wirtualnej z systemem Windows na platformie Azure](/azure/virtual-machines/windows/tutorial-monitoring). |
+| Pomoc techniczna dotycząca monitorowania platformy Azure (log Analytics, App Insights itp.)| Tak | Zobacz [monitorowanie i aktualizowanie maszyny wirtualnej z systemem Linux na platformie Azure](../virtual-machines/linux/tutorial-monitor.md) oraz [monitorowanie i aktualizowanie maszyny wirtualnej z systemem Windows na platformie Azure](../virtual-machines/windows/tutorial-monitor.md). |
 | Rejestrowanie i inspekcja płaszczyzny kontroli i zarządzania| Tak |  |
 | Rejestrowanie i inspekcja płaszczyzny danych | Nie |  |
 
@@ -42,7 +43,7 @@ W tym artykule opisano mechanizmy kontroli zabezpieczeń wbudowane w usługę Az
 
 | Kontrola zabezpieczeń | Tak/Nie | Uwagi|
 |---|---|--|
-| Authentication| Tak |  |
+| Uwierzytelnianie| Tak |  |
 | Autoryzacja| Tak |  |
 
 ## <a name="data-protection"></a>Ochrona danych
@@ -50,7 +51,7 @@ W tym artykule opisano mechanizmy kontroli zabezpieczeń wbudowane w usługę Az
 | Kontrola zabezpieczeń | Tak/Nie | Uwagi |
 |---|---|--|
 | Szyfrowanie po stronie serwera w czasie spoczynku: klucze zarządzane przez firmę Microsoft | Tak | Zobacz [Azure Disk Encryption Virtual Machine Scale Sets](disk-encryption-overview.md). |
-| Szyfrowanie podczas przesyłania (takie jak szyfrowanie ExpressRoute, szyfrowanie sieci wirtualnej i szyfrowanie sieci wirtualnej)| Tak | Usługa Azure Virtual Machines obsługuje szyfrowanie [ExpressRoute](/azure/expressroute) i wirtualne. Zobacz [szyfrowanie w trakcie przesyłania na maszynach wirtualnych](/azure/security/security-azure-encryption-overview#in-transit-encryption-in-vms). |
+| Szyfrowanie podczas przesyłania (takie jak szyfrowanie ExpressRoute, szyfrowanie sieci wirtualnej i szyfrowanie sieci wirtualnej)| Tak | Usługa Azure Virtual Machines obsługuje szyfrowanie [ExpressRoute](../expressroute/index.yml) i wirtualne. Zobacz [szyfrowanie w trakcie przesyłania na maszynach wirtualnych](../security/fundamentals/encryption-overview.md#in-transit-encryption-in-vms). |
 | Szyfrowanie po stronie serwera w spoczynku: klucze zarządzane przez klienta (BYOK) | Tak | Klucze zarządzane przez klienta to obsługiwany scenariusz szyfrowania platformy Azure; Zobacz [Azure Disk Encryption dla Virtual Machine Scale Sets](disk-encryption-overview.md)|
 | Szyfrowanie na poziomie kolumny (Data Services platformy Azure)| Nie dotyczy | |
 | Wywołania interfejsu API są szyfrowane| Tak | Za pośrednictwem protokołów HTTPS i TLS. |

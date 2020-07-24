@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf21f2ea5aacb36f3a76034e99b748bf4c6c363b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 16203ab972f6117cec41e43ee5dd89cda7e95ede
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85554765"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87025702"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Instrukcje: planowanie implementacji dołączania hybrydowego Azure Active Directory
 
@@ -92,12 +92,12 @@ Jako pierwszy krok planowania należy przejrzeć środowisko i określić, czy n
 ### <a name="handling-devices-with-azure-ad-registered-state"></a>Obsługa urządzeń z zarejestrowanym stanem usługi Azure AD
 Jeśli urządzenia przyłączone do domeny systemu Windows 10 są zarejestrowane w dzierżawie [usługi Azure AD](overview.md#getting-devices-in-azure-ad) , może to doprowadzić do podwójnego stanu hybrydowego przyłączonego do usługi Azure AD i zarejestrowanego urządzenia usługi Azure AD. Zalecamy uaktualnienie do systemu Windows 10 1803 (z zastosowaniem programu KB4489894) lub nowszego, aby automatycznie rozwiązać ten scenariusz. W wersjach wcześniejszych niż 1803 należy ręcznie usunąć zarejestrowany stan usługi Azure AD przed włączeniem hybrydowego sprzężenia usługi Azure AD. W 1803 i nowszych wersjach wprowadzono następujące zmiany, aby uniknąć tego podwójnego stanu:
 
-- Wszystkie istniejące zarejestrowane w usłudze Azure AD stan użytkownika zostaną automatycznie usunięte <i>po przyłączeniu urządzenia do hybrydowej usługi Azure AD i tego samego użytkownika</i>. Na przykład jeśli użytkownik ma zarejestrowany stan usługi Azure AD na urządzeniu, podwójny stan dla użytkownika A zostanie oczyszczony tylko wtedy, gdy użytkownik loguje się do urządzenia. Jeśli na tym samym urządzeniu istnieje wielu użytkowników, podwójny stan jest czyszczony indywidualnie, gdy użytkownicy zalogują się.
+- Wszystkie istniejące zarejestrowane w usłudze Azure AD stan użytkownika zostaną automatycznie usunięte <i>po przyłączeniu urządzenia do hybrydowej usługi Azure AD i tego samego użytkownika</i>. Na przykład jeśli użytkownik ma zarejestrowany stan usługi Azure AD na urządzeniu, podwójny stan dla użytkownika A zostanie oczyszczony tylko wtedy, gdy użytkownik loguje się do urządzenia. Jeśli na tym samym urządzeniu istnieje wielu użytkowników, podwójny stan jest czyszczony indywidualnie, gdy użytkownicy zalogują się. Oprócz usuwania zarejestrowanego stanu usługi Azure AD system Windows 10 również wyrejestruje urządzenie z usługi Intune lub innego rozwiązania MDM, jeśli rejestracja nastąpiła w ramach rejestracji w usłudze Azure AD za pośrednictwem automatycznej rejestracji.
 - Aby uniemożliwić urządzeniu przyłączonym do domeny usługę Azure AD, Dodaj następującą wartość rejestru do HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin: "BlockAADWorkplaceJoin" = DWORD: 00000001.
 - W systemie Windows 10 1803, jeśli masz skonfigurowaną usługi Windows Hello dla firm, użytkownik musi zmienić konfigurację usługi Windows Hello dla firm po oczyszczeniu podwójnego stanu. Ten problem został rozwiązany z KB4512509
 
 > [!NOTE]
-> Zarejestrowane urządzenie usługi Azure AD nie zostanie automatycznie usunięte, jeśli jest zarządzane przez usługę Intune.
+> Mimo że system Windows 10 automatycznie usunie zarejestrowany stan usługi Azure AD lokalnie, obiekt urządzenia w usłudze Azure AD nie zostanie natychmiast usunięty, jeśli jest zarządzany przez usługę Intune. Możesz sprawdzić poprawność usuwania zarejestrowanego stanu usługi Azure AD, uruchamiając dsregcmd/status i Rozważmy, aby urządzenie nie było zarejestrowane w usłudze Azure AD na podstawie tego programu.
 
 ### <a name="additional-considerations"></a>Dodatkowe zagadnienia
 - Jeśli środowisko używa infrastruktury pulpitów wirtualnych (VDI), zobacz [tożsamość urządzenia i Wirtualizacja pulpitu](/azure/active-directory/devices/howto-device-identity-virtual-desktop-infrastructure).
@@ -163,8 +163,8 @@ Poniższa tabela zawiera szczegółowe informacje na temat pomocy technicznej do
 | ----- | ----- | ----- | ----- |
 | Wzajemn | Federacyjni | Od wersji 1703 | Ogólnie dostępne |
 | Bez obsługi routingu | Federacyjni | Od wersji 1803 | Ogólnie dostępne |
-| Wzajemn | Zarządzany | Od wersji 1803 | Ogólnie dostępna usługa Azure AD SSPR w systemie Windows ekranu blokady nie jest obsługiwana |
-| Bez obsługi routingu | Zarządzany | Nieobsługiwane | |
+| Wzajemn | Zarządzani | Od wersji 1803 | Ogólnie dostępna usługa Azure AD SSPR w systemie Windows ekranu blokady nie jest obsługiwana |
+| Bez obsługi routingu | Zarządzani | Nieobsługiwane | |
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: b3e06ff28c7980910636edeb06c5863859120484
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: f3e4c411223a3e8fc0602602cd941a00f7a19cca
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86081574"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87028247"
 ---
 # <a name="troubleshooting-specific-rdp-error-messages-to-a-windows-vm-in-azure"></a>Rozwiązywanie problemów z określonymi komunikatami o błędach protokołu RDP dla maszyny wirtualnej z systemem Windows na platformie Azure
 W przypadku korzystania z Pulpit zdalny połączenia z maszyną wirtualną z systemem Windows na platformie Azure może zostać wyświetlony konkretny komunikat o błędzie. W tym artykule opisano niektóre typowe komunikaty o błędach, a także kroki rozwiązywania problemów. Jeśli masz problemy z nawiązywaniem połączenia z maszyną wirtualną przy użyciu protokołu RDP, ale nie napotkasz określonego komunikatu o błędzie, zobacz [Przewodnik rozwiązywania problemów dla Pulpit zdalny](troubleshoot-rdp-connection.md).
@@ -46,7 +46,7 @@ mstsc <File name>.RDP /admin
 
 Jeśli nie potrzebujesz więcej niż dwóch jednoczesnych połączeń Pulpit zdalny z maszyną wirtualną, możesz użyć Menedżer serwera, aby usunąć rolę serwera Pulpit zdalny.
 
-Aby uzyskać więcej informacji, zobacz wpis w blogu na [maszynie wirtualnej platformy Azure nie powiodło się z opcją "Brak dostępnych serwerów licencji pulpit zdalny"](https://blogs.msdn.microsoft.com/mast/2014/01/21/rdp-to-azure-vm-fails-with-no-remote-desktop-license-servers-available/).
+Aby uzyskać więcej informacji, zobacz wpis w blogu na [maszynie wirtualnej platformy Azure nie powiodło się z opcją "Brak dostępnych serwerów licencji pulpit zdalny"](/archive/blogs/mast/rdp-to-azure-vm-fails-with-no-remote-desktop-license-servers-available).
 
 <a id="rdpname"></a>
 
@@ -111,6 +111,5 @@ Upewnij się, że konto używane do nawiązania połączenia ma Pulpit zdalny pr
 ## <a name="next-steps"></a>Następne kroki
 Jeśli żaden z tych błędów nie wystąpił i masz nieznany problem z połączeniem przy użyciu protokołu RDP, zobacz [Przewodnik rozwiązywania problemów dla Pulpit zdalny](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-* Aby uzyskać informacje na temat rozwiązywania problemów z dostępem do aplikacji uruchomionych na maszynie wirtualnej, zobacz [Rozwiązywanie problemów z dostępem do aplikacji uruchomionej na maszynie wirtualnej platformy Azure](../linux/troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-* Jeśli masz problemy z używaniem Secure Shell (SSH) do łączenia się z maszyną wirtualną z systemem Linux na platformie Azure, zobacz [Rozwiązywanie problemów z połączeniami SSH z maszyną wirtualną z systemem Linux na platformie Azure](../linux/troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-
+* Aby uzyskać informacje na temat rozwiązywania problemów z dostępem do aplikacji uruchomionych na maszynie wirtualnej, zobacz [Rozwiązywanie problemów z dostępem do aplikacji uruchomionej na maszynie wirtualnej platformy Azure](./troubleshoot-app-connection.md?toc=/azure/virtual-machines/linux/toc.json).
+* Jeśli masz problemy z używaniem Secure Shell (SSH) do łączenia się z maszyną wirtualną z systemem Linux na platformie Azure, zobacz [Rozwiązywanie problemów z połączeniami SSH z maszyną wirtualną z systemem Linux na platformie Azure](./troubleshoot-ssh-connection.md?toc=/azure/virtual-machines/linux/toc.json).

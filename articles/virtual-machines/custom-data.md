@@ -7,17 +7,18 @@ ms.service: virtual-machines
 ms.topic: article
 ms.date: 03/06/2020
 ms.author: mimckitt
-ms.openlocfilehash: 444c3afefcf4cfdafc817af3b7bc6ce4463853c1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1dcba7da09cff3b7123521a4daf1028ab17e199a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84678362"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87029148"
 ---
 # <a name="custom-data-and-cloud-init-on-azure-virtual-machines"></a>Dane niestandardowe i Usługa Cloud-init w usłudze Azure Virtual Machines
 
 Może być konieczne wstrzyknięcie skryptu lub innych metadanych do Microsoft Azure maszyny wirtualnej w czasie aprowizacji.  W innych chmurach pojęcie to jest często określane jako dane użytkownika.  W Microsoft Azure mamy podobną funkcję o nazwie dane niestandardowe. 
 
-Dane niestandardowe są dostępne tylko dla maszyny wirtualnej podczas pierwszej konfiguracji rozruchu/początkowej, nazywamy to "Inicjowanie obsługi". Inicjowanie obsługi jest procesem, w którym maszyny wirtualne tworzą parametry (na przykład nazwa hosta, nazwa użytkownika, hasło, certyfikaty, dane niestandardowe, klucze itp.), są dostępne dla maszyny wirtualnej, a agent inicjowania obsługi administracyjnej przetwarza je, takie jak [Agent systemu Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux) i usługa [Cloud-init](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init#troubleshooting-cloud-init). 
+Dane niestandardowe są dostępne tylko dla maszyny wirtualnej podczas pierwszej konfiguracji rozruchu/początkowej, nazywamy to "Inicjowanie obsługi". Inicjowanie obsługi jest procesem, w którym maszyny wirtualne tworzą parametry (na przykład nazwa hosta, nazwa użytkownika, hasło, certyfikaty, dane niestandardowe, klucze itp.), są dostępne dla maszyny wirtualnej, a agent inicjowania obsługi administracyjnej przetwarza je, takie jak [Agent systemu Linux](./extensions/agent-linux.md) i usługa [Cloud-init](./linux/using-cloud-init.md#troubleshooting-cloud-init). 
 
 
 ## <a name="passing-custom-data-to-the-vm"></a>Przekazywanie danych niestandardowych do maszyny wirtualnej
@@ -33,7 +34,7 @@ az vm create \
   --generate-ssh-keys
 ```
 
-W Azure Resource Manager (ARM) istnieje [Funkcja Base64](https://docs.microsoft.com/azure/azure-resource-manager/templates/template-functions-string#base64).
+W Azure Resource Manager (ARM) istnieje [Funkcja Base64](../azure-resource-manager/templates/template-functions-string.md#base64).
 
 ```json
 "name": "[parameters('virtualMachineName')]",
@@ -73,21 +74,21 @@ Po włączeniu danych niestandardowych i wykonaniu skryptu zostanie opóźnione 
 
 Aby rozwiązać problem z niestandardowym wykonywaniem danych, przejrzyj */var/log/waagent.log*
 
-* Cloud-init-domyślnie domyślnie przetwarza dane niestandardowe. Usługa Cloud-init akceptuje [wiele formatów](https://cloudinit.readthedocs.io/en/latest/topics/format.html) danych niestandardowych, takich jak konfiguracja usługi Cloud-init, skrypty itp. Podobnie jak w przypadku agenta systemu Linux, gdy usługa Cloud-init przetwarza dane niestandardowe. Jeśli występują błędy podczas wykonywania operacji przetwarzania lub tworzenia konfiguracji, nie jest uznawany za krytyczny błąd aprowizacji i należy utworzyć ścieżkę powiadomienia, aby poinformować użytkownika o stanie ukończenia skryptu. Jednak inne dla agenta systemu Linux Usługa Cloud-init nie czeka na ukończenie niestandardowych konfiguracji danych użytkownika przed rozpoczęciem raportowania do platformy, która jest gotowa do użycia przez maszynę wirtualną. Aby uzyskać więcej informacji o usłudze Cloud-init na platformie Azure, zapoznaj się z [dokumentacją](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init).
+* Cloud-init-domyślnie domyślnie przetwarza dane niestandardowe. Usługa Cloud-init akceptuje [wiele formatów](https://cloudinit.readthedocs.io/en/latest/topics/format.html) danych niestandardowych, takich jak konfiguracja usługi Cloud-init, skrypty itp. Podobnie jak w przypadku agenta systemu Linux, gdy usługa Cloud-init przetwarza dane niestandardowe. Jeśli występują błędy podczas wykonywania operacji przetwarzania lub tworzenia konfiguracji, nie jest uznawany za krytyczny błąd aprowizacji i należy utworzyć ścieżkę powiadomienia, aby poinformować użytkownika o stanie ukończenia skryptu. Jednak inne dla agenta systemu Linux Usługa Cloud-init nie czeka na ukończenie niestandardowych konfiguracji danych użytkownika przed rozpoczęciem raportowania do platformy, która jest gotowa do użycia przez maszynę wirtualną. Aby uzyskać więcej informacji o usłudze Cloud-init na platformie Azure, zapoznaj się z [dokumentacją](./linux/using-cloud-init.md).
 
 
-Aby rozwiązać problem z wykonywaniem danych niestandardowych, zapoznaj się z [dokumentacją](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init#troubleshooting-cloud-init)rozwiązywania problemów.
+Aby rozwiązać problem z wykonywaniem danych niestandardowych, zapoznaj się z [dokumentacją](./linux/using-cloud-init.md#troubleshooting-cloud-init)rozwiązywania problemów.
 
 
 ## <a name="faq"></a>Często zadawane pytania
 ### <a name="can-i-update-custom-data-after-the-vm-has-been-created"></a>Czy mogę zaktualizować dane niestandardowe po utworzeniu maszyny wirtualnej?
-W przypadku pojedynczych maszyn wirtualnych nie można zaktualizować danych niestandardowych w modelu maszyny wirtualnej, ale dla VMSS można zaktualizować dane niestandardowe VMSS za pośrednictwem [interfejsu API REST](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/update) (nie dotyczy to klientów PS i AZ CLI). Gdy aktualizujesz dane niestandardowe w modelu VMSS:
+W przypadku pojedynczych maszyn wirtualnych nie można zaktualizować danych niestandardowych w modelu maszyny wirtualnej, ale dla VMSS można zaktualizować dane niestandardowe VMSS za pośrednictwem [interfejsu API REST](/rest/api/compute/virtualmachinescalesets/update) (nie dotyczy to klientów PS i AZ CLI). Gdy aktualizujesz dane niestandardowe w modelu VMSS:
 * Istniejące wystąpienia w VMSS nie otrzymają zaktualizowanych danych niestandardowych tylko do momentu ich odłączenia.
 * Istniejące wystąpienia w uaktualnianym VMSS nie będą otrzymywać zaktualizowanych danych niestandardowych.
 * Nowe wystąpienia otrzymają nowe dane niestandardowe.
 
 ### <a name="can-i-place-sensitive-values-in-custom-data"></a>Czy mogę umieścić poufne wartości w danych niestandardowych?
-Firma Microsoft zaleca, aby **nie** przechowywać poufnych danych w danych niestandardowych. Aby uzyskać więcej informacji, zobacz [najlepsze rozwiązania dotyczące zabezpieczeń i szyfrowania na platformie Azure](https://docs.microsoft.com/azure/security/fundamentals/data-encryption-best-practices).
+Firma Microsoft zaleca, aby **nie** przechowywać poufnych danych w danych niestandardowych. Aby uzyskać więcej informacji, zobacz [najlepsze rozwiązania dotyczące zabezpieczeń i szyfrowania na platformie Azure](../security/fundamentals/data-encryption-best-practices.md).
 
 
 ### <a name="is-custom-data-made-available-in-imds"></a>Czy dane niestandardowe są dostępne w IMDS?

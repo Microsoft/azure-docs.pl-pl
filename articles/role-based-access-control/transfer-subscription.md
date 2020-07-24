@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 07/01/2020
 ms.author: rolyon
-ms.openlocfilehash: db1b030aed34498ade91a195d5ca68725b579ba3
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 664687d096a3a9c6ce9a6c7de0025604e046b0a1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86230846"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87029981"
 ---
 # <a name="transfer-an-azure-subscription-to-a-different-azure-ad-directory-preview"></a>Przenoszenie subskrypcji platformy Azure do innego katalogu usługi Azure AD (wersja zapoznawcza)
 
@@ -70,7 +70,7 @@ Kilka zasobów platformy Azure ma zależność od subskrypcji lub katalogu. W za
 | Role niestandardowe | Tak | Yes | [Wyświetlanie ról niestandardowych](#save-custom-roles) | Wszystkie role niestandardowe są trwale usuwane. Należy ponownie utworzyć role niestandardowe i dowolnych przypisań ról. |
 | Zarządzane tożsamości przypisane do systemu | Tak | Yes | [Wyświetl listę tożsamości zarządzanych](#list-role-assignments-for-managed-identities) | Należy wyłączyć i ponownie włączyć zarządzane tożsamości. Należy ponownie utworzyć przypisania ról. |
 | Tożsamości zarządzane przypisane przez użytkownika | Tak | Yes | [Wyświetl listę tożsamości zarządzanych](#list-role-assignments-for-managed-identities) | Należy usunąć, utworzyć ponownie i dołączyć zarządzane tożsamości do odpowiedniego zasobu. Należy ponownie utworzyć przypisania ról. |
-| W usłudze Azure Key Vault | Tak | Yes | [Wyświetlanie listy zasad dostępu Key Vault](#list-other-known-resources) | Musisz zaktualizować identyfikator dzierżawy skojarzony z magazynami kluczy. Należy usunąć i dodać nowe zasady dostępu. |
+| Azure Key Vault | Tak | Yes | [Wyświetlanie listy zasad dostępu Key Vault](#list-other-known-resources) | Musisz zaktualizować identyfikator dzierżawy skojarzony z magazynami kluczy. Należy usunąć i dodać nowe zasady dostępu. |
 | Bazy danych SQL Azure z uwierzytelnianiem w usłudze Azure AD | Yes | Nie | [Sprawdzanie baz danych Azure SQL Database przy użyciu uwierzytelniania usługi Azure AD](#list-other-known-resources) |  |  |
 | Usługa Azure Storage i Azure Data Lake Storage Gen2 | Tak | Yes |  | Należy ponownie utworzyć wszystkie listy ACL. |
 | Azure Data Lake Storage Gen1 | Tak |  |  | Należy ponownie utworzyć wszystkie listy ACL. |
@@ -78,7 +78,7 @@ Kilka zasobów platformy Azure ma zależność od subskrypcji lub katalogu. W za
 | Azure File Sync | Tak | Yes |  |  |
 | Dyski zarządzane platformy Azure | Tak | Nie dotyczy |  |  |
 | Azure Container Services dla Kubernetes | Tak | Yes |  |  |
-| Usługi Azure Active Directory Domain Services | Yes | Nie |  |  |
+| Azure Active Directory Domain Services | Yes | Nie |  |  |
 | Rejestracje aplikacji | Tak | Tak |  |  |
 
 Jeśli używasz szyfrowania dla zasobu, takiego jak konto magazynu lub baza danych SQL, która ma zależność od magazynu kluczy, który nie znajduje się w tej samej subskrypcji, która jest transferowana, może prowadzić do nieodwracalnego scenariusza. W przypadku takiej sytuacji należy wykonać kroki w celu użycia innego magazynu kluczy lub tymczasowo wyłączyć klucze zarządzane przez klienta, aby uniknąć tego nieodwracalnego scenariusza.
@@ -145,7 +145,7 @@ Aby wykonać te kroki, potrzebne są:
 
 ### <a name="save-custom-roles"></a>Zapisz role niestandardowe
 
-1. Użyj [listy AZ role Definition](https://docs.microsoft.com/cli/azure/role/definition#az-role-definition-list) , aby wyświetlić listę ról niestandardowych. Aby uzyskać więcej informacji, zobacz [Tworzenie lub aktualizowanie ról niestandardowych dla zasobów platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure](custom-roles-cli.md).
+1. Użyj [listy AZ role Definition](https://docs.microsoft.com/cli/azure/role/definition#az-role-definition-list) , aby wyświetlić listę ról niestandardowych. Aby uzyskać więcej informacji, zobacz [Tworzenie lub aktualizowanie ról niestandardowych platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure](custom-roles-cli.md).
 
     ```azurecli
     az role definition list --custom-role-only true --output json --query '[].{roleName:roleName, roleType:roleType}'
@@ -215,7 +215,7 @@ Tożsamości zarządzane nie są aktualizowane, gdy subskrypcja zostanie przetra
 
 ### <a name="list-key-vaults"></a>Utwórz listę magazynów kluczy
 
-Podczas tworzenia magazynu kluczy jest on automatycznie powiązany z domyślnym IDENTYFIKATORem dzierżawy Azure Active Directory dla subskrypcji, w której został utworzony. Wszystkie wpisy zasad dostępu również zostają powiązane z tym identyfikatorem dzierżawy. Aby uzyskać więcej informacji, zobacz [Przechodzenie Azure Key Vault do innej subskrypcji](../key-vault/general/keyvault-move-subscription.md).
+Podczas tworzenia magazynu kluczy jest on automatycznie powiązany z domyślnym IDENTYFIKATORem dzierżawy Azure Active Directory dla subskrypcji, w której został utworzony. Wszystkie wpisy zasad dostępu również zostają powiązane z tym identyfikatorem dzierżawy. Aby uzyskać więcej informacji, zobacz [Przechodzenie Azure Key Vault do innej subskrypcji](../key-vault/general/move-subscription.md).
 
 > [!WARNING]
 > Jeśli używasz szyfrowania dla zasobu, takiego jak konto magazynu lub baza danych SQL, która ma zależność od magazynu kluczy, który nie znajduje się w tej samej subskrypcji, która jest transferowana, może to prowadzić do nieodwracalnego scenariusza. W przypadku takiej sytuacji należy wykonać kroki w celu użycia innego magazynu kluczy lub tymczasowo wyłączyć klucze zarządzane przez klienta, aby uniknąć tego nieodwracalnego scenariusza.
@@ -291,7 +291,7 @@ W tym kroku przeniesiesz własność rozliczeń subskrypcji z katalogu źródło
 
 ### <a name="create-custom-roles"></a>Tworzenie ról niestandardowych
         
-- Użyj [AZ role Definition Create](https://docs.microsoft.com/cli/azure/role/definition#az-role-definition-create) , aby utworzyć każdą rolę niestandardową z utworzonych wcześniej plików. Aby uzyskać więcej informacji, zobacz [Tworzenie lub aktualizowanie ról niestandardowych dla zasobów platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure](custom-roles-cli.md).
+- Użyj [AZ role Definition Create](https://docs.microsoft.com/cli/azure/role/definition#az-role-definition-create) , aby utworzyć każdą rolę niestandardową z utworzonych wcześniej plików. Aby uzyskać więcej informacji, zobacz [Tworzenie lub aktualizowanie ról niestandardowych platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure](custom-roles-cli.md).
 
     ```azurecli
     az role definition create --role-definition <role_definition>
@@ -339,7 +339,7 @@ W tym kroku przeniesiesz własność rozliczeń subskrypcji z katalogu źródło
 
 ### <a name="update-key-vaults"></a>Aktualizowanie magazynów kluczy
 
-W tej sekcji opisano podstawowe kroki aktualizowania magazynów kluczy. Aby uzyskać więcej informacji, zobacz [Przechodzenie Azure Key Vault do innej subskrypcji](../key-vault/general/keyvault-move-subscription.md).
+W tej sekcji opisano podstawowe kroki aktualizowania magazynów kluczy. Aby uzyskać więcej informacji, zobacz [Przechodzenie Azure Key Vault do innej subskrypcji](../key-vault/general/move-subscription.md).
 
 1. Zaktualizuj identyfikator dzierżawy skojarzony ze wszystkimi istniejącymi magazynami kluczy w subskrypcji do katalogu docelowego.
 

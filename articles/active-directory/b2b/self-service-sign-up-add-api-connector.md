@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e0498a2015b75221763ab5fdd4f6e94428922bd6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e6238e89b3941668f831f3128bb0e723a4097e48
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85386746"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87027516"
 ---
 # <a name="add-an-api-connector-to-a-user-flow"></a>Dodawanie łącznika interfejsu API do przepływu użytkownika
 
@@ -76,7 +76,7 @@ POST <API-endpoint>
 Content-type: application/json
 
 {
- "email_address": "johnsmith@fabrikam.onmicrosoft.com",
+ "email": "johnsmith@fabrikam.onmicrosoft.com",
  "identities": [ //Sent for Google and Facebook identity providers
      {
      "signInType":"federated",
@@ -99,7 +99,7 @@ Jeśli nie ma wartości w momencie wywołania punktu końcowego interfejsu API, 
 Atrybuty niestandardowe można utworzyć dla użytkownika przy użyciu formatu ** \<extensions-app-id> _AttributeName extension_** . Interfejs API powinien oczekiwać otrzymywania oświadczeń w tym samym zserializowanym formacie. Interfejs API może zwracać oświadczenia z lub bez `<extensions-app-id>` . Aby uzyskać więcej informacji o atrybutach niestandardowych, zobacz [Definiowanie atrybutów niestandardowych dla przepływów rejestracji samoobsługowej](user-flow-add-custom-attributes.md).
 
 > [!TIP] 
-> [**tożsamości ("tożsamości")**](https://docs.microsoft.com/graph/api/resources/objectidentity?view=graph-rest-1.0) oraz oświadczenia **adresu e-mail ("email_address")** mogą służyć do identyfikowania użytkownika przed utworzeniem konta w dzierżawie. W przypadku, gdy użytkownik uwierzytelnia się za pomocą usługi Google lub Facebook, a element "email_address" jest zawsze wysyłany, jest wysyłane zgłoszenie "tożsamości".
+> [**tożsamości ("tożsamości")**](https://docs.microsoft.com/graph/api/resources/objectidentity?view=graph-rest-1.0) oraz oświadczenia **adresu e-mail ("e-mail")** mogą służyć do identyfikowania użytkownika przed utworzeniem konta w dzierżawie. W przypadku, gdy użytkownik uwierzytelnia się za pomocą usługi Google lub Facebook, a adres e-mail jest zawsze wysyłany, jest wysyłane zgłoszenie tożsamości.
 
 ## <a name="expected-response-types-from-the-web-api"></a>Oczekiwane typy odpowiedzi z internetowego interfejsu API
 
@@ -135,16 +135,16 @@ Content-type: application/json
 
 | Parametr                                          | Typ              | Wymagane | Opis                                                                                                                                                                                                                                                                            |
 | -------------------------------------------------- | ----------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| version                                            | String            | Tak      | Wersja interfejsu API.                                                                                                                                                                                                                                                                |
-| action                                             | String            | Tak      | Wartość musi być `Continue` .                                                                                                                                                                                                                                                              |
+| version                                            | String (ciąg)            | Tak      | Wersja interfejsu API.                                                                                                                                                                                                                                                                |
+| akcja                                             | String (ciąg)            | Tak      | Wartość musi być `Continue` .                                                                                                                                                                                                                                                              |
 | \<builtInUserAttribute>                            | \<attribute-type> | Nie       | Wartości mogą być przechowywane w katalogu, jeśli zostały wybrane jako takie, **które mają zostać odebrane** w ramach konfiguracji łącznika interfejsu API i **atrybutów użytkownika** dla przepływu użytkownika. Wartości mogą być zwracane w tokenie, jeśli są wybrane jako **wnioski aplikacji**.                                              |
-| \<extension\_{extensions-app-id}\_CustomAttribute> | \<attribute-type> | Nie       | Zwróconego żądania nie można opcjonalnie zawierać `_<extensions-app-id>_` . Wartości są przechowywane w katalogu, jeśli zostały wybrane jako jako "jako" jako "jako" jako "jako" jako "jako" jako "jako" **jako jako rolę w** **atrybucie User** Connector dla przepływu użytkownika. Nie można ponownie wysłać atrybutów niestandardowych do tokenu. |
+| \<extension\_{extensions-app-id}\_CustomAttribute> | \<attribute-type> | Nie       | Zwróconego żądania nie musi zawierać `_<extensions-app-id>_` . Wartości są przechowywane w katalogu, jeśli zostały wybrane jako jako "jako" jako "jako" jako "jako" jako "jako" jako "jako" **jako jako rolę w** **atrybucie User** Connector dla przepływu użytkownika. Nie można ponownie wysłać atrybutów niestandardowych do tokenu. |
 
 ### <a name="blocking-response"></a>Zablokuj odpowiedź
 
 Zablokowanie odpowiedzi kończy przepływ użytkownika. Może być celowo wystawiony przez interfejs API, aby zatrzymać kontynuację przepływu użytkownika przez wyświetlenie strony blokowej dla użytkownika. Na stronie blok zostanie wyświetlona wartość `userMessage` dostarczone przez interfejs API.
 
-Poniżej przedstawiono przykład blokady odpowiedzi:
+Przykład odpowiedzi blokującej:
 
 ```http
 HTTP/1.1 200 OK
@@ -161,10 +161,10 @@ Content-type: application/json
 
 | Parametr   | Typ   | Wymagane | Opis                                                                |
 | ----------- | ------ | -------- | -------------------------------------------------------------------------- |
-| version     | String | Tak      | Wersja interfejsu API.                                                    |
-| action      | String | Tak      | Wartość musi być równa`ShowBlockPage`                                              |
-| userMessage | String | Tak      | Komunikat wyświetlany użytkownikowi.                                            |
-| kod        | String | Nie       | Kod błędu. Może służyć do celów debugowania. Niewidoczne dla użytkownika. |
+| version     | String (ciąg) | Tak      | Wersja interfejsu API.                                                    |
+| akcja      | String (ciąg) | Tak      | Wartość musi być równa`ShowBlockPage`                                              |
+| userMessage | String (ciąg) | Tak      | Komunikat wyświetlany użytkownikowi.                                            |
+| kod        | String (ciąg) | Nie       | Kod błędu. Może służyć do celów debugowania. Niewidoczne dla użytkownika. |
 
 #### <a name="end-user-experience-with-a-blocking-response"></a>Środowisko użytkownika końcowego z odpowiedzią blokującą
 
@@ -191,13 +191,13 @@ Content-type: application/json
 
 | Parametr   | Typ    | Wymagane | Opis                                                                |
 | ----------- | ------- | -------- | -------------------------------------------------------------------------- |
-| version     | String  | Tak      | Wersja interfejsu API.                                                    |
-| action      | String  | Tak      | Wartość musi być `ValidationError` .                                           |
+| version     | String (ciąg)  | Tak      | Wersja interfejsu API.                                                    |
+| akcja      | String (ciąg)  | Tak      | Wartość musi być `ValidationError` .                                           |
 | status      | Integer | Tak      | Musi być wartością `400` dla odpowiedzi ValidationError.                        |
-| userMessage | String  | Tak      | Komunikat wyświetlany użytkownikowi.                                            |
-| kod        | String  | Nie       | Kod błędu. Może służyć do celów debugowania. Niewidoczne dla użytkownika. |
+| userMessage | String (ciąg)  | Tak      | Komunikat wyświetlany użytkownikowi.                                            |
+| kod        | String (ciąg)  | Nie       | Kod błędu. Może służyć do celów debugowania. Niewidoczne dla użytkownika. |
 
-#### <a name="end-user-experience-with-a-validation-error-response"></a>Środowisko użytkownika końcowego ze sprawdzaniem poprawności — odpowiedź z błędami
+#### <a name="end-user-experience-with-a-validation-error-response"></a>Środowisko użytkownika końcowego z odpowiedzią na błędy weryfikacji
 
 ![Przykładowa strona walidacji](./media/api-connectors-overview/validation-error-postal-code.png)
 

@@ -6,17 +6,18 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 05/12/2017
 ms.author: rclaus
-ms.openlocfilehash: 253f2ab1b192d22f43e4082766adf4ec4f86fe71
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 65c0838c06207435934e36d421b2cafc12ee39bf
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78969249"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87029029"
 ---
 # <a name="common-azure-cli-commands-for-managing-azure-resources"></a>Typowe polecenia interfejsu wiersza polecenia platformy Azure do zarządzania zasobami platformy Azure
 
 Interfejs wiersza polecenia platformy Azure umożliwia tworzenie zasobów platformy Azure i zarządzanie nimi w systemach macOS, Linux i Windows. W tym artykule opisano niektóre typowe polecenia tworzenia maszyn wirtualnych i zarządzania nimi.
 
-Ten artykuł wymaga interfejsu wiersza polecenia platformy Azure w wersji 2.0.4 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli musisz przeprowadzić uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli). Możesz również użyć [Cloud Shell](/azure/cloud-shell/quickstart) z przeglądarki.
+Ten artykuł wymaga interfejsu wiersza polecenia platformy Azure w wersji 2.0.4 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli musisz przeprowadzić uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli). Możesz również użyć [Cloud Shell](../../cloud-shell/quickstart.md) z przeglądarki.
 
 ## <a name="basic-azure-resource-manager-commands-in-azure-cli"></a>Podstawowe polecenia usługi Azure Resource Manager w interfejsie wiersza polecenia platformy Azure
 Aby uzyskać bardziej szczegółową pomoc dotyczącą określonych przełączników wiersza polecenia i opcji, możesz użyć pomocy i opcji w trybie online, wpisując polecenie `az <command> <subcommand> --help` .
@@ -59,6 +60,3 @@ Aby uzyskać bardziej szczegółową pomoc dotyczącą określonych przełączni
 
 ## <a name="next-steps"></a>Następne kroki
 Aby uzyskać dodatkowe przykłady poleceń interfejsu wiersza polecenia, zobacz [Tworzenie maszyn wirtualnych z systemem Linux i zarządzanie nimi za pomocą samouczka interfejsu wiersza polecenia platformy Azure](tutorial-manage-vm.md) .
-
-
-

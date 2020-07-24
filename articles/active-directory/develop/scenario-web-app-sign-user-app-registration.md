@@ -8,14 +8,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 10/30/2019
+ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 7d2eb5356b1abc54508fd6bf8d35fd9fc39d02ec
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1adff446e6d41e30db109d0871811dc651f1f4f5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80881583"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87026263"
 ---
 # <a name="web-app-that-signs-in-users-app-registration"></a>Aplikacja sieci Web, która loguje się do użytkowników: Rejestracja aplikacji
 
@@ -40,9 +41,9 @@ Możesz użyć tych linków do uruchomienia uruchamiania aplikacji sieci Web:
 > Portal, który ma być używany, różni się w zależności od tego, czy aplikacja działa w Microsoft Azureej chmurze publicznej czy w chmurze krajowej lub suwerennej. Aby uzyskać więcej informacji, zobacz [chmury narodowe](./authentication-national-cloud.md#app-registration-endpoints).
 
 
-1. Zaloguj się do [Azure Portal](https://portal.azure.com) przy użyciu konta służbowego lub konto Microsoft prywatnego. Alternatywnie Zaloguj się do Azure Portal wyboru dla chmury krajowej.
-1. Jeśli Twoje konto zapewnia dostęp do więcej niż jednej dzierżawy, wybierz swoje konto w prawym górnym rogu. Następnie ustaw sesję portalu na żądaną dzierżawę usługi Azure Active Directory (Azure AD).
-1. W okienku po lewej stronie wybierz usługę **Azure Active Directory** a następnie wybierz pozycję **rejestracje aplikacji**  >  **Nowa rejestracja**.
+1. Zaloguj się do [Azure Portal](https://portal.azure.com) przy użyciu konta służbowego lub konto Microsoft prywatnego. Alternatywnie Zaloguj się do [Azure Portal wyboru](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud#app-registration-endpoints) dla chmury krajowej.
+2. Jeśli Twoje konto zapewnia dostęp do więcej niż jednej dzierżawy, wybierz swoje konto w prawym górnym rogu. Następnie ustaw sesję portalu na żądaną dzierżawę usługi Azure Active Directory (Azure AD).
+3. W okienku po lewej stronie wybierz usługę **Azure Active Directory** a następnie wybierz pozycję **rejestracje aplikacji**  >  **Nowa rejestracja**.
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
@@ -50,12 +51,14 @@ Możesz użyć tych linków do uruchomienia uruchamiania aplikacji sieci Web:
    1. Wybierz obsługiwane typy kont dla swojej aplikacji. (Zobacz [obsługiwane typy kont](./v2-supported-account-types.md)).
    1. W sekcji **Nazwa** wprowadź zrozumiałą nazwę aplikacji, która będzie wyświetlana użytkownikom aplikacji. Na przykład wprowadź **AspNetCore-webapp**.
    1. Dla **identyfikatora URI przekierowania**Dodaj typ aplikacji i miejsce docelowe identyfikatora URI, które będą akceptować zwrócone odpowiedzi na tokeny po pomyślnym uwierzytelnieniu. Na przykład wprowadź **https://localhost:44321** . Następnie wybierz pozycję **zarejestruj**.
+   ![zarejestrowany](media/scenario-webapp/scenario-webapp-app-registration-1.png)
 1. Wybierz menu **Uwierzytelnianie**, a następnie dodaj następujące informacje:
    1. Dla **adresu URL odpowiedzi**Dodaj **https://localhost:44321/signin-oidc** Typ **sieci Web**.
    1. W sekcji **Ustawienia zaawansowane** Ustaw **adres URL wylogowywania** na **https://localhost:44321/signout-oidc** .
    1. W obszarze **Niejawne przyznanie** wybierz pozycję **Tokeny identyfikatorów**.
    1. Wybierz pozycję **Zapisz**.
-
+  ![zarejestrowany](media/scenario-webapp/scenario-webapp-app-registration-2.png)
+ 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 
 1. Gdy zostanie wyświetlona **Strona Zarejestruj aplikację** , wprowadź informacje o rejestracji aplikacji:
@@ -116,7 +119,7 @@ Możesz użyć tych linków do uruchomienia uruchamiania aplikacji sieci Web:
 > - MyOrg (konta tylko w tym katalogu organizacji)
 > - AnyOrg (konta w dowolnym katalogu organizacyjnym)
 >
-> Możesz utworzyć aplikację, która loguje się do użytkowników przy użyciu osobistych kont Microsoft (na przykład Skype, Xbox lub Outlook.com). Najpierw Utwórz aplikację wielodostępną. Obsługiwane typy kont to konta w dowolnym katalogu organizacyjnym. Następnie zmień `signInAudience` Właściwość w manifeście aplikacji z Azure Portal. Aby uzyskać więcej informacji, zobacz [krok 1,3](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-3-AnyOrgOrPersonal#step-1-register-the-sample-with-your-azure-ad-tenant) w samouczku ASP.NET Core. Możesz uogólnić ten krok do aplikacji sieci Web w dowolnym języku.
+> Możesz utworzyć aplikację, która loguje się do użytkowników przy użyciu osobistych kont Microsoft (na przykład Skype, Xbox lub Outlook.com). Najpierw Utwórz aplikację wielodostępną. Obsługiwane typy kont to konta w dowolnym katalogu organizacyjnym. Następnie zmień [`accessTokenAcceptedVersion`](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest#accesstokenacceptedversion-attribute) Właściwość na wartość **2** i [`signInAudience`](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest#signinaudience-attribute) Właściwość na `AzureADandPersonalMicrosoftAccount` w [manifeście aplikacji](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest) z Azure Portal. Aby uzyskać więcej informacji, zobacz [krok 1,3](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-3-AnyOrgOrPersonal#step-1-register-the-sample-with-your-azure-ad-tenant) w samouczku ASP.NET Core. Możesz uogólnić ten krok do aplikacji sieci Web w dowolnym języku.
 
 ## <a name="next-steps"></a>Następne kroki
 

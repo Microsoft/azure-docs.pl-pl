@@ -3,15 +3,16 @@ title: Liczniki wydajności w Application Insights | Microsoft Docs
 description: Monitoruj system i niestandardowe liczniki wydajności .NET w Application Insights.
 ms.topic: conceptual
 ms.date: 12/13/2018
-ms.openlocfilehash: 274e02c484c091cbb13ac2cf69bf99672f579f33
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e60663d9e767db020fc93eba1f4c1c6babb32294
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83701469"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87024422"
 ---
 # <a name="system-performance-counters-in-application-insights"></a>Liczniki wydajności systemu w Application Insights
 
-W systemie Windows dostępne są różne [liczniki wydajności](https://docs.microsoft.com/windows/desktop/PerfCtrs/about-performance-counters), takie jak zajętości procesora CPU, pamięci, dysku i użycia sieci. Można także definiować własne liczniki wydajności. Zbieranie liczników wydajności jest obsługiwane, gdy aplikacja działa w ramach usług IIS na hoście lokalnym lub na maszynie wirtualnej, do której masz dostęp administracyjny. Chociaż aplikacje działające jako Azure Web Apps nie mają bezpośredniego dostępu do liczników wydajności, podzbiór dostępnych liczników jest zbierany przez Application Insights.
+W systemie Windows dostępne są różne [liczniki wydajności](/windows/desktop/perfctrs/about-performance-counters), takie jak zajętości procesora CPU, pamięci, dysku i użycia sieci. Można także definiować własne liczniki wydajności. Zbieranie liczników wydajności jest obsługiwane, gdy aplikacja działa w ramach usług IIS na hoście lokalnym lub na maszynie wirtualnej, do której masz dostęp administracyjny. Chociaż aplikacje działające jako Azure Web Apps nie mają bezpośredniego dostępu do liczników wydajności, podzbiór dostępnych liczników jest zbierany przez Application Insights.
 
 ## <a name="view-counters"></a>Wyświetl liczniki
 
@@ -39,7 +40,7 @@ Jeśli żądany licznik wydajności nie znajduje się na liście metryk, można 
 
     `Get-Counter -ListSet *`
 
-    (Zobacz [`Get-Counter`](https://technet.microsoft.com/library/hh849685.aspx) ).
+    (Zobacz [`Get-Counter`](/powershell/module/microsoft.powershell.diagnostics/get-counter?view=powershell-5.1) ).
 2. Otwórz ApplicationInsights.config.
 
    * Jeśli podczas projektowania dodano Application Insights do aplikacji, Edytuj ApplicationInsights.config w projekcie, a następnie wdróż go ponownie na serwerach.
@@ -108,7 +109,7 @@ using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector;
 ```
 
 ## <a name="performance-counters-in-analytics"></a>Liczniki wydajności w analizie
-W [analizie](../../azure-monitor/app/analytics.md)można wyszukiwać i wyświetlać raporty liczników wydajności.
+W [analizie](../log-query/log-query-overview.md)można wyszukiwać i wyświetlać raporty liczników wydajności.
 
 Schemat **liczniki wydajności** uwidacznia `category` , `counter` nazwę i `instance` nazwę każdego licznika wydajności.  W telemetrii dla każdej aplikacji zobaczysz tylko liczniki dla tej aplikacji. Na przykład, aby zobaczyć, jakie liczniki są dostępne: 
 
@@ -152,4 +153,3 @@ Podobnie jak w przypadku innych metryk, można [ustawić alert](../../azure-moni
 
 * [Śledzenie zależności](../../azure-monitor/app/asp-net-dependencies.md)
 * [Śledzenie wyjątków](../../azure-monitor/app/asp-net-exceptions.md)
-

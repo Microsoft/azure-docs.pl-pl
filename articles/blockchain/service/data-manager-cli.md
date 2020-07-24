@@ -4,12 +4,12 @@ description: Tworzenie Data Manager łańcucha bloków dla usługi Azure łańcu
 ms.date: 03/30/2020
 ms.topic: how-to
 ms.reviewer: ravastra
-ms.openlocfilehash: b7b897f35cb864e2a1fa904bbb3ec13b56986598
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f067f4413f6ad8541cd36a7581f9243bed4e195f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85200464"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87023742"
 ---
 # <a name="configure-blockchain-data-manager-using-azure-cli"></a>Konfigurowanie menedżera danych łańcucha bloków przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -25,7 +25,7 @@ Aby skonfigurować wystąpienie Data Manager łańcucha bloków:
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Zainstaluj najnowszy [interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) i zaloguj się przy użyciu programu `az login` .
+* Zainstaluj najnowszy [interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli) i zaloguj się przy użyciu programu `az login` .
 * Kończenie [szybkiego startu: użyj Visual Studio Code, aby nawiązać połączenie z siecią konsorcjum usługi Azure łańcucha bloków](connect-vscode.md). W przypadku korzystania z usługi łańcucha bloków Data Manager zaleca się użycie warstwy *Standard* usług Azure łańcucha bloków.
 * Tworzenie [tematu Event Grid](../../event-grid/custom-event-quickstart-portal.md#create-a-custom-topic)
 * Informacje o [obsłudze zdarzeń w Azure Event Grid](../../event-grid/event-handlers.md)
@@ -36,11 +36,11 @@ Usługa Azure Cloud Shell to bezpłatna interaktywna powłoka, której możesz u
 
 Aby otworzyć usługę Cloud Shell, wybierz pozycję **Wypróbuj** w prawym górnym rogu bloku kodu. Cloud Shell można również uruchomić na osobnej karcie przeglądarki, przechodząc do [https://shell.azure.com/bash](https://shell.azure.com/bash) . Wybierz przycisk **Kopiuj**, aby skopiować bloki kodu, wklej je do usługi Cloud Shell, a następnie naciśnij klawisz Enter, aby je uruchomić.
 
-Jeśli wolisz zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten przewodnik Szybki Start będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.0.51 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczne jest zainstalowanie lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Jeśli wolisz zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten przewodnik Szybki Start będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.0.51 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczne jest zainstalowanie lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
 
 ## <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 
-Utwórz grupę zasobów za pomocą polecenia [az group create](https://docs.microsoft.com/cli/azure/group). Grupa zasobów platformy Azure to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure i zarządzania nimi. Poniższy przykład tworzy grupę zasobów o nazwie Moja *zasobów* w lokalizacji *Wschodnie* :
+Utwórz grupę zasobów za pomocą polecenia [az group create](/cli/azure/group). Grupa zasobów platformy Azure to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure i zarządzania nimi. Poniższy przykład tworzy grupę zasobów o nazwie Moja *zasobów* w lokalizacji *Wschodnie* :
 
 ```azurecli-interactive
 az group create --name myRG --location eastus
@@ -347,7 +347,7 @@ az resource invoke-action \
 
 | Parametr | Opis |
 |-----------|-------------|
-| action | Uruchom obserwatora przy użyciu **menu Start** . |
+| akcja | Uruchom obserwatora przy użyciu **menu Start** . |
 | identyfikatory | Identyfikator zasobu obserwatora. Zastąp \<Subscription ID\> \<Resource group\> wartości, i \<Watcher name\> wartościami dla zasobu obserwatora.|
 
 ### <a name="start-instance-example"></a>Przykład uruchomienia wystąpienia
@@ -372,7 +372,7 @@ az resource invoke-action \
 
 | Parametr | Opis |
 |-----------|-------------|
-| action | Użyj **Zatrzymaj** , aby zatrzymać obserwatora. |
+| akcja | Użyj **Zatrzymaj** , aby zatrzymać obserwatora. |
 | identyfikatory | Nazwa obserwatora. Zastąp \<Subscription ID\> \<Resource group\> wartości, i \<Watcher name\> wartościami dla zasobu obserwatora. |
 
 ### <a name="stop-watcher-example"></a>Zatrzymywanie przykładu obserwatora

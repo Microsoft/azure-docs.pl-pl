@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 763e948f58dfc76c3aa7ba67f461438fc752c689
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 62a30fada32a23546323dae34f875ab9c7da228c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86135286"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87028553"
 ---
 # <a name="azure-performance-diagnostics-vm-extension-for-windows"></a>Rozszerzenie maszyny wirtualnej diagnostyki wydajności platformy Azure dla systemu Windows
 
@@ -233,7 +233,7 @@ Narzędzie że program perfinsights zbiera różne dzienniki, konfigurację i da
 
 ## <a name="view-and-share-the-results"></a>Wyświetlanie i udostępnianie wyników
 
-Dane wyjściowe z rozszerzenia można znaleźć w pliku zip, który został przekazany do konta magazynu określonego podczas instalacji i jest udostępniany przez 30 dni przy użyciu [sygnatur dostępu współdzielonego (SAS)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md). Ten plik zip zawiera dzienniki diagnostyczne i Raport z wynikami i zaleceniami. Link sygnatury dostępu współdzielonego do wyjściowego pliku zip można znaleźć w pliku tekstowym o nazwie *zipfilename*_saslink.txt w **folderze \\ \<version> C:\Packages\Plugins\Microsoft.Azure.Performance.Diagnostics.AzurePerformanceDiagnostics**. Każdy, kto ma ten link, może pobrać plik zip.
+Dane wyjściowe z rozszerzenia można znaleźć w pliku zip, który został przekazany do konta magazynu określonego podczas instalacji i jest udostępniany przez 30 dni przy użyciu [sygnatur dostępu współdzielonego (SAS)](../../storage/common/storage-sas-overview.md). Ten plik zip zawiera dzienniki diagnostyczne i Raport z wynikami i zaleceniami. Link sygnatury dostępu współdzielonego do wyjściowego pliku zip można znaleźć w pliku tekstowym o nazwie *zipfilename*_saslink.txt w **folderze \\ \<version> C:\Packages\Plugins\Microsoft.Azure.Performance.Diagnostics.AzurePerformanceDiagnostics**. Każdy, kto ma ten link, może pobrać plik zip.
 
 Aby pomóc inżynierowi pomocy technicznej w pracy nad biletem pomocy technicznej, firma Microsoft może używać tego linku SAS do pobierania danych diagnostycznych.
 

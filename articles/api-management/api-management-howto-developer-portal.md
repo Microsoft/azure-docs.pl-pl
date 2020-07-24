@@ -11,14 +11,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 03/15/2020
+ms.date: 07/15/2020
 ms.author: apimpm
-ms.openlocfilehash: ecbd4d97bb092ccbdb286e4865bf04e770ca9473
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7d479f18e8764a69cdc81f99d723534e4895b0e4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85207893"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87025085"
 ---
 # <a name="azure-api-management-developer-portal-overview"></a>Portal deweloperów API Management platformy Azure — omówienie
 
@@ -29,6 +29,9 @@ W tym artykule opisano różnice między samodzielnymi i zarządzanymi wersjami 
 ![Portal dla deweloperów API Management](media/api-management-howto-developer-portal/cover.png)
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
+
+> [!NOTE]
+> <a name="migrate-from-legacy"></a>Nowy portal dla deweloperów jest niezgodny z starszym portalem deweloperów i zautomatyzowana migracja nie jest możliwa. Musisz ręcznie odtworzyć zawartość (strony, tekst, pliki multimedialne) i dostosować wygląd nowego portalu. Aby uzyskać wskazówki, zapoznaj się z [samouczkiem](api-management-howto-developer-portal-customize.md) dotyczącym portalu dla deweloperów.
 
 ## <a name="managed-and-self-hosted-versions"></a><a name="managed-vs-self-hosted"></a>Zarządzane i samodzielne wersje
 
@@ -82,19 +85,13 @@ Jeśli nie chcesz resetować zawartości portalu, możesz rozważyć użycie now
 
 Jeśli Twój portal został zainicjowany po ogólnym ogłoszeniu dostępności, powinien już obsługiwać nową zawartość domyślną. Nie jest wymagana żadna akcja ze strony użytkownika.
 
-### <a name="how-can-i-migrate-from-the-old-developer-portal-to-the-developer-portal"></a>Jak przeprowadzić migrację ze starego portalu dla deweloperów do portalu dla deweloperów?
-
-Portale nie są zgodne i należy przeprowadzić migrację zawartości ręcznie.
-
-### <a name="does-the-portal-have-all-the-features-of-the-old-portal"></a>Czy Portal ma wszystkie funkcje starego portalu?
+### <a name="does-the-portal-have-all-the-features-of-the-legacy-portal"></a>Czy Portal ma wszystkie funkcje starszej wersji portalu?
 
 Portal dla deweloperów nie obsługuje już *aplikacji* i *problemów*.
 
-Uwierzytelnianie za pomocą protokołu OAuth w interaktywnej konsoli dewelopera nie jest jeszcze obsługiwane. Postęp można śledzić w ramach [problemu usługi GitHub](https://github.com/Azure/api-management-developer-portal/issues/208).
+### <a name="has-the-legacy-portal-been-deprecated"></a>Czy starszy Portal jest przestarzały?
 
-### <a name="has-the-old-portal-been-deprecated"></a>Czy stary Portal jest przestarzały?
-
-Stary Portal deweloperów i wydawców ma teraz *starsze* funkcje — będą otrzymywać tylko aktualizacje zabezpieczeń. Nowe funkcje zostaną zaimplementowane tylko w nowym portalu dla deweloperów.
+Starsze portale deweloperów i wydawców są teraz *starsze* dla funkcji — będą otrzymywać tylko aktualizacje zabezpieczeń. Nowe funkcje zostaną zaimplementowane tylko w nowym portalu dla deweloperów.
 
 Wycofanie starszych portali zostanie ogłoszone osobno. Jeśli masz pytania, wątpliwości lub komentarze, zgłoś je [w ramach dedykowanego problemu usługi GitHub](https://github.com/Azure/api-management-developer-portal/issues/121).
 

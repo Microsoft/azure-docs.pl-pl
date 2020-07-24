@@ -1,5 +1,6 @@
 ---
 title: Informacje o manifeście aplikacji Azure Active Directory
+titleSuffix: Microsoft identity platform
 description: Szczegółowy zakres manifestu aplikacji Azure Active Directory, który reprezentuje konfigurację tożsamości aplikacji w dzierżawie usługi Azure AD i służy do ułatwienia autoryzacji uwierzytelniania OAuth, środowiska zgody i nie tylko.
 services: active-directory
 author: rwike77
@@ -12,18 +13,18 @@ ms.date: 04/15/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: sureshja
-ms.openlocfilehash: e31c2c69e36b97f5584ee32e6c452525389f7f42
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ba490a1e88a242f19daf1a74fe38f02e659571da
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85479253"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87026751"
 ---
 # <a name="azure-active-directory-app-manifest"></a>Manifest aplikacji usługi Azure Active Directory
 
-Manifest aplikacji zawiera definicję wszystkich atrybutów obiektu aplikacji na platformie tożsamości firmy Microsoft. Służy również jako mechanizm aktualizowania obiektu aplikacji. Aby uzyskać więcej informacji na temat jednostki aplikacji i jej schematu, zobacz [dokumentację jednostki aplikacji interfejs API programu Graph](https://docs.microsoft.com/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#application-entity).
+Manifest aplikacji zawiera definicję wszystkich atrybutów obiektu aplikacji na platformie tożsamości firmy Microsoft. Służy również jako mechanizm aktualizowania obiektu aplikacji. Aby uzyskać więcej informacji na temat jednostki aplikacji i jej schematu, zobacz [dokumentację jednostki aplikacji interfejs API programu Graph](/graph/api/resources/application).
 
-Atrybuty aplikacji można skonfigurować za pomocą Azure Portal lub programowo przy użyciu [interfejsu API REST](https://docs.microsoft.com/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#application-entity) lub [programu PowerShell](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#applications). Istnieje jednak kilka scenariuszy, w których należy edytować manifest aplikacji w celu skonfigurowania atrybutu aplikacji. Scenariusze obejmują:
+Atrybuty aplikacji można skonfigurować za pomocą Azure Portal lub programowo przy użyciu [interfejsu API REST](/graph/api/resources/application) lub [programu PowerShell](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#applications). Istnieje jednak kilka scenariuszy, w których należy edytować manifest aplikacji w celu skonfigurowania atrybutu aplikacji. Scenariusze obejmują:
 
 * Jeśli aplikacja została zarejestrowana jako usługa Azure AD z wieloma dzierżawcami i osobistymi kontami Microsoft, nie można zmienić obsługiwanych kont Microsoft w interfejsie użytkownika. Zamiast tego należy użyć edytora manifestu aplikacji, aby zmienić obsługiwany typ konta.
 * Jeśli konieczne jest zdefiniowanie uprawnień i ról obsługiwanych przez aplikację, należy zmodyfikować manifest aplikacji.
@@ -32,7 +33,7 @@ Atrybuty aplikacji można skonfigurować za pomocą Azure Portal lub programowo 
 
 Aby skonfigurować manifest aplikacji:
 
-1. Przejdź do [Azure Portal](https://portal.azure.com). Wyszukaj i wybierz usługę **Azure Active Directory** .
+1. Przejdź do witryny [Azure Portal](https://portal.azure.com). Wyszukaj i wybierz usługę **Azure Active Directory** .
 1. Wybierz pozycję **Rejestracje aplikacji**.
 1. Wybierz aplikację, którą chcesz skonfigurować.
 1. Na stronie **Przegląd** aplikacji wybierz sekcję **Manifest**. Zostanie otwarty Edytor manifestu oparty na sieci Web, który umożliwia edytowanie manifestu w portalu. Opcjonalnie możesz wybrać pozycję **Pobierz** , aby edytować manifest lokalnie, a następnie użyć opcji **Przekaż** , aby ponownie zastosować ją do aplikacji.
@@ -45,7 +46,7 @@ W tej sekcji opisano atrybuty znalezione w manifeście aplikacji.
 
 | Klucz | Typ wartości |
 | :--- | :--- |
-| identyfikator | String |
+| identyfikator | String (ciąg) |
 
 Unikatowy identyfikator aplikacji w katalogu. Ten identyfikator nie jest identyfikatorem używanym do identyfikowania aplikacji w żadnej transakcji protokołu. Służy do odwoływania się do obiektu w zapytaniach w katalogu.
 
@@ -104,7 +105,7 @@ Przykład:
 
 | Klucz | Typ wartości |
 | :--- | :--- |
-| allowPublicClient | Boolean |
+| allowPublicClient | Boolean (wartość logiczna) |
 
 Określa typ aplikacji rezerwowej. Usługa Azure AD domyślnie wnioskuje typ aplikacji z replyUrlsWithType. Istnieją pewne scenariusze, w których usługa Azure AD nie może określić typu aplikacji klienta. Na przykład, taki scenariusz to [ROPC](https://tools.ietf.org/html/rfc6749#section-4.3) , gdzie żądanie HTTP odbywa się bez przekierowania adresu URL. W takich przypadkach usługa Azure AD interpretuje typ aplikacji na podstawie wartości tej właściwości. Jeśli ta wartość jest równa true, typ aplikacji rezerwowej jest ustawiany jako klient publiczny, taki jak zainstalowana aplikacja uruchomiona na urządzeniu przenośnym. Wartość domyślna to false, co oznacza, że rezerwowy typ aplikacji to poufny klient, taki jak aplikacja sieci Web.
 
@@ -118,7 +119,7 @@ Przykład:
 
 | Klucz | Typ wartości |
 | :--- | :--- |
-| availableToOtherTenants | Boolean |
+| availableToOtherTenants | Boolean (wartość logiczna) |
 
 Ustaw wartość PRAWDA, jeśli aplikacja jest udostępniana innym dzierżawcom; w przeciwnym razie false.
 
@@ -129,7 +130,7 @@ Ustaw wartość PRAWDA, jeśli aplikacja jest udostępniana innym dzierżawcom; 
 
 | Klucz | Typ wartości |
 | :--- | :--- |
-| appId | String |
+| appId | String (ciąg) |
 
 Określa unikatowy identyfikator aplikacji przypisanej do aplikacji przez usługę Azure AD.
 
@@ -168,7 +169,7 @@ Przykład:
 
 | Klucz | Typ wartości |
 | :--- | :--- |
-| displayName | String |
+| displayName | String (ciąg) |
 
 Nazwa wyświetlana aplikacji.
 
@@ -179,7 +180,7 @@ Nazwa wyświetlana aplikacji.
 
 | Klucz | Typ wartości |
 | :--- | :--- |
-| errorUrl | String |
+| errorUrl | String (ciąg) |
 
 Ich.
 
@@ -187,7 +188,7 @@ Ich.
 
 | Klucz | Typ wartości |
 | :--- | :--- |
-|groupMembershipClaims | String |
+|groupMembershipClaims | String (ciąg) |
 
 Konfiguruje `groups` w tokenie dostępu użytkownika lub OAuth 2,0, który oczekuje aplikacja. Aby ustawić ten atrybut, należy użyć jednej z następujących prawidłowych wartości ciągu:
 
@@ -205,7 +206,7 @@ Przykład:
 
 | Klucz | Typ wartości |
 | :--- | :--- |
-| głównej |String |
+| głównej |String (ciąg) |
 
 Adres URL strony głównej aplikacji.
 
@@ -216,7 +217,7 @@ Adres URL strony głównej aplikacji.
 
 | Klucz | Typ wartości |
 | :--- | :--- |
-|Obiektu | String |
+|Obiektu | String (ciąg) |
 
 Unikatowy identyfikator aplikacji w katalogu.
 
@@ -232,7 +233,7 @@ Przykład:
 
 | Klucz | Typ wartości |
 | :--- | :--- |
-| optionalClaims | String |
+| optionalClaims | String (ciąg) |
 
 Opcjonalne oświadczenia zwracane w tokenie przez usługę tokenu zabezpieczającego dla tej konkretnej aplikacji.
 
@@ -264,7 +265,7 @@ Przykład:
 
 | Klucz | Typ wartości |
 | :--- | :--- |
-| informationalUrls | String |
+| informationalUrls | String (ciąg) |
 
 Określa linki do warunków użytkowania i zasad zachowania poufności informacji aplikacji. Warunki użytkowania usługi i zasady zachowania poufności informacji są udostępniane użytkownikom za pomocą funkcji wyrażania zgody użytkownika. Aby uzyskać więcej informacji, zobacz [jak: Dodawanie warunków użytkowania i zasad zachowania poufności informacji dla zarejestrowanych aplikacji usługi Azure AD](howto-add-terms-of-service-privacy-statement.md).
 
@@ -321,7 +322,7 @@ Przykład:
 
 | Klucz | Typ wartości |
 | :--- | :--- |
-| logoUrl | String |
+| logoUrl | String (ciąg) |
 
 Wartość tylko do odczytu wskazująca adres URL usługi CDN na logo, które zostało przekazane w portalu.
 
@@ -335,7 +336,7 @@ Przykład:
 
 | Klucz | Typ wartości |
 | :--- | :--- |
-| logoutUrl | String |
+| logoutUrl | String (ciąg) |
 
 Adres URL do wylogowania z aplikacji.
 
@@ -349,7 +350,7 @@ Przykład:
 
 | Klucz | Typ wartości |
 | :--- | :--- |
-| name | String |
+| name | String (ciąg) |
 
 Nazwa wyświetlana aplikacji.
 
@@ -363,7 +364,7 @@ Przykład:
 
 | Klucz | Typ wartości |
 | :--- | :--- |
-| oauth2AllowImplicitFlow | Boolean |
+| oauth2AllowImplicitFlow | Boolean (wartość logiczna) |
 
 Określa, czy ta aplikacja sieci Web może żądać niejawnych tokenów dostępu protokołu OAuth 2.0. Wartością domyślną jest false. Ta flaga jest używana w przypadku aplikacji opartych na przeglądarce, takich jak aplikacje jednostronicowe języka JavaScript. Aby dowiedzieć się więcej, wprowadź `OAuth 2.0 implicit grant flow` w spisie treści i zobacz tematy dotyczące przepływu niejawnego.
 
@@ -377,7 +378,7 @@ Przykład:
 
 | Klucz | Typ wartości |
 | :--- | :--- |
-| oauth2AllowIdTokenImplicitFlow | Boolean |
+| oauth2AllowIdTokenImplicitFlow | Boolean (wartość logiczna) |
 
 Określa, czy ta aplikacja sieci Web może żądać niejawnych tokenów identyfikatora przepływu OAuth 2.0. Wartością domyślną jest false. Ta flaga jest używana w przypadku aplikacji opartych na przeglądarce, takich jak aplikacje jednostronicowe języka JavaScript.
 
@@ -416,7 +417,7 @@ Przykład:
 
 | Klucz | Typ wartości |
 | :--- | :--- |
-| oauth2RequiredPostResponse | Boolean |
+| oauth2RequiredPostResponse | Boolean (wartość logiczna) |
 
 Określa, czy w ramach żądania tokenu OAuth 2,0 usługa Azure AD będzie zezwalać na żądania POST, w przeciwieństwie do żądań GET. Wartość domyślna to false, co oznacza, że dozwolone są tylko żądania GET.
 
@@ -430,10 +431,10 @@ Przykład:
 
 | Klucz | Typ wartości |
 | :--- | :--- |
-| parentalControlSettings | String |
+| parentalControlSettings | String (ciąg) |
 
 - `countriesBlockedForMinors`Określa kraje/regiony, w których aplikacja jest zablokowana dla małoletnich.
-- `legalAgeGroupRule`Określa regułę grupy wieku prawnego, która ma zastosowanie do użytkowników aplikacji. Można ustawić na `Allow` , `RequireConsentForPrivacyServices` ,, `RequireConsentForMinors` `RequireConsentForKids` lub `BlockMinors` .  
+- `legalAgeGroupRule`Określa regułę grupy wieku prawnego, która ma zastosowanie do użytkowników aplikacji. Można ustawić na `Allow` , `RequireConsentForPrivacyServices` ,, `RequireConsentForMinors` `RequireConsentForKids` lub `BlockMinors` .
 
 Przykład:
 
@@ -491,9 +492,9 @@ Przykład:
 
 | Klucz | Typ wartości |
 | :--- | :--- |
-| publicClient | Boolean|
+| publicClient | Boolean (wartość logiczna)|
 
-Określa, czy ta aplikacja jest klientem publicznym (na przykład zainstalowaną aplikacją uruchomioną na urządzeniu przenośnym). 
+Określa, czy ta aplikacja jest klientem publicznym (na przykład zainstalowaną aplikacją uruchomioną na urządzeniu przenośnym).
 
 Ta właściwość jest dostępna tylko w środowisku **rejestracje aplikacji (starsza wersja)** . Zastąpione przez `allowPublicClient` środowisko [rejestracje aplikacji](https://go.microsoft.com/fwlink/?linkid=2083908) .
 
@@ -501,7 +502,7 @@ Ta właściwość jest dostępna tylko w środowisku **rejestracje aplikacji (st
 
 | Klucz | Typ wartości |
 | :--- | :--- |
-| publisherDomain | String |
+| publisherDomain | String (ciąg) |
 
 Zweryfikowana domena wydawcy dla aplikacji. Tylko do odczytu.
 
@@ -576,7 +577,7 @@ Przykład:
 
 | Klucz | Typ wartości |
 | :--- | :--- |
-| samlMetadataUrl | String |
+| samlMetadataUrl | String (ciąg) |
 
 Adres URL metadanych SAML dla aplikacji.
 
@@ -590,7 +591,7 @@ Przykład:
 
 | Klucz | Typ wartości |
 | :--- | :--- |
-| signInUrl | String |
+| signInUrl | String (ciąg) |
 
 Określa adres URL strony głównej aplikacji.
 
@@ -604,7 +605,7 @@ Przykład:
 
 | Klucz | Typ wartości |
 | :--- | :--- |
-| signInAudience | String |
+| signInAudience | String (ciąg) |
 
 Określa, jakie konta Microsoft są obsługiwane przez bieżącą aplikację. Obsługiwane są następujące wartości:
 - `AzureADMyOrg`-Użytkownicy z kontem służbowym firmy Microsoft w dzierżawie usługi Azure AD w organizacji (na przykład z jedną dzierżawą)
@@ -669,7 +670,7 @@ Podczas próby przekazania wcześniej pobranego manifestu może zostać wyświet
 
 Po wyświetleniu jednego z tych błędów zalecamy wykonanie następujących czynności:
 
-1. Edytuj atrybuty osobno w edytorze manifestu zamiast przekazywania wcześniej pobranego manifestu. Użyj tabeli [referencyjnej manifestu](#manifest-reference) , aby zrozumieć składnię i semantykę starych i nowych atrybutów, dzięki czemu możesz pomyślnie edytować interesujące Cię atrybuty. 
+1. Edytuj atrybuty osobno w edytorze manifestu zamiast przekazywania wcześniej pobranego manifestu. Użyj tabeli [referencyjnej manifestu](#manifest-reference) , aby zrozumieć składnię i semantykę starych i nowych atrybutów, dzięki czemu możesz pomyślnie edytować interesujące Cię atrybuty.
 1. Jeśli przepływ pracy wymaga zapisania manifestów w repozytorium źródłowym na potrzeby późniejszego użycia, sugerujemy oparcie zapisanych manifestów w repozytorium z tym, co widzisz w **rejestracje aplikacji** środowisku.
 
 ## <a name="next-steps"></a>Następne kroki

@@ -9,11 +9,12 @@ ms.subservice: management
 ms.date: 03/10/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: 9498babd9605c46d752c5fe1eb1b077f6d911351
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f7a61ed039a3d8ed643e3b1b3d79384e35847986
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83121018"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87029301"
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>Modify a virtual machine scale set (Modyfikowanie zestawu skalowania maszyn wirtualnych)
 
@@ -319,13 +320,13 @@ Istnieje jeden typ modyfikacji właściwości globalnego zestawu skalowania, kt�
     POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/reimage?api-version={apiVersion}
     ```
 
-- Azure PowerShell z opcją [Set-AzVmssVm](https://docs.microsoft.com/powershell/module/az.compute/set-azvmssvm):
+- Azure PowerShell z opcją [Set-AzVmssVm](/powershell/module/az.compute/set-azvmssvm):
 
     ```powershell
     Set-AzVmssVM -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId -Reimage
     ```
 
-- Interfejs wiersza polecenia platformy Azure z programem [AZ VMSS Reimage](https://docs.microsoft.com/cli/azure/vmss):
+- Interfejs wiersza polecenia platformy Azure z programem [AZ VMSS Reimage](/cli/azure/vmss):
 
     ```azurecli
     az vmss reimage --resource-group myResourceGroup --name myScaleSet --instance-id instanceId
@@ -368,12 +369,12 @@ Jeśli aplikacja jest wdrażana w zestawie skalowania za pomocą rozszerzeń, ak
 Jest ona również powszechna w przypadku aplikacji wdrażanych za pomocą obrazu niestandardowego. Ten scenariusz został omówiony w poniższej sekcji.
 
 ### <a name="os-updates"></a>Aktualizacje systemu operacyjnego
-Jeśli używasz obrazów platformy Azure, możesz zaktualizować obraz, modyfikując *elementu imagereference* (więcej informacji, zobacz [dokumentację interfejsu API REST](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate)).
+Jeśli używasz obrazów platformy Azure, możesz zaktualizować obraz, modyfikując *elementu imagereference* (więcej informacji, zobacz [dokumentację interfejsu API REST](/rest/api/compute/virtualmachinescalesets/createorupdate)).
 
 >[!NOTE]
 > W przypadku obrazów platformy często określono "najnowszą" wersję odwołania do obrazu. Podczas tworzenia, skalowania w poziomie i odtwarzanie obrazu maszyny wirtualne są tworzone z najnowszą dostępną wersją. **Nie oznacza to** jednak, że obraz systemu operacyjnego jest automatycznie aktualizowany w miarę upływu czasu, gdy zostaną wydane nowe wersje obrazu. Oddzielna funkcja jest obecnie dostępna w wersji zapoznawczej, która umożliwia automatyczne uaktualnianie systemu operacyjnego. Aby uzyskać więcej informacji, zobacz [dokumentację automatycznych uaktualnień systemu operacyjnego](virtual-machine-scale-sets-automatic-upgrade.md).
 
-W przypadku używania obrazów niestandardowych można zaktualizować obraz, aktualizując identyfikator *elementu imagereference* (więcej informacji znajduje się w [dokumentacji interfejsu API REST](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate)).
+W przypadku używania obrazów niestandardowych można zaktualizować obraz, aktualizując identyfikator *elementu imagereference* (więcej informacji znajduje się w [dokumentacji interfejsu API REST](/rest/api/compute/virtualmachinescalesets/createorupdate)).
 
 ## <a name="examples"></a>Przykłady
 

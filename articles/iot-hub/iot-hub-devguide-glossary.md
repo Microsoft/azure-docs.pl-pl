@@ -11,12 +11,12 @@ ms.date: 01/15/2019
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 78899f44ba6610f17d19b025f61d968a629c8ad6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2b7a81357cc6ee2608d2acd3051dcac3e5d0e07e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85565885"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87023470"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>Słownik warunków IoT Hub
 
@@ -58,13 +58,13 @@ Istnieją _zestawy SDK usługi_ dostępne dla wielu języków, które umożliwia
 
 [Narzędzia Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) to międzyplatformowe rozszerzenie Visual Studio Code typu open-source, które ułatwia zarządzanie usługą Azure IoT Hub i urządzeniami w vs Code. Korzystając z narzędzi Azure IoT Tools, deweloperzy IoT mogą łatwo opracowywać projekt IoT w VS Code.
 
-## <a name="azure-portal"></a>Azure Portal
+## <a name="azure-portal"></a>Witryna Azure Portal
 
 [Microsoft Azure Portal](https://portal.azure.com) to centralne miejsce, w którym można zainicjować obsługę zasobów platformy Azure i zarządzać nimi. Organizuje swoją _zawartość przy użyciu_bloków.
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
-[Azure PowerShell](/powershell/azure/overview) to zbiór poleceń cmdlet służących do zarządzania platformą Azure przy użyciu programu Windows PowerShell. Za pomocą poleceń cmdlet można tworzyć, testować i wdrażać rozwiązania i usługi dostarczane za pomocą platformy Azure oraz zarządzać nimi.
+[Azure PowerShell](/powershell/azure/) to zbiór poleceń cmdlet służących do zarządzania platformą Azure przy użyciu programu Windows PowerShell. Za pomocą poleceń cmdlet można tworzyć, testować i wdrażać rozwiązania i usługi dostarczane za pomocą platformy Azure oraz zarządzać nimi.
 
 ## <a name="azure-resource-manager"></a>Azure Resource Manager
 
@@ -178,7 +178,7 @@ Inicjowanie obsługi administracyjnej urządzeń polega na dodaniu początkowych
 
 [Metoda bezpośrednia](iot-hub-devguide-direct-methods.md) to sposób wyzwalania metody do wykonania na urządzeniu przez wywołanie interfejsu API w centrum IoT.
 
-## <a name="endpoint"></a>Endpoint
+## <a name="endpoint"></a>Punkt końcowy
 
 Centrum IoT udostępnia wiele [punktów końcowych](iot-hub-devguide-endpoints.md) , które umożliwiają aplikacjom łączenie się z usługą IoT Hub. Istnieją punkty końcowe dostępne dla urządzeń, które umożliwiają urządzeniom wykonywanie operacji, takich jak wysyłanie komunikatów [z urządzenia do chmury](#device-to-cloud) i otrzymywanie komunikatów [z chmury do urządzenia](#cloud-to-device) . Istnieją punkty końcowe zarządzania dostępne w ramach usług, które umożliwiają [aplikacjom zaplecza](#back-end-app) wykonywanie operacji, takich jak zarządzanie [tożsamościami urządzeń](#device-identity) i zarządzanie firmowymi urządzeniami. Istnieją [wbudowane punkty końcowe](#built-in-endpoints) dostępne w ramach usług służące do odczytywania komunikatów z urządzenia do chmury. Można utworzyć [niestandardowe punkty końcowe](#custom-endpoints) , aby odbierać komunikaty z urządzenia do chmury wysyłane przez [regułę routingu](#routing-rules).
 
@@ -212,7 +212,7 @@ Komunikat interaktywny to komunikat z [chmury do urządzenia](#cloud-to-device) 
 
 [!INCLUDE [azure-iot-hub-edge-glossary-includes](../../includes/azure-iot-hub-edge-glossary-includes.md)]
 
-## <a name="iot-hub"></a>Usługa IoT Hub
+## <a name="iot-hub"></a>IoT Hub
 
 IoT Hub to w pełni zarządzana usługa platformy Azure, która umożliwia niezawodne i bezpieczne komunikację dwukierunkową między milionami urządzeń i zapleczem rozwiązania. Aby uzyskać więcej informacji, zobacz [co to jest platforma Azure IoT Hub?](about-iot-hub.md) Korzystając z [subskrypcji platformy Azure](#subscription), można utworzyć centra IoT do obsługi obciążeń związanych z wiadomościami IoT.
 

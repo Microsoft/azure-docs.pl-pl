@@ -4,16 +4,17 @@ description: Konfigurowanie testów wydajności i obciążenia przy użyciu usł
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.reviewer: sdash
-ms.openlocfilehash: 0bfb60b876add70be6cbcd3d726fb3317a8dfcf9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8885a2e511c11317f593706255437e52819adcae
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77669866"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87024354"
 ---
 # <a name="performance-testing"></a>Testowanie wydajności
 
 > [!NOTE]
-> Usługa testowania obciążenia opartego na chmurze została wycofana. Więcej informacji na temat wycofania, dostępności usługi i usług alternatywnych można znaleźć [tutaj](https://docs.microsoft.com/azure/devops/test/load-test/overview?view=azure-devops).
+> Usługa testowania obciążenia opartego na chmurze została wycofana. Więcej informacji na temat wycofania, dostępności usługi i usług alternatywnych można znaleźć [tutaj](/azure/devops/test/load-test/overview?view=azure-devops).
 
 Application Insights umożliwia generowanie testów obciążenia dla witryn sieci Web. Podobnie jak w przypadku [testów dostępności](monitor-web-app-availability.md), możesz wysyłać podstawowe żądania lub [żądania wieloetapowe](availability-multistep.md) z agentów testów platformy Azure na całym świecie. Testy wydajności umożliwiają symulowanie nawet 20 000 jednoczesnych użytkowników przez maksymalnie 60 minut.
 

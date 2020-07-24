@@ -5,17 +5,18 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 04/13/2020
+ms.date: 07/20/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 295738ee5943a6cf54bc7e1e3ce4bba621dbe29f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9861e8e8be39781ad1b256b9939df3ab03e74be6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84658684"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87027533"
 ---
 # <a name="manage-user-settings-for-azure-multi-factor-authentication"></a>Zarządzanie ustawieniami użytkownika dla usługi Azure Multi-Factor Authentication
 
@@ -23,10 +24,10 @@ Aby ułatwić zarządzanie użytkownikami usługi Azure Multi-Factor Authenticat
 
 ## <a name="manage-user-authentication-options"></a>Zarządzanie opcjami uwierzytelniania użytkownika
 
-Jeśli masz przypisaną rolę *administrator uwierzytelniania* , możesz wymagać od użytkowników zresetowania hasła, ponownego zarejestrowania się w usłudze MFA lub odwołania istniejących sesji usługi MFA z obiektu użytkownika. Aby zarządzać ustawieniami użytkownika, wykonaj następujące czynności:
+Jeśli masz przypisaną rolę *administrator uwierzytelniania* , możesz wymagać od użytkowników zresetowania hasła, ponownego zarejestrowania się w usłudze MFA lub odwołania istniejących sesji MFA z obiektu użytkownika. Aby zarządzać ustawieniami użytkownika, wykonaj następujące czynności:
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
-1. Po lewej stronie wybierz pozycję **Azure Active Directory**  >  **Użytkownicy**  >  **Wszyscy użytkownicy**.
+1. W obszarze po lewej stronie wybierz pozycję **Azure Active Directory** > **Użytkownicy** > **Wszyscy użytkownicy**.
 1. Wybierz użytkownika, na którym chcesz wykonać akcję, i wybierz pozycję **metody uwierzytelniania**. W górnej części okna, a następnie wybierz jedną z następujących opcji dla użytkownika:
    - **Zresetuj hasło resetuje** hasło użytkownika i przypisuje tymczasowe hasło, które należy zmienić przy następnym logowaniu.
    - **Wymagaj ponownej rejestracji usługi MFA** powoduje, że gdy użytkownik zaloguje się w następnym momencie, prosi o skonfigurowanie nowej metody uwierzytelniania MFA.
@@ -46,13 +47,13 @@ Aby usunąć hasła aplikacji użytkownika, wykonaj następujące czynności:
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 1. Po lewej stronie wybierz pozycję **Azure Active Directory**  >  **Użytkownicy**  >  **Wszyscy użytkownicy**.
-1. Wybierz **Multi-Factor Authentication**. Może być konieczne przewinięcie w prawo, aby wyświetlić tę opcję menu. Wybierz Poniższy przykładowy zrzut ekranu, aby zobaczyć pełne okno Azure Portal i lokalizację menu:[![](media/howto-mfa-userstates/selectmfa-cropped.png "Wybierz Multi-Factor Authentication z okna użytkowników w usłudze Azure AD")](media/howto-mfa-userstates/selectmfa.png#lightbox)
+1. Wybierz pozycję **Multi-Factor Authentication**. Może być konieczne przewinięcie w prawo, aby wyświetlić tę opcję menu. Wybierz Poniższy przykładowy zrzut ekranu, aby zobaczyć pełne okno Azure Portal i lokalizację menu:[![](media/howto-mfa-userstates/selectmfa-cropped.png "Wybierz Multi-Factor Authentication z okna użytkowników w usłudze Azure AD")](media/howto-mfa-userstates/selectmfa.png#lightbox)
 1. Zaznacz pole wyboru obok użytkownika lub użytkowników, którym chcesz zarządzać. Lista opcji szybkiego kroku pojawia się po prawej stronie.
 1. Wybierz pozycję **Zarządzaj ustawieniami użytkownika**, a następnie zaznacz pole wyboru **Usuń wszystkie istniejące hasła aplikacji wygenerowane przez wybranych użytkowników**, jak pokazano w następującym przykładzie: ![ Usuń wszystkie istniejące hasła aplikacji](./media/howto-mfa-userdevicesettings/deleteapppasswords.png)
 1. Wybierz pozycję **Zapisz**, a następnie przycisk **Zamknij**.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Ten artykuł pomaga skonfigurować ustawienia poszczególnych użytkowników. Aby skonfigurować ustawienia usługi Azure Multi-Factor Authentication, zobacz [Konfigurowanie ustawień Multi-Factor Authentication platformy Azure](howto-mfa-mfasettings.md)
+W tym artykule pokazano, jak skonfigurować poszczególne ustawienia użytkownika. Aby skonfigurować ogólne ustawienia usługi Azure Multi-Factor Authentication, zobacz [Konfigurowanie ustawień Multi-Factor Authentication platformy Azure](howto-mfa-mfasettings.md).
 
-Jeśli użytkownicy potrzebują pomocy, zapoznaj się z [podręcznikiem użytkownika dotyczącym usługi Azure Multi-Factor Authentication](../user-help/multi-factor-authentication-end-user.md).
+Jeśli użytkownicy potrzebują pomocy, zapoznaj się z [podręcznikiem użytkownika dotyczącym usługi Azure Multi-Factor Authentication](../user-help/multi-factor-authentication-end-user-first-time.md).

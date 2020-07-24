@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: bcc94b62812f1668bf8c5e5abb268fddf3da1fa5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 22bc3d6efca24a88b28217b2e06ac79d33f16b2e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82515445"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87030083"
 ---
 # <a name="backup-and-restore-in-azure-database-for-postgresql---hyperscale-citus"></a>Tworzenie kopii zapasowych i przywracanie w Azure Database for PostgreSQL-ze skalowaniem (Citus)
 
@@ -32,7 +32,11 @@ Aktualną cenę magazynu kopii zapasowych można znaleźć na [stronie z cenniki
 
 ## <a name="restore"></a>Przywracanie
 
-W Azure Database for PostgreSQL przywracanie klastra Citus (prescaleing) powoduje utworzenie nowego klastra z kopii zapasowych pierwotnych węzłów.
+W Azure Database for PostgreSQL przywracanie klastra Citus (prescaleing) powoduje utworzenie nowego klastra z kopii zapasowych pierwotnych węzłów. 
+
+> [!IMPORTANT]
+>Można przywrócić tylko klaster w ramach tej samej subskrypcji i grupy zasobów oraz inną nazwę klastra.
+
 
 > [!IMPORTANT]
 > Nie można przywrócić usuniętych klastrów Citus. Jeśli usuniesz klaster, wszystkie węzły należące do klastra zostaną usunięte i nie będzie można go odzyskać. Aby chronić zasoby klastra, po ich wdrożeniu przed przypadkowym usunięciem lub nieoczekiwanymi zmianami Administratorzy mogą korzystać z [blokad zarządzania](/azure/azure-resource-manager/management/lock-resources).

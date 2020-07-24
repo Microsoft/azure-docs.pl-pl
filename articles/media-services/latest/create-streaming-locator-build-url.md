@@ -11,15 +11,16 @@ ms.workload: ''
 ms.topic: article
 ms.date: 03/04/2020
 ms.author: juliako
-ms.openlocfilehash: 2972c60aa5874c21a6f7bce21020ad58b5f3b556
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4e6e0d18665ac5fc28da2935c20b467f9d7662d8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78304565"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87023249"
 ---
 # <a name="create-a-streaming-locator-and-build-urls"></a>Tworzenie lokalizatora przesyłania strumieniowego i adresów URL kompilacji
 
-W Azure Media Services, aby utworzyć adres URL przesyłania strumieniowego, należy najpierw utworzyć [lokalizator przesyłania strumieniowego](streaming-locators-concept.md). Następnie można połączyć nazwę hosta [punktu końcowego przesyłania strumieniowego](https://docs.microsoft.com/rest/api/media/streamingendpoints) i ścieżkę **lokalizatora przesyłania strumieniowego** . W tym przykładzie jest używany *domyślny* **punkt końcowy przesyłania strumieniowego**. Podczas pierwszego tworzenia konta usługi multimediów ten *domyślny* **punkt końcowy przesyłania strumieniowego** będzie w stanie zatrzymania, więc musisz wywołać polecenie **Rozpocznij** , aby rozpocząć przesyłanie strumieniowe.
+W Azure Media Services, aby utworzyć adres URL przesyłania strumieniowego, należy najpierw utworzyć [lokalizator przesyłania strumieniowego](streaming-locators-concept.md). Następnie można połączyć nazwę hosta [punktu końcowego przesyłania strumieniowego](/rest/api/media/streamingendpoints) i ścieżkę **lokalizatora przesyłania strumieniowego** . W tym przykładzie jest używany *domyślny* **punkt końcowy przesyłania strumieniowego**. Podczas pierwszego tworzenia konta usługi multimediów ten *domyślny* **punkt końcowy przesyłania strumieniowego** będzie w stanie zatrzymania, więc musisz wywołać polecenie **Rozpocznij** , aby rozpocząć przesyłanie strumieniowe.
 
 W tym artykule pokazano, jak utworzyć lokalizator przesyłania strumieniowego i utworzyć adres URL przesyłania strumieniowego przy użyciu zestawów SDK języka Java i platformy .NET.
 
@@ -159,7 +160,7 @@ private static async Task<IList<string>> GetStreamingUrlsAsync(
 
 Zobacz pełny kod przykład: [EncodingWithMESPredefinedPreset](https://github.com/Azure-Samples/media-services-v3-dotnet/blob/master/VideoEncoding/EncodingWithMESPredefinedPreset/Program.cs)
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 * [Tworzenie filtrów za pomocą programu .NET](filters-dynamic-manifest-dotnet-howto.md)
 * [Tworzenie filtrów za pomocą wzorca REST](filters-dynamic-manifest-rest-howto.md)

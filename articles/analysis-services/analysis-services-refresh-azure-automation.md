@@ -6,12 +6,12 @@ ms.service: analysis-services
 ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: chlound
-ms.openlocfilehash: c3c9827814b7d638745761dbb5f3c7d2e581491b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5314c933b01a1fb9c4ea9902a6fbb698c104d195
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85389976"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87025408"
 ---
 # <a name="refresh-with-azure-automation"></a>Odświeżanie za pomocą usługi Azure Automation
 
@@ -19,7 +19,7 @@ Za pomocą Azure Automation i elementów Runbook programu PowerShell, można wyk
 
 W przykładzie w tym artykule jest wykorzystywany [moduł SqlServer programu PowerShell](https://docs.microsoft.com/powershell/module/sqlserver/?view=sqlserver-ps). Przykładowy element Runbook programu PowerShell, który demonstruje odświeżenie modelu w dalszej części tego artykułu.  
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Uwierzytelnianie
 
 Wszystkie wywołania muszą zostać uwierzytelnione z prawidłowym tokenem Azure Active Directory (OAuth 2).  W przykładzie w tym artykule jest wykorzystywana nazwa główna usługi (SPN) do uwierzytelniania w Azure Analysis Services. Aby dowiedzieć się więcej, zobacz [Tworzenie jednostki usługi przy użyciu Azure Portal](../active-directory/develop/howto-create-service-principal-portal.md).
 
@@ -64,11 +64,14 @@ Utworzona jednostka usługi musi mieć uprawnienia administratora serwera na ser
 
     ![Importuj element Runbook](./media/analysis-services-refresh-azure-automation/8.png)
 
-4. Wyszukaj plik **Refresh-Model.ps1** , podaj **nazwę** i **Opis**, a następnie kliknij przycisk **Utwórz**.
+4. Wyszukaj plik [Refresh-Model.ps1](#sample-powershell-runbook) , podaj **nazwę** i **Opis**, a następnie kliknij przycisk **Utwórz**.
+
+    > [!NOTE]
+    > Użyj skryptu z sekcji [przykładowego elementu Runbook programu PowerShell](#sample-powershell-runbook) w dolnej części tego dokumentu, aby utworzyć plik o nazwie Refresh-Model.ps1 i zapisać go na komputerze lokalnym w celu zaimportowania do elementu Runbook.
 
     ![Importuj element Runbook](./media/analysis-services-refresh-azure-automation/9.png)
 
-5. Po utworzeniu elementu Runbook zostanie on automatycznie przeszedł w tryb edycji.  Wybierz polecenie **Publikuj**.
+5. Po utworzeniu elementu Runbook zostanie on automatycznie przeszedł w tryb edycji.  Kliknij pozycję **Opublikuj**.
 
     ![Publikowanie elementu Runbook](./media/analysis-services-refresh-azure-automation/10.png)
 

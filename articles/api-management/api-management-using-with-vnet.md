@@ -10,15 +10,15 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 06/10/2020
+ms.date: 07/22/2020
 ms.author: apimpm
 ms.custom: references_regions
-ms.openlocfilehash: e7323793dcbbd05fc5abf032d140b2caa5975da4
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: e3acfb9552db9fa972b0a407e52cece014b45389
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86249465"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87025017"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Używanie usługi Azure API Management z sieciami wirtualnymi
 Sieci wirtualne platformy Azure umożliwiają umieszczanie dowolnych zasobów platformy Azure w sieci nieobsługującej routingu internetowego, do której kontrolujesz dostęp. Te sieci mogą następnie być połączone z sieciami lokalnymi przy użyciu różnych technologii sieci VPN. Aby dowiedzieć się więcej na temat sieci wirtualnych platformy Azure, Zacznij od informacji tutaj: [Omówienie usługi azure Virtual Network](../virtual-network/virtual-networks-overview.md).
@@ -119,7 +119,7 @@ Poniżej znajduje się lista typowych problemów z błędami konfiguracji, któr
 | */5671, 5672, 443          | Wychodzący           | TCP                | VIRTUAL_NETWORK/EventHub            | Zależność dla [dziennika do zasad usługi Event Hub](api-management-howto-log-event-hubs.md) i agenta monitorowania | Wewnętrzna & zewnętrzna  |
 | */445                      | Wychodzący           | TCP                | VIRTUAL_NETWORK/magazyn             | Zależność od udziału plików platformy Azure dla usługi [git](api-management-configuration-repository-git.md)                      | Wewnętrzna & zewnętrzna  |
 | */443                     | Wychodzący           | TCP                | VIRTUAL_NETWORK/AzureCloud            | Rozszerzenie kondycji i monitorowania         | Wewnętrzna & zewnętrzna  |
-| */1886, 443                     | Wychodzący           | TCP                | VIRTUAL_NETWORK/AzureMonitor         | Publikowanie [dzienników diagnostycznych i metryk](api-management-howto-use-azure-monitor.md) i [Resource Health](../service-health/resource-health-overview.md)                     | Wewnętrzna & zewnętrzna  |
+| */1886, 443                     | Wychodzący           | TCP                | VIRTUAL_NETWORK/AzureMonitor         | Publikowanie [dzienników diagnostycznych i metryk](api-management-howto-use-azure-monitor.md), [Resource Health](../service-health/resource-health-overview.md) i [Application Insights](api-management-howto-app-insights.md)                   | Wewnętrzna & zewnętrzna  |
 | */25, 587, 25028                       | Wychodzący           | TCP                | VIRTUAL_NETWORK/INTERNET            | Nawiązywanie połączenia z przekaźnikiem SMTP w celu wysyłania wiadomości e-mail                    | Wewnętrzna & zewnętrzna  |
 | */6381 – 6383              | Przychodzące & wychodzące | TCP                | VIRTUAL_NETWORK/VIRTUAL_NETWORK     | Dostęp do usługi Redis dla zasad [pamięci podręcznej](api-management-caching-policies.md) między maszynami         | Wewnętrzna & zewnętrzna  |
 | */4290              | Przychodzące & wychodzące | UDP                | VIRTUAL_NETWORK/VIRTUAL_NETWORK     | Liczniki synchronizacji dla zasad [limitu szybkości](api-management-access-restriction-policies.md#LimitCallRateByKey) między maszynami         | Wewnętrzna & zewnętrzna  |
@@ -152,6 +152,8 @@ Poniżej znajduje się lista typowych problemów z błędami konfiguracji, któr
 + **Azure Portal Diagnostics**: aby umożliwić przepływ dzienników diagnostycznych z Azure Portal przy użyciu rozszerzenia API Management z wewnątrz Virtual Network, wymagany jest dostęp wychodzący do `dc.services.visualstudio.com` portu 443. Pomaga to w rozwiązywaniu problemów, które mogą wystąpić podczas korzystania z rozszerzenia.
 
 + **Azure Load Balancer**: Zezwalanie na żądanie przychodzące z tagu usługi `AZURE_LOAD_BALANCER` nie jest wymagane dla `Developer` jednostki SKU, ponieważ wdrażamy tylko jedną jednostkę obliczeniową w tle. Ale ruch przychodzący z [168.63.129.16](../virtual-network/what-is-ip-address-168-63-129-16.md) stanie się krytyczny podczas skalowania do wyższej jednostki SKU, na przykład w przypadku `Premium` niepowodzenia sondy kondycji z Load Balancer, wdrożenie nie powiedzie
+
++ **Application Insights**: Jeśli [usługa Azure Application Insights](api-management-howto-app-insights.md) monitoring jest włączona na API Management, musimy zezwolić na połączenie wychodzące z [punktem końcowym telemetrii](/azure/azure-monitor/app/ip-addresses#outgoing-ports) z Virtual Network. 
 
 + **Wymuszanie tunelowania ruchu do zapory lokalnej przy użyciu trasy Express lub sieciowego urządzenia wirtualnego**: wspólna konfiguracja klienta polega na zdefiniowaniu własnej trasy domyślnej (0.0.0.0/0), która wymusza cały ruch z API Management delegowanej podsieci do przepływu za pośrednictwem lokalnej zapory lub sieciowego urządzenia wirtualnego. Ten przepływ ruchu niezmiennie zrywa łączność z platformą Azure API Management, ponieważ ruch wychodzący jest blokowany lokalnie lub NAT na nierozpoznawalny zbiór adresów, które nie działają już z różnymi punktami końcowymi platformy Azure. Rozwiązanie wymaga wykonania kilku czynności:
 

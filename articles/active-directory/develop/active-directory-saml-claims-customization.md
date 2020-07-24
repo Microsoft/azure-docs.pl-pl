@@ -13,12 +13,12 @@ ms.date: 10/22/2019
 ms.author: ryanwi
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 0b0efc7e5dd4a60e33ddd61c19283a048cf4ab78
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6f56427dabdee715412596557fa075c5eb4df500
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85478301"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87027312"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Instrukcje: Dostosowywanie oświadczeń wystawionych w tokenie SAML dla aplikacji dla przedsiębiorstw
 
@@ -56,9 +56,9 @@ Z listy rozwijanej **Wybierz format identyfikatora nazwy** można wybrać jedną
 
 | Format NameID | Opis |
 |---------------|-------------|
-| **Domyślne** | Usługa Azure AD będzie używać domyślnego formatu źródła. |
+| **Wartooć** | Usługa Azure AD będzie używać domyślnego formatu źródła. |
 | **Stale** | Usługa Azure AD będzie używać trwałego formatu NameID. |
-| **EmailAddress** | Usługa Azure AD będzie używać EmailAddress jako formatu NameID. |
+| **EmailAddress (Adres e-mail)** | Usługa Azure AD będzie używać EmailAddress jako formatu NameID. |
 | **Nie określono** | Usługa Azure AD będzie używać nieokreślone jako formatu NameID. |
 | **Kwalifikowana nazwa domeny systemu Windows** | Usługa Azure AD będzie używać WindowsDomainQualifiedName jako formatu NameID. |
 
@@ -70,7 +70,7 @@ Wybierz żądane źródło dla `NameIdentifier` żądania (lub NameID). Można w
 
 | Nazwa | Opis |
 |------|-------------|
-| Poczta e-mail | Adres e-mail użytkownika |
+| E-mail | Adres e-mail użytkownika |
 | userprincipalName | Główna nazwa użytkownika (UPN) użytkownika |
 | onpremisessamaccount | Nazwa konta SAM, które zostało zsynchronizowane z lokalnej usługi Azure AD |
 | obiektu | Identyfikator obiektu użytkownika w usłudze Azure AD |
@@ -164,7 +164,7 @@ Aby dodać warunek roszczeń:
 
 1. W obszarze **Zarządzanie roszczeń**rozwiń warunki dotyczące roszczeń.
 2. Wybierz typ użytkownika.
-3. Wybierz grupy, do których należy użytkownik. Można wybrać maksymalnie 10 unikatowych grup dla wszystkich oświadczeń dla danej aplikacji. 
+3. Wybierz grupy, do których należy użytkownik. Można wybrać maksymalnie 50 grup unikatowych dla wszystkich oświadczeń dla danej aplikacji. 
 4. Wybierz **Źródło** , do którego ma zostać pobrana wartość. Można wybrać atrybut użytkownika z listy rozwijanej atrybutów źródłowych lub zastosować transformację do atrybutu użytkownika przed wyemitowaniem go jako roszczeń.
 
 Kolejność, w której zostały dodane warunki, jest ważna. Usługa Azure AD szacuje warunki od góry do dołu, aby zdecydować, która wartość ma być emitowana w ramach tego żądania. 

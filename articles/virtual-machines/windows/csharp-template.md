@@ -8,18 +8,18 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 07/14/2017
 ms.author: cynthn
-ms.openlocfilehash: dfcc0c550af9df6c884c8cd864ed90daf5f78e2f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 25d8dc467ce8f7e34faaeaa2c61fd0c5da1da4e8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82082921"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87027958"
 ---
 # <a name="deploy-an-azure-virtual-machine-using-c-and-a-resource-manager-template"></a>Wdróż maszynę wirtualną platformy Azure przy użyciu języka C# i szablonu Menedżer zasobów
 
 W tym artykule opisano sposób wdrażania szablonu Azure Resource Manager przy użyciu języka C#. Tworzony szablon wdraża pojedynczą maszynę wirtualną z systemem Windows Server w nowej sieci wirtualnej z jedną podsiecią.
 
-Aby uzyskać szczegółowy opis zasobu maszyny wirtualnej, zobacz [maszyny wirtualne w szablonie Azure Resource Manager](template-description.md). Aby uzyskać więcej informacji na temat wszystkich zasobów w szablonie, zobacz [Przewodnik po szablonach Azure Resource Manager](../../azure-resource-manager/resource-manager-template-walkthrough.md).
+Aby uzyskać szczegółowy opis zasobu maszyny wirtualnej, zobacz [maszyny wirtualne w szablonie Azure Resource Manager](template-description.md). Aby uzyskać więcej informacji na temat wszystkich zasobów w szablonie, zobacz [Przewodnik po szablonach Azure Resource Manager](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
 
 Wykonanie tych kroków trwa około 10 minut.
 
@@ -27,7 +27,7 @@ Wykonanie tych kroków trwa około 10 minut.
 
 W tym kroku upewnij się, że program Visual Studio jest zainstalowany i utworzysz aplikację konsolową służącą do wdrażania szablonu.
 
-1. Jeśli jeszcze tego nie zrobiono, zainstaluj [program Visual Studio](https://docs.microsoft.com/visualstudio/install/install-visual-studio). Wybierz pozycję **Programowanie aplikacji klasycznych platformy .NET** na stronie obciążenia, a następnie kliknij przycisk **Zainstaluj**. W podsumowaniu można zobaczyć, że **.NET Framework narzędzia deweloperskie 4-4,6** są automatycznie wybierane. Jeśli masz już zainstalowany program Visual Studio, możesz dodać obciążenie .NET przy użyciu programu uruchamiania programu Visual Studio.
+1. Jeśli jeszcze tego nie zrobiono, zainstaluj [program Visual Studio](/visualstudio/install/install-visual-studio). Wybierz pozycję **Programowanie aplikacji klasycznych platformy .NET** na stronie obciążenia, a następnie kliknij przycisk **Zainstaluj**. W podsumowaniu można zobaczyć, że **.NET Framework narzędzia deweloperskie 4-4,6** są automatycznie wybierane. Jeśli masz już zainstalowany program Visual Studio, możesz dodać obciążenie .NET przy użyciu programu uruchamiania programu Visual Studio.
 2. W programie Visual Studio kliknij pozycję **plik**  >  **Nowy**  >  **projekt**.
 3. W obszarze **Szablony**  >  **Visual C#** wybierz pozycję **aplikacja konsoli (.NET Framework)**, wprowadź *myDotnetProject* jako nazwę projektu, wybierz lokalizację projektu, a następnie kliknij przycisk **OK**.
 
@@ -325,5 +325,5 @@ Ukończenie działania tej aplikacji konsolowej od początku do końca trwa oko�
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Jeśli wystąpiły problemy ze wdrożeniem, następnym krokiem jest zapoznaj się z tematem [Rozwiązywanie typowych błędów wdrażania platformy Azure przy użyciu Azure Resource Manager](../../resource-manager-common-deployment-errors.md).
+* Jeśli wystąpiły problemy ze wdrożeniem, następnym krokiem jest zapoznaj się z tematem [Rozwiązywanie typowych błędów wdrażania platformy Azure przy użyciu Azure Resource Manager](../../azure-resource-manager/templates/common-deployment-errors.md).
 * Dowiedz się, jak wdrożyć maszynę wirtualną i jej zasoby pomocnicze, przeglądając artykuł [Wdrażanie maszyny wirtualnej platformy Azure przy użyciu języka C#](csharp.md).

@@ -8,12 +8,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 12/15/2017
 ms.author: cynthn
-ms.openlocfilehash: 51e4862fe55428f112841ef7176cdb916653de0b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e0853b08ced0b9ca328d5e7f506ca54299aebeee
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82083278"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87028196"
 ---
 # <a name="use-windows-client-in-azure-for-devtest-scenarios"></a>Używanie klienta systemu Windows na platformie Azure w scenariuszach deweloperskich/testowych
 Możesz użyć systemu Windows 7, Windows 8 lub Windows 10 Enterprise (x64) na platformie Azure na potrzeby scenariuszy tworzenia i testowania, pod warunkiem że masz odpowiednią subskrypcję programu Visual Studio (dawniej MSDN). W tym artykule opisano wymagania dotyczące uprawnień do uruchamiania systemu Windows 7, Windows 8.1, Windows 10 Enterprise na platformie Azure i korzystania z następujących obrazów galerii platformy Azure.
@@ -58,5 +58,4 @@ Identyfikator oferty można także wyświetlić na [karcie "subskrypcje"](https:
 ![Szczegóły identyfikatora oferty z portalu konta platformy Azure](./media/client-images/offer-id-azure-account-portal.png) 
 
 ## <a name="next-steps"></a>Następne kroki
-Teraz możesz wdrażać maszyny wirtualne przy użyciu [programu PowerShell](quick-create-powershell.md), [szablonów Menedżer zasobów](ps-template.md)lub [programu Visual Studio](../../vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
-
+Teraz możesz wdrażać maszyny wirtualne przy użyciu [programu PowerShell](quick-create-powershell.md), [szablonów Menedżer zasobów](ps-template.md)lub [programu Visual Studio](../../azure-resource-manager/templates/create-visual-studio-deployment-project.md).

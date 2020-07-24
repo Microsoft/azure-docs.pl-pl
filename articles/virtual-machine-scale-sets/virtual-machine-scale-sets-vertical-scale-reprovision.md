@@ -9,12 +9,12 @@ ms.subservice: autoscale
 ms.date: 04/18/2019
 ms.reviewer: avverma
 ms.custom: avverma
-ms.openlocfilehash: 597a9e3b018f4ddb68710dff65094f35828b3c4b
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 37602f7b9a8669ce0e8db984f7f7617cffdd431c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86232665"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87029284"
 ---
 # <a name="vertical-autoscale-with-virtual-machine-scale-sets"></a>Automatyczne skalowanie w pionie za pomocą zestawów skalowania maszyn wirtualnych
 
@@ -56,7 +56,7 @@ Można skonfigurować skalowanie w pionie na podstawie alertów opartych na metr
 > | Standardowa_DS11 |Standardowa_DS14 |
 > | Standardowa_D1_v2 |Standardowa_D5_v2 |
 > | Standardowa_D11_v2 |Standardowa_D14_v2 |
-> | Standardowa_DS1_v2 |Standardowa_DS5_v2 |
+> | Standardowa_DS1_v2 |Standard_DS5_v2 |
 > | Standardowa_DS11_v2 |Standardowa_DS14_v2 |
 > | Standardowa_D2_v3 |Standard_D64_v3 |
 > | Standardowa_D2s_v3 |Standard_D64s_v3 |
@@ -89,7 +89,7 @@ Można skonfigurować skalowanie w pionie na podstawie alertów opartych na metr
 ## <a name="create-an-azure-automation-account-with-run-as-capability"></a>Tworzenie konta Azure Automation przy użyciu funkcji Uruchom jako
 Najpierw należy utworzyć konto Azure Automation, które hostuje elementy Runbook używane do skalowania wystąpień zestawu skalowania maszyn wirtualnych. Ostatnio [Azure Automation](https://azure.microsoft.com/services/automation/) wprowadzono funkcję "Uruchom jako", która umożliwia skonfigurowanie nazwy głównej usługi do automatycznego uruchamiania elementów Runbook w imieniu użytkownika. Aby uzyskać więcej informacji, zobacz:
 
-* [Uwierzytelnianie elementów Runbook przy użyciu konta Uruchom jako platformy Azure](../automation/automation-sec-configure-azure-runas-account.md)
+* [Uwierzytelnianie elementów Runbook przy użyciu konta Uruchom jako platformy Azure](../automation/manage-runas-account.md)
 
 ## <a name="import-azure-automation-vertical-scale-runbooks-into-your-subscription"></a>Importuj Azure Automation elementów Runbook skalowania w pionie do subskrypcji
 

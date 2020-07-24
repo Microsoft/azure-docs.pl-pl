@@ -15,11 +15,12 @@ ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: daberry
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 78db1ba0eaff0dce83ed13e9f20c3c5a5b96bf9c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2b2f21cab4740013eb2de1d69f558c95461c493e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83120967"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87028400"
 ---
 # <a name="troubleshoot-deployment-issues-when-creating-a-new-windows-vm-in-azure"></a>Rozwiązywanie problemów z wdrażaniem podczas tworzenia nowej maszyny wirtualnej z systemem Windows na platformie Azure
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-opening](../../../includes/virtual-machines-troubleshoot-deployment-new-vm-opening-include.md)]
@@ -36,7 +37,7 @@ Aby rozpocząć rozwiązywanie problemów, Zbierz dzienniki aktywności w celu z
 
 [Wyświetlanie operacji wdrażania](../../azure-resource-manager/templates/deployment-history.md)
 
-[Wyświetlanie dzienników aktywności w celu zarządzania zasobami platformy Azure](../../resource-group-audit.md)
+[Wyświetlanie dzienników aktywności w celu zarządzania zasobami platformy Azure](../../azure-resource-manager/management/view-activity-logs.md)
 
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-issue1](../../../includes/virtual-machines-troubleshoot-deployment-new-vm-issue1-include.md)]
 
@@ -52,7 +53,7 @@ Aby rozpocząć rozwiązywanie problemów, Zbierz dzienniki aktywności w celu z
 
 **Rozdzielczość**
 
-Aby rozwiązać oba te błędy, użyj polecenie [Add-AzVhd w celu przekazania oryginalnego wirtualnego dysku twardego](https://docs.microsoft.com/powershell/module/az.compute/add-azvhd), dostępnego lokalnie, z tym samym ustawieniem jak w przypadku systemu operacyjnego (uogólniony/wyspecjalizowany). Aby przekazać jako uogólniony, pamiętaj, aby najpierw uruchomić program Sysprep.
+Aby rozwiązać oba te błędy, użyj polecenie [Add-AzVhd w celu przekazania oryginalnego wirtualnego dysku twardego](/powershell/module/az.compute/add-azvhd), dostępnego lokalnie, z tym samym ustawieniem jak w przypadku systemu operacyjnego (uogólniony/wyspecjalizowany). Aby przekazać jako uogólniony, pamiętaj, aby najpierw uruchomić program Sysprep.
 
 **Błędy przechwytywania:**
 
@@ -89,5 +90,3 @@ Ten błąd występuje w sytuacji, gdy nowe żądanie maszyny wirtualnej jest prz
 
 ## <a name="next-steps"></a>Następne kroki
 Jeśli wystąpią problemy podczas uruchamiania zatrzymanej maszyny wirtualnej z systemem Windows lub zmiany rozmiaru istniejącej maszyny wirtualnej z systemem Windows na platformie Azure, zobacz [Rozwiązywanie problemów z wdrożeniem Menedżer zasobów z ponownym uruchamianiem lub zmianami rozmiaru istniejącej maszyny wirtualnej z systemem Windows na platformie Azure](restart-resize-error-troubleshooting.md).
-
-

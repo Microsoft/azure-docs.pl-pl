@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 07/22/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 198ab9505c550ad5bf8dc75211864a562b45979f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0470ab635f34291b4c92259e556329d6b2f401c7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85553657"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87026088"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-authorization-code-flow"></a>Przepływ kodu autoryzacji Microsoft Identity platform i OAuth 2,0
 
@@ -159,7 +159,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | `tenant`   | wymagane   | `{tenant}`Wartość w ścieżce żądania może służyć do kontrolowania, kto może zalogować się do aplikacji. Dozwolone wartości to `common` , `organizations` , `consumers` i identyfikator dzierżawy. Aby uzyskać więcej informacji, zobacz temat [podstawowe informacje o protokole](active-directory-v2-protocols.md#endpoints).  |
 | `client_id` | wymagane  | Identyfikator aplikacji (klienta), którą strona [Rejestracje aplikacji Azure Portala —](https://go.microsoft.com/fwlink/?linkid=2083908) jest przypisana do aplikacji. |
 | `grant_type` | wymagane   | Musi być `authorization_code` dla przepływu kodu autoryzacji.   |
-| `scope`      | wymagane   | Rozdzielana spacjami lista zakresów. Zakresy żądane w tym etapie muszą być równoważne lub podzbiorem zakresów żądanych w pierwszym etapie. Wszystkie zakresy muszą pochodzić z pojedynczego zasobu, wraz z zakresami OIDC ( `profile` , `openid` , `email` ). Aby uzyskać bardziej szczegółowy opis zakresów, zapoznaj się z [uprawnieniami, zgodą i zakresami](v2-permissions-and-consent.md). |
+| `scope`      | optional   | Rozdzielana spacjami lista zakresów. Wszystkie zakresy muszą pochodzić z pojedynczego zasobu, wraz z zakresami OIDC ( `profile` , `openid` , `email` ). Aby uzyskać bardziej szczegółowy opis zakresów, zapoznaj się z [uprawnieniami, zgodą i zakresami](v2-permissions-and-consent.md). Jest to rozszerzenie firmy Microsoft do przepływu kodu autoryzacji, które umożliwia aplikacjom deklarowanie zasobu, dla którego chcą token w trakcie realizacji tokenu.|
 | `code`          | wymagane  | Authorization_code, które zostały nabyte w pierwszym etapie przepływu. |
 | `redirect_uri`  | wymagane  | Ta sama redirect_uri wartość, która została użyta w celu uzyskania authorization_code. |
 | `client_secret` | wymagane w przypadku poufnych aplikacji sieci Web | Wpis tajny aplikacji utworzony w portalu rejestracji aplikacji dla aplikacji. Nie należy używać wpisu tajnego aplikacji w aplikacji natywnej lub aplikacji jednostronicowej, ponieważ client_secrets nie może być niezawodnie przechowywana na urządzeniach ani na stronach sieci Web. Jest to wymagane w przypadku aplikacji sieci Web i interfejsów API sieci Web, które umożliwiają bezpieczne przechowywanie client_secret po stronie serwera.  Wpis tajny klienta musi być zakodowany przy użyciu adresu URL przed wysłaniem. Aby uzyskać więcej informacji na temat kodowania identyfikatorów URI, zobacz [Opis składni ogólnej identyfikatora URI](https://tools.ietf.org/html/rfc3986#page-12). |

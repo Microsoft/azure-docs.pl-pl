@@ -7,11 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 10/10/2019
 ms.author: cynthn
-ms.openlocfilehash: 7d378f111104feb678d3d89f4a4c51998c67f2e1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 49554c053af0ceecf2b7f0b1162b7212694239db
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84234532"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87028094"
 ---
 # <a name="create-a-windows-vm-from-a-specialized-disk-by-using-powershell"></a>Tworzenie maszyny wirtualnej z systemem Windows na podstawie wyspecjalizowanego dysku za pomocą programu PowerShell
 
@@ -32,7 +33,7 @@ Zalecamy ograniczenie liczby współbieżnych wdrożeń do 20 maszyn wirtualnych
 
 ## <a name="option-1-use-an-existing-disk"></a>Opcja 1: Użyj istniejącego dysku
 
-Jeśli masz usuniętą maszynę wirtualną i chcesz ponownie użyć dysku systemu operacyjnego, aby utworzyć nową maszynę wirtualną, użyj polecenie [Get-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/get-azdisk).
+Jeśli masz usuniętą maszynę wirtualną i chcesz ponownie użyć dysku systemu operacyjnego, aby utworzyć nową maszynę wirtualną, użyj polecenie [Get-AzDisk](/powershell/module/az.compute/get-azdisk).
 
 ```powershell
 $resourceGroupName = 'myResourceGroup'
@@ -67,7 +68,7 @@ Jeśli chcesz skopiować istniejącą maszynę wirtualną do innego regionu, mo�
 
 ### <a name="take-a-snapshot-of-the-os-disk"></a>Utwórz migawkę dysku systemu operacyjnego
 
-Można wykonać migawkę całej maszyny wirtualnej (w tym wszystkich dysków) lub tylko jednego dysku. Poniższe kroki pokazują, jak wykonać migawkę tylko dysku systemu operacyjnego maszyny wirtualnej za pomocą polecenia cmdlet [New-AzSnapshot](https://docs.microsoft.com/powershell/module/az.compute/new-azsnapshot) . 
+Można wykonać migawkę całej maszyny wirtualnej (w tym wszystkich dysków) lub tylko jednego dysku. Poniższe kroki pokazują, jak wykonać migawkę tylko dysku systemu operacyjnego maszyny wirtualnej za pomocą polecenia cmdlet [New-AzSnapshot](/powershell/module/az.compute/new-azsnapshot) . 
 
 Najpierw ustaw niektóre parametry. 
 
@@ -115,7 +116,7 @@ Aby użyć tej migawki do utworzenia maszyny wirtualnej wymagającej wysokiej wy
 
 ### <a name="create-a-new-disk-from-the-snapshot"></a>Tworzenie nowego dysku na podstawie migawki
 
-Utwórz dysk zarządzany na podstawie migawki przy użyciu polecenia [New-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/new-azdisk). W tym przykładzie w nazwie dysku są stosowane *myOSDisk* .
+Utwórz dysk zarządzany na podstawie migawki przy użyciu polecenia [New-AzDisk](/powershell/module/az.compute/new-azdisk). W tym przykładzie w nazwie dysku są stosowane *myOSDisk* .
 
 Utwórz nową grupę zasobów dla nowej maszyny wirtualnej.
 
@@ -235,7 +236,7 @@ $vm = Add-AzVMNetworkInterface -VM $vmConfig -Id $nic.Id
 
 ### <a name="add-the-os-disk"></a>Dodawanie dysku systemu operacyjnego 
 
-Dodaj dysk systemu operacyjnego do konfiguracji za pomocą polecenia [Set-AzVMOSDisk](https://docs.microsoft.com/powershell/module/az.compute/set-azvmosdisk). Ten przykład ustawia rozmiar dysku na *128 GB* i dołącza dysk zarządzany jako dysk *systemu operacyjnego Windows* .
+Dodaj dysk systemu operacyjnego do konfiguracji za pomocą polecenia [Set-AzVMOSDisk](/powershell/module/az.compute/set-azvmosdisk). Ten przykład ustawia rozmiar dysku na *128 GB* i dołącza dysk zarządzany jako dysk *systemu operacyjnego Windows* .
  
 ```powershell
 $vm = Set-AzVMOSDisk -VM $vm -ManagedDiskId $osDisk.Id -StorageAccountType Standard_LRS `
@@ -244,7 +245,7 @@ $vm = Set-AzVMOSDisk -VM $vm -ManagedDiskId $osDisk.Id -StorageAccountType Stand
 
 ### <a name="complete-the-vm"></a>Ukończ maszynę wirtualną 
 
-Utwórz maszynę wirtualną przy użyciu polecenia [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) z utworzonymi właśnie konfiguracjami.
+Utwórz maszynę wirtualną przy użyciu polecenia [New-AzVM](/powershell/module/az.compute/new-azvm) z utworzonymi właśnie konfiguracjami.
 
 ```powershell
 New-AzVM -ResourceGroupName $destinationResourceGroup -Location $location -VM $vm
@@ -269,4 +270,3 @@ $vmList.Name
 
 ## <a name="next-steps"></a>Następne kroki
 Zaloguj się do nowej maszyny wirtualnej. Aby uzyskać więcej informacji, zobacz [jak nawiązać połączenie i zalogować się do maszyny wirtualnej platformy Azure z systemem Windows](connect-logon.md).
-

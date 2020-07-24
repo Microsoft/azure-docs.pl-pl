@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 06/03/2020
-ms.openlocfilehash: 3c4252f926163b00d3b4f4bf4a26373988017ac1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d74e3f196e58e522eb9377ca9f18fd05ec8460ae
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85255010"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87023997"
 ---
 # <a name="hyperscale-service-tier"></a>Warstwa usługi Hiperskala
 
@@ -179,13 +179,13 @@ Włączone regiony:
 - Australia Wschodnia
 - Australia Południowo-Wschodnia
 - Australia Środkowa
-- Brazylia Południowa
+- Brazil South
 - Kanada Środkowa
-- Środkowe stany USA
+- Central US
 - Chiny Wschodnie 2
 - Chiny Północne 2
 - Azja Wschodnia
-- Wschodnie stany USA
+- East US
 - Wschodnie stany USA 2
 - Francja Środkowa
 - Niemcy Środkowo-Zachodnie
@@ -198,8 +198,8 @@ Włączone regiony:
 - Norwegia Wschodnia
 - Norwegia Zachodnia
 - Północna Republika Południowej Afryki
-- Południowo-środkowe stany USA
-- Azja Południowo-Wschodnia
+- South Central US
+- Southeast Asia
 - Szwajcaria Zachodnia
 - Południowe Zjednoczone Królestwo
 - Zachodnie Zjednoczone Królestwo
@@ -208,7 +208,7 @@ Włączone regiony:
 - US Govt Arizona
 - US Govt — Texas Instruments
 - Zachodnio-środkowe stany USA
-- Europa Zachodnia
+- West Europe
 - Zachodnie stany USA
 - Zachodnie stany USA 2
 
@@ -218,7 +218,7 @@ Są to bieżące ograniczenia dotyczące warstwy usług w ramach skalowania na p
 
 | Problem | Opis |
 | :---- | :--------- |
-| Okienko zarządzanie kopiami zapasowymi dla serwera nie pokazuje baz danych ze skalowaniem. Zostaną one przefiltrowane z widoku.  | Funkcja wieloskalowania ma oddzielną metodę zarządzania kopiami zapasowymi, dlatego ustawienia przechowywania długoterminowego przechowywania danych i punktu w czasie nie są stosowane. W związku z tym bazy danych nie są wyświetlane w okienku zarządzanie kopią zapasową.|
+| Okienko zarządzanie kopiami zapasowymi dla serwera nie pokazuje baz danych ze skalowaniem. Zostaną one przefiltrowane z widoku.  | Funkcja wieloskalowania ma oddzielną metodę zarządzania kopiami zapasowymi, dlatego ustawienia przechowywania długoterminowego przechowywania danych i punktu w czasie nie są stosowane. W związku z tym bazy danych nie są wyświetlane w okienku zarządzanie kopią zapasową.<br><br>W przypadku baz danych migrowanych do skalowania z innych Azure SQL Database warstwy usług kopie zapasowe przed migracją są przechowywane na czas trwania okresu [przechowywania kopii zapasowej](automated-backups-overview.md#backup-retention) źródłowej bazy danych. Te kopie zapasowe mogą być używane do [przywracania](recovery-using-backups.md#programmatic-recovery-using-automated-backups) źródłowej bazy danych do punktu w czasie przed migracją.|
 | Przywracanie do określonego momentu | Baza danych bez skalowania nie może zostać przywrócona jako baza danych ze skalą i nie może zostać przywrócona jako baza danych bez skalowania. W przypadku bazy danych bez skalowania, która została zmigrowana do skalowania przez zmianę jej warstwy usług, Przywróć do punktu w czasie przed migracją i w ramach okresu przechowywania kopii zapasowej bazy danych można [programowo](recovery-using-backups.md#programmatic-recovery-using-automated-backups). Przywrócona baza danych nie będzie skalowana. |
 | Jeśli baza danych ma co najmniej jeden plik danych o rozmiarze większym niż 1 TB, migracja nie powiedzie się | W niektórych przypadkach może być możliwe obejście tego problemu, zmniejszając duże ilości plików poniżej 1 TB. W przypadku migrowania bazy danych używanej podczas procesu migracji upewnij się, że żaden plik nie będzie większy niż 1 TB. Użyj następującego zapytania, aby określić rozmiar plików bazy danych. `SELECT *, name AS file_name, size * 8. / 1024 / 1024 AS file_size_GB FROM sys.database_files WHERE type_desc = 'ROWS'`;|
 | Wystąpienie zarządzane SQL | Wystąpienie zarządzane Azure SQL nie jest obecnie obsługiwane z bazami danych w skali. |

@@ -12,11 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/09/2018
 ms.author: genli
-ms.openlocfilehash: 66cda98f272e7353b620059a731972714db585ae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1c7b6ee73513c7e51e3bb18c3835a1d395a4c516
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75374136"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87028265"
 ---
 # <a name="troubleshoot-a-windows-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-azure-powershell"></a>Rozwiązywanie problemów z maszyną wirtualną z systemem Windows przez dołączenie dysku systemu operacyjnego do maszyny wirtualnej odzyskiwania przy użyciu Azure PowerShell
 Jeśli maszyna wirtualna z systemem Windows na platformie Azure napotyka błąd rozruchowy lub dyskowy, może być konieczne wykonanie kroków rozwiązywania problemów na dysku. Typowym przykładem może być niepowodzenie aktualizacji aplikacji, która uniemożliwia pomyślne uruchomienie maszyny wirtualnej. W tym artykule szczegółowo opisano, jak za pomocą Azure PowerShell połączyć dysk z inną maszyną wirtualną z systemem Windows w celu usunięcia błędów, a następnie naprawić oryginalną maszynę wirtualną. 
@@ -41,7 +42,7 @@ Proces rozwiązywania problemów jest następujący:
 
 Za pomocą poleceń naprawy maszyny wirtualnej można zautomatyzować kroki 1, 2, 3, 4, 6 i 7. Aby uzyskać więcej dokumentacji i instrukcje, zobacz [Naprawa maszyny wirtualnej z systemem Windows za pomocą poleceń naprawy maszyny wirtualnej platformy Azure](repair-windows-vm-using-azure-virtual-machine-repair-commands.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-Upewnij się, że masz zainstalowaną [najnowszą Azure PowerShell](/powershell/azure/overview) i zalogowano się do subskrypcji:
+Upewnij się, że masz zainstalowaną [najnowszą Azure PowerShell](/powershell/azure/) i zalogowano się do subskrypcji:
 
 ```powershell
 Connect-AzAccount

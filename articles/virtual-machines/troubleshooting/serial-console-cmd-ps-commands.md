@@ -13,17 +13,18 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: 493340764f507c4fa364a5000f65cc232630b243
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 571df9c07e71682e2be51a73e3837c79cb074c3a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77167028"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87028468"
 ---
 # <a name="windows-commands---cmd-and-powershell"></a>Polecenia systemu Windows — CMD i PowerShell
 
 Ta sekcja zawiera przykładowe polecenia służące do wykonywania typowych zadań w scenariuszach, w których może być konieczne użycie konsoli SAC do uzyskiwania dostępu do maszyny wirtualnej z systemem Windows, na przykład w przypadku konieczności rozwiązywania problemów z błędami połączeń RDP.
 
-Konsola SAC została uwzględniona we wszystkich wersjach systemu Windows od systemu Windows Server 2003, ale jest domyślnie wyłączona. Konsola SAC korzysta ze `sacdrv.sys` sterownika jądra, `Special Administration Console Helper` usługi ( `sacsvr` ) i `sacsess.exe` procesu. Aby uzyskać więcej informacji, zobacz [Narzędzia i ustawienia usług zarządzania awaryjnego](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/cc787940(v%3dws.10)).
+Konsola SAC została uwzględniona we wszystkich wersjach systemu Windows od systemu Windows Server 2003, ale jest domyślnie wyłączona. Konsola SAC korzysta ze `sacdrv.sys` sterownika jądra, `Special Administration Console Helper` usługi ( `sacsvr` ) i `sacsess.exe` procesu. Aby uzyskać więcej informacji, zobacz [Narzędzia i ustawienia usług zarządzania awaryjnego](/previous-versions/windows/it-pro/windows-server-2003/cc787940(v%3dws.10)).
 
 Konsola SAC umożliwia nawiązanie połączenia z uruchomionym systemem operacyjnym za pośrednictwem portu szeregowego. Po uruchomieniu programu CMD z konsoli SAC `sacsess.exe` uruchamia się `cmd.exe` w URUCHOMIONYM systemie operacyjnym. Możesz zobaczyć, że w Menedżerze zadań, jeśli istnieje połączenie RDP z maszyną wirtualną w tym samym czasie, gdy użytkownik jest połączony z konsolą SAC za pośrednictwem funkcji konsoli szeregowej. Dostęp do programu CMD za pośrednictwem konsoli SAC jest taki sam, jak w `cmd.exe` przypadku połączenia za pośrednictwem protokołu RDP. Wszystkie te same polecenia i narzędzia są dostępne, w tym możliwość uruchamiania programu PowerShell z tego wystąpienia. Jest to główna różnica między konsolą SAC a środowiskiem odzyskiwania systemu Windows (WinRE) w tej konsoli SAC umożliwia zarządzanie systemem operacyjnym, w którym WinRE jest uruchamiany w innym, minimalnym systemie operacyjnym. Chociaż maszyny wirtualne platformy Azure nie obsługują możliwości uzyskiwania dostępu do środowiska WinRE, za pomocą konsoli szeregowej można zarządzać maszynami wirtualnymi platformy Azure za pośrednictwem konsoli SAC.
 
@@ -90,7 +91,7 @@ lub
 ### <a name="set-nic-to-use-dhcp"></a>Ustawianie karty sieciowej do korzystania z protokołu DHCP
 `netsh interface ip set address name="<interface name>" source=dhcp`
 
-Aby uzyskać więcej informacji na temat `netsh` , [kliknij tutaj](https://docs.microsoft.com/windows-server/networking/technologies/netsh/netsh-contexts).
+Aby uzyskać więcej informacji na temat `netsh` , [kliknij tutaj](/windows-server/networking/technologies/netsh/netsh-contexts).
 
 Maszyny wirtualne platformy Azure należy zawsze skonfigurować w systemie operacyjnym gościa, aby można było uzyskać adres IP przy użyciu protokołu DHCP. Ustawienie statycznego adresu IP platformy Azure nadal używa protokołu DHCP do nadawania statycznego adresu IP do maszyny wirtualnej.
 ### <a name="ping"></a>Ping
@@ -182,11 +183,11 @@ Ten przykład zwraca wersję pliku sterownika wirtualnej karty sieciowej, który
 ### <a name="scan-for-system-file-corruption"></a>Skanuj pod kątem uszkodzenia pliku systemowego
 `sfc /scannow`
 
-Zobacz też [Naprawa obrazu systemu Windows](https://docs.microsoft.com/windows-hardware/manufacture/desktop/repair-a-windows-image).
+Zobacz też [Naprawa obrazu systemu Windows](/windows-hardware/manufacture/desktop/repair-a-windows-image).
 ### <a name="scan-for-system-file-corruption"></a>Skanuj pod kątem uszkodzenia pliku systemowego
 `dism /online /cleanup-image /scanhealth`
 
-Zobacz też [Naprawa obrazu systemu Windows](https://docs.microsoft.com/windows-hardware/manufacture/desktop/repair-a-windows-image).
+Zobacz też [Naprawa obrazu systemu Windows](/windows-hardware/manufacture/desktop/repair-a-windows-image).
 ### <a name="export-file-permissions-to-text-file"></a>Eksportowanie uprawnień pliku do pliku tekstowego
 `icacls %programdata%\Microsoft\Crypto\RSA\MachineKeys /t /c > %temp%\MachineKeys_permissions_before.txt`
 ### <a name="save-file-permissions-to-acl-file"></a>Zapisz uprawnienia do pliku listy ACL
@@ -435,7 +436,7 @@ Metadane wystąpienia platformy Azure można badać z poziomu maszyny wirtualnej
 
 Wykonywanie zapytań dotyczących metadanych wystąpienia wymaga zdrowej łączności sieciowej gościa, ponieważ powoduje wywołanie REST za pośrednictwem hosta platformy Azure do usługi metadanych wystąpienia. Dlatego jeśli możesz wysyłać zapytania o metadane wystąpienia, oznacza to, że gość może komunikować się za pośrednictwem sieci z usługą hostowaną na platformie Azure.
 
-Aby uzyskać więcej informacji, zobacz [Usługa metadanych wystąpienia platformy Azure](https://docs.microsoft.com/azure/virtual-machines/windows/instance-metadata-service).
+Aby uzyskać więcej informacji, zobacz [Usługa metadanych wystąpienia platformy Azure](../windows/instance-metadata-service.md).
 
 ### <a name="instance-metadata"></a>Metadane wystąpienia
 `$im = invoke-restmethod -headers @{"metadata"="true"} -uri http://169.254.169.254/metadata/instance?api-version=2017-08-01 -method get`

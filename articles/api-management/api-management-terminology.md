@@ -11,14 +11,14 @@ ms.workload: integration
 ms.topic: article
 ms.date: 10/11/2017
 ms.author: apimpm
-ms.openlocfilehash: b99ca444532799d21850058eae0e3f40ed871135
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5bc76d2526c5585071a240af36b8a31e3de5708f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "61074058"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87024932"
 ---
-# <a name="terminology"></a>Terminologia
+# <a name="azure-api-management-terminology"></a>Terminologia dotycząca API Management platformy Azure
 
 Ten artykuł zawiera definicje terminów specyficznych dla API Management (APIM).
 

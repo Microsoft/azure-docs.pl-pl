@@ -8,11 +8,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: 2aa7110ab4e52fdc5c3804bd27be5f41081fb435
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d594f4d8019a7c23da79506cd702adbe9f25038d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81758511"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87028945"
 ---
 # <a name="use-serial-console-to-access-grub-and-single-user-mode"></a>Uzyskiwanie dostępu do programu GRUB i trybu pojedynczego użytkownika za pomocą konsoli szeregowej
 GRUB to wielkie ujednolicone program inicjujący. Z usługi GRUB można zmodyfikować konfigurację rozruchową, aby przeprowadzić rozruch w trybie jednego użytkownika między innymi.
@@ -77,7 +78,7 @@ Jeśli skonfigurowano GRUB i dostęp do katalogu głównego z powyższymi instru
 1. Naciśnij klawisze Ctrl + X, aby wyjść i ponownie uruchomić przy użyciu zastosowanych ustawień
 1. Przed wprowadzeniem trybu pojedynczego użytkownika zostanie wyświetlony monit o podanie hasła administratora. jest to samo hasło, które zostało utworzone w powyższych instrukcjach.    
 
-    ![](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-rhel-enter-emergency-shell.gif)
+    ![Animowany obraz przedstawiający interfejs wiersza polecenia. Użytkownik wybiera serwer, lokalizuje koniec wiersza jądra, a następnie wprowadza określony tekst.](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-rhel-enter-emergency-shell.gif)
 
 ### <a name="enter-single-user-mode-without-root-account-enabled-in-rhel"></a>Wprowadzanie trybu pojedynczego użytkownika bez włączonego konta głównego w RHEL
 Jeśli nie wykonano powyższych kroków w celu włączenia użytkownika root, można nadal zresetować hasło główne. Wykonaj następujące instrukcje:
@@ -94,7 +95,7 @@ Jeśli nie wykonano powyższych kroków w celu włączenia użytkownika root, mo
 1. Po rozruchu w trybie jednego użytkownika wpisz polecenie, `chroot /sysroot` Aby przełączyć się do `sysroot` złamanymi
 1. Jesteś teraz katalogiem głównym. Hasło główne można zresetować za pomocą programu `passwd` , a następnie użyć powyższych instrukcji, aby wprowadzić tryb pojedynczego użytkownika. Wpisz `reboot -f` , aby przeprowadzić ponowny rozruch po zakończeniu.
 
-![](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-rhel-emergency-mount-no-root.gif)
+![Animowany obraz przedstawiający interfejs wiersza polecenia. Użytkownik wybiera serwer, lokalizuje koniec wiersza jądra i wprowadza określone polecenia.](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-rhel-emergency-mount-no-root.gif)
 
 > Uwaga: uruchomienie w powyższej instrukcji spowoduje przechodzenie do powłoki awaryjnej, dzięki czemu można także wykonywać zadania, takie jak edytowanie `fstab` . Jednak ogólnie przyjęta sugestia to zresetowanie hasła głównego i użycie go do wprowadzania trybu pojedynczego użytkownika. 
 
@@ -119,7 +120,7 @@ Domyślnie obrazy Ubuntu nie będą automatycznie wyświetlane na ekranie GRUB. 
 1. Zmień `GRUB_TIMEOUT` wartość na wartość różną od zera.
 1. Otwórz `/etc/default/grub` w wybranym edytorze tekstu
 1. Skomentuj `GRUB_HIDDEN_TIMEOUT=1` wiersz
-1. Uruchom polecenie `sudo update-grub`
+1. Należy uruchomić polecenie `sudo update-grub`
 
 ### <a name="single-user-mode-in-ubuntu"></a>Tryb pojedynczego użytkownika w Ubuntu
 Ubuntu powróci do trybu jednego użytkownika automatycznie, jeśli nie będzie można normalnie przeprowadzić rozruch. Aby ręcznie wprowadzić tryb pojedynczego użytkownika, wykonaj następujące instrukcje:
@@ -156,7 +157,7 @@ Dostęp GRUB w SLES wymaga konfiguracji programu inicjującego za pośrednictwem
 1. Aby wprowadzić GRUB, uruchom ponownie maszynę wirtualną i naciśnij dowolny klawisz podczas sekwencji rozruchu, aby GRUB się na ekranie
     - Domyślny limit czasu dla GRUB to 1. Można to zmienić, zmieniając `GRUB_TIMEOUT` zmienną w`/etc/default/grub`
 
-![](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-sles-yast-grub-config.gif)
+![Animowany obraz przedstawiający interfejs wiersza polecenia. Użytkownik wprowadza określony tekst, wybiera określoną opcję i zapisuje ustawienia.](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-sles-yast-grub-config.gif)
 
 ### <a name="single-user-mode-in-suse-sles"></a>Tryb pojedynczego użytkownika w SUSE SLES
 Jeśli SLES nie będzie można normalnie uruchomić, zostanie automatycznie porzucony do powłoki awaryjnej. Aby ręcznie wprowadzić powłokę awaryjną, należy wykonać następujące instrukcje:
@@ -177,7 +178,7 @@ Oracle Linux jest dostępna z włączonym GRUB. Aby wprowadzić GRUB, uruchom po
 Postępuj zgodnie z instrukcjami RHEL powyżej, aby włączyć tryb pojedynczego użytkownika w Oracle Linux.
 
 ## <a name="next-steps"></a>Następne kroki
-* Główna strona dokumentacji systemu Linux w konsoli szeregowej znajduje się [tutaj](serial-console.md).
+* Główna strona dokumentacji systemu Linux w konsoli szeregowej znajduje się [tutaj](../troubleshooting/serial-console-linux.md).
 * Korzystanie z konsoli szeregowej dla [wywołań NMI i sysrq](serial-console-nmi-sysrq.md)
-* Konsola szeregowa jest również dostępna dla maszyn wirtualnych z [systemem Windows](../windows/serial-console.md)
-* Dowiedz się więcej na temat [diagnostyki rozruchu](boot-diagnostics.md)
+* Konsola szeregowa jest również dostępna dla maszyn wirtualnych z [systemem Windows](../troubleshooting/serial-console-windows.md)
+* Dowiedz się więcej na temat [diagnostyki rozruchu](../troubleshooting/boot-diagnostics.md)

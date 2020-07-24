@@ -1,5 +1,5 @@
 ---
-title: Migrowanie zasad dostępu warunkowego — Azure Active Directory
+title: Migrowanie zasad dostępu warunkowego z uwierzytelnianiem wieloskładnikowym — Azure Active Directory
 description: W tym artykule przedstawiono sposób migracji zasad klasycznych, które wymagają uwierzytelniania wieloskładnikowego w Azure Portal.
 services: active-directory
 ms.service: active-directory
@@ -11,11 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: nigu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d1dc7b7227dbaee488726a75fe7120bd26614dbf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5cc99241f5fa7c09c69db13dcb3f6c3aaa75e376
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83993732"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87027397"
 ---
 # <a name="migrate-a-classic-policy-in-the-azure-portal"></a>Migrowanie zasad klasycznych w Azure Portal
 

@@ -14,11 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 05/05/2020
 ms.author: v-miegge
-ms.openlocfilehash: 118c81dd52951729bfbbb97a510e693861666ee6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 909481964f8aa3272715e235fa011562225a9422
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83665138"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87028366"
 ---
 # <a name="troubleshoot-windows-stop-error--directory-service-initialization-failure"></a>Rozwiązywanie problemów z błędem zatrzymania systemu Windows — niepowodzenie inicjowania usługi katalogowej
 
@@ -26,7 +27,7 @@ W tym artykule przedstawiono kroki rozwiązywania problemów, w których maszyna
 
 ## <a name="symptom"></a>Objaw
 
-W przypadku korzystania z [diagnostyki rozruchu](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) do wyświetlania zrzutu ekranu maszyny wirtualnej zrzut ekranu pokazuje, że maszyna wirtualna musi zostać ponownie uruchomiona z powodu błędu, wyświetlając kod zatrzymania **0XC00002E1** w systemie Windows Server 2008 R2 lub **0xC00002E2** w systemie Windows Server 2012 lub nowszym.
+W przypadku korzystania z [diagnostyki rozruchu](./boot-diagnostics.md) do wyświetlania zrzutu ekranu maszyny wirtualnej zrzut ekranu pokazuje, że maszyna wirtualna musi zostać ponownie uruchomiona z powodu błędu, wyświetlając kod zatrzymania **0XC00002E1** w systemie Windows Server 2008 R2 lub **0xC00002E2** w systemie Windows Server 2012 lub nowszym.
 
 ![Stany ekranu startowego systemu Windows Server 2012 "komputer napotkał problem i wymaga ponownego uruchomienia. Właśnie zbieramy pewne informacje o błędzie, a następnie będziemy ponownie uruchamiać system ".](./media/troubleshoot-directory-service-initialization-failure/1.png)
 
@@ -61,7 +62,7 @@ Przyczyną tego błędu może być dowolny z następujących warunków:
 
 ### <a name="create-and-access-a-repair-vm"></a>Tworzenie maszyny wirtualnej naprawy i uzyskiwanie do niej dostępu
 
-1. Wykonaj [kroki 1-3 poleceń naprawy maszyny wirtualnej](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) , aby przygotować maszynę wirtualną naprawy.
+1. Wykonaj [kroki 1-3 poleceń naprawy maszyny wirtualnej](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md#repair-process-example) , aby przygotować maszynę wirtualną naprawy.
 1. Korzystanie z Podłączanie pulpitu zdalnego łączenia się z maszyną wirtualną naprawy.
 
 ### <a name="free-up-space-on-disk"></a>Zwolnij miejsce na dysku
@@ -69,11 +70,11 @@ Przyczyną tego błędu może być dowolny z następujących warunków:
 Ponieważ dysk jest teraz dołączony do naprawianej maszyny wirtualnej, sprawdź, czy na dysku, na którym znajduje się Active Directory wewnętrzna baza danych, jest wystarczająca ilość miejsca do poprawnego wykonania.
 
 1. Sprawdź, czy dysk jest pełny, klikając go prawym przyciskiem myszy i wybierając polecenie **Właściwości**.
-1. Jeśli dysk ma mniej niż 300 MB wolnego miejsca, [rozwiń go maksymalnie 1 TB przy użyciu programu PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/expand-os-disk).
+1. Jeśli dysk ma mniej niż 300 MB wolnego miejsca, [rozwiń go maksymalnie 1 TB przy użyciu programu PowerShell](../windows/expand-os-disk.md).
 1. Jeśli dysk osiągnie 1 TB zajętego miejsca, wykonaj Oczyszczanie dysku.
 
-   1. Użyj programu PowerShell [, aby odłączyć dysk danych](https://docs.microsoft.com/azure/virtual-machines/windows/detach-disk#detach-a-data-disk-using-powershell) od USZKODZONEJ maszyny wirtualnej.
-   1. Po odłączeniu od uszkodzonej maszyny wirtualnej [Podłącz dysk danych](https://docs.microsoft.com/azure/virtual-machines/windows/attach-disk-ps#attach-an-existing-data-disk-to-a-vm) do działającej maszyny wirtualnej.
+   1. Użyj programu PowerShell [, aby odłączyć dysk danych](../windows/detach-disk.md#detach-a-data-disk-using-powershell) od USZKODZONEJ maszyny wirtualnej.
+   1. Po odłączeniu od uszkodzonej maszyny wirtualnej [Podłącz dysk danych](../windows/attach-disk-ps.md#attach-an-existing-data-disk-to-a-vm) do działającej maszyny wirtualnej.
    1. Za pomocą [Narzędzia do oczyszczania dysku](https://support.microsoft.com/help/4026616/windows-10-disk-cleanup) Zwolnij dodatkowe miejsce.
 
 1. **Opcjonalnie** — Jeśli potrzebujesz więcej miejsca, Otwórz wystąpienie programu CMD i wprowadź polecenie, `defrag <LETTER ASSIGNED TO THE OS DISK>: /u /x /g` Aby wykonać defragmentację na dysku:
@@ -182,7 +183,7 @@ Aby włączyć Zbieranie zrzutów pamięci i konsolę szeregową, uruchom nastę
 
 ### <a name="rebuild-the-vm"></a>Kompiluj ponownie maszynę wirtualną
 
-1. Aby ponownie połączyć maszynę wirtualną, użyj [kroku 5 poleceń naprawy maszyny wirtualnej](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) .
+1. Aby ponownie połączyć maszynę wirtualną, użyj [kroku 5 poleceń naprawy maszyny wirtualnej](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md#repair-process-example) .
 
 ### <a name="reconfigure-the-storage-area-network-policy"></a>Skonfiguruj ponownie zasady sieci magazynowania
 

@@ -12,13 +12,14 @@ ms.date: 04/30/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: dabaecfd31ac9ec6250e7b482fde7699a13df044
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2d18a50a21c41830796c913a424707897d277218
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84266597"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87026768"
 ---
-# <a name="azure-ad-authentication-and-authorization-error-codes"></a>Kody błędów autoryzacji i uwierzytelniania usługi Azure AD
+# <a name="azure-ad-authentication-and-authorization-error-codes"></a>Kody błędów uwierzytelniania i autoryzacji usługi Azure AD
 
 Szukasz informacji o kodach błędów AADSTS, które są zwracane z usługi tokenu zabezpieczającego (STS) Azure Active Directory (Azure AD)? Przeczytaj ten dokument, aby znaleźć AADSTS opisów błędów, poprawek i niektórych sugerowanych obejść.
 
@@ -93,7 +94,7 @@ Wyszukaj w liczbowej części zwróconego kodu błędu.  Na przykład jeśli wys
 | AADSTS40015 | OAuth2IdPAuthCodeRedemptionUserError — wystąpił problem z dostawcą tożsamości federacyjnej. Skontaktuj się ze swoim dostawcą tożsamości, aby rozwiązać ten problem. |
 | AADSTS50000 | TokenIssuanceError — wystąpił problem z usługą logowania. [Otwórz bilet pomocy technicznej](../fundamentals/active-directory-troubleshooting-support-howto.md), aby rozwiązać ten problem. |
 | AADSTS50001 | InvalidResource — zasób jest wyłączony lub nie istnieje. Sprawdź kod aplikacji, aby upewnić się, że został określony dokładny adres URL zasobu dla zasobu, do którego próbujesz uzyskać dostęp.  |
-| AADSTS50002 | NotAllowedTenant — logowanie nie powiodło się z powodu ograniczonego dostępu do serwera proxy w dzierżawie. Jeśli jesteś własnymi zasadami dzierżawy, możesz zmienić ustawienia dzierżawy z ograniczeniami, aby rozwiązać ten problem. |
+| AADSTS50002 | NotAllowedTenant — logowanie nie powiodło się z powodu ograniczonego dostępu do serwera proxy w dzierżawie. Jeśli są to Twoje własne zasady dzierżawy, możesz zmienić ustawienia dzierżawy z ograniczeniami, aby rozwiązać ten problem. |
 | AADSTS50003 | MissingSigningKey — logowanie nie powiodło się z powodu braku klucza podpisywania lub certyfikatu. Może to być spowodowane tym, że w aplikacji nie został skonfigurowany klucz podpisywania. Zapoznaj się z rozwiązaniami opisanymi pod adresem [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#certificate-or-key-not-configured](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#certificate-or-key-not-configured) . Jeśli nadal widzisz problemy, skontaktuj się z właścicielem aplikacji lub administratorem aplikacji. |
 | AADSTS50005 | DevicePolicyError — użytkownik próbował zalogować się na urządzeniu z platformy, która nie jest obecnie obsługiwana przez zasady dostępu warunkowego. |
 | AADSTS50006 | InvalidSignature — weryfikacja podpisu nie powiodła się z powodu nieprawidłowej sygnatury. |
@@ -202,7 +203,7 @@ Wyszukaj w liczbowej części zwróconego kodu błędu.  Na przykład jeśli wys
 | AADSTS70012 | MsaServerError — Wystąpił błąd serwera podczas uwierzytelniania użytkownika MSA (konsumenta). Próbuj ponownie. Jeśli to się nie powiedzie, [Otwórz bilet pomocy technicznej](../fundamentals/active-directory-troubleshooting-support-howto.md) |
 | AADSTS70016 | Błąd przepływu urządzenia AuthorizationPending-OAuth 2,0. Autoryzacja jest w stanie oczekiwania. Urządzenie ponowi próbę sondowania żądania. |
 | AADSTS70018 | BadVerificationCode — nieprawidłowy kod weryfikacyjny ze względu na to, że użytkownik pisze nieprawidłowy kod użytkownika dla przepływu kodu urządzenia. Autoryzacja nie jest zatwierdzona. |
-| AADSTS70019 | CodeExpired — upłynął kod weryfikacyjny. Ponowienie próby logowania przez użytkownika. |
+| AADSTS70019 | CodeExpired — upłynął kod weryfikacyjny. Użytkownik musi się ponownie zalogować. |
 | AADSTS75001 | BindingSerializationError — Wystąpił błąd podczas wiązania komunikatu SAML. |
 | AADSTS75003 | UnsupportedBindingError — aplikacja zwróciła błąd związany z nieobsługiwanym powiązaniem (nie można wysłać odpowiedzi protokołu SAML za pośrednictwem powiązań innych niż POST protokołu HTTP). |
 | AADSTS75005 | Saml2MessageInvalid — usługa Azure AD nie obsługuje żądania SAML wysyłanego przez aplikację na potrzeby logowania jednokrotnego. |
@@ -263,6 +264,7 @@ Wyszukaj w liczbowej części zwróconego kodu błędu.  Na przykład jeśli wys
 | AADSTS90093 | GraphUserUnauthorized-Graph zwrócił z niedozwolonym kodem błędu dla żądania. |
 | AADSTS90094 | AdminConsentRequired — wymagana jest zgoda administratora. |
 | AADSTS900382 | Klient poufny nie jest obsługiwany w żądaniu między chmurą. |
+| AADSTS90099 | Aplikacja "{appId}" ({nazwa_aplikacji}) nie została autoryzowana w dzierżawie "{dzierżawca}". Aplikacje muszą mieć autoryzację, aby uzyskać dostęp do dzierżawy klienta, zanim będzie można z nich korzystać Administratorzy delegowany przez partnerów. Zapewnij wstępną zgodę lub wykonaj odpowiednie interfejsy API Centrum partnerskiego, aby autoryzować aplikację. |
 | AADSTS90100 | InvalidRequestParameter — parametr jest pusty lub nieprawidłowy. |
 | AADSTS901002 | AADSTS901002: parametr żądania "Resource" nie jest obsługiwany. |
 | AADSTS90101 | InvalidEmailAddress — podane dane nie są prawidłowym adresem e-mail. Adres e-mail musi mieć format `someone@example.com` . |

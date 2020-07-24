@@ -11,12 +11,12 @@ author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: ''
 ms.date: 03/03/2020
-ms.openlocfilehash: dbb1d73fc2b19ef701cb08ced24c634bbbadb235
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 983bf848b3be2501b70ba1c0396207e514b7b8d6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86231594"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87024028"
 ---
 # <a name="azure-sql-database-hyperscale-faq"></a>Azure SQL Database często zadawane pytania dotyczące skalowania
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -204,7 +204,9 @@ Tak. Strony danych skojarzone z daną tabelą mogą kończyć się wieloma plika
 
 ### <a name="can-i-move-my-existing-databases-in-azure-sql-database-to-the-hyperscale-service-tier"></a>Czy mogę przenieść istniejące bazy danych w Azure SQL Database do warstwy usługi na potrzeby skalowania
 
-Tak. Istniejące bazy danych można przenosić w Azure SQL Database do skalowania. Jest to jednokierunkowa migracja. Nie można przenieść baz danych ze skalowania do innej warstwy usług. W przypadku dowodu koncepcji (POCs) zalecamy wykonanie kopii bazy danych i migrację kopii do obszaru skalowania.
+Tak. Istniejące bazy danych można przenosić w Azure SQL Database do skalowania. Jest to jednokierunkowa migracja. Nie można przenieść baz danych ze skalowania do innej warstwy usług. W przypadku dowodu koncepcji (POCs) zalecamy wykonanie kopii bazy danych i migrację kopii do obszaru skalowania. 
+
+Czas wymagany do przeniesienia istniejącej bazy danych do obszaru skalowania składa się z czasu na skopiowanie danych oraz czasu odtworzenia zmian wprowadzonych w źródłowej bazie danych podczas kopiowania danych. Czas kopiowania danych jest proporcjonalny do rozmiaru danych. Zmiany czasu odtwarzania są krótsze, jeśli przeniesienie zostanie wykonane w okresie niskiego działania zapisu.
   
 ### <a name="can-i-move-my-hyperscale-databases-to-other-service-tiers"></a>Czy mogę przenieść bazy danych mojego skalowania do innych warstw usług
 

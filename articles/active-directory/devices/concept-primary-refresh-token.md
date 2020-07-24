@@ -5,17 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: conceptual
-ms.date: 05/29/2019
+ms.date: 07/20/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ccd51bd69c982aeae25dbf52d1e5d076542cf35
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9971eb554825a968f8cfa72d6a0cf78d7c0bcb76
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83771200"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87025884"
 ---
 # <a name="what-is-a-primary-refresh-token"></a>Co to jest podstawowy token odświeżania?
 
@@ -64,7 +65,7 @@ PRT jest wystawiany podczas uwierzytelniania użytkownika na urządzeniu z syste
 W scenariuszach zarejestrowanych urządzeń w usłudze Azure AD Wtyczka Menedżera WAM usługi Azure AD jest głównym urzędem dla PRT, ponieważ logowanie systemu Windows nie odbywa się przy użyciu tego konta usługi Azure AD.
 
 > [!NOTE]
-> dostawcy tożsamości innych firm muszą obsługiwać protokół WS-Trust, aby umożliwić PRT wystawiania na urządzeniach z systemem Windows 10. Bez protokołu WS-Trust PRT nie może zostać wystawiony dla użytkowników z dołączoną hybrydą usługi Azure AD lub urządzeniami przyłączonymi do usługi Azure AD
+> dostawcy tożsamości innych firm muszą obsługiwać protokół WS-Trust, aby umożliwić PRT wystawiania na urządzeniach z systemem Windows 10. Bez protokołu WS-Trust PRT nie może zostać wystawiony dla użytkowników z dołączoną hybrydą usługi Azure AD lub urządzeniami przyłączonymi do usługi Azure AD. W przypadku usług ADFS wymagane są tylko punkty końcowe usernamemixed. Usługi ADFS/Services/Trust/2005/windowstransport i ADFS/Services/Trust/13/windowstransport powinny być włączone tylko jako punkty końcowe dostępne dla intranetu i **nie mogą być udostępniane** jako punkty końcowe do ekstranetu za pośrednictwem serwera proxy aplikacji sieci Web
 
 ## <a name="what-is-the-lifetime-of-a-prt"></a>Jaki jest okres istnienia PRT?
 
@@ -166,6 +167,9 @@ Na poniższych diagramach przedstawiono podstawowe informacje dotyczące wydawan
 | E | Wtyczka CloudAP konstruuje żądanie uwierzytelnienia przy użyciu poświadczeń użytkownika, identyfikatora nonce i istniejącego PRT, podpisuje żądanie przy użyciu klucza sesji i wysyła je do usługi Azure AD. W środowisku federacyjnym wtyczka CloudAP używa tokenu SAML zwróconego przez dostawcę federacyjnego zamiast poświadczeń użytkownika. |
 | F | Usługa Azure AD weryfikuje sygnaturę klucza sesji, porównując ją z kluczem sesji osadzonym w PRT, weryfikuje identyfikator jednorazowy i weryfikuje, czy urządzenie jest prawidłowe w dzierżawie i wystawia nowe PRT. Jak wspomniano wcześniej, PRT ponownie towarzyszy kluczowi sesji zaszyfrowanemu przy użyciu klucza transportowego (tkpub). |
 | G | Wtyczka CloudAP przekazuje zaszyfrowane PRT i klucz sesji do CloudAP. CloudAP żąda od modułu TPM odszyfrowania klucza sesji przy użyciu klucza transportowego (tkpriv) i ponownego zaszyfrowania przy użyciu własnego klucza modułu TPM. CloudAP przechowuje zaszyfrowany klucz sesji w pamięci podręcznej wraz z PRT. |
+
+> [!NOTE]
+> PRT można odnowić zewnętrznie bez potrzeby połączenia sieci VPN, gdy punkty końcowe usernamemixed są włączone zewnętrznie.
 
 ### <a name="prt-usage-during-app-token-requests"></a>PRT użycie podczas żądań tokenów aplikacji
 

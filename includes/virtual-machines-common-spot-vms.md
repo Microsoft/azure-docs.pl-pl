@@ -1,35 +1,31 @@
 ---
-title: dołączanie pliku
-description: dołączanie pliku
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 author: cynthn
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 06/26/2020
+ms.date: 07/20/2020
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 8ee5973afb9312688178abd9a186c5319032c493
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: df78133f602466681da64d2666a311e1649c598f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85506053"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87028803"
 ---
 Korzystanie z maszyn wirtualnych na miejscu pozwala korzystać z nieużywanej pojemności przy znaczącym obciążeniu kosztów. W dowolnym momencie, gdy platforma Azure wymaga przywrócenia pojemności, infrastruktura platformy Azure wyłączy maszyny wirtualne. W związku z tym maszyny wirtualne są doskonałe dla obciążeń, które mogą obsłużyć przerwy, takie jak zadania przetwarzania wsadowego, środowiska deweloperskie/testowe, duże obciążenia obliczeniowe i inne.
 
 Ilość dostępnej pojemności może się różnić w zależności od rozmiaru, regionu, pory dnia i innych. Podczas wdrażania maszyn wirtualnych w miejscu platforma Azure przydzieli maszyny wirtualne, jeśli będzie dostępna pojemność, ale nie ma umowy SLA dla tych maszyn wirtualnych. Na maszynie wirtualnej nie są dostępne gwarancje wysokiej dostępności. W dowolnym momencie, gdy platforma Azure potrzebuje pojemności z powrotem, infrastruktura platformy Azure wyłączy maszyny wirtualne z 30 sekund. 
 
 
-## <a name="eviction-policy"></a>Zasady wykluczania
+## <a name="eviction-policy"></a>Zasady eksmisji
 
 Maszyny wirtualne można wykluczyć w oparciu o pojemność lub maksymalną ustawioną cenę. Podczas tworzenia maszyny wirtualnej na miejscu możesz ustawić zasady wykluczania na *Cofnij przydział* (domyślnie) lub *Usuń*. 
 
 Zasada cofania *przydziału* przenosi maszynę wirtualną do stanu zatrzymania bez alokacji, umożliwiając ponowne wdrożenie go później. Nie ma jednak gwarancji, że alokacja powiedzie się. Wycofane maszyny wirtualne będą wliczane do limitu przydziału i będą naliczane opłaty za magazyn dla dysków bazowych. 
 
 Jeśli chcesz usunąć maszynę wirtualną, gdy zostanie ona wykluczona, możesz ustawić zasady wykluczania do *usunięcia*. Wykluczone maszyny wirtualne zostaną usunięte wraz z ich podstawowymi dyskami, więc nie będzie można naliczać opłat za magazyn. 
-
-> [!NOTE]
->
-> Portal nie obsługuje obecnie `Delete` opcji wykluczenia, ale można go ustawić tylko `Delete` przy użyciu programu PowerShell, interfejsu wiersza polecenia i szablonów.
 
 Możesz zrezygnować z otrzymywania powiadomień w ramach maszyny wirtualnej za pomocą [usługi Azure Scheduled Events](../articles/virtual-machines/linux/scheduled-events.md). Spowoduje to powiadomienie użytkownika, jeśli maszyny wirtualne zostaną wykluczone, a użytkownik będzie miał 30 sekund na ukończenie zadań i wykonanie zadań zamknięcia przed wykluczeniem. 
 
@@ -54,19 +50,14 @@ Następujące rozmiary maszyn wirtualnych nie są obsługiwane w przypadku maszy
 
 Dodatkowe maszyny wirtualne można wdrożyć w dowolnym regionie, z wyjątkiem Microsoft Azure Chinach 21Vianet.
 
-Niektóre kanały subskrypcji nie są obsługiwane:
-
 <a name="channel"></a>
 
-| Kanały platformy Azure               | Dostępność maszyn wirtualnych na platformie Azure       |
-|------------------------------|-----------------------------------|
-| Enterprise Agreement         | Tak                               |
-| Płatność zgodnie z rzeczywistym użyciem                | Tak                               |
-| Dostawca usług w chmurze (CSP) | [Skontaktuj się z partnerem](https://docs.microsoft.com/partner-center/azure-plan-get-started) |
-| Zalety                     | Niedostępne                     |
-| Sponsorowan                    | Tak                               |
-| Bezpłatna wersja próbna                   | Niedostępne                     |
+Następujące [typy ofert](https://azure.microsoft.com/support/legal/offer-details/) są obecnie obsługiwane:
 
+-   Enterprise Agreement
+-   Płatność zgodnie z rzeczywistym użyciem
+-   Sponsorowan
+- W przypadku dostawcy usług w chmurze (CSP) skontaktuj się z partnerem
 
 
 ## <a name="pricing"></a>Cennik

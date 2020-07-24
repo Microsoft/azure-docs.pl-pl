@@ -13,12 +13,12 @@ ms.topic: how-to
 ms.date: 10/22/2019
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
-ms.openlocfilehash: d240ed426bb270ac4cf09f3806bd36a6a52d3633
-ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.openlocfilehash: 00f9e4c1ebd162883f62280e753b6e0c4c13a21d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86275397"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87027176"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Instrukcje: Dostosowywanie oświadczeń emitowanych w tokenach dla określonej aplikacji w dzierżawie (wersja zapoznawcza)
 
@@ -284,7 +284,7 @@ Element ID identyfikuje, która Właściwość źródła udostępnia wartość d
 
 #### <a name="table-3-valid-id-values-per-source"></a>Tabela 3: prawidłowe wartości identyfikatorów na Źródło
 
-| Źródło | ID | Opis |
+| Element źródłowy | ID | Opis |
 |-----|-----|-----|
 | Użytkownik | surname | Nazwa rodziny |
 | Użytkownik | givenname | Imię |
@@ -320,7 +320,7 @@ Element ID identyfikuje, która Właściwość źródła udostępnia wartość d
 | Użytkownik | extensionattribute15 | Atrybut rozszerzenia 15 |
 | Użytkownik | othermail | Inna poczta |
 | Użytkownik | country | Kraj/region |
-| Użytkownik | city | City (Miasto) |
+| Użytkownik | city | Miasto |
 | Użytkownik | state | Stan |
 | Użytkownik | stanowiska | Stanowisko |
 | Użytkownik | employeeid | Identyfikator pracownika |
@@ -362,7 +362,7 @@ W oparciu o wybraną metodę jest oczekiwany zestaw danych wejściowych i wyjśc
 |TransformationMethod|Oczekiwane dane wejściowe|Oczekiwane dane wyjściowe|Opis|
 |-----|-----|-----|-----|
 |Join|ciąg1, ciąg2, separator|Oświadczenie outputclaim|Sprzęga ciągi wejściowe przy użyciu separatora między. Na przykład: ciąg1: " foo@bar.com ", ciąg2: "piaskownica", separator: "." powoduje w oświadczenie outputclaim: " foo@bar.com.sandbox "|
-|ExtractMailPrefix|adres e-mail lub nazwa UPN|UPN (Nazwa UPN)|ExtensionAttributes 1-15 lub wszystkie inne rozszerzenia schematu, które przechowują nazwę UPN lub adres e-mail użytkownika, np. johndoe@contoso.com . Wyodrębnia lokalną część adresu e-mail. Na przykład: mail: " foo@bar.com " powoduje oświadczenie outputclaim: "foo". Jeśli \@ znak nie jest obecny, oryginalny ciąg wejściowy jest zwracany w postaci, w jakiej jest.|
+|ExtractMailPrefix|Adres e-mail lub nazwa UPN|wyodrębniony ciąg|ExtensionAttributes 1-15 lub wszystkie inne rozszerzenia schematu, które przechowują nazwę UPN lub adres e-mail użytkownika, np. johndoe@contoso.com . Wyodrębnia lokalną część adresu e-mail. Na przykład: mail: " foo@bar.com " powoduje oświadczenie outputclaim: "foo". Jeśli \@ znak nie jest obecny, oryginalny ciąg wejściowy jest zwracany w postaci, w jakiej jest.|
 
 **InputClaims:** Użyj elementu InputClaims, aby przekazać dane ze wpisu schematu roszczeń do transformacji. Ma dwa atrybuty: **ClaimTypeReferenceId** i **TransformationClaimType**.
 
@@ -385,7 +385,7 @@ W oparciu o wybraną metodę jest oczekiwany zestaw danych wejściowych i wyjśc
 
 #### <a name="table-5-attributes-allowed-as-a-data-source-for-saml-nameid"></a>Tabela 5: atrybuty dozwolone jako źródło danych dla elementu SAML NameID
 
-|Źródło|ID|Opis|
+|Element źródłowy|ID|Opis|
 |-----|-----|-----|
 | Użytkownik | mail (poczta)|Adres e-mail|
 | Użytkownik | userPrincipalName|Nazwa główna użytkownika|
@@ -525,6 +525,6 @@ W tym przykładzie utworzysz zasady, które emitują niestandardową wartość "
       Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
       ```
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 Aby dowiedzieć się, jak dostosować oświadczenia wystawione w tokenie SAML za pomocą Azure Portal, zobacz [How to: Dostosowywanie oświadczeń wystawionych w tokenie SAML dla aplikacji dla przedsiębiorstw](active-directory-saml-claims-customization.md)

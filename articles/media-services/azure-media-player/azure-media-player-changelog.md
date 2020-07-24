@@ -6,12 +6,12 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: overview
 ms.date: 04/20/2020
-ms.openlocfilehash: a1a55ceec2679034125ddd202402cabcbf71e17e
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: fc8304fb068152c800d7b71f77fb601956fb6510
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83698314"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87023403"
 ---
 # <a name="changelog"></a>Dziennik zmian #
 
@@ -72,7 +72,7 @@ ms.locfileid: "83698314"
 
 ### <a name="changes"></a>Zmiany ###
 
-- Stąp [Podpisy dynamiczne] Zmieniono nazwę interfejsu API dla podpisów CEA od 608 do 708. Aby uzyskać więcej informacji, zobacz [Ustawienia napisów CEA708](https://docs.microsoft.com/javascript/api/azuremediaplayer/amp.player.cea708captionssettings)-->
+- Stąp [Podpisy dynamiczne] Zmieniono nazwę interfejsu API dla podpisów CEA od 608 do 708. Aby uzyskać więcej informacji, zobacz [Ustawienia napisów CEA708](/javascript/api/azuremediaplayer/amp.player.cea708captionssettings)-->
 
 ## <a name="220-official-release"></a>2.2.0 (wydanie oficjalne) ##
 
@@ -448,7 +448,7 @@ ms.locfileid: "83698314"
 
 ### <a name="features-160"></a>1.6.0 funkcji ###
 
-- [Funkcja] 33% zmniejszanie rozmiaru azuremediaplayer. min. js
+- [Funkcja] 33% zmniejszenia rozmiaru azuremediaplayer.min.js
 - Ona [AzureHtml5JS | Edge] [Nietestowana] obsługa strumieni DD + audio w programie Edge (bez przełączania do kodera-dekoder po początkowym wyborze). W tej chwili aplikacja musi wybrać poprawny strumień audio.
 - Ona Kontrolki klawisza dostępu (zobacz dokumentację, aby uzyskać więcej szczegółów)
 - Ona Wskaźnik postępu w czasie oczekiwania na dokładne wyszukiwanie

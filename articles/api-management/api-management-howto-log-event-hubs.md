@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: apimpm
-ms.openlocfilehash: f594d4467e64ead40ff3c26aaf3e3a44cb673a98
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: e2bf63558b4bbd55262aa16f70bfba934a42c3ac
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86250298"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87024966"
 ---
 # <a name="how-to-log-events-to-azure-event-hubs-in-azure-api-management"></a>Jak rejestrować zdarzenia w usłudze Azure Event Hubs na platformie Azure API Management
 Azure Event Hubs to wysoce skalowalna usługa transferu danych przychodzących, która może obsługiwać miliony zdarzeń na sekundę, dzięki czemu możliwe jest przetwarzanie i analizowanie olbrzymich ilości danych wytworzonych przez podłączone urządzenia i aplikacje. Event Hubs działa jako "drzwi tylne" dla potoku zdarzeń, a po zebraniu danych do centrum zdarzeń można je przekształcać i przechowywać za pomocą dowolnego dostawcy analiz w czasie rzeczywistym lub kart wsadowych/magazynowych. Usługa Event Hubs oddziela wytwarzanie strumienia zdarzeń od użycia tych zdarzeń, dzięki czemu odbiorcy zdarzeń mogą uzyskiwać dostęp do zdarzeń zgodnie z własnym harmonogramem.
@@ -66,6 +66,9 @@ Zamień na `logger-id` wartość użytą `{loggerId}` w adresie URL żądania, a
 Możesz użyć dowolnego wyrażenia, które zwraca ciąg jako wartość `log-to-eventhub` elementu. W tym przykładzie jest rejestrowany ciąg w formacie JSON zawierający datę i godzinę, nazwę usługi, identyfikator żądania, adres IP żądania i nazwę operacji.
 
 Kliknij przycisk **Zapisz** , aby zapisać zaktualizowaną konfigurację zasad. Gdy tylko zostanie zapisany, zasady są aktywne, a zdarzenia są rejestrowane w wydzielonym centrum zdarzeń.
+
+> [!NOTE]
+> Maksymalny obsługiwany rozmiar komunikatu, który można wysłać do centrum zdarzeń z tych zasad API Management, to 200 kilobajtów (KB). Jeśli komunikat wysyłany do centrum zdarzeń jest większy niż 200 KB, zostanie automatycznie obcięty, a skrócony komunikat zostanie przetransferowany do centrów zdarzeń.
 
 ## <a name="preview-the-log-in-event-hubs-by-using-azure-stream-analytics"></a>Podgląd logowania Event Hubs przy użyciu Azure Stream Analytics
 

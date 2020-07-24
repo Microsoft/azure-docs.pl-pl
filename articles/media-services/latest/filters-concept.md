@@ -13,11 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 05/23/2019
 ms.author: juliako
-ms.openlocfilehash: fdf29924da31db0347938df89e698cb258c2336b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2e188a0e8ee8b5f2037c07c3f15fd78a42852ce9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708301"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87023232"
 ---
 # <a name="filters"></a>Filtry
 
@@ -25,7 +26,7 @@ Podczas dostarczania zawartości do klientów (zdarzeń przesyłania strumieniow
 
 Filtry są reguł po stronie serwera, które umożliwiają klientom wykonywanie następujących czynności: 
 
-- Odtwarzaj tylko sekcję filmu wideo (zamiast odtwarzać cały film wideo). Przykład:
+- Odtwarzaj tylko sekcję filmu wideo (zamiast odtwarzać cały film wideo). Na przykład:
   - Zmniejsz manifest, aby pokazać podrzędny klip zdarzenia na żywo ("filtrowanie podklipu") lub
   - Przytnij początek filmu wideo ("przycinanie filmu wideo").
 - Dostarczaj tylko określone wersje i/lub określone ścieżki języka, które są obsługiwane przez urządzenie używane do odtwarzania zawartości ("filtrowanie wersji"). 
@@ -37,8 +38,8 @@ Media Services umożliwia tworzenie **filtrów kont** i **filtrów zasobów** dl
 
 Istnieją dwa typy filtrów: 
 
-* [Filtry kont](https://docs.microsoft.com/rest/api/media/accountfilters) (globalne) — mogą być stosowane do każdego elementu zawartości w ramach konta Azure Media Services, które mają okres istnienia konta.
-* [Filtry zasobów](https://docs.microsoft.com/rest/api/media/assetfilters) (lokalne) — mogą być stosowane tylko do zasobu, z którym filtr został skojarzony podczas tworzenia, mają okres istnienia elementu zawartości. 
+* [Filtry kont](/rest/api/media/accountfilters) (globalne) — mogą być stosowane do każdego elementu zawartości w ramach konta Azure Media Services, które mają okres istnienia konta.
+* [Filtry zasobów](/rest/api/media/assetfilters) (lokalne) — mogą być stosowane tylko do zasobu, z którym filtr został skojarzony podczas tworzenia, mają okres istnienia elementu zawartości. 
 
 **Filtry konta** i typy **filtrów zasobów** mają dokładnie te same właściwości, które definiują/opisują filtr. Oprócz tworzenia **filtru zasobów**należy określić nazwę elementu zawartości, z którym ma zostać skojarzony filtr.
 
@@ -138,7 +139,7 @@ W poniższym przykładzie zdefiniowano filtr przesyłania strumieniowego na żyw
 
 ## <a name="associating-filters-with-streaming-locator"></a>Kojarzenie filtrów z lokalizatorem przesyłania strumieniowego
 
-Możesz określić listę [filtrów zasobów lub kont](filters-concept.md) w [lokalizatorze przesyłania strumieniowego](https://docs.microsoft.com/rest/api/media/streaminglocators/create#request-body). [Pakowarka dynamiczna](dynamic-packaging-overview.md) stosuje tę listę filtrów razem z tymi, które są określone przez klienta w adresie URL. Ta kombinacja generuje [manifest dynamiczny](filters-dynamic-manifest-overview.md), który jest oparty na filtrach w adresach URL i filtrach określonych w lokalizatorze przesyłania strumieniowego. 
+Możesz określić listę [filtrów zasobów lub kont](filters-concept.md) w [lokalizatorze przesyłania strumieniowego](/rest/api/media/streaminglocators/create#request-body). [Pakowarka dynamiczna](dynamic-packaging-overview.md) stosuje tę listę filtrów razem z tymi, które są określone przez klienta w adresie URL. Ta kombinacja generuje [manifest dynamiczny](filters-dynamic-manifest-overview.md), który jest oparty na filtrach w adresach URL i filtrach określonych w lokalizatorze przesyłania strumieniowego. 
 
 Zobacz poniższe przykłady:
 
@@ -160,4 +161,3 @@ W poniższych artykułach pokazano, jak programowo utworzyć filtry.
 - [Tworzenie filtrów za pomocą interfejsów API REST](filters-dynamic-manifest-rest-howto.md)
 - [Tworzenie filtrów za pomocą programu .NET](filters-dynamic-manifest-dotnet-howto.md)
 - [Tworzenie filtrów za pomocą interfejsu wiersza polecenia](filters-dynamic-manifest-cli-howto.md)
-

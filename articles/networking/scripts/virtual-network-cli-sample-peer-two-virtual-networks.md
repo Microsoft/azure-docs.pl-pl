@@ -12,13 +12,14 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 07/07/2017
 ms.author: kumud
-ms.openlocfilehash: 0e5aaf07b49546aca9f44dcb9a43a79127c82341
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c301c66c3b668ae48314c4d1eb06657d8573209c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73890245"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87030407"
 ---
-# <a name="peer-two-virtual-networks"></a>Komunikacja równorzędna dwóch sieci wirtualnych
+# <a name="use-an-azure-cli-sample-script-to-connect-two-virtual-networks"></a>Użyj przykładowego skryptu interfejsu wiersza polecenia platformy Azure, aby połączyć dwie sieci wirtualne
 
 Ten skrypt tworzy i łączy dwie sieci wirtualne w tym samym regionie za pomocą sieci platformy Azure. Po uruchomieniu skryptu utworzysz komunikację równorzędną pomiędzy dwiema sieciami wirtualnymi.
 

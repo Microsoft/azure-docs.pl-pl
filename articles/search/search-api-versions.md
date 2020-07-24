@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 07/15/2020
-ms.openlocfilehash: 2cdac18ed20c90861fe23f0a9ccbd02680d380af
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 07/20/2020
+ms.openlocfilehash: 5be50453dff9acaf4a9876eec1d95b56abebf745
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86496693"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87029845"
 ---
 # <a name="api-versions-in-azure-cognitive-search"></a>Wersje interfejsu API na platformie Azure Wyszukiwanie poznawcze
 
@@ -69,7 +69,7 @@ Historia wersji pakietu jest dostępna w witrynie NuGet.org. Ta tabela zawiera l
 
 | Wersja zestawu SDK | Stan | Opis |
 |-------------|--------|------------------------------|
-| [Azure.Search.Documents 11,0](https://www.nuget.org/packages/Azure.Search.Documents/1.0.0-preview.4) | Stable | Nowa Biblioteka kliencka z zestawu Azure .NET SDK wydana w lipcu 2020. Jest przeznaczony dla interfejsu API REST wyszukiwania — Version = 2019-05-06. |
+| [Azure.Search.Documents 11,0](https://www.nuget.org/packages/Azure.Search.Documents/1.0.0-preview.4) | Stable | Nowa Biblioteka kliencka z zestawu Azure .NET SDK wydana w lipcu 2020. Celem interfejsu API REST wyszukiwania — wersja = 2020-06-30 REST API, ale nie obsługuje jeszcze filtrów geograficznych ani [FieldBuilder](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.fieldbuilder?view=azure-dotnet). |
 | [Microsoft. Azure. Search 10,0](https://www.nuget.org/packages/Microsoft.Azure.Search/) | Stable | Wydanie może 2019. Jest przeznaczony dla interfejsu API REST wyszukiwania — Version = 2019-05-06.|
 | [Microsoft. Azure. Search 8,0 — wersja zapoznawcza](https://www.nuget.org/packages/Microsoft.Azure.Search/8.0.0-preview) | Wersja zapoznawcza | wydana kwiecień 2019. Celem interfejsu API REST wyszukiwania — wersja = 2019-05 -06-Preview.|
 | [Microsoft. Azure. Management. Search 3.0.0](https://docs.microsoft.com/dotnet/api/overview/azure/search/management?view=azure-dotnet) | Stable | Jest przeznaczony dla interfejsu API REST zarządzania — Version = 2015-08-19.  |
@@ -88,7 +88,7 @@ Historia wersji pakietu jest dostępna w witrynie NuGet.org. Ta tabela zawiera l
 | [JavaScript Azure — wyszukiwanie 11,0](https://azure.github.io/azure-sdk-for-node/azure-search/latest/) | Stable | Nowa Biblioteka kliencka z zestawu Azure .NET SDK wydana w lipcu 2020. Dotyczy interfejsu API REST wyszukiwania-Version = 2016-09-01. |
 | [JavaScript Azure — ARM — wyszukiwanie](https://azure.github.io/azure-sdk-for-node/azure-arm-search/latest/) | Stable | Jest przeznaczony dla interfejsu API REST zarządzania — Version = 2015-08-19. |
 
-## <a name="azure-sdk-for-python"></a>Zestaw Azure SDK dla języka Python
+## <a name="azure-sdk-for-python"></a>Zestaw Azure SDK dla środowiska Python
 
 | Wersja zestawu SDK | Stan | Opis  |
 |-------------|--------|------------------------------|

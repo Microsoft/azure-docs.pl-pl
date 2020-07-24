@@ -12,19 +12,20 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 3c16724dc3eb99549b692df93ee6cd5f1fc0bf30
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8b695bad791388dc51123a118344b8fda0f54ca8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84484035"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87027703"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Konfigurowanie ustawień usługi Azure Multi-Factor Authentication
 
-Aby dostosować środowisko użytkownika końcowego dla usługi Azure Multi-Factor Authentication, można skonfigurować opcje dla ustawień takich jak progi blokady konta lub alerty oszustwa i powiadomienia. Niektóre ustawienia są bezpośrednio w Azure Portal dla Azure Active Directory (Azure AD), a niektóre w osobnym portalu Azure Multi-Factor Authentication.]
+Aby dostosować środowisko użytkownika końcowego dla usługi Azure Multi-Factor Authentication, można skonfigurować opcje dla ustawień takich jak progi blokady konta lub alerty oszustwa i powiadomienia. Niektóre ustawienia są bezpośrednio w Azure Portal dla Azure Active Directory (Azure AD), a niektóre w osobnym portalu Azure Multi-Factor Authentication.
 
 Następujące ustawienia usługi Azure Multi-Factor Authentication są dostępne w Azure Portal:
 
-| Cecha | Opis |
+| Cechy | Opis |
 | ------- | ----------- |
 | [Blokada konta](#account-lockout) | Tymczasowo Blokuj konta z używania platformy Azure Multi-Factor Authentication, jeśli w wierszu występuje zbyt wiele nieudanych prób uwierzytelnienia. Ta funkcja ma zastosowanie tylko do użytkowników, którzy wprowadzają kod PIN do uwierzytelnienia. (Serwer MFA) |
 | [Blokuj/Odblokuj użytkowników](#block-and-unblock-users) | Zablokuj określonym użytkownikom możliwość otrzymywania żądań Multi-Factor Authentication platformy Azure. Wszystkie próby uwierzytelnienia dla zablokowanych użytkowników są automatycznie odrzucane. Użytkownicy pozostają Zablokowani przez 90 dni od momentu ich zablokowania lub ręcznie odblokowany. |
@@ -243,7 +244,7 @@ Jeśli w organizacji wdrożono rozszerzenie serwera NPS w celu zapewnienia uwier
 
 | Typ dzierżawy usługi Azure AD | Opcje funkcji zaufanego adresu IP |
 |:--- |:--- |
-| Zarządzany |**Określony zakres adresów IP**: Administratorzy określają zakres adresów IP, które mogą pomijać weryfikację dwuetapową dla użytkowników logujących się z firmowej sieci intranet. Można skonfigurować maksymalnie 50 zaufanych zakresów adresów IP.|
+| Zarządzani |**Określony zakres adresów IP**: Administratorzy określają zakres adresów IP, które mogą pomijać weryfikację dwuetapową dla użytkowników logujących się z firmowej sieci intranet. Można skonfigurować maksymalnie 50 zaufanych zakresów adresów IP.|
 | Federacyjni |**Wszyscy użytkownicy zafederacyjnych**: Wszyscy użytkownicy federacyjne, którzy logują się z wewnątrz organizacji, mogą ominąć weryfikację dwuetapową. Użytkownicy pomijają weryfikację przy użyciu roszczeń wydawanych przez Active Directory Federation Services (AD FS).<br/>**Określony zakres adresów IP**: Administratorzy określają zakres adresów IP, które mogą pomijać weryfikację dwuetapową dla użytkowników logujących się z firmowej sieci intranet. |
 
 Obejście zaufanego adresu IP działa tylko w intranecie firmy. W przypadku wybrania opcji **Wszyscy użytkownicy Federacji** , a użytkownik loguje się spoza firmowej sieci intranet, użytkownik musi uwierzytelnić się przy użyciu weryfikacji dwuetapowej. Ten proces jest taki sam, nawet jeśli użytkownik prezentuje AD FS.
@@ -293,7 +294,7 @@ Aby włączyć Zaufane adresy IP przy użyciu zasad dostępu warunkowego, wykona
 Jeśli nie chcesz używać zasad dostępu warunkowego do włączania zaufanych adresów IP, możesz skonfigurować *Ustawienia usługi* dla platformy Azure Multi-Factor Authentication, wykonując następujące czynności:
 
 1. W Azure Portal Wyszukaj i wybierz pozycję **Azure Active Directory**, a następnie wybierz pozycję **Użytkownicy**.
-1. Wybierz **Multi-Factor Authentication**.
+1. Wybierz pozycję **Multi-Factor Authentication**.
 1. W obszarze Multi-Factor Authentication wybierz pozycję **Ustawienia usługi**.
 1. Na stronie **Ustawienia usługi** w obszarze **Zaufane adresy IP**wybierz jedną z następujących opcji:
 
@@ -328,7 +329,7 @@ Aby uzyskać więcej informacji, zobacz [jakie metody uwierzytelniania i weryfik
 Aby włączyć lub wyłączyć metody weryfikacyjne, wykonaj następujące czynności:
 
 1. W Azure Portal Wyszukaj i wybierz pozycję **Azure Active Directory**, a następnie wybierz pozycję **Użytkownicy**.
-1. Wybierz **Multi-Factor Authentication**.
+1. Wybierz pozycję **Multi-Factor Authentication**.
 1. W obszarze Multi-Factor Authentication wybierz pozycję **Ustawienia usługi**.
 1. Na stronie **Ustawienia usługi** w obszarze **Opcje weryfikacji**wybierz/Usuń zaznaczenie metod, które mają być dostępne dla użytkowników.
 1. Kliknij pozycję **Zapisz**.
@@ -363,7 +364,7 @@ Funkcja zmniejsza liczbę uwierzytelnień w aplikacjach sieci Web, które zwykle
 Aby włączyć i skonfigurować opcję dla użytkowników, którzy będą pamiętać o stanie usługi MFA i pominięciu, wykonaj następujące czynności:
 
 1. W Azure Portal Wyszukaj i wybierz pozycję **Azure Active Directory**, a następnie wybierz pozycję **Użytkownicy**.
-1. Wybierz **Multi-Factor Authentication**.
+1. Wybierz pozycję **Multi-Factor Authentication**.
 1. W obszarze Multi-Factor Authentication wybierz pozycję **Ustawienia usługi**.
 1. Na stronie **Ustawienia usługi** **Zarządzaj Zapamiętaj uwierzytelnianie wieloskładnikowe**, wybierz opcję **Zezwalaj użytkownikom na zapamiętywanie uwierzytelniania wieloskładnikowego na urządzeniach, które ufają** .
 1. Ustaw liczbę dni, przez które zaufane urządzenia mogą pomijać weryfikację dwuetapową. Wartość domyślna to 14 dni.

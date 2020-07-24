@@ -12,16 +12,16 @@ ms.date: 5/4/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 55adff17445639ee5685613b418054075c704449
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2fe41cdc6fa1adef96568981df5bb13129fe900f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85477247"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87026734"
 ---
 # <a name="whats-new-for-authentication"></a>Co nowego w uwierzytelnianiu?
 
->Otrzymuj powiadomienia o aktualizacjach na tej stronie. Po prostu Dodaj [ten adres URL](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20for%20authentication%22&locale=en-us) do czytnika kanału informacyjnego RSS.
+> Otrzymuj powiadomienia o aktualizacjach tej strony, wklejając ten adres URL do czytnika kanału informacyjnego RSS:<br/>`https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20for%20authentication%22&locale=en-us`
 
 System uwierzytelniania zmienia i dodaje funkcje na bieżąco w celu poprawy bezpieczeństwa i zgodności ze standardami. Aby zachować aktualność najnowszych zmian, ten artykuł zawiera informacje o następujących szczegółach:
 
@@ -90,7 +90,7 @@ Użytkownik nie może się zalogować, ponieważ jego hasło przekracza dozwolon
 Po wysłaniu odpowiedzi uwierzytelniania z login.microsoftonline.com do aplikacji za pośrednictwem przekierowania HTTP usługa dołączy pusty fragment do adresu URL odpowiedzi.  Pozwala to zapobiec atakom klasy w celu przekierowania przez zagwarantowanie, że przeglądarka wyczyści wszystkie istniejące fragmenty w żądaniu uwierzytelniania.  Żadne aplikacje nie powinny być zależne od tego zachowania.
 
 
-## <a name="august-2019"></a>Sierpień 2019 r.
+## <a name="august-2019"></a>Sierpień 2019 r.
 
 ### <a name="post-form-semantics-will-be-enforced-more-strictly---spaces-and-quotes-will-be-ignored"></a>Semantyka formularza POST zostanie wymuszona z większą ilością miejsc, a cudzysłowy zostaną zignorowane
 
@@ -107,7 +107,7 @@ Przykład:
 Dzisiaj `?e=    "f"&g=h` jest analizowane identycznie tak, jak to `?e=f&g=h` możliwe `e`  ==  `f` .  W przypadku tej zmiany teraz będzie ona analizowana w taki sposób, aby nie był to `e`  ==  `    "f"` prawidłowy argument, a żądanie mogłoby się nie powieść.
 
 
-## <a name="july-2019"></a>Lipiec 2019
+## <a name="july-2019"></a>Lipiec 2019 r.
 
 ### <a name="app-only-tokens-for-single-tenant-applications-are-only-issued-if-the-client-app-exists-in-the-resource-tenant"></a>Tokeny tylko do aplikacji dla aplikacji z jedną dzierżawą są wystawiane tylko wtedy, gdy aplikacja kliencka istnieje w dzierżawie zasobu
 
@@ -146,7 +146,7 @@ Statyczny parametr zapytania jest uzależniony od ciągu dla identyfikatorów UR
 Należy pamiętać, że w tej chwili (koniec lipca 2019) środowisko rejestracji aplikacji w Azure Portal nadal blokuje parametry zapytania.  Można jednak ręcznie edytować manifest aplikacji w celu dodania parametrów zapytania i przetestowania go w aplikacji.
 
 
-## <a name="march-2019"></a>Marzec 2019
+## <a name="march-2019"></a>Marzec 2019 r.
 
 ### <a name="looping-clients-will-be-interrupted"></a>Zapętlenie klientów zostanie przerwane
 
@@ -177,7 +177,7 @@ Aplikacje wykonujące wiele żądań (15 +) w krótkim czasie (5 minut) otrzymaj
 Wszystkie aplikacje powinny być obsługiwane `invalid_grant` przez wyświetlanie interakcyjnego monitu, a nie w trybie dyskretnym.  Aby uniknąć tego błędu, klienci powinni upewnić się, że prawidłowo buforują otrzymywane tokeny.
 
 
-## <a name="october-2018"></a>Październik 2018
+## <a name="october-2018"></a>Październik 2018 r.
 
 ### <a name="authorization-codes-can-no-longer-be-reused"></a>Nie można już ponownie używać kodów autoryzacji
 
@@ -193,7 +193,7 @@ Jeśli aplikacja ponownie używa kodów autoryzacji w celu uzyskania tokenów dl
 
 Aby uzyskać więcej informacji na temat tokenów odświeżania, zobacz [odświeżanie tokenów dostępu](v2-oauth2-auth-code-flow.md#refresh-the-access-token).  W przypadku używania biblioteki ADAL lub MSAL jest to obsługiwane przez bibliotekę — Zastąp drugie wystąpienie elementu "AcquireTokenByAuthorizationCodeAsync" elementem "AcquireTokenSilentAsync".
 
-## <a name="may-2018"></a>Maj 2018
+## <a name="may-2018"></a>Maj 2018 r.
 
 ### <a name="id-tokens-cannot-be-used-for-the-obo-flow"></a>Nie można używać tokenów identyfikatora dla przepływu OBO
 

@@ -5,23 +5,23 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: how-to
-ms.date: 10/29/2019
+ms.date: 07/20/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.custom: references_regions
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 152f7ab6ccb9f01c7fe70553501c8cf8afa1c650
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c8c9fbf2d86c2e066566bab11b1701909be64a37
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85554888"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87025850"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Logowanie do maszyny wirtualnej z systemem Windows na platformie Azure przy użyciu uwierzytelniania Azure Active Directory (wersja zapoznawcza)
 
-Organizacje mogą teraz korzystać z uwierzytelniania Azure Active Directory (AD) na maszynach wirtualnych platformy Azure z systemem **Windows Server 2019 Datacenter Edition** lub **Windows 10 1809** lub nowszym. Uwierzytelnianie na maszynach wirtualnych za pomocą usługi Azure AD zapewnia możliwość centralnego kontrolowania i wymuszania zasad. Narzędzia, takie jak Access Control oparte na rolach na platformie Azure (RBAC) i dostęp warunkowy usługi Azure AD, umożliwiają kontrolowanie dostępu do maszyny wirtualnej. W tym artykule pokazano, jak utworzyć i skonfigurować maszynę wirtualną z systemem Windows Server 2019 do korzystania z uwierzytelniania usługi Azure AD.
+Organizacje mogą teraz korzystać z uwierzytelniania Azure Active Directory (AD) na maszynach wirtualnych platformy Azure z systemem **Windows Server 2019 Datacenter Edition** lub **Windows 10 1809** lub nowszym. Uwierzytelnianie na maszynach wirtualnych za pomocą usługi Azure AD zapewnia możliwość centralnego kontrolowania i wymuszania zasad. Narzędzia, takie jak kontrola dostępu oparta na rolach (Azure RBAC) i dostęp warunkowy usługi Azure AD, umożliwiają kontrolowanie, kto może uzyskać dostęp do maszyny wirtualnej. W tym artykule pokazano, jak utworzyć i skonfigurować maszynę wirtualną z systemem Windows Server 2019 do korzystania z uwierzytelniania usługi Azure AD.
 
 > [!NOTE]
 > Logowanie za pomocą usługi Azure AD na potrzeby maszyn wirtualnych systemu Windows Azure jest publiczną funkcją w wersji zapoznawczej programu Azure Active Directory. Aby uzyskać więcej informacji na temat wersji zapoznawczych, zobacz temat [Dodatkowe warunki użytkowania dotyczące wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -200,7 +200,10 @@ Aby uzyskać więcej informacji na temat używania RBAC do zarządzania dostępe
 Można wymusić zasady dostępu warunkowego, takie jak uwierzytelnianie wieloskładnikowe lub sprawdzanie ryzyka logowania użytkownika przed autoryzacją dostępu do maszyn wirtualnych z systemem Windows na platformie Azure, które są włączone przy użyciu usługi Azure AD. Aby zastosować zasady dostępu warunkowego, należy wybrać opcję "Logowanie do maszyny wirtualnej platformy Azure" w opcji przypisywania aplikacji lub akcji w chmurze, a następnie użyć ryzyka związanego z logowaniem jako warunku i/lub wymagać uwierzytelniania wieloskładnikowego jako udzielenia kontroli dostępu. 
 
 > [!NOTE]
-> Jeśli używasz "Wymagaj uwierzytelniania wieloskładnikowego" jako udzielenia kontroli dostępu w celu zażądania dostępu do aplikacji "Logowanie maszyn wirtualnych z systemem Windows Azure", musisz podać rolę uwierzytelniania wieloskładnikowego jako część klienta inicjującego sesję RDP na docelowej maszynie wirtualnej z systemem Windows na platformie Azure. Jedynym sposobem osiągnięcia tego celu na kliencie z systemem Windows 10 jest użycie numeru PIN usługi Windows Hello dla firm lub uwierzytelniania biometrycznego z klientem RDP. Dodano obsługę uwierzytelniania biometrycznego do klienta RDP w systemie Windows 10 w wersji 1809. Uwierzytelnianie za pomocą usługi Windows Hello dla firm jest dostępne tylko w przypadku wdrożeń korzystających z modelu zaufania certyfikatów i aktualnie niedostępnych dla modeli zaufania kluczy.
+> Jeśli używasz "Wymagaj uwierzytelniania wieloskładnikowego" jako udzielenia kontroli dostępu w celu zażądania dostępu do aplikacji "Logowanie maszyn wirtualnych z systemem Windows Azure", musisz podać rolę uwierzytelniania wieloskładnikowego jako część klienta inicjującego sesję RDP na docelowej maszynie wirtualnej z systemem Windows na platformie Azure. Jedynym sposobem osiągnięcia tego celu na kliencie z systemem Windows 10 jest użycie numeru PIN usługi Windows Hello dla firm lub uwierzytelniania biometrycznego za pomocą klienta RDP. Dodano obsługę uwierzytelniania biometrycznego do klienta RDP w systemie Windows 10 w wersji 1809. Uwierzytelnianie za pomocą usługi Windows Hello dla firm jest dostępne tylko w przypadku wdrożeń korzystających z modelu zaufania certyfikatów i aktualnie niedostępnych dla modeli zaufania kluczy.
+
+> [!WARNING]
+> Włączona/wymuszona usługa Azure Multi-Factor Authentication dla poszczególnych użytkowników nie jest obsługiwana w przypadku logowania do maszyny wirtualnej.
 
 ## <a name="log-in-using-azure-ad-credentials-to-a-windows-vm"></a>Logowanie przy użyciu poświadczeń usługi Azure AD z maszyną wirtualną z systemem Windows
 
@@ -211,7 +214,7 @@ Aby zalogować się do maszyny wirtualnej z systemem Windows Server 2019 przy u�
 
 1. Przejdź do strony Przegląd maszyny wirtualnej, która została włączona z logowaniem do usługi Azure AD.
 1. Wybierz pozycję **Połącz** , aby otworzyć blok Połącz z maszyną wirtualną.
-1. Wybierz opcję **Pobierz plik RDP**.
+1. Wybierz pozycję **Pobierz plik RDP**.
 1. Wybierz pozycję **Otwórz** , aby uruchomić klienta Podłączanie pulpitu zdalnego.
 1. Wybierz pozycję **Połącz** , aby uruchomić okno dialogowe logowania systemu Windows.
 1. Zaloguj się przy użyciu poświadczeń usługi Azure AD.
@@ -221,7 +224,7 @@ Użytkownik jest zalogowany do maszyny wirtualnej systemu Windows Server 2019 Az
 > [!NOTE]
 > Możesz zapisać. Plik RDP lokalnie na komputerze, aby uruchomić przyszłe połączenia pulpitu zdalnego z maszyną wirtualną zamiast konieczności przechodzenia do strony przeglądu maszyn wirtualnych w Azure Portal i przy użyciu opcji Połącz.
 
-## <a name="troubleshoot"></a>Rozwiązywanie problemów
+## <a name="troubleshoot"></a>Rozwiąż problemy
 
 ### <a name="troubleshoot-deployment-issues"></a>Rozwiązywanie problemów dotyczących wdrożenia
 

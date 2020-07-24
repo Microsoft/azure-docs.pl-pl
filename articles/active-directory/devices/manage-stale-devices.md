@@ -11,11 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 292ba1d52b107acd164408767747e5a33cb0c67d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 94a4b2a44902dde798f760f970ccff2c1e8f15c5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85252699"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87025640"
 ---
 # <a name="how-to-manage-stale-devices-in-azure-ad"></a>Instrukcje: Zarządzanie nieodświeżonymi urządzeniami w usłudze Azure AD
 
@@ -56,7 +57,7 @@ Istnieją dwie możliwości uzyskania wartości znacznika czasu aktywności:
 
     ![Znacznik czasu aktywności](./media/manage-stale-devices/01.png)
 
-- Polecenie cmdlet [Get-MsolDevice](/powershell/module/msonline/get-msoldevice?view=azureadps-1.0)
+- Polecenie cmdlet [Get-AzureADDevice](/powershell/module/azuread/Get-AzureADDevice)
 
     ![Znacznik czasu aktywności](./media/manage-stale-devices/02.png)
 
@@ -88,7 +89,7 @@ Jeśli urządzenie jest kontrolowane przez usługę Intune lub dowolne inne rozw
 
 ### <a name="system-managed-devices"></a>Urządzenia zarządzane przez system
 
-Nie należy usuwać urządzeń zarządzanych przez system. Są to zazwyczaj urządzenia, takie jak autopilotaż. Po usunięciu tych urządzeń nie można ponownie zainicjować obsługi administracyjnej. Nowe polecenie cmdlet `get-msoldevice` domyślnie wyklucza urządzenia zarządzane przez system. 
+Nie należy usuwać urządzeń zarządzanych przez system. Są to zazwyczaj urządzenia, takie jak autopilotaż. Po usunięciu tych urządzeń nie można ponownie zainicjować obsługi administracyjnej. Nowe polecenie cmdlet `Get-AzureADDevice` domyślnie wyklucza urządzenia zarządzane przez system. 
 
 ### <a name="hybrid-azure-ad-joined-devices"></a>Urządzenia dołączone hybrydowo do usługi Azure AD
 
@@ -128,26 +129,25 @@ Nieaktywne urządzenia można oczyszczać w witrynie Azure Portal, ale bardziej 
 
 Typowa procedura obejmuje następujące czynności:
 
-1. Nawiązywanie połączenia z usługą Azure Active Directory przy użyciu polecenia cmdlet [Connect-MsolService](/powershell/module/msonline/connect-msolservice?view=azureadps-1.0)
+1. Nawiązywanie połączenia z usługą Azure Active Directory przy użyciu polecenia cmdlet [Connect-AzureAD](/powershell/module/azuread/connect-azuread)
 1. Pobieranie listy urządzeń
-1. Wyłączanie urządzenia przy użyciu polecenia cmdlet [Disable-MsolDevice](/powershell/module/msonline/disable-msoldevice?view=azureadps-1.0) 
+1. Wyłącz urządzenie przy użyciu polecenia cmdlet [Set-AzureADDevice](/powershell/module/azuread/Set-AzureADDevice) (Wyłącz przy użyciu opcji-AccountEnabled). 
 1. Przed usunięciem urządzenia poczekaj, aż upłynie wybrana przez Ciebie liczba dni okresu prolongaty.
-1. Usuwanie urządzenia przy użyciu polecenia cmdlet [Remove-MsolDevice](/powershell/module/msonline/remove-msoldevice?view=azureadps-1.0)
+1. Usuń urządzenie przy użyciu polecenia cmdlet [Remove-AzureADDevice](/powershell/module/azuread/Remove-AzureADDevice) .
 
 ### <a name="get-the-list-of-devices"></a>Pobieranie listy urządzeń
 
 Aby uzyskać listę wszystkich urządzeń i zachować zwrócone dane w pliku CSV, użyj następującego polecenia:
 
 ```PowerShell
-Get-MsolDevice -all | select-object -Property Enabled, DeviceId, DisplayName, DeviceTrustType, Approxi
-mateLastLogonTimestamp | export-csv devicelist-summary.csv
+Get-AzureADDevice -All:$true | select-object -Property Enabled, DeviceId, DisplayName, DeviceTrustType, ApproximateLastLogonTimestamp | export-csv devicelist-summary.csv
 ```
 
 Jeśli masz dużą liczbę urządzeń w katalogu, Użyj filtru sygnatur czasowych, aby zawęzić liczbę zwróconych urządzeń. Aby uzyskać wszystkie urządzenia ze znacznikiem czasu starszym niż określona data oraz zachować zwrócone dane w pliku CSV, użyj następującego polecenia: 
 
 ```PowerShell
 $dt = [datetime]’2017/01/01’
-Get-MsolDevice -all -LogonTimeBefore $dt | select-object -Property Enabled, DeviceId, DisplayName, DeviceTrustType, ApproximateLastLogonTimestamp | export-csv devicelist-olderthan-Jan-1-2017-summary.csv
+Get-AzureADDevice | Where {$_.ApproximateLastLogonTimeStamp -le $dt} | select-object -Property Enabled, DeviceId, DisplayName, DeviceTrustType, ApproximateLastLogonTimestamp | export-csv devicelist-olderthan-Jan-1-2017-summary.csv
 ```
 
 ## <a name="what-you-should-know"></a>Co należy wiedzieć

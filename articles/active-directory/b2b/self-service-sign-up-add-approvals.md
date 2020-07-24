@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c4b40c284c8d034d92f29eb25d754d9294ac2e3d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6d1a4495b1d637b1cf8592f8c17e63ad456ea3c4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85386780"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87027465"
 ---
 # <a name="add-a-custom-approval-workflow-to-self-service-sign-up"></a>Dodawanie niestandardowego przepływu pracy zatwierdzenia do rejestracji samoobsługowej
 
@@ -38,7 +38,7 @@ Musisz zarejestrować system zatwierdzania jako aplikację w dzierżawie usługi
 
    <!-- ![Register an application for the approval system](./self-service-sign-up-add-approvals/approvals/register-an-approvals-application.png) -->
 
-5. Wybierz pozycję **Zarejestruj**. W ustawieniach domyślnych można pozostawić inne pola.
+5. Wybierz pozycję **Rejestruj**. W ustawieniach domyślnych można pozostawić inne pola.
 
    ![Rejestrowanie strony aplikacji](media/self-service-sign-up-add-approvals/register-approvals-app.png)
 
@@ -61,11 +61,11 @@ Musisz zarejestrować system zatwierdzania jako aplikację w dzierżawie usługi
 
 Następnie utworzysz [Łączniki interfejsu API](self-service-sign-up-add-api-connector.md#create-an-api-connector) dla przepływu użytkownika samoobsługowego tworzenia konta. Interfejs API systemu zatwierdzania wymaga dwóch łączników i odpowiednich punktów końcowych, takich jak Przykłady przedstawione poniżej. Te łączniki interfejsu API są następujące:
 
-- **Sprawdź stan zatwierdzenia**. Wyślij wywołanie do systemu zatwierdzania natychmiast po zalogowaniu się użytkownika przy użyciu dostawcy tożsamości w celu sprawdzenia, czy użytkownik ma istniejące żądanie zatwierdzenia lub zostało już odrzucone. Jeśli system zatwierdzania tylko podejmuje decyzje dotyczące automatycznego zatwierdzania, ten łącznik interfejsu API może nie być wymagany. Poniżej znajduje się przykład łącznika interfejsu API "Sprawdzanie stanu zatwierdzenia".
+- **Sprawdź stan zatwierdzenia**. Wyślij wywołanie do systemu zatwierdzania natychmiast po zalogowaniu się użytkownika przy użyciu dostawcy tożsamości w celu sprawdzenia, czy użytkownik ma istniejące żądanie zatwierdzenia lub zostało już odrzucone. Jeśli system zatwierdzania tylko podejmuje decyzje dotyczące automatycznego zatwierdzania, ten łącznik interfejsu API może nie być wymagany. Przykład łącznika interfejsu API "Sprawdzanie stanu zatwierdzenia".
 
   ![Sprawdź konfigurację łącznika interfejsu API stanu zatwierdzenia](./media/self-service-sign-up-add-approvals/check-approval-status-api-connector-config-alt.png)
 
-- **Żądaj zatwierdzenia** — Wyślij wywołanie do systemu zatwierdzania po zakończeniu przez użytkownika strony kolekcji atrybutów, ale przed utworzeniem konta użytkownika, aby zażądać zatwierdzenia. Żądanie zatwierdzenia można automatycznie udzielić lub ręcznie przejrzeć. Poniżej przedstawiono przykład łącznika interfejsu API "Żądaj zatwierdzenia". Wybierz wszelkie **oświadczenia, które mają zostać wysłane** przez system zatwierdzania, aby podjąć decyzję o zatwierdzeniu.
+- **Żądaj zatwierdzenia** — Wyślij wywołanie do systemu zatwierdzania po zakończeniu przez użytkownika strony kolekcji atrybutów, ale przed utworzeniem konta użytkownika, aby zażądać zatwierdzenia. Żądanie zatwierdzenia można automatycznie udzielić lub ręcznie przejrzeć. Przykład łącznika interfejsu API "Żądaj zatwierdzenia". Wybierz wszelkie **oświadczenia, które mają zostać wysłane** przez system zatwierdzania, aby podjąć decyzję o zatwierdzeniu.
 
   ![Zażądaj konfiguracji łącznika interfejsu API zatwierdzania](./media/self-service-sign-up-add-approvals/create-approval-request-api-connector-config-alt.png)
 
@@ -94,14 +94,14 @@ System zatwierdzania może używać [typów odpowiedzi interfejsu API](self-serv
 
 ### <a name="request-and-responses-for-the-check-approval-status-api-connector"></a>Żądanie i odpowiedzi dotyczące łącznika interfejsu API "Sprawdzanie stanu zatwierdzenia"
 
-Poniżej znajduje się przykład żądania odebranego przez interfejs API z łącznika interfejsu API "Sprawdzanie stanu zatwierdzenia":
+Przykład żądania odebranego przez interfejs API z łącznika interfejsu API "Sprawdzanie stanu zatwierdzenia":
 
 ```http
 POST <Approvals-API-endpoint>
 Content-type: application/json
 
 {
- "email_address": "johnsmith@outlook.com",
+ "email": "johnsmith@outlook.com",
  "identities": [
      {
      "signInType":"federated",
@@ -119,7 +119,7 @@ Punkt końcowy interfejsu API **sprawdzania stanu zatwierdzenia** powinien zwró
 
 - Użytkownik nie zażądał wcześniej zatwierdzenia.
 
-Poniżej przedstawiono przykład odpowiedzi kontynuacji:
+Przykład odpowiedzi kontynuacji:
 
 ```http
 HTTP/1.1 200 OK
@@ -166,14 +166,14 @@ Content-type: application/json
 
 ### <a name="request-and-responses-for-the-request-approval-api-connector"></a>Żądanie i odpowiedzi dla łącznika interfejsu API "Żądaj zatwierdzenia"
 
-Poniżej znajduje się przykład żądania HTTP odebranego przez interfejs API z łącznika interfejsu API "Żądaj zatwierdzenia":
+Przykład żądania HTTP odebranego przez interfejs API z łącznika interfejsu API "Żądaj zatwierdzenia":
 
 ```http
 POST <Approvals-API-endpoint>
 Content-type: application/json
 
 {
- "email_address": "johnsmith@outlook.com",
+ "email": "johnsmith@outlook.com",
  "identities": [
      {
      "signInType":"federated",
@@ -194,7 +194,7 @@ Punkt końcowy interfejsu API **zatwierdzania żądań** powinien zwrócić odpo
 
 - Użytkownik może zostać **_automatycznie zatwierdzony_**.
 
-Poniżej przedstawiono przykład odpowiedzi kontynuacji:
+Przykład odpowiedzi kontynuacji:
 
 ```http
 HTTP/1.1 200 OK
@@ -257,14 +257,14 @@ Po uzyskaniu zatwierdzenia ręcznego system zatwierdzania niestandardowego tworz
 
 Jeśli użytkownik zalogował się przy użyciu konta Google lub Facebook, można użyć [interfejsu API tworzenia użytkownika](https://docs.microsoft.com/graph/api/user-post-users?view=graph-rest-1.0&tabs=http).
 
-1. System zatwierdzania używa odbierania żądania HTTP z przepływu użytkownika.
+1. System zatwierdzania odbiera żądanie HTTP z przepływu użytkownika.
 
 ```http
 POST <Approvals-API-endpoint>
 Content-type: application/json
 
 {
- "email_address": "johnsmith@outlook.com",
+ "email": "johnsmith@outlook.com",
  "identities": [
      {
      "signInType":"federated",
@@ -305,9 +305,9 @@ Content-type: application/json
 
 | Parametr                                           | Wymagane | Opis                                                                                                                                                            |
 | --------------------------------------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| userPrincipalName                                   | Tak      | Mogą być generowane przez pobranie `email_address` zgłoszenia do interfejsu API, zastąpienie `@` znaku znakiem `_` i wstępnie do `#EXT@<tenant-name>.onmicrosoft.com` . |
+| userPrincipalName                                   | Tak      | Mogą być generowane przez pobranie `email` zgłoszenia do interfejsu API, zastąpienie `@` znaku znakiem `_` i wstępnie do `#EXT@<tenant-name>.onmicrosoft.com` . |
 | accountEnabled                                      | Tak      | Musi być ustawiony na `true` .                                                                                                                                                 |
-| mail (poczta)                                                | Tak      | Odpowiednik `email_address` żądania wysłanego do interfejsu API.                                                                                                               |
+| mail (poczta)                                                | Tak      | Odpowiednik `email` żądania wysłanego do interfejsu API.                                                                                                               |
 | userType                                            | Tak      | Musi być `Guest` . Wyznacza tego użytkownika jako użytkownika-gościa.                                                                                                                 |
 | osob                                          | Tak      | Informacje o tożsamości federacyjnej.                                                                                                                                    |
 | \<otherBuiltInAttribute>                            | Nie       | Inne wbudowane atrybuty, takie jak `displayName` , `city` i inne. Nazwy parametrów są takie same jak parametry wysyłane przez łącznik interfejsu API.                            |
@@ -324,7 +324,7 @@ POST <Approvals-API-endpoint>
 Content-type: application/json
 
 {
- "email_address": "johnsmith@fabrikam.onmicrosoft.com",
+ "email": "johnsmith@fabrikam.onmicrosoft.com",
  "displayName": "John Smith",
  "city": "Redmond",
  "extension_<extensions-app-id>_CustomAttribute": "custom attribute value",
@@ -332,7 +332,7 @@ Content-type: application/json
 }
 ```
 
-2. System zatwierdzania tworzy zaproszenie przy użyciu `email_address` dostarczonego przez łącznik interfejsu API.
+2. System zatwierdzania tworzy zaproszenie przy użyciu `email` dostarczonego przez łącznik interfejsu API.
 
 ```http
 POST https://graph.microsoft.com/v1.0/invitations
@@ -344,7 +344,7 @@ Content-type: application/json
 }
 ```
 
-Poniżej przedstawiono przykład odpowiedzi:
+Przykład odpowiedzi:
 
 ```http
 HTTP/1.1 201 OK

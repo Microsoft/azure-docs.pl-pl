@@ -7,12 +7,12 @@ ms.author: lechen
 ms.date: 10/11/2019
 ms.reviewer: mbullwin
 ms.custom: tracking-python
-ms.openlocfilehash: e1a866799a62c457c2734524c58bb848b8f067e6
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 35d56c5318046a0f9ffc52f61fac886c473cf0bc
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86107448"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87024371"
 ---
 # <a name="set-up-azure-monitor-for-your-python-application"></a>Konfigurowanie Azure Monitor dla aplikacji języka Python
 
@@ -32,18 +32,18 @@ Zainstaluj OpenCensus Azure Monitor eksportu:
 python -m pip install opencensus-ext-azure
 ```
 
-Aby uzyskać pełną listę pakietów i integracji, zobacz [OpenCensus Packages](https://docs.microsoft.com/azure/azure-monitor/app/nuget#common-packages-for-python-using-opencensus).
+Aby uzyskać pełną listę pakietów i integracji, zobacz [OpenCensus Packages](./nuget.md#common-packages-for-python-using-opencensus).
 
 > [!NOTE]
 > W przypadku `python -m pip install opencensus-ext-azure` polecenia przyjęto założenie, że masz `PATH` zmienną środowiskową ustawioną dla instalacji języka Python. Jeśli ta zmienna nie została skonfigurowana, należy podać pełną ścieżkę do katalogu, w którym znajduje się plik wykonywalny języka Python. Wynikiem jest następujące polecenie: `C:\Users\Administrator\AppData\Local\Programs\Python\Python37-32\python.exe -m pip install opencensus-ext-azure` .
 
-Zestaw SDK używa trzech Azure Monitor eksportujących do wysyłania różnych typów danych telemetrycznych do Azure Monitor. Są one śledzeniem, metrykami i dziennikami. Aby uzyskać więcej informacji na temat tych typów telemetrii, zobacz [Omówienie platformy danych](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform). Aby wysłać te typy telemetrii za pośrednictwem trzech eksporterów, należy wykonać poniższe instrukcje.
+Zestaw SDK używa trzech Azure Monitor eksportujących do wysyłania różnych typów danych telemetrycznych do Azure Monitor. Są one śledzeniem, metrykami i dziennikami. Aby uzyskać więcej informacji na temat tych typów telemetrii, zobacz [Omówienie platformy danych](../platform/data-platform.md). Aby wysłać te typy telemetrii za pośrednictwem trzech eksporterów, należy wykonać poniższe instrukcje.
 
 ## <a name="telemetry-type-mappings"></a>Mapowania typów telemetrii
 
 Poniżej przedstawiono eksporterów, którzy OpenCensus są zamapowane na typy danych telemetrycznych, które są widoczne w Azure Monitor.
 
-| Filar zaobserwowania | Typ telemetrii w Azure Monitor    | Objaśnienie                                         |
+| Filar zaobserwowania | Typ telemetrii w Azure Monitor    | Wyjaśnienie                                         |
 |-------------------------|------------------------------------|-----------------------------------------------------|
 | Dzienniki                    | Ślady, wyjątki, customEvents   | Dane telemetryczne dziennika, telemetrię wyjątku, telemetria zdarzeń |
 | Metryki                 | customMetrics, liczniki wydajności | Liczniki wydajności niestandardowych metryk                |
@@ -111,7 +111,7 @@ Poniżej przedstawiono eksporterów, którzy OpenCensus są zamapowane na typy d
 1. Eksporter wysyła dane dziennika do Azure Monitor. Dane można znaleźć w sekcji `traces` . 
 
     > [!NOTE]
-    > W tym kontekście `traces` nie jest taka sama jak `tracing` . W tym miejscu `traces` odnosi się do typu danych telemetrycznych, które będą widoczne w Azure monitor podczas korzystania z programu `AzureLogHandler` . Ale `tracing` odwołuje się do koncepcji w OpenCensus i odnosi się do [śledzenia rozproszonego](https://docs.microsoft.com/azure/azure-monitor/app/distributed-tracing).
+    > W tym kontekście `traces` nie jest taka sama jak `tracing` . W tym miejscu `traces` odnosi się do typu danych telemetrycznych, które będą widoczne w Azure monitor podczas korzystania z programu `AzureLogHandler` . Ale `tracing` odwołuje się do koncepcji w OpenCensus i odnosi się do [śledzenia rozproszonego](./distributed-tracing.md).
 
     > [!NOTE]
     > Rejestrator główny jest skonfigurowany z poziomu ostrzeżenia. Oznacza to, że wszystkie wysyłane dzienniki o mniejszej ważności są ignorowane, a z kolei nie będą wysyłane do Azure Monitor. Aby uzyskać więcej informacji, zobacz [dokumentację](https://docs.python.org/3/library/logging.html#logging.Logger.setLevel).
@@ -216,11 +216,11 @@ Aby uzyskać informacje na temat próbkowania w OpenCensus, spójrz na [próbkow
 
 #### <a name="log-correlation"></a>Korelacja dzienników
 
-Aby uzyskać szczegółowe informacje na temat wzbogacania dzienników przy użyciu danych kontekstu śledzenia, zobacz [integracja dzienników](https://docs.microsoft.com/azure/azure-monitor/app/correlation#log-correlation)OpenCensus języka Python.
+Aby uzyskać szczegółowe informacje na temat wzbogacania dzienników przy użyciu danych kontekstu śledzenia, zobacz [integracja dzienników](./correlation.md#log-correlation)OpenCensus języka Python.
 
 #### <a name="modify-telemetry"></a>Modyfikuj dane telemetryczne
 
-Aby uzyskać szczegółowe informacje na temat modyfikowania śledzonych danych telemetrycznych przed ich wysłaniem do Azure Monitor, zobacz OpenCensuse [procesory telemetryczne](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#opencensus-python-telemetry-processors)języka Python.
+Aby uzyskać szczegółowe informacje na temat modyfikowania śledzonych danych telemetrycznych przed ich wysłaniem do Azure Monitor, zobacz OpenCensuse [procesory telemetryczne](./api-filtering-sampling.md#opencensus-python-telemetry-processors)języka Python.
 
 
 ### <a name="metrics"></a>Metryki
@@ -347,16 +347,16 @@ Te liczniki wydajności są obecnie wysyłane:
 - Użycie procesora CPU przez proces (procent)
 - Prywatne bajty procesu (w bajtach)
 
-Te metryki powinny być dostępne w programie `performanceCounters` . Aby uzyskać więcej informacji, zobacz [liczniki wydajności](https://docs.microsoft.com/azure/azure-monitor/app/performance-counters).
+Te metryki powinny być dostępne w programie `performanceCounters` . Aby uzyskać więcej informacji, zobacz [liczniki wydajności](./performance-counters.md).
 
 #### <a name="modify-telemetry"></a>Modyfikuj dane telemetryczne
 
-Aby uzyskać informacje na temat modyfikowania śledzonych danych telemetrycznych przed ich wysłaniem do Azure Monitor, zobacz OpenCensus Python — [procesory telemetryczne](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#opencensus-python-telemetry-processors).
+Aby uzyskać informacje na temat modyfikowania śledzonych danych telemetrycznych przed ich wysłaniem do Azure Monitor, zobacz OpenCensus Python — [procesory telemetryczne](./api-filtering-sampling.md#opencensus-python-telemetry-processors).
 
 ### <a name="tracing"></a>Śledzenie
 
 > [!NOTE]
-> W programie OpenCensus `tracing` odnosi się do [śledzenia rozproszonego](https://docs.microsoft.com/azure/azure-monitor/app/distributed-tracing). `AzureExporter`Komunikaty `requests` i dane `dependency` telemetryczne do Azure monitor.
+> W programie OpenCensus `tracing` odnosi się do [śledzenia rozproszonego](./distributed-tracing.md). `AzureExporter`Komunikaty `requests` i dane `dependency` telemetryczne do Azure monitor.
 
 1. Najpierw wygenerujmy dane śledzenia lokalnie. W bezczynnym języku Python lub wybranym przez Ciebie edytorze wpisz następujący kod:
 
@@ -420,8 +420,8 @@ Aby uzyskać informacje na temat modyfikowania śledzonych danych telemetrycznyc
         main()
     ```
 
-1. Teraz po uruchomieniu skryptu języka Python nadal powinien zostać wyświetlony monit o wprowadzenie wartości, ale tylko wartość jest drukowana w powłoce. Utworzony `SpanData` został wysłany do Azure monitor. Wyemitowane dane zakresu można znaleźć w sekcji `dependencies` . Aby uzyskać więcej informacji na temat żądań wychodzących, zobacz OpenCensus Python — [zależności](https://docs.microsoft.com/azure/azure-monitor/app/opencensus-python-dependency).
-Aby uzyskać więcej informacji na temat żądań przychodzących, zobacz OpenCensus Python — [żądania](https://docs.microsoft.com/azure/azure-monitor/app/opencensus-python-request).
+1. Teraz po uruchomieniu skryptu języka Python nadal powinien zostać wyświetlony monit o wprowadzenie wartości, ale tylko wartość jest drukowana w powłoce. Utworzony `SpanData` został wysłany do Azure monitor. Wyemitowane dane zakresu można znaleźć w sekcji `dependencies` . Aby uzyskać więcej informacji na temat żądań wychodzących, zobacz OpenCensus Python — [zależności](./opencensus-python-dependency.md).
+Aby uzyskać więcej informacji na temat żądań przychodzących, zobacz OpenCensus Python — [żądania](./opencensus-python-request.md).
 
 #### <a name="sampling"></a>Próbkowanie
 
@@ -429,11 +429,11 @@ Aby uzyskać informacje na temat próbkowania w OpenCensus, spójrz na [próbkow
 
 #### <a name="trace-correlation"></a>Korelacja śledzenia
 
-Aby uzyskać więcej informacji na temat korelacji telemetrii w danych śledzenia, zapoznaj się z tematem [korelacja telemetrii](https://docs.microsoft.com/azure/azure-monitor/app/correlation#telemetry-correlation-in-opencensus-python)języka Python OpenCensus.
+Aby uzyskać więcej informacji na temat korelacji telemetrii w danych śledzenia, zapoznaj się z tematem [korelacja telemetrii](./correlation.md#telemetry-correlation-in-opencensus-python)języka Python OpenCensus.
 
 #### <a name="modify-telemetry"></a>Modyfikuj dane telemetryczne
 
-Aby uzyskać więcej informacji na temat modyfikowania śledzonych danych [telemetrycznych](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#opencensus-python-telemetry-processors)przed ich wysłaniem do Azure monitor, zobacz OpenCensus.
+Aby uzyskać więcej informacji na temat modyfikowania śledzonych danych [telemetrycznych](./api-filtering-sampling.md#opencensus-python-telemetry-processors)przed ich wysłaniem do Azure monitor, zobacz OpenCensus.
 
 ## <a name="configure-azure-monitor-exporters"></a>Konfigurowanie Azure Monitor eksportu
 
@@ -442,7 +442,7 @@ Jak pokazano, istnieją trzy różne Azure Monitor eksportujących, które obsł
 Każdy eksporter akceptuje te same argumenty dla konfiguracji, przekazane przez konstruktory. Poniżej znajdują się szczegółowe informacje dotyczące każdego z nich:
 
 - `connection_string`: Parametry połączenia używane do nawiązania połączenia z zasobem Azure Monitor. Ma priorytet wyższy niż `instrumentation_key` .
-- `enable_standard_metrics`: Używane dla `AzureMetricsExporter` . Informuje eksportera, aby automatycznie wysyłał metryki [licznika wydajności](https://docs.microsoft.com/azure/azure-monitor/platform/app-insights-metrics#performance-counters) do Azure monitor. Wartość domyślna to `True` .
+- `enable_standard_metrics`: Używane dla `AzureMetricsExporter` . Informuje eksportera, aby automatycznie wysyłał metryki [licznika wydajności](../platform/app-insights-metrics.md#performance-counters) do Azure monitor. Wartość domyślna to `True` .
 - `export_interval`: Służy do określania częstotliwości eksportu w sekundach.
 - `instrumentation_key`: Klucz Instrumentacji używany do nawiązywania połączenia z zasobem Azure Monitor.
 - `logging_sampling_rate`: Używane dla `AzureLogHandler` . Zapewnia częstotliwość próbkowania [0, 1.0] do eksportowania dzienników. Wartość domyślna to 1,0.
@@ -462,7 +462,7 @@ Na liście w obszarze **aktywne**:
 - W przypadku danych telemetrycznych wysyłanych za pomocą eksportu metryk Azure Monitor są wyświetlane metryki `customMetrics` .
 - W przypadku danych telemetrycznych wysyłanych z wyeksportowanymi dziennikami Azure Monitor dzienniki są wyświetlane poniżej `traces` . Wyjątki są wyświetlane w sekcji `exceptions` .
 
-Aby uzyskać szczegółowe informacje na temat korzystania z zapytań i dzienników, zobacz [dzienniki w Azure monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-logs).
+Aby uzyskać szczegółowe informacje na temat korzystania z zapytań i dzienników, zobacz [dzienniki w Azure monitor](../platform/data-platform-logs.md).
 
 ## <a name="learn-more-about-opencensus-for-python"></a>Dowiedz się więcej na temat OpenCensus for Python
 

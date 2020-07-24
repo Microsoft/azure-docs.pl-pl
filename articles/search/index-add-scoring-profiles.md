@@ -8,12 +8,12 @@ ms.author: ramero
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/06/2020
-ms.openlocfilehash: 4bc5897401a62d45e8b1c987d7ef50e0c8a6de08
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ae41cc620960bd49603e6712759585796e76fe67
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85565362"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87029947"
 ---
 # <a name="add-scoring-profiles-to-an-azure-cognitive-search-index"></a>Dodawanie profilów oceniania do indeksu usługi Azure Cognitive Search
 
@@ -254,7 +254,7 @@ Wynik wyszukiwania jest obliczany na podstawie właściwości statystycznych dan
 ##  <a name="set-interpolations"></a><a name="bkmk_interpolation"></a>Ustaw interpolacje  
  Interpolacje umożliwiają ustawienie kształtu skośnego używanego do oceniania. Ze względu na to, że ocena jest wysoka do niska, nachylenie jest zawsze zmniejszane, ale Interpolacja określa krzywą skośnego spadku. Następujące interpolacje mogą być używane:  
 
-|||  
+| Interpolacji | Opis |  
 |-|-|  
 |`linear`|W przypadku elementów, które znajdują się w zakresie maksymalnym i minimalnym, podwyższanie poziomu zastosowana do elementu zostanie wykonane w sposób stale zmniejszany. Skala liniowa jest domyślną interpolacją dla profilu oceniania.|  
 |`constant`|Dla elementów, które znajdują się w zakresie początkowym i końcowym, do wyników rangi zostanie zastosowana stała podwyższanie poziomu.|  
@@ -279,7 +279,7 @@ Wynik wyszukiwania jest obliczany na podstawie właściwości statystycznych dan
 
  Aby uzyskać więcej przykładów, zobacz [schemat XML: typy danych (witryna sieci web w3.org)](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration).  
 
-## <a name="see-also"></a>Zobacz także  
+## <a name="see-also"></a>Zobacz też  
 
 + [Dokumentacja interfejsu API REST](https://docs.microsoft.com/rest/api/searchservice/)   
 + [Tworzenie interfejsu API indeksu](https://docs.microsoft.com/rest/api/searchservice/create-index)   

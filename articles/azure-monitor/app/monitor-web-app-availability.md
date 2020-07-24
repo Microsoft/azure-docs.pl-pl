@@ -4,11 +4,12 @@ description: Konfigurowanie testów sieci Web w usłudze Application Insights. O
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.reviewer: sdash
-ms.openlocfilehash: 61358051a8ddc32bc01ec5e231f4c28ebfa18ee0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6daa2e4abb1b6580fd70f104e85f3a917f47dcdc
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77670036"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87024592"
 ---
 # <a name="monitor-the-availability-of-any-website"></a>Monitorowanie dostępności dowolnej witryny sieci Web
 
@@ -22,7 +23,7 @@ Istnieją trzy typy testów dostępności:
 
 * [Test ping adresu URL](#create-a-url-ping-test): prosty test, który można utworzyć w portalu Azure.
 * [Wieloetapowy test sieci Web](availability-multistep.md): nagrywanie sekwencji żądań sieci Web, które mogą być odtwarzane w celu przetestowania bardziej złożonych scenariuszy. Wieloetapowe testy sieci Web są tworzone w Visual Studio Enterprise i przekazywane do portalu w celu wykonania.
-* [Testy dostępności niestandardowej ścieżki](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability?view=azure-dotnet): Jeśli zdecydujesz się utworzyć niestandardową aplikację do uruchamiania testów dostępności, `TrackAvailability()` Metoda może zostać użyta do wysłania wyników do Application Insights.
+* [Testy dostępności niestandardowej ścieżki](/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability?view=azure-dotnet): Jeśli zdecydujesz się utworzyć niestandardową aplikację do uruchamiania testów dostępności, `TrackAvailability()` Metoda może zostać użyta do wysłania wyników do Application Insights.
 
 **Można utworzyć maksymalnie 100 testów dostępności dla zasobu Application Insights.**
 
@@ -42,7 +43,7 @@ Aby utworzyć pierwsze żądanie dostępności, Otwórz okienko dostępność i 
 
 ### <a name="create-a-test"></a>Tworzenie testu
 
-|Ustawienie| Objaśnienie
+|Ustawienie| Wyjaśnienie
 |----|----|----|
 |**Adres URL** |  Adres URL może odnosić się do dowolnej strony sieci Web, którą chcesz przetestować, ale musi być widoczny w publicznym Internecie. Adres URL może zawierać ciąg zapytania. Możesz więc np. szybko sprawdzić działanie bazy danych. Jeśli adres URL jest rozpoznawany jako przekierowanie, zostanie prześledzonych maksymalnie 10 przekierowań.|
 |**Analizuj zależne żądania**| Testuje obrazy, skrypty, pliki stylów i inne pliki, które są częścią strony sieci Web w teście. Rejestrowany czas odpowiedzi obejmuje czas poświęcony na pobieranie tych plików. Test kończy się niepowodzeniem, jeśli nie można pomyślnie pobrać któregokolwiek z tych zasobów w ramach limitu czasu dla całego testu. Jeśli pole opcji nie zostanie zaznaczone, test zażąda tylko pliku pod podanym adresem URL. Włączenie tej opcji skutkuje dokładniejszym sprawdzeniem. Test może zakończyć się niepowodzeniem, co może nie być zauważalne podczas ręcznego przeglądania witryny.
@@ -50,14 +51,14 @@ Aby utworzyć pierwsze żądanie dostępności, Otwórz okienko dostępność i 
 |**Częstotliwość testów**| Ustawia częstotliwość uruchamiania testu z każdej lokalizacji testowej. Przy domyślnej częstotliwości równej 5 minut i 5 lokalizacjach testu witryna będzie testowana średnio co minutę.|
 |**Lokalizacje testów**| Są miejsca, w których serwery wysyłają żądania sieci Web do adresu URL. **Minimalna liczba zalecanych lokalizacji testowych to pięć** , aby upewnić się, że problemy w witrynie sieci Web można odróżnić od problemów z siecią. Wybrać można maksymalnie 16 lokalizacji.
 
-**Jeśli Twój adres URL nie jest widoczny w publicznej sieci Internet, możesz wybrać opcję selektywnego otwierania zapory, aby zezwalać tylko na transakcje testowe za pośrednictwem programu**. Aby dowiedzieć się więcej o wyjątkach zapory dla naszych agentów testów dostępności, zapoznaj się z [przewodnikiem po adresie IP](https://docs.microsoft.com/azure/azure-monitor/app/ip-addresses#availability-tests).
+**Jeśli Twój adres URL nie jest widoczny w publicznej sieci Internet, możesz wybrać opcję selektywnego otwierania zapory, aby zezwalać tylko na transakcje testowe za pośrednictwem programu**. Aby dowiedzieć się więcej o wyjątkach zapory dla naszych agentów testów dostępności, zapoznaj się z [przewodnikiem po adresie IP](./ip-addresses.md#availability-tests).
 
 > [!NOTE]
 > Zdecydowanie zalecamy testowanie z wielu lokalizacji z **co najmniej pięcioma lokalizacjami**. Ma to na celu uniknięcie fałszywych alarmów, które mogą powodować przejściowe problemy z określoną lokalizacją. Ponadto firma Microsoft ustaliła, że optymalna konfiguracja ma mieć **liczbę lokalizacji testowych równą progowi lokalizacji alertu + 2**.
 
 ### <a name="success-criteria"></a>Kryteria sukcesu
 
-|Ustawienie| Objaśnienie
+|Ustawienie| Wyjaśnienie
 |----|----|----|
 | **Limit czasu testu** |Zmniejsz tę wartość, aby otrzymywać alerty o powolnych odpowiedziach. Test jest uznawany za błąd, jeśli w tym okresie nie odebrano odpowiedzi z witryny. W przypadku wybrania opcji **Analizuj zależne żądania** wszystkie obrazy, pliki stylów, skrypty i inne zasoby zależne muszą zostać odebrane w tym okresie.|
 | **Odpowiedź HTTP** | Zwrócony kod stanu, który jest liczony jako powodzenie. Kod 200 oznacza, że została zwrócona normalna strona sieci Web.|
@@ -65,7 +66,7 @@ Aby utworzyć pierwsze żądanie dostępności, Otwórz okienko dostępność i 
 
 ### <a name="alerts"></a>Alerty
 
-|Ustawienie| Objaśnienie
+|Ustawienie| Wyjaśnienie
 |----|----|----|
 |**Niemal w czasie rzeczywistym (wersja zapoznawcza)** | Zalecamy korzystanie z alertów niemal w czasie rzeczywistym. Konfigurowanie tego typu alertu odbywa się po utworzeniu testu dostępności.  |
 |**Klasyczny** | Nie zalecamy już używania klasycznych alertów dla nowych testów dostępności.|
@@ -112,7 +113,7 @@ Kliknij wiersz wyjątku, aby wyświetlić szczegóły wyjątku po stronie serwer
 
 ![Diagnostyka po stronie serwera](./media/monitor-web-app-availability/open-instance-4.png)
 
-Oprócz nieprzetworzonych wyników można także wyświetlić dwie metryki dostępności klucza w [Eksplorator metryk](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-getting-started):
+Oprócz nieprzetworzonych wyników można także wyświetlić dwie metryki dostępności klucza w [Eksplorator metryk](../platform/metrics-getting-started.md):
 
 1. Dostępność: procent testów, które zostały pomyślnie zakończone, dla wszystkich wykonań testów.
 2. Czas trwania testu: średni czas trwania testu dla wszystkich wykonań testów.
@@ -130,5 +131,3 @@ Dedykowany artykuł dotyczący [rozwiązywania problemów](troubleshoot-availabi
 
 * [Alerty dostępności](availability-alerts.md)
 * [Wieloetapowe testy sieci Web](availability-multistep.md)
-
-

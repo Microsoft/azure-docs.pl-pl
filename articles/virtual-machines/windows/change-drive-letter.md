@@ -9,19 +9,19 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 01/02/2018
 ms.author: cynthn
-ms.openlocfilehash: 15df3178f2860fa066a82cb1429e0c1a6e5c2b08
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 511c3aa65bf0a10e42d7a54c98662cc388a5d711
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82083426"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87028228"
 ---
 # <a name="use-the-d-drive-as-a-data-drive-on-a-windows-vm"></a>Używanie dysku D: jako dysku z danymi na maszynie wirtualnej z systemem Windows
 Jeśli aplikacja musi używać dysku D do przechowywania danych, postępuj zgodnie z tymi instrukcjami, aby użyć innej litery dysku dla dysku tymczasowego. Nie należy używać dysku tymczasowego do przechowywania danych, które należy zachować.
 
 Jeśli zmienisz rozmiar lub **zatrzymasz (Cofnij przydział)** maszyny wirtualnej, może to spowodować umieszczenie maszyny wirtualnej w nowej funkcji hypervisor. Planowane lub nieplanowane zdarzenie konserwacji może również spowodować wyzwolenie tego położenia. W tym scenariuszu dysk tymczasowy zostanie ponownie przypisany do pierwszej dostępnej litery dysku. Jeśli masz aplikację, która odpowiednio wymaga dysku D:, musisz wykonać następujące kroki, aby tymczasowo przenieść pagefile.sys, dołączyć nowy dysk danych i przypisać go do litery D, a następnie przenieść pagefile.sys z powrotem do dysku tymczasowego. Po zakończeniu platforma Azure nie przejdzie z powrotem D: Jeśli maszyna wirtualna przejdzie do innej funkcji hypervisor.
 
-Aby uzyskać więcej informacji na temat sposobu korzystania z dysku tymczasowego przez platformę Azure, zobacz [opis dysku tymczasowego na Microsoft Azure Virtual Machines](https://blogs.msdn.microsoft.com/mast/2013/12/06/understanding-the-temporary-drive-on-windows-azure-virtual-machines/)
+Aby uzyskać więcej informacji na temat sposobu korzystania z dysku tymczasowego przez platformę Azure, zobacz [opis dysku tymczasowego na Microsoft Azure Virtual Machines](/archive/blogs/mast/understanding-the-temporary-drive-on-windows-azure-virtual-machines)
 
 ## <a name="attach-the-data-disk"></a>Dołącz dysk z danymi
 Najpierw należy dołączyć dysk danych do maszyny wirtualnej. Aby to zrobić przy użyciu portalu, zobacz [jak dołączyć dysk danych zarządzanych w Azure Portal](attach-managed-disk-portal.md).
@@ -35,7 +35,7 @@ Najpierw należy dołączyć dysk danych do maszyny wirtualnej. Aby to zrobić p
 6. W sekcji **pamięć wirtualna** wybierz pozycję **Zmień**.
 7. Wybierz dysk **C** , a następnie kliknij pozycję **rozmiar zarządzany przez system** , a następnie kliknij pozycję **Ustaw**.
 8. Wybierz dysk **D** , a następnie kliknij pozycję **Brak pliku stronicowania** , a następnie kliknij pozycję **Ustaw**.
-9. Kliknij przycisk Zastosuj. Zostanie wyświetlone ostrzeżenie, że należy ponownie uruchomić komputer, aby zmiany zostały zastosowane.
+9. Kliknij pozycję Zastosuj. Zostanie wyświetlone ostrzeżenie, że należy ponownie uruchomić komputer, aby zmiany zostały zastosowane.
 10. Uruchom ponownie maszynę wirtualną.
 
 ## <a name="change-the-drive-letters"></a>Zmień litery dysku
@@ -54,9 +54,8 @@ Najpierw należy dołączyć dysk danych do maszyny wirtualnej. Aby to zrobić p
 5. W sekcji **pamięć wirtualna** wybierz pozycję **Zmień**.
 6. Wybierz dysk systemu operacyjnego **C** i kliknij opcję **Brak pliku stronicowania** , a następnie kliknij przycisk **Ustaw**.
 7. Wybierz dysk magazynu tymczasowego **T** , a następnie kliknij pozycję **rozmiar zarządzany przez system** , a następnie kliknij pozycję **Ustaw**.
-8. Kliknij przycisk **Zastosuj**. Zostanie wyświetlone ostrzeżenie, że należy ponownie uruchomić komputer, aby zmiany zostały zastosowane.
+8. Kliknij pozycję **Zastosuj**. Zostanie wyświetlone ostrzeżenie, że należy ponownie uruchomić komputer, aby zmiany zostały zastosowane.
 9. Uruchom ponownie maszynę wirtualną.
 
 ## <a name="next-steps"></a>Następne kroki
 * Można zwiększyć ilość miejsca dostępnego dla maszyny wirtualnej przez [dołączenie dodatkowego dysku z danymi](attach-managed-disk-portal.md).
-

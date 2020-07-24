@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/26/2020
 ms.author: cynthn
 ms.reviewer: jagaveer
-ms.openlocfilehash: d6560f11d26200bdd9f39c4cbae643022872d362
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 653106c54644749174fd8530fccf30329c7751ff
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85506076"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87028774"
 ---
 # <a name="deploy-spot-vms-using-the-azure-cli"></a>Wdrażanie maszyn wirtualnych przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -23,7 +23,7 @@ Ceny maszyn wirtualnych na miejscu są zmienne, na podstawie regionu i jednostki
 
 Dla maszyny wirtualnej można ustawić maksymalną cenę, która ma być płacona za godzinę. Maksymalna cena maszyny wirtualnej na miejscu może być ustawiona w dolarach amerykańskich (USD) przy użyciu maksymalnie 5 miejsc dziesiętnych. Na przykład wartość będzie `0.98765` Cena maksymalna $0,98765 USD za godzinę. Jeśli ustawisz maksymalną cenę `-1` , maszyna wirtualna nie zostanie wykluczona na podstawie ceny. Cena maszyny wirtualnej to aktualna cena za ilość miejsca lub cena standardowej maszyny wirtualnej, która kiedykolwiek jest mniejsza, o ile jest dostępna pojemność i przydział. Aby uzyskać więcej informacji na temat ustawiania ceny maksymalnej, zobacz [punkt maszyny wirtualne — Cennik](spot-vms.md#pricing).
 
-Proces tworzenia maszyny wirtualnej przy użyciu interfejsu wiersza polecenia platformy Azure jest taki sam jak szczegółowy w [artykule szybki start](/azure/virtual-machines/linux/quick-create-cli). Po prostu Dodaj parametr "--Priority", ustaw `--eviction-policy` opcję na "Cofnij alokację" (jest to ustawienie domyślne) lub `Delete` , a następnie podaj maksymalną cenę lub `-1` . 
+Proces tworzenia maszyny wirtualnej przy użyciu interfejsu wiersza polecenia platformy Azure jest taki sam jak szczegółowy w [artykule szybki start](./quick-create-cli.md). Po prostu Dodaj parametr "--Priority", ustaw `--eviction-policy` opcję na "Cofnij alokację" (jest to ustawienie domyślne) lub `Delete` , a następnie podaj maksymalną cenę lub `-1` . 
 
 
 ## <a name="install-azure-cli"></a>Zainstaluj interfejs wiersza polecenia platformy Azure

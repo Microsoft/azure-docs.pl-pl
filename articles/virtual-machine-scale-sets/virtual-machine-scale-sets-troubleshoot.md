@@ -9,12 +9,12 @@ ms.subservice: autoscale
 ms.date: 06/25/2020
 ms.reviwer: jushiman
 ms.custom: avverma
-ms.openlocfilehash: 915b6430378cfff2a847e31de26950fcb9de6ff5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1ee4c8a52098bfa7c012e85f25371c306b106b86
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85374597"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87029437"
 ---
 # <a name="troubleshooting-autoscale-with-virtual-machine-scale-sets"></a>Troubleshooting autoscale with Virtual Machine Scale Sets (Rozwiązywanie problemów ze skalowaniem automatycznym przy użyciu zestawów skalowania maszyn wirtualnych)
 **Problem** — utworzono infrastrukturę skalowania automatycznego w Azure Resource Manager przy użyciu zestawów skalowania maszyn wirtualnych — na przykład przez wdrożenie szablonu takiego jak ten: https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale — masz zdefiniowane reguły skalowania i działają doskonale, bez względu na to, ile obciążeń zostało umieszczonych na maszynach wirtualnych, nie jest to automatyczne skalowanie.
@@ -73,7 +73,7 @@ Oto kilka rzeczy, które należy wziąć pod uwagę:
     Jeśli dane nie znajdują się tam, oznacza to, że problem dotyczy rozszerzenia diagnostycznego działającego na maszynach wirtualnych. Jeśli tam znajdują się dane, oznacza to, że występuje problem z regułami skalowania lub usługą Insights. Sprawdź [Stan platformy Azure](https://azure.microsoft.com/status/).
     
     Jeśli po wykonaniu tych kroków nadal występują problemy ze skalowaniem automatycznego, możesz wypróbować następujące zasoby: 
-    * Zapoznaj się z forów na stronie pytań i odpowiedzi [firmy Microsoft&pytań](https://docs.microsoft.com/answers/topics/azure-virtual-machines.html)i [przepełnienia stosu](https://stackoverflow.com/questions/tagged/azure) 
+    * Zapoznaj się z forów na stronie pytań i odpowiedzi [firmy Microsoft&pytań](/answers/topics/azure-virtual-machines.html)i [przepełnienia stosu](https://stackoverflow.com/questions/tagged/azure) 
     * Rejestrowanie zgłoszenia do pomocy technicznej. Przygotuj się, aby udostępnić szablon i widok danych dotyczących wydajności.
 
 [audit]: ./media/virtual-machine-scale-sets-troubleshoot/image3.png

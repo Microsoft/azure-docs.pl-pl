@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/18/2020
 ms.author: akjosh
-ms.openlocfilehash: 905a42c5a9bc297e2c27408a58a5b3019755fdef
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d7ebb23cfc0ffdcfcac7ecb4ecbd9b9a665e6130
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84736657"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87029097"
 ---
 # <a name="log-analytics-virtual-machine-extension-for-linux"></a>Rozszerzenie maszyny wirtualnej usługi Log Analytics dla systemu Linux
 
@@ -186,7 +186,7 @@ az vm extension set \
 
 ## <a name="troubleshoot-and-support"></a>Rozwiązywanie problemów i pomoc techniczna
 
-### <a name="troubleshoot"></a>Rozwiązywanie problemów
+### <a name="troubleshoot"></a>Rozwiąż problemy
 
 Dane dotyczące stanu wdrożeń rozszerzeń można pobrać z Azure Portal i przy użyciu interfejsu wiersza polecenia platformy Azure. Aby wyświetlić stan wdrożenia dla danej maszyny wirtualnej, uruchom następujące polecenie przy użyciu interfejsu wiersza polecenia platformy Azure.
 
@@ -204,7 +204,7 @@ Dane wyjściowe wykonania rozszerzenia są rejestrowane w następującym pliku:
 
 | Kod błędu | Znaczenie | Możliwa akcja |
 | :---: | --- | --- |
-| 9 | Włącz przedwcześnie | [Zaktualizuj agenta systemu Azure Linux](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent) do najnowszej dostępnej wersji. |
+| 9 | Włącz przedwcześnie | [Zaktualizuj agenta systemu Azure Linux](./update-linux-agent.md) do najnowszej dostępnej wersji. |
 | 10 | Maszyna wirtualna jest już połączona z obszarem roboczym Log Analytics | Aby połączyć maszynę wirtualną z obszarem roboczym określonym w schemacie rozszerzenia, należy ustawić stopOnMultipleConnections na false w ustawieniach publicznych lub usunąć tę właściwość. Ta maszyna wirtualna jest rozliczana raz dla każdego obszaru roboczego, z którym jest połączona. |
 | 11 | Nieprawidłowa konfiguracja podana dla rozszerzenia | Postępuj zgodnie z powyższymi przykładami, aby ustawić wszystkie wartości właściwości niezbędne do wdrożenia. |
 | 17 | Niepowodzenie instalacji pakietu Log Analytics | 

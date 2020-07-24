@@ -9,23 +9,25 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 06/29/2020
+ms.date: 07/22/2020
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40
 ms.reviewer: sureshja
-ms.openlocfilehash: d8ff8ced1723a3cdc969b4a951c31ea1da2d3093
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 65726a1b43cdbcb5a36d4a6d3f3df97669e1028f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86518301"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87027260"
 ---
 # <a name="application-and-service-principal-objects-in-azure-active-directory"></a>Obiekty aplikacji i jednostki usługi w usłudze Azure Active Directory
 
 W tym artykule opisano rejestrację aplikacji, obiekty aplikacji i jednostki usługi w Azure Active Directory: co to jest, jak są używane oraz jak są ze sobą powiązane. Przykładowy scenariusz z wieloma dzierżawcami został również przedstawiony do zilustrowania relacji między obiektem aplikacji aplikacji i odpowiadającymi obiektami głównych usług.
 
 ## <a name="application-registration"></a>Rejestracja aplikacji
-Aby delegować funkcje zarządzania tożsamościami i dostępem do usługi Azure AD, należy zarejestrować aplikację w [dzierżawie](developer-glossary.md#tenant)usługi Azure AD. Po zarejestrowaniu aplikacji w usłudze Azure AD tworzysz konfigurację tożsamości dla aplikacji, która umożliwia integrację z usługą Azure AD. Po zarejestrowaniu aplikacji w [Azure Portal][AZURE-Portal]należy określić, czy jest ona pojedynczą dzierżawą (dostępną tylko w dzierżawie) czy z wieloma dzierżawcami (dostępną dla innych dzierżawców) i opcjonalnie mogą ustawić identyfikator URI przekierowania (do którego jest wysyłany token dostępu).
+Aby delegować funkcje zarządzania tożsamościami i dostępem do usługi Azure AD, należy zarejestrować aplikację w [dzierżawie](developer-glossary.md#tenant)usługi Azure AD. Po zarejestrowaniu aplikacji w usłudze Azure AD tworzysz konfigurację tożsamości dla aplikacji, która umożliwia integrację z usługą Azure AD. Po zarejestrowaniu aplikacji w [Azure Portal][AZURE-Portal]należy określić, czy jest to jedyna dzierżawa (dostępna tylko w dzierżawie) czy wiele dzierżawców (dostępna dla innych dzierżawców) i opcjonalnie ustawić identyfikator URI przekierowania (do którego jest wysyłany token dostępu).
+
+![Rejestracja aplikacji](./media/app-objects-and-service-principals/app-registration.png)
 
 Po zakończeniu rejestracji aplikacji masz globalne, unikatowe wystąpienie aplikacji (obiektu aplikacji), które znajdują się w dzierżawie lub katalogu głównym.  Masz również globalnie unikatowy identyfikator dla aplikacji (Identyfikator aplikacji lub klienta).  W portalu możesz dodać wpisy tajne lub certyfikaty i zakresy, aby umożliwić działanie aplikacji, dostosować znakowanie aplikacji w oknie dialogowym logowania i nie tylko.
 
@@ -38,16 +40,20 @@ Obiekt Application opisuje trzy aspekty aplikacji: sposób, w jaki usługa może
 
 Blok **rejestracje aplikacji** w [Azure Portal][AZURE-Portal] służy do wyświetlania obiektów aplikacji w dzierżawie domowej i zarządzania nimi.
 
+![Rejestracje aplikacji blok](./media/app-objects-and-service-principals/app-registrations-blade.png)
+
 [Jednostka aplikacji][MS-Graph-App-Entity] Microsoft Graph definiuje schemat właściwości obiektu aplikacji.
 
 ## <a name="service-principal-object"></a>Obiekt główny usługi
-Aby uzyskać dostęp do zasobów zabezpieczonych przez dzierżawę usługi Azure AD, jednostka wymagająca dostępu musi być reprezentowana przez podmiot zabezpieczeń. Dotyczy to zarówno użytkowników (głównej nazwy użytkownika), jak i aplikacji (nazwy głównej usługi). Podmiot zabezpieczeń definiuje zasady dostępu i uprawnienia dla użytkownika/aplikacji w dzierżawie usługi Azure AD. Umożliwia to korzystanie z podstawowych funkcji, takich jak uwierzytelnianie użytkownika/aplikacji podczas logowania, oraz autoryzacja w trakcie dostępu do zasobów.
+Aby uzyskać dostęp do zasobów zabezpieczonych przez dzierżawę usługi Azure AD, jednostka wymagająca dostępu musi być reprezentowana przez podmiot zabezpieczeń. To wymaganie dotyczy zarówno użytkowników (głównej nazwy użytkownika), jak i aplikacji (nazwy głównej usługi). Podmiot zabezpieczeń definiuje zasady dostępu i uprawnienia dla użytkownika/aplikacji w dzierżawie usługi Azure AD. Umożliwia to korzystanie z podstawowych funkcji, takich jak uwierzytelnianie użytkownika/aplikacji podczas logowania, oraz autoryzacja w trakcie dostępu do zasobów.
 
 Jednostka usługi to lokalna reprezentacja lub wystąpienie aplikacji globalnego obiektu aplikacji w pojedynczej dzierżawie lub katalogu. Nazwa główna usługi jest konkretnym wystąpieniem utworzonym na podstawie obiektu aplikacji i dziedziczy pewne właściwości z tego obiektu aplikacji.  Jednostka usługi jest tworzona w każdej dzierżawie, w której używana jest aplikacja, i odwołuje się do globalnego, unikatowego obiektu aplikacji.  Obiekt główny usługi definiuje, co aplikacja może w rzeczywistości wykonać w określonej dzierżawie, kto może uzyskiwać dostęp do aplikacji i jakie zasoby mogą uzyskać do niej dostęp. 
 
 Gdy aplikacja uzyskuje uprawnienia dostępu do zasobów w dzierżawie (po rejestracji lub [zgodzie](developer-glossary.md#consent)), tworzony jest obiekt jednostki usługi. Możesz również utworzyć obiekt jednostki usługi w dzierżawie przy użyciu [Azure PowerShell](howto-authenticate-service-principal-powershell.md), interfejsu wiersza polecenia platformy Azure, [Microsoft Graph](/graph/api/serviceprincipal-post-serviceprincipals?view=graph-rest-1.0&tabs=http), [Azure Portal][AZURE-Portal]i innych narzędzi.  W przypadku korzystania z portalu jednostka usługi jest tworzona automatycznie podczas rejestrowania aplikacji.
 
 Blok **aplikacje przedsiębiorstwa** w portalu służy do wyświetlania i zarządzania jednostkami usługi w dzierżawie. Można wyświetlić uprawnienia jednostki usługi, uprawnienia użytkowników, którzy wykonali tę zgodę, informacje logowania i inne.
+
+![Blok aplikacje dla przedsiębiorstw](./media/app-objects-and-service-principals/enterprise-apps-blade.png)
 
 Jednostka Microsoft Graph [serviceprincipal][MS-Graph-Sp-Entity] definiuje schemat właściwości obiektu głównego usługi.
 
@@ -85,8 +91,8 @@ W tym przykładowym scenariuszu:
 ## <a name="next-steps"></a>Następne kroki
 
 - Za pomocą [eksploratora Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer) można wysyłać zapytania do obiektów głównych aplikacji i usług.
-- Dostęp do obiektu aplikacji aplikacji można uzyskać za pomocą interfejsu API Microsoft Graph, edytora manifestu aplikacji [Azure Portal][AZURE-Portal] lub [poleceń cmdlet programu POWERSHELL usługi Azure AD](https://docs.microsoft.com/powershell/azure/overview?view=azureadps-2.0), które są reprezentowane przez [jednostkę aplikacji][MS-Graph-App-Entity]OData.
-- Dostęp do obiektu głównego usługi aplikacji można uzyskać za pomocą interfejsu API Microsoft Graph lub [poleceń cmdlet programu PowerShell usługi Azure AD](https://docs.microsoft.com/powershell/azure/overview?view=azureadps-2.0)reprezentowanego przez jego [jednostkę główną][MS-Graph-Sp-Entity]OData.
+- Dostęp do obiektu aplikacji aplikacji można uzyskać za pomocą interfejsu API Microsoft Graph, edytora manifestu aplikacji [Azure Portal][AZURE-Portal] lub [poleceń cmdlet programu POWERSHELL usługi Azure AD](https://docs.microsoft.com/powershell/azure/?view=azureadps-2.0), które są reprezentowane przez [jednostkę aplikacji][MS-Graph-App-Entity]OData.
+- Dostęp do obiektu głównego usługi aplikacji można uzyskać za pomocą interfejsu API Microsoft Graph lub [poleceń cmdlet programu PowerShell usługi Azure AD](https://docs.microsoft.com/powershell/azure/?view=azureadps-2.0)reprezentowanego przez jego [jednostkę główną][MS-Graph-Sp-Entity]OData.
 
 <!--Image references-->
 

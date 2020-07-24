@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: overview
-ms.date: 03/26/2020
+ms.date: 07/20/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7c25d5ee7ed730747317ea52286174968eb0e2fd
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 8399f7101697af429b8c073c101dbfea203e98ea
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86103708"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87025595"
 ---
 # <a name="what-is-a-device-identity"></a>Co to jest tożsamość urządzenia?
 
@@ -45,9 +45,9 @@ Aby uzyskać urządzenie w usłudze Azure AD, masz wiele opcji:
 - **Dołączone do usługi Azure AD**
    - Urządzenia, które są przyłączone do usługi Azure AD, należą do organizacji i są zalogowane przy użyciu konta usługi Azure AD należącego do tej organizacji. Istnieją one tylko w chmurze.
       - Windows 10 
-      - [Windows Server 2019 Virtual Machines uruchomiony na platformie Azure] (./howto-vm-sign-in-azure-ad-windows.md) (Rdzeń Server Core nie jest obsługiwany)
+      - [System Windows Server 2019 Virtual Machines uruchomiony na platformie Azure](howto-vm-sign-in-azure-ad-windows.md) (Server Core nie jest obsługiwany)
 - **hybrydowym dołączonym do usługi Azure AD**.
-   - Urządzenia, które są dołączone do hybrydowej usługi Azure AD, są własnością organizacji i są zalogowane przy użyciu konta usługi Azure AD należącego do tej organizacji. Istnieją one w chmurze i lokalnie.
+   - Urządzenia, które są dołączone do hybrydowej usługi Azure AD, są własnością organizacji i są zalogowane przy użyciu konta Active Directory Domain Services należącego do tej organizacji. Istnieją one w chmurze i lokalnie.
       - Windows 7, 8,1 lub 10
       - System Windows Server 2008 lub nowszy
 
@@ -80,7 +80,7 @@ Urządzenia, które są przyłączone do usługi Azure AD lub korzystają z hybr
    - Windows Hello
 - **Przyłączone do usługi Azure AD lub hybrydowe urządzenia z usługą Azure AD** wykorzystują konto organizacyjne w usłudze Azure AD zabezpieczone przy użyciu co najmniej jednego z następujących elementów.
    - Hasło
-   - Windows Hello dla firm
+   - Windows Hello for Business
 
 ## <a name="provisioning"></a>Inicjowanie obsługi
 

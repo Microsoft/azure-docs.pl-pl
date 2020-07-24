@@ -1,20 +1,20 @@
 ---
-title: Podstawa zabezpieczeń Azure Database for PostgreSQL-ze skalą dla testu porównawczego zabezpieczeń platformy Azure
+title: Linia bazowa zabezpieczeń Azure dla Azure Database for PostgreSQL-ze skalowaniem
 description: Linia bazowa zabezpieczeń Azure Database for PostgreSQL-ze skalą zawiera wskazówki i zasoby związane z wdrażaniem zaleceń dotyczących zabezpieczeń określonych w teście zabezpieczeń platformy Azure.
 author: msmbaldwin
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 07/13/2020
+ms.date: 07/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: ca08ac30c5d8e925197a0df1d327bf9a0923b046
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: dd6d3ef6f610dcbdc511297e459cc5856bebe033
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86532072"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87030049"
 ---
-# <a name="azure-database-for-postgresql---hyperscale-security-baseline-for-azure-security-benchmark"></a>Podstawa zabezpieczeń Azure Database for PostgreSQL-ze skalą dla testu porównawczego zabezpieczeń platformy Azure
+# <a name="azure-security-baseline-for-azure-database-for-postgresql---hyperscale"></a>Linia bazowa zabezpieczeń Azure dla Azure Database for PostgreSQL-ze skalowaniem
 
 Linia bazowa zabezpieczeń Azure dla Azure Database for PostgreSQL-stan zawiera zalecenia, które pomogą ulepszyć bezpieczeństwa wdrożenia.
 

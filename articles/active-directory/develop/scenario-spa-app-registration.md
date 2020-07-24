@@ -12,11 +12,12 @@ ms.workload: identity
 ms.date: 05/19/2020
 ms.author: hahamil
 ms.custom: aaddev
-ms.openlocfilehash: 9dc5b446e2ab26ca43c2a300e1af1237353325a3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 238bcc6c706f2fab969c98b73ca879d064498693
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83682396"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87026513"
 ---
 # <a name="single-page-application-app-registration"></a>Aplikacja jednostronicowa: Rejestracja aplikacji
 
@@ -28,7 +29,7 @@ W przypadku aplikacji opartych na MSAL.js 1,0 i 2,0 Zacznij od wykonania poniżs
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Jeśli Twoje konto ma dostęp do wielu dzierżawców, wybierz filtr **katalogów i subskrypcji** w górnym menu, a następnie wybierz dzierżawcę, który powinien zawierać rejestrację aplikacji, którą chcesz utworzyć.
 1. Wyszukaj i wybierz pozycję **Azure Active Directory**.
-1. W obszarze **Zarządzaj**wybierz pozycję **rejestracje aplikacji**.
+1. W obszarze **Zarządzanie** wybierz pozycję **Rejestracje aplikacji**.
 1. Wybierz pozycję **Nowa rejestracja**, wprowadź **nazwę** aplikacji i wybierz **obsługiwane typy kont** dla aplikacji. **Nie** należy wprowadzać **identyfikatora URI przekierowania**. Aby uzyskać opis różnych typów kont, zobacz [Rejestrowanie nowej aplikacji przy użyciu Azure Portal](quickstart-register-app.md#register-a-new-application-using-the-azure-portal).
 1. Wybierz pozycję **zarejestruj** , aby utworzyć rejestrację aplikacji.
 
@@ -37,7 +38,7 @@ Następnie skonfiguruj rejestrację aplikacji za pomocą **identyfikatora URI pr
 - [MSAL.js 2,0 z przepływem kodu uwierzytelniania](#redirect-uri-msaljs-20-with-auth-code-flow) (zalecane)
 - [MSAL.js 1,0 z niejawnym przepływem](#redirect-uri-msaljs-10-with-implicit-flow)
 
-## <a name="redirect-uri-msaljs-20-with-auth-code-flow"></a>Identyfikator URI przekierowania: MSAL.js 2,0 z przepływem kodu uwierzytelniania
+## <a name="redirect-uri-msaljs-20-with-auth-code-flow"></a>Identyfikator URI przekierowania: [MSAL.js 2,0 z przepływem kodu uwierzytelniania](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-browser)
 
 Wykonaj następujące kroki, aby dodać identyfikator URI przekierowania dla aplikacji korzystającej z MSAL.js 2,0 lub nowszej. MSAL.js 2.0 + obsługuje przepływ kodu autoryzacji z PKCE i CORS w odpowiedzi na [ograniczenia plików cookie](reference-third-party-cookies-spas.md)innych firm. Niejawny przepływ grantu nie jest obsługiwany w MSAL.js 2.0 +.
 
@@ -49,7 +50,9 @@ Wykonaj następujące kroki, aby dodać identyfikator URI przekierowania dla apl
 
 Zakończono rejestrację aplikacji jednostronicowej (SPA) i skonfigurowano identyfikator URI przekierowania, do którego zostanie przekierowany klient, i zostaną wysłane wszystkie tokeny zabezpieczające. Konfigurując identyfikator URI przekierowania przy użyciu kafelka **aplikacji jednostronicowej** w okienku **Dodaj platformę** , Rejestracja aplikacji jest skonfigurowana do obsługi przepływu kodu autoryzacji za pomocą PKCE i mechanizmu CORS.
 
-## <a name="redirect-uri-msaljs-10-with-implicit-flow"></a>Identyfikator URI przekierowania: MSAL.js 1,0 z niejawnym przepływem
+Postępuj zgodnie z [samouczkiem](tutorial-v2-javascript-auth-code.md) , aby uzyskać dalsze wskazówki.
+
+## <a name="redirect-uri-msaljs-10-with-implicit-flow"></a>Identyfikator URI przekierowania: [MSAL.js 1,0 z niejawnym przepływem](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-core)
 
 Wykonaj następujące kroki, aby dodać identyfikator URI przekierowania dla jednostronicowej aplikacji korzystającej z MSAL.js 1,3 lub starszej i niejawnego przepływu dotacji. Aplikacje korzystające z MSAL.js 1,3 lub starszej nie obsługują przepływu kodu uwierzytelniania.
 
@@ -63,6 +66,8 @@ Wykonaj następujące kroki, aby dodać identyfikator URI przekierowania dla jed
 1. Wybierz pozycję **Konfiguruj** , aby zakończyć dodawanie identyfikatora URI przekierowania.
 
 Zakończono rejestrację aplikacji jednostronicowej (SPA) i skonfigurowano identyfikator URI przekierowania, do którego zostanie przekierowany klient, i zostaną wysłane wszystkie tokeny zabezpieczające. Wybranie jednego lub obu **tokenów identyfikatorów** i **tokenów dostępu**umożliwiło włączenie niejawnego przepływu dotacji.
+
+Postępuj zgodnie z [samouczkiem](tutorial-v2-javascript-spa.md) , aby uzyskać dalsze wskazówki. 
 
 ## <a name="note-about-authorization-flows"></a>Uwaga dotycząca przepływów autoryzacji
 

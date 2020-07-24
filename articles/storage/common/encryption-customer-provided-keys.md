@@ -1,25 +1,25 @@
 ---
 title: Podaj klucz szyfrowania dla żądania do magazynu obiektów BLOB
 titleSuffix: Azure Storage
-description: Klienci wysyłający żądania do usługi Azure Blob Storage mają możliwość zapewnienia klucza szyfrowania dla poszczególnych żądań (wersja zapoznawcza). Dołączenie klucza szyfrowania żądania zapewnia szczegółową kontrolę nad ustawieniami szyfrowania operacji usługi BLOB Storage.
+description: Klienci, którzy wysyłają żądania do usługi Azure Blob Storage, mają możliwość zapewnienia klucza szyfrowania dla każdego żądania. Dołączenie klucza szyfrowania żądania zapewnia szczegółową kontrolę nad ustawieniami szyfrowania operacji usługi BLOB Storage.
 services: storage
 author: tamram
 ms.service: storage
-ms.date: 03/12/2020
+ms.date: 07/20/2020
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 0e5a85bcc4ded3b4bf3fcbcaf095d7c8ef01c458
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fec3d760450fb5cc20deed14dac03f58f23c2b4b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84805317"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87029743"
 ---
-# <a name="provide-an-encryption-key-on-a-request-to-blob-storage-preview"></a>Podaj klucz szyfrowania w żądaniu do magazynu obiektów BLOB (wersja zapoznawcza)
+# <a name="provide-an-encryption-key-on-a-request-to-blob-storage"></a>Podaj klucz szyfrowania dla żądania do magazynu obiektów BLOB
 
-Klienci wysyłający żądania do usługi Azure Blob Storage mają możliwość zapewnienia klucza szyfrowania dla poszczególnych żądań (wersja zapoznawcza). Dołączenie klucza szyfrowania żądania zapewnia szczegółową kontrolę nad ustawieniami szyfrowania operacji usługi BLOB Storage. Klucze dostarczone przez klienta mogą być przechowywane w Azure Key Vault lub w innym magazynie kluczy.
+Klienci, którzy wysyłają żądania do usługi Azure Blob Storage, mają możliwość zapewnienia klucza szyfrowania dla każdego żądania. Dołączenie klucza szyfrowania żądania zapewnia szczegółową kontrolę nad ustawieniami szyfrowania operacji usługi BLOB Storage. Klucze dostarczone przez klienta mogą być przechowywane w Azure Key Vault lub w innym magazynie kluczy.
 
 ## <a name="encrypting-read-and-write-operations"></a>Szyfrowanie operacji odczytu i zapisu
 

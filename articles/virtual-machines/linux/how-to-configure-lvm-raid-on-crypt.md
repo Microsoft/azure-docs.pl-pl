@@ -7,11 +7,12 @@ ms.topic: article
 ms.author: jofrance
 ms.date: 03/17/2020
 ms.custom: seodec18
-ms.openlocfilehash: 4e342ff44af38b8e79dc8695c1270b1f5c68e0a8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3be8863d86fd1525e6f64b46ddf5ca3c702ecdea
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80657442"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87029233"
 ---
 # <a name="configure-lvm-and-raid-on-encrypted-devices"></a>Konfigurowanie LVM i RAID na zaszyfrowanych urządzeniach
 
@@ -40,15 +41,15 @@ Woluminy fizyczne (PVs) są tworzone w warstwie zaszyfrowanej. Woluminy fizyczne
 
 W podobny sposób urządzenie RAID jest tworzone na podstawie warstwy zaszyfrowanej na dyskach. System plików jest tworzony na urządzeniu RAID i dodawany do/etc/fstab jako zwykłe urządzenie.
 
-## <a name="considerations"></a>Istotne zagadnienia
+## <a name="considerations"></a>Zagadnienia do rozważenia
 
 Zalecamy użycie LVM-on-Crypt. RAID to opcja, gdy nie można użyć LVM z powodu określonych ograniczeń aplikacji lub środowiska.
 
-Zostanie użyta opcja **EncryptFormatAll** . Aby uzyskać więcej informacji na temat tej opcji, zobacz [Korzystanie z funkcji EncryptFormatAll w przypadku dysków z danymi na maszynach wirtualnych z systemem Linux](https://docs.microsoft.com/azure/virtual-machines/linux/disk-encryption-linux#use-encryptformatall-feature-for-data-disks-on-linux-vms).
+Zostanie użyta opcja **EncryptFormatAll** . Aby uzyskać więcej informacji na temat tej opcji, zobacz [Korzystanie z funkcji EncryptFormatAll w przypadku dysków z danymi na maszynach wirtualnych z systemem Linux](./disk-encryption-linux.md#use-encryptformatall-feature-for-data-disks-on-linux-vms).
 
 Mimo że można użyć tej metody w przypadku szyfrowania systemu operacyjnego, obecnie szyfrujemy dyski danych.
 
-W procedurach przyjęto założenie, że wymagania wstępne zostały już sprawdzone w [Azure Disk Encryption scenariuszach dotyczących maszyn wirtualnych z systemem Linux](https://docs.microsoft.com/azure/virtual-machines/linux/disk-encryption-linux) i w [ramach szybkiego startu: Tworzenie i szyfrowanie maszyny wirtualnej z systemem Linux przy użyciu interfejsu wiersza polecenia](https://docs.microsoft.com/azure/virtual-machines/linux/disk-encryption-cli-quickstart)
+W procedurach przyjęto założenie, że wymagania wstępne zostały już sprawdzone w [Azure Disk Encryption scenariuszach dotyczących maszyn wirtualnych z systemem Linux](./disk-encryption-linux.md) i w [ramach szybkiego startu: Tworzenie i szyfrowanie maszyny wirtualnej z systemem Linux przy użyciu interfejsu wiersza polecenia](./disk-encryption-cli-quickstart.md)
 
 Wersja Azure Disk Encryption podwójnego przebiegu znajduje się na ścieżce przestarzałej i nie powinna być już używana w przypadku nowych szyfrowania.
 
@@ -459,4 +460,3 @@ df -h
 ## <a name="next-steps"></a>Następne kroki
 
 - [Rozwiązywanie problemów z usługą Azure Disk Encryption](disk-encryption-troubleshooting.md)
-

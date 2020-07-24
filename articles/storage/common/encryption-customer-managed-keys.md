@@ -5,16 +5,17 @@ description: Możesz użyć własnego klucza szyfrowania do ochrony danych na ko
 services: storage
 author: tamram
 ms.service: storage
-ms.date: 03/12/2020
+ms.date: 07/20/2020
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 5dedd70b51361936808724ef70b96cdf9cfa13f5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d53818c91d32bc7435d1328c2ae73a8eb3172cd4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85515414"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87029794"
 ---
 # <a name="use-customer-managed-keys-with-azure-key-vault-to-manage-azure-storage-encryption"></a>Używanie kluczy zarządzanych przez klienta w usłudze Azure Key Vault do zarządzania szyfrowaniem usługi Azure Storage
 
@@ -46,13 +47,13 @@ Dane z obiektów blob i usług plików są zawsze chronione przez klucze zarząd
 
 ## <a name="enable-customer-managed-keys-for-a-storage-account"></a>Włączanie kluczy zarządzanych przez klienta dla konta magazynu
 
-Klucze zarządzane przez klienta można włączyć tylko dla istniejących kont magazynu. Magazyn kluczy musi być zainicjowany przy użyciu zasad dostępu, które przyznają uprawnienia kluczy zarządzanej tożsamości skojarzonej z kontem magazynu. Tożsamość zarządzana jest dostępna tylko po utworzeniu konta magazynu.
-
 Po skonfigurowaniu klucza zarządzanego przez klienta usługa Azure Storage zawija klucz szyfrowania danych głównych dla konta z kluczem zarządzanym przez klienta w skojarzonym magazynie kluczy. Włączenie kluczy zarządzanych przez klienta nie ma wpływu na wydajność i zaczyna obowiązywać natychmiast.
 
-W przypadku modyfikowania klucza używanego do szyfrowania usługi Azure Storage przez włączenie lub wyłączenie kluczy zarządzanych przez klienta, zaktualizowanie wersji klucza lub określenie innego klucza, szyfrowanie klucza głównego zostanie zmienione, ale dane na koncie usługi Azure Storage nie muszą być ponownie szyfrowane.
-
 Po włączeniu lub wyłączeniu kluczy zarządzanych przez klienta lub zmodyfikowaniu klucza lub wersji klucza ochrona głównego klucza szyfrowania jest zmieniana, ale nie trzeba ponownie szyfrować danych na koncie usługi Azure Storage.
+
+Klucze zarządzane przez klienta można włączyć tylko dla istniejących kont magazynu. Magazyn kluczy musi być skonfigurowany przy użyciu zasad dostępu, które przyznają uprawnienia zarządzanej tożsamości skojarzonej z kontem magazynu. Tożsamość zarządzana jest dostępna tylko po utworzeniu konta magazynu.
+
+W dowolnym momencie można przełączać się między kluczami zarządzanymi przez klienta i kluczami zarządzanymi przez firmę Microsoft. Aby uzyskać więcej informacji na temat kluczy zarządzanych przez firmę Microsoft, zobacz [Informacje o zarządzaniu kluczami szyfrowania](storage-service-encryption.md#about-encryption-key-management).
 
 Aby dowiedzieć się, jak używać kluczy zarządzanych przez klienta z Azure Key Vaultm do szyfrowania usługi Azure Storage, zobacz jeden z następujących artykułów:
 
@@ -65,15 +66,22 @@ Aby dowiedzieć się, jak używać kluczy zarządzanych przez klienta z Azure Ke
 
 ## <a name="store-customer-managed-keys-in-azure-key-vault"></a>Przechowuj klucze zarządzane przez klienta w Azure Key Vault
 
-Aby włączyć klucze zarządzane przez klienta na koncie magazynu, należy użyć Azure Key Vault do przechowywania kluczy. Należy włączyć zarówno właściwości **nietrwałego usuwania** , jak i **nie przeczyszczania** w magazynie kluczy.
+Aby włączyć klucze zarządzane przez klienta na koncie magazynu, należy użyć magazynu kluczy platformy Azure do przechowywania kluczy. Należy włączyć zarówno właściwości **nietrwałego usuwania** , jak i **nie przeczyszczania** w magazynie kluczy.
 
 Szyfrowanie za pomocą usługi Azure Storage obsługuje klucze RSA i RSA-HSM o rozmiarach 2048, 3072 i 4096. Aby uzyskać więcej informacji na temat kluczy, zobacz **Key Vault klucze** w temacie [informacje Azure Key Vault klucze, wpisy tajne i certyfikaty](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys).
 
+Użycie Azure Key Vault wiąże się z powiązanymi kosztami. Aby uzyskać więcej informacji, zobacz [Cennik usługi Key Vault](/pricing/details/key-vault/).
+
 ## <a name="rotate-customer-managed-keys"></a>Obróć klucze zarządzane przez klienta
 
-Klucz zarządzany przez klienta można obrócić w Azure Key Vault zgodnie z zasadami zgodności. Gdy klucz jest obrócony, musisz zaktualizować konto magazynu, aby użyć nowego identyfikatora URI wersji klucza. Aby dowiedzieć się, jak zaktualizować konto magazynu tak, aby używało nowej wersji klucza w Azure Portal, zapoznaj się z sekcją **Aktualizacja wersji klucza** w artykule [Konfigurowanie kluczy zarządzanych przez klienta usługi Azure storage przy użyciu Azure Portal](storage-encryption-keys-portal.md).
+Klucz zarządzany przez klienta można obrócić w Azure Key Vault zgodnie z zasadami zgodności. Dostępne są dwie opcje rotacji klucza zarządzanego przez klienta:
 
-Obracanie klucza nie wyzwala ponownego szyfrowania danych na koncie magazynu. Od użytkownika nie są wymagane żadne dalsze działania.
+- **Automatyczne obracanie:** Aby skonfigurować automatyczne rotację kluczy zarządzanych przez klienta, należy pominąć wersję klucza po włączeniu szyfrowania z kluczami zarządzanymi przez klienta dla konta magazynu. W przypadku pominięcia wersji klucza usługa Azure Storage sprawdza codziennie usługę Azure Key Vault pod kątem nowej wersji klucza zarządzanego przez klienta. Jeśli dostępna jest nowa wersja klucza, usługa Azure Storage automatycznie używa najnowszej wersji klucza.
+- **Obrót ręczny:** Aby użyć określonej wersji klucza do szyfrowania usługi Azure Storage, należy określić tę wersję klucza po włączeniu szyfrowania z kluczami zarządzanymi przez klienta dla konta magazynu. W przypadku określenia wersji klucza usługa Azure Storage korzysta z tej wersji do szyfrowania do momentu ręcznego zaktualizowania wersji klucza.
+
+    Gdy klucz jest obracany ręcznie, musisz zaktualizować konto magazynu, aby użyć nowego identyfikatora URI wersji klucza. Aby dowiedzieć się, jak zaktualizować konto magazynu tak, aby używało nowej wersji klucza w Azure Portal, zobacz [Ręczne aktualizowanie wersji klucza](storage-encryption-keys-portal.md#manually-update-the-key-version).
+
+Rotacja klucza zarządzanego przez klienta nie wyzwala ponownego szyfrowania danych na koncie magazynu. Od użytkownika nie są wymagane żadne dalsze działania.
 
 ## <a name="revoke-access-to-customer-managed-keys"></a>Odwołaj dostęp do kluczy zarządzanych przez klienta
 

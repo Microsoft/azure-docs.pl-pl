@@ -3,14 +3,14 @@ title: Azure Automation przegląd hybrydowego procesu roboczego elementu Runbook
 description: Ten artykuł zawiera omówienie hybrydowego procesu roboczego elementu Runbook, którego można użyć do uruchamiania elementów Runbook na maszynach w lokalnym centrum danych lub dostawcy chmury.
 services: automation
 ms.subservice: process-automation
-ms.date: 06/24/2020
+ms.date: 07/16/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0960dfe067e5092f3d64f66cad1d49c2bea28ae6
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 69680fbb442b4e636b72f480ed21f36924362a13
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86186252"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87024830"
 ---
 # <a name="hybrid-runbook-worker-overview"></a>Omówienie hybrydowych procesów roboczych elementów Runbook
 
@@ -77,6 +77,17 @@ Tag usługi dla usługi Azure Automation zawiera tylko adresy IP używane w nast
 >[!NOTE]
 >**GuestAndHybridManagement** tag usługi aktualnie nie obsługuje wykonywania zadań elementu Runbook w piaskownicy platformy Azure, tylko bezpośrednio w hybrydowym procesie roboczym elementu Runbook.
 
+## <a name="support-for-impact-level-5-il5"></a>Obsługa poziomu wpływu 5 (IL5)
+
+Azure Automation hybrydowego procesu roboczego elementu Runbook można użyć w Azure Government do obsługi obciążeń poziomu 5 w jednej z następujących dwóch konfiguracji:
+
+* [Izolowana maszyna wirtualna](../azure-government/documentation-government-impact-level-5.md#isolated-virtual-machines). Po wdrożeniu korzystają one z całego hosta fizycznego dla tej maszyny wirtualnej, zapewniając wymagany poziom izolacji wymagane do obsługi obciążeń IL5.
+
+* [Dedykowane hosty platformy Azure](../azure-government/documentation-government-impact-level-5.md#azure-dedicated-hosts), które udostępniają serwery fizyczne, które mogą hostować co najmniej jedną maszynę wirtualną, która jest przeznaczona dla jednej subskrypcji platformy Azure.
+
+>[!NOTE]
+>Izolacja obliczeniowa za pomocą roli hybrydowego procesu roboczego elementu Runbook jest dostępna dla chmur dla instytucji rządowych platformy Azure. 
+
 ## <a name="update-management-on-hybrid-runbook-worker"></a>Update Management w hybrydowym procesie roboczym elementu Runbook
 
 Po włączeniu [Update Management](automation-update-management.md) Azure Automation, każda maszyna połączona z obszarem roboczym log Analytics zostanie automatycznie skonfigurowana jako hybrydowy proces roboczy elementu Runbook. Każdy proces roboczy może obsługiwać elementy Runbook, których dotyczą usługi zarządzania aktualizacjami.
@@ -85,13 +96,7 @@ Komputer skonfigurowany w ten sposób nie jest zarejestrowany dla żadnych grup 
 
 ### <a name="update-management-addresses-for-hybrid-runbook-worker"></a>Adresy Update Management dla hybrydowego procesu roboczego elementu Runbook
 
-Na początku standardowych adresów i portów wymaganych przez hybrydowy proces roboczy elementu Runbook, Update Management potrzebują adresów w następnej tabeli. Komunikacja z tymi adresami odbywa się przy użyciu portu 443.
-
-|Azure — publiczna  |Azure Government  |
-|---------|---------|
-|`*.ods.opinsights.azure.com`     | `*.ods.opinsights.azure.us`         |
-|`*.oms.opinsights.azure.com`     | `*.oms.opinsights.azure.us`        |
-|`*.blob.core.windows.net` | `*.blob.core.usgovcloudapi.net`|
+Na podstawie standardowych adresów i portów wymaganych dla hybrydowego procesu roboczego elementu Runbook Update Management ma dodatkowe wymagania dotyczące konfiguracji sieciowej opisane w sekcji [Planowanie sieci](automation-update-management.md#ports) .
 
 ## <a name="azure-automation-state-configuration-on-a-hybrid-runbook-worker"></a>Azure Automation konfiguracja stanu w hybrydowym procesie roboczym elementu Runbook
 
@@ -114,4 +119,5 @@ Ponieważ uzyskują dostęp do zasobów nienależących do platformy Azure, elem
 ## <a name="next-steps"></a>Następne kroki
 
 * Aby dowiedzieć się, jak skonfigurować elementy Runbook do automatyzowania procesów w lokalnym centrum danych lub w innym środowisku chmury, zobacz [Uruchamianie elementów Runbook w hybrydowym procesie roboczym elementu Runbook](automation-hrw-run-runbooks.md).
+
 * Aby dowiedzieć się, jak rozwiązywać problemy dotyczące hybrydowych procesów roboczych elementów Runbook, zobacz [Rozwiązywanie problemów z hybrydowym procesem roboczym](troubleshoot/hybrid-runbook-worker.md#general)

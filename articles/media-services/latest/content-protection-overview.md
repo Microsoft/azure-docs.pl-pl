@@ -15,11 +15,12 @@ ms.topic: article
 ms.date: 03/17/2020
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: c1c9440f7ec70cea98f270f04c3030c800dd0fde
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0be481d90562ca611b021e2f05d9109eb51958c8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79461116"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87023266"
 ---
 # <a name="protect-your-content-with-media-services-dynamic-encryption"></a>Ochrona zawartości przy użyciu szyfrowania dynamicznego Media Services
 
@@ -185,7 +186,7 @@ Podczas konfigurowania zasad z ograniczeniami tokenu należy określić podstawo
 
 Funkcja *zapobiegania powtarzaniu tokenów* umożliwia Media Services klientom Ustawianie limitu, ile razy można użyć tego samego tokenu do żądania klucza lub licencji. Klient może dodać `urn:microsoft:azure:mediaservices:maxuses` w tokenie roszczeń typu, gdzie wartość jest liczbą przypadków, w których token może być używany w celu uzyskania licencji lub klucza. Wszystkie kolejne żądania o takim samym tokenie do dostarczania kluczy zwrócą nieautoryzowaną odpowiedź. Zobacz, jak dodać to zgłoszenie w [próbce DRM](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs#L601).
  
-#### <a name="considerations"></a>Istotne zagadnienia
+#### <a name="considerations"></a>Zagadnienia do rozważenia
 
 * Klienci muszą mieć kontrolę nad generowaniem tokenu. Należy umieścić to zastrzeżenie w samym tokenie.
 * Korzystając z tej funkcji, żądania z tokenami, których czas wygaśnięcia wynosi więcej niż godzinę od momentu odebrania żądania, są odrzucane z nieautoryzowaną odpowiedzią.
@@ -235,7 +236,7 @@ Użyj następujących szablonów, jeśli chcesz określić inną licencję/usłu
 * `StreamingPolicyWidevineConfiguration.CustomLicenseAcquisitionUrlTemplate`: Taki sam jak poprzedni szablon, tylko dla Widevine. 
 * `StreamingPolicyFairPlayConfiguration.CustomLicenseAcquisitionUrlTemplate`: Taki sam jak poprzedni szablon, tylko dla FairPlay.  
 
-Przykład:
+Na przykład:
 
 ```csharp
 streamingPolicy.EnvelopEncryption.customKeyAcquisitionUrlTemplate = "https://mykeyserver.hostname.com/envelopekey/{AlternativeMediaId}/{ContentKeyId}";
@@ -243,12 +244,12 @@ streamingPolicy.EnvelopEncryption.customKeyAcquisitionUrlTemplate = "https://myk
 
 `ContentKeyId`ma wartość żądanego klucza. Możesz użyć, `AlternativeMediaId` Jeśli chcesz zmapować żądanie do jednostki po stronie. Na przykład `AlternativeMediaId` może służyć do wyszukiwania uprawnień.
 
-Aby zapoznać się z przykładami użycia niestandardowych licencji/adresów URL pozyskiwania kluczy, zobacz [zasady przesyłania strumieniowego — tworzenie](https://docs.microsoft.com/rest/api/media/streamingpolicies/create).
+Aby zapoznać się z przykładami użycia niestandardowych licencji/adresów URL pozyskiwania kluczy, zobacz [zasady przesyłania strumieniowego — tworzenie](/rest/api/media/streamingpolicies/create).
 
 > [!NOTE]
 > Widevine to usługa świadczona przez firmę Google Inc. z zastrzeżeniem warunków użytkowania i zasad zachowania poufności informacji w firmie Google, Inc.
 
-## <a name="troubleshoot"></a>Rozwiązywanie problemów
+## <a name="troubleshoot"></a>Rozwiąż problemy
 
 Jeśli `MPE_ENC_ENCRYPTION_NOT_SET_IN_DELIVERY_POLICY` wystąpi błąd, upewnij się, że określono odpowiednie zasady przesyłania strumieniowego.
 
@@ -265,4 +266,4 @@ Zapoznaj się z artykułem [community Azure Media Services](media-services-commu
 * [Projektowanie systemu ochrony zawartości z obsługą technologii DRM z użyciem kontroli dostępu](design-multi-drm-system-with-access-control.md)
 * [Szyfrowanie po stronie magazynu](storage-account-concept.md#storage-side-encryption)
 * [Często zadawane pytania](frequently-asked-questions.md)
-* [Program obsługi tokenów sieci Web JSON](https://docs.microsoft.com/dotnet/framework/security/json-web-token-handler)
+* [Program obsługi tokenów sieci Web JSON](/dotnet/framework/security/json-web-token-handler)

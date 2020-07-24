@@ -6,11 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 06/25/2020
 ms.author: sngun
-ms.openlocfilehash: 4c9f02784507ee893b6396fef4ed34a87610166d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ae1d2743934c5ae8df9f2a1514bdda9b34262b9d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85414190"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87023691"
 ---
 # <a name="how-to-audit-azure-cosmos-db-control-plane-operations"></a>Jak przeprowadzić inspekcję Azure Cosmos DB operacji na płaszczyźnie kontroli
 
@@ -26,9 +27,9 @@ Poniżej przedstawiono kilka przykładowych scenariuszy, w których Inspekcja op
 
 ## <a name="disable-key-based-metadata-write-access"></a>Wyłącz dostęp do zapisu metadanych opartych na kluczach
 
-Przed inspekcją operacji płaszczyzny kontroli w Azure Cosmos DB należy wyłączyć dostęp do zapisu metadanych opartych na kluczach na Twoim koncie. Gdy dostęp do zapisu metadanych opartych na kluczach jest wyłączony, klienci łączący się z kontem usługi Azure Cosmos za pomocą kluczy kont nie mogą uzyskać dostępu do konta. Aby wyłączyć dostęp do zapisu, można ustawić `disableKeyBasedMetadataWriteAccess` Właściwość na wartość true. Po ustawieniu tej właściwości zmiany w dowolnym zasobie mogą wystąpić od użytkownika z poprawnym rolą kontroli dostępu opartej na rolach (RBAC). Aby dowiedzieć się więcej na temat sposobu ustawiania tej właściwości, zobacz artykuł [Zapobiegaj zmianom z zestawów SDK](role-based-access-control.md#preventing-changes-from-cosmos-sdk) . 
+Przed inspekcją operacji płaszczyzny kontroli w Azure Cosmos DB należy wyłączyć dostęp do zapisu metadanych opartych na kluczach na Twoim koncie. Gdy dostęp do zapisu metadanych opartych na kluczach jest wyłączony, klienci łączący się z kontem usługi Azure Cosmos za pomocą kluczy kont nie mogą uzyskać dostępu do konta. Aby wyłączyć dostęp do zapisu, można ustawić `disableKeyBasedMetadataWriteAccess` Właściwość na wartość true. Po ustawieniu tej właściwości zmiany w dowolnym zasobie mogą wystąpić od użytkownika z poprawnym rolą kontroli dostępu opartej na rolach (RBAC). Aby dowiedzieć się więcej na temat sposobu ustawiania tej właściwości, zobacz artykuł [Zapobiegaj zmianom z zestawów SDK](role-based-access-control.md#prevent-sdk-changes) . 
 
-`disableKeyBasedMetadataWriteAccess`Gdy program jest włączony, jeśli klient oparty na zestawie SDK uruchomi operacje tworzenia lub aktualizowania, zwracany jest błąd *"operacja post" w zasobie "ContainerNameorDatabaseName" jest niedozwolona za pośrednictwem Azure Cosmos DB punktu końcowego* . Musisz włączyć dostęp do takich operacji dla Twojego konta lub wykonać operacje tworzenia/aktualizacji za pomocą Azure Resource Manager, interfejsu wiersza polecenia platformy Azure lub Azure PowerShell. Aby przełączyć z powrotem, ustaw disableKeyBasedMetadataWriteAccess na **false** przy użyciu interfejsu wiersza polecenia platformy Azure, zgodnie z opisem w artykule [zapobieganie zmianom z zestawu SDK Cosmos](role-based-access-control.md#preventing-changes-from-cosmos-sdk) . Pamiętaj, aby zmienić wartość `disableKeyBasedMetadataWriteAccess` na false zamiast true.
+`disableKeyBasedMetadataWriteAccess`Gdy program jest włączony, jeśli klient oparty na zestawie SDK uruchomi operacje tworzenia lub aktualizowania, zwracany jest błąd *"operacja post" w zasobie "ContainerNameorDatabaseName" jest niedozwolona za pośrednictwem Azure Cosmos DB punktu końcowego* . Musisz włączyć dostęp do takich operacji dla Twojego konta lub wykonać operacje tworzenia/aktualizacji za pomocą Azure Resource Manager, interfejsu wiersza polecenia platformy Azure lub Azure PowerShell. Aby przełączyć z powrotem, ustaw disableKeyBasedMetadataWriteAccess na **false** przy użyciu interfejsu wiersza polecenia platformy Azure, zgodnie z opisem w artykule [zapobieganie zmianom z zestawu SDK Cosmos](role-based-access-control.md#prevent-sdk-changes) . Pamiętaj, aby zmienić wartość `disableKeyBasedMetadataWriteAccess` na false zamiast true.
 
 Podczas wyłączania dostępu do zapisu metadanych należy wziąć pod uwagę następujące kwestie:
 

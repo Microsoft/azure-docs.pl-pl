@@ -10,12 +10,12 @@ ms.subservice: bing-visual-search
 ms.topic: overview
 ms.date: 12/19/2019
 ms.author: scottwhi
-ms.openlocfilehash: 14acebb71538dddfd2421fbb27794f456b6c9c8f
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: 192517aa16e0fe56eb5b7dc8b852116af500b715
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85611513"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87023725"
 ---
 # <a name="what-is-the-bing-visual-search-api"></a>Co to jest interfejs API wyszukiwania wizualnego Bing?
 
@@ -57,7 +57,15 @@ Interfejs API wyszukiwania wizualnego Bing jest usługą internetową zgodną z 
 Najpierw wypróbuj interfejs API wyszukiwania wizualnego Bing [Interactive](https://azure.microsoft.com/services/cognitive-services/bing-visual-search/).
 Demonstracja pokazuje, jak można szybko dostosować zapytanie wyszukiwania i wyszukuj sieć Web dla obrazów.
 
-Aby szybko rozpocząć pracę z pierwszym żądaniem, zobacz Przewodniki Szybki Start: [C#](quickstarts/csharp.md)  |  [Java](quickstarts/java.md)  |  [node.js](quickstarts/nodejs.md)  |  [Python](quickstarts/python.md).
+Aby szybko rozpocząć pracę z pierwszym żądaniem, zobacz przewodniki Szybki start:
+
+* [C#](quickstarts/csharp.md)
+
+* [Java](quickstarts/java.md)
+
+* [node.js](quickstarts/nodejs.md)
+
+* [Python](quickstarts/python.md)
 
 ## <a name="see-also"></a>Zobacz też
 

@@ -5,15 +5,15 @@ author: cynthn
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: article
-ms.date: 06/26/2020
+ms.date: 07/20/2020
 ms.author: cynthn
 ms.reviewer: jagaveer
-ms.openlocfilehash: c83f754fdc236cc7a08f5a6a6e62ca3cf620b536
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 69bf4a06987f2467f3e5596d7bdec43e8923d46f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85506054"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87028802"
 ---
 # <a name="use-spot-vms-in-azure"></a>Korzystanie z maszyn wirtualnych na platformie Azure
 

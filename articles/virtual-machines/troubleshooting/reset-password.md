@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 08/20/2019
 ms.author: delhan
-ms.openlocfilehash: 83751538efe4f3d3af5928caa04b265b6c867442
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c6bfd5b9ff3626593916533f27c5c2755cebcb13
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "71153572"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87028485"
 ---
 # <a name="how-to-reset-local-linux-password-on-azure-vms"></a>Jak zresetować lokalne hasło systemu Linux na maszynach wirtualnych platformy Azure
 
@@ -109,4 +109,4 @@ Nie można zalogować się do maszyny wirtualnej i zostanie wyświetlony komunik
 
 * [Rozwiązywanie problemów z maszyną wirtualną Azure przez dołączenie dysku systemu operacyjnego do innej maszyny wirtualnej](https://social.technet.microsoft.com/wiki/contents/articles/18710.troubleshoot-azure-vm-by-attaching-os-disk-to-another-azure-vm.aspx)
 
-* [Interfejs wiersza polecenia platformy Azure: jak usunąć i ponownie wdrożyć maszynę wirtualną z dysku VHD](https://blogs.msdn.microsoft.com/linuxonazure/2016/07/21/azure-cli-how-to-delete-and-re-deploy-a-vm-from-vhd/)
+* [Interfejs wiersza polecenia platformy Azure: jak usunąć i ponownie wdrożyć maszynę wirtualną z dysku VHD](/archive/blogs/linuxonazure/azure-cli-how-to-delete-and-re-deploy-a-vm-from-vhd)

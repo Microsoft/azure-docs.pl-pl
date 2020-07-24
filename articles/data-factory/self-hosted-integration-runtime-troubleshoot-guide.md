@@ -5,20 +5,46 @@ services: data-factory
 author: nabhishek
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 06/24/2020
+ms.date: 07/19/2020
 ms.author: abnarain
-ms.openlocfilehash: e77d621d5699c434e691de0a523e58e49166d8d6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 521756081db938e749849e6f3630dbd60700d24f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85315146"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87023871"
 ---
 # <a name="troubleshoot-self-hosted-integration-runtime"></a>Rozwiązywanie problemów z własnym hostowanym środowiskiem Integration Runtime
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 W tym artykule przedstawiono typowe metody rozwiązywania problemów z własnym hostowanym środowiskiem Integration Runtime w Azure Data Factory.
+
+## <a name="gather-self-hosted-integration-runtime-logs-from-azure-data-factory"></a>Zbierz dzienniki środowiska Integration Runtime (własne) z programu Azure Data Factory
+
+W przypadku działań zakończonych niepowodzeniem w przypadku samodzielnego środowiska IR/udostępnionego środowiska IR Azure Data Factory obsługuje wyświetlanie i przekazywanie dzienników błędów. Aby uzyskać identyfikator raportu o błędach, należy wykonać poniższe czynności, a następnie wprowadzić identyfikator raportu w celu zlokalizowania powiązanych znanych problemów.
+
+1. Przejdź do strony **uruchomienia działania** .
+
+1. W kolumnie **błąd** kliknij przycisk poniżej.
+
+    ![Strona uruchomienia działania](media/self-hosted-integration-runtime-troubleshoot-guide/activity-runs-page.png)
+
+1. Zostaną wyświetlone powiązane dzienniki dla uruchomienia działania zakończonego niepowodzeniem. Kliknij przycisk **Wyślij dzienniki** , aby uzyskać dalszą pomoc.
+
+    ![Wyślij dzienniki](media/self-hosted-integration-runtime-troubleshoot-guide/send-logs.png)
+
+1. Możesz wybrać dzienniki, które chcesz wysłać. W przypadku *samodzielnego środowiska IR*można przekazać dzienniki powiązane z działaniem zakończonym niepowodzeniem lub wszystkie dzienniki w autonomicznym węźle IR. W przypadku *udostępnionego środowiska IR*można przekazać tylko dzienniki powiązane z działaniem zakończonym niepowodzeniem.
+
+    ![Wybieranie dzienników](media/self-hosted-integration-runtime-troubleshoot-guide/choose-logs.png)
+
+1. Podczas przekazywania dzienników należy zachować rekord identyfikatora raportu, jeśli potrzebna jest dalsza pomoc w rozwiązaniu problemu.
+
+    ![Przekaż dzienniki](media/self-hosted-integration-runtime-troubleshoot-guide/upload-logs.png)
+
+> [!NOTE]
+> Przeglądanie dzienników i przekazywanie żądań zostanie wykonane we wszystkich wystąpieniach samoobsługowego środowiska IR w trybie online. Upewnij się, że wszystkie własne wystąpienia środowiska IR są w trybie online w przypadku brakujących dzienników. 
+
 
 ## <a name="common-errors-and-resolutions"></a>Common errors and resolutions (Typowe błędy i rozwiązania)
 
@@ -281,7 +307,7 @@ Aby uzyskać pomoc dotyczącą rozwiązywania problemów, wypróbuj następując
 
 *  [Blog Data Factory](https://azure.microsoft.com/blog/tag/azure-data-factory/)
 *  [Żądania funkcji Data Factory](https://feedback.azure.com/forums/270578-data-factory)
-*  [Wideo na platformie Azure](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
+*  [Wideo dotyczące platformy Azure](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
 *  [Strona pytania&pytań i odpowiedzi](https://docs.microsoft.com/answers/topics/azure-data-factory.html)
 *  [Forum przepełnienia stosu dla Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
 *  [Informacje o usłudze Twitter dotyczące Data Factory](https://twitter.com/hashtag/DataFactory)
