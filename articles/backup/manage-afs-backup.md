@@ -3,15 +3,16 @@ title: Zarządzanie kopiami zapasowymi udziałów plików platformy Azure
 description: W tym artykule opisano typowe zadania związane z zarządzaniem udziałami plików platformy Azure i ich monitorowaniem, które są tworzone przez Azure Backup.
 ms.topic: conceptual
 ms.date: 01/07/2020
-ms.openlocfilehash: cb764fa441c063328dc350cf26f42c5bc7a0ca99
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6684cb348c9edb35b5f3e46fb7922e9aa265c725
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84712092"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073294"
 ---
 # <a name="manage-azure-file-share-backups"></a>Zarządzanie kopiami zapasowymi udziałów plików platformy Azure
 
-W tym artykule opisano typowe zadania związane z zarządzaniem udziałami plików platformy Azure i ich monitorowaniem, które są tworzone przez [Azure Backup](https://docs.microsoft.com/azure/backup/backup-overview). Dowiesz się, jak wykonywać zadania zarządzania w magazynie Recovery Services.
+W tym artykule opisano typowe zadania związane z zarządzaniem udziałami plików platformy Azure i ich monitorowaniem, które są tworzone przez [Azure Backup](./backup-overview.md). Dowiesz się, jak wykonywać zadania zarządzania w magazynie Recovery Services.
 
 ## <a name="monitor-jobs"></a>Monitorowanie zadań
 
@@ -164,4 +165,4 @@ Aby wyrejestrować konto magazynu:
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji, zobacz [Rozwiązywanie problemów z kopiami zapasowymi udziałów plików platformy Azure](https://docs.microsoft.com/azure/backup/troubleshoot-azure-files).
+Aby uzyskać więcej informacji, zobacz [Rozwiązywanie problemów z kopiami zapasowymi udziałów plików platformy Azure](./troubleshoot-azure-files.md).

@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/13/2019
-ms.openlocfilehash: c143d8aa24d3479f4619ea2c220d4a0c593f9cb1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0b18c34f8c0378d22d138b865d72fa4f351d7b8f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77665158"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073646"
 ---
 # <a name="application-insights-connector-management-solution-deprecated"></a>Rozwiązanie do zarządzania Application Insights Connector (przestarzałe)
 
@@ -46,7 +47,7 @@ W przeciwieństwie do większości innych rozwiązań Log Analytics dane nie są
 | [Agenci dla systemu Windows](../../azure-monitor/platform/agent-windows.md) | Nie | Rozwiązanie nie zbiera informacji z agentów systemu Windows. |
 | [Agenci dla systemu Linux](../../azure-monitor/learn/quick-collect-linux-computer.md) | Nie | Rozwiązanie nie zbiera informacji od agentów systemu Linux. |
 | [Grupa zarządzania programu SCOM](../../azure-monitor/platform/om-agents.md) | Nie | Rozwiązanie nie zbiera informacji od agentów w połączonej grupie zarządzania SCOM. |
-| [Konto usługi Azure Storage](collect-azure-metrics-logs.md) | Nie | Rozwiązanie nie zbiera informacji z usługi Azure Storage. |
+| [Konto usługi Azure Storage](./resource-logs.md#send-to-log-analytics-workspace) | Nie | Rozwiązanie nie zbiera informacji z usługi Azure Storage. |
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -244,7 +245,7 @@ Rekord z *typem* *ApplicationInsights* jest tworzony dla każdego typu danych we
 | Właściwość | Opis |
 | --- | --- |
 | Typ | ApplicationInsights |
-| Telemetriatype | Żądanie |
+| Telemetriatype | Request |
 | ResponseCode | Odpowiedź HTTP wysłana do klienta |
 | RequestSuccess | Wskazuje powodzenie lub niepowodzenie. Prawda lub fałsz. |
 | RequestID | Identyfikator do unikatowego identyfikowania żądania |
@@ -303,7 +304,7 @@ $Headers = @{
 $Connections = Invoke-RestMethod -Method "GET" -Uri "https://management.azure.com$($LAWorkspace.ResourceId)/dataSources/?%24filter=kind%20eq%20'ApplicationInsights'&api-version=2015-11-01-preview" -Headers $Headers
 $ConnectionsJson = $Connections | ConvertTo-Json
 ```
-Ten skrypt wymaga tokenu uwierzytelniania okaziciela do uwierzytelniania w odniesieniu do Azure Active Directory. Jednym ze sposobów pobrania tego tokenu jest użycie artykułu w [witrynie dokumentacji interfejsu API REST](https://docs.microsoft.com/rest/api/loganalytics/datasources/createorupdate). Kliknij przycisk Wypróbuj i zaloguj **się** do subskrypcji platformy Azure. Token okaziciela można skopiować z **wersji zapoznawczej żądania** , jak pokazano na poniższej ilustracji.
+Ten skrypt wymaga tokenu uwierzytelniania okaziciela do uwierzytelniania w odniesieniu do Azure Active Directory. Jednym ze sposobów pobrania tego tokenu jest użycie artykułu w [witrynie dokumentacji interfejsu API REST](/rest/api/loganalytics/datasources/createorupdate). Kliknij przycisk Wypróbuj i zaloguj **się** do subskrypcji platformy Azure. Token okaziciela można skopiować z **wersji zapoznawczej żądania** , jak pokazano na poniższej ilustracji.
 
 
 ![Token okaziciela](media/app-insights-connector/bearer-token.png)

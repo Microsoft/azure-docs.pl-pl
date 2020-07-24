@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
-ms.openlocfilehash: 1d1ac838befc905c3c2b860551b26928f5114e96
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 8142ef5e2aaaf5831c01215d28eecf8d06e1d8ab
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85955178"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87071913"
 ---
 # <a name="perform-advanced-encoding-by-customizing-mes-presets"></a>Wykonaj zaawansowane kodowanie, dostosowując ustawienia wstępne ustawień RYNKOWych 
 
@@ -29,7 +30,7 @@ W tym temacie przedstawiono sposób dostosowywania ustawień wstępnych Media En
 W przypadku użycia ustawienia wstępnego XML Pamiętaj, aby zachować kolejność elementów, jak pokazano w poniższych przykładach XML (np. KeyFrameInterval powinna poprzedzać SceneChangeDetection).
 
 > [!NOTE] 
-> Wiele funkcji zaawansowanych Media Services V2 Media Encoder Standard nie są obecnie dostępne w wersji 3. Aby uzyskać więcej informacji, zobacz [luki w funkcji](https://docs.microsoft.com/azure/media-services/latest/media-services-v2-vs-v3#feature-gaps-with-respect-to-v2-apis).
+> Wiele funkcji zaawansowanych Media Services V2 Media Encoder Standard nie są obecnie dostępne w wersji 3. Aby uzyskać więcej informacji, zobacz [luki w funkcji](../latest/media-services-v2-vs-v3.md#feature-gaps-with-respect-to-v2-apis).
 
 ## <a name="support-for-relative-sizes"></a>Obsługa rozmiarów względnych
 
@@ -240,7 +241,7 @@ Zapoznaj się z sekcją [zagadnienia](#considerations) .
 </Preset>
 ```
 
-### <a name="considerations"></a>Istotne zagadnienia
+### <a name="considerations"></a>Zagadnienia do rozważenia
 
 Obowiązują następujące zastrzeżenia:
 

@@ -9,11 +9,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: a2fe7daf1476f19f6a6eea83174342fa1273fe14
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 487308aca3231650aee3fac5ae127006649e19b9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81867979"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073905"
 ---
 # <a name="quickstart---configure-a-private-cloud-environment"></a>Szybki Start — Konfigurowanie środowiska chmury prywatnej
 
@@ -147,7 +148,7 @@ Zostanie utworzona sieć VLAN/podsieć.  Możesz teraz używać tego identyfikat
 
 ## <a name="connect-your-environment-to-an-azure-virtual-network"></a>Łączenie środowiska z siecią wirtualną platformy Azure
 
-Usługa CloudSimple udostępnia obwód usługi ExpressRoute dla chmury prywatnej. Możesz połączyć sieć wirtualną na platformie Azure z obwodem usługi ExpressRoute. Aby uzyskać szczegółowe informacje na temat konfigurowania połączenia, wykonaj czynności opisane w temacie [Azure Virtual Network Connection przy użyciu ExpressRoute](https://docs.microsoft.com/azure/vmware-cloudsimple/cloudsimple-azure-network-connection).
+Usługa CloudSimple udostępnia obwód usługi ExpressRoute dla chmury prywatnej. Możesz połączyć sieć wirtualną na platformie Azure z obwodem usługi ExpressRoute. Aby uzyskać szczegółowe informacje na temat konfigurowania połączenia, wykonaj czynności opisane w temacie [Azure Virtual Network Connection przy użyciu ExpressRoute](./cloudsimple-azure-network-connection.md).
 
 ## <a name="sign-in-to-vcenter"></a>Zaloguj się do programu vCenter
 

@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2020
 ms.author: terrylan
-ms.openlocfilehash: 29e6aa96ea1c435e4d734e80824e1cedcfe9a761
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: d861388c8c7a5ff64a17607736d4c8a292343dec
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519324"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87071595"
 ---
 # <a name="azure-security-technical-capabilities"></a>Możliwości techniczne zabezpieczeń platformy Azure
 Ten artykuł zawiera wprowadzenie do usług zabezpieczeń na platformie Azure, które ułatwiają ochronę danych, zasobów i aplikacji w chmurze oraz zaspokajanie potrzeb firmy.
@@ -152,7 +152,7 @@ Kontrola dostępu na platformie Azure zaczyna się od perspektywy rozliczania. W
 
 Subskrypcje mają także skojarzenie z katalogiem. Katalog definiuje zbiór użytkowników. Mogą to być użytkownicy z pracy lub szkoły, która utworzyła katalog, lub mogą być użytkownikami zewnętrznymi (czyli kontami Microsoft). Subskrypcje są dostępne dla podzestawu tych użytkowników katalogów, którzy zostali przypisani jako administrator usługi (SA) lub współadministrator (CA); Jedynym wyjątkiem jest to, że w przypadku starszych powodów konta Microsoft (wcześniej identyfikator Windows Live ID) można przypisać jako SA lub CA bez obecności w katalogu.
 
-Firmy zorientowane na zabezpieczenia powinny skupić się na umożliwieniu pracownikom dokładnych wymaganych uprawnień. Zbyt wiele uprawnień może uwidocznić konto w osobach atakujących. Zbyt mało uprawnień oznacza, że pracownicy nie mogą wydajnie pracować. [Access Control oparte na rolach (RBAC) na platformie Azure](../../role-based-access-control/overview.md) pomaga rozwiązać ten problem, oferując szczegółowe zarządzanie dostępem na platformie Azure.
+Firmy zorientowane na zabezpieczenia powinny skupić się na umożliwieniu pracownikom dokładnych wymaganych uprawnień. Zbyt wiele uprawnień może uwidocznić konto w osobach atakujących. Zbyt mało uprawnień oznacza, że pracownicy nie mogą wydajnie pracować. [Kontrola dostępu oparta na rolach (Azure RBAC) na](../../role-based-access-control/overview.md) platformie Azure pomaga rozwiązać ten problem, oferując szczegółowe zarządzanie dostępem na platformie Azure.
 
 ![Bezpieczny dostęp do zasobów](./media/technical-capabilities/azure-security-technical-capabilities-fig4.png)
 
@@ -444,6 +444,6 @@ Dowiedz się więcej o zabezpieczeniach, odczytując niektóre szczegółowe tem
 
 - [Zarządzanie tożsamościami i dostępem](https://www.microsoft.com/en-us/trustcenter/security/identity)
 
-- [Zabezpieczenia sieci](https://www.microsoft.com/en-us/trustcenter/security/networksecurity)
+- [Bezpieczeństwo sieci](https://www.microsoft.com/en-us/trustcenter/security/networksecurity)
 
 - [Zarządzanie zagrożeniami](https://www.microsoft.com/en-us/trustcenter/security/threatmanagement)

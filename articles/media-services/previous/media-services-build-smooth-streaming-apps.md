@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
-ms.openlocfilehash: 65e1fa07d2af15e9ccb5f85ce4645e3e6c287952
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 44f10bd49a768004fc63a3287799e6b79dd5bae1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85960371"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87071909"
 ---
 # <a name="how-to-build-a-smooth-streaming-windows-store-application"></a>Jak utworzyć Smooth Streaming aplikacji ze sklepu Windows  
 
@@ -53,7 +53,7 @@ W tej lekcji utworzysz aplikację ze sklepu Windows z kontrolką MediaElement, k
 
 ![Przykład Smooth Streaming aplikacji ze sklepu Windows][PlayerApplication]
 
-Aby uzyskać więcej informacji na temat tworzenia aplikacji do sklepu Windows, zobacz [Tworzenie doskonałych aplikacji dla systemu Windows 8](https://msdn.microsoft.com/windows/apps/br229512.aspx). Ta lekcja zawiera następujące procedury:
+Aby uzyskać więcej informacji na temat tworzenia aplikacji do sklepu Windows, zobacz [Tworzenie doskonałych aplikacji dla systemu Windows 8](https://developer.microsoft.com/en-us/windows/). Ta lekcja zawiera następujące procedury:
 
 1. Tworzenie projektu sklepu Windows
 2. Projektowanie interfejsu użytkownika (XAML)
@@ -69,7 +69,7 @@ Aby uzyskać więcej informacji na temat tworzenia aplikacji do sklepu Windows, 
     | Nazwa | Wartość |
     | --- | --- |
     | Grupa szablonów |Zainstalowane/szablony/sklep Visual C#/Windows |
-    | Szablon |Pusta aplikacja (XAML) |
+    | Template |Pusta aplikacja (XAML) |
     | Nazwa |SSPlayer |
     | Lokalizacja |C:\SSTutorials |
     | Nazwa rozwiązania |SSPlayer |
@@ -517,7 +517,7 @@ Te same zdarzenia są dostępne na adaptacyjnym poziomie menedżera źródeł, k
    ```
 
    > [!NOTE]
-   > CoreDispatcher jest używany do wprowadzania zmian w wątku interfejsu użytkownika z wątku innego niż interfejs użytkownika. W przypadku wąskiego gardła w wątku dyspozytora deweloper może zdecydować się na użycie dyspozytora dostarczonego przez element interfejsu użytkownika, który zamierza zaktualizować.  Przykład:
+   > CoreDispatcher jest używany do wprowadzania zmian w wątku interfejsu użytkownika z wątku innego niż interfejs użytkownika. W przypadku wąskiego gardła w wątku dyspozytora deweloper może zdecydować się na użycie dyspozytora dostarczonego przez element interfejsu użytkownika, który zamierza zaktualizować.  Na przykład:
 
    ```csharp
          await sliderProgress.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () => { TimeSpan 
@@ -1046,4 +1046,3 @@ Lekcja 4 została ukończona.  W tej lekcji dodasz funkcje do wybierania ścież
 
 [PlayerApplication]: ./media/media-services-build-smooth-streaming-apps/SSClientWin8-1.png
 [CodeViewPic]: ./media/media-services-build-smooth-streaming-apps/SSClientWin8-2.png
-

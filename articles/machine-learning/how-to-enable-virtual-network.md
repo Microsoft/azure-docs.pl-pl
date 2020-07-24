@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 07/07/2020
 ms.custom: contperfq4, tracking-python
-ms.openlocfilehash: 2193584996ed9f2c4cf5e858b8855c6878159a84
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: fa99a5c78fb533d17cb7f70b3545aa9ef6439b32
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86520702"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87072622"
 ---
 # <a name="network-isolation-during-training--inference-with-private-virtual-networks"></a>Izolacja sieci podczas uczenia & wnioskowania z prywatnymi sieciami wirtualnymi
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -126,7 +126,7 @@ Możesz również zastąpić domyślny magazyn danych dla każdego modułu. Zape
 1. Rozwiń sekcję **Ustawienia wyjściowe** .
 1. Wybierz opcję **Zastąp domyślne ustawienia wyjściowe**.
 1. Wybierz pozycję **Ustaw ustawienia wyjściowe**.
-1. Określ nowy datstore.
+1. Określ nowy magazyn danych.
 
 ### <a name="azure-data-lake-storage-gen2-access-control"></a>Azure Data Lake Storage Gen2 kontroli dostępu
 
@@ -429,6 +429,8 @@ except ComputeTargetException:
 ```
 
 Po zakończeniu procesu tworzenia nauczysz model przy użyciu klastra w eksperymentie. Aby uzyskać więcej informacji, zobacz [Wybieranie i używanie elementu docelowego obliczeń do szkoleń](how-to-set-up-training-targets.md).
+
+[!INCLUDE [low-pri-note](../../includes/machine-learning-low-pri-vm.md)]
 
 ### <a name="access-data-in-a-compute-instance-notebook"></a>Dostęp do danych w notesie wystąpienia obliczeniowego
 

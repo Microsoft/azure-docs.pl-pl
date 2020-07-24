@@ -14,11 +14,12 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: willzhan
 ms.reviewer: kilroyh;yanmf;juliako
-ms.openlocfilehash: 4b5a18f0dc5edc06e4800215e88b694e681b5bbb
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 254659c58b9830645211596da0095c33d70e8d95
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85960473"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87072021"
 ---
 # <a name="design-of-a-content-protection-system-with-access-control-using-azure-media-services"></a>Projektowanie systemu ochrony zawartości z kontrolą dostępu przy użyciu Azure Media Services 
 
@@ -147,12 +148,12 @@ W poniższej tabeli przedstawiono mapowanie.
 
 | **Blok konstrukcyjny** | **Technologia** |
 | --- | --- |
-| **Odtwarzacz** |[Azure Media Player](https://azure.microsoft.com/services/media-services/media-player/) |
+| **Zawodnik** |[Azure Media Player](https://azure.microsoft.com/services/media-services/media-player/) |
 | **Dostawca tożsamości (dostawcy tożsamości)** |Azure Active Directory (Azure AD) |
 | **Usługa tokenu zabezpieczającego (STS)** |Azure AD |
 | **Przepływ pracy ochrony DRM** |Media Services ochronę dynamiczną |
 | **Dostarczanie licencji DRM** |* Media Services dostarczania licencji (PlayReady, Widevine, FairPlay) <br/>* Axinom serwera licencji <br/>* Niestandardowy serwer licencji PlayReady |
-| **Origin** |Media Services punkt końcowy przesyłania strumieniowego |
+| **Źródł** |Media Services punkt końcowy przesyłania strumieniowego |
 | **Zarządzanie kluczami** |Niewymagane dla implementacji odwołania |
 | **Zarządzanie zawartością** |Aplikacja konsolowa w języku C# |
 
@@ -226,7 +227,7 @@ Aby uzyskać więcej informacji, zobacz [uwierzytelnianie tokenu JWT w Azure Med
 Aby uzyskać informacje na temat usługi Azure AD:
 
 * Informacje dla deweloperów można znaleźć w [przewodniku dewelopera Azure Active Directory](../../active-directory/azuread-dev/v1-overview.md).
-* Informacje o administratorze można znaleźć w temacie [administrowanie katalogiem dzierżawy usługi Azure AD](../../active-directory/fundamentals/active-directory-administer.md).
+* Informacje o administratorze można znaleźć w temacie [administrowanie katalogiem dzierżawy usługi Azure AD](../../active-directory/fundamentals/active-directory-whatis.md).
 
 ### <a name="some-issues-in-implementation"></a>Niektóre problemy w implementacji
 Aby uzyskać pomoc dotyczącą problemów z implementacją, Skorzystaj z poniższych informacji dotyczących rozwiązywania problemów.
@@ -295,7 +296,7 @@ Przerzucanie klucza podpisywania jest ważnym punktem, który należy wziąć po
 
 Usługa Azure AD korzysta ze standardów branżowych, aby ustanowić relację zaufania między sobą i aplikacjami korzystającymi z usługi Azure AD. W przypadku usługi Azure AD jest wykorzystywany klucz podpisywania składający się z pary kluczy publicznych i prywatnych. Gdy usługa Azure AD tworzy token zabezpieczający, który zawiera informacje o użytkowniku, jest podpisany przez usługę Azure AD z kluczem prywatnym przed wysłaniem ich z powrotem do aplikacji. Aby sprawdzić, czy token jest prawidłowy i pochodzi z usługi Azure AD, aplikacja musi sprawdzić poprawność podpisu tokenu. Aplikacja używa klucza publicznego uwidacznianego przez usługę Azure AD, który znajduje się w dokumencie metadanych Federacji dzierżawcy. Ten klucz publiczny i klucz podpisywania, z którego pochodzi, jest taki sam, jak używany dla wszystkich dzierżawców w usłudze Azure AD.
 
-Aby uzyskać więcej informacji na temat przerzucania kluczy usługi Azure AD, zobacz [Ważne informacje dotyczące przerzucania klucza podpisywania w usłudze Azure AD](../../active-directory/active-directory-signing-key-rollover.md).
+Aby uzyskać więcej informacji na temat przerzucania kluczy usługi Azure AD, zobacz [Ważne informacje dotyczące przerzucania klucza podpisywania w usłudze Azure AD](../../active-directory/develop/active-directory-signing-key-rollover.md).
 
 Między [pary kluczy publiczny-prywatny](https://login.microsoftonline.com/common/discovery/keys/):
 
@@ -328,7 +329,7 @@ Jeśli dowiesz się, jak aplikacja sieci Web wywołuje aplikację interfejsu API
 * Usługa Azure AD uwierzytelnia aplikację i zwraca token dostępu JWT używany do wywoływania interfejsu API sieci Web.
 * Za pośrednictwem protokołu HTTPS aplikacja sieci Web używa zwróconego tokenu dostępu JWT, aby dodać ciąg JWT z oznaczeniem "Bearer" w nagłówku "Authorization" żądania do internetowego interfejsu API. Interfejs API sieci Web sprawdza poprawność tokenu JWT. Jeśli walidacja zakończyła się pomyślnie, zwraca żądany zasób.
 
-W tym przepływie tożsamości aplikacji internetowy interfejs API ufa, że aplikacja sieci Web uwierzytelnił użytkownika. Z tego powodu ten wzorzec jest nazywany zaufanym podsystemem. [Diagram przepływu autoryzacji](https://docs.microsoft.com/azure/active-directory/active-directory-protocols-oauth-code) opisuje sposób działania przepływu przydzielenia kodu autoryzacji.
+W tym przepływie tożsamości aplikacji internetowy interfejs API ufa, że aplikacja sieci Web uwierzytelnił użytkownika. Z tego powodu ten wzorzec jest nazywany zaufanym podsystemem. [Diagram przepływu autoryzacji](../../active-directory/azuread-dev/v1-protocols-oauth-code.md) opisuje sposób działania przepływu przydzielenia kodu autoryzacji.
 
 Pozyskiwanie licencji przy użyciu ograniczenia tokenu jest zgodne z tym samym wzorcem zaufanego podsystemu. Usługa dostarczania licencji w Media Services jest zasobem internetowego interfejsu API lub "zasobem zaplecza", do którego aplikacja sieci Web musi uzyskać dostęp. Więc gdzie jest token dostępu?
 

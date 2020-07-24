@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 11/15/2019
-ms.openlocfilehash: b975ee8cebdac3855c3fca88b20c01145d11baeb
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 1de9fc480c753b2497a1ea4e3438583b3582bc96
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86080197"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87072790"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---motivation-and-benefits"></a>Migrowanie lokalnych klastrów Apache Hadoop do usługi Azure HDInsight — motywacji i korzyści
 
@@ -163,9 +163,9 @@ Ta sekcja zawiera kwestionariusze szablonów ułatwiające zebranie ważnych inf
 
 ### <a name="azure-requirements-questionnaire"></a>Kwestionariusz wymagań platformy Azure
 
-|**Temat**: **infrastruktura** |||
-|---|---|---|
 |**Pytanie**|**Przykład**|**Odpowiedź**|
+|---|---|---|
+|**Temat**: **infrastruktura** |||
 | Preferowany region|Wschodnie stany USA||
 |Preferowana Sieć wirtualna?|Tak||
 |Wymagana HA/DR?|Tak||

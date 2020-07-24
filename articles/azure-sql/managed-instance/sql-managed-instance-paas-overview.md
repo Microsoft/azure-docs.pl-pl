@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab, vanto
 ms.date: 06/25/2020
-ms.openlocfilehash: 43fad6249d5c6f528353a819e03dd7401440e05d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b7d7ec95d2227076ff7b7a95ce6e72fffc840975
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85391013"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073343"
 ---
 # <a name="what-is-azure-sql-managed-instance"></a>Co to jest wystąpienie zarządzane Azure SQL?
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -50,7 +50,7 @@ Wystąpienie zarządzane SQL łączy najlepsze funkcje, które są dostępne zar
 
 W poniższej tabeli przedstawiono najważniejsze funkcje wystąpienia zarządzanego SQL:
 
-|Cecha | Opis|
+|Cechy | Opis|
 |---|---|
 | Wersja SQL Server/kompilacja | Aparat bazy danych SQL Server (Najnowsza stabilna) |
 | Zarządzane automatyczne kopie zapasowe | Tak |
@@ -115,105 +115,7 @@ Znajdź więcej informacji o różnicach między warstwami usług w [limitach za
 
 ## <a name="management-operations"></a>Operacje zarządzania
 
-Wystąpienie zarządzane usługi Azure SQL udostępnia operacje zarządzania, których można użyć do automatycznego wdrażania nowych wystąpień zarządzanych, aktualizowania właściwości wystąpienia i usuwania wystąpień, gdy nie są już potrzebne. Ta sekcja zawiera informacje na temat operacji zarządzania i ich typowych czasów trwania.
-
-Aby obsługiwać [wdrożenia w ramach sieci wirtualnych platformy Azure](../../virtual-network/virtual-network-for-azure-services.md) i zapewnić izolację i bezpieczeństwo klientów, wystąpienie zarządzane SQL korzysta z [klastrów wirtualnych](connectivity-architecture-overview.md#high-level-connectivity-architecture), które reprezentują dedykowany zestaw izolowanych maszyn wirtualnych wdrożonych w podsieci sieci wirtualnej klienta. Zasadniczo każde wdrożenie wystąpienia zarządzanego w pustej podsieci powoduje wystąpienie nowego klastra wirtualnego buildout.
-
-Kolejne operacje na wdrożonych wystąpieniach zarządzanych mogą również mieć wpływ na źródłowy klaster wirtualny. Ma to wpływ na czas trwania operacji zarządzania, ponieważ wdrożenie dodatkowych maszyn wirtualnych wiąże się z obciążeniem, które należy wziąć pod uwagę podczas planowania nowych wdrożeń lub aktualizacji istniejących wystąpień zarządzanych.
-
-Wszystkie operacje zarządzania można klasyfikować w następujący sposób:
-
-- Wdrożenie wystąpienia (nowe wystąpienie).
-- Aktualizacja wystąpienia (zmiana właściwości wystąpienia, takich jak rdzeni wirtualnych lub zarezerwowany magazyn).
-- Usuwanie wystąpienia.
-
-Zazwyczaj operacje w klastrach wirtualnych trwają najdłużej. Czas trwania operacji na klastrach wirtualnych zależy od tego, jakie wartości są zwykle oczekiwane na podstawie istniejących danych telemetrycznych usługi:
-
-- **Tworzenie klastra wirtualnego**: jest to etap synchroniczny w operacjach zarządzania wystąpieniem. **90% operacji zakończonych w ciągu 4 godzin**.
-- **Zmienianie rozmiaru klastra wirtualnego (rozszerzanie lub zmniejszanie)**: rozszerzanie jest krokiem synchronicznym, natomiast zmniejszanie jest wykonywane asynchronicznie (bez wpływu na czas trwania operacji zarządzania wystąpieniami). **90% rozszerzeń klastra kończy się w czasie krótszym niż 2,5 godzin**.
-- **Usuwanie klastra wirtualnego**: usuwanie to krok asynchroniczny, ale można go również [zainicjować ręcznie](virtual-cluster-delete.md) w pustym klastrze wirtualnym, w tym przypadku jest wykonywane synchronicznie. **90% usunięć klastrów wirtualnych kończy się w 1,5 godz**.
-
-Ponadto Zarządzanie wystąpieniami może również obejmować jedną z operacji w hostowanych bazach danych, co powoduje dłuższe czasy trwania:
-
-- **Dołączanie plików bazy danych z usługi Azure Storage**: jest to krok synchroniczny, taki jak COMPUTE (rdzeń wirtualny) lub skalowanie w górę lub w dół w warstwie usług ogólnego przeznaczenia. **90% tych operacji kończy się za 5 minut**.
-- Umieszczanie **w magazynie zawsze włączonym grupą dostępności**: jest to krok synchroniczny, taki jak COMPUTE (rdzeń wirtualny) lub skalowanie magazynu w warstwie usług krytyczne dla działania firmy, a także zmiana warstwy usługi z Ogólnego przeznaczenia na krytyczne dla działania firmy (lub odwrotnie). Czas trwania tej operacji jest proporcjonalny do całkowitego rozmiaru bazy danych, a także bieżącego działania bazy danych (liczba aktywnych transakcji). Działanie bazy danych podczas aktualizowania wystąpienia może wprowadzić znaczącą wariancję do całkowitego czasu trwania. **90% tych operacji wykonywanych o godz. 220 GB/godz. lub wyższych**.
-
-W poniższej tabeli zestawiono operacje i typowe ogólne czasy trwania:
-
-|Kategoria  |Operacja  |Segment długotrwały  |Szacowany czas trwania  |
-|---------|---------|---------|---------|
-|**Wdrożenie** |Pierwsze wystąpienie w pustej podsieci|Tworzenie klastra wirtualnego|90% operacji zakończonych w ciągu 4 godzin.|
-|Wdrożenie |Pierwsze wystąpienie innej generacji sprzętu w niepustej podsieci (na przykład pierwsze wystąpienie generacji 5 w podsieci z wystąpieniami generacji 4)|Tworzenie klastra wirtualnego *|90% operacji zakończonych w ciągu 4 godzin.|
-|Wdrożenie |Pierwsze utworzenie wystąpienia 4 rdzeni wirtualnych w pustej lub niepustej podsieci|Tworzenie klastra wirtualnego * *|90% operacji zakończonych w ciągu 4 godzin.|
-|Wdrożenie |Kolejne Tworzenie wystąpienia w niepustej podsieci (drugi, trzeci itp. wystąpienie)|Zmienianie rozmiarów klastra wirtualnego|90% operacji zakończonych w ciągu 2,5 godzin.|
-|**Aktualizacja** |Zmiana właściwości wystąpienia (hasło administratora, logowanie do usługi Azure AD, flaga Korzyść użycia hybrydowego platformy Azure)|Nie dotyczy|Do 1 minuty.|
-|Aktualizacja |Skalowanie magazynu wystąpień w górę/w dół (Ogólnego przeznaczenia warstwy usług)|Dołączanie plików bazy danych|90% operacji zakończonych w ciągu 5 minut.|
-|Aktualizacja |Skalowanie magazynu wystąpień w górę/w dół (Krytyczne dla działania firmy warstwy usług)|— Zmienianie rozmiarów klastra wirtualnego<br>-Zawsze włączone Określanie rozrzutu grupy dostępności|90% operacji zakończonych w ciągu 2,5 godzin + Time do wypełniania wszystkich baz danych (220 GB/godz.).|
-|Aktualizacja |Skalowanie wystąpienia obliczeniowego (rdzeni wirtualnych) w górę i w dół (Ogólnego przeznaczenia)|— Zmienianie rozmiarów klastra wirtualnego<br>— Dołączanie plików bazy danych|90% operacji zakończonych w ciągu 2,5 godzin.|
-|Aktualizacja |Skalowanie wystąpienia obliczeniowego (rdzeni wirtualnych) w górę i w dół (Krytyczne dla działania firmy)|— Zmienianie rozmiarów klastra wirtualnego<br>-Zawsze włączone Określanie rozrzutu grupy dostępności|90% operacji zakończonych w ciągu 2,5 godzin + Time do wypełniania wszystkich baz danych (220 GB/godz.).|
-|Aktualizacja |Skalowanie wystąpienia w dół do 4 rdzeni wirtualnych (Ogólnego przeznaczenia)|— Zmienianie rozmiarów klastra wirtualnego (jeśli jest wykonywane po raz pierwszy, może to wymagać utworzenia klastra wirtualnego * *)<br>— Dołączanie plików bazy danych|90% operacji zakończonych w 4 h 5 min. * *|
-|Aktualizacja |Skalowanie wystąpienia w dół do 4 rdzeni wirtualnych (Krytyczne dla działania firmy)|— Zmienianie rozmiarów klastra wirtualnego (jeśli jest wykonywane po raz pierwszy, może to wymagać utworzenia klastra wirtualnego * *)<br>-Zawsze włączone Określanie rozrzutu grupy dostępności|90% operacji zakończonych w ciągu 4 godzin od czasu do wypełniania wszystkich baz danych (220 GB/godz.).|
-|Aktualizacja |Zmiana warstwy usługi wystąpienia (Ogólnego przeznaczenia do Krytyczne dla działania firmy i na odwrót)|— Zmienianie rozmiarów klastra wirtualnego<br>-Zawsze włączone Określanie rozrzutu grupy dostępności|90% operacji zakończonych w ciągu 2,5 godzin + Time do wypełniania wszystkich baz danych (220 GB/godz.).|
-|**Usunięcie**|Usunięcie wystąpienia|Kopia zapasowa dziennika dla wszystkich baz danych|90% operacji zakończonych w ciągu do 1 minuty.<br>Uwaga: Jeśli ostatnie wystąpienie w podsieci zostanie usunięte, ta operacja spowoduje zaplanowanie usunięcia klastra wirtualnego po upływie 12 godzin. * * *|
-|Usunięcie|Usuwanie klastra wirtualnego (jako operacja zainicjowana przez użytkownika)|Usuwanie klastra wirtualnego|90% operacji zakończonych w maksymalnie 1,5 godzinach.|
-
-\*Klaster wirtualny jest oparty na generowaniu sprzętu.
-
-\*\*Opcja 4-rdzeni wirtualnych została wydana w czerwcu 2019 i wymaga nowej wersji klastra wirtualnego. Jeśli wystąpiły wystąpienia w podsieci docelowej, które zostały utworzone przed 12 czerwca, nowy klaster wirtualny zostanie automatycznie wdrożony do rdzeń wirtualny wystąpień hosta 4.
-
-\*\*\*Bieżąca konfiguracja to 12 godzin, ale może ona ulec zmianie w przyszłości, dlatego nie należy na niej korzystać. Jeśli musisz usunąć klaster wirtualny wcześniej (aby zwolnić podsieć, na przykład), zobacz [usuwanie podsieci po usunięciu wystąpienia zarządzanego](virtual-cluster-delete.md).
-
-### <a name="instance-availability-during-management-operations"></a>Dostępność wystąpienia podczas operacji zarządzania
-
-Wystąpienie zarządzane SQL **jest dostępne podczas operacji aktualizacji**, z wyjątkiem krótkich przestojów spowodowanych przez pracę w trybie failover, które są wykonywane po zakończeniu aktualizacji. Zwykle trwa to 10 sekund nawet w przypadku przerwanych długotrwałych transakcji, dzięki czemu możliwe jest [szybsze odzyskiwanie bazy danych](../accelerated-database-recovery.md).
-
-> [!IMPORTANT]
-> Nie jest zalecane skalowanie zasobów obliczeniowych lub magazynu wystąpienia zarządzanego usługi Azure SQL ani zmiana warstwy usług w tym samym czasie z długotrwałymi transakcjami (Importowanie danych, zadania przetwarzania danych, ponowne kompilowanie indeksu itp.). Praca w trybie failover bazy danych, która zostanie wykonana na końcu operacji, spowoduje anulowanie wszystkich bieżących transakcji.
-
-Wystąpienie zarządzane SQL nie jest dostępne dla aplikacji klienckich podczas operacji wdrażania i usuwania.
-
-### <a name="management-operations-cross-impact"></a>Wpływ operacji zarządzania
-
-Operacje zarządzania w wystąpieniu zarządzanym mogą mieć wpływ na inne operacje zarządzania wystąpieniami znajdującymi się w tym samym klastrze wirtualnym. Uwzględnione są następujące elementy:
-
-- **Długotrwałe operacje przywracania** w klastrze wirtualnym będą zawierać inne operacje tworzenia wystąpień lub skalowania w tej samej podsieci.<br/>**Przykład:** Jeśli istnieje długotrwała operacja przywracania i istnieje żądanie utworzenia lub skalowania w tej samej podsieci, żądanie będzie trwać dłużej, ponieważ będzie oczekiwać na ukończenie operacji przywracania przed kontynuowaniem.
-    
-- **Kolejne operacje tworzenia wystąpienia lub skalowania** są wstrzymane przez wcześniej zainicjowane wystąpienie lub skalowanie wystąpienia, które zainicjowało zmianę rozmiaru klastra wirtualnego.<br/>**Przykład:** Jeśli istnieje wiele żądań tworzenia i/lub skalowania w tej samej podsieci w ramach tego samego klastra wirtualnego, a jedna z nich inicjuje zmianę rozmiaru klastra wirtualnego, wszystkie żądania, które zostały przesłane 5 minut po tym, które wymagały zmiany rozmiaru klastra wirtualnego, będą trwać dłużej niż oczekiwano, ponieważ te żądania będą musiały poczekać na zakończenie zmiany rozmiaru przed wznowieniem.
-
-- **Operacje tworzenia/skalowania przesłane w 5-minutowych oknach zostaną przetworzone** w partii i wykonane równolegle.<br/>**Przykład:** Dla wszystkich operacji przesyłanych w oknie 5-minutowe zostanie wykonane tylko jedno Zmienianie rozmiaru klastra wirtualnego (mierzenie od momentu wykonania pierwszego żądania operacji). Jeśli kolejne żądanie zostanie przesłane więcej niż 5 minut po przesłaniu pierwszego z nich, czeka na ukończenie zmiany rozmiaru klastra wirtualnego przed rozpoczęciem wykonywania.
-
-> [!IMPORTANT]
-> Operacje zarządzania, które zostały wstrzymane, ponieważ inna operacja, która jest w toku, zostanie automatycznie wznowiona po spełnieniu warunków do kontynuowania. Nie trzeba wykonywać żadnych czynności przez użytkownika, aby wznowić tymczasowe wstrzymanie operacji zarządzania.
-
-### <a name="canceling-management-operations"></a>Anulowanie operacji zarządzania
-
-Poniższa tabela zawiera podsumowanie możliwości anulowania określonych operacji zarządzania i typowych ogólnych czasów trwania:
-
-Kategoria  |Operacja  |Można anulować  |Szacowany czas trwania anulowania  |
-|---------|---------|---------|---------|
-|Wdrożenie |Tworzenie wystąpienia |Nie |  |
-|Aktualizacja |Skalowanie magazynu wystąpień w górę/w dół (Ogólnego przeznaczenia) |Nie |  |
-|Aktualizacja |Skalowanie magazynu wystąpień w górę/w dół (Krytyczne dla działania firmy) |Tak |90% operacji zakończonych w ciągu 5 minut. |
-|Aktualizacja |Skalowanie wystąpienia obliczeniowego (rdzeni wirtualnych) w górę i w dół (Ogólnego przeznaczenia) |Tak |90% operacji zakończonych w ciągu 5 minut. |
-|Aktualizacja |Skalowanie wystąpienia obliczeniowego (rdzeni wirtualnych) w górę i w dół (Krytyczne dla działania firmy) |Tak |90% operacji zakończonych w ciągu 5 minut. |
-|Aktualizacja |Zmiana warstwy usługi wystąpienia (Ogólnego przeznaczenia do Krytyczne dla działania firmy i na odwrót) |Tak |90% operacji zakończonych w ciągu 5 minut. |
-|Usuń |Usunięcie wystąpienia |Nie |  |
-|Usuń |Usuwanie klastra wirtualnego (jako operacja zainicjowana przez użytkownika) |Nie |  |
-
-Aby anulować operację zarządzania, przejdź do bloku przegląd i kliknij pole powiadomień trwającej operacji. Po prawej stronie pojawi się ekran z trwającą operacją i zostanie wyświetlony przycisk anulowania operacji. Po pierwszym kliknięciu zostanie wyświetlony monit o ponowne kliknięcie i potwierdzenie, że chcesz anulować operację.
-
-[![Anuluj operację](./media/sql-managed-instance-paas-overview/canceling-operation.png)](./media/sql-managed-instance-paas-overview/canceling-operation.png#lightbox)
-
-Gdy żądanie anulowania zostało przesłane i przetworzone, otrzymasz powiadomienie, jeśli przesłanie anulowania zakończyło się pomyślnie.
-
-W przypadku powodzenia anulowania operacja zarządzania zostanie anulowana w ciągu kilku minut, co spowoduje wystąpienie błędu.
-
-![Anulowanie wyniku operacji](./media/sql-managed-instance-paas-overview/canceling-operation-result.png)
-
-Jeśli żądanie anulowania nie powiedzie się lub przycisk Anuluj nie jest aktywny, oznacza to, że operacja zarządzania przeszła w stan niekończący i zostanie ukończona w ciągu kilku minut. Operacja zarządzania będzie kontynuować wykonywanie, dopóki nie zostanie ukończona.
-
-> [!IMPORTANT]
-> Operacje anulowania są obecnie obsługiwane tylko w portalu.
+Wystąpienie zarządzane usługi Azure SQL udostępnia operacje zarządzania, których można użyć do automatycznego wdrażania nowych wystąpień zarządzanych, aktualizowania właściwości wystąpienia i usuwania wystąpień, gdy nie są już potrzebne. Szczegółowe wyjaśnienie operacji zarządzania można znaleźć na stronie [Przegląd operacji zarządzania wystąpieniami zarządzanymi](management-operations-overview.md) .
 
 ## <a name="advanced-security-and-compliance"></a>Zaawansowane zabezpieczenia i zgodność
 
@@ -259,7 +161,7 @@ Wprowadzono nową składnię do tworzenia podmiotów zabezpieczeń serwera usłu
 
 Wystąpienie zarządzane SQL umożliwia centralne zarządzanie tożsamościami użytkowników bazy danych i innych usług firmy Microsoft z [integracją Azure Active Directory](../database/authentication-aad-overview.md). Ta funkcja upraszcza zarządzanie uprawnieniami i zwiększa bezpieczeństwo. Azure Active Directory obsługuje [uwierzytelnianie wieloskładnikowe](../database/authentication-mfa-ssms-configure.md) w celu zwiększenia bezpieczeństwa danych i aplikacji podczas obsługi logowania jednokrotnego.
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>Uwierzytelnianie
 
 Uwierzytelnianie wystąpienia zarządzanego SQL dotyczy sposobu, w jaki użytkownicy udowadniają swoją tożsamość podczas łączenia się z bazą danych. Wystąpienie zarządzane SQL obsługuje dwa typy uwierzytelniania:  
 

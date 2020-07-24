@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/28/2018
-ms.openlocfilehash: aec3fe2386ce916c556f6da295a8554fff140259
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a183589c3e5274cf747164cdc33d46044f95e716
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708879"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073692"
 ---
 # <a name="agent-data-sources-in-azure-monitor"></a>Źródła danych agentów w Azure Monitor
 Dane, które Azure Monitor zbiera z agentów, są definiowane przez skonfigurowane źródła danych.  Dane z agentów są przechowywane jako [dane dziennika](data-platform-logs.md) z zestawem rekordów.  Każde źródło danych tworzy rekordy określonego typu z każdym typem, który ma swój własny zestaw właściwości.
@@ -28,7 +29,7 @@ W poniższej tabeli wymieniono źródła danych agentów, które są obecnie dos
 | [Dzienniki usług IIS](data-sources-iis-logs.md) | Windows |&#8226; |&#8226; |&#8226; |  |  |zależy od ustawienia przerzucania pliku dziennika |
 | [Liczniki wydajności](data-sources-performance-counters.md) | Windows |&#8226; |&#8226; |  |  |  |zgodnie z harmonogramem, co najmniej 10 sekund |
 | [Liczniki wydajności](data-sources-performance-counters.md) | Linux |&#8226; |  |  |  |  |zgodnie z harmonogramem, co najmniej 10 sekund |
-| [Dziennik systemu](data-sources-syslog.md) | Linux |&#8226; |  |  |  |  |z usługi Azure Storage: 10 minut; z agenta: przy nadejściu |
+| [Syslog](data-sources-syslog.md) | Linux |&#8226; |  |  |  |  |z usługi Azure Storage: 10 minut; z agenta: przy nadejściu |
 | [Dzienniki zdarzeń systemu Windows](data-sources-windows-events.md) |Windows |&#8226; |&#8226; |&#8226; |  |&#8226; | przy nadejściu |
 
 
@@ -46,7 +47,7 @@ W poniższej tabeli wymieniono źródła danych agentów, które są obecnie dos
 ## <a name="data-collection"></a>Zbieranie danych
 Konfiguracje źródła danych są dostarczane do agentów, które są bezpośrednio połączone z Azure Monitor w ciągu kilku minut.  Określone dane są zbierane od agenta i dostarczane bezpośrednio do Azure Monitor w odstępach czasu specyficznych dla każdego źródła danych.  Zapoznaj się z dokumentacją dla każdego źródła danych dla tych konkretnych celów.
 
-W przypadku agentów System Center Operations Manager w podłączonej grupie zarządzania konfiguracje źródeł danych są tłumaczone na pakiety administracyjne i domyślnie dostarczane do grupy zarządzania co 5 minut.  Agent pobiera pakiet administracyjny, podobnie jak inne i zbiera określone dane. W zależności od źródła danych dane zostaną wysłane do serwera zarządzania, który przekazuje dane do Azure Monitor, lub Agent wyśle dane do Azure Monitor bez przechodzenia przez serwer zarządzania. Aby uzyskać szczegółowe informacje, zobacz [szczegóły zbierania danych dotyczących rozwiązań do monitorowania na platformie Azure](../insights/solutions-inventory.md) .  Informacje o szczegółach łączenia Operations Manager i Azure Monitor i modyfikowania częstotliwości dostarczania konfiguracji można znaleźć w artykule [Konfigurowanie integracji z System Center Operations Manager](om-agents.md).
+W przypadku agentów System Center Operations Manager w podłączonej grupie zarządzania konfiguracje źródeł danych są tłumaczone na pakiety administracyjne i domyślnie dostarczane do grupy zarządzania co 5 minut.  Agent pobiera pakiet administracyjny, podobnie jak inne i zbiera określone dane. W zależności od źródła danych dane zostaną wysłane do serwera zarządzania, który przekazuje dane do Azure Monitor, lub Agent wyśle dane do Azure Monitor bez przechodzenia przez serwer zarządzania. Aby uzyskać szczegółowe informacje, zobacz [szczegóły zbierania danych dotyczących rozwiązań do monitorowania na platformie Azure](../monitor-reference.md) .  Informacje o szczegółach łączenia Operations Manager i Azure Monitor i modyfikowania częstotliwości dostarczania konfiguracji można znaleźć w artykule [Konfigurowanie integracji z System Center Operations Manager](om-agents.md).
 
 Jeśli Agent nie może nawiązać połączenia z Azure Monitor lub Operations Manager, będzie nadal zbierać dane, które będą dostarczane podczas ustanawiania połączenia.  Dane mogą zostać utracone, jeśli ilość danych osiągnie maksymalny rozmiar pamięci podręcznej dla klienta lub jeśli Agent nie może nawiązać połączenia w ciągu 24 godzin.
 

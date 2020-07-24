@@ -5,16 +5,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/01/2020
+ms.date: 07/16/2020
 ms.author: tamram
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: e8857da1410ca68a695a9d7995aeb375fb154cd2
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 61c2b2b8bce676bd7032eb65fcf48b5ad07092ad
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86080027"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87070660"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Konfigurowanie zapór i sieci wirtualnych usługi Azure Storage
 
@@ -60,7 +60,7 @@ Domyślnie konta magazynu akceptują połączenia od klientów w dowolnej sieci.
 
 Można zarządzać domyślnymi regułami dostępu do sieci dla kont magazynu za pomocą Azure Portal, PowerShell lub CLIv2.
 
-#### <a name="azure-portal"></a>Azure Portal
+#### <a name="azure-portal"></a>Witryna Azure Portal
 
 1. Przejdź do konta magazynu, które chcesz zabezpieczyć.
 
@@ -144,7 +144,7 @@ Konto magazynu i dostępne sieci wirtualne mogą znajdować się w różnych sub
 
 Zasadami sieci wirtualnej dla kont magazynu można zarządzać za pomocą Azure Portal, PowerShell lub CLIv2.
 
-#### <a name="azure-portal"></a>Azure Portal
+#### <a name="azure-portal"></a>Witryna Azure Portal
 
 1. Przejdź do konta magazynu, które chcesz zabezpieczyć.
 
@@ -268,7 +268,7 @@ jeśli korzystasz z usługi [ExpressRoute](/azure/expressroute/expressroute-intr
 
 Regułami sieci IP dla kont magazynu można zarządzać za pomocą Azure Portal, PowerShell lub CLIv2.
 
-#### <a name="azure-portal"></a>Azure Portal
+#### <a name="azure-portal"></a>Witryna Azure Portal
 
 1. Przejdź do konta magazynu, które chcesz zabezpieczyć.
 
@@ -388,13 +388,14 @@ Ustawienie **Zezwalaj na zaufane usługi firmy Microsoft...** umożliwia równie
 
 | Usługa                        | Nazwa dostawcy zasobów                 | Przeznaczenie            |
 | :----------------------------- | :------------------------------------- | :----------------- |
+| Azure API Management           | Microsoft.ApiManagement/service        | Umożliwia usłudze API Management dostęp do kont magazynu za zaporą przy użyciu zasad. [Dowiedz się więcej](/azure/api-management/api-management-authentication-policies#use-managed-identity-in-send-request-policy). |
 | Azure Cognitive Search         | Microsoft. Search/searchServices        | Umożliwia Wyszukiwanie poznawcze usługom dostęp do kont magazynu na potrzeby indeksowania, przetwarzania i wykonywania zapytań. |
 | Usługa Azure Container Registry Tasks | Microsoft. ContainerRegistry/rejestry | Zadania ACR mogą uzyskać dostęp do kont magazynu podczas kompilowania obrazów kontenerów. |
 | Azure Data Factory             | Microsoft. DataFactory/fabryki        | Zezwala na dostęp do kont magazynu za pomocą środowiska uruchomieniowego ADF. |
 | Azure Data Share               | Microsoft. dataudział/konta           | Zezwala na dostęp do kont magazynu za poorednictwem udziału danych. |
 | Azure IoT Hub                  | Microsoft. Devices/IotHubs              | Umożliwia zapisanie danych z usługi IoT Hub w usłudze BLOB Storage. [Dowiedz się więcej](../../iot-hub/virtual-network-support.md#egress-connectivity-to-storage-account-endpoints-for-routing) |
 | Azure Logic Apps               | Microsoft. Logic/przepływy pracy              | Umożliwia aplikacjom logiki dostęp do kont magazynu. [Dowiedz się więcej](/azure/logic-apps/create-managed-service-identity#authenticate-access-with-managed-identity). |
-| Usługa Azure Machine Learning | Microsoft.MachineLearningServices      | Autoryzowane Azure Machine Learning obszary robocze zapisują dane wyjściowe eksperymentu, modele i dzienniki w usłudze BLOB Storage i odczytywane danych. [Dowiedz się więcej](/azure/machine-learning/how-to-enable-virtual-network#use-a-storage-account-for-your-workspace). | 
+| Azure Machine Learning Service | Microsoft.MachineLearningServices      | Autoryzowane Azure Machine Learning obszary robocze zapisują dane wyjściowe eksperymentu, modele i dzienniki w usłudze BLOB Storage i odczytywane danych. [Dowiedz się więcej](/azure/machine-learning/how-to-enable-virtual-network#use-a-storage-account-for-your-workspace). | 
 | Azure SQL Data Warehouse       | Microsoft.Sql                          | Umożliwia importowanie i eksportowanie danych z określonych wystąpień SQL Database przy użyciu bazy. [Dowiedz się więcej](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview). |
 | Azure SQL Database       | Microsoft.Sql                          | Umożliwia [Importowanie](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql?view=sql-server-ver15#f-importing-data-from-a-file-in-azure-blob-storage) danych z kont magazynu i [Zapisywanie](https://docs.microsoft.com/azure/azure-sql/database/audit-write-storage-account-behind-vnet-firewall) danych inspekcji na kontach magazynu za zaporą. |
 | Usługa Azure Stream Analytics         | Microsoft. StreamAnalytics             | Umożliwia zapisanie danych z zadania przesyłania strumieniowego w usłudze BLOB Storage. Ta funkcja jest obecnie w wersji zapoznawczej. [Dowiedz się więcej](/azure/stream-analytics/blob-output-managed-identity). |
@@ -409,7 +410,7 @@ W niektórych przypadkach dostęp do odczytu dzienników zasobów i metryk jest 
 
 Wyjątkami reguł sieci można zarządzać za pomocą Azure Portal, programu PowerShell lub interfejsu wiersza polecenia platformy Azure w wersji 2.
 
-#### <a name="azure-portal"></a>Azure Portal
+#### <a name="azure-portal"></a>Witryna Azure Portal
 
 1. Przejdź do konta magazynu, które chcesz zabezpieczyć.
 

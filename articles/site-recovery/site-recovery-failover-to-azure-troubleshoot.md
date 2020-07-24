@@ -9,12 +9,12 @@ ms.topic: article
 ms.workload: storage-backup-recovery
 ms.date: 01/08/2020
 ms.author: mayg
-ms.openlocfilehash: 09a4700ce794458ee4dcad2291a93e0b13ca5feb
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 39a92dbdc0bdcd0fdd2bb06efe3fbd4bfe33069d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86133763"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87071191"
 ---
 # <a name="troubleshoot-errors-when-failing-over-vmware-vm-or-physical-machine-to-azure"></a>Rozwiązywanie problemów z błędami w przypadku przejścia w tryb failover maszyny wirtualnej VMware lub komputera fizycznego na platformę Azure
 
@@ -54,9 +54,11 @@ Aby ręcznie zmienić typ uruchamiania sterowników dla **systemu operacyjnego g
 
     Daje następujący wynik, jeśli jest wymagane odwodnienie:
 
-        REGISTRY::HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\storvsc           start =  3 expected value =  0
+    ```output
+    REGISTRY::HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\storvsc           start =  3 expected value =  0
 
-        This system doesn't meet no-hydration requirement.
+    This system doesn't meet no-hydration requirement.
+    ```
 
     Jeśli maszyna wirtualna spełnia wymagania dotyczące braku odwodnienia, skrypt zwróci wynik "ten system spełnia wymagania dotyczące braku odwodnienia". W takim przypadku wszystkie sterowniki i usługi są w stanie, w jakim jest to wymagane przez platformę Azure, a odwodnienie na maszynie wirtualnej nie są wymagane.
 
@@ -65,12 +67,14 @@ Aby ręcznie zmienić typ uruchamiania sterowników dla **systemu operacyjnego g
     `.\Script-no-hydration.ps1 -set`
     
     Spowoduje to przekonwertowanie typu uruchomienia sterowników i podaje wynik podobny do poniższego:
-    
-        REGISTRY::HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\storvsc           start =  3 expected value =  0 
 
-        Updating registry:  REGISTRY::HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\storvsc   start =  0 
+    ```output
+    REGISTRY::HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\storvsc           start =  3 expected value =  0
 
-        This system is now no-hydration compatible. 
+    Updating registry:  REGISTRY::HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\storvsc   start =  0
+
+    This system is now no-hydration compatible.
+    ```
 
 ## <a name="unable-to-connectrdpssh-to-the-failed-over-virtual-machine-due-to-grayed-out-connect-button-on-the-virtual-machine"></a>Nie można nawiązać połączenia/RDP/SSH z maszyną wirtualną w trybie failover ze względu na szary przycisk Połącz na maszynie wirtualnej
 
@@ -116,11 +120,15 @@ Jeśli można nawiązać połączenie z maszyną przy użyciu protokołu RDP, al
 
 * Jeśli system operacyjny komputera to Red Hat lub Oracle Linux 7. */8.0, uruchom następujące polecenie na maszynie wirtualnej platformy Azure w trybie failover z uprawnieniami głównymi. Uruchom ponownie maszynę wirtualną po poleceniu.
 
-        grub2-mkconfig -o /boot/efi/EFI/redhat/grub.cfg
+  ```console
+  grub2-mkconfig -o /boot/efi/EFI/redhat/grub.cfg
+  ```
 
 * Jeśli system operacyjny maszyny to CentOS 7. *, uruchom następujące polecenie na maszynie wirtualnej platformy Azure w trybie failover z uprawnieniami głównymi. Uruchom ponownie maszynę wirtualną po poleceniu.
 
-        grub2-mkconfig -o /boot/efi/EFI/centos/grub.cfg
+  ```console
+  grub2-mkconfig -o /boot/efi/EFI/centos/grub.cfg
+  ```
 
 ## <a name="unexpected-shutdown-message-event-id-6008"></a>Nieoczekiwany komunikat zamknięcia (Identyfikator zdarzenia 6008)
 

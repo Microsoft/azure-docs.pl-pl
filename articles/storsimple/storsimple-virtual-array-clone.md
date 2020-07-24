@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/21/2016
 ms.author: alkohli
-ms.openlocfilehash: 1596503f5f0a333bf061015827596464aed7558e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dd82f7dd821991bbcf57cc7d8105575e0baa4d12
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85513636"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87070697"
 ---
 # <a name="clone-from-a-backup-of-your-storsimple-virtual-array"></a>Klonowanie z kopii zapasowej macierzy wirtualnej StorSimple
 
@@ -127,7 +127,7 @@ Każdy udział ma folder *kopie zapasowe* , który zawiera najnowsze kopie zapas
    * **Zaplanowane kopie zapasowe** nazwane jako &lt; Nazwa urządzenia &gt; DAILYSCHEDULE-RRRRMMDD-HHMMSS-UTC.
    * **Ręczne kopie zapasowe** o nazwie ad-hoc-RRRRMMDD-HHMMSS-UTC.
      
-     ![](./media/storsimple-virtual-array-clone/image14.png)
+     ![Zrzut ekranu Eksploratora plików przedstawiający folder kopie zapasowe. W tym folderze jest wybierany folder ręczne kopie zapasowe.](./media/storsimple-virtual-array-clone/image14.png)
 
 2. Zidentyfikuj kopię zapasową zawierającą najnowszą wersję usuniętego pliku. Mimo że nazwa folderu zawiera sygnaturę czasową UTC w każdym z powyższych przypadków, czas, w którym folder został utworzony, to rzeczywisty czas urządzenia podczas tworzenia kopii zapasowej. Użyj sygnatury czasowej folderu, aby zlokalizować i zidentyfikować kopie zapasowe.
 

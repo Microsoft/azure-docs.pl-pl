@@ -15,14 +15,15 @@ ms.workload: NA
 ms.date: 07/25/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9d3f4f4ab6cc1c928761fce740d39f3f73426e62
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d6dfc95820e911781ffa88e2207601703f165839
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79267536"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87070589"
 ---
 # <a name="deploy-storsimple-virtual-array---provision-in-hyper-v"></a>Wdrażanie wirtualnej macierzy StorSimple — Inicjowanie obsługi administracyjnej w funkcji Hyper-V
-![](./media/storsimple-virtual-array-deploy2-provision-hyperv/hyperv4.png)
+![Diagram przedstawiający kroki wymagane do wdrożenia macierzy wirtualnej. Pierwsza część drugiego kroku ma etykietę udostępnianie w funkcji Hyper-V i jest wyróżniona.](./media/storsimple-virtual-array-deploy2-provision-hyperv/hyperv4.png)
 
 ## <a name="overview"></a>Omówienie
 
@@ -89,68 +90,68 @@ Wykonaj następujące czynności, aby aprowizować urządzenie w funkcji hypervi
 1. Na hoście z systemem Windows Server Skopiuj obraz macierzy wirtualnej na dysk lokalny. Ten obraz został pobrany (VHD lub VHDX) za pomocą Azure Portal. Zanotuj lokalizację, do której został skopiowany obraz, ponieważ będzie on używany w dalszej części tej procedury.
 2. Otwórz **Menedżera serwera**. W prawym górnym rogu kliknij przycisk **Narzędzia** i wybierz pozycję **Menedżer funkcji Hyper-V**.
 
-   ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image1.png)  
+   ![Zrzut ekranu przedstawiający Menedżer serwera pokazujący rozwinięte menu narzędzi z wyróżnionym elementem Menedżera funkcji Hyper-V.](./media/storsimple-virtual-array-deploy2-provision-hyperv/image1.png)  
 
    W przypadku korzystania z systemu Windows Server 2008 R2 otwórz Menedżera funkcji Hyper-V. W Menedżer serwera kliknij pozycję **role > funkcji Hyper-v > Menedżerze funkcji Hyper-v**.
 3. W **Menedżerze funkcji Hyper-V** w okienku zakresu kliknij prawym przyciskiem myszy węzeł systemu, aby otworzyć menu kontekstowe, a następnie kliknij kolejno pozycje **Nowy** > **Maszyna wirtualna**.
 
-   ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image2.png)
+   ![Zrzut ekranu Menedżera funkcji Hyper-V z menu skrótów węzła systemowego z wyróżnionymi elementami New i Virtual Machine.](./media/storsimple-virtual-array-deploy2-provision-hyperv/image2.png)
 4. Na stronie **Przed rozpoczęciem** w kreatorze nowej maszyny wirtualnej kliknij przycisk **Dalej**.
 5. Na stronie **Określanie nazwy i lokalizacji** Podaj **nazwę** macierzy wirtualnej. Kliknij przycisk **Dalej**.
 
-   ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image4.png)
+   ![Zrzut ekranu przedstawiający stronę Określanie nazwy i lokalizacji, która zawiera pole Nazwa wypełnione i wyróżniono przycisk Dalej.](./media/storsimple-virtual-array-deploy2-provision-hyperv/image4.png)
 6. Na stronie **Określanie generacji** wybierz typ obrazu urządzenia, a następnie kliknij przycisk **dalej**. Ta strona nie jest wyświetlana, jeśli używasz systemu Windows Server 2008 R2.
 
    * Wybierz opcję **generacja 2** , jeśli pobrano obraz VHDX dla systemu Windows Server 2012 lub nowszego.
    * Wybierz opcję **generacja 1** , jeśli pobrano obraz VHD dla systemu Windows Server 2008 R2 lub nowszego.
 
-   ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image5.png)
+   ![Zrzut ekranu przedstawiający stronę Określanie generacji z wybraną opcją generacja 2 i podświetloną przycisk Dalej.](./media/storsimple-virtual-array-deploy2-provision-hyperv/image5.png)
 7. Na stronie **Przypisywanie pamięci** w polu **Pamięć początkowa** wprowadź wartość nie mniejszą niż **8192 MB**, nie włączaj pamięci dynamicznej, a następnie kliknij przycisk **Dalej**.
 
-   ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image6.png)  
+   ![Zrzut ekranu przedstawiający stronę przypisywanie pamięci z wartością 8192 w polu pamięć początkowa. Przycisk dalej zostanie wyróżniony.](./media/storsimple-virtual-array-deploy2-provision-hyperv/image6.png)  
 8. Na stronie **Konfigurowanie sieci** określ przełącznik wirtualny połączony z Internetem, a następnie kliknij przycisk **Dalej**.
 
-   ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image7.png)
+   ![Zrzut ekranu przedstawiający stronę Konfigurowanie sieci pokazującą element przełącznika wirtualnego funkcji Hyper-V wybrany w polu połączenie i wyróżniony przycisk Dalej.](./media/storsimple-virtual-array-deploy2-provision-hyperv/image7.png)
 9. Na stronie **Podłączanie wirtualnego dysku twardego** wybierz opcję **Użyj istniejącego wirtualnego dysku twardego**, określ lokalizację obrazu macierzy wirtualnej (VHDX lub VHD), a następnie kliknij przycisk **dalej**.
 
-   ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image8m.png)
+   ![Zrzut ekranu przedstawiający stronę łączenie wirtualnego dysku twardego z wybraną opcją Użyj istniejącego wirtualnego dysku twardego, wprowadzoną lokalizację i wyróżniony przycisk Dalej.](./media/storsimple-virtual-array-deploy2-provision-hyperv/image8m.png)
 10. Przejrzyj informacje na stronie **Podsumowanie**, a następnie kliknij pozycję **Zakończ**, aby utworzyć maszynę wirtualną.
 
-    ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image9.png)
+    ![Zrzut ekranu przedstawiający stronę kreatora kończenia nowej maszyny wirtualnej z opisem maszyny wirtualnej. Przycisk Zakończ jest wyróżniony.](./media/storsimple-virtual-array-deploy2-provision-hyperv/image9.png)
 11. Aby spełnić wymagania minimalne, potrzebujesz 4 rdzeni. Aby dodać 4 procesory wirtualne, wybierz swój system hosta w oknie **Menedżera funkcji Hyper-V**. Na liście **Maszyny wirtualne** w okienku po prawej stronie znajdź utworzoną przed chwilą maszynę wirtualną. Zaznacz i kliknij prawym przyciskiem myszy nazwę maszyny, a następnie wybierz pozycję **Ustawienia**.
 
-    ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image10.png)
-12. Na stronie **Ustawienia** w lewym okienku kliknij pozycję **Procesor**. W okienku po prawej stronie ustaw wartość 4 lub większą w polu **Liczba procesorów wirtualnych**. Kliknij przycisk **Zastosuj**.
+    ![Zrzut ekranu okna Menedżera funkcji Hyper-V. Na liście jest zaznaczony jeden komputer, a element ustawień zostanie wyróżniony w menu skrótów tego komputera.](./media/storsimple-virtual-array-deploy2-provision-hyperv/image10.png)
+12. Na stronie **Ustawienia** w lewym okienku kliknij pozycję **Procesor**. W okienku po prawej stronie ustaw wartość 4 lub większą w polu **Liczba procesorów wirtualnych**. Kliknij pozycję **Zastosuj**.
 
-    ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image11.png)
+    ![Zrzut ekranu przedstawiający stronę ustawień z wyróżnionym elementem procesora, liczbę procesorów wirtualnych ustawionych na cztery i wyróżniony przycisk Zastosuj.](./media/storsimple-virtual-array-deploy2-provision-hyperv/image11.png)
 13. Aby spełnić wymagania minimalne, należy również dodać wirtualny dysk danych 500 GB. Na stronie **Ustawienia**:
 
     1. W okienku po lewej stronie wybierz pozycję **Kontroler SCSI**.
     2. W okienku po prawej stronie wybierz pozycję **Dysk twardy** i kliknij przycisk **Dodaj**.
 
-    ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image12.png)
+    ![Zrzut ekranu strony ustawień z wybranym elementem kontrolera SCSI, wybranego elementu dysk twardy i przycisk Dodaj.](./media/storsimple-virtual-array-deploy2-provision-hyperv/image12.png)
 14. Na stronie **Dysk twardy** wybierz opcję **Wirtualny dysk twardy**, a następnie kliknij przycisk **Nowy**. Zostanie uruchomiony **Kreator nowego wirtualnego dysku twardego**.
 
-    ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image13.png)
+    ![Zrzut ekranu strony ustawień z wybranym pozycją dysk twardy, wybrano opcję wirtualny dysk twardy i przycisk Nowy wyróżniony.](./media/storsimple-virtual-array-deploy2-provision-hyperv/image13.png)
 15. Na stronie **Przed rozpoczęciem** w kreatorze nowego wirtualnego dysku twardego kliknij przycisk **Dalej**.
 16. Na stronie **Wybieranie formatu dysku** zaakceptuj domyślną opcję formatu **VHDX**. Kliknij przycisk **Dalej**. Ten ekran nie jest wyświetlany, jeśli jest uruchomiony system Windows Server 2008 R2.
 
-    ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image15.png)
+    ![Zrzut ekranu przedstawiający stronę Wybieranie formatu dysku z wybraną opcją VHDX i wyróżnioną przycisk Dalej.](./media/storsimple-virtual-array-deploy2-provision-hyperv/image15.png)
 17. Na stronie **Wybieranie typu dysku** ustaw typ wirtualnego dysku twardego **Dynamicznie powiększający się** (zalecane). Dysk **O stałym rozmiarze** również byłby odpowiedni, ale jego tworzenie mogłoby zająć więcej czasu. Nie zalecamy używania opcji **Różnicowy**. Kliknij przycisk **Dalej**. W systemach Windows Server 2012 R2 i Windows Server 2012, **dynamicznie powiększający** się jest opcja domyślna w systemie windows Server 2008 R2, wartość domyślna to **stały rozmiar**.
 
-    ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image16.png)
+    ![Zrzut ekranu przedstawiający stronę Wybieranie typu dysku z wybraną opcją dynamicznego powiększania i wyróżnioną przyciskiem dalej.](./media/storsimple-virtual-array-deploy2-provision-hyperv/image16.png)
 18. Na stronie **Określanie nazwy i lokalizacji** podaj **nazwę** dysku danych oraz jego **lokalizację** (możesz skorzystać z opcji Przeglądaj). Kliknij przycisk **Dalej**.
 
-    ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image17.png)
+    ![Zrzut ekranu przedstawiający stronę Określanie nazwy i lokalizacji z wartościami w polach Nazwa i lokalizacja. Przycisk dalej zostanie wyróżniony.](./media/storsimple-virtual-array-deploy2-provision-hyperv/image17.png)
 19. Na stronie **Konfigurowanie dysku** wybierz opcję **Utwórz nowy pusty wirtualny dysk twardy** i określ rozmiar **500 GB** (lub więcej). Chociaż 500 GB jest minimalnym wymaganiem, zawsze można zainicjować obsługę większą liczbę dysków. Należy pamiętać, że nie można rozbudować lub zmniejszyć dysku po zainicjowaniu obsługi administracyjnej. Aby uzyskać więcej informacji na temat rozmiaru dysku do aprowizacji, zapoznaj się z sekcją ustalanie rozmiaru w [dokumencie Best Practices](storsimple-ova-best-practices.md). Kliknij przycisk **Dalej**.
 
-    ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image18.png)
+    ![Zrzut ekranu przedstawiający stronę Konfigurowanie dysku z wybranym nowym pustym wirtualnym dyskiem twardym, rozmiarem ustawionym na 500 i wyróżnionym przyciskiem dalej.](./media/storsimple-virtual-array-deploy2-provision-hyperv/image18.png)
 20. Sprawdź dane dysku wirtualnego na stronie **Podsumowanie** i, jeśli wszystkie dane są prawidłowe, kliknij przycisk **Zakończ**, aby utworzyć dysk. Kreator zostanie zamknięty, a wirtualny dysk twardy zostanie dodany do maszyny.
 
-    ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image19.png)
+    ![Zrzut ekranu przedstawiający stronę kreatora kończenia nowego wirtualnego dysku twardego z opisem wirtualnego dysku twardego. Przycisk Zakończ jest wyróżniony.](./media/storsimple-virtual-array-deploy2-provision-hyperv/image19.png)
 21. Wróć do strony **Ustawienia**. Kliknij przycisk **OK**, aby zamknąć stronę **Ustawienia**, a następnie wróć do okna Menedżera funkcji Hyper-V.
 
-    ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image20.png)
+    ![Zrzut ekranu przedstawiający stronę ustawień. Przycisk OK jest wyróżniony.](./media/storsimple-virtual-array-deploy2-provision-hyperv/image20.png)
 
 ## <a name="step-3-start-the-virtual-array-and-get-the-ip"></a>Krok 3. uruchomienie macierzy wirtualnej i uzyskanie adresu IP
 Wykonaj następujące kroki, aby uruchomić macierz wirtualną i nawiązać z nią połączenie.
@@ -158,43 +159,43 @@ Wykonaj następujące kroki, aby uruchomić macierz wirtualną i nawiązać z ni
 #### <a name="to-start-the-virtual-array"></a>Aby uruchomić macierz wirtualną
 1. Uruchom macierz wirtualną.
 
-   ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image21.png)
+   ![Zrzut ekranu okna Menedżera funkcji Hyper-V. Na liście wybrano nową tablicę, a element początkowy zostanie wyróżniony w menu skrótów tej tablicy.](./media/storsimple-virtual-array-deploy2-provision-hyperv/image21.png)
 2. Po uruchomieniu urządzenia wybierz je, kliknij prawym przyciskiem myszy, a następnie wybierz polecenie **Połącz**.
 
-   ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image22.png)
+   ![Zrzut ekranu okna Menedżera funkcji Hyper-V. Wybrano nową tablicę, jej stan jest uruchomiony, a element Connect zostanie wyróżniony w menu skrótów.](./media/storsimple-virtual-array-deploy2-provision-hyperv/image22.png)
 3. Może być konieczne odczekanie 5-10 minut, aż urządzenie będzie gotowe. W konsoli zostanie wyświetlony komunikat o stanie, wskazujący postęp procesu. Gdy urządzenie będzie gotowe, przejdź do pozycji **Akcja**. Naciśnij klawisz `Ctrl + Alt + Delete` , aby zalogować się do macierzy wirtualnej. Domyślny użytkownik to *StorSimpleAdmin* , a hasło domyślne to *Password1*.
 
-   ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image23.png)
+   ![Zrzut ekranu przedstawiający kartę Konsola kliencka vSphere z nieokreślonymi znakami w polu logowania.](./media/storsimple-virtual-array-deploy2-provision-hyperv/image23.png)
 4. Ze względów bezpieczeństwa hasło administratora urządzenia wygasa przy pierwszym logowaniu. Zostanie wyświetlony monit informujący o konieczności zmiany hasła.
 
-   ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image24.png)
+   ![Zrzut ekranu przedstawiający kartę Konsola kliencka vSphere. tekst na stronie wskazuje, że należy zmienić hasło.](./media/storsimple-virtual-array-deploy2-provision-hyperv/image24.png)
 
    Wprowadź hasło zawierające co najmniej 8 znaków. Hasło musi zawierać co najmniej 3 z następujących 4 elementów: wielkie litery, małe litery, cyfry i znaki specjalne. Wprowadź ponownie hasło w celu potwierdzenia. Otrzymasz powiadomienie, że hasło zostało zmienione.
 
-   ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image25.png)
+   ![Zrzut ekranu przedstawiający kartę Konsola kliencka vSphere. tekst na stronie wskazuje, że hasło zostało zmienione.](./media/storsimple-virtual-array-deploy2-provision-hyperv/image25.png)
 5. Po pomyślnym zmianie hasła tablica wirtualna może zostać ponownie uruchomiona. Poczekaj na uruchomienie urządzenia.
 
-   ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image26.png)
+   ![Zrzut ekranu przedstawiający stronę głównej StorSimpleAdmin. Tekst na stronie prosi użytkownika o zaczekanie na usługę powiadamiania o zdarzeniach systemowych.](./media/storsimple-virtual-array-deploy2-provision-hyperv/image26.png)
 
     Zostanie wyświetlona konsola programu Windows PowerShell urządzenia wraz z paskiem postępu.
 
-   ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image27.png)
+   ![Zrzut ekranu przedstawiający okno konsoli z paskiem postępu. W oknie zostanie wyświetlona informacja, że początkowa konfiguracja jest ciągła, i prosi użytkownika o oczekiwanie.](./media/storsimple-virtual-array-deploy2-provision-hyperv/image27.png)
 6. Kroki od 6 do 8 mają zastosowanie tylko w przypadku uruchamiania w środowisku bez protokołu DHCP. W przypadku środowiska protokołu DHCP należy pominąć te kroki i przejść do kroku 9. Jeśli urządzenie zostanie uruchomione w środowisku innym niż DHCP, zobaczysz następujący ekran.
 
-   ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image28m.png)
+   ![Zrzut ekranu przedstawiający okno konsoli z tekstem opisującym urządzenie. Wiersz polecenia odczytuje "kontroler" i wydaje się być gotowy do wprowadzania danych.](./media/storsimple-virtual-array-deploy2-provision-hyperv/image28m.png)
 
     Następnie skonfiguruj sieć.
 7. Użyj `Get-HcsIpAddress` polecenia, aby wyświetlić listę interfejsów sieciowych włączonych w macierzy wirtualnej. Jeśli urządzenie ma włączony jeden interfejs sieciowy, jego domyślną nazwą jest `Ethernet`.
 
-   ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image29m.png)
+   ![Zrzut ekranu przedstawiający okno konsoli z danymi wyjściowymi polecenia Get-HcsIpAddress. "Ethernet" jest wymieniony jako nazwa urządzenia.](./media/storsimple-virtual-array-deploy2-provision-hyperv/image29m.png)
 8. Skonfiguruj sieć za pomocą polecenia cmdlet `Set-HcsIpAddress`. Zobacz poniższy przykład:
 
     `Set-HcsIpAddress –Name Ethernet –IpAddress 10.161.22.90 –Netmask 255.255.255.0 –Gateway 10.161.22.1`
 
-    ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image30.png)
+    ![Zrzut ekranu przedstawiający okno konsoli z danymi wyjściowymi polecenia Get-Help Set-HcsIpAddress i poprawnego użycia polecenia Set-HcsIpAddress.](./media/storsimple-virtual-array-deploy2-provision-hyperv/image30.png)
 9. Po zakończeniu początkowej konfiguracji i uruchomieniu urządzenia zobaczysz tekst baneru urządzenia. Zanotuj adresy IP i URL wyświetlane w tekście baneru. Posłużą one do zarządzania urządzeniem. Użyj tego adresu IP, aby nawiązać połączenie z interfejsem użytkownika sieci Web macierzy wirtualnej i ukończyć konfigurację lokalną i rejestrację.
 
-   ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image31m.png)
+   ![Zrzut ekranu przedstawiający okno konsoli z tekstem baneru urządzenia. Ten tekst zawiera adres i adres IP urządzenia.](./media/storsimple-virtual-array-deploy2-provision-hyperv/image31m.png)
 10. Obowiązkowe Wykonaj ten krok tylko wtedy, gdy wdrażasz urządzenie w chmurze dla instytucji rządowych. Na urządzeniu zostanie teraz włączony tryb Stany Zjednoczone FIPS (Federal Information Processing Standard). Standard FIPS 140 definiuje algorytmy kryptograficzne zatwierdzone do użycia przez Federalne systemy komputerowe dla instytucji rządowych USA do ochrony poufnych danych.
 
     1. Aby włączyć tryb FIPS, uruchom następujące polecenie cmdlet:
@@ -209,7 +210,7 @@ Wykonaj następujące kroki, aby uruchomić macierz wirtualną i nawiązać z ni
 
 Jeśli urządzenie nie spełnia minimalnych wymagań dotyczących konfiguracji, zobaczysz następujący błąd w tekście baneru (pokazanym poniżej). Zmodyfikuj konfigurację urządzenia tak, aby zapewnić zasoby zgodne z wymaganiami minimalnymi. Następnie możesz ponownie uruchomić urządzenie i połączyć się z nim. Zapoznaj się z minimalnymi wymaganiami dotyczącymi konfiguracji w kroku 1: Upewnij się, że system hosta spełnia minimalne wymagania dotyczące macierzy wirtualnej.
 
-![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image32.png)
+![Zrzut ekranu przedstawiający okno konsoli z tekstem baneru urządzenia. Ten tekst zawiera komunikat o błędzie, który zawiera adres URL służący do rozwiązywania problemu.](./media/storsimple-virtual-array-deploy2-provision-hyperv/image32.png)
 
 Jeśli wystąpi jakikolwiek inny błąd podczas początkowej konfiguracji przy użyciu lokalnego interfejsu użytkownika sieci Web, zapoznaj się z następującymi przepływami pracy:
 

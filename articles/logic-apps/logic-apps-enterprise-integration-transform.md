@@ -8,11 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 07/08/2016
-ms.openlocfilehash: 500769a39ba7658b35c1abb80101f6234170c941
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 38861ed941d49317e69bfab9afd17638a790bf7b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74792383"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87072432"
 ---
 # <a name="create-maps-that-transform-xml-between-formats-in-azure-logic-apps-with-enterprise-integration-pack"></a>Tworzenie map, które przekształcają kod XML między formatami w usłudze Azure Logic Apps z Pakietem integracyjnym dla przedsiębiorstw
 
@@ -37,11 +38,11 @@ Teraz, po pobraniu wymagań wstępnych, należy utworzyć aplikację logiki:
 
 1. Utwórz aplikację logiki i [Połącz ją z kontem integracji](../logic-apps/logic-apps-enterprise-integration-accounts.md "Dowiedz się, jak połączyć konto integracji z aplikacją logiki") zawierającym mapę.
 2. Dodawanie wyzwalacza **żądania** do aplikacji logiki  
-   ![](./media/logic-apps-enterprise-integration-transforms/transform-1.png)    
+   ![Zrzut ekranu przedstawiający listę rozwijaną "Pokaż zarządzane interfejsy API firmy Microsoft" z wybranym wyzwalaczem żądania. Lista rozwijana znajduje się w aplikacji logiki utworzonej przy użyciu zestawu SDK integracji Visual Studio Enterprise.](./media/logic-apps-enterprise-integration-transforms/transform-1.png)    
 3. Dodaj akcję **Przekształć XML** , wybierając najpierw pozycję **Dodaj akcję** .   
-   ![](./media/logic-apps-enterprise-integration-transforms/transform-2.png)   
+   ![Zrzut ekranu przedstawiający przycisk "Dodaj akcję" wybrany na ekranie wyzwalacza żądania.](./media/logic-apps-enterprise-integration-transforms/transform-2.png)   
 4. Wprowadź *transformację* wyrazu w polu wyszukiwania, aby odfiltrować wszystkie akcje, które mają być używane.  
-   ![](./media/logic-apps-enterprise-integration-transforms/transform-3.png)  
+   ![Zrzut ekranu przedstawiający sposób wyszukiwania akcji Przekształć XML na liście rozwijanej "Pokaż interfejsy API zarządzane przez firmę Microsoft", aby można ją było dodać do wyzwalacza żądania.](./media/logic-apps-enterprise-integration-transforms/transform-3.png)  
 5. Wybierz akcję **Przekształć XML**   
 6. Dodaj przekształcenie **zawartość** XML. Możesz użyć dowolnych danych XML otrzymywanych w żądaniu HTTP jako **zawartości**. W tym przykładzie wybierz treść żądania HTTP, które wyzwoliło aplikację logiki.
 
@@ -50,9 +51,9 @@ Teraz, po pobraniu wymagań wstępnych, należy utworzyć aplikację logiki:
  
 
 7. Wybierz nazwę **mapy** , która ma zostać użyta do przeprowadzenia transformacji. Mapa musi już znajdować się na koncie integracji. W poprzednim kroku masz już dostęp do aplikacji logiki do konta integracji, które zawiera Twoje mapowanie.      
-   ![](./media/logic-apps-enterprise-integration-transforms/transform-4.png) 
+   ![Zrzut ekranu przedstawiający pola zawartość i mapa na ekranie Przekształć XML dla wyzwalacza żądania.](./media/logic-apps-enterprise-integration-transforms/transform-4.png) 
 8. Zapisz wyniki dotychczasowej pracy  
-    ![](./media/logic-apps-enterprise-integration-transforms/transform-5.png) 
+    ![Zrzut ekranu przedstawiający przycisk Zapisz w projektancie Logic Apps.](./media/logic-apps-enterprise-integration-transforms/transform-5.png) 
 
 W tym momencie skończysz Konfigurowanie mapy. W świecie rzeczywistym można przechowywać przekształcone dane w aplikacji LOB, takiej jak SalesForce. Możesz łatwo wykonać akcję wysłania danych wyjściowych transformacji do usługi Salesforce. 
 
@@ -132,7 +133,7 @@ Domyślnie odpowiedź z transformacji zaczyna się od znacznika kolejności bajt
 
 
 
-## <a name="learn-more"></a>Więcej tutaj
+## <a name="learn-more"></a>Dowiedz się więcej
 * [Dowiedz się więcej o Pakiet integracyjny dla przedsiębiorstw](../logic-apps/logic-apps-enterprise-integration-overview.md "Dowiedz się więcej o Pakiet integracyjny dla przedsiębiorstw")  
 * [Dowiedz się więcej o mapach](../logic-apps/logic-apps-enterprise-integration-maps.md "Dowiedz się więcej na temat map integracji przedsiębiorstwa")  
 

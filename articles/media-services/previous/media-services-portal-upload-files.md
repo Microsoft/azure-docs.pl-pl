@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: 3327304916c30863bb4de4b4d18c41ba3c58270d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 73e92fa505a994cc5cc2fdb3a297dfd653a596a1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84982564"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87071816"
 ---
 # <a name="upload-files-to-a-media-services-account-in-the-azure-portal"></a>Przekazywanie plików na konto usługi Media Services w witrynie Azure Portal 
 
@@ -30,7 +30,7 @@ ms.locfileid: "84982564"
 > 
 
 > [!NOTE]
-> Do usługi Media Services w wersji 2 nie są już dodawane żadne nowe funkcje. Aby uzyskać aktualne pliki przekazywania z portalu, zobacz [Korzystanie z portalu do przekazywania, kodowania i przesyłania strumieniowego zawartości](../latest/manage-assets-quickstart.md).<br/>Sprawdź również: [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Zobacz też [wskazówki dotyczące migracji od wersji 2 do V3](../latest/migrate-from-v2-to-v3.md)
+> Do usługi Media Services w wersji 2 nie są już dodawane żadne nowe funkcje. Aby uzyskać aktualne pliki przekazywania z portalu, zobacz [Korzystanie z portalu do przekazywania, kodowania i przesyłania strumieniowego zawartości](../latest/manage-assets-quickstart.md).<br/>Sprawdź również: [Media Services v3](../latest/index.yml). Zobacz też [wskazówki dotyczące migracji od wersji 2 do V3](../latest/migrate-from-v2-to-v3.md)
 
 Za pomocą usługi Azure Media Services można przekazać pliki cyfrowe do elementu zawartości. Element zawartości może zawierać wideo, audio, obrazy, kolekcje miniatur, ścieżki tekstowe i pliki transkrypcji (oraz metadane dla tych plików). Po przekazaniu plików zawartość jest bezpiecznie przechowywana w chmurze na potrzeby dalszego przetwarzania i przesyłania strumieniowego.
 
@@ -65,5 +65,3 @@ Po zakończeniu przekazywania nowy element zawartości będzie widoczny w okienk
 * Dowiedz się, jak [zakodować przekazane elementy zawartości](media-services-portal-encode.md).
 
 * Możesz także używać usługi Azure Functions do wyzwalania zadania kodowania, gdy plik trafi do skonfigurowanego kontenera. Aby uzyskać więcej informacji, zobacz przykład w temacie [Media Services: Integrating Azure Media Services with Azure Functions and Logic Apps](https://azure.microsoft.com/resources/samples/media-services-dotnet-functions-integration/) (Media Services: Integrowanie usługi Azure Media Services z usługami Azure Functions i Logic Apps).
-
-

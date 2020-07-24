@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/24/2017
 ms.author: allensu
-ms.openlocfilehash: 819b6af0d336e454aeeb67a9be62109cb6b08bb8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5cd050c88fbc954a211c3a75cdabcb557ae998c4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708233"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073919"
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-powershell"></a>Przypisywanie wielu adresów IP do maszyn wirtualnych przy użyciu programu PowerShell
 
@@ -33,7 +34,7 @@ W tym artykule wyjaśniono, jak utworzyć maszynę wirtualną za pomocą modelu 
 
 Poniższe kroki wyjaśniają, jak utworzyć przykładową maszynę wirtualną z wieloma adresami IP, zgodnie z opisem w tym scenariuszu. Zmień wartości zmiennych zgodnie z wymaganiami implementacji.
 
-1. Otwórz wiersz polecenia programu PowerShell i wykonaj pozostałe kroki opisane w tej sekcji w ramach jednej sesji programu PowerShell. Jeśli program PowerShell nie został jeszcze zainstalowany i skonfigurowany, wykonaj kroki opisane w artykule [jak zainstalować i skonfigurować Azure PowerShell](/powershell/azure/overview) .
+1. Otwórz wiersz polecenia programu PowerShell i wykonaj pozostałe kroki opisane w tej sekcji w ramach jednej sesji programu PowerShell. Jeśli program PowerShell nie został jeszcze zainstalowany i skonfigurowany, wykonaj kroki opisane w artykule [jak zainstalować i skonfigurować Azure PowerShell](/powershell/azure/) .
 2. Zaloguj się do swojego konta za pomocą `Connect-AzAccount` polecenia.
 3. Zastąp zmienną *resourceName* i *zachodnie* nazwą i lokalizacją wybrania. Utwórz grupę zasobów. Grupa zasobów to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure i zarządzania nimi.
 
@@ -195,7 +196,7 @@ Poniższe kroki wyjaśniają, jak utworzyć przykładową maszynę wirtualną z 
 
 Możesz dodać prywatne i publiczne adresy IP do interfejsu sieciowego platformy Azure, wykonując poniższe kroki. W przykładach w poniższych sekcjach założono, że masz już maszynę wirtualną z trzema konfiguracjami protokołu IP opisanymi w [scenariuszu](#scenario) w tym artykule, ale nie jest to wymagane.
 
-1. Otwórz wiersz polecenia programu PowerShell i wykonaj pozostałe kroki opisane w tej sekcji w ramach jednej sesji programu PowerShell. Jeśli program PowerShell nie został jeszcze zainstalowany i skonfigurowany, wykonaj kroki opisane w artykule [jak zainstalować i skonfigurować Azure PowerShell](/powershell/azure/overview) .
+1. Otwórz wiersz polecenia programu PowerShell i wykonaj pozostałe kroki opisane w tej sekcji w ramach jednej sesji programu PowerShell. Jeśli program PowerShell nie został jeszcze zainstalowany i skonfigurowany, wykonaj kroki opisane w artykule [jak zainstalować i skonfigurować Azure PowerShell](/powershell/azure/) .
 2. Zmień "wartości" następujących $Variables na nazwę karty sieciowej, do której chcesz dodać adres IP, i grupę zasobów i lokalizację, w której znajduje się ta karta sieciowa:
 
    ```powershell

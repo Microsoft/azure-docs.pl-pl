@@ -3,15 +3,16 @@ title: Gotowość do produkcji i najlepsze praktyki — Azure
 description: Ten artykuł zawiera wskazówki dotyczące konfigurowania i wdrażania usługi Live Video Analytics w module IoT Edge w środowiskach produkcyjnych.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: a5a2ff78d456d4423facdf5f3533ee94bc25bfc4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c34e05e184cfa6f0933701a76177fae3eed70c0a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84261072"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87071934"
 ---
 # <a name="production-readiness-and-best-practices"></a>Gotowość do produkcji i najlepsze rozwiązania
 
-Ten artykuł zawiera wskazówki dotyczące konfigurowania i wdrażania usługi Live Video Analytics w module IoT Edge w środowiskach produkcyjnych. Należy również zapoznać [się z tematem przygotowanie do wdrożenia rozwiązania IoT Edge w artykule produkcyjnym](https://docs.microsoft.com/azure/iot-edge/production-checklist) dotyczącym przygotowywania IoT Edge rozwiązania. 
+Ten artykuł zawiera wskazówki dotyczące konfigurowania i wdrażania usługi Live Video Analytics w module IoT Edge w środowiskach produkcyjnych. Należy również zapoznać [się z tematem przygotowanie do wdrożenia rozwiązania IoT Edge w artykule produkcyjnym](../../iot-edge/production-checklist.md) dotyczącym przygotowywania IoT Edge rozwiązania. 
 
 > [!NOTE]
 > Należy skontaktować się z działami IT organizacji w zakresie aspektów związanych z bezpieczeństwem.

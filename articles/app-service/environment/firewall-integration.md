@@ -4,15 +4,15 @@ description: Dowiedz się, jak zintegrować z zaporą platformy Azure, aby zabez
 author: ccompy
 ms.assetid: 955a4d84-94ca-418d-aa79-b57a5eb8cb85
 ms.topic: article
-ms.date: 03/31/2020
+ms.date: 07/13/2020
 ms.author: ccompy
 ms.custom: seodec18, references_regions
-ms.openlocfilehash: 8e63c0678967a21a6b2763574e594a1a6c2ba25b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9407e388a44ec78fa1e089542fc5ea3ef9387d60
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85832988"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073751"
 ---
 # <a name="locking-down-an-app-service-environment"></a>Blokowanie App Service Environment
 
@@ -114,7 +114,7 @@ Poniższe informacje są wymagane tylko wtedy, gdy chcesz skonfigurować urządz
 
 #### <a name="service-endpoint-capable-dependencies"></a>Zależności obsługujące punkt końcowy usługi 
 
-| Endpoint |
+| Punkt końcowy |
 |----------|
 | Azure SQL |
 | Azure Storage |
@@ -122,7 +122,7 @@ Poniższe informacje są wymagane tylko wtedy, gdy chcesz skonfigurować urządz
 
 #### <a name="ip-address-dependencies"></a>Zależności adresów IP
 
-| Endpoint | Szczegóły |
+| Punkt końcowy | Szczegóły |
 |----------| ----- |
 | \*: 123 | Sprawdzanie zegara NTP. Ruch jest sprawdzany w wielu punktach końcowych na porcie 123 |
 | \*: 12000 | Ten port jest używany w przypadku niektórych monitorowania systemu. W przypadku zablokowania niektóre problemy będą trudniejsze do klasyfikacja, ale środowisko ASE będzie nadal działać |
@@ -139,7 +139,7 @@ Za pomocą zapory platformy Azure automatycznie otrzymujesz wszystko skonfigurow
 
 #### <a name="fqdn-httphttps-dependencies"></a>Zależności HTTP/HTTPS w nazwie FQDN 
 
-| Endpoint |
+| Punkt końcowy |
 |----------|
 |graph.microsoft.com:443 |
 |login.live.com:443 |
@@ -225,7 +225,7 @@ Za pomocą zapory platformy Azure automatycznie otrzymujesz wszystko skonfigurow
 
 #### <a name="wildcard-httphttps-dependencies"></a>Wieloznaczne zależności HTTP/HTTPS 
 
-| Endpoint |
+| Punkt końcowy |
 |----------|
 |gr-prod- \* . cloudapp.NET:443 |
 | \*. management.azure.com:443 |
@@ -237,7 +237,7 @@ Za pomocą zapory platformy Azure automatycznie otrzymujesz wszystko skonfigurow
 
 #### <a name="linux-dependencies"></a>Zależności systemu Linux 
 
-| Endpoint |
+| Punkt końcowy |
 |----------|
 |wawsinfraprodbay063.blob.core.windows.net:443 |
 |registry-1.docker.io:443 |
@@ -248,6 +248,7 @@ Za pomocą zapory platformy Azure automatycznie otrzymujesz wszystko skonfigurow
 |download.mono-project.com:80 |
 |packages.treasuredata.com:80|
 |security.ubuntu.com:80 |
+|oryx-cdn.microsoft.io:443 |
 | \*. cdn.mscr.io:443 |
 |mcr.microsoft.com:443 |
 |\*. data.mcr.microsoft.com:443 |
@@ -280,7 +281,7 @@ System Linux nie jest dostępny w regionach US Gov i nie jest wymieniony jako op
 
 #### <a name="service-endpoint-capable-dependencies"></a>Zależności obsługujące punkt końcowy usługi ####
 
-| Endpoint |
+| Punkt końcowy |
 |----------|
 | Azure SQL |
 | Azure Storage |
@@ -288,7 +289,7 @@ System Linux nie jest dostępny w regionach US Gov i nie jest wymieniony jako op
 
 #### <a name="ip-address-dependencies"></a>Zależności adresów IP
 
-| Endpoint | Szczegóły |
+| Punkt końcowy | Szczegóły |
 |----------| ----- |
 | \*: 123 | Sprawdzanie zegara NTP. Ruch jest sprawdzany w wielu punktach końcowych na porcie 123 |
 | \*: 12000 | Ten port jest używany w przypadku niektórych monitorowania systemu. W przypadku zablokowania niektóre problemy będą trudniejsze do klasyfikacja, ale środowisko ASE będzie nadal działać |
@@ -303,7 +304,7 @@ System Linux nie jest dostępny w regionach US Gov i nie jest wymieniony jako op
 
 #### <a name="dependencies"></a>Zależności ####
 
-| Endpoint |
+| Punkt końcowy |
 |----------|
 | \*. ctldl.windowsupdate.com:80 |
 | \*. management.usgovcloudapi.net:80 |

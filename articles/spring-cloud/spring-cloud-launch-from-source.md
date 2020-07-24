@@ -6,12 +6,13 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 10/30/2019
 ms.author: brendm
-ms.openlocfilehash: 3ab4b1729ea380671b72a9bb01740930a186d5c3
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: devx-track-java
+ms.openlocfilehash: 7057138709f97c2eba2b2301d8363e2524a2042a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79470798"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87071108"
 ---
 # <a name="quickstart-launch-your-spring-cloud-application-from-source-code"></a>Szybki Start: uruchamianie aplikacji w chmurze wiosny z poziomu kodu źródłowego
 
@@ -119,7 +120,7 @@ az spring-cloud app deployment create --app <app-name> -n <deployment-name> --ja
 Chmura sprężynowa platformy Azure używa [kpack](https://github.com/pivotal/kpack) do kompilowania projektu.  Możesz użyć interfejsu wiersza polecenia platformy Azure, aby przekazać kod źródłowy, skompilować projekt przy użyciu kpack i wdrożyć go w aplikacji docelowej.
 
 > [!WARNING]
-> Projekt musi `main-class` generować tylko jeden plik JAR z wpisem w `MANIFEST.MF` programie `target` (dla wdrożeń Maven lub `build/libs` wdrożeniami Gradle).  Wiele plików JAR z `main-class` wpisami spowoduje niepowodzenie wdrożenia.
+> Projekt musi generować tylko jeden plik JAR z `main-class` wpisem w `MANIFEST.MF` programie `target` (dla wdrożeń Maven lub `build/libs` wdrożeniami Gradle).  Wiele plików JAR z `main-class` wpisami spowoduje niepowodzenie wdrożenia.
 
 W przypadku projektów Maven/Gradle o pojedynczym module:
 

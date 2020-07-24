@@ -4,12 +4,12 @@ description: Dowiedz się, w jaki sposób Azure App Service pomaga zachować fun
 ms.topic: how-to
 ms.date: 06/09/2020
 ms.custom: subject-moving-resources
-ms.openlocfilehash: 8c57cf5054bea898370cdccc7bea4243877d27b5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1388dc11254324f74efcbaa55c97cac2ccd0c026
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84947076"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073732"
 ---
 # <a name="move-an-app-service-app-to-another-region"></a>Przenoszenie aplikacji App Service do innego regionu
 
@@ -21,9 +21,9 @@ Zasoby App Service są specyficzne dla regionu i nie można ich przenosić międ
 
 - Brak. [Przywracanie z migawki](app-service-web-restore-snapshots.md) zwykle wymaga warstwy **Premium** , ale w trybie odzyskiwania po awarii jest automatycznie włączana dla aplikacji, której dotyczy problem, niezależnie od tego, która warstwa ma wpływ na aplikację.
 
-## <a name="prepare"></a>Przygotowanie
+## <a name="prepare"></a>Przygotowywanie
 
-Zidentyfikuj wszystkie zasoby App Service aktualnie używane przez aplikację, której dotyczy problem. Przykład:
+Zidentyfikuj wszystkie zasoby App Service aktualnie używane przez aplikację, której dotyczy problem. Na przykład:
 
 - Aplikacje usługi App Service
 - [Plany usługi App Service](overview-hosting-plans.md)
@@ -43,7 +43,7 @@ Niektóre zasoby, takie jak zaimportowane certyfikaty lub połączenia hybrydowe
 
 1. W [Azure Portal](https://portal.azure.com)przejdź do strony zarządzania mającej wpływ na aplikację. W nieprawidłowym regionie platformy Azure aplikacja, której dotyczy problem, wyświetla tekst ostrzegawczy. Kliknij tekst ostrzegawczy.
 
-    ![](media/manage-disaster-recovery/restore-start.png)
+    ![Zrzut ekranu przedstawiający stronę aplikacji, której dotyczy problem. Widoczne jest powiadomienie ostrzegawcze, które opisuje sytuację i zawiera link do przywracania aplikacji.](media/manage-disaster-recovery/restore-start.png)
 
 1. Na stronie **przywracanie kopii zapasowej** Skonfiguruj operację przywracania zgodnie z poniższą tabelą. Po zakończeniu kliknij przycisk **OK**.
 
@@ -53,7 +53,7 @@ Niektóre zasoby, takie jak zaimportowane certyfikaty lub połączenia hybrydowe
    | **Miejsce docelowe przywracania** | **Istniejąca aplikacja** | Kliknij poniżej uwagę, **Aby zmienić aplikację docelową przywracania** i wybrać aplikację docelową. W scenariuszu awarii można przywrócić migawkę tylko do aplikacji w innym regionie świadczenia usługi Azure. |
    | **Przywróć konfigurację lokacji** | **Tak** | |
 
-    ![](media/manage-disaster-recovery/restore-configure.png)
+    ![Zrzut ekranu przedstawiający stronę przywracanie kopii zapasowej. Określona migawka, opcje, które Poprzednia lista tabeli i przycisk OK są wyróżnione.](media/manage-disaster-recovery/restore-configure.png)
 
 3. Skonfiguruj [wszystkie inne elementy](#prepare) w aplikacji docelowej, aby zdublować aplikację, której dotyczy problem, i sprawdź konfigurację.
 
@@ -65,9 +65,9 @@ Jeśli chcesz tylko odzyskać pliki z aplikacji, której dotyczy problem, bez pr
 
 1. W [Azure Portal](https://portal.azure.com)przejdź do strony zarządzania mającej wpływ na aplikację, a następnie kliknij pozycję **Pobierz profil publikowania**.
 
-    ![](media/manage-disaster-recovery/get-publish-profile.png)
+    ![Zrzut ekranu przedstawiający stronę aplikacji, której dotyczy problem. Powiadomienie ostrzegawcze jest widoczne, ale nie jest wyróżnione. Zostanie wyróżniony element Pobierz profil publikowania.](media/manage-disaster-recovery/get-publish-profile.png)
 
-1. Otwórz pobrany plik i znajdź profil publikowania, który zawiera `ReadOnly - FTP` nazwę. Jest to profil odzyskiwania po awarii. Przykład:
+1. Otwórz pobrany plik i znajdź profil publikowania, który zawiera `ReadOnly - FTP` nazwę. Jest to profil odzyskiwania po awarii. Na przykład:
 
     ```xml
     <publishProfile profileName="%app-name% - ReadOnly - FTP" publishMethod="FTP" publishUrl="ftp://%ftp-site%/site/wwwroot" ftpPassiveMode="True" userName="%app-name%\$%app-name%" userPWD="" destinationAppUrl="http://%app-name%.azurewebsites.net" SQLServerDBConnectionString="" mySQLDBConnectionString="" hostingProviderForumLink="" controlPanelLink="http://windows.azure.com" webSystem="WebSites">
@@ -84,7 +84,7 @@ Jeśli chcesz tylko odzyskać pliki z aplikacji, której dotyczy problem, bez pr
 
 1. Po nawiązaniu połączenia Pobierz cały folder */site/wwwroot* . Poniższy zrzut ekranu przedstawia sposób pobierania w [FileZilla](https://filezilla-project.org/).
 
-    ![](media/manage-disaster-recovery/download-content.png)
+    ![Zrzut ekranu przedstawiający hierarchię plików FileZilla. Folder wwwroot zostanie wyróżniony, a jego menu skrótów jest widoczne. W tym menu Pobierz zostanie wyróżniony.](media/manage-disaster-recovery/download-content.png)
 
 ## <a name="next-steps"></a>Następne kroki
 [Przywracanie aplikacji na platformie Azure z migawki](app-service-web-restore-snapshots.md)

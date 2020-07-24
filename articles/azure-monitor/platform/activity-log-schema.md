@@ -7,34 +7,34 @@ ms.topic: reference
 ms.date: 06/09/2020
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 553492a3ca6868279b1aec9446e2ce04ca673ab0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3d7085f54634ab1175fc0f916e24b7f03dc1bc9b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84945362"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073668"
 ---
 # <a name="azure-activity-log-event-schema"></a>Schemat zdarzeń dziennika aktywności platformy Azure
 [Dziennik aktywności platformy Azure](platform-logs-overview.md) zawiera szczegółowe informacje o wszystkich zdarzeniach na poziomie subskrypcji, które wystąpiły na platformie Azure. W tym artykule opisano kategorie dziennika aktywności i schemat dla każdego z nich. 
 
 Schemat będzie się różnić w zależności od sposobu uzyskania dostępu do dziennika:
  
-- Schematy opisane w tym artykule mają na celu uzyskanie dostępu do dziennika aktywności z [interfejsu API REST](https://docs.microsoft.com/rest/api/monitor/activitylogs). Jest to również schemat używany w przypadku wybrania opcji **JSON** podczas wyświetlania zdarzenia w Azure Portal.
+- Schematy opisane w tym artykule mają na celu uzyskanie dostępu do dziennika aktywności z [interfejsu API REST](/rest/api/monitor/activitylogs). Jest to również schemat używany w przypadku wybrania opcji **JSON** podczas wyświetlania zdarzenia w Azure Portal.
 - [Aby wysłać](diagnostic-settings.md) dziennik aktywności do usługi Azure Storage lub Azure Event Hubs, zobacz ostatni [schemat sekcji z konta magazynu i centrów zdarzeń](#schema-from-storage-account-and-event-hubs) dla schematu.
-- W przypadku korzystania z [ustawień diagnostycznych](diagnostic-settings.md) do wysyłania dziennika aktywności do log Analytics obszaru roboczego zobacz [Azure monitor odwołanie do danych](https://docs.microsoft.com/azure/azure-monitor/reference/) schematu.
+- W przypadku korzystania z [ustawień diagnostycznych](diagnostic-settings.md) do wysyłania dziennika aktywności do log Analytics obszaru roboczego zobacz [Azure monitor odwołanie do danych](/azure/azure-monitor/reference/) schematu.
 
 
 ## <a name="categories"></a>Kategorie
-Każde zdarzenie w dzienniku aktywności ma określoną kategorię, która została opisana w poniższej tabeli. Zapoznaj się z poniższymi sekcjami, aby uzyskać więcej szczegółów na temat każdej kategorii i jej schematu podczas uzyskiwania dostępu do dziennika aktywności z poziomu portalu, programu PowerShell, interfejsu wiersza polecenia i API REST. Schemat jest różny podczas [przesyłania strumieniowego dziennika aktywności do magazynu lub Event Hubs](resource-logs-stream-event-hubs.md). Mapowanie właściwości do [schematu dzienników zasobów](diagnostic-logs-schema.md) znajduje się w ostatniej sekcji artykułu.
+Każde zdarzenie w dzienniku aktywności ma określoną kategorię, która została opisana w poniższej tabeli. Zapoznaj się z poniższymi sekcjami, aby uzyskać więcej szczegółów na temat każdej kategorii i jej schematu podczas uzyskiwania dostępu do dziennika aktywności z poziomu portalu, programu PowerShell, interfejsu wiersza polecenia i API REST. Schemat jest różny podczas [przesyłania strumieniowego dziennika aktywności do magazynu lub Event Hubs](./resource-logs.md#send-to-azure-event-hubs). Mapowanie właściwości do [schematu dzienników zasobów](./resource-logs-schema.md) znajduje się w ostatniej sekcji artykułu.
 
 | Kategoria | Opis |
 |:---|:---|
-| [Administracyjne](#administrative-category) | Zawiera rekord wszystkich operacji tworzenia, aktualizowania, usuwania i akcji wykonywanych za pomocą Menedżer zasobów. Przykłady zdarzeń administracyjnych obejmują _Utwórz maszynę wirtualną_ i _Usuń sieciową grupę zabezpieczeń_.<br><br>Każda Akcja podejmowana przez użytkownika lub aplikację przy użyciu Menedżer zasobów jest modelowana jako operacja dla określonego typu zasobu. Jeśli typem operacji jest _zapis_, _usuwanie_lub _Akcja_, rekordy zarówno rozpoczęcia, jak i sukcesu lub niepowodzenia tej operacji są rejestrowane w kategorii administracyjnej. Zdarzenia administracyjne zawierają również wszelkie zmiany w ramach kontroli dostępu opartej na rolach w ramach subskrypcji. |
+| [Administracyjny](#administrative-category) | Zawiera rekord wszystkich operacji tworzenia, aktualizowania, usuwania i akcji wykonywanych za pomocą Menedżer zasobów. Przykłady zdarzeń administracyjnych obejmują _Utwórz maszynę wirtualną_ i _Usuń sieciową grupę zabezpieczeń_.<br><br>Każda Akcja podejmowana przez użytkownika lub aplikację przy użyciu Menedżer zasobów jest modelowana jako operacja dla określonego typu zasobu. Jeśli typem operacji jest _zapis_, _usuwanie_lub _Akcja_, rekordy zarówno rozpoczęcia, jak i sukcesu lub niepowodzenia tej operacji są rejestrowane w kategorii administracyjnej. Zdarzenia administracyjne zawierają również wszelkie zmiany w ramach kontroli dostępu opartej na rolach w ramach subskrypcji. |
 | [Kondycja usługi](#service-health-category) | Zawiera rekord wszystkich zdarzeń związanych z kondycją usług, które wystąpiły na platformie Azure. Przykładem zdarzenia Service Health _SQL Azure w regionie Wschodnie stany USA występuje przestój_. <br><br>Service Health zdarzenia są dostępne w sześciu odmianach: _wymagane działanie_, _pomocne odzyskiwanie_, _incydent_, _konserwacja_, _informacje_lub _zabezpieczenia_. Te zdarzenia są tworzone tylko wtedy, gdy w subskrypcji znajduje się zasób, na który wpłynie zdarzenie.
 | [Resource Health](#resource-health-category) | Zawiera rekord wszystkich zdarzeń związanych z kondycją zasobów, które wystąpiły w Twoich zasobach platformy Azure. Przykładem zdarzenia Resource Health jest _stan kondycji maszyny wirtualnej zmieniony na niedostępny_.<br><br>Zdarzenia Resource Health mogą reprezentować jeden z czterech stanów kondycji: _dostępne_, _niedostępne_, _obniżone_i _nieznane_. Ponadto zdarzenia Resource Health mogą być kategoryzowane jako _zainicjowane przez platformę_ lub _zainicjowane przez użytkownika_. |
 | [Alert](#alert-category) | Zawiera rekord aktywacji dla alertów platformy Azure. Przykładem zdarzenia alertu jest _użycie procesora CPU w systemie 80 myVM w ciągu ostatnich 5 minut_.|
 | [Automatyczne skalowanie](#autoscale-category) | Zawiera rekord wszystkich zdarzeń związanych z działaniem aparatu skalowania automatycznego na podstawie wszelkich ustawień automatycznego skalowania zdefiniowanych w ramach subskrypcji. Przykładem zdarzenia automatycznego skalowania jest _Akcja skalowania automatycznego w górę_. |
-| [Zalecenie](#recommendation-category) | Zawiera zdarzenia rekomendacji z Azure Advisor. |
+| [Rekomendacja](#recommendation-category) | Zawiera zdarzenia rekomendacji z Azure Advisor. |
 | [Bezpieczeństwo](#security-category) | Zawiera rekord wszystkich alertów wygenerowanych przez Azure Security Center. Przykład zdarzenia zabezpieczeń to _podejrzany plik o podwójnym rozszerzeniu_. |
 | [Zasady](#policy-category) | Zawiera rekordy wszystkich operacji akcji wykonywanych przez Azure Policy. Przykłady zdarzeń zasad obejmują _inspekcję_ i _odmowę_. Wszystkie akcje podejmowane przez zasady są modelowane jako operacje na zasobach. |
 
@@ -214,7 +214,7 @@ Ta kategoria zawiera rekord wszystkich zdarzeń związanych z kondycją usług, 
   }
 }
 ```
-Zapoznaj się z artykułem dotyczącym [powiadomień o kondycji usługi](./../../azure-monitor/platform/service-notifications.md) , aby uzyskać informacje na temat wartości we właściwościach.
+Zapoznaj się z artykułem dotyczącym [powiadomień o kondycji usługi](../../service-health/service-notifications.md) , aby uzyskać informacje na temat wartości we właściwościach.
 
 ## <a name="resource-health-category"></a>Kategoria kondycji zasobów
 Ta kategoria zawiera rekord wszystkich zdarzeń związanych z kondycją zasobów, które wystąpiły w Twoich zasobach platformy Azure. Przykładem typu zdarzenia, które zobaczysz w tej kategorii jest "stan kondycji maszyny wirtualnej zmienił się na niedostępny". Zdarzenia dotyczące kondycji zasobów mogą reprezentować jeden z czterech stanów kondycji: dostępne, niedostępne, obniżone i nieznane. Ponadto zdarzenia kondycji zasobów można klasyfikować jako zainicjowane przez platformę lub zainicjowane przez użytkownika.
@@ -793,10 +793,10 @@ Ta kategoria zawiera rekordy wszystkich operacji działania akcji wykonywanych p
 
 
 ## <a name="schema-from-storage-account-and-event-hubs"></a>Schemat z centrów zdarzeń i kont magazynu
-Podczas przesyłania strumieniowego dziennika aktywności platformy Azure do konta magazynu lub centrum zdarzeń dane są zgodne ze [schematem dziennika zasobów](diagnostic-logs-schema.md). Poniższa tabela zawiera mapowanie właściwości z powyższych schematów do schematu dzienników zasobów.
+Podczas przesyłania strumieniowego dziennika aktywności platformy Azure do konta magazynu lub centrum zdarzeń dane są zgodne ze [schematem dziennika zasobów](./resource-logs-schema.md). Poniższa tabela zawiera mapowanie właściwości z powyższych schematów do schematu dzienników zasobów.
 
 > [!IMPORTANT]
-> Format danych dziennika aktywności zapisany na koncie magazynu został zmieniony na wiersze JSON na lis. 1, 2018. Aby uzyskać szczegółowe informacje na temat tego formatu [, zobacz Przygotowywanie do zmiany formatu do Azure monitor dzienników zasobów zarchiwizowanych na koncie magazynu](diagnostic-logs-append-blobs.md) .
+> Format danych dziennika aktywności zapisany na koncie magazynu został zmieniony na wiersze JSON na lis. 1, 2018. Aby uzyskać szczegółowe informacje na temat tego formatu [, zobacz Przygotowywanie do zmiany formatu do Azure monitor dzienników zasobów zarchiwizowanych na koncie magazynu](./resource-logs-append-blobs.md) .
 
 
 | Właściwości schematu dzienników zasobów | Właściwość schematu interfejsu API REST dziennika aktywności | Uwagi |
@@ -885,4 +885,3 @@ Poniżej znajduje się przykład zdarzenia korzystającego z tego schematu.
 ## <a name="next-steps"></a>Następne kroki
 * [Dowiedz się więcej o dzienniku aktywności](platform-logs-overview.md)
 * [Tworzenie ustawień diagnostycznych w celu wysyłania dziennika aktywności do Log Analytics obszaru roboczego, usługi Azure Storage lub centrów zdarzeń](diagnostic-settings.md)
-

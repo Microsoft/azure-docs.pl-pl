@@ -5,12 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 01/15/2020
-ms.openlocfilehash: 5d462be1caa3787cb7ff9a455be595ec5784eefe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/17/2020
+ms.openlocfilehash: 38edbfcb8800843b43678e99d6817595ccba3235
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76157274"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87071547"
 ---
 # <a name="firewall-rules-in-azure-database-for-postgresql---single-server"></a>Reguły zapory w Azure Database for PostgreSQL-pojedynczym serwerze
 Zapora serwera Azure Database for PostgreSQL uniemożliwia dostęp do serwera bazy danych do momentu określenia komputerów, które mają uprawnienia. Zapora przyznaje dostęp do serwera na podstawie źródłowego adresu IP każdego żądania.
@@ -64,10 +65,13 @@ Należy wziąć pod uwagę następujące kwestie, gdy dostęp do usługi Microso
 
    * Zamiast tego należy pobrać statyczne adresy IP dla komputerów klienckich, a następnie dodać statyczny adres IP jako regułę zapory.
 
-* **Adres IP serwera wydaje się być publiczny:** Połączenia z serwerem Azure Database for PostgreSQL są kierowane za pomocą publicznie dostępnej bramy platformy Azure. Rzeczywisty adres IP serwera jest jednak chroniony przez zaporę. Aby uzyskać więcej informacji, zapoznaj się z [artykułem dotyczącym architektury łączności](concepts-connectivity-architecture.md). 
+* **Adres IP serwera wydaje się być publiczny:** Połączenia z serwerem Azure Database for PostgreSQL są kierowane za pomocą publicznie dostępnej bramy platformy Azure. Rzeczywisty adres IP serwera jest jednak chroniony przez zaporę. Aby uzyskać więcej informacji, zapoznaj się z [artykułem dotyczącym architektury łączności](concepts-connectivity-architecture.md).
+
+* **Nie można nawiązać połączenia z zasobów platformy Azure z dozwolonym adresem IP:** Sprawdź, czy punkt końcowy usługi **Microsoft. SQL** jest włączony dla podsieci, z której nawiązujesz połączenie. Jeśli jest włączona funkcja **Microsoft. SQL** , oznacza to, że chcesz tylko używać [reguł punktu końcowego usługi sieci wirtualnej](concepts-data-access-and-security-vnet.md) w tej podsieci.
+
+   Na przykład, jeśli łączysz się z maszyny wirtualnej platformy Azure w podsieci z włączoną opcją **Microsoft. SQL** , ale nie ma odpowiedniej reguły sieci wirtualnej, może zostać wyświetlony następujący błąd:`FATAL: Client from Azure Virtual Networks is not allowed to access the server`
 
 ## <a name="next-steps"></a>Następne kroki
-Aby zapoznać się z artykułami dotyczącymi tworzenia reguł zapory na poziomie serwera i na poziomie bazy danych, zobacz:
 * [Tworzenie reguł zapory Azure Database for PostgreSQL i zarządzanie nimi za pomocą Azure Portal](howto-manage-firewall-using-portal.md)
 * [Tworzenie reguł zapory Azure Database for PostgreSQL przy użyciu interfejsu wiersza polecenia platformy Azure i zarządzanie nimi](howto-manage-firewall-using-cli.md)
-- [Punkty końcowe usługi sieci wirtualnej w Azure Database for PostgreSQL](./concepts-data-access-and-security-vnet.md)
+* [Punkty końcowe usługi sieci wirtualnej w Azure Database for PostgreSQL](./concepts-data-access-and-security-vnet.md)

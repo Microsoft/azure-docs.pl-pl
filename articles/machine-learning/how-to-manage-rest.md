@@ -10,11 +10,12 @@ ms.subservice: core
 ms.topic: how-to
 ms.date: 01/31/2020
 ms.custom: tracking-python
-ms.openlocfilehash: 6b74f9cdc5b3317edc8bf2339ba1d2c29f43e55b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 90ad8cc87f1d6a1893b96f6201a4260c03c94fee
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84560171"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87072212"
 ---
 # <a name="create-run-and-delete-azure-ml-resources-using-rest"></a>Tworzenie, uruchamianie i usuwanie zasobów usługi Azure ML przy użyciu interfejsu REST
 
@@ -47,7 +48,7 @@ Administracyjne żądania REST są uwierzytelniane przy użyciu niejawnego przep
 - Identyfikator klienta (który zostanie skojarzony z utworzonym tokenem)
 - Klucz tajny klienta (należy chronić)
 
-Należy mieć te wartości z odpowiedzi na tworzenie nazwy głównej usługi zgodnie z opisem w temacie [Konfigurowanie uwierzytelniania dla Azure Machine Learning zasobów i przepływów pracy](https://docs.microsoft.com/azure/machine-learning/how-to-setup-authentication#set-up-service-principal-authentication). Jeśli używasz subskrypcji firmy, możesz nie mieć uprawnień do tworzenia nazwy głównej usługi. W takim przypadku należy użyć [bezpłatnej lub płatnej subskrypcji osobistej](https://aka.ms/AMLFree).
+Należy mieć te wartości z odpowiedzi na tworzenie nazwy głównej usługi. Te wartości zostały omówione w temacie [Konfigurowanie uwierzytelniania dla Azure Machine Learning zasobów i przepływów pracy](https://docs.microsoft.com/azure/machine-learning/how-to-setup-authentication#set-up-service-principal-authentication). Jeśli używasz subskrypcji firmy, możesz nie mieć uprawnień do tworzenia nazwy głównej usługi. W takim przypadku należy użyć [bezpłatnej lub płatnej subskrypcji osobistej](https://aka.ms/AMLFree).
 
 Aby pobrać token:
 
@@ -199,15 +200,15 @@ providers/Microsoft.MachineLearningServices/workspaces/{your-workspace-name}/mod
 -H "Authorization:Bearer {your-access-token}"
 ```
 
-Zwróć uwagę, że w celu wyświetlenia listy eksperymentów ścieżka zaczyna się od `history/v1.0` while, aby wyświetlić listę modeli, ścieżka zaczyna się od `modelmanagement/v1.0` . Interfejs API REST jest podzielony na kilka grup operacyjnych, z których każda ma odrębną ścieżkę. Dokumenty referencyjne interfejsu API na poniższych linkach zawierają listę operacji, parametrów i kodów odpowiedzi dla różnych operacji.
+Zwróć uwagę, że w celu wyświetlenia listy eksperymentów ścieżka zaczyna się od `history/v1.0` while, aby wyświetlić listę modeli, ścieżka zaczyna się od `modelmanagement/v1.0` . Interfejs API REST jest podzielony na kilka grup operacyjnych, z których każda ma odrębną ścieżkę. 
 
-|Obszar|Ścieżka|Dokumentacja|
-|-|-|-|
-|Artifacts|artefakt/v 2.0/|[Dokumentacja interfejsu API REST](https://docs.microsoft.com/rest/api/azureml/artifacts)|
-|Magazyny danych|Magazyn danych/v 1.0/|[Dokumentacja interfejsu API REST](https://docs.microsoft.com/rest/api/azureml/datastores)|
-|Dostrajanie hiperparametrów|dysk/v 1.0/|[Dokumentacja interfejsu API REST](https://docs.microsoft.com/rest/api/azureml/hyperparametertuning)|
-|Modele|Modelmanagement/v 1.0/|[Dokumentacja interfejsu API REST](https://docs.microsoft.com/rest/api/azureml/modelsanddeployments/mlmodels)|
-|Historia uruchamiania|wykonanie/v 1.0/i historia/v 1.0/|[Dokumentacja interfejsu API REST](https://docs.microsoft.com/rest/api/azureml/runs)|
+|Obszar|Ścieżka|
+|-|-|
+|Artifacts|artefakt/v 2.0/|
+|Magazyny danych|Magazyn danych/v 1.0/|
+|Dostrajanie hiperparametrów|dysk/v 1.0/|
+|Modele|Modelmanagement/v 1.0/|
+|Historia uruchamiania|wykonanie/v 1.0/i historia/v 1.0/|
 
 Interfejs API REST można eksplorować przy użyciu ogólnego wzorca:
 

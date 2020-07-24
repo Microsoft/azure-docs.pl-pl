@@ -3,17 +3,19 @@ title: Skonfiguruj punkty końcowe usługi sieci wirtualnej dla Azure Service Bu
 description: Ten artykuł zawiera informacje dotyczące sposobu dodawania punktu końcowego usługi Microsoft. ServiceBus do sieci wirtualnej.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 2b3e7d23dcfd3f932aefa3809ebd13b9cfee0c69
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 48d7f1783f197804e12a8c2d20a0c46b6efd2160
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85340983"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87071325"
 ---
 # <a name="configure-virtual-network-service-endpoints-for-azure-service-bus"></a>Skonfiguruj punkty końcowe usługi sieci wirtualnej dla Azure Service Bus
 
 Integracja Service Bus z [punktami końcowymi usługi Virtual Network (VNET)][vnet-sep] umożliwia bezpieczny dostęp do funkcji obsługi komunikatów z obciążeń takich jak maszyny wirtualne, które są powiązane z sieciami wirtualnymi, z zabezpieczoną ścieżką ruchu sieciowego na obu końcach.
 
-Po skonfigurowaniu do powiązania z co najmniej jednym punktem końcowym usługi podsieci sieci wirtualnej odpowiednie przestrzenie nazw Service Bus nie będą już akceptować ruchu z dowolnego miejsca, ale autoryzowanych sieci wirtualnych. Z punktu widzenia sieci wirtualnej powiązanie przestrzeni nazw Service Bus z punktem końcowym usługi konfiguruje odizolowany tunel sieciowy z podsieci sieci wirtualnej do usługi obsługi komunikatów.
+Po skonfigurowaniu do powiązania z co najmniej jednym punktem końcowym usługi podsieci sieci wirtualnej odpowiednie Service Bus przestrzeni nazw nie będą już akceptować ruchu z dowolnego miejsca, ale autoryzowanych sieci wirtualnych i, opcjonalnie, określonych internetowych adresów IP. Z punktu widzenia sieci wirtualnej powiązanie przestrzeni nazw Service Bus z punktem końcowym usługi konfiguruje odizolowany tunel sieciowy z podsieci sieci wirtualnej do usługi obsługi komunikatów.
 
 Wynikiem jest relacja między obciążeniami powiązanymi z podsiecią i odpowiadającą jej przestrzenią nazw Service Bus, w odróżnieniu od pozostałego adresu sieciowego punktu końcowego usługi obsługi komunikatów znajdującego się w zakresie publicznego adresu IP.
 

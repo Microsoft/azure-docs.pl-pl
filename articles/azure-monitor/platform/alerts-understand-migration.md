@@ -6,11 +6,12 @@ ms.date: 07/10/2019
 ms.author: yalavi
 author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: d31c856e17348c23ad61130869af6ae440d3050d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c9696167d9addc3029a53f25e289d17bd3add263
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81114302"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073619"
 ---
 # <a name="understand-how-the-migration-tool-works"></a>Informacje o sposobie działania narzędzia do migracji
 
@@ -63,7 +64,7 @@ Wszystkie klasyczne alerty na kontach magazynu można migrować z wyjątkiem ale
 - SASThrottlingError
 - ThrottlingError
 
-Reguły alertów klasycznych na metrykach procentowych muszą zostać zmigrowane na podstawie [mapowania między starymi i nowymi metrykami magazynu](https://docs.microsoft.com/azure/storage/common/storage-metrics-migration#metrics-mapping-between-old-metrics-and-new-metrics). Wartości progowe muszą być odpowiednio modyfikowane, ponieważ nowa Metryka jest dostępna jako wartość bezwzględna.
+Reguły alertów klasycznych na metrykach procentowych muszą zostać zmigrowane na podstawie [mapowania między starymi i nowymi metrykami magazynu](../../storage/common/storage-metrics-migration.md#metrics-mapping-between-old-metrics-and-new-metrics). Wartości progowe muszą być odpowiednio modyfikowane, ponieważ nowa Metryka jest dostępna jako wartość bezwzględna.
 
 Klasyczne reguły alertów w AnonymousThrottlingError, SASThrottlingError i ThrottlingError muszą zostać podzielone na dwa nowe alerty, ponieważ nie ma żadnej połączonej metryki, która zapewnia te same funkcje. Progi należy odpowiednio dostosować.
 

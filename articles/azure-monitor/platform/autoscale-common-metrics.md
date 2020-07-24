@@ -4,11 +4,12 @@ description: Dowiedz się, które metryki są często używane do automatycznego
 ms.topic: conceptual
 ms.date: 12/6/2016
 ms.subservice: autoscale
-ms.openlocfilehash: 2c335168683212337876c963a7cfdb441d0ac69a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 57bffede3b6c6c137da2feea32ad467a13f71a37
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76845564"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073526"
 ---
 # <a name="azure-monitor-autoscaling-common-metrics"></a>Azure Monitor typowe metryki automatycznego skalowania
 
@@ -16,7 +17,7 @@ ms.locfileid: "76845564"
 
 Azure Monitor Skalowanie automatyczne pozwala skalować liczbę uruchomionych wystąpień w górę lub w dół na podstawie danych telemetrycznych (metryk). W tym dokumencie opisano typowe metryki, których warto użyć. W Azure Portal można wybrać metrykę zasobu do skalowania przez. Można jednak wybrać dowolną metrykę z innego zasobu do skalowania.
 
-Automatyczne skalowanie Azure Monitor ma zastosowanie tylko do [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Cloud Services](https://azure.microsoft.com/services/cloud-services/), [App Service-Web Apps](https://azure.microsoft.com/services/app-service/web/)i [usług API Management](https://docs.microsoft.com/azure/api-management/api-management-key-concepts). Inne usługi platformy Azure używają różnych metod skalowania.
+Automatyczne skalowanie Azure Monitor ma zastosowanie tylko do [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Cloud Services](https://azure.microsoft.com/services/cloud-services/), [App Service-Web Apps](https://azure.microsoft.com/services/app-service/web/)i [usług API Management](../../api-management/api-management-key-concepts.md). Inne usługi platformy Azure używają różnych metod skalowania.
 
 ## <a name="compute-metrics-for-resource-manager-based-vms"></a>Metryki obliczeniowe dla maszyn wirtualnych opartych na Menedżer zasobów
 Domyślnie Virtual Machines Menedżer zasobów i Virtual Machine Scale Sets emitują podstawowe (na poziomie hosta) metryki. Ponadto po skonfigurowaniu zbierania danych diagnostycznych dla maszyny wirtualnej platformy Azure i VMSS rozszerzenie diagnostyki platformy Azure emituje także liczniki wydajności gościa (nazywane "metrykami systemu operacyjnego gościa").  Wszystkie te metryki są używane w regułach skalowania automatycznego.
@@ -185,4 +186,3 @@ W przypadku zestawów skalowania maszyn wirtualnych można zaktualizować ustawi
 > W przypadku Service Bus koncepcji grupy zasobów nie istnieje, ale Azure Resource Manager tworzy domyślną grupę zasobów na region. Grupa zasobów jest zwykle w formacie "default-ServiceBus-[region]". Na przykład "default-ServiceBus-Wschodnie", "default-ServiceBus-zachodnie", "default-ServiceBus-AustraliaEast" itd.
 >
 >
-

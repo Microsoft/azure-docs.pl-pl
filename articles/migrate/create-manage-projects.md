@@ -2,13 +2,13 @@
 title: Tworzenie projektów usługi Azure Migrate i zarządzanie nimi
 description: Znajdź, twórz, Zarządzaj i usuwaj projekty w Azure Migrate.
 ms.topic: how-to
-ms.date: 04/19/2020
-ms.openlocfilehash: 644ac5ecab9f5384b446c3b1ebe762a5d06aaf12
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 07/23/2020
+ms.openlocfilehash: d60868f9d0d4c60291cfd92a9e8d11fd3f9a42b9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86113432"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87071797"
 ---
 # <a name="create-and-manage-azure-migrate-projects"></a>Tworzenie projektów usługi Azure Migrate i zarządzanie nimi
 
@@ -65,7 +65,6 @@ Usuń w następujący sposób:
     - Typ zasobu to **Microsoft. zmigrować/migrateprojects**.
     - Jeśli grupa zasobów jest używana wyłącznie przez projekt Azure Migrate, można usunąć całą grupę zasobów.
 
-
 Należy pamiętać, że:
 
 - Po usunięciu programu zarówno projekt, jak i metadane dotyczące odnalezionych maszyn są usuwane.
@@ -73,6 +72,7 @@ Należy pamiętać, że:
 - Jeśli używasz analizy zależności z obszarem roboczym usługi Azure Log Analytics:
     - Jeśli dołączono obszar roboczy Log Analytics do narzędzia do oceny serwera, obszar roboczy nie zostanie automatycznie usunięty. Ten sam obszar roboczy Log Analytics może być używany w wielu scenariuszach.
     - Jeśli chcesz usunąć obszar roboczy Log Analytics, zrób to ręcznie.
+- Usuwanie projektu jest nieodwracalne. Nie można odzyskać usuniętych obiektów.
 
 ### <a name="delete-a-workspace-manually"></a>Ręczne usuwanie obszaru roboczego
 

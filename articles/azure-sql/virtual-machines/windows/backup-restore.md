@@ -13,11 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/04/2018
 ms.author: mikeray
-ms.openlocfilehash: 1a19bf26418d6a61d3aa2421957614abe6dd04e8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 27438b0729aa309878eb54a346f04754cb983af1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84669206"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073257"
 ---
 # <a name="backup-and-restore-for-sql-server-on-azure-vms"></a>Tworzenie kopii zapasowych i przywracanie SQL Server na maszynach wirtualnych platformy Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -126,7 +127,7 @@ Aby uzyskać więcej informacji, zobacz jeden z następujących artykułów w za
 
 Poniższa tabela zawiera podsumowanie możliwości poszczególnych opcji tworzenia kopii zapasowych i przywracania dla SQL Server maszyn wirtualnych na platformie Azure.
 
-|| **Automatyczne usługa Backup** | **Azure Backup dla SQL** | **Ręczna kopia zapasowa** |
+| Opcja | Automatyczne usługa Backup | Azure Backup dla SQL | Ręczna kopia zapasowa |
 |---|---|---|---|
 | Wymaga dodatkowej usługi platformy Azure |   | ![Tak](./media/backup-restore/yes.png) |   |
 | Konfigurowanie zasad tworzenia kopii zapasowych w Azure Portal | ![Yes](./media/backup-restore/yes.png) | ![Tak](./media/backup-restore/yes.png) |   |

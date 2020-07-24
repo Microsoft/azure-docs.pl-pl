@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: ramkris
 ms.reviewer: sngun
-ms.openlocfilehash: 6e283ff140e02d604fdf5e20d69fff96aab94f71
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d5158bbb32635ebf030879f4d0290a1feba0ec93
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85260597"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87072924"
 ---
 # <a name="use-bulk-executor-java-library-to-perform-bulk-operations-on-azure-cosmos-db-data"></a>Wykonywanie operacji zbiorczych w usłudze Azure Cosmos DB przy użyciu biblioteki funkcji wykonawczej Java operacji zbiorczych
 
@@ -43,7 +43,7 @@ Obecnie Biblioteka wykonawców zbiorczych jest obsługiwana tylko przez Azure Co
 
 Teraz przejdźmy do pracy z kodem, pobierając przykładową aplikację w języku Java z usługi GitHub. Ta aplikacja wykonuje operacje zbiorcze na danych Azure Cosmos DB. Aby sklonować aplikację, Otwórz wiersz polecenia, przejdź do katalogu, w którym chcesz skopiować aplikację, a następnie uruchom następujące polecenie:
 
-```
+```bash
  git clone https://github.com/Azure/azure-cosmosdb-bulkexecutor-java-getting-started.git 
 ```
 
@@ -123,13 +123,13 @@ Sklonowane repozytorium zawiera dwa przykłady "BulkImport" i "bulkupdate" wzgl�
 
 5. Po przygotowaniu aplikacji do importowania zbiorczego Utwórz narzędzie wiersza polecenia ze źródła przy użyciu polecenia "MVN Clean Package". To polecenie generuje plik JAR w folderze docelowym:  
 
-   ```java
+   ```bash
    mvn clean package
    ```
 
 6. Po wygenerowaniu zależności docelowych można wywołać aplikację importera zbiorczego za pomocą następującego polecenia:  
 
-   ```java
+   ```bash
    java -Xmx12G -jar bulkexecutor-sample-1.0-SNAPSHOT-jar-with-dependencies.jar -serviceEndpoint *<Fill in your Azure Cosmos DB's endpoint>*  -masterKey *<Fill in your Azure Cosmos DB's master key>* -databaseId bulkImportDb -collectionId bulkImportColl -operation import -shouldCreateCollection -collectionThroughput 1000000 -partitionKey /profileid -maxConnectionPoolSize 6000 -numberOfDocumentsForEachCheckpoint 1000000 -numberOfCheckpoints 10
    ```
 
@@ -186,13 +186,13 @@ Istniejące dokumenty można aktualizować za pomocą interfejsu API BulkUpdateA
 
 3. Po przygotowaniu zbiorczej aktualizacji aplikacji Utwórz narzędzie wiersza polecenia ze źródła przy użyciu polecenia "MVN Clean Package". To polecenie generuje plik JAR w folderze docelowym:  
 
-   ```
+   ```bash
    mvn clean package
    ```
 
 4. Po wygenerowaniu zależności docelowych można wywołać aplikację aktualizacji zbiorczej za pomocą następującego polecenia:
 
-   ```
+   ```bash
    java -Xmx12G -jar bulkexecutor-sample-1.0-SNAPSHOT-jar-with-dependencies.jar -serviceEndpoint **<Fill in your Azure Cosmos DB's endpoint>* -masterKey **<Fill in your Azure Cosmos DB's master key>* -databaseId bulkUpdateDb -collectionId bulkUpdateColl -operation update -collectionThroughput 1000000 -partitionKey /profileid -maxConnectionPoolSize 6000 -numberOfDocumentsForEachCheckpoint 1000000 -numberOfCheckpoints 10
    ```
 

@@ -8,11 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 06/22/2019
-ms.openlocfilehash: 2cc2ac08b9624c1d1d9bee9ce91a7c91189d7f2c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 833e2a6f64301c39ba2b9e7959585c3edeab9445
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74792422"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87072580"
 ---
 # <a name="exchange-rosettanet-messages-for-b2b-enterprise-integration-in-azure-logic-apps"></a>Komunikaty programu Exchange RosettaNet dla integracji z usługą B2B Enterprise w Azure Logic Apps
 
@@ -81,7 +82,7 @@ Aby dodać konfigurację procesu PIP do konta integracji, wykonaj następujące 
    | Właściwość | Wymagane | Opis |
    |----------|----------|-------------|
    | **Nazwa** | Tak | Nazwa PIP |
-   | **Kod PIP** | Tak | Kod trzycyfrowy PIP. Aby uzyskać więcej informacji, zobacz [RosettaNet pestek](https://docs.microsoft.com/biztalk/adapters-and-accelerators/accelerator-rosettanet/rosettanet-pips). |
+   | **Kod PIP** | Tak | Kod trzycyfrowy PIP. Aby uzyskać więcej informacji, zobacz [RosettaNet pestek](/biztalk/adapters-and-accelerators/accelerator-rosettanet/rosettanet-pips). |
    | **Wersja PIP** | Tak | Numer wersji PIP, który jest dostępny w oparciu o wybrany kod PIP |
    ||||
 

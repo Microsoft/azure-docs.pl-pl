@@ -4,11 +4,12 @@ description: Omówienie metadanych konfiguracji aplikacji Azure łańcucha blok�
 ms.date: 12/09/2019
 ms.topic: article
 ms.reviewer: brendal
-ms.openlocfilehash: 661e795f0e85f872b1072a8f641b8938115c5d7a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f0ba19bf1d7fdf05014ac199fae9392b5c3249d1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84710188"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073085"
 ---
 # <a name="azure-blockchain-workbench-configuration-reference"></a>Dokumentacja konfiguracji usługi Azure łańcucha bloków Workbench
 
@@ -67,7 +68,7 @@ Obsługiwane typy danych.
 | Typ | Opis |
 |-------|-------------|
 | adres  | Typ adresu łańcucha bloków, taki jak *kontrakty* lub *Użytkownicy*. |
-| tablica    | Tablica jednopoziomowa typu Integer, bool, Money lub Time. Tablice mogą być statyczne lub dynamiczne. Użyj **elementu ElementType** , aby określić typ danych elementów w tablicy. Zobacz [Przykładowa konfiguracja](#example-configuration-of-type-array). |
+| array    | Tablica jednopoziomowa typu Integer, bool, Money lub Time. Tablice mogą być statyczne lub dynamiczne. Użyj **elementu ElementType** , aby określić typ danych elementów w tablicy. Zobacz [Przykładowa konfiguracja](#example-configuration-of-type-array). |
 | bool     | Boolean — Typ danych. |
 | przedsiębiorc | Adres typu kontraktu. |
 | enum     | Wyliczany zestaw nazwanych wartości. W przypadku korzystania z typu enum należy również określić listę EnumValues. Każda wartość jest ograniczona do 255 znaków. Prawidłowe znaki wartości to wielkie i małe litery (A-Z, a-z) i cyfry (0-9). Zobacz [przykład konfiguracji i użycia w postaci stałej](#example-configuration-of-type-enum). |
@@ -97,7 +98,7 @@ Obsługiwane typy danych.
 
 #### <a name="using-a-property-of-type-array"></a>Używanie właściwości typu Array
 
-Jeśli zdefiniujesz właściwość jako tablicę typu w konfiguracji, musisz dołączyć jawną funkcję Get, aby zwrócić publiczną właściwość typu tablicy w postaci stałej. Przykład:
+Jeśli zdefiniujesz właściwość jako tablicę typu w konfiguracji, musisz dołączyć jawną funkcję Get, aby zwrócić publiczną właściwość typu tablicy w postaci stałej. Na przykład:
 
 ```
 function GetQuotes() public constant returns (int[]) {
@@ -995,5 +996,4 @@ Następujący plik konfiguracji dotyczy przykładowego transferu zasobów:
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Dokumentacja interfejsu API REST usługi Azure Blockchain Workbench](https://docs.microsoft.com/rest/api/azure-blockchain-workbench)
-
+> [Dokumentacja interfejsu API REST usługi Azure Blockchain Workbench](/rest/api/azure-blockchain-workbench)

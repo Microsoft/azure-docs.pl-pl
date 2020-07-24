@@ -5,11 +5,12 @@ ms.date: 03/24/2020
 ms.topic: conceptual
 description: Opisuje procesy uruchamiania kodu w usłudze Azure Kubernetes Service przy użyciu Azure Dev Spaces
 keywords: azds. YAML, Azure Dev Spaces, Spaces dev, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, Containers
-ms.openlocfilehash: 02b928009b1f82e2b6a193a41376265f8bfb9ea7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c343c32f0817cc922784bb25283290dc9ed88d29
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84307473"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87072955"
 ---
 # <a name="how-running-your-code-with-azure-dev-spaces-works"></a>Jak działa kod przy użyciu Azure Dev Spaces Works
 
@@ -211,7 +212,7 @@ Aby rozpocząć korzystanie z Azure Dev Spaces do uruchamiania projektu, zobacz 
 
 [azds-yaml-section]: #how-running-your-code-is-configured
 [helm-upgrade]: https://helm.sh/docs/intro/using_helm/#helm-upgrade-and-helm-rollback-upgrading-a-release-and-recovering-on-failure
-[how-it-works-local-process-kubernetes]: how-dev-spaces-works-local-process-kubernetes.md
+[how-it-works-local-process-kubernetes]: /visualstudio/containers/overview-local-process-kubernetes
 [how-it-works-prep]: how-dev-spaces-works-prep.md
 [how-it-works-remote-debugging]: how-dev-spaces-works-remote-debugging.md
 [how-it-works-routing]: how-dev-spaces-works-routing.md

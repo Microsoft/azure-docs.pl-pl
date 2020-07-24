@@ -6,11 +6,12 @@ ms.author: harelbr
 ms.topic: conceptual
 ms.date: 04/03/2017
 ms.subservice: alerts
-ms.openlocfilehash: 0677c7a0521fe1f63c9c2c9fce65d8dbd8e6d5c4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5561dfee3ede72f9cd28adbd47caf2db4e634360
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83826914"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073590"
 ---
 # <a name="call-a-webhook-with-a-classic-metric-alert-in-azure-monitor"></a>Wywoływanie elementu webhook przy użyciu klasycznego alertu metryki w Azure Monitor
 
@@ -25,7 +26,7 @@ Aby dodać lub zaktualizować identyfikator URI elementu webhook, w [Azure Porta
 
 ![Dodawanie okienka reguły alertu](./media/alerts-webhooks/Alertwebhook.png)
 
-Można również skonfigurować alert do publikowania w identyfikatorze URI elementu webhook przy użyciu [poleceń cmdlet Azure PowerShell](../samples/powershell-samples.md#create-metric-alerts), [MIĘDZYPLATFORMOWEGO interfejsu wiersza polecenia](../samples/cli-samples.md#work-with-alerts)lub [Azure monitor interfejsów API REST](https://msdn.microsoft.com/library/azure/dn933805.aspx).
+Można również skonfigurować alert do publikowania w identyfikatorze URI elementu webhook przy użyciu [poleceń cmdlet Azure PowerShell](../samples/powershell-samples.md#create-metric-alerts), [MIĘDZYPLATFORMOWEGO interfejsu wiersza polecenia](../samples/cli-samples.md#work-with-alerts)lub [Azure monitor interfejsów API REST](/rest/api/monitor/alertrules).
 
 ## <a name="authenticate-the-webhook"></a>Uwierzytelnianie elementu webhook
 Element webhook może być uwierzytelniany przy użyciu autoryzacji opartej na tokenach. Identyfikator URI elementu webhook jest zapisywany z IDENTYFIKATORem tokenu. Na przykład: `https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue`
@@ -69,32 +70,32 @@ Operacja POST zawiera następujący ładunek i schemat JSON dla wszystkich alert
 
 | Pole | Obowiązkowy | Stały zestaw wartości | Uwagi |
 |:--- |:--- |:--- |:--- |
-| status |Tak |Aktywowane, rozwiązane |Stan alertu na podstawie ustawionych warunków. |
-| kontekst |Tak | |Kontekst alertu. |
-| sygnatura czasowa |Tak | |Godzina, o której alert został wyzwolony. |
-| identyfikator |Tak | |Każda reguła alertu ma unikatowy identyfikator. |
-| name |Tak | |Nazwa alertu. |
-| description |Tak | |Opis alertu. |
-| warunektype |Tak |Metryka, zdarzenie |Obsługiwane są dwa typy alertów: Metryka i zdarzenie. Alerty metryk są oparte na warunku metryki. Alerty zdarzeń są oparte na zdarzeniu w dzienniku aktywności. Użyj tej wartości, aby sprawdzić, czy alert jest oparty na metryce czy zdarzeniu. |
-| rozgrzewa |Tak | |Określone pola do sprawdzenia na podstawie wartości **conditiontype** . |
+| status |Y |Aktywowane, rozwiązane |Stan alertu na podstawie ustawionych warunków. |
+| kontekst |Y | |Kontekst alertu. |
+| sygnatura czasowa |Y | |Godzina, o której alert został wyzwolony. |
+| identyfikator |Y | |Każda reguła alertu ma unikatowy identyfikator. |
+| name |Y | |Nazwa alertu. |
+| description |Y | |Opis alertu. |
+| warunektype |Y |Metryka, zdarzenie |Obsługiwane są dwa typy alertów: Metryka i zdarzenie. Alerty metryk są oparte na warunku metryki. Alerty zdarzeń są oparte na zdarzeniu w dzienniku aktywności. Użyj tej wartości, aby sprawdzić, czy alert jest oparty na metryce czy zdarzeniu. |
+| rozgrzewa |Y | |Określone pola do sprawdzenia na podstawie wartości **conditiontype** . |
 | metricName |W przypadku alertów dotyczących metryk | |Nazwa metryki, która definiuje elementy monitorowane przez regułę. |
-| metricUnit |W przypadku alertów dotyczących metryk |Bajty, BytesPerSecond, Count, CountPerSecond, procent, s |Jednostka dozwolona w metryce. Zobacz [dozwolone wartości](https://msdn.microsoft.com/library/microsoft.azure.insights.models.unit.aspx). |
+| metricUnit |W przypadku alertów dotyczących metryk |Bajty, BytesPerSecond, Count, CountPerSecond, procent, s |Jednostka dozwolona w metryce. Zobacz [dozwolone wartości](/previous-versions/azure/reference/dn802430(v=azure.100)). |
 | metricValue |W przypadku alertów dotyczących metryk | |Rzeczywista wartość metryki, która spowodowała alert. |
 | próg |W przypadku alertów dotyczących metryk | |Wartość progowa, przy której alert jest aktywowany. |
 | windowSize |W przypadku alertów dotyczących metryk | |Okres czasu, który jest używany do monitorowania aktywności alertu na podstawie progu. Wartość musi mieścić się w przedziale od 5 minut do 1 dnia. Wartość musi być w formacie czasu trwania ISO 8601. |
-| timeAggregation |W przypadku alertów dotyczących metryk |Średnia, Ostatnia, maksimum, minimum, brak, suma |Sposób, w jaki zbierane dane powinny być połączone z upływem czasu. Wartość domyślna to Average. Zobacz [dozwolone wartości](https://msdn.microsoft.com/library/microsoft.azure.insights.models.aggregationtype.aspx). |
+| timeAggregation |W przypadku alertów dotyczących metryk |Średnia, Ostatnia, maksimum, minimum, brak, suma |Sposób, w jaki zbierane dane powinny być połączone z upływem czasu. Wartość domyślna to Average. Zobacz [dozwolone wartości](/previous-versions/azure/reference/dn802410(v=azure.100)). |
 | operator |W przypadku alertów dotyczących metryk | |Operator używany do porównywania bieżących danych metryki z progiem zestawu. |
-| subscriptionId |Tak | |Identyfikator subskrypcji platformy Azure. |
-| resourceGroupName |Tak | |Nazwa grupy zasobów dla zasobu, którego to dotyczy. |
-| resourceName |Tak | |Nazwa zasobu, którego dotyczy ten zasób. |
-| resourceType |Tak | |Typ zasobu, którego dotyczy ten zasób. |
-| resourceId |Tak | |Identyfikator zasobu, którego dotyczy ten zasób. |
-| resourceRegion |Tak | |Region lub lokalizacja zasobu, którego to dotyczy. |
-| portalLink |Tak | |Bezpośredni link do strony podsumowania zasobów portalu. |
+| subscriptionId |Y | |Identyfikator subskrypcji platformy Azure. |
+| resourceGroupName |Y | |Nazwa grupy zasobów dla zasobu, którego to dotyczy. |
+| resourceName |Y | |Nazwa zasobu, którego dotyczy ten zasób. |
+| resourceType |Y | |Typ zasobu, którego dotyczy ten zasób. |
+| resourceId |Y | |Identyfikator zasobu, którego dotyczy ten zasób. |
+| resourceRegion |Y | |Region lub lokalizacja zasobu, którego to dotyczy. |
+| portalLink |Y | |Bezpośredni link do strony podsumowania zasobów portalu. |
 | properties |N |Opcjonalne |Zestaw par klucz/wartość, które zawierają szczegółowe informacje o zdarzeniu. Na przykład `Dictionary<String, String>`. Pole właściwości jest opcjonalne. W niestandardowym interfejsie użytkownika lub przepływie pracy opartym na aplikacji logiki użytkownicy mogą wprowadzać pary klucz/wartość, które mogą być przekazane za pośrednictwem ładunku. Alternatywny sposób przekazywania właściwości niestandardowych z powrotem do elementu webhook odbywa się za pośrednictwem samego identyfikatora URI elementu webhook (jako parametrów zapytania). |
 
 > [!NOTE]
-> Pole **Właściwości** można ustawić tylko przy użyciu [Azure monitor interfejsów API REST](https://msdn.microsoft.com/library/azure/dn933805.aspx).
+> Pole **Właściwości** można ustawić tylko przy użyciu [Azure monitor interfejsów API REST](/rest/api/monitor/alertrules).
 >
 >
 
@@ -104,4 +105,3 @@ Operacja POST zawiera następujący ładunek i schemat JSON dla wszystkich alert
 * Dowiedz się, jak za [pomocą aplikacji logiki wysyłać wiadomości SMS za pośrednictwem usługi Twilio z poziomu alertu platformy Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app).
 * Dowiedz się, jak za [pomocą aplikacji logiki wysyłać komunikaty o zapasach z alertu platformy Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app).
 * Dowiedz się, jak za [pomocą aplikacji logiki wysyłać komunikaty do kolejki platformy Azure z poziomu alertu platformy Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app).
-

@@ -12,11 +12,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 07/01/2019
 ms.author: juliako
-ms.openlocfilehash: 72aa0762d001c28b21d5e27ed8f6f9d099f62bfb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 34b1061519f91c93be2f5eb43f813b83db8305f8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79499840"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87072000"
 ---
 # <a name="azure-storage-accounts"></a>Konta usługi Azure Storage
 
@@ -31,7 +32,7 @@ Zalecamy korzystanie z programu GPv2, dzięki czemu można korzystać z najnowsz
 > [!NOTE]
 > Tylko Warstwa dostępu gorąca jest obsługiwana w przypadku Azure Media Services, chociaż inne warstwy dostępu mogą służyć do obniżenia kosztów magazynowania zawartości, która nie jest aktywnie używana.
 
-Istnieją różne jednostki SKU, które można wybrać dla konta magazynu. Aby uzyskać więcej informacji, zobacz temat [Konta magazynu](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest). Jeśli chcesz poeksperymentować z kontami magazynu, użyj parametru `--sku Standard_LRS`. Jednak podczas wybierania jednostki SKU do produkcji należy rozważyć `--sku Standard_RAGRS` , która zapewnia replikację geograficzną w celu zapewnienia ciągłości działania.
+Istnieją różne jednostki SKU, które można wybrać dla konta magazynu. Aby uzyskać więcej informacji, zobacz temat [Konta magazynu](/cli/azure/storage/account?view=azure-cli-latest). Jeśli chcesz poeksperymentować z kontami magazynu, użyj parametru `--sku Standard_LRS`. Jednak podczas wybierania jednostki SKU do produkcji należy rozważyć `--sku Standard_RAGRS` , która zapewnia replikację geograficzną w celu zapewnienia ciągłości działania.
 
 ## <a name="assets-in-a-storage-account"></a>Zasoby na koncie magazynu
 
@@ -47,8 +48,8 @@ Aby chronić zasoby w spoczynku, zasoby powinny być szyfrowane przez szyfrowani
 |Opcja szyfrowania|Opis|Media Services v3|
 |---|---|---|
 |Media Services szyfrowanie magazynu| Szyfrowanie AES-256, klucz zarządzany przez Media Services. |Nieobsługiwane. <sup>(1)</sup>|
-|[Szyfrowanie usługi Storage dla danych magazynowanych](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)|Szyfrowanie po stronie serwera oferowane przez usługę Azure Storage, klucz zarządzany przez platformę Azure lub przez klienta.|Obsługiwane.|
-|[Szyfrowanie po stronie klienta magazynu](https://docs.microsoft.com/azure/storage/common/storage-client-side-encryption)|Szyfrowanie po stronie klienta oferowane przez usługę Azure Storage, klucz zarządzany przez klienta w Key Vault.|Nieobsługiwane.|
+|[Szyfrowanie usługi Storage dla danych magazynowanych](../../storage/common/storage-service-encryption.md)|Szyfrowanie po stronie serwera oferowane przez usługę Azure Storage, klucz zarządzany przez platformę Azure lub przez klienta.|Obsługiwane.|
+|[Szyfrowanie po stronie klienta magazynu](../../storage/common/storage-client-side-encryption.md)|Szyfrowanie po stronie klienta oferowane przez usługę Azure Storage, klucz zarządzany przez klienta w Key Vault.|Nieobsługiwane.|
 
 <sup>1</sup> w Media Services v3, szyfrowanie magazynu (szyfrowanie AES-256) jest obsługiwane tylko w przypadku zgodności z poprzednimi wersjami, gdy zasoby zostały utworzone przy użyciu Media Services V2, co oznacza, że V3 działa z istniejącymi zasobami zaszyfrowanymi magazynu, ale nie umożliwia tworzenia nowych.
 
@@ -65,8 +66,8 @@ Poniżej przedstawiono podstawowe scenariusze, które mogłyby spowodować, że 
 
 ## <a name="azure-storage-firewall"></a>Zapora usługi Azure Storage
 
-Azure Media Services nie obsługuje kont magazynu z włączoną zaporą usługi Azure Storage lub [prywatnymi punktami końcowymi](https://docs.microsoft.com/azure/storage/common/storage-network-security) .
+Azure Media Services nie obsługuje kont magazynu z włączoną zaporą usługi Azure Storage lub [prywatnymi punktami końcowymi](../../storage/common/storage-network-security.md) .
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby dowiedzieć się, jak dołączyć konto magazynu do konta Media Services, zobacz [Tworzenie konta](create-account-cli-quickstart.md).
+Aby dowiedzieć się, jak dołączyć konto magazynu do konta Media Services, zobacz [Tworzenie konta](./create-account-howto.md).

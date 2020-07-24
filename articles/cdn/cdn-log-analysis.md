@@ -1,28 +1,38 @@
 ---
-title: Analizowanie wzorców użycia Azure CDN | Microsoft Docs
+title: Analizowanie wzorców użycia usługi Azure CDN
 description: W tym artykule opisano różne typy raportów analizy dostępnych dla Azure CDN produktów.
 services: cdn
-documentationcenter: ''
 author: asudbring
-manager: danielgi
-editor: ''
-ms.assetid: 95e18b3c-b987-46c2-baa8-a27a029e3076
+manager: KumudD
 ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2017
+ms.date: 7/22/2020
 ms.author: allensu
-ms.openlocfilehash: c78dff9f5258023d90100c70bd244e8e0d016d6f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 169889dbb87d00fdde44ff72c0d2004c331604ab
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81253615"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073046"
 ---
 # <a name="analyze-azure-cdn-usage-patterns"></a>Analizowanie wzorców użycia usługi Azure CDN
 
 Po włączeniu usługi CDN dla aplikacji możesz monitorować użycie usługi CDN, sprawdzić kondycję dostawy i rozwiązywać potencjalne problemy. Azure CDN udostępnia te funkcje w następujący sposób: 
+
+## <a name="raw-logs-for-azure-cdn-from-microsoft"></a>Nieprzetworzone dzienniki dla Azure CDN firmy Microsoft
+Przy użyciu standardowego profilu Microsoft można włączyć dzienniki pierwotne i wybrać opcję przesyłania strumieniowego dzienników do:
+
+* Azure Storage
+* Usługa Event Hubs
+* Azure Log Analytics
+
+Za pomocą platformy Azure Log Analytics można wyświetlić metryki monitorowania i skonfigurować alerty. 
+
+Aby uzyskać więcej informacji, zobacz [Azure CDN dzienników nieprzetworzonych http](enable-raw-logs.md).
+
 
 ## <a name="core-analytics-via-azure-diagnostic-logs"></a>Analiza podstawowa za pośrednictwem dzienników diagnostycznych platformy Azure
 
@@ -30,16 +40,27 @@ Analiza podstawowa jest dostępna dla punktów końcowych usługi CDN dla wszyst
 
 ## <a name="verizon-core-reports"></a>Verizon podstawowe raporty
 
-Jako użytkownik Azure CDN ze **standardem Azure CDN z Verizon** lub **Azure CDN Premium z profilu Verizon** , można wyświetlać raporty Verizon Core w portalu uzupełniającym Verizon. Raporty podstawowe Verizon są dostępne za pośrednictwem opcji **zarządzania** w Azure Portal i oferują różnorodne wykresy i widoki. Aby uzyskać więcej informacji, zobacz [podstawowe raporty z Verizon](cdn-analyze-usage-patterns.md).
+**Azure CDN Standard from Verizon** lub **Azure CDN Premium z profilów Verizon** zapewniają podstawowe raporty. Raporty podstawowe można wyświetlać w dodatkowym portalu Verizon. Raporty podstawowe Verizon są dostępne za pośrednictwem opcji **zarządzania** w Azure Portal i oferują różne rodzaje wykresów i widoków. Aby uzyskać więcej informacji, zobacz [podstawowe raporty z Verizon](cdn-analyze-usage-patterns.md).
 
 ## <a name="verizon-custom-reports"></a>Raporty niestandardowe Verizon
 
-Jako użytkownik Azure CDN ze **standardem Azure CDN z Verizon** lub **Azure CDN Premium z profilu Verizon** , można wyświetlić raporty niestandardowe Verizon w portalu uzupełniającym Verizon. Raporty niestandardowe Verizon są dostępne za pośrednictwem opcji **zarządzania** w Azure Portal. Na stronie niestandardowe raporty Verizon wyświetlana jest liczba trafień lub danych transferowanych dla każdej krawędzi rekordu CName należącej do profilu Azure CDN. Dane mogą być pogrupowane według kodu odpowiedzi HTTP lub stanu pamięci podręcznej w dowolnym okresie czasu. Aby uzyskać więcej informacji, zobacz [raporty niestandardowe z usługi Verizon](cdn-verizon-custom-reports.md).
+**Azure CDN Standard from Verizon** lub **Azure CDN Premium z profilów Verizon** udostępnia raporty niestandardowe. Raporty niestandardowe można wyświetlać w dodatkowym portalu Verizon. Raporty niestandardowe Verizon są dostępne za pośrednictwem opcji **zarządzania** w Azure Portal. 
+
+Raporty niestandardowe przedstawiają liczbę trafień lub danych transferowanych dla każdej krawędzi CNAME. Dane są pogrupowane według kodu odpowiedzi HTTP lub stanu pamięci podręcznej w danym okresie czasu. Aby uzyskać więcej informacji, zobacz [raporty niestandardowe z usługi Verizon](cdn-verizon-custom-reports.md).
 
 ## <a name="azure-cdn-premium-from-verizon-reports"></a>Azure CDN Premium z raportów Verizon
 
 Za pomocą **Azure CDN Premium Verizon**można także uzyskać dostęp do następujących raportów:
    * [Zaawansowane raporty HTTP](cdn-advanced-http-reports.md)
    * [Statystyki w czasie rzeczywistym](cdn-real-time-stats.md)
-   * [Wydajność węzła brzegowego](cdn-edge-performance.md)
+   * [Wydajność Azure CDN węzła brzegowego](cdn-edge-performance.md)
+
+## <a name="next-steps"></a>Następne kroki
+Ten artykuł zawiera informacje o różnych opcjach raportów analizy dla Azure CDN.
+
+Aby uzyskać więcej informacji na temat Azure CDN i innych usług platformy Azure wymienionych w tym artykule, zobacz:
+
+* [Co to jest Azure CDN?](cdn-overview.md)
+* [Azure CDN dziennikami nieprzetworzonymi HTTP](enable-raw-logs.md)
+
 

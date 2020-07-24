@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.service: service-bus
 ms.date: 07/02/2020
 ms.author: alvidela
-ms.openlocfilehash: df0541802dfc331ffc94e95be112ea7e005960b5
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: cf21030fbf1aaa9f36e4d34aac918c4604066ec2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86049996"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87071623"
 ---
 # <a name="how-to-integrate-rabbitmq-with-azure-service-bus"></a>Jak zintegrować RabbitMQ z Azure Service Bus
 
@@ -90,7 +90,7 @@ Aby można było używać tych parametrów połączenia, należy przekonwertowa�
 
 :::image type="content" source="./media/service-bus-integrate-with-rabbitmq/converter.png" alt-text="Konwertuj parametry połączenia":::
 
-Teraz otwórz wtyczkę zarządzania RabbitMQ w naszych przeglądarkach [http://localhost:15672/#/dynamic-shovels](http://localhost:15672/#/dynamic-shovels) i przejdź do `Admin -> Shovel Management` lokalizacji, w której możesz dodać nowe Shovel, które będą wymagać wysłania komunikatów z kolejki RabbitMQ do kolejki Azure Service Bus.
+Teraz otwórz wtyczkę zarządzania RabbitMQ w naszych przeglądarkach `http://localhost:15672/#/dynamic-shovels` i przejdź do `Admin -> Shovel Management` lokalizacji, w której możesz dodać nowe Shovel, które będą wymagać wysłania komunikatów z kolejki RabbitMQ do kolejki Azure Service Bus.
 
 :::image type="content" source="./media/service-bus-integrate-with-rabbitmq/add-shovel.png" alt-text="Dodaj RabbitMQ Shovel":::
 
@@ -98,7 +98,7 @@ W tym miejscu Zadzwoń do Shovel `azure` i wybierz `AMQP 0.9.1` jako protokół 
 
 Po stronie kolejki rzeczy można użyć `azure` jako nazwy kolejki. Jeśli ta kolejka nie istnieje, RabbitMQ utworzy ją. Możesz również wybrać nazwę kolejki, która już istnieje. Pozostałe opcje można pozostawić domyślnie.
 
-Następnie po `destination` stronie elementów wybierz opcję `AMQP 1.0` jako protokół. W `URI` polu wprowadź ciąg łączący, który został uzyskany z poprzedniego kroku, przeprowadzono konwersję parametrów połączenia platformy Azure do formatu RabbitMQ. Powinny wyglądać następująco:
+Następnie po `destination` stronie elementów wybierz opcję `AMQP 1.0` jako protokół. W `URI` polu wprowadź ciąg łączący, który został uzyskany z poprzedniego kroku, przeprowadzono konwersję parametrów połączenia platformy Azure do formatu RabbitMQ. Powinno ono wyglądać następująco:
 
 ```
 amqps://rabbitmq-shovel:StringOfRandomChars@rabbitmq.servicebus.windows.net:5671/?sasl=plain

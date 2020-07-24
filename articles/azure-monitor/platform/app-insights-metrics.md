@@ -7,17 +7,18 @@ ms.topic: reference
 ms.date: 07/03/2019
 ms.author: vitalyg
 ms.subservice: application-insights
-ms.openlocfilehash: 12bc51e800ef5ccd4ad3c72d3860fb22bac5b749
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ca8aa62c4119b9b0b7bbed53cf722c694696ef5b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77664919"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073575"
 ---
 # <a name="application-insights-log-based-metrics"></a>Application Insights metryki oparte na dzienniku
 
 Application Insights metryki oparte na dzienniku umożliwiają analizowanie kondycji monitorowanych aplikacji, tworzenie zaawansowanych pulpitów nawigacyjnych i Konfigurowanie alertów. Istnieją dwa rodzaje metryk:
 
-* [Metryki oparte na dziennikach](../../azure-monitor/app/pre-aggregated-metrics-log-metrics.md#log-based-metrics) są tłumaczone na [zapytania Kusto](https://docs.microsoft.com/azure/kusto/query/) z przechowywanych zdarzeń.
+* [Metryki oparte na dziennikach](../../azure-monitor/app/pre-aggregated-metrics-log-metrics.md#log-based-metrics) są tłumaczone na [zapytania Kusto](/azure/kusto/query/) z przechowywanych zdarzeń.
 * [Metryki standardowe](../../azure-monitor/app/pre-aggregated-metrics-log-metrics.md#pre-aggregated-metrics) są przechowywane jako szeregi czasowe zagregowane.
 
 Ze względu na to, że *metryki standardowe* są wstępnie agregowane podczas zbierania, mają lepszą wydajność w czasie wykonywania zapytania. Zapewnia to lepszy wybór dla pulpitów nawigacyjnych i alertów w czasie rzeczywistym. *Metryki oparte na dzienniku* mają więcej wymiarów, co sprawia, że jest to opcja najwyższej jakości do analizy danych i diagnostyki ad hoc. Użyj [selektora przestrzeni nazw](metrics-getting-started.md#create-your-first-metric-chart) , aby przełączać się między metrykami opartymi na dzienniku i standardowym w [Eksploratorze metryk](metrics-getting-started.md).

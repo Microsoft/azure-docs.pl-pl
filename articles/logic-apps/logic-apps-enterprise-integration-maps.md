@@ -8,11 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 02/06/2019
-ms.openlocfilehash: e186b9713c8464f8f37e1e0bf112c4118621925c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ff6bd1a52e05d55d43969644141f39aed8c8eb63
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75979405"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87072652"
 ---
 # <a name="transform-xml-with-maps-in-azure-logic-apps-with-enterprise-integration-pack"></a>Przekształć kod XML przy użyciu map w usłudze Azure Logic Apps z Pakietem integracyjnym dla przedsiębiorstw
 
@@ -42,7 +43,7 @@ Aby uzyskać ograniczenia dotyczące kont integracji i artefaktów, takich jak m
     | [Eksplorator usługi Azure Storage](../vs-azure-tools-storage-manage-with-storage-explorer.md) | To narzędzie pomaga łatwiej zarządzać kontami magazynu i kontenerami obiektów BLOB. Aby użyć Eksplorator usługi Storage, [Pobierz i zainstaluj Eksplorator usługi Azure Storage](https://www.storageexplorer.com/). Następnie połącz Eksplorator usługi Storage z kontem magazynu, wykonując kroki opisane w temacie [wprowadzenie do Eksplorator usługi Storage](../vs-azure-tools-storage-manage-with-storage-explorer.md). Aby dowiedzieć się więcej, zobacz [Szybki Start: Tworzenie obiektu BLOB w magazynie obiektów przy użyciu Eksplorator usługi Azure Storage](../storage/blobs/storage-quickstart-blobs-storage-explorer.md). <p>Lub w Azure Portal Znajdź i wybierz konto magazynu. W menu konto magazynu wybierz pozycję **Eksplorator usługi Storage**. |
     |||
 
-  * W przypadku map można obecnie dodawać większe mapy przy użyciu [Azure Logic Apps API REST — Maps](https://docs.microsoft.com/rest/api/logic/maps/createorupdate).
+  * W przypadku map można obecnie dodawać większe mapy przy użyciu [Azure Logic Apps API REST — Maps](/rest/api/logic/maps/createorupdate).
 
 Nie potrzebujesz aplikacji logiki podczas tworzenia i dodawania map. Jednak aby użyć mapy, aplikacja logiki wymaga połączenia z kontem integracji, w którym jest przechowywana ta mapa. Dowiedz się [, jak połączyć Aplikacje logiki z kontami integracji](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md#link-account). Jeśli nie masz jeszcze aplikacji logiki, Dowiedz się, [jak tworzyć aplikacje logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
@@ -219,7 +220,7 @@ Po przekazaniu zestawów, do których odwołuje się mapowanie, można teraz prz
 
 ### <a name="add-maps-more-than-2-mb"></a>Dodaj mapy więcej niż 2 MB
 
-Obecnie aby dodać większe mapy, użyj [Azure Logic Apps interfejsu API REST — Maps](https://docs.microsoft.com/rest/api/logic/maps/createorupdate).
+Obecnie aby dodać większe mapy, użyj [Azure Logic Apps interfejsu API REST — Maps](/rest/api/logic/maps/createorupdate).
 
 <!--
 

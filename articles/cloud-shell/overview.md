@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/03/2019
 ms.author: damaerte
-ms.openlocfilehash: 513c3da8031774f5f111ee357b5a3c43e1d09d95
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d0cfd428e1bd380d17049cbc229bb8850793056e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75832458"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073023"
 ---
 # <a name="overview-of-azure-cloud-shell"></a>Omówienie usługi Azure Cloud Shell
 Azure Cloud Shell to interaktywna, uwierzytelniona, dostępna w przeglądarce powłoka służąca do zarządzania zasobami platformy Azure.
@@ -60,15 +61,15 @@ Cloud Shell oferuje zintegrowany edytor tekstu graficznego w oparciu o Edytor Mo
 
 ### <a name="integrated-with-docsmicrosoftcom"></a>Integracja z usługą docs.microsoft.com
 
-Cloud Shell można używać bezpośrednio z dokumentacji hostowanej w witrynie [docs.Microsoft.com](https://docs.microsoft.com). Jest ona zintegrowana z usługą [Microsoft Learn](https://docs.microsoft.com/learn/), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) i [dokumentacją interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure) — kliknij przycisk "Wypróbuj" w fragmencie kodu, aby otworzyć środowisko powłoki immersyjny. 
+Cloud Shell można używać bezpośrednio z dokumentacji hostowanej w witrynie [docs.Microsoft.com](https://docs.microsoft.com). Jest ona zintegrowana z usługą [Microsoft Learn](https://docs.microsoft.com/learn/), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/) i [dokumentacją interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure) — kliknij przycisk "Wypróbuj" w fragmencie kodu, aby otworzyć środowisko powłoki immersyjny. 
 
 ### <a name="multiple-access-points"></a>Wiele punktów dostępu
 Cloud Shell to elastyczne narzędzie, które może być używane z:
 * [portal.azure.com](https://portal.azure.com)
 * [shell.azure.com](https://shell.azure.com)
 * [Dokumentacja interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure)
-* [Dokumentacja programu Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
-* [aplikacja mobilna platformy Azure](https://azure.microsoft.com/features/azure-portal/mobile-app/)
+* [Dokumentacja programu Azure PowerShell](https://docs.microsoft.com/powershell/azure/)
+* [Aplikacja mobilna platformy Azure](https://azure.microsoft.com/features/azure-portal/mobile-app/)
 * [Visual Studio Code rozszerzenie konta platformy Azure](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)
 
 ### <a name="connect-your-microsoft-azure-files-storage"></a>Łączenie magazynu plików Microsoft Azure

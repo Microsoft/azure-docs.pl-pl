@@ -15,12 +15,12 @@ ms.devlang: multiple
 ms.topic: how-to
 ms.date: 02/1/2018
 ms.author: mazha
-ms.openlocfilehash: c41e14490842068895aea383d384007f308e9e1c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 49748b3d77d097e655ee6ec5777022c038841a6d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84887677"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073121"
 ---
 # <a name="manage-expiration-of-azure-blob-storage-in-azure-cdn"></a>Zarządzanie wygaśnięciem usługi Azure Blob Storage w Azure CDN
 > [!div class="op_single_selector"]
@@ -91,9 +91,9 @@ Preferowaną metodą ustawiania nagłówka obiektu BLOB `Cache-Control` jest uż
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-[Azure PowerShell](/powershell/azure/overview) to jeden z najszybszych i najbardziej zaawansowanych sposobów administrowania usługami platformy Azure. Użyj `Get-AzStorageBlob` polecenia cmdlet, aby uzyskać odwołanie do obiektu BLOB, a następnie ustaw `.ICloudBlob.Properties.CacheControl` Właściwość. 
+[Azure PowerShell](/powershell/azure/) to jeden z najszybszych i najbardziej zaawansowanych sposobów administrowania usługami platformy Azure. Użyj `Get-AzStorageBlob` polecenia cmdlet, aby uzyskać odwołanie do obiektu BLOB, a następnie ustaw `.ICloudBlob.Properties.CacheControl` Właściwość. 
 
-Przykład:
+Na przykład:
 
 ```powershell
 # Create a storage context
@@ -117,7 +117,7 @@ $blob.ICloudBlob.SetProperties()
 ## <a name="setting-cache-control-headers-by-using-net"></a>Ustawianie nagłówków kontroli pamięci podręcznej przy użyciu platformy .NET
 Aby określić nagłówek obiektu BLOB przy `Cache-Control` użyciu kodu platformy .NET, użyj [biblioteki klienta usługi Azure Storage dla platformy .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md) , aby ustawić właściwość [polecenia cloudblob. Properties. CacheControl](/dotnet/api/microsoft.azure.storage.blob.blobproperties.cachecontrol) .
 
-Przykład:
+Na przykład:
 
 ```csharp
 class Program

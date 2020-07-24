@@ -1,14 +1,14 @@
 ---
 title: Monitorowanie delegowanych zasobów na dużą skalę
 description: Dowiedz się, jak efektywnie korzystać z dzienników Azure Monitor w sposób skalowalny dla dzierżaw klientów, którymi zarządzasz.
-ms.date: 07/07/2020
+ms.date: 07/15/2020
 ms.topic: how-to
-ms.openlocfilehash: 3be7494f929fc91e2b01bde0b4f26f7c2e4b907b
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 758437fdc7a32fd5937434ce10f16a8c792423d3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86133463"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87072716"
 ---
 # <a name="monitor-delegated-resources-at-scale"></a>Monitorowanie delegowanych zasobów na dużą skalę
 
@@ -34,10 +34,11 @@ Po ustaleniu zasad, które mają zostać wdrożone, można [je wdrożyć w ramac
 
 ## <a name="analyze-the-gathered-data"></a>Analizowanie zebranych danych
 
-Po wdrożeniu zasad dane będą rejestrowane w obszarach roboczych Log Analytics utworzonych w każdej dzierżawie klienta. Aby uzyskać szczegółowe informacje na temat wszystkich zarządzanych klientów, można użyć narzędzi, takich jak [Azure monitor skoroszyty](../../azure-monitor/platform/workbooks-overview.md) do zbierania i analizowania informacji z wielu źródeł danych.
+Po wdrożeniu zasad dane będą rejestrowane w obszarach roboczych Log Analytics utworzonych w każdej dzierżawie klienta. Aby uzyskać szczegółowe informacje na temat wszystkich zarządzanych klientów, można użyć narzędzi, takich jak [Azure monitor skoroszyty](../../azure-monitor/platform/workbooks-overview.md) do zbierania i analizowania informacji z wielu źródeł danych. 
 
 ## <a name="next-steps"></a>Następne kroki
 
+- Zapoznaj się [z skompilowanym przykładowym skoroszytem programu MVP](https://github.com/scautomation/Azure-Automation-Update-Management-Workbooks), który śledzi raportowanie zgodności poprawek, wykonując [zapytania dotyczące Update Management dzienników](../../automation/automation-update-management-query-logs.md) w wielu log Analytics obszarach roboczych. 
 - Dowiedz się więcej na temat [Azure monitor](../../azure-monitor/index.yml).
 - Dowiedz się więcej na temat [dzienników Azure monitor](../../azure-monitor/platform/data-platform-logs.md).
 - Dowiedz się więcej na temat [środowisk zarządzania między dzierżawcami](../concepts/cross-tenant-management-experience.md).

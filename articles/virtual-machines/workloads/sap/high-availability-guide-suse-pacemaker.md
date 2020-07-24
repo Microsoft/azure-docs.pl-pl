@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/24/2020
 ms.author: radeltch
-ms.openlocfilehash: ed754e3f69feaf6d5415db8f71cb5c1bb65632e0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 28e53c5ca53f5be4aafc685445e67dcf4d558773
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85368258"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073993"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Konfigurowanie Pacemaker SUSE Linux Enterprise Server na platformie Azure
 
@@ -41,7 +41,7 @@ Agent usługi Azure ogrodzenia nie wymaga wdrażania dodatkowych maszyn wirtualn
 ![Pacemaker na SLES — Omówienie](./media/high-availability-guide-suse-pacemaker/pacemaker.png)
 
 >[!IMPORTANT]
-> Podczas planowania i wdrażania klastrowanych węzłów Pacemaker i urządzeń SBD z systemem Linux należy koniecznie ogólnej niezawodności kompletnej konfiguracji klastra, którą Routing między maszynami wirtualnymi i maszyn wirtualnych obsługujących urządzenia SBD nie są przekazywane przez żadne inne urządzenia, takie jak [urządzeń WUS](https://azure.microsoft.com/solutions/network-appliances/). W przeciwnym razie problemy i zdarzenia konserwacji z urządzenie WUS mogą mieć negatywny wpływ na stabilność i niezawodność ogólnej konfiguracji klastra. Aby uniknąć takich przeszkód, nie należy definiować reguł routingu urządzeń WUS lub [reguł routingu zdefiniowanych przez użytkownika](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview) , które kierują ruch między węzłami klastrowanymi i urządzeniami SBD za poorednictwem urządzeń WUS i podobnych urządzeń podczas planowania i wdrażania węzłów klastra Pacemaker systemu Linux i urządzeń SBD. 
+> Podczas planowania i wdrażania klastrowanych węzłów Pacemaker i urządzeń SBD z systemem Linux należy koniecznie ogólnej niezawodności kompletnej konfiguracji klastra, którą Routing między maszynami wirtualnymi i maszyn wirtualnych obsługujących urządzenia SBD nie są przekazywane przez żadne inne urządzenia, takie jak [urządzeń WUS](https://azure.microsoft.com/solutions/network-appliances/). W przeciwnym razie problemy i zdarzenia konserwacji z urządzenie WUS mogą mieć negatywny wpływ na stabilność i niezawodność ogólnej konfiguracji klastra. Aby uniknąć takich przeszkód, nie należy definiować reguł routingu urządzeń WUS lub [reguł routingu zdefiniowanych przez użytkownika](../../../virtual-network/virtual-networks-udr-overview.md) , które kierują ruch między węzłami klastrowanymi i urządzeniami SBD za poorednictwem urządzeń WUS i podobnych urządzeń podczas planowania i wdrażania węzłów klastra Pacemaker systemu Linux i urządzeń SBD. 
 >
 
 ## <a name="sbd-fencing"></a>SBD ogrodzenia
@@ -583,7 +583,7 @@ Urządzenie STONITH używa nazwy głównej usługi do autoryzacji przed Microsof
 
 ### <a name="1-create-a-custom-role-for-the-fence-agent"></a>**[1]** Utwórz rolę niestandardową dla agenta ogranicznika
 
-Nazwa główna usługi nie ma uprawnień dostępu do zasobów platformy Azure domyślnie. Należy nadać uprawnienia główne usługi do uruchamiania i zatrzymywania (cofania alokacji) wszystkich maszyn wirtualnych klastra. Jeśli rola niestandardowa nie została jeszcze utworzona, możesz ją utworzyć przy użyciu [programu PowerShell](https://docs.microsoft.com/azure/role-based-access-control/custom-roles-powershell#create-a-custom-role) lub [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/azure/role-based-access-control/custom-roles-cli)
+Nazwa główna usługi nie ma uprawnień dostępu do zasobów platformy Azure domyślnie. Należy nadać uprawnienia główne usługi do uruchamiania i zatrzymywania (cofania alokacji) wszystkich maszyn wirtualnych klastra. Jeśli rola niestandardowa nie została jeszcze utworzona, możesz ją utworzyć przy użyciu [programu PowerShell](../../../role-based-access-control/custom-roles-powershell.md#create-a-custom-role) lub [interfejsu wiersza polecenia platformy Azure](../../../role-based-access-control/custom-roles-cli.md)
 
 Użyj następującej zawartości dla pliku wejściowego. Musisz dostosować zawartość do swoich subskrypcji, zastępując c276fc76-9cd4-44c9-99a7-4fd71546436e i e91d47c4-76f3-4271-a796-21b4ecfe3624 identyfikatorami subskrypcji. Jeśli masz tylko jedną subskrypcję, Usuń drugą pozycję w AssignableScopes.
 
@@ -616,7 +616,7 @@ Użyj następującej zawartości dla pliku wejściowego. Musisz dostosować zawa
 
 Przypisz rolę niestandardową "rola agenta ogranicznika systemu Linux" utworzoną w ostatnim rozdziale do jednostki usługi. Nie używaj już roli właściciela!
 
-1. Przejdź do[https://portal.azure.com](https://portal.azure.com)
+1. Przejdź na stronę [https://portal.azure.com](https://portal.azure.com)
 1. Otwórz blok wszystkie zasoby
 1. Wybierz maszynę wirtualną pierwszego węzła klastra
 1. Kliknij pozycję Kontrola dostępu (IAM)
@@ -647,11 +647,11 @@ sudo crm configure property stonith-timeout=900
 > Operacje monitorowania i ogrodzenia są deserializowane. W związku z tym, jeśli istnieje już uruchomiona operacja monitorowania i jednoczesne zdarzenie ogrodzenia, nie istnieje opóźnienie dla klastra w trybie failover z powodu już uruchomionej operacji monitorowania.
 
 > [!TIP]
->Agent usługi Azure ogrodzenia wymaga łączności wychodzącej z publicznymi punktami końcowymi zgodnie z opisem, a także z możliwymi rozwiązaniami w [publicznej łączności punktu końcowego dla maszyn wirtualnych używających standardowej ILB](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections).  
+>Agent usługi Azure ogrodzenia wymaga łączności wychodzącej z publicznymi punktami końcowymi zgodnie z opisem, a także z możliwymi rozwiązaniami w [publicznej łączności punktu końcowego dla maszyn wirtualnych używających standardowej ILB](./high-availability-guide-standard-load-balancer-outbound-connections.md).  
 
 ## <a name="pacemaker-configuration-for-azure-scheduled-events"></a>Konfiguracja Pacemaker dla zaplanowanych zdarzeń platformy Azure
 
-Platforma Azure oferuje [zaplanowane zdarzenia](https://docs.microsoft.com/azure/virtual-machines/linux/scheduled-events). Zaplanowane zdarzenia są udostępniane za pośrednictwem usługi meta-danych i umożliwiają czas przygotowania aplikacji do zdarzeń takich jak zamknięcie maszyny wirtualnej, ponowne wdrożenie maszyny wirtualnej itp. Agent zasobów **[Azure — monitorowanie zdarzeń](https://github.com/ClusterLabs/resource-agents/pull/1161)** dla zaplanowanych zdarzeń platformy Azure. Jeśli zostaną wykryte zdarzenia, Agent podejmie próbę zatrzymania wszystkich zasobów na maszynie wirtualnej, której to dotyczy, i przenieść je do innego węzła w klastrze. Aby uzyskać więcej zasobów Pacemaker, należy skonfigurować. 
+Platforma Azure oferuje [zaplanowane zdarzenia](../../linux/scheduled-events.md). Zaplanowane zdarzenia są udostępniane za pośrednictwem usługi meta-danych i umożliwiają czas przygotowania aplikacji do zdarzeń takich jak zamknięcie maszyny wirtualnej, ponowne wdrożenie maszyny wirtualnej itp. Agent zasobów **[Azure — monitorowanie zdarzeń](https://github.com/ClusterLabs/resource-agents/pull/1161)** dla zaplanowanych zdarzeń platformy Azure. Jeśli zostaną wykryte zdarzenia, Agent podejmie próbę zatrzymania wszystkich zasobów na maszynie wirtualnej, której to dotyczy, i przenieść je do innego węzła w klastrze. Aby uzyskać więcej zasobów Pacemaker, należy skonfigurować. 
 
 1. **[A]** upewnij się, że pakiet agenta **usługi Azure-Events** jest już zainstalowany i aktualny. 
 

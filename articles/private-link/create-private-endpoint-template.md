@@ -1,6 +1,6 @@
 ---
 title: Tworzenie prywatnego punktu końcowego w łączu prywatnym platformy Azure
-description: W tym przewodniku szybki start użyjesz szablonu Azure Resource Manager, aby utworzyć prywatny punkt końcowy.
+description: W tym przewodniku szybki start użyjesz szablonu Azure Resource Manager (szablon ARM), aby utworzyć prywatny punkt końcowy.
 services: private-link
 author: mblanco77
 ms.service: private-link
@@ -8,32 +8,34 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 05/26/2020
 ms.author: allensu
-ms.openlocfilehash: a60edde222a6200a0378cd8c9c4f4774da9c2e50
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9fde76b86b290e1271f408cb7810e549dd9502a8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84817971"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87071500"
 ---
-# <a name="quickstart-create-a-private-endpoint-by-using-an-azure-resource-manager-template"></a>Szybki Start: Tworzenie prywatnego punktu końcowego przy użyciu szablonu Azure Resource Manager
+# <a name="quickstart-create-a-private-endpoint-by-using-an-arm-template"></a>Szybki Start: Tworzenie prywatnego punktu końcowego przy użyciu szablonu ARM
 
-W tym przewodniku szybki start użyjesz szablonu Azure Resource Manager, aby utworzyć prywatny punkt końcowy.
+W tym przewodniku szybki start użyjesz szablonu Azure Resource Manager (szablon ARM), aby utworzyć prywatny punkt końcowy.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
 Możesz również ukończyć ten przewodnik Szybki Start przy użyciu [Azure Portal](create-private-endpoint-portal.md), [Azure PowerShell](create-private-endpoint-powershell.md)lub [interfejsu wiersza polecenia platformy Azure](create-private-endpoint-cli.md).
 
-## <a name="prerequisite"></a>Wymaganie wstępne
+Jeśli Twoje środowisko spełnia wymagania wstępne i masz doświadczenie w korzystaniu z szablonów ARM, wybierz przycisk **Wdróż na platformie Azure**. Szablon zostanie otwarty w witrynie Azure Portal.
+
+[![Wdrażanie na platformie Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-private-endpoint-sql%2Fazuredeploy.json)
+
+## <a name="prerequisites"></a>Wymagania wstępne
 
 Potrzebujesz konta platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## <a name="create-a-private-endpoint"></a>Tworzenie prywatnego punktu końcowego
+## <a name="review-the-template"></a>Przegląd szablonu
 
 Ten szablon służy do tworzenia prywatnego punktu końcowego dla wystąpienia Azure SQL Database.
 
-### <a name="review-the-template"></a>Przegląd szablonu
-
-Szablon używany w tym przewodniku szybki start pochodzi z [szablonów szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/).
+Szablon używany w tym przewodniku Szybki start jest jednym z [szablonów szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/101-private-endpoint-sql/).
 
 :::code language="json" source="~/quickstart-templates/101-private-endpoint-sql/azuredeploy.json" range="001-295" highlight="131-156":::
 
@@ -50,9 +52,9 @@ W szablonie zdefiniowano wiele zasobów platformy Azure:
 - [**Microsoft. Network/networkInterfaces**](/azure/templates/microsoft.network/networkinterfaces): interfejs sieciowy dla maszyny wirtualnej.
 - [**Microsoft. COMPUTE/virtualMachines**](/azure/templates/microsoft.compute/virtualmachines): maszyna wirtualna używana do testowania połączenia prywatnego z prywatnym punktem końcowym do wystąpienia elementu SQL Database.
 
-### <a name="deploy-the-template"></a>Wdrożenie szablonu
+## <a name="deploy-the-template"></a>Wdrożenie szablonu
 
-Poniżej przedstawiono sposób wdrażania szablonu Azure Resource Manager na platformie Azure:
+Poniżej przedstawiono sposób wdrażania szablonu ARM na platformie Azure:
 
 1. Aby zalogować się do platformy Azure i otworzyć szablon, wybierz pozycję **Wdróż na platformie Azure**. Szablon umożliwia utworzenie prywatnego punktu końcowego, wystąpienia SQL Database, infrastruktury sieciowej i maszyny wirtualnej do zweryfikowania.
 
@@ -66,7 +68,7 @@ Poniżej przedstawiono sposób wdrażania szablonu Azure Resource Manager na pla
 ## <a name="validate-the-deployment"></a>Weryfikowanie wdrożenia
 
 > [!NOTE]
-> Szablon Azure Resource Manager generuje unikatową nazwę zasobu maszyny wirtualnej myVm<b>{unikatowy}</b> i dla zasobu SQL Database SqlServer<b>{unikatowy identyfikator}</b> . Zastąp wygenerowaną wartość **{unikatowy}**.
+> Szablon ARM generuje unikatową nazwę zasobu maszyny wirtualnej myVm<b>{unikatowy}</b> i dla zasobu SQL Database SqlServer<b>{unikatowy identyfikator}</b> . Zastąp wygenerowaną wartość **{unikatowy}**.
 
 ### <a name="connect-to-a-vm-from-the-internet"></a>Nawiązywanie połączenia z maszyną wirtualną z Internetu
 
@@ -76,7 +78,7 @@ Połącz się z maszyną wirtualną _myVm {unikatowym}_ z Internetu w następuj�
 
 2. Wybierz pozycję **Połącz**. Zostanie otwarte okno **łączenie z maszyną wirtualną** .
 
-3. Wybierz opcję **Pobierz plik RDP**. Na platformie Azure zostanie utworzony plik Remote Desktop Protocol (_rdp_), który zostanie pobrany na komputer.
+3. Wybierz pozycję **Pobierz plik RDP**. Na platformie Azure zostanie utworzony plik Remote Desktop Protocol (_rdp_), który zostanie pobrany na komputer.
 
 4. Otwórz pobrany plik RDP.
 

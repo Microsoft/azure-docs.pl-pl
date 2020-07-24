@@ -4,11 +4,12 @@ description: Roześlij Azure Monitor i Application Insights dane, aby można by�
 ms.subservice: ''
 ms.topic: conceptual
 ms.date: 11/06/2017
-ms.openlocfilehash: 142e3e19c13710963d239a75bc237b63713c29cc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 23bba091628eee767fbf292a8a8d772ffab674cb
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77672212"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073468"
 ---
 # <a name="monitor-your-azure-services-in-grafana"></a>Monitorowanie usług platformy Azure w Grafana
 Teraz możesz monitorować usługi i aplikacje platformy Azure z [Grafana](https://grafana.com/) przy użyciu [wtyczki źródła danych Azure monitor](https://grafana.com/plugins/grafana-azure-monitor-datasource). Wtyczka zbiera dane wydajności aplikacji zebrane przez Azure Monitor, w tym różne dzienniki i metryki. Następnie można wyświetlić te dane na pulpicie nawigacyjnym Grafana.
@@ -23,7 +24,7 @@ Aby skonfigurować lokalny serwer Grafana, [Pobierz i zainstaluj Grafana w środ
 ### <a name="set-up-grafana-on-azure-through-the-azure-marketplace"></a>Konfigurowanie Grafana na platformie Azure za pomocą witryny Azure Marketplace
 1. Przejdź do witryny Azure Marketplace i wybierz pozycję Grafanae przez Grafana Labs.
 
-2. Wprowadź nazwy i szczegóły. Utwórz nową grupę zasobów. Śledź wartości wybrane dla nazwy użytkownika maszyny wirtualnej, hasła maszyny wirtualnej i hasła administratora serwera Grafana.  
+2. Wprowadź nazwy i szczegóły. Tworzenie nowej grupy zasobów Śledź wartości wybrane dla nazwy użytkownika maszyny wirtualnej, hasła maszyny wirtualnej i hasła administratora serwera Grafana.  
 
 3. Wybierz rozmiar maszyny wirtualnej i konto magazynu.
 
@@ -58,9 +59,9 @@ Po pomyślnym zalogowaniu powinna zostać wyświetlona, że wtyczka Azure Monito
 2. Wybierz nazwę źródła danych i wybierz **Azure monitor** jako typ z listy rozwijanej.
 
 3. Tworzenie jednostki usługi — Grafana używa jednostki usługi Azure Active Directory do nawiązywania połączenia z interfejsami API Azure Monitor i zbierania danych. Aby zarządzać dostępem do zasobów platformy Azure, należy utworzyć lub użyć istniejącej nazwy głównej usługi.
-    * Zapoznaj się z [tymi instrukcjami](../../azure-resource-manager/resource-group-create-service-principal-portal.md) , aby utworzyć nazwę główną usługi. Skopiuj i Zapisz identyfikator dzierżawy (identyfikator katalogu), identyfikator klienta (Identyfikator aplikacji) i klucz tajny klienta (wartość klucza aplikacji).
-    * Aby przypisać rolę czytnika do aplikacji Azure Active Directory w ramach subskrypcji, grupy zasobów lub zasobu, który ma być monitorowany, zobacz [przypisywanie aplikacji do roli](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal) . 
-    Interfejs API Log Analytics wymaga [roli czytnika log Analytics](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#log-analytics-reader), która obejmuje uprawnienia roli czytnika i dodaje do niej.
+    * Zapoznaj się z [tymi instrukcjami](../../active-directory/develop/howto-create-service-principal-portal.md) , aby utworzyć nazwę główną usługi. Skopiuj i Zapisz identyfikator dzierżawy (identyfikator katalogu), identyfikator klienta (Identyfikator aplikacji) i klucz tajny klienta (wartość klucza aplikacji).
+    * Aby przypisać rolę czytnika do aplikacji Azure Active Directory w ramach subskrypcji, grupy zasobów lub zasobu, który ma być monitorowany, zobacz [przypisywanie aplikacji do roli](../../active-directory/develop/howto-create-service-principal-portal.md) . 
+    Interfejs API Log Analytics wymaga [roli czytnika log Analytics](../../role-based-access-control/built-in-roles.md#log-analytics-reader), która obejmuje uprawnienia roli czytnika i dodaje do niej.
 
 4. Podaj szczegóły połączenia z interfejsami API, których chcesz użyć. Możesz połączyć się ze wszystkimi lub z innymi. 
     * W przypadku nawiązywania połączenia z metrykami i dziennikami w Azure Monitor można użyć tych samych poświadczeń, wybierając **te same szczegóły co Azure monitor interfejs API**.
@@ -158,4 +159,3 @@ Jeśli skonfigurowano środowisko Grafana na platformie Azure, opłaty są nalic
 
 ## <a name="next-steps"></a>Następne kroki
 * [Przegląd metryk Azure Monitor](data-platform.md)
-

@@ -3,16 +3,16 @@ title: Zarządzanie kopią zapasową udziału plików platformy Azure za pomocą
 description: Dowiedz się, jak używać interfejsu API REST do zarządzania udziałami plików platformy Azure, których kopie zapasowe są tworzone przez Azure Backup.
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.openlocfilehash: 1e1d3463aa5d6ee10782e2ee17a7c17ffd64cb61
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c4d1ee187fd1c45dfd043b28c0d4b3d5935f50e1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82184915"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073245"
 ---
 # <a name="manage-azure-file-share-backup-with-rest-api"></a>Zarządzanie kopią zapasową udziału plików platformy Azure za pomocą interfejsu API REST
 
-W tym artykule opisano sposób wykonywania zadań związanych z zarządzaniem udziałami plików platformy Azure, których kopie zapasowe są tworzone przez [Azure Backup](https://docs.microsoft.com/azure/backup/backup-overview).
+W tym artykule opisano sposób wykonywania zadań związanych z zarządzaniem udziałami plików platformy Azure, których kopie zapasowe są tworzone przez [Azure Backup](./backup-overview.md).
 
 ## <a name="monitor-jobs"></a>Monitorowanie zadań
 
@@ -38,7 +38,7 @@ Na przykład ostateczną odpowiedzią operacji [interfejsu API Rest tworzenia ko
 }
 ```
 
-Zadanie tworzenia kopii zapasowej udziału plików platformy Azure jest identyfikowane za pomocą pola **jobId** i może być śledzone w sposób opisany w [tym miejscu](https://docs.microsoft.com/rest/api/backup/jobdetails/) przy użyciu żądania GET.
+Zadanie tworzenia kopii zapasowej udziału plików platformy Azure jest identyfikowane za pomocą pola **jobId** i może być śledzone w sposób opisany w [tym miejscu](/rest/api/backup/jobdetails/) przy użyciu żądania GET.
 
 ### <a name="tracking-the-job"></a>Śledzenie zadania
 
@@ -190,7 +190,7 @@ GET https://management.azure.com/Subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af
 
 ## <a name="stop-protection-and-delete-data"></a>Zatrzymywanie ochrony i usuwanie danych
 
-Aby usunąć ochronę chronionego udziału plików i usunąć również dane kopii zapasowej, wykonaj operację usuwania w sposób opisany [tutaj](https://docs.microsoft.com/rest/api/backup/protecteditems/delete).
+Aby usunąć ochronę chronionego udziału plików i usunąć również dane kopii zapasowej, wykonaj operację usuwania w sposób opisany [tutaj](/rest/api/backup/protecteditems/delete).
 
 ```http
 DELETE https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}?api-version=2019-05-13

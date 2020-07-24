@@ -5,12 +5,12 @@ ms.assetid: e224fc4f-800d-469a-8d6a-72bcde612450
 ms.topic: article
 ms.date: 04/30/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 17ba8f5bbbf0ac17e0ccb6881379a511afc7c1c3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 19a7bc70bd782f9b684cb48672147f5009e4a08f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85833276"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073858"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Konfigurowanie środowisk przejściowych w usłudze Azure App Service
 <a name="Overview"></a>
@@ -262,7 +262,7 @@ Aby umożliwić użytkownikom zrezygnowanie z aplikacji w wersji beta, można na
 
 Ciąg `x-ms-routing-name=self` określa miejsce produkcyjne. Po uzyskaniu dostępu do linku przez przeglądarkę klienta zostanie on przekierowany do miejsca produkcyjnego. Każde kolejne żądanie zawiera `x-ms-routing-name=self` plik cookie, który przypina sesję do miejsca produkcyjnego.
 
-Aby umożliwić użytkownikom dołączanie do aplikacji w wersji beta, należy ustawić ten sam parametr zapytania na nazwę gniazda nieprodukcyjnego. Przykład:
+Aby umożliwić użytkownikom dołączanie do aplikacji w wersji beta, należy ustawić ten sam parametr zapytania na nazwę gniazda nieprodukcyjnego. Oto przykład:
 
 ```
 <webappname>.azurewebsites.net/?x-ms-routing-name=staging
@@ -288,10 +288,10 @@ Wyszukaj i wybierz aplikację. Wybierz pozycję Omówienie **miejsc wdrożenia**
 
 Azure PowerShell to moduł, który udostępnia polecenia cmdlet do zarządzania platformą Azure za pomocą programu Windows PowerShell, w tym obsługę zarządzania miejscami wdrożenia w programie Azure App Service.
 
-Informacje o instalowaniu i konfigurowaniu Azure PowerShell oraz o uwierzytelnianiu Azure PowerShell z subskrypcją platformy Azure znajdują się w temacie [How to Install and configure Microsoft Azure PowerShell](/powershell/azure/overview).  
+Informacje o instalowaniu i konfigurowaniu Azure PowerShell oraz o uwierzytelnianiu Azure PowerShell z subskrypcją platformy Azure znajdują się w temacie [How to Install and configure Microsoft Azure PowerShell](/powershell/azure/).  
 
 ---
-### <a name="create-a-web-app"></a>Tworzenie aplikacji internetowej
+### <a name="create-a-web-app"></a>tworzenie aplikacji internetowej
 ```powershell
 New-AzWebApp -ResourceGroupName [resource group name] -Name [app name] -Location [location] -AppServicePlan [app service plan name]
 ```

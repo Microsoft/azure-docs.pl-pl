@@ -15,22 +15,22 @@ ms.workload: infrastructure
 ms.date: 06/30/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c553b3508b56245be166afcdb4cb5a6c7520b271
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: c1e0efc2c64a1cbdcc2c83c019f7743406054afe
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85857110"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074023"
 ---
 # <a name="sap-hana-azure-virtual-machine-storage-configurations"></a>Konfiguracje magazynu maszyn wirtualnych platformy Azure SAP HANA
 
 Platforma Azure oferuje różne typy magazynów, które są odpowiednie dla maszyn wirtualnych platformy Azure z systemem SAP HANA. **SAP HANA certyfikowane typy magazynów platformy Azure** , które mogą być brane pod uwagę w przypadku list wdrożeń SAP HANA, takich jak: 
 
 - Dysk SSD Azure Premium lub Premium Storage 
-- [Dysk w warstwie Ultra](https://docs.microsoft.com/azure/virtual-machines/linux/disks-enable-ultra-ssd)
+- [Dysk w warstwie Ultra](../../linux/disks-enable-ultra-ssd.md)
 - [Azure NetApp Files](https://azure.microsoft.com/services/netapp/) 
 
-Aby dowiedzieć się więcej o tych typach dysków, zapoznaj się z artykułem [typy magazynów Azure dla obciążeń SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide-storage) i [Wybierz typ dysku](https://docs.microsoft.com/azure/virtual-machines/linux/disks-types)
+Aby dowiedzieć się więcej o tych typach dysków, zapoznaj się z artykułem [typy magazynów Azure dla obciążeń SAP](./planning-guide-storage.md) i [Wybierz typ dysku](../../linux/disks-types.md)
 
 Platforma Azure oferuje dwie metody wdrażania dysków VHD w usłudze Azure Standard i Premium Storage. Oczekujemy, że korzystasz z [dysku zarządzanego na platformie Azure](https://azure.microsoft.com/services/managed-disks/) na potrzeby wdrożeń magazynu blokowego platformy Azure. 
 
@@ -42,7 +42,7 @@ Aby uzyskać listę typów magazynu i ich umowy SLA w przypadku operacji we/wy i
 
 Minimalny SAP HANA warunki certyfikowania dla różnych typów magazynu to: 
 
-- Usługa Azure Premium Storage — **/Hana/log** jest wymagana do obsługi przez usługę Azure [Akcelerator zapisu](https://docs.microsoft.com/azure/virtual-machines/linux/how-to-enable-write-accelerator). Wolumin **/Hana/Data** może być umieszczony w magazynie w warstwie Premium bez systemu Azure akcelerator zapisu lub na dysku Ultra Disk
+- Usługa Azure Premium Storage — **/Hana/log** jest wymagana do obsługi przez usługę Azure [Akcelerator zapisu](../../linux/how-to-enable-write-accelerator.md). Wolumin **/Hana/Data** może być umieszczony w magazynie w warstwie Premium bez systemu Azure akcelerator zapisu lub na dysku Ultra Disk
 - Platforma Azure Ultra Disk co najmniej dla woluminu **/Hana/log** . Wolumin **/Hana/Data** można umieścić w usłudze Premium Storage bez systemu Azure akcelerator zapisu lub w celu szybszego ponownego uruchomienia komputera
 - Woluminy **NFS v 4.1** na Azure NetApp Files dla **/Hana/log i/Hana/Data**. Wolumin/Hana/Shared może korzystać z protokołu NFS v3 lub NFS v 4.1
 
@@ -59,8 +59,8 @@ Uwzględniając, że niskie opóźnienie magazynu ma krytyczne znaczenie dla sys
 
 Niektóre zasady dotyczące identyfikatorów w ramach wybierania konfiguracji magazynu dla platformy HANA można wymienić na takie:
 
-- Wybieranie typu magazynu w oparciu o [typy magazynów platformy Azure dla obciążenia SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide-storage) i [Wybierz typ dysku](https://docs.microsoft.com/azure/virtual-machines/linux/disks-types)
-- Ogólna przepustowość operacji we/wy maszyny wirtualnej i limity liczby operacji wejścia/wyjścia na sekundę podczas ustalania rozmiarów lub podejmowania decyzji dotyczących maszyny wirtualnej. Ogólna przepływność magazynu maszyn wirtualnych jest udokumentowana w [rozmiarze artykułu zoptymalizowanego pod kątem pamięci](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-memory)
+- Wybieranie typu magazynu w oparciu o [typy magazynów platformy Azure dla obciążenia SAP](./planning-guide-storage.md) i [Wybierz typ dysku](../../linux/disks-types.md)
+- Ogólna przepustowość operacji we/wy maszyny wirtualnej i limity liczby operacji wejścia/wyjścia na sekundę podczas ustalania rozmiarów lub podejmowania decyzji dotyczących maszyny wirtualnej. Ogólna przepływność magazynu maszyn wirtualnych jest udokumentowana w [rozmiarze artykułu zoptymalizowanego pod kątem pamięci](../../sizes-memory.md)
 - Podczas decydowania o konfiguracji magazynu spróbuj utrzymać się poniżej ogólnej przepływności maszyny wirtualnej przy użyciu konfiguracji woluminu **/Hana/Data** . Pisanie punktów zapisu, SAP HANA może być agresywne wydawanie I/OS. Podczas pisania punktu zapisu można łatwo wypchnąć do limitów przepływności woluminu **/Hana/Data** . Jeśli dyski, które kompilują wolumin **/Hana/Data** , mają wyższą przepływność niż zezwala na korzystanie z maszyny wirtualnej, można wypróbować sytuacje, w których przepływność wykorzystywana przez zapis punktu zapisu jest zakłócał wymagania dotyczące przepływności w zapisie dziennika wykonaj ponownie. Sytuacja, która może mieć wpływ na przepływność aplikacji
 - W przypadku korzystania z usługi Azure Premium Storage najtańsza konfiguracja polega na użyciu menedżerów woluminów logicznych do kompilowania zestawów rozłożonych w celu kompilowania woluminów **/Hana/Data** i **/Hana/log**
 
@@ -75,7 +75,7 @@ System Linux ma kilka różnych trybów planowania operacji we/wy. Typowym zalec
 Usługa Azure akcelerator zapisu to funkcja dostępna wyłącznie dla maszyn wirtualnych z serii M platformy Azure. Podobnie jak w przypadku nazw, celem funkcji jest poprawa opóźnień operacji we/wy w usłudze Azure Premium Storage. W przypadku SAP HANA akcelerator zapisu powinna być używana tylko w odniesieniu do woluminu **/Hana/log** . W związku z tym **/Hana/Data** i **/Hana/log** to oddzielne woluminy z platformą Azure akcelerator zapisu obsługują tylko wolumin **/Hana/log** . 
 
 > [!IMPORTANT]
-> W przypadku korzystania z usługi Azure Premium Storage użycie usługi Azure [Akcelerator zapisu](https://docs.microsoft.com/azure/virtual-machines/linux/how-to-enable-write-accelerator) dla woluminu **/Hana/log** jest obowiązkowe. Akcelerator zapisu jest dostępny tylko dla maszyn wirtualnych w warstwie Premium i serii M i serii Mv2. Akcelerator zapisu nie działa w połączeniu z innymi rodzinami maszyn wirtualnych platformy Azure, takimi jak Esv3 lub Edsv4.
+> W przypadku korzystania z usługi Azure Premium Storage użycie usługi Azure [Akcelerator zapisu](../../linux/how-to-enable-write-accelerator.md) dla woluminu **/Hana/log** jest obowiązkowe. Akcelerator zapisu jest dostępny tylko dla maszyn wirtualnych w warstwie Premium i serii M i serii Mv2. Akcelerator zapisu nie działa w połączeniu z innymi rodzinami maszyn wirtualnych platformy Azure, takimi jak Esv3 lub Edsv4.
 
 Zalecenia dotyczące buforowania dla dysków z systemem Azure Premium są zakładane przy założeniu, że charakterystyk we/wy SAP HANA tej listy:
 
@@ -111,7 +111,7 @@ Gromadzenie wielu wirtualnych dysków twardych platformy Azure pod zestawem roz�
 
 
 ### <a name="azure-burst-functionality-for-premium-storage"></a>Azure w warstwie Premium Storage
-W przypadku dysków usługi Azure Premium Storage o rozmiarze mniejszym lub równym 512 GiB jest oferowana funkcja pojemności. Dokładny sposób działania tworzenia [serii dysków w artykule.](https://docs.microsoft.com/azure/virtual-machines/linux/disk-bursting) Po przeczytaniu artykułu rozumiesz koncepcję naliczania liczby operacji we/wy i przepływności w czasie, gdy obciążenie wejścia/wyjścia jest poniżej wartości nominalnych IOPS i przepływności dysków (Aby uzyskać szczegółowe informacje na temat nominalnej przepływności, zobacz [Cennik dysku zarządzanego](https://azure.microsoft.com/pricing/details/managed-disks/)). Nastąpi naliczanie różnic między bieżącym użyciem a wartością nominalną dysku. Liczby serii są ograniczone do maksymalnie 30 minut.
+W przypadku dysków usługi Azure Premium Storage o rozmiarze mniejszym lub równym 512 GiB jest oferowana funkcja pojemności. Dokładny sposób działania tworzenia [serii dysków w artykule.](../../linux/disk-bursting.md) Po przeczytaniu artykułu rozumiesz koncepcję naliczania liczby operacji we/wy i przepływności w czasie, gdy obciążenie wejścia/wyjścia jest poniżej wartości nominalnych IOPS i przepływności dysków (Aby uzyskać szczegółowe informacje na temat nominalnej przepływności, zobacz [Cennik dysku zarządzanego](https://azure.microsoft.com/pricing/details/managed-disks/)). Nastąpi naliczanie różnic między bieżącym użyciem a wartością nominalną dysku. Liczby serii są ograniczone do maksymalnie 30 minut.
 
 Idealnymi przypadkami, w których można zaplanować tę funkcję, jest prawdopodobnie woluminy lub dyski zawierające pliki danych dla różnych systemów DBMS. Obciążenie we/wy oczekiwane na te woluminy, zwłaszcza w przypadku systemów z małym i średnim zakresem, powinny wyglądać następująco:
 
@@ -133,7 +133,7 @@ Szczególnie w przypadku mniejszych systemów DBMS, w których obciążenie obs�
 > Certyfikat SAP HANA dla maszyn wirtualnych z serii M systemu Azure jest oparty wyłącznie na platformie Azure akcelerator zapisu dla woluminu **/Hana/log** . W efekcie scenariusz produkcyjny SAP HANA wdrożenia na maszynach wirtualnych z serii M na platformie Azure powinien zostać skonfigurowany za pomocą usługi Azure akcelerator zapisu dla woluminu **/Hana/log** .  
 
 > [!NOTE]
-> W scenariuszach obejmujących usługę Azure Premium Storage wdrażamy możliwości serii w konfiguracji. W miarę jak narzędzia do testowania magazynu dla dowolnego kształtu lub formularza, należy pamiętać, że działanie dotyczące tworzenia [dysków w warstwie Premium platformy Azure](https://docs.microsoft.com/azure/virtual-machines/linux/disk-bursting) jest zgodne. W przypadku uruchamiania testów magazynu dostarczonych za pomocą narzędzia SAP HWCCT lub HCMT nie oczekujemy, że wszystkie testy przechodzą kryteria, ponieważ niektóre testy przekroczą kredyty na rozerwanie, które można gromadzić. Szczególnie wtedy, gdy wszystkie testy działają sekwencyjnie bez przerwy.
+> W scenariuszach obejmujących usługę Azure Premium Storage wdrażamy możliwości serii w konfiguracji. W miarę jak narzędzia do testowania magazynu dla dowolnego kształtu lub formularza, należy pamiętać, że działanie dotyczące tworzenia [dysków w warstwie Premium platformy Azure](../../linux/disk-bursting.md) jest zgodne. W przypadku uruchamiania testów magazynu dostarczonych za pomocą narzędzia SAP HWCCT lub HCMT nie oczekujemy, że wszystkie testy przechodzą kryteria, ponieważ niektóre testy przekroczą kredyty na rozerwanie, które można gromadzić. Szczególnie wtedy, gdy wszystkie testy działają sekwencyjnie bez przerwy.
 
 
 > [!NOTE]
@@ -194,9 +194,9 @@ W przypadku innych woluminów konfiguracja będzie wyglądać następująco:
 
 Sprawdź, czy przepływność magazynu dla różnych sugerowanych woluminów spełnia obciążenie, które chcesz uruchomić. Jeśli obciążenie wymaga wyższych woluminów dla **/Hana/Data** i **/Hana/log**, należy zwiększyć liczbę wirtualnych dysków twardych usługi Azure Premium Storage. Ustalanie wielkości woluminu o większej liczbie dysków VHD nie powoduje zwiększenia przepływności operacji we/wy w ramach limitów typu maszyny wirtualnej platformy Azure.
 
-Usługa Azure akcelerator zapisu działa tylko w połączeniu z usługą [Azure Managed disks](https://azure.microsoft.com/services/managed-disks/). Dlatego co najmniej dyski usługi Azure Premium Storage tworzące wolumin **/Hana/log** muszą zostać wdrożone jako dyski zarządzane. Więcej szczegółowych instrukcji i ograniczeń dotyczących usługi Azure akcelerator zapisu można znaleźć w artykule [Akcelerator zapisu](https://docs.microsoft.com/azure/virtual-machines/linux/how-to-enable-write-accelerator).
+Usługa Azure akcelerator zapisu działa tylko w połączeniu z usługą [Azure Managed disks](https://azure.microsoft.com/services/managed-disks/). Dlatego co najmniej dyski usługi Azure Premium Storage tworzące wolumin **/Hana/log** muszą zostać wdrożone jako dyski zarządzane. Więcej szczegółowych instrukcji i ograniczeń dotyczących usługi Azure akcelerator zapisu można znaleźć w artykule [Akcelerator zapisu](../../linux/how-to-enable-write-accelerator.md).
 
-Dla certyfikowanych maszyn wirtualnych platformy Azure [Esv3](https://docs.microsoft.com/azure/virtual-machines/ev3-esv3-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json#esv3-series) Family i [Edsv4](https://docs.microsoft.com/azure/virtual-machines/edv4-edsv4-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json#edsv4-series)należy ANF dla woluminu **/Hana/Data** i **/Hana/log** . Lub musisz użyć usługi Azure Ultra Disk Storage zamiast magazynu Azure Premium Storage tylko dla woluminu **/Hana/log** . W związku z tym konfiguracje woluminu **/Hana/Data** w usłudze Azure Premium Storage mogą wyglądać następująco:
+Dla certyfikowanych maszyn wirtualnych platformy Azure [Esv3](../../ev3-esv3-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json#esv3-series) Family i [Edsv4](../../edv4-edsv4-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json#edsv4-series)należy ANF dla woluminu **/Hana/Data** i **/Hana/log** . Lub musisz użyć usługi Azure Ultra Disk Storage zamiast magazynu Azure Premium Storage tylko dla woluminu **/Hana/log** . W związku z tym konfiguracje woluminu **/Hana/Data** w usłudze Azure Premium Storage mogą wyglądać następująco:
 
 | Jednostka SKU maszyny wirtualnej | Pamięć RAM | Maksymalnie z WE/WY MASZYNY WIRTUALNEJ<br /> Przepływność | /hana/data | Maksymalna przepływność serii | Liczba operacji we/wy na sekundę | Operacje we/wy na sekundę |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -218,7 +218,7 @@ W przypadku innych woluminów, w tym **/Hana/log** na obudowie Ultra Disk, konfi
 
 
 ## <a name="azure-ultra-disk-storage-configuration-for-sap-hana"></a>Konfiguracja usługi Azure Ultra Disk Storage dla SAP HANA
-Inny typ magazynu platformy Azure nosi nazwę [Azure Ultra Disk](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#ultra-disk). Istotna różnica między usługą Azure Storage zaoferowana do tej pory i niezwykle dyskiem oznacza, że możliwości dysków nie są już powiązane z rozmiarem dysku. Jako klient można zdefiniować te możliwości dla Ultra Disk:
+Inny typ magazynu platformy Azure nosi nazwę [Azure Ultra Disk](../../windows/disks-types.md#ultra-disk). Istotna różnica między usługą Azure Storage zaoferowana do tej pory i niezwykle dyskiem oznacza, że możliwości dysków nie są już powiązane z rozmiarem dysku. Jako klient można zdefiniować te możliwości dla Ultra Disk:
 
 - Rozmiar dysku z zakresu od 4 GiB do 65 536 GiB
 - Zakres IOPS z 100 operacji we/wy na sekundę (wartość maksymalna zależy również od typów maszyn wirtualnych)
@@ -229,7 +229,7 @@ Niezwykle dysk daje możliwość zdefiniowania jednego dysku, który spełnia ro
 Inne zalety korzystania z programu Ultra Disk mogą być lepszym opóźnieniem odczytu w porównaniu do magazynu w warstwie Premium. Szybsze odczyty mogą mieć zalety, gdy chcesz zmniejszyć czasy uruchamiania platformy HANA i kolejne obciążenie danymi do pamięci. Zalety magazynu Ultra Disk można również wypróbować, gdy HANA zapisuje punktów zapisu. 
 
 > [!NOTE]
-> Niezwykle dysk nie jest jeszcze obecny we wszystkich regionach świadczenia usługi Azure i nie obsługuje jeszcze wszystkich typów maszyn wirtualnych wymienionych poniżej. Aby uzyskać szczegółowe informacje o tym, gdzie jest dostępna funkcja Ultra Disk i które rodziny maszyn wirtualnych są obsługiwane, zobacz artykuł [jakie typy dysków są dostępne na platformie Azure?](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#ultra-disk).
+> Niezwykle dysk nie jest jeszcze obecny we wszystkich regionach świadczenia usługi Azure i nie obsługuje jeszcze wszystkich typów maszyn wirtualnych wymienionych poniżej. Aby uzyskać szczegółowe informacje o tym, gdzie jest dostępna funkcja Ultra Disk i które rodziny maszyn wirtualnych są obsługiwane, zobacz artykuł [jakie typy dysków są dostępne na platformie Azure?](../../windows/disks-types.md#ultra-disk).
 
 ### <a name="production-recommended-storage-solution-with-pure-ultra-disk-configuration"></a>Zalecane rozwiązanie do produkcji magazynu z czystym konfiguracją Ultra Disk
 W tej konfiguracji należy osobno przechowywać woluminy **/Hana/Data** i **/Hana/log** . Sugerowane wartości są wyprowadzane z kluczowych wskaźników wydajności, które SAP muszą certyfikowanie typów maszyn wirtualnych dla konfiguracji SAP HANA i magazynu zgodnie z zaleceniami w [dokumentacji magazynu SAP TDI](https://www.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html).
@@ -272,10 +272,10 @@ Rozważając Azure NetApp Files dla oprogramowania SAP NetWeaver i SAP HANA, nal
 
 - Minimalna Pula pojemności to 4 TiB.  
 - Minimalny rozmiar woluminu to 100 GiB
-- Azure NetApp Files i wszystkie maszyny wirtualne, w których zostaną zainstalowane woluminy Azure NetApp Files, muszą znajdować się w tej samej Virtual Network platformy Azure lub w [równorzędnych sieciach wirtualnych](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) w tym samym regionie.  
+- Azure NetApp Files i wszystkie maszyny wirtualne, w których zostaną zainstalowane woluminy Azure NetApp Files, muszą znajdować się w tej samej Virtual Network platformy Azure lub w [równorzędnych sieciach wirtualnych](../../../virtual-network/virtual-network-peering-overview.md) w tym samym regionie.  
 - Wybrana Sieć wirtualna musi mieć podsieć delegowaną do Azure NetApp Files.
-- Przepływność woluminu NetApp Azure to funkcja limitu przydziału woluminu i poziomu usługi, zgodnie z opisem w obszarze [poziom usług dla Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-service-levels). Podczas ustalania wielkości woluminów platformy Azure NetApp, upewnij się, że przepływność spełnia wymagania systemowe HANA.  
-- Azure NetApp Files oferuje [zasady eksportowania](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-configure-export-policy): można kontrolować dozwolonych klientów, typ dostępu (odczyt&zapis, tylko do odczytu itp.). 
+- Przepływność woluminu NetApp Azure to funkcja limitu przydziału woluminu i poziomu usługi, zgodnie z opisem w obszarze [poziom usług dla Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-service-levels.md). Podczas ustalania wielkości woluminów platformy Azure NetApp, upewnij się, że przepływność spełnia wymagania systemowe HANA.  
+- Azure NetApp Files oferuje [zasady eksportowania](../../../azure-netapp-files/azure-netapp-files-configure-export-policy.md): można kontrolować dozwolonych klientów, typ dostępu (odczyt&zapis, tylko do odczytu itp.). 
 - Funkcja Azure NetApp Files nie jest jeszcze dostępna dla strefy. Obecnie Azure NetApp Files funkcja nie jest wdrażana we wszystkich strefach dostępności w regionie świadczenia usługi Azure. Weź pod uwagę potencjalne konsekwencje opóźnienia w niektórych regionach świadczenia usługi Azure.  
 - Ważne jest, aby maszyny wirtualne wdrożone w pobliżu usługi Azure NetApp Storage w małych opóźnieniach. 
 - Identyfikator użytkownika dla identyfikatora <b>SID</b>adm i identyfikator grupy dla `sapsys` maszyn wirtualnych muszą być zgodne z konfiguracją w Azure NetApp Files. 
@@ -288,7 +288,7 @@ Rozważając Azure NetApp Files dla oprogramowania SAP NetWeaver i SAP HANA, nal
 
 ### <a name="sizing-for-hana-database-on-azure-netapp-files"></a>Ustalanie wielkości dla bazy danych HANA na Azure NetApp Files
 
-Przepływność woluminu NetApp Azure to funkcja rozmiaru woluminu i poziomu usługi, zgodnie z opisem w obszarze [poziom usług dla Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-service-levels). 
+Przepływność woluminu NetApp Azure to funkcja rozmiaru woluminu i poziomu usługi, zgodnie z opisem w obszarze [poziom usług dla Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-service-levels.md). 
 
 Podczas projektowania infrastruktury dla oprogramowania SAP na platformie Azure należy pamiętać o minimalnych wymaganiach dotyczących przepływności magazynu przez oprogramowanie SAP, które przekładają się na minimalne charakterystyki przepływności:
 
@@ -296,12 +296,12 @@ Podczas projektowania infrastruktury dla oprogramowania SAP na platformie Azure 
 - Włącz działanie odczytu przez co najmniej 400 MB/s dla **/Hana/Data** dla 16 mb i 64 MB we/wy  
 - Włącz działanie zapisu przez co najmniej 250 MB/s dla **/Hana/Data** z 16 mb i 64 MB we/wy  
 
-[Limity przepływności Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-service-levels) na 1 TIB przydziału woluminu są następujące:
+[Limity przepływności Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-service-levels.md) na 1 TIB przydziału woluminu są następujące:
 - Warstwa magazynu Premium — 64 MiB/s  
 - Warstwa Ultra Storage — 128 MiB/s  
 
 > [!IMPORTANT]
-> Niezależna od pojemności wdrożonej na pojedynczym woluminie systemu plików NFS przepływność oczekuje na Plateau w zakresie przepustowości 1,2-1.4 GB/s wykorzystanej przez odbiorcę na maszynie wirtualnej. Należy to zrobić z podstawową architekturą oferty ANF i powiązanymi limitami sesji systemu Linux w systemie plików NFS. Numery wydajności i przepływności zgodnie z opisem w artykule [wyniki testów porównawczych wydajności artykułu dla Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/performance-benchmarks-linux) zostały wykonane na jednym udostępnionym woluminie NFS z wieloma maszynami wirtualnymi klienta i w wyniku wielu sesji. Ten scenariusz jest różny dla scenariusza, który mierzę w oprogramowaniu SAP. Gdzie mierzy przepływność z pojedynczej maszyny wirtualnej do woluminu systemu plików NFS. hostowane w witrynie ANF.
+> Niezależna od pojemności wdrożonej na pojedynczym woluminie systemu plików NFS przepływność oczekuje na Plateau w zakresie przepustowości 1,2-1.4 GB/s wykorzystanej przez odbiorcę na maszynie wirtualnej. Należy to zrobić z podstawową architekturą oferty ANF i powiązanymi limitami sesji systemu Linux w systemie plików NFS. Numery wydajności i przepływności zgodnie z opisem w artykule [wyniki testów porównawczych wydajności artykułu dla Azure NetApp Files](../../../azure-netapp-files/performance-benchmarks-linux.md) zostały wykonane na jednym udostępnionym woluminie NFS z wieloma maszynami wirtualnymi klienta i w wyniku wielu sesji. Ten scenariusz jest różny dla scenariusza, który mierzę w oprogramowaniu SAP. Gdzie mierzy przepływność z pojedynczej maszyny wirtualnej do woluminu systemu plików NFS. hostowane w witrynie ANF.
 
 W celu spełnienia minimalnych wymagań dotyczących przepływności SAP dla danych i dziennika, a zgodnie z wytycznymi dla `/hana/shared` , zalecane rozmiary będą wyglądać następująco:
 
@@ -320,10 +320,10 @@ W związku z tym można rozważyć wdrożenie podobnej przepływności dla wolum
 > [!TIP]
 > Woluminy Azure NetApp Files można zmieniać dynamicznie, bez konieczności stosowania `unmount` woluminów, zatrzymywać maszyny wirtualne lub zatrzymywać SAP HANA. Dzięki temu można elastycznie spełnić wymagania dotyczące przepływności aplikacji zarówno w oczekiwany sposób, jak i nieprzewidziane.
 
-Dokumentacja dotycząca sposobu wdrażania SAP HANA skalowania w poziomie za pomocą węzła rezerwy przy użyciu woluminów NFS w wersji 4.1, które są hostowane w ANF, jest publikowana w [SAP HANA skalowanie w poziomie za pomocą węzła gotowości na maszynach wirtualnych platformy Azure z Azure NetApp Files na SUSE Linux Enterprise Server](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse).
+Dokumentacja dotycząca sposobu wdrażania SAP HANA skalowania w poziomie za pomocą węzła rezerwy przy użyciu woluminów NFS w wersji 4.1, które są hostowane w ANF, jest publikowana w [SAP HANA skalowanie w poziomie za pomocą węzła gotowości na maszynach wirtualnych platformy Azure z Azure NetApp Files na SUSE Linux Enterprise Server](./sap-hana-scale-out-standby-netapp-files-suse.md).
 
 
 ## <a name="next-steps"></a>Następne kroki
 Aby uzyskać więcej informacji, zobacz:
 
-- [SAP HANA Przewodnik wysokiej dostępności dla maszyn wirtualnych platformy Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-availability-overview).
+- [SAP HANA Przewodnik wysokiej dostępności dla maszyn wirtualnych platformy Azure](./sap-hana-availability-overview.md).
