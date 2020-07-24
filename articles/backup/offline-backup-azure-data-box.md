@@ -3,12 +3,12 @@ title: Kopia zapasowa offline przy użyciu Azure Data Box
 description: Dowiedz się, w jaki sposób można użyć Azure Data Box, aby wypełniać duże dane początkowej kopii zapasowej w trybie offline z agenta MARS do magazynu Recovery Services.
 ms.topic: conceptual
 ms.date: 1/27/2020
-ms.openlocfilehash: a60d749f270c9efab0649b49b5c0c41945faddf5
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: e377ccde714c1486ff731d24d5a0cd64364bca37
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86513697"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091032"
 ---
 # <a name="azure-backup-offline-backup-by-using-azure-data-box"></a>Azure Backup kopii zapasowej offline przy użyciu Azure Data Box
 
@@ -153,7 +153,7 @@ Agent MARS działa w kontekście systemu lokalnego, dlatego wymaga podania tego 
 Aby mieć pewność, że urządzenie urządzenie Data Box można zainstalować jako system lokalny przy użyciu protokołu NFS:
 
 1. Włącz klienta dla funkcji systemu plików NFS na serwerze z systemem Windows, na którym jest zainstalowany agent MARS. Określ alternatywny źródłowy *wim: D: \Sources\Install.wim: 4*.
-1. Pobierz PSExec z <https://download.sysinternals.com/files/PSTools.zip> serwera na serwer z zainstalowanym agentem Mars.
+1. Pobierz PsExec ze strony [Sysinternals](/sysinternals/downloads/psexec) na serwer z zainstalowanym agentem Mars.
 1. Otwórz wiersz polecenia z podwyższonym poziomem uprawnień i uruchom następujące polecenie z katalogiem zawierającym *PSExec.exe* jako bieżący katalog.
 
     ```cmd

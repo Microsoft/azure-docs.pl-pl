@@ -3,12 +3,12 @@ title: Wprowadzenie do analizy filmów wideo na żywo na IoT Edge platformy Azur
 description: Ten przewodnik Szybki Start przedstawia sposób rozpoczynania pracy z usługą analiza filmów wideo na żywo na IoT Edge. Dowiedz się, jak wykrywać ruch w strumieniu wideo na żywo.
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: 98ab333a495c31889bee2a9cddab778a12876af5
-ms.sourcegitcommit: 1383842d1ea4044e1e90bd3ca8a7dc9f1b439a54
+ms.openlocfilehash: ccdbbffb3da240aab7897dd93a6c4ae85c550eba
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84816914"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090080"
 ---
 # <a name="quickstart-get-started---live-video-analytics-on-iot-edge"></a>Szybki Start: Rozpoczynanie pracy — Analiza filmów wideo na żywo na IoT Edge
 
@@ -31,10 +31,10 @@ Po wykonaniu kroków instalacji można uruchomić symulowany strumień wideo na 
 
 Ten samouczek wymaga następujących zasobów platformy Azure:
 
-* Usługa IoT Hub
+* IoT Hub
 * Konto magazynu
 * Konto Azure Media Services
-* Maszyna wirtualna z systemem Linux na platformie Azure, w której zainstalowano [środowisko uruchomieniowe IoT Edge](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux)
+* Maszyna wirtualna z systemem Linux na platformie Azure, w której zainstalowano [środowisko uruchomieniowe IoT Edge](../../iot-edge/how-to-install-iot-edge-linux.md)
 
 W tym przewodniku szybki start zalecamy używanie [skryptu konfiguracji zasobów analizy wideo na żywo](https://github.com/Azure/live-video-analytics/tree/master/edge/setup) w celu wdrożenia wymaganych zasobów w ramach subskrypcji platformy Azure. Aby to zrobić, wykonaj następujące kroki:
 
@@ -561,7 +561,7 @@ W oknie **dane wyjściowe** zostanie wyświetlony następujący komunikat:
 
 Zwróć uwagę na następujące szczegóły:
 
-* Komunikat zawiera `body` sekcję i `applicationProperties` sekcję. Aby uzyskać więcej informacji, zobacz [Tworzenie i odczytywanie wiadomości IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct).
+* Komunikat zawiera `body` sekcję i `applicationProperties` sekcję. Aby uzyskać więcej informacji, zobacz [Tworzenie i odczytywanie wiadomości IoT Hub](../../iot-hub/iot-hub-devguide-messages-construct.md).
 * W `applicationProperties` programie `subject` odwołuje się do węzła, `MediaGraph` z którego Wygenerowano komunikat. W takim przypadku komunikat pochodzi z procesora wykrywania ruchu.
 * W `applicationProperties` programie `eventType` wskazuje, że to zdarzenie jest zdarzeniem analizy.
 * `eventTime`Wartość to godzina wystąpienia zdarzenia.

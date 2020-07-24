@@ -7,16 +7,17 @@ ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: tisande
 ms.openlocfilehash: 5b2801b0a71f04803955e9d8bc18a97133019996
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79246554"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090777"
 ---
 # <a name="working-with-arrays-and-objects-in-azure-cosmos-db"></a>Praca z tablicami i obiektami w Azure Cosmos DB
 
 Kluczową funkcją interfejsu API SQL Azure Cosmos DB jest tworzenie tablic i obiektów.
 
-## <a name="arrays"></a>Tablice
+## <a name="arrays"></a>Macierze
 
 Można skonstruować tablice, jak pokazano w następującym przykładzie:
 

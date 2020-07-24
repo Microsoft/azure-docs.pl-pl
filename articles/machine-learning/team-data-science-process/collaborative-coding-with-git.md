@@ -10,11 +10,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 0708e395eff90ff5b889c05f0fd5e7a98205c5bc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 739be373992fcd994f085f8571675779e450bfee
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76721901"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090216"
 ---
 # <a name="collaborative-coding-with-git"></a>Wspólne kodowanie przy użyciu narzędzia Git
 
@@ -28,7 +29,7 @@ Aby połączyć element roboczy z nową gałęzią, wybierz pozycję **Akcje** w
 
 ![1](./media/collaborative-coding-with-git/1-sprint-board-view.png)
 
-W oknie dialogowym **Tworzenie rozgałęzień** Podaj nazwę nowego rozgałęzienia i podstawowy Azure Repos repozytorium i gałąź usługi git. Repozytorium podstawowe musi znajdować się w tym samym projekcie usługi Azure DevOps, co element roboczy. Gałąź podstawowa może być gałęzią główną lub inną istniejącą gałęzią. Wybierz pozycję **Utwórz gałąź**. 
+W oknie dialogowym **Tworzenie rozgałęzień** Podaj nazwę nowego rozgałęzienia i podstawowy Azure Repos repozytorium i gałąź usługi git. Repozytorium podstawowe musi znajdować się w tym samym projekcie usługi Azure DevOps, co element roboczy. Gałąź podstawowa może być dowolną istniejącą gałęzią. Wybierz pozycję **Utwórz gałąź**. 
 
 ![2](./media/collaborative-coding-with-git/2-create-a-branch.png)
 
@@ -97,7 +98,7 @@ Upewnij się, że żądanie zostało oznaczone jako **ukończone**.
 
 ![11](./media/collaborative-coding-with-git/11-spring-merge-pullrequest.png)
 
-Po powrocie do **repozytoriów** w lewym okienku nawigacji można zobaczyć, że została przełączona do gałęzi głównej od momentu `script` usunięcia gałęzi.
+Po powrocie do **repozytoriów** w lewym okienku nawigacji można zobaczyć, że została przełączona do głównej gałęzi od momentu `script` usunięcia gałęzi.
 
 ![12](./media/collaborative-coding-with-git/12-spring-branch-deleted.png)
 

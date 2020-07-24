@@ -8,11 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 02/10/2020
-ms.openlocfilehash: b576fc99e2f203bb3d690a8135ee76cee26b3de8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2fd96777a5fe74d44aeed5f6de82e54b2663a024
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82792364"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090386"
 ---
 # <a name="receive-and-confirm--b2b-as2-messages-by-using-azure-logic-apps-and-enterprise-integration-pack"></a>Odbieraj i potwierdzaj wiadomości AS2 B2B przy użyciu Azure Logic Apps i Pakiet integracyjny dla przedsiębiorstw
 
@@ -34,7 +35,7 @@ W tym artykule pokazano, jak utworzyć aplikację logiki, która odbiera żądan
 
   Jeśli dopiero zaczynasz tworzyć aplikacje Logic Apps, zapoznaj [się z tematem Azure Logic Apps?](../logic-apps/logic-apps-overview.md) i [Szybki Start: Tworzenie pierwszej aplikacji logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-* [Konto integracji](../logic-apps/logic-apps-enterprise-integration-accounts.md) skojarzone z subskrypcją platformy Azure i połączone z aplikacją logiki. Zarówno aplikacja logiki, jak i konto integracji muszą istnieć w tej samej lokalizacji lub regionie platformy Azure.
+* [Konto integracji](./logic-apps-enterprise-integration-create-integration-account.md) skojarzone z subskrypcją platformy Azure i połączone z aplikacją logiki. Zarówno aplikacja logiki, jak i konto integracji muszą istnieć w tej samej lokalizacji lub regionie platformy Azure.
 
 * Co najmniej dwóch [partnerów handlowych](../logic-apps/logic-apps-enterprise-integration-partners.md) , które zostały już zdefiniowane na koncie integracji, wraz z [umowami AS2 i X12](logic-apps-enterprise-integration-agreements.md) dla tych partnerów.
 
@@ -104,7 +105,7 @@ Aby powiadomić partnera handlowego o otrzymaniu wiadomości, można zwrócić o
 
 1. W obszarze akcji **dekodowania AS2** wybierz pozycję **nowy krok**.
 
-1. W obszarze **Wybierz akcję**, w polu wyszukiwania wybierz pozycję **wbudowane**. W polu wyszukiwania wpisz `condition`. Z listy **Akcje** wybierz pozycję **warunek**.
+1. W obszarze **Wybierz akcję**, w polu wyszukiwania wybierz pozycję **wbudowane**. W polu wyszukiwania wpisz `condition`. Na liście **Akcje** wybierz pozycję **Warunek**.
 
    ![Dodaj akcję "Condition"](./media/logic-apps-enterprise-integration-b2b/add-condition-action.png)
 

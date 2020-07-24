@@ -24,7 +24,7 @@
 - name: Instrukcje
   items:
     - name: Konfigurowanie alertów dla zdarzeń usługi Service Health
-      href: alerts-activity-log-service-notifications.md
+      href: ./alerts-activity-log-service-notifications-portal.md
     - name: Wyświetlanie powiadomień dotyczących kondycji usługi za pomocą witryny Azure Portal
       href: service-notifications.md
     - name: Wysyłanie alertów do systemów zewnętrznych za pomocą elementu webhook

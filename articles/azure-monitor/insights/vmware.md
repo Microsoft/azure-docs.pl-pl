@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/04/2018
-ms.openlocfilehash: c1622ef16155206d779c6d703fc7da568d233e7e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bda1acde914aa068fe3a87d307a29583f87af34f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77664783"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091185"
 ---
 # <a name="vmware-monitoring-deprecated-solution-in-azure-monitor"></a>Rozwiązanie VMware Monitoring (przestarzałe) w Azure Monitor
 
@@ -49,14 +50,14 @@ Utwórz maszynę wirtualną z systemem operacyjnym Linux, aby otrzymywać wszyst
     ![vspherefwproperties](./media/vmware/vsphere3.png)  
 1. Sprawdź konsolę vSphere, aby sprawdzić, czy dziennik systemowy jest prawidłowo skonfigurowany. Na hoście ESXI upewnij się, że skonfigurowano port **1514** .
 1. Pobierz i Zainstaluj agenta Log Analytics dla systemu Linux na serwerze z systemem Linux. Aby uzyskać więcej informacji, zapoznaj się z [dokumentacją dla programu log Analytics Agent dla systemu Linux](https://github.com/Microsoft/OMS-Agent-for-Linux).
-1. Po zainstalowaniu agenta Log Analytics dla systemu Linux przejdź do katalogu/etc/opt/Microsoft/omsagent/sysconf/omsagent.d i skopiuj plik vmware_esxi. conf do katalogu/etc/opt/Microsoft/omsagent/conf/omsagent.d i Zmień właściciela/grupę i uprawnienia do pliku. Przykład:
+1. Po zainstalowaniu agenta Log Analytics dla systemu Linux przejdź do katalogu/etc/opt/Microsoft/omsagent/sysconf/omsagent.d i skopiuj plik vmware_esxi. conf do katalogu/etc/opt/Microsoft/omsagent/conf/omsagent.d i Zmień właściciela/grupę i uprawnienia do pliku. Na przykład:
 
     ```
     sudo cp /etc/opt/microsoft/omsagent/sysconf/omsagent.d/vmware_esxi.conf /etc/opt/microsoft/omsagent/conf/omsagent.d
    sudo chown omsagent:omiusers /etc/opt/microsoft/omsagent/conf/omsagent.d/vmware_esxi.conf
     ```
 1. Uruchom ponownie agenta Log Analytics dla systemu Linux, uruchamiając `sudo /opt/microsoft/omsagent/bin/service_control restart` .
-1. Przetestuj połączenie między serwerem z systemem Linux i hostem ESXi przy użyciu `nc` polecenia na hoście ESXi. Przykład:
+1. Przetestuj połączenie między serwerem z systemem Linux i hostem ESXi przy użyciu `nc` polecenia na hoście ESXi. Na przykład:
 
     ```
     [root@ESXiHost:~] nc -z 123.456.789.101 1514
@@ -91,7 +92,7 @@ W poniższej tabeli przedstawiono przykłady pól danych zbieranych przez rozwi�
 | ResourceId_s |Nazwa hosta VMware |
 | ResourceLocation_s |VMware |
 | ResourceName_s |VMware |
-| ResourceType_s |Funkcja Hyper-V |
+| ResourceType_s |Hyper-V |
 | SCSIStatus_s |Stan SCSI VMware |
 | SyslogMessage_s |Dane dziennika systemu |
 | UserName_s |Użytkownik, który utworzył lub usunął maszynę wirtualną |
@@ -155,7 +156,7 @@ Zapisywanie zapytań dzienników jest standardową funkcją w Azure Monitor i u�
 ![DockerDashboardView](./media/vmware/dockerdashboardview.png)
 
 #### <a name="create-alerts-from-queries"></a>Tworzenie alertów z zapytań
-Po utworzeniu zapytań możesz chcieć użyć zapytań w celu wygenerowania alertów w przypadku wystąpienia określonych zdarzeń. Aby uzyskać informacje o sposobach tworzenia alertów, zobacz [alerty w log Analytics](../platform/alerts-overview.md) . Przykłady zapytań dotyczących alertów i innych przykładów zapytań można znaleźć w blogu [monitorowanie oprogramowania VMware przy użyciu log Analytics](https://blogs.technet.microsoft.com/msoms/2016/06/15/monitor-vmware-using-oms-log-analytics) .
+Po utworzeniu zapytań możesz chcieć użyć zapytań w celu wygenerowania alertów w przypadku wystąpienia określonych zdarzeń. Aby uzyskać informacje o sposobach tworzenia alertów, zobacz [alerty w log Analytics](../platform/alerts-overview.md) . Przykłady zapytań dotyczących alertów i innych przykładów zapytań można znaleźć w blogu [monitorowanie oprogramowania VMware przy użyciu log Analytics](/archive/blogs/msoms/monitor-vmware-using-oms-log-analytics) .
 
 ## <a name="frequently-asked-questions"></a>Często zadawane pytania
 ### <a name="what-do-i-need-to-do-on-the-esxi-host-setting-what-impact-will-it-have-on-my-current-environment"></a>Co należy zrobić w ustawieniu hosta ESXi? Jaki wpływ będzie miał w bieżącym środowisku?

@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: bb5288d043ab5638bb33c357cea55c64b03fcf1d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d2d4af5086e3cf4099013969cd359f8e11873c6d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81432127"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090624"
 ---
 # <a name="provide-key-vault-authentication-with-a-managed-identity"></a>Zapewnianie uwierzytelniania Key Vault przy użyciu tożsamości zarządzanej
 
@@ -35,14 +35,14 @@ Aby ukończyć ten przewodnik, musisz dysponować następującymi zasobami.
    - [Tworzenie magazynu kluczy za pomocą Azure PowerShell](../secrets/quick-create-powershell.md)
    - [Utwórz magazyn kluczy z Azure Portal](../secrets/quick-create-portal.md).
 - Istniejąca aplikacja App Service, do której ma zostać udzielony dostęp do magazynu kluczy. Można ją szybko utworzyć, wykonując czynności opisane w [dokumentacji App Service](../../app-service/overview.md).
-- [Interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) lub [Azure PowerShell](/powershell/azure/overview). Alternatywnie możesz użyć [Azure Portal](https://portal.azure.com).
+- [Interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) lub [Azure PowerShell](/powershell/azure/). Alternatywnie możesz użyć [Azure Portal](https://portal.azure.com).
 
 
 ## <a name="adding-a-system-assigned-identity"></a>Dodawanie tożsamości przypisanej do systemu 
 
 Najpierw należy dodać tożsamość przypisaną do systemu do aplikacji. 
  
-### <a name="azure-portal"></a>Azure Portal 
+### <a name="azure-portal"></a>Witryna Azure Portal 
 
 Aby skonfigurować tożsamość zarządzaną w portalu, musisz najpierw utworzyć aplikację w zwykły sposób, a następnie włączyć tę funkcję. 
 
@@ -52,7 +52,7 @@ Aby skonfigurować tożsamość zarządzaną w portalu, musisz najpierw utworzy�
 
 1. W ramach karty **przypisanej do systemu** Przełącz pozycję **stan** na wartość **włączone**. Kliknij pozycję **Zapisz**. 
 
-    ![](../media/managed-identity-system-assigned.png)
+   ![Zrzut ekranu przedstawiający zapisywanie tożsamości przypisanej do systemu.](../media/managed-identity-system-assigned.png)
 
 ### <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure
 
@@ -88,7 +88,7 @@ Zanotuj element `PrincipalId` , który będzie wymagany w następnej sekcji.
 ```
 ## <a name="grant-your-app-access-to-key-vault"></a>Przyznaj aplikacji dostęp do Key Vault 
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Witryna Azure Portal
 
 1.  Przejdź do zasobu Key Vault. 
 
@@ -100,7 +100,7 @@ Zanotuj element `PrincipalId` , który będzie wymagany w następnej sekcji.
 
 1.  Kliknij przycisk **Dodaj** , aby zakończyć dodawanie nowych zasad dostępu.
 
-    ![](../media/managed-identity-access-policy.png)
+    ![Zrzut ekranu pokazujący Dodawanie nowych zasad dostępu w Azure Portal.](../media/managed-identity-access-policy.png)
 
 ### <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure
 

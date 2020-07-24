@@ -3,12 +3,12 @@ title: Jak zatrzymać monitorowanie klastra platformy Azure i systemu Red Hat Op
 description: W tym artykule opisano, jak można zatrzymać monitorowanie klastra Red Hat OpenShift i Red Hat OpenShift w wersji 4 przy użyciu Azure Monitor dla kontenerów.
 ms.topic: conceptual
 ms.date: 04/24/2020
-ms.openlocfilehash: 768c4db8d72778b555a4f343cf2e23b8fa861991
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bf61457b9c8cff40eb3fee2c93c7184fbaae6db5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82196441"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091151"
 ---
 # <a name="how-to-stop-monitoring-your-azure-and-red-hat-openshift-v4-cluster"></a>Jak zatrzymać monitorowanie klastra platformy Azure i systemu Red Hat OpenShift v4
 
@@ -49,4 +49,4 @@ Zmiana konfiguracji może potrwać kilka minut. Ponieważ usługa Helm śledzi w
 
 ## <a name="next-steps"></a>Następne kroki
 
-Jeśli obszar roboczy Log Analytics został utworzony tylko w celu obsługi monitorowania klastra i nie jest już wymagany, trzeba go ręcznie usunąć. Jeśli nie wiesz, jak usunąć obszar roboczy, zobacz temat [Usuwanie obszaru roboczego usługi Azure log Analytics](../../log-analytics/log-analytics-manage-del-workspace.md).
+Jeśli obszar roboczy Log Analytics został utworzony tylko w celu obsługi monitorowania klastra i nie jest już wymagany, trzeba go ręcznie usunąć. Jeśli nie wiesz, jak usunąć obszar roboczy, zobacz temat [Usuwanie obszaru roboczego usługi Azure log Analytics](../platform/delete-workspace.md).

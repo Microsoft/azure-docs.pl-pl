@@ -9,12 +9,12 @@ ms.date: 01/02/2019
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.openlocfilehash: eff74fca5ac21a7df431b55cd5c307d3e994010b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 34e1b7e58a3ceb6c1c2d2b6bc4efd34ee93e9e4e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84792136"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090488"
 ---
 # <a name="virtual-network-service-endpoints-for-azure-key-vault"></a>Punkty końcowe usługi sieci wirtualnej dla Azure Key Vault
 
@@ -22,7 +22,7 @@ Punkty końcowe usługi sieci wirtualnej dla Azure Key Vault umożliwiają ogran
 
 Istnieje jeden ważny wyjątek dla tego ograniczenia. Jeśli Użytkownik zezwolił na dostęp do zaufanych usług firmy Microsoft, połączenia z tych usług będą przełączane przez zaporę. Na przykład te usługi obejmują pakiet Office 365 Exchange Online, pakiet Office 365 SharePoint Online, usługa Azure COMPUTE, Azure Resource Manager i Azure Backup. Ci użytkownicy nadal muszą przedstawić prawidłowy token Azure Active Directory i muszą mieć uprawnienia (skonfigurowane jako zasady dostępu), aby wykonać żądaną operację. Aby uzyskać więcej informacji, zobacz [punkty końcowe usługi sieci wirtualnej](../../virtual-network/virtual-network-service-endpoints-overview.md).
 
-## <a name="usage-scenarios"></a>Scenariusze użytkowania
+## <a name="usage-scenarios"></a>Scenariusze użycia
 
 Można skonfigurować [zapory Key Vault i sieci wirtualne](network-security.md) , aby odmówić dostępu do ruchu ze wszystkich sieci (łącznie z ruchem internetowym). Można udzielić dostępu do ruchu z określonych sieci wirtualnych platformy Azure i publicznych zakresów adresów IP, co pozwala na tworzenie bezpiecznej granicy sieci dla aplikacji.
 
@@ -39,7 +39,7 @@ Poniżej przedstawiono kilka przykładów użycia punktów końcowych usługi:
 
 Poniżej przedstawiono kroki wymagane do skonfigurowania zapór i sieci wirtualnych. Te kroki mają zastosowanie, niezależnie od tego, czy używasz programu PowerShell, interfejsu wiersza polecenia platformy Azure, czy Azure Portal.
 
-1. Włącz [rejestrowanie Key Vault](logging.md)), aby wyświetlić szczegółowe dzienniki dostępu. Pomaga to w diagnostyce, gdy zapory i reguły sieci wirtualnej uniemożliwiają dostęp do magazynu kluczy. (Ten krok jest opcjonalny, ale zdecydowanie zalecany).
+1. Włącz [rejestrowanie Key Vault](logging.md) , aby wyświetlić szczegółowe dzienniki dostępu. Pomaga to w diagnostyce, gdy zapory i reguły sieci wirtualnej uniemożliwiają dostęp do magazynu kluczy. (Ten krok jest opcjonalny, ale zdecydowanie zalecany).
 2. Włącz **punkty końcowe usługi dla magazynu kluczy** dla docelowych sieci wirtualnych i podsieci.
 3. Ustawianie zapór i reguł sieci wirtualnej dla magazynu kluczy w celu ograniczenia dostępu do tego magazynu kluczy z określonych sieci wirtualnych, podsieci i zakresów adresów IPv4.
 4. Jeśli ten magazyn kluczy musi być dostępny dla wszystkich zaufanych usług firmy Microsoft, Włącz opcję zezwalania **zaufanym usługom platformy Azure** na łączenie się z usługą Key Vault.
@@ -75,12 +75,12 @@ Poniżej znajduje się lista zaufanych usług, które mogą uzyskiwać dostęp d
 |Azure Storage|[Szyfrowanie usługi Storage przy użyciu kluczy zarządzanych przez klienta w programie Azure Key Vault](../../storage/common/storage-service-encryption-customer-managed-keys.md).|
 |Azure Data Lake Store|[Szyfrowanie danych w Azure Data Lake Store](../../data-lake-store/data-lake-store-encryption.md) z kluczem zarządzanym przez klienta.|
 |Azure Databricks|[Szybka, łatwa i wydajna usługa analizy oparta na Apache Sparkach](../../azure-databricks/what-is-azure-databricks.md)|
-|Usługa Azure API Management|[Wdrażanie certyfikatów dla domeny niestandardowej z Key Vault przy użyciu pliku MSI](../../api-management/api-management-howto-use-managed-service-identity.md#use-ssl-tls-certificate-from-azure-key-vault)|
+|Azure API Management|[Wdrażanie certyfikatów dla domeny niestandardowej z Key Vault przy użyciu pliku MSI](../../api-management/api-management-howto-use-managed-service-identity.md#use-ssl-tls-certificate-from-azure-key-vault)|
 |Azure Data Factory|[Pobieranie poświadczeń magazynu danych w Key Vault z Data Factory](https://go.microsoft.com/fwlink/?linkid=2109491)|
 |Azure Event Hubs|[Zezwalaj na dostęp do magazynu kluczy dla scenariusza kluczy zarządzanych przez klienta](https://docs.microsoft.com/azure/event-hubs/configure-customer-managed-key)|
 |Azure Service Bus|[Zezwalaj na dostęp do magazynu kluczy dla scenariusza kluczy zarządzanych przez klienta](https://docs.microsoft.com/azure/service-bus-messaging/configure-customer-managed-key)|
 |Usługa Azure Import/Export| [Korzystanie z kluczy zarządzanych przez klienta w Azure Key Vault dla usługi Import/Export](https://docs.microsoft.com/azure/storage/common/storage-import-export-encryption-key-portal)
-|Azure Container Registry|[Szyfrowanie rejestru przy użyciu kluczy zarządzanych przez klienta](../../container-registry/container-registry-customer-managed-keys.md)
+|Azure Container Registry|[Szyfrowanie rejestru przy użyciu kluczy zarządzanych przez klienta](../../container-registry/container-registry-customer-managed-keys.md)<br><br/>[Przenoszenie artefaktów do innego rejestru](../../container-registry/container-registry-transfer-images.md)
 
 > [!NOTE]
 > Należy skonfigurować odpowiednie zasady dostępu Key Vault, aby umożliwić odpowiednim usługom uzyskanie dostępu do Key Vault.

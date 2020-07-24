@@ -5,17 +5,20 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 04/30/2020
+ms.date: 07/15/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 16abe8d155a0d7d7f65c69e6305da62bd8813ea4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 47b1a3a44c494560dde9ffdab004ea576f434ffe
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85361153"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091304"
 ---
 # <a name="enable-azure-multi-factor-authentication-for-windows-virtual-desktop"></a>Włączanie usługi Azure Multi-Factor Authentication na potrzeby usługi Windows Virtual Desktop
+
+>[!IMPORTANT]
+> Jeśli odwiedzasz Tę stronę z dokumentacji usługi 2019, pamiętaj, aby [wrócić 2019 do dokumentacji dotyczącej](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md) programu.
 
 Klient systemu Windows dla pulpitu wirtualnego systemu Windows jest doskonałym rozwiązaniem do integrowania pulpitu wirtualnego systemu Windows z maszyną lokalną. Jednak podczas konfigurowania konta pulpitu wirtualnego systemu Windows na kliencie systemu Windows istnieją pewne miary, które należy podjąć, aby zapewnić sobie bezpieczeństwo i użytkowników.
 
@@ -36,28 +39,39 @@ Oto co należy zrobić:
 
 ## <a name="create-a-conditional-access-policy"></a>Tworzenie zasad dostępu warunkowego
 
-W tej sekcji przedstawiono sposób tworzenia zasad dostępu warunkowego, które wymagają uwierzytelniania wieloskładnikowego podczas nawiązywania połączenia z pulpitem wirtualnym systemu Windows.
+Poniżej przedstawiono sposób tworzenia zasad dostępu warunkowego, które wymagają uwierzytelniania wieloskładnikowego podczas nawiązywania połączenia z pulpitem wirtualnym systemu Windows:
 
 1. Zaloguj się do **Azure Portal** jako Administrator globalny, administrator zabezpieczeń lub administrator dostępu warunkowego.
 2. Przejdź do **Azure Active Directory**  >  **Security**  >  **dostępu warunkowego**zabezpieczeń.
 3. Wybierz pozycję **nowe zasady**.
 4. Nadaj zasadom nazwę. Firma Microsoft zaleca, aby organizacje utworzyły znaczący Standard nazw swoich zasad.
 5. W obszarze **Przypisania** wybierz pozycję **Użytkownicy i grupy**.
-   - W obszarze **dołączanie**wybierz pozycję **Wybierz użytkowników i grupy**  >  **Użytkownicy i grupy** > wybierz grupę utworzoną na etapie wymagania wstępne.
-   - Wybierz pozycję **Gotowe**.
-6. W obszarze **aplikacje w chmurze lub akcje**  >  **Dołącz**wybierz pozycję **Wybierz aplikacje**.
-   - Wybierz pozycję **pulpit wirtualny systemu Windows** (Identyfikator aplikacji 9cdead84-a844-4324-93f2-b2e6bb768d07), a następnie wybierz pozycję, a następnie **pozycję** **gotowe**.
+6. W obszarze **dołączanie**wybierz pozycję **Wybierz użytkowników i grupy**  >  **Użytkownicy i grupy** > wybierz grupę utworzoną na etapie [wymagania wstępne](#prerequisites) .
+7. Kliknij **Gotowe**.
+8. W obszarze **aplikacje w chmurze lub akcje**  >  **Dołącz**wybierz pozycję **Wybierz aplikacje**.
+9. Wybierz jedną z następujących grup aplikacji w zależności od używanej wersji pulpitu wirtualnego systemu Windows.
+   - Jeśli korzystasz z wersji 2019, wybierz te dwie aplikacje:
+       - **Pulpit wirtualny systemu Windows** (Identyfikator aplikacji 5a0aa725-4958-4b0c-80a9-34562e23f3b7)
+       - **Klient pulpitu wirtualnego systemu Windows** (Identyfikator aplikacji fa4345a4-a730-4230-84a8-7d9651b86739)
+   - Jeśli używasz sprężynowego wydania 2020, wybierz te dwie aplikacje:
+       -  **Pulpit wirtualny systemu Windows** (Identyfikator aplikacji 9cdead84-a844-4324-93f2-b2e6bb768d07)
+       -  **Klient pulpitu wirtualnego systemu Windows** (Identyfikator aplikacji a85cf173-4192-42f8-81fa-777a763e6e2c)
 
-     > [!div class="mx-imgBorder"]
-     > ![Zrzut ekranu strony aplikacji w chmurze lub akcji. Pulpity wirtualne systemu Windows i aplikacje klienckie pulpitu wirtualnego systemu Windows są wyróżnione kolorem czerwonym.](media/cloud-apps-enterprise.png)
+   >[!IMPORTANT]
+   > Aplikacje klienckie pulpitu wirtualnego systemu Windows są używane dla klienta sieci Web. Nie należy jednak wybierać aplikacji o nazwie Windows Virtual Desktop Azure Resource Manager Provider (50e95039-B200-4007-bc97-8d5790743a63). Ta aplikacja jest używana tylko do pobierania źródła danych użytkownika i nie powinna mieć usługi MFA.
+  
+1. Po wybraniu aplikacji wybierz pozycję **Wybierz**, a następnie wybierz pozycję **gotowe**.
 
-     >[!NOTE]
-     >Aby znaleźć identyfikator aplikacji dla aplikacji, którą chcesz wybrać, przejdź do pozycji **aplikacje dla przedsiębiorstw** i wybierz pozycję **aplikacje firmy Microsoft** z menu rozwijanego Typ aplikacji.
+   > [!div class="mx-imgBorder"]
+   > ![Zrzut ekranu strony aplikacji w chmurze lub akcji. Pulpity wirtualne systemu Windows i aplikacje klienckie pulpitu wirtualnego systemu Windows są wyróżnione kolorem czerwonym.](media/cloud-apps-enterprise.png)
 
-7. W obszarze **Kontrola dostępu**  >  **przyznawanie**wybierz pozycję **Udziel dostępu**, **Wymagaj uwierzytelniania wieloskładnikowego**, a następnie **Wybierz opcję**.
-8. W obszarze sesja **kontroli dostępu**  >  **Session**wybierz **pozycję częstotliwość logowania**, ustaw wartość **1** i jednostkę na **godziny**, a następnie wybierz pozycję **Wybierz**.
-9. Potwierdź ustawienia i ustaw opcję **Włącz zasady** na **włączone**.
-10. Wybierz pozycję **Utwórz** , aby włączyć zasady.
+   >[!NOTE]
+   >Aby znaleźć identyfikator aplikacji dla aplikacji, którą chcesz wybrać, przejdź do pozycji **aplikacje dla przedsiębiorstw** i wybierz pozycję **aplikacje firmy Microsoft** z menu rozwijanego Typ aplikacji.
+
+10. W obszarze **Kontrola dostępu**  >  **przyznawanie**wybierz pozycję **Udziel dostępu**, **Wymagaj uwierzytelniania wieloskładnikowego**, a następnie **Wybierz opcję**.
+11. W obszarze sesja **kontroli dostępu**  >  **Session**wybierz **pozycję częstotliwość logowania**, ustaw wartość **1** i jednostkę na **godziny**, a następnie wybierz pozycję **Wybierz**.
+12. Potwierdź ustawienia i ustaw opcję **Włącz zasady** na **włączone**.
+13. Wybierz pozycję **Utwórz** , aby włączyć zasady.
 
 ## <a name="next-steps"></a>Następne kroki
 

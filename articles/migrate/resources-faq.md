@@ -3,12 +3,12 @@ title: Azure Migrate często zadawane pytania
 description: Uzyskaj odpowiedzi na często zadawane pytania dotyczące usługi Azure Migrate.
 ms.topic: conceptual
 ms.date: 04/15/2020
-ms.openlocfilehash: 9b71888b284fd9cc125def4758d1e3800a92acf2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 307a1d417b54ad9546c6e409ad8b105ea443da0e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81530321"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090012"
 ---
 # <a name="azure-migrate-common-questions"></a>Azure Migrate: typowe pytania
 
@@ -32,6 +32,10 @@ Użyj Azure Migrate, aby odnajdywać, oceniać i migrować lokalną infrastruktu
 [Azure Site Recovery](../site-recovery/site-recovery-overview.md) to rozwiązanie odzyskiwania po awarii. 
 
 Azure Migrate: Narzędzie do migracji serwera używa funkcji Site Recovery zaplecza do migracji niektórych maszyn lokalnych.
+
+## <a name="i-have-a-project-with-the-previous-classic-experience-of-azure-migrate-how-do-i-start-using-the-new-version"></a>Mam projekt z poprzednim klasycznym doświadczeniem Azure Migrate. Jak mogę rozpocząć korzystanie z nowej wersji?
+
+Nie można uaktualnić projektów lub składników w poprzedniej wersji do nowej wersji. Należy [utworzyć nowy projekt Azure Migrate](create-manage-projects.md)i dodać do niego [Narzędzia do oceny i migracji](how-to-add-tool-first-time.md) . Skorzystaj z samouczków, aby zrozumieć, jak korzystać z dostępnych narzędzi do oceny i migracji. Jeśli masz obszar roboczy Log Analytics dołączony do projektu klasycznego, możesz dołączyć go do projektu bieżącej wersji po usunięciu projektu klasycznego.
 
 ## <a name="whats-the-difference-between-azure-migrate-server-assessment-and-the-map-toolkit"></a>Jaka jest różnica między Azure Migrate: Ocena serwera i zestaw narzędzi mapy?
 

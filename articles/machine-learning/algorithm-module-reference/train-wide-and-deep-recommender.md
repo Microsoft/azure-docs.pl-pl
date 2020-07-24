@@ -1,5 +1,5 @@
 ---
-title: Ocenianie modelu obrazów
+title: Korzystanie z modułu szkolenia & głębokiego polecania
 titleSuffix: Azure Machine Learning
 description: Dowiedz się, jak używać modułu uczenie & głębokiego polecania do uczenia modelu rekomendacji.
 services: machine-learning
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 06/12/2020
-ms.openlocfilehash: 2ac5e5874ebb34b68cbfe8be1986852c67b97c21
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 234217b6571307db04941cc0b9989d3438cde1b7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84740057"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090182"
 ---
 # <a name="train-wide--deep-recommender"></a>& głębokiego polecania szkolenia w szerokim zakresie
 W tym artykule opisano, jak używać modułu **uczenie szczegółowe & głębokiego polecania** w programie Azure Machine Learning Designer (wersja zapoznawcza) w celu uczenia modelu rekomendacji. Ten moduł jest oparty na szerokiej & głębokiej uczeniu zaproponowanym przez firmę Google.
@@ -39,7 +39,7 @@ Więcej szczegółowych informacji o szerokim & zalecanym i podstawowym algorytm
 ## <a name="how-to-configure-train-wide--deep-recommender"></a>Jak skonfigurować & głębokiego polecania szkolenia w zakresie uczenia  
 
 + [Przygotuj dane szkoleniowe](#prepare-data)
-+ [Uczenie modelu](#train-the-model)
++ [Szkolenie modelu](#train-the-model)
 
 ### <a name="prepare-data"></a>Przygotowywanie danych
 
@@ -82,7 +82,7 @@ Na przykład typowy zestaw funkcji elementu może wyglądać następująco:
 |68646|Godfather|Angielski|Dramat|1972|
 |31381|Zostało usunięte z wiatru|Angielski|Historia|1939|
 
-### <a name="train-the-model"></a>Uczenie modelu
+### <a name="train-the-model"></a>Szkolenie modelu
 
 1.  Dodaj moduł szkoleń **i głębokiego polecania** do eksperymentu w projektancie (wersja zapoznawcza) i połącz go z zestawem danych szkoleniowych.  
   

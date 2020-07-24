@@ -12,11 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/14/2019
 ms.author: allensu
-ms.openlocfilehash: 9003d35ce2eea18aa912a866802b026bb923aa08
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 034a49793d3a3e416f307741e49446979eb33bb3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81272699"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090454"
 ---
 # <a name="standard-load-balancer-diagnostics-with-metrics-alerts-and-resource-health"></a>Diagnostyka usługi Load Balancer w warstwie Standardowa przy użyciu metryk, alertów i kondycji zasobów
 
@@ -40,11 +41,14 @@ Różne konfiguracje usługa Load Balancer w warstwie Standardowa zapewniają na
 | Stan sondy kondycji | Publiczny i wewnętrzny moduł równoważenia obciążenia | Usługa Load Balancer w warstwie Standardowa używa rozproszonej usługi badania kondycji, która monitoruje kondycję punktu końcowego aplikacji zgodnie z ustawieniami konfiguracji. Ta metryka zawiera zagregowany widok lub widok filtrowany dla każdego punktu końcowego wystąpienia w puli modułu równoważenia obciążenia. Możesz zobaczyć, jak moduł równoważenia obciążenia przegląda kondycję aplikacji, zgodnie z konfiguracją sondy kondycji. |  Średnia |
 | Pakiety SYN (synchronizacja) | Publiczny i wewnętrzny moduł równoważenia obciążenia | Usługa Load Balancer w warstwie Standardowa nie przerywa połączeń protokołu TCP (Transmission Control Protocol) ani nie wchodzi w interakcje z przepływami pakietów TCP lub UDP. Przepływy i ich uzgodnienia są zawsze realizowane między wystąpieniem źródłowym a wystąpieniem maszyny wirtualnej. Aby lepiej rozwiązać problemy ze scenariuszami protokołu TCP, można użyć liczników pakietów SYN w celu sprawdzenia, ile wykonano prób połączenia TCP. Metryka zgłasza liczbę odebranych pakietów TCP SYN.| Średnia |
 | Połączenia SNAT | Publiczny moduł równoważenia obciążenia |Usługa Load Balancer w warstwie Standardowa zgłasza liczbę zamaskowanych przepływów wychodzących do frontonu publicznego adresu IP. Porty źródłowego translatora adresów sieciowych (SNAT) to zasób ulegający wyczerpaniu. Ta metryka może wskazywać na to, jak bardzo aplikacja jest zależna od translatora SNAT dla przepływów przychodzących. Zgłaszane są liczniki dla zakończonych powodzeniem i zakończonych niepowodzeniem przepływów wychodzących SNAT. Mogą one służyć do rozwiązywania problemów i poznawania kondycji przepływów wychodzących.| Średnia |
-| Przydzielono porty przydziałów adresów sieciowych | Publiczny moduł równoważenia obciążenia | usługa Load Balancer w warstwie Standardowa zgłasza liczbę portów przyznanych przez wystąpienie wewnętrznej bazy danych | Średnia. |
+| Przydzielono porty przydziałów adresów sieciowych | Publiczny moduł równoważenia obciążenia | usługa Load Balancer w warstwie Standardowa zgłasza liczbę portów przyznanych przez wystąpienie wewnętrznej bazy danych | Obliczon. |
 | Używane porty | Publiczny moduł równoważenia obciążenia | Usługa Load Balancer w warstwie Standardowa raportuje liczbę portów, które są używane dla wystąpienia zaplecza. | Średnia | 
 | Liczniki bajtów |  Publiczny i wewnętrzny moduł równoważenia obciążenia | Usługa Load Balancer w warstwie Standardowa zgłasza przetworzone dane na fronton. Można zauważyć, że bajty nie są równomiernie rozłożone między wystąpieniami zaplecza. Jest to oczekiwane, ponieważ algorytm Load Balancer platformy Azure jest oparty na przepływach | Średnia |
 | Liczniki pakietów |  Publiczny i wewnętrzny moduł równoważenia obciążenia | Usługa Load Balancer w warstwie Standardowa zgłasza przetworzone pakiety na fronton.| Średnia |
 
+  >[!NOTE]
+  >W przypadku korzystania z dystrybucji ruchu z wewnętrznego modułu równoważenia obciążenia za pośrednictwem pakietu urządzenie WUS lub syn, licznika bajtów i metryk licznika pakietów nie są dostępne i będą wyświetlane jako zero. 
+  
 ### <a name="view-your-load-balancer-metrics-in-the-azure-portal"></a>Wyświetl metryki modułu równoważenia obciążenia w Azure Portal
 
 Azure Portal uwidacznia metryki modułu równoważenia obciążenia za pośrednictwem strony metryk, która jest dostępna na stronie zasobów modułu równoważenia obciążenia dla określonego zasobu i strony Azure Monitor. 
@@ -254,7 +258,7 @@ W poniższej tabeli wymieniono różne stany kondycji zasobów i ich opisy:
 | --- | --- |
 | Dostępne | Zasób standardowego modułu równoważenia obciążenia jest w dobrej kondycji i jest dostępny. |
 | Niedostępny | Zasób standardowego modułu równoważenia obciążenia nie jest w dobrej kondycji. Diagnozuj kondycję, wybierając pozycję **Azure monitor**  >  **metryki**.<br>(Stan*niedostępny* może również oznaczać, że zasób nie jest połączony z usługą równoważenia obciążenia w warstwie Standardowa). |
-| Nieznane | Stan kondycji zasobu dla zasobu standardowego modułu równoważenia obciążenia nie został jeszcze zaktualizowany.<br>(*Nieznany* stan może również oznaczać, że zasób nie jest połączony z usługą równoważenia obciążenia w warstwie Standardowa).  |
+| Nieznany | Stan kondycji zasobu dla zasobu standardowego modułu równoważenia obciążenia nie został jeszcze zaktualizowany.<br>(*Nieznany* stan może również oznaczać, że zasób nie jest połączony z usługą równoważenia obciążenia w warstwie Standardowa).  |
 
 ## <a name="next-steps"></a>Następne kroki
 

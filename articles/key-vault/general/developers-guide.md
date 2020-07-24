@@ -8,12 +8,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 2b5c28fccc411a8372ebd6015f796c8309146dfa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2edf1574784ec93448495086fdd05c988a3e55a7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85476771"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090539"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Przewodnik dewelopera usługi Azure Key Vault
 
@@ -40,7 +40,7 @@ Przed rozpoczęciem pracy z kluczami, wpisami tajnymi lub certyfikatami w magazy
 
 - [Tworzenie magazynów kluczy i zarządzanie nimi za pomocą interfejsu wiersza polecenia](../secrets/quick-create-cli.md)
 - [Tworzenie magazynów kluczy i zarządzanie nimi przy użyciu programu PowerShell](../secrets/quick-create-powershell.md)
-- [Tworzenie magazynów kluczy i zarządzanie nimi za pomocą portu platformy Azure](../secrets/quick-create-portal.md)
+- [Tworzenie magazynów kluczy i zarządzanie nimi za pomocą Azure Portal](../secrets/quick-create-portal.md)
 - [Tworzenie magazynów kluczy i zarządzanie nimi przy użyciu języka Python](../secrets/quick-create-python.md)
 - [Tworzenie magazynów kluczy i zarządzanie nimi przy użyciu języka Java](../secrets/quick-create-java.md)
 - [Tworzenie magazynów kluczy i zarządzanie nimi za pomocą Node.js](../secrets/quick-create-node.md)
@@ -75,11 +75,11 @@ Aby uzyskać więcej informacji na temat wersji 2. x zestawu SDK platformy .NET,
 
 W Node.js interfejs API zarządzania Key Vault i interfejs API obiektu Key Vault są oddzielone. Poniższy artykuł omówienia zapewnia dostęp do obu tych programów. 
 
-[Moduły Azure Key Vault dla Node.js](/javascript/api/overview/azure/key-vault?view=azure-node-latest)
+[Moduły Azure Key Vault dla Node.js](https://docs.microsoft.com/javascript/api/overview/azure/key-vault-index?view=azure-node-latest)
 
 #### <a name="python"></a>Python
 
-[Biblioteki Azure Key Vault dla języka Python](/python/api/overview/azure/key-vault?view=azure-python)
+[Biblioteki Azure Key Vault dla języka Python](https://docs.microsoft.com/python/api/overview/azure/key-vault-index?view=azure-python)
 
 #### <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure
 
@@ -100,7 +100,7 @@ Aby zapoznać się z kompletnymi przykładami dotyczącymi używania Key Vault z
 
 Poniższe artykuły i scenariusze zapewniają wskazówki dotyczące zadań związanych z pracą z Azure Key Vault:
 
-- [Zmiana identyfikatora dzierżawy magazynu kluczy po przeniesieniu subskrypcji](subscription-move-fix.md) — po przeniesieniu subskrypcji platformy Azure z dzierżawy A do dzierżawy b istniejące magazyny kluczy są niedostępne dla podmiotów zabezpieczeń (użytkowników i aplikacji) w dzierżawie b. Rozwiąż ten problem, korzystając z tego przewodnika.
+- [Zmiana identyfikatora dzierżawy magazynu kluczy po przeniesieniu subskrypcji](move-subscription.md) — po przeniesieniu subskrypcji platformy Azure z dzierżawy A do dzierżawy b istniejące magazyny kluczy są niedostępne dla podmiotów zabezpieczeń (użytkowników i aplikacji) w dzierżawie b. Rozwiąż ten problem, korzystając z tego przewodnika.
 - Dostęp do [Key Vault za zaporą](access-behind-firewall.md) — Aby uzyskać dostęp do magazynu kluczy, aplikacja kliencka magazynu kluczy musi mieć dostęp do wielu punktów końcowych dla różnych funkcji.
 - [Jak generować i przesyłać klucze chronione przez moduł HSM dla Azure Key Vault](../keys/hsm-protected-keys.md) — ułatwia to planowanie, generowanie i transferowanie własnych kluczy chronionych przez moduł HSM w celu ich użycia z Azure Key Vault.
 - [Jak przekazać bezpieczne wartości (takie jak hasła) podczas wdrażania](../../azure-resource-manager/templates/key-vault-parameter.md) — Jeśli chcesz przekazać bezpieczną wartość (na przykład hasło) jako parametr podczas wdrażania, możesz zapisać tę wartość jako klucz tajny w Azure Key Vault i odwołać się do wartości w innych szablonach Menedżer zasobów.

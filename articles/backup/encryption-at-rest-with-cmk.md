@@ -3,16 +3,16 @@ title: Szyfrowanie danych kopii zapasowej przy użyciu kluczy zarządzanych prze
 description: Dowiedz się, jak Azure Backup umożliwia szyfrowanie danych kopii zapasowej przy użyciu kluczy zarządzanych przez klienta (CMK).
 ms.topic: conceptual
 ms.date: 07/08/2020
-ms.openlocfilehash: ee64b9f2c6d260d91763cbe2d339640a9fab9967
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: c26466582cbe5a10610f6766160c2b0bc51a4828
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86172620"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091100"
 ---
 # <a name="encryption-of-backup-data-using-customer-managed-keys"></a>Szyfrowanie danych kopii zapasowej przy użyciu kluczy zarządzanych przez klienta
 
-Azure Backup umożliwia szyfrowanie danych kopii zapasowej przy użyciu kluczy zarządzanych przez klienta (CMK) zamiast korzystania z kluczy zarządzanych przez platformę, która jest domyślnie włączona. Klucze używane do szyfrowania danych kopii zapasowej muszą być przechowywane w [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/).
+Azure Backup umożliwia szyfrowanie danych kopii zapasowej przy użyciu kluczy zarządzanych przez klienta (CMK) zamiast korzystania z kluczy zarządzanych przez platformę, która jest domyślnie włączona. Klucze używane do szyfrowania danych kopii zapasowej muszą być przechowywane w [Azure Key Vault](../key-vault/index.yml).
 
 Klucz szyfrowania używany do szyfrowania kopii zapasowych może być inny niż użyty dla źródła. Dane są chronione przy użyciu klucza szyfrowania danych opartego na protokole AES 256 (z szyfrowaniem), który z kolei jest chroniony przy użyciu kluczy (KEK). Zapewnia to pełną kontrolę nad danymi i kluczami. Aby umożliwić szyfrowanie, wymagane jest przyznanie magazynowi Recovery Services dostępu do klucza szyfrowania w Azure Key Vault. W razie potrzeby można zmienić klucz.
 
@@ -31,7 +31,7 @@ W tym artykule omówiono następujące zagadnienia:
 
 - Ta funkcja obecnie **nie obsługuje tworzenia kopii zapasowych przy użyciu agenta Mars**i może nie być możliwe użycie magazynu CMK-Encrypted. Agent MARS używa szyfrowania opartego na hasłach użytkownika. Ta funkcja nie obsługuje także tworzenia kopii zapasowych klasycznych maszyn wirtualnych.
 
-- Ta funkcja nie odnosi się do [Azure Disk Encryption](https://docs.microsoft.com/azure/security/fundamentals/azure-disk-encryption-vms-vmss), która korzysta z szyfrowania maszyn wirtualnych na podstawie gościa za pomocą funkcji BitLocker (dla systemu Windows) i dm-crypt (system Linux)
+- Ta funkcja nie odnosi się do [Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md), która korzysta z szyfrowania maszyn wirtualnych na podstawie gościa za pomocą funkcji BitLocker (dla systemu Windows) i dm-crypt (system Linux)
 
 - Magazyn Recovery Services może być szyfrowany tylko z kluczami przechowywanymi w Azure Key Vault, które znajdują się w **tym samym regionie**. Ponadto klucze muszą zawierać tylko **klucze RSA 2048** i powinny być w stanie **włączony** .
 
@@ -92,7 +92,7 @@ Teraz musisz zezwolić magazynowi Recovery Services na dostęp do Azure Key Vaul
 
 ### <a name="enable-soft-delete-and-purge-protection-on-the-azure-key-vault"></a>Włącz ochronę przed usuwaniem i przeczyszczaniem na Azure Key Vault
 
-Musisz **włączyć nietrwałe usuwanie i przeczyszczanie ochrony** na Azure Key Vault, w którym jest przechowywany klucz szyfrowania. Można to zrobić z poziomu interfejsu użytkownika Azure Key Vault, jak pokazano poniżej. (Można również ustawić te właściwości podczas tworzenia Key Vault). Więcej informacji na temat tych Key Vaultch właściwości można znaleźć [tutaj](https://docs.microsoft.com/azure/key-vault/general/overview-soft-delete).
+Musisz **włączyć nietrwałe usuwanie i przeczyszczanie ochrony** na Azure Key Vault, w którym jest przechowywany klucz szyfrowania. Można to zrobić z poziomu interfejsu użytkownika Azure Key Vault, jak pokazano poniżej. (Można również ustawić te właściwości podczas tworzenia Key Vault). Więcej informacji na temat tych Key Vaultch właściwości można znaleźć [tutaj](../key-vault/general/overview-soft-delete.md).
 
 ![Włącz trwałe usuwanie i przeczyszczanie ochrony](./media/encryption-at-rest-with-cmk/soft-delete-purge-protection.png)
 
@@ -193,13 +193,13 @@ Przed przystąpieniem do konfigurowania ochrony zdecydowanie zalecamy upewnienie
 >
 >Jeśli wszystkie powyższe kroki zostały potwierdzone, dopiero wtedy kontynuuj konfigurowanie kopii zapasowej.
 
-Proces konfigurowania i wykonywania kopii zapasowych w magazynie Recovery Services szyfrowanym przy użyciu kluczy zarządzanych przez klienta jest taki sam jak w przypadku magazynu korzystającego z kluczy zarządzanych przez platformę, **bez wprowadzania zmian w środowisku**. Jest to prawdziwe w przypadku [tworzenia kopii zapasowych maszyn wirtualnych platformy Azure](https://docs.microsoft.com/azure/backup/quick-backup-vm-portal) , a także tworzenia kopii zapasowych obciążeń uruchomionych wewnątrz maszyny wirtualnej (na przykład [SAP HANA](https://docs.microsoft.com/azure/backup/tutorial-backup-sap-hana-db), [SQL Server](https://docs.microsoft.com/azure/backup/tutorial-sql-backup) baz danych).
+Proces konfigurowania i wykonywania kopii zapasowych w magazynie Recovery Services szyfrowanym przy użyciu kluczy zarządzanych przez klienta jest taki sam jak w przypadku magazynu korzystającego z kluczy zarządzanych przez platformę, **bez wprowadzania zmian w środowisku**. Jest to prawdziwe w przypadku [tworzenia kopii zapasowych maszyn wirtualnych platformy Azure](./quick-backup-vm-portal.md) , a także tworzenia kopii zapasowych obciążeń uruchomionych wewnątrz maszyny wirtualnej (na przykład [SAP HANA](./tutorial-backup-sap-hana-db.md), [SQL Server](./tutorial-sql-backup.md) baz danych).
 
 ## <a name="restoring-data-from-backup"></a>Przywracanie danych z kopii zapasowej
 
 ### <a name="vm-backup"></a>Kopia zapasowa maszyny wirtualnej
 
-Dane przechowywane w magazynie Recovery Services można przywrócić zgodnie z krokami opisanymi [tutaj](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms). W przypadku przywracania z magazynu Recovery Services szyfrowanego przy użyciu kluczy zarządzanych przez klienta można zaszyfrować przywrócone dane przy użyciu zestawu szyfrowania dysku (DES).
+Dane przechowywane w magazynie Recovery Services można przywrócić zgodnie z krokami opisanymi [tutaj](./backup-azure-arm-restore-vms.md). W przypadku przywracania z magazynu Recovery Services szyfrowanego przy użyciu kluczy zarządzanych przez klienta można zaszyfrować przywrócone dane przy użyciu zestawu szyfrowania dysku (DES).
 
 #### <a name="restoring-vm--disk"></a>Przywracanie maszyny wirtualnej/dysku
 

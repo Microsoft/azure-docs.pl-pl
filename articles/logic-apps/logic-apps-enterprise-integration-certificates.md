@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 08/17/2018
-ms.openlocfilehash: 19a1883685193e80da5f1365ec2a30db0b8754f6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7d57536eee62c415058dd454f3da6ee5f3d04898
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81450144"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090335"
 ---
 # <a name="improve-security-for-b2b-messages-by-using-certificates"></a>Zwiększanie bezpieczeństwa wiadomości B2B przy użyciu certyfikatów
 
@@ -47,7 +47,7 @@ Aby używać *publicznego certyfikatu* w usłudze Logic Apps z możliwościami B
    | Właściwość | Wartość | Opis | 
    |----------|-------|-------------|
    | **Nazwa** | <*Nazwa certyfikatu*> | Nazwa certyfikatu, czyli "publicCert" w tym przykładzie | 
-   | **Typ certyfikatu** | Public | Typ certyfikatu |
+   | **Typ certyfikatu** | Publiczny | Typ certyfikatu |
    | **Certyfikat** | <*Nazwa pliku certyfikatu*> | Aby znaleźć i wybrać plik certyfikatu, który ma zostać przekazany, wybierz ikonę folderu obok pola **certyfikat** . |
    ||||
 
@@ -59,7 +59,7 @@ Aby używać *publicznego certyfikatu* w usłudze Logic Apps z możliwościami B
 
 ## <a name="upload-a-private-certificate"></a>Przekaż certyfikat prywatny
 
-Aby użyć *prywatnego certyfikatu* w usłudze Logic Apps z możliwościami B2B, należy najpierw przekazać certyfikat do konta integracji. Musisz również mieć klucz prywatny, który należy najpierw dodać do [Azure Key Vault](../key-vault/key-vault-get-started.md). 
+Aby użyć *prywatnego certyfikatu* w usłudze Logic Apps z możliwościami B2B, należy najpierw przekazać certyfikat do konta integracji. Musisz również mieć klucz prywatny, który należy najpierw dodać do [Azure Key Vault](../key-vault/general/overview.md). 
 
 Po zdefiniowaniu właściwości w tworzonych [umowach](logic-apps-enterprise-integration-agreements.md) certyfikat jest dostępny, aby pomóc w zabezpieczeniu wiadomości B2B.
 
@@ -68,7 +68,7 @@ Po zdefiniowaniu właściwości w tworzonych [umowach](logic-apps-enterprise-int
 
 1. [Dodaj swój klucz prywatny do Azure Key Vault](../key-vault/certificates/certificate-scenarios.md#import-a-certificate) i podaj **nazwę klucza**.
    
-2. Autoryzuj Azure Logic Apps, aby wykonywać operacje na Azure Key Vault. Aby udzielić dostępu do jednostki usługi Logic Apps, użyj polecenia programu PowerShell, [Set-AzKeyVaultAccessPolicy](https://docs.microsoft.com/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy), na przykład:
+2. Autoryzuj Azure Logic Apps, aby wykonywać operacje na Azure Key Vault. Aby udzielić dostępu do jednostki usługi Logic Apps, użyj polecenia programu PowerShell, [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy), na przykład:
 
    `Set-AzKeyVaultAccessPolicy -VaultName 'TestcertKeyVault' -ServicePrincipalName 
    '7cd684f4-8a78-49b0-91ec-6a35d38739ba' -PermissionsToKeys decrypt, sign, get, list`
@@ -86,7 +86,7 @@ Po zdefiniowaniu właściwości w tworzonych [umowach](logic-apps-enterprise-int
    | Właściwość | Wartość | Opis | 
    |----------|-------|-------------|
    | **Nazwa** | <*Nazwa certyfikatu*> | Nazwa certyfikatu, czyli "privateCert" w tym przykładzie | 
-   | **Typ certyfikatu** | Private | Typ certyfikatu |
+   | **Typ certyfikatu** | Prywatne | Typ certyfikatu |
    | **Certyfikat** | <*Nazwa pliku certyfikatu*> | Aby znaleźć i wybrać plik certyfikatu, który ma zostać przekazany, wybierz ikonę folderu obok pola **certyfikat** . W przypadku korzystania z magazynu kluczy dla klucza prywatnego przekazany plik będzie certyfikatem publicznym. | 
    | **Grupa zasobów** | <*Integracja — konto-Grupa zasobów*> | Grupa zasobów konta integracji, która jest w tym przykładzie "grupą zasobów" | 
    | **Usługa Key Vault** | <*Nazwa magazynu kluczy*> | Nazwa magazynu kluczy platformy Azure |

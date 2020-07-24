@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/11/2020
 ms.author: memildin
-ms.openlocfilehash: 8faff37e127e80447e0f066ef17e2885d4bcb597
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d79d1bf846cc023b86c3e33b17c91cce77ffe9ee
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85799738"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089876"
 ---
 # <a name="protect-your-machines-and-applications"></a>Ochrona maszyn i aplikacji
 Gdy Azure Security Center identyfikuje potencjalne luki w zabezpieczeniach, tworzy zalecenia, które przeprowadzą Cię przez proces konfigurowania wymaganych kontrolek do zabezpieczania i zabezpieczania zasobów.
@@ -156,7 +157,7 @@ Wybierz zalecenie, aby wyświetlić opis zalecenia i listę zasobów w złej kon
 
 
 
-### <a name="containers"></a><a name="containers"></a>Containers
+### <a name="containers"></a><a name="containers"></a>Kontenery
 
 Po otwarciu karty **kontenery** w zależności od środowiska mogą pojawić się dowolne z trzech typów zasobów:
 

@@ -8,11 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 4ac818cfd267b781366c0e32c9f93cc885dff99c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 000e30f2656b88c068654fd8099cdff0ce0a4b37
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77566152"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091270"
 ---
 # <a name="create-vmware-virtual-machines-on-your-private-cloud"></a>Tworzenie maszyn wirtualnych VMware w chmurze prywatnej
 
@@ -121,9 +122,9 @@ System Linux oferuje różne pakiety do konfigurowania serwerów DNS.  Poniżej 
 
 W tych tematach firmy Microsoft opisano sposób konfigurowania serwera z systemem Windows jako serwera DNS i serwera DHCP.
 
-[Serwer z systemem Windows jako serwer DNS](https://docs.microsoft.com/windows-server/networking/dns/dns-top)
+[Serwer z systemem Windows jako serwer DNS](/windows-server/networking/dns/dns-top)
 
-[Serwer z systemem Windows jako serwer DHCP](https://docs.microsoft.com/windows-server/networking/technologies/dhcp/dhcp-top)
+[Serwer z systemem Windows jako serwer DHCP](/windows-server/networking/technologies/dhcp/dhcp-top)
 
 ## <a name="customize-networking-configuration-optional"></a>Dostosuj konfigurację sieci (opcjonalnie)
 

@@ -8,11 +8,12 @@ author: msmbaldwin
 ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/10/2019
-ms.openlocfilehash: 8cd9c1ba85666a6556e24e4966e1e6cb9b7ef124
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 77cbd5a3c293b137f49a11263580ef45407c6c2b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84449315"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090471"
 ---
 # <a name="manage-storage-account-keys-with-key-vault-and-azure-powershell"></a>Zarządzanie kluczami konta magazynu przy użyciu Key Vault i Azure PowerShell
 
@@ -163,7 +164,7 @@ Tags                :
 
 ### <a name="enable-key-regeneration"></a>Włącz ponowne generowanie klucza
 
-Jeśli chcesz, aby Key Vault okresowo generować ponownie klucze konta magazynu, możesz użyć polecenia cmdlet [Add-AzKeyVaultManagedStorageAccount](/powershell/module/az.keyvault/add-azkeyvaultmanagedstorageaccount?view=azps-2.6.0) Azure PowerShell w celu ustawienia okresu regeneracji. W tym przykładzie ustawimy okres regeneracji o trzy dni. Po upływie trzech dni Key Vault ponownie wygeneruje element "klucz2" i zamiana aktywnego klucza z "klucz2" na "Klucz1" (Zastąp element "Primary" i "pomocniczy" dla klasycznych kont magazynu).
+Jeśli chcesz, aby Key Vault okresowo generować ponownie klucze konta magazynu, możesz użyć polecenia cmdlet [Add-AzKeyVaultManagedStorageAccount](/powershell/module/az.keyvault/add-azkeyvaultmanagedstorageaccount?view=azps-2.6.0) Azure PowerShell w celu ustawienia okresu regeneracji. W tym przykładzie ustawimy okres regeneracji o trzy dni. Gdy czas jest obracany, Key Vault ponownie generuje klucz, który nie jest aktywny, a następnie ustawia nowo utworzony klucz jako aktywny. Tylko jeden z kluczy jest używany do wystawiania tokenów SAS w dowolnym momencie. Jest to klucz aktywny.
 
 ```azurepowershell-interactive
 $regenPeriod = [System.Timespan]::FromDays(3)

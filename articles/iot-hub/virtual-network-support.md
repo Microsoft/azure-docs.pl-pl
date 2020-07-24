@@ -7,12 +7,12 @@ ms.service: iot-fundamentals
 ms.topic: conceptual
 ms.date: 06/16/2020
 ms.author: jlian
-ms.openlocfilehash: 32ff08c62e53384b64981e1c40a3485b17a8ce11
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: f15f0c3f6b442419d3d2e3a253d15465e130eae2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85918765"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090607"
 ---
 # <a name="iot-hub-support-for-virtual-networks-with-private-link-and-managed-identity"></a>IoT Hub obsługa sieci wirtualnych z linkiem prywatnym i tożsamością zarządzaną
 
@@ -47,6 +47,8 @@ Przed kontynuowaniem upewnij się, że spełniono następujące wymagania wstęp
 * W przypadku urządzeń, które działają w sieciach lokalnych, skonfiguruj [wirtualną sieć prywatną (VPN)](../vpn-gateway/vpn-gateway-about-vpngateways.md) lub prywatną komunikację równorzędną [ExpressRoute](https://azure.microsoft.com/services/expressroute/) w sieci wirtualnej platformy Azure.
 
 ### <a name="set-up-a-private-endpoint-for-iot-hub-ingress"></a>Skonfiguruj prywatny punkt końcowy dla IoT Hub ruchu przychodzącego
+
+Prywatny punkt końcowy działa w przypadku IoT Hub interfejsów API urządzeń (takich jak komunikaty z urządzenia do chmury) oraz interfejsów API usługi (takich jak tworzenie i aktualizowanie urządzeń).
 
 1. W Azure Portal wybierz pozycję **Sieć**, **połączenia prywatne punktów końcowych**, a następnie kliknij pozycję **+ prywatny punkt końcowy**.
 

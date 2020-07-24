@@ -8,11 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: aa2af4302613aad23bfd78b4883bbb46c5e5ddbb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3571455db6ecc600bf0948087b40c281d72512ce
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76961129"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091253"
 ---
 # <a name="enable-cloudsimple-private-cloud-dns-servers-to-forward-dns-lookup-of-on-premises-resources-to-your-dns-servers"></a>Włącz serwery DNS chmury prywatnej CloudSimple, aby przekazywać wyszukiwanie w systemie DNS zasobów lokalnych do serwerów DNS
 
@@ -31,7 +32,7 @@ Przekazanie wyszukiwania DNS dla lokalnego serwera DNS umożliwia korzystanie z 
 Połączenie sieciowe musi znajdować się w sieci prywatnej chmury w sieci lokalnej na potrzeby przesyłania dalej DNS.  Połączenie sieciowe można skonfigurować przy użyciu:
 
 * [Nawiązywanie połączenia z poziomu lokalnego z CloudSimple za pomocą ExpressRoute](on-premises-connection.md)
-* [Konfigurowanie bramy sieci VPN typu lokacja-lokacja](https://docs.microsoft.com/azure/vmware-cloudsimple/vpn-gateway#set-up-a-site-to-site-vpn-gateway)
+* [Konfigurowanie bramy sieci VPN typu lokacja-lokacja](./vpn-gateway.md#set-up-a-site-to-site-vpn-gateway)
 
 Aby przekazywanie DNS działało, należy otworzyć porty zapory dla tego połączenia.  Używane porty to port TCP 53 lub port UDP 53.
 

@@ -8,12 +8,12 @@ ms.author: rgarcia
 ms.date: 05/18/2020
 ms.topic: overview
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 4bf55daa64319cfd47efd2e38a368d76f3814b4e
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 9f6f428a930f03259986373ca70a95d5df1f7dc3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84296673"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091491"
 ---
 # <a name="frequently-asked-questions-about-azure-spatial-anchors"></a>Często zadawane pytania dotyczące usługi Azure Spatial Anchors
 
@@ -88,9 +88,9 @@ Odp **.:** Kotwice przestrzenne platformy Azure są obecnie dostępne w regionie
 
 Oznacza to, że w tych regionach usługa obliczeniowa i magazyn są przeznaczone dla tej usługi. Nie ma jednak żadnych ograniczeń związanych z tym, gdzie znajdują się klienci. 
 
-**P: czy są naliczane opłaty za kotwice przestrzenne platformy Azure? Czy dojdziesz do opłat?**
+**P: czy są naliczane opłaty za kotwice przestrzenne platformy Azure?**
 
-Odp **.:** Szczegółowe informacje o cenach można znaleźć w wersji zapoznawczej na naszej [stronie cennika](https://azure.microsoft.com/pricing/details/spatial-anchors/).
+Odp **.:** Szczegółowe informacje o cenach można znaleźć na naszej [stronie cennika](https://azure.microsoft.com/pricing/details/spatial-anchors/).
 
 ## <a name="technical-faqs"></a>Często zadawane pytania techniczne
 

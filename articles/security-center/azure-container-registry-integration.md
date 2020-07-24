@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/28/2020
+ms.date: 07/19/2020
 ms.author: memildin
-ms.openlocfilehash: f3ef633ff0271d74eea7320faadf17685976d3b6
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: 2f995f3f6defd73575d9e1bf19326a828f1e6038
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85970471"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089910"
 ---
 # <a name="azure-container-registry-integration-with-security-center"></a>Azure Container Registry integrację z usługą Security Center
 
@@ -30,6 +30,11 @@ Jeśli jesteś w warstwie Standardowa Azure Security Center, możesz dodać paki
 
 - Stan wydania: **Ogólna dostępność**
 - Wymagane role: **czytelnik zabezpieczeń** i [rola czytnika Azure Container Registry](https://docs.microsoft.com/azure/container-registry/container-registry-roles)
+- Obsługiwane rejestry:
+    - ✔ Hostowane w systemie Linux rejestry ACR, które są dostępne z publicznego Internetu i zapewniają dostęp do powłoki.
+    - ✘ Rejestry ACR hostowane w systemie Windows.
+    - Rejestry prywatne ✘ — Security Center wymaga, aby rejestry były dostępne z publicznego Internetu. Jeśli masz ograniczony dostęp do rejestrów za pomocą zapory, punktu końcowego usługi lub za pomocą prywatnego punktu końcowego (na przykład link prywatny platformy Azure), Security Center nie może obecnie nawiązać połączenia z rejestrem lub go przeskanować.
+    - ✘ Minimalistyczny obrazy, takie jak obrazy wyłuskane [platformy Docker](https://hub.docker.com/_/scratch/) lub obrazy typu "Distroless", które zawierają tylko aplikację i jej zależności środowiska uruchomieniowego bez Menedżera pakietów, powłoki lub systemu operacyjnego.
 - Połączeń 
     - ✔ Chmury komercyjne
     - ✘ W chmurze dla instytucji rządowych USA
@@ -40,7 +45,7 @@ Jeśli jesteś w warstwie Standardowa Azure Security Center, możesz dodać paki
 
 Za każdym razem, gdy obraz jest wypychany do rejestru, Security Center automatycznie skanuje ten obraz. Aby wyzwolić skanowanie obrazu, wypchnij go do repozytorium.
 
-Po zakończeniu skanowania (zwykle po około 10 minutach, ale może to być do 40 minut), ustalenia są dostępne jako Security Center zalecenia:
+Po zakończeniu skanowania (zwykle po około 2 minutach, ale może to być maksymalnie 15 minut), ustalenia są dostępne jako Security Center zalecenia:
 
 [![Przykładowe Azure Security Center zalecenia dotyczące luk w zabezpieczeniach odnalezionych w obrazie hostowanym Azure Container Registry (ACR)](media/azure-container-registry-integration/container-security-acr-page.png)](media/azure-container-registry-integration/container-security-acr-page.png#lightbox)
 
@@ -58,11 +63,6 @@ Security Center identyfikuje rejestry ACR oparte na architekturze ARM w Twojej s
 
 
 ## <a name="acr-with-security-center-faq"></a>ACR z Security Center często zadawane pytania
-
-### <a name="what-types-of-images-can-azure-security-center-scan"></a>Jakie typy obrazów mogą Azure Security Center skanowanie?
-Security Center skanuje obrazy systemu operacyjnego Linux, które zapewniają dostęp do powłoki. 
-
-Skaner Qualys nie obsługuje obrazów minimalistyczny, takich jak obrazy wyłuskane [platformy Docker](https://hub.docker.com/_/scratch/) lub obrazy typu "Distroless", które zawierają tylko aplikację i jej zależności środowiska uruchomieniowego bez Menedżera pakietów, powłoki lub systemu operacyjnego.
 
 ### <a name="how-does-azure-security-center-scan-an-image"></a>Jak Azure Security Center skanować obraz?
 Obraz zostanie pobrany z rejestru. Następnie uruchamia się w izolowanej piaskownicy za pomocą skanera Qualys, który wyodrębnia listę znanych luk w zabezpieczeniach.

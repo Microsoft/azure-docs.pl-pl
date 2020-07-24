@@ -3,8 +3,8 @@ title: 'Znane problemy: migracje online z PostgreSQL do Azure Database for Postg
 titleSuffix: Azure Database Migration Service
 description: Informacje o znanych problemach i ograniczeniach migracji z migracją online z PostgreSQL do Azure Database for PostgreSQL przy użyciu Azure Database Migration Service.
 services: database-migration
-author: HJToland3
-ms.author: jtoland
+author: arunkumarthiags
+ms.author: arthiaga
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
@@ -14,12 +14,12 @@ ms.custom:
 - seo-dt-2019
 ms.topic: article
 ms.date: 02/20/2020
-ms.openlocfilehash: 3d1bc627ccb8814ab2dfb61fb0653ef0ac644038
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 564581a102ac3fab504e82db00ef54b3e45d0c19
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80235261"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090743"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-from-postgresql-to-azure-db-for-postgresql"></a>Znane problemy/ograniczenia migracji z migracją online z PostgreSQL do usługi Azure DB dla PostgreSQL
 
@@ -91,12 +91,12 @@ Znane problemy i ograniczenia związane z migracją online z PostgreSQL do Azure
 
 Podczas próby przeprowadzenia migracji w trybie online z AWS RDS PostgreSQL do Azure Database for PostgreSQL mogą wystąpić następujące błędy.
 
-- **Błąd**: wartość domyślna kolumny "{Column}" w tabeli "{Table}" w bazie danych "{Database}" różni się w zależności od serwera źródłowego i docelowego. Na serwerze źródłowym jest to „{value on source}”, a na serwerze docelowym — „{value on target}”.
+- **Błąd**: Wartość domyślna kolumny „{column}” w tabeli „{table}” w bazie danych „{baza danych}” różni się na serwerze źródłowym i docelowym. Na serwerze źródłowym jest to „{value on source}”, a na serwerze docelowym — „{value on target}”.
 
   **Ograniczenie**: ten błąd występuje, gdy wartość domyślna schematu kolumny różni się między źródłową i docelową bazą danych.
   **Obejście**: Upewnij się, że schemat na miejscu docelowym jest zgodny ze schematem w źródle. Aby uzyskać szczegółowe informacje na temat migrowania schematu, zapoznaj się z [dokumentacją dotyczącą migracji do usługi Azure PostgreSQL online](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online#migrate-the-sample-schema).
 
-- **Błąd**: docelowa baza danych "{Database}" ma tabele "{Number of Tables}", w których źródłowa baza danych "{Database}" ma tabele "{Number of Tables}". Liczba tabel w źródłowej i docelowej bazie danych powinna być taka sama.
+- **Błąd**: docelowa baza danych „{database}” zawiera następującą liczbę tabel: „{number of tables}”, natomiast źródłowa baza danych „{database}” zawiera następującą liczbę tabel: „{number of tables}”. Liczba tabel w źródłowej i docelowej bazie danych powinna być taka sama.
 
   **Ograniczenie**: ten błąd występuje, gdy liczba tabel jest różna między źródłową i docelową bazą danych.
 

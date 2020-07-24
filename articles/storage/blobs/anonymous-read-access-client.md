@@ -6,21 +6,21 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 06/29/2020
+ms.date: 07/22/2020
 ms.author: tamram
 ms.reviewer: fryu
-ms.openlocfilehash: f4263d372b82779fe68a6a15cc7db61a31359e14
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: ac5fad935e5c37df3a8bd64189a59612eaf097aa
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86209877"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091372"
 ---
 # <a name="access-public-containers-and-blobs-anonymously-with-net"></a>Anonimowe uzyskiwanie dostępu do publicznych kontenerów i obiektów BLOB przy użyciu platformy .NET
 
-Usługa Azure Storage obsługuje anonimowe, publiczne prawa dostępu do odczytu dla kontenerów i obiektów BLOB. Klienci mogą anonimowo uzyskiwać dostęp do publicznych kontenerów i obiektów BLOB przy użyciu bibliotek klienckich usługi Azure Storage, a także za pomocą innych narzędzi i narzędzi, które obsługują dostęp do danych do usługi Azure Storage.
+Usługa Azure Storage obsługuje opcjonalny publiczny dostęp do odczytu dla kontenerów i obiektów BLOB. Klienci mogą anonimowo uzyskiwać dostęp do publicznych kontenerów i obiektów BLOB przy użyciu bibliotek klienckich usługi Azure Storage, a także za pomocą innych narzędzi i narzędzi, które obsługują dostęp do danych do usługi Azure Storage.
 
-W tym artykule pokazano, jak uzyskać dostęp do publicznego kontenera lub obiektu BLOB z platformy .NET. Informacje o konfigurowaniu anonimowego dostępu do odczytu w kontenerze znajdują się w temacie. Aby uzyskać informacje na temat zapobiegania wszystkim anonimowym dostępowi do konta magazynu, zobacz.
+W tym artykule pokazano, jak uzyskać dostęp do publicznego kontenera lub obiektu BLOB z platformy .NET. Aby uzyskać informacje o konfigurowaniu anonimowego dostępu do odczytu w kontenerze, zobacz [Konfigurowanie anonimowego publicznego dostępu do odczytu dla kontenerów i obiektów BLOB](anonymous-read-access-configure.md). Aby uzyskać informacje na temat zapobiegania wszystkim anonimowym dostępowi do konta magazynu, zobacz [zapobieganie Anonimowemu dostępowi do odczytu do kontenerów i obiektów BLOB](anonymous-read-access-prevent.md).
 
 Klient, który uzyskuje dostęp do kontenerów i obiektów BLOB anonimowo, może używać konstruktorów, które nie wymagają poświadczeń. W poniższych przykładach przedstawiono kilka różnych sposobów anonimowego odwoływania się do kontenerów i obiektów BLOB.
 

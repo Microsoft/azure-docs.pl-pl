@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 06/21/2020
 ms.author: rajosh
-ms.openlocfilehash: e80ec71bef8c34331fac076b7b08be48a9571c2e
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: db1de363856fd560fea97f8f9cdf542717c4cca3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86107703"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090097"
 ---
 # <a name="build-migration-plan-with-azure-migrate"></a>Tworzenie planu migracji za pomocą usługi Azure Migrate
 
@@ -151,7 +151,7 @@ Przed zakończeniem planu migracji upewnij się, że te zagadnienia dotyczące m
 
 - Uzyskaj pomoc techniczną dotyczącą Twojej implementacji, jeśli jest to wymagane. W wielu organizacjach jest wybierana pomoc na zewnątrz na potrzeby obsługi migracji do chmury. Aby szybko i bezpiecznie przenieść się na platformę Azure za pomocą spersonalizowanej pomocy, weź pod uwagę [dostawcę usług zarządzanych przez eksperta platformy Azure](https://www.microsoft.com/solution-providers/search?cacheId=9c2fed4f-f9e2-42fb-8966-4c565f08f11e&ocid=CM_Discovery_Checklist_PDF)   lub [FastTrack for Azure](https://azure.microsoft.com/programs/azure-fasttrack/?ocid=CM_Discovery_Checklist_PDF).  
 
-Utwórz plan migracji do chmury, który zawiera szczegółowe informacje dotyczące listy/grup aplikacji, które mają zostać zmigrowane, dostępności aplikacji i bazy danych oraz ograniczeń przestoju i żądanych punktów kontrolnych migracji. Plan migracji powinien również określać, jak długo trwa kopiowanie danych i zawiera bufor considerate na potrzeby testowania po migracji i działań uruchomienie produkcyjne. Testy po migracji muszą obejmować przypadki użycia funkcjonalnego, integracji, zabezpieczeń i testowania wydajności, aby upewnić się, że migrowane aplikacje działają zgodnie z oczekiwaniami, a wszystkie obiekty bazy danych i relacje danych zostały pomyślnie przeniesione do chmury. Testy po migracji muszą obejmować przypadki użycia funkcjonalnego, integracji, zabezpieczeń i testowania wydajności, aby upewnić się, że migrowane aplikacje działają zgodnie z oczekiwaniami, a wszystkie obiekty bazy danych i relacje danych zostały pomyślnie przeniesione do chmury.  
+Utwórz plan migracji do chmury, który zawiera szczegółowe informacje dotyczące listy/grup aplikacji, które mają zostać zmigrowane, dostępności aplikacji i bazy danych oraz ograniczeń przestoju i żądanych punktów kontrolnych migracji. Plan migracji powinien również określać, jak długo trwa kopiowanie danych i zawiera bufor considerate na potrzeby testowania po migracji i działań uruchomienie produkcyjne. Testy po migracji muszą obejmować przypadki użycia funkcjonalnego, integracji, zabezpieczeń i testowania wydajności, aby upewnić się, że migrowane aplikacje działają zgodnie z oczekiwaniami, a wszystkie obiekty bazy danych i relacje danych zostały pomyślnie przeniesione do chmury.  
 
 Korzystając z tej analizy, można utworzyć plan migracji i zadeklarować okno obsługi do migrowania aplikacji i baz danych z minimalnym niezerowym przestojem i ograniczyć potencjalny wpływ na działania operacyjne/biznesowe podczas migracji.  
 

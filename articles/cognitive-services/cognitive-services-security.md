@@ -1,21 +1,21 @@
 ---
-title: Zabezpieczenia
+title: Zabezpieczenia usługi Azure Cognitive Services
 titleSuffix: Azure Cognitive Services
 description: Dowiedz się więcej na temat różnych zagadnień związanych z zabezpieczeniami Cognitive Services.
 services: cognitive-services
-author: aahill
+author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 06/30/2020
-ms.author: aahi
+ms.date: 07/10/2020
+ms.author: erhopf
 ms.custom: tracking-python
-ms.openlocfilehash: d97b944d5d18a39d6eaf84b55363f487a2c17dbf
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: 51a9829a7ea19665e1081a48207f176b1a8e68c0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85611411"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090845"
 ---
 # <a name="azure-cognitive-services-security"></a>Zabezpieczenia usługi Azure Cognitive Services
 
@@ -31,7 +31,7 @@ Wszystkie Cognitive Services punkty końcowe uwidocznione za pośrednictwem prot
 
 W przypadku użytkowników platformy .NET należy wziąć pod uwagę <a href="https://docs.microsoft.com/dotnet/framework/network-programming/tls" target="_blank">Transport Layer Security najlepszych <span class="docon docon-navigate-external x-hidden-focus"></span> </a>rozwiązań.
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Uwierzytelnianie
 
 Podczas omawiania uwierzytelniania istnieje kilka typowych nielicznych koncepcji. Uwierzytelnianie i autoryzacja są często mylone ze sobą. Tożsamość jest również głównym składnikiem zabezpieczeń. Tożsamość to zbiór informacji o <a href="https://en.wikipedia.org/wiki/Principal_(computer_security)" target="_blank">podmiotu zabezpieczeń <span class="docon docon-navigate-external x-hidden-focus"></span> </a>. Dostawcy tożsamości (dostawcy tożsamości) dostarczają tożsamości do usług uwierzytelniania. Uwierzytelnianie jest czynnością weryfikowania tożsamości użytkownika. Autoryzacja to specyfikacja praw dostępu i uprawnień do zasobów dla danej tożsamości. Niektóre oferty Cognitive Services obejmują kontrolę dostępu opartą na rolach (RBAC). RBAC może służyć do uproszczenia niektórych procedury związanych z ręcznym zarządzaniem podmiotami zabezpieczeń. Aby uzyskać więcej informacji, zobacz [Kontrola dostępu oparta na rolach dla zasobów platformy Azure](../role-based-access-control/overview.md).
 
@@ -203,9 +203,19 @@ Skrytka klienta jest dostępna dla tej usługi poznawczej:
 
 * Translator
 
-W przypadku Language Understanding inżynierowie firmy Microsoft nie będą mieć dostępu do żadnych danych klienta w jednostce SKU E0. Aby zażądać możliwości korzystania z jednostki SKU E0, Wypełnij i prześlij [formularz żądania obsługi Luis](https://aka.ms/cogsvc-cmk). Potrwa około 3-5 dni roboczych, aby poznać stan Twojego żądania. W zależności od popytu można umieścić w kolejce i zatwierdzić, że jest ona dostępna. Po zatwierdzeniu do korzystania z jednostki SKU E0 z LUIS należy utworzyć nowy zasób Language Understanding z Azure Portal i wybrać E0 jako warstwę cenową. Użytkownicy nie będą mogli przeprowadzić uaktualnienia z F0 do nowej jednostki SKU E0.
+W przypadku następujących usług inżynierowie firmy Microsoft nie będą mieć dostępu do żadnych danych klienta w warstwie E0: 
 
-Usługa mowy nie obsługuje obecnie Skrytka klienta. Dane klienta mogą jednak być przechowywane przy użyciu BYOS ("Dołączanie własnych magazynów"), co pozwala osiągnąć podobne kontrolki danych do [skrytka klienta](../security/fundamentals/customer-lockbox-overview.md). Należy pamiętać, że dane usługi mowy pozostają i są przetwarzane w regionie, w którym został utworzony zasób mowy. Dotyczy to danych przechowywanych w czasie spoczynku i przesyłania danych. W przypadku korzystania z funkcji dostosowywania, takich jak Custom Speech i Niestandardowa obsługa głosu, wszystkie dane klienta są przesyłane, przechowywane i przetwarzane w tym samym regionie, w którym znajduje się zasób usługi BYOS (jeśli jest używany) i usługa Speech.
+* Language Understanding
+* Rozpoznawanie twarzy
+* Content Moderator
+* Personalizacja
+
+> [!IMPORTANT]
+> W przypadku **aparatu rozpoznawania formularzy**inżynierowie firmy Microsoft nie będą mieć dostępu do żadnych danych klienta w zasobach utworzonych po 10 lipca 2020.
+
+Aby zażądać możliwości korzystania z jednostki SKU E0, Wypełnij i Prześlij ten [formularz żądania](https://aka.ms/cogsvc-cmk). Potrwa około 3-5 dni roboczych, aby poznać stan Twojego żądania. W zależności od popytu można umieścić w kolejce i zatwierdzić, że jest ona dostępna. Po zatwierdzeniu do korzystania z jednostki SKU E0 z LUIS należy utworzyć nowy zasób na podstawie Azure Portal i wybrać E0 jako warstwę cenową. Użytkownicy nie będą mogli przeprowadzić uaktualnienia z F0 do nowej jednostki SKU E0.
+
+Usługa mowy nie obsługuje obecnie Skrytka klienta. Dane klienta mogą jednak być przechowywane przy użyciu funkcji przenoszenia własnego magazynu (BYOS), co pozwala na uzyskanie podobnych kontroli danych do Skrytka klienta. Należy pamiętać, że dane usługi mowy pozostają i są przetwarzane w regionie, w którym został utworzony zasób mowy. Dotyczy to danych przechowywanych w czasie spoczynku i przesyłania danych. W przypadku korzystania z funkcji dostosowywania, takich jak Custom Speech i Niestandardowa obsługa głosu, wszystkie dane klienta są przesyłane, przechowywane i przetwarzane w tym samym regionie, w którym znajduje się zasób usługi BYOS (jeśli jest używany) i usługa Speech.
 
 > [!IMPORTANT]
 > Firma Microsoft **nie** używa danych klienta w celu ulepszania modeli mowy. Ponadto jeśli rejestrowanie punktów końcowych jest wyłączone i nie są używane żadne dostosowania, dane klienta nie są przechowywane. 

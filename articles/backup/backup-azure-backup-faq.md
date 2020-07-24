@@ -3,12 +3,12 @@ title: Odpowiedzi na często zadawane pytania
 description: 'Odpowiedzi na typowe pytania dotyczące funkcji usługi Azure Backup, w tym magazynów usług Recovery Services, elementów, których kopie zapasowe można tworzyć, sposobu działania, szyfrowania i ograniczeń. '
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.openlocfilehash: 96733ffaae101bb2cf716fda7500a8269ce8e357
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: 6d05c06b1d27cd9d1bc396bddad49fcc89ba3ec3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85970488"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091083"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure Backup — często zadawane pytania
 
@@ -79,7 +79,7 @@ Tak.
 
 Usługa Azure Backup obsługuje następujące systemy operacyjne w przypadku tworzenia kopii zapasowych plików i folderów oraz aplikacji chronionych przy użyciu serwera usługi Azure Backup i programu DPM.
 
-**Macintosh** | **SKU** | **Szczegóły**
+**System operacyjny** | **SKU** | **Szczegóły**
 --- | --- | ---
 Stacja robocza | |
 Windows 10 (wersja 64-bitowa) | Enterprise, Pro, Home | Na maszynach powinny być uruchomione najnowsze dodatki Service Pack i aktualizacje.
@@ -111,7 +111,7 @@ Windows 8 lub nowszy | 54 400 GB
 Windows 7 |1700 GB
 Windows Server 2012 lub nowszy | 54 400 GB
 Windows Server 2008, Windows Server 2008 R2 | 1700 GB
-Maszyna wirtualna platformy Azure | Zobacz [Macierz obsługi kopii zapasowej maszyny wirtualnej platformy Azure](https://docs.microsoft.com/azure/backup/backup-support-matrix-iaas#vm-storage-support)
+Maszyna wirtualna platformy Azure | Zobacz [Macierz obsługi kopii zapasowej maszyny wirtualnej platformy Azure](./backup-support-matrix-iaas.md#vm-storage-support)
 
 ### <a name="how-is-the-data-source-size-determined"></a>W jaki sposób jest określany rozmiar źródła danych?
 
@@ -127,7 +127,7 @@ Stan systemu/BMR |Każda pojedyncza kopia BMR lub stanu systemu komputera, któr
 
 ### <a name="is-there-a-limit-on-the-amount-of-data-backed-up-using-a-recovery-services-vault"></a>Czy istnieje ograniczenie ilości danych kopii zapasowej utworzonej przy użyciu magazynu usługi Recovery Services?
 
-Nie ma żadnego limitu łącznej ilości danych, których kopię zapasową można utworzyć przy użyciu magazynu Recovery Services. Poszczególne źródła danych (inne niż maszyny wirtualne platformy Azure) mogą mieć maksymalnie 54 400 GB pamięci. Aby uzyskać więcej informacji na temat limitów, zobacz [sekcję limity magazynu w macierzy obsługi](https://docs.microsoft.com/azure/backup/backup-support-matrix#vault-support).
+Nie ma żadnego limitu łącznej ilości danych, których kopię zapasową można utworzyć przy użyciu magazynu Recovery Services. Poszczególne źródła danych (inne niż maszyny wirtualne platformy Azure) mogą mieć maksymalnie 54 400 GB pamięci. Aby uzyskać więcej informacji na temat limitów, zobacz [sekcję limity magazynu w macierzy obsługi](./backup-support-matrix.md#vault-support).
 
 ### <a name="why-is-the-size-of-the-data-transferred-to-the-recovery-services-vault-smaller-than-the-data-selected-for-backup"></a>Dlaczego rozmiar danych przesyłanych do magazynu usługi Recovery Services jest mniejszy niż rozmiar danych wybranych do utworzenia kopii zapasowej?
 

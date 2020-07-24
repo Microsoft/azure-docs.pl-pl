@@ -6,11 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 06/20/2019
-ms.openlocfilehash: 2e27958dd9379a26ca7e7f4d7e427e5afa216e29
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 86ee81f3802b7ec7f8189123192c20143a08cf3d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75981164"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090250"
 ---
 # <a name="build-your-first-serverless-app-by-using-azure-logic-apps-and-azure-functions-in-visual-studio"></a>Tworzenie pierwszej aplikacji bezserwerowej przy użyciu Azure Logic Apps i Azure Functions w programie Visual Studio
 
@@ -31,9 +32,9 @@ Do utworzenia aplikacji bezserwerowej w programie Visual Studio potrzebne są:
     > Po zainstalowaniu programu Visual Studio 2019 lub 2017 upewnij się, że wybrano obciążenie **Programowanie na platformie Azure** .
 
   * [Zestaw Microsoft Azure SDK dla platformy .NET (wersja 2.9.1 lub nowsza)](https://azure.microsoft.com/downloads/). 
-  Dowiedz się więcej na temat [zestawu Azure SDK dla platformy .NET](https://docs.microsoft.com/dotnet/azure/dotnet-tools?view=azure-dotnet).
+  Dowiedz się więcej na temat [zestawu Azure SDK dla platformy .NET](/dotnet/azure/dotnet-tools?view=azure-dotnet).
 
-  * [Azure PowerShell](https://github.com/Azure/azure-powershell#installation).
+  * Zainstalowanie programu [Azure PowerShell](https://github.com/Azure/azure-powershell#installation).
 
   * Azure Logic Apps narzędzia dla wersji programu Visual Studio, którą chcesz:
 
@@ -43,7 +44,7 @@ Do utworzenia aplikacji bezserwerowej w programie Visual Studio potrzebne są:
 
     * [Visual Studio 2015](https://aka.ms/download-azure-logic-apps-tools-visual-studio-2015)
   
-    Możesz pobrać i zainstalować narzędzia Azure Logic Apps Tools bezpośrednio z witryny Visual Studio Marketplace lub dowiedzieć się, [jak zainstalować to rozszerzenie z poziomu programu Visual Studio](https://docs.microsoft.com/visualstudio/ide/finding-and-using-visual-studio-extensions). 
+    Możesz pobrać i zainstalować narzędzia Azure Logic Apps Tools bezpośrednio z witryny Visual Studio Marketplace lub dowiedzieć się, [jak zainstalować to rozszerzenie z poziomu programu Visual Studio](/visualstudio/ide/finding-and-using-visual-studio-extensions). 
     Upewnij się, że po zakończeniu instalacji program Visual Studio zostanie ponownie uruchomiony.
 
   * [Azure Functions Core Tools](https://www.npmjs.com/package/azure-functions-core-tools) dla funkcji debugowania lokalnego.
@@ -135,7 +136,7 @@ Aby edytować aplikację logiki po wdrożeniu, Otwórz aplikację logiki przy u�
 
 ## <a name="create-your-azure-functions-project"></a>Tworzenie projektu Azure Functions
 
-Aby utworzyć projekt funkcji i funkcję przy użyciu języka JavaScript, Python, F #, programu PowerShell, usługi Batch lub bash, wykonaj kroki opisane w temacie [Work with Azure Functions Core Tools](../azure-functions/functions-run-local.md). Aby opracować funkcję platformy Azure przy użyciu języka C# w rozwiązaniu, użyj biblioteki klas języka C#, wykonując kroki opisane w temacie [Publikowanie biblioteki klas .NET jako aplikacja funkcji](https://blogs.msdn.microsoft.com/appserviceteam/2017/03/16/publishing-a-net-class-library-as-a-function-app/).
+Aby utworzyć projekt funkcji i funkcję przy użyciu języka JavaScript, Python, F #, programu PowerShell, usługi Batch lub bash, wykonaj kroki opisane w temacie [Work with Azure Functions Core Tools](../azure-functions/functions-run-local.md). Aby opracować funkcję platformy Azure przy użyciu języka C# w rozwiązaniu, użyj biblioteki klas języka C#, wykonując kroki opisane w temacie [Publikowanie biblioteki klas .NET jako aplikacja funkcji](https://azure.microsoft.com/blog/).
 
 ## <a name="deploy-functions-from-visual-studio"></a>Wdrażanie funkcji z programu Visual Studio
 

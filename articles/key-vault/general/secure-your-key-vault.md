@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 05/11/2020
 ms.author: sudbalas
-ms.openlocfilehash: 1aea1f3b2401d7b9639c32927ffa7390727d25b2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4c888fe0f2f4df722948cc6d22e1ef50fd1a3d42
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85833642"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090505"
 ---
 # <a name="secure-access-to-a-key-vault"></a>Bezpieczny dostęp do magazynu kluczy
 
@@ -59,7 +59,7 @@ W poniższej tabeli przedstawiono punkty końcowe dla punktów zarządzania i p�
 
 ## <a name="management-plane-and-rbac"></a>Płaszczyzna zarządzania i kontrola RBAC
 
-Na płaszczyźnie zarządzania należy używać RBAC (Access Control oparte na rolach) do autoryzacji operacji, które może wykonać obiekt wywołujący. W modelu RBAC Każda subskrypcja platformy Azure ma wystąpienie usługi Azure AD. Przyznasz użytkownikom, grupom i aplikacjom dostęp do tego katalogu. Dostęp jest udzielany do zarządzania zasobami w ramach subskrypcji platformy Azure, która używa modelu wdrażania Azure Resource Manager. Aby udzielić dostępu, użyj [Azure Portal](https://portal.azure.com/), [interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?view=azure-cli-latest), [Azure PowerShell](/powershell/azureps-cmdlets-docs)lub [interfejsów API REST Azure Resource Manager](https://msdn.microsoft.com/library/azure/dn906885.aspx).
+Na płaszczyźnie zarządzania należy używać RBAC (Access Control oparte na rolach) do autoryzacji operacji, które może wykonać obiekt wywołujący. W modelu RBAC Każda subskrypcja platformy Azure ma wystąpienie usługi Azure AD. Przyznasz użytkownikom, grupom i aplikacjom dostęp do tego katalogu. Dostęp jest udzielany do zarządzania zasobami w ramach subskrypcji platformy Azure, która używa modelu wdrażania Azure Resource Manager. Aby udzielić dostępu, użyj [Azure Portal](https://portal.azure.com/), [interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?view=azure-cli-latest), [Azure PowerShell](/powershell/azure/)lub [interfejsów API REST Azure Resource Manager](https://msdn.microsoft.com/library/azure/dn906885.aspx).
 
 Utwórz magazyn kluczy w grupie zasobów i Zarządzaj dostępem za pomocą usługi Azure AD. Użytkownicy lub grupy mogą zarządzać magazynami kluczy w grupie zasobów. Przyznanie dostępu do określonego poziomu zakresu przez przypisanie odpowiednich ról RBAC. Aby udzielić użytkownikowi dostępu do zarządzania magazynami kluczy, należy przypisać wstępnie zdefiniowaną `key vault Contributor` rolę do użytkownika w określonym zakresie. Następujące poziomy zakresów można przypisać do roli RBAC:
 
@@ -82,7 +82,7 @@ Przyznanie użytkownikowi, grupie lub aplikacji dostępu do wykonywania określo
 
 Można zapoznać się z pełną listą operacji magazynu i wpisów tajnych oraz poznać operacje dozwolone podczas konfigurowania zasad dostępu magazynu kluczy, wyświetlając następujące informacje. [Odwołanie do Key Vault operacji](https://docs.microsoft.com/rest/api/keyvault/#vault-operations)
 
-<a id="key-vault-access-policies"></a>Key Vault zasady dostępu udzielają uprawnień oddzielnie do kluczy, wpisów tajnych i certyfikatów. Można udzielić użytkownikowi dostępu tylko do kluczy i nie do wpisów tajnych. Uprawnienia dostępu do kluczy, wpisów tajnych i certyfikatów znajdują się na poziomie magazynu. Zasady dostępu Key Vault nie obsługują szczegółowych uprawnień na poziomie obiektów, takich jak określony klucz, klucz tajny lub certyfikat. Aby ustawić zasady dostępu dla magazynu kluczy, użyj [Azure Portal](https://portal.azure.com/), [interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?view=azure-cli-latest), [Azure PowerShell](/powershell/azureps-cmdlets-docs)lub [interfejsów API REST zarządzania Key Vault](https://msdn.microsoft.com/library/azure/mt620024.aspx).
+<a id="key-vault-access-policies"></a>Key Vault zasady dostępu udzielają uprawnień oddzielnie do kluczy, wpisów tajnych i certyfikatów. Można udzielić użytkownikowi dostępu tylko do kluczy i nie do wpisów tajnych. Uprawnienia dostępu do kluczy, wpisów tajnych i certyfikatów znajdują się na poziomie magazynu. Zasady dostępu Key Vault nie obsługują szczegółowych uprawnień na poziomie obiektów, takich jak określony klucz, klucz tajny lub certyfikat. Aby ustawić zasady dostępu dla magazynu kluczy, użyj [Azure Portal](https://portal.azure.com/), [interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?view=azure-cli-latest), [Azure PowerShell](/powershell/azure/)lub [interfejsów API REST zarządzania Key Vault](https://msdn.microsoft.com/library/azure/mt620024.aspx).
 
 > [!IMPORTANT]
 > Zasady dostępu Key Vault są stosowane na poziomie magazynu. Gdy użytkownik uzyskuje uprawnienia do tworzenia i usuwania kluczy, mogą wykonywać te operacje na wszystkich kluczach w tym magazynie kluczy.

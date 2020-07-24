@@ -3,11 +3,13 @@ title: Tabela obsługi usługi Azure Backup
 description: Zawiera podsumowanie ustawień obsługi i ograniczeń dotyczących usługi Azure Backup.
 ms.topic: conceptual
 ms.date: 02/17/2019
-ms.openlocfilehash: 4946a4627d037053e441152182278c26b4f693fe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: references_regions
+ms.openlocfilehash: f84be4082eb6bc845459b6d88cb3157b2330f23d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84655625"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091015"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Macierz obsługi dla Azure Backup
 
@@ -31,10 +33,10 @@ W poniższej tabeli opisano funkcje magazynów Recovery Services:
 --- | ---
 **Magazyny w subskrypcji** | Do 500 magazynów usługi Recovery Services w ramach jednej subskrypcji.
 **Maszyny w magazynie** | Do 1 000 maszyn wirtualnych platformy Azure w jednym magazynie.<br/><br/> Do 50 serwerów serwera usługi MAB można zarejestrować w pojedynczym magazynie.
-**Źródła danych** | Maksymalny rozmiar pojedynczego [źródła danych](https://docs.microsoft.com/azure/backup/backup-azure-backup-faq#how-is-the-data-source-size-determined) wynosi 54 400 GB. Ten limit nie dotyczy kopii zapasowych maszyny wirtualnej platformy Azure. Żadne limity nie mają zastosowania do łącznej ilości danych, których kopię zapasową można utworzyć w magazynie.
+**Źródła danych** | Maksymalny rozmiar pojedynczego [źródła danych](./backup-azure-backup-faq.md#how-is-the-data-source-size-determined) wynosi 54 400 GB. Ten limit nie dotyczy kopii zapasowych maszyny wirtualnej platformy Azure. Żadne limity nie mają zastosowania do łącznej ilości danych, których kopię zapasową można utworzyć w magazynie.
 **Wykonywanie kopii zapasowych w magazynie** | **Maszyny wirtualne platformy Azure:** Raz dziennie.<br/><br/>**Maszyny chronione przez program DPM/serwera usługi MAB:** Dwa razy dziennie.<br/><br/> **Maszyny z kopią zapasową bezpośrednio przy użyciu agenta Mars:** Trzy razy dziennie.
 **Kopie zapasowe między magazynami** | Kopia zapasowa znajduje się w regionie.<br/><br/> Potrzebujesz magazynu w każdym regionie świadczenia usługi Azure, który zawiera maszyny wirtualne, dla których chcesz utworzyć kopię zapasową. Nie można utworzyć kopii zapasowej w innym regionie.
-**Przenoszenie magazynów** | [Magazyny można przenosić](https://docs.microsoft.com/azure/backup/backup-azure-move-recovery-services-vault) między subskrypcjami lub między grupami zasobów w ramach tej samej subskrypcji. Jednak przeniesienie magazynów między regionami nie jest obsługiwane.
+**Przenoszenie magazynów** | [Magazyny można przenosić](./backup-azure-move-recovery-services-vault.md) między subskrypcjami lub między grupami zasobów w ramach tej samej subskrypcji. Jednak przeniesienie magazynów między regionami nie jest obsługiwane.
 **Przenoszenie danych między magazynami** | Przeniesienie danych kopii zapasowej między magazynami nie jest obsługiwane.
 **Modyfikuj typ magazynu magazynów** | Możesz zmodyfikować typ replikacji magazynu (magazyn Geograficznie nadmiarowy lub Magazyn lokalnie nadmiarowy) dla magazynu przed zapisaniem kopii zapasowych. Po rozpoczęciu wykonywania kopii zapasowych w magazynie nie można zmienić typu replikacji.
 
@@ -55,7 +57,7 @@ Oto nowości obsługiwane, jeśli chcesz utworzyć kopię zapasową maszyn lokal
 
 **Limit** | **Szczegóły**
 --- | ---
-**Dyski z danymi maszyn wirtualnych platformy Azure** | Zobacz [Macierz obsługi kopii zapasowej maszyny wirtualnej platformy Azure](https://docs.microsoft.com/azure/backup/backup-support-matrix-iaas#vm-storage-support).
+**Dyski z danymi maszyn wirtualnych platformy Azure** | Zobacz [Macierz obsługi kopii zapasowej maszyny wirtualnej platformy Azure](./backup-support-matrix-iaas.md#vm-storage-support).
 **Rozmiar dysku z danymi maszyn wirtualnych platformy Azure** | Rozmiar poszczególnych dysków może należeć do 32 TB i maksymalnie 256 TB łączny dla wszystkich dysków w maszynie wirtualnej.
 
 ### <a name="azure-vm-backup-options"></a>Opcje kopii zapasowych maszyn wirtualnych platformy Azure
@@ -148,7 +150,7 @@ Funkcja Backup obsługuje kompresję ruchu kopii zapasowej, jak przedstawiono w 
 
 Azure Backup dodano funkcję przywracania między regionami w celu wzmocnienia dostępności i możliwości odporności danych, dzięki czemu klienci mają pełną kontrolę nad przywracaniem danych do regionu pomocniczego. Aby skonfigurować tę funkcję, przejdź [do artykułu Ustawianie Międzyregionowego przywracania.](backup-create-rs-vault.md#set-cross-region-restore) Ta funkcja jest obsługiwana dla następujących typów zarządzania:
 
-| Typ zarządzania kopiami zapasowymi | Obsługiwane                                                    |  Obsługiwane regiony |
+| Typ zarządzania kopiami zapasowymi | Obsługiwane                                                    | Obsługiwane regiony |
 | ---------------------- | ------------------------------------------------------------ | ----------------- |
 | Maszyna wirtualna platformy Azure               | Tak.   Obsługiwane dla szyfrowanych maszyn wirtualnych i maszyn wirtualnych z dyskami o pojemności mniejszej niż 4 TB | Wszystkie regiony publiczne platformy Azure.  |
 | Agent MARS/lokalnie | Nie                                                           | Nie dotyczy               |

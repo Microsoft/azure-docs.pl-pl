@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 06/11/2020
 ms.author: juliako
-ms.openlocfilehash: 20389c8298f4e970c4b3ba93d96f811fdc905003
-ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
+ms.openlocfilehash: f019ebd59b2d0b9d6bae8a5dc4904f1bcae0e6c1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84791609"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090114"
 ---
 # <a name="dynamic-packaging-in-media-services-v3"></a>Dynamiczne pakowanie w Media Services v3
 
@@ -28,7 +28,7 @@ Microsoft Azure Media Services może służyć do kodowania wielu formatów plik
 W Media Services [punkt końcowy przesyłania strumieniowego](streaming-endpoint-concept.md) (Origin) reprezentuje dynamiczny (just-in-Time) pakiet i pierwotną usługę, która umożliwia dostarczanie zawartości na żywo i na żądanie bezpośrednio do aplikacji odtwarzacza klienckiego. Używa jednego z popularnych protokołów multimediów przesyłania strumieniowego, które wymieniono w poniższej sekcji. *Dynamiczne pakowanie* to funkcja, która jest standardem dla wszystkich punktów końcowych przesyłania strumieniowego (Standard lub Premium).
 
 > [!NOTE]
-> Za pomocą [Azure Portal](https://portal.azure.com/) można zarządzać [zdarzeniami na żywo](live-events-outputs-concept.md)v3, przeglądać [zasoby](assets-concept.md)v3 i uzyskać informacje o uzyskiwaniu dostępu do interfejsów API. W przypadku wszystkich innych zadań zarządzania (na przykład transformacji i zadań) należy użyć [interfejsu API REST](https://docs.microsoft.com/rest/api/media/), interfejsu [wiersza polecenia](https://aka.ms/ams-v3-cli-ref)lub jednego z obsługiwanych [zestawów SDK](media-services-apis-overview.md#sdks).
+> Za pomocą [Azure Portal](https://portal.azure.com/) można zarządzać [zdarzeniami na żywo](live-events-outputs-concept.md)v3, przeglądać [zasoby](assets-concept.md)v3 i uzyskać informacje o uzyskiwaniu dostępu do interfejsów API. W przypadku wszystkich innych zadań zarządzania (na przykład transformacji i zadań) należy użyć [interfejsu API REST](/rest/api/media/), interfejsu [wiersza polecenia](https://aka.ms/ams-v3-cli-ref)lub jednego z obsługiwanych [zestawów SDK](media-services-apis-overview.md#sdks).
 
 ## <a name="to-prepare-your-source-files-for-delivery"></a>Aby przygotować pliki źródłowe do dostarczenia
 
@@ -126,7 +126,7 @@ Aby uzyskać informacje na temat przesyłania strumieniowego na żywo w Media Se
 Dynamiczne pakowanie obsługuje pliki MP4, które zawierają wideo kodowane przy użyciu [H. 264](https://en.m.wikipedia.org/wiki/H.264/MPEG-4_AVC) (MPEG-4 AVC lub avc1) lub [H. 265](https://en.m.wikipedia.org/wiki/High_Efficiency_Video_Coding) (HEVC, hev1 lub hvc1).
 
 > [!NOTE]
-> Rozdzielczości do 4 KB i szybkości klatek dla maksymalnie 60 klatek na sekundę zostały przetestowane przy użyciu *dynamicznego tworzenia pakietów*. [Koder w warstwie Premium](https://docs.microsoft.com/azure/media-services/previous/media-services-encode-asset#media-encoder-premium-workflow) obsługuje kodowanie do H. 265 za pośrednictwem starszych interfejsów API v2.
+> Rozdzielczości do 4 KB i szybkości klatek dla maksymalnie 60 klatek na sekundę zostały przetestowane przy użyciu *dynamicznego tworzenia pakietów*. [Koder w warstwie Premium](../previous/media-services-encode-asset.md#media-encoder-premium-workflow) obsługuje kodowanie do H. 265 za pośrednictwem starszych interfejsów API v2.
 
 ## <a name="audio-codecs-supported-by-dynamic-packaging"></a>Kodery-dekoder audio obsługiwane przez pakowanie dynamiczne
 

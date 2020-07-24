@@ -10,11 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.date: 12/05/2019
-ms.openlocfilehash: 119f26f8d5a425462382a873d7ca4bcfdd6f3d03
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 18addfc6b7a0002aba26b668481d6bedb612fffc
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85214506"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090352"
 ---
 # <a name="understand-automated-machine-learning-results"></a>Opis wyników zautomatyzowanego uczenia maszynowego
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -22,8 +23,8 @@ ms.locfileid: "85214506"
 W tym artykule dowiesz się, jak wyświetlać i zrozumieć wykresy i metryki dla każdego z zautomatyzowanych przebiegów uczenia maszynowego. 
 
 Dowiedz się więcej:
-+ [Metryki, wykresy i krzywe dla modeli klasyfikacji](#classification)
-+ [Metryki, wykresy i wykresy dla modeli regresji](#regression)
++ [Metryki i wykresy dla modeli klasyfikacji](#classification)
++ [Metryki i wykresy dla modeli regresji](#regression)
 + [Interpretacja modelu i ważność funkcji](#explain-model)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
@@ -75,28 +76,34 @@ Thee następujące metryki i wykresy są dostępne dla każdego modelu klasyfika
 
 Następujące metryki są zapisywane w każdej iteracji uruchomienia dla zadania klasyfikacji.
 
-Metric|Opis|Obliczenia|Dodatkowe parametry
+Metryka|Opis|Obliczenia|Dodatkowe parametry
 --|--|--|--
-AUC_Macro| AUC to obszar pod krzywą charakterystyczną dla odbiornika. Makro jest średnią arytmetyczną AUC dla każdej klasy.  | [Obliczenia](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | Average = "Macro"|
-AUC_Micro| AUC to obszar pod krzywą charakterystyczną dla odbiornika. Mikro jest obliczany globalnie, łącząc prawdziwe dodatnie i fałszywie dodatnie z każdej klasy.| [Obliczenia](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | Średnia = "mikro"|
-AUC_Weighted  | AUC to obszar pod krzywą charakterystyczną dla odbiornika. Ważone to średnia arytmetyczna wyniku dla każdej klasy, ważona przez liczbę wystąpień prawdziwych w każdej klasie.| [Obliczenia](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html)|Średnia = "ważone"
-accuracy|Dokładność to procent prognozowanych etykiet, które dokładnie pasują do prawdziwych etykiet. |[Obliczenia](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html) |Brak|
-average_precision_score_macro|Średnia precyzja podsumowuje krzywą odwołań dokładności jako średnią ważoną dokładności osiągniętą dla każdego progu, z zwiększeniem odzyskania z poprzedniego progu używanego jako waga. Makro jest średnią arytmetyczną średniego wyniku dokładności dla każdej klasy.|[Obliczenia](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.average_precision_score.html)|Average = "Macro"|
-average_precision_score_micro|Średnia precyzja podsumowuje krzywą odwołań dokładności jako średnią ważoną dokładności osiągniętą dla każdego progu, z zwiększeniem odzyskania z poprzedniego progu używanego jako waga. Mikro jest obliczany globalnie, łącząc prawdziwe dodatnie i fałszywie dodatnie dla każdego odcięcia.|[Obliczenia](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.average_precision_score.html)|Średnia = "mikro"|
-average_precision_score_weighted|Średnia precyzja podsumowuje krzywą odwołań dokładności jako średnią ważoną dokładności osiągniętą dla każdego progu, z zwiększeniem odzyskania z poprzedniego progu używanego jako waga. Ważone jest średnią arytmetyczną średniego oceny dokładności dla każdej klasy, ważonej przez liczbę wystąpień prawdziwych w każdej klasie.|[Obliczenia](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.average_precision_score.html)|Średnia = "ważone"|
-balanced_accuracy|Równoważna dokładność to arytmetyczna średnia odwołania dla każdej klasy.|[Obliczenia](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|Average = "Macro"|
-f1_score_macro|Wynik F1 jest średnią harmoniczną precyzji i odwołania. Makro jest średnią arytmetyczną wyniku F1 dla każdej klasy.|[Obliczenia](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html)|Average = "Macro"|
-f1_score_micro|Wynik F1 jest średnią harmoniczną precyzji i odwołania. Mikro jest obliczany globalnie przez zliczanie całkowitej liczby pozytywnych dodatnich, fałszywych wartości ujemnych i fałszywych dodatnich.|[Obliczenia](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html)|Średnia = "mikro"|
-f1_score_weighted|Wynik F1 jest średnią harmoniczną precyzji i odwołania. Ważone średnie według częstotliwości klasy wyników F1 dla każdej klasy|[Obliczenia](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html)|Średnia = "ważone"|
-log_loss|Jest to funkcja strat użyta w (MULTINOMIAL) logistyki i rozszerzenia, takie jak sieci neuronowych, zdefiniowane jako negatywna prawdopodobieństwo rejestrowania dla prawdziwych etykiet z przewidywaniami klasyfikatora probabilistyczne. Dla pojedynczego przykładu o prawdziwej etykiecie yt w {0,1} i szacowane prawdopodobieństwo YP, że yt = 1, utrata dziennika to-log P (yt&#124;YP) =-(YT log (YP) + (1-yt) log (1-YP)).|[Obliczenia](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.log_loss.html)|Brak|
-norm_macro_recall|Znormalizowane makro odwołuje się do znormalizowanego, tak aby losowo wydajność miało wynik 0, a doskonałe wydajność ma wynik 1. Jest to osiągane przez norm_macro_recall: = (recall_score_macro-R)/(1-R), gdzie R jest oczekiwaną wartością recall_score_macro dla prognoz losowych (tj. R = 0,5 dla klasyfikacji binarnej i języka R = (1/C) dla błędów klasyfikacji klasy C).|[Obliczenia](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|Average = "Macro" |
-precision_score_macro|Precyzja to procent nieprzewidywalnych elementów, które są poprawnie oznaczone etykietami. Makro jest arytmetyczną dokładnością dla każdej klasy.|[Obliczenia](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html)|Average = "Macro"|
-precision_score_micro|Precyzja to procent nieprzewidywalnych elementów, które są poprawnie oznaczone etykietami. Mikro jest obliczany globalnie przez obliczenie całkowitej liczby pozytywnych dodatnich i fałszywych wartości dodatnich.|[Obliczenia](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html)|Średnia = "mikro"|
-precision_score_weighted|Precyzja to procent nieprzewidywalnych elementów, które są poprawnie oznaczone etykietami. Ważone jest średnią arytmetyczną dokładności dla każdej klasy, ważonej według liczby prawdziwych wystąpień w każdej klasie.|[Obliczenia](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html)|Średnia = "ważone"|
-recall_score_macro|Funkcja odwoływania jest wartością procentową poprawnie oznaczonych elementów pewnej klasy. Makro jest średnią arytmetyczną operacji odwoływania dla każdej klasy.|[Obliczenia](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|Average = "Macro"|
-recall_score_micro|Funkcja odwoływania jest wartością procentową poprawnie oznaczonych elementów pewnej klasy. Mikro jest obliczany globalnie przez zliczanie całkowitej liczby pozytywnych dodatnich, fałszywych wartości ujemnych i fałszywych wartości dodatnich|[Obliczenia](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|Średnia = "mikro"|
-recall_score_weighted|Funkcja odwoływania jest wartością procentową poprawnie oznaczonych elementów pewnej klasy. Ważone to średnia arytmetyczna operacji odwoływania dla każdej klasy, ważona według liczby prawdziwych wystąpień w każdej klasie.|[Obliczenia](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|Średnia = "ważone"|
-weighted_accuracy|Waga ważona jest dokładnością, gdzie waga określona dla każdego przykładu jest równa proporcji prawdziwe wystąpienia w tym przykładzie.|[Obliczenia](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html)|sample_weight to wektor równy proporcji tej klasy dla każdego elementu w elemencie docelowym|
+AUC_macro| AUC to obszar pod krzywą charakterystyczną dla odbiornika. Makro jest średnią arytmetyczną AUC dla każdej klasy.  | [Podstaw](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | Average = "Macro"|
+AUC_micro| AUC to obszar pod krzywą charakterystyczną dla odbiornika. Mikro jest obliczany globalnie, łącząc prawdziwe dodatnie i fałszywie dodatnie z każdej klasy.| [Podstaw](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | Średnia = "mikro"|
+AUC_weighted  | AUC to obszar pod krzywą charakterystyczną dla odbiornika. Ważone to średnia arytmetyczna wyniku dla każdej klasy, ważona przez liczbę wystąpień prawdziwych w każdej klasie.| [Podstaw](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html)|Średnia = "ważone"
+accuracy|Dokładność to procent prognozowanych etykiet, które dokładnie pasują do prawdziwych etykiet. |[Podstaw](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html) |Brak|
+average_precision_score_macro|Średnia precyzja podsumowuje krzywą odwołań dokładności jako średnią ważoną dokładności osiągniętą dla każdego progu, z zwiększeniem odzyskania z poprzedniego progu używanego jako waga. Makro jest średnią arytmetyczną średniego wyniku dokładności dla każdej klasy.|[Podstaw](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.average_precision_score.html)|Average = "Macro"|
+average_precision_score_micro|Średnia precyzja podsumowuje krzywą odwołań dokładności jako średnią ważoną dokładności osiągniętą dla każdego progu, z zwiększeniem odzyskania z poprzedniego progu używanego jako waga. Mikro jest obliczany globalnie, łącząc prawdziwe dodatnie i fałszywie dodatnie dla każdego odcięcia.|[Podstaw](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.average_precision_score.html)|Średnia = "mikro"|
+average_precision_score_weighted|Średnia precyzja podsumowuje krzywą odwołań dokładności jako średnią ważoną dokładności osiągniętą dla każdego progu, z zwiększeniem odzyskania z poprzedniego progu używanego jako waga. Ważone jest średnią arytmetyczną średniego oceny dokładności dla każdej klasy, ważonej przez liczbę wystąpień prawdziwych w każdej klasie.|[Podstaw](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.average_precision_score.html)|Średnia = "ważone"|
+balanced_accuracy|Równoważna dokładność to arytmetyczna średnia odwołania dla każdej klasy.|[Podstaw](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|Average = "Macro"|
+f1_score_macro|Wynik F1 jest średnią harmoniczną precyzji i odwołania. Makro jest średnią arytmetyczną wyniku F1 dla każdej klasy.|[Podstaw](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html)|Average = "Macro"|
+f1_score_micro|Wynik F1 jest średnią harmoniczną precyzji i odwołania. Mikro jest obliczany globalnie przez zliczanie całkowitej liczby pozytywnych dodatnich, fałszywych wartości ujemnych i fałszywych dodatnich.|[Podstaw](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html)|Średnia = "mikro"|
+f1_score_weighted|Wynik F1 jest średnią harmoniczną precyzji i odwołania. Ważone średnie według częstotliwości klasy wyników F1 dla każdej klasy|[Podstaw](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html)|Średnia = "ważone"|
+log_loss|Jest to funkcja strat użyta w (MULTINOMIAL) logistyki i rozszerzenia, takie jak sieci neuronowych, zdefiniowane jako negatywna prawdopodobieństwo rejestrowania dla prawdziwych etykiet z przewidywaniami klasyfikatora probabilistyczne. Dla pojedynczego przykładu o prawdziwej etykiecie yt w {0,1} i szacowane prawdopodobieństwo YP, że yt = 1, utrata dziennika to-log P (yt&#124;YP) =-(YT log (YP) + (1-yt) log (1-YP)).|[Podstaw](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.log_loss.html)|Brak|
+norm_macro_recall|Znormalizowane makro odwołuje się do znormalizowanego, tak aby losowo wydajność miało wynik 0, a doskonałe wydajność ma wynik 1. Jest to osiągane przez norm_macro_recall: = (recall_score_macro-R)/(1-R), gdzie R jest oczekiwaną wartością recall_score_macro dla prognoz losowych (tj. R = 0,5 dla klasyfikacji binarnej i języka R = (1/C) dla błędów klasyfikacji klasy C).|[Podstaw](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|Average = "Macro" |
+precision_score_macro|Precyzja to procent nieprzewidywalnych elementów, które są poprawnie oznaczone etykietami. Makro jest arytmetyczną dokładnością dla każdej klasy.|[Podstaw](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html)|Average = "Macro"|
+precision_score_micro|Precyzja to procent nieprzewidywalnych elementów, które są poprawnie oznaczone etykietami. Mikro jest obliczany globalnie przez obliczenie całkowitej liczby pozytywnych dodatnich i fałszywych wartości dodatnich.|[Podstaw](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html)|Średnia = "mikro"|
+precision_score_weighted|Precyzja to procent nieprzewidywalnych elementów, które są poprawnie oznaczone etykietami. Ważone jest średnią arytmetyczną dokładności dla każdej klasy, ważonej według liczby prawdziwych wystąpień w każdej klasie.|[Podstaw](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html)|Średnia = "ważone"|
+recall_score_macro|Funkcja odwoływania jest wartością procentową poprawnie oznaczonych elementów pewnej klasy. Makro jest średnią arytmetyczną operacji odwoływania dla każdej klasy.|[Podstaw](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|Average = "Macro"|
+recall_score_micro|Funkcja odwoływania jest wartością procentową poprawnie oznaczonych elementów pewnej klasy. Mikro jest obliczany globalnie przez zliczanie całkowitej liczby pozytywnych dodatnich, fałszywych wartości ujemnych i fałszywych wartości dodatnich|[Podstaw](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|Średnia = "mikro"|
+recall_score_weighted|Funkcja odwoływania jest wartością procentową poprawnie oznaczonych elementów pewnej klasy. Ważone to średnia arytmetyczna operacji odwoływania dla każdej klasy, ważona według liczby prawdziwych wystąpień w każdej klasie.|[Podstaw](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|Średnia = "ważone"|
+weighted_accuracy|Waga ważona jest dokładnością, gdzie waga określona dla każdego przykładu jest równa proporcji prawdziwe wystąpienia w tym przykładzie.|[Podstaw](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html)|sample_weight to wektor równy proporcji tej klasy dla każdego elementu w elemencie docelowym|
+
+### <a name="binary-vs-multiclass-metrics"></a>Dane binarne a wieloklasowe metryki
+
+AutoML nie rozróżnia metryk danych binarnych i wieloklasowych. Te same metryki walidacji są raportowane niezależnie od tego, czy zestaw danych ma dwie klasy, czy więcej niż dwie klasy. Niektóre metryki są jednak przeznaczone do klasyfikacji wieloklasowej. W przypadku zastosowania do binarnego zestawu danych te metryki nie traktują żadnej klasy jako `true` klasy, ponieważ może się to spodziewać. Metryki, które są wyraźnie przeznaczone dla wieloklasowych są sufiksami z `micro` , `macro` lub `weighted` . Przykłady obejmują `average_precision_score` , `f1_score` , `precision_score` , `recall_score` , i `AUC` .
+
+Konkretnym przykładem jest to, że ten predykat odróżniający jest bardziej przejrzysty: zamiast obliczać odwołanie jako `tp / (tp + fn)` , średniej klasy odwołania ( `micro` , `macro` lub `weighted` ) dla obu klas binarnego zestawu danych klasyfikacji. Jest to równoważne obliczaniu odwołania dla `true` klasy i `false` klasy oddzielnie, a następnie pobierając średnią z dwóch.
 
 <a name="confusion-matrix"></a>
 
@@ -143,15 +150,13 @@ W zależności od celu problemu biznesowego, idealna krzywa odwołań może się
 ### <a name="roc-chart"></a>Wykres ROC
 
 #### <a name="what-is-a-roc-chart"></a>Co to jest wykres ROC?
-Charakterystyka operacyjna odbiornika (lub ROC) to wykres poprawnie sklasyfikowanych etykiet i niewłaściwie sklasyfikowanych etykiet dla określonego modelu. Krzywa ROC może być mniej informacyjna podczas uczenia modeli w zestawach danych o wysokiej odchylenia, ponieważ nie będą one pokazywały fałszywych etykiet pozytywnych.
+Charakterystyka działania odbiorcy (lub ROC) to wykres prawidłowo sklasyfikowanych etykiet i niewłaściwie sklasyfikowanych etykiet dla określonego modelu. Krzywa ROC może być mniej informacyjna, gdy szkolenia modeli w zestawach danych o wysokiej klasy nie są zrównoważone, ponieważ większość klas może Drown udział z klas mniejszościowych.
 
 #### <a name="what-does-automated-ml-do-with-the-roc-chart"></a>Co robią automatyczne ML przy użyciu wykresu ROC?
-Funkcja zautomatyzowanej sieci generuje średnią precyzję makra — odwołanie, średnią precyzję i odwołanie do zestawu, które są skojarzone ze wszystkimi klasami modelu. 
-
-Średnie makro obliczy metrykę niezależnie od klasy, a następnie obliczy średnią, traktując wszystkie klasy w równym stopniu. Jednak funkcja Micro Average agreguje wkłady wszystkich klas, aby obliczyć średnią. Większość średniej jest preferowana, jeśli istnieje nierównoważność klasy w zestawie danych.
+Możesz wizualizować obszar pod wykresem ROC jako część poprawnie sklasyfikowanych próbek. Zaawansowany użytkownik wykresu ROC może wyglądać poza obszarem na krzywej i uzyskać Intuition dla prawdziwie dodatnich i fałszywych stawek dodatnich jako funkcji progu klasyfikacji lub granicy decyzyjnej.
 
 #### <a name="what-does-a-good-model-look-like"></a>Jak wygląda dobry model?
-W idealnym przypadku model będzie miał wartość zbliżoną do 100% true dodatnią i zbliżoną do 0% fałszywych dodatniej. 
+Krzywa ROC, która zbliża się do lewego górnego rogu z 100% true dodatnią, i 0% fałszywa dodatnia stawka będzie najlepszym modelem. Model losowy będzie wyświetlany jako linia płaska od lewej dolnej krawędzi do prawego górnego rogu. Mniej niż losowy zostałby DIP poniżej wiersza y = x.
 
 ##### <a name="example-1-a-classification-model-with-low-true-labels-and-high-false-labels"></a>Przykład 1: model klasyfikacji z niską rzeczywistą etykietami i silnymi etykietami fałszywymi
 ![Model klasyfikacji z niskimi etykietami o niskiej wartości i fałszywych etykiet](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-roc-1.png)
@@ -161,7 +166,8 @@ W idealnym przypadku model będzie miał wartość zbliżoną do 100% true dodat
 <a name="lift-curve"></a>
 ### <a name="lift-chart"></a>Wykres przyrostu
 #### <a name="what-is-a-lift-chart"></a>Co to jest wykres przyrostu?
-Wykresy przyrostowe służą do oceny wydajności modelu klasyfikacji. Pokazuje, ile lepiej można wykonać z wygenerowanym modelem w porównaniu z niemodelem pod względem dokładności.
+Wykresy przyrostowe służą do oceny wydajności modeli klasyfikacji. Wykres przyrostowy pokazuje, ile razy lepszy model jest porównywany z modelem losowym. Zapewnia to względną wydajność, która uwzględnia fakt, że klasyfikacja staje się trudniejsza w miarę zwiększania liczby klas. Model losowy będzie nieprawidłowo przewidzieć większy ułamek próbek z zestawu danych z dziesięciu klas w porównaniu z zestawem danych z dwiema klasami.
+
 #### <a name="what-does-automated-ml-do-with-the-lift-chart"></a>Co robią automatyczne ML z wykresem przyrostowym?
 Można porównać automatycznie dźwig modelu z Azure Machine Learningm z linią bazową, aby wyświetlić jego wartość w tym konkretnym modelu.
 #### <a name="what-does-a-good-model-look-like"></a>Jak wygląda dobry model?
@@ -171,10 +177,10 @@ Można porównać automatycznie dźwig modelu z Azure Machine Learningm z linią
 ##### <a name="example-2-a-classification-model-that-performs-better-than-a-random-selection-model"></a>Przykład 2: model klasyfikacji, który wykonuje lepszy niż losowy model wyboru
 ![Model klasyfikacji, który wykonuje lepsze](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-lift-curve2.png)
 <a name="gains-curve"></a>
-### <a name="gains-chart"></a>Wykres zysków
-#### <a name="what-is-a-gains-chart"></a>Co to jest wykres zysków?
+### <a name="cumulative-gains-chart"></a>Wykres zysków skumulowanych
+#### <a name="what-is-a-cumulative-gains-chart"></a>Co to jest wykres skumulowany zysków?
 
-Wykres zysków oblicza wydajność modelu klasyfikacji według każdej części danych. Pokazuje ona dla każdego percentylu zestawu danych, ile lepiej można oczekiwać w porównaniu z losowym modelem wyboru.
+Wykres skumulowanych zysków szacuje wydajność modelu klasyfikacji według każdej części danych. Dla każdego percentylu zestawu danych wykres pokazuje, ile więcej próbek zostało dokładnie sklasyfikowanych.
 
 #### <a name="what-does-automated-ml-do-with-the-gains-chart"></a>Co robią automatyczne ML z wykresem zysków?
 Użyj wykresu skumulowanych zysków, aby pomóc w wyborze odcięcia klasyfikacji przy użyciu wartości procentowej odpowiadającej żądanemu zyskowi z modelu. Te informacje zapewniają inny sposób przeglądania wyników na dołączonym wykresie podnoszenia.
@@ -195,7 +201,7 @@ W przypadku wszystkich problemów z klasyfikacją można sprawdzić linię kalib
 
 Średnie makro obliczy metrykę niezależnie od klasy, a następnie obliczy średnią, traktując wszystkie klasy w równym stopniu. Jednak funkcja Micro Average agreguje wkłady wszystkich klas, aby obliczyć średnią. 
 #### <a name="what-does-a-good-model-look-like"></a>Jak wygląda dobry model?
- Dobrze skalibrowane modele są wyrównane z linią y = x, gdzie w jej przewidywaniach jest to uzasadnione. Model z nadmiernym prawdopodobieństwem jest wyrównany do osi y = 0, w której przewidywane prawdopodobieństwo jest obecne, ale nie ma rzeczywistego prawdopodobieństwa. 
+Dobrze skalibrowane modele są wyrównane z linią y = x, gdzie prawidłowo przewiduje prawdopodobieństwo, że próbki należą do każdej klasy. Model z nadmiernym prawdopodobieństwem będzie przekroczyć przewidywane działania zbliżone do zera i jednego, rzadko nie jest to konieczne dla klasy każdej próbki.
 
 
 ##### <a name="example-1-a-well-calibrated-model"></a>Przykład 1: model dobrze kalibrowany
@@ -217,19 +223,19 @@ Thee następujące metryki i wykresy są dostępne dla każdego modelu regresji 
 
 Następujące metryki są zapisywane w każdej iteracji uruchomienia dla zadania regresji lub prognozowania.
 
-|Metric|Opis|Obliczenia|Dodatkowe parametry
+|Metryka|Opis|Obliczenia|Dodatkowe parametry
 --|--|--|--|
-explained_variance|Wyjaśniono wariancję to proporcja, do której model matematyczny jest przeznaczony dla odmiany danego zestawu danych. Jest to procentowy spadek wariancji oryginalnych danych do wariancji błędów. Gdy średnią z błędów jest 0, jest równa objaśnionej wariancji.|[Obliczenia](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.explained_variance_score.html)|Brak|
-r2_score|R2 to współczynnik wyznaczania lub procent redukcji w przypadku błędów kwadratowych w porównaniu z modelem bazowym, który wyprowadza średnią. |[Obliczenia](https://scikit-learn.org/0.16/modules/generated/sklearn.metrics.r2_score.html)|Brak|
-spearman_correlation|Korelacja Spearman jest miarą nieparametryczną monotonicity relacji między dwoma zestawami danych. W przeciwieństwie do korelacji Pearsona korelacja Spearman nie zakłada, że oba zestawy danych są zwykle dystrybuowane. Podobnie jak inne Współczynniki korelacji, ta wartość różni się od-1 do + 1 i 0 oznacza brak korelacji. Korelacje-1 lub + 1 implikują dokładną relację monotoniczny. Korelacje pozytywne implikują, że w miarę wzrostu x, więc jest to wartość y. Korelacje negatywne oznacza, że w miarę wzrostu x zmniejsza się wartość y.|[Obliczenia](https://docs.scipy.org/doc/scipy-0.16.1/reference/generated/scipy.stats.spearmanr.html)|Brak|
-mean_absolute_error|Średni błąd bezwzględny jest oczekiwaną wartością bezwzględną różnicy między obiektem docelowym a prognozą|[Obliczenia](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_absolute_error.html)|Brak|
-normalized_mean_absolute_error|Znormalizowany błąd bezwzględny oznacza błąd bezwzględny podzielony przez zakres danych|[Obliczenia](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_absolute_error.html)|Dzielenie według zakresu danych|
-median_absolute_error|Średni błąd bezwzględny to mediana wszystkich bezwzględnych różnic między obiektem docelowym a przewidywaniam. Ta utrata jest niezawodna dla wartości odstających.|[Obliczenia](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.median_absolute_error.html)|Brak|
-normalized_median_absolute_error|Znormalizowany błąd bezwzględny jest średnim błędem bezwzględnym podzielonym przez zakres danych|[Obliczenia](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.median_absolute_error.html)|Dzielenie według zakresu danych|
-root_mean_squared_error|Wartość "pierwiastek" oznacza pierwiastek kwadratowy o oczekiwanej różnicy kwadratowej między elementem docelowym a prognozą|[Obliczenia](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_error.html)|Brak|
-normalized_root_mean_squared_error|Znormalizowany, średni błąd oznaczający, że błąd oznaczający pierwiastek jako średni, podzielony przez zakres danych|[Obliczenia](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_error.html)|Dzielenie według zakresu danych|
-root_mean_squared_log_error|Główny średni kwadratowy błąd w dzienniku jest pierwiastek kwadratowy oczekiwanego kwadratowego błędu logarytmicznego|[Obliczenia](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_log_error.html)|Brak|
-normalized_root_mean_squared_log_error|Znormalizowany błąd oznaczający, że w przypadku standardowego elementu głównego jest średni kwadratowy błąd dziennika podzielony przez zakres danych|[Obliczenia](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_log_error.html)|Dzielenie według zakresu danych|
+explained_variance|Wyjaśniono wariancję to proporcja, do której model matematyczny jest przeznaczony dla odmiany danego zestawu danych. Jest to procentowy spadek wariancji oryginalnych danych do wariancji błędów. Gdy średnią z błędów jest 0, jest równa objaśnionej wariancji.|[Podstaw](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.explained_variance_score.html)|Brak|
+r2_score|R2 to współczynnik wyznaczania lub procent redukcji w przypadku błędów kwadratowych w porównaniu z modelem bazowym, który wyprowadza średnią. |[Podstaw](https://scikit-learn.org/0.16/modules/generated/sklearn.metrics.r2_score.html)|Brak|
+spearman_correlation|Korelacja Spearman jest miarą nieparametryczną monotonicity relacji między dwoma zestawami danych. W przeciwieństwie do korelacji Pearsona korelacja Spearman nie zakłada, że oba zestawy danych są zwykle dystrybuowane. Podobnie jak inne Współczynniki korelacji, ta wartość różni się od-1 do + 1 i 0 oznacza brak korelacji. Korelacje-1 lub + 1 implikują dokładną relację monotoniczny. Korelacje pozytywne implikują, że w miarę wzrostu x, więc jest to wartość y. Korelacje negatywne oznacza, że w miarę wzrostu x zmniejsza się wartość y.|[Podstaw](https://docs.scipy.org/doc/scipy-0.16.1/reference/generated/scipy.stats.spearmanr.html)|Brak|
+mean_absolute_error|Średni błąd bezwzględny jest oczekiwaną wartością bezwzględną różnicy między obiektem docelowym a prognozą|[Podstaw](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_absolute_error.html)|Brak|
+normalized_mean_absolute_error|Znormalizowany błąd bezwzględny oznacza błąd bezwzględny podzielony przez zakres danych|[Podstaw](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_absolute_error.html)|Dzielenie według zakresu danych|
+median_absolute_error|Średni błąd bezwzględny to mediana wszystkich bezwzględnych różnic między obiektem docelowym a przewidywaniam. Ta utrata jest niezawodna dla wartości odstających.|[Podstaw](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.median_absolute_error.html)|Brak|
+normalized_median_absolute_error|Znormalizowany błąd bezwzględny jest średnim błędem bezwzględnym podzielonym przez zakres danych|[Podstaw](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.median_absolute_error.html)|Dzielenie według zakresu danych|
+root_mean_squared_error|Wartość "pierwiastek" oznacza pierwiastek kwadratowy o oczekiwanej różnicy kwadratowej między elementem docelowym a prognozą|[Podstaw](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_error.html)|Brak|
+normalized_root_mean_squared_error|Znormalizowany, średni błąd oznaczający, że błąd oznaczający pierwiastek jako średni, podzielony przez zakres danych|[Podstaw](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_error.html)|Dzielenie według zakresu danych|
+root_mean_squared_log_error|Główny średni kwadratowy błąd w dzienniku jest pierwiastek kwadratowy oczekiwanego kwadratowego błędu logarytmicznego|[Podstaw](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_log_error.html)|Brak|
+normalized_root_mean_squared_log_error|Znormalizowany błąd oznaczający, że w przypadku standardowego elementu głównego jest średni kwadratowy błąd dziennika podzielony przez zakres danych|[Podstaw](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_log_error.html)|Dzielenie według zakresu danych|
 
 ### <a name="predicted-vs-true-chart"></a><a name="pvt"></a>Wykres przewidywany a rzeczywisty
 #### <a name="what-is-a-predicted-vs-true-chart"></a>Co to jest wykres predykcyjny a prawda?
@@ -249,11 +255,11 @@ Po każdym uruchomieniu można zobaczyć przewidywany wykres a true dla każdego
 
 ### <a name="histogram-of-residuals-chart"></a><a name="histo"></a>Histogram wykresu reszty
 #### <a name="what-is-a-residuals-chart"></a>Co to jest wykres reszty?
-Reszta reprezentuje zaobserwowane y — przewidywane y. Aby pokazać margines błędu z niską ilością bias, histogram reszty powinien być w kształcie krzywej dzwonka, wyśrodkowany wokół 0. 
+Reszta jest różnicą między prognozą i rzeczywistą wartością ( `y_pred - y_true` ). Aby pokazać margines błędu z niską ilością bias, histogram reszty powinien być w kształcie krzywej dzwonka, wyśrodkowany wokół 0. 
 #### <a name="what-does-automated-ml-do-with-the-residuals-chart"></a>Co robią automatyczne ML z wykresem reszty?
 Automatyczna część ML udostępnia wykres reszty, aby pokazać dystrybucję błędów w przewidywaniach.
 #### <a name="what-does-a-good-model-look-like"></a>Jak wygląda dobry model?
-Dobry model zazwyczaj ma krzywą dzwonka lub błędy wokół zera.
+Dobry model zwykle będzie miał pozostały w przybliżeniu równy zeru.
 
 ##### <a name="example-1-a-regression-model-with-bias-in-its-errors"></a>Przykład 1: model regresji z bias w jego błędach
 ![Model regresji SA z odchyleniami w jego błędach](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression3.png)

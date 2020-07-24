@@ -1,14 +1,14 @@
 ---
-title: Poprawianie bazy wiedzy — QnA Maker
+title: Korzystanie z usługi Active Learning z bazą wiedzy QnA Maker
 description: Popraw jakość bazy wiedzy dzięki aktywnej uczeniu. Przeglądanie, akceptowanie lub odrzucanie, Dodawanie bez usuwania lub zmieniania istniejących pytań.
 ms.topic: conceptual
 ms.date: 03/18/2020
-ms.openlocfilehash: 33b3c547b0aea9a1e235bf8a05d01aa16b468a71
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 004ee9d4cced0116831718b1601d5d510dea5a4d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80071134"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090930"
 ---
 # <a name="use-active-learning-to-improve-your-knowledge-base"></a>Ulepszanie bazy wiedzy za pomocą uczenia aktywnego
 

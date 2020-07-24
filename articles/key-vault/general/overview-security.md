@@ -11,11 +11,12 @@ ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: mbaldwin
 Customer intent: As a key vault administrator, I want to learn the options available to secure my vaults
-ms.openlocfilehash: cd8557a33971be9fd0913bfdf84397d344901581
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8d6dd38c3d1802c3b5bec82edbda4f9d344fa28b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83834382"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090522"
 ---
 # <a name="azure-key-vault-security"></a>Zabezpieczenia usługi Azure Key Vault
 
@@ -64,7 +65,7 @@ Key Vault zasady dostępu udzielają uprawnień oddzielnie do kluczy, wpisów ta
 > [!IMPORTANT]
 > Zasady dostępu Key Vault nie obsługują szczegółowych uprawnień na poziomie obiektów, takich jak określony klucz, klucz tajny lub certyfikat. Gdy użytkownik uzyskuje uprawnienia do tworzenia i usuwania kluczy, mogą wykonywać te operacje na wszystkich kluczach w tym magazynie kluczy.
 
-Aby ustawić zasady dostępu dla magazynu kluczy, użyj [Azure Portal](https://portal.azure.com/), [interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?view=azure-cli-latest), [Azure PowerShell](/powershell/azureps-cmdlets-docs)lub [interfejsów API REST zarządzania Key Vault](/rest/api/keyvault/).
+Aby ustawić zasady dostępu dla magazynu kluczy, użyj [Azure Portal](https://portal.azure.com/), [interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?view=azure-cli-latest), [Azure PowerShell](/powershell/azure/)lub [interfejsów API REST zarządzania Key Vault](/rest/api/keyvault/).
 
 Dostęp do płaszczyzny danych można ograniczyć za pomocą [punktów końcowych usługi sieci wirtualnej dla Azure Key Vault](overview-vnet-service-endpoints.md)). [Zapory i reguły sieci wirtualnej](network-security.md) można skonfigurować w celu uzyskania dodatkowej warstwy zabezpieczeń.
 

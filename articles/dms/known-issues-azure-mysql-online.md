@@ -3,8 +3,8 @@ title: 'Znane problemy: migracje online do Azure Database for MySQL'
 titleSuffix: Azure Database Migration Service
 description: Informacje o znanych problemach i ograniczeniach migracji z migracją online do Azure Database for MySQL podczas korzystania z Azure Database Migration Service.
 services: database-migration
-author: HJToland3
-ms.author: jtoland
+author: arunkumarthiags
+ms.author: arthiaga
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
@@ -14,12 +14,12 @@ ms.custom:
 - seo-dt-2019
 ms.topic: article
 ms.date: 02/20/2020
-ms.openlocfilehash: 8c3de28ea934302086a5b14e61482e6a4ab9a7ca
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9a2e28439efaa1983c4deeff4c6746108fc28e4e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80235273"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090709"
 ---
 # <a name="online-migration-issues--limitations-to-azure-db-for-mysql-with-azure-database-migration-service"></a>Problemy z migracją w trybie online & ograniczenia dotyczące usługi Azure DB dla programu MySQL z Azure Database Migration Service
 
@@ -135,6 +135,8 @@ Podczas próby przeprowadzenia migracji w trybie online z AWS RDS MySQL do Azure
     ```
 
 - W Azure Database Migration Service limit migracji baz danych w ramach jednego działania migracji wynosi cztery.
+
+- Usługa Azure DMS nie obsługuje akcji referencyjnej CASCADE, która pomaga automatycznie usuwać lub aktualizować pasujący wiersz w tabeli podrzędnej po usunięciu lub zaktualizowaniu wiersza w tabeli nadrzędnej. Aby uzyskać więcej informacji, zobacz sekcję działania referencyjne w temacie [ograniczenia klucza obcego](https://dev.mysql.com/doc/refman/8.0/en/create-table-foreign-keys.html)artykułu. Usługa Azure DMS wymaga porzucenia ograniczeń klucza obcego na docelowym serwerze bazy danych podczas początkowego ładowania danych i nie można używać akcji referencyjnych. Jeśli obciążenie zależy od aktualizowania powiązanej tabeli podrzędnej za pomocą tej akcji referencyjnej, zalecamy wykonanie [zrzutu i przywrócenie](https://docs.microsoft.com/azure/mysql/concepts-migrate-dump-restore) zamiast tego. 
 
 - **Błąd:** Zbyt duży rozmiar wiersza (> 8126). Zmiana niektórych kolumn na tekst lub obiekt BLOB może pomóc. W bieżącym formacie wiersza prefiks obiektu BLOB o wartości 0 bajtów jest przechowywany w tekście.
 

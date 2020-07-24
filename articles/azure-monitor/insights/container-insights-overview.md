@@ -3,12 +3,12 @@ title: Omówienie Azure Monitor kontenerów | Microsoft Docs
 description: W tym artykule opisano Azure Monitor kontenerów monitorujących rozwiązanie AKS datacontainer Insights i wartość dostarczaną przez monitorowanie kondycji klastrów AKS i Container Instances na platformie Azure.
 ms.topic: conceptual
 ms.date: 05/21/2020
-ms.openlocfilehash: d176a84d72c92eddd4ffd4fcd1011bda172e5cc4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c5fcdd3bfc42e298791e1ab761fa4db432a93dd7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85337926"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091168"
 ---
 # <a name="azure-monitor-for-containers-overview"></a>Omówienie usługi Azure Monitor dla kontenerów
 
@@ -17,7 +17,7 @@ Azure Monitor for Containers to funkcja przeznaczona do monitorowania wydajnośc
 - Klastry Managed Kubernetes hostowane w [usłudze Azure Kubernetes Service (AKS)](../../aks/intro-kubernetes.md)
 - Samozarządzane klastry Kubernetes hostowane na platformie Azure przy użyciu [aparatu AKS](https://github.com/Azure/aks-engine)
 - [Azure Container Instances](../../container-instances/container-instances-overview.md)
-- Samozarządzane klastry Kubernetes hostowane w [Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1910) lub lokalnie
+- Samozarządzane klastry Kubernetes hostowane w [Azure Stack](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1910) lub lokalnie
 - [Azure Red Hat OpenShift](../../openshift/intro-openshift.md)
 - [Usługa Azure ARC z włączonym Kubernetes](../../azure-arc/kubernetes/overview.md) (wersja zapoznawcza)
 
@@ -40,7 +40,7 @@ Azure Monitor for Containers oferuje kompleksowe środowisko monitorowania wykor
 * Zapoznaj się z zachowaniem klastra w obszarze średnie i najcięższe obciążenia. Ta wiedza ułatwia identyfikowanie potrzeb związanych z pojemnością i określanie maksymalnego obciążenia, które może utrzymywać klaster.
 * Konfigurowanie alertów w celu aktywnego powiadamiania użytkownika lub rejestrowania go, gdy użycie procesora i pamięci w węzłach lub kontenerach przekracza progi lub w przypadku zmiany stanu kondycji w klastrze na zestawienie kondycji infrastruktury lub węzłów.
 * Integracja z usługą [Prometheus](https://prometheus.io/docs/introduction/overview/) w celu wyświetlania metryk aplikacji i obciążeń zbieranych z węzłów i Kubernetes przy użyciu [zapytań](container-insights-log-search.md) w celu utworzenia niestandardowych alertów, pulpitów nawigacyjnych i szczegółowej szczegółowej analizy.
-* Monitoruj obciążenia kontenera [wdrożone w aparacie AKS aparatów](https://github.com/Azure/aks-engine) lokalnych i [AKS na Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908).
+* Monitoruj obciążenia kontenera [wdrożone w aparacie AKS aparatów](https://github.com/Azure/aks-engine) lokalnych i [AKS na Azure Stack](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908).
 * Monitoruj obciążenia kontenerów [wdrożone na platformie Azure Red Hat OpenShift](../../openshift/intro-openshift.md).
 
     >[!NOTE]
@@ -51,7 +51,7 @@ Azure Monitor for Containers oferuje kompleksowe środowisko monitorowania wykor
 
 Główne różnice w monitorowaniu klastra z systemem Windows Server w porównaniu z klastrem systemu Linux są następujące:
 
-- System Windows nie ma metryki pamięci RSS i w związku z tym nie jest dostępny dla węzłów i kontenerów systemu Windows. Dostępna jest Metryka [zestawu roboczego](https://docs.microsoft.com/windows/win32/memory/working-set) .
+- System Windows nie ma metryki pamięci RSS i w związku z tym nie jest dostępny dla węzłów i kontenerów systemu Windows. Dostępna jest Metryka [zestawu roboczego](/windows/win32/memory/working-set) .
 - Informacje o pojemności magazynu dyskowego nie są dostępne dla węzłów systemu Windows.
 - Monitorowane są tylko środowiska pod środowiskiem, a nie środowiska Docker.
 - W wersji zapoznawczej obsługiwane są maksymalnie 30 kontenerów systemu Windows Server. To ograniczenie nie dotyczy kontenerów systemu Linux.

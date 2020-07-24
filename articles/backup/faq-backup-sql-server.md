@@ -4,11 +4,12 @@ description: Znajdź odpowiedzi na często zadawane pytania dotyczące tworzenia
 ms.reviewer: vijayts
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: 11657a5dda79fc550f4c07d4020d75c671335da4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2781646e548f4f530b26ca41466f158597e817d9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84248264"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090981"
 ---
 # <a name="faq-about-sql-server-databases-that-are-running-on-an-azure-vm-backup"></a>Często zadawane pytania dotyczące SQL Server baz danych uruchomionych w ramach kopii zapasowej maszyny wirtualnej platformy Azure
 
@@ -48,7 +49,7 @@ Wartość domyślna DefaultBackupTasksThreshold wynosi **20**.
 
 3. Zapisz zmiany i zamknij plik.
 4. W wystąpieniu programu SQL Server otwórz **Menedżera zadań**. Uruchom ponownie usługę **AzureWLBackupCoordinatorSvc**.<br/> <br/>
- Chociaż ta metoda pomaga, jeśli aplikacja do tworzenia kopii zapasowych zużywa znaczną ilość zasobów, SQL Server [Gubernatorów zasobów](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor?view=sql-server-2017) jest bardziej ogólnym sposobem określania limitów ilości CPU, fizycznego wejścia/wyjścia i pamięci, które mogą być używane przez przychodzące żądania aplikacji.
+ Chociaż ta metoda pomaga, jeśli aplikacja do tworzenia kopii zapasowych zużywa znaczną ilość zasobów, SQL Server [Gubernatorów zasobów](/sql/relational-databases/resource-governor/resource-governor) jest bardziej ogólnym sposobem określania limitów ilości CPU, fizycznego wejścia/wyjścia i pamięci, które mogą być używane przez przychodzące żądania aplikacji.
 
 > [!NOTE]
 > W środowisku użytkownika można nadal przejść i zaplanować dowolną liczbę kopii zapasowych w danym momencie, jednak będą one przetwarzane w ruchomym oknie powiedzie się, 5, zgodnie z powyższym przykładem.

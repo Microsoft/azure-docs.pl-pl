@@ -1,5 +1,5 @@
 ---
-title: Rozwiązywanie problemów z hostem sesji usług pulpitu wirtualnego systemu Windows — Azure
+title: Rozwiązywanie problemów ze sprężyną hosta sesji usług pulpitu wirtualnego systemu Windows 2020 — Azure
 description: Jak rozwiązywać problemy podczas konfigurowania maszyn wirtualnych hosta sesji usług pulpitu wirtualnego systemu Windows.
 services: virtual-desktop
 author: Heidilohr
@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 05/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: df2990e3799d0b16f316c522185ac9b779ca48e4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6d1e155dc850143ee252effe5ec9d8ef2d716611
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85362360"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091321"
 ---
 # <a name="session-host-virtual-machine-configuration"></a>Konfiguracja maszyny wirtualnej hosta sesji
 

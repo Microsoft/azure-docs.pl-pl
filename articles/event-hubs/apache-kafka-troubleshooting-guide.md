@@ -3,17 +3,18 @@ title: Rozwiązywanie problemów z usługą Azure Event Hubs dla Apache Kafka
 description: W tym artykule opisano sposób rozwiązywania problemów z usługą Azure Event Hubs dla Apache Kafka
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: c2403fd51729ef8809b9a70383ad6f9fd91e52b6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 034541aa6ea683c0e294ca8790b02f0dc60b5440
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85322683"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090573"
 ---
 # <a name="apache-kafka-troubleshooting-guide-for-event-hubs"></a>Apache Kafka Przewodnik rozwiązywania problemów dla Event Hubs
 W tym artykule przedstawiono wskazówki dotyczące rozwiązywania problemów, które mogą wystąpić podczas korzystania z Event Hubs dla Apache Kafka. 
 
 ## <a name="server-busy-exception"></a>Wyjątek zajętości serwera
-Może wystąpić wyjątek zajętości serwera z powodu ograniczenia Kafka. W przypadku Event Hubs klientów AMQP funkcja natychmiast zwraca wyjątek " **zajęty serwer** " podczas ograniczania usługi. Jest to równoważne komunikat "Spróbuj ponownie później". W Kafka, komunikaty są opóźnione przed ukończeniem. Długość opóźnienia jest zwracana w milisekundach, jak `throttle_time_ms` w odpowiedzi generowania/pobierania. W większości przypadków te opóźnione żądania nie są rejestrowane jako wyjątki ServerBusy na pulpitach nawigacyjnych Event Hubs. Zamiast tego `throttle_time_ms` należy użyć wartości odpowiedzi jako wskaźnika, że przepływność przekroczyła przydział przyznanego przydziału.
+Ze względu na ograniczenie Kafka może zostać wyświetlony wyjątek "zajęty serwer". W przypadku Event Hubs klientów AMQP funkcja natychmiast zwraca wyjątek " **zajęty serwer** " podczas ograniczania usługi. Jest to równoważne komunikat "Spróbuj ponownie później". W Kafka, komunikaty są opóźnione przed ukończeniem. Długość opóźnienia jest zwracana w milisekundach, jak `throttle_time_ms` w odpowiedzi generowania/pobierania. W większości przypadków te opóźnione żądania nie są rejestrowane jako wyjątki zajęte przez serwer na Event Hubs pulpitach nawigacyjnych. Zamiast tego `throttle_time_ms` należy użyć wartości odpowiedzi jako wskaźnika, że przepływność przekroczyła przydział przyznanego przydziału.
 
 Jeśli ruch jest zbyt długi, usługa ma następujące zachowanie:
 
@@ -48,13 +49,13 @@ Sprawdź następujące elementy, jeśli podczas korzystania z programu Kafka na 
 - **Ruch blokowany przez zaporę** — upewnij się, że port **9093** nie jest blokowany przez zaporę.
 - **TopicAuthorizationException** — Najczęstszymi przyczynami tego wyjątku są:
     - Literówka w parametrach połączenia w pliku konfiguracyjnym lub
-    - Próba użycia Event Hubs dla Kafka w przestrzeni nazw warstwy podstawowej. Event Hubs dla Kafka jest [obsługiwany tylko w przypadku przestrzeni nazw warstwy Standardowa i dedykowanej](https://azure.microsoft.com/pricing/details/event-hubs/).
+    - Próba użycia Event Hubs dla Kafka w przestrzeni nazw warstwy podstawowej. Funkcja Event Hubs for Kafka jest [obsługiwana tylko w przypadku przestrzeni nazw warstwy standardowej i dedykowanej](https://azure.microsoft.com/pricing/details/event-hubs/).
 - **Niezgodność wersji Kafka** -Event Hubs dla ekosystemów Kafka obsługuje Kafka w wersji 1,0 i nowszych. Niektóre aplikacje korzystające z programu Kafka w wersji 0,10 i nowszych mogą czasem współdziałać ze względu na zgodność z poprzednimi wersjami protokołu Kafka, ale zdecydowanie zalecamy użycie starych wersji interfejsu API. Kafka wersje 0,9 i wcześniejsze nie obsługują wymaganych protokołów SASL i nie mogą łączyć się z Event Hubs.
 - **Dziwne kodowanie w nagłówkach AMQP podczas korzystania z Kafka** -podczas wysyłania zdarzeń do centrum zdarzeń przez AMQP, wszystkie nagłówki ładunku AMQP są serializowane w kodowaniu AMQP. Kafka konsumenci nie deserializacji nagłówków z AMQP. Aby odczytać wartości nagłówka, ręcznie Dekoduj nagłówki AMQP. Alternatywnie możesz uniknąć używania nagłówków AMQP, Jeśli wiesz, że będziesz zużywać za pośrednictwem protokołu Kafka. Aby uzyskać więcej informacji, zobacz [ten problem](https://github.com/Azure/azure-event-hubs-for-kafka/issues/56)w serwisie GitHub.
 - **Uwierzytelnianie SASL** — Przygotowanie struktury do współpracy z protokołem uwierzytelniania SASL wymaganym przez Event Hubs może być trudniejsze. Sprawdź, czy możesz rozwiązywać problemy z konfiguracją, korzystając z zasobów platformy przy uwierzytelnianiu SASL. 
 
 ## <a name="limits"></a>Limity
-Apache Kafka a Event Hubs Kafka. W większości przypadków Event Hubs ekosystemów Kafka ma takie same wartości domyślne, właściwości, kody błędów i ogólne zachowanie, które Apache Kafka wykonuje. Wystąpienia, w których te dwa jawnie różnią się (lub gdzie Event Hubs nakładają limit Kafka nie), są wymienione poniżej:
+Apache Kafka a Event Hubs Kafka. W większości przypadków Event Hubs Kafka ma takie same wartości domyślne, właściwości, kody błędów i ogólne zachowanie, które Apache Kafka wykonuje. Wystąpienia, które te dwie jawnie różnią się (lub gdzie Event Hubs nakładają limit, który nie jest Kafka) są wymienione poniżej:
 
 - Maksymalna długość `group.id` Właściwości to 256 znaków
 - Maksymalny rozmiar `offset.metadata.max.bytes` to 1024 bajtów
@@ -67,4 +68,4 @@ Aby dowiedzieć się więcej na temat Event Hubs i Event Hubs dla Kafka, zobacz 
 - [Apache Kafka Przewodnik dla deweloperów Event Hubs](apache-kafka-developer-guide.md)
 - [Apache Kafka Przewodnik migracji Event Hubs](apache-kafka-migration-guide.md)
 - [Często zadawane pytania — Event Hubs dla Apache Kafka](apache-kafka-frequently-asked-questions.md)
-- [Zalecane konfiguracje](https://github.com/Azure/azure-event-hubs-for-kafka/blob/master/CONFIGURATION.md)
+- [Zalecane konfiguracje](apache-kafka-configurations.md)

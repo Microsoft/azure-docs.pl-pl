@@ -3,16 +3,17 @@ title: Migrowanie do usługi Azure Event Hubs dla Apache Kafka
 description: W tym artykule pokazano, jak konsumenci i producenci korzystający z różnych protokołów (AMQP, Apache Kafka i HTTPS) mogą wymieniać zdarzenia podczas korzystania z usługi Azure Event Hubs.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 8f6c4cbdcbbc1d589b0803f36305f9a9fe6eebfa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cf585cdc0a43c595ec013ba78a2e3ae191c40b8d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85322739"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090658"
 ---
 # <a name="migrate-to-azure-event-hubs-for-apache-kafka-ecosystems"></a>Migracja do usługi Azure Event Hubs z ekosystemu Apache Kafka
 Usługa Azure Event Hubs udostępnia punkt końcowy Apache Kafka, który umożliwia nawiązywanie połączenia z Event Hubs przy użyciu protokołu Kafka. Wprowadzając minimalne zmiany w istniejącej aplikacji Kafka, możesz połączyć się z usługą Azure Event Hubs i skorzystać korzyści z ekosystemu platformy Azure. Event Hubs obsługi Kafka [Apache Kafka wersja 1,0](https://kafka.apache.org/10/documentation.html) i nowsza.
 
-## <a name="pre-migration"></a>Czynności przed migracją 
+## <a name="pre-migration"></a>Przed migracją 
 
 ### <a name="create-an-azure-account"></a>Tworzenie konta platformy Azure
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
@@ -60,4 +61,4 @@ Aby dowiedzieć się więcej na temat Event Hubs i Event Hubs dla Kafka, zobacz 
 - [Apache Kafka Przewodnik rozwiązywania problemów dla Event Hubs](apache-kafka-troubleshooting-guide.md)
 - [Często zadawane pytania — Event Hubs dla Apache Kafka](apache-kafka-frequently-asked-questions.md)
 - [Przewodnik dla deweloperów Apache Kafka dla platformy Azure Event Hubs](apache-kafka-developer-guide.md)
-- [Zalecane konfiguracje](https://github.com/Azure/azure-event-hubs-for-kafka/blob/master/CONFIGURATION.md)
+- [Zalecane konfiguracje](apache-kafka-configurations.md)

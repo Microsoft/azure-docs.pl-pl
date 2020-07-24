@@ -3,12 +3,12 @@ title: Jak zatrzymać monitorowanie hybrydowego klastra Kubernetes | Microsoft D
 description: W tym artykule opisano, jak można zatrzymać monitorowanie hybrydowego klastra Kubernetes za pomocą Azure Monitor dla kontenerów.
 ms.topic: conceptual
 ms.date: 06/16/2020
-ms.openlocfilehash: 86a774737d5269d77c4053ad61ab870b13288aa7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8369c82b83cfbaa7128383c6203aaf584916cae9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84885849"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091202"
 ---
 # <a name="how-to-stop-monitoring-your-hybrid-cluster"></a>Jak zatrzymać monitorowanie klastra hybrydowego
 
@@ -120,4 +120,4 @@ Zmiana konfiguracji może potrwać kilka minut. Ponieważ usługa Helm śledzi w
 
 ## <a name="next-steps"></a>Następne kroki
 
-Jeśli obszar roboczy Log Analytics został utworzony tylko w celu obsługi monitorowania klastra i nie jest już wymagany, trzeba go ręcznie usunąć. Jeśli nie wiesz, jak usunąć obszar roboczy, zobacz temat [Usuwanie obszaru roboczego usługi Azure log Analytics](../../log-analytics/log-analytics-manage-del-workspace.md).
+Jeśli obszar roboczy Log Analytics został utworzony tylko w celu obsługi monitorowania klastra i nie jest już wymagany, trzeba go ręcznie usunąć. Jeśli nie wiesz, jak usunąć obszar roboczy, zobacz temat [Usuwanie obszaru roboczego usługi Azure log Analytics](../platform/delete-workspace.md).

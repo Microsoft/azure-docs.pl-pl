@@ -11,11 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=weig, previous-ms.author=weig
-ms.openlocfilehash: 9612114bb368898ccf31b2c8692869b84544b652
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fc837405e03ffac41d216a5ba18384208b07aaf1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76722066"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090301"
 ---
 # <a name="data-science-code-testing-on-azure-with-the-team-data-science-process-and-azure-devops-services"></a>Testowanie kodu analizy danych na platformie Azure z zespołowym procesem nauki danych i Azure DevOps Services
 W tym artykule przedstawiono wstępne wskazówki dotyczące testowania kodu w przepływie pracy analizy danych. Takie testowanie umożliwia analitykom danych systematyczne i wydajne sprawdzanie jakości i oczekiwanego wyniku ich kodu. Korzystamy z projektu zespołowego przetwarzania danych (przetwarzania TDSP) [, który korzysta z zestawu danych dochodów dla dorosłych](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome) , który został opublikowany wcześniej, aby pokazać, jak można przeprowadzić testowanie kodu. 
@@ -26,7 +27,7 @@ W tym artykule przedstawiono wstępne wskazówki dotyczące testowania kodu w pr
 * Przygotowywanie danych
 * Badanie jakości danych
 * Modelowanie
-* Wdrażanie modelu 
+* Wdrożenie modelu 
 
 W tym artykule zastępuje się termin "testowanie jednostek" z "testowaniem kodu". Odnosi się do testowania jako funkcje, które pomagają ocenić, czy kod dla pewnego etapu cyklu nauki danych ma wynik "zgodnie z oczekiwaniami". Osoba, która zapiszą test, definiuje co "zgodnie z oczekiwaniami" w zależności od wyniku funkcji — na przykład sprawdzanie jakości danych lub modelowanie.
 
@@ -141,7 +142,7 @@ Wykonaj następujące kroki, aby skonfigurować i uruchomić testy kodu oraz zau
 
     ![Przycisk "Zapisz & kolejki"](./media/code-test/save_and_queue_build_definition.PNG)
 
-Teraz za każdym razem, gdy nowe zatwierdzenie zostanie wypchnięte do repozytorium kodu, proces kompilacji rozpocznie się automatycznie. (W tym miejscu użyjemy wzorca jako repozytorium, ale możesz zdefiniować dowolną gałąź). Proces uruchamia plik **Test1.py** na maszynie agenta, aby upewnić się, że wszystko zdefiniowane w kodzie działa poprawnie. 
+Teraz za każdym razem, gdy nowe zatwierdzenie zostanie wypchnięte do repozytorium kodu, proces kompilacji rozpocznie się automatycznie. Można zdefiniować dowolną gałąź. Proces uruchamia plik **Test1.py** na maszynie agenta, aby upewnić się, że wszystko zdefiniowane w kodzie działa poprawnie. 
 
 Jeśli alerty są prawidłowo skonfigurowane, użytkownik zostanie powiadomiony w wiadomości e-mail, gdy kompilacja zostanie zakończona. Możesz również sprawdzić stan kompilacji w usłudze Azure DevOps. Jeśli to się nie powiedzie, możesz sprawdzić szczegóły kompilacji i dowiedzieć się, który fragment jest przerwany.
 

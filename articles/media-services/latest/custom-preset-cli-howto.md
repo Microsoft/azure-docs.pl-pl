@@ -12,18 +12,18 @@ ms.topic: article
 ms.custom: ''
 ms.date: 05/14/2019
 ms.author: juliako
-ms.openlocfilehash: 7c1b446ccf04199449f012e738f6a03660735f50
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3b718a0a67381e2b1eb19d2397ecf86e4a9c196d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80382957"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090131"
 ---
 # <a name="how-to-encode-with-a-custom-transform---azure-cli"></a>Jak kodować przy użyciu niestandardowej transformacji — interfejs wiersza polecenia platformy Azure
 
 Przy kodowaniu przy użyciu Azure Media Services można szybko rozpocząć pracę z jednym z zalecanych wbudowanych ustawień wstępnych, opartych na najlepszych rozwiązaniach branżowych, jak pokazano w [plikach przesyłania strumieniowego](stream-files-cli-quickstart.md#create-a-transform-for-adaptive-bitrate-encoding) — Szybki Start. Możesz również utworzyć niestandardowe ustawienie wstępne, aby określić wymagania dotyczące określonego scenariusza lub urządzenia.
 
-## <a name="considerations"></a>Istotne zagadnienia
+## <a name="considerations"></a>Zagadnienia do rozważenia
 
 Podczas tworzenia niestandardowych ustawień wstępnych są stosowane następujące zagadnienia:
 
@@ -32,7 +32,7 @@ Podczas tworzenia niestandardowych ustawień wstępnych są stosowane następuj�
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-[Utwórz konto Media Services](create-account-cli-how-to.md).
+[Utwórz konto Media Services](./create-account-howto.md).
 
 Pamiętaj, aby zapamiętać nazwę grupy zasobów i nazwę konta Media Services.
 
@@ -140,6 +140,6 @@ az ams transform create -a amsaccount -g amsResourceGroup -n customTransformName
 
 Aby Media Services zastosować transformację do określonego wideo lub audio, należy przesłać zadanie w ramach tej transformacji. Pełny przykład pokazujący, jak przesłać zadanie w ramach przekształcenia, zobacz [Szybki Start: przesyłanie strumieniowe plików wideo — interfejs wiersza polecenia platformy Azure](stream-files-cli-quickstart.md).
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 [Interfejs wiersza polecenia platformy Azure](/cli/azure/ams)

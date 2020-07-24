@@ -4,12 +4,12 @@ description: Monitoruj aplikacje sieci Web pod kątem dostępności, wydajności
 ms.topic: conceptual
 ms.date: 05/21/2020
 ms.reviewer: lmolkova
-ms.openlocfilehash: d3d1d8aafaea8dcb9e67b842acfbd493e02e4854
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 955988cd16af5269c474061cf60fb18a040909e3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86086249"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091236"
 ---
 # <a name="application-insights-for-net-console-applications"></a>Application Insights aplikacji konsolowych .NET
 
@@ -18,7 +18,7 @@ ms.locfileid: "86086249"
 Potrzebna jest subskrypcja z [Microsoft Azure](https://azure.com). Zaloguj się przy użyciu konto Microsoft, który może być używany w przypadku systemu Windows, usługi Xbox Live lub innych usług firmy Microsoft w chmurze. Twój zespół może mieć subskrypcję organizacyjną na platformie Azure: poproszenie właściciela o dodanie Cię do niego przy użyciu konto Microsoft.
 
 > [!NOTE]
-> *Zdecydowanie zaleca* się korzystanie z pakietu [Microsoft. ApplicationInsights. WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) i powiązanych instrukcji z tego [miejsca](../../azure-monitor/app/worker-service.md) w przypadku wszystkich aplikacji konsolowych. Ten pakiet jest przeznaczony dla tego pakietu [`NetStandard2.0`](https://docs.microsoft.com/dotnet/standard/net-standard) i dlatego może być używany w środowisku .NET Core 2,1 lub nowszym oraz .NET Framework 4.7.2 lub wyższy.
+> *Zdecydowanie zaleca* się korzystanie z pakietu [Microsoft. ApplicationInsights. WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) i powiązanych instrukcji z tego [miejsca](../../azure-monitor/app/worker-service.md) w przypadku wszystkich aplikacji konsolowych. Ten pakiet jest przeznaczony dla tego pakietu [`NetStandard2.0`](/dotnet/standard/net-standard) i dlatego może być używany w środowisku .NET Core 2,1 lub nowszym oraz .NET Framework 4.7.2 lub wyższy.
 
 ## <a name="getting-started"></a>Wprowadzenie
 

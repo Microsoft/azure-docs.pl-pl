@@ -3,12 +3,12 @@ title: Tworzenie alertów Resource Health przy użyciu witryny Azure Portal
 description: Utwórz alert przy użyciu Azure Portal, który powiadomi Cię, gdy zasoby platformy Azure staną się niedostępne.
 ms.topic: conceptual
 ms.date: 6/23/2020
-ms.openlocfilehash: b44df4f63fa2ae2bde9be431e2df268144a036fa
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 3a0f4704880d040106a2e4112d621b6d8ffbede6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86529220"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091576"
 ---
 # <a name="configure-resource-health-alerts-using-azure-portal"></a>Konfigurowanie alertów dotyczących kondycji zasobów przy użyciu witryny Azure Portal
 
@@ -45,7 +45,7 @@ Resource Health alertu przy użyciu Azure Portal
 1. W witrynie Azure [Portal](https://portal.azure.com/)wybierz pozycję **Service Health**.
 
     ![Service Health wybór](./media/resource-health-alert-monitor-guide/service-health-selection.png)
-2. W sekcji **Resource Health** wybierz pozycję **Resource Health**.
+2. W sekcji **Resource Health** wybierz pozycję **Service Health**.
 3. Wybierz pozycję **Dodaj alert kondycji zasobu** i wypełnij pola.
 4. W obszarze cel alertu wybierz **subskrypcję**, **typy zasobów**, **grupy zasobów** i **zasób** , dla których chcesz otrzymywać alerty.
 
