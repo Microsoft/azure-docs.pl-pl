@@ -16,19 +16,19 @@ ms.date: 01/15/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 251d156afbd367e83945397760a6afe98a1cfb98
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 01e53b30a4c27296e30e031ffb771697afa8e1e9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85356937"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87019679"
 ---
 # <a name="azure-ad-connect-sync-technical-concepts"></a>Synchronizacja programu Azure AD Connect: zagadnienia techniczne
 Ten artykuł zawiera podsumowanie tematów dotyczących [architektury](how-to-connect-sync-technical-concepts.md).
 
 Azure AD Connect synchronizacji są kompilacje na pełnej platformie synchronizacji z usługą SSD.
 W poniższych sekcjach omówiono koncepcje synchronizacji katalogów w usłudze.
-W przypadku MIIS, ILM i FIM usługi synchronizacji Azure Active Directory zapewniają następną platformę do łączenia się ze źródłami danych, synchronizowanie danych między źródłami danych, a także aprowizacji i Cofanie udostępniania tożsamości.
+W przypadku kompilowania na MIIS (Microsoft Identity Integration Server), ILM (Menedżer cyklu życia tożsamości) i programu FIM (Forefront Identity Manager) usługi Azure Active Directory Sync Services zapewniają następną platformę do łączenia się ze źródłami danych, synchronizowanie danych między źródłami danych, a także Inicjowanie obsługi administracyjnej tożsamości.
 
 ![Zagadnienia techniczne](./media/how-to-connect-sync-technical-concepts/scenario.png)
 

@@ -15,12 +15,12 @@ ms.topic: troubleshooting
 ms.date: 07/11/2017
 ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 97eef1f331d8e6965e378d6a76cfa7a0c50feb9a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d6c329b7de3e18989e7dbfa35aa6e9303c129654
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85317476"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87019305"
 ---
 # <a name="unexpected-application-in-my-applications-list"></a>Nieoczekiwana aplikacja na liście Moje aplikacje
 
@@ -68,7 +68,7 @@ Po przefiltrowaniu do **wszystkich aplikacji**na **liście** **wszystkie aplikac
 
 6. Po dodaniu aplikacji, która jest opracowywana przy użyciu [metod uwierzytelniania ASP.NET](https://www.asp.net/visual-studio/overview/2013/creating-web-projects-in-visual-studio#orgauthoptions) lub [usług połączonych](https://devblogs.microsoft.com/visualstudio/connecting-to-cloud-services/) programu Visual Studio
 
-7. Podczas tworzenia obiektu jednostki usługi przy użyciu [modułu Azure AD PowerShell](/powershell/azure/install-adv2?view=azureadps-2.0)
+7. Podczas tworzenia obiektu jednostki usługi przy użyciu [modułu Azure AD PowerShell](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0)
 
 8. Gdy [wyrażasz zgodę na aplikację](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview) jako administrator do korzystania z danych w dzierżawie
 

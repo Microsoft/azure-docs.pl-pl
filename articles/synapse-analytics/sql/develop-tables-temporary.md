@@ -1,5 +1,5 @@
 ---
-title: Używanie tabel tymczasowych z Synapse SQL
+title: Używanie tabel tymczasowych w Synapse SQL
 description: Podstawowe wskazówki dotyczące używania tabel tymczasowych w programie SQL Synapse.
 services: synapse-analytics
 author: XiaoyuMSFT
@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 090f453771dba6f537ad60605c6e9b96f3ca9957
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9e871b7959c11d7fbae650abf8394811b9088ed1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81428760"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87020564"
 ---
 # <a name="temporary-tables-in-synapse-sql"></a>Tabele tymczasowe w Synapse SQL
 

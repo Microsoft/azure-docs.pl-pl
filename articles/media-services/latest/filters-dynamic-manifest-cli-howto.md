@@ -14,11 +14,12 @@ ms.topic: article
 ms.date: 06/13/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 74516aa921e45917f327a193a1c972b021c9c8ff
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2385171a501d00f91c58f3fde9b487505ec21c60
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74896076"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87023215"
 ---
 # <a name="creating-filters-with-cli"></a>Tworzenie filtrów za pomocą interfejsu wiersza polecenia 
 
@@ -26,14 +27,14 @@ W przypadku dostarczania zawartości klientom (przesyłania strumieniowego na ż
 
 Aby uzyskać szczegółowy opis tej funkcji i scenariuszy, w których są używane, zobacz [dynamiczne manifesty](filters-dynamic-manifest-overview.md) i [filtry](filters-concept.md).
 
-W tym temacie pokazano, jak skonfigurować filtr dla zasobu wideo na żądanie i użyć interfejsu wiersza polecenia dla Media Services v3, aby utworzyć [filtry konta](https://docs.microsoft.com/cli/azure/ams/account-filter?view=azure-cli-latest) i [filtry zasobów](https://docs.microsoft.com/cli/azure/ams/asset-filter?view=azure-cli-latest). 
+W tym temacie pokazano, jak skonfigurować filtr dla zasobu wideo na żądanie i użyć interfejsu wiersza polecenia dla Media Services v3, aby utworzyć [filtry konta](/cli/azure/ams/account-filter?view=azure-cli-latest) i [filtry zasobów](/cli/azure/ams/asset-filter?view=azure-cli-latest). 
 
 > [!NOTE]
 > Pamiętaj o przejrzeniu [presentationTimeRange](filters-concept.md#presentationtimerange).
 
 ## <a name="prerequisites"></a>Wymagania wstępne 
 
-- [Utwórz konto Media Services](create-account-cli-how-to.md). Pamiętaj, aby zapamiętać nazwę grupy zasobów i nazwę konta Media Services. 
+- [Utwórz konto Media Services](./create-account-howto.md). Pamiętaj, aby zapamiętać nazwę grupy zasobów i nazwę konta Media Services. 
 
 [!INCLUDE [media-services-cli-instructions](../../../includes/media-services-cli-instructions.md)]
 
@@ -79,7 +80,7 @@ W poniższym przykładzie zdefiniowano warunki wyboru śledzenia, które są dod
 
 ## <a name="create-account-filters"></a>Tworzenie filtrów konta
 
-Następujące polecenie [AZ AMS Account-Filter](https://docs.microsoft.com/cli/azure/ams/account-filter?view=azure-cli-latest) tworzy filtr konta ze [zdefiniowanymi wcześniej](#define-a-filter)opcjami Śledź śledzenie. 
+Następujące polecenie [AZ AMS Account-Filter](/cli/azure/ams/account-filter?view=azure-cli-latest) tworzy filtr konta ze [zdefiniowanymi wcześniej](#define-a-filter)opcjami Śledź śledzenie. 
 
 Polecenie pozwala przekazać opcjonalny `--tracks` parametr zawierający kod JSON reprezentujący wybrane opcje śledzenia.  Użyj @ {File}, aby załadować plik JSON z pliku. Jeśli używasz interfejsu wiersza polecenia platformy Azure lokalnie, określ pełną ścieżkę pliku:
 
@@ -87,17 +88,17 @@ Polecenie pozwala przekazać opcjonalny `--tracks` parametr zawierający kod JSO
 az ams account-filter create -a amsAccount -g resourceGroup -n filterName --tracks @tracks.json
 ```
 
-Zobacz też [przykłady JSON dla filtrów](https://docs.microsoft.com/rest/api/media/accountfilters/createorupdate#create-an-account-filter).
+Zobacz też [przykłady JSON dla filtrów](/rest/api/media/accountfilters/createorupdate#create-an-account-filter).
 
 ## <a name="create-asset-filters"></a>Tworzenie filtrów zasobów
 
-Poniższy polecenie [AZ AMS Asset-Filter](https://docs.microsoft.com/cli/azure/ams/asset-filter?view=azure-cli-latest) tworzy filtr zasobów z [zdefiniowanymi wcześniej](#define-a-filter)opcjami filtru śledzenia. 
+Poniższy polecenie [AZ AMS Asset-Filter](/cli/azure/ams/asset-filter?view=azure-cli-latest) tworzy filtr zasobów z [zdefiniowanymi wcześniej](#define-a-filter)opcjami filtru śledzenia. 
 
 ```azurecli
 az ams asset-filter create -a amsAccount -g resourceGroup -n filterName --asset-name assetName --tracks @tracks.json
 ```
 
-Zobacz też [przykłady JSON dla filtrów](https://docs.microsoft.com/rest/api/media/assetfilters/createorupdate#create-an-asset-filter).
+Zobacz też [przykłady JSON dla filtrów](/rest/api/media/assetfilters/createorupdate#create-an-asset-filter).
 
 ## <a name="associate-filters-with-streaming-locator"></a>Kojarzenie filtrów z lokalizatorem przesyłania strumieniowego
 
@@ -129,6 +130,6 @@ W poniższej tabeli przedstawiono kilka przykładów adresów URL z filtrami:
 
 [Strumieniowe przesyłanie wideo](stream-files-tutorial-with-api.md) 
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
-[Interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)
+[Interfejs wiersza polecenia platformy Azure](/cli/azure/ams?view=azure-cli-latest)

@@ -5,26 +5,28 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: how-to
-ms.date: 06/29/2020
+ms.date: 07/14/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2f5e5a4075705e43dc0ac37181bf33b078013177
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 81c3715995d0d53cd72acf7277f46a279fa4cfb2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85555221"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87019662"
 ---
 # <a name="get-started-with-azure-active-directory-identity-protection-and-microsoft-graph"></a>Wprowadzenie do Azure Active Directory Identity Protection i Microsoft Graph
 
-Microsoft Graph to punkt końcowy Microsoft Unified API i Strona główna [Azure Active Directory Identity Protection](../active-directory-identityprotection.md) interfejsów API. Istnieją cztery interfejsy API, które ujawniają informacje o ryzykownych użytkownikach i logowaniach. Pierwszy interfejs API, **riskDetection**, umożliwia wysyłanie zapytań do Microsoft Graph, aby uzyskać listę wykrytych i powiązanych z nimi wykrytych zagrożeń oraz informacje o wykrywaniu. Drugi interfejs API, **riskyUsers**, umożliwia wysyłanie zapytań do Microsoft Graph, aby uzyskać informacje o ochronie tożsamości użytkowników wykryte jako ryzyko. Trzeci interfejs API, usługa **logowania**, umożliwia wysyłanie zapytań do Microsoft Graph, aby uzyskać informacje na temat logowania do usługi Azure AD z określonymi właściwościami związanymi ze stanem ryzyka, szczegółami i poziomami. Czwarty interfejs API, **identityRiskEvents**, umożliwia wysyłanie zapytań do Microsoft Graph, aby uzyskać listę wykrytych [zagrożeń](../reports-monitoring/concept-risk-events.md) i związanych z nimi informacji. Interfejs API identityRiskEvents zostanie uznany za przestarzały 10 stycznia 2020; Zalecamy użycie interfejsu API **riskDetections** . W tym artykule opisano rozpoczęcie łączenia się z Microsoft Graph i wykonywania zapytań dotyczących tych interfejsów API. Aby uzyskać szczegółowe informacje, pełną dokumentację i dostęp do Eksploratora grafów, zapoznaj się z [witryną Microsoft Graph](https://graph.microsoft.io/) lub z konkretną dokumentacją dotyczącą tych interfejsów API:
+Microsoft Graph to punkt końcowy Microsoft Unified API i Strona główna [Azure Active Directory Identity Protection](../active-directory-identityprotection.md) interfejsów API. Istnieją trzy interfejsy API, które ujawniają informacje o ryzykownych użytkownikach i logowaniach. Pierwszy interfejs API, **riskDetection**, umożliwia wysyłanie zapytań do Microsoft Graph, aby uzyskać listę wykrytych i powiązanych z nimi wykrytych zagrożeń oraz informacje o wykrywaniu. Drugi interfejs API, **riskyUsers**, umożliwia wysyłanie zapytań do Microsoft Graph, aby uzyskać informacje o ochronie tożsamości użytkowników wykryte jako ryzyko. Trzeci interfejs API, usługa **logowania**, umożliwia wysyłanie zapytań do Microsoft Graph, aby uzyskać informacje na temat logowania do usługi Azure AD z określonymi właściwościami związanymi ze stanem ryzyka, szczegółami i poziomami. 
+
+W tym artykule opisano rozpoczęcie łączenia się z Microsoft Graph i wykonywania zapytań dotyczących tych interfejsów API. Aby uzyskać szczegółowe informacje, pełną dokumentację i dostęp do Eksploratora grafów, zapoznaj się z [witryną Microsoft Graph](https://graph.microsoft.io/) lub z konkretną dokumentacją dotyczącą tych interfejsów API:
 
 * [Interfejs API riskDetection](/graph/api/resources/riskdetection?view=graph-rest-v1.0)
 * [Interfejs API riskyUsers](/graph/api/resources/riskyuser?view=graph-rest-v1.0)
-* [Interfejs API logowania](/graph/api/resources/signin?view=graph-rest-v1.0)
+* [Interfejs API signIn](/graph/api/resources/signin?view=graph-rest-v1.0)
 
 ## <a name="connect-to-microsoft-graph"></a>Połącz z programem Microsoft Graph
 
@@ -48,7 +50,7 @@ Aby uzyskać dostęp do danych ochrony tożsamości za poorednictwem Microsoft G
 1. Na stronie **Tworzenie** wykonaj następujące czynności:
    1. W polu tekstowym **Nazwa** wpisz nazwę aplikacji (na przykład: interfejs API wykrywania ryzyka usługi Azure AD).
    1. W obszarze **obsługiwane typy kont**wybierz typ kont, które będą używać interfejsów API.
-   1. Wybierz pozycję **Zarejestruj**.
+   1. Wybierz pozycję **Rejestruj**.
 1. Skopiuj **Identyfikator aplikacji**.
 
 ### <a name="configure-api-permissions"></a>Konfigurowanie uprawnień interfejsu API

@@ -13,11 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 06/13/2019
 ms.author: juliako
-ms.openlocfilehash: f9134dd3bc926e6e2f454e5187e03365e91ed22a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 93ef342ecee9bb9e2f32400655db0cacc01835c0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75780338"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87023113"
 ---
 # <a name="creating-filters-with-media-services-rest-api"></a>Tworzenie filtrów za pomocą interfejsu API REST Media Services
 
@@ -25,7 +26,7 @@ W przypadku dostarczania zawartości klientom (przesyłania strumieniowego na ż
 
 Aby uzyskać szczegółowy opis tej funkcji i scenariuszy, w których są używane, zobacz [dynamiczne manifesty](filters-dynamic-manifest-overview.md) i [filtry](filters-concept.md).
 
-W tym temacie przedstawiono sposób definiowania filtru dla zasobu wideo na żądanie i używania interfejsów API REST do tworzenia [filtrów kont](https://docs.microsoft.com/rest/api/media/accountfilters) i [filtrów zasobów](https://docs.microsoft.com/rest/api/media/assetfilters). 
+W tym temacie przedstawiono sposób definiowania filtru dla zasobu wideo na żądanie i używania interfejsów API REST do tworzenia [filtrów kont](/rest/api/media/accountfilters) i [filtrów zasobów](/rest/api/media/assetfilters). 
 
 > [!NOTE]
 > Pamiętaj o przejrzeniu [presentationTimeRange](filters-concept.md#presentationtimerange).
@@ -96,7 +97,7 @@ Wybierz pozycję **Send** (Wyślij).
 
 Filtr został utworzony.
 
-Aby uzyskać więcej informacji, zobacz [Tworzenie lub aktualizowanie](https://docs.microsoft.com/rest/api/media/accountfilters/createorupdate). Zobacz też [przykłady JSON dla filtrów](https://docs.microsoft.com/rest/api/media/accountfilters/createorupdate#create-an-account-filter).
+Aby uzyskać więcej informacji, zobacz [Tworzenie lub aktualizowanie](/rest/api/media/accountfilters/createorupdate). Zobacz też [przykłady JSON dla filtrów](/rest/api/media/accountfilters/createorupdate#create-an-account-filter).
 
 ## <a name="create-asset-filters"></a>Tworzenie filtrów zasobów  
 
@@ -114,13 +115,13 @@ Wybierz pozycję **Send** (Wyślij).
 
 Filtr zasobów został utworzony.
 
-Aby uzyskać szczegółowe informacje na temat tworzenia lub aktualizowania filtrów zasobów, zobacz [Tworzenie lub aktualizowanie](https://docs.microsoft.com/rest/api/media/assetfilters/createorupdate). Zobacz też [przykłady JSON dla filtrów](https://docs.microsoft.com/rest/api/media/assetfilters/createorupdate#create-an-asset-filter). 
+Aby uzyskać szczegółowe informacje na temat tworzenia lub aktualizowania filtrów zasobów, zobacz [Tworzenie lub aktualizowanie](/rest/api/media/assetfilters/createorupdate). Zobacz też [przykłady JSON dla filtrów](/rest/api/media/assetfilters/createorupdate#create-an-asset-filter). 
 
 ## <a name="associate-filters-with-streaming-locator"></a>Kojarzenie filtrów z lokalizatorem przesyłania strumieniowego
 
 Można określić listę filtrów zasobów lub kont, które mają zastosowanie do lokalizatora przesyłania strumieniowego. [Pakowarka dynamiczna (punkt końcowy przesyłania strumieniowego)](dynamic-packaging-overview.md) stosuje tę listę filtrów razem z tymi, które są określone przez klienta w adresie URL. Ta kombinacja generuje [manifest dynamiczny](filters-dynamic-manifest-overview.md), który jest oparty na filtrach w adresach URL i filtrach określonych w lokalizatorze przesyłania strumieniowego. Zalecamy użycie tej funkcji, jeśli chcesz zastosować filtry, ale nie chcesz ujawniać nazw filtrów w adresie URL.
 
-Aby utworzyć i skojarzyć filtry z lokalizatorem przesyłania strumieniowego przy użyciu usługi REST, użyj kontenerów [przesyłania strumieniowego — tworzenie](https://docs.microsoft.com/rest/api/media/streaminglocators/create) interfejsu API i określanie `properties.filters` w [treści żądania](https://docs.microsoft.com/rest/api/media/streaminglocators/create#request-body).
+Aby utworzyć i skojarzyć filtry z lokalizatorem przesyłania strumieniowego przy użyciu usługi REST, użyj kontenerów [przesyłania strumieniowego — tworzenie](/rest/api/media/streaminglocators/create) interfejsu API i określanie `properties.filters` w [treści żądania](/rest/api/media/streaminglocators/create#request-body).
                                 
 ## <a name="stream-using-filters"></a>Strumieniowe Używanie filtrów
 

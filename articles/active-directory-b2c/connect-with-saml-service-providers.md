@@ -12,12 +12,12 @@ ms.date: 05/18/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: b9ea9e756587af124ca94518d9f15271310ddee3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3baa659d454a24a132eda914d50acddbd5df8a90
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85389382"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87020070"
 ---
 # <a name="register-a-saml-application-in-azure-ad-b2c"></a>Rejestrowanie aplikacji SAML w Azure AD B2C
 
@@ -274,7 +274,7 @@ Twoje zasady niestandardowe i dzierżawa Azure AD B2C są teraz gotowe. Następn
 1. Wprowadź **nazwę** aplikacji. Na przykład *SAMLApp1*.
 1. W obszarze **obsługiwane typy kont**wybierz opcję **konta tylko w tym katalogu organizacji**
 1. W obszarze **Identyfikator URI przekierowania**wybierz pozycję **Sieć Web**, a następnie wprowadź `https://localhost` . Tę wartość należy zmodyfikować później w manifeście rejestracji aplikacji.
-1. Wybierz pozycję **Zarejestruj**.
+1. Wybierz pozycję **Rejestruj**.
 
 ### <a name="42-update-the-app-manifest"></a>4,2. Zaktualizuj manifest aplikacji
 
@@ -353,6 +353,51 @@ Aby ukończyć ten samouczek przy użyciu [aplikacji testowej SAML][samltest]:
 * Określ identyfikator URI wystawcy:`https://contoso.onmicrosoft.com/app-name`
 
 Wybierz pozycję **Zaloguj** , a następnie Wyświetl ekran logowania użytkownika. Po zalogowaniu potwierdzenie SAML jest wydawane z powrotem do przykładowej aplikacji.
+
+## <a name="enable-encypted-assertions"></a>Włącz potwierdzenia zaszyfrowana
+Aby zaszyfrować potwierdzenia SAML wysyłane z powrotem do dostawcy usług, Azure AD B2C będzie używać certyfikatu klucza publicznego usługodawców. Klucz publiczny musi znajdować się w metadanych SAML przedstawionych w powyższym ["samlMetadataUrl"](#samlmetadataurl) jako deskryptora klucza z użyciem "szyfrowania".
+
+Poniżej znajduje się przykładowy deskryptora metadanych SAML z użyciem zestawu do szyfrowania:
+
+```xml
+<KeyDescriptor use="encryption">
+  <KeyInfo xmlns="https://www.w3.org/2000/09/xmldsig#">
+    <X509Data>
+      <X509Certificate>valid certificate</X509Certificate>
+    </X509Data>
+  </KeyInfo>
+</KeyDescriptor>
+```
+
+Aby umożliwić Azure AD B2C wysyłania zaszyfrowanych zatwierdzeń, Ustaw element metadanych **WantsEncryptedAssertion** na wartość true w profilu technicznym jednostki uzależnionej, jak pokazano poniżej.
+
+```xml
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<TrustFrameworkPolicy
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns="http://schemas.microsoft.com/online/cpim/schemas/2013/06"
+  PolicySchemaVersion="0.3.0.0"
+  TenantId="contoso.onmicrosoft.com"
+  PolicyId="B2C_1A_signup_signin_saml"
+  PublicPolicyUri="http://contoso.onmicrosoft.com/B2C_1A_signup_signin_saml">
+ ..
+ ..
+  <RelyingParty>
+    <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
+    <TechnicalProfile Id="PolicyProfile">
+      <DisplayName>PolicyProfile</DisplayName>
+      <Protocol Name="SAML2"/>
+      <Metadata>
+          <Item Key="WantsEncryptedAssertions">true</Item>
+      </Metadata>
+     ..
+     ..
+     ..
+    </TechnicalProfile>
+  </RelyingParty>
+</TrustFrameworkPolicy>
+```
 
 ## <a name="sample-policy"></a>Przykładowe zasady
 

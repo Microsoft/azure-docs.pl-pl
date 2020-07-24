@@ -10,16 +10,16 @@ ms.date: 06/03/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 52684520aed8712aed40318f32a83194f7f86683
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2f547aa900c1b8dbea27eceff7ac7ebc86a83e33
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85357855"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87019832"
 ---
 # <a name="migrate-to-cloud-authentication-using-staged-rollout-preview"></a>Migrowanie do uwierzytelniania w chmurze przy użyciu wdrożenia etapowego (wersja zapoznawcza)
 
-Przy użyciu podejścia etapowego wdrażania można uniknąć uruchomienie produkcyjne całej domeny.  Pozwala to na selektywne testowanie grup użytkowników z możliwościami uwierzytelniania w chmurze, takimi jak Azure Multi-Factor Authentication (MFA), dostęp warunkowy, Ochrona tożsamości na potrzeby przecieków poświadczeń, zarządzania tożsamościami i innych.  W tym artykule omówiono sposób tworzenia przełącznika. Przed rozpoczęciem wdrożenia przemieszczanego należy jednak wziąć pod uwagę konsekwencje, jeśli co najmniej jeden z następujących warunków jest spełniony:
+Wdrażanie etapowe pozwala na selektywne testowanie grup użytkowników z możliwościami uwierzytelniania w chmurze, takimi jak Azure Multi-Factor Authentication (MFA), dostęp warunkowy, Ochrona tożsamości dla nieujawnionych poświadczeń, zarządzanie tożsamościami i inne, przed wycięciem przez domeny.  W tym artykule omówiono sposób tworzenia przełącznika. Przed rozpoczęciem wdrożenia przemieszczanego należy jednak wziąć pod uwagę konsekwencje, jeśli co najmniej jeden z następujących warunków jest spełniony:
     
 -  Obecnie używasz lokalnego serwera Multi-Factor Authentication. 
 -  Do uwierzytelniania są używane karty inteligentne. 
@@ -45,7 +45,7 @@ Aby zapoznać się z omówieniem tej funkcji, zobacz "Azure Active Directory: co
 
 -   Skonfigurowano wszystkie odpowiednie zasady oznaczania i dostępu warunkowego dla użytkowników, którzy są migrowani do uwierzytelniania w chmurze.
 
--   Jeśli planujesz korzystanie z usługi Azure Multi-Factor Authentication, zalecamy użycie [rejestracji zbieżnej do samoobsługowego resetowania hasła (SSPR) i Multi-Factor Authentication](../authentication/concept-registration-mfa-sspr-combined.md) , aby użytkownicy mogli rejestrować swoje metody uwierzytelniania.
+-   Jeśli planujesz korzystanie z usługi Azure Multi-Factor Authentication, zalecamy użycie [funkcji rejestracji połączonej do samoobsługowego resetowania hasła (SSPR) i Multi-Factor Authentication](../authentication/concept-registration-mfa-sspr-combined.md) , aby użytkownicy mogli rejestrować swoje metody uwierzytelniania.
 
 -   Aby można było korzystać z funkcji wdrażania etapowego, musisz być administratorem globalnym w Twojej dzierżawie.
 
@@ -81,6 +81,8 @@ Następujące scenariusze nie są obsługiwane w przypadku wdrażania etapowego:
 
 
 - Przy pierwszym dodawaniu grupy zabezpieczeń do wdrożenia przemieszczanego można ograniczyć do 200 użytkowników, aby uniknąć przekroczenia limitu czasu środowiska. Po dodaniu grupy można do niej dodać kilku użytkowników bezpośrednio, zgodnie z potrzebami.
+
+- Podczas wprowadzania etapowego zasady wygasania haseł są ustawiane na 90 dni bez opcji dostosowywania. 
 
 
 ## <a name="get-started-with-staged-rollout"></a>Wprowadzenie do wdrożenia przemieszczanego
@@ -173,6 +175,7 @@ Wykonaj następujące czynności:
 
    >[!NOTE]
    >Członkowie w grupie są automatycznie włączeni do wdrożenia etapowego. Grupy zagnieżdżone i dynamiczne nie są obsługiwane w przypadku wdrażania etapowego.
+   >Podczas dodawania nowej grupy Użytkownicy w grupie (do 200 użytkowników dla nowej grupy) zostaną zaktualizowani, aby używać immidiatly uwierzytelniania zarządzanego. Edytowanie grupy (Dodawanie lub usuwanie użytkowników) może zająć do 24 godzin.
 
 ## <a name="auditing"></a>Inspekcja
 

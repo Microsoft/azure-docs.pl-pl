@@ -14,14 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2020
 ms.author: yelevin
-ms.openlocfilehash: 01d41b20c543262280e215cf4e31fd0cccce877f
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: f7f6de717f0ed9a2e27e15199b6f0ea566e0fdcd
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86531465"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87021634"
 ---
 # <a name="connect-your-pulse-connect-secure-to-azure-sentinel"></a>Łączenie pulsu z bezpiecznym połączeniem z platformą Azure
+
+> [!IMPORTANT]
+> Łącznik pulsu bezpiecznego połączenia z danymi na platformie Azure jest obecnie w publicznej wersji zapoznawczej.
+> Ta funkcja jest dostępna bez umowy dotyczącej poziomu usług i nie jest zalecana w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 W tym artykule wyjaśniono, jak połączyć urządzenie [pulsu z bezpiecznym](https://www.pulsesecure.net/products/pulse-connect-secure/) urządzeniem z platformą Azure. Łącznik pulsu Secure data Connector umożliwia łatwe łączenie dzienników pulsu z bezpiecznymi dziennikami przy użyciu platformy Azure — do wyświetlania pulpitów nawigacyjnych, tworzenia niestandardowych alertów i ulepszania badania. Integracja między usługą puls Connect Secure a wskaźnikiem na platformie Azure oznacza korzystanie z dziennika systemowego.
 

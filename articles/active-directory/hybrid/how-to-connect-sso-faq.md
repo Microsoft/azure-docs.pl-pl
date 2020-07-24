@@ -16,12 +16,12 @@ ms.date: 10/07/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 674befe7d01d0ef88026afeb2cb9179b167a88ca
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f621ed1342928b7f05fc8b84bfc2fceadf494fb5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85357940"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87019735"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Azure Active Directory bezproblemowe logowanie jednokrotne: często zadawane pytania
 
@@ -54,7 +54,7 @@ Ponadto użytkownicy uzyskują ciche działania w przypadku, gdy aplikacja wysy�
 | Nazwa aplikacji | Adres URL aplikacji do użycia |
 | -- | -- |
 | SharePoint Online | https: \/ /contoso.SharePoint.com |
-| Azure Portal | https: \/ /Portal.Azure.com/contoso.com |
+| Witryna Azure Portal | https: \/ /Portal.Azure.com/contoso.com |
 
 W powyższych tabelach Zastąp ciąg "contoso.com" nazwą domeny, aby uzyskać dostęp do odpowiednich adresów URL aplikacji dla dzierżawy.
 
@@ -102,6 +102,10 @@ Wykonaj następujące kroki na serwerze lokalnym, na którym jest uruchomiony pr
    >Użyte konto administratora domeny nie może być członkiem grupy Chronieni użytkownicy. Jeśli tak, operacja zakończy się niepowodzeniem.
 
    2. Wywołanie `Update-AzureADSSOForest -OnPremCredentials $creds` . To polecenie aktualizuje klucz odszyfrowujący protokołu Kerberos dla `AZUREADSSO` konta komputera w tym określonym lesie usługi AD i aktualizuje go w usłudze Azure AD.
+   
+   >[!NOTE]
+   >Jeśli nie jesteś administratorem domeny i masz przypisane uprawnienia administratora domeny, należy wywołać`Update-AzureADSSOForest -OnPremCredentials $creds -PreserveCustomPermissionsOnDesktopSsoAccount`
+   
    3. Powtórz powyższe kroki dla każdego lasu usługi AD, dla którego skonfigurowano funkcję.
 
    >[!IMPORTANT]

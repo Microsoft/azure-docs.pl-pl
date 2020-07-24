@@ -7,16 +7,16 @@ ms.workload: infrastructure
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: cynthn
-ms.openlocfilehash: 04dba192488744d1b54b0a0e2d885c0b1766bdc6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1ac2e94e9c0213f14999d730027e118df6584519
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82100536"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87020206"
 ---
-# <a name="virtual-machines-in-an-azure-resource-manager-template"></a>Maszyny wirtualne w szablonie Azure Resource Manager
+# <a name="virtual-machines-in-an-azure-resource-manager-template"></a>Maszyny wirtualne w szablonie usługi Azure Resource Manager
 
-W tym artykule opisano aspekty szablonu Azure Resource Manager, który ma zastosowanie do maszyn wirtualnych. Ten artykuł nie zawiera opisu pełnego szablonu do tworzenia maszyny wirtualnej; w przypadku, gdy potrzebne są definicje zasobów dla kont magazynu, interfejsów sieciowych, publicznych adresów IP i sieci wirtualnych. Aby uzyskać więcej informacji na temat sposobu definiowania tych zasobów, zobacz Przewodnik po [szablonach Menedżer zasobów](../../azure-resource-manager/resource-manager-template-walkthrough.md).
+W tym artykule opisano aspekty szablonu Azure Resource Manager, który ma zastosowanie do maszyn wirtualnych. Ten artykuł nie zawiera opisu pełnego szablonu do tworzenia maszyny wirtualnej; w przypadku, gdy potrzebne są definicje zasobów dla kont magazynu, interfejsów sieciowych, publicznych adresów IP i sieci wirtualnych. Aby uzyskać więcej informacji na temat sposobu definiowania tych zasobów, zobacz Przewodnik po [szablonach Menedżer zasobów](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
 
 [W galerii](https://azure.microsoft.com/documentation/templates/?term=VM) znajduje się wiele szablonów obejmujących zasób maszyny wirtualnej. Nie wszystkie elementy, które mogą zostać uwzględnione w szablonie, zostały opisane tutaj.
 
@@ -156,14 +156,14 @@ Wersja interfejsu API określona w szablonie ma wpływ na właściwości, które
 
 Te możliwości umożliwiają uzyskanie najnowszych wersji interfejsu API:
 
-- Interfejs API REST — [Lista wszystkich dostawców zasobów](https://docs.microsoft.com/rest/api/resources/providers)
-- PowerShell- [Get-AzResourceProvider](https://docs.microsoft.com/powershell/module/az.resources/get-azresourceprovider)
-- Interfejs wiersza polecenia platformy Azure — [Pokaż dostawcę](https://docs.microsoft.com/cli/azure/provider)
+- Interfejs API REST — [Lista wszystkich dostawców zasobów](/rest/api/resources/providers)
+- PowerShell- [Get-AzResourceProvider](/powershell/module/az.resources/get-azresourceprovider)
+- Interfejs wiersza polecenia platformy Azure — [Pokaż dostawcę](/cli/azure/provider)
 
 
 ## <a name="parameters-and-variables"></a>Parametry i zmienne
 
-[Parametry](../../resource-group-authoring-templates.md) ułatwiają Określanie wartości dla szablonu podczas jego uruchamiania. Ta sekcja parametrów jest używana w przykładzie:
+[Parametry](../../azure-resource-manager/templates/template-syntax.md) ułatwiają Określanie wartości dla szablonu podczas jego uruchamiania. Ta sekcja parametrów jest używana w przykładzie:
 
 ```json
 "parameters": {
@@ -175,7 +175,7 @@ Te możliwości umożliwiają uzyskanie najnowszych wersji interfejsu API:
 
 Podczas wdrażania przykładowego szablonu należy wprowadzić wartości dla nazwy i hasła konta administratora na każdej maszynie wirtualnej oraz liczbę maszyn wirtualnych do utworzenia. Możesz określić wartości parametrów w osobnym pliku, który jest zarządzany przy użyciu szablonu lub podając wartości po wyświetleniu monitu.
 
-[Zmienne](../../resource-group-authoring-templates.md) ułatwiają konfigurowanie wartości w szablonie, które są używane wielokrotnie, lub mogą ulec zmianie w czasie. Ta sekcja zmiennych jest używana w przykładzie:
+[Zmienne](../../azure-resource-manager/templates/template-syntax.md) ułatwiają konfigurowanie wartości w szablonie, które są używane wielokrotnie, lub mogą ulec zmianie w czasie. Ta sekcja zmiennych jest używana w przykładzie:
 
 ```json
 "variables": { 
@@ -208,7 +208,7 @@ Podczas wdrażania przykładowego szablonu należy wprowadzić wartości dla naz
 }, 
 ```
 
-Podczas wdrażania przykładowego szablonu wartości zmiennych są używane dla nazwy i identyfikatora wcześniej utworzonego konta magazynu. Zmienne są również używane do podania ustawień dla rozszerzenia diagnostyki. Użyj [najlepszych rozwiązań dotyczących tworzenia szablonów Azure Resource Manager](../../resource-manager-template-best-practices.md) , aby ułatwić podjęcie decyzji o sposobie struktury parametrów i zmiennych w szablonie.
+Podczas wdrażania przykładowego szablonu wartości zmiennych są używane dla nazwy i identyfikatora wcześniej utworzonego konta magazynu. Zmienne są również używane do podania ustawień dla rozszerzenia diagnostyki. Użyj [najlepszych rozwiązań dotyczących tworzenia szablonów Azure Resource Manager](../../azure-resource-manager/templates/template-best-practices.md) , aby ułatwić podjęcie decyzji o sposobie struktury parametrów i zmiennych w szablonie.
 
 ## <a name="resource-loops"></a>Pętle zasobów
 
@@ -247,7 +247,7 @@ Należy pamiętać, że utworzenie pętli dla jednego zasobu w szablonie może w
 
 ## <a name="dependencies"></a>Zależności
 
-Większość zasobów jest zależna od innych zasobów do poprawnego działania. Maszyny wirtualne muszą być skojarzone z siecią wirtualną, a tym samym wymagają interfejsu sieciowego. Element [dependsOn](../../resource-group-define-dependencies.md) jest używany do upewnienia się, że interfejs sieciowy jest gotowy do użycia przed utworzeniem maszyn wirtualnych:
+Większość zasobów jest zależna od innych zasobów do poprawnego działania. Maszyny wirtualne muszą być skojarzone z siecią wirtualną, a tym samym wymagają interfejsu sieciowego. Element [dependsOn](../../azure-resource-manager/templates/define-resource-dependency.md) jest używany do upewnienia się, że interfejs sieciowy jest gotowy do użycia przed utworzeniem maszyn wirtualnych:
 
 ```json
 "dependsOn": [
@@ -277,7 +277,7 @@ Podczas definiowania zasobu maszyny wirtualnej są używane różne elementy pro
 - [zmienia](sizes.md)
 - [Nazwa](/azure/architecture/best-practices/resource-naming) i poświadczenia
 - Ustawienia dysku i [systemu operacyjnego](cli-ps-findimage.md)
-- [Interfejs sieciowy](../../virtual-network/virtual-network-deploy-multinic-classic-ps.md) 
+- [Interfejs sieciowy](/previous-versions/azure/virtual-network/virtual-network-deploy-multinic-classic-ps) 
 - Diagnostyka rozruchu
 
 ## <a name="disks-and-images"></a>Dyski i obrazy
@@ -369,7 +369,7 @@ Opcjonalnie można dodać dyski danych do maszyn wirtualnych. [Liczba dysków](s
 
 ## <a name="extensions"></a>Rozszerzenia
 
-Chociaż [rozszerzenia](extensions-features.md) są osobnym zasobem, są ściśle powiązane z maszynami wirtualnymi. Rozszerzenia mogą być dodawane jako zasób podrzędny maszyny wirtualnej lub jako osobny zasób. W przykładzie przedstawiono [rozszerzenie diagnostyki](extensions-diagnostics-template.md) dodawane do maszyn wirtualnych:
+Chociaż [rozszerzenia](../extensions/features-windows.md) są osobnym zasobem, są ściśle powiązane z maszynami wirtualnymi. Rozszerzenia mogą być dodawane jako zasób podrzędny maszyny wirtualnej lub jako osobny zasób. W przykładzie przedstawiono [rozszerzenie diagnostyki](../extensions/diagnostics-template.md) dodawane do maszyn wirtualnych:
 
 ```json
 { 
@@ -404,7 +404,7 @@ Chociaż [rozszerzenia](extensions-features.md) są osobnym zasobem, są ściśl
 
 Ten zasób rozszerzenia używa zmiennej storagename i zmiennych diagnostycznych w celu podania wartości. Jeśli chcesz zmienić dane zbierane przez to rozszerzenie, możesz dodać więcej liczników wydajności do zmiennej wadperfcounters. Dane diagnostyczne można również umieścić na innym koncie magazynu niż w przypadku przechowywania dysków maszyn wirtualnych.
 
-Istnieje wiele rozszerzeń, które można zainstalować na maszynie wirtualnej, ale najprawdopodobniej jest to [rozszerzenie niestandardowego skryptu](extensions-customscript.md). W tym przykładzie skrypt programu PowerShell o nazwie start.ps1 jest uruchamiany na każdej maszynie wirtualnej podczas pierwszego uruchomienia:
+Istnieje wiele rozszerzeń, które można zainstalować na maszynie wirtualnej, ale najprawdopodobniej jest to [rozszerzenie niestandardowego skryptu](../extensions/custom-script-windows.md). W tym przykładzie skrypt programu PowerShell o nazwie start.ps1 jest uruchamiany na każdej maszynie wirtualnej podczas pierwszego uruchomienia:
 
 ```json
 {
@@ -447,11 +447,11 @@ Jeśli chcesz wiedzieć o stanie zasobów we wdrożeniu, Wyświetl grupę zasob�
 
 ![Pobierz informacje o wdrożeniu](./media/template-description/virtual-machines-deployment-info.png)
     
-Nie jest to problem, aby użyć tego samego szablonu do tworzenia zasobów lub aktualizowania istniejących zasobów. Korzystając z poleceń do wdrażania szablonów, możesz powiedzieć, który [tryb](../../resource-group-template-deploy.md) ma być używany. Tryb można ustawić na wartość **kompletna** lub **przyrostowa**. Domyślnie są to aktualizacje przyrostowe. Należy zachować ostrożność w przypadku korzystania z trybu **kompletnego** , ponieważ można przypadkowo usunąć zasoby. Po ustawieniu trybu na **ukończone**, Menedżer zasobów usuwa wszystkie zasoby w grupie zasobów, które nie znajdują się w szablonie.
+Nie jest to problem, aby użyć tego samego szablonu do tworzenia zasobów lub aktualizowania istniejących zasobów. Korzystając z poleceń do wdrażania szablonów, możesz powiedzieć, który [tryb](../../azure-resource-manager/templates/deploy-powershell.md) ma być używany. Tryb można ustawić na wartość **kompletna** lub **przyrostowa**. Domyślnie są to aktualizacje przyrostowe. Należy zachować ostrożność w przypadku korzystania z trybu **kompletnego** , ponieważ można przypadkowo usunąć zasoby. Po ustawieniu trybu na **ukończone**, Menedżer zasobów usuwa wszystkie zasoby w grupie zasobów, które nie znajdują się w szablonie.
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Utwórz własny szablon przy użyciu [szablonów Azure Resource Manager tworzenia](../../resource-group-authoring-templates.md).
+- Utwórz własny szablon przy użyciu [szablonów Azure Resource Manager tworzenia](../../azure-resource-manager/templates/template-syntax.md).
 - Wdróż utworzony szablon przy użyciu polecenia [Utwórz maszynę wirtualną z systemem Windows przy użyciu szablonu Menedżer zasobów](ps-template.md).
 - Dowiedz się, jak zarządzać maszynami wirtualnymi utworzonymi przez Ciebie, przeglądając informacje [o tworzeniu maszyn wirtualnych z systemem Windows i zarządzanie nimi za pomocą modułu Azure PowerShell](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 - Aby poznać składnię JSON i właściwości typów zasobów w szablonach, zobacz [Azure Resource Manager dokumentacja szablonu](/azure/templates/).

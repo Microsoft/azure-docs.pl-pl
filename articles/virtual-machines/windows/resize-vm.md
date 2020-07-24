@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: article
 ms.date: 01/13/2020
 ms.author: cynthn
-ms.openlocfilehash: f456af143ac6ec21bcb9b0c3ec75635c51f748ef
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 98a0a1a2ce0a5122a953b8cc9916e2bf56955feb
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82099890"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87020241"
 ---
 # <a name="resize-a-windows-vm"></a>Zmienianie rozmiaru maszyny wirtualnej z systemem Windows
 
@@ -25,7 +25,7 @@ Jeśli maszyna wirtualna używa Premium Storage, upewnij się, że wybrano wersj
 
 ## <a name="use-the-portal"></a>Używanie portalu
 
-1. Otwórz [witrynę Azure Portal](https://portal.azure.com).
+1. Otwórz witrynę [Azure Portal](https://portal.azure.com).
 1. Otwórz stronę dla maszyny wirtualnej.
 1. W menu po lewej stronie wybierz pozycję **rozmiar**.
 1. Wybierz nowy rozmiar z listy dostępnych rozmiarów, a następnie wybierz pozycję **Zmień rozmiar**.
@@ -126,5 +126,4 @@ $vmIds = $as.VirtualMachinesReferences
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać dodatkową skalowalność, należy uruchomić wiele wystąpień maszyn wirtualnych i skalować je w poziomie. Aby uzyskać więcej informacji, zobacz [Automatyczne skalowanie maszyn z systemem Windows w zestawie skalowania maszyn wirtualnych](../../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md).
-
+Aby uzyskać dodatkową skalowalność, należy uruchomić wiele wystąpień maszyn wirtualnych i skalować je w poziomie. Aby uzyskać więcej informacji, zobacz [Automatyczne skalowanie maszyn z systemem Windows w zestawie skalowania maszyn wirtualnych](../../virtual-machine-scale-sets/tutorial-autoscale-powershell.md).

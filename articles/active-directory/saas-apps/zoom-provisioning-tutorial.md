@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/3/2019
 ms.author: Zhchia
-ms.openlocfilehash: 94c261da0c935cb7a41dde768069099b4e5ed251
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fb5e51503fa20cd3ace6070cb1b51f5bf32d0e13
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80384079"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87016268"
 ---
 # <a name="tutorial-configure-zoom-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie powiększenia automatycznej aprowizacji użytkowników
 
@@ -121,12 +121,12 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
    |Atrybut|Typ|
    |---|---|
-   |userName|String|
-   |aktywne|Boolean|
-   |Nazwa. imię|String|
-   |Nazwa. rodzina|String|
-   |wiadomości e-mail [typ EQ "Work"]|String|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Department|String|
+   |userName|String (ciąg)|
+   |aktywne|Boolean (wartość logiczna)|
+   |Nazwa. imię|String (ciąg)|
+   |Nazwa. rodzina|String (ciąg)|
+   |wiadomości e-mail [typ EQ "Work"]|String (ciąg)|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Department|String (ciąg)|
 
 10. Aby skonfigurować filtry określania zakresu, zapoznaj się z poniższymi instrukcjami w [samouczku dotyczącym filtru określania zakresu](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 
@@ -153,6 +153,9 @@ Po skonfigurowaniu aprowizacji Użyj następujących zasobów do monitorowania w
 
 ## <a name="connector-limitations"></a>Ograniczenia łącznika
 * Wartość zoom umożliwia tylko 9 999 użytkowników podstawowych.
+
+## <a name="change-log"></a>Dziennik zmian
+* 05/14/2020 — obsługa operacji aktualizacji dodanych dla atrybutu wiadomości e-mail [Type EQ "Work"].
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 

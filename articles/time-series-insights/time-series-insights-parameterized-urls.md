@@ -5,27 +5,27 @@ ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
 ms.author: dpalled
-manager: cshankar
+manager: diviso
 ms.topic: conceptual
 ms.workload: big-data
-ms.date: 04/15/2020
+ms.date: 07/07/2020
 ms.custom: seodec18
-ms.openlocfilehash: 10616c8003d9bbbe42cb70bd1bac4193044907c0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 170b90816535562d6740449157840cedb00f291d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81416991"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87020512"
 ---
 # <a name="share-a-custom-view-using-a-parameterized-url"></a>Udostępnianie widoku niestandardowego przy użyciu sparametryzowanego adresu URL
 
-Aby udostępnić widok niestandardowy w Eksploratorze Time Series Insights, można programowo utworzyć sparametryzowany adres URL widoku niestandardowego.
+Aby udostępnić widok niestandardowy w Eksploratorze Azure Time Series Insights, można programowo utworzyć sparametryzowany adres URL widoku niestandardowego.
 
-Eksplorator Time Series Insights obsługuje parametry zapytania URL, aby określić widoki w środowisku bezpośrednio z adresu URL. Na przykład przy użyciu tylko adresu URL możesz określić środowisko docelowe, predykat wyszukiwania i żądany przedział czasu. Gdy użytkownik wybierze dostosowany adres URL, Interfejs udostępnia link bezpośrednio do tego zasobu w portalu Time Series Insights. Obowiązują zasady dostępu do danych.
+Eksplorator Azure Time Series Insights obsługuje parametry zapytania URL, aby określić widoki w środowisku bezpośrednio z adresu URL. Na przykład przy użyciu tylko adresu URL możesz określić środowisko docelowe, predykat wyszukiwania i żądany przedział czasu. Gdy użytkownik wybierze dostosowany adres URL, Interfejs udostępnia link bezpośrednio do tego zasobu w portalu Azure Time Series Insights. Obowiązują zasady dostępu do danych.
 
 > [!TIP]
-> * Obejrzyj pokaz bezpłatnej [Time Series Insights](https://insights.timeseries.azure.com/samples).
-> * Przeczytaj towarzyszącą dokumentację programu [Time Series Insights Explorer](./time-series-insights-explorer.md) .
+> * Obejrzyj pokaz bezpłatnej [Azure Time Series Insights](https://insights.timeseries.azure.com/samples).
+> * Przeczytaj towarzyszącą dokumentację programu [Azure Time Series Insights Explorer](./time-series-insights-explorer.md) .
 
 ## <a name="environment-id"></a>Identyfikator środowiska
 
@@ -33,7 +33,7 @@ Parametr `environmentId=<guid>` określa identyfikator środowiska docelowego. J
 
 Przykładowy parametr identyfikatora środowiska to `?environmentId=10000000-0000-0000-0000-100000000108`.
 
-## <a name="time"></a>Godzina
+## <a name="time"></a>Czas
 
 Za pomocą sparametryzowanego adresu URL możesz określać bezwzględne lub względne wartości czasu.
 
@@ -53,7 +53,7 @@ W przypadku względnej wartości czasu Użyj `relativeMillis=<value>` , gdzie *w
 
 Na przykład parametr `&relativeMillis=3600000` spowoduje wyświetlenie danych z ostatnich 60 minut.
 
-Akceptowane wartości odpowiadają menu **szybkiego czasu** Eksploratora Time Series Insights i obejmują:
+Akceptowane wartości odpowiadają menu **szybkiego czasu** Eksploratora Azure Time Series Insights i obejmują:
 
 * `1800000`(Ostatnie 30 min)
 * `3600000`(Ostatnie 60 min)
@@ -66,7 +66,7 @@ Akceptowane wartości odpowiadają menu **szybkiego czasu** Eksploratora Time Se
 
 ### <a name="optional-parameters"></a>Parametry opcjonalne
 
-`timeSeriesDefinitions=<collection of term objects>`Parametr określa terminy predykatu, które będą wyświetlane w widoku Time Series Insights:
+`timeSeriesDefinitions=<collection of term objects>`Parametr określa terminy predykatu, które będą wyświetlane w widoku Azure Time Series Insights:
 
 | Parametr | Element adresu URL | Opis |
 | --- | --- | --- |
@@ -98,7 +98,7 @@ Akceptowane wartości odpowiadają menu **szybkiego czasu** Eksploratora Time Se
 
 ### <a name="examples"></a>Przykłady
 
-Aby dodać definicje szeregów czasowych do środowiska Time Series Insights jako parametr adresu URL, Dołącz:
+Aby dodać definicje szeregów czasowych do środowiska Azure Time Series Insights jako parametr adresu URL, Dołącz:
 
 ```URL parameter
 &timeSeriesDefinitions=[{"name":"F1PressureId","splitBy":"Id","measureName":"Pressure","predicate":"'Factory1'"},{"name":"F2TempStation","splitBy":"Station","measureName":"Temperature","predicate":"'Factory2'"},
@@ -117,16 +117,16 @@ Można utworzyć następujący sparametryzowany adres URL dla widoku:
 https://insights.timeseries.azure.com/samples?environmentId=10000000-0000-0000-0000-100000000108&relativeMillis=3600000&timeSeriesDefinitions=[{"name":"F1PressureId","splitBy":"Id","measureName":"Pressure","predicate":"'Factory1'"},{"name":"F2TempStation","splitBy":"Station","measureName":"Temperature","predicate":"'Factory2'"},{"name":"F3VibrationPL","splitBy":"ProductionLine","measureName":"Vibration","predicate":"'Factory3'"}]
 ```
 
-[![Sparametryzowany adres URL programu Time Series Insights Explorer](media/parameterized-url/share-parameterized-url.png)](media/parameterized-url/share-parameterized-url.png#lightbox)
+[![Sparametryzowany adres URL programu Azure Time Series Insights Explorer](media/parameterized-url/share-parameterized-url.png)](media/parameterized-url/share-parameterized-url.png#lightbox)
 
 > [!TIP]
 > Zapoznaj się z Eksploratorem na żywo przy użyciu powyższego przykładu [adresu URL](https://insights.timeseries.azure.com/samples?environmentId=10000000-0000-0000-0000-100000000108&relativeMillis=3600000&timeSeriesDefinitions=[{"name":"F1PressureId","splitBy":"Id","measureName":"Pressure","predicate":"'Factory1'"},{"name":"F2TempStation","splitBy":"Station","measureName":"Temperature","predicate":"'Factory2'"},{"name":"F3VibrationPL","splitBy":"ProductionLine","measureName":"Vibration","predicate":"'Factory3'"}]) .
 
-Powyższy adres URL opisuje i wyświetla sparametryzowany widok Eksploratora Time Series Insights. 
+Powyższy adres URL opisuje i wyświetla sparametryzowany widok Eksploratora Azure Time Series Insights. 
 
 * Predykaty sparametryzowane.
 
-  [![Predykaty sparametryzowane w Eksploratorze Time Series Insights.](media/parameterized-url/share-parameterized-url-predicates.png)](media/parameterized-url/share-parameterized-url-predicates.png#lightbox)
+  [![Predykaty sparametryzowane w Eksploratorze Azure Time Series Insights.](media/parameterized-url/share-parameterized-url-predicates.png)](media/parameterized-url/share-parameterized-url-predicates.png#lightbox)
 
 * Widok udostępnionego wykresu pełny.
 
@@ -136,4 +136,4 @@ Powyższy adres URL opisuje i wyświetla sparametryzowany widok Eksploratora Tim
 
 * Dowiedz się, jak [wykonywać zapytania dotyczące danych przy użyciu języka C#](time-series-insights-query-data-csharp.md).
 
-* Dowiedz się więcej o [eksploratorze Time Series Insights](./time-series-insights-explorer.md).
+* Dowiedz się więcej o [eksploratorze Azure Time Series Insights](./time-series-insights-explorer.md).

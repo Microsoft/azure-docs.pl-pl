@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/3/2019
 ms.author: jeedes
-ms.openlocfilehash: 423ba8c7aea9659a4c91f68a01392954c2ba6db2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0c83d43fe1a2068fa4c9f24a10c0975610142a84
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77059171"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87018693"
 ---
 # <a name="tutorial-configure-4me-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie 4me na potrzeby automatycznego aprowizacji użytkowników
 
@@ -127,7 +128,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
     ![4me mapowania użytkowników](media/4me-provisioning-tutorial/4me-user-mapping.png)
     
-11. Przejrzyj atrybuty użytkownika, które są synchronizowane z usługi Azure AD, do 4me w sekcji **Mapowanie atrybutów** . Atrybuty wybrane jako **pasujące** właściwości są używane do dopasowania kont użytkowników w programie 4me for Updates. Wybierz przycisk **Zapisz** , aby zatwierdzić zmiany.
+11. Przejrzyj atrybuty użytkownika, które są synchronizowane z usługi Azure AD, do 4me w sekcji **Mapowanie atrybutów** . Atrybuty wybrane jako **pasujące** właściwości są używane do dopasowania kont użytkowników w programie 4me for Updates. Upewnij się, że [4me obsługuje filtrowanie](https://developer.4me.com/v1/scim/users/) według wybranego pasującego atrybutu. Wybierz przycisk **Zapisz** , aby zatwierdzić zmiany.
 
     ![4me mapowania użytkowników](media/4me-provisioning-tutorial/4me-user-attributes.png)
     
@@ -163,7 +164,7 @@ Aby uzyskać więcej informacji na temat sposobu odczytywania dzienników aprowi
 * Tokeny wygenerowanego klucza tajnego 4me mają datę wygaśnięcia miesiąca od wygenerowania.
 * 4me nie obsługuje operacji **usuwania**
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * [Zarządzanie obsługą kont użytkowników w aplikacjach dla przedsiębiorstw](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)

@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 06/11/2019
-ms.openlocfilehash: 63c54369ecda6a4f242ca76730c48a414a9d4724
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 33d1e73523ca85a21c032729b6537ee3297ea23e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86040881"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87020835"
 ---
 # <a name="azure-machine-learning-studio-classic-integration-in-stream-analytics-preview"></a>Integracja Azure Machine Learning Studio (klasyczny) w Stream Analytics (wersja zapoznawcza)
 Stream Analytics obsługuje funkcje zdefiniowane przez użytkownika, które wywołują Azure Machine Learning Studio (klasyczne) punkty końcowe. Obsługa interfejsu API REST dla tej funkcji jest szczegółowa w [bibliotece interfejsu API rest Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx). Ten artykuł zawiera dodatkowe informacje, które są odpowiednie do pomyślnej implementacji tej możliwości w Stream Analytics. Samouczek został również ogłoszony i jest dostępny w [tym miejscu](stream-analytics-machine-learning-integration-tutorial.md).
@@ -28,7 +28,7 @@ Microsoft Azure Machine Learning Studio (klasyczny) to narzędzie do współprac
 Każdy punkt końcowy ma interfejsy API do wykonywania wsadowego i wykonywania synchronicznego. Stream Analytics używa wykonywania synchronicznego. Określona usługa nosi nazwę [usługi żądanie/odpowiedź](../machine-learning/studio/consume-web-services.md) w Azure Machine Learning Studio (klasyczny).
 
 ## <a name="machine-learning-resources-needed-for-stream-analytics-jobs"></a>Machine Learning zasobów wymaganych do Stream Analytics zadań
-Na potrzeby przetwarzania zadań Stream Analytics, punkt końcowy żądania/odpowiedzi, [apikey](../machine-learning/machine-learning-connect-to-azure-machine-learning-web-service.md)i Definicja struktury Swagger są niezbędne do pomyślnego wykonania. Stream Analytics ma dodatkowy punkt końcowy, który konstruuje adres URL dla punktu końcowego struktury Swagger, wyszukuje interfejs i zwraca domyślną definicję UDF do użytkownika.
+Na potrzeby przetwarzania zadań Stream Analytics, punkt końcowy żądania/odpowiedzi, [apikey](https://docs.microsoft.com/azure/machine-learning/studio/consume-web-services)i Definicja struktury Swagger są niezbędne do pomyślnego wykonania. Stream Analytics ma dodatkowy punkt końcowy, który konstruuje adres URL dla punktu końcowego struktury Swagger, wyszukuje interfejs i zwraca domyślną definicję UDF do użytkownika.
 
 ## <a name="configure-a-stream-analytics-and-machine-learning-udf-via-rest-api"></a>Konfigurowanie Stream Analytics i Machine Learning UDF za pośrednictwem interfejsu API REST
 Za pomocą interfejsów API REST można skonfigurować zadanie do wywoływania funkcji języka maszynowego platformy Azure. Kroki tego procesu są następujące:

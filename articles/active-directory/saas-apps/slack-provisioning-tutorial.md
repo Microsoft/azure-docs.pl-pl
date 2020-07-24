@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2019
+ms.date: 05/06/2020
 ms.author: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a8b7fa5aea835329be8f65a3bb1775ba5b0d97d4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5ca536ddacb0f81459625b733eb79282e145afba
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85389868"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87016338"
 ---
 # <a name="tutorial-configure-slack-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie zapasu czasu dla automatycznej aprowizacji użytkowników
 
@@ -107,35 +107,35 @@ Ta sekcja przeprowadzi Cię przez proces łączenia się z interfejsem API inicj
 
    |Atrybut|Typ|
    |---|---|
-   |aktywne|Boolean|
-   |externalId|String|
-   |displayName|String|
-   |Nazwa. rodzina|String|
-   |Nazwa. imię|String|
-   |tytuł|String|
-   |wiadomości e-mail [Type EQ "Work"]. Value|String|
-   |userName|String|
-   |Pseudonim|String|
-   |adresy [typ EQ "untyped"]. streetAddress|String|
-   |adresy [Type EQ "untyped"]. locale|String|
-   |adresy [Type EQ "untyped"]. region|String|
-   |adresy [Type EQ "untyped"]. KodPocztowy|String|
-   |adresy [Type EQ "untyped"]. Country|String|
-   |numer telefonu [typ EQ "Mobile"]. Value|String|
-   |numer telefonu [typ EQ "Work"]. wartość|String|
-   |role [podstawowa EQ "true"]. Value|String|
-   |locale|String|
-   |Name. honorificPrefix|String|
-   |fotografie [typ EQ "Fotografia"]. wartość|String|
-   |profileUrl|String|
-   |TimeZone|String|
-   |userType|String|
-   |urn: Standard scim: schematy: rozszerzenie: Enterprise: 1.0. Department|String|
+   |aktywne|Boolean (wartość logiczna)|
+   |externalId|String (ciąg)|
+   |displayName|String (ciąg)|
+   |Nazwa. rodzina|String (ciąg)|
+   |Nazwa. imię|String (ciąg)|
+   |title|String (ciąg)|
+   |wiadomości e-mail [Type EQ "Work"]. Value|String (ciąg)|
+   |userName|String (ciąg)|
+   |Pseudonim|String (ciąg)|
+   |adresy [typ EQ "untyped"]. streetAddress|String (ciąg)|
+   |adresy [Type EQ "untyped"]. locale|String (ciąg)|
+   |adresy [Type EQ "untyped"]. region|String (ciąg)|
+   |adresy [Type EQ "untyped"]. KodPocztowy|String (ciąg)|
+   |adresy [Type EQ "untyped"]. Country|String (ciąg)|
+   |numer telefonu [typ EQ "Mobile"]. Value|String (ciąg)|
+   |numer telefonu [typ EQ "Work"]. wartość|String (ciąg)|
+   |role [podstawowa EQ "true"]. Value|String (ciąg)|
+   |locale|String (ciąg)|
+   |Name. honorificPrefix|String (ciąg)|
+   |fotografie [typ EQ "Fotografia"]. wartość|String (ciąg)|
+   |profileUrl|String (ciąg)|
+   |TimeZone|String (ciąg)|
+   |userType|String (ciąg)|
+   |urn: Standard scim: schematy: rozszerzenie: Enterprise: 1.0. Department|String (ciąg)|
    |urn: Standard scim: schematy: rozszerzenie: Enterprise: 1.0. Manager|Dokumentacja|
-   |urn: Standard scim: schematy: rozszerzenie: Enterprise: 1.0. employeeNumber|String|
-   |urn: Standard scim: schematy: rozszerzenie: Enterprise: 1.0. costCenter|String|
-   |urn: Standard scim: schematy: rozszerzenie: Enterprise: 1.0. Organization|String|
-   |urn: Standard scim: schematy: rozszerzenie: Enterprise: 1.0. dzielenie|String|
+   |urn: Standard scim: schematy: rozszerzenie: Enterprise: 1.0. employeeNumber|String (ciąg)|
+   |urn: Standard scim: schematy: rozszerzenie: Enterprise: 1.0. costCenter|String (ciąg)|
+   |urn: Standard scim: schematy: rozszerzenie: Enterprise: 1.0. Organization|String (ciąg)|
+   |urn: Standard scim: schematy: rozszerzenie: Enterprise: 1.0. dzielenie|String (ciąg)|
 
 12. W sekcji **mapowania** wybierz pozycję **Synchronizuj grupy Azure Active Directory do zapasu czasu**.
 
@@ -143,7 +143,7 @@ Ta sekcja przeprowadzi Cię przez proces łączenia się z interfejsem API inicj
 
       |Atrybut|Typ|
       |---|---|
-      |displayName|String|
+      |displayName|String (ciąg)|
       |elementy członkowskie|Dokumentacja|
 
 14. Aby skonfigurować filtry określania zakresu, zapoznaj się z poniższymi instrukcjami w [samouczku dotyczącym filtru określania zakresu](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
@@ -169,7 +169,7 @@ Po skonfigurowaniu aprowizacji Użyj następujących zasobów do monitorowania w
 2. Sprawdź [pasek postępu](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user) , aby zobaczyć stan cyklu aprowizacji oraz sposób jego zakończenia.
 3. Jeśli konfiguracja aprowizacji wydaje się być w złej kondycji, aplikacja zostanie przestawiona na kwarantannę. Więcej informacji o Stanach kwarantanny znajduje się [tutaj](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).
 
-## <a name="connector-limitations"></a>Ograniczenia łącznika
+## <a name="troubleshooting-tips"></a>Wskazówki dotyczące rozwiązywania problemów
 
 * Podczas konfigurowania atrybutu **DisplayName** zapasu należy pamiętać o następujących zachowaniach:
 
@@ -179,11 +179,15 @@ Po skonfigurowaniu aprowizacji Użyj następujących zasobów do monitorowania w
   
   * Dozwolone znaki interpunkcyjne obejmują kropki, podkreślenia, łączniki, apostrofy, nawiasy (np. **[{}])**) i separatory (np. **,/;**).
   
+  * Właściwość displayName nie może zawierać znaku "@". W przypadku uwzględnienia znaku "@" można znaleźć pominięte zdarzenie w dziennikach aprowizacji z opisem "AttributeValidationFailed".
+
   * Tylko aktualizacje, jeśli są skonfigurowane te dwa ustawienia w obszarze roboczym zapasu/ **Synchronizacja profilu organizacji jest włączona** , a **Użytkownicy nie mogą zmieniać ich nazwy wyświetlanej**.
-  
+
 * Atrybut **nazwy użytkownika** zapasu musi znajdować się w zakresie 21 znaków i mieć unikatową wartość.
 
 * Zapasy czasu umożliwiają dopasowanie z użyciem atrybutów **username** i **email**.  
+  
+* Typowe kody erorr są udokumentowane w oficjalnej dokumentacji zapasowej —https://api.slack.com/scim#errors
 
 ## <a name="change-log"></a>Dziennik zmian
 

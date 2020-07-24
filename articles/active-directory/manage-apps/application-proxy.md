@@ -8,19 +8,17 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/09/2019
+ms.date: 07/14/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.collection: M365-identity-device-management
-ms.custom: has-adal-ref
-ms.openlocfilehash: 84cd6f9d7612cc6cf5829c03c398dd65a6eec412
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6ed9d5eb8d230b05a090424d6105865acae69e61
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85318032"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87019356"
 ---
-# <a name="remote-access-to-on-premises-applications-through-azure-active-directorys-application-proxy"></a>Zdalny dostęp do aplikacji lokalnych przy użyciu serwera proxy aplikacji Azure Active Directory
+# <a name="remote-access-to-on-premises-applications-through-azure-ad-application-proxy"></a>Dostęp zdalny do aplikacji lokalnych za pomocą usługi Azure serwer proxy aplikacji usługi Azure AD
 
 Serwer proxy aplikacji Azure Active Directory zapewnia bezpieczny dostęp zdalny do lokalnych aplikacji sieci Web. Po jednokrotnym zalogowaniu się do usługi Azure AD użytkownicy mogą uzyskiwać dostęp do aplikacji w chmurze i lokalnych przy użyciu zewnętrznego adresu URL lub wewnętrznego portalu aplikacji. Na przykład serwer proxy aplikacji może zapewnić dostęp zdalny i logowanie jednokrotne do aplikacji Pulpit zdalny, SharePoint, Teams, Tableau, Qlik i LOB.
 
@@ -62,7 +60,7 @@ Na poniższym diagramie pokazano, w jaki sposób usługa Azure AD i serwer proxy
 
 | Składnik | Opis |
 | --------- | ----------- |
-| Endpoint  | Punkt końcowy jest adresem URL lub [portalem użytkowników końcowych](end-user-experiences.md). Użytkownicy mogą uzyskiwać dostęp do aplikacji poza siecią, uzyskując dostęp do zewnętrznego adresu URL. Użytkownicy w sieci mogą uzyskiwać dostęp do aplikacji za pomocą adresu URL lub portalu użytkowników końcowych. Gdy użytkownicy przejdą do jednego z tych punktów końcowych, uwierzytelniają się w usłudze Azure AD, a następnie są kierowani przez łącznik do aplikacji lokalnej.|
+| Punkt końcowy  | Punkt końcowy jest adresem URL lub [portalem użytkowników końcowych](end-user-experiences.md). Użytkownicy mogą uzyskiwać dostęp do aplikacji poza siecią, uzyskując dostęp do zewnętrznego adresu URL. Użytkownicy w sieci mogą uzyskiwać dostęp do aplikacji za pomocą adresu URL lub portalu użytkowników końcowych. Gdy użytkownicy przejdą do jednego z tych punktów końcowych, uwierzytelniają się w usłudze Azure AD, a następnie są kierowani przez łącznik do aplikacji lokalnej.|
 | Azure AD | Usługa Azure AD wykonuje uwierzytelnianie przy użyciu katalogu dzierżawy przechowywanego w chmurze. |
 | Usługa serwera proxy aplikacji | Ta usługa serwera proxy aplikacji działa w chmurze w ramach usługi Azure AD. Przekazuje on token logowania od użytkownika do łącznika serwera proxy aplikacji. Serwer proxy aplikacji przekazuje wszystkie dostępne nagłówki w żądaniu i ustawia nagłówki zgodnie z protokołem na adres IP klienta. Jeśli żądanie przychodzące do serwera proxy ma już ten nagłówek, adres IP klienta zostanie dodany na końcu listy rozdzielanej przecinkami, która jest wartością nagłówka.|
 | Łącznik serwera proxy aplikacji | Łącznik jest lekkim agentem działającym na serwerze z systemem Windows w sieci. Łącznik zarządza komunikacją między usługą serwera proxy aplikacji w chmurze a aplikacją lokalną. Łącznik używa tylko połączeń wychodzących, więc nie trzeba otwierać żadnych portów przychodzących ani umieszczać żadnych elementów w strefie DMZ. Łączniki są bezstanowe i pobierają informacje z chmury w razie potrzeby. Aby uzyskać więcej informacji na temat łączników, takich jak równoważenie obciążenia i uwierzytelnianie, zobacz [Omówienie łączników usługi Azure serwer proxy aplikacji usługi Azure AD](application-proxy-connectors.md).|

@@ -7,11 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: a61f7ff69e648262eb721eb61a98b09dbbee924c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c0426872c29fa126514f22a5f4fb57f19903c967
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73961424"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87021668"
 ---
 # <a name="set-up-ip-addressing-to-connect-to-a-secondary-on-premises-site-after-failover"></a>Konfigurowanie adresowania IP w celu nawiązania połączenia z dodatkową lokacją lokalną po przejściu do trybu failover
 
@@ -78,12 +79,12 @@ Po przejściu w tryb failover Site Recovery przydziela adres IP dla każdego int
 
 Po włączeniu ochrony maszyny wirtualnej można użyć następującego przykładowego skryptu do zweryfikowania adresu przypisanego do maszyny wirtualnej. Ten adres IP jest ustawiany jako adres IP trybu failover i przypisany do maszyny wirtualnej w momencie przejścia w tryb failover:
 
-    ```
-    $vm = Get-SCVirtualMachine -Name <VM_NAME>
-    $na = $vm[0].VirtualNetworkAdapters>
-    $ip = Get-SCIPAddress -GrantToObjectID $na[0].id
-    $ip.address 
-    ```
+```powershell
+$vm = Get-SCVirtualMachine -Name <VM_NAME>
+$na = $vm[0].VirtualNetworkAdapters>
+$ip = Get-SCIPAddress -GrantToObjectID $na[0].id
+$ip.address
+```
 
 ## <a name="use-a-different-ip-address"></a>Użyj innego adresu IP
 
@@ -92,7 +93,7 @@ W tym scenariuszu adresy IP maszyn wirtualnych, które są przełączane w tryb 
 - Używaj wartości niskiego czasu wygaśnięcia dla aplikacji intranetowych.
 - Aby zaktualizować serwer DNS, należy użyć następującego skryptu w planie odzyskiwania Site Recovery. Nie jest potrzebny skrypt, jeśli używasz dynamicznej rejestracji w systemie DNS.
 
-    ```
+    ```powershell
     param(
     string]$Zone,
     [string]$name,

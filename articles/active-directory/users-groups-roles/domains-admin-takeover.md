@@ -14,13 +14,14 @@ ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0cd2de0929b22dda6e566316c4eda966d8d62e24
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d2ccf986f81ec3abed54c85640b8afb1c5cf7172
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84732654"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87015888"
 ---
-# <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Przejmowanie niezarządzanego katalogu jako administrator w Azure Active Directory
+# <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Przejmowanie katalogu niezarządzanego jako administrator w usłudze Azure Active Directory
 
 W tym artykule opisano dwa sposoby przejęcia nazwy domeny DNS w niezarządzanym katalogu w Azure Active Directory (Azure AD). Gdy użytkownik samoobsługi rejestruje się w usłudze w chmurze, która korzysta z usługi Azure AD, jest dodawany do niezarządzanego katalogu usługi Azure AD na podstawie swojej domeny poczty e-mail. Aby uzyskać więcej informacji na temat rejestracji samoobsługowej lub "wirusa" dla usługi, zobacz [co to jest rejestracja samoobsługowa w celu Azure Active Directory?](directory-self-service-signup.md)
 
@@ -143,12 +144,12 @@ cmdlet | Użycie
    ```powershell
    Get-MsolDomainVerificationDns –DomainName *your_domain_name* –Mode DnsTxtRecord
    ```
-    Przykład:
+    Na przykład:
    ```
    Get-MsolDomainVerificationDns –DomainName contoso.com –Mode DnsTxtRecord
    ```
 
-4. Skopiuj wartość (wyzwanie) zwracaną z tego polecenia. Przykład:
+4. Skopiuj wartość (wyzwanie) zwracaną z tego polecenia. Na przykład:
    ```powershell
    MS=32DD01B82C05D27151EA9AE93C5890787F0E65D9
    ```
@@ -159,7 +160,7 @@ cmdlet | Użycie
    Confirm-MsolDomain –DomainName *your_domain_name* –ForceTakeover Force
    ```
   
-   Przykład:
+   Na przykład:
   
    ```powershell
    Confirm-MsolDomain –DomainName contoso.com –ForceTakeover Force
@@ -169,9 +170,9 @@ Pomyślne wyzwanie powraca do monitu bez błędu.
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Dodawanie niestandardowej nazwy domeny do usługi Azure AD](../fundamentals/add-custom-domain.md)
-* [How to install and configure Azure PowerShell](/powershell/azure/overview)
-* [Azure PowerShell](/powershell/azure/overview)
+* [Dodawanie nazwy domeny niestandardowej do usługi Azure AD](../fundamentals/add-custom-domain.md)
+* [How to install and configure Azure PowerShell](/powershell/azure/)
+* [Azure PowerShell](/powershell/azure/)
 * [Dokumentacja poleceń cmdlet platformy Azure](/powershell/azure/get-started-azureps)
 * [Set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0)
 

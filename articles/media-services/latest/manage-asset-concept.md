@@ -13,16 +13,16 @@ ms.topic: article
 ms.date: 03/26/2020
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 9136fd702fad5c12a8ec97a68ff8a592a203d7d2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6accd303ba11c4c1406c7a157fa8176972fc7a3a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80582194"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87022911"
 ---
 # <a name="manage-assets"></a>Zarządzanie elementami zawartości
 
-W Azure Media Services [zasób](https://docs.microsoft.com/rest/api/media/assets) jest tam, gdzie 
+W Azure Media Services [zasób](/rest/api/media/assets) jest tam, gdzie 
 
 * Przekaż pliki multimedialne do zasobu,
 * Pozyskiwanie i archiwizowanie strumieni na żywo w elemencie zawartości
@@ -56,13 +56,13 @@ Po przekazaniu plików cyfrowych do magazynu i skojarzeniu ich z elementem zawar
     ```
 2. Pobierz adres URL sygnatury dostępu współdzielonego z uprawnieniami odczytu/zapisu, który będzie używany do przekazywania plików cyfrowych do kontenera elementów zawartości.
 
-    W celu [utworzenia listy adresów URL kontenerów elementów zawartości](https://docs.microsoft.com/rest/api/media/assets/listcontainersas) można użyć interfejsu API usługi Media Services.
+    W celu [utworzenia listy adresów URL kontenerów elementów zawartości](/rest/api/media/assets/listcontainersas) można użyć interfejsu API usługi Media Services.
 
-    **AssetContainerSas. listContainerSas** przyjmuje parametr [ListContainerSasInput](https://docs.microsoft.com/rest/api/media/assets/listcontainersas#listcontainersasinput) , który został ustawiony `expiryTime` . Czas powinien być ustawiony na < 24 godziny.
+    **AssetContainerSas. listContainerSas** przyjmuje parametr [ListContainerSasInput](/rest/api/media/assets/listcontainersas#listcontainersasinput) , który został ustawiony `expiryTime` . Czas powinien być ustawiony na < 24 godziny.
 
-    [ListContainerSasInput](https://docs.microsoft.com/rest/api/media/assets/listcontainersas#listcontainersasinput) zwraca wiele adresów URL sygnatury dostępu współdzielonego, ponieważ istnieją dwa klucze konta magazynu dla każdego konta magazynu. Konto magazynu ma dwa klucze, ponieważ ułatwia pracę w trybie failover i bezproblemowe rotację kluczy konta magazynu. Pierwszy adres URL sygnatury dostępu współdzielonego reprezentuje pierwszy klucz konta magazynu, a drugi adres URL sygnatury dostępu współdzielonego reprezentuje drugi klucz.
+    [ListContainerSasInput](/rest/api/media/assets/listcontainersas#listcontainersasinput) zwraca wiele adresów URL sygnatury dostępu współdzielonego, ponieważ istnieją dwa klucze konta magazynu dla każdego konta magazynu. Konto magazynu ma dwa klucze, ponieważ ułatwia pracę w trybie failover i bezproblemowe rotację kluczy konta magazynu. Pierwszy adres URL sygnatury dostępu współdzielonego reprezentuje pierwszy klucz konta magazynu, a drugi adres URL sygnatury dostępu współdzielonego reprezentuje drugi klucz.
 3. Użyj interfejsów API usługi Azure Storage lub zestawów SDK (na przykład [interfejsu API REST magazynu](../../storage/common/storage-rest-api-auth.md) lub [zestawu SDK platformy .NET](../../storage/blobs/storage-quickstart-blobs-dotnet.md)) do przekazywania plików do kontenera zasobów.
-4. W celu utworzenia przekształcenia i zadania przetwarzającego element zawartości „input” należy użyć interfejsów API usługi Media Services w wersji 3. Aby uzyskać więcej informacji, zobacz [Przekształcenia i zadania](transform-concept.md).
+4. W celu utworzenia przekształcenia i zadania przetwarzającego element zawartości „input” należy użyć interfejsów API usługi Media Services w wersji 3. Aby uzyskać więcej informacji, zobacz [Przekształcenia i zadania](./transforms-jobs-concept.md).
 5. Przesyłaj strumieniowo zawartość z zasobu "output".
 
 ### <a name="create-a-new-asset"></a>Tworzenie nowego elementu zawartości
@@ -76,7 +76,7 @@ Po przekazaniu plików cyfrowych do magazynu i skojarzeniu ich z elementem zawar
 PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Media/mediaServices/{amsAccountName}/assets/{assetName}?api-version=2018-07-01
 ```
 
-Aby zapoznać się z przykładem, zobacz [Tworzenie zasobu z](https://docs.microsoft.com/rest/api/media/assets/createorupdate#examples) przykładem Rest.
+Aby zapoznać się z przykładem, zobacz [Tworzenie zasobu z](/rest/api/media/assets/createorupdate#examples) przykładem Rest.
 
 W przykładzie pokazano, jak utworzyć **treść żądania** , gdzie można określić opis, nazwę kontenera, konto magazynu i inne przydatne informacje.
 
@@ -100,14 +100,14 @@ curl -X PUT \
  Asset asset = await client.Assets.CreateOrUpdateAsync(resourceGroupName, accountName, assetName, new Asset());
 ```
 
-### <a name="see-also"></a>Zobacz także
+### <a name="see-also"></a>Zobacz też
 
 * [Tworzenie danych wejściowych zadania z pliku lokalnego](job-input-from-local-file-how-to.md)
 * [Utwórz dane wejściowe zadania na podstawie adresu URL HTTPS](job-input-from-http-how-to.md)
 
 ## <a name="ingest-and-archive-live-streams-into-an-asset"></a>Pozyskiwanie i archiwizowanie strumieni na żywo w elemencie zawartości
 
-W Media Services obiekt [danych wyjściowych na żywo](https://docs.microsoft.com/rest/api/media/liveoutputs) przypomina cyfrowy rejestrator wideo, który będzie przechwytywać i rejestrować strumień na żywo do zasobu na koncie Media Services. Zarejestrowana zawartość jest zachowywana w kontenerze zdefiniowanym [przez zasób zasobu](https://docs.microsoft.com/rest/api/media/assets) .
+W Media Services obiekt [danych wyjściowych na żywo](/rest/api/media/liveoutputs) przypomina cyfrowy rejestrator wideo, który będzie przechwytywać i rejestrować strumień na żywo do zasobu na koncie Media Services. Zarejestrowana zawartość jest zachowywana w kontenerze zdefiniowanym [przez zasób zasobu](/rest/api/media/assets) .
 
 Aby uzyskać więcej informacji, zobacz:
 
@@ -145,6 +145,6 @@ Zobacz [filtrowanie, porządkowanie, stronicowanie jednostek Media Services](ent
 
 Zapoznaj się z pełnymi przykładami kodu, które demonstrują przekazywanie, kodowanie, analizowanie, przesyłanie strumieniowe na żywo i na żądanie: 
 
-* [Java](https://docs.microsoft.com/samples/azure-samples/media-services-v3-java/azure-media-services-v3-samples-using-java/), 
-* [.NET](https://docs.microsoft.com/samples/azure-samples/media-services-v3-dotnet/azure-media-services-v3-samples-using-net/), 
-* [Reszta](https://docs.microsoft.com/samples/azure-samples/media-services-v3-rest-postman/azure-media-services-postman-collection/).
+* [Java](/samples/azure-samples/media-services-v3-java/azure-media-services-v3-samples-using-java/), 
+* [.NET](/samples/azure-samples/media-services-v3-dotnet/azure-media-services-v3-samples-using-net/), 
+* [Reszta](/samples/azure-samples/media-services-v3-rest-postman/azure-media-services-postman-collection/).

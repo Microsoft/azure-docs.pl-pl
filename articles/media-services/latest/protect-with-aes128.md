@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/09/2020
 ms.author: juliako
-ms.openlocfilehash: 1e5f1e38461b7f229f9eb7559aeb6203563fceb6
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 45bb8637d37c9c3789a962c9f5ac42227d547637
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86200208"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87022824"
 ---
 # <a name="tutorial-encrypt-video-with-aes-128-and-use-the-key-delivery-service"></a>Samouczek: szyfrowanie wideo przy użyciu algorytmu AES-128 i korzystanie z usługi dostarczania kluczy
 
 > [!NOTE]
-> Mimo że w samouczku są używane przykłady [zestawu SDK platformy .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet) , ogólne kroki są takie same dla [interfejsów API REST](https://docs.microsoft.com/rest/api/media/liveevents), interfejsu [wiersza polecenia](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest)lub innych obsługiwanych [zestawów SDK](media-services-apis-overview.md#sdks).
+> Mimo że w samouczku są używane przykłady [zestawu SDK platformy .NET](/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet) , ogólne kroki są takie same dla [interfejsów API REST](/rest/api/media/liveevents), interfejsu [wiersza polecenia](/cli/azure/ams/live-event?view=azure-cli-latest)lub innych obsługiwanych [zestawów SDK](media-services-apis-overview.md#sdks).
 
 Za pomocą Media Services można dostarczyć HTTP Live Streaming (HLS), MPEG-myślnik i Smooth Streaming zaszyfrowanych za pomocą algorytmu AES przy użyciu kluczy szyfrowania 128-bitowych. Media Services zapewnia również usługę dostarczania kluczy, która dostarcza klucze szyfrowania do autoryzowanych użytkowników. Jeśli chcesz, aby Media Services dynamicznie szyfrować wideo, należy skojarzyć klucz szyfrowania z lokalizatorem przesyłania strumieniowego, a także skonfigurować zasady kluczy zawartości. Gdy gracz prosi o przesłanie strumienia, Media Services używa określonego klucza do dynamicznego szyfrowania zawartości przy użyciu algorytmu AES-128. Aby odszyfrować strumień, odtwarzacz żąda klucza z usługi dostarczania kluczy. Aby określić, czy użytkownik został autoryzowany do otrzymywania klucza, usługa ocenia zasady kluczy zawartości, które wybrano dla klucza.
 
@@ -57,8 +57,8 @@ Następujące elementy są wymagane do wykonania czynności przedstawionych w sa
 
 * Zapoznanie się z artykułem [Content protection overview (Omówienie ochrony zawartości)](content-protection-overview.md).
 * Zainstalowanie narzędzia Visual Studio Code lub Visual Studio.
-* [Utwórz konto Media Services](create-account-cli-quickstart.md).
-* Uzyskaj poświadczenia potrzebne do używania Media Services interfejsów API przez następujące [interfejsy API dostępu](access-api-cli-how-to.md).
+* [Utwórz konto Media Services](./create-account-howto.md).
+* Uzyskaj poświadczenia potrzebne do używania Media Services interfejsów API przez następujące [interfejsy API dostępu](./access-api-howto.md).
 
 ## <a name="download-code"></a>Pobieranie kodu
 
@@ -81,21 +81,21 @@ Aby rozpocząć korzystanie z interfejsów API Media Services z platformą .NET,
 
 ## <a name="create-an-output-asset"></a>Tworzenie zasobu wyjściowego  
 
-Wyjściowy element [zawartości](https://docs.microsoft.com/rest/api/media/assets) przechowuje wynik zadania kodowania.  
+Wyjściowy element [zawartości](/rest/api/media/assets) przechowuje wynik zadania kodowania.  
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithAES/Program.cs#CreateOutputAsset)]
 
 ## <a name="get-or-create-an-encoding-transform"></a>Pobieranie lub tworzenie obiektu Transform kodowania
 
-Podczas tworzenia nowego wystąpienia obiektu [Transform](https://docs.microsoft.com/rest/api/media/transforms) należy określić, jakie dane wyjściowe ma ono tworzyć. Wymagany parametr to obiekt **TransformOutput**, jak pokazano w poniższym kodzie. Każdy obiekt **TransformOutput** zawiera element **Preset**. Element **Preset** zawiera szczegółowe instrukcje operacji przetwarzania wideo i/lub dźwięku używanych do wygenerowania wymaganego obiektu **TransformOutput**. Przykład opisany w tym artykule używa wbudowanego elementu Preset o nazwie **AdaptiveStreaming**. Ustawienie wstępne koduje wejściowe wideo do generowanej automatycznie (par rozdzielczości szybkości transmisji bitów) w oparciu o rozdzielczość wejścia i szybkość transmisji bitów, a następnie tworzy pliki MP4 ISO z wideo H. 264 i AAC audio odpowiadające każdej parze rozdzielczości szybkości transmisji bitów.
+Podczas tworzenia nowego wystąpienia obiektu [Transform](/rest/api/media/transforms) należy określić, jakie dane wyjściowe ma ono tworzyć. Wymagany parametr to obiekt **TransformOutput**, jak pokazano w poniższym kodzie. Każdy obiekt **TransformOutput** zawiera element **Preset**. Element **Preset** zawiera szczegółowe instrukcje operacji przetwarzania wideo i/lub dźwięku używanych do wygenerowania wymaganego obiektu **TransformOutput**. Przykład opisany w tym artykule używa wbudowanego elementu Preset o nazwie **AdaptiveStreaming**. Ustawienie wstępne koduje wejściowe wideo do generowanej automatycznie (par rozdzielczości szybkości transmisji bitów) w oparciu o rozdzielczość wejścia i szybkość transmisji bitów, a następnie tworzy pliki MP4 ISO z wideo H. 264 i AAC audio odpowiadające każdej parze rozdzielczości szybkości transmisji bitów.
 
-Przed utworzeniem nowego [przekształcenia](https://docs.microsoft.com/rest/api/media/transforms)należy najpierw sprawdzić, czy już istnieje przy użyciu metody **Get** , jak pokazano w poniższym kodzie. W przypadku usługi Media Services 3 metody **Get** wywołane dla obiektów zwracają **wartość null**, jeśli obiekt nie istnieje (sprawdzana jest nazwa bez uwzględniania wielkości liter).
+Przed utworzeniem nowego [przekształcenia](/rest/api/media/transforms)należy najpierw sprawdzić, czy już istnieje przy użyciu metody **Get** , jak pokazano w poniższym kodzie. W przypadku usługi Media Services 3 metody **Get** wywołane dla obiektów zwracają **wartość null**, jeśli obiekt nie istnieje (sprawdzana jest nazwa bez uwzględniania wielkości liter).
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithAES/Program.cs#EnsureTransformExists)]
 
 ## <a name="submit-job"></a>Przesyłanie zadania
 
-Jak wspomniano powyżej, obiekt [Transform](https://docs.microsoft.com/rest/api/media/transforms) jest przepisem, a obiekt [Job](https://docs.microsoft.com/rest/api/media/jobs) to rzeczywiste żądanie skierowane do usługi Media Services i mające na celu zastosowanie obiektu **Transform** do określonej wejściowej zawartości wideo lub dźwiękowej. **Zadanie** określa informacje na przykład o lokalizacji wejściowego wideo i lokalizacji danych wyjściowych.
+Jak wspomniano powyżej, obiekt [Transform](/rest/api/media/transforms) jest przepisem, a obiekt [Job](/rest/api/media/jobs) to rzeczywiste żądanie skierowane do usługi Media Services i mające na celu zastosowanie obiektu **Transform** do określonej wejściowej zawartości wideo lub dźwiękowej. **Zadanie** określa informacje na przykład o lokalizacji wejściowego wideo i lokalizacji danych wyjściowych.
 
 W tym samouczku utworzysz dane wejściowe zadania na podstawie pliku, który jest pobierany bezpośrednio ze [źródłowego adresu URL https](job-input-from-http-how-to.md).
 
@@ -103,7 +103,7 @@ W tym samouczku utworzysz dane wejściowe zadania na podstawie pliku, który jes
 
 ## <a name="wait-for-the-job-to-complete"></a>Oczekiwanie na zakończenie zadania
 
-Ukończenie zadania trwa jakiś czas. Gdy tak jest, chcesz otrzymywać powiadomienia. Poniższy przykład kodu pokazuje, jak sondować usługę pod kątem stanu [zadania](https://docs.microsoft.com/rest/api/media/jobs). Sondowanie nie jest zalecanym najlepszym rozwiązaniem w przypadku aplikacji produkcyjnych ze względu na potencjalne opóźnienia. Jeśli sondowanie będzie nadużywane w ramach konta, może zostać ograniczone. Deweloperzy zamiast niego powinni używać usługi Event Grid. Aby uzyskać więcej informacji, zobacz temat [kierowanie zdarzeń do niestandardowego punktu końcowego sieci Web](job-state-events-cli-how-to.md).
+Ukończenie zadania trwa jakiś czas. Gdy tak jest, chcesz otrzymywać powiadomienia. Poniższy przykład kodu pokazuje, jak sondować usługę pod kątem stanu [zadania](/rest/api/media/jobs). Sondowanie nie jest zalecanym najlepszym rozwiązaniem w przypadku aplikacji produkcyjnych ze względu na potencjalne opóźnienia. Jeśli sondowanie będzie nadużywane w ramach konta, może zostać ograniczone. Deweloperzy zamiast niego powinni używać usługi Event Grid. Aby uzyskać więcej informacji, zobacz temat [kierowanie zdarzeń do niestandardowego punktu końcowego sieci Web](job-state-events-cli-how-to.md).
 
 **Zadanie** zwykle przechodzi przez następujące stany: **Scheduled (Zaplanowane)**, **Queued (W kolejce)**, **Processing (Przetwarzane)**, **Finished (Zakończone)** (stan końcowy). Jeśli w zadaniu wystąpi błąd, zostanie wyświetlony stan **błędu** . Jeśli zadanie jest w trakcie jego anulowania, po zakończeniu zostanie **anulowane** i **usunięte** .
 
@@ -121,21 +121,21 @@ Gdy gracz prosi o przesłanie strumienia, Media Services używa określonego klu
 
 Po zakończeniu kodowania i ustawieniu zasad kluczy zawartości następnym krokiem jest udostępnienie klientom w wyjściowym elemencie zawartości pliku wideo, który można odtwarzać. Film wideo jest dostępny w dwóch krokach:
 
-1. Utwórz [lokalizator przesyłania strumieniowego](https://docs.microsoft.com/rest/api/media/streaminglocators).
+1. Utwórz [lokalizator przesyłania strumieniowego](/rest/api/media/streaminglocators).
 2. Utworzenie adresów URL przesyłania strumieniowego, których klienci mogą używać.
 
 Proces tworzenia **lokalizatora przesyłania strumieniowego** jest nazywany publikowaniem. Domyślnie **lokalizator przesyłania strumieniowego** jest ważny natychmiast po wykonaniu wywołań interfejsu API. Obowiązuje do momentu jego usunięcia, chyba że zostanie skonfigurowany opcjonalny czas rozpoczęcia i zakończenia.
 
-Podczas tworzenia [lokalizatora przesyłania strumieniowego](https://docs.microsoft.com/rest/api/media/streaminglocators)należy określić żądany **StreamingPolicyName**. W tym samouczku używamy jednego z PredefinedStreamingPolicies, który informuje, Azure Media Services jak opublikować zawartość do przesyłania strumieniowego. W tym przykładzie zastosowano szyfrowanie kopert AES (to szyfrowanie jest również znane jako szyfrowanie ClearKey, ponieważ klucz jest dostarczany do klienta odtwarzania za pośrednictwem protokołu HTTPS, a nie licencji DRM).
+Podczas tworzenia [lokalizatora przesyłania strumieniowego](/rest/api/media/streaminglocators)należy określić żądany **StreamingPolicyName**. W tym samouczku używamy jednego z PredefinedStreamingPolicies, który informuje, Azure Media Services jak opublikować zawartość do przesyłania strumieniowego. W tym przykładzie zastosowano szyfrowanie kopert AES (to szyfrowanie jest również znane jako szyfrowanie ClearKey, ponieważ klucz jest dostarczany do klienta odtwarzania za pośrednictwem protokołu HTTPS, a nie licencji DRM).
 
 > [!IMPORTANT]
-> W przypadku korzystania z niestandardowej [StreamingPolicy](https://docs.microsoft.com/rest/api/media/streamingpolicies)należy zaprojektować ograniczony zestaw takich zasad dla konta usługi Media Service i ponownie użyć ich dla lokalizatorów przesyłania strumieniowego za każdym razem, gdy potrzebne są te same opcje szyfrowania i protokoły. Konto usługi Media Service jest objęte limitem przydziału dotyczącym liczby pozycji elementu StreamingPolicy. Nie należy tworzyć nowych StreamingPolicy dla każdego lokalizatora przesyłania strumieniowego.
+> W przypadku korzystania z niestandardowej [StreamingPolicy](/rest/api/media/streamingpolicies)należy zaprojektować ograniczony zestaw takich zasad dla konta usługi Media Service i ponownie użyć ich dla lokalizatorów przesyłania strumieniowego za każdym razem, gdy potrzebne są te same opcje szyfrowania i protokoły. Konto usługi Media Service jest objęte limitem przydziału dotyczącym liczby pozycji elementu StreamingPolicy. Nie należy tworzyć nowych StreamingPolicy dla każdego lokalizatora przesyłania strumieniowego.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithAES/Program.cs#CreateStreamingLocator)]
 
 ## <a name="get-a-test-token"></a>Pobieranie tokenu testowego
 
-W tym samouczku określamy zasady klucza zawartości z ograniczenie dotyczącym tokenu. Zasadom ograniczenia tokenu musi towarzyszyć token wystawiony przez usługę tokenu zabezpieczającego (STS). Media Services obsługuje tokeny w formacie [JWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_3) i to, co konfigurujemy w przykładzie.
+W tym samouczku określamy zasady klucza zawartości z ograniczenie dotyczącym tokenu. Zasadom ograniczenia tokenu musi towarzyszyć token wystawiony przez usługę tokenu zabezpieczającego (STS). Media Services obsługuje tokeny w formacie [JWT](/previous-versions/azure/azure-services/gg185950(v=azure.100)#BKMK_3) i to, co konfigurujemy w przykładzie.
 
 ContentKeyIdentifierClaim jest używana w **zasadach klucza zawartości**, co oznacza, że token przedstawiony dla usługi dostarczania kluczy musi mieć identyfikator klucza zawartości. W przykładzie nie podano klucza zawartości podczas tworzenia lokalizatora przesyłania strumieniowego, system utworzył losowo jeden dla nas. W celu wygenerowania tokenu testowego musimy uzyskać ContentKeyId do umieszczenia w ContentKeyIdentifierClaim.
 
@@ -143,7 +143,7 @@ ContentKeyIdentifierClaim jest używana w **zasadach klucza zawartości**, co oz
 
 ## <a name="build-a-dash-streaming-url"></a>Kompilowanie adresu URL przesyłania strumieniowego DASH
 
-Teraz, gdy [lokalizator przesyłania strumieniowego](https://docs.microsoft.com/rest/api/media/streaminglocators) został utworzony, możesz uzyskać adresy URL przesyłania strumieniowego. Aby utworzyć adres URL, należy połączyć nazwę hosta [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints) i ścieżkę **lokalizatora przesyłania strumieniowego** . W tym przykładzie jest używany *domyślny* **punkt końcowy przesyłania strumieniowego**. Po pierwszym utworzeniu konta usługi Media Service ten *domyślny* **punkt końcowy przesyłania strumieniowego** będzie zatrzymany, więc należy wywołać metodę **Start**.
+Teraz, gdy [lokalizator przesyłania strumieniowego](/rest/api/media/streaminglocators) został utworzony, możesz uzyskać adresy URL przesyłania strumieniowego. Aby utworzyć adres URL, należy połączyć nazwę hosta [StreamingEndpoint](/rest/api/media/streamingendpoints) i ścieżkę **lokalizatora przesyłania strumieniowego** . W tym przykładzie jest używany *domyślny* **punkt końcowy przesyłania strumieniowego**. Po pierwszym utworzeniu konta usługi Media Service ten *domyślny* **punkt końcowy przesyłania strumieniowego** będzie zatrzymany, więc należy wywołać metodę **Start**.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithAES/Program.cs#GetMPEGStreamingUrl)]
 

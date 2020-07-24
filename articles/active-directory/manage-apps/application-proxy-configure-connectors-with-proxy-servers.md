@@ -12,11 +12,12 @@ ms.date: 04/07/2020
 ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 48727e377c2b6707e570cad103e4b08bcb44a1cb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c785e2b13e7d5c57ff6d5ce9161fea1a80da77e1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84764931"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87019543"
 ---
 # <a name="work-with-existing-on-premises-proxy-servers"></a>Praca z istniejącymi lokalnymi serwerami proxy
 
@@ -152,6 +153,9 @@ Aby je włączyć, wykonaj następujące czynności:
 4.  Skonfiguruj wymagane ustawienia serwera proxy. 
 
 Te ustawienia powodują, że łącznik używa tego samego serwera proxy przesyłania dalej do komunikacji z platformą Azure i aplikacji zaplecza. Jeśli Łącznik do komunikacji z platformą Azure nie wymaga serwera proxy przesyłania dalej lub innego serwera proxy do przesyłania dalej, można skonfigurować ten program przy użyciu opcji modyfikowania plików ApplicationProxyConnectorService.exe.config zgodnie z opisem w sekcji Pomijaj wychodzące serwery proxy lub użyć serwera wychodzącego.
+
+> [!NOTE]
+> Istnieją różne sposoby konfigurowania internetowego serwera proxy w systemie operacyjnym. Ustawienia serwera proxy skonfigurowane za pośrednictwem narzędzia NETSH WINHTTP (Uruchom `NETSH WINHTTP SHOW PROXY` do sprawdzenia) Zastąp ustawienia serwera proxy skonfigurowane w kroku 2. 
 
 Usługa łącznika Aktualizator będzie również używać serwera proxy maszyny. To zachowanie można zmienić, modyfikując plik ApplicationProxyConnectorUpdaterService.exe.config.
 

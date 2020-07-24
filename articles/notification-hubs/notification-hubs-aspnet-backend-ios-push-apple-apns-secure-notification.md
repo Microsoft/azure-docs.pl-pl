@@ -14,11 +14,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: aa84ad9f48f79a77bad1445dadc8c5c965b13655
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d7dc3212007e9b9ec67d0d235135d4d46f20b950
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85248704"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87022127"
 ---
 # <a name="azure-notification-hubs-secure-push"></a>Azure Notification Hubs bezpieczne wypychanie
 
@@ -121,7 +122,7 @@ Aby osiągnąć ten cel, należy napisać logikę, aby pobrać bezpieczną zawar
 4. Teraz musimy obsługiwać przychodzące powiadomienie i korzystać z powyższej metody w celu pobrania zawartości do wyświetlenia. Najpierw należy włączyć uruchamianie aplikacji systemu iOS w tle podczas otrzymywania powiadomień wypychanych. W **Xcode**wybierz projekt aplikacji w panelu po lewej stronie, a następnie kliknij swój główny obiekt docelowy aplikacji w sekcji **obiekty docelowe** w środkowym okienku.
 5. Następnie kliknij kartę **możliwości** w górnej części okienka środkowe, a następnie zaznacz pole wyboru **powiadomienia zdalne** .
 
-    ![][IOS1]
+    ![Zrzut ekranu przedstawiający XCode z wybranym projektem aplikacji i na karcie możliwości Otwórz. Zaznaczone jest pole wyboru powiadomienia zdalne.][IOS1]
 
 6. W obszarze `AppDelegate.m` Dodaj następującą metodę do obsługi powiadomień wypychanych:
 

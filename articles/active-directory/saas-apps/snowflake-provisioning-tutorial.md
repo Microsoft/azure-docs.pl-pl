@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: 99565c8dc8b5cbaea9f449a9f6262a37ae5b66d0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 46ebb122b0165d469b1c40871d5939e50a8595c9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85367193"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87016324"
 ---
 # <a name="tutorial-configure-snowflake-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie płatnej śniegu na potrzeby automatycznego aprowizacji użytkowników
 
@@ -119,14 +119,14 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
    |Atrybut|Typ|
    |---|---|
-   |aktywne|Boolean|
-   |displayName|String|
-   |wiadomości e-mail [Type EQ "Work"]. Value|String|
-   |userName|String|
-   |Nazwa. imię|String|
-   |Nazwa. rodzina|String|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: defaultRole|String|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: defaultWarehouse|String|
+   |aktywne|Boolean (wartość logiczna)|
+   |displayName|String (ciąg)|
+   |wiadomości e-mail [Type EQ "Work"]. Value|String (ciąg)|
+   |userName|String (ciąg)|
+   |Nazwa. imię|String (ciąg)|
+   |Nazwa. rodzina|String (ciąg)|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: defaultRole|String (ciąg)|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: defaultWarehouse|String (ciąg)|
 
 11. W sekcji **mapowania** wybierz pozycję **Synchronizuj grupy Azure Active Directory z płatą śniegu**.
 
@@ -134,7 +134,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
       |Atrybut|Typ|
       |---|---|
-      |displayName|String|
+      |displayName|String (ciąg)|
       |elementy członkowskie|Dokumentacja|
 
 13. Aby skonfigurować filtry określania zakresu, zapoznaj się z poniższymi instrukcjami w [samouczku dotyczącym filtru określania zakresu](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
@@ -164,7 +164,11 @@ Po skonfigurowaniu aprowizacji Użyj następujących zasobów do monitorowania w
 
 * Tokeny Standard scim wygenerowały płaty śniegu wygaśnie w ciągu 6 miesięcy. Należy pamiętać, że należy je odświeżyć przed wygaśnięciem, aby umożliwić kontynuowanie synchronizacji aprowizacji. 
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="change-log"></a>Dziennik zmian
+
+* 07/21/2020 — możliwość usuwania nietrwałego dla wszystkich użytkowników (za pośrednictwem aktywnego atrybutu).
+
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * [Zarządzanie obsługą kont użytkowników w aplikacjach dla przedsiębiorstw](../app-provisioning/configure-automatic-user-provisioning-portal.md).
 * [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)

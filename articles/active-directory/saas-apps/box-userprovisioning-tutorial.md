@@ -12,14 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/26/2017
+ms.date: 07/20/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c1397b4189a9c2c15e3878687ea8c67c1da7567f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0be9298e56cf2e5c816c45fcb7e84eb20c11ef4d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77058573"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87018183"
 ---
 # <a name="tutorial-configure-box-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie pola do automatycznej aprowizacji użytkowników
 
@@ -37,6 +38,9 @@ Aby skonfigurować integrację usługi Azure AD z usługą Box, potrzebne są na
 
 > [!NOTE]
 > Podczas testowania kroków opisanych w tym samouczku zalecamy, aby *nie* używać środowiska produkcyjnego.
+
+> [!NOTE]
+> Aplikacje muszą być najpierw włączone w aplikacji Box.
 
 Aby przetestować kroki w tym samouczku, musisz mieć dostęp do następujących elementów:
 
@@ -129,7 +133,7 @@ W dzierżawie w usłudze Box zsynchronizowani użytkownicy są wyświetlani w ob
 ![Stan integracji](./media/box-userprovisioning-tutorial/IC769556.png "Stan integracji")
 
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * [Zarządzanie obsługą kont użytkowników w aplikacjach dla przedsiębiorstw](tutorial-list.md)
 * [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)

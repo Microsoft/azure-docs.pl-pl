@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: 6759b2c0f679a865d0bdcf8ea8cd39f258a9cf25
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: dfbdff01064b483085233ece47d1d3b635b68743
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86132121"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87021464"
 ---
 # <a name="about-disaster-recovery-of-vmware-vms-to-azure"></a>Informacje na temat odzyskiwania po awarii maszyn wirtualnych VMware na platformie Azure
 
@@ -23,6 +23,9 @@ Strategia ciągłości działania i odzyskiwania po awarii (BCDR) pomaga zapewni
 
 - [Azure Backup](../backup/backup-overview.md) tworzyć kopie zapasowe danych lokalnych i maszyn wirtualnych platformy Azure. Można utworzyć kopię zapasową plików i folderów, określonych obciążeń lub całej maszyny wirtualnej. 
 - [Azure Site Recovery](site-recovery-overview.md) zapewnia odporność i odzyskiwanie po awarii dla aplikacji i obciążeń uruchomionych na maszynach lokalnych lub maszynach wirtualnych Azure IaaS. Site Recovery organizuje replikację i obsługuje pracę w trybie failover na platformie Azure, gdy wystąpi awaria. Obsługuje ona również odzyskiwanie z platformy Azure do lokacji głównej. 
+
+> [!NOTE]
+> Site Recovery nie przenosi ani nie zapisuje danych klienta poza regionem docelowym, w którym Konfiguracja odzyskiwania po awarii została skonfigurowana dla maszyn źródłowych. Klienci mogą wybrać magazyn Recovery Services z innego regionu, jeśli tak się wybierzesz. Magazyn Recovery Services zawiera metadane, ale nie dane rzeczywiste klienta.
 
 ## <a name="how-does-site-recovery-do-disaster-recovery"></a>Jak Site Recovery przeprowadzić odzyskiwanie po awarii?
 

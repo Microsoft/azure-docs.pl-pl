@@ -13,11 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/18/2020
 ms.author: juliako
-ms.openlocfilehash: 23ee7ba7a5456916eb307e21aa2074924614cb4b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fd592469a4435504f1eecf1f24e50faf23fad17a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84418147"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87022977"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Przesyłanie strumieniowe na żywo z Azure Media Services v3
 
@@ -34,7 +35,7 @@ W przypadku klientów chcących dostarczyć zawartość do dużych odbiorców in
 Ten artykuł zawiera omówienie i wskazówki dotyczące przesyłania strumieniowego na żywo z Media Services i linki do innych odpowiednich artykułów.
  
 > [!NOTE]
-> Za pomocą [Azure Portal](https://portal.azure.com/) można zarządzać [zdarzeniami na żywo](live-events-outputs-concept.md)v3, przeglądać [zasoby](assets-concept.md)v3 i uzyskać informacje o uzyskiwaniu dostępu do interfejsów API. W przypadku wszystkich innych zadań zarządzania (na przykład transformacji i zadań) należy użyć [interfejsu API REST](https://docs.microsoft.com/rest/api/media/), interfejsu [wiersza polecenia](https://aka.ms/ams-v3-cli-ref)lub jednego z obsługiwanych [zestawów SDK](media-services-apis-overview.md#sdks).
+> Za pomocą [Azure Portal](https://portal.azure.com/) można zarządzać [zdarzeniami na żywo](live-events-outputs-concept.md)v3, przeglądać [zasoby](assets-concept.md)v3 i uzyskać informacje o uzyskiwaniu dostępu do interfejsów API. W przypadku wszystkich innych zadań zarządzania (na przykład transformacji i zadań) należy użyć [interfejsu API REST](/rest/api/media/), interfejsu [wiersza polecenia](https://aka.ms/ams-v3-cli-ref)lub jednego z obsługiwanych [zestawów SDK](media-services-apis-overview.md#sdks).
 
 ## <a name="dynamic-packaging-and-delivery"></a>Dynamiczne pakowanie i dostarczanie
 
@@ -53,7 +54,7 @@ Filtrowanie dynamiczne służy do kontrolowania liczby ścieżek, formatów, szy
 
 ## <a name="live-event-types"></a>Typy zdarzeń na żywo
 
-[Zdarzenia na żywo](https://docs.microsoft.com/rest/api/media/liveevents) są odpowiedzialne za pozyskiwanie i przetwarzanie kanałów wideo na żywo. Wydarzenie na żywo można ustawić na *przekazywanie* (lokalny koder na żywo wysyła strumień o wielokrotnej szybkości transmisji bitów) lub *kodowanie na żywo* (lokalny koder na żywo wysyła strumień o pojedynczej szybkości transmisji bitów). Aby uzyskać szczegółowe informacje na temat przesyłania strumieniowego na żywo w Media Services v3, zobacz [zdarzenia na żywo i wyjście na żywo](live-events-outputs-concept.md).
+[Zdarzenia na żywo](/rest/api/media/liveevents) są odpowiedzialne za pozyskiwanie i przetwarzanie kanałów wideo na żywo. Wydarzenie na żywo można ustawić na *przekazywanie* (lokalny koder na żywo wysyła strumień o wielokrotnej szybkości transmisji bitów) lub *kodowanie na żywo* (lokalny koder na żywo wysyła strumień o pojedynczej szybkości transmisji bitów). Aby uzyskać szczegółowe informacje na temat przesyłania strumieniowego na żywo w Media Services v3, zobacz [zdarzenia na żywo i wyjście na żywo](live-events-outputs-concept.md).
 
 ### <a name="pass-through"></a>Przekazywanie
 
@@ -107,7 +108,7 @@ Aby zrozumieć przepływ pracy przesyłania strumieniowego na żywo w Media Serv
     * Zatrzymaj wydarzenie na żywo. Po zatrzymaniu wydarzenia na żywo nie zostaną naliczone żadne opłaty. W razie potrzeby ponownego uruchomienia kanał będzie miał ten sam adres URL pozyskiwania, więc nie trzeba będzie ponownie konfigurować kodera.
     * Możesz zatrzymać punkt końcowy przesyłania strumieniowego, chyba że chcesz kontynuować udostępnianie archiwum zdarzenia na żywo jako strumienia na żądanie. Jeśli wydarzenie na żywo jest w stanie zatrzymania, nie spowoduje to ponoszenia żadnych opłat.
 
-Element zawartości, do której jest archiwizowany na żywo danych wyjściowych, automatycznie będzie zasobem na żądanie po usunięciu danych wyjściowych na żywo. Przed zatrzymaniem zdarzenia na żywo należy usunąć wszystkie dane wyjściowe na żywo. Można użyć opcjonalnej flagi [removeOutputsOnStop](https://docs.microsoft.com/rest/api/media/liveevents/stop#request-body) , aby automatycznie usuwać wyjścia na żywo po zatrzymaniu. 
+Element zawartości, do której jest archiwizowany na żywo danych wyjściowych, automatycznie będzie zasobem na żądanie po usunięciu danych wyjściowych na żywo. Przed zatrzymaniem zdarzenia na żywo należy usunąć wszystkie dane wyjściowe na żywo. Można użyć opcjonalnej flagi [removeOutputsOnStop](/rest/api/media/liveevents/stop#request-body) , aby automatycznie usuwać wyjścia na żywo po zatrzymaniu. 
 
 > [!TIP]
 > Zobacz [samouczek przesyłania strumieniowego na żywo](stream-live-tutorial-with-api.md), artykuł bada kod, który implementuje kroki opisane powyżej.

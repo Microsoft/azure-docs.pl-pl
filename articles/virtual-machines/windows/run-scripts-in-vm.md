@@ -8,12 +8,12 @@ ms.author: robreed
 ms.date: 05/02/2018
 ms.topic: how-to
 manager: carmonm
-ms.openlocfilehash: bd65f33663dea3663f14fb4167448e39b9b7d0b7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c2999d5bd6d780d5815f22d18e6e8cdd580987af
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82099771"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87020172"
 ---
 # <a name="run-scripts-in-your-windows-vm"></a>Uruchamianie skryptów na maszynie wirtualnej z systemem Windows
 
@@ -34,7 +34,7 @@ Aby zautomatyzować zadania lub rozwiązać problemy, może być konieczne uruch
 Funkcja [Run command](run-command.md) umożliwia zarządzanie maszynami wirtualnymi i aplikacjami oraz Rozwiązywanie problemów przy użyciu skryptów i jest dostępna nawet wtedy, gdy komputer jest nieosiągalny, na przykład jeśli Zapora gościa nie ma otwartego portu RDP lub SSH.
 
 * Uruchamianie skryptów w usłudze Azure Virtual Machines.
-* Mogą być uruchamiane przy użyciu [Azure Portal](run-command.md), [interfejsu API REST](/rest/api/compute/virtual%20machines%20run%20commands/runcommand), [wiersza polecenia platformy Azure](/cli/azure/vm/run-command?view=azure-cli-latest#az-vm-run-command-invoke)lub [programu PowerShell](https://docs.microsoft.com/powershell/module/az.compute/invoke-azvmruncommand) .
+* Mogą być uruchamiane przy użyciu [Azure Portal](run-command.md), [interfejsu API REST](/rest/api/compute/virtual%20machines%20run%20commands/runcommand), [wiersza polecenia platformy Azure](/cli/azure/vm/run-command?view=azure-cli-latest#az-vm-run-command-invoke)lub [programu PowerShell](/powershell/module/az.compute/invoke-azvmruncommand) .
 * Szybkie uruchamianie skryptu i wyświetlanie danych wyjściowych i powtarzanie w razie konieczności w Azure Portal.
 * Skrypt można wpisać bezpośrednio lub można uruchomić jeden z wbudowanych skryptów.
 * Uruchom skrypt programu PowerShell na maszynach z systemem Windows i skrypcie bash na maszynach z systemem Linux.
@@ -57,7 +57,7 @@ Funkcja [Run command](run-command.md) umożliwia zarządzanie maszynami wirtualn
 
 ## <a name="serial-console"></a>Konsola szeregowa
 
-[Konsola szeregowa](serial-console.md) zapewnia bezpośredni dostęp do maszyny wirtualnej, podobnie jak przy użyciu klawiatury podłączonej do maszyny wirtualnej.
+[Konsola szeregowa](../troubleshooting/serial-console-windows.md) zapewnia bezpośredni dostęp do maszyny wirtualnej, podobnie jak przy użyciu klawiatury podłączonej do maszyny wirtualnej.
 
 * Uruchom polecenia w usłudze Azure Virtual Machines.
 * Można uruchomić za pomocą konsoli tekstowej na maszynie w Azure Portal.
@@ -71,4 +71,4 @@ Dowiedz się więcej o różnych funkcjach, które są dostępne do uruchamiania
 * [Rozszerzenie niestandardowego skryptu](../extensions/custom-script-windows.md)
 * [Uruchamianie polecenia](run-command.md)
 * [Hybrydowy proces roboczy elementu Runbook](../../automation/automation-hybrid-runbook-worker.md)
-* [Konsola szeregowa](serial-console.md)
+* [Konsola szeregowa](../troubleshooting/serial-console-windows.md)

@@ -8,11 +8,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/18/2019
-ms.openlocfilehash: 78dde3f6706ecbc54daca162ac718911752fa0ca
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c79d810979641d1dc128c741c2124d9b5887aa3d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83832966"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87020750"
 ---
 # <a name="common-query-patterns-in-azure-stream-analytics"></a>Typowe wzorce zapytań w Azure Stream Analytics
 
@@ -34,14 +35,14 @@ Proste zapytanie przekazywane może służyć do kopiowania danych strumienia we
 
 **Dane wejściowe**:
 
-| Marka | Godzina | Waga |
+| Marka | Czas | Waga |
 | --- | --- | --- |
 | Make1 |2015-01-01T00:00:01.0000000 Z |"1000" |
 | Make1 |2015-01-01T00:00:02.0000000 Z |"2000" |
 
 **Dane wyjściowe**:
 
-| Marka | Godzina | Waga |
+| Marka | Czas | Waga |
 | --- | --- | --- |
 | Make1 |2015-01-01T00:00:01.0000000 Z |"1000" |
 | Make1 |2015-01-01T00:00:02.0000000 Z |"2000" |
@@ -59,7 +60,7 @@ Kwerenda **SELECT** * tworzy projekty wszystkich pól zdarzenia przychodzącego 
 
 **Dane wejściowe**:
 
-| Marka | Godzina | Waga |
+| Marka | Czas | Waga |
 | --- | --- | --- |
 | Make1 |2015-01-01T00:00:01.0000000 Z |1000 |
 | Make1 |2015-01-01T00:00:02.0000000 Z |2000 |
@@ -67,7 +68,7 @@ Kwerenda **SELECT** * tworzy projekty wszystkich pól zdarzenia przychodzącego 
 
 **Dane wyjściowe**:
 
-| Marka | Godzina |
+| Marka | Czas |
 | --- | --- |
 | Make1 |2015-01-01T00:00:01.0000000 Z |
 | Make1 |2015-01-01T00:00:02.0000000 Z |
@@ -83,11 +84,11 @@ FROM Input
 ```
 ## <a name="data-aggregation-over-time"></a>Agregacja danych w czasie
 
-W celu obliczenia informacji w przedziale czasu dane można agregować jednocześnie. W tym przykładzie liczba jest obliczana w ciągu ostatnich 10 minut czasu dla każdego określonego samochodu.
+W celu obliczenia informacji w przedziale czasu dane można agregować jednocześnie. W tym przykładzie licznik jest obliczany w ciągu ostatnich 10 sekund czasu dla każdego określonego samochodu.
 
 **Dane wejściowe**:
 
-| Marka | Godzina | Waga |
+| Marka | Czas | Waga |
 | --- | --- | --- |
 | Make1 |2015-01-01T00:00:01.0000000 Z |1000 |
 | Make1 |2015-01-01T00:00:02.0000000 Z |2000 |
@@ -125,7 +126,7 @@ Dane mogą być rzutowane w czasie rzeczywistym za pomocą metody **Cast** . Na 
 
 **Dane wejściowe**:
 
-| Marka | Godzina | Waga |
+| Marka | Czas | Waga |
 | --- | --- | --- |
 | Make1 |2015-01-01T00:00:01.0000000 Z |"1000" |
 | Make1 |2015-01-01T00:00:02.0000000 Z |"2000" |
@@ -159,7 +160,7 @@ Aby uzyskać więcej informacji na temat [funkcji konwersji danych](/stream-anal
 
 **Dane wejściowe**:
 
-| Marka | License_plate | Godzina |
+| Marka | License_plate | Czas |
 | --- | --- | --- |
 | Make1 |ABC-123 |2015-01-01T00:00:01.0000000 Z |
 | Make2 |AAA-999 |2015-01-01T00:00:02.0000000 Z |
@@ -167,7 +168,7 @@ Aby uzyskać więcej informacji na temat [funkcji konwersji danych](/stream-anal
 
 **Dane wyjściowe**:
 
-| Marka | License_plate | Godzina |
+| Marka | License_plate | Czas |
 | --- | --- | --- |
 | Make2 |AAA-999 |2015-01-01T00:00:02.0000000 Z |
 | Make3 |ABC-369 |2015-01-01T00:00:03.0000000 Z |
@@ -191,7 +192,7 @@ Instrukcje **Case** mogą udostępniać różne obliczenia dla różnych pól w 
 
 **Dane wejściowe**:
 
-| Marka | Godzina |
+| Marka | Czas |
 | --- | --- |
 | Make1 |2015-01-01T00:00:01.0000000 Z |
 | Make2 |2015-01-01T00:00:02.0000000 Z |
@@ -199,7 +200,7 @@ Instrukcje **Case** mogą udostępniać różne obliczenia dla różnych pól w 
 
 **Dane wyjściowe**:
 
-| Marka |Dispatch_to_lane | Godzina |
+| Marka |Dispatch_to_lane | Czas |
 | --- | --- | --- |
 | Make1 |Z |2015-01-01T00:00:01.0000000 Z |
 | Make2 |B |2015-01-01T00:00:02.0000000 Z |
@@ -228,7 +229,7 @@ Można użyć wielu instrukcji **SELECT** do wyprowadzania danych do różnych u
 
 **Dane wejściowe**:
 
-| Marka | Godzina |
+| Marka | Czas |
 | --- | --- |
 | Make1 |2015-01-01T00:00:01.0000000 Z |
 | Make1 |2015-01-01T00:00:02.0000000 Z |
@@ -238,7 +239,7 @@ Można użyć wielu instrukcji **SELECT** do wyprowadzania danych do różnych u
 
 **ArchiveOutput wyjściowy**:
 
-| Marka | Godzina |
+| Marka | Czas |
 | --- | --- |
 | Make1 |2015-01-01T00:00:01.0000000 Z |
 | Make1 |2015-01-01T00:00:02.0000000 Z |
@@ -248,7 +249,7 @@ Można użyć wielu instrukcji **SELECT** do wyprowadzania danych do różnych u
 
 **AlertOutput wyjściowy**:
 
-| Marka | Godzina | Liczba |
+| Marka | Czas | Liczba |
 | --- | --- | --- |
 | Make2 |2015-01-01T00:00:10.0000000 Z |3 |
 
@@ -313,7 +314,7 @@ Aby uzyskać więcej informacji, zapoznaj się z [klauzulą **with** ](/stream-a
 
 **Dane wejściowe**:
 
-| Marka | Godzina |
+| Marka | Czas |
 | --- | --- |
 | Make1 |2015-01-01T00:00:01.0000000 Z |
 | Make1 |2015-01-01T00:00:02.0000000 Z |
@@ -323,7 +324,7 @@ Aby uzyskać więcej informacji, zapoznaj się z [klauzulą **with** ](/stream-a
 
 **Rozdzielczości**
 
-| Count_make | Godzina |
+| Count_make | Czas |
 | --- | --- |
 | 2 |2015-01-01T00:00:02.000 Z |
 | 1 |2015-01-01T00:00:04.000 Z |
@@ -348,14 +349,14 @@ Funkcja **lag** może służyć do przeglądania przeszłych zdarzeń w przedzia
 
 **Dane wejściowe**:
 
-| Marka | Godzina |
+| Marka | Czas |
 | --- | --- |
 | Make1 |2015-01-01T00:00:01.0000000 Z |
 | Make2 |2015-01-01T00:00:02.0000000 Z |
 
 **Dane wyjściowe**:
 
-| Marka | Godzina |
+| Marka | Czas |
 | --- | --- |
 | Make2 |2015-01-01T00:00:02.0000000 Z |
 
@@ -381,7 +382,7 @@ Nie można użyć elementu **isfirst** do pobrania pierwszego zdarzenia w przedz
 
 **Dane wejściowe**:
 
-| License_plate | Marka | Godzina |
+| License_plate | Marka | Czas |
 | --- | --- | --- |
 | DXE 5291 |Make1 |2015-07-27T00:00:05.0000000 Z |
 | YZK 5704 |Make3 |2015-07-27T00:02:17.0000000 Z |
@@ -393,7 +394,7 @@ Nie można użyć elementu **isfirst** do pobrania pierwszego zdarzenia w przedz
 
 **Dane wyjściowe**:
 
-| License_plate | Marka | Godzina |
+| License_plate | Marka | Czas |
 | --- | --- | --- |
 | DXE 5291 |Make1 |2015-07-27T00:00:05.0000000 Z |
 | QYF 9358 |Make1 |2015 — 07-27T00:12:02.0000000 Z |
@@ -415,7 +416,7 @@ WHERE
 
 **Dane wyjściowe**:
 
-| License_plate | Marka | Godzina |
+| License_plate | Marka | Czas |
 | --- | --- | --- |
 | DXE 5291 |Make1 |2015-07-27T00:00:05.0000000 Z |
 | YZK 5704 |Make3 |2015-07-27T00:02:17.0000000 Z |
@@ -444,7 +445,7 @@ Ponieważ zdarzenia są używane przez system w czasie rzeczywistym, nie istniej
 
 **Dane wejściowe**:
 
-| License_plate | Marka | Godzina |
+| License_plate | Marka | Czas |
 | --- | --- | --- |
 | DXE 5291 |Make1 |2015-07-27T00:00:05.0000000 Z |
 | YZK 5704 |Make3 |2015-07-27T00:02:17.0000000 Z |
@@ -456,7 +457,7 @@ Ponieważ zdarzenia są używane przez system w czasie rzeczywistym, nie istniej
 
 **Dane wyjściowe**:
 
-| License_plate | Marka | Godzina |
+| License_plate | Marka | Czas |
 | --- | --- | --- |
 | VFE 1616 |Make2 |2015-07-27T00:09:31.0000000 Z |
 | MDR 6128 |Make4 |2015-07-27T00:13:45.0000000 Z |
@@ -498,7 +499,7 @@ Zdarzenia skorelowane w tym samym strumieniu mogą być wykonywane przez przegl�
 
 **Dane wejściowe**:
 
-| Marka | License_plate | Godzina |
+| Marka | License_plate | Czas |
 | --- | --- | --- |
 | Make1 |ABC-123 |2015-01-01T00:00:01.0000000 Z |
 | Make1 |AAA-999 |2015-01-01T00:00:02.0000000 Z |
@@ -507,7 +508,7 @@ Zdarzenia skorelowane w tym samym strumieniu mogą być wykonywane przez przegl�
 
 **Dane wyjściowe**:
 
-| Marka | Godzina | Current_car_license_plate | First_car_license_plate | First_car_time |
+| Marka | Czas | Current_car_license_plate | First_car_license_plate | First_car_time |
 | --- | --- | --- | --- | --- |
 | Make1 |2015-01-01T00:00:02.0000000 Z |AAA-999 |ABC-123 |2015-01-01T00:00:01.0000000 Z |
 
@@ -536,14 +537,14 @@ Czas trwania zdarzenia może być obliczany przez wyszukanie ostatniego zdarzeni
 
 **Dane wejściowe**:  
 
-| Użytkownik | Cecha | Wydarzenie | Godzina |
+| Użytkownik | Cechy | Zdarzenie | Czas |
 | --- | --- | --- | --- |
 | user@location.com |RightMenu |Rozpocznij |2015-01-01T00:00:01.0000000 Z |
 | user@location.com |RightMenu |End |2015-01-01T00:00:08.0000000 Z |
 
 **Dane wyjściowe**:  
 
-| Użytkownik | Cecha | Czas trwania |
+| Użytkownik | Cechy | Czas trwania |
 | --- | --- | --- |
 | user@location.com |RightMenu |7 |
 
@@ -570,7 +571,7 @@ W przypadku warunków obejmujących wiele zdarzeń funkcja **lag** może służy
 
 **Dane wejściowe**:
 
-| Marka | Godzina | Waga |
+| Marka | Czas | Waga |
 | --- | --- | --- |
 | Make1 |2015-01-01T00:00:01.0000000 Z |2000 |
 | Make2 |2015-01-01T00:00:02.0000000 Z |25 000 |
@@ -617,7 +618,7 @@ W przypadku nietypowych lub brakujących zdarzeń dane wyjściowe w regularnych 
 
 **Dane wejściowe**:
 
-| Godzina | Wartość |
+| Czas | Wartość |
 | --- | --- |
 | "2014-01-01T06:01:00" |1 |
 | "2014-01-01T06:01:05" |2 |
@@ -664,7 +665,7 @@ Na przykład zegar urządzenia dla *TollID* 2 ma pięć sekund w tle *TollID* 1,
 
 **Dane wejściowe**:
 
-| LicensePlate | Marka | Godzina | TollID |
+| LicensePlate | Marka | Czas | TollID |
 | --- | --- | --- | --- |
 | DXE 5291 |Make1 |2015-07-27T00:00:01.0000000 Z | 1 |
 | YHN 6970 |Make2 |2015-07-27T00:00:05.0000000 Z | 1 |
@@ -707,14 +708,14 @@ Podczas wykonywania operacji, takich jak Obliczanie średniej wartości dla zdar
 
 **Dane wejściowe**:  
 
-| DeviceId | Godzina | Atrybut | Wartość |
+| DeviceId | Czas | Atrybut | Wartość |
 | --- | --- | --- | --- |
-| 1 |2018 R-07-27T00:00:01.0000000 Z |Temperatura |50 |
-| 1 |2018 R-07-27T00:00:01.0000000 Z |Temperatura |50 |
-| 2 |2018 R-07-27T00:00:01.0000000 Z |Temperatura |40 |
-| 1 |2018 R-07-27T00:00:05.0000000 Z |Temperatura |60 |
-| 2 |2018 R-07-27T00:00:05.0000000 Z |Temperatura |50 |
-| 1 |2018 R-07-27T00:00:10.0000000 Z |Temperatura |100 |
+| 1 |2018 R-07-27T00:00:01.0000000 Z |Temperature |50 |
+| 1 |2018 R-07-27T00:00:01.0000000 Z |Temperature |50 |
+| 2 |2018 R-07-27T00:00:01.0000000 Z |Temperature |40 |
+| 1 |2018 R-07-27T00:00:05.0000000 Z |Temperature |60 |
+| 2 |2018 R-07-27T00:00:05.0000000 Z |Temperature |50 |
+| 1 |2018 R-07-27T00:00:10.0000000 Z |Temperature |100 |
 
 **Dane wyjściowe**:  
 
@@ -758,7 +759,7 @@ Na przykład użytkownik korzysta z strony sieci Web, w której zarejestrowano l
 
 **Dane wejściowe**:
 
-| User_id | Godzina | Adres URL |
+| User_id | Czas | Adres URL |
 | --- | --- | --- |
 | 0 | 2017 — 01-26T00:00:00.0000000 Z | "www.example.com/a.html" |
 | 0 | 2017 — 01-26T00:00:20.0000000 Z | "www.example.com/b.html" |
@@ -844,7 +845,7 @@ Na przykład usługa ATM jest monitorowana w czasie rzeczywistym w przypadku awa
 
 **Dane wejściowe**:
 
-| ATM_id | Operation_id | Return_Code | Godzina |
+| ATM_id | Operation_id | Return_Code | Czas |
 | --- | --- | --- | --- |
 | 1 | "Wprowadzanie numeru PIN" | Prawnego | 2017 — 01-26T00:10:00.0000000 Z |
 | 2 | "Otwieranie gniazda pieniężnego" | Prawnego | 2017 — 01-26T00:10:07.0000000 Z |
@@ -891,7 +892,7 @@ Produkcja chce śledzić lokalizację tych maszyn i otrzymywać alerty, jeśli j
 
 **Dane wejściowe**:
 
-| Equipment_id | Equipment_current_location | Godzina |
+| Equipment_id | Equipment_current_location | Czas |
 | --- | --- | --- |
 | 1 | "POINT (-122.13288797982818 47.64082002051315)" | 2017 — 01-26T00:10:00.0000000 Z |
 | 1 | "POINT (-122.13307252987875 47.64081350934929)" | 2017 — 01-26T00:11:00.0000000 Z |
@@ -906,7 +907,7 @@ Produkcja chce śledzić lokalizację tych maszyn i otrzymywać alerty, jeśli j
 
 **Dane wyjściowe**:
 
-| Equipment_id | Equipment_alert_location | Godzina |
+| Equipment_id | Equipment_alert_location | Czas |
 | --- | --- | --- |
 | 1 | "POINT (-122.13341048821462 47.64043760861279)" | 2017 — 01-26T00:13:00.0000000 Z |
 

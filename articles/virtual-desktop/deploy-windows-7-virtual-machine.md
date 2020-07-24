@@ -1,5 +1,5 @@
 ---
-title: Wdrażanie pulpitu wirtualnego systemu Windows w systemie Windows 7 — Azure
+title: Wdróż maszynę wirtualną z systemem Windows 7 — Sprężyna pulpitu wirtualnego systemu Windows 2020 — Azure
 description: Jak skonfigurować i wdrożyć maszynę wirtualną z systemem Windows 7 na pulpicie wirtualnym systemu Windows.
 services: virtual-desktop
 author: Heidilohr
@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 07/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 542d0bcea6cfae2af2918d699952d4c054bd68cb
-ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.openlocfilehash: b589890f7b65b41cf6b7ba4fdf53b71173ed6a38
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86277669"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87020444"
 ---
 # <a name="deploy-a-windows-7-virtual-machine-on-windows-virtual-desktop"></a>Wdrażanie maszyny wirtualnej z systemem Windows 7 w usłudze Windows Virtual Desktop
 

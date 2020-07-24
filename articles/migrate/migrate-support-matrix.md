@@ -2,14 +2,14 @@
 title: Macierz obsługi Azure Migrate
 description: Zawiera podsumowanie ustawień i ograniczeń pomocy technicznej dla usługi Azure Migrate.
 ms.topic: conceptual
-ms.date: 04/19/2020
+ms.date: 07/23/2020
 ms.author: raynew
-ms.openlocfilehash: 8350f557efd9224d92388835f55871cb861eda25
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: fae5af9c8717604d71ec2bf2628ea25125d5b2d5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86108757"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87022722"
 ---
 # <a name="azure-migrate-support-matrix"></a>Macierz obsługi Azure Migrate
 
@@ -21,18 +21,20 @@ W tabeli zestawiono obsługiwane scenariusze odnajdywania, oceny i migracji.
 
 **Wdrożenie** | **Szczegóły** 
 --- | --- 
-**Odnajdywanie specyficzne dla aplikacji** | Możesz wykrywać aplikacje, role i funkcje działające na maszynach wirtualnych VMware. Obecnie ta funkcja jest ograniczona tylko do odnajdowania. Ocena jest obecnie na poziomie komputera. Nie oferujemy jeszcze oceny aplikacji, roli lub funkcji. 
-**Ocena lokalna** | Oceniaj obciążenia lokalne i dane uruchomione na maszynach wirtualnych VMware, maszynach wirtualnych funkcji Hyper-V i serwerach fizycznych. Oceń przy użyciu Azure Migrate oceny i Microsoft Data Migration Assistant (DMA), a także inne narzędzia i oferty niezależnych dostawców oprogramowania.
-**Migracja lokalna na platformę Azure** | Migrowanie obciążeń i danych działających na serwerach fizycznych, maszynach wirtualnych VMware, maszynach wirtualnych funkcji Hyper-V, serwerach fizycznych i maszynach wirtualnych opartych na chmurze na platformie Azure. Migruj przy użyciu Azure Migrate oceny i Azure Database Migration Service (DMS), a także innych narzędzi i ofert niezależnych dostawców oprogramowania.
+**Odnajdywanie** | Można odnajdywać metadane maszyn i dynamiczne dane dotyczące wydajności.
+**Odnajdywanie aplikacji** | Możesz wykrywać aplikacje, role i funkcje działające na maszynach wirtualnych VMware. Obecnie ta funkcja jest ograniczona tylko do odnajdowania. Ocena jest obecnie na poziomie komputera. Nie oferujemy jeszcze ocen dotyczących aplikacji, roli lub funkcji. 
+**Ocena** | Oceniaj obciążenia lokalne i dane uruchomione na maszynach wirtualnych VMware, maszynach wirtualnych funkcji Hyper-V i serwerach fizycznych. Oceń przy użyciu Azure Migrate oceny serwera, Microsoft Data Migration Assistant (DMA), a także innych narzędzi i ofert niezależnych dostawców oprogramowania.
+**Migracja** | Migrowanie obciążeń i danych działających na serwerach fizycznych, maszynach wirtualnych VMware, maszynach wirtualnych funkcji Hyper-V, serwerach fizycznych i maszynach wirtualnych opartych na chmurze na platformie Azure. Migruj przy użyciu Azure Migrate oceny i Azure Database Migration Service (DMS), a także innych narzędzi i ofert niezależnych dostawców oprogramowania.
 
 > [!NOTE]
 > Obecnie narzędzia niezależnego dostawcy oprogramowania nie mogą wysyłać danych do Azure Migrate w Azure Government. Można używać zintegrowanych narzędzi firmy Microsoft lub niezależnie używać narzędzi partnerskich.
 
 ## <a name="supported-tools"></a>Obsługiwane narzędzia
 
+
 W tabeli przedstawiono obsługę określonego narzędzia.
 
-**Narzędzie** | **Szacowaniu** | **Migrate** 
+**Narzędzie** | **Ocena** | **Migrate** 
 --- | --- | ---
 Azure Migrate oceny serwera | Oceniaj [maszyny wirtualne programu VMware](tutorial-prepare-vmware.md), [maszyny wirtualne funkcji Hyper-V](tutorial-prepare-hyper-v.md)i [serwery fizyczne](tutorial-prepare-physical.md). |  Niedostępne (NA)
 Migracja serwera usługi Azure Migrate | Nie dotyczy | Migrowanie [maszyn wirtualnych VMware](tutorial-migrate-vmware.md), [maszyn wirtualnych funkcji Hyper-V](tutorial-migrate-hyper-v.md)i [serwerów fizycznych](tutorial-migrate-physical-virtual-machines.md).
@@ -73,13 +75,17 @@ Tworzenie magazynu kluczy dla migracji bez agenta VMware | Aby przeprowadzić mi
 
 ## <a name="supported-geographies-public-cloud"></a>Obsługiwane lokalizacje geograficzne (chmura publiczna)
 
-Projekt Azure Migrate można utworzyć w wielu lokalizacje geograficzne w chmurze publicznej. Chociaż można tworzyć tylko projekty w tych lokalizacje geograficzne, można ocenić lub migrować maszyny dla innych lokalizacji docelowych. Lokalizacja geograficzna projektu służy tylko do przechowywania odnalezionych metadanych.
+Projekt Azure Migrate można utworzyć w wielu lokalizacje geograficzne w chmurze publicznej.
+
+- Chociaż można tworzyć tylko projekty w tych lokalizacje geograficzne, można ocenić lub migrować maszyny dla innych lokalizacji docelowych.
+- Lokalizacja geograficzna projektu służy tylko do przechowywania odnalezionych metadanych.
+- Podczas tworzenia projektu należy wybrać lokalizację geograficzną. Projekt i powiązane zasoby są tworzone w jednym z regionów w lokalizacji geograficznej. Region jest przypisywany przez usługę Azure Migrate.
 
 **Geograficzne** | **Lokalizacja magazynu metadanych**
 --- | ---
 Azja i Pacyfik | Azja Wschodnia lub Azja Południowo-Wschodnia
 Australia | Australia Wschodnia lub Australia Południowo-Wschodnia
-Brazylia | Brazylia Południowa
+Brazylia | Brazil South
 Kanada | Kanada środkowa lub Kanada Wschodnia
 Europa | Europa Północna lub Europa Zachodnia
 Francja | Francja Środkowa

@@ -11,11 +11,12 @@ ms.topic: end-user-help
 ms.date: 01/24/2019
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: b6bda6d35391543e416c377557e34de317e293eb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 04076ed5b91f8e840a084b784477d07eea5adee7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83741568"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87015974"
 ---
 # <a name="add-non-microsoft-accounts-to-the-microsoft-authenticator-app"></a>Dodawanie kont innych niż Microsoft do aplikacji Microsoft Authenticator
 
@@ -49,7 +50,7 @@ Dodaj swoje konto Google, włączając weryfikację dwuskładnikową, a następn
 
 ### <a name="add-your-google-account-to-the-app"></a>Dodawanie konta Google do aplikacji
 
-1. Na stronie Google na komputerze przejdź do sekcji **Konfigurowanie alternatywnego drugiego kroku** , wybierz pozycję **Konfiguruj** z poziomu sekcji **aplikacja uwierzytelniania** .
+1. Na stronie zabezpieczenia konta Google na komputerze ( https://myaccount.google.com/security) Przejdź do sekcji **Dodawanie kolejnych kroków w celu zweryfikowania** , wybierz pozycję **Konfiguruj** z poziomu **aplikacji uwierzytelniania** ).
 
 2. Na stronie **Pobierz kody z aplikacji Authenticator** wybierz pozycję **Android** lub **iPhone** na podstawie typu telefonu, a następnie wybierz przycisk **dalej**.
 

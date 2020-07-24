@@ -17,12 +17,12 @@ ms.date: 12/12/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 6f18c9fe43b0b714e5709b014c051520b3722138
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: d8aa6cc7894b13789fe196e32c401128572346bf
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85855125"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87019067"
 ---
 # <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>Często zadawane pytania i znane problemy związane z tożsamościami zarządzanymi dla zasobów platformy Azure
 
@@ -55,9 +55,12 @@ Tożsamości zarządzane nie mają obiektu aplikacji w katalogu, który jest cz�
 
 Nie. nie ma żadnych planów do obsługi tożsamości zarządzanych dla zasobów platformy Azure w usłudze Azure Cloud Services.
 
-### <a name="does-managed-identities-for-azure-resources-work-with-the-active-directory-authentication-library-adal-or-the-microsoft-authentication-library-msal"></a>Czy zarządzane tożsamości dla zasobów platformy Azure współpracują z Active Directory Authentication Library (ADAL) czy z biblioteką uwierzytelniania firmy Microsoft (MSAL)?
+### <a name="what-is-the-credential-associated-with-a-managed-identity-how-long-is-it-valid-and-how-often-is-it-rotated"></a>Co to jest poświadczenie skojarzone z zarządzaną tożsamością? Jak długo jest ważna i jak często jest obracana?
 
-Nie, zarządzane tożsamości dla zasobów platformy Azure nie są jeszcze zintegrowane z biblioteką ADAL lub MSAL. Aby uzyskać szczegółowe informacje na temat uzyskiwania tokenu dla tożsamości zarządzanych dla zasobów platformy Azure przy użyciu punktu końcowego REST, zobacz [jak używać tożsamości zarządzanych dla zasobów platformy Azure na maszynie wirtualnej platformy Azure w celu uzyskania tokenu dostępu](how-to-use-vm-token.md).
+> [!NOTE]
+> Jak są uwierzytelniane tożsamości zarządzane, szczegóły implementacji wewnętrznej mogą ulec zmianie bez powiadomienia.
+
+Zarządzane tożsamości korzystają z uwierzytelniania opartego na certyfikatach. Każde poświadczenie zarządzanej tożsamości ma wygaśnięcie 90 dni i jest wycofywane po 45 dniach.
 
 ### <a name="what-is-the-security-boundary-of-managed-identities-for-azure-resources"></a>Jaka jest granica zabezpieczeń zarządzanych tożsamości dla zasobów platformy Azure?
 
@@ -133,7 +136,7 @@ Obejście dla zarządzanych tożsamości w ramach subskrypcji, która została p
  - Dla tożsamości zarządzanych przypisanych przez system: Wyłącz i ponownie włącz. 
  - W przypadku tożsamości zarządzanych przypisanych przez użytkownika: Usuń, ponownie utwórz i Dołącz je do niezbędnych zasobów (np. maszyn wirtualnych).
 
-Aby uzyskać więcej informacji, zobacz [transfer subskrypcji platformy Azure do innego katalogu usługi Azure AD (wersja zapoznawcza)](../../role-based-access-control/transfer-subscription.md).
+Aby uzyskać więcej informacji, zobacz [Przenoszenie subskrypcji platformy Azure do innego katalogu usługi Azure AD (wersja zapoznawcza)](../../role-based-access-control/transfer-subscription.md).
 
 ### <a name="moving-a-user-assigned-managed-identity-to-a-different-resource-groupsubscription"></a>Przeniesienie tożsamości zarządzanej przypisanej przez użytkownika do innej grupy zasobów/subskrypcji
 

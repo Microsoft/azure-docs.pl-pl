@@ -10,11 +10,12 @@ ms.topic: article
 ms.service: security
 ms.subservice: security-fundamentals
 ms.workload: identity
-ms.openlocfilehash: 3abd93e1699a701140e8b3558dcdf0161110ff6f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d02800d39e918478243429971c0d48c4d0c59148
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83758133"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87020114"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Wybierz właściwą metodę uwierzytelniania dla Azure Active Directory rozwiązanie do tworzenia tożsamości hybrydowej
 
@@ -29,7 +30,7 @@ Wybór odpowiedniej metody uwierzytelniania to pierwszy problem dotyczący organ
 Tożsamość jest nową płaszczyzną kontroli bezpieczeństwa INFORMATYCZNego, więc uwierzytelnianie jest ochroną organizacji do nowego świata w chmurze. Organizacje potrzebują płaszczyzny kontroli tożsamości, która zwiększa bezpieczeństwo i utrzymuje bezpieczeństwo aplikacji w chmurze przed intruzami.
 
 > [!NOTE]
-> Zmiana metody uwierzytelniania wymaga planowania, testowania i ewentualnych przestojów. [Wdrażanie etapowe](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-staged-rollout) to doskonały sposób na testowanie i stopniowe Migrowanie z Federacji do uwierzytelniania w chmurze.
+> Zmiana metody uwierzytelniania wymaga planowania, testowania i ewentualnych przestojów. [Wdrażanie etapowe](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-staged-rollout) to doskonały sposób na testowanie migracji użytkowników z Federacji do uwierzytelniania w chmurze.
 
 ### <a name="out-of-scope"></a>Poza zakresem
 Organizacje, które nie mają istniejącej lokalnej usługi katalogowej, nie są fokusem tego artykułu. Zazwyczaj te firmy tworzą tożsamości tylko w chmurze, które nie wymagają rozwiązania do tworzenia tożsamości hybrydowej. Tożsamości tylko w chmurze istnieją wyłącznie w chmurze i nie są skojarzone z odpowiednimi tożsamościami lokalnymi.
@@ -173,11 +174,11 @@ Na poniższym diagramie przedstawiono składniki architektury wysokiego poziomu 
 
 |Kwestie do rozważenia|Synchronizacja skrótów haseł + bezproblemowe logowanie jednokrotne|Uwierzytelnianie przekazywane i bezproblemowe logowanie jednokrotne|Federacja z usługami AD FS|
 |:-----|:-----|:-----|:-----|
-|Gdzie jest wykonywane uwierzytelnianie?|W chmurze|W chmurze po bezpiecznej weryfikacji hasła przy użyciu lokalnego agenta uwierzytelniania|Lokalnie|
+|Gdzie jest wykonywane uwierzytelnianie?|W chmurze|W chmurze po bezpiecznej weryfikacji hasła przy użyciu lokalnego agenta uwierzytelniania|Środowiska lokalne|
 |Jakie są wymagania dotyczące serwera lokalnego poza systemem aprowizacji: Azure AD Connect?|Brak|Jeden serwer dla każdego dodatkowego agenta uwierzytelniania|Co najmniej dwa serwery AD FS<br><br>Dwa lub więcej serwerów WAP w sieci obwodowej/strefy DMZ|
 |Jakie są wymagania dotyczące lokalnego Internetu i sieci poza systemem aprowizacji?|Brak|[Wychodzący dostęp do Internetu](../../active-directory/hybrid/how-to-connect-pta-quick-start.md) z serwerów z uruchomionymi agentami uwierzytelniania|[Przychodzący dostęp do Internetu](https://docs.microsoft.com/windows-server/identity/ad-fs/overview/ad-fs-requirements) do serwerów WAP na obrzeżu<br><br>Dostęp do sieci przychodzącej do serwerów AD FS z serwerów WAP na obrzeżu<br><br>Równoważenie obciążenia sieciowego|
 |Czy istnieje wymagania dotyczące certyfikatu TLS/SSL?|Nie|Nie|Tak|
-|Czy istnieje rozwiązanie do monitorowania kondycji?|Niewymagane|Stan agenta udostępniany przez [Centrum administracyjne Azure Active Directory](../../active-directory/hybrid/tshoot-connect-pass-through-authentication.md)|[Azure AD Connect Health](../../active-directory/hybrid/how-to-connect-health-adfs.md)|
+|Czy istnieje rozwiązanie do monitorowania kondycji?|Nie jest wymagana|Stan agenta udostępniany przez [Centrum administracyjne Azure Active Directory](../../active-directory/hybrid/tshoot-connect-pass-through-authentication.md)|[Azure AD Connect Health](../../active-directory/hybrid/how-to-connect-health-adfs.md)|
 |Czy użytkownicy uzyskują Logowanie jednokrotne do zasobów w chmurze z urządzeń przyłączonych do domeny w sieci firmowej?|Tak, aby [bezproblemowe logowanie jednokrotne](../../active-directory/hybrid/how-to-connect-sso.md)|Tak, aby [bezproblemowe logowanie jednokrotne](../../active-directory/hybrid/how-to-connect-sso.md)|Tak|
 |Jakie typy logowania są obsługiwane?|UserPrincipalName + hasło<br><br>Uwierzytelnianie zintegrowane z systemem Windows za pomocą [bezproblemowego logowania jednokrotnego](../../active-directory/hybrid/how-to-connect-sso.md)<br><br>[Alternatywny identyfikator logowania](../../active-directory/hybrid/how-to-connect-install-custom.md)|UserPrincipalName + hasło<br><br>Uwierzytelnianie zintegrowane z systemem Windows za pomocą [bezproblemowego logowania jednokrotnego](../../active-directory/hybrid/how-to-connect-sso.md)<br><br>[Alternatywny identyfikator logowania](../../active-directory/hybrid/how-to-connect-pta-faq.md)|UserPrincipalName + hasło<br><br>sAMAccountName + hasło<br><br>Uwierzytelnianie zintegrowane systemu Windows<br><br>[Certyfikat i uwierzytelnianie karty inteligentnej](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-user-certificate-authentication)<br><br>[Alternatywny identyfikator logowania](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id)|
 |Czy funkcja Windows Hello dla firm jest obsługiwana?|[Model zaufania kluczy](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification)|[Model zaufania kluczy](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification)<br>*Wymaga poziomu funkcjonalności domeny systemu Windows Server 2016*|[Model zaufania kluczy](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification)<br><br>[Model zaufania certyfikatów](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-key-trust-adfs)|
@@ -208,7 +209,7 @@ Użyj lub Włącz synchronizację skrótów haseł dla wybranej metody uwierzyte
 
 3. **Ochrona tożsamości**. Jednym z najlepszych sposobów ochrony użytkowników w chmurze jest Azure AD Identity Protection z Azure AD — wersja Premium P2. Firma Microsoft nieustannie skanuje Internet pod kątem list użytkowników i haseł, które są niewłaściwymi aktorami sprzedawanymi i udostępnianymi w ciemnej sieci Web. Usługa Azure AD może korzystać z tych informacji w celu sprawdzenia, czy dowolna z nazw użytkowników i haseł w organizacji zostanie naruszona. W związku z tym krytyczne jest włączenie synchronizacji skrótów haseł niezależnie od używanej metody uwierzytelniania, niezależnie od tego, czy jest to uwierzytelnianie federacyjne, czy przekazywane. Ujawnione poświadczenia są prezentowane jako raport. Te informacje służą do blokowania lub wymuszania zmiany haseł przez użytkowników podczas próby zalogowania się przy użyciu nieujawnionych haseł.
 
-## <a name="conclusion"></a>Podsumowanie
+## <a name="conclusion"></a>Wniosek
 
 W tym artykule opisano różne opcje uwierzytelniania, które organizacje mogą konfigurować i wdrażać w celu zapewnienia obsługi dostępu do aplikacji w chmurze. Aby sprostać różnym wymaganiom biznesowym, zabezpieczeniom i technicznym, organizacje mogą wybierać między synchronizacją skrótów haseł, uwierzytelnianiem przekazywanym i Federacją.
 

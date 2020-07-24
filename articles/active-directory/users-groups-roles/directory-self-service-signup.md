@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b23d3d287238d2813f7381941dc279851bc3afdd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a61bd162baf6f079b625dc07d4faa397493ba618
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84728830"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87015871"
 ---
 # <a name="what-is-self-service-sign-up-for-azure-active-directory"></a>Co to jest samoobsługowe rejestrowanie się w Azure Active Directory?
 
@@ -77,9 +77,9 @@ Aby uzyskać więcej informacji i przykłady korzystania z tych parametrów, zob
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Dodawanie niestandardowej nazwy domeny do usługi Azure AD](../fundamentals/add-custom-domain.md)
-* [How to install and configure Azure PowerShell](/powershell/azure/overview)
-* [Azure PowerShell](/powershell/azure/overview)
+* [Dodawanie nazwy domeny niestandardowej do usługi Azure AD](../fundamentals/add-custom-domain.md)
+* [How to install and configure Azure PowerShell](/powershell/azure/)
+* [Azure PowerShell](/powershell/azure/)
 * [Dokumentacja poleceń cmdlet platformy Azure](/powershell/azure/get-started-azureps)
 * [Set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0)
 * [Zamknij konto służbowe w niezarządzanym katalogu](users-close-account.md)

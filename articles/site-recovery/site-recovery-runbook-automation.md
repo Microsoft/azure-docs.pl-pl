@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: rajanaki
-ms.openlocfilehash: 25290a66da3d5c8325513b2bea6d27d12ca7da70
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 1df17ccb41c974c8939710850b5bb71ee3a5ef1b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134809"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87021583"
 ---
 # <a name="add-azure-automation-runbooks-to-recovery-plans"></a>Dodawanie elementów Runbook usługi Azure Automation do planów odzyskiwania
 
@@ -199,7 +199,7 @@ W niektórych scenariuszach może nie być możliwe utworzenie oddzielnych zmien
 - Na przykład odzyskiwanie programu SharePoint ma dwa Frontony. Podstawowa aplikacja biznesowa (LOB) ma tylko jeden fronton.
 - W tym scenariuszu nie można utworzyć oddzielnych zmiennych dla każdego planu odzyskiwania.
 
-W poniższym przykładzie utworzysz [zmienną złożoną](/powershell/module/servicemanagement/azure/set-azureautomationvariable) na koncie Azure Automation.
+W poniższym przykładzie utworzysz [zmienną złożoną](/powershell/module/servicemanagement/azure.service/set-azureautomationvariable) na koncie Azure Automation.
 
 W tym celu należy określić wiele wartości przy użyciu Azure PowerShell.
 

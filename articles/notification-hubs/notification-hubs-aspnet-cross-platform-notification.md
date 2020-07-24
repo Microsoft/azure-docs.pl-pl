@@ -16,12 +16,12 @@ ms.date: 09/30/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: fc3cec348517244c8a7f54d2d3d17298c58e4262
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 467664f4c102a81f6469765ea1742995f04c60e6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80127042"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87022008"
 ---
 # <a name="send-cross-platform-notifications-with-azure-notification-hubs"></a>Wysyłanie powiadomień na wielu platformach za pomocą usługi Azure Notification Hubs
 
@@ -119,4 +119,4 @@ Teraz, po ukończeniu tego samouczka, Dowiedz się więcej na temat Notification
 [Azure Notification Hubs]: https://go.microsoft.com/fwlink/p/?LinkId=314257
 [wysyłanie powiadomień do konkretnych użytkowników przy użyciu usługi Azure Notification Hubs]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
 [Templates]: https://go.microsoft.com/fwlink/p/?LinkId=317339
-[Notification Hub How to for Windows Store]: https://msdn.microsoft.com/library/windowsazure/jj927172.aspx
+[Notification Hub How to for Windows Store]: /previous-versions/azure/azure-services/jj927170(v=azure.100)

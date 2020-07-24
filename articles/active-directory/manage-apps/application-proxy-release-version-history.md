@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/07/2020
+ms.date: 07/22/2020
 ms.subservice: app-mgmt
 ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 83c41a357ebaf65cca8465bfc48dda3dd065c3e0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 042509240eb2b88446d3ac1956d9056d5c39dfc8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84760001"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87019390"
 ---
 # <a name="azure-ad-application-proxy-version-release-history"></a>Serwer proxy aplikacji usługi Azure AD platformy Azure: historia wersji
 W tym artykule wymieniono wersje i funkcje serwera proxy aplikacji Azure Active Directory (Azure AD), który został wystawiony. Zespół usługi Azure AD regularnie aktualizuje serwer proxy aplikacji przy użyciu nowych funkcji i funkcjonalności. Łączniki serwera proxy aplikacji są aktualizowane automatycznie po wydaniu nowej wersji. 
@@ -36,6 +36,31 @@ Jak włączyć serwer proxy aplikacji | Wymagania wstępne dotyczące włączani
 Omówienie łączników serwer proxy aplikacji usługi Azure AD platformy Azure | Dowiedz się więcej o [zarządzaniu łącznikami](application-proxy-connectors.md) i sposobach [uaktualniania](application-proxy-connectors.md#automatic-updates)łączników.
 Pobieranie łącznika usługi Azure serwer proxy aplikacji usługi Azure AD |  [Pobierz najnowszy łącznik](https://download.msappproxy.net/subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/connector/download).
 
+## <a name="1519750"></a>1.5.1975.0
+
+### <a name="release-status"></a>Stan wydania
+
+22 lipca 2020: wydane do pobrania ta wersja jest dostępna tylko do instalacji za pośrednictwem strony pobierania. Wydanie z autouaktualnianiem tej wersji zostanie zwolnione w późniejszym czasie.
+
+### <a name="new-features-and-improvements"></a>Nowe funkcje i ulepszenia
+-   Ulepszona obsługa Azure Government środowiska chmury. Aby uzyskać instrukcje dotyczące prawidłowej instalacji łącznika dla programu Azure Government Cloud, zapoznaj się z [wymaganiami wstępnymi](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-government-cloud#allow-access-to-urls) i [procedurą instalacji](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-government-cloud#install-the-agent-for-the-azure-government-cloud).
+- Obsługa korzystania z klienta sieci Web Usługi pulpitu zdalnego z serwerem proxy aplikacji. Aby uzyskać więcej informacji, zobacz temat [publikowanie pulpit zdalny przy użyciu usługi Azure serwer proxy aplikacji usługi Azure AD](application-proxy-integrate-with-remote-desktop-services.md) .
+- Ulepszone negocjowanie rozszerzeń protokołu WebSocket. 
+
+### <a name="fixed-issues"></a>Naprawione problemy
+- Rozwiązano problem z użyciem protokołu WebSocket z wymuszonymi małymi literami.
+- Rozwiązano problem, który spowodował, że łączniki czasami nie odpowiadają.
+
+## <a name="1516260"></a>1.5.1626.0
+
+### <a name="release-status"></a>Stan wydania
+
+17 lipca 2020: wydano do pobrania. Ta wersja jest dostępna tylko do instalacji za pośrednictwem strony pobierania. Wydanie z autouaktualnianiem tej wersji zostanie zwolnione w późniejszym czasie.
+
+### <a name="fixed-issues"></a>Naprawione problemy
+- Rozwiązano problem przecieku pamięci występujący w poprzedniej wersji
+- Ogólne ulepszenia obsługi protokołu WebSocket
+
 ## <a name="1515260"></a>1.5.1526.0
 
 ### <a name="release-status"></a>Stan wydania
@@ -47,7 +72,7 @@ Pobieranie łącznika usługi Azure serwer proxy aplikacji usługi Azure AD |  [
 - Udoskonalone sygnalizowanie między łącznikiem i usługami platformy Azure. Obejmuje to obsługę niezawodnych sesji dla komunikacji WCF między łącznikiem a usługami platformy Azure i ulepszeniami buforowania DNS na potrzeby komunikacji z użyciem protokołu WebSocket.
 - Obsługa konfigurowania serwera proxy między łącznikiem a aplikacją zaplecza. Aby uzyskać więcej informacji, zobacz temat [współpraca z istniejącymi lokalnymi serwerami proxy](application-proxy-configure-connectors-with-proxy-servers.md).
 
-### <a name="fixed-issues"></a>Rozwiązane problemy
+### <a name="fixed-issues"></a>Naprawione problemy
 - Usunięte z powrotem do portu 8080 na potrzeby komunikacji z łącznika z usługami platformy Azure.
 - Dodano ślady debugowania dla komunikacji z użyciem protokołu WebSocket. 
 - Rozwiązano zachowanie atrybutu SameSite w przypadku ustawienia plików cookie aplikacji zaplecza.
@@ -65,7 +90,7 @@ Pobieranie łącznika usługi Azure serwer proxy aplikacji usługi Azure AD |  [
 - Dla łączników należy ustawić protokół TLS 1,2. 
 - Dodano nową umowę licencyjną użytkownika oprogramowania (EULA).  
 
-### <a name="fixed-issues"></a>Rozwiązane problemy
+### <a name="fixed-issues"></a>Naprawione problemy
 
 - Naprawiono usterkę, która spowodowała wystąpienie przecieków pamięci w łączniku.
 - Zaktualizowano wersję Azure Service Bus, która obejmuje rozwiązywanie problemów z przekroczeniem limitu czasu łącznika.
@@ -76,7 +101,7 @@ Pobieranie łącznika usługi Azure serwer proxy aplikacji usługi Azure AD |  [
 
 19 stycznia 2018: wydano do pobrania
 
-### <a name="fixed-issues"></a>Rozwiązane problemy
+### <a name="fixed-issues"></a>Naprawione problemy
 
 - Dodano obsługę domen niestandardowych, które wymagają tłumaczenia domeny w pliku cookie.
 

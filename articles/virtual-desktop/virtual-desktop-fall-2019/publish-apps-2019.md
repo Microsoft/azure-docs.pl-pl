@@ -1,5 +1,5 @@
 ---
-title: Publikowanie wbudowanych aplikacji w systemie Windows Virtual Desktop — Azure
+title: Publikowanie wbudowanych aplikacji na pulpicie wirtualnym systemu Windows 2019 — Azure
 description: Jak publikować wbudowane aplikacje na pulpicie wirtualnym systemu Windows.
 services: virtual-desktop
 author: Heidilohr
@@ -8,13 +8,14 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 7a453ef44a1ede86290f4130a6147eaaad09fa97
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e20d2ca8f2f0ef2b8c0290702a2b9e91cc22bb09
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85214149"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87020377"
 ---
-# <a name="publish-built-in-apps-in-windows-virtual-desktop"></a>Publikowanie wbudowanych aplikacji w systemie Windows Virtual Desktop
+# <a name="publish-built-in-apps-in-windows-virtual-desktop---fall-2019"></a>Publikowanie wbudowanych aplikacji na pulpicie wirtualnym systemu Windows — jesień 2019
 
 >[!IMPORTANT]
 >Ta zawartość dotyczy wersji 2019, która nie Azure Resource Manager obsługuje obiektów pulpitu wirtualnego systemu Windows. Jeśli próbujesz zarządzać Azure Resource Manager obiektami pulpitu wirtualnego systemu Windows wprowadzonymi w ramach aktualizacji wiosną 2020, zobacz [ten artykuł](../publish-apps.md).

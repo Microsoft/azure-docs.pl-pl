@@ -1,5 +1,5 @@
 ---
-title: Przegląd — wykonywanie zapytań dotyczących danych w magazynie przy użyciu języka SQL na żądanie (wersja zapoznawcza)
+title: Wykonywanie zapytań dotyczących danych w magazynie przy użyciu języka SQL na żądanie (wersja zapoznawcza)
 description: W tym artykule opisano sposób wykonywania zapytań w usłudze Azure Storage przy użyciu zasobu SQL na żądanie (wersja zapoznawcza) w ramach usługi Azure Synapse Analytics.
 services: synapse analytics
 author: azaricstefan
@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 4f78928c26b595caafd6709a200297d62ce1c361
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: a30874a14a1c2c44ec04b17b9ebddb52a9e9fb58
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259684"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87020546"
 ---
 # <a name="query-storage-files-using-sql-on-demand-preview-resources-within-synapse-sql"></a>Wykonywanie zapytań dotyczących plików magazynu za pomocą zasobów SQL na żądanie (wersja zapoznawcza) w programie Synapse SQL
 

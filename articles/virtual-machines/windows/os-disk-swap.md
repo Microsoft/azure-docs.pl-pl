@@ -7,11 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 04/24/2018
 ms.author: cynthn
-ms.openlocfilehash: c96fa4c453911c4ca4b8cf6d8f74647b4532109f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2d4abd68e60201a17e56ee105777614c42691bfc
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84711548"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87020342"
 ---
 # <a name="change-the-os-disk-used-by-an-azure-vm-using-powershell"></a>Zmienianie dysku systemu operacyjnego używanego przez maszynę wirtualną platformy Azure przy użyciu programu PowerShell
 
@@ -24,7 +25,7 @@ Maszyna wirtualna musi być stopped\deallocated, a następnie identyfikator zaso
 Upewnij się, że rozmiar maszyny wirtualnej i typ magazynu są zgodne z dyskiem, który chcesz dołączyć. Na przykład jeśli dysk, który ma być używany, znajduje się w Premium Storage, maszyna wirtualna musi mieć możliwość Premium Storage (na przykład rozmiaru serii DS). Oba dyski muszą mieć taki sam rozmiar.
 I upewnij się, że nie jest używana niezaszyfrowana maszyna wirtualna z zaszyfrowanym dyskiem systemu operacyjnego, nie jest to obsługiwane. Jeśli maszyna wirtualna nie używa Azure Disk Encryption, podczas wymiany dysku systemu operacyjnego nie należy używać Azure Disk Encryption.
 
-Pobierz listę dysków w grupie zasobów za pomocą polecenia [Get-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/get-azdisk)
+Pobierz listę dysków w grupie zasobów za pomocą polecenia [Get-AzDisk](/powershell/module/az.compute/get-azdisk)
 
 ```azurepowershell-interactive
 Get-AzDisk -ResourceGroupName myResourceGroup | Format-Table -Property Name

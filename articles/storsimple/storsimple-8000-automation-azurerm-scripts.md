@@ -6,11 +6,12 @@ ms.service: storsimple
 ms.topic: how-to
 ms.date: 10/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 009e8c7e1cb59d68f3d3aa15de32ec47083095f9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3b9a7bf243931443b8273253dee7618c0e594aaf
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85513094"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87020869"
 ---
 # <a name="use-azure-resource-manager-sdk-based-scripts-to-manage-storsimple-devices"></a>Używanie Azure Resource Manager skryptów opartych na zestawie SDK do zarządzania urządzeniami StorSimple
 
@@ -53,8 +54,8 @@ Ta sekcja zawiera przykładowy skrypt i szczegółowe informacje o różnych kro
 Przed rozpoczęciem upewnij się, że masz:
 
 *   Azure PowerShell zainstalowane. Aby zainstalować moduły Azure PowerShell:
-    * W środowisku systemu Windows wykonaj kroki opisane w temacie [Instalowanie i konfigurowanie Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps). Azure PowerShell można zainstalować na hoście z systemem Windows Server, jeśli jest on używany przez StorSimple.
-    * W środowisku Linux lub MacOS wykonaj kroki opisane w temacie [Instalowanie i konfigurowanie Azure PowerShell w systemie MacOS lub Linux](https://docs.microsoft.com/powershell/azure/azurerm/install-azurermps-maclinux).
+    * W środowisku systemu Windows wykonaj kroki opisane w temacie [Instalowanie i konfigurowanie Azure PowerShell](/powershell/azure/install-az-ps). Azure PowerShell można zainstalować na hoście z systemem Windows Server, jeśli jest on używany przez StorSimple.
+    * W środowisku Linux lub MacOS wykonaj kroki opisane w temacie [Instalowanie i konfigurowanie Azure PowerShell w systemie MacOS lub Linux](/powershell/azure/install-az-ps).
 
 Aby uzyskać więcej informacji na temat korzystania z Azure PowerShell, przejdź do obszaru wprowadzenie do [korzystania z Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 

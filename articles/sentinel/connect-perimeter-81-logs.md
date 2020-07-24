@@ -14,14 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/21/2020
 ms.author: yelevin
-ms.openlocfilehash: a0eb234d9677c479d2cb404b065da408854168e3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8c9a7a09d3085b1ec67bf29f142c6e7b205561ef
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85368440"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87021753"
 ---
 # <a name="connect-your-perimeter-81-activity-logs-to-azure-sentinel"></a>Łączenie dzienników aktywności obwodowej 81 z platformą Azure
+
+> [!IMPORTANT]
+> W publicznej wersji zapoznawczej znajduje się Łącznik danych obwodu 81 w systemie Azure.
+> Ta funkcja jest dostępna bez umowy dotyczącej poziomu usług i nie jest zalecana w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 W tym artykule wyjaśniono, jak połączyć urządzenie [dziennika aktywności obwodu 81](https://www.perimeter81.com/) z platformą Azure. Łącznik dzienników aktywności obwodowej 81 pozwala łatwo przenieść dane z obwodu 81 do platformy Azure, aby można było wyświetlać je w skoroszytach, używać do tworzenia alertów niestandardowych i dołączać je do usprawnienia badania.
 

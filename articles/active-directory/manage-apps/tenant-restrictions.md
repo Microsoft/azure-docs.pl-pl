@@ -2,25 +2,22 @@
 title: Używanie ograniczeń dzierżawy do zarządzania dostępem do aplikacji SaaS — Azure AD
 description: Jak używać ograniczeń dzierżawy do zarządzania użytkownikami, którzy mogą uzyskiwać dostęp do aplikacji na podstawie ich dzierżawy usługi Azure AD.
 services: active-directory
-documentationcenter: ''
 author: kenwith
 manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: kenwith
-ms.reviewer: richagi
+ms.reviewer: hpsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cd302791aa783f1a95d48f666366aa845fcaadbb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ae90a682ea2d1abb8159ec28ed02ed122494f512
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84763027"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87019254"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Używanie ograniczeń dzierżawy do zarządzania dostępem do aplikacji w chmurze SaaS
 
@@ -101,7 +98,7 @@ Podczas konfigurowania ograniczeń dzierżawy w firmowej infrastrukturze serwer�
 
 2. W lewym okienku wybierz pozycję **Azure Active Directory**. Zostanie wyświetlona strona przegląd Azure Active Directory.
 
-3. W polu **inne możliwości** wybierz pozycję **ograniczenia dzierżawy**.
+3. Na stronie Przegląd wybierz pozycję **ograniczenia dzierżawy**.
 
 Administrator dzierżawy określony jako dzierżawca kontekstu ograniczonego dostępu może użyć tego raportu, aby zobaczyć, że logowanie zostało zablokowane z powodu zasad ograniczeń dzierżawy, w tym użytych tożsamości i identyfikatora katalogu docelowego. Logowania są uwzględniane, jeśli dzierżawa ustawienia ograniczenia to dzierżawa użytkownika lub dzierżawa zasobów dla logowania.
 
@@ -120,7 +117,7 @@ Podobnie jak w przypadku innych raportów w Azure Portal, można użyć filtrów
 - **Wynik usługi MFA**
 - **Adres IP**
 - **Klient**
-- **Uż**
+- **Nazwa użytkownika**
 - **Lokalizacja**
 - **Identyfikator dzierżawy docelowej**
 
@@ -169,7 +166,7 @@ Programu Fiddler to bezpłatny serwer proxy debugowania sieci Web, który może 
       }
       ```
 
-      Jeśli musisz zezwolić na wiele dzierżawców, użyj przecinka do oddzielenia nazw dzierżawców. Przykład:
+      Jeśli musisz zezwolić na wiele dzierżawców, użyj przecinka do oddzielenia nazw dzierżawców. Na przykład:
 
       `oSession.oRequest["Restrict-Access-To-Tenants"] = "contoso.onmicrosoft.com,fabrikam.onmicrosoft.com";`
 

@@ -16,12 +16,12 @@ ms.date: 11/12/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3afec7c31488529af9ba15100c914899a0d1d808
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d64bfe66f5fb871ff9f85a5d58d128ac44643846
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85357464"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87019765"
 ---
 # <a name="azure-ad-connect-sync-directory-extensions"></a>Azure AD Connect Synchronize: rozszerzenia katalogów
 Możesz użyć rozszerzeń katalogów, aby rozszerzać schemat w Azure Active Directory (Azure AD) z własnymi atrybutami z Active Directory lokalnych. Ta funkcja umożliwia tworzenie aplikacji biznesowych przez konsumowanie atrybutów, które nadal są zarządzane lokalnie. Te atrybuty mogą być używane przez [rozszerzenia](https://docs.microsoft.com/graph/extensibility-overview
@@ -33,8 +33,8 @@ W tej chwili żadne obciążenie pakietu Office 365 nie korzysta z tych atrybut�
 
 Można skonfigurować dodatkowe atrybuty, które mają być synchronizowane w ścieżce ustawień niestandardowych w Kreatorze instalacji.
 
->[!NOTE]
->W polu dostępne atrybuty jest rozróżniana wielkość liter.
+> [!NOTE]
+> W Azure AD Connect wersjach wcześniejszych niż 1.2.65.0, w polu wyszukiwania dla **dostępnych atrybutów** jest rozróżniana wielkość liter.
 
 ![Kreator rozszerzenia schematu](./media/how-to-connect-sync-feature-directory-extensions/extension2.png)  
 

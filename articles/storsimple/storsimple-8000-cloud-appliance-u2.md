@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/08/2017
 ms.author: alkohli
-ms.openlocfilehash: 01ce952ea774ba852c83d0d6aa3fe38d5dfd677e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 219e2b77a0f6f30307c43f006fcdd3828d3c8fbf
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84711854"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87021379"
 ---
 # <a name="deploy-and-manage-a-storsimple-cloud-appliance-in-azure-update-3-and-later"></a>Wdrażanie urządzenia StorSimple w chmurze oraz zarządzanie nim na platformie Azure (aktualizacja Update 3 i nowsze)
 
@@ -83,7 +84,7 @@ Przed aprowizowaniem urządzenia w chmurze wykonaj następujące czynności przy
 * [Skonfiguruj sieć wirtualną na platformie Azure](../virtual-network/manage-virtual-network.md#create-a-virtual-network) dla urządzenia w chmurze. W przypadku korzystania z usługi Premium Storage należy utworzyć sieć wirtualną w regionie platformy Azure obsługującym tę usługę. Regiony Premium Storage to regiony, które odpowiadają wierszowi magazynu dyskowego na [liście usług platformy Azure według regionów](https://azure.microsoft.com/regions/services/).
 * Zalecamy używanie domyślnego serwera DNS udostępnionego na platformie Azure zamiast określania nazwy własnego serwera DNS. Jeśli nazwa serwera DNS jest nieprawidłowa lub jeśli serwer DNS nie jest w stanie poprawnie rozpoznać adresów IP, tworzenie urządzenia w chmurze kończy się niepowodzeniem.
 * Sieci typu punkt do lokacji i lokacja do lokacji są opcjonalne. W razie potrzeby można skonfigurować te opcje dla bardziej zaawansowanych scenariuszy.
-* Można utworzyć [maszyny wirtualne Azure Virtual Machines](../virtual-machines/virtual-machines-windows-quick-create-portal.md) (serwery hosta) w sieci wirtualnej, która może korzystać z woluminów udostępnionych przez urządzenie w chmurze. Serwery te muszą spełniać następujące wymagania:
+* Można utworzyć [maszyny wirtualne Azure Virtual Machines](../virtual-machines/windows/quick-create-portal.md) (serwery hosta) w sieci wirtualnej, która może korzystać z woluminów udostępnionych przez urządzenie w chmurze. Serwery te muszą spełniać następujące wymagania:
 
   * Muszą być maszynami wirtualnymi z systemem Windows lub Linux z zainstalowanym oprogramowaniem iSCSI Initiator.
   * Muszą działać w tej samej sieci wirtualnej co urządzenie w chmurze.
@@ -194,7 +195,7 @@ Aby urządzenie w chmurze nawiązało połączenie z serwerem hosta w tej samej 
 
      ![Wybieranie maszyny wirtualnej dla urządzenia w chmurze](./media/storsimple-8000-cloud-appliance-u2/sca-vm.png)
 
-2. Przejdź do opcji **Ustawienia > Sieć**. W okienku po prawej stronie wyświetlany jest prywatny adres IP urządzenia w chmurze. Zanotuj go.
+2. Przejdź do opcji **Ustawienia > Sieć**. W okienku po prawej stronie wyświetlany jest prywatny adres IP urządzenia w chmurze. Zanotuj ją.
 
     ![Uzyskiwanie prywatnego adresu IP dla urządzenia w chmurze](./media/storsimple-8000-cloud-appliance-u2/sca-private-ip-vm-networking.png)
 
