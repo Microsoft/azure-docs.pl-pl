@@ -3,12 +3,12 @@ title: Kopia zapasowa offline dla programu DPM i usługi Azure Backup Server
 description: Za pomocą Azure Backup można wysyłać dane z sieci za pomocą usługi Azure Import/Export. W tym artykule wyjaśniono przepływ pracy kopii zapasowej offline dla programu DPM i Azure Backup Server.
 ms.topic: conceptual
 ms.date: 05/24/2020
-ms.openlocfilehash: 3f02c48ddd2c5cd4831d8c7a84dbbf42f55a562a
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: f27a38657bb43a1d1153a0372db0e1f9e284eccc
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86187799"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87067353"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server-mabs"></a>Przepływ pracy kopii zapasowej offline dla programu DPM i Azure Backup Server (serwera usługi MAB)
 
@@ -24,7 +24,7 @@ Proces rozsadzenia w trybie offline Azure Backup jest ściśle zintegrowany z [u
 >
 > SERWERA usługi MAB UR1 Update umożliwia również podgląd kopii zapasowej offline przy użyciu Azure Data Box w serwera usługi MAB. Skontaktuj się z nami [SystemCenterFeedback@microsoft.com](mailto:SystemCenterFeedback@microsoft.com) , aby dowiedzieć się więcej.
 
-## <a name="overview"></a>Przegląd
+## <a name="overview"></a>Omówienie
 
 Korzystając z możliwości wypełniania w trybie offline Azure Backup i usługi Azure Import/Export, można łatwo przekazać dane w trybie offline na platformę Azure przy użyciu dysków. Proces tworzenia kopii zapasowej w trybie offline obejmuje następujące kroki:
 
@@ -49,7 +49,7 @@ Przed uruchomieniem przepływu pracy tworzenia kopii zapasowej offline upewnij s
 
 * Na serwerze DPM lub serwera usługi MAB upewnij się, że jest zainstalowany program Microsoft Edge lub Internet Explorer 11, a język JavaScript jest włączony.
 * Utwórz konto usługi Azure Storage w tej samej subskrypcji co magazyn Recovery Services.
-* Upewnij się, że masz odpowiednie [uprawnienia](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) do tworzenia aplikacji Azure Active Directory. Przepływ pracy kopii zapasowej offline tworzy aplikację Azure Active Directory w subskrypcji skojarzonej z kontem usługi Azure Storage. Celem aplikacji jest zapewnienie Azure Backup z bezpiecznym i dostępnym zakresem do usługi Azure import, która jest wymagana dla przepływu pracy kopii zapasowej offline.
+* Upewnij się, że masz odpowiednie [uprawnienia](../active-directory/develop/howto-create-service-principal-portal.md) do tworzenia aplikacji Azure Active Directory. Przepływ pracy kopii zapasowej offline tworzy aplikację Azure Active Directory w subskrypcji skojarzonej z kontem usługi Azure Storage. Celem aplikacji jest zapewnienie Azure Backup z bezpiecznym i dostępnym zakresem do usługi Azure import, która jest wymagana dla przepływu pracy kopii zapasowej offline.
 * Zarejestruj dostawcę zasobów Microsoft. ImportExport z subskrypcją zawierającą konto usługi Azure Storage. Aby zarejestrować dostawcę zasobów:
     1. W menu głównym kliknij pozycję **subskrypcje**.
     2. Jeśli subskrybujesz wiele subskrypcji, wybierz subskrypcję, która jest używana do tworzenia kopii zapasowych w trybie offline. Jeśli używasz tylko jednej subskrypcji, Twoja subskrypcja zostanie wyświetlona.
@@ -64,7 +64,7 @@ Przed uruchomieniem przepływu pracy tworzenia kopii zapasowej offline upewnij s
 
 ## <a name="workflow"></a>Przepływ pracy
 
-Informacje przedstawione w tej sekcji ułatwiają zakończenie przepływu pracy w trybie offline, aby dane mogły zostać dostarczone do centrum danych platformy Azure i przekazane do usługi Azure Storage. Jeśli masz pytania dotyczące usługi import lub dowolnego aspektu procesu, zapoznaj się z dokumentacją dotyczącą [przeglądu usługi Import Service](https://docs.microsoft.com/azure/storage/common/storage-import-export-service) .
+Informacje przedstawione w tej sekcji ułatwiają zakończenie przepływu pracy w trybie offline, aby dane mogły zostać dostarczone do centrum danych platformy Azure i przekazane do usługi Azure Storage. Jeśli masz pytania dotyczące usługi import lub dowolnego aspektu procesu, zapoznaj się z dokumentacją dotyczącą [przeglądu usługi Import Service](../storage/common/storage-import-export-service.md) .
 
 ## <a name="initiate-offline-backup"></a>Inicjowanie kopii zapasowej offline
 
@@ -188,7 +188,7 @@ Czas przetwarzania zadania importowania platformy Azure różni się. Czas proce
 
 ### <a name="monitor-azure-import-job-status"></a>Monitoruj stan zadania importowania platformy Azure
 
-Stan zadania importowania można monitorować z Azure Portal, przechodząc do strony **Importuj/Eksportuj zadania** i wybierając zadanie. Aby uzyskać więcej informacji na temat stanu zadań importowania, zobacz artykuł [Magazyn importu usługi Export](https://docs.microsoft.com/azure/storage/common/storage-import-export-service) .
+Stan zadania importowania można monitorować z Azure Portal, przechodząc do strony **Importuj/Eksportuj zadania** i wybierając zadanie. Aby uzyskać więcej informacji na temat stanu zadań importowania, zobacz artykuł [Magazyn importu usługi Export](../storage/common/storage-import-export-service.md) .
 
 ### <a name="complete-the-workflow"></a>Ukończ przepływ pracy
 

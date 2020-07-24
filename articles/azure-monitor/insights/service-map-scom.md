@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/12/2019
-ms.openlocfilehash: dc9425b25fa594d06473865f1add9c91c7760a97
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b1756bd72dc78bfafc8959c4ff1c8f95d255c931
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85557224"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87067569"
 ---
 # <a name="integrate-system-center-operations-manager-with-azure-monitor-for-vms-map-feature"></a>Integracja System Center Operations Manager z funkcją Azure Monitor dla maszyn wirtualnych map
 
@@ -138,9 +138,9 @@ Bieżący projekt przedstawia następujące problemy i ograniczenia:
 
 Aby uzyskać oficjalną dokumentację platformy Azure dotyczącą tworzenia nazwy głównej usługi, zobacz:
 
-* [Tworzenie jednostki usługi przy użyciu programu PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal)
-* [Tworzenie jednostki usługi przy użyciu interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal-cli)
-* [Tworzenie jednostki usługi przy użyciu Azure Portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal)
+* [Tworzenie jednostki usługi przy użyciu programu PowerShell](../../active-directory/develop/howto-authenticate-service-principal-powershell.md)
+* [Tworzenie jednostki usługi przy użyciu interfejsu wiersza polecenia platformy Azure](/azure/azure-resource-manager/resource-group-authenticate-service-principal-cli)
+* [Tworzenie jednostki usługi przy użyciu Azure Portal](../../active-directory/develop/howto-create-service-principal-portal.md)
 
 ### <a name="suggestions"></a>Sugestie
 

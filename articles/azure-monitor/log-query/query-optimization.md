@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/30/2019
-ms.openlocfilehash: 9ae0aec6b87a746ed1f141dcf98f599acd20ab3a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5a454d04701160492539f5c9caba57c9e617401e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82864253"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87067476"
 ---
 # <a name="optimize-log-queries-in-azure-monitor"></a>Optymalizowanie zapytań dzienników w Azure Monitor
 Dzienniki Azure Monitor korzystają z [usługi Azure Eksplorator danych (ADX)](/azure/data-explorer/) do przechowywania danych dziennika i uruchamiania zapytań w celu analizowania tych danych. Tworzy, zarządza i obsługuje klastry ADX oraz optymalizuje je do obciążeń analizy dzienników. Po uruchomieniu zapytania jest on zoptymalizowany i kierowany do odpowiedniego klastra ADX, który przechowuje dane obszaru roboczego. Zarówno dzienniki Azure Monitor, jak i Azure Eksplorator danych korzystają z wielu automatycznych mechanizmów optymalizacji zapytań. Chociaż Optymalizacja automatyczna zapewnia znaczący wzrost, w niektórych przypadkach można znacznie poprawić wydajność zapytań. W tym artykule opisano zagadnienia dotyczące wydajności i kilka technik rozwiązywania tych problemów.
@@ -156,7 +157,7 @@ Heartbeat
 > Ten wskaźnik przedstawia tylko procesor CPU z klastra bezpośredniego. W zapytaniu obejmującym wiele regionów reprezentuje tylko jeden z regionów. W zapytaniu obejmującym wiele obszarów roboczych może nie zawierać wszystkich obszarów roboczych.
 
 ### <a name="avoid-full-xml-and-json-parsing-when-string-parsing-works"></a>Unikaj pełnej analizy kodu XML i JSON, gdy analiza ciągu działa
-Pełna analiza obiektu XML lub JSON może zużywać duże zasoby procesora CPU i pamięci. W wielu przypadkach, gdy potrzebne są tylko jeden lub dwa parametry, a obiekty XML lub JSON są proste, łatwiej jest analizować je jako ciągi przy użyciu [operatora analizy](/azure/kusto/query/parseoperator) lub innych [technik analizy tekstu](/azure/azure-monitor/log-query/parse-text). Zwiększenie wydajności będzie bardziej znaczące, ponieważ liczba rekordów w obiekcie XML lub JSON rośnie. Jest to istotne, gdy liczba rekordów osiągnie dziesiątki milionów.
+Pełna analiza obiektu XML lub JSON może zużywać duże zasoby procesora CPU i pamięci. W wielu przypadkach, gdy potrzebne są tylko jeden lub dwa parametry, a obiekty XML lub JSON są proste, łatwiej jest analizować je jako ciągi przy użyciu [operatora analizy](/azure/kusto/query/parseoperator) lub innych [technik analizy tekstu](./parse-text.md). Zwiększenie wydajności będzie bardziej znaczące, ponieważ liczba rekordów w obiekcie XML lub JSON rośnie. Jest to istotne, gdy liczba rekordów osiągnie dziesiątki milionów.
 
 Na przykład następujące zapytanie zwróci dokładnie te same wyniki, co zapytania powyżej, bez wykonywania pełnej analizy kodu XML. Należy zauważyć, że niektóre założenia w strukturze pliku XML, takie jak ten element FilePath, jest dostępny po FileHash i żadna z nich ma atrybuty. 
 
@@ -219,6 +220,64 @@ SecurityEvent
 | summarize LoginSessions = dcount(LogonGuid) by Account
 ```
 
+### <a name="avoid-multiple-scans-of-same-source-data-using-conditional-aggregation-functions-and-materialize-function"></a>Unikaj wielu skanów tych samych danych źródłowych przy użyciu funkcji agregacji warunkowej i funkcji zmaterializowania
+Gdy zapytanie zawiera kilka podzapytań, które są scalane za pomocą operatora Join lub Union, każde podzapytanie skanuje całe Źródło oddzielnie, a następnie scala wyniki. Ta wielokrotność zawiera wiele przypadków, w których dane są skanowane — czynnik krytyczny w bardzo dużych zestawach danych.
+
+Technikę, aby uniknąć tej sytuacji, przy użyciu funkcji agregacji warunkowej. Większość [funkcji agregacji](/azure/data-explorer/kusto/query/summarizeoperator#list-of-aggregation-functions) , które są używane w operatorze podsumowania ma zainstalowaną wersję warunkową, która umożliwia użycie jednego operatora podsumowującego z wieloma warunkami. 
+
+Na przykład następujące zapytania pokazują liczbę zdarzeń logowania i liczbę zdarzeń wykonania procesu dla każdego konta. Zwracają one te same wyniki, ale pierwsze skanuje dane dwa razy, drugi skanuje tylko raz:
+
+```Kusto
+//Scans the SecurityEvent table twice and perform expensive join
+SecurityEvent
+| where EventID == 4624 //Login event
+| summarize LoginCount = count() by Account
+| join 
+(
+    SecurityEvent
+    | where EventID == 4688 //Process execution event
+    | summarize ExecutionCount = count(), ExecutedProcesses = make_set(Process) by Account
+) on Account
+```
+
+```Kusto
+//Scan only once with no join
+SecurityEvent
+| where EventID == 4624 or EventID == 4688 //early filter
+| summarize LoginCount = countif(EventID == 4624), ExecutionCount = countif(EventID == 4688), ExecutedProcesses = make_set_if(Process,EventID == 4688)  by Account
+```
+
+Inny przypadek, w którym podzapytania są niepotrzebne, to wstępne filtrowanie [operatora analizy](/azure/data-explorer/kusto/query/parseoperator?pivots=azuremonitor) , aby upewnić się, że przetwarza tylko rekordy pasujące do określonego wzorca. Nie jest to konieczne, ponieważ operator analizy i inne podobne operatory zwracają puste wyniki, gdy wzorzec nie jest zgodny. Poniżej przedstawiono dwie zapytania, które zwracają dokładnie te same wyniki, podczas gdy drugie zapytanie skanuje dane tylko raz. W drugim zapytaniu każde polecenie analizy dotyczy tylko jego zdarzeń. Następnie operator rozszerzający pokazuje, jak odwoływać się do pustej sytuacji danych.
+
+```Kusto
+//Scan SecurityEvent table twice
+union(
+SecurityEvent
+| where EventID == 8002 
+| parse EventData with * "<FilePath>" FilePath "</FilePath>" * "<FileHash>" FileHash "</FileHash>" *
+| distinct FilePath
+),(
+SecurityEvent
+| where EventID == 4799
+| parse EventData with * "CallerProcessName\">" CallerProcessName1 "</Data>" * 
+| distinct CallerProcessName1
+)
+```
+
+```Kusto
+//Single scan of the SecurityEvent table
+SecurityEvent
+| where EventID == 8002 or EventID == 4799
+| parse EventData with * "<FilePath>" FilePath "</FilePath>" * "<FileHash>" FileHash "</FileHash>" * //Relevant only for event 8002
+| parse EventData with * "CallerProcessName\">" CallerProcessName1 "</Data>" *  //Relevant only for event 4799
+| extend FilePath = iif(isempty(CallerProcessName1),FilePath,"")
+| distinct FilePath, CallerProcessName1
+```
+
+Gdy powyższe nie zezwala na unikanie korzystania z podzapytań, inna technika jest wskazówką do aparatu zapytań, że w każdym z nich użyto [funkcji zmaterializowania ()](/azure/data-explorer/kusto/query/materializefunction?pivots=azuremonitor). Jest to przydatne, gdy dane źródłowe pochodzą z funkcji, która jest używana kilka razy w ramach zapytania.
+
+
+
 ### <a name="reduce-the-number-of-columns-that-is-retrieved"></a>Zmniejsz liczbę pobieranych kolumn
 
 Ponieważ Eksplorator danych platformy Azure to kolumnowy magazyn danych, pobieranie każdej kolumny jest niezależne od innych. Liczba kolumn, które są pobierane bezpośrednio wpływa na cały rozmiar danych. Należy uwzględnić tylko kolumny w danych wyjściowych, które są potrzebne, [Podsumowując](/azure/kusto/query/summarizeoperator) wyniki lub [projekcję](/azure/kusto/query/projectoperator) określonych kolumn. Usługa Azure Eksplorator danych ma kilka optymalizacji, aby zmniejszyć liczbę pobranych kolumn. Jeśli określa, że kolumna nie jest wymagana, na przykład jeśli nie jest przywoływana w poleceniu [podsumowywania](/azure/kusto/query/summarizeoperator) , nie zostanie ona pobrana.
@@ -260,7 +319,7 @@ Perf
 ) on Computer
 ```
 
-Typowy przypadek, w którym występuje błąd jest używany do znajdowania ostatniego wystąpienia [arg_max ()](/azure/kusto/query/arg-max-aggfunction) . Przykład:
+Typowy przypadek, w którym występuje błąd jest używany do znajdowania ostatniego wystąpienia [arg_max ()](/azure/kusto/query/arg-max-aggfunction) . Na przykład:
 
 ```Kusto
 Perf

@@ -5,11 +5,12 @@ ms.topic: conceptual
 author: lgayhardt
 ms.author: lagayhar
 ms.date: 11/01/2018
-ms.openlocfilehash: dd04087db32f0bbfa75dafa7e12c355e5ab7b515
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: da75498d6e4616b287ddb11c69df2469baaf2655
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77670070"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87067637"
 ---
 # <a name="how-to-use-micrometer-with-azure-application-insights-java-sdk"></a>Jak używać Micrometer z usługą Azure Application Insights Java SDK
 Micrometer do monitorowania aplikacji miaruje metryki dla kodu aplikacji opartego na JVM i umożliwia eksportowanie danych do ulubionych systemów monitorowania. W tym artykule opisano, jak używać Micrometer z Application Insights zarówno dla aplikacji rozruchowych z systemem sprężyny, jak i bez sprężyny.
@@ -270,4 +271,4 @@ Dodaj następujący kod powiązania do pliku konfiguracji:
 ## <a name="next-steps"></a>Następne kroki
 
 * Aby dowiedzieć się więcej na temat Micrometer, zapoznaj się z oficjalną [dokumentacją Micrometer](https://micrometer.io/docs).
-* Aby uzyskać informacje na temat sprężyny na platformie Azure, zapoznaj się z oficjalną [wiosną w dokumentacji platformy Azure](https://docs.microsoft.com/java/azure/spring-framework/?view=azure-java-stable).
+* Aby uzyskać informacje na temat sprężyny na platformie Azure, zapoznaj się z oficjalną [wiosną w dokumentacji platformy Azure](/java/azure/spring-framework/?view=azure-java-stable).

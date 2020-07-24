@@ -9,14 +9,14 @@ ms.subservice: service
 ms.custom: sqldbrb=2
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 05/13/2020
+ms.date: 06/17/2020
 ms.author: sstein
-ms.openlocfilehash: ed6f164adb9e0a6daf24342021087b2cede3289d
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 4257b2fab5e0cca0cb016794673ed39ae4973895
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85981378"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87067413"
 ---
 # <a name="whats-new-in-azure-sql-database--sql-managed-instance"></a>Co nowego w Azure SQL Database & wystąpieniu zarządzanym SQL?
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -36,7 +36,7 @@ Należy wziąć pod uwagę, że jest to trwające prace, a nie każdy artykuł z
 Ta tabela zawiera krótkie porównanie zmian w terminologii: 
 
 
-|**Nowy termin**  | **Poprzedni termin**  |**Objaśnienie** |
+|**Nowy termin**  | **Poprzedni termin**  |**Wyjaśnienie** |
 |---------|---------|---------|
 |**Wystąpienie zarządzane Azure SQL** | Azure SQL Database *wystąpienie zarządzane*| Wystąpienie zarządzane Azure SQL to własny produkt należący do rodziny Azure SQL, a nie tylko opcja wdrażania w ramach Azure SQL Database. | 
 |**Azure SQL Database**|Azure SQL Database *pojedynczą bazę danych*| O ile nie określono jawnie inaczej, nazwa produktu Azure SQL Database obejmuje pojedyncze bazy danych i bazy danych wdrożone w puli elastycznej. |
@@ -48,9 +48,8 @@ Ta tabela zawiera krótkie porównanie zmian w terminologii:
 
 ### <a name="azure-sql-database"></a>[Azure SQL Database](#tab/single-database)
 
-| Cecha | Szczegóły |
+| Cechy | Szczegóły |
 | ---| --- |
-| Nowe generacja sprzętu serii Fsv2 i serii M| Aby uzyskać więcej informacji, zobacz [generacja sprzętu](service-tiers-vcore.md#hardware-generations).|
 | Szybsze odzyskiwanie bazy danych przy użyciu pojedynczych baz danych i pul elastycznych | Aby uzyskać więcej informacji, zobacz [przyspieszone odzyskiwanie bazy danych](../accelerated-database-recovery.md).|
 | Odnajdowanie i klasyfikacja danych  |Aby uzyskać więcej informacji, zobacz [Azure SQL Database i Synapse Analytics Data discovery & Klasyfikacja](data-discovery-and-classification-overview.md).|
 | Zadania elastycznych baz danych | Aby uzyskać więcej informacji, zobacz [Tworzenie i Konfigurowanie zadań elastycznych oraz zarządzanie nimi](elastic-jobs-overview.md). |
@@ -63,7 +62,7 @@ Ta tabela zawiera krótkie porównanie zmian w terminologii:
 
 ### <a name="azure-sql-managed-instance"></a>[Wystąpienie zarządzane Azure SQL](#tab/managed-instance)
 
-| Cecha | Szczegóły |
+| Cechy | Szczegóły |
 | ---| --- |
 | <a href="/azure/sql-database/sql-database-instance-pools">Pule wystąpień</a> | Wygodny i ekonomiczny sposób migracji mniejszych wystąpień SQL do chmury. |
 | <a href="https://aka.ms/managed-instance-aadlogins">Nazwy główne serwera usługi Azure AD na poziomie wystąpienia (logowania)</a> | Utwórz identyfikatory logowania na poziomie wystąpienia przy użyciu instrukcji <a href="https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN from External Provider</a> . |
@@ -98,8 +97,8 @@ W modelu wdrażania wystąpienia zarządzanego SQL w H1 2019 są włączone nast
 
 |Problem  |Data wykrycia  |Stan  |Data rozwiązania  |
 |---------|---------|---------|---------|
-|[Przywrócenie ręcznej kopii zapasowej bez sumy KONTROLnej może zakończyć się niepowodzeniem](#restoring-manual-backup-without-checksum-might-fail)|Maj 2020 r.|Ma obejście| |
-|[Agent przestaje odpowiadać po zmodyfikowaniu, wyłączeniu lub włączeniu istniejących zadań](#agent-becomes-unresponsive-upon-modifying-disabling-or-enabling-existing-jobs)|Maj 2020 r.|Automatycznie skorygowane| |
+|[Przywrócenie ręcznej kopii zapasowej bez sumy KONTROLnej może zakończyć się niepowodzeniem](#restoring-manual-backup-without-checksum-might-fail)|Maj 2020 r.|Resolved|Czerwiec 2020 r.|
+|[Agent przestaje odpowiadać po zmodyfikowaniu, wyłączeniu lub włączeniu istniejących zadań](#agent-becomes-unresponsive-upon-modifying-disabling-or-enabling-existing-jobs)|Maj 2020 r.|Resolved|Czerwiec 2020 r.|
 |[Uprawnienia do grupy zasobów nie są stosowane do wystąpienia zarządzanego SQL](#permissions-on-resource-group-not-applied-to-sql-managed-instance)|2020 lutego|Ma obejście||
 |[Ograniczenie ręcznego trybu failover za pośrednictwem portalu dla grup trybu failover](#limitation-of-manual-failover-via-portal-for-failover-groups)|Sty 2020|Ma obejście||
 |[Role agenta SQL wymagają jawnych uprawnień do wykonywania w przypadku identyfikatorów logowania innych niż sysadmin](#in-memory-oltp-memory-limits-are-not-applied)|Dec 2019|Ma obejście||

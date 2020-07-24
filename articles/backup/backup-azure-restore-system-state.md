@@ -3,12 +3,12 @@ title: Przywracanie stanu systemu do systemu Windows Server
 description: Objaśnienie krok po kroku dotyczące przywracania stanu systemu Windows Server z kopii zapasowej na platformie Azure.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 5212e5ea0ed3a8c0e0a8e9d4fa45f1eb6c901bf5
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 8ba4cb5d5617b6a051aec8c54a595e701f62fb87
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86184474"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87067360"
 ---
 # <a name="restore-system-state-to-windows-server"></a>Przywróć stan systemu do systemu Windows Server
 
@@ -88,7 +88,7 @@ Terminologia użyta w tych krokach obejmuje:
 6. W okienku wybierz serwer kopii zapasowej wybierz *maszynę źródłową* z listy wyświetlanych maszyn.
 7. W okienku wybierz tryb odzyskiwania wybierz pozycję **stan systemu** i kliknij przycisk **dalej**.
 
-    ![Wyszukiwanie](./media/backup-azure-restore-system-state/recover-type-selection.png)
+    ![Wyszukaj](./media/backup-azure-restore-system-state/recover-type-selection.png)
 
 8. W kalendarzu w okienku **Wybierz wolumin i datę** wybierz punkt odzyskiwania. Można przywrócić z dowolnego punktu odzyskiwania w czasie. **Pogrubione** daty wskazują dostępność co najmniej jednego punktu odzyskiwania. Po wybraniu daty, jeśli dostępne są wiele punktów odzyskiwania, wybierz konkretny punkt odzyskiwania z menu rozwijanego **czas** .
 
@@ -183,7 +183,7 @@ W tym artykule omówiono tylko pierwszy scenariusz, który wywołuje nonauthorat
         >[!NOTE]
         >Jeśli przywracasz wszystkie dane Active Directory (i nie ma żadnych działających kontrolerów domeny w lesie), w kroku 9 powyżej upewnij się, że wybrano opcję **Wykonaj przywracanie autorytatywne plików Active Directory**.
 
-    * Za pomocą narzędzia [Wbadmin](https://docs.microsoft.com/windows-server/administration/windows-commands/wbadmin-start-systemstaterecovery) wykonaj przywracanie z wiersza polecenia.
+    * Za pomocą narzędzia [Wbadmin](/windows-server/administration/windows-commands/wbadmin-start-systemstaterecovery) wykonaj przywracanie z wiersza polecenia.
 
         Potrzebujesz identyfikatora wersji kopii zapasowej, której chcesz użyć. Listę identyfikatorów wersji można uzyskać, uruchamiając następujące polecenie:
 
@@ -193,7 +193,7 @@ W tym artykule omówiono tylko pierwszy scenariusz, który wywołuje nonauthorat
 
         Następnie można użyć tego identyfikatora wersji do uruchomienia przywracania.
 
-        Na przykład aby przeprowadzić [przywracanie nonauthorative AD DS i autorytatywne Przywracanie folderu SYSVOL](https://docs.microsoft.com/windows-server/identity/ad-ds/manage/ad-forest-recovery-nonauthoritative-restore) przy użyciu kopii zapasowej z 04/30/2020 o 9:00 am, która jest przechowywana w udostępnionym zasobie `\\servername\share` dla `server01` , wpisz:
+        Na przykład aby przeprowadzić [przywracanie nonauthorative AD DS i autorytatywne Przywracanie folderu SYSVOL](/windows-server/identity/ad-ds/manage/ad-forest-recovery-nonauthoritative-restore) przy użyciu kopii zapasowej z 04/30/2020 o 9:00 am, która jest przechowywana w udostępnionym zasobie `\\servername\share` dla `server01` , wpisz:
 
         ```cmd
         wbadmin start systemstaterecovery -version:04/30/2020-09:00 -backupTarget:\\servername\share -machine:server01 -authsysvol

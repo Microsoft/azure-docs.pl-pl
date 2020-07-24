@@ -7,16 +7,16 @@ author: bwren
 ms.author: bwren
 ms.date: 08/19/2019
 ms.custom: mvc, sec-javascript-october2019
-ms.openlocfilehash: 2e63b2ca0ee7246009068e6a2875795a14aeddb3
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 91a4e2f6a770282e9d031c31fdf1af15f0cd00bf
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84695372"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87067558"
 ---
 # <a name="collect-data-from-an-azure-virtual-machine-with-azure-monitor"></a>Zbieranie danych z maszyny wirtualnej platformy Azure za pomocą Azure Monitor
 
-[Azure monitor](../overview.md) może zbierać dane bezpośrednio z maszyn wirtualnych platformy Azure w obszarze roboczym log Analytics w celu uzyskania szczegółowej analizy i korelacji. Zainstalowanie rozszerzenia Log Analytics VM dla [systemów Windows](../../virtual-machines/extensions/oms-windows.md) i [Linux](../../virtual-machines/extensions/oms-linux.md) umożliwia Azure monitor zbieranie danych z maszyn wirtualnych platformy Azure. W tym przewodniku szybki start pokazano, jak skonfigurować i zbierać dane z maszyn wirtualnych z systemem Linux lub Windows przy użyciu rozszerzenia maszyny wirtualnej z kilkoma prostymi krokami.  
+[Azure monitor](../overview.md) może zbierać dane bezpośrednio z maszyn wirtualnych platformy Azure do log Analytics obszaru roboczego w celu analizy szczegółów i korelacji. Zainstalowanie rozszerzenia Log Analytics VM dla [systemów Windows](../../virtual-machines/extensions/oms-windows.md) i [Linux](../../virtual-machines/extensions/oms-linux.md) umożliwia Azure monitor zbieranie danych z maszyn wirtualnych platformy Azure. W tym przewodniku szybki start pokazano, jak skonfigurować i zbierać dane z maszyn wirtualnych z systemem Linux lub Windows przy użyciu rozszerzenia maszyny wirtualnej z kilkoma prostymi krokami.  
  
 W tym przewodniku Szybki start przyjęto założenie, że masz już maszynę wirtualną platformy Azure. Jeśli jeszcze jej nie masz, możesz [utworzyć maszynę wirtualną z systemem Windows](../../virtual-machines/windows/quick-create-portal.md) lub [utworzyć maszynę wirtualną z systemem Linux](../../virtual-machines/linux/quick-create-cli.md), wykonując czynności opisane w przewodnikach Szybki start dotyczących maszyn wirtualnych.
 
@@ -28,7 +28,7 @@ Zaloguj się do witryny Azure Portal pod adresem [https://portal.azure.com](http
 
 1. W Azure Portal wybierz pozycję **wszystkie usługi**. Na liście zasobów wpisz **Log Analytics**. Po rozpoczęciu pisania zawartość listy jest filtrowana w oparciu o wpisywane dane. Wybierz **log Analytics obszary robocze**.
 
-    ![Azure Portal](media/quick-collect-azurevm/azure-portal-log-analytics-workspaces.png)<br>  
+    ![Witryna Azure Portal](media/quick-collect-azurevm/azure-portal-log-analytics-workspaces.png)<br>  
 
 2. Wybierz pozycję **Utwórz**, a następnie wybierz opcje dla następujących elementów:
 
@@ -141,4 +141,4 @@ Teraz, kiedy są zbierane dane operacyjne i dane wydajności z maszyn wirtualnyc
 Aby dowiedzieć się, jak wyświetlać i analizować dane, przejdź do następnego samouczka.
 
 > [!div class="nextstepaction"]
-> [Wyświetlanie i analizowanie danych w usłudze Log Analytics](../../azure-monitor/learn/tutorial-viewdata.md)
+> [Wyświetlanie i analizowanie danych w usłudze Log Analytics](../log-query/get-started-portal.md)

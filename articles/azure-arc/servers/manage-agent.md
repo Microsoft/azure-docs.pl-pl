@@ -6,14 +6,14 @@ ms.service: azure-arc
 ms.subservice: azure-arc-servers
 author: mgoedtel
 ms.author: magoedte
-ms.date: 05/18/2020
+ms.date: 07/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: 086491484592c8015bdb519bb498e73da3836f6f
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 122f88e8bf14d3e3b082930716cffc3621afd336
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86103912"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87067705"
 ---
 # <a name="managing-and-maintaining-the-connected-machine-agent"></a>Zarządzanie agentem podłączonego komputera i ich obsługa
 
@@ -142,6 +142,9 @@ Narzędzie Azcmagent (Azcmagent.exe) służy do konfigurowania usługi Azure ARC
 * **-v lub--verbose** -Włącz pełne rejestrowanie
 
 Można ręcznie wykonać **połączenie**, **rozłączyć**i **ponownie nawiązać połączenie** , a jednocześnie zalogować się przy użyciu tej samej jednostki usługi, która została użyta w celu dołączenia wielu agentów lub [tokenu dostępu](../../active-directory/develop/access-tokens.md)platformy tożsamości firmy Microsoft. Jeśli nie korzystasz z jednostki usługi w celu zarejestrowania maszyny przy użyciu usługi Azure ARC dla serwerów (wersja zapoznawcza), zapoznaj się z poniższym [artykułem](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale) , aby utworzyć nazwę główną usługi.
+
+>[!NOTE]
+>Aby uruchamiać **azcmagent**, musisz mieć uprawnienia dostępu *głównego* na maszynach z systemem Linux.
 
 ### <a name="connect"></a>Połącz
 
