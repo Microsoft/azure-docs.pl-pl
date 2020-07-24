@@ -6,11 +6,13 @@ ms.service: spring-cloud
 ms.topic: troubleshooting
 ms.date: 11/04/2019
 ms.author: brendm
-ms.openlocfilehash: db5363c5d8adaf29e2c460d9ce36afa2d29ae8e7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-java
+ms.openlocfilehash: b7b3236fe1e4052689657316df851753de7edbe5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84791660"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083688"
 ---
 # <a name="troubleshoot-common-azure-spring-cloud-issues"></a>Rozwiązywanie typowych problemów z chmurą wiosenną platformy Azure
 
@@ -157,7 +159,7 @@ Zmienne środowiskowe informują platformę chmurową Azure ze sprężyną, dzi�
 > [!WARNING]
 > Ta procedura udostępnia zmienne środowiskowe za pomocą punktu końcowego testu.  Nie należy przechodzić, jeśli punkt końcowy testu jest publicznie dostępny lub jeśli przypisano nazwę domeny do aplikacji.
 
-1. Przejdź do witryny `https://<your application test endpoint>/actuator/health`.  
+1. Przejdź do adresu `https://<your application test endpoint>/actuator/health`.  
     - Odpowiedź podobna do `{"status":"UP"}` wskazuje, że punkt końcowy został włączony.
     - Jeśli odpowiedź jest ujemna, Uwzględnij w pliku *POM.xml* następujący zależność:
 
@@ -172,7 +174,7 @@ Zmienne środowiskowe informują platformę chmurową Azure ze sprężyną, dzi�
 
 1. Uruchom ponownie aplikację.
 
-1. Przejdź do `https://<your application test endpoint>/actuator/env` i sprawdź odpowiedź.  Powinny wyglądać następująco:
+1. Przejdź do `https://<your application test endpoint>/actuator/env` i sprawdź odpowiedź.  Powinno ono wyglądać następująco:
 
     ```json
     {

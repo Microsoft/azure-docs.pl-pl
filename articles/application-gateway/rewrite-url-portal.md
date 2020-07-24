@@ -7,16 +7,19 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 7/16/2020
 ms.author: surmb
-ms.openlocfilehash: 2e2925723ee07ee2215bdd82bb730e31cdcdadc9
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 160d056447bd53ea01437acd372b5efeb15b4773
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86532219"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083161"
 ---
 # <a name="rewrite-url-with-azure-application-gateway---azure-portal-preview"></a>Ponowne zapisywanie adresu URL za pomocą usługi Azure Application Gateway — Azure Portal (wersja zapoznawcza)
 
 W tym artykule opisano sposób użycia Azure Portal w celu skonfigurowania wystąpienia [jednostki SKU Application Gateway v2](application-gateway-autoscaling-zone-redundant.md) w celu ponownego zapisania adresu URL.
+
+>[!NOTE]
+> Funkcja ponownego zapisywania adresu URL jest w wersji zapoznawczej i jest dostępna tylko dla Standard_v2 i WAF_v2 jednostki SKU Application Gateway. Nie jest to zalecane do użycia w środowisku produkcyjnym. Aby dowiedzieć się więcej na temat wersji zapoznawczych, zobacz [warunki użytkowania tutaj](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 

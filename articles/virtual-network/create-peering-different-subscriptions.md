@@ -12,11 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/09/2019
 ms.author: kumud
-ms.openlocfilehash: 26d82d4381649bc86950b1898c5c5351a97ec697
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 55993162c4ea3cd5bf60a9ee9acc869cc088a9d0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84688817"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87085133"
 ---
 # <a name="create-a-virtual-network-peering---resource-manager-different-subscriptions-and-azure-active-directory-tenants"></a>Tworzenie komunikacji równorzędnej sieci wirtualnej — Menedżer zasobów, różne subskrypcje i dzierżawy Azure Active Directory
 
@@ -180,7 +181,7 @@ Wszystkie zasoby platformy Azure utworzone w ramach jednej sieci wirtualnej mog�
 
 W tym samouczku są stosowane różne konta dla każdej subskrypcji. Jeśli używasz konta z uprawnieniami do obu subskrypcji, możesz użyć tego samego konta dla wszystkich kroków, pominąć procedurę rejestrowania z platformy Azure i usunąć wiersze skryptu, które tworzą przypisania roli użytkownika. Zastąp UserA@azure.com i UserB@azure.com we wszystkich następujących skryptach nazwami użytkowników, których używasz do usera i UserB.
 
-1. Upewnij się, że masz Azure PowerShell w wersji 1.0.0 lub nowszej. Można to zrobić, uruchamiając `Get-Module -Name Az` zalecaną instalację najnowszej wersji polecenia [AZ module](/powershell/azure/install-az-ps)programu PowerShell. Jeśli jesteś nowym użytkownikiem programu Azure PowerShell, zobacz temat [Azure PowerShell overview (Omówienie programu Azure PowerShell)](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json). 
+1. Upewnij się, że masz Azure PowerShell w wersji 1.0.0 lub nowszej. Można to zrobić, uruchamiając `Get-Module -Name Az` zalecaną instalację najnowszej wersji polecenia [AZ module](/powershell/azure/install-az-ps)programu PowerShell. Jeśli jesteś nowym użytkownikiem programu Azure PowerShell, zobacz temat [Azure PowerShell overview (Omówienie programu Azure PowerShell)](/powershell/azure/?toc=%2fazure%2fvirtual-network%2ftoc.json). 
 2. Rozpocznij sesję programu PowerShell.
 3. W programie PowerShell Zaloguj się do platformy Azure jako UserA, wprowadzając `Connect-AzAccount` polecenie. Konto, za pomocą którego logujesz się, musi mieć uprawnienia niezbędne do utworzenia komunikacji równorzędnej sieci wirtualnej. Listę uprawnień można znaleźć w temacie [uprawnienia komunikacji równorzędnej sieci wirtualnych](virtual-network-manage-peering.md#permissions).
 4. Utwórz grupę zasobów i sieć wirtualną A. Skopiuj następujący skrypt do edytora tekstu na komputerze. Zamień na `<SubscriptionA-Id>` Identyfikator subskrypcji. Jeśli nie znasz identyfikatora subskrypcji, wprowadź `Get-AzSubscription` polecenie, aby je wyświetlić. Wartość **identyfikatora** w zwracanym wyniku to identyfikator subskrypcji. Aby wykonać skrypt, skopiuj zmodyfikowany skrypt, wklej go w programie PowerShell, a następnie naciśnij klawisz `Enter` .

@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 10/18/2019
-ms.openlocfilehash: a5c5c80aaba083b0f65ac0dab41350765a8f5631
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3d9360a4b5c5f0ef080b3de2a9d425bcdf2b2e70
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85833761"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081903"
 ---
 # <a name="troubleshoot-azure-cache-for-redis-timeouts"></a>Rozwiązywanie problemów z limitami czasu usługi Azure Cache for Redis
 
@@ -30,7 +30,7 @@ Usługa Azure cache for Redis regularnie aktualizuje oprogramowanie serwera w ra
 
 ## <a name="stackexchangeredis-timeout-exceptions"></a>Wyjątki limitu czasu StackExchange. Redis
 
-StackExchange. Redis używa ustawienia konfiguracji o nazwie `synctimeout` dla operacji synchronicznych z wartością domyślną 1000 ms. Jeśli wywołanie synchroniczne nie zostanie ukończone w tym czasie, klient StackExchange. Redis zgłasza błąd limitu czasu podobny do następującego przykładu:
+StackExchange. Redis używa ustawienia konfiguracji o nazwie `synctimeout` dla operacji synchronicznych z wartością domyślną 5000 ms. Jeśli wywołanie synchroniczne nie zostanie ukończone w tym czasie, klient StackExchange. Redis zgłasza błąd limitu czasu podobny do następującego przykładu:
 
 ```output
     System.TimeoutException: Timeout performing MGET 2728cc84-58ae-406b-8ec8-3f962419f641, inst: 1,mgr: Inactive, queue: 73, qu=6, qs=67, qc=0, wr=1/1, in=0/0 IOCP: (Busy=6, Free=999, Min=2,Max=1000), WORKER (Busy=7,Free=8184,Min=2,Max=8191)
@@ -73,7 +73,7 @@ Aby zbadać możliwe przyczyny główne, można wykonać następujące czynnośc
 
 1. Upewnij się, że serwer i aplikacja kliencka znajdują się w tym samym regionie na platformie Azure. Można na przykład otrzymywać limity czasu, gdy pamięć podręczna jest w regionie Wschodnie stany USA, ale klient znajduje się w zachodnich Stanach Zjednoczonych, a żądanie nie zakończy się w `synctimeout` przedziale czasowym lub podczas debugowania z lokalnego komputera deweloperskiego może wystąpić limit czasu. 
 
-    Zdecydowanie zaleca się używanie pamięci podręcznej i klienta w tym samym regionie świadczenia usługi Azure. Jeśli masz scenariusz, który obejmuje wywołania między regionami, należy ustawić `synctimeout` interwał na wartość większą niż domyślny interwał 1000-MS, dołączając `synctimeout` Właściwość w parametrach połączenia. W poniższym przykładzie przedstawiono fragment kodu połączenia dla StackExchange. Redis udostępniony przez pamięć podręczną platformy Azure dla Redis z `synctimeout` 2000 MS.
+    Zdecydowanie zaleca się używanie pamięci podręcznej i klienta w tym samym regionie świadczenia usługi Azure. Jeśli masz scenariusz, który obejmuje wywołania między regionami, należy ustawić `synctimeout` interwał na wartość większą niż domyślny interwał 5000-ms, dołączając `synctimeout` Właściwość w parametrach połączenia. W poniższym przykładzie przedstawiono fragment kodu połączenia dla StackExchange. Redis udostępniony przez pamięć podręczną platformy Azure dla Redis z `synctimeout` 2000 MS.
 
     ```output
     synctimeout=2000,cachename.redis.cache.windows.net,abortConnect=false,ssl=true,password=...

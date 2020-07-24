@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 10/17/2018
 ms.author: cherylmc
-ms.openlocfilehash: 843727c005fefdc2ca0484492a1feafe2a291b46
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 2c9b8a769dec1a2aa461a34203c98a228cf71d16
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86040757"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082056"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-powershell"></a>Łączenie sieci wirtualnych z różnych modeli wdrażania za pomocą programu PowerShell
 
@@ -37,7 +37,7 @@ Poniższe kroki przeprowadzą Cię przez ustawienia niezbędne do skonfigurowani
 
 * Oba sieci wirtualnych zostały już utworzone. Jeśli musisz utworzyć sieć wirtualną Menedżera zasobów, zobacz [Tworzenie grupy zasobów i sieci wirtualnej](../virtual-network/quick-create-powershell.md#create-a-resource-group-and-a-virtual-network). Aby utworzyć klasyczną sieć wirtualną, zobacz [Tworzenie klasycznej](https://docs.microsoft.com/azure/virtual-network/create-virtual-network-classic)sieci wirtualnej.
 * Zakresy adresów dla sieci wirtualnych nie nakładają się na siebie ani nie nakładają się na żadne z zakresów dla innych połączeń, z którymi bramy mogą być połączone.
-* Zainstalowano najnowsze polecenia cmdlet programu PowerShell. Aby uzyskać więcej informacji [, zobacz Jak zainstalować i skonfigurować Azure PowerShell](/powershell/azure/overview) . Upewnij się, że zainstalowano zarówno polecenie cmdlet programu Service Management (SM), jak i Menedżer zasobów (RM). 
+* Zainstalowano najnowsze polecenia cmdlet programu PowerShell. Aby uzyskać więcej informacji [, zobacz Jak zainstalować i skonfigurować Azure PowerShell](/powershell/azure/) . Upewnij się, że zainstalowano zarówno polecenie cmdlet programu Service Management (SM), jak i Menedżer zasobów (RM). 
 
 ### <a name="example-settings"></a><a name="exampleref"></a>Przykładowe ustawienia
 

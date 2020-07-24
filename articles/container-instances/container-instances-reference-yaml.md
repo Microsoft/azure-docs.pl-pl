@@ -2,21 +2,22 @@
 title: YAML odwołanie do grupy kontenerów
 description: Odwołanie do pliku YAML obsługiwanego przez Azure Container Instances w celu skonfigurowania grupy kontenerów
 ms.topic: article
-ms.date: 08/12/2019
-ms.openlocfilehash: be78c7d498187486a1502da17faa2b8faa5a0982
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/06/2020
+ms.openlocfilehash: d0ec8d13eebba1c60f5a52f8c43bdd8b90eeb913
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84730530"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87084764"
 ---
 # <a name="yaml-reference-azure-container-instances"></a>Odwołanie YAML: Azure Container Instances
 
 W tym artykule opisano składnię i właściwości pliku YAML obsługiwanego przez Azure Container Instances w celu skonfigurowania [grupy kontenerów](container-instances-container-groups.md). Użyj pliku YAML, aby wprowadzić konfigurację grupy do polecenia [AZ Container Create][az-container-create] w interfejsie CLI platformy Azure. 
 
-Plik YAML jest wygodnym sposobem konfigurowania grupy kontenerów dla powtarzalnych wdrożeń. Jest to zwięzła alternatywa dla używania [szablonu Menedżer zasobów](/azure/templates/Microsoft.ContainerInstance/2018-10-01/containerGroups) lub zestawów SDK Azure Container Instances do tworzenia lub aktualizowania grupy kontenerów.
+Plik YAML jest wygodnym sposobem konfigurowania grupy kontenerów dla powtarzalnych wdrożeń. Jest to zwięzła alternatywa dla używania [szablonu Menedżer zasobów](/azure/templates/Microsoft.ContainerInstance/2019-12-01/containerGroups) lub zestawów SDK Azure Container Instances do tworzenia lub aktualizowania grupy kontenerów.
 
 > [!NOTE]
-> To odwołanie dotyczy plików YAML w wersji interfejsu API REST Azure Container Instances `2018-10-01` .
+> To odwołanie dotyczy plików YAML w wersji interfejsu API REST Azure Container Instances `2019-12-01` .
 
 ## <a name="schema"></a>Schemat 
 
@@ -24,7 +25,7 @@ Schemat pliku YAML jest następujący, w tym komentarze do wyróżniania właśc
 
 ```yml
 name: string  # Name of the container group
-apiVersion: '2018-10-01'
+apiVersion: '2019-12-01'
 location: string
 tags: {}
 identity: 
@@ -126,6 +127,25 @@ properties: # Properties of container group
     - string
     searchDomains: string
     options: string
+  sku: string # SKU for the container group
+  encryptionProperties:
+    vaultBaseUrl: string
+    keyName: string
+    keyVersion: string
+  initContainers: # Array of init containers in the group
+  - name: string
+    properties:
+      image: string
+      command:
+      - string
+      environmentVariables:
+      - name: string
+        value: string
+        secureValue: string
+      volumeMounts:
+      - name: string
+        mountPath: string
+        readOnly: boolean
 ```
 
 ## <a name="property-values"></a>Wartości właściwości
@@ -162,15 +182,18 @@ W poniższych tabelach opisano wartości, które należy ustawić w schemacie.
 
 |  Nazwa | Typ | Wymagane | Wartość |
 |  ---- | ---- | ---- | ---- |
-|  containers | tablica | Tak | Kontenery w obrębie grupy kontenerów. - [Obiekt kontenera](#container-object) |
-|  imageRegistryCredentials | tablica | Nie | Poświadczenia rejestru obrazu, na podstawie których zostanie utworzona grupa kontenerów. - [Obiekt ImageRegistryCredential](#imageregistrycredential-object) |
+|  containers | array | Tak | Kontenery w obrębie grupy kontenerów. - [Obiekt kontenera](#container-object) |
+|  imageRegistryCredentials | array | Nie | Poświadczenia rejestru obrazu, na podstawie których zostanie utworzona grupa kontenerów. - [Obiekt ImageRegistryCredential](#imageregistrycredential-object) |
 |  restartPolicy | enum | Nie | Zasady ponownego uruchamiania dla wszystkich kontenerów w grupie kontenerów. - `Always`Zawsze uruchamiaj ponownie `OnFailure` po niepowodzeniu — `Never` nigdy nie uruchamiaj ponownie. -Zawsze, OnFailure, nigdy |
 |  Adresu | object | Nie | Typ adresu IP grupy kontenerów. - [IpAddress — obiekt](#ipaddress-object) |
 |  osType | enum | Tak | Typ systemu operacyjnego wymagany przez kontenery w grupie kontenerów. — Windows lub Linux |
-|  volumes | tablica | Nie | Lista woluminów, które mogą być instalowane przez kontenery w tej grupie kontenerów. - [Obiekt woluminu](#volume-object) |
+|  volumes | array | Nie | Lista woluminów, które mogą być instalowane przez kontenery w tej grupie kontenerów. - [Obiekt woluminu](#volume-object) |
 |  Diagnostyka | object | Nie | Informacje diagnostyczne dla grupy kontenerów. - [Obiekt ContainerGroupDiagnostics](#containergroupdiagnostics-object) |
 |  networkProfile | object | Nie | Informacje o profilu sieciowym dla grupy kontenerów. - [Obiekt ContainerGroupNetworkProfile](#containergroupnetworkprofile-object) |
 |  Powodzenie | object | Nie | Informacje o konfiguracji DNS dla grupy kontenerów. - [Obiekt DnsConfiguration](#dnsconfiguration-object) |
+| sku | enum | Nie | Jednostka SKU grupy kontenerów — standardowa lub dedykowana |
+| encryptionProperties | object | Nie | Właściwości szyfrowania dla grupy kontenerów. - [Obiekt EncryptionProperties](#encryptionproperties-object) | 
+| initContainers | array | Nie | Kontenery init dla grupy kontenerów. - [Obiekt InitContainerDefinition](#initcontainerdefinition-object) |
 
 
 
@@ -200,7 +223,7 @@ W poniższych tabelach opisano wartości, które należy ustawić w schemacie.
 
 |  Nazwa | Typ | Wymagane | Wartość |
 |  ---- | ---- | ---- | ---- |
-|  ports | tablica | Tak | Lista portów uwidocznionych w grupie kontenerów. - [Obiekt portu](#port-object) |
+|  ports | array | Tak | Lista portów uwidocznionych w grupie kontenerów. - [Obiekt portu](#port-object) |
 |  typ | enum | Tak | Określa, czy adres IP jest narażony na publiczny Internet lub prywatną sieć wirtualną. — Publiczne lub prywatne |
 |  IP | ciąg | Nie | Adres IP uwidoczniony dla publicznego Internetu. |
 |  dnsNameLabel | ciąg | Nie | Etykieta nazwy DNS dla adresu IP. |
@@ -243,11 +266,25 @@ W poniższych tabelach opisano wartości, które należy ustawić w schemacie.
 
 |  Nazwa | Typ | Wymagane | Wartość |
 |  ---- | ---- | ---- | ---- |
-|  Serwery nazw | tablica | Tak | Serwery DNS dla grupy kontenerów. -String |
+|  Serwery nazw | array | Tak | Serwery DNS dla grupy kontenerów. -String |
 |  searchDomains | ciąg | Nie | Domeny wyszukiwania DNS dla wyszukiwania nazw hostów w grupie kontenerów. |
 |  opcje | ciąg | Nie | Opcje usługi DNS dla grupy kontenerów. |
 
 
+### <a name="encryptionproperties-object"></a>Obiekt EncryptionProperties
+
+| Nazwa  | Typ  | Wymagane  | Wartość |
+|  ---- | ---- | ---- | ---- |
+| vaultBaseUrl  | ciąg    | Tak   | Podstawowy adres URL magazynu kluczy. |
+| keyName   | ciąg    | Tak   | Nazwa klucza szyfrowania. |
+| Wersja programu    | ciąg    | Tak   | Wersja klucza szyfrowania. |
+
+### <a name="initcontainerdefinition-object"></a>Obiekt InitContainerDefinition
+
+| Nazwa  | Typ  | Wymagane  | Wartość |
+|  ---- | ---- | ---- | ---- |
+| name  | ciąg |  Tak | Nazwa kontenera init. |
+| properties    | object    | Tak   | Właściwości kontenera init. - [Obiekt InitContainerPropertiesDefinition](#initcontainerpropertiesdefinition-object)
 
 
 ### <a name="containerproperties-object"></a>Obiekt ContainerProperties
@@ -255,11 +292,11 @@ W poniższych tabelach opisano wartości, które należy ustawić w schemacie.
 |  Nazwa | Typ | Wymagane | Wartość |
 |  ---- | ---- | ---- | ---- |
 |  image (obraz) | ciąg | Tak | Nazwa obrazu użytego do utworzenia wystąpienia kontenera. |
-|  command | tablica | Nie | Polecenia do wykonania w ramach wystąpienia kontenera w formularzu exec. -String |
-|  ports | tablica | Nie | Uwidocznione porty w wystąpieniu kontenera. - [Obiekt ContainerPort](#containerport-object) |
-|  environmentVariables | tablica | Nie | Zmienne środowiskowe do ustawienia w wystąpieniu kontenera. - [Obiekt zmiennych środowiskowych](#environmentvariable-object) |
+|  command | array | Nie | Polecenia do wykonania w ramach wystąpienia kontenera w formularzu exec. -String |
+|  ports | array | Nie | Uwidocznione porty w wystąpieniu kontenera. - [Obiekt ContainerPort](#containerport-object) |
+|  environmentVariables | array | Nie | Zmienne środowiskowe do ustawienia w wystąpieniu kontenera. - [Obiekt zmiennych środowiskowych](#environmentvariable-object) |
 |  zasoby | object | Tak | Wymagania dotyczące zasobów wystąpienia kontenera. - [Obiekt ResourceRequirements](#resourcerequirements-object) |
-|  volumeMounts | tablica | Nie | Zainstaluj woluminy dostępne dla wystąpienia kontenera. - [Obiekt VolumeMount](#volumemount-object) |
+|  volumeMounts | array | Nie | Zainstaluj woluminy dostępne dla wystąpienia kontenera. - [Obiekt VolumeMount](#volumemount-object) |
 |  livenessProbe | object | Nie | Sonda na żywo. - [Obiekt ContainerProbe](#containerprobe-object) |
 |  readinessProbe | object | Nie | Sonda gotowości. - [Obiekt ContainerProbe](#containerprobe-object) |
 
@@ -281,7 +318,7 @@ W poniższych tabelach opisano wartości, które należy ustawić w schemacie.
 |  Nazwa | Typ | Wymagane | Wartość |
 |  ---- | ---- | ---- | ---- |
 |  shareName | ciąg | Tak | Nazwa udziału plików platformy Azure, który ma zostać zainstalowany jako wolumin. |
-|  Trybie | wartość logiczna | Nie | Flaga wskazująca, czy plik platformy Azure udostępniony jako wolumin jest tylko do odczytu. |
+|  Trybie | boolean | Nie | Flaga wskazująca, czy plik platformy Azure udostępniony jako wolumin jest tylko do odczytu. |
 |  storageAccountName | ciąg | Tak | Nazwa konta magazynu zawierającego udział plików platformy Azure. |
 |  storageAccountKey | ciąg | Nie | Klucz dostępu konta magazynu używany do uzyskiwania dostępu do udziału plików platformy Azure. |
 
@@ -298,7 +335,6 @@ W poniższych tabelach opisano wartości, które należy ustawić w schemacie.
 
 
 
-
 ### <a name="loganalytics-object"></a>Obiekt LogAnalytics
 
 |  Nazwa | Typ | Wymagane | Wartość |
@@ -309,7 +345,14 @@ W poniższych tabelach opisano wartości, które należy ustawić w schemacie.
 |  metadane | object | Nie | Metadane usługi log Analytics. |
 
 
+### <a name="initcontainerpropertiesdefinition-object"></a>Obiekt InitContainerPropertiesDefinition
 
+| Nazwa  | Typ  | Wymagane  | Wartość |
+|  ---- | ---- | ---- | ---- |
+| image (obraz) | ciąg    | Nie    | Obraz kontenera init. |
+| command   | array | Nie    | Polecenie do wykonania w kontenerze init w formularzu exec. -String |
+| environmentVariables | array  | Nie |Zmienne środowiskowe do ustawienia w kontenerze init. - [Obiekt zmiennych środowiskowych](#environmentvariable-object)
+| volumeMounts |array   | Nie    | Instalacje woluminu są dostępne dla kontenera init. - [Obiekt VolumeMount](#volumemount-object)
 
 ### <a name="containerport-object"></a>Obiekt ContainerPort
 
@@ -326,7 +369,7 @@ W poniższych tabelach opisano wartości, które należy ustawić w schemacie.
 |  Nazwa | Typ | Wymagane | Wartość |
 |  ---- | ---- | ---- | ---- |
 |  name | ciąg | Tak | Nazwa zmiennej środowiskowej. |
-|  wartość | ciąg | Nie | Wartość zmiennej środowiskowej. |
+|  value | ciąg | Nie | Wartość zmiennej środowiskowej. |
 |  secureValue | ciąg | Nie | Wartość zmiennej środowiskowej Secure. |
 
 
@@ -348,7 +391,7 @@ W poniższych tabelach opisano wartości, które należy ustawić w schemacie.
 |  ---- | ---- | ---- | ---- |
 |  name | ciąg | Tak | Nazwa instalacji woluminu. |
 |  mountPath | ciąg | Tak | Ścieżka wewnątrz kontenera, w którym należy zainstalować wolumin. Nie może zawierać dwukropka (:). |
-|  Trybie | wartość logiczna | Nie | Flaga wskazująca, czy instalacja woluminu jest tylko do odczytu. |
+|  Trybie | boolean | Nie | Flaga wskazująca, czy instalacja woluminu jest tylko do odczytu. |
 
 
 
@@ -394,7 +437,7 @@ W poniższych tabelach opisano wartości, które należy ustawić w schemacie.
 
 |  Nazwa | Typ | Wymagane | Wartość |
 |  ---- | ---- | ---- | ---- |
-|  command | tablica | Nie | Polecenia do wykonania w kontenerze. -String |
+|  command | array | Nie | Polecenia do wykonania w kontenerze. -String |
 
 
 
@@ -403,7 +446,7 @@ W poniższych tabelach opisano wartości, które należy ustawić w schemacie.
 
 |  Nazwa | Typ | Wymagane | Wartość |
 |  ---- | ---- | ---- | ---- |
-|  ścieżka | ciąg | Nie | Ścieżka do sondy. |
+|  path | ciąg | Nie | Ścieżka do sondy. |
 |  port | liczba całkowita | Tak | Numer portu do sondowania. |
 |  schemat | enum | Nie | Schemat. -http lub https |
 

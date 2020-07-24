@@ -5,12 +5,12 @@ ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.custom: 80e4ff38-5174-43
-ms.openlocfilehash: 8a68c793d9aaf94ad28f2e478254e42ede4800de
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 611cb5b94ee2ad458fa00a61af673696d7e7a212
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170364"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87085150"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Korzystanie z narzędzi Azure Functions Core Tools
 
@@ -35,7 +35,7 @@ Istnieją trzy wersje Azure Functions Core Tools. Używana wersja zależy od lok
 
 + **Wersja 1. x**: obsługuje wersję 1. x środowiska uruchomieniowego Azure Functions. Ta wersja narzędzi jest obsługiwana tylko na komputerach z systemem Windows i jest instalowana z [pakietu npm](https://www.npmjs.com/package/azure-functions-core-tools).
 
-+ [**Wersja 3. x/2. x**](#v2): obsługuje [wersję 3. x lub 2. x środowiska uruchomieniowego Azure Functions](functions-versions.md). Te wersje obsługują [systemy Windows](/azure/azure-functions/functions-run-local?tabs=windows#v2), [macOS](/azure/azure-functions/functions-run-local?tabs=macos#v2)i [Linux](/azure/azure-functions/functions-run-local?tabs=linux#v2) oraz korzystają z menedżerów pakietów lub npm do instalacji.
++ [**Wersja 3. x/2. x**](#v2): obsługuje [wersję 3. x lub 2. x środowiska uruchomieniowego Azure Functions](functions-versions.md). Te wersje obsługują [systemy Windows](?tabs=windows#v2), [macOS](?tabs=macos#v2)i [Linux](?tabs=linux#v2) oraz korzystają z menedżerów pakietów lub npm do instalacji.
 
 Jeśli nie określono inaczej, przykłady w tym artykule dotyczą wersji 3. x.
 
@@ -48,7 +48,7 @@ Jeśli nie określono inaczej, przykłady w tym artykule dotyczą wersji 3. x.
 
 ### <a name="version-3x-and-2x"></a><a name="v2"></a>Wersja 3. x i 2. x
 
-W wersji 3. x/2. x narzędzi jest używane środowisko uruchomieniowe Azure Functions, które jest oparte na platformie .NET Core. Ta wersja jest obsługiwana na wszystkich platformach .NET Core obsługuje, w tym [Windows](/azure/azure-functions/functions-run-local?tabs=windows#v2), [macOS](/azure/azure-functions/functions-run-local?tabs=macos#v2)i [Linux](/azure/azure-functions/functions-run-local?tabs=linux#v2). 
+W wersji 3. x/2. x narzędzi jest używane środowisko uruchomieniowe Azure Functions, które jest oparte na platformie .NET Core. Ta wersja jest obsługiwana na wszystkich platformach .NET Core obsługuje, w tym [Windows](?tabs=windows#v2), [macOS](?tabs=macos#v2)i [Linux](?tabs=linux#v2). 
 
 > [!IMPORTANT]
 > Możesz pominąć wymóg instalacji zestaw .NET Core SDK przy użyciu [pakietów rozszerzeń].
@@ -240,7 +240,7 @@ Gdy nie ustawiono prawidłowych parametrów połączenia magazynu dla [`AzureWeb
 
 ### <a name="get-your-storage-connection-strings"></a>Pobieranie parametrów połączenia magazynu
 
-Nawet w przypadku używania emulator magazynu Microsoft Azure do programowania można testować przy użyciu rzeczywistego połączenia magazynu. Przy założeniu, że [konto magazynu](../storage/common/storage-create-storage-account.md)zostało już utworzone, można uzyskać prawidłowe parametry połączenia magazynu w jeden z następujących sposobów:
+Nawet w przypadku używania emulator magazynu Microsoft Azure do programowania można testować przy użyciu rzeczywistego połączenia magazynu. Przy założeniu, że [konto magazynu](../storage/common/storage-account-create.md)zostało już utworzone, można uzyskać prawidłowe parametry połączenia magazynu w jeden z następujących sposobów:
 
 - W [Azure Portal]Wyszukaj i wybierz pozycję **konta magazynu**. 
   ![Wybierz konta magazynu z Azure Portal](./media/functions-run-local/select-storage-accounts.png)
@@ -343,7 +343,7 @@ func start
 ```
 func start
 ```
-To polecenie musi być [uruchamiane w środowisku wirtualnym](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-python#create-venv).
+To polecenie musi być [uruchamiane w środowisku wirtualnym](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-python#create-venv).
 
 # <a name="typescript"></a>[TypeScript](#tab/ts)
 
@@ -574,7 +574,7 @@ Ten typ dzienników przesyłania strumieniowego wymaga włączenia integracji Ap
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się, jak opracowywać, testować i publikować Azure Functions przy użyciu Azure Functions Core Tools Azure Functions Core Tools [modułu Microsoft uczenie](https://docs.microsoft.com/learn/modules/develop-test-deploy-azure-functions-with-core-tools/) się [w serwisie GitHub](https://github.com/azure/azure-functions-cli).  
+Dowiedz się, jak opracowywać, testować i publikować Azure Functions przy użyciu Azure Functions Core Tools Azure Functions Core Tools [modułu Microsoft uczenie](/learn/modules/develop-test-deploy-azure-functions-with-core-tools/) się [w serwisie GitHub](https://github.com/azure/azure-functions-cli).  
 Aby zgłosić błąd lub żądanie funkcji, [Otwórz problem z usługą GitHub](https://github.com/azure/azure-functions-cli/issues).
 
 <!-- LINKS -->

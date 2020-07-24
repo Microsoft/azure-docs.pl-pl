@@ -3,11 +3,12 @@ title: Omówienie AMQP 1,0 w Azure Service Bus
 description: Dowiedz się, jak Azure Service Bus obsługuje Advanced Message Queuing Protocol (AMQP), Open standard Protocol.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 8ddeadde85e3e0b574c93db0227dcba6ad746f64
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1113ffd268c991ba8a9c8f574b90d555a81ae840
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85338057"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083875"
 ---
 # <a name="amqp-10-support-in-service-bus"></a>Obsługa AMQP 1,0 w Service Bus
 Zarówno usługa Azure Service Bus w chmurze, jak i lokalne [Service Bus dla systemu Windows Server (Service Bus 1,1)](https://msdn.microsoft.com/library/dn282144.aspx) obsługują protokół Advanced Message Queueing Protocol (AMQP) 1,0. AMQP umożliwia tworzenie aplikacji hybrydowych dla wielu platform przy użyciu protokołu Open Standard. Aplikacje można konstruować przy użyciu składników utworzonych przy użyciu różnych języków i struktur, które działają w różnych systemach operacyjnych. Wszystkie te składniki mogą łączyć się z Service Bus i bezproblemowo wymieniać strukturalne wiadomości biznesowe oraz z pełną dokładnością.
@@ -53,7 +54,7 @@ Obsługa usługi AMQP 1,0 w Azure Service Bus oznacza, że teraz można korzysta
 
 Na poniższej ilustracji przedstawiono przykładowe wdrożenie, w którym klienci Java uruchamiani w systemie Linux, zapisanie przy użyciu standardowego interfejsu API usługi wiadomości języka Java (JMS) i klientów platformy .NET działających w systemie Windows, wymieniają komunikaty za pośrednictwem Service Bus przy użyciu AMQP 1,0.
 
-![][0]
+![Diagram przedstawiający jedną Service Bus wymianę komunikatów z dwoma środowiskami Linux i dwoma środowiskami systemu Windows.][0]
 
 **Rysunek 1. przykładowy scenariusz wdrażania przedstawiający obsługę komunikatów na wielu platformach przy użyciu Service Bus i AMQP 1,0**
 

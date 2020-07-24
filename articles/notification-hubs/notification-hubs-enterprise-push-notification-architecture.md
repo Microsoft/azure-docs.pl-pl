@@ -16,12 +16,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: e53e9599da3c12fdf01c8902a7275fc75ce86643
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 36d74a8819285c5eb5fb0367a2b32ae299ae6c8e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223605"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87084317"
 ---
 # <a name="enterprise-push-architectural-guidance"></a>Wskazówki dotyczące architektury powiadomień wypychanych w przedsiębiorstwie
 
@@ -56,7 +56,7 @@ Kluczowym elementem na tym diagramie architektury jest Azure Service Bus, w któ
 1. Rozdzielenie między odbiornikiem (aplikacją mobilną/usługą za pośrednictwem Centrum powiadomień) i nadawcą (systemy zaplecza) umożliwia integrację dodatkowych systemów zaplecza z minimalnymi zmianami.
 1. Ponadto scenariusz wielu aplikacji mobilnych może odbierać zdarzenia z co najmniej jednego systemu zaplecza.  
 
-## <a name="sample"></a>Sample
+## <a name="sample"></a>Przykład
 
 ### <a name="prerequisites"></a>Wymagania wstępne
 
@@ -289,8 +289,8 @@ Pełny przykładowy kod jest dostępny w [przykładach centrum powiadomień]. Je
 <!-- Links -->
 [Przykłady centrum powiadomień]: https://github.com/Azure/azure-notificationhubs-samples
 [Usługa mobilna platformy Azure]: https://azure.microsoft.com/documentation/services/mobile-services/
-[Azure Service Bus]: https://azure.microsoft.com/documentation/articles/fundamentals-service-bus-hybrid-solutions/
-[Service Bus programowanie/procedura podrzędna]: https://azure.microsoft.com/documentation/articles/service-bus-dotnet-how-to-use-topics-subscriptions/
+[Azure Service Bus]: ../service-bus-messaging/service-bus-messaging-overview.md
+[Service Bus programowanie/procedura podrzędna]: ../service-bus-messaging/service-bus-dotnet-how-to-use-topics-subscriptions.md
 [Zadanie WebJob platformy Azure]: ../app-service/webjobs-create.md
-[Notification Hubs — uniwersalny Samouczek systemu Windows]: https://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
+[Notification Hubs — uniwersalny Samouczek systemu Windows]: ./notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md
 [Witryna Azure Portal]: https://portal.azure.com/

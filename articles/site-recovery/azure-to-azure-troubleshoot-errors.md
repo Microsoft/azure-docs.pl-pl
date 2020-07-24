@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/07/2020
 ms.author: rochakm
-ms.openlocfilehash: 91aaedba13dfd9c0a3ea06b3460beaa8ead20233
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: d3e70384a99e2dad3f19825cb85b83861e4647e9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86130461"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083824"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-errors"></a>Rozwiązywanie problemów z replikacją maszyny wirtualnej z platformy Azure do platformy Azure
 
@@ -475,7 +475,7 @@ Poniższe przykłady są wierszami z plików GRUB, w których pojawiają się na
 
 Zastąp nazwy poszczególnych urządzeń odpowiednimi identyfikatorami UUID:
 
-1. Znajdź identyfikator UUID urządzenia, wykonując polecenie `blkid <device name>` . Przykład:
+1. Znajdź identyfikator UUID urządzenia, wykonując polecenie `blkid <device name>` . Na przykład:
 
    ```shell
    blkid /dev/sda1
@@ -534,6 +534,44 @@ Ten problem może wystąpić, jeśli maszyna wirtualna była wcześniej chronion
 ### <a name="fix-the-problem"></a>Rozwiązywanie problemu
 
 Usuń dysk repliki określony w komunikacie o błędzie i spróbuj ponownie wykonać zadanie ochrony zakończone niepowodzeniem.
+
+## <a name="enable-protection-failed-as-the-installer-is-unable-to-find-the-root-disk-error-code-151137"></a>Włączenie ochrony nie powiodło się, ponieważ Instalator nie może znaleźć dysku głównego (kod błędu 151137)
+
+Ten błąd występuje w przypadku maszyn z systemem Linux, w których dysk systemu operacyjnego jest szyfrowany przy użyciu Azure Disk Encryption (ADE). Jest to prawidłowy problem dotyczący tylko agenta w wersji 9,35.
+
+### <a name="possible-causes"></a>Możliwe przyczyny
+
+Instalator nie może znaleźć dysku głównego, który hostuje główny system plików.
+
+### <a name="fix-the-problem"></a>Rozwiązywanie problemu
+
+Postępuj zgodnie z poniższymi instrukcjami, aby rozwiązać ten problem.
+
+1. Znajdź bity agentów w katalogu _/var/lib/waagent_ na maszynach RHEL i CentOS przy użyciu poniższego polecenia: <br>
+
+    `# find /var/lib/ -name Micro\*.gz`
+
+   Oczekiwane dane wyjściowe:
+
+    `/var/lib/waagent/Microsoft.Azure.RecoveryServices.SiteRecovery.LinuxRHEL7-1.0.0.9139/UnifiedAgent/Microsoft-ASR_UA_9.35.0.0_RHEL7-64_GA_30Jun2020_release.tar.gz`
+
+2. Utwórz nowy katalog i zmień katalog na ten nowy katalog.
+3. Wyodrębnij plik agenta znaleziony w pierwszym kroku w tym miejscu przy użyciu poniższego polecenia:
+
+    `tar -xf <Tar Ball File>`
+
+4. Otwórz plik _prereq_check_installer.jsna_ i Usuń następujące wiersze. Zapisz plik po tym pliku.
+
+    ```
+       {
+          "CheckName": "SystemDiskAvailable",
+          "CheckType": "MobilityService"
+       },
+    ```
+5. Wywołaj Instalatora przy użyciu polecenia: <br>
+
+    `./install -d /usr/local/ASR -r MS -q -v Azure`
+6. Jeśli Instalator powiedzie się, spróbuj ponownie wykonać zadanie włączania replikacji.
 
 ## <a name="next-steps"></a>Następne kroki
 

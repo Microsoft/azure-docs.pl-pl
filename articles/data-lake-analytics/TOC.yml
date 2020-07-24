@@ -21,6 +21,12 @@
     - name: Elementy wbudowane usługi Azure Policy
       displayName: 'samples, policies, definitions'
       href: ./policy-samples.md
+- name: Pojęcia
+  items:
+    - name: Zabezpieczenia
+      items:
+        - name: Punkt odniesienia zabezpieczeń dla testu porównawczego zabezpieczeń platformy Azure
+          href: security-baseline.md
 - name: Instrukcje
   items:
     - name: Zarządzanie usługą Data Lake Analytics
@@ -87,7 +93,7 @@
               href: data-lake-analytics-data-lake-tools-develop-usql-database.md
             - name: Przeglądanie i wyświetlanie zadań
               href: data-lake-analytics-data-lake-tools-view-jobs.md
-            - name: 'Debugowanie niestandardowego kodu C#'
+            - name: Debugowanie niestandardowego kodu C#
               href: data-lake-analytics-debug-u-sql-jobs.md
             - name: Rozwiązywanie problemów z zadaniami cyklicznymi
               href: data-lake-analytics-data-lake-tools-debug-recurring-job.md

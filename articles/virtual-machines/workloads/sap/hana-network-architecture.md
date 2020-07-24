@@ -13,11 +13,12 @@ ms.workload: infrastructure
 ms.date: 07/15/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b3bc87b183803c0854542d6925af7429b593d2af
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 585dfcd437357c638a3544a4cb74ad386f8cb218
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81605170"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87085201"
 ---
 # <a name="sap-hana-large-instances-network-architecture"></a>Architektura sieci SAP HANA (duże wystąpienia)
 
@@ -74,7 +75,7 @@ Różnice dotyczące wdrożeń SAP na platformie Azure:
 
 W przypadku poprawki 3 sygnatury dużych wystąpień platformy HANA opóźnienie sieci między maszynami wirtualnymi i jednostkami dużych wystąpień platformy HANA może być większe niż typowe opóźnienie rundy sieci maszyny wirtualnej na maszynę wirtualną. W zależności od regionu świadczenia usługi Azure mierzone wartości mogą przekroczyć czas oczekiwania na 0,7 MS, sklasyfikowany poniżej poniżej średniej w programie [SAP uwaga #1100926 — często zadawane pytania: wydajność sieci](https://launchpad.support.sap.com/#/notes/1100926/E). Zależnie od regionu i narzędzia platformy Azure do mierzenia opóźnienia sieci między MASZYNami wirtualnymi platformy Azure i jednostką dużego wystąpienia HANA mierzone opóźnienie może wynosić maksymalnie 2 milisekund. Niemniej jednak klienci wdrażają aplikacje SAP oparte na SAP HANA na SAP HANA dużym wystąpieniu. Pamiętaj o gruntownym przetestowaniu procesów firmy w dużym wystąpieniu platformy Azure HANA. Nowe funkcje, o nazwie ExpressRoute Fast Path, umożliwiają zredukowanie opóźnienia sieci między dużymi wystąpieniami i maszynami wirtualnymi aplikacji platformy Azure w znacznym stopniu (patrz poniżej). 
 
-W przypadku poprawki 4 sygnatur dużego wystąpienia usługi HANA opóźnienie sieci między maszynami wirtualnymi platformy Azure wdrożonymi w pobliżu sygnatury dużego wystąpienia HANA jest zgodne ze średnią lub lepszą niż średnia klasyfikacja, zgodnie z opisem w temacie [SAP uwagi #1100926 — często zadawane pytania: wydajność sieci](https://launchpad.support.sap.com/#/notes/1100926/E) , jeśli usługa Azure ExpressRoute Fast Path jest skonfigurowana (patrz poniżej). Aby można było wdrażać maszyny wirtualne platformy Azure w pobliżu jednostek z dużą ilością wystąpień w wersji HANA 4, należy skorzystać z [grup umieszczania usługi Azure zbliżeniowe](https://docs.microsoft.com/azure/virtual-machines/linux/co-location). Sposób, w jaki można używać grup umieszczania zbliżeniowe do lokalizowania warstwy aplikacji SAP w tym samym centrum danych platformy Azure, ponieważ wersja 4 hostowanych jednostek dużego wystąpienia HANA jest opisana w [grupach umieszczania bliskości platformy Azure w celu uzyskania optymalnego opóźnienia sieci przy użyciu aplikacji SAP](sap-proximity-placement-scenarios.md).
+W przypadku poprawki 4 sygnatur dużego wystąpienia usługi HANA opóźnienie sieci między maszynami wirtualnymi platformy Azure wdrożonymi w pobliżu sygnatury dużego wystąpienia HANA jest zgodne ze średnią lub lepszą niż średnia klasyfikacja, zgodnie z opisem w temacie [SAP uwagi #1100926 — często zadawane pytania: wydajność sieci](https://launchpad.support.sap.com/#/notes/1100926/E) , jeśli usługa Azure ExpressRoute Fast Path jest skonfigurowana (patrz poniżej). Aby można było wdrażać maszyny wirtualne platformy Azure w pobliżu jednostek z dużą ilością wystąpień w wersji HANA 4, należy skorzystać z [grup umieszczania usługi Azure zbliżeniowe](../../linux/co-location.md). Sposób, w jaki można używać grup umieszczania zbliżeniowe do lokalizowania warstwy aplikacji SAP w tym samym centrum danych platformy Azure, ponieważ wersja 4 hostowanych jednostek dużego wystąpienia HANA jest opisana w [grupach umieszczania bliskości platformy Azure w celu uzyskania optymalnego opóźnienia sieci przy użyciu aplikacji SAP](sap-proximity-placement-scenarios.md).
 
 Aby zapewnić niejednoznaczne opóźnienie sieci między maszynami wirtualnymi i usługą HANA, wybór jednostki SKU bramy ExpressRoute jest istotny. W przeciwieństwie do wzorców ruchu między środowiskiem lokalnym i maszynami wirtualnymi, wzorzec ruchu między maszynami wirtualnymi i dużym wystąpieniem HANA może tworzyć małe, ale wysokie obciążenia żądań i woluminów danych do przesłania. W celu obsługi takich serii zdecydowanie zalecamy użycie jednostki SKU bramy UltraPerformance. W przypadku klasy typu II jednostek SKU o dużej instancji HANA użycie jednostki SKU bramy UltraPerformance jako bramy ExpressRoute jest obowiązkowe.
 
@@ -85,10 +86,10 @@ Aby zapewnić niejednoznaczne opóźnienie sieci między maszynami wirtualnymi i
 Aby obniżyć czas oczekiwania, ExpressRoute szybka ścieżka została wprowadzona i wydana w 2019 maja dla konkretnej łączności z dużymi wystąpieniami platformy HANA do sieci wirtualnych Azure, które obsługują maszyny wirtualne aplikacji SAP. Poprzednia różnica w rozwiązaniu została wdrożona na tyle, że dane przepływów między maszynami wirtualnymi i dużymi wystąpieniami platformy HANA nie są już kierowane przez bramę ExpressRoute. Zamiast nich maszyny wirtualne przypisane w podsieciach sieci wirtualnej platformy Azure komunikują się bezpośrednio z dedykowanym routerem brzegowym przedsiębiorstwa. 
 
 > [!IMPORTANT] 
-> Funkcja ExpressRoute Fast Path wymaga, aby podsieci z uruchomionymi maszynami wirtualnymi aplikacji SAP znajdują się w tej samej sieci wirtualnej platformy Azure, która została połączona z dużymi wystąpieniami HANA. Maszyny wirtualne znajdujące się w sieciach wirtualnych platformy Azure, które są połączone bezpośrednio z usługą Azure Virtual Network podłączonymi do jednostek dużego wystąpienia HANA, nie są korzystne od ExpressRoute Fast Path. W wyniku typowych projektów sieci wirtualnych typu Hub i szprych, w których obwody usługi ExpressRoute są nawiązywane połączenie z siecią wirtualną koncentratora i sieciami wirtualnymi zawierającymi warstwę aplikacji SAP (szprychy), Komunikacja równorzędna nie będzie zadziałała. W obszarze funkcja ExpressRoute Fast Path nie obsługuje już dzisiaj reguł routingu zdefiniowanych przez użytkownika (UDR). Aby uzyskać więcej informacji, zobacz [ExpressRoute Virtual Network Gateway and FastPath](https://docs.microsoft.com/azure/expressroute/expressroute-about-virtual-network-gateways). 
+> Funkcja ExpressRoute Fast Path wymaga, aby podsieci z uruchomionymi maszynami wirtualnymi aplikacji SAP znajdują się w tej samej sieci wirtualnej platformy Azure, która została połączona z dużymi wystąpieniami HANA. Maszyny wirtualne znajdujące się w sieciach wirtualnych platformy Azure, które są połączone bezpośrednio z usługą Azure Virtual Network podłączonymi do jednostek dużego wystąpienia HANA, nie są korzystne od ExpressRoute Fast Path. W wyniku typowych projektów sieci wirtualnych typu Hub i szprych, w których obwody usługi ExpressRoute są nawiązywane połączenie z siecią wirtualną koncentratora i sieciami wirtualnymi zawierającymi warstwę aplikacji SAP (szprychy), Komunikacja równorzędna nie będzie zadziałała. W obszarze funkcja ExpressRoute Fast Path nie obsługuje już dzisiaj reguł routingu zdefiniowanych przez użytkownika (UDR). Aby uzyskać więcej informacji, zobacz [ExpressRoute Virtual Network Gateway and FastPath](../../../expressroute/expressroute-about-virtual-network-gateways.md). 
 
 
-Aby uzyskać więcej informacji na temat konfigurowania szybkiej ścieżki usługi ExpressRoute, Przeczytaj dokument [łączenie sieci wirtualnej z dużymi wystąpieniami platformy Hana](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-connect-vnet-express-route).    
+Aby uzyskać więcej informacji na temat konfigurowania szybkiej ścieżki usługi ExpressRoute, Przeczytaj dokument [łączenie sieci wirtualnej z dużymi wystąpieniami platformy Hana](./hana-connect-vnet-express-route.md).    
 
 > [!NOTE]
 > Brama UltraPerformance ExpressRoute jest wymagana do działania funkcji ExpressRoute Fast Path
@@ -123,7 +124,7 @@ Aby uzyskać bardziej skalowalną architekturę sieci:
 
 ![Wdrażanie warstwy aplikacji SAP przez wiele sieci wirtualnych](./media/hana-overview-architecture/image4-networking-architecture.png)
 
-Zależnie od zasad i ograniczeń, które mają być stosowane między różnymi sieciami wirtualnymi obsługującymi maszyny wirtualne z różnymi systemami SAP, należy nawiązać komunikację równorzędną z tymi sieciami wirtualnymi. Aby uzyskać więcej informacji na temat wirtualnych sieci równorzędnych, zobacz [wirtualne sieci równorzędne](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview).
+Zależnie od zasad i ograniczeń, które mają być stosowane między różnymi sieciami wirtualnymi obsługującymi maszyny wirtualne z różnymi systemami SAP, należy nawiązać komunikację równorzędną z tymi sieciami wirtualnymi. Aby uzyskać więcej informacji na temat wirtualnych sieci równorzędnych, zobacz [wirtualne sieci równorzędne](../../../virtual-network/virtual-network-peering-overview.md).
 
 
 ## <a name="routing-in-azure"></a>Routing na platformie Azure
@@ -147,7 +148,7 @@ Domyślnie Routing przechodni nie działa w następujących scenariuszach:
 Istnieją trzy sposoby włączania routingu przechodniego w tych scenariuszach:
 
 - Zwrotny serwer proxy do przesyłania danych do i z. Na przykład F5 BIG-IP, NGINX z Traffic Manager wdrożoną w sieci wirtualnej platformy Azure, która łączy się z dużymi wystąpieniami HANA i lokalnymi jako wirtualną zaporą/rozwiązaniem routingu ruchu.
-- Używanie [reguł dołączenie iptables](http://www.linuxhomenetworking.com/wiki/index.php/Quick_HOWTO_%3a_Ch14_%3a_Linux_Firewalls_Using_iptables#.Wkv6tI3rtaQ) na maszynie wirtualnej z systemem Linux w celu włączenia routingu między lokalizacjami lokalnymi i jednostkami dużej instancji Hana lub między jednostkami dużych wystąpień usługi Hana w różnych regionach. Maszyna wirtualna z systemem dołączenie iptables musi zostać wdrożona w sieci wirtualnej platformy Azure, która łączy się z dużymi wystąpieniami HANA i lokalnymi. Należy odpowiednio zmienić rozmiar maszyny wirtualnej, dzięki czemu przepustowość sieci maszyny wirtualnej jest wystarczająca dla oczekiwanego ruchu sieciowego. Aby uzyskać szczegółowe informacje dotyczące przepustowości sieci maszyn wirtualnych, sprawdź [rozmiary artykułów maszyn wirtualnych z systemem Linux na platformie Azure](https://docs.microsoft.com/azure/virtual-machines/linux/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- Używanie [reguł dołączenie iptables](http://www.linuxhomenetworking.com/wiki/index.php/Quick_HOWTO_%3a_Ch14_%3a_Linux_Firewalls_Using_iptables#.Wkv6tI3rtaQ) na maszynie wirtualnej z systemem Linux w celu włączenia routingu między lokalizacjami lokalnymi i jednostkami dużej instancji Hana lub między jednostkami dużych wystąpień usługi Hana w różnych regionach. Maszyna wirtualna z systemem dołączenie iptables musi zostać wdrożona w sieci wirtualnej platformy Azure, która łączy się z dużymi wystąpieniami HANA i lokalnymi. Należy odpowiednio zmienić rozmiar maszyny wirtualnej, dzięki czemu przepustowość sieci maszyny wirtualnej jest wystarczająca dla oczekiwanego ruchu sieciowego. Aby uzyskać szczegółowe informacje dotyczące przepustowości sieci maszyn wirtualnych, sprawdź [rozmiary artykułów maszyn wirtualnych z systemem Linux na platformie Azure](../../linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 - [Zapora platformy Azure](https://azure.microsoft.com/services/azure-firewall/) to inne rozwiązanie umożliwiające bezpośrednie przesyłanie ruchu między jednostkami dużych wystąpień lokalnych i Hana. 
 
 Cały ruch tych rozwiązań jest kierowany za pośrednictwem sieci wirtualnej platformy Azure. w związku z tym ten ruch może być dodatkowo ograniczony przez urządzenia miękkie używane lub przez grupy zabezpieczeń sieci platformy Azure, dzięki czemu niektóre adresy IP lub zakresy adresów IP z lokalnego programu mogą być blokowane lub jawnie dozwolone dostęp do dużych wystąpień usługi HANA. 
@@ -156,7 +157,7 @@ Cały ruch tych rozwiązań jest kierowany za pośrednictwem sieci wirtualnej pl
 > Należy pamiętać, że implementacja i obsługa niestandardowych rozwiązań obejmujących urządzenia sieciowe innych firm lub dołączenie iptables nie są dostarczane przez firmę Microsoft. Pomoc techniczna musi być świadczona przez dostawcę używanego składnika lub integratora. 
 
 #### <a name="express-route-global-reach"></a>Global Reach trasy ekspresowej
-Firma Microsoft wprowadziła nową funkcję o nazwie [ExpressRoute Global REACH](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach). Global Reach można używać dla dużych wystąpień platformy HANA w dwóch scenariuszach:
+Firma Microsoft wprowadziła nową funkcję o nazwie [ExpressRoute Global REACH](../../../expressroute/expressroute-global-reach.md). Global Reach można używać dla dużych wystąpień platformy HANA w dwóch scenariuszach:
 
 - Włącz bezpośredni dostęp z zasobów lokalnych do jednostek dużego wystąpienia platformy HANA wdrożonych w różnych regionach
 - Włącz bezpośrednią komunikację między jednostkami dużej instancji HANA wdrożonymi w różnych regionach
@@ -174,7 +175,7 @@ W taki sam sposób, jak ExpressRoute Global Reach może służyć do łączenia 
 > [!IMPORTANT]  
 > Przepływ danych i przepływ sterowania ruchu sieciowego między różnymi dzierżawcami dużych wystąpień usługi HANA nie będą kierowane za pomocą sieci platformy Azure. W związku z tym nie można użyć funkcji platformy Azure ani urządzeń WUS, aby wymusić ograniczenia komunikacji między dwoma dzierżawcami dużych wystąpień HANA. 
 
-Aby uzyskać więcej informacji na temat pobierania ExpressRoute Global Reach, Przeczytaj dokument [łączenie sieci wirtualnej z dużymi wystąpieniami platformy Hana](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-connect-vnet-express-route).
+Aby uzyskać więcej informacji na temat pobierania ExpressRoute Global Reach, Przeczytaj dokument [łączenie sieci wirtualnej z dużymi wystąpieniami platformy Hana](./hana-connect-vnet-express-route.md).
 
 
 ## <a name="internet-connectivity-of-hana-large-instance"></a>Łączność internetowa z dużym wystąpieniem HANA
@@ -193,7 +194,7 @@ Aby zrealizować zestaw odzyskiwania po awarii, musisz mieć SHANA duże wystąp
 
 ![Sieć wirtualna połączona z sygnaturami dużych wystąpień platformy Azure w różnych regionach platformy Azure](./media/hana-overview-architecture/image8-multiple-regions.png)
 
-Na rysunku przedstawiono sposób, w jaki różne sieci wirtualne w obu regionach są podłączone do dwóch różnych obwodów usługi ExpressRoute, które są używane do łączenia się z SAP HANA na platformie Azure (duże wystąpienia) w obu regionach platformy Azure (szare linie). Przyczyną tych dwóch połączeń krzyżowych jest ochrona przed awarią MSEE po obu stronach. Przepływ komunikacji między dwiema sieciami wirtualnymi w dwóch regionach platformy Azure jest traktowany jak w przypadku [globalnej komunikacji równorzędnej](https://blogs.msdn.microsoft.com/azureedu/2018/04/24/how-to-setup-global-vnet-peering-in-azure/) dwóch sieci wirtualnych w dwóch różnych regionach (niebieska linia kropkowana). Gruba Czerwona linia zawiera opis połączenia z usługą ExpressRoute Global Reach, które umożliwia jednostkom dużych wystąpień usługi HANA dzierżawy w dwóch różnych regionach, aby komunikować się ze sobą. 
+Na rysunku przedstawiono sposób, w jaki różne sieci wirtualne w obu regionach są podłączone do dwóch różnych obwodów usługi ExpressRoute, które są używane do łączenia się z SAP HANA na platformie Azure (duże wystąpienia) w obu regionach platformy Azure (szare linie). Przyczyną tych dwóch połączeń krzyżowych jest ochrona przed awarią MSEE po obu stronach. Przepływ komunikacji między dwiema sieciami wirtualnymi w dwóch regionach platformy Azure jest traktowany jak w przypadku [globalnej komunikacji równorzędnej](/archive/blogs/azureedu/how-to-setup-global-vnet-peering-in-azure) dwóch sieci wirtualnych w dwóch różnych regionach (niebieska linia kropkowana). Gruba Czerwona linia zawiera opis połączenia z usługą ExpressRoute Global Reach, które umożliwia jednostkom dużych wystąpień usługi HANA dzierżawy w dwóch różnych regionach, aby komunikować się ze sobą. 
 
 > [!IMPORTANT] 
 > Jeśli użyto wielu obwodów usługi ExpressRoute, w celu zapewnienia prawidłowego routingu ruchu należy użyć ustawień protokołu BGP w zależności od ścieżki i preferencji lokalnych.

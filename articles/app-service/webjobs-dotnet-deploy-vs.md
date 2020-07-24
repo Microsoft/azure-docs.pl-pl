@@ -8,12 +8,12 @@ ms.custom: vs-azure
 ms.date: 02/18/2019
 ms.author: glenga
 ms.reviewer: david.ebbo;suwatch;pbatum;naren.soni
-ms.openlocfilehash: 971ab39ddf4b383f92f0cd81e5258ad357e76e99
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: cf2437443350cf9b21b6abc0d0dd1dbd5d22e41f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85857065"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083195"
 ---
 # <a name="develop-and-deploy-webjobs-using-visual-studio---azure-app-service"></a>Develop and deploy WebJobs using Visual Studio - Azure App Service (Tworzenie i wdrażanie zadań WebJob za pomocą programu Visual Studio — usługa Azure App Service)
 
@@ -225,7 +225,7 @@ Po [utworzeniu zadania WebJob na podstawie Azure Portal](webjobs-create.md)zosta
 
 ### <a name="cron-expressions"></a>Wyrażenia firmy CRONUS
 
-Zadania WebJob używają tych samych wyrażeń firmy CRONUS do planowania jako wyzwalacz czasomierza w Azure Functions. Aby dowiedzieć się więcej na temat pomocy technicznej firmy CRONUS, zobacz artykuł dotyczący [wyzwalacza czasomierza](../azure-functions/functions-bindings-timer.md#ncrontab-expressions).
+Zadania WebJob używają tych samych wyrażeń firmy CRONUS do planowania jako wyzwalacz czasomierza w Azure Functions. Aby dowiedzieć się więcej o pomocy technicznej firmy CRONUS, zobacz [wyzwalacz czasomierza dla Azure Functions](../azure-functions/functions-bindings-timer.md#ncrontab-expressions).
 
 [!INCLUDE [webjobs-cron-timezone-note](../../includes/webjobs-cron-timezone-note.md)]
 

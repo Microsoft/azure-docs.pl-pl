@@ -3,13 +3,14 @@ title: Szyfruj Źródło aplikacji w stanie spoczynku
 description: Szyfruj dane aplikacji w usłudze Azure Storage i wdróż je jako plik pakietu.
 ms.topic: article
 ms.date: 03/06/2020
-ms.openlocfilehash: 62179e900ace0d6d7b8b1f07e8f0ab685508f991
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6dfb56a5ef6b1ab3cfbd0762bf7816e37ce0aa39
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79408728"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081886"
 ---
-# <a name="encryption-at-rest-using-customer-managed-keys"></a>Szyfrowanie w spoczynku przy użyciu kluczy zarządzanych przez klienta
+# <a name="encrypt-your-application-data-at-rest-using-customer-managed-keys"></a>Szyfruj dane aplikacji w stanie spoczynku przy użyciu kluczy zarządzanych przez klienta
 
 Szyfrowanie danych aplikacji funkcji w spoczynku wymaga konta usługi Azure Storage i Azure Key Vault. Te usługi są używane podczas uruchamiania aplikacji z pakietu wdrożeniowego.
 

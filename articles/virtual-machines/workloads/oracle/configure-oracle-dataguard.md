@@ -14,18 +14,18 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogardle
-ms.openlocfilehash: 2b0b85792fe1266d2ec6478561193ef0c80ac98f
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: c6b064df1fe8943f9202446fb2857d50bcb4e0e1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86224302"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083382"
 ---
 # <a name="implement-oracle-data-guard-on-an-azure-linux-virtual-machine"></a>Implementowanie funkcji Oracle Data Guard na maszynie wirtualnej platformy Azure z systemem Linux 
 
 Interfejs wiersza polecenia platformy Azure umożliwia tworzenie zasobów Azure i zarządzanie nimi z poziomu wiersza polecenia lub skryptów. W tym artykule opisano, jak używać interfejsu wiersza polecenia platformy Azure do Oracle Database wdrażania bazy danych 12c Database z poziomu obrazu portalu Azure Marketplace. W tym artykule przedstawiono krok po kroku, jak zainstalować i skonfigurować funkcję ochrony danych na maszynie wirtualnej platformy Azure.
 
-Przed rozpoczęciem upewnij się, że jest zainstalowany interfejs wiersza polecenia platformy Azure. Aby uzyskać więcej informacji, zobacz [Przewodnik instalacji interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Przed rozpoczęciem upewnij się, że jest zainstalowany interfejs wiersza polecenia platformy Azure. Aby uzyskać więcej informacji, zobacz [Przewodnik instalacji interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
 
 ## <a name="prepare-the-environment"></a>Przygotowywanie środowiska
 ### <a name="assumptions"></a>Założenia
@@ -57,7 +57,7 @@ az group create --name myResourceGroup --location westus
 
 ### <a name="create-an-availability-set"></a>Tworzenie zestawu dostępności
 
-Tworzenie zestawu dostępności jest opcjonalne, ale zalecamy go. Aby uzyskać więcej informacji, zobacz [wytyczne dotyczące zestawów dostępności platformy Azure](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines).
+Tworzenie zestawu dostępności jest opcjonalne, ale zalecamy go. Aby uzyskać więcej informacji, zobacz [wytyczne dotyczące zestawów dostępności platformy Azure](../../windows/infrastructure-example.md).
 
 ```azurecli
 az vm availability-set create \

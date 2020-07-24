@@ -4,11 +4,12 @@ description: Samouczek platformy .NET umożliwia utworzenie na platformie Azure 
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: c7a64e708d860fe9e5832ad3f1375f41f9b86724
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 183f3b6e1231c843c04290024a89c270f0dd0026
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85340305"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083943"
 ---
 # <a name="net-multi-tier-application-using-azure-service-bus-queues"></a>Aplikacja wielowarstwowa platformy .NET używająca kolejek usługi Azure Service Bus
 
@@ -27,7 +28,7 @@ Dzięki temu samouczkowi będziesz w stanie utworzyć i uruchomić aplikację wi
 
 Poniższy zrzut ekranu przedstawia ukończoną aplikację.
 
-![][0]
+![Zrzut ekranu strony przesyłania aplikacji.][0]
 
 ## <a name="scenario-overview-inter-role-communication"></a>Omówienie scenariusza: komunikacja między rolami
 Aby przesłać zamówienie do przetworzenia, składnik interfejsu użytkownika frontonu działający w roli sieci Web musi współdziałać z logiką warstwy środkowej uruchomionej w roli procesu roboczego. W tym przykładzie do komunikacji między warstwami użyto komunikatów usługi Service Bus.
@@ -36,7 +37,7 @@ Korzystanie z komunikatów usługi Service Bus między warstwą sieci Web i wars
 
 Usługa Service Bus zapewnia dwie jednostki do obsługi komunikatów obsługiwanych przez brokera: kolejki i tematy. W przypadku kolejek każdy komunikat wysyłany do kolejki jest używany przez jednego odbiorcę. Tematy obsługują wzorzec publikowania/subskrypcji, w którym każdy opublikowany komunikat jest udostępniony dla subskrypcji zarejestrowanej w temacie. Każda subskrypcja logicznie zachowuje własną kolejkę komunikatów. Subskrypcje mogą być również konfigurowane przy użyciu reguł filtrowania, które ograniczają zestaw komunikatów przesyłanych do kolejki subskrypcji do tych, które są zgodne z filtrem. W poniższym przykładzie użyto kolejek usługi Service Bus.
 
-![][1]
+![Diagram przedstawiający komunikację między rolą sieci Web, Service Bus i rolą proces roboczy.][1]
 
 Ten mechanizm komunikacji ma kilka zalet w stosunku do komunikatów bezpośrednich:
 
@@ -44,7 +45,7 @@ Ten mechanizm komunikacji ma kilka zalet w stosunku do komunikatów bezpośredni
 * **Wyrównywanie obciążenia.** W wielu aplikacjach obciążenie systemu różni się w czasie, podczas gdy czas przetwarzania wymagany dla każdej jednostki pracy jest zwykle stały. Pośredniczenie między producentami a konsumentami komunikatów przy pomocy kolejki oznacza, że aplikacja odbierająca komunikaty (proces roboczy) musi być aprowizowana tylko na tyle, aby poradzić sobie ze średnim obciążeniem, a nie obciążeniem szczytowym. Głębokość kolejki rośnie i zmniejsza się w zależności od zmian obciążenia przychodzącego. To wpływa na rozmiar infrastruktury potrzebnej do obsługi obciążenia aplikacji, a więc bezpośrednio przekłada się na oszczędność pieniędzy.
 * **Równoważenie obciążenia.** W miarę wzrostu obciążenia można dodawać więcej procesów roboczych odczytujących z kolejki. Każdy komunikat jest przetwarzany tylko przez jeden z procesów roboczych. Ponadto równoważenie obciążenia oparte na ściąganiu pozwala optymalnie wykorzystać maszyny procesów roboczych, nawet jeżeli różnią się one pod względem mocy przetwarzania, ponieważ każda będzie ściągać komunikaty z własną maksymalną szybkością. Ten wzorzec jest często nazywany wzorcem *konkurujących konsumentów*.
   
-  ![][2]
+  ![Diagram przedstawiający komunikację między rolą sieci Web, Service Bus i dwoma rolami procesu roboczego.][2]
 
 W poniższych sekcjach omówiono kod, który implementuje tę architekturę.
 
@@ -66,24 +67,24 @@ Następnie dodaje się kod, który przesyła elementy do kolejki usługi Service
    W menu **Plik** programu Visual Studio kliknij pozycję **Nowy**, a następnie kliknij pozycję **Projekt**.
 2. W pozycji **Zainstalowane szablony** w obszarze **Visual C#** kliknij pozycję **Chmura**, a następnie kliknij pozycję **Usługa w chmurze Azure**. Nazwij projekt **MultiTierApp**. Następnie kliknij przycisk **OK**.
    
-   ![][9]
+   ![Zrzut ekranu okna dialogowego Nowy projekt z wybraną chmurą i Visual C# usługa w chmurze Azure wyróżnioną i pokreśloną na czerwono.][9]
 3. W okienku **Role** kliknij dwukrotnie pozycję **Role sieci Web ASP.NET**.
    
-   ![][10]
+   ![Zrzut ekranu przedstawiający okno dialogowe Nowa Microsoft Azure usługa w chmurze z wybraną rolą sieci Web ASP.NET i WebRole1 także wybrane.][10]
 4. Zatrzymaj kursor nad pozycją **WebRole1** w polu **Rozwiązania dla usług w chmurze Azure**, kliknij ikonę ołówka i zmień nazwę roli sieci Web na **FrontendWebRole**. Następnie kliknij przycisk **OK**. (Upewnij się, że wpisana nazwa to „Frontend”, pisana przez małe „e”, a nie „FrontEnd”.)
    
-   ![][11]
+   ![Zrzut ekranu przedstawiający okno dialogowe Nowa usługa w chmurze Microsoft Azure z nazwą rozwiązania o nazwie FrontendWebRole.][11]
 5. W oknie dialogowym **Nowy projekt ASP.NET** na liście **Wybierz szablon** kliknij pozycję **MVC**.
    
-   ![][12]
+   ![Screenshotof okno dialogowe Nowy projekt ASP.NET z wyróżnioną pozycją MVC i pokreślone na czerwono, a opcja Zmień uwierzytelnianie opisane na czerwono.][12]
 6. W tym samym oknie dialogowym **Nowy projekt ASP.NET** kliknij przycisk **Zmień uwierzytelnianie**. W oknie dialogowym **Zmienianie uwierzytelniania** upewnij się, że pole wyboru **Bez uwierzytelniania** jest zaznaczone, a następnie kliknij przycisk **OK**. W tym samouczku wdrożysz aplikację, która nie wymaga logowania użytkownika.
    
-    ![][16]
+    ![Zrzut ekranu okna dialogowego Zmienianie uwierzytelniania z wybraną opcją bez uwierzytelniania i wyróżnioną kolorem czerwonym.][16]
 7. W oknie dialogowym **Nowy projekt ASP.NET** kliknij przycisk **OK**, aby utworzyć projekt.
 8. W **Eksploratorze rozwiązań** w projekcie **FrontendWebRole** kliknij prawym przyciskiem myszy pozycję **Odwołania**, a następnie kliknij pozycję **Zarządzaj pakietami NuGet**.
 9. Kliknij kartę **Przeglądanie**, a następnie wyszukaj ciąg **WindowsAzure.ServiceBus**. Wybierz pakiet **WindowsAzure.ServiceBus**, kliknij pozycję **Zainstaluj** i zaakceptuj warunki użytkowania.
    
-   ![][13]
+   ![Zrzut ekranu przedstawiający okno dialogowe Zarządzanie pakietami NuGet z wyróżnioną pozycją WindowsAzure. ServiceBus i opcją instalacji podaną w kolorze czerwonym.][13]
    
    Zwróć uwagę na to, że pojawią się odwołania do wymaganych zestawów klientów i dodanych zostanie kilka nowych plików kodu.
 10. W **Eksploratorze rozwiązań** kliknij prawym przyciskiem myszy pozycję **Modele** i kliknij pozycję **Dodaj**, następnie kliknij pozycję **Klasa**. W okienku **Nazwa** wpisz nazwę **OnlineOrder.cs**. Następnie kliknij przycisk **Dodaj**.
@@ -165,16 +166,16 @@ W tej sekcji utworzysz różne strony, które będą wyświetlane przez Twoją a
 4. W menu **Kompilacja** kliknij pozycję **Kompiluj rozwiązanie**, aby przetestować dokładność pracy wykonanej do tej pory.
 5. Teraz utwórz widok dla metody `Submit()`, która została utworzona wcześniej. Kliknij prawym przyciskiem myszy w obrębie metody `Submit()` (przeciążenie metody `Submit()`, która nie przyjmuje żadnych parametrów), a następnie wybierz pozycję **Dodaj widok**.
    
-   ![][14]
+   ![Zrzut ekranu przedstawiający kod z fokusem na metodzie przesyłania i listy rozwijanej z wyróżnioną opcją Dodaj widok.][14]
 6. Zostanie wyświetlone okno dialogowe tworzenia widoku. Na liście **Szablony** wybierz pozycję **Utwórz**. Z listy **Klasa modelu** wybierz klasę **OnlineOrder**.
    
-   ![][15]
+   ![Zrzut ekranu okna dialogowego Dodawanie widoku z listami rozwijanymi szablonu i klasy modelu przedstawionymi w kolorze czerwonym.][15]
 7. Kliknij pozycję **Dodaj**.
 8. Teraz zmień nazwę wyświetlaną aplikacji. W **Eksploratorze rozwiązań** kliknij dwukrotnie plik **Views\Shared\\_Layout.cshtml**, aby otworzyć go w edytorze programu Visual Studio.
 9. Zamień wszystkie wystąpienia hasła **My ASP.NET Application** na hasło **Northwind Traders Products**.
 10. Usuń linki **Home**, **About** oraz **Contact**. Usuń wyróżniony kod:
     
-    ![][28]
+    ![Zrzut ekranu przedstawiający kod z trzema wierszami akcji H T M L z wyróżnionym kodem linku.][28]
 11. Na koniec zmodyfikuj stronę przesyłania w celu uwzględnienia niektórych informacji o kolejce. W **Eksploratorze rozwiązań** kliknij dwukrotnie plik **Views\Home\Submit.cshtml**, aby otworzyć go w edytorze programu Visual Studio. Dodaj następujący wiersz po pozycji `<h2>Submit</h2>`. Na razie pozycja `ViewBag.MessageCount` jest pusta. Wypełnisz ją później.
     
     ```html
@@ -182,7 +183,7 @@ W tej sekcji utworzysz różne strony, które będą wyświetlane przez Twoją a
     ```
 12. Twój interfejs użytkownika został zaimplementowany. Naciśnij klawisz **F5**, aby uruchomić aplikację i upewnić się, że jej wygląd jest zgodny z oczekiwaniami.
     
-    ![][17]
+    ![Zrzut ekranu strony przesyłania aplikacji.][17]
 
 ### <a name="write-the-code-for-submitting-items-to-a-service-bus-queue"></a>Pisanie kodu przesyłającego elementy do kolejki usługi Service Bus
 Teraz dodaj kod przesyłający elementy do kolejki. Najpierw utwórz klasę, która zawiera informacje o połączeniu kolejki usługi Service Bus. Następnie zainicjuj połączenie z pliku Global.aspx.cs. Na koniec zaktualizuj kod przesyłania, który został wcześniej utworzony w pliku HomeController.cs, aby rzeczywiście przesłać elementy do kolejki usługi Service Bus.
@@ -289,13 +290,13 @@ Teraz dodaj kod przesyłający elementy do kolejki. Najpierw utwórz klasę, kt�
        }
        else
        {
-           return View(order);
+           return View(order); 
        }
    }
    ```
 9. Możesz teraz ponownie uruchomić aplikację. Liczba komunikatów rośnie podczas każdego przesyłania zamówienia.
    
-   ![][18]
+   ![Zrzut ekranu strony przesyłania aplikacji z liczbą komunikatów zwiększoną do 1.][18]
 
 ## <a name="create-the-worker-role"></a>Tworzenie roli procesu roboczego
 Teraz utworzysz rolę procesu roboczego, która przetwarza zgłoszenia zamówień. W tym przykładzie użyto szablonu projektu programu Visual Studio **Proces roboczy z kolejką usługi Service Bus**. Wymagane poświadczenia zostały już uzyskane z portalu.
@@ -304,16 +305,16 @@ Teraz utworzysz rolę procesu roboczego, która przetwarza zgłoszenia zamówie�
 2. W **Eksploratorze rozwiązań** programu Visual Studio kliknij prawym przyciskiem myszy folder **Role** znajdujący się pod projektem **MultiTierApp**.
 3. Kliknij pozycję **Dodaj**, a następnie kliknij pozycję **Nowy projekt roli procesu roboczego**. Zostanie wyświetlone okno dialogowe **Dodawanie nowego projektu roli**.
    
-   ![][26]
+   ![Zrzut ekranu okienka Eksploratora Soultion z opcją nowy projekt roli proces roboczy i opcję Dodaj wyróżnioną.][26]
 4. W oknie dialogowym **Dodawanie nowego projektu roli** kliknij pozycję **Rola procesu roboczego z kolejką usługi Service Bus**.
    
-   ![][23]
+   ![Zrzut ekranu okna dialogowego Nowy projekt roli usługi AD z rolą proces roboczy z Service Busą opcją kolejki z wyróżnioną i pokreśloną kolorem czerwonym.][23]
 5. W polu **Nazwa** podaj nazwę projektu **OrderProcessingRole**. Następnie kliknij przycisk **Dodaj**.
 6. Skopiuj do schowka parametry połączenia uzyskane w kroku 9 sekcji „Tworzenie przestrzeni nazw usługi Service Bus”.
 7. W **Eksploratorze rozwiązań** kliknij prawym przyciskiem myszy rolę **OrderProcessingRole**, która została utworzona w kroku 5 (upewnij się, że klikasz rolę **OrderProcessingRole** w sekcji **Role**, a nie klasę). Następnie kliknij pozycję **Właściwości**.
 8. Na karcie **Ustawienia** okna dialogowego **Właściwości** kliknij wewnątrz pola **Wartość** dla pozycji **Microsoft.ServiceBus.ConnectionString**, a następnie wklej skopiowaną w kroku 6 wartość punktu końcowego.
    
-   ![][25]
+   ![Zrzut ekranu przedstawiający okno dialogowe właściwości z wybraną kartą Ustawienia i wiersz tabeli Microsoft. ServiceBus. ConnectionString wyróżniony kolorem czerwonym.][25]
 9. Utwórz klasę **OnlineOrder**, aby reprezentowała zamówienia w czasie ich przetwarzania z kolejki. Możesz ponownie użyć klasy, która została już utworzona. W **Eksploratorze rozwiązań** kliknij prawym przyciskiem myszy klasę **OrderProcessingRole** (kliknij prawym przyciskiem myszy ikonę klasy, a nie rolę). Kliknij pozycję **Dodaj**, a następnie kliknij pozycję **Istniejący element**.
 10. Przejdź do podfolderu **FrontendWebRole\Models**, a następnie kliknij dwukrotnie plik **OnlineOrder.cs**, aby dodać go do tego projektu.
 11. W pliku **WorkerRole.cs** zmień wartość zmiennej **QueueName** z `"ProcessingQueue"` na `"OrdersQueue"`, jak pokazano w poniższym kodzie.
@@ -338,9 +339,9 @@ Teraz utworzysz rolę procesu roboczego, która przetwarza zgłoszenia zamówie�
     ```
 14. Tworzenie aplikacji zostało zakończone. Możesz przetestować całą aplikację, klikając prawym przyciskiem myszy projekt MultiTierApp w Eksploratorze rozwiązań, wybierając opcję **Ustaw jako projekt startowy**, a następnie naciskając klawisz F5. Pamiętaj, że liczba komunikatów nie zwiększa się, ponieważ rola procesu roboczego przetwarza elementy z kolejki i oznacza je jako ukończone. Możesz wyświetlić dane wyjściowe śledzenia swojej roli procesu roboczego, wyświetlając interfejs użytkownika emulatora obliczeń platformy Azure. Możesz to zrobić, klikając prawym przyciskiem myszy ikonę emulatora w obszarze powiadomień na pasku zadań i wybierając pozycję **Pokaż interfejs użytkownika emulatora obliczeń**.
     
-    ![][19]
+    ![Zrzut ekranu przedstawiający elementy wyświetlane po kliknięciu ikony emulatora. Pokaż interfejs użytkownika emulatora obliczeń znajduje się na liście opcji.][19]
     
-    ![][20]
+    ![Zrzut ekranu przedstawiający okno dialogowe emulator obliczeń Microsoft Azure (Express).][20]
 
 ## <a name="next-steps"></a>Następne kroki
 Aby dowiedzieć się więcej na temat usługi Service Bus, zobacz następujące zasoby:  

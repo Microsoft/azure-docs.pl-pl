@@ -3,16 +3,16 @@ title: Dostawca rozwiązań w chmurze — Microsoft Commercial Marketplace
 description: Dowiedz się, jak sprzedawać oferty za pośrednictwem kanału partnera programów Microsoft Cloud Provider (CSP) w portalu komercyjnym.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
+ms.topic: article
 author: keferna
 ms.author: keferna
-ms.date: 04/16/2020
-ms.openlocfilehash: d6c3af312717627a1719c5f1029ae638e7d4f827
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 07/14/2020
+ms.openlocfilehash: 8ac69d7d611aa75584955ed6ed83ab79c70ed73a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86104439"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082813"
 ---
 # <a name="cloud-solution-provider-program"></a>Program dostawcy rozwiązań w chmurze
 
@@ -30,31 +30,31 @@ Następujące oferty mogą zostać sprzedane przez partnerów w programie CSP:
 - Aplikacje zarządzane
 
 > [!NOTE]
-> Kontenery i przenoszenie własnych licencji (BYOL) jednostek SKU maszyn wirtualnych są domyślnie sprzedawane przez partnerów w programie CSP.
+> Kontenery i przenoszenie własnych licencji (BYOL) plany maszyn wirtualnych są domyślnie sprzedawane przez partnerów w programie CSP.
 
-## <a name="how-to-configure-an-offering"></a>Jak skonfigurować ofertę
+## <a name="how-to-configure-an-offer"></a>Jak skonfigurować ofertę
 
-Ustawienie zgody programu CSP w programie jest konfigurowane w centrum partnerskim lub portal Cloud Partner środowisku tworzenia ofert. [Dowiedz się więcej na temat zmiany środowiska wydawcy](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/Cloud-Marketplace-In-Partner-Center/m-p/9738#M293).
+Skonfiguruj ustawienie zgody programu CSP w programie podczas tworzenia oferty w centrum partnerskim. [Dowiedz się więcej na temat zmiany środowiska wydawcy](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/Cloud-Marketplace-In-Partner-Center/m-p/9738#M293).
 
 ### <a name="partner-center-opt-in"></a>Zgoda na centrum partnerskie
 
-W centrum partnerskim można znaleźć możliwość skorzystania z modułu odbiorcy odsprzedawcy dostawcy CSP.
+W ramach modułu odbiorców odsprzedawcy dostawcy CSP dostępne są następujące czynności.
 
 ![Odbiorcy dostawcy CSP](media/marketplace-publishers-guide/csp-reseller-audience.png)
 
-W module odbiorców odsprzedawcy dostawcy CSP dostępne są trzy opcje do wyboru:
+Wybieraj spośród trzech opcji:
 
-- Opcja 1: każdy partner w programie CSP
-- Opcja dwie: określeni partnerzy w wybranym programie CSP
-- Opcja 3: brak partnerów w programie CSP
+1. Każdy partner w programie CSP.
+2. Wybrani partnerzy w wybranym programie dostawcy usług kryptograficznych.
+3. Brak partnerów w programie CSP.
 
-#### <a name="option-one-any-partner-in-the-csp-program"></a>Opcja 1: każdy partner w programie CSP
+#### <a name="option-1-any-partner-in-the-csp-program"></a>Opcja 1: każdy partner w programie CSP
 
 ![Każdy partner w programie CSP](media/marketplace-publishers-guide/csp-reseller-option-one.png)
 
  Po wybraniu tej opcji Wszyscy partnerzy w programie CSP mogą sprzedawać swoją ofertę klientom.
 
-#### <a name="option-two-specific-partners-in-the-csp-program-i-select"></a>Opcja dwie: określeni partnerzy w wybranym programie CSP
+#### <a name="option-2-specific-partners-in-the-csp-program-i-select"></a>Opcja 2: określeni partnerzy w wybranym programie CSP
 
 ![Określeni partnerzy w wybranym programie CSP](media/marketplace-publishers-guide/csp-reseller-option-two.png)
 
@@ -87,17 +87,11 @@ Jeśli aktualizujesz listę programu CSP dla już opublikowanej oferty, Dodaj do
 
 Jeśli masz ofertę, która ma już listę autoryzowanych partnerów i chcesz używać tej samej listy dla innej oferty, Użyj usługi **Import/Export**. Przejdź do oferty z listą CSP i wybierz pozycję **Eksportuj dostawców CSP**. Funkcja opracowuje plik CSV, który można zaimportować do innej oferty.
 
-#### <a name="option-three-no-partners-in-the-csp-program"></a>Opcja 3: brak partnerów w programie CSP
+#### <a name="option-3-no-partners-in-the-csp-program"></a>Opcja 3: brak partnerów w programie CSP
 
 ![Brak partnerów w programie CSP](media/marketplace-publishers-guide/csp-reseller-option-three.png)
 
 Wybranie tej opcji spowoduje rezygnację z korzystania z programu CSP. Ten wybór można zmienić w dowolnym momencie.
-
-### <a name="cloud-partner-portal-opt-in"></a>portal Cloud Partner zgodę
-
-W portal Cloud Partner, zgoda jest ustawiana na karcie Marketplace lub witrynie portalu. Możliwość wyboru określonych partnerów w programie CSP jest dostępna tylko w centrum partnerskim.
-
-![Możliwość korzystania z dostawcy usług kryptograficznych w programie CPP](media/marketplace-publishers-guide/csp-opt-in.png)
 
 ## <a name="deauthorize-partners-in-the-csp-program"></a>Cofanie autoryzacji partnerów w programie CSP
 
@@ -115,9 +109,6 @@ Jeśli partner w programie CSP nie sprzedał Twojego produktu klientom i chcesz 
 4. W przypadku **wybrania problemu, który najlepiej opisuje problem**, wybierz pozycję **Aktualizuj istniejącą ofertę**.
 5. Wybierz pozycję **dalej** , aby skierować do **strony szczegółów problemu** , aby wprowadzić więcej szczegółów dotyczących problemu.
 6. Użyj elementu **unautoryzuj dostawcę CSP** jako tytułu problemu i wypełnij pozostałe sekcje wymagane.
-
-
-
 
 ## <a name="navigate-between-options"></a>Przechodzenie między opcjami
 
@@ -175,19 +166,13 @@ Jeśli oferta jest obecnie **Opcja 3: brak partnerów w programie CSP**, możesz
 
 ## <a name="sharing-sales-and-support-materials-with-partners-in-the-csp-program"></a>Udostępnianie materiałów sprzedażowych i pomocy technicznej partnerom w programie CSP
 
-Aby ułatwić partnerom w programie dostawcy rozwiązań w chmurze najbardziej efektywne przedstawianie oferty i współpracę z Twoją organizacją, musisz przesłać materiały sprzedażowe i pomoc techniczna, które będą dostępne dla odsprzedawców. Te zasoby nie zostaną ujawnione klientom w witrynie sklepu Marketplace.
+Aby pomóc partnerom w programie dostawcy rozwiązań w chmurze, który najbardziej efektywnie reprezentuje ofertę i angażuje się z Twoją organizacją, musisz przesłać materiały sprzedażowe i pomoc techniczna, które będą dostępne dla odsprzedawców. Te zasoby nie zostaną ujawnione klientom w witrynie sklepu Marketplace.
 
 ### <a name="partner-center-csp-channel"></a>Kanał CSP Centrum partnerskiego
 
 W przypadku wybrania w kanale CSP w Centrum partnerskiego, wydawcy muszą wprowadzić adres URL, który hostuje odpowiednie materiały marketingowe i informacje kontaktowe kanału do kanału CSP w ramach modułu aukcji oferty:
 
 ![Informacje o zabezpieczeniach dostawcy CSP Centrum partnerskiego](media/marketplace-publishers-guide/pc-csp-channel.png)
-
-### <a name="cloud-partner-portal-csp-channel"></a>portal Cloud Partner kanał CSP
-
-W przypadku wybrania w portal Cloud Partner kanału dostawcy CSP wydawcy muszą wprowadzić adres URL, który hostuje odpowiednie materiały marketingowe i informacje kontaktowe kanału do kanału dostawcy CSP:
-
-![Informacje dodatkowe dotyczące portal Cloud Partner dostawcy usług kryptograficznych](media/marketplace-publishers-guide/cpp-csp-information.png)
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -3,11 +3,12 @@ title: Szacowanie kosztów planu zużycia w Azure Functions
 description: Dowiedz się, jak lepiej oszacować koszty, które mogą zostać naliczone podczas uruchamiania aplikacji funkcji w planie zużycia na platformie Azure.
 ms.date: 9/20/2019
 ms.topic: conceptual
-ms.openlocfilehash: 0e3177d7c65eb1624441427f123e6f95095bdbbd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 880d1c20c75ce297b556ac203e309e446227e97a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76963992"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083042"
 ---
 # <a name="estimating-consumption-plan-costs"></a>Szacowanie kosztów planu zużycia
 
@@ -15,8 +16,8 @@ Obecnie istnieją trzy typy planów hostingu dla aplikacji, która działa w Azu
 
 | Planowanie | Opis |
 | ---- | ----------- |
-| [**Wyrażon**](functions-scale.md#consumption-plan) | Opłata jest naliczana tylko za czas, w którym działa aplikacja funkcji. Ten plan obejmuje [bezpłatną][stronę cenową] dotacji dla każdej subskrypcji.|
-| [**Premium**](functions-scale.md#premium-plan) | Zapewnia te same funkcje i mechanizm skalowania co plan zużycia, ale z ulepszoną wydajnością i dostępem do sieci wirtualnej. Koszt jest określany na podstawie wybranej warstwy cenowej. Aby dowiedzieć się więcej, zobacz [Azure Functions plan Premium](functions-premium-plan.md). |
+| [**Zużycie**](functions-scale.md#consumption-plan) | Opłata jest naliczana tylko za czas, w którym działa aplikacja funkcji. Ten plan obejmuje [bezpłatną][stronę cenową] dotacji dla każdej subskrypcji.|
+| [**Tytułu**](functions-scale.md#premium-plan) | Zapewnia te same funkcje i mechanizm skalowania co plan zużycia, ale z ulepszoną wydajnością i dostępem do sieci wirtualnej. Koszt jest określany na podstawie wybranej warstwy cenowej. Aby dowiedzieć się więcej, zobacz [Azure Functions plan Premium](functions-premium-plan.md). |
 | [**Dedykowane (App Service)**](functions-scale.md#app-service-plan) <br/>(warstwa podstawowa lub wyższa) | Jeśli musisz uruchomić program na dedykowanych maszynach wirtualnych lub w izolacji, użyj niestandardowych obrazów lub chcesz użyć nadmiernej pojemności planu App Service. Stosuje [regularne rozliczanie planu App Service](https://azure.microsoft.com/pricing/details/app-service/). Koszt jest określany na podstawie wybranej warstwy cenowej.|
 
 Wybrano plan, który najlepiej obsługuje wymagania dotyczące wydajności i kosztów. Aby dowiedzieć się więcej, zobacz [Azure Functions skalowanie i hosting](functions-scale.md).
@@ -60,7 +61,7 @@ Następujące zachowania funkcji mogą mieć wpływ na czas wykonywania:
 
 ## <a name="view-execution-data"></a>Wyświetl dane wykonania
 
-Na [fakturze](/azure/billing/billing-download-azure-invoice)można wyświetlić dane związane z kosztami **całkowitych wykonań — funkcje** i **czas wykonywania**, a także rzeczywiste koszty rozliczane. Te dane faktury są jednak miesięczną sumą dla przeszłego okresu faktury. 
+Na [fakturze](../cost-management-billing/understand/download-azure-invoice.md)można wyświetlić dane związane z kosztami **całkowitych wykonań — funkcje** i **czas wykonywania**, a także rzeczywiste koszty rozliczane. Te dane faktury są jednak miesięczną sumą dla przeszłego okresu faktury. 
 
 Aby lepiej zrozumieć wpływ kosztów funkcji, możesz użyć Azure Monitor, aby wyświetlić metryki związane z kosztami, które są obecnie generowane przez aplikacje funkcji. Aby uzyskać te dane, można użyć narzędzia [Azure monitor Metrics Explorer](../azure-monitor/platform/metrics-getting-started.md) w [Azure Portal] lub interfejsie API REST.
 
@@ -205,7 +206,7 @@ performanceCounters
 
 Wyniki wyglądają podobnie jak w poniższym przykładzie:
 
-| Sygnatura czasowa \[ UTC\]          | name          | wartość       |
+| Sygnatura czasowa \[ UTC\]          | name          | value       |
 |----------------------------|---------------|-------------|
 | 9/12/2019, 1:05:14 \. 947 am | Bajty prywatne | 209 932 288 |
 | 9/12/2019, 1:06:14 \. 994 am | Bajty prywatne | 212 189 184 |
@@ -237,4 +238,4 @@ customMetrics
 > [Dowiedz się więcej o monitorowaniu aplikacji funkcji](functions-monitoring.md)
 
 [Strona cennika]:https://azure.microsoft.com/pricing/details/functions/
-[Azure Portal]: https://portal.azure.com
+[Witryna Azure Portal]: https://portal.azure.com

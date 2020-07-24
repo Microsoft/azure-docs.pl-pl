@@ -13,11 +13,12 @@ ms.workload: infrastructure
 ms.date: 02/11/2020
 ms.author: bentrin
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fd1267711871b3e55f1a6229e46ae27b360322f6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: db51ec682f43366f5637c461e3fe4037dec8e364
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77617039"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87085218"
 ---
 # <a name="sap-hana-on-azure-large-instance-migration-to-azure-virtual-machines"></a>SAP HANA migracji dużych wystąpień platformy Azure do platformy Azure Virtual Machines
 W tym artykule opisano możliwe scenariusze wdrażania dużych wystąpień platformy Azure i zawarto podejście do planowania i migracji z zminimalizowanym przestojem przejścia
@@ -40,7 +41,7 @@ W tym artykule opisano następujące założenia:
 - Klienci sprawdziły plan projektu i migracji.
 - Zaplanuj maszynę wirtualną odzyskiwania po awarii wraz z lokacją główną.  Klienci nie mogą używać elementu HLI jako węzła DR dla lokacji głównej działającej na maszynach wirtualnych po migracji.
 - Klienci skopiowali wymagane pliki kopii zapasowej do docelowych maszyn wirtualnych w oparciu o wymagania dotyczące możliwości odzyskiwania i zgodności firmy. Za pomocą kopii zapasowych dostępnych maszyn wirtualnych umożliwia odzyskiwanie do punktu w czasie w okresie przejściowym.
-- W przypadku HSR HA klienci muszą skonfigurować i skonfigurować urządzenie STONITH na SAP HANA przewodniki o wysokiej dostępności dla [SLES](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker) i [RHEL](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-pacemaker).  Nie jest to wstępnie skonfigurowane, jak w przypadku programu.
+- W przypadku HSR HA klienci muszą skonfigurować i skonfigurować urządzenie STONITH na SAP HANA przewodniki o wysokiej dostępności dla [SLES](./high-availability-guide-suse-pacemaker.md) i [RHEL](./high-availability-guide-rhel-pacemaker.md).  Nie jest to wstępnie skonfigurowane, jak w przypadku programu.
 - To podejście migracji nie obejmuje jednostek SKU Optane z konfiguracją.
 
 ## <a name="deployment-scenarios"></a>Scenariusze wdrażania
@@ -48,21 +49,21 @@ W poniższej tabeli zestawiono typowe modele wdrażania z klientami.  Możliwa j
 
 | Identyfikator scenariusza | HLI — scenariusz | Przeprowadzić migrację do maszyny wirtualnej Verbatim? | Dyskusji |
 | --- | --- | --- | --- |
-| 1 | [Pojedynczy węzeł z jednym identyfikatorem SID](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#single-node-with-one-sid) | Tak | - |
-| 2 | [Pojedynczy węzeł z MCOS](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#single-node-mcos) | Tak | - |
-| 3 | [Pojedynczy węzeł z odzyskiwaniem po awarii przy użyciu replikacji magazynu](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#single-node-with-dr-using-storage-replication) | Nie | Replikacja magazynu nie jest dostępna w przypadku platformy wirtualnej platformy Azure, Zmień bieżące rozwiązanie DR na HSR lub Backup/Restore |
-| 4 | [Pojedynczy węzeł z DR (Multipurpose) przy użyciu replikacji magazynu](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#single-node-with-dr-multipurpose-using-storage-replication) | Nie | Replikacja magazynu nie jest dostępna w przypadku platformy wirtualnej platformy Azure, Zmień bieżące rozwiązanie DR na HSR lub Backup/Restore |
-| 5 | [HSR z STONITHem w celu zapewnienia wysokiej dostępności](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#hsr-with-stonith-for-high-availability) | Tak | Brak wstępnie skonfigurowanych SBD dla docelowych maszyn wirtualnych.  Wybierz i Wdróż rozwiązanie STONITH.  Możliwe opcje: Agent ogrodzenia platformy Azure (obsługiwany zarówno w [RHEL](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-pacemaker), [SLES](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker)), SBD |
-| 6 | [HA z HSR, DR z replikacją magazynu](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#high-availability-with-hsr-and-dr-with-storage-replication) | Nie | Zastąp replikację magazynu dla potrzeb odzyskiwania po awarii przy użyciu usługi HSR lub tworzenia kopii zapasowej/przywracania |
-| 7 | [Przełączenie w tryb failover hosta (1 + 1)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#host-auto-failover-11) | Tak | Korzystanie z usługi ANF dla magazynu udostępnionego z maszynami wirtualnymi platformy Azure |
-| 8 | [Skalowanie w poziomie przy użyciu rezerwy](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#scale-out-with-standby) | Tak | 4HANA M128s, M416s, M416ms VM przy użyciu ANF tylko dla magazynu |
-| 9 | [Skalowanie w poziomie bez rezerwy](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#scale-out-without-standby) | Tak | BW/4HANA z M128s, M416s, M416ms VM (z lub bez użycia ANF for Storage) |
-| 10 | [Skalowanie za pomocą odzyskiwania po awarii przy użyciu replikacji magazynu](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#scale-out-with-dr-using-storage-replication) | Nie | Zastąp replikację magazynu dla potrzeb odzyskiwania po awarii przy użyciu usługi HSR lub tworzenia kopii zapasowej/przywracania |
-| 11 | [Pojedynczy węzeł z odzyskiwaniem po awarii przy użyciu HSR](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#single-node-with-dr-using-hsr) | Tak | - |
-| 12 | [HSR z jednym węzłem do odzyskiwania po awarii (koszt zoptymalizowany)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#single-node-hsr-to-dr-cost-optimized) | Tak | - |
-| 13 | [HA i DR z HSR](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#high-availability-and-disaster-recovery-with-hsr) | Tak | - |
-| 14 | [HA i DR z HSR (zoptymalizowane pod kątem kosztów)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#high-availability-and-disaster-recovery-with-hsr-cost-optimized) | Tak | - |
-| 15 | [Skalowanie w poziomie za pomocą narzędzia DR using HSR](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#scale-out-with-dr-using-hsr) | Tak | BW/4HANA z M128s. M416s, M416ms maszyny wirtualne (z użyciem programu ANF for Storage lub bez niego) |
+| 1 | [Pojedynczy węzeł z jednym identyfikatorem SID](./hana-supported-scenario.md#single-node-with-one-sid) | Tak | - |
+| 2 | [Pojedynczy węzeł z MCOS](./hana-supported-scenario.md#single-node-mcos) | Tak | - |
+| 3 | [Pojedynczy węzeł z odzyskiwaniem po awarii przy użyciu replikacji magazynu](./hana-supported-scenario.md#single-node-with-dr-using-storage-replication) | Nie | Replikacja magazynu nie jest dostępna w przypadku platformy wirtualnej platformy Azure, Zmień bieżące rozwiązanie DR na HSR lub Backup/Restore |
+| 4 | [Pojedynczy węzeł z DR (Multipurpose) przy użyciu replikacji magazynu](./hana-supported-scenario.md#single-node-with-dr-multipurpose-using-storage-replication) | Nie | Replikacja magazynu nie jest dostępna w przypadku platformy wirtualnej platformy Azure, Zmień bieżące rozwiązanie DR na HSR lub Backup/Restore |
+| 5 | [HSR z STONITHem w celu zapewnienia wysokiej dostępności](./hana-supported-scenario.md#hsr-with-stonith-for-high-availability) | Tak | Brak wstępnie skonfigurowanych SBD dla docelowych maszyn wirtualnych.  Wybierz i Wdróż rozwiązanie STONITH.  Możliwe opcje: Agent ogrodzenia platformy Azure (obsługiwany zarówno w [RHEL](./high-availability-guide-rhel-pacemaker.md), [SLES](./high-availability-guide-suse-pacemaker.md)), SBD |
+| 6 | [HA z HSR, DR z replikacją magazynu](./hana-supported-scenario.md#high-availability-with-hsr-and-dr-with-storage-replication) | Nie | Zastąp replikację magazynu dla potrzeb odzyskiwania po awarii przy użyciu usługi HSR lub tworzenia kopii zapasowej/przywracania |
+| 7 | [Przełączenie w tryb failover hosta (1 + 1)](./hana-supported-scenario.md#host-auto-failover-11) | Tak | Korzystanie z usługi ANF dla magazynu udostępnionego z maszynami wirtualnymi platformy Azure |
+| 8 | [Skalowanie w poziomie przy użyciu rezerwy](./hana-supported-scenario.md#scale-out-with-standby) | Tak | 4HANA M128s, M416s, M416ms VM przy użyciu ANF tylko dla magazynu |
+| 9 | [Skalowanie w poziomie bez rezerwy](./hana-supported-scenario.md#scale-out-without-standby) | Tak | BW/4HANA z M128s, M416s, M416ms VM (z lub bez użycia ANF for Storage) |
+| 10 | [Skalowanie za pomocą odzyskiwania po awarii przy użyciu replikacji magazynu](./hana-supported-scenario.md#scale-out-with-dr-using-storage-replication) | Nie | Zastąp replikację magazynu dla potrzeb odzyskiwania po awarii przy użyciu usługi HSR lub tworzenia kopii zapasowej/przywracania |
+| 11 | [Pojedynczy węzeł z odzyskiwaniem po awarii przy użyciu HSR](./hana-supported-scenario.md#single-node-with-dr-using-hsr) | Tak | - |
+| 12 | [HSR z jednym węzłem do odzyskiwania po awarii (koszt zoptymalizowany)](./hana-supported-scenario.md#single-node-hsr-to-dr-cost-optimized) | Tak | - |
+| 13 | [HA i DR z HSR](./hana-supported-scenario.md#high-availability-and-disaster-recovery-with-hsr) | Tak | - |
+| 14 | [HA i DR z HSR (zoptymalizowane pod kątem kosztów)](./hana-supported-scenario.md#high-availability-and-disaster-recovery-with-hsr-cost-optimized) | Tak | - |
+| 15 | [Skalowanie w poziomie za pomocą narzędzia DR using HSR](./hana-supported-scenario.md#scale-out-with-dr-using-hsr) | Tak | BW/4HANA z M128s. M416s, M416ms maszyny wirtualne (z użyciem programu ANF for Storage lub bez niego) |
 
 
 ## <a name="source-hli-planning"></a>Planowanie źródła (HLI)
@@ -72,7 +73,7 @@ Podczas dołączania serwera z systemem, zarówno do zarządzania usługami firm
 Dobrym sposobem działania jest uporządkowanego zawartości bazy danych, tak aby niechciane, nieaktualne dane lub stare dzienniki nie były migrowane do nowej bazy danych.  Dla gospodarstw domowych zazwyczaj polega na usunięciu lub archiwizowaniu starych, wygasłych lub nieaktywnych danych.  Te akcje dotyczące "higieny danych" należy przetestować w systemach nieprodukcyjnych w celu sprawdzenia poprawności przycinania danych przed użyciem produkcji.
 
 ### <a name="allow-network-connectivity-for-new-vms-and-or-virtual-network"></a>Zezwalaj na łączność sieciową dla nowych maszyn wirtualnych i sieci wirtualnych 
-W przypadku wdrażania klienta, Sieć została skonfigurowana w oparciu o informacje opisane w artykule [SAP HANA (duże wystąpienia) Architektura sieci](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-network-architecture). Ponadto Routing ruchu sieciowego odbywa się w sposób opisany w sekcji "Routing na platformie Azure".
+W przypadku wdrażania klienta, Sieć została skonfigurowana w oparciu o informacje opisane w artykule [SAP HANA (duże wystąpienia) Architektura sieci](./hana-network-architecture.md). Ponadto Routing ruchu sieciowego odbywa się w sposób opisany w sekcji "Routing na platformie Azure".
 - W przypadku konfigurowania nowej maszyny wirtualnej jako lokalizacji docelowej migracji, jeśli znajduje się ona w istniejącej sieci wirtualnej z zakresami adresów IP, które są już dozwolone do łączenia z elementem HLI, nie jest wymagana żadna dodatkowa aktualizacja łączności.
 - Jeśli nowa maszyna wirtualna platformy Azure zostanie umieszczona w nowym Microsoft Azure Virtual Network, może znajdować się w innym regionie i nawiązać połączenie równorzędne z istniejącą siecią wirtualną, klucz usługi ExpressRoute i identyfikator zasobu z oryginalnej metody aprowizacji jest używany do zezwalania na dostęp dla tego nowego zakresu adresów IP sieci wirtualnej.  Koordynuj za pomocą usługi Microsoft Service Management, aby umożliwić łączność z siecią wirtualną.  Uwaga: aby zminimalizować opóźnienie sieci między warstwami aplikacji i bazy danych, zarówno warstwy aplikacji, jak i bazy danych muszą znajdować się w tej samej sieci wirtualnej.  
 
@@ -106,7 +107,7 @@ Zaplanuj nową infrastrukturę, aby zadbać o to, aby to zrobić, zapewnią koni
 Bieżący region wdrażania serwerów aplikacji SAP zwykle znajduje się w bliskiej bliskości ze skojarzonym HLIs.  HLIs są jednak oferowane w mniejszej liczbie lokalizacji niż dostępne regiony platformy Azure.  Podczas migrowania fizycznego elementu HLI do maszyny wirtualnej platformy Azure jest to również dobry czas na "precyzyjne dostosowanie" odległości wszystkich powiązanych usług na potrzeby optymalizacji wydajności.  Podczas tego należy wziąć pod uwagę, że w wybranym regionie są wszystkie wymagane zasoby.  Na przykład dostępność określonej rodziny maszyn wirtualnych lub oferowanie stref platformy Azure w celu skonfigurowania wysokiej dostępności.
 
 ### <a name="virtual-network"></a>Sieć wirtualna 
-Klienci muszą zdecydować, czy uruchomić nową bazę danych HANA w istniejącej sieci wirtualnej, czy utworzyć nową.  Podstawowym czynnikiem decydującym jest bieżący układ sieci dla oprogramowania SAP.  Ponadto, gdy infrastruktura przechodzi z jednej strefy do wdrożenia z dwoma strefami i używa PPG, nakłada zmiany architektury. Aby uzyskać więcej informacji, zobacz artykuł [Azure PPG w celu uzyskania optymalnego opóźnienia sieci przy użyciu aplikacji SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-proximity-placement-scenarios).   
+Klienci muszą zdecydować, czy uruchomić nową bazę danych HANA w istniejącej sieci wirtualnej, czy utworzyć nową.  Podstawowym czynnikiem decydującym jest bieżący układ sieci dla oprogramowania SAP.  Ponadto, gdy infrastruktura przechodzi z jednej strefy do wdrożenia z dwoma strefami i używa PPG, nakłada zmiany architektury. Aby uzyskać więcej informacji, zobacz artykuł [Azure PPG w celu uzyskania optymalnego opóźnienia sieci przy użyciu aplikacji SAP](./sap-proximity-placement-scenarios.md).   
 
 ### <a name="security"></a>Zabezpieczenia
 Czy nowa usługa SAP HANA VM wyląduje w nowej lub istniejącej sieci wirtualnej/podsieci, reprezentuje nową, krytyczną usługę biznesową, która wymaga ochrony.  Kontrola dostępu zgodna z zasadami zabezpieczeń informacji o firmie powinna zostać oceniona i wdrożona dla tej nowej klasy usług.
@@ -114,8 +115,8 @@ Czy nowa usługa SAP HANA VM wyląduje w nowej lub istniejącej sieci wirtualnej
 ### <a name="vm-sizing-recommendation"></a>Zalecenie dotyczące zmiany wielkości maszyny wirtualnej
 Ta migracja jest również okazja do odpowiedniego rozmiaru aparatu obliczeniowego platformy HANA.  Jeden z nich może korzystać z [widoków systemu](https://help.sap.com/viewer/7c78579ce9b14a669c1f3295b0d8ca16/Cloud/3859e48180bb4cf8a207e15cf25a7e57.html) Hana w połączeniu z platformą Hana Studio, aby zrozumieć użycie zasobów systemowych, co pozwala na prawidłowe ustalanie wielkości wydatków.
 
-### <a name="storage"></a>Magazyn 
-Wydajność magazynu to jeden z czynników wpływających na środowisko użytkownika aplikacji SAP.  Na podstawie danej jednostki SKU maszyny wirtualnej jest publikowany minimalny układ magazynu [SAP HANA konfigurację magazynu maszyn wirtualnych platformy Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage). Zalecamy przejrzenie tych minimalnych wartości i porównanie z istniejącymi statystykami systemu HLI w celu zapewnienia odpowiedniej pojemności i wydajności operacji we/wy dla nowej maszyny wirtualnej platformy HANA.
+### <a name="storage"></a>Storage 
+Wydajność magazynu to jeden z czynników wpływających na środowisko użytkownika aplikacji SAP.  Na podstawie danej jednostki SKU maszyny wirtualnej jest publikowany minimalny układ magazynu [SAP HANA konfigurację magazynu maszyn wirtualnych platformy Azure](./hana-vm-operations-storage.md). Zalecamy przejrzenie tych minimalnych wartości i porównanie z istniejącymi statystykami systemu HLI w celu zapewnienia odpowiedniej pojemności i wydajności operacji we/wy dla nowej maszyny wirtualnej platformy HANA.
 
 Jeśli skonfigurujesz PPG dla nowej maszyny wirtualnej HANA i skojarzonych z nią serwerów, Prześlij bilet pomocy technicznej w celu sprawdzenia i sprawdzenia wspólnej lokalizacji magazynu i maszyny wirtualnej. Ponieważ może zajść konieczność zmiany rozwiązania do tworzenia kopii zapasowych, należy również oglądany koszt magazynu, aby uniknąć niespodziewanych wydatków operacyjnych.
 
@@ -123,13 +124,13 @@ Jeśli skonfigurujesz PPG dla nowej maszyny wirtualnej HANA i skojarzonych z ni�
 Przy użyciu opcji HLI replikacja magazynu została udostępniona jako opcja domyślna dla odzyskiwania po awarii. Ta funkcja nie jest opcją domyślną dla SAP HANA na maszynie wirtualnej platformy Azure. Weź pod uwagę HSR, tworzenie kopii zapasowej/przywracanie lub inne obsługiwane rozwiązania spełniające Twoje wymagania biznesowe.
 
 ### <a name="availability-sets-availability-zones-and-proximity-placement-groups"></a>Zestawy dostępności, Strefy dostępności i grupy umieszczania zbliżeniowe 
-Aby skrócić odległość między warstwą aplikacji i SAP HANA, aby zachować co najmniej opóźnienie sieci, nową maszynę wirtualną bazy danych i bieżące serwery aplikacji SAP należy umieścić w PPG. Zapoznaj się z [grupą umieszczania w sąsiedztwie](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-proximity-placement-scenarios) , aby dowiedzieć się, jak zestaw dostępności platformy Azure i strefy dostępności pracy z PPG dla wdrożeń SAP
+Aby skrócić odległość między warstwą aplikacji i SAP HANA, aby zachować co najmniej opóźnienie sieci, nową maszynę wirtualną bazy danych i bieżące serwery aplikacji SAP należy umieścić w PPG. Zapoznaj się z [grupą umieszczania w sąsiedztwie](./sap-proximity-placement-scenarios.md) , aby dowiedzieć się, jak zestaw dostępności platformy Azure i strefy dostępności pracy z PPG dla wdrożeń SAP
 Jeśli elementy docelowe systemu HANA są wdrażane w więcej niż jednej strefie platformy Azure, klienci powinni mieć jasny widok profilu opóźnienia wybranych stref. Rozmieszczenie składników systemu SAP jest optymalne w odniesieniu do proximal odległości między aplikacją SAP a bazą danych.  [Narzędzie Test opóźnienia strefy dostępności](https://github.com/Azure/SAP-on-Azure-Scripts-and-Utilities/tree/master/AvZone-Latency-Test) domeny publicznej pomaga ułatwić pomiar.  
 
 
 ### <a name="backup-strategy"></a>Strategia tworzenia kopii zapasowych
 Wielu klientów korzysta już z rozwiązań do tworzenia kopii zapasowych innych firm, SAP HANA w dniu HLI.  W takim przypadku należy skonfigurować tylko dodatkową chronioną bazę danych maszyny wirtualnej i platformy HANA.  Bieżące zadania tworzenia kopii zapasowej w postaci nieplanowanej są teraz niezaplanowane, jeśli komputer jest likwidowany po migracji.
-Azure Backup SAP HANA na maszynie wirtualnej jest teraz ogólnie dostępna.  Zobacz te linki, aby uzyskać szczegółowe informacje na temat [tworzenia kopii](https://docs.microsoft.com/azure/backup/backup-azure-sap-hana-database)zapasowych, [przywracania](https://docs.microsoft.com/azure/backup/sap-hana-db-restore)i [zarządzania](https://docs.microsoft.com/azure/backup/sap-hana-db-manage) SAP HANA kopii zapasowych na maszynach wirtualnych platformy Azure.
+Azure Backup SAP HANA na maszynie wirtualnej jest teraz ogólnie dostępna.  Zobacz te linki, aby uzyskać szczegółowe informacje na temat [tworzenia kopii](../../../backup/backup-azure-sap-hana-database.md)zapasowych, [przywracania](../../../backup/sap-hana-db-restore.md)i [zarządzania](../../../backup/sap-hana-db-manage.md) SAP HANA kopii zapasowych na maszynach wirtualnych platformy Azure.
 
 ### <a name="dr-strategy"></a>Strategia odzyskiwania po awarii
 Jeśli cele poziomu usług uwzględniają dłuższy czas odzyskiwania, prosta kopia zapasowa do magazynu obiektów blob i przywracania w miejscu lub przywrócenie nowej maszyny wirtualnej jest najprostszą i tańszą strategią odzyskiwania po awarii.  
@@ -196,5 +197,5 @@ Ponieważ serwery maszyn wirtualnych są postawiliśmy i są likwidowane, subskr
 
 ## <a name="next-steps"></a>Następne kroki
 Zobacz następujące artykuły:
-- [SAP HANA konfiguracje i operacje infrastruktury na platformie Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations).
-- [Obciążenia SAP na platformie Azure: planowanie i wdrażanie listy kontrolnej](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-deployment-checklist).
+- [SAP HANA konfiguracje i operacje infrastruktury na platformie Azure](./hana-vm-operations.md).
+- [Obciążenia SAP na platformie Azure: planowanie i wdrażanie listy kontrolnej](./sap-deployment-checklist.md).

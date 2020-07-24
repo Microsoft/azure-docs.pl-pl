@@ -5,24 +5,24 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 07/10/2020
+ms.date: 07/16/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 78c400ffc6a84696a82c219294f133b729754259
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 3bddfe22f70c1044ca02fb41a1959884f41797bb
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86262030"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083552"
 ---
-# <a name="connect-with-the-windows-desktop-client"></a>Łączenie się z klientem klasycznym systemu Windows
+# <a name="connect-with-the-windows-desktop-client---fall-2019"></a>Połącz się z klientem pulpitu systemu Windows — jesień 2019
 
 > Dotyczy: Windows 7, Windows 10 i Windows 10 IoT Enterprise
 
 >[!IMPORTANT]
 >Ta zawartość dotyczy wersji 2019, która nie Azure Resource Manager obsługuje obiektów pulpitu wirtualnego systemu Windows. Jeśli próbujesz zarządzać Azure Resource Manager obiektami pulpitu wirtualnego systemu Windows wprowadzonymi w ramach aktualizacji wiosną 2020, zobacz [ten artykuł](../connect-windows-7-10.md).
 
-Możesz uzyskać dostęp do zasobów pulpitu wirtualnego systemu Windows na urządzeniach z systemem Windows 7, Windows 10 i Windows 10 IoT Enterprise przy użyciu klienta klasycznego systemu Windows.
+Możesz uzyskać dostęp do zasobów pulpitu wirtualnego systemu Windows na urządzeniach z systemem Windows 7, Windows 10 i Windows 10 IoT Enterprise przy użyciu klienta klasycznego systemu Windows. Klient nie obsługuje systemu Windows 8 ani Windows 8.1.
 
 >[!NOTE]
 >Klient systemu Windows automatycznie domyślnie przyjmowana jest wersja 2019 pulpitu wirtualnego systemu Windows. Jeśli jednak klient wykryje, że użytkownik ma także zasoby Azure Resource Manager, automatycznie doda zasoby lub powiadomi użytkownika, że są one dostępne.
@@ -66,7 +66,7 @@ Istnieją dwa sposoby subskrybowania obszaru roboczego. Klient może próbować 
      - Pulpit wirtualny systemu Windows 2019:`https://rdweb.wvd.microsoft.com/api/feeddiscovery/webfeeddiscovery.aspx`
      - Windows Virtual Desktop wiosna 2020:`https://rdweb.wvd.microsoft.com/api/arm/feeddiscovery`
    - Jeśli zamiast tego używasz pola **e-mail** , wprowadź swój adres e-mail. Oznacza to, że klient może wyszukać adres URL skojarzony z Twoim adresem e-mail, jeśli administrator skonfigurował [odnajdywanie poczty e-mail](/windows-server/remote/remote-desktop-services/rds-email-discovery).
-3. Wybierz pozycję **Dalej**.
+3. Wybierz przycisk **Dalej**.
 4. Po wyświetleniu monitu zaloguj się przy użyciu konta użytkownika.
 5. Zasoby powinny być wyświetlane w centrum połączeń pogrupowane według obszaru roboczego.
 

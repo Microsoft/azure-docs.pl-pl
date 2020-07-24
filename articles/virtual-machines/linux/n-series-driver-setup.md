@@ -8,12 +8,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/09/2019
 ms.author: vikancha
-ms.openlocfilehash: 1d463242c923d766b500c1ede796e399e7af9c54
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4a6bf0499eb9ed6700111918c416f118414ae895
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84735935"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87085467"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Instalowanie sterowników NVIDIA GPU na maszynach wirtualnych serii N z systemem Linux
 
@@ -21,7 +21,7 @@ Aby skorzystać z możliwości procesora GPU dla maszyn wirtualnych serii N plat
 
 W przypadku wybrania opcji ręcznego instalowania sterowników procesora GPU w tym artykule przedstawiono obsługiwane dystrybucje, sterowniki oraz kroki instalacji i weryfikacji. Informacje o ręcznej instalacji sterownika są również dostępne dla [maszyn wirtualnych z systemem Windows](../windows/n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-Aby poznać specyfikacje maszyn wirtualnych z serii N, pojemność magazynu i szczegóły dysku, zobacz [rozmiary maszyn wirtualnych GPU z systemem Linux](sizes-gpu.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
+Aby poznać specyfikacje maszyn wirtualnych z serii N, pojemność magazynu i szczegóły dysku, zobacz [rozmiary maszyn wirtualnych GPU z systemem Linux](../sizes-gpu.md?toc=/azure/virtual-machines/linux/toc.json). 
 
 [!INCLUDE [virtual-machines-n-series-linux-support](../../../includes/virtual-machines-n-series-linux-support.md)]
 
@@ -355,7 +355,7 @@ Następnie utwórz wpis dla skryptu aktualizacji w programie, `/etc/rc.d/rc3.d` 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 
 * Można ustawić tryb trwałości przy użyciu `nvidia-smi` , aby dane wyjściowe polecenia były szybsze, gdy zachodzi potrzeba zazapytania o karty. Aby ustawić tryb trwałości, wykonaj `nvidia-smi -pm 1` . Należy pamiętać, że jeśli maszyna wirtualna jest ponownie uruchamiana, ustawienie Tryb zostanie wysunięte. Zawsze możesz wykonać skrypty dla ustawienia Tryb, które ma być wykonywane po uruchomieniu.
-* Jeśli sterowniki NVIDIA CUDA zostały zaktualizowane do najnowszej wersji i wyszukiwanie łączności RDMA nie działa dłużej, należy [ponownie zainstalować sterowniki RDMA](https://docs.microsoft.com/azure/virtual-machines/linux/n-series-driver-setup#rdma-network-connectivity) w celu ponownego nawiązania połączenia. 
+* Jeśli sterowniki NVIDIA CUDA zostały zaktualizowane do najnowszej wersji i wyszukiwanie łączności RDMA nie działa dłużej, należy [ponownie zainstalować sterowniki RDMA](#rdma-network-connectivity) w celu ponownego nawiązania połączenia. 
 
 ## <a name="next-steps"></a>Następne kroki
 

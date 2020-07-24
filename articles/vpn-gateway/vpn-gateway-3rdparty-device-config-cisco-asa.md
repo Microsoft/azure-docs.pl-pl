@@ -7,28 +7,26 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 10/19/2018
 ms.author: yushwang
-ms.openlocfilehash: ec370ca3aa8d89111dcb4737701c7ea58cd48195
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f693f6a40b87d024430c7626736fab0d0a032238
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84986097"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082005"
 ---
 # <a name="sample-configuration-cisco-asa-device-ikev2no-bgp"></a>Przykładowa konfiguracja: urządzenie Cisco ASA (IKEv2/No BGP)
 Ten artykuł zawiera przykładowe konfiguracje do łączenia urządzeń Cisco adaptacyjnego urządzenia zabezpieczeń (ASA) z bramami sieci VPN platformy Azure. Przykład dotyczy urządzeń Cisco ASA z uruchomioną IKEv2 bez Border Gateway Protocol (BGP). 
 
 ## <a name="device-at-a-glance"></a>Szybkie urządzenie
 
-|                        |                                   |
-| ---                    | ---                               |
-| Dostawca urządzenia          | Cisco                             |
-| Model urządzenia           | ASA                               |
-| Wersja docelowa         | 8,4 i nowsze                     |
-| Przetestowany model           | ASA 5505                          |
-| Przetestowana wersja         | 9,2                               |
-| Wersja IKE            | IKEv2                             |
-| BGP                    | Nie                                |
-| Typ bramy sieci VPN platformy Azure | Brama sieci VPN oparta na trasach           |
-|                        |                                   |
+* Dostawca urządzenia: **Cisco**
+* Model urządzenia: **ASA**           
+* Wersja docelowa: **8,4 i nowsza**
+* Testowany model: **ASA 5505**
+* Przetestowana wersja: **9,2**             
+* Wersja protokołu IKE: **IKEv2**                  
+* BGP: **nie**      
+* Typ bramy sieci VPN platformy Azure: **Brama sieci VPN oparta na trasach**
 
 > [!NOTE]
 > Przykładowa konfiguracja łączy urządzenie Cisco ASA z bramą sieci VPN **opartą na trasach** platformy Azure. Połączenie używa niestandardowych zasad protokołu IPsec/IKE z opcją **UsePolicyBasedTrafficSelectors** , zgodnie z opisem w [tym artykule](vpn-gateway-connect-multiple-policybased-rm-ps.md).

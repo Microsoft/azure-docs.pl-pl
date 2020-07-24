@@ -5,11 +5,12 @@ ms.assetid: 4444dbf7-363c-47e2-b24a-dbd45cb08491
 ms.topic: article
 ms.date: 07/06/2016
 ms.custom: seodec18
-ms.openlocfilehash: 1295080d0eec7a4e88029cdadd85863f5f40d034
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c1b0ce62905424032c2100a1a032fa43ba97578f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74689246"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87084861"
 ---
 # <a name="restore-an-app-in-azure"></a>Przywracanie aplikacji na platformie Azure
 W tym artykule pokazano, jak przywrócić aplikację w [Azure App Service](../app-service/overview.md) , której kopię zapasową utworzono wcześniej (zobacz [Tworzenie kopii zapasowej aplikacji na platformie Azure](manage-backup.md)). Możesz przywrócić swoją aplikację ze swoimi połączonymi bazami danych na żądanie do poprzedniego stanu lub utworzyć nową aplikację na podstawie kopii zapasowych oryginalnej aplikacji. Azure App Service obsługuje następujące bazy danych na potrzeby tworzenia kopii zapasowych i przywracania:
@@ -28,14 +29,14 @@ Przywracanie z kopii zapasowych jest dostępne dla aplikacji działających w wa
     ![Wybierz pozycję Przywróć teraz][ChooseRestoreNow]
 2. Na stronie **przywracanie** najpierw wybierz źródło kopii zapasowej.
    
-    ![](./media/web-sites-restore/021ChooseSource1.png)
+    ![Zrzut ekranu pokazujący, gdzie wybrać źródło kopii zapasowej.](./media/web-sites-restore/021ChooseSource1.png)
    
     Opcja **kopia zapasowa aplikacji** zawiera wszystkie istniejące kopie zapasowe bieżącej aplikacji. można je łatwo wybrać.
     Opcja **magazynu** umożliwia wybranie dowolnego pliku zip kopii zapasowej z dowolnego istniejącego konta usługi Azure Storage i kontenera w ramach subskrypcji.
     Jeśli próbujesz przywrócić kopię zapasową innej aplikacji, użyj opcji **magazynu** .
 3. Następnie określ miejsce docelowe przywracania aplikacji w **miejscu docelowym przywracania**.
    
-    ![](./media/web-sites-restore/022ChooseDestination1.png)
+    ![Zrzut ekranu pokazujący, gdzie należy określić miejsce docelowe przywracania aplikacji.](./media/web-sites-restore/022ChooseDestination1.png)
    
    > [!WARNING]
    > W przypadku wybrania opcji **Zastąp**wszystkie istniejące dane w bieżącej aplikacji zostaną wymazane i zastąpione. Przed kliknięciem przycisku **OK**upewnij się, że jest dokładnie to, co chcesz zrobić.
@@ -76,12 +77,12 @@ Na stronie Szczegóły są wyświetlane dostępne informacje związane z operacj
 
 ## <a name="automate-with-scripts"></a>Automatyzowanie przy użyciu skryptów
 
-Zarządzanie tworzeniem kopii zapasowych za pomocą skryptów można zautomatyzować przy użyciu [interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli) lub [Azure PowerShell](/powershell/azure/overview).
+Zarządzanie tworzeniem kopii zapasowych za pomocą skryptów można zautomatyzować przy użyciu [interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli) lub [Azure PowerShell](/powershell/azure/).
 
 Aby zapoznać się z przykładami, zobacz:
 
 - [Przykłady interfejsu wiersza polecenia platformy Azure](samples-cli.md)
-- [Przykłady programu Azure PowerShell](samples-powershell.md)
+- [Przykłady Azure PowerShell](samples-powershell.md)
 
 <!-- ## Next Steps
 You can backup and restore App Service apps using REST API. -->

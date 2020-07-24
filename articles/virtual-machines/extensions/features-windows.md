@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: akjosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0ff4fb08b1e627184760bb0a33797b2a324d4c55
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: c28fe96fe88a3b0744aaad72d49e8e2f52912fb6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045913"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082634"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Rozszerzenia i funkcje maszyny wirtualnej dla systemu Windows
 
@@ -35,7 +35,7 @@ Ten artykuł zawiera Omówienie rozszerzeń maszyn wirtualnych, wymagania wstęp
 Dostępne są różne rozszerzenia maszyn wirtualnych platformy Azure z konkretnym przypadkiem użycia. Oto niektóre przykłady:
 
 - Zastosuj konfiguracje żądanego stanu programu PowerShell do maszyny wirtualnej z rozszerzeniem DSC dla systemu Windows. Aby uzyskać więcej informacji, zobacz [rozszerzenie konfiguracji żądanego stanu platformy Azure](dsc-overview.md).
-- Skonfiguruj monitorowanie maszyny wirtualnej przy użyciu rozszerzenia maszyny wirtualnej agenta Log Analytics. Aby uzyskać więcej informacji, zobacz [łączenie maszyn wirtualnych platformy Azure z dziennikami Azure monitor](../../log-analytics/log-analytics-azure-vm-extension.md).
+- Skonfiguruj monitorowanie maszyny wirtualnej przy użyciu rozszerzenia maszyny wirtualnej agenta Log Analytics. Aby uzyskać więcej informacji, zobacz [łączenie maszyn wirtualnych platformy Azure z dziennikami Azure monitor](../../azure-monitor/learn/quick-collect-azurevm.md).
 - Skonfiguruj maszynę wirtualną platformy Azure przy użyciu Chef. Aby uzyskać więcej informacji, zobacz [Automatyzowanie wdrożenia maszyny wirtualnej platformy Azure za pomocą Chef](../../chef/chef-automation.md).
 - Skonfiguruj monitorowanie infrastruktury platformy Azure przy użyciu rozszerzenia usługi Datadog. Aby uzyskać więcej informacji, zobacz [blog usługi Datadog](https://www.datadoghq.com/blog/introducing-azure-monitoring-with-one-click-datadog-deployment/).
 
@@ -65,18 +65,18 @@ Niektóre rozszerzenia nie są obsługiwane przez wszystkie systemów operacyjny
 
 #### <a name="network-access"></a>Dostęp do sieci
 
-Pakiety rozszerzeń są pobierane z repozytorium rozszerzeń usługi Azure Storage, a operacje przekazywania stanu rozszerzenia są ogłaszane w usłudze Azure Storage. Jeśli używasz [obsługiwanej](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support) wersji agentów, nie musisz zezwalać na dostęp do usługi Azure Storage w regionie maszyny wirtualnej, ponieważ może on używać agenta do przekierowywania komunikacji do kontrolera sieci szkieletowej platformy Azure na potrzeby komunikacji agenta (HostGAPlugin funkcję za pośrednictwem kanału uprzywilejowanego w prywatnym IP [168.63.129.16](https://docs.microsoft.com/azure/virtual-network/what-is-ip-address-168-63-129-16)). Jeśli korzystasz z nieobsługiwanej wersji agenta, musisz zezwolić na dostęp wychodzący do usługi Azure Storage w tym regionie z maszyny wirtualnej.
+Pakiety rozszerzeń są pobierane z repozytorium rozszerzeń usługi Azure Storage, a operacje przekazywania stanu rozszerzenia są ogłaszane w usłudze Azure Storage. Jeśli używasz [obsługiwanej](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support) wersji agentów, nie musisz zezwalać na dostęp do usługi Azure Storage w regionie maszyny wirtualnej, ponieważ może on używać agenta do przekierowywania komunikacji do kontrolera sieci szkieletowej platformy Azure na potrzeby komunikacji agenta (HostGAPlugin funkcję za pośrednictwem kanału uprzywilejowanego w prywatnym IP [168.63.129.16](../../virtual-network/what-is-ip-address-168-63-129-16.md)). Jeśli korzystasz z nieobsługiwanej wersji agenta, musisz zezwolić na dostęp wychodzący do usługi Azure Storage w tym regionie z maszyny wirtualnej.
 
 > [!IMPORTANT]
 > Jeśli zablokowano dostęp do usługi *168.63.129.16* za pomocą zapory gościa lub serwera proxy, rozszerzenia nie powiodą się od powyższych. Porty 80, 443 i 32526 są wymagane.
 
-Agentów można używać tylko do pobierania pakietów rozszerzeń i stanu raportowania. Jeśli na przykład instalacja rozszerzenia wymaga pobrania skryptu z witryny GitHub (skrypt niestandardowy) lub wymaga dostępu do usługi Azure Storage (Azure Backup), wówczas konieczne będzie otwarcie dodatkowej zapory/portów sieciowych grup zabezpieczeń. Różne rozszerzenia mają różne wymagania, ponieważ są one aplikacjami w ich własnym zakresie. W przypadku rozszerzeń, które wymagają dostępu do usługi Azure Storage lub Azure Active Directory, można zezwolić na dostęp za pomocą [tagów usługi Azure sieciowej grupy zabezpieczeń](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) do magazynu lub usługi azureactivedirectory.
+Agentów można używać tylko do pobierania pakietów rozszerzeń i stanu raportowania. Jeśli na przykład instalacja rozszerzenia wymaga pobrania skryptu z witryny GitHub (skrypt niestandardowy) lub wymaga dostępu do usługi Azure Storage (Azure Backup), wówczas konieczne będzie otwarcie dodatkowej zapory/portów sieciowych grup zabezpieczeń. Różne rozszerzenia mają różne wymagania, ponieważ są one aplikacjami w ich własnym zakresie. W przypadku rozszerzeń, które wymagają dostępu do usługi Azure Storage lub Azure Active Directory, można zezwolić na dostęp za pomocą [tagów usługi Azure sieciowej grupy zabezpieczeń](../../virtual-network/security-overview.md#service-tags) do magazynu lub usługi azureactivedirectory.
 
 Agent gościa systemu Windows nie ma obsługi serwera proxy, aby przekierowywać żądania ruchu agenta przez, co oznacza, że Agent gościa systemu Windows będzie zależeć od niestandardowego serwera proxy (jeśli istnieje), aby uzyskać dostęp do zasobów w Internecie lub na hoście za pośrednictwem protokołu IP 168.63.129.16.
 
 ## <a name="discover-vm-extensions"></a>Odkryj rozszerzenia maszyn wirtualnych
 
-Wielu różnych rozszerzeń maszyny wirtualnej można używać z maszynami wirtualnymi platformy Azure. Aby wyświetlić pełną listę, użyj polecenie [Get-AzVMExtensionImage](https://docs.microsoft.com/powershell/module/az.compute/get-azvmextensionimage). Poniższy przykład wyświetla listę wszystkich dostępnych rozszerzeń w lokalizacji *zachodniej* :
+Wielu różnych rozszerzeń maszyny wirtualnej można używać z maszynami wirtualnymi platformy Azure. Aby wyświetlić pełną listę, użyj polecenie [Get-AzVMExtensionImage](/powershell/module/az.compute/get-azvmextensionimage). Poniższy przykład wyświetla listę wszystkich dostępnych rozszerzeń w lokalizacji *zachodniej* :
 
 ```powershell
 Get-AzVmImagePublisher -Location "WestUS" | `
@@ -92,7 +92,7 @@ Poniższe metody mogą służyć do uruchamiania rozszerzenia dla istniejącej m
 
 ### <a name="powershell"></a>PowerShell
 
-Istnieje kilka poleceń programu PowerShell do uruchamiania indywidualnych rozszerzeń. Aby wyświetlić listę, użyj [poleceń Get-Command](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/get-command) i Filter on *Extension*:
+Istnieje kilka poleceń programu PowerShell do uruchamiania indywidualnych rozszerzeń. Aby wyświetlić listę, użyj [poleceń Get-Command](/powershell/module/microsoft.powershell.core/get-command) i Filter on *Extension*:
 
 ```powershell
 Get-Command Set-Az*Extension* -Module Az.Compute
@@ -127,7 +127,7 @@ Set-AzVMCustomScriptExtension -ResourceGroupName "myResourceGroup" `
     -Run "Create-File.ps1" -Location "West US"
 ```
 
-W poniższym przykładzie rozszerzenie dostępu do maszyny wirtualnej służy do resetowania hasła administracyjnego maszyny wirtualnej z systemem Windows do tymczasowego hasła. Aby uzyskać więcej informacji na temat rozszerzenia dostępu do maszyny wirtualnej, zobacz [resetowanie pulpit zdalny usługi na maszynie wirtualnej z systemem Windows](../windows/reset-rdp.md). Po uruchomieniu tego ustawienia należy zresetować hasło przy pierwszym logowaniu:
+W poniższym przykładzie rozszerzenie dostępu do maszyny wirtualnej służy do resetowania hasła administracyjnego maszyny wirtualnej z systemem Windows do tymczasowego hasła. Aby uzyskać więcej informacji na temat rozszerzenia dostępu do maszyny wirtualnej, zobacz [resetowanie pulpit zdalny usługi na maszynie wirtualnej z systemem Windows](../troubleshooting/reset-rdp.md). Po uruchomieniu tego ustawienia należy zresetować hasło przy pierwszym logowaniu:
 
 ```powershell
 $cred=Get-Credential
@@ -137,10 +137,10 @@ Set-AzVMAccessExtension -ResourceGroupName "myResourceGroup" -VMName "myVM" -Nam
     -Password $cred.GetNetworkCredential().Password -typeHandlerVersion "2.0"
 ```
 
-`Set-AzVMExtension`Polecenie może służyć do uruchamiania dowolnego rozszerzenia maszyny wirtualnej. Aby uzyskać więcej informacji, zobacz temat [Set-AzVMExtension Reference](https://docs.microsoft.com/powershell/module/az.compute/set-azvmextension).
+`Set-AzVMExtension`Polecenie może służyć do uruchamiania dowolnego rozszerzenia maszyny wirtualnej. Aby uzyskać więcej informacji, zobacz temat [Set-AzVMExtension Reference](/powershell/module/az.compute/set-azvmextension).
 
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Witryna Azure Portal
 
 Rozszerzenia maszyn wirtualnych można stosować do istniejącej maszyny wirtualnej za pomocą Azure Portal. Wybierz maszynę wirtualną w portalu, wybierz pozycję **rozszerzenia**, a następnie wybierz pozycję **Dodaj**. Wybierz odpowiednie rozszerzenie z listy dostępnych rozszerzeń i postępuj zgodnie z instrukcjami wyświetlanymi w kreatorze.
 
@@ -262,12 +262,12 @@ Agenci i rozszerzenia korzystają z tego samego mechanizmu aktualizacji. Niektó
 
 Gdy aktualizacja jest dostępna, jest zainstalowana na maszynie wirtualnej tylko w przypadku zmiany rozszerzeń, a inne zmiany modelu maszyny wirtualnej, takie jak:
 
-- Dyski z danymi
+- Dyski danych
 - Rozszerzenia
 - Kontener diagnostyki rozruchu
 - Wpisy tajne systemu operacyjnego gościa
 - Rozmiar maszyny wirtualnej
-- Profil sieciowy
+- Profil sieci
 
 Wydawcy udostępniają aktualizacje regionom w różnym czasie, więc możliwe jest posiadanie maszyn wirtualnych w różnych regionach w różnych wersjach.
 
@@ -315,7 +315,7 @@ Aby uzyskać najnowsze poprawki błędów wersji, zdecydowanie zaleca się, aby 
 
 #### <a name="identifying-if-the-extension-is-set-with-autoupgrademinorversion-on-a-vm"></a>Określanie, czy rozszerzenie jest ustawione na włączoną flagą autoupgrademinorversion na maszynie wirtualnej
 
-Jeśli rozszerzenie zostało udostępnione za pomocą elementu "włączoną flagą autoupgrademinorversion", można je zobaczyć z modelu maszyny wirtualnej. Aby sprawdzić, użyj polecenie [Get-AzVm](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) i podaj nazwę grupy zasobów i maszyny wirtualnej w następujący sposób:
+Jeśli rozszerzenie zostało udostępnione za pomocą elementu "włączoną flagą autoupgrademinorversion", można je zobaczyć z modelu maszyny wirtualnej. Aby sprawdzić, użyj polecenie [Get-AzVm](/powershell/module/az.compute/get-azvm) i podaj nazwę grupy zasobów i maszyny wirtualnej w następujący sposób:
 
 ```powerShell
  $vm = Get-AzVm -ResourceGroupName "myResourceGroup" -VMName "myVM"
@@ -371,7 +371,7 @@ Poniższe kroki rozwiązywania problemów dotyczą wszystkich rozszerzeń maszyn
 
 ### <a name="view-extension-status"></a>Wyświetl stan rozszerzenia
 
-Po uruchomieniu rozszerzenia maszyny wirtualnej na maszynie wirtualnej Użyj polecenie [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) , aby przywrócić stan rozszerzenia. *Stany podstanów [0]* pokazują, że inicjowanie obsługi rozszerzenia zakończyło się pomyślnie, co oznacza, że zostało pomyślnie wdrożone na maszynie wirtualnej, ale wykonanie rozszerzenia wewnątrz maszyny wirtualnej nie powiodło się, *podstanów [1]*.
+Po uruchomieniu rozszerzenia maszyny wirtualnej na maszynie wirtualnej Użyj polecenie [Get-AzVM](/powershell/module/az.compute/get-azvm) , aby przywrócić stan rozszerzenia. *Stany podstanów [0]* pokazują, że inicjowanie obsługi rozszerzenia zakończyło się pomyślnie, co oznacza, że zostało pomyślnie wdrożone na maszynie wirtualnej, ale wykonanie rozszerzenia wewnątrz maszyny wirtualnej nie powiodło się, *podstanów [1]*.
 
 ```powershell
 Get-AzVM -ResourceGroupName "myResourceGroup" -VMName "myVM" -Status
@@ -407,7 +407,7 @@ Stan wykonania rozszerzenia można również znaleźć w Azure Portal. Aby wyśw
 
 ### <a name="rerun-vm-extensions"></a>Uruchom ponownie rozszerzenia maszyn wirtualnych
 
-Mogą wystąpić sytuacje, w których rozszerzenie maszyny wirtualnej musi zostać ponownie uruchomione. Możesz ponownie uruchomić rozszerzenie, usuwając je, a następnie uruchamiając ponownie rozszerzenie z wybraną metodą wykonywania. Aby usunąć rozszerzenie, użyj polecenie [Remove-AzVMExtension](https://docs.microsoft.com/powershell/module/az.compute/Remove-AzVMExtension) w następujący sposób:
+Mogą wystąpić sytuacje, w których rozszerzenie maszyny wirtualnej musi zostać ponownie uruchomione. Możesz ponownie uruchomić rozszerzenie, usuwając je, a następnie uruchamiając ponownie rozszerzenie z wybraną metodą wykonywania. Aby usunąć rozszerzenie, użyj polecenie [Remove-AzVMExtension](/powershell/module/az.compute/remove-azvmextension) w następujący sposób:
 
 ```powershell
 Remove-AzVMExtension -ResourceGroupName "myResourceGroup" -VMName "myVM" -Name "myExtensionName"

@@ -3,13 +3,14 @@ title: Centra zadań w Durable Functions — Azure
 description: Dowiedz się, co to jest centrum zadań w Durable Functions rozszerzeniu Azure Functions. Dowiedz się, jak skonfigurować centra zadań.
 author: cgillum
 ms.topic: conceptual
-ms.date: 11/03/2019
+ms.date: 07/14/2020
 ms.author: azfuncdf
-ms.openlocfilehash: 427ab6c4e0e769ab881af0af3023d514c1b092c6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: afee79aecaad97ec4b441df0758166073b2413cf
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81604610"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083110"
 ---
 # <a name="task-hubs-in-durable-functions-azure-functions"></a>Centra zadań w Durable Functions (Azure Functions)
 
@@ -127,6 +128,19 @@ public static async Task<HttpResponseMessage> Run(
 > Poprzedni przykład w języku C# jest przeznaczony dla Durable Functions 2. x. W przypadku Durable Functions 1. x należy użyć `DurableOrchestrationContext` zamiast `IDurableOrchestrationContext` . Aby uzyskać więcej informacji o różnicach między wersjami, zobacz artykuł dotyczący [wersji Durable Functions](durable-functions-versions.md) .
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
+
+Właściwość centrum zadań w `function.json` pliku jest ustawiana za pośrednictwem ustawienia aplikacji:
+
+```json
+{
+    "name": "input",
+    "taskHub": "%MyTaskHub%",
+    "type": "orchestrationClient",
+    "direction": "in"
+}
+```
+
+# <a name="python"></a>[Python](#tab/python)
 
 Właściwość centrum zadań w `function.json` pliku jest ustawiana za pośrednictwem ustawienia aplikacji:
 

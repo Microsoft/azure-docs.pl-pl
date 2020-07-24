@@ -7,11 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 06/18/2019
 ms.author: rajanaki
-ms.openlocfilehash: a411fc9a95bef595a8fc49cad77189bb88fb7661
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 77dc21b4a04ec5de440b1a17da4747a3dcc711f9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84699638"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083722"
 ---
 # <a name="remove-servers-and-disable-protection"></a>Usuwanie serwerów i wyłączanie ochrony
 
@@ -168,11 +169,11 @@ Hosty funkcji Hyper-V, które nie są zarządzane przez program VMM, są zbieran
    - **Wyłącz replikację i Usuń (zalecane)** — ta opcja powoduje usunięcie zreplikowanego elementu z Azure Site Recovery a replikacja dla maszyny zostanie zatrzymana. Konfiguracja replikacji na lokalnej maszynie wirtualnej zostanie oczyszczona, a Site Recovery rozliczenia dla tego chronionego serwera zostanie zatrzymana.
    - **Usuń** — ta opcja powinna być używana tylko wtedy, gdy środowisko źródłowe zostało usunięte lub jest niedostępne (niepołączone). Spowoduje to usunięcie zreplikowanego elementu z Azure Site Recovery (rozliczenia są zatrzymane). Konfiguracja replikacji na lokalnej maszynie wirtualnej **nie zostanie** wyczyszczona. 
 
- > [!NOTE]
-     > W przypadku wybrania opcji **Usuń** uruchom następujący zestaw skryptów, aby wyczyścić ustawienia replikacji lokalnego serwera funkcji Hyper-V.
+    > [!NOTE]
+    > W przypadku wybrania opcji **Usuń** uruchom następujący zestaw skryptów, aby wyczyścić ustawienia replikacji lokalnego serwera funkcji Hyper-V.
 
-> [!NOTE]
-> Jeśli maszyna wirtualna została już przełączona w tryb failover i działa na platformie Azure, należy pamiętać, że wyłączenie ochrony nie powoduje usunięcia/wpływu na maszynę wirtualną w trybie failover.
+    > [!NOTE]
+    > Jeśli maszyna wirtualna została już przełączona w tryb failover i działa na platformie Azure, należy pamiętać, że wyłączenie ochrony nie powoduje usunięcia/wpływu na maszynę wirtualną w trybie failover.
 
 1. Aby usunąć replikację maszyny wirtualnej na źródłowym serwerze hosta funkcji Hyper-V. Zastąp SQLVM1 nazwą swojej maszyny wirtualnej i uruchom skrypt z administracyjnego programu PowerShell
 
@@ -195,8 +196,11 @@ Hosty funkcji Hyper-V, które nie są zarządzane przez program VMM, są zbieran
      > W przypadku wybrania opcji **Usuń** należy TUN następujące skrypty, aby wyczyścić ustawienia replikacji lokalnego serwera programu VMM.
 3. Uruchom ten skrypt na źródłowym serwerze programu VMM, używając programu PowerShell (wymagane są uprawnienia administratora) z konsoli programu VMM. Zastąp symbol zastępczy **SQLVM1** nazwą swojej maszyny wirtualnej.
 
-        $vm = get-scvirtualmachine -Name "SQLVM1"
-        Set-SCVirtualMachine -VM $vm -ClearDRProtection
+    ```powershell
+    $vm = get-scvirtualmachine -Name "SQLVM1"
+    Set-SCVirtualMachine -VM $vm -ClearDRProtection
+    ```
+
 4. Powyższe kroki wyczyściją ustawienia replikacji na serwerze programu VMM. Aby zatrzymać replikację maszyny wirtualnej uruchomionej na serwerze hosta funkcji Hyper-V, Uruchom ten skrypt. Zastąp SQLVM1 nazwą swojej maszyny wirtualnej i host01.contoso.com nazwą serwera hosta funkcji Hyper-V.
 
 ```powershell
@@ -219,17 +223,21 @@ Hosty funkcji Hyper-V, które nie są zarządzane przez program VMM, są zbieran
 
 3. Uruchom ten skrypt na źródłowym serwerze programu VMM, używając programu PowerShell (wymagane są uprawnienia administratora) z konsoli programu VMM. Zastąp symbol zastępczy **SQLVM1** nazwą swojej maszyny wirtualnej.
 
-        $vm = get-scvirtualmachine -Name "SQLVM1"
-        Set-SCVirtualMachine -VM $vm -ClearDRProtection
+    ```powershell
+    $vm = get-scvirtualmachine -Name "SQLVM1"
+    Set-SCVirtualMachine -VM $vm -ClearDRProtection
+    ```
+
 4. Na pomocniczym serwerze programu VMM Uruchom ten skrypt, aby wyczyścić ustawienia dla pomocniczej maszyny wirtualnej:
 
-        $vm = get-scvirtualmachine -Name "SQLVM1"
-        Remove-SCVirtualMachine -VM $vm -Force
+    ```powershell
+    $vm = get-scvirtualmachine -Name "SQLVM1"
+    Remove-SCVirtualMachine -VM $vm -Force
+    ```
+
 5. Na serwerze pomocniczym programu VMM Odśwież maszyny wirtualne na serwerze hosta funkcji Hyper-V, aby ponownie wykryć dodatkową maszynę wirtualną w konsoli programu VMM.
 6. Powyższe kroki wyczyściją ustawienia replikacji na serwerze programu VMM. Jeśli chcesz zatrzymać replikację maszyny wirtualnej, uruchom poniższy skrypt jako podstawową i pomocniczą maszynę wirtualną. Zastąp SQLVM1 nazwą swojej maszyny wirtualnej.
 
-        Remove-VMReplication –VMName “SQLVM1”
-
-
-
-
+    ```powershell
+    Remove-VMReplication –VMName "SQLVM1"
+    ```

@@ -6,11 +6,12 @@ ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
 ms.custom: tracking-python
-ms.openlocfilehash: dd98d27f5a14d284174dd779ae20b29f534920b0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b6d8ca41c56239bc994b34119600dfa9db60ada6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84559952"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083093"
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Powiązania usługi Azure Table Storage dla Azure Functions
 
@@ -139,7 +140,7 @@ namespace FunctionAppCloudTable2
 }
 ```
 
-Aby uzyskać więcej informacji na temat korzystania z chmury, zobacz [Rozpoczynanie pracy z usługą Azure Table Storage](../cosmos-db/table-storage-how-to-use-dotnet.md).
+Aby uzyskać więcej informacji na temat korzystania z chmury, zobacz [Rozpoczynanie pracy z usługą Azure Table Storage](../cosmos-db/tutorial-develop-table-dotnet.md).
 
 Jeśli próbujesz powiązać z `CloudTable` i otrzymać komunikat o błędzie, upewnij się, że masz odwołanie do [odpowiedniej wersji zestawu SDK magazynu](#azure-storage-sdk-version-in-functions-1x).
 
@@ -305,7 +306,7 @@ public class LogEntity : TableEntity
 }
 ```
 
-Aby uzyskać więcej informacji na temat korzystania z chmury, zobacz [Rozpoczynanie pracy z usługą Azure Table Storage](../cosmos-db/table-storage-how-to-use-dotnet.md).
+Aby uzyskać więcej informacji na temat korzystania z chmury, zobacz [Rozpoczynanie pracy z usługą Azure Table Storage](../cosmos-db/tutorial-develop-table-dotnet.md).
 
 Jeśli próbujesz powiązać z `CloudTable` i otrzymać komunikat o błędzie, upewnij się, że masz odwołanie do [odpowiedniej wersji zestawu SDK magazynu](#azure-storage-sdk-version-in-functions-1x).
 
@@ -562,7 +563,7 @@ W poniższej tabeli objaśniono właściwości konfiguracji powiązań, które z
 |**tableName** | **TableName** | Nazwa tabeli.| 
 |**partitionKey** | **PartitionKey** |Opcjonalny. Klucz partycji jednostki tabeli do odczytania. Zapoznaj się z sekcją [użycie](#input---usage) , aby uzyskać wskazówki dotyczące sposobu korzystania z tej właściwości.| 
 |**rowKey** |**RowKey** | Opcjonalny. Klucz wiersza jednostki tabeli, który ma zostać odczytany. Zapoznaj się z sekcją [użycie](#input---usage) , aby uzyskać wskazówki dotyczące sposobu korzystania z tej właściwości.| 
-|**czasochłonn** |**Czasochłonn** | Opcjonalny. Maksymalna liczba jednostek do odczytania w języku JavaScript. Zapoznaj się z sekcją [użycie](#input---usage) , aby uzyskać wskazówki dotyczące sposobu korzystania z tej właściwości.| 
+|**take (pobierz)** |**Czasochłonn** | Opcjonalny. Maksymalna liczba jednostek do odczytania w języku JavaScript. Zapoznaj się z sekcją [użycie](#input---usage) , aby uzyskać wskazówki dotyczące sposobu korzystania z tej właściwości.| 
 |**filtru** |**Filtr** | Opcjonalny. Wyrażenie filtru OData dla danych wejściowych tabeli w języku JavaScript. Zapoznaj się z sekcją [użycie](#input---usage) , aby uzyskać wskazówki dotyczące sposobu korzystania z tej właściwości.| 
 |**połączenia** |**Połączenie** | Nazwa ustawienia aplikacji, które zawiera parametry połączenia magazynu, które będą używane dla tego powiązania. Ustawienie to może być nazwą prefiksu "AzureWebJobs" lub nazwą parametrów połączenia. Na przykład, jeśli nazwa ustawienia to "AzureWebJobsMyStorage", w tym miejscu możesz określić "WebStorage". Środowisko uruchomieniowe funkcji automatycznie szuka ustawienia aplikacji o nazwie "AzureWebJobsMyStorage". Jeśli pozostawisz `connection` puste, środowisko uruchomieniowe funkcji używa domyślnych parametrów połączenia magazynu w ustawieniu aplikacji o nazwie `AzureWebJobsStorage` .|
 
@@ -606,7 +607,7 @@ Dane tabeli są przesyłane do funkcji jako ciąg JSON. Deserializowanie komunik
 
 # <a name="java"></a>[Java](#tab/java)
 
-Atrybut [TableInput](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.tableinput) umożliwia dostęp do wiersza tabeli, który wyzwolił funkcję.
+Atrybut [TableInput](/java/api/com.microsoft.azure.functions.annotation.tableinput) umożliwia dostęp do wiersza tabeli, który wyzwolił funkcję.
 
 ---
 
@@ -977,15 +978,15 @@ Istnieją dwie opcje wyprowadzania komunikatu wiersza magazynu tabel z funkcji:
 
 - **Wartość zwracana**: Ustaw `name` Właściwość w *function.jsna* wartość `$return` . W przypadku tej konfiguracji wartość zwracana przez funkcję jest utrwalana jako wiersz magazynu tabeli.
 
-- Bezwzględnie **: Przekaż**wartość do metody [Set](https://docs.microsoft.com/python/api/azure-functions/azure.functions.out?view=azure-python#set-val--t-----none) parametru zadeklarowanego jako typ [out](https://docs.microsoft.com/python/api/azure-functions/azure.functions.out?view=azure-python) . Wartość przeniesiona do `set` elementu jest utrwalana jako komunikat centrum zdarzeń.
+- Bezwzględnie **: Przekaż**wartość do metody [Set](/python/api/azure-functions/azure.functions.out?view=azure-python#set-val--t-----none) parametru zadeklarowanego jako typ [out](/python/api/azure-functions/azure.functions.out?view=azure-python) . Wartość przeniesiona do `set` elementu jest utrwalana jako komunikat centrum zdarzeń.
 
 # <a name="java"></a>[Java](#tab/java)
 
-Istnieją dwie opcje wyprowadzania wiersza magazynu tabel z funkcji przy użyciu adnotacji [TableStorageOutput](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.tableoutput?view=azure-java-stablet) :
+Istnieją dwie opcje wyprowadzania wiersza magazynu tabel z funkcji przy użyciu adnotacji [TableStorageOutput](/java/api/com.microsoft.azure.functions.annotation.tableoutput?view=azure-java-stablet) :
 
 - **Wartość zwracana**: przez zastosowanie adnotacji do samej funkcji, wartość zwracana funkcji jest utrwalana jako wiersz magazynu tabeli.
 
-- Bezwzględnie **: aby**jawnie ustawić wartość komunikatu, Zastosuj adnotację do określonego parametru typu [`OutputBinding<T>`](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.OutputBinding) , gdzie `T` zawiera `PartitionKey` `RowKey` właściwości i. Te właściwości są często dołączane przez implementację `ITableEntity` lub dziedziczenie `TableEntity` .
+- Bezwzględnie **: aby**jawnie ustawić wartość komunikatu, Zastosuj adnotację do określonego parametru typu [`OutputBinding<T>`](/java/api/com.microsoft.azure.functions.outputbinding) , gdzie `T` zawiera `PartitionKey` `RowKey` właściwości i. Te właściwości są często dołączane przez implementację `ITableEntity` lub dziedziczenie `TableEntity` .
 
 ---
 
@@ -993,9 +994,9 @@ Istnieją dwie opcje wyprowadzania wiersza magazynu tabel z funkcji przy użyciu
 
 | Wiązanie | Dokumentacja |
 |---|---|
-| Tabela | [Kody błędów tabeli](https://docs.microsoft.com/rest/api/storageservices/fileservices/table-service-error-codes) |
-| Obiekt BLOB, tabela, kolejka | [Kody błędów magazynu](https://docs.microsoft.com/rest/api/storageservices/fileservices/common-rest-api-error-codes) |
-| Obiekt BLOB, tabela, kolejka | [Rozwiązywanie problemów](https://docs.microsoft.com/rest/api/storageservices/fileservices/troubleshooting-api-operations) |
+| Tabela | [Kody błędów tabeli](/rest/api/storageservices/fileservices/table-service-error-codes) |
+| Obiekt BLOB, tabela, kolejka | [Kody błędów magazynu](/rest/api/storageservices/fileservices/common-rest-api-error-codes) |
+| Obiekt BLOB, tabela, kolejka | [Rozwiązywanie problemów](/rest/api/storageservices/fileservices/troubleshooting-api-operations) |
 
 ## <a name="next-steps"></a>Następne kroki
 

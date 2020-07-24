@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/02/2019
 ms.author: memildin
-ms.openlocfilehash: 1f0a11616fe996f02d6464d23724156906176041
-ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
+ms.openlocfilehash: 67017bdc98b997c728c4d5dcfab92e0804498060
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84771159"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87084011"
 ---
 # <a name="quickstart-onboard-your-azure-stack-virtual-machines-to-security-center"></a>Szybki Start: dołączanie Azure Stack maszyn wirtualnych do Security Center
 Po dołączeniu subskrypcji platformy Azure można włączyć Security Center, aby chronić maszyny wirtualne działające w Azure Stack przez dodanie rozszerzenia maszyny wirtualnej **Azure monitor, aktualizacji i zarządzania konfiguracją** z witryny Azure Stack Marketplace.
@@ -34,7 +34,7 @@ Przed rozpoczęciem tego przewodnika Szybki Start musisz mieć subskrypcję plat
 ## <a name="select-your-workspace-in-azure-security-center"></a>Wybierz obszar roboczy w Azure Security Center
 
 1. Zaloguj się w witrynie [Azure Portal](https://azure.microsoft.com/features/azure-portal/).
-2. W menu **Microsoft Azure** wybierz pozycję **Security Center**. Zostanie otwarte okno **Security Center — Przegląd**. 
+2. W menu **Microsoft Azure** wybierz pozycję **Security Center**. **Security Center — przegląd** zostanie otwarty. 
 
    ![Security Center — Przegląd][2]
 

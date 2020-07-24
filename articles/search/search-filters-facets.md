@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 082575a67ea43d62f322e177cff087e5bd572c27
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 852d8f8f85536dc62dd792e5727dd7ec0571ba29
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "72792892"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87084215"
 ---
 # <a name="how-to-build-a-facet-filter-in-azure-cognitive-search"></a>Jak utworzyć filtr aspektów w usłudze Azure Wyszukiwanie poznawcze 
 
@@ -28,7 +28,7 @@ Nawigacja aspektowa jest używana do samodzielnego filtrowania wyników zapytani
 
 Zestawy reguł są dynamiczne i zwracane w zapytaniu. Odpowiedzi wyszukiwania przyjmują do nich kategorie aspektów używane do nawigowania po wynikach. Jeśli nie znasz już aspektów, Poniższy przykład jest ilustracją struktury nawigacyjnej aspektu.
 
-  ![](./media/search-filters-facets/facet-nav.png)
+  ![Obraz przedstawiający okno dialogowe wyszukiwania z przefiltrowanymi wynikami wyszukiwania pogrupowane według tytułu firmy. Strzałka wskazuje, że wyniki są aspektami, które są wyświetlane w strukturze nawigacji aspektu.](./media/search-filters-facets/facet-nav.png)
 
 Jesteś nowym w nawigacji aspektowej i chcesz uzyskać więcej szczegółów? Zobacz [, jak zaimplementować nawigację aspektową w usłudze Azure wyszukiwanie poznawcze](search-faceted-navigation.md).
 
@@ -121,7 +121,7 @@ Jednym z wyzwań związanych z nawigacją aspektów na platformie Azure Wyszukiw
 
 Chociaż jest to typowy przypadek użycia, nie jest to coś, co jest obecnie dostępne w strukturze nawigacji aspektów. Deweloperzy, którzy chcą korzystać z zestawów reguł statycznych, zwykle obsłużą ograniczenia, wydając dwie przefiltrowane zapytania: jeden zakres wyników, drugi używany do tworzenia statycznej listy zestawów reguł do nawigacji.
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 + [Filtry na platformie Azure Wyszukiwanie poznawcze](search-filters.md)
 + [Tworzenie interfejsu API REST indeksu](https://docs.microsoft.com/rest/api/searchservice/create-index)

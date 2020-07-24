@@ -12,11 +12,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: cynthn
-ms.openlocfilehash: 25e8be28903d490a7a8c17e16d2beddc44c95c41
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b47fb242a82097a9fa5c9c41dac99f0a7f8ab2c8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84782776"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87085439"
 ---
 # <a name="time-sync-for-linux-vms-in-azure"></a>Synchronizacja czasu dla maszyn wirtualnych z systemem Linux na platformie Azure
 
@@ -127,11 +128,11 @@ W tym przykładzie zwracaną wartością jest *ptp0*, więc używamy jej do spra
 cat /sys/class/ptp/ptp0/clock_name
 ```
 
-Powinno to zwrócić **HyperV**.
+Powinno to zwrócić `hyperv` .
 
 ### <a name="chrony"></a>chrony
 
-W systemie Ubuntu 19,10 i nowszych wersjach, Red Hat Enterprise Linux i CentOS 7. x, [chrony](https://chrony.tuxfamily.org/) jest skonfigurowany do używania zegara źródłowego PTP. Zamiast chrony starsze wersje systemu Linux używają demona protokołu czasu sieciowego (ntpd), która nie obsługuje źródeł PTP. Aby włączyć PTP w tych wersjach, chrony musi być ręcznie zainstalowana i skonfigurowana (w chrony. conf) przy użyciu następującego kodu:
+W systemie Ubuntu 19,10 i nowszych wersjach Red Hat Enterprise Linux i CentOS 8. x [chrony](https://chrony.tuxfamily.org/) jest skonfigurowany do używania zegara źródłowego PTP. Zamiast chrony starsze wersje systemu Linux używają demona protokołu czasu sieciowego (ntpd), która nie obsługuje źródeł PTP. Aby włączyć PTP w tych wersjach, chrony musi być ręcznie zainstalowana i skonfigurowana (w chrony. conf) przy użyciu następującego kodu:
 
 ```bash
 refclock PHC /dev/ptp0 poll 3 dpoll -2 offset 0
@@ -143,9 +144,9 @@ Aby uzyskać więcej informacji na temat Red Hat i NTP, zobacz [Konfigurowanie N
 
 Aby uzyskać więcej informacji na temat chrony, zobacz [using chrony](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system_administrators_guide/ch-configuring_ntp_using_the_chrony_suite#sect-Using_chrony).
 
-Jeśli zarówno źródła chrony, jak i TimeSync są włączone jednocześnie, można oznaczyć jeden jako **preferowany**, który ustawia inne źródło jako kopię zapasową. Ponieważ usługi NTP nie aktualizują zegara w przypadku dużych pochylenia, chyba że jest to długi czas, VMICTimeSync odzyska zegar od wstrzymanych zdarzeń maszyny wirtualnej znacznie szybciej niż w przypadku narzędzi opartych na protokole NTP.
+Jeśli zarówno źródła chrony, jak i VMICTimeSync są włączone jednocześnie, można oznaczyć jeden jako **preferowany**, który ustawia inne źródło jako kopię zapasową. Ponieważ usługi NTP nie aktualizują zegara w przypadku dużych pochylenia, chyba że jest to długi czas, VMICTimeSync odzyska zegar od wstrzymanych zdarzeń maszyny wirtualnej znacznie szybciej niż w przypadku narzędzi opartych na protokole NTP.
 
-Domyślnie program chronyd przyspiesza lub spowalnia zegar systemowy w celu naprawienia dowolnego przekroczenia czasu. Jeśli dryf zostanie zbyt duży, chrony nie uda się naprawić dryfu. Aby je przezwyciężyć, `makestep` parametr w **/etc/chrony.conf** można zmienić, aby wymusić timesync, jeśli dryf przekroczy określony próg.
+Domyślnie program chronyd przyspiesza lub spowalnia zegar systemowy w celu naprawienia dowolnego przekroczenia czasu. Jeśli dryf zostanie zbyt duży, chrony nie uda się naprawić dryfu. Aby je przezwyciężyć, `makestep` parametr w **/etc/chrony.conf** można zmienić, aby wymusić synchronizację czasu, jeśli dryf przekroczy określony próg.
 
  ```bash
 makestep 1.0 -1

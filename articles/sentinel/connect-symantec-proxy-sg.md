@@ -14,14 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2020
 ms.author: yelevin
-ms.openlocfilehash: 51a5c5de7bce07aa6a54b9ff81e957c38cfffdd2
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: fe49481357b542ce52de5fc9dab3059cb584c229
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86532029"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083909"
 ---
 # <a name="connect-your-symantec-proxysg-to-azure-sentinel"></a>Połącz swoją firmę Symantec ProxySG z platformą Azure — wskaźnikiem
+
+> [!IMPORTANT]
+> Łącznik danych firmy Symantec ProxySG na platformie Azure jest obecnie w publicznej wersji zapoznawczej.
+> Ta funkcja jest dostępna bez umowy dotyczącej poziomu usług i nie jest zalecana w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 W tym artykule wyjaśniono, jak połączyć urządzenie z [firmą Symantec ProxySG](https://www.broadcom.com/products/cyber-security/network/gateway/proxy-sg-and-advanced-secure-gateway) z platformą Azure. Łącznik danych firmy Symantec ProxySG umożliwia łatwe łączenie dzienników programu Symantec ProxySG z platformą Azure, przeglądanie pulpitów nawigacyjnych, tworzenie alertów niestandardowych i ulepszanie badania. Integracja między firmą Symantec ProxySG i platformą Azure wskaźnikiem wykorzystuje dziennik systemowy.
 

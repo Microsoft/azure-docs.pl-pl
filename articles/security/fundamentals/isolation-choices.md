@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: TomSh
-ms.openlocfilehash: 9cb516b6d13b4b57a89bb276683857c62a758618
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0bcc67e80861df2827237298444175c3abdb6602
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84021878"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87084056"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Izolacja w chmurze publicznej platformy Azure
 
@@ -63,9 +64,9 @@ Koncepcje kontenerów dzierżawców są głęboko przegrane w usłudze katalogow
 
 Nawet wtedy, gdy metadane z wielu dzierżawców Azure Active Directory są przechowywane na tym samym dysku fizycznym, nie istnieje żadna relacja między kontenerami innymi niż zdefiniowane przez usługę katalogową, która z kolei jest podyktowana przez administratora dzierżawy.
 
-### <a name="azure-role-based-access-control-rbac"></a>Access Control oparte na rolach (RBAC) na platformie Azure
+### <a name="azure-role-based-access-control-azure-rbac"></a>Kontrola dostępu oparta na rolach (Azure RBAC)
 
-[Access Control oparte na rolach (RBAC) na platformie](../../role-based-access-control/overview.md) Azure ułatwia udostępnianie różnych składników dostępnych w ramach subskrypcji platformy Azure przez zapewnienie szczegółowych informacji o zarządzaniu dostępem na platformie Azure. Funkcja RBAC systemu Azure umożliwia rozdzielenie obowiązków w organizacji i udzielanie dostępu na podstawie tego, co użytkownicy potrzebują do wykonywania swoich zadań. Zamiast udzielać wszystkim nieograniczonych uprawnień w ramach subskrypcji lub zasobów platformy Azure, można zezwolić tylko na niektóre akcje.
+[Kontrola dostępu oparta na rolach (Azure RBAC)](../../role-based-access-control/overview.md) umożliwia udostępnianie różnych składników dostępnych w ramach subskrypcji platformy Azure przez zapewnienie szczegółowych informacji o zarządzaniu dostępem na platformie Azure. Funkcja RBAC systemu Azure umożliwia rozdzielenie obowiązków w organizacji i udzielanie dostępu na podstawie tego, co użytkownicy potrzebują do wykonywania swoich zadań. Zamiast udzielać wszystkim nieograniczonych uprawnień w ramach subskrypcji lub zasobów platformy Azure, można zezwolić tylko na niektóre akcje.
 
 Usługa Azure RBAC ma trzy podstawowe role, które mają zastosowanie do wszystkich typów zasobów:
 
@@ -144,7 +145,7 @@ Kontroler sieci szkieletowej platformy Azure jest odpowiedzialny za przydzielani
 
 Funkcja hypervisor platformy Azure wymusza separację pamięci i procesów między maszynami wirtualnymi, a w sposób bezpieczny kieruje ruch sieciowy do dzierżawców systemu operacyjnego gościa. Eliminuje to prawdopodobieństwo ataku z kanału po stronie na poziomie maszyny wirtualnej.
 
-Na platformie Azure główna maszyna wirtualna jest specjalna: działa z zaostrzonym systemem operacyjnym o nazwie główny system operacyjny, który obsługuje agenta sieci szkieletowej (FA). FAs są używane w celu zarządzania agentami gościa (GA) w witrynie gościa systemów operacyjnych na maszynach wirtualnych klientów. FAs również zarządzanie węzłami magazynu.
+Na platformie Azure główna maszyna wirtualna jest specjalna: działa z zaostrzonym systemem operacyjnym o nazwie główny system operacyjny, który obsługuje agenta sieci szkieletowej (FA). FAs są używane w celu zarządzania agentami gościa (GA) w systemach operacyjnych gościa na maszynach wirtualnych klientów. FAs również zarządzanie węzłami magazynu.
 
 Kolekcja funkcji hypervisor platformy Azure, głównego systemu operacyjnego/FA i maszyn wirtualnych/gazu klienta obejmuje węzeł obliczeniowy. FAs są zarządzane przez kontroler sieci szkieletowej (FC), który istnieje poza węzłami obliczeniowymi i magazynującymi (Klastry obliczeniowe i magazynowe są zarządzane przez osobną FCs). Jeśli klient zaktualizuje plik konfiguracji aplikacji podczas jego działania, FC komunikuje się z FA, a następnie kontaktuje się gazem, który powiadamia o zmianie konfiguracji. W przypadku awarii sprzętowej FC automatycznie odnajdzie dostępny sprzęt i ponownie uruchamia maszynę wirtualną.
 
@@ -210,7 +211,7 @@ Platforma Azure oferuje następujące typy szyfrowania do ochrony danych:
 - Szyfrowanie podczas transferu
 - Szyfrowanie w spoczynku
 
-#### <a name="encryption-in-transit"></a>Szyfrowanie podczas transferu
+#### <a name="encryption-in-transit"></a>Szyfrowanie podczas przesyłania
 
 Szyfrowanie podczas przesyłania jest mechanizmem ochrony danych przesyłanych między sieciami. Za pomocą usługi Azure Storage można zabezpieczyć dane przy użyciu:
 
@@ -272,7 +273,7 @@ Logiczne serwery i bazy danych SQL są pojęciami specyficznymi dla SQL Database
 
 Serwery w SQL Database nie są wystąpieniami fizycznymi ani MASZYNami wirtualnymi, a nie są kolekcjami baz danych, współużytkowania i zasad zabezpieczeń, które są przechowywane w taki sam sposób zwane "logicznymi bazami danych".
 
-![Baza danych SQL](./media/isolation-choices/azure-isolation-fig11.png)
+![SQL Database](./media/isolation-choices/azure-isolation-fig11.png)
 
 Logiczne główne bazy danych to:
 
@@ -312,10 +313,10 @@ Wdrożenie platformy Azure ma wiele warstw izolacji sieci. Na poniższym diagram
 
 **Izolacja ruchu:** [Sieć wirtualna](../../virtual-network/virtual-networks-overview.md) to granica izolacji ruchu na platformie Azure. Maszyny wirtualne w jednej sieci wirtualnej nie mogą komunikować się bezpośrednio z maszynami wirtualnymi w innej sieci wirtualnej, nawet jeśli obie sieci wirtualne są tworzone przez tego samego klienta. Izolacja jest właściwością krytyczną, która zapewnia, że maszyny wirtualne klienta i komunikacja pozostają prywatne w ramach sieci wirtualnej.
 
-[Podsieć](../../virtual-network/virtual-networks-overview.md) oferuje dodatkową warstwę izolacji w sieci wirtualnej na podstawie zakresu adresów IP. Adresy IP w sieci wirtualnej można podzielić na wiele podsieci w celu zapewnienia organizacji i zabezpieczeń. Maszyny wirtualne i wystąpienia ról PaaS wdrożone w podsieciach (tych samych lub różnych) w ramach sieci wirtualnej mogą komunikować się ze sobą bez dodatkowego konfigurowania. Możesz również skonfigurować [grupę zabezpieczeń sieci (sieciowych grup zabezpieczeń)](../../virtual-network/virtual-networks-overview.md) , aby zezwolić na ruch sieciowy do wystąpienia maszyny wirtualnej lub go zabronić na podstawie reguł skonfigurowanych na liście kontroli dostępu (ACL) sieciowej grupy zabezpieczeń. Grupy NSG można kojarzyć z podsieciami lub poszczególnymi wystąpieniami maszyn wirtualnych w danej podsieci. Gdy sieciowa grupa zabezpieczeń jest skojarzona z podsiecią, reguły listy ACL dotyczą wszystkich wystąpień maszyn wirtualnych w tej podsieci.
+[Podsieć](../../virtual-network/virtual-networks-overview.md) oferuje dodatkową warstwę izolacji w sieci wirtualnej na podstawie zakresu adresów IP. Adresy IP w sieci wirtualnej można podzielić na wiele podsieci w celu zapewnienia organizacji i zabezpieczeń. Maszyny wirtualne i wystąpienia ról PaaS wdrożone w podsieciach (tych samych lub różnych) w ramach sieci wirtualnej mogą komunikować się ze sobą bez dodatkowego konfigurowania. Możesz również skonfigurować [grupę zabezpieczeń sieci (sieciowych grup zabezpieczeń)](../../virtual-network/virtual-networks-overview.md) , aby zezwolić na ruch sieciowy do wystąpienia maszyny wirtualnej lub go zabronić na podstawie reguł skonfigurowanych na liście kontroli dostępu (ACL) sieciowej grupy zabezpieczeń. Sieciowe grupy zabezpieczeń można kojarzyć z podsieciami lub poszczególnymi wystąpieniami maszyn wirtualnych w danej podsieci. Gdy sieciowa grupa zabezpieczeń jest skojarzona z podsiecią, reguły listy ACL dotyczą wszystkich wystąpień maszyn wirtualnych w tej podsieci.
 
 ## <a name="next-steps"></a>Następne kroki
 
 - Informacje [na temat opcji izolacji sieciowej dla maszyn w sieciach wirtualnych platformy Microsoft Azure](https://azure.microsoft.com/blog/network-isolation-options-for-machines-in-windows-azure-virtual-networks/). Obejmuje to klasyczny scenariusz frontonu i zaplecza, w którym maszyny w określonej sieci wewnętrznej lub podsieci mogą zezwalać tylko określonym klientom lub innym komputerom na łączenie się z konkretnym punktem końcowym na podstawie listy dozwolonych adresów IP.
 
-- Dowiedz się więcej o [izolacji maszyny wirtualnej na platformie Azure](../../virtual-machines/windows/isolation.md). Usługa Azure COMPUTE oferuje rozmiary maszyn wirtualnych, które są odizolowane od określonego typu sprzętu i przeznaczone dla jednego klienta.
+- Dowiedz się więcej o [izolacji maszyny wirtualnej na platformie Azure](../../virtual-machines/isolation.md). Usługa Azure COMPUTE oferuje rozmiary maszyn wirtualnych, które są odizolowane od określonego typu sprzętu i przeznaczone dla jednego klienta.

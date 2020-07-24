@@ -2,14 +2,14 @@
 title: Ogólne pytania dotyczące usługi Azure Site Recovery
 description: W tym artykule omówiono popularne pytania dotyczące Azure Site Recovery.
 ms.topic: conceptual
-ms.date: 1/24/2020
+ms.date: 7/14/2020
 ms.author: raynew
-ms.openlocfilehash: b02d001d6fad905badaf17422bdd0554e3fc8493
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 89a5785811b4f4833a5a5ddcef827b258ce1775a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86133664"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083739"
 ---
 # <a name="general-questions-about-azure-site-recovery"></a>Ogólne pytania dotyczące Azure Site Recovery
 
@@ -116,6 +116,19 @@ Agenci mobilności instalowani na replikowanych elementach komunikują się tylk
 ### <a name="how-can-i-enforce-tls-12-on-hyperv-to-azure-site-recovery-scenarios"></a>Jak wymusić protokół TLS 1,2 w scenariuszach HyperV-to-Azure Site Recovery?
 Cała komunikacja między mikrousługami Azure Site Recovery odbywa się na protokole TLS 1,2. Site Recovery używa dostawców zabezpieczeń skonfigurowanych w systemie (OS) i używa najnowszego dostępnego protokołu TLS. Należy jawnie włączyć protokół TLS 1,2 w rejestrze, a następnie Site Recovery rozpocząć korzystanie z protokołu TLS 1,2 w celu komunikacji z usługami. 
 
+### <a name="how-can-i-enforce-restricted-access-on-my-storage-accounts-which-are-accessed-by-site-recovery-service-for-readingwriting-replication-data"></a>Jak można wymusić ograniczony dostęp na kontach magazynu, do których uzyskuje się dostęp za pomocą usługi Site Recovery na potrzeby odczytywania/zapisywania danych replikacji?
+Możesz przełączyć się na zarządzaną tożsamość magazynu usługi Recovery Services, przechodząc do ustawienia *tożsamości* . Po zarejestrowaniu magazynu za pomocą Azure Active Directory można przejść do kont magazynu i przypisać następujące przypisania ról do magazynu:
+
+- Konta magazynu oparte na Menedżer zasobów (typ standardowy):
+  - [Współautor](../role-based-access-control/built-in-roles.md#contributor)
+  - [Współautor danych obiektu blob magazynu](../role-based-access-control/built-in-roles.md#storage-blob-data-contributor)
+- Konta magazynu oparte na Menedżer zasobów (typ warstwy Premium):
+  - [Współautor](../role-based-access-control/built-in-roles.md#contributor)
+  - [Właściciel danych obiektów blob magazynu](../role-based-access-control/built-in-roles.md#storage-blob-data-owner)
+- Klasyczne konta magazynu:
+  - [Współautor klasycznego konta magazynu](../role-based-access-control/built-in-roles.md#classic-storage-account-contributor)
+  - [Rola usługi operatora kluczy klasycznego konta magazynu](../role-based-access-control/built-in-roles.md#classic-storage-account-key-operator-service-role)
+
 ## <a name="disaster-recovery"></a>Odzyskiwanie po awarii
 
 ### <a name="what-can-site-recovery-protect"></a>Co może Site Recovery chronić?
@@ -142,7 +155,7 @@ Tak, Site Recovery obsługuje odzyskiwanie po awarii lokalnych maszyn wirtualnyc
 ### <a name="is-disaster-recovery-supported-for-hyper-v-vms"></a>Czy odzyskiwanie po awarii jest obsługiwane dla maszyn wirtualnych funkcji Hyper-V?
 Tak, Site Recovery obsługuje odzyskiwanie po awarii lokalnych maszyn wirtualnych funkcji Hyper-V. [Przejrzyj typowe pytania](hyper-v-azure-common-questions.md) dotyczące odzyskiwania po awarii maszyn wirtualnych funkcji Hyper-V.
 
-## <a name="is-disaster-recovery-supported-for-physical-servers"></a>Czy w przypadku serwerów fizycznych jest obsługiwane odzyskiwanie awaryjne?
+### <a name="is-disaster-recovery-supported-for-physical-servers"></a>Czy w przypadku serwerów fizycznych jest obsługiwane odzyskiwanie awaryjne?
 Tak, Site Recovery obsługuje odzyskiwanie po awarii lokalnych serwerów fizycznych z systemami Windows i Linux na platformę Azure lub do lokacji dodatkowej. Dowiedz się więcej o wymaganiach dotyczących odzyskiwania po awarii na [platformie Azure](vmware-physical-azure-support-matrix.md#replicated-machines)oraz[lokacji dodatkowej](vmware-physical-secondary-support-matrix.md#replicated-vm-support).
 Należy pamiętać, że serwery fizyczne będą uruchamiane jako maszyny wirtualne na platformie Azure po przejściu w tryb failover. Powrót po awarii z platformy Azure do lokalnego serwera fizycznego nie jest obecnie obsługiwany. Można wrócić po awarii na maszynę wirtualną VMware.
 

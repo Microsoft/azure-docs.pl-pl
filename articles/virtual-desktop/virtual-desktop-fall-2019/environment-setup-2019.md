@@ -1,6 +1,6 @@
 ---
-title: Środowisko pulpitu wirtualnego systemu Windows — Azure
-description: Podstawowe elementy środowiska pulpitu wirtualnego systemu Windows.
+title: Środowisko pulpitu wirtualnego systemu Windows (2019) — Azure
+description: Zapoznaj się z podstawowymi elementami środowiska pulpitu wirtualnego systemu Windows (w wersji 2019), takimi jak dzierżawcy i pule hostów.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 153532b3c33158ee1a43db7883eb7a9ec621ade7
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 8cb41b4f94b14a94c79b490e38889825fd9d8d1a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86241679"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082651"
 ---
-# <a name="windows-virtual-desktop-environment"></a>Środowisko usługi Windows Virtual Desktop
+# <a name="windows-virtual-desktop-environment-fall-2019-release"></a>Środowisko pulpitu wirtualnego systemu Windows (w wersji 2019)
 
 >[!IMPORTANT]
 >Ta zawartość dotyczy wersji 2019, która nie Azure Resource Manager obsługuje obiektów pulpitu wirtualnego systemu Windows. Jeśli próbujesz zarządzać Azure Resource Manager obiektami pulpitu wirtualnego systemu Windows wprowadzonymi w ramach aktualizacji wiosną 2020, zobacz [ten artykuł](../environment-setup.md).

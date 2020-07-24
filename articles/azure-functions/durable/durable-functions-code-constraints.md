@@ -5,11 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 4ed604302ca187ad4953e865d68dc73030a37c02
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 14e0b86f11c3eabf93e7d4f0ebf563e59c0c21e9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77562143"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081869"
 ---
 # <a name="orchestrator-function-code-constraints"></a>Ograniczenia kodu funkcji programu Orchestrator
 
@@ -17,7 +18,7 @@ Durable Functions jest rozszerzeniem [Azure Functions](../functions-overview.md)
 
 ## <a name="orchestrator-code-constraints"></a>Ograniczenia kodu orkiestratora
 
-Funkcje programu Orchestrator używają określania [źródła zdarzeń](https://docs.microsoft.com/azure/architecture/patterns/event-sourcing) , aby zapewnić niezawodne wykonywanie i zachować stan zmiennej lokalnej. [Zachowanie powtarzania](durable-functions-orchestrations.md#reliability) kodu programu Orchestrator tworzy ograniczenia dotyczące typu kodu, który można napisać w funkcji programu Orchestrator. Na przykład funkcje programu Orchestrator muszą być *deterministyczne*: funkcja programu Orchestrator będzie powtarzana wielokrotnie i musi generować ten sam wynik za każdym razem.
+Funkcje programu Orchestrator używają określania [źródła zdarzeń](/azure/architecture/patterns/event-sourcing) , aby zapewnić niezawodne wykonywanie i zachować stan zmiennej lokalnej. [Zachowanie powtarzania](durable-functions-orchestrations.md#reliability) kodu programu Orchestrator tworzy ograniczenia dotyczące typu kodu, który można napisać w funkcji programu Orchestrator. Na przykład funkcje programu Orchestrator muszą być *deterministyczne*: funkcja programu Orchestrator będzie powtarzana wielokrotnie i musi generować ten sam wynik za każdym razem.
 
 ### <a name="using-deterministic-apis"></a>Korzystanie z deterministycznych interfejsów API
 
@@ -46,7 +47,7 @@ Chociaż stosowanie tych ograniczeń może wydawać się trudne, w przypadku, w 
 
 Trwała platforma zadań próbuje wykryć naruszenia powyższych reguł. W przypadku znalezienia naruszenia, struktura zgłasza wyjątek **NonDeterministicOrchestrationException** . Jednak takie zachowanie wykrywania nie będzie przechwytywać wszystkich naruszeń i nie powinno być od niego zależne.
 
-## <a name="versioning"></a>Przechowywanie wersji
+## <a name="versioning"></a>Obsługa wersji
 
 Niezawodna aranżacja może działać w sposób ciągły przez dni, miesiące, lata lub nawet [Eternally](durable-functions-eternal-orchestrations.md). Wszelkie aktualizacje kodu wprowadzone do Durable Functions aplikacji, które mają wpływ na nieukończone aranżacje, mogą spowodować przerwanie działania odtwarzania w ramach aranżacji. Dlatego ważne jest, aby dokładnie zaplanować wprowadzanie aktualizacji kodu. Aby uzyskać bardziej szczegółowy opis sposobu tworzenia wersji kodu, zobacz artykuł dotyczący [przechowywania wersji](durable-functions-versioning.md).
 

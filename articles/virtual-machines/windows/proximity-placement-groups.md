@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.date: 01/27/2020
 ms.author: cynthn
 ms.reviewer: zivr
-ms.openlocfilehash: 2401e8c160fd1c2ee3a734f374f1d4409c52ed16
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9ea986b338d977102d78e9c12bcbe5b2f2c510e7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82098530"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083450"
 ---
 # <a name="deploy-vms-to-proximity-placement-groups-using-powershell"></a>Wdrażanie maszyn wirtualnych w grupach umieszczania sąsiedztwa przy użyciu programu PowerShell
 
@@ -24,7 +24,7 @@ Grupa umieszczania bliskości jest grupą logiczną używaną w celu upewnienia 
 
 
 ## <a name="create-a-proximity-placement-group"></a>Tworzenie grupy umieszczania w pobliżu
-Utwórz grupę umieszczania sąsiedztwa przy użyciu polecenia cmdlet [New-AzProximityPlacementGroup](https://docs.microsoft.com/powershell/module/az.compute/new-azproximityplacementgroup) . 
+Utwórz grupę umieszczania sąsiedztwa przy użyciu polecenia cmdlet [New-AzProximityPlacementGroup](/powershell/module/az.compute/new-azproximityplacementgroup) . 
 
 ```azurepowershell-interactive
 $resourceGroup = "myPPGResourceGroup"
@@ -49,7 +49,7 @@ Get-AzProximityPlacementGroup
 
 ## <a name="create-a-vm"></a>Tworzenie maszyny wirtualnej
 
-Utwórz maszynę wirtualną w grupie położenia sąsiedztwa przy użyciu polecenia, `-ProximityPlacementGroup $ppg.Id` Aby odwołać się do identyfikatora grupy umieszczania bliskości podczas tworzenia maszyny wirtualnej przy użyciu polecenia [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) .
+Utwórz maszynę wirtualną w grupie położenia sąsiedztwa przy użyciu polecenia, `-ProximityPlacementGroup $ppg.Id` Aby odwołać się do identyfikatora grupy umieszczania bliskości podczas tworzenia maszyny wirtualnej przy użyciu polecenia [New-AzVM](/powershell/module/az.compute/new-azvm) .
 
 ```azurepowershell-interactive
 $vmName = "myVM"
@@ -146,7 +146,7 @@ foreach ($vmId in $vmIDs){
 
 ## <a name="scale-sets"></a>Zestawy skalowania
 
-Zestaw skalowania można również utworzyć w grupie umieszczania sąsiedztwa. Użyj tego samego `-ProximityPlacementGroup` parametru z parametrem [New-AzVmss](https://docs.microsoft.com/powershell/module/az.compute/new-azvmss) , aby utworzyć zestaw skalowania, a wszystkie wystąpienia zostaną utworzone w tej samej grupie umieszczania sąsiedztwa.
+Zestaw skalowania można również utworzyć w grupie umieszczania sąsiedztwa. Użyj tego samego `-ProximityPlacementGroup` parametru z parametrem [New-AzVmss](/powershell/module/az.compute/new-azvmss) , aby utworzyć zestaw skalowania, a wszystkie wystąpienia zostaną utworzone w tej samej grupie umieszczania sąsiedztwa.
 
 
 Aby dodać lub usunąć istniejący zestaw skalowania do grupy położenia zbliżeniowe, należy najpierw zatrzymać zestaw skalowania. 

@@ -4,11 +4,12 @@ description: Jak używać wyzwalaczy i powiązań dla rozszerzenia Durable Funct
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 1f42c6c9b0086d49e539040334c83cfc0c6feb42
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 899bc3fdc94b8232acd3edf3e0cbab3c481ff8f2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84698065"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081852"
 ---
 # <a name="bindings-for-durable-functions-azure-functions"></a>Powiązania dla Durable Functions (Azure Functions)
 
@@ -18,7 +19,7 @@ Rozszerzenie [Durable Functions](durable-functions-overview.md) wprowadza dwa no
 
 Wyzwalacz aranżacji umożliwia tworzenie [trwałych funkcji programu Orchestrator](durable-functions-types-features-overview.md#orchestrator-functions). Ten wyzwalacz obsługuje uruchamianie nowych wystąpień funkcji programu Orchestrator i wznawianie istniejących wystąpień funkcji programu Orchestrator, które oczekują na zadanie.
 
-W przypadku korzystania z narzędzi Visual Studio Tools for Azure Functions wyzwalacz aranżacji jest konfigurowany przy użyciu atrybutu platformy .NET [OrchestrationTriggerAttribute](https://docs.microsoft.com/dotnet/api/Microsoft.Azure.WebJobs.Extensions.DurableTask.OrchestrationTriggerAttribute?view=azure-dotnet) .
+W przypadku korzystania z narzędzi Visual Studio Tools for Azure Functions wyzwalacz aranżacji jest konfigurowany przy użyciu atrybutu platformy .NET [OrchestrationTriggerAttribute](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.orchestrationtriggerattribute?view=azure-dotnet) .
 
 W przypadku pisania funkcji programu Orchestrator w językach skryptów (na przykład skryptów JavaScript lub C#) wyzwalacz aranżacji jest definiowany przez następujący obiekt JSON w `bindings` tablicy *function.jsw* pliku:
 
@@ -463,7 +464,7 @@ Klasy jednostek mają specjalne mechanizmy współpracy z powiązaniami i iniekc
 
 Poniższy kod jest przykładem prostej jednostki *licznika* zaimplementowane jako funkcja trwała zapisywana w języku JavaScript. Ta funkcja definiuje trzy operacje, `add` , `reset` , i `get` , z których każda działa na stanie liczby całkowitej.
 
-**function.jsna**
+**function.json**
 ```json
 {
   "bindings": [
@@ -601,7 +602,7 @@ W szczególności nie ma sensu sygnalizowanie `Get` operacji, ponieważ nie jest
 
 Oto przykład funkcji wyzwalanej przez kolejkę, która sygnalizuje jednostkę "Counter" w języku JavaScript.
 
-**function.jsna**
+**function.json**
 ```json
 {
     "bindings": [

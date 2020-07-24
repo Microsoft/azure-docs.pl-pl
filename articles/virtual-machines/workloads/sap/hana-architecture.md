@@ -13,11 +13,12 @@ ms.workload: infrastructure
 ms.date: 05/25/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 041da4198b0bdd040a4916008a1135aa2e2a5f7d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fa059ec8159779969c7ef7a5f4c97f3e985993a9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77614524"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082192"
 ---
 # <a name="sap-hana-large-instances-architecture-on-azure"></a>Architektura SAP HANA (duże wystąpienia) na platformie Azure
 
@@ -40,7 +41,7 @@ Pokazana architektura jest podzielona na trzy sekcje:
 
    W przypadku aplikacji SAP NetWeaver i baz danych, które są obsługiwane do uruchamiania na platformie Azure, zobacz [uwagi dotyczące pomocy technicznej sap #1928533 — aplikacje SAP na platformie Azure: obsługiwane produkty i typy maszyn wirtualnych platformy Azure](https://launchpad.support.sap.com/#/notes/1928533). Aby uzyskać dokumentację dotyczącą sposobu wdrażania rozwiązań SAP na platformie Azure, zobacz:
 
-  -  [Korzystanie z oprogramowania SAP na maszynach wirtualnych z systemem Windows](../../virtual-machines-windows-sap-get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+  -  [Korzystanie z oprogramowania SAP na maszynach wirtualnych z systemem Windows](./get-started.md?toc=/azure/virtual-machines/linux/toc.json)
   -  [Korzystanie z rozwiązań SAP na maszynach wirtualnych platformy Azure](get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 - **Left**: przedstawia sprzęt z certyfikatem TDI SAP HANA w sygnaturze dużej instancji platformy Azure. Jednostki dużego wystąpienia HANA są połączone z sieciami wirtualnymi subskrypcji platformy Azure za pomocą tej samej technologii, co łączność ze stanem lokalnym z platformą Azure. Od maja 2019 wprowadzono optymalizację umożliwiającą komunikację między jednostkami dużej instancji HANA i maszynami wirtualnymi platformy Azure bez udziału bramy ExpressRoute. Ta optymalizacja o nazwie ExpressRoute Fast jest wyświetlana w tej architekturze (czerwona linia). 

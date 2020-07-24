@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/16/2020
 ms.author: radeltch
-ms.openlocfilehash: 9419ed320089ff85722e0d9c0582e92491377ab1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: eca36a2c13fcdc232d4d06ca6e59598fe9a611f2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84907469"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082141"
 ---
 # <a name="public-endpoint-connectivity-for-virtual-machines-using-azure-standard-load-balancer-in-sap-high-availability-scenarios"></a>Publiczna łączność z punktem końcowym dla Virtual Machines przy użyciu usługi Azure usługa Load Balancer w warstwie Standardowa w scenariuszach wysokiej dostępności SAP
 
@@ -31,11 +31,11 @@ Artykuł zawiera kilka opcji umożliwiających wybranie opcji najlepiej dopasowa
 
 ## <a name="overview"></a>Omówienie
 
-W przypadku implementowania wysokiej dostępności dla rozwiązań SAP za pośrednictwem klastrowania jeden z niezbędnych składników jest [Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview). Platforma Azure oferuje dwie jednostki SKU modułu równoważenia obciążenia: standardowa i podstawowa.
+W przypadku implementowania wysokiej dostępności dla rozwiązań SAP za pośrednictwem klastrowania jeden z niezbędnych składników jest [Azure Load Balancer](../../../load-balancer/load-balancer-overview.md). Platforma Azure oferuje dwie jednostki SKU modułu równoważenia obciążenia: standardowa i podstawowa.
 
 Moduł równoważenia obciążenia w warstwie Standardowa platformy Azure oferuje pewne korzyści w stosunku do podstawowego modułu równoważenia obciążenia. Na przykład działa w strefach dostępności platformy Azure, oferuje lepsze możliwości monitorowania i rejestrowania w celu łatwiejszego rozwiązywania problemów i skrócenia opóźnień. Funkcja "porty HA" obejmuje wszystkie porty, czyli nie jest już konieczne wyświetlanie listy wszystkich poszczególnych portów.  
 
-Istnieją pewne istotne różnice między podstawową i standardową jednostką SKU modułu równoważenia obciążenia platformy Azure. Jednym z nich jest obsługa ruchu wychodzącego do publicznego punktu końcowego. Aby zapoznać się z pełnym porównaniem modułu równoważenia obciążenia z podstawową jednostką SKU, zobacz [Load Balancer porównanie jednostek SKU](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview).  
+Istnieją pewne istotne różnice między podstawową i standardową jednostką SKU modułu równoważenia obciążenia platformy Azure. Jednym z nich jest obsługa ruchu wychodzącego do publicznego punktu końcowego. Aby zapoznać się z pełnym porównaniem modułu równoważenia obciążenia z podstawową jednostką SKU, zobacz [Load Balancer porównanie jednostek SKU](../../../load-balancer/load-balancer-overview.md).  
  
 Gdy maszyny wirtualne bez publicznych adresów IP są umieszczane w puli zaplecza wewnętrznego (bez publicznego adresu IP) standardowego modułu równoważenia obciążenia platformy Azure, nie istnieje łączność wychodząca z publicznymi punktami końcowymi, chyba że dodatkowa konfiguracja zostanie ukończona.  
 
@@ -60,20 +60,20 @@ Jeśli wdrożenie SAP nie wymaga łączności wychodzącej z publicznymi punktam
 Przeczytaj najpierw następujące dokumenty:
 
 * usługa Load Balancer w warstwie Standardowa platformy Azure
-  * [Omówienie usługi azure usługa Load Balancer w warstwie Standardowa](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview) — kompleksowy przegląd modułu równoważenia obciążenia systemu Azure w warstwie Standardowa, ważnych zasad, koncepcji i samouczków 
-  * [Połączenia wychodzące na platformie Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#scenarios) — scenariusze dotyczące uzyskiwania łączności wychodzącej na platformie Azure
-  * [Reguły ruchu wychodzącego modułu równoważenia obciążenia](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-rules-overview)— wyjaśnia koncepcje reguł ruchu wychodzącego modułu równoważenia obciążenia oraz sposób tworzenia reguł wychodzących
+  * [Omówienie usługi azure usługa Load Balancer w warstwie Standardowa](../../../load-balancer/load-balancer-overview.md) — kompleksowy przegląd modułu równoważenia obciążenia systemu Azure w warstwie Standardowa, ważnych zasad, koncepcji i samouczków 
+  * [Połączenia wychodzące na platformie Azure](../../../load-balancer/load-balancer-outbound-connections.md#scenarios) — scenariusze dotyczące uzyskiwania łączności wychodzącej na platformie Azure
+  * [Reguły ruchu wychodzącego modułu równoważenia obciążenia](../../../load-balancer/load-balancer-outbound-connections.md#outboundrules)— wyjaśnia koncepcje reguł ruchu wychodzącego modułu równoważenia obciążenia oraz sposób tworzenia reguł wychodzących
 * Azure Firewall
-  * [Omówienie Zapory platformy Azure](https://docs.microsoft.com/azure/firewall/overview)— Omówienie Zapory platformy Azure
-  * [Samouczek: wdrażanie i Konfigurowanie zapory platformy Azure](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal) — instrukcje dotyczące konfigurowania zapory platformy Azure za pośrednictwem Azure Portal
-* [Sieci wirtualne — reguły zdefiniowane przez użytkownika](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#user-defined) — koncepcje i reguły routingu platformy Azure  
-* [Tagi usługi grup zabezpieczeń](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) — jak uprościć sieciowe grupy zabezpieczeń i konfigurację zapory za pomocą tagów usługi
+  * [Omówienie Zapory platformy Azure](../../../firewall/overview.md)— Omówienie Zapory platformy Azure
+  * [Samouczek: wdrażanie i Konfigurowanie zapory platformy Azure](../../../firewall/tutorial-firewall-deploy-portal.md) — instrukcje dotyczące konfigurowania zapory platformy Azure za pośrednictwem Azure Portal
+* [Sieci wirtualne — reguły zdefiniowane przez użytkownika](../../../virtual-network/virtual-networks-udr-overview.md#user-defined) — koncepcje i reguły routingu platformy Azure  
+* [Tagi usługi grup zabezpieczeń](../../../virtual-network/security-overview.md#service-tags) — jak uprościć sieciowe grupy zabezpieczeń i konfigurację zapory za pomocą tagów usługi
 
 ## <a name="additional-external-azure-standard-load-balancer-for-outbound-connections-to-internet"></a>Dodatkowe zewnętrzne usługa Load Balancer w warstwie Standardowa platformy Azure dla połączeń wychodzących z Internetem
 
-Jedną z opcji zapewnienia łączności wychodzącej z publicznymi punktami końcowymi, bez zezwalania na połączenia przychodzące z maszyną wirtualną z publicznego punktu końcowego, jest utworzenie drugiego modułu równoważenia obciążenia z publicznym adresem IP, dodanie maszyn wirtualnych do puli zaplecza drugiego modułu równoważenia obciążenia i zdefiniowanie tylko [reguł ruchu wychodzącego](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-rules-overview).  
-Używaj [sieciowych grup zabezpieczeń](https://docs.microsoft.com/azure/virtual-network/security-overview) do kontrolowania publicznych punktów końcowych, które są dostępne dla wywołań wychodzących z maszyny wirtualnej.  
-Aby uzyskać więcej informacji, zobacz scenariusz 2 w dokumencie [połączenia wychodzące](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#scenarios).  
+Jedną z opcji zapewnienia łączności wychodzącej z publicznymi punktami końcowymi, bez zezwalania na połączenia przychodzące z maszyną wirtualną z publicznego punktu końcowego, jest utworzenie drugiego modułu równoważenia obciążenia z publicznym adresem IP, dodanie maszyn wirtualnych do puli zaplecza drugiego modułu równoważenia obciążenia i zdefiniowanie tylko [reguł ruchu wychodzącego](../../../load-balancer/load-balancer-outbound-connections.md#outboundrules).  
+Używaj [sieciowych grup zabezpieczeń](../../../virtual-network/security-overview.md) do kontrolowania publicznych punktów końcowych, które są dostępne dla wywołań wychodzących z maszyny wirtualnej.  
+Aby uzyskać więcej informacji, zobacz scenariusz 2 w dokumencie [połączenia wychodzące](../../../load-balancer/load-balancer-outbound-connections.md#scenarios).  
 Konfiguracja będzie wyglądać następująco:  
 
 ![Kontrola łączności z publicznymi punktami końcowymi przy użyciu sieciowych grup zabezpieczeń](./media/high-availability-guide-standard-load-balancer/high-availability-guide-standard-load-balancer-public.png)
@@ -81,17 +81,17 @@ Konfiguracja będzie wyglądać następująco:
 ### <a name="important-considerations"></a>Istotne zagadnienia
 
 - Możesz użyć jednej z dodatkowych Load Balancer publicznych dla wielu maszyn wirtualnych w tej samej podsieci, aby uzyskać łączność wychodzącą z publicznym punktem końcowym i zoptymalizować koszty  
-- Używaj [sieciowych grup zabezpieczeń](https://docs.microsoft.com/azure/virtual-network/security-overview) do kontrolowania, które publiczne punkty końcowe są dostępne z maszyn wirtualnych. Można przypisać sieciową grupę zabezpieczeń do podsieci lub do każdej maszyny wirtualnej. Jeśli to możliwe, użyj [tagów usługi](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) , aby zmniejszyć złożoność reguł zabezpieczeń.  
+- Używaj [sieciowych grup zabezpieczeń](../../../virtual-network/security-overview.md) do kontrolowania, które publiczne punkty końcowe są dostępne z maszyn wirtualnych. Można przypisać sieciową grupę zabezpieczeń do podsieci lub do każdej maszyny wirtualnej. Jeśli to możliwe, użyj [tagów usługi](../../../virtual-network/security-overview.md#service-tags) , aby zmniejszyć złożoność reguł zabezpieczeń.  
 - Moduł równoważenia obciążenia w warstwie Standardowa platformy Azure z publicznym adresem IP i regułami ruchu wychodzącego umożliwia bezpośredni dostęp do publicznego punktu końcowego. Jeśli istnieją wymagania dotyczące zabezpieczeń firmy, aby cały ruch wychodzący był realizowany za pośrednictwem scentralizowanego rozwiązania firmy na potrzeby inspekcji i rejestrowania, może nie być możliwe spełnienie wymagań w tym scenariuszu.  
 
 >[!TIP]
->Jeśli to możliwe, użyj [tagów usługi](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) , aby zmniejszyć złożoność sieciowej grupy zabezpieczeń. 
+>Jeśli to możliwe, użyj [tagów usługi](../../../virtual-network/security-overview.md#service-tags) , aby zmniejszyć złożoność sieciowej grupy zabezpieczeń. 
 
 ### <a name="deployment-steps"></a>Kroki wdrażania
 
 1. Utwórz Load Balancer  
    1. W [Azure Portal](https://portal.azure.com) kliknij pozycję wszystkie zasoby, Dodaj, a następnie wyszukaj **Load Balancer**  
-   1. Kliknij przycisk **Utwórz** 
+   1. Kliknij pozycję **Utwórz** 
    1. Nazwa Load Balancer **MyPublicILB**  
    1. Wybierz opcję **Public** as Type, **Standard** as SKU  
    1. Wybierz pozycję **Utwórz publiczny adres IP** i określ jako nazwę **MyPublicILBFrondEndIP**  
@@ -100,7 +100,7 @@ Konfiguracja będzie wyglądać następująco:
 2. Utwórz **MyBackendPoolOfPublicILB** puli zaplecza i Dodaj maszyny wirtualne.  
    1. Wybierz sieć wirtualną  
    1. Wybierz Maszyny wirtualne i ich adresy IP, a następnie dodaj je do puli zaplecza  
-3. [Utwórz reguły ruchu wychodzącego](https://docs.microsoft.com/azure/load-balancer/configure-load-balancer-outbound-cli#create-outbound-rule). Obecnie nie można tworzyć reguł wychodzących na podstawie Azure Portal. Reguły ruchu wychodzącego można tworzyć przy użyciu [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/azure/cloud-shell/overview?view=azure-cli-latest).  
+3. [Utwórz reguły ruchu wychodzącego](../../../load-balancer/configure-load-balancer-outbound-cli.md#create-outbound-rule). Obecnie nie można tworzyć reguł wychodzących na podstawie Azure Portal. Reguły ruchu wychodzącego można tworzyć przy użyciu [interfejsu wiersza polecenia platformy Azure](../../../cloud-shell/overview.md?view=azure-cli-latest).  
 
    ```azurecli
     az network lb outbound-rule create --address-pool MyBackendPoolOfPublicILB --frontend-ip-configs MyPublicILBFrondEndIP --idle-timeout 30 --lb-name MyPublicILB --name MyOutBoundRules  --outbound-ports 10000 --enable-tcp-reset true --protocol All --resource-group MyResourceGroup
@@ -117,13 +117,13 @@ Konfiguracja będzie wyglądać następująco:
 
    ![Połączenie wychodzące z drugim Load Balancer z publicznym adresem IP](./media/high-availability-guide-standard-load-balancer/high-availability-guide-standard-load-balancer-network-security-groups.png)
 
-   Aby uzyskać więcej informacji na temat grup zabezpieczeń sieci platformy Azure, zobacz [grupy zabezpieczeń ](https://docs.microsoft.com/azure/virtual-network/security-overview). 
+   Aby uzyskać więcej informacji na temat grup zabezpieczeń sieci platformy Azure, zobacz [grupy zabezpieczeń ](../../../virtual-network/security-overview.md). 
 
 ## <a name="azure-firewall-for-outbound-connections-to-internet"></a>Zapora platformy Azure dla połączeń wychodzących z Internetem
 
 Kolejną opcją zapewnienia łączności wychodzącej z publicznymi punktami końcowymi, bez zezwalania na połączenia przychodzące z maszyną wirtualną z publicznych punktów końcowych, jest Zapora platformy Azure. Zapora systemu Azure to zarządzana usługa z wbudowaną wysoką dostępnością i może obejmować wiele Strefy dostępności.  
-Konieczne będzie również wdrożenie [trasy zdefiniowanej przez użytkownika](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#custom-routes)skojarzonej z podsiecią, w której wdrożono maszyny wirtualne i moduł równoważenia obciążenia platformy Azure, wskazując na zaporę platformy Azure, aby kierować ruchem za pośrednictwem zapory platformy Azure.  
-Aby uzyskać szczegółowe informacje na temat wdrażania zapory platformy Azure, zobacz [wdrażanie i Konfigurowanie zapory platformy Azure](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal).  
+Konieczne będzie również wdrożenie [trasy zdefiniowanej przez użytkownika](../../../virtual-network/virtual-networks-udr-overview.md#custom-routes)skojarzonej z podsiecią, w której wdrożono maszyny wirtualne i moduł równoważenia obciążenia platformy Azure, wskazując na zaporę platformy Azure, aby kierować ruchem za pośrednictwem zapory platformy Azure.  
+Aby uzyskać szczegółowe informacje na temat wdrażania zapory platformy Azure, zobacz [wdrażanie i Konfigurowanie zapory platformy Azure](../../../firewall/tutorial-firewall-deploy-portal.md).  
 
 Architektura będzie wyglądać następująco:
 
@@ -137,7 +137,7 @@ Architektura będzie wyglądać następująco:
 - Jeśli firmowe rozwiązanie zapory nie jest zaporą platformy Azure i masz wymagania dotyczące zabezpieczeń, aby cały ruch wychodzący był przekazywany przez centralne rozwiązanie korporacyjne, rozwiązanie to może nie być praktyczne.  
 
 >[!TIP]
->Jeśli to możliwe, użyj [tagów usługi](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) , aby zmniejszyć złożoność reguł zapory platformy Azure.  
+>Jeśli to możliwe, użyj [tagów usługi](../../../virtual-network/security-overview.md#service-tags) , aby zmniejszyć złożoność reguł zapory platformy Azure.  
 
 ### <a name="deployment-steps"></a>Kroki wdrażania
 
@@ -229,5 +229,5 @@ Jeśli ruch wychodzący jest kierowany za pośrednictwem zapory innej firmy:
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Dowiedz się, jak skonfigurować Pacemaker na SUSE na platformie Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker)
-* [Dowiedz się, jak skonfigurować Pacemaker na Red Hat na platformie Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-pacemaker)
+* [Dowiedz się, jak skonfigurować Pacemaker na SUSE na platformie Azure](./high-availability-guide-suse-pacemaker.md)
+* [Dowiedz się, jak skonfigurować Pacemaker na Red Hat na platformie Azure](./high-availability-guide-rhel-pacemaker.md)

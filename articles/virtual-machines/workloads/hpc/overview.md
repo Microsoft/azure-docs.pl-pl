@@ -8,12 +8,12 @@ ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: overview
 ms.date: 07/02/2019
-ms.openlocfilehash: b3d5d003db89a11a013c3236a3afbe03ffe68557
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 1f88496a6c474194089f20e128b2b92ec61e8559
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76271017"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083433"
 ---
 # <a name="high-performance-computing-on-h-series-vms"></a>Obliczenia o wysokiej wydajności na maszynach wirtualnych z serii H
 
@@ -37,9 +37,9 @@ Konfiguracja InfiniBand obsługująca maszyny wirtualne serii HB i HC nie blokuj
 
 Zobacz [Włączanie InfiniBand](enable-infiniband.md) , aby dowiedzieć się więcej o konfigurowaniu InfiniBand na maszynach wirtualnych z serii HB lub HC.
 
-## <a name="get-started"></a>Wprowadzenie
+## <a name="get-started"></a>Rozpoczęcie pracy
 
-Najpierw zdecyduj, która maszyna wirtualna serii H ma być używana. Aby uzyskać szczegółowe informacje na temat maszyn wirtualnych zoptymalizowanych pod kątem HPC, zobacz [Omówienie z serii HB](hb-series-overview.md) i [Omówienie serii HC](hc-series-overview.md). Aby uzyskać specyfikacje, zobacz [duże rozmiary maszyn wirtualnych obliczeniowych o wysokiej wydajności](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-hpc).
+Najpierw zdecyduj, która maszyna wirtualna serii H ma być używana. Aby uzyskać szczegółowe informacje na temat maszyn wirtualnych zoptymalizowanych pod kątem HPC, zobacz [Omówienie z serii HB](hb-series-overview.md) i [Omówienie serii HC](hc-series-overview.md). Aby uzyskać specyfikacje, zobacz [duże rozmiary maszyn wirtualnych obliczeniowych o wysokiej wydajności](../../sizes-hpc.md).
 
 Po wybraniu i utworzeniu maszyny wirtualnej dla aplikacji musisz ją skonfigurować, włączając opcję InfiniBand. Aby dowiedzieć się, jak włączyć funkcję InfiniBand na maszynach wirtualnych z systemami Windows i Linux, zobacz [Włączanie usługi InfiniBand](enable-infiniband.md).
 
@@ -51,4 +51,4 @@ Po wybraniu serii maszyn wirtualnych Skonfiguruj InfiniBand i MPI, aby rozpoczą
 
 - Zapoznaj się z [omówieniem HB-Series](hb-series-overview.md) i [omówieniem z serii HC](hc-series-overview.md) , aby dowiedzieć się więcej na temat kluczowych różnic i specyfikacji.
 
-- W przypadku wyższego poziomu, widoku architektury działającego obciążeń HPC, zobacz [wydajność obliczeń o wysokiej wydajności (HPC) na platformie Azure](https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/).
+- W przypadku wyższego poziomu, widoku architektury działającego obciążeń HPC, zobacz [wydajność obliczeń o wysokiej wydajności (HPC) na platformie Azure](/azure/architecture/topics/high-performance-computing/).

@@ -11,11 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: c1ed731943abf0efdd99ea54d2318fa402835e08
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4bcbbd9378b6ea861c926eed16d2ceed8131b913
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76720014"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082753"
 ---
 # <a name="team-data-science-process-roles-and-tasks"></a>Role i zadania procesu nauka danych zespołu
 
@@ -116,7 +117,7 @@ Kroki przepływu pracy można grupować w trzy działania:
 
 - Liderzy projektu przeprowadzają Planowanie przebiegu
 - Analitykowie danych tworzą artefakty w odniesieniu `git` do elementów roboczych
-- Potencjalni klienci projektu lub inni członkowie zespołu wykonują przeglądy kodu i scalają gałęzie robocze z gałęzią główną
+- Potencjalni klienci projektu lub inni członkowie zespołu wykonują przeglądy kodu i scalają gałęzie robocze z gałęzią podstawową
 
 Aby uzyskać szczegółowe instrukcje dotyczące przepływu pracy wykonywanego w projekcie, zobacz [opracowywanie projektów analizy danych](agile-development.md).
 

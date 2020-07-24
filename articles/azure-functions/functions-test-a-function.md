@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: cshoe
-ms.openlocfilehash: 1f08d6b8a2ce2381c3bc85891a292ac05561cf34
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: be406744dc9752dd3c924c636e85f43e133c1cca
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85832563"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87085082"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>Strategie testowania kodu w usłudze Azure Functions
 
@@ -40,13 +40,13 @@ Aby skonfigurować środowisko, Utwórz funkcję i aplikację testową. Poniższ
 3. [Utwórz funkcję timer na podstawie szablonu](./functions-create-scheduled-function.md) i nadaj jej nazwę **MyTimerTrigger**.
 4. [Utwórz aplikację testową xUnit](https://xunit.github.io/docs/getting-started-dotnet-core) w rozwiązaniu i nadaj jej nazwę **Functions. Tests**.
 5. Użyj NuGet, aby dodać odwołanie z aplikacji testowej do [Microsoft. AspNetCore. MVC](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc/)
-6. [Odwołuje się do aplikacji *Functions* ](https://docs.microsoft.com/visualstudio/ide/managing-references-in-a-project?view=vs-2017) z poziomu aplikacji *Functions. Tests* .
+6. [Odwołuje się do aplikacji *Functions* ](/visualstudio/ide/managing-references-in-a-project?view=vs-2017) z poziomu aplikacji *Functions. Tests* .
 
 ### <a name="create-test-classes"></a>Utwórz klasy testowe
 
 Teraz, gdy projekty są tworzone, można utworzyć klasy używane do uruchamiania testów automatycznych.
 
-Każda funkcja przyjmuje wystąpienie [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger) do obsługi rejestrowania komunikatów. Niektóre testy nie rejestrują komunikatów lub nie mają żadnych obaw dotyczących sposobu zaimplementowania rejestrowania. Inne testy muszą mieć na celu sprawdzenie, czy test kończy się powodzeniem.
+Każda funkcja przyjmuje wystąpienie [ILogger](/dotnet/api/microsoft.extensions.logging.ilogger) do obsługi rejestrowania komunikatów. Niektóre testy nie rejestrują komunikatów lub nie mają żadnych obaw dotyczących sposobu zaimplementowania rejestrowania. Inne testy muszą mieć na celu sprawdzenie, czy test kończy się powodzeniem.
 
 Utworzysz nową klasę o nazwie `ListLogger` , która zawiera wewnętrzną listę komunikatów do oceny podczas testowania. Do zaimplementowania wymaganego `ILogger` interfejsu Klasa musi mieć zakres. W poniższej klasie przedstawiono zakres dla przypadków testowych do przekazania do `ListLogger` klasy.
 
@@ -192,7 +192,7 @@ namespace Functions.Tests
 
 `TestFactory`Klasa implementuje następujące elementy członkowskie:
 
-- **Dane**: Ta właściwość zwraca kolekcję [IEnumerable](https://docs.microsoft.com/dotnet/api/system.collections.ienumerable) przykładowych danych. Pary klucz wartość reprezentują wartości, które są przesyłane do ciągu zapytania.
+- **Dane**: Ta właściwość zwraca kolekcję [IEnumerable](/dotnet/api/system.collections.ienumerable) przykładowych danych. Pary klucz wartość reprezentują wartości, które są przesyłane do ciągu zapytania.
 
 - **IsDictionary**: Ta metoda akceptuje parę klucz/wartość jako argumenty i zwraca nowy `Dictionary` użyty do utworzenia `QueryCollection` do reprezentowania wartości ciągu zapytania.
 

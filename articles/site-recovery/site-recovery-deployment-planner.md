@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/13/2020
 ms.author: mayg
-ms.openlocfilehash: 71f4209b4af9c5bb5f171cf3c8e35b0fbc05fac9
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: f930fbb9cad893363db2b1a6b9b6ea8acade5a54
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134788"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083790"
 ---
 # <a name="about-the-azure-site-recovery-deployment-planner-for-vmware-to-azure"></a>Informacje o Planista wdrażania usługi Azure Site Recovery dla oprogramowania VMware na platformie Azure
 Ten artykuł to podręcznik użytkownika planisty wdrażania usługi Azure Site Recovery dla wdrożeń produkcyjnych oprogramowania VMware na platformie Azure.
@@ -62,7 +62,7 @@ Narzędzie udostępnia następujące szczegóły:
 
 ## <a name="support-matrix"></a>Tabela obsługi
 
-| | **Z programu VMware do platformy Azure** |**Z funkcji Hyper-V do platformy Azure**|**Azure–Azure**|**Z funkcji Hyper-V do lokacji dodatkowej**|**Z oprogramowania VMware do lokacji dodatkowej**
+| **Kategoria** | **Z programu VMware do platformy Azure** |**Z funkcji Hyper-V do platformy Azure**|**Azure–Azure**|**Z funkcji Hyper-V do lokacji dodatkowej**|**Z oprogramowania VMware do lokacji dodatkowej**
 --|--|--|--|--|--
 Obsługiwane scenariusze |Tak|Tak|Nie|Tak*|Nie
 Obsługiwana wersja | vCenter 6,7, 6,5, 6,0 lub 5,5| Windows Server 2016, Windows Server 2012 R2 | Nie dotyczy |Windows Server 2016, Windows Server 2012 R2|Nie dotyczy

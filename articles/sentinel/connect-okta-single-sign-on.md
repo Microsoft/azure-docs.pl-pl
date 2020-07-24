@@ -14,14 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2020
 ms.author: yelevin
-ms.openlocfilehash: 37ade037b7f3c88f5ff33d7fc4640b19f366fe7a
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 05a9b8009d896a2ee87df3e1c4493d249a887566
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86532032"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083926"
 ---
 # <a name="connect-your-okta-single-sign-on-to-azure-sentinel-with-azure-function"></a>Połącz Logowanie jednokrotne w usłudze usługi okta z platformą Azure — wskaźnikiem przy użyciu funkcji platformy Azure
+
+> [!IMPORTANT]
+> Łącznik danych logowania jednokrotnego usługi okta na platformie Azure jest obecnie w publicznej wersji zapoznawczej.
+> Ta funkcja jest dostępna bez umowy dotyczącej poziomu usług i nie jest zalecana w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Łącznik logowania jednokrotnego (SSO, usługi okta Single-on) umożliwia łatwe łączenie dzienników rozwiązań zabezpieczeń logowania jednokrotnego [(SSO)](https://www.okta.com/products/single-sign-on/) w usłudze usługi okta z systemem Azure — do wyświetlania pulpitów nawigacyjnych, tworzenia niestandardowych alertów i ulepszania badania. Integracja między logowaniem jednokrotnym i usługi okta na platformie Azure to użycie Azure Functions do ściągania danych dzienników przy użyciu interfejsu API REST.
 

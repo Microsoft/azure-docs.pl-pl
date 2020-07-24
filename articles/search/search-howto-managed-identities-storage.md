@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/18/2020
-ms.openlocfilehash: ffbc850c580daee5890f9c75021cc518918d098e
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 073a92f07d17614cb386c5c33a8058af9b59aaea
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86145385"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87084079"
 ---
 # <a name="set-up-a-connection-to-an-azure-storage-account-using-a-managed-identity-preview"></a>Skonfiguruj połączenie z kontem usługi Azure Storage przy użyciu tożsamości zarządzanej (wersja zapoznawcza)
 
@@ -53,17 +53,19 @@ W tym kroku nadajesz usłudze Azure Wyszukiwanie poznawcze uprawnienia do odczyt
     ![Dodaj przypisanie roli](./media/search-managed-identities/add-role-assignment-storage.png "Dodaj przypisanie roli")
 
 4. Wybierz odpowiednie role w zależności od typu konta magazynu, które chcesz zindeksować:
-    1. Usługa Azure Blob Storage wymaga dodania usługi wyszukiwania do ról **czytnika danych obiektów BLOB** **i dostępu do danych** i magazynu.
-    1. Azure Data Lake Storage Gen2 wymaga dodania usługi wyszukiwania do ról **czytnika danych obiektów BLOB** **i dostępu do danych** i magazynu.
-    1. Usługa Azure Table Storage wymaga dodania usługi wyszukiwania tylko do roli **czytelnik i dostęp do danych** .
+    1. Magazyn obiektów blob platformy Azure wymaga dodania usługi wyszukiwania do roli **czytnika danych obiektów blob magazynu** .
+    1. Azure Data Lake Storage Gen2 wymaga dodania usługi wyszukiwania do roli **czytnika danych obiektu blob magazynu** .
+    1. Usługa Azure Table Storage wymaga dodania usługi wyszukiwania do roli **czytelnik i dostęp do danych** .
 5.  Pozostaw **uprawnienia do przypisywania** jako **użytkownik usługi Azure AD, Grupa lub nazwa główna usługi**
 6.  Wyszukaj swoją usługę wyszukiwania, wybierz ją, a następnie wybierz pozycję **Zapisz** .
 
+    Przykład magazynu obiektów blob platformy Azure i Azure Data Lake Storage Gen2:
+
+    ![Dodaj przypisanie roli czytnika danych obiektów blob magazynu](./media/search-managed-identities/add-role-assignment-storage-blob-data-reader.png "Dodaj przypisanie roli czytnika danych obiektów blob magazynu")
+
+    Przykład dotyczący usługi Azure Table Storage:
+
     ![Dodawanie przypisania roli czytnika i dostępu do danych](./media/search-managed-identities/add-role-assignment-reader-and-data-access.png "Dodawanie przypisania roli czytnika i dostępu do danych")
-
-Należy pamiętać, że podczas nawiązywania połączenia z usługą Azure Blob Storage i Azure Data Lake Storage Gen2, należy również dodać przypisanie roli **czytnika danych obiektu blob magazynu** .
-
-![Dodaj przypisanie roli czytnika danych obiektów blob magazynu](./media/search-managed-identities/add-role-assignment-storage-blob-data-reader.png "Dodaj przypisanie roli czytnika danych obiektów blob magazynu")
 
 ### <a name="3---create-the-data-source"></a>3 — Tworzenie źródła danych
 
@@ -146,7 +148,7 @@ Aby uzyskać więcej informacji na temat interfejsu API tworzenia indeksatora, z
 
 Więcej informacji o definiowaniu harmonogramów indeksatorów znajduje się w temacie [jak zaplanować indeksatory dla platformy Azure wyszukiwanie poznawcze](search-howto-schedule-indexers.md).
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 Dowiedz się więcej o indeksatorach usługi Azure Storage:
 * [Indeksator usługi Azure Blob](search-howto-indexing-azure-blob-storage.md)

@@ -3,12 +3,12 @@ title: Tworzenie pliku parametrów
 description: Utwórz plik parametrów do przekazywania wartości podczas wdrażania szablonu Azure Resource Manager
 ms.topic: conceptual
 ms.date: 06/19/2020
-ms.openlocfilehash: 7c03e161c7b3a18020de6a06d356720f5e4c31fd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8039b63978e52b69b0f8ffb4dd4e052769f3c5e6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85117509"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082940"
 ---
 # <a name="create-resource-manager-parameter-file"></a>Utwórz plik parametrów Menedżer zasobów
 
@@ -186,8 +186,8 @@ W poniższym przykładzie przedstawiono formaty różnych typów parametrów.
 
 Zobacz:
 
-- [Wdrażanie zasobów za pomocą szablonów ARM i interfejsu wiersza polecenia platformy Azure](./deploy-powershell.md#pass-parameter-values)
-- [Wdrażanie zasobów za pomocą szablonów ARM i Azure PowerShell](./deploy-cli.md#parameters)
+- [Wdrażanie zasobów za pomocą szablonów ARM i interfejsu wiersza polecenia platformy Azure](./deploy-cli.md#parameters)
+- [Wdrażanie zasobów za pomocą szablonów ARM i Azure PowerShell](./deploy-powershell.md#pass-parameter-values)
 
 ## <a name="file-name"></a>Nazwa pliku
 

@@ -13,14 +13,14 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 06/22/2020
+ms.date: 07/16/2020
 ms.author: sedusch
-ms.openlocfilehash: b6a284d13d0d737eca65b2593813b3d1b999cfdf
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: dbcb39641f35ad0f997db30b320826764a08bff1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86133162"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082260"
 ---
 # <a name="azure-virtual-machines-deployment-for-sap-netweaver"></a>Wdrożenie Virtual Machines platformy Azure dla oprogramowania SAP NetWeaver
 
@@ -74,7 +74,7 @@ ms.locfileid: "86133162"
 [azure-cli]:../../../cli-install-nodejs.md
 [azure-cli-2]:https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest
 [azure-portal]:https://portal.azure.com
-[azure-ps]:/powershell/azureps-cmdlets-docs
+[azure-ps]:/powershell/azure/
 [azure-quickstart-templates-github]:https://github.com/Azure/azure-quickstart-templates
 [azure-script-ps]:https://go.microsoft.com/fwlink/p/?LinkID=395017
 [azure-resource-manager/management/azure-subscription-service-limits]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
@@ -285,15 +285,15 @@ ms.locfileid: "86133162"
 [virtual-machines-linux-tutorial]:../../linux/quick-create-cli.md
 [virtual-machines-linux-update-agent]:../../linux/update-agent.md
 [virtual-machines-manage-availability]:../../linux/manage-availability.md
-[virtual-machines-ps-create-preconfigure-windows-resource-manager-vms]:../../virtual-machines-windows-ps-create.md
+[virtual-machines-ps-create-preconfigure-windows-resource-manager-vms]:../../windows/quick-create-powershell.md
 [virtual-machines-sizes]:../../linux/sizes.md
 [virtual-machines-windows-classic-ps-sql-alwayson-availability-groups]:./../../windows/sqlclassic/virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md
 [virtual-machines-windows-classic-ps-sql-int-listener]:./../../windows/sqlclassic/virtual-machines-windows-classic-ps-sql-int-listener.md
 [virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions]:../../../azure-sql/virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview.md
 [virtual-machines-sql-server-infrastructure-services]:../../../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md
 [virtual-machines-sql-server-performance-best-practices]:../../../azure-sql/virtual-machines/windows/performance-guidelines-best-practices.md
-[virtual-machines-upload-image-windows-resource-manager]:../../virtual-machines-windows-upload-image.md
-[virtual-machines-windows-tutorial]:../../virtual-machines-windows-hero-tutorial.md
+[virtual-machines-upload-image-windows-resource-manager]:../../windows/upload-image.md
+[virtual-machines-windows-tutorial]:../../windows/quick-create-portal.md
 [virtual-machines-workload-template-sql-alwayson]:https://azure.microsoft.com/documentation/templates/sql-server-2014-alwayson-dsc/
 [virtual-network-deploy-multinic-arm-cli]:../linux/multiple-nics.md
 [virtual-network-deploy-multinic-arm-ps]:../windows/multiple-nics.md
@@ -421,7 +421,7 @@ Poniższy schemat blokowy przedstawia sekwencję kroków czynności związanych 
 
 Najprostszym sposobem tworzenia nowej maszyny wirtualnej przy użyciu obrazu z witryny Azure Marketplace jest użycie Azure Portal.
 
-1.  Przejdź do witryny <https://portal.azure.com/#create/hub>.  Lub w menu Azure Portal wybierz pozycję **+ Nowy**.
+1.  Przejdź do adresu <https://portal.azure.com/#create/hub>.  Lub w menu Azure Portal wybierz pozycję **+ Nowy**.
 1.  Wybierz pozycję **obliczenia**, a następnie wybierz typ systemu operacyjnego, który chcesz wdrożyć. Na przykład: Windows Server 2012 R2, SUSE Linux Enterprise Server 12 (SLES 12), Red Hat Enterprise Linux 7,2 (RHEL 7,2) lub Oracle Linux 7,2. W widoku listy domyślnej nie są wyświetlane wszystkie obsługiwane systemy operacyjne. Aby uzyskać pełną listę, wybierz pozycję **Zobacz wszystko** . Aby uzyskać więcej informacji o obsługiwanych systemach operacyjnych na potrzeby wdrażania oprogramowania SAP, zobacz temat SAP Note [1928533].
 1.  Na następnej stronie Przejrzyj warunki i postanowienia.
 1.  W polu **Wybierz model wdrażania** wybierz pozycję **Menedżer zasobów**.
@@ -441,10 +441,10 @@ Kreator przeprowadzi Cię przez proces konfigurowania wymaganych parametrów w c
      Listę obsługiwanych typów maszyn wirtualnych można znaleźć w temacie SAP Note [1928533]. Upewnij się, że wybrano poprawny typ maszyny wirtualnej, jeśli chcesz użyć usługi Azure Premium Storage. Nie wszystkie typy maszyn wirtualnych obsługują Premium Storage. Aby uzyskać więcej informacji, zobacz [Magazyn: Microsoft Azure Storage i dyski danych][planning-guide-storage-microsoft-azure-storage-and-data-disks] oraz [usługa Azure Storage dla obciążeń SAP](./planning-guide-storage.md) na [platformie Azure Virtual Machines planowanie i wdrażanie oprogramowania SAP NetWeaver][planning-guide].
 
 1. **Ustawienia**:
-   * **Storage**
+   * **Magazyn**
      * **Typ dysku**: Wybierz typ dysku dysku systemu operacyjnego. Jeśli chcesz używać Premium Storage dla dysków z danymi, zalecamy również korzystanie z Premium Storage dla dysku systemu operacyjnego.
-     * **Użyj dysków zarządzanych**: Jeśli chcesz użyć Managed disks, wybierz pozycję tak. Aby uzyskać więcej informacji na temat Managed Disks, zobacz rozdział [Managed disks](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide-storage#microsoft-azure-storage-resiliency) w przewodniku planowania.
-     * **Konto magazynu**: Wybierz istniejące konto magazynu lub Utwórz nowe. Nie wszystkie typy magazynów działają w przypadku uruchamiania aplikacji SAP. Aby uzyskać więcej informacji na temat typów magazynów, zobacz [Struktura magazynu maszyny wirtualnej na potrzeby wdrożeń RDBMS](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general#65fa79d6-a85f-47ee-890b-22e794f51a64).
+     * **Użyj dysków zarządzanych**: Jeśli chcesz użyć Managed disks, wybierz pozycję tak. Aby uzyskać więcej informacji na temat Managed Disks, zobacz rozdział [Managed disks](./planning-guide-storage.md#microsoft-azure-storage-resiliency) w przewodniku planowania.
+     * **Konto magazynu**: Wybierz istniejące konto magazynu lub Utwórz nowe. Nie wszystkie typy magazynów działają w przypadku uruchamiania aplikacji SAP. Aby uzyskać więcej informacji na temat typów magazynów, zobacz [Struktura magazynu maszyny wirtualnej na potrzeby wdrożeń RDBMS](./dbms_guide_general.md#65fa79d6-a85f-47ee-890b-22e794f51a64).
    * **Sieć**
      * **Sieć wirtualna** i **podsieć**: aby zintegrować maszynę wirtualną z intranetem, wybierz sieć wirtualną, która jest połączona z siecią lokalną.
      * **Publiczny adres IP**: Wybierz publiczny adres IP, którego chcesz użyć, lub wprowadź parametry, aby utworzyć nowy publiczny adres IP. Aby uzyskać dostęp do maszyny wirtualnej za pośrednictwem Internetu, możesz użyć publicznego adresu IP. Upewnij się, że utworzono również sieciową grupę zabezpieczeń, która pomaga w zabezpieczaniu dostępu do maszyny wirtualnej.
@@ -500,7 +500,7 @@ W Azure Portal wprowadź następujące parametry szablonu:
 
      W przypadku większych systemów zdecydowanie zalecamy korzystanie z usługi Azure Premium Storage. Aby uzyskać więcej informacji na temat typów magazynów, zobacz następujące zasoby:
       * [Korzystanie z usługi Azure SSD w warstwie Premium Storage dla wystąpienia SAP DBMS][2367194]
-      * [Struktura magazynu maszyny wirtualnej na potrzeby wdrożeń RDBMS](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general#65fa79d6-a85f-47ee-890b-22e794f51a64)
+      * [Struktura magazynu maszyny wirtualnej na potrzeby wdrożeń RDBMS](./dbms_guide_general.md#65fa79d6-a85f-47ee-890b-22e794f51a64)
       * [Premium Storage: magazyn o wysokiej wydajności dla obciążeń maszyn wirtualnych platformy Azure][storage-premium-storage-preview-portal]
       * [Wprowadzenie do usługi Microsoft Azure Storage][storage-introduction]
    * **Nazwa użytkownika administratora** i **hasło administratora**: Nazwa użytkownika i hasło.
@@ -545,7 +545,7 @@ Aby utworzyć prywatny obraz dla systemu Linux, należy wykonać różne czynno�
 ---
 > ![Windows][Logo_Windows] Windows
 >
-> Aby przygotować obraz systemu Windows, którego można użyć do wdrożenia wielu maszyn wirtualnych, ustawienia systemu Windows (takie jak identyfikator SID systemu Windows i nazwa hosta) muszą być abstrakcyjne lub uogólnione na lokalnej maszynie wirtualnej. W tym celu można użyć [narzędzia Sysprep](https://msdn.microsoft.com/library/hh825084.aspx) .
+> Aby przygotować obraz systemu Windows, którego można użyć do wdrożenia wielu maszyn wirtualnych, ustawienia systemu Windows (takie jak identyfikator SID systemu Windows i nazwa hosta) muszą być abstrakcyjne lub uogólnione na lokalnej maszynie wirtualnej. W tym celu można użyć [narzędzia Sysprep](/previous-versions/windows/it-pro/windows-8.1-and-8/hh825084(v=win.10)) .
 >
 > ![Linux][Logo_Linux] Linux
 >
@@ -562,9 +562,9 @@ Poniższy schemat blokowy przedstawia sekwencję kroków czynności związanych 
 
 #### <a name="create-a-virtual-machine-by-using-the-azure-portal"></a>Tworzenie maszyny wirtualnej przy użyciu Azure Portal
 
-Najprostszym sposobem tworzenia nowej maszyny wirtualnej na podstawie obrazu dysku zarządzanego jest użycie Azure Portal. Aby uzyskać więcej informacji na temat tworzenia obrazu dysku zarządzanie, przeczytaj artykuł [Przechwytywanie obrazu zarządzanego uogólnionej maszyny wirtualnej na platformie Azure](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource)
+Najprostszym sposobem tworzenia nowej maszyny wirtualnej na podstawie obrazu dysku zarządzanego jest użycie Azure Portal. Aby uzyskać więcej informacji na temat tworzenia obrazu dysku zarządzanie, przeczytaj artykuł [Przechwytywanie obrazu zarządzanego uogólnionej maszyny wirtualnej na platformie Azure](../../windows/capture-image-resource.md)
 
-1.  Przejdź do witryny <https://ms.portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.Compute%2Fimages>. Lub w menu Azure Portal wybierz pozycję **obrazy**.
+1.  Przejdź do adresu <https://ms.portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.Compute%2Fimages>. Lub w menu Azure Portal wybierz pozycję **obrazy**.
 1.  Wybierz obraz dysku zarządzanego, który chcesz wdrożyć, a następnie kliknij pozycję **Utwórz maszynę wirtualną** .
 
 Kreator przeprowadzi Cię przez proces konfigurowania wymaganych parametrów w celu utworzenia maszyny wirtualnej, a także wszystkich wymaganych zasobów, takich jak interfejsy sieciowe i konta magazynu. Niektóre z tych parametrów są następujące:
@@ -581,9 +581,9 @@ Kreator przeprowadzi Cię przez proces konfigurowania wymaganych parametrów w c
      Listę obsługiwanych typów maszyn wirtualnych można znaleźć w temacie SAP Note [1928533]. Upewnij się, że wybrano poprawny typ maszyny wirtualnej, jeśli chcesz użyć usługi Azure Premium Storage. Nie wszystkie typy maszyn wirtualnych obsługują Premium Storage. Aby uzyskać więcej informacji, zobacz [Magazyn: Microsoft Azure Storage i dyski danych][planning-guide-storage-microsoft-azure-storage-and-data-disks] oraz [usługa Azure Storage dla obciążeń SAP](./planning-guide-storage.md) na [platformie Azure Virtual Machines planowanie i wdrażanie oprogramowania SAP NetWeaver][planning-guide].
 
 1. **Ustawienia**:
-   * **Storage**
+   * **Magazyn**
      * **Typ dysku**: Wybierz typ dysku dysku systemu operacyjnego. Jeśli chcesz używać Premium Storage dla dysków z danymi, zalecamy również korzystanie z Premium Storage dla dysku systemu operacyjnego.
-     * **Użyj dysków zarządzanych**: Jeśli chcesz użyć Managed disks, wybierz pozycję tak. Aby uzyskać więcej informacji na temat Managed Disks, zobacz rozdział [Managed disks](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide-storage#microsoft-azure-storage-resiliency) w przewodniku planowania.
+     * **Użyj dysków zarządzanych**: Jeśli chcesz użyć Managed disks, wybierz pozycję tak. Aby uzyskać więcej informacji na temat Managed Disks, zobacz rozdział [Managed disks](./planning-guide-storage.md#microsoft-azure-storage-resiliency) w przewodniku planowania.
    * **Sieć**
      * **Sieć wirtualna** i **podsieć**: aby zintegrować maszynę wirtualną z intranetem, wybierz sieć wirtualną, która jest połączona z siecią lokalną.
      * **Publiczny adres IP**: Wybierz publiczny adres IP, którego chcesz użyć, lub wprowadź parametry, aby utworzyć nowy publiczny adres IP. Aby uzyskać dostęp do maszyny wirtualnej za pośrednictwem Internetu, możesz użyć publicznego adresu IP. Upewnij się, że utworzono również sieciową grupę zabezpieczeń, która pomaga w zabezpieczaniu dostępu do maszyny wirtualnej.
@@ -636,7 +636,7 @@ W Azure Portal wprowadź następujące parametry szablonu:
 
      W przypadku większych systemów zdecydowanie zalecamy korzystanie z usługi Azure Premium Storage. Aby uzyskać więcej informacji na temat typów magazynów, zobacz następujące zasoby:
       * [Korzystanie z usługi Azure SSD w warstwie Premium Storage dla wystąpienia SAP DBMS][2367194]
-      * [Struktura magazynu maszyny wirtualnej na potrzeby wdrożeń RDBMS](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general#65fa79d6-a85f-47ee-890b-22e794f51a64)
+      * [Struktura magazynu maszyny wirtualnej na potrzeby wdrożeń RDBMS](./dbms_guide_general.md#65fa79d6-a85f-47ee-890b-22e794f51a64)
       * [Premium Storage: magazyn o wysokiej wydajności dla obciążeń maszyn wirtualnych platformy Azure][storage-premium-storage-preview-portal]
       * [Wprowadzenie do usługi Microsoft Azure Storage][storage-introduction]
    * **Identyfikator URI dysku VHD obrazu użytkownika** (tylko szablon obrazu dysku niezarządzanego): identyfikator URI prywatnego dysku VHD obrazu systemu operacyjnego, na przykład https:// &lt; AccountName>. blob.Core.Windows.NET/VHDs/userimage.VHD.
@@ -728,7 +728,7 @@ W Azure Portal wprowadź następujące parametry szablonu:
 
      W przypadku większych systemów zdecydowanie zalecamy korzystanie z usługi Azure Premium Storage. Aby uzyskać więcej informacji na temat typów magazynów, zobacz następujące zasoby:
       * [Korzystanie z usługi Azure SSD w warstwie Premium Storage dla wystąpienia SAP DBMS][2367194]
-      * [Struktura magazynu maszyny wirtualnej na potrzeby wdrożeń RDBMS](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general#65fa79d6-a85f-47ee-890b-22e794f51a64)
+      * [Struktura magazynu maszyny wirtualnej na potrzeby wdrożeń RDBMS](./dbms_guide_general.md#65fa79d6-a85f-47ee-890b-22e794f51a64)
       * [Premium Storage: magazyn o wysokiej wydajności dla obciążeń maszyn wirtualnych platformy Azure][storage-premium-storage-preview-portal]
       * [Wprowadzenie do usługi Microsoft Azure Storage][storage-introduction]
    * **Identyfikator URI dysku VHD dysków systemu operacyjnego** (tylko szablon dysku niezarządzanego): identyfikator URI prywatnego dysku systemu operacyjnego, na przykład https:// &lt; AccountName>. blob.Core.Windows.NET/VHDs/OSDisk.VHD.
@@ -780,9 +780,9 @@ Ta sekcja zawiera szczegółowe instrukcje dotyczące wykonywania określonych z
 
 ### <a name="deploy-azure-powershell-cmdlets"></a><a name="604bcec2-8b6e-48d2-a944-61b0f5dee2f7"></a>Wdrażanie poleceń cmdlet Azure PowerShell
 
-Wykonaj kroki opisane w artykule [Instalowanie modułu Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps)
+Wykonaj kroki opisane w artykule [Instalowanie modułu Azure PowerShell](/powershell/azure/install-az-ps)
 
-Sprawdzaj często aktualizacje poleceń cmdlet programu PowerShell, które zwykle są aktualizowane co miesiąc. Wykonaj kroki opisane w [tym](https://docs.microsoft.com/powershell/azure/install-az-ps#update-the-azure-powershell-module) artykule. O ile nie określono inaczej w programie SAP Uwaga [1928533] lub sap Uwaga [2015553], zalecamy korzystanie z najnowszej wersji Azure PowerShell poleceń cmdlet.
+Sprawdzaj często aktualizacje poleceń cmdlet programu PowerShell, które zwykle są aktualizowane co miesiąc. Wykonaj kroki opisane w [tym](/powershell/azure/install-az-ps#update-the-azure-powershell-module) artykule. O ile nie określono inaczej w programie SAP Uwaga [1928533] lub sap Uwaga [2015553], zalecamy korzystanie z najnowszej wersji Azure PowerShell poleceń cmdlet.
 
 Aby sprawdzić wersję poleceń cmdlet Azure PowerShell zainstalowanych na komputerze, uruchom następujące polecenie programu PowerShell:
 
@@ -792,7 +792,7 @@ Aby sprawdzić wersję poleceń cmdlet Azure PowerShell zainstalowanych na kompu
 
 ### <a name="deploy-azure-cli"></a><a name="1ded9453-1330-442a-86ea-e0fd8ae8cab3"></a>Wdrażanie interfejsu wiersza polecenia platformy Azure
 
-Wykonaj kroki opisane w artykule [Instalowanie interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli)
+Wykonaj kroki opisane w artykule [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli)
 
 Sprawdzaj często aktualizacje interfejsu wiersza polecenia platformy Azure, które zwykle są aktualizowane co miesiąc.
 
@@ -861,7 +861,7 @@ Aby można było uzyskać dostęp do Internetu, należy prawidłowo skonfigurowa
 1. Wyczyść pole wyboru **Automatycznie wykryj ustawienia**.
 1. Zaznacz pole wyboru **Użyj serwera proxy dla sieci LAN** , a następnie wprowadź adres i port serwera proxy.
 1. Wybierz przycisk **Zaawansowane** .
-1. W polu **wyjątki** wprowadź adres IP **168.63.129.16**. Kliknij przycisk **OK**.
+1. W polu **wyjątki** wprowadź adres IP **168.63.129.16**. Wybierz przycisk **OK**.
 
 #### <a name="linux"></a>Linux
 
@@ -933,7 +933,7 @@ Aby zainstalować rozszerzenie platformy Azure dla oprogramowania SAP przy użyc
 
 1. Upewnij się, że zainstalowano najnowszą wersję polecenia cmdlet Azure PowerShell. Aby uzyskać więcej informacji, zobacz [wdrażanie Azure PowerShell poleceń cmdlet][deployment-guide-4.1].  
 1. Uruchom następujące polecenie programu PowerShell.
-    Aby uzyskać listę dostępnych środowisk, uruchom polecenie `commandlet Get-AzEnvironment` . Jeśli chcesz korzystać z globalnej platformy Azure, środowisko to **AzureCloud**. W przypadku platformy Azure z Chin wybierz pozycję **AzureChinaCloud**.
+    Aby uzyskać listę dostępnych środowisk, uruchom polecenie cmdlet `Get-AzEnvironment` . Jeśli chcesz korzystać z globalnej platformy Azure, środowisko to **AzureCloud**. W przypadku platformy Azure z Chin wybierz pozycję **AzureChinaCloud**.
 
     ```powershell
     $env = Get-AzEnvironment -Name <name of the environment>
@@ -1023,44 +1023,21 @@ Aby zainstalować rozszerzenie platformy Azure dla oprogramowania SAP przy użyc
 
 Nowe rozszerzenie maszyny wirtualnej dla oprogramowania SAP używa zarządzanej tożsamości przypisanej do maszyny wirtualnej w celu uzyskania dostępu do danych monitorowania i konfiguracji maszyny wirtualnej. Aby zainstalować nowe rozszerzenie platformy Azure dla oprogramowania SAP przy użyciu programu PowerShell, musisz najpierw przypisać taką tożsamość do maszyny wirtualnej i udzielić tej tożsamości dostępu do wszystkich zasobów używanych przez tę maszynę wirtualną, na przykład dysków i interfejsów sieciowych.
 
-Proces zostanie zautomatyzowany w następnej wersji Azure PowerShell (> 4.2.0). Po udostępnieniu nowej wersji ten artykuł zostanie zaktualizowany. Do tego czasu należy wykonać następujące kroki, aby ręcznie zainstalować rozszerzenie.
-
 > [!NOTE]
 > Poniższe kroki wymagają uprawnień właściciela do grupy zasobów lub poszczególnych zasobów (maszyn wirtualnych, dysków danych itp.).
 
 1. Upewnij się, że używasz agenta hosta SAP 7,21 PL 47 lub nowszego.
 1. Upewnij się, że odinstalowano bieżącą wersję rozszerzenia maszyny wirtualnej dla oprogramowania SAP. Instalacja obu wersji rozszerzenia maszyny wirtualnej dla oprogramowania SAP na tej samej maszynie wirtualnej nie jest obsługiwana.
-1. Upewnij się, że zainstalowano najnowszą wersję polecenia cmdlet Azure PowerShell. Aby uzyskać więcej informacji, zobacz [wdrażanie Azure PowerShell poleceń cmdlet][deployment-guide-4.1].
-1. Postępuj zgodnie z instrukcjami w artykule [Konfigurowanie zarządzanych tożsamości dla zasobów platformy Azure na maszynie wirtualnej platformy Azure przy użyciu programu PowerShell][qs-configure-powershell-windows-vm] , aby włączyć do maszyny wirtualnej zarządzaną tożsamość skojarzoną z systemem. Tożsamości zarządzane przypisane przez użytkownika nie są obsługiwane przez rozszerzenie maszyny wirtualnej dla oprogramowania SAP. Można jednak włączyć zarówno tożsamość przypisaną przez system, jak i przypisanej do użytkownika.
-    
-    Przykład:
-    ```powershell
-    $vm = Get-AzVM -ResourceGroupName <resource-group-name> -Name <vm name>
-    Update-AzVM -ResourceGroupName $vm.ResourceGroupName -VM $vm -IdentityType SystemAssigned
-    ```
-
-1. Przypisz zarządzaną tożsamość dostęp do grupy zasobów maszyny wirtualnej lub wszystkich interfejsów sieciowych, dysków zarządzanych i maszyny wirtualnej zgodnie z opisem w temacie [przypisywanie zarządzanej tożsamości dostępu do zasobu przy użyciu programu PowerShell][howto-assign-access-powershell] przykład:
+1. Upewnij się, że zainstalowano najnowszą wersję polecenia cmdlet Azure PowerShell (co najmniej 4.3.0). Aby uzyskać więcej informacji, zobacz [wdrażanie Azure PowerShell poleceń cmdlet][deployment-guide-4.1].
+1. Uruchom następujące polecenie programu PowerShell.
+    Aby uzyskać listę dostępnych środowisk, uruchom polecenie cmdlet `Get-AzEnvironment` . Jeśli chcesz korzystać z globalnej platformy Azure, środowisko to **AzureCloud**. W przypadku platformy Azure z Chin wybierz pozycję **AzureChinaCloud**.
 
     ```powershell
-    $spID = (Get-AzVM -ResourceGroupName <resource-group-name> -Name <vm name>).identity.principalid
-    $rg = Get-AzResourceGroup -Name $vm.ResourceGroupName
-    New-AzRoleAssignment -ObjectId $spID -RoleDefinitionName "Reader" -Scope $rg.ResourceId
-    ```
-
-1. Uruchom następujące polecenie cmdlet programu PowerShell, aby zainstalować rozszerzenie platformy Azure dla oprogramowania SAP.
-    Rozszerzenie jest obecnie obsługiwane tylko w AzureCloud. Platformy Azure z Chin, Azure Government lub innych specjalnych środowisk nie są jeszcze obsługiwane.
-
-    ```powershell
-    $env = Get-AzEnvironment -Name AzureCloud
+    $env = Get-AzEnvironment -Name <name of the environment>
     Connect-AzAccount -Environment $env
     Set-AzContext -SubscriptionName <subscription name>
 
-    $vm = Get-AzVM -ResourceGroupName <resource-group-name> -Name <vm name>
-    if ($vm.StorageProfile.OsDisk.OsType -eq "Windows") {
-      Set-AzVMExtension -Publisher Microsoft.AzureCAT.AzureEnhancedMonitoring -ExtensionType MonitorX64Windows -Name MonitorX64Windows -TypeHandlerVersion "1.0" -ResourceGroupName $vm.ResourceGroupName -VMName $vm.Name -Settings @{"system" = "SAP"} -Location $vm.Location
-    } else {
-      Set-AzVMExtension -Publisher Microsoft.AzureCAT.AzureEnhancedMonitoring -ExtensionType MonitorX64Linux -Name MonitorX64Linux -TypeHandlerVersion "1.0" -ResourceGroupName $vm.ResourceGroupName -VMName $vm.Name -Settings @{"system" = "SAP"} -Location $vm.Location
-    }
+    Set-AzVMAEMExtension -ResourceGroupName <resource group name> -VMName <virtual machine name> -InstallNewExtension
     ```
 
 #### <a name="configure-the-new-azure-extension-for-sap-with-azure-cli"></a><a name="c8749c24-fada-42ad-b114-f9aae2dc37da"></a>Skonfiguruj nowe rozszerzenie platformy Azure dla oprogramowania SAP za pomocą interfejsu wiersza polecenia platformy Azure
@@ -1116,7 +1093,10 @@ Uruchom sprawdzenie gotowości dla rozszerzenia platformy Azure dla oprogramowan
 
 ### <a name="readiness-check-for-the-azure-extension-for-sap"></a><a name="bb61ce92-8c5c-461f-8c53-39f5e5ed91f2"></a>Sprawdzenie gotowości dla rozszerzenia platformy Azure dla oprogramowania SAP
 
-Ten test sprawdza, czy wszystkie metryki wydajności, które znajdują się w aplikacji SAP, są dostarczane przez bazowe rozszerzenie platformy Azure dla oprogramowania SAP. Jeśli nowe rozszerzenie platformy Azure dla oprogramowania SAP zostało wdrożone, należy zapoznać się z rozdziałem [gotowość dla nowego rozszerzenia platformy Azure dla oprogramowania SAP][deployment-guide-5.1-new] w tym przewodniku.
+> [!NOTE]
+> Istnieją dwie wersje rozszerzenia maszyny wirtualnej. Ten rozdział obejmuje domyślne rozszerzenie maszyny wirtualnej. Jeśli zainstalowano nowe rozszerzenie maszyny wirtualnej, zobacz temat [gotowość działu check dla nowego rozszerzenia platformy Azure dla oprogramowania SAP][deployment-guide-5.1-new]
+
+Ten test sprawdza, czy wszystkie metryki wydajności, które znajdują się w aplikacji SAP, są dostarczane przez bazowe rozszerzenie platformy Azure dla oprogramowania SAP.
 
 #### <a name="run-the-readiness-check-on-a-windows-vm"></a>Uruchamianie sprawdzania gotowości na maszynie wirtualnej z systemem Windows
 
@@ -1167,15 +1147,15 @@ Jeśli **stan kondycji** nie jest **prawidłowy**, postępuj zgodnie z instrukcj
 
 1. Sprawdź dane wyjściowe rozszerzenia platformy Azure dla oprogramowania SAP.
 
-   a.  Uruchom polecenie `more /var/lib/AzureEnhancedMonitor/PerfCounters`
+   a.  Należy uruchomić polecenie `more /var/lib/AzureEnhancedMonitor/PerfCounters`
 
    **Oczekiwany wynik**: zwraca listę liczników wydajności. Plik nie powinien być pusty.
 
-   b. Uruchom polecenie `cat /var/lib/AzureEnhancedMonitor/PerfCounters | grep Error`
+   b. Należy uruchomić polecenie `cat /var/lib/AzureEnhancedMonitor/PerfCounters | grep Error`
 
    **Oczekiwany wynik**: zwraca jeden wiersz, w którym wystąpił **błąd, na**przykład **3; config; Błąd;; 0; 0; Brak; 0; 1456416792; TST-servercs;**
 
-   c. Uruchom polecenie `more /var/lib/AzureEnhancedMonitor/LatestErrorRecord`
+   c. Należy uruchomić polecenie `more /var/lib/AzureEnhancedMonitor/LatestErrorRecord`
 
    **Oczekiwany wynik**: zwraca wartość pustą lub nie istnieje.
 
@@ -1183,29 +1163,29 @@ Jeśli poprzednie sprawdzenie zakończyło się niepowodzeniem, uruchom następu
 
 1. Upewnij się, że waagent jest zainstalowana i włączona.
 
-   a.  Uruchom polecenie `sudo ls -al /var/lib/waagent/`
+   a.  Należy uruchomić polecenie `sudo ls -al /var/lib/waagent/`
 
      **Oczekiwany wynik**: wyświetla zawartość katalogu waagent.
 
-   b.  Uruchom polecenie `ps -ax | grep waagent`
+   b.  Należy uruchomić polecenie `ps -ax | grep waagent`
 
    **Oczekiwany wynik**: zawiera jeden wpis podobny do:`python /usr/sbin/waagent -daemon`
 
 1. Upewnij się, że rozszerzenie platformy Azure dla oprogramowania SAP jest zainstalowane i uruchomione.
 
-   a.  Uruchom polecenie `sudo sh -c 'ls -al /var/lib/waagent/Microsoft.OSTCExtensions.AzureEnhancedMonitorForLinux-*/'`
+   a.  Należy uruchomić polecenie `sudo sh -c 'ls -al /var/lib/waagent/Microsoft.OSTCExtensions.AzureEnhancedMonitorForLinux-*/'`
 
    **Oczekiwany wynik**: wyświetla zawartość rozszerzenia platformy Azure dla katalogu SAP.
 
-   b. Uruchom polecenie `ps -ax | grep AzureEnhanced`
+   b. Należy uruchomić polecenie `ps -ax | grep AzureEnhanced`
 
    **Oczekiwany wynik**: zawiera jeden wpis podobny do:`python /var/lib/waagent/Microsoft.OSTCExtensions.AzureEnhancedMonitorForLinux-2.0.0.2/handler.py daemon`
 
 1. Zainstaluj agenta hosta SAP zgodnie z opisem w artykule SAP Uwaga [1031096]i sprawdź dane wyjściowe `saposcol` .
 
-   a.  Uruchom polecenie `/usr/sap/hostctrl/exe/saposcol -d`
+   a.  Należy uruchomić polecenie `/usr/sap/hostctrl/exe/saposcol -d`
 
-   b.  Uruchom polecenie `dump ccm`
+   b.  Należy uruchomić polecenie `dump ccm`
 
    c.  Sprawdź, czy **Virtualization_Configuration Metryka dostępu \Enhanced monitorowania** ma **wartość true**.
 
@@ -1215,7 +1195,10 @@ Jeśli którykolwiek z tych sprawdzeń zakończy się niepowodzeniem i szczegó�
 
 ### <a name="readiness-check-for-the-new-azure-extension-for-sap"></a><a name="7bf24f59-7347-4c7a-b094-4693e4687ee5"></a>Sprawdzenie gotowości nowego rozszerzenia platformy Azure dla oprogramowania SAP
 
-Ten test sprawdza, czy wszystkie metryki wydajności, które znajdują się w aplikacji SAP, są dostarczane przez bazowe rozszerzenie platformy Azure dla oprogramowania SAP. Jeśli wdrożono stare rozszerzenie platformy Azure dla oprogramowania SAP, należy postępować zgodnie z rozdziałem [sprawdzanie gotowości dla systemu Azure][deployment-guide-5.1] w tym przewodniku.
+> [!NOTE]
+> Istnieją dwie wersje rozszerzenia maszyny wirtualnej. Ten rozdział obejmuje nowe rozszerzenie maszyny wirtualnej. Jeśli zainstalowano domyślne rozszerzenie maszyny wirtualnej, zobacz sekcję [gotowość do sprawdzenia pod kątem rozszerzenia platformy Azure dla oprogramowania SAP][deployment-guide-5.1].
+
+Ten test sprawdza, czy wszystkie metryki wydajności, które znajdują się w aplikacji SAP, są dostarczane przez bazowe rozszerzenie platformy Azure dla oprogramowania SAP.
 
 #### <a name="run-the-readiness-check-on-a-windows-vm"></a>Uruchamianie sprawdzania gotowości na maszynie wirtualnej z systemem Windows
 
@@ -1245,29 +1228,29 @@ Jeśli poprzednie sprawdzenie zakończyło się niepowodzeniem, uruchom następu
 
 1. Upewnij się, że waagent jest zainstalowana i włączona.
 
-   a.  Uruchom polecenie `sudo ls -al /var/lib/waagent/`
+   a.  Należy uruchomić polecenie `sudo ls -al /var/lib/waagent/`
 
      **Oczekiwany wynik**: wyświetla zawartość katalogu waagent.
 
-   b.  Uruchom polecenie `ps -ax | grep waagent`
+   b.  Należy uruchomić polecenie `ps -ax | grep waagent`
 
    **Oczekiwany wynik**: zawiera jeden wpis podobny do:`python /usr/sbin/waagent -daemon`
 
 1. Upewnij się, że rozszerzenie platformy Azure dla oprogramowania SAP jest zainstalowane i uruchomione.
 
-   a.  Uruchom polecenie `sudo sh -c 'ls -al /var/lib/waagent/Microsoft.AzureCAT.AzureEnhancedMonitoring.MonitorX64Linux-*/'`
+   a.  Należy uruchomić polecenie `sudo sh -c 'ls -al /var/lib/waagent/Microsoft.AzureCAT.AzureEnhancedMonitoring.MonitorX64Linux-*/'`
 
    **Oczekiwany wynik**: wyświetla zawartość rozszerzenia platformy Azure dla katalogu SAP.
 
-   b. Uruchom polecenie `ps -ax | grep AzureEnhanced`
+   b. Należy uruchomić polecenie `ps -ax | grep AzureEnhanced`
 
    **Oczekiwany wynik**: zawiera jeden wpis podobny do:`/var/lib/waagent/Microsoft.AzureCAT.AzureEnhancedMonitoring.MonitorX64Linux-1.0.0.82/AzureEnhancedMonitoring -monitor`
 
 1. Zainstaluj agenta hosta SAP zgodnie z opisem w artykule SAP Uwaga [1031096]i sprawdź dane wyjściowe `saposcol` .
 
-   a.  Uruchom polecenie `/usr/sap/hostctrl/exe/saposcol -d`
+   a.  Należy uruchomić polecenie `/usr/sap/hostctrl/exe/saposcol -d`
 
-   b.  Uruchom polecenie `dump ccm`
+   b.  Należy uruchomić polecenie `dump ccm`
 
    c.  Sprawdź, czy **Virtualization_Configuration Metryka dostępu \Enhanced monitorowania** ma **wartość true**.
 
@@ -1276,6 +1259,9 @@ Jeśli masz już zainstalowany serwer aplikacji SAP NetWeaver ABAP, Otwórz tran
 Jeśli którykolwiek z tych sprawdzeń zakończy się niepowodzeniem i szczegółowe informacje o sposobie ponownego wdrażania rozszerzenia, zobacz [Rozwiązywanie problemu z nowym rozszerzeniem platformy Azure dla oprogramowania SAP][deployment-guide-5.3-new].
 
 ### <a name="health-check-for-the-azure-extension-for-sap-configuration"></a><a name="e2d592ff-b4ea-4a53-a91a-e5521edb6cd1"></a>Sprawdzenie kondycji konfiguracji rozszerzenia platformy Azure dla oprogramowania SAP
+
+> [!NOTE]
+> Istnieją dwie wersje rozszerzenia maszyny wirtualnej. Ten rozdział obejmuje domyślne rozszerzenie maszyny wirtualnej. Jeśli zainstalowano nowe rozszerzenie maszyny wirtualnej, zapoznaj [się z rozdziałem Sprawdzanie kondycji, aby poznać nowe rozszerzenie platformy Azure dla konfiguracji oprogramowania SAP][deployment-guide-5.2-new].
 
 Jeśli niektóre dane infrastruktury nie zostały prawidłowo dostarczone zgodnie z opisem w teście opisanym w temacie [gotowość do sprawdzenia rozszerzenia platformy Azure dla oprogramowania SAP][deployment-guide-5.1], uruchom `Test-AzVMAEMExtension` polecenie cmdlet, aby sprawdzić, czy infrastruktura platformy Azure i rozszerzenie platformy Azure dla oprogramowania SAP są poprawnie skonfigurowane.
 
@@ -1301,6 +1287,9 @@ Upewnij się, że każdy wynik kontroli kondycji jest **prawidłowy**. Jeśli ni
 
 ### <a name="health-check-for-the-new-azure-extension-for-sap-configuration"></a><a name="464ac96d-7d3c-435d-a5ae-3faf3bfef4b3"></a>Sprawdzenie kondycji nowego rozszerzenia platformy Azure dla konfiguracji SAP
 
+> [!NOTE]
+> Istnieją dwie wersje rozszerzenia maszyny wirtualnej. Ten rozdział obejmuje nowe rozszerzenie maszyny wirtualnej. Jeśli zainstalowano domyślne rozszerzenie maszyny wirtualnej, zobacz rozdział [Health Check for the Azure Extension for SAP Configuration][deployment-guide-5.2].
+
 Jeśli niektóre dane infrastruktury nie zostały prawidłowo dostarczone zgodnie z opisem w teście opisanym w temacie [gotowość do sprawdzenia rozszerzenia platformy Azure dla oprogramowania SAP][deployment-guide-5.1-new], uruchom `Get-AzVMExtension` polecenie cmdlet, aby sprawdzić, czy rozszerzenie platformy Azure dla oprogramowania SAP zostało zainstalowane. Program `Test-AzVMAEMExtension` nie obsługuje jeszcze nowego rozszerzenia. Gdy polecenie cmdlet obsługuje nowe rozszerzenie, firma Microsoft zaktualizuje ten artykuł.
 
 1. Upewnij się, że zainstalowano najnowszą wersję polecenia cmdlet Azure PowerShell, zgodnie z opisem w temacie [wdrażanie Azure PowerShell poleceń cmdlet][deployment-guide-4.1].
@@ -1310,12 +1299,15 @@ Jeśli niektóre dane infrastruktury nie zostały prawidłowo dostarczone zgodni
    $env = Get-AzEnvironment -Name <name of the environment>
    Connect-AzAccount -Environment $env
    Set-AzContext -SubscriptionName <subscription name>
-   Get-AzVMExtension -ResourceGroupName <resource group name> -VMName <virtual machine name>
+   Test-AzVMAEMExtension -ResourceGroupName <resource group name> -VMName <virtual machine name>
    ```
 
-1. Polecenie cmdlet wyświetla listę wszystkich rozszerzeń wybranej maszyny wirtualnej. Upewnij się, że rozszerzenie platformy Azure dla oprogramowania SAP jest zainstalowane na maszynie wirtualnej.
+1. Polecenie cmdlet testuje konfigurację rozszerzenia maszyny wirtualnej dla SAP na wybranej maszynie wirtualnej.
 
 ### <a name="troubleshooting-azure-extension-for-sap"></a><a name="fe25a7da-4e4e-4388-8907-8abc2d33cfd8"></a>Rozwiązywanie problemów z rozszerzeniem platformy Azure dla oprogramowania SAP
+
+> [!NOTE]
+> Istnieją dwie wersje rozszerzenia maszyny wirtualnej. Ten rozdział obejmuje domyślne rozszerzenie maszyny wirtualnej. Jeśli zainstalowano nowe rozszerzenie maszyny wirtualnej, zobacz rozdział [Rozwiązywanie problemów z nowym rozszerzeniem platformy Azure dla oprogramowania SAP][deployment-guide-5.3-new].
 
 #### <a name="windowslogo_windows-azure-performance-counters-do-not-show-up-at-all"></a>![Windows][Logo_Windows] Liczniki wydajności platformy Azure nie są wyświetlane w ogóle
 
@@ -1406,6 +1398,9 @@ Aby zapoznać się z pełną i aktualną listą znanych problemów, zobacz temat
 Jeśli Rozwiązywanie problemów przy użyciu programu SAP Note [1999351] nie rozwiąże problemu, uruchom ponownie `Set-AzVMAEMExtension` skrypt konfiguracji zgodnie z opisem w temacie [Konfigurowanie rozszerzenia platformy Azure dla oprogramowania SAP][deployment-guide-4.5]. Może być konieczne odczekanie na godzinę, ponieważ liczniki usługi Storage Analytics lub Diagnostics mogą nie zostać utworzone natychmiast po ich włączeniu. Jeśli problem będzie nadal występował, Otwórz komunikat obsługa klienta SAP na składniku BC-OP-NT-AZR dla systemu Windows lub BC-OP-LNX-AZR dla maszyny wirtualnej z systemem Linux.
 
 ### <a name="troubleshooting-the-new-azure-extension-for-sap"></a><a name="b7afb8ef-a64c-495d-bb37-2af96688c530"></a>Rozwiązywanie problemów z nowym rozszerzeniem platformy Azure dla oprogramowania SAP
+
+> [!NOTE]
+> Istnieją dwie wersje rozszerzenia maszyny wirtualnej. Ten rozdział obejmuje nowe rozszerzenie maszyny wirtualnej. Jeśli zainstalowano domyślne rozszerzenie maszyny wirtualnej, zobacz rozdział [Rozwiązywanie problemów z rozszerzeniem platformy Azure dla oprogramowania SAP][deployment-guide-5.3].
 
 #### <a name="windowslogo_windows-azure-performance-counters-do-not-show-up-at-all"></a>![Windows][Logo_Windows] Liczniki wydajności platformy Azure nie są wyświetlane w ogóle
 

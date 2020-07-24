@@ -9,14 +9,14 @@ ms.workload: infrastructure
 ms.date: 05/04/2019
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 2c9776d41584900598133ef6d361b96f0b892094
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 33719d96f1b2a98abd380440c08d27b88f700f0e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82790953"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87085388"
 ---
-# <a name="troubleshooting-shared-image-galleries"></a>Troubleshooting shared image galleries (Rozwiązywanie problemów z galeriami obrazów udostępnionych)
+# <a name="troubleshooting-shared-image-galleries-linux"></a>Rozwiązywanie problemów z udostępnionymi galeriami obrazów (Linux)
 
 
 [!INCLUDE [virtual-machines-common-shared-image-troubleshooting](../../../includes/virtual-machines-common-shared-image-troubleshooting.md)]

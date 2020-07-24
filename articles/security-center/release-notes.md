@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/01/2020
 ms.author: memildin
-ms.openlocfilehash: e8dc2edf19279aff05e5d5be6096505acf1b3438
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 66c8db580d0da29aa0be1193bf41b491f388e55a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519594"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083977"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Co nowego w Azure Security Center?
 
@@ -33,8 +33,8 @@ Ta strona jest regularnie aktualizowana, więc często należy ją ponownie odwi
 
 Aktualizacje w lipcu obejmują:
 - [Ochrona przed zagrożeniami dla usługi Azure Storage rozwinięta w celu uwzględnienia Azure Files i Azure Data Lake Storage Gen2 (wersja zapoznawcza)](#threat-protection-for-azure-storage-expanded-to-include-azure-files-and-azure-data-lake-storage-gen2-preview)
+- [Udoskonalenia zabezpieczeń kontenerów — szybsze skanowanie rejestru i odświeżone dokumenty](#container-security-improvements---faster-registry-scanning-and-refreshed-documentation)
 - [Sześć zasad usługi SQL Advanced Data Security zostało wycofane](#six-policies-for-sql-advanced-data-security-deprecated)
-
 
 
 ### <a name="threat-protection-for-azure-storage-expanded-to-include-azure-files-and-azure-data-lake-storage-gen2-preview"></a>Ochrona przed zagrożeniami dla usługi Azure Storage rozwinięta w celu uwzględnienia Azure Files i Azure Data Lake Storage Gen2 (wersja zapoznawcza)
@@ -44,6 +44,25 @@ Ochrona przed zagrożeniami dla usługi Azure Storage wykrywa potencjalnie szkod
 Dane można chronić, niezależnie od tego, czy są przechowywane jako kontenery obiektów blob, udziały plików czy jeziora danych. 
 
 Dowiedz się więcej o [ochronie przed zagrożeniami dla usługi Azure Storage](threat-protection.md#threat-protection-for-azure-storage-).
+
+
+### <a name="container-security-improvements---faster-registry-scanning-and-refreshed-documentation"></a>Udoskonalenia zabezpieczeń kontenerów — szybsze skanowanie rejestru i odświeżone dokumenty
+
+W ramach ciągłych inwestycji w domenie zabezpieczeń kontenerów mamy przyjemność podzielić znaczącą poprawę wydajności w odniesieniu do dynamicznych skanów obrazów kontenerów przechowywanych w Azure Container Registry Security Center. Skany są zwykle wykonywane zazwyczaj w ciągu około dwóch minut. W niektórych przypadkach może to potrwać do 15 minut.
+
+Aby zwiększyć przejrzystość i wskazówki dotyczące możliwości zabezpieczeń kontenerów Azure Security Center, odświeżamy również strony dokumentacji zabezpieczeń kontenerów. 
+
+Dowiedz się więcej o zabezpieczeniach kontenerów Security Center w następujących artykułach:
+
+- [Przegląd funkcji zabezpieczeń kontenera Security Center](https://docs.microsoft.com/azure/security-center/container-security)
+- [Szczegóły integracji z Azure Container Registry](https://docs.microsoft.com/azure/security-center/azure-container-registry-integration)
+- [Szczegóły integracji z usługą Azure Kubernetes Service](https://docs.microsoft.com/azure/security-center/azure-kubernetes-service-integration)
+- [Instrukcje dotyczące skanowania rejestrów i ograniczania funkcjonalności hostów platformy Docker](https://docs.microsoft.com/azure/security-center/monitor-container-security)
+- [Alerty zabezpieczeń z funkcji ochrony przed zagrożeniami dla klastrów usługi Azure Kubernetes](https://docs.microsoft.com/azure/security-center/alerts-reference#alerts-akscluster)
+- [Alerty zabezpieczeń z funkcji ochrony przed zagrożeniami dla hostów usługi Azure Kubernetes](https://docs.microsoft.com/azure/security-center/alerts-reference#alerts-containerhost)
+- [Zalecenia dotyczące zabezpieczeń dla kontenerów](https://docs.microsoft.com/azure/security-center/recommendations-reference#recs-containers)
+
+
 
 
 ### <a name="six-policies-for-sql-advanced-data-security-deprecated"></a>Sześć zasad usługi SQL Advanced Data Security zostało wycofane
@@ -230,14 +249,14 @@ Ta aktualizacja wprowadza następujące zmiany w tej funkcji:
 
 - Zalecenie, które zalecić włączenie JIT na maszynie wirtualnej, zostało zmienione. Wcześniej na maszynach wirtualnych należy zastosować kontrolę dostępu do sieci just-in-Time, która jest teraz: "porty zarządzania maszyn wirtualnych należy chronić za pomocą kontroli dostępu just in Time do sieci".
 
-- Zalecenie zostało wyzwolone tak, aby było wyzwalane tylko wtedy, gdy istnieją otwarte porty zarządzania.
+- Zalecenie jest wyzwalane tylko wtedy, gdy istnieją otwarte porty zarządzania.
 
 Dowiedz się więcej o [funkcji dostępu JIT](security-center-just-in-time.md).
 
 
 ### <a name="custom-recommendations-have-been-moved-to-a-separate-security-control"></a>Zalecenia niestandardowe zostały przeniesione do oddzielnej kontroli zabezpieczeń
 
-Jednym z kontrolek zabezpieczeń wprowadzonych wraz z ulepszonym wynikiem jest "implementacja najlepszych rozwiązań w zakresie zabezpieczeń". Wszelkie niestandardowe zalecenia utworzone dla subskrypcji zostały automatycznie umieszczone w tym formancie. 
+Jedna kontrola zabezpieczeń wprowadzona z ulepszonym zabezpieczonym wynikiem to "Implementowanie najlepszych rozwiązań w zakresie zabezpieczeń". Wszelkie niestandardowe zalecenia utworzone dla subskrypcji zostały automatycznie umieszczone w tym formancie. 
 
 Aby ułatwić znalezienie niestandardowych zaleceń, przeniesiono je do dedykowanej kontroli zabezpieczeń, "zalecenia niestandardowe". Ten formant nie ma wpływu na Twój bezpieczny wynik.
 
@@ -250,7 +269,7 @@ Funkcje kontroli zabezpieczeń są logicznymi grupami powiązanych zaleceń doty
 
 Aby od razu sprawdzić, jak dobrze organizacja zabezpiecza poszczególne osoby atakujące, zapoznaj się z wynikami każdej kontroli zabezpieczeń.
 
-Domyślnie Twoje zalecenia są wyświetlane w obszarze zabezpieczenia. Z tej aktualizacji można także wyświetlić je jako listę. Aby wyświetlić je jako prostą listę posortowaną według stanu kondycji odpowiednich zasobów, Użyj nowego przełącznika "Grupuj według kontrolek". Przełącznik znajduje się nad listą w portalu.
+Domyślnie Twoje zalecenia są wyświetlane w obszarze zabezpieczenia. W ramach tej aktualizacji można także wyświetlić je jako listę. Aby wyświetlić je jako prostą listę posortowaną według stanu kondycji odpowiednich zasobów, Użyj nowego przełącznika "Grupuj według kontrolek". Przełącznik znajduje się nad listą w portalu.
 
 Formanty zabezpieczeń — i ten przełącznik — są częścią nowego bezpiecznego wyniku. Pamiętaj, aby wysłać nam swoją opinię z portalu.
 
@@ -260,7 +279,7 @@ Dowiedz się więcej o kontrolkach zabezpieczeń w [ulepszonym zabezpieczeniu (w
 
 ### <a name="expanded-security-control-implement-security-best-practices"></a>Rozszerzona kontrola zabezpieczeń "implementacja najlepszych rozwiązań w zakresie zabezpieczeń" 
 
-Jednym z formantów zabezpieczeń wprowadzonych w ramach udoskonalonego bezpiecznego wyniku jest "implementacja najlepszych rozwiązań w zakresie zabezpieczeń". Gdy zalecenie jest w tej kontrolce, nie ma to wpływu na bezpieczny wynik. 
+Jedna kontrola zabezpieczeń wprowadzona w ramach udoskonalonego bezpiecznego wyniku to "Implementowanie najlepszych rozwiązań w zakresie zabezpieczeń". Gdy zalecenie jest w tej kontrolce, nie ma to wpływu na bezpieczny wynik. 
 
 W przypadku tej aktualizacji trzy zalecenia zostały przeniesione z kontrolek, w których zostały one pierwotnie umieszczone, i do tej kontroli najlepszych rozwiązań. Ten krok został osiągnięty, ponieważ wykryto, że ryzyko tych trzech zaleceń jest mniejsze niż początkowo zostało przemyślane.
 

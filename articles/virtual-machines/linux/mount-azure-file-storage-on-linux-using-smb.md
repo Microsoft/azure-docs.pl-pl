@@ -7,11 +7,12 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 06/28/2018
 ms.author: cynthn
-ms.openlocfilehash: 7ab798ccbbbfc9cfc11ae85fd698ecedcb5e8e73
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6a5d4f388d9e5f47a13812687489525590c520c3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84658154"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87085490"
 ---
 # <a name="mount-azure-file-storage-on-linux-vms-using-smb"></a>Instalowanie usługi Azure File Storage na maszynach wirtualnych z systemem Linux przy użyciu protokołu SMB
 
@@ -62,7 +63,7 @@ STORAGEKEY=$(az storage account keys list \
 
 Utwórz udział magazynu plików za pomocą polecenia [AZ Storage Share Create](/cli/azure/storage/share). 
 
-Nazwy udziałów muszą składać się z małych liter, cyfr i pojedynczych łączników, ale nie mogą rozpoczynać się od łącznika. Szczegółowe informacje o nazwach plików i udziałów plików można znaleźć w temacie [Naming and Referencing Shares, Directories, Files, and Metadata](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata) (Nazywanie i odwoływanie się do udziałów, katalogów, plików i metadanych).
+Nazwy udziałów muszą składać się z małych liter, cyfr i pojedynczych łączników, ale nie mogą rozpoczynać się od łącznika. Szczegółowe informacje o nazwach plików i udziałów plików można znaleźć w temacie [Naming and Referencing Shares, Directories, Files, and Metadata](/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata) (Nazywanie i odwoływanie się do udziałów, katalogów, plików i metadanych).
 
 W tym przykładzie tworzony jest udział *o nazwie GIB* z limitem przydziału 10. 
 
@@ -110,4 +111,3 @@ W celu zwiększenia bezpieczeństwa w środowiskach produkcyjnych należy przech
 - [Dostosowywanie maszyny wirtualnej z systemem Linux podczas tworzenia przy użyciu funkcji Cloud-init](using-cloud-init.md)
 - [Dodawanie dysku do maszyny wirtualnej z systemem Linux](add-disk.md)
 - [Azure Disk Encryption dla maszyn wirtualnych z systemem Linux](disk-encryption-overview.md)
-

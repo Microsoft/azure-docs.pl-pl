@@ -13,11 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 09/21/2018
 ms.author: akjosh
-ms.openlocfilehash: a21b8f2fea7433e9f65fd790321a28ea47a38c79
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9391bb4867717b6780b50cf90b998254227d2310
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76544722"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082617"
 ---
 # <a name="chef-vm-extension-for-linux-and-windows"></a>Rozszerzenie maszyny wirtualnej Chef dla systemów Linux i Windows
 
@@ -77,15 +78,15 @@ Poniższy kod JSON przedstawia schemat rozszerzenia maszyny wirtualnej Chef. Roz
 
 | Nazwa | Wartość/przykład | Typ danych | Wymagane?
 | ---- | ---- | ---- | ----
-| Ustawienia/bootstrap_options/chef_server_url | `https://api.chef.io/organizations/myorg` | ciąg (URL) | Tak |
-| Ustawienia/bootstrap_options/validation_client_name | `myorg-validator` | ciąg | Tak |
-| Ustawienia/runlist | `recipe[mycookbook::default]` | ciąg | Tak |
+| Ustawienia/bootstrap_options/chef_server_url | `https://api.chef.io/organizations/myorg` | ciąg (URL) | Y |
+| Ustawienia/bootstrap_options/validation_client_name | `myorg-validator` | ciąg | Y |
+| Ustawienia/runlist | `recipe[mycookbook::default]` | ciąg | Y |
 
 ### <a name="protected-settings"></a>Ustawienia chronione
 
 | Nazwa | Przykład | Typ danych | Wymagane?
 | ---- | ---- | ---- | ---- |
-| protectedSettings/validation_key | `-----BEGIN RSA PRIVATE KEY-----\nKEYDATA\n-----END RSA PRIVATE KEY-----` | ciąg | Tak |
+| protectedSettings/validation_key | `-----BEGIN RSA PRIVATE KEY-----\nKEYDATA\n-----END RSA PRIVATE KEY-----` | ciąg | Y |
 
 <!--
 ### Linux-specific settings
@@ -105,7 +106,7 @@ Rozszerzenia maszyny wirtualnej platformy Azure można wdrażać za pomocą szab
 
 Przykładowy szablon Menedżer zasobów, który zawiera rozszerzenie maszyny wirtualnej Chef, można znaleźć w [galerii szybkiego startu platformy Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/chef-json-parameters-linux-vm).
 
-Konfiguracja JSON rozszerzenia maszyny wirtualnej może być zagnieżdżona w ramach zasobu maszyny wirtualnej lub umieszczona na głównym lub najwyższego poziomu szablonu JSON Menedżer zasobów. Położenie konfiguracji JSON wpływa na wartość nazwy i typu zasobu. Aby uzyskać więcej informacji, zobacz [Ustawianie nazwy i typu dla zasobów podrzędnych](../../azure-resource-manager/resource-manager-template-child-resource.md).
+Konfiguracja JSON rozszerzenia maszyny wirtualnej może być zagnieżdżona w ramach zasobu maszyny wirtualnej lub umieszczona na głównym lub najwyższego poziomu szablonu JSON Menedżer zasobów. Położenie konfiguracji JSON wpływa na wartość nazwy i typu zasobu. Aby uzyskać więcej informacji, zobacz [Ustawianie nazwy i typu dla zasobów podrzędnych](../../azure-resource-manager/templates/child-resource-name-type.md).
 
 ## <a name="azure-cli-deployment"></a>Wdrożenie interfejsu wiersza polecenia platformy Azure
 

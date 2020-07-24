@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/22/2020
-ms.openlocfilehash: b0ebbbb64e173e1501f08f8385b14c365759a804
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3bd0f01193b1e6579d60b581b43ad71ebb6001e3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82116285"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87084198"
 ---
 # <a name="how-to-filter-by-language-in-azure-cognitive-search"></a>Jak filtrować według języka na platformie Azure Wyszukiwanie poznawcze 
 
@@ -34,7 +34,7 @@ W Wyszukiwanie poznawcze na platformie Azure zapytania mają jeden indeks docelo
 
 Poniższy przykład pochodzi z [próbki](search-get-started-portal.md) , która zawiera kilka pól ciągów zawierających zawartość w różnych językach. Zwróć uwagę na przypisania analizatora języka dla pól w tym indeksie. Pola zawierające ciągi działają lepiej podczas wyszukiwania pełnotekstowego, gdy jest sparowany z analizatorem zaprojektowanym do obsługi reguł lingwistycznych języka docelowego.
 
-  ![](./media/search-filters-language/lang-fields.png)
+  ![Zrzut ekranu przedstawiający ekran Fields przykładu wartości rzeczywistej. Grupa pól zostanie wyróżniona, aby określić sposób, w jaki przypisania analizatora języka odpowiadają językom wyróżnionych pól.](./media/search-filters-language/lang-fields.png)
 
 > [!Note]
 > Przykłady kodu przedstawiające definicje pól z analizatorami języków można znaleźć w temacie [Definiowanie indeksu (.NET)](https://docs.microsoft.com/azure/search/search-create-index-dotnet) i [Definiowanie indeksu (REST)](search-create-index-rest-api.md).
@@ -60,7 +60,7 @@ parameters =
 > [!Note]
 > Chociaż nie ma $filter argumentu w zapytaniu, ten przypadek użycia jest silnie powiązany z koncepcjami filtru, dlatego jest prezentowany jako scenariusz filtrowania.
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 + [Filtry na platformie Azure Wyszukiwanie poznawcze](search-filters.md)
 + [Analizatory języków](https://docs.microsoft.com/rest/api/searchservice/language-support)

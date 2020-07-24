@@ -6,11 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 10/02/2019
 ms.author: sngun
-ms.openlocfilehash: 57db2253cbffa8e16313c7613de6d2ddb2f2b0a2
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 1bda235e5f3f867762457d0dc8214bbadc88059e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027243"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87084827"
 ---
 # <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>Łączenie się z usługą Azure Cosmos DB przy użyciu narzędzi analizy biznesowej ze sterownikiem ODBC
 
@@ -235,9 +236,9 @@ Możesz użyć nowego DSN do łączenia się z Azure Cosmos DB przy użyciu dowo
 
 1. Aby wizualizować dane w Power BI pulpicie, zaznacz pole przed nazwą tabeli, a następnie kliknij przycisk **Załaduj**.
 
-1. W Power BI Desktop po lewej stronie wybierz kartę dane ![Karta dane w Power BI Desktop](./media/odbc-driver/odbc-driver-data-tab.png) w celu potwierdzenia, że dane zostały zaimportowane.
+1. W Power BI Desktop po lewej stronie wybierz kartę dane, :::image type="icon" source="./media/odbc-driver/odbc-driver-data-tab.png"::: Aby potwierdzić, że dane zostały zaimportowane. 
 
-1. Możesz teraz tworzyć wizualizacje przy użyciu Power BI, klikając kartę raport na karcie raportu ![ w Power BI Desktop ](./media/odbc-driver/odbc-driver-report-tab.png) , klikając pozycję **Nowa Wizualizacja**, a następnie dostosowując kafelek. Aby uzyskać więcej informacji na temat tworzenia wizualizacji w Power BI Desktop, zobacz [typy wizualizacji w Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-visualization-types-for-reports-and-q-and-a/).
+1. Możesz teraz tworzyć wizualizacje przy użyciu Power BI, klikając kartę Raport :::image type="icon" source="./media/odbc-driver/odbc-driver-report-tab.png"::: , klikając pozycję **Nowa Wizualizacja**, a następnie dostosowując kafelek. Aby uzyskać więcej informacji na temat tworzenia wizualizacji w Power BI Desktop, zobacz [typy wizualizacji w Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-visualization-types-for-reports-and-q-and-a/). 
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 

@@ -8,11 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 06/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: d28d7bd85326e8a4cf27dba1f3f605b64477c5aa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c0bdc5b9f3d43075cbeba664a5cfb4277c20de57
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83829942"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082549"
 ---
 # <a name="azure-disk-encryption-for-linux-virtual-machines-faq"></a>Azure Disk Encryption dla maszyn wirtualnych z systemem Linux — często zadawane pytania
 
@@ -153,15 +154,15 @@ Szyfrowanie dysków danych XFS jest obsługiwane tylko wtedy, gdy używany jest 
 
 ## <a name="can-i-backup-and-restore-an-encrypted-vm"></a>Czy można utworzyć kopię zapasową i przywrócić zaszyfrowaną maszynę wirtualną? 
 
-Azure Backup udostępnia mechanizm tworzenia kopii zapasowych i przywracania zaszyfrowanej maszyny wirtualnej w ramach tej samej subskrypcji i regionu.  Aby uzyskać instrukcje, zobacz [wykonywanie kopii zapasowej i Przywracanie zaszyfrowanych maszyn wirtualnych przy użyciu Azure Backup](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption).  Przywracanie zaszyfrowanej maszyny wirtualnej do innego regionu nie jest obecnie obsługiwane.  
+Azure Backup udostępnia mechanizm tworzenia kopii zapasowych i przywracania zaszyfrowanej maszyny wirtualnej w ramach tej samej subskrypcji i regionu.  Aby uzyskać instrukcje, zobacz [wykonywanie kopii zapasowej i Przywracanie zaszyfrowanych maszyn wirtualnych przy użyciu Azure Backup](../../backup/backup-azure-vms-encryption.md).  Przywracanie zaszyfrowanej maszyny wirtualnej do innego regionu nie jest obecnie obsługiwane.  
 
 ## <a name="where-can-i-go-to-ask-questions-or-provide-feedback"></a>Gdzie mogę zadawać pytania lub przekazać opinię?
 
-Możesz zadawać pytania lub przekazać informacje zwrotne na [stronie pytania&pytań Azure Disk Encryption](https://docs.microsoft.com/answers/topics/azure-disk-encryption.html).
+Możesz zadawać pytania lub przekazać informacje zwrotne na [stronie pytania&pytań Azure Disk Encryption](/answers/topics/azure-disk-encryption.html).
 
 ## <a name="next-steps"></a>Następne kroki
 W tym dokumencie przedstawiono kilka częstych pytań dotyczących Azure Disk Encryption. Aby uzyskać więcej informacji na temat tej usługi, zobacz następujące artykuły:
 
 - [Omówienie usługi Azure Disk Encryption](disk-encryption-overview.md)
-- [Zastosuj szyfrowanie dysków w Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-apply-disk-encryption)
-- [Szyfrowanie danych platformy Azure w spoczynku](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest)
+- [Zastosuj szyfrowanie dysków w Azure Security Center](../../security-center/security-center-virtual-machine-protection.md)
+- [Szyfrowanie danych magazynowanych platformy Azure](../../security/fundamentals/encryption-atrest.md)

@@ -8,11 +8,12 @@ ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: af5e511cbf273bc4e4fa0a08d089a955426fe75c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: caa3717fdf915e205c1a4f82f4e199346ca29fcb
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75454194"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082818"
 ---
 # <a name="use-the-opc-vault-certificate-management-service"></a>Korzystanie z usługi zarządzania certyfikatami magazynu OPC
 
@@ -37,7 +38,7 @@ Jeśli jeszcze tego nie zrobiono, Utwórz certyfikat urzędu certyfikacji wystaw
 
 1. Otwórz usługę certyfikatów pod adresem `https://myResourceGroup-app.azurewebsites.net` i zaloguj się.
 2. Przejdź do pozycji **Zarejestruj nowe**. W przypadku rejestracji aplikacji użytkownik musi mieć przypisaną co najmniej rolę składnika zapisywania.
-2. Formularz wprowadzania jest zgodny z konwencjami nazewnictwa w OPC UA. Na przykład na poniższym zrzucie ekranu przedstawiono ustawienia przykładowego [serwera referencyjnego OPC UA](https://github.com/OPCFoundation/UA-.NETStandard/tree/master/SampleApplications/Workshop/Reference) na STOSIE OPC UA .NET standard:
+2. Formularz wprowadzania jest zgodny z konwencjami nazewnictwa w OPC UA. Na przykład na poniższym zrzucie ekranu przedstawiono ustawienia przykładowego [serwera referencyjnego OPC UA](https://github.com/OPCFoundation/UA-.NETStandard/tree/master/Applications/ReferenceServer) na STOSIE OPC UA .NET standard:
 
    ![Zrzut ekranu rejestracji serwera odwołań UA](media/howto-opc-vault-secure/reference-server-registration.png "Rejestracja serwera odwołań UA")
 

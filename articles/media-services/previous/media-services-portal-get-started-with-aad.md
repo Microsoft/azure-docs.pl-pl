@@ -13,16 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: ee04fa7120f5510d703d72e662036f4fe952cd66
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 208019bbc86b22443c7d012400d4e4324679aee9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78330672"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87084470"
 ---
 # <a name="get-started-with-azure-ad-authentication-by-using-the-azure-portal"></a>Wprowadzenie do uwierzytelniania usługi Azure AD przy użyciu witryny Azure Portal
 
 > [!NOTE]
-> Do usługi Media Services w wersji 2 nie są już dodawane żadne nowe funkcje. <br/>Zapoznaj się z najnowszą wersją [Media Services wersja 3](https://docs.microsoft.com/azure/media-services/latest/). Zobacz też [wskazówki dotyczące migracji od wersji 2 do V3](../latest/migrate-from-v2-to-v3.md)
+> Do usługi Media Services w wersji 2 nie są już dodawane żadne nowe funkcje. <br/>Zapoznaj się z najnowszą wersją [Media Services wersja 3](../latest/index.yml). Zobacz też [wskazówki dotyczące migracji od wersji 2 do V3](../latest/migrate-from-v2-to-v3.md)
 
 Dowiedz się, jak za pomocą Azure Portal uzyskać dostęp do uwierzytelniania Azure Active Directory (Azure AD) w celu uzyskania dostępu do interfejsu API Azure Media Services.
 
@@ -52,7 +53,7 @@ Uwierzytelnia usługę przy użyciu aplikacji Azure Active Directory (Azure AD) 
 
 Sekcja **Zarządzaj swoją aplikacją i wpisem tajnym usługi AAD** pozwala wybrać lub utworzyć nową aplikację usługi Azure AD i wygenerować wpis tajny. Ze względów bezpieczeństwa nie można wyświetlić wpisu tajnego, gdy blok zostanie zamknięty. Aplikacja używa identyfikatora aplikacji i klucza tajnego do uwierzytelniania w celu uzyskania prawidłowego tokenu dla usługi Media Services.
 
-Upewnij się, że masz wystarczające uprawnienia do zarejestrowania aplikacji w dzierżawie usługi Azure AD i przypisania aplikacji do roli w ramach subskrypcji platformy Azure. Aby uzyskać więcej informacji, zobacz [wymagane uprawnienia](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions).
+Upewnij się, że masz wystarczające uprawnienia do zarejestrowania aplikacji w dzierżawie usługi Azure AD i przypisania aplikacji do roli w ramach subskrypcji platformy Azure. Aby uzyskać więcej informacji, zobacz [wymagane uprawnienia](../../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app).
 
 ### <a name="connect-to-media-services-api"></a>Nawiązywanie połączenia z interfejsem API Media Services
 

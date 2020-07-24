@@ -5,40 +5,41 @@ author: bwren
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: how-to
-ms.date: 11/11/2019
+ms.date: 07/17/2020
 ms.author: bwren
 ms.custom: subject-monitoring
 ms.subservice: logs
-ms.openlocfilehash: 446d876033b09728ebcbec43c6300884a5c29cd3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 89dc81cdd06bedb6237cf48312ee7ed0510d93ce
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85262739"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87084742"
 ---
 # <a name="azure-cosmos-db-monitoring-data-reference"></a>Dokumentacja dotycząca danych monitorowania usługi Azure Cosmos DB
-W tym artykule zawarto dokumentację dotyczącą danych dziennika i metryk zebranych w celu analizy wydajności i dostępności usługi Azure Cosmos DB. Aby uzyskać szczegółowe informacje na temat zbierania i analizowania danych monitorowania dla Azure Cosmos DB, zobacz [Cosmos DB monitorowania](monitor-cosmos-db.md) .
 
+W tym artykule zawarto dokumentację dotyczącą danych dziennika i metryk zebranych w celu analizy wydajności i dostępności usługi Azure Cosmos DB. Zapoznaj się z artykułem [Monitor Azure Cosmos DB](monitor-cosmos-db.md) , jak zbierać i analizować dane monitorowania dla Azure Cosmos DB.
 
 ## <a name="resource-logs"></a>Dzienniki zasobów
-W poniższej tabeli wymieniono właściwości dzienników zasobów Azure Cosmos DB, które są zbierane w Azure Monitor dziennikach lub usłudze Azure Storage. W dziennikach Azure Monitor są one zbierane w tabeli **AzureDiagnostics** zMICROSOFT.DOCwartością **ResourceProvider** *UMENTDB*. 
+
+W poniższej tabeli wymieniono właściwości dzienników zasobów w Azure Cosmos DB. Dzienniki zasobów są zbierane do dzienników Azure Monitor i usługi Azure Storage. W Azure Monitor dzienniki są zbierane w tabeli **AzureDiagnostics** pod nazwą dostawcy zasobów * * `MICROSOFT.DOCUMENTDB` .
 
 | Pole lub właściwość usługi Azure Storage | Właściwość dzienników Azure Monitor | Opis |
 | --- | --- | --- |
 | **pierwszym** | **TimeGenerated** | Data i godzina (UTC), gdy wystąpiła operacja. |
 | **Identyfikator** | **Zasób** | Konto Azure Cosmos DB, dla którego są włączone dzienniki.|
-| **kategorii** | **Kategoria** | W przypadku dzienników Azure Cosmos DB, **DataPlaneRequests**, **MongoRequests**, **QueryRuntimeStatistics**, **PartitionKeyStatistics**, **PartitionKeyRUConsumption**, **ControlPlaneRequests** są dostępne typy dzienników. |
-| **operationName** | **OperationName** | Nazwa operacji. Ta wartość może być dowolną z następujących operacji: Tworzenie, aktualizowanie, Odczyt, ReadFeed, usuwanie, zastępowanie, wykonywanie, SQLQuery, Query, JSQuery, kierownik, HeadFeed lub upsert.   |
+| **kategorii** | **Kategoria** | W przypadku Azure Cosmos DB, **DataPlaneRequests**, **MongoRequests**, **QueryRuntimeStatistics**, **PartitionKeyStatistics**, **PartitionKeyRUConsumption**, **ControlPlaneRequests** są dostępne typy dzienników. |
+| **operationName** | **OperationName** | Nazwa operacji. Nazwa operacji może być,,,,,,,,,,, `Create` `Update` `Read` `ReadFeed` `Delete` `Replace` `Execute` `SqlQuery` `Query` `JSQuery` `Head` `HeadFeed` lub `Upsert` .   |
 | **aœciwoœci** | nie dotyczy | Zawartość tego pola jest opisana w następujących wierszach. |
 | **activityId** | **activityId_g** | Unikatowy identyfikator GUID dla zarejestrowanej operacji. |
-| **userAgent** | **userAgent_s** | Ciąg określający agenta użytkownika klienta wykonującego żądanie. Format to {User Agent Name}/{Version}.|
-| **requestResourceType** | **requestResourceType_s** | Typ zasobu, do którego uzyskuje się dostęp. Może to być dowolny z następujących typów zasobów: baza danych, kontener, dokument, załącznik, użytkownik, uprawnienie, StoredProcedure, wyzwalacz, UserDefinedFunction lub oferta. |
-| **Stanu** | **statusCode_s** | Stan odpowiedzi operacji. |
-| **requestResourceId** | **ResourceId** | Identyfikator zasobu, który odnosi się do żądania. Wartość może wskazywać na databaseRid, collectionRid lub documentRid w zależności od wykonanej operacji.|
+| **userAgent** | **userAgent_s** | Ciąg określający agenta użytkownika klienta, z którego wysłano żądanie. Format agenta użytkownika to `{user agent name}/{version}` .|
+| **requestResourceType** | **requestResourceType_s** | Typ zasobu, do którego uzyskuje się dostęp. Ta wartość może być bazą danych, kontenerem, dokumentem, załącznikiem, użytkownikiem, uprawnieniem, procedurą składowaną, wyzwalaczem, funkcją zdefiniowaną przez użytkownika lub ofertą. |
+| **statusCode** | **statusCode_s** | Stan odpowiedzi operacji. |
+| **requestResourceId** | **ResourceId** | Identyfikator zasobu, który odnosi się do żądania. W zależności od wykonanej operacji ta wartość może wskazywać na `databaseRid` , `collectionRid` , lub `documentRid` .|
 | **clientIpAddress** | **clientIpAddress_s** | Adres IP klienta. |
-| **requestCharge** | **requestCharge_s** | Liczba jednostek ru, które są używane przez operację |
+| **requestCharge** | **requestCharge_s** | Liczba jednostek RU/s, które są używane przez operację |
 | **collectionRid** | **collectionId_s** | Unikatowy identyfikator kolekcji.|
-| **trwania** | **duration_s** | Czas trwania operacji (w milisekundach). |
+| **trwania** | **duration_d** | Czas trwania operacji (w milisekundach). |
 | **requestLength** | **requestLength_s** | Długość żądania w bajtach. |
 | **responseLength** | **responseLength_s** | Długość odpowiedzi (w bajtach).|
 | **resourceTokenUserRid** | **resourceTokenUserRid_s** | Ta wartość nie jest pusta, gdy [tokeny zasobów](https://docs.microsoft.com/azure/cosmos-db/secure-access-to-data#resource-tokens) są używane do uwierzytelniania. Wartość wskazuje identyfikator zasobu użytkownika. |
@@ -49,7 +50,7 @@ Aby zapoznać się z listą wszystkich kategorii dzienników Azure Monitor i lin
 ## <a name="metrics"></a>Metryki
 W poniższych tabelach przedstawiono metryki platformy zebrane dla usługi Azure CosmOS DB. Wszystkie metryki są przechowywane w przestrzeni nazw **Cosmos DB metrykach standardowych**.
 
-Aby uzyskać listę wszystkich Azure Monitor metryki pomocy technicznej (w tym CosmosDB), zobacz [Azure monitor obsługiwane metryki](../azure-monitor/platform/metrics-supported.md). 
+Aby uzyskać listę wszystkich Azure Monitor metryki pomocy technicznej (w tym Azure Cosmos DB), zobacz temat [Azure monitor Supported Metrics](../azure-monitor/platform/metrics-supported.md). 
 
 #### <a name="request-metrics"></a>Metryki żądań
             
@@ -98,7 +99,7 @@ Aby uzyskać listę wszystkich Azure Monitor metryki pomocy technicznej (w tym C
 |Metryka (nazwa wyświetlana metryki)|Jednostka (typ agregacji)|Opis|Wymiary| Stopień szczegółowości czasu| Użycie |
 |---|---|---|---| ---| ---|
 | CassandraRequests (żądania Cassandra) | Liczba (liczba) | Liczba wykonanych żądań interfejs API Cassandra| DatabaseName, CollectionName, ErrorCode, region, OperationType, ResourceType| Wszystko| Służy do monitorowania żądań Cassandra z dokładnością do minuty. Aby uzyskać średnią liczbę żądań na sekundę, użyj agregacji Count na minutę i Podziel ją na 60.|
-| CassandraRequestCharges (Cassandra żądania) | Count (sum, min, Max, AVG) | Jednostki żądań używane przez żądania interfejs API Cassandra| DatabaseName, CollectionName, region, OperationType, ResourceType| Wszystko| Służy do monitorowania jednostek ru używanych na minutę przez konto interfejs API Cassandra.|
+| CassandraRequestCharges (Cassandra żądania) | Count (sum, min, Max, AVG) | Jednostki żądań używane przez interfejs API Cassandra | DatabaseName, CollectionName, region, OperationType, ResourceType| Wszystko| Służy do monitorowania jednostek ru używanych na minutę przez konto interfejs API Cassandra.|
 | CassandraConnectionClosures (zamknięcia połączeń Cassandra) |Liczba (liczba) |Liczba zamkniętych połączeń Cassandra| ClosureReason, region| Wszystko | Służy do monitorowania łączności między klientami i interfejs API Cassandra Azure Cosmos DB.|
 
 ## <a name="see-also"></a>Zobacz też

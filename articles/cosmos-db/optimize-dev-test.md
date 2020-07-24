@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: 3fe5ea98f8db633eed7ce4e2c0ac0cafa56408ef
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ea5d975b73afcf03ad97bafd1c6f68f2b55263c2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82194520"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87084725"
 ---
 # <a name="optimize-development-and-testing-cost-in-azure-cosmos-db"></a>Optymalizacja kosztów tworzenia i testowania w usłudze Azure Cosmos DB
 
@@ -23,7 +23,9 @@ W tym artykule opisano różne opcje umożliwiające korzystanie z Azure Cosmos 
 
 ## <a name="azure-cosmos-db-free-tier"></a>Azure Cosmos DB warstwy Bezpłatna
 
-Azure Cosmos DB bezpłatna warstwa ułatwia rozpoczęcie pracy, opracowywanie i testowanie aplikacji, a nawet uruchamianie niewielkich obciążeń produkcyjnych. Po włączeniu warstwy Bezpłatna na koncie uzyskasz pierwsze 400 RU/s i 5 GB miejsca do magazynowania w ramach konta. Istnieje również możliwość utworzenia udostępnionej bazy danych przepływności z 25 kontenerami, które współużytkują 400 RU/s na poziomie bazy danych, z uwzględnieniem warstwy Bezpłatna (ograniczenie 5 udostępnionych baz danych przepływności na koncie w warstwie Bezpłatna). Bezpłatna warstwa obowiązuje przez okres istnienia konta i zawiera wszystkie [zalety i funkcje](introduction.md#key-benefits) regularnego konta Azure Cosmos DB, w tym nieograniczony magazyn i przepływność (ru/s), umowy SLA, wysoką dostępność, gotowe Global Distribution we wszystkich regionach świadczenia usługi Azure i innych. W ramach każdej subskrypcji platformy Azure można korzystać z maksymalnie jednego konta warstwy bezpłatnej i musi on być w trakcie tworzenia konta. Aby rozpocząć, [Utwórz nowe konto w Azure Portal z włączoną bezpłatną warstwą](create-cosmosdb-resources-portal.md) lub Użyj [szablonu ARM](manage-sql-with-resource-manager.md#free-tier). Więcej szczegółów można znaleźć na [stronie cennika](https://azure.microsoft.com/pricing/details/cosmos-db/).
+Azure Cosmos DB bezpłatna warstwa ułatwia rozpoczęcie pracy, opracowywanie i testowanie aplikacji, a nawet uruchamianie niewielkich obciążeń produkcyjnych. Po włączeniu warstwy Bezpłatna na koncie uzyskasz pierwsze 400 RU/s i 5 GB miejsca do magazynowania w ramach konta. Istnieje również możliwość utworzenia udostępnionej bazy danych przepływności z 25 kontenerami, które współużytkują 400 RU/s na poziomie bazy danych, z uwzględnieniem warstwy Bezpłatna (ograniczenie 5 udostępnionych baz danych przepływności na koncie w warstwie Bezpłatna). W przypadku korzystania z warstwy Bezpłatna w przypadku aprowizacji udostępnionej bazy danych o minimalnej przepływności wynoszącej 400 RU/s wszystkie kontenery w tej bazie danych mogą współużytkować przepływność. Wszystkie nowe bazy danych o udostępnionej przepływności lub kontenerach o dedykowanej przepływności są rozliczane według zwykłych cen.
+
+Bezpłatna warstwa obowiązuje przez okres istnienia konta i zawiera wszystkie [zalety i funkcje](introduction.md#key-benefits) regularnego konta Azure Cosmos DB, w tym nieograniczony magazyn i przepływność (ru/s), umowy SLA, wysoką dostępność, gotowe Global Distribution we wszystkich regionach świadczenia usługi Azure i innych. W ramach każdej subskrypcji platformy Azure można korzystać z maksymalnie jednego konta warstwy bezpłatnej i musi on być w trakcie tworzenia konta. Aby rozpocząć, [Utwórz nowe konto w Azure Portal z włączoną bezpłatną warstwą](create-cosmosdb-resources-portal.md) lub Użyj [szablonu ARM](manage-sql-with-resource-manager.md#free-tier). Więcej szczegółów można znaleźć na [stronie cennika](https://azure.microsoft.com/pricing/details/cosmos-db/).
 
 ## <a name="try-azure-cosmos-db-for-free"></a>Wypróbuj usługę Azure Cosmos DB bezpłatnie
 

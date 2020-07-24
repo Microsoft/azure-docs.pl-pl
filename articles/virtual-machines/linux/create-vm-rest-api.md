@@ -6,11 +6,12 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: cynthn
-ms.openlocfilehash: 1594c030839cccdd48c4b032c6ad92f746f78e26
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 78b11a4d900b8c9cf30a1d37a2b7e6380d6b989a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78970270"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082566"
 ---
 # <a name="create-a-linux-virtual-machine-that-uses-ssh-authentication-with-the-rest-api"></a>Tworzenie maszyny wirtualnej z systemem Linux korzystającej z uwierzytelniania SSH przy użyciu interfejsu API REST
 
@@ -45,7 +46,7 @@ Wymagane są następujące nagłówki:
 | Nagłówek żądania   | Opis |
 |------------------|-----------------|
 | *Content-Type:*  | Wymagany. Ustaw wartość `application/json`. |
-| *Authorization:* | Wymagany. Ustaw na prawidłowy  [token dostępu](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients)`Bearer`. |
+| *Authorization:* | Wymagany. Ustaw na prawidłowy  [token dostępu](/rest/api/azure/#authorization-code-grant-interactive-clients)`Bearer`. |
 
 Aby uzyskać ogólne informacje na temat pracy z żądaniami interfejsu API REST, zobacz [składniki żądania/odpowiedzi interfejsu API REST](/rest/api/azure/#components-of-a-rest-api-requestresponse).
 
@@ -121,7 +122,7 @@ Aby uzyskać pełną listę dostępnych definicji w treści żądania, zobacz te
 
 ## <a name="sending-the-request"></a>Wysyłanie żądania
 
-Aby wysłać to żądanie HTTP, można użyć klienta z preferencją. Możesz również użyć [Narzędzia w przeglądarce](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate) , klikając przycisk **Wypróbuj** .
+Aby wysłać to żądanie HTTP, można użyć klienta z preferencją. Możesz również użyć [Narzędzia w przeglądarce](/rest/api/compute/virtualmachines/createorupdate) , klikając przycisk **Wypróbuj** .
 
 ### <a name="responses"></a>Odpowiedzi
 
@@ -150,4 +151,4 @@ Aby uzyskać więcej informacji na temat interfejsów API REST platformy Azure l
 - [Interfejs API REST dostawcy obliczeń platformy Azure](/rest/api/compute/)
 - [Get started with Azure REST API (Rozpoczęcie pracy z interfejsem API REST platformy Azure)](/rest/api/azure/)
 - [Interfejs wiersza polecenia platformy Azure](/cli/azure/)
-- [Moduł programu Azure PowerShell](/powershell/azure/overview)
+- [Moduł programu Azure PowerShell](/powershell/azure/)

@@ -13,10 +13,11 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 37c83e77cadae002ff701a08c4b36a86f7cab9a0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79281238"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082838"
 ---
 # <a name="move-data-from-postgresql-using-azure-data-factory"></a>Przenoszenie danych z PostgreSQL za pomocą Azure Data Factory
 > [!div class="op_single_selector" title1="Wybierz używaną wersję usługi Data Factory:"]
@@ -74,7 +75,7 @@ Poniższa tabela zawiera opis elementów JSON specyficznych dla PostgreSQL poł�
 | typ |Właściwość Type musi mieć wartość: **OnPremisesPostgreSql** |Tak |
 | serwer |Nazwa serwera PostgreSQL. |Tak |
 | database |Nazwa bazy danych PostgreSQL. |Tak |
-| schematy |Nazwa schematu w bazie danych programu. Nazwa schematu jest uwzględniana wielkość liter. |Nie |
+| schema |Nazwa schematu w bazie danych programu. Nazwa schematu jest uwzględniana wielkość liter. |Nie |
 | authenticationType |Typ uwierzytelniania używany do łączenia się z bazą danych PostgreSQL. Możliwe wartości to: Anonymous, Basic i Windows. |Tak |
 | nazwa użytkownika |Określ nazwę użytkownika, jeśli używasz uwierzytelniania podstawowego lub systemu Windows. |Nie |
 | hasło |Określ hasło dla konta użytkownika określonego dla nazwy użytkownika. |Nie |
@@ -308,33 +309,33 @@ Podczas przesuwania danych do PostgreSQL następujące mapowania są używane z 
 | bigserial |serial8 |Int64 |
 | bit [(n)] | |Byte [], ciąg |
 | różne bity [(n)] |varbit |Byte [], ciąg |
-| wartość logiczna |bool |Boolean |
+| boolean |bool |Boolean (wartość logiczna) |
 | dialogowym | |Byte [], ciąg |
 | bajty | |Byte [], ciąg |
-| znak [(n)] |Char [(n)] |String |
-| różne znaki [(n)] |varchar [(n)] |String |
-| Identyfikator | |String |
-| cidr | |String |
+| znak [(n)] |Char [(n)] |String (ciąg) |
+| różne znaki [(n)] |varchar [(n)] |String (ciąg) |
+| Identyfikator | |String (ciąg) |
+| cidr | |String (ciąg) |
 | koło | |Byte [], ciąg |
-| date | |Datetime (data/godzina) |
-| daterange | |String |
+| data | |Datetime (data/godzina) |
+| daterange | |String (ciąg) |
 | Podwójna precyzja |float8 |Double |
 | inet | |Byte [], ciąg |
-| intarry | |String |
-| int4range | |String |
-| int8range | |String |
+| intarry | |String (ciąg) |
+| int4range | |String (ciąg) |
+| int8range | |String (ciąg) |
 | liczba całkowita |int, INT4 |Int32 |
 | Interwał [pola] [(p)] | |Zakres czasu |
-| json | |String |
+| json | |String (ciąg) |
 | jsonb | |Byte [] |
 | line | |Byte [], ciąg |
 | lseg | |Byte [], ciąg |
 | macaddr | |Byte [], ciąg |
 | pieniędzy | |Wartość dziesiętna |
 | numeryczne [(p, s)] |Decimal [(p, s)] |Wartość dziesiętna |
-| numrange | |String |
+| numrange | |String (ciąg) |
 | OID | |Int32 |
-| ścieżka | |Byte [], ciąg |
+| path | |Byte [], ciąg |
 | pg_lsn | |Int64 |
 | moment | |Byte [], ciąg |
 | tworząc | |Byte [], ciąg |
@@ -342,7 +343,7 @@ Podczas przesuwania danych do PostgreSQL następujące mapowania są używane z 
 | smallint |int2 |Int16 |
 | smallserial |serial2 |Int16 |
 | Kolejną |serial4 |Int32 |
-| tekst | |String |
+| tekst | |String (ciąg) |
 
 ## <a name="map-source-to-sink-columns"></a>Mapowanie źródła do kolumn ujścia
 Aby dowiedzieć się więcej na temat mapowania kolumn w źródłowym zestawie danych na kolumny w datadataset, zobacz [Mapowanie kolumn zestawu danych w Azure Data Factory](data-factory-map-columns.md).

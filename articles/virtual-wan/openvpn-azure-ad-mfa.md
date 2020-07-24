@@ -1,20 +1,20 @@
 ---
-title: 'Włączanie uwierzytelniania wieloskładnikowego dla użytkowników sieci VPN: uwierzytelnianie usługi Azure AD'
+title: Włącz usługę MFA dla użytkowników sieci VPN za pomocą uwierzytelniania usługi Azure AD
 description: Włączanie uwierzytelniania wieloskładnikowego dla użytkowników sieci VPN
 services: virtual-wan
-author: anzaman
+author: kumudD
 ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 01/16/2020
 ms.author: alzam
-ms.openlocfilehash: 4dcda4d553eba2829aba4626e1020a27d5215850
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7adcdcf00f22020daf66192e777b1aca151349e0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84752790"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082124"
 ---
-# <a name="enable-azure-multi-factor-authentication-mfa-for-vpn-users"></a>Włącz usługę Azure Multi-Factor Authentication (MFA) dla użytkowników sieci VPN
+# <a name="enable-azure-multi-factor-authentication-mfa-for-vpn-users-by-using-azure-ad-authentication"></a>Włączanie usługi Azure Multi-Factor Authentication (MFA) dla użytkowników sieci VPN przy użyciu uwierzytelniania usługi Azure AD
 
 [!INCLUDE [overview](../../includes/vpn-gateway-vwan-openvpn-enable-mfa-overview.md)]
 

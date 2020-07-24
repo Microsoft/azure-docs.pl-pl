@@ -6,18 +6,18 @@ ms.topic: conceptual
 ms.date: 09/05/2019
 ms.author: cshoe
 ms.reviewer: jehollan
-ms.openlocfilehash: bb9783b38185940f0e75e888c3bc69a1edcc6cbb
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 02cb862c5ec6f75d546aabcd6e8ac97a4de961a4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86249261"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082957"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>Use dependency injection in .NET Azure Functions (Korzystanie z wstrzykiwania zależności w usłudze Azure Functions na platformie .NET)
 
-Azure Functions obsługuje wzorzec projektowania oprogramowania dla iniekcji zależności (DI), który jest techniką do osiągnięcia [niewersji kontroli (IOC)](https://docs.microsoft.com/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#dependency-inversion) między klasami i ich zależnościami.
+Azure Functions obsługuje wzorzec projektowania oprogramowania dla iniekcji zależności (DI), który jest techniką do osiągnięcia [niewersji kontroli (IOC)](/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#dependency-inversion) między klasami i ich zależnościami.
 
-- Iniekcja zależności w Azure Functions jest oparta na funkcjach wstrzykiwania zależności platformy .NET Core. Zaleca się zaznajomienie z [iniekcją zależności .NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection) . Istnieją różnice między zastępowaniem zależności i sposobem odczytywania wartości konfiguracji przy użyciu Azure Functions na planie zużycia.
+- Iniekcja zależności w Azure Functions jest oparta na funkcjach wstrzykiwania zależności platformy .NET Core. Zaleca się zaznajomienie z [iniekcją zależności .NET Core](/aspnet/core/fundamentals/dependency-injection) . Istnieją różnice między zastępowaniem zależności i sposobem odczytywania wartości konfiguracji przy użyciu Azure Functions na planie zużycia.
 
 - Obsługa iniekcji zależności rozpoczyna się od Azure Functions 2. x.
 
@@ -115,7 +115,7 @@ W tym przykładzie zastosowano pakiet [Microsoft. Extensions. http](https://www.
 
 ## <a name="service-lifetimes"></a>Okresy istnienia usługi
 
-Aplikacje Azure Functions zapewniają te same okresy istnienia usługi jak [iniekcja zależności ASP.NET](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection#service-lifetimes). W przypadku aplikacji funkcji różne okresy istnienia usługi działają w następujący sposób:
+Aplikacje Azure Functions zapewniają te same okresy istnienia usługi jak [iniekcja zależności ASP.NET](/aspnet/core/fundamentals/dependency-injection#service-lifetimes). W przypadku aplikacji funkcji różne okresy istnienia usługi działają w następujący sposób:
 
 - **Przejściowe**: usługi przejściowe są tworzone na podstawie każdego żądania usługi.
 - W **zakresie**: okres istnienia usługi w zakresie jest zgodny z okresem istnienia funkcji. Usługi w zakresie są tworzone raz na wykonanie. Późniejsze żądania dla tej usługi podczas wykonywania ponownie użyją istniejącego wystąpienia usługi.
@@ -125,7 +125,7 @@ Wyświetl lub Pobierz [przykład różnych okresów istnienia usługi](https://a
 
 ## <a name="logging-services"></a>Usługi rejestrowania
 
-Jeśli potrzebujesz własnego dostawcy rejestrowania, Zarejestruj niestandardowy typ jako wystąpienie [`ILoggerProvider`](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.iloggerfactory) , które jest dostępne za pomocą pakietu NuGet [Microsoft. Extensions. Logging. Abstracts](https://www.nuget.org/packages/Microsoft.Extensions.Logging.Abstractions/) .
+Jeśli potrzebujesz własnego dostawcy rejestrowania, Zarejestruj niestandardowy typ jako wystąpienie [`ILoggerProvider`](/dotnet/api/microsoft.extensions.logging.iloggerfactory) , które jest dostępne za pomocą pakietu NuGet [Microsoft. Extensions. Logging. Abstracts](https://www.nuget.org/packages/Microsoft.Extensions.Logging.Abstractions/) .
 
 Application Insights jest automatycznie dodawane przez Azure Functions.
 
@@ -250,7 +250,7 @@ public class HttpTrigger
 }
 ```
 
-Zapoznaj się z [wzorcem opcji w ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/options) , aby uzyskać więcej informacji dotyczących pracy z opcjami.
+Zapoznaj się z [wzorcem opcji w ASP.NET Core](/aspnet/core/fundamentals/configuration/options) , aby uzyskać więcej informacji dotyczących pracy z opcjami.
 
 > [!WARNING]
 > Unikaj próby odczytu wartości z plików, takich jak *local.settings.json* lub *appSettings. { środowisko}. JSON* w planie zużycia. Wartości odczytane z tych plików związanych z połączeniami wyzwalaczy są niedostępne, ponieważ infrastruktura hostingu nie ma dostępu do informacji o konfiguracji, ponieważ kontroler skalowania tworzy nowe wystąpienia aplikacji.

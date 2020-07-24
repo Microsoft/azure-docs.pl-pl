@@ -6,11 +6,12 @@ ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: tyleonha
 ms.reviewer: glenga
-ms.openlocfilehash: 133e89bd9187ae5e48fa208b407678760d31adfd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 51edbc18a929f4f954fb1a582a417bc1600d1a6f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78163764"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082991"
 ---
 # <a name="debug-powershell-azure-functions-locally"></a>Debugowanie Azure Functions programu PowerShell lokalnie
 
@@ -37,7 +38,7 @@ PSFunctionApp
  | - profile.ps1
 ```
 
-Ta aplikacja funkcji jest podobna do tej, którą uzyskasz po zakończeniu [przewodnika Szybki Start dla programu PowerShell](functions-create-first-function-powershell.md).
+Ta aplikacja funkcji jest podobna do tej, którą uzyskasz po zakończeniu [przewodnika Szybki Start dla programu PowerShell](./functions-create-first-function-vs-code.md?pivots=programming-language-powershell).
 
 Kod funkcji w programie `run.ps1` wygląda jak poniższy skrypt:
 
@@ -94,7 +95,7 @@ Aby debugować funkcje programu PowerShell w Visual Studio Code, musisz mieć za
 * [Rozszerzenie usługi Azure Functions dla programu Visual Studio Code](functions-create-first-function-vs-code.md)
 * [Program PowerShell Core 6,2 lub nowszy](/powershell/scripting/install/installing-powershell-core-on-windows)
 
-Po zainstalowaniu tych zależności Załaduj istniejący projekt funkcji programu PowerShell lub [Utwórz pierwszy projekt funkcji programu PowerShell](functions-create-first-function-powershell.md).
+Po zainstalowaniu tych zależności Załaduj istniejący projekt funkcji programu PowerShell lub [Utwórz pierwszy projekt funkcji programu PowerShell](./functions-create-first-function-vs-code.md?pivots=programming-language-powershell).
 
 >[!NOTE]
 > Jeśli projekt nie ma wymaganych plików konfiguracji, zostanie wyświetlony monit o ich dodanie.
@@ -128,7 +129,7 @@ Operacja Rozpocznij debugowanie wykonuje następujące zadania:
 * Dołącz debuger programu PowerShell do obszaru działania programu PowerShell w środowisku uruchomieniowym funkcji.
 
 >[!NOTE]
-> Należy upewnić się, że PSWorkerInProcConcurrencyUpperBound jest ustawiona na 1, aby zapewnić poprawne środowisko debugowania w Visual Studio Code. Domyślnie włączone.
+> Należy upewnić się, że PSWorkerInProcConcurrencyUpperBound jest ustawiona na 1, aby zapewnić poprawne środowisko debugowania w Visual Studio Code. Jest to opcja domyślna.
 
 Gdy aplikacja funkcji jest uruchomiona, potrzebna jest osobna konsola programu PowerShell do wywoływania funkcji wyzwalanej przez protokół HTTP.
 

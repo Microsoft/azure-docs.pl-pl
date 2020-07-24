@@ -7,11 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 02/26/2020
 ms.author: yushwang
-ms.openlocfilehash: a8a4ba7ea3de9140d79856fad9d5d0bc42cf4c51
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7fb344e16ed672dfc6c88fbe2c4888c52c9b717d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84984621"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081988"
 ---
 # <a name="connect-azure-vpn-gateways-to-multiple-on-premises-policy-based-vpn-devices-using-powershell"></a>Łączenie bram sieci VPN platformy Azure z wieloma lokalnymi urządzeniami sieci VPN opartymi na zasadach przy użyciu programu PowerShell
 
@@ -35,8 +36,8 @@ Na poniższych diagramach są wyróżniane dwa modele:
 ### <a name="azure-support-for-policy-based-vpn"></a>Pomoc techniczna platformy Azure dla sieci VPN opartej na zasadach
 Obecnie platforma Azure obsługuje oba tryby bram sieci VPN: bramy sieci VPN oparte na trasach i bramy sieci VPN oparte na zasadach. Są one oparte na różnych platformach wewnętrznych, co skutkuje różnymi specyfikacjami:
 
-|                          | **PolicyBased VPN Gateway** | **RouteBased VPN Gateway**       |**RouteBased VPN Gateway**                          |
-| ---                      | ---                         | ---                              |---                                                 |
+| Kategoria | PolicyBased VPN Gateway | RouteBased VPN Gateway | RouteBased VPN Gateway |
+| -------- | ----------------------- | ---------------------- | ---------------------- |---                                                 |
 | **Jednostka SKU bramy platformy Azure**    | Podstawowy                       | Podstawowy                            | VpnGw1, VpnGw2, VpnGw3, VpnGw4, VpnGw5  |
 | **Wersja IKE**          | IKEv1                       | IKEv2                            | Protokoły IKEv1 i IKEv2                         |
 | **Maksymalny. Połączenia S2S** | **1**                       | 10                               | 30                     |
@@ -204,6 +205,6 @@ W poniższym wierszu przedstawiono, czy dla połączenia są używane selektory 
       ```
 
 ## <a name="next-steps"></a>Następne kroki
-Po zakończeniu procesu nawiązywania połączenia można dodać do sieci wirtualnych maszyny wirtualne. Kroki opisano w sekcji [Tworzenie maszyny wirtualnej](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Po zakończeniu procesu nawiązywania połączenia można dodać do sieci wirtualnych maszyny wirtualne. Kroki opisano w sekcji [Tworzenie maszyny wirtualnej](../virtual-machines/windows/quick-create-portal.md).
 
 Zapoznaj się również z tematem [Konfigurowanie zasad protokołu IPSec/IKE dla połączeń sieci VPN S2S lub połączenia Sieć wirtualna-sieć wirtualna,](vpn-gateway-ipsecikepolicy-rm-powershell.md) Aby uzyskać szczegółowe informacje na temat niestandardowych zasad protokołu IPSec/IKE.

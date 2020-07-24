@@ -5,13 +5,13 @@ author: ekpgh
 ms.service: hpc-cache
 ms.topic: troubleshooting
 ms.date: 03/18/2020
-ms.author: rohogue
-ms.openlocfilehash: 8d576f8660d140a95eb67f7babf1c0af61f04278
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: v-erkel
+ms.openlocfilehash: efa163a2c10a7dc93bf5d26865a0e7eb43f11dea
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85515449"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082770"
 ---
 # <a name="troubleshoot-nas-configuration-and-nfs-storage-target-issues"></a>Rozwiązywanie problemów z konfiguracją serwera NAS i miejscem docelowym magazynu NFS
 
@@ -20,7 +20,7 @@ Ten artykuł zawiera rozwiązania niektórych typowych błędów konfiguracji i 
 Ten artykuł zawiera szczegółowe informacje na temat sprawdzania portów i sposobu włączania dostępu głównego do systemu NAS. Zawiera również szczegółowe informacje o mniejszych typowych problemach, które mogą spowodować niepowodzenie tworzenia miejsca docelowego magazynu NFS.
 
 > [!TIP]
-> Przed rozpoczęciem korzystania z tego przewodnika zapoznaj się z [wymaganiami wstępnymi dotyczącymi magazynu NFS](hpc-cache-prereqs.md#nfs-storage-requirements).
+> Przed rozpoczęciem korzystania z tego przewodnika zapoznaj się z [wymaganiami wstępnymi dotyczącymi magazynu NFS](hpc-cache-prerequisites.md#nfs-storage-requirements).
 
 Jeśli rozwiązanie do problemu nie zostało uwzględnione w tym miejscu, [Otwórz bilet pomocy technicznej](hpc-cache-support-ticket.md) , aby usługa i pomoc techniczna firmy Microsoft mogły współdziałać z nim w celu zbadania i rozwiązania problemu.
 

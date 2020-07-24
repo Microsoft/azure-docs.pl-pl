@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 57ec22cb02512577f8737718cae9175403fb5603
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 627eca1f9a775f12fc9d504629c2a3abbcc919a7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74900879"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87084504"
 ---
 # <a name="manage-streaming-endpoints-with-the-azure-portal"></a>Zarządzanie punktami końcowymi przesyłania strumieniowego przy użyciu witryny Azure Portal 
 
@@ -66,7 +67,7 @@ Punkt końcowy przesyłania strumieniowego umożliwia skonfigurowanie następuj�
 * Kontrola pamięci podręcznej
 * Zasady dostępu między lokacjami
 
-Aby uzyskać szczegółowe informacje o tych właściwościach, zobacz [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint).
+Aby uzyskać szczegółowe informacje o tych właściwościach, zobacz [StreamingEndpoint](/rest/api/media/operations/streamingendpoint).
 
 >[!NOTE]
 >Po włączeniu usługi CDN nie można uzyskać dostępu do dostępu do adresu IP. Dostęp do adresu IP ma zastosowanie tylko wtedy, gdy nie masz usługi CDN.
@@ -74,7 +75,7 @@ Aby uzyskać szczegółowe informacje o tych właściwościach, zobacz [Streamin
 Punkt końcowy przesyłania strumieniowego można skonfigurować, wykonując następujące czynności:
 
 1. Wybierz punkt końcowy przesyłania strumieniowego, który chcesz skonfigurować.
-2. Kliknij przycisk **Ustawienia**.
+2. Kliknij polecenie **Ustawienia**.
 
 Poniżej znajduje się krótki opis poniższych pól.
 
@@ -121,4 +122,3 @@ Przejrzyj ścieżki szkoleniowe dotyczące usługi Media Services.
 
 ## <a name="provide-feedback"></a>Wyraź opinię
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
-

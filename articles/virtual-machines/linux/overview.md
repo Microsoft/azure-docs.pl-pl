@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.date: 11/14/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 98a118ef662abd323854911e9fc1ffc6b7374db2
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: a62cb11e862bb8733e2758297d82aa7732b2d739
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84232995"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082468"
 ---
 # <a name="linux-virtual-machines-in-azure"></a>Maszyny wirtualne z systemem Linux na platformie Azure
 
@@ -30,7 +30,7 @@ Z maszyn wirtualnych na platformie Azure można korzystać na różne sposoby. P
 Liczbę maszyn wirtualnych używanych przez aplikację można dowolnie i bez ograniczeń zwiększać odpowiednio do potrzeb.
 
 ## <a name="what-do-i-need-to-think-about-before-creating-a-vm"></a>Co należy wziąć pod uwagę przed utworzeniem maszyny wirtualnej?
-Podczas tworzenia infrastruktury aplikacji na platformie Azure należy zawsze wziąć pod uwagę wiele różnych [zagadnień projektowych](https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/windows-vm). Kwestie dotyczące maszyn wirtualnych, które należy rozważyć, to między innymi:
+Podczas tworzenia infrastruktury aplikacji na platformie Azure należy zawsze wziąć pod uwagę wiele różnych [zagadnień projektowych](/azure/architecture/reference-architectures/n-tier/windows-vm). Kwestie dotyczące maszyn wirtualnych, które należy rozważyć, to między innymi:
 
 * nazwy zasobów aplikacji;
 * lokalizacja, w której są przechowywane zasoby;
@@ -47,10 +47,10 @@ W poniższej tabeli przedstawiono wybrane metody uzyskania dostępu do listy dos
 
 | Metoda | Opis |
 | --- | --- |
-| Azure Portal |Wybór lokalizacji z listy podczas tworzenia maszyny wirtualnej. |
-| Azure PowerShell |Użyj polecenia [Get-AzLocation](https://docs.microsoft.com/powershell/module/az.resources/get-azlocation). |
-| Interfejs API REST |Użycie operacji [wyświetlania listy lokalizacji](https://docs.microsoft.com/rest/api/resources/subscriptions). |
-| Interfejs wiersza polecenia platformy Azure |Użyj operacji [az account list-locations](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest). |
+| Witryna Azure Portal |Wybór lokalizacji z listy podczas tworzenia maszyny wirtualnej. |
+| Azure PowerShell |Użyj polecenia [Get-AzLocation](/powershell/module/az.resources/get-azlocation). |
+| Interfejs API REST |Użycie operacji [wyświetlania listy lokalizacji](/rest/api/resources/subscriptions). |
+| Interfejs wiersza polecenia platformy Azure |Użyj operacji [az account list-locations](/cli/azure/account?view=azure-cli-latest). |
 
 ## <a name="availability"></a>Dostępność
 Platforma Azure oferuje najlepszą w branży umowę dotyczącą poziomu usług gwarantującą dostępność pojedynczego wystąpienia maszyny wirtualnej na poziomie 99,9% pod warunkiem wdrożenia tej maszyny wirtualnej z magazynem Premium dla wszystkich dysków.  Aby wdrożenie kwalifikowało się do standardowej umowy dotyczącej poziomu usług na poziomie 99,95%, należy wdrożyć co najmniej dwie maszyny wirtualne obsługujące obciążenie w zestawie dostępności. Zestaw dostępności gwarantuje, że maszyny wirtualne są rozproszone w wielu domenach błędów w centrach danych platformy Azure oraz wdrożone na hostach z różnymi okresami konserwacji. Pełna treść [umowy SLA dotyczącej usługi Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/) wyjaśnia w całości kwestię gwarantowanej dostępności platformy Azure.
@@ -95,18 +95,18 @@ Firma Microsoft blisko współpracuje z partnerami, aby zagwarantować, że dost
 Aby uzyskać właściwą kulturę DevOps, cała infrastruktura musi być zawarta w kodzie.  Gdy cała infrastruktura przebywa w kodzie, można ją łatwo odtworzyć.  Platforma Azure współpracuje ze wszystkimi najważniejszymi narzędziami automatyzacji, takimi jak Ansible, Chef, SaltStack i Puppet.  Platforma Azure oferuje również własne narzędzia automatyzacji:
 
 * [Szablony platformy Azure](create-ssh-secured-vm-from-template.md)
-* [Rozszerzenie Azure VMAccess](using-vmaccess-extension.md)
+* [Rozszerzenie Azure VMAccess](../extensions/vmaccess.md)
 
 Platforma Azure obsługuje funkcję [Cloud-init](https://cloud-init.io/) w większości dystrybucje systemu Linux, która go obsługuje.  Aktywnie pracujemy z naszymi potwierdzonymi partnerami dystrybucji systemu Linux w celu udostępnienia obrazów z obsługą chmury w portalu Azure Marketplace. Te obrazy spowodują, że wdrożenia i konfiguracje usługi Cloud-init pracują bezproblemowo z maszynami wirtualnymi i zestawami skalowania maszyn wirtualnych.
 
 * [Korzystanie z pakietu cloud-init na maszynach wirtualnych platformy Azure z systemem Linux](using-cloud-init.md)
 
-## <a name="storage"></a>Magazyn
+## <a name="storage"></a>Storage
 * [Wprowadzenie do usługi Microsoft Azure Storage](../../storage/common/storage-introduction.md)
 * [Dodawanie dysku do maszyny wirtualnej systemu Linux przy użyciu interfejsu wiersza polecenia platformy Azure](add-disk.md)
 * [Jak dołączyć dysk danych do maszyny wirtualnej w witrynie Azure Portal?](attach-disk-portal.md)
 
-## <a name="networking"></a>Networking
+## <a name="networking"></a>Sieć
 * [Omówienie usługi Virtual Network](../../virtual-network/virtual-networks-overview.md)
 * [Adresy IP na platformie Azure](../../virtual-network/public-ip-addresses.md)
 * [Otwieranie portów dla maszyny wirtualnej systemu Linux na platformie Azure](nsg-quickstart.md)
@@ -119,5 +119,4 @@ Utwórz pierwszą maszynę wirtualną.
 
 - [Portal](quick-create-portal.md)
 - [Interfejs wiersza polecenia platformy Azure](quick-create-cli.md)
-- [Program PowerShell](quick-create-powershell.md)
-
+- [PowerShell](quick-create-powershell.md)

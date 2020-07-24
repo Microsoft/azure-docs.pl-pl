@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 1fe26a880979a431e456d9a1819dfd1b18d25f77
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 48f0a247ed023583c8489994439a790944b90fdc
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86221225"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082600"
 ---
 # <a name="copy-an-image-from-another-gallery-using-powershell"></a>Kopiowanie obrazu z innej galerii przy użyciu programu PowerShell
 
@@ -100,7 +100,7 @@ Dane wyjściowe będą przypominać następujące:
 }
 ```
 
-Utwórz nową definicję obrazu w galerii docelowej przy użyciu polecenia cmdlet [New-AzGalleryImageDefinition](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion) i informacji z danych wyjściowych powyżej.
+Utwórz nową definicję obrazu w galerii docelowej przy użyciu polecenia cmdlet [New-AzGalleryImageDefinition](/powershell/module/az.compute/new-azgalleryimageversion) i informacji z danych wyjściowych powyżej.
 
 
 W tym przykładzie definicja obrazu ma nazwę *myDestinationImgDef* w galerii o nazwie *myDestinationGallery*.
@@ -123,7 +123,7 @@ $destinationImgDef  = New-AzGalleryImageDefinition `
 
 ## <a name="create-the-image-version"></a>Utwórz wersję obrazu
 
-Utwórz wersję obrazu przy użyciu polecenia [New-AzGalleryImageVersion](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion). Należy przekazać Identyfikator obrazu źródłowego w `--managed-image` parametrze tworzenia wersji obrazu w galerii docelowej. 
+Utwórz wersję obrazu przy użyciu polecenia [New-AzGalleryImageVersion](/powershell/module/az.compute/new-azgalleryimageversion). Należy przekazać Identyfikator obrazu źródłowego w `--managed-image` parametrze tworzenia wersji obrazu w galerii docelowej. 
 
 Dozwolone znaki wersji obrazu to liczby i kropki. Liczba musi należeć do zakresu 32-bitowej liczby całkowitej. Format: *MajorVersion*. *MinorVersion*. *Poprawka*.
 
@@ -156,7 +156,7 @@ $job.State
 > [!NOTE]
 > Musisz poczekać na zakończenie kompilowania i replikowania wersji obrazu, aby można było użyć tego samego obrazu zarządzanego do utworzenia innej wersji obrazu.
 >
-> Możesz również przechowywać obraz w magazynie Premiun przez dodanie `-StorageAccountType Premium_LRS` lub [nadmiarowy magazyn stref](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) przez dodanie `-StorageAccountType Standard_ZRS` go podczas tworzenia wersji obrazu.
+> Możesz również przechowywać obraz w magazynie Premiun przez dodanie `-StorageAccountType Premium_LRS` lub [nadmiarowy magazyn stref](../storage/common/storage-redundancy.md) przez dodanie `-StorageAccountType Standard_ZRS` go podczas tworzenia wersji obrazu.
 >
 
 

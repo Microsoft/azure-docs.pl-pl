@@ -7,11 +7,12 @@ ms.reviewer: gamal
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/01/2019
-ms.openlocfilehash: 203e5fcaa99f7aebeda34e6968f636ed72851ec8
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: 5d0393ab5f2582efa2a4b727543bc799cdb1143e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85921533"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082872"
 ---
 # <a name="what-are-wrangling-data-flows"></a>Co to są przepływy danych przetwarzanie?
 
@@ -27,7 +28,7 @@ Przepływ danych przetwarzanie umożliwia przetłumaczenie M wygenerowanego prze
 Przepływy danych przetwarzanie są szczególnie przydatne w przypadku inżynierów danych lub integratorów danych obywatela.
 
 > [!NOTE]
-> Przepływ danych przetwarzanie jest obecnie dostępnych w publicznej wersji zapoznawczej
+> Przepływ danych przetwarzanie jest obecnie dostępny w publicznej wersji zapoznawczej
 
 ## <a name="use-cases"></a>Przypadki zastosowań
 

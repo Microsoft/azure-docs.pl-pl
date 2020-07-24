@@ -17,18 +17,18 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.custom: tracking-python
-ms.openlocfilehash: af03d0fc091c34bfef7f38b1a215832086de57c6
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 5688caa16faf4a9d83b6d23b24676d43ad16697b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86220069"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87084300"
 ---
 # <a name="how-to-use-notification-hubs-from-python"></a>Jak używać Notification Hubs w języku Python
 
 [!INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
 
-Możesz uzyskać dostęp do wszystkich funkcji Notification Hubs z poziomu języka Java/PHP/Python/Ruby zaplecza przy użyciu interfejsu REST centrum powiadomień, jak opisano w artykule MSDN [Notification Hubs interfejsy API REST](https://msdn.microsoft.com/library/dn223264.aspx).
+Możesz uzyskać dostęp do wszystkich funkcji Notification Hubs z poziomu języka Java/PHP/Python/Ruby zaplecza przy użyciu interfejsu REST centrum powiadomień, jak opisano w artykule MSDN [Notification Hubs interfejsy API REST](/previous-versions/azure/reference/dn223264(v=azure.100)).
 
 > [!NOTE]
 > Jest to Przykładowa implementacja referencyjna służąca do implementowania powiadomień wysyłanych w języku Python i nie jest oficjalnie obsługiwanym zestawem SDK języka Python dla centrum powiadomień. Przykład został utworzony przy użyciu języka Python 3,4.
@@ -68,7 +68,7 @@ hub.send_windows_notification(wns_payload)
 
 Jeśli jeszcze tego nie zrobiono, postępuj zgodnie z instrukcjami w [samouczku wprowadzenie] do ostatniej sekcji, w której ma zostać wdrożony zaplecze.
 
-Wszystkie szczegóły dotyczące implementacji pełnej otoki REST można znaleźć w [witrynie MSDN](https://msdn.microsoft.com/library/dn530746.aspx). W tej sekcji opisano implementację języka Python głównych kroków wymaganych do uzyskania dostępu Notification Hubs punktów końcowych REST i wysyłania powiadomień
+Wszystkie szczegóły dotyczące implementacji pełnej otoki REST można znaleźć w [witrynie MSDN](/previous-versions/azure/reference/dn530746(v=azure.100)). W tej sekcji opisano implementację języka Python głównych kroków wymaganych do uzyskania dostępu Notification Hubs punktów końcowych REST i wysyłania powiadomień
 
 1. Analizowanie parametrów połączenia
 2. Generowanie tokenu autoryzacji
@@ -103,7 +103,7 @@ class NotificationHub:
 
 ### <a name="create-security-token"></a>Utwórz token zabezpieczający
 
-Szczegóły tworzenia tokenów zabezpieczających są dostępne [tutaj](https://msdn.microsoft.com/library/dn495627.aspx).
+Szczegóły tworzenia tokenów zabezpieczających są dostępne [tutaj](/previous-versions/azure/reference/dn495627(v=azure.100)).
 Dodaj następujące metody do `NotificationHub` klasy, aby utworzyć token oparty na identyfikatorze URI bieżącego żądania, a poświadczenia wyodrębnione z parametrów połączenia.
 
 ```python
@@ -164,7 +164,7 @@ class Notification:
 
 Ta klasa jest kontenerem dla natywnej treści powiadomienia lub zestawu właściwości powiadomienia szablonu, zestawu nagłówków, który zawiera format (natywną platformę lub szablon) i właściwości specyficzne dla platformy (na przykład właściwość wygaśnięcia firmy Apple i nagłówki WNS).
 
-Zapoznaj się z [dokumentacją interfejsów API REST Notification Hubs](https://msdn.microsoft.com/library/dn495827.aspx) i format określonych platform powiadomień dla wszystkich dostępnych opcji.
+Zapoznaj się z [dokumentacją interfejsów API REST Notification Hubs](/previous-versions/azure/reference/dn495827(v=azure.100)) i format określonych platform powiadomień dla wszystkich dostępnych opcji.
 
 Teraz z tą klasą Napisz metody wysyłania powiadomień wewnątrz `NotificationHub` klasy.
 
@@ -293,7 +293,7 @@ Te metody wysyłają żądanie HTTP POST do punktu końcowego/messages centrum p
 ### <a name="using-debug-property-to-enable-detailed-logging"></a>Używanie właściwości Debug do włączania szczegółowego rejestrowania
 
 Włączenie właściwości Debug podczas inicjowania centrum powiadomień zapisuje szczegółowe informacje o rejestrowaniu żądania HTTP i zrzutu odpowiedzi oraz szczegółowy komunikat z powiadomieniem.
-[Właściwość Notification Hubs TestSend](https://docs.microsoft.com/previous-versions/azure/reference/dn495827(v=azure.100)) zwraca szczegółowe informacje o wyniku wysłania powiadomienia.
+[Właściwość Notification Hubs TestSend](/previous-versions/azure/reference/dn495827(v=azure.100)) zwraca szczegółowe informacje o wyniku wysłania powiadomienia.
 Aby użyć go — zainicjuj przy użyciu następującego kodu:
 
 ```python
@@ -456,9 +456,9 @@ W tym artykule pokazano, jak utworzyć klienta REST w języku Python dla Notific
 
 <!-- URLs -->
 [Przykład otoki REST języka Python]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/notificationhubs-rest-python
-[Wprowadzenie]: https://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
-[Samouczek dotyczący najświeższych wiadomości]: https://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/
-[Samouczek lokalizowania wiadomości]: https://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-send-localized-breaking-news/
+[Samouczek wprowadzenie]: ./notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md
+[Samouczek dotyczący najświeższych wiadomości]: ./notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md
+[Samouczek lokalizowania wiadomości]: ./notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md
 
 <!-- Images. -->
 [1]: ./media/notification-hubs-python-backend-how-to/DetailedLoggingInfo.png

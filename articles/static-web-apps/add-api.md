@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: how-to
 ms.date: 05/29/2020
 ms.author: wachegha
-ms.openlocfilehash: fd4f57350e97ad38c2c78aec29b1e51d775e8a02
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 4df1aa53c09777ac2470581df07ac132255b005a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86104116"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083671"
 ---
 # <a name="add-an-api-to-azure-static-web-apps-preview-with-azure-functions"></a>Dodawanie interfejsu API do usługi Azure static Web Apps Preview przy użyciu Azure Functions
 
@@ -133,7 +133,7 @@ W przypadku powyższych ustawień punkt końcowy interfejsu API to:
 
 ## <a name="run-the-api-locally"></a>Uruchamianie interfejsu API lokalnie
 
-Visual Studio Code integruje się z [Azure Functions Core Tools](https://docs.microsoft.com/azure/azure-functions/functions-run-local) , aby umożliwić uruchomienie tego projektu na lokalnym komputerze deweloperskim przed opublikowaniem na platformie Azure.
+Visual Studio Code integruje się z [Azure Functions Core Tools](../azure-functions/functions-run-local.md) , aby umożliwić uruchomienie tego projektu na lokalnym komputerze deweloperskim przed opublikowaniem na platformie Azure.
 
 > [!TIP]
 > Przed kontynuowaniem upewnij się, że masz wszystkie zasoby wymienione w sekcji [wymagania wstępne](#prerequisites) .
@@ -217,11 +217,11 @@ Za pomocą Visual Studio Code Zatwierdź i wypchnij zmiany do zdalnego repozytor
 
 ## <a name="create-a-static-web-app"></a>Tworzenie statycznej aplikacji sieci Web
 
-1. Przejdź do witryny [Azure Portal](https://portal.azure.com).
+1. Przejdź do [Azure Portal](https://portal.azure.com)
 1. Kliknij pozycję **Utwórz zasób**
 1. Wyszukiwanie **statycznej aplikacji sieci Web**
 1. Kliknij pozycję **statyczna aplikacja internetowa (wersja zapoznawcza)**
-1. Kliknij przycisk **Utwórz**
+1. Kliknij pozycję **Utwórz**
 
 Następnie Dodaj ustawienia specyficzne dla aplikacji.
 
@@ -230,18 +230,18 @@ Następnie Dodaj ustawienia specyficzne dla aplikacji.
 1. Nadaj aplikacji nazwę **My-wanilid-API**.
 1. Wybierz _region_ znajdujący się najbliżej siebie
 1. Wybierz **bezpłatną** _jednostkę SKU_
-1. Kliknij przycisk **Zaloguj się przy użyciu usługi GitHub** i Uwierzytelnij się za pomocą usługi GitHub
+1. Kliknij przycisk **Zaloguj się przy użyciu usługi GitHub** i uwierzytelnij się przy użyciu usługi GitHub
 1. Wybierz preferowaną _organizację_
 1. Wybierz pozycję **My-wanilid-API** z listy rozwijanej _repozytorium_
 1. Wybierz pozycję **główna** z listy rozwijanej _rozgałęzienie_
-1. Kliknij przycisk **Dalej: kompiluj >** , aby edytować konfigurację kompilacji
+1. Kliknij przycisk **Dalej: Skompiluj >**, aby edytować konfigurację kompilacji
 
 Następnie Dodaj następujące szczegóły kompilacji.
 
 1. Wprowadź **/** _lokalizację aplikacji_.
 1. Wprowadź **interfejs API** w polu _Lokalizacja interfejsu API_ .
 1. Wyczyść wartość domyślną z _lokalizacji artefaktu aplikacji_, pozostawiając pole puste.
-1. Kliknij pozycję **Przegląd + utwórz**.
+1. Kliknij pozycję **Przejrzyj i utwórz**.
 1. Kliknij przycisk **Utwórz**
 
     Po kliknięciu przycisku _Utwórz_ na platformie Azure są wykonywane dwie rzeczy. Najpierw zostaną utworzone podstawowe usługi w chmurze obsługujące aplikację. Następnie proces w tle rozpocznie się Kompilowanie i wdrażanie aplikacji.
@@ -260,7 +260,7 @@ Następnie Dodaj następujące szczegóły kompilacji.
 
 Jeśli nie chcesz zachować tej aplikacji do dalszej pracy, możesz wykonać następujące czynności, aby usunąć statyczną aplikację sieci Web platformy Azure i powiązane z nią zasoby.
 
-1. Przejdź do witryny [Azure Portal](https://portal.azure.com).
+1. Przejdź do [Azure Portal](https://portal.azure.com)
 1. Na górnym pasku wyszukiwania wpisz **grupy zasobów**
 1. Kliknij pozycję **grupy zasobów**
 1. Wybierz pozycję Moja **resourceName**

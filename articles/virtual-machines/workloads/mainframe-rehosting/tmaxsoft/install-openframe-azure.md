@@ -8,12 +8,12 @@ ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: virtual-machines-linux
-ms.openlocfilehash: 1ad6e52c421d9cfec4640d3a330b5507d6ed3e9b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 41b31d5c4a01183d4620dcd6ec6f4729f078d382
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "72436051"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082396"
 ---
 # <a name="install-tmaxsoft-openframe-on-azure"></a>Zainstaluj program TmaxSoft OpenFrame na platformie Azure
 
@@ -349,7 +349,7 @@ Tibero udostępnia kilka kluczowych funkcji w środowisku OpenFrame na platformi
      )
     ```
 
-7. Utwórz bazę danych. Zostaną wyświetlone następujące dane wyjściowe:
+7. Utwórz bazę danych. Wyświetlane są następujące dane wyjściowe:
 
     ```
     Change core dump dir to /opt/tmaxdb/tibero6/bin/prof.
@@ -1167,7 +1167,7 @@ OSC to środowisko OpenFrame podobne do programu IBM CICS, które obsługuje wie
      Po zakończeniu zostanie wyświetlony komunikat "Instalacja zakończona".
 
 4. Sprawdź, czy profil bash został zaktualizowany przy użyciu zmiennych OSC.
-5. Przejrzyj plik OpenFrame \_ OSC7 \_ 0 \_ Fix2 \_ INSTALLLOG. log. Powinno to wyglądać następująco:
+5. Przejrzyj plik OpenFrame \_ OSC7 \_ 0 \_ Fix2 \_ INSTALLLOG. log. Powinna to wyglądać następująco:
 
      ```
      Summary 
@@ -1476,6 +1476,6 @@ Kończy instalację składników OpenFrame.
 
 Jeśli rozważasz migrację komputerów mainframe, nasz ekosystem partnerski jest dostępny, aby Ci pomóc. Aby uzyskać szczegółowe wskazówki dotyczące wybierania rozwiązania partnerskiego, zapoznaj się z informacjami na [platformie modernizacja](https://datamigration.microsoft.com/)organizacji.
 
--   [Rozpoczynanie pracy z platformą Azure](https://docs.microsoft.com/azure/)
--   [Host Integration Server (jego) Dokumentacja](https://docs.microsoft.com/host-integration-server/)
--   [Przewodnik po podnoszenia i przesunięć wirtualnych centrów danych platformy Azure](https://blogs.msdn.microsoft.com/azurecat/2018/03/12/new-whitepaper-azure-virtual-datacenter-lift-and-shift-guide/)
+-   [Rozpoczynanie pracy z platformą Azure](../../../../index.yml)
+-   [Host Integration Server (jego) Dokumentacja](/host-integration-server/)
+-   [Przewodnik po podnoszenia i przesunięć wirtualnych centrów danych platformy Azure](/archive/blogs/azurecat/new-whitepaper-azure-virtual-datacenter-lift-and-shift-guide)

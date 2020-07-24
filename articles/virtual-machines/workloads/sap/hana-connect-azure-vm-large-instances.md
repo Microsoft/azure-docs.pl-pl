@@ -15,15 +15,16 @@ ms.workload: infrastructure
 ms.date: 05/25/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fb6f88fbfcbd539603e435b11661c428d54f3c34
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3231241e2fbc6e02725b5611d05b9ee4f0f1a35a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74224725"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082175"
 ---
 # <a name="connecting-azure-vms-to-hana-large-instances"></a>Łączenie maszyn wirtualnych platformy Azure z funkcją HANA — duże wystąpienia
 
-[Co to jest SAP HANA na platformie Azure (duże wystąpienia)?](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) Należy zauważyć, że minimalne wdrożenie dużych wystąpień usługi HANA przy użyciu warstwy aplikacji SAP na platformie Azure wygląda następująco:
+[Co to jest SAP HANA na platformie Azure (duże wystąpienia)?](./hana-overview-architecture.md) Należy zauważyć, że minimalne wdrożenie dużych wystąpień usługi HANA przy użyciu warstwy aplikacji SAP na platformie Azure wygląda następująco:
 
 ![Sieć wirtualna Azure podłączona do SAP HANA na platformie Azure (duże wystąpienia) i lokalnie](./media/hana-overview-architecture/image1-architecture.png)
 
@@ -93,13 +94,13 @@ Niektóre z zakresów adresów IP, które są niezbędne do wdrożenia dużych w
 
 Opcjonalne zakresy adresów IP, które ostatecznie muszą zostać przesłane do firmy Microsoft:
 
-- Jeśli zdecydujesz się używać [ExpressRoute Global REACH](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach) do włączenia bezpośredniego routingu z jednostek lokalnych do platformy Hana, musisz zarezerwować inny zakres adresów IP. Ten zakres nie może pokrywać się z żadnym innym zakresem adresów IP zdefiniowanym wcześniej.
-- Jeśli zdecydujesz się używać [ExpressRoute Global REACH](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach) , aby włączyć kierowanie bezpośrednie z dzierżawy dużego wystąpienia Hana w jednym regionie platformy Azure do innej dzierżawy dużego wystąpienia Hana w innym regionie świadczenia usługi Azure, musisz zarezerwować inny zakres adresów IP. Ten zakres nie może pokrywać się z żadnym innym zakresem adresów IP zdefiniowanym wcześniej.
+- Jeśli zdecydujesz się używać [ExpressRoute Global REACH](../../../expressroute/expressroute-global-reach.md) do włączenia bezpośredniego routingu z jednostek lokalnych do platformy Hana, musisz zarezerwować inny zakres adresów IP. Ten zakres nie może pokrywać się z żadnym innym zakresem adresów IP zdefiniowanym wcześniej.
+- Jeśli zdecydujesz się używać [ExpressRoute Global REACH](../../../expressroute/expressroute-global-reach.md) , aby włączyć kierowanie bezpośrednie z dzierżawy dużego wystąpienia Hana w jednym regionie platformy Azure do innej dzierżawy dużego wystąpienia Hana w innym regionie świadczenia usługi Azure, musisz zarezerwować inny zakres adresów IP. Ten zakres nie może pokrywać się z żadnym innym zakresem adresów IP zdefiniowanym wcześniej.
 
 Aby uzyskać więcej informacji na temat ExpressRoute Global Reach i użycia wokół dużych wystąpień platformy HANA, zapoznaj się z dokumentami:
 
-- [Architektura sieci SAP HANA (duże wystąpienia)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-network-architecture)
-- [Łączenie sieci wirtualnej z dużymi wystąpieniami platformy HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-connect-vnet-express-route)
+- [Architektura sieci SAP HANA (duże wystąpienia)](./hana-network-architecture.md)
+- [Łączenie sieci wirtualnej z dużymi wystąpieniami platformy HANA](./hana-connect-vnet-express-route.md)
  
 Należy zdefiniować i zaplanować zakresy adresów IP, które zostały opisane wcześniej. Nie trzeba jednak przesyłać wszystkich z nich do firmy Microsoft. Zakresy adresów IP wymagane jako nazwa firmy Microsoft to:
 

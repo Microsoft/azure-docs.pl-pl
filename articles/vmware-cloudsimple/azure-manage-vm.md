@@ -8,11 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 44a0b8fe56477620c0ac47d5c5de8830dac46214
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 82aa1ba6ec20e8242568a2725899ddc515a4dc0f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77015001"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082073"
 ---
 # <a name="manage-your-cloudsimple-private-cloud-virtual-machines-in-azure"></a>Zarządzanie maszynami wirtualnymi w chmurze prywatnej CloudSimple na platformie Azure
 
@@ -28,7 +29,7 @@ Poniższe kontrolki są dostępne na stronie **Przegląd** dla wybranej maszyny 
 | Rozpocznij | Uruchom określoną maszynę wirtualną.  |
 | Uruchom ponownie | Zamknij i Wyłącz określoną maszynę wirtualną.  |
 | Stop | Zamknij konkretną maszynę wirtualną.  |
-| Przechwytywanie | Przechwyć obraz określonej maszyny wirtualnej, aby można było go użyć jako obrazu do utworzenia innych maszyn wirtualnych. Zobacz [Tworzenie obrazu zarządzanego uogólnionej maszyny wirtualnej na platformie Azure](../virtual-machines/windows/classic/capture-image.md).   |
+| Przechwytywanie | Przechwyć obraz określonej maszyny wirtualnej, aby można było go użyć jako obrazu do utworzenia innych maszyn wirtualnych. Zobacz [Tworzenie obrazu zarządzanego uogólnionej maszyny wirtualnej na platformie Azure](../virtual-machines/windows/capture-image-resource.md).   |
 | Move | Przejdź do określonej maszyny wirtualnej.  |
 | Usuń | Usuń określoną maszynę wirtualną.  |
 | Odśwież | Odśwież dane na ekranie.  |

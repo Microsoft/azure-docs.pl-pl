@@ -13,11 +13,12 @@ ms.workload: infrastructure
 ms.date: 05/25/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f7ac8e69c4e149fdd0f365e19f7a0282a547af43
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8c7e8d4875a8bf3f53ac536ae95ac7499a74d45c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77617201"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082158"
 ---
 # <a name="connect-a-virtual-network-to-hana-large-instances"></a>Łączenie sieci wirtualnej z dużymi wystąpieniami platformy HANA
 
@@ -95,7 +96,7 @@ New-AzVirtualNetworkGatewayConnection -Name $myConnectionName `
 ```
 
 > [!NOTE]
-> Ostatnim parametrem w poleceniu New-AzVirtualNetworkGatewayConnection, **ExpressRouteGatewayBypass** jest nowy parametr, który włącza funkcję ExpressRoute Fast Path. Funkcja, która zmniejsza opóźnienie sieci między jednostkami dużych wystąpień usługi HANA i maszynami wirtualnymi platformy Azure. Funkcjonalność została dodana w maju 2019. Aby uzyskać więcej informacji, zobacz artykuł [SAP HANA (duże wystąpienia) Architektura sieci](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-network-architecture). Przed uruchomieniem poleceń upewnij się, że korzystasz z najnowszej wersji poleceń cmdlet programu PowerShell.
+> Ostatnim parametrem w poleceniu New-AzVirtualNetworkGatewayConnection, **ExpressRouteGatewayBypass** jest nowy parametr, który włącza funkcję ExpressRoute Fast Path. Funkcja, która zmniejsza opóźnienie sieci między jednostkami dużych wystąpień usługi HANA i maszynami wirtualnymi platformy Azure. Funkcjonalność została dodana w maju 2019. Aby uzyskać więcej informacji, zobacz artykuł [SAP HANA (duże wystąpienia) Architektura sieci](./hana-network-architecture.md). Przed uruchomieniem poleceń upewnij się, że korzystasz z najnowszej wersji poleceń cmdlet programu PowerShell.
 
 Aby połączyć bramę z więcej niż jednym obwodem usługi ExpressRoute skojarzonym z subskrypcją, może być konieczne wykonanie tego kroku więcej niż raz. Można na przykład połączyć tę samą bramę sieci wirtualnej z obwodem usługi ExpressRoute, który łączy sieć wirtualną z siecią lokalną.
 
@@ -138,7 +139,7 @@ należy wziąć pod uwagę, że:
 - Istnieje ograniczenie ASN (numer systemu autonomicznego), którego można użyć do anonsowania tras lokalnych w dużych wystąpieniach platformy HANA. Lokalne nie mogą anonsować żadnych tras z prywatnym WPW w zakresie 65000 – 65020 lub 65515. 
 - Aby zapoznać się z scenariuszem łączenia lokalnego dostępu do dużych wystąpień platformy HANA, należy obliczyć opłatę za obwód, który łączy się z platformą Azure. W przypadku cen Sprawdź ceny [dodatku Global REACH](https://azure.microsoft.com/pricing/details/expressroute/).
 
-Aby uzyskać jedno lub oba scenariusze zastosowane do wdrożenia, Otwórz komunikat pomocy technicznej na platformie Azure zgodnie z opisem w artykule [otwieranie żądania obsługi dla dużych wystąpień usługi Hana](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-li-portal#open-a-support-request-for-hana-large-instances)
+Aby uzyskać jedno lub oba scenariusze zastosowane do wdrożenia, Otwórz komunikat pomocy technicznej na platformie Azure zgodnie z opisem w artykule [otwieranie żądania obsługi dla dużych wystąpień usługi Hana](./hana-li-portal.md#open-a-support-request-for-hana-large-instances)
 
 Wymagane dane i słowa kluczowe, które są potrzebne do użycia przez firmę Microsoft, aby można było kierować i wykonywać żądanie, wygląda następująco:
 

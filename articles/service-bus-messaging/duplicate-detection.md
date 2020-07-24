@@ -3,11 +3,12 @@ title: Azure Service Bus wykrywania duplikatów komunikatów | Microsoft Docs
 description: W tym artykule wyjaśniono, jak można wykrywać duplikaty w komunikatach Azure Service Bus. Zduplikowany komunikat można zignorować i usunąć.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: c8935fa67dda28bb2fec663c5e714982933f0f22
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dbca1b4b4f894d35835e7d37e0b4e742a2d3b917
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85337908"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083892"
 ---
 # <a name="duplicate-detection"></a>Wykrywanie duplikatów
 
@@ -32,7 +33,7 @@ Wartość *MessageID* może zawsze być identyfikatorem GUID, ale zakotwiczenie 
 
 W portalu funkcja jest włączana podczas tworzenia jednostki przy użyciu pola wyboru **Włącz wykrywanie duplikatów** , która jest domyślnie wyłączona. Ustawienie tworzenia nowych tematów jest równoważne.
 
-![][1]
+![Zrzut ekranu przedstawiający okno dialogowe Tworzenie kolejki z wybraną opcją Włącz wykrywanie duplikatów i pokreśloną na czerwono.][1]
 
 > [!IMPORTANT]
 > Nie można włączyć/wyłączyć wykrywania duplikatów po utworzeniu kolejki. Można to zrobić tylko w momencie tworzenia kolejki. 
@@ -41,7 +42,7 @@ Programowo ustawiasz flagę przy użyciu właściwości [QueueDescription. requi
 
 Wartość domyślna historii czasu wykrywania duplikatów wynosi 30 sekund dla kolejek i tematów z maksymalną wartością siedem dni. To ustawienie można zmienić w oknie właściwości kolejki i tematu w Azure Portal.
 
-![][2]
+![Zrzut ekranu przedstawiający funkcję Service Bus z wyróżnionym ustawieniem właściwości i opcją duplikowanie historii wykrywania zakreśloną na czerwono.][2]
 
 Programowo można skonfigurować rozmiar okna wykrywania duplikatów, podczas którego identyfikatory komunikatów są zachowywane, przy użyciu właściwości [QueueDescription. DuplicateDetectionHistoryTimeWindow](/dotnet/api/microsoft.servicebus.messaging.queuedescription.duplicatedetectionhistorytimewindow#Microsoft_ServiceBus_Messaging_QueueDescription_DuplicateDetectionHistoryTimeWindow) z pełnym interfejsem API .NET Framework. W przypadku interfejsu API Azure Resource Manager wartość jest ustawiana za pomocą właściwości [queueProperties. duplicateDetectionHistoryTimeWindow](/azure/templates/microsoft.servicebus/namespaces/queues#property-values) .
 

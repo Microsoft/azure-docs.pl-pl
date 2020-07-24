@@ -4,12 +4,12 @@ description: Utwórz swoją pierwszą aplikację kontenera systemu Linux w usłu
 ms.topic: conceptual
 ms.date: 1/4/2019
 ms.custom: tracking-python
-ms.openlocfilehash: 783f6a06d57a447998710e2c8ff349b23ef751c5
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 547030b983dd02e7b65d404188dccdcc24d53a22
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86256406"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083841"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-linux"></a>Tworzenie pierwszej aplikacji kontenera usługi Service Fabric w systemie Linux
 > [!div class="op_single_selector"]
@@ -26,6 +26,8 @@ Uruchomienie istniejącej aplikacji w kontenerze systemu Linux w klastrze usług
   * [Service Fabric zestaw SDK i narzędzia](service-fabric-get-started-linux.md).
   * [Docker CE dla systemu Linux](https://docs.docker.com/engine/installation/#prior-releases). 
   * [Interfejs wiersza polecenia usługi Service Fabric](service-fabric-cli.md)
+
+* Klaster systemu Linux z co najmniej trzema węzłami.
 
 * Rejestr w usłudze Azure Container Registry — [utwórz rejestr kontenera](../container-registry/container-registry-get-started-portal.md) w subskrypcji platformy Azure. 
 
@@ -103,7 +105,7 @@ REPOSITORY                    TAG                 IMAGE ID            CREATED   
 helloworldapp                 latest              86838648aab6        2 minutes ago       194 MB
 ```
 
-## <a name="run-the-application-locally"></a>Uruchamianie aplikacji lokalnie
+## <a name="run-the-application-locally"></a>Lokalne uruchamianie aplikacji
 Przed wypchnięciem aplikacji skonteneryzowanej do rejestru kontenerów sprawdź, czy działa ona lokalnie. 
 
 Uruchom aplikację, mapując port komputera 4000 na widoczny port kontenera 80:
@@ -371,7 +373,7 @@ W tym miejscu przedstawiono kompletne manifesty usługi i aplikacji używane w t
 Aby dodać kolejną usługę kontenera do aplikacji utworzonej już przy użyciu narzędzia Yeoman, wykonaj następujące czynności:
 
 1. Zmień katalog na katalog główny istniejącej aplikacji. Na przykład wpisz polecenie `cd ~/YeomanSamples/MyApplication`, jeśli aplikacja `MyApplication` to aplikacja utworzona przez narzędzie Yeoman.
-2. Uruchom polecenie `yo azuresfcontainer:AddService`
+2. Należy uruchomić polecenie `yo azuresfcontainer:AddService`
 
 <a id="manually"></a>
 

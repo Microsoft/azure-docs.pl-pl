@@ -7,11 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/24/2019
 ms.author: cherylmc
-ms.openlocfilehash: 231fbe3a30cc9507ebb9b401bd2fe07a451c59a9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d3ab49d0ad24c2b2c8859408ed103178cede5b8b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84987678"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082107"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-the-portal"></a>Łączenie sieci wirtualnych z różnych modeli wdrażania przy użyciu portalu
 
@@ -33,7 +34,7 @@ Jeśli nie masz jeszcze bramy sieci wirtualnej i nie chcesz jej utworzyć, może
 
 * W tych krokach przyjęto założenie, że oba sieci wirtualnych zostały już utworzone. Jeśli używasz tego artykułu jako ćwiczenia i nie masz usługi sieci wirtualnych, w tych krokach znajdują się linki ułatwiające ich tworzenie.
 * Sprawdź, czy zakresy adresów dla sieci wirtualnych nie nakładają się na siebie ani nie nakładają się na żadne z zakresów dla innych połączeń, z którymi bramy mogą być połączone.
-* Zainstaluj najnowsze polecenia cmdlet programu PowerShell dla programu Menedżer zasobów i zarządzania usługami (klasyczne). W tym artykule używamy obu Azure Portal i programu PowerShell. Program PowerShell jest wymagany do utworzenia połączenia z klasycznej sieci wirtualnej do Menedżer zasobów sieci wirtualnej. Aby uzyskać więcej informacji, zobacz [Instalowanie i konfigurowanie programu Azure PowerShell](/powershell/azure/overview). 
+* Zainstaluj najnowsze polecenia cmdlet programu PowerShell dla programu Menedżer zasobów i zarządzania usługami (klasyczne). W tym artykule używamy obu Azure Portal i programu PowerShell. Program PowerShell jest wymagany do utworzenia połączenia z klasycznej sieci wirtualnej do Menedżer zasobów sieci wirtualnej. Aby uzyskać więcej informacji, zobacz [Instalowanie i konfigurowanie programu Azure PowerShell](/powershell/azure/). 
 
 ### <a name="example-settings"></a><a name="values"></a>Przykładowe ustawienia
 
@@ -77,7 +78,7 @@ W poniższej tabeli przedstawiono przykład definiowania przykładowych sieci wi
 | Virtual Network | Przestrzeń adresowa | Region | Nawiązuje połączenie z lokacją sieci lokalnej |
 |:--- |:--- |:--- |:--- |
 | ClassicVNet |(10.0.0.0/24) |Zachodnie stany USA | RMVNetLocal (192.168.0.0/16) |
-| RMVNet | (192.168.0.0/16) |Wschodnie stany USA |ClassicVNetLocal (10.0.0.0/24) |
+| RMVNet | (192.168.0.0/16) |East US |ClassicVNetLocal (10.0.0.0/24) |
 
 ## <a name="section-1---configure-the-classic-vnet-settings"></a><a name="classicvnet"></a>Sekcja 1 — Konfigurowanie ustawień klasycznej sieci wirtualnej
 
@@ -172,7 +173,7 @@ W tym kroku zostaje utworzona brama dla sieci wirtualnej użytkownika. Tworzenie
 | Virtual Network | Przestrzeń adresowa | Region | Nawiązuje połączenie z lokacją sieci lokalnej |Publiczny adres IP bramy|
 |:--- |:--- |:--- |:--- |:--- |
 | ClassicVNet |(10.0.0.0/24) |Zachodnie stany USA | RMVNetLocal (192.168.0.0/16) |Publiczny adres IP przypisany do bramy ClassicVNet|
-| RMVNet | (192.168.0.0/16) |Wschodnie stany USA |ClassicVNetLocal (10.0.0.0/24) |Publiczny adres IP przypisany do bramy RMVNet.|
+| RMVNet | (192.168.0.0/16) |East US |ClassicVNetLocal (10.0.0.0/24) |Publiczny adres IP przypisany do bramy RMVNet.|
 
 Brama sieci lokalnej określa zakres adresów i publiczny adres IP skojarzony z klasyczną siecią wirtualną i bramą sieci wirtualnej. Jeśli wykonujesz te kroki jako ćwiczenie, zapoznaj się z przykładowymi wartościami.
 

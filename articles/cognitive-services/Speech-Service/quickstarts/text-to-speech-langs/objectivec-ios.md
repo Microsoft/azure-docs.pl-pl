@@ -1,5 +1,5 @@
 ---
-title: 'Szybki Start: wykluczanie mowy, obiektyw-C-Speech Service'
+title: 'Szybki Start: wykluczanie mowy w celu języka C przy użyciu zestawu Speech SDK'
 titleSuffix: Azure Cognitive Services
 description: Dowiedz się, jak przeprowadzić funkcję syntezy mowy w celu języka C w systemie iOS przy użyciu zestawu Speech SDK
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 06/25/2020
 ms.author: yulili
-ms.openlocfilehash: 7a1cc2c45988e0c5a8c757e4d280b48dbbe56daa
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: fa1b62a987cb6c158c8d7f1fceb57bc47e5800eb
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85391387"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87084844"
 ---
 # <a name="quickstart-synthesize-speech-in-objective-c-on-ios-using-the-speech-sdk"></a>Szybki Start: wykluczanie mowy w celu języka C w systemie iOS przy użyciu zestawu Speech SDK
 

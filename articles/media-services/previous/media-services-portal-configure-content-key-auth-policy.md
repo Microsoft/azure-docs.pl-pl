@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 9b81d58bbb79b05ea54af8b3f06f29b4a45a6555
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 2be430fc032acd94f851072f80d14a43638c8863
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86058167"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87084589"
 ---
 # <a name="configure-a-content-key-authorization-policy"></a>Konfigurowanie zasad autoryzacji klucza zawartości
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../../includes/media-services-selector-content-key-auth-policy.md)]
@@ -57,7 +57,7 @@ Ograniczenie Open oznacza, że system dostarcza klucz do każdego, kto wykonuje 
 ### <a name="token-restriction"></a>Ograniczenie tokenu
 Aby wybrać zasady z ograniczeniami, wybierz przycisk **tokenu** .
 
-Do zasad z ograniczeniami tokenu musi towarzyszyć token wystawiony przez usługę tokenu zabezpieczającego (STS). Media Services obsługuje tokeny w formatach prostego tokenu sieci Web ([SWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2)) i tokenu sieci Web JSON (JWT). Aby uzyskać więcej informacji, zobacz [uwierzytelnianie JWT](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/).
+Do zasad z ograniczeniami tokenu musi towarzyszyć token wystawiony przez usługę tokenu zabezpieczającego (STS). Media Services obsługuje tokeny w formatach prostego tokenu sieci Web ([SWT](/previous-versions/azure/azure-services/gg185950(v=azure.100)#BKMK_2)) i tokenu sieci Web JSON (JWT). Aby uzyskać więcej informacji, zobacz [uwierzytelnianie JWT](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/).
 
 Media Services nie zapewnia usługi STS. Możesz utworzyć niestandardową usługę STS, aby wystawiać tokeny. Usługa STS musi być skonfigurowana w taki sposób, aby utworzyć token podpisany przy użyciu określonego klucza i wystawiać oświadczenia określone w konfiguracji ograniczenia tokenu. Jeśli token jest prawidłowy i oświadczenia w tokenie są zgodne z tymi skonfigurowanymi dla klucza zawartości, usługa dostarczania kluczy Media Services Zwraca klucz szyfrowania do klienta.
 
@@ -94,4 +94,3 @@ Można wybrać przycisk **Importuj XML zasad** i podać inny kod XML, który jes
 
 [open_policy]: ./media/media-services-portal-configure-content-key-auth-policy/media-services-protect-content-with-open-restriction.png
 [token_policy]: ./media/media-services-key-authorization-policy/media-services-protect-content-with-token-restriction.png
-

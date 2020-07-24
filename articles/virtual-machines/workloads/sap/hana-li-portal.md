@@ -15,15 +15,15 @@ ms.workload: infrastructure
 ms.date: 07/15/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8512675381f6163e66b6b838e8262dd7d2b12374
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: d81a8b3a1596e8a447f7a2434e52df8c89b416b7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86130886"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87085269"
 ---
 # <a name="azure-hana-large-instances-control-through-azure-portal"></a>Sterowania oprogramowaniem Azure HANA — duże wystąpienia za pośrednictwem witryny Azure Portal
-W tym dokumencie opisano sposób, w jaki są prezentowane [duże wystąpienia usługi Hana](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) w [Azure Portal](https://portal.azure.com) i jakie działania mogą być wykonywane za pomocą Azure Portal z jednostkami dużej liczby wystąpień usługi Hana wdrożonych dla Ciebie. Widoczność dużych wystąpień usługi HANA w Azure Portal jest udostępniana przez dostawcę zasobów platformy Azure dla dużych wystąpień HANA, które są obecnie dostępne w publicznej wersji zapoznawczej
+W tym dokumencie opisano sposób, w jaki są prezentowane [duże wystąpienia usługi Hana](./hana-overview-architecture.md) w [Azure Portal](https://portal.azure.com) i jakie działania mogą być wykonywane za pomocą Azure Portal z jednostkami dużej liczby wystąpień usługi Hana wdrożonych dla Ciebie. Widoczność dużych wystąpień usługi HANA w Azure Portal jest udostępniana przez dostawcę zasobów platformy Azure dla dużych wystąpień HANA, które są obecnie dostępne w publicznej wersji zapoznawczej
 
 ## <a name="register-hana-large-instance-resource-provider"></a>Zarejestruj dostawcę zasobów dużego wystąpienia HANA
 Zwykle Twoja subskrypcja platformy Azure używana na potrzeby wdrożeń dużych wystąpień usługi HANA jest zarejestrowana dla dostawcy zasobów dużej ilości wystąpienia HANA. Jeśli jednak nie widzisz wdrożonych jednostek dużego wystąpienia HANA, należy zarejestrować dostawcę zasobów w ramach subskrypcji platformy Azure. Istnieją dwa sposoby rejestrowania dostawcy zasobów dużej instancji HANA
@@ -35,7 +35,7 @@ Musisz zalogować się do subskrypcji platformy Azure, która jest używana na p
 az provider register --namespace Microsoft.HanaOnAzure
 ```
 
-Aby uzyskać więcej informacji, zobacz artykuł [dostawcy zasobów platformy Azure i typy](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services#azure-cli)
+Aby uzyskać więcej informacji, zobacz artykuł [dostawcy zasobów platformy Azure i typy](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-cli)
 
 
 ### <a name="register-through-azure-portal"></a>Zarejestruj się, Azure Portal
@@ -45,12 +45,12 @@ Można (ponownie) zarejestrować dostawcę zasobów dużego wystąpienia HANA za
 
 Na wyświetlonym zrzucie ekranu dostawca zasobów został już zarejestrowany. Na wypadek, gdyby dostawca zasobów nie został jeszcze zarejestrowany, naciśnij pozycję "Zarejestruj ponownie" lub "Zarejestruj".
 
-Aby uzyskać więcej informacji, zobacz artykuł [dostawcy zasobów platformy Azure i typy](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services#azure-powershell)
+Aby uzyskać więcej informacji, zobacz artykuł [dostawcy zasobów platformy Azure i typy](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-powershell)
 
 
 ## <a name="display-of-hana-large-instance-units-in-the-azure-portal"></a>Wyświetlanie jednostek dużych wystąpień platformy HANA w Azure Portal
 W przypadku przesyłania żądania wdrożenia dużego wystąpienia platformy HANA zostanie wyświetlony monit o określenie subskrypcji platformy Azure, która jest również nawiązywana z dużymi wystąpieniami programu HANA. Zalecane jest używanie tej samej subskrypcji, która jest używana do wdrażania warstwy aplikacji SAP, która działa z jednostkami dużych wystąpień usługi HANA.
-Po wdrożeniu pierwszego wystąpienia usługi HANA zostanie utworzona nowa [Grupa zasobów platformy Azure](https://docs.microsoft.com/azure/azure-resource-manager/manage-resources-portal) w ramach subskrypcji platformy Azure przesłanej w żądaniu wdrożenia dla dużych wystąpień usługi Hana.  Nowa grupa zasobów zawiera listę wszystkich jednostek dużych wystąpień usługi HANA wdrożonych w określonej subskrypcji.
+Po wdrożeniu pierwszego wystąpienia usługi HANA zostanie utworzona nowa [Grupa zasobów platformy Azure](../../../azure-resource-manager/management/manage-resources-portal.md) w ramach subskrypcji platformy Azure przesłanej w żądaniu wdrożenia dla dużych wystąpień usługi Hana.  Nowa grupa zasobów zawiera listę wszystkich jednostek dużych wystąpień usługi HANA wdrożonych w określonej subskrypcji.
 
 Aby znaleźć nową grupę zasobów platformy Azure, należy wyświetlić listę zasobów w ramach subskrypcji, przechodząc do okienka nawigacji po lewej stronie Azure Portal
 
@@ -80,8 +80,8 @@ Po kliknięciu przycisku "Pokaż więcej" na ekranie przeglądu otrzymasz prezen
 
 Oglądając różne pokazane atrybuty, te atrybuty wyglądają nieco inaczej niż atrybuty maszyny wirtualnej platformy Azure. W nagłówku po lewej stronie zostanie wyświetlona Grupa zasobów, region platformy Azure, nazwa subskrypcji i identyfikator, a także niektóre dodane Tagi. Domyślnie jednostki dużego wystąpienia HANA nie mają przypisanego znacznika. Po prawej stronie nagłówka Nazwa jednostki jest wyświetlana jako przypisana, gdy wdrożenie zostało wykonane. Zostanie wyświetlony system operacyjny, a także adres IP. Podobnie jak w przypadku maszyn wirtualnych typ jednostki dużego wystąpienia HANA o liczbie wątków procesora CPU i pamięci jest również pokazywany. Więcej szczegółów na temat różnych jednostek dużych wystąpień platformy HANA przedstawiono tutaj:
 
-- [Dostępne jednostki SKU dla oprogramowania SAP HANA na platformie Azure — duże wystąpienia](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-available-skus)
-- [Architektura magazynu SAP HANA (duże wystąpienia)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-storage-architecture) 
+- [Dostępne jednostki SKU dla oprogramowania SAP HANA na platformie Azure — duże wystąpienia](./hana-available-skus.md)
+- [Architektura magazynu SAP HANA (duże wystąpienia)](./hana-storage-architecture.md) 
 
 Dodatkowe dane w prawej dolnej części to poprawka sygnatury dużego wystąpienia platformy HANA. Możliwe wartości:
 
@@ -89,7 +89,7 @@ Dodatkowe dane w prawej dolnej części to poprawka sygnatury dużego wystąpien
 - Wersja 4
 
 Poprawka 4 to najnowsza architektura wydawana w dużych wystąpieniach platformy HANA z istotnymi ulepszeniami opóźnień sieci między maszynami wirtualnymi Azure i jednostkami dużych wystąpień usługi HANA wdrożonymi w ramach poprawek lub wierszy poprawki 4.
-Inne bardzo ważne informacje znajdują się w prawym dolnym rogu omówienia z nazwą grupy rozmieszczenia usługi Azure zbliżeniowe, która jest tworzona automatycznie dla każdej wdrożonej jednostki w dużej instancji HANA. Ta grupa umieszczania sąsiedztwa musi być przywoływana podczas wdrażania maszyn wirtualnych platformy Azure, które obsługują warstwę aplikacji SAP. Za pomocą [grupy umieszczania usługi Azure zbliżeniowe](https://docs.microsoft.com/azure/virtual-machines/linux/co-location) skojarzonej z jednostką dużego wystąpienia Hana należy upewnić się, że maszyny wirtualne platformy Azure są wdrożone w pobliżu jednostki usługi Hana duże wystąpienie. Sposób, w jaki można używać grup umieszczania zbliżeniowe do lokalizowania warstwy aplikacji SAP w tym samym centrum danych platformy Azure, ponieważ wersja 4 hostowanych jednostek dużego wystąpienia HANA jest opisana w [grupach umieszczania bliskości platformy Azure w celu uzyskania optymalnego opóźnienia sieci przy użyciu aplikacji SAP](sap-proximity-placement-scenarios.md).
+Inne bardzo ważne informacje znajdują się w prawym dolnym rogu omówienia z nazwą grupy rozmieszczenia usługi Azure zbliżeniowe, która jest tworzona automatycznie dla każdej wdrożonej jednostki w dużej instancji HANA. Ta grupa umieszczania sąsiedztwa musi być przywoływana podczas wdrażania maszyn wirtualnych platformy Azure, które obsługują warstwę aplikacji SAP. Za pomocą [grupy umieszczania usługi Azure zbliżeniowe](../../linux/co-location.md) skojarzonej z jednostką dużego wystąpienia Hana należy upewnić się, że maszyny wirtualne platformy Azure są wdrożone w pobliżu jednostki usługi Hana duże wystąpienie. Sposób, w jaki można używać grup umieszczania zbliżeniowe do lokalizowania warstwy aplikacji SAP w tym samym centrum danych platformy Azure, ponieważ wersja 4 hostowanych jednostek dużego wystąpienia HANA jest opisana w [grupach umieszczania bliskości platformy Azure w celu uzyskania optymalnego opóźnienia sieci przy użyciu aplikacji SAP](sap-proximity-placement-scenarios.md).
 
 Dodatkowe pole w prawej kolumnie nagłówka informuje o stanie mocy jednostki dużego wystąpienia HANA.
 
@@ -97,7 +97,7 @@ Dodatkowe pole w prawej kolumnie nagłówka informuje o stanie mocy jednostki du
 > Stan zasilania opisuje, czy jednostka sprzętowa jest włączona, czy wyłączona. Nie zawiera on informacji o tym, że system operacyjny jest uruchomiony. Po ponownym uruchomieniu jednostki dużego wystąpienia platformy HANA wystąpi niewielki czas, w którym stan jednostki zostanie zmieniony **, aby rozpocząć** pracę w stanie **uruchomienia**. Stan **rozpoczęty** oznacza, że system operacyjny jest uruchamiany lub że system operacyjny został całkowicie uruchomiony. W związku z tym po ponownym uruchomieniu jednostki nie można spodziewać się natychmiastowego zalogowania się do jednostki, gdy stan zostanie **uruchomiony**.
 > 
 
-W przypadku naciśnięcia przycisku "Zobacz więcej" są wyświetlane dodatkowe informacje. W ramach jednej z dodatkowych informacji jest wyświetlana poprawka sygnatury dużego wystąpienia HANA, a jednostka została wdrożona w. Zapoznaj się z artykułem [co to jest SAP HANA na platformie Azure (duże wystąpienia)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) , aby poznać różne wersje sygnatur dużych wystąpień usługi Hana
+W przypadku naciśnięcia przycisku "Zobacz więcej" są wyświetlane dodatkowe informacje. W ramach jednej z dodatkowych informacji jest wyświetlana poprawka sygnatury dużego wystąpienia HANA, a jednostka została wdrożona w. Zapoznaj się z artykułem [co to jest SAP HANA na platformie Azure (duże wystąpienia)](./hana-overview-architecture.md) , aby poznać różne wersje sygnatur dużych wystąpień usługi Hana
 
 ## <a name="check-activities-of-a-single-hana-large-instance-unit"></a>Sprawdź działania pojedynczej jednostki dużego wystąpienia HANA 
 Poza zadaniem omówienia jednostek dużego wystąpienia HANA można sprawdzić działania określonej jednostki. Dziennik aktywności może wyglądać następująco:
@@ -109,7 +109,7 @@ Jednym z głównych działań zarejestrowanych jest ponowne uruchomienie jednost
 Inne działanie, które jest rejestrowane, to zmiany w jednostce w metadanych platformy Azure. Oprócz zainicjowanego ponownego uruchomienia można zobaczyć działanie **HANAInstances zapisu**. Ten typ działania nie wprowadza żadnych zmian w jednostce dużej instancji HANA, ale dokumentuje zmiany metadanych jednostki na platformie Azure. W wymienionym przypadku dodaliśmy i usunięto tag (zobacz następną sekcję).
 
 ## <a name="add-and-delete-an-azure-tag-to-a-hana-large-instance-unit"></a>Dodawanie i usuwanie znacznika platformy Azure do jednostki dużego wystąpienia HANA
-Kolejną możliwością jest dodanie [znacznika](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) do jednostki dużego wystąpienia Hana. Sposób przypisywania tagów nie różni się od przypisywania tagów do maszyn wirtualnych. Podobnie jak w przypadku maszyn wirtualnych, Tagi istnieją w metadanych platformy Azure, a w przypadku dużych wystąpień HANA mają takie same ograniczenia jak Tagi maszyn wirtualnych.
+Kolejną możliwością jest dodanie [znacznika](../../../azure-resource-manager/management/tag-resources.md) do jednostki dużego wystąpienia Hana. Sposób przypisywania tagów nie różni się od przypisywania tagów do maszyn wirtualnych. Podobnie jak w przypadku maszyn wirtualnych, Tagi istnieją w metadanych platformy Azure, a w przypadku dużych wystąpień HANA mają takie same ograniczenia jak Tagi maszyn wirtualnych.
 
 Usuwanie tagów działa tak samo jak w przypadku maszyn wirtualnych. Obie działania, zastosowanie i usunięcie znacznika zostaną wyświetlone w dzienniku aktywności określonej jednostki dużego wystąpienia HANA.
 
@@ -119,7 +119,7 @@ Sekcja **Właściwości** zawiera ważne informacje, które można uzyskać, gdy
 
 ![Górna część właściwości elementu HLI w Azure Portal](./media/hana-li-portal/portal-properties-top.png)
 
-Pierwsze kilka elementów danych zostało już wykorzystanych na ekranie przeglądu. Jednak ważną częścią danych jest Identyfikator obwodu ExpressRoute, który uzyskano jako pierwsze wdrożone jednostki. W niektórych przypadkach pomocy technicznej może zostać wyświetlony monit o podanie tych danych. W dolnej części zrzutu ekranu jest wyświetlany ważny wpis danych. Wyświetlane dane to adres IP nagłówka magazynu NFS, który izoluje magazyn do **dzierżawy** w stosie dużych wystąpień platformy Hana. Ten adres IP jest również wymagany podczas edytowania [pliku konfiguracji kopii zapasowych migawek magazynu](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-backup-restore#set-up-storage-snapshots). 
+Pierwsze kilka elementów danych zostało już wykorzystanych na ekranie przeglądu. Jednak ważną częścią danych jest Identyfikator obwodu ExpressRoute, który uzyskano jako pierwsze wdrożone jednostki. W niektórych przypadkach pomocy technicznej może zostać wyświetlony monit o podanie tych danych. W dolnej części zrzutu ekranu jest wyświetlany ważny wpis danych. Wyświetlane dane to adres IP nagłówka magazynu NFS, który izoluje magazyn do **dzierżawy** w stosie dużych wystąpień platformy Hana. Ten adres IP jest również wymagany podczas edytowania [pliku konfiguracji kopii zapasowych migawek magazynu](./hana-backup-restore.md#set-up-storage-snapshots). 
 
 Przewinięcie w dół w okienku właściwości umożliwia uzyskanie dodatkowych danych, takich jak unikatowy identyfikator zasobu dla jednostki dużego wystąpienia usługi HANA, lub identyfikatora subskrypcji, który został przypisany do wdrożenia.
 
@@ -159,6 +159,5 @@ Po udzieleniu odpowiedzi na pytania i dostarczeniu dodatkowych szczegółów mo�
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Jak monitorować SAP HANA (duże wystąpienia) na platformie Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/troubleshooting-monitoring)
-- [Monitorowanie i rozwiązywanie problemów ze strony oprogramowania HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-monitor-troubleshoot)
-
+- [Jak monitorować SAP HANA (duże wystąpienia) na platformie Azure](./troubleshooting-monitoring.md)
+- [Monitorowanie i rozwiązywanie problemów ze strony oprogramowania HANA](./hana-monitor-troubleshoot.md)

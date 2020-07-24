@@ -5,14 +5,14 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 06/17/2020
+ms.date: 07/22/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 61d9712026daab63a002793adf2e17b9db943f94
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1640395b3a73116c27894a2b3f2b95b8bd5bb2eb
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84976901"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87084164"
 ---
 # <a name="supported-postgresql-major-versions"></a>Obsługiwane wersje główne PostgreSQL
 Firma Microsoft dąży do obsługi wersji n-2 aparatu PostgreSQL w Azure Database for PostgreSQL-pojedynczym serwerze. Wersje byłyby w bieżącej wersji głównej na platformie Azure (n) i dwóch wcześniejszych wersjach głównych (-2).
@@ -34,7 +34,9 @@ Bieżąca wersja pomocnicza to 9.5.20. Zapoznaj się z [dokumentacją PostgreSQL
 ## <a name="managing-upgrades"></a>Zarządzanie uaktualnieniami
 Projekt PostgreSQL regularnie wydaje drobne wersje, aby naprawić zgłoszone błędy. Azure Database for PostgreSQL automatycznie poprawek serwerów z drobnymi wersjami podczas comiesięcznych wdrożeń usługi. 
 
-Automatyczne uaktualnianie wersji głównej nie jest obsługiwane. Na przykład nie jest możliwe automatyczne uaktualnienie bazy danych PostgreSQL 9.5 do wersji 9.6. Aby przeprowadzić uaktualnienie do następnej wersji głównej, wykonaj [zrzut bazy danych i przywróć go](./howto-migrate-using-dump-and-restore.md) na serwer, który został utworzony przy użyciu nowej wersji aparatu.
+Automatyczne uaktualnienia w miejscu dla wersji głównych nie są obsługiwane. Aby uaktualnić do następnej wersji głównej, możesz 
+   * Używanie [pg_dump i pg_restore](./howto-migrate-using-dump-and-restore.md) do przenoszenia bazy danych na serwer utworzony przy użyciu nowej wersji aparatu
+   * Alternatywnie można przeprowadzić uaktualnienie z PostgreSQL 10 do 11 przy użyciu [usługi Azure Database Migration Service](..\dms\tutorial-azure-postgresql-to-azure-postgresql-online-portal.md)
 
 ### <a name="version-syntax"></a>Składnia wersji
 Przed PostgreSQL w wersji 10 [zasady dotyczące wersji PostgreSQL](https://www.postgresql.org/support/versioning/) uznawane za uaktualnienie _wersji głównej_ o zwiększenie liczby pierwszej _lub_ drugiej. Na przykład 9,5 do 9,6 zostało uznane za uaktualnienie wersji _głównej_ . Począwszy od wersji 10, tylko zmiana pierwszego numeru jest uznawana za uaktualnienie wersji głównej. Na przykład 10,0 do 10,1 jest _dodatkowym_ uaktualnieniem wersji. Wersja 10 do 11 to uaktualnienie wersji _głównej_ .

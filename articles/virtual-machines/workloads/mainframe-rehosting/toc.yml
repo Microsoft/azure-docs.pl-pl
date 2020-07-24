@@ -2,7 +2,7 @@
   items:
     - name: Omówienie
       items:
-        - name: Rozpoczęcie pracy
+        - name: Wprowadzenie
           href: overview.md
         - name: Obciążenia
           href: partner-workloads.md
@@ -39,9 +39,9 @@
         - name: Konfigurowanie produktu ADCD w środowisku zD&T
           href: ibm/demo.md
         - name: IBM DB2 pureScale
-          href: /azure/virtual-machines/linux/ibm-db2-purescale-azure?toc=/azure/virtual-machines/workloads/mainframe-rehosting/toc.json
+          href: ../../linux/ibm-db2-purescale-azure.md?toc=/azure/virtual-machines/workloads/mainframe-rehosting/toc.json
         - name: Wdrażanie środowiska IBM DB2 pureScale
-          href: /azure/virtual-machines/linux/deploy-ibm-db2-purescale-azure?toc=/azure/virtual-machines/workloads/mainframe-rehosting/toc.json
+          href: ../../linux/deploy-ibm-db2-purescale-azure.md?toc=/azure/virtual-machines/workloads/mainframe-rehosting/toc.json
     - name: Zasoby
       items:
         - name: Oficjalne dokumenty
