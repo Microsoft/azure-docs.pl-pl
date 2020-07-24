@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 04/27/2020
 ms.author: cshoe
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: aa4087f3eafcd217eedc707697d093155b13b9e6
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: a7cdeb7bfde7396026b782382b34228c309b37d7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83116398"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088148"
 ---
 # <a name="create-a-function-that-integrates-with-azure-logic-apps"></a>Tworzenie funkcji integrującej się z usługą Azure Logic Apps
 
@@ -38,7 +38,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 + Konto usługi [Outlook.com](https://outlook.com/) (do wysyłania powiadomień).
 
 > [!NOTE]
-> Jeśli chcesz korzystać z łącznika usługi Gmail, tylko konta firmowe z zestawu G-Suite mogą używać tego łącznika bez ograniczeń w usłudze Logic Apps. Jeśli masz konto użytkownika usługi Gmail, możesz użyć łącznika usługi Gmail z tylko określonymi aplikacjami i usługami zatwierdzonymi przez firmę Google. Możesz też [utworzyć aplikację kliencką Google, która będzie używana do uwierzytelniania w łączniku usługi Gmail](https://docs.microsoft.com/connectors/gmail/#authentication-and-bring-your-own-application). Aby uzyskać więcej informacji, zobacz [zabezpieczenia danych i zasady ochrony prywatności dla łączników Google w Azure Logic Apps](../connectors/connectors-google-data-security-privacy-policy.md).
+> Jeśli chcesz korzystać z łącznika usługi Gmail, tylko konta firmowe z zestawu G-Suite mogą używać tego łącznika bez ograniczeń w usłudze Logic Apps. Jeśli masz konto użytkownika usługi Gmail, możesz użyć łącznika usługi Gmail z tylko określonymi aplikacjami i usługami zatwierdzonymi przez firmę Google. Możesz też [utworzyć aplikację kliencką Google, która będzie używana do uwierzytelniania w łączniku usługi Gmail](/connectors/gmail/#authentication-and-bring-your-own-application). Aby uzyskać więcej informacji, zobacz [zabezpieczenia danych i zasady ochrony prywatności dla łączników Google w Azure Logic Apps](../connectors/connectors-google-data-security-privacy-policy.md).
 
 + Do wykonania czynności przedstawionych w tym artykule są wymagane zasoby utworzone w temacie [Tworzenie pierwszej funkcji w witrynie Azure Portal](functions-create-first-azure-function.md).
 Jeśli jeszcze tego nie zrobiono, wykonaj teraz te kroki, aby utworzyć aplikację funkcji.
@@ -146,7 +146,7 @@ Została utworzona funkcja kategoryzująca wyniki tonacji. Następnie należy ut
     | ----------------- | ------------ | ------------- |
     | **Nazwa** | TweetSentiment | Wybierz odpowiednią nazwę dla aplikacji. |
     | **Grupa zasobów** | myResourceGroup | Wybierz tę samą istniejącą grupę zasobów co wcześniej. |
-    | **Lokalizacja** | Wschodnie stany USA | Wybierz bliską lokalizację. |    
+    | **Lokalizacja** | East US | Wybierz bliską lokalizację. |    
 
 4. Po wprowadzeniu odpowiednich wartości ustawień kliknij pozycję **Utwórz** w celu utworzenia aplikacji logiki. 
 
@@ -169,7 +169,7 @@ Najpierw utwórz połączenie z kontem w usłudze Twitter. Aplikacja logiki sond
     | Ustawienie      |  Sugerowana wartość   | Opis                                        |
     | ----------------- | ------------ | ------------- |
     | **Wyszukiwany tekst** | #Azure | Użyj hasztagu dostatecznie popularnego, aby wygenerować nowe tweety w wybranym interwale. Jeśli używasz warstwy bezpłatnej, a hasztag jest zbyt popularny, możesz szybko zużyć przydział transakcji w interfejsie API usług Cognitive Services. |
-    | **Dat** | 15 | Czas między żądaniami usługi Twitter w jednostkach częstotliwości. |
+    | **Interwał** | 15 | Czas między żądaniami usługi Twitter w jednostkach częstotliwości. |
     | **Częstotliwość** | Minuta | Jednostka częstotliwości używana do sondowania usługi Twitter.  |
 
 3.  Kliknij przycisk **Zapisz** w celu połączenia się z kontem usługi Twitter. 
@@ -240,10 +240,10 @@ Ostatnia część przepływu pracy polega na wyzwoleniu wiadomości e-mail, gdy 
 | Ustawienie      |  Sugerowana wartość   | Opis  |
 | ----------------- | ------------ | ------------- |
 | **Do** | Wpisz adres e-mail | Adres e-mail, na który będą wysyłane powiadomienia. |
-| **Temat** | Wykryto negatywną tonację tweetów  | Wiersz tematu powiadomienia w wiadomości e-mail.  |
+| **Podmiot** | Wykryto negatywną tonację tweetów  | Wiersz tematu powiadomienia w wiadomości e-mail.  |
 | **Treść** | Tekst tweetu, lokalizacja | Kliknij parametry **Tekst tweetu** i **Lokalizacja**. |
 
-1. Kliknij przycisk **Zapisz**.
+1. Kliknij pozycję **Zapisz**.
 
 Przepływ pracy jest gotowy, można więc włączyć aplikację logiki i przyjrzeć się funkcji w działaniu.
 
@@ -304,4 +304,3 @@ Przejdź do następnego samouczka, aby dowiedzieć się, jak utworzyć dla funkc
 > [Tworzenie bezserwerowego interfejsu API za pomocą usługi Azure Functions](functions-create-serverless-api.md)
 
 Aby dowiedzieć się więcej na temat usługi Logic Apps, zobacz [Azure Logic Apps](../logic-apps/logic-apps-overview.md).
-

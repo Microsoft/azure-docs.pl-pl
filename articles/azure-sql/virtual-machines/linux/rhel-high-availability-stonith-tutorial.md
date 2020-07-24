@@ -8,12 +8,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: jroth
 ms.date: 06/25/2020
-ms.openlocfilehash: cd4128328ac0c3e9f03ecc80abb6e7b17537b2ee
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.openlocfilehash: af1df529ae0f6bb03a8d3f36e51619f273780dfe
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85483061"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086799"
 ---
 # <a name="tutorial-configure-availability-groups-for-sql-server-on-rhel-virtual-machines-in-azure"></a>Samouczek: Konfigurowanie grup dostępności dla SQL Server na maszynach wirtualnych RHEL na platformie Azure 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -497,7 +497,7 @@ Description : The fence-agents-azure-arm package contains a fence agent for Azur
  
 ### <a name="create-a-custom-role-for-the-fence-agent"></a>Utwórz rolę niestandardową dla agenta ogranicznika
 
-Postępuj zgodnie z samouczkiem, aby [utworzyć rolę niestandardową dla zasobów platformy Azure przy użyciu interfejsu wiersza polecenia Azure](../../../role-based-access-control/tutorial-custom-role-cli.md#create-a-custom-role).
+Postępuj zgodnie z samouczkiem, aby [utworzyć rolę niestandardową Azure przy użyciu interfejsu wiersza polecenia platformy Azure](../../../role-based-access-control/tutorial-custom-role-cli.md#create-a-custom-role).
 
 Plik JSON powinien wyglądać podobnie do poniższego:
 
@@ -571,7 +571,7 @@ Przypisz rolę niestandardową `Linux Fence Agent Role-<username>` utworzoną w 
 5. Kliknij pozycję **Dodaj przypisanie roli**
 6. Wybierz rolę `Linux Fence Agent Role-<username>` z listy **ról**
 7. Z listy **Wybierz** wprowadź nazwę utworzonej aplikacji,`<resourceGroupName>-app`
-8. Kliknij przycisk **Zapisz**
+8. Kliknij pozycję **Zapisz**
 9. Powtórz powyższe kroki dla węzła wszystkie klastry.
 
 ### <a name="create-the-stonith-devices"></a>Tworzenie urządzeń STONITH
@@ -951,17 +951,17 @@ Jeśli `synchronization_state_desc` listy są synchronizowane z `db1` , oznacza 
 
 1. Użyj jednego z następujących poleceń w oparciu o środowisko wybrane wcześniej, aby utworzyć zasób `ag_cluster` w grupie dostępności `ag1` .
 
-      **RHEL 7** 
+    **RHEL 7**
   
-        ```bash
-        sudo pcs resource create ag_cluster ocf:mssql:ag ag_name=ag1 meta failure-timeout=30s master notify=true
-        ```
+    ```bash
+    sudo pcs resource create ag_cluster ocf:mssql:ag ag_name=ag1 meta failure-timeout=30s master notify=true
+    ```
 
-      **RHEL 8** 
+    **RHEL 8**
   
-        ```bash
-        sudo pcs resource create ag_cluster ocf:mssql:ag ag_name=ag1 meta failure-timeout=30s promotable notify=true
-        ```
+    ```bash
+    sudo pcs resource create ag_cluster ocf:mssql:ag ag_name=ag1 meta failure-timeout=30s promotable notify=true
+    ```
 
 2. Sprawdź zasób i upewnij się, że są w trybie online przed kontynuowaniem pracy przy użyciu następującego polecenia:
 
@@ -1203,7 +1203,7 @@ sudo pcs stonith fence <VM3> --debug
 > [!NOTE]
 > Domyślnie akcja ogrodzenia powoduje, że węzeł jest wyłączony, a następnie włączony. Jeśli chcesz tylko przełączyć węzeł do trybu offline, użyj opcji `--off` w poleceniu.
 
-Należy uzyskać następujące dane wyjściowe:
+Powinny zostać wyświetlone następujące dane wyjściowe:
 
 ```output
 [<username>@<VM1> ~]$ sudo pcs stonith fence <VM3> --debug

@@ -9,14 +9,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/10/2020
+ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 2ac8baf0e2aa9555efb6d6b4f39787d9a7bf9508
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: b7164aa71495100d7be4f1c0f6ef6de90644831b
+ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86499906"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87115979"
 ---
 # <a name="tutorial-register-a-web-application-in-azure-active-directory-b2c"></a>Samouczek: rejestrowanie aplikacji sieci Web w Azure Active Directory B2C
 

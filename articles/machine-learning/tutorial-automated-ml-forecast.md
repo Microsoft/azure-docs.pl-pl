@@ -9,18 +9,21 @@ ms.topic: tutorial
 ms.author: sacartac
 ms.reviewer: nibaccam
 author: cartacioS
-ms.date: 06/04/2020
-ms.openlocfilehash: 3786b7a2b8b8fc40b1cf393aa452c15d72c5b963
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.date: 07/10/2020
+ms.openlocfilehash: a244372168cb34f190bd584634bf108f2b5215a5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84433703"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092296"
 ---
 # <a name="tutorial-forecast-demand-with-automated-machine-learning"></a>Samouczek: prognozowanie popytu przy użyciu automatycznej uczenia maszynowego
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
 W tym samouczku użyjesz zautomatyzowanej uczenia maszynowego lub zautomatyzowanej produkcji w Azure Machine Learning Studio, aby utworzyć model prognozowania szeregów czasowych, aby przewidzieć zapotrzebowanie na wypożyczenie dla usługi udostępniania roweru.
+
+>[!IMPORTANT]
+> Automatyczne środowisko pracy w usłudze Azure Machine Learning Studio jest w wersji zapoznawczej. Niektóre funkcje mogą nie być obsługiwane lub mieć ograniczone możliwości.
 
 Aby zapoznać się z przykładem modelu klasyfikacji, zobacz [Samouczek: Tworzenie modelu klasyfikacji ze zautomatyzowaną ml w Azure Machine Learning](tutorial-first-experiment-automated-ml.md).
 
@@ -37,11 +40,11 @@ W tym samouczku dowiesz się, jak wykonywać następujące zadania:
 
 * Obszar roboczy Azure Machine Learning Enterprise Edition. Jeśli nie masz obszaru roboczego, [Utwórz obszar roboczy Enterprise Edition](how-to-manage-workspace.md). 
     * Automatyczne Uczenie maszynowe w programie Azure Machine Learning Studio jest dostępne tylko dla obszarów roboczych wersji Enterprise Edition. 
-* Pobieranie pliku danych [Bike-No. csv](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-bike-share/bike-no.csv)
+* Pobierz plik danych [bike-no.csv](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-bike-share/bike-no.csv)
 
 ## <a name="get-started-in-azure-machine-learning-studio"></a>Wprowadzenie do programu Azure Machine Learning Studio
 
-Na potrzeby tego samouczka utworzysz zautomatyzowany przebieg eksperymentu ML w Azure Machine Learning Studio, skonsolidowany interfejs, który obejmuje narzędzia uczenia maszynowego do wykonywania scenariuszy analizy danych dla lekarzy danych o wszystkich poziomach umiejętności. Program Studio nie jest obsługiwany w przeglądarkach programu Internet Explorer.
+Na potrzeby tego samouczka utworzysz zautomatyzowany przebieg eksperymentu ML w Azure Machine Learning Studio, skonsolidowany interfejs sieci Web, który obejmuje narzędzia uczenia maszynowego do wykonywania scenariuszy analizy danych dla lekarzy danych o wszystkich poziomach umiejętności. Program Studio nie jest obsługiwany w przeglądarkach programu Internet Explorer.
 
 1. Zaloguj się do [Azure Machine Learning Studio](https://ml.azure.com).
 
@@ -67,9 +70,9 @@ Przed skonfigurowaniem eksperymentu Przekaż plik danych do obszaru roboczego w 
 
     1. Wybierz pozycję **Przeglądaj**. 
     
-    1. Wybierz plik **Bike-No. csv** na komputerze lokalnym. Jest to plik pobrany jako [warunek wstępny](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-bike-share/bike-no.csv).
+    1. Wybierz plik **bike-no.csv** na komputerze lokalnym. Jest to plik pobrany jako [warunek wstępny](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-bike-share/bike-no.csv).
 
-    1. Wybierz pozycję **dalej**
+    1. Wybierz pozycję **Dalej**
 
        Po zakończeniu przekazywania ustawienia i formularz podglądu są wstępnie wypełniane na podstawie typu pliku. 
        
@@ -89,7 +92,7 @@ Przed skonfigurowaniem eksperymentu Przekaż plik danych do obszaru roboczego w 
 
         1. Również dla tego przykładu pozostaw wartości domyślne **Właściwości** i **typu**. 
         
-        1. Wybierz opcję **Dalej**.
+        1. Wybierz przycisk **Dalej**.
 
     1. Na formularzu **Potwierdź szczegóły** Sprawdź, czy informacje są zgodne z informacjami o tym, co zostało wcześniej wypełnione w **podstawowych informacjach** i ustawieniach oraz w formularzach **wersji zapoznawczej** .
 
@@ -113,8 +116,11 @@ Po załadowaniu i skonfigurowaniu danych skonfiguruj zdalny cel obliczeń i wybi
         Pole | Opis | Wartość dla samouczka
         ----|---|---
         Nazwa obliczeniowa |Unikatowa nazwa identyfikująca kontekst obliczeniowy.|rower — obliczenia
+        &nbsp;Typ maszyny &nbsp; wirtualnej|Wybierz typ maszyny wirtualnej dla obliczenia.|Procesor CPU (centralna jednostka przetwarzania)
         &nbsp;Rozmiar maszyny &nbsp; wirtualnej| Wybierz rozmiar maszyny wirtualnej dla obliczenia.|Standard_DS12_V2
-        Minimalna/Maksymalna liczba węzłów (w ustawieniach zaawansowanych)| Aby profilować dane, musisz określić co najmniej jeden węzeł.|Minimalna liczba węzłów: 1<br>Maksymalna liczba węzłów: 6
+        Minimalna/Maksymalna liczba węzłów| Aby profilować dane, musisz określić co najmniej jeden węzeł.|Minimalna liczba węzłów: 1<br>Maksymalna liczba węzłów: 6
+        Czas bezczynności przed scaleniem w dół | Czas bezczynności przed automatycznym skalowaniem klastra do minimalnej liczby węzłów.|120 (wartość domyślna)
+        Ustawienia zaawansowane | Ustawienia umożliwiające skonfigurowanie i autoryzację sieci wirtualnej na potrzeby eksperymentu.| Brak
   
         1. Wybierz pozycję **Utwórz** , aby uzyskać obiekt docelowy obliczeń. 
 
@@ -122,7 +128,7 @@ Po załadowaniu i skonfigurowaniu danych skonfiguruj zdalny cel obliczeń i wybi
 
         1. Po utworzeniu wybierz nowe miejsce docelowe obliczeń z listy rozwijanej.
 
-    1. Wybierz opcję **Dalej**.
+    1. Wybierz przycisk **Dalej**.
 
 ## <a name="select-forecast-settings"></a>Wybierz ustawienia prognozy
 
@@ -130,23 +136,23 @@ Ukończ instalację eksperymentu dotyczącego zautomatyzowanej sieci ML, określ
 
 1. W formularzu **Typ zadania i ustawienia** wybierz opcję **prognozowanie szeregów czasowych** jako typ zadania Uczenie maszynowe.
 
-1. Wybierz **datę** jako **kolumnę czasową** i pozostaw puste **kolumny Grupuj według** . 
+1. Wybierz **datę** jako **kolumnę czasu** i pozostaw puste **identyfikatory szeregów czasowych** . 
 
-    1. Wybierz pozycję **Wyświetl dodatkowe ustawienia konfiguracji** i wypełnij pola w następujący sposób. Te ustawienia służą do lepszego kontrolowania zadania szkoleniowego i określania ustawień prognozy. W przeciwnym razie wartości domyślne są stosowane na podstawie wyboru eksperymentu i danych.
+1. **Horyzont prognoz** to długość czasu w przyszłości, który ma być przewidywany.  W polu Usuń zaznaczenie opcji Autowykrywanie i typ 14. 
 
-  
-        Dodatkowe &nbsp; konfiguracje|Opis|Wartość &nbsp; dla &nbsp; samouczka
-        ------|---------|---
-        Metryka podstawowa| Metryka oceny, według której będzie mierzony algorytm uczenia maszynowego.|Znormalizowany błąd średniego poziomu głównego
-        Automatyczne cechowania| Włącza przetwarzanie wstępne. Obejmuje to automatyczne czyszczenie danych, przygotowanie i transformację do generowania funkcji syntetycznych.| Włącz
-        Wyjaśnij najlepszy model (wersja zapoznawcza)| Automatycznie pokazuje wyjaśnienie najlepszego modelu utworzonego za pomocą zautomatyzowanej ML.| Włącz
-        Zablokowane algorytmy | Algorytmy, które mają zostać wykluczone z zadania szkoleniowego| Skrajnie losowe drzewa
-        Dodatkowe ustawienia prognozowania| Te ustawienia pomagają poprawić dokładność modelu <br><br> _**Przewidywany horyzont**_ czasowy: długość czasu na przyszłość, którą chcesz przewidzieć <br> _**Spowolnienia celu prognozy:**_ jak daleko z powrotem chcesz skonstruować spowolnienia zmiennej docelowej <br> _**Docelowe okno kroczące**_: Określa rozmiar okna stopniowego, nad którym będą generowane funkcje, takie jak *Maksymalna, minimalna* i *sum*. |Horyzont prognoz: 14 <br> &nbsp;Spowolnienia docelowy prognozy &nbsp; : brak <br> &nbsp;Rozmiar stopniowego &nbsp; okna docelowego &nbsp; : brak
-        Kryterium zakończenia| Jeśli kryteria są spełnione, zadanie szkolenia zostanie zatrzymane. |&nbsp;Czas zadania szkoleniowego &nbsp; (godziny): 3 <br> &nbsp;Próg wyniku metryki &nbsp; : brak
-        Walidacja | Wybierz typ i liczbę testów.|Typ walidacji:<br>&nbsp;k — złożenie &nbsp; krzyżowego sprawdzania poprawności <br> <br> Liczba walidacji: 5
-        Współbieżność| Maksymalna liczba wykonanych równoległych iteracji na iterację| Maksymalna liczba &nbsp; współbieżnych &nbsp; iteracji: 6
-        
-        Wybierz pozycję **Zapisz**.
+1. Wybierz pozycję **Wyświetl dodatkowe ustawienia konfiguracji** i wypełnij pola w następujący sposób. Te ustawienia służą do lepszego kontrolowania zadania szkoleniowego i określania ustawień prognozy. W przeciwnym razie wartości domyślne są stosowane na podstawie wyboru eksperymentu i danych.
+
+    Dodatkowe &nbsp; konfiguracje|Opis|Wartość &nbsp; dla &nbsp; samouczka
+    ------|---------|---
+    Metryka podstawowa| Metryka oceny, według której będzie mierzony algorytm uczenia maszynowego.|Znormalizowany błąd średniego poziomu głównego
+    Wyjaśnij najlepszy model| Automatycznie pokazuje wyjaśnienie najlepszego modelu utworzonego za pomocą zautomatyzowanej ML.| Włącz
+    Zablokowane algorytmy | Algorytmy, które mają zostać wykluczone z zadania szkoleniowego| Skrajnie losowe drzewa
+    Dodatkowe ustawienia prognozowania| Te ustawienia pomagają poprawić dokładność modelu <br><br> _**Spowolnienia celu prognozy:**_ jak daleko z powrotem chcesz skonstruować spowolnienia zmiennej docelowej <br> _**Docelowe okno kroczące**_: Określa rozmiar okna stopniowego, nad którym będą generowane funkcje, takie jak *Maksymalna, minimalna* i *sum*. | <br><br>&nbsp;Spowolnienia docelowy prognozy &nbsp; : brak <br> &nbsp;Rozmiar stopniowego &nbsp; okna docelowego &nbsp; : brak
+    Kryterium zakończenia| Jeśli kryteria są spełnione, zadanie szkolenia zostanie zatrzymane. |&nbsp;Czas zadania szkoleniowego &nbsp; (godziny): 3 <br> &nbsp;Próg wyniku metryki &nbsp; : brak
+    Walidacja | Wybierz typ i liczbę testów.|Typ walidacji:<br>&nbsp;k — złożenie &nbsp; krzyżowego sprawdzania poprawności <br> <br> Liczba walidacji: 5
+    Współbieżność| Maksymalna liczba wykonanych równoległych iteracji na iterację| Maksymalna liczba &nbsp; współbieżnych &nbsp; iteracji: 6
+    
+    Wybierz pozycję **Zapisz**.
 
 ## <a name="run-experiment"></a>Uruchom eksperyment
 
@@ -163,7 +169,7 @@ Przejdź do karty **modele** , aby zobaczyć przetestowane algorytmy (modele). D
 
 Podczas oczekiwania na zakończenie wszystkich modeli eksperymentów wybierz **nazwę algorytmu** kompletnego modelu, aby poznać jego szczegóły wydajności. 
 
-Poniższy przykład przechodzi przez **Szczegóły modelu** i karty **wizualizacje** , aby wyświetlić właściwości wybranego modelu, metryki i wykresy wydajności. 
+Poniższy przykład przechodzi przez karty **szczegóły** i **metryki** , aby wyświetlić właściwości wybranego modelu, metryki i wykresy wydajności. 
 
 ![Szczegóły uruchamiania](./media/tutorial-automated-ml-forecast/explore-models-ui.gif)
 
@@ -173,11 +179,15 @@ Automatyczne Uczenie maszynowe w programie Azure Machine Learning Studio umożli
 
 W przypadku tego eksperymentu wdrożenie do usługi sieci Web oznacza, że firma z udziałem roweru ma teraz iteracyjne i skalowalne rozwiązanie sieci Web do prognozowania popytu na dzierżawę. 
 
-Po zakończeniu przebiegu Wróć do strony **szczegóły uruchamiania** i wybierz kartę **modele** .
+Po zakończeniu przebiegu Wróć do strony nadrzędnej uruchamiania, wybierając pozycję **Uruchom 1** w górnej części ekranu.
 
-W tym kontekście eksperymentu **StackEnsemble** jest uznawany za najlepszy model, w oparciu o **znormalizowaną średnią metrykę błędu kwadratowego** .  Wdrażamy ten model, ale zaleca się wdrożenie trwa około 20 minut. Proces wdrażania obejmuje kilka czynności, takich jak rejestrowanie modelu, Generowanie zasobów i konfigurowanie ich dla usługi sieci Web.
+W sekcji **najlepsze podsumowanie modelu** **StackEnsemble** jest uznawany za najlepszy model w kontekście tego eksperymentu, w oparciu o **znormalizowaną, średnią wartość metryki błędu kwadratowego** .  
 
-1. Wybierz przycisk **Wdróż najlepszy model** w lewym dolnym rogu.
+Wdrażamy ten model, ale zaleca się wdrożenie trwa około 20 minut. Proces wdrażania obejmuje kilka czynności, takich jak rejestrowanie modelu, Generowanie zasobów i konfigurowanie ich dla usługi sieci Web.
+
+1. Wybierz pozycję **StackEnsemble** , aby otworzyć stronę specyficzną dla modelu.
+
+1. Wybierz przycisk **Wdróż** znajdujący się w lewym górnym rogu ekranu.
 
 1. Wypełnij okienko **Wdróż model** w następujący sposób:
 
@@ -193,14 +203,13 @@ W tym kontekście eksperymentu **StackEnsemble** jest uznawany za najlepszy mode
 
 1. Wybierz pozycję **Wdróż**.  
 
-    W górnej części ekranu **uruchamiania** zostanie wyświetlony zielony komunikat o powodzeniu, który stwierdził, że wdrożenie zostało uruchomione pomyślnie. Postęp wdrożenia można znaleźć  
-    w **zalecanym okienku modelu** w obszarze **Wdróż stan**.
+    W górnej części ekranu **uruchamiania** zostanie wyświetlony zielony komunikat o powodzeniu z informacją o tym, że wdrożenie zostało uruchomione pomyślnie. Postęp wdrożenia można znaleźć w okienku **podsumowania modelu** w obszarze **Wdróż stan**.
     
 Po pomyślnym wdrożeniu masz działającą usługę sieci Web do generowania prognoz. 
 
 Przejdź do [**następnych kroków**](#next-steps) , aby dowiedzieć się więcej na temat korzystania z nowej usługi sieci Web i testowania prognoz przy użyciu Power BI wbudowanej Azure Machine Learning obsługi.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Pliki wdrożeń są większe niż pliki danych i eksperymenty, dzięki czemu są one droższe do przechowywania. Usuń tylko pliki wdrożenia, aby zminimalizować koszty dla konta, lub jeśli chcesz zachować obszar roboczy i pliki eksperymentów. W przeciwnym razie Usuń całą grupę zasobów, jeśli nie planujesz używać żadnego z tych plików.  
 

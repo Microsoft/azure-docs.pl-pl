@@ -1,5 +1,5 @@
 ---
-title: 'Samouczek Analityka danych: korzystanie z SQL na żądanie (wersja zapoznawcza) w celu analizowania otwartych zestawów danych platformy Azure w usłudze Azure Synapse Studio (wersja zapoznawcza)'
+title: Korzystanie z SQL na żądanie (wersja zapoznawcza) w celu analizowania otwartych zestawów danych platformy Azure w usłudze Azure Synapse Studio (wersja zapoznawcza)
 description: W ramach tego samouczka dowiesz się, jak łatwo przeprowadzać analizę danych w nauce łączącej różne otwarte zestawy datadataset przy użyciu funkcji SQL na żądanie (wersja zapoznawcza) i wizualizować wyniki w usłudze Azure Synapse Studio.
 services: synapse-analytics
 author: azaricstefan
@@ -9,14 +9,14 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: afe231186adec95b09a75d7fe59552ca8a07049b
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: 2fc98e927fcf9686f0f39dae600f944b485c5a06
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85213146"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089145"
 ---
-# <a name="use-sql-on-demand-preview-to-analyze-azure-open-datasets-and-visualize-the-results-in-azure-synapse-studio-preview"></a>Korzystanie z SQL na żądanie (wersja zapoznawcza) w celu analizowania otwartych zestawów danych platformy Azure i wizualizacji wyników w usłudze Azure Synapse Studio (wersja zapoznawcza)
+# <a name="use-sql-on-demand-to-analyze-azure-open-datasets-and-visualize-the-results-in-azure-synapse-studio"></a>Korzystanie z SQL na żądanie w celu analizowania otwartych zestawów danych platformy Azure i wizualizacji wyników w usłudze Azure Synapse Studio
 
 W ramach tego samouczka nauczysz się przeprowadzać analizę danych w postaci poznawczej, łącząc różne usługi Azure Open DataSets przy użyciu funkcji SQL na żądanie, a następnie wizualizując wyniki w usłudze Azure Synapse Studio.
 

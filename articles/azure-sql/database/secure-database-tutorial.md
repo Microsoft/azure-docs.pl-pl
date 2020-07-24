@@ -10,12 +10,12 @@ ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 09/03/2019
 ms.custom: seoapril2019 sqldbrb=1
-ms.openlocfilehash: c658283ed610dcd14fca82b14217cba979388fc2
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: 73ffe7fe6336d9547ebbbf4c894bd1b9398e0900
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85252920"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092936"
 ---
 # <a name="tutorial-secure-a-database-in-azure-sql-database"></a>Samouczek: Zabezpieczanie bazy danych w Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -52,7 +52,7 @@ Aby ukończyć ten samouczek, upewnij się, że dysponujesz następującymi elem
 - [Serwer](logical-servers.md) i pojedyncza baza danych
   - Utwórz je za pomocą [Azure Portal](single-database-create-quickstart.md), [interfejsu wiersza polecenia](az-cli-script-samples-content-guide.md)lub [programu PowerShell](powershell-script-content-guide.md)
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpłatne konto](https://azure.microsoft.com/free/).
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logowanie się do witryny Azure Portal
 
@@ -146,7 +146,7 @@ Aby uzyskać informacje na temat konfigurowania usługi Azure AD, zobacz:
 - [Add your own domain name to Azure AD (Dodawanie własnej nazwy domeny do usługi Azure Active Directory)](../../active-directory/fundamentals/add-custom-domain.md)
 - [Microsoft Azure now supports federation with Windows Server AD (Platforma Microsoft Azure obsługuje teraz federację z usługą AD systemu Windows Server)](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/)
 - [Administrowanie katalogiem usługi Azure AD](../../active-directory/fundamentals/active-directory-whatis.md)
-- [Zarządzanie usługą Azure AD przy użyciu programu PowerShell](/powershell/azure/overview?view=azureadps-2.0)
+- [Zarządzanie usługą Azure AD przy użyciu programu PowerShell](/powershell/azure/?view=azureadps-2.0)
 - [Porty i protokoły wymagane przez tożsamość hybrydową](../../active-directory/hybrid/reference-connect-ports.md)
 
 ## <a name="manage-database-access"></a>Zarządzanie dostępem do bazy danych
@@ -250,7 +250,7 @@ Aby włączyć zaawansowane zabezpieczenia danych:
 
 1. Na stronie **SQL Server** znajdź sekcję **Zabezpieczenia** i wybierz pozycję **Advanced Data Security**.
 
-   1. Wybierz opcję **WŁĄCZONE** dla pozycji **Advanced Data Security**, aby włączyć tę funkcję. Wybierz konto magazynu na potrzeby zapisania wyników oceny luk w zabezpieczeniach. Następnie wybierz pozycję **Zapisz**.
+   1. Wybierz opcję **WŁĄCZONE** dla pozycji **Advanced Data Security**, aby włączyć tę funkcję. Wybierz konto magazynu na potrzeby zapisania wyników oceny luk w zabezpieczeniach. Następnie wybierz przycisk **Zapisz**.
 
       ![Okienko nawigacji](./media/secure-database-tutorial/threat-settings.png)
 

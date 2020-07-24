@@ -1,5 +1,5 @@
 ---
-title: Przesyłanie strumieniowe plików wideo za pomocą Azure Media Services-Node. js | Microsoft Docs
+title: Przesyłanie strumieniowe plików wideo za pomocą Azure Media Services-Node.js | Microsoft Docs
 description: Wykonaj kroki tego samouczka, aby utworzyć nowe konto Azure Media Services, zakodować plik i przesłać go strumieniowo do Azure Media Player.
 services: media-services
 documentationcenter: ''
@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 08/19/2019
 ms.author: juliako
-ms.openlocfilehash: fa9fbf3bac55ca0b26c3644b7f6818fa96088612
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 5e4c50b4b66d164ba2e89cfc537d9dd8593c4f57
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "69639390"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092035"
 ---
-# <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---nodejs"></a>Samouczek: kodowanie pliku zdalnego na podstawie adresu URL i strumieniowego wideo — Node. js
+# <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---nodejs"></a>Samouczek: kodowanie pliku zdalnego na podstawie adresu URL i strumieniowego wideo — Node.js
 
 W tym samouczku pokazano, jak łatwo zakodować i rozpocząć przesyłanie strumieniowe wideo na wielu różnych przeglądarkach i urządzeniach przy użyciu Azure Media Services. Zawartość wejściową można określić przy użyciu adresów URL HTTP, adresów URL SAS lub ścieżek do plików znajdujących się w magazynie obiektów blob platformy Azure.
 
@@ -34,13 +34,13 @@ Na końcu samouczka będziesz mieć możliwość przesyłania strumieniowego wid
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Zainstaluj program [Node. js](https://nodejs.org/en/download/)
-- [Utwórz konto Media Services](create-account-cli-how-to.md).<br/>Koniecznie zapamiętaj wartości, które zostały użyte jako nazwa grupy zasobów i nazwa konta usługi Media Services.
-- Postępuj zgodnie z instrukcjami zawartymi w temacie [Access Azure Media Services API with the Azure CLI](access-api-cli-how-to.md) (Uzyskiwanie dostępu do interfejsu API usług Azure Media Services za pomocą interfejsu wiersza polecenia platformy Azure) i zapisz poświadczenia. Będą one potrzebne w celu uzyskania dostępu do interfejsu API.
+- Zainstaluj [Node.js](https://nodejs.org/en/download/)
+- [Utwórz konto Media Services](./create-account-howto.md).<br/>Koniecznie zapamiętaj wartości, które zostały użyte jako nazwa grupy zasobów i nazwa konta usługi Media Services.
+- Postępuj zgodnie z instrukcjami zawartymi w temacie [Access Azure Media Services API with the Azure CLI](./access-api-howto.md) (Uzyskiwanie dostępu do interfejsu API usług Azure Media Services za pomocą interfejsu wiersza polecenia platformy Azure) i zapisz poświadczenia. Będą one potrzebne w celu uzyskania dostępu do interfejsu API.
 
 ## <a name="download-and-configure-the-sample"></a>Pobieranie i konfigurowanie przykładu
 
-Sklonuj repozytorium GitHub zawierające przykład przesyłania strumieniowego Node. js do maszyny przy użyciu następującego polecenia:  
+Sklonuj repozytorium GitHub zawierające przykład Node.js przesyłania strumieniowego do maszyny przy użyciu następującego polecenia:  
 
  ```bash
  git clone https://github.com/Azure-Samples/media-services-v3-node-tutorials.git
@@ -48,7 +48,7 @@ Sklonuj repozytorium GitHub zawierające przykład przesyłania strumieniowego N
 
 Przykład znajduje się w folderze [StreamFilesSample](https://github.com/Azure-Samples/media-services-v3-node-tutorials/tree/master/AMSv3Samples/StreamFilesSample) .
 
-Otwórz program [index. js](https://github.com/Azure-Samples/media-services-v3-node-tutorials/blob/master/AMSv3Samples/StreamFilesSample/index.js#L25) w pobranym projekcie. Zastąp `endpoint config` wartości poświadczeniami uzyskanymi w celu [uzyskania dostępu do interfejsów API](access-api-cli-how-to.md).
+Otwórz [index.js](https://github.com/Azure-Samples/media-services-v3-node-tutorials/blob/master/AMSv3Samples/StreamFilesSample/index.js#L25) w pobranym projekcie. Zastąp `endpoint config` wartości poświadczeniami uzyskanymi w celu [uzyskania dostępu do interfejsów API](./access-api-howto.md).
 
 W przykładzie są wykonywane następujące akcje:
 
@@ -62,7 +62,7 @@ W przykładzie są wykonywane następujące akcje:
 
 ## <a name="run-the-sample-app"></a>Uruchamianie przykładowej aplikacji
 
-1. Aplikacja pobiera zakodowane pliki. Utwórz folder, w którym chcesz umieścić pliki wyjściowe i zaktualizować wartość zmiennej **outputFolder** w pliku [index. js](https://github.com/Azure-Samples/media-services-v3-node-tutorials/blob/master/AMSv3Samples/StreamFilesSample/index.js#L39) .
+1. Aplikacja pobiera zakodowane pliki. Utwórz folder, w którym chcesz umieścić pliki wyjściowe i zaktualizować wartość zmiennej **outputFolder** w pliku [index.js](https://github.com/Azure-Samples/media-services-v3-node-tutorials/blob/master/AMSv3Samples/StreamFilesSample/index.js#L39) .
 1. Otwórz **wiersz polecenia**, przejdź do katalogu przykładowego i wykonaj następujące polecenia.
 
     ```
@@ -72,7 +72,7 @@ W przykładzie są wykonywane następujące akcje:
 
 Po zakończeniu działania należy zobaczyć podobne dane wyjściowe:
 
-![Run](./media/stream-files-nodejs-quickstart/run.png)
+![Uruchom](./media/stream-files-nodejs-quickstart/run.png)
 
 ## <a name="test-with-azure-media-player"></a>Testowanie przy użyciu usługi Azure Media Player
 
@@ -81,7 +81,7 @@ W tym artykule strumień jest testowany za pomocą odtwarzacza Azure Media Playe
 > [!NOTE]
 > Jeśli odtwarzacz jest hostowany w witrynie korzystającej z protokołu HTTPS, zmień adres URL tak, aby zawierał ciąg „https”.
 
-1. Otwórz przeglądarkę internetową i przejdź do [https://aka.ms/azuremediaplayer/](https://aka.ms/azuremediaplayer/).
+1. Otwórz przeglądarkę internetową i przejdź do [https://aka.ms/azuremediaplayer/](https://aka.ms/azuremediaplayer/) .
 2. W polu **Adres URL** wklej jedną z wartości adresu URL przesyłania strumieniowego otrzymanych po uruchomieniu aplikacji. 
  
      Adres URL możesz wkleić w formacie HLS, Dash, lub Smooth, a usługa Azure Media Player przełączy się na odpowiedni protokół przesyłania strumieniowego w celu automatycznego odtworzenia na urządzeniu.
@@ -89,7 +89,7 @@ W tym artykule strumień jest testowany za pomocą odtwarzacza Azure Media Playe
 
 Usługi Azure Media Player można użyć do testowania, ale nie należy jej używać w środowisku produkcyjnym. 
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli nie potrzebujesz już żadnych zasobów w grupie zasobów, w tym Media Services i kont magazynu utworzonych dla tego samouczka, Usuń grupę zasobów.
 
@@ -99,9 +99,9 @@ Wykonaj następujące polecenie interfejsu wiersza polecenia:
 az group delete --name amsResourceGroup
 ```
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
-[Kody błędów zadań](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode).
+[Kody błędów zadań](/rest/api/media/jobs/get#joberrorcode).
 
 ## <a name="next-steps"></a>Następne kroki
 

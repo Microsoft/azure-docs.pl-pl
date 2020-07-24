@@ -6,12 +6,13 @@ ms.author: brendm
 ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 07/08/2020
-ms.openlocfilehash: b9300845f6bc62d8ed90c2dc87efb626efae05bb
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.custom: devx-track-java
+ms.openlocfilehash: 2b68c4857d3d688c42779be9b5f5fa6e43e0403e
+ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86225388"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87116890"
 ---
 # <a name="tutorial-use-a-managed-identity-to-connect-key-vault-to-an-azure-spring-cloud-app"></a>Samouczek: używanie tożsamości zarządzanej do łączenia Key Vault z aplikacją Azure wiosennej w chmurze
 
@@ -97,7 +98,7 @@ Ta aplikacja będzie miała dostęp do pobierania wpisów tajnych z Azure Key Va
     azure.keyvault.uri=https://<your-keyvault-name>.vault.azure.net
     ```
     > [!Note] 
-    > Należy dodać klucz do adresu URL magazynu w programie `application.properties` jak powyżej. W przeciwnym razie adres URL magazynu kluczy może nie być przechwytywany podczas środowiska uruchomieniowego.
+    > Należy dodać adres URL magazynu kluczy w `application.properties` jak powyżej. W przeciwnym razie adres URL magazynu kluczy może nie być przechwytywany podczas środowiska uruchomieniowego.
 
 3. Dodaj przykładowy kod do src/Main/Java/com/example/demonstracyjny/DemoApplication. Java. Pobiera parametry połączenia z Key Vault. 
 

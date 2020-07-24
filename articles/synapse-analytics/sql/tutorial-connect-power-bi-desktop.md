@@ -1,5 +1,5 @@
 ---
-title: 'Samouczek: Łączenie SQL na żądanie w celu Power BI Desktop & tworzenia raportu'
+title: Łączenie programu SQL na żądanie w celu Power BI Desktop & tworzenia raportu
 description: W tym samouczku dowiesz się, jak połączyć SQL na żądanie w usłudze Azure Synapse Analytics, aby Power BI Desktop i utworzyć raport demonstracyjny na podstawie widoku.
 services: synapse analytics
 author: azaricstefan
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 2f4a1ab6dc2f5cb8576931ea5fc1da85f5597624
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: 325a2015e4107a20dfaec22e904cf3cc6ce3085d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85213231"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089179"
 ---
 # <a name="tutorial-use-sql-on-demand-with-power-bi-desktop--create-a-report"></a>Samouczek: korzystanie z SQL na żądanie z Power BI Desktop & Tworzenie raportu
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 >
@@ -125,7 +125,7 @@ Utwórz raport dla Power BI Desktop, wykonując następujące czynności:
 
     - Przykład dla usługi AAD 
   
-        ![Kliknij przycisk Zaloguj.](./media/tutorial-connect-power-bi-desktop/step-2.1-select-aad-auth.png)
+        ![Kliknij pozycję Zaloguj się.](./media/tutorial-connect-power-bi-desktop/step-2.1-select-aad-auth.png)
 
     - Przykład logowania SQL — wpisz nazwę użytkownika i hasło.
 

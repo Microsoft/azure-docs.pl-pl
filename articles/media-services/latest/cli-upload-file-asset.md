@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/01/2019
 ms.author: juliako
-ms.openlocfilehash: 5d1dc90832a399aa9ee253b2c7962b8536c1926a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 68dbeba62f5b59e2c047c7f403e7c50e7325e8ad
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80383008"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092120"
 ---
 # <a name="azure-cli-example-upload-a-local-file-to-a-container"></a>Przykład interfejsu wiersza polecenia platformy Azure: przekazywanie lokalnego pliku do kontenera
 
@@ -27,7 +27,7 @@ Skrypt interfejsu wiersza polecenia platformy Azure w tym artykule pokazuje, jak
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* [Utwórz konto Media Services](create-account-cli-how-to.md).
+* [Utwórz konto Media Services](./create-account-howto.md).
 * Zapoznaj się z tematem [Zarządzanie zasobami](manage-asset-concept.md).
 
 [!INCLUDE [media-services-cli-instructions.md](../../../includes/media-services-cli-instructions.md)]

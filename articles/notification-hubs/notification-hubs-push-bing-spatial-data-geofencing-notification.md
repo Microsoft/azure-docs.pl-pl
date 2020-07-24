@@ -18,12 +18,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: ff37a3ecb55c6ee034d3fd2558909c3b4ef1d375
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 3065cd6f185c0fdfaea1d6c0d02d2fee69bd04c7
+ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223435"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87116927"
 ---
 # <a name="tutorial-send-location-based-push-notifications-with-notification-hubs-and-bing-spatial-data"></a>Samouczek: wysyłanie powiadomień wypychanych opartych na lokalizacji z danymi przestrzennymi Notification Hubs i Bing
 
@@ -63,7 +63,7 @@ W tym samouczku wykonasz następujące kroki:
 
     Plik potoku reprezentuje następującą jednostkę:
 
-    ![Zrzut ekranu przedstawiający AP Francisco sieci San Waterfront z czerwonym wielokątem, który podkreśla obszar kopiarek.](./media/notification-hubs-geofence/bing-maps-geofence.png)
+    ![Zrzut ekranu przedstawiający mapę sieci San Francisco Waterfront z czerwonym wielokątem, który podkreśla obszar kopiarek.](./media/notification-hubs-geofence/bing-maps-geofence.png)
 5. Na stronie **Upload a data source** (Przekazywanie źródła danych) wykonaj następujące czynności:
    1. Wybierz pozycję **Pipe** (Potok) w polu **Data format** (Format danych).
    2. Wyszukaj i wybierz plik `NotificationHubGeofence.pipe` utworzony w poprzednim kroku.
@@ -164,7 +164,7 @@ W tym samouczku wykonasz następujące kroki:
     }
     ```
 
-    Aby dowiedzieć się więcej na temat pobierania lokalizacji użytkownika w aplikacjach platformy UWP, zobacz[Pobieranie lokalizacji użytkownika](https://msdn.microsoft.com/library/windows/apps/mt219698.aspx).
+    Aby dowiedzieć się więcej na temat pobierania lokalizacji użytkownika w aplikacjach platformy UWP, zobacz[Pobieranie lokalizacji użytkownika](/windows/uwp/maps-and-location/get-location).
 5. Aby sprawdzić, czy uzyskiwanie lokalizacji rzeczywiście działa, otwórz stronę kodu strony głównej (`MainPage.xaml.cs`). Utwórz nowy program obsługi zdarzeń dla zdarzenia `Loaded` w konstruktorze `MainPage`.
 
     ```csharp
@@ -393,7 +393,7 @@ W tym samouczku wykonasz następujące kroki:
 
 Jest kilka kroków, których wykonanie może być konieczne, aby mieć pewność, że rozwiązanie jest gotowe do zastosowania w środowisku produkcyjnym.
 
-1. Najpierw musisz upewnić się, że wirtualne ogrodzenia są dynamiczne. To wymaga dodatkowej pracy z interfejsem API Bing w celu umożliwienia przekazywania nowych granic w ramach istniejącego źródła danych. Aby uzyskać więcej informacji, zapoznaj się z [dokumentacją interfejsu API usług Bing Spatial Data Services](https://msdn.microsoft.com/library/ff701734.aspx).
+1. Najpierw musisz upewnić się, że wirtualne ogrodzenia są dynamiczne. To wymaga dodatkowej pracy z interfejsem API Bing w celu umożliwienia przekazywania nowych granic w ramach istniejącego źródła danych. Aby uzyskać więcej informacji, zapoznaj się z [dokumentacją interfejsu API usług Bing Spatial Data Services](/bingmaps/spatial-data-services/).
 2. Upewniając się, że powiadomienia są dostarczane do odpowiednich uczestników, warto adresować je przy użyciu [tagów](notification-hubs-tags-segment-push-message.md).
 
-W tym samouczku opisano scenariusz, w którym może występować wiele różnych platform docelowych, dlatego nie ograniczono wirtualnego grodzenia do możliwości specyficznych dla określonego systemu. Jednak platforma uniwersalna systemu Windows oferuje wbudowane możliwości [wykrywania wirtualnych ogrodzeń](https://msdn.microsoft.com/windows/uwp/maps-and-location/set-up-a-geofence).
+W tym samouczku opisano scenariusz, w którym może występować wiele różnych platform docelowych, dlatego nie ograniczono wirtualnego grodzenia do możliwości specyficznych dla określonego systemu. Jednak platforma uniwersalna systemu Windows oferuje wbudowane możliwości [wykrywania wirtualnych ogrodzeń](/windows/uwp/maps-and-location/set-up-a-geofence).
