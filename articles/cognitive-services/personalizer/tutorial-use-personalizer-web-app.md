@@ -3,13 +3,12 @@ title: Korzystanie z aplikacji sieci Web — Personalizacja
 description: Dostosuj aplikację sieci Web w języku C# przy użyciu pętli personalizacji, aby zapewnić użytkownikowi poprawną zawartość na podstawie akcji (z funkcjami) i funkcji kontekstu.
 ms.topic: tutorial
 ms.date: 06/10/2020
-ms.author: diberry
-ms.openlocfilehash: 9514e92432c2be5441dec5ff998a9deede35d7f4
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: b8b5c005f7003f9b0d9ac228c5a5961c80c85599
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86207603"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87133133"
 ---
 # <a name="tutorial-add-personalizer-to-a-net-web-app"></a>Samouczek: Dodawanie personalizacji do aplikacji sieci Web platformy .NET
 

@@ -5,15 +5,15 @@ author: bwren
 services: cosmos-db
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 05/20/2020
+ms.date: 07/22/2020
 ms.author: bwren
 ms.custom: subject-monitoring
-ms.openlocfilehash: cd100fca074e63c56cd6a19843cc68e1a1ddf214
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 9c2a87f3d70d3873771b3a59114b424efffe4fb9
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85850292"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87130192"
 ---
 # <a name="monitoring-azure-cosmos-db"></a>Azure Cosmos DB monitorowania
 
@@ -23,7 +23,7 @@ Dane można monitorować za pomocą metryk po stronie klienta i serwera. Korzyst
 
 * **Monitoruj z portalu Azure Cosmos DB:** Możesz monitorować za pomocą metryk dostępnych na karcie **metryki** konta usługi Azure Cosmos. Metryki na tej karcie obejmują przepływność, magazyn, dostępność, opóźnienie, spójność i metryki na poziomie systemu. Domyślnie te metryki mają okres przechowywania wynoszący 7 dni. Aby dowiedzieć się więcej, zobacz sekcję [monitorowanie danych zebranych z Azure Cosmos DB](#monitoring-from-azure-cosmos-db) w tym artykule.
 
-* **Monitoruj przy użyciu metryk w usłudze Azure Monitor:** Można monitorować metryki konta usługi Azure Cosmos i tworzyć pulpity nawigacyjne na podstawie Azure Monitor. Azure Monitor domyślnie zbiera metryki Azure Cosmos DB, nie skonfigurowano niczego jawnie. Te metryki są zbierane z dokładnością do jednej minuty, stopień szczegółowości może się różnić w zależności od wybranej metryki. Domyślnie te metryki mają okres przechowywania wynoszący 30 dni. Większość metryk dostępnych w poprzednich opcjach jest również dostępna w tych metrykach. Aby dowiedzieć się więcej, zobacz sekcję [Analizowanie danych metryk](#analyze-metric-data) w tym artykule.
+* **Monitoruj przy użyciu metryk w usłudze Azure Monitor:** Można monitorować metryki konta usługi Azure Cosmos i tworzyć pulpity nawigacyjne na podstawie Azure Monitor. Azure Monitor domyślnie zbiera metryki Azure Cosmos DB, nie skonfigurowano niczego jawnie. Te metryki są zbierane z dokładnością do jednej minuty, stopień szczegółowości może się różnić w zależności od wybranej metryki. Domyślnie te metryki mają okres przechowywania wynoszący 30 dni. Większość metryk dostępnych w poprzednich opcjach jest również dostępna w tych metrykach. W wartościach wymiarów dla metryk, takich jak nazwa kontenera, nie jest rozróżniana wielkość liter. Dlatego należy użyć porównania bez uwzględniania wielkości liter podczas porównywania ciągów dla tych wartości wymiarów. Aby dowiedzieć się więcej, zobacz sekcję [Analizowanie danych metryk](#analyze-metric-data) w tym artykule.
 
 * **Monitoruj z dziennikami diagnostycznymi w Azure Monitor:** Możesz monitorować dzienniki konta usługi Azure Cosmos i tworzyć pulpity nawigacyjne na podstawie Azure Monitor. Dane telemetryczne, takie jak zdarzenia i ślady występujące na drugim poziomie szczegółowości, są przechowywane jako dzienniki. Na przykład, jeśli przepływność kontenera jest zmieniana, właściwości konta Cosmos są zmieniane te zdarzenia są przechwytywane w dziennikach. Te dzienniki można analizować, uruchamiając zapytania dotyczące zebranych danych. Aby dowiedzieć się więcej, zobacz sekcję [Analizowanie danych dziennika](#analyze-log-data) w tym artykule.
 

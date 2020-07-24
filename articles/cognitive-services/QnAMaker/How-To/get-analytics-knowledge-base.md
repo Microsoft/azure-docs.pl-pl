@@ -3,20 +3,18 @@ title: Analiza bazy wiedzy — QnA Maker
 titleSuffix: Azure Cognitive Services
 description: QnA Maker przechowuje wszystkie dzienniki rozmowy i inne dane telemetryczne, jeśli włączono usługę App Insights podczas tworzenia usługi QnA Maker. Uruchom przykładowe zapytania, aby pobrać dzienniki rozmowy z usługi App Insights.
 services: cognitive-services
-author: diberry
 manager: nitinme
 displayName: chat history, history, chat logs, logs
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/05/2019
-ms.author: diberry
-ms.openlocfilehash: d247c55112bc1c3cd921c0eda8e4ddadd6b5aed9
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 00b7b88aa4ce0cab2a2379756e40054f27fc633b
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80878072"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87131654"
 ---
 # <a name="get-analytics-on-your-knowledge-base"></a>Uzyskiwanie danych analitycznych na potrzeby bazy wiedzy
 

@@ -5,13 +5,14 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 07/23/2020
 ms.reviewer: sngun
-ms.openlocfilehash: f234579c6fb2b6f1bc0cd518b87ea69fae30093a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f5a867a00fa28dcd03842d02be16d88e3a7d2e9f
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74869837"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132657"
 ---
 # <a name="unique-key-constraints-in-azure-cosmos-db"></a>Ograniczenia unikatowego klucza w Azure Cosmos DB
 
@@ -19,7 +20,7 @@ Klucze unikatowe umożliwiają dodanie warstwy integralności danych do kontener
 
 Po utworzeniu kontenera z unikatowymi zasadami kluczy, utworzenie nowej lub aktualizacji istniejącego elementu, co spowodowało wystąpienie duplikatu w obrębie partycji logicznej, jest blokowane, zgodnie z ograniczeniami unikatowego klucza. Klucz partycji połączony z unikatowym kluczem gwarantuje unikatowość elementu w zakresie kontenera.
 
-Rozważmy na przykład kontener usługi Azure Cosmos z adresem e-mail jako ograniczenie unikatowego klucza i `CompanyID` klucz partycji. W przypadku skonfigurowania adresu e-mail użytkownika przy użyciu unikatowego klucza każdy element ma unikatowy adres e-mail w danym `CompanyID` . Nie można tworzyć dwóch elementów ze zduplikowanymi adresami e-mail i z tą samą wartością klucza partycji. 
+Rozważmy na przykład kontener usługi Azure Cosmos z adresem e-mail jako ograniczenie unikatowego klucza i `CompanyID` klucz partycji. W przypadku skonfigurowania adresu e-mail użytkownika przy użyciu unikatowego klucza każdy element ma unikatowy adres e-mail w danym `CompanyID` . Nie można tworzyć dwóch elementów ze zduplikowanymi adresami e-mail i z tą samą wartością klucza partycji. W interfejsie API SQL (rdzeń) Azure Cosmos DB elementy są przechowywane jako wartości JSON. Te wartości JSON uwzględniają wielkość liter. W przypadku wybrania właściwości jako unikatowego klucza można wstawić wartości z uwzględnieniem wielkości liter dla tej właściwości. Na przykład jeśli masz unikatowy klucz zdefiniowany dla właściwości Name, "Gaby" różni się od "Gaby" i można wstawić oba elementy do kontenera.
 
 Aby utworzyć elementy o tym samym adresie e-mail, ale nie te same imię, nazwisko i adres e-mail, Dodaj więcej ścieżek do unikatowych zasad kluczy. Zamiast tworzyć unikatowe klucze wyłącznie na podstawie adresu e-mail, można również utworzyć unikatowy klucz z kombinacją imię, nazwisko i adres e-mail. Ten klucz jest znany jako złożony klucz unikatowy. W takim przypadku każda unikatowa kombinacja trzech wartości w ramach danego elementu `CompanyID` jest dozwolona. 
 

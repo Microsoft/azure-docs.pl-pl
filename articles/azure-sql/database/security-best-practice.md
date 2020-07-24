@@ -10,12 +10,12 @@ ms.author: vanto
 ms.topic: article
 ms.date: 02/20/2020
 ms.reviewer: ''
-ms.openlocfilehash: 8104302afa84446e2d57c7156f33bc0160e31472
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 00369ae45a13414ce46f324e37afe24be24a48e0
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85986786"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132946"
 ---
 # <a name="playbook-for-addressing-common-security-requirements-with-azure-sql-database-and-azure-sql-managed-instance"></a>Element PlayBook do rozwiązywania typowych wymagań dotyczących zabezpieczeń w przypadku wystąpienia zarządzanego Azure SQL Database i usługi Azure SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -62,7 +62,7 @@ O ile nie określono inaczej, zalecamy zapoznanie się z najlepszymi rozwiązani
 
 Planujemy kontynuowanie aktualizowania zaleceń i najlepszych rozwiązań wymienionych w tym miejscu. Podaj dane wejściowe lub korekty dla tego dokumentu, korzystając z linku **opinii** znajdującego się w dolnej części tego artykułu.
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Uwierzytelnianie
 
 Uwierzytelnianie to proces potwierdzania tożsamości użytkownika. Azure SQL Database i wystąpienie zarządzane SQL obsługują dwa typy uwierzytelniania:
 
@@ -240,9 +240,9 @@ Przypisz tylko niezbędne [uprawnienia](https://docs.microsoft.com/sql/relationa
   - Upewnij się, że nie przypiszesz użytkowników do niepotrzebnych ról.
 
 - W Azure Resource Manager:
-  - Użyj wbudowanych ról, jeśli są dostępne lub niestandardowe role RBAC i przypisz niezbędne uprawnienia.
-    - [Wbudowane role dla platformy Azure](../../role-based-access-control/built-in-roles.md)
-    - [Niestandardowe role dla zasobów platformy Azure](../../role-based-access-control/custom-roles.md)
+  - Użyj wbudowanych ról, jeśli są dostępne lub role niestandardowe platformy Azure i przypisz niezbędne uprawnienia.
+    - [Wbudowane role platformy Azure](../../role-based-access-control/built-in-roles.md)
+    - [Role niestandardowe platformy Azure](../../role-based-access-control/custom-roles.md)
 
 **Najlepsze rozwiązania**:
 
@@ -265,7 +265,7 @@ Następujące najlepsze rozwiązania są opcjonalne, ale spowodują lepsze zarz�
 
 - Należy pamiętać, że uprawnienia w aparacie bazy danych mogą być stosowane w następujących zakresach (mniejszym zakresie, mniejszym wpływem przyznanych uprawnień):
   - Serwer (specjalne role w bazie danych Master) na platformie Azure
-  - baza danych
+  - Baza danych
   - Schemat
     - Najlepszym rozwiązaniem jest użycie schematów do przyznawania uprawnień w bazie danych. (Zobacz również: [projektowanie schematu: zalecenia dotyczące projektowania schematu z bezpieczeństwem](http://andreas-wolter.com/en/schema-design-for-sql-server-recommendations-for-schema-design-with-security-in-mind/))
   - Obiekt (tabela, widok, procedura, itp.)
@@ -291,7 +291,7 @@ Rozdzielenie obowiązków, nazywane także rozdzieleniem obowiązków, zawiera o
 - Zidentyfikuj kompleksową hierarchię użytkowników (i zautomatyzowanych procesów), które uzyskują dostęp do systemu.
 
 - Utwórz role zgodnie z wymaganymi grupami użytkowników i przypisz uprawnienia do ról.
-  - W przypadku zadań na poziomie zarządzania w Azure Portal lub za pośrednictwem programu PowerShell — Automatyzacja używaj ról RBAC. Znajdź wbudowaną rolę zgodną z wymaganiem lub Utwórz niestandardową rolę RBAC przy użyciu dostępnych uprawnień
+  - W przypadku zadań na poziomie zarządzania w Azure Portal lub za pośrednictwem programu PowerShell — Automatyzacja używaj ról RBAC. Znajdź wbudowaną rolę zgodną z wymaganiem lub Utwórz rolę niestandardową platformy Azure przy użyciu dostępnych uprawnień
   - Utwórz role serwera dla zadań na całym serwerze (tworzenie nowych nazw logowania, baz danych) w wystąpieniu zarządzanym.
   - Utwórz role bazy danych dla zadań na poziomie bazy danych.
 
@@ -342,8 +342,8 @@ W przypadku czytelników, którzy chcą szczegółowe w SoD, zalecamy użycie na
   - [Procedury składowane podpisywania](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/signing-stored-procedures-in-sql-server)
 
 - W przypadku usługi Azure Resource Management:
-  - [Wbudowane role dla platformy Azure](../../role-based-access-control/built-in-roles.md)
-  - [Niestandardowe role dla zasobów platformy Azure](../../role-based-access-control/custom-roles.md)
+  - [Wbudowane role platformy Azure](../../role-based-access-control/built-in-roles.md)
+  - [Role niestandardowe platformy Azure](../../role-based-access-control/custom-roles.md)
   - [Używanie Azure AD Privileged Identity Management do uzyskiwania dostępu z podwyższonym poziomem uprawnień](https://www.microsoft.com/itshowcase/using-azure-ad-privileged-identity-management-for-elevated-access)
 
 ### <a name="perform-regular-code-reviews"></a>Wykonywanie zwykłych przeglądów kodu

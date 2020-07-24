@@ -3,19 +3,17 @@ title: Nauka wzmacniania — Personalizacja
 titleSuffix: Azure Cognitive Services
 description: Program personalizujer używa informacji o akcjach i bieżącym kontekście w celu uzyskania lepszych sugestii dotyczących klasyfikacji. Informacje o tych akcjach i kontekście to atrybuty lub właściwości, które są określane jako funkcje.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 05/07/2019
-ms.author: diberry
-ms.openlocfilehash: 36071cdee25cfa99fc54b0e5c0c0aa822cb5fe2f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 8b97221de4921e06ddfab610618f37683b990181
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "68662835"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132742"
 ---
 # <a name="what-is-reinforcement-learning"></a>Co to jest uczenie wzmacniania?
 
@@ -59,7 +57,7 @@ Jan nauczył również kilka samouczków, takich jak wspólne przewidywania (ICM
 
 Personalizacja obecnie używa [Vowpal Wabbit](https://github.com/VowpalWabbit/vowpal_wabbit/wiki) jako podstawy dla uczenia maszynowego. Ta platforma pozwala na maksymalną przepływność i najmniejsze opóźnienia przy tworzeniu rangi personalizacji i uczeniu modelu ze wszystkimi zdarzeniami.
 
-## <a name="references"></a>Dokumentacja
+## <a name="references"></a>Odwołania
 
 * [Podejmowanie decyzji kontekstowych z niską Długem technicznym](https://arxiv.org/abs/1606.03966)
 * [Zmniejszenie podejścia do uczciwej klasyfikacji](https://arxiv.org/abs/1803.02453)

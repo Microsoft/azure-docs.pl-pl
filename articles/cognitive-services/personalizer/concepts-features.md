@@ -3,19 +3,17 @@ title: 'Funkcje: Akcja i kontekst — Personalizacja'
 titleSuffix: Azure Cognitive Services
 description: Personalizacja używa funkcji, informacji o akcjach i kontekście, aby uzyskiwać lepsze sugestie dotyczące klasyfikacji. Funkcje mogą być bardzo ogólne lub specyficzne dla elementu.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 10/14/2019
-ms.author: diberry
-ms.openlocfilehash: 408501232891a7971d03c89acc647d9ed19609b3
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 590416f077fc1ff9430e42e27217548476c9032f
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77026153"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132776"
 ---
 # <a name="features-are-information-about-actions-and-context"></a>Funkcje to informacje o akcjach i kontekście
 
@@ -25,8 +23,8 @@ Personalizacja używa **funkcji**, które są informacjami o **bieżącym kontek
 
 Na przykład może być dostępna **Funkcja** :
 
-* _Osoba użytkownika_ , taka jak `Sports_Shopper`. Nie powinna to być indywidualny identyfikator użytkownika. 
-* _Zawartość_ , taka jak w przypadku filmu wideo `Documentary`, `Movie`a lub `TV Series`lub czy element detaliczny jest dostępny w sklepie.
+* _Osoba użytkownika_ , taka jak `Sports_Shopper` . Nie powinna to być indywidualny identyfikator użytkownika. 
+* _Zawartość_ , taka jak w przypadku filmu wideo `Documentary` , a lub lub `Movie` `TV Series` czy element detaliczny jest dostępny w sklepie.
 * _Bieżący_ okres, taki jak dzień tygodnia.
 
 Personalizacja nie określa, nie ogranicza ani nie naprawia funkcji, które można wysyłać dla akcji i kontekstu:
@@ -56,7 +54,7 @@ Personalizacja wykonuje funkcje zorganizowane w przestrzenie nazw. W aplikacji n
 Poniżej przedstawiono przykłady przestrzeni nazw funkcji używanych przez aplikacje:
 
 * User_Profile_from_CRM
-* Time
+* Czas
 * Mobile_Device_Info
 * http_user_agent
 * VideoResolution
@@ -69,10 +67,10 @@ Poniżej przedstawiono przykłady przestrzeni nazw funkcji używanych przez apli
 Przestrzenie nazw funkcji można nazwać po własnych konwencjach, o ile są one prawidłowymi kluczami JSON. Przestrzenie nazw służą do organizowania funkcji w różne zestawy oraz do odróżniania funkcji o podobnych nazwach. Przestrzenie nazw można traktować jako prefiks, który jest dodawany do nazw funkcji. Przestrzenie nazw nie mogą być zagnieżdżane.
 
 
-W poniższym kodzie JSON, `user`, `state`, i `device` są przestrzeniami nazw funkcji. 
+W poniższym kodzie JSON, `user` , `state` , i `device` są przestrzeniami nazw funkcji. 
 
 > [!Note]
-> Obecnie zdecydowanie zalecamy używanie nazw dla przestrzeni nazw funkcji, które są oparte na kodowaniu UTF-8 i zaczynają się od różnych liter. Na przykład `user` `state`,, i `device` zaczyna się od `u`, `s`, i `d`. Obecnie przestrzenie nazw zawierające te same pierwsze znaki mogą powodować kolizje w indeksach używanych do uczenia maszynowego.
+> Obecnie zdecydowanie zalecamy używanie nazw dla przestrzeni nazw funkcji, które są oparte na kodowaniu UTF-8 i zaczynają się od różnych liter. Na przykład, `user` , `state` i `device` zaczyna się od `u` , `s` , i `d` . Obecnie przestrzenie nazw zawierające te same pierwsze znaki mogą powodować kolizje w indeksach używanych do uczenia maszynowego.
 
 Obiekty JSON mogą zawierać zagnieżdżone obiekty JSON oraz proste właściwości/wartości. Tablica może być uwzględniana tylko wtedy, gdy elementy tablicy są liczbami. 
 
@@ -146,7 +144,7 @@ Sztuczna inteligencja i gotowe do uruchomienia Cognitive Services mogą być bar
 
 Wstępnie przetwarzając elementy przy użyciu sztucznych usług analizy, można automatycznie wyodrębniać informacje, które mogą być odpowiednie do personalizacji.
 
-Przykład:
+Na przykład:
 
 * Plik filmowy można uruchomić za pomocą [Video Indexer](https://azure.microsoft.com/services/media-services/video-indexer/) , aby wyodrębnić elementy sceny, tekst, tonacji i wiele innych atrybutów. Te atrybuty mogą następnie stać się bardziej gęste w celu odzwierciedlenia cech, które nie miały metadanych oryginalnego elementu. 
 * Obrazy można uruchamiać za poorednictwem wykrywania obiektów, twarzy przez tonacji itp.
@@ -156,7 +154,7 @@ Możesz użyć kilku innych [Cognitive Services platformy Azure](https://www.mic
 
 * [Łączenie jednostek](../entitylinking/home.md)
 * [Analiza tekstu](../text-analytics/overview.md)
-* [Rozpoznawanie emocji](../emotion/home.md)
+* [Emocja](../emotion/home.md)
 * [Przetwarzanie obrazów](../computer-vision/home.md)
 
 ## <a name="actions-represent-a-list-of-options"></a>Akcje reprezentują listę opcji

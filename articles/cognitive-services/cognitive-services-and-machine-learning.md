@@ -3,18 +3,16 @@ title: Cognitive Services i Machine Learning
 titleSuffix: Azure Cognitive Services
 description: Dowiedz się, jak usługi Azure Cognitive Services wygląda w porównaniu z innymi ofertami platformy Azure w zakresie uczenia maszynowego.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 08/22/2019
-ms.author: diberry
-ms.openlocfilehash: c8480557d0f27594fa369e4e2451a5d0fe7ad3cc
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: 0b034d0135c66852b07e0a2ed2fd69e8c3fdc4a6
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85856722"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132844"
 ---
 # <a name="cognitive-services-and-machine-learning"></a>Usługi Cognitive Services i uczenie maszynowe
 
@@ -25,8 +23,8 @@ Cognitive Services zapewnia możliwości uczenia maszynowego w celu rozwiązywan
 |Kategoria usługi|Przeznaczenie|
 |--|--|
 |[Decyzja](https://azure.microsoft.com/services/cognitive-services/directory/decision/)|Twórz aplikacje wyświetlające rekomendacje pozwalające skuteczniej podejmować lepsze decyzje.|
-|[Język](https://azure.microsoft.com/services/cognitive-services/directory/lang/)|Umożliwiaj aplikacjom przetwarzanie języka naturalnego za pomocą wbudowanych skryptów, ocenianie tonacji i uczenie się rozpoznawania potrzeb użytkowników.|
-|[Wyszukiwanie](https://azure.microsoft.com/services/cognitive-services/directory/search/)|Dodawaj interfejsy API wyszukiwania Bing do aplikacji i wykorzystuj możliwości przeczesywania miliardów stron internetowych, obrazów, wideo i wiadomości za pomocą jednego wywołania interfejsu API.|
+|[Język](https://azure.microsoft.com/services/cognitive-services/directory/lang/)|Umożliwianie aplikacjom przetwarzania języka naturalnego za pomocą wbudowanych skryptów, ocenianie tonacji i uczenie się rozpoznawania potrzeb użytkowników.|
+|[Wyszukiwanie](https://azure.microsoft.com/services/cognitive-services/directory/search/)|Dodawanie interfejsów API wyszukiwania Bing do aplikacji i wykorzystanie możliwości przeczesywania miliardów stron internetowych, obrazów, wideo i wiadomości za pomocą jednego wywołania interfejsu API.|
 |[Mowa](https://azure.microsoft.com/services/cognitive-services/directory/speech/)|Konwertuj mowę na tekst i tekst na naturalnie brzmiącą mowę. Tłumacz jeden język na inny oraz włącz weryfikację i rozpoznawanie osoby mówiącej.|
 |[Obraz](https://azure.microsoft.com/services/cognitive-services/directory/vision/)|Rozpoznawaj, identyfikuj, podpisuj, indeksuj i moderuj swoje zdjęcia, klipy wideo i zawartość elektronicznego pisma odręcznego.|
 ||||
@@ -93,7 +91,7 @@ Następujące dane klasyfikują poszczególne usługi według rodzaju danych, kt
 |--|--|--|--|
 |[Narzędzie do wykrywania anomalii](./Anomaly-Detector/overview.md)|x|x|x|
 |Wyszukiwanie Bing |x|||
-|[przetwarzanie obrazów](./Computer-vision/Home.md)|x|||
+|[Przetwarzanie obrazów](./Computer-vision/Home.md)|x|||
 |[Content Moderator](./Content-Moderator/overview.md)|x||x|
 |[Niestandardowe przetwarzanie obrazów](./Custom-Vision-Service/home.md)||x||
 |[Rozpoznawanie twarzy](./Face/Overview.md)|x|x||
@@ -107,7 +105,7 @@ Następujące dane klasyfikują poszczególne usługi według rodzaju danych, kt
 |[Zamiana tekstu na mowę (TTS)](speech-service/text-to-speech.md)|x|x||
 |[Zamiana mowy na mowę na tekst (monitora STT)](speech-service/speech-to-text.md)|x|x||
 |[Tłumaczenie mowy](speech-service/speech-translation.md)|x|||
-|[analiza tekstu](./text-analytics/overview.md)|x|||
+|[Analiza tekstu](./text-analytics/overview.md)|x|||
 |[Translator](./translator/translator-info-overview.md)|x|||
 |[Translator — translator niestandardowy](./translator/custom-translator/overview.md)||x||
 
@@ -131,7 +129,7 @@ Cognitive Services, które udostępniają eksportowane modele dla innych narzęd
 |--|--|
 |[Niestandardowe przetwarzanie obrazów](./custom-vision-service/home.md)|[Export](./Custom-Vision-Service/export-model-python.md) for Tensorflow for Android, CoreML for IOS11, ONNX for Windows ml|
 
-## <a name="learn-more"></a>Więcej tutaj
+## <a name="learn-more"></a>Dowiedz się więcej
 
 * [Przewodnik po architekturze — jakie są produkty uczenia maszynowego w firmie Microsoft?](https://docs.microsoft.com/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning)
 * [Uczenie maszynowe — wprowadzenie do uczenia głębokiego i uczenia maszynowego](../machine-learning/concept-deep-learning-vs-machine-learning.md)

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 01bb5f9ae6d8c7a6374a8b1392b061f31fdb63a3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fec93169a8c49422c9e310cddc08ae3412b89166
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85390588"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132283"
 ---
 # <a name="manage-azure-digital-twins-models"></a>Zarządzanie modelami Digital bliźniaczych reprezentacji na platformie Azure
 
@@ -66,7 +66,7 @@ Ten model definiuje nazwę i unikatowy identyfikator pokoju pacjenta oraz właś
 Korzystając z tej metody, można wykonać Definiowanie modeli dla danych szpitalnych, stref lub samego szpitala.
 
 > [!TIP]
-> Istnieje Biblioteka po stronie klienta dostępna do analizowania i weryfikowania DTDL. Generuje on model obiektów C# zawartości DTDL, który może być używany w scenariuszach projektowania opartych na modelu, takich jak Generowanie elementów interfejsu użytkownika. Możesz również użyć tej biblioteki, aby upewnić się, że modele nie mają błędów składniowych przed ich przekazaniem. Aby uzyskać więcej informacji na temat tej biblioteki i uzyskać dostęp do przykładowej kompilacji dla modułu sprawdzania DTDL, zobacz [How to: Parse and Validate models](how-to-use-parser.md).
+> Istnieje Biblioteka po stronie klienta dostępna do analizowania i weryfikowania DTDL. Generuje on model obiektów C# zawartości DTDL, który może być używany w scenariuszach projektowania opartych na modelu, takich jak Generowanie elementów interfejsu użytkownika. Możesz również użyć tej biblioteki, aby upewnić się, że modele nie mają błędów składniowych przed ich przekazaniem. Aby uzyskać więcej informacji na temat tej biblioteki i uzyskać dostęp do przykładowej kompilacji dla modułu sprawdzania DTDL, zobacz [*How to: Parse and Validate models*](how-to-use-parser.md).
 
 ## <a name="manage-models-with-apis"></a>Zarządzanie modelami za pomocą interfejsów API.
 
@@ -109,7 +109,7 @@ foreach (string fileName in dtdlFiles)
 client.CreateModels(dtdlStrings);
 ```
 
-Pliki modelu mogą zawierać więcej niż jeden model. W takim przypadku modele muszą być umieszczone w tablicy JSON. Przykład:
+Pliki modelu mogą zawierać więcej niż jeden model. W takim przypadku modele muszą być umieszczone w tablicy JSON. Na przykład:
 
 ```json
 [
@@ -190,7 +190,7 @@ Stan likwidowania modelu jest uwzględniany w `ModelData` rekordach zwracanych p
 
 Można usunąć wszystkie modele w wystąpieniu jednocześnie lub można wykonać je pojedynczo.
 
-Aby zapoznać się z przykładem sposobu usuwania wszystkich modeli, należy pobrać przykładową aplikację używaną w [samouczku: Poznaj podstawy za pomocą przykładowej aplikacji klienckiej](tutorial-command-line-app.md). Plik *CommandLoop.cs* wykonuje tę `CommandDeleteAllModels` funkcję w funkcji.
+Aby zapoznać się z przykładem sposobu usuwania wszystkich modeli, należy pobrać przykładową aplikację używaną w [*samouczku: Poznaj podstawy za pomocą przykładowej aplikacji klienckiej*](tutorial-command-line-app.md). Plik *CommandLoop.cs* wykonuje tę `CommandDeleteAllModels` funkcję w funkcji.
 
 Pozostała część tej sekcji przerywa usuwanie modelu w bardziej szczegółowy sposób i pokazuje, jak to zrobić dla pojedynczego modelu.
 
@@ -247,9 +247,9 @@ Usługa Azure Digital bliźniaczych reprezentacji nie uniemożliwia tego stanu, 
 
 ## <a name="manage-models-with-cli"></a>Zarządzanie modelami przy użyciu interfejsu wiersza polecenia
 
-Modele można także zarządzać za pomocą interfejsu wiersza polecenia usługi Azure Digital bliźniaczych reprezentacji. Polecenia można znaleźć w [opisie procedury: korzystanie z interfejsu wiersza polecenia usługi Azure Digital bliźniaczych reprezentacji](how-to-use-cli.md).
+Modele można także zarządzać za pomocą interfejsu wiersza polecenia usługi Azure Digital bliźniaczych reprezentacji. Polecenia można znaleźć w [*opisie procedury: korzystanie z interfejsu wiersza polecenia usługi Azure Digital bliźniaczych reprezentacji*](how-to-use-cli.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
 Zobacz, jak tworzyć i zarządzać bliźniaczych reprezentacjiami cyfrowymi w oparciu o Twoje modele:
-* [Instrukcje: Zarządzanie bliźniaczych reprezentacji cyfrowym](how-to-manage-twin.md)
+* [*Instrukcje: Zarządzanie bliźniaczych reprezentacji cyfrowym*](how-to-manage-twin.md)

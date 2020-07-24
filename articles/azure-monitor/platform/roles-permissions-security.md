@@ -7,11 +7,12 @@ ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: johnkem
 ms.subservice: ''
-ms.openlocfilehash: 86314fd5bfe103cef8332ee3113f46fb0e39dafc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4ffbe10a1f9a1629c74c144b8773a7de89890576
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83836383"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132028"
 ---
 # <a name="roles-permissions-and-security-in-azure-monitor"></a>Role, uprawnienia i zabezpieczenia w Azure Monitor
 
@@ -27,10 +28,10 @@ Osoby, którym przypisano rolę czytelnik monitorowania, mogą wyświetlać wszy
 
 * Wyświetlanie pulpitów nawigacyjnych monitorowania w portalu i tworzenie własnych prywatnych pulpitów nawigacyjnych.
 * Wyświetlanie reguł alertów zdefiniowanych w [alertach platformy Azure](alerts-overview.md)
-* Zapytanie o metryki przy użyciu [interfejsu API REST Azure monitor](https://msdn.microsoft.com/library/azure/dn931930.aspx), [poleceń cmdlet programu PowerShell](powershell-quickstart-samples.md)lub [międzyplatformowego interfejsu wiersza polecenia](../samples/cli-samples.md).
+* Zapytanie o metryki przy użyciu [interfejsu API REST Azure monitor](/rest/api/monitor/metrics), [poleceń cmdlet programu PowerShell](../samples/powershell-samples.md)lub [międzyplatformowego interfejsu wiersza polecenia](../samples/cli-samples.md).
 * Wykonaj zapytanie dotyczące dziennika aktywności przy użyciu portalu, Azure Monitor interfejsu API REST, poleceń cmdlet programu PowerShell lub międzyplatformowego interfejsu wiersza polecenia.
 * Wyświetlanie [ustawień diagnostycznych](diagnostic-settings.md) dla zasobu.
-* Wyświetl [profil dziennika](activity-log-export.md) dla subskrypcji.
+* Wyświetl [profil dziennika](./activity-log.md#legacy-collection-methods) dla subskrypcji.
 * Wyświetl ustawienia skalowania automatycznego.
 * Wyświetlanie działań i ustawień alertów.
 * Dostęp do danych Application Insights i wyświetlanie danych w usłudze AI Analytics.
@@ -51,7 +52,7 @@ Osoby przypisane do roli współautor monitorowania mogą wyświetlać wszystkie
 
 * Publikuj pulpity nawigacyjne monitorowania jako udostępniony pulpit nawigacyjny.
 * Ustawianie [ustawień diagnostycznych](diagnostic-settings.md) dla zasobu.\*
-* Ustaw [profil dziennika](activity-log-export.md) dla subskrypcji.\*
+* Ustaw [profil dziennika](./activity-log.md#legacy-collection-methods) dla subskrypcji.\*
 * Skonfiguruj działanie i Ustawienia reguł alertów za pomocą [alertów platformy Azure](alerts-overview.md).
 * Tworzenie Application Insightsych testów i składników sieci Web.
 * Wyświetl listę kluczy wspólnych obszaru roboczego Log Analytics.
@@ -66,8 +67,8 @@ Osoby przypisane do roli współautor monitorowania mogą wyświetlać wszystkie
 > 
 > 
 
-## <a name="monitoring-permissions-and-custom-rbac-roles"></a>Monitorowanie uprawnień i niestandardowych ról RBAC
-Jeśli powyższe wbudowane role nie są zgodne z dokładnymi potrzebami zespołu, można [utworzyć niestandardową rolę RBAC](../../role-based-access-control/custom-roles.md) z bardziej szczegółowymi uprawnieniami. Poniżej przedstawiono typowe operacje RBAC Azure Monitor z ich opisami.
+## <a name="monitoring-permissions-and-azure-custom-roles"></a>Monitorowanie uprawnień i ról niestandardowych platformy Azure
+Jeśli powyższe wbudowane role nie są zgodne z dokładnymi potrzebami zespołu, można [utworzyć rolę niestandardową platformy Azure](../../role-based-access-control/custom-roles.md) z bardziej szczegółowymi uprawnieniami. Poniżej przedstawiono typowe operacje RBAC Azure Monitor z ich opisami.
 
 | Operacja | Opis |
 | --- | --- |
@@ -96,7 +97,7 @@ Jeśli powyższe wbudowane role nie są zgodne z dokładnymi potrzebami zespołu
 > 
 > 
 
-Na przykład za pomocą powyższej tabeli można utworzyć niestandardową rolę RBAC dla "czytnika dzienników aktywności" w następujący sposób:
+Na przykład korzystając z powyższej tabeli, można utworzyć rolę niestandardową platformy Azure dla "czytnika dzienników aktywności" w następujący sposób:
 
 ```powershell
 $role = Get-AzRoleDefinition "Reader"
@@ -125,7 +126,7 @@ Wszystkie trzy z tych typów danych mogą być przechowywane na koncie magazynu 
 * Nie udzielaj uprawnienia ListKeys dla kont magazynu ani centrów zdarzeń w zakresie subskrypcji, gdy użytkownik potrzebuje tylko dostępu do danych monitorowania. Zamiast tego nadaj temu użytkownikowi uprawnienia do zasobu lub grupy zasobów (Jeśli masz dedykowaną grupę zasobów monitorowania).
 
 ### <a name="limiting-access-to-monitoring-related-storage-accounts"></a>Ograniczanie dostępu do kont magazynu związanych z monitorowaniem
-Gdy użytkownik lub aplikacja musi mieć dostęp do danych monitorowania na koncie magazynu, należy [wygenerować sygnaturę dostępu współdzielonego konta](https://msdn.microsoft.com/library/azure/mt584140.aspx) na koncie magazynu zawierającym dane monitorowania z dostępem tylko do odczytu do usługi BLOB Storage. W programie PowerShell może wyglądać następująco:
+Gdy użytkownik lub aplikacja musi mieć dostęp do danych monitorowania na koncie magazynu, należy [wygenerować sygnaturę dostępu współdzielonego konta](/rest/api/storageservices/create-account-sas) na koncie magazynu zawierającym dane monitorowania z dostępem tylko do odczytu do usługi BLOB Storage. W programie PowerShell może wyglądać następująco:
 
 ```powershell
 $context = New-AzStorageContext -ConnectionString "[connection string for your monitoring Storage Account]"
@@ -134,7 +135,7 @@ $token = New-AzStorageAccountSASToken -ResourceType Service -Service Blob -Permi
 
 Następnie można przekazać token do jednostki, która musi odczytywać z tego konta magazynu, a także wyświetlać i odczytywać wszystkie obiekty blob w ramach tego konta magazynu.
 
-Alternatywnie, jeśli konieczne jest kontrolowanie tego uprawnienia za pomocą RBAC, można przyznać tej jednostce uprawnienia Microsoft. Storage/storageAccounts/ListKeys/Action na tym konkretnym koncie magazynu. Jest to konieczne w przypadku użytkowników, którzy muszą mieć możliwość ustawienia ustawień diagnostycznych lub profilu dziennika na potrzeby archiwizowania na koncie magazynu. Można na przykład utworzyć następującą niestandardową rolę RBAC dla użytkownika lub aplikacji, która musi tylko odczytać z jednego konta magazynu:
+Alternatywnie, jeśli konieczne jest kontrolowanie tego uprawnienia za pomocą RBAC, można przyznać tej jednostce uprawnienia Microsoft. Storage/storageAccounts/ListKeys/Action na tym konkretnym koncie magazynu. Jest to konieczne w przypadku użytkowników, którzy muszą mieć możliwość ustawienia ustawień diagnostycznych lub profilu dziennika na potrzeby archiwizowania na koncie magazynu. Można na przykład utworzyć następującą rolę niestandardową platformy Azure dla użytkownika lub aplikacji, która musi tylko odczytać z jednego konta magazynu:
 
 ```powershell
 $role = Get-AzRoleDefinition "Reader"
@@ -188,5 +189,3 @@ Aby uzyskać więcej informacji, zobacz [zabezpieczenia sieci i usługa Azure St
 ## <a name="next-steps"></a>Następne kroki
 * [Przeczytaj informacje na temat RBAC i uprawnień w Menedżer zasobów](../../role-based-access-control/overview.md)
 * [Zapoznaj się z omówieniem monitorowania na platformie Azure](../../azure-monitor/overview.md)
-
-

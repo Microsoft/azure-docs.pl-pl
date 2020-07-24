@@ -3,18 +3,16 @@ title: Tworzenie zdefiniowanych przez użytkownika operatorów U-SQL — Azure D
 description: Dowiedz się, jak opracowywać zdefiniowane przez użytkownika operatory do użycia i ponownego użycia w Azure Data Lake Analytics zadaniach.
 services: data-lake-analytics
 ms.service: data-lake-analytics
-author: saveenr
-ms.author: saveenr
-ms.reviewer: jasonwhowell
+ms.reviewer: jasonh
 ms.assetid: e5189e4e-9438-46d1-8686-ed4836bf3356
 ms.topic: how-to
 ms.date: 12/05/2016
-ms.openlocfilehash: 771590a145d4da0a3a81050e6bbe8a9a4d528b30
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 71cb6e026c81b00e475ae3f4e7fc4958a8de82a3
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121218"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87131807"
 ---
 # <a name="develop-u-sql-user-defined-operators-udos"></a>Tworzenie zdefiniowanych przez użytkownika operatorów U-SQL (udo)
 W tym artykule opisano sposób tworzenia operatorów zdefiniowanych przez użytkownika w celu przetwarzania danych w zadaniu U-SQL.
@@ -26,7 +24,7 @@ W tym artykule opisano sposób tworzenia operatorów zdefiniowanych przez użytk
 1. W programie Visual Studio wybierz kolejno pozycje **plik > nowy > projekt > projekt U-SQL**.
 2. Kliknij przycisk **OK**. Program Visual Studio tworzy rozwiązanie przy użyciu pliku Script. usql.
 3. W **Eksplorator rozwiązań**rozwiń węzeł Script. usql, a następnie kliknij dwukrotnie pozycję **Script.usql.cs**.
-4. Wklej następujący kod do pliku:
+4. Wklej poniższy kod do pliku:
 
    ```usql
    using Microsoft.Analytics.Interfaces;

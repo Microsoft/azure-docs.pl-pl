@@ -7,11 +7,12 @@ ms.service: dns
 ms.topic: how-to
 ms.date: 02/18/2020
 ms.author: allensu
-ms.openlocfilehash: a817cb0722bff721891cd290ea4a6552c778dddf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 550ed5791df821b1793755f5046da92adf6e3f3a
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84701851"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87131552"
 ---
 # <a name="how-to-protect-private-dns-zones-and-records"></a>Ochrona prywatnych stref i rekordów DNS
 
@@ -23,7 +24,7 @@ W tym artykule wyjaśniono, jak Azure DNS umożliwia ochronę prywatnych stref D
 
 ## <a name="role-based-access-control"></a>Kontrola dostępu oparta na rolach
 
-Access Control oparte na rolach (RBAC) na platformie Azure umożliwia precyzyjne zarządzanie dostępem użytkowników, grup i zasobów platformy Azure. Za pomocą RBAC można przyznać poziom dostępu wymagany użytkownikom. Aby uzyskać więcej informacji o sposobach zarządzania dostępem przez funkcję RBAC, zobacz [co to jest Access Control oparte na rolach](../role-based-access-control/overview.md).
+Kontrola dostępu oparta na rolach (Azure RBAC) umożliwia precyzyjne zarządzanie dostępem użytkowników, grup i zasobów platformy Azure. Za pomocą RBAC można przyznać poziom dostępu wymagany użytkownikom. Aby uzyskać więcej informacji na temat sposobu, w jaki funkcja RBAC ułatwia zarządzanie dostępem, zobacz [co to jest kontrola dostępu oparta na rolach (Azure RBAC)](../role-based-access-control/overview.md).
 
 ### <a name="the-private-dns-zone-contributor-role"></a>Rola współautora strefy Prywatna strefa DNS
 
@@ -167,7 +168,7 @@ Właściwość Actions definiuje następujące uprawnienia specyficzne dla syste
 * `Microsoft.Network/privateDNSZones/read`przyznaje uprawnienia do odczytu stref prywatnych DNS, ale nie do ich modyfikacji, umożliwiając wyświetlenie strefy, w której jest tworzony rekord CNAME.
 
 > [!NOTE]
-> Niestandardowa rola RBAC pozwala zapobiegać usuwaniu zestawów rekordów, mimo że nie zezwala na ich aktualizację, nie jest skuteczną kontrolą. Zapobiega to usuwaniu zestawów rekordów, ale nie uniemożliwia ich modyfikacji.  Dozwolone modyfikacje obejmują dodawanie i usuwanie rekordów z zestawu rekordów, włącznie z usunięciem wszystkich rekordów, aby pozostawić pusty zestaw rekordów. Ma to taki sam efekt jak usunięcie zestawu rekordów z punktu widzenia rozpoznawania nazw DNS.
+> Korzystanie z roli niestandardowej platformy Azure w celu uniemożliwienia usuwania zestawów rekordów, mimo że nie zezwala na ich aktualizację, nie jest skuteczną kontrolą. Zapobiega to usuwaniu zestawów rekordów, ale nie uniemożliwia ich modyfikacji.  Dozwolone modyfikacje obejmują dodawanie i usuwanie rekordów z zestawu rekordów, włącznie z usunięciem wszystkich rekordów, aby pozostawić pusty zestaw rekordów. Ma to taki sam efekt jak usunięcie zestawu rekordów z punktu widzenia rozpoznawania nazw DNS.
 
 Niestandardowych definicji ról nie można obecnie definiować za pośrednictwem Azure Portal. Rolę niestandardową opartą na tej definicji roli można utworzyć przy użyciu Azure PowerShell:
 

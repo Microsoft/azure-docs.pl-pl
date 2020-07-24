@@ -8,12 +8,12 @@ ms.date: 6/3/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.reviewer: baanders
-ms.openlocfilehash: 8f3e670a4f2a49bcce48be1ba0452a36cbf96df1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6aad6201136bb925d5e094de115cc7274cc7872a
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85392322"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87131416"
 ---
 # <a name="use-azure-digital-twins-to-update-an-azure-maps-indoor-map"></a>Użyj usługi Azure Digital bliźniaczych reprezentacji, aby zaktualizować mapę pomieszczeń Azure Maps
 
@@ -27,9 +27,9 @@ Ta procedura obejmuje następujące zagadnienia:
 
 ### <a name="prerequisites"></a>Wymagania wstępne
 
-* Postępuj zgodnie z samouczkiem Digital bliźniaczych reprezentacji na platformie Azure [: Połącz kompleksowe rozwiązanie](./tutorial-end-to-end.md).
+* Postępuj zgodnie z samouczkiem Digital bliźniaczych reprezentacji na platformie Azure [*: Połącz kompleksowe rozwiązanie*](./tutorial-end-to-end.md).
     * Będziesz rozszerzać ten dwuosiowy z dodatkowym punktem końcowym i trasą. Możesz również dodać kolejną funkcję do aplikacji funkcji z tego samouczka. 
-* Postępuj zgodnie z Azure Maps [samouczkiem: Użyj kreatora Azure Maps, aby utworzyć mapy wewnętrzne](../azure-maps/tutorial-creator-indoor-maps.md) , aby utworzyć Azure Maps mapę pomieszczeń z *funkcją stateset*.
+* Postępuj zgodnie z Azure Maps [*samouczkiem: Użyj kreatora Azure Maps, aby utworzyć mapy wewnętrzne*](../azure-maps/tutorial-creator-indoor-maps.md) , aby utworzyć Azure Maps mapę pomieszczeń z *funkcją stateset*.
     * [Funkcja statesets](../azure-maps/creator-indoor-maps.md#feature-statesets) to kolekcje właściwości dynamicznych (Stanów) przypisanych do funkcji zestawu danych, takich jak pokoje lub sprzęt. W powyższym samouczku Azure Maps funkcja stateset przechowuje stan pokoju, który będzie wyświetlany na mapie.
     * Będziesz potrzebować *identyfikatora stateset* Azure Maps i *identyfikatora subskrypcji*usługi.
 
@@ -45,11 +45,11 @@ Najpierw utworzysz trasę w usłudze Azure Digital bliźniaczych reprezentacji, 
 
 ## <a name="create-a-route-and-filter-to-twin-update-notifications"></a>Tworzenie trasy i filtrowanie w celu otrzymywania powiadomień o aktualizacjach bliźniaczych
 
-Usługa Azure Digital bliźniaczych reprezentacji Instances może emitować wieloosiowe zdarzenia aktualizacji za każdym razem, gdy stanem splotu jest zaktualizowany. [Samouczek Digital bliźniaczych reprezentacji na platformie Azure: łączenie kompleksowego rozwiązania](./tutorial-end-to-end.md) połączonego powyżej instruktaże w scenariuszu, w którym termometr jest używany do aktualizowania atrybutu temperatury dołączonego do sznurka pokoju. To rozwiązanie zostanie rozbudowane, subskrybując powiadomienia o aktualizacjach powiadomień dotyczących usługi bliźniaczych reprezentacji i korzystając z tych informacji w celu zaktualizowania naszych map.
+Usługa Azure Digital bliźniaczych reprezentacji Instances może emitować wieloosiowe zdarzenia aktualizacji za każdym razem, gdy stanem splotu jest zaktualizowany. Samouczek Digital bliźniaczych reprezentacji na platformie Azure [*: łączenie kompleksowego rozwiązania*](./tutorial-end-to-end.md) połączonego powyżej instruktaże w scenariuszu, w którym termometr jest używany do aktualizowania atrybutu temperatury dołączonego do sznurka pokoju. To rozwiązanie zostanie rozbudowane, subskrybując powiadomienia o aktualizacjach powiadomień dotyczących usługi bliźniaczych reprezentacji i korzystając z tych informacji w celu zaktualizowania map.
 
-Ten wzorzec odczytuje ze źródła salonu bezpośrednio, a nie z urządzenia IoT, co pozwala nam zmieniać podstawowe źródło danych dla temperatury bez konieczności aktualizowania naszej logiki mapowania. Na przykład można dodać wiele termometrów lub ustawić ten pokój, aby udostępnić termometr w innym pokoju, bez konieczności aktualizowania naszej logiki mapowania.
+Ten wzorzec odczytuje ze źródła salonu bezpośrednio, a nie urządzenia IoT, co zapewnia elastyczność zmiany bazowego Yródła danych dla temperatury bez konieczności aktualizowania logiki mapowania. Na przykład można dodać wiele termometrów lub ustawić ten pokój, aby udostępnić termometr w innym pokoju, bez konieczności aktualizowania logiki mapy.
 
-1. Utwórz temat usługi Event Grid, który będzie odbierać zdarzenia z naszego wystąpienia bliźniaczych reprezentacji Digital Azure.
+1. Utwórz temat usługi Event Grid, który będzie odbierać zdarzenia z wystąpienia bliźniaczych reprezentacji cyfrowych platformy Azure.
     ```azurecli
     az eventgrid topic create -g <your-resource-group-name> --name <your-topic-name> -l <region>
     ```
@@ -61,14 +61,14 @@ Ten wzorzec odczytuje ze źródła salonu bezpośrednio, a nie z urządzenia IoT
 
 3. Utwórz trasę w usłudze Azure Digital bliźniaczych reprezentacji, aby wysyłać do punktu końcowego zdarzenia aktualizacji z przędzą.
     ```azurecli
-    az dt route create -n <your-Azure-Digital-Twins-instance-name> --endpoint-name <Event-Grid-endpoint-name> --route-name <my_route> --filter "{ "endpointId": "<endpoint-ID>","filter": "type = 'Microsoft.DigitalTwins.Twin.Update'"}"
+    az dt route create -n <your-Azure-Digital-Twins-instance-name> --endpoint-name <Event-Grid-endpoint-name> --route-name <my_route> --filter "type = 'Microsoft.DigitalTwins.Twin.Update'"
     ```
 
 ## <a name="create-an-azure-function-to-update-maps"></a>Utwórz funkcję platformy Azure, aby zaktualizować mapy
 
-Zamierzasz utworzyć funkcję wyzwalającą Event Grid w naszej aplikacji funkcji z [kompleksowego samouczka](./tutorial-end-to-end.md). Ta funkcja spowoduje rozpakowanie tych powiadomień i wysłanie aktualizacji do Azure Maps funkcji stateset w celu zaktualizowania temperatury jednego pokoju. 
+Zamierzasz utworzyć funkcję wyzwalającą Event Grid w aplikacji funkcji z kompleksowego samouczka ([*Samouczek: łączenie kompleksowego rozwiązania*](./tutorial-end-to-end.md)). Ta funkcja spowoduje rozpakowanie tych powiadomień i wysłanie aktualizacji do Azure Maps funkcji stateset w celu zaktualizowania temperatury jednego pokoju. 
 
-Zapoznaj się z następującym dokumentem, aby uzyskać informacje referencyjne: [wyzwalacz Azure Event Grid dla Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-bindings-event-grid-trigger).
+Zapoznaj się z następującym dokumentem, aby uzyskać informacje referencyjne: [*wyzwalacz Azure Event Grid dla Azure Functions*](https://docs.microsoft.com/azure/azure-functions/functions-bindings-event-grid-trigger).
 
 Zastąp kod funkcji poniższym kodem. Spowoduje to odfiltrowanie tylko aktualizacji bliźniaczych reprezentacji miejsca, odczytanie zaktualizowanej temperatury i wysłanie tych informacji do Azure Maps.
 
@@ -100,7 +100,7 @@ namespace SampleFunctionsApp
 
             //Parse updates to "space" twins
             if (message["data"]["modelId"].ToString() == "dtmi:contosocom:DigitalTwins:Space;1")
-            {   //Set the ID of the room to be updated in our map. 
+            {   //Set the ID of the room to be updated in your map. 
                 //Replace this line with your logic for retrieving featureID. 
                 string featureID = "UNIT103";
 
@@ -138,9 +138,9 @@ az functionapp config appsettings set --settings "statesetID=<your-Azure-Maps-st
 
 Aby wyświetlić temperaturę aktualizacji na żywo, wykonaj następujące czynności:
 
-1. Rozpocznij wysyłanie symulowanych danych IoT przez uruchomienie projektu **DeviceSimulator** z samouczka Digital bliźniaczych reprezentacji platformy Azure [: łączenie kompleksowego rozwiązania](tutorial-end-to-end.md). Instrukcje dla tego programu znajdują się w sekcji [*Konfigurowanie i uruchamianie symulacji*](././tutorial-end-to-end.md#configure-and-run-the-simulation) .
+1. Rozpocznij wysyłanie symulowanych danych IoT przez uruchomienie projektu **DeviceSimulator** z samouczka Digital bliźniaczych reprezentacji platformy Azure [*: łączenie kompleksowego rozwiązania*](tutorial-end-to-end.md). Instrukcje dla tego programu znajdują się w sekcji [*Konfigurowanie i uruchamianie symulacji*](././tutorial-end-to-end.md#configure-and-run-the-simulation) .
 2. Użyj [ **Azure Mapsowego** modułu,](../azure-maps/how-to-use-indoor-module.md) aby renderować mapy wewnętrzne utworzone w programie Azure Maps Creator.
-    1. Skopiuj kod HTML z [*przykładu: Użyj sekcji modułów Maps (moduły*](../azure-maps/how-to-use-indoor-module.md#example-use-the-indoor-maps-module) ) w [Azure Maps samouczku](../azure-maps/how-to-use-indoor-module.md) dotyczącej Maps
+    1. Skopiuj kod HTML z [*przykładu: Użyj sekcji modułów Maps (moduły*](../azure-maps/how-to-use-indoor-module.md#example-use-the-indoor-maps-module) ) w [*Azure Maps samouczku*](../azure-maps/how-to-use-indoor-module.md) dotyczącej Maps
     1. Zastąp wartości *tilesetId* i *statesetID* w lokalnym pliku HTML wartościami.
     1. Otwórz ten plik w przeglądarce.
 
@@ -160,5 +160,5 @@ W zależności od konfiguracji topologii, będzie można przechowywać te trzy a
 
 Aby dowiedzieć się więcej o zarządzaniu, uaktualnianiu i pobieraniu informacji z grafu bliźniaczych reprezentacji, zobacz następujące odwołania:
 
-* [Instrukcje: Zarządzanie bliźniaczych reprezentacji cyfrowym](./how-to-manage-twin.md)
-* [Instrukcje: zapytanie o wykres bliźniaczy](./how-to-query-graph.md)
+* [*Instrukcje: Zarządzanie bliźniaczych reprezentacji cyfrowym*](./how-to-manage-twin.md)
+* [*Instrukcje: zapytanie o wykres bliźniaczy*](./how-to-query-graph.md)

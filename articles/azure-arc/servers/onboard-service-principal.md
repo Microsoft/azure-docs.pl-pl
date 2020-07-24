@@ -6,14 +6,14 @@ ms.service: azure-arc
 ms.subservice: azure-arc-servers
 author: mgoedtel
 ms.author: magoedte
-ms.date: 02/04/2020
+ms.date: 07/23/2020
 ms.topic: conceptual
-ms.openlocfilehash: ac6a00efa7db848e4c05703c81ba835fbf5f77e3
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 7ac04b29853ce0d4f6ac4004bdfad4effd283170
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86103793"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132997"
 ---
 # <a name="connect-hybrid-machines-to-azure-at-scale"></a>Łączenie maszyn hybrydowych z platformą Azure na dużą skalę
 
@@ -76,7 +76,7 @@ Rola **dołączania maszyny połączonej z platformą Azure** zawiera tylko upra
 
 ## <a name="install-the-agent-and-connect-to-azure"></a>Instalowanie agenta i nawiązywanie połączenia z platformą Azure
 
-Poniższe kroki instalują i konfigurują agenta podłączonego maszyny na maszynach hybrydowych przy użyciu szablonu skryptu, który wykonuje podobne kroki opisane w artykule [łączenie maszyn hybrydowych z platformą Azure z artykułu Azure Portal](onboard-portal.md) . Różnica znajduje się w ostatnim kroku, w którym można nawiązać połączenie z usługą Azure ARC przy użyciu `azcmagent` polecenia przy użyciu nazwy głównej usługi. 
+Poniższe kroki instalują i konfigurują agenta podłączonego maszyny na maszynach hybrydowych przy użyciu szablonu skryptu, który wykonuje podobne kroki opisane w artykule [łączenie maszyn hybrydowych z platformą Azure z artykułu Azure Portal](onboard-portal.md) . Różnica znajduje się w ostatnim kroku, w którym można nawiązać połączenie z usługą Azure ARC przy użyciu `azcmagent` polecenia przy użyciu nazwy głównej usługi.
 
 Poniżej przedstawiono ustawienia, które należy skonfigurować dla jednostki `azcmagent` usługi.
 
@@ -110,6 +110,10 @@ msiexec /i AzureConnectedMachineAgent.msi /l*v installationlog.txt /qn | Out-Str
   --subscription-id "{subscriptionID}"
 ```
 
+>[!NOTE]
+>Skrypt obsługuje tylko uruchamianie z 64-bitowej wersji programu Windows PowerShell.
+>
+
 ### <a name="linux-installation-script"></a>Skrypt instalacji systemu Linux
 
 Poniżej znajduje się przykładowy skrypt instalacji programu Connected Machine Agent dla systemu Linux, który został zmodyfikowany w celu korzystania z jednostki usługi w celu obsługi w pełni zautomatyzowanej, nieinteraktywnej instalacji agenta.
@@ -131,7 +135,10 @@ azcmagent connect \
   --subscription-id "{subscriptionID}"
 ```
 
-Po zainstalowaniu agenta programu i skonfigurowaniu go w celu nawiązania połączenia z usługą Azure ARC dla serwerów (wersja zapoznawcza) przejdź do Azure Portal, aby sprawdzić, czy serwer został pomyślnie połączony. Wyświetlanie maszyn w [Azure Portal](https://aka.ms/hybridmachineportal).
+>[!NOTE]
+>Aby uruchamiać **azcmagent**, musisz mieć uprawnienia dostępu *głównego* na maszynach z systemem Linux.
+
+Po zainstalowaniu agenta programu i skonfigurowaniu go w celu nawiązania połączenia z usługą Azure ARC dla serwerów (wersja zapoznawcza) przejdź do Azure Portal, aby sprawdzić, czy serwer został pomyślnie połączony. Wyświetl maszyny w witrynie [Azure Portal](https://aka.ms/hybridmachineportal).
 
 ![Pomyślne połączenie z serwerem](./media/onboard-portal/arc-for-servers-successful-onboard.png)
 

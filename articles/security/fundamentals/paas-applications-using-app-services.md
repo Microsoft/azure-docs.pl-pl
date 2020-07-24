@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2019
 ms.author: terrylan
-ms.openlocfilehash: 49b51a5f14f305afa915ec1d0fae42ca9ded6b1e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fc273c2e6e27c191b4407ffae86a4ba227ee642b
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81461671"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87131042"
 ---
 # <a name="best-practices-for-securing-paas-web-and-mobile-applications-using-azure-app-service"></a>Najlepsze rozwiązania dotyczące zabezpieczania aplikacji PaaS Web i Mobile przy użyciu Azure App Service
 
@@ -33,7 +33,7 @@ Azure App Service to oferta typu "platforma jako usługa" (PaaS), która umożli
 App Service udostępnia usługę OAuth 2,0 dla dostawcy tożsamości. Uwierzytelnianie OAuth 2,0 koncentruje się na prostotie deweloperów klienta, a jednocześnie udostępnia określone przepływy autoryzacji dla aplikacji sieci Web, aplikacji klasycznych i telefonów komórkowych. Usługa Azure AD korzysta z protokołu OAuth 2,0, aby umożliwić autoryzowanie dostępu do aplikacji mobilnych i sieci Web. Aby dowiedzieć się więcej, zobacz temat [uwierzytelnianie i autoryzacja w Azure App Service](../../app-service/overview-authentication-authorization.md).
 
 ## <a name="restrict-access-based-on-role"></a>Ograniczanie dostępu na podstawie roli
-Ograniczanie dostępu jest przeznaczone dla organizacji, które chcą wymusić zasady zabezpieczeń na potrzeby dostępu do danych. Kontroli dostępu opartej na rolach (RBAC) można używać do przypisywania uprawnień użytkownikom, grupom i aplikacjom w określonym zakresie, takich jak konieczność znajomości i najniższych zasad zabezpieczeń. Aby dowiedzieć się więcej o udzielaniu użytkownikom dostępu do aplikacji, zobacz [co to jest kontrola dostępu oparta na rolach](/azure/role-based-access-control/overview).
+Ograniczanie dostępu jest przeznaczone dla organizacji, które chcą wymusić zasady zabezpieczeń na potrzeby dostępu do danych. Kontroli dostępu opartej na rolach (RBAC) można używać do przypisywania uprawnień użytkownikom, grupom i aplikacjom w określonym zakresie, takich jak konieczność znajomości i najniższych zasad zabezpieczeń. Aby dowiedzieć się więcej o udzielaniu użytkownikom dostępu do aplikacji, zobacz [co to jest kontrola dostępu oparta na rolach (Azure RBAC)](/azure/role-based-access-control/overview).
 
 ## <a name="protect-your-keys"></a>Ochrona kluczy
 Nie ma znaczenia, jak dobre zabezpieczenia to utrata kluczy subskrypcji. Usługa Azure Key Vault ułatwia ochronę kluczy kryptograficznych i kluczy tajnych używanych przez aplikacje i usługi w chmurze. Za pomocą Key Vault można szyfrować klucze i wpisy tajne (takie jak klucze uwierzytelniania, klucze konta magazynu, klucze szyfrowania danych). Pliki i hasła PFX) przy użyciu kluczy chronionych przez sprzętowe moduły zabezpieczeń (sprzętowych modułów zabezpieczeń). W celu zapewnienia dodatkowego bezpieczeństwa możesz zaimportować lub wygenerować klucze w modułach HSM. Za pomocą Key Vault można także zarządzać certyfikatami TLS przy użyciu autoodnawiania. Aby dowiedzieć się więcej, zobacz [co to jest Azure Key Vault](../../key-vault/general/overview.md) .

@@ -3,12 +3,12 @@ title: Organizowanie zasobów przy użyciu grup zarządzania — Zarządzanie pl
 description: Dowiedz się więcej na temat grup zarządzania, sposobu działania ich uprawnień i korzystania z nich.
 ms.date: 07/06/2020
 ms.topic: overview
-ms.openlocfilehash: b3d031b68ee7dba9c80ee0c7e97898bb8b439a47
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 1856b2d6f8fafb18757d547d0117f584fb2abb24
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85963686"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132929"
 ---
 # <a name="what-are-azure-management-groups"></a>Co to są grupy zarządzania systemu Azure?
 
@@ -27,7 +27,7 @@ Możesz utworzyć hierarchię stosującą zasady, na przykład ograniczające lo
 
 Innym scenariuszem, w którym można użyć grup zarządzania, jest zapewnienie użytkownikom dostępu do wielu subskrypcji. Przenosząc wiele subskrypcji do tej grupy zarządzania, można utworzyć jedno przypisanie [kontroli dostępu opartej na rolach](../../role-based-access-control/overview.md) (RBAC) do grupy zarządzania, które będzie dziedziczyło ten dostęp do wszystkich subskrypcji. Jedno przypisanie grupy zarządzania może zapewnić użytkownikom dostęp do wszystkiego, czego potrzebują, bez konieczności tworzenia skryptów RBAC dla wielu subskrypcji.
 
-### <a name="important-facts-about-management-groups"></a>Ważne informacje dotyczące grup zarządzania
+### <a name="important-facts-about-management-groups"></a>Ważne fakty dotyczące grup zarządzania
 
 - W jednym katalogu może być obsługiwane 10000 grup zarządzania.
 - Drzewo grupy zarządzania może obsługiwać maksymalnie sześć poziomów głębokości.
@@ -100,9 +100,9 @@ Na poniższym wykresie przedstawiono listę ról i obsługiwane akcje na grupach
 \*: W przypadku współautora i oddziału MG można zezwolić użytkownikom na wykonywanie tych działań tylko w zakresie grupy zarządzania.  
 \*\*: Przypisania ról w głównej grupie zarządzania nie są wymagane do przeniesienia subskrypcji lub grupy zarządzania do i z niej. Aby uzyskać szczegółowe informacje o przenoszeniu elementów w hierarchii, zobacz [Zarządzanie zasobami przy użyciu grup zarządzania](manage.md).
 
-## <a name="custom-rbac-role-definition-and-assignment"></a>Niestandardowa definicja roli RBAC i przypisanie
+## <a name="azure-custom-role-definition-and-assignment"></a>Definiowanie i przypisywanie roli niestandardowej platformy Azure
 
-Obsługa niestandardowych ról RBAC dla grup zarządzania jest obecnie w wersji zapoznawczej z pewnymi [ograniczeniami](#limitations). Zakres grupy zarządzania można zdefiniować w możliwym do przypisania zakresie definicji roli. Ta niestandardowa rola RBAC będzie wówczas dostępna do przypisania w tej grupie zarządzania oraz we wszystkich zawartych w niej grupach zarządzania, subskrypcjach, grupach zasobów lub zasobach. Ta rola niestandardowa będzie dziedziczyć hierarchię tak jak każda wbudowana rola.  
+Obsługa ról niestandardowych platformy Azure dla grup zarządzania jest obecnie w wersji zapoznawczej z pewnymi [ograniczeniami](#limitations). Zakres grupy zarządzania można zdefiniować w możliwym do przypisania zakresie definicji roli. Rola niestandardowa platformy Azure będzie następnie dostępna do przypisywania do tej grupy zarządzania oraz dla każdej grupy zarządzania, subskrypcji, grupy zasobów lub zasobu. Ta rola niestandardowa będzie dziedziczyć hierarchię tak jak każda wbudowana rola.  
 
 ### <a name="example-definition"></a>Przykładowa definicja
 

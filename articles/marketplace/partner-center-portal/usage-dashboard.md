@@ -1,16 +1,16 @@
 ---
-title: Pulpit nawigacyjny użycia na platformie Microsoft Commercial Marketplace Analytics
+title: Pulpit nawigacyjny użycia na platformie Microsoft Commercial Marketplace Analytics, Azure Marketplace i Microsoft AppSource
 description: Dowiedz się, jak uzyskać dostęp do wszystkich maszyn wirtualnych, w których są dostępne metryki dotyczące rozliczeń. Przejdź do pulpitu nawigacyjnego użycie w centrum partnerskim w obszarze komercyjne witryny Marketplace.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
-ms.date: 12/11/2019
-ms.openlocfilehash: 8747ff98cd2b53773d9e0a95436d90fef74fda55
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.topic: article
+ms.date: 07/22/2020
+ms.openlocfilehash: a03ef316b409fdeff687f0ee7bbbf6316857c54b
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86120674"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87131749"
 ---
 # <a name="usage-dashboard-in-microsoft-commercial-marketplace-analytics"></a>Pulpit nawigacyjny użycia na platformie Microsoft Commercial Marketplace Analytics
 
@@ -30,14 +30,13 @@ Na karcie użycie maszyny wirtualnej znajdują się graficzne reprezentacje nast
 - [Podsumowanie użycia](#usage-summary)
 - [Użycie według położenia geograficznego](#usage-by-geography)
 - [Użycie przez oferty](#usage-by-offers)
-- [Trend użycia według ofert i jednostek SKU](#usage-trend-by-offers-and-skus)
+- [Trend użycia według ofert i planów](#usage-trend-by-offers-and-plans)
 - [Użycie według typu oferty](#usage-by-offer-type)
 - [Użycie według rozmiaru maszyny wirtualnej](#usage-by-vm-size)
 - [Użycie według kanału sprzedaży](#usage-by-sales-channel)
 - [Szczegółowe dane użycia](#detailed-usage-data)
 
-> [!NOTE]
-> Raporty analityczne są wyświetlane inaczej w portal Cloud Partner (CPP) i centrum partnerskie. **Informacje o sprzedawcy** w programie CPP mają kartę zamówienia i użycie, która wyświetla dane dla ofert opartych na użyciu i nieopartych na użyciu. W centrum partnerskim metryki użycia są wyświetlane na osobnej stronie.
+Maksymalne opóźnienie między generowaniem i raportowaniem zdarzeń użycia w centrum partnerskim wynosi 48 godzin.
 
 ### <a name="usage-summary"></a>Podsumowanie użycia
 
@@ -52,7 +51,7 @@ W tabeli Podsumowanie użycia są wyświetlane godziny użycia klientów dla wsz
 
 ### <a name="usage-by-geography"></a>Użycie według położenia geograficznego
 
-**Znormalizowane użycie według lokalizacji geograficznej** mapę cieplną wyświetla godziny użycia mapowane zgodnie z krajem/regionem klienta. Odmiana koloru kraju/regionu reprezentuje znormalizowane stężenie użycia. Przywróć widok oryginalny, naciskając przycisk Home ( **Strona główna** ) na mapie.
+**Znormalizowany sposób użycia według** mapy termicznej — wyświetla godziny użycia mapowane zgodnie z krajem/regionem klienta. Odmiana koloru kraju/regionu reprezentuje znormalizowane stężenie użycia. Przywróć widok oryginalny, naciskając przycisk Home ( **Strona główna** ) na mapie.
 
 ### <a name="usage-by-offers"></a>Użycie przez oferty
 
@@ -60,9 +59,9 @@ W tabeli Podsumowanie użycia są wyświetlane godziny użycia klientów dla wsz
 - Wykres słupkowy przedstawia trend wzrostu miesiąc po miesiącu dla wybranego zakresu dat. Kolumny miesiąc przedstawiają godziny użycia z ofert o największej godzinie użycia dla danego miesiąca. Wykres liniowy przedstawia trend procentu wzrostu wykreślony na pomocniczej osi Y.
 - Użyj suwaka u góry wykresu, aby przewinąć w prawo do lewej wzdłuż osi x i/lub skupić się na określonych punktach danych.
 
-### <a name="usage-trend-by-offers-and-skus"></a>Trend użycia według ofert i jednostek SKU
+### <a name="usage-trend-by-offers-and-plans"></a>Trend użycia według ofert i planów
 
-Ten wykres przedstawia trend znormalizowanych użycia dla wybranych jednostek SKU oferty. Oferta rankingów zawiera najpopularniejsze oferty 50 o największym użyciu, posortowane według godzin użycia. Rankingów SKU zawiera listę głównych jednostek SKU 50 o największym użyciu dla wybranej oferty.
+Ten wykres przedstawia trend znormalizowanych użycia dla wybranych planów (wcześniej nazywanych jednostkami SKU) oferty. Oferta rankingów zawiera najpopularniejsze oferty 50 o największym użyciu, posortowane według godzin użycia. W planie rankingów są wyświetlane najważniejsze plany 50 o największym użyciu dla wybranej oferty.
 
 ### <a name="usage-by-offer-type"></a>Użycie według typu oferty
 
@@ -72,7 +71,7 @@ Ten wykres przedstawia trend znormalizowanych użycia dla wybranych jednostek SK
 
 ### <a name="usage-by-vm-size"></a>Użycie według rozmiaru maszyny wirtualnej
 
-Ten wykres przedstawia trend użycia dla wybranych rozmiarów maszyn wirtualnych (maksymalnie 5) wszystkich ofert/jednostek SKU. Wykres kolumnowy jest układany w godzinach użycia wybranych rozmiarów maszyn wirtualnych.
+Ten wykres przedstawia trend użycia dla wybranych rozmiarów maszyn wirtualnych (maksymalnie pięć) wszystkich ofert/planów. Wykres kolumnowy jest układany w godzinach użycia wybranych rozmiarów maszyn wirtualnych.
 
 W rankingów są wyświetlane najbardziej 50 rozmiary maszyn wirtualnych o największym wykorzystaniu i posortowane według godzin użycia.
 
@@ -90,7 +89,7 @@ W **tabeli Szczegóły użycia** zostanie wyświetlona lista numerowana pierwszy
 - Każda kolumna w siatce jest do sortowania.
 - Dane można wyodrębnić do pliku CSV, jeśli liczba rekordów jest mniejsza niż 1000.
 - Jeśli liczba rekordów przekracza 1000, dane eksportu będą asynchroniczne umieszczane na stronie pobierania, które będą dostępne w ciągu następnych 30 dni.
-- Filtry można zastosować do **szczegółowych danych użycia** , aby wyświetlić tylko te dane, które Cię interesują. Dane można filtrować według kraju/regionu, kanału sprzedaży, typu licencji Marketplace, typu użycia, nazwy oferty, typu oferty, bezpłatnej wersji próbnej, identyfikatora subskrypcji witryny Marketplace, identyfikatora klienta i nazwy firmy.
+- Zastosuj filtry do **szczegółowych danych użycia** , aby wyświetlić tylko te dane, które Cię interesują. Filtrowanie danych według kraju/regionu, kanału sprzedaży, typu licencji Marketplace, typu użycia, nazwy oferty, typu oferty, bezpłatnej wersji próbnej, identyfikatora subskrypcji witryny Marketplace, identyfikatora klienta i nazwy firmy.
 
 > [!NOTE]
 > Wybierz **Typ użycia** w filtrze strony, aby wyświetlić wykresy na stronie w widoku "znormalizowany widok" lub "widok nieprzetworzony". Domyślnym widokiem tych wykresów jest "widok znormalizowany".
@@ -107,7 +106,7 @@ W **tabeli Szczegóły użycia** zostanie wyświetlona lista numerowana pierwszy
 Karta **taryfowe użycie rozliczeń** przedstawia informacje o użyciu dla typów ofert, w których użycie jest mierzone przez wymiar miernika. Typ nadwyżki oferty SaaS jest obecnie prezentowany. Na karcie przedstawiono graficzną reprezentację trendów nadwyżkowych w przypadku używania rozliczeń SaaS z naliczaniem:
 
 - **Trend nadwyżkowy według wymiaru miernika**: przedstawia miesięczną wartość trendu nadwyżkowego dla wybranego wymiaru licznika oferty. Oś X reprezentuje miesiąc, a oś Y reprezentuje ilość użycia. Jednostka pomiaru licznika niestandardowego jest również wyświetlana na osi Y.
-- **Trend nadwyżkowy według jednostki SKU**: reprezentuje trend ilości użycia wybranego wymiaru licznika według jednostek SKU. Wyświetlone jednostki SKU będą reprezentować 5 głównych jednostek SKU z największą ilością użycia wybranej oferty.
+- **Trend nadwyżkowy według planu**: reprezentuje trend ilości użycia wybranego wymiaru licznika według planów. Wyświetlone plany będą przedstawiać pięć najważniejszych planów z największą ilością użycia wybranej oferty.
 - **Trend nadwyżkowy według najlepszych 50 klientów**: oferty z największą ilością w wysokości 50 są wyświetlane na ***tablicy lidera*** i są klasyfikowane według najwyższego użycia miernika niestandardowego. Wybierz klienta w rankingów, aby wyświetlić trend użycia wybranego wymiaru miernika.
 - **Trend nadwyżkowy według klientów najczęściej**: przedstawia najważniejsze percentyle klienta, które przyczyniają się do% całkowitego użycia. Najwyższy percentyl klienta jest wyświetlany wzdłuż osi X i jest określany przez ilość użycia klienta. Oś Y Wyświetla ilość użycia. Możesz wyświetlić szczegóły, umieszczając kursor nad punktami wzdłuż wykresu liniowego.
 

@@ -2,20 +2,20 @@
 title: Jak skonfigurować potok ciągłej integracji/ciągłego wdrażania dla Azure Data Lake Analytics
 description: Dowiedz się, jak skonfigurować ciągłą integrację i ciągłe wdrażanie dla Azure Data Lake Analytics.
 services: data-lake-analytics
-author: yanancai
-ms.author: yanacai
-ms.reviewer: jasonwhowell
+author: liudan66
+ms.author: liud
+ms.reviewer: jasonh
 ms.assetid: 66dd58b1-0b28-46d1-aaae-43ee2739ae0a
 ms.service: data-lake-analytics
 ms.topic: how-to
 ms.workload: big-data
 ms.date: 09/14/2018
-ms.openlocfilehash: cd696539cda5b24d801da692822b13de143249dd
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 09b4f36a5c97b6bcc0a8d11d2fb1ee0893fae80a
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121524"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87130141"
 ---
 # <a name="how-to-set-up-a-cicd-pipeline-for-azure-data-lake-analytics"></a>Jak skonfigurować potok ciągłej integracji/ciągłego wdrażania dla Azure Data Lake Analytics  
 
@@ -456,7 +456,7 @@ Wykonaj następujące kroki, aby skonfigurować zadanie wdrażania bazy danych w
 | Parametr | Opis | Wartość domyślna | Wymagane |
 |---------|-----------|-------------|--------|
 |Pakiet|Ścieżka pakietu wdrożeniowego bazy danych U-SQL, który ma zostać wdrożony.|wartość null|true|
-|baza danych|Nazwa bazy danych, która ma zostać wdrożona lub utworzona.|master|fałsz|
+|Baza danych|Nazwa bazy danych, która ma zostać wdrożona lub utworzona.|master|fałsz|
 |Pliki|Ścieżka pliku do rejestrowania. Domyślnie dla standardowego (konsoli).|wartość null|fałsz|
 |LogLevel|Poziom dziennika: verbose, Normal, Warning lub Error.|LogLevel. Normal|fałsz|
 

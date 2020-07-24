@@ -1,14 +1,14 @@
 ---
 title: Projektowanie przepływów pracy typu zasady jako kod
 description: Dowiedz się, jak projektować przepływy pracy, aby wdrożyć definicje Azure Policy jako kod i automatycznie sprawdzać poprawność zasobów.
-ms.date: 05/20/2020
+ms.date: 07/23/2020
 ms.topic: conceptual
-ms.openlocfilehash: 17964459c6c06e6d7df09da4d3f0813350f209ec
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: 02ff979feac1afb5f1664e6387e0abcde69b60eb
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85970947"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87131501"
 ---
 # <a name="design-policy-as-code-workflows"></a>Projektowanie przepływów pracy typu zasady jako kod
 
@@ -20,6 +20,24 @@ W miarę postępów związanych z zarządzaniem chmurą należy zmienić ręczn�
 Zasady jako kod to kombinacja tych pomysłów. Zasadniczo należy zachować definicje zasad w kontroli źródła oraz za każdym razem, gdy zmiana została wprowadzona, przetestować i zweryfikować tę zmianę. Jednak nie powinno to być stopień zaangażowania zasad z infrastrukturą jako kodem lub DevOps.
 
 Krok walidacji powinien również być składnikiem innych przepływów pracy ciągłej integracji i ciągłego wdrażania. Przykłady obejmują wdrażanie środowiska aplikacji lub infrastruktury wirtualnej. Dzięki wykorzystaniu Azure Policy sprawdzać poprawność wczesnego składnika procesu kompilacji i wdrożenia, zespoły aplikacji i operacji wykrywają, czy zmiany nie są zgodne, długo przed upływem zbyt późno i podejmują próbę wdrożenia w środowisku produkcyjnym.
+
+## <a name="definitions-and-foundational-information"></a>Definicje i informacje podstawowe
+
+Przed zapoznaj się ze szczegółami dotyczącymi zasad jako przepływu pracy w kodzie, przejrzyj następujące definicje i przykłady:
+
+- [Definicja zasad](./definition-structure.md)
+- [Definicja inicjatywy](./initiative-definition-structure.md)
+
+Nazwy plików są wyrównane do części definicji zasad lub inicjatywy:
+- `policy(set).json`-Cała definicja
+- `policy(set).parameters.json`- `properties.parameters` Część definicji
+- `policy.rules.json`- `properties.policyRule` Część definicji
+- `policyset.definitions.json`- `properties.policyDefinitions` Część definicji
+
+Przykłady tych formatów plików są dostępne w [repozytorium Azure Policy GitHub](https://github.com/Azure/azure-policy/):
+
+- Definicja zasad: [Dodawanie znacznika do zasobów](https://github.com/Azure/azure-policy/tree/master/samples/Tags/add-tag)
+- Definicja inicjatywy: [Tagi rozliczeń](https://github.com/Azure/azure-policy/tree/master/samples/PolicyInitiatives/multiple-billing-tags)
 
 ## <a name="workflow-overview"></a>Omówienie przepływu pracy
 

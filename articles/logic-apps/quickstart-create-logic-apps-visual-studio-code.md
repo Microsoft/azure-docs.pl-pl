@@ -1,20 +1,20 @@
 ---
-title: Automatyzacja zadań za pomocą Visual Studio Code
-description: Utwórz lub Edytuj podstawowe definicje JSON aplikacji logiki przy użyciu Visual Studio Code (VS Code)
+title: Automatyzowanie zadań i przepływów pracy za pomocą Visual Studio Code
+description: Tworzenie lub edytowanie definicji przepływu pracy aplikacji logiki przy użyciu Visual Studio Code (VS Code)
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, deli, logicappspm
+ms.reviewer: jonfan, deli, logicappspm
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 10/25/2019
-ms.openlocfilehash: 3dccb596be2d97dd0f38d680537913a76ce09e93
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a2239d5ee70e90b9ee7c07b4dca78a45d2ce7ef9
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82147062"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87131484"
 ---
-# <a name="quickstart-create-and-manage-logic-app-workflow-definitions-by-using-visual-studio-code"></a>Szybki Start: Tworzenie definicji przepływu pracy aplikacji logiki i zarządzanie nimi za pomocą Visual Studio Code
+# <a name="quickstart-create-and-manage-logic-app-workflow-definitions-by-using-visual-studio-code"></a>Szybki start: Tworzenie definicji przepływu pracy aplikacji logiki i zarządzanie nimi za pomocą programu Visual Studio Code
 
 Dzięki [Azure Logic Apps](../logic-apps/logic-apps-overview.md) i Visual Studio Code można tworzyć i zarządzać aplikacjami logiki, które ułatwiają automatyzację zadań, przepływów pracy i procesów integracji aplikacji, danych, systemów i usług w różnych organizacjach i przedsiębiorstwach. Ten przewodnik Szybki Start przedstawia sposób tworzenia i edytowania podstawowych definicji przepływu pracy, które używają JavaScript Object Notation (JSON) dla usługi Logic Apps za pośrednictwem środowiska opartego na kodzie. Możesz również korzystać z istniejących aplikacji logiki, które są już wdrożone na platformie Azure.
 
@@ -50,9 +50,9 @@ Przed rozpoczęciem upewnij się, że masz następujące elementy:
 
     Aby uzyskać więcej informacji, zobacz temat [rozszerzanie witryny Marketplace](https://code.visualstudio.com/docs/editor/extension-gallery). Aby współtworzyć wersję "open source" tego rozszerzenia, odwiedź [Azure Logic Apps rozszerzenia Visual Studio Code w witrynie GitHub](https://github.com/Microsoft/vscode-azurelogicapps).
 
-<a name="sign-in-azure"></a>
+<a name="access-azure"></a>
 
-## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
+## <a name="access-azure-from-visual-studio"></a>Dostęp do platformy Azure z poziomu programu Visual Studio
 
 1. Otwórz program Visual Studio Code. Na pasku narzędzi Visual Studio Code wybierz ikonę platformy Azure.
 
@@ -99,7 +99,7 @@ Przed rozpoczęciem upewnij się, że masz następujące elementy:
 
 ## <a name="create-new-logic-app"></a>Utwórz nową aplikację logiki
 
-1. Jeśli nie zalogowano się na koncie platformy Azure i subskrypcjach jeszcze z poziomu Visual Studio Code, wykonaj [poprzednie kroki, aby zalogować się teraz](#sign-in-azure).
+1. Jeśli nie zalogowano się na koncie platformy Azure i subskrypcjach jeszcze z poziomu Visual Studio Code, wykonaj [poprzednie kroki, aby zalogować się teraz](#access-azure).
 
 1. W programie Visual Studio Code w obszarze **Logic Apps**Otwórz menu skrótów subskrypcji, a następnie wybierz pozycję **Utwórz aplikację logiki**.
 
@@ -123,17 +123,17 @@ Przed rozpoczęciem upewnij się, że masz następujące elementy:
 
    ![Podaj nazwę aplikacji logiki](./media/quickstart-create-logic-apps-visual-studio-code/enter-name-logic-app.png)
 
-   W oknie platformy Azure w obszarze subskrypcji platformy Azure zostanie wyświetlona nowa i pusta aplikacja logiki. Visual Studio Code otwiera również plik JSON (. logicapp. JSON), który zawiera szkieletową definicję przepływu pracy dla aplikacji logiki. Teraz można rozpocząć ręczne tworzenie definicji przepływu pracy aplikacji logiki w tym pliku JSON. Aby uzyskać informacje techniczne na temat struktury i składni dla definicji przepływu pracy, zobacz [schemat języka definicji przepływu pracy dla Azure Logic Apps](../logic-apps/logic-apps-workflow-definition-language.md).
+   W oknie platformy Azure w obszarze subskrypcji platformy Azure zostanie wyświetlona nowa i pusta aplikacja logiki. Visual Studio Code otwiera również plik JSON (.logicapp.json), który zawiera szkieletową definicję przepływu pracy dla aplikacji logiki. Teraz można rozpocząć ręczne tworzenie definicji przepływu pracy aplikacji logiki w tym pliku JSON. Aby uzyskać informacje techniczne na temat struktury i składni dla definicji przepływu pracy, zobacz [schemat języka definicji przepływu pracy dla Azure Logic Apps](../logic-apps/logic-apps-workflow-definition-language.md).
 
    ![Pusty plik JSON definicji przepływu pracy aplikacji logiki](./media/quickstart-create-logic-apps-visual-studio-code/empty-logic-app-workflow-definition.png)
 
    Przykładowo poniżej przedstawiono definicję przykładowej przepływu pracy aplikacji logiki, która rozpoczyna się od wyzwalacza RSS i akcji programu Outlook w programie Office 365. Zazwyczaj elementy JSON są wyświetlane alfabetycznie w każdej sekcji. Jednak ten przykład pokazuje te elementy w kolejności, w jakiej są wyświetlane kroki aplikacji logiki w projektancie.
 
    > [!IMPORTANT]
-   > Jeśli chcesz ponownie użyć tej przykładowej definicji aplikacji logiki, potrzebujesz konta organizacyjnego Office 365, na przykład @fabrikam.com. Pamiętaj, aby zamienić fikcyjny adres e-mail na własny adres e-mail. Aby użyć innego łącznika poczty e-mail, takiego jak Outlook.com lub Gmail, Zastąp `Send_an_email_action` akcję podobną akcją dostępną z [łącznika poczty e-mail obsługiwanego przez Azure Logic Apps](../connectors/apis-list.md).
+   > Jeśli chcesz ponownie użyć tej przykładowej definicji aplikacji logiki, potrzebujesz konta organizacyjnego Office 365, na przykład @fabrikam.com . Pamiętaj, aby zamienić fikcyjny adres e-mail na własny adres e-mail. Aby użyć innego łącznika poczty e-mail, takiego jak Outlook.com lub Gmail, Zastąp `Send_an_email_action` akcję podobną akcją dostępną z [łącznika poczty e-mail obsługiwanego przez Azure Logic Apps](../connectors/apis-list.md).
    >
    > Jeśli chcesz korzystać z łącznika usługi Gmail, tylko konta firmowe z zestawu G-Suite mogą używać tego łącznika bez ograniczeń w usłudze Logic Apps. 
-   > Jeśli masz konto użytkownika usługi Gmail, możesz użyć tego łącznika z tylko określonymi usługami zatwierdzonymi przez firmę Google lub możesz [utworzyć aplikację kliencką Google, która będzie używana do uwierzytelniania za pomocą łącznika usługi Gmail](https://docs.microsoft.com/connectors/gmail/#authentication-and-bring-your-own-application). 
+   > Jeśli masz konto użytkownika usługi Gmail, możesz użyć tego łącznika z tylko określonymi usługami zatwierdzonymi przez firmę Google lub możesz [utworzyć aplikację kliencką Google, która będzie używana do uwierzytelniania za pomocą łącznika usługi Gmail](/connectors/gmail/#authentication-and-bring-your-own-application). 
    > Aby uzyskać więcej informacji, zobacz [zabezpieczenia danych i zasady ochrony prywatności dla łączników Google w Azure Logic Apps](../connectors/connectors-google-data-security-privacy-policy.md).
 
    ```json
@@ -226,7 +226,7 @@ Aby przejrzeć aplikację logiki w Azure Portal, wykonaj następujące kroki:
 
 W Visual Studio Code, Jeśli edytujesz opublikowaną aplikację logiki i zapiszesz zmiany, *nadpiszesz* już wdrożoną aplikację. Aby uniknąć przerwania działania aplikacji logiki w środowisku produkcyjnym i zminimalizować zakłócenia, najpierw zdezaktywuj aplikację logiki. Następnie możesz ponownie uaktywnić aplikację logiki po potwierdzeniu, że aplikacja logiki nadal działa.
 
-1. Jeśli nie zalogowano się na koncie platformy Azure i subskrypcjach jeszcze z poziomu Visual Studio Code, wykonaj [poprzednie kroki, aby zalogować się teraz](#sign-in-azure).
+1. Jeśli nie zalogowano się na koncie platformy Azure i subskrypcjach jeszcze z poziomu Visual Studio Code, wykonaj [poprzednie kroki, aby zalogować się teraz](#access-azure).
 
 1. W oknie platformy Azure w obszarze **Logic Apps**Rozwiń swoją subskrypcję platformy Azure, aby wyświetlić wszystkie aplikacje logiki w tej subskrypcji.
 
@@ -247,7 +247,7 @@ W Visual Studio Code można otworzyć i edytować definicję przepływu pracy dl
 > [!IMPORTANT] 
 > Przed edytowaniem aktywnie działającej aplikacji logiki w środowisku produkcyjnym należy unikać ryzyka związanego z uszkodzeniem tej aplikacji logiki i zminimalizować zakłócenia, [wyłączając najpierw aplikację logiki](#disable-enable-logic-app).
 
-1. Jeśli nie zalogowano się na koncie platformy Azure i subskrypcjach jeszcze z poziomu Visual Studio Code, wykonaj [poprzednie kroki, aby zalogować się teraz](#sign-in-azure).
+1. Jeśli nie zalogowano się na koncie platformy Azure i subskrypcjach jeszcze z poziomu Visual Studio Code, wykonaj [poprzednie kroki, aby zalogować się teraz](#access-azure).
 
 1. W oknie platformy Azure w obszarze **Logic Apps**Rozwiń swoją subskrypcję platformy Azure i wybierz żądaną aplikację logiki.
 
@@ -255,7 +255,7 @@ W Visual Studio Code można otworzyć i edytować definicję przepływu pracy dl
 
    ![Otwieranie edytora dla istniejącej aplikacji logiki](./media/quickstart-create-logic-apps-visual-studio-code/open-editor-existing-logic-app.png)
 
-   Visual Studio Code otwiera plik. logicapp. JSON w lokalnym folderze tymczasowym, aby można było wyświetlić definicję przepływu pracy aplikacji logiki.
+   Visual Studio Code otwiera .logicapp.jspliku w lokalnym folderze tymczasowym, aby można było wyświetlić definicję przepływu pracy aplikacji logiki.
 
    ![Wyświetl definicję przepływu pracy dla opublikowanej aplikacji logiki](./media/quickstart-create-logic-apps-visual-studio-code/edit-published-logic-app-workflow-definition.png)
 

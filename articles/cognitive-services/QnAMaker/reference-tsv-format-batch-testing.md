@@ -3,19 +3,17 @@ title: Format TSV testu wsadowego — QnA Maker
 titleSuffix: Azure Cognitive Services
 description: Informacje o formacie TSV dla testów wsadowych
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 10/24/2019
-ms.author: diberry
-ms.openlocfilehash: dccf034b6497651db70b6cc09fff3f1b1d645a1b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 0ed948b4bf69fc672a59a7825279a12868d10521
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73507826"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132130"
 ---
 # <a name="batch-testing-tsv-format"></a>Format TSV testów wsadowych
 

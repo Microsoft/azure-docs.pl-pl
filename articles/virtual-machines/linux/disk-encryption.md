@@ -8,12 +8,12 @@ ms.author: rogarana
 ms.service: virtual-machines-linux
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 0847f2360a3562f96454992470e3cc2000f66b11
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: fba16f9245c8d438268338329ebadad7a57ef206
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86502728"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87131926"
 ---
 # <a name="server-side-encryption-of-azure-disk-storage"></a>Szyfrowanie po stronie serwera Azure Disk Storage
 
@@ -80,8 +80,7 @@ Klienci z wysokim poziomem zabezpieczeń, którzy są zainteresowani ryzykiem zw
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Włącz kompleksowe szyfrowanie przy użyciu szyfrowania w interfejsie wiersza polecenia hosta](disks-enable-host-based-encryption-cli.md)
-- [Włącz podwójne szyfrowanie dla dysków zarządzanych — interfejs wiersza polecenia](disks-enable-double-encryption-at-rest-cli.md)
-- [Włącz klucze zarządzane przez klienta dla dysków zarządzanych — interfejs wiersza polecenia](disks-enable-customer-managed-keys-cli.md)
-- [Włącz klucze zarządzane przez klienta dla dysków zarządzanych — Portal](disks-enable-customer-managed-keys-portal.md)
+- Włącz kompleksowe szyfrowanie przy użyciu szyfrowania na hoście z [interfejsem wiersza polecenia](disks-enable-host-based-encryption-cli.md) lub [Azure Portal](disks-enable-host-based-encryption-portal.md).
+- Włącz podwójne szyfrowanie dla dysków zarządzanych przy użyciu [interfejsu wiersza polecenia](disks-enable-double-encryption-at-rest-cli.md) lub [Azure Portal](disks-enable-double-encryption-at-rest-portal.md).
+- Włącz klucze zarządzane przez klienta dla dysków zarządzanych przy użyciu [interfejsu wiersza polecenia](disks-enable-customer-managed-keys-cli.md) lub [Azure Portal](disks-enable-customer-managed-keys-portal.md).
 - [Co to jest usługa Azure Key Vault?](../../key-vault/general/overview.md)

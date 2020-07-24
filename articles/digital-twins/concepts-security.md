@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/18/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 0a1447e64b606170601e6df6a443f53e3132294d
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ec681d0af132d11e18703dce6105352651a70180
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86522265"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87131620"
 ---
 # <a name="secure-azure-digital-twins-with-role-based-access-control"></a>Zabezpieczanie usługi Azure Digital bliźniaczych reprezentacji z kontrolą dostępu opartą na rolach
 
@@ -35,7 +35,7 @@ Krok uwierzytelniania wymaga, aby każde żądanie aplikacji zawierało token do
 
 Krok autoryzacji wymaga, aby rola RBAC była przypisana do podmiotu zabezpieczeń. Role, które są przypisane do podmiotu zabezpieczeń, określają uprawnienia, które będą miały. Usługa Azure Digital bliźniaczych reprezentacji oferuje role RBAC, które obejmują zestawy uprawnień dla zasobów usługi Azure Digital bliźniaczych reprezentacji. Te role są opisane w dalszej części tego artykułu.
 
-Aby dowiedzieć się więcej o rolach i przypisaniach ról obsługiwanych na platformie Azure, zobacz [Omówienie różnych ról](../role-based-access-control/rbac-and-directory-admin-roles.md) w dokumentacji usługi Azure RBAC.
+Aby dowiedzieć się więcej o rolach i przypisaniach ról obsługiwanych na platformie Azure, zobacz [*Omówienie różnych ról*](../role-based-access-control/rbac-and-directory-admin-roles.md) w dokumentacji usługi Azure RBAC.
 
 ### <a name="authentication-with-managed-identities"></a>Uwierzytelnianie za pomocą tożsamości zarządzanych
 
@@ -46,19 +46,19 @@ Przy użyciu tożsamości zarządzanych platforma Azure zarządza tą tożsamoś
 ### <a name="authorization-rbac-roles-for-azure-digital-twins"></a>Autoryzacja: role RBAC dla usługi Azure Digital bliźniaczych reprezentacji
 
 Na platformie Azure dostępne są następujące wbudowane role RBAC umożliwiające autoryzowanie dostępu do zasobu Digital bliźniaczych reprezentacji systemu Azure:
-* Azure Digital bliźniaczych reprezentacji Owner (wersja zapoznawcza) — Ta rola zapewnia pełen dostęp za pośrednictwem zasobów usługi Azure Digital bliźniaczych reprezentacji.
-* Azure Digital bliźniaczych reprezentacji Reader (wersja zapoznawcza) — Ta rola umożliwia dostęp tylko do odczytu do zasobów usługi Azure Digital bliźniaczych reprezentacji.
+* *Azure Digital bliźniaczych reprezentacji Owner (wersja zapoznawcza)* — ta rola zapewnia pełen dostęp za pośrednictwem zasobów usługi Azure Digital bliźniaczych reprezentacji.
+* *Azure Digital bliźniaczych reprezentacji Reader (wersja zapoznawcza)* — ta rola umożliwia dostęp tylko do odczytu do zasobów usługi Azure Digital bliźniaczych reprezentacji.
 
 > [!TIP]
-> Rola usługi Azure Digital bliźniaczych reprezentacji Reader (wersja zapoznawcza) obsługuje teraz również Przeglądanie relacji.
+> Rola *usługi Azure Digital bliźniaczych reprezentacji Reader (wersja zapoznawcza)* obsługuje teraz również Przeglądanie relacji.
 
-Aby uzyskać więcej informacji na temat sposobu definiowania wbudowanych ról, zobacz [Omówienie definicji ról](../role-based-access-control/role-definitions.md) w dokumentacji usługi Azure RBAC. Aby uzyskać informacje na temat tworzenia niestandardowych ról RBAC, zobacz [role niestandardowe dla zasobów platformy Azure](../role-based-access-control/custom-roles.md).
+Aby uzyskać więcej informacji na temat sposobu definiowania wbudowanych ról, zobacz [*Omówienie definicji ról*](../role-based-access-control/role-definitions.md) w dokumentacji usługi Azure RBAC. Aby uzyskać informacje na temat tworzenia ról niestandardowych platformy Azure, zobacz [*role niestandardowe platformy Azure*](../role-based-access-control/custom-roles.md).
 
 Role można przypisywać na dwa sposoby:
-* za pośrednictwem okienka kontroli dostępu (IAM) dla usługi Azure Digital bliźniaczych reprezentacji w Azure Portal (zobacz [Dodawanie lub usuwanie przypisań ról przy użyciu funkcji RBAC platformy Azure i Azure Portal](../role-based-access-control/role-assignments-portal.md))
+* za pośrednictwem okienka kontroli dostępu (IAM) dla usługi Azure Digital bliźniaczych reprezentacji w Azure Portal (zobacz [*Dodawanie lub usuwanie przypisań ról przy użyciu funkcji RBAC platformy Azure i Azure Portal*](../role-based-access-control/role-assignments-portal.md))
 * za pomocą poleceń interfejsu wiersza polecenia w celu dodania lub usunięcia roli
 
-Aby uzyskać bardziej szczegółowe instrukcje, jak to zrobić, wypróbuj w [samouczku Digital bliźniaczych reprezentacji na platformie Azure: *łączenie kompleksowego rozwiązania*](tutorial-end-to-end.md).
+Aby uzyskać bardziej szczegółowe instrukcje, jak to zrobić, wypróbuj w samouczku Digital bliźniaczych reprezentacji na platformie Azure [*: łączenie kompleksowego rozwiązania*](tutorial-end-to-end.md).
 
 ## <a name="permission-scopes"></a>Zakresy uprawnień
 
@@ -71,8 +71,14 @@ Na poniższej liście opisano poziomy, w których można ograniczyć dostęp do 
 * Relacja Digital bliźniaczy: akcje dla tego zasobu definiują kontrolę nad operacjami CRUD na [relacjach](concepts-twins-graph.md) między cyframi cyfrowymi bliźniaczych reprezentacji na grafie bliźniaczym.
 * Trasa zdarzenia: akcje dla tego zasobu określają uprawnienia do [kierowania zdarzeń](concepts-route-events.md) z usługi Azure Digital bliźniaczych reprezentacji do usługi punktu końcowego, takiej jak [centrum zdarzeń](../event-hubs/event-hubs-about.md), [Event Grid](../event-grid/overview.md)lub [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md).
 
+## <a name="troubleshooting"></a>Rozwiązywanie problemów
+
+Jeśli użytkownik próbuje wykonać akcję niedozwoloną przez ich rolę, może otrzymać błąd od odczytu żądania obsługi `403 (Forbidden)` . Aby uzyskać więcej informacji i kroków rozwiązywania problemów, zobacz [*Rozwiązywanie problemów: żądanie usługi Azure Digital bliźniaczych reprezentacji nie powiodło się. stan: 403 (niedozwolone)*](troubleshoot-error-403.md).
+
 ## <a name="next-steps"></a>Następne kroki
 
-* Zobacz, jak wykonać te kroki, korzystając z przykładowej aplikacji klienckiej w poradach [*: uwierzytelnianie aplikacji klienckiej*](how-to-authenticate-client.md).
+* Zobacz te koncepcje w akcji w czynnościach opisanych w temacie [*: Konfigurowanie wystąpienia i uwierzytelniania*](how-to-set-up-instance-scripted.md).
+
+* Zapoznaj się z tematem jak korzystać z tych koncepcji z kodu aplikacji klienta w artykule [*instrukcje: pisanie kodu uwierzytelniania aplikacji*](how-to-authenticate-client.md).
 
 * Przeczytaj więcej [na temat RBAC na platformie Azure](../role-based-access-control/overview.md).

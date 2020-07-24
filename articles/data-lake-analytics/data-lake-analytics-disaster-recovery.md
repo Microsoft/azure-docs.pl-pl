@@ -2,18 +2,16 @@
 title: Wskazówki dotyczące odzyskiwania po awarii dla Azure Data Lake Analytics
 description: Dowiedz się, jak zaplanować odzyskiwanie po awarii dla kont Azure Data Lake Analytics.
 services: data-lake-analytics
-author: MikeRys
-ms.author: mrys
-ms.reviewer: jasonwhowell
+ms.reviewer: jasonh
 ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 06/03/2019
-ms.openlocfilehash: ba231c4a68d92b3f6f35542d739ad9daedd65776
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: ab39ca8e71376fed681c049d338096ff992fed99
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121405"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132572"
 ---
 # <a name="disaster-recovery-guidance-for-azure-data-lake-analytics"></a>Wskazówki dotyczące odzyskiwania po awarii dla Azure Data Lake Analytics
 

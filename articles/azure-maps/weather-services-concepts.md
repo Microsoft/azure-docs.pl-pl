@@ -1,19 +1,19 @@
 ---
 title: Pojęcia dotyczące usług pogodowych | Mapy Microsoft Azure
 description: Ten artykuł zawiera informacje na temat pojęć, które dotyczą Microsoft Azure mapowania usług pogodowych.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 11/20/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: f38ef2c337564d2b36d3939b3ed03130437e35ea
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: e8ecbd50aa4490bde705b386a67b8732bb8c02c9
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86221769"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132113"
 ---
 # <a name="weather-services-in-azure-maps"></a>Usługi pogodowe w Azure Maps
 

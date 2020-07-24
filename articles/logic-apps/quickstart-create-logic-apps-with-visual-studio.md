@@ -1,18 +1,18 @@
 ---
-title: Automatyzowanie przepływów pracy zadań w programie Visual Studio
-description: Tworzenie, planowanie i uruchamianie cyklicznych przepływów pracy dla integracji przedsiębiorstwa przy użyciu Azure Logic Apps i programu Visual Studio
+title: Automatyzowanie zadań i przepływów pracy za pomocą programu Visual Studio
+description: Tworzenie, planowanie i uruchamianie zautomatyzowanych przepływów pracy dla integracji przedsiębiorstwa przy użyciu Azure Logic Apps i programu Visual Studio
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: logicappspm
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 11/08/2019
-ms.openlocfilehash: 4416c9f9d1c55a460cb983089706e984d90ba082
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 07/22/2020
+ms.openlocfilehash: cd46821b74803d62be0361346166ed78a5f53286
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86520770"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132368"
 ---
 # <a name="quickstart-create-automated-tasks-processes-and-workflows-with-azure-logic-apps---visual-studio"></a>Szybki start: Tworzenie automatycznych zadań, procesów i przepływów pracy przy użyciu usługi Azure Logic Apps — Visual Studio
 
@@ -51,9 +51,15 @@ W tym przewodniku szybki start utworzysz tę samą aplikację logiki przy użyci
   
     Możesz pobrać i zainstalować narzędzia Azure Logic Apps Tools bezpośrednio z witryny Visual Studio Marketplace lub dowiedzieć się, [jak zainstalować to rozszerzenie z poziomu programu Visual Studio](/visualstudio/ide/finding-and-using-visual-studio-extensions). Upewnij się, że po zakończeniu instalacji program Visual Studio zostanie ponownie uruchomiony.
 
+  * Aby skorzystać z subskrypcji Azure Government w programie Visual Studio, zobacz następujące tematy, aby uzyskać dodatkową konfigurację:
+
+    * Visual Studio 2019: [Szybki Start: łączenie się z Azure Government za pomocą programu Visual Studio](../azure-government/documentation-government-connect-vs.md)
+
+    * Visual Studio 2017: [wprowadzenie do rozszerzenia programu Visual Studio selektora środowiska platformy Azure](https://devblogs.microsoft.com/azuregov/introducing-the-azure-environment-selector-visual-studio-extension/), które można pobrać i zainstalować z [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=SteveMichelotti.AzureEnvironmentSelector).
+
 * Dostęp do Internetu podczas korzystania z osadzonego Projektanta aplikacji logiki
 
-  Projektant wymaga połączenia internetowego do tworzenia zasobów na platformie Azure i odczytywania właściwości i danych z łączników w aplikacji logiki. Na przykład dla połączeń usługi Dynamics CRM Online Projektant sprawdza wystąpienie programu CRM pod kątem domyślnych i niestandardowych właściwości.
+  Projektant wymaga połączenia internetowego do tworzenia zasobów na platformie Azure i odczytywania właściwości i danych z łączników w aplikacji logiki.
 
 * Konto e-mail obsługiwane przez usługę Logic Apps, na przykład Office 365 Outlook, Outlook.com lub Gmail. W przypadku innych dostawców zapoznaj się z [listą łączników tutaj](/connectors/). W tym przykładzie zastosowano pakiet Office 365 Outlook. Jeśli używasz innego dostawcy, ogólne kroki będą takie same, ale interfejs użytkownika może się trochę różnić.
 

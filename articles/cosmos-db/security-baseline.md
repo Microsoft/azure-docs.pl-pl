@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: e5c57ba56ce236bcf07478e1784eec6d4c632d1c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ca54cb44618da1ff92b12b3ad918da513ab2be2f
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82195251"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87131824"
 ---
 # <a name="azure-security-baseline-for-cosmos-db"></a>Podstawa zabezpieczeń platformy Azure dla Cosmos DB
 
@@ -78,7 +78,7 @@ Skonfiguruj współużytkowanie zasobów między źródłami:https://docs.micros
 
 Włącz DDoS Protection standard w sieciach wirtualnych skojarzonych z wystąpieniami Azure Cosmos DB, aby chronić przed atakami DDoS. Użyj Azure Security Center zintegrowanej analizy zagrożeń, aby odmówić komunikacji ze znanymi złośliwymi lub nieużywanymi adresami IP.
 
-Jak configureAzure Cosmos DB zaawansowaną ochronę przed zagrożeniami:https://docs.microsoft.com/azure/cosmos-db/cosmos-db-advanced-threat-protection
+Jak skonfigurować Azure Cosmos DB zaawansowanej ochrony przed zagrożeniami:https://docs.microsoft.com/azure/cosmos-db/cosmos-db-advanced-threat-protection
 
 Jak skonfigurować ochronę DDoS:https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection
 
@@ -121,7 +121,7 @@ Jak skonfigurować Cosmos DB zaawansowanej ochrony przed zagrożeniami:https://d
 
 ### <a name="18-minimize-complexity-and-administrative-overhead-of-network-security-rules"></a>1,8: Minimalizacja złożoności i kosztów administracyjnych reguł zabezpieczeń sieci
 
-**Wskazówki**: dla zasobów, które wymagają dostępu do konta usługi Azure Cosmos, użyj tagów usługi Virtual Network, aby zdefiniować kontrolę dostępu do sieci w usłudze Network SecuritygGroups lub zaporze platformy Azure. Podczas tworzenia reguł zabezpieczeń można użyć tagów usługi zamiast konkretnych adresów IP. Określając nazwę tagu usługi (np. AzureCosmosDB) w odpowiednim polu źródłowym lub docelowym reguły, można zezwolić na ruch dla odpowiedniej usługi lub go odrzucić. Firma Microsoft zarządza prefiksami adresów, które obejmują tag usługi, i automatycznie aktualizuje tag usługi jako adresy.
+**Wskazówki**: dla zasobów, które wymagają dostępu do konta usługi Azure Cosmos, użyj tagów usługi Virtual Network, aby zdefiniować kontrolę dostępu do sieci dla sieciowych grup zabezpieczeń lub zapory platformy Azure. Podczas tworzenia reguł zabezpieczeń można użyć tagów usługi zamiast konkretnych adresów IP. Określając nazwę tagu usługi (np. AzureCosmosDB) w odpowiednim polu źródłowym lub docelowym reguły, można zezwolić na ruch dla odpowiedniej usługi lub go odrzucić. Firma Microsoft zarządza prefiksami adresów, które obejmują tag usługi, i automatycznie aktualizuje tag usługi jako adresy.
 
 Aby uzyskać więcej informacji na temat używania tagów usługi:https://docs.microsoft.com/azure/virtual-network/service-tags-overview
 

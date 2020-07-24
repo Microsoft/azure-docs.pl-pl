@@ -1,16 +1,16 @@
 ---
-title: Pulpit nawigacyjny klienta w usłudze Microsoft Commercial Marketplace Analytics w centrum partnerskim
+title: Pulpit nawigacyjny klienta w analizie komercyjnej witryny Microsoft Marketplace w centrum partnerskim, Azure Marketplace i Microsoft AppSource
 description: Dowiedz się, jak uzyskać dostęp do informacji o klientach, w tym trendów wzrostu, przy użyciu pulpitu nawigacyjnego klienta w komercyjnej analizie portalu Marketplace.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
-ms.date: 06/15/2020
-ms.openlocfilehash: 9f71a668b3473521e9d8d7c9318ab2e557380845
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.topic: article
+ms.date: 07/22/2020
+ms.openlocfilehash: f4dbdbfc3b835871516233e601881012190169ce
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121762"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87131773"
 ---
 # <a name="customer-dashboard-in-commercial-marketplace-analytics"></a>Pulpit nawigacyjny Klient w analizie komercyjnej platformy handlowej
 
@@ -29,17 +29,19 @@ Aby uzyskać dostęp do **pulpitu nawigacyjnego klienta**, Otwórz pulpit nawiga
 - [Klient według położenia geograficznego](#customer-by-geography)
 - [Trendy klientów](#customer-trends)
 - [Klienci według zamówień i użycia](#customers-by-orders-and-usage)
-- [Klienci według jednostek SKU](#customers-by-skus)
+- [Klienci według planów](#customers-by-plans)
 - [Zamówienia i użycie według typu klienta](#orders-and-usage-by-customer-type)
 - [Tabela szczegółów klienta](#customer-details-table)
 - [Filtry stron klienta](#customer-page-filters)
+
+Maksymalne opóźnienie między pozyskiwaniem klienta i raportowaniem w centrum partnerskim wynosi 48 godzin.
 
 ### <a name="customer-summary"></a>Podsumowanie klienta
 
 W sekcji Podsumowanie klienta wyświetlana jest liczba wszystkich klientów, w tym nowych, istniejących i zmienionych, w ramach wybranego zakresu dat.
 
 - Łączni klienci są zdefiniowani jako liczba wszystkich klientów, którzy kupili ofertę i mają co najmniej jedno zamówienie, które nie zostało anulowane.
-- Procent wzrostu w porównaniu z poprzednim miesiącem jest wskazywany przez liczbę i wskaźnik w górę w kolorze czerwonym lub w dół na czerwono.
+- Procent wzrostu sprzedaży w porównaniu z poprzednim miesiącem jest wskazywany przez liczbę i wskaźnik w górę w kolorze czerwonym lub w dół na czerwono.
 - Trendy wzrostu są reprezentowane przez wykresy słupkowe i wyświetlają wartości dla każdego miesiąca przez umieszczenie kursora nad kolumnami wykresu.
 
 Istnieją trzy **typy klientów**: nowe, istniejące i zmienione.
@@ -50,9 +52,9 @@ Istnieją trzy **typy klientów**: nowe, istniejące i zmienione.
 
 ### <a name="customer-by-geography"></a>Klient według położenia geograficznego
 
-Wykres **Klient według geografii** pokazuje liczbę wszystkich klientów i klientów nabytych w wybranym zakresie dat i są mapowane na podstawie kraju/regionu klienta. Jasny do ciemnego koloru mapy reprezentuje niską i wysoką wartość liczby klientów. Kliknij rekord w tabeli, aby powiększyć w kraju/regionie.
+Wykres **Klient według geografii** pokazuje liczbę wszystkich klientów i klientów nabytych w wybranym zakresie dat, które są mapowane na podstawie kraju/regionu klienta. Jasny do ciemnego koloru mapy reprezentuje niską i wysoką wartość liczby klientów. Wybierz rekord w tabeli, aby powiększyć w kraju/regionie.
 
-Mapę cieplną wyświetla liczbę klientów i% według kraju/regionu klienta. Możesz przenieść mapę, aby wyświetlić dokładną lokalizację i powiększyć do określonej lokalizacji. Ta mapa zawiera dodatkową siatkę, która umożliwia wyświetlanie% odbiorców według lokalizacji, a także klientów nowo dodanych do tej lokalizacji.
+Mapa cieplna wyświetla liczbę klientów i procent według kraju/regionu klienta. Możesz przenieść mapę, aby wyświetlić dokładną lokalizację i powiększyć do określonej lokalizacji. Ta mapa zawiera dodatkową siatkę, która umożliwia wyświetlanie% odbiorców według lokalizacji, a także klientów nowo dodanych do tej lokalizacji.
 
 ### <a name="customer-trends"></a>Trendy klientów
 
@@ -71,14 +73,14 @@ Wykres **klienci według zamówień/użycia** ma trzy karty, "zamówienia", "zno
 
 Przykładowo zapoznaj się z wykresem poniżej w celu znormalizowania użycia: pierwsze 30 percentylu klientów ma udział w 87% normalnego użycia. 30 percentyl klientów ma udział tylko w 1 570 000 godzinach użytkowania.
 
-### <a name="customers-by-skus"></a>Klienci według jednostek SKU
+### <a name="customers-by-plans"></a>Klienci według planów
 
-Poniżej opisano **klientów według jednostek SKU/wykresów użycia** .
+Poniżej opisano wykresy **klienci według planów/wykresów użycia** .
 
 1. Tablica lidera przedstawia szczegółowe informacje o pierwszych 50 klientach uporządkowanych według liczby zamówień. Po wybraniu klienta szczegóły klienta są prezentowane w sekcjach 2, 3 i 4 tej tablicy lidera.
 2. Szczegóły profilu klienta są wyświetlane w tym miejscu, gdy wydawcy są zalogowani przy użyciu roli właściciela. Jeśli wydawcy są zalogowani przy użyciu roli współautor, szczegóły w tej sekcji nie będą dostępne.
-3. Wykres pierścieniowy Orders by SKU zawiera podział zamówień zakupionych dla jednostek SKU. Wyświetlane są 5 najważniejszych jednostek SKU o najwyższej liczbie zamówień, podczas gdy pozostałe zamówienia są pogrupowane w obszarze "REST All".
-4. Wykres pierścieniowy według jednostek SKU przedstawia podział stanowisk zamówionych dla jednostek SKU. Zostaną wyświetlone 5 najważniejszych jednostek SKU z najwyższymi stanowiskami, podczas gdy pozostałe zamówienia są pogrupowane w obszarze REST All (wszystkie).
+3. Wykres pierścieniowy **order by Plans** zawiera podział zamówień zakupionych dla planów. Wyświetlane są pięć najważniejszych planów o najwyższej liczbie zamówień, podczas gdy pozostałe zamówienia są pogrupowane w obszarze "REST All".
+4. Wykres pierścieniowy **według planów** zawiera podział stanowisk zamówionych dla planów. Wyświetlane są pięć najważniejszych planów z najwyższymi stanowiskami, podczas gdy pozostałe zamówienia są pogrupowane w obszarze REST All (wszystkie).
 
 ### <a name="orders-and-usage-by-customer-type"></a>Zamówienia i użycie według typu klienta
 
@@ -95,7 +97,7 @@ W tabeli **szczegóły klienta** zostanie wyświetlona lista numerowanych głów
 - Każda kolumna w siatce jest do sortowania.
 - Dane można wyodrębnić do pliku TSV, jeśli liczba rekordów jest mniejsza niż 1000.
 - Jeśli liczba rekordów przekracza 1000, eksportowane dane będą asynchroniczne umieszczane na stronie pobierania przez następne 30 dni.
-- Filtry można zastosować do tabeli, aby wyświetlić tylko te dane, które Cię interesują. Dane można filtrować według nazwy firmy, identyfikatora klienta, identyfikatora subskrypcji witryny Marketplace, typu licencji platformy Azure, daty pozyskania, utraty daty, adresu E-mail klienta, kraju/regionu/stanu/miejscowości/pliku zip, języka klienta itd.
+- Zastosuj filtry do tabeli, aby wyświetlić tylko interesujące Cię dane. Filtrowanie danych według nazwy firmy, identyfikatora klienta, identyfikatora subskrypcji w portalu Marketplace, typu licencji platformy Azure, daty pozyskania, daty utraty, adresu E-mail klienta, kraju/regionu/stanu/miejscowości/pliku zip, języka klienta itd.
 - Po zakupieniu oferty przez chronionego klienta informacje w **szczegółowych danych klienta** będą maskowane (* * * * * * * * * * * *).
 - Szczegóły wymiaru klienta, takie jak nazwa firmy, nazwa klienta i adres E-mail klienta, znajdują się na poziomie identyfikatora organizacji, a nie w witrynie Azure Marketplace lub na poziomie transakcji AppSource.
 
@@ -104,7 +106,7 @@ W tabeli **szczegóły klienta** zostanie wyświetlona lista numerowanych głów
 Filtry **stron klienci** są stosowane na poziomie strony klientów. Można wybrać wiele filtrów, aby renderować wykres dla kryteriów wybranych do wyświetlania, a dane, które mają być widoczne w siatce/eksporcie szczegółowych zamówień danych. Filtry są stosowane do danych wyodrębnionych dla zakresu danych wybranego w prawym górnym rogu strony Orders (zamówienia).
 
 >[!NOTE]
-> Szczegółowe definicje dla każdego pola w siatce klienta, filtrach stron i ich możliwych wyborach znajdują się w [często zadawanych pytaniach i terminologii dotyczącej komercyjnej analizy portalu Marketplace](./faq-terminology.md).
+> Szczegółowe definicje poszczególnych pól w siatce klienta, filtrach stron i ich możliwych wyborach znajdują się w artykule często zadawane pytania wymienione poniżej.
 
 ## <a name="next-steps"></a>Następne kroki
 

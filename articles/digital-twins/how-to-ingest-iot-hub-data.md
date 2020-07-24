@@ -7,11 +7,12 @@ ms.author: cschorm
 ms.date: 3/17/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 351f7ed131d545d2aa83df753cac3f26e76e4ccb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7c73f007f85a963a09de4e05222082fd52f784c0
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84725855"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87131569"
 ---
 # <a name="ingest-iot-hub-telemetry-into-azure-digital-twins"></a>Pozyskiwanie danych telemetrycznych IoT Hub na platformie Azure Digital bliźniaczych reprezentacji
 
@@ -41,7 +42,7 @@ Ten scenariusz przedstawiono na poniższym diagramie:
 
 Przed kontynuowaniem tego przykładu należy wykonać poniższe wymagania wstępne.
 1. Utwórz centrum IoT. Aby uzyskać instrukcje, zobacz sekcję *tworzenie IoT Hub* w [tym IoT Hub przewodniku szybki start](../iot-hub/quickstart-send-telemetry-cli.md) .
-2. Utwórz co najmniej jedną funkcję platformy Azure, aby przetwarzać zdarzenia z IoT Hub. Zapoznaj się z tematem [jak to zrobić: Konfigurowanie funkcji platformy Azure do przetwarzania danych](how-to-create-azure-function.md) w celu utworzenia podstawowej funkcji platformy Azure, która może łączyć się z usługą Azure Digital bliźniaczych reprezentacji i wywoływać funkcje interfejsu API Digital bliźniaczych reprezentacji platformy Azure. Pozostała część tego, jak zostanie utworzona w tej funkcji.
+2. Utwórz co najmniej jedną funkcję platformy Azure, aby przetwarzać zdarzenia z IoT Hub. Zapoznaj się z tematem [*jak to zrobić: Konfigurowanie funkcji platformy Azure do przetwarzania danych*](how-to-create-azure-function.md) w celu utworzenia podstawowej funkcji platformy Azure, która może łączyć się z usługą Azure Digital bliźniaczych reprezentacji i wywoływać funkcje interfejsu API Digital bliźniaczych reprezentacji platformy Azure. Pozostała część tego, jak zostanie utworzona w tej funkcji.
 3. Skonfiguruj miejsce docelowe zdarzenia dla danych centrum. W [Azure Portal](https://portal.azure.com/)przejdź do wystąpienia IoT Hub. W obszarze *zdarzenia*Utwórz subskrypcję dla funkcji platformy Azure. 
 
     :::image type="content" source="media/how-to-ingest-iot-hub-data/add-event-subscription.png" alt-text="Azure Portal: Dodawanie subskrypcji zdarzeń":::
@@ -54,7 +55,7 @@ Przed kontynuowaniem tego przykładu należy wykonać poniższe wymagania wstęp
 
 ## <a name="create-an-azure-function-in-visual-studio"></a>Tworzenie funkcji platformy Azure w programie Visual Studio
 
-Ta sekcja używa tych samych kroków uruchamiania programu Visual Studio i szkieletu funkcji platformy Azure z pozostałej części [: Konfigurowanie funkcji platformy Azure do przetwarzania danych](how-to-create-azure-function.md). Szkielet obsługuje uwierzytelnianie i tworzy klienta usługi, gotowy do przetwarzania danych i wywoływania interfejsów API Digital bliźniaczych reprezentacji w odpowiedzi na platformie Azure. 
+Ta sekcja używa tych samych kroków uruchamiania programu Visual Studio i szkieletu funkcji platformy Azure z pozostałej części [*: Konfigurowanie funkcji platformy Azure do przetwarzania danych*](how-to-create-azure-function.md). Szkielet obsługuje uwierzytelnianie i tworzy klienta usługi, gotowy do przetwarzania danych i wywoływania interfejsów API Digital bliźniaczych reprezentacji w odpowiedzi na platformie Azure. 
 
 Sercem funkcji szkieletowej jest:
 
@@ -267,9 +268,9 @@ Teraz masz funkcję platformy Azure, która jest wyposażona w odczytywanie i in
 
 ## <a name="debug-azure-function-apps-locally"></a>Lokalne debugowanie aplikacji funkcji platformy Azure
 
-Istnieje możliwość lokalnego debugowania usługi Azure Functions z wyzwalaczem Event Grid. Aby uzyskać więcej informacji na ten temat, zobacz [debugowanie Event Grid wyzwalacza lokalnie](../azure-functions/functions-debug-event-grid-trigger-local.md).
+Istnieje możliwość lokalnego debugowania usługi Azure Functions z wyzwalaczem Event Grid. Aby uzyskać więcej informacji na ten temat, zobacz [*debugowanie Event Grid wyzwalacza lokalnie*](../azure-functions/functions-debug-event-grid-trigger-local.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
 Zapoznaj się z informacjami dotyczącymi transferu danych przychodzących i wychodzących przy użyciu usługi Azure Digital bliźniaczych reprezentacji:
-* [Koncepcje: integracja z innymi usługami](concepts-integration.md)
+* [*Koncepcje: integracja z innymi usługami*](concepts-integration.md)

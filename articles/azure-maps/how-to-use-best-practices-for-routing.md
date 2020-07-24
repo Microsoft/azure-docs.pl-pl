@@ -1,18 +1,19 @@
 ---
 title: Najlepsze rozwiązania dotyczące Azure Maps Route Service | Mapy Microsoft Azure
 description: Dowiedz się, jak kierować pojazdy przy użyciu Route Service z Microsoft Azure Maps.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 03/11/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 24fa4c48f6ca03e4049483a9acfff067d5a6a736
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 79e9096030aada9fa368bb2e78af323139c0586c
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84266699"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132215"
 ---
 # <a name="best-practices-for-azure-maps-route-service"></a>Najlepsze rozwiązania dotyczące usługi Azure Maps Route Service
 
@@ -30,7 +31,7 @@ Wskazówki dotyczące trasy i interfejsy API macierzy trasy w Azure Maps [Route 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby wykonać wywołania do Azure Maps interfejsów API, musisz mieć konto Azure Maps i klucz. Aby uzyskać więcej informacji, zobacz [Tworzenie konta](quick-demo-map-app.md#create-an-account-with-azure-maps) i [Uzyskiwanie klucza podstawowego](quick-demo-map-app.md#get-the-primary-key-for-your-account). Klucz podstawowy jest również znany jako podstawowy klucz subskrypcji lub klucz subskrypcji.
+Aby wykonać wywołania do Azure Maps interfejsów API, musisz mieć konto Azure Maps i klucz. Aby uzyskać więcej informacji, zobacz [Tworzenie konta](quick-demo-map-app.md#create-an-azure-maps-account) i [Uzyskiwanie klucza podstawowego](quick-demo-map-app.md#get-the-primary-key-for-your-account). Klucz podstawowy jest również znany jako podstawowy klucz subskrypcji lub klucz subskrypcji.
 
 Aby uzyskać informacje o uwierzytelnianiu w Azure Maps, zobacz [Zarządzanie uwierzytelnianiem w programie Azure Maps](./how-to-manage-authentication.md). Aby uzyskać więcej informacji na temat pokrycia Route Service, zobacz [pokrycie routingu](routing-coverage.md).
 

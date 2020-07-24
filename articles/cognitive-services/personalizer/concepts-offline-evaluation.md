@@ -3,19 +3,17 @@ title: Użycie metody oceny w trybie offline — Personalizacja
 titleSuffix: Azure Cognitive Services
 description: W tym artykule wyjaśniono, jak za pomocą oceny w trybie offline mierzyć efektywność aplikacji i analizować pętlę uczenia.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 02/20/2020
-ms.author: diberry
-ms.openlocfilehash: f8ceef5e80bf15f0ba52a9c289e617018febfb5c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 627f511bb12c16c8f54935d1f782cb7c2c962163
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77623590"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132759"
 ---
 # <a name="offline-evaluation"></a>Ocena w trybie offline
 
@@ -55,7 +53,7 @@ Bieżące zasady uwzględnione w ocenie:
 | Ustawienia uczenia | Przeznaczenie|
 |--|--|
 |**Zasady online**| Bieżące zasady uczenia używane w programie Personalizacja |
-|**Punkt odniesienia**|Wartość domyślna aplikacji (zgodnie z pierwszą akcją wysłaną w wywołaniach rangi)|
+|**Punkcie**|Wartość domyślna aplikacji (zgodnie z pierwszą akcją wysłaną w wywołaniach rangi)|
 |**Zasady losowe**|Zachowanie rangi urojonej, które zawsze zwraca losowo wybór akcji z dostarczonych.|
 |**Zasady niestandardowe**|Dodatkowe zasady uczenia zostały przekazane podczas uruchamiania oceny.|
 |**Zoptymalizowane zasady**|Jeśli Ocena została rozpoczęta z opcją odnalezienia zoptymalizowanych zasad, zostanie również porównana i będzie można ją pobrać lub wprowadzić zasady uczenia online, zastępując bieżące.|
@@ -108,5 +106,5 @@ Zalecamy zapoznanie się z ocenami funkcji i pytaniami:
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Konfigurowanie narzędzia personalizacji](how-to-settings.md)
-[Uruchamianie ocen w trybie offline](how-to-offline-evaluation.md) zrozumieć, [jak działa program Personalizuj](how-personalizer-works.md)
+[Konfigurowanie personalizacji](how-to-settings.md) 
+ [Uruchamianie ocen w trybie offline](how-to-offline-evaluation.md) [Informacje na temat działania narzędzia Personalizacja](how-personalizer-works.md)

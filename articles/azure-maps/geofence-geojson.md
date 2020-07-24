@@ -1,19 +1,19 @@
 ---
 title: Format danych GEOJSON dla geofencingu | Mapy Microsoft Azure
 description: W tym artykule dowiesz się, jak przygotować dane z geoogrodzenia, które mogą być używane w Microsoft Azure Maps Pobierz i umieść interfejs API z geoogrodzeniem.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 02/14/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 7b9860908dd3bdf3dcda727f350578a97b890cac
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 924c23f0fb0156ff585872dded72932a1574a12d
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80335617"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87131309"
 ---
 # <a name="geofencing-geojson-data"></a>Geogeofencingu dane GEOJSON
 

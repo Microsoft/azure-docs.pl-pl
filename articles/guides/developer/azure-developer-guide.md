@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/18/2019
 ms.author: glenga
-ms.openlocfilehash: c4121482c37afcda0f580656bbe583128b7720fe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 10c9e2c3ecefedded393d6949be1480f2f02973b
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85829401"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87131059"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Wprowadzenie — przewodnik dla deweloperów platformy Azure
 
@@ -76,7 +76,7 @@ Ze względu na poziom kontroli z maszynami wirtualnymi można uruchamiać szerok
 
 > **Kiedy używać**: należy używać Virtual Machines, gdy chcesz mieć pełną kontrolę nad infrastrukturą aplikacji lub migrować obciążenia aplikacji lokalnych na platformę Azure bez konieczności wprowadzania zmian.
 >
-> **Wprowadzenie**: Tworzenie [maszyny wirtualnej systemu Linux](../../virtual-machines/virtual-machines-linux-quick-create-portal.md) lub [maszyny wirtualnej z systemem Windows](../../virtual-machines/virtual-machines-windows-hero-tutorial.md) na podstawie Azure Portal.
+> **Wprowadzenie**: Tworzenie [maszyny wirtualnej systemu Linux](../../virtual-machines/linux/quick-create-portal.md) lub [maszyny wirtualnej z systemem Windows](../../virtual-machines/windows/quick-create-portal.md) na podstawie Azure Portal.
 
 #### <a name="azure-functions-serverless"></a>Azure Functions (bezserwerowo)
 
@@ -141,11 +141,6 @@ Kontenery platformy Docker, forma wirtualizacji systemu operacyjnego, umożliwia
 
 Platforma Azure oferuje kilka sposobów korzystania z kontenerów w aplikacjach.
 
-- **Rozszerzenie maszyny wirtualnej platformy Azure Docker**: umożliwia skonfigurowanie maszyny wirtualnej przy użyciu narzędzi platformy Docker do działania jako host platformy Docker.
-
-  > **Kiedy używać**: Kiedy chcesz generować spójne wdrożenia kontenerów dla aplikacji na maszynie wirtualnej lub gdy chcesz użyć [Docker Compose](https://docs.docker.com/compose/overview/).
-  >
-  > **Wprowadzenie**: [Tworzenie środowiska Docker na platformie Azure przy użyciu rozszerzenia maszyny wirtualnej platformy Docker](../../virtual-machines/virtual-machines-linux-dockerextension.md).
 
 - **Usługa Azure Kubernetes**: umożliwia tworzenie i Konfigurowanie klastra maszyn wirtualnych, które są wstępnie skonfigurowane do uruchamiania aplikacji kontenerowych, oraz zarządzanie nim. Aby dowiedzieć się więcej o usłudze Azure Kubernetes, zobacz [wprowadzenie do usługi Azure Kubernetes](../../aks/intro-kubernetes.md).
 
@@ -163,7 +158,7 @@ Platforma Azure oferuje kilka sposobów korzystania z kontenerów w aplikacjach.
   >
   > **Wprowadzenie**: [Użyj niestandardowego obrazu platformy docker dla App Service w systemie Linux](../../app-service/containers/quickstart-docker-go.md).
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>Uwierzytelnianie
 
 Niezwykle ważne jest, aby nie tylko wiedzieć, kto korzysta z aplikacji, ale również aby uniemożliwić nieautoryzowany dostęp do zasobów. Platforma Azure oferuje kilka metod uwierzytelniania klientów aplikacji.
 
@@ -238,7 +233,7 @@ Platforma Azure oferuje dwa sposoby zarządzania aplikacjami i usługami z pozio
 
 -   [Azure PowerShell](../../powershell-install-configure.md): zawiera zestaw modułów z poleceniami cmdlet, które umożliwiają zarządzanie zasobami platformy Azure przy użyciu programu Windows PowerShell.
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Witryna Azure Portal
 
 [Azure Portal](https://portal.azure.com) jest aplikacją opartą na sieci Web. Za pomocą Azure Portal można tworzyć i usuwać zasoby i usługi platformy Azure oraz zarządzać nimi. Obejmuje:
 
@@ -302,7 +297,7 @@ Azure Resource Explorer to doskonałe narzędzie do wizualizacji zasobów, któr
 
 Gdy zezwolisz na dostęp do zasobów platformy Azure, zawsze najlepszym rozwiązaniem jest zapewnienie użytkownikom najniższych uprawnień, które są wymagane do wykonania danego zadania.
 
-- **Kontrola dostępu oparta na rolach (RBAC)**: na platformie Azure można udzielić dostępu do kont użytkowników (podmiotów zabezpieczeń) w określonym zakresie: subskrypcji, grupy zasobów lub poszczególnych zasobów. RBAC umożliwia wdrażanie zasobów w grupie zasobów i udzielanie uprawnień określonym użytkownikowi lub grupie. Pozwala również ograniczyć dostęp tylko do zasobów należących do docelowej grupy zasobów. Możesz również udzielić dostępu do pojedynczego zasobu, na przykład maszyny wirtualnej lub sieci wirtualnej. Aby udzielić dostępu, należy przypisać rolę do użytkownika, grupy lub nazwy głównej usługi. Istnieje wiele wstępnie zdefiniowanych ról i można także definiować własne role niestandardowe. Aby dowiedzieć się więcej, zobacz [co to jest kontrola dostępu oparta na rolach (RBAC)?](../../role-based-access-control/overview.md)
+- **Kontrola dostępu oparta na rolach (RBAC)**: na platformie Azure można udzielić dostępu do kont użytkowników (podmiotów zabezpieczeń) w określonym zakresie: subskrypcji, grupy zasobów lub poszczególnych zasobów. RBAC umożliwia wdrażanie zasobów w grupie zasobów i udzielanie uprawnień określonym użytkownikowi lub grupie. Pozwala również ograniczyć dostęp tylko do zasobów należących do docelowej grupy zasobów. Możesz również udzielić dostępu do pojedynczego zasobu, na przykład maszyny wirtualnej lub sieci wirtualnej. Aby udzielić dostępu, należy przypisać rolę do użytkownika, grupy lub nazwy głównej usługi. Istnieje wiele wstępnie zdefiniowanych ról i można także definiować własne role niestandardowe. Aby dowiedzieć się więcej, zobacz [co to jest kontrola dostępu oparta na rolach (Azure RBAC)?](../../role-based-access-control/overview.md).
 
   > **Kiedy należy używać**: Jeśli potrzebujesz szczegółowych zarządzania dostępem dla użytkowników i grup lub jeśli chcesz, aby użytkownik był właścicielem subskrypcji.
   >
@@ -319,7 +314,7 @@ Azure Resource Manager pozwala przypisywać niestandardowe znaczniki do poszczeg
 * W portalu
 * W szablonie Azure Resource Manager
 * Korzystanie z interfejsu API REST
-* Korzystanie z interfejsu wiersza polecenia platformy Azure
+* Przy użyciu interfejsu wiersza polecenia platformy Azure
 * Korzystanie z programu PowerShell
 
 Do każdego zasobu można przypisać wiele tagów. Aby dowiedzieć się więcej, zobacz [Używanie tagów do organizowania zasobów platformy Azure](../../resource-group-using-tags.md).

@@ -8,18 +8,18 @@ ms.author: rogarana
 ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 0bb0fb268d18ddc152dae45014e2154686762976
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: e609e755f02d4321664804bfbb90f979c1c06ead
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259813"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87133065"
 ---
 # <a name="server-side-encryption-of-azure-disk-storage"></a>Szyfrowanie po stronie serwera Azure Disk Storage
 
 Szyfrowanie po stronie serwera (SSE) chroni dane i pomaga sprostać wymaganiom bezpieczeństwa i zgodności w organizacji. Funkcja SSE automatycznie szyfruje dane przechowywane na dyskach zarządzanych przez platformę Azure (dyski systemu operacyjnego i danych) domyślnie, gdy są utrwalane w chmurze. 
 
-Dane w usłudze Azure Managed disks są szyfrowane w sposób niewidoczny dla użytkownika przy użyciu 256-bitowego [szyfrowania AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard), jednego z najsilniejszych szyfrów blokowych i jest zgodny ze standardem FIPS 140-2. Aby uzyskać więcej informacji na temat modułów kryptograficznych związanych z dyskami zarządzanymi platformy Azure, zobacz [interfejs API kryptografii: Kolejna generacja](https://docs.microsoft.com/windows/desktop/seccng/cng-portal)
+Dane w usłudze Azure Managed disks są szyfrowane w sposób niewidoczny dla użytkownika przy użyciu 256-bitowego [szyfrowania AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard), jednego z najsilniejszych szyfrów blokowych i jest zgodny ze standardem FIPS 140-2. Aby uzyskać więcej informacji na temat modułów kryptograficznych związanych z dyskami zarządzanymi platformy Azure, zobacz [interfejs API kryptografii: Kolejna generacja](/windows/desktop/seccng/cng-portal)
 
 Szyfrowanie po stronie serwera nie ma wpływu na wydajność dysków zarządzanych i nie ma dodatkowych kosztów. 
 
@@ -50,9 +50,9 @@ Na razie klucze zarządzane przez klienta mają następujące ograniczenia:
 
 ## <a name="encryption-at-host---end-to-end-encryption-for-your-vm-data"></a>Szyfrowanie na poziomie hosta-end-to-end dla danych maszyny wirtualnej
 
-Kompleksowe szyfrowanie rozpocznie się z hosta maszyny wirtualnej, do którego zostanie przypisana maszyna wirtualna. Dane na dyskach tymczasowych oraz w pamięci podręcznej dysków systemu operacyjnego i danych są przechowywane na tym hoście maszyny wirtualnej. Po włączeniu szyfrowania na całej trasie wszystkie te dane są szyfrowane w stanie spoczynku i są zaszyfrowane do usługi magazynu, gdzie są utrwalane. Szyfrowanie kompleksowe nie korzysta z procesora CPU maszyny wirtualnej i nie ma wpływu na wydajność maszyny wirtualnej. 
+Kompleksowe szyfrowanie rozpocznie się z hosta maszyny wirtualnej, do którego zostanie przypisana maszyna wirtualna. Dane na dyskach tymczasowych, tymczasowych dyskach systemu operacyjnego i utrwalone pamięci podręczne dysku z danymi są przechowywane na tym hoście maszyny wirtualnej. Po włączeniu szyfrowania na całej trasie wszystkie te dane są szyfrowane w stanie spoczynku i są zaszyfrowane do usługi magazynu, gdzie są utrwalane. Szyfrowanie kompleksowe nie korzysta z procesora CPU maszyny wirtualnej i nie ma wpływu na wydajność maszyny wirtualnej. 
 
-Dyski tymczasowe są szyfrowane w spoczynku z kluczami zarządzanymi przez platformę w przypadku włączenia kompleksowego szyfrowania. Pamięci podręczne dysków systemu operacyjnego i danych są szyfrowane w stanie spoczynku przy użyciu kluczy zarządzanych przez klienta lub na platformę, w zależności od typu szyfrowania. Na przykład, jeśli dysk jest szyfrowany przy użyciu kluczy zarządzanych przez klienta, pamięć podręczna dysku jest szyfrowana przy użyciu kluczy zarządzanych przez klienta, a jeśli dysk jest szyfrowany przy użyciu kluczy zarządzanych przez platformę, pamięć podręczna dysku jest szyfrowana za pomocą kluczy zarządzanych przez platformę.
+Dyski tymczasowe i krótkoterminowe dyski systemu operacyjnego są szyfrowane w stanie spoczynku przy użyciu kluczy zarządzanych przez platformę po włączeniu kompleksowego szyfrowania. Pamięci podręczne dysków systemu operacyjnego i danych są szyfrowane w stanie spoczynku przy użyciu kluczy zarządzanych przez klienta lub na platformę, w zależności od typu szyfrowania. Na przykład, jeśli dysk jest szyfrowany przy użyciu kluczy zarządzanych przez klienta, pamięć podręczna dysku jest szyfrowana przy użyciu kluczy zarządzanych przez klienta, a jeśli dysk jest szyfrowany przy użyciu kluczy zarządzanych przez platformę, pamięć podręczna dysku jest szyfrowana za pomocą kluczy zarządzanych przez platformę.
 
 ### <a name="restrictions"></a>Ograniczenia
 
@@ -68,7 +68,7 @@ Dyski tymczasowe są szyfrowane w spoczynku z kluczami zarządzanymi przez platf
 
 ## <a name="double-encryption-at-rest"></a>Podwójne szyfrowanie w spoczynku
 
-Klienci z wysokim poziomem zabezpieczeń, którzy są zainteresowani ryzykiem związanym z określonym algorytmem szyfrowania, implementacją lub złamanym kluczem, mogą teraz wybrać dodatkową warstwę szyfrowania przy użyciu innego algorytmu/trybu szyfrowania w warstwie infrastruktury przy użyciu kluczy szyfrowania zarządzanych przez platformę. Ta nowa warstwa może być stosowana do dysków, migawek i obrazów, a wszystkie będą szyfrowane przy użyciu podwójnego szyfrowania.
+Klienci z wysokim poziomem zabezpieczeń, którzy są zainteresowani ryzykiem związanym z określonym algorytmem szyfrowania, implementacją lub złamanym kluczem, mogą teraz wybrać dodatkową warstwę szyfrowania przy użyciu innego algorytmu/trybu szyfrowania w warstwie infrastruktury przy użyciu kluczy szyfrowania zarządzanych przez platformę. Ta nowa warstwa może zostać zastosowana do utrwalonych dysków systemu operacyjnego i danych, migawek i obrazów, a wszystkie będą szyfrowane przy użyciu podwójnego szyfrowania.
 
 ### <a name="supported-regions"></a>Obsługiwane regiony
 
@@ -76,7 +76,7 @@ Klienci z wysokim poziomem zabezpieczeń, którzy są zainteresowani ryzykiem zw
 
 ## <a name="server-side-encryption-versus-azure-disk-encryption"></a>Szyfrowanie po stronie serwera a usługa Azure Disk Encryption
 
-[Azure Disk Encryption](../../security/fundamentals/azure-disk-encryption-vms-vmss.md) wykorzystuje funkcję [BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-overview) systemu Windows do szyfrowania dysków zarządzanych z kluczami zarządzanymi przez klienta w ramach maszyny wirtualnej gościa.  Szyfrowanie po stronie serwera z kluczami zarządzanymi przez klienta usprawnia w systemie ADE, umożliwiając korzystanie z dowolnych typów systemów operacyjnych i obrazów dla maszyn wirtualnych przez szyfrowanie danych w usłudze Storage.
+[Azure Disk Encryption](../../security/fundamentals/azure-disk-encryption-vms-vmss.md) wykorzystuje funkcję [BitLocker](/windows/security/information-protection/bitlocker/bitlocker-overview) systemu Windows do szyfrowania dysków zarządzanych z kluczami zarządzanymi przez klienta w ramach maszyny wirtualnej gościa. Szyfrowanie po stronie serwera z kluczami zarządzanymi przez klienta usprawnia w systemie ADE, umożliwiając korzystanie z dowolnych typów systemów operacyjnych i obrazów dla maszyn wirtualnych przez szyfrowanie danych w usłudze Storage.
 
 > [!IMPORTANT]
 > Klucze zarządzane przez klienta korzystają z zarządzanych tożsamości dla zasobów platformy Azure, funkcji Azure Active Directory (Azure AD). W przypadku konfigurowania kluczy zarządzanych przez klienta tożsamość zarządzana jest automatycznie przypisywana do zasobów w ramach okładek. Jeśli później przeniesiesz subskrypcję, grupę zasobów lub dysk zarządzany z jednego katalogu usługi Azure AD do innego, zarządzana tożsamość skojarzona z dyskami zarządzanymi nie zostanie przetransferowana do nowej dzierżawy, więc klucze zarządzane przez klienta mogą przestać działać. Aby uzyskać więcej informacji, zobacz [transfer subskrypcji między katalogami usługi Azure AD](../../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories).
@@ -84,9 +84,8 @@ Klienci z wysokim poziomem zabezpieczeń, którzy są zainteresowani ryzykiem zw
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Włącz kompleksowe szyfrowanie przy użyciu szyfrowania na hoście — PowerShell](disks-enable-host-based-encryption-powershell.md)
-- [Włącz podwójne szyfrowanie dla dysków zarządzanych — PowerShell](disks-enable-double-encryption-at-rest-powershell.md)
-- [Włączanie kluczy zarządzanych przez klienta dla dysków zarządzanych — PowerShell](disks-enable-customer-managed-keys-powershell.md)
-- [Włączanie kluczy zarządzanych przez klienta dla dysków zarządzanych — Portal](disks-enable-customer-managed-keys-portal.md)
+- Włącz kompleksowe szyfrowanie przy użyciu szyfrowania na hoście z programem [PowerShell](disks-enable-host-based-encryption-powershell.md) lub [Azure Portal](disks-enable-host-based-encryption-portal.md).
+- Włącz podwójne szyfrowanie dla dysków zarządzanych przy użyciu [programu PowerShell](disks-enable-double-encryption-at-rest-powershell.md) lub [Azure Portal](disks-enable-double-encryption-at-rest-portal.md).
+- Włącz klucze zarządzane przez klienta dla dysków zarządzanych przy użyciu [programu PowerShell](disks-enable-customer-managed-keys-powershell.md) lub [Azure Portal](disks-enable-customer-managed-keys-portal.md).
 - [Poznaj szablony Azure Resource Manager tworzenia szyfrowanych dysków przy użyciu kluczy zarządzanych przez klienta](https://github.com/ramankumarlive/manageddiskscmkpreview)
 - [Co to jest usługa Azure Key Vault?](../../key-vault/general/overview.md)

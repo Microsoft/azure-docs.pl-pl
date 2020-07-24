@@ -1,19 +1,17 @@
 ---
 title: Informacje o formatach Apache Spark danych dla deweloperów Azure Data Lake Analytics U-SQL.
 description: W tym artykule opisano Apache Spark pojęć, które ułatwiają U_SQL deweloperom zrozumienie różnic między formatami danych U-SQL i Spark.
-author: guyhay
-ms.author: guyhay
 ms.reviewer: jasonh
 ms.service: data-lake-analytics
 ms.topic: how-to
 ms.custom: understand-apache-spark-data-formats
 ms.date: 01/31/2019
-ms.openlocfilehash: ed929b9dd6d262d63554ef3df59d3e3806dd28dc
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: bff8c89dcdcbb7c319e04e5e7518985badf5a5ff
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86106428"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132317"
 ---
 # <a name="understand-differences-between-u-sql-and-spark-data-formats"></a>Zrozumienie różnic między formatami danych U-SQL i Spark
 
@@ -50,7 +48,7 @@ Po wykonaniu tej transformacji dane są kopiowane, jak opisano w rozdziale [prze
 
 - [Zrozumienie koncepcji kodu platformy Spark dla deweloperów U-SQL](understand-spark-code-concepts.md)
 - [Uaktualnij rozwiązania do analizy danych Big Data z Azure Data Lake Storage Gen1 do Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-upgrade.md)
-- [Platforma .NET for Apache Spark](https://docs.microsoft.com/dotnet/spark/what-is-apache-spark-dotnet)
+- [Platforma .NET dla platformy Apache Spark](https://docs.microsoft.com/dotnet/spark/what-is-apache-spark-dotnet)
 - [Przekształcanie danych przy użyciu działania Spark w Azure Data Factory](../data-factory/transform-data-using-spark.md)
 - [Przekształcanie danych przy użyciu działania programu Hive platformy Hadoop w Azure Data Factory](../data-factory/transform-data-using-hadoop-hive.md)
 - [Co to jest platforma Apache Spark w usłudze Azure HDInsight](../hdinsight/spark/apache-spark-overview.md)

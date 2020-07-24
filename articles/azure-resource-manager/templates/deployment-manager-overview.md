@@ -4,11 +4,12 @@ description: Opisuje sposób wdrażania usługi w wielu regionach za pomocą us�
 ms.topic: conceptual
 ms.date: 11/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 006c123dfbb682ff5c498872d7f717a4a09e0bb5
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 27e8c9c0aa2ee86b490d266fc6ff76f263eee7ef
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86057929"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87130226"
 ---
 # <a name="enable-safe-deployment-practices-with-azure-deployment-manager-public-preview"></a>Włączanie bezpiecznych praktyk wdrażania przy użyciu usługi Azure Menedżer wdrażania (publiczna wersja zapoznawcza)
 
@@ -36,7 +37,7 @@ Dodatkowe zasoby:
 
 ## <a name="identity-and-access"></a>Tożsamość i dostęp
 
-W przypadku Menedżer wdrażania [tożsamość zarządzana przypisana przez użytkownika](../../active-directory/managed-identities-azure-resources/overview.md) wykonuje akcje wdrożenia. Tę tożsamość tworzysz przed rozpoczęciem wdrażania. Musi mieć dostęp do subskrypcji, w której jest wdrażana usługa, oraz wystarczających uprawnień do ukończenia wdrożenia. Informacje o akcjach przyznanych za pomocą ról można znaleźć [w temacie Role wbudowane dla zasobów platformy Azure](../../role-based-access-control/built-in-roles.md).
+W przypadku Menedżer wdrażania [tożsamość zarządzana przypisana przez użytkownika](../../active-directory/managed-identities-azure-resources/overview.md) wykonuje akcje wdrożenia. Tę tożsamość tworzysz przed rozpoczęciem wdrażania. Musi mieć dostęp do subskrypcji, w której jest wdrażana usługa, oraz wystarczających uprawnień do ukończenia wdrożenia. Informacje o akcjach przyznanych za pomocą ról można znaleźć [w temacie Role wbudowane platformy Azure](../../role-based-access-control/built-in-roles.md).
 
 Tożsamość musi znajdować się w tej samej lokalizacji co wdrożenie.
 

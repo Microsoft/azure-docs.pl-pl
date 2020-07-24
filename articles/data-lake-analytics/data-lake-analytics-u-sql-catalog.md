@@ -3,18 +3,16 @@ title: Użyj wykazu U-SQL w Azure Data Lake Analytics
 description: Dowiedz się, jak udostępniać kod i dane przy użyciu wykazu U-SQL. Twórz funkcje z wartościami przechowywanymi w tabeli, twórz widoki, twórz tabele i wysyłaj do nich zapytania.
 services: data-lake-analytics
 ms.service: data-lake-analytics
-author: saveenr
-ms.author: saveenr
-ms.reviewer: jasonwhowell
+ms.reviewer: jasonh
 ms.assetid: 57143396-ab86-47dd-b6f8-613ba28c28d2
 ms.topic: how-to
 ms.date: 05/09/2017
-ms.openlocfilehash: 78bd7f446b7716031e3eef02639acc8bb729719e
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 0ef1bff996589d09326e80b770953bd6b34966c5
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86119569"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132436"
 ---
 # <a name="get-started-with-the-u-sql-catalog-in-azure-data-lake-analytics"></a>Wprowadzenie do wykazu U-SQL w Azure Data Lake Analytics
 

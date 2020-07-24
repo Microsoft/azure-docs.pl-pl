@@ -4,16 +4,15 @@ description: Dowiedz się, jak uruchamiać i testować zadania U-SQL lokalnie pr
 services: data-lake-analytics
 ms.service: data-lake-analytics
 author: yanacai
-ms.author: yanacai
-ms.reviewer: jasonwhowell
+ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 03/01/2017
-ms.openlocfilehash: 58521b16e0f4ff133fd032abd4451f785256bbee
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: daf72fcf7baba289b4145d06d878c8a7232f1c6a
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86110474"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132419"
 ---
 # <a name="run-and-test-u-sql-with-azure-data-lake-u-sql-sdk"></a>Uruchamianie i testowanie U-SQL przy użyciu zestawu SDK U-SQL Azure Data Lake
 
@@ -158,7 +157,7 @@ Poniżej podano opcjonalne argumenty dla **przebiegu**:
 |-ScopeCEPTempPath|temp|Tymczasowa ścieżka do użycia na potrzeby przesyłania strumieniowego danych|
 |-OptFlags| |Rozdzielana przecinkami lista flag Optymalizatora|
 
-Przykład:
+Oto przykład:
 
 `LocalRunHelper run -Script d:\test\test1.usql -WorkDir d:\test\bin -CodeBehind -References "d:\asm\ref1.dll;d:\asm\ref2.dll" -UseDatabase testDB –Parallel 5 -Verbose`
 

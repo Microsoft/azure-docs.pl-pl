@@ -1,19 +1,17 @@
 ---
 title: Poznaj Apache Spark pojęcia dotyczące kodu dla deweloperów Azure Data Lake Analytics U-SQL.
 description: W tym artykule opisano Apache Spark pojęć, które pomagają deweloperom U-SQL zrozumieć koncepcje kodu platformy Spark.
-author: guyhay
-ms.author: guyhay
 ms.reviewer: jasonh
 ms.service: data-lake-analytics
 ms.topic: how-to
 ms.custom: Understand-apache-spark-code-concepts
 ms.date: 10/15/2019
-ms.openlocfilehash: d7cdcd5a3b176b60bb7801b37a831f8feb08c21f
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 7b5be20bb8b5eb1d56c1214104037d5d824445b3
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86106496"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132351"
 ---
 # <a name="understand-apache-spark-code-for-u-sql-developers"></a>Informacje o kodzie Apache Spark dla deweloperów U-SQL
 
@@ -131,7 +129,7 @@ Poniższa tabela zawiera równoważne typy w Spark, Scala i PySpark dla danego t
 Aby uzyskać więcej informacji, zobacz:
 
 - [org. Apache. Spark. SQL. Types](https://spark.apache.org/docs/latest/api/scala/index.html#org.apache.spark.sql.types.package)
-- [Typy Spark SQL i dataframes](https://spark.apache.org/docs/latest/sql-reference.html#data-types)
+- [Typy Spark SQL i dataframes](https://spark.apache.org/docs/latest/sql-ref-datatypes.html)
 - [Scala — typy wartości](https://www.scala-lang.org/api/current/scala/AnyVal.html)
 - [pyspark. SQL. Types](https://spark.apache.org/docs/latest/api/python/pyspark.sql.html#module-pyspark.sql.types)
 
@@ -216,7 +214,7 @@ Optymalizator zapytań oparty na kosztach platformy Spark ma własne możliwośc
 ## <a name="next-steps"></a>Następne kroki
 
 - [Omówienie formatów danych platformy Spark dla deweloperów U-SQL](understand-spark-data-formats.md)
-- [Platforma .NET for Apache Spark](https://docs.microsoft.com/dotnet/spark/what-is-apache-spark-dotnet)
+- [Platforma .NET dla platformy Apache Spark](https://docs.microsoft.com/dotnet/spark/what-is-apache-spark-dotnet)
 - [Uaktualnij rozwiązania do analizy danych Big Data z Azure Data Lake Storage Gen1 do Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-upgrade.md)
 - [Przekształcanie danych przy użyciu działania Spark w Azure Data Factory](../data-factory/transform-data-using-spark.md)
 - [Przekształcanie danych przy użyciu działania programu Hive platformy Hadoop w Azure Data Factory](../data-factory/transform-data-using-hadoop-hive.md)

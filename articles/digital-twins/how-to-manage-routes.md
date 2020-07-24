@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 6/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 923ae652872246916b2a4c5e8be95871983dbe95
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bc22cf5a21709ccacafe068a60541cc9990d1131
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85559838"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132266"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins"></a>Zarządzanie punktami końcowymi i trasami w usłudze Azure Digital bliźniaczych reprezentacji
 
@@ -23,14 +23,9 @@ Obsługiwane typy punktów końcowych to:
 * [Event Grid](../event-grid/overview.md)
 * [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md)
 
-Aby uzyskać więcej informacji na temat różnych punktów końcowych, zobacz [Wybieranie między usługami Azure Messaging](https://docs.microsoft.com/azure/event-grid/compare-messaging-services).
+Aby uzyskać więcej informacji na temat różnych punktów końcowych, zobacz [*Wybieranie między usługami Azure Messaging*](https://docs.microsoft.com/azure/event-grid/compare-messaging-services).
 
 Punkty końcowe i trasy są zarządzane za pomocą [**interfejsów API EventRoutes**](how-to-use-apis-sdks.md), [zestawu SDK platformy .NET (C#)](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core)lub [interfejsu wiersza polecenia usługi Azure Digital bliźniaczych reprezentacji](how-to-use-cli.md). Mogą być również zarządzane przez [Azure Portal](https://portal.azure.com).
-
-> [!NOTE]
-> Zarządzanie trasami zdarzeń za pomocą Azure Portal jest obecnie dostępne tylko dla użytkowników platformy Azure na kontach domeny firmowej. 
->
->Jeśli używasz osobistego [konto Microsoft (MSA)](https://account.microsoft.com/account/Account), takiego jak @outlook.com konto, Użyj interfejsów API Digital bliźniaczych reprezentacji lub interfejsu wiersza polecenia platformy Azure do zarządzania trasami zdarzeń zgodnie z opisem w tym artykule.
 
 ## <a name="create-an-endpoint-for-azure-digital-twins"></a>Tworzenie punktu końcowego dla usługi Azure Digital bliźniaczych reprezentacji
 
@@ -70,7 +65,14 @@ az dt endpoint create eventhub --endpoint-name <Event-Hub-endpoint-name> --event
 
 ## <a name="manage-event-routes-with-apis"></a>Zarządzanie trasami zdarzeń przy użyciu interfejsów API
 
-Aby faktycznie wysyłać dane z usługi Azure Digital bliźniaczych reprezentacji do punktu końcowego, należy zdefiniować trasę zdarzeń. **Interfejsy API** usługi Azure Digital bliźniaczych reprezentacji EventRoutes umożliwiają deweloperom tworzenie przepływów zdarzeń w całym systemie i w ramach usług podrzędnych. Przeczytaj więcej na temat tras zdarzeń w temacie [pojęcia: Routing Digital bliźniaczych reprezentacji Events](concepts-route-events.md).
+Aby faktycznie wysyłać dane z usługi Azure Digital bliźniaczych reprezentacji do punktu końcowego, należy zdefiniować trasę zdarzeń. **Interfejsy API** usługi Azure Digital bliźniaczych reprezentacji EventRoutes umożliwiają deweloperom tworzenie przepływów zdarzeń w całym systemie i w ramach usług podrzędnych. Przeczytaj więcej na temat tras zdarzeń w temacie [*pojęcia: Routing Digital bliźniaczych reprezentacji Events*](concepts-route-events.md).
+
+Po zakończeniu konfigurowania punktów końcowych można utworzyć trasę zdarzenia.
+
+>[!NOTE]
+>Jeśli ostatnio wdrożono punkty końcowe, sprawdź, czy są one gotowe do wdrożenia, **przed** podjęciem próby użycia ich dla nowej trasy zdarzeń. Jeśli wdrożenie trasy nie powiedzie się, ponieważ punkty końcowe nie są gotowe, odczekaj kilka minut i spróbuj ponownie.
+>
+> W przypadku wykonywania skryptów w tym przepływie warto uwzględnić to przez utworzenie w ciągu 2-3 minut czasu oczekiwania na zakończenie wdrażania usługi punktu końcowego przed przejściem do konfiguracji trasy.
 
 W przykładach w tym artykule użyto zestawu SDK języka C#.
 
@@ -149,7 +151,7 @@ Poniżej przedstawiono obsługiwane filtry tras.
 | --- | --- | --- | --- |
 | Typ | [Typ zdarzenia](./concepts-route-events.md#types-of-event-messages) przepływającego przez swoje cyfrowe wystąpienie sieci dwuosiowej | `"filter" : "type = '<eventType>'"` | `Microsoft.DigitalTwins.Twin.Create` <br> `Microsoft.DigitalTwins.Twin.Delete` <br> `Microsoft.DigitalTwins.Twin.Update`<br>`Microsoft.DigitalTwins.Relationship.Create`<br>`Microsoft.DigitalTwins.Relationship.Update`<br> `Microsoft.DigitalTwins.Relationship.Delete` <br> `microsoft.iot.telemetry`  |
 | Element źródłowy | Nazwa wystąpienia usługi Azure Digital bliźniaczych reprezentacji | `"filter" : "source = '<hostname>'"`|  **Powiadomienia**:`<yourDigitalTwinInstance>.<yourRegion>.azuredigitaltwins.net` <br> **Dla telemetrii**:`<yourDigitalTwinInstance>.<yourRegion>.azuredigitaltwins.net/digitaltwins/<twinId>`|
-| Podmiot | Opis zdarzenia w kontekście źródła zdarzeń powyżej | `"filter": " subject = '<subject>'"` | **Powiadomienia**: podmiot jest`<twinid>` <br> lub format identyfikatora URI dla tematów, które są jednoznacznie identyfikowane przez wiele części lub identyfikatorów:<br>`<twinid>/relationships/<relationshipid>`<br> **W przypadku telemetrii**: podmiot jest ścieżką składnika (Jeśli dane telemetryczne są emitowane z składnika przędzy), np `comp1.comp2` .. Jeśli dane telemetryczne nie są emitowane ze składnika, jego pole podmiotu jest puste. |
+| Temat | Opis zdarzenia w kontekście źródła zdarzeń powyżej | `"filter": " subject = '<subject>'"` | **Powiadomienia**: podmiot jest`<twinid>` <br> lub format identyfikatora URI dla tematów, które są jednoznacznie identyfikowane przez wiele części lub identyfikatorów:<br>`<twinid>/relationships/<relationshipid>`<br> **W przypadku telemetrii**: podmiot jest ścieżką składnika (Jeśli dane telemetryczne są emitowane z składnika przędzy), np `comp1.comp2` .. Jeśli dane telemetryczne nie są emitowane ze składnika, jego pole podmiotu jest puste. |
 | Schemat danych | Identyfikator modelu DTDL | `"filter": "dataschema = 'dtmi:example:com:floor4;2'"` | **W przypadku telemetrii**: schemat danych to identyfikator modelu dwuosiowego lub składnika, który emituje dane telemetryczne <br>**Dla powiadomień**: schemat danych nie jest obsługiwany|
 | Typ zawartości | Typ zawartości wartości danych | `"filter": "datacontenttype = '<contentType>'"` | `application/json` |
 | Wersja specyfikacji | Wersja schematu zdarzeń, którego używasz | `"filter": "specversion = '<version>'"` | Musi być `1.0` . Oznacza to, że schemat CloudEvents w wersji 1,0 |
@@ -174,7 +176,7 @@ Po zaimplementowaniu lub zaktualizowaniu filtru zmiana może potrwać kilka minu
 
 ## <a name="manage-endpoints-and-routes-with-cli"></a>Zarządzanie punktami końcowymi i trasami przy użyciu interfejsu wiersza polecenia
 
-Punkty końcowe i trasy można także zarządzać za pomocą interfejsu wiersza polecenia usługi Azure Digital bliźniaczych reprezentacji. Polecenia można znaleźć w [opisie procedury: korzystanie z interfejsu wiersza polecenia usługi Azure Digital bliźniaczych reprezentacji](how-to-use-cli.md).
+Punkty końcowe i trasy można także zarządzać za pomocą interfejsu wiersza polecenia usługi Azure Digital bliźniaczych reprezentacji. Polecenia można znaleźć w [*opisie procedury: korzystanie z interfejsu wiersza polecenia usługi Azure Digital bliźniaczych reprezentacji*](how-to-use-cli.md).
 
 ## <a name="monitor-event-routes"></a>Monitorowanie tras zdarzeń
 
@@ -189,4 +191,4 @@ W tym miejscu można wyświetlić metryki dla wystąpienia i utworzyć widoki ni
 ## <a name="next-steps"></a>Następne kroki
 
 Przeczytaj o różnych typach komunikatów zdarzeń, które można odbierać:
-* [Instrukcje: interpretowanie danych zdarzenia](how-to-interpret-event-data.md)
+* [*Instrukcje: interpretowanie danych zdarzenia*](how-to-interpret-event-data.md)

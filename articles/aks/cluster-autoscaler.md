@@ -4,12 +4,12 @@ description: Dowiedz się, jak za pomocą automatycznego skalowania klastra auto
 services: container-service
 ms.topic: article
 ms.date: 07/18/2019
-ms.openlocfilehash: 9aa06ea2fbc3aff218a4940fa60da767fabca500
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: af09d594dd745b64901965499df4245fa2e6a85f
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86252032"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87130838"
 ---
 # <a name="automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Automatyczne skalowanie klastra w celu spełnienia wymagań aplikacji w usłudze Azure Kubernetes Service (AKS)
 
@@ -44,7 +44,7 @@ Zarówno Skalowanie automatyczne, jak i automatyczne skalowanie klastra mogą r�
 
 Aby uzyskać więcej informacji o tym, jak może być niemożliwe skalowanie automatycznego skalowania klastra, zobacz, [jakie typy zasobników mogą uniemożliwić usunięcie węzła przez automatyczne skalowanie klastra?][autoscaler-scaledown]
 
-Automatyczne skalowanie klastra używa parametrów uruchamiania dla elementów, takich jak przedziały czasu między zdarzeniami skalowania i progami zasobów. Aby uzyskać więcej informacji na temat parametrów używanych przez automatyczne skalowanie klastra, zobacz [co to są parametry automatycznego skalowania klastra?][autoscaler-parameters].
+Automatyczne skalowanie klastra używa parametrów uruchamiania dla elementów, takich jak przedziały czasu między zdarzeniami skalowania i progami zasobów. Aby uzyskać więcej informacji na temat parametrów używanych przez automatyczne skalowanie klastra, zobacz [co to są parametry automatycznego skalowania klastra?][autoscaler-parameters]
 
 Klaster i automatyczne skalowanie w poziomie mogą współdziałać ze sobą i są często wdrażane w klastrze. Po połączeniu, skalowanie w poziomie na pionie jest ukierunkowane na uruchamianie liczby numerów wymaganych do spełnienia wymagań aplikacji. Automatyczne skalowanie klastra koncentruje się na uruchamianiu liczby węzłów wymaganych do obsługi zaplanowanych zasobników.
 
@@ -56,7 +56,7 @@ Klaster i automatyczne skalowanie w poziomie mogą współdziałać ze sobą i s
 Jeśli musisz utworzyć klaster AKS, użyj polecenia [AZ AKS Create][az-aks-create] . Aby włączyć i skonfigurować automatyczne skalowanie klastra w puli węzłów klastra, należy użyć parametru *--enable-Cluster-autoscaleer* i określić węzeł *--min-Count* i *--Max-Count*.
 
 > [!IMPORTANT]
-> Automatyczne skalowanie klastra to składnik Kubernetes. Chociaż klaster AKS korzysta z zestawu skalowania maszyn wirtualnych dla węzłów, nie włączaj ręcznie ani nie edytuj ustawień skalowania automatycznego skalowania w Azure Portal lub przy użyciu interfejsu wiersza polecenia platformy Azure. Zezwól automatycznemu skalowaniu klastra Kubernetes na zarządzanie wymaganymi ustawieniami skalowania. Aby uzyskać więcej informacji, zobacz [czy można modyfikować zasoby AKS w grupie zasobów węzła?](faq.md#can-i-modify-tags-and-other-properties-of-the-aks-resources-in-the-node-resource-group)
+> Automatyczne skalowanie klastra to składnik Kubernetes. Chociaż klaster AKS korzysta z zestawu skalowania maszyn wirtualnych dla węzłów, nie włączaj ręcznie ani nie edytuj ustawień skalowania automatycznego skalowania w Azure Portal lub przy użyciu interfejsu wiersza polecenia platformy Azure. Zezwól automatycznemu skalowaniu klastra Kubernetes na zarządzanie wymaganymi ustawieniami skalowania. Aby uzyskać więcej informacji, zobacz [czy można modyfikować zasoby AKS w grupie zasobów węzła?][aks-faq-node-resource-group]
 
 W poniższym przykładzie tworzony jest klaster AKS z pulą jednego węzła, które są obsługiwane przez zestaw skalowania maszyn wirtualnych. Włącza również automatyczne skalowanie klastra w puli węzłów klastra i ustawia co najmniej *1* i maksymalnie *3* węzły:
 
@@ -77,6 +77,26 @@ az aks create \
 ```
 
 Utworzenie klastra i skonfigurowanie ustawień automatycznego skalowania klastra trwa kilka minut.
+
+## <a name="update-an-existing-aks-cluster-to-enable-the-cluster-autoscaler"></a>Aktualizowanie istniejącego klastra AKS w celu włączenia automatycznego skalowania klastra
+
+Użyj polecenia [AZ AKS Update][az-aks-update] , aby włączyć i skonfigurować automatyczne skalowanie klastra w puli węzłów dla istniejącego klastra. Użyj parametru *--enable-Cluster-AutoScale* , a następnie określ węzeł *--min-Count* i *--Max-Count*.
+
+> [!IMPORTANT]
+> Automatyczne skalowanie klastra to składnik Kubernetes. Chociaż klaster AKS korzysta z zestawu skalowania maszyn wirtualnych dla węzłów, nie włączaj ręcznie ani nie edytuj ustawień skalowania automatycznego skalowania w Azure Portal lub przy użyciu interfejsu wiersza polecenia platformy Azure. Zezwól automatycznemu skalowaniu klastra Kubernetes na zarządzanie wymaganymi ustawieniami skalowania. Aby uzyskać więcej informacji, zobacz [czy można modyfikować zasoby AKS w grupie zasobów węzła?][aks-faq-node-resource-group]
+
+Poniższy przykład aktualizuje istniejący klaster AKS, aby włączyć automatyczne skalowanie klastra w puli węzłów dla klastra i ustawić co najmniej *1* i maksymalnie *3* węzły:
+
+```azurecli-interactive
+az aks update \
+  --resource-group myResourceGroup \
+  --name myAKSCluster \
+  --enable-cluster-autoscaler \
+  --min-count 1 \
+  --max-count 3
+```
+
+Zaktualizowanie klastra i skonfigurowanie ustawień automatycznego skalowania klastra trwa kilka minut.
 
 ## <a name="change-the-cluster-autoscaler-settings"></a>Zmień ustawienia automatycznego skalowania klastra
 
@@ -122,7 +142,7 @@ Możesz również skonfigurować bardziej szczegółowe szczegóły automatyczne
 > [!IMPORTANT]
 > Profil automatycznego skalowania klastra ma wpływ na wszystkie pule węzłów używające automatycznego skalowania klastra. Nie można ustawić profilu autoskalowania na pulę węzłów.
 
-### <a name="install-aks-preview-cli-extension"></a>Zainstaluj rozszerzenie interfejsu wiersza polecenia AKS-Preview
+### <a name="install-aks-preview-cli-extension"></a>Instalowanie rozszerzenia interfejsu wiersza polecenia aks-preview
 
 Aby ustawić profil ustawień automatycznego skalowania klastra, wymagany jest interfejs wiersza polecenia *AKS-Preview* w wersji 0.4.30 lub nowszej. Zainstaluj rozszerzenie interfejsu wiersza polecenia platformy Azure w *wersji zapoznawczej* przy użyciu poleceń [AZ Extension Add][az-extension-add] , a następnie wyszukaj wszystkie dostępne aktualizacje za pomocą polecenia [AZ Extension Update][az-extension-update] :
 
@@ -136,7 +156,7 @@ az extension update --name aks-preview
 
 ### <a name="set-the-cluster-autoscaler-profile-on-an-existing-aks-cluster"></a>Ustawianie profilu automatycznego skalowania klastra w istniejącym klastrze AKS
 
-Użyj polecenia [AZ AKS Update][az-aks-update] z parametrem *cluster-autoscaleing-profile* , aby ustawić profil automatycznego skalowania klastra w klastrze. Poniższy przykład konfiguruje ustawienie Interwał skanowania jako 30 s w profilu.
+Użyj polecenia [AZ AKS Update][az-aks-update-preview] z parametrem *cluster-autoscaleing-profile* , aby ustawić profil automatycznego skalowania klastra w klastrze. Poniższy przykład konfiguruje ustawienie Interwał skanowania jako 30 s w profilu.
 
 ```azurecli-interactive
 az aks update \
@@ -179,7 +199,7 @@ Powyższe polecenie tworzy klaster AKS i definiuje Interwał skanowania jako 30 
 
 ### <a name="reset-cluster-autoscaler-profile-to-default-values"></a>Zresetuj profil automatycznego skalowania klastra do wartości domyślnych
 
-Za pomocą polecenia [AZ AKS Update][az-aks-update] Zresetuj profil automatycznego skalowania klastra w klastrze.
+Za pomocą polecenia [AZ AKS Update][az-aks-update-preview] Zresetuj profil automatycznego skalowania klastra w klastrze.
 
 ```azurecli-interactive
 az aks update \
@@ -190,7 +210,7 @@ az aks update \
 
 ## <a name="disable-the-cluster-autoscaler"></a>Wyłącz automatyczne skalowanie klastra
 
-Jeśli nie chcesz już używać automatycznego skalowania klastra, możesz je wyłączyć za pomocą polecenia [AZ AKS Update][az-aks-update] , określając parametr *--disable-Cluster-autoscaleer* . Węzły nie są usuwane, gdy automatyczne skalowanie klastra jest wyłączone.
+Jeśli nie chcesz już używać automatycznego skalowania klastra, możesz je wyłączyć za pomocą polecenia [AZ AKS Update][az-aks-update-preview] , określając parametr *--disable-Cluster-autoscaleer* . Węzły nie są usuwane, gdy automatyczne skalowanie klastra jest wyłączone.
 
 ```azurecli-interactive
 az aks update \
@@ -203,7 +223,7 @@ Możesz ręcznie skalować klaster po wyłączeniu automatycznego skalowania kla
 
 ## <a name="re-enable-a-disabled-cluster-autoscaler"></a>Ponowne włączenie wyłączonego automatycznego skalowania klastra
 
-Jeśli chcesz ponownie włączyć automatyczne skalowanie klastra w istniejącym klastrze, możesz je ponownie włączyć przy użyciu polecenia [AZ AKS Update][az-aks-update] , określając parametr *--enable-Cluster-AutoScale*, *--min-Count*i *--Max-Count* .
+Jeśli chcesz ponownie włączyć automatyczne skalowanie klastra w istniejącym klastrze, możesz je ponownie włączyć przy użyciu polecenia [AZ AKS Update][az-aks-update-preview] , określając parametr *--enable-Cluster-AutoScale*, *--min-Count*i *--Max-Count* .
 
 ## <a name="retrieve-cluster-autoscaler-logs-and-status"></a>Pobieranie dzienników i stanu automatycznego skalowania klastra
 
@@ -213,7 +233,7 @@ AKS zarządza automatycznym skalowaniem klastra w Twoim imieniu i uruchamia go n
 
 Aby skonfigurować dzienniki do wypychania z automatycznego skalowania klastra do Log Analytics, wykonaj następujące kroki.
 
-1. Skonfiguruj regułę dla dzienników zasobów, aby wypychanie dzienników automatycznego skalowania klastra do Log Analytics. [Instrukcje są tutaj szczegółowe](./view-master-logs.md#enable-resource-logs). Upewnij się, że pole wyboru jest zaznaczone, aby `cluster-autoscaler` wybrać opcję "dzienniki".
+1. Skonfiguruj regułę dla dzienników zasobów, aby wypychanie dzienników automatycznego skalowania klastra do Log Analytics. [Instrukcje są tutaj szczegółowe][aks-view-master-logs]. Upewnij się, że pole wyboru jest zaznaczone, aby `cluster-autoscaler` wybrać opcję "dzienniki".
 1. Kliknij sekcję "Logs" w klastrze za pomocą Azure Portal.
 1. Wprowadź następujące przykładowe zapytanie do Log Analytics:
 
@@ -232,11 +252,11 @@ Automatyczne skalowanie klastra również zapisuje stan kondycji do configmap o 
 kubectl get configmap -n kube-system cluster-autoscaler-status -o yaml
 ```
 
-Aby dowiedzieć się więcej na temat tego, co jest rejestrowane w ramach automatycznego skalowania, zapoznaj się z często zadawanymi pytaniami w [projekcie GitHub Kubernetes/autoscalenia](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#ca-doesnt-work-but-it-used-to-work-yesterday-why).
+Aby dowiedzieć się więcej na temat tego, co jest rejestrowane w ramach automatycznego skalowania, zapoznaj się z często zadawanymi pytaniami w [projekcie GitHub Kubernetes/autoscalenia][kubernetes-faq].
 
 ## <a name="use-the-cluster-autoscaler-with-multiple-node-pools-enabled"></a>Używanie automatycznego skalowania klastra z włączonymi wieloma pulami węzłów
 
-Automatyczne skalowanie klastra może być używane razem z włączonymi [wieloma pulami węzłów](use-multiple-node-pools.md) . Postępuj zgodnie z tym dokumentem, aby dowiedzieć się, jak włączyć wiele pul węzłów i dodać dodatkowe pule węzłów do istniejącego klastra. W przypadku korzystania z obu funkcji jednocześnie należy włączyć automatyczne skalowanie klastra dla każdej puli poszczególnych węzłów w klastrze i przekazywać unikatowe reguły automatycznego skalowania do każdego z nich.
+Automatyczne skalowanie klastra może być używane razem z włączonymi [wieloma pulami węzłów][aks-multiple-node-pools] . Postępuj zgodnie z tym dokumentem, aby dowiedzieć się, jak włączyć wiele pul węzłów i dodać dodatkowe pule węzłów do istniejącego klastra. W przypadku korzystania z obu funkcji jednocześnie należy włączyć automatyczne skalowanie klastra dla każdej puli poszczególnych węzłów w klastrze i przekazywać unikatowe reguły automatycznego skalowania do każdego z nich.
 
 W poniższym poleceniu założono, że wykonano [instrukcje wstępne](#create-an-aks-cluster-and-enable-the-cluster-autoscaler) we wcześniejszej części tego dokumentu, a użytkownik chce zaktualizować maksymalną liczbę węzłów z zakresu od *3* do *5*. Użyj polecenia [AZ AKS nodepool Update][az-aks-nodepool-update] , aby zaktualizować ustawienia istniejącej puli węzłów.
 
@@ -268,22 +288,27 @@ W tym artykule pokazano, jak automatycznie skalować liczbę węzłów AKS. Moż
 
 <!-- LINKS - internal -->
 [aks-faq]: faq.md
+[aks-faq-node-resource-group]: faq.md#can-i-modify-tags-and-other-properties-of-the-aks-resources-in-the-node-resource-group
+[aks-multiple-node-pools]: use-multiple-node-pools.md
 [aks-scale-apps]: tutorial-kubernetes-scale.md
 [aks-support-policies]: support-policies.md
 [aks-upgrade]: upgrade-cluster.md
+[aks-view-master-logs]: ./view-master-logs.md#enable-resource-logs
 [autoscaler-profile-properties]: #using-the-autoscaler-profile
 [azure-cli-install]: /cli/azure/install-azure-cli
 [az-aks-show]: /cli/azure/aks#az-aks-show
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
 [az-aks-create]: /cli/azure/aks#az-aks-create
+[az-aks-update]: /cli/azure/aks#az-aks-update
 [az-aks-scale]: /cli/azure/aks#az-aks-scale
 [az-feature-register]: /cli/azure/feature#az-feature-register
 [az-feature-list]: /cli/azure/feature#az-feature-list
 [az-provider-register]: /cli/azure/provider#az-provider-register
 
 <!-- LINKS - external -->
-[az-aks-update]: https://github.com/Azure/azure-cli-extensions/tree/master/src/aks-preview
+[az-aks-update-preview]: https://github.com/Azure/azure-cli-extensions/tree/master/src/aks-preview
 [az-aks-nodepool-update]: https://github.com/Azure/azure-cli-extensions/tree/master/src/aks-preview#enable-cluster-auto-scaler-for-a-node-pool
 [autoscaler-scaledown]: https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#what-types-of-pods-can-prevent-ca-from-removing-a-node
 [autoscaler-parameters]: https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#what-are-the-parameters-to-ca
+[kubernetes-faq]: https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#ca-doesnt-work-but-it-used-to-work-yesterday-why

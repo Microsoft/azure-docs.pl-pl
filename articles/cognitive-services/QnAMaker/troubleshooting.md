@@ -3,13 +3,12 @@ title: Rozwiązywanie problemów — QnA Maker
 description: Zanadzorowana lista najbardziej często zadawanych pytań dotyczących usługi QnA Maker pomoże Ci szybciej wdrożyć usługę i uzyskać lepsze wyniki.
 ms.topic: troubleshooting
 ms.date: 03/25/2020
-ms.author: diberry
-ms.openlocfilehash: 7847e21dbcf07f669d6802fffdd1e43623a72340
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: ec994677b17ee21dbf4ee6091be3bdf943572b2e
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80804354"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87131994"
 ---
 # <a name="troubleshooting-for-qna-maker"></a>Rozwiązywanie problemów dotyczących QnA Maker
 
@@ -30,7 +29,7 @@ Dowiedz się więcej o [warstwach cenowych](Concepts/azure-resources.md).
 <details>
 <summary><b>Jak uzyskać punkt końcowy usługi QnAMaker</b></summary>
 
-**Odpowiedź**: punkt końcowy usługi QnAMaker jest przydatny do celów debugowania podczas kontaktowania się z pomocą techniczną QnAMaker lub UserVoice. Punkt końcowy jest adresem URL w tej formie: `https://your-resource-name.azurewebsites.net`.
+**Odpowiedź**: punkt końcowy usługi QnAMaker jest przydatny do celów debugowania podczas kontaktowania się z pomocą techniczną QnAMaker lub UserVoice. Punkt końcowy jest adresem URL w tej formie: `https://your-resource-name.azurewebsites.net` .
 
 1. Przejdź do usługi QnAMaker (Grupa zasobów) w [Azure Portal](https://portal.azure.com)
 
@@ -173,7 +172,7 @@ Jeśli masz zawartość z wielu języków, pamiętaj o utworzeniu oddzielnej us�
 </details>
 
 <details>
-<summary><b>Mój `testkb` indeks został usunięty w usłudze wyszukiwania. Jak można to naprawić?</b></summary>
+<summary><b>Mój indeks został usunięty `testkb` w usłudze wyszukiwania. Jak można to naprawić?</b></summary>
 
 **Odpowiedź**: nie można odzyskać starych danych. Utwórz nowy zasób QnA Maker i ponownie utwórz bazę wiedzy.
 
@@ -209,12 +208,12 @@ Jeśli masz zawartość z wielu języków, pamiętaj o utworzeniu oddzielnej us�
 1. Gdy nadal znajduje się w usłudze App Service, wybierz pozycję **Narzędzia programistyczne**, a następnie **Narzędzia zaawansowane**, a następnie pozycję **Przejdź**. Spowoduje to otwarcie nowego okna przeglądarki.
 1. Wybierz pozycję **konsola debugowania**, a następnie polecenie **cmd** , aby otworzyć narzędzie wiersza polecenia.
 1. Przejdź do _lokalizacji site/wwwroot/Data/QnAMaker/_ Directory.
-1. Usuń wszystkie foldery, których nazwy zaczynają `rd`się od.
+1. Usuń wszystkie foldery, których nazwy zaczynają się od `rd` .
 
     **Nie usuwaj** następujących danych:
 
-    * Plik KbIdToRankerMappings. txt
-    * Plik EndpointSettings. JSON
+    * Plik KbIdToRankerMappings.txt
+    * EndpointSettings.jspliku
     * Folder EndpointKeys
 
 1. Uruchom usługę App Service.
@@ -244,12 +243,12 @@ Jeśli masz zawartość z wielu języków, pamiętaj o utworzeniu oddzielnej us�
 **Odpowiedź**: musisz mieć następujące informacje na temat bazy wiedzy:
 
 * Identyfikator bazy wiedzy.
-* Niestandardowa nazwa domeny podrzędnej punktu końcowego bazy wiedzy, `host`znana jako znaleziona na stronie **Ustawienia** po opublikowaniu.
+* Niestandardowa nazwa domeny podrzędnej punktu końcowego bazy wiedzy, znana jako `host` znaleziona na stronie **Ustawienia** po opublikowaniu.
 * Klucz punktu końcowego opublikowany w bazie wiedzy — znajduje się na stronie **Ustawienia** po opublikowaniu.
 
 Korzystając z tych informacji, przejdź do usługi App Service bot w Azure Portal. W obszarze **ustawienia > konfiguracja — > ustawienia aplikacji**Zmień te wartości.
 
-Klucz punktu końcowego bazy wiedzy jest oznaczony `QnAAuthkey` jako usługa ABS.
+Klucz punktu końcowego bazy wiedzy jest oznaczony jako `QnAAuthkey` Usługa ABS.
 
 </details>
 

@@ -3,19 +3,17 @@ title: Etyka i właściwe użycie — Personalizacja
 titleSuffix: Azure Cognitive Services
 description: Te wytyczne mają na celu ułatwienie implementacji personalizacji w sposób ułatwiający Tworzenie relacji zaufania z firmą i usługą. Pamiętaj, aby zadbać o to, aby przeanalizować i zamierzone wpływ personalizacji na mieszkających osób. Gdy jest to wątpliwe, Wyszukaj wskazówki.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 06/12/2019
-ms.author: diberry
-ms.openlocfilehash: e422284b871214dbeca31b5dd17b9177a18ad3c8
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 602da28f0c235fb0e797a493bc1160631c042a9d
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80478096"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132725"
 ---
 # <a name="guidelines-for-responsible-implementation-of-personalizer"></a>Wytyczne dotyczące odpowiedzialnej implementacji personalizacji
 
@@ -50,7 +48,7 @@ Zaimplementowanie personalizowania może mieć doskonałą wartość dla użytko
 
 Użycie usługi, która uczy się do personalizacji zawartości i interfejsów użytkownika, jest przydatna. Można go również zastosować, jeśli sposób, w jaki Personalizacja tworzy negatywne skutki uboczne w świecie rzeczywistym, w tym, jeśli użytkownicy nie znają personalizacji zawartości.
 
-Przykłady użycia programu personalizacji z podwyższonym prawdopodobieństwem negatywnych efektów ubocznych lub brakiem przejrzystości obejmują scenariusze, w których "wynagrodzenie" zależy od wielu długoterminowych, złożonych czynników, które w przypadku nadmiernego rozłożenia mogą mieć niekorzystne wyniki dla osób indywidualnych. Są one traktowane jako "wynikowe" Opcje lub opcje, które wiążą się z ryzykiem szkody. Przykład:
+Przykłady użycia programu personalizacji z podwyższonym prawdopodobieństwem negatywnych efektów ubocznych lub brakiem przejrzystości obejmują scenariusze, w których "wynagrodzenie" zależy od wielu długoterminowych, złożonych czynników, które w przypadku nadmiernego rozłożenia mogą mieć niekorzystne wyniki dla osób indywidualnych. Są one traktowane jako "wynikowe" Opcje lub opcje, które wiążą się z ryzykiem szkody. Na przykład:
 
 
 * **Finanse**: Personalizowanie ofert dotyczących pożyczek, finansów i produktów ubezpieczeniowych, w przypadku których czynniki ryzyka opierają się na danych, na których nie wiadomo, nie mogą uzyskać ani nie mogą się zakwestionować.
@@ -129,7 +127,7 @@ Poniżej przedstawiono obszary projektowania dla odpowiedzialnych implementacji 
 * Łatwo Komunikuj się z użytkownikami, w jaki sposób jest używany program Personalizuj, w jakim celu i z danymi.
 * Archiwizuj informacje i zasoby, takie jak modele, zasady uczenia i inne dane, które są używane przez program do działania, aby można było odtworzyć wyniki.
 
-### <a name="transparency"></a>Przezroczystość
+### <a name="transparency"></a>Przejrzystość
 *Systemy AI powinny być zrozumiałe*. Z personalizacją:
 
 * *Przekaż użytkownikom informacje o sposobie spersonalizowania zawartości.* Na przykład możesz pokazać użytkownikom przycisk z etykietą `Why These Suggestions?` pokazującą, które najważniejsze funkcje użytkownika i akcje odgrywają rolę w wynikach narzędzia Personalizacja.

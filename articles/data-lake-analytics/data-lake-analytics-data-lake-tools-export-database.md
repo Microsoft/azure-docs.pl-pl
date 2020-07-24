@@ -2,19 +2,17 @@
 title: Eksportowanie bazy danych U-SQL — Azure Data Lake Tools for Visual Studio
 description: Dowiedz się, w jaki sposób używać Azure Data Lake Tools for Visual Studio do eksportowania bazy danych U-SQL i automatycznego importowania jej do konta lokalnego.
 services: data-lake-analytics
-author: yanancai
-ms.author: yanacai
-ms.reviewer: jasonwhowell
+ms.reviewer: jasonh
 ms.assetid: dc9b21d8-c5f4-4f77-bcbc-eff458f48de2
 ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 11/27/2017
-ms.openlocfilehash: 364682f6bcf2edeecc7af2da6c91e4bfd1de98a4
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 05e55d1608323b8e746a1c82ccb915a2db58ce97
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86117291"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132096"
 ---
 # <a name="export-a-u-sql-database"></a>Eksportowanie bazy danych U-SQL
 
@@ -51,7 +49,7 @@ W tym kroku można zweryfikować wybrane obiekty w polu **listy Eksportuj obiekt
 
 Można także skonfigurować inne ustawienia dla elementu docelowego eksportu. Opisy konfiguracji są wymienione w poniższej tabeli:
 
-|Konfiguracja|Opis|
+|Konfigurowanie|Opis|
 |-------------|-----------|
 |Nazwa miejsca docelowego|Ta nazwa wskazuje, gdzie mają zostać zapisane wyeksportowane zasoby bazy danych. Przykłady to zestawy, dodatkowe pliki i przykładowe dane. Folder o tej nazwie jest tworzony w folderze głównym danych lokalnych.|
 |Katalog projektu|Ta ścieżka definiuje, gdzie ma być zapisany wyeksportowany skrypt U-SQL. Wszystkie definicje obiektów bazy danych są zapisywane w tej lokalizacji.|

@@ -8,12 +8,12 @@ ms.service: load-balancer
 ms.topic: overview
 ms.date: 07/07/2020
 ms.author: allensu
-ms.openlocfilehash: f1718de6bc9a86f85cadf4531386e663d5a420d3
-ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.openlocfilehash: 7fe7c1473579c62b110548a2c5e98f9bdfaf6bf9
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86273765"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87131467"
 ---
 # <a name="backend-pool-management"></a>Zarządzanie pulą zaplecza
 Pula zaplecza jest krytycznym składnikiem modułu równoważenia obciążenia. Pula zaplecza definiuje grupę zasobów, która będzie obsługiwała ruch dla danej reguły równoważenia obciążenia.
@@ -255,10 +255,12 @@ Wszystkie zarządzanie pulą zaplecza odbywa się bezpośrednio w obiekcie puli 
 
   >[!IMPORTANT] 
   >Ta funkcja jest obecnie dostępna w wersji zapoznawczej i ma następujące ograniczenia:
-  >* Limit liczby dodawanych adresów IP 100
+  >* Tylko Standardowa usługa równoważenia obciążenia
+  >* Limit 100 adresów IP w puli zaplecza
   >* Zasoby zaplecza muszą znajdować się w tej samej sieci wirtualnej co moduł równoważenia obciążenia
   >* Ta funkcja nie jest obecnie obsługiwana w Azure Portal
-  >* Tylko Standardowa usługa równoważenia obciążenia
+  >* Kontenery ACI nie są obecnie obsługiwane przez tę funkcję
+  >* Moduły równoważenia obciążenia lub usługi frontonu nie mogą być umieszczane w puli zaplecza modułu równoważenia obciążenia
   
 ### <a name="powershell"></a>PowerShell
 Utwórz nową pulę zaplecza:
@@ -271,8 +273,7 @@ $vnetName = "myVnet"
 $location = "eastus"
 $nicName = "myNic"
 
-$backendPool = 
-New-AzLoadBalancerBackendAddressPool -ResourceGroupName $resourceGroup -LoadBalancerName $loadBalancerName -BackendAddressPoolName $backendPoolName  
+$backendPool = New-AzLoadBalancerBackendAddressPool -ResourceGroupName $resourceGroup -LoadBalancerName $loadBalancerName -Name $backendPoolName  
 ```
 
 Zaktualizuj pulę zaplecza przy użyciu nowego adresu IP z istniejącej sieci wirtualnej:
@@ -281,18 +282,17 @@ Zaktualizuj pulę zaplecza przy użyciu nowego adresu IP z istniejącej sieci wi
 $virtualNetwork = 
 Get-AzVirtualNetwork -Name $vnetName -ResourceGroupName $resourceGroup 
  
-$ip1 = 
-New-AzLoadBalancerBackendAddressConfig -IpAddress "10.0.0.5" -Name "TestVNetRef" -VirtualNetwork $virtualNetwork  
+$ip1 = New-AzLoadBalancerBackendAddressConfig -IpAddress "10.0.0.5" -Name "TestVNetRef" -VirtualNetwork $virtualNetwork  
  
 $backendPool.LoadBalancerBackendAddresses.Add($ip1) 
 
-Set-AzLoadBalancerBackendAddressPool -ResourceGroupName $resourceGroup  -LoadBalancerName $loadBalancerName -BackendAddressPoolName $backendPoolName -BackendAddressPool $backendPool  
+Set-AzLoadBalancerBackendAddressPool -InputObject $backendPool
 ```
 
 Pobierz informacje o puli zaplecza dla modułu równoważenia obciążenia, aby upewnić się, że adresy zaplecza są dodawane do puli zaplecza:
 
 ```azurepowershell-interactive
-Get-AzLoadBalancerBackendAddressPool -ResourceGroupName $resourceGroup -LoadBalancerName $loadBalancerName -BackendAddressPoolName $backendPoolName -BackendAddressPool $backendPool  
+Get-AzLoadBalancerBackendAddressPool -ResourceGroupName $resourceGroup -LoadBalancerName $loadBalancerName -Name $backendPoolName 
 ```
 Utwórz interfejs sieciowy i dodaj go do puli zaplecza. Ustaw adres IP na jeden z adresów zaplecza:
 

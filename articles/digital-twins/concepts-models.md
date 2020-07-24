@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: ab0b08c01478d1375ec2a234dc0277980312f17c
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 56ebb32e2d1c2a9bab9592da63e1ada7130bb7ff
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86258276"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87131637"
 ---
 # <a name="understand-twin-models-in-azure-digital-twins"></a>Zrozumienie modeli bliźniaczych w usłudze Azure Digital bliźniaczych reprezentacji
 
@@ -24,12 +24,12 @@ Modele są zapisywane przy użyciu **języka DTDL (Digital bliźniaczy Definitio
 
 ## <a name="digital-twin-definition-language-dtdl-for-writing-models"></a>Digital bliźniaczy Definition Language (DTDL) do pisania modeli
 
-Modele dla usługi Azure Digital bliźniaczych reprezentacji są zdefiniowane przy użyciu języka Digital bliźniaczych reprezentacji Definition Language (DTDL). DTDL jest oparta na formacie JSON-LD i nie jest zależna od języka programowania. Usługa DTDL nie jest wyłączana wyłącznie do usługi Azure Digital bliźniaczych reprezentacji, ale jest również używana do reprezentowania danych urządzenia w innych usługach IoT, takich jak [IoT Plug and Play](../iot-pnp/overview-iot-plug-and-play.md). Usługa Azure Digital bliźniaczych reprezentacji używa DTDL w *wersji 2*.
+Modele dla usługi Azure Digital bliźniaczych reprezentacji są zdefiniowane przy użyciu języka Digital bliźniaczych reprezentacji Definition Language (DTDL). DTDL jest oparta na formacie JSON-LD i nie jest zależna od języka programowania. Usługa DTDL nie jest wyłączana wyłącznie do usługi Azure Digital bliźniaczych reprezentacji, ale jest również używana do reprezentowania danych urządzenia w innych usługach IoT, takich jak [IoT Plug and Play](../iot-pnp/overview-iot-plug-and-play.md). 
+
+Usługa Azure Digital bliźniaczych reprezentacji używa DTDL w *wersji 2*. Aby uzyskać więcej informacji na temat tej wersji programu DTDL, zapoznaj się z dokumentacją dotyczącą specyfikacji w witrynie GitHub: [*Digital bliźniaczych reprezentacji Definition Language (DTDL) — wersja 2*](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md).
 
 > [!TIP] 
 > Nie wszystkie usługi korzystające z DTDL implementują dokładnie te same funkcje programu DTDL. Na przykład usługa IoT Plug and Play nie korzysta z funkcji DTDL, które są dostępne w przypadku wykresów, podczas gdy program Azure Digital bliźniaczych reprezentacji nie implementuje obecnie poleceń DTDL. Aby uzyskać więcej informacji na temat funkcji DTDL, które są specyficzne dla usługi Azure Digital bliźniaczych reprezentacji, zobacz sekcję w dalszej części tego artykułu dotyczącej [specyfiki implementacji usługi Azure Digital bliźniaczych reprezentacji DTDL](#azure-digital-twins-dtdl-implementation-specifics).
-
-Aby uzyskać więcej informacji na temat DTDL, zobacz dokumentację specyfikacji w witrynie GitHub: [Digital bliźniaczych reprezentacji Definition Language (DTDL) — wersja 2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md).
 
 ## <a name="elements-of-a-model"></a>Elementy modelu
 
@@ -62,7 +62,9 @@ Aby model DTDL był zgodny z usługą Azure Digital bliźniaczych reprezentacji,
 
 Modele typu sznurka można pisać w dowolnym edytorze tekstu. Język DTDL jest następujący: Składnia JSON, dlatego należy przechowywać modele z rozszerzeniem *JSON*. Użycie rozszerzenia JSON spowoduje włączenie wielu edytorów tekstu programistycznego, aby zapewnić podstawowe sprawdzanie składni i wyróżnianie dokumentów DTDL. Istnieje również [rozszerzenie DTDL](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-dtdl) dostępne dla [Visual Studio Code](https://code.visualstudio.com/).
 
-Oto przykład typowego modelu, który został zapisany jako interfejs DTDL. Model opisuje planety, każdy z nazwą, masą i temperaturą. Globalnej mogą mieć przyzwyczajki satelitarne i mogą zawierać kontenery.
+Ta sekcja zawiera przykład typowego modelu, który został zapisany jako interfejs DTDL. Model opisuje **planety**, każdy z nazwą, masą i temperaturą.
+ 
+Należy wziąć pod uwagę, że planety może także wchodzić w pracę z **przyzwyczajami** , które są swoimi satelitami i mogą zawierać **kontenery**. W poniższym przykładzie `Planet` model wyraża połączenia z tymi innymi jednostkami, odwołując się do dwóch modeli zewnętrznych — `Moon` i `Crater` . Te modele są również zdefiniowane w przykładowym kodzie poniżej, ale są bardzo proste, aby nie rozciągać się z podstawowego `Planet` przykładu.
 
 ```json
 [
@@ -101,6 +103,11 @@ Oto przykład typowego modelu, który został zapisany jako interfejs DTDL. Mode
   },
   {
     "@id": "dtmi:com:contoso:Crater;1",
+    "@type": "Interface",
+    "@context": "dtmi:dtdl:context;2"
+  },
+  {
+    "@id": "dtmi:com:contoso:Moon;1",
     "@type": "Interface",
     "@context": "dtmi:dtdl:context;2"
   }
@@ -204,13 +211,13 @@ Dostępny jest przykład niezależny od języka do sprawdzania poprawności doku
 
 Przykład modułu sprawdzania DTDL jest oparty na bibliotece analizatora oprogramowania .NET DTDL, która jest dostępna w NuGet jako biblioteka po stronie klienta: [**Microsoft. Azure. DigitalTwins. parser**](https://nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/). Możesz również bezpośrednio korzystać z biblioteki, aby zaprojektować własne rozwiązanie do sprawdzania poprawności. W przypadku korzystania z biblioteki parserów upewnij się, że używasz wersji zgodnej z wersją, którą obsługuje usługa Azure Digital bliźniaczych reprezentacji. W trakcie okresu zapoznawczego jest to wersja *3.7.0*.
 
-Więcej informacji o bibliotece analizatorów, w tym przykłady użycia, można znaleźć w temacie [How to: Parse and Validate models](how-to-use-parser.md).
+Więcej informacji o bibliotece analizatorów, w tym przykłady użycia, można znaleźć w temacie [*How to: Parse and Validate models*](how-to-use-parser.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
 Zobacz, jak zarządzać modelami przy użyciu interfejsów API DigitalTwinsModels:
-* [Instrukcje: Zarządzanie modelami niestandardowymi](how-to-manage-model.md)
+* [*Instrukcje: Zarządzanie modelami niestandardowymi*](how-to-manage-model.md)
 
 Można też dowiedzieć się, jak są tworzone cyfrowe bliźniaczych reprezentacji na podstawie modeli:
-* [Pojęcia: Digital bliźniaczych reprezentacji i wykres bliźniaczy](concepts-twins-graph.md)
+* [*Pojęcia: Digital bliźniaczych reprezentacji i wykres bliźniaczy*](concepts-twins-graph.md)
 

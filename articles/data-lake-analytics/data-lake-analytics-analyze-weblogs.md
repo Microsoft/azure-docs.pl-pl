@@ -2,19 +2,17 @@
 title: Analizowanie dzienników witryn sieci Web przy użyciu usługi Azure Data Lake Analytics
 description: Informacje na temat analizowania dzienników witryn sieci Web przy użyciu Azure Data Lake Analytics do uruchamiania funkcji i zapytań U-SQL.
 services: data-lake-analytics
-author: saveenr
-ms.author: saveenr
-ms.reviewer: jasonwhowell
+ms.reviewer: jasonh
 ms.assetid: 3a196735-d0d9-4deb-ba68-c4b3f3be8403
 ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 12/05/2016
-ms.openlocfilehash: 25b84646bd6a95f0409184cccd40c6b7c9a0ef7f
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 5ad837c51fafd7df2b019c78ae4adaf4967f2df7
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86117444"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132640"
 ---
 # <a name="analyze-website-logs-using-azure-data-lake-analytics"></a>Analizowanie dzienników witryn sieci Web przy użyciu usługi Azure Data Lake Analytics
 Dowiedz się, jak analizować dzienniki witryn sieci Web przy użyciu Data Lake Analytics, szczególnie w przypadku szukania odwołujących się błędów podczas próby odwiedzenia witryny sieci Web.

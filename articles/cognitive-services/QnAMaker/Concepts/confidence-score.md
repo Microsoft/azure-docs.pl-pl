@@ -3,20 +3,18 @@ title: Wynik pewności — QnA Maker
 titleSuffix: Azure Cognitive Services
 description: Baza wiedzy musi być opublikowana. Po opublikowaniu baza wiedzy jest wysyłana w punkcie końcowym przewidywania środowiska uruchomieniowego przy użyciu interfejsu API generateAnswer.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 01/27/2020
-ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: d901a803311805825c22503af6098e805a67e8f6
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: faf24f11763ca2bcd9bb872b09b5d1b69e78bd06
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76843456"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87131161"
 ---
 # <a name="the-confidence-score-of-an-answer"></a>Wynik pewności odpowiedzi
 Gdy zapytanie użytkownika jest dopasowane do bazy wiedzy, QnA Maker zwraca odpowiednie odpowiedzi wraz z oceną ufności. Ten wynik wskazuje, że odpowiedź jest odpowiednim dopasowaniem dla danego zapytania użytkownika.
@@ -61,7 +59,7 @@ Podczas wybierania progu należy wziąć pod uwagę równowagę między dokładn
 
 Ustaw ocenę wartości progowej jako właściwość [treści JSON interfejsu API GenerateAnswer](../how-to/metadata-generateanswer-usage.md#generateanswer-request-configuration). Oznacza to, że ustawisz go dla każdego wywołania do GenerateAnswer.
 
-W środowisku bot należy ustawić wynik jako część obiektu options w [języku C#](../how-to/metadata-generateanswer-usage.md?#use-qna-maker-with-a-bot-in-c) lub [Node. js](../how-to/metadata-generateanswer-usage.md?#use-qna-maker-with-a-bot-in-nodejs).
+W środowisku bot należy ustawić wynik jako część obiektu options z [C#](../how-to/metadata-generateanswer-usage.md?#use-qna-maker-with-a-bot-in-c) lub [Node.js](../how-to/metadata-generateanswer-usage.md?#use-qna-maker-with-a-bot-in-nodejs).
 
 ## <a name="improve-confidence-scores"></a>Popraw wyniki pewności
 Aby poprawić wynik pewności konkretnej odpowiedzi dla kwerendy użytkownika, można dodać zapytanie użytkownika do bazy wiedzy jako alternatywne pytanie dotyczące tej odpowiedzi. Można również użyć [zmian wyrazów](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/alterations/replace) bez uwzględniania wielkości liter, aby dodać synonimy do słów kluczowych w KB.
@@ -90,5 +88,5 @@ Gdy nie zostanie znalezione żadne dobre dopasowanie przez rangę, zwracana jest
 
 ## <a name="next-steps"></a>Następne kroki
 > [!div class="nextstepaction"]
-> [Najlepsze rozwiązania](./best-practices.md)
+> [Najlepsze praktyki](./best-practices.md)
 

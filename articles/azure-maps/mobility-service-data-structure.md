@@ -1,19 +1,19 @@
 ---
 title: Struktury danych usługi mobilności w Azure Maps | Mapy Microsoft Azure
 description: Ten artykuł zawiera informacje o typowych polach i strukturach danych zwracanych przez Microsoft Azure Maps usługi mobilności.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 06/05/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 4dfc6793bba473c4046863937baa292dde7bf421
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5c2033557d14a25c786f3f6b08dc5bd54956f7e1
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80478691"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87131280"
 ---
 # <a name="data-structures-in-azure-maps-mobility-service"></a>Struktury danych w Azure Maps usłudze mobilności
 

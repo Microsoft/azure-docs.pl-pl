@@ -13,11 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2019
 ms.author: sumi
 ms.custom: ''
-ms.openlocfilehash: 692d86fa27ea42df6fe1128b64e408a5d4a4d08b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6935ea505643f253daf4c0b7d818137f52583682
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85444458"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132827"
 ---
 # <a name="virtual-network-service-endpoints"></a>Punkty końcowe usługi dla sieci wirtualnej
 
@@ -87,7 +88,7 @@ Punkty końcowe usługi oferują następujące korzyści:
 - Sieć wirtualna, w której konfigurowany jest punkt końcowy, może należeć do tej samej subskrypcji, co zasób usługi platformy Azure, lub innej. Aby uzyskać więcej informacji na temat uprawnień wymaganych do konfigurowania punktów końcowych i zabezpieczania usług platformy Azure, zobacz [Aprowizowanie](#provisioning).
 - W przypadku obsługiwanych usług można zabezpieczyć nowe lub istniejące zasoby w sieciach wirtualnych za pomocą punktów końcowych usługi.
 
-### <a name="considerations"></a>Istotne zagadnienia
+### <a name="considerations"></a>Zagadnienia do rozważenia
 
 - Po włączeniu punktu końcowego usługi źródłowe adresy IP przełączają się z używania publicznych adresów IPv4, aby używać ich prywatnego adresu IPv4 podczas komunikacji z usługą z tej podsieci. Wszystkie otwarte połączenia TCP z usługą są zamykane podczas tego przełączania. Upewnij się, że żadne krytyczne zadania nie działają podczas włączania lub wyłączania punktu końcowego w usłudze dla podsieci. Upewnij się również, czy aplikacje mogą automatycznie połączyć się z usługami platformy Azure po przełączeniu adresu IP.
 
@@ -122,7 +123,7 @@ Po skonfigurowaniu punktów końcowych usługi do określonej usługi Sprawdź, 
 
 Punkty końcowe usługi można konfigurować w sieciach wirtualnych niezależnie od użytkownika z dostępem do zapisu w sieci wirtualnej. Aby zabezpieczyć zasoby usługi platformy Azure w sieci wirtualnej, użytkownik musi mieć uprawnienia do *witryny Microsoft. Network/virtualNetworks/Subnets/joinViaServiceEndpoint/Action* dla dodanych podsieci. Wbudowane role administratora usługi domyślnie obejmują to uprawnienie. Uprawnienia można modyfikować, tworząc role niestandardowe.
 
-Aby uzyskać więcej informacji na temat ról wbudowanych, zobacz [wbudowane role dla zasobów platformy Azure](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Aby uzyskać więcej informacji o przypisywaniu określonych uprawnień do ról niestandardowych, zobacz [role niestandardowe dla zasobów platformy Azure](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Aby uzyskać więcej informacji na temat ról wbudowanych, zobacz [role wbudowane platformy Azure](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Aby uzyskać więcej informacji o przypisywaniu określonych uprawnień do ról niestandardowych, zobacz [role niestandardowe platformy Azure](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 Sieci wirtualne i zasoby usług platformy Azure mogą należeć do tej samej lub różnych subskrypcji. Jeśli zasoby sieci wirtualnej i usługi platformy Azure należą do różnych subskrypcji, zasoby muszą znajdować się w tej samej dzierżawie usługi Active Directory (AD). 
 
@@ -151,4 +152,3 @@ Często zadawane pytania można znaleźć w temacie [Virtual Network często zad
 - [Integracja usług platformy Azure w sieciach wirtualnych](virtual-network-for-azure-services.md)
 - [Zasady punktu końcowego usługi Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoint-policies-overview)
 - [Szablon usługi Azure Resource Manager](https://azure.microsoft.com/resources/templates/201-vnet-2subnets-service-endpoints-storage-integration)
-
