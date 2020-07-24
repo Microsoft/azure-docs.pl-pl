@@ -9,14 +9,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.date: 02/28/2020
+ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 892e94ba1943b667ffeba63a80f4409b35ea5ec3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 65ff0ab03abdbd3b403d37700dc8df4fa5eee73a
+ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85389296"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87116591"
 ---
 # <a name="get-started-with-custom-policies-in-azure-active-directory-b2c"></a>Wprowadzenie do zasad niestandardowych w Azure Active Directory B2C
 
@@ -81,7 +82,7 @@ Aby zarejestrować aplikację w dzierżawie Azure AD B2C, możesz użyć **rejes
 1. W obszarze **obsługiwane typy kont**wybierz opcję **konta tylko w tym katalogu organizacji**.
 1. W obszarze **Identyfikator URI przekierowania**wybierz pozycję **Sieć Web**, a następnie wprowadź `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com` `your-tenant-name` nazwę domeny dzierżawy Azure AD B2C.
 1. W obszarze **uprawnienia**zaznacz pole wyboru *Udziel zgody na uprawnienia administratora do OpenID Connect i offline_access* .
-1. Wybierz pozycję **Zarejestruj**.
+1. Wybierz pozycję **Rejestruj**.
 1. Zapisz **Identyfikator aplikacji (klienta)** do użycia w późniejszym kroku.
 
 Następnie udostępnienie interfejsu API przez dodanie zakresu:
@@ -104,7 +105,7 @@ Następnie udostępnienie interfejsu API przez dodanie zakresu:
 1. W obszarze **Identyfikator URI przekierowania**Użyj listy rozwijanej, aby wybrać opcję **Klient publiczny/natywny (Mobile & Desktop)**.
 1. Dla **identyfikatora URI przekierowania**wprowadź `myapp://auth` .
 1. W obszarze **uprawnienia**zaznacz pole wyboru *Udziel zgody na uprawnienia administratora do OpenID Connect i offline_access* .
-1. Wybierz pozycję **Zarejestruj**.
+1. Wybierz pozycję **Rejestruj**.
 1. Zapisz **Identyfikator aplikacji (klienta)** do użycia w późniejszym kroku.
 
 Następnie określ, że aplikacja powinna być traktowana jako klient publiczny:

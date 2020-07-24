@@ -1,143 +1,112 @@
 ---
-title: Dzienniki diagnostyczne platformy Azure | Microsoft Docs
+title: Dzienniki diagnostyczne
+titleSuffix: Azure Content Delivery Network
 description: Klient może włączyć analizę dzienników dla Azure CDN.
 services: cdn
-documentationcenter: ''
 author: asudbring
-manager: danielgi
-editor: ''
+manager: KumudD
 ms.assetid: ''
 ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 06/06/2018
+ms.date: 07/15/2020
 ms.author: allensu
-ms.openlocfilehash: 2c432b28250dca382f69a992de73d633b5ea45b8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dbaba67a163bb0f948de5ba2ebbdba5497ad5ff9
+ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84883983"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87116983"
 ---
-# <a name="azure-diagnostic-logs"></a>Dzienniki diagnostyczne platformy Azure
+# <a name="diagnostic-logs---azure-content-delivery-network"></a>Dzienniki diagnostyczne — Content Delivery Network platformy Azure
 
 Korzystając z dzienników diagnostycznych platformy Azure, można wyświetlić podstawowe analizy i zapisać je w jednym lub większej liczbie miejsc docelowych, w tym:
 
- - Konto usługi Azure Storage
- - Azure Event Hubs
- - [Obszar roboczy usługi Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-get-started)
- 
+* Konto usługi Azure Storage
+* Obszar roboczy usługi Log Analytics
+* Azure Event Hubs
+
 Ta funkcja jest dostępna w punktach końcowych usługi CDN dla wszystkich warstw cenowych. 
 
-Dzienniki diagnostyczne platformy Azure umożliwiają eksportowanie podstawowych metryk użycia z punktu końcowego sieci CDN do różnych źródeł, dzięki czemu można je wykorzystać w dostosowany sposób. Można na przykład wykonać następujące rodzaje eksportu danych:
+Dzienniki diagnostyczne umożliwiają eksportowanie podstawowych metryk użycia z punktu końcowego usługi CDN do różnych źródeł, dzięki czemu można je wykorzystać w dostosowany sposób. Można wykonywać następujące rodzaje eksportu danych:
 
-- Eksportuj dane do magazynu obiektów blob, Eksportuj do woluminów CSV i Generuj wykresy w programie Excel.
-- Eksportuj dane do Event Hubs i skorelowane z danymi z innych usług platformy Azure.
-- Eksportuj dane do Azure Monitor dzienników i wyświetlaj dane we własnym Log Analytics obszarze roboczym
+* Eksportuj dane do magazynu obiektów blob, Eksportuj do woluminów CSV i Generuj wykresy w programie Excel.
+* Eksportuj dane do Event Hubs i skorelowane z danymi z innych usług platformy Azure.
+* Eksportuj dane do Azure Monitor dzienników i wyświetlaj dane we własnym Log Analytics obszarze roboczym
 
-Na poniższym diagramie przedstawiono typowy widok podstawowych analiz usługi CDN dla danych.
-
-![Portal — dzienniki diagnostyki](./media/cdn-diagnostics-log/01_OMS-workspace.png)
-
-*Rysunek 1 — widok usługi CDN Core Analytics*
-
-Aby uzyskać więcej informacji na temat dzienników diagnostycznych, zobacz [dzienniki diagnostyczne](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs).
-
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+Do wykonania poniższych kroków jest wymagany profil Azure CDN. Przed kontynuowaniem zapoznaj się z tematem [Tworzenie profilu Azure CDN i punktu końcowego](cdn-create-new-endpoint.md) .
 
 ## <a name="enable-logging-with-the-azure-portal"></a>Włączanie rejestrowania w witrynie Azure Portal
 
-Wykonaj następujące kroki, aby włączyć rejestrowanie w usłudze CDN Core Analytics:
+Wykonaj następujące kroki, aby włączyć rejestrowanie dla punktu końcowego Azure CDN:
 
-Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Jeśli nie masz jeszcze włączonej usługi CDN dla przepływu pracy, przed kontynuowaniem [Utwórz profil Azure CDN i punkt końcowy](cdn-create-new-endpoint.md) .
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). 
 
-1. W Azure Portal przejdź do **profilu CDN**.
+2. W Azure Portal przejdź do **wszystkich zasobów**  ->  **Sieć CDN — profil**
 
-2. W Azure Portal Wyszukaj profil usługi CDN lub wybierz go z pulpitu nawigacyjnego. Następnie wybierz punkt końcowy usługi CDN, dla którego chcesz włączyć dzienniki diagnostyczne.
+2. Wybierz punkt końcowy usługi CDN, dla którego chcesz włączyć dzienniki diagnostyczne:
 
-    ![Portal — dzienniki diagnostyki](./media/cdn-diagnostics-log/02_Browse-to-Diagnostics-logs.png)
+    :::image type="content" source="./media/cdn-diagnostics-log/02_browse-to-diagnostics-logs.png" alt-text="Wybierz punkt końcowy usługi CDN." border="true":::
 
-3. W sekcji monitorowanie wybierz pozycję **dzienniki diagnostyczne** .
+3. W sekcji **monitorowanie** wybierz pozycję **dzienniki diagnostyczne** :
 
-   Zostanie wyświetlona strona **dzienniki diagnostyki** .
-
-    ![Portal — dzienniki diagnostyki](./media/cdn-diagnostics-log/03_Diagnostics-logs-options.png)
+    :::image type="content" source="./media/cdn-diagnostics-log/03_diagnostics-logs-options.png" alt-text="Wybierz pozycję dzienniki diagnostyczne." border="true":::
 
 ### <a name="enable-logging-with-azure-storage"></a>Włączanie rejestrowania w usłudze Azure Storage
 
 Aby użyć konta magazynu do przechowywania dzienników, wykonaj następujące czynności:
+
+ >[!NOTE] 
+ >Aby wykonać te kroki, wymagane jest konto magazynu. Aby uzyskać więcej informacji, zobacz **[Tworzenie konta usługi Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-account-create?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=azure-portal)** .
     
-1. W obszarze **Nazwa**wprowadź nazwę ustawień dziennika diagnostycznego.
+1. W obszarze **Nazwa ustawienia diagnostycznego**wprowadź nazwę ustawień dziennika diagnostycznego.
  
 2. Wybierz pozycję **Archiwizuj na koncie magazynu**, a następnie wybierz pozycję **CoreAnalytics**. 
 
-2. W polu **przechowywanie (dni)** wybierz liczbę dni przechowywania. Przechowywanie w dniach zero przechowuje dzienniki w nieskończoność. 
+3. W polu **przechowywanie (dni)** wybierz liczbę dni przechowywania. Przechowywanie w dniach zero przechowuje dzienniki w nieskończoność. 
 
-    ![Portal — dzienniki diagnostyki](./media/cdn-diagnostics-log/04_Diagnostics-logs-storage.png) 
+4. Wybierz subskrypcję i konto magazynu dla dzienników.
 
-3. Wybierz pozycję **konto magazynu**.
+    :::image type="content" source="./media/cdn-diagnostics-log/04_diagnostics-logs-storage.png" alt-text="Dzienniki diagnostyczne — magazyn." border="true":::
 
-    Zostanie wyświetlona strona **Wybierz konto magazynu** .
+3. Wybierz pozycję **Zapisz**.
 
-4. Wybierz konto magazynu z listy rozwijanej, a następnie wybierz przycisk **OK**.
+### <a name="send-to-log-analytics"></a>Wysyłanie do usługi Log Analytics
 
-    ![Portal — dzienniki diagnostyki](./media/cdn-diagnostics-log/cdn-select-storage-account.png)
+Aby użyć Log Analytics dzienników, wykonaj następujące kroki:
 
-5. Po zakończeniu wprowadzania ustawień dzienników diagnostycznych wybierz pozycję **Zapisz**.
+>[!NOTE] 
+>Do wykonania tych kroków jest wymagany obszar roboczy usługi log Analytics. Aby uzyskać więcej informacji, zapoznaj się z tematem: **[Tworzenie obszaru roboczego log Analytics w Azure Portal](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace)** .
+    
+1. W obszarze **Nazwa ustawienia diagnostycznego**wprowadź nazwę ustawień dziennika diagnostycznego.
 
-### <a name="logging-with-azure-monitor"></a>Rejestrowanie z użyciem usługi Azure Monitor
+2. Wybierz pozycję **Wyślij do log Analytics**, a następnie wybierz pozycję **CoreAnalytics**. 
 
-Aby użyć Azure Monitor do przechowywania dzienników, wykonaj następujące kroki:
+3. Wybierz obszar roboczy subskrypcji i Log Analytics dla dzienników.
 
-1. Na stronie **dzienniki diagnostyczne** wybierz pozycję **Wyślij do log Analytics**. 
+   :::image type="content" source="./media/cdn-diagnostics-log/05-la-workspace.png" alt-text="Dzienniki diagnostyczne — Log Analytics." border="true":::
 
-    ![Portal — dzienniki diagnostyki](./media/cdn-diagnostics-log/05_Ready-to-Configure.png)    
+4. Wybierz pozycję **Zapisz**.
 
-2. Wybierz pozycję **Konfiguruj** , aby skonfigurować rejestrowanie Azure monitor. 
+### <a name="stream-to-an-event-hub"></a>Przesyłaj strumieniowo do centrum zdarzeń
 
-   Zostanie wyświetlona strona **obszary robocze log Analytics** .
+Aby użyć centrum zdarzeń dla dzienników, wykonaj następujące kroki:
 
-    >[!NOTE] 
-    >Obszary robocze OMS są teraz nazywane obszarami roboczymi usługi Log Analytics.
+>[!NOTE] 
+>Do wykonania tych kroków jest wymagany centrum zdarzeń. Zapoznaj się z artykułem **[Szybki Start: tworzenie centrum zdarzeń przy użyciu Azure Portal](https://docs.microsoft.com/azure/event-hubs/event-hubs-create)** , aby uzyskać więcej informacji.
+    
+1. W obszarze **Nazwa ustawienia diagnostycznego**wprowadź nazwę ustawień dziennika diagnostycznego.
 
-    ![Portal — dzienniki diagnostyki](./media/cdn-diagnostics-log/06_Choose-workspace.png)
+2. Wybierz pozycję **strumień do centrum zdarzeń**, a następnie wybierz pozycję **CoreAnalytics**. 
 
-3. Wybierz pozycję **Utwórz nowy obszar roboczy**.
+3. Wybierz przestrzeń nazw subskrypcji i centrum zdarzeń dla dzienników.
 
-    Zostanie wyświetlona strona **log Analytics obszaru roboczego** .
+   :::image type="content" source="./media/cdn-diagnostics-log/06-eventhub-namespace.png" alt-text="Dzienniki diagnostyczne — centrum zdarzeń." border="true":::
 
-    >[!NOTE] 
-    >Obszary robocze OMS są teraz nazywane obszarami roboczymi usługi Log Analytics.
+4. Wybierz pozycję **Zapisz**.
 
-    ![Portal — dzienniki diagnostyki](./media/cdn-diagnostics-log/07_Create-new.png)
-
-4. W **obszarze obszar roboczy log Analytics**wprowadź nazwę log Analytics obszaru roboczego. Nazwa obszaru roboczego Log Analytics musi być unikatowa i zawierać tylko litery, cyfry i łączniki; spacje i znaki podkreślenia są niedozwolone. 
-
-5. W obszarze **subskrypcja**wybierz istniejącą subskrypcję z listy rozwijanej. 
-
-6. W obszarze **Grupa zasobów**Utwórz nową grupę zasobów lub wybierz istniejącą.
-
-7. W polu **Lokalizacja**wybierz lokalizację z listy.
-
-8. Wybierz pozycję **Przypnij do pulpitu nawigacyjnego** , jeśli chcesz zapisać konfigurację dziennika na pulpicie nawigacyjnym. 
-
-9. Wybierz **przycisk OK** , aby zakończyć konfigurację.
-
-10. Po utworzeniu obszaru roboczego nastąpi powrót do strony **dzienników diagnostycznych** . Potwierdź nazwę nowego obszaru roboczego Log Analytics.
-
-    ![Portal — dzienniki diagnostyki](./media/cdn-diagnostics-log/09_Return-to-logging.png)
-
-11. Wybierz pozycję **CoreAnalytics**, a następnie wybierz pozycję **Zapisz**.
-
-12. Aby wyświetlić nowy obszar roboczy Log Analytics, wybierz opcję **podstawowe analizy** ze strony punktu końcowego usługi CDN.
-
-    ![Portal — dzienniki diagnostyki](./media/cdn-diagnostics-log/cdn-core-analytics-page.png) 
-
-    Obszar roboczy Log Analytics jest teraz gotowy do rejestrowania danych. Aby można było korzystać z tych danych, należy użyć [rozwiązania Azure monitor dzienników](#consuming-diagnostics-logs-from-a-log-analytics-workspace), które opisano w dalszej części tego artykułu.
-
-Aby uzyskać więcej informacji na temat opóźnień danych dziennika, zobacz [opóźnienia danych dziennika](#log-data-delays).
 
 ## <a name="enable-logging-with-powershell"></a>Włączanie rejestrowania przy użyciu programu PowerShell
 
@@ -145,32 +114,78 @@ Poniższy przykład przedstawia sposób włączania dzienników diagnostycznych 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-### <a name="enabling-diagnostic-logs-in-a-storage-account"></a>Włączanie dzienników diagnostycznych na koncie magazynu
+### <a name="enable-diagnostic-logs-in-a-storage-account"></a>Włączanie dzienników diagnostycznych na koncie magazynu
 
-1. Zaloguj się i wybierz subskrypcję:
+1. Zaloguj się do Azure PowerShell:
 
+    ```azurepowershell-interactive
     Connect-AzAccount 
-
-    SELECT-AzureSubscription-Identyfikator subskrypcji 
-
-2. Aby włączyć dzienniki diagnostyczne na koncie magazynu, wprowadź następujące polecenie:
-
-    ```powershell
-    Set-AzDiagnosticSetting -ResourceId "/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Cdn/profiles/{profileName}/endpoints/{endpointName}" -StorageAccountId "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ClassicStorage/storageAccounts/{storageAccountName}" -Enabled $true -Categories CoreAnalytics
     ```
 
-3. Aby włączyć dzienniki diagnostyki w obszarze roboczym Log Analytics, wprowadź następujące polecenie:
+2. Aby włączyć dzienniki diagnostyczne na koncie magazynu, wprowadź te polecenia. Zamień zmienne na wartości:
 
-    ```powershell
-    Set-AzDiagnosticSetting -ResourceId "/subscriptions/`{subscriptionId}<subscriptionId>
-    .<subscriptionName>" -WorkspaceId "/subscriptions/<workspaceId>.<workspaceName>" -Enabled $true -Categories CoreAnalytics 
+    ```azurepowershell-interactive
+    $rsg = <your-resource-group-name>
+    $cdnprofile = <your-cdn-profile-name>
+    $cdnendpoint = <your-cdn-endpoint-name>
+    $storageacct = <your-storage-account-name>
+    $diagname = <your-diagnostic-setting-name>
+
+    $cdn = Get-AzCdnEndpoint -ResourceGroupName $rsg -ProfileName $cdnprofile -EndpointName $cdnendpoint
+
+    $storage = Get-AzStorageAccount -ResourceGroupName $rsg -Name $storageacct
+
+    Set-AzDiagnosticSetting -Name $diagname -ResourceId $cdn.id -StorageAccountId $storage.id -Enabled $true -Categories CoreAnalytics
+    ```
+
+### <a name="enable-diagnostics-logs-for-log-analytics-workspace"></a>Włączanie dzienników diagnostycznych dla Log Analytics obszaru roboczego
+
+1. Zaloguj się do Azure PowerShell:
+
+    ```azurepowershell-interactive
+    Connect-AzAccount 
+    ```
+2. Aby włączyć dzienniki diagnostyczne dla obszaru roboczego Log Analytics, wprowadź te polecenia. Zamień zmienne na wartości:
+
+    ```azurepowershell-interactive
+    $rsg = <your-resource-group-name>
+    $cdnprofile = <your-cdn-profile-name>
+    $cdnendpoint = <your-cdn-endpoint-name>
+    $workspacename = <your-log-analytics-workspace-name>
+    $diagname = <your-diagnostic-setting-name>
+
+    $cdn = Get-AzCdnEndpoint -ResourceGroupName $rsg -ProfileName $cdnprofile -EndpointName $cdnendpoint
+
+    $workspace = Get-AzOperationalInsightsWorkspace -ResourceGroupName $rsg -Name $workspacename
+
+    Set-AzDiagnosticSetting -Name $diagname -ResourceId $cdn.id -WorkspaceId $workspace.ResourceId -Enabled $true -Categories CoreAnalytics
+    ```
+### <a name="enable-diagnostics-logs-for-event-hub-namespace"></a>Włączanie dzienników diagnostycznych dla przestrzeni nazw centrum zdarzeń
+
+1. Zaloguj się do Azure PowerShell:
+
+    ```azurepowershell-interactive
+    Connect-AzAccount 
+    ```
+2. Aby włączyć dzienniki diagnostyczne dla obszaru roboczego Log Analytics, wprowadź te polecenia. Zamień zmienne na wartości:
+
+    ```azurepowershell-interactive
+    $rsg = <your-resource-group-name>
+    $cdnprofile = <your-cdn-profile-name>
+    $cdnendpoint = <your-cdn-endpoint-name>
+    $eventhubname = <your-event-hub-namespace-name>
+    $diagname = <your-diagnostic-setting-name>
+
+    $cdn = Get-AzCdnEndpoint -ResourceGroupName $rsg -ProfileName $cdnprofile -EndpointName $cdnendpoint
+
+    Set-AzDiagnosticSetting -Name $diagname -ResourceId $cdn.id -EventHubName $eventhubname -Enabled $true -Categories CoreAnalytics
     ```
 
 ## <a name="consuming-diagnostics-logs-from-azure-storage"></a>Korzystanie z dzienników diagnostycznych z usługi Azure Storage
-W tej sekcji opisano schemat analizy podstawowej sieci CDN, sposób jej organizowania w ramach konta usługi Azure Storage i przedstawiono przykładowy kod służący do pobierania dzienników w pliku CSV.
+W tej sekcji opisano schemat analizy podstawowej sieci CDN, organizacja na koncie usługi Azure Storage i przedstawiono przykładowy kod służący do pobierania dzienników w pliku CSV.
 
 ### <a name="using-microsoft-azure-storage-explorer"></a>Używanie Eksplorator usługi Microsoft Azure Storage
-Aby uzyskać dostęp do podstawowych danych analitycznych z konta usługi Azure Storage, musisz najpierw uzyskać dostęp do zawartości na koncie magazynu. Chociaż na rynku jest dostępnych kilka narzędzi, zaleca się Eksplorator usługi Microsoft Azure Storage. Aby pobrać narzędzie, zobacz [Eksplorator usługi Azure Storage](https://storageexplorer.com/). Po pobraniu i zainstalowaniu oprogramowania skonfiguruj je tak, aby korzystało z tego samego konta usługi Azure Storage, które zostało skonfigurowane jako miejsce docelowe w dziennikach diagnostyki sieci CDN.
+Aby pobrać narzędzie, zobacz [Eksplorator usługi Azure Storage](https://storageexplorer.com/). Po pobraniu i zainstalowaniu oprogramowania skonfiguruj je tak, aby korzystało z tego samego konta usługi Azure Storage, które zostało skonfigurowane jako miejsce docelowe w dziennikach diagnostyki sieci CDN.
 
 1.  Otwórz **Eksplorator usługi Microsoft Azure Storage**
 2.  Lokalizowanie konta magazynu
@@ -183,7 +198,7 @@ Aby uzyskać dostęp do podstawowych danych analitycznych z konta usługi Azure 
 
 #### <a name="blob-path-format"></a>Format ścieżki obiektu BLOB
 
-Dzienniki analizy podstawowej są generowane co godzinę, a dane są zbierane i przechowywane w pojedynczym obiekcie blob platformy Azure jako ładunek JSON. Ponieważ narzędzie Eksplorator magazynu interpretuje znak "/" jako separator katalogów i Wyświetla hierarchię, ścieżka do obiektu blob platformy Azure jest wyświetlana tak, jakby istnieje struktura hierarchiczna i reprezentuje nazwę obiektu BLOB. Nazwa obiektu BLOB jest zgodna z następującą konwencją nazewnictwa:   
+Dzienniki analizy podstawowej są generowane co godzinę, a dane są zbierane i przechowywane w pojedynczym obiekcie blob platformy Azure jako ładunek JSON. Narzędzie Eksplorator usługi Storage interpretuje znak "/" jako separator katalogów i Wyświetla hierarchię. Ścieżka do obiektu blob platformy Azure jest wyświetlana, jeśli istnieje struktura hierarchiczna i reprezentuje nazwę obiektu BLOB. Nazwa obiektu BLOB jest zgodna z następującą konwencją nazewnictwa:    
 
 ```resourceId=/SUBSCRIPTIONS/{Subscription Id}/RESOURCEGROUPS/{Resource Group Name}/PROVIDERS/MICROSOFT.CDN/PROFILES/{Profile Name}/ENDPOINTS/{Endpoint Name}/ y={Year}/m={Month}/d={Day}/h={Hour}/m={Minutes}/PT1H.json```
 
@@ -202,7 +217,7 @@ Dzienniki analizy podstawowej są generowane co godzinę, a dane są zbierane i 
 
 ### <a name="exporting-the-core-analytics-data-to-a-csv-file"></a>Eksportowanie podstawowych danych analitycznych do pliku CSV
 
-Aby ułatwić dostęp do podstawowych analiz, podano przykładowy kod dla narzędzia. To narzędzie umożliwia pobranie plików JSON do formatu prostego pliku rozdzielonych przecinkami, który może służyć do tworzenia wykresów lub innych agregacji.
+Aby uzyskać dostęp do podstawowych analiz, podano przykładowy kod dla narzędzia. To narzędzie umożliwia pobranie plików JSON do formatu prostego pliku rozdzielonych przecinkami, który może służyć do tworzenia wykresów lub innych agregacji.
 
 Oto jak można użyć narzędzia:
 
@@ -212,101 +227,6 @@ Oto jak można użyć narzędzia:
 4.  Uruchom narzędzie.
 5.  Utworzony plik CSV pokazuje dane analityczne w prostej płaskiej hierarchii.
 
-## <a name="consuming-diagnostics-logs-from-a-log-analytics-workspace"></a>Korzystanie z dzienników diagnostycznych z obszaru roboczego usługi Log Analytics
-Azure Monitor to usługa platformy Azure, która monitoruje środowiska chmurowe i lokalne w celu utrzymania ich dostępności i wydajności. Zbiera ona dane generowane przez zasoby w środowiskach chmurowych i lokalnych oraz inne narzędzia do monitorowania, aby przeprowadzać analizę na podstawie wielu źródeł. 
-
-Aby użyć Azure Monitor, musisz [włączyć rejestrowanie](#enable-logging-with-azure-storage) w obszarze roboczym usługi Azure log Analytics, który został omówiony wcześniej w tym artykule.
-
-### <a name="using-the-log-analytics-workspace"></a>Korzystanie z obszaru roboczego Log Analytics
-
- Na poniższym diagramie przedstawiono architekturę danych wejściowych i wyjściowych repozytorium:
-
-![Obszar roboczy usługi Log Analytics](./media/cdn-diagnostics-log/12_Repo-overview.png)
-
-*Rysunek 3 — repozytorium Log Analytics*
-
-Możesz wyświetlić dane na różne sposoby przy użyciu rozwiązań do zarządzania. Rozwiązania do zarządzania można uzyskać z [portalu Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/monitoring-management?page=1&subcategories=management-solutions).
-
-Rozwiązania do monitorowania można instalować z poziomu portalu Azure Marketplace, wybierając link **Uzyskaj teraz** w dolnej części każdego rozwiązania.
-
-### <a name="add-an-azure-monitor-cdn-monitoring-solution"></a>Dodawanie rozwiązania do monitorowania Azure Monitor CDN
-
-Wykonaj następujące kroki, aby dodać rozwiązanie do monitorowania Azure Monitor:
-
-1.   Zaloguj się do Azure Portal przy użyciu subskrypcji platformy Azure i przejdź do pulpitu nawigacyjnego.
-    ![Pulpit nawigacyjny platformy Azure](./media/cdn-diagnostics-log/13_Azure-dashboard.png)
-
-2. Na stronie **Nowy** w obszarze **Marketplace**wybierz pozycję **monitorowanie i zarządzanie**.
-
-    ![Marketplace](./media/cdn-diagnostics-log/14_Marketplace.png)
-
-3. Na stronie **monitorowanie i zarządzanie** wybierz pozycję **Zobacz wszystko**.
-
-    ![Zobacz wszystko](./media/cdn-diagnostics-log/15_See-all.png)
-
-4. Wyszukaj usługę CDN w polu wyszukiwania.
-
-    ![Zobacz wszystko](./media/cdn-diagnostics-log/16_Search-for.png)
-
-5. Wybierz pozycję **Azure CDN Core Analytics**. 
-
-    ![Zobacz wszystko](./media/cdn-diagnostics-log/17_Core-analytics.png)
-
-6. Po wybraniu opcji **Utwórz**zostanie wyświetlony monit o utworzenie nowego obszaru roboczego log Analytics lub użycie istniejącego. 
-
-    ![Zobacz wszystko](./media/cdn-diagnostics-log/18_Adding-solution.png)
-
-7. Wybierz utworzony wcześniej obszar roboczy. Następnie należy dodać konto usługi Automation.
-
-    ![Zobacz wszystko](./media/cdn-diagnostics-log/19_Add-automation.png)
-
-8. Na poniższym ekranie przedstawiono formularz konta usługi Automation, który należy wypełnić. 
-
-    ![Zobacz wszystko](./media/cdn-diagnostics-log/20_Automation.png)
-
-9. Po utworzeniu konta usługi Automation możesz dodać swoje rozwiązanie. Wybierz przycisk **Utwórz**.
-
-    ![Zobacz wszystko](./media/cdn-diagnostics-log/21_Ready.png)
-
-10. Twoje rozwiązanie zostało już dodane do obszaru roboczego. Wróć do pulpitu nawigacyjnego Azure Portal.
-
-    ![Zobacz wszystko](./media/cdn-diagnostics-log/22_Dashboard.png)
-
-    Wybierz obszar roboczy Log Analytics, który został utworzony, aby przejść do obszaru roboczego. 
-
-11. Wybierz kafelek **Portal pakietu OMS** , aby zobaczyć nowe rozwiązanie.
-
-    ![Zobacz wszystko](./media/cdn-diagnostics-log/23_workspace.png)
-
-12. Portal powinien teraz wyglądać tak, jak na poniższym ekranie:
-
-    ![Zobacz wszystko](./media/cdn-diagnostics-log/24_OMS-solution.png)
-
-    Wybierz jeden z kafelków, aby zobaczyć kilka widoków w danych.
-
-    ![Zobacz wszystko](./media/cdn-diagnostics-log/25_Interior-view.png)
-
-    Możesz przewijać w lewo lub w prawo, aby zobaczyć dalsze kafelki reprezentujące poszczególne widoki w danych. 
-
-    Wybierz jeden z kafelków, aby zobaczyć więcej szczegółów na temat danych.
-
-     ![Zobacz wszystko](./media/cdn-diagnostics-log/26_Further-detail.png)
-
-### <a name="offers-and-pricing-tiers"></a>Oferty i warstwy cenowe
-
-W [tym miejscu](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions)możesz zobaczyć oferty i warstwy cenowe dla rozwiązań do zarządzania.
-
-### <a name="customizing-views"></a>Dostosowywanie widoków
-
-Widok można dostosować do swoich danych przy użyciu **projektanta widoków**. Aby rozpocząć projektowanie, przejdź do obszaru roboczego Log Analytics i wybierz kafelek **Projektant widoków** .
-
-![Projektant widoków](./media/cdn-diagnostics-log/27_Designer.png)
-
-Przeciągnij i upuść typy wykresów i wypełnij szczegóły danych, które chcesz analizować.
-
-![Projektant widoków](./media/cdn-diagnostics-log/28_Designer.png)
-
-    
 ## <a name="log-data-delays"></a>Opóźnienia danych dziennika
 
 W poniższej tabeli przedstawiono opóźnienia danych dziennika dla **Azure CDN Standard od firmy Microsoft**, **Azure CDN Standard z Akamai**i **Azure CDN Standard/Premium z Verizon**.
@@ -320,10 +240,16 @@ Opóźnione o 1 godzinę. | Opóźnione o 1 godzinę, co może potrwać do 2 god
 Firma Microsoft obecnie oferuje tylko podstawowe dzienniki analityczne, które zawierają metryki przedstawiające statystyki odpowiedzi HTTP i statystyki danych wyjściowych, które są widoczne na podstawie punktów obecności/krawędzi sieci CDN.
 
 ### <a name="core-analytics-metrics-details"></a>Szczegóły metryk analizy podstawowej
-W poniższej tabeli przedstawiono listę metryk dostępnych w podstawowych dziennikach analizy dla **Azure CDN standard firmy Microsoft**, **Azure CDN Standard from Akamai**oraz **Azure CDN Standard/Premium z Verizon**. Nie wszystkie metryki są dostępne dla wszystkich dostawców, chociaż takie różnice są minimalne. W tabeli są również wyświetlane, czy dana metryka jest dostępna od dostawcy. Metryki są dostępne tylko dla tych punktów końcowych usługi CDN, które mają ruch na nich.
+W poniższej tabeli przedstawiono listę metryk dostępnych w głównych dziennikach analiz dla:
+
+* **Azure CDN Standard od firmy Microsoft**
+* **Azure CDN Standard z Akamai**
+* **Azure CDN Standard/Premium z Verizon**
+
+Nie wszystkie metryki są dostępne dla wszystkich dostawców, chociaż takie różnice są minimalne. W tabeli są również wyświetlane, czy dana metryka jest dostępna od dostawcy. Metryki są dostępne tylko dla tych punktów końcowych usługi CDN, które mają ruch na nich.
 
 
-|Metric                     | Opis | Microsoft | Verizon | Akamai |
+|Metryka                     | Opis | Microsoft | Verizon | Akamai |
 |---------------------------|-------------|-----------|---------|--------|
 | RequestCountTotal         | Łączna liczba trafień żądań w tym okresie. | Tak | Tak |Tak |
 | RequestCountHttpStatus2xx | Liczba wszystkich żądań, które spowodowały 2xx kod HTTP (na przykład 200, 202). | Tak | Tak |Tak |
@@ -337,9 +263,9 @@ W poniższej tabeli przedstawiono listę metryk dostępnych w podstawowych dzien
 | RequestCountHttpStatus304 | Liczba wszystkich żądań, które spowodowały odpowiedź na kod HTTP 304. | Yes | Nie  |Yes |
 | RequestCountHttpStatus404 | Liczba wszystkich żądań, które spowodowały odpowiedź na kod HTTP 404. | Yes | Nie  |Yes |
 | RequestCountCacheHit | Liczba wszystkich żądań, które spowodowały trafienie pamięci podręcznej. Zasób został obsłużony bezpośrednio z punktu POP do klienta. | Tak | Tak | Nie  |
-| RequestCountCacheMiss | Liczba wszystkich żądań, które spowodowały odrzucenie pamięci podręcznej. Chybienia w pamięci podręcznej oznacza, że zasób nie został odnaleziony w punkcie POP najbliżej klienta i dlatego został pobrany z lokalizacji źródłowej. | Tak | Tak | Nie |
-| RequestCountCacheNoCache | Liczba wszystkich żądań do elementu zawartości, które nie są buforowane z powodu konfiguracji użytkownika na krawędzi. | Tak | Tak | Nie |
-| RequestCountCacheUncacheable | Liczba wszystkich żądań do zasobów, które nie są przechowywane w pamięci podręcznej przez kontrolę i nagłówki elementów zawartości, co wskazuje, że nie powinna być buforowana w punkcie POP ani przez klienta HTTP. | Tak | Tak | Nie |
+| RequestCountCacheMiss | Liczba wszystkich żądań, które spowodowały odrzucenie pamięci podręcznej. Chybienia w pamięci podręcznej oznacza, że zasób nie został odnaleziony w punkcie POP najbliżej klienta i został pobrany z lokalizacji źródłowej. | Tak | Tak | Nie |
+| RequestCountCacheNoCache | Liczba wszystkich żądań do elementu zawartości, które nie są przechowywane w pamięci podręcznej z powodu konfiguracji użytkownika na krawędzi. | Tak | Tak | Nie |
+| RequestCountCacheUncacheable | Liczba wszystkich żądań do zasobów, które nie są przechowywane w pamięci podręcznej przez formant Cache-Control i wygaśnięcia elementu zawartości. Ta liczba wskazuje, że nie powinna być buforowana w punkcie POP ani przez klienta HTTP. | Tak | Tak | Nie |
 | RequestCountCacheOthers | Liczba wszystkich żądań ze stanem pamięci podręcznej, które nie zostały omówione powyżej. | Nie | Yes | Nie  |
 | EgressTotal | Wychodzący transfer danych w GB | Tak |Tak |Tak |
 | EgressHttpStatus2xx | Wychodzący transfer danych * dla odpowiedzi z kodami stanu HTTP 2xx w GB. | Tak | Tak | Nie  |
@@ -348,9 +274,9 @@ W poniższej tabeli przedstawiono listę metryk dostępnych w podstawowych dzien
 | EgressHttpStatus5xx | Wychodzący transfer danych dla odpowiedzi z kodami stanu HTTP 5xx w GB. | Tak | Tak | Nie |
 | EgressHttpStatusOthers | Wychodzący transfer danych dla odpowiedzi z innymi kodami stanu HTTP w GB. | Tak | Tak | Nie  |
 | EgressCacheHit | Wychodzący transfer danych dla odpowiedzi dostarczonych bezpośrednio z pamięci podręcznej usługi CDN w przypadku punktów obecności/krawędzi sieci CDN. | Tak | Tak | Nie |
-| EgressCacheMiss. | Wychodzący transfer danych dla odpowiedzi, które nie zostały odnalezione na najbliższym serwerze POP i pobierany z serwera pochodzenia. | Tak | Tak | Nie |
-| EgressCacheNoCache | Wychodzący transfer danych dla zasobów, które nie są buforowane ze względu na konfigurację użytkownika na krawędzi. | Tak | Tak | Nie |
-| EgressCacheUncacheable | Wychodzący transfer danych dla zasobów, które nie są przechowywane w pamięci podręcznej przez kontrolę i/lub nagłówki elementu zawartości. Wskazuje, że nie powinna być buforowana w punkcie POP ani przez klienta HTTP. | Tak | Tak | Nie |
+| EgressCacheMiss. | Wychodzący transfer danych dla odpowiedzi, które nie zostały znalezione na najbliższym serwerze POP i pobierane z serwera pochodzenia. | Tak | Tak | Nie |
+| EgressCacheNoCache | Wychodzący transfer danych dla zasobów, które nie są przechowywane w pamięci podręcznej z powodu konfiguracji użytkownika na krawędzi. | Tak | Tak | Nie |
+| EgressCacheUncacheable | Wychodzący transfer danych dla zasobów, które nie mogą być buforowane przez formant pamięci podręcznej i lub wygasają nagłówkiem. Wskazuje, że nie powinna być buforowana w punkcie POP ani przez klienta HTTP. | Tak | Tak | Nie |
 | EgressCacheOthers | Wychodzące transfery danych dla innych scenariuszy pamięci podręcznej. | Nie | Yes | Nie |
 
 * Wychodzący transfer danych odnosi się do ruchu dostarczonego z serwerów POP usługi CDN do klienta.
@@ -403,7 +329,7 @@ Wszystkie dzienniki są przechowywane w formacie JSON, a każdy wpis zawiera pol
 }
 ```
 
-*Czas* , w którym przedstawia czas rozpoczęcia granicy godziny, dla której raportowane są statystyki. Gdy dostawca sieci CDN nie obsługuje metryki, a nie wartości podwójnej lub całkowitej, istnieje wartość null. Ta wartość null wskazuje brak metryki i różni się od wartości 0. Istnieje jeden zestaw tych metryk dla domeny skonfigurowany w punkcie końcowym.
+*Czas* , w którym przedstawia czas rozpoczęcia granicy godziny, dla której raportowane są statystyki. Metryka nieobsługiwana przez dostawcę sieci CDN zamiast wartości typu Double lub Integer powoduje, że wartość jest równa null. Ta wartość null wskazuje brak metryki i różni się od wartości 0. Jeden zestaw tych metryk na domenę jest skonfigurowany w punkcie końcowym.
 
 Przykładowe właściwości:
 
@@ -441,11 +367,11 @@ Przykładowe właściwości:
 
 ```
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * [Dzienniki diagnostyczne platformy Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)
 * [Analiza podstawowa za pośrednictwem Azure CDN Portal uzupełniający](https://docs.microsoft.com/azure/cdn/cdn-analyze-usage-patterns)
-* [Dzienniki Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview)
+* [Dzienniki usługi Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview)
 * [Interfejs API REST usługi Azure Log Analytics](https://docs.microsoft.com/rest/api/loganalytics)
 
 

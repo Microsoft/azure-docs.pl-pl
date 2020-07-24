@@ -3,12 +3,12 @@ title: Szczegóły struktury definicji zasad
 description: Opisuje, w jaki sposób definicje zasad są używane do ustanawiania Konwencji dla zasobów platformy Azure w organizacji.
 ms.date: 06/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: 28f4e3a99b7241711e46ce92fdfd2d7689b4527b
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: 87cdca414a04d287f02fec5b3510c4f561cab8c0
+ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85971117"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87116994"
 ---
 # <a name="azure-policy-definition-structure"></a>Struktura definicji zasad platformy Azure
 
@@ -186,7 +186,7 @@ Ten przykład odwołuje się do parametru **allowedLocations** , który został 
 
 ### <a name="strongtype"></a>strongtype
 
-We `metadata` właściwości można użyć **silnego** typu, aby udostępnić listę opcji dostępnych w ramach Azure Portal. **silntype** może być obsługiwanym _typem zasobu_ lub dozwoloną wartością. Aby określić, czy _Typ zasobu_ jest prawidłowy dla **silnego**elementu, użyj polecenie [Get-AzResourceProvider](/powershell/module/az.resources/get-azresourceprovider).
+We `metadata` właściwości można użyć **silnego** typu, aby udostępnić listę opcji dostępnych w ramach Azure Portal. **silntype** może być obsługiwanym _typem zasobu_ lub dozwoloną wartością. Aby określić, czy _Typ zasobu_ jest prawidłowy dla **silnego**elementu, użyj polecenie [Get-AzResourceProvider](/powershell/module/az.resources/get-azresourceprovider). Format _typu zasobu_ **strongtype** ma wartość `<Resource Provider>/<Resource Type>` . Na przykład `Microsoft.Network/virtualNetworks/subnets`.
 
 Niektóre _typy zasobów_ , które nie są zwracane przez **Get-AzResourceProvider** , są obsługiwane. Są to:
 
@@ -513,37 +513,7 @@ Przykład 4: Sprawdź, czy wszystkie elementy członkowskie tablicy obiektów sp
 }
 ```
 
-Przykład 5: Sprawdź, czy wszystkie elementy członkowskie tablicy ciągów spełniają wyrażenie warunku
-
-```json
-{
-    "count": {
-        "field": "Microsoft.Sql/servers/securityAlertPolicies/emailAddresses[*]",
-        "where": {
-            "field": "Microsoft.Sql/servers/securityAlertPolicies/emailAddresses[*]",
-            "like": "*@contoso.com"
-        }
-    },
-    "equals": "[length(field('Microsoft.Sql/servers/securityAlertPolicies/emailAddresses[*]'))]"
-}
-```
-
-Przykład 6: Użyj **pola** wewnątrz **wartości** , aby sprawdzić, czy wszystkie elementy członkowskie tablicy spełniają wyrażenie warunku
-
-```json
-{
-    "count": {
-        "field": "Microsoft.Sql/servers/securityAlertPolicies/emailAddresses[*]",
-        "where": {
-            "value": "[last(split(first(field('Microsoft.Sql/servers/securityAlertPolicies/emailAddresses[*]')), '@'))]",
-            "equals": "contoso.com"
-        }
-    },
-    "equals": "[length(field('Microsoft.Sql/servers/securityAlertPolicies/emailAddresses[*]'))]"
-}
-```
-
-Przykład 7: Sprawdź, czy co najmniej jeden element członkowski tablicy jest zgodny z wieloma właściwościami w wyrażeniu warunku
+Przykład 5: Sprawdź, czy co najmniej jeden element członkowski tablicy jest zgodny z wieloma właściwościami w wyrażeniu warunku
 
 ```json
 {
@@ -702,7 +672,7 @@ Lista aliasów zawsze rośnie. Aby dowiedzieć się, jakie aliasy są obecnie ob
 
 ### <a name="understanding-the--alias"></a>Informacje o aliasie [*]
 
-Kilka dostępnych aliasów ma wersję, która jest wyświetlana jako nazwa "normal" i inna, która została **\[\*\]** do niej dołączona. Przykład:
+Kilka dostępnych aliasów ma wersję, która jest wyświetlana jako nazwa "normal" i inna, która została **\[\*\]** do niej dołączona. Na przykład:
 
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules`
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]`

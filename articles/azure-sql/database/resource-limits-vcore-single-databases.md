@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
-ms.date: 07/09/2020
-ms.openlocfilehash: add2e0cc2852f9ab0b63565841f670ed6c53d9a7
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.date: 07/21/2020
+ms.openlocfilehash: 64a21c0d0edcd035bdf42c3b17c5f2c0131dabfa
+ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206116"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87117031"
 ---
 # <a name="resource-limits-for-single-databases-using-the-vcore-purchasing-model"></a>Limity zasobów dla pojedynczych baz danych przy użyciu modelu zakupu rdzeń wirtualny
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -340,29 +340,55 @@ Możesz ustawić warstwę usług, rozmiar obliczeń (cel usługi) i ilość miej
 
 ## <a name="general-purpose---provisioned-compute---fsv2-series"></a>Obliczenia alokowane z zastosowaniem ogólnym — seria Fsv2
 
-### <a name="fsv2-series-compute-generation-preview"></a>Generowanie obliczeń serii Fsv2 (wersja zapoznawcza)
+### <a name="fsv2-series-compute-generation-part-1"></a>Generowanie obliczeń serii Fsv2 (część 1)
 
-|Rozmiar obliczeń (cel usługi)|GP_Fsv2_72|
-|:--- | --: |
-|Generowanie obliczeń|Seria Fsv2|
-|Rdzeni wirtualnych|72|
-|Pamięć (GB)|136,2|
-|Obsługa magazynu kolumn|Tak|
-|Magazyn OLTP w pamięci (GB)|Nie dotyczy|
-|Maksymalny rozmiar danych (GB)|4096|
-|Maksymalny rozmiar dziennika (GB)|1024|
-|Maksymalny rozmiar danych TempDB (GB)|333|
-|Typ magazynu|Zdalny dysk SSD|
-|Opóźnienie we/wy (przybliżone)|5-7 ms (zapis)<br>5-10 ms (odczyt)|
-|Maksymalna liczba operacji we/wy danych *|12 800|
-|Maksymalny współczynnik rejestrowania (MB/s)|30|
-|Maksymalna liczba współbieżnych procesów roboczych (żądań)|3600|
-|Maksymalna liczba współbieżnych logowań|3600|
-|Maksymalna liczba współbieżnych sesji|30 000|
-|Liczba replik|1|
-|Wiele-AZ|Nie dotyczy|
-|Skalowanie w górę odczytu|Nie dotyczy|
-|Uwzględniony magazyn kopii zapasowych|rozmiar bazy danych 1X|
+|Rozmiar obliczeń (cel usługi)|GP_Fsv2_8|GP_Fsv2_10|GP_Fsv2_12|GP_Fsv2_14| GP_Fsv2_16|
+|:---| ---:|---:|---:|---:|---:|
+|Generowanie obliczeń|Seria Fsv2|Seria Fsv2|Seria Fsv2|Seria Fsv2|Seria Fsv2|
+|Rdzeni wirtualnych|8|10|12|14|16|
+|Pamięć (GB)|15.1|18,9|22,7|26,5|30,2|
+|Obsługa magazynu kolumn|Tak|Tak|Tak|Tak|Tak|
+|Magazyn OLTP w pamięci (GB)|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|
+|Maksymalny rozmiar danych (GB)|1024|1024|1024|1024|1536|
+|Maksymalny rozmiar dziennika (GB)|336|336|336|336|512|
+|Maksymalny rozmiar danych TempDB (GB)|333|333|333|333|333|
+|Typ magazynu|Zdalny dysk SSD|Zdalny dysk SSD|Zdalny dysk SSD|Zdalny dysk SSD|Zdalny dysk SSD|
+|Opóźnienie we/wy (przybliżone)|5-7 ms (zapis)<br>5-10 ms (odczyt)|5-7 ms (zapis)<br>5-10 ms (odczyt)|5-7 ms (zapis)<br>5-10 ms (odczyt)|5-7 ms (zapis)<br>5-10 ms (odczyt)|5-7 ms (zapis)<br>5-10 ms (odczyt)|
+|Maksymalna liczba operacji we/wy danych *|2560|3200|3840|4480|5120|
+|Maksymalny współczynnik rejestrowania (MB/s)|30|30|30|30|30|
+|Maksymalna liczba współbieżnych procesów roboczych (żądań)|400|500|600|700|800|
+|Maksymalna liczba współbieżnych logowań|800|1000|1200|1400|1600|
+|Maksymalna liczba współbieżnych sesji|30 000|30 000|30 000|30 000|30 000|
+|Liczba replik|1|1|1|1|1|
+|Wiele-AZ|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|
+|Skalowanie w górę odczytu|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|
+|Uwzględniony magazyn kopii zapasowych|rozmiar bazy danych 1X|rozmiar bazy danych 1X|rozmiar bazy danych 1X|rozmiar bazy danych 1X|rozmiar bazy danych 1X|
+
+\*Maksymalna wartość dla wielkości we/wy z zakresu od 8 KB do 64 KB. Rzeczywiste operacje we/wy są zależne od obciążenia. Aby uzyskać szczegółowe informacje, zobacz [Zarządzanie we/wy danych](resource-limits-logical-server.md#resource-governance).
+
+### <a name="fsv2-series-compute-generation-part-2"></a>Generowanie obliczeń serii Fsv2 (część 2)
+
+|Rozmiar obliczeń (cel usługi)|GP_Fsv2_18|GP_Fsv2_20|GP_Fsv2_24|GP_Fsv2_32| GP_Fsv2_36|GP_Fsv2_72|
+|:---| ---:|---:|---:|---:|---:|---:|
+|Generowanie obliczeń|Seria Fsv2|Seria Fsv2|Seria Fsv2|Seria Fsv2|Seria Fsv2|Seria Fsv2|
+|Rdzeni wirtualnych|18|20|24|32|36|72|
+|Pamięć (GB)|34,0|37,8|45,4|60,5|68,0|136,0|
+|Obsługa magazynu kolumn|Tak|Tak|Tak|Tak|Tak|Tak|
+|Magazyn OLTP w pamięci (GB)|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|
+|Maksymalny rozmiar danych (GB)|1536|1536|1536|3072|3072|4096|
+|Maksymalny rozmiar dziennika (GB)|512|512|512|1024|1024|1024|
+|Maksymalny rozmiar danych TempDB (GB)|83,25|92,5|111|148|166,5|333|
+|Typ magazynu|Zdalny dysk SSD|Zdalny dysk SSD|Zdalny dysk SSD|Zdalny dysk SSD|Zdalny dysk SSD|Zdalny dysk SSD|
+|Opóźnienie we/wy (przybliżone)|5-7 ms (zapis)<br>5-10 ms (odczyt)|5-7 ms (zapis)<br>5-10 ms (odczyt)|5-7 ms (zapis)<br>5-10 ms (odczyt)|5-7 ms (zapis)<br>5-10 ms (odczyt)|5-7 ms (zapis)<br>5-10 ms (odczyt)|5-7 ms (zapis)<br>5-10 ms (odczyt)|
+|Maksymalna liczba operacji we/wy danych *|5760|6400|7680|10240|11520|23040|
+|Maksymalny współczynnik rejestrowania (MB/s)|30|30|30|30|30|30|
+|Maksymalna liczba współbieżnych procesów roboczych (żądań)|900|1000|1200|1600|1800|3600|
+|Maksymalna liczba współbieżnych logowań|1800|2000|2400|3200|3600|7200|
+|Maksymalna liczba współbieżnych sesji|30 000|30 000|30 000|30 000|30 000|30 000|
+|Liczba replik|1|1|1|1|1|1|
+|Wiele-AZ|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|
+|Skalowanie w górę odczytu|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|
+|Uwzględniony magazyn kopii zapasowych|rozmiar bazy danych 1X|rozmiar bazy danych 1X|rozmiar bazy danych 1X|rozmiar bazy danych 1X|rozmiar bazy danych 1X|rozmiar bazy danych 1X|
 
 \*Maksymalna wartość dla wielkości we/wy z zakresu od 8 KB do 64 KB. Rzeczywiste operacje we/wy są zależne od obciążenia. Aby uzyskać szczegółowe informacje, zobacz [Zarządzanie we/wy danych](resource-limits-logical-server.md#resource-governance).
 
@@ -479,34 +505,65 @@ Możesz ustawić warstwę usług, rozmiar obliczeń (cel usługi) i ilość miej
 
 ## <a name="business-critical---provisioned-compute---m-series"></a>Krytyczne znaczenie biznesowe — Seria M
 
-### <a name="m-series-compute-generation-preview"></a>Generowanie obliczeń serii M (wersja zapoznawcza)
+### <a name="m-series-compute-generation-part-1"></a>Generowanie obliczeń serii M (część 1)
 
-|Rozmiar obliczeń (cel usługi)|BC_M_128|
-|:--- | --: |
-|Generowanie obliczeń|Seria M|
-|Rdzeni wirtualnych|128|
-|Pamięć (GB)|3767,1|
-|Obsługa magazynu kolumn|Tak|
-|Magazyn OLTP w pamięci (GB)|1768|
-|Maksymalny rozmiar danych (GB)|4096|
-|Maksymalny rozmiar dziennika (GB)|2048|
-|Maksymalny rozmiar danych TempDB (GB)|4096|
-|Typ magazynu|Lokalny dysk SSD|
-|Opóźnienie we/wy (przybliżone)|1-2 ms (zapis)<br>1-2 ms (odczyt)|
-|Maksymalna liczba operacji we/wy danych *|160 000|
-|Maksymalny współczynnik rejestrowania (MB/s)|264|
-|Maksymalna liczba współbieżnych procesów roboczych (żądań)|12 800|
-|Maksymalna liczba współbieżnych logowań|12 800|
-|Maksymalna liczba współbieżnych sesji|30000|
-|Liczba replik|4|
-|Wiele-AZ|Tak|
-|Skalowanie w górę odczytu|Tak|
-|Uwzględniony magazyn kopii zapasowych|rozmiar bazy danych 1X|
+|Rozmiar obliczeń (cel usługi)|BC_M_8|BC_M_10|BC_M_12|BC_M_14|BC_M_16|BC_M_18|
+|:---| ---:|---:|---:|---:|---:|---:|
+|Generowanie obliczeń|Seria M|Seria M|Seria M|Seria M|Seria M|Seria M|
+|Rdzeni wirtualnych|8|10|12|14|16|18|
+|Pamięć (GB)|235,4|294,3|353,2|412,0|470,9|529,7|
+|Obsługa magazynu kolumn|Tak|Tak|Tak|Tak|Tak|Tak|
+|Magazyn OLTP w pamięci (GB)|64|80|96|112|128|150|
+|Maksymalny rozmiar danych (GB)|512|640|768|896|1024|1152|
+|Maksymalny rozmiar dziennika (GB)|171|213|256|299|341|384|
+|Maksymalny rozmiar danych TempDB (GB)|256|320|384|448|512|576|
+|Typ magazynu|Lokalny dysk SSD|Lokalny dysk SSD|Lokalny dysk SSD|Lokalny dysk SSD|Lokalny dysk SSD|Lokalny dysk SSD|
+|Opóźnienie we/wy (przybliżone)|1-2 ms (zapis)<br>1-2 ms (odczyt)|1-2 ms (zapis)<br>1-2 ms (odczyt)|1-2 ms (zapis)<br>1-2 ms (odczyt)|1-2 ms (zapis)<br>1-2 ms (odczyt)|1-2 ms (zapis)<br>1-2 ms (odczyt)|1-2 ms (zapis)<br>1-2 ms (odczyt)|
+|Maksymalna liczba operacji we/wy danych *|12 499|15 624|18 748|21 873|24 998|28 123|
+|Maksymalny współczynnik rejestrowania (MB/s)|48|60|72|84|96|108|
+|Maksymalna liczba współbieżnych procesów roboczych (żądań)|800|1000|1200|1400|1600|1800|
+|Maksymalna liczba współbieżnych logowań|800|1000|1200|1400|1600|1800|
+|Maksymalna liczba współbieżnych sesji|30000|30000|30000|30000|30000|30000|
+|Liczba replik|4|4|4|4|4|4|
+|Wiele-AZ|Nie|Nie|Nie|Nie|Nie|Nie|
+|Skalowanie w górę odczytu|Tak|Tak|Tak|Tak|Tak|Tak|
+|Uwzględniony magazyn kopii zapasowych|rozmiar bazy danych 1X|rozmiar bazy danych 1X|rozmiar bazy danych 1X|rozmiar bazy danych 1X|rozmiar bazy danych 1X|rozmiar bazy danych 1X|
 
 \*Maksymalna wartość dla wielkości we/wy z zakresu od 8 KB do 64 KB. Rzeczywiste operacje we/wy są zależne od obciążenia. Aby uzyskać szczegółowe informacje, zobacz [Zarządzanie we/wy danych](resource-limits-logical-server.md#resource-governance).
 
 > [!IMPORTANT]
 > W pewnych okolicznościach może być konieczne zmniejszenie bazy danych w celu Odbierz nieużywanej przestrzeni. Aby uzyskać więcej informacji, zobacz [Zarządzanie obszarem plików w Azure SQL Database](file-space-manage.md).
+
+### <a name="m-series-compute-generation-part-2"></a>Generowanie obliczeń serii M (część 2)
+
+|Rozmiar obliczeń (cel usługi)|BC_M_20|BC_M_24|BC_M_32|BC_M_64|BC_M_128|
+|:---| ---:|---:|---:|---:|---:|
+|Generowanie obliczeń|Seria M|Seria M|Seria M|Seria M|Seria M|
+|Rdzeni wirtualnych|20|24|32|64|128|
+|Pamięć (GB)|588,6|706,3|941,8|1883,5|3767,0|
+|Obsługa magazynu kolumn|Tak|Tak|Tak|Tak|Tak|
+|Magazyn OLTP w pamięci (GB)|172|216|304|704|1768|
+|Maksymalny rozmiar danych (GB)|1280|1536|2048|4096|4096|
+|Maksymalny rozmiar dziennika (GB)|427|512|683|1024|1024|
+|Maksymalny rozmiar danych TempDB (GB)|4096|2048|1024|768|640|
+|Typ magazynu|Lokalny dysk SSD|Lokalny dysk SSD|Lokalny dysk SSD|Lokalny dysk SSD|Lokalny dysk SSD|
+|Opóźnienie we/wy (przybliżone)|1-2 ms (zapis)<br>1-2 ms (odczyt)|1-2 ms (zapis)<br>1-2 ms (odczyt)|1-2 ms (zapis)<br>1-2 ms (odczyt)|1-2 ms (zapis)<br>1-2 ms (odczyt)|1-2 ms (zapis)<br>1-2 ms (odczyt)|
+|Maksymalna liczba operacji we/wy danych *|31 248|37 497|49 996|99 993|160 000|
+|Maksymalny współczynnik rejestrowania (MB/s)|120|144|192|264|264|
+|Maksymalna liczba współbieżnych procesów roboczych (żądań)|2000|2 400|3 200|6 400|12 800|
+|Maksymalna liczba współbieżnych logowań|2000|2 400|3 200|6 400|12 800|
+|Maksymalna liczba współbieżnych sesji|30000|30000|30000|30000|30000|
+|Liczba replik|4|4|4|4|4|
+|Wiele-AZ|Nie|Nie|Nie|Nie|Nie|
+|Skalowanie w górę odczytu|Tak|Tak|Tak|Tak|Tak|
+|Uwzględniony magazyn kopii zapasowych|rozmiar bazy danych 1X|rozmiar bazy danych 1X|rozmiar bazy danych 1X|rozmiar bazy danych 1X|rozmiar bazy danych 1X|
+
+\*Maksymalna wartość dla wielkości we/wy z zakresu od 8 KB do 64 KB. Rzeczywiste operacje we/wy są zależne od obciążenia. Aby uzyskać szczegółowe informacje, zobacz [Zarządzanie we/wy danych](resource-limits-logical-server.md#resource-governance).
+
+> [!IMPORTANT]
+> W pewnych okolicznościach może być konieczne zmniejszenie bazy danych w celu Odbierz nieużywanej przestrzeni. Aby uzyskać więcej informacji, zobacz [Zarządzanie obszarem plików w Azure SQL Database](file-space-manage.md).
+
+
 
 ## <a name="next-steps"></a>Następne kroki
 

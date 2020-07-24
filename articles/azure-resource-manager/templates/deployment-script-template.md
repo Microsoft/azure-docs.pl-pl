@@ -5,14 +5,14 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 07/08/2020
+ms.date: 07/16/2020
 ms.author: jgao
-ms.openlocfilehash: 8906ac7a00a349e2312eb80f5e25e32292a089ab
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: fcdcf563cd88cbf6604877636432a406c1960cff
+ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134574"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87117052"
 ---
 # <a name="use-deployment-scripts-in-templates-preview"></a>Używanie skryptów wdrażania w szablonach (wersja zapoznawcza)
 
@@ -138,7 +138,7 @@ Szczegóły wartości właściwości:
 - **Tożsamość**: usługa skryptu wdrażania używa zarządzanej tożsamości przypisanej przez użytkownika do wykonywania skryptów. Obecnie obsługiwana jest tylko tożsamość zarządzana przypisana przez użytkownika.
 - **rodzaj**: Określ typ skryptu. Obecnie obsługiwane są Azure PowerShell i skrypty interfejsu wiersza polecenia platformy Azure. Wartości to **AzurePowerShell** i **AzureCLI**.
 - **forceUpdateTag**: zmiana tej wartości między wdrożeniami szablonów Wymusza ponowne wykonanie skryptu wdrażania. Użyj funkcji newGuid () lub utcNow (), która musi być ustawiona jako wartość domyślna parametru. Aby dowiedzieć się więcej, zobacz [Uruchamianie skryptu więcej niż raz](#run-script-more-than-once).
-- **containerSettings**: Określ ustawienia umożliwiające dostosowanie wystąpienia kontenera platformy Azure.  **containerGroupName** służy do określania nazwy grupy kontenerów.  Jeśli nie zostanie określony, nazwa grupy zostanie wygenerowana automatycznie.
+- **containerSettings**: Określ ustawienia umożliwiające dostosowanie wystąpienia kontenera platformy Azure.  **containerGroupName** służy do określania nazwy grupy kontenerów.  Jeśli nie zostanie określony, nazwa grupy jest generowana automatycznie.
 - **storageAccountSettings**: Określ ustawienia do użycia istniejącego konta magazynu. Jeśli nie zostanie określony, konto magazynu zostanie utworzone automatycznie. Zobacz [Korzystanie z istniejącego konta magazynu](#use-existing-storage-account).
 - **azPowerShellVersion** / **azCliVersion**: Określ wersję modułu, która ma zostać użyta. Aby zapoznać się z listą obsługiwanych wersji programu PowerShell i interfejsu wiersza polecenia, zobacz [wymagania wstępne](#prerequisites).
 - **argumenty**: Określ wartości parametrów. Wartości są rozdzielone spacjami.
@@ -147,7 +147,7 @@ Szczegóły wartości właściwości:
 
     Jeśli argumenty zawierają znaki ucieczki, użyj [JsonEscaper](https://www.jsonescaper.com/) do podwójnego ucieczki znaków. Wklej oryginalny ciąg ucieczki do narzędzia, a następnie wybierz pozycję **ucieczki**.  Narzędzie wyprowadza podwójnie zmieniony ciąg. Na przykład w poprzednim przykładowym szablonie argument ma wartość **-name \\ "Jan dole \\ "**.  Ciąg ucieczki to **-name \\ \\ \\ "Jan dole \\ \\ \\ "**.
 
-    Aby przekazać parametr szablonu ARM typu Object jako argument, przekonwertuj obiekt na ciąg za pomocą funkcji [String ()](./template-functions-string.md#string) , a następnie użyj funkcji [replace ()](./template-functions-string.md#replace) w celu zastąpienia dowolnego elementu ** \\ "** INTO ** \\ \\ \\ "**. Przykład:
+    Aby przekazać parametr szablonu ARM typu Object jako argument, przekonwertuj obiekt na ciąg za pomocą funkcji [String ()](./template-functions-string.md#string) , a następnie użyj funkcji [replace ()](./template-functions-string.md#replace) w celu zastąpienia dowolnego elementu ** \\ "** INTO ** \\ \\ \\ "**. Na przykład:
 
     ```json
     replace(string(parameters('tables')), '\"', '\\\"')
@@ -203,7 +203,7 @@ Dane wyjściowe wyglądają następująco:
 
 ## <a name="use-external-scripts"></a>Korzystanie ze skryptów zewnętrznych
 
-Oprócz skryptów wbudowanych można również używać zewnętrznych plików skryptów. Obsługiwane są tylko podstawowe skrypty programu PowerShell z rozszerzeniem pliku **ps1** . W przypadku skryptów interfejsu wiersza polecenia skrypty podstawowe mogą mieć dowolne rozszerzenia (lub bez rozszerzenia), o ile skrypty są prawidłowymi skryptami bash. Aby użyć zewnętrznych plików skryptu, Zamień `scriptContent` na `primaryScriptUri` . Przykład:
+Oprócz skryptów wbudowanych można również używać zewnętrznych plików skryptów. Obsługiwane są tylko podstawowe skrypty programu PowerShell z rozszerzeniem pliku **ps1** . W przypadku skryptów interfejsu wiersza polecenia skrypty podstawowe mogą mieć dowolne rozszerzenia (lub bez rozszerzenia), o ile skrypty są prawidłowymi skryptami bash. Aby użyć zewnętrznych plików skryptu, Zamień `scriptContent` na `primaryScriptUri` . Na przykład:
 
 ```json
 "primaryScriptURI": "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-helloworld.ps1",
@@ -263,7 +263,7 @@ Konto magazynu i wystąpienie kontenera są niezbędne do wykonania skryptu i ro
 
 - Obsługiwane rodzaje kont magazynu:
 
-    | SKU             | Obsługiwany rodzaj     |
+    | Jednostka SKU             | Obsługiwany rodzaj     |
     |-----------------|--------------------|
     | Premium_LRS     | FileStorage        |
     | Premium_ZRS     | FileStorage        |
@@ -288,7 +288,7 @@ Aby określić istniejące konto magazynu, Dodaj następujący kod JSON do eleme
 ```
 
 - **storageAccountName**: Określ nazwę konta magazynu.
-- **storageAccountKey "**: Określ jeden z kluczy konta magazynu. Możesz użyć funkcji, [`listKeys()`](./template-functions-resource.md#listkeys) Aby pobrać klucz. Przykład:
+- **storageAccountKey "**: Określ jeden z kluczy konta magazynu. Możesz użyć funkcji, [`listKeys()`](./template-functions-resource.md#listkeys) Aby pobrać klucz. Na przykład:
 
     ```json
     "storageAccountSettings": {
@@ -600,6 +600,34 @@ Należy również skonfigurować udostępnianie plików, aby zainstalować katal
     ![Skrypt wdrażania szablonu Menedżer zasobów — polecenie Docker](./media/deployment-script-template/resource-manager-deployment-script-docker-cmd.png)
 
 Po pomyślnym przetestowaniu skryptu można go użyć jako skryptu wdrożenia w szablonach.
+
+## <a name="deployment-script-error-codes"></a>Kody błędów skryptów wdrażania
+
+| Kod błędu | Opis |
+|------------|-------------|
+| DeploymentScriptInvalidOperation | Definicja zasobu skryptu wdrażania w szablonie zawiera nieprawidłowe nazwy właściwości. |
+| DeploymentScriptResourceConflict | Nie można usunąć zasobu skryptu wdrożenia, który jest w stanie innym niż Terminal, a wykonywanie nie przekroczyło 1 godziny. Lub nie można uruchomić tego samego skryptu wdrożenia z tym samym identyfikatorem zasobu (ta sama subskrypcja, nazwa grupy zasobów i nazwa zasobu), ale inna zawartość treści skryptu w tym samym czasie. |
+| DeploymentScriptOperationFailed | Nie można wewnętrznie wykonać operacji skryptu wdrażania. Skontaktuj się z pomocą techniczną firmy Microsoft. |
+| DeploymentScriptStorageAccountAccessKeyNotSpecified | Nie określono klucza dostępu dla istniejącego konta magazynu.|
+| DeploymentScriptContainerGroupContainsInvalidContainers | Grupa kontenerów utworzona przez usługę skryptu wdrożenia została zmodyfikowana zewnętrznie i dodano nieprawidłowe kontenery. |
+| DeploymentScriptContainerGroupInNonterminalState | Co najmniej dwa zasoby skryptu wdrożenia używają tej samej nazwy wystąpienia kontenera platformy Azure w tej samej grupie zasobów, a jeden z nich nie zakończył jeszcze jego wykonywania. |
+| DeploymentScriptStorageAccountInvalidKind | Istniejące konto magazynu typu BlobBlobStorage lub BlobStorage nie obsługuje udziałów plików i nie można go używać. |
+| DeploymentScriptStorageAccountInvalidKindAndSku | Istniejące konto magazynu nie obsługuje udziałów plików. Aby uzyskać listę obsługiwanych rodzajów kont magazynu, zobacz [Korzystanie z istniejącego konta magazynu](#use-existing-storage-account). |
+| DeploymentScriptStorageAccountNotFound | Konto magazynu nie istnieje lub zostało usunięte przez proces zewnętrzny lub narzędzie. |
+| DeploymentScriptStorageAccountWithServiceEndpointEnabled | Określone konto magazynu ma punkt końcowy usługi. Konto magazynu z punktem końcowym usługi nie jest obsługiwane. |
+| DeploymentScriptStorageAccountInvalidAccessKey | Określono nieprawidłowy klucz dostępu dla istniejącego konta magazynu. |
+| DeploymentScriptStorageAccountInvalidAccessKeyFormat | Nieprawidłowy format klucza konta magazynu. Zobacz [Zarządzanie kluczami dostępu do konta magazynu](../../storage/common/storage-account-keys-manage.md). |
+| DeploymentScriptExceededMaxAllowedTime | Czas wykonania skryptu wdrożenia przekroczył wartość limitu czasu określoną w definicji zasobu skryptu wdrożenia. |
+| DeploymentScriptInvalidOutputs | Dane wyjściowe skryptu wdrożenia nie są prawidłowym obiektem JSON. |
+| DeploymentScriptContainerInstancesServiceLoginFailure | Tożsamość zarządzana przypisana przez użytkownika nie mogła zalogować się po 10 próbach z 1-minutowym interwałem. |
+| DeploymentScriptContainerGroupNotFound | Grupa kontenerów utworzona przez usługę skryptu wdrażania została usunięta przez zewnętrzne narzędzie lub proces. |
+| DeploymentScriptDownloadFailure | Nie można pobrać skryptu pomocniczego. Zobacz [używanie skryptu pomocniczego](#use-supporting-scripts).|
+| DeploymentScriptError | Skrypt użytkownika zgłosił błąd. |
+| DeploymentScriptBootstrapScriptExecutionFailed | Skrypt ładowania początkowego zgłosił błąd. Skrypt Bootstrap to skrypt systemowy, który organizuje wykonywanie skryptu wdrożenia. |
+| DeploymentScriptExecutionFailed | Nieznany błąd podczas wykonywania skryptu wdrożenia. |
+| DeploymentScriptContainerInstancesServiceUnavailable | Podczas tworzenia wystąpienia kontenera platformy Azure (ACI) usługa ACI zgłosiła błąd niedostępności usługi. |
+| DeploymentScriptContainerGroupInNonterminalState | Podczas tworzenia wystąpienia kontenera platformy Azure (ACI) inny skrypt wdrożenia używa tej samej nazwy ACI w tym samym zakresie (tej samej subskrypcji, nazwie grupy zasobów i nazwy zasobu). |
+| DeploymentScriptContainerGroupNameInvalid | Określona nazwa wystąpienia kontenera platformy Azure (ACI) nie spełnia wymagań ACI. Zobacz [Rozwiązywanie typowych problemów w Azure Container Instances](../../container-instances/container-instances-troubleshooting.md#issues-during-container-group-deployment).|
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -3,14 +3,14 @@ title: Replikacja geograficzna rejestru
 description: Rozpocznij tworzenie rejestru kontenerów platformy Azure z replikacją geograficzną i zarządzanie nim, dzięki czemu rejestr ma udostępniać wiele regionów z wielogłównymi replikami regionalnymi. Replikacja geograficzna to funkcja warstwy Premium usługi.
 author: stevelas
 ms.topic: article
-ms.date: 05/11/2020
+ms.date: 07/21/2020
 ms.author: stevelas
-ms.openlocfilehash: 315de5151547c4339255639cb65d1be30f7213ff
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: b5d016574fd85047ec349820a747b47d0582958b
+ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86247136"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87116797"
 ---
 # <a name="geo-replication-in-azure-container-registry"></a>Replikacja geograficzna w usłudze Azure Container Registry
 
@@ -95,7 +95,7 @@ Usługa ACR rozpocznie synchronizowanie obrazów między skonfigurowanymi replik
 * W przypadku wypychania lub ściągania obrazów z rejestru z replikacją geograficzną usługa Azure Traffic Manager w tle wysyła żądanie do rejestru znajdującego się najbliżej Ciebie w odniesieniu do opóźnienia sieci.
 * Po wypchnięciu aktualizacji obrazu lub tagu do najbliższego regionu przez Azure Container Registry replikację manifestów i warstw do pozostałych regionów, które zostały wybrane. Większe obrazy trwają dłużej niż mniejsze. Obrazy i Tagi są synchronizowane w regionach replikacji z modelem spójności ostatecznej.
 * Aby zarządzać przepływami pracy, które są zależne od aktualizacji wypychanych do rejestru z replikacją geograficzną, zalecamy skonfigurowanie elementów [webhook](container-registry-webhook.md) w celu reagowania na zdarzenia wypychania. Można skonfigurować regionalne elementy webhook w ramach rejestru replikowanego geograficznie do śledzenia zdarzeń wypychania w miarę ich kończenia w regionach replikowanych geograficznie.
-* Aby obsłużać obiekty blob reprezentujące warstwy zawartości, Azure Container Registry używa punktów końcowych danych. Możesz włączyć [dedykowane punkty końcowe danych](container-registry-firewall-access-rules.md#enable-dedicated-data-endpoints) dla rejestru w każdym z geograficznie replikowanych regionów rejestru. Punkty końcowe umożliwiają konfigurację ścisłych reguł dostępu do zapory z zakresem.
+* Aby obsłużać obiekty blob reprezentujące warstwy zawartości, Azure Container Registry używa punktów końcowych danych. Możesz włączyć [dedykowane punkty końcowe danych](container-registry-firewall-access-rules.md#enable-dedicated-data-endpoints) dla rejestru w każdym z geograficznie replikowanych regionów rejestru. Punkty końcowe umożliwiają konfigurację ścisłych reguł dostępu do zapory z zakresem. W celu rozwiązywania problemów można opcjonalnie [wyłączyć routing do replikacji](#temporarily-disable-routing-to-replication) przy zachowaniu replikowanych danych.
 * W przypadku skonfigurowania [prywatnego linku](container-registry-private-link.md) do rejestru przy użyciu prywatnych punktów końcowych w sieci wirtualnej, dedykowane punkty końcowe danych w każdym z replikowanych geograficznie regionów są domyślnie włączone. 
 
 ## <a name="delete-a-replica"></a>Usuwanie repliki
@@ -127,9 +127,36 @@ W przypadku wystąpienia tego problemu jedno rozwiązanie ma zastosowanie pamię
 
 W celu zoptymalizowania rozpoznawania nazw DNS do najbliższej repliki podczas wypychania obrazów Skonfiguruj rejestr z replikacją geograficzną w tych samych regionach platformy Azure jako źródło operacji wypychania lub najbliższy Region podczas pracy poza platformą Azure.
 
+### <a name="temporarily-disable-routing-to-replication"></a>Tymczasowe wyłączenie routingu do replikacji
+
+Aby rozwiązać problemy z rejestrem z replikacją geograficzną, można tymczasowo wyłączyć routing Traffic Manager do co najmniej jednej replikacji. Począwszy od interfejsu wiersza polecenia platformy Azure w wersji 2,8, można skonfigurować `--region-endpoint-enabled` opcję (wersja zapoznawcza) podczas tworzenia lub aktualizowania zreplikowanego regionu. Po ustawieniu `--region-endpoint-enabled` opcji replikacji na `false` , Traffic Manager nie ma już trasy wypychania ani żądań ściągnięcia platformy Docker do tego regionu. Domyślnie Routing do wszystkich replikacji jest włączony, a synchronizacja danych między wszystkimi replikacjami odbywa się niezależnie od tego, czy Routing jest włączony, czy wyłączony.
+
+Aby wyłączyć routing do istniejącej replikacji, najpierw uruchom polecenie [AZ ACR Replication list][az-acr-replication-list] , aby wyświetlić listę replikacji w rejestrze. Następnie uruchom [AZ ACR Replication Update][az-acr-replication-update] i Set `--region-endpoint-enabled false` dla określonej replikacji. Na przykład, aby skonfigurować ustawienie dla replikacji *zachodniej* w *rejestrze*:
+
+```azurecli
+# Show names of existing replications
+az acr replication list --registry --output table
+
+# Disable routing to replication
+az acr replication update update --name westus \
+  --registry myregistry --resource-group MyResourceGroup \
+  --region-endpoint-enabled false
+```
+
+Aby przywrócić Routing do replikacji:
+
+```azurecli
+az acr replication update update --name westus \
+  --registry myregistry --resource-group MyResourceGroup \
+  --region-endpoint-enabled true
+```
+
 ## <a name="next-steps"></a>Następne kroki
 
 Zapoznaj się z trzyczęściową serią samouczków dostępną w sekcji [Replikacja geograficzna w usłudze Azure Container Registry](container-registry-tutorial-prepare-registry.md). Opisano w niej tworzenie rejestru z replikacją geograficzną, tworzenie kontenera, a następnie wdrażanie go w ramach wielu regionalnych aplikacji usługi Web Apps na potrzeby wystąpień kontenerów za pomocą pojedynczego polecenia `docker push`.
 
 > [!div class="nextstepaction"]
 > [Replikacja geograficzna w usłudze Azure Container Registry](container-registry-tutorial-prepare-registry.md)
+
+[az-acr-replication-list]: /cli/azure/acr/replication#az-acr-replication-list
+[az-acr-replication-update]: /cli/azure/acr/replication#az-acr-replication-update

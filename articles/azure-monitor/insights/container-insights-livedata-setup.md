@@ -4,12 +4,12 @@ description: W tym artykule opisano sposób konfigurowania widoku w czasie rzecz
 ms.topic: conceptual
 ms.date: 02/14/2019
 ms.custom: references_regions
-ms.openlocfilehash: cbd697f743d0d3369a8c35537ac2755ae5d3fc8c
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ef3fd6ce2a5be4f3d06a37b135e0f9cf0851effb
+ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86516468"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87116715"
 ---
 # <a name="how-to-set-up-the-live-data-preview-feature"></a>Jak skonfigurować funkcję Live Data (wersja zapoznawcza)
 
@@ -42,7 +42,7 @@ Azure Portal poprosi o zweryfikowanie poświadczeń logowania do klastra Azure A
 >Autoryzacja klastra jest zarządzana przez program Kubernetes oraz model zabezpieczeń, z którym jest on skonfigurowany. Użytkownicy, którzy uzyskują dostęp do tej funkcji, wymagają uprawnień do pobrania konfiguracji Kubernetes (*kubeconfig*), podobnie jak w przypadku uruchamiania programu `az aks get-credentials -n {your cluster name} -g {your resource group}` . Ten plik konfiguracji zawiera token autoryzacji i uwierzytelniania dla **roli użytkownika klastra usługi Azure Kubernetes Service**, w przypadku klastrów z obsługą kontroli RBAC platformy Azure i AKS bez włączonej autoryzacji RBAC. Zawiera informacje o rejestracji w usłudze Azure AD i klientach, gdy AKS jest włączona z logowaniem jednokrotnym opartym na protokole SAML Azure Active Directory (AD).
 
 >[!IMPORTANT]
->Użytkownicy tych funkcji muszą mieć [rolę użytkownika klastra usługi Azure Kubernetes](../../azure/role-based-access-control/built-in-roles.md#azure-kubernetes-service-cluster-user-role permissions) w celu pobrania `kubeconfig` i użycia tej funkcji. Użytkownicy **nie** wymagają dostępu współautora do klastra w celu korzystania z tej funkcji.
+>Użytkownicy tych funkcji muszą mieć [rolę użytkownika klastra usługi Azure Kubernetes](../../role-based-access-control/built-in-roles.md) w celu pobrania `kubeconfig` i użycia tej funkcji. Użytkownicy **nie** wymagają dostępu współautora do klastra w celu korzystania z tej funkcji.
 
 ## <a name="using-clustermonitoringuser-with-rbac-enabled-clusters"></a>Korzystanie z clusterMonitoringUser z klastrami obsługującymi funkcję RBAC
 

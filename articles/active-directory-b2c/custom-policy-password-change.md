@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 12/13/2018
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: c159e78d0aa065b53b1164e01309e770302fb1ad
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6faf9fb3d15709d3897db9a77bf14ebf238e8fbf
+ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85389024"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87116364"
 ---
 # <a name="configure-password-change-using-custom-policies-in-azure-active-directory-b2c"></a>Konfigurowanie zmiany hasła przy użyciu zasad niestandardowych w Azure Active Directory B2C
 
@@ -65,6 +65,7 @@ Wykonaj kroki opisane w temacie Wprowadzenie [do zasad niestandardowych w Active
               <Item Key="response_types">id_token</Item>
               <Item Key="response_mode">query</Item>
               <Item Key="scope">email openid</Item>
+              <Item Key="grant_type">password</Item>
               <Item Key="UsePolicyInRedirectUri">false</Item>
               <Item Key="HttpBinding">POST</Item>
               <Item Key="client_id">ProxyIdentityExperienceFrameworkAppId</Item>

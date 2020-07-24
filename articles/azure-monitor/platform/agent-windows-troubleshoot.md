@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/21/2019
-ms.openlocfilehash: 4112555347ce1d718375fbab3f166c6f2f5deeaa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 338fdcb6ee2ebad98972bead7e16c9bc5944f2b3
+ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80333503"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87117058"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-windows"></a>Jak rozwiązywać problemy z agentem usługi Log Analytics dla systemu Windows 
 
@@ -37,8 +37,9 @@ Sprawdź, czy zapora lub serwer proxy został skonfigurowany tak, aby zezwalał 
 |*.ods.opinsights.azure.com |port 443 |Wychodzący|Tak |  
 |*.oms.opinsights.azure.com |port 443 |Wychodzący|Tak |  
 |*.blob.core.windows.net |port 443 |Wychodzący|Tak |  
+|*. agentsvc.azure-automation.net |port 443 |Wychodzący|Tak |  
 
-Informacje dotyczące zapory wymagane do Azure Government można znaleźć w temacie [Azure Government Management](../../azure-government/documentation-government-services-monitoringandmanagement.md#azure-monitor-logs). Jeśli planujesz używać Azure Automation hybrydowego procesu roboczego elementu Runbook do nawiązywania połączenia z usługą Automation i zarejestrowania się z nią w celu używania elementów Runbook lub rozwiązań do zarządzania w danym środowisku, musi on mieć dostęp do numeru portu i adresów URL opisanych w temacie [Konfigurowanie sieci dla hybrydowego procesu roboczego elementu Runbook](../../automation/automation-hybrid-runbook-worker.md#network-planning). 
+Informacje dotyczące zapory wymagane do Azure Government można znaleźć w temacie [Azure Government Management](../../azure-government/compare-azure-government-global-azure.md#azure-monitor-logs). Jeśli planujesz używać Azure Automation hybrydowego procesu roboczego elementu Runbook do nawiązywania połączenia z usługą Automation i zarejestrowania się z nią w celu używania elementów Runbook lub rozwiązań do zarządzania w danym środowisku, musi on mieć dostęp do numeru portu i adresów URL opisanych w temacie [Konfigurowanie sieci dla hybrydowego procesu roboczego elementu Runbook](../../automation/automation-hybrid-runbook-worker.md#network-planning). 
 
 Istnieje kilka sposobów, aby sprawdzić, czy Agent pomyślnie komunikuje się z Azure Monitor.
 
@@ -60,7 +61,7 @@ Istnieje kilka sposobów, aby sprawdzić, czy Agent pomyślnie komunikuje się z
 
 - Przefiltruj dziennik zdarzeń *Operations Manager* według **źródeł zdarzeń**  -  *Usługa kondycji modułów*, *HealthService*i *łącznika usługi* , a następnie Przefiltruj *Error* według *ostrzeżenia* na **poziomie zdarzenia** i sprawdź, czy zarejestrowano zdarzenia z poniższej tabeli. Jeśli są, przejrzyj kroki rozwiązywania dotyczące każdego możliwego zdarzenia.
 
-    |Identyfikator zdarzenia |Element źródłowy |Opis |Rozwiązanie |
+    |Identyfikator zdarzenia |Źródło |Opis |Rozwiązanie |
     |---------|-------|------------|-----------|
     |2133 & 2129 |Usługa kondycji |Nie można nawiązać połączenia z usługą z agenta |Ten błąd może wystąpić, gdy Agent nie może komunikować się bezpośrednio z usługą Azure Monitor ani za pomocą zapory/serwera proxy. Sprawdź ustawienia serwera proxy agenta lub czy Zapora sieci/serwer proxy zezwala na ruch TCP z komputera do usługi.|
     |2138 |Moduły Usługa kondycji |Serwer proxy wymaga uwierzytelniania |Skonfiguruj ustawienia serwera proxy agenta i określ nazwę użytkownika/hasło wymagane do uwierzytelnienia na serwerze proxy. |
@@ -98,9 +99,8 @@ Jeśli zapytanie zwraca wyniki, należy określić, czy konkretny typ danych nie
 
 3. Jeśli po kilku minutach nie widzisz oczekiwanych danych w wynikach zapytania lub wizualizacji, w zależności od tego, czy oglądasz dane z rozwiązania lub szczegółowych informacji, w dzienniku zdarzeń *Operations Manager* Wyszukaj **źródła zdarzeń** *HealthService* i *Usługa kondycji moduły* i przefiltruj według *ostrzeżenia* na **poziomie zdarzeń** i sprawdź, *czy* zarejestrowano zdarzenia z poniższej tabeli.
 
-    |Identyfikator zdarzenia |Element źródłowy |Opis |Rozwiązanie |
+    |Identyfikator zdarzenia |Źródło |Opis |Rozwiązanie |
     |---------|-------|------------|
     |8000 |HealthService |To zdarzenie określa, czy przepływ pracy związany z wydajnością, zdarzeniem, czy innym typem danych zbieranych nie jest w stanie przesłać dalej do usługi w celu pozyskania w obszarze roboczym. | Identyfikator zdarzenia 2136 ze źródła HealthService jest zapisywana razem z tym zdarzeniem i może wskazywać, że Agent nie może komunikować się z usługą, prawdopodobnie z powodu błędnej konfiguracji serwera proxy i ustawień uwierzytelniania, awarii sieci lub zapory sieciowej/serwera proxy nie zezwala na ruch TCP z komputera do usługi.| 
     |10102 i 10103 |Moduły Usługa kondycji |Przepływ pracy nie może rozpoznać źródła danych. |Taka sytuacja może wystąpić, jeśli określony licznik wydajności lub wystąpienie nie istnieje na komputerze lub jest niepoprawnie zdefiniowane w ustawieniach danych obszaru roboczego. Jeśli jest to [licznik wydajności](data-sources-performance-counters.md#configuring-performance-counters)określony przez użytkownika, sprawdź, czy podane informacje mają prawidłowy format i istnieją na komputerach docelowych. |
     |26002 |Moduły Usługa kondycji |Przepływ pracy nie może rozpoznać źródła danych. |Taka sytuacja może wystąpić, jeśli określony dziennik zdarzeń systemu Windows nie istnieje na komputerze. Ten błąd może być bezpiecznie ignorowany, jeśli komputer nie powinien mieć zarejestrowanego dziennika zdarzeń. w przeciwnym razie, jeśli jest to [Dziennik zdarzeń](data-sources-windows-events.md#configuring-windows-event-logs)określony przez użytkownika, sprawdź, czy podane informacje są poprawne. |
-

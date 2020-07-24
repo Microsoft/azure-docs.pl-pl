@@ -9,23 +9,24 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: fada393dcab61cf00a0a3befcf4af3660bf625dc
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 0a75aecde13abebe4f343d336e2554fc7e31c429
+ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86536525"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87116031"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-virtual-linux-device"></a>Szybki Start: wdrażanie pierwszego modułu IoT Edge na wirtualnym urządzeniu z systemem Linux
 
 Przetestuj Azure IoT Edge w tym przewodniku Szybki Start, wdrażając kod kontenerowy na wirtualnym urządzeniu z systemem Linux IoT Edge. IoT Edge umożliwia zdalne zarządzanie kodem na urządzeniach, dzięki czemu można wysyłać więcej obciążeń do krawędzi. W tym przewodniku szybki start zalecamy korzystanie z maszyny wirtualnej platformy Azure dla urządzenia IoT Edge, co pozwala na szybkie utworzenie maszyny testowej z zainstalowaną usługą IoT Edge, a następnie usunięcie jej po zakończeniu.
 
 W tym przewodniku Szybki start zawarto informacje na temat wykonywania następujących czynności:
-
-1. Tworzenie centrum IoT Hub.
-2. Rejestrowanie urządzenia usługi IoT Edge w centrum IoT Hub.
-3. Zainstaluj i uruchom środowisko uruchomieniowe IoT Edge na urządzeniu wirtualnym.
-4. Zdalne wdrażanie modułu na urządzeniu usługi IoT Edge.
+> [!div class="checklist"]
+>
+> * Tworzenie centrum IoT Hub.
+> * Rejestrowanie urządzenia usługi IoT Edge w centrum IoT Hub.
+> * Zainstaluj i uruchom środowisko uruchomieniowe IoT Edge na urządzeniu wirtualnym.
+> * Zdalne wdrażanie modułu na urządzeniu usługi IoT Edge.
 
 ![Diagram — architektura przewodnika Szybki start dla urządzenia i chmury](./media/quickstart-linux/install-edge-full.png)
 

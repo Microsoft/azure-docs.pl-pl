@@ -6,14 +6,14 @@ manager: carmonm
 services: azure-monitor
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 10/23/2019
+ms.date: 07/23/2020
 ms.author: mbullwin
-ms.openlocfilehash: b06f39de9f977a9f777b21a53e93ca744fccdd93
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 044786d6a6aa4f9f3d163090c0edfa3832023b10
+ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85560154"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87116951"
 ---
 # <a name="azure-monitor-workbooks"></a>Azure Monitor skoroszyty
 
@@ -42,7 +42,7 @@ Skoroszyty zapewniają bogaty zestaw funkcji wizualizacji danych. Aby uzyskać s
 * [Tekst](workbooks-visualizations.md#text)
 * [Wykresy](workbooks-visualizations.md#charts)
 * [Siatki](workbooks-visualizations.md#grids)
-* [Kafelki](workbooks-visualizations.md#tiles)
+* [Okładzin](workbooks-visualizations.md#tiles)
 * [Drzewo](workbooks-visualizations.md#trees)
 * [Diagram](workbooks-visualizations.md#graphs)
 
@@ -52,9 +52,9 @@ Skoroszyty zapewniają bogaty zestaw funkcji wizualizacji danych. Aby uzyskać s
 
 Aby poznać środowisko skoroszytów, najpierw przejdź do usługi Azure Monitor. Można to zrobić, wpisując **monitor** w polu wyszukiwania w Azure Portal.
 
-Następnie wybierz pozycję **skoroszyty (wersja zapoznawcza)**.
+Następnie wybierz pozycję **skoroszyty**.
 
-![Zrzut ekranu przedstawiający przycisk Podgląd skoroszytów wyróżniony w czerwonym polu](./media/workbooks-overview/workbooks-preview.png)
+![Zrzut ekranu przedstawiający przyciski skoroszyty wyróżnione czerwoną ramką](./media/workbooks-overview/workbooks.png)
 
 ### <a name="gallery"></a>Galeria
 

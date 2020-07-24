@@ -7,12 +7,12 @@ ms.date: 05/27/2020
 ms.author: mahender
 ms.reviewer: yevbronsh
 ms.custom: tracking-python
-ms.openlocfilehash: 87e4d67086ea9f260becb2d63765e807e2b73546
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: e6965cef0257ee472c08b19e3a9b1c2ec2860128
+ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85985756"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87116916"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>Jak używać tożsamości zarządzanych do App Service i Azure Functions
 
@@ -46,7 +46,7 @@ Aby skonfigurować tożsamość zarządzaną w portalu, musisz najpierw utworzy�
 > Aby znaleźć tożsamość zarządzaną aplikacji sieci Web lub aplikacji w gnieździe w Azure Portal, w obszarze **aplikacje dla przedsiębiorstw**, zapoznaj się z sekcją **Ustawienia użytkownika** . Zwykle nazwa gniazda jest podobna do `<app name>/slots/<slot name>` .
 
 
-### <a name="using-the-azure-cli"></a>Korzystanie z interfejsu wiersza polecenia platformy Azure
+### <a name="using-the-azure-cli"></a>Przy użyciu interfejsu wiersza polecenia platformy Azure
 
 Aby skonfigurować tożsamość zarządzaną za pomocą interfejsu wiersza polecenia platformy Azure, musisz użyć polecenia w `az webapp identity assign` stosunku do istniejącej aplikacji. Dostępne są trzy opcje uruchamiania przykładów w tej sekcji:
 
@@ -84,7 +84,7 @@ Poniższe kroki przeprowadzą Cię przez proces tworzenia aplikacji i przypisywa
 
 #### <a name="using-azure-powershell-for-a-web-app"></a>Korzystanie z Azure PowerShell aplikacji sieci Web
 
-1. W razie potrzeby zainstaluj Azure PowerShell przy użyciu instrukcji znajdujących się w [przewodniku Azure PowerShell](/powershell/azure/overview), a następnie uruchom polecenie, `Login-AzAccount` Aby utworzyć połączenie z platformą Azure.
+1. W razie potrzeby zainstaluj Azure PowerShell przy użyciu instrukcji znajdujących się w [przewodniku Azure PowerShell](/powershell/azure/), a następnie uruchom polecenie, `Login-AzAccount` Aby utworzyć połączenie z platformą Azure.
 
 2. Utwórz aplikację sieci Web przy użyciu Azure PowerShell. Aby uzyskać więcej przykładów użycia Azure PowerShell z App Service, zobacz [App Service przykładów programu PowerShell](../app-service/samples-powershell.md):
 
@@ -107,7 +107,7 @@ Poniższe kroki przeprowadzą Cię przez proces tworzenia aplikacji i przypisywa
 
 #### <a name="using-azure-powershell-for-a-function-app"></a>Używanie Azure PowerShell dla aplikacji funkcji
 
-1. W razie potrzeby zainstaluj Azure PowerShell przy użyciu instrukcji znajdujących się w [przewodniku Azure PowerShell](/powershell/azure/overview), a następnie uruchom polecenie, `Login-AzAccount` Aby utworzyć połączenie z platformą Azure.
+1. W razie potrzeby zainstaluj Azure PowerShell przy użyciu instrukcji znajdujących się w [przewodniku Azure PowerShell](/powershell/azure/), a następnie uruchom polecenie, `Login-AzAccount` Aby utworzyć połączenie z platformą Azure.
 
 2. Utwórz aplikację funkcji przy użyciu Azure PowerShell. Aby uzyskać więcej przykładów użycia Azure PowerShell z Azure Functions, zobacz [AZ. Functions Reference](https://docs.microsoft.com/powershell/module/az.functions/?view=azps-4.1.0#functions):
 
@@ -208,7 +208,7 @@ Poniższe kroki przeprowadzą Cię przez proces tworzenia aplikacji i przypisywa
 > [!NOTE]
 > Bieżąca wersja Azure PowerShell polecenia cmdlet dla Azure App Service nie obsługuje tożsamości przypisanych do użytkownika. Poniższe instrukcje dotyczą Azure Functions.
 
-1. W razie potrzeby zainstaluj Azure PowerShell przy użyciu instrukcji znajdujących się w [przewodniku Azure PowerShell](/powershell/azure/overview), a następnie uruchom polecenie, `Login-AzAccount` Aby utworzyć połączenie z platformą Azure.
+1. W razie potrzeby zainstaluj Azure PowerShell przy użyciu instrukcji znajdujących się w [przewodniku Azure PowerShell](/powershell/azure/), a następnie uruchom polecenie, `Login-AzAccount` Aby utworzyć połączenie z platformą Azure.
 
 2. Utwórz aplikację funkcji przy użyciu Azure PowerShell. Aby uzyskać więcej przykładów użycia Azure PowerShell z Azure Functions, zobacz [AZ. Functions Reference](https://docs.microsoft.com/powershell/module/az.functions/?view=azps-4.1.0#functions). Poniższy skrypt korzysta również z programu `New-AzUserAssignedIdentity` , który należy zainstalować oddzielnie zgodnie z definicją [lub usunięciem tożsamości zarządzanej przypisanej przez użytkownika przy użyciu Azure PowerShell](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md).
 
@@ -316,7 +316,7 @@ Aplikacja z zarządzaną tożsamością ma zdefiniowane dwie zmienne środowisko
 > |-------------------|--------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 > | zasób          | Zapytanie  | Identyfikator URI zasobu usługi Azure AD dla zasobu, dla którego ma zostać uzyskany token. Może to być jedna z [usług platformy Azure, które obsługują uwierzytelnianie usługi Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) lub dowolny inny identyfikator URI zasobu.    |
 > | api-version       | Zapytanie  | Wersja interfejsu API tokenu, który ma być używany. Użyj "2019-08-01" lub nowszej.                                                                                                                                                                                                                                                                 |
-> | ZNAK X-IDENTITY-HEADER | Header | Wartość zmiennej środowiskowej IDENTITY_HEADER. Ten nagłówek jest używany, aby pomóc w ograniczeniu ataków SSRF (po stronie serwera).                                                                                                                                                                                                    |
+> | ZNAK X-IDENTITY-HEADER | Nagłówek | Wartość zmiennej środowiskowej IDENTITY_HEADER. Ten nagłówek jest używany, aby pomóc w ograniczeniu ataków SSRF (po stronie serwera).                                                                                                                                                                                                    |
 > | client_id         | Zapytanie  | Obowiązkowe Identyfikator klienta tożsamości przypisanej do użytkownika, który ma być używany. Nie można użyć w żądaniu, które zawiera `principal_id` , `mi_res_id` lub `object_id` . Jeśli zostaną pominięte wszystkie parametry identyfikatora ( `client_id` , `principal_id` , `object_id` i `mi_res_id` ), używana jest tożsamość przypisana do systemu.                                             |
 > | principal_id      | Zapytanie  | Obowiązkowe Identyfikator podmiotu zabezpieczeń przypisany do tożsamości przypisanej do użytkownika. `object_id`jest aliasem, który może być używany w zamian. Nie można użyć dla żądania, które zawiera client_id, mi_res_id lub object_id. Jeśli zostaną pominięte wszystkie parametry identyfikatora ( `client_id` , `principal_id` , `object_id` i `mi_res_id` ), używana jest tożsamość przypisana do systemu. |
 > | mi_res_id         | Zapytanie  | Obowiązkowe Identyfikator zasobu platformy Azure dla tożsamości przypisanej do użytkownika, który ma być używany. Nie można użyć w żądaniu, które zawiera `principal_id` , `client_id` lub `object_id` . Jeśli zostaną pominięte wszystkie parametry identyfikatora ( `client_id` , `principal_id` , `object_id` i `mi_res_id` ), używana jest tożsamość przypisana do systemu.                                      |
@@ -431,7 +431,7 @@ $accessToken = $tokenResponse.access_token
 
 ### <a name="using-the-microsoftazureservicesappauthentication-library-for-net"></a><a name="asal"></a>Korzystanie z biblioteki Microsoft. Azure. Services. AppAuthentication dla platformy .NET
 
-W przypadku aplikacji i funkcji platformy .NET Najprostszym sposobem pracy z zarządzaną tożsamością jest pakiet Microsoft. Azure. Services. AppAuthentication. Ta biblioteka umożliwia również testowanie kodu lokalnie na komputerze deweloperskim przy użyciu konta użytkownika z programu Visual Studio, [interfejsu wiersza polecenia platformy Azure](/cli/azure)lub zintegrowanego uwierzytelniania Active Directory. Aby uzyskać więcej informacji na temat lokalnych opcji tworzenia w tej bibliotece, zobacz [odwołanie Microsoft. Azure. Services. AppAuthentication]. W tej sekcji pokazano, jak rozpocząć pracę z biblioteką w kodzie.
+W przypadku aplikacji i funkcji platformy .NET Najprostszym sposobem pracy z zarządzaną tożsamością jest pakiet Microsoft. Azure. Services. AppAuthentication. Ta biblioteka umożliwia również testowanie kodu lokalnie na komputerze deweloperskim przy użyciu konta użytkownika z programu Visual Studio, [interfejsu wiersza polecenia platformy Azure](/cli/azure)lub zintegrowanego uwierzytelniania Active Directory. Gdy usługa jest hostowana w chmurze, domyślnie będzie używać tożsamości przypisanej do systemu, ale można dostosować to zachowanie przy użyciu zmiennej środowiskowej parametrów połączenia, która odwołuje się do identyfikatora klienta tożsamości przypisanej do użytkownika. Aby uzyskać więcej informacji na temat opcji programistycznych w tej bibliotece, zobacz [odwołanie Microsoft. Azure. Services. AppAuthentication]. W tej sekcji pokazano, jak rozpocząć pracę z biblioteką w kodzie.
 
 1. Dodaj odwołania do [programu Microsoft. Azure. Services. AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) oraz innych niezbędnych pakietów NuGet do aplikacji. Poniższy przykład używa także [Microsoft. Azure.](https://www.nuget.org/packages/Microsoft.Azure.KeyVault)kluczy.
 
@@ -447,7 +447,17 @@ W przypadku aplikacji i funkcji platformy .NET Najprostszym sposobem pracy z zar
     var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServiceTokenProvider.KeyVaultTokenCallback));
     ```
 
-Aby dowiedzieć się więcej na temat Microsoft. Azure. Services. AppAuthentication i wykonywanych przez niego operacji, zobacz artykuł [Microsoft. Azure. Services. AppAuthentication] , a [App Service i Magazyn kluczy za pomocą przykładu MSI .NET](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet).
+Jeśli chcesz użyć tożsamości zarządzanej przypisanej przez użytkownika, możesz ustawić `AzureServicesAuthConnectionString` ustawienie aplikacji na `RunAs=App;AppId=<clientId-guid>` . Zamień na `<clientId-guid>` Identyfikator klienta tożsamości, której chcesz użyć. Można zdefiniować wiele takich parametrów połączenia za pomocą niestandardowych ustawień aplikacji i przekazywać ich wartości do konstruktora AzureServiceTokenProvider.
+
+```csharp
+    var identityConnectionString1 = Environment.GetEnvironmentVariable("UA1_ConnectionString");
+    var azureServiceTokenProvider1 = new AzureServiceTokenProvider(identityConnectionString1);
+    
+    var identityConnectionString2 = Environment.GetEnvironmentVariable("UA2_ConnectionString");
+    var azureServiceTokenProvider2 = new AzureServiceTokenProvider(identityConnectionString2);
+```
+
+Aby dowiedzieć się więcej o konfigurowaniu AzureServiceTokenProvider i wykonywanych przez niego operacjach, zobacz artykuł [Microsoft. Azure. Services. AppAuthentication] oraz [App Service i Magazyn kluczy za pomocą przykładu MSI .NET](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet).
 
 ### <a name="using-the-azure-sdk-for-java"></a>Korzystanie z zestawu Azure SDK dla języka Java
 

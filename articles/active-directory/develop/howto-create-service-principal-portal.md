@@ -12,12 +12,12 @@ ms.date: 06/26/2020
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: aaddev, seoapril2019, identityplatformtop40
-ms.openlocfilehash: 12389484f63d35eb31b38d5067061dc99b7284f0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 479222cc9b67775d359182740dc78865da8cee38
+ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85505991"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87115923"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Instrukcje: używanie portalu do tworzenia aplikacji usługi Azure AD i jednostki usługi w celu uzyskiwania dostępu do zasobów
 
@@ -29,7 +29,7 @@ W tym artykule pokazano, jak za pomocą portalu utworzyć nazwę główną usłu
 > Zamiast tworzyć jednostkę usługi, rozważ użycie zarządzanych tożsamości dla zasobów platformy Azure dla Twojej tożsamości aplikacji. Jeśli kod jest uruchamiany w usłudze obsługującej zarządzane tożsamości i uzyskuje dostęp do zasobów, które obsługują uwierzytelnianie usługi Azure AD, tożsamości zarządzane są dla Ciebie lepszym rozwiązaniem. Aby dowiedzieć się więcej na temat tożsamości zarządzanych dla zasobów platformy Azure, w tym usług, które są obecnie obsługiwane, zobacz temat [co to są tożsamości zarządzane dla zasobów platformy Azure?](../managed-identities-azure-resources/overview.md).
 
 ## <a name="app-registration-app-objects-and-service-principals"></a>Rejestracja aplikacji, obiekty aplikacji i jednostki usługi
-Nie ma możliwości bezpośredniego tworzenia nazwy głównej usługi przy użyciu Azure Portal.  Po zarejestrowaniu aplikacji za pomocą Azure Portal, obiekt aplikacji i jednostka usługi są automatycznie tworzone w katalogu macierzystym lub dzierżawie.  Aby uzyskać więcej informacji na temat relacji między rejestracją aplikacji, obiektami aplikacji i jednostkami usługi, Odczytaj [aplikacje i obiekty główne usługi w Azure Active Directory](app-objects-and-service-principals.md).
+Nie ma możliwości bezpośredniego tworzenia nazwy głównej usługi przy użyciu Azure Portal.  Po zarejestrowaniu aplikacji za pomocą Azure Portal, obiekt aplikacji i nazwa główna usługi są tworzone automatycznie w katalogu macierzystym lub dzierżawie.  Aby uzyskać więcej informacji na temat relacji między rejestracją aplikacji, obiektami aplikacji i jednostkami usługi, Odczytaj [aplikacje i obiekty główne usługi w Azure Active Directory](app-objects-and-service-principals.md).
 
 ## <a name="permissions-required-for-registering-an-app"></a>Uprawnienia wymagane do zarejestrowania aplikacji
 
@@ -55,7 +55,7 @@ Aby sprawdzić uprawnienia do subskrypcji:
 
 1. Wyszukaj i wybierz pozycję **subskrypcje**lub wybierz pozycję **subskrypcje** na stronie **głównej** .
 
-   ![Wyszukiwanie](./media/howto-create-service-principal-portal/select-subscription.png)
+   ![Wyszukaj](./media/howto-create-service-principal-portal/select-subscription.png)
 
 1. Wybierz subskrypcję, w której chcesz utworzyć nazwę główną usługi.
 
@@ -178,7 +178,7 @@ Jeśli zdecydujesz się nie używać certyfikatu, możesz utworzyć nowy klucz t
    ![Skopiuj wartość klucza tajnego, ponieważ nie można pobrać jej później](./media/howto-create-service-principal-portal/copy-secret.png)
 
 ## <a name="configure-access-policies-on-resources"></a>Konfigurowanie zasad dostępu do zasobów
-Należy pamiętać, że konieczne może być skonfigurowanie uprawnień do dodawania do zasobów, do których aplikacja musi mieć dostęp. Na przykład należy również [zaktualizować zasady dostępu magazynu kluczy](/azure/key-vault/key-vault-secure-your-key-vault#data-plane-and-access-policies) , aby zapewnić aplikacji dostęp do kluczy, wpisów tajnych lub certyfikatów.  
+Należy pamiętać, że konieczne może być skonfigurowanie dodatkowych uprawnień do zasobów wymaganych przez aplikację. Na przykład należy również [zaktualizować zasady dostępu magazynu kluczy](/azure/key-vault/key-vault-secure-your-key-vault#data-plane-and-access-policies) , aby zapewnić aplikacji dostęp do kluczy, wpisów tajnych lub certyfikatów.  
 
 1. W [Azure Portal](https://portal.azure.com)przejdź do magazynu kluczy i wybierz pozycję **zasady dostępu**.  
 1. Wybierz pozycję **Dodaj zasady dostępu**, a następnie wybierz uprawnienia Key, Secret i Certificate, które chcesz udzielić aplikacji.  Wybierz nazwę główną usługi utworzoną wcześniej.

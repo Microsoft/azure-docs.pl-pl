@@ -3,23 +3,23 @@ title: Architektura monitorowania ciągłego pacjenta na platformie Azure IoT Ce
 description: Poznaj architekturę rozwiązania ciągłego monitorowania pacjenta.
 author: philmea
 ms.author: philmea
-ms.date: 10/24/2019
+ms.date: 7/23/2020
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
 manager: eliotgra
-ms.openlocfilehash: 92eb4157abb55b7056952d1fb064c7c7d7500335
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 0032f341330ad394241806a4fe61add530253f09
+ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77021700"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87116857"
 ---
 # <a name="continuous-patient-monitoring-architecture"></a>Architektura ciągłego monitorowania pacjenta
 
 
 
-Rozwiązania do monitorowania ciągłego pacjenta można skompilować przy użyciu dostarczonego szablonu aplikacji i korzystając z architektury wymienionej poniżej jako wskazówki.
+Rozwiązania do monitorowania ciągłego pacjenta można skompilować przy użyciu dostarczonego szablonu aplikacji i korzystając z architektury przedstawionej poniżej jako wskazówki.
 
 >[!div class="mx-imgBorder"] 
 >![Architektura CPM](media/cpm-architecture.png)
@@ -34,13 +34,13 @@ Rozwiązania do monitorowania ciągłego pacjenta można skompilować przy użyc
 W tej sekcji opisano szczegółowo każdą część diagramu architektury.
 
 ### <a name="ble-medical-devices"></a>Urządzenia medyczne dotyczące przebeli
-Wiele noszenia medycznych używanych w obszarze IoT opieki zdrowotnej to urządzenia o niskiej energii Bluetooth. Nie są one w stanie mówić bezpośrednio do chmury i będą musiały zostać przekazane przez bramę. Ta architektura sugeruje użycie aplikacji dla telefonów komórkowych jako tej bramy.
+Wiele noszenia medycznych używanych w obszarze IoT opieki zdrowotnej to urządzenia o niskiej energii Bluetooth. Nie są one w stanie mówić bezpośrednio do chmury i będą musiały zostać przekazane przez bramę. Ta architektura sugeruje użycie aplikacji dla telefonów komórkowych jako tej bramy. 
 
 ### <a name="mobile-phone-gateway"></a>Brama telefonu komórkowego
-Główną funkcją aplikacji telefonii mobilnej jest pozyskiwanie danych z urządzeń medycznych i przekazywanie ich do IoT Central platformy Azure. Ponadto aplikacja może pomóc w zapełnieniu pacjentów za pomocą konfiguracji urządzenia i przepływu aprowizacji, a także ułatwić im wyświetlanie danych osobistych dotyczących kondycji. Inne rozwiązania mogą korzystać z bramy typu tablet lub bramy statycznej, jeśli znajduje się w pokoju szpitalnym do osiągnięcia tego samego przepływu komunikacji.
+Główną funkcją aplikacji telefonii mobilnej jest pozyskiwanie danych z urządzeń medycznych i przekazywanie ich do IoT Central platformy Azure. Ponadto aplikacja może pomóc w zapełnieniu pacjentów za pomocą konfiguracji urządzenia i przepływu aprowizacji, a także ułatwić im wyświetlanie danych osobistych dotyczących kondycji. Inne rozwiązania mogą korzystać z bramy typu tablet lub bramy statycznej, jeśli znajduje się w pokoju szpitalnym do osiągnięcia tego samego przepływu komunikacji. Utworzyliśmy przykładową aplikację mobilną typu open source dostępną dla systemów Android i iOS, której można użyć jako punktu wyjścia do szybkiego uruchamiania działań związanych z tworzeniem aplikacji. Aby uzyskać więcej informacji na temat IoT Central przykład ciągłego monitorowania aplikacji mobilnej, zobacz [przykłady dla platformy Azure](https://docs.microsoft.com/samples/iot-for-all/iotc-cpm-sample/iotc-cpm-sample/).
 
 ### <a name="export-to-azure-api-for-fhirreg"></a>Eksportuj do interfejsu API platformy Azure dla usługi FHIR&reg;
-Usługa Azure IoT Central jest zgodna z certyfikatem&reg; HIPAA i HiTRUST, ale możesz również wysyłać dane dotyczące kondycji pacjenta do interfejsu API platformy Azure dla FHIR. [Usługa Azure API for FHIR](../../healthcare-apis/overview.md) to w pełni zarządzany, oparty na standardach interfejs API służący do klinicznych danych dotyczących kondycji, które umożliwiają tworzenie nowych systemów zaangażowania przy użyciu danych dotyczących kondycji. Umożliwia szybką wymianę danych za pomocą interfejsów API FHIR, które są obsługiwane przez zarządzaną ofertę platformy jako usługi (PaaS) w chmurze. Korzystając z funkcji ciągłego eksportowania danych IoT Central, można wysyłać dane do interfejsu API platformy Azure dla FHIR.
+Usługa Azure IoT Central jest zgodna z certyfikatem HIPAA i HITRUST &reg; , ale możesz również wysyłać dane dotyczące kondycji pacjenta do interfejsu API platformy Azure dla FHIR. [Usługa Azure API for FHIR](../../healthcare-apis/overview.md) to w pełni zarządzany, oparty na standardach interfejs API służący do klinicznych danych dotyczących kondycji, które umożliwiają tworzenie nowych systemów zaangażowania przy użyciu danych dotyczących kondycji. Umożliwia szybką wymianę danych za pomocą interfejsów API FHIR, które są obsługiwane przez zarządzaną ofertę platformy jako usługi (PaaS) w chmurze. Korzystając z funkcji ciągłego eksportowania danych IoT Central, można wysyłać dane do interfejsu API platformy Azure dla usługi FHIR za pośrednictwem [łącznika usługi Azure IoT dla FHIR](https://docs.microsoft.com/azure/healthcare-apis/iot-fhir-portal-quickstart).
 
 ### <a name="machine-learning"></a>Uczenie maszynowe
 Po agregowaniu danych i przeprowadzeniu ich translacji do formatu FHIR można kompilować modele uczenia maszynowego, które mogą wzbogacać szczegółowe informacje i umożliwiają inteligentniejsze podejmowanie decyzji dla Twojego zespołu opieki. Istnieją różne rodzaje usług, których można użyć do kompilowania, uczenia i wdrażania modeli uczenia maszynowego. Więcej informacji o sposobach korzystania z ofert uczenia maszynowego na platformie Azure znajduje się w naszej [dokumentacji usługi Machine Learning](../../machine-learning/index.yml).
