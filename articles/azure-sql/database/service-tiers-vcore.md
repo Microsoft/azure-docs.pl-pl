@@ -9,13 +9,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
-ms.date: 11/27/2019
-ms.openlocfilehash: 7b5e4174da3ffa0dff5c840e5da1d98435e8d07b
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.date: 07/21/2020
+ms.openlocfilehash: c54979efbbd164a11614b92d9a337a86e2f221fd
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85985554"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87007745"
 ---
 # <a name="vcore-model-overview---azure-sql-database-and-azure-sql-managed-instance"></a>Rdzeń wirtualny model — Omówienie — Azure SQL Database i wystąpienie zarządzane Azure SQL 
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -25,7 +25,7 @@ Model zakupu wirtualnego rdzenia (rdzeń wirtualny) używany przez Azure SQL Dat
 - Wyższe limity obliczeń, pamięci, operacji we/wy i magazynu.
 - Kontrola nad generowaniem sprzętu w celu lepszego dopasowania do wymagań obliczeniowych i pamięci dla obciążenia.
 - Rabaty cenowe dla [korzyść użycia hybrydowego platformy Azure (AHB)](../azure-hybrid-benefit.md) i [wystąpienia zarezerwowanego (ri)](reserved-capacity-overview.md).
-- Większa przejrzystość szczegółów sprzętowych, które zwiększają moc obliczeniową; ułatwia planowanie migracji z wdrożeń lokalnych.
+- Większa przejrzystość szczegółów sprzętowych, które zwiększają wydajność obliczeń, co ułatwia planowanie migracji z wdrożeń lokalnych.
 
 ## <a name="service-tiers"></a>Warstwy usług
 
@@ -33,8 +33,8 @@ Opcje warstwy usług w modelu rdzeń wirtualny obejmują Ogólnego przeznaczenia
 
 |-|**Ogólnego przeznaczenia**|**Krytyczne dla działania firmy**|**Hiperskala**|
 |---|---|---|---|
-|Najlepsze dla|Większość obciążeń firmowych. Oferuje zorientowane na budżety, zrównoważone i skalowalne Opcje obliczeniowe i magazynowe. |Oferuje aplikacjom biznesowym największą odporność na błędy przy użyciu kilku izolowanych replik i zapewnia największą wydajność operacji we/wy na replikę bazy danych.|Większość obciążeń firmowych z wysoce skalowalnym magazynem i wymaganiami dotyczącymi skali odczytu.  Zapewnia wyższą odporność na błędy, umożliwiając konfigurację wielu izolowanych replik baz danych. |
-|Magazyn|Używa magazynu zdalnego.<br/>**SQL Database Obliczanie zainicjowane**:<br/>5 GB – 4 TB<br/>**Obliczenia bezserwerowe**:<br/>5 GB — 3 TB<br/>**Wystąpienie zarządzane SQL**: 32 GB – 8 TB |Używa lokalnego magazynu SSD.<br/>**SQL Database Obliczanie zainicjowane**:<br/>5 GB – 4 TB<br/>**Wystąpienie zarządzane SQL**:<br/>32 GB — 4 TB |Elastyczna automatyczne zwiększanie magazynu zgodnie z wymaganiami. Obsługuje do 100 TB pamięci masowej. Używa lokalnego magazynu SSD dla lokalnej pamięci podręcznej puli buforów i lokalnego magazynu danych. Używa magazynu zdalnego platformy Azure jako końcowego długoterminowego magazynu danych. |
+|Optymalne zastosowanie|Większość obciążeń firmowych. Oferuje zorientowane na budżety, zrównoważone i skalowalne Opcje obliczeniowe i magazynowe. |Oferuje aplikacjom biznesowym największą odporność na błędy przy użyciu kilku izolowanych replik i zapewnia największą wydajność operacji we/wy na replikę bazy danych.|Większość obciążeń firmowych z wysoce skalowalnym magazynem i wymaganiami dotyczącymi skali odczytu.  Zapewnia wyższą odporność na błędy, umożliwiając konfigurację wielu izolowanych replik baz danych. |
+|Storage|Używa magazynu zdalnego.<br/>**SQL Database Obliczanie zainicjowane**:<br/>5 GB – 4 TB<br/>**Obliczenia bezserwerowe**:<br/>5 GB — 3 TB<br/>**Wystąpienie zarządzane SQL**: 32 GB – 8 TB |Używa lokalnego magazynu SSD.<br/>**SQL Database Obliczanie zainicjowane**:<br/>5 GB – 4 TB<br/>**Wystąpienie zarządzane SQL**:<br/>32 GB — 4 TB |Elastyczna automatyczne zwiększanie magazynu zgodnie z wymaganiami. Obsługuje do 100 TB pamięci masowej. Używa lokalnego magazynu SSD dla lokalnej pamięci podręcznej puli buforów i lokalnego magazynu danych. Używa magazynu zdalnego platformy Azure jako końcowego długoterminowego magazynu danych. |
 |Operacje we/wy i przepływność (przybliżona)|**SQL Database**: Zobacz limity zasobów dla [pojedynczych baz danych](resource-limits-vcore-single-databases.md) i [pul elastycznych](resource-limits-vcore-elastic-pools.md).<br/>**Wystąpienie zarządzane SQL**: zobacz [Omówienie limitów zasobów wystąpienia zarządzanego usługi Azure SQL](../managed-instance/resource-limits.md#service-tier-characteristics).|Zobacz limity zasobów dla [pojedynczych baz danych](resource-limits-vcore-single-databases.md) i [pul elastycznych](resource-limits-vcore-elastic-pools.md).|Skalowanie jest architekturą wielowarstwową z buforowaniem na wielu poziomach. Efektywne operacje we/wy i przepływność będą zależeć od obciążenia.|
 |Dostępność|1 replika, brak replik w skali odczytu|3 repliki, 1 [replika w skali odczytu](read-scale-out.md),<br/>Strefa — nadmiarowa wysoka dostępność (HA)|1 replika odczytu i zapisu oraz 0-4 [replik w skali odczytu](read-scale-out.md)|
 |Tworzenie kopii zapasowych|[Magazyn Geograficznie nadmiarowy do odczytu (RA-GRS)](../../storage/common/geo-redundant-design.md), 7-35 dni (domyślnie 7 dni)|[RA-GRS](../..//storage/common/geo-redundant-design.md), 7-35 dni (domyślnie 7 dni)|Tworzenie kopii zapasowych opartych na migawce w magazynie zdalnym platformy Azure. Przywraca używanie tych migawek do szybkiego odzyskiwania. Kopie zapasowe są natychmiast i nie wpływają na wydajność obliczeń we/wy. Przywracanie odbywa się szybko i nie jest operacją o rozmiarze danych (w minutach, a nie w godzinach lub dniach).|
@@ -69,7 +69,7 @@ Wstępnie zainicjowana warstwa obliczeniowa zapewnia określoną ilość zasobó
 
 ## <a name="hardware-generations"></a>Generacja sprzętu
 
-Opcje generowania sprzętu w modelu rdzeń wirtualny obejmują 4/5 generacji serii M (wersja zapoznawcza) i Fsv2 (wersja zapoznawcza). Generowanie sprzętu zwykle definiuje limity obliczeń i pamięci oraz inne właściwości, które wpływają na wydajność obciążenia.
+Opcje generowania sprzętu w modelu rdzeń wirtualny obejmują generacji 4/5, serii M i Fsv2. Generowanie sprzętu zwykle definiuje limity obliczeń i pamięci oraz inne właściwości, które wpływają na wydajność obciążenia.
 
 ### <a name="gen4gen5"></a>Obliczenia/5 rdzeń
 
@@ -77,21 +77,21 @@ Opcje generowania sprzętu w modelu rdzeń wirtualny obejmują 4/5 generacji ser
 
 W przypadku regionów, w których jest dostępny obliczenia/5 rdzeń, zobacz [dostępność obliczenia/5 rdzeń](#gen4gen5-1).
 
-### <a name="fsv2-seriespreview"></a>Fsv2 — seria (wersja zapoznawcza)
+### <a name="fsv2-series"></a>Seria Fsv2
 
 - Fsv2-Series to zoptymalizowana pod kątem wydajności opcja sprzętowa zapewniająca niskie opóźnienie procesora CPU i dużą szybkość zegara w przypadku większości obciążeń wymagających procesora CPU.
 - W zależności od obciążenia seria Fsv2 może zapewnić większą wydajność procesora CPU na rdzeń wirtualny niż 5 rdzeń, a rozmiar rdzeń wirtualny 72 może zapewnić większą wydajność procesora CPU mniejszą niż 80 rdzeni wirtualnych w 5 rdzeń. 
 - Fsv2 zapewnia mniejszą ilość pamięci i tempdb na rdzeń wirtualny niż inny sprzęt, dlatego obciążenia te mogą chcieć uwzględnić 5 rdzeń lub M serii.  
 
-Seria Fsv2 jest obsługiwana tylko w warstwie Ogólnego przeznaczenia.  W przypadku regionów, w których jest dostępna seria Fsv2, zobacz [dostępność z serii Fsv2](#fsv2-series).
+Seria Fsv2 jest obsługiwana tylko w warstwie Ogólnego przeznaczenia. W przypadku regionów, w których jest dostępna seria Fsv2, zobacz [dostępność z serii Fsv2](#fsv2-series).
 
 
-### <a name="m-seriespreview"></a>Seria M (wersja zapoznawcza)
+### <a name="m-series"></a>Seria M
 
 - Seria M to zoptymalizowana pod kątem pamięci opcja sprzętowa dla obciążeń wymagających większej ilości pamięci i wyższych limitów obliczeń niż zapewniana przez 5 rdzeń.
-- Seria M zapewnia 29 GB na rdzeń wirtualny i 128 rdzeni wirtualnych, co zwiększa limit pamięci względem 5 rdzeń przez 8x do niemal 4 TB.
+- Seria M zapewnia 29 GB na rdzeń wirtualny oraz do 128 rdzeni wirtualnych, co zwiększa limit pamięci względem 5 rdzeń przez 8x do niemal 4 TB.
 
-Seria M jest obsługiwana tylko w warstwie Krytyczne dla działania firmy i nie obsługuje nadmiarowości strefy.  Subskrypcja musi być płatnym typem oferty, w tym płatności zgodnie z rzeczywistym użyciem lub Umowa Enterprise (EA).  W przypadku regionów, w których jest dostępna Seria M, zobacz [dostępność serii m](#m-series).
+Seria M jest obsługiwana tylko w warstwie Krytyczne dla działania firmy i nie obsługuje nadmiarowości strefy.  Subskrypcja musi być płatnym typem oferty, w tym płatności zgodnie z rzeczywistym użyciem lub Umowa Enterprise (EA). W przypadku regionów, w których jest dostępna Seria M, zobacz [dostępność serii m](#m-series).
 
 <!--
 To enable M-series hardware for a subscription and region, a support request must be opened. The subscription must be a paid offer type including Pay-As-You-Go or Enterprise Agreement (EA).  If the support request is approved, then the selection and provisioning experience of M-series follows the same pattern as for other hardware generations. For regions where M-series is available, see [M-series availability](#m-series).
@@ -100,12 +100,12 @@ To enable M-series hardware for a subscription and region, a support request mus
 ### <a name="compute-and-memory-specifications"></a>Specyfikacje obliczeniowe i pamięci
 
 
-|Generowanie sprzętu  |Compute  |Memory (Pamięć)  |
+|Generowanie sprzętu  |Compute  |Pamięć  |
 |:---------|:---------|:---------|
 |Obliczenia     |-Procesory Intel E5-2673 v3 (Haswell) 2,4 GHz<br>— Zapewnij do 24 rdzeni wirtualnych (1 rdzeń wirtualny = 1 rdzeń fizyczny)  |-7 GB na rdzeń wirtualny<br>— Zapewnij do 168 GB|
 |5 rdzeń     |**Zainicjowane obliczenie**<br>-Intel E5-2673 v4 (Broadwell) 2,3-GHz i Intel SP-8160 (Skylake) * procesory<br>— Inicjowanie obsługi administracyjnej do 80 rdzeni wirtualnych (1 rdzeń wirtualny = 1 Hyper-Thread)<br><br>**Bezserwerowe usługi obliczeniowe**<br>-Intel E5-2673 v4 (Broadwell) 2,3-GHz i Intel SP-8160 (Skylake) * procesory<br>-Automatyczne skalowanie do 16 rdzeni wirtualnych (1 rdzeń wirtualny = 1 Hyper-Thread)|**Zainicjowane obliczenie**<br>-5,1 GB na rdzeń wirtualny<br>— Zapewnij do 408 GB<br><br>**Bezserwerowe usługi obliczeniowe**<br>-Automatyczne skalowanie do 24 GB na rdzeń wirtualny<br>— Automatyczne skalowanie do maksymalnie 48 GB|
-|Seria Fsv2     |— Procesory Intel Xeon Platinum 8168 (SkyLake)<br>— Dzięki stałej szybkości taktu Turbo o częstotliwości 3,4 GHz i maksymalnej pojedynczej podstawowej prędkości zegarka Turbo o godz. 3,7 GHz.<br>-Inicjowanie obsługi administracyjnej 72 rdzeni wirtualnych (1 rdzeń wirtualny = 1 Hyper-Thread)|-1,9 GB na rdzeń wirtualny<br>-Inicjowanie obsługi administracyjnej 136 GB|
-|Seria M     |— Procesory Intel Xeon E7-8890 v3 2,5 GHz i Intel Xeon Platinum 8280M 2,7 GHz (Kaskada Lake)<br>-Inicjowanie obsługi administracyjnej 128 rdzeni wirtualnych (1 rdzeń wirtualny = 1 Hyper-Thread)|-29 GB na rdzeń wirtualny<br>— Inicjowanie obsługi administracyjnej 3,7 TB|
+|Seria Fsv2     |— Procesory Intel Xeon Platinum 8168 (Skylake)<br>— Dzięki stałej szybkości taktu Turbo o częstotliwości 3,4 GHz i maksymalnej pojedynczej podstawowej prędkości zegarka Turbo o godz. 3,7 GHz.<br>— Inicjowanie obsługi administracyjnej do 72 rdzeni wirtualnych (1 rdzeń wirtualny = 1 Hyper-Thread)|-1,9 GB na rdzeń wirtualny<br>— Zapewnij do 136 GB|
+|Seria M     |— Procesory Intel Xeon E7-8890 v3 2,5 GHz i Intel Xeon Platinum 8280M 2,7 GHz (Kaskada Lake)<br>— Inicjowanie obsługi administracyjnej do 128 rdzeni wirtualnych (1 rdzeń wirtualny = 1 Hyper-Thread)|-29 GB na rdzeń wirtualny<br>— Zapewnij do 3,7 TB|
 
 \*W widoku dynamicznego zarządzania [sys. dm_user_db_resource_governance](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database) generowanie sprzętu dla baz danych 5 rdzeń przy użyciu procesorów Intel SP-8160 (Skylake) pojawia się jako Gen6. Limity zasobów dla wszystkich baz danych 5 rdzeń są takie same, niezależnie od typu procesora (Broadwell lub Skylake).
 
@@ -148,13 +148,13 @@ Na karcie **podstawowe** wybierz łącze **Konfiguruj bazę danych** w sekcji **
   
 **Aby zmienić generowanie sprzętu istniejącego wystąpienia zarządzanego SQL**
 
-# <a name="the-azure-portal"></a>[Witryna Azure Portal](#tab/azure-portal)
+# <a name="the-azure-portal"></a>[Azure Portal](#tab/azure-portal)
 
 Na stronie wystąpienie zarządzane SQL Wybierz pozycję **warstwa cenowa** link do sekcji Ustawienia.
 
 ![Zmień sprzęt wystąpienia zarządzanego SQL](./media/service-tiers-vcore/change-managed-instance-hardware.png)
 
-Na stronie **warstwa cenowa** będzie można zmienić generowanie sprzętu zgodnie z opisem w poprzednich krokach.
+Na stronie warstwa cenowa będzie można zmienić generowanie sprzętu zgodnie z opisem w poprzednich krokach.
 
 # <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
@@ -164,7 +164,7 @@ Użyj poniższego skryptu programu PowerShell:
 Set-AzSqlInstance -Name "managedinstance1" -ResourceGroupName "ResourceGroup01" -ComputeGeneration Gen5
 ```
 
-Aby uzyskać więcej szczegółów, zobacz polecenie [Set-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstance) .
+Aby uzyskać więcej informacji, sprawdź polecenie [Set-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstance) .
 
 # <a name="the-azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
@@ -174,7 +174,7 @@ Wykonaj następujące polecenie interfejsu wiersza polecenia:
 az sql mi update -g mygroup -n myinstance --family Gen5
 ```
 
-Aby uzyskać więcej szczegółów, sprawdź polecenie [AZ SQL mi Update](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-update) .
+Aby uzyskać więcej informacji, sprawdź polecenie [AZ SQL mi Update](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-update) .
 
 ---
 

@@ -6,15 +6,15 @@ author: linda33wj
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 07/08/2020
+ms.date: 07/16/2020
 ms.author: jingwang
 ms.reviewer: craigg
-ms.openlocfilehash: f22b4bec17abe95be2a17d3e0e3c41fab3483fe0
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 334d5b5113dba17c5abc2b4f2520bde0d16e4c06
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86224823"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87007451"
 ---
 # <a name="azure-data-factory-connector-overview"></a>Omówienie łącznika Azure Data Factory
 
@@ -39,6 +39,7 @@ Azure Data Factory obsługuje następujące formaty plików. Zapoznaj się z ka�
 - [Format JSON](format-json.md)
 - [Format ORC](format-orc.md)
 - [Format Parquet](format-parquet.md)
+- [Format XML](format-xml.md)
 
 ## <a name="next-steps"></a>Następne kroki
 
