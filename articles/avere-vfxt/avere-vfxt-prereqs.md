@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: how-to
 ms.date: 01/21/2020
 ms.author: rohogue
-ms.openlocfilehash: c1828bcde5c26c5605b867c115127eb2502bdd86
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 24c803bd94f56af551f3afa2cb7350219b4fa448
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85505345"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87124735"
 ---
 # <a name="prepare-to-create-the-avere-vfxt"></a>Przygotowanie do utworzenia systemu Avere vFXT
 
@@ -38,7 +38,7 @@ Istnieją pewne obejścia, aby umożliwić innym firmom tworzenie avere vFXT dla
 |----------|--------|-------|
 | Administrator grupy zasobów tworzy vFXT | Sieć wirtualna, kontroler klastra i węzły klastra muszą być tworzone w obrębie grupy zasobów. | Rola [administrator dostępu użytkowników](../role-based-access-control/built-in-roles.md#user-access-administrator) i [współautor](../role-based-access-control/built-in-roles.md#contributor) — zarówno w zakresie docelowej grupy zasobów. |
 | Użyj istniejącej, zewnętrznej sieci wirtualnej | Kontroler klastra i węzły klastra są tworzone w ramach grupy zasobów vFXT, ale używają istniejącej sieci wirtualnej w innej grupie zasobów. | (1) [administrator dostępu użytkowników](../role-based-access-control/built-in-roles.md#user-access-administrator) i role [współautor](../role-based-access-control/built-in-roles.md#contributor) zakresu do grupy zasobów vFXT; i (2) [współautor maszyny wirtualnej](../role-based-access-control/built-in-roles.md#virtual-machine-contributor), [administrator dostępu użytkowników](../role-based-access-control/built-in-roles.md#user-access-administrator)i role [współautor avere](../role-based-access-control/built-in-roles.md#avere-contributor) należące do grupy zasobów sieci wirtualnej. |
-| Rola niestandardowa dla twórców klastrów | Brak ograniczeń umieszczania zasobów. Ta metoda daje znaczące uprawnienia niebędące właścicielami. | Właściciel subskrypcji tworzy niestandardową rolę RBAC, jak wyjaśniono w [tym artykule](avere-vfxt-non-owner.md). |
+| Rola niestandardowa dla twórców klastrów | Brak ograniczeń umieszczania zasobów. Ta metoda daje znaczące uprawnienia niebędące właścicielami. | Właściciel subskrypcji tworzy rolę niestandardową platformy Azure, jak wyjaśniono w [tym artykule](avere-vfxt-non-owner.md). |
 
 ## <a name="quota-for-the-vfxt-cluster"></a>Przydział dla klastra vFXT
 

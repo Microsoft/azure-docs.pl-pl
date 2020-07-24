@@ -11,11 +11,12 @@ author: nishankgu
 ms.author: nigup
 ms.date: 05/08/2020
 ms.custom: contperfq4
-ms.openlocfilehash: df636ce1200d8c3744681a60532b22c409dd81dc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d8be4169a44b2ef57db8aa49b96f6c5fe85ded1c
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84430468"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87125092"
 ---
 # <a name="manage--increase-quotas-for-resources-with-azure-machine-learning"></a>Zarządzanie & zwiększenie limitów przydziału dla zasobów z Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -71,7 +72,7 @@ Dostępne zasoby:
 | Maksymalna liczba węzłów w jednym Azure Machine Learning zasobów obliczeniowych (AmlCompute) | węzły 100 |
 | Maksymalna liczba procesów MPI procesora GPU na węzeł | 1-4 |
 | Maksymalna liczba procesów roboczych procesora GPU na węzeł | 1-4 |
-| Maksymalny okres istnienia zadania | 90 dni<sup>1</sup> |
+| Maksymalny okres istnienia zadania | 21 dni<sup>1</sup> |
 | Maksymalny okres istnienia zadania w węźle o niskim priorytecie | 7 dni<sup>2</sup> |
 | Maksymalna liczba serwerów parametrów na węzeł | 1 |
 
@@ -94,7 +95,7 @@ Istnieje również ograniczenie liczby wystąpień kontenerów, które można ur
 
 Aby zapoznać się z bardziej szczegółową i aktualną listą limitów przydziałów, [Zobacz artykuł](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#container-instances-limits)dotyczący limitu przydziału dla całej platformy Azure.
 
-### <a name="storage"></a>Magazyn
+### <a name="storage"></a>Storage
 Istnieje limit liczby kont magazynu na region, jak również w danej subskrypcji. Domyślny limit to 250 i obejmuje konta standardowe i Premium Storage. Jeśli potrzebujesz więcej niż 250 kont magazynu w danym regionie, Przekształć żądanie przez [Pomoc techniczną platformy Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest/). Zespół usługi Azure Storage sprawdzi swój przypadek biznesowy i może zatwierdzić do 250 kont magazynu dla danego regionu.
 
 

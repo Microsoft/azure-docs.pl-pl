@@ -10,12 +10,12 @@ ms.date: 07/16/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: e4e64a022a8cb071eb1b3447995c1e91b910fe2d
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 4eb3173700a0907f8195466b9e0d7ab1903cf93e
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519205"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87124786"
 ---
 # <a name="authorize-access-to-blobs-and-queues-using-azure-active-directory"></a>Autoryzuj dostęp do obiektów blob i kolejek przy użyciu Azure Active Directory
 
@@ -57,7 +57,7 @@ Aby dowiedzieć się, jak przypisać wbudowaną rolę RBAC do podmiotu zabezpiec
 - [Udzielanie dostępu do danych w obiektach blob i kolejkach na platformie Azure za pomocą kontroli dostępu opartej na rolach przy użyciu interfejsu wiersza polecenia platformy Azure](storage-auth-aad-rbac-cli.md)
 - [ przy użyciu programu PowerShell](storage-auth-aad-rbac-powershell.md)
 
-Aby uzyskać więcej informacji o tym, jak wbudowane role są zdefiniowane dla usługi Azure Storage, zobacz [Omówienie definicji ról](../../role-based-access-control/role-definitions.md#management-and-data-operations). Aby uzyskać informacje na temat tworzenia niestandardowych ról RBAC, zobacz [Tworzenie ról niestandardowych dla Access Control opartej na rolach](../../role-based-access-control/custom-roles.md).
+Aby uzyskać więcej informacji o tym, jak wbudowane role są zdefiniowane dla usługi Azure Storage, zobacz [Omówienie definicji ról](../../role-based-access-control/role-definitions.md#management-and-data-operations). Aby uzyskać informacje na temat tworzenia ról niestandardowych platformy Azure, zobacz [role niestandardowe platformy Azure](../../role-based-access-control/custom-roles.md).
 
 ### <a name="access-permissions-for-data-operations"></a>Uprawnienia dostępu do operacji na danych
 

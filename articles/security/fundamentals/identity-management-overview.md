@@ -16,11 +16,12 @@ ms.workload: na
 ms.date: 09/19/2018
 ms.author: terrylan
 Customer intent: As an IT Pro or decision maker I am trying to learn about identity management capabilities in Azure
-ms.openlocfilehash: f61b6193a0d2082296a17128b41d7220f9b7e05f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d1440bf2b8af85b81355dbc43b695a85994e4b8d
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77565897"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87124140"
 ---
 # <a name="azure-identity-management-security-overview"></a>Omówienie zabezpieczeń usługi Azure Identity Management
 
@@ -83,17 +84,22 @@ Azure Multi-Factor Authentication to metoda uwierzytelniania, która wymaga uży
 Więcej informacji:
 
 * [Multi-Factor Authentication](https://azure.microsoft.com/documentation/services/multi-factor-authentication/)
-* [Co to jest usługa Multi-Factor Authentication platformy Azure?](/azure/active-directory/authentication/multi-factor-authentication)
+* [Co to jest usługa Azure Multi-Factor Authentication?](/azure/active-directory/authentication/multi-factor-authentication)
 * [Jak działa usługa Azure Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md)
 
 ## <a name="rbac"></a>Kontrola dostępu oparta na rolach
 
 Kontrola dostępu oparta na rolach stanowi system autoryzacji oparty na usłudze Azure Resource Manager, umożliwiający szczegółowe zarządzanie dostępem do zasobów platformy Azure. RBAC pozwala na szczegółowe kontrolowanie poziomu dostępu, który ma użytkownicy. Można na przykład ograniczyć użytkownika do zarządzania sieciami wirtualnymi i innym użytkownikom w celu zarządzania wszystkimi zasobami w grupie zasobów. Na platformie Azure można korzystać z kilku ról wbudowanych. Poniżej wymieniono cztery podstawowe role wbudowane. Pierwsze trzy są stosowane do wszystkich typów zasobów.
 
+- [Właściciel](/azure/role-based-access-control/built-in-roles.md#owner) — ma pełny dostęp do wszystkich zasobów, w tym prawo do delegowania dostępu do innych osób. 
+- [Współautor](/azure/role-based-access-control/built-in-roles.md#contributor) — można tworzyć wszystkie typy zasobów platformy Azure i zarządzać nimi, ale nie mogą przyznawać dostępu innym osobom.
+- [Reader](/azure/role-based-access-control/built-in-roles.md#reader) — może wyświetlać istniejące zasoby platformy Azure.
+- [Administrator dostępu użytkowników](/azure/role-based-access-control/built-in-roles.md#administrator) — umożliwia zarządzanie dostępem użytkowników do zasobów platformy Azure.
+
 Więcej informacji:
 
-* [Czym jest kontrola dostępu oparta na rolach (RBAC)?](/azure/role-based-access-control/overview)
-* [Wbudowane role dla zasobów platformy Azure](/azure/role-based-access-control/built-in-roles)
+* [Co to jest kontrola dostępu oparta na rolach (Azure RBAC)?](/azure/role-based-access-control/overview)
+* [Wbudowane role platformy Azure](/azure/role-based-access-control/built-in-roles)
 
 ## <a name="security-monitoring-alerts-and-machine-learning-based-reports"></a>Monitorowanie zabezpieczeń, alerty i raporty oparte na uczeniu maszynowym
 
@@ -163,7 +169,7 @@ Azure AD Identity Protection to usługa zabezpieczeń, która zapewnia skonsolid
 
 Więcej informacji:
 
-* [Usługa Azure AD Identity Protection](/azure/active-directory/identity-protection/overview)
+* [Azure AD Identity Protection](/azure/active-directory/identity-protection/overview)
 * [Channel 9: usługa Azure AD i tożsamość show: wersja zapoznawcza usługi Identity Protection](https://channel9.msdn.com/Series/Azure-AD-Identity/Azure-AD-and-Identity-Show-Identity-Protection-Preview)
 
 ## <a name="hybrid-identity-managementazure-ad-connect"></a>Hybrydowe zarządzanie tożsamościami/Azure AD Connect

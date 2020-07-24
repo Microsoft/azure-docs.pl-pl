@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 07/05/2020
-ms.openlocfilehash: ad2e6a05fa8459d8e5a53d9bb8b8e08790a7d8ec
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 3835046e50180e1d1091f5083f276c7c1ad56612
+ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539418"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87117371"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Azure Monitor klucz zarządzany przez klienta 
 
@@ -194,7 +194,7 @@ Te ustawienia można aktualizować za pomocą interfejsu wiersza polecenia i pro
 
 Ten zasób jest używany jako połączenie tożsamości pośredniej między Key Vault i obszarami roboczymi Log Analytics. Po otrzymaniu potwierdzenia, że subskrypcje były dozwolone, utwórz zasób *klastra* log Analytics w regionie, w którym znajdują się obszary robocze.
 
-Podczas tworzenia zasobu *klastra* należy określić poziom *rezerwacji pojemności* (SKU). Poziom *rezerwacji pojemności* może należeć do zakresu od 1 000 do 2 000 GB dziennie i można go zaktualizować w krokach 100 w późniejszym czasie. Jeśli potrzebujesz poziomu rezerwacji pojemności większej niż 2 000 GB dziennie, skontaktuj się z nami pod adresem LAIngestionRate@microsoft.com . [Dowiedz się więcej](./manage-cost-storage.md#log-analytics-dedicated-clusters)
+Podczas tworzenia zasobu *klastra* należy określić poziom *rezerwacji pojemności* (SKU). Poziom *rezerwacji pojemności* może należeć do zakresu od 1000 do 3000 GB dziennie i można go zaktualizować w ramach kroków 100. Jeśli potrzebujesz poziomu rezerwacji pojemności większej niż 3000 GB dziennie, skontaktuj się z nami pod adresem LAIngestionRate@microsoft.com . [Dowiedz się więcej](./manage-cost-storage.md#log-analytics-dedicated-clusters)
 
 Właściwość *rozliczenia* określa przypisanie rozliczeń dla zasobu *klastra* i jego danych:
 - *Klaster* (wartość domyślna) — koszty rezerwacji pojemności dla klastra są przypisywane do zasobu *klastra* .
@@ -467,9 +467,9 @@ Wszystkie dane pozostają dostępne po operacji rotacji kluczy, ponieważ dane z
 Język zapytań używany w Log Analytics jest wyraźny i może zawierać poufne informacje w komentarzach, które można dodać do zapytań lub w składni zapytania. Niektóre organizacje wymagają, aby te informacje były chronione w ramach zasad CMKymi, a wymagane jest zapisanie zaszyfrowanej kwerendy przy użyciu klucza. Azure Monitor umożliwia przechowywanie *zapisywanych* i *zarejestrowań zapytań dotyczących alertów* w postaci zaszyfrowanej przy użyciu klucza na własnym koncie magazynu po nawiązaniu połączenia z obszarem roboczym. 
 
 > [!NOTE]
-> CMK dla zapytań używanych w skoroszytach i pulpitach nawigacyjnych platformy Azure nie są jeszcze obsługiwane. Te zapytania pozostają zaszyfrowane za pomocą klucza firmy Microsoft.  
+> Zapytania Log Analytics można zapisywać w różnych magazynach w zależności od użytego scenariusza. Zapytania pozostają zaszyfrowane za pomocą usługi Microsoft Key (MMK) w następujących scenariuszach, niezależnie od konfiguracji CMK: skoroszytów w Azure Monitor, pulpitów nawigacyjnych platformy Azure, aplikacji logiki platformy Azure, Azure Notebooks i elementów Runbook usługi Automation.
 
-Gdy [przeniesiesz własny magazyn](./private-storage.md) (BYOS) i skojarzesz go z obszarem roboczym, usługa przekaże *zapisane zapytania wyszukiwania* i *alerty dziennika* do konta magazynu. Oznacza to, że można kontrolować konto magazynu i [zasady szyfrowania w trybie REST](../../storage/common/encryption-customer-managed-keys.md) przy użyciu tego samego klucza, który jest używany do szyfrowania danych w klastrze log Analytics lub innego klucza. Użytkownik będzie jednak odpowiedzialny za koszty związane z tym kontem magazynu. 
+Gdy przeniesiesz własny magazyn (BYOS) i skojarzesz go z obszarem roboczym, usługa przekaże *zapisane zapytania wyszukiwania* i *alerty dziennika* do konta magazynu. Oznacza to, że można kontrolować konto magazynu i [zasady szyfrowania w trybie REST](../../storage/common/encryption-customer-managed-keys.md) przy użyciu tego samego klucza, który jest używany do szyfrowania danych w klastrze log Analytics lub innego klucza. Użytkownik będzie jednak odpowiedzialny za koszty związane z tym kontem magazynu. 
 
 **Uwagi przed ustawieniem CMK dla zapytań**
 * Musisz mieć uprawnienia do zapisu zarówno w obszarze roboczym, jak i koncie magazynu
@@ -599,7 +599,7 @@ Po zakończeniu konfiguracji wszystkie nowe zapytania o alerty zostaną zapisane
 
 - **Aktualizowanie *rezerwacji pojemności* w zasobie *klastra***
 
-  Gdy ilość danych ze skojarzonych obszarów roboczych zmienia się wraz z upływem czasu i chcesz odpowiednio zaktualizować poziom rezerwacji. Postępuj zgodnie z [aktualizacją zasobu *klastra* ](#update-cluster-resource-with-key-identifier-details) i podaj nową wartość pojemności. Może należeć do zakresu od 1 000 do 2 000 GB dziennie i kroków z 100. Na poziomie wyższym niż 2 000 GB dziennie skontaktuj się z osobą kontaktową firmy Microsoft, aby ją włączyć. Należy pamiętać, że nie musisz podawać treści żądania REST i zawierać jednostki SKU:
+  Gdy ilość danych ze skojarzonych obszarów roboczych zmienia się wraz z upływem czasu i chcesz odpowiednio zaktualizować poziom rezerwacji. Postępuj zgodnie z [aktualizacją zasobu *klastra* ](#update-cluster-resource-with-key-identifier-details) i podaj nową wartość pojemności. Może należeć do zakresu od 1000 do 3000 GB dziennie i kroków z 100. Na poziomie wyższym niż 3000 GB dziennie skontaktuj się z osobą kontaktową firmy Microsoft, aby ją włączyć. Należy pamiętać, że nie musisz podawać całej treści żądania REST, ale powinna ona zawierać jednostkę SKU:
 
   ```powershell
   Update-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name" -SkuCapacity "daily-ingestion-gigabyte"

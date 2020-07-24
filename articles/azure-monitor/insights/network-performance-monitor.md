@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 02/20/2018
-ms.openlocfilehash: 51111d92e85c6ddbdfac85c333293c2af8b31fbe
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 68be8d08939464d200da588c481447f8206c9117
+ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86498970"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87117203"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Network Performance Monitor rozwiązanie na platformie Azure
 
@@ -56,7 +56,7 @@ NPM może monitorować łączność między sieciami i aplikacjami w dowolnej cz
 * Południowe Zjednoczone Królestwo
 * Azja Wschodnia
 * Korea Środkowa
-* Central India
+* Indie Środkowe
 * Wirginia instytucji rządowych USA
 * Chiny Wschodnie 2
 
@@ -65,6 +65,9 @@ Lista obsługiwanych regionów dla monitora ExpressRoute jest dostępna w [dokum
 
 
 ## <a name="set-up-and-configure"></a>Skonfiguruj i skonfiguruj
+
+> [!NOTE]
+> Może również zostać wyświetlony Agent Log Analytics nazywany Microsoft Monitoring Agent (MMA) lub agentem usługi OMS Linux.
 
 ### <a name="install-and-configure-agents"></a>Instalacja i konfiguracja agentów 
 
@@ -276,7 +279,7 @@ Za każdym razem, gdy tworzysz alert, NPM tworzy regułę alertu dziennika na po
 Opłaty za powiadomienia są naliczone osobno zgodnie z [cennikiem za powiadomienia na stronie cennika Azure monitor](https://azure.microsoft.com/pricing/details/monitor/).
 
 
-## <a name="pricing"></a>Ceny
+## <a name="pricing"></a>Cennik
 
 Informacje o cenach są dostępne w [trybie online](network-performance-monitor-pricing-faq.md).
 

@@ -7,20 +7,20 @@ ms.author: baanders
 ms.date: 4/10/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 6d51abab46cd8450dd3a09e5e5ef47e6267b990d
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 7f7239e0c13478af712d8e8d9dad8fda23fe42c7
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86258109"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87125536"
 ---
 # <a name="manage-a-graph-of-digital-twins-using-relationships"></a>Zarządzanie grafem cyfrowego bliźniaczych reprezentacji przy użyciu relacji
 
 Bliźniaczych reprezentacji na platformie Azure Digital to [Wykres dwuosiowy](concepts-twins-graph.md) reprezentujący całe środowisko. Wykres bliźniaczy składa się z pojedynczych bliźniaczych reprezentacji cyfrowych połączonych za pośrednictwem **relacji**.
 
-Gdy korzystasz z działającego [wystąpienia usługi Azure Digital bliźniaczych reprezentacji](how-to-set-up-instance.md) i ustawisz [uwierzytelnianie](how-to-authenticate-client.md) dla aplikacji klienckiej, możesz użyć [**interfejsów API DigitalTwins**](how-to-use-apis-sdks.md) , aby tworzyć, modyfikować i usuwać cyfrowe bliźniaczych reprezentacji oraz ich relacje w wystąpieniu bliźniaczych reprezentacji cyfrowych platformy Azure. Można również użyć [zestawu SDK platformy .NET (C#)](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core)lub [interfejsu wiersza polecenia usługi Azure Digital bliźniaczych reprezentacji](how-to-use-cli.md).
+Gdy korzystasz z działającego [wystąpienia usługi Azure Digital bliźniaczych reprezentacji](how-to-set-up-instance-scripted.md) i ustawisz kod [uwierzytelniania](how-to-authenticate-client.md) w aplikacji klienckiej, możesz użyć [**interfejsów API DigitalTwins**](how-to-use-apis-sdks.md) , aby tworzyć, modyfikować i usuwać bliźniaczych reprezentacji cyfrowe oraz ich relacje w wystąpieniu bliźniaczych reprezentacji cyfrowych platformy Azure. Można również użyć [zestawu SDK platformy .NET (C#)](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core)lub [interfejsu wiersza polecenia usługi Azure Digital bliźniaczych reprezentacji](how-to-use-cli.md).
 
-Ten artykuł koncentruje się na zarządzaniu relacjami i wykresem jako całościowym; Aby korzystać z pojedynczych bliźniaczych reprezentacji cyfrowych, zobacz [How to: Manage Digital bliźniaczych reprezentacji](how-to-manage-twin.md).
+Ten artykuł koncentruje się na zarządzaniu relacjami i wykresem jako całościowym; Aby korzystać z pojedynczych bliźniaczych reprezentacji cyfrowych, zobacz [*How to: Manage Digital bliźniaczych reprezentacji*](how-to-manage-twin.md).
 
 [!INCLUDE [visualizing with Azure Digital Twins explorer](../../includes/digital-twins-visualization.md)]
 
@@ -62,7 +62,7 @@ public async static Task CreateRelationship(DigitalTwinsClient client, string sr
 }
 ```
 
-Aby uzyskać więcej informacji na temat klasy pomocnik `BasicRelationship` , zobacz [How to: Use the Azure Digital bliźniaczych reprezentacji API and SDK](how-to-use-apis-sdks.md).
+Aby uzyskać więcej informacji na temat klasy pomocnik `BasicRelationship` , zobacz [*How to: Use the Azure Digital bliźniaczych reprezentacji API and SDK*](how-to-use-apis-sdks.md).
 
 ## <a name="list-relationships"></a>Wyświetl relacje
 
@@ -108,7 +108,7 @@ Usługa Azure Digital bliźniaczych reprezentacji ma także interfejs API, aby z
 
 Poprzedni przykład kodu koncentruje się na znajdowaniu relacji wychodzących. Poniższy przykład jest podobny, ale zamiast tego odnajduje relacje przychodzące. Usuwa je również po ich znalezieniu.
 
-Należy zauważyć, że wywołania IncomingRelationship nie zwracają pełnej
+Należy zauważyć, że `IncomingRelationship` wywołania nie zwracają pełnej treści relacji.
 
 ```csharp
 async Task<List<IncomingRelationship>> FindIncomingRelationshipsAsync(string dtId)
@@ -301,10 +301,10 @@ foreach (JsonElement row in data.RootElement.EnumerateArray())
 ```
 ## <a name="manage-relationships-with-cli"></a>Zarządzanie relacjami przy użyciu interfejsu wiersza polecenia
 
-Bliźniaczych reprezentacji i ich relacje można także zarządzać za pomocą interfejsu wiersza polecenia usługi Azure Digital bliźniaczych reprezentacji. Polecenia można znaleźć w [opisie procedury: korzystanie z interfejsu wiersza polecenia usługi Azure Digital bliźniaczych reprezentacji](how-to-use-cli.md).
+Bliźniaczych reprezentacji i ich relacje można także zarządzać za pomocą interfejsu wiersza polecenia usługi Azure Digital bliźniaczych reprezentacji. Polecenia można znaleźć w [*opisie procedury: korzystanie z interfejsu wiersza polecenia usługi Azure Digital bliźniaczych reprezentacji*](how-to-use-cli.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
 Dowiedz się więcej na temat wykonywania zapytań dotyczących grafu wieloosiowego usługi Azure Digital bliźniaczych reprezentacji:
-* [Koncepcje: język zapytań](concepts-query-language.md)
-* [Instrukcje: zapytanie o wykres bliźniaczy](how-to-query-graph.md)
+* [*Koncepcje: język zapytań*](concepts-query-language.md)
+* [*Instrukcje: zapytanie o wykres bliźniaczy*](how-to-query-graph.md)

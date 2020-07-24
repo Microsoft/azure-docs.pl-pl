@@ -1,19 +1,19 @@
 ---
 title: Wyświetlanie danych o ruchu na mapie systemu Android | Mapy Microsoft Azure
 description: W tym artykule dowiesz się, jak wyświetlać dane o ruchu na mapie przy użyciu Android SDK Microsoft Azure Maps.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 02/27/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 92e111a6e76dbe285dd8cc7a93ce75f556142565
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 8b07b520dec4e9149c6748777a119b68e56c65e9
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86540149"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87126401"
 ---
 # <a name="show-traffic-data-on-the-map-using-azure-maps-android-sdk"></a>Wyświetlanie danych o ruchu na mapie przy użyciu Azure Maps Android SDK
 

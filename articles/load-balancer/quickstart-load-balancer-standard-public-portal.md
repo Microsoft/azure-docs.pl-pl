@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 07/17/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: eb23f1e703c2e447c484ccb366914cb4b23c5bf7
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: f9d736098e42bf5ca07eca0cb952275c5e39c2a9
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86536554"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87125194"
 ---
 # <a name="quickstart-create-a-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Szybki Start: Tworzenie modułu równoważenia obciążenia w celu równoważenia obciążenia maszyn wirtualnych przy użyciu Azure Portal
 
@@ -111,7 +111,7 @@ Utwórz sondę kondycji o nazwie **myHealthProbe**, aby monitorować kondycję m
     | Próg złej kondycji | Wybierz **2** dla liczby **progów złej kondycji** lub kolejnych niepowodzeń sondy, które muszą wystąpić, zanim maszyna wirtualna zostanie uznana za złą.|
     | | |
 
-3. Wybierz przycisk **OK**.
+3. Pozostaw pozostałe wartości domyślne i wybierz **przycisk OK**.
 
 ### <a name="create-a-load-balancer-rule"></a>Tworzenie reguły modułu równoważenia obciążenia
 
@@ -140,7 +140,7 @@ W tej sekcji utworzysz regułę modułu równoważenia obciążenia:
     | Port zaplecza | Wprowadź **80**. |
     | Pula zaplecza | Wybierz pozycję **myBackendPool**.|
     | Sonda kondycji | Wybierz pozycję **myHealthProbe**. |
-    | Utwórz niejawne reguły wychodzące | Wybierz pozycję **Tak**. </br> Aby uzyskać więcej informacji i zaawansowane konfigurowanie reguły ruchu wychodzącego, zobacz: </br> [Połączenia wychodzące na platformie Azure](load-balancer-outbound-connections.md) </br> [Konfigurowanie równoważenia obciążenia i reguł ruchu wychodzącego w usługa Load Balancer w warstwie Standardowa przy użyciu Azure Portal](configure-load-balancer-outbound-portal.md)
+    | Utwórz niejawne reguły wychodzące | Wybierz pozycję **Nie**.
 
 4. Pozostaw pozostałe wartości domyślne, a następnie wybierz przycisk **OK**.
 
@@ -160,7 +160,7 @@ W tej sekcji zastąpisz parametry w krokach poniższymi informacjami:
 |-----------------------------|----------------------|
 | **\<resource-group-name>**  | myResourceGroupLB |
 | **\<virtual-network-name>** | myVNet          |
-| **\<region-name>**          | Europa Zachodnia      |
+| **\<region-name>**          | West Europe      |
 | **\<IPv4-address-space>**   | 10.1.0.0 \ 16          |
 | **\<subnet-name>**          | myBackendSubnet        |
 | **\<subnet-address-range>** | 10.1.0.0 \ 24          |
@@ -189,7 +189,7 @@ Te maszyny wirtualne są dodawane do puli zaplecza modułu równoważenia obcią
     | Region | Wybierz **Europa Zachodnia** |
     | Opcje dostępności | Wybierz **strefy dostępności** |
     | Strefa dostępności | Wybierz **1** |
-    | Obraz | Wybierz pozycję **Windows Server 2019 Datacenter** |
+    | Image (Obraz) | Wybierz pozycję **Windows Server 2019 Datacenter** |
     | Wystąpienie usługi Azure Spot | Wybierz pozycję **nie** |
     | Rozmiar | Wybierz rozmiar maszyny wirtualnej lub ustaw ustawienie domyślne |
     | **Konto administratora** |  |
@@ -237,6 +237,49 @@ Te maszyny wirtualne są dodawane do puli zaplecza modułu równoważenia obcią
     | Strefa dostępności | **2** |**3**|
     | Sieciowa grupa zabezpieczeń | Wybierz istniejący **myNSG**| Wybierz istniejący **myNSG**|
 
+## <a name="create-outbound-rule-configuration"></a>Utwórz konfigurację reguły ruchu wychodzącego
+Reguły ruchu wychodzącego modułu równoważenia obciążenia Skonfiguruj wychodzące pliki zasad sieciowych dla maszyn wirtualnych w puli zaplecza. 
+
+Aby uzyskać więcej informacji na temat połączeń wychodzących, zobacz [połączenia wychodzące na platformie Azure](load-balancer-outbound-connections.md).
+
+### <a name="create-outbound-rule"></a>Utwórz regułę ruchu wychodzącego
+
+1. W menu po lewej stronie wybierz pozycję Wszystkie **usługi** , wybierz pozycję **wszystkie zasoby**, a następnie wybierz pozycję **myLoadBalancer** z listy zasoby.
+
+2. W obszarze **Ustawienia**wybierz pozycję **reguły ruchu wychodzącego**, a następnie wybierz pozycję **Dodaj**.
+
+3. Użyj tych wartości, aby skonfigurować reguły ruchu wychodzącego:
+
+    | Ustawienie | Wartość |
+    | ------- | ----- |
+    | Nazwa | Wprowadź **myOutboundRule**. |
+    | Adres IP frontonu | Wybierz pozycję**Utwórz nowy**. </br> W polu **Nazwa**wprowadź **LoadBalancerFrontEndOutbound**. </br> Wybierz **adres IP** lub **prefiks IP**. </br> Wybierz pozycję **Utwórz nowy** w obszarze **publiczny adres IP** lub **publiczny prefiks adresu IP**. </br> W obszarze Nazwa wprowadź **myPublicIPOutbound** lub **myPublicIPPrefixOutbound**. </br> Wybierz przycisk **OK**. </br> Wybierz pozycję **Dodaj**.|
+    | Limit czasu bezczynności (minuty) | Przesuń suwak do **15 minut**.|
+    | Resetowanie protokołu TCP | Wybierz pozycję **Włączone**.|
+    | Pula zaplecza | Wybierz pozycję**Utwórz nowy**. </br> Wprowadź **myBackendPoolOutbound** w polu **Nazwa**. </br> Wybierz pozycję **Dodaj**. |
+    | Alokacja portu — alokacja portu > | Wybierz pozycję **ręcznie wybierz liczbę portów wychodzących** |
+    | Porty wychodzące — > wybór | Wybierz **porty na wystąpienie** |
+    | Porty wychodzące — porty > na wystąpienie | Wprowadź **10000**. |
+
+4. Wybierz pozycję **Dodaj**.
+
+### <a name="add-virtual-machines-to-outbound-pool"></a>Dodawanie maszyn wirtualnych do puli wychodzącej
+
+1. W menu po lewej stronie wybierz pozycję Wszystkie **usługi** , wybierz pozycję **wszystkie zasoby**, a następnie wybierz pozycję **myLoadBalancer** z listy zasoby.
+
+2. W obszarze **Ustawienia**wybierz pozycję **Pule zaplecza**.
+
+3. Wybierz pozycję **myBackendPoolOutbound**.
+
+4. W obszarze **Sieć wirtualna**wybierz pozycję **myVNet**.
+
+5. W obszarze **maszyny wirtualne**wybierz pozycję **+ Dodaj**.
+
+6. Zaznacz pola wyboru obok pozycji **myVM1**, **myVM2**i **myVM3**. 
+
+7. Wybierz pozycję **Dodaj**.
+
+8. Wybierz pozycję **Zapisz**.
 
 # <a name="option-2-create-a-load-balancer-basic-sku"></a>[Opcja 2. Tworzenie modułu równoważenia obciążenia (podstawowa jednostka SKU)](#tab/option-1-create-load-balancer-basic)
 
@@ -289,7 +332,7 @@ W tej sekcji zastąpisz parametry w krokach poniższymi informacjami:
 |-----------------------------|----------------------|
 | **\<resource-group-name>**  | myResourceGroupLB |
 | **\<virtual-network-name>** | myVNet          |
-| **\<region-name>**          | Europa Zachodnia      |
+| **\<region-name>**          | West Europe      |
 | **\<IPv4-address-space>**   | 10.1.0.0 \ 16          |
 | **\<subnet-name>**          | myBackendSubnet        |
 | **\<subnet-address-range>** | 10.1.0.0 \ 24          |
@@ -399,7 +442,7 @@ Te maszyny wirtualne są dodawane do puli zaplecza modułu równoważenia obcią
     | Region | Wybierz **Europa Zachodnia** |
     | Opcje dostępności | Wybierz pozycję **Zestaw dostępności** |
     | Zestaw dostępności | Wybierz pozycję**Utwórz nowy**. </br> Wprowadź **myAvailabilitySet** w polu **Nazwa**. </br> Wybierz **przycisk OK** |
-    | Obraz | **Windows Server 2019 Datacenter** |
+    | Image (Obraz) | **Windows Server 2019 Datacenter** |
     | Wystąpienie usługi Azure Spot | Wybierz pozycję **nie** |
     | Rozmiar | Wybierz rozmiar maszyny wirtualnej lub ustaw ustawienie domyślne |
     | **Konto administratora** |  |
@@ -441,9 +484,10 @@ Te maszyny wirtualne są dodawane do puli zaplecza modułu równoważenia obcią
     | Nazwa |  **myVM2** |**myVM3**|
     | Zestaw dostępności| Wybierz **myAvailabilitySet** | Wybierz **myAvailabilitySet**|
     | Sieciowa grupa zabezpieczeń | Wybierz istniejący **myNSG**| Wybierz istniejący **myNSG**|
+
 ---
 
-### <a name="install-iis"></a>Instalowanie usług IIS
+## <a name="install-iis"></a>Instalowanie usług IIS
 
 1. Wybierz pozycję **wszystkie usługi** w menu po lewej stronie, wybierz pozycję **wszystkie zasoby**, a następnie na liście zasobów wybierz pozycję **myVM1** , która znajduje się w grupie zasobów **myResourceGroupLB** .
 

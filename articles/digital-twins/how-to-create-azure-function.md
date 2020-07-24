@@ -7,11 +7,12 @@ ms.author: cschorm
 ms.date: 3/17/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 3b416e6ccb035ede06a360c2697a9b20ca417d98
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3e284bc76da9ca40341d72f772aa7ee947a11638
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84725906"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87124310"
 ---
 # <a name="connect-azure-functions-apps-for-processing-data"></a>Łączenie Azure Functions aplikacji do przetwarzania danych
 
@@ -77,7 +78,7 @@ Jest to podstawowa funkcja platformy Azure.
 
 Teraz można kompilować i uruchamiać funkcję. Podczas gdy usługa Azure Functions jest ostatecznie przeznaczona do uruchamiania w chmurze, można również uruchamiać i debugować usługi Azure Functions lokalnie.
 
-Aby uzyskać więcej informacji na ten temat, zobacz [debugowanie Event Grid wyzwalacza lokalnie](../azure-functions/functions-debug-event-grid-trigger-local.md).
+Aby uzyskać więcej informacji na ten temat, zobacz [*debugowanie Event Grid wyzwalacza lokalnie*](../azure-functions/functions-debug-event-grid-trigger-local.md).
 
 ### <a name="add-the-azure-digital-twins-sdk-to-your-azure-function-app"></a>Dodawanie zestawu SDK usługi Azure Digital bliźniaczych reprezentacji do aplikacji funkcji platformy Azure
 
@@ -162,9 +163,9 @@ Użyj wartości *principalId* w poniższym poleceniu, aby przypisać tożsamoś�
 az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<principal-ID>" --role "Azure Digital Twins Owner (Preview)"
 ```
 
-Aby uzyskać więcej informacji na temat tożsamości zarządzanej, zobacz [jak używać tożsamości zarządzanych dla App Service i Azure Functions](../app-service/overview-managed-identity.md).
+Aby uzyskać więcej informacji na temat tożsamości zarządzanej, zobacz [*jak używać tożsamości zarządzanych dla App Service i Azure Functions*](../app-service/overview-managed-identity.md).
 
-Na koniec możesz wprowadzić adres URL wystąpienia usługi Azure Digital bliźniaczych reprezentacji dostępnego dla funkcji przez ustawienie zmiennej środowiskowej. Aby uzyskać więcej informacji na ten temat, zobacz [zmienne środowiskowe](https://docs.microsoft.com/sandbox/functions-recipes/environment-variables).
+Na koniec możesz wprowadzić adres URL wystąpienia usługi Azure Digital bliźniaczych reprezentacji dostępnego dla funkcji przez ustawienie zmiennej środowiskowej. Aby uzyskać więcej informacji na ten temat, zobacz [*zmienne środowiskowe*](https://docs.microsoft.com/sandbox/functions-recipes/environment-variables).
 
 > [!TIP]
 > Adres URL wystąpienia usługi Azure Digital bliźniaczych reprezentacji jest tworzony przez dodanie *https://* do początku *nazwy hosta*cyfrowego wystąpienia bliźniaczych reprezentacji platformy Azure. Aby wyświetlić nazwę hosta wraz ze wszystkimi właściwościami wystąpienia, można uruchomić polecenie `az dt show --dt-name <your-Azure-Digital-Twins-instance>` .
@@ -208,7 +209,7 @@ Należy również zwrócić uwagę na **Identyfikator obiektu** pokazywany na te
 
 ### <a name="assign-access-roles"></a>Przypisywanie ról dostępu
 
-Ponieważ usługa Azure Digital bliźniaczych reprezentacji używa kontroli dostępu opartej na rolach do zarządzania dostępem (zobacz [pojęcia: zabezpieczenia dla rozwiązań usługi Azure Digital bliźniaczych reprezentacji](concepts-security.md) , aby uzyskać więcej informacji na ten temat), należy również dodać rolę dla każdej aplikacji funkcji, która ma zezwalać na dostęp do usługi Azure Digital bliźniaczych reprezentacji.
+Ponieważ usługa Azure Digital bliźniaczych reprezentacji używa kontroli dostępu opartej na rolach do zarządzania dostępem (zobacz [*pojęcia: zabezpieczenia dla rozwiązań usługi Azure Digital bliźniaczych reprezentacji*](concepts-security.md) , aby uzyskać więcej informacji na ten temat), należy również dodać rolę dla każdej aplikacji funkcji, która ma zezwalać na dostęp do usługi Azure Digital bliźniaczych reprezentacji.
 
 Aby przypisać rolę, potrzebny jest **Identyfikator zasobu** utworzonego wystąpienia usługi Azure Digital bliźniaczych reprezentacji. Jeśli nie zarejestrowano go wcześniej podczas tworzenia wystąpienia, można je pobrać przy użyciu tego polecenia:
 
@@ -231,4 +232,4 @@ W tym artykule opisano kroki konfigurowania funkcji platformy Azure do użycia z
 * Punkt końcowy Event Grid otrzymuje komunikaty z innych usług
 
 Następnie zapoznaj się z tematem jak kompilować swoją podstawową funkcję platformy Azure, aby uzyskać IoT Hub dane do usługi Azure Digital bliźniaczych reprezentacji:
-* [Instrukcje: pozyskiwanie danych telemetrycznych z IoT Hub](how-to-ingest-iot-hub-data.md)
+* [*Instrukcje: pozyskiwanie danych telemetrycznych z IoT Hub*](how-to-ingest-iot-hub-data.md)

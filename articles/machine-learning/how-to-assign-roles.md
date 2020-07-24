@@ -11,12 +11,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 06/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: f289be1b3432d9c62b4841c513088afa16e0e447
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ff8d532bf1c19ded9567e8c1e4b63e674c01d0d8
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85609252"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87125177"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Zarządzanie dostępem do obszaru roboczego Azure Machine Learning
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -25,18 +25,18 @@ W tym artykule dowiesz się, jak zarządzać dostępem do obszaru roboczego Azur
 
 ## <a name="default-roles"></a>Role domyślne
 
-Obszar roboczy Azure Machine Learning jest zasobem platformy Azure. Podobnie jak w przypadku innych zasobów platformy Azure, podczas tworzenia nowego obszaru roboczego Azure Machine Learning dostępne są trzy domyślne role. Możesz dodać użytkowników do obszaru roboczego i przypisać je do jednej z tych wbudowanych ról.
+Obszar roboczy usługi Azure Machine Learning to zasób platformy Azure. Tak jak w przypadku innych zasobów platformy Azure nowo utworzony obszar roboczy usługi Azure Machine Learning ma trzy domyślne role. Możesz dodać użytkowników do obszaru roboczego i przypisać je do jednej z tych wbudowanych ról.
 
 | Rola | Poziom dostępu |
 | --- | --- |
 | **Czytelnik** | Akcje tylko do odczytu w obszarze roboczym. Czytelnicy mogą wyświetlać i przeglądać zasoby (w tym poświadczenia [magazynu](how-to-access-data.md) danych) w obszarze roboczym, ale nie mogą tworzyć ani aktualizować tych zasobów. |
-| **Współautor** | Wyświetlanie, tworzenie, edytowanie lub usuwanie (jeśli dotyczy) zasobów w obszarze roboczym. Można na przykład utworzyć eksperyment, utworzyć lub dołączyć klaster obliczeniowy, przesłać przebieg i wdrożyć usługę sieci Web. |
-| **Właściciel** | Pełny dostęp do obszaru roboczego, w tym możliwość wyświetlania, tworzenia, edytowania lub usuwania (jeśli dotyczy) zasobów w obszarze roboczym. Ponadto można zmienić przypisania ról. |
+| **Współautor** | Wyświetlanie, tworzenie, edytowanie lub usuwanie (jeśli dotyczy) zasobów w obszarze roboczym. Współautorzy mogą na przykład tworzyć eksperymenty, tworzyć lub dołączać klastry obliczeniowe, przesyłać przebiegi i wdrażać usługi internetowe. |
+| **Właściciel** | Pełny dostęp do obszaru roboczego, w tym możliwość wyświetlania, tworzenia, edytowania lub usuwania (jeśli dotyczy) zasobów w obszarze roboczym. Dodatkowo może zmieniać przypisania ról. |
 
 > [!IMPORTANT]
 > Dostęp do roli można ograniczyć do wielu poziomów na platformie Azure. Na przykład ktoś z dostępem właściciela do obszaru roboczego może nie mieć dostępu właściciela do grupy zasobów, która zawiera obszar roboczy. Aby uzyskać więcej informacji, zobacz [jak działa RBAC](/azure/role-based-access-control/overview#how-rbac-works).
 
-Aby uzyskać więcej informacji na temat określonych ról wbudowanych, zobacz [role wbudowane dla platformy Azure](/azure/role-based-access-control/built-in-roles).
+Aby uzyskać więcej informacji na temat określonych ról wbudowanych, zobacz [role wbudowane platformy Azure](/azure/role-based-access-control/built-in-roles).
 
 ## <a name="manage-workspace-access"></a>Zarządzanie dostępem do obszaru roboczego
 
@@ -45,7 +45,7 @@ Jeśli jesteś właścicielem obszaru roboczego, możesz dodawać i usuwać role
 - [Program PowerShell](/azure/role-based-access-control/role-assignments-powershell)
 - [Interfejs wiersza polecenia platformy Azure](/azure/role-based-access-control/role-assignments-cli)
 - [Interfejs API REST](/azure/role-based-access-control/role-assignments-rest)
-- [Szablony usługi Azure Resource Manager](/azure/role-based-access-control/role-assignments-template)
+- [Szablony Azure Resource Manager](/azure/role-based-access-control/role-assignments-template)
 
 Jeśli zainstalowano [interfejs wiersza polecenia Azure Machine Learning](reference-azure-machine-learning-cli.md), można także przypisać role do użytkowników za pomocą interfejsu CLI.
 
@@ -69,7 +69,7 @@ Azure Machine Learning wbudowane akcje dla wielu operacji i zadań. Aby uzyskać
 
 ## <a name="create-custom-role"></a>Tworzenie roli niestandardowej
 
-Jeśli wbudowane role są niewystarczające, można utworzyć role niestandardowe. Role niestandardowe mogą mieć uprawnienia do odczytu, zapisu, usuwania i zasobów obliczeniowych w tym obszarze roboczym. Rolę można udostępnić na określonym poziomie obszaru roboczego, na poziomie określonego grupy zasobów lub na określonym poziomie subskrypcji.
+Jeśli wbudowane role nie są wystarczające, można tworzyć role niestandardowe. Role niestandardowe mogą mieć uprawnienia do odczytu, zapisu, usuwania i zasobów obliczeniowych w tym obszarze roboczym. Rolę można udostępnić na określonym poziomie obszaru roboczego, na poziomie określonego grupy zasobów lub na określonym poziomie subskrypcji.
 
 > [!NOTE]
 > Aby utworzyć role niestandardowe w ramach tego zasobu, musisz być właścicielem zasobu na tym poziomie.
@@ -117,7 +117,7 @@ Po wdrożeniu ta rola zostanie udostępniona w określonym obszarze roboczym. Te
 az ml workspace share -w my_workspace -g my_resource_group --role "Data Scientist" --user jdoe@contoson.com
 ```
 
-Aby uzyskać więcej informacji na temat ról niestandardowych, zobacz [role niestandardowe dla zasobów platformy Azure](/azure/role-based-access-control/custom-roles).
+Aby uzyskać więcej informacji na temat ról niestandardowych, zobacz [role niestandardowe platformy Azure](/azure/role-based-access-control/custom-roles).
 
 ## <a name="frequently-asked-questions"></a>Często zadawane pytania
 
@@ -128,11 +128,11 @@ Poniższa tabela zawiera podsumowanie działań Azure Machine Learning i uprawni
 
 | Działanie | Zakres poziomu subskrypcji | Zakres poziomu grupy zasobów | Zakres obszaru roboczego |
 |---|---|---|---|
-| Utwórz nowy obszar roboczy | Niewymagane | Właściciel lub współautor | Nie dotyczy (jest właścicielem lub dziedziczy wyższy zakres roli po utworzeniu) |
-| Utwórz nowy klaster obliczeniowy | Niewymagane | Niewymagane | Właściciel, współautor lub rola niestandardowa zezwalająca na:`workspaces/computes/write` |
-| Utwórz nową maszynę wirtualną notesu | Niewymagane | Właściciel lub współautor | Niemożliwe |
-| Utwórz nowe wystąpienie obliczeniowe | Niewymagane | Niewymagane | Właściciel, współautor lub rola niestandardowa zezwalająca na:`workspaces/computes/write` |
-| Działanie płaszczyzny danych, takie jak przesyłanie, uzyskiwanie dostępu do danych, Wdrażanie modelu lub potok publikowania | Niewymagane | Niewymagane | Właściciel, współautor lub rola niestandardowa zezwalająca na:`workspaces/*/write` <br/> Musisz również mieć magazyn danych zarejestrowany w obszarze roboczym, aby umożliwić programowi MSI dostęp do danych na koncie magazynu. |
+| Utwórz nowy obszar roboczy | Nie jest wymagana | Właściciel lub współautor | Nie dotyczy (jest właścicielem lub dziedziczy wyższy zakres roli po utworzeniu) |
+| Utwórz nowy klaster obliczeniowy | Nie jest wymagana | Nie jest wymagana | Właściciel, współautor lub rola niestandardowa zezwalająca na:`workspaces/computes/write` |
+| Utwórz nową maszynę wirtualną notesu | Nie jest wymagana | Właściciel lub współautor | Niemożliwe |
+| Utwórz nowe wystąpienie obliczeniowe | Nie jest wymagana | Nie jest wymagana | Właściciel, współautor lub rola niestandardowa zezwalająca na:`workspaces/computes/write` |
+| Działanie płaszczyzny danych, takie jak przesyłanie, uzyskiwanie dostępu do danych, Wdrażanie modelu lub potok publikowania | Nie jest wymagana | Nie jest wymagana | Właściciel, współautor lub rola niestandardowa zezwalająca na:`workspaces/*/write` <br/> Musisz również mieć magazyn danych zarejestrowany w obszarze roboczym, aby umożliwić programowi MSI dostęp do danych na koncie magazynu. |
 
 
 ### <a name="q-how-do-i-list-all-the-custom-roles-in-my-subscription"></a>PYTANIE: Jak mogę wyświetlić listę wszystkich ról niestandardowych w mojej subskrypcji?

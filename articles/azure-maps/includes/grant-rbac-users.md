@@ -2,19 +2,19 @@
 title: Udzielanie użytkownikom dostępu opartego na rolach
 titleSuffix: Azure Maps
 description: Korzystanie z kontroli dostępu opartej na rolach w celu przyznania użytkownikom autoryzacji do Azure Maps
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 06/17/2020
 ms.topic: include
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 86f89397f3685443071788580253ee11ce4b70be
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2b138dab2a97537a93b8d873f79b6ee9c00b4af4
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84988622"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87126753"
 ---
 ## <a name="grant-role-based-access-for-users-to-azure-maps"></a>Przyznaj użytkownikom dostęp oparty na rolach, aby Azure Maps
 
@@ -29,7 +29,7 @@ Przeczytaj więcej na temat [usługi Azure AD](https://docs.microsoft.com/azure/
 
     ![Przyznaj RBAC](../media/how-to-manage-authentication/how-to-grant-rbac.png)
 
-2. Na karcie **przypisania roli** w obszarze **rola**wybierz wbudowaną definicję roli Azure Maps, na przykład **Azure Maps czytnika danych** lub **Azure Maps współautor danych**. W obszarze **Przypisywanie dostępu do**wybierz pozycję **użytkownik, Grupa lub nazwa główna usługi Azure AD**. Wybierz nazwę główną według nazwy. Następnie wybierz pozycję **Zapisz**.
+2. Na karcie **przypisania roli** w obszarze **rola**wybierz wbudowaną definicję roli Azure Maps, na przykład **Azure Maps czytnika danych** lub **Azure Maps współautor danych**. W obszarze **Przypisywanie dostępu do**wybierz pozycję **użytkownik, Grupa lub nazwa główna usługi Azure AD**. Wybierz nazwę główną według nazwy. Następnie wybierz przycisk **Zapisz**.
 
    * Zobacz szczegóły dotyczące [dodawania lub usuwania przypisań ról](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
 

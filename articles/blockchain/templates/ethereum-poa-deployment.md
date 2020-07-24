@@ -1,15 +1,15 @@
 ---
 title: Wdróż szablon rozwiązania typu "Weryfikacja urzędu certyfikacji Ethereum" na platformie Azure
 description: Użyj rozwiązania Ethereum The-Authority Consortium do wdrożenia i skonfigurowania wieloskładnikowej sieci Ethereum konsorcjum na platformie Azure
-ms.date: 07/07/2020
+ms.date: 07/23/2020
 ms.topic: how-to
 ms.reviewer: ravastra
-ms.openlocfilehash: 859be5d779663e429ef333c8fd8163c0aa60eab5
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: d75b5348c49728d2a796257fa4000f6c3a36831d
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86085926"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87124930"
 ---
 # <a name="deploy-ethereum-proof-of-authority-consortium-solution-template-on-azure"></a>Wdróż szablon rozwiązania typu "Weryfikacja urzędu certyfikacji Ethereum" na platformie Azure
 
@@ -23,11 +23,14 @@ Szablon rozwiązania może być używany przez każdego członka konsorcjum do a
 
 Przed wybraniem opcji użycia szablonu rozwiązania do Ethereum weryfikacji dla urzędu certyfikacji Porównaj swój scenariusz z typowymi przypadkami użycia dostępnych opcji usługi Azure łańcucha bloków.
 
+> [!IMPORTANT]
+> Rozważ użycie [usługi Azure łańcucha bloków Service](../service/overview.md) zamiast szablonu rozwiązania Ethereum na platformie Azure. Usługa Azure łańcucha bloków jest obsługiwaną zarządzaną usługą platformy Azure. Ethereum z parzystością przeszedł do projektowania i konserwacji na podstawie społeczności. Aby uzyskać więcej informacji, zobacz [przechodzenie z parzystości Ethereum do OPENETHEREUM DAO](https://www.parity.io/parity-ethereum-openethereum-dao/).
+
 Opcja | Model usług | Typowy przypadek użycia
 -------|---------------|-----------------
-Szablony rozwiązań | IaaS | Szablony rozwiązań są Azure Resource Manager szablonów, których można użyć do aprowizacji w pełni skonfigurowanej topologii sieci łańcucha bloków. Szablony wdrażają i konfigurują Microsoft Azure usług obliczeniowych, sieci i magazynu dla danego typu sieci łańcucha bloków. Szablony rozwiązań są udostępniane bez umowy dotyczącej poziomu usług. Aby uzyskać pomoc techniczną, Skorzystaj z [&stronie pytań](https://docs.microsoft.com/answers/topics/azure-blockchain-workbench.html) i odpowiedzi.
-[Usługa Azure Blockchain](../service/overview.md) | PaaS | Usługa Azure łańcucha bloków w wersji zapoznawczej upraszcza tworzenie, zarządzanie i nadzór nad sieciami łańcucha bloków konsorcjum. Korzystaj z usługi Azure łańcucha bloków Service, aby uzyskać rozwiązania wymagające PaaS, zarządzania konsorcjum oraz prywatności umów i transakcji.
-[Azure Blockchain Workbench](../workbench/overview.md) | IaaS i PaaS | Usługa Azure łańcucha bloków Workbench w wersji zapoznawczej to zbiór usług i funkcji platformy Azure, które ułatwiają tworzenie i wdrażanie aplikacji łańcucha bloków w celu udostępniania procesów i danych firmowych innym organizacjom. Użyj usługi Azure łańcucha bloków Workbench do tworzenia prototypów rozwiązania łańcucha bloków lub weryfikacji koncepcji łańcucha blokówowej aplikacji. Usługa Azure Blockchain Workbench jest świadczona bez umowy dotyczącej poziomu usług. Aby uzyskać pomoc techniczną, Skorzystaj z [&stronie pytań](https://docs.microsoft.com/answers/topics/azure-blockchain-workbench.html) i odpowiedzi.
+Szablony rozwiązań | IaaS | Szablony rozwiązań są Azure Resource Manager szablonów, których można użyć do aprowizacji w pełni skonfigurowanej topologii sieci łańcucha bloków. Szablony wdrażają i konfigurują Microsoft Azure usług obliczeniowych, sieci i magazynu dla danego typu sieci łańcucha bloków. Szablony rozwiązań są udostępniane bez umowy dotyczącej poziomu usług. Aby uzyskać pomoc techniczną, Skorzystaj z [&stronie pytań](/answers/topics/azure-blockchain-workbench.html) i odpowiedzi.
+[Azure Blockchain Service](../service/overview.md) | PaaS | Usługa Azure łańcucha bloków w wersji zapoznawczej upraszcza tworzenie, zarządzanie i nadzór nad sieciami łańcucha bloków konsorcjum. Korzystaj z usługi Azure łańcucha bloków Service, aby uzyskać rozwiązania wymagające PaaS, zarządzania konsorcjum oraz prywatności umów i transakcji.
+[Azure Blockchain Workbench](../workbench/overview.md) | IaaS i PaaS | Usługa Azure łańcucha bloków Workbench w wersji zapoznawczej to zbiór usług i funkcji platformy Azure, które ułatwiają tworzenie i wdrażanie aplikacji łańcucha bloków w celu udostępniania procesów i danych firmowych innym organizacjom. Użyj usługi Azure łańcucha bloków Workbench do tworzenia prototypów rozwiązania łańcucha bloków lub weryfikacji koncepcji łańcucha blokówowej aplikacji. Usługa Azure Blockchain Workbench jest świadczona bez umowy dotyczącej poziomu usług. Aby uzyskać pomoc techniczną, Skorzystaj z [&stronie pytań](/answers/topics/azure-blockchain-workbench.html) i odpowiedzi.
 
 ## <a name="solution-architecture"></a>Architektura rozwiązania
 
@@ -80,11 +83,11 @@ W [Azure Portal](https://portal.azure.com)wybierz pozycję **Utwórz zasób** w 
 
 Wybierz pozycję **łańcucha bloków**  >  **Ethereum weryfikacji urzędu certyfikacji (wersja zapoznawcza)**.
 
-### <a name="basics"></a>Informacje podstawowe
+### <a name="basics"></a>Podstawy
 
 W obszarze **podstawowe**Określ wartości parametrów standardowych dla każdego wdrożenia.
 
-![Informacje podstawowe](./media/ethereum-poa-deployment/basic-blade.png)
+![Podstawy](./media/ethereum-poa-deployment/basic-blade.png)
 
 Parametr | Opis | Przykładowa wartość
 ----------|-------------|--------------
@@ -97,7 +100,7 @@ Subskrypcja | Subskrypcja, do której ma zostać wdrożona sieć konsorcjum |
 Grupa zasobów| Grupa zasobów, w której ma zostać wdrożona sieć konsorcjum. | myResourceGroup
 Lokalizacja | Region świadczenia usługi Azure dla grupy zasobów. | Zachodnie stany USA 2
 
-Kliknij przycisk **OK**.
+Wybierz przycisk **OK**.
 
 ### <a name="deployment-regions"></a>Regiony wdrożenia
 
@@ -111,7 +114,7 @@ Liczba regionów|Liczba regionów do wdrożenia sieci konsorcjum| 2
 Pierwszy region | Pierwszy region wdrożenia sieci konsorcjum | Zachodnie stany USA 2
 Drugi region | Drugi region do wdrożenia sieci konsorcjum. Dodatkowe regiony są widoczne, gdy liczba regionów jest równa co najmniej dwa. | Wschodnie stany USA 2
 
-Kliknij przycisk **OK**.
+Wybierz przycisk **OK**.
 
 ### <a name="network-size-and-performance"></a>Rozmiar i wydajność sieci
 
@@ -127,13 +130,13 @@ Rozmiar maszyny wirtualnej węzła modułu sprawdzania poprawności | Rozmiar ma
 
 Warstwy maszyny wirtualnej i magazynu mają wpływ na wydajność sieci.  Skorzystaj z poniższej tabeli, aby uzyskać pomoc w zakresie kosztów:
 
-Jednostka SKU maszyny wirtualnej|Warstwa magazynowania|Price|Przepływność|Opóźnienie
+Jednostka SKU maszyny wirtualnej|Warstwa magazynowania|Cena|Przepływność|Opóźnienie
 ---|---|---|---|---
 F1|Dysk SSD w warstwie Standardowa|małą|małą|wysoka
 D2_v3|Dysk SSD w warstwie Standardowa|średni|średni|średni
 F16s|Dysk SSD w warstwie Premium|wysoka|wysoka|małą
 
-Kliknij przycisk **OK**.
+Wybierz przycisk **OK**.
 
 ### <a name="ethereum-settings"></a>Ustawienia Ethereum
 
@@ -152,7 +155,7 @@ Limit blokowania gazu | Limit wychodzący z bloków wyjściowych sieci. | 500000
 Okres ponownego pieczętowania bloku (s) | Częstotliwość tworzenia pustych bloków, gdy nie ma żadnych transakcji w sieci. Wyższa częstotliwość będzie miała szybszy wzrost, ale zwiększy się koszty magazynowania. | 15
 Kontrakt uprawnień transakcji | Kod bajtowy dla kontraktu uprawniającego do transakcji. Ogranicza wdrożenie i wykonywanie kontraktu inteligentnego do listy dozwolonych kont Ethereum. |
 
-Kliknij przycisk **OK**.
+Wybierz przycisk **OK**.
 
 ### <a name="monitoring"></a>Monitorowanie
 
@@ -164,11 +167,11 @@ Parametr | Opis | Przykładowa wartość
 ----------|-------------|--------------
 Monitorowanie | Opcja włączania monitorowania | Włącz
 Nawiązywanie połączenia z istniejącymi dziennikami Azure Monitor | Opcja tworzenia nowego wystąpienia dzienników Azure Monitor lub łączenia istniejącego wystąpienia | Tworzenie nowego elementu
-Lokalizacja | Region, w którym jest wdrożone nowe wystąpienie | Wschodnie stany USA
+Lokalizacja | Region, w którym jest wdrożone nowe wystąpienie | East US
 Istniejący identyfikator obszaru roboczego usługi log Analytics (Połącz z istniejącymi dziennikami Azure Monitor = Dołącz istniejący)|Identyfikator obszaru roboczego istniejącego wystąpienia dzienników Azure Monitor||Nie dotyczy
 Istniejący klucz podstawowy usługi log Analytics (łączenie z istniejącymi dziennikami Azure Monitor = Połącz istniejące)|Klucz podstawowy używany do nawiązywania połączenia z istniejącym wystąpieniem dzienników Azure Monitor||Nie dotyczy
 
-Kliknij przycisk **OK**.
+Wybierz przycisk **OK**.
 
 ### <a name="summary"></a>Podsumowanie
 
@@ -329,7 +332,7 @@ Ze względów bezpieczeństwa dostęp do portu SSH jest domyślnie odrzucony prz
 
 1. Wybierz pozycję **Zapisz**. Zastosowanie zmian może potrwać kilka minut.
 
-Można zdalnie nawiązać połączenie z maszynami wirtualnymi dla węzłów modułu sprawdzania poprawności za pośrednictwem protokołu SSH z podaną nazwą użytkownika administratora i hasła/klucza SSH. Polecenie SSH, aby uzyskać dostęp do pierwszego węzła modułu sprawdzania poprawności, znajduje się na liście wyjściowej wdrożenia szablonu. Przykład:
+Można zdalnie nawiązać połączenie z maszynami wirtualnymi dla węzłów modułu sprawdzania poprawności za pośrednictwem protokołu SSH z podaną nazwą użytkownika administratora i hasła/klucza SSH. Polecenie SSH, aby uzyskać dostęp do pierwszego węzła modułu sprawdzania poprawności, znajduje się na liście wyjściowej wdrożenia szablonu. Na przykład:
 
 ``` bash
 ssh -p 4000 poaadmin\@leader4vb.eastus.cloudapp.azure.com.
@@ -731,10 +734,10 @@ Aby przekazać opinie o produkcie lub zażądać nowych funkcji, opublikuj lub z
 
 Współpracuj z inżynierami firmy Microsoft i ekspertów społeczności Azure łańcucha bloków.
 
-* [Microsoft Q&strony pytania](https://docs.microsoft.com/answers/topics/azure-blockchain-workbench.html). Wsparcie inżynieryjne dla szablonów łańcucha bloków jest ograniczone do problemów z wdrażaniem.
-* [Społeczność techniczna firmy Microsoft](https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain)
+* [Microsoft Q&strony pytania](/answers/topics/azure-blockchain-workbench.html). Wsparcie inżynieryjne dla szablonów łańcucha bloków jest ograniczone do problemów z wdrażaniem.
+* [Witryna Microsoft Tech Community](https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain)
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-blockchain-workbench)
 
 ## <a name="next-steps"></a>Następne kroki
 
-Więcej rozwiązań łańcucha bloków platformy Azure można znaleźć w [dokumentacji usługi Azure łańcucha bloków](https://docs.microsoft.com/azure/blockchain/).
+Więcej rozwiązań łańcucha bloków platformy Azure można znaleźć w [dokumentacji usługi Azure łańcucha bloków](../index.yml).

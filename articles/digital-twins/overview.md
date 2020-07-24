@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: overview
 ms.service: digital-twins
-ms.openlocfilehash: 05a3fc7524b16033c48170b6cf0fa4e004c9eb9b
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 7f5ad0b493f925ce34ffe19892fa432322995a9c
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86258002"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87125211"
 ---
 # <a name="what-is-azure-digital-twins"></a>Co to jest usługa Azure Digital Twins?
 
@@ -44,7 +44,7 @@ DTDL jest używany dla modeli danych w innych usługach Azure IoT, w tym [Plug a
 
 Modele cyfrowe w usłudze Azure Digital bliźniaczych reprezentacji są na bieżąco z aktualnymi reprezentacjami świata rzeczywistego. Korzystając z relacji w niestandardowych modelach DTDL, nastąpi połączenie bliźniaczych reprezentacji do **grafu na żywo** reprezentującego Twoje środowisko.
 
-Możesz wyświetlić wizualizację grafu Digital bliźniaczych reprezentacji na platformie Azure za pomocą przykładowej aplikacji, programu [**Azure Digital bliźniaczych reprezentacji Explorer**](https://github.com/Azure-Samples/digital-twins-explorer).
+Możesz wyświetlić wizualizację grafu Digital bliźniaczych reprezentacji na platformie Azure za pomocą przykładowej aplikacji, programu [**Azure Digital bliźniaczych reprezentacji Explorer**](https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/).
 
 Oto widok wizualizacji przykładowej:
 
@@ -94,16 +94,16 @@ Na poniższym diagramie przedstawiono, gdzie usługa Azure Digital bliźniaczych
 
 > [!IMPORTANT]
 > Usługa Azure Digital bliźniaczych reprezentacji jest obecnie dostępna w publicznej wersji zapoznawczej.
-> Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [*dodatkowe warunki użytkowania wersji*](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)zapoznawczych Microsoft Azure.
 
-Aby zapoznać się z listą limitów cyfrowych bliźniaczych reprezentacji na platformie Azure w ramach publicznej wersji zapoznawczej, zobacz temat [Informacje o usłudze Public Preview limity](reference-service-limits.md).
+Aby zapoznać się z listą limitów cyfrowych bliźniaczych reprezentacji na platformie Azure w ramach publicznej wersji zapoznawczej, zobacz temat [*Informacje o usłudze Public Preview limity*](reference-service-limits.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
 Jeśli pracujesz z poprzednią wersją zapoznawczą usługi Azure Digital bliźniaczych reprezentacji, Dowiedz się, co się zmieniło:
-* [Przegląd: różnice od wcześniejszej wersji](overview-differences.md)
+* [*Przegląd: różnice od wcześniejszej wersji*](overview-differences.md)
 
 Możesz też przejść do pracy z usługą Azure Digital bliźniaczych reprezentacji i szczegółowe w pierwszym samouczku:
 
 > [!div class="nextstepaction"]
-> [Samouczek: kod aplikacji klienckiej](tutorial-code.md)
+> [*Samouczek: kod aplikacji klienckiej*](tutorial-code.md)

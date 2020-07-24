@@ -14,15 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/11/2017
 ms.author: alkohli
-ms.openlocfilehash: a6dc55138977727dc5399ec9653340225bcc3901
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ec98060a09a1fad4f851689daff3f4b578c164f5
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85514645"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87124106"
 ---
 # <a name="role-based-access-control-for-storsimple"></a>Access Control oparte na rolach dla StorSimple
 
-Ten artykuł zawiera krótki opis sposobu używania Access Control opartego na rolach (RBAC) na platformie Azure na potrzeby urządzenia StorSimple. RBAC oferuje precyzyjne zarządzanie dostępem na platformie Azure. Za pomocą RBAC Udziel dostępu StorSimple użytkownikom w celu uzyskania dostępu do swoich zadań, a nie udzielaj innym osobom nieograniczony dostęp. Aby uzyskać więcej informacji na temat podstaw zarządzania dostępem na platformie Azure, zobacz Wprowadzenie do [Access Control opartej na rolach w Azure Portal](../role-based-access-control/overview.md).
+Ten artykuł zawiera krótki opis sposobu używania kontroli dostępu opartej na rolach (Azure RBAC) na urządzeniu StorSimple. RBAC oferuje precyzyjne zarządzanie dostępem na platformie Azure. Za pomocą RBAC Udziel dostępu StorSimple użytkownikom w celu uzyskania dostępu do swoich zadań, a nie udzielaj innym osobom nieograniczony dostęp. Aby uzyskać więcej informacji na temat podstaw zarządzania dostępem na platformie Azure, zobacz Wprowadzenie do [Access Control opartej na rolach w Azure Portal](../role-based-access-control/overview.md).
 
 Ten artykuł dotyczy urządzeń z serii StorSimple 8000 z uruchomioną aktualizacją 3,0 lub nowszą w Azure Portal.
 
@@ -34,7 +35,7 @@ Kontrolę RBAC można przypisać na podstawie ról. Role zapewniają pewne pozio
 
 * **Wbudowane role** — wbudowana rola może być właścicielem, współautorem, czytelnikem lub administratorem dostępu użytkowników. Aby uzyskać więcej informacji, zobacz [wbudowane role dla Access Control opartej na rolach platformy Azure](../role-based-access-control/built-in-roles.md).
 
-* **Role niestandardowe** — jeśli wbudowane role nie odpowiadają Twoim potrzebom, można utworzyć niestandardowe role RBAC dla StorSimple. Aby utworzyć niestandardową rolę RBAC, Zacznij od wbudowanej roli, Edytuj ją, a następnie zaimportuj ją z powrotem w środowisku. Pobieranie i przekazywanie roli jest zarządzane przy użyciu Azure PowerShell lub interfejsu wiersza polecenia platformy Azure. Aby uzyskać więcej informacji, zobacz [Tworzenie ról niestandardowych dla Access Control opartej na rolach](../role-based-access-control/custom-roles.md).
+* **Role niestandardowe** — jeśli wbudowane role nie odpowiadają Twoim potrzebom, możesz utworzyć role niestandardowe platformy Azure dla StorSimple. Aby utworzyć rolę niestandardową platformy Azure, Zacznij od wbudowanej roli, Edytuj ją, a następnie zaimportuj ją z powrotem w środowisku. Pobieranie i przekazywanie roli jest zarządzane przy użyciu Azure PowerShell lub interfejsu wiersza polecenia platformy Azure. Aby uzyskać więcej informacji, zobacz [Tworzenie ról niestandardowych dla Access Control opartej na rolach](../role-based-access-control/custom-roles.md).
 
 Aby wyświetlić różne role dostępne dla użytkownika urządzenia StorSimple w Azure Portal, przejdź do usługi StorSimple Menedżer urządzeń, a następnie przejdź do pozycji **Kontrola dostępu (IAM) > role**.
 
@@ -101,7 +102,7 @@ W poniższym przykładzie zaczynamy od wbudowanego **czytnika** ról, który umo
     }
     ```
 
-6. Zaimportuj niestandardową rolę RBAC z powrotem do środowiska.
+6. Zaimportuj rolę niestandardową platformy Azure z powrotem do środowiska.
 
     `New-AzRoleDefinition -InputFile "C:\ssrbaccustom.json"`
 

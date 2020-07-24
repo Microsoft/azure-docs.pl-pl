@@ -6,12 +6,12 @@ author: renatosalas
 ms.author: regutier
 ms.date: 04/14/2020
 ms.reviewer: mbullwin
-ms.openlocfilehash: 50dcd3f438645c99e0ed3cfdded7a101ee5f1852
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 719f0cfa0a1f80568acf3231ce3ffab441e5f6b7
+ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539860"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87117380"
 ---
 # <a name="configure-bring-your-own-storage-byos-for-application-insights-profiler-and-snapshot-debugger"></a>Skonfiguruj własny magazyn (BYOS) dla Application Insights Profiler i Snapshot Debugger
 
@@ -63,7 +63,7 @@ _ ![ Rysunek 1,1](media/profiler-bring-your-own-storage/figure-11.png)_
 Jeśli używasz również linku prywatnego, musisz mieć jedną dodatkową konfigurację, aby zezwolić na połączenie z naszą zaufaną usługą firmy Microsoft z Virtual Network. Zapoznaj się z [dokumentacją zabezpieczeń sieci magazynu](../../storage/common/storage-network-security.md#trusted-microsoft-services).
 
 ### <a name="link-your-storage-account-with-your-application-insights-resource"></a>Połącz swoje konto magazynu z zasobem Application Insights
-Aby skonfigurować BYOS na potrzeby diagnostyki na poziomie kodu (Profiler/debuger), dostępne są dwie opcje:
+Aby skonfigurować BYOS do diagnostyki na poziomie kodu (Profiler/debuger), dostępne są trzy opcje:
 
 * Używanie Azure PowerShell poleceń cmdlet
 * Korzystanie z interfejsu wiersza polecenia platformy Azure (CLI)

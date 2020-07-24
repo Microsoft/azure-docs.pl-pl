@@ -1,5 +1,5 @@
 ---
-title: Linux Virtual Machines podstawy zabezpieczeń dla usługi Azure Security Baseline
+title: Podstawa zabezpieczeń platformy Azure dla Linux Virtual Machines
 description: Linia bazowa zabezpieczeń Linux Virtual Machines zawiera wskazówki i zasoby dotyczące procedur związanych z wdrażaniem zaleceń dotyczących zabezpieczeń określonych w teście zabezpieczeń platformy Azure.
 author: msmbaldwin
 ms.service: virtual-machines-linux
@@ -7,14 +7,14 @@ ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 2d8c4d67ed9b268bae55711fae8c4def33b967fc
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: bd6157f2775b2496e489cfbf03b35f49fb6f5442
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86532009"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87124718"
 ---
-# <a name="linux-virtual-machines-security-baseline-for-azure-security-benchmark"></a>Linux Virtual Machines podstawy zabezpieczeń dla usługi Azure Security Baseline
+# <a name="azure-security-baseline-for-linux-virtual-machines"></a>Podstawa zabezpieczeń platformy Azure dla Linux Virtual Machines
 
 Podstawą zabezpieczeń platformy Azure dla Linux Virtual Machines są zalecenia, które pomogą ulepszyć stan bezpieczeństwa wdrożenia.
 
@@ -568,7 +568,7 @@ Firma Microsoft korzysta z protokołu Transport Layer Security (TLS) w celu ochr
 
 * [Kontrola dostępu oparta na rolach (RBAC) dla zasobów platformy Azure](../../role-based-access-control/overview.md)
 
-* [Wbudowane role dla zasobów platformy Azure](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)
+* [Wbudowane role platformy Azure](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)
 
 **Monitorowanie Azure Security Center**: niedostępne
 
