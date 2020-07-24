@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 06/30/2020
 ms.author: cherylmc
-ms.openlocfilehash: 3505427ab88a2241aa2781366c3d15179b03f050
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 72408b4f17aa5e8601095b27478806883739a7a8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86231164"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87031630"
 ---
-# <a name="expressroute-partners-and-peering-locations"></a>Partnerzy i lokalizacje komunikacji równorzędnej usługi ExpressRoute
+# <a name="expressroute-connectivity-partners-and-peering-locations"></a>Partnerzy łączności ExpressRoute i lokalizacje komunikacji równorzędnej
 
 > [!div class="op_single_selector"]
 > * [Lokalizacje według dostawcy](expressroute-locations.md)
@@ -133,6 +133,7 @@ W poniższej tabeli przedstawiono lokalizacje według dostawcy usług. Jeśli ch
 | **[Neutrona Networks](https://www.neutrona.com/index.php/azure-expressroute/)** |Obsługiwane |Obsługiwane |Dallas, Los Angeles, Miami, Wyspy świętegoł Paulo, Waszyngton |
 | **[Dane nowej generacji](https://www.nextgenerationdata.co.uk/ngd-cloud-gateway/)** |Obsługiwane |Obsługiwane |Newport (Walia) |
 | **[NEXTDC](https://www.nextdc.com/services/axon-ethernet/microsoft-expressroute)** |Obsługiwane |Obsługiwane |Melbourne, Perth, Sydney, Sydney2 |
+| **[ZAKS](https://www.nos.pt/empresas/corporate/cloud/cloud/Pages/nos-cloud-connect.aspx)** |Obsługiwane |Obsługiwane |Amsterdam2 |
 | **[NTT Communications](https://www.ntt.com/en/services/network/virtual-private-network.html)** |Obsługiwane |Obsługiwane |Amsterdam, Hongkong SAR, Londyn, Los Angeles, Osaka, Singapur, Sydney, Tokio, Waszyngton |
 | **[NTT EAST](https://business.ntt-east.co.jp/service/crossconnect/)** |Obsługiwane |Obsługiwane |Tokio |
 | **[NTT Globalne centra danych — EMEA](https://www.ntt.com/en/services/data-center.html)** |Obsługiwane |Obsługiwane |Berlin |
@@ -355,7 +356,7 @@ Włączanie prywatnej łączności do własnych potrzeb może być wyzwaniem w z
 | **[OneAs1a](https://www.oneas1a.com/connectivity.html)** | Azja |
 | **[Orange Networks](https://orange-networks.com/blog/88-azureexpressroute)** | Europa |
 | **[Perficient](https://www.perficient.com/Partners/Microsoft/Cloud/Azure-ExpressRoute)** | Ameryka Północna |
-| **[Presidio](https://info.presidio.com/microsoft-azure-expressroute)** | Ameryka Północna |
+| **[Presidio](https://www.presidio.com/subpage/1107/microsoft-azure)** | Ameryka Północna |
 | **[sol-tec](https://www.sol-tec.com/what-we-do/)** | Europa |
 | **[Venha Pra Nuvem](https://venhapranuvem.com.br/)** | Ameryka Południowa |
 | **[Vigilant.IT](https://vigilant.it/expressroute)** | Australia |

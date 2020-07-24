@@ -3,11 +3,12 @@ title: Włączanie tworzenia kopii zapasowej przy tworzeniu maszyny wirtualnej p
 description: Opisuje sposób włączania tworzenia kopii zapasowej podczas tworzenia maszyny wirtualnej platformy Azure przy użyciu Azure Backup.
 ms.topic: conceptual
 ms.date: 06/13/2019
-ms.openlocfilehash: 7739109eb8bad88c9b723e67e13adc78c127499a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7fb6fd25f5031669633641ea02f34180f6f795d4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80672820"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87032854"
 ---
 # <a name="enable-backup-when-you-create-an-azure-vm"></a>Włączanie tworzenia kopii zapasowej przy tworzeniu maszyny wirtualnej platformy Azure
 
@@ -29,7 +30,7 @@ Jeśli jeszcze nie zalogowano się na koncie, zaloguj się do [Azure Portal](htt
 
 2. W portalu Azure Marketplace kliknij pozycję **obliczenia**, a następnie wybierz obraz maszyny wirtualnej.
 
-3. Skonfiguruj maszynę wirtualną zgodnie z instrukcjami dla [systemu Windows](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal) lub [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-portal) .
+3. Skonfiguruj maszynę wirtualną zgodnie z instrukcjami dla [systemu Windows](../virtual-machines/windows/quick-create-portal.md) lub [Linux](../virtual-machines/linux/quick-create-portal.md) .
 
 4. Na karcie **Zarządzanie** w obszarze **Włączanie kopii zapasowej**kliknij **pozycję włączone.**
 5. Azure Backup kopie zapasowe w magazynie Recovery Services. Kliknij przycisk **Utwórz nowy** , jeśli nie masz istniejącego magazynu.

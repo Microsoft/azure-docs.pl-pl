@@ -8,10 +8,11 @@ ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: mayg
 ms.openlocfilehash: 976888f57269cc9fe6107a38e30d78c73eb5c124
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79257175"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87037852"
 ---
 # <a name="reprotect-from-azure-to-on-premises"></a>Ponowne włączanie ochrony po przejściu z platformy Azure do środowiska lokalnego
 

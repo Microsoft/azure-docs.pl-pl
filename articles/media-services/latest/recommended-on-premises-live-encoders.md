@@ -9,16 +9,16 @@ ms.author: johndeu
 ms.date: 04/16/2020
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 53d68a18c5904b8b7e2f6145ae26221e99395a82
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 67c26cbad2a723fa21fbe1719c6e43d3d63f2547
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84749928"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87030669"
 ---
 # <a name="verified-on-premises-live-streaming-encoders"></a>Zweryfikowane lokalne kodery przesyłania strumieniowego na żywo
 
-W Azure Media Services wydarzenie na [żywo](https://docs.microsoft.com/rest/api/media/liveevents) (kanał) reprezentuje potok do przetwarzania zawartości przesyłania strumieniowego na żywo. Zdarzenie na żywo odbiera strumienie wejściowe na żywo na jeden z dwóch sposobów.
+W Azure Media Services wydarzenie na [żywo](/rest/api/media/liveevents) (kanał) reprezentuje potok do przetwarzania zawartości przesyłania strumieniowego na żywo. Zdarzenie na żywo odbiera strumienie wejściowe na żywo na jeden z dwóch sposobów.
 
 * Lokalny koder na żywo wysyła strumień RTMP o dużej szybkości transmisji bitów lub Smooth Streaming (pofragmentowany plik MP4) do zdarzenia na żywo, które nie ma włączonej obsługi kodowania na żywo z Media Services. Pozyskiwane strumienie przechodzą przez zdarzenia na żywo bez dalszej obróbki. Ta metoda jest nazywana **przekazywaniem**. Zalecamy, aby koder na żywo wysyłał strumienie o szybkości transmisji bitów zamiast strumienia o pojedynczej szybkości transmisji bitów do zdarzenia przekazywania na żywo, aby umożliwić przesyłanie strumieniowe transmisji bitów do klienta. 
 
@@ -114,7 +114,7 @@ Aby odtworzyć zawartość, musi być obecny strumień audio i wideo. Odtwarzani
 > [!IMPORTANT]
 > Obejrzyj fizyczny stan maszyny (procesor CPU/pamięć/itp.), ponieważ przekazywanie fragmentów do chmury obejmuje operacje procesora i operacji we/wy. Jeśli zmienisz dowolne ustawienia w koderze, zresetuj zdarzenie/kanał na żywo, aby zmiany zaczęły obowiązywać.
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 [Przesyłanie strumieniowe na żywo z Media Services v3](live-streaming-overview.md)
 

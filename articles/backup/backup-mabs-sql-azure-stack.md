@@ -3,11 +3,12 @@ title: Tworzenie kopii zapasowych obciążeń SQL Server na Azure Stack
 description: W tym artykule dowiesz się, jak skonfigurować serwer Microsoft Azure Backup (serwera usługi MAB) w celu ochrony SQL Serverymi bazami danych w Azure Stack.
 ms.topic: conceptual
 ms.date: 06/08/2018
-ms.openlocfilehash: b2d41bdccd67539205b74a0ce277b3b01a685c6c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 706050fa37e4234a0ffc902f6b696ebd84e6701e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84192977"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87032650"
 ---
 # <a name="back-up-sql-server-on-azure-stack"></a>Tworzenie kopii zapasowej SQL Server na Azure Stack
 
@@ -18,6 +19,34 @@ Zarządzanie kopią zapasową bazy danych SQL Server na platformie Azure i odzys
 1. Tworzenie zasad tworzenia kopii zapasowych w celu ochrony baz danych SQL Server
 2. Tworzenie kopii zapasowych na żądanie
 3. Odzyskiwanie bazy danych z dysków i z platformy Azure
+
+## <a name="prerequisites-and-limitations"></a>Wymagania wstępne i ograniczenia
+
+* Jeśli Twoja baza danych ma pliki w zdalnym udziale plików, ochrona zakończy się niepowodzeniem z błędem o identyfikatorze 104. SERWERA usługi MAB nie obsługuje ochrony danych SQL Server w zdalnym udziale plików.
+* SERWERA usługi MAB nie chroni baz danych przechowywanych w zdalnych udziałach SMB.
+* Upewnij się, że [repliki grupy dostępności są skonfigurowane jako tylko do odczytu](/sql/database-engine/availability-groups/windows/configure-read-only-access-on-an-availability-replica-sql-server?view=sql-server-ver15).
+* Należy jawnie dodać konto System **systemowe NTAUTHORITY\SYSTEM** do grupy sysadmin na SQL Server.
+* W przypadku przeprowadzania odzyskiwania do lokalizacji alternatywnej dla częściowo zawartej bazy danych należy upewnić się, że docelowe wystąpienie programu SQL Server ma włączoną funkcję [zawarte bazy danych](/sql/relational-databases/databases/migrate-to-a-partially-contained-database?view=sql-server-ver15#enable) .
+* W przypadku przeprowadzania odzyskiwania alternatywnej lokalizacji bazy danych strumieni plików należy upewnić się, że docelowe wystąpienie programu SQL Server ma włączoną funkcję [bazy danych strumienia plików](/sql/relational-databases/blob/enable-and-configure-filestream?view=sql-server-ver15) .
+* Ochrona programu SQL Server z włączoną funkcją AlwaysOn:
+  * SERWERA usługi MAB wykrywa grupy dostępności podczas uruchamiania zapytania podczas tworzenia grupy ochrony.
+  * SERWERA usługi MAB wykrywa tryb failover i kontynuuje ochronę bazy danych.
+  * SERWERA usługi MAB obsługuje konfiguracje klastra wielolokacjowego dla wystąpienia SQL Server.
+* W przypadku ochrony baz danych używających funkcji AlwaysOn serwera usługi MAB mają następujące ograniczenia:
+  * SERWERA usługi MAB będzie przestrzegać zasad tworzenia kopii zapasowych dla grup dostępności ustawionych w SQL Server na podstawie preferencji dotyczących kopii zapasowych w następujący sposób:
+    * Preferuj pomocniczą — kopie zapasowe będą stosowane tylko do repliki pomocniczej z wyjątkiem sytuacji, gdy replika podstawowa jest jedyną repliką online. Jeśli jest dostępnych wiele replik pomocniczych, do kopii zapasowej zostanie wybrany węzeł o najwyższym priorytecie kopii zapasowej. Jeśli dostępna jest tylko replika podstawowa, kopia zapasowa powinna być wykonywana w replice podstawowej.
+    * Tylko pomocnicza — kopia zapasowa nie powinna być wykonywana dla repliki podstawowej. Jeśli replika podstawowa jest jedyną repliką online, kopia zapasowa nie powinna być wykonywana.
+    * Podstawowa — kopie zapasowe powinny być zawsze wykonywane dla repliki podstawowej.
+    * Dowolna replika — kopie zapasowe powinny być wykonywane dla dowolnych replik w grupie dostępności. Węzeł, z którego będzie wykonywana kopia zapasowa, powinien być oparty na priorytetach kopii zapasowej dla każdego z węzłów.
+  * Pamiętaj o następujących kwestiach:
+    * Kopie zapasowe mogą być wykonywane z dowolnej możliwej do odczytu repliki — to jest, podstawowa, synchroniczna pomocnicza, asynchroniczna pomocnicza.
+    * Jeśli dowolna replika jest wykluczona z kopii zapasowej, na przykład funkcja **wykluczania repliki** jest włączona lub oznaczona jako nieczytelna, ta replika nie zostanie wybrana do wykonania kopii zapasowej w ramach żadnej z opcji.
+    * Jeśli jest dostępnych i możliwych do odczytu wiele replik, do kopii zapasowej zostanie wybrany węzeł o najwyższym priorytecie kopii zapasowej.
+    * Jeśli kopia zapasowa nie powiedzie się w wybranym węźle, operacja tworzenia kopii zapasowej zakończy się niepowodzeniem.
+    * Odzyskiwanie do oryginalnej lokalizacji nie jest obsługiwane.
+* SQL Server 2014 lub więcej problemów z kopią zapasową:
+  * Program SQL Server 2014 dodał nową funkcję w celu utworzenia [bazy danych dla SQL Server lokalnych w usłudze Windows Azure Blob Storage](/sql/relational-databases/databases/sql-server-data-files-in-microsoft-azure?view=sql-server-ver15). Nie można użyć serwera usługi MAB do ochrony tej konfiguracji.
+  * Istnieją znane problemy z preferencjami "Preferuj pomocnicze" kopii zapasowych dla opcji SQL AlwaysOn. SERWERA usługi MAB zawsze wykonuje kopię zapasową z elementu pomocniczego. Jeśli nie można znaleźć żadnych dodatkowych, kopia zapasowa kończy się niepowodzeniem.
 
 ## <a name="before-you-start"></a>Przed rozpoczęciem
 

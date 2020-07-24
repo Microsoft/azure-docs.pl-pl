@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: how-to
 ms.date: 05/20/2020
 ms.custom: seodec18, tracking-python
-ms.openlocfilehash: 528696daf4bddd1f448266243b511e600351606a
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 4815e51d22501d6110f3bc26a878513d6d700ce7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86202604"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87031290"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Konfigurowanie eksperymentów zautomatyzowanego uczenia maszynowego w języku Python
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -212,26 +212,26 @@ Podczas konfigurowania eksperymentów w `AutoMLConfig` obiekcie można włączy�
 Zadanie szeregów czasowych `forecasting` wymaga dodatkowych parametrów w obiekcie Configuration:
 
 1. `time_column_name`: Wymagany parametr, który definiuje nazwę kolumny w danych szkoleniowych zawierających prawidłową serię czasową.
-1. `max_horizon`: Określa długość czasu, który ma być przewidywany na podstawie okresowości danych szkoleniowych. Na przykład jeśli masz dane szkoleniowe z codziennymi ziarnami czasowymi, możesz określić, jak daleko w dni ma być nadany model.
-1. `grain_column_names`: Definiuje nazwy kolumn, które zawierają poszczególne dane szeregów czasowych w danych szkoleniowych. Na przykład w przypadku prognozowania sprzedaży określonej marki według sklepu należy zdefiniować kolumny sklepu i marki jako kolumny ziaren. Dla każdego ziarna/grupowania zostanie utworzona oddzielna seria czasowa i prognozy. 
+1. `forecast_horizon`: Określa, ile okresów ma być prognozowanie. Zakres liczby całkowitej jest w jednostkach częstotliwości szeregów czasowych. Na przykład jeśli masz dane szkoleniowe z częstotliwością dzienną, możesz określić, jak daleko w dni ma być nadany model.
+1. `time_series_id_column_names`: Definiuje kolumny, które w unikatowy sposób identyfikują serię czasową w danych, która ma wiele wierszy z tą samą sygnaturą czasową. Na przykład w przypadku prognozowania sprzedaży określonej marki według sklepu należy zdefiniować kolumny magazynu i marki jako identyfikatory szeregów czasowych. Dla każdego grupowania zostaną utworzone oddzielne prognozy. Jeśli identyfikatory szeregów czasowych nie są zdefiniowane, zakłada się, że zestaw danych jest jedną serią czasową.
 
 Przykłady ustawień używanych poniżej można znaleźć w [notesie przykładowym](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-orange-juice-sales/auto-ml-forecasting-orange-juice-sales.ipynb).
 
 ```python
-# Setting Store and Brand as grains for training.
-grain_column_names = ['Store', 'Brand']
-nseries = data.groupby(grain_column_names).ngroups
+# Setting Store and Brand as time series identifiers for training.
+time_series_id_column_names = ['Store', 'Brand']
+nseries = data.groupby(time_series_id_column_names).ngroups
 
-# View the number of time series data with defined grains
+# View the number of time series data with defined time series identifiers
 print('Data contains {0} individual time-series.'.format(nseries))
 ```
 
 ```python
 time_series_settings = {
     'time_column_name': time_column_name,
-    'grain_column_names': grain_column_names,
+    'time_series_id_column_names': time_series_id_column_names,
     'drop_column_names': ['logQuantity'],
-    'max_horizon': n_test_periods
+    'forecast_horizon': n_test_periods
 }
 
 automl_config = AutoMLConfig(task = 'forecasting',

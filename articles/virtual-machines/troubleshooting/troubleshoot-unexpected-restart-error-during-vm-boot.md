@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 06/22/2020
 ms.author: v-mibufo
-ms.openlocfilehash: daefaca45adb061295928c64b6a0e328a12d8a3e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 186b1c46303be59e191a1754361e07a2003b997a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85269062"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87036186"
 ---
 # <a name="os-start-up--computer-restarted-unexpectedly-or-encountered-an-unexpected-error"></a>Uruchomienie systemu operacyjnego — komputer został nieoczekiwanie uruchomiony ponownie lub wystąpił nieoczekiwany błąd
 
@@ -27,7 +27,7 @@ W tym artykule przedstawiono kroki rozwiązywania problemów, w których maszyna
 
 ## <a name="symptom"></a>Objaw
 
-W przypadku korzystania z [diagnostyki rozruchu](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) w celu wyświetlenia zrzutu ekranu maszyny wirtualnej zobaczysz, że zrzut ekranu wyświetla niepowodzenie instalacji systemu Windows z następującym błędem:
+W przypadku korzystania z [diagnostyki rozruchu](./boot-diagnostics.md) w celu wyświetlenia zrzutu ekranu maszyny wirtualnej zobaczysz, że zrzut ekranu wyświetla niepowodzenie instalacji systemu Windows z następującym błędem:
 
 **Komputer został nieoczekiwanie uruchomiony ponownie lub wystąpił nieoczekiwany błąd. Nie można przeprowadzić instalacji systemu Windows. Aby zainstalować system Windows, kliknij przycisk OK, aby ponownie uruchomić komputer, a następnie ponownie uruchom instalację.**
 
@@ -37,7 +37,7 @@ W przypadku korzystania z [diagnostyki rozruchu](https://docs.microsoft.com/azur
 
 ## <a name="cause"></a>Przyczyna
 
-Maszyna próbuje wykonać początkowe rozruch [uogólnionego obrazu](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation), ale napotyka problem z powodu niestandardowego pliku odpowiedzi (unattend.xml), który jest przetwarzany. Niestandardowe pliki odpowiedzi nie są obsługiwane na platformie Azure. 
+Maszyna próbuje wykonać początkowe rozruch [uogólnionego obrazu](/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation), ale napotyka problem z powodu niestandardowego pliku odpowiedzi (unattend.xml), który jest przetwarzany. Niestandardowe pliki odpowiedzi nie są obsługiwane na platformie Azure. 
 
 Plik odpowiedzi jest specjalnym plikiem XML, który zawiera definicje i wartości ustawień konfiguracji, które mają być zautomatyzowane podczas instalacji instalacji systemu operacyjnego Windows Server. Opcje konfiguracji obejmują instrukcje dotyczące dzielenia dysków na partycje, gdzie można znaleźć obraz systemu Windows, który ma zostać zastosowany, i innych poleceń, które mają być uruchamiane.
 
@@ -57,7 +57,7 @@ Ta sytuacja występuje, gdy obraz został przygotowany do użytku na platformie 
 
 - W poprzednim poleceniu Zamień na `<NameOfYourAnswerFile.XML>` nazwę pliku.
 
-Aby rozwiązać ten problem, postępuj zgodnie [ze wskazówkami platformy Azure dotyczącymi przygotowania/przechwytywania obrazu](https://docs.microsoft.com/azure/virtual-machines/windows/upload-generalized-managed) i przygotowania nowego uogólnionego obrazu. W trakcie działania programu Sysprep nie należy używać `/unattend:<answerfile>` flagi. Zamiast tego należy użyć tylko poniższych flag:
+Aby rozwiązać ten problem, postępuj zgodnie [ze wskazówkami platformy Azure dotyczącymi przygotowania/przechwytywania obrazu](../windows/upload-generalized-managed.md) i przygotowania nowego uogólnionego obrazu. W trakcie działania programu Sysprep nie należy używać `/unattend:<answerfile>` flagi. Zamiast tego należy użyć tylko poniższych flag:
 
 `sysprep /oobe /generalize /shutdown`
 

@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/02/2020
+ms.date: 07/13/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 6b2983bbaf22ae1b9e09ff3362a4bc06e6658b33
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a3fdde755a5e024efead5c8861a1d5cd769b6d23
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85506206"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87036832"
 ---
 # <a name="configure-customer-managed-keys-with-azure-key-vault-by-using-powershell"></a>Konfigurowanie kluczy zarządzanych przez klienta za pomocą Azure Key Vault przy użyciu programu PowerShell
 
@@ -39,15 +39,16 @@ Aby uzyskać więcej informacji na temat konfigurowania tożsamości zarządzany
 
 ## <a name="create-a-new-key-vault"></a>Utwórz nowy magazyn kluczy
 
-Aby utworzyć nowy magazyn kluczy przy użyciu programu PowerShell, wywołaj polecenie [New-AzKeyVault](/powershell/module/az.keyvault/new-azkeyvault). Magazyn kluczy używany do przechowywania kluczy zarządzanych przez klienta do szyfrowania usługi Azure Storage musi mieć włączone dwa ustawienia ochrony klucza, **usuwanie nietrwałe** i **nie przeczyszczanie**.
+Aby utworzyć nowy magazyn kluczy przy użyciu programu PowerShell, zainstaluj [program PowerShell w](https://www.powershellgallery.com/packages/Az.KeyVault/2.0.0) wersji 2.0.0 lub nowszej. Następnie Wywołaj polecenie [New-AzKeyVault](/powershell/module/az.keyvault/new-azkeyvault) , aby utworzyć nowy magazyn kluczy.
 
-Pamiętaj, aby zastąpić wartości zastępcze w nawiasach własnymi wartościami.
+Magazyn kluczy używany do przechowywania kluczy zarządzanych przez klienta do szyfrowania usługi Azure Storage musi mieć włączone dwa ustawienia ochrony klucza, **usuwanie nietrwałe** i **nie przeczyszczanie**. W wersji 2.0.0 i nowszych modułu AZ. Key magazynu usuwanie nietrwałe jest domyślnie włączone podczas tworzenia nowego magazynu kluczy.
+
+W poniższym przykładzie jest tworzony nowy magazyn kluczy z włączonym **niewygładzonym usuwaniem** i **nie przeczyszczam** właściwości. Pamiętaj, aby zastąpić wartości zastępcze w nawiasach własnymi wartościami.
 
 ```powershell
 $keyVault = New-AzKeyVault -Name <key-vault> `
     -ResourceGroupName <resource_group> `
     -Location <location> `
-    -EnableSoftDelete `
     -EnablePurgeProtection
 ```
 
@@ -78,9 +79,27 @@ Szyfrowanie za pomocą usługi Azure Storage obsługuje klucze RSA i RSA-HSM o r
 
 ## <a name="configure-encryption-with-customer-managed-keys"></a>Konfigurowanie szyfrowania przy użyciu kluczy zarządzanych przez klienta
 
-Domyślnie szyfrowanie usługi Azure Storage używa kluczy zarządzanych przez firmę Microsoft. W tym kroku Skonfiguruj konto usługi Azure Storage tak, aby korzystało z kluczy zarządzanych przez klienta, i określ klucz, który ma zostać skojarzony z kontem magazynu.
+Domyślnie szyfrowanie usługi Azure Storage używa kluczy zarządzanych przez firmę Microsoft. W tym kroku Skonfiguruj konto usługi Azure Storage do używania kluczy zarządzanych przez klienta z usługą Azure Key Vault, a następnie określ klucz, który ma zostać skojarzony z kontem magazynu.
 
-Wywołaj polecenie [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) , aby zaktualizować ustawienia szyfrowania konta magazynu, jak pokazano w poniższym przykładzie. Dołącz opcję **-KeyvaultEncryption** , aby włączyć klucze zarządzane przez klienta dla konta magazynu. Pamiętaj, aby zastąpić wartości symboli zastępczych w nawiasach własnymi wartościami i użyć zmiennych zdefiniowanych w poprzednich przykładach.
+Podczas konfigurowania szyfrowania przy użyciu kluczy zarządzanych przez klienta można automatycznie obrócić klucz używany do szyfrowania, gdy wersja zostanie zmieniona w skojarzonym magazynie kluczy. Alternatywnie można jawnie określić wersję klucza do użycia podczas szyfrowania, dopóki wersja klucza nie zostanie zaktualizowana ręcznie.
+
+### <a name="configure-encryption-for-automatic-rotation-of-customer-managed-keys"></a>Konfigurowanie szyfrowania na potrzeby automatycznego rotacji kluczy zarządzanych przez klienta
+
+Aby skonfigurować szyfrowanie automatycznego rotacji kluczy zarządzanych przez klienta, zainstaluj moduł [AZ. Storage](https://www.powershellgallery.com/packages/Az.Storage) w wersji 2.0.0 lub nowszej.
+
+Aby automatycznie obrócić klucze zarządzane przez klienta, należy pominąć wersję klucza podczas konfigurowania kluczy zarządzanych przez klienta dla konta magazynu. Wywołaj polecenie [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) , aby zaktualizować ustawienia szyfrowania konta magazynu, jak pokazano w poniższym przykładzie, i Dołącz opcję **-KeyvaultEncryption** , aby włączyć klucze zarządzane przez klienta dla konta magazynu. Pamiętaj, aby zastąpić wartości symboli zastępczych w nawiasach własnymi wartościami i użyć zmiennych zdefiniowanych w poprzednich przykładach.
+
+```powershell
+Set-AzStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName `
+    -AccountName $storageAccount.StorageAccountName `
+    -KeyvaultEncryption `
+    -KeyName $key.Name `
+    -KeyVaultUri $keyVault.VaultUri
+```
+
+### <a name="configure-encryption-for-manual-rotation-of-key-versions"></a>Konfigurowanie szyfrowania do ręcznego rotacji wersji kluczowych
+
+Aby jawnie określić wersję klucza do użycia na potrzeby szyfrowania, należy podać wersję klucza podczas konfigurowania szyfrowania przy użyciu kluczy zarządzanych przez klienta dla konta magazynu. Wywołaj polecenie [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) , aby zaktualizować ustawienia szyfrowania konta magazynu, jak pokazano w poniższym przykładzie, i Dołącz opcję **-KeyvaultEncryption** , aby włączyć klucze zarządzane przez klienta dla konta magazynu. Pamiętaj, aby zastąpić wartości symboli zastępczych w nawiasach własnymi wartościami i użyć zmiennych zdefiniowanych w poprzednich przykładach.
 
 ```powershell
 Set-AzStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName `
@@ -91,9 +110,7 @@ Set-AzStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName `
     -KeyVaultUri $keyVault.VaultUri
 ```
 
-## <a name="update-the-key-version"></a>Zaktualizuj wersję klucza
-
-Podczas tworzenia nowej wersji klucza należy zaktualizować konto magazynu, aby używało nowej wersji. Najpierw należy wywołać polecenie [Get-AzKeyVaultKey](/powershell/module/az.keyvault/get-azkeyvaultkey) , aby uzyskać najnowszą wersję klucza. Następnie Wywołaj polecenie [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) , aby zaktualizować ustawienia szyfrowania konta magazynu, aby użyć nowej wersji klucza, jak pokazano w poprzedniej sekcji.
+Po ręcznym obróceniu wersji klucza należy zaktualizować ustawienia szyfrowania konta magazynu, aby użyć nowej wersji. Najpierw należy wywołać polecenie [Get-AzKeyVaultKey](/powershell/module/az.keyvault/get-azkeyvaultkey) , aby uzyskać najnowszą wersję klucza. Następnie Wywołaj polecenie [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) , aby zaktualizować ustawienia szyfrowania konta magazynu tak, aby korzystały z nowej wersji klucza, jak pokazano w poprzednim przykładzie.
 
 ## <a name="use-a-different-key"></a>Użyj innego klucza
 
@@ -101,7 +118,7 @@ Aby zmienić klucz używany do szyfrowania usługi Azure Storage, wywołaj polec
 
 ## <a name="revoke-customer-managed-keys"></a>Odwołaj klucze zarządzane przez klienta
 
-Jeśli uważasz, że klucz mógł zostać naruszony, możesz odwołać klucze zarządzane przez klienta, usuwając zasady dostępu do magazynu kluczy. Aby odwołać klucz zarządzany przez klienta, wywołaj polecenie [Remove-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/remove-azkeyvaultaccesspolicy) , jak pokazano w poniższym przykładzie. Pamiętaj, aby zastąpić wartości symboli zastępczych w nawiasach własnymi wartościami i użyć zmiennych zdefiniowanych w poprzednich przykładach.
+Klucze zarządzane przez klienta można odwołać przez usunięcie zasad dostępu magazynu kluczy. Aby odwołać klucz zarządzany przez klienta, wywołaj polecenie [Remove-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/remove-azkeyvaultaccesspolicy) , jak pokazano w poniższym przykładzie. Pamiętaj, aby zastąpić wartości symboli zastępczych w nawiasach własnymi wartościami i użyć zmiennych zdefiniowanych w poprzednich przykładach.
 
 ```powershell
 Remove-AzKeyVaultAccessPolicy -VaultName $keyVault.VaultName `

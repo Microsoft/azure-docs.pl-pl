@@ -9,11 +9,12 @@ ms.topic: how-to
 author: maxluk
 ms.author: maxluk
 ms.date: 02/27/2020
-ms.openlocfilehash: 317c771daca146660c62eb0cba14facc701b1b2c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 907347b2e594b93cd74dd3d2594a6557f123e350
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84430155"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87030916"
 ---
 # <a name="visualize-experiment-runs-and-metrics-with-tensorboard-and-azure-machine-learning"></a>Wizualizuj przebiegi eksperymentu i metryki za pomocą TensorBoard i Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -113,7 +114,7 @@ os.environ["TEST_TMPDIR"] = data_dir
 
 # Writing logs to ./logs results in their being uploaded to Artifact Service,
 # and thus, made accessible to our TensorBoard instance.
-arguments_list = ["--log_dir", logs_dir]
+script_params = ["--log_dir", logs_dir]
 
 # Create an experiment
 exp = Experiment(ws, experiment_name)
@@ -147,13 +148,14 @@ compute_target.wait_for_completion(show_output=True, min_node_count=None)
 # print(compute_target.get_status().serialize())
 ```
 
+[!INCLUDE [low-pri-note](../../includes/machine-learning-low-pri-vm.md)]
+
 ### <a name="submit-run-with-tensorflow-estimator"></a>Prześlij przebieg z TensorFlow szacowania
 
 TensorFlow szacowania zapewnia prosty sposób uruchamiania zadania szkolenia TensorFlow na obiekcie docelowym obliczeń. Jest to implementowane za pomocą [`estimator`](https://docs.microsoft.com//python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py) klasy generycznej, która może służyć do obsługi dowolnej struktury. Aby uzyskać więcej informacji o modelach szkoleniowych przy użyciu generycznej szacowania, zobacz [uczenie modeli Azure Machine Learning przy](how-to-train-ml-models.md) użyciu usługi szacowania
 
 ```Python
 from azureml.train.dnn import TensorFlow
-script_params = {"--log_dir": "./logs"}
 
 tf_estimator = TensorFlow(source_directory=exp_dir,
                           compute_target=compute_target,

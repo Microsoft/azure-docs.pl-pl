@@ -3,30 +3,24 @@ author: baanders
 description: plik dołączany dla usługi Azure Digital bliźniaczych reprezentacji — konfiguracja Cloud Shell i rozszerzenie IoT
 ms.service: digital-twins
 ms.topic: include
-ms.date: 5/25/2020
+ms.date: 7/17/2020
 ms.author: baanders
-ms.openlocfilehash: 6f472865c131b873f1ae0a21fa9ec55865fb2b29
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: b7c91d648c06970d53799c6ff505919dea17b3c0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86277783"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87032220"
 ---
-[!INCLUDE [cloud-shell-try-it.md](cloud-shell-try-it.md)]
-
-### <a name="set-up-cloud-shell-session"></a>Konfigurowanie sesji Cloud Shell
-
-Po otwarciu okna Cloud Shell najpierw Zaloguj się i ustaw kontekst powłoki na subskrypcję dla tej sesji. Uruchom następujące polecenia w Cloud Shell:
+Aby rozpocząć pracę z usługą Azure Digital bliźniaczych reprezentacji w otwartym oknie [Azure Cloud Shell](https://shell.azure.com) , najpierw należy się zalogować i ustawić kontekst powłoki dla tej sesji. Uruchom następujące polecenia w Cloud Shell:
 
 ```azurecli
 az login
-az account set --subscription <your-Azure-subscription-ID>
+az account set --subscription "<your-Azure-subscription-ID>"
 ```
 > [!TIP]
-> Możesz również ustawić subskrypcję przy użyciu nazwy subskrypcji. Użyj następującego polecenia: 
-> ```azurecli
-> az account set --subscription "your-Azure-subscription-name"
-> 
+> Możesz również użyć nazwy subskrypcji zamiast identyfikatora w powyższym poleceniu. 
+
 Jeśli korzystasz z tej subskrypcji po raz pierwszy przy użyciu usługi Azure Digital bliźniaczych reprezentacji, Uruchom to polecenie, aby zarejestrować się w przestrzeni nazw usługi Azure Digital bliźniaczych reprezentacji. (Jeśli nie masz pewności, możesz go uruchomić ponownie nawet wtedy, gdy kiedyś upłynął czas w przeszłości).
 
 ```azurecli
@@ -41,10 +35,10 @@ Najpierw uruchom to polecenie, aby wyświetlić listę wszystkich zainstalowanyc
 az extension list
 ```
 
-W danych wyjściowych poszukaj `"name"` pola dla każdego wpisu listy, aby wyświetlić nazwy rozszerzeń.
+Wyjście jest tablicą wszystkich aktualnie posiadanych rozszerzeń. Wyszukaj `"name"` pole dla każdego wpisu listy, aby wyświetlić nazwy rozszerzeń.
 
 Użyj danych wyjściowych, aby określić, które z poniższych poleceń mają być uruchamiane dla instalacji rozszerzenia (można uruchomić więcej niż jeden).
-* Jeśli lista zawiera `azure-iot` : masz już rozszerzenie. Uruchom to polecenie, aby upewnić się, że masz najnowszą aktualizację:
+* Jeśli lista zawiera `azure-iot` : masz już rozszerzenie. Uruchom to polecenie, aby upewnić się, że masz najnowszą aktualizację i nie ma więcej dostępnych aktualizacji:
 
    ```azurecli-interactive
    az extension update --name azure-iot

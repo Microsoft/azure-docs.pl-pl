@@ -7,12 +7,12 @@ ms.prod: kinect-dk
 ms.date: 06/26/2019
 ms.topic: article
 keywords: Urządzenia Kinect, Windows, v2, Azure urządzenia Kinect, porównanie, zestaw SDK, różnice, sprzęt, oprogramowanie
-ms.openlocfilehash: ec105cef0c52b02c763487fbe5b2d8c018315f4c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0a8d399370f354524858bdd658ffd65c0494dd4d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "67452516"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87031579"
 ---
 # <a name="azure-kinect-and-kinect-windows-v2-comparison"></a>Porównanie usług Azure urządzenia Kinect i urządzenia Kinect systemu Windows v2
 
@@ -22,8 +22,8 @@ Zestawy SDK sprzętu i oprogramowania platformy Azure urządzenia Kinect w wersj
 
 W poniższej tabeli wymieniono ogólne różnice między zestawem Azure urządzenia Kinect Development Kit a urządzenia Kinect dla systemu Windows v2.
 
-|    |      | Azure Kinect DK |  Urządzenia Kinect dla systemu Windows w wersji 2 |
-|----------|---------------|--------| ------------|
+| Cechy | Typ | Azure Kinect DK | Urządzenia Kinect dla systemu Windows w wersji 2 |
+| ------- | ---- | --------------- | --------------------- |
 | **Audio** | Szczegóły  | 7 — macierz cykliczna z użyciem mikrofonu | 4-MIC liniowy — macierz fazowy |
 | **Czujnik ruchu** | Szczegóły | 3-osiowy przyspieszeniomierz 3-osiowy Gyro | przyspieszeniomierz 3-osiowy |
 | **Aparat RGB**    | Szczegóły | 3840 x 2160 piks. @30 fps | 1920 x 1080 piks. @30 fps |
@@ -44,7 +44,7 @@ Dodatkowe szczegóły znajdziesz w dokumencie dotyczącym [sprzętu platformy Az
 
 W poniższej tabeli przedstawiono porównanie możliwości dostępu czujnika urządzenia niskiego poziomu.
 
-| **Funkcja**| **Azure urządzenia Kinect** | **Urządzenia Kinect dla systemu Windows** | **Uwagi** |
+| **Funkcja**| **Azure Kinect** | **Urządzenia Kinect dla systemu Windows** | **Uwagi** |
 |---------|---------|------------|---------|
 | **Ścisł** | ✔️ | ✔️ |    |   |
 | **IR** | ✔️ | ✔️ |  |

@@ -15,20 +15,21 @@ ms.workload: infrastructure
 ms.date: 07/27/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ef7161e653ec582708f242b67c643d960d75e27f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 27b6e2e3cedcc8eca84644562639e0436e48245d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78255475"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87035863"
 ---
 # <a name="sap-hana-availability-within-one-azure-region"></a>SAP HANA dostępność w ramach jednego regionu świadczenia usługi Azure
-W tym artykule opisano kilka scenariuszy dostępności w ramach jednego regionu świadczenia usługi Azure. Platforma Azure ma wiele regionów, rozmieszczonych na całym świecie. Aby zapoznać się z listą regionów świadczenia usługi Azure, zobacz [regiony platformy Azure](https://azure.microsoft.com/regions/). Do wdrażania SAP HANA na maszynach wirtualnych w ramach jednego regionu świadczenia usługi Azure firma Microsoft oferuje wdrożenie pojedynczej maszyny wirtualnej z wystąpieniem platformy HANA. Aby zwiększyć dostępność, można wdrożyć dwie maszyny wirtualne z dwoma wystąpieniami HANA w ramach [zestawu dostępności platformy Azure](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets) korzystającego z replikacji systemu Hana w celu zapewnienia dostępności. 
+W tym artykule opisano kilka scenariuszy dostępności w ramach jednego regionu świadczenia usługi Azure. Platforma Azure ma wiele regionów, rozmieszczonych na całym świecie. Aby zapoznać się z listą regionów świadczenia usługi Azure, zobacz [regiony platformy Azure](https://azure.microsoft.com/regions/). Do wdrażania SAP HANA na maszynach wirtualnych w ramach jednego regionu świadczenia usługi Azure firma Microsoft oferuje wdrożenie pojedynczej maszyny wirtualnej z wystąpieniem platformy HANA. Aby zwiększyć dostępność, można wdrożyć dwie maszyny wirtualne z dwoma wystąpieniami HANA w ramach [zestawu dostępności platformy Azure](../../windows/tutorial-availability-sets.md) korzystającego z replikacji systemu Hana w celu zapewnienia dostępności. 
 
-Obecnie platforma Azure oferuje [strefy dostępności platformy Azure](https://docs.microsoft.com/azure/availability-zones/az-overview). W tym artykule nie opisano szczegółowo Strefy dostępności. Obejmuje to również ogólną dyskusję na temat używania zestawów dostępności, a Strefy dostępności.
+Obecnie platforma Azure oferuje [strefy dostępności platformy Azure](../../../availability-zones/az-overview.md). W tym artykule nie opisano szczegółowo Strefy dostępności. Obejmuje to również ogólną dyskusję na temat używania zestawów dostępności, a Strefy dostępności.
 
 Regiony platformy Azure, w których Strefy dostępności są oferowane, mają wiele centrów danych. Centra danych są niezależne w dostawie źródła, chłodzenia i sieci elektrycznej. Powodem oferowania różnych stref w ramach jednego regionu świadczenia usługi Azure jest wdrożenie aplikacji na dwóch lub trzech oferowanych Strefy dostępności. Wdrożenie między strefami, problemy związane z obsługą i siecią wpływające na tylko jedną infrastrukturę strefy dostępności platformy Azure, wdrożenie aplikacji w regionie świadczenia usługi Azure jest nadal funkcjonalne. Może dojść do mniejszej pojemności. Na przykład maszyny wirtualne w jednej strefie mogą zostać utracone, ale maszyny wirtualne w pozostałych dwóch strefach nadal będą działać. 
  
-Zestaw dostępności platformy Azure to logiczna funkcja grupowania, która pomaga zapewnić, że zasoby maszyn wirtualnych znajdujące się w zestawie dostępności są odizolowane od siebie, gdy zostaną wdrożone w centrum danych platformy Azure. Maszyny wirtualne platformy Azure umieszczone w zestawie dostępności korzystają z wielu serwerów fizycznych, regałów obliczeniowych, jednostek magazynowych i przełączników sieciowych. W niektórych dokumentacji platformy Azure ta konfiguracja jest określana jako umieszczenie w różnych [domenach aktualizacji i błędów](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability). Te miejsca zwykle znajdują się w centrum danych platformy Azure. Przy założeniu, że problemy ze źródłem mocy i sieci wpłyną na wdrażane centrum danych, będzie to miało wpływ na wszystkie możliwości w jednym regionie świadczenia usługi Azure.
+Zestaw dostępności platformy Azure to logiczna funkcja grupowania, która pomaga zapewnić, że zasoby maszyn wirtualnych znajdujące się w zestawie dostępności są odizolowane od siebie, gdy zostaną wdrożone w centrum danych platformy Azure. Maszyny wirtualne platformy Azure umieszczone w zestawie dostępności korzystają z wielu serwerów fizycznych, regałów obliczeniowych, jednostek magazynowych i przełączników sieciowych. W niektórych dokumentacji platformy Azure ta konfiguracja jest określana jako umieszczenie w różnych [domenach aktualizacji i błędów](../../windows/manage-availability.md). Te miejsca zwykle znajdują się w centrum danych platformy Azure. Przy założeniu, że problemy ze źródłem mocy i sieci wpłyną na wdrażane centrum danych, będzie to miało wpływ na wszystkie możliwości w jednym regionie świadczenia usługi Azure.
 
 Rozmieszczenie centrów danych, które reprezentują Strefy dostępności platformy Azure, stanowi kompromis między zapewnieniem akceptowalnego opóźnienia sieci między usługami wdrożonymi w różnych strefach i odległości między centrami danych. Naturalny awarią idealnie nie wpływa na zasilanie, dostarczenie sieci i infrastrukturę dla wszystkich Strefy dostępności w tym regionie. Jednakże, podobnie jak ogromne Natural awarią, Strefy dostępności może nie zapewniać dostępności w obrębie jednego regionu. Pomyśl o huragan Maria, który trafił na wyspa Portoryko 20 września 2017. Huragan zasadniczo spowodowało niemal 100 procent niedostępności na wyspach o szerokości 90-milowej.
 
@@ -81,7 +82,7 @@ Architektura wygląda następująco:
 
 Ten Instalator nie jest dobrze dostosowany do osiągnięcia doskonałego celu punktu odzyskiwania (RPO) i celu czasu odzyskiwania (RTO). W szczególności RTO się z powodu konieczności pełnego przywrócenia kompletnej bazy danych przy użyciu skopiowanych kopii zapasowych. Ta konfiguracja jest jednak przydatna do odzyskiwania z niezamierzonych usunięć danych w głównych wystąpieniach. Za pomocą tej konfiguracji można w dowolnym momencie przywrócić do określonego punktu w czasie, wyodrębnić dane i zaimportować usunięte dane do wystąpienia głównego. W związku z tym warto używać metody kopiowania kopii zapasowych w połączeniu z innymi funkcjami wysokiej dostępności. 
 
-Podczas kopiowania kopii zapasowych może być możliwe użycie mniejszej maszyny wirtualnej niż główna maszyna wirtualna, na której działa wystąpienie SAP HANA. Pamiętaj, że możesz dołączyć mniejszą liczbę wirtualnych dysków twardych do mniejszych maszyn wirtualnych. Aby uzyskać informacje na temat limitów poszczególnych typów maszyn wirtualnych, zobacz [rozmiary maszyn wirtualnych z systemem Linux na platformie Azure](https://docs.microsoft.com/azure/virtual-machines/linux/sizes).
+Podczas kopiowania kopii zapasowych może być możliwe użycie mniejszej maszyny wirtualnej niż główna maszyna wirtualna, na której działa wystąpienie SAP HANA. Pamiętaj, że możesz dołączyć mniejszą liczbę wirtualnych dysków twardych do mniejszych maszyn wirtualnych. Aby uzyskać informacje na temat limitów poszczególnych typów maszyn wirtualnych, zobacz [rozmiary maszyn wirtualnych z systemem Linux na platformie Azure](../../linux/sizes.md).
 
 ### <a name="sap-hana-system-replication-without-automatic-failover"></a>Replikacja systemu SAP HANA bez automatycznej pracy awaryjnej
 
@@ -107,7 +108,7 @@ W tym scenariuszu dane, które są replikowane do wystąpienia HANA w drugiej ma
 
 ### <a name="sap-hana-system-replication-with-automatic-failover"></a>Replikacja systemu SAP HANA z automatycznym trybem failover
 
-W przypadku standardowej i najbardziej typowej konfiguracji dostępności w ramach jednego regionu świadczenia usługi Azure na dwóch maszynach wirtualnych platformy Azure z systemem SLES Linux jest zdefiniowany klaster trybu failover. Klaster SLES Linux jest oparty na platformie [Pacemaker](/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker) , w połączeniu z urządzeniem [STONITH](/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker#create-azure-fence-agent-stonith-device) . 
+W przypadku standardowej i najbardziej typowej konfiguracji dostępności w ramach jednego regionu świadczenia usługi Azure na dwóch maszynach wirtualnych platformy Azure z systemem SLES Linux jest zdefiniowany klaster trybu failover. Klaster SLES Linux jest oparty na platformie [Pacemaker](./high-availability-guide-suse-pacemaker.md) , w połączeniu z urządzeniem [STONITH](./high-availability-guide-suse-pacemaker.md#create-azure-fence-agent-stonith-device) . 
 
 Z perspektywy SAP HANA jest synchronizowany używany tryb replikacji i zostanie skonfigurowana automatyczna praca awaryjna. Na drugiej maszynie wirtualnej wystąpienie SAP HANA działa jako węzeł rezerwy aktywnej. Węzeł gotowości odbiera synchroniczny strumień rekordów zmian z wystąpienia podstawowego SAP HANA. W miarę jak transakcje są zatwierdzane przez aplikację w węźle podstawowym HANA, podstawowy węzeł HANA oczekuje na potwierdzenie zatwierdzenia aplikacji do momentu potwierdzenia przez węzeł pomocniczy SAP HANA, że otrzymał rekord zatwierdzania. SAP HANA oferuje dwa tryby replikacji synchronicznej. Aby uzyskać szczegółowe informacje i opis różnic między tymi dwoma trybami replikacji synchronicznej, zapoznaj się z tematem [tryby replikacji artykułu SAP na potrzeby replikacji systemu SAP HANA](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.02/en-US/c039a1a5b8824ecfa754b55e0caffc01.html).
 
@@ -126,5 +127,4 @@ Aby uzyskać wskazówki krok po kroku dotyczące konfigurowania tych konfiguracj
 
 Aby uzyskać więcej informacji na temat dostępności SAP HANA w regionach platformy Azure, zobacz:
 
-- [Dostępność SAP HANA w różnych regionach świadczenia usługi Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-availability-across-regions) 
-
+- [Dostępność SAP HANA w różnych regionach świadczenia usługi Azure](./sap-hana-availability-across-regions.md) 

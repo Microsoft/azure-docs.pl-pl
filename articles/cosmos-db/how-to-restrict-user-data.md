@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 12/9/2019
 ms.author: tvoellm
-ms.openlocfilehash: 88899dc697839b16c2b0cd24ac9233f87da26b41
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 16452337eeda86a9b019897954179bfe6db6e1b2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85261226"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87031996"
 ---
 # <a name="restrict-user-access-to-data-operations-only"></a>Ograniczanie dostępu użytkowników tylko do operacji na danych
 
@@ -51,7 +51,7 @@ Select-AzSubscription $MySubscriptionId
 
 ## <a name="create-the-custom-azure-active-directory-role"></a>Utwórz niestandardową rolę Azure Active Directory
 
-Poniższy skrypt tworzy przypisanie roli Azure Active Directory z dostępem "klucz Only" dla kont usługi Azure Cosmos. Rola jest oparta na [rolach niestandardowych dla zasobów platformy Azure](../role-based-access-control/custom-roles.md) i [szczegółowych akcjach dla Azure Cosmos DB](../role-based-access-control/resource-provider-operations.md#microsoftdocumentdb). Te role i akcje są częścią `Microsoft.DocumentDB` przestrzeni nazw Azure Active Directory.
+Poniższy skrypt tworzy przypisanie roli Azure Active Directory z dostępem "klucz Only" dla kont usługi Azure Cosmos. Rola jest oparta na [rolach niestandardowych platformy Azure](../role-based-access-control/custom-roles.md) i [szczegółowych akcjach dla Azure Cosmos DB](../role-based-access-control/resource-provider-operations.md#microsoftdocumentdb). Te role i akcje są częścią `Microsoft.DocumentDB` przestrzeni nazw Azure Active Directory.
 
 1. Najpierw Utwórz dokument JSON o nazwie `AzureCosmosKeyOnlyAccess.json` z następującą zawartością:
 

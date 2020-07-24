@@ -14,14 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/21/2020
 ms.author: yelevin
-ms.openlocfilehash: 121c9258353505b6147aa059d327bc711e9fede4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cf8da1d88529a823ff4399fb955c8a5e0abbd20e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85368446"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87038243"
 ---
 # <a name="connect-your-alcide-kaudit-to-azure-sentinel"></a>Połącz swoje Alcide kAudit z platformą Azure — wskaźnikiem
+
+> [!IMPORTANT]
+> Łącznik danych Alcide kAudit w usłudze Azure Wskaźnikowanie jest obecnie w publicznej wersji zapoznawczej.
+> Ta funkcja jest dostępna bez umowy dotyczącej poziomu usług i nie jest zalecana w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 [Alcide kAudit](https://www.alcide.io/kaudit-K8s-forensics/) pomaga identyfikować nietypowe zachowania Kubernetes i skupiać się na Kubernetes naruszeniach i zdarzeniach przy skróceniu czasu wykrywania. W tym artykule wyjaśniono, jak połączyć rozwiązanie Alcide kAudit z platformą Azure. Łącznik danych Alcide kAudit umożliwia łatwe przekazanie danych dziennika kAudit do usługi Azure wskaźnikowej, aby można było wyświetlać ją w skoroszytach, używać jej do tworzenia niestandardowych alertów i uwzględniania ich w celu usprawnienia badania. Integracja między programem Alcide kAudit i platformą Azure wskaźnikiem wykorzystuje interfejs API REST.
 

@@ -14,14 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/21/2020
 ms.author: yelevin
-ms.openlocfilehash: 964bab2b81f6ce69e77fd69cab55f6d1894e4edb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c57f4a49ac89f1347fc88f8bacddce3abab7e44e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85368450"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87038226"
 ---
 # <a name="connect-ai-vectra-detect-to-azure-sentinel"></a>Połącz wykrywanie Vectra AI z platformą Azure — wskaźnik
+
+> [!IMPORTANT]
+> Łącznik danych Vectra wykrywania systemu AI na platformie Azure jest obecnie w publicznej wersji zapoznawczej.
+> Ta funkcja jest dostępna bez umowy dotyczącej poziomu usług i nie jest zalecana w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 W tym artykule wyjaśniono, jak połączyć urządzenie z [wykrywaniem AI Vectra](https://www.vectra.ai/product/cognito-detect) z platformą Azure. Łącznik danych Vectra wykrywania AI umożliwia łatwe przełączenie danych AI Vectra do systemu Azure, aby można było wyświetlać je w skoroszytach, używać go do tworzenia alertów niestandardowych i dołączać je do usprawnienia badania.
 

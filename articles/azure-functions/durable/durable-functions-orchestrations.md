@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: overview
 ms.date: 09/08/2019
 ms.author: azfuncdf
-ms.openlocfilehash: caa62483373a240991cfec96437cea7849d9b19c
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 1b349b1e3c4a2fac4cd260dbe83469a776951ab0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84697830"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87033646"
 ---
 # <a name="durable-orchestrations"></a>Nietrwałe aranżacje
 
@@ -41,9 +41,9 @@ Identyfikator wystąpienia aranżacji jest wymaganym parametrem dla większości
 
 ## <a name="reliability"></a>Niezawodność
 
-Program Orchestrator działa niezawodnie utrzymują swój stan wykonywania przy użyciu wzorca projektowego [pozyskiwania zdarzeń](https://docs.microsoft.com/azure/architecture/patterns/event-sourcing) . Zamiast bezpośredniego przechowywania bieżącego stanu aranżacji, trwała platforma zadań korzysta ze sklepu tylko do dołączania, aby zarejestrować pełną serię akcji podejmowanych przez aranżację funkcji. Magazyn tylko do dołączania ma wiele korzyści w porównaniu do "zatopienia" całego stanu środowiska uruchomieniowego. Korzyści obejmują zwiększoną wydajność, skalowalność i elastyczność. Istnieje również możliwość zapewnienia spójności ostatecznej danych transakcyjnych oraz pełnych i historycznych historii inspekcji. Dzienniki inspekcji obsługują niezawodne akcje kompensowania.
+Program Orchestrator działa niezawodnie utrzymują swój stan wykonywania przy użyciu wzorca projektowego [pozyskiwania zdarzeń](/azure/architecture/patterns/event-sourcing) . Zamiast bezpośredniego przechowywania bieżącego stanu aranżacji, trwała platforma zadań korzysta ze sklepu tylko do dołączania, aby zarejestrować pełną serię akcji podejmowanych przez aranżację funkcji. Magazyn tylko do dołączania ma wiele korzyści w porównaniu do "zatopienia" całego stanu środowiska uruchomieniowego. Korzyści obejmują zwiększoną wydajność, skalowalność i elastyczność. Istnieje również możliwość zapewnienia spójności ostatecznej danych transakcyjnych oraz pełnych i historycznych historii inspekcji. Dzienniki inspekcji obsługują niezawodne akcje kompensowania.
 
-Durable Functions używa źródeł zdarzeń w sposób przezroczysty. `await`W tle operator (C#) lub `yield` (JavaScript) w funkcji programu Orchestrator zapewnia kontrolę nad wątkiem programu Orchestrator z powrotem do dyspozytora trwałych struktur zadań. Następnie Dyspozytor zatwierdza wszelkie nowe akcje zaplanowane przez funkcję programu Orchestrator (takie jak wywołanie co najmniej jednej funkcji podrzędnej lub planowanie trwałego czasomierza) do magazynu. Nieprzezroczysta akcja zatwierdzania dołącza do historii wykonywania wystąpienia aranżacji. Historia jest przechowywana w tabeli magazynu. Akcja Zatwierdź powoduje dodanie komunikatów do kolejki w celu zaplanowania rzeczywistej pracy. W tym momencie funkcja programu Orchestrator może zostać zwolniona z pamięci.
+Durable Functions używa źródeł zdarzeń w sposób przezroczysty. `await`W tle operator (C#) lub `yield` (JavaScript/Python) w funkcji Orchestrator zapewnia kontrolę nad wątkiem programu Orchestrator z powrotem do dyspozytora trwałych struktur zadań. Następnie Dyspozytor zatwierdza wszelkie nowe akcje zaplanowane przez funkcję programu Orchestrator (takie jak wywołanie co najmniej jednej funkcji podrzędnej lub planowanie trwałego czasomierza) do magazynu. Nieprzezroczysta akcja zatwierdzania dołącza do historii wykonywania wystąpienia aranżacji. Historia jest przechowywana w tabeli magazynu. Akcja Zatwierdź powoduje dodanie komunikatów do kolejki w celu zaplanowania rzeczywistej pracy. W tym momencie funkcja programu Orchestrator może zostać zwolniona z pamięci.
 
 Gdy funkcja aranżacji ma więcej pracy do wykonania (na przykład komunikat odpowiedzi jest odbierany lub trwały czasomierz wygasa), program Orchestrator wznawia działanie i ponownie wykonuje całą funkcję od początku, aby skompilować stan lokalny. W trakcie powtarzania, jeśli kod próbuje wywołać funkcję (lub wykonać inną zadani asynchroniczne), w środowisku trwałym można sprawdzić historię wykonywania bieżącej aranżacji. Jeśli okaże się, że [Funkcja działania](durable-functions-types-features-overview.md#activity-functions) została już wykonana i wygeneruje wynik, odtwarza wynik tej funkcji, a kod programu Orchestrator nadal działa. Odtwarzanie powtarza się do momentu zakończenia kodu funkcji lub do momentu zaplanowania nowej pracy asynchronicznej.
 
@@ -91,9 +91,23 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
+# <a name="python"></a>[Python](#tab/python)
+
+```python
+import azure.functions as func
+import azure.durable_functions as df
+
+def orchestrator_function(context: df.DurableOrchestrationContext):
+    result1 = yield context.call_activity('SayHello', "Tokyo")
+    result2 = yield context.call_activity('SayHello', "Seattle")
+    result3 = yield context.call_activity('SayHello', "London")
+    return [result1, result2, result3]
+
+main = df.Orchestrator.create(orchestrator_function)
+```
 ---
 
-W każdej `await` instrukcji (C#) lub `yield` (JavaScript), trwała struktura zadań określa stan wykonywania funkcji w niektórych trwałych zapleczach magazynu (zazwyczaj jest to usługa Azure Table Storage). Ten stan jest określany mianem *historii aranżacji*.
+W każdej `await` instrukcji (C#) lub `yield` (JavaScript/Python), trwała struktura zadań określa stan wykonywania funkcji w niektórych trwałych zapleczach magazynu (zwykle w usłudze Azure Table Storage). Ten stan jest określany mianem *historii aranżacji*.
 
 ### <a name="history-table"></a>Tabela historii
 
@@ -110,7 +124,7 @@ Po zakończeniu punktu kontrolnego funkcja programu Orchestrator jest bezpłatna
 
 Po zakończeniu historia funkcji pokazanej wcześniej wygląda podobnie do poniższej tabeli na platformie Azure Table Storage (skrócony dla celów ilustracyjnych):
 
-| PartitionKey (identyfikator wystąpienia)                     | Typ zdarzenia             | Znacznik czasu               | Dane wejściowe | Nazwa             | Wynik                                                    | Stan |
+| PartitionKey (identyfikator wystąpienia)                     | Typ zdarzenia             | Timestamp               | Dane wejściowe | Nazwa             | Wynik                                                    | Stan |
 |----------------------------------|-----------------------|----------|--------------------------|-------|------------------|-----------------------------------------------------------|
 | eaee885b | ExecutionStarted      | 2017-05-05T18:45:28.852 Z | wartość null  | E1_HelloSequence |                                                           |                     |
 | eaee885b | OrchestratorStarted   | 2017-05-05T18:45:32.362 Z |       |                  |                                                           |                     |
@@ -133,7 +147,7 @@ Kilka informacji o wartościach kolumn:
 
 * **PartitionKey**: zawiera identyfikator wystąpienia aranżacji.
 * **EventType**: reprezentuje typ zdarzenia. Może być jednym z następujących typów:
-  * **OrchestrationStarted**: funkcja programu Orchestrator została wznowiona z oczekiwania lub jest uruchomiona po raz pierwszy. `Timestamp`Kolumna służy do wypełniania wartości deterministycznych dla `CurrentUtcDateTime` interfejsów API (.NET) i `currentUtcDateTime` (JavaScript).
+  * **OrchestrationStarted**: funkcja programu Orchestrator została wznowiona z oczekiwania lub jest uruchomiona po raz pierwszy. `Timestamp`Kolumna służy do wypełniania wartości deterministycznych dla `CurrentUtcDateTime` interfejsów API (.NET), `currentUtcDateTime` (JavaScript) i `current_utc_datetime` (Python).
   * **ExecutionStarted**: funkcja programu Orchestrator rozpoczęła wykonywanie po raz pierwszy. To zdarzenie zawiera również dane wejściowe funkcji w `Input` kolumnie.
   * **TaskScheduled**: zaplanowano funkcję działania. Nazwa funkcji działania jest przechwytywana w `Name` kolumnie.
   * **TaskCompleted**: funkcja działania została ukończona. Wynik funkcji znajduje się w `Result` kolumnie.
@@ -151,7 +165,7 @@ Kilka informacji o wartościach kolumn:
 > [!WARNING]
 > Chociaż jest to narzędzie do debugowania, nie należy podejmować żadnych zależności od tej tabeli. Może ulec zmianie w miarę rozwoju rozszerzenia Durable Functions.
 
-Za każdym razem, gdy funkcja wznawia działanie z `await` (C#) lub `yield` (JavaScript), trwała struktura zadań ponownie uruchamia funkcję programu Orchestrator od podstaw. Na każdym ponownym uruchomieniu zapoznaj się z historią wykonywania w celu ustalenia, czy bieżąca operacja asynchroniczna została wykonana.  Jeśli operacja miała miejsce, struktura odtwarza dane wyjściowe tej operacji natychmiast i przechodzi do następnego `await` (C#) lub `yield` (JavaScript). Ten proces jest kontynuowany do momentu odtworzenia całej historii. Po odinstalowaniu bieżącej historii zmienne lokalne zostaną przywrócone do poprzednich wartości.
+Za każdym razem, gdy funkcja wznawia działanie z `await` (C#) lub `yield` (JavaScript/Python), trwała struktura zadań ponownie uruchamia funkcję programu Orchestrator od podstaw. Na każdym ponownym uruchomieniu zapoznaj się z historią wykonywania w celu ustalenia, czy bieżąca operacja asynchroniczna została wykonana.  Jeśli operacja miała miejsce, struktura odtwarza dane wyjściowe tej operacji natychmiast i przechodzi do następnego `await` (C#) lub `yield` (JavaScript/Python). Ten proces jest kontynuowany do momentu odtworzenia całej historii. Po odinstalowaniu bieżącej historii zmienne lokalne zostaną przywrócone do poprzednich wartości.
 
 ## <a name="features-and-patterns"></a>Funkcje i wzorce
 
@@ -165,7 +179,7 @@ Aby uzyskać więcej informacji i zapoznać się z przykładami, zobacz artykuł
 
 ### <a name="durable-timers"></a>Trwałe czasomierze
 
-Aranżacje mogą zaplanować *trwałe czasomierze* w celu zaimplementowania opóźnień lub skonfigurować obsługę limitu czasu dla akcji asynchronicznych. Używaj trwałych czasomierzy w funkcjach programu Orchestrator, a nie `Thread.Sleep` `Task.Delay` (C#) lub `setTimeout()` i `setInterval()` (JavaScript).
+Aranżacje mogą zaplanować *trwałe czasomierze* w celu zaimplementowania opóźnień lub skonfigurować obsługę limitu czasu dla akcji asynchronicznych. Używaj trwałych czasomierzy w funkcjach programu Orchestrator, a nie `Thread.Sleep` `Task.Delay` (C#), lub `setTimeout()` `setInterval()` (JavaScript) lub `time.sleep()` (Python).
 
 Aby uzyskać więcej informacji i zapoznać się z przykładami, zobacz artykuł dotyczący [trwałych czasomierzy](durable-functions-timers.md) .
 
@@ -252,6 +266,18 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
+# <a name="python"></a>[Python](#tab/python)
+
+```python
+import azure.functions as func
+import azure.durable_functions as df
+
+def orchestrator_function(context: df.DurableOrchestrationContext):
+    url = context.get_input()
+    res = yield context.call_http('GET', url)
+    if res.status_code >= 400:
+        # handing of error code goes here
+```
 ---
 
 Oprócz obsługi podstawowych wzorców żądania/odpowiedzi Metoda obsługuje automatyczną obsługę typowych wzorców sondowania asynchronicznych HTTP 202, a także obsługuje uwierzytelnianie z usługami zewnętrznymi przy użyciu [tożsamości zarządzanych](../../active-directory/managed-identities-azure-resources/overview.md).
@@ -267,7 +293,7 @@ Nie jest możliwe bezpośrednie przekazywanie wielu parametrów do funkcji dzia�
 
 # <a name="c"></a>[C#](#tab/csharp)
 
-W programie .NET można także używać obiektów [ValueTuples](https://docs.microsoft.com/dotnet/csharp/tuples) . Poniższy przykład korzysta z nowych funkcji [ValueTuples](https://docs.microsoft.com/dotnet/csharp/tuples) dodanych w [języku C# 7](https://docs.microsoft.com/dotnet/csharp/whats-new/csharp-7#tuples):
+W programie .NET można także używać obiektów [ValueTuples](/dotnet/csharp/tuples) . Poniższy przykład korzysta z nowych funkcji [ValueTuples](/dotnet/csharp/tuples) dodanych w [języku C# 7](/dotnet/csharp/whats-new/csharp-7#tuples):
 
 ```csharp
 [FunctionName("GetCourseRecommendations")]
@@ -322,7 +348,7 @@ module.exports = df.orchestrator(function*(context) {
 };
 ```
 
-#### <a name="activity"></a>Działanie
+#### <a name="getweather-activity"></a>`GetWeather`Interakcyjn
 
 ```javascript
 module.exports = async function (context, location) {
@@ -330,6 +356,36 @@ module.exports = async function (context, location) {
 
     // ...
 };
+```
+
+# <a name="python"></a>[Python](#tab/python)
+
+#### <a name="orchestrator"></a>Orchestrator
+
+```python
+from collections import namedtuple
+import azure.functions as func
+import azure.durable_functions as df
+
+def orchestrator_function(context: df.DurableOrchestrationContext):
+    Location = namedtuple('Location', ['city', 'state'])
+    location = Location(city='Seattle', state= 'WA')
+
+    weather = yield context.call_activity("GetWeather", location)
+
+    # ...
+
+```
+#### <a name="getweather-activity"></a>`GetWeather`Interakcyjn
+
+```python
+from collections import namedtuple
+
+Location = namedtuple('Location', ['city', 'state'])
+
+def main(location: Location) -> str:
+    city, state = location
+    return f"Hello {city}, {state}!"
 ```
 
 ---

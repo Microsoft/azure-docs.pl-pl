@@ -3,7 +3,7 @@ title: Co to są przeglądy dostępu? — Azure Active Directory | Microsoft Doc
 description: Za pomocą Azure Active Directory przeglądy dostępu można kontrolować członkostwo w grupach i dostęp do aplikacji, aby zaspokoić inicjatywy dotyczące zarządzania, ryzyka i zgodności w organizacji.
 services: active-directory
 documentationcenter: ''
-author: msaburnley
+author: barclayn
 manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.subservice: compliance
-ms.date: 06/17/2020
-ms.author: ajburnle
+ms.date: 07/22/2020
+ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 22a7cafbf8223c3d9e7641851d02f61bc2ad16ae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ec88d795d0e05c62f07ff415364ced651ad8f4bc
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85078899"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87034616"
 ---
 # <a name="what-are-azure-ad-access-reviews"></a>Co to są przeglądy dostępu w usłudze Azure AD?
 
@@ -58,8 +58,8 @@ W zależności od tego, co chcesz przejrzeć, możesz utworzyć przegląd dostę
 | --- | --- | --- | --- |
 | Członkowie grupy zabezpieczeń</br>Członkowie grupy pakietu Office | Określeni recenzenci</br>Właściciele grupy</br>Samoobsługowe przeglądanie | Przeglądy dostępu w usłudze Azure AD</br>Grupy usługi Azure AD | Panel dostępu |
 | Przypisane do połączonej aplikacji | Określeni recenzenci</br>Samoobsługowe przeglądanie | Przeglądy dostępu w usłudze Azure AD</br>Aplikacje dla przedsiębiorstw usługi Azure AD (w wersji zapoznawczej) | Panel dostępu |
-| Rola usługi Azure AD | Określeni recenzenci</br>Samoobsługowe przeglądanie | [Usługa Azure AD PIM](../privileged-identity-management/pim-how-to-start-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) | Azure Portal |
-| Rola zasobów platformy Azure | Określeni recenzenci</br>Samoobsługowe przeglądanie | [Usługa Azure AD PIM](../privileged-identity-management/pim-resource-roles-start-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) | Azure Portal |
+| Rola usługi Azure AD | Określeni recenzenci</br>Samoobsługowe przeglądanie | [Usługa Azure AD PIM](../privileged-identity-management/pim-how-to-start-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) | Witryna Azure Portal |
+| Rola zasobów platformy Azure | Określeni recenzenci</br>Samoobsługowe przeglądanie | [Usługa Azure AD PIM](../privileged-identity-management/pim-resource-roles-start-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) | Witryna Azure Portal |
 
 
 ## <a name="create-access-reviews"></a>Tworzenie przeglądów dostępu

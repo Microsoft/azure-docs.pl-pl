@@ -5,11 +5,12 @@ author: tfitzmac
 ms.topic: conceptual
 ms.date: 06/28/2018
 ms.author: tomfitz
-ms.openlocfilehash: 53c9653b44a6c9d26d49d37b351cf6000676e2d4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 711f5293b205c1f500c6d9e08154342285ef959b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75651971"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87033216"
 ---
 # <a name="microsoftnetworkvirtualnetworkcombo-ui-element"></a>Element interfejsu użytkownika Microsoft. Network. VirtualNetworkCombo
 
@@ -19,11 +20,11 @@ Grupa kontrolek służąca do wybierania nowej lub istniejącej sieci wirtualnej
 
 Gdy użytkownik wybiera nową sieć wirtualną, użytkownik może dostosować nazwę i prefiks adresu każdej podsieci. Konfigurowanie podsieci jest opcjonalne.
 
-![Microsoft. Network. VirtualNetworkCombo New](./media/managed-application-elements/microsoft.network.virtualnetworkcombo-new.png)
+![Microsoft. Network. VirtualNetworkCombo New](./media/managed-application-elements/microsoft-network-virtualnetworkcombo-new.png)
 
 Gdy użytkownik wybiera istniejącą sieć wirtualną, użytkownik musi zmapować każdą podsieć, której wymaga szablon wdrożenia, do istniejącej podsieci. Konfigurowanie podsieci w tym przypadku jest wymagane.
 
-![Istniejąca firma Microsoft. Network. VirtualNetworkCombo](./media/managed-application-elements/microsoft.network.virtualnetworkcombo-existing.png)
+![Istniejąca firma Microsoft. Network. VirtualNetworkCombo](./media/managed-application-elements/microsoft-network-virtualnetworkcombo-existing.png)
 
 ## <a name="schema"></a>Schemat
 

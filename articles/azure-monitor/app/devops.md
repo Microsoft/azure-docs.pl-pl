@@ -3,11 +3,12 @@ title: Monitorowanie wydajności aplikacji sieci Web — Application Insights pl
 description: Jak Application Insights pasuje do cyklu devOps
 ms.topic: conceptual
 ms.date: 12/21/2018
-ms.openlocfilehash: 24095aade80022d1e1ebb38357971512bfc873c0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fa62e8840c14e87d24db029d6bb7a215124a0511
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77669696"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87033686"
 ---
 # <a name="deep-diagnostics-for-web-apps-and-services-with-application-insights"></a>Szczegółowa diagnostyka dla aplikacji internetowych i usług dzięki usłudze Application Insights
 ## <a name="why-do-i-need-application-insights"></a>Dlaczego potrzebuję Application Insights?
@@ -109,7 +110,7 @@ Mapa aplikacji automatycznie odnajduje topologię aplikacji, na podstawie jej in
 ![Mapa aplikacji](./media/devops/0050.png)
 
 ## <a name="application-insights-analytics"></a>Analiza Application Insights
-Dzięki [analizie](../../azure-monitor/app/analytics.md)można pisać dowolne zapytania w zaawansowanym języku podobnym do bazy danych SQL.  Diagnozowanie całego stosu aplikacji jest proste, ponieważ różne perspektywy są połączone i można zadać odpowiednie pytania, aby skorelować wydajność usługi z użyciem metryk firmy i środowiska klienta. 
+Dzięki [analizie](../log-query/log-query-overview.md)można pisać dowolne zapytania w zaawansowanym języku podobnym do bazy danych SQL.  Diagnozowanie całego stosu aplikacji jest proste, ponieważ różne perspektywy są połączone i można zadać odpowiednie pytania, aby skorelować wydajność usługi z użyciem metryk firmy i środowiska klienta. 
 
 Możesz wykonywać zapytania dotyczące wszystkich wystąpień telemetrii i danych nieprzetworzonych metryk przechowywanych w portalu. Język zawiera filtrowanie, łączenie, agregację i inne operacje. Można obliczyć pola i przeprowadzać analizę statystyczną. Istnieją zarówno wizualizacje tabelaryczne, jak i graficzne.
 
@@ -159,4 +160,3 @@ Wprowadzenie do Application Insights jest proste. Główne opcje są następują
 * [Serwery IIS](../../azure-monitor/app/monitor-performance-live-website-now.md), a także dla [Azure App Service](../../azure-monitor/app/app-insights-overview.md).
 * Instrumentacja projektu podczas opracowywania. Można to zrobić dla aplikacji [ASP.NET](../../azure-monitor/app/asp-net.md) lub [Java](../../azure-monitor/app/java-get-started.md) , a także [Node.js](../../azure-monitor/app/nodejs.md) i hosta [innych typów](../../azure-monitor/app/platforms.md). 
 * Instrumentacja [dowolnej strony sieci Web](../../azure-monitor/app/javascript.md) przez dodanie krótkiego fragmentu kodu.
-

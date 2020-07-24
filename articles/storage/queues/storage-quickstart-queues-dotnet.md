@@ -7,12 +7,12 @@ ms.date: 11/22/2019
 ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
-ms.openlocfilehash: c69aa91596ff203445aa4fa3ccd59001ffe16649
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 69e2c118ec298ebddf16d428ea2278de42e91309
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78197491"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87036696"
 ---
 # <a name="quickstart-azure-queue-storage-client-library-v12-for-net"></a>Szybki Start: V12 biblioteki klienta usługi Azure queue storage dla platformy .NET
 
@@ -31,7 +31,12 @@ Użyj biblioteki klienta usługi Azure queue storage V12 dla platformy .NET, aby
 * Usuwanie komunikatów z kolejki
 * Usuwanie kolejki
 
-[API reference documentation](/dotnet/api/azure.storage.queues) | [Przykłady](https://docs.microsoft.com/azure/storage/common/storage-samples-dotnet?toc=%2fazure%2fstorage%2fqueues%2ftoc.json#queue-samples) pakietu[Code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues) | Source[(NuGet)](https://www.nuget.org/packages/Azure.Storage.Queues/12.0.0) | biblioteki dokumentacji interfejsu API
+Dodatkowe zasoby:
+
+* [Dokumentacja referencyjna interfejsu API](/dotnet/api/azure.storage.queues)
+* [Kod źródłowy biblioteki](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues)
+* [Pakiet (NuGet)](https://www.nuget.org/packages/Azure.Storage.Queues/12.0.0)
+* [Samples](https://docs.microsoft.com/azure/storage/common/storage-samples-dotnet?toc=%2fazure%2fstorage%2fqueues%2ftoc.json#queue-samples)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -74,7 +79,7 @@ Z katalogu projektu:
 1. Otwórz plik *program.cs* w edytorze
 1. Usuń `Console.WriteLine("Hello World!");` instrukcję
 1. Dodaj `using` dyrektywy
-1. Aktualizowanie deklaracji `Main` metody do [obsługi kodu asynchronicznego](https://docs.microsoft.com/dotnet/csharp/whats-new/csharp-7-1#async-main)
+1. Aktualizowanie `Main` deklaracji metody do [obsługi kodu asynchronicznego](https://docs.microsoft.com/dotnet/csharp/whats-new/csharp-7-1#async-main)
 
 
 
@@ -194,7 +199,7 @@ SendReceipt receipt = await queueClient.SendMessageAsync("Third message");
 
 ### <a name="peek-at-messages-in-a-queue"></a>Wgląd w wiadomości w kolejce
 
-Wgląd w wiadomości w kolejce przez wywołanie metody [PeekMessagesAsync](/dotnet/api/azure.storage.queues.queueclient.peekmessagesasync) . `PeekMessagesAsync` Metoda pobiera co najmniej jeden komunikat z przodu kolejki, ale nie zmienia widoczności komunikatu.
+Wgląd w wiadomości w kolejce przez wywołanie metody [PeekMessagesAsync](/dotnet/api/azure.storage.queues.queueclient.peekmessagesasync) . `PeekMessagesAsync`Metoda pobiera co najmniej jeden komunikat z przodu kolejki, ale nie zmienia widoczności komunikatu.
 
 Dodaj ten kod na końcu `Main` metody:
 
@@ -213,7 +218,7 @@ foreach (PeekedMessage peekedMessage in peekedMessages)
 
 ### <a name="update-a-message-in-a-queue"></a>Aktualizowanie komunikatu w kolejce
 
-Zaktualizuj zawartość komunikatu, wywołując metodę [UpdateMessageAsync](/dotnet/api/azure.storage.queues.queueclient.updatemessageasync) . `UpdateMessageAsync` Metoda może zmienić limit czasu i treść wiadomości. Zawartość komunikatu musi być ciągiem zakodowanym w formacie UTF-8, który ma rozmiar do 64 KB. Wraz z nową zawartością wiadomości przekaż wartości z, `SendReceipt` które zostały zapisane wcześniej w kodzie. `SendReceipt` Wartości identyfikują, którą wiadomość należy zaktualizować.
+Zaktualizuj zawartość komunikatu, wywołując metodę [UpdateMessageAsync](/dotnet/api/azure.storage.queues.queueclient.updatemessageasync) . `UpdateMessageAsync`Metoda może zmienić limit czasu i treść wiadomości. Zawartość komunikatu musi być ciągiem zakodowanym w formacie UTF-8, który ma rozmiar do 64 KB. Wraz z nową zawartością wiadomości przekaż wartości z, `SendReceipt` które zostały zapisane wcześniej w kodzie. `SendReceipt`Wartości identyfikują, którą wiadomość należy zaktualizować.
 
 ```csharp
 Console.WriteLine("\nUpdating the third message in the queue...");
@@ -239,7 +244,7 @@ QueueMessage[] messages = await queueClient.ReceiveMessagesAsync(maxMessages: 10
 
 Usuń komunikaty z kolejki po ich przetworzeniu. W takim przypadku przetwarzanie właśnie wyświetla komunikat w konsoli programu.
 
-Aplikacja wstrzymuje się do wprowadzania danych przez użytkownika `Console.ReadLine` , wywołując przed przetworzeniem i usunięciem komunikatów. Przed usunięciem [Azure Portal](https://portal.azure.com) Sprawdź, czy zasoby zostały utworzone prawidłowo. Wszystkie komunikaty, które nie zostały jawnie usunięte, zostaną ostatecznie wyświetlone w kolejce w celu przetworzenia ich przez inną szansę.
+Aplikacja wstrzymuje się do wprowadzania danych przez użytkownika, wywołując przed przetworzeniem `Console.ReadLine` i usunięciem komunikatów. Przed usunięciem [Azure Portal](https://portal.azure.com) Sprawdź, czy zasoby zostały utworzone prawidłowo. Wszystkie komunikaty, które nie zostały jawnie usunięte, zostaną ostatecznie wyświetlone w kolejce w celu przetworzenia ich przez inną szansę.
 
 Dodaj ten kod na końcu `Main` metody:
 

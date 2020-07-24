@@ -11,19 +11,19 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 07/08/2020
 ms.custom: seodec18, tracking-python
-ms.openlocfilehash: d6b1d5c66c1dd15fa12638dd451d1ce2fa8fa79f
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 194864d223d908cc2d8b1d7f14efe81e16bbd058
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86146721"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87031511"
 ---
 # <a name="connect-to-azure-storage-services"></a>Nawiązywanie połączenia z usługami Azure Storage
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 W tym artykule dowiesz się, jak **nawiązać połączenie z usługami Azure Storage za pośrednictwem Azure Machine Learning magazynów danych**. Magazyny danych przechowują informacje o połączeniu, takie jak identyfikator subskrypcji i autoryzacja tokenu w [Key Vault](https://azure.microsoft.com/services/key-vault/) skojarzonych z obszarem roboczym, dzięki czemu można bezpiecznie uzyskać dostęp do magazynu bez konieczności nawiązywania ich w skryptach. 
 
-**W przypadku nieobsługiwanych rozwiązań magazynu**i oszczędności związanych z ruchem wychodzącym w trakcie eksperymentów w ml [Przenieś dane](#move) do obsługiwanych rozwiązań usługi Azure Storage.  Magazyny danych można tworzyć na podstawie [tych rozwiązań usługi Azure Storage](#matrix). 
+**W przypadku nieobsługiwanych rozwiązań magazynu**i zapisania kosztu ruchu wychodzącego w trakcie eksperymentów z systemem Azure należy [przenieść dane](#move) do obsługiwanego rozwiązania magazynu na potrzeby magazynowania.  Magazyny danych można tworzyć na podstawie [tych rozwiązań usługi Azure Storage](#matrix). 
 
 Aby zrozumieć, w jaki sposób magazyn danych mieści się w przepływie pracy ogólnego dostępu do danych Azure Machine Learning, zobacz artykuł dotyczący [bezpiecznego dostępu do danych](concept-data.md#data-workflow) .
 
@@ -92,8 +92,9 @@ Po utworzeniu magazynu danych sprawdzanie poprawności jest wykonywane tylko w p
 ### <a name="python-sdk"></a>Zestaw SDK dla języka Python
 
 Wszystkie metody rejestrowania znajdują się w [`Datastore`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py) klasie i mają postać `register_azure_*` .
+
 > [!IMPORTANT]
-> Jeśli planujesz utworzenie magazynu danych dla kont magazynu, które znajdują się w sieci wirtualnej, zobacz sekcję dostęp do danych w sieci wirtualnej.
+> Jeśli planujesz utworzenie magazynu danych dla kont magazynu, które znajdują się w sieci wirtualnej, zobacz sekcję [dostęp do danych w sieci wirtualnej](#access-data-in-a-virtual-network) .
 
 Możesz znaleźć informacje potrzebne do wypełnienia `register_azure_*()` metody na [Azure Portal](https://portal.azure.com).
 
@@ -185,7 +186,7 @@ adlsgen2_datastore = Datastore.register_azure_data_lake_gen2(workspace=ws,
 Utwórz nowy magazyn danych w kilku krokach w programie Azure Machine Learning Studio:
 
 > [!IMPORTANT]
-> Jeśli Twoje konto magazynu danych znajduje się w sieci wirtualnej, wymagane są dodatkowe czynności konfiguracyjne, aby upewnić się, że Studio ma dostęp do danych. Aby upewnić się, że stosowane są odpowiednie kroki konfiguracyjne, zobacz [izolacja sieci & prywatność] (jak to-enable-Virtual-Network. MD # Machine-Learning-Studio). 
+> Jeśli Twoje konto magazynu danych znajduje się w sieci wirtualnej, wymagane są dodatkowe czynności konfiguracyjne, aby upewnić się, że Studio ma dostęp do danych. Aby zapewnić stosowanie odpowiednich czynności konfiguracyjnych, zobacz [izolacja sieci & prywatność](how-to-enable-virtual-network.md#machine-learning-studio) . 
 
 1. Zaloguj się do [Azure Machine Learning Studio](https://ml.azure.com/).
 1. Wybierz pozycję **magazyny** danych w lewym okienku w obszarze **Zarządzaj**.
@@ -262,7 +263,7 @@ datastore.upload(src_dir='your source directory',
 
 Możesz również przekazać listę pojedynczych plików do magazynu danych za pomocą `upload_files()` metody.
 
-### <a name="download"></a>Pobieranie
+### <a name="download"></a>Pobierz
 
 Pobierz dane z magazynu danych do lokalnego systemu plików:
 

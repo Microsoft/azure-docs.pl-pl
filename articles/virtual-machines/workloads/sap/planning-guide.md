@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 06/23/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f7e12b750f569a81f6931333a05f884e16ac4d9e
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 5cd335d34a67cc5a102bde11366813c53770266e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86508017"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87036339"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Planowanie i wdrażanie Virtual Machines platformy Azure dla oprogramowania SAP NetWeaver
 
@@ -73,7 +73,7 @@ ms.locfileid: "86508017"
 
 [azure-cli]:../../../cli-install-nodejs.md
 [azure-portal]:https://portal.azure.com
-[azure-ps]:/powershell/azureps-cmdlets-docs
+[azure-ps]:/powershell/azure/
 [azure-quickstart-templates-github]:https://github.com/Azure/azure-quickstart-templates
 [azure-script-ps]:https://go.microsoft.com/fwlink/p/?LinkID=395017
 [azure-resource-manager/management/azure-subscription-service-limits]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
@@ -686,7 +686,7 @@ Jako bezwzględne drzewo decyzyjne decyduje o tym, czy system SAP mieści się w
 
 ![Drzewo decyzyjne do podejmowania decyzji o możliwości wdrożenia oprogramowania SAP na platformie Azure][planning-guide-figure-700]
 
-1. Najważniejszymi informacjami, które należy zacząć od, jest wymagania dotyczące punktów SAP dla danego systemu SAP. Wymagania dotyczące punktów SAP należy oddzielić do części systemu DBMS i części aplikacji SAP, nawet jeśli system SAP został już wdrożony lokalnie w konfiguracji 2-warstwowej. W przypadku istniejących systemów protokoły SAP związane z używanym sprzętem często mogą być określane lub szacowane na podstawie istniejących testów porównawczych SAP. Wyniki można znaleźć [tutaj](https://sap.com/about/benchmark.html). W przypadku nowo wdrożonych systemów SAP należy przeszedł postęp, który powinien określić wymagania systemu SAP. Zobacz również ten blog i dołączony dokument dotyczący [ustalania wielkości SAP na platformie Azure](https://blogs.msdn.com/b/saponsqlserver/archive/2015/12/01/new-white-paper-on-sizing-sap-solutions-on-azure-public-cloud.aspx)
+1. Najważniejszymi informacjami, które należy zacząć od, jest wymagania dotyczące punktów SAP dla danego systemu SAP. Wymagania dotyczące punktów SAP należy oddzielić do części systemu DBMS i części aplikacji SAP, nawet jeśli system SAP został już wdrożony lokalnie w konfiguracji 2-warstwowej. W przypadku istniejących systemów protokoły SAP związane z używanym sprzętem często mogą być określane lub szacowane na podstawie istniejących testów porównawczych SAP. Wyniki można znaleźć [tutaj](https://sap.com/about/benchmark.html). W przypadku nowo wdrożonych systemów SAP należy przeszedł postęp, który powinien określić wymagania systemu SAP. 
 1. W przypadku istniejących systemów należy mierzyć wolumin we/wy oraz operacje we/wy na sekundę na serwerze DBMS. W przypadku nowo planowanych systemów ćwiczenie zmiany wielkości dla nowego systemu powinny również dawać przybliżone pomysły dotyczące wymagań we/wy po stronie systemu DBMS. W przypadku braku pewności należy przeprowadzić weryfikację koncepcji.
 1. Porównanie wymagania dotyczącego punktów SAP dla serwera DBMS z wydaniami, które mogą zapewnić różne typy maszyn wirtualnych platformy Azure. Informacje na temat punktów SAP różnych typów maszyn wirtualnych platformy Azure opisano w temacie SAP Note [1928533]. Fokus powinien znajdować się na maszynie wirtualnej z systemem DBMS najpierw, ponieważ warstwa bazy danych jest warstwą w systemie SAP NetWeaver, która nie jest skalowana w większości wdrożeń. W przeciwieństwie do warstwy aplikacji SAP można skalować w poziomie. Jeśli żaden z typów maszyn wirtualnych platformy Azure obsługiwanych przez SAP nie może dostarczyć wymaganych punktów SAP, nie można uruchomić obciążenia planowanego systemu SAP na platformie Azure. Należy wdrożyć system lokalnie lub trzeba zmienić wolumin obciążeń dla systemu programu.
 1. Zgodnie z opisem w [tym miejscu (Linux)][virtual-machines-sizes-linux] i [tym miejscu (Windows)][virtual-machines-sizes-windows]platforma Azure wymusza przydział operacji we/wy na dysku niezależnie od tego, czy używany jest magazyn w warstwie Standardowa czy Premium Storage. Zależnie od typu maszyny wirtualnej liczba dysków z danymi, które mogą być zainstalowane, jest różna. W związku z tym można obliczyć maksymalną liczbę IOPS, którą można osiągnąć przy użyciu poszczególnych typów maszyn wirtualnych. Zależnie od układu pliku bazy danych, dyski można rozdzielić na jeden wolumin w systemie operacyjnym gościa. Jeśli jednak bieżąca liczba operacji we/wy wdrożonego systemu SAP przekracza obliczone limity największego typu maszyn wirtualnych platformy Azure i nie ma możliwości zrekompensowania większej ilości pamięci, obciążenie systemu SAP może być poważnie ograniczone. W takich przypadkach można dotarciu do punktu, w którym nie należy wdrażać systemu na platformie Azure.
@@ -700,7 +700,7 @@ Jeśli składniki warstwy aplikacji systemów DBMS i SAP można uruchamiać na m
 
 ## <a name="managing-azure-assets"></a>Zarządzanie zasobami platformy Azure
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Witryna Azure Portal
 
 Azure Portal to jeden z trzech interfejsów do zarządzania wdrożeniami maszyn wirtualnych platformy Azure. Podstawowe zadania zarządzania, takie jak wdrażanie maszyn wirtualnych z obrazów, można wykonać za pomocą Azure Portal. Ponadto można również wykonać zadania tworzenia kont magazynu, sieci wirtualnych i innych składników platformy Azure Azure Portal. Jednak funkcje takie jak przekazywanie dysków VHD ze środowiska lokalnego na platformę Azure lub kopiowanie dysku VHD na platformie Azure to zadania, które wymagają narzędzi innych firm lub ich administracji za pośrednictwem programu PowerShell lub interfejsu wiersza polecenia.
 
@@ -734,7 +734,7 @@ Wdrożenie rozszerzenia platformy Azure dla oprogramowania SAP (zobacz rozdział
 
 Ponieważ platforma Azure oferuje więcej funkcji, nowe polecenia cmdlet środowiska PS zostaną dodane, które wymagają aktualizacji poleceń cmdlet. W związku z tym warto sprawdzić witrynę pobierania platformy Azure co najmniej raz w miesiącu <https://azure.microsoft.com/downloads/> dla nowej wersji poleceń cmdlet. Nowa wersja jest zainstalowana na starszej wersji.
 
-Aby uzyskać ogólną listę poleceń programu PowerShell związanych z platformą Azure, zobacz tutaj: <https://docs.microsoft.com/powershell/azure/overview> .
+Aby uzyskać ogólną listę poleceń programu PowerShell związanych z platformą Azure, zobacz tutaj: <https://docs.microsoft.com/powershell/azure/> .
 
 ### <a name="management-via-microsoft-azure-cli-commands"></a>Zarządzanie za pomocą poleceń interfejsu wiersza polecenia Microsoft Azure
 

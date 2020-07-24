@@ -3,7 +3,7 @@ title: Zarządzanie dostępem gościa za pomocą przeglądów dostępu — Azure
 description: Zarządzanie użytkownikami-gość jako członkami grupy lub przypisanymi do aplikacji przy użyciu Azure Active Directory przeglądy dostępu
 services: active-directory
 documentationcenter: ''
-author: msaburnley
+author: barclayn
 manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
@@ -12,15 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 12/13/2018
-ms.author: ajburnle
+ms.date: 07/22/2020
+ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8bf2f9503ae704110786a1e73aec3da18c17e4ea
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 66f8020ec2561bf06716db0720a7ec4292f36eb3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75932423"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87034126"
 ---
 # <a name="manage-guest-access-with-azure-ad-access-reviews"></a>Zarządzanie dostępem gości za pomocą przeglądów dostępu w usłudze Azure AD
 
@@ -34,7 +35,7 @@ Można również łatwo upewnić się, że użytkownicy-Goście mają odpowiedni
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Usługa Azure AD — warstwa Premium P2
+- Usługa Azure AD — wersja Premium P2
 
 Aby uzyskać więcej informacji, [wymagania dotyczące licencji](access-reviews-overview.md#license-requirements).
 

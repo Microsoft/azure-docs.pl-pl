@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 01/13/2020
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: e917c261392da6044391efc98a81c8f90b619514
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ee58f21881c9799eba27dec3e71c601e94401deb
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85513749"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87036713"
 ---
 # <a name="copy-data-from-amazon-s3-to-azure-storage-by-using-azcopy"></a>Kopiowanie danych z usług Amazon S3 do usługi Azure Storage za pomocą AzCopy
 
@@ -127,7 +127,7 @@ Ponadto, jako AzCopy kopiuje pliki, sprawdza, czy nadaje się kolizje nazw i pr�
 
 AWS S3 i platforma Azure dopuszczają różne zestawy znaków w nazwach kluczy obiektów. Informacje o znakach, które AWS S3 używają tutaj, można znaleźć [tutaj](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys). Po stronie platformy Azure klucze obiektów BLOB są zgodne z regułami nazewnictwa dla [identyfikatorów C#](https://docs.microsoft.com/dotnet/csharp/language-reference/).
 
-W ramach `copy` polecenia AzCopy można podać wartość opcjonalnej `s2s-invalid-metadata-handle` flagi, która określa, jak chcesz obsługiwać pliki, w których metadane pliku zawierają niezgodne nazwy kluczy. W poniższej tabeli opisano każdą wartość flagi.
+W ramach `copy` polecenia AzCopy można podać wartość opcjonalnej `s2s-handle-invalid-metadata` flagi, która określa, jak chcesz obsługiwać pliki, w których metadane pliku zawierają niezgodne nazwy kluczy. W poniższej tabeli opisano każdą wartość flagi.
 
 | Wartość flagi | Opis  |
 |--------|-----------|
@@ -159,6 +159,6 @@ Więcej przykładów znajdziesz w jednym z następujących artykułów:
 
 - [Transferowanie danych za pomocą AzCopy i magazynu obiektów BLOB](storage-use-azcopy-blobs.md)
 
-- [Transferowanie danych za pomocą AzCopy i magazynu plików](storage-use-azcopy-files.md)
+- [Transferowanie danych za pomocą narzędzia AzCopy i magazynu plików](storage-use-azcopy-files.md)
 
 - [Konfigurowanie, optymalizowanie i rozwiązywanie problemów z AzCopy](storage-use-azcopy-configure.md)

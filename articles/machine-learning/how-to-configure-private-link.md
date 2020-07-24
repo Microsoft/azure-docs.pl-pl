@@ -9,17 +9,20 @@ ms.topic: how-to
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 03/13/2020
-ms.openlocfilehash: ed3b59b9e6aecb91f4ecb9d569b989b6b2396c48
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.date: 07/14/2020
+ms.openlocfilehash: 4e76a7adf7435cc1bdee3bb4e64f8cc699a16724
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134873"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87031222"
 ---
 # <a name="configure-azure-private-link-for-an-azure-machine-learning-workspace-preview"></a>Konfigurowanie prywatnego linku platformy Azure dla obszaru roboczego Azure Machine Learning (wersja zapoznawcza)
 
-W tym dokumencie dowiesz się, jak korzystać z prywatnego linku platformy Azure z obszarem roboczym Azure Machine Learning. Ta funkcja jest obecnie dostępna w wersji zapoznawczej, a w regionach Południowo-środkowe stany USA 2, Stany USA — Europa Zachodnia. 
+W tym dokumencie dowiesz się, jak korzystać z prywatnego linku platformy Azure z obszarem roboczym Azure Machine Learning. 
+
+> [!IMPORTANT]
+> Korzystanie z prywatnego linku platformy Azure z obszarem roboczym Azure Machine Learning jest obecnie w publicznej wersji zapoznawczej. Ta funkcja jest dostępna tylko w regionach Południowo-środkowe stany **USA**, **zachodnie**stany USA 2 i **stany USA** . Ta wersja zapoznawcza jest dostępna bez umowy dotyczącej poziomu usług i nie jest zalecana w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Link prywatny platformy Azure umożliwia nawiązanie połączenia z obszarem roboczym przy użyciu prywatnego punktu końcowego. Prywatny punkt końcowy to zestaw prywatnych adresów IP w sieci wirtualnej. Następnie można ograniczyć dostęp do obszaru roboczego tylko w przypadku prywatnych adresów IP. Link prywatny pomaga ograniczyć ryzyko związane z eksfiltracji danych. Aby dowiedzieć się więcej o prywatnych punktach końcowych, zobacz artykuł [prywatny link do platformy Azure](/azure/private-link/private-link-overview) .
 
@@ -112,6 +115,9 @@ Aby uzyskać informacje na temat usługi Azure Virtual Machines, zobacz [dokumen
 Aby zabezpieczyć konto usługi Azure Storage używane przez obszar roboczy, umieść je w sieci wirtualnej.
 
 Aby uzyskać informacje dotyczące umieszczania konta magazynu w sieci wirtualnej, zobacz [Korzystanie z konta magazynu dla obszaru roboczego](how-to-enable-virtual-network.md#use-a-storage-account-for-your-workspace).
+
+> [!WARNING]
+> Azure Machine Learning nie obsługuje korzystania z konta usługi Azure Storage z włączonym prywatnym linkiem.
 
 ## <a name="using-azure-key-vault"></a>Używanie Azure Key Vault
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: caf73ffbc18a603ace22acfbd0da490048da698a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a2fe1b8bdc80a5265add22bd3602050034471fe2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "71058116"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87036441"
 ---
 # <a name="troubleshoot-application-connectivity-issues-on-virtual-machines-in-azure"></a>Rozwiązywanie problemów z łącznością aplikacji na maszynach wirtualnych platformy Azure
 
@@ -117,7 +117,7 @@ Jeśli nie możesz uzyskać dostępu do aplikacji, sprawdź następujące ustawi
   
   * Sprawdź, czy konfiguracja punktu końcowego maszyny wirtualnej zezwala na ruch przychodzący, w szczególności protokół (TCP lub UDP) i numery portów Public i Private.
   * Sprawdź, czy listy kontroli dostępu (ACL) w punkcie końcowym nie uniemożliwiają ruchu przychodzącego z Internetu.
-  * Aby uzyskać więcej informacji, zobacz [jak skonfigurować punkty końcowe na maszynie wirtualnej](../windows/classic/setup-endpoints.md).
+  * Aby uzyskać więcej informacji, zobacz [jak skonfigurować punkty końcowe na maszynie wirtualnej](/previous-versions/azure/virtual-machines/windows/classic/setup-endpoints).
 * W przypadku maszyn wirtualnych utworzonych przy użyciu Menedżer zasobów modelu wdrażania:
   
   * Sprawdź, czy konfiguracja reguły NAT dla ruchu przychodzącego dla maszyny wirtualnej zezwala na ruch przychodzący, w szczególności protokół (TCP lub UDP) i numery portów Public i Private.
@@ -138,11 +138,9 @@ Jeśli masz dostęp do aplikacji, upewnij się, że urządzenie z internetową g
 
 ## <a name="step-4-if-you-cannot-access-the-application-use-ip-verify-to-check-the-settings"></a>Krok 4. Jeśli nie możesz uzyskać dostępu do aplikacji, użyj opcji Sprawdź poprawność adresu IP, aby sprawdzić ustawienia. 
 
-Aby uzyskać więcej informacji, zobacz [Omówienie monitorowania sieci platformy Azure](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview). 
+Aby uzyskać więcej informacji, zobacz [Omówienie monitorowania sieci platformy Azure](../../network-watcher/network-watcher-monitoring-overview.md). 
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 [Rozwiązywanie problemów z połączeniami Pulpit zdalny z maszyną wirtualną platformy Azure z systemem Windows](troubleshoot-rdp-connection.md)
 
 [Rozwiązywanie problemów z połączeniami Secure Shell (SSH) z maszyną wirtualną platformy Azure opartą na systemie Linux](troubleshoot-ssh-connection.md)
-
-

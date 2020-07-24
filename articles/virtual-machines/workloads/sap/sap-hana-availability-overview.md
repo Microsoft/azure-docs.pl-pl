@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 03/05/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bccaf45cf617bd31a584b6c73f3dd08877bc8587
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e44edff9ac81588e4f861b7a1d1ae1a1628d5e04
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "71266072"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87035642"
 ---
 # <a name="sap-hana-high-availability-for-azure-virtual-machines"></a>SAP HANA wysokiej dostępności dla maszyn wirtualnych platformy Azure
 
@@ -37,9 +37,9 @@ W tym artykule przyjęto również założenie, że wiesz już, jak instalować 
 
 W tych artykułach zawarto informacje na temat korzystania z SAP HANA na platformie Azure:
 
-- [Ręczna instalacja SAP HANA pojedynczego wystąpienia na maszynach wirtualnych platformy Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-get-started)
+- [Ręczna instalacja SAP HANA pojedynczego wystąpienia na maszynach wirtualnych platformy Azure](./hana-get-started.md)
 - [Konfigurowanie replikacji systemu SAP HANA na maszynach wirtualnych platformy Azure](sap-hana-high-availability.md)
-- [Tworzenie kopii zapasowych platformy SAP HANA na maszynach wirtualnych platformy Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-guide)
+- [Tworzenie kopii zapasowych platformy SAP HANA na maszynach wirtualnych platformy Azure](./sap-hana-backup-guide.md)
 
 Warto również zapoznać się z następującymi artykułami dotyczącymi SAP HANA:
 
@@ -52,7 +52,7 @@ Warto również zapoznać się z następującymi artykułami dotyczącymi SAP HA
 - [Ponowne uruchamianie usługi SAP HANA](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.01/en-US/cf10efba8bea4e81b1dc1907ecc652d3.html)
 - [Konfigurowanie replikacji systemu SAP HANA](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.01/en-US/676844172c2442f0bf6c8b080db05ae7.html)
 
-Przed zdefiniowaniem architektury dostępności na platformie Azure zalecamy zapoznanie się z tematem Wdrażanie [maszyn wirtualnych](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability)na platformie Azure.
+Przed zdefiniowaniem architektury dostępności na platformie Azure zalecamy zapoznanie się z tematem Wdrażanie [maszyn wirtualnych](../../windows/manage-availability.md)na platformie Azure.
 
 ## <a name="service-level-agreements-for-azure-components"></a>Umowy dotyczące poziomu usług dla składników platformy Azure
 
@@ -60,16 +60,16 @@ Platforma Azure ma inne umowy SLA dostępność dla różnych składników, taki
 
 [Umowa SLA dla Virtual Machines](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/) opisuje trzy różne konfiguracje:
 
-- Pojedyncza maszyna wirtualna korzystająca z [usługi Azure Premium dysków SSD](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview) dla dysku systemu operacyjnego i wszystkich dysków z danymi. Ta opcja zapewnia miesięczny czas pracy w wysokości 99,9%.
-- Wiele (co najmniej dwóch) maszyn wirtualnych zorganizowanych w [zestawie dostępności platformy Azure](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets). Ta opcja zapewnia miesięczny czas pracy w wysokości 99,95%.
-- Wiele (co najmniej dwa) maszyn wirtualnych, które są zorganizowane w [strefie dostępności](https://docs.microsoft.com/azure/availability-zones/az-overview). Ta opcja zapewnia miesięczny czas pracy w wysokości 99,99%.
+- Pojedyncza maszyna wirtualna korzystająca z [usługi Azure Premium dysków SSD](../../windows/managed-disks-overview.md) dla dysku systemu operacyjnego i wszystkich dysków z danymi. Ta opcja zapewnia miesięczny czas pracy w wysokości 99,9%.
+- Wiele (co najmniej dwóch) maszyn wirtualnych zorganizowanych w [zestawie dostępności platformy Azure](../../windows/tutorial-availability-sets.md). Ta opcja zapewnia miesięczny czas pracy w wysokości 99,95%.
+- Wiele (co najmniej dwa) maszyn wirtualnych, które są zorganizowane w [strefie dostępności](../../../availability-zones/az-overview.md). Ta opcja zapewnia miesięczny czas pracy w wysokości 99,99%.
 
 Zmierz wymaganie dostępności na umowy SLA, które mogą być dostępne dla składników platformy Azure. Następnie wybierz scenariusze do SAP HANA, aby osiągnąć wymagany poziom dostępności.
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Dowiedz się więcej o [dostępności SAP HANA w ramach jednego regionu świadczenia usługi Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-availability-one-region).
-- Dowiedz się więcej o [dostępności SAP HANA w różnych regionach świadczenia usługi Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-availability-across-regions). 
+- Dowiedz się więcej o [dostępności SAP HANA w ramach jednego regionu świadczenia usługi Azure](./sap-hana-availability-one-region.md).
+- Dowiedz się więcej o [dostępności SAP HANA w różnych regionach świadczenia usługi Azure](./sap-hana-availability-across-regions.md). 
 
 
 
@@ -86,5 +86,3 @@ Zmierz wymaganie dostępności na umowy SLA, które mogą być dostępne dla sk�
 
 
   
-
-

@@ -5,28 +5,28 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: overview
-ms.date: 01/17/2020
+ms.date: 07/13/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c2a6b5c22e2988ed33e6dc15a4729e7bfe938c5f
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 5e65149b2524d2785039be78caad4ce84924e7e3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82786921"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87035115"
 ---
 # <a name="what-is-azure-active-directory-authentication"></a>Co to jest Azure Active Directory Authentication?
 
 Jedną z głównych funkcji platformy tożsamości jest weryfikowanie i *uwierzytelnianie*poświadczeń, gdy użytkownik loguje się do urządzenia, aplikacji lub usługi. W Azure Active Directory (Azure AD) uwierzytelnianie obejmuje więcej niż tylko weryfikację nazwy użytkownika i hasła. Aby zwiększyć bezpieczeństwo i ograniczyć potrzebę pomocy technicznej, uwierzytelnianie w usłudze Azure AD obejmuje następujące składniki:
 
-* Samoobsługowe resetowanie hasła
+* Samoobsługowe resetowanie haseł
 * Azure Multi-Factor Authentication
 * Integracja hybrydowa do zapisywania zmian haseł z powrotem w środowisku lokalnym
 * Integracja hybrydowa do wymuszania zasad ochrony hasłem dla środowiska lokalnego
-* Uwierzytelnianie bez haseł
+* Uwierzytelnianie bez hasła
 
 ## <a name="improve-the-end-user-experience"></a>Ulepszanie środowiska użytkownika końcowego
 
@@ -38,7 +38,7 @@ Usługa Azure Multi-Factor Authentication umożliwia użytkownikom wybranie doda
 
 Uwierzytelnianie bez hasła eliminuje konieczność utworzenia i zapamiętania bezpiecznego hasła przez użytkownika. Funkcje, takie jak Windows Hello dla firm lub FIDO2, umożliwiają użytkownikom logowanie się do urządzenia lub aplikacji bez hasła. Ta możliwość zmniejsza złożoność zarządzania hasłami w różnych środowiskach.
 
-## <a name="self-service-password-reset"></a>Samoobsługowe resetowanie hasła
+## <a name="self-service-password-reset"></a>Samoobsługowe resetowanie haseł
 
 Funkcja samoobsługowego resetowania hasła umożliwia użytkownikom zmianę lub Resetowanie hasła bez konieczności korzystania z administratora lub pomocy technicznej. Jeśli konto użytkownika jest zablokowane lub zapomni swoje hasło, może wykonać monit o odblokowanie siebie i zawracanie do pracy. Ta możliwość zmniejsza liczbę wywołań pomocy technicznej i utratę produktywności, gdy użytkownik nie może zalogować się na urządzeniu ani w aplikacji.
 
@@ -74,7 +74,7 @@ Aby zwiększyć bezpieczeństwo, można zdefiniować niestandardowe zasady ochro
 
 W przypadku zabezpieczeń hybrydowych można zintegrować ochronę hasłem usługi Azure AD za pomocą środowiska lokalnego Active Directory. Składnik zainstalowany w środowisku Premium otrzymuje globalną listę haseł zabronionych i niestandardowe zasady ochrony haseł z usługi Azure AD, a kontrolery domeny używają ich do przetwarzania zdarzeń zmiany hasła. Takie podejście hybrydowe gwarantuje, że niezależnie od tego, jak i kiedy użytkownik zmienia swoje poświadczenia, wymusza się użycie silnych haseł.
 
-## <a name="passwordless-authentication"></a>Uwierzytelnianie bez haseł
+## <a name="passwordless-authentication"></a>Uwierzytelnianie bez hasła
 
 Celem końcowym wielu środowisk jest usunięcie używania haseł w ramach zdarzeń związanych z logowaniem. Funkcje, takie jak ochrona hasłem platformy Azure lub usługa Azure Multi-Factor Authentication, ułatwiają lepsze zabezpieczenia, ale nazwa użytkownika i hasło pozostają słabo zgodne z uwierzytelnianiem, które mogą być narażone na ataki lub przez cały czas.
 

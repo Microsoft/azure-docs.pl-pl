@@ -13,11 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/06/2019
 ms.author: alsin
-ms.openlocfilehash: 06cb3fe5d551ddfc95fcbd37cd9620adebd825c5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e31a10b1086679b7c2493f5a6d6b62f75e363dd4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "70883930"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87036475"
 ---
 # <a name="use-serial-console-to-access-grub-and-single-user-mode"></a>Używanie konsoli szeregowej do uzyskiwania dostępu do GRUB i trybu jednego użytkownika
 Całkowite, ujednolicone program inicjujący (GRUB) jest prawdopodobnie pierwszym elementem w przypadku uruchamiania maszyny wirtualnej (VM). Ponieważ jest ona wyświetlana przed uruchomieniem systemu operacyjnego, GRUB nie jest dostępna za pośrednictwem protokołu SSH. W programie GRUB można zmodyfikować konfigurację rozruchu w taki sposób, aby uruchamiała się w trybie jednego użytkownika między innymi.
@@ -36,7 +37,7 @@ Aby wprowadzić tryb pojedynczego użytkownika, należy wprowadzić GRUB podczas
 ## <a name="general-grub-access"></a>Ogólny dostęp do GRUB
 Aby uzyskać dostęp do programu GRUB, uruchom ponownie maszynę wirtualną, gdy zostanie otwarte okienko konsoli szeregowej. Niektóre dystrybucje wymagają wejścia klawiatury do wyświetlania GRUB, a inne automatycznie pokazują GRUB przez kilka sekund, aby umożliwić wprowadzanie danych przez klawiaturę użytkownika w celu anulowania limitu czasu.
 
-Aby mieć dostęp do trybu pojedynczego użytkownika, upewnij się, że GRUB jest włączona na maszynie wirtualnej. W zależności od dystrybucji niektóre czynności konfiguracyjne mogą być konieczne, aby upewnić się, że GRUB jest włączona. Aby uzyskać informacje dotyczące dystrybucji, zobacz następną sekcję i naszą [Pomoc techniczną dla systemu Linux na stronie platformy Azure](https://blogs.msdn.microsoft.com/linuxonazure/2018/10/23/why-proactively-ensuring-you-have-access-to-grub-and-sysrq-in-your-linux-vm-could-save-you-lots-of-down-time/) .
+Aby mieć dostęp do trybu pojedynczego użytkownika, upewnij się, że GRUB jest włączona na maszynie wirtualnej. W zależności od dystrybucji niektóre czynności konfiguracyjne mogą być konieczne, aby upewnić się, że GRUB jest włączona. Informacje dotyczące dystrybucji znajdują się w następnej sekcji.
 
 ### <a name="restart-your-vm-to-access-grub-in-serial-console"></a>Uruchom ponownie maszynę wirtualną, aby uzyskać dostęp do GRUB w konsoli szeregowej
 Maszynę wirtualną można uruchomić ponownie w konsoli szeregowej, ustawiając kursor nad przyciskiem **ponownego uruchamiania** , a następnie wybierając polecenie **Uruchom ponownie maszynę wirtualną**. W dolnej części okienka zostanie wyświetlone powiadomienie o ponownym uruchomieniu.
@@ -112,7 +113,7 @@ Jeśli skonfigurowano GRUB i dostęp do katalogu głównego przy użyciu powyżs
 
    Przed wprowadzeniem trybu pojedynczego użytkownika zostanie wyświetlony monit o hasło administratora. To hasło jest utworzone w poprzednich instrukcjach.
 
-    ![](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-rhel-enter-emergency-shell.gif)
+    ![Animowany obraz przedstawiający interfejs wiersza polecenia. Użytkownik wybiera serwer, lokalizuje koniec wiersza jądra, a następnie wprowadza określony tekst.](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-rhel-enter-emergency-shell.gif)
 
 ### <a name="enter-single-user-mode-without-root-account-enabled-in-rhel"></a>Wprowadzanie trybu pojedynczego użytkownika bez włączonego konta głównego w RHEL
 Jeśli użytkownik główny nie został włączony zgodnie z wcześniejszymi instrukcjami, można nadal zresetować hasło główne, wykonując następujące czynności:
@@ -136,7 +137,7 @@ Jeśli użytkownik główny nie został włączony zgodnie z wcześniejszymi ins
 1. Jesteś teraz w katalogu głównym. Hasło główne można zresetować, wprowadzając `passwd` , a następnie użyć powyższych instrukcji w celu przejścia do trybu pojedynczego użytkownika. 
 1. Po wykonaniu tych czynności wpisz polecenie, `reboot -f` Aby przeprowadzić ponowny rozruch.
 
-![](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-rhel-emergency-mount-no-root.gif)
+![Animowany obraz przedstawiający interfejs wiersza polecenia. Użytkownik wybiera serwer, lokalizuje koniec wiersza jądra i wprowadza określone polecenia.](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-rhel-emergency-mount-no-root.gif)
 
 > [!NOTE]
 > Wykonanie powyższych instrukcji spowoduje przechodzenie do powłoki awaryjnej, dzięki czemu można także wykonywać zadania, takie jak edytowanie `fstab` . Zazwyczaj sugerujemy zresetowanie hasła głównego i użycie go do wprowadzenia trybu jednego użytkownika.
@@ -240,7 +241,7 @@ Aby włączyć tryb jednego użytkownika w Oracle Linux, postępuj zgodnie z wcz
 ## <a name="next-steps"></a>Następne kroki
 Aby dowiedzieć się więcej na temat konsoli szeregowej, zobacz:
 * [Dokumentacja konsoli szeregowej systemu Linux](serial-console-linux.md)
-* [Używanie konsoli szeregowej do włączania GRUB w różnych dystrybucjach](https://blogs.msdn.microsoft.com/linuxonazure/2018/10/23/why-proactively-ensuring-you-have-access-to-grub-and-sysrq-in-your-linux-vm-could-save-you-lots-of-down-time/)
+* [Używanie konsoli szeregowej do włączania GRUB w różnych dystrybucjach](/archive/blogs/linuxonazure/why-proactively-ensuring-you-have-access-to-grub-and-sysrq-in-your-linux-vm-could-save-you-lots-of-down-time)
 * [Korzystanie z konsoli szeregowej dla wywołań NMI i SysRq](serial-console-nmi-sysrq.md)
 * [Konsola szeregowa dla maszyn wirtualnych z systemem Windows](serial-console-windows.md)
 * [Diagnostyka rozruchu](boot-diagnostics.md)

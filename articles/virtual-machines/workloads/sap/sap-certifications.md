@@ -16,16 +16,16 @@ ms.workload: infrastructure-services
 ms.date: 04/21/2020
 ms.author: juergent
 ms.custom: ''
-ms.openlocfilehash: df80113b85153f4e52bcbefa7b33dab9da296173
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f78d5f839c5dd7816ae28eeed175503427abb43c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82084825"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87035846"
 ---
 # <a name="sap-certifications-and-configurations-running-on-microsoft-azure"></a>Certyfikaty i konfiguracje SAP działające w systemie Microsoft Azure
 
-W przypadku oprogramowania SAP i Microsoft istnieje obszerna historia współpracy w silnym partnerstwie, które ma wzajemne korzyści dla klientów. Firma Microsoft stale aktualizuje swoją platformę i przesyła nowe szczegóły certyfikacji do oprogramowania SAP w celu zapewnienia, że Microsoft Azure jest najlepszą platformą, na której będą uruchamiane obciążenia SAP. W poniższych tabelach Zanotuj konfiguracje obsługiwane przez platformę Azure oraz listę rosnących certyfikatów SAP. Ta lista zawiera listę przeglądów, która może odbiegać tutaj i z oficjalnych list SAP. Jak uzyskać szczegółowe dane, zapoznaj się z artykułem [jakie oprogramowanie SAP jest obsługiwane przez wdrożenia platformy Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-supported-product-on-azure)
+W przypadku oprogramowania SAP i Microsoft istnieje obszerna historia współpracy w silnym partnerstwie, które ma wzajemne korzyści dla klientów. Firma Microsoft stale aktualizuje swoją platformę i przesyła nowe szczegóły certyfikacji do oprogramowania SAP w celu zapewnienia, że Microsoft Azure jest najlepszą platformą, na której będą uruchamiane obciążenia SAP. W poniższych tabelach Zanotuj konfiguracje obsługiwane przez platformę Azure oraz listę rosnących certyfikatów SAP. Ta lista zawiera listę przeglądów, która może odbiegać tutaj i z oficjalnych list SAP. Jak uzyskać szczegółowe dane, zapoznaj się z artykułem [jakie oprogramowanie SAP jest obsługiwane przez wdrożenia platformy Azure](./sap-supported-product-on-azure.md)
 
 ## <a name="sap-hana-certifications"></a>Certyfikaty SAP HANA
 Wołują

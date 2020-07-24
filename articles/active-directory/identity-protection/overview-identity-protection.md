@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 59f83c7896ca371809d9103489b140ae73d5a42d
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 80873b2e2655e7cedbafb526d0fe757eaa282312
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86256661"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87019615"
 ---
 # <a name="what-is-azure-active-directory-identity-protection"></a>Co to jest usługa Azure Active Directory Identity Protection?
 
@@ -71,7 +71,7 @@ Więcej informacji można znaleźć w artykule, [jak: badanie ryzyka](howto-iden
 
 ## <a name="exporting-risk-data"></a>Eksportowanie danych ryzyka
 
-Dane z usługi Identity Protection można eksportować do innych narzędzi w celu archiwizacji i dalszych badań i współpracy. Interfejsy API oparte na Microsoft Graph umożliwiają organizacjom zbieranie tych danych do dalszej obróbki w narzędziu, takim jak SIEM. Informacje o sposobach uzyskiwania dostępu do interfejsu API usługi Identity Protection można znaleźć w artykule [wprowadzenie do Azure Active Directory Identity Protection i Microsoft Graph](howto-identity-protection-graph-api.md)
+Dane z usługi Identity Protection można eksportować do innych narzędzi w celu archiwizacji i dalszych badań oraz korelacji. Interfejsy API oparte na Microsoft Graph umożliwiają organizacjom zbieranie tych danych do dalszej obróbki w narzędziu, takim jak SIEM. Informacje o sposobach uzyskiwania dostępu do interfejsu API usługi Identity Protection można znaleźć w artykule [wprowadzenie do Azure Active Directory Identity Protection i Microsoft Graph](howto-identity-protection-graph-api.md)
 
 Informacje o integrowaniu informacji o ochronie tożsamości ze wskaźnikiem kontrolnym platformy Azure można znaleźć w artykule [łączenie danych z Azure AD Identity Protection](../../sentinel/connect-azure-ad-identity-protection.md).
 

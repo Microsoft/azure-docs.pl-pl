@@ -4,11 +4,12 @@ description: Ten artykuł zawiera informacje o znanych problemach i obejściach 
 ms.topic: conceptual
 ms.date: 06/03/2020
 ms.asset: 0c4127f2-d936-48ef-b430-a9198e425d81
-ms.openlocfilehash: 2f67b73612bd970c903b179a4a02c787ee0320b0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1f4900bb129ee67cd75d2b793f4179e3135569a6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84629168"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87032565"
 ---
 # <a name="release-notes-for-microsoft-azure-backup-server"></a>Informacje o wersji programu Microsoft Azure Backup Server
 
@@ -53,13 +54,13 @@ Obejście **:** Aby temu zapobiec, Otwórz SQL Server Management Studio (SSMS)) 
 
 Obejście **:** Wykonaj następujące kroki, aby uaktualnić program do wersji serwera usługi MAB v3 przy użyciu pakietu instalacji Rosyjskiej:
 
-1. [Utwórz kopię zapasową](https://docs.microsoft.com/sql/relational-databases/backup-restore/create-a-full-database-backup-sql-server?view=sql-server-2017#SSMSProcedure) bazy danych SQL i odinstaluj serwera usługi MAB v2 (Wybierz, aby zachować chronione dane podczas odinstalowywania).
+1. [Utwórz kopię zapasową](/sql/relational-databases/backup-restore/create-a-full-database-backup-sql-server#SSMSProcedure) bazy danych SQL i odinstaluj serwera usługi MAB v2 (Wybierz, aby zachować chronione dane podczas odinstalowywania).
 2. Uaktualnij do wersji SQL 2017 (Enterprise) i Odinstaluj raportowanie w ramach uaktualnienia.
-3. [Zainstaluj](https://docs.microsoft.com/sql/reporting-services/install-windows/install-reporting-services?view=sql-server-2017#install-your-report-server) program SQL Server Reporting Services (SSRS).
-4. [Zainstaluj](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) program SQL Server Management Studio (SSMS).
-5. Skonfiguruj raportowanie przy użyciu parametrów zgodnie z opisem w temacie [Konfiguracja usług SSRS w programie SQL 2017](https://docs.microsoft.com/azure/backup/backup-azure-microsoft-azure-backup#upgrade-mabs).
+3. [Zainstaluj](/sql/reporting-services/install-windows/install-reporting-services#install-your-report-server) program SQL Server Reporting Services (SSRS).
+4. [Zainstaluj](/sql/ssms/download-sql-server-management-studio-ssms) program SQL Server Management Studio (SSMS).
+5. Skonfiguruj raportowanie przy użyciu parametrów zgodnie z opisem w temacie [Konfiguracja usług SSRS w programie SQL 2017](./backup-azure-microsoft-azure-backup.md#upgrade-mabs).
 6. [Zainstaluj](backup-azure-microsoft-azure-backup.md) program SERWERA USŁUGI MAB V3.
-7. [Przywróć](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-a-database-backup-using-ssms?view=sql-server-2017) SQL za pomocą programu SSMS i uruchom narzędzie synchronizacji programu DPM zgodnie z opisem w [tym miejscu](https://docs.microsoft.com/system-center/dpm/back-up-the-dpm-server?view=sc-dpm-2019#using-dpmsync).
+7. [Przywróć](/sql/relational-databases/backup-restore/restore-a-database-backup-using-ssms) SQL za pomocą programu SSMS i uruchom narzędzie synchronizacji programu DPM zgodnie z opisem w [tym miejscu](/system-center/dpm/back-up-the-dpm-server?view=sc-dpm-2019#using-dpmsync).
 8. Zaktualizuj Właściwość "bazy" w tabeli dbo. tbl_DLS_GlobalSetting przy użyciu następującego polecenia:
 
     ```sql

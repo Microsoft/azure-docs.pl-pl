@@ -5,11 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 11/29/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 8da4ce7801cc98f9ffb32eb7b506eaf1ccd877dd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b117fca23b26919f3c404dd32ba64c0c89d66ae7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77562069"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87033568"
 ---
 # <a name="function-chaining-in-durable-functions---hello-sequence-sample"></a>Łańcuch funkcji w Durable Functions-Hello Sequence przykład
 
@@ -60,7 +61,7 @@ Oto funkcja:
 
 Wszystkie funkcje aranżacji języka JavaScript muszą zawierać [ `durable-functions` moduł](https://www.npmjs.com/package/durable-functions). Jest to biblioteka, która umożliwia pisanie Durable Functions w języku JavaScript. Istnieją trzy znaczące różnice między funkcją aranżacji i innymi funkcjami języka JavaScript:
 
-1. Funkcja jest [funkcją generatora.](https://docs.microsoft.com/scripting/javascript/advanced/iterators-and-generators-javascript).
+1. Funkcja jest [funkcją generatora.](/scripting/javascript/advanced/iterators-and-generators-javascript).
 2. Funkcja jest opakowana w wywołaniu `durable-functions` `orchestrator` metody modułu (tutaj `df` ).
 3. Funkcja musi być synchroniczna. Ponieważ metoda "Orchestrator" obsługuje wywoływanie elementu "Context. Done", funkcja powinna po prostu zwracać.
 
@@ -78,7 +79,7 @@ Działania korzystają z `ActivityTrigger` atrybutu. Użyj podanej `IDurableActi
 
 Implementacja `E1_SayHello` jest stosunkowo prostej operacji formatowania ciągu.
 
-Zamiast tworzyć powiązania z `IDurableActivityContext` , można powiązać bezpośrednio z typem, który jest przesyłany do funkcji działania. Przykład:
+Zamiast tworzyć powiązania z `IDurableActivityContext` , można powiązać bezpośrednio z typem, który jest przesyłany do funkcji działania. Na przykład:
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HelloSequence.cs?range=34-38)]
 

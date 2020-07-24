@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 50c52369a5a957a4dd6279cac5079e2dea023106
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1d264b0ae0b06079a45cd1e862144a6920133901
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "61463407"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87038447"
 ---
 # <a name="sample-presets-for-media-encoder-standard-mes"></a>Przykładowe ustawienia wstępne dla Media Encoder Standard (MES)
 
@@ -29,7 +29,7 @@ ms.locfileid: "61463407"
 Media Services w pełni obsługuje Dostosowywanie wszystkich wartości w ustawieniach wstępnych w celu spełnienia określonych wymagań w zakresie kodowania. Jeśli musisz dostosować ustawienie wstępne kodowania, należy zacząć od jednego z poniższych ustawień wstępnych systemu, które są podane w tej sekcji jako szablonu konfiguracji niestandardowej. Aby dowiedzieć się, co oznacza każdy element w tych ustawieniach wstępnych, i prawidłowe wartości dla każdego elementu, zobacz temat [schemat Media Encoder Standard](media-services-mes-schema.md) .  
   
 > [!NOTE]
->  W przypadku użycia ustawienia wstępnego dla kodowania 4K należy uzyskać `S3` Typ jednostki zarezerwowanej. Aby uzyskać więcej informacji, zobacz [Jak skalować kodowanie](https://azure.microsoft.com/documentation/articles/media-services-portal-encoding-units).  
+>  W przypadku użycia ustawienia wstępnego dla kodowania 4K należy uzyskać `S3` Typ jednostki zarezerwowanej. Aby uzyskać więcej informacji, zobacz [Jak skalować kodowanie](./media-services-scale-media-processing-overview.md).  
 
 #### <a name="video-rotation-default-setting-in-presets"></a>Domyślne ustawienie rotacji wideo w ustawieniach wstępnych:
 Podczas pracy z Media Encoder Standard obrót wideo jest domyślnie włączony. Jeśli film wideo został zarejestrowany na urządzeniu przenośnym w trybie pionowym, te ustawienia wstępne spowodują obrócenie ich do trybu poziomego przed kodowaniem.
@@ -86,4 +86,4 @@ Podczas pracy z Media Encoder Standard obrót wideo jest domyślnie włączony. 
   
  [Wielokrotna H264 pojedynczej szybkości transmisji bitów SD dla systemu Android](media-services-mes-preset-H264-Single-Bitrate-Low-Quality-SD-for-Android.md) tworzy pojedynczy plik MP4 z szybkością transmisji bitów 56 KB/s oraz stereo AAC audio.  
   
- Aby uzyskać więcej informacji dotyczących koderów Media Services, zobacz [kodowanie na żądanie z Azure Media Services](https://azure.microsoft.com/documentation/articles/media-services-encode-asset/).
+ Aby uzyskać więcej informacji dotyczących koderów Media Services, zobacz [kodowanie na żądanie z Azure Media Services](./media-services-encode-asset.md).

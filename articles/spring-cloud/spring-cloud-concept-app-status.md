@@ -6,12 +6,13 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 04/10/2020
 ms.author: brendm
-ms.openlocfilehash: 70a9e6392e21422d7513197fbf7a1a75e1f6ab8f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-java
+ms.openlocfilehash: e3ef202a1a98b8193b55bcc4c2cb616d4a2000d8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82569006"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87037767"
 ---
 # <a name="understanding-app-status-in-azure-spring-cloud"></a>Informacje o stanie aplikacji w usłudze Azure Spring Cloud
 
@@ -31,7 +32,7 @@ Aby wyświetlić stan ogólny typu aplikacji, wybierz pozycję **aplikacje** w l
 
 | Wyliczenie | Definicja |
 |:--:|:----------------:|
-| Działanie | Wdrożenie powinno być uruchomione. |
+| Uruchomiono | Wdrożenie powinno być uruchomione. |
 | Zatrzymano | Wdrożenie powinno zostać zatrzymane. |
 
 **Stan aprowizacji jest dostępny tylko w interfejsie wiersza polecenia.  Jest raportowany jako jedna z następujących wartości:**
@@ -40,7 +41,7 @@ Aby wyświetlić stan ogólny typu aplikacji, wybierz pozycję **aplikacje** w l
 |:--:|:----------------:|
 | Tworzenie | Tworzony jest zasób. |
 | Aktualizowanie | Zasób jest aktualizowany. |
-| Sukces | Pomyślnie dostarczono zasoby i wdrożono plik binarny. |
+| Powodzenie | Pomyślnie dostarczono zasoby i wdrożono plik binarny. |
 | Niepowodzenie | Nie można osiągnąć celu *zakończonego powodzeniem* . |
 | Usuwanie | Trwa usuwanie zasobu. Zapobiega to operacji, a zasób nie jest dostępny w tym stanie. |
 
@@ -57,7 +58,7 @@ Aby wyświetlić stan określonego wystąpienia wdrożonej aplikacji, kliknij **
 | Wyliczenie | Definicja |
 |:--:|:----------------:|
 | Uruchamianie | Plik binarny został pomyślnie wdrożony w danym wystąpieniu. Rozruch wystąpienia pliku JAR może się nie powieść, ponieważ nie można prawidłowo uruchomić systemu jar. |
-| Działanie | Wystąpienie działa. |
+| Uruchomiono | Wystąpienie działa. |
 | Niepowodzenie | Uruchomienie przez wystąpienie aplikacji danych binarnych użytkownika po kilku próbach nie powiodło się. |
 | Zakończona | Trwa zamykanie wystąpienia aplikacji. |
 
@@ -70,5 +71,5 @@ Aby wyświetlić stan określonego wystąpienia wdrożonej aplikacji, kliknij **
 | NOTUJ | Wystąpienie aplikacji nie jest zarejestrowane w Eureka lub jest zarejestrowane, ale nie może odbierać ruchu. |
 
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 * [Przygotowywanie aplikacji ze sprężyną Java do wdrożenia w chmurze Azure wiosennej](spring-cloud-tutorial-prepare-app-deployment.md)

@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2f05fa9f9f31011f04aee0d2bedbcd4c4dad5d39
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 710c81c7b5c6abbf499f2cb43570db94df1a3db5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85338190"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87034406"
 ---
 # <a name="what-is-azure-ad-entitlement-management"></a>Co to jest zarządzanie upoważnieniami w usłudze Azure AD?
 
@@ -41,7 +41,7 @@ Organizacje korporacyjne często napotykają problemy związane z zarządzaniem 
 Te problemy są złożone dla użytkowników, którzy potrzebują dostępu z innej organizacji, takich jak użytkownicy zewnętrzni z organizacji łańcucha dostaw lub innych partnerów firmy. Na przykład:
 
 - Żadna osoba nie może znać wszystkich konkretnych osób w katalogach innych organizacji, aby móc je zapraszać
-- Nawet jeśli udało Ci się zaprosić tych użytkowników, nikt w tej organizacji nie może pamiętać o konieczności spójnego zarządzania wszystkimi prawami dostępu użytkownika
+- Nawet jeśli udało Ci się zaprosić tych użytkowników, nikt w tej organizacji nie może pamiętać o konieczności spójnego zarządzania wszystkimi dostępem użytkowników
 
 Zarządzanie prawami w usłudze Azure AD może pomóc rozwiązać te wyzwania.  Aby dowiedzieć się więcej o tym, jak klienci korzystają z funkcji zarządzania prawami w usłudze Azure AD, można odczytać [analizę przypadku firma Avanade](https://customers.microsoft.com/story/avanade-professional-services-azure-canada) oraz [analizę przypadku zorientowanego](https://customers.microsoft.com/story/757467-centrica-energy-azure)na siebie.  Ten film wideo zawiera omówienie zarządzania uprawnieniami i jego wartości:
 

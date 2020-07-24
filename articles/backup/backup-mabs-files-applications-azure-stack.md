@@ -3,11 +3,12 @@ title: Tworzenie kopii zapasowych plików na maszynach wirtualnych Azure Stack
 description: Użyj Azure Backup, aby utworzyć kopię zapasową i odzyskać Azure Stack pliki i aplikacje w środowisku Azure Stack.
 ms.topic: conceptual
 ms.date: 06/05/2018
-ms.openlocfilehash: 2bcdf7f720708db1487d7d5cdaee41dc93c05728
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 07a64e5457963ea4a6d3b39b3f2326dbcfc5e63a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74172332"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87032769"
 ---
 # <a name="back-up-files-and-applications-on-azure-stack"></a>Tworzenie kopii zapasowych plików i aplikacji na Azure Stack
 
@@ -43,7 +44,7 @@ Aby skonfigurować Azure Backup Server ochrony plików w Azure Stack maszynach w
 
     ![Zostanie otwarty Kreator nowej grupy ochrony](./media/backup-mabs-files-applications-azure-stack/5-select-group-members.png)
 
-    Firma Microsoft zaleca umieszczenie w jednej grupie ochrony wszystkich danych, które będą współużytkowane z zasadami ochrony. Aby uzyskać pełne informacje o planowaniu i wdrażaniu grup ochrony, zobacz artykuł System Center DPM, [wdrażanie grup ochrony](https://docs.microsoft.com/system-center/dpm/create-dpm-protection-groups?view=sc-dpm-1801).
+    Firma Microsoft zaleca umieszczenie w jednej grupie ochrony wszystkich danych, które będą współużytkowane z zasadami ochrony. Aby uzyskać pełne informacje o planowaniu i wdrażaniu grup ochrony, zobacz artykuł System Center DPM, [wdrażanie grup ochrony](/system-center/dpm/create-dpm-protection-groups).
 
 4. Na ekranie **Wybierz metodę ochrony danych** wpisz nazwę grupy ochrony. Zaznacz pole wyboru dla **opcji chcę uzyskać krótkoterminową ochronę przy użyciu:** i chcę **chronić w trybie online**. Kliknij przycisk **Dalej**.
 
@@ -132,5 +133,5 @@ Aby wyświetlić Azure Backup Server jednostki w Azure Portal, można wykonać n
 
 Aby uzyskać informacje na temat używania Azure Backup Server do ochrony innych obciążeń, zobacz jeden z następujących artykułów:
 
-* [Tworzenie kopii zapasowej farmy programu SharePoint](https://docs.microsoft.com/azure/backup/backup-mabs-sharepoint-azure-stack)
-* [Tworzenie kopii zapasowej serwera SQL](https://docs.microsoft.com/azure/backup/backup-mabs-sql-azure-stack)
+* [Tworzenie kopii zapasowej farmy programu SharePoint](./backup-mabs-sharepoint-azure-stack.md)
+* [Tworzenie kopii zapasowej serwera SQL](./backup-mabs-sql-azure-stack.md)

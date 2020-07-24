@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/15/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 561ec6d59349fca585beda8b1bd60073d2603077
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f09e84d20b1a3c568eea015d92b93a99b8cf024e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85552188"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87036798"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planowanie wdrażania usługi Azure File Sync
 
@@ -147,7 +147,7 @@ Obsługiwane są tylko woluminy NTFS; Systemy plików ReFS, FAT, FAT32 i inne ni
 
 W poniższej tabeli przedstawiono stan międzyoperacyjności funkcji systemu plików NTFS: 
 
-| Cecha | Stan obsługi | Uwagi |
+| Cechy | Stan obsługi | Uwagi |
 |---------|----------------|-------|
 | Listy kontroli dostępu (ACL) | W pełni obsługiwane | Poufne listy kontroli dostępu w stylu systemu Windows są zachowywane przez Azure File Sync i są wymuszane przez system Windows Server w punktach końcowych serwera. Listy ACL można również wymuszać podczas bezpośredniego instalowania udziału plików platformy Azure, jednak wymaga to dodatkowej konfiguracji. Aby uzyskać więcej informacji, zobacz sekcję dotyczącą [tożsamości](#identity) . |
 | Twarde linki | Pominięto | |
@@ -245,7 +245,7 @@ Mimo że zmiany wprowadzone bezpośrednio do udziału plików platformy Azure pr
 > [!Important]  
 > Do pomyślnego wdrożenia Azure File Sync domeny dołączenia do konta magazynu Active Directory nie jest wymagane. Jest to ściśle opcjonalny krok umożliwiający udział plików platformy Azure wymuszanie lokalnych list ACL, gdy użytkownicy instalują udział plików platformy Azure bezpośrednio.
 
-## <a name="networking"></a>Networking
+## <a name="networking"></a>Sieć
 Agent Azure File Sync komunikuje się z usługą synchronizacji magazynu i udziałem plików platformy Azure przy użyciu protokołu REST Azure File Sync i protokołu FileREST, z których korzystają zawsze protokół HTTPS przez port 443. Protokół SMB nie jest nigdy używany do przekazywania ani pobierania danych między serwerem Windows i udziałem plików platformy Azure. Ponieważ większość organizacji zezwala na ruch HTTPS na porcie 443, ponieważ wymaga to odwiedzania większości witryn sieci Web, specjalna konfiguracja sieci zwykle nie jest wymagana do wdrażania Azure File Sync.
 
 Zgodnie z zasadami organizacji lub unikatowymi wymaganiami prawnymi może być wymagana bardziej restrykcyjna komunikacja z platformą Azure, dlatego Azure File Sync udostępnia kilka mechanizmów konfigurowania sieci. Na podstawie Twoich wymagań można:
@@ -271,7 +271,7 @@ Druga podstawowa metoda szyfrowania danych polega na zaszyfrowaniu strumienia da
 
 Azure File Sync nie współdziała z szyfrowanym systemem plików NTFS (NTFS EFS) ani rozwiązaniami do szyfrowania innych firm, które znajdują się powyżej systemu plików, ale poniżej strumienia danych pliku. 
 
-### <a name="encryption-in-transit"></a>Szyfrowanie podczas transferu
+### <a name="encryption-in-transit"></a>Szyfrowanie danych przesyłanych
 
 > [!NOTE]
 > Usługa Azure File Sync spowoduje usunięcie obsługi protokołów TLS 1.0 i 1,1 1 sierpnia 2020. Wszystkie obsługiwane wersje agentów Azure File Sync używają już domyślnie protokołu TLS 1.2. Użycie starszej wersji protokołu TLS może wystąpić, jeśli protokół TLS 1.2 został wyłączony na serwerze lub używany jest serwer proxy. W przypadku korzystania z serwera proxy zalecamy sprawdzenie konfiguracji serwera proxy. Azure File Sync regiony usługi dodane po 5/1/2020 będą obsługiwały protokół TLS 1.2, a obsługa protokołu TLS 1.0 i 1,1 zostaną usunięte z istniejących regionów 1 sierpnia 2020.  Aby uzyskać więcej informacji, zobacz [Przewodnik rozwiązywania problemów](storage-sync-files-troubleshoot.md#tls-12-required-for-azure-file-sync).
@@ -303,37 +303,37 @@ Azure File Sync jest dostępny w następujących regionach:
 
 | Chmura Azure | Region geograficzny | Region platformy Azure | Kod regionu |
 |-------------|-------------------|--------------|-------------|
-| Public | Azja | Azja Wschodnia | `eastasia` |
-| Public | Azja | Azja Południowo-Wschodnia | `southeastasia` |
-| Public | Australia | Australia Wschodnia | `australiaeast` |
-| Public | Australia | Australia Południowo-Wschodnia | `australiasoutheast` |
-| Public | Brazylia | Brazylia Południowa | `brazilsouth` |
-| Public | Kanada | Kanada Środkowa | `canadacentral` |
-| Public | Kanada | Kanada Wschodnia | `canadaeast` |
-| Public | Europa | Europa Północna | `northeurope` |
-| Public | Europa | Europa Zachodnia | `westeurope` |
-| Public | Francja | Francja Środkowa | `francecentral` |
-| Public | Francja | Francja Południowa * | `francesouth` |
-| Public | Indie | Indie Środkowe | `centralindia` |
-| Public | Indie | Indie Południowe | `southindia` |
-| Public | Japonia | Japonia Wschodnia | `japaneast` |
-| Public | Japonia | Japonia Zachodnia | `japanwest` |
-| Public | Korea | Korea Środkowa | `koreacentral` |
-| Public | Korea | Korea Południowa | `koreasouth` |
-| Public | Republika Południowej Afryki | Północna Republika Południowej Afryki | `southafricanorth` |
-| Public | Republika Południowej Afryki | Zachodnia Republika Południowej Afryki * | `southafricawest` |
-| Public | Zjednoczone Emiraty Arabskie | Środkowe Zjednoczone Emiraty Arabskie * | `uaecentral` |
-| Public | Zjednoczone Emiraty Arabskie | Północne Zjednoczone Emiraty Arabskie | `uaenorth` |
-| Public | Zjednoczone Królestwo | Południowe Zjednoczone Królestwo | `uksouth` |
-| Public | Zjednoczone Królestwo | Zachodnie Zjednoczone Królestwo | `ukwest` |
-| Public | USA | Środkowe stany USA | `centralus` |
-| Public | USA | Wschodnie stany USA | `eastus` |
-| Public | USA | Wschodnie stany USA 2 | `eastus2` |
-| Public | USA | Północno-środkowe stany USA | `northcentralus` |
-| Public | USA | Południowo-środkowe stany USA | `southcentralus` |
-| Public | USA | Zachodnio-środkowe stany USA | `westcentralus` |
-| Public | USA | Zachodnie stany USA | `westus` |
-| Public | USA | Zachodnie stany USA 2 | `westus2` |
+| Publiczny | Azja | Azja Wschodnia | `eastasia` |
+| Publiczny | Azja | Southeast Asia | `southeastasia` |
+| Publiczny | Australia | Australia Wschodnia | `australiaeast` |
+| Publiczny | Australia | Australia Południowo-Wschodnia | `australiasoutheast` |
+| Publiczny | Brazylia | Brazil South | `brazilsouth` |
+| Publiczny | Kanada | Kanada Środkowa | `canadacentral` |
+| Publiczny | Kanada | Kanada Wschodnia | `canadaeast` |
+| Publiczny | Europa | Europa Północna | `northeurope` |
+| Publiczny | Europa | West Europe | `westeurope` |
+| Publiczny | Francja | Francja Środkowa | `francecentral` |
+| Publiczny | Francja | Francja Południowa * | `francesouth` |
+| Publiczny | Indie | Indie Środkowe | `centralindia` |
+| Publiczny | Indie | Indie Południowe | `southindia` |
+| Publiczny | Japonia | Japan East | `japaneast` |
+| Publiczny | Japonia | Japonia Zachodnia | `japanwest` |
+| Publiczny | Korea | Korea Środkowa | `koreacentral` |
+| Publiczny | Korea | Korea Południowa | `koreasouth` |
+| Publiczny | Republika Południowej Afryki | Północna Republika Południowej Afryki | `southafricanorth` |
+| Publiczny | Republika Południowej Afryki | Zachodnia Republika Południowej Afryki * | `southafricawest` |
+| Publiczny | Zjednoczone Emiraty Arabskie | Środkowe Zjednoczone Emiraty Arabskie * | `uaecentral` |
+| Publiczny | Zjednoczone Emiraty Arabskie | Północne Zjednoczone Emiraty Arabskie | `uaenorth` |
+| Publiczny | Zjednoczone Królestwo | Południowe Zjednoczone Królestwo | `uksouth` |
+| Publiczny | Zjednoczone Królestwo | Zachodnie Zjednoczone Królestwo | `ukwest` |
+| Publiczny | USA | Central US | `centralus` |
+| Publiczny | USA | East US | `eastus` |
+| Publiczny | USA | Wschodnie stany USA 2 | `eastus2` |
+| Publiczny | USA | Północno-środkowe stany USA | `northcentralus` |
+| Publiczny | USA | South Central US | `southcentralus` |
+| Publiczny | USA | Zachodnio-środkowe stany USA | `westcentralus` |
+| Publiczny | USA | Zachodnie stany USA | `westus` |
+| Publiczny | USA | Zachodnie stany USA 2 | `westus2` |
 | US Gov | USA | US Gov Arizona | `usgovarizona` |
 | US Gov | USA | US Gov Teksas | `usgovtexas` |
 | US Gov | USA | US Gov Wirginia | `usgovvirginia` |
@@ -360,7 +360,7 @@ Można również użyć urządzenie Data Box do migracji danych do wdrożenia Az
 Typowym błędom podejmowanym przez klientów podczas migrowania danych do nowego wdrożenia Azure File Sync jest skopiowanie danych bezpośrednio do udziału plików platformy Azure, a nie na serwerach plików systemu Windows. Mimo że Azure File Sync zidentyfikuje wszystkie nowe pliki w udziale plików platformy Azure, a następnie zsynchronizuje je z udziałami plików systemu Windows, jest to zwykle znacznie wolniejsze niż ładowanie danych za pomocą serwera plików systemu Windows. W przypadku korzystania z narzędzi do kopiowania platformy Azure, takich jak AzCopy, ważne jest, aby użyć najnowszej wersji. Zapoznaj się z [tabelą narzędzia kopiowania plików](storage-files-migration-overview.md#file-copy-tools) , aby zapoznać się z omówieniem narzędzi do kopiowania na platformie Azure w celu zagwarantowania, że można skopiować wszystkie ważne metadane pliku, takie jak sygnatury czasowe i listy ACL.
 
 ## <a name="antivirus"></a>Oprogramowanie antywirusowe
-Ponieważ oprogramowanie antywirusowe działa przez skanowanie plików pod kątem znanego złośliwego kodu, produkt antywirusowy może powodować odwoływanie się do plików warstwowych. W wersji 4,0 i większej od agenta Azure File Sync pliki warstwowe mają ustawiony atrybut Secure Windows FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS. Firma Microsoft zaleca zapoznanie się z dostawcą oprogramowania, aby dowiedzieć się, jak skonfigurować swoje rozwiązanie, aby pominąć odczytywanie plików z tym zestawem atrybutów (wiele do nich jest automatycznie). 
+Ponieważ oprogramowanie antywirusowe działa przez skanowanie plików pod kątem znanego złośliwego kodu, produkt antywirusowy może powodować odwoływanie się do plików warstwowych, co spowodowało wysokie opłaty za ruch wychodzący. W wersji 4,0 i większej od agenta Azure File Sync pliki warstwowe mają ustawiony atrybut Secure Windows FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS. Firma Microsoft zaleca zapoznanie się z dostawcą oprogramowania, aby dowiedzieć się, jak skonfigurować swoje rozwiązanie, aby pominąć odczytywanie plików z tym zestawem atrybutów (wiele do nich jest automatycznie). 
 
 Wewnętrzne rozwiązania firmy Microsoft dotyczące oprogramowania antywirusowego, Windows Defender i System Center Endpoint Protection (SCEP) automatycznie pomijają odczytywanie plików, które mają ten zestaw atrybutów. Przetestowano i zidentyfikowano jeden drobny problem: po dodaniu serwera do istniejącej grupy synchronizacji pliki o rozmiarze mniejszym niż 800 bajtów są ponownie wywoływane (pobrane) na nowym serwerze. Te pliki pozostaną na nowym serwerze i nie zostaną warstwowe, ponieważ nie spełniają wymagań dotyczących rozmiaru warstwowego (>KB).
 
@@ -368,9 +368,9 @@ Wewnętrzne rozwiązania firmy Microsoft dotyczące oprogramowania antywirusoweg
 > Dostawcy oprogramowania antywirusowego mogą sprawdzić zgodność swojego produktu i Azure File Sync przy użyciu [zestawu testów zgodności z programem Azure File Sync Antivirus](https://www.microsoft.com/download/details.aspx?id=58322), który jest dostępny do pobrania w centrum pobierania Microsoft.
 
 ## <a name="backup"></a>Backup 
-Podobnie jak rozwiązania antywirusowe, rozwiązania do tworzenia kopii zapasowych mogą powodować odwoływanie się do plików warstwowych. Zalecamy używanie rozwiązania do tworzenia kopii zapasowych w chmurze w celu utworzenia kopii zapasowej udziału plików platformy Azure, a nie lokalnego produktu do tworzenia kopii zapasowych.
+Jeśli włączono obsługę warstw w chmurze, nie należy używać rozwiązań bezpośrednio tworzących kopie zapasowe punktu końcowego serwera lub maszyny wirtualnej, na której znajduje się punkt końcowy serwera. Obsługa warstw w chmurze powoduje przechowywanie tylko podzestawu danych w punkcie końcowym serwera z pełnym zestawem danych znajdującym się w udziale plików platformy Azure. W zależności od użytego rozwiązania do tworzenia kopii zapasowych, pliki warstwowe zostaną pominięte, a ich kopia zapasowa nie zostanie utworzona (ponieważ mają zestaw atrybutów FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS) lub zostaną one odwołane do dysku, co spowodowało wysokie opłaty za ruch wychodzący. Zalecamy używanie rozwiązania do tworzenia kopii zapasowych w chmurze do bezpośredniego tworzenia kopii zapasowej udziału plików platformy Azure. Aby uzyskać więcej informacji, zobacz [Informacje o kopii zapasowej udziału plików platformy Azure](https://docs.microsoft.com/azure/backup/azure-file-share-backup-overview?toc=/azure/storage/files/toc.json) lub skontaktuj się z dostawcą kopii zapasowej, aby sprawdzić, czy obsługują kopie zapasowe udziałów plików platformy Azure.
 
-Jeśli używasz lokalnego rozwiązania do tworzenia kopii zapasowych, kopie zapasowe powinny być wykonywane na serwerze w grupie synchronizacji z wyłączonymi warstwami chmury. Podczas przywracania należy użyć opcji przywracania na poziomie woluminu lub na poziomie pliku. Pliki przywrócone przy użyciu opcji przywracania na poziomie pliku zostaną zsynchronizowane ze wszystkimi punktami końcowymi w grupie synchronizacji, a istniejące pliki zostaną zastąpione wersją przywróconą z kopii zapasowej.  Przywrócenie na poziomie woluminu nie spowoduje zastąpienia nowszych wersji plików w udziale plików platformy Azure ani w innych punktach końcowych serwera.
+Jeśli wolisz używać lokalnego rozwiązania do tworzenia kopii zapasowych, kopie zapasowe powinny być wykonywane na serwerze w grupie synchronizacji z wyłączonymi warstwami chmury. Podczas przywracania należy użyć opcji przywracania na poziomie woluminu lub na poziomie pliku. Pliki przywrócone przy użyciu opcji przywracania na poziomie pliku zostaną zsynchronizowane ze wszystkimi punktami końcowymi w grupie synchronizacji, a istniejące pliki zostaną zastąpione wersją przywróconą z kopii zapasowej.  Przywrócenie na poziomie woluminu nie spowoduje zastąpienia nowszych wersji plików w udziale plików platformy Azure ani w innych punktach końcowych serwera.
 
 > [!Note]  
 > Przywracanie bez systemu operacyjnego (BMR) może spowodować nieoczekiwane wyniki i nie jest obecnie obsługiwane.
@@ -383,7 +383,7 @@ Jeśli używasz lokalnego rozwiązania do tworzenia kopii zapasowych, kopie zapa
 
 ## <a name="next-steps"></a>Następne kroki
 * [Rozważ użycie ustawień zapory i serwera proxy](storage-sync-files-firewall-and-proxy.md)
-* [Planowanie wdrażania usługi Pliki Azure](storage-files-planning.md)
+* [Planowanie wdrożenia usługi Azure Files](storage-files-planning.md)
 * [Wdrażanie usługi Pliki Azure](storage-files-deployment-guide.md)
-* [Wdrażanie usługi Azure File Sync](storage-sync-files-deployment-guide.md)
+* [Wdrażanie funkcji Azure File Sync](storage-sync-files-deployment-guide.md)
 * [Monitorowanie usługi Azure File Sync](storage-sync-files-monitoring.md)

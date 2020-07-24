@@ -4,11 +4,12 @@ description: Informacje na temat narzędzi i interfejsów API przeznaczonych do 
 ms.topic: conceptual
 ms.date: 05/22/2020
 ms.custom: seodec18
-ms.openlocfilehash: 1a3b2bb080e80e5ddc5ac12413f312dcd930d03f
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: c7484e59391be8f4853c2394bff20c6d9676dec9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85958025"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87032196"
 ---
 # <a name="overview-of-batch-apis-and-tools"></a>Omówienie narzędzi i interfejsów API usługi Batch
 
@@ -64,7 +65,7 @@ Interfejsy API usługi Azure Resource Manager dla usługi Batch zapewniają dost
 
 Te narzędzia wiersza polecenia zawierają te same funkcje co interfejsy API usług Batch i Batch Management: 
 
-- [Polecenia cmdlet programu PowerShell w usłudze Batch](/powershell/module/az.batch/): polecenia cmdlet usługi Azure Batch w module programu [Azure PowerShell](/powershell/azure/overview) umożliwiają zarządzanie zasobami usługi Batch za pomocą programu PowerShell.
+- [Polecenia cmdlet programu PowerShell w usłudze Batch](/powershell/module/az.batch/): polecenia cmdlet usługi Azure Batch w module programu [Azure PowerShell](/powershell/azure/) umożliwiają zarządzanie zasobami usługi Batch za pomocą programu PowerShell.
 - [Interfejs wiersza polecenia platformy Azure](/cli/azure): interfejs wiersza polecenia platformy Azure jest działającym na wielu platformach zestawem narzędzi, który udostępnia polecenia powłoki do interakcji z wieloma usługami platformy Azure, w tym usługi Batch i usługi Batch Management. Zobacz [Zarządzanie zasobami usługi Batch przy użyciu interfejsu wiersza polecenia platformy Azure](batch-cli-get-started.md), aby uzyskać więcej informacji o korzystaniu z interfejsu wiersza polecenia platformy Azure z usługą Batch.
 
 ## <a name="other-tools-for-application-development"></a>Inne narzędzia do opracowywania aplikacji
@@ -76,7 +77,7 @@ Te dodatkowe narzędzia mogą być przydatne do kompilowania i debugowania aplik
 - [Azure Batch stocznie](https://github.com/Azure/batch-shipyard): stoczniowe narzędzie do obsługi inicjowania, wykonywania i monitorowania przetwarzania wsadowego opartego na kontenerach i obciążeń HPC na Azure Batch.
 - [Eksplorator usługi Azure Storage](https://azure.microsoft.com/features/storage-explorer/): Chociaż nie jest to dokładnie narzędzie Azure Batch, Eksplorator usługi Storage jest innym przydatnym narzędziem, które trzeba uzyskać podczas tworzenia i debugowania rozwiązań wsadowych.
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - Aby dowiedzieć się więcej o zdarzeniach rejestrowania z aplikacji usługi Batch, zobacz [metryki usługi Batch, alerty i dzienniki na potrzeby oceny i monitorowania diagnostyki](batch-diagnostics.md).
 - Informacje referencyjne dotyczące zdarzeń zgłaszanych przez usługę Batch można znaleźć w temacie [Batch Analytics](batch-analytics.md).

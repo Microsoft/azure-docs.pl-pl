@@ -3,18 +3,18 @@ title: Autouczenie modelu prognozowania szeregów czasowych
 titleSuffix: Azure Machine Learning
 description: Dowiedz się, jak używać Azure Machine Learning do uczenia modelu regresji prognozowania szeregów czasowych przy użyciu funkcji automatycznego uczenia maszynowego.
 services: machine-learning
-author: trevorbye
-ms.author: trbye
+author: nibaccam
+ms.author: nibaccam
 ms.service: machine-learning
 ms.subservice: core
-ms.reviewer: trbye
 ms.topic: how-to
 ms.date: 03/09/2020
-ms.openlocfilehash: 72b0a3074bfdfb6b6038f6c63eb01a7b33d45ea6
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: ec2ef52978a24619103d9a0a2b7fb8ed1099c40b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85959130"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87031596"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Autouczenie modelu prognozowania szeregów czasowych
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -52,7 +52,7 @@ Dane o większej liczbie, modele uczenia głębokiego, takie jak ForecastTCN fir
 
 Automatyczna ML zapewnia użytkownikom zarówno natywne, jak i bogate modele uczenia w ramach systemu rekomendacji. 
 
-Modele| Opis | Zalety
+Modele| Opis | Korzyści
 ----|----|---
 Prophet (wersja zapoznawcza)|Prophet działa najlepiej z seriami czasowymi, które mają silne skutki sezonowe i kilka sezonów danych historycznych. Aby skorzystać z tego modelu, zainstaluj go lokalnie przy użyciu `pip install fbprophet` . | Dokładne & szybka, niezawodna do wartości odstających, brakujących danych i znaczących zmian w szeregach czasowych.
 AutoARIMA (wersja zapoznawcza)|AutoRegressive zintegrowanej średniej ruchomej (ARIMA) najlepiej sprawdza się, gdy dane są nieruchome. Oznacza to, że właściwości statystyczne, takie jak średnia i Wariancja, są stałe dla całego zestawu. Na przykład, jeśli przerzucasz monety, prawdopodobieństwo uzyskania głów wynosi 50%, bez względu na to, że przewracasz dzisiaj, jutro lub w następnym roku.| Świetnie dla serii univariate, ponieważ przeszłe wartości są używane do przewidywania przyszłych wartości.

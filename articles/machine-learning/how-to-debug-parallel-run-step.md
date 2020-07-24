@@ -6,16 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: troubleshooting
-ms.reviewer: trbye, jmartens, larryfr, vaidyas, laobri
+ms.reviewer: jmartens, larryfr, vaidyas, laobri, tracych
 ms.author: trmccorm
 author: tmccrmck
-ms.date: 07/06/2020
-ms.openlocfilehash: 870563a1a27ee00c2f14935e5200f722136011a1
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.date: 07/16/2020
+ms.openlocfilehash: a6a3e9a7a914711f6b7c923ac2249ebf3285c877
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027005"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87031018"
 ---
 # <a name="debug-and-troubleshoot-parallelrunstep"></a>Debugowanie i rozwiązywanie problemów z ParallelRunStep
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -36,7 +36,7 @@ Ze względu na dystrybuowany charakter zadań ParallelRunStep istnieją dziennik
 
 - `~/logs/overview.txt`: Ten plik zawiera ogólne informacje o liczbie pośrednich partii (nazywanych również zadaniami) utworzonych do tej pory oraz liczbę partii, które zostały przetworzone do tej pory. Na tym końcu zostanie wyświetlony wynik zadania. Jeśli zadanie nie powiodło się, zostanie wyświetlony komunikat o błędzie i miejsce, w którym należy rozpocząć rozwiązywanie problemów.
 
-- `~/logs/sys/master.txt`: Ten plik zawiera widok węzła głównego (znanego również jako koordynator) uruchomionego zadania. Obejmuje tworzenie zadań, monitorowanie postępu, wynik uruchomienia.
+- `~/logs/sys/master.txt`: Ten plik udostępnia węzeł główny (znany również jako koordynator) w uruchomionym zadaniu. Obejmuje tworzenie zadań, monitorowanie postępu, wynik uruchomienia.
 
 Dzienniki wygenerowane ze skryptu wprowadzania przy użyciu pomocnika EntryScript i instrukcje Print są dostępne w następujących plikach:
 
@@ -61,11 +61,11 @@ Jeśli potrzebujesz pełnego zrozumieć, jak każdy węzeł wykonał skrypt wyni
 Możesz również znaleźć informacje o użyciu zasobów procesów dla każdego pracownika. Te informacje są w formacie CSV i znajdują się w lokalizacji `~/logs/sys/perf/overview.csv` . Informacje o każdym procesie są dostępne w sekcji `~logs/sys/processes.csv` .
 
 ### <a name="how-do-i-log-from-my-user-script-from-a-remote-context"></a>Jak mogę dziennika ze skryptu użytkownika ze zdalnego kontekstu?
-Możesz uzyskać Rejestrator z EntryScript, jak pokazano poniżej przykładowego kodu, aby dzienniki były wyświetlane w **dzienniku/folderze użytkownika** w portalu.
+ParallelRunStep może uruchamiać wiele procesów na jednym węźle na podstawie process_count_per_node. Aby zorganizować dzienniki z każdego procesu w węźle i połączyć je z instrukcją Print i log, zalecamy użycie rejestratora ParallelRunStep, jak pokazano poniżej. Uzyskasz Rejestrator z usługi EntryScript i Wyrejestruj dzienniki w folderze **Logs/User** w portalu.
 
 **Przykładowy skrypt wprowadzania przy użyciu rejestratora:**
 ```python
-from entry_script import EntryScript
+from azureml_user.parallel_run import EntryScript
 
 def init():
     """ Initialize the node."""
@@ -87,7 +87,9 @@ def run(mini_batch):
 
 ### <a name="how-could-i-pass-a-side-input-such-as-a-file-or-files-containing-a-lookup-table-to-all-my-workers"></a>Jak można przekazać dane wejściowe po stronie, takie jak plik lub pliki zawierające tabelę odnośników, do wszystkich pracowników?
 
-Utwórz [zestaw danych](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py) zawierający dane wejściowe boczne i zarejestruj go w obszarze roboczym. Przekaż go do `side_input` parametru `ParallelRunStep` . Ponadto możesz dodać ścieżkę `arguments` do sekcji, aby łatwo uzyskać dostęp do jej ścieżki zainstalowanej:
+Użytkownik może przekazać dane referencyjne do skryptu przy użyciu parametru side_inputs ParalleRunStep. Wszystkie zestawy danych podane jako side_inputs zostaną zainstalowane na każdym węźle procesu roboczego. Użytkownik może uzyskać lokalizację instalacji, przekazując argument.
+
+Utwórz [zestaw](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py) danych zawierający dane referencyjne i zarejestruj go w obszarze roboczym. Przekaż go do `side_inputs` parametru `ParallelRunStep` . Ponadto możesz dodać swoją ścieżkę w `arguments` sekcji, aby łatwo uzyskać dostęp do jej zainstalowanej ścieżki:
 
 ```python
 label_config = label_ds.as_named_input("labels_input")

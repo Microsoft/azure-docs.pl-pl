@@ -4,12 +4,12 @@ description: W tym artykule dowiesz się, jak rozwiązywać problemy z tworzenie
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 08/30/2019
-ms.openlocfilehash: e40b74cc5bf995e943b20ddcd21127ed4f7d7ead
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 5393ba1b7c604ef49cee83f759ed798cfc473417
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86184195"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87032837"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Rozwiązywanie problemów dotyczących błędów kopii zapasowych w usłudze Azure Virtual Machines
 
@@ -21,13 +21,13 @@ W tej sekcji omówiono niepowodzenie operacji tworzenia kopii zapasowej maszyny 
 
 ### <a name="basic-troubleshooting"></a>Podstawowe rozwiązywanie problemów
 
-* Upewnij się, że Agent maszyny wirtualnej (Agent) jest [najnowszą wersją](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms-prepare#install-the-vm-agent).
-* Upewnij się, że wersja systemu operacyjnego Windows lub Linux jest obsługiwana, zapoznaj się z [matrycą obsługi kopii zapasowych IaaS maszyny wirtualnej](https://docs.microsoft.com/azure/backup/backup-support-matrix-iaas).
+* Upewnij się, że Agent maszyny wirtualnej (Agent) jest [najnowszą wersją](./backup-azure-arm-vms-prepare.md#install-the-vm-agent).
+* Upewnij się, że wersja systemu operacyjnego Windows lub Linux jest obsługiwana, zapoznaj się z [matrycą obsługi kopii zapasowych IaaS maszyny wirtualnej](./backup-support-matrix-iaas.md).
 * Sprawdź, czy inna usługa kopii zapasowej nie jest uruchomiona.
-  * Aby upewnić się, że nie występują żadne problemy z rozszerzeniami migawek, [Odinstaluj rozszerzenia w celu wymuszenia ponownego załadowania](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout)
+  * Aby upewnić się, że nie występują żadne problemy z rozszerzeniami migawek, [Odinstaluj rozszerzenia w celu wymuszenia ponownego załadowania](./backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md)
 * Sprawdź, czy maszyna wirtualna ma łączność z Internetem.
   * Upewnij się, że inna usługa kopii zapasowej nie jest uruchomiona.
-* `Services.msc`Upewnij się, że usługa **agenta gościa systemu Windows Azure** jest **uruchomiona**. Jeśli brakuje usługi **agenta gościa platformy Microsoft Azure** , zainstaluj ją z [kopii zapasowych maszyn wirtualnych platformy Azure w magazynie Recovery Services](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms-prepare#install-the-vm-agent).
+* `Services.msc`Upewnij się, że usługa **agenta gościa systemu Windows Azure** jest **uruchomiona**. Jeśli brakuje usługi **agenta gościa platformy Microsoft Azure** , zainstaluj ją z [kopii zapasowych maszyn wirtualnych platformy Azure w magazynie Recovery Services](./backup-azure-arm-vms-prepare.md#install-the-vm-agent).
 * **Dziennik zdarzeń** może zawierać błędy kopii zapasowych, które pochodzą z innych produktów kopii zapasowej, na przykład kopia zapasowa systemu Windows Server i nie są ze względu na usługę Azure Backup. Wykonaj następujące kroki, aby określić, czy problem dotyczy Azure Backup:
   * Jeśli wystąpił błąd dotyczący **kopii zapasowej** wpisu w źródle lub komunikacie zdarzenia, sprawdź, czy kopie zapasowe usługi Azure IaaS VM zostały wykonane pomyślnie, a także czy punkt przywracania został utworzony z żądanym typem migawki.
   * Jeśli Azure Backup działa, problem jest prawdopodobnie z innym rozwiązaniem tworzenia kopii zapasowej.
@@ -133,7 +133,7 @@ Jeśli w katalogu **MachineKeys** są wyświetlane uprawnienia inne niż ustawie
    * Uprawnienia do odczytu
 2. Usuń wszystkie certyfikaty, **w których wystawiony** jest klasyczny model wdrażania lub **Generator certyfikatów CRP systemu Windows Azure**:
 
-   * [Otwórz przystawkę Certyfikaty w konsoli komputera lokalnego](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in).
+   * [Otwórz przystawkę Certyfikaty w konsoli komputera lokalnego](/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in).
    * W **Personal**obszarze  >  **Certyfikaty**osobiste Usuń wszystkie certyfikaty, **w których wystawiony** jest klasyczny model wdrażania lub **Generator certyfikatów usługi Windows Azure CRP**.
 3. Wyzwalanie zadania tworzenia kopii zapasowej maszyny wirtualnej.
 
@@ -237,14 +237,14 @@ Kod błędu: ExtensionVCRedistInstallationFailure <br/> Komunikat o błędzie: o
 ## <a name="usererrorrequestdisallowedbypolicy---an-invalid-policy-is-configured-on-the-vm-which-is-preventing-snapshot-operation"></a>UserErrorRequestDisallowedByPolicy — na maszynie wirtualnej skonfigurowano nieprawidłowe zasady, które uniemożliwiają wykonanie operacji migawki
 Kod błędu: UserErrorRequestDisallowedByPolicy <BR> Komunikat o błędzie: na maszynie wirtualnej skonfigurowano nieprawidłowe zasady, które uniemożliwiają wykonanie operacji migawki.
 
-Jeśli masz Azure Policy, które [regulują Tagi w środowisku](https://docs.microsoft.com/azure/governance/policy/tutorials/govern-tags), Rozważ zmianę zasad z [skutku odmowy](https://docs.microsoft.com/azure/governance/policy/concepts/effects#deny) na [skutek modyfikacji](https://docs.microsoft.com/azure/governance/policy/concepts/effects#modify)lub Utwórz grupę zasobów ręcznie zgodnie ze [schematem nazewnictwa wymaganym przez Azure Backup](https://docs.microsoft.com/azure/backup/backup-during-vm-creation#azure-backup-resource-group-for-virtual-machines).
+Jeśli masz Azure Policy, które [regulują Tagi w środowisku](../governance/policy/tutorials/govern-tags.md), Rozważ zmianę zasad z [skutku odmowy](../governance/policy/concepts/effects.md#deny) na [skutek modyfikacji](../governance/policy/concepts/effects.md#modify)lub Utwórz grupę zasobów ręcznie zgodnie ze [schematem nazewnictwa wymaganym przez Azure Backup](./backup-during-vm-creation.md#azure-backup-resource-group-for-virtual-machines).
 
 ## <a name="jobs"></a>Stanowiska
 
 | Szczegóły błędu | Obejście |
 | --- | --- |
 | Anulowanie nie jest obsługiwane dla tego typu zadania: <br>Poczekaj na zakończenie zadania. |Brak |
-| Zadanie nie jest w stanie do anulowania: <br>Poczekaj na zakończenie zadania. <br>**oraz**<br> Wybrane zadanie nie jest w stanie do anulowania: <br>Poczekaj na zakończenie zadania. |Prawdopodobnie zadanie jest niemal ukończone. Poczekaj na zakończenie zadania.|
+| Zadanie nie jest w stanie do anulowania: <br>Poczekaj na zakończenie zadania. <br>**lub**<br> Wybrane zadanie nie jest w stanie do anulowania: <br>Poczekaj na zakończenie zadania. |Prawdopodobnie zadanie jest niemal ukończone. Poczekaj na zakończenie zadania.|
 | Kopia zapasowa nie może anulować zadania, ponieważ nie jest w toku: <br>Anulowanie jest obsługiwane tylko dla zadań w toku. Spróbuj anulować zadanie w toku. |Ten błąd występuje ze względu na stan przejściowy. Poczekaj chwilę i spróbuj ponownie wykonać operację anulowania. |
 | Wykonanie kopii zapasowej nie powiodło się: <br>Poczekaj na zakończenie zadania. |Brak |
 
@@ -277,12 +277,12 @@ Zazwyczaj Agent maszyny wirtualnej znajduje się już w maszynach wirtualnych ut
 #### <a name="windows-vms"></a>Maszyny wirtualne z systemem Windows
 
 * Pobierz i zainstaluj [plik MSI agenta](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Aby zakończyć instalację, musisz mieć uprawnienia administratora.
-* W przypadku maszyn wirtualnych utworzonych przy użyciu klasycznego modelu wdrażania należy [zaktualizować Właściwość maszyny wirtualnej](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/install-vm-agent-offline#use-the-provisionguestagent-property-for-classic-vms) , aby wskazać, że Agent jest zainstalowany. Ten krok nie jest wymagany w przypadku Azure Resource Manager maszyn wirtualnych.
+* W przypadku maszyn wirtualnych utworzonych przy użyciu klasycznego modelu wdrażania należy [zaktualizować Właściwość maszyny wirtualnej](../virtual-machines/troubleshooting/install-vm-agent-offline.md#use-the-provisionguestagent-property-for-classic-vms) , aby wskazać, że Agent jest zainstalowany. Ten krok nie jest wymagany w przypadku Azure Resource Manager maszyn wirtualnych.
 
 #### <a name="linux-vms"></a>Maszyny wirtualne z systemem Linux
 
 * Zainstaluj najnowszą wersję agenta z repozytorium dystrybucji. Aby uzyskać szczegółowe informacje na temat nazwy pakietu, zobacz [repozytorium agentów systemu Linux](https://github.com/Azure/WALinuxAgent).
-* W przypadku maszyn wirtualnych utworzonych przy użyciu klasycznego modelu wdrażania [zaktualizuj właściwość VM](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/install-vm-agent-offline#use-the-provisionguestagent-property-for-classic-vms) i sprawdź, czy Agent jest zainstalowany. Ten krok nie jest wymagany w przypadku Menedżer zasobów maszyn wirtualnych.
+* W przypadku maszyn wirtualnych utworzonych przy użyciu klasycznego modelu wdrażania [zaktualizuj właściwość VM](../virtual-machines/troubleshooting/install-vm-agent-offline.md#use-the-provisionguestagent-property-for-classic-vms) i sprawdź, czy Agent jest zainstalowany. Ten krok nie jest wymagany w przypadku Menedżer zasobów maszyn wirtualnych.
 
 ### <a name="update-the-vm-agent"></a>Aktualizowanie agenta maszyny wirtualnej
 
@@ -292,7 +292,7 @@ Zazwyczaj Agent maszyny wirtualnej znajduje się już w maszynach wirtualnych ut
 
 #### <a name="linux-vms"></a>Maszyny wirtualne z systemem Linux
 
-* Aby zaktualizować agenta maszyny wirtualnej z systemem Linux, postępuj zgodnie z instrukcjami zawartymi w artykule [Aktualizowanie agenta maszyny wirtualnej z systemem Linux](../virtual-machines/linux/update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* Aby zaktualizować agenta maszyny wirtualnej z systemem Linux, postępuj zgodnie z instrukcjami zawartymi w artykule [Aktualizowanie agenta maszyny wirtualnej z systemem Linux](../virtual-machines/extensions/update-linux-agent.md?toc=/azure/virtual-machines/linux/toc.json).
 
     > [!NOTE]
     > Należy zawsze używać repozytorium dystrybucji do aktualizowania agenta.
@@ -321,10 +321,10 @@ Kopia zapasowa maszyny wirtualnej polega na wystawianiu poleceń migawek do maga
 * **Jeśli więcej niż cztery maszyny wirtualne współużytkują tę samą usługę w chmurze, należy rozłożyć maszyny wirtualne na wiele zasad tworzenia kopii zapasowych**. Rozłożenie czasu wykonywania kopii zapasowych, więc nie można uruchomić więcej niż czterech kopii zapasowych maszyn wirtualnych. Spróbuj oddzielić godziny rozpoczęcia w zasadach o co najmniej godzinie.
 * **Maszyna wirtualna jest uruchamiana z dużym procesorem CPU lub pamięcią**. Jeśli maszyna wirtualna działa z dużą ilością pamięci lub użyciem procesora CPU, więcej niż 90 procent, zadanie migawki jest umieszczane w kolejce i opóźnione. Ostatecznie przeprowadzi limit czasu. Jeśli ten problem wystąpi, wypróbuj kopię zapasową na żądanie.
 
-## <a name="networking"></a>Networking
+## <a name="networking"></a>Sieć
 
 Aby tworzenie kopii zapasowej maszyny wirtualnej IaaS było możliwe, należy włączyć protokół DHCP wewnątrz gościa. Jeśli potrzebujesz statycznego prywatnego adresu IP, skonfiguruj go za pomocą Azure Portal lub programu PowerShell. Upewnij się, że opcja DHCP wewnątrz maszyny wirtualnej jest włączona.
 Uzyskaj więcej informacji na temat konfigurowania statycznego adresu IP za pomocą programu PowerShell:
 
-* [Jak dodać statyczny wewnętrzny adres IP do istniejącej maszyny wirtualnej](https://docs.microsoft.com/powershell/module/az.network/set-aznetworkinterfaceipconfig?view=azps-3.5.0#description)
+* [Jak dodać statyczny wewnętrzny adres IP do istniejącej maszyny wirtualnej](/powershell/module/az.network/set-aznetworkinterfaceipconfig#description)
 * [Zmień metodę alokacji dla prywatnego adresu IP przypisanego do interfejsu sieciowego](../virtual-network/virtual-networks-static-private-ip-arm-ps.md#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface)

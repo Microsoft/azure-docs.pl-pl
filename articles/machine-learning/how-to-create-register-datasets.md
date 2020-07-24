@@ -11,12 +11,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 06/29/2020
-ms.openlocfilehash: baa238f36c41b5f494e8748cd5cd563bd212f483
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c082c74ab448fda0926b5aab52088bf00fb719bf
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85610714"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87031171"
 ---
 # <a name="create-azure-machine-learning-datasets"></a>Tworzenie zestawów danych Azure Machine Learning
 
@@ -33,7 +33,8 @@ Za pomocą Azure Machine Learning zestawów danych można:
 * Udostępnianie danych i współpraca z innymi użytkownikami.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-"Aby utworzyć zestawy danych i korzystać z nich, potrzebne są:
+
+Aby tworzyć zestawy danych i korzystać z nich, potrzebne są:
 
 * Subskrypcja platformy Azure. Jeśli nie masz subskrypcji, przed rozpoczęciem utwórz bezpłatne konto. Wypróbuj [bezpłatną lub płatną wersję Azure Machine Learning](https://aka.ms/AMLFree).
 
@@ -42,13 +43,13 @@ Za pomocą Azure Machine Learning zestawów danych można:
 * [Zestaw Azure Machine Learning SDK dla języka Python](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py), który obejmuje pakiet usługi Azure DataSets.
 
 > [!NOTE]
-> Niektóre klasy zestawu danych mają zależności w pakiecie [Azure preprodukcyjnym](https://docs.microsoft.com/python/api/azureml-dataprep/?view=azure-ml-py) , który jest zgodny z 64-bitowym językiem Python. W przypadku użytkowników systemu Linux te klasy są obsługiwane tylko w następujących dystrybucjach: Red Hat Enterprise Linux, Ubuntu, Fedora i CentOS.
+> Niektóre klasy zestawu danych mają zależności w pakiecie [Azure preprodukcyjnym](https://docs.microsoft.com/python/api/azureml-dataprep/?view=azure-ml-py) , który jest zgodny z 64-bitowym językiem Python. W przypadku użytkowników systemu Linux te klasy są obsługiwane tylko w następujących dystrybucjach: Red Hat Enterprise Linux (7, 8), Ubuntu (14,04, 16,04, 18,04), Fedora (27, 28), Debian (8, 9) i CentOS (7).
 
 ## <a name="compute-size-guidance"></a>Wskazówki dotyczące rozmiaru obliczeń
 
 Podczas tworzenia zestawu danych sprawdź moc obliczeniową obliczeniową i rozmiar danych w pamięci. Rozmiar danych w magazynie nie jest taki sam jak rozmiar danych w ramce Dataframe. Na przykład dane w plikach CSV można rozszerzyć o do 10X w ramce Dataframe, dzięki czemu plik CSV o pojemności 1 GB może być 10 GB w ramce Dataframe. 
 
-Głównym czynnikiem jest to, jak duży zestaw danych znajduje się w pamięci, tj. jako ramka Dataframe. Zalecamy, aby rozmiar obliczeń i moc obliczeniowa zawierały rozmiar pamięci RAM. Dlatego jeśli ramka danych ma rozmiar 10GB, chcesz, aby obiekt docelowy obliczeń miał 20 + GB pamięci RAM, aby upewnić się, że ramka danych może być dopasowana do pamięci i przetworzona. Jeśli dane są skompresowane, można zwiększyć ich rozmiar. 20 GB stosunkowo rozrzedzonych danych przechowywanych w skompresowanym formacie Parquet można zwiększyć do ~ 800 GB w pamięci. Ponieważ pliki Parquet przechowują dane w formacie kolumnowym, w przypadku, gdy potrzebna jest tylko połowa kolumn, wystarczy załadować ~ 400 GB w pamięci.
+Głównym czynnikiem jest to, jak duży zestaw danych znajduje się w pamięci, tj. jako ramka Dataframe. Zalecamy, aby rozmiar obliczeń i moc obliczeniowa zawierały rozmiar pamięci RAM. Dlatego jeśli ramka danych ma wartość 10GB, chcesz, aby obiekt docelowy obliczeń miał 20 + GB pamięci RAM, aby zapewnić, że ramka danych może zmieścić się w pamięci i być przetworzona. Jeśli dane są skompresowane, można zwiększyć ich rozmiar. 20 GB stosunkowo rozrzedzonych danych przechowywanych w skompresowanym formacie Parquet można zwiększyć do ~ 800 GB w pamięci. Ponieważ pliki Parquet przechowują dane w formacie kolumnowym, w przypadku, gdy potrzebna jest tylko połowa kolumn, wystarczy załadować ~ 400 GB w pamięci.
  
 Jeśli używasz Pandas, nie ma potrzeby używania więcej niż 1 vCPU, ponieważ będzie on używany przez cały siebie. W razie potrzeby można łatwo zrównoleglanie wiele procesorów wirtualnych vCPU na jednym Azure Machine Learning wystąpienia obliczeniowego/węźle za pośrednictwem Modin i Dask/ray oraz skalować w poziomie do dużego klastra, po prostu zmieniając opcję `import pandas as pd` na `import modin.pandas as pd` . 
  
@@ -121,7 +122,7 @@ titanic_ds = Dataset.Tabular.from_delimited_files(path=web_path, set_column_type
 titanic_ds.take(3).to_pandas_dataframe()
 ```
 
-| |PassengerId|Ocalałe|Pclass|Nazwa|Biciu|Wiek|SibSp|Parch|Bilet|Bezprzewodow|Kabin|Zaokrętowanie
+|Indeks|PassengerId|Ocalałe|Pclass|Nazwa|Biciu|Wiek|SibSp|Parch|Bilet|Bezprzewodow|Kabin|Zaokrętowanie
 -|-----------|--------|------|----|---|---|-----|-----|------|----|-----|--------|
 0|1|Fałsz|3|Braund, Mr. Owen Harris|mężczyzna|22,0|1|0|A/5 21171|7,2500||S
 1|2|Prawda|1|Cumings, Pani. Jan Bradley (Florencji Briggs th...|kobieta|38,0|1|0|KOMPUTER 17599|71,2833|C85|C
@@ -158,7 +159,7 @@ Użyj [`from_sql_query()`](https://docs.microsoft.com/python/api/azureml-core/az
 
 from azureml.core import Dataset, Datastore
 
-# create tabular dataset from a SQL database in datastore
+# create tabular dataset from a SQL database in datastore. Take note of double parenthesis.
 sql_datastore = Datastore.get(workspace, 'mssql')
 sql_ds = Dataset.Tabular.from_sql_query((sql_datastore, 'SELECT * FROM my_table'))
 ```
@@ -186,7 +187,7 @@ data_slice = dataset.time_recent(timedelta(weeks=1, days=1))
 
 #### <a name="create-a-filedataset"></a>Utwórz FileDataset
 
-Użyj [`from_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory?view=azure-ml-py#from-files-path--validate-true-) metody `FileDatasetFactory` klasy, aby załadować pliki w dowolnym formacie i utworzyć niezarejestrowane FileDataset. Jeśli magazyn znajduje się za siecią wirtualną lub zaporą, należy ustawić parametr `validate =False` w `from_files()` metodzie. Pomija początkowy krok walidacji i gwarantuje, że można utworzyć zestaw danych z tych bezpiecznych plików.
+Użyj [`from_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory?view=azure-ml-py#from-files-path--validate-true-) metody `FileDatasetFactory` klasy, aby załadować pliki w dowolnym formacie i utworzyć niezarejestrowane FileDataset. Jeśli magazyn znajduje się za siecią wirtualną lub zaporą, należy ustawić parametr `validate=False` w `from_files()` metodzie. Pomija początkowy krok walidacji i gwarantuje, że można utworzyć zestaw danych z tych bezpiecznych plików.
 
 ```Python
 # create a FileDataset pointing to files in 'animals' folder and its subfolders recursively
@@ -210,6 +211,7 @@ Aby utworzyć zestaw danych w programie Studio:
 1. Wybierz pozycję **Utwórz zestaw danych** , aby wybrać źródło zestawu danych. To źródło może być plikami lokalnymi, magazynem danych lub publicznymi adresami URL.
 1. Wybierz **tabelaryczną** lub **plik** dla typu zestawu danych.
 1. Wybierz pozycję **dalej** , aby otworzyć formularz **Magazyn danych i wybór pliku** . Na tym formularzu wybierz lokalizację, w której ma zostać zachowany zestaw danych, a także wybierz pliki danych, które mają być używane dla zestawu danych. 
+    1. Włącz weryfikację pomijania, jeśli dane są w sieci wirtualnej. Dowiedz się więcej o [izolacji i prywatności sieci wirtualnej](how-to-enable-virtual-network.md#machine-learning-studio).
 1. Wybierz pozycję **dalej** , aby wypełnić **Ustawienia, Podgląd** i formularze **schematów** ; są one inteligentnie wypełniane na podstawie typu pliku i można później skonfigurować zestaw danych przed utworzeniem w tych formularzach. 
 1. Wybierz pozycję **dalej** , aby przejrzeć formularz **Potwierdź szczegóły** . Sprawdź wybrane opcje i Utwórz opcjonalny profil danych dla zestawu danych. Dowiedz się więcej na temat [profilowania danych](how-to-use-automated-ml-for-ml-models.md#profile). 
 1. Wybierz pozycję **Utwórz** , aby zakończyć tworzenie zestawu danych.

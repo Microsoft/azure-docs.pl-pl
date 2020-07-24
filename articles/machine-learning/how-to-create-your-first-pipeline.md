@@ -11,12 +11,12 @@ ms.author: nilsp
 author: NilsPohlmann
 ms.date: 12/05/2019
 ms.custom: seodec18, tracking-python
-ms.openlocfilehash: f5c4bfbe955c2989f420d7a6f325f8101556dddd
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 069f18d6ef94dd7570cdd506823ef22a17594795
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86201309"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87031137"
 ---
 # <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>Tworzenie i uruchamianie potoków uczenia maszynowego za pomocą zestawu SDK Azure Machine Learning
 
@@ -38,7 +38,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz bezpła
 
 * Utwórz [obszar roboczy Azure Machine Learning](how-to-manage-workspace.md) , aby pomieścić wszystkie zasoby potoku.
 
-* [Skonfiguruj środowisko programistyczne](how-to-configure-environment.md) , aby zainstalować zestaw SDK Azure Machine Learning, lub Użyj [wystąpienia obliczeniowego Azure Machine Learning (wersja zapoznawcza)](concept-compute-instance.md) z już zainstalowanym zestawem SDK.
+* [Skonfiguruj środowisko programistyczne](how-to-configure-environment.md) , aby zainstalować zestaw SDK Azure Machine Learning, lub Użyj [wystąpienia obliczeniowego Azure Machine Learning](concept-compute-instance.md) z już zainstalowanym zestawem SDK.
 
 Zacznij od dołączenia obszaru roboczego:
 
@@ -129,6 +129,8 @@ Poniżej przedstawiono przykłady tworzenia i dołączania obiektów docelowych 
 * Środowisko obliczeniowe usługi Azure Machine Learning
 * Azure Databricks 
 * Azure Data Lake Analytics
+
+[!INCLUDE [low-pri-note](../../includes/machine-learning-low-pri-vm.md)]
 
 ### <a name="azure-machine-learning-compute"></a>Azure Machine Learning obliczeń
 

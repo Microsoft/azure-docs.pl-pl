@@ -1,5 +1,5 @@
 ---
-title: 'Szybki Start: Tworzenie puli SQL Synapse (wersja zapoznawcza) przy użyciu programu Synapse Studio'
+title: 'Szybki Start: Tworzenie puli Synapse SQL przy użyciu programu Synapse Studio'
 description: Utwórz nową pulę SQL Synapse przy użyciu programu Synapse Studio, wykonując czynności opisane w tym przewodniku.
 services: synapse-analytics
 author: julieMSFT
@@ -9,14 +9,14 @@ ms.subservice: sql
 ms.date: 3/19/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: 4aac32ec69a4572a0988a22f1bc3b7bdf3f947d7
-ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.openlocfilehash: f85731a7f3ffef0adf35812ee8da4e0bbd89124f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86274275"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87036577"
 ---
-# <a name="quickstart-create-a-synapse-sql-pool-preview-using-synapse-studio"></a>Szybki Start: Tworzenie puli SQL Synapse (wersja zapoznawcza) przy użyciu programu Synapse Studio
+# <a name="quickstart-create-a-synapse-sql-pool-using-synapse-studio"></a>Szybki Start: Tworzenie puli Synapse SQL przy użyciu programu Synapse Studio
 
 Usługa Azure Synapse Analytics oferuje różne aparaty analityczne, które ułatwiają pozyskiwanie, przekształcanie, modelowanie i analizowanie danych. Pula SQL oferuje możliwości obliczeniowe i magazynowe oparte na języku T-SQL. Po utworzeniu puli SQL w obszarze roboczym usługi Synapse dane można ładować, modelować, przetwarzać i dostarczać w celu szybszego wglądu w informacje analityczne.
 

@@ -3,12 +3,12 @@ title: Często zadawane pytania — Event Hubs platformy Azure dla Apache Kafka
 description: W tym artykule pokazano, jak konsumenci i producenci korzystający z różnych protokołów (AMQP, Apache Kafka i HTTPS) mogą wymieniać zdarzenia podczas korzystania z usługi Azure Event Hubs.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 066024f657e011aac1449106ec32689f145c5534
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8bdd86d9f299a69d5f2d05bb8ec526ed94780608
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85314185"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87031687"
 ---
 # <a name="frequently-asked-questions---event-hubs-for-apache-kafka"></a>Często zadawane pytania — Event Hubs dla Apache Kafka 
 Ten artykuł zawiera odpowiedzi na niektóre często zadawane pytania dotyczące migracji do Event Hubs Apache Kafka.
@@ -41,5 +41,5 @@ Aby dowiedzieć się więcej na temat Event Hubs i Event Hubs dla Kafka, zobacz 
 - [Apache Kafka Przewodnik dla deweloperów Event Hubs](apache-kafka-developer-guide.md)
 - [Apache Kafka Przewodnik migracji Event Hubs](apache-kafka-migration-guide.md)
 - [Apache Kafka Przewodnik rozwiązywania problemów dla Event Hubs](apache-kafka-troubleshooting-guide.md)
-- [Zalecane konfiguracje](https://github.com/Azure/azure-event-hubs-for-kafka/blob/master/CONFIGURATION.md)
+- [Zalecane konfiguracje](apache-kafka-configurations.md)
 

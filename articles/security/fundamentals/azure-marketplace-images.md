@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2019
 ms.author: terrylan
-ms.openlocfilehash: 3925e39824d1702ff43a6b981ac997ddab658b96
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6058b0d72eafe3a44ebdbabf291af05c08e772b3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80548655"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87038277"
 ---
 # <a name="security-recommendations-for-azure-marketplace-images"></a>Zalecenia dotyczące zabezpieczeń obrazów portalu Azure Marketplace
 
@@ -27,9 +27,8 @@ Przed przesłaniem obrazu należy zawsze uruchomić Wykrywanie luk w zabezpiecze
 
 ## <a name="open-source-based-images"></a>Obrazy na podstawie otwartych źródeł
 
-|||
-|--------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Kategoria**                                                 | **Niezaznaczone**                                                                                                                                                                                                                                                                              |
+| Kategoria | Zaznacz |
+| -------- | ----- |
 | Zabezpieczenia                                                     | Zainstaluj wszystkie najnowsze poprawki zabezpieczeń dla dystrybucji systemu Linux.                                                                                                                                                                                                              |
 | Zabezpieczenia                                                     | Postępuj zgodnie z wytycznymi branżowymi, aby zabezpieczyć obraz maszyny wirtualnej dla określonej dystrybucji systemu Linux.                                                                                                                                                                                     |
 | Zabezpieczenia                                                     | Ogranicz obszar narażony na ataki, utrzymując minimalny wpływ na niezbędną rolę, funkcje, usługi i porty sieci systemu Windows Server.                                                                                                                                               |
@@ -50,9 +49,8 @@ Przed przesłaniem obrazu należy zawsze uruchomić Wykrywanie luk w zabezpiecze
 
 ## <a name="windows-server-based-images"></a>Obrazy systemu Windows Server
 
-|||
-|-------------| -------------------------|
-| **Kategoria**                                                     | **Niezaznaczone**                                                                                                                                                                |
+| Kategoria | Zaznacz |
+|--------- | ----- |
 | Zabezpieczenia                                                         | Użyj bezpiecznego obrazu podstawowego systemu operacyjnego. Wirtualny dysk twardy używany do źródła dowolnego obrazu na podstawie systemu Windows Server musi pochodzić z obrazów systemu operacyjnego Windows Server dostarczonych za pośrednictwem Microsoft Azure. |
 | Zabezpieczenia                                                         | Zainstaluj wszystkie najnowsze aktualizacje zabezpieczeń.                                                                                                                                     |
 | Zabezpieczenia                                                         | Aplikacje nie powinny być zależne od nazw użytkowników z ograniczeniami, takich jak administrator, root lub administrator.                                                                |

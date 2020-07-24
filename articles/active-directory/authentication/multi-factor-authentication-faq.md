@@ -5,17 +5,18 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 04/13/2020
+ms.date: 07/14/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aa25cffd84ee9255fed8bbaa0f2fb6adf762b47e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d6f5cabace81d53edf36ac6be0a2eb8830e6cc5f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84483784"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87035081"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Często zadawane pytania dotyczące usługi Azure Multi-Factor Authentication
 
@@ -55,6 +56,8 @@ Opcjonalne pola można skonfigurować w Serwer Multi-Factor Authentication.
 
 Wynik weryfikacji (sukces lub odmowa) i powód, jeśli został odrzucony, jest przechowywany w danych uwierzytelniania. Te dane są dostępne w raportach dotyczących uwierzytelniania i użycia.
 
+Aby uzyskać więcej informacji, zobacz [dane dotyczące miejsca zamieszkania i danych klienta dla platformy Azure Multi-Factor Authentication](concept-mfa-data-residency.md).
+
 ### <a name="what-sms-short-codes-are-used-for-sending-sms-messages-to-my-users"></a>Jakie krótkie kody programu SMS są używane do wysyłania wiadomości SMS do użytkowników?
 
 W Stany Zjednoczone używamy następujących krótkich kodów programu SMS:
@@ -69,7 +72,9 @@ W Kanadzie używamy następujących krótkich kodów SMS:
 * *759731*
 * *673801*
 
-Nie ma gwarancji spójnego dostarczania wiadomości SMS lub głosowego Multi-Factor Authentication na podstawie tej samej liczby. W interesie naszych użytkowników możemy dodawać lub usuwać krótkie kody w dowolnym momencie, gdy wprowadzimy zmiany trasy w celu poprawy możliwości dostarczania wiadomości SMS. Nie obsługujemy krótkich kodów dla krajów lub regionów poza Stany Zjednoczone i Kanadę.
+Nie ma gwarancji spójnego dostarczania wiadomości SMS lub głosowego Multi-Factor Authentication na podstawie tej samej liczby. W interesie naszych użytkowników możemy dodawać lub usuwać krótkie kody w dowolnym momencie, gdy wprowadzimy zmiany trasy w celu poprawy możliwości dostarczania wiadomości SMS.
+
+Nie obsługujemy krótkich kodów dla krajów lub regionów poza Stany Zjednoczone i Kanadę.
 
 ## <a name="billing"></a>Rozliczenia
 
@@ -185,7 +190,7 @@ W niektórych przypadkach tak.
 
 W przypadku jednokierunkowego SMS z usługą Azure MFA Server w wersji 7.0 lub nowszej można skonfigurować ustawienie limitu czasu, ustawiając klucz rejestru. Po wysłaniu wiadomości tekstowej przez usługę MFA w chmurze kod weryfikacyjny (lub jednorazowy kod dostępu) jest zwracany do serwera usługi MFA. Serwer MFA domyślnie przechowuje kod w pamięci przez 300 sekund. Jeśli użytkownik nie wprowadzi kodu przed upływem 300 sekund, jego uwierzytelnienie zostanie odrzucone. Wykonaj następujące kroki, aby zmienić domyślne ustawienie limitu czasu:
 
-1. Przejdź do witryny `HKLM\Software\Wow6432Node\Positive Networks\PhoneFactor`.
+1. Przejdź do adresu `HKLM\Software\Wow6432Node\Positive Networks\PhoneFactor`.
 2. Utwórz klucz rejestru **typu DWORD** o nazwie *pfsvc_pendingSmsTimeoutSeconds* i Ustaw czas w sekundach, w ciągu którego serwer usługi Azure MFA ma przechowywać kody dostępu jednorazowego.
 
 >[!TIP]
@@ -229,7 +234,7 @@ Istnieje kilka powodów, dla których użytkownicy mogą uzyskać monit o zareje
 - Organizacja utworzyła i włączyła zasady rejestracji usługi MFA, które zostały zastosowane do użytkownika.
 - Użytkownik zarejestrował się wcześniej do uwierzytelniania wieloskładnikowego, ale wybiera metodę weryfikacji, która została wyłączona przez administratora. W związku z tym użytkownik musi ponownie wykonać rejestrację usługi MFA, aby wybrać nową domyślną metodę weryfikacji.
 
-## <a name="errors"></a>Errors
+## <a name="errors"></a>błędy
 
 * [Co powinni zrobić użytkownicy, jeśli podczas korzystania z powiadomień aplikacji mobilnej zobaczysz komunikat o błędzie "żądanie uwierzytelnienia nie dotyczy aktywowanego konta"?](#what-should-users-do-if-they-see-an-authentication-request-is-not-for-an-activated-account-error-message-when-using-mobile-app-notifications)
 * [Co powinni zrobić użytkownicy, Jeśli zobaczysz komunikat o błędzie 0x800434D4L podczas logowania do aplikacji nie korzystającej z przeglądarki?](#what-should-users-do-if-they-see-a-0x800434d4l-error-message-when-signing-in-to-a-non-browser-application)

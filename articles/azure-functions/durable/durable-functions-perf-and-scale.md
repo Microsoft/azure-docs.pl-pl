@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 8f8df703030220f2c5a79bdb34e3ffbac8ee84a0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 58c28160de15bc99c94c84ab23fdbb358125132d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84762126"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87033585"
 ---
 # <a name="performance-and-scale-in-durable-functions-azure-functions"></a>Wydajność i skalowanie w usłudze Durable Functions (Azure Functions)
 
@@ -22,13 +22,13 @@ Aby zrozumieć zachowanie skalowania, należy poznać niektóre szczegóły pods
 
 Tabela **historia** jest tabelą usługi Azure Storage, która zawiera zdarzenia historii dla wszystkich wystąpień aranżacji w centrum zadań. Nazwa tej tabeli ma postać historia *TaskHubName*. W miarę uruchamiania wystąpień nowe wiersze są dodawane do tej tabeli. Klucz partycji tej tabeli pochodzi od identyfikatora wystąpienia aranżacji. Identyfikator wystąpienia jest w większości przypadków losowych, co zapewnia optymalną dystrybucję partycji wewnętrznych w usłudze Azure Storage.
 
-Gdy wystąpienie aranżacji musi działać, odpowiednie wiersze tabeli historii są ładowane do pamięci. Te *zdarzenia historii* są następnie odtwarzane w kodzie funkcji programu Orchestrator w celu przywrócenia ich do stanu poprzedniego punktu kontrolnego. Użycie historii wykonywania w celu odbudowania stanu w ten sposób wpływa na wzorzec określania [źródła zdarzeń](https://docs.microsoft.com/azure/architecture/patterns/event-sourcing).
+Gdy wystąpienie aranżacji musi działać, odpowiednie wiersze tabeli historii są ładowane do pamięci. Te *zdarzenia historii* są następnie odtwarzane w kodzie funkcji programu Orchestrator w celu przywrócenia ich do stanu poprzedniego punktu kontrolnego. Użycie historii wykonywania w celu odbudowania stanu w ten sposób wpływa na wzorzec określania [źródła zdarzeń](/azure/architecture/patterns/event-sourcing).
 
 ## <a name="instances-table"></a>Tabela wystąpień
 
 Tabela **wystąpień** jest inną tabelą usługi Azure Storage, która zawiera Stany wszystkich wystąpień aranżacji i jednostek w ramach centrum zadań. Po utworzeniu wystąpienia nowe wiersze są dodawane do tej tabeli. Klucz partycji tej tabeli jest IDENTYFIKATORem wystąpienia aranżacji lub kluczem jednostki, a klucz wiersza to stała stała. Istnieje jeden wiersz dla aranżacji lub wystąpienia jednostki.
 
-Ta tabela służy do zaspokojenia żądań zapytań wystąpienia z `GetStatusAsync` interfejsów API (.NET) i `getStatus` (JavaScript), a także do [zapytania o stan Query API](durable-functions-http-api.md#get-instance-status). Jest on stale spójny z zawartością tabeli **historii** wymienionej wcześniej. Użycie oddzielnej tabeli usługi Azure Storage w celu wydajnej realizacji operacji zapytania o wystąpienie w ten sposób wpływa na [wzorzec Command and Query Responsibility Segregation (CQRS)](https://docs.microsoft.com/azure/architecture/patterns/cqrs).
+Ta tabela służy do zaspokojenia żądań zapytań wystąpienia z `GetStatusAsync` interfejsów API (.NET) i `getStatus` (JavaScript), a także do [zapytania o stan Query API](durable-functions-http-api.md#get-instance-status). Jest on stale spójny z zawartością tabeli **historii** wymienionej wcześniej. Użycie oddzielnej tabeli usługi Azure Storage w celu wydajnej realizacji operacji zapytania o wystąpienie w ten sposób wpływa na [wzorzec Command and Query Responsibility Segregation (CQRS)](/azure/architecture/patterns/cqrs).
 
 ## <a name="internal-queue-triggers"></a>Wyzwalacze wewnętrznej kolejki
 

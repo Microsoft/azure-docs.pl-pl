@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/05/2016
 ms.author: matd
-ms.openlocfilehash: 699df6ab44a08645c9f46e95cd2ad279de75ea70
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 397dac67ea94db22829080a65dfae857bb3706dd
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85509663"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87036934"
 ---
 # <a name="storsimple-as-a-backup-target-with-backup-exec"></a>StorSimple jako miejsce docelowe kopii zapasowej przy użyciu programu Backup Exec
 
@@ -275,7 +275,7 @@ W oparciu o powyższe założenia Utwórz wolumin warstwowy z 26 TiB StorSimple 
 
     ![Konsola zarządzania Backup Exec, Wybieranie strony magazynu](./media/storsimple-configure-backup-target-using-backup-exec/image5.png)
 
-3.  Wprowadź nazwę reprezentatywną, na przykład **zapełnienie**i opis. Wybierz pozycję **Dalej**.
+3.  Wprowadź nazwę reprezentatywną, na przykład **zapełnienie**i opis. Wybierz przycisk **Dalej**.
 
     ![Strona zarządzania, nazwa i opis programu Backup Exec](./media/storsimple-configure-backup-target-using-backup-exec/image7.png)
 
@@ -314,7 +314,7 @@ Oto przykład harmonogramu rotacji GFS przez cztery tygodnie, co miesiąc i rok:
 |---|---|---|
 | Co tydzień (tygodnie 1-4) | Sobota | Poniedziałek — piątek |
 | Co miesiąc  | Sobota  |   |
-| Roczne | Sobota  |   |
+| Rocznie | Sobota  |   |
 
 
 ### <a name="assign-storsimple-volumes-to-a-backup-exec-backup-job"></a>Przypisywanie woluminów StorSimple do zadania tworzenia kopii zapasowej wykonywania kopii zapasowej
@@ -388,7 +388,7 @@ W poniższej tabeli przedstawiono sposób konfigurowania kopii zapasowych do uru
 | Tydzień 3 | StorSimple tygodni 2-4 |   |   |   |   |   |
 | Tydzień 4 | StorSimple tygodni 2-4 |   |   |   |   |   |
 | Co miesiąc | StorSimple miesięcznie |   |   |   |   |   |
-| Roczne | StorSimple rocznie  |   |   |   |   |   |
+| Rocznie | StorSimple rocznie  |   |   |   |   |   |
 
 
 ### <a name="assign-storsimple-volumes-to-a-backup-exec-archive-and-deduplication-job"></a>Przypisywanie woluminów StorSimple do archiwum tworzenia kopii zapasowych i zadania deduplikacji
@@ -448,7 +448,7 @@ W poniższej sekcji opisano, jak utworzyć krótki skrypt do uruchamiania i usuw
 
 ### <a name="to-start-or-delete-a-cloud-snapshot"></a>Aby rozpocząć lub usunąć migawkę w chmurze
 
-1. [Zainstalowanie programu Azure PowerShell](/powershell/azure/overview).
+1. [Zainstalowanie programu Azure PowerShell](/powershell/azure/).
 2. Pobierz i skonfiguruj [Manage-CloudSnapshots.ps1](https://github.com/anoobbacker/storsimpledevicemgmttools/blob/master/Manage-CloudSnapshots.ps1) skrypt programu PowerShell.
 3. Na serwerze, na którym działa skrypt, uruchom program PowerShell jako administrator. Upewnij się, że skrypt został uruchomiony za pomocą programu, `-WhatIf $true` Aby zobaczyć, jakie zmiany wprowadzi skrypt. Po zakończeniu walidacji zakończono pomyślnie `-WhatIf $false` . Uruchom następujące polecenie:
    ```powershell
@@ -478,7 +478,7 @@ Awaria może być spowodowana przez różne czynniki. W poniższej tabeli wymien
 | Błąd serwera programu Backup Exec | Operacje tworzenia kopii zapasowej i przywracania są przerywane. | Skompiluj ponownie serwer kopii zapasowej i wykonaj przywracanie bazy danych zgodnie z opisem w temacie [jak wykonać ręczną kopię zapasową i przywrócić bazę danych Backup Exec (BEDB)](http://www.veritas.com/docs/000041083). | Należy ponownie skompilować lub przywrócić serwer Backup Exec w lokacji odzyskiwania po awarii. Przywróć bazę danych do najnowszego punktu. Jeśli przywrócona baza danych Backup Exec nie jest zsynchronizowana z najnowszymi zadaniami tworzenia kopii zapasowych, wymagane jest indeksowanie i wykazanie. Ten proces ponownego skanowania indeksu i wykazu może spowodować, że wszystkie zestawy kopii zapasowych będą skanowane i pobrane z warstwy chmury do warstwy urządzenia lokalnego. Zwiększa to intensywnie czasochłonne. |
 | Awaria lokacji, która powoduje utratę zarówno serwera kopii zapasowej, jak i StorSimple | Operacje tworzenia kopii zapasowej i przywracania są przerywane. | Najpierw Przywróć StorSimple, a następnie Przywróć kopię zapasową exec. | Najpierw Przywróć StorSimple, a następnie Przywróć kopię zapasową exec. Jeśli trzeba wykonać przywracanie po odzyskiwaniu urządzenia, do nowego urządzenia zostaną pobrane wszystkie zestawy robocze z danymi z chmury. Wszystkie operacje są z szybkością chmury. |
 
-## <a name="references"></a>Dokumentacja
+## <a name="references"></a>Odwołania
 
 Następujące dokumenty odwołują się do tego artykułu:
 

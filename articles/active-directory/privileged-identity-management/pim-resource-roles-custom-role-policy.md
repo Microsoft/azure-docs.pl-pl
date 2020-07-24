@@ -1,6 +1,6 @@
 ---
-title: Korzystanie z ról niestandardowych dla zasobów platformy Azure w usłudze PIM — Azure AD | Microsoft Docs
-description: Dowiedz się, jak używać ról niestandardowych dla zasobów platformy Azure w Azure AD Privileged Identity Management (PIM).
+title: Korzystanie z ról niestandardowych platformy Azure w usłudze PIM — Azure AD | Microsoft Docs
+description: Dowiedz się, jak używać ról niestandardowych platformy Azure w Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -14,14 +14,14 @@ ms.subservice: pim
 ms.date: 11/08/2019
 ms.author: curtand
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aa51508746d0024be0a5acfaeeac62e86db67d3f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d1c9255de6b9f449a89a994cb3286139daa28ea9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84743749"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87034103"
 ---
-# <a name="use-custom-roles-for-azure-resources-in-privileged-identity-management"></a>Używanie ról niestandardowych dla zasobów platformy Azure w Privileged Identity Management
+# <a name="use-azure-custom-roles-in-privileged-identity-management"></a>Korzystanie z ról niestandardowych platformy Azure w Privileged Identity Management
 
 Może być konieczne zastosowanie rygorystycznych ustawień Privileged Identity Management (PIM) dla niektórych użytkowników w roli uprzywilejowanej w organizacji Azure Active Directory (Azure AD), a jednocześnie zapewnianie większej autonomii dla innych osób. Rozważmy na przykład scenariusz, w którym organizacja zatrudnia kilka jednostek kontraktu, aby pomóc w rozwoju aplikacji, która będzie działać w ramach subskrypcji platformy Azure.
 
@@ -31,7 +31,7 @@ Wykonaj kroki opisane w następnej sekcji, aby skonfigurować ustawienia Privile
 
 ## <a name="create-the-custom-role"></a>Utwórz rolę niestandardową
 
-Aby utworzyć rolę niestandardową dla zasobu, wykonaj kroki opisane w temacie [Tworzenie ról niestandardowych dla Access Control opartej na rolach na platformie Azure](../role-based-access-control-custom-roles.md).
+Aby utworzyć rolę niestandardową dla zasobu, wykonaj kroki opisane w temacie [role niestandardowe platformy Azure](../role-based-access-control-custom-roles.md).
 
 Podczas tworzenia roli niestandardowej należy uwzględnić opisową nazwę, aby można było łatwo zapamiętać, która wbudowana rola została zaprojektowana.
 

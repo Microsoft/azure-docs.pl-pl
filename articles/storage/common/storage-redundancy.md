@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 06/22/2020
+ms.date: 07/21/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 903560f5c0400a906918f0c17eafb2e1e09bdd30
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: e4ec4925da40cf6051b88d77fbbc35d93ececf87
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86518508"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87036730"
 ---
 # <a name="azure-storage-redundancy"></a>Nadmiarowość usługi Azure Storage
 
@@ -59,11 +59,11 @@ Firma Microsoft zaleca korzystanie z usługi ZRS w regionie podstawowym w scenar
 
 W poniższej tabeli przedstawiono typy kont magazynu obsługujące ZRS, w których regiony:
 
-|    Typ konta magazynu    |    Obsługiwane regiony    |    Obsługiwane usługi    |
-|----------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------|
-|    Ogólnego przeznaczenia<sup>w wersji 2</sup>    | Azja Południowo-Wschodnia<br /> Australia Wschodnia<br /> Europa Północna<br />  Europa Zachodnia<br /> Francja Środkowa<br /> Japan East<br /> Północna Republika Południowej Afryki<br /> Południowe Zjednoczone Królestwo<br /> Środkowe stany USA<br /> Wschodnie stany USA<br /> Wschodnie stany USA 2<br /> Zachodnie stany USA 2    |    Blokowe obiekty blob<br /> Stronicowe obiekty blob<sup>2</sup><br /> Udziały plików (wersja standardowa)<br /> Tabele<br /> Kolejki<br /> |
-|    BlockBlobStorage<sup>1</sup>    | Azja Południowo-Wschodnia<br /> Australia Wschodnia<br /> Europa Zachodnia<br /> Wschodnie stany USA    |    Blokuj tylko obiekty blob    |
-|    FileStorage    | Azja Południowo-Wschodnia<br /> Australia Wschodnia<br /> Europa Zachodnia<br /> Wschodnie stany USA    |    Tylko Azure Files    |
+| Typ konta magazynu | Obsługiwane regiony | Obsługiwane usługi |
+|--|--|--|
+| Ogólnego przeznaczenia<sup>w wersji 2</sup> | Azja Południowo-Wschodnia<br /> Australia Wschodnia<br /> Europa Północna<br />  Europa Zachodnia<br /> Francja Środkowa<br /> Japan East<br /> Północna Republika Południowej Afryki<br /> Południowe Zjednoczone Królestwo<br /> Środkowe stany USA<br /> Wschodnie stany USA<br /> Wschodnie stany USA 2<br /> Zachodnie stany USA 2 | Blokowe obiekty blob<br /> Stronicowe obiekty blob<sup>2</sup><br /> Udziały plików (wersja standardowa)<br /> Tabele<br /> Kolejki<br /> |
+| BlockBlobStorage<sup>1</sup> | Azja Południowo-Wschodnia<br /> Australia Wschodnia<br /> Europa Zachodnia<br /> Wschodnie stany USA | Tylko blokowe obiekty blob w warstwie Premium |
+| FileStorage | Azja Południowo-Wschodnia<br /> Australia Wschodnia<br /> Europa Zachodnia<br /> Wschodnie stany USA | Tylko udziały plików Premium |
 
 <sup>1</sup> warstwa archiwum nie jest obecnie obsługiwana dla kont ZRS.<br />
 <sup>2</sup> konta magazynu zawierające dyski zarządzane przez platformę Azure dla maszyn wirtualnych zawsze używają LRS. W przypadku dysków niezarządzanych platformy Azure należy również użyć LRS. Istnieje możliwość utworzenia konta magazynu dla dysków niezarządzanych platformy Azure korzystających z GRS, ale nie jest to zalecane ze względu na potencjalne problemy ze spójnością w przypadku asynchronicznej replikacji geograficznej. Żadne dyski zarządzane ani niezarządzane nie obsługują ZRS ani GZRS. Aby uzyskać więcej informacji o dyskach zarządzanych, zobacz [Cennik usługi Azure Managed disks](https://azure.microsoft.com/pricing/details/managed-disks/).
@@ -122,6 +122,9 @@ Aby uzyskać informacje na temat cen, zobacz szczegóły cennika [obiektów BLOB
 
 Magazyn Geograficznie nadmiarowy (z GRS lub GZRS) replikuje dane do innej lokalizacji fizycznej w regionie pomocniczym, aby zapewnić ochronę przed awarią regionalną. Jednak te dane są dostępne do odczytu tylko wtedy, gdy klient lub firma Microsoft zainicjuje przejście w tryb failover z regionu podstawowego do pomocniczego. Po włączeniu dostępu do odczytu do regionu pomocniczego dane są dostępne do odczytu przez cały czas, łącznie z sytuacją, w której region podstawowy stał się niedostępny. Aby uzyskać dostęp do odczytu do regionu pomocniczego, Włącz magazyn Geograficznie nadmiarowy z dostępem do odczytu (RA-GRS) lub strefę geograficzną z dostępem do odczytu (RA-GZRS).
 
+> [!NOTE]
+> Azure Files nie obsługuje magazynu geograficznie nadmiarowego dostępnego do odczytu (RA-GRS) i geograficznie nadmiarowego do odczytu magazynu (RA-GZRS).
+
 ### <a name="design-your-applications-for-read-access-to-the-secondary"></a>Projektowanie aplikacji na potrzeby dostępu do odczytu do pomocniczego
 
 Jeśli konto magazynu jest skonfigurowane pod kątem dostępu do odczytu do regionu pomocniczego, można zaprojektować aplikacje w celu bezproblemowego przesunięcia danych z regionu pomocniczego, jeśli region podstawowy stanie się niedostępny z jakiegokolwiek powodu. 
@@ -146,11 +149,11 @@ W tabelach w poniższych sekcjach opisano opcje nadmiarowości dostępne dla us�
 
 W poniższej tabeli opisano parametry klucza dla każdej opcji nadmiarowości:
 
-| Parametr                                                                                                 | LRS                             | ZRS                              | GRS/RA-GRS                                  | GZRS/RA-GZRS                              |
-| :------------------------------------------------------------------------------------------------------- | :------------------------------ | :------------------------------- | :----------------------------------- | :----------------------------------- |
-| Procent trwałości obiektów w danym roku<sup>1</sup>                                          | co najmniej 99,999999999% (11 9) | co najmniej 99,9999999999% (12 9) | co najmniej 99.99999999999999% (16 9) | co najmniej 99.99999999999999% (16 9) |
-| Umowa SLA dotycząca dostępności dla żądań odczytu<sup>1</sup>  | Co najmniej 99,9% (99% dla warstwy dostępu chłodnego) | Co najmniej 99,9% (99% dla warstwy dostępu chłodnego) | Co najmniej 99,9% (99% dla warstwy dostępu chłodnego) dla GRS<br /><br />Co najmniej 99,99% (99,9% dla warstwy dostępu chłodnego) dla usługi RA-GRS | Co najmniej 99,9% (99% dla warstwy dostępu chłodnego) dla GZRS<br /><br />Co najmniej 99,99% (99,9% dla warstwy dostępu chłodnego) dla usługi RA-GZRS |
-| Umowa SLA dotycząca dostępności dla żądań zapisu<sup>1</sup>  | Co najmniej 99,9% (99% dla warstwy dostępu chłodnego) | Co najmniej 99,9% (99% dla warstwy dostępu chłodnego) | Co najmniej 99,9% (99% dla warstwy dostępu chłodnego) | Co najmniej 99,9% (99% dla warstwy dostępu chłodnego) |
+| Parametr | LRS | ZRS | GRS/RA-GRS | GZRS/RA-GZRS |
+|:-|:-|:-|:-|:-|
+| Procent trwałości obiektów w danym roku<sup>1</sup> | co najmniej 99,999999999% (11 9) | co najmniej 99,9999999999% (12 9) | co najmniej 99.99999999999999% (16 9) | co najmniej 99.99999999999999% (16 9) |
+| Umowa SLA dotycząca dostępności dla żądań odczytu<sup>1</sup> | Co najmniej 99,9% (99% dla warstwy dostępu chłodnego) | Co najmniej 99,9% (99% dla warstwy dostępu chłodnego) | Co najmniej 99,9% (99% dla warstwy dostępu chłodnego) dla GRS<br /><br />Co najmniej 99,99% (99,9% dla warstwy dostępu chłodnego) dla usługi RA-GRS | Co najmniej 99,9% (99% dla warstwy dostępu chłodnego) dla GZRS<br /><br />Co najmniej 99,99% (99,9% dla warstwy dostępu chłodnego) dla usługi RA-GZRS |
+| Umowa SLA dotycząca dostępności dla żądań zapisu<sup>1</sup> | Co najmniej 99,9% (99% dla warstwy dostępu chłodnego) | Co najmniej 99,9% (99% dla warstwy dostępu chłodnego) | Co najmniej 99,9% (99% dla warstwy dostępu chłodnego) | Co najmniej 99,9% (99% dla warstwy dostępu chłodnego) |
 
 <sup>1</sup> Aby uzyskać informacje na temat gwarancji usługi Azure Storage dotyczących trwałości i dostępności, zobacz umowę SLA dotyczącą [usługi Azure Storage](https://azure.microsoft.com/support/legal/sla/storage/).
 
@@ -158,12 +161,12 @@ W poniższej tabeli opisano parametry klucza dla każdej opcji nadmiarowości:
 
 Poniższa tabela wskazuje, czy dane są trwałe i dostępne w danym scenariuszu, w zależności od tego, który typ nadmiarowości obowiązuje dla Twojego konta magazynu:
 
-| Scenariusz przestoju                                                                                                 | LRS                             | ZRS                              | GRS/RA-GRS                                  | GZRS/RA-GZRS                              |
-| :------------------------------------------------------------------------------------------------------- | :------------------------------ | :------------------------------- | :----------------------------------- | :----------------------------------- |
-| Węzeł w centrum danych jest niedostępny                                                                 | Tak                             | Tak                              | Tak                                  | Tak                                 |
-| Całe centrum danych (zona lub non-Zona) staną się niedostępne                                           | Nie                              | Tak                              | Tak<sup>1</sup>                                  | Tak                                  |
-| Awaria całego regionu występuje w regionie podstawowym                                                                                     | Nie                              | Nie                               | Tak<sup>1</sup>                                  | Tak<sup>1</sup>                                  |
-| Dostęp do odczytu do regionu pomocniczego jest dostępny, jeśli region podstawowy stał się niedostępny | Nie                              | Nie                               | Tak (z RA-GRS)                                   | Tak (z RA-GZRS)                                 |
+| Scenariusz przestoju | LRS | ZRS | GRS/RA-GRS | GZRS/RA-GZRS |
+|:-|:-|:-|:-|:-|
+| Węzeł w centrum danych jest niedostępny | Tak | Tak | Tak | Tak |
+| Całe centrum danych (zona lub non-Zona) staną się niedostępne | Nie | Yes | Tak<sup>1</sup> | Tak |
+| Awaria całego regionu występuje w regionie podstawowym | Nie | Nie | Tak<sup>1</sup> | Tak<sup>1</sup> |
+| Dostęp do odczytu do regionu pomocniczego jest dostępny, jeśli region podstawowy stał się niedostępny | Nie | Nie | Tak (z RA-GRS) | Tak (z RA-GZRS) |
 
 <sup>1</sup> przełączenie w tryb failover jest wymagane do przywrócenia dostępności zapisu, jeśli region podstawowy stał się niedostępny. Aby uzyskać więcej informacji, zobacz [odzyskiwanie po awarii i konto magazynu w trybie failover](storage-disaster-recovery-guidance.md).
 
@@ -171,9 +174,9 @@ Poniższa tabela wskazuje, czy dane są trwałe i dostępne w danym scenariuszu,
 
 W poniższej tabeli przedstawiono, które opcje nadmiarowości są obsługiwane przez każdy typ konta magazynu. Aby uzyskać informacje na temat typów kont magazynu, zobacz [Omówienie konta magazynu](storage-account-overview.md).
 
-| LRS                             | ZRS                              | GRS/RA-GRS                                  | GZRS/RA-GZRS                              |
-| :------------------------------ | :------------------------------- | :----------------------------------- | :----------------------------------- |
-| Ogólnego przeznaczenia, wersja 2<br /> Ogólnego przeznaczenia, wersja 1<br /> Blokuj Magazyn obiektów BLOB<br /> Blob Storage<br /> File Storage                | Ogólnego przeznaczenia, wersja 2<br /> Blokuj Magazyn obiektów BLOB<br /> File Storage                             | Ogólnego przeznaczenia, wersja 2<br /> Ogólnego przeznaczenia, wersja 1<br /> Blob Storage                     | Ogólnego przeznaczenia, wersja 2                     |
+| LRS | ZRS | GRS/RA-GRS | GZRS/RA-GZRS |
+|:-|:-|:-|:-|
+| Ogólnego przeznaczenia, wersja 2<br /> Ogólnego przeznaczenia, wersja 1<br /> Blokuj Magazyn obiektów BLOB<br /> Blob Storage<br /> File Storage | Ogólnego przeznaczenia, wersja 2<br /> Blokuj Magazyn obiektów BLOB<br /> File Storage | Ogólnego przeznaczenia, wersja 2<br /> Ogólnego przeznaczenia, wersja 1<br /> Blob Storage | Ogólnego przeznaczenia, wersja 2 |
 
 Wszystkie dane dla wszystkich kont magazynu są kopiowane zgodnie z opcją nadmiarowości dla konta magazynu. Są kopiowane obiekty, w tym blokowych obiektów blob, dołączanie obiektów blob, stronicowych obiektów blob, kolejek, tabel i plików. Kopiowane są dane we wszystkich warstwach, w tym warstwa archiwum. Aby uzyskać więcej informacji na temat warstw obiektów blob, zobacz [Azure Blob Storage: warstwy dostępu gorąca, chłodna i archiwalna](../blobs/storage-blob-storage-tiers.md).
 
@@ -186,7 +189,7 @@ Aby uzyskać informacje o cenach dla każdej opcji nadmiarowości, zobacz [Cenni
 
 Usługa Azure Storage regularnie weryfikuje integralność danych przechowywanych przy użyciu cyklicznych testów nadmiarowości (CRCs). Jeśli wykryto uszkodzenie danych, zostanie ono naprawione przy użyciu nadmiarowych danych. Usługa Azure Storage oblicza również sumy kontrolne dla całego ruchu sieciowego w celu wykrycia uszkodzenia pakietów danych podczas przechowywania lub pobierania danych.
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 - [Sprawdź Właściwość godzina ostatniej synchronizacji dla konta magazynu](last-sync-time-get.md)
 - [Zmiana opcji nadmiarowości dla konta magazynu](redundancy-migration.md)

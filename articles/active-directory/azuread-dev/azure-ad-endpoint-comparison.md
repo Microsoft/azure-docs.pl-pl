@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.subservice: azuread-dev
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/26/2019
+ms.date: 07/17/2020
 ms.author: ryanwi
 ms.reviewer: saeeda, hirsin, jmprieur, sureshja, jesakowi, lenalepa, kkrishna, negoe
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: 67a54a2cd4fa071fd47bcebb9aa53fd11fefd61e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 001de375edab7505ed4687d848aca0ad0965dbfb
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80154920"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87034911"
 ---
 # <a name="why-update-to-microsoft-identity-platform-v20"></a>Dlaczego warto wykonać aktualizację do platformy tożsamości Microsoft (wersja 2.0)?
 
@@ -141,34 +141,7 @@ Rejestracje aplikacji, które obsługują konta służbowe i konta osobiste, maj
 
 ### <a name="restrictions-on-redirect-urls"></a>Ograniczenia dotyczące adresów URL przekierowania
 
-Aplikacje zarejestrowane dla platformy tożsamości firmy Microsoft są ograniczone do ograniczonego zestawu wartości adresu URL przekierowania. Adres URL przekierowania dla usługi Web Apps i usług musi rozpoczynać się od schematu `https` , a wszystkie wartości adresu URL przekierowania muszą współdzielić pojedynczą domenę DNS.  System rejestracji porównuje pełną nazwę DNS istniejącego adresu URL przekierowania z nazwą DNS adresu URL przekierowania, który jest dodawany. `http://localhost`jest również obsługiwany jako adres URL przekierowania.  
-
-Żądanie dodania nazwy DNS zakończy się niepowodzeniem, jeśli będzie spełniony jeden z następujących warunków:  
-
-* Cała nazwa DNS nowego adresu URL przekierowania nie jest zgodna z nazwą DNS istniejącego adresu URL przekierowania.
-* Cała nazwa DNS nowego adresu URL przekierowania nie jest poddomeną istniejącego adresu URL przekierowania.
-
-#### <a name="example-1"></a>Przykład 1
-
-Jeśli aplikacja ma adres URL przekierowania `https://login.contoso.com` , można dodać adres URL przekierowania, gdzie nazwa DNS pasuje dokładnie, jak pokazano w następującym przykładzie:
-
-`https://login.contoso.com/new`
-
-Lub można odwołać się do domeny podrzędnej DNS login.contoso.com, jak pokazano w następującym przykładzie:
-
-`https://new.login.contoso.com`
-
-#### <a name="example-2"></a>Przykład 2
-
-Jeśli chcesz mieć aplikację, która ma `login-east.contoso.com` `login-west.contoso.com` adresy URL przekierowania, należy dodać te adresy URL przekierowania w następującej kolejności:
-
-`https://contoso.com`  
-`https://login-east.contoso.com`  
-`https://login-west.contoso.com`  
-
-Można dodać dwa ostatnie z nich, ponieważ są poddomenami pierwszego adresu URL przekierowania, contoso.com.
-
-Można mieć tylko 20 adresów URL odpowiedzi dla określonej aplikacji — ten limit dotyczy wszystkich typów aplikacji obsługiwanych przez rejestrację (jednostronicowej aplikacji (SPA), natywnego klienta, aplikacji sieci Web i usługi).  
+Aby uzyskać najbardziej aktualne informacje o ograniczeniach dotyczących adresów URL przekierowania dla aplikacji, które są zarejestrowane dla platformy tożsamości firmy Microsoft, zobacz [ograniczenia i ograniczenia adresów URL przekierowania URI/odpowiedzi](https://docs.microsoft.com/azure/active-directory/develop/reply-url) w dokumentacji platformy tożsamości firmy Microsoft.
 
 Aby dowiedzieć się, jak zarejestrować aplikację do użycia z platformą tożsamości firmy Microsoft, zobacz [Rejestrowanie aplikacji przy użyciu nowego środowiska rejestracje aplikacji](../develop/quickstart-register-app.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json).
 

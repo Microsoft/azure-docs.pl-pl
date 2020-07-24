@@ -6,12 +6,13 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 10/07/2019
 ms.author: brendm
-ms.openlocfilehash: 9cdbe0630060c9155187e1f62aba3d7a40ceae98
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-java
+ms.openlocfilehash: f1871871fa3a191c636a965977dba485d2c77f1f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85610476"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87037512"
 ---
 # <a name="azure-spring-cloud-faq"></a>Azure Wiosenna — często zadawane pytania
 

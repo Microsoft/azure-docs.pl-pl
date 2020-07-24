@@ -3,12 +3,12 @@ title: Szablon do tworzenia alertów Resource Health
 description: Programowe tworzenie alertów powiadamiających o stanie niedostępności zasobów platformy Azure.
 ms.topic: conceptual
 ms.date: 9/4/2018
-ms.openlocfilehash: 18a3b2df2d159d2903c69debd79cccfc6d0af63e
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 399c37f123d06e251514d0cafc3c1c4918ce3edd
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86255884"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87037937"
 ---
 # <a name="configure-resource-health-alerts-using-resource-manager-templates"></a>Konfigurowanie alertów dotyczących kondycji zasobów przy użyciu szablonów usługi Resource Manager
 
@@ -25,7 +25,7 @@ Azure Resource Health informuje o aktualnym i historycznym stanie kondycji zasob
 
 Aby postępować zgodnie z instrukcjami na tej stronie, musisz skonfigurować kilka rzeczy z wyprzedzeniem:
 
-1. Należy zainstalować [moduł Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps)
+1. Należy zainstalować [moduł Azure PowerShell](/powershell/azure/install-az-ps)
 2. Należy [utworzyć lub ponownie użyć grupy akcji](../azure-monitor/platform/action-groups.md) skonfigurowanej do powiadamiania użytkownika
 
 ## <a name="instructions"></a>Instrukcje
@@ -454,5 +454,5 @@ Dowiedz się więcej o Resource Health:
 
 
 Utwórz alerty Service Health:
--  [Konfigurowanie alertów dla Service Health](../azure-monitor/platform/alerts-activity-log-service-notifications.md) 
+-  [Konfigurowanie alertów dla Service Health](./alerts-activity-log-service-notifications-portal.md) 
 -  [Schemat zdarzeń dziennika aktywności platformy Azure](../azure-monitor/platform/activity-log-schema.md)

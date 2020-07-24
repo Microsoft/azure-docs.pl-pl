@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/22/2018
 ms.author: genli
-ms.openlocfilehash: 8600971ffd23b1c253e8de807d365c46409b37bc
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 4831a084153c28576cca7c40dfefeb8c5ff3c4e6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86081455"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87036390"
 ---
 #  <a name="an-internal-error-occurs-when-you-try-to-connect-to-an-azure-vm-through-remote-desktop"></a>An internal error occurs when you try to connect to an Azure VM through Remote Desktop (Podczas próby połączenia z maszyną wirtualną platformy Azure za pośrednictwem pulpitu zdalnego występuje błąd wewnętrzny)
 
@@ -55,8 +55,7 @@ Połącz się z [konsolą szeregową i Otwórz wystąpienie programu PowerShell]
 
 #### <a name="step-1-check-the-rdp-port"></a>Krok: 1 Sprawdź port RDP
 
-1. W wystąpieniu programu PowerShell Użyj polecenia [netstat](https://docs.microsoft.com/windows-server/administration/windows-commands/netstat
-) , aby sprawdzić, czy port 8080 jest używany przez inne aplikacje:
+1. W wystąpieniu programu PowerShell Użyj polecenia [netstat](/windows-server/administration/windows-commands/netstat) , aby sprawdzić, czy port 8080 jest używany przez inne aplikacje:
 
     ```powershell
     Netstat -anob |more
@@ -186,7 +185,7 @@ Klient RDP domyślnie używa protokołu TLS 1,0. Można go jednak zmienić na TL
 
 #### <a name="attach-the-os-disk-to-a-recovery-vm"></a>Dołączanie dysku systemu operacyjnego do maszyny wirtualnej odzyskiwania
 
-1. [Dołącz dysk systemu operacyjnego do maszyny wirtualnej odzyskiwania](../windows/troubleshoot-recovery-disks-portal.md).
+1. [Dołącz dysk systemu operacyjnego do maszyny wirtualnej odzyskiwania](./troubleshoot-recovery-disks-portal-windows.md).
 2. Po dołączeniu dysku systemu operacyjnego do maszyny wirtualnej odzyskiwania upewnij się, że dysk jest oznaczony jako **online** w konsoli Zarządzanie dyskami. Zanotuj literę dysku przypisaną do dołączonego dysku systemu operacyjnego.
 3. Uruchom Pulpit zdalny połączenie z maszyną wirtualną odzyskiwania.
 
@@ -224,7 +223,7 @@ Aby włączyć dziennik zrzutów i konsolę szeregową, uruchom następujący sk
 #### <a name="reset-the-permission-for-machinekeys-folder"></a>Zresetuj uprawnienie do folderu MachineKeys
 
 1. Otwórz sesję wiersza polecenia z podwyższonym poziomem uprawnień (**Uruchom jako administrator**).
-2. Uruchom następujący skrypt. W tym skrypcie Załóżmy, że litera dysku przypisana do dołączonego dysku systemu operacyjnego to F. Zastąp tę literę dysku odpowiednią wartością dla maszyny wirtualnej.
+2. Uruchom poniższy skrypt. W tym skrypcie Załóżmy, że litera dysku przypisana do dołączonego dysku systemu operacyjnego to F. Zastąp tę literę dysku odpowiednią wartością dla maszyny wirtualnej.
 
     ```console
     Md F:\temp
@@ -299,4 +298,4 @@ Aby włączyć dziennik zrzutów i konsolę szeregową, uruchom następujący sk
     REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\Terminal Server\WinStations\RDP-Tcp" /v fAllowSecProtocolNegotiation /t REG_DWORD /d 1 /f reg unload HKLM\BROKENSYSTEM
     ```
 
-5. [Odłącz dysk systemu operacyjnego i Utwórz ponownie maszynę wirtualną](../windows/troubleshoot-recovery-disks-portal.md), a następnie sprawdź, czy problem został rozwiązany.
+5. [Odłącz dysk systemu operacyjnego i Utwórz ponownie maszynę wirtualną](./troubleshoot-recovery-disks-portal-windows.md), a następnie sprawdź, czy problem został rozwiązany.

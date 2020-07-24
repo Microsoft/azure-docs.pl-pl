@@ -6,11 +6,13 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: brendm
-ms.openlocfilehash: daa549e248668add54530e90174134c4e0059b3a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-java
+ms.openlocfilehash: efe2a8825e1817a934db7d36edae6feaf820ab79
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76276840"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87037189"
 ---
 # <a name="start-stop-and-delete-your-azure-spring-cloud-application"></a>Uruchamianie, zatrzymywanie i usuwanie aplikacji w chmurze platformy Azure
 
@@ -25,7 +27,7 @@ Po wdrożeniu aplikacji można uruchomić, zatrzymać i usunąć ją za pomocą 
 1. Wybierz aplikację, której stan chcesz zmienić.
 1. Na stronie **Przegląd** dla tej aplikacji wybierz pozycję **Uruchom/Zatrzymaj**, **Uruchom ponownie**lub **Usuń**.
 
-## <a name="using-the-azure-cli"></a>Korzystanie z interfejsu wiersza polecenia platformy Azure
+## <a name="using-the-azure-cli"></a>Przy użyciu interfejsu wiersza polecenia platformy Azure
 
 > [!NOTE]
 > Możesz użyć parametrów opcjonalnych i skonfigurować wartości domyślne przy użyciu interfejsu wiersza polecenia platformy Azure. Dowiedz się więcej o interfejsie wiersza polecenia platformy Azure, odczytując [dokumentację referencyjną](spring-cloud-cli-reference.md).  

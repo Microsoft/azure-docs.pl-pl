@@ -3,12 +3,12 @@ title: Azure Service Bus-wstrzymywanie jednostek obsługi komunikatów
 description: W tym artykule wyjaśniono, jak tymczasowo wstrzymywać i ponownie aktywować Azure Service Bus jednostki komunikatów (kolejki, tematy i subskrypcje).
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 4c4e554ada8c66b56d5d466c7becfc813701402a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: da7c25c8ef9f3daa32984ac26aa62710ab775951
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85339990"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87038141"
 ---
 # <a name="suspend-and-reactivate-messaging-entities-disable"></a>Wstrzymywanie i ponowne uaktywnianie jednostek obsługi komunikatów (wyłączone)
 
@@ -20,7 +20,7 @@ Zawieszenie lub ponowna aktywacja może zostać wykonana przez użytkownika lub 
 
 W portalu, sekcja **Właściwości** dla odpowiedniej jednostki umożliwia zmianę stanu; Poniższy zrzut ekranu przedstawia przełącznik dla kolejki:
 
-![][1]
+![Zrzut ekranu przedstawiający funkcję Service Bus z wyróżnionym ustawieniem właściwości i opcją stanu kolejki ustawioną jako aktywny i wyróżnioną kolorem czerwonym.][1]
 
 Portal zezwala tylko na całkowite wyłączenie kolejek. Operacje wysyłania i odbierania można także wyłączać oddzielnie przy użyciu interfejsów API Service Bus [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) w zestawie .NET Framework SDK lub z szablonem Azure Resource Manager za pomocą interfejsu wiersza polecenia platformy Azure lub Azure PowerShell.
 

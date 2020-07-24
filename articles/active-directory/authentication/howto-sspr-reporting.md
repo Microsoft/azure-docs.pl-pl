@@ -11,11 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 348082ad96a5efa4d8f866c3675044edf7b6f8a8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4e3425407fdb131fb1499b2cd085fbe6d427804a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80652153"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87035302"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Reporting options for Azure AD password management (Opcje raportowania dotyczące zarządzania hasłami w usłudze Azure AD)
 
@@ -50,9 +51,9 @@ W Azure Portal środowisku ulepszono sposób wyświetlania operacji resetowania 
 6. Z menu **Filtr** w górnej części okienka wybierz listę rozwijaną **Usługa** i zmień ją na typ usługi **zarządzania hasłami samoobsługowych** .
 7. Opcjonalnie możesz dodatkowo odfiltrować listę, wybierając odpowiednie **działanie** .
 
-### <a name="converged-registration-preview"></a>Rejestracja zbieżna (wersja zapoznawcza)
+### <a name="combined-registration"></a>Rejestracja łączona
 
-W przypadku uczestnictwa w publicznej wersji zapoznawczej rejestracji zbieżnej informacje dotyczące aktywności użytkownika w dziennikach inspekcji będą znajdować się w **Security**obszarze  >  **metody uwierzytelniania**zabezpieczeń.
+Jeśli włączono [rejestrację łączną](https://docs.microsoft.com/azure/active-directory/authentication/concept-registration-mfa-sspr-combined), informacje dotyczące aktywności użytkownika w dziennikach inspekcji będą znajdować się **Security**w obszarze  >  **metody uwierzytelniania**zabezpieczeń.
 
 ## <a name="description-of-the-report-columns-in-the-azure-portal"></a>Opis kolumn raportu w Azure Portal
 

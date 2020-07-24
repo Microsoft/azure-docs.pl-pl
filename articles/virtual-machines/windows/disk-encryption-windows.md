@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: b423cc4cd933f84fccae5c2116be7abbdc288c67
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: edc52198208aa86772704bde7637a2801688da59
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86203677"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87036135"
 ---
 # <a name="azure-disk-encryption-scenarios-on-windows-vms"></a>Scenariusze usługi Azure Disk Encryption na maszynach wirtualnych z systemem Windows
 
@@ -238,7 +238,7 @@ Azure Disk Encryption nie działa w następujących scenariuszach, funkcjach i t
 - Maszyny wirtualne Gen2 (patrz: [Obsługa maszyn wirtualnych 2. generacji na platformie Azure](generation-2.md#generation-1-vs-generation-2-capabilities))
 - Maszyny wirtualne serii Lsv2 (patrz: [Lsv2-Series](../lsv2-series.md))
 - Maszyny wirtualne serii M z dyskami akcelerator zapisu.
-- Stosowanie [szyfrowania po stronie serwera z kluczami zarządzanymi przez klienta](disk-encryption.md) do maszyn wirtualnych szyfrowanych przez program ADE i na odwrót.
+- Zastosowanie elementu ADE do maszyny wirtualnej, która ma dysk danych zaszyfrowany przy użyciu [szyfrowania po stronie serwera z kluczami zarządzanymi przez klienta](disk-encryption.md) (SSE + CMK) lub stosowanie SSE + CMK do dysku danych na maszynie wirtualnej zaszyfrowanej za pomocą programu ADE.
 - Migrowanie maszyny wirtualnej zaszyfrowanej przy użyciu programu ADE do [szyfrowania po stronie serwera z kluczami zarządzanymi przez klienta](disk-encryption.md).
 
 

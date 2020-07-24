@@ -12,12 +12,12 @@ author: sashan
 ms.author: sashan
 ms.reviewer: carlrab, sashan
 ms.date: 04/02/2020
-ms.openlocfilehash: 01906935de76b2b262f2058563a3eee0e297e8a4
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: cc0c4b6bc7dd340f17ac500c5d319a83370a2f2b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85985333"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87033046"
 ---
 # <a name="high-availability-for-azure-sql-database-and-sql-managed-instance"></a>Wysoka dostępność dla Azure SQL Database i wystąpienia zarządzanego SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -102,9 +102,9 @@ Przejście w tryb failover można zainicjować za pomocą interfejsu API REST lu
 > [!IMPORTANT]
 > Polecenie przełączenia w tryb failover nie jest obecnie dostępne w warstwie usługi i w przypadku wystąpienia zarządzanego.
 
-## <a name="conclusion"></a>Podsumowanie
+## <a name="conclusion"></a>Wniosek
 
-Azure SQL Database i funkcja wystąpienia zarządzanego usługi Azure SQL to wbudowane rozwiązanie wysokiej dostępności, które jest głęboko zintegrowane z platformą Azure. Jest ona zależna od Service Fabric do wykrywania awarii i odzyskiwania, w usłudze Azure Blob Storage na potrzeby ochrony danych, a na Strefy dostępności w celu uzyskania większej odporności na uszkodzenia. Ponadto SQL Database i wystąpienie zarządzane SQL wykorzystują technologię zawsze włączone z wystąpienia SQL Server na potrzeby replikacji i przełączania do trybu failover. Połączenie tych technologii pozwala aplikacjom w pełni wykorzystać zalety modelu magazynu mieszanego i obsługiwać najbardziej wymaganą umowy SLA.
+Azure SQL Database i funkcja wystąpienia zarządzanego usługi Azure SQL to wbudowane rozwiązanie wysokiej dostępności, które jest głęboko zintegrowane z platformą Azure. Jest ona zależna od Service Fabric w przypadku wykrywania awarii i odzyskiwania, w usłudze Azure Blob Storage na potrzeby ochrony danych, a na Strefy dostępności w celu uzyskania większej odporności na uszkodzenia (jak wspomniano wcześniej w dokumencie nie dotyczy jeszcze wystąpienia zarządzanego Azure SQL). Ponadto SQL Database i wystąpienie zarządzane SQL wykorzystują technologię zawsze włączone z wystąpienia SQL Server na potrzeby replikacji i przełączania do trybu failover. Połączenie tych technologii pozwala aplikacjom w pełni wykorzystać zalety modelu magazynu mieszanego i obsługiwać najbardziej wymaganą umowy SLA.
 
 ## <a name="next-steps"></a>Następne kroki
 

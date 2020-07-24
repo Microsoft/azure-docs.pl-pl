@@ -6,14 +6,15 @@ ms.author: brendm
 ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 05/27/2020
-ms.openlocfilehash: 1a8f48ff365ffae4a7013d2bfd537721ba2bc381
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.custom: devx-track-java
+ms.openlocfilehash: a8e1d43138e0b7481ebb89d747fa26df9470a09f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86172697"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87037139"
 ---
-# <a name="java-and-base-os-for-spring-microservice-apps"></a>Java i podstawowy system operacyjny dla aplikacji z mikrousług
+# <a name="java-and-base-os-for-spring-microservice-apps"></a>Java i podstawowy system operacyjny dla aplikacji mikrousług usługi Spring
 Poniżej znajdują się zasady dotyczące utrzymania zdrowego środowiska Java i podstawowego systemu operacyjnego pod kątem aplikacji z mikrousług.
 ## <a name="principles-for-healthy-java-and-base-os"></a>Zasady dotyczące zdrowego środowiska Java i podstawowego systemu operacyjnego
 * Jest to ten sam podstawowy system operacyjny w warstwach — Podstawowa | Standardowa | Tytułu.

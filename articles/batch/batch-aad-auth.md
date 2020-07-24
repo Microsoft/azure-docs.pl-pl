@@ -4,12 +4,12 @@ description: Usługa Batch obsługuje uwierzytelnianie z usługi Batch w usłudz
 ms.topic: how-to
 ms.date: 01/28/2020
 ms.custom: has-adal-ref
-ms.openlocfilehash: a8601c69c37e973118a7ec9521070864caffb101
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 7daf26d7c52e07be999bb93edd6fe694f79d1be2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170313"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87032463"
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Uwierzytelnianie rozwiązań usługi Batch za pomocą Active Directory
 
@@ -193,7 +193,7 @@ Oto przykład definicji roli niestandardowej:
 }
 ```
 
-Aby uzyskać ogólne informacje na temat tworzenia roli niestandardowej, zobacz [role niestandardowe dla zasobów platformy Azure](../role-based-access-control/custom-roles.md).
+Aby uzyskać ogólne informacje na temat tworzenia roli niestandardowej, zobacz [role niestandardowe platformy Azure](../role-based-access-control/custom-roles.md).
 
 ### <a name="get-the-tenant-id-for-your-azure-active-directory"></a>Uzyskaj identyfikator dzierżawy dla Azure Active Directory
 

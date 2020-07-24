@@ -13,13 +13,14 @@ ms.custom: aaddev
 ms.topic: conceptual
 ms.workload: identity
 ROBOTS: NOINDEX
-ms.openlocfilehash: 5c1c03a407315fc4f1b3eb967531e2800fc7497f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8895e52209622025f943aaa6a4261b68a7e2899c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83738051"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87034843"
 ---
-# <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Wskazówki dla deweloperów dotyczące dostępu warunkowego w usłudze Azure Active Directory
+# <a name="developer-guidance-for-the-azure-active-directory-conditional-access-feature"></a>Wskazówki dla deweloperów dotyczące funkcji dostępu warunkowego Azure Active Directory
 
 [!INCLUDE [active-directory-azuread-dev](../../../includes/active-directory-azuread-dev.md)]
 
@@ -174,7 +175,7 @@ Nasza aplikacja musi przechwycić `error=interaction_required` . Aplikacja może
 
 Aby wypróbować ten scenariusz, zapoznaj się [z naszym Przykładem Spa](https://github.com/Azure-Samples/active-directory-dotnet-webapi-onbehalfof-ca). Ten przykładowy kod korzysta z zasad dostępu warunkowego i internetowego interfejsu API, który został zarejestrowany wcześniej przy użyciu protokołu JS SPA, aby przedstawić ten scenariusz. Pokazuje, jak prawidłowo obsługiwać wyzwanie oświadczeń i uzyskać token dostępu, który może być używany przez internetowy interfejs API. Alternatywnie można wyewidencjonować [przykład kodu ogólnegoAngular.js](https://github.com/Azure-Samples/active-directory-angularjs-singlepageapp) , aby uzyskać wskazówki dotyczące KĄTOWego Spa
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 * Aby dowiedzieć się więcej o możliwościach, zobacz [dostęp warunkowy w Azure Active Directory](../active-directory-conditional-access-azure-portal.md).
 * Aby uzyskać więcej przykładów kodu usługi Azure AD, zobacz [repozytorium kodu](https://github.com/azure-samples?utf8=%E2%9C%93&q=active-directory)w witrynie GitHub.

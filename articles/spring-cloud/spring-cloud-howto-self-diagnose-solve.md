@@ -6,11 +6,13 @@ ms.author: brendm
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 05/29/2020
-ms.openlocfilehash: 581d77a5568b9533d85ff476b63001c8a237bc4e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-java
+ms.openlocfilehash: 1f48cd185f2aa25954627a9ff26f3e59b8e76e7a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84457205"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87037316"
 ---
 # <a name="how-to-self-diagnose-and-solve-problems-in-azure-spring-cloud"></a>Jak automatycznie diagnozować i rozwiązywać problemy w chmurze Azure wiosennej
 Diagnostyka chmurowa platformy Azure to interaktywny interfejs ułatwiający Rozwiązywanie problemów z aplikacją. Nie jest wymagana żadna konfiguracja. Po znalezieniu problemów Diagnostyka chmurowa platformy Azure wskazuje, co jest nieprawidłowe, i prowadzi użytkownika do informacji ułatwiających rozwiązywanie problemów i rozwiązywanie problemu.
@@ -23,7 +25,7 @@ Do ukończenia tego samouczka niezbędne są następujące elementy:
 * Co najmniej jedna aplikacja została już utworzona w wystąpieniu usługi.
 
 ## <a name="navigate-to-the-diagnostics-page"></a>Przejdź do strony Diagnostyka
-1. Zaloguj się do witryny Azure Portal.
+1. Zaloguj się w witrynie Azure Portal.
 2. Przejdź do strony **omówienia** chmury Azure wiosennej.
 3. Otwórz okno **diagnozowanie i rozwiązywanie problemów** z menu po lewej stronie strony.
 

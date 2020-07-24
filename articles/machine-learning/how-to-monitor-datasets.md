@@ -10,15 +10,19 @@ ms.reviewer: sgilley
 ms.author: copeters
 author: lostmygithubaccount
 ms.date: 06/25/2020
-ms.openlocfilehash: 2e0f1765f9f91824f716cb70f591ce6b178c4563
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 7ee9d37b19d4796f826fbd9831f6e84a92a12e7c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223198"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87031188"
 ---
 # <a name="detect-data-drift-preview-on-datasets"></a>Wykrywanie dryfowania danych (wersja zapoznawcza) w zestawach DataSet
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
+> [!IMPORTANT]
+> Wykrywanie dryfowania danych w zestawach DataSet jest obecnie w publicznej wersji zapoznawczej.
+> Wersja zapoznawcza jest dostępna bez umowy dotyczącej poziomu usług i nie jest zalecana w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Dowiedz się, jak monitorować dryf danych i ustawiać alerty, gdy dryf jest wysoki.  
 
@@ -88,7 +92,7 @@ Monitory zestawu danych są zależne od następujących usług platformy Azure.
 | *Zestaw danych* | Funkcja dryf używa Machine Learning zestawów danych, aby pobierać dane szkoleniowe i porównywać dane w celu szkolenia modeli.  Generowanie profilu danych jest używane do generowania niektórych raportowanych metryk, takich jak minimalna, maksymalna, różne wartości, liczba unikatowych wartości. |
 | *Potok i obliczenia w usłudze Azure* | Zadanie obliczania dryfu jest hostowane w potoku Azure.  Zadanie jest wyzwalane na żądanie lub według harmonogramu do uruchomienia w ramach obliczeń skonfigurowanych na czas tworzenia monitora dryfu.
 | *Application Insights*| Dryf emituje metryki do Application Insights należące do obszaru roboczego uczenia maszynowego.
-| *Magazyn obiektów blob platformy Azure*| Dryf emituje metryki w formacie JSON do magazynu obiektów blob platformy Azure.
+| *Azure Blob Storage*| Dryf emituje metryki w formacie JSON do magazynu obiektów blob platformy Azure.
 
 ## <a name="how-dataset-monitors-data"></a>Jak zestaw danych monitoruje dane
 
@@ -227,7 +231,7 @@ Kliknij przycisk **+ Utwórz monitor** i Kontynuuj pracę kreatora, klikając pr
     | Nazwa | Nazwa monitora zestawu danych. | | Nie |
     | Funkcje | Lista funkcji, które będą analizowane pod kątem dryfowania danych w czasie. | Ustaw na funkcje wyjściowe modelu, aby zmierzyć dryf koncepcji. Nie dołączaj funkcji, które naturalnie dryfuje w czasie (miesiąc, rok, indeks itp.). Po dostosowaniu listy funkcji można wypełniać i śledzić istniejący monitor dryfowania danych. | Tak | 
     | Docelowy zasób obliczeniowy | Azure Machine Learning miejsce docelowe obliczeń, aby uruchomić zadania monitorowania zestawu danych. | | Tak | 
-    | Włączanie | Włączanie lub wyłączanie harmonogramu dla potoku monitora zestawu danych | Wyłącz harmonogram, aby analizować dane historyczne przy użyciu ustawienia wypełniania. Można ją włączyć po utworzeniu monitora zestawu danych. | Tak | 
+    | Włącz | Włączanie lub wyłączanie harmonogramu dla potoku monitora zestawu danych | Wyłącz harmonogram, aby analizować dane historyczne przy użyciu ustawienia wypełniania. Można ją włączyć po utworzeniu monitora zestawu danych. | Tak | 
     | Częstotliwość | Częstotliwość, która zostanie użyta do zaplanowania zadania potoku i przeanalizowania danych historycznych w przypadku uruchamiania wypełniania. Dostępne opcje to codziennie, co tydzień lub co miesiąc. | Każde uruchomienie porównuje dane w docelowym zestawie danych zgodnie z częstotliwością: <li>Codziennie: Porównaj najnowszy pełny dzień w docelowym zestawie danych z punktem odniesienia <li>Tydzień: porównanie ostatniego pełnego tygodnia (poniedziałek-niedziela) w docelowym zestawie danych z punktem odniesienia <li>Miesięcznie: porównanie ostatniego pełnego miesiąca w docelowym zestawie danych z punktem odniesienia | Nie | 
     | Opóźnienie | Czas, w godzinach, pobiera dane do zestawu danych. Na przykład jeśli dane mają być dostarczone przez trzy dni w bazie danych bazy danych SQL, należy ustawić opóźnienie na 72. | Nie można zmienić po utworzeniu monitora zestawu danych | Nie | 
     | Adresy e-mail | Adresy e-mail dla alertów na podstawie naruszenia progu procentu dryfu danych. | Wiadomości e-mail są wysyłane za poorednictwem Azure Monitor. | Tak | 

@@ -16,11 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 02/03/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1de9c07c99666ed4011214bd9b426eac8f494991
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: acf60138aaecd914b30a020fdead292eb0ef1473
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82978182"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87035982"
 ---
 # <a name="sap-ascsscs-instance-multi-sid-high-availability-with-windows-server-failover-clustering-and-file-share-on-azure"></a>Rozwiązanie SAP ASCS/SCS o wysokiej dostępności z użyciem klastra trybu failover systemu Windows Server i udziału plików na platformie Azure
 
@@ -41,10 +42,10 @@ Ten artykuł koncentruje się na sposobach przenoszenia z jednej instalacji ASCS
 >
 >Maksymalna liczba wystąpień SAP ASCS/SCS w jednym klastrze usługi WSFC jest równa maksymalnej liczbie prywatnych adresów IP frontonu dla każdego wewnętrznego modułu równoważenia obciążenia platformy Azure.
 >
-> Konfiguracja wprowadzona w tej dokumentacji nie jest jeszcze obsługiwana dla [strefy dostępności platformy Azure](https://docs.microsoft.com/azure/availability-zones/az-overview)
+> Konfiguracja wprowadzona w tej dokumentacji nie jest jeszcze obsługiwana dla [strefy dostępności platformy Azure](../../../availability-zones/az-overview.md)
 > 
 
-Aby uzyskać więcej informacji na temat limitów równoważenia obciążenia, zobacz sekcję "prywatny adres IP frontonu na moduł równoważenia obciążenia" w temacie [limity dotyczące sieci: Azure Resource Manager][networking-limits-azure-resource-manager]. Rozważ także użycie [jednostki sku usługa Load Balancer w warstwie Standardowa platformy Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones) zamiast podstawowej jednostki SKU modułu równoważenia obciążenia platformy Azure.
+Aby uzyskać więcej informacji na temat limitów równoważenia obciążenia, zobacz sekcję "prywatny adres IP frontonu na moduł równoważenia obciążenia" w temacie [limity dotyczące sieci: Azure Resource Manager][networking-limits-azure-resource-manager]. Rozważ także użycie [jednostki sku usługa Load Balancer w warstwie Standardowa platformy Azure](../../../load-balancer/load-balancer-standard-availability-zones.md) zamiast podstawowej jednostki SKU modułu równoważenia obciążenia platformy Azure.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

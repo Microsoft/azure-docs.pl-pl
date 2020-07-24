@@ -3,11 +3,12 @@ title: Co nowego w usłudze Microsoft Azure Backup Server
 description: Serwer Microsoft Azure Backup zapewnia ulepszone możliwości tworzenia kopii zapasowych w celu ochrony maszyn wirtualnych, plików i folderów, obciążeń i nie tylko.
 ms.topic: conceptual
 ms.date: 05/24/2020
-ms.openlocfilehash: 5f8d0aa83f6d54575b76847efa892864b32c456d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d9d04d9f763549ce15e57f768432cd933cf1414c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84629090"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87032446"
 ---
 # <a name="whats-new-in-microsoft-azure-backup-server-mabs"></a>Co nowego w programie Microsoft Azure Backup Server (serwera usługi MAB)
 
@@ -22,7 +23,7 @@ Serwer Microsoft Azure Backup (serwera usługi MAB) w wersji 3 UR1 to najnowsza 
 
 SERWERA usługi MAB v2 wprowadził [nowoczesny magazyn kopii zapasowych](backup-mabs-add-storage.md) (MB), zwiększając wykorzystanie magazynu i wydajność. MB korzysta z systemu plików ReFS jako bazowego i jest przeznaczony do korzystania z magazynu hybrydowego, takiego jak magazyn warstwowy.
 
-Aby osiągnąć skalę i wydajność, MB zalecamy użycie małego procentu (4% całkowitego magazynu) w usłudze Flash Storage (SSD) z serwera usługi MAB v3 UR1 jako woluminu warstwowego w połączeniu z magazynem dysków twardych programu DPM. SERWERA usługi MAB v3 UR1 z magazynem warstwowym zapewnia 50-70% szybszych kopii zapasowych. Zapoznaj się z artykułem DPM [set up MB with Tiered Storage](https://docs.microsoft.com/system-center/dpm/add-storage?view=sc-dpm-2019#set-up-mbs-with-tiered-storage) , aby uzyskać instrukcje dotyczące konfigurowania magazynu warstwowego.
+Aby osiągnąć skalę i wydajność, MB zalecamy użycie małego procentu (4% całkowitego magazynu) w usłudze Flash Storage (SSD) z serwera usługi MAB v3 UR1 jako woluminu warstwowego w połączeniu z magazynem dysków twardych programu DPM. SERWERA usługi MAB v3 UR1 z magazynem warstwowym zapewnia 50-70% szybszych kopii zapasowych. Zapoznaj się z artykułem DPM [set up MB with Tiered Storage](/system-center/dpm/add-storage?view=sc-dpm-2019#set-up-mbs-with-tiered-storage) , aby uzyskać instrukcje dotyczące konfigurowania magazynu warstwowego.
 
 ### <a name="support-for-refs-volumes-and-refs-volumes-with-deduplication-enabled"></a>Obsługa woluminów ReFS i woluminów ReFS z włączoną funkcją deduplikacji
 
@@ -38,7 +39,7 @@ Za pomocą serwera usługi MAB v3 UR1 można utworzyć kopię zapasową wolumin�
 
 ### <a name="azure-vmware-solution-protection-support"></a>Obsługa ochrony rozwiązań VMware na platformie Azure
 
-Program serwera usługi MAB v3 UR1 umożliwia teraz ochronę maszyn wirtualnych wdrożonych w [rozwiązaniu VMware platformy Azure](https://docs.microsoft.com/azure/azure-vmware/).
+Program serwera usługi MAB v3 UR1 umożliwia teraz ochronę maszyn wirtualnych wdrożonych w [rozwiązaniu VMware platformy Azure](../azure-vmware/index.yml).
 
 ### <a name="vmware-parallel-backups"></a>Równoległe kopie zapasowe VMware
 
@@ -55,7 +56,7 @@ W przypadku serwera usługi MAB v3 UR1 dodano dodatkową warstwę uwierzytelnian
 
 ### <a name="offline-backup-improvements"></a>Ulepszenia kopii zapasowej w trybie offline
 
-SERWERA usługi MAB v3 UR1 usprawnia wykonywanie kopii zapasowych w trybie offline za pomocą usługi Azure Import/Export. Aby uzyskać więcej informacji, zapoznaj się z zaktualizowanymi [krokami](https://docs.microsoft.com/azure/backup/backup-azure-backup-server-import-export).
+SERWERA usługi MAB v3 UR1 usprawnia wykonywanie kopii zapasowych w trybie offline za pomocą usługi Azure Import/Export. Aby uzyskać więcej informacji, zapoznaj się z zaktualizowanymi [krokami](./backup-azure-backup-server-import-export.md).
 
 >[!NOTE]
 >Aktualizacja udostępnia również wersję zapoznawczą kopii zapasowej offline przy użyciu Azure Data Box w serwera usługi MAB. Skontaktuj się z nami [SystemCenterFeedback@microsoft.com](mailto:SystemCenterFeedback@microsoft.com) , aby dowiedzieć się więcej.
@@ -69,7 +70,7 @@ SERWERA usługi MAB v3 UR1 zawiera nowy parametr **[-CheckReplicaFragmentation]*
 W programie serwera usługi MAB v3 UR1 obsługa agenta ochrony 32-bitowego nie jest już obsługiwana. Nie będzie można chronić 32-bitowych obciążeń po uaktualnieniu serwera serwera usługi MAB v3 do UR1. Wszystkie istniejące 32-bitowe agenci ochrony będą w stanie wyłączenia, a zaplanowane kopie zapasowe zakończą się niepowodzeniem, a **Agent jest wyłączony** . Jeśli chcesz zachować dane kopii zapasowej dla tych agentów, możesz zatrzymać ochronę przy użyciu opcji Zachowaj dane. W przeciwnym razie Agent ochrony może zostać usunięty.
 
 >[!NOTE]
->Zapoznaj się ze [zaktualizowaną matrycą ochrony](https://docs.microsoft.com/azure/backup/backup-mabs-protection-matrix) , aby poznać obsługiwane obciążenia na potrzeby ochrony za pomocą serwera usługi MAB ur 1.
+>Zapoznaj się ze [zaktualizowaną matrycą ochrony](./backup-mabs-protection-matrix.md) , aby poznać obsługiwane obciążenia na potrzeby ochrony za pomocą serwera usługi MAB ur 1.
 
 ## <a name="whats-new-in-mabs-v3-rtm"></a>Co nowego w programie serwera usługi MAB v3 RTM
 
@@ -83,7 +84,7 @@ W przypadku Nowoczesny magazyn kopii zapasowych (MB) w serwera usługi MAB v2 og
 
 ### <a name="prevent-unexpected-data-loss"></a>Zapobiegaj nieoczekiwanej utracie danych
 
-W przedsiębiorstwach serwera usługi MAB jest zarządzany przez zespół administratorów. Chociaż istnieją wskazówki dotyczące magazynu, które powinny być używane do tworzenia kopii zapasowych, nieprawidłowy wolumin serwera usługi MAB jako magazyn kopii zapasowych może prowadzić do utraty danych o kluczowym znaczeniu. W programie serwera usługi MAB v3 można zapobiec takim scenariuszom, konfigurując te woluminy jako te, które nie są dostępne dla magazynu za pomocą [tych poleceń cmdlet programu PowerShell](https://docs.microsoft.com/azure/backup/backup-mabs-add-storage).
+W przedsiębiorstwach serwera usługi MAB jest zarządzany przez zespół administratorów. Chociaż istnieją wskazówki dotyczące magazynu, które powinny być używane do tworzenia kopii zapasowych, nieprawidłowy wolumin serwera usługi MAB jako magazyn kopii zapasowych może prowadzić do utraty danych o kluczowym znaczeniu. W programie serwera usługi MAB v3 można zapobiec takim scenariuszom, konfigurując te woluminy jako te, które nie są dostępne dla magazynu za pomocą [tych poleceń cmdlet programu PowerShell](./backup-mabs-add-storage.md).
 
 ### <a name="custom-size-allocation"></a>Alokacja rozmiaru niestandardowego
 
@@ -114,7 +115,7 @@ SERWERA usługi MAB v3 można zainstalować przy użyciu programu SQL 2017 jako 
 SERWERA usługi MAB v3 można zainstalować w systemie Windows Server 2019. Aby użyć serwera usługi MAB v3 z WS2019, można uaktualnić system operacyjny do wersji WS2019 przed instalacją/uaktualnieniem do wersji serwera usługi MAB v3 lub uaktualnić wpis systemu operacyjnego instalujący/uaktualniający v3 na WS2016.
 
 SERWERA usługi MAB v3 to pełna wersja, którą można zainstalować bezpośrednio w systemie Windows Server 2016, Windows Server 2019 lub można uaktualnić z serwera usługi MAB v2. Przed uaktualnieniem do programu Backup Server v3 lub jego zainstalowanie Przeczytaj informacje o wymaganiach wstępnych instalacji.
-Więcej informacji na temat kroków instalacji/uaktualniania dla programu serwera usługi MAB znajdziesz [tutaj](https://docs.microsoft.com/azure/backup/backup-azure-microsoft-azure-backup#software-package).
+Więcej informacji na temat kroków instalacji/uaktualniania dla programu serwera usługi MAB znajdziesz [tutaj](./backup-azure-microsoft-azure-backup.md#software-package).
 
 > [!NOTE]
 >

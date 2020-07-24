@@ -9,13 +9,14 @@ ms.topic: how-to
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 04/27/2020
+ms.date: 07/17/2020
 ms.custom: tracking-python
-ms.openlocfilehash: 31daec93352c0e142075a55c61f2b8d3a6d56fab
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 10b9e055ce5b1e2ba27d942a987bf6b38291f094
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85080234"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87031426"
 ---
 # <a name="use-workspace-behind-azure-firewall-for-azure-machine-learning"></a>Używanie obszaru roboczego za zaporą platformy Azure w celu Azure Machine Learning
 
@@ -49,7 +50,7 @@ Hosty w tej sekcji należą do firmy Microsoft i zapewniają usługi wymagane do
 | **\*. instances.azureml.net** | Wystąpienia obliczeniowe Azure Machine Learning |
 | **\*. instances.azureml.ms** | Wystąpienia obliczeniowe Azure Machine Learning, gdy w obszarze roboczym jest włączone łącze prywatne |
 | **windows.net** | Azure Blob Storage |
-| **vault.azure.net** | W usłudze Azure Key Vault |
+| **vault.azure.net** | Azure Key Vault |
 | **azurecr.io** | Azure Container Registry |
 | **mcr.microsoft.com** | Microsoft Container Registry dla podstawowych obrazów platformy Docker |
 
@@ -61,6 +62,7 @@ Hosty w tej sekcji służą do instalowania pakietów języka Python. Są one wy
 | ---- | ---- |
 | **anaconda.com** | Używane podczas instalowania pakietów Conda |
 | **pypi.org** | Używane podczas instalowania pakietów PIP |
+
 
 ## <a name="r-hosts"></a>Hosty języka R
 

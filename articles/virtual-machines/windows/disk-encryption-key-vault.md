@@ -8,12 +8,12 @@ author: msmbaldwin
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: ec0862a0d4de644630c972387f01feaa1a327e67
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: fa87fc874be5e60d018b5663b4655d069930ab88
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86500756"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87036152"
 ---
 # <a name="creating-and-configuring-a-key-vault-for-azure-disk-encryption"></a>Tworzenie i konfigurowanie magazynu kluczy dla usługi Azure Disk Encryption
 
@@ -25,7 +25,7 @@ Azure Disk Encryption używa Azure Key Vault do kontrolowania kluczy szyfrowania
 Tworzenie i Konfigurowanie magazynu kluczy do użycia z Azure Disk Encryption obejmuje trzy kroki:
 
 > [!Note]
-> Aby włączyć dostęp do Azure Disk Encryption szyfrowania woluminów, należy wybrać opcję w ustawieniach zasad dostępu Azure Key Vault.
+> Aby włączyć dostęp do Azure Disk Encryption szyfrowania woluminów, należy wybrać opcję w ustawieniach zasad dostępu Azure Key Vault. Jeśli włączono Zaporę w magazynie kluczy, należy przejść do karty sieć w magazynie kluczy i umożliwić dostęp do zaufanych usług firmy Microsoft. 
 
 1. Tworzenie grupy zasobów, w razie konieczności.
 2. Tworzenie magazynu kluczy. 
@@ -43,7 +43,7 @@ Możesz również, jeśli chcesz, wygenerować lub zaimportować klucz szyfrowan
 
 ## <a name="install-tools-and-connect-to-azure"></a>Instalowanie narzędzi i nawiązywanie połączenia z platformą Azure
 
-Kroki opisane w tym artykule można wykonać przy użyciu [interfejsu wiersza polecenia platformy Azure](/cli/azure/), [Azure PowerShell Az module](/powershell/azure/overview)lub [Azure Portal](https://portal.azure.com).
+Kroki opisane w tym artykule można wykonać przy użyciu [interfejsu wiersza polecenia platformy Azure](/cli/azure/), [Azure PowerShell Az module](/powershell/azure/)lub [Azure Portal](https://portal.azure.com).
 
 Gdy Portal jest dostępny za pomocą przeglądarki, interfejs wiersza polecenia platformy Azure i Azure PowerShell wymagają instalacji lokalnej; Zobacz [Azure Disk Encryption dla systemu Windows: Zainstaluj narzędzia](disk-encryption-windows.md#install-tools-and-connect-to-azure) , aby uzyskać szczegółowe informacje.
 

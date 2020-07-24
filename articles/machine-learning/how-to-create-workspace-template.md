@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 07/09/2020
 ms.custom: seoapril2019
-ms.openlocfilehash: 4ba48e5beb8ce4b4ae126dd23acbe0dec650f655
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 49a1b190ece4ae4e937757e88af325a29f4825c5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86232155"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87031120"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning"></a>Użyj szablonu Azure Resource Manager, aby utworzyć obszar roboczy dla Azure Machine Learning
 
@@ -30,7 +30,7 @@ Aby uzyskać więcej informacji, zobacz [wdrażanie aplikacji przy użyciu szabl
 
 * **Subskrypcja platformy Azure**. Jeśli go nie masz, wypróbuj [bezpłatną lub płatną wersję Azure Machine Learning](https://aka.ms/AMLFree).
 
-* Aby użyć szablonu z interfejsu wiersza polecenia, musisz mieć [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azps-1.2.0) lub [interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+* Aby użyć szablonu z interfejsu wiersza polecenia, musisz mieć [Azure PowerShell](https://docs.microsoft.com/powershell/azure/?view=azps-1.2.0) lub [interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## <a name="workspace-resource-manager-template"></a>Szablon Menedżer zasobów obszaru roboczego
 
@@ -39,7 +39,7 @@ Szablon Azure Resource Manager używany w tym dokumencie znajduje się w katalog
 Ten szablon umożliwia utworzenie następujących usług platformy Azure:
 
 * Konto usługi Azure Storage
-* W usłudze Azure Key Vault
+* Azure Key Vault
 * Azure Application Insights
 * Azure Container Registry
 * Obszar roboczy usługi Azure Machine Learning
@@ -154,6 +154,9 @@ Poniższy przykładowy szablon pokazuje, jak utworzyć obszar roboczy z trzema u
 * Włącz ustawienia wysokiej poufności dla obszaru roboczego
 * Włącz szyfrowanie dla obszaru roboczego
 * Używa istniejącego Azure Key Vault do pobierania kluczy zarządzanych przez klienta
+
+> [!IMPORTANT]
+> Po utworzeniu obszaru roboczego nie można zmienić ustawień poufnych danych, szyfrowania, identyfikatora magazynu kluczy ani identyfikatorów kluczy. Aby zmienić te wartości, należy utworzyć nowy obszar roboczy przy użyciu nowych wartości.
 
 Aby uzyskać więcej informacji, zobacz [szyfrowanie w spoczynku](concept-enterprise-security.md#encryption-at-rest).
 
@@ -353,6 +356,9 @@ Dodatkową konfiguracją, którą można podać dla danych, jest ustawienie dla 
 * Czyści lokalny dysk magazynujący między przebiegami.
 * Bezpiecznie przekazuje poświadczenia konta magazynu, rejestru kontenerów i konta SSH z warstwy wykonywania do klastrów obliczeniowych, używając magazynu kluczy.
 * Umożliwia filtrowanie adresów IP, aby upewnić się, że źródłowe pule usługi Batch nie mogą być wywoływane przez żadną zewnętrzną usługę inną niż AzureMachineLearningService.
+
+    > [!IMPORTANT]
+    > Po utworzeniu obszaru roboczego nie można zmienić ustawień poufnych danych, szyfrowania, identyfikatora magazynu kluczy ani identyfikatorów kluczy. Aby zmienić te wartości, należy utworzyć nowy obszar roboczy przy użyciu nowych wartości.
 
   Aby uzyskać więcej informacji, zobacz [szyfrowanie w spoczynku](concept-enterprise-security.md#encryption-at-rest).
 

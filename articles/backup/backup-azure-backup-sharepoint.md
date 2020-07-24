@@ -3,12 +3,12 @@ title: Tworzenie kopii zapasowej farmy programu SharePoint na platformie Azure p
 description: Ten artykuł zawiera omówienie ochrony programu DPM/Azure Backup serwera w farmie programu SharePoint na platformie Azure
 ms.topic: conceptual
 ms.date: 03/09/2020
-ms.openlocfilehash: 447776af7cb021fd0c3381334bf3acf258ff22ab
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: b326ce15cd605f4f768a03b95337bbc5bd6aaabc
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539112"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87032888"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure-with-dpm"></a>Tworzenie kopii zapasowej farmy programu SharePoint na platformie Azure przy użyciu programu DPM
 
@@ -32,7 +32,7 @@ Dodatkowe wymagania wstępne i ograniczenia można znaleźć w artykule [Tworzen
 
 ## <a name="configure-backup"></a>Konfigurowanie kopii zapasowych
 
-Aby utworzyć kopię zapasową farmy programu SharePoint, skonfiguruj ochronę programu SharePoint przy użyciu pliku ConfigureSharePoint.exe, a następnie utwórz grupę ochrony w programie DPM. Aby uzyskać instrukcje, zobacz [Konfigurowanie kopii zapasowej](//system-center/dpm/back-up-sharepoint?view=sc-dpm-2019#configure-backup) w dokumentacji programu DPM.
+Aby utworzyć kopię zapasową farmy programu SharePoint, skonfiguruj ochronę programu SharePoint przy użyciu pliku ConfigureSharePoint.exe, a następnie utwórz grupę ochrony w programie DPM. Aby uzyskać instrukcje, zobacz [Konfigurowanie kopii zapasowej](/system-center/dpm/back-up-sharepoint?view=sc-dpm-2019#configure-backup) w dokumentacji programu DPM.
 
 ## <a name="monitoring"></a>Monitorowanie
 

@@ -11,11 +11,12 @@ author: vaidyas
 ms.reviewer: larryfr
 ms.date: 03/06/2020
 ms.custom: tracking-python
-ms.openlocfilehash: 3afe5d0993f7e647cbae1281cb9e7387df6e2f50
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b2f42729b97f4a02e549766dc816db8361b3b8e6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84560406"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87030933"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-functions-preview"></a>Wdróż model uczenia maszynowego w Azure Functions (wersja zapoznawcza)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -55,6 +56,7 @@ Przed wdrożeniem należy zdefiniować, co jest potrzebne do uruchomienia modelu
     >
     > Domyślnie podczas tworzenia pakietów dla funkcji dane wejściowe są traktowane jako tekst. Jeśli interesuje się zużywanie nieprzetworzonych bajtów danych wejściowych (na przykład dla wyzwalaczy obiektów BLOB), należy użyć [AMLRequest do akceptowania danych pierwotnych](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where#binary-data).
 
+Aby uzyskać więcej informacji na temat skryptu wprowadzania, zobacz [Definiowanie oceniania kodu](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where#script)
 
 * **Zależności**, takie jak skrypty pomocnika lub pakiety Python/Conda wymagane do uruchomienia skryptu lub modelu wprowadzania
 

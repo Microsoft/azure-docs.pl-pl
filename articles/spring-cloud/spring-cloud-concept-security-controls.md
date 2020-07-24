@@ -6,12 +6,13 @@ ms.author: brendm
 ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 04/23/2020
-ms.openlocfilehash: 8d002fae52fec1fafb2ad8e63bd8e3b779a1537c
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.custom: devx-track-java
+ms.openlocfilehash: 2e001e5e927d9d4c5dc4c3eb74f7b5ad33617b99
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85984827"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87037580"
 ---
 # <a name="security-controls-for-azure-spring-cloud-service"></a>Mechanizmy kontroli zabezpieczeń dla usługi Azure Spring Cloud
 Funkcje kontroli zabezpieczeń są wbudowane w usługę w chmurze Azure wiosną.
@@ -30,4 +31,4 @@ Kontrola zabezpieczeń jest jakością lub funkcją usługi platformy Azure, kt�
 
 | Kontrola zabezpieczeń | Tak/Nie | Uwagi | Dokumentacja |
 |:-------------|:-------|:-------------------------------|:----------------------|
-| Tag usługi | Tak | Użyj znacznika usługi **AzureSpringCloud** do definiowania kontroli dostępu do sieci wychodzącej w [sieciowych grupach zabezpieczeń](https://docs.microsoft.com/azure/virtual-network/security-overview#security-rules) lub [zaporze platformy Azure](https://docs.microsoft.com/azure/firewall/service-tags), aby zezwolić na ruch do aplikacji w chmurze z systemem Azure.<br><br>*Uwaga:* Obecnie tylko nowe wystąpienie usługi Azure wiosenne w chmurze utworzone po 2020/07/07 obsługuje tag usługi **AzureSpringCloud** . | [Tagi usługi](https://docs.microsoft.com/azure/virtual-network/service-tags-overview) |
+| Tag usługi | Tak | Użyj znacznika usługi **AzureSpringCloud** do definiowania kontroli dostępu do sieci wychodzącej w [sieciowych grupach zabezpieczeń](https://docs.microsoft.com/azure/virtual-network/security-overview#security-rules) lub [zaporze platformy Azure](https://docs.microsoft.com/azure/firewall/service-tags), aby zezwolić na ruch do aplikacji w chmurze z systemem Azure.<br><br>*Uwaga:* Obecnie tylko nowe wystąpienie usługi Azure wiosenne w chmurze utworzone po 2020/07/14 obsługuje tag usługi **AzureSpringCloud** . | [Tagi usługi](https://docs.microsoft.com/azure/virtual-network/service-tags-overview) |

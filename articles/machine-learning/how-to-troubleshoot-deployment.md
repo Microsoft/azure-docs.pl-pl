@@ -11,11 +11,12 @@ ms.author: clauren
 ms.reviewer: jmartens
 ms.date: 03/05/2020
 ms.custom: contperfq4, tracking-python
-ms.openlocfilehash: 13ce9204ad09d2ecb4b149cf50696aa73d927314
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 68c328bde853bbf4e48ab7ab1a6e2c7b51198f59
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85214370"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87030695"
 ---
 # <a name="troubleshoot-docker-deployment-of-models-with-azure-kubernetes-service-and-azure-container-instances"></a>Rozwiązywanie problemów z wdrażaniem modeli przez platformę Docker za pomocą usługi Azure Kubernetes Service i Azure Container Instances 
 
@@ -100,6 +101,8 @@ Po przeprowadzeniu procesu wdrażania do poszczególnych zadań można wyszukać
 
 Jeśli wystąpią problemy ze wdrożeniem modelu do ACI lub AKS, spróbuj wdrożyć go jako lokalną usługę sieci Web. Korzystanie z lokalnej usługi sieci Web ułatwia rozwiązywanie problemów. Obraz platformy Docker zawierający model zostanie pobrany i uruchomiony w systemie lokalnym.
 
+Przykładowy [Notes lokalnego wdrożenia](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/deploy-to-local/register-model-deploy-local.ipynb) można znaleźć w repozytorium [MachineLearningNotebooks](https://github.com/Azure/MachineLearningNotebooks) , aby poznać możliwy do uruchomienia przykład.
+
 > [!WARNING]
 > Lokalne wdrożenia usługi sieci Web nie są obsługiwane w scenariuszach produkcyjnych.
 
@@ -181,6 +184,7 @@ print(service.get_logs())
 # if you only know the name of the service (note there might be multiple services with the same name but different version number)
 print(ws.webservices['mysvc'].get_logs())
 ```
+
 ## <a name="container-cannot-be-scheduled"></a>Nie można zaplanować kontenera
 
 W przypadku wdrażania usługi do elementu docelowego obliczeń usługi Azure Kubernetes Azure Machine Learning próbuje zaplanować usługę z żądaną ilością zasobów. Jeśli po 5 minutach nie ma dostępnych węzłów w klastrze z odpowiednią ilością dostępnych zasobów, wdrożenie zakończy się niepowodzeniem z komunikatem `Couldn't Schedule because the kubernetes cluster didn't have available resources after trying for 00:05:00` . Ten błąd można rozwiązać, dodając więcej węzłów, zmieniając jednostkę SKU węzłów lub zmieniając wymagania dotyczące zasobów usługi. 
@@ -210,7 +214,7 @@ Ustawienie poziomu rejestrowania na debugowanie może spowodować zarejestrowani
 
 ## <a name="function-fails-runinput_data"></a>Niepowodzenie funkcji: Uruchom (input_data)
 
-Jeśli usługa została pomyślnie wdrożona, ale ulega awarii, gdy dane są ogłaszane w punkcie końcowym oceniania, można dodać instrukcję zwracającą błąd w `run(input_data)` funkcji tak, aby zamiast tego zwracała szczegółowy komunikat o błędzie. Przykład:
+Jeśli usługa została pomyślnie wdrożona, ale ulega awarii, gdy dane są ogłaszane w punkcie końcowym oceniania, można dodać instrukcję zwracającą błąd w `run(input_data)` funkcji tak, aby zamiast tego zwracała szczegółowy komunikat o błędzie. Na przykład:
 
 ```python
 def run(input_data):
