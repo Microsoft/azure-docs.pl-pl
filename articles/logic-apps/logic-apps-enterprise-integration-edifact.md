@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 04/22/2020
-ms.openlocfilehash: c9d80ccac311b02d8734663d99a37804f8280771
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dfe48a1348929bbe8d4af6793d94d52514df9d74
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82115537"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87001540"
 ---
 # <a name="exchange-edifact-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Wymiana komunikatów EDIFACT w przypadku integracji B2B dla przedsiębiorstw w usłudze Logic Apps za pomocą pakietu integracyjnego dla przedsiębiorstw
 
@@ -36,7 +36,7 @@ Po [utworzeniu konta integracji](../logic-apps/logic-apps-enterprise-integration
 
 ## <a name="create-an-edifact-agreement"></a>Utwórz umowę EDIFACT 
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com "Azure Portal"). 
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com "Witryna Azure Portal"). 
 
 2. W głównym menu platformy Azure wybierz pozycję **wszystkie usługi**. W polu wyszukiwania wprowadź ciąg "Integracja", a następnie wybierz pozycję **konta integracji**.
 
@@ -251,7 +251,7 @@ Po ukończeniu każdego wiersza walidacji zostanie automatycznie dodany inny. Je
 
 ## <a name="connector-reference"></a>Dokumentacja łączników
 
-Aby uzyskać szczegółowe informacje techniczne dotyczące tego łącznika, takie jak akcje i limity zgodnie z opisem w pliku struktury Swagger łącznika, zobacz [stronę odwołania łącznika](https://docs.microsoft.com/connectors/edifact/).
+Aby uzyskać szczegółowe informacje techniczne dotyczące tego łącznika, takie jak akcje i limity zgodnie z opisem w pliku struktury Swagger łącznika, zobacz [stronę odwołania łącznika](/connectors/edifact/).
 
 > [!NOTE]
 > W przypadku aplikacji logiki w [środowisku usługi integracji (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)wersja tego ŁĄCZNIKa ISE z oznaczeniem używa [limitów komunikatów B2B dla ISE](../logic-apps/logic-apps-limits-and-config.md#b2b-protocol-limits).

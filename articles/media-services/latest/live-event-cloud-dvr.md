@@ -14,17 +14,18 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 05/07/2020
 ms.author: juliako
-ms.openlocfilehash: 231aeb210a7b97e8c0cfd0e21c48053c660b6128
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8c5afe45ce864ba76d5d637df3534d426d39167a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82995818"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87000996"
 ---
 # <a name="use-time-shifting-and-live-outputs-to-create-on-demand-video-playback"></a>Korzystaj z przesunięć czasowych i danych wyjściowych, aby utworzyć odtwarzanie wideo na żądanie
 
-W Azure Media Services obiekt [danych wyjściowych na żywo](https://docs.microsoft.com/rest/api/media/liveoutputs) przypomina cyfrowy rejestrator wideo, który będzie przechwytywać i rejestrować strumień na żywo do zasobu na koncie Media Services. Zarejestrowana zawartość jest zachowywana w kontenerze zdefiniowanym [przez zasób zasobów](https://docs.microsoft.com/rest/api/media/assets) (kontener znajduje się na koncie usługi Azure Storage podłączonym do Twojego konta). Na żywo dane wyjściowe umożliwiają również kontrolowanie niektórych właściwości wychodzącego strumienia na żywo, takich jak część strumienia jest przechowywana w archiwum archiwalnym (na przykład pojemność DVR w chmurze) lub gdy przeglądający mogą zacząć oglądać strumień na żywo. Archiwum na dysku jest archiwum cykliczne "okno", które zawiera tylko ilość zawartości, która jest określona we właściwości **archiveWindowLength** na żywo danych wyjściowych. Zawartość spoza tego okna jest automatycznie odrzucana z kontenera magazynu i nie jest odzyskiwalna. Wartość archiveWindowLength reprezentuje czas trwania przedziału ISO 8601 (na przykład PTHH: MM: SS), który określa pojemność DVR. Wartość można ustawić z co najmniej jednej minuty do maksymalnie 25 godzin.
+W Azure Media Services obiekt [danych wyjściowych na żywo](/rest/api/media/liveoutputs) przypomina cyfrowy rejestrator wideo, który będzie przechwytywać i rejestrować strumień na żywo do zasobu na koncie Media Services. Zarejestrowana zawartość jest zachowywana w kontenerze zdefiniowanym [przez zasób zasobów](/rest/api/media/assets) (kontener znajduje się na koncie usługi Azure Storage podłączonym do Twojego konta). Na żywo dane wyjściowe umożliwiają również kontrolowanie niektórych właściwości wychodzącego strumienia na żywo, takich jak część strumienia jest przechowywana w archiwum archiwalnym (na przykład pojemność DVR w chmurze) lub gdy przeglądający mogą zacząć oglądać strumień na żywo. Archiwum na dysku jest archiwum cykliczne "okno", które zawiera tylko ilość zawartości, która jest określona we właściwości **archiveWindowLength** na żywo danych wyjściowych. Zawartość spoza tego okna jest automatycznie odrzucana z kontenera magazynu i nie jest odzyskiwalna. Wartość archiveWindowLength reprezentuje czas trwania przedziału ISO 8601 (na przykład PTHH: MM: SS), który określa pojemność DVR. Wartość można ustawić z co najmniej jednej minuty do maksymalnie 25 godzin.
 
-Relacja między wydarzeniem działającym na żywo a jego wyjściem dynamicznym jest podobna do tradycyjnego rozgłaszania TV, ponieważ kanał (wydarzenie na żywo) reprezentuje stały strumień wideo, a nagrywanie (wyjście na żywo) jest ograniczone do określonego segmentu czasu (na przykład wiadomości wieczorem z 6:30 do 7:13:00). Gdy strumień przepływa do zdarzenia na żywo, możesz rozpocząć zdarzenie przesyłania strumieniowego, tworząc element zawartości, dane wyjściowe i lokalizator przesyłania strumieniowego. Na żywo wyjście będzie archiwizować strumień i udostępnić je osobom oglądającym za pomocą [punktu końcowego przesyłania strumieniowego](https://docs.microsoft.com/rest/api/media/streamingendpoints). Można utworzyć wiele danych wyjściowych na żywo (maksymalnie trzy) dla zdarzenia na żywo o różnych długościach i ustawieniach archiwum. Informacje o przepływie pracy przesyłania strumieniowego na żywo znajdują się w sekcji [ogólnych kroków](live-streaming-overview.md#general-steps) .
+Relacja między wydarzeniem działającym na żywo a jego wyjściem dynamicznym jest podobna do tradycyjnego rozgłaszania TV, ponieważ kanał (wydarzenie na żywo) reprezentuje stały strumień wideo, a nagrywanie (wyjście na żywo) jest ograniczone do określonego segmentu czasu (na przykład wiadomości wieczorem z 6:30 do 7:13:00). Gdy strumień przepływa do zdarzenia na żywo, możesz rozpocząć zdarzenie przesyłania strumieniowego, tworząc element zawartości, dane wyjściowe i lokalizator przesyłania strumieniowego. Na żywo wyjście będzie archiwizować strumień i udostępnić je osobom oglądającym za pomocą [punktu końcowego przesyłania strumieniowego](/rest/api/media/streamingendpoints). Można utworzyć wiele danych wyjściowych na żywo (maksymalnie trzy) dla zdarzenia na żywo o różnych długościach i ustawieniach archiwum. Informacje o przepływie pracy przesyłania strumieniowego na żywo znajdują się w sekcji [ogólnych kroków](live-streaming-overview.md#general-steps) .
 
 ## <a name="using-a-dvr-during-an-event"></a>Używanie DVR w trakcie zdarzenia
 
@@ -38,7 +39,7 @@ Wydarzenie na żywo obsługuje maksymalnie trzy współbieżnie uruchomione wyni
 
 ## <a name="creating-an-archive-for-on-demand-playback"></a>Tworzenie archiwum na potrzeby odtwarzania na żądanie
 
-Element zawartości, który jest archiwizowany na żywo, ma automatycznie stać się zasobem na żądanie po usunięciu danych wyjściowych na żywo. Przed zatrzymaniem zdarzenia na żywo należy usunąć wszystkie dane wyjściowe na żywo. Można użyć opcjonalnej flagi [removeOutputsOnStop](https://docs.microsoft.com/rest/api/media/liveevents/stop#request-body) , aby automatycznie usuwać wyjścia na żywo po zatrzymaniu.
+Element zawartości, który jest archiwizowany na żywo, ma automatycznie stać się zasobem na żądanie po usunięciu danych wyjściowych na żywo. Przed zatrzymaniem zdarzenia na żywo należy usunąć wszystkie dane wyjściowe na żywo. Można użyć opcjonalnej flagi [removeOutputsOnStop](/rest/api/media/liveevents/stop#request-body) , aby automatycznie usuwać wyjścia na żywo po zatrzymaniu.
 
 Nawet po zatrzymaniu i usunięciu zdarzenia użytkownicy będą mogli przesyłać strumieniowo zarchiwizowaną zawartość jako wideo na żądanie, tak długo, jak nie usuniesz elementu zawartości. Nie można usunąć elementu zawartości, jeśli jest on używany przez zdarzenie. najpierw należy usunąć zdarzenie.
 

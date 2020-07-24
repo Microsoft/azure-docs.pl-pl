@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: fa7dca62ed51c52b704c199ca04eadb6306be4df
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: c3d776362b0447b148c0b2bdedba1287fa56058b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170789"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87000197"
 ---
 # <a name="upload-files-into-a-media-services-account-using-rest"></a>Przekazywanie plików na konto usługi Media Services przy użyciu stylu REST  
 > [!div class="op_single_selector"]
@@ -27,7 +27,7 @@ ms.locfileid: "86170789"
 > * [Portal](media-services-portal-upload-files.md)
 > 
 
-Za pomocą usługi Media Services można przekazać pliki cyfrowe do elementu zawartości. Jednostka [zasobu](https://docs.microsoft.com/rest/api/media/operations/asset) może zawierać wideo, audio, obrazy, kolekcje miniatur, ścieżki tekstowe i pliki napisów (oraz metadane dotyczące tych plików).  Gdy pliki zostaną przekazane do elementu zawartości, zawartość jest bezpiecznie przechowywana w chmurze w celu dalszej przetwarzania i przesyłania strumieniowego. 
+Za pomocą usługi Media Services można przekazać pliki cyfrowe do elementu zawartości. Jednostka [zasobu](/rest/api/media/operations/asset) może zawierać wideo, audio, obrazy, kolekcje miniatur, ścieżki tekstowe i pliki napisów (oraz metadane dotyczące tych plików).  Gdy pliki zostaną przekazane do elementu zawartości, zawartość jest bezpiecznie przechowywana w chmurze w celu dalszej przetwarzania i przesyłania strumieniowego. 
 
 W tym samouczku dowiesz się, jak przekazać plik i inną skojarzoną z nim operację:
 
@@ -45,10 +45,10 @@ W tym samouczku dowiesz się, jak przekazać plik i inną skojarzoną z nim oper
 - Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - [Utwórz konto Azure Media Services przy użyciu Azure Portal](media-services-portal-create-account.md).
 - Zapoznaj się z artykułem [Omówienie uzyskiwania dostępu do interfejsu API Azure Media Services przy użyciu usługi AAD Authentication](media-services-use-aad-auth-to-access-ams-api.md) .
-- Aby uzyskać więcej informacji, zobacz artykuł [używanie uwierzytelniania usługi Azure AD w celu uzyskania dostępu do interfejsu API Media Services przy użyciu artykułu REST](https://docs.microsoft.com/azure/media-services/previous/media-services-rest-connect-with-aad) .
+- Aby uzyskać więcej informacji, zobacz artykuł [używanie uwierzytelniania usługi Azure AD w celu uzyskania dostępu do interfejsu API Media Services przy użyciu artykułu REST](./media-services-rest-connect-with-aad.md) .
 - Skonfiguruj **notkę** zgodnie z opisem w artykule [Konfigurowanie programu poster dla Media Services wywołań interfejsu API REST](media-rest-apis-with-postman.md).
 
-## <a name="considerations"></a>Kwestie do rozważenia
+## <a name="considerations"></a>Zagadnienia do rozważenia
 
 W przypadku korzystania z interfejsu API REST Media Services są stosowane następujące zagadnienia:
  
@@ -106,7 +106,7 @@ Aby uzyskać instrukcje dotyczące sposobu konfigurowania programu Poster dla te
 >[!NOTE]
 >Limit różnych zasad usługi AMS wynosi 1 000 000 (na przykład zasad lokalizatorów lub ContentKeyAuthorizationPolicy). Należy używać tego samego identyfikatora zasad, jeśli zawsze są używane uprawnienia dotyczące tych samych dni lub tego samego dostępu, na przykład dla lokalizatorów przeznaczonych do długotrwałego stosowania (nieprzekazywanych zasad). Aby uzyskać więcej informacji, zobacz [ten](media-services-dotnet-manage-entities.md#limit-access-policies) artykuł.
 
-Przed przekazaniem plików do usługi BLOB Storage Ustaw uprawnienia dostępu do zapisu w elemencie zawartości. W tym celu Opublikuj żądanie HTTP w zestawie jednostek AccessPolicies. Zdefiniuj wartość DurationInMinutes podczas tworzenia lub w odpowiedzi zostanie wyświetlony komunikat o błędzie wewnętrznego serwera 500. Aby uzyskać więcej informacji na temat AccessPolicies, zobacz [AccessPolicy](https://docs.microsoft.com/rest/api/media/operations/accesspolicy).
+Przed przekazaniem plików do usługi BLOB Storage Ustaw uprawnienia dostępu do zapisu w elemencie zawartości. W tym celu Opublikuj żądanie HTTP w zestawie jednostek AccessPolicies. Zdefiniuj wartość DurationInMinutes podczas tworzenia lub w odpowiedzi zostanie wyświetlony komunikat o błędzie wewnętrznego serwera 500. Aby uzyskać więcej informacji na temat AccessPolicies, zobacz [AccessPolicy](/rest/api/media/operations/accesspolicy).
 
 ### <a name="create-an-access-policy"></a>Tworzenie zasad dostępu
 
@@ -121,7 +121,7 @@ Przed przekazaniem plików do usługi BLOB Storage Ustaw uprawnienia dostępu do
 
 ### <a name="overview"></a>Omówienie
 
-Element [zawartości](https://docs.microsoft.com/rest/api/media/operations/asset) to kontener dla wielu typów lub zestawów obiektów w Media Services, w tym wideo, audio, obrazy, kolekcje miniatur, ścieżki tekstowe i pliki napisów. W interfejsie API REST Tworzenie elementu zawartości wymaga wysłania żądania POST do Media Services i umieszczenia wszelkich informacji o właściwościach zasobu w treści żądania.
+Element [zawartości](/rest/api/media/operations/asset) to kontener dla wielu typów lub zestawów obiektów w Media Services, w tym wideo, audio, obrazy, kolekcje miniatur, ścieżki tekstowe i pliki napisów. W interfejsie API REST Tworzenie elementu zawartości wymaga wysłania żądania POST do Media Services i umieszczenia wszelkich informacji o właściwościach zasobu w treści żądania.
 
 Jedna z właściwości, które można dodać podczas tworzenia elementu zawartości, to **Opcje**. Można określić jedną z następujących opcji szyfrowania: **Brak** (domyślnie nie jest używane szyfrowanie), **StorageEncrypted** (dla zawartości, która została wstępnie zaszyfrowana przy użyciu szyfrowania magazynu po stronie klienta), **CommonEncryptionProtected**lub **EnvelopeEncryptionProtected**. W przypadku zaszyfrowanego zasobu należy skonfigurować zasady dostarczania. Aby uzyskać więcej informacji, zobacz [Konfigurowanie zasad dostarczania elementów zawartości](media-services-rest-configure-asset-delivery-policy.md).
 
@@ -144,15 +144,15 @@ W tym przykładzie tworzymy niezaszyfrowany element zawartości.
 
 Po ustawieniu AccessPolicy i lokalizatora rzeczywisty plik zostanie przekazany do kontenera Blob Storage platformy Azure przy użyciu interfejsów API REST usługi Azure Storage. Pliki muszą być przekazywane jako blokowe obiekty blob. Stronicowe obiekty blob nie są obsługiwane przez Azure Media Services.  
 
-Aby uzyskać więcej informacji na temat pracy z obiektami BLOB usługi Azure Storage, zobacz [API REST usługa BLOB Service](https://docs.microsoft.com/rest/api/storageservices/Blob-Service-REST-API).
+Aby uzyskać więcej informacji na temat pracy z obiektami BLOB usługi Azure Storage, zobacz [API REST usługa BLOB Service](/rest/api/storageservices/blob-service-rest-api).
 
-Aby otrzymać rzeczywisty adres URL przekazywania, Utwórz lokalizator sygnatury dostępu współdzielonego (pokazany poniżej). Lokalizatory definiują czas rozpoczęcia i typ punktu końcowego połączenia dla klientów, którzy chcą uzyskać dostęp do plików w elemencie zawartości. Można utworzyć wiele jednostek lokalizatora dla danej AccessPolicy i pary zasobów, aby obsługiwać różne żądania klientów i ich potrzeby. Każdy z tych lokalizatorów używa wartości StartTime oraz wartości DurationInMinutes AccessPolicy, aby określić długość czasu, przez jaki można użyć adresu URL. Aby uzyskać więcej informacji, zobacz [lokalizator](https://docs.microsoft.com/rest/api/media/operations/locator).
+Aby otrzymać rzeczywisty adres URL przekazywania, Utwórz lokalizator sygnatury dostępu współdzielonego (pokazany poniżej). Lokalizatory definiują czas rozpoczęcia i typ punktu końcowego połączenia dla klientów, którzy chcą uzyskać dostęp do plików w elemencie zawartości. Można utworzyć wiele jednostek lokalizatora dla danej AccessPolicy i pary zasobów, aby obsługiwać różne żądania klientów i ich potrzeby. Każdy z tych lokalizatorów używa wartości StartTime oraz wartości DurationInMinutes AccessPolicy, aby określić długość czasu, przez jaki można użyć adresu URL. Aby uzyskać więcej informacji, zobacz [lokalizator](/rest/api/media/operations/locator).
 
 Adres URL sygnatury dostępu współdzielonego ma następujący format:
 
 `{https://myaccount.blob.core.windows.net}/{asset name}/{video file name}?{SAS signature}`
 
-### <a name="considerations"></a>Kwestie do rozważenia
+### <a name="considerations"></a>Zagadnienia do rozważenia
 
 Zagadnienia do rozważenia:
 
@@ -175,9 +175,9 @@ Zagadnienia do rozważenia:
 
 Teraz, gdy masz adres URL przekazywania, musisz napisać kod przy użyciu interfejsów API usługi Azure Blob bezpośrednio, aby przekazać plik do kontenera SAS. Aby uzyskać więcej informacji, zobacz następujące artykuły:
 
-- [Korzystanie z interfejsu API REST usługi Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-rest-api-auth?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
-- [Umieść obiekt BLOB](https://docs.microsoft.com/rest/api/storageservices/put-blob)
-- [Przekazywanie obiektów BLOB do magazynu obiektów BLOB](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy#upload-blobs-to-blob-storage)
+- [Korzystanie z interfejsu API REST usługi Azure Storage](../../storage/common/storage-rest-api-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+- [Umieść obiekt BLOB](/rest/api/storageservices/put-blob)
+- [Przekazywanie obiektów BLOB do magazynu obiektów BLOB](/previous-versions/azure/storage/storage-use-azcopy#upload-blobs-to-blob-storage)
 
 ### <a name="upload-a-file-with-postman"></a>Przekaż plik za pomocą programu Poster
 
@@ -209,7 +209,7 @@ Plik powinien zostać przekazany i jego zestaw metadanych.
 
 ## <a name="validate"></a>Walidacja
 
-Aby sprawdzić, czy plik został pomyślnie przekazany, można wykonać zapytanie dotyczące [AssetFile](https://docs.microsoft.com/rest/api/media/operations/assetfile) i porównać **ContentFileSize** (lub inne szczegóły) z oczekiwaniami, które mają być widoczne w nowym elemencie zawartości. 
+Aby sprawdzić, czy plik został pomyślnie przekazany, można wykonać zapytanie dotyczące [AssetFile](/rest/api/media/operations/assetfile) i porównać **ContentFileSize** (lub inne szczegóły) z oczekiwaniami, które mają być widoczne w nowym elemencie zawartości. 
 
 Na przykład następująca operacja **Get** umożliwia przeniesienie danych pliku do pliku zasobów (w przypadku pliku BigBuckBunny.mp4). Zapytanie korzysta ze zdefiniowanych wcześniej [zmiennych środowiskowych](postman-environment.md) .
 
@@ -229,4 +229,3 @@ Odpowiedź będzie zawierać rozmiar, nazwę i inne informacje.
 Teraz możesz zakodować przekazane elementy zawartości. Więcej informacji znajduje się na stronie [Kodowanie elementów zawartości](media-services-portal-encode.md).
 
 Możesz także używać usługi Azure Functions do wyzwalania zadania kodowania na podstawie pliku trafiającego do skonfigurowanego kontenera. Aby uzyskać więcej informacji, zobacz [ten przykład](https://azure.microsoft.com/resources/samples/media-services-dotnet-functions-integration/ ).
-

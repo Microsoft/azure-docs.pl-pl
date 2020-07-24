@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/25/2018
 ms.author: allensu
-ms.openlocfilehash: 03bedba280fca4c051685eabdfa47eaaf00f05d3
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: edc17b9636792ce00458716e3461077fa689b3ed
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85963329"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87001577"
 ---
 # <a name="create-a-public-load-balancer-with-ipv6-using-azure-cli"></a>Tworzenie publicznego modułu równoważenia obciążenia przy użyciu protokołu IPv6 za pomocą interfejsu wiersza polecenia platformy Azure
 
@@ -268,7 +268,7 @@ Tworzenie kart sieciowych i kojarzenie ich z regułami NAT, regułami modułu r�
 
 ## <a name="create-the-back-end-vm-resources-and-attach-each-nic"></a>Tworzenie zasobów maszyn wirtualnych zaplecza i dołączanie każdej karty sieciowej
 
-Aby tworzyć maszyny wirtualne, musisz mieć konto magazynu. W przypadku równoważenia obciążenia maszyny wirtualne muszą być elementami członkowskimi zestawu dostępności. Aby uzyskać więcej informacji na temat tworzenia maszyn wirtualnych, zobacz [Tworzenie maszyny wirtualnej platformy Azure przy użyciu programu PowerShell](../virtual-machines/virtual-machines-windows-ps-create.md?toc=%2fazure%2fload-balancer%2ftoc.json).
+Aby tworzyć maszyny wirtualne, musisz mieć konto magazynu. W przypadku równoważenia obciążenia maszyny wirtualne muszą być elementami członkowskimi zestawu dostępności. Aby uzyskać więcej informacji na temat tworzenia maszyn wirtualnych, zobacz [Tworzenie maszyny wirtualnej platformy Azure przy użyciu programu PowerShell](../virtual-machines/windows/quick-create-powershell.md?toc=%2fazure%2fload-balancer%2ftoc.json).
 
 1. Skonfiguruj zmienne programu PowerShell:
 

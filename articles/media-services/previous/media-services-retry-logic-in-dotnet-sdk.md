@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 63715f668438519131eba5bfff7aa38fc73267d0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 120b7e044452dc47126923449a3e1a6e55cfd6a8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "61094659"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87000027"
 ---
 # <a name="retry-logic-in-the-media-services-sdk-for-net"></a>Logika ponawiania w zestawie Media Services SDK dla platformy .NET  
 
@@ -50,7 +50,7 @@ W poniższej tabeli opisano wyjątki, które są obsługiwane przez zestaw Media
 | IOException |Nie |Yes |Nie |Nie |
 
 ### <a name="webexception-status-codes"></a><a name="WebExceptionStatus"></a>Kody stanu wyjątków WebException
-W poniższej tabeli przedstawiono kody błędów usługi WebException, których logika ponawiania jest zaimplementowana. Wyliczenie [WebExceptionStatus](https://msdn.microsoft.com/library/system.net.webexceptionstatus.aspx) definiuje kody stanu.  
+W poniższej tabeli przedstawiono kody błędów usługi WebException, których logika ponawiania jest zaimplementowana. Wyliczenie [WebExceptionStatus](/dotnet/api/system.net.webexceptionstatus?view=netcore-3.1) definiuje kody stanu.  
 
 | Stan | Żądanie sieci Web | Storage | Zapytanie | Metody SaveChanges |
 | --- | --- | --- | --- | --- |
@@ -88,4 +88,3 @@ Jeśli chcesz zapoznać się z rzeczywistą implementacją logiki usługi Media 
 
 ## <a name="provide-feedback"></a>Wyraź opinię
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
-

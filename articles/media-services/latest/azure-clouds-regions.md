@@ -12,11 +12,12 @@ ms.topic: article
 ms.date: 5/28/2020
 ms.author: inhenkel
 ms.custom: references_regions
-ms.openlocfilehash: cefd366e29fe1c6f68ec38816247f78bb53cd6e6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6ecc8cad4480528477f6bb470c7bc32ee2a20e11
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84196238"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87001353"
 ---
 # <a name="clouds-and-regions-in-which-azure-media-services-v3-exists"></a>Chmury i regiony, w których istnieje Azure Media Services v3
 
@@ -24,7 +25,7 @@ Azure Media Services V3 jest dostępny za pośrednictwem Azure Resource Manager 
 
 ## <a name="feature-availability-in-azure-clouds"></a>Dostępność funkcji w chmurach platformy Azure
 
-| Cecha|Globalne regiony platformy Azure | Azure Government|Azure (Niemcy)|Azure w Chinach — 21Vianet|
+| Cechy|Globalne regiony platformy Azure | Azure Government|Azure (Niemcy)|Azure w Chinach — 21Vianet|
 | --- | --- | --- | --- | --- |
 | [Azure Event Grid](reacting-to-media-services-events.md) | Dostępne | Niedostępne | Niedostępne | Niedostępne |
 | [VideoAnalyzerPreset](analyzing-video-audio-files-concept.md) |  Dostępne | Niedostępne | Niedostępne | Niedostępne |
@@ -37,14 +38,14 @@ Azure Media Services V3 jest dostępny za pośrednictwem Azure Resource Manager 
 
 [LiveTranscription](live-transcription.md) jest dostępny w następujących regionach:
 
-- Azja Południowo-Wschodnia
-- Europa Zachodnia
+- Southeast Asia
+- West Europe
 - Europa Północna
-- Wschodnie stany USA
-- Środkowe stany USA
-- Południowo-środkowe stany USA
+- East US
+- Central US
+- South Central US
 - Zachodnie stany USA 2
-- Brazylia Południowa
+- Brazil South
 
 ## <a name="regionsgeographieslocations"></a>Regiony/lokalizacje geograficzne/lokalizacje
 
@@ -52,7 +53,7 @@ Azure Media Services V3 jest dostępny za pośrednictwem Azure Resource Manager 
 
 ### <a name="region-code-name"></a>Nazwa kodu regionu
 
-Jeśli konieczne jest podanie parametru **Location** , należy podać nazwę kodu regionu jako wartość **lokalizacji** . Aby uzyskać nazwę kodu regionu, w którym znajduje się Twoje konto, a połączenie powinno być kierowane, możesz uruchomić następujący wiersz w [interfejsie wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)
+Jeśli konieczne jest podanie parametru **Location** , należy podać nazwę kodu regionu jako wartość **lokalizacji** . Aby uzyskać nazwę kodu regionu, w którym znajduje się Twoje konto, a połączenie powinno być kierowane, możesz uruchomić następujący wiersz w [interfejsie wiersza polecenia platformy Azure](/cli/azure/?view=azure-cli-latest)
 
 ```azurecli-interactive
 az account list-locations
@@ -79,39 +80,39 @@ Następujące punkty końcowe są ważne, aby wiedzieć, jak nawiązać połącz
 
 ### <a name="global-azure"></a>Globalny platformę Azure
 
-|Punkty końcowe||
-| --- | --- |
+| Usługa | Punkt końcowy |
+| ------- | -------- |
 | Azure Resource Manager |  `https://management.azure.com/` |
-| Authentication | `https://login.microsoftonline.com/` |
+| Uwierzytelnianie | `https://login.microsoftonline.com/` |
 | Odbiorcy tokenu | `https://management.core.windows.net/` |
 
 ### <a name="azure-government"></a>Azure Government
 
-|Punkty końcowe||
-| --- | --- |
+| Usługa | Punkt końcowy |
+| ------- | -------- |
 | Azure Resource Manager |  `https://management.usgovcloudapi.net/` |
-| Authentication | `https://login.microsoftonline.us/` |
+| Uwierzytelnianie | `https://login.microsoftonline.us/` |
 | Odbiorcy tokenu | `https://management.core.usgovcloudapi.net/` |
 
 ### <a name="azure-germany"></a>Azure (Niemcy)
 
-| Punkty końcowe ||
-| --- | --- |  
+| Usługa | Punkt końcowy |
+| ------- | -------- |
 | Azure Resource Manager | `https://management.cloudapi.de/` |
-| Authentication | `https://login.microsoftonline.de/` |
+| Uwierzytelnianie | `https://login.microsoftonline.de/` |
 | Odbiorcy tokenu | `https://management.core.cloudapi.de/`|
 
 ### <a name="azure-china-21vianet"></a>Azure w Chinach — 21Vianet
 
-|Punkty końcowe||
-| --- | --- |
+| Usługa | Punkt końcowy |
+| ------- | -------- |
 | Azure Resource Manager | `https://management.chinacloudapi.cn/` |
-| Authentication | `https://login.chinacloudapi.cn/` |
+| Uwierzytelnianie | `https://login.chinacloudapi.cn/` |
 | Odbiorcy tokenu |  `https://management.core.chinacloudapi.cn/` |
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
-* [Regiony świadczenia usługi Azure](https://azure.microsoft.com/global-infrastructure/regions/)
+* [Regiony platformy Azure](https://azure.microsoft.com/global-infrastructure/regions/)
 * [Obszary geograficzne platformy Azure](https://azure.microsoft.com/global-infrastructure/geographies/)
 * [Lokalizacje platformy Azure](https://azure.microsoft.com/global-infrastructure/locations/)
 

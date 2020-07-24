@@ -6,11 +6,12 @@ ms.suite: integration
 ms.reviewer: jehollan, klam, logicappspm
 ms.topic: article
 ms.date: 11/08/2019
-ms.openlocfilehash: afd2735bae2a79ad942c347219019ef200b61070
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ec2225633e5621c51067b64af2968a0dc0f5da87
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75428702"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87001421"
 ---
 # <a name="call-or-trigger-logic-apps-by-using-azure-functions-and-azure-service-bus"></a>Wywołaj lub Wyzwól Aplikacje logiki przy użyciu Azure Functions i Azure Service Bus
 
@@ -118,11 +119,11 @@ Następnie Utwórz funkcję, która działa jako wyzwalacz i nasłuchuje kolejki
 
    * W tym przykładzie jest użyty `application/json` Typ zawartości komunikatu, ale w razie potrzeby można zmienić ten typ.
    
-   * Ze względu na możliwe współbieżnie uruchomione funkcje, duże ilości lub duże obciążenia, należy unikać tworzenia wystąpienia [klasy HttpClient](https://docs.microsoft.com/dotnet/api/system.net.http.httpclient) za pomocą `using` instrukcji i bezpośrednio tworzyć wystąpienia HttpClient na żądanie. Aby uzyskać więcej informacji, zobacz [Używanie HttpClientFactory do implementowania odpornych żądań HTTP](https://docs.microsoft.com/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests#issues-with-the-original-httpclient-class-available-in-net-core).
+   * Ze względu na możliwe współbieżnie uruchomione funkcje, duże ilości lub duże obciążenia, należy unikać tworzenia wystąpienia [klasy HttpClient](/dotnet/api/system.net.http.httpclient) za pomocą `using` instrukcji i bezpośrednio tworzyć wystąpienia HttpClient na żądanie. Aby uzyskać więcej informacji, zobacz [Używanie HttpClientFactory do implementowania odpornych żądań HTTP](/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests#issues-with-the-original-httpclient-class-available-in-net-core).
    
    * Jeśli to możliwe, ponownie Użyj wystąpienia klientów HTTP. Aby uzyskać więcej informacji, zobacz [Zarządzanie połączeniami w Azure Functions](../azure-functions/manage-connections.md).
 
-   W tym przykładzie zastosowano [ `Task.Run` metodę](https://docs.microsoft.com/dotnet/api/system.threading.tasks.task.run) w trybie [asynchronicznym](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/async) . Aby uzyskać więcej informacji, zobacz [programowanie asynchroniczne z Async i await](https://docs.microsoft.com/dotnet/csharp/programming-guide/concepts/async/).
+   W tym przykładzie zastosowano [ `Task.Run` metodę](/dotnet/api/system.threading.tasks.task.run) w trybie [asynchronicznym](/dotnet/csharp/language-reference/keywords/async) . Aby uzyskać więcej informacji, zobacz [programowanie asynchroniczne z Async i await](/dotnet/csharp/programming-guide/concepts/async/).
 
    ```csharp
    using System;

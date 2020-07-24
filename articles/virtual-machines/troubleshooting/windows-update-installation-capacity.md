@@ -14,11 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 05/11/2020
 ms.author: v-miegge
-ms.openlocfilehash: bb7b641a7169c6577320f07a964d278ac1727b1c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 596303223554589ef26938486ccfd2281ccd46f5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83664697"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86999109"
 ---
 # <a name="troubleshoot-os-start-up--windows-update-installation-capacity"></a>Rozwiązywanie problemów z uruchamianiem systemu operacyjnego — Windows Update pojemności instalacji
 
@@ -48,7 +49,7 @@ W takiej sytuacji system operacyjny (OS) nie może zakończyć instalacji Window
 
 ### <a name="create-and-access-a-repair-vm"></a>Tworzenie maszyny wirtualnej naprawy i uzyskiwanie do niej dostępu
 
-1. Wykonaj kroki 1-3 [poleceń naprawy maszyny wirtualnej](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands) , aby przygotować maszynę wirtualną naprawy.
+1. Wykonaj kroki 1-3 [poleceń naprawy maszyny wirtualnej](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md) , aby przygotować maszynę wirtualną naprawy.
 1. Korzystając z Podłączanie pulpitu zdalnego, Połącz się z maszyną wirtualną naprawy.
 
 ### <a name="free-up-space-on-the-disk"></a>Zwolnij miejsce na dysku
@@ -59,10 +60,10 @@ Aby rozwiązać ten problem:
 - Wykonaj Oczyszczanie dysku.
 - Usuń fragment dysku.
 
-1. Sprawdź, czy dysk jest pełny. Jeśli rozmiar dysku jest mniejszy niż 1 TB, rozwiń go maksymalnie 1 TB [przy użyciu programu PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/expand-os-disk).
+1. Sprawdź, czy dysk jest pełny. Jeśli rozmiar dysku jest mniejszy niż 1 TB, rozwiń go maksymalnie 1 TB [przy użyciu programu PowerShell](../windows/expand-os-disk.md).
 1. Jeśli dysk ma już 1 TB, należy przeprowadzić Oczyszczanie dysku.
-   1. Odłącz dysk danych [od uszkodzonej maszyny wirtualnej](https://docs.microsoft.com/azure/virtual-machines/windows/detach-disk).
-   1. Dołącz dysk danych [do działającej maszyny wirtualnej](https://docs.microsoft.com/azure/virtual-machines/windows/attach-disk-ps#attach-an-existing-data-disk-to-a-vm).
+   1. Odłącz dysk danych [od uszkodzonej maszyny wirtualnej](../windows/detach-disk.md).
+   1. Dołącz dysk danych [do działającej maszyny wirtualnej](../windows/attach-disk-ps.md#attach-an-existing-data-disk-to-a-vm).
    1. Za pomocą [Narzędzia do oczyszczania dysku](https://support.microsoft.com/help/4026616/windows-10-disk-cleanup) Zwolnij miejsce.
 1. Po zmianie rozmiarów i oczyszczeniu należy usunąć fragment dysku przy użyciu następującego polecenia:
 
@@ -122,4 +123,4 @@ Defragmentacja może potrwać kilka godzin, w zależności od poziomu fragmentac
    
 ### <a name="rebuild-the-vm"></a>Kompiluj ponownie maszynę wirtualną
 
-Aby skompilować ponownie maszynę wirtualną, użyj [kroku 5 poleceń naprawy maszyny wirtualnej](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) .
+Aby skompilować ponownie maszynę wirtualną, użyj [kroku 5 poleceń naprawy maszyny wirtualnej](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md#repair-process-example) .

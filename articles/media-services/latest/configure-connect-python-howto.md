@@ -14,11 +14,12 @@ ms.topic: article
 ms.date: 04/15/2019
 ms.author: juliako
 ms.custom: tracking-python
-ms.openlocfilehash: 3e6e421d346925f751595ce2fb2d0891e31dc108
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b283d04c7d9ddf7639c198625ea69ca958170210
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84559624"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87001183"
 ---
 # <a name="connect-to-media-services-v3-api---python"></a>Nawiązywanie połączenia z interfejsem API programu Media Services v3 — Python
 
@@ -28,8 +29,8 @@ W tym artykule opisano sposób nawiązywania połączenia z zestawem SDK języka
 
 - Pobierz Język Python z [Python.org](https://www.python.org/downloads/)
 - Upewnij się, że ustawienie `PATH` zmienna środowiskowa
-- [Utwórz konto Media Services](create-account-cli-how-to.md). Pamiętaj, aby zapamiętać nazwę grupy zasobów i nazwę konta Media Services.
-- Wykonaj kroki opisane w temacie [interfejsy API dostępu](access-api-cli-how-to.md) . Zapisz identyfikator subskrypcji, identyfikator aplikacji (identyfikator klienta), klucz uwierzytelniania (klucz tajny) i identyfikator dzierżawy, które są potrzebne w późniejszym kroku.
+- [Utwórz konto Media Services](./create-account-howto.md). Pamiętaj, aby zapamiętać nazwę grupy zasobów i nazwę konta Media Services.
+- Wykonaj kroki opisane w temacie [interfejsy API dostępu](./access-api-howto.md) . Zapisz identyfikator subskrypcji, identyfikator aplikacji (identyfikator klienta), klucz uwierzytelniania (klucz tajny) i identyfikator dzierżawy, które są potrzebne w późniejszym kroku.
 
 > [!IMPORTANT]
 > Zapoznaj się z [konwencjami nazewnictwa](media-services-apis-overview.md#naming-conventions).
@@ -54,7 +55,7 @@ pip3 install azure-mgmt-media==1.1.1
 1. Otwórz plik w ulubionym edytorze
 1. Dodaj kod, który następuje po pliku. Kod importuje wymagane moduły i tworzy obiekt Active Directory poświadczeń, który należy połączyć z Media Services.
 
-      Ustaw wartości zmiennych na wartości, które pochodzą z [interfejsów API dostępu](access-api-cli-how-to.md)
+      Ustaw wartości zmiennych na wartości, które pochodzą z [interfejsów API dostępu](./access-api-howto.md)
 
       ```
       import adal

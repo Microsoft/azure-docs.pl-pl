@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 373b863441eb21b52a18bbaece10779260eaeb7a
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 76717c580136d23030565c5476f8b282897784a7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86166200"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87000418"
 ---
 # <a name="create-content-keys-with-rest"></a>Tworzenie kluczy zawartości przy użyciu interfejsu REST
 > [!div class="op_single_selector"]
-> * [CZĘŚĆ](media-services-rest-create-contentkey.md)
+> * [REST](media-services-rest-create-contentkey.md)
 > * [.NET](media-services-dotnet-create-contentkey.md)
 > 
 > 
@@ -41,7 +41,7 @@ Poniżej znajdują się ogólne czynności związane z generowaniem kluczy zawar
 1. Losowo Generuj 16-bajtowy klucz AES (dla szyfrowania Common i Envelope) lub 32-bajtowy klucz AES (do szyfrowania magazynu). 
    
     Jest to klucz zawartości dla zasobu, co oznacza, że wszystkie pliki skojarzone z tym zasobem muszą używać tego samego klucza zawartości podczas odszyfrowywania. 
-2. Wywołaj metody [GetProtectionKeyId](https://docs.microsoft.com/rest/api/media/operations/rest-api-functions#getprotectionkeyid) i [GetProtectionKey](https://msdn.microsoft.com/library/azure/jj683097.aspx#getprotectionkey) w celu uzyskania poprawnego certyfikatu X. 509, który musi być używany do szyfrowania klucza zawartości.
+2. Wywołaj metody [GetProtectionKeyId](/rest/api/media/operations/rest-api-functions#getprotectionkeyid) i [GetProtectionKey](/rest/api/media/operations/rest-api-functions#getprotectionkey) w celu uzyskania poprawnego certyfikatu X. 509, który musi być używany do szyfrowania klucza zawartości.
 3. Zaszyfruj klucz zawartości przy użyciu klucza publicznego certyfikatu X. 509. 
    
    Media Services .NET SDK używa RSA z OAEP podczas szyfrowania.  W [funkcji EncryptSymmetricKeyData](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs)można zobaczyć przykład.
@@ -187,7 +187,7 @@ public enum ContentKeyType
 
 Poniższy przykład pokazuje, jak utworzyć **ContentKey** z zestawem **ContentKeyType** dla szyfrowania magazynu ("1") i **ProtectionKeyType** ustawioną na "0", aby wskazać, że identyfikator klucza ochrony jest odciskiem palca certyfikatu X. 509.  
 
-Żądanie
+Request
 
 ```console
 POST https://media.windows.net/api/ContentKeys HTTP/1.1
@@ -268,4 +268,3 @@ HTTP/1.1 204 No Content
 
 ## <a name="provide-feedback"></a>Wyraź opinię
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
-

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.reviewr: cenkdin
-ms.openlocfilehash: 8166a85d1c3421d95ac2b818e51b6b60e7663165
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 9bc351f72f5dac38ebfc1983a7b918d46f5fc8ea
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170670"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87000316"
 ---
 # <a name="creating-filters-with-azure-media-services-rest-api"></a>Tworzenie filtrów za pomocą interfejsu API REST Azure Media Services 
 > [!div class="op_single_selector"]
@@ -38,10 +38,10 @@ W tym artykule pokazano, jak używać interfejsów API REST do tworzenia, aktual
 ## <a name="types-used-to-create-filters"></a>Typy używane do tworzenia filtrów
 Następujące typy są używane podczas tworzenia filtrów:  
 
-* [Filtr](https://docs.microsoft.com/rest/api/media/operations/filter)
-* [AssetFilter](https://docs.microsoft.com/rest/api/media/operations/assetfilter)
-* [PresentationTimeRange](https://docs.microsoft.com/rest/api/media/operations/presentationtimerange)
-* [FilterTrackSelect i FilterTrackPropertyCondition](https://docs.microsoft.com/rest/api/media/operations/filtertrackselect)
+* [Filtr](/rest/api/media/operations/filter)
+* [AssetFilter](/rest/api/media/operations/assetfilter)
+* [PresentationTimeRange](/rest/api/media/operations/presentationtimerange)
+* [FilterTrackSelect i FilterTrackPropertyCondition](/rest/api/media/operations/filtertrackselect)
 
 > [!NOTE]
 > 
@@ -217,7 +217,7 @@ x-ms-client-request-id: 00000000
 ```
 
 ## <a name="update-filters"></a>Filtry aktualizacji
-Użyj opcji PATCH, PUT lub MERGE, aby zaktualizować filtr przy użyciu nowych wartości właściwości.  Aby uzyskać więcej informacji na temat tych operacji, zobacz [poprawka, umieszczenie, scalanie](https://msdn.microsoft.com/library/dd541276.aspx).
+Użyj opcji PATCH, PUT lub MERGE, aby zaktualizować filtr przy użyciu nowych wartości właściwości.  Aby uzyskać więcej informacji na temat tych operacji, zobacz [poprawka, umieszczenie, scalanie](/openspecs/windows_protocols/ms-odata/59d5abd3-7b12-490a-a0e2-9d9324b91893).
 
 W przypadku aktualizacji filtru może upłynąć do dwóch minut, zanim punkt końcowy przesyłania strumieniowego odświeża reguły. Jeśli zawartość została obsłużona przy użyciu tego filtru (i jest buforowana w serwerach proxy i w pamięci podręcznej usługi CDN), aktualizacja tego filtru może spowodować awarie odtwarzacza. Wyczyść pamięć podręczną po zaktualizowaniu filtru. Jeśli ta opcja nie jest możliwa, należy rozważyć użycie innego filtru.  
 
@@ -371,4 +371,3 @@ W poniższych przykładach pokazano, jak dodać filtry do adresów URL przesyła
 
 ## <a name="see-also"></a>Zobacz też
 [Omówienie manifestów dynamicznych](media-services-dynamic-manifest-overview.md)
-

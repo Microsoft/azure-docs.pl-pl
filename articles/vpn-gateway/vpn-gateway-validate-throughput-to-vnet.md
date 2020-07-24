@@ -10,12 +10,12 @@ ms.topic: troubleshooting
 ms.date: 05/29/2019
 ms.author: radwiv
 ms.reviewer: chadmat;genli
-ms.openlocfilehash: dcf86deda32069bf9711dbeb733dc9361e22a771
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7d19cc4a474324ff3e88ec0c5353a47c157ec715
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80631768"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86998480"
 ---
 # <a name="how-to-validate-vpn-throughput-to-a-virtual-network"></a>Jak zweryfikować przepływność sieci VPN do sieci wirtualnej
 
@@ -43,11 +43,11 @@ Na poniższym diagramie przedstawiono logiczne połączenie sieci lokalnej z sie
 
 1. Ustal wymagania dotyczące przepływności linii bazowej aplikacji.
 1. Ustal limity przepływności bramy sieci VPN platformy Azure. Aby uzyskać pomoc, zobacz sekcję "jednostki SKU bramy" tematu [Informacje o VPN Gateway](vpn-gateway-about-vpngateways.md#gwsku).
-1. Określ [wskazówki dotyczące przepływności maszyn wirtualnych platformy Azure](../virtual-machines/virtual-machines-windows-sizes.md) dla rozmiaru maszyny wirtualnej.
+1. Określ [wskazówki dotyczące przepływności maszyn wirtualnych platformy Azure](../virtual-machines/sizes.md) dla rozmiaru maszyny wirtualnej.
 1. Określ przepustowość usługodawcy internetowego (ISP).
 1. Oblicz oczekiwaną przepływność, przyjmując najmniejszą przepustowość maszyny wirtualnej, VPN Gateway lub usługodawcy internetowego; który jest mierzony w megabitach na sekundę (/) podzielony przez osiem (8).
 
-Jeśli obliczona przepływność nie spełnia wymagań dotyczących przepływności linii bazowej aplikacji, należy zwiększyć przepustowość zasobu, która została zidentyfikowana jako wąskie gardło. Aby zmienić rozmiar VPN Gateway platformy Azure, zobacz [Zmiana jednostki SKU bramy](vpn-gateway-about-vpn-gateway-settings.md#gwsku). Aby zmienić rozmiar maszyny wirtualnej, zobacz [zmiana rozmiaru maszyny](../virtual-machines/virtual-machines-windows-resize-vm.md)wirtualnej. Jeśli nie masz oczekiwanej przepustowości Internetu, możesz również skontaktować się z USŁUGODAWCą internetowym.
+Jeśli obliczona przepływność nie spełnia wymagań dotyczących przepływności linii bazowej aplikacji, należy zwiększyć przepustowość zasobu, która została zidentyfikowana jako wąskie gardło. Aby zmienić rozmiar VPN Gateway platformy Azure, zobacz [Zmiana jednostki SKU bramy](vpn-gateway-about-vpn-gateway-settings.md#gwsku). Aby zmienić rozmiar maszyny wirtualnej, zobacz [zmiana rozmiaru maszyny](../virtual-machines/windows/resize-vm.md)wirtualnej. Jeśli nie masz oczekiwanej przepustowości Internetu, możesz również skontaktować się z USŁUGODAWCą internetowym.
 
 > [!NOTE]
 > VPN Gateway przepływność jest zagregowana z wszystkich połączeń Site-to-Site\VNET-to-VNET lub punkt-lokacja.

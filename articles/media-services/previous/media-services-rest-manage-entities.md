@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: f18885634503cc65a5bf78d93bd84afd018956bd
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 0e79469aa0e405a0096d483ae290d10415fe74f3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170806"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87000061"
 ---
 # <a name="managing-media-services-entities-with-rest"></a>Zarządzanie jednostkami Media Services przy użyciu interfejsu REST  
 
@@ -36,7 +36,7 @@ W tym temacie pokazano, jak zarządzać jednostkami Azure Media Services przy u�
 >[!NOTE]
 > Począwszy od 1 kwietnia 2017 roku, wszystkie rekordy zadań na Twoim koncie, które są starsze niż 90 dni, będą automatycznie usuwane wraz ze skojarzonymi rekordami zadań podrzędnych nawet wtedy, gdy całkowita liczba rekordów jest mniejsza niż maksymalny limit przydziału. Na przykład 1 kwietnia 2017 każdy rekord zadania na koncie starszym niż 31 grudnia 2016 zostanie automatycznie usunięty. Jeśli zachodzi potrzeba archiwizowania informacji o zadaniu/zadaniu, można użyć kodu opisanego w tym temacie.
 
-## <a name="considerations"></a>Kwestie do rozważenia  
+## <a name="considerations"></a>Zagadnienia do rozważenia  
 
 Podczas uzyskiwania dostępu do jednostek w Media Services należy ustawić określone pola nagłówka i wartości w żądaniach HTTP. Aby uzyskać więcej informacji, zobacz [konfigurowanie Media Services tworzenia interfejsu API REST](media-services-rest-how-to-use.md).
 
@@ -149,7 +149,7 @@ Host: media.windows.net
 ```
 
 ## <a name="updating-entities"></a>Aktualizowanie jednostek
-W zależności od typu jednostki i stanu, w którym się znajduje, można zaktualizować właściwości tej jednostki za pośrednictwem żądań HTTP, PUT lub MERGE. Aby uzyskać więcej informacji na temat tych operacji, zobacz [poprawka/umieszczenie/scalanie](https://msdn.microsoft.com/library/dd541276.aspx).
+W zależności od typu jednostki i stanu, w którym się znajduje, można zaktualizować właściwości tej jednostki za pośrednictwem żądań HTTP, PUT lub MERGE. Aby uzyskać więcej informacji na temat tych operacji, zobacz [poprawka/umieszczenie/scalanie](/openspecs/windows_protocols/ms-odata/59d5abd3-7b12-490a-a0e2-9d9324b91893).
 
 Poniższy przykład kodu pokazuje, jak zaktualizować Właściwość nazwy w jednostce elementu zawartości.
 
@@ -190,4 +190,3 @@ Content-Length: 0
 
 ## <a name="provide-feedback"></a>Wyraź opinię
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
-

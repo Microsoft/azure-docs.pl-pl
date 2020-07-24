@@ -8,11 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 05/09/2020
-ms.openlocfilehash: 81c1c95e2af7b537a12c8c86245b009005aa0aa2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aebce8f284ed4bb21d99efffc8dd6d0c51b39533
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83005363"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87001489"
 ---
 # <a name="encode-and-decode-flat-files-in-azure-logic-apps-by-using-the-enterprise-integration-pack"></a>Kodowanie i dekodowanie plików prostych w usłudze Azure Logic Apps za pomocą pakietu integracyjnego dla przedsiębiorstw
 
@@ -24,7 +25,7 @@ Przed wysłaniem zawartości XML do partnera biznesowego w scenariuszu biznesowy
 
 * Aplikacja logiki, w której ma być używany **prosty łącznik plików** , oraz wyzwalacz, który uruchamia przepływ pracy aplikacji logiki. Łącznik **prostego pliku** zawiera tylko akcje, a nie wyzwalacze. Można użyć wyzwalacza lub innej akcji, aby dostarczyć zawartość XML do aplikacji logiki w celu kodowania lub dekodowania. Jeśli dopiero zaczynasz tworzyć aplikacje logiki, zapoznaj się z [przewodnikiem Szybki Start: Tworzenie pierwszej aplikacji logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-* [Konto integracji](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) skojarzone z subskrypcją platformy Azure i połączone z [aplikacją logiki](logic-apps-enterprise-integration-accounts.md#link-account) , w której zamierzasz używać łącznika **prostego pliku** . Zarówno aplikacja logiki, jak i konto integracji muszą istnieć w tej samej lokalizacji lub regionie platformy Azure.
+* [Konto integracji](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) skojarzone z subskrypcją platformy Azure i połączone z [aplikacją logiki](./logic-apps-enterprise-integration-create-integration-account.md#link-account) , w której zamierzasz używać łącznika **prostego pliku** . Zarówno aplikacja logiki, jak i konto integracji muszą istnieć w tej samej lokalizacji lub regionie platformy Azure.
 
 * [Schemat](logic-apps-enterprise-integration-schemas.md) pliku prostego, który został przekazany do konta integracji w celu kodowania lub dekodowania zawartości XML
 

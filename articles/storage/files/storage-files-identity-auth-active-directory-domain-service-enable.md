@@ -7,18 +7,18 @@ ms.topic: how-to
 ms.date: 04/21/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 2d9f7eccae6b87923b52119ded90ced5e4206d7b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fe2bbc1d6f42819354f48812a34371a49e5acbac
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85510398"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86999636"
 ---
 # <a name="enable-azure-active-directory-domain-services-authentication-on-azure-files"></a>Włącz uwierzytelnianie Azure Active Directory Domain Services na Azure Files
 
-[!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
+[Azure Files](storage-files-introduction.md)   obsługuje uwierzytelnianie oparte na tożsamościach za pośrednictwem protokołu SMB (Server Message Block) przez dwa typy usług domenowych: lokalne Active Directory Domain Services (AD DS) i Azure Active Directory Domain Services (AD DS platformy Azure). Zdecydowanie zalecamy zapoznanie się z [sekcją jak to działa](https://docs.microsoft.com/azure/storage/files/storage-files-active-directory-overview#how-it-works) w celu wybrania odpowiedniej usługi domeny dla authentcation. Konfiguracja różni się od wybranej usługi domeny. Ten artykuł koncentruje się na włączaniu i konfigurowaniu usługi Azure AD DS na potrzeby uwierzytelniania przy użyciu udziałów plików platformy Azure.
 
-Aby zapoznać się z omówieniem uwierzytelniania usługi Azure AD za pośrednictwem protokołu SMB dla udziałów plików platformy Azure, zobacz [Omówienie uwierzytelniania Azure Active Directory za pośrednictwem protokołu SMB dla Azure Files](storage-files-active-directory-overview.md). Ten artykuł koncentruje się na sposobie włączania uwierzytelniania przy użyciu Azure Active Directory Domain Services (Azure AD DS) w Azure Files.
+Jeśli dopiero zaczynasz korzystanie z udziałów plików platformy Azure, zalecamy zapoznanie się z naszym [przewodnikiem planowania](storage-files-planning.md) przed przeczytaniem następującej serii artykułów.
 
 > [!NOTE]
 > Azure Files obsługuje uwierzytelnianie Kerberos za pomocą usługi Azure AD DS z szyfrowaniem RC4-HMAC. Szyfrowanie AES Kerberos nie jest jeszcze obsługiwane.
@@ -81,7 +81,7 @@ Aby włączyć uwierzytelnianie AD DS platformy Azure za pośrednictwem protoko�
 
 Pamiętaj, że możesz włączyć uwierzytelnianie na platformie Azure AD DS za pośrednictwem protokołu SMB dopiero po pomyślnym wdrożeniu usługi Azure AD DS w dzierżawie usługi Azure AD. Aby uzyskać więcej informacji, zobacz [wymagania wstępne](#prerequisites).
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Witryna Azure Portal
 
 Aby włączyć uwierzytelnianie AD DS platformy Azure za pośrednictwem protokołu SMB przy użyciu [Azure Portal](https://portal.azure.com), wykonaj następujące czynności:
 

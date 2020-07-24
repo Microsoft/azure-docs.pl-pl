@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure
 ms.date: 06/29/2020
 ms.author: genli
-ms.openlocfilehash: ff4822b513ed2aea6a18ba45bffc1d060ee2410e
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: a843a42de6fc1e6cd8ef788552ab4a8ac17b4e25
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85937576"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86999058"
 ---
 # <a name="vhd-is-not-supported-when-you-create-a-virtual-machine-in-azure"></a>Wirtualny dysk twardy nie jest obsługiwany podczas tworzenia maszyny wirtualnej na platformie Azure
 
@@ -48,21 +48,21 @@ Ten problem występuje z jednego z następujących powodów:
 
 Aby rozwiązać ten problem, Zmień rozmiar dysku, aby zachować zgodność z 1 MB wyrównania:
 
-- Aby rozwiązać problem z systemem Windows, należy użyć [polecenia cmdlet programu PowerShell Zmień rozmiar dysku VHD](https://docs.microsoft.com/powershell/module/hyper-v/resize-vhd). Należy pamiętać, że **zmiana rozmiaru dysku VHD** nie jest Azure PowerShellm poleceniem cmdlet.
+- Aby rozwiązać problem z systemem Windows, należy użyć [polecenia cmdlet programu PowerShell Zmień rozmiar dysku VHD](/powershell/module/hyper-v/resize-vhd). Należy pamiętać, że **zmiana rozmiaru dysku VHD** nie jest Azure PowerShellm poleceniem cmdlet.
 
-  1. [Zainstaluj rolę Hyper-V w systemie Windows Server](https://docs.microsoft.com/windows-server/virtualization/hyper-v/get-started/install-the-hyper-v-role-on-windows-server)
-  1. [Konwertowanie dysku wirtualnego na wirtualny dysk twardy o stałym rozmiarze](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image#convert-the-virtual-disk-to-a-fixed-size-vhd)
+  1. [Zainstaluj rolę Hyper-V w systemie Windows Server](/windows-server/virtualization/hyper-v/get-started/install-the-hyper-v-role-on-windows-server)
+  1. [Konwertowanie dysku wirtualnego na wirtualny dysk twardy o stałym rozmiarze](../windows/prepare-for-upload-vhd-image.md#convert-the-virtual-disk-to-a-fixed-size-vhd)
 
-- Aby rozwiązać problem z systemem Linux, użyj [polecenia QEMU-IMG](https://docs.microsoft.com/azure/virtual-machines/linux/create-upload-generic).
+- Aby rozwiązać problem z systemem Linux, użyj [polecenia QEMU-IMG](../linux/create-upload-generic.md).
 
 Aby uzyskać więcej informacji na temat tworzenia i przekazywania dysku VHD do tworzenia maszyny wirtualnej platformy Azure, zobacz następujące artykuły:
 
-- [Przekazywanie i Tworzenie maszyny wirtualnej z systemem Linux z niestandardowego obrazu dysku przy użyciu interfejsu wiersza polecenia platformy Azure 1,0](https://docs.microsoft.com/azure/virtual-machines/linux/upload-vhd)
-- [Utwórz dysk VHD systemu Windows Server i przekaż go do platformy Azure](https://docs.microsoft.com/azure/virtual-machines/windows/upload-generalized-managed)
+- [Przekazywanie i Tworzenie maszyny wirtualnej z systemem Linux z niestandardowego obrazu dysku przy użyciu interfejsu wiersza polecenia platformy Azure 1,0](../linux/upload-vhd.md)
+- [Utwórz dysk VHD systemu Windows Server i przekaż go do platformy Azure](../windows/upload-generalized-managed.md)
 
 Dalsze problemy mogą wskazywać na uszkodzony dysk VHD. W tej sytuacji zalecamy odbudowanie wirtualnego dysku twardego od podstaw.
 
 Aby uzyskać więcej informacji, zobacz następujące artykuły:
 
-- [Informacje o wirtualnym dysku twardym systemu Windows](https://docs.microsoft.com/azure/virtual-machines/windows/about-disks-and-vhds#about-vhds)
-- [Informacje o dysku VHD systemu Linux](https://docs.microsoft.com/azure/virtual-machines/linux/about-disks-and-vhds#about-vhds)
+- [Informacje o wirtualnym dysku twardym systemu Windows](../windows/managed-disks-overview.md)
+- [Informacje o dysku VHD systemu Linux](../linux/managed-disks-overview.md)

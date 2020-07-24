@@ -14,11 +14,12 @@ ms.topic: article
 ms.date: 09/18/2019
 ms.author: juliako
 ms.custom: has-adal-ref
-ms.openlocfilehash: 6dc05f225e3585b83bd6a57ca47bd5adf97934ea
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 30c91b71b952bb68761015325a00ff6926c62dfe
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83201131"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87001319"
 ---
 # <a name="connect-to-media-services-v3-api---net"></a>Nawiązywanie połączenia z interfejsem API Media Services v3 — .NET
 
@@ -26,7 +27,7 @@ W tym artykule opisano sposób nawiązywania połączenia z zestawem SDK platfor
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- [Utwórz konto Media Services](create-account-cli-how-to.md). Pamiętaj, aby zapamiętać nazwę grupy zasobów i nazwę konta Media Services
+- [Utwórz konto Media Services](./create-account-howto.md). Pamiętaj, aby zapamiętać nazwę grupy zasobów i nazwę konta Media Services
 - Zainstaluj narzędzie, którego chcesz użyć na potrzeby programowania na platformie .NET. W krokach przedstawionych w tym artykule przedstawiono sposób korzystania z [programu Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/). Możesz użyć Visual Studio Code, zobacz [Praca z C#](https://code.visualstudio.com/docs/languages/csharp). Można też użyć innego edytora kodu.
 
 > [!IMPORTANT]
@@ -38,7 +39,7 @@ W tym artykule opisano sposób nawiązywania połączenia z zestawem SDK platfor
 1. W menu **plik** kliknij pozycję **Nowy**  >  **projekt**. 
 1. Utwórz aplikację konsolową **.NET Core** .
 
-Przykładowa aplikacja w tym temacie jest celem `netcoreapp2.0` . Kod używa metody "Async Main", która jest dostępna od języka C# 7,1. Aby uzyskać więcej informacji, zobacz ten [blog](https://blogs.msdn.microsoft.com/benwilli/2017/12/08/async-main-is-available-but-hidden/) .
+Przykładowa aplikacja w tym temacie jest celem `netcoreapp2.0` . Kod używa metody "Async Main", która jest dostępna od języka C# 7,1. Aby uzyskać więcej informacji, zobacz ten [blog](/archive/blogs/benwilli/async-main-is-available-but-hidden) .
 
 ## <a name="add-required-nuget-packages"></a>Dodaj wymagane pakiety NuGet
 
@@ -63,7 +64,7 @@ Przykładowa aplikacja w tym temacie jest celem `netcoreapp2.0` . Kod używa met
 
 ### <a name="set-values-in-appsettingsjson"></a>Ustaw wartości w appsettings.jsna
 
-Uruchom `az ams account sp create` polecenie zgodnie z opisem w temacie [interfejsy API dostępu](access-api-cli-how-to.md). Polecenie zwraca kod JSON, który należy skopiować do "appsettings.json".
+Uruchom `az ams account sp create` polecenie zgodnie z opisem w temacie [interfejsy API dostępu](./access-api-howto.md). Polecenie zwraca kod JSON, który należy skopiować do "appsettings.json".
  
 ## <a name="add-configuration-file"></a>Dodawanie pliku konfiguracji
 
@@ -240,7 +241,7 @@ namespace ConsoleApp1
 - [Tworzenie filtrów za pomocą usługi Media Services — .NET](filters-dynamic-manifest-dotnet-howto.md)
 - [Zaawansowane przykłady wideo na żądanie usługi Azure Functions v2 z usługą Media Services v3](https://aka.ms/ams3functions)
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
-* [Dokumentacja platformy .NET](https://docs.microsoft.com/dotnet/api/overview/azure/mediaservices/management?view=azure-dotnet)
+* [Dokumentacja platformy .NET](/dotnet/api/overview/azure/mediaservices/management?view=azure-dotnet)
 * Aby uzyskać więcej przykładów kodu, zobacz repozytorium [przykładów zestawu .NET SDK](https://github.com/Azure-Samples/media-services-v3-dotnet) .

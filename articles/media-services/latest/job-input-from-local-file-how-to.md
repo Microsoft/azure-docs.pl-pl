@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 03/26/2020
 ms.author: juliako
-ms.openlocfilehash: aba987ba232a29ffc240f72039b1e24bb87a2ed4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a635a75a64db59fc56c6890f79af967a58735853
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80345906"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87001132"
 ---
 # <a name="create-a-job-input-from-a-local-file"></a>Tworzenie danych wejściowych zadania z pliku lokalnego
 
@@ -24,7 +24,7 @@ W przypadku usługi Media Services 3 po przesłaniu zadań w celu przetworzenia 
 
 ## <a name="prerequisites"></a>Wymagania wstępne 
 
-* [Utwórz konto Media Services](create-account-cli-how-to.md).
+* [Utwórz konto Media Services](./create-account-howto.md).
 * Zapoznaj się z tematem [Zarządzanie zasobami](manage-asset-concept.md).
 
 ## <a name="net-sample"></a>Przykład platformy .NET
@@ -32,7 +32,7 @@ W przypadku usługi Media Services 3 po przesłaniu zadań w celu przetworzenia 
 Poniższy kod pokazuje, jak utworzyć zasób wejściowy i użyć go jako danych wejściowych dla zadania. Funkcja CreateInputAsset wykonuje następujące akcje:
 
 * Tworzy element zawartości
-* Pobiera zapisywalny [adres URL sygnatury dostępu współdzielonego](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) do [kontenera zasobów w magazynie](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet#upload-blobs-to-a-container)
+* Pobiera zapisywalny [adres URL sygnatury dostępu współdzielonego](../../storage/common/storage-sas-overview.md) do [kontenera zasobów w magazynie](../../storage/blobs/storage-quickstart-blobs-dotnet.md#upload-blobs-to-a-container)
 * Przekazanie pliku do kontenera w magazynie przy użyciu adresu URL sygnatury dostępu współdzielonego
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#CreateInputAsset)]
@@ -47,7 +47,7 @@ Poniższy fragment kodu przesyła zadanie kodowania:
 
 ## <a name="job-error-codes"></a>Kody błędów zadań
 
-Zobacz [Kody błędów](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode).
+Zobacz [Kody błędów](/rest/api/media/jobs/get#joberrorcode).
 
 ## <a name="next-steps"></a>Następne kroki
 

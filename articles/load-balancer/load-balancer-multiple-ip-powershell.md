@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: allensu
-ms.openlocfilehash: 8f1273f1476ea7da03eb44b700519482deac3284
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e8fedad40c18818932bf37dfe93c1b236357c30b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84809175"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87001609"
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-using-powershell"></a>Równoważenie obciążenia dla wielu konfiguracji adresów IP przy użyciu programu PowerShell
 
@@ -38,7 +38,7 @@ W tym artykule opisano, jak używać Azure Load Balancer z wieloma adresami IP w
 
 Postępuj zgodnie z poniższymi instrukcjami, aby osiągnąć scenariusz opisany w tym artykule:
 
-1. Zainstaluj program Azure PowerShell. Zobacz [How to install and configure Azure PowerShell](/powershell/azure/overview) (Jak zainstalować i skonfigurować program Azure PowerShell), aby uzyskać informacje na temat instalowania najnowszej wersji programu Azure PowerShell, wybierania subskrypcji i logowania się do konta.
+1. Zainstaluj program Azure PowerShell. Zobacz [How to install and configure Azure PowerShell](/powershell/azure/) (Jak zainstalować i skonfigurować program Azure PowerShell), aby uzyskać informacje na temat instalowania najnowszej wersji programu Azure PowerShell, wybierania subskrypcji i logowania się do konta.
 2. Utwórz grupę zasobów przy użyciu następujących ustawień:
 
     ```powershell
@@ -46,7 +46,7 @@ Postępuj zgodnie z poniższymi instrukcjami, aby osiągnąć scenariusz opisany
     $myResourceGroup = "contosofabrikam"
     ```
 
-    Aby uzyskać więcej informacji, zobacz krok 2 [tworzenia grupy zasobów](../virtual-machines/virtual-machines-windows-ps-create.md?toc=%2fazure%2fload-balancer%2ftoc.json).
+    Aby uzyskać więcej informacji, zobacz krok 2 [tworzenia grupy zasobów](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm.md?toc=%2fazure%2fload-balancer%2ftoc.json).
 
 3. [Utwórz zestaw dostępności](../virtual-machines/windows/tutorial-availability-sets.md?toc=%2fazure%2fload-balancer%2ftoc.json) zawierający maszyny wirtualne. W tym scenariuszu Użyj następującego polecenia:
 
@@ -54,14 +54,14 @@ Postępuj zgodnie z poniższymi instrukcjami, aby osiągnąć scenariusz opisany
     New-AzAvailabilitySet -ResourceGroupName "contosofabrikam" -Name "myAvailset" -Location "West Central US"
     ```
 
-4. Wykonaj instrukcje od 3 do 5 w artykule [Tworzenie maszyny wirtualnej z systemem Windows](../virtual-machines/virtual-machines-windows-ps-create.md?toc=%2fazure%2fload-balancer%2ftoc.json) , aby przygotować Tworzenie maszyny wirtualnej z jedną kartą sieciową. Wykonaj krok 6,1 i użyj poniższego zamiast kroku 6,2:
+4. Wykonaj instrukcje od 3 do 5 w artykule [Tworzenie maszyny wirtualnej z systemem Windows](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm.md?toc=%2fazure%2fload-balancer%2ftoc.json) , aby przygotować Tworzenie maszyny wirtualnej z jedną kartą sieciową. Wykonaj krok 6,1 i użyj poniższego zamiast kroku 6,2:
 
     ```powershell
     $availset = Get-AzAvailabilitySet -ResourceGroupName "contosofabrikam" -Name "myAvailset"
     New-AzVMConfig -VMName "VM1" -VMSize "Standard_DS1_v2" -AvailabilitySetId $availset.Id
     ```
 
-    Następnie ukończ [Tworzenie kroków maszyn wirtualnych z systemem Windows od](../virtual-machines/virtual-machines-windows-ps-create.md?toc=%2fazure%2fload-balancer%2ftoc.json) 6,3 do 6,8.
+    Następnie ukończ [Tworzenie kroków maszyn wirtualnych z systemem Windows od](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm.md?toc=%2fazure%2fload-balancer%2ftoc.json) 6,3 do 6,8.
 
 5. Dodaj drugą konfigurację adresu IP do każdej z maszyn wirtualnych. Postępuj zgodnie z instrukcjami w artykule [przypisywanie wielu adresów IP do maszyn wirtualnych](../virtual-network/virtual-network-multiple-ip-addresses-powershell.md#add) . Użyj następujących ustawień konfiguracji:
 

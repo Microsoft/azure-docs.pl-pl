@@ -7,11 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
-ms.openlocfilehash: 49c83fab54b7188c3a3838f3162e71d8495989dd
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: cb9c851ca33aa6eeb6d0fe0576f98ecb0693be02
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86037515"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86999300"
 ---
 # <a name="azure-stream-analytics-solution-patterns"></a>Wzorce rozwiązań usługi Azure Stream Analytics
 
@@ -21,7 +22,7 @@ Podobnie jak w przypadku wielu innych usług na platformie Azure, Stream Analyti
 
 Za pomocą Azure Stream Analytics można szybko skonfigurować pulpity nawigacyjne i alerty w czasie rzeczywistym. Proste rozwiązanie pozyskuje zdarzenia z Event Hubs lub IoT Hub i tworzy [kanał nawigacyjny Power BI z zestawem danych przesyłanych strumieniowo](/power-bi/service-real-time-streaming). Aby uzyskać więcej informacji, Zobacz szczegółowy samouczek [Analizowanie danych połączeń telefonicznych za pomocą Stream Analytics i wizualizacji wyników na pulpicie nawigacyjnym Power BI](stream-analytics-manage-job.md).
 
-![Panel Power BI ASA](media/stream-analytics-solution-patterns/pbidashboard.png)
+![Panel Power BI ASA](media/stream-analytics-solution-patterns/power-bi-dashboard.png)
 
 To rozwiązanie można utworzyć w ciągu zaledwie kilku minut od Azure Portal. Nie ma żadnego rozbudowanego kodu, a język SQL jest używany do wyrażenia logiki biznesowej.
 
@@ -31,7 +32,7 @@ Ten wzorzec rozwiązania zapewnia najniższe opóźnienie ze źródła zdarzenia
 
 Pulpit nawigacyjny Power BI zapewnia małe opóźnienia, ale nie może być używany do tworzenia raportów pełnych Power BI dopracowane. Typowym wzorcem raportowania jest wyprowadzanie danych w pierwszej kolejności SQL Database. Następnie użyj Power BI łącznika SQL, aby wysłać zapytanie do programu SQL w celu uzyskania najnowszych danych.
 
-![Pulpit nawigacyjny programu ASA SQL](media/stream-analytics-solution-patterns/sqldashboard.png)
+![Pulpit nawigacyjny programu ASA SQL](media/stream-analytics-solution-patterns/sql-dashboard.png)
 
 Korzystanie z SQL Database zapewnia większą elastyczność, ale kosztem nieco większego opóźnienia. To rozwiązanie jest optymalne w przypadku zadań z wymaganiami opóźnienia większą niż jedna sekunda. Za pomocą tej metody można zmaksymalizować możliwości Power BI w celu dodatkowego wycinania i utworzenia indeksu danych dla raportów oraz wielu opcji wizualizacji. Zapewniasz również elastyczność korzystania z innych rozwiązań pulpitu nawigacyjnego, takich jak Tableau.
 
@@ -43,7 +44,7 @@ Drugim najpopularniejszym użyciem Stream Analytics jest generowanie alertów w 
 
 Logika odbiorcy zdarzeń podrzędnych musi być zaimplementowana, aby generować alerty w istniejącym przepływie pracy. Ponieważ można wdrożyć logikę niestandardową w Azure Functions, Azure Functions to najszybszy sposób na wykonanie tej integracji. Samouczek dotyczący używania funkcji platformy Azure jako danych wyjściowych dla zadania Stream Analytics można znaleźć w temacie [Run Azure Functions from Azure Stream Analytics Jobs](stream-analytics-with-azure-functions.md). Azure Functions obsługuje również różne typy powiadomień, w tym tekst i wiadomości e-mail. Aplikacja logiki może być również używana do integracji z Event Hubs między Stream Analytics i aplikacją logiki.
 
-![ASA aplikacji do obsługi komunikatów zdarzeń](media/stream-analytics-solution-patterns/eventmessagingapp.png)
+![ASA aplikacji do obsługi komunikatów zdarzeń](media/stream-analytics-solution-patterns/event-messaging-app.png)
 
 Event Hubs, z drugiej strony, oferuje najbardziej elastyczny punkt integracji. Wiele innych usług, takich jak Azure Eksplorator danych i Time Series Insights, może zużywać zdarzenia z Event Hubs. Usługi mogą być połączone bezpośrednio z Event Hubs ujścia z Azure Stream Analytics, aby zakończyć rozwiązanie. Event Hubs to również najwyższa usługa przesyłania komunikatów z przepustowością dostępna na platformie Azure na potrzeby takich scenariuszy integracji.
 
@@ -51,7 +52,7 @@ Event Hubs, z drugiej strony, oferuje najbardziej elastyczny punkt integracji. W
 
 Możesz tworzyć niestandardowe wizualizacje w czasie rzeczywistym, takie jak pulpit nawigacyjny lub Wizualizacja mapy, przy użyciu Azure Stream Analytics i usługi Azure Signal Service. Przy użyciu usługi sygnalizującego klienci sieci Web mogą być uaktualniani i wyświetlali zawartość dynamiczną w czasie rzeczywistym.
 
-![Aplikacja dynamiczna ASA](media/stream-analytics-solution-patterns/dynamicapp.png)
+![Aplikacja dynamiczna ASA](media/stream-analytics-solution-patterns/dynamic-app.png)
 
 ## <a name="incorporate-real-time-insights-into-your-application-through-data-stores"></a>Dołączanie szczegółowych informacji w czasie rzeczywistym do aplikacji przy użyciu magazynów danych
 
@@ -59,13 +60,13 @@ Większość usług sieci Web i aplikacji sieci Web dziś używają wzorca żąd
 
 Duże ilości danych często tworzą wąskie gardła wydajności w systemie CRUD. [Wzorzec rozwiązania źródła zdarzeń](/azure/architecture/patterns/event-sourcing) służy do rozwiązywania wąskich gardeł wydajności. Wzorce czasowe i szczegółowe informacje są również trudne i niewydajne do wyodrębnienia z tradycyjnego magazynu danych. Nowoczesne aplikacje oparte na danych o wysokiej wielkości woluminów często przyjmują architekturę opartą na przepływu danych. Azure Stream Analytics, ponieważ aparat obliczeniowy dla danych w ruchu to Linchpin w tej architekturze.
 
-![ASA — aplikacja do pozyskiwania zdarzeń](media/stream-analytics-solution-patterns/eventsourcingapp.png)
+![ASA — aplikacja do pozyskiwania zdarzeń](media/stream-analytics-solution-patterns/event-sourcing-app.png)
 
 W tym wzorcu rozwiązania zdarzenia są przetwarzane i agregowane do magazynów danych przez Azure Stream Analytics. Warstwa aplikacji współdziała z magazynami danych przy użyciu tradycyjnego wzorca żądania/odpowiedzi. Ze względu na Stream Analytics "możliwość przetwarzania dużej liczby zdarzeń w czasie rzeczywistym aplikacja jest wysoce skalowalna bez konieczności tworzenia zbiorczej warstwy magazynu danych. Warstwa magazynu danych jest zasadniczo istotnym widokiem w systemie. [Azure Stream Analytics dane wyjściowe do Azure Cosmos DB](stream-analytics-documentdb-output.md) opisują sposób, w jaki Cosmos DB jest używany jako Stream Analytics dane wyjściowe.
 
 W realnych aplikacjach, w których logika przetwarzania jest złożona i istnieje konieczność niezależnego uaktualniania niektórych części logiki, wiele zadań Stream Analytics może być złożonych razem z Event Hubs jako pośrednik zdarzeń pośredniczących.
 
-![Aplikacja do pozyskiwania zdarzeń złożonych](media/stream-analytics-solution-patterns/eventsourcingapp2.png)
+![Aplikacja do pozyskiwania zdarzeń złożonych](media/stream-analytics-solution-patterns/event-sourcing-app-complex.png)
 
 Ten wzorzec poprawia odporność i możliwości zarządzania w systemie. Jednak mimo że Stream Analytics gwarantuje dokładnie jednokrotne przetwarzanie, istnieje mała szansa, że zduplikowane zdarzenia mogą być pośrednimi Event Hubs. Ważne jest, aby Stream Analytics zadania deduplikowania zdarzeń przy użyciu kluczy logiki w oknie lookback. Aby uzyskać więcej informacji na temat dostarczania zdarzeń, zobacz temat informacje o [gwarancji dostarczania zdarzeń](/stream-analytics-query/event-delivery-guarantees-azure-stream-analytics) .
 
@@ -75,7 +76,7 @@ Funkcja dane referencyjne Azure Stream Analytics jest zaprojektowana specjalnie 
 
 Ten wzorzec może również służyć do implementowania aparatu reguł, w którym progi reguł są zdefiniowane na podstawie danych referencyjnych. Aby uzyskać więcej informacji na temat reguł, zobacz [konfigurowalne reguły oparte na progach w Azure Stream Analytics](stream-analytics-threshold-based-rules.md).
 
-![ASA — aplikacja danych referencyjnych](media/stream-analytics-solution-patterns/refdataapp.png)
+![ASA — aplikacja danych referencyjnych](media/stream-analytics-solution-patterns/reference-data-app.png)
 
 ## <a name="add-machine-learning-to-your-real-time-insights"></a>Dodawanie Machine Learning do wglądu w dane w czasie rzeczywistym
 
@@ -83,37 +84,39 @@ Azure Stream Analytics "wbudowany [model wykrywania anomalii](stream-analytics-m
 
 W przypadku zaawansowanych użytkowników, którzy chcą włączyć szkolenie online i ocenianie w tym samym potoku Stream Analytics, zobacz ten przykład w przypadku [regresji liniowej](stream-analytics-high-frequency-trading.md).
 
-![Aplikacja Machine Learning ASA](media/stream-analytics-solution-patterns/mlapp.png)
+![Aplikacja Machine Learning ASA](media/stream-analytics-solution-patterns/machine-learning-app.png)
 
 ## <a name="near-real-time-data-warehousing"></a>Magazynowanie danych niemal w czasie rzeczywistym
 
 Innym typowym wzorcem jest magazynowanie danych w czasie rzeczywistym, nazywane również magazynem danych przesyłania strumieniowego. Oprócz zdarzeń, które docierają do Event Hubs i IoT Hub z aplikacji, [Azure Stream Analytics działające na IoT Edge](stream-analytics-edge.md) mogą służyć do zaspokojenia czyszczenia danych, zmniejszenia danych i przechowywania danych oraz potrzeby przesyłania dalej. Stream Analytics uruchomione na IoT Edge mogą bezpiecznie obsługiwać ograniczenia przepustowości i problemy z łącznością w systemie. Karta wyjściowa SQL może służyć do wyprowadzania danych do SQL Data Warehouse; Maksymalna przepływność jest jednak ograniczona do 10 MB/s.
 
-![Magazynowanie danych ASA](media/stream-analytics-solution-patterns/datawarehousing.png)
+![Magazynowanie danych ASA](media/stream-analytics-solution-patterns/data-warehousing.png)
 
 Jednym ze sposobów na zwiększenie przepływności z pewnym kompromisem opóźnień jest zarchiwizowanie zdarzeń w usłudze Azure Blob Storage, a następnie [zaimportowanie ich do SQL Data Warehouse za pomocą bazy](../synapse-analytics/sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase.md)danych. Musisz ręcznie połączyć dane wyjściowe z Stream Analytics z magazynem obiektów blob i dane wejściowe z magazynu obiektów BLOB do SQL Data Warehouse, [archiwizując dane przez sygnaturę czasową](stream-analytics-custom-path-patterns-blob-storage-output.md) i importując okresowo.
 
 W tym wzorcu użycia Azure Stream Analytics jest używany w odniesieniu do aparatu ETL niemal w czasie rzeczywistym. Nowo przychodzące zdarzenia są ciągle przekształcane i przechowywane w celu użycia usługi analizy podrzędnej.
 
-![Magazyn danych o wysokiej przepływności](media/stream-analytics-solution-patterns/datawarehousing2.png)
+![Magazyn danych o wysokiej przepływności](media/stream-analytics-solution-patterns/data-warehousing-high-throughput.png)
 
 ## <a name="archiving-real-time-data-for-analytics"></a>Archiwizowanie danych w czasie rzeczywistym na potrzeby analiz
 
 Większość działań związanych z nauką i analizą danych nadal działa w trybie offline. Dane można archiwizować przez Azure Stream Analytics za pomocą Azure Data Lake Store Gen2 i formatów wyjściowych Parquet. Ta funkcja eliminuje tarcie do strumieniowego źródła danych bezpośrednio do Azure Data Lake Analytics, Azure Databricks i usługi Azure HDInsight. Azure Stream Analytics jest używany jako aparat ETL niemal w czasie rzeczywistym w tym rozwiązaniu. Zarchiwizowane dane można eksplorować w Data Lake przy użyciu różnych aparatów obliczeniowych.
 
-![Analiza usługi ASA w trybie offline](media/stream-analytics-solution-patterns/offlineanalytics.png)
+> [!div class="mx-imgBorder"]
+> ![Analiza usługi ASA w trybie offline](media/stream-analytics-solution-patterns/offline-analytics.png)
 
 ## <a name="use-reference-data-for-enrichment"></a>Użyj danych referencyjnych do wzbogacania
 
 Wzbogacanie danych jest często wymagane dla aparatów ETL. Azure Stream Analytics obsługuje Wzbogacanie danych z [danymi referencyjnymi](stream-analytics-use-reference-data.md) z SQL Database i usługi Azure Blob Storage. Wzbogacanie danych można wykonać w celu załadowania danych zarówno Azure Data Lake, jak i SQL Data Warehouse.
 
-![Analiza usługi ASA w trybie offline z wzbogacaniem danych](media/stream-analytics-solution-patterns/offlineanalytics.png)
+
+![Analiza usługi ASA w trybie offline z wzbogacaniem danych](media/stream-analytics-solution-patterns/offline-analytics-enriched.png)
 
 ## <a name="operationalize-insights-from-archived-data"></a>Operacjonalizować wgląd w dane archiwalne
 
 W przypadku łączenia wzorca analizy offline z wzorcem aplikacji niemal w czasie rzeczywistym można utworzyć pętlę opinii. Pętla opinii umożliwia automatyczne dostosowanie aplikacji do zmian wzorców w danych. Ta pętla zwrotna może być prosta jako zmiana wartości progowej dotyczącej alertów lub jako złożonego Machine Learning modeli. Tę samą architekturę rozwiązania można zastosować do zadań ASA uruchomionych w chmurze i na IoT Edge.
 
-![ASA Insights operacjonalizacji](media/stream-analytics-solution-patterns/insightsoperationalization.png)
+![ASA Insights operacjonalizacji](media/stream-analytics-solution-patterns/insights-operationalization.png)
 
 ## <a name="how-to-monitor-asa-jobs"></a>Jak monitorować zadania ASA
 
@@ -162,7 +165,7 @@ W ekstremalnym scenariuszu wszystkie zdarzenia przychodzące są opóźniane, al
 
 Na szczęście poprzedni wzorzec archiwizowania danych może być używany do bezproblemowego przetwarzania tych opóźnionych zdarzeń. Pomysłem jest to, że zadanie archiwizowania przetwarza zdarzenia przychodzące w czasie przybycia i archiwizuje zdarzenia w odpowiednim przedziale czasu w obiekcie blob platformy Azure lub Azure Data Lake Store z czasem zdarzenia. Nie ma znaczenia, jak późne jest zdarzenie, nigdy nie zostanie porzucone. Będzie zawsze gruntować w odpowiednim przedziale czasu. Podczas odzyskiwania można ponownie przetwarzać zarchiwizowane zdarzenia i wypełniać wyniki do wybranego magazynu. Jest to podobne do sposobu implementacji wzorców lambda.
 
-![Odpełnienie ASA](media/stream-analytics-solution-patterns/backfill.png)
+![Odpełnienie ASA](media/stream-analytics-solution-patterns/back-fill.png)
 
 Proces wycofywania musi być wykonywany z systemem przetwarzania wsadowego w trybie offline, który prawdopodobnie ma inny model programowania niż Azure Stream Analytics. Oznacza to konieczność ponownego wdrożenia całej logiki przetwarzania.
 

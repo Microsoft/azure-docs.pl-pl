@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 6d86c90828c081a542fa5574493a46e8a2e44640
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7310c037511fdf1a7d6f3763fd61d292078ea83e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82187481"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86998900"
 ---
 # <a name="cloudsimple-security-overview"></a>Przegląd zabezpieczeń CloudSimple
 
@@ -29,7 +29,7 @@ Zagadnienia dotyczące zabezpieczeń infrastruktury platformy Azure obejmują ce
 
 ### <a name="datacenter-security"></a>Zabezpieczenia centrum danych
 
-Firma Microsoft ma cały dział poświęcony na projektowanie, kompilowanie i obsługiwanie fizycznych obiektów, które obsługują platformę Azure. Ten zespół jest inwestowany z zachowaniem bezpieczeństwa fizycznego. Aby uzyskać szczegółowe informacje na temat zabezpieczeń fizycznych, zobacz [usługi platformy Azure, lokalne i zabezpieczenia fizyczne](../security/azure-physical-security.md).
+Firma Microsoft ma cały dział poświęcony na projektowanie, kompilowanie i obsługiwanie fizycznych obiektów, które obsługują platformę Azure. Ten zespół jest inwestowany z zachowaniem bezpieczeństwa fizycznego. Aby uzyskać szczegółowe informacje na temat zabezpieczeń fizycznych, zobacz [usługi platformy Azure, lokalne i zabezpieczenia fizyczne](../security/fundamentals/physical-security.md).
 
 ### <a name="equipment-location"></a>Lokalizacja sprzętu
 

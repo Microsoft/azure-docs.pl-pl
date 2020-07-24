@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: e5523b7c39763fb53d0847b79c70d5ab8b9d3b52
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 9320677e970d9194e2cccad07522d7a63b6353d6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86169327"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86999976"
 ---
 # <a name="how-to-encode-an-asset-by-using-media-encoder-standard"></a>Jak kodować element zawartości przy użyciu Media Encoder Standard
 > [!div class="op_single_selector"]
@@ -33,7 +33,7 @@ ms.locfileid: "86169327"
 
 Aby zapewnić cyfrowe wideo przez Internet, należy skompresować multimedia. Cyfrowe pliki wideo są duże i mogą być zbyt duże, aby można je było dostarczać przez Internet lub aby urządzenia klientów były wyświetlane prawidłowo. Kodowanie to proces kompresowania wideo i audio, dzięki czemu klienci mogą wyświetlać multimedia.
 
-Zadania kodowania są jedną z najczęstszych operacji przetwarzania w Azure Media Services. Tworzysz zadania kodowania, aby przekonwertować pliki multimedialne z jednego kodowania na inne. Podczas kodowania można użyć wbudowanego kodera Media Services (Media Encoder Standard). Można również użyć kodera dostarczonego przez partnera Media Services. Kodery innych firm są dostępne w portalu Azure Marketplace. Można określić szczegóły zadań kodowania przy użyciu wstępnie ustawionych ciągów zdefiniowanych dla kodera lub przy użyciu wstępnie ustawionych plików konfiguracji. Aby wyświetlić dostępne typy ustawień wstępnych, zobacz [Ustawienia wstępne zadań dla Media Encoder Standard](https://msdn.microsoft.com/library/mt269960).
+Zadania kodowania są jedną z najczęstszych operacji przetwarzania w Azure Media Services. Tworzysz zadania kodowania, aby przekonwertować pliki multimedialne z jednego kodowania na inne. Podczas kodowania można użyć wbudowanego kodera Media Services (Media Encoder Standard). Można również użyć kodera dostarczonego przez partnera Media Services. Kodery innych firm są dostępne w portalu Azure Marketplace. Można określić szczegóły zadań kodowania przy użyciu wstępnie ustawionych ciągów zdefiniowanych dla kodera lub przy użyciu wstępnie ustawionych plików konfiguracji. Aby wyświetlić dostępne typy ustawień wstępnych, zobacz [Ustawienia wstępne zadań dla Media Encoder Standard](/azure/media-services/previous/media-services-mes-presets-overview).
 
 Każde zadanie może mieć jedno lub więcej zadań w zależności od typu przetwarzania, które chcesz wykonać. Za pomocą interfejsu API REST można tworzyć zadania i powiązane z nimi zadania na jeden z dwóch sposobów:
 
@@ -44,7 +44,7 @@ Zaleca się, aby zawsze kodować pliki źródłowe do zestawu MP4 z adaptacyjną
 
 Jeśli zasoby wyjściowe są szyfrowane magazynem, należy skonfigurować zasady dostarczania zasobów. Aby uzyskać więcej informacji, zobacz [Konfigurowanie zasad dostarczania elementów zawartości](media-services-rest-configure-asset-delivery-policy.md).
 
-## <a name="considerations"></a>Kwestie do rozważenia
+## <a name="considerations"></a>Zagadnienia do rozważenia
 
 Podczas uzyskiwania dostępu do jednostek w Media Services należy ustawić określone pola nagłówka i wartości w żądaniach HTTP. Aby uzyskać więcej informacji, zobacz [konfigurowanie Media Services tworzenia interfejsu API REST](media-services-rest-how-to-use.md).
 
@@ -65,7 +65,7 @@ Aby uzyskać informacje na temat nawiązywania połączenia z interfejsem API us
 >
 >
 
-Poniższy przykład pokazuje, jak utworzyć i ogłosić zadanie przy użyciu jednego zestawu zadań do kodowania wideo z określoną rozdzielczością i jakością. W przypadku kodowania przy użyciu Media Encoder Standard można użyć ustawień domyślnych konfiguracji zadania określonych w [tym miejscu](https://msdn.microsoft.com/library/mt269960).
+Poniższy przykład pokazuje, jak utworzyć i ogłosić zadanie przy użyciu jednego zestawu zadań do kodowania wideo z określoną rozdzielczością i jakością. W przypadku kodowania przy użyciu Media Encoder Standard można użyć ustawień domyślnych konfiguracji zadania określonych w [tym miejscu](/azure/media-services/previous/media-services-mes-presets-overview).
 
 Żądanie:
 
@@ -98,7 +98,7 @@ Poniższy przykład pokazuje, jak ustawić atrybut assetname:
 { "TaskBody" : "<?xml version=\"1.0\" encoding=\"utf-8\"?><taskBody><inputAsset>JobInputAsset(0)</inputAsset><outputAsset assetName=\"CustomOutputAssetName\">JobOutputAsset(0)</outputAsset></taskBody>"}`
 ```
 
-## <a name="considerations"></a>Kwestie do rozważenia
+## <a name="considerations"></a>Zagadnienia do rozważenia
 * Właściwości TaskBody — muszą używać literału XML do definiowania liczby zasobów wejściowych lub wyjściowych, które są używane przez zadanie. Artykuł zadania zawiera definicję schematu XML dla kodu XML.
 * W definicji TaskBody — każda wartość wewnętrzna dla `<inputAsset>` i `<outputAsset>` musi być ustawiona jako JobInputAsset (wartość) lub JobOutputAsset (wartość).
 * Zadanie może mieć wiele elementów zawartości wyjściowej. Jeden JobOutputAsset (x) może być używany tylko raz jako dane wyjściowe zadania w zadaniu.
@@ -151,7 +151,7 @@ x-ms-client-request-id: 00000000-0000-0000-0000-000000000000
 }
 ```
 
-### <a name="considerations"></a>Kwestie do rozważenia
+### <a name="considerations"></a>Zagadnienia do rozważenia
 Aby włączyć tworzenie łańcucha zadań:
 
 * Zadanie musi mieć co najmniej dwa zadania podrzędne.
@@ -292,5 +292,5 @@ HTTP/1.1 201 Created
 ## <a name="next-steps"></a>Następne kroki
 Teraz, gdy wiesz już, jak utworzyć zadanie kodowania elementu zawartości, zobacz [Jak sprawdzić postęp zadania w Media Services](media-services-rest-check-job-progress.md).
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 [Pobierz procesory multimedialne](media-services-rest-get-media-processor.md)

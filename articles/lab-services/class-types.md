@@ -3,11 +3,12 @@ title: Przykładowe typy klas w Azure Lab Services | Microsoft Docs
 description: Zawiera typy klas, dla których można skonfigurować laboratoria przy użyciu Azure Lab Services.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 8564f5ece9d6df7db852c5ac16f00f1455d013ca
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 21159aacfcd87bb929eaeaf9884b0275c7005e1a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85443761"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87001627"
 ---
 # <a name="class-types-overview---azure-lab-services"></a>Przegląd typów klas — Azure Lab Services
 
@@ -44,11 +45,6 @@ Aby uzyskać szczegółowe informacje na temat sposobu konfigurowania tego typu 
 Można skonfigurować maszynę szablonu w Azure Lab Services z narzędziami wymaganymi do nauki uczniów, jak korzystać z [notesów Jupyter](http://jupyter-notebook.readthedocs.io). Notesy Jupyter to projekt typu "open source", który umożliwia łatwe łączenie tekstu sformatowanego i wykonywalnego kodu źródłowego języka [Python](https://www.python.org/) na jednej kanwie o nazwie Notes. Uruchamianie notesu skutkuje liniowym rekordem danych wejściowych i wyjściowych.  Mogą one obejmować tekst, tabele informacji, wykresy punktowe i wiele innych.
 
 Aby uzyskać szczegółowe informacje na temat sposobu konfigurowania tego typu laboratorium, zobacz [Konfigurowanie laboratorium do uczenia danych przy użyciu notesów Python i Jupyter](class-type-jupyter-notebook.md).
-
-## <a name="mobile-app-development-with-android-studio"></a>Tworzenie aplikacji mobilnych za pomocą programu Android Studio
-Można skonfigurować laboratorium w Azure Lab Services, aby nauczyć się wprowadzenia klasy opracowywania aplikacji mobilnych. Ta klasa koncentruje się na aplikacjach mobilnych systemu Android, które można opublikować w [sklep Google Play](https://play.google.com/store/apps).  Studenci mogą dowiedzieć się, jak używać [Android Studio](https://developer.android.com/studio) do kompilowania aplikacji.  [Emulator programu Visual Studio dla systemu Android](https://visualstudio.microsoft.com/vs/msft-android-emulator/) służy do lokalnego testowania aplikacji.
-
-Aby uzyskać szczegółowe informacje na temat sposobu konfigurowania tego typu laboratorium, zobacz [Konfigurowanie laboratorium do uczenia opracowywania aplikacji mobilnych za pomocą Android Studio](class-type-mobile-dev-android-studio.md).
 
 ## <a name="big-data-analytics"></a>Analiza danych big data
 Można skonfigurować laboratorium procesora GPU do uczenia klasy analizy danych Big Data. Z tego typu klasy studenci mogą dowiedzieć się, jak obsługiwać duże ilości danych, i stosować algorytmy uczenia maszynowego i statystycznego w celu uzyskania szczegółowych informacji. Najważniejszym celem dla studentów jest Nauka korzystania z narzędzi analitycznych danych, takich jak pakiet oprogramowania typu open source Apache Hadoop, który oferuje narzędzia do przechowywania i przetwarzania danych Big Data oraz zarządzania nimi. 

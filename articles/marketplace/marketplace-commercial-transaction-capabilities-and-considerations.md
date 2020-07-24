@@ -4,13 +4,13 @@ description: W tym artykule opisano Cennik, rozliczenia, fakturowania i wypłaty
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 06/15/2020
-ms.openlocfilehash: 653c55fa7476fa5fed077002db226297a33dfef6
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 07/22/2020
+ms.openlocfilehash: 29fa4126d8d0b4f3419c729ee3a73ae315b13122
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86119433"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87001370"
 ---
 # <a name="commercial-marketplace-transact-capabilities"></a>Komercyjne funkcje Transact Marketplace
 
@@ -95,7 +95,7 @@ W tym scenariuszu firma Microsoft rozlicza $1,14 za godzinę w celu użycia opub
 |Firma Microsoft utrzymuje 100% kosztów użycia platformy Azure | $0,14 za godzinę |
 ||
 
-**Korzystanie z własnej licencji (BYOL)**
+**Bring Your Own License (BYOL)**
 
 BYOL ma następującą strukturę kosztów:
 
@@ -134,7 +134,7 @@ W tym scenariuszu firma Microsoft Bills $100,00 na potrzeby licencji na oprogram
 |Firma Microsoft płaci 80% kosztu licencji <br> \*Firma Microsoft płaci 90% kosztu licencji dla wszystkich zakwalifikowanych aplikacji SaaS   |   $80,00 miesięcznie <br> \*$90,00 miesięcznie    |
 |Firma Microsoft utrzymuje 20% kosztów licencji <br> \*Firma Microsoft utrzymuje 10% kosztów licencji na wszystkie kwalifikowane aplikacje SaaS.  |  $20,00 miesięcznie <br> \*$10,00     |
 
-W przypadku niektórych produktów SaaS opublikowanych na rynku komercyjnym firma Microsoft obniży **opłatę za usługę Marketplace** z 20% (zgodnie z opisem w umowie Microsoft Publisher) do 10%. Aby oferta zakwalifikować się, co najmniej jedna oferta musi być wypisana przez firmę Microsoft, ponieważ jest to adres IP typu "co do lewej" lub "co do sprzedaży". Aby otrzymać obniżoną opłatę za usługę Marketplace w danym miesiącu, należy spełnić co najmniej pięć dni roboczych przed końcem poprzedniego miesiąca kalendarzowego. Zmniejszona opłata za usługę Marketplace nie będzie stosowana do maszyn wirtualnych, zarządzanych aplikacji ani innych produktów udostępnianych za pośrednictwem komercyjnej witryny Marketplace. Ta obniżona opłata będzie dostępna dla kwalifikujących się ofert, a opłaty licencyjne zebrane przez firmę Microsoft od 1 maja 2019 do 30 czerwca 2020. Po upływie tego czasu opłata będzie powracać do normalnej kwoty.
+W przypadku niektórych ofert opublikowanych w portalu komercyjnym firma Microsoft obniży opłatę za usługę Marketplace z 20% (zgodnie z opisem w umowie Microsoft Publisher) do 10%. Oferty, które chcesz zakwalifikować, muszą zostać wystawione przez firmę Microsoft jako usługa Azure IP incetivized. Przed końcem każdego miesiąca kalendarzowego należy spełnić co najmniej pięć dni roboczych, aby otrzymać obniżoną opłatę za usługę Marketplace dla danego miesiąca. Zmniejszona opłata za usługę Marketplace dotyczy współsprzedaży platformy Azure z zachęcani SaaS, maszyn wirtualnych, aplikacji zarządzanych i innych ofert IaaS z obsługą transakcji, które są udostępniane za pośrednictwem komercyjnej witryny Marketplace.
 
 ### <a name="customer-invoicing-payment-billing-and-collections"></a>Faktury dla klientów, płatności, rozliczeń i kolekcji
 
@@ -180,7 +180,7 @@ Aby uzyskać więcej informacji na temat konfigurowania tych kont, zobacz [Zarz�
 
 Opcja publikowania Transact jest dostępna tylko dla następujących typów ofert w portalu Marketplace:
 
-- **Maszyna wirtualna** — wybierz opcję bezpłatnie, Przenieś własną licencję lub model z płatność zgodnie z rzeczywistym użyciem, a także zapoznaj się z jednostkami SKU zdefiniowanymi na poziomie oferty. Na rachunku na platformie Azure klienta firma Microsoft przedstawia opłaty za licencję na oprogramowanie wydawcy niezależnie od opłat związanych z infrastrukturą platformy Azure. Opłaty za infrastrukturę platformy Azure są oparte na oprogramowaniu wydawcy.
+- **Maszyna wirtualna** — wybierz opcję bezpłatnie, Przenieś własną licencję lub model z płatność zgodnie z rzeczywistym użyciem i zapoznaj się z planami zdefiniowanymi na poziomie oferty. Na rachunku na platformie Azure klienta firma Microsoft przedstawia opłaty za licencję na oprogramowanie wydawcy niezależnie od opłat związanych z infrastrukturą platformy Azure. Opłaty za infrastrukturę platformy Azure są oparte na oprogramowaniu wydawcy.
 
 - **Aplikacja platformy Azure: szablon rozwiązania lub aplikacja zarządzana** — należy udostępnić co najmniej jedną maszynę wirtualną i pobrać sumę cen maszyn wirtualnych. W przypadku aplikacji zarządzanych w ramach jednego planu można wybrać jako model cenowy miesięczną subskrypcję ryczałtową, a zamiast cennika maszyny wirtualnej. W niektórych przypadkach opłaty za użycie infrastruktury platformy Azure są przesyłane do klienta oddzielnie od opłat za licencje na oprogramowanie, ale w tej samej zestawie rozliczeń. Jednak w przypadku skonfigurowania oferty zarządzanej aplikacji dla dostawców niezależnego dostawcy oprogramowania zasoby platformy Azure są rozliczane dla wydawcy, a klient otrzymuje stałą opłatę obejmującą koszt infrastruktury, licencje na oprogramowanie i usługi zarządzania.
 

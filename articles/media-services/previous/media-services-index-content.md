@@ -15,16 +15,17 @@ ms.topic: article
 ms.date: 09/22/2019
 ms.author: juliako
 ms.reviewer: johndeu
-ms.openlocfilehash: 7ccc2d5956b44a8cd85f19e0905539c32f58bc5e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2989343a5cc9612ea0f4d3b177093fdef93f5d73
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78164002"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87000674"
 ---
 # <a name="indexing-media-files-with-azure-media-indexer"></a>Indeksowanie plików multimedialnych za pomocą Azure Media Indexer
 
 > [!NOTE]
-> Procesor multimediów **Azure Media Indexer** zostanie wycofany. Aby uzyskać daty wycofania, zobacz temat ten [starszy składnik](legacy-components.md) . [Azure Media Services Video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) zastępuje ten starszy procesor nośnika. Aby uzyskać więcej informacji, zobacz [Migrowanie z Azure Media Indexer i Azure Media Indexer 2 do Azure Media Services Video Indexer](migrate-indexer-v1-v2.md).
+> Procesor multimediów **Azure Media Indexer** zostanie wycofany. Aby uzyskać daty wycofania, zobacz temat ten [starszy składnik](legacy-components.md) . [Azure Media Services Video Indexer](../video-indexer/index.yml) zastępuje ten starszy procesor nośnika. Aby uzyskać więcej informacji, zobacz [Migrowanie z Azure Media Indexer i Azure Media Indexer 2 do Azure Media Services Video Indexer](migrate-indexer-v1-v2.md).
 
 Azure Media Indexer umożliwia przeszukiwanie zawartości plików multimedialnych oraz generowanie pełnotekstowego transkrypcji napisów i słów kluczowych. W partii można przetwarzać jeden plik multimedialny lub kilka plików multimedialnych.  
 
@@ -44,7 +45,7 @@ Można określić więcej szczegółów dotyczących zadań indeksowania przy u�
 
 Można również przetwarzać wiele plików multimedialnych jednocześnie przy użyciu pliku manifestu.
 
-Aby uzyskać więcej informacji, zobacz [Ustawienia wstępne zadania dla Azure Media Indexer](https://msdn.microsoft.com/library/dn783454.aspx).
+Aby uzyskać więcej informacji, zobacz [Ustawienia wstępne zadania dla Azure Media Indexer](/azure/media-services/previous/media-services-analytics-overview).
 
 ## <a name="index-an-asset"></a>Indeksowanie elementu zawartości
 Poniższa metoda przekazuje plik multimedialny jako element zawartości i tworzy zadanie indeksowania elementu zawartości.
@@ -157,7 +158,7 @@ Jeśli nie wszystkie pliki multimediów wejściowych są indeksowane pomyślnie,
 ## <a name="index-multiple-files"></a>Indeksowanie wielu plików
 Poniższa metoda przekazuje wiele plików multimedialnych jako element zawartości i tworzy zadanie indeksowania wszystkich plików w partii.
 
-Plik manifestu z rozszerzeniem ". lst" jest tworzony i przekazywany do elementu zawartości. Plik manifestu zawiera listę wszystkich plików zasobów. Aby uzyskać więcej informacji, zobacz [Ustawienia wstępne zadania dla Azure Media Indexer](https://msdn.microsoft.com/library/dn783454.aspx).
+Plik manifestu z rozszerzeniem ". lst" jest tworzony i przekazywany do elementu zawartości. Plik manifestu zawiera listę wszystkich plików zasobów. Aby uzyskać więcej informacji, zobacz [Ustawienia wstępne zadania dla Azure Media Indexer](/azure/media-services/previous/media-services-analytics-overview).
 
 ```csharp
     static bool RunBatchIndexingJob(string[] inputMediaFiles, string outputFolder)
@@ -277,4 +278,3 @@ Obecnie obsługiwane są języki w języku angielskim i hiszpańskim.
 [Omówienie Azure Media Services Analytics](media-services-analytics-overview.md)
 
 [Indeksowanie plików multimedialnych z Azure Media Indexer 2 wersja zapoznawcza](media-services-process-content-with-indexer2.md)
-

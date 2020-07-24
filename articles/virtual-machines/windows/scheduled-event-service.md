@@ -7,12 +7,12 @@ ms.subservice: monitoring
 ms.date: 08/20/2019
 ms.author: sarn
 ms.topic: how-to
-ms.openlocfilehash: 3f3bf83d8155383757cc87749281c688bd281a4a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0806c6e0ed89c2c0f4712ec985599810119fcf89
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82099601"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86999024"
 ---
 # <a name="monitoring-scheduled-events"></a>Scheduled Events monitorowania
 
@@ -25,7 +25,7 @@ W tym artykule pokazano, jak można użyć zaplanowanych zdarzeń, aby otrzymywa
 
 Scheduled Events jest dostępny w ramach [instance Metadata Service platformy Azure](instance-metadata-service.md), który jest dostępny na wszystkich maszynach wirtualnych platformy Azure. Klienci mogą napisać automatyzację, aby wysyłać zapytania do punktu końcowego maszyn wirtualnych w celu znalezienia powiadomień o zaplanowanej konserwacji i wykonywania środków zaradczych, takich jak zapisywanie stanu i przejmowanie maszyny wirtualnej poza rotacją. Zalecamy utworzenie automatyzacji, aby zarejestrować Scheduled Events tak, aby można było rejestrować inspekcje zdarzeń konserwacji platformy Azure. 
 
-W tym artykule przeprowadzimy Cię przez proces przechwytywania Scheduled Events konserwacji do Log Analytics. Następnie wyzwolimy pewne podstawowe akcje powiadamiania, takie jak wysyłanie wiadomości e-mail do zespołu i uzyskiwanie historycznego widoku wszystkich zdarzeń, które miały oddziaływać z maszynami wirtualnymi. W przypadku agregacji zdarzeń i automatyzacji będziemy używać [log Analytics](/azure/azure-monitor/learn/quick-create-workspace), ale można użyć dowolnego rozwiązania monitorowania w celu zebrania tych dzienników i wyzwolenia automatyzacji.
+W tym artykule przeprowadzimy Cię przez proces przechwytywania Scheduled Events konserwacji do Log Analytics. Następnie wyzwolimy pewne podstawowe akcje powiadamiania, takie jak wysyłanie wiadomości e-mail do zespołu i uzyskiwanie historycznego widoku wszystkich zdarzeń, które miały oddziaływać z maszynami wirtualnymi. W przypadku agregacji zdarzeń i automatyzacji będziemy używać [log Analytics](../../azure-monitor/learn/quick-create-workspace.md), ale można użyć dowolnego rozwiązania monitorowania w celu zebrania tych dzienników i wyzwolenia automatyzacji.
 
 ![Diagram przedstawiający cykl życia zdarzenia](./media/notifications/events.png)
 
@@ -35,7 +35,7 @@ Na potrzeby tego przykładu należy utworzyć [maszynę wirtualną z systemem Wi
 
 Nie usuwaj grupy zasobów grupy na końcu samouczka.
 
-Należy również [utworzyć obszar roboczy log Analytics](/azure/azure-monitor/learn/quick-create-workspace) , który będzie używany do agregowania informacji z maszyn wirtualnych w zestawie dostępności.
+Należy również [utworzyć obszar roboczy log Analytics](../../azure-monitor/learn/quick-create-workspace.md) , który będzie używany do agregowania informacji z maszyn wirtualnych w zestawie dostępności.
 
 ## <a name="set-up-the-environment"></a>Konfigurowanie środowiska
 
@@ -112,7 +112,7 @@ Teraz chcemy połączyć obszar roboczy Log Analytics z maszyną wirtualną modu
 1. Wyszukaj i wybierz pozycję **myCollectorVM**. 
 1. Na stronie New for **myCollectorVM**wybierz pozycję **Połącz**.
 
-Spowoduje to zainstalowanie [programu Microsoft Monitoring Agent](/azure/virtual-machines/extensions/oms-windows) na maszynie wirtualnej. Połączenie maszyny wirtualnej z obszarem roboczym i zainstalowanie rozszerzenia potrwa kilka minut. 
+Spowoduje to zainstalowanie [programu Microsoft Monitoring Agent](../extensions/oms-windows.md) na maszynie wirtualnej. Połączenie maszyny wirtualnej z obszarem roboczym i zainstalowanie rozszerzenia potrwa kilka minut. 
 
 ## <a name="configure-the-workspace"></a>Konfigurowanie obszaru roboczego
 
@@ -132,7 +132,7 @@ Spowoduje to zainstalowanie [programu Microsoft Monitoring Agent](/azure/virtual
 ## <a name="creating-an-alert-rule-with-azure-monitor"></a>Tworzenie reguły alertu z Azure Monitor 
 
 
-Po wypchnięciu zdarzeń do Log Analytics można uruchomić następujące [zapytanie](/azure/azure-monitor/log-query/get-started-portal) , aby wyszukać zdarzenia harmonogramu.
+Po wypchnięciu zdarzeń do Log Analytics można uruchomić następujące [zapytanie](../../azure-monitor/log-query/get-started-portal.md) , aby wyszukać zdarzenia harmonogramu.
 
 1. W górnej części strony wybierz pozycję **dzienniki** i wklej następujący tekst do pola tekstowego:
 

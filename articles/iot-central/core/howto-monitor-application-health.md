@@ -7,13 +7,17 @@ ms.date: 05/14/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 664819b209aeb09093ce8711456b86ff4d3e8949
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d246adbf8e87d5503bc19bcd497dd00370c0a867
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84249578"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87001922"
 ---
 # <a name="monitor-the-overall-health-of-the-devices-connected-to-an-iot-central-application"></a>Monitorowanie ogólnej kondycji urządzeń podłączonych do aplikacji IoT Central
+
+> [!NOTE]
+> Metryki są dostępne tylko dla aplikacji IoT Central w wersji 3. Aby dowiedzieć się, jak sprawdzić wersję aplikacji, zobacz [Informacje o aplikacji](./howto-get-app-info.md).
 
 *Ten artykuł ma zastosowanie do operatorów i administratorów.*
 
@@ -34,25 +38,15 @@ Aby wyświetlić metryki IoT Central w portalu:
 1. Przejdź do zasobu aplikacji IoT Central w portalu. Domyślnie zasoby IoT Central znajdują się w grupie zasobów o nazwie **IOTC**.
 1. Aby utworzyć wykres na podstawie metryk aplikacji, wybierz pozycję **metryki** w sekcji **monitorowanie** .
 
+![Metryki platformy Azure](media/howto-monitor-application-health/metrics.png)
+
 ### <a name="azure-portal-permissions"></a>Uprawnienia Azure Portal
 
 Dostęp do metryk w Azure Portal jest zarządzany przez [kontrolę dostępu opartą na rolach platformy Azure](../../role-based-access-control/overview.md). Użyj Azure Portal, aby dodać użytkowników do IoT Central aplikacji/grupy zasobów/subskrypcji w celu udzielenia im dostępu. Musisz dodać użytkownika w portalu, nawet jeśli został on już dodany do aplikacji IoT Central. Użyj [wbudowanych ról platformy Azure](../../role-based-access-control/built-in-roles.md) , aby uzyskać dokładniejszą kontrolę dostępu.
 
 ## <a name="iot-central-metrics"></a>Metryki IoT Central
 
-W poniższej tabeli opisano metryki, które są obecnie dostępne dla IoT Central:
-
-| Metryka | Nazwa wyświetlana metryki | Jednostka | Typ agregacji | Opis |
-|--------|---------------------|------|------------------|-------------|
-| connectedDeviceCount         | Łączna liczba połączonych urządzeń                              | Liczba  | Łącznie             | Liczba urządzeń podłączonych do IoT Central                               |
-| C2D. Property. Read. Success    | Pomyślne odczytywanie właściwości urządzenia z IoT Central    | Liczba  | Łącznie             | Liczba wszystkich pomyślnych odczytów właściwości inicjowanych z IoT Central    |
-| C2D. Property. Read. Failure    | Niepowodzenie odczytywania właściwości urządzenia z IoT Central        | Liczba  | Łącznie             | Liczba wszystkich odczytów właściwości zakończonych niepowodzeniem inicjowanych z IoT Central        |
-| D2C. Property. Read. Success    | Pomyślne odczyty właściwości urządzenia z urządzeń        | Liczba  | Łącznie             | Liczba wszystkich pomyślnych odczytów właściwości zainicjowanych z urządzeń        |
-| D2C. Property. Read. Failure    | Niepowodzenie odczytywania właściwości urządzenia z urządzeń            | Liczba  | Łącznie             | Liczba wszystkich odczytów właściwości zakończonych niepowodzeniem zainicjowanych z urządzeń            |
-| C2D. Property. Update. Success  | Pomyślne aktualizacje właściwości urządzenia z IoT Central  | Liczba  | Łącznie             | Liczba wszystkich pomyślnych aktualizacji właściwości zainicjowanych z IoT Central  |
-| C2D. Property. Update. Failure  | Nieudane aktualizacje właściwości urządzenia z IoT Central      | Liczba  | Łącznie             | Liczba wszystkich aktualizacji właściwości zakończonych niepowodzeniem zainicjowanych z IoT Central      |
-| D2C. Property. Update. Success  | Pomyślne aktualizacje właściwości urządzenia z urządzeń      | Liczba  | Łącznie             | Liczba wszystkich pomyślnych aktualizacji właściwości zainicjowanych z urządzeń      |
-| D2C. Property. Update. Failure  | Nieudane aktualizacje właściwości urządzenia z urządzeń          | Liczba  | Łącznie             | Liczba wszystkich aktualizacji właściwości zakończonych niepowodzeniem zainicjowanych z urządzeń          |
+Listę metryk, które są obecnie dostępne dla IoT Central, można znaleźć w temacie [obsługiwane metryki z Azure monitor](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftiotcentraliotapps).
 
 ### <a name="metrics-and-invoices"></a>Metryki i faktury
 

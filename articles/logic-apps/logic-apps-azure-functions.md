@@ -6,11 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/01/2019
-ms.openlocfilehash: 6240b0813132f4a14dbe94b870774ebe7a0663aa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0ac35fde59479ffc13c17f8e63d6fccf65c3be27
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83714580"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87001710"
 ---
 # <a name="call-azure-functions-from-azure-logic-apps"></a>Wywoływanie funkcji platformy Azure z poziomu usługi Azure Logic Apps
 
@@ -126,7 +127,7 @@ Jednak zanim będzie można utworzyć dowolną funkcję platformy Azure, musisz 
 
    1. W polu **kod** Dodaj kod do szablonu funkcji, łącznie z odpowiedzią i ładunkiem, która ma zostać zwrócona do aplikacji logiki po zakończeniu działania funkcji. Gdy wszystko będzie gotowe, wybierz przycisk **Utwórz**.
 
-   Przykład:
+   Na przykład:
 
    ![Zdefiniuj funkcję](./media/logic-apps-azure-functions/add-code-function-definition.png)
 
@@ -256,7 +257,7 @@ Przed rozpoczęciem tego zadania Znajdź i Umieść te wartości w celu późnie
 
 * Identyfikator katalogu dla dzierżawy w Azure Active Directory (Azure AD)
 
-  Aby uzyskać identyfikator katalogu dzierżawy, możesz uruchomić [`Get-AzureAccount`](https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azureaccount) polecenie programu PowerShell. Lub w Azure Portal wykonaj następujące kroki:
+  Aby uzyskać identyfikator katalogu dzierżawy, możesz uruchomić [`Get-AzureAccount`](/powershell/module/servicemanagement/azure.service/get-azureaccount) polecenie programu PowerShell. Lub w Azure Portal wykonaj następujące kroki:
 
   1. W [Azure Portal](https://portal.azure.com)Znajdź i wybierz swoją aplikację funkcji.
 

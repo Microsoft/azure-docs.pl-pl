@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2019
 ms.author: juliako
-ms.openlocfilehash: 6b0f21c3fa7a9c827f7201f4b899a33ea77eaf08
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2337a7543f84d7eba5f565d875129cf22e8b27ed
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74888499"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87001217"
 ---
 # <a name="connect-to-media-services-v3-api---java"></a>Nawiązywanie połączenia z interfejsem API Media Services v3 — Java
 
@@ -33,8 +34,8 @@ W tym artykule Visual Studio Code jest używany do tworzenia przykładowej aplik
    - Apache Maven
    - Pakiet rozszerzeń języka Java
 - Upewnij się, że ustawisz `JAVA_HOME` `PATH` zmienne środowiskowe i.
-- [Utwórz konto Media Services](create-account-cli-how-to.md). Pamiętaj, aby zapamiętać nazwę grupy zasobów i nazwę konta Media Services.
-- Wykonaj kroki opisane w temacie [interfejsy API dostępu](access-api-cli-how-to.md) . Zapisz identyfikator subskrypcji, identyfikator aplikacji (identyfikator klienta), klucz uwierzytelniania (klucz tajny) i identyfikator dzierżawy, które są potrzebne w późniejszym kroku.
+- [Utwórz konto Media Services](./create-account-howto.md). Pamiętaj, aby zapamiętać nazwę grupy zasobów i nazwę konta Media Services.
+- Wykonaj kroki opisane w temacie [interfejsy API dostępu](./access-api-howto.md) . Zapisz identyfikator subskrypcji, identyfikator aplikacji (identyfikator klienta), klucz uwierzytelniania (klucz tajny) i identyfikator dzierżawy, które są potrzebne w późniejszym kroku.
 
 Przejrzyj również:
 
@@ -93,7 +94,7 @@ Po uruchomieniu polecenia `pom.xml` `App.java` są tworzone pliki, i.
    import com.microsoft.azure.management.mediaservices.v2018_07_01.implementation.MediaManager;
    import com.microsoft.rest.LogLevel;
    ```
-1. Aby utworzyć Active Directory poświadczenia, które należy wykonać, Dodaj następujący kod do metody Main klasy App i ustaw wartości uzyskanych z [interfejsów API dostępu](access-api-cli-how-to.md):
+1. Aby utworzyć Active Directory poświadczenia, które należy wykonać, Dodaj następujący kod do metody Main klasy App i ustaw wartości uzyskanych z [interfejsów API dostępu](./access-api-howto.md):
    
    ```java
    final String clientId = "00000000-0000-0000-0000-000000000000";
@@ -118,7 +119,7 @@ Po uruchomieniu polecenia `pom.xml` `App.java` są tworzone pliki, i.
    ```
 1. Uruchom aplikację.
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 - [Koncepcje Media Services](concepts-overview.md)
 - [Zestaw SDK Java](https://aka.ms/ams-v3-java-sdk)
@@ -129,4 +130,4 @@ Po uruchomieniu polecenia `pom.xml` `App.java` są tworzone pliki, i.
 
 Można teraz dołączać `import com.microsoft.azure.management.mediaservices.v2018_07_01.*;` i uruchamiać manipulowanie jednostkami.
 
-Aby uzyskać więcej przykładów kodu, zobacz repozytorium [przykładów zestawu SDK języka Java](https://docs.microsoft.com/samples/azure-samples/media-services-v3-java/azure-media-services-v3-samples-using-java/) .
+Aby uzyskać więcej przykładów kodu, zobacz repozytorium [przykładów zestawu SDK języka Java](/samples/azure-samples/media-services-v3-java/azure-media-services-v3-samples-using-java/) .

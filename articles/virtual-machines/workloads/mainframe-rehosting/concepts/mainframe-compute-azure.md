@@ -6,11 +6,12 @@ ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: multiple
-ms.openlocfilehash: 97f354d0a313d58c671366dd0e5f485504823e13
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9c5941ec88cd793961ad66245d0dc0b5e0d7772f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76288935"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86998939"
 ---
 # <a name="move-mainframe-compute-to-azure"></a>Przenoszenie obliczeń mainframe na platformę Azure
 
@@ -93,13 +94,13 @@ Podejście polega na migracji LPARs do poszczególnych maszyn wirtualnych. Nast�
 
 Jedną z zalet rozwiązań opartych na platformie Azure jest możliwość skalowania w poziomie. Skalowanie sprawia, że dla aplikacji jest dostępna niemal nieograniczona pojemność obliczeniowa. Platforma Azure obsługuje wiele metod skalowania mocy obliczeniowej:
 
-- **Równoważenie obciążenia w klastrze.** W tym scenariuszu aplikacja może użyć [modułu równoważenia obciążenia](/azure/load-balancer/load-balancer-overview) lub Menedżera zasobów, aby rozłożyć obciążenie między wieloma maszynami wirtualnymi w klastrze. Jeśli wymagana jest większa pojemność obliczeniowa, do klastra dodawane są dodatkowe maszyny wirtualne.
+- **Równoważenie obciążenia w klastrze.** W tym scenariuszu aplikacja może użyć [modułu równoważenia obciążenia](../../../../load-balancer/load-balancer-overview.md) lub Menedżera zasobów, aby rozłożyć obciążenie między wieloma maszynami wirtualnymi w klastrze. Jeśli wymagana jest większa pojemność obliczeniowa, do klastra dodawane są dodatkowe maszyny wirtualne.
 
-- **Zestawy skalowania maszyn wirtualnych.** W tym scenariuszu pierścieniowym aplikacja może skalować do dodatkowych [zasobów obliczeniowych](/azure/virtual-machine-scale-sets/overview) na podstawie użycia maszyny wirtualnej. Gdy zajdzie taka potrzeba, liczba maszyn wirtualnych w zestawie skalowania może również się nie pomniejszać, co zapewnia efektywne wykorzystanie mocy obliczeniowej.
+- **Zestawy skalowania maszyn wirtualnych.** W tym scenariuszu pierścieniowym aplikacja może skalować do dodatkowych [zasobów obliczeniowych](../../../../virtual-machine-scale-sets/overview.md) na podstawie użycia maszyny wirtualnej. Gdy zajdzie taka potrzeba, liczba maszyn wirtualnych w zestawie skalowania może również się nie pomniejszać, co zapewnia efektywne wykorzystanie mocy obliczeniowej.
 
-- **Skalowanie PaaS.** Oferty usługi Azure PaaS umożliwiają skalowanie zasobów obliczeniowych. Na przykład [platforma Azure Service Fabric](/azure/service-fabric/service-fabric-overview) przydziela zasoby obliczeniowe w celu osiągnięcia wzrostu liczby żądań.
+- **Skalowanie PaaS.** Oferty usługi Azure PaaS umożliwiają skalowanie zasobów obliczeniowych. Na przykład [platforma Azure Service Fabric](../../../../service-fabric/service-fabric-overview.md) przydziela zasoby obliczeniowe w celu osiągnięcia wzrostu liczby żądań.
 
-- **Klastry Kubernetes.** Aplikacje na platformie Azure mogą używać [klastrów Kubernetes](/azure/aks/concepts-clusters-workloads) dla usług obliczeniowych dla określonych zasobów. Azure Kubernetes Service (AKS) to usługa zarządzana, która organizuje węzły, pule i klastry Kubernetes na platformie Azure.
+- **Klastry Kubernetes.** Aplikacje na platformie Azure mogą używać [klastrów Kubernetes](../../../../aks/concepts-clusters-workloads.md) dla usług obliczeniowych dla określonych zasobów. Azure Kubernetes Service (AKS) to usługa zarządzana, która organizuje węzły, pule i klastry Kubernetes na platformie Azure.
 
 Aby wybrać odpowiednią metodę skalowania zasobów obliczeniowych, ważne jest, aby zrozumieć, w jaki sposób platforma Azure i Komputery mainframe różnią się. Klucz polega na tym, czy dane są współużytkowane przez zasoby obliczeniowe. Na platformie Azure dane (domyślnie) nie są zazwyczaj udostępniane przez wiele maszyn wirtualnych. Jeśli udostępnianie danych jest wymagane przez wiele maszyn wirtualnych w klastrze obliczeniowym skalowalnym w poziomie, udostępnione dane muszą znajdować się w zasobie, który obsługuje tę funkcję. W przypadku usługi Azure Data Sharing obejmuje magazyn, jak opisano w poniższej sekcji.
 
@@ -114,7 +115,7 @@ Każda warstwa może również zapewnić odpowiednie usługi odzyskiwania po awa
 ## <a name="next-steps"></a>Następne kroki
 
 - [Migracja komputera mainframe](/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/overview)
-- [Rehostowanie komputera mainframe na platformie Azure Virtual Machines](/azure/virtual-machines/workloads/mainframe-rehosting/overview)
+- [Rehostowanie komputera mainframe na platformie Azure Virtual Machines](../overview.md)
 - [Przenoszenie magazynu mainframe na platformę Azure](mainframe-storage-Azure.md)
 
 ### <a name="ibm-resources"></a>Zasoby IBM

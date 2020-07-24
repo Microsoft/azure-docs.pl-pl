@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 11/09/2018
 ms.author: juliako
-ms.openlocfilehash: 619d40ab56715b4444d8e5649c7fb3401b3f57ff
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 276cb3e6078fec915f266c5eb9aa557f92973dd7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "71937288"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87001166"
 ---
 # <a name="create-and-monitor-media-services-events-with-event-grid-using-the-azure-cli"></a>Tworzenie i monitorowanie zdarzeń Media Services za pomocą Event Grid przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -31,7 +31,7 @@ W tym artykule opisano korzystanie z interfejsu wiersza polecenia platformy Azur
 
     Obecnie nie wszystkie polecenia [interfejsu wiersza polecenia usługi Media Services w wersji 3](https://aka.ms/ams-v3-cli-ref) działają w usłudze Azure Cloud Shell. Zaleca się używanie interfejsu wiersza polecenia lokalnie.
 
-- [Utwórz konto Media Services](create-account-cli-how-to.md).
+- [Utwórz konto Media Services](./create-account-howto.md).
 
     Koniecznie zapamiętaj wartości, które zostały użyte jako nazwa grupy zasobów i nazwa konta usługi Media Services.
 
@@ -109,4 +109,3 @@ Wyświetl aplikację sieci Web ponownie i zwróć uwagę, że zdarzenie sprawdza
 ## <a name="next-steps"></a>Następne kroki
 
 [Przekazywanie, kodowanie i przesyłanie strumieniowe](stream-files-tutorial-with-api.md)
-

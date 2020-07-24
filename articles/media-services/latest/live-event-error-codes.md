@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/4/2020
 ms.author: inhenkel
-ms.openlocfilehash: e039a240465478e86ce816890219e5dfaa07dfbf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8f86c157652f6219afdf1df1da9b8ad385f059aa
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82791055"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87000955"
 ---
 # <a name="media-services-live-event-error-codes"></a>Kody błędów zdarzeń na żywo Media Services
 
@@ -26,7 +26,7 @@ W tabelach w tej sekcji wymieniono kody błędów [zdarzeń na żywo](live-event
 
 ## <a name="liveeventconnectionrejected"></a>LiveEventConnectionRejected
 
-Po zasubskrybowaniu zdarzeń [Event Grid](https://docs.microsoft.com/azure/event-grid/) dla zdarzenia na żywo może zostać wyświetlony jeden z następujących błędów ze zdarzenia [LiveEventConnectionRejected](media-services-event-schemas.md#liveeventconnectionrejected) .
+Po zasubskrybowaniu zdarzeń [Event Grid](../../event-grid/index.yml) dla zdarzenia na żywo może zostać wyświetlony jeden z następujących błędów ze zdarzenia [LiveEventConnectionRejected](media-services-event-schemas.md#liveeventconnectionrejected) .
 
 | Kod wyniku | Opis |
 | ----------- | ----------- |
@@ -54,7 +54,7 @@ Może zostać wyświetlony jeden z następujących błędów ze zdarzenia [LiveE
 |Nieznane kody błędów|Te kody błędów mogą należeć do zakresu od błędu pamięci do zduplikowanych wpisów w mapie skrótów.|
 
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 [Kody błędów punktu końcowego przesyłania strumieniowego (Źródło)](streaming-endpoint-error-codes.md)
 

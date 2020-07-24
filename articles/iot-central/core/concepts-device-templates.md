@@ -7,11 +7,12 @@ ms.date: 05/21/2020
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 2d5009086a24a54c9a2ec4734d3c4dcbebb04475
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7e90a4e9ec88e074ec7b30d78bc99cfa8bf39ba2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84418799"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87002356"
 ---
 # <a name="what-are-device-templates"></a>Co to są szablony urządzeń?
 
@@ -220,6 +221,6 @@ Dane telemetryczne, właściwości i polecenia, które można dodać do widoku, 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Jako deweloper urządzenia teraz wiesz już, jak korzystać z szablonów urządzeń, sugerowane następne kroki to zapoznanie się z [usługą Azure IoT Central](./concepts-get-connected.md) , aby dowiedzieć się więcej na temat rejestrowania urządzeń w usłudze IoT Central i sposobu, w jaki IoT Central zabezpiecza połączenia urządzeń.
+Jako deweloper dla urządzeń już wiesz już, jak można zapoznać się z szablonami urządzeń, sugerowane następne kroki polegają na odczytaniu danych [telemetrycznych, właściwości i poleceń](./concepts-telemetry-properties-commands.md) , aby dowiedzieć się więcej o tym, które urządzenia wymieniają IoT Central.
 
 Jako deweloper rozwiązań zalecanym następnym krokiem jest zapoznanie się z artykułem [Definiowanie nowego typu urządzenia IoT w aplikacji IoT Central platformy Azure](./howto-set-up-template.md) , aby dowiedzieć się więcej na temat tworzenia szablonu urządzenia.

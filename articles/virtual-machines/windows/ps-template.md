@@ -7,14 +7,14 @@ ms.topic: article
 ms.date: 03/22/2019
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cafe28be1d7c08c24b728de2476cb2210c6e5bd0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 58b8a22ff36f85f25bb6a4b22617029fe3858660
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82098326"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86998871"
 ---
-# <a name="create-a-windows-virtual-machine-from-a-resource-manager-template"></a>Tworzenie maszyny wirtualnej z systemem Windows na podstawie szablonu Menedżer zasobów
+# <a name="create-a-windows-virtual-machine-from-a-resource-manager-template"></a>Tworzenie maszyny wirtualnej z systemem Windows na podstawie szablonu usługi Resource Manager
 
 Dowiedz się, jak utworzyć maszynę wirtualną z systemem Windows przy użyciu szablonu Azure Resource Manager i Azure PowerShell z usługi Azure Cloud Shell. Szablon używany w tym artykule wdraża pojedynczą maszynę wirtualną z systemem Windows Server w nowej sieci wirtualnej z jedną podsiecią. Aby utworzyć maszynę wirtualną z systemem Linux, zobacz [How to Create a Virtual Machine Machine z szablonami Azure Resource Manager](../linux/create-ssh-secured-vm-from-template.md).
 
@@ -56,7 +56,7 @@ W poprzednim przykładzie określono szablon przechowywany w serwisie GitHub. Mo
 
 Oto kilka dodatkowych zasobów:
 
-- Aby dowiedzieć się, jak opracowywać szablony Menedżer zasobów, zobacz [dokumentację dotyczącą Azure Resource Manager](/azure/azure-resource-manager/).
+- Aby dowiedzieć się, jak opracowywać szablony Menedżer zasobów, zobacz [dokumentację dotyczącą Azure Resource Manager](../../azure-resource-manager/index.yml).
 - Aby wyświetlić schematy maszyn wirtualnych platformy Azure, zobacz [Dokumentacja szablonu platformy Azure](/azure/templates/microsoft.compute/allversions).
 - Aby zobaczyć więcej przykładów szablonów maszyn wirtualnych, zobacz [Szablony szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Compute&pageNumber=1&sort=Popular).
 
@@ -66,7 +66,7 @@ Ostatnie polecenie programu PowerShell z poprzedniego skryptu pokazuje nazwę ma
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Jeśli wystąpiły problemy ze wdrożeniem, można zapoznać się z tematem [Rozwiązywanie typowych błędów wdrażania platformy Azure przy użyciu Azure Resource Manager](../../resource-manager-common-deployment-errors.md).
+- Jeśli wystąpiły problemy ze wdrożeniem, można zapoznać się z tematem [Rozwiązywanie typowych błędów wdrażania platformy Azure przy użyciu Azure Resource Manager](../../azure-resource-manager/templates/common-deployment-errors.md).
 - Dowiedz się, jak utworzyć maszynę wirtualną i zarządzać nią w temacie [Tworzenie maszyn wirtualnych z systemem Windows i zarządzanie nimi za pomocą modułu Azure PowerShell](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 Aby dowiedzieć się więcej na temat tworzenia szablonów, Wyświetl składnię i właściwości JSON dla wdrożonych typów zasobów:

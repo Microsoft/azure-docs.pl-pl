@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: abf9610dd67c82af0da9a629245ea792bd5a3402
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 0e477b95f43c091bf17ec54d2fef9f971d5f6986
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170755"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87000164"
 ---
 # <a name="encrypting-your-content-with-storage-encryption"></a>Szyfrowanie zawartości przy użyciu szyfrowania magazynu 
 
 > [!NOTE]
-> Do wykonania kroków tego samouczka potrzebne jest konto platformy Azure. Aby uzyskać szczegółowe informacje, zobacz [Bezpłatna wersja próbna platformy Azure](https://azure.microsoft.com/pricing/free-trial/).   > żadne nowe funkcje lub funkcje nie są dodawane do Media Services V2. <br/>Zapoznaj się z najnowszą wersją [Media Services wersja 3](https://docs.microsoft.com/azure/media-services/latest/). Zobacz też [wskazówki dotyczące migracji od wersji 2 do V3](../latest/migrate-from-v2-to-v3.md)
+> Do wykonania kroków tego samouczka potrzebne jest konto platformy Azure. Aby uzyskać szczegółowe informacje, zobacz [Bezpłatna wersja próbna platformy Azure](https://azure.microsoft.com/pricing/free-trial/).   > żadne nowe funkcje lub funkcje nie są dodawane do Media Services V2. <br/>Zapoznaj się z najnowszą wersją [Media Services wersja 3](../latest/index.yml). Zobacz też [wskazówki dotyczące migracji od wersji 2 do V3](../latest/migrate-from-v2-to-v3.md)
 >   
 
 Zdecydowanie zaleca się zaszyfrowanie zawartości lokalnie przy użyciu szyfrowania AES-256 bitowego, a następnie przekazanie go do usługi Azure Storage, gdzie jest przechowywany w pamięci podręcznej.
@@ -38,7 +38,7 @@ Ten artykuł zawiera omówienie szyfrowania magazynu usługi AMS i pokazuje, jak
 * Połącz klucz zawartości z zasobem.  
 * Ustaw parametry związane z szyfrowaniem w jednostkach AssetFile.
 
-## <a name="considerations"></a>Kwestie do rozważenia 
+## <a name="considerations"></a>Zagadnienia do rozważenia 
 
 Jeśli chcesz dostarczyć zasób zaszyfrowanego magazynu, musisz skonfigurować zasady dostarczania zasobów. Zanim będzie można przesłać strumieniowo zasób, serwer przesyłania strumieniowego usunie szyfrowanie magazynu i strumieniuje zawartość przy użyciu określonych zasad dostarczania. Aby uzyskać więcej informacji, zobacz [Konfigurowanie zasad dostarczania elementów zawartości](media-services-rest-configure-asset-delivery-policy.md).
 
@@ -49,8 +49,8 @@ Podczas uzyskiwania dostępu do jednostek w Media Services należy ustawić okre
 |Opcja szyfrowania|Opis|Media Services v2|Media Services v3|
 |---|---|---|---|
 |Media Services szyfrowanie magazynu|Szyfrowanie AES-256, klucz zarządzany przez Media Services|Obsługiwane<sup>(1)</sup>|Nieobsługiwane<sup>(2)</sup>|
-|[szyfrowanie usługi Storage danych magazynowanych](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)|Szyfrowanie po stronie serwera oferowane przez usługę Azure Storage, klucz zarządzany przez platformę Azure lub przez klienta|Obsługiwane|Obsługiwane|
-|[Szyfrowanie po stronie klienta magazynu](https://docs.microsoft.com/azure/storage/common/storage-client-side-encryption)|Szyfrowanie po stronie klienta oferowane przez usługę Azure Storage, klucz zarządzany przez klienta w Key Vault|Nieobsługiwane|Nieobsługiwane|
+|[szyfrowanie usługi Storage danych magazynowanych](../../storage/common/storage-service-encryption.md)|Szyfrowanie po stronie serwera oferowane przez usługę Azure Storage, klucz zarządzany przez platformę Azure lub przez klienta|Obsługiwane|Obsługiwane|
+|[Szyfrowanie po stronie klienta magazynu](../../storage/common/storage-client-side-encryption.md)|Szyfrowanie po stronie klienta oferowane przez usługę Azure Storage, klucz zarządzany przez klienta w Key Vault|Nieobsługiwane|Nieobsługiwane|
 
 <sup>1</sup> usługa Media Services obsługuje obsługę zawartości w trybie Wyczyść/bez żadnej formy szyfrowania, dlatego nie jest to zalecane.
 
@@ -75,7 +75,7 @@ Poniżej znajdują się ogólne czynności związane z generowaniem kluczy zawar
 1. W przypadku szyfrowania magazynu należy losowo wygenerować klucz 32-bajtowy AES. 
    
     Klucz 32-bajtowy AES jest kluczem zawartości dla zasobu, co oznacza, że wszystkie pliki skojarzone z tym zasobem muszą używać tego samego klucza zawartości podczas odszyfrowywania. 
-2. Wywołaj metody [GetProtectionKeyId](https://docs.microsoft.com/rest/api/media/operations/rest-api-functions#getprotectionkeyid) i [GetProtectionKey](https://msdn.microsoft.com/library/azure/jj683097.aspx#getprotectionkey) w celu uzyskania poprawnego certyfikatu X. 509, który musi być używany do szyfrowania klucza zawartości.
+2. Wywołaj metody [GetProtectionKeyId](/rest/api/media/operations/rest-api-functions#getprotectionkeyid) i [GetProtectionKey](/rest/api/media/operations/rest-api-functions#getprotectionkey) w celu uzyskania poprawnego certyfikatu X. 509, który musi być używany do szyfrowania klucza zawartości.
 3. Zaszyfruj klucz zawartości przy użyciu klucza publicznego certyfikatu X. 509. 
    
    Media Services .NET SDK używa RSA z OAEP podczas szyfrowania.  W [funkcji EncryptSymmetricKeyData](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs)można zobaczyć przykład platformy .NET.
@@ -115,7 +115,7 @@ Poniżej znajdują się ogólne czynności związane z generowaniem kluczy zawar
 
     Właściwość treści żądania    | Opis
     ---|---
-    Identyfikator | Identyfikator ContentKey jest generowany w następującym formacie: "NB: dzieciak: UUID: \<NEW GUID> ".
+    Id | Identyfikator ContentKey jest generowany w następującym formacie: "NB: dzieciak: UUID: \<NEW GUID> ".
     ContentKeyType | Typ klucza zawartości jest liczbą całkowitą, która definiuje klucz. W przypadku formatu szyfrowania magazynu wartość jest równa 1.
     EncryptedContentKey | Tworzymy nową wartość klucza zawartości, która jest 256-bitową (32 bajtów). Klucz jest szyfrowany przy użyciu certyfikatu X. 509 szyfrowania magazynu pobranego z Microsoft Azure Media Services przez wykonanie żądania HTTP GET dla metod GetProtectionKeyId i GetProtectionKey. Na przykład, zobacz następujący kod platformy .NET: Metoda **EncryptSymmetricKeyData** zdefiniowana [tutaj](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
     ProtectionKeyId | Jest to identyfikator klucza ochrony dla certyfikatu X. 509 szyfrowania magazynu, który został użyty do zaszyfrowania naszego klucza zawartości.
@@ -203,7 +203,7 @@ Jedną z wartości, które należy ustawić podczas tworzenia klucza zawartości
 
 Poniższy przykład pokazuje, jak utworzyć **ContentKey** z zestawem **ContentKeyType** dla szyfrowania magazynu ("1") i **ProtectionKeyType** ustawioną na "0", aby wskazać, że identyfikator klucza ochrony jest odciskiem palca certyfikatu X. 509.  
 
-Żądanie
+Request
 
 ```console
 POST https://media.windows.net/api/ContentKeys HTTP/1.1
@@ -331,7 +331,7 @@ HTTP/1.1 204 No Content
 ```
 
 ## <a name="create-an-assetfile"></a>Utwórz AssetFile
-Jednostka [AssetFile](https://docs.microsoft.com/rest/api/media/operations/assetfile) reprezentuje plik wideo lub audio, który jest przechowywany w kontenerze obiektów BLOB. Plik zasobów jest zawsze skojarzony z zasobem, a zasób może zawierać jeden lub wiele plików zasobów. Zadanie kodera Media Services nie powiedzie się, jeśli obiekt pliku zasobów nie jest skojarzony z plikiem cyfrowym w kontenerze obiektów BLOB.
+Jednostka [AssetFile](/rest/api/media/operations/assetfile) reprezentuje plik wideo lub audio, który jest przechowywany w kontenerze obiektów BLOB. Plik zasobów jest zawsze skojarzony z zasobem, a zasób może zawierać jeden lub wiele plików zasobów. Zadanie kodera Media Services nie powiedzie się, jeśli obiekt pliku zasobów nie jest skojarzony z plikiem cyfrowym w kontenerze obiektów BLOB.
 
 Wystąpienie **AssetFile** i rzeczywisty plik multimedialny są dwa odrębne obiekty. Wystąpienie AssetFile zawiera metadane dotyczące pliku nośnika, natomiast plik multimedialny zawiera rzeczywistą zawartość multimedialną.
 

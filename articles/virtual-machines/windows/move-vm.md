@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 07/03/2019
 ms.author: cynthn
-ms.openlocfilehash: 6e156af2d4805ba310443a2acf6cc47d06a735eb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1f919a4af85a15bbe80d7176c316100c3bad634a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84762330"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86998922"
 ---
 # <a name="move-a-windows-vm-to-another-azure-subscription-or-resource-group"></a>Przenoszenie maszyny wirtualnej z systemem Windows do innej subskrypcji platformy Azure lub grupy zasobów
 W tym artykule pokazano, jak przenieść maszynę wirtualną z systemem Windows między grupami zasobów lub subskrypcjami. Przenoszenie między subskrypcjami może być przydatne, jeśli pierwotnie utworzono maszynę wirtualną w prywatnej subskrypcji, a teraz chcesz przenieść ją do subskrypcji firmy, aby kontynuować pracę. Nie jest konieczne zatrzymanie maszyny wirtualnej w celu przeniesienia jej i kontynuowanie jej działania podczas przenoszenia.
@@ -26,13 +26,13 @@ W tym artykule pokazano, jak przenieść maszynę wirtualną z systemem Windows 
 
 ## <a name="use-powershell-to-move-a-vm"></a>Przenoszenie maszyny wirtualnej przy użyciu programu PowerShell
 
-Aby przenieść maszynę wirtualną do innej grupy zasobów, należy upewnić się, że wszystkie zasoby zależne są również przeniesione. Aby uzyskać listę z IDENTYFIKATORem zasobu dla każdego z tych zasobów, należy użyć polecenia cmdlet [Get-AzResource](https://docs.microsoft.com/powershell/module/az.resources/get-azresource) .
+Aby przenieść maszynę wirtualną do innej grupy zasobów, należy upewnić się, że wszystkie zasoby zależne są również przeniesione. Aby uzyskać listę z IDENTYFIKATORem zasobu dla każdego z tych zasobów, należy użyć polecenia cmdlet [Get-AzResource](/powershell/module/az.resources/get-azresource) .
 
 ```azurepowershell-interactive
  Get-AzResource -ResourceGroupName myResourceGroup | Format-table -wrap -Property ResourceId
 ```
 
-Możesz użyć danych wyjściowych poprzedniego polecenia, aby utworzyć listę rozdzielonych przecinkami identyfikatorów zasobów do [przenoszenia-AzResource](https://docs.microsoft.com/powershell/module/az.resources/move-azresource) , aby przenieść każdy zasób do miejsca docelowego.
+Możesz użyć danych wyjściowych poprzedniego polecenia, aby utworzyć listę rozdzielonych przecinkami identyfikatorów zasobów do [przenoszenia-AzResource](/powershell/module/az.resources/move-azresource) , aby przenieść każdy zasób do miejsca docelowego.
 
 ```azurepowershell-interactive
 Move-AzResource -DestinationResourceGroupName "myDestinationResourceGroup" `

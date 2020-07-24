@@ -14,17 +14,17 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 3adbb9471cc501861b65efd0321b3b4f72b07aea
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: e5978cff8da4697cf130e499c8d9273d75118963
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86057861"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87000622"
 ---
 # <a name="get-started-with-the-java-client-sdk-for-azure-media-services"></a>Rozpoczynanie korzystania z zestawu SDK klienta Java dla usług Azure Media Services  
 
 > [!NOTE]
-> Do usługi Media Services w wersji 2 nie są już dodawane żadne nowe funkcje. <br/>Zapoznaj się z najnowszą wersją [Media Services wersja 3](https://docs.microsoft.com/azure/media-services/latest/). Zobacz też [wskazówki dotyczące migracji od wersji 2 do V3](../latest/migrate-from-v2-to-v3.md)
+> Do usługi Media Services w wersji 2 nie są już dodawane żadne nowe funkcje. <br/>Zapoznaj się z najnowszą wersją [Media Services wersja 3](../latest/index.yml). Zobacz też [wskazówki dotyczące migracji od wersji 2 do V3](../latest/migrate-from-v2-to-v3.md)
 
 W tym samouczku przedstawiono kolejne kroki wdrażania podstawowej usługi dostarczania zawartości wideo za pomocą usług Azure Media Services przy użyciu zestawu SDK klienta Java.
 
@@ -65,7 +65,7 @@ Kod umożliwia nawiązanie połączenia z interfejsem API usług Azure Media Ser
 * `clientKey`: klucz klienta aplikacji usługi Azure AD
 * `restApiEndpoint`: punkt końcowy interfejsu API REST konta usług Azure Media Services
 
-Możesz utworzyć aplikację usługi Azure AD i uzyskać powyższe wartości konfiguracji z witryny Azure Portal. Aby uzyskać więcej informacji, zobacz sekcję **Uwierzytelnianie jednostki usługi** w artykule [Wprowadzenie do uwierzytelniania w usłudze Azure AD przy użyciu witryny Azure Portal](https://docs.microsoft.com/azure/media-services/media-services-portal-get-started-with-aad).
+Możesz utworzyć aplikację usługi Azure AD i uzyskać powyższe wartości konfiguracji z witryny Azure Portal. Aby uzyskać więcej informacji, zobacz sekcję **Uwierzytelnianie jednostki usługi** w artykule [Wprowadzenie do uwierzytelniania w usłudze Azure AD przy użyciu witryny Azure Portal](./media-services-portal-get-started-with-aad.md).
 
 Kod korzysta również z lokalnie przechowywanego pliku wideo. Należy edytować kod i podać swój własny plik lokalny do przekazania.
 
@@ -320,6 +320,5 @@ Aby uzyskać dokumentację Javadoc usług Media Services, zobacz [Dokumentacja b
 
 [Azure Media Services SDK Maven Package]: https://mvnrepository.com/artifact/com.microsoft.azure/azure-media/latest
 [Azure Java Developer Center]: https://azure.microsoft.com/develop/java/
-[Azure for Java developers]: https://docs.microsoft.com/java/azure/
-[Media Services Client Development]: https://msdn.microsoft.com/library/windowsazure/dn223283.aspx
-
+[Azure for Java developers]: /java/azure/
+[Media Services Client Development]: /previous-versions/azure/dn223283(v=azure.100)

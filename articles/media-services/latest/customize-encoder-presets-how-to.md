@@ -12,18 +12,18 @@ ms.topic: article
 ms.date: 05/03/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 2bcd5f0e6229c4130dddb48c1a20de1c711c6fcf
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 28525c198bb6863e942f5ff33d17226769efdc21
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519885"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87001149"
 ---
 # <a name="how-to-encode-with-a-custom-transform---net"></a>Jak kodować przy użyciu przekształcenia niestandardowego — .NET
 
 Przy kodowaniu przy użyciu Azure Media Services można szybko rozpocząć pracę z jednym z zalecanych wbudowanych ustawień predefiniowanych na podstawie najlepszych rozwiązań branżowych, jak pokazano w samouczku [pliki przesyłania strumieniowego](stream-files-tutorial-with-api.md) . Możesz również utworzyć niestandardowe ustawienie wstępne, aby określić wymagania dotyczące określonego scenariusza lub urządzenia.
 
-## <a name="considerations"></a>Kwestie do rozważenia
+## <a name="considerations"></a>Zagadnienia do rozważenia
 
 Podczas tworzenia niestandardowych ustawień wstępnych są stosowane następujące zagadnienia:
 
@@ -32,7 +32,7 @@ Podczas tworzenia niestandardowych ustawień wstępnych są stosowane następuj�
 
 ## <a name="prerequisites"></a>Wymagania wstępne 
 
-[Tworzenie konta usługi Media Services](create-account-cli-how-to.md)
+[Tworzenie konta usługi Media Services](./create-account-howto.md)
 
 ## <a name="download-the-sample"></a>Pobieranie przykładu
 
@@ -46,9 +46,9 @@ Przykład niestandardowego ustawienia wstępnego znajduje się w folderze [Encod
 
 ## <a name="create-a-transform-with-a-custom-preset"></a>Tworzenie przekształcenia z niestandardowym ustawieniem wstępnym 
 
-Podczas tworzenia nowej [transformacji](https://docs.microsoft.com/rest/api/media/transforms)należy określić, co chcesz utworzyć jako dane wyjściowe. Wymagany parametr to obiekt [TransformOutput](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#transformoutput), jak pokazano w poniższym kodzie. Każdy obiekt **TransformOutput** zawiera element **Preset**. **Ustawienie wstępne** zawiera instrukcje krok po kroku dotyczące operacji przetwarzania wideo i/lub audio, które mają być używane do generowania żądanych **TransformOutput**. Poniższy **TransformOutput** tworzy niestandardowe ustawienia kodera-dekoder i wyjście warstwy.
+Podczas tworzenia nowej [transformacji](/rest/api/media/transforms)należy określić, co chcesz utworzyć jako dane wyjściowe. Wymagany parametr to obiekt [TransformOutput](/rest/api/media/transforms/createorupdate#transformoutput), jak pokazano w poniższym kodzie. Każdy obiekt **TransformOutput** zawiera element **Preset**. **Ustawienie wstępne** zawiera instrukcje krok po kroku dotyczące operacji przetwarzania wideo i/lub audio, które mają być używane do generowania żądanych **TransformOutput**. Poniższy **TransformOutput** tworzy niestandardowe ustawienia kodera-dekoder i wyjście warstwy.
 
-Podczas tworzenia obiektu [Transform](https://docs.microsoft.com/rest/api/media/transforms) należy najpierw sprawdzić, czy taki obiekt już istnieje, używając metody **Get**, tak jak przedstawiono w poniższym kodzie. W Media Services v3 metody **Get** na jednostkach zwracają **wartość null** , jeśli jednostka nie istnieje (sprawdzanie bez uwzględniania wielkości liter w nazwie).
+Podczas tworzenia obiektu [Transform](/rest/api/media/transforms) należy najpierw sprawdzić, czy taki obiekt już istnieje, używając metody **Get**, tak jak przedstawiono w poniższym kodzie. W Media Services v3 metody **Get** na jednostkach zwracają **wartość null** , jeśli jednostka nie istnieje (sprawdzanie bez uwzględniania wielkości liter w nazwie).
 
 ### <a name="example"></a>Przykład
 

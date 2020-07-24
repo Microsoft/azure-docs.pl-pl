@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 258d91e763bd8e1507492109f9c01010f95b94c0
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 45a8a2e4df35b0ddbf3fe3e42308a3361e1c912e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170840"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87000146"
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-rest"></a>Wprowadzenie do dostarczania zawartości na żądanie przy użyciu usługi REST  
 
 > [!NOTE]
-> Do usługi Media Services w wersji 2 nie są już dodawane żadne nowe funkcje. <br/>Zapoznaj się z najnowszą wersją [Media Services wersja 3](https://docs.microsoft.com/azure/media-services/latest/). Zobacz też [wskazówki dotyczące migracji od wersji 2 do V3](../latest/migrate-from-v2-to-v3.md)
+> Do usługi Media Services w wersji 2 nie są już dodawane żadne nowe funkcje. <br/>Zapoznaj się z najnowszą wersją [Media Services wersja 3](../latest/index.yml). Zobacz też [wskazówki dotyczące migracji od wersji 2 do V3](../latest/migrate-from-v2-to-v3.md)
 
 Ten przewodnik Szybki Start przeprowadzi Cię przez kroki wdrażania aplikacji do dostarczania zawartości wideo na żądanie (VoD) przy użyciu interfejsów API REST usługi Azure Media Services (AMS).
 
@@ -56,7 +56,7 @@ W tym przewodniku szybki start przedstawiono następujące zadania.
 >[!NOTE]
 >Limit różnych zasad usługi AMS wynosi 1 000 000 (na przykład zasad lokalizatorów lub ContentKeyAuthorizationPolicy). Użyj tego samego identyfikatora zasad, jeśli zawsze używasz tych samych dni/uprawnień dostępu, na przykład zasad dla lokalizatorów, które mają być nadal wykonywane przez długi czas (zasady bez przekazywania). Aby uzyskać więcej informacji, zobacz [ten](media-services-dotnet-manage-entities.md#limit-access-policies) artykuł.
 
-Aby uzyskać szczegółowe informacje na temat jednostek REST usługi AMS używanych w tym artykule, zobacz [Azure Media Services Dokumentacja interfejsu API REST](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference). Zobacz też temat [Azure Media Services pojęcia](media-services-concepts.md).
+Aby uzyskać szczegółowe informacje na temat jednostek REST usługi AMS używanych w tym artykule, zobacz [Azure Media Services Dokumentacja interfejsu API REST](/rest/api/media/operations/azure-media-services-rest-api-reference). Zobacz też temat [Azure Media Services pojęcia](media-services-concepts.md).
 
 >[!NOTE]
 >Podczas uzyskiwania dostępu do jednostek w Media Services należy ustawić określone pola nagłówka i wartości w żądaniach HTTP. Aby uzyskać więcej informacji, zobacz [konfigurowanie Media Services tworzenia interfejsu API REST](media-services-rest-how-to-use.md).
@@ -153,7 +153,7 @@ Date: Sun, 18 Jan 2015 22:06:40 GMT
 ```
 
 ### <a name="create-an-assetfile"></a>Utwórz AssetFile
-Jednostka [AssetFile](https://docs.microsoft.com/rest/api/media/operations/assetfile) reprezentuje plik wideo lub audio, który jest przechowywany w kontenerze obiektów BLOB. Plik zasobów jest zawsze skojarzony z zasobem, a element zawartości może zawierać jeden lub wiele AssetFiles. Zadanie kodera Media Services nie powiedzie się, jeśli obiekt pliku zasobów nie jest skojarzony z plikiem cyfrowym w kontenerze obiektów BLOB.
+Jednostka [AssetFile](/rest/api/media/operations/assetfile) reprezentuje plik wideo lub audio, który jest przechowywany w kontenerze obiektów BLOB. Plik zasobów jest zawsze skojarzony z zasobem, a element zawartości może zawierać jeden lub wiele AssetFiles. Zadanie kodera Media Services nie powiedzie się, jeśli obiekt pliku zasobów nie jest skojarzony z plikiem cyfrowym w kontenerze obiektów BLOB.
 
 Po przekazaniu pliku multimediów cyfrowych do kontenera obiektów BLOB używasz żądania **scalania** http, aby zaktualizować AssetFile za pomocą informacji o pliku multimedialnym (jak pokazano w dalszej części tematu).
 
@@ -217,7 +217,7 @@ Date: Mon, 19 Jan 2015 00:34:07 GMT
 ```
 
 ### <a name="creating-the-accesspolicy-with-write-permission"></a>Tworzenie AccessPolicy z uprawnieniami do zapisu
-Przed przekazaniem plików do usługi BLOB Storage Ustaw uprawnienia dostępu do zapisu w elemencie zawartości. W tym celu Opublikuj żądanie HTTP w zestawie jednostek AccessPolicies. Zdefiniuj wartość DurationInMinutes podczas tworzenia lub w odpowiedzi zostanie wyświetlony komunikat o błędzie wewnętrznego serwera 500. Aby uzyskać więcej informacji na temat AccessPolicies, zobacz [AccessPolicy](https://docs.microsoft.com/rest/api/media/operations/accesspolicy).
+Przed przekazaniem plików do usługi BLOB Storage Ustaw uprawnienia dostępu do zapisu w elemencie zawartości. W tym celu Opublikuj żądanie HTTP w zestawie jednostek AccessPolicies. Zdefiniuj wartość DurationInMinutes podczas tworzenia lub w odpowiedzi zostanie wyświetlony komunikat o błędzie wewnętrznego serwera 500. Aby uzyskać więcej informacji na temat AccessPolicies, zobacz [AccessPolicy](/rest/api/media/operations/accesspolicy).
 
 Poniższy przykład pokazuje, jak utworzyć AccessPolicy:
 
@@ -270,7 +270,7 @@ Date: Sun, 18 Jan 2015 22:18:06 GMT
 
 ### <a name="get-the-upload-url"></a>Pobierz adres URL przekazywania
 
-Aby otrzymać rzeczywisty adres URL przekazywania, Utwórz lokalizator sygnatury dostępu współdzielonego. Lokalizatory definiują czas rozpoczęcia i typ punktu końcowego połączenia dla klientów, którzy chcą uzyskać dostęp do plików w elemencie zawartości. Można utworzyć wiele jednostek lokalizatora dla danej AccessPolicy i pary zasobów, aby obsługiwać różne żądania klientów i ich potrzeby. Każdy z tych lokalizatorów używa wartości StartTime oraz wartości DurationInMinutes AccessPolicy, aby określić długość czasu, przez jaki można użyć adresu URL. Aby uzyskać więcej informacji, zobacz [lokalizator](https://docs.microsoft.com/rest/api/media/operations/locator).
+Aby otrzymać rzeczywisty adres URL przekazywania, Utwórz lokalizator sygnatury dostępu współdzielonego. Lokalizatory definiują czas rozpoczęcia i typ punktu końcowego połączenia dla klientów, którzy chcą uzyskać dostęp do plików w elemencie zawartości. Można utworzyć wiele jednostek lokalizatora dla danej AccessPolicy i pary zasobów, aby obsługiwać różne żądania klientów i ich potrzeby. Każdy z tych lokalizatorów używa wartości StartTime oraz wartości DurationInMinutes AccessPolicy, aby określić długość czasu, przez jaki można użyć adresu URL. Aby uzyskać więcej informacji, zobacz [lokalizator](/rest/api/media/operations/locator).
 
 Adres URL sygnatury dostępu współdzielonego ma następujący format:
 
@@ -280,7 +280,7 @@ Zagadnienia do rozważenia:
 
 * W tym samym czasie nie można mieć więcej niż pięciu unikatowych lokalizatorów skojarzonych z danym elementem zawartości. 
 * Jeśli zachodzi potrzeba natychmiastowego przekazania plików, należy ustawić wartość StartTime na pięć minut przed bieżącą godziną. Wynika to z faktu, że nastąpi przechylenie zegara między komputerem klienckim a Media Services. Ponadto wartość StartTime musi mieć następujący format: RRRR-MM-DDTgg: mm: SSS (na przykład "2014-05-23T17:53:50Z").    
-* Po utworzeniu lokalizatora do użycia może wystąpić 30-40 sekund. Ten problem dotyczy zarówno [adresów URL sygnatury dostępu współdzielonego](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) , jak i lokalizatorów pochodzenia.
+* Po utworzeniu lokalizatora do użycia może wystąpić 30-40 sekund. Ten problem dotyczy zarówno [adresów URL sygnatury dostępu współdzielonego](../../storage/common/storage-sas-overview.md) , jak i lokalizatorów pochodzenia.
 
 Poniższy przykład pokazuje, jak utworzyć lokalizator adresów URL sygnatury dostępu współdzielonego, jak określono przez Właściwość Type w treści żądania ("1" dla lokalizatora sygnatury dostępu współdzielonego i "2" dla lokalizatora źródła na żądanie). Zwrócona Właściwość **Path** zawiera adres URL, którego należy użyć do przekazania pliku.
 
@@ -348,10 +348,10 @@ Po skonfigurowaniu AccessPolicy i lokalizatora rzeczywisty plik zostanie przekaz
 >
 >
 
-Aby uzyskać więcej informacji na temat pracy z obiektami BLOB usługi Azure Storage, zobacz [API REST usługa BLOB Service](https://docs.microsoft.com/rest/api/storageservices/Blob-Service-REST-API).
+Aby uzyskać więcej informacji na temat pracy z obiektami BLOB usługi Azure Storage, zobacz [API REST usługa BLOB Service](/rest/api/storageservices/blob-service-rest-api).
 
 ### <a name="update-the-assetfile"></a>Aktualizowanie AssetFile
-Teraz, gdy plik został przekazany, zaktualizuj informacje o rozmiarze FileAsset (i innych). Przykład:
+Teraz, gdy plik został przekazany, zaktualizuj informacje o rozmiarze FileAsset (i innych). Na przykład:
 
 ```console
 MERGE https://wamsbayclus001rest-hs.cloudapp.net/api/Files('nb%3Acid%3AUUID%3Af13a0137-0a62-9d4c-b3b9-ca944b5142c5') HTTP/1.1
@@ -429,7 +429,7 @@ HTTP/1.1 204 No Content
 
 ## <a name="encode-the-source-file-into-a-set-of-adaptive-bitrate-mp4-files"></a><a id="encode"></a>Kodowanie pliku źródłowego do zestawu plików MP4 z adaptacyjną szybkością transmisji bitów
 
-Po pozyskaniu zasobów do Media Services, można zakodować, transmuxed, znak wodny i tak dalej, przed dostarczeniem ich do klientów. Te działania są zaplanowane i uruchamiane w wielu wystąpieniach ról w tle, aby zapewnić wysoką wydajność oraz dostępność. Te działania są nazywane zadaniami, a każde zadanie składa się z niepodzielnych zadań, które wykonują rzeczywistą pracę w pliku zasobów (Aby uzyskać więcej informacji, zobacz [zadania](https://docs.microsoft.com/rest/api/media/operations/job), opisy [zadań](https://docs.microsoft.com/rest/api/media/operations/task) ).
+Po pozyskaniu zasobów do Media Services, można zakodować, transmuxed, znak wodny i tak dalej, przed dostarczeniem ich do klientów. Te działania są zaplanowane i uruchamiane w wielu wystąpieniach ról w tle, aby zapewnić wysoką wydajność oraz dostępność. Te działania są nazywane zadaniami, a każde zadanie składa się z niepodzielnych zadań, które wykonują rzeczywistą pracę w pliku zasobów (Aby uzyskać więcej informacji, zobacz [zadania](/rest/api/media/operations/job), opisy [zadań](/rest/api/media/operations/task) ).
 
 Jak wspomniano wcześniej, podczas pracy z Azure Media Services jednym z najczęściej spotykanych scenariuszy jest dostarczanie do klientów przesyłania strumieniowego z adaptacyjną szybkością transmisji bitów. Media Services może dynamicznie spakować zestaw plików MP4 z adaptacyjną szybkością transmisji bitów do jednego z następujących formatów: HTTP Live Streaming (HLS), Smooth Streaming, KRESKa MPEG.
 
@@ -487,7 +487,7 @@ Date: Mon, 19 Jan 2015 07:54:09 GMT
 ### <a name="create-a-job"></a>Tworzenie zadania
 Każde zadanie może mieć jedno lub więcej zadań w zależności od typu przetwarzania, które chcesz wykonać. Za pomocą interfejsu API REST można tworzyć zadania i powiązane z nimi zadania na jeden z dwóch sposobów: zadania mogą być definiowane w tekście przy użyciu właściwości Nawigacja zadania w jednostkach zadania lub przez przetwarzanie wsadowe OData. Zestaw SDK Media Services używa przetwarzania wsadowego. Jednak w celu odczytywania przykładów kodu w tym artykule zadania są zdefiniowane w tekście. Aby uzyskać informacje na temat przetwarzania wsadowego, zobacz artykuł [Przetwarzanie wsadowe protokołu Open Data Protocol (OData)](https://www.odata.org/documentation/odata-version-3-0/batch-processing/).
 
-Poniższy przykład pokazuje, jak utworzyć i ogłosić zadanie przy użyciu jednego zestawu zadań do kodowania wideo z określoną rozdzielczością i jakością. Poniższa sekcja dokumentacji zawiera listę wszystkich [ustawień predefiniowanych zadań](https://msdn.microsoft.com/library/mt269960) obsługiwanych przez procesor Media Encoder Standard.  
+Poniższy przykład pokazuje, jak utworzyć i ogłosić zadanie przy użyciu jednego zestawu zadań do kodowania wideo z określoną rozdzielczością i jakością. Poniższa sekcja dokumentacji zawiera listę wszystkich [ustawień predefiniowanych zadań](/azure/media-services/previous/media-services-mes-presets-overview) obsługiwanych przez procesor Media Encoder Standard.  
 
 **Żądanie HTTP**
 
@@ -768,7 +768,7 @@ W tej sekcji przedstawiono sposób wykonywania następujących zadań niezbędny
 * Tworzenie adresu URL źródła dla zawartości przesyłania strumieniowego
 
 ### <a name="creating-the-accesspolicy-with-read-permission"></a>Tworzenie AccessPolicy z uprawnieniami do odczytu
-Przed pobraniem lub przesłaniem strumieniowym zawartości multimedialnej należy najpierw zdefiniować AccessPolicy z uprawnieniami do odczytu i utworzyć odpowiednią jednostkę lokalizatora, która określa typ mechanizmu dostarczania, który ma zostać włączony dla klientów. Aby uzyskać więcej informacji na temat dostępnych właściwości, zobacz [AccessPolicy Entity Properties](https://docs.microsoft.com/rest/api/media/operations/accesspolicy#accesspolicy_properties).
+Przed pobraniem lub przesłaniem strumieniowym zawartości multimedialnej należy najpierw zdefiniować AccessPolicy z uprawnieniami do odczytu i utworzyć odpowiednią jednostkę lokalizatora, która określa typ mechanizmu dostarczania, który ma zostać włączony dla klientów. Aby uzyskać więcej informacji na temat dostępnych właściwości, zobacz [AccessPolicy Entity Properties](/rest/api/media/operations/accesspolicy#accesspolicy_properties).
 
 Poniższy przykład pokazuje, jak określić AccessPolicy dla uprawnień do odczytu dla danego elementu zawartości.
 
@@ -869,9 +869,9 @@ Po skonfigurowaniu usługi AccessPolicy i lokalizatora można pobierać pliki pr
 > [!NOTE]
 > Należy dodać nazwę pliku, który ma zostać pobrany do wartości **ścieżki** lokalizatora otrzymanej w poprzedniej sekcji. Na przykład `https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4` ? . . .
 
-Aby uzyskać więcej informacji na temat pracy z obiektami BLOB usługi Azure Storage, zobacz [API REST usługa BLOB Service](https://docs.microsoft.com/rest/api/storageservices/Blob-Service-REST-API).
+Aby uzyskać więcej informacji na temat pracy z obiektami BLOB usługi Azure Storage, zobacz [API REST usługa BLOB Service](/rest/api/storageservices/blob-service-rest-api).
 
-W wyniku zadania kodowania, które zostało wykonane wcześniej (kodowanie w ramach adaptacyjnego zestawu MP4), istnieje wiele plików MP4, które można pobrać stopniowo. Przykład:    
+W wyniku zadania kodowania, które zostało wykonane wcześniej (kodowanie w ramach adaptacyjnego zestawu MP4), istnieje wiele plików MP4, które można pobrać stopniowo. Na przykład:    
 
 * `https://storagetestaccount001.blob.core.windows.net/asset-38058602-a4b8-4b33-b9f0-6880dc1490ea/BigBuckBunny_H264_650kbps_AAC_und_ch2_96kbps.mp4?sv=2012-02-12&sr=c&si=166d5154-b801-410b-a226-ee2f8eac1929&sig=P2iNZJAvAWpp%2Bj9yV6TQjoz5DIIaj7ve8ARynmEM6Xk%3D&se=2015-02-14T01:13:05Z`
 

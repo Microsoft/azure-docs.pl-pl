@@ -13,18 +13,18 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 04/22/2019
 ms.author: juliako
-ms.openlocfilehash: 720931cf9f955f63075e3881b6b9f2e884bd3a76
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 24eb5f8691c94c1f319820f3133b66065504ace3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86232461"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87000895"
 ---
 # <a name="live-event-low-latency-settings"></a>Ustawienia niskiego opóźnienia zdarzenia na żywo
 
-W tym artykule przedstawiono sposób ustawiania małych opóźnień dla [zdarzenia na żywo](https://docs.microsoft.com/rest/api/media/liveevents). Omówiono w nim również typowe wyniki, które są wyświetlane podczas korzystania z ustawień małych opóźnień w różnych graczy. Wyniki różnią się w zależności od czasu oczekiwania na sieć CDN i sieci.
+W tym artykule przedstawiono sposób ustawiania małych opóźnień dla [zdarzenia na żywo](/rest/api/media/liveevents). Omówiono w nim również typowe wyniki, które są wyświetlane podczas korzystania z ustawień małych opóźnień w różnych graczy. Wyniki różnią się w zależności od czasu oczekiwania na sieć CDN i sieci.
 
-Aby użyć nowej funkcji **LowLatency** , należy ustawić **StreamOptionsFlag** na **LowLatency** na **LiveEvent**. Podczas tworzenia [LiveOutput](https://docs.microsoft.com/rest/api/media/liveoutputs) na potrzeby odtwarzania HLS Ustaw [LiveOutput. HLS. fragmentsPerTsSegment](https://docs.microsoft.com/rest/api/media/liveoutputs/create#hls) na 1. Gdy strumień jest uruchomiony, możesz użyć [Azure Media Player](https://ampdemo.azureedge.net/) (strona Demonstracja amp) i ustawić opcje odtwarzania, aby użyć "profilu heurystycznego o małym opóźnieniu".
+Aby użyć nowej funkcji **LowLatency** , należy ustawić **StreamOptionsFlag** na **LowLatency** na **LiveEvent**. Podczas tworzenia [LiveOutput](/rest/api/media/liveoutputs) na potrzeby odtwarzania HLS Ustaw [LiveOutput. HLS. fragmentsPerTsSegment](/rest/api/media/liveoutputs/create#hls) na 1. Gdy strumień jest uruchomiony, możesz użyć [Azure Media Player](https://ampdemo.azureedge.net/) (strona Demonstracja amp) i ustawić opcje odtwarzania, aby użyć "profilu heurystycznego o małym opóźnieniu".
 
 > [!NOTE]
 > Obecnie LowLatency HeuristicProfile w Azure Media Player jest przeznaczony do odtwarzania strumieni w protokole MPEG-KRESKowego przy użyciu formatu CSF lub CMAF (na przykład `format=mdp-time-csf` lub `format=mdp-time-cmaf` ). 
@@ -79,4 +79,3 @@ W poniższych tabelach przedstawiono typowe wyniki opóźnienia (gdy flaga LowLa
 
 - [Omówienie przesyłania strumieniowego na żywo](live-streaming-overview.md)
 - [Samouczek przesyłania strumieniowego na żywo](stream-live-tutorial-with-api.md)
-
